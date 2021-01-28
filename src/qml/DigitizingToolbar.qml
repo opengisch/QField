@@ -12,13 +12,24 @@ VisibilityFadingRow {
   property bool showConfirmButton: true //<! if the geometry type is point, it will never be shown
   property bool screenHovering: false //<! if the stylus pen is used, one should not use the add button
 
+  property bool geometryRequested: false
+  property var geometryRequestedItem
+  property VectorLayer geometryRequestedLayer
+
   readonly property bool isDigitizing: rubberbandModel ? rubberbandModel.vertexCount > 1 : false //!< Readonly
 
   property bool geometryValid: false
 
   spacing: 4
 
+  /* This signal is emitted when the user confirms the digitized geometry.
+   * The correspoding handler is \c onConfirm.
+   */
   signal confirm
+  /* This signal is emitted when the user cancels geometry digitizing.
+   * The correspoding handler is \c onCancel.
+   */
+  signal cancel
   signal vertexCountChanged
 
   Connections {
@@ -39,6 +50,10 @@ VisibilityFadingRow {
           {
             // Polygon: at least 3 points (last point not saved)
             geometryValid = rubberbandModel.vertexCount > 3
+          }
+          else
+          {
+            geometryValid = false
           }
 
           // emit the signal of digitizingToolbar
@@ -124,7 +139,8 @@ VisibilityFadingRow {
     bgcolor: {
         if (!showConfirmButton)
           Theme.darkGray
-        else if (Number( rubberbandModel ? rubberbandModel.geometryType : 0 ) === QgsWkbTypes.PointGeometry)
+        else if (Number( rubberbandModel ? rubberbandModel.geometryType : 0 ) === QgsWkbTypes.PointGeometry ||
+                 Number( rubberbandModel.geometryType ) === QgsWkbTypes.NullGeometry)
           Theme.mainColor
         else
           Theme.darkGray
@@ -173,6 +189,7 @@ VisibilityFadingRow {
 
     standardButtons: Dialog.Ok | Dialog.Cancel
     onAccepted: {
+      rubberbandModel.reset()
       cancel();
       visible = false;
     }
@@ -192,10 +209,5 @@ VisibilityFadingRow {
   {
     rubberbandModel.removeVertex()
     mapSettings.setCenter( rubberbandModel.currentCoordinate )
-  }
-
-  function cancel()
-  {
-    rubberbandModel.reset()
   }
 }

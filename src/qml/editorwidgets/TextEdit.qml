@@ -1,10 +1,13 @@
 import QtQuick 2.14
 import QtQuick.Controls 2.12
+
 import Theme 1.0
 
-Item {
+import "."
+
+EditorWidgetBase {
   id: topItem
-  signal valueChanged(var value, bool isNull)
+
   height: childrenRect.height
 
   // Due to QTextEdit::onLinkActivated does not work on Android & iOS, we need a separate `Text` element to support links https://bugreports.qt.io/browse/QTBUG-38487

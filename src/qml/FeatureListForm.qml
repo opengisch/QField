@@ -30,11 +30,13 @@ Rectangle {
 
   property FeatureListModelSelection selection
   property MapSettings mapSettings
+  property DigitizingToolbar digitizingToolbar
   property color selectionColor
   property alias model: globalFeaturesList.model
   property alias extentController: featureListToolBar.extentController
   property bool allowEdit
   property bool allowDelete
+
   property bool fullScreenView: qfieldSettings.fullScreenIdentifyView
   property bool isVertical: false
 
@@ -42,25 +44,49 @@ Rectangle {
   signal editGeometry
 
   width: {
-      if (props.isVisible) {
-          if (qfieldSettings.fullScreenIdentifyView || parent.width < parent.height || parent.width < 300) {
+      if ( props.isVisible || digitizingToolbar.geometryRequested )
+      {
+          if (qfieldSettings.fullScreenIdentifyView || parent.width < parent.height || parent.width < 300)
+          {
               parent.width
-          } else {
+          }
+          else
+          {
               isVertical = false
               Math.min(Math.max( 200, parent.width / 2.6), parent.width)
           }
-      } else { 0 }
+      }
+      else
+      {
+
+          0
+      }
   }
   height: {
-     if (props.isVisible) {
-         if (fullScreenView || parent.width > parent.height) {
+     if ( props.isVisible || digitizingToolbar.geometryRequested )
+     {
+         if (fullScreenView || parent.width > parent.height)
+         {
              parent.height
-         } else {
+         }
+         else
+         {
              isVertical = true
              Math.min(Math.max( 200, parent.height / 2 ), parent.height)
          }
-     } else { 0 }
+     }
+     else
+     {
+         0
+     }
   }
+
+  anchors.bottomMargin: digitizingToolbar.geometryRequested ? featureForm.height : 0
+  anchors.rightMargin: digitizingToolbar.geometryRequested ? -featureForm.width : 0
+  opacity: digitizingToolbar.geometryRequested ? 0.5 : 1
+
+  enabled: !digitizingToolbar.geometryRequested
+  visible: props.isVisible
 
   states: [
     State {
@@ -286,6 +312,8 @@ Rectangle {
     anchors.bottom: parent.bottom
     height: parent.height - globalFeaturesList.height
 
+    digitizingToolbar: featureForm.digitizingToolbar
+
     model: AttributeFormModel {
       featureModel: FeatureModel {
         currentLayer: featureForm.selection.focusedLayer
@@ -297,7 +325,6 @@ Rectangle {
     focus: true
 
     visible: !globalFeaturesList.shown
-
   }
 
   NavigationBar {
@@ -450,6 +477,34 @@ Rectangle {
     }
   }
 
+  Behavior on anchors.rightMargin {
+    PropertyAnimation {
+      duration: 250
+      easing.type: Easing.InQuart
+
+      onRunningChanged: {
+        if ( running )
+          mapCanvasMap.freeze('formresize')
+        else
+          mapCanvasMap.unfreeze('formresize')
+      }
+    }
+  }
+
+  Behavior on anchors.bottomMargin {
+    PropertyAnimation {
+      duration: 250
+      easing.type: Easing.InQuart
+
+      onRunningChanged: {
+        if ( running )
+          mapCanvasMap.freeze('formresize')
+        else
+          mapCanvasMap.unfreeze('formresize')
+      }
+    }
+  }
+
   Connections {
     target: globalFeaturesList.model
 
@@ -489,11 +544,13 @@ Rectangle {
     focus = false
     fullScreenView = qfieldSettings.fullScreenIdentifyView
 
-    featureForm.selection.clear()
-    if ( featureForm.selection.model )
-      featureForm.selection.model.clearSelection()
-
-    model.clear()
+    if ( !digitizingToolbar.geometryRequested )
+    {
+      featureForm.selection.clear()
+      if ( featureForm.selection.model )
+        featureForm.selection.model.clearSelection()
+      model.clear()
+    }
   }
 
   Dialog {

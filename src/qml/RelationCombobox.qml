@@ -58,6 +58,7 @@ Item {
     parent: ApplicationWindow.overlay
     x: 24
     y: 24
+    z: 10000 // 1000s are embedded feature forms, use a higher value to insure feature form popups always show above embedded feature formes
     width: parent.width - 48
     height: parent.height - 48
     padding: 0
@@ -274,6 +275,10 @@ Item {
         onDoubleClicked: mouse.accepted = false;
         onPositionChanged: mouse.accepted = false;
         onPressAndHold: mouse.accepted = false;
+      }
+
+      Component.onCompleted: {
+          comboBox.popup.z = 10000 // 1000s are embedded feature forms, use a higher value to insure popups always show above embedded feature formes
       }
 
       contentItem: Text {

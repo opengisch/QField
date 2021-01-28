@@ -315,7 +315,7 @@ ApplicationWindow {
       }
 
       onConfirmedClicked: {
-          if( !overlayFeatureFormDrawer.visible )
+          if( !digitizingToolbar.geometryRequested && !overlayFeatureFormDrawer.visible )
           {
               identifyTool.identify(point)
           }
@@ -393,7 +393,7 @@ ApplicationWindow {
         model: RubberbandModel {
           frozen: false
           currentCoordinate: coordinateLocator.currentCoordinate
-          vectorLayer: dashBoard.currentLayer
+          vectorLayer: digitizingToolbar.geometryRequested ? digitizingToolbar.geometryRequestedLayer : dashBoard.currentLayer
           crs: mapCanvas.mapSettings.destinationCrs
         }
 
@@ -770,6 +770,13 @@ ApplicationWindow {
       toolText: qsTr( 'Stop editing' )
       onClosedTool: geometryEditorsToolbar.cancelEditors()
     }
+
+    CloseTool {
+      id: abortRequestGeometry
+      visible: digitizingToolbar.geometryRequested
+      toolText: qsTr( 'Cancel addition' )
+      onClosedTool: digitizingToolbar.cancel()
+    }
   }
 
   Column {
@@ -1098,7 +1105,8 @@ ApplicationWindow {
                      && !dashBoard.currentLayer.readOnly
                      // unfortunately there is no way to call QVariant::toBool in QML so the value is a string
                      && dashBoard.currentLayer.customProperty( 'QFieldSync/is_geometry_locked' ) !== 'true'
-                     && !geometryEditorsToolbar.stateVisible) || stateMachine.state === 'measure'
+                     && !geometryEditorsToolbar.stateVisible) || stateMachine.state === 'measure' ||
+                    (stateMachine.state === "digitize" && digitizingToolbar.geometryRequested)
       rubberbandModel: currentRubberband ? currentRubberband.model : null
       coordinateLocator: coordinateLocator
       mapSettings: mapCanvas.mapSettings
@@ -1107,15 +1115,28 @@ ApplicationWindow {
 
       FeatureModel {
         id: digitizingFeature
-        currentLayer: dashBoard.currentLayer
+        currentLayer: digitizingToolbar.geometryRequested ? digitizingToolbar.geometryRequestedLayer : dashBoard.currentLayer
         positionInformation: positionSource.positionInfo
         topSnappingResult: coordinateLocator.topSnappingResult
         positionLocked: gpsLinkButton.checked
         geometry: Geometry {
           id: digitizingGeometry
           rubberbandModel: digitizingRubberband.model
-          vectorLayer: dashBoard.currentLayer
+          vectorLayer: digitizingToolbar.geometryRequested ? digitizingToolbar.geometryRequestedLayer : dashBoard.currentLayer
         }
+      }
+
+      property string previousStateMachineState: ''
+      onGeometryRequestedChanged: {
+          if ( geometryRequested ) {
+              digitizingRubberband.model.reset()
+              previousStateMachineState = stateMachine.state
+              stateMachine.state = "digitize"
+          }
+          else
+          {
+              stateMachine.state = previousStateMachineState
+          }
       }
 
       onVertexCountChanged: {
@@ -1133,27 +1154,51 @@ ApplicationWindow {
                 }
                 if( !overlayFeatureFormDrawer.featureForm.featureCreated )
                 {
-                    digitizingFeature.resetAttributes();
+                    overlayFeatureFormDrawer.featureForm.resetAttributes();
+                    overlayFeatureFormDrawer.featureModel.geometry = digitizingFeature.geometry
+                    overlayFeatureFormDrawer.featureModel.applyGeometry()
                     if( overlayFeatureFormDrawer.featureForm.model.constraintsHardValid ){
                       // when the constrainst are fulfilled
                       // indirect action, no need to check for success and display a toast, the log is enough
-                      overlayFeatureFormDrawer.featureForm.featureCreated = digitizingFeature.create()
+                      overlayFeatureFormDrawer.featureForm.featureCreated = overlayFeatureFormDrawer.featureForm.create()
                     }
                 } else {
                   // indirect action, no need to check for success and display a toast, the log is enough
-                  digitizingFeature.save()
+                  overlayFeatureFormDrawer.featureModel.geometry = digitizingFeature.geometry
+                  overlayFeatureFormDrawer.featureModel.applyGeometry()
+                  overlayFeatureFormDrawer.featureForm.save()
                 }
             } else {
               if( overlayFeatureFormDrawer.featureForm.featureCreated ) {
                 // delete the feature when the geometry gets invalid again
                 // indirect action, no need to check for success and display a toast, the log is enough
-                overlayFeatureFormDrawer.featureForm.featureCreated = !digitizingFeature.deleteFeature()
+                overlayFeatureFormDrawer.featureForm.featureCreated = !overlayFeatureFormDrawer.featureForm.deleteFeature()
               }
             }
         }
       }
 
+      onCancel: {
+          if ( geometryRequested )
+          {
+              geometryRequested = false
+          }
+      }
+
       onConfirm: {
+        if ( geometryRequested )
+        {
+            if ( overlayFeatureFormDrawer.isAdding )
+                overlayFeatureFormDrawer.open()
+
+            coordinateLocator.flash()
+            digitizingFeature.geometry.applyRubberband()
+            geometryRequestedItem.requestedGeometry(digitizingFeature.geometry)
+            geometryRequested = false
+            digitizingRubberband.model.reset()
+            return;
+        }
+
         if (digitizingRubberband.model.geometryType === QgsWkbTypes.NullGeometry )
         {
           digitizingRubberband.model.reset()
@@ -1169,7 +1214,9 @@ ApplicationWindow {
 
         if ( !digitizingFeature.suppressFeatureForm() )
         {
-          digitizingFeature.resetAttributes();
+          overlayFeatureFormDrawer.featureModel.resetAttributes()
+          overlayFeatureFormDrawer.featureModel.geometry = digitizingFeature.geometry
+          overlayFeatureFormDrawer.featureModel.applyGeometry()
           overlayFeatureFormDrawer.open()
           overlayFeatureFormDrawer.state = "Add"
           overlayFeatureFormDrawer.featureForm.reset()
@@ -1177,12 +1224,14 @@ ApplicationWindow {
         else
         {
           if ( !overlayFeatureFormDrawer.featureForm.featureCreated ) {
-              digitizingFeature.resetAttributes();
-              if ( !digitizingFeature.create() ) {
+              overlayFeatureFormDrawer.featureModel.resetAttributes();
+              overlayFeatureFormDrawer.featureModel.geometry = digitizingFeature.geometry
+              overlayFeatureFormDrawer.featureModel.applyGeometry()
+              if ( !overlayFeatureFormDrawer.featureModel.create() ) {
                 displayToast( qsTr( "Failed to create feature!" ) )
               }
           } else {
-              if ( !digitizingFeature.save() ) {
+              if ( !overlayFeatureFormDrawer.featureModel.save() ) {
                 displayToast( qsTr( "Failed to save feature!" ) )
               }
           }
@@ -1550,8 +1599,10 @@ ApplicationWindow {
   /* The feature form */
   FeatureListForm {
     id: featureForm
+
     objectName: "featureForm"
     mapSettings: mapCanvas.mapSettings
+    digitizingToolbar: digitizingToolbar
 
     visible: state != "Hidden"
     focus: visible
@@ -1615,7 +1666,8 @@ ApplicationWindow {
 
   OverlayFeatureFormDrawer {
     id: overlayFeatureFormDrawer
-    featureModel: digitizingFeature
+    digitizingToolbar: digitizingToolbar
+    featureModel.currentLayer: dashBoard.currentLayer
   }
 
   function displayToast( message ) {

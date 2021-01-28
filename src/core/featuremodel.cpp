@@ -531,7 +531,7 @@ void FeatureModel::applyGeometry()
     }
   }
 
-  if ( mLayer && mLayer->geometryOptions()->geometryPrecision() == 0.0 )
+  if ( geometry.wkbType() != QgsWkbTypes::Unknown && mLayer && mLayer->geometryOptions()->geometryPrecision() == 0.0 )
   {
     // Still do a bit of node cleanup
     QgsGeometry deduplicatedGeometry = geometry;

@@ -6,9 +6,12 @@ import org.qfield 1.0
 
 Drawer {
   id: overlayFeatureFormDrawer
+
   property alias featureModel: overlayFeatureForm.featureModel
   property alias state: overlayFeatureForm.state
   property alias featureForm: overlayFeatureForm
+  property DigitizingToolbar digitizingToolbar
+  property bool isAdding: false
 
   edge: parent.width < parent.height ? Qt.BottomEdge : Qt.RightEdge
   width: {
@@ -35,15 +38,31 @@ Drawer {
    * To make a difference between these scenarios we need position of the drawer and the isSaved flag of the FeatureForm
    */
 
-  onClosed: {
-      if( !overlayFeatureForm.isSaved ) {
-        overlayFeatureForm.confirm()
-      } else {
-        overlayFeatureForm.isSaved = false //reset
-      }
+  onOpened: {
+      isAdding = true
+  }
 
-      digitizingRubberband.model.reset()
-      featureModel.resetFeature()
+  onClosed: {
+      if ( !digitizingToolbar.geometryRequested ) {
+          if( !overlayFeatureForm.isSaved ) {
+              overlayFeatureForm.confirm()
+          } else {
+              overlayFeatureForm.isSaved = false //reset
+          }
+          digitizingRubberband.model.reset()
+          featureModel.resetFeature()
+          isAdding = false
+      }
+  }
+
+  Connections {
+      target: digitizingToolbar
+
+      function onGeometryRequestedChanged() {
+          if ( digitizingToolbar.geometryRequested && overlayFeatureFormDrawer.isAdding ) {
+              overlayFeatureFormDrawer.close() // note: the digitizing toolbar will re-open the drawer to avoid panel stacking issues
+          }
+      }
   }
 
   FeatureForm {
@@ -54,7 +73,11 @@ Drawer {
     property alias featureModel: attributeFormModel.featureModel
     property bool isSaved: false
 
-    model: AttributeFormModel { id: attributeFormModel }
+    digitizingToolbar: overlayFeatureFormDrawer.digitizingToolbar
+    model: AttributeFormModel {
+        id: attributeFormModel
+        featureModel: FeatureModel { }
+    }
 
     state: "Add"
 

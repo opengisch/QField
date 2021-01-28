@@ -3,8 +3,9 @@ import QtQuick.Controls 2.12
 
 import Theme 1.0
 
-Item {
-  signal valueChanged(var value, bool isNull)
+import "."
+
+EditorWidgetBase {
   height: childrenRect.height
   enabled: isEnabled
 

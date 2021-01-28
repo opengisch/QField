@@ -3,16 +3,16 @@ import QtQuick.Controls 2.12
 import QtGraphicalEffects 1.0
 import QtQuick.Layouts 1.12
 
-import Theme 1.0
-import ".."
-
 import org.qfield 1.0
 import org.qgis 1.0
+import Theme 1.0
 
-Rectangle{
-    // It is added as being part of the editors API, but it is never triggered!
-    // Check commit cf963a38a6911db26e5cd463fd991c7d2ce425f4
-    signal valueChanged(var value, bool isNull)
+import ".."
+import "."
+
+EditorWidgetBase {
+    id: relationEditor
+
     property int itemHeight: 32
 
     // because no additional addEntry item on readOnly (isEnabled false)
@@ -21,8 +21,12 @@ Rectangle{
             : Math.max( referencingFeatureListView.height, itemHeight)
     enabled: true
 
-    border.color: 'lightgray'
-    border.width: 1
+    Rectangle {
+        anchors.fill: parent
+        color: "transparent"
+        border.color: 'lightgray'
+        border.width: 1
+    }
 
     ReferencingFeatureListModel {
         //containing the current (parent) feature, the relation to the children
@@ -101,15 +105,17 @@ Rectangle{
               if( save() ) {
                 //this has to be checked after buffering because the primary could be a value that has been created on creating featurer (e.g. fid)
                 if( relationEditorModel.parentPrimariesAvailable ) {
-                    embeddedPopup.state = 'Add'
-                    embeddedPopup.currentLayer = relationEditorModel.relation.referencingLayer
-                    embeddedPopup.linkedParentFeature = relationEditorModel.feature
-                    embeddedPopup.linkedRelation = relationEditorModel.relation
-                    embeddedPopup.open()
+                    displayToast( qsTr( 'Adding child feature in layer %1' ).arg( relationEditorModel.relation.referencingLayer.name ) )
+                    if ( relationEditorModel.relation.referencingLayer.geometryType() !== QgsWkbTypes.NullGeometry )
+                    {
+                        requestGeometry( relationEditor, relationEditorModel.relation.referencingLayer );
+                        return;
+                    }
+                    showAddFeaturePopup()
                 }
                 else
                 {
-                    displayToast(qsTr( 'Cannot add child. Parent primary keys are not available.' ) )
+                    displayToast (qsTr( 'Cannot add child feature: parent primary keys are not available' ) )
                 }
               }
             }
@@ -262,6 +268,9 @@ Rectangle{
     EmbeddedFeatureForm{
         id: embeddedPopup
 
+        embeddedLevel: form.embeddedLevel + 1
+        digitizingToolbar: form.digitizingToolbar
+
         onFeatureCancelled: {
             if( autoSave )
                 relationEditorModel.reload()
@@ -270,5 +279,21 @@ Rectangle{
         onFeatureSaved: {
             relationEditorModel.reload()
         }
+    }
+
+    function requestedGeometry(geometry) {
+        showAddFeaturePopup(geometry)
+    }
+
+    function showAddFeaturePopup(geometry) {
+        embeddedPopup.state = 'Add'
+        embeddedPopup.currentLayer = relationEditorModel.relation.referencingLayer
+        embeddedPopup.linkedParentFeature = relationEditorModel.feature
+        embeddedPopup.linkedRelation = relationEditorModel.relation
+        if ( geometry !== undefined )
+        {
+            embeddedPopup.applyGeometry(geometry)
+        }
+        embeddedPopup.open()
     }
 }

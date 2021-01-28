@@ -7,12 +7,28 @@ Popup {
     id: formPopup
 
     property alias state: form.state
-
+    property alias embeddedLevel: form.embeddedLevel
     property alias currentLayer: formFeatureModel.currentLayer
     property alias linkedRelation: formFeatureModel.linkedRelation
     property alias linkedParentFeature: formFeatureModel.linkedParentFeature
     property alias feature: formFeatureModel.feature
     property alias attributeFormModel: formAttributeFormModel
+    property alias digitizingToolbar: form.digitizingToolbar
+
+    Connections {
+        target: digitizingToolbar
+
+        property bool wasVisible: false
+        onGeometryRequestedChanged: {
+            if ( digitizingToolbar.geometryRequested && formPopup.visible ) {
+                wasVisible = true
+                formPopup.visible = false
+            } else if ( !digitizingToolbar.geometryRequested && wasVisible ) {
+                wasVisible = false
+                formPopup.visible = true
+            }
+        }
+    }
 
     onAboutToShow: {
         if( state === 'Add' ) {
@@ -28,6 +44,7 @@ Popup {
 
     x: 24
     y: 24
+    z: 1000 + embeddedLevel
     padding: 0
     width: parent.width - 48
     height: parent.height - 48
@@ -73,10 +90,15 @@ Popup {
     }
 
     onClosed: {
-      if( !form.isSaved ){
-          form.confirm()
-      }else{
-          form.isSaved = false
-      }
+        if (!form.isSaved) {
+            form.confirm()
+        } else {
+            form.isSaved = false
+        }
+    }
+
+    function applyGeometry(geometry) {
+        formFeatureModel.geometry = geometry;
+        formFeatureModel.applyGeometry();
     }
 }

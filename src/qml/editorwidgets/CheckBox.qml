@@ -1,9 +1,9 @@
 import QtQuick 2.12
 import QtQuick.Controls 2.12
 
-Item {
-  signal valueChanged( var value, bool isNull )
+import "."
 
+EditorWidgetBase {
   height: childrenRect.height
   enabled: isEnabled
 

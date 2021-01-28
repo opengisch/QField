@@ -13,17 +13,23 @@ import org.qfield 1.0
 import Theme 1.0
 
 Page {
+  id: form
+
   signal confirmed
   signal cancelled
   signal temporaryStored
   signal valueChanged(var field, var oldValue, var newValue)
+  signal requestGeometry(var item, var layer)
   signal aboutToSave
+
+  property DigitizingToolbar digitizingToolbar
 
   property AttributeFormModel model
   property alias currentTab: swipeView.currentIndex
   property alias toolbarVisible: toolbar.visible
   //! if embedded form called by RelationEditor or RelationReferenceWidget
   property bool embedded: false
+  property int embeddedLevel: 0
   //dontSave means data would be neither saved nor cleared (so feature data is handled elsewhere like e.g. in the tracking)
   property bool dontSave: false
   property bool featureCreated: false
@@ -31,8 +37,6 @@ Page {
   function reset() {
     master.reset()
   }
-
-  id: form
 
   states: [
     State {
@@ -481,6 +485,11 @@ Page {
                     }
                   }
                 }
+                function onRequestGeometry(item, layer) {
+                    form.digitizingToolbar.geometryRequested = true
+                    form.digitizingToolbar.geometryRequestedItem = item
+                    form.digitizingToolbar.geometryRequestedLayer = layer
+                }
               }
             }
 
@@ -544,7 +553,7 @@ Page {
       return
     }
 
-    if ( ! save() ) {
+    if ( !save() ) {
       displayToast( qsTr( 'Unable to save changes') )
       state = 'Edit'
       return

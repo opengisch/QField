@@ -1,12 +1,14 @@
 import QtQuick 2.12
 import QtQuick.Controls 2.12
 import QtGraphicalEffects 1.0
+
 import org.qfield 1.0
 import Theme 1.0
 
-Item {
+import "."
+
+EditorWidgetBase {
   id: valueMap
-  signal valueChanged(var value, bool isNull)
 
   anchors {
     left: parent.left
@@ -41,6 +43,7 @@ Item {
 
     Component.onCompleted:
     {
+      comboBox.popup.z = 10000 // 1000s are embedded feature forms, use a higher value to insure popups always show above embedded feature formes
       model.valueMap = config['map']
     }
 
@@ -61,27 +64,6 @@ Item {
       onDoubleClicked: mouse.accepted = false;
       onPositionChanged: mouse.accepted = false;
       onPressAndHold: mouse.accepted = false;
-    }
-
-    // [hidpi fixes]
-    delegate: ItemDelegate {
-      width: comboBox.width
-      height: fontMetrics.height + 20
-      text: model.value
-      font.weight: comboBox.currentIndex === index ? Font.DemiBold : Font.Normal
-      font.pointSize: Theme.defaultFont.pointSize
-      highlighted: comboBox.highlightedIndex == index
-    }
-
-    contentItem: Text {
-      id: textLabel
-      height: fontMetrics.height + 20
-      text: comboBox.displayText
-      font: Theme.defaultFont
-      horizontalAlignment: Text.AlignLeft
-      verticalAlignment: Text.AlignVCenter
-      elide: Text.ElideRight
-      color: value === undefined || !enabled ? 'gray' : 'black'
     }
 
     background: Item {
@@ -105,7 +87,6 @@ Item {
         radius: 2
       }
     }
-    // [/hidpi fixes]
   }
 
   FontMetrics {

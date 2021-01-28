@@ -6,6 +6,7 @@ import Qt.labs.calendar 1.0
 
 import Theme 1.0
 
+import "."
 
 /*
   Config:
@@ -21,9 +22,7 @@ import Theme 1.0
 
  */
 
-Item {
-  signal valueChanged(var value, bool isNull)
-
+EditorWidgetBase {
   height: childrenRect.height
   enabled: isEnabled
 
@@ -236,7 +235,7 @@ Item {
       parent: ApplicationWindow.overlay
       x: (parent.width - width) / 2
       y: (parent.height - height) / 2
-
+      z: 10000 // 1000s are embedded feature forms, use a higher value to insure feature form popups always show above embedded feature formes
 
       ColumnLayout {
           Rectangle {

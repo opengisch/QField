@@ -6,14 +6,14 @@ import QtQuick.Layouts 1.12
 import org.qfield 1.0
 import org.qgis 1.0
 import Theme 1.0
-import ".."
 
-Item {
+import ".."
+import "."
+
+EditorWidgetBase {
   anchors { left: parent.left; right: parent.right; }
 
   property bool showOpenFormButton: config['ShowOpenFormButton'] === undefined || config['ShowOpenFormButton'] === true
-
-  signal valueChanged(var value, bool isNull)
 
   RelationCombobox {
     id: relationReference
