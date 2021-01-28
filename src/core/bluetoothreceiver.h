@@ -93,6 +93,7 @@ class BluetoothReceiver : public QObject
     QBluetoothSocket *mSocket = nullptr;
     std::unique_ptr<QgsNmeaConnection> mGpsConnection;
     GnssPositionInformation mLastGnssPositionInformation;
+    bool mLastGnssPositionValid = false;
 
     QBluetoothSocket::SocketState mSocketState = QBluetoothSocket::UnconnectedState;
     QString mSocketStateString;
@@ -101,6 +102,7 @@ class BluetoothReceiver : public QObject
     QString mAddressToConnect;
 
     bool mEllipsoidalElevation = true;
+
 };
 
 #endif // BLUETOOTHRECEIVER_H
