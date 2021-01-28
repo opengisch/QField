@@ -422,7 +422,7 @@ ApplicationWindow {
       model: RubberbandModel {
         frozen: false
         currentCoordinate: coordinateLocator.currentCoordinate
-        vectorLayer: dashBoard.currentLayer
+        vectorLayer: digitizingToolbar.geometryRequested ? digitizingToolbar.geometryRequestedLayer : dashBoard.currentLayer
         crs: mapCanvas.mapSettings.destinationCrs
       }
 
