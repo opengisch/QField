@@ -27,6 +27,7 @@ BluetoothReceiver::BluetoothReceiver( QObject *parent ) : QObject( parent ),
   connect( mSocket, &QBluetoothSocket::stateChanged, this, &BluetoothReceiver::setSocketState );
 
   //QgsGpsConnection state changed (received location string)
+  connect( mGpsConnection.get(), &QgsGpsConnection::nmeaSentenceReceived, this, [=]( const QString &substring ) { qDebug() << substring; } );
   connect( mGpsConnection.get(), &QgsGpsConnection::stateChanged, this, &BluetoothReceiver::stateChanged );
 }
 
@@ -75,6 +76,7 @@ void BluetoothReceiver::doConnectDevice( const QString &address )
 void BluetoothReceiver::stateChanged( const QgsGpsInformation &info )
 {
   // QgsGpsInformation's speed is served in km/h, translate to m/s
+  qDebug() << QString( "info %1 %2" ).arg( info.latitude ).arg( info.longitude );
   mLastGnssPositionInformation = GnssPositionInformation( info.latitude, info.longitude, mEllipsoidalElevation ? info.elevation + info.elevation_diff : info.elevation, info.speed * 1000 / 60 / 60, info.direction, info.satellitesInView, info.pdop,
                                  info.hdop, info.vdop, info.hacc, info.vacc, info.utcDateTime, info.fixMode, info.fixType, info.quality,
                                  info.satellitesUsed, info.status, info.satPrn, info.satInfoComplete );
