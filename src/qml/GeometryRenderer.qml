@@ -40,10 +40,6 @@ Item {
       id: linePolygonHighlightItem
       mapSettings: geometryRenderer.mapSettings
 
-      transform: MapTransform {
-        mapSettings: geometryRenderer.mapSettings
-      }
-
       geometry: geometryRenderer.geometryWrapper
       color: geometryRenderer.color
       width: geometryRenderer.lineWidth

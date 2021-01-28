@@ -95,6 +95,8 @@ class Rubberband : public QQuickItem
   private:
     QSGNode *updatePaintNode( QSGNode *n, QQuickItem::UpdatePaintNodeData * );
 
+    void transformPoints( QVector<QgsPoint> &points );
+
     RubberbandModel *mRubberbandModel = nullptr;
     VertexModel *mVertexModel = nullptr;
     QgsQuickMapSettings *mMapSettings = nullptr;

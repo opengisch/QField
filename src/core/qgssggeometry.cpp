@@ -24,7 +24,7 @@ QgsSGGeometry::QgsSGGeometry()
 {
 }
 
-QgsSGGeometry::QgsSGGeometry( const QgsGeometry &geom, const QColor &color, int width )
+QgsSGGeometry::QgsSGGeometry( const QgsGeometry &geom, const QColor &color, int width, const QgsRectangle visibleExtent, double scaleFactor )
 {
   //TODO: Fix const-correcteness upstream
   QgsGeometry &gg = const_cast<QgsGeometry &>( geom );
@@ -46,7 +46,7 @@ QgsSGGeometry::QgsSGGeometry( const QgsGeometry &geom, const QColor &color, int 
         for ( const QgsPolylineXY &line : lines )
         {
           QSGGeometryNode *geomNode = new QSGGeometryNode;
-          geomNode->setGeometry( qgsPolylineToQSGGeometry( line, width ) );
+          geomNode->setGeometry( qgsPolylineToQSGGeometry( line, width, visibleExtent, scaleFactor ) );
           geomNode->setFlag( QSGNode::OwnsGeometry );
           applyStyle( geomNode );
           appendChildNode( geomNode );
@@ -55,7 +55,7 @@ QgsSGGeometry::QgsSGGeometry( const QgsGeometry &geom, const QColor &color, int 
       else
       {
         QSGGeometryNode *geomNode = new QSGGeometryNode;
-        geomNode->setGeometry( qgsPolylineToQSGGeometry( gg.asPolyline(), width ) );
+        geomNode->setGeometry( qgsPolylineToQSGGeometry( gg.asPolyline(), width, visibleExtent, scaleFactor ) );
         geomNode->setFlag( QSGNode::OwnsGeometry );
         applyStyle( geomNode );
         appendChildNode( geomNode );
@@ -73,13 +73,13 @@ QgsSGGeometry::QgsSGGeometry( const QgsGeometry &geom, const QColor &color, int 
         for ( const QgsPolygonXY &polygon : polygons )
         {
           QSGGeometryNode *geomNode = new QSGGeometryNode;
-          geomNode->setGeometry( qgsPolygonToQSGGeometry( polygon ) );
+          geomNode->setGeometry( qgsPolygonToQSGGeometry( polygon, visibleExtent, scaleFactor ) );
           geomNode->setFlag( QSGNode::OwnsGeometry );
           applyStyle( geomNode );
           on->appendChildNode( geomNode );
 
           geomNode = new QSGGeometryNode;
-          geomNode->setGeometry( qgsPolylineToQSGGeometry( polygon.first(), width ) );
+          geomNode->setGeometry( qgsPolylineToQSGGeometry( polygon.first(), width, visibleExtent, scaleFactor ) );
           geomNode->setFlag( QSGNode::OwnsGeometry );
           applyStyle( geomNode );
           appendChildNode( geomNode );
@@ -92,13 +92,13 @@ QgsSGGeometry::QgsSGGeometry( const QgsGeometry &geom, const QColor &color, int 
         QSGOpacityNode *on = new QSGOpacityNode;
         on->setOpacity( 0.5 );
         QSGGeometryNode *geomNode = new QSGGeometryNode;
-        geomNode->setGeometry( qgsPolygonToQSGGeometry( gg.asPolygon() ) );
+        geomNode->setGeometry( qgsPolygonToQSGGeometry( gg.asPolygon(), visibleExtent, scaleFactor ) );
         geomNode->setFlag( QSGNode::OwnsGeometry );
         applyStyle( geomNode );
         on->appendChildNode( geomNode );
         appendChildNode( on );
         geomNode = new QSGGeometryNode;
-        geomNode->setGeometry( qgsPolylineToQSGGeometry( gg.asPolygon().first(), width ) );
+        geomNode->setGeometry( qgsPolylineToQSGGeometry( gg.asPolygon().first(), width, visibleExtent, scaleFactor ) );
         geomNode->setFlag( QSGNode::OwnsGeometry );
         applyStyle( geomNode );
         appendChildNode( geomNode );
@@ -116,15 +116,16 @@ void QgsSGGeometry::applyStyle( QSGGeometryNode *geomNode )
   geomNode->setMaterial( &mMaterial );
 }
 
-QSGGeometry *QgsSGGeometry::qgsPolylineToQSGGeometry( const QgsPolylineXY &line, int width )
+QSGGeometry *QgsSGGeometry::qgsPolylineToQSGGeometry( const QgsPolylineXY &line, int width, const QgsRectangle visibleExtent, double scaleFactor )
 {
   QSGGeometry *sgGeom = new QSGGeometry( QSGGeometry::defaultAttributes_Point2D(), line.count() );
   QSGGeometry::Point2D *vertices = sgGeom->vertexDataAsPoint2D();
 
   int i = 0;
-  for ( const QgsPointXY &pt : line )
+  for ( const QgsPointXY &point : line )
   {
-    vertices[i].set( static_cast<float>( pt.x() ), static_cast<float>( pt.y() ) );
+    vertices[i].set( static_cast<float>( ( point.x() - visibleExtent.xMinimum() ) * scaleFactor ),
+                     static_cast<float>( ( point.y() - visibleExtent.yMaximum() ) * -scaleFactor ) );
     i++;
   }
 
@@ -134,7 +135,7 @@ QSGGeometry *QgsSGGeometry::qgsPolylineToQSGGeometry( const QgsPolylineXY &line,
   return sgGeom;
 }
 
-QSGGeometry *QgsSGGeometry::qgsPolygonToQSGGeometry( const QgsPolygonXY &polygon )
+QSGGeometry *QgsSGGeometry::qgsPolygonToQSGGeometry( const QgsPolygonXY &polygon, const QgsRectangle visibleExtent, double scaleFactor )
 {
   QgsPolygonXY::ConstIterator it = polygon.constBegin();
 
@@ -150,8 +151,8 @@ QSGGeometry *QgsSGGeometry::qgsPolygonToQSGGeometry( const QgsPolygonXY &polygon
 
   for ( const QgsPointXY &point : ring )
   {
-    vertices_in[i++] = point.x();
-    vertices_in[i++] = point.y();
+    vertices_in[i++] = ( point.x() - visibleExtent.xMinimum() ) * scaleFactor;
+    vertices_in[i++] = ( point.y() - visibleExtent.yMaximum() ) * -scaleFactor;
   }
 
   tessellate( &coordinates_out, &nverts,

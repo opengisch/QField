@@ -375,89 +375,79 @@ ApplicationWindow {
    * - Digitizing Rubberband
    **************************************************/
 
-    /* A transformation node for overlays in map coordinates */
-    Item {
-      anchors.fill: parent
+    /** The identify tool **/
+    IdentifyTool {
+      id: identifyTool
 
-      transform: MapTransform {
-        mapSettings: mapCanvas.mapSettings
-      }
-
-      /** A rubberband for ditizing **/
-      Rubberband {
-        id: digitizingRubberband
-        width: 2
-
-        mapSettings: mapCanvas.mapSettings
-
-        model: RubberbandModel {
-          frozen: false
-          currentCoordinate: coordinateLocator.currentCoordinate
-          vectorLayer: digitizingToolbar.geometryRequested ? digitizingToolbar.geometryRequestedLayer : dashBoard.currentLayer
-          crs: mapCanvas.mapSettings.destinationCrs
-        }
-
-        anchors.fill: parent
-
-        visible: stateMachine.state === "digitize"
-      }
-
-      /** A rubberband for measuring **/
-      Rubberband {
-        id: measuringRubberband
-        width: 2
-        color: '#80000000'
-
-        mapSettings: mapCanvas.mapSettings
-
-        model: RubberbandModel {
-          frozen: false
-          currentCoordinate: coordinateLocator.currentCoordinate
-          geometryType: QgsWkbTypes.PolygonGeometry
-          crs: mapCanvas.mapSettings.destinationCrs
-        }
-
-        anchors.fill: parent
-
-        visible: stateMachine.state === 'measure'
-      }
-
-      /** Tracking sessions **/
-      Repeater {
-          id: trackings
-          model: trackingModel
-          Tracking {
-          }
-      }
-
-      /** The identify tool **/
-      IdentifyTool {
-        id: identifyTool
-
-        mapSettings: mapCanvas.mapSettings
-        model: featureForm.model
-        searchRadiusMm: 3
-      }
-
-      /** A rubberband for the different geometry editors **/
-      Rubberband {
-        id: geometryEditorsRubberband
-        width: 2
-        color: '#80000000'
-
-        mapSettings: mapCanvas.mapSettings
-
-        model: RubberbandModel {
-          frozen: false
-          currentCoordinate: coordinateLocator.currentCoordinate
-          crs: mapCanvas.mapSettings.destinationCrs
-          geometryType: QgsWkbTypes.LineGeometry
-        }
-
-        anchors.fill: parent
-      }
+      mapSettings: mapCanvas.mapSettings
+      model: featureForm.model
+      searchRadiusMm: 3
     }
 
+    /** A rubberband for measuring **/
+    Rubberband {
+      id: measuringRubberband
+      width: 2
+      color: '#80000000'
+
+      mapSettings: mapCanvas.mapSettings
+
+      model: RubberbandModel {
+        frozen: false
+        currentCoordinate: coordinateLocator.currentCoordinate
+        geometryType: QgsWkbTypes.PolygonGeometry
+        crs: mapCanvas.mapSettings.destinationCrs
+      }
+
+      anchors.fill: parent
+
+      visible: stateMachine.state === 'measure'
+    }
+
+    /** Tracking sessions **/
+    Repeater {
+        id: trackings
+        model: trackingModel
+        Tracking {
+        }
+    }
+
+    /** A rubberband for ditizing **/
+    Rubberband {
+      id: digitizingRubberband
+      width: 2
+
+      mapSettings: mapCanvas.mapSettings
+
+      model: RubberbandModel {
+        frozen: false
+        currentCoordinate: coordinateLocator.currentCoordinate
+        vectorLayer: digitizingToolbar.geometryRequested ? digitizingToolbar.geometryRequestedLayer : dashBoard.currentLayer
+        crs: mapCanvas.mapSettings.destinationCrs
+      }
+
+      anchors.fill: parent
+
+      visible: stateMachine.state === "digitize"
+    }
+
+    /** A rubberband for the different geometry editors **/
+    Rubberband {
+      id: geometryEditorsRubberband
+      width: 2
+      color: '#80000000'
+
+      mapSettings: mapCanvas.mapSettings
+
+      model: RubberbandModel {
+        frozen: false
+        currentCoordinate: coordinateLocator.currentCoordinate
+        crs: mapCanvas.mapSettings.destinationCrs
+        geometryType: QgsWkbTypes.LineGeometry
+      }
+
+      anchors.fill: parent
+    }
 
     /** A coordinate locator for digitizing **/
     CoordinateLocator {
@@ -519,10 +509,6 @@ ApplicationWindow {
         vertexModel: vertexModel
         mapSettings: mapCanvas.mapSettings
         width: 4
-
-        transform: MapTransform {
-          mapSettings: mapCanvas.mapSettings
-        }
       }
     }
 
