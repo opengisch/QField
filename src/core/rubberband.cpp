@@ -17,9 +17,9 @@
 
 #include "vertexmodel.h"
 #include "rubberband.h"
-
 #include "rubberbandmodel.h"
 #include "sgrubberband.h"
+#include "qgsquickmapsettings.h"
 
 Rubberband::Rubberband( QQuickItem *parent )
   : QQuickItem( parent )
@@ -120,6 +120,18 @@ void Rubberband::markDirty()
   update();
 }
 
+void Rubberband::transformPoints( QVector<QgsPoint> & points )
+{
+  const QgsRectangle visibleExtent = mMapSettings->visibleExtent();
+  const double scaleFactor = 1.0 / mMapSettings->mapUnitsPerPoint();
+
+  for( QgsPoint &point : points )
+  {
+    point.setX( ( point.x() - visibleExtent.xMinimum() ) * scaleFactor );
+    point.setY( ( point.y() - visibleExtent.yMaximum() ) * -scaleFactor );
+  }
+}
+
 QSGNode *Rubberband::updatePaintNode( QSGNode *n, QQuickItem::UpdatePaintNodeData * )
 {
   if ( mDirty )
@@ -137,8 +149,6 @@ QSGNode *Rubberband::updatePaintNode( QSGNode *n, QQuickItem::UpdatePaintNodeDat
     {
       allVertices = mRubberbandModel->flatVertices();
       geomType = mRubberbandModel->geometryType();
-      if ( !frozen )
-        allButCurrentVertices = mRubberbandModel->flatVertices( true );
     }
     else if ( mVertexModel && mVertexModel->vertexCount() > 0 )
     {
@@ -148,12 +158,17 @@ QSGNode *Rubberband::updatePaintNode( QSGNode *n, QQuickItem::UpdatePaintNodeDat
 
     if ( !allVertices.isEmpty() )
     {
+      transformPoints( allVertices );
+
       SGRubberband *rb = new SGRubberband( allVertices, geomType, mColor, mWidth );
       rb->setFlag( QSGNode::OwnedByParent );
       n->appendChildNode( rb );
 
-      if ( !frozen )
+      if ( mRubberbandModel && !frozen )
       {
+        allButCurrentVertices = mRubberbandModel->flatVertices( true );
+        transformPoints( allButCurrentVertices );
+
         SGRubberband *rbCurrentPoint = new SGRubberband( allButCurrentVertices, geomType, mColorCurrentPoint, mWidthCurrentPoint );
         rbCurrentPoint->setFlag( QSGNode::OwnedByParent );
         n->appendChildNode( rbCurrentPoint );
