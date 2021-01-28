@@ -61,6 +61,7 @@ class LinePolygonHighlight : public QQuickItem
 
   private slots:
     void mapCrsChanged();
+    void visibleExtentChanged();
     void makeDirty();
 
   private:

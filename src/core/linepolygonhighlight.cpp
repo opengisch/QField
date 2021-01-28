@@ -51,7 +51,7 @@ QSGNode *LinePolygonHighlight::updatePaintNode( QSGNode *n, QQuickItem::UpdatePa
       }
     }
 
-    QgsSGGeometry *gn = new QgsSGGeometry( geometry, mColor, mWidth );
+    QgsSGGeometry *gn = new QgsSGGeometry( geometry, mColor, mWidth, mMapSettings->visibleExtent(), 1.0 / mMapSettings->mapUnitsPerPoint() );
     gn->setFlag( QSGNode::OwnedByParent );
     n->appendChildNode( gn );
 
@@ -108,13 +108,23 @@ void LinePolygonHighlight::setMapSettings( QgsQuickMapSettings *mapSettings )
     return;
 
   if ( mMapSettings )
+  {
     disconnect( mMapSettings, &QgsQuickMapSettings::destinationCrsChanged, this, &LinePolygonHighlight::mapCrsChanged );
+    disconnect( mMapSettings, &QgsQuickMapSettings::visibleExtentChanged, this, &LinePolygonHighlight::visibleExtentChanged );
+  }
 
   mMapSettings = mapSettings;
 
   connect( mMapSettings, &QgsQuickMapSettings::destinationCrsChanged, this, &LinePolygonHighlight::mapCrsChanged );
+  connect( mMapSettings, &QgsQuickMapSettings::visibleExtentChanged, this, &LinePolygonHighlight::visibleExtentChanged );
 
   emit mapSettingsChanged();
+}
+
+void LinePolygonHighlight::visibleExtentChanged()
+{
+  mDirty = true;
+  update();
 }
 
 void LinePolygonHighlight::mapCrsChanged()
