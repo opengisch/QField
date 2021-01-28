@@ -20,7 +20,7 @@ Item{
     property alias skipAltitudeTransformation: _ct.skipAltitudeTransformation
 
     // this sets as well the mode (empty is internal, otherwise bluetooth)
-    property string device: positioningSettings.positioningDevice
+    property string device: ''
 
     // proxy variables
     property bool active: false
