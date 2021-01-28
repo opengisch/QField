@@ -142,7 +142,6 @@ QSGNode *Rubberband::updatePaintNode( QSGNode *n, QQuickItem::UpdatePaintNodeDat
     bool frozen = mRubberbandModel && mRubberbandModel->frozen();
 
     QVector<QgsPoint> allVertices = QVector<QgsPoint>();
-    QVector<QgsPoint> allButCurrentVertices = QVector<QgsPoint>();
     QgsWkbTypes::GeometryType geomType = QgsWkbTypes::LineGeometry;
 
     if ( mRubberbandModel && !mRubberbandModel->isEmpty() )
@@ -166,7 +165,7 @@ QSGNode *Rubberband::updatePaintNode( QSGNode *n, QQuickItem::UpdatePaintNodeDat
 
       if ( mRubberbandModel && !frozen )
       {
-        allButCurrentVertices = mRubberbandModel->flatVertices( true );
+        QVector<QgsPoint> allButCurrentVertices = mRubberbandModel->flatVertices( true );
         transformPoints( allButCurrentVertices );
 
         SGRubberband *rbCurrentPoint = new SGRubberband( allButCurrentVertices, geomType, mColorCurrentPoint, mWidthCurrentPoint );
