@@ -354,7 +354,12 @@ Page {
                       visible: positioningSettings.positioningDevice !== ''
 
                       onClicked: {
-                          positionSource.connectBluetoothSource()
+                          // make sure positioning is active when connecting to the bluetooth device
+                          if (!positioningSettings.positioningActivated) {
+                              positioningSettings.positioningActivated = true
+                          } else {
+                              positionSource.connectBluetoothSource()
+                          }
                       }
                   }
 

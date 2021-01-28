@@ -52,7 +52,11 @@ Item{
     }
 
     onActiveChanged: {
-        connectBluetoothSource()
+        if (active) {
+            connectBluetoothSource()
+        } else {
+            bluetoothPositionSource.disconnectDevice()
+        }
     }
 
     onDeviceChanged: {
@@ -81,7 +85,8 @@ Item{
         }
 
         onPositionChanged: {
-            positionSource.positionInfo = bluetoothPositionSource.createGnssPositionInformation(
+            if (!bluetoothPositionSource.valid) {
+              positionSource.positionInfo = bluetoothPositionSource.createGnssPositionInformation(
                         qtPositionSource.position.coordinate.latitude,
                         qtPositionSource.position.coordinate.longitude,
                         qtPositionSource.position.coordinate.altitude,
@@ -92,8 +97,8 @@ Item{
                         qtPositionSource.position.verticalSpeed,
                         qtPositionSource.position.magneticVariation,
                         qtPositionSource.position.timestamp,
-                        qtPositionSource.name
-            )
+                        qtPositionSource.name)
+            }
         }
     }
 
@@ -116,7 +121,9 @@ Item{
         }
 
         onLastGnssPositionInformationChanged: {
-            positionSource.positionInfo = lastGnssPositionInformation
+            if (valid) {
+               positionSource.positionInfo = lastGnssPositionInformation
+            }
         }
     }
 }
