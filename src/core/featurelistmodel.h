@@ -13,8 +13,11 @@
  *   (at your option) any later version.                                   *
  *                                                                         *
  ***************************************************************************/
+
 #ifndef FEATURELISTMODEL_H
 #define FEATURELISTMODEL_H
+
+#include "fieldexpressionvaluesgatherer.h"
 
 #include <stringutils.h>
 
@@ -178,11 +181,14 @@ class FeatureListModel : public QAbstractItemModel
     void onFeatureAdded();
     void onAttributeValueChanged( QgsFeatureId fid, int idx, const QVariant &value );
     void onFeatureDeleted();
+
+    void gatherFeatureList();
+
     /**
        * Reloads a layer. This will normally be triggered
        * by \see reloadLayer and should not be called directly.
        */
-    void processReloadLayer();
+    void processFeatureList();
 
   private:
     struct Entry
@@ -218,6 +224,8 @@ class FeatureListModel : public QAbstractItemModel
     void reloadLayer();
 
     QgsVectorLayer *mCurrentLayer = nullptr;
+
+    FeatureExpressionValuesGatherer *mGatherer = nullptr;
 
     QList<Entry> mEntries;
     QString mKeyField;

@@ -13,10 +13,11 @@
  *   (at your option) any later version.                                   *
  *                                                                         *
  ***************************************************************************/
+
+
 #include "featurelistmodel.h"
 #include "qgsvectorlayer.h"
 #include "stringutils.h"
-
 
 #include <qgsproject.h>
 #include <qgsexpressioncontextutils.h>
@@ -28,7 +29,7 @@ FeatureListModel::FeatureListModel( QObject *parent )
 {
   mReloadTimer.setInterval( 100 );
   mReloadTimer.setSingleShot( true );
-  connect( &mReloadTimer, &QTimer::timeout, this, &FeatureListModel::processReloadLayer );
+  connect( &mReloadTimer, &QTimer::timeout, this, &FeatureListModel::gatherFeatureList );
 }
 
 QModelIndex FeatureListModel::index( int row, int column, const QModelIndex &parent ) const
@@ -204,10 +205,8 @@ QgsFeature FeatureListModel::getFeatureFromKeyValue( const QVariant &value ) con
   return feature;
 }
 
-void FeatureListModel::processReloadLayer()
+void FeatureListModel::gatherFeatureList()
 {
-  mEntries.clear();
-
   if ( !mCurrentLayer || !mCurrentLayer->isValid() )
     return;
 
@@ -224,7 +223,6 @@ void FeatureListModel::processReloadLayer()
   referencedColumns << mDisplayValueField;
 
   QgsFields fields = mCurrentLayer->fields();
-  int keyIndex = fields.indexOf( mKeyField );
   int displayValueIndex = fields.indexOf( mDisplayValueField );
 
   request.setSubsetOfAttributes( referencedColumns, fields );
@@ -271,28 +269,30 @@ void FeatureListModel::processReloadLayer()
       request.setFilterExpression( QStringLiteral( " (%1) " ).arg( searchTermExpression ) );
     else
       request.setFilterExpression( QStringLiteral( " (%1) AND (%2) " ).arg( mFilterExpression, searchTermExpression ) );
-
-//    qDebug() << mCurrentLayer->fields().names() << mFilterExpression << searchTermExpression;
   }
 
-  QgsFeatureIterator iterator = mCurrentLayer->getFeatures( request );
+  mGatherer = new FeatureExpressionValuesGatherer( mCurrentLayer, mCurrentLayer->displayExpression(), request, QStringList() << keyField() );
+  connect( mGatherer, &QThread::finished, this, &FeatureListModel::processFeatureList );
+  mGatherer->start();
+}
 
-  QgsFeature feature;
+void FeatureListModel::processFeatureList()
+{
+  if ( !mGatherer )
+    return;
+
+  mEntries.clear();
 
   QList<Entry> entries;
 
   if ( mAddNull )
     entries.append( Entry( QStringLiteral( "<i>NULL</i>" ), QVariant(), QgsFeatureId() ) );
 
-  while ( iterator.nextFeature( feature ) )
+  for ( const FeatureExpressionValuesGatherer::Entry &gatheredEntry : mGatherer->entries() )
   {
-    context.setFeature( feature );
     Entry entry;
 
-    if ( mDisplayValueField.isEmpty() )
-      entry = Entry( expression.evaluate( &context ).toString(), feature.attribute( keyIndex ), feature.id() );
-    else
-      entry = Entry( feature.attribute( displayValueIndex ).toString(), feature.attribute( keyIndex ), feature.id() );
+    entry = Entry( gatheredEntry.value, gatheredEntry.identifierFields.at( 0 ), gatheredEntry.featureId );
 
     if ( ! mSearchTerm.isEmpty() )
     {
@@ -301,9 +301,6 @@ void FeatureListModel::processReloadLayer()
       if ( entry.fuzzyScore == 0 )
         continue;
     }
-
-//     qDebug() << entry.displayString << entry.fuzzyScore;
-
     entries.append( entry );
   }
 
@@ -329,6 +326,9 @@ void FeatureListModel::processReloadLayer()
         : entry1.fuzzyScore > entry2.fuzzyScore;
     } );
   }
+
+  mGatherer->deleteLater();
+  mGatherer = nullptr;
 
   beginResetModel();
   mEntries = entries;
