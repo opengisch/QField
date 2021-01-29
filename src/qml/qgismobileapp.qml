@@ -1716,7 +1716,7 @@ ApplicationWindow {
       horizontalAlignment: Text.AlignHCenter
       font: Theme.tipFont
       color: Theme.mainColor
-      text: qsTr( "" )
+      text: ''
     }
 
     Timer {

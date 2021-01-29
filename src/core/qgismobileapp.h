@@ -107,7 +107,7 @@ class QgisMobileapp : public QQmlApplicationEngine
     void reloadProjectFile();
 
     /**
-     * Reads and o pen the project file set in the loadProjectFile function
+     * Reads and opens the project file set in the loadProjectFile function
      */
     void readProjectFile();
 
