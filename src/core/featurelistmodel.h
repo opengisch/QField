@@ -51,7 +51,7 @@ class FeatureExpressionValuesGatherer: public QThread
        * \param request the request to perform
        * \param identifierFields an optional list of fields name to be save in a variant list for an easier reuse
        */
-    FeatureExpressionValuesGatherer( QgsVectorLayer *layer,
+    explicit FeatureExpressionValuesGatherer( QgsVectorLayer *layer,
                                         const QString &displayExpression = QString(),
                                         const QgsFeatureRequest &request = QgsFeatureRequest(),
                                         const QStringList &identifierFields = QStringList() )
