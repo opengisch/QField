@@ -91,6 +91,7 @@ class Rubberband : public QQuickItem
 
   private slots:
     void markDirty();
+    void visibleExtentChanged();
 
   private:
     QSGNode *updatePaintNode( QSGNode *n, QQuickItem::UpdatePaintNodeData * );
