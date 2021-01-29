@@ -88,18 +88,29 @@ class QgisMobileapp : public QQmlApplicationEngine
     void loadLastProject();
 
     /**
-     * When called loads the project file found at path.
+     * Set the project file path to be loaded.
      *
-     * @param path The project file to load
+     * \param path The project file to load
+     * \param name The project name
+     * \note The actual loading is done in readProjectFile
      */
-    void loadProjectFile( const QString &path );
+    void loadProjectFile( const QString &path, const QString &name = QString() );
+
     /**
-     * Loads the project file found at path.
-     * It does not reset the Auth Request Handler.
+     * Reloads the current project
      *
-     * @param path The project file to load
+     * \param path The project file to load
+     * \param name The project name
+     * \note It does not reset the Auth Request Handler.
+     * \note The actual loading is done in readProjectFile
      */
-    void reloadProjectFile( const QString &path );
+    void reloadProjectFile();
+
+    /**
+     * Reads and opens the project file set in the loadProjectFile function
+     */
+    void readProjectFile();
+
     void print( int layoutIndex );
 
     bool event( QEvent *event ) override;
@@ -109,8 +120,9 @@ class QgisMobileapp : public QQmlApplicationEngine
      * Emitted when a project file is being loaded
      *
      * @param filename The filename of the project that is being loaded
+     * @param projectname The project name that is being loaded
      */
-    void loadProjectStarted( const QString &filename );
+    void loadProjectTriggered( const QString &filename, const QString &name );
 
     /**
      * Emitted when the project is fully loaded
@@ -144,6 +156,9 @@ class QgisMobileapp : public QQmlApplicationEngine
     LegendImageProvider *mLegendImageProvider = nullptr;
 
     QgsProject *mProject = nullptr;
+    QString mProjectPath;
+    QString mProjectName;
+
     std::unique_ptr<QgsGpkgFlusher> mGpkgFlusher;
 #if VERSION_INT >= 30600
     QFieldAppAuthRequestHandler *mAuthRequestHandler = nullptr;

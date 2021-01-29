@@ -6,6 +6,8 @@ import QtQuick.Particles 2.0
 import Theme 1.0
 
 Page {
+  id: welcomeScreen
+
   property alias model: table.model
   signal showOpenProjectDialog
 
@@ -128,6 +130,7 @@ Page {
           delegate: Rectangle {
             id: rectangle
             property string path: ProjectPath
+            property string title: ProjectTitle
             width: parent ? parent.width : undefined
             height: line.height
             color: "transparent"
@@ -191,7 +194,7 @@ Page {
             onClicked: {
               var item = table.itemAt(mouse.x, mouse.y)
               if (item)
-                iface.loadProject(item.path)
+                iface.loadProject(item.path,item.title)
             }
             onPressed: {
               var item = table.itemAt(mouse.x, mouse.y)

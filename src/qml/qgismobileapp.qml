@@ -1666,8 +1666,40 @@ ApplicationWindow {
     id: busyMessage
     anchors.fill: parent
     color: Theme.darkGray
-    opacity: 0.5
+    opacity: 0
     visible: false
+
+    state: "hidden"
+    states: [
+        State {
+            name: "hidden"
+            PropertyChanges { target: busyMessage; opacity: 0 }
+            PropertyChanges { target: busyMessage; visible: false }
+        },
+
+        State {
+            name: "visible"
+            PropertyChanges { target: busyMessage; visible: true }
+            PropertyChanges { target: busyMessage; opacity: 0.75 }
+        }]
+    transitions: [
+        Transition {
+            from: "hidden"
+            to: "visible"
+            SequentialAnimation {
+                PropertyAnimation { target: busyMessage; property: "visible"; duration: 0 }
+                NumberAnimation { target: busyMessage; easing.type: Easing.InOutQuad; properties: "opacity"; duration: 250 }
+            }
+        },
+        Transition {
+            from: "visible"
+            to: "hidden"
+            SequentialAnimation {
+                PropertyAnimation { target: busyMessage; easing.type: Easing.InOutQuad; property: "opacity"; duration: 250 }
+                PropertyAnimation { target: busyMessage; property: "visible"; duration: 0 }
+            }
+        }
+    ]
 
     BusyIndicator {
       id: busyMessageIndicator
@@ -1681,19 +1713,33 @@ ApplicationWindow {
       id: busyMessageText
       anchors.top: busyMessageIndicator.bottom
       anchors.horizontalCenter: parent.horizontalCenter
-      text: qsTr( "Loading Project" )
+      horizontalAlignment: Text.AlignHCenter
+      font: Theme.tipFont
+      color: Theme.mainColor
+      text: ''
+    }
+
+    Timer {
+      id: readProjectTimer
+
+      interval: 250
+      repeat: false
+      onTriggered: iface.readProject()
     }
 
     Connections {
       target: iface
 
-      function onLoadProjectStarted(path) {
-        busyMessageText.text = qsTr( "Loading Project: %1" ).arg( path )
-        busyMessage.visible = true
+      function onLoadProjectTriggered(path,name) {
+        welcomeScreen.visible = false
+        dashBoard.layerTree.freeze()
+        busyMessageText.text = qsTr( "Loading %1" ).arg( name !== '' ? name : path )
+        busyMessage.state = "visible"
+        readProjectTimer.start()
       }
 
       function onLoadProjectEnded() {
-        busyMessage.visible = false
+        busyMessage.state = "hidden"
         mapCanvasBackground.color = mapCanvas.mapSettings.backgroundColor
       }
     }
@@ -1770,8 +1816,7 @@ ApplicationWindow {
     Connections {
         target: iface
 
-        function onLoadProjectStarted(path) {
-          dashBoard.layerTree.freeze()
+        function onLoadProjectTriggered(path) {
           messageLogModel.suppressTags(["WFS","WMS"])
         }
     }
@@ -1786,7 +1831,7 @@ ApplicationWindow {
       }
 
       function onReloadEverything() {
-        iface.reloadProject( qgisProject.fileName )
+        iface.reloadProject()
       }
     }
 
