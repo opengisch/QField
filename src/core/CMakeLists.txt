@@ -88,6 +88,7 @@ SET(QFIELD_CORE_HDRS
   featuremodel.h
   featureslocatorfilter.h
   feedback.h
+  fieldexpressionvaluesgatherer.h
   focusstack.h
   geometry.h
   geometryeditorsmodel.h
