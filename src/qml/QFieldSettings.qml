@@ -21,9 +21,6 @@ Page {
   property alias nativeCamera: registry.nativeCamera
   property alias autoSave: registry.autoSave
   property alias mouseAsTouchScreen: registry.mouseAsTouchScreen
-  property alias verticalGrid: registry.verticalGrid
-  property alias positioningDevice: registry.positioningDevice
-  property alias positioningDeviceName: registry.positioningDeviceName
 
   Settings {
     id: registry
@@ -35,9 +32,6 @@ Page {
     property bool nativeCamera: true
     property bool autoSave
     property bool mouseAsTouchScreen
-    property string verticalGrid: ""
-    property string positioningDevice: ""
-    property string positioningDeviceName: qsTr( "Internal device" );
   }
 
   ListModel {
@@ -195,164 +189,204 @@ Page {
               width: parent.parent.width
               spacing: 10
 
-              Label {
-                  text: qsTr( "Positioning device in use:" )
-                  font: Theme.defaultFont
-
-                  wrapMode: Text.WordWrap
+              GridLayout {
                   Layout.fillWidth: true
-              }
 
-              RowLayout {
-                  ComboBox {
-                      id: bluetoothDeviceCombo
-                      enabled: bluetoothDeviceModel.scanningStatus !== BluetoothDeviceModel.Scanning
+                  columns: 2
+                  columnSpacing: 0
+                  rowSpacing: 5
+
+                  Label {
                       Layout.fillWidth: true
-                      Layout.alignment: Qt.AlignVCenter
-                      textRole: 'display'
-                      model: BluetoothDeviceModel {
-                          id: bluetoothDeviceModel
-                      }
+                      Layout.columnSpan: 2
+                      text: qsTr( "Positioning device in use:" )
+                      font: Theme.defaultFont
 
-                      property string selectedPositioningDevice
-
-                      onCurrentIndexChanged: {
-                          if( bluetoothDeviceModel.scanningStatus !== BluetoothDeviceModel.Scanning )
-                          {
-                              selectedPositioningDevice = bluetoothDeviceModel.data(bluetoothDeviceModel.index(currentIndex, 0), BluetoothDeviceModel.DeviceAddressRole );
-                          }
-                          if( positioningDevice !== selectedPositioningDevice )
-                          {
-                              positioningDevice = selectedPositioningDevice
-                              positioningDeviceName = bluetoothDeviceModel.data(bluetoothDeviceModel.index(currentIndex, 0), BluetoothDeviceModel.DeviceNameRole );
-                              positionSource.device = positioningDevice
-                          }
-                      }
-
-                      Component.onCompleted: {
-                          currentIndex = positioningDevice == '' ? 0 : find(positioningDeviceName + ' (' + positioningDevice + ')');
-                      }
-
-                      Connections {
-                          target: bluetoothDeviceModel
-
-                          function onModelReset() {
-                              bluetoothDeviceCombo.currentIndex = bluetoothDeviceModel.findAddressIndex(positioningDevice)
-                          }
-
-                          function onScanningStatusChanged(scanningStatus) {
-                              if( scanningStatus === BluetoothDeviceModel.Scanning )
-                              {
-                                  displayToast( qsTr('Scanning for paired devices') )
-                              }
-                              if( scanningStatus === BluetoothDeviceModel.Failed )
-                              {
-                                  displayToast( qsTr('Scanning failed: %1').arg( bluetoothDeviceModel.lastError ) )
-                              }
-                              if( scanningStatus === BluetoothDeviceModel.Succeeded )
-                              {
-                                  var message = qsTr('Scanning done')
-                                  if ( bluetoothDeviceModel.rowCount() > 1 )
-                                  {
-                                      message += ': ' + qsTr( '%n device(s) found', '', bluetoothDeviceModel.rowCount() - 1 )
-                                  }
-                                  displayToast( message )
-                              }
-                              if( scanningStatus === BluetoothDeviceModel.Canceled )
-                              {
-                                  displayToast( qsTr('Scanning canceled') )
-                              }
-                          }
-                      }
+                      wrapMode: Text.WordWrap
                   }
 
-                  Rectangle {
-                      color: "transparent"
-                      Layout.preferredWidth: childrenRect.width
-                      Layout.preferredHeight: childrenRect.height
-                      Layout.alignment: Qt.AlignVCenter
+                  RowLayout {
+                      Layout.fillWidth: true
+                      Layout.columnSpan: 2
 
-                      QfButton {
-                          id: scanButton
-                          leftPadding: 10
-                          rightPadding: 10
-                          font: Theme.defaultFont
-                          text: qsTr('Scan')
-
-                          onClicked: {
-                              bluetoothDeviceModel.startServiceDiscovery( false )
-                          }
-                          onPressAndHold: {
-                              fullDiscoveryDialog.open()
-                          }
-
+                      ComboBox {
+                          id: bluetoothDeviceComboBox
                           enabled: bluetoothDeviceModel.scanningStatus !== BluetoothDeviceModel.Scanning
-                          opacity: enabled ? 1 : 0
+                          Layout.fillWidth: true
+                          Layout.alignment: Qt.AlignVCenter
+                          textRole: 'display'
+                          model: BluetoothDeviceModel {
+                              id: bluetoothDeviceModel
+                          }
+
+                          property string selectedPositioningDevice
+
+                          onCurrentIndexChanged: {
+                              if( bluetoothDeviceModel.scanningStatus !== BluetoothDeviceModel.Scanning )
+                              {
+                                  selectedPositioningDevice = bluetoothDeviceModel.data(bluetoothDeviceModel.index(currentIndex, 0), BluetoothDeviceModel.DeviceAddressRole );
+                              }
+                              if( positioningSettings.positioningDevice !== selectedPositioningDevice )
+                              {
+                                  positioningSettings.positioningDevice = selectedPositioningDevice
+                                  positioningSettings.positioningDeviceName = bluetoothDeviceModel.data(bluetoothDeviceModel.index(currentIndex, 0), BluetoothDeviceModel.DeviceNameRole );
+                              }
+                          }
+
+                          Component.onCompleted: {
+                              currentIndex = positioningSettings.positioningDevice == '' ? 0 : find(positioningSettings.positioningDeviceName + ' (' + positioningSettings.positioningDevice + ')');
+                          }
+
+                          Connections {
+                              target: bluetoothDeviceModel
+
+                              function onModelReset() {
+                                  bluetoothDeviceComboBox.currentIndex = bluetoothDeviceModel.findAddressIndex(positioningSettings.positioningDevice)
+                              }
+
+                              function onScanningStatusChanged(scanningStatus) {
+                                  if( scanningStatus === BluetoothDeviceModel.Scanning )
+                                  {
+                                      displayToast( qsTr('Scanning for paired devices') )
+                                  }
+                                  if( scanningStatus === BluetoothDeviceModel.Failed )
+                                  {
+                                      displayToast( qsTr('Scanning failed: %1').arg( bluetoothDeviceModel.lastError ) )
+                                  }
+                                  if( scanningStatus === BluetoothDeviceModel.Succeeded )
+                                  {
+                                      var message = qsTr('Scanning done')
+                                      if ( bluetoothDeviceModel.rowCount() > 1 )
+                                      {
+                                          message += ': ' + qsTr( '%n device(s) found', '', bluetoothDeviceModel.rowCount() - 1 )
+                                      }
+                                      displayToast( message )
+                                  }
+                                  if( scanningStatus === BluetoothDeviceModel.Canceled )
+                                  {
+                                      displayToast( qsTr('Scanning canceled') )
+                                  }
+                              }
+                          }
                       }
 
+                      Rectangle {
+                          color: "transparent"
+                          Layout.preferredWidth: childrenRect.width
+                          Layout.preferredHeight: childrenRect.height
+                          Layout.alignment: Qt.AlignVCenter
 
-                      BusyIndicator {
-                          id: busyIndicator
-                          anchors.centerIn: scanButton
-                          width: 36
-                          height: 36
-                          running: bluetoothDeviceModel.scanningStatus === BluetoothDeviceModel.Scanning
+                          QfButton {
+                              id: scanButton
+                              leftPadding: 10
+                              rightPadding: 10
+                              font: Theme.defaultFont
+                              text: qsTr('Scan')
+
+                              onClicked: {
+                                  bluetoothDeviceModel.startServiceDiscovery( false )
+                              }
+                              onPressAndHold: {
+                                  fullDiscoveryDialog.open()
+                              }
+
+                              enabled: bluetoothDeviceModel.scanningStatus !== BluetoothDeviceModel.Scanning
+                              opacity: enabled ? 1 : 0
+                          }
+
+
+                          BusyIndicator {
+                              id: busyIndicator
+                              anchors.centerIn: scanButton
+                              width: 36
+                              height: 36
+                              running: bluetoothDeviceModel.scanningStatus === BluetoothDeviceModel.Scanning
+                          }
+                      }
+
+                      Dialog {
+                          id: fullDiscoveryDialog
+                          parent: mainWindow.contentItem
+
+                          visible: false
+                          modal: true
+
+                          x: ( mainWindow.width - width ) / 2
+                          y: ( mainWindow.height - height ) / 2
+
+                          title: qsTr( "Make a full service discovery" )
+                          Label {
+                              width: parent.width
+                              wrapMode: Text.WordWrap
+                              text: qsTr( 'A full device scan can take longer. You really want to do it?\nCancel to make a minimal device scan instead.')
+                          }
+
+                          standardButtons: Dialog.Ok | Dialog.Cancel
+                          onAccepted: {
+                              bluetoothDeviceModel.startServiceDiscovery( true )
+                              visible = false
+                          }
+                          onRejected: {
+                              bluetoothDeviceModel.startServiceDiscovery( false )
+                              visible = false
+                          }
                       }
                   }
 
-                  Dialog {
-                      id: fullDiscoveryDialog
-                      parent: mainWindow.contentItem
-
-                      visible: false
-                      modal: true
-
-                      x: ( mainWindow.width - width ) / 2
-                      y: ( mainWindow.height - height ) / 2
-
-                      title: qsTr( "Make a full service discovery" )
-                      Label {
-                          width: parent.width
-                          wrapMode: Text.WordWrap
-                          text: qsTr( 'A full device scan can take longer. You really want to do it?\nCancel to make a minimal device scan instead.')
+                  QfButton {
+                      id: connectButton
+                      Layout.fillWidth: true
+                      Layout.columnSpan: 2
+                      Layout.topMargin: 5
+                      font: Theme.defaultFont
+                      text: {
+                          switch (positionSource.bluetoothSocketState)
+                          {
+                          case BluetoothSocket.Connected:
+                              return qsTr('Connected to %1').arg(positioningSettings.positioningDeviceName)
+                          case BluetoothSocket.Unconnected:
+                              return qsTr('Connect  to %1').arg(positioningSettings.positioningDeviceName)
+                          default:
+                              return qsTr('Connecting to %1').arg(positioningSettings.positioningDeviceName)
+                          }
                       }
+                      enabled: positionSource.bluetoothSocketState === BluetoothSocket.Unconnected
+                      visible: positioningSettings.positioningDevice !== ''
 
-                      standardButtons: Dialog.Ok | Dialog.Cancel
-                      onAccepted: {
-                          bluetoothDeviceModel.startServiceDiscovery( true )
-                          visible = false
+                      onClicked: {
+                          // make sure positioning is active when connecting to the bluetooth device
+                          if (!positioningSettings.positioningActivated) {
+                              positioningSettings.positioningActivated = true
+                          } else {
+                              positionSource.connectBluetoothSource()
+                          }
                       }
-                      onRejected: {
-                          bluetoothDeviceModel.startServiceDiscovery( false )
-                          visible = false
+                  }
+
+                  Label {
+                      text: qsTr("Use orthometric altitude from device")
+                      font: Theme.defaultFont
+                      wrapMode: Text.WordWrap
+                      Layout.fillWidth: true
+                      visible: positioningSettings.positioningDevice !== ''
+
+                      MouseArea {
+                          anchors.fill: parent
+                          onClicked: reportOrthometricAltitude.toggle()
+                      }
+                  }
+
+                  QfSwitch {
+                      id: reportOrthometricAltitude
+                      Layout.preferredWidth: implicitContentWidth
+                      Layout.alignment: Qt.AlignTop
+                      visible: positioningSettings.positioningDevice !== ''
+                      checked: !positioningSettings.ellipsoidalElevation
+                      onCheckedChanged: {
+                          positioningSettings.ellipsoidalElevation = !checked
                       }
                   }
               }
-
-              QfButton {
-                  id: connectButton
-                  Layout.fillWidth: true
-                  Layout.topMargin: 5
-                  font: Theme.defaultFont
-                  text: {
-                      switch (positionSource.bluetoothSocketState)
-                      {
-                      case BluetoothSocket.Connected:
-                          return qsTr('Connected to %1').arg(positioningDeviceName)
-                      case BluetoothSocket.Unconnected:
-                          return qsTr('Connect  to %1').arg(positioningDeviceName)
-                      default:
-                          return qsTr('Connecting to %1').arg(positioningDeviceName)
-                      }
-                  }
-                  enabled: positionSource.bluetoothSocketState === BluetoothSocket.Unconnected
-                  visible: positioningDevice !== ''
-
-                  onClicked: {
-                      positionSource.connectBluetoothSource()
-                  }
-              }
-
 
               GridLayout {
                   Layout.fillWidth: true
@@ -658,15 +692,11 @@ Page {
                       model: [ qsTr( "None" ) ].concat( platformUtilities.availableGrids() );
 
                       onCurrentIndexChanged: {
-                          if ( currentIndex > 0 ) {
-                              verticalGrid = platformUtilities.availableGrids()[currentIndex - 1];
-                          } else {
-                              verticalGrid = '';
-                          }
+                          positioningSettings.verticalGrid = currentIndex > 0 ? platformUtilities.availableGrids()[currentIndex - 1] : '';
                       }
 
                       Component.onCompleted: {
-                          currentIndex = verticalGrid !== '' ? find(verticalGrid) : 0;
+                          currentIndex = positioningSettings.verticalGrid != '' ? find(positioningSettings.verticalGrid) : 0;
                       }
                   }
 
