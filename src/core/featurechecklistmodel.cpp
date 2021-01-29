@@ -17,9 +17,7 @@
 #include "featurechecklistmodel.h"
 #include "qgsmessagelog.h"
 #include "qgsvaluerelationfieldformatter.h"
-#if VERSION_INT >= 30600
 #include "qgspostgresstringutils.h"
-#endif
 
 FeatureCheckListModel::FeatureCheckListModel( QObject *parent )
   : FeatureListModel( parent )
@@ -95,11 +93,7 @@ QVariant FeatureCheckListModel::attributeValue() const
     else
     {
       //make string
-#if VERSION_INT >= 30600
       value = QgsPostgresStringUtils::buildArray( vl );
-#else
-      QgsMessageLog::logMessage( tr( "Storing of value relation widget checklists not available for Android 5" ), "QField", Qgis::Critical );
-#endif
     }
   }
   else

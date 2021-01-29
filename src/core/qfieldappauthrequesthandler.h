@@ -18,13 +18,9 @@
 #ifndef QFIELDAPPAUTHREQUESTHANDLER_H
 #define QFIELDAPPAUTHREQUESTHANDLER_H
 
-// QGIS includes
 #include <qgsapplication.h>
 #include <qgsconfig.h>
-
-// Check QGIS version
-#if VERSION_INT >= 30600
-#include "qgsnetworkaccessmanager.h"
+#include <qgsnetworkaccessmanager.h>
 
 /**
  *
@@ -85,5 +81,5 @@ class QFieldAppAuthRequestHandler : public QObject, public QgsNetworkAuthenticat
 
     QList<RealmEntry> mRealms;
 };
-#endif // VERSION_INT >= 30600
+
 #endif // QFIELDAPPAUTHREQUESTHANDLER_H

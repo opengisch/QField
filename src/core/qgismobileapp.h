@@ -36,9 +36,7 @@
 #include "qgsgpkgflusher.h"
 #include "geometryeditorsmodel.h"
 
-#if VERSION_INT >= 30600
 #include "qfieldappauthrequesthandler.h"
-#endif
 
 #include "platformutilities.h"
 #if defined(Q_OS_ANDROID)
@@ -160,9 +158,8 @@ class QgisMobileapp : public QQmlApplicationEngine
     QString mProjectName;
 
     std::unique_ptr<QgsGpkgFlusher> mGpkgFlusher;
-#if VERSION_INT >= 30600
     QFieldAppAuthRequestHandler *mAuthRequestHandler = nullptr;
-#endif
+
     // Dummy objects. We are not able to call static functions from QML, so we need something here.
     QgsCoordinateReferenceSystem mCrsFactory;
     QgsUnitTypes mUnitTypes;

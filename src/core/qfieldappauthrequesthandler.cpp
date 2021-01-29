@@ -17,8 +17,6 @@
 
 #include "qfieldappauthrequesthandler.h"
 
-// Check QGIS Version
-#if VERSION_INT >= 30600
 #include <QAuthenticator>
 #include <QThread>
 #include <qgsmessagelog.h>
@@ -174,4 +172,3 @@ void QFieldAppAuthRequestHandler::handleAuthRequest( QNetworkReply *reply, QAuth
   auth->setUser( username );
   auth->setPassword( password );
 }
-#endif // VERSION_INT >= 30600
