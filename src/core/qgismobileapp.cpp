@@ -388,10 +388,8 @@ void QgisMobileapp::initDeclarative()
   rootContext()->setContextProperty( "LocatorModelNoGroup", QgsLocatorModel::NoGroup );
   rootContext()->setContextProperty( "gpkgFlusher", mGpkgFlusher.get() );
 
-// Check QGIS Version
-#if VERSION_INT >= 30600
   rootContext()->setContextProperty( "qfieldAuthRequestHandler", mAuthRequestHandler );
-#endif
+
   rootContext()->setContextProperty( "trackingModel", mTrackingModel );
 
   addImageProvider( QLatin1String( "legend" ), mLegendImageProvider );
@@ -530,10 +528,8 @@ void QgisMobileapp::loadProjectFile( const QString &path, const QString &name )
   if ( !fi.exists() )
     QgsMessageLog::logMessage( tr( "Project file \"%1\" does not exist" ).arg( path ), QStringLiteral( "QField" ), Qgis::Warning );
 
-// Check QGIS Version
-#if VERSION_INT >= 30600
   mAuthRequestHandler->clearStoredRealms();
-#endif
+
   mProjectPath = path;
   mProjectName = name.isEmpty() ? name : fi.completeBaseName();
 

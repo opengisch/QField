@@ -322,20 +322,6 @@ Page {
               color: 'grey'
             }
 
-            /* WebView {
-              id: htmlItem
-              anchors {
-                left: parent.left
-                rightMargin: 12
-                right: parent.right
-                top: htmlLabel.bottom
-              }
-              onLoadingChanged: {
-                if ( !loading )
-                  runJavaScript("document.body.offsetHeight", function(result) { htmlItem.height = ( result + 20 ) } );
-              }
-            }*/
-
             Item {
                 id: htmlLoader
                 visible: TabIndex === form.currentTab && ( form.focus || featureForm.focus )
