@@ -35,6 +35,7 @@ void BluetoothReceiver::disconnectDevice()
   if ( mSocket->state() != QBluetoothSocket::UnconnectedState )
   {
     mDisconnecting = true;
+    mLastGnssPositionValid = false;
     mSocket->disconnectFromService();
   }
 }
@@ -74,8 +75,15 @@ void BluetoothReceiver::doConnectDevice( const QString &address )
 
 void BluetoothReceiver::stateChanged( const QgsGpsInformation &info )
 {
+  if ( mLastGnssPositionValid && std::isnan( info.latitude ) )
+  {
+    //we already sent a valid position, stick to last valid position
+    return;
+  }
+  mLastGnssPositionValid = !std::isnan( info.latitude );
+
   // QgsGpsInformation's speed is served in km/h, translate to m/s
-  mLastGnssPositionInformation = GnssPositionInformation( info.latitude, info.longitude, info.elevation, info.speed * 1000 / 60 / 60, info.direction, info.satellitesInView, info.pdop,
+  mLastGnssPositionInformation = GnssPositionInformation( info.latitude, info.longitude, mEllipsoidalElevation ? info.elevation + info.elevation_diff : info.elevation, info.speed * 1000 / 60 / 60, info.direction, info.satellitesInView, info.pdop,
                                  info.hdop, info.vdop, info.hacc, info.vacc, info.utcDateTime, info.fixMode, info.fixType, info.quality,
                                  info.satellitesUsed, info.status, info.satPrn, info.satInfoComplete );
   emit lastGnssPositionInformationChanged( mLastGnssPositionInformation );
@@ -122,6 +130,15 @@ void BluetoothReceiver::setSocketState( const QBluetoothSocket::SocketState sock
 GnssPositionInformation BluetoothReceiver::createGnssPositionInformation( double latitude, double longitude, double altitude, double speed, double direction, double horizontalAccuracy, double verticalAcurracy, double verticalSpeed, double magneticVariation, const QDateTime &timestamp, const QString &sourceName )
 {
   return GnssPositionInformation( latitude, longitude, altitude, speed, direction, QList<QgsSatelliteInfo>(), 0, 0, 0, horizontalAccuracy, verticalAcurracy, timestamp, QChar(), 0, -1, 0, QChar( 'A' ), QList<int>(), false, verticalSpeed, magneticVariation, sourceName );
+}
+
+void BluetoothReceiver::setEllipsoidalElevation( const bool ellipsoidalElevation )
+{
+  if ( mEllipsoidalElevation == ellipsoidalElevation )
+    return;
+
+  mEllipsoidalElevation = ellipsoidalElevation;
+  emit ellipsoidalElevationChanged();
 }
 
 #ifndef Q_OS_ANDROID

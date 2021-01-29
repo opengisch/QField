@@ -40,8 +40,8 @@ Rectangle {
         font: Theme.tipFont
         color: textColor
         text: positionSource.destinationCrs.isGeographic ?
-                  qsTr( "Lat." ) + ': ' + ( positionSource.positionInfo && positionSource.positionInfo.latitudeValid  ? Number( positionSource.projectedPosition.y ).toLocaleString( Qt.locale(), 'f', 5 ) : qsTr( "N/A" ) )
-                : qsTr( "X" )    + ': ' + ( positionSource.positionInfo && positionSource.positionInfo.longitudeValid ? Number( positionSource.projectedPosition.x ).toLocaleString( Qt.locale(), 'f', 2 ) : qsTr( "N/A" ) )
+                  qsTr( "Lat." ) + ': ' + ( positionSource.positionInfo && positionSource.positionInfo.latitudeValid  ? Number( positionSource.projectedPosition.y ).toLocaleString( Qt.locale(), 'f', 7 ) : qsTr( "N/A" ) )
+                : qsTr( "X" )    + ': ' + ( positionSource.positionInfo && positionSource.positionInfo.longitudeValid ? Number( positionSource.projectedPosition.x ).toLocaleString( Qt.locale(), 'f', 3 ) : qsTr( "N/A" ) )
       }
     }
 
@@ -57,8 +57,8 @@ Rectangle {
         font: Theme.tipFont
         color: textColor
         text: positionSource.destinationCrs.isGeographic ?
-                  qsTr( "Lon." ) + ': ' + ( positionSource.positionInfo && positionSource.positionInfo.longitudeValid ? Number( positionSource.projectedPosition.x ).toLocaleString( Qt.locale(), 'f', 5 ) : qsTr( "N/A" ) )
-                : qsTr( "Y" )    + ': ' + ( positionSource.positionInfo && positionSource.positionInfo.latitudeValid  ? Number( positionSource.projectedPosition.y ).toLocaleString( Qt.locale(), 'f', 2 ) : qsTr( "N/A" ) )
+                  qsTr( "Lon." ) + ': ' + ( positionSource.positionInfo && positionSource.positionInfo.longitudeValid ? Number( positionSource.projectedPosition.x ).toLocaleString( Qt.locale(), 'f', 7 ) : qsTr( "N/A" ) )
+                : qsTr( "Y" )    + ': ' + ( positionSource.positionInfo && positionSource.positionInfo.latitudeValid  ? Number( positionSource.projectedPosition.y ).toLocaleString( Qt.locale(), 'f', 3 ) : qsTr( "N/A" ) )
 
       }
     }
@@ -76,9 +76,9 @@ Rectangle {
         text: {
             var altitude = qsTr( "Altitude" ) + ': ';
             if ( positionSource.positionInfo && positionSource.positionInfo.elevationValid ) {
-                altitude += Number( positionSource.projectedPosition.z ).toLocaleString( Qt.locale(), 'f', 2 ) + ' m'
+                altitude += Number( positionSource.projectedPosition.z ).toLocaleString( Qt.locale(), 'f', 3 ) + ' m'
                 if ( !isNaN( parseFloat( antennaHeight ) ) ) {
-                    altitude += ' <font color="#2f2f2f"><i>(%1)</i></font>'.arg( ( antennaHeight > 0 ? "+" : "-" ) + Math.abs( antennaHeight ).toLocaleString(Qt.locale(), 'f', 2) );
+                    altitude += ' <font color="#2f2f2f"><i>(%1)</i></font>'.arg( ( antennaHeight > 0 ? "+" : "-" ) + Math.abs( antennaHeight ).toLocaleString(Qt.locale(), 'f', 3 ) );
                 }
             }
             else
@@ -101,7 +101,7 @@ Rectangle {
         anchors.left: parent.left
         font: Theme.tipFont
         color: textColor
-        text: qsTr( "Speed" ) + ': ' + ( positionSource.positionInfo && positionSource.positionInfo.speedValid ? positionSource.positionInfo.speed.toLocaleString(Qt.locale(), 'f', 2) + " m/s" : qsTr( "N/A" ) )
+        text: qsTr( "Speed" ) + ': ' + ( positionSource.positionInfo && positionSource.positionInfo.speedValid ? positionSource.positionInfo.speed.toLocaleString(Qt.locale(), 'f', 3) + " m/s" : qsTr( "N/A" ) )
       }
     }
 
@@ -116,7 +116,7 @@ Rectangle {
         anchors.left: parent.left
         font: Theme.tipFont
         color: textColor
-        text: qsTr( "H. Accuracy" ) + ': ' + ( positionSource.positionInfo && positionSource.positionInfo.haccValid ? positionSource.positionInfo.hacc.toLocaleString(Qt.locale(), 'f', 2) + " m" : qsTr( "N/A" ) )
+        text: qsTr( "H. Accuracy" ) + ': ' + ( positionSource.positionInfo && positionSource.positionInfo.haccValid ? positionSource.positionInfo.hacc.toLocaleString(Qt.locale(), 'f', 3) + " m" : qsTr( "N/A" ) )
       }
     }
 
@@ -131,7 +131,7 @@ Rectangle {
         anchors.left: parent.left
         font: Theme.tipFont
         color: textColor
-        text: qsTr( "V. Accuracy" ) + ': ' + ( positionSource.positionInfo && positionSource.positionInfo.vaccValid ? positionSource.positionInfo.vacc.toLocaleString(Qt.locale(), 'f', 2) + " m" : qsTr( "N/A" ) )
+        text: qsTr( "V. Accuracy" ) + ': ' + ( positionSource.positionInfo && positionSource.positionInfo.vaccValid ? positionSource.positionInfo.vacc.toLocaleString(Qt.locale(), 'f', 3) + " m" : qsTr( "N/A" ) )
       }
     }
 

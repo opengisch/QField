@@ -33,6 +33,7 @@ class BluetoothReceiver : public QObject
     Q_PROPERTY( GnssPositionInformation lastGnssPositionInformation READ lastGnssPositionInformation NOTIFY lastGnssPositionInformationChanged )
     Q_PROPERTY( QBluetoothSocket::SocketState socketState READ socketState NOTIFY socketStateChanged )
     Q_PROPERTY( QString socketStateString READ socketStateString NOTIFY socketStateStringChanged )
+    Q_PROPERTY( bool ellipsoidalElevation READ ellipsoidalElevation WRITE setEllipsoidalElevation NOTIFY ellipsoidalElevationChanged )
 
   public:
     explicit BluetoothReceiver( QObject *parent = nullptr );
@@ -50,10 +51,21 @@ class BluetoothReceiver : public QObject
      */
     static Q_INVOKABLE GnssPositionInformation createGnssPositionInformation( double latitude, double longitude, double altitude, double speed, double direction, double horizontalAccuracy, double verticalAcurracy, double verticalSpeed, double magneticVariation, const QDateTime &timestamp, const QString &sourceName );
 
+    /**
+     * Sets whether the elevation value provided will be ellipsoidal or, if not, orthometric
+     */
+    void setEllipsoidalElevation( const bool ellipsoidalElevation );
+
+    /**
+     * Returns whether the elevation value provided will be ellipsoidal or orthometric
+     */
+    bool ellipsoidalElevation() const { return mEllipsoidalElevation; }
+
   signals:
     void lastGnssPositionInformationChanged( GnssPositionInformation lastGnssPositionInformation );
     void socketStateChanged( QBluetoothSocket::SocketState socketState );
     void socketStateStringChanged( QString socketStateString );
+    void ellipsoidalElevationChanged();
 
   private slots:
     /**
@@ -81,12 +93,16 @@ class BluetoothReceiver : public QObject
     QBluetoothSocket *mSocket = nullptr;
     std::unique_ptr<QgsNmeaConnection> mGpsConnection;
     GnssPositionInformation mLastGnssPositionInformation;
+    bool mLastGnssPositionValid = false;
 
     QBluetoothSocket::SocketState mSocketState = QBluetoothSocket::UnconnectedState;
     QString mSocketStateString;
     bool mDisconnecting = false;
 
     QString mAddressToConnect;
+
+    bool mEllipsoidalElevation = true;
+
 };
 
 #endif // BLUETOOTHRECEIVER_H
