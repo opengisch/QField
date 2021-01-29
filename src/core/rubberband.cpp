@@ -108,10 +108,23 @@ void Rubberband::setMapSettings( QgsQuickMapSettings *mapSettings )
   if ( mMapSettings == mapSettings )
     return;
 
+  if ( mMapSettings )
+  {
+    disconnect( mMapSettings, &QgsQuickMapSettings::visibleExtentChanged, this, &Rubberband::visibleExtentChanged );
+  }
+
   mMapSettings = mapSettings;
+  connect( mMapSettings, &QgsQuickMapSettings::visibleExtentChanged, this, &Rubberband::visibleExtentChanged );
+
   markDirty();
 
   emit mapSettingsChanged();
+}
+
+void Rubberband::visibleExtentChanged()
+{
+  mDirty = true;
+  update();
 }
 
 void Rubberband::markDirty()
