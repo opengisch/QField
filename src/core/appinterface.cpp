@@ -33,10 +33,10 @@ void AppInterface::loadLastProject()
   return mApp->loadLastProject();
 }
 
-void AppInterface::loadProject( const QString &path )
+void AppInterface::loadProject( const QString &path, const QString &name )
 {
   const QUrl url( path );
-  return mApp->loadProjectFile( url.isLocalFile() ? url.toLocalFile() : url.path() );
+  return mApp->loadProjectFile( url.isLocalFile() ? url.toLocalFile() : url.path(), name );
 }
 
 void AppInterface::reloadProject( const QString &path )

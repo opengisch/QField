@@ -1666,7 +1666,7 @@ ApplicationWindow {
     id: busyMessage
     anchors.fill: parent
     color: Theme.darkGray
-    opacity: 0.5
+    opacity: 0.75
     visible: false
 
     BusyIndicator {
@@ -1681,14 +1681,18 @@ ApplicationWindow {
       id: busyMessageText
       anchors.top: busyMessageIndicator.bottom
       anchors.horizontalCenter: parent.horizontalCenter
-      text: qsTr( "Loading Project" )
+      horizontalAlignment: Text.AlignHCenter
+      font: Theme.tipFont
+      color: Theme.mainColor
+      text: qsTr( "" )
     }
 
     Connections {
       target: iface
 
-      function onLoadProjectStarted(path) {
-        busyMessageText.text = qsTr( "Loading Project: %1" ).arg( path )
+      function onLoadProjectStarted(path,name) {
+        welcomeScreen.visible = false
+        busyMessageText.text = qsTr( "Loading %1" ).arg( name !== '' ? name : path )
         busyMessage.visible = true
       }
 

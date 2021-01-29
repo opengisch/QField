@@ -524,24 +524,33 @@ void QgisMobileapp::loadLastProject()
     loadProjectFile( lastProjectFile.toString() );
 }
 
-void QgisMobileapp::loadProjectFile( const QString &path )
+void QgisMobileapp::loadProjectFile( const QString &path, const QString &name )
 {
 // Check QGIS Version
 #if VERSION_INT >= 30600
   mAuthRequestHandler->clearStoredRealms();
 #endif
-  reloadProjectFile( path );
+  reloadProjectFile( path, name );
 }
 
-void QgisMobileapp::reloadProjectFile( const QString &path )
+void QgisMobileapp::reloadProjectFile( const QString &path, const QString &name )
 {
-  if ( ! QFile::exists( path ) )
+  QFileInfo fi( path );
+  if ( !fi.exists() )
     QgsMessageLog::logMessage( tr( "Project file \"%1\" does not exist" ).arg( path ), QStringLiteral( "QField" ), Qgis::Warning );
 
   mProject->removeAllMapLayers();
   mTrackingModel->reset();
 
-  emit loadProjectStarted( path );
+  emit loadProjectStarted( path, !name.isEmpty() ? name : fi.baseName() );
+
+  // Process events to insure the QML scene is setup for project loading
+  const QTime dieTime = QTime::currentTime().addMSecs(100);
+  while ( QTime::currentTime() < dieTime )
+  {
+    QApplication::processEvents(QEventLoop::AllEvents, 50);
+  }
+
   mProject->read( path );
 
   // load fonts in same directory

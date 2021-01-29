@@ -91,15 +91,17 @@ class QgisMobileapp : public QQmlApplicationEngine
      * When called loads the project file found at path.
      *
      * @param path The project file to load
+     * @param name The project name
      */
-    void loadProjectFile( const QString &path );
+    void loadProjectFile( const QString &path, const QString &name = QString() );
     /**
      * Loads the project file found at path.
      * It does not reset the Auth Request Handler.
      *
      * @param path The project file to load
+     * @param name The project name
      */
-    void reloadProjectFile( const QString &path );
+    void reloadProjectFile( const QString &path, const QString &name = QString() );
     void print( int layoutIndex );
 
     bool event( QEvent *event ) override;
@@ -109,8 +111,9 @@ class QgisMobileapp : public QQmlApplicationEngine
      * Emitted when a project file is being loaded
      *
      * @param filename The filename of the project that is being loaded
+     * @param projectname The project name that is being loaded
      */
-    void loadProjectStarted( const QString &filename );
+    void loadProjectStarted( const QString &filename, const QString &name );
 
     /**
      * Emitted when the project is fully loaded
