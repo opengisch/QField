@@ -22,13 +22,18 @@
 #include <qgsrelationmanager.h>
 #include <qgsdatetimefieldformatter.h>
 #include <qgsvectorlayerutils.h>
+#include <qgis.h>
+
+// This is an ugly hack to get the tests to pass on CI.
+// Remove this ifdef if it ever causes issues for you
+#ifndef Q_OS_ANDROID
 #include <qgsattributeeditorcontainer.h>
 #include <qgsattributeeditorelement.h>
 #include <qgsattributeeditorfield.h>
 #include <qgsattributeeditorhtmlelement.h>
 #include <qgsattributeeditorqmlelement.h>
 #include <qgsattributeeditorrelation.h>
-
+#endif
 
 AttributeFormModelBase::AttributeFormModelBase( QObject *parent )
   : QStandardItemModel( 0, 1, parent )
@@ -248,7 +253,7 @@ void AttributeFormModelBase::updateAttributeValue( QStandardItem *item )
     int fieldIndex = item->data( AttributeFormModel::FieldIndex ).toInt();
     QVariant attributeValue = mFeatureModel->data( mFeatureModel->index( fieldIndex ), FeatureModel::AttributeValue );
     item->setData( attributeValue, AttributeFormModel::AttributeValue );
-    item->setData( mFeatureModel->data( mFeatureModel->index( fieldIndex ), FeatureModel::AttributeAllowEdit ), AttributeFormModel::AttributeAllowEdit);
+    item->setData( mFeatureModel->data( mFeatureModel->index( fieldIndex ), FeatureModel::AttributeAllowEdit ), AttributeFormModel::AttributeAllowEdit );
     //set item visibility to false in case it's a linked attribute
     item->setData( !mFeatureModel->data( mFeatureModel->index( fieldIndex ), FeatureModel::LinkedAttribute ).toBool(), AttributeFormModel::CurrentlyVisible );
   }
@@ -259,7 +264,7 @@ void AttributeFormModelBase::updateAttributeValue( QStandardItem *item )
 
     QRegularExpression re( "expression\\.evaluate\\(\\s*\\\"(.*?[^\\\\])\\\"\\s*\\)" );
     QRegularExpressionMatch match = re.match( code );
-    while( match.hasMatch() )
+    while ( match.hasMatch() )
     {
       QString expression = match.captured( 1 );
       expression = expression.replace( QStringLiteral( "\\\"" ), QStringLiteral( "\"" ) );
@@ -272,7 +277,7 @@ void AttributeFormModelBase::updateAttributeValue( QStandardItem *item )
       QVariant result = exp.evaluate( &expressionContext );
 
       QString resultString;
-      switch( static_cast<QMetaType::Type>( result.type() ) )
+      switch ( static_cast<QMetaType::Type>( result.type() ) )
       {
         case QMetaType::Int:
         case QMetaType::UInt:
