@@ -35,7 +35,7 @@ jobs:
         run: |
           ./test/test_version_number.sh
           echo "::group::Build QField"
-          export QFIELD_SDK_VERSION=$(awk -F "=" '/osgeo4a_version/{print $2}' sdk.conf)
+          export QFIELD_SDK_VERSION=20210124 # $(awk -F "=" '/osgeo4a_version/{print $2}' sdk.conf)
           docker-compose -f .docker/testing/docker-compose-ci.yml run qgis /usr/src/.docker/testing/build-test.sh
           echo "::endgroup::"
 
