@@ -275,7 +275,7 @@ ApplicationWindow {
     /* The base map */
     MapCanvas {
       id: mapCanvasMap
-      incrementalRendering: qfieldSettings.incrementalRendering
+      incrementalRendering: true
       freehandDigitizing: freehandButton.freehandDigitizing && freehandHandler.active
 
       anchors.fill: parent

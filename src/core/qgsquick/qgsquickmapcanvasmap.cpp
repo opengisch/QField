@@ -18,6 +18,7 @@
 #include <QSGSimpleTextureNode>
 
 #include <qgsmaprendererparalleljob.h>
+#include "qgsmaprenderercache.h"
 #include <qgsmessagelog.h>
 #include <qgspallabeling.h>
 #include <qgsproject.h>
@@ -43,11 +44,18 @@ QgsQuickMapCanvasMap::QgsQuickMapCanvasMap( QQuickItem *parent )
   connect( this, &QgsQuickMapCanvasMap::renderStarting, this, &QgsQuickMapCanvasMap::isRenderingChanged );
   connect( this, &QgsQuickMapCanvasMap::mapCanvasRefreshed, this, &QgsQuickMapCanvasMap::isRenderingChanged );
 
+  mCache = new QgsMapRendererCache();
+
   mMapUpdateTimer.setSingleShot( false );
   mMapUpdateTimer.setInterval( 250 );
   mRefreshTimer.setSingleShot( true );
   setTransformOrigin( QQuickItem::TopLeft );
   setFlags( QQuickItem::ItemHasContents );
+}
+
+QgsQuickMapCanvasMap::~QgsQuickMapCanvasMap()
+{
+  delete mCache;
 }
 
 QgsQuickMapSettings *QgsQuickMapCanvasMap::mapSettings() const
@@ -111,6 +119,8 @@ void QgsQuickMapCanvasMap::refreshMap()
 
   // enables on-the-fly simplification of geometries to spend less time rendering
   mapSettings.setFlag( QgsMapSettings::UseRenderingOptimization );
+  // with incremental rendering - enables updates of partially rendered layers (good for WMTS, XYZ layers)
+  mapSettings.setFlag( QgsMapSettings::RenderPartialOutput, mIncrementalRendering );
 
   // create the renderer job
   Q_ASSERT( !mJob );

@@ -16,7 +16,6 @@ Page {
   property alias showScaleBar: registry.showScaleBar
   property alias fullScreenIdentifyView: registry.fullScreenIdentifyView
   property alias locatorKeepScale: registry.locatorKeepScale
-  property alias incrementalRendering: registry.incrementalRendering
   property alias numericalDigitizingInformation: registry.numericalDigitizingInformation
   property alias nativeCamera: registry.nativeCamera
   property alias autoSave: registry.autoSave
@@ -27,7 +26,6 @@ Page {
     property bool showScaleBar
     property bool fullScreenIdentifyView
     property bool locatorKeepScale
-    property bool incrementalRendering
     property bool numericalDigitizingInformation
     property bool nativeCamera: true
     property bool autoSave
@@ -48,11 +46,6 @@ Page {
           title: qsTr( "Fixed scale navigation" )
           description: qsTr( "When fixed scale navigation is active, focusing on a search result will pan to the feature. With fixed scale navigation disabled it will pan and zoom to the feature." )
           settingAlias: "locatorKeepScale"
-      }
-      ListElement {
-          title: qsTr( "Progressive rendering" )
-          description: qsTr( "When progressive rendering is enabled, the map will be drawn every 250 milliseconds while rendering." )
-          settingAlias: "incrementalRendering"
       }
       ListElement {
           title: qsTr( "Show digitizing information" )
