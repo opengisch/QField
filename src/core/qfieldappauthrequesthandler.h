@@ -70,7 +70,7 @@ class QFieldAppAuthRequestHandler : public QObject, public QgsNetworkAuthenticat
     //! the realms that are not (yet) successfully logged in into
     struct RealmEntry
     {
-      RealmEntry( const QString &realm, bool canceled = false )
+      explicit RealmEntry( const QString &realm, bool canceled = false )
         : realm( realm )
         , canceled( canceled )
       {}

@@ -35,14 +35,8 @@ void QFieldAppAuthRequestHandler::enterCredentials( const QString &realm, const 
 
 QString QFieldAppAuthRequestHandler::getFirstUnhandledRealm() const
 {
-  for ( const RealmEntry &entry : qgis::as_const( mRealms ) )
-  {
-    if ( !entry.canceled )
-    {
-      return entry.realm;
-    }
-  }
-  return QString();
+  auto entry = std::find_if( mRealms.begin(), mRealms.end(), []( const RealmEntry &entry ) { return !entry.canceled; } );
+  return entry != mRealms.end() ? entry->realm : QString();
 }
 
 bool QFieldAppAuthRequestHandler::handleLayerLogins()
@@ -103,13 +97,10 @@ void QFieldAppAuthRequestHandler::clearStoredRealms()
 
 void QFieldAppAuthRequestHandler::authNeeded( const QString &realm )
 {
-  for ( const RealmEntry &entry : qgis::as_const( mRealms ) )
+  if ( std::any_of( mRealms.begin(), mRealms.end(), [&realm]( const RealmEntry &entry ) { return entry.realm == realm; } ) )
   {
-    if ( entry.realm == realm )
-    {
-      //realm already in list
-      return;
-    }
+    //realm already in list
+    return;
   }
 
   RealmEntry unhandledRealm( realm );
@@ -128,12 +119,12 @@ void QFieldAppAuthRequestHandler::handleAuthRequest( QNetworkReply *reply, QAuth
     QByteArray header( reply->request().rawHeader( "Authorization" ) );
     if ( header.startsWith( "Basic " ) )
     {
-      QByteArray auth( QByteArray::fromBase64( header.mid( 6 ) ) );
-      int pos = auth.indexOf( ':' );
+      QByteArray authorization( QByteArray::fromBase64( header.mid( 6 ) ) );
+      int pos = authorization.indexOf( ':' );
       if ( pos >= 0 )
       {
-        username = auth.left( pos );
-        password = auth.mid( pos + 1 );
+        username = authorization.left( pos );
+        password = authorization.mid( pos + 1 );
       }
     }
   }
