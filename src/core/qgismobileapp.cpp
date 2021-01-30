@@ -765,11 +765,9 @@ void QgisMobileapp::readProjectFile()
     if ( crs.isValid() )
       mProject->setCrs( crs );
 
-    if ( rasterLayers.size() == 0 )
-    {
-      QgsRasterLayer *layer = new QgsRasterLayer( QStringLiteral( "type=xyz&url=http://a.tile.openstreetmap.org/%7Bz%7D/%7Bx%7D/%7By%7D.png&zmax=19&zmin=0&crs=EPSG3857" ), QStringLiteral( "OpenStreetMap" ), QLatin1String( "wms" ) );
-      vectorLayers << layer;
-    }
+    // Add a basemap
+    QgsRasterLayer *layer = new QgsRasterLayer( QStringLiteral( "type=xyz&url=https://a.tile.openstreetmap.org/%7Bz%7D/%7Bx%7D/%7By%7D.png&zmax=19&zmin=0&crs=EPSG3857" ), QStringLiteral( "OpenStreetMap" ), QLatin1String( "wms" ) );
+    mProject->addMapLayers( QList<QgsMapLayer *>() << layer );
 
     mProject->addMapLayers( rasterLayers );
     mProject->addMapLayers( vectorLayers );
