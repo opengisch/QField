@@ -1733,12 +1733,14 @@ ApplicationWindow {
       function onLoadProjectTriggered(path,name) {
         welcomeScreen.visible = false
         dashBoard.layerTree.freeze()
+        mapCanvasMap.freeze('projectload')
         busyMessageText.text = qsTr( "Loading %1" ).arg( name !== '' ? name : path )
         busyMessage.state = "visible"
         readProjectTimer.start()
       }
 
       function onLoadProjectEnded() {
+        mapCanvasMap.unfreeze('projectload')
         busyMessage.state = "hidden"
         mapCanvasBackground.color = mapCanvas.mapSettings.backgroundColor
       }
