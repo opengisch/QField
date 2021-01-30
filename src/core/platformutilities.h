@@ -20,7 +20,9 @@
 #define PLATFORMUTILITIES_H
 
 #include <QObject>
+
 #include <qgsfield.h>
+
 #include "picturesource.h"
 #include "viewstatus.h"
 

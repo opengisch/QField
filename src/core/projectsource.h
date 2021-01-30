@@ -24,6 +24,11 @@
  * It will notify the system with the projectOpened() signal
  * once the user has selected a project to open.
  *
+ * The path can either be a QGIS project file (.qgs, .qgz) or
+ * a supported vector/raster dataset. The latter will trigger
+ * the creation of a project within which the dataset will
+ * be loaded.
+ *
  * The default implementation does nothing. You probably
  * want to have a look at the AndroidProjectSource subclass.
  */

@@ -1744,6 +1744,10 @@ ApplicationWindow {
         busyMessage.state = "hidden"
         mapCanvasBackground.color = mapCanvas.mapSettings.backgroundColor
       }
+
+      function onSetMapExtent(extent) {
+          mapCanvas.mapSettings.extent = extent;
+      }
     }
   }
 
@@ -2055,7 +2059,7 @@ ApplicationWindow {
       }
     }
     onDropped: {
-      iface.loadProject( drop.urls[0] )
+      iface.loadFile( drop.urls[0] )
     }
 
     function validateFileExtension(filePath) {
@@ -2091,7 +2095,7 @@ ApplicationWindow {
     target: welcomeScreen.__projectSource
 
     function onProjectOpened(path) {
-      iface.loadProject( path )
+      iface.loadFile(path)
     }
   }
 

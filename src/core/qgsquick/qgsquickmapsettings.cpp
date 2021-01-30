@@ -51,6 +51,7 @@ void QgsQuickMapSettings::setProject( QgsProject *project )
   if ( mProject )
   {
     connect( mProject, &QgsProject::readProject, this, &QgsQuickMapSettings::onReadProject );
+    connect( mProject, &QgsProject::crsChanged, this, &QgsQuickMapSettings::onCrsChanged );
     setDestinationCrs( mProject->crs() );
     mMapSettings.setTransformContext( mProject->transformContext() );
   }
@@ -216,6 +217,11 @@ void MapSettings::setMapTheme( QgsProject *project, const QString &mapThemeName 
   emit layersChanged();
 }
 #endif
+
+void QgsQuickMapSettings::onCrsChanged()
+{
+  setDestinationCrs( mProject->crs() );
+}
 
 void QgsQuickMapSettings::onReadProject( const QDomDocument &doc )
 {

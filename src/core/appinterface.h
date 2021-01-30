@@ -24,6 +24,7 @@
 #include <QStandardItemModel>
 
 class QgisMobileapp;
+class QgsRectangle;
 
 class AppInterface : public QObject
 {
@@ -38,7 +39,7 @@ class AppInterface : public QObject
     }
 
     Q_INVOKABLE void loadLastProject();
-    Q_INVOKABLE void loadProject( const QString &path, const QString &name = QString() );
+    Q_INVOKABLE void loadFile( const QString &path, const QString &name = QString() );
     Q_INVOKABLE void reloadProject();
     Q_INVOKABLE void readProject();
     Q_INVOKABLE void removeRecentProject( const QString &path );
@@ -54,6 +55,8 @@ class AppInterface : public QObject
     void loadProjectTriggered( const QString &path, const QString &name );
 
     void loadProjectEnded();
+
+    void setMapExtent( const QgsRectangle &extent );
 
   private:
     QgisMobileapp *mApp = nullptr;

@@ -20,6 +20,7 @@
 
 #include "platformutilities.h"
 #include "projectsource.h"
+#include "qgismobileapp.h"
 
 #include <QDebug>
 #include <QDir>
@@ -130,7 +131,15 @@ QString PlatformUtilities::fieldType( const QgsField &field ) const
 ProjectSource *PlatformUtilities::openProject()
 {
   ProjectSource *source = new ProjectSource( );
-  QString path { QFileDialog::getOpenFileName( nullptr, tr( "Open QGIS Project File" ), QString(), tr( "QGIS Project Files (*.qgs *.qgz)" ) ) };
+  QString path { QFileDialog::getOpenFileName( nullptr,
+                                               tr( "Open QGIS Project File" ),
+                                               QString(),
+                                               QStringLiteral( "%1 (*.%2);;%3 (*.%4);;%5 (*.%6)" ).arg( tr( "QGIS Project Files" ),
+                                                                                                        SUPPORTED_PROJECT_EXTENSIONS.join( QStringLiteral( " *." ) ),
+                                                                                                        tr( "Vector Datasets" ),
+                                                                                                        SUPPORTED_VECTOR_EXTENSIONS.join( QStringLiteral( " *." ) ),
+                                                                                                        tr( "Raster Datasets" ),
+                                                                                                        SUPPORTED_RASTER_EXTENSIONS.join( QStringLiteral( " *." ) ) ) ) };
   if ( ! path.isEmpty() )
   {
     QTimer::singleShot( 0, this, [source, path]() { emit source->projectOpened( path ); } );

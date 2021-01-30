@@ -57,6 +57,10 @@ class QgsProject;
 
 #define REGISTER_SINGLETON(uri, _class, name) qmlRegisterSingletonType<_class>( uri, 1, 0, name, [] ( QQmlEngine *engine, QJSEngine *scriptEngine ) -> QObject * { Q_UNUSED(engine); Q_UNUSED(scriptEngine); return new _class(); } )
 
+#define SUPPORTED_PROJECT_EXTENSIONS QStringList( { QStringLiteral( "qgs" ), QStringLiteral( "qgz" ) } )
+#define SUPPORTED_VECTOR_EXTENSIONS    QStringList( { QStringLiteral( "gpkg" ), QStringLiteral( "shp" ), QStringLiteral( "kml" ), QStringLiteral( "kmz" ), QStringLiteral( "geojson" ), QStringLiteral( "json" ), QStringLiteral( "pdf" ) } )
+#define SUPPORTED_RASTER_EXTENSIONS    QStringList( { QStringLiteral( "tif" ), QStringLiteral( "pdf" ), QStringLiteral( "jpg" ), QStringLiteral( "png" ), QStringLiteral( "gpkg" ) } )
+
 
 class QgisMobileapp : public QQmlApplicationEngine
 {
@@ -86,9 +90,9 @@ class QgisMobileapp : public QQmlApplicationEngine
     void loadLastProject();
 
     /**
-     * Set the project file path to be loaded.
+     * Set the project or dataset file path to be loaded.
      *
-     * \param path The project file to load
+     * \param path The project or dataset file to load
      * \param name The project name
      * \note The actual loading is done in readProjectFile
      */
@@ -127,6 +131,11 @@ class QgisMobileapp : public QQmlApplicationEngine
      */
     void loadProjectEnded();
 
+    /**
+     * Emitted when a map canvas extent change is needed
+     */
+    void setMapExtent( const QgsRectangle &extent );
+
   private slots:
 
     /**
@@ -154,8 +163,8 @@ class QgisMobileapp : public QQmlApplicationEngine
     LegendImageProvider *mLegendImageProvider = nullptr;
 
     QgsProject *mProject = nullptr;
-    QString mProjectPath;
-    QString mProjectName;
+    QString mProjectFilePath;
+    QString mProjectFileName;
 
     std::unique_ptr<QgsGpkgFlusher> mGpkgFlusher;
     QFieldAppAuthRequestHandler *mAuthRequestHandler = nullptr;

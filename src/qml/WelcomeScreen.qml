@@ -8,6 +8,8 @@ import Theme 1.0
 Page {
   id: welcomeScreen
 
+  property bool firstShown: false
+
   property alias model: table.model
   signal showOpenProjectDialog
 
@@ -89,7 +91,7 @@ Page {
         QfButton {
           id: localProjectButton
           Layout.fillWidth: true
-          text: qsTr( "Open local project" )
+          text: qsTr( "Open local file" )
           onClicked: {
             showOpenProjectDialog()
           }
@@ -172,7 +174,7 @@ Page {
                   text: {
                     if (index == 0) {
                         var firstRun = !settings.value( "/QField/FirstRunFlag", false )
-                        return !firstRun && qgisProject.fileName == '' ? qsTr( "Last session" ) : ""
+                        return !firstRun && firstShown === false ? qsTr( "Last session" ) : ""
                     }
                     else
                     {
@@ -194,7 +196,7 @@ Page {
             onClicked: {
               var item = table.itemAt(mouse.x, mouse.y)
               if (item)
-                iface.loadProject(item.path,item.title)
+                iface.loadFile(item.path,item.title)
             }
             onPressed: {
               var item = table.itemAt(mouse.x, mouse.y)
@@ -374,7 +376,7 @@ Page {
 
   function adjustWelcomeScreen() {
     if (visible) {
-      if (qgisProject.fileName != '') {
+      if (firstShown) {
         welcomeText.text = " ";
         currentProjectButton.visible = true
       } else {
@@ -385,6 +387,7 @@ Page {
           welcomeText.text = qsTr( "Welcome back to QField." )
         }
         currentProjectButton.visible = false
+        firstShown = true
       }
     }
   }
