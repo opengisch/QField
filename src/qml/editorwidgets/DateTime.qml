@@ -78,6 +78,13 @@ EditorWidgetBase {
               }
               else
               {
+                var displayFormat
+                if (config['display_format'] !== undefined) {
+                    displayFormat = config['display_format']
+                } else {
+                    displayFormat = 'yyyy-MM-dd'
+                }
+
                 if ( main.isDateTimeType )
                 {
                   // if the field is a QDate, the automatic conversion to JS date [1]
@@ -88,15 +95,15 @@ EditorWidgetBase {
                   // So we detect if the field is a date only and revert the time zone offset.
                   // [1] http://doc.qt.io/qt-5/qtqml-cppintegration-data.html#basic-qt-data-types
                   if (main.fieldIsDate) {
-                    Qt.formatDateTime( new Date(value.getTime() + value.getTimezoneOffset() * 60000), config['display_format'])
+                    Qt.formatDateTime( new Date(value.getTime() + value.getTimezoneOffset() * 60000), displayFormat)
                   } else {
-                    Qt.formatDateTime(value, config['display_format'])
+                    Qt.formatDateTime(value, displayFormat)
                   }
                 }
                 else
                 {
                   var date = Date.fromLocaleString(Qt.locale(), value, config['field_format'])
-                  Qt.formatDateTime(date, config['display_format'])
+                  Qt.formatDateTime(date, displayFormat)
                 }
               }
 
