@@ -78,12 +78,9 @@ EditorWidgetBase {
               }
               else
               {
-                var displayFormat
-                if (config['display_format'] !== undefined) {
-                    displayFormat = config['display_format']
-                } else {
-                    displayFormat = 'yyyy-MM-dd'
-                }
+                var displayFormat = config['display_format'] == null
+                    ? 'yyyy-MM-dd'
+                    : config['display_format']
 
                 if ( main.isDateTimeType )
                 {
