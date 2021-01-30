@@ -473,14 +473,6 @@ void QgisMobileapp::onReadProject( const QDomDocument &doc )
   Q_UNUSED( doc )
   QMap<QgsVectorLayer *, QgsFeatureRequest> requests;
 
-  QList<QPair<QString, QString>> projects = recentProjects();
-  QFileInfo fi( mProject->fileName() );
-  QPair<QString, QString> project = qMakePair( mProject->title().isEmpty() ? fi.completeBaseName() : mProject->title(), mProject->fileName() );
-  if ( projects.contains( project ) )
-    projects.removeAt( projects.indexOf( project ) );
-  projects.insert( 0, project );
-  saveRecentProjects( projects );
-
   const QList<QgsMapLayer *> mapLayers { mProject->mapLayers().values() };
   for ( QgsMapLayer *layer : mapLayers )
   {
@@ -597,6 +589,13 @@ void QgisMobileapp::readProjectFile()
   {
     mProject->clear();
   }
+
+  QList<QPair<QString, QString>> projects = recentProjects();
+  QPair<QString, QString> project = qMakePair( mProject->title().isEmpty() ? mProjectFileName : mProject->title(), mProjectFilePath );
+  if ( projects.contains( project ) )
+    projects.removeAt( projects.indexOf( project ) );
+  projects.insert( 0, project );
+  saveRecentProjects( projects );
 
   QList<QgsMapLayer *> vectorLayers;
   QList<QgsMapLayer *> rasterLayers;
