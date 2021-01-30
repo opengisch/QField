@@ -448,6 +448,11 @@ E: External (NMEA) position source</p>
 <div class="highlight-sql notranslate"><div class="highlight"><pre><span></span>aggregate( layer:=&#39;regions&#39;, aggregate:=&#39;max&#39;, expression:=&quot;code&quot;, filter:=intersects( $geometry, geometry( @parent ) ) )
 </pre></div>
 </div>
+<p>To transform the coordinates received from &#64;position_coordinate to the coordinate system of your project:</p>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="n">x</span><span class="p">(</span><span class="k">transform</span><span class="p">(</span><span class="o">@</span><span class="n">position_coordinate</span><span class="p">,</span> <span class="s1">&#39;EPSG:4326&#39;</span><span class="p">,</span> <span class="o">@</span><span class="n">project_crs</span> <span class="p">))</span>
+<span class="n">y</span><span class="p">(</span><span class="k">transform</span><span class="p">(</span><span class="o">@</span><span class="n">position_coordinate</span><span class="p">,</span> <span class="s1">&#39;EPSG:4326&#39;</span><span class="p">,</span> <span class="o">@</span><span class="n">project_crs</span> <span class="p">))</span>
+</pre></div>
+</div>
 </div>
 </div>
 <div class="section" id="editable">

@@ -131,12 +131,12 @@
     aria-labelledby="dLabelGlobalToc"><ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../install/index.html">Instalação</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">Prepare for Work</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../synchronise/index.html">Synchronisation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../fieldwork/index.html">Fieldwork</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../getting-started/index.html">Getting Started Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../synchronise/index.html">Sincronização</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../fieldwork/index.html">Trabalho de campo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting-started/index.html">Iniciando com Tutoriais</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../data-formats/index.html">Supported Data Formats</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../case-studies/index.html">Case Studies</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../support/index.html">Support and Development</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../case-studies/index.html">Casos de estudo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../support/index.html">Suporte e Desenvolvimento</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../old-doc/index.html">Legacy Documentation</a></li>
 </ul>
 
@@ -162,7 +162,7 @@
 <col width="58%" />
 </colgroup>
 <thead valign="bottom">
-<tr class="row-odd"><th class="head">Widget type</th>
+<tr class="row-odd"><th class="head">Tipo de widget</th>
 <th class="head">Suporte</th>
 <th class="head">Notas</th>
 </tr>
@@ -291,7 +291,7 @@ and doc (if the user has an appropriate viewer)
 <p class="caption"><span class="caption-text">A configuração de uma caixa de grupo que será mostrada apenas se a caixa de selecção «measures_taken» estiver marcada.</span></p>
 </div>
 </div>
-<p>Let’s see what we got on the field:</p>
+<p>Vamos ver o que temos no campo:</p>
 <div class="clearer text-left docutils container">
 
     <video width="700"  controls >
@@ -398,7 +398,7 @@ external device connected via NMEA connection.</p>
 </div></blockquote>
 <p>All &#64;position_* variables have a corresponding &#64;gnss_* variable. The gnss variables always report the gnss sensor values, even when the crosshair is not snapped.</p>
 <dl class="docutils">
-<dt>Examples:</dt>
+<dt>Exemplos:</dt>
 <dd><ul class="first last simple">
 <li>when the crosshair is snapped to the sensor
 - <cite>&#64;gnss_horizontal_accuracy</cite> –&gt; The horizontal accuracy of the coordinate (in meters) as reported by the sensor.
@@ -434,6 +434,11 @@ E: External (NMEA) position source</p>
 </div>
 <p>Se quer atribuir um código de região baseado na localização onde o novo elemento é inserido, pode-o fazer usando a expressão de agregação:</p>
 <div class="highlight-sql notranslate"><div class="highlight"><pre><span></span>aggregate( layer:=&#39;regions&#39;, aggregate:=&#39;max&#39;, expression:=&quot;code&quot;, filter:=intersects( $geometry, geometry( @parent ) ) )
+</pre></div>
+</div>
+<p>To transform the coordinates received from &#64;position_coordinate to the coordinate system of your project:</p>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="n">x</span><span class="p">(</span><span class="k">transform</span><span class="p">(</span><span class="o">@</span><span class="n">position_coordinate</span><span class="p">,</span> <span class="s1">&#39;EPSG:4326&#39;</span><span class="p">,</span> <span class="o">@</span><span class="n">project_crs</span> <span class="p">))</span>
+<span class="n">y</span><span class="p">(</span><span class="k">transform</span><span class="p">(</span><span class="o">@</span><span class="n">position_coordinate</span><span class="p">,</span> <span class="s1">&#39;EPSG:4326&#39;</span><span class="p">,</span> <span class="o">@</span><span class="n">project_crs</span> <span class="p">))</span>
 </pre></div>
 </div>
 </div>

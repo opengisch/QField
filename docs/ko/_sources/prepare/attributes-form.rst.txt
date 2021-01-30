@@ -326,6 +326,13 @@ inserted, you can do so by using an aggregate expression:
 
   aggregate( layer:='regions', aggregate:='max', expression:="code", filter:=intersects( $geometry, geometry( @parent ) ) )
 
+To transform the coordinates received from @position_coordinate to the coordinate system of your project:
+
+.. code-block:: sql
+
+  x(transform(@position_coordinate, 'EPSG:4326', @project_crs ))
+  y(transform(@position_coordinate, 'EPSG:4326', @project_crs ))
+
 Editable
 --------
 
