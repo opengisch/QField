@@ -530,7 +530,7 @@ void QgisMobileapp::loadProjectFile( const QString &path, const QString &name )
 
   const QString suffix = fi.suffix().toLower();
   if ( suffix == QLatin1String( "qgs") || suffix == QLatin1String( "qgz") ||
-       suffix == QLatin1String( "gpkg" ) || suffix == QLatin1String( "shp" ) || suffix == QLatin1String( "kml" ) || suffix == QLatin1String( "kmz" ) ||
+       suffix == QLatin1String( "gpkg" ) || suffix == QLatin1String( "shp" ) || suffix == QLatin1String( "kml" ) || suffix == QLatin1String( "kmz" ) || suffix == QLatin1String( "gpx" ) ||
        suffix == QLatin1String( "tif" ) || suffix == QLatin1String( "pdf" ) || suffix == QLatin1String( "jpg" ) || suffix == QLatin1String( "png" ) )
   {
     mAuthRequestHandler->clearStoredRealms();
@@ -597,7 +597,8 @@ void QgisMobileapp::readProjectFile()
   QgsRectangle extent;
 
   // Load vector dataset
-  if ( suffix == QLatin1String( "gpkg" ) || suffix == QLatin1String( "shp" ) || suffix == QLatin1String( "kml" ) || suffix == QLatin1String( "kmz" ) || suffix == QLatin1String( "pdf" ) )
+  if ( suffix == QLatin1String( "gpkg" ) || suffix == QLatin1String( "shp" ) || suffix == QLatin1String( "kml" ) || suffix == QLatin1String( "kmz" ) ||
+       suffix == QLatin1String( "gpx" ) || suffix == QLatin1String( "pdf" ) )
   {
     QgsVectorLayer::LayerOptions options { QgsProject::instance()->transformContext() };
     options.loadDefaultStyle = true;
