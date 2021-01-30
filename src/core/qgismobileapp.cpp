@@ -790,8 +790,11 @@ void QgisMobileapp::readProjectFile()
 
   emit loadProjectEnded();
 
-  if ( !extent.isEmpty() )
-    emit setMapExtent( extent );
+  if ( !extent.isEmpty() && extent.width() != 0.0 )
+  {
+    // Add a bit of buffer so elements don't touch the map edges
+    emit setMapExtent( extent.buffered( extent.width() * 0.02 ) );
+  }
 }
 
 void QgisMobileapp::print( int layoutIndex )
