@@ -45,6 +45,8 @@
 #include <qgsfeature.h>
 #include <qgsvectorlayer.h>
 #include <qgsrasterlayer.h>
+#include <qgsrasterresamplefilter.h>
+#include <qgsbilinearrasterresampler.h>
 #include <qgssnappingutils.h>
 #include <qgsunittypes.h>
 #include <qgscoordinatereferencesystem.h>
@@ -650,14 +652,6 @@ void QgisMobileapp::readProjectFile()
                 }
               }
             }
-
-            QgsSymbol *symbol = FeatureUtils::defaultSymbol( sublayer );
-            if ( symbol )
-            {
-              QgsSingleSymbolRenderer *renderer = new QgsSingleSymbolRenderer( symbol );
-              sublayer->setRenderer( renderer );
-            }
-
             vectorLayers << sublayer;
           }
           else
@@ -670,15 +664,18 @@ void QgisMobileapp::readProjectFile()
       {
         crs = layer->crs();
         extent = layer->extent();
+        vectorLayers << layer;
+      }
 
-        QgsSymbol *symbol = FeatureUtils::defaultSymbol( layer );
+      for( QgsMapLayer *layer : vectorLayers )
+      {
+        QgsVectorLayer *vlayer = qobject_cast< QgsVectorLayer * >( layer );
+        QgsSymbol *symbol = FeatureUtils::defaultSymbol( vlayer );
         if ( symbol )
         {
           QgsSingleSymbolRenderer *renderer = new QgsSingleSymbolRenderer( symbol );
-          layer->setRenderer( renderer );
+          vlayer->setRenderer( renderer );
         }
-
-        vectorLayers << layer;
       }
     }
     else
@@ -731,7 +728,6 @@ void QgisMobileapp::readProjectFile()
                 }
               }
             }
-
             rasterLayers << sublayer;
           }
           else
@@ -745,6 +741,18 @@ void QgisMobileapp::readProjectFile()
         crs = layer->crs();
         extent = layer->extent();
         rasterLayers << layer;
+      }
+
+      // If the raster size is reasonably small, apply nicer resampling settings
+      if ( fi.size() < 50000000 )
+      {
+        for( QgsMapLayer *layer : rasterLayers )
+        {
+          QgsRasterLayer *rlayer = qobject_cast< QgsRasterLayer * >( layer );
+          rlayer->resampleFilter()->setZoomedInResampler( new QgsBilinearRasterResampler() );
+          rlayer->resampleFilter()->setZoomedOutResampler( new QgsBilinearRasterResampler() );
+          rlayer->resampleFilter()->setMaxOversampling( 2.0 );
+        }
       }
     }
   }
