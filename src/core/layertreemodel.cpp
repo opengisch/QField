@@ -392,6 +392,9 @@ QModelIndex FlatLayerTreeModelBase::index( int row, int column, const QModelInde
 
 QVariant FlatLayerTreeModelBase::data( const QModelIndex &index, int role ) const
 {
+  if ( mFrozen )
+    return QVariant();
+
   switch ( role )
   {
     case FlatLayerTreeModel::VectorLayerPointer:
