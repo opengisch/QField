@@ -140,11 +140,16 @@ public class QFieldProjectActivity extends Activity {
                 for (File file : list) {
                     if (file.getName().startsWith(".")) {
                         continue;
-                    }else if (file.getName().toLowerCase().endsWith(".qgs") || file.getName().toLowerCase().endsWith(".qgz") ||
-                              file.getName().toLowerCase().endsWith(".gpkg") || file.getName().toLowerCase().endsWith(".shp") || 
-                              file.getName().toLowerCase().endsWith(".kml") || file.getName().toLowerCase().endsWith(".kmz") || 
-                              file.getName().toLowerCase().endsWith(".tif") || file.getName().toLowerCase().endsWith(".jpg") || 
-                              file.getName().toLowerCase().endsWith(".png") || file.getName().toLowerCase().endsWith(".pdf") ||
+                    }else if (file.getName().toLowerCase().endsWith(".qgs") ||
+                              file.getName().toLowerCase().endsWith(".qgz") ||
+                              file.getName().toLowerCase().endsWith(".gpkg") || 
+                              file.getName().toLowerCase().endsWith(".shp") || 
+                              file.getName().toLowerCase().endsWith(".kml") || 
+                              file.getName().toLowerCase().endsWith(".kmz") || 
+                              file.getName().toLowerCase().endsWith(".tif") || 
+                              file.getName().toLowerCase().endsWith(".jpg") || 
+                              file.getName().toLowerCase().endsWith(".png") || 
+                              file.getName().toLowerCase().endsWith(".pdf") ||
                               file.getName().toLowerCase().endsWith(".gpx")){
                         values.add(new QFieldProjectListItem(file, file.getName(), R.drawable.qfield_logo, QFieldProjectListItem.TYPE_ITEM));
                     }else if (file.isDirectory()){

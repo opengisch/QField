@@ -529,9 +529,9 @@ void QgisMobileapp::loadProjectFile( const QString &path, const QString &name )
     QgsMessageLog::logMessage( tr( "Project file \"%1\" does not exist" ).arg( path ), QStringLiteral( "QField" ), Qgis::Warning );
 
   const QString suffix = fi.suffix().toLower();
-  if ( suffix == QLatin1String( "qgs") || suffix == QLatin1String( "qgz") ||
-       suffix == QLatin1String( "gpkg" ) || suffix == QLatin1String( "shp" ) || suffix == QLatin1String( "kml" ) || suffix == QLatin1String( "kmz" ) || suffix == QLatin1String( "gpx" ) ||
-       suffix == QLatin1String( "tif" ) || suffix == QLatin1String( "pdf" ) || suffix == QLatin1String( "jpg" ) || suffix == QLatin1String( "png" ) )
+  if ( SUPPORTED_PROJECT_EXTENSIONS.contains( suffix ) ||
+       SUPPORTED_VECTOR_EXTENSIONS.contains( suffix ) ||
+       SUPPORTED_RASTER_EXTENSIONS.contains( suffix ) )
   {
     mAuthRequestHandler->clearStoredRealms();
 
@@ -562,7 +562,7 @@ void QgisMobileapp::readProjectFile()
   mTrackingModel->reset();
 
   // Load project file
-  if ( suffix == QLatin1String( "qgs") || suffix == QLatin1String( "qgz") )
+  if ( SUPPORTED_PROJECT_EXTENSIONS.contains( suffix ) )
   {
     mProject->read( mProjectFilePath );
 
@@ -609,8 +609,7 @@ void QgisMobileapp::readProjectFile()
   QgsRectangle extent;
 
   // Load vector dataset
-  if ( suffix == QLatin1String( "gpkg" ) || suffix == QLatin1String( "shp" ) || suffix == QLatin1String( "kml" ) || suffix == QLatin1String( "kmz" ) ||
-       suffix == QLatin1String( "gpx" ) || suffix == QLatin1String( "pdf" ) )
+  if ( SUPPORTED_VECTOR_EXTENSIONS.contains( suffix ) )
   {
     QgsVectorLayer::LayerOptions options { QgsProject::instance()->transformContext() };
     options.loadDefaultStyle = true;
@@ -705,7 +704,7 @@ void QgisMobileapp::readProjectFile()
   }
 
   // Load raster dataset
-  if ( suffix == QLatin1String( "tif" ) || suffix == QLatin1String( "pdf" ) || suffix == QLatin1String( "jpg" ) || suffix == QLatin1String( "png" ) ) {
+  if ( SUPPORTED_RASTER_EXTENSIONS.contains( suffix ) ) {
     QgsRasterLayer *layer = new QgsRasterLayer( mProjectFilePath, mProjectFileName, QLatin1String( "gdal" ) );
     if ( layer->isValid() )
     {
