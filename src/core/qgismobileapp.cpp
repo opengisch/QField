@@ -528,17 +528,10 @@ void QgisMobileapp::loadProjectFile( const QString &path, const QString &name )
   if ( !fi.exists() )
     QgsMessageLog::logMessage( tr( "Project file \"%1\" does not exist" ).arg( path ), QStringLiteral( "QField" ), Qgis::Warning );
 
-  const QString suffix = fi.suffix();
-  if ( suffix.compare( QLatin1String( "qgs"), Qt::CaseInsensitive ) == 0 ||
-       suffix.compare( QLatin1String( "qgz"), Qt::CaseInsensitive ) == 0 ||
-       suffix.compare( QLatin1String( "gpkg" ), Qt::CaseInsensitive ) == 0 ||
-       suffix.compare( QLatin1String( "shp" ), Qt::CaseInsensitive ) == 0 ||
-       suffix.compare( QLatin1String( "kml" ), Qt::CaseInsensitive ) == 0 ||
-       suffix.compare( QLatin1String( "kmz" ), Qt::CaseInsensitive ) == 0 ||
-       suffix.compare( QLatin1String( "tif" ), Qt::CaseInsensitive ) == 0 ||
-       suffix.compare( QLatin1String( "pdf" ), Qt::CaseInsensitive ) == 0 ||
-       suffix.compare( QLatin1String( "jpg" ), Qt::CaseInsensitive ) == 0 ||
-       suffix.compare( QLatin1String( "png" ), Qt::CaseInsensitive ) == 0 )
+  const QString suffix = fi.suffix().toLower();
+  if ( suffix == QLatin1String( "qgs") || suffix == QLatin1String( "qgz") ||
+       suffix == QLatin1String( "gpkg" ) || suffix == QLatin1String( "shp" ) || suffix == QLatin1String( "kml" ) || suffix == QLatin1String( "kmz" ) ||
+       suffix == QLatin1String( "tif" ) || suffix == QLatin1String( "pdf" ) || suffix == QLatin1String( "jpg" ) || suffix == QLatin1String( "png" ) )
   {
     mAuthRequestHandler->clearStoredRealms();
 
@@ -563,14 +556,13 @@ void QgisMobileapp::readProjectFile()
   if ( !fi.exists() )
     QgsMessageLog::logMessage( tr( "Project file \"%1\" does not exist" ).arg( mProjectFilePath ), QStringLiteral( "QField" ), Qgis::Warning );
 
-  const QString suffix = fi.suffix();
+  const QString suffix = fi.suffix().toLower();
 
   mProject->removeAllMapLayers();
   mTrackingModel->reset();
 
   // Load project file
-  if ( suffix.compare( QLatin1String( "qgs"), Qt::CaseInsensitive ) == 0 ||
-       suffix.compare( QLatin1String( "qgz"), Qt::CaseInsensitive ) == 0 )
+  if ( suffix == QLatin1String( "qgs") || suffix == QLatin1String( "qgz") )
   {
     mProject->read( mProjectFilePath );
 
@@ -605,11 +597,7 @@ void QgisMobileapp::readProjectFile()
   QgsRectangle extent;
 
   // Load vector dataset
-  if ( suffix.compare( QLatin1String( "gpkg" ), Qt::CaseInsensitive ) == 0 ||
-       suffix.compare( QLatin1String( "shp" ), Qt::CaseInsensitive ) == 0 ||
-       suffix.compare( QLatin1String( "kml" ), Qt::CaseInsensitive ) == 0 ||
-       suffix.compare( QLatin1String( "kmz" ), Qt::CaseInsensitive ) == 0 ||
-       suffix.compare( QLatin1String( "pdf" ), Qt::CaseInsensitive ) == 0 )
+  if ( suffix == QLatin1String( "gpkg" ) || suffix == QLatin1String( "shp" ) || suffix == QLatin1String( "kml" ) || suffix == QLatin1String( "kmz" ) || suffix == QLatin1String( "pdf" ) )
   {
     QgsVectorLayer::LayerOptions options { QgsProject::instance()->transformContext() };
     options.loadDefaultStyle = true;
@@ -685,11 +673,7 @@ void QgisMobileapp::readProjectFile()
   }
 
   // Load raster dataset
-  if ( suffix.compare( QLatin1String( "tif" ), Qt::CaseInsensitive ) == 0 ||
-       suffix.compare( QLatin1String( "pdf" ), Qt::CaseInsensitive ) == 0 ||
-       suffix.compare( QLatin1String( "jpg" ), Qt::CaseInsensitive ) == 0 ||
-       suffix.compare( QLatin1String( "png" ), Qt::CaseInsensitive ) == 0 )
-  {
+  if ( suffix == QLatin1String( "tif" ) || suffix == QLatin1String( "pdf" ) || suffix == QLatin1String( "jpg" ) || suffix == QLatin1String( "png" ) ) {
     QgsRasterLayer *layer = new QgsRasterLayer( mProjectFilePath, mProjectFileName, QLatin1String( "gdal" ) );
     if ( layer->isValid() )
     {
