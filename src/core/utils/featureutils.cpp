@@ -19,6 +19,13 @@
 #include <qgsexpressioncontextutils.h>
 #include <qgsproject.h>
 #include <qgsvectorlayer.h>
+#include <qgssymbol.h>
+#include <qgssymbollayer.h>
+#include <qgsmarkersymbollayer.h>
+#include <qgslinesymbollayer.h>
+#include <qgsfillsymbollayer.h>
+#include <qgswkbtypes.h>
+#include "qgssinglesymbolrenderer.h"
 
 
 FeatureUtils::FeatureUtils(QObject *parent) : QObject(parent)
@@ -49,4 +56,42 @@ QString FeatureUtils::displayName( QgsVectorLayer *layer, const QgsFeature &feat
     name = QString::number( feature.id() );
 
   return name;
+}
+
+QgsSymbol *FeatureUtils::defaultSymbol( QgsVectorLayer *layer )
+{
+  QgsSymbol *symbol = nullptr;
+  QgsSymbolLayerList layers;
+  switch ( layer->geometryType() )
+  {
+    case QgsWkbTypes::PointGeometry:
+    {
+      QgsSimpleMarkerSymbolLayer *layer = new QgsSimpleMarkerSymbolLayer( QgsSimpleMarkerSymbolLayerBase::Circle, 2.6, 0.0, DEFAULT_SCALE_METHOD, QColor( 255, 0, 0, 100 ), QColor( 255, 0, 0 ) );
+      layer->setStrokeWidth( 0.6 );
+      layers << layer;
+      symbol = new QgsMarkerSymbol( layers );
+      break;
+    }
+
+    case QgsWkbTypes::LineGeometry:
+    {
+      QgsSimpleLineSymbolLayer *layer = new QgsSimpleLineSymbolLayer( QColor( 255, 0, 0 ), 0.6 );
+      layers << layer;
+      symbol = new QgsLineSymbol( layers );
+      break;
+    }
+
+    case QgsWkbTypes::PolygonGeometry:
+    {
+      QgsSimpleFillSymbolLayer *layer = new QgsSimpleFillSymbolLayer( QColor( 255, 0, 0, 100), DEFAULT_SIMPLEFILL_STYLE, QColor( 255, 0, 0), DEFAULT_SIMPLEFILL_BORDERSTYLE, 0.6 );
+      layers << layer;
+      symbol = new QgsFillSymbol( layers );
+      break;
+    }
+
+    case QgsWkbTypes::UnknownGeometry:
+    case QgsWkbTypes::NullGeometry:
+      break;
+  }
+  return symbol;
 }

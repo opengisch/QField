@@ -44,6 +44,7 @@
 #include <qgsproject.h>
 #include <qgsfeature.h>
 #include <qgsvectorlayer.h>
+#include <qgsrasterlayer.h>
 #include <qgssnappingutils.h>
 #include <qgsunittypes.h>
 #include <qgscoordinatereferencesystem.h>
@@ -59,6 +60,8 @@
 #include <qgsmaplayer.h>
 #include <qgsvectorlayereditbuffer.h>
 #include <qgsexpressionfunction.h>
+#include <qgslayertree.h>
+#include <qgssinglesymbolrenderer.h>
 
 #include "qgsquickmapsettings.h"
 #include "qgsquickmapcanvasmap.h"
@@ -242,8 +245,11 @@ QgisMobileapp::QgisMobileapp( QgsApplication *app, QObject *parent )
   connect( mProject, &QgsProject::readProject, this, &QgisMobileapp::onReadProject );
 
   mLayerTreeCanvasBridge = new LayerTreeMapCanvasBridge( mFlatLayerTree, mMapCanvas->mapSettings(), mTrackingModel, this );
+
   connect( this, &QgisMobileapp::loadProjectTriggered, mIface, &AppInterface::loadProjectTriggered );
   connect( this, &QgisMobileapp::loadProjectEnded, mIface, &AppInterface::loadProjectEnded );
+  connect( this, &QgisMobileapp::setMapExtent, mIface, &AppInterface::setMapExtent );
+
   QTimer::singleShot( 1, this, &QgisMobileapp::onAfterFirstRendering );
 
   mOfflineEditing = new QgsOfflineEditing();
@@ -528,49 +534,257 @@ void QgisMobileapp::loadProjectFile( const QString &path, const QString &name )
   if ( !fi.exists() )
     QgsMessageLog::logMessage( tr( "Project file \"%1\" does not exist" ).arg( path ), QStringLiteral( "QField" ), Qgis::Warning );
 
-  mAuthRequestHandler->clearStoredRealms();
+  const QString suffix = fi.suffix();
+  if ( suffix.compare( QLatin1String( "qgs"), Qt::CaseInsensitive ) == 0 ||
+       suffix.compare( QLatin1String( "qgz"), Qt::CaseInsensitive ) == 0 ||
+       suffix.compare( QLatin1String( "gpkg" ), Qt::CaseInsensitive ) == 0 ||
+       suffix.compare( QLatin1String( "shp" ), Qt::CaseInsensitive ) == 0 ||
+       suffix.compare( QLatin1String( "kml" ), Qt::CaseInsensitive ) == 0 ||
+       suffix.compare( QLatin1String( "kmz" ), Qt::CaseInsensitive ) == 0 ||
+       suffix.compare( QLatin1String( "tif" ), Qt::CaseInsensitive ) == 0 ||
+       suffix.compare( QLatin1String( "pdf" ), Qt::CaseInsensitive ) == 0 ||
+       suffix.compare( QLatin1String( "jpg" ), Qt::CaseInsensitive ) == 0 ||
+       suffix.compare( QLatin1String( "png" ), Qt::CaseInsensitive ) == 0 )
+  {
+    mAuthRequestHandler->clearStoredRealms();
 
-  mProjectPath = path;
-  mProjectName = name.isEmpty() ? name : fi.completeBaseName();
+    mProjectFilePath = path;
+    mProjectFileName = !name.isEmpty() ? name : fi.completeBaseName();
 
-  emit loadProjectTriggered( mProjectPath, mProjectName );
+    emit loadProjectTriggered( mProjectFilePath, mProjectFileName );
+  }
 }
 
 void QgisMobileapp::reloadProjectFile()
 {
-  if ( mProjectPath.isEmpty() )
+  if ( mProjectFilePath.isEmpty() )
     QgsMessageLog::logMessage( tr( "No project file currently opened" ), QStringLiteral( "QField" ), Qgis::Warning );
 
-  emit loadProjectTriggered( mProjectPath, mProjectName );
+  emit loadProjectTriggered( mProjectFilePath, mProjectFileName );
 }
 
 void QgisMobileapp::readProjectFile()
 {
-  QFileInfo fi( mProjectPath );
+  QFileInfo fi( mProjectFilePath );
   if ( !fi.exists() )
-    QgsMessageLog::logMessage( tr( "Project file \"%1\" does not exist" ).arg( mProjectPath ), QStringLiteral( "QField" ), Qgis::Warning );
+    QgsMessageLog::logMessage( tr( "Project file \"%1\" does not exist" ).arg( mProjectFilePath ), QStringLiteral( "QField" ), Qgis::Warning );
+
+  const QString suffix = fi.suffix();
 
   mProject->removeAllMapLayers();
   mTrackingModel->reset();
 
-  mProject->read( mProjectPath );
-
-  // load fonts in same directory
-  QDir fontDir = QDir::cleanPath( QFileInfo( mProjectPath ).absoluteDir().path() + QDir::separator() + ".fonts" );
-  QStringList fontExts = QStringList() << "*.ttf" << "*.TTF" << "*.otf" << "*.OTF";
-  const QStringList fontFiles = fontDir.entryList( fontExts, QDir::Files );
-  for ( const QString &fontFile : fontFiles )
+  // Load project file
+  if ( suffix.compare( QLatin1String( "qgs"), Qt::CaseInsensitive ) == 0 ||
+       suffix.compare( QLatin1String( "qgz"), Qt::CaseInsensitive ) == 0 )
   {
-    int id = QFontDatabase::addApplicationFont( QDir::cleanPath( fontDir.path() + QDir::separator() + fontFile ) );
-    if ( id < 0 )
-      QgsMessageLog::logMessage( tr( "Could not load font %1" ).arg( fontFile ) );
+    mProject->read( mProjectFilePath );
+
+    // load fonts in same directory
+    QDir fontDir = QDir::cleanPath( QFileInfo( mProjectFilePath ).absoluteDir().path() + QDir::separator() + ".fonts" );
+    QStringList fontExts = QStringList() << "*.ttf" << "*.TTF" << "*.otf" << "*.OTF";
+    const QStringList fontFiles = fontDir.entryList( fontExts, QDir::Files );
+    for ( const QString &fontFile : fontFiles )
+    {
+      int id = QFontDatabase::addApplicationFont( QDir::cleanPath( fontDir.path() + QDir::separator() + fontFile ) );
+      if ( id < 0 )
+        QgsMessageLog::logMessage( tr( "Could not load font %1" ).arg( fontFile ) );
+      else
+        QgsMessageLog::logMessage( tr( "Loading font %1" ).arg( fontFile ) );
+    }
+  }
+  else
+  {
+    mProject->clear();
+  }
+
+  QList<QgsMapLayer *> vectorLayers;
+  QList<QgsMapLayer *> rasterLayers;
+  QgsCoordinateReferenceSystem crs;
+  QgsRectangle extent;
+
+  // Load vector dataset
+  if ( suffix.compare( QLatin1String( "gpkg" ), Qt::CaseInsensitive ) == 0 ||
+       suffix.compare( QLatin1String( "shp" ), Qt::CaseInsensitive ) == 0 ||
+       suffix.compare( QLatin1String( "kml" ), Qt::CaseInsensitive ) == 0 ||
+       suffix.compare( QLatin1String( "kmz" ), Qt::CaseInsensitive ) == 0 ||
+       suffix.compare( QLatin1String( "pdf" ), Qt::CaseInsensitive ) == 0 )
+  {
+    QgsVectorLayer::LayerOptions options { QgsProject::instance()->transformContext() };
+    options.loadDefaultStyle = true;
+
+    QgsVectorLayer *layer = new QgsVectorLayer( mProjectFilePath, mProjectFileName, QLatin1String( "ogr" ), options );
+    if ( layer->isValid() )
+    {
+      const QStringList sublayers = layer->dataProvider()->subLayers();
+      if ( sublayers.count() > 1 )
+      {
+        for ( const QString &sublayerInfo : sublayers )
+        {
+          const QStringList info =sublayerInfo.split( QgsDataProvider::sublayerSeparator() );
+          QgsVectorLayer *sublayer = new QgsVectorLayer( QStringLiteral( "%1|layerid=%2" ).arg( mProjectFilePath, info.at( 0 ) ),
+                                                        QStringLiteral( "%1: %2" ).arg( mProjectFileName, info.at( 1 ) ),
+                                                        QLatin1String( "ogr" ), options );
+          if ( sublayer->isValid() )
+          {
+            if ( sublayer->crs().isValid() )
+            {
+              if ( !crs.isValid() )
+                crs = sublayer->crs();
+
+              if ( !sublayer->extent().isEmpty() )
+              {
+                if ( crs != layer->crs() )
+                {
+                  QgsCoordinateTransform transform( sublayer->crs(), crs, mProject->transformContext() );
+                  if ( extent.isEmpty() )
+                    extent = transform.transformBoundingBox( layer->extent() );
+                  else
+                    extent.combineExtentWith( transform.transformBoundingBox( layer->extent() ) );
+                }
+                else
+                {
+                  if ( extent.isEmpty() )
+                    extent = sublayer->extent();
+                  else
+                    extent.combineExtentWith( sublayer->extent() );
+                }
+              }
+            }
+
+            QgsSymbol *symbol = FeatureUtils::defaultSymbol( sublayer );
+            if ( symbol )
+            {
+              QgsSingleSymbolRenderer *renderer = new QgsSingleSymbolRenderer( symbol );
+              sublayer->setRenderer( renderer );
+            }
+
+            vectorLayers << sublayer;
+          }
+          else
+          {
+            delete sublayer;
+          }
+        }
+      }
+      else
+      {
+        crs = layer->crs();
+        extent = layer->extent();
+
+        QgsSymbol *symbol = FeatureUtils::defaultSymbol( layer );
+        if ( symbol )
+        {
+          QgsSingleSymbolRenderer *renderer = new QgsSingleSymbolRenderer( symbol );
+          layer->setRenderer( renderer );
+        }
+
+        vectorLayers << layer;
+      }
+    }
     else
-      QgsMessageLog::logMessage( tr( "Loading font %1" ).arg( fontFile ) );
+    {
+      delete layer;
+    }
+  }
+
+  // Load raster dataset
+  if ( suffix.compare( QLatin1String( "tif" ), Qt::CaseInsensitive ) == 0 ||
+       suffix.compare( QLatin1String( "pdf" ), Qt::CaseInsensitive ) == 0 ||
+       suffix.compare( QLatin1String( "jpg" ), Qt::CaseInsensitive ) == 0 ||
+       suffix.compare( QLatin1String( "png" ), Qt::CaseInsensitive ) == 0 )
+  {
+    QgsRasterLayer *layer = new QgsRasterLayer( mProjectFilePath, mProjectFileName, QLatin1String( "gdal" ) );
+    if ( layer->isValid() )
+    {
+      const QStringList sublayers = layer->dataProvider()->subLayers();
+      if ( sublayers.count() > 1 )
+      {
+        for ( const QString &sublayerInfo : sublayers )
+        {
+          const QStringList info =sublayerInfo.split( QgsDataProvider::sublayerSeparator() );
+          QgsRasterLayer *sublayer = new QgsRasterLayer( QStringLiteral( "%1|layerid=%2" ).arg( mProjectFilePath, info.at( 0 ) ),
+                                                        QStringLiteral( "%1: %2" ).arg( mProjectFileName, info.at( 1 ) ),
+                                                        QLatin1String( "gdal" ) );
+          if ( sublayer->isValid() )
+          {
+            if ( sublayer->crs().isValid() )
+            {
+              if ( !crs.isValid() )
+                crs = sublayer->crs();
+
+              if ( !sublayer->extent().isEmpty() )
+              {
+                if ( crs != layer->crs() )
+                {
+                  QgsCoordinateTransform transform( sublayer->crs(), crs, mProject->transformContext() );
+                  if ( extent.isEmpty() )
+                    extent = transform.transformBoundingBox( layer->extent() );
+                  else
+                    extent.combineExtentWith( transform.transformBoundingBox( layer->extent() ) );
+                }
+                else
+                {
+                  if ( extent.isEmpty() )
+                    extent = sublayer->extent();
+                  else
+                    extent.combineExtentWith( sublayer->extent() );
+                }
+              }
+            }
+
+            rasterLayers << sublayer;
+          }
+          else
+          {
+            delete sublayer;
+          }
+        }
+      }
+      else
+      {
+        crs = layer->crs();
+        extent = layer->extent();
+        rasterLayers << layer;
+      }
+    }
+  }
+
+  if ( vectorLayers.size() > 0 || rasterLayers.size() > 0 )
+  {
+    if ( crs.isValid() )
+      mProject->setCrs( crs );
+
+    if ( rasterLayers.size() == 0 )
+    {
+      QgsRasterLayer *layer = new QgsRasterLayer( QStringLiteral( "type=xyz&url=http://a.tile.openstreetmap.org/%7Bz%7D/%7Bx%7D/%7By%7D.png&zmax=19&zmin=0&crs=EPSG3857" ), QStringLiteral( "OpenStreetMap" ), QLatin1String( "wms" ) );
+      vectorLayers << layer;
+    }
+
+    if ( suffix.compare( QLatin1String( "pdf" ) ) == 0 )
+    {
+      // GeoPDFs should have vector layers (if any) _below_ the raster layer and hidden by default
+      mProject->addMapLayers( vectorLayers );
+      mProject->addMapLayers( rasterLayers );
+
+      for ( QgsMapLayer *layer : vectorLayers )
+      {
+        mProject->layerTreeRoot()->findLayer( layer->id() )->setItemVisibilityChecked( false );
+      }
+    }
+    else
+    {
+      mProject->addMapLayers( rasterLayers );
+      mProject->addMapLayers( vectorLayers );
+    }
   }
 
   loadProjectQuirks();
 
   emit loadProjectEnded();
+
+  if ( !extent.isEmpty() )
+    emit setMapExtent( extent );
 }
 
 void QgisMobileapp::print( int layoutIndex )

@@ -86,9 +86,9 @@ class QgisMobileapp : public QQmlApplicationEngine
     void loadLastProject();
 
     /**
-     * Set the project file path to be loaded.
+     * Set the project or dataset file path to be loaded.
      *
-     * \param path The project file to load
+     * \param path The project or dataset file to load
      * \param name The project name
      * \note The actual loading is done in readProjectFile
      */
@@ -127,6 +127,11 @@ class QgisMobileapp : public QQmlApplicationEngine
      */
     void loadProjectEnded();
 
+    /**
+     * Emitted when a map canvas extent change is needed
+     */
+    void setMapExtent( const QgsRectangle &extent );
+
   private slots:
 
     /**
@@ -154,8 +159,8 @@ class QgisMobileapp : public QQmlApplicationEngine
     LegendImageProvider *mLegendImageProvider = nullptr;
 
     QgsProject *mProject = nullptr;
-    QString mProjectPath;
-    QString mProjectName;
+    QString mProjectFilePath;
+    QString mProjectFileName;
 
     std::unique_ptr<QgsGpkgFlusher> mGpkgFlusher;
     QFieldAppAuthRequestHandler *mAuthRequestHandler = nullptr;

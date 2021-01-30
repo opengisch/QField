@@ -22,7 +22,7 @@
 #include <qgsfeature.h>
 
 class QgsVectorLayer;
-
+class QgsSymbol;
 
 class FeatureUtils : public QObject
 {
@@ -38,6 +38,8 @@ public:
    * \param feature the feature to be named
    */
   static Q_INVOKABLE QString displayName( QgsVectorLayer *layer, const QgsFeature &feature );
+
+  static QgsSymbol *defaultSymbol( QgsVectorLayer *layer );
 };
 
 #endif // FEATUREUTILS_H

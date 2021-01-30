@@ -130,7 +130,7 @@ QString PlatformUtilities::fieldType( const QgsField &field ) const
 ProjectSource *PlatformUtilities::openProject()
 {
   ProjectSource *source = new ProjectSource( );
-  QString path { QFileDialog::getOpenFileName( nullptr, tr( "Open QGIS Project File" ), QString(), tr( "QGIS Project Files (*.qgs *.qgz)" ) ) };
+  QString path { QFileDialog::getOpenFileName( nullptr, tr( "Open QGIS Project File" ), QString(), tr( "QGIS Project Files (*.qgs *.qgz);;Vector Datasets (*.gpkg *.shp *.kml *.kmz);;Raster Datasets (*.tif *.pdf *.jpg *.png)" ) ) };
   if ( ! path.isEmpty() )
   {
     QTimer::singleShot( 0, this, [source, path]() { emit source->projectOpened( path ); } );

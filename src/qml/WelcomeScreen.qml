@@ -89,7 +89,7 @@ Page {
         QfButton {
           id: localProjectButton
           Layout.fillWidth: true
-          text: qsTr( "Open local project" )
+          text: qsTr( "Open local file" )
           onClicked: {
             showOpenProjectDialog()
           }
@@ -194,7 +194,7 @@ Page {
             onClicked: {
               var item = table.itemAt(mouse.x, mouse.y)
               if (item)
-                iface.loadProject(item.path,item.title)
+                iface.loadFile(item.path,item.title)
             }
             onPressed: {
               var item = table.itemAt(mouse.x, mouse.y)
