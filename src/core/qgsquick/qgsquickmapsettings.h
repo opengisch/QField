@@ -248,6 +248,11 @@ class QgsQuickMapSettings : public QObject
      */
     void onReadProject( const QDomDocument &doc );
 
+    /**
+     * Sets the destination CRS to match the changed project CRS
+     */
+    void onCrsChanged();
+
   private:
     QgsProject *mProject = nullptr;
     QgsMapSettings mMapSettings;
