@@ -665,6 +665,25 @@ void QgisMobileapp::readProjectFile()
           vlayer->setRenderer( renderer );
         }
       }
+
+      if ( vectorLayers.size() > 1 )
+      {
+        std::sort( vectorLayers.begin(), vectorLayers.end(), []( QgsMapLayer *a, QgsMapLayer *b ) {
+         QgsVectorLayer *alayer = qobject_cast< QgsVectorLayer * >( a );
+         QgsVectorLayer *blayer = qobject_cast< QgsVectorLayer * >( b );
+         if ( alayer->geometryType() == QgsWkbTypes::PointGeometry && blayer->geometryType() != QgsWkbTypes::PointGeometry )
+         {
+           return true;
+         } else if ( alayer->geometryType() == QgsWkbTypes::LineGeometry && blayer->geometryType() == QgsWkbTypes::PolygonGeometry )
+         {
+           return true;
+         }
+         else
+         {
+           return false;
+         }
+        } );
+      }
     }
     else
     {
@@ -752,21 +771,15 @@ void QgisMobileapp::readProjectFile()
       vectorLayers << layer;
     }
 
+    mProject->addMapLayers( rasterLayers );
+    mProject->addMapLayers( vectorLayers );
     if ( suffix.compare( QLatin1String( "pdf" ) ) == 0 )
     {
-      // GeoPDFs should have vector layers (if any) _below_ the raster layer and hidden by default
-      mProject->addMapLayers( vectorLayers );
-      mProject->addMapLayers( rasterLayers );
-
+      // GeoPDFs should have vector layers hidden by default
       for ( QgsMapLayer *layer : vectorLayers )
       {
         mProject->layerTreeRoot()->findLayer( layer->id() )->setItemVisibilityChecked( false );
       }
-    }
-    else
-    {
-      mProject->addMapLayers( rasterLayers );
-      mProject->addMapLayers( vectorLayers );
     }
   }
 
