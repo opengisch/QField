@@ -61,31 +61,31 @@ QString FeatureUtils::displayName( QgsVectorLayer *layer, const QgsFeature &feat
 QgsSymbol *FeatureUtils::defaultSymbol( QgsVectorLayer *layer )
 {
   QgsSymbol *symbol = nullptr;
-  QgsSymbolLayerList layers;
+  QgsSymbolLayerList symbolLayers;
   switch ( layer->geometryType() )
   {
     case QgsWkbTypes::PointGeometry:
     {
-      QgsSimpleMarkerSymbolLayer *layer = new QgsSimpleMarkerSymbolLayer( QgsSimpleMarkerSymbolLayerBase::Circle, 2.6, 0.0, DEFAULT_SCALE_METHOD, QColor( 255, 0, 0, 100 ), QColor( 255, 0, 0 ) );
-      layer->setStrokeWidth( 0.6 );
-      layers << layer;
-      symbol = new QgsMarkerSymbol( layers );
+      QgsSimpleMarkerSymbolLayer *symbolLayer = new QgsSimpleMarkerSymbolLayer( QgsSimpleMarkerSymbolLayerBase::Circle, 2.6, 0.0, DEFAULT_SCALE_METHOD, QColor( 255, 0, 0, 100 ), QColor( 255, 0, 0 ) );
+      symbolLayer->setStrokeWidth( 0.6 );
+      symbolLayers << symbolLayer;
+      symbol = new QgsMarkerSymbol( symbolLayers );
       break;
     }
 
     case QgsWkbTypes::LineGeometry:
     {
-      QgsSimpleLineSymbolLayer *layer = new QgsSimpleLineSymbolLayer( QColor( 255, 0, 0 ), 0.6 );
-      layers << layer;
-      symbol = new QgsLineSymbol( layers );
+      QgsSimpleLineSymbolLayer *symbolLayer = new QgsSimpleLineSymbolLayer( QColor( 255, 0, 0 ), 0.6 );
+      symbolLayers << symbolLayer;
+      symbol = new QgsLineSymbol( symbolLayers );
       break;
     }
 
     case QgsWkbTypes::PolygonGeometry:
     {
-      QgsSimpleFillSymbolLayer *layer = new QgsSimpleFillSymbolLayer( QColor( 255, 0, 0, 100), DEFAULT_SIMPLEFILL_STYLE, QColor( 255, 0, 0), DEFAULT_SIMPLEFILL_BORDERSTYLE, 0.6 );
-      layers << layer;
-      symbol = new QgsFillSymbol( layers );
+      QgsSimpleFillSymbolLayer *symbolLayer = new QgsSimpleFillSymbolLayer( QColor( 255, 0, 0, 100), DEFAULT_SIMPLEFILL_STYLE, QColor( 255, 0, 0), DEFAULT_SIMPLEFILL_BORDERSTYLE, 0.6 );
+      symbolLayers << symbolLayer;
+      symbol = new QgsFillSymbol( symbolLayers );
       break;
     }
 

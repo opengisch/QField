@@ -668,9 +668,9 @@ void QgisMobileapp::readProjectFile()
         vectorLayers << layer;
       }
 
-      for( QgsMapLayer *layer : vectorLayers )
+      for( QgsMapLayer *l : vectorLayers )
       {
-        QgsVectorLayer *vlayer = qobject_cast< QgsVectorLayer * >( layer );
+        QgsVectorLayer *vlayer = qobject_cast< QgsVectorLayer * >( l );
         QgsSymbol *symbol = FeatureUtils::defaultSymbol( vlayer );
         if ( symbol )
         {
@@ -762,9 +762,9 @@ void QgisMobileapp::readProjectFile()
       // If the raster size is reasonably small, apply nicer resampling settings
       if ( fi.size() < 50000000 )
       {
-        for( QgsMapLayer *layer : rasterLayers )
+        for( QgsMapLayer *l : rasterLayers )
         {
-          QgsRasterLayer *rlayer = qobject_cast< QgsRasterLayer * >( layer );
+          QgsRasterLayer *rlayer = qobject_cast< QgsRasterLayer * >( l );
           rlayer->resampleFilter()->setZoomedInResampler( new QgsBilinearRasterResampler() );
           rlayer->resampleFilter()->setZoomedOutResampler( new QgsBilinearRasterResampler() );
           rlayer->resampleFilter()->setMaxOversampling( 2.0 );
