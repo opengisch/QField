@@ -635,13 +635,13 @@ void QgisMobileapp::readProjectFile()
 
               if ( !sublayer->extent().isEmpty() )
               {
-                if ( crs != layer->crs() )
+                if ( crs != sublayer->crs() )
                 {
                   QgsCoordinateTransform transform( sublayer->crs(), crs, mProject->transformContext() );
                   if ( extent.isEmpty() )
-                    extent = transform.transformBoundingBox( layer->extent() );
+                    extent = transform.transformBoundingBox( sublayer->extent() );
                   else
-                    extent.combineExtentWith( transform.transformBoundingBox( layer->extent() ) );
+                    extent.combineExtentWith( transform.transformBoundingBox( sublayer->extent() ) );
                 }
                 else
                 {
@@ -726,13 +726,13 @@ void QgisMobileapp::readProjectFile()
 
               if ( !sublayer->extent().isEmpty() )
               {
-                if ( crs != layer->crs() )
+                if ( crs != sublayer->crs() )
                 {
                   QgsCoordinateTransform transform( sublayer->crs(), crs, mProject->transformContext() );
                   if ( extent.isEmpty() )
-                    extent = transform.transformBoundingBox( layer->extent() );
+                    extent = transform.transformBoundingBox( sublayer->extent() );
                   else
-                    extent.combineExtentWith( transform.transformBoundingBox( layer->extent() ) );
+                    extent.combineExtentWith( transform.transformBoundingBox( sublayer->extent() ) );
                 }
                 else
                 {
