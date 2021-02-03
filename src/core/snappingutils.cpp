@@ -85,7 +85,13 @@ void SnappingUtils::snap()
        && ( QgsWkbTypes::hasZ( vlayer->wkbType() ) || QgsWkbTypes::hasM( vlayer->wkbType() ) ) )
   {
     const QgsFeature ft = match.layer()->getFeature( match.featureId() );
-    mSnappingResult.setPoint( newPoint( ft.geometry().vertexAt( match.vertexIndex() ), vlayer->wkbType() ) );
+    QgsPoint snappedPoint = newPoint( ft.geometry().vertexAt( match.vertexIndex() ), vlayer->wkbType() );
+    if ( vlayer->crs() != mapSettings()->destinationCrs() )
+    {
+      QgsCoordinateTransform transform( vlayer->crs(), mapSettings()->destinationCrs(), QgsProject::instance()->transformContext() );
+      snappedPoint.transform( transform );
+    }
+    mSnappingResult.setPoint( snappedPoint );
   }
 
   emit snappingResultChanged();
