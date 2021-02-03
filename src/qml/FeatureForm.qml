@@ -192,13 +192,14 @@ Page {
                 // section header: group box name
                 Rectangle {
                   width: parent.width
-                  height: section === "" ? 0 : childrenRect.height + 10
+                  height: section === "" ? 0 : childrenRect.height
                   color: 'lightGray'
 
                   Text {
-                    anchors { horizontalCenter: parent.horizontalCenter; verticalCenter: parent.verticalCenter; }
                     leftPadding: 10
                     rightPadding: 10
+                    topPadding: 5
+                    bottomPadding: 5
                     width: parent.width
                     font.pointSize: 12
                     font.bold: true
