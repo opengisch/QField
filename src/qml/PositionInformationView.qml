@@ -147,7 +147,7 @@ Rectangle {
         anchors.left: parent.left
         font: Theme.tipFont
         color: textColor
-        text: qsTr( "PDOP" ) + ': ' + ( positionSource.positionInfo ? positionSource.positionInfo.pdop.toLocaleString(Qt.locale(), 'f', 2) : '-' )
+        text: qsTr( "PDOP" ) + ': ' + ( positionSource.positionInfo ? positionSource.positionInfo.pdop.toLocaleString(Qt.locale(), 'f', 1) : '-' )
       }
     }
 
@@ -163,7 +163,7 @@ Rectangle {
         anchors.left: parent.left
         font: Theme.tipFont
         color: textColor
-        text: qsTr( "HDOP" ) + ': ' + ( positionSource.positionInfo ? positionSource.positionInfo.hdop.toLocaleString(Qt.locale(), 'f', 2) : '-' )
+        text: qsTr( "HDOP" ) + ': ' + ( positionSource.positionInfo ? positionSource.positionInfo.hdop.toLocaleString(Qt.locale(), 'f', 1) : '-' )
       }
     }
 
@@ -179,7 +179,7 @@ Rectangle {
         anchors.left: parent.left
         font: Theme.tipFont
         color: textColor
-        text: qsTr( "VDOP" ) + ': ' + ( positionSource.positionInfo ? positionSource.positionInfo.vdop.toLocaleString(Qt.locale(), 'f', 2) : '-' )
+        text: qsTr( "VDOP" ) + ': ' + ( positionSource.positionInfo ? positionSource.positionInfo.vdop.toLocaleString(Qt.locale(), 'f', 1) : '-' )
       }
     }
 
