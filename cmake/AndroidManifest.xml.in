@@ -10,7 +10,6 @@
       android:name="ch.opengis.@APP_PACKAGE_NAME@.QFieldActivity"
       android:icon="@drawable/qfield_logo"
       android:label="@string/app_name"
-      android:screenOrientation="locked"
       android:launchMode="singleTop"
       android:configChanges="orientation|uiMode|screenLayout|screenSize|smallestScreenSize|locale|fontScale|keyboard|keyboardHidden|navigation">
       <intent-filter>
