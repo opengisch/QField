@@ -232,8 +232,6 @@ public class QFieldProjectActivity extends Activity {
 
             Uri uri = Uri.fromFile(file);
             data.setData(uri);
-            
-            Toast.makeText(this, getString(R.string.loading) + " " + file.getPath(), Toast.LENGTH_LONG).show();
             setResult(Activity.RESULT_OK, data);
 
             String lastUsedProjects = sharedPreferences.getString("LastUsedProjects", null);
