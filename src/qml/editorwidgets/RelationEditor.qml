@@ -265,7 +265,7 @@ EditorWidgetBase {
       running: relationEditorModel.isLoading
     }
 
-    EmbeddedFeatureForm{
+    EmbeddedFeatureForm {
         id: embeddedPopup
 
         embeddedLevel: form.embeddedLevel + 1
