@@ -36,8 +36,11 @@ Item {
     comboBox.currentIndex = featureListModel.findKey(currentKeyValue)
   }
 
-  EmbeddedFeatureForm{
+  EmbeddedFeatureForm {
       id: addFeaturePopup
+
+      embeddedLevel: form.embeddedLevel + 1
+      digitizingToolbar: form.digitizingToolbar
 
       onFeatureSaved: {
           var referencedValue = addFeaturePopup.attributeFormModel.attribute(relationCombobox._relation.resolveReferencedField(field.name))
@@ -406,6 +409,9 @@ Item {
 
   EmbeddedFeatureForm {
     id: embeddedPopup
+
+    embeddedLevel: form.embeddedLevel + 1
+    digitizingToolbar: form.digitizingToolbar
 
     onFeatureSaved: {
       var referencedValue = embeddedPopup.attributeFormModel.attribute(relationCombobox._relation.resolveReferencedField(field.name))
