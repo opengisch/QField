@@ -121,6 +121,30 @@
         <data android:pathPattern=".*\\..*\\..*\\..*\\..*\\..*\\.png" />
         <data android:pathPattern=".*\\..*\\..*\\..*\\..*\\..*\\..*\\.png" />
         <data android:pathPattern=".*\\..*\\..*\\..*\\..*\\..*\\..*\\..*\\.png" />
+        <data android:pathPattern=".*\\.jp2" />
+        <data android:pathPattern=".*\\..*\\.jp2" />
+        <data android:pathPattern=".*\\..*\\..*\\.jp2" />
+        <data android:pathPattern=".*\\..*\\..*\\..*\\.jp2" />
+        <data android:pathPattern=".*\\..*\\..*\\..*\\..*\\.jp2" />
+        <data android:pathPattern=".*\\..*\\..*\\..*\\..*\\..*\\.jp2" />
+        <data android:pathPattern=".*\\..*\\..*\\..*\\..*\\..*\\..*\\.jp2" />
+        <data android:pathPattern=".*\\..*\\..*\\..*\\..*\\..*\\..*\\..*\\.jp2" />
+        <data android:pathPattern=".*\\.webp" />
+        <data android:pathPattern=".*\\..*\\.webp" />
+        <data android:pathPattern=".*\\..*\\..*\\.webp" />
+        <data android:pathPattern=".*\\..*\\..*\\..*\\.webp" />
+        <data android:pathPattern=".*\\..*\\..*\\..*\\..*\\.webp" />
+        <data android:pathPattern=".*\\..*\\..*\\..*\\..*\\..*\\.webp" />
+        <data android:pathPattern=".*\\..*\\..*\\..*\\..*\\..*\\..*\\.webp" />
+        <data android:pathPattern=".*\\..*\\..*\\..*\\..*\\..*\\..*\\..*\\.webp" />
+        <data android:pathPattern=".*\\.gpx" />
+        <data android:pathPattern=".*\\..*\\.gpx" />
+        <data android:pathPattern=".*\\..*\\..*\\.gpx" />
+        <data android:pathPattern=".*\\..*\\..*\\..*\\.gpx" />
+        <data android:pathPattern=".*\\..*\\..*\\..*\\..*\\.gpx" />
+        <data android:pathPattern=".*\\..*\\..*\\..*\\..*\\..*\\.gpx" />
+        <data android:pathPattern=".*\\..*\\..*\\..*\\..*\\..*\\..*\\.gpx" />
+        <data android:pathPattern=".*\\..*\\..*\\..*\\..*\\..*\\..*\\..*\\.gpx" />
       </intent-filter>
 
       <!-- Git Revision -->
