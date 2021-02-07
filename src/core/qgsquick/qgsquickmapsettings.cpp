@@ -105,10 +105,14 @@ void QgsQuickMapSettings::setCenterToLayer( QgsMapLayer *layer, bool shouldZoom 
   Q_ASSERT( layer );
 
   const QgsRectangle extent = mapSettings().layerToMapCoordinates( layer, layer->extent() );
-  if ( shouldZoom )
-    setExtent( extent );
-  else
-    setCenter( QgsPoint( extent.center() ) );
+
+  if ( !extent.isEmpty() )
+  {
+    if ( shouldZoom )
+      setExtent( extent );
+    else
+      setCenter( QgsPoint( extent.center() ) );
+  }
 }
 
 double QgsQuickMapSettings::mapUnitsPerPoint() const
