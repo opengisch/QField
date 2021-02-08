@@ -451,7 +451,7 @@ Page {
                       Layout.preferredHeight: font.height + 20
 
                       inputMethodHints: Qt.ImhFormattedNumbersOnly
-                      validator: DoubleValidator {}
+                      validator: DoubleValidator { locale: 'C' }
 
                       background: Rectangle {
                         y: parent.height - height - parent.bottomPadding / 2
@@ -492,7 +492,7 @@ Page {
                       Layout.preferredHeight: font.height + 20
 
                       inputMethodHints: Qt.ImhFormattedNumbersOnly
-                      validator: DoubleValidator {}
+                      validator: DoubleValidator { locale: 'C' }
 
                       background: Rectangle {
                         y: parent.height - height - parent.bottomPadding / 2
@@ -600,7 +600,7 @@ Page {
                       Layout.preferredHeight: font.height + 20
 
                       inputMethodHints: Qt.ImhFormattedNumbersOnly
-                      validator: DoubleValidator {}
+                      validator: DoubleValidator { locale: 'C' }
 
                       background: Rectangle {
                         y: parent.height - height - parent.bottomPadding / 2
