@@ -431,8 +431,15 @@ bool FeatureModel::suppressFeatureForm() const
 
 void FeatureModel::resetFeature()
 {
-    mFeature = mLayer ? QgsFeature( mLayer->fields() ) : QgsFeature();
-    mRememberings[mLayer].rememberedAttributes.fill( false, mLayer->fields().size() );
+  if ( !mLayer )
+    return;
+
+  if ( mRememberings.contains( mLayer ) )
+  {
+    mRememberings[mLayer].rememberedFeature = mFeature;
+  }
+
+  mFeature = QgsFeature( mLayer->fields() );
 }
 
 void FeatureModel::resetAttributes()
@@ -478,6 +485,10 @@ void FeatureModel::resetAttributes()
       {
         mFeature.setAttribute( i, QVariant() );
       }
+    }
+    else if ( mRememberings[mLayer].rememberedAttributes.at( i ) )
+    {
+      mFeature.setAttribute( i, mRememberings[mLayer].rememberedFeature.attribute( i ) );
     }
   }
   endResetModel();
