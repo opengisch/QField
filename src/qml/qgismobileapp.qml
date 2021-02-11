@@ -1862,16 +1862,6 @@ ApplicationWindow {
     }
   }
 
-  Changelog {
-    id: changelogPopup
-    parent: ApplicationWindow.overlay
-
-    property var expireDate: new Date(2038,1,19)
-    visible: settings.value( "/QField/ChangelogVersion", "" ) !== appVersion
-               && expireDate > new Date()
-//               || true
-  }
-
   // Toast
   Popup {
       id: toast
