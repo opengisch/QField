@@ -58,6 +58,7 @@
         <file>PositioningSettings.qml</file>
         <file>QuestionDialog.qml</file>
         <file>ImageDial.qml</file>
+        <file>SystemLoader.qml</file>
     </qresource>
     <qresource prefix="/"/>
 </RCC>

@@ -416,6 +416,19 @@ bool FeatureModel::suppressFeatureForm() const
   return mLayer->editFormConfig().suppress() == QgsEditFormConfig::FeatureFormSuppress::SuppressOn;
 }
 
+void FeatureModel::resetFeature()
+{
+  if ( !mLayer )
+    return;
+
+  if ( mRememberings.contains( mLayer ) )
+  {
+    mRememberings[mLayer].rememberedFeature = mFeature;
+  }
+
+  mFeature = QgsFeature( mLayer->fields() );
+}
+
 void FeatureModel::resetAttributes()
 {
   if ( !mLayer )
@@ -459,6 +472,10 @@ void FeatureModel::resetAttributes()
       {
         mFeature.setAttribute( i, QVariant() );
       }
+    }
+    else if ( mRememberings[mLayer].rememberedAttributes.at( i ) )
+    {
+      mFeature.setAttribute( i, mRememberings[mLayer].rememberedFeature.attribute( i ) );
     }
   }
   endResetModel();

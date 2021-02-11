@@ -13,6 +13,7 @@ SET(QFIELD_CORE_SRCS
   featurelistmodelselection.cpp
   featuremodel.cpp
   featureslocatorfilter.cpp
+  feedback.cpp
   focusstack.cpp
   geometry.cpp
   geometryeditorsmodel.cpp
@@ -20,6 +21,7 @@ SET(QFIELD_CORE_SRCS
   identifytool.cpp
   layertreemapcanvasbridge.cpp
   layertreemodel.cpp
+  layerresolver.cpp
   legendimageprovider.cpp
   linepolygonhighlight.cpp
   locatormodelsuperbridge.cpp
@@ -84,6 +86,7 @@ SET(QFIELD_CORE_HDRS
   featurelistmodelselection.h
   featuremodel.h
   featureslocatorfilter.h
+  feedback.h
   focusstack.h
   geometry.h
   geometryeditorsmodel.h
@@ -91,6 +94,7 @@ SET(QFIELD_CORE_HDRS
   identifytool.h
   layertreemapcanvasbridge.h
   layertreemodel.h
+  layerresolver.h
   legendimageprovider.h
   linepolygonhighlight.h
   locatormodelsuperbridge.h

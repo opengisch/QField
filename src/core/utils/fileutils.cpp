@@ -15,10 +15,12 @@
  ***************************************************************************/
 
 #include "fileutils.h"
+#include <qgis.h>
 #include <QMimeDatabase>
 #include <QDebug>
 #include <QFileInfo>
 #include <QDir>
+#include <QDirIterator>
 
 FileUtils::FileUtils( QObject *parent )
   : QObject( parent )
@@ -51,39 +53,69 @@ bool FileUtils::fileExists( const QString &filePath )
   return ( fileInfo.exists() && fileInfo.isFile() );
 }
 
-bool FileUtils::copyRecursively( const QString &sourceFolder, const QString &destFolder )
+bool FileUtils::copyRecursively( const QString &sourceFolder, const QString &destFolder, QgsFeedback *feedback )
 {
-  QDir sourceDir( sourceFolder );
+  QList<QPair<QString, QString>> mapping;
 
-  if ( !sourceDir.exists() )
-    return false;
+  int fileCount = copyRecursivelyPrepare( sourceFolder, destFolder, mapping );
 
-  QDir destDir( destFolder );
-  if ( !destDir.exists() )
-    destDir.mkdir( destFolder );
-
-  const QStringList files = sourceDir.entryList( QDir::Files );
-  for ( const QString &file : files )
+  int current = 0;
+  for ( QPair<QString, QString> srcDestFilePair : qgis::as_const( mapping ) )
   {
-    QString srcName = sourceFolder + QDir::separator() + file;
-    QString destName = destFolder + QDir::separator() + file;
+
+    QString srcName = srcDestFilePair.first;
+    QString destName = srcDestFilePair.second;
+
+    QFileInfo destInfo( destName );
+    if ( QFileInfo( srcName ).isDir() )
+      continue;
+
+    QDir destDir( destInfo.absoluteDir() );
+    if ( !destDir.exists() )
+    {
+      destDir.mkpath( destDir.path() );
+    }
     if ( QFile::exists( destName ) )
       QFile::remove( destName );
 
     bool success = QFile::copy( srcName, destName );
     if ( !success )
       return false;
-  }
+    QFile( destName ).setPermissions( QFileDevice::ReadOwner | QFileDevice::WriteOwner );
 
-  const QStringList dirs = sourceDir.entryList( QDir::AllDirs | QDir::NoDotAndDotDot );
-  for ( const QString &dir : dirs )
-  {
-    QString srcName = sourceFolder + QDir::separator() + dir;
-    QString destName = destFolder + QDir::separator() + dir;
-    bool success = copyRecursively( srcName, destName );
-    if ( !success )
-      return false;
+    feedback->setProgress( 100 * current / fileCount );
+
+    ++current;
   }
 
   return true;
+}
+
+int FileUtils::copyRecursivelyPrepare( const QString &sourceFolder, const QString &destFolder, QList<QPair<QString, QString>> &mapping )
+{
+  QDir sourceDir( sourceFolder );
+
+  if ( !sourceDir.exists() )
+    return 0;
+
+  int count = 0;
+
+  QDirIterator dirIt( sourceDir, QDirIterator::Subdirectories );
+  int sfLentgh = sourceFolder.length();
+
+  while ( dirIt.hasNext() )
+  {
+    QString filePath = dirIt.next();
+    const QString relPath = filePath.mid( sfLentgh );
+    if ( relPath.endsWith( QLatin1String( "/." ) ) || relPath.endsWith( QLatin1String( "/.." ) ) )
+      continue;
+
+    QString srcName = sourceFolder + QDir::separator() + relPath;
+    QString destName = destFolder + QDir::separator() + relPath;
+
+    mapping.append( qMakePair( srcName, destName ) );
+    count += 1;
+  }
+
+  return count;
 }
