@@ -291,7 +291,8 @@ ApplicationWindow {
               if ( !gpsLinkButton.linkActive && geometryEditorsToolbar.canvasClicked(point) )
                   return;
 
-              if ( !gpsLinkButton.linkActive && ( ( stateMachine.state === "digitize" && digitizingFeature.currentLayer ) || stateMachine.state === 'measure' ) && !featureForm.visible )
+              if ( !gpsLinkButton.linkActive && !featureForm.visible &&
+                   ( ( stateMachine.state === "digitize" && digitizingFeature.currentLayer ) || stateMachine.state === 'measure' ) )
               {
                   if ( Number( currentRubberband.model.geometryType ) === QgsWkbTypes.PointGeometry ||
                           Number( currentRubberband.model.geometryType ) === QgsWkbTypes.NullGeometry )

@@ -228,7 +228,7 @@ Popup {
       target: layerTree
 
       function onDataChanged(topleft, bottomright, roles) {
-          if (roles.includes(270)) {
+          if (roles.includes(FlatLayerTreeModel.FeatureCount)) {
             updateTitle();
           }
       }
