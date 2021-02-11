@@ -77,13 +77,5 @@ Item {
       }
       onClicked: Qt.openUrlExternally("https://www.opengis.ch/android-gis/qfield/donate-and-sponsor/")
     }
-    QfButton {
-      id: changelogButton
-      Layout.fillWidth: true
-
-      text: qsTr( 'Changelog' )
-
-      onClicked: changelogPopup.open()
-    }
   }
 }

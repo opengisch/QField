@@ -129,7 +129,6 @@
 #include "bluetoothreceiver.h"
 #include "bluetoothdevicemodel.h"
 #include "gnsspositioninformation.h"
-#include "changelogcontents.h"
 #include "layerresolver.h"
 
 #define QUOTE(string) _QUOTE(string)
@@ -371,8 +370,8 @@ void QgisMobileapp::initDeclarative()
   qmlRegisterType<ExpressionEvaluator>( "org.qfield", 1, 0, "ExpressionEvaluator" );
   qmlRegisterType<BluetoothDeviceModel>( "org.qfield", 1, 0, "BluetoothDeviceModel" );
   qmlRegisterType<BluetoothReceiver>( "org.qfield", 1, 0, "BluetoothReceiver" );
-  qmlRegisterType<ChangelogContents>( "org.qfield", 1, 0, "ChangelogContents" );
   qmlRegisterType<LayerResolver>( "org.qfield", 1, 0, "LayerResolver" );
+
 
   qRegisterMetaType<GnssPositionInformation>( "GnssPositionInformation" );
 
@@ -649,7 +648,7 @@ void QgisMobileapp::readProjectFile()
       if ( suffix == QStringLiteral( "kmz" ) )
       {
         // GDAL's internal KML driver doesn't support KMZ, work around this limitation
-        filePath = QStringLiteral( "/vsizip/%1/doc.kml" ).arg ( mProjectFilePath );
+        filePath = QStringLiteral( "/vsizip/%1/doc.kml" ).arg( mProjectFilePath );
       }
 
       QgsVectorLayer::LayerOptions options { QgsProject::instance()->transformContext() };
@@ -663,10 +662,10 @@ void QgisMobileapp::readProjectFile()
         {
           for ( const QString &sublayerInfo : sublayers )
           {
-            const QStringList info =sublayerInfo.split( QgsDataProvider::sublayerSeparator() );
+            const QStringList info = sublayerInfo.split( QgsDataProvider::sublayerSeparator() );
             QgsVectorLayer *sublayer = new QgsVectorLayer( QStringLiteral( "%1|layerid=%2" ).arg( filePath, info.at( 0 ) ),
-                                                           QStringLiteral( "%1: %2" ).arg( mProjectFileName, info.at( 1 ) ),
-                                                           QLatin1String( "ogr" ), options );
+                QStringLiteral( "%1: %2" ).arg( mProjectFileName, info.at( 1 ) ),
+                QLatin1String( "ogr" ), options );
             if ( sublayer->isValid() )
             {
               if ( sublayer->crs().isValid() )
@@ -708,7 +707,7 @@ void QgisMobileapp::readProjectFile()
           vectorLayers << layer;
         }
 
-        for( QgsMapLayer *l : std::as_const( vectorLayers ) )
+        for ( QgsMapLayer *l : std::as_const( vectorLayers ) )
         {
           QgsVectorLayer *vlayer = qobject_cast< QgsVectorLayer * >( l );
           bool ok;
@@ -726,13 +725,15 @@ void QgisMobileapp::readProjectFile()
 
         if ( vectorLayers.size() > 1 )
         {
-          std::sort( vectorLayers.begin(), vectorLayers.end(), []( QgsMapLayer *a, QgsMapLayer *b ) {
+          std::sort( vectorLayers.begin(), vectorLayers.end(), []( QgsMapLayer * a, QgsMapLayer * b )
+          {
             QgsVectorLayer *alayer = qobject_cast< QgsVectorLayer * >( a );
             QgsVectorLayer *blayer = qobject_cast< QgsVectorLayer * >( b );
             if ( alayer->geometryType() == QgsWkbTypes::PointGeometry && blayer->geometryType() != QgsWkbTypes::PointGeometry )
             {
               return true;
-            } else if ( alayer->geometryType() == QgsWkbTypes::LineGeometry && blayer->geometryType() == QgsWkbTypes::PolygonGeometry )
+            }
+            else if ( alayer->geometryType() == QgsWkbTypes::LineGeometry && blayer->geometryType() == QgsWkbTypes::PolygonGeometry )
             {
               return true;
             }
@@ -750,7 +751,8 @@ void QgisMobileapp::readProjectFile()
     }
 
     // Load raster dataset
-    if ( SUPPORTED_RASTER_EXTENSIONS.contains( fileSuffix ) ) {
+    if ( SUPPORTED_RASTER_EXTENSIONS.contains( fileSuffix ) )
+    {
       QgsRasterLayer *layer = new QgsRasterLayer( filePath, mProjectFileName, QLatin1String( "gdal" ) );
       if ( layer->isValid() )
       {
@@ -759,10 +761,10 @@ void QgisMobileapp::readProjectFile()
         {
           for ( const QString &sublayerInfo : sublayers )
           {
-            const QStringList info =sublayerInfo.split( QgsDataProvider::sublayerSeparator() );
+            const QStringList info = sublayerInfo.split( QgsDataProvider::sublayerSeparator() );
             QgsRasterLayer *sublayer = new QgsRasterLayer( QStringLiteral( "%1|layerid=%2" ).arg( filePath, info.at( 0 ) ),
-                                                           QStringLiteral( "%1: %2" ).arg( mProjectFileName, info.at( 1 ) ),
-                                                           QLatin1String( "gdal" ) );
+                QStringLiteral( "%1: %2" ).arg( mProjectFileName, info.at( 1 ) ),
+                QLatin1String( "gdal" ) );
             if ( sublayer->isValid() )
             {
               if ( sublayer->crs().isValid() )
@@ -804,7 +806,7 @@ void QgisMobileapp::readProjectFile()
           rasterLayers << layer;
         }
 
-        for( QgsMapLayer *l : std::as_const( rasterLayers ) )
+        for ( QgsMapLayer *l : std::as_const( rasterLayers ) )
         {
           QgsRasterLayer *rlayer = qobject_cast< QgsRasterLayer * >( l );
           bool ok;
@@ -895,7 +897,7 @@ bool QgisMobileapp::print( const QString &layoutName )
 {
   const QList<QgsPrintLayout *> printLayouts = mProject->layoutManager()->printLayouts();
   QgsPrintLayout *layoutToPrint = nullptr;
-  for( QgsPrintLayout *layout : printLayouts )
+  for ( QgsPrintLayout *layout : printLayouts )
   {
     if ( layout->name() == layoutName )
     {
@@ -936,7 +938,7 @@ bool QgisMobileapp::printAtlasFeatures( const QString &layoutName, const QList<l
 {
   const QList<QgsPrintLayout *> printLayouts = mProject->layoutManager()->printLayouts();
   QgsPrintLayout *layoutToPrint = nullptr;
-  for( QgsPrintLayout *layout : printLayouts )
+  for ( QgsPrintLayout *layout : printLayouts )
   {
     if ( layout->name() == layoutName )
     {
@@ -949,7 +951,7 @@ bool QgisMobileapp::printAtlasFeatures( const QString &layoutName, const QList<l
     return false;
 
   QStringList ids;
-  for( const auto id : featureIds )
+  for ( const auto id : featureIds )
   {
     ids << QString::number( id );
   }
@@ -997,7 +999,9 @@ bool QgisMobileapp::printAtlasFeatures( const QString &layoutName, const QList<l
       result = exporter.exportToPdf( layoutToPrint->atlas(), destination, pdfSettings, error );
       if ( result == QgsLayoutExporter::Success )
         PlatformUtilities::instance()->open( destination );
-    } else {
+    }
+    else
+    {
       result = exporter.exportToPdfs( layoutToPrint->atlas(), destination, pdfSettings, error );
 #ifndef Q_OS_ANDROID
       if ( result == QgsLayoutExporter::Success )
