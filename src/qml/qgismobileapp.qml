@@ -291,7 +291,8 @@ ApplicationWindow {
               if ( !gpsLinkButton.linkActive && geometryEditorsToolbar.canvasClicked(point) )
                   return;
 
-              if ( !gpsLinkButton.linkActive && ( ( stateMachine.state === "digitize" && dashBoard.currentLayer ) || stateMachine.state === 'measure' ) && !featureForm.visible )
+              if ( !gpsLinkButton.linkActive && !featureForm.visible &&
+                   ( ( stateMachine.state === "digitize" && digitizingFeature.currentLayer ) || stateMachine.state === 'measure' ) )
               {
                   if ( Number( currentRubberband.model.geometryType ) === QgsWkbTypes.PointGeometry ||
                           Number( currentRubberband.model.geometryType ) === QgsWkbTypes.NullGeometry )
@@ -1180,8 +1181,8 @@ ApplicationWindow {
             coordinateLocator.flash()
             digitizingFeature.geometry.applyRubberband()
             geometryRequestedItem.requestedGeometry(digitizingFeature.geometry)
-            geometryRequested = false
             digitizingRubberband.model.reset()
+            geometryRequested = false
             return;
         }
 

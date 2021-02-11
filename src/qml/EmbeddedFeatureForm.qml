@@ -19,7 +19,7 @@ Popup {
         target: digitizingToolbar
 
         property bool wasVisible: false
-        onGeometryRequestedChanged: {
+        function onGeometryRequestedChanged() {
             if ( digitizingToolbar.geometryRequested && formPopup.visible ) {
                 wasVisible = true
                 formPopup.visible = false

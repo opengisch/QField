@@ -227,10 +227,17 @@ Popup {
   Connections {
       target: layerTree
 
-      onDataChanged: updateTitle();
+      function onDataChanged(topleft, bottomright, roles) {
+          if (roles.includes(FlatLayerTreeModel.FeatureCount)) {
+            updateTitle();
+          }
+      }
   }
 
   function updateTitle() {
+      if (index === undefined)
+          return
+
       title = layerTree.data(index, Qt.DisplayName)
       var vl = layerTree.data(index, FlatLayerTreeModel.VectorLayerPointer)
 
