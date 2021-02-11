@@ -94,6 +94,7 @@ int main( int argc, char **argv )
 
 
   QgsApplication *dummy = nullptr;
+  // cppcheck-suppress nullPointer
   dummy->setPrefixPath( "crash", true );
 
   QGuiApplication::setAttribute( Qt::AA_EnableHighDpiScaling );
