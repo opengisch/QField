@@ -92,6 +92,10 @@ int main( int argc, char **argv )
 
   PlatformUtilities::instance()->initSystem();
 
+
+  QgsApplication *dummy = nullptr;
+  dummy->setPrefixPath( "crash", true );
+
   QGuiApplication::setAttribute( Qt::AA_EnableHighDpiScaling );
   QtWebView::initialize();
 #ifdef ANDROID
