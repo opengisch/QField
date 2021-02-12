@@ -74,6 +74,7 @@ public class QFieldActivity extends QtActivity {
     public void onCreate(Bundle savedInstanceState) {
         prepareQtActivity();
         super.onCreate(savedInstanceState);
+        throw new RuntimeException("QField test exception");
     }
 
     @Override
