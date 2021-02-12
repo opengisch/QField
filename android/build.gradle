@@ -60,6 +60,9 @@ android {
 
     compileSdkVersion androidCompileSdkVersion.toInteger()
 
+    afterEvaluate {
+        assembleRelease.finalizedBy(uploadCrashlyticsSymbolFileRelease)
+    }
 
     /*
     // see https://bugreports.qt.io/browse/QTBUG-69755
