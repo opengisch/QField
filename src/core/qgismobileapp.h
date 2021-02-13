@@ -113,6 +113,10 @@ class QgisMobileapp : public QQmlApplicationEngine
      */
     void readProjectFile();
 
+    void saveProjectExtent( const QgsRectangle &extent );
+
+    QgsRectangle getProjectExtent( const QString &path );
+
     void print( int layoutIndex );
 
     bool event( QEvent *event ) override;

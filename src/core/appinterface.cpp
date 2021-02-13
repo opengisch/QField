@@ -49,6 +49,11 @@ void AppInterface::readProject()
   return mApp->readProjectFile();
 }
 
+void AppInterface::saveProjectExtent( const QgsRectangle &extent )
+{
+  return mApp->saveProjectExtent( extent );
+}
+
 void AppInterface::print( int layoutIndex )
 {
   return mApp->print( layoutIndex );
