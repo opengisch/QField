@@ -1141,9 +1141,9 @@ ApplicationWindow {
                 }
                 if( !overlayFeatureFormDrawer.featureForm.featureCreated )
                 {
-                    overlayFeatureFormDrawer.featureForm.resetAttributes();
                     overlayFeatureFormDrawer.featureModel.geometry = digitizingFeature.geometry
                     overlayFeatureFormDrawer.featureModel.applyGeometry()
+                    overlayFeatureFormDrawer.featureForm.resetAttributes()
                     if( overlayFeatureFormDrawer.featureForm.model.constraintsHardValid ){
                       // when the constrainst are fulfilled
                       // indirect action, no need to check for success and display a toast, the log is enough
@@ -1201,9 +1201,9 @@ ApplicationWindow {
 
         if ( !digitizingFeature.suppressFeatureForm() )
         {
-          overlayFeatureFormDrawer.featureModel.resetAttributes()
           overlayFeatureFormDrawer.featureModel.geometry = digitizingFeature.geometry
           overlayFeatureFormDrawer.featureModel.applyGeometry()
+          overlayFeatureFormDrawer.featureModel.resetAttributes()
           overlayFeatureFormDrawer.open()
           overlayFeatureFormDrawer.state = "Add"
           overlayFeatureFormDrawer.featureForm.reset()
@@ -1211,9 +1211,9 @@ ApplicationWindow {
         else
         {
           if ( !overlayFeatureFormDrawer.featureForm.featureCreated ) {
-              overlayFeatureFormDrawer.featureModel.resetAttributes();
               overlayFeatureFormDrawer.featureModel.geometry = digitizingFeature.geometry
               overlayFeatureFormDrawer.featureModel.applyGeometry()
+              overlayFeatureFormDrawer.featureModel.resetAttributes()
               if ( !overlayFeatureFormDrawer.featureModel.create() ) {
                 displayToast( qsTr( "Failed to create feature!" ) )
               }
