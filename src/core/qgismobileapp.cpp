@@ -800,10 +800,53 @@ void QgisMobileapp::readProjectFile()
 
   emit loadProjectEnded();
 
+  QgsRectangle projectExtent = getProjectExtent( mProjectFilePath );
+  if ( !projectExtent.isEmpty() )
+    extent = projectExtent;
+
   if ( !extent.isEmpty() && extent.width() != 0.0 )
   {
     // Add a bit of buffer so elements don't touch the map edges
     emit setMapExtent( extent.buffered( extent.width() * 0.02 ) );
+  }
+}
+
+QgsRectangle QgisMobileapp::getProjectExtent( const QString &path )
+{
+  QgsRectangle extent;
+
+  QFileInfo fi( path );
+  if ( fi.exists() )
+  {
+    QSettings settings;
+    QStringList parts = settings.value( QStringLiteral( "/qgis/projectExtent/%1/extent" ).arg( path ), QString() ).toString().split( '|' );
+    if ( parts.size() == 4 &&
+         ( SUPPORTED_PROJECT_EXTENSIONS.contains( fi.suffix().toLower() ) ||
+           fi.size() == settings.value( QStringLiteral( "/qgis/projectExtent/%1/filesize" ).arg( path ), 0 ).toLongLong() ) )
+    {
+      extent.setXMinimum( parts[0].toDouble() );
+      extent.setXMaximum( parts[1].toDouble() );
+      extent.setYMinimum( parts[2].toDouble() );
+      extent.setYMaximum( parts[3].toDouble() );
+    }
+  }
+
+  return extent;
+}
+
+void QgisMobileapp::saveProjectExtent( const QgsRectangle &extent )
+{
+  QFileInfo fi( mProjectFilePath );
+  if ( fi.exists() )
+  {
+    QSettings settings;
+    settings.beginGroup( QStringLiteral( "/qgis/projectExtent/%1" ).arg( mProjectFilePath ) );
+    settings.setValue( QStringLiteral( "filesize" ), fi.size() );
+    settings.setValue( QStringLiteral( "extent" ), QStringLiteral( "%1|%2|%3|%4" ).arg( qgsDoubleToString( extent.xMinimum() ),
+                                                                                        qgsDoubleToString( extent.xMaximum() ),
+                                                                                        qgsDoubleToString( extent.yMinimum() ),
+                                                                                        qgsDoubleToString( extent.yMaximum() ) ) );
+    settings.endGroup();
   }
 }
 
