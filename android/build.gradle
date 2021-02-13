@@ -60,10 +60,6 @@ android {
 
     compileSdkVersion androidCompileSdkVersion.toInteger()
 
-    afterEvaluate {
-        assembleRelease.finalizedBy(uploadCrashlyticsSymbolFileRelease)
-    }
-
     /*
     // see https://bugreports.qt.io/browse/QTBUG-69755
     // and https://forum.qt.io/topic/86570/incorrect-apk-directory/4
