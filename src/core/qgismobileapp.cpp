@@ -824,7 +824,7 @@ void QgisMobileapp::readProjectFile()
   if ( !mapTheme.isEmpty() )
     mFlatLayerTree->setMapTheme( mapTheme );
 
-  emit loadProjectEnded();
+  emit loadProjectEnded( mProjectFilePath, mProjectFileName );
 }
 
 void QgisMobileapp::print( int layoutIndex )

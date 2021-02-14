@@ -1740,13 +1740,16 @@ ApplicationWindow {
         busyMessageText.text = qsTr( "Loading %1" ).arg( name !== '' ? name : path )
         busyMessage.state = "visible"
 
-        projectInfo.filePath = path;
+        projectInfo.filePath = '';
         readProjectTimer.start()
       }
 
-      function onLoadProjectEnded() {
+      function onLoadProjectEnded(path,name) {
         mapCanvasMap.unfreeze('projectload')
         busyMessage.state = "hidden"
+
+        projectInfo.filePath = path;
+
         mapCanvasBackground.color = mapCanvas.mapSettings.backgroundColor
       }
 
