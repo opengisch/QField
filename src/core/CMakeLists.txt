@@ -33,6 +33,7 @@ SET(QFIELD_CORE_SRCS
   picturesource.cpp
   platformutilities.cpp
   printlayoutlistmodel.cpp
+  projectinfo.cpp
   projectsource.cpp
   qfieldappauthrequesthandler.cpp
   qgismobileapp.cpp
@@ -108,6 +109,7 @@ SET(QFIELD_CORE_HDRS
   picturesource.h
   platformutilities.h
   printlayoutlistmodel.h
+  projectinfo.h
   projectsource.h
   qfieldappauthrequesthandler.h
   qgismobileapp.h
