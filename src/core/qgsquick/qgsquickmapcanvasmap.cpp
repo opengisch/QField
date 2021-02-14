@@ -140,6 +140,9 @@ void QgsQuickMapCanvasMap::refreshMap()
 
 void QgsQuickMapCanvasMap::renderJobUpdated()
 {
+  if ( !mJob )
+    return;
+
   mImage = mJob->renderedImage();
   mImageMapSettings = mJob->mapSettings();
   mDirty = true;
@@ -155,6 +158,9 @@ void QgsQuickMapCanvasMap::renderJobUpdated()
 
 void QgsQuickMapCanvasMap::renderJobFinished()
 {
+  if ( !mJob )
+    return;
+
   const QgsMapRendererJob::Errors errors = mJob->errors();
   for ( const QgsMapRendererJob::Error &error : errors )
   {
@@ -275,7 +281,9 @@ void QgsQuickMapCanvasMap::setFreeze( bool freeze )
 
   mFreeze = freeze;
 
-  if ( !mFreeze )
+  if ( mFreeze )
+    stopRendering();
+  else
     refresh();
 
   emit freezeChanged();
