@@ -50,17 +50,10 @@ public class QFieldOpenExternallyActivity extends Activity{
 
         Log.d(TAG, "content URI: " + contentUri);
         Log.d(TAG, "call ACTION_EDIT intent");
-        Intent intent = new Intent();
-        intent.setAction(Intent.ACTION_EDIT);
+        Intent intent = new Intent(Intent.ACTION_EDIT);
         intent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
-        intent.addFlags(Intent.FLAG_GRANT_WRITE_URI_PERMISSION);
-        intent.setDataAndType(contentUri, mimeType);
-        try{
-            startActivityForResult(intent, 102);
-        }catch (Exception e) {
-            Log.d(TAG, e.getMessage());
-            errorMessage = e.getMessage();
-        }
+        intent.setDataAndType(contentUri, "image/*");
+        startActivity(Intent.createChooser(intent));
     }
 
     @Override
