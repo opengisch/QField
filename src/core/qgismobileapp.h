@@ -129,7 +129,7 @@ class QgisMobileapp : public QQmlApplicationEngine
     /**
      * Emitted when the project is fully loaded
      */
-    void loadProjectEnded();
+    void loadProjectEnded( const QString &filename, const QString &name );
 
     /**
      * Emitted when a map canvas extent change is needed

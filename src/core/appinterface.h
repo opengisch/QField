@@ -54,7 +54,7 @@ class AppInterface : public QObject
 
     void loadProjectTriggered( const QString &path, const QString &name );
 
-    void loadProjectEnded();
+    void loadProjectEnded( const QString &path, const QString &name );
 
     void setMapExtent( const QgsRectangle &extent );
 
