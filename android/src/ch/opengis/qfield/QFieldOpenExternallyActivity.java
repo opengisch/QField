@@ -53,7 +53,7 @@ public class QFieldOpenExternallyActivity extends Activity{
         Intent intent = new Intent(Intent.ACTION_EDIT);
         intent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
         intent.setDataAndType(contentUri, "image/*");
-        startActivity(Intent.createChooser(intent));
+        startActivity(Intent.createChooser(intent, null));
     }
 
     @Override
