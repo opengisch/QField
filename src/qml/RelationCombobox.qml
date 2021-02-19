@@ -240,6 +240,10 @@ Item {
               }
             }
           }
+
+          onMovementStarted: {
+            Qt.inputMethod.hide()
+          }
         }
       }
     }
