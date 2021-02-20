@@ -43,8 +43,10 @@ class AppInterface : public QObject
     Q_INVOKABLE void reloadProject();
     Q_INVOKABLE void readProject();
     Q_INVOKABLE void removeRecentProject( const QString &path );
-
     Q_INVOKABLE void print( int layoutIndex );
+
+    static void setInstance( AppInterface *instance ) { sAppInterface = instance; }
+    static AppInterface *instance() { return sAppInterface; }
 
   public slots:
     void openFeatureForm();
@@ -59,6 +61,8 @@ class AppInterface : public QObject
     void setMapExtent( const QgsRectangle &extent );
 
   private:
+    static AppInterface *sAppInterface;
+
     QgisMobileapp *mApp = nullptr;
 };
 

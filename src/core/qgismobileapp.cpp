@@ -139,6 +139,8 @@ QgisMobileapp::QgisMobileapp( QgsApplication *app, QObject *parent )
   create();
 #endif
 
+  AppInterface::setInstance( mIface );
+
   //set the authHandler to qfield-handler
   std::unique_ptr<QgsNetworkAuthenticationHandler> handler;
   mAuthRequestHandler = new QFieldAppAuthRequestHandler();

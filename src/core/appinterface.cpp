@@ -18,6 +18,8 @@
 #include "appinterface.h"
 #include "qgismobileapp.h"
 
+AppInterface *AppInterface::sAppInterface = nullptr;
+
 AppInterface::AppInterface( QgisMobileapp *app )
   : mApp( app )
 {
