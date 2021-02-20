@@ -57,8 +57,8 @@ import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Environment;
-import android.support.v4.app.ActivityCompat; 
-import android.support.v4.content.ContextCompat; 
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.content.ContextCompat;
 
 import org.qtproject.qt5.android.bindings.QtActivity;
 
@@ -67,6 +67,9 @@ import ch.opengis.qfield.QFieldUtils;
 
 
 public class QFieldActivity extends QtActivity {
+
+    public static native void openProject(String url);
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         prepareQtActivity();
@@ -76,6 +79,11 @@ public class QFieldActivity extends QtActivity {
     @Override
     public void onNewIntent(Intent intent) {
         super.onNewIntent(intent);
+        if (intent.getAction() == Intent.ACTION_VIEW) {
+            Uri uri = intent.getData();
+            Context context = getApplication().getApplicationContext();
+            openProject(QFieldUtils.getPathFromUri(context, uri));
+        }
     }
 
     private void prepareQtActivity() {

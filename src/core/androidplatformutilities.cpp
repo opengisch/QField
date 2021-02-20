@@ -20,6 +20,7 @@
 #include "androidpicturesource.h"
 #include "androidprojectsource.h"
 #include "androidviewstatus.h"
+#include "appinterface.h"
 #include "feedback.h"
 #include "fileutils.h"
 
@@ -35,6 +36,8 @@
 #include <QQmlApplicationEngine>
 #include <QQmlContext>
 #include <QThread>
+
+#include <jni.h>
 
 AndroidPlatformUtilities::AndroidPlatformUtilities()
   : mActivity( QtAndroid::androidActivity() )
@@ -365,5 +368,24 @@ void AndroidPlatformUtilities::showRateThisApp() const
 
   QtAndroid::startActivity( intent.object<jobject>(), 104 );
 }
+
+#ifdef __cplusplus
+extern "C" {
+#endif
+
+JNIEXPORT void JNICALL Java_ch_opengis_qfield_QFieldActivity_openProject( JNIEnv *env, jobject obj, jstring path )
+{
+  if ( AppInterface::instance() )
+  {
+    const char *pathStr = env->GetStringUTFChars( path, NULL );
+    AppInterface::instance()->loadFile( QString( pathStr ) );
+    env->ReleaseStringUTFChars( path, pathStr );
+  }
+  return;
+}
+
+#ifdef __cplusplus
+}
+#endif
 
 #include "androidplatformutilities.moc"
