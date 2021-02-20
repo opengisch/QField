@@ -88,9 +88,4 @@ EditorWidgetBase {
       }
     }
   }
-
-  FontMetrics {
-    id: fontMetrics
-    font: textLabel.font
-  }
 }
