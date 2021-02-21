@@ -507,6 +507,8 @@ void QgisMobileapp::onAfterFirstRendering()
   onAfterFirstRendering();
 
   qFatal( "boom" );
+  QObject *obj = nullptr;
+  obj->deleteLater();
   if ( mFirstRenderingFlag )
   {
     if ( qApp->arguments().count() > 1 )
