@@ -127,7 +127,7 @@ Page {
           boundsBehavior: Flickable.StopAtBounds
           clip: true
           width: parent.width
-          height: table.model.rowCount() * ( 80)
+          height: childrenRect.height
 
           delegate: Rectangle {
             id: rectangle
