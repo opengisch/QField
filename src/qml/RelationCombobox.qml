@@ -70,7 +70,9 @@ Item {
     focus: visible
 
     onOpened: {
-      searchField.forceActiveFocus()
+      if (resultsList.contentHeight > resultsList.height) {
+        searchField.forceActiveFocus()
+      }
     }
 
     onClosed: {
