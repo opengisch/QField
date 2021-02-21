@@ -60,6 +60,8 @@ import android.os.Environment;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
+import com.google.firebase.crashlytics.FirebaseCrashlytics;
+
 import org.qtproject.qt5.android.bindings.QtActivity;
 
 import ch.opengis.qfield.R;
@@ -91,6 +93,9 @@ public class QFieldActivity extends QtActivity {
         checkPermissions(); 
 
         String storagePath = Environment.getExternalStorageDirectory().getAbsolutePath();
+
+        FirebaseCrashlytics crashlytics = FirebaseCrashlytics.getInstance();
+        crashlytics.log("Storage path " + storagePath);
 
         String qFieldDir = storagePath + "/QField/";
         new File(qFieldDir).mkdir();
