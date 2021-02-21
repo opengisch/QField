@@ -13,8 +13,10 @@
  *   (at your option) any later version.                                   *
  *                                                                         *
  ***************************************************************************/
+
 #include "recentprojectlistmodel.h"
 #include "platformutilities.h"
+#include "qgismobileapp.h"
 
 #include <QSettings>
 #include <QFile>
@@ -53,10 +55,14 @@ void RecentProjectListModel::reloadModel()
   for ( int i = 0; i < projectKeys.count(); i++ )
   {
     settings.beginGroup( QString::number( projectKeys.at( i ) ) );
-    mRecentProjects.append( RecentProject( LocalProject,
-                                           settings.value( QStringLiteral( "title" ) ).toString(),
-                                           settings.value( QStringLiteral( "path" ) ).toString(),
-                                           settings.value( QStringLiteral( "demo" ), false ).toBool() ) );
+    QFileInfo fi( settings.value( QStringLiteral( "path" ) ).toString() );
+    if ( fi.exists() )
+    {
+      mRecentProjects.append( RecentProject( SUPPORTED_PROJECT_EXTENSIONS.contains( fi.suffix() ) ? LocalProject : LocalDataset,
+                                             settings.value( QStringLiteral( "title" ) ).toString(),
+                                             settings.value( QStringLiteral( "path" ) ).toString(),
+                                             settings.value( QStringLiteral( "demo" ), false ).toBool() ) );
+    }
     settings.endGroup();
   }
   settings.endGroup();

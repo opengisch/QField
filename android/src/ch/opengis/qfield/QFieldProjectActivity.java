@@ -97,9 +97,9 @@ public class QFieldProjectActivity extends Activity {
                 values.add(new QFieldProjectListItem(null, getString(R.string.recent_projects), 0, QFieldProjectListItem.TYPE_SEPARATOR));
 
                 for (int i=lastUsedProjectsArray.length-1; i>=0; i--) {
-                    File f = new File(lastUsedProjectsArray[i]);
-                    if (f.exists()){
-                        values.add(new QFieldProjectListItem(f, f.getName(), R.drawable.qfield_logo, QFieldProjectListItem.TYPE_ITEM));
+                    File file = new File(lastUsedProjectsArray[i]);
+                    if (file.exists()){
+                        values.add(new QFieldProjectListItem(file, file.getName(), file.getName().toLowerCase().endsWith(".qgs") || file.getName().toLowerCase().endsWith(".qgz") ? R.drawable.project : R.drawable.dataset, QFieldProjectListItem.TYPE_ITEM));
                     }
                 }
             }
@@ -155,7 +155,7 @@ public class QFieldProjectActivity extends Activity {
                               file.getName().toLowerCase().endsWith(".gpx") ||
                               file.getName().toLowerCase().endsWith(".jp2") ||
                               file.getName().toLowerCase().endsWith(".webp")){
-                        values.add(new QFieldProjectListItem(file, file.getName(), R.drawable.qfield_logo, QFieldProjectListItem.TYPE_ITEM));
+                        values.add(new QFieldProjectListItem(file, file.getName(), file.getName().toLowerCase().endsWith(".qgs") || file.getName().toLowerCase().endsWith(".qgz") ? R.drawable.project : R.drawable.dataset, QFieldProjectListItem.TYPE_ITEM));
                     }else if (file.isDirectory()){
                         values.add(new QFieldProjectListItem(file, file.getName(), R.drawable.directory, QFieldProjectListItem.TYPE_ITEM));
                     }

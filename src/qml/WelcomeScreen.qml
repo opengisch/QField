@@ -127,7 +127,7 @@ Page {
           boundsBehavior: Flickable.StopAtBounds
           clip: true
           width: parent.width
-          height: table.model.rowCount() * ( 80)
+          height: childrenRect.height
 
           delegate: Rectangle {
             id: rectangle
@@ -148,7 +148,12 @@ Page {
               Image {
                 id: type
                 anchors.verticalCenter: inner.verticalCenter
-                source: ProjectType == 0 ? Theme.getThemeIcon('ic_map_green_48dp') : ''
+                source: switch(ProjectType) {
+                        case 0: return Theme.getThemeIcon('ic_map_green_48dp'); // local project
+                        case 1: return ''; // cloud project
+                        case 2: return Theme.getThemeIcon('ic_file_green_48dp'); // local dataset
+                        default: return'';
+                        }
                 sourceSize.width: 80
                 sourceSize.height: 80
                 width: 40
@@ -232,7 +237,16 @@ Page {
             property string recentProjectPath: ''
 
             title: 'Recent Project Actions'
-            width: Math.max(320, mainWindow.width/2)
+            width: {
+                var result = 0;
+                var padding = 0;
+                for (var i = 0; i < count; ++i) {
+                    var item = itemAt(i);
+                    result = Math.max(item.contentItem.implicitWidth, result);
+                    padding = Math.max(item.padding, padding);
+                }
+                return Math.min( result + padding * 2,mainWindow.width - 20);
+            }
 
             MenuItem {
               id: removeProject
@@ -387,7 +401,6 @@ Page {
           welcomeText.text = qsTr( "Welcome back to QField." )
         }
         currentProjectButton.visible = false
-        firstShown = true
       }
     }
   }
@@ -398,5 +411,7 @@ Page {
 
   onVisibleChanged: {
     adjustWelcomeScreen()
+    if (!visible)
+      firstShown = true
   }
 }
