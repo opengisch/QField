@@ -504,8 +504,6 @@ void QgisMobileapp::onAfterFirstRendering()
   // This should get triggered exactly once, so we disconnect it right away
   // disconnect( this, &QgisMobileapp::afterRendering, this, &QgisMobileapp::onAfterFirstRendering );
 
-  onAfterFirstRendering();
-
   qFatal( "boom" );
   QObject *obj = nullptr;
   obj->deleteLater();
