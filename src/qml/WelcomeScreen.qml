@@ -148,7 +148,12 @@ Page {
               Image {
                 id: type
                 anchors.verticalCenter: inner.verticalCenter
-                source: ProjectType == 0 ? Theme.getThemeIcon('ic_map_green_48dp') : ''
+                source: switch(ProjectType) {
+                        case 0: return Theme.getThemeIcon('ic_map_green_48dp'); // local project
+                        case 1: return ''; // cloud project
+                        case 2: return Theme.getThemeIcon('ic_file_green_48dp'); // local dataset
+                        default: return'';
+                        }
                 sourceSize.width: 80
                 sourceSize.height: 80
                 width: 40

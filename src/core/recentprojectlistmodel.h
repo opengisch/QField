@@ -28,6 +28,7 @@ class RecentProjectListModel : public QAbstractListModel
     {
       LocalProject,
       CloudProject,
+      LocalDataset,
     };
 
     struct RecentProject
