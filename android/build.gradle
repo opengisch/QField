@@ -93,7 +93,7 @@ android {
             firebaseCrashlytics {
                 nativeSymbolUploadEnabled true
                 strippedNativeLibsDir "$buildDir/intermediates/stripped_native_libs/release/out/lib"
-                unstrippedNativeLibsDir "$buildDir/intermediates/stripped_native_libs/release/out/lib"
+                unstrippedNativeLibsDir "$buildDir/../libs"
             }
         }
     }
