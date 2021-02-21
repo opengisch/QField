@@ -148,8 +148,6 @@ else
 fi
 
 cd android-build
-./gradlew --no-daemon processReleaseGoogleServices
-./gradlew --no-daemon generateCrashlyticsSymbolFileRelease
 ./gradlew --no-daemon uploadCrashlyticsSymbolFileRelease
 
 popd
