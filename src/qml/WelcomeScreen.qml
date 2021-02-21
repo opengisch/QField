@@ -401,7 +401,6 @@ Page {
           welcomeText.text = qsTr( "Welcome back to QField." )
         }
         currentProjectButton.visible = false
-        firstShown = true
       }
     }
   }
@@ -412,5 +411,7 @@ Page {
 
   onVisibleChanged: {
     adjustWelcomeScreen()
+    if (!visible)
+      firstShown = true
   }
 }
