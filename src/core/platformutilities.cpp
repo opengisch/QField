@@ -130,19 +130,25 @@ QString PlatformUtilities::fieldType( const QgsField &field ) const
 
 ProjectSource *PlatformUtilities::openProject()
 {
+  QSettings settings;
   ProjectSource *source = new ProjectSource( );
-  QString path { QFileDialog::getOpenFileName( nullptr,
-                                               tr( "Open QGIS Project File" ),
-                                               QString(),
-                                               QStringLiteral( "%1 (*.%2);;%3 (*.%4);;%5 (*.%6)" ).arg( tr( "QGIS Project Files" ),
-                                                                                                        SUPPORTED_PROJECT_EXTENSIONS.join( QStringLiteral( " *." ) ),
-                                                                                                        tr( "Vector Datasets" ),
-                                                                                                        SUPPORTED_VECTOR_EXTENSIONS.join( QStringLiteral( " *." ) ),
-                                                                                                        tr( "Raster Datasets" ),
-                                                                                                        SUPPORTED_RASTER_EXTENSIONS.join( QStringLiteral( " *." ) ) ) ) };
-  if ( ! path.isEmpty() )
+  QString fileName { QFileDialog::getOpenFileName( nullptr,
+                                               tr( "Open File" ),
+                                               settings.value( QStringLiteral( "QField/lastOpenDir" ), QString() ).toString(),
+                                               QStringLiteral( "%1 (*.%2);;%3 (*.%4);;%5 (*.%6);;%7 (*.%8)" ).arg( tr( "All Supported Files" ),
+                                                                                                                   ( SUPPORTED_PROJECT_EXTENSIONS +
+                                                                                                                     SUPPORTED_VECTOR_EXTENSIONS +
+                                                                                                                     SUPPORTED_RASTER_EXTENSIONS ).join( QStringLiteral( " *." ) ),
+                                                                                                                   tr( "QGIS Project Files" ),
+                                                                                                                   SUPPORTED_PROJECT_EXTENSIONS.join( QStringLiteral( " *." ) ),
+                                                                                                                   tr( "Vector Datasets" ),
+                                                                                                                   SUPPORTED_VECTOR_EXTENSIONS.join( QStringLiteral( " *." ) ),
+                                                                                                                   tr( "Raster Datasets" ),
+                                                                                                                   SUPPORTED_RASTER_EXTENSIONS.join( QStringLiteral( " *." ) ) ) ) };
+  if ( !fileName.isEmpty() )
   {
-    QTimer::singleShot( 0, this, [source, path]() { emit source->projectOpened( path ); } );
+    settings.setValue( QStringLiteral( "/QField/lastOpenDir" ), QFileInfo( fileName ).absolutePath() );
+    QTimer::singleShot( 0, this, [source, fileName]() { emit source->projectOpened( fileName ); } );
   }
   return source;
 }
