@@ -242,12 +242,12 @@ void FeatureListModel::gatherFeatureList()
     request.setFilterExpression( mFilterExpression );
   }
 
+  QString fieldDisplayString = displayValueIndex >= 0
+    ? QgsExpression::quotedColumnRef( mDisplayValueField )
+    : QStringLiteral( " ( %1 ) " ).arg( mCurrentLayer->displayExpression() );
+
   if ( !mSearchTerm.isEmpty() )
   {
-    QString fieldDisplayString = displayValueIndex >= 0
-      ? QgsExpression::quotedColumnRef( mDisplayValueField )
-      : QStringLiteral( " ( %1 ) " ).arg( mCurrentLayer->displayExpression() );
-
     QString escapedSearchTerm = QgsExpression::quotedValue( mSearchTerm ).replace( QRegularExpression( QStringLiteral( "^'|'$" ) ), QString( "" ) );
     QString searchTermExpression = QStringLiteral( " %1 ILIKE '\%%2\%' " )
         .arg( fieldDisplayString, escapedSearchTerm );
@@ -271,7 +271,7 @@ void FeatureListModel::gatherFeatureList()
       request.setFilterExpression( QStringLiteral( " (%1) AND (%2) " ).arg( mFilterExpression, searchTermExpression ) );
   }
 
-  mGatherer = new FeatureExpressionValuesGatherer( mCurrentLayer, mCurrentLayer->displayExpression(), request, QStringList() << keyField() );
+  mGatherer = new FeatureExpressionValuesGatherer( mCurrentLayer, fieldDisplayString, request, QStringList() << keyField() );
   connect( mGatherer, &QThread::finished, this, &FeatureListModel::processFeatureList );
   mGatherer->start();
 }
