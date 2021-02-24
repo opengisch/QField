@@ -563,6 +563,8 @@ void QgisMobileapp::readProjectFile()
   const QString suffix = fi.suffix().toLower();
 
   mProject->removeAllMapLayers();
+  mProject->setTitle( QString() );
+
   mTrackingModel->reset();
 
   // Load project file
@@ -582,22 +584,6 @@ void QgisMobileapp::readProjectFile()
       else
         QgsMessageLog::logMessage( tr( "Loading font %1" ).arg( fontFile ) );
     }
-  }
-  else
-  {
-    if ( QFile::exists( PlatformUtilities::instance()->qfieldDataDir() + QStringLiteral( "basemap.qgs" ) ) )
-    {
-      mProject->read( PlatformUtilities::instance()->qfieldDataDir() + QStringLiteral( "basemap.qgs" ) );
-    }
-    else if ( QFile::exists( PlatformUtilities::instance()->qfieldDataDir() + QStringLiteral( "basemap.qgz" ) ) )
-    {
-      mProject->read( PlatformUtilities::instance()->qfieldDataDir() + QStringLiteral( "basemap.qgz" ) );
-    }
-    else
-    {
-      mProject->clear();
-    }
-    mProject->setTitle( mProjectFileName );
   }
 
   QList<QPair<QString, QString>> projects = recentProjects();
@@ -779,14 +765,31 @@ void QgisMobileapp::readProjectFile()
   if ( vectorLayers.size() > 0 || rasterLayers.size() > 0 )
   {
     if ( crs.isValid() )
-      mProject->setCrs( crs );
-
-    if ( mProject->fileName().isEmpty() )
     {
-      // Add a default basemap
-      QgsRasterLayer *layer = new QgsRasterLayer( QStringLiteral( "type=xyz&url=https://a.tile.openstreetmap.org/%7Bz%7D/%7Bx%7D/%7By%7D.png&zmax=19&zmin=0&crs=EPSG3857" ), QStringLiteral( "OpenStreetMap" ), QLatin1String( "wms" ) );
-      mProject->addMapLayers( QList<QgsMapLayer *>() << layer );
+      if ( QFile::exists( PlatformUtilities::instance()->qfieldDataDir() + QStringLiteral( "basemap.qgs" ) ) )
+      {
+        mProject->read( PlatformUtilities::instance()->qfieldDataDir() + QStringLiteral( "basemap.qgs" ) );
+      }
+      else if ( QFile::exists( PlatformUtilities::instance()->qfieldDataDir() + QStringLiteral( "basemap.qgz" ) ) )
+      {
+        mProject->read( PlatformUtilities::instance()->qfieldDataDir() + QStringLiteral( "basemap.qgz" ) );
+      }
+      else
+      {
+        mProject->clear();
+
+        // Add a default basemap
+        QgsRasterLayer *layer = new QgsRasterLayer( QStringLiteral( "type=xyz&url=https://a.tile.openstreetmap.org/%7Bz%7D/%7Bx%7D/%7By%7D.png&zmax=19&zmin=0&crs=EPSG3857" ), QStringLiteral( "OpenStreetMap" ), QLatin1String( "wms" ) );
+        mProject->addMapLayers( QList<QgsMapLayer *>() << layer );
+      }
     }
+    else
+    {
+      mProject->clear();
+    }
+
+    mProject->setCrs( crs );
+    mProject->setTitle( mProjectFileName );
 
     mProject->addMapLayers( rasterLayers );
     mProject->addMapLayers( vectorLayers );
