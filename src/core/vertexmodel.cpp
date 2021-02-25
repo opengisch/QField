@@ -354,12 +354,12 @@ QgsGeometry VertexModel::geometry() const
     }
     case QgsWkbTypes::PolygonGeometry:
     {
-      std::unique_ptr<QgsLineString> ls( qgis::make_unique<QgsLineString>( vertices ) );
-      std::unique_ptr<QgsPolygon> polygon( qgis::make_unique<QgsPolygon>() );
+      std::unique_ptr<QgsLineString> ls( std::make_unique<QgsLineString>( vertices ) );
+      std::unique_ptr<QgsPolygon> polygon( std::make_unique<QgsPolygon>() );
       polygon->setExteriorRing( ls.release() );
       for ( int r = 1; r <= ringCount(); r++ )
       {
-        std::unique_ptr<QgsLineString> ring( qgis::make_unique<QgsLineString>( flatVertices( r ) ) );
+        std::unique_ptr<QgsLineString> ring( std::make_unique<QgsLineString>( flatVertices( r ) ) );
         polygon->addInteriorRing( ring.release() );
       }
       geometry.set( polygon.release() );

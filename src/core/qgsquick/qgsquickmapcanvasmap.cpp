@@ -32,7 +32,7 @@
 
 QgsQuickMapCanvasMap::QgsQuickMapCanvasMap( QQuickItem *parent )
   : QQuickItem( parent )
-  , mMapSettings( qgis::make_unique<QgsQuickMapSettings>() )
+  , mMapSettings( std::make_unique<QgsQuickMapSettings>() )
 {
   connect( this, &QQuickItem::windowChanged, this, &QgsQuickMapCanvasMap::onWindowChanged );
   connect( &mRefreshTimer, &QTimer::timeout, this, &QgsQuickMapCanvasMap::refreshMap );

@@ -177,7 +177,7 @@ QgisMobileapp::QgisMobileapp( QgsApplication *app, QObject *parent )
   QFontDatabase::addApplicationFont( ":/fonts/CadastraSymbol-Regular.ttf" );
 
   mProject = QgsProject::instance();
-  mGpkgFlusher = qgis::make_unique<QgsGpkgFlusher>( mProject );
+  mGpkgFlusher = std::make_unique<QgsGpkgFlusher>( mProject );
   mFlatLayerTree = new FlatLayerTreeModel( mProject->layerTreeRoot(), mProject, this );
   mLegendImageProvider = new LegendImageProvider( mFlatLayerTree->layerTreeModel() );
   mTrackingModel = new TrackingModel;
