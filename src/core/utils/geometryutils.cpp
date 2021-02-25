@@ -33,7 +33,7 @@ QgsGeometry GeometryUtils::polygonFromRubberband( RubberbandModel *rubberBandMod
 {
   QgsPointSequence ring = rubberBandModel->pointSequence( crs, QgsWkbTypes::Point, true );
   QgsLineString ext( ring );
-  std::unique_ptr< QgsPolygon > polygon = qgis::make_unique< QgsPolygon >( );
+  std::unique_ptr< QgsPolygon > polygon = std::make_unique< QgsPolygon >( );
   polygon->setExteriorRing( ext.clone() );
   QgsGeometry g( std::move( polygon ) );
   return g;
