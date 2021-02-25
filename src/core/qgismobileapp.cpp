@@ -660,11 +660,16 @@ void QgisMobileapp::readProjectFile()
       for( QgsMapLayer *l : vectorLayers )
       {
         QgsVectorLayer *vlayer = qobject_cast< QgsVectorLayer * >( l );
-        QgsSymbol *symbol = FeatureUtils::defaultSymbol( vlayer );
-        if ( symbol )
+        bool ok;
+        vlayer->loadDefaultStyle( ok );
+        if ( !ok )
         {
-          QgsSingleSymbolRenderer *renderer = new QgsSingleSymbolRenderer( symbol );
-          vlayer->setRenderer( renderer );
+          QgsSymbol *symbol = FeatureUtils::defaultSymbol( vlayer );
+          if ( symbol )
+          {
+            QgsSingleSymbolRenderer *renderer = new QgsSingleSymbolRenderer( symbol );
+            vlayer->setRenderer( renderer );
+          }
         }
       }
 
@@ -748,12 +753,14 @@ void QgisMobileapp::readProjectFile()
         rasterLayers << layer;
       }
 
-      // If the raster size is reasonably small, apply nicer resampling settings
-      if ( fi.size() < 50000000 )
+      for( QgsMapLayer *l : rasterLayers )
       {
-        for( QgsMapLayer *l : rasterLayers )
+        QgsRasterLayer *rlayer = qobject_cast< QgsRasterLayer * >( l );
+        bool ok;
+        rlayer->loadDefaultStyle( ok );
+        if ( !ok && fi.size() < 50000000 )
         {
-          QgsRasterLayer *rlayer = qobject_cast< QgsRasterLayer * >( l );
+          // If the raster size is reasonably small, apply nicer resampling settings
           rlayer->resampleFilter()->setZoomedInResampler( new QgsBilinearRasterResampler() );
           rlayer->resampleFilter()->setZoomedOutResampler( new QgsBilinearRasterResampler() );
           rlayer->resampleFilter()->setMaxOversampling( 2.0 );
