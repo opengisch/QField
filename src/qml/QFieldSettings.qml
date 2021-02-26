@@ -84,9 +84,11 @@ Page {
 
     TabBar {
       id: bar
-      currentIndex: swipeView.currentIndex
+      currentIndex: 0
       Layout.fillWidth: true
       Layout.preferredHeight: 48
+
+      onCurrentIndexChanged: swipeView.currentIndex = bar.currentIndex
 
       TabButton {
         text: qsTr("General")
@@ -111,9 +113,11 @@ Page {
     SwipeView {
       id: swipeView
       width: mainWindow.width
-      currentIndex: bar.currentIndex
+      currentIndex: 0
       Layout.fillHeight: true
       Layout.fillWidth: true
+
+      onCurrentIndexChanged: bar.currentIndex = swipeView.currentIndex
 
       ListView {
         flickableDirection: Flickable.VerticalFlick
