@@ -235,8 +235,9 @@ QgisMobileapp::QgisMobileapp( QgsApplication *app, QObject *parent )
       free( newPaths[i] );
     }
     delete [] newPaths;
-
+#if Q_OS_ANDROID
     setenv( "PGSYSCONFDIR", PlatformUtilities::instance()->qfieldDataDir().toUtf8(), true );
+#endif
   }
 
   PlatformUtilities::instance()->setScreenLockPermission( false );
