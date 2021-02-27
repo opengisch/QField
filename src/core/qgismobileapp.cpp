@@ -607,6 +607,10 @@ void QgisMobileapp::readProjectFile()
       // GDAL's internal KML driver doesn't support KMZ, work around this limitation
       filePath = QStringLiteral( "/vsizip/%1/doc.kml" ).arg ( mProjectFilePath );
     }
+    else if ( suffix == QStringLiteral( "zip" ) )
+    {
+      filePath = QStringLiteral( "/vsizip/%1" ).arg ( mProjectFilePath );
+    }
 
     QgsVectorLayer::LayerOptions options { QgsProject::instance()->transformContext() };
     options.loadDefaultStyle = true;

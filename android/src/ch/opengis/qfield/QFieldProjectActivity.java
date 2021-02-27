@@ -154,7 +154,8 @@ public class QFieldProjectActivity extends Activity {
                               file.getName().toLowerCase().endsWith(".pdf") ||
                               file.getName().toLowerCase().endsWith(".gpx") ||
                               file.getName().toLowerCase().endsWith(".jp2") ||
-                              file.getName().toLowerCase().endsWith(".webp")){
+                              file.getName().toLowerCase().endsWith(".webp")||
+                              file.getName().toLowerCase().endsWith(".zip")){
                         values.add(new QFieldProjectListItem(file, file.getName(), file.getName().toLowerCase().endsWith(".qgs") || file.getName().toLowerCase().endsWith(".qgz") ? R.drawable.project : R.drawable.dataset, QFieldProjectListItem.TYPE_ITEM));
                     }else if (file.isDirectory()){
                         values.add(new QFieldProjectListItem(file, file.getName(), R.drawable.directory, QFieldProjectListItem.TYPE_ITEM));
