@@ -22,6 +22,11 @@
 
 #include <proj.h>
 
+// use GDAL VSI mechanism
+#define CPL_SUPRESS_CPLUSPLUS  //#spellok
+#include "cpl_vsi.h"
+#include "cpl_string.h"
+
 #include <QFontDatabase>
 #include <QStandardPaths>
 #include <QtQml/QQmlEngine>
@@ -598,183 +603,209 @@ void QgisMobileapp::readProjectFile()
   QgsCoordinateReferenceSystem crs;
   QgsRectangle extent;
 
-  // Load vector dataset
-  if ( SUPPORTED_VECTOR_EXTENSIONS.contains( suffix ) )
+  QStringList files;
+  if ( suffix == QStringLiteral( "zip" ) )
   {
-    QString filePath = mProjectFilePath;
-    if ( suffix == QStringLiteral( "kmz" ) )
+    // get list of files inside zip file
+    QString tmpPath;
+    char **papszSiblingFiles = VSIReadDirRecursive( QString( "/vsizip/" + mProjectFilePath ).toLocal8Bit().constData() );
+    if ( papszSiblingFiles )
     {
-      // GDAL's internal KML driver doesn't support KMZ, work around this limitation
-      filePath = QStringLiteral( "/vsizip/%1/doc.kml" ).arg ( mProjectFilePath );
-    }
-    else if ( suffix == QStringLiteral( "zip" ) )
-    {
-      filePath = QStringLiteral( "/vsizip/%1" ).arg ( mProjectFilePath );
-    }
-
-    QgsVectorLayer::LayerOptions options { QgsProject::instance()->transformContext() };
-    options.loadDefaultStyle = true;
-
-    QgsVectorLayer *layer = new QgsVectorLayer( filePath, mProjectFileName, QLatin1String( "ogr" ), options );
-    if ( layer->isValid() )
-    {
-      const QStringList sublayers = layer->dataProvider()->subLayers();
-      if ( sublayers.count() > 1 )
+      for ( int i = 0; papszSiblingFiles[i]; i++ )
       {
-        for ( const QString &sublayerInfo : sublayers )
+        tmpPath = papszSiblingFiles[i];
+        // skip directories (files ending with /)
+        if ( tmpPath.right( 1 ) != QLatin1String( "/" ) )
         {
-          const QStringList info =sublayerInfo.split( QgsDataProvider::sublayerSeparator() );
-          QgsVectorLayer *sublayer = new QgsVectorLayer( QStringLiteral( "%1|layerid=%2" ).arg( filePath, info.at( 0 ) ),
-                                                        QStringLiteral( "%1: %2" ).arg( mProjectFileName, info.at( 1 ) ),
-                                                        QLatin1String( "ogr" ), options );
-          if ( sublayer->isValid() )
-          {
-            if ( sublayer->crs().isValid() )
-            {
-              if ( !crs.isValid() )
-                crs = sublayer->crs();
-
-              if ( !sublayer->extent().isEmpty() )
-              {
-                if ( crs != sublayer->crs() )
-                {
-                  QgsCoordinateTransform transform( sublayer->crs(), crs, mProject->transformContext() );
-                  if ( extent.isEmpty() )
-                    extent = transform.transformBoundingBox( sublayer->extent() );
-                  else
-                    extent.combineExtentWith( transform.transformBoundingBox( sublayer->extent() ) );
-                }
-                else
-                {
-                  if ( extent.isEmpty() )
-                    extent = sublayer->extent();
-                  else
-                    extent.combineExtentWith( sublayer->extent() );
-                }
-              }
-            }
-            vectorLayers << sublayer;
-          }
-          else
-          {
-            delete sublayer;
-          }
+          const QFileInfo tmpFi( tmpPath );
+          if ( SUPPORTED_VECTOR_EXTENSIONS.contains( tmpFi.suffix().toLower() ) ||
+               SUPPORTED_RASTER_EXTENSIONS.contains( tmpFi.suffix().toLower() ) )
+            files << QStringLiteral( "/vsizip/%1/%2" ).arg( mProjectFilePath, tmpPath );
         }
       }
-      else
-      {
-        crs = layer->crs();
-        extent = layer->extent();
-        vectorLayers << layer;
-      }
-
-      for( QgsMapLayer *l : vectorLayers )
-      {
-        QgsVectorLayer *vlayer = qobject_cast< QgsVectorLayer * >( l );
-        bool ok;
-        vlayer->loadDefaultStyle( ok );
-        if ( !ok )
-        {
-          QgsSymbol *symbol = FeatureUtils::defaultSymbol( vlayer );
-          if ( symbol )
-          {
-            QgsSingleSymbolRenderer *renderer = new QgsSingleSymbolRenderer( symbol );
-            vlayer->setRenderer( renderer );
-          }
-        }
-      }
-
-      if ( vectorLayers.size() > 1 )
-      {
-        std::sort( vectorLayers.begin(), vectorLayers.end(), []( QgsMapLayer *a, QgsMapLayer *b ) {
-         QgsVectorLayer *alayer = qobject_cast< QgsVectorLayer * >( a );
-         QgsVectorLayer *blayer = qobject_cast< QgsVectorLayer * >( b );
-         if ( alayer->geometryType() == QgsWkbTypes::PointGeometry && blayer->geometryType() != QgsWkbTypes::PointGeometry )
-         {
-           return true;
-         } else if ( alayer->geometryType() == QgsWkbTypes::LineGeometry && blayer->geometryType() == QgsWkbTypes::PolygonGeometry )
-         {
-           return true;
-         }
-         else
-         {
-           return false;
-         }
-        } );
-      }
-    }
-    else
-    {
-      delete layer;
+      CSLDestroy( papszSiblingFiles );
     }
   }
+  else
+  {
+    files << mProjectFilePath;
+  }
 
-  // Load raster dataset
-  if ( SUPPORTED_RASTER_EXTENSIONS.contains( suffix ) ) {
-    QgsRasterLayer *layer = new QgsRasterLayer( mProjectFilePath, mProjectFileName, QLatin1String( "gdal" ) );
-    if ( layer->isValid() )
+  for ( auto filePath : files )
+  {
+    // Load vector dataset
+    if ( SUPPORTED_VECTOR_EXTENSIONS.contains( suffix ) )
     {
-      const QStringList sublayers = layer->dataProvider()->subLayers();
-      if ( sublayers.count() > 1 )
+      if ( suffix == QStringLiteral( "kmz" ) )
       {
-        for ( const QString &sublayerInfo : sublayers )
-        {
-          const QStringList info =sublayerInfo.split( QgsDataProvider::sublayerSeparator() );
-          QgsRasterLayer *sublayer = new QgsRasterLayer( QStringLiteral( "%1|layerid=%2" ).arg( mProjectFilePath, info.at( 0 ) ),
-                                                        QStringLiteral( "%1: %2" ).arg( mProjectFileName, info.at( 1 ) ),
-                                                        QLatin1String( "gdal" ) );
-          if ( sublayer->isValid() )
-          {
-            if ( sublayer->crs().isValid() )
-            {
-              if ( !crs.isValid() )
-                crs = sublayer->crs();
+        // GDAL's internal KML driver doesn't support KMZ, work around this limitation
+        filePath = QStringLiteral( "/vsizip/%1/doc.kml" ).arg ( mProjectFilePath );
+      }
 
-              if ( !sublayer->extent().isEmpty() )
+      QgsVectorLayer::LayerOptions options { QgsProject::instance()->transformContext() };
+      options.loadDefaultStyle = true;
+
+      QgsVectorLayer *layer = new QgsVectorLayer( filePath, mProjectFileName, QLatin1String( "ogr" ), options );
+      if ( layer->isValid() )
+      {
+        const QStringList sublayers = layer->dataProvider()->subLayers();
+        if ( sublayers.count() > 1 )
+        {
+          for ( const QString &sublayerInfo : sublayers )
+          {
+            const QStringList info =sublayerInfo.split( QgsDataProvider::sublayerSeparator() );
+            QgsVectorLayer *sublayer = new QgsVectorLayer( QStringLiteral( "%1|layerid=%2" ).arg( filePath, info.at( 0 ) ),
+                                                           QStringLiteral( "%1: %2" ).arg( mProjectFileName, info.at( 1 ) ),
+                                                           QLatin1String( "ogr" ), options );
+            if ( sublayer->isValid() )
+            {
+              if ( sublayer->crs().isValid() )
               {
-                if ( crs != sublayer->crs() )
+                if ( !crs.isValid() )
+                  crs = sublayer->crs();
+
+                if ( !sublayer->extent().isEmpty() )
                 {
-                  QgsCoordinateTransform transform( sublayer->crs(), crs, mProject->transformContext() );
-                  if ( extent.isEmpty() )
-                    extent = transform.transformBoundingBox( sublayer->extent() );
+                  if ( crs != sublayer->crs() )
+                  {
+                    QgsCoordinateTransform transform( sublayer->crs(), crs, mProject->transformContext() );
+                    if ( extent.isEmpty() )
+                      extent = transform.transformBoundingBox( sublayer->extent() );
+                    else
+                      extent.combineExtentWith( transform.transformBoundingBox( sublayer->extent() ) );
+                  }
                   else
-                    extent.combineExtentWith( transform.transformBoundingBox( sublayer->extent() ) );
-                }
-                else
-                {
-                  if ( extent.isEmpty() )
-                    extent = sublayer->extent();
-                  else
-                    extent.combineExtentWith( sublayer->extent() );
+                  {
+                    if ( extent.isEmpty() )
+                      extent = sublayer->extent();
+                    else
+                      extent.combineExtentWith( sublayer->extent() );
+                  }
                 }
               }
+              vectorLayers << sublayer;
             }
-            rasterLayers << sublayer;
+            else
+            {
+              delete sublayer;
+            }
           }
-          else
+        }
+        else
+        {
+          crs = layer->crs();
+          extent = layer->extent();
+          vectorLayers << layer;
+        }
+
+        for( QgsMapLayer *l : vectorLayers )
+        {
+          QgsVectorLayer *vlayer = qobject_cast< QgsVectorLayer * >( l );
+          bool ok;
+          vlayer->loadDefaultStyle( ok );
+          if ( !ok )
           {
-            delete sublayer;
+            QgsSymbol *symbol = FeatureUtils::defaultSymbol( vlayer );
+            if ( symbol )
+            {
+              QgsSingleSymbolRenderer *renderer = new QgsSingleSymbolRenderer( symbol );
+              vlayer->setRenderer( renderer );
+            }
           }
+        }
+
+        if ( vectorLayers.size() > 1 )
+        {
+          std::sort( vectorLayers.begin(), vectorLayers.end(), []( QgsMapLayer *a, QgsMapLayer *b ) {
+            QgsVectorLayer *alayer = qobject_cast< QgsVectorLayer * >( a );
+            QgsVectorLayer *blayer = qobject_cast< QgsVectorLayer * >( b );
+            if ( alayer->geometryType() == QgsWkbTypes::PointGeometry && blayer->geometryType() != QgsWkbTypes::PointGeometry )
+            {
+              return true;
+            } else if ( alayer->geometryType() == QgsWkbTypes::LineGeometry && blayer->geometryType() == QgsWkbTypes::PolygonGeometry )
+            {
+              return true;
+            }
+            else
+            {
+              return false;
+            }
+          } );
         }
       }
       else
       {
-        crs = layer->crs();
-        extent = layer->extent();
-        rasterLayers << layer;
+        delete layer;
       }
+    }
 
-      for( QgsMapLayer *l : rasterLayers )
+    // Load raster dataset
+    if ( SUPPORTED_RASTER_EXTENSIONS.contains( suffix ) ) {
+      QgsRasterLayer *layer = new QgsRasterLayer( filePath, mProjectFileName, QLatin1String( "gdal" ) );
+      if ( layer->isValid() )
       {
-        QgsRasterLayer *rlayer = qobject_cast< QgsRasterLayer * >( l );
-        bool ok;
-        rlayer->loadDefaultStyle( ok );
-        if ( !ok && fi.size() < 50000000 )
+        const QStringList sublayers = layer->dataProvider()->subLayers();
+        if ( sublayers.count() > 1 )
         {
-          // If the raster size is reasonably small, apply nicer resampling settings
-          rlayer->resampleFilter()->setZoomedInResampler( new QgsBilinearRasterResampler() );
-          rlayer->resampleFilter()->setZoomedOutResampler( new QgsBilinearRasterResampler() );
-          rlayer->resampleFilter()->setMaxOversampling( 2.0 );
+          for ( const QString &sublayerInfo : sublayers )
+          {
+            const QStringList info =sublayerInfo.split( QgsDataProvider::sublayerSeparator() );
+            QgsRasterLayer *sublayer = new QgsRasterLayer( QStringLiteral( "%1|layerid=%2" ).arg( filePath, info.at( 0 ) ),
+                                                           QStringLiteral( "%1: %2" ).arg( mProjectFileName, info.at( 1 ) ),
+                                                           QLatin1String( "gdal" ) );
+            if ( sublayer->isValid() )
+            {
+              if ( sublayer->crs().isValid() )
+              {
+                if ( !crs.isValid() )
+                  crs = sublayer->crs();
+
+                if ( !sublayer->extent().isEmpty() )
+                {
+                  if ( crs != sublayer->crs() )
+                  {
+                    QgsCoordinateTransform transform( sublayer->crs(), crs, mProject->transformContext() );
+                    if ( extent.isEmpty() )
+                      extent = transform.transformBoundingBox( sublayer->extent() );
+                    else
+                      extent.combineExtentWith( transform.transformBoundingBox( sublayer->extent() ) );
+                  }
+                  else
+                  {
+                    if ( extent.isEmpty() )
+                      extent = sublayer->extent();
+                    else
+                      extent.combineExtentWith( sublayer->extent() );
+                  }
+                }
+              }
+              rasterLayers << sublayer;
+            }
+            else
+            {
+              delete sublayer;
+            }
+          }
+        }
+        else
+        {
+          crs = layer->crs();
+          extent = layer->extent();
+          rasterLayers << layer;
+        }
+
+        for( QgsMapLayer *l : rasterLayers )
+        {
+          QgsRasterLayer *rlayer = qobject_cast< QgsRasterLayer * >( l );
+          bool ok;
+          rlayer->loadDefaultStyle( ok );
+          if ( !ok && fi.size() < 50000000 )
+          {
+            // If the raster size is reasonably small, apply nicer resampling settings
+            rlayer->resampleFilter()->setZoomedInResampler( new QgsBilinearRasterResampler() );
+            rlayer->resampleFilter()->setZoomedOutResampler( new QgsBilinearRasterResampler() );
+            rlayer->resampleFilter()->setMaxOversampling( 2.0 );
+          }
         }
       }
     }
