@@ -227,7 +227,7 @@ QgisMobileapp::QgisMobileapp( QgsApplication *app, QObject *parent )
     char **newPaths = new char *[searchPaths.count()];
     for ( int i = 0; i < searchPaths.count(); ++i )
     {
-      newPaths[i] = strdup( searchPaths.at( i ).toUtf8().constData() );
+      newPaths[i] = _strdup( searchPaths.at( i ).toUtf8().constData() );
     }
     proj_context_set_search_paths( nullptr, searchPaths.count(), newPaths );
     for ( int i = 0; i < searchPaths.count(); ++i )
