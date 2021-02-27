@@ -24,8 +24,9 @@
 
 // use GDAL VSI mechanism
 #define CPL_SUPRESS_CPLUSPLUS  //#spellok
-#include "cpl_vsi.h"
+#include "cpl_conv.h"
 #include "cpl_string.h"
+#include "cpl_vsi.h"
 
 #include <QFontDatabase>
 #include <QStandardPaths>
@@ -267,6 +268,9 @@ QgisMobileapp::QgisMobileapp( QgsApplication *app, QObject *parent )
   mSettings.setValue( "/Map/searchRadiusMM", 5 );
 
   mAppMissingGridHandler = new AppMissingGridHandler( this );
+
+  // Set GDAL option to fix loading of datasets within ZIP containers
+  CPLSetConfigOption( "CPL_ZIP_ENCODING", "UTF-8" );
 }
 
 void QgisMobileapp::initDeclarative()
