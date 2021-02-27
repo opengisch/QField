@@ -601,10 +601,17 @@ void QgisMobileapp::readProjectFile()
   // Load vector dataset
   if ( SUPPORTED_VECTOR_EXTENSIONS.contains( suffix ) )
   {
+    QString filePath = mProjectFilePath;
+    if ( suffix == QStringLiteral( "kmz" ) )
+    {
+      // GDAL's internal KML driver doesn't support KMZ, work around this limitation
+      filePath = QStringLiteral( "/vsizip/%1/doc.kml" ).arg ( mProjectFilePath );
+    }
+
     QgsVectorLayer::LayerOptions options { QgsProject::instance()->transformContext() };
     options.loadDefaultStyle = true;
 
-    QgsVectorLayer *layer = new QgsVectorLayer( mProjectFilePath, mProjectFileName, QLatin1String( "ogr" ), options );
+    QgsVectorLayer *layer = new QgsVectorLayer( filePath, mProjectFileName, QLatin1String( "ogr" ), options );
     if ( layer->isValid() )
     {
       const QStringList sublayers = layer->dataProvider()->subLayers();
@@ -613,7 +620,7 @@ void QgisMobileapp::readProjectFile()
         for ( const QString &sublayerInfo : sublayers )
         {
           const QStringList info =sublayerInfo.split( QgsDataProvider::sublayerSeparator() );
-          QgsVectorLayer *sublayer = new QgsVectorLayer( QStringLiteral( "%1|layerid=%2" ).arg( mProjectFilePath, info.at( 0 ) ),
+          QgsVectorLayer *sublayer = new QgsVectorLayer( QStringLiteral( "%1|layerid=%2" ).arg( filePath, info.at( 0 ) ),
                                                         QStringLiteral( "%1: %2" ).arg( mProjectFileName, info.at( 1 ) ),
                                                         QLatin1String( "ogr" ), options );
           if ( sublayer->isValid() )
