@@ -146,7 +146,7 @@ public class QFieldProjectActivity extends Activity {
                               file.getName().toLowerCase().endsWith(".shp") || 
                               file.getName().toLowerCase().endsWith(".kml") || 
                               file.getName().toLowerCase().endsWith(".kmz") || 
-                              file.getName().toLowerCase().endsWith(".gepjson") || 
+                              file.getName().toLowerCase().endsWith(".geojson") ||
                               file.getName().toLowerCase().endsWith(".json") || 
                               file.getName().toLowerCase().endsWith(".tif") || 
                               file.getName().toLowerCase().endsWith(".jpg") || 
