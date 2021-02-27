@@ -631,7 +631,7 @@ void QgisMobileapp::readProjectFile()
     files << mProjectFilePath;
   }
 
-  for ( auto filePath : files )
+  for ( auto filePath : std::as_const( files ) )
   {
     // Load vector dataset
     if ( SUPPORTED_VECTOR_EXTENSIONS.contains( suffix ) )
@@ -698,7 +698,7 @@ void QgisMobileapp::readProjectFile()
           vectorLayers << layer;
         }
 
-        for( QgsMapLayer *l : vectorLayers )
+        for( QgsMapLayer *l : std::as_const( vectorLayers ) )
         {
           QgsVectorLayer *vlayer = qobject_cast< QgsVectorLayer * >( l );
           bool ok;
@@ -794,7 +794,7 @@ void QgisMobileapp::readProjectFile()
           rasterLayers << layer;
         }
 
-        for( QgsMapLayer *l : rasterLayers )
+        for( QgsMapLayer *l : std::as_const( rasterLayers ) )
         {
           QgsRasterLayer *rlayer = qobject_cast< QgsRasterLayer * >( l );
           bool ok;
