@@ -45,6 +45,13 @@ IF(WIN32)
   ENDIF (MINGW)
 
   IF (MSVC)
+    FIND_PATH(QGIS_PLUGIN_DIR
+      NAMES wmsprovider.dll
+      PATHS
+        "$ENV{OSGEO4W_ROOT}/apps/${OSGEO4W_QGIS_SUBDIR}/plugins"
+        "$ENV{PROGRAMFILES}/QGIS/plugins"
+        "${_VCPKG_INSTALLED_DIR}/${VCPKG_TARGET_TRIPLET}/tools/qgis/plugins"
+    )
     FIND_PATH(QGIS_INCLUDE_DIR
       NAMES qgsapplication.h
       PATHS
@@ -63,15 +70,15 @@ IF(WIN32)
         "$ENV{OSGEO4W_ROOT}/apps/${OSGEO4W_QGIS_SUBDIR}/lib"
         "$ENV{PROGRAMFILES}/QGIS/lib"
     )
-    # FIND_LIBRARY(QGIS_ANALYSIS_LIBRARY
-    #   NAMES qgis_analysis
-    #   PATHS
-    #     "$ENV{LIB_DIR}"
-    #     "$ENV{LIB}"
-    #     "$ENV{OSGEO4W_ROOT}/lib"
-    #     "$ENV{OSGEO4W_ROOT}/apps/${OSGEO4W_QGIS_SUBDIR}/lib"
-    #     "$ENV{PROGRAMFILES}/QGIS/lib"
-    # )
+    FIND_LIBRARY(QGIS_ANALYSIS_LIBRARY
+      NAMES qgis_analysis
+      PATHS
+        "$ENV{LIB_DIR}"
+        "$ENV{LIB}"
+        "$ENV{OSGEO4W_ROOT}/lib"
+        "$ENV{OSGEO4W_ROOT}/apps/${OSGEO4W_QGIS_SUBDIR}/lib"
+        "$ENV{PROGRAMFILES}/QGIS/lib"
+    )
   ENDIF (MSVC)
 ELSE(WIN32)
   IF(UNIX)

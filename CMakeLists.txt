@@ -141,6 +141,9 @@ if (${CMAKE_SYSTEM_NAME} STREQUAL "iOS")
 endif()
 
 set (ENABLE_TESTS TRUE CACHE BOOL "Build unit tests?")
+if(MSVC)
+  add_definitions(-D_USE_MATH_DEFINES)
+endif()
 
 add_subdirectory(3rdparty/tessellate)
 add_subdirectory(src/core)
@@ -148,4 +151,40 @@ add_subdirectory(src/app)
 if (ENABLE_TESTS)
   enable_testing()
   add_subdirectory(test)
+endif()
+
+if(MSVC)
+  file(GLOB PROVIDER_LIBS
+    "${QGIS_PLUGIN_DIR}/*provider.dll"
+  )
+  add_custom_target(deploy)
+  add_custom_command(TARGET deploy
+    POST_BUILD
+    COMMAND ${CMAKE_COMMAND} -E make_directory "${CMAKE_BINARY_DIR}/output/bin/$<CONFIG>/qgis/plugins"
+  )
+  foreach(LIB ${PROVIDER_LIBS})
+    add_custom_command(TARGET deploy
+                      POST_BUILD
+                      COMMAND ${CMAKE_COMMAND} -E copy_if_different "${LIB}" "${CMAKE_BINARY_DIR}/output/bin/$<CONFIG>/qgis/plugins"
+    )
+  endforeach()
+  add_custom_command(TARGET deploy
+    POST_BUILD
+    COMMAND ${CMAKE_COMMAND} -E copy_directory "${QGIS_PLUGIN_DIR}/../resources" "${CMAKE_BINARY_DIR}/output/bin/$<CONFIG>/qgis/resources"
+  )
+  add_custom_command(TARGET deploy
+    POST_BUILD
+    COMMAND ${CMAKE_COMMAND} -E copy_directory "${QGIS_PLUGIN_DIR}/../../../share/proj4" "${CMAKE_BINARY_DIR}/output/bin/$<CONFIG>/proj"
+  )
+  add_custom_command(TARGET deploy
+    POST_BUILD
+    COMMAND ${CMAKE_COMMAND} -E copy_directory "${QGIS_PLUGIN_DIR}/../../../share/gdal" "${CMAKE_BINARY_DIR}/output/bin/$<CONFIG>/gdal"
+  )
+
+  add_custom_command(TARGET deploy
+    POST_BUILD
+    COMMAND ${CMAKE_COMMAND} -E copy_directory "${QGIS_PLUGIN_DIR}/../../../plugins/mediaservice" "${CMAKE_BINARY_DIR}/output/bin/$<CONFIG>/plugins/mediaservice"
+  )
+
+  add_dependencies(qfield deploy)
 endif()

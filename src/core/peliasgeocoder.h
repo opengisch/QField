@@ -16,6 +16,7 @@
 #ifndef PELIASGEOCODER_H
 #define PELIASGEOCODER_H
 
+#include "qfield_core_export.h"
 #include "qgis_core.h"
 #include "qgsgeocoder.h"
 
@@ -30,7 +31,7 @@
  *
  * \since QField 1.9
 */
-class CORE_EXPORT PeliasGeocoder : public QgsGeocoderInterface
+class QFIELD_CORE_EXPORT PeliasGeocoder : public QgsGeocoderInterface
 {
 
   public:
@@ -90,7 +91,6 @@ class CORE_EXPORT PeliasGeocoder : public QgsGeocoderInterface
     QString mEndpoint;
     double mRequestsPerSecond = 10;
 
-    static QMutex sMutex;
     static qint64 sLastRequestTimestamp;
 
 };

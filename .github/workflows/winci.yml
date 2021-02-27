@@ -1,0 +1,147 @@
+---
+name: 🪟 Build for Windows
+on: [push]
+env:
+  VCPKG_PRESEED_PKGS: qca qscintilla qt5-activeqt qt5-base qt5-charts qt5-connectivity qt5-declarative qt5-graphicaleffects qt5-imageformats qt5-location qt5-multimedia qt5-quickcontrols qt5-quickcontrols2 qt5-sensors qt5-serialport qt5-svg qt5-tools qt5-webview qt5-winextras qtkeychain qwt
+  TRIPLET: x64-windows
+
+jobs:
+  vcpkg:
+    needs: build-qt
+    name: Build QField
+    runs-on: windows-latest
+    strategy:
+      fail-fast: false
+    env:
+      VCPKG_ROOT: 'C:/src'
+      CMAKE_BUILD_DIR: C:/builddir/
+      VCPKG_DEFAULT_BINARY_CACHE: C:/vcpkg_cache
+
+    steps:
+      - name: Show space before build
+        run: |
+          Get-PSDrive
+
+      - name: Check LongPathsEnabled
+        run: |
+          (Get-ItemProperty "HKLM:System\CurrentControlSet\Control\FileSystem").LongPathsEnabled
+      - name: Checkout
+        uses: actions/checkout@v2
+        with:
+          submodules: recursive
+
+      - name: Install CMake and Ninja
+        uses: lukka/get-cmake@latest
+
+      - name: Bootstrap vcpkg
+        run: |
+          $VCPKG_SHA = Get-Content .git/modules/vcpkg/HEAD -First 1
+          mkdir "${{ env.VCPKG_ROOT }}"
+          cd "${{ env.VCPKG_ROOT }}"
+          git init
+          git remote add origin https://github.com/m-kuhn/vcpkg.git
+          git fetch --depth 1 origin $VCPKG_SHA
+          git checkout FETCH_HEAD
+          .\bootstrap-vcpkg.bat
+          mkdir ${{ env.VCPKG_DEFAULT_BINARY_CACHE }}
+
+      - name: Restore vcpkg and its artifacts
+        uses: pat-s/always-upload-cache@v2.1.3
+        with:
+          path: |
+            ${{ env.VCPKG_DEFAULT_BINARY_CACHE }}
+            ${{ env.VCPKG_ROOT }}/installed
+          key: |
+            ${{ hashFiles( 'vcpkg.json' ) }}-${{ hashFiles( '.git/modules/vcpkg/HEAD' )}}-${{ env.TRIPLET }}
+          restore-keys: |
+            ${{ hashFiles( 'vcpkg.json' ) }}-${{ hashFiles( '.git/modules/vcpkg/HEAD' )}}-${{ env.TRIPLET }}-${{ env.VCPKG_PRESEED_PKGS }}-qt
+
+      # Target x64 and use the default Windows SDK
+      - uses: ilammy/msvc-dev-cmd@v1
+
+      - name: Install dependencies and generate project files
+        run: |
+          cmake -S "${{ github.workspace }}" -B "${{ env.CMAKE_BUILD_DIR }}" -GNinja -DCMAKE_TOOLCHAIN_FILE="${{ env.VCPKG_ROOT }}/scripts/buildsystems/vcpkg.cmake"
+
+      # - name: Upload Build Logs
+      #   uses: actions/upload-artifact@v2
+      #   if: always()
+      #   with:
+      #     name: build-logs
+      #     path: C:/src/buildtrees/**/*.log
+      - name: Show some stats
+        shell: bash
+        run: |
+          cat "${{ env.CMAKE_BUILD_DIR }}/CMakeCache.txt"
+
+      - name: Build
+        run: |
+          cmake --build "${{ env.CMAKE_BUILD_DIR }}"
+
+      - name: Show some stats
+        shell: bash
+        run: |
+          echo "Output"
+          ls -al "${{ env.CMAKE_BUILD_DIR }}/output"
+          echo "Installed"
+          ls -al "${{ env.VCPKG_ROOT }}/installed"
+          echo "Mediaservice"
+          find "${{ env.VCPKG_ROOT }}/installed" -name mediaservice
+
+
+      - uses: actions/upload-artifact@v2
+        with:
+          name: "QField-dev"
+          path: "${{ env.CMAKE_BUILD_DIR }}/output"
+
+      - name: Show space after build
+        if: always()
+        run: |
+          Get-PSDrive
+
+  # This is just a helper to seed the cache so we can stay
+  # within the github job time limit of 6 hours
+  build-qt:
+    name: Build Qt
+    runs-on: windows-latest
+    env:
+      VCPKG_ROOT: 'C:/src'
+      CMAKE_BUILD_DIR: C:/builddir/
+      VCPKG_DEFAULT_BINARY_CACHE: C:/vcpkg_cache
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+        with:
+          submodules: recursive
+
+      - name: Install CMake and Ninja
+        uses: lukka/get-cmake@latest
+
+      - name: Bootstrap vcpkg
+        run: |
+          $VCPKG_SHA = Get-Content .git/modules/vcpkg/HEAD -First 1
+          mkdir "${{ env.VCPKG_ROOT }}"
+          cd "${{ env.VCPKG_ROOT }}"
+          git init
+          git remote add origin https://github.com/m-kuhn/vcpkg.git
+          git fetch --depth 1 origin $VCPKG_SHA
+          git checkout FETCH_HEAD
+          .\bootstrap-vcpkg.bat
+          mkdir ${{ env.VCPKG_DEFAULT_BINARY_CACHE }}
+
+      - name: Restore vcpkg and its artifacts
+        id: cache-vcpkg
+        uses: pat-s/always-upload-cache@v2.1.3
+        with:
+          path: |
+            ${{ env.VCPKG_DEFAULT_BINARY_CACHE }}
+            ${{ env.VCPKG_ROOT }}/installed
+          key: |
+            ${{ hashFiles( 'vcpkg.json' ) }}-${{ hashFiles( '.git/modules/vcpkg/HEAD' )}}-${{ env.TRIPLET }}-${{ env.VCPKG_PRESEED_PKGS }}-qt
+
+      - name: Preseed Qt
+        if: steps.cache-vcpkg.outputs.cache-hit != 'true'
+        run: |
+          cd ${{ env.VCPKG_ROOT }}
+          .\vcpkg.exe install --triplet ${{ env.TRIPLET }} ${{ env.VCPKG_PRESEED_PKGS }}
