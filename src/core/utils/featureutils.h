@@ -21,10 +21,12 @@
 #include <qgsgeometry.h>
 #include <qgsfeature.h>
 
+#include "qfield_core_export.h"
+
 class QgsVectorLayer;
 class QgsSymbol;
 
-class FeatureUtils : public QObject
+class QFIELD_CORE_EXPORT FeatureUtils : public QObject
 {
   Q_OBJECT
 public:

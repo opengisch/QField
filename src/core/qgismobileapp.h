@@ -38,6 +38,8 @@
 
 #include "qfieldappauthrequesthandler.h"
 
+#include "qfield_core_export.h"
+
 #include "platformutilities.h"
 #if defined(Q_OS_ANDROID)
 #include "androidplatformutilities.h"
@@ -61,8 +63,7 @@ class QgsProject;
 #define SUPPORTED_VECTOR_EXTENSIONS  QStringList( { QStringLiteral( "gpkg" ), QStringLiteral( "shp" ), QStringLiteral( "kml" ), QStringLiteral( "kmz" ), QStringLiteral( "geojson" ), QStringLiteral( "json" ), QStringLiteral( "pdf" ), QStringLiteral( "gpx" ), QStringLiteral( "zip" ) } )
 #define SUPPORTED_RASTER_EXTENSIONS  QStringList( { QStringLiteral( "tif" ), QStringLiteral( "pdf" ), QStringLiteral( "jpg" ), QStringLiteral( "png" ), QStringLiteral( "gpkg" ), QStringLiteral( "jp2" ), QStringLiteral( "webp" ), QStringLiteral( "zip" ) } )
 
-
-class QgisMobileapp : public QQmlApplicationEngine
+class QFIELD_CORE_EXPORT QgisMobileapp : public QQmlApplicationEngine
 {
     Q_OBJECT
   public:

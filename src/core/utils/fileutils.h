@@ -20,7 +20,9 @@
 #include <QObject>
 #include <qgsfeedback.h>
 
-class FileUtils : public QObject
+#include "qfield_core_export.h"
+
+class QFIELD_CORE_EXPORT FileUtils : public QObject
 {
     Q_OBJECT
 

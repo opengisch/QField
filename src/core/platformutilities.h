@@ -26,9 +26,11 @@
 #include "picturesource.h"
 #include "viewstatus.h"
 
+#include "qfield_core_export.h"
+
 class ProjectSource;
 
-class PlatformUtilities : public QObject
+class QFIELD_CORE_EXPORT PlatformUtilities : public QObject
 {
     Q_OBJECT
 

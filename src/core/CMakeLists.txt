@@ -167,8 +167,12 @@ FIND_PACKAGE(Sqlite3)
 
 ADD_LIBRARY(qfield_core SHARED ${QFIELD_CORE_SRCS} ${QFIELD_CORE_HDRS})
 
+include(GenerateExportHeader)
+generate_export_header(qfield_core)
+
 TARGET_INCLUDE_DIRECTORIES(qfield_core SYSTEM PUBLIC 
-  ${QGIS_INCLUDE_DIR}  
+  ${QGIS_INCLUDE_DIR}
+  ${CMAKE_CURRENT_BINARY_DIR}
 )
 
 TARGET_INCLUDE_DIRECTORIES(qfield_core SYSTEM PRIVATE 

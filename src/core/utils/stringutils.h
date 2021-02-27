@@ -20,8 +20,9 @@
 
 #include <QObject>
 
+#include "qfield_core_export.h"
 
-class StringUtils : public QObject
+class QFIELD_CORE_EXPORT StringUtils : public QObject
 {
     Q_OBJECT
 
