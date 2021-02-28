@@ -68,6 +68,8 @@ class MessageLogModel : public QAbstractListModel
     //! deactivates suppression of messages wit specific tags
     Q_INVOKABLE void unsuppressTags( const QList <QString> &tags );
 
+    Q_INVOKABLE void clear();
+
   private slots:
     void onMessageReceived( const QString &message, const QString &tag, Qgis::MessageLevel level );
 
