@@ -2013,7 +2013,9 @@ ApplicationWindow {
         color: "#66212121"
 
         height: toastMessage.height
-        width: 8 + toastMessage.text.length * 14 > mainWindow.width ? mainWindow.width - 16 : 8 + toastMessage.text.length * 14
+        width: 8 + toastMessage.text.length * toastFontMetrics.averageCharacterWidth > mainWindow.width
+               ? mainWindow.width - 16
+               : 8 + toastMessage.text.length * toastFontMetrics.averageCharacterWidth
 
         anchors.centerIn: parent
 
@@ -2043,6 +2045,11 @@ ApplicationWindow {
               mouse.accepted = false
           }
         }
+      }
+
+      FontMetrics {
+          id: toastFontMetrics
+          font: toastMessage.font
       }
 
       // Visible only for 3 seconds
