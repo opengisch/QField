@@ -132,9 +132,10 @@ void QgsQuickCoordinateTransformer::updatePosition()
   }
   catch ( const QgsCsException &exp )
   {
+    Q_UNUSED( exp )
     QgsDebugMsg( exp.what() );
   }
-  catch(...)
+  catch ( ... )
   {
     // catch any other errors
     QgsDebugMsg( "Transform exception caught - possibly because of missing gsb file." );
@@ -145,7 +146,7 @@ void QgsQuickCoordinateTransformer::updatePosition()
 
   QSettings settings;
   const QString verticalGridName = settings.value( QStringLiteral( "verticalGrid" ), QString() ).toString();
-  if ( !verticalGridName.isEmpty () )
+  if ( !verticalGridName.isEmpty() )
   {
     if ( mVerticalGridName != verticalGridName )
     {
@@ -158,7 +159,7 @@ void QgsQuickCoordinateTransformer::updatePosition()
           GDALDatasetH hDataset;
           GDALAllRegister();
           hDataset = GDALOpen( verticalGridPath.toUtf8().constData(), GA_ReadOnly );
-          if( hDataset != NULL )
+          if ( hDataset != NULL )
           {
             OGRSpatialReferenceH spatialRef = GDALGetSpatialRef( hDataset );
             char *pszWkt = nullptr;
@@ -186,7 +187,7 @@ void QgsQuickCoordinateTransformer::updatePosition()
                         xVector.data(), sizeof( double ), 1,
                         yVector.data(), sizeof( double ), 1,
                         zVector.data(), sizeof( double ), 1,
-                        nullptr, sizeof( double ), 0);
+                        nullptr, sizeof( double ), 0 );
     int err = proj_errno( P );
     proj_destroy( P );
 

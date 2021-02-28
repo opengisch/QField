@@ -177,6 +177,7 @@ QgsPoint RubberbandModel::currentPoint( const QgsCoordinateReferenceSystem &crs,
   }
   catch ( const QgsCsException &exp )
   {
+    Q_UNUSED( exp )
     QgsDebugMsg( exp.what() );
   }
   catch ( ... )
