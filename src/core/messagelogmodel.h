@@ -68,6 +68,7 @@ class MessageLogModel : public QAbstractListModel
     //! deactivates suppression of messages wit specific tags
     Q_INVOKABLE void unsuppressTags( const QList <QString> &tags );
 
+    //! Clears any messages from the log
     Q_INVOKABLE void clear();
 
   private slots:
