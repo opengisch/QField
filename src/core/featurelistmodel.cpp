@@ -249,7 +249,7 @@ void FeatureListModel::gatherFeatureList()
   if ( !mSearchTerm.isEmpty() )
   {
     QString escapedSearchTerm = QgsExpression::quotedValue( mSearchTerm ).replace( QRegularExpression( QStringLiteral( "^'|'$" ) ), QString( "" ) );
-    QString searchTermExpression = QStringLiteral( " %1 ILIKE '\%%2\%' " )
+    QString searchTermExpression = QStringLiteral( " %1 ILIKE '%%2%' " )
         .arg( fieldDisplayString, escapedSearchTerm );
 
     QStringList searchTermParts = escapedSearchTerm.split( QRegularExpression( QStringLiteral( "\\s+" ) ) );
@@ -261,7 +261,7 @@ void FeatureListModel::gatherFeatureList()
         if ( searchTermPart.isEmpty() )
           continue;
 
-        searchTermExpression += QStringLiteral( " OR %1 ILIKE '\%%2\%' " ).arg( fieldDisplayString, searchTermPart );
+        searchTermExpression += QStringLiteral( " OR %1 ILIKE '%%2%' " ).arg( fieldDisplayString, searchTermPart );
       }
     }
 
@@ -322,8 +322,8 @@ void FeatureListModel::processFeatureList()
     std::sort( entries.begin(), entries.end(), []( const Entry & entry1, const Entry & entry2 )
     {
       return entry1.fuzzyScore == entry2.fuzzyScore
-        ? entry1.displayString.toLower() < entry2.displayString.toLower()
-        : entry1.fuzzyScore > entry2.fuzzyScore;
+             ? entry1.displayString.toLower() < entry2.displayString.toLower()
+             : entry1.fuzzyScore > entry2.fuzzyScore;
     } );
   }
 
