@@ -37,18 +37,13 @@ QSGNode *LinePolygonHighlight::updatePaintNode( QSGNode *n, QQuickItem::UpdatePa
     delete n;
     n = new QSGNode;
 
-    QgsGeometry geometry;
-    if ( mGeometry )
+    QgsGeometry geometry( mGeometry ? mGeometry->qgsGeometry() : QgsGeometry() );
+    if ( mGeometry && !geometry.isEmpty() )
     {
-      Q_ASSERT( mGeometry->qgsGeometry().type() != QgsWkbTypes::PointGeometry );
+      Q_ASSERT( geometry.type() != QgsWkbTypes::PointGeometry );
 
-      geometry = QgsGeometry( mGeometry->qgsGeometry() );
-
-      if ( mMapSettings )
-      {
-        QgsCoordinateTransform ct( mGeometry->crs(), mMapSettings->destinationCrs(), QgsProject::instance()->transformContext() );
-        geometry.transform( ct );
-      }
+      QgsCoordinateTransform ct( mGeometry->crs(), mMapSettings->destinationCrs(), QgsProject::instance()->transformContext() );
+      geometry.transform( ct );
     }
 
     QgsSGGeometry *gn = new QgsSGGeometry( geometry, mColor, mWidth, mMapSettings->visibleExtent(), 1.0 / mMapSettings->mapUnitsPerPoint() );
