@@ -72,10 +72,37 @@ Page {
               text: Message
               wrapMode: Text.WordWrap
               textFormat: Text.RichText
+
+              MouseArea {
+                anchors.fill: parent
+                onClicked:
+                {
+                    copyHelper.text = messagetext.text
+                    copyHelper.selectAll()
+                    copyHelper.copy()
+                    displayToast(qsTr("Message text copied"))
+                }
+              }
             }
           }
         }
       }
+    }
+
+    TextEdit{
+        id: copyHelper
+        visible: false
+    }
+
+    QfButton {
+        text: qsTr("Clear message log")
+        anchors.left: parent.left
+        anchors.right: parent.right
+        onClicked:
+        {
+            table.model.clear()
+            displayToast(qsTr("Message log cleared"))
+        }
     }
   }
 

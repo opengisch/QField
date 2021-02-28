@@ -77,6 +77,13 @@ void MessageLogModel::unsuppressTags( const QList <QString> &tags )
   }
 }
 
+void MessageLogModel::clear()
+{
+  beginResetModel();
+  mMessages.clear();
+  endResetModel();
+}
+
 void MessageLogModel::onMessageReceived( const QString &message, const QString &tag, Qgis::MessageLevel level )
 {
   if ( mSuppressedTags.contains( tag ) )
