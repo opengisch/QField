@@ -235,8 +235,9 @@ QgisMobileapp::QgisMobileapp( QgsApplication *app, QObject *parent )
       free( newPaths[i] );
     }
     delete [] newPaths;
-
+#ifdef Q_OS_ANDROID
     setenv( "PGSYSCONFDIR", PlatformUtilities::instance()->qfieldDataDir().toUtf8(), true );
+#endif
   }
 
   PlatformUtilities::instance()->setScreenLockPermission( false );
@@ -932,4 +933,3 @@ QgisMobileapp::~QgisMobileapp()
   delete mProject;
   delete mAppMissingGridHandler;
 }
-
