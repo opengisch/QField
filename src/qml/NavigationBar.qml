@@ -510,4 +510,70 @@ Rectangle {
       onTriggered: extentController.autoZoom = !extentController.autoZoom
     }
   }
+
+  Menu {
+    id: atlasPrintMenu
+
+    property alias printTimer: timer
+    property alias printName: timer.printName
+
+    title: qsTr( "Print to PDF" )
+
+    signal enablePrintItem( int rows )
+
+    width: {
+        var result = 0;
+        var padding = 0;
+        for (var i = 0; i < count; ++i) {
+            var item = itemAt(i);
+            result = Math.max(item.contentItem.implicitWidth, result);
+            padding = Math.max(item.padding, padding);
+        }
+        return Math.min( result + padding * 2,mainWindow.width - 20);
+    }
+
+    MenuItem {
+      text: qsTr( 'Select template below' )
+
+      font: Theme.defaultFont
+      height: 48
+      leftPadding: 10
+
+      enabled: false
+    }
+
+    Instantiator {
+      id: layoutListInstantiator
+
+      model: PrintLayoutListModel {
+          atlasCoverageLayer: parent.state === "Indication" ? model.selectedLayer : selection.focusedLayer
+      }
+
+      MenuItem {
+        text: Title
+
+        font: Theme.defaultFont
+        leftPadding: 10
+
+        onTriggered: {
+            highlighted = false
+            displayToast( qsTr( 'Printing Atlas Feature to PDF') )
+            printMenu.printName = Title
+            printMenu.printTimer.restart();
+        }
+      }
+      onObjectAdded: printMenu.insertItem(index+1, object)
+      onObjectRemoved: printMenu.removeItem(object)
+    }
+
+    Timer {
+      id: timer
+
+      property string printName: ''
+
+      interval: 500
+      repeat: false
+      onTriggered: iface.print( printName )
+    }
+  }
 }
