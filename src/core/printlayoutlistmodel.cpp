@@ -12,7 +12,10 @@
  *   (at your option) any later version.                                   *
  *                                                                         *
  ***************************************************************************/
+
 #include "printlayoutlistmodel.h"
+
+#include <qgslayoutatlas.h>
 #include <qgsproject.h>
 
 PrintLayoutListModel::PrintLayoutListModel( QObject *parent )
@@ -40,6 +43,23 @@ void PrintLayoutListModel::setProject( QgsProject *project )
     return;
 
   mProject = project;
+  emit projectChanged();
+}
+
+QgsVectorLayer *PrintLayoutListModel::atlasCoverageLayer() const
+{
+  return mAtlasCoverageLayr;
+}
+
+void PrintLayoutListModel::setAtlasCoverageLayer( QgsVectorLayer *layer )
+{
+  if ( mAtlasCoverageLayr == layer )
+    return;
+
+  mAtlasCoverageLayr = layer;
+  emit atlasCoverageLayerChanged();
+
+  reloadModel();
 }
 
 void PrintLayoutListModel::reloadModel()
@@ -51,7 +71,20 @@ void PrintLayoutListModel::reloadModel()
 
   for ( const auto &layout : layouts )
   {
-    mPrintLayouts.append( PrintLayout( layout->name() ) );
+    if ( mAtlasCoverageLayr )
+    {
+      if ( layout->atlas() )
+      {
+        if ( layout->atlas()->coverageLayer() == mAtlasCoverageLayr )
+        {
+          mPrintLayouts.append( PrintLayout( layout->name() ) );
+        }
+      }
+    }
+    else
+    {
+      mPrintLayouts.append( PrintLayout( layout->name() ) );
+    }
   }
   endResetModel();
 
