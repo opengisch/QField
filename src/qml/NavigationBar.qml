@@ -330,7 +330,6 @@ Rectangle {
     iconSource: Theme.getThemeIcon( "ic_dot_menu_white_24dp" )
 
     onClicked: {
-        console.log(parent.state);
         if ( parent.state == "Indication" ) {
             featureListMenu.popup(menuButton.x + menuButton.width - featureListMenu.width, menuButton.y);
         } else if ( parent.state == "Navigation" ) {
@@ -427,7 +426,10 @@ Rectangle {
       height: 48
       leftPadding: 10
 
-      //onTriggered:
+      onTriggered: {
+          featureListMenu.close();
+          showAtlasMenu();
+      }
     }
 
     MenuSeparator { width: parent.width }
@@ -481,7 +483,10 @@ Rectangle {
       height: 48
       leftPadding: 10
 
-      //onTriggered:
+      onTriggered: {
+          featureListMenu.close();
+          showAtlasMenu();
+      }
     }
 
     MenuSeparator { width: parent.width }
@@ -512,12 +517,12 @@ Rectangle {
   }
 
   Menu {
-    id: atlasPrintMenu
+    id: atlasMenu
 
     property alias printTimer: timer
     property alias printName: timer.printName
 
-    title: qsTr( "Print to PDF" )
+    title: qsTr( "Print Atlas Feature(s) to PDF" )
 
     signal enablePrintItem( int rows )
 
@@ -543,9 +548,10 @@ Rectangle {
     }
 
     Instantiator {
-      id: layoutListInstantiator
+      id: atlasListInstantiator
 
       model: PrintLayoutListModel {
+          project: qgisProject
           atlasCoverageLayer: parent.state === "Indication" ? model.selectedLayer : selection.focusedLayer
       }
 
@@ -556,14 +562,13 @@ Rectangle {
         leftPadding: 10
 
         onTriggered: {
-            highlighted = false
-            displayToast( qsTr( 'Printing Atlas Feature to PDF') )
-            printMenu.printName = Title
-            printMenu.printTimer.restart();
+            displayToast( qsTr( 'Printing Atlas Feature(s) to PDF') )
+            atlasMenu.printName = Title
+            atlasMenu.printTimer.restart();
         }
       }
-      onObjectAdded: printMenu.insertItem(index+1, object)
-      onObjectRemoved: printMenu.removeItem(object)
+      onObjectAdded: atlasMenu.insertItem(index+1, object)
+      onObjectRemoved: atlasMenu.removeItem(object)
     }
 
     Timer {
@@ -573,7 +578,20 @@ Rectangle {
 
       interval: 500
       repeat: false
-      onTriggered: iface.print( printName )
+      //onTriggered: iface.print( printName )
     }
+  }
+
+  function showAtlasMenu() {
+      if (atlasListInstantiator.model.rowCount() > 1)
+      {
+          atlasMenu.popup(menuButton.x + menuButton.width - atlasMenu.width, menuButton.y);
+      }
+      else
+      {
+          displayToast( qsTr( 'Printing Atlas Feature to PDF') )
+          atlasMenu.printName = atlasListInstantiator.model.titleAt( 0 );
+          atlasMenu.printTimer.restart();
+      }
   }
 }
