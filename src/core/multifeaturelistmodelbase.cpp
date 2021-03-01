@@ -129,6 +129,7 @@ void MultiFeatureListModelBase::clearSelection()
   }
 
   mSelectedFeatures.clear();
+  emit dataChanged( index( 0, 0 ), index( rowCount( QModelIndex() ) - 1, 0 ), QVector<int>() << MultiFeatureListModel::FeatureSelectedRole );
   emit selectedCountChanged();
 }
 

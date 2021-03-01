@@ -405,7 +405,11 @@ Rectangle {
     }
 
     onToggleMultiSelection: {
-        multiSelection = !multiSelection
+        if ( multiSelection )
+        {
+            featureForm.selection.model.clearSelection();
+        }
+        multiSelection = !multiSelection;
     }
 
     onMultiEditClicked: {

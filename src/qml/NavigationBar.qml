@@ -358,9 +358,7 @@ Rectangle {
 
     enabled: ( toolBar.model && toolBar.model.selectedCount > 0 )
 
-    onClicked: {
-      toolBar.model.clearSelection();
-    }
+    onClicked: toggleMultiSelection();
 
     Behavior on width {
       PropertyAnimation {
@@ -478,7 +476,7 @@ Rectangle {
       height: 48
       leftPadding: 10
 
-      checked: extentController.autoZoom
+      checked: extentController.autoZoom === true ? true : false
 
       onTriggered: extentController.autoZoom = !extentController.autoZoom
     }
