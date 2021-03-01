@@ -67,7 +67,6 @@ void PrintLayoutListModel::reloadModel()
   beginResetModel();
   mPrintLayouts.clear();
 
-  qDebug() << "OO";
   const QList< QgsPrintLayout * > layouts( mProject->layoutManager()->printLayouts() );
   for ( const auto &layout : layouts )
   {
@@ -75,10 +74,8 @@ void PrintLayoutListModel::reloadModel()
     {
       if ( layout->atlas() )
       {
-        qDebug() << "UU";
         if ( layout->atlas()->coverageLayer() == mAtlasCoverageLayr )
         {
-          qDebug() << "II";
           mPrintLayouts.append( PrintLayout( layout->name() ) );
         }
       }

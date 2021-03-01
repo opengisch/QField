@@ -46,6 +46,7 @@
 #include <QStyleHints>
 
 #include <qgslayertreemodel.h>
+#include <qgslayoutatlas.h>
 #include <qgslocalizeddatapathregistry.h>
 #include <qgsproject.h>
 #include <qgsfeature.h>
@@ -890,8 +891,9 @@ void QgisMobileapp::readProjectFile()
 
 void QgisMobileapp::print( const QString &layoutName )
 {
+  const QList<QgsPrintLayout *> printLayouts = mProject->layoutManager()->printLayouts();
   QgsPrintLayout *layoutToPrint = nullptr;
-  for( QgsPrintLayout *layout : mProject->layoutManager()->printLayouts() )
+  for( QgsPrintLayout *layout : printLayouts )
   {
     if ( layout->name() == layoutName )
     {
@@ -921,6 +923,59 @@ void QgisMobileapp::print( const QString &layoutName )
 
   QgsLayoutExporter exporter = QgsLayoutExporter( layoutToPrint );
   exporter.exportToPdf( destination, pdfSettings );
+
+  PlatformUtilities::instance()->open( destination );
+}
+
+void QgisMobileapp::printAtlasFeatures( const QString &layoutName, const QList<long long> featureIds )
+{
+  const QList<QgsPrintLayout *> printLayouts = mProject->layoutManager()->printLayouts();
+  QgsPrintLayout *layoutToPrint = nullptr;
+  for( QgsPrintLayout *layout : printLayouts )
+  {
+    if ( layout->name() == layoutName )
+    {
+      layoutToPrint = layout;
+      break;
+    }
+  }
+
+  if ( !layoutToPrint || !layoutToPrint->atlas() )
+    return;
+
+  QStringList ids;
+  for( const auto id : featureIds )
+  {
+    ids << QString::number( id );
+  }
+
+  QString error;
+  layoutToPrint->atlas()->setFilterExpression( QStringLiteral( "$id IN (%1) " ).arg( ids.join( ',' ) ), error );
+
+  QString documentsLocation = QStringLiteral( "%1/QField" ).arg( QStandardPaths::writableLocation( QStandardPaths::DocumentsLocation ) );
+  QDir documentsDir( documentsLocation );
+  if ( !documentsDir.exists() )
+    documentsDir.mkpath( "." );
+
+  QString destination;
+  if ( !layoutToPrint->atlas()->filenameExpression().isEmpty() )
+    destination = documentsLocation;
+  else
+    destination = documentsLocation  + '/' + layoutToPrint->name() + QStringLiteral( ".pdf" );
+
+  QgsLayoutExporter::PdfExportSettings pdfSettings;
+  pdfSettings.rasterizeWholeImage = layoutToPrint->customProperty( QStringLiteral( "rasterize" ), false ).toBool();
+  pdfSettings.dpi = layoutToPrint->renderContext().dpi();
+  pdfSettings.appendGeoreference = true;
+  pdfSettings.exportMetadata = true;
+  pdfSettings.simplifyGeometries = true;
+
+  QgsLayoutExporter exporter = QgsLayoutExporter( layoutToPrint );
+
+  if ( layoutToPrint->atlas()->updateFeatures() )
+  {
+    exporter.exportToPdf( layoutToPrint->atlas(), destination, pdfSettings, error );
+  }
 
   PlatformUtilities::instance()->open( destination );
 }

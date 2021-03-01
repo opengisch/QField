@@ -578,7 +578,9 @@ Rectangle {
 
       interval: 500
       repeat: false
-      //onTriggered: iface.print( printName )
+      onTriggered: {
+          iface.printAtlasFeatures( printName, parent.state === "Indication" ? [ model.selectedFeatures[0].id ] : [ selection.focusedFeature.id ] )
+      }
     }
   }
 
