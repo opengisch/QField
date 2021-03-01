@@ -37,6 +37,8 @@ Rectangle {
   signal editGeometryButtonClicked
   signal save
   signal cancel
+
+  signal toggleMultiSelection
   signal multiEditClicked
   signal multiMergeClicked
   signal multiDeleteClicked
@@ -76,12 +78,12 @@ Rectangle {
       font: Theme.strongFont
       color: Theme.light
       anchors.left: parent.left
+      anchors.right: parent.right
       anchors.leftMargin: 0
           + (saveButton.visible ? saveButton.width : 0)
-          + (followCurrentButton.visible ? followCurrentButton.width : 0)
           + (previousButton.visible ? previousButton.width : 0)
-      anchors.rightMargin: 0
           + (nextButton.visible ? nextButton.width : 0)
+      anchors.rightMargin: 0
           + (cancelButton.visible ? cancelButton.width : 0)
           + (editButton.visible ? editButton.width : 0)
           + (editGeomButton.visible ? editGeomButton.width : 0)
@@ -89,18 +91,7 @@ Rectangle {
           + (multiEditButton.visible ? multiEditButton.width : 0)
           + (multiMergeButton.visible ? multiMergeButton.width : 0)
           + (multiDeleteButton.visible ? multiDeleteButton.width : 0)
-      width: parent.width
-           - (nextButton.visible ? nextButton.width : 0)
-           - (saveButton.visible ? saveButton.width : 0)
-           - (cancelButton.visible ? cancelButton.width : 0)
-           - (editButton.visible ? editButton.width : 0)
-           - (editGeomButton.visible ? editGeomButton.width : 0)
-           - (followCurrentButton.visible ? followCurrentButton.width : 0)
-           - (previousButton.visible ? previousButton.width : 0)
-           - (multiClearButton.visible ? multiClearButton.width : 0)
-           - (multiEditButton.visible ? multiEditButton.width : 0)
-           - (multiMergeButton.visible ? multiMergeButton.width : 0)
-           - (multiDeleteButton.visible ? multiDeleteButton.width : 0)
+          + (menuButton.visible ? menuButton.width : 0)
       height: parent.height
 
       text: {
@@ -167,7 +158,7 @@ Rectangle {
   QfToolButton {
     id: nextButton
 
-    anchors.right: parent.right
+    anchors.left: previousButton.right
 
     width: ( parent.state == "Navigation" ? 48: 0 )
     height: 48
@@ -179,6 +170,30 @@ Rectangle {
 
     onClicked: {
       selection.focusedItem = selection.focusedItem + 1
+    }
+
+    Behavior on width {
+      PropertyAnimation {
+        easing.type: Easing.InQuart
+      }
+    }
+  }
+
+  QfToolButton {
+    id: previousButton
+
+    anchors.left: parent.left
+
+    width: ( parent.state == "Navigation" ? 48: 0 )
+    height: 48
+    clip: true
+
+    iconSource: Theme.getThemeIcon( "ic_chevron_left_white_24dp" )
+
+    enabled: ( selection.focusedItem > 0 )
+
+    onClicked: {
+      selection.focusedItem = selection.focusedItem - 1
     }
 
     Behavior on width {
@@ -277,7 +292,7 @@ Rectangle {
 
     property bool supportsEditing: false
 
-    anchors.right: nextButton.left
+    anchors.right: menuButton.left
 
     width: ( parent.state == "Navigation" && supportsEditing ? 48: 0 )
     height: 48
@@ -305,54 +320,24 @@ Rectangle {
   }
 
   QfToolButton {
-    id: followCurrentButton
-    
-    visible: !selection.focusedGeometry.isNull
+    id: menuButton
 
-    anchors.left: previousButton.right
+    anchors.right: parent.right
 
-    width: ( parent.state == "Navigation" ? 48: 0 )
-    height: 48
-    clip: true
-    checkable: true
-    checked: extentController.autoZoom
-
-    iconSource: Theme.getThemeIcon( "ic_fullscreen_white_24dp" )
-
-    Behavior on width {
-      PropertyAnimation {
-        easing.type: Easing.InQuart
-      }
-    }
-
-    MouseArea {
-      anchors.fill: parent
-
-      onClicked: {
-        extentController.zoomToSelected()
-      }
-
-      onPressAndHold: {
-        extentController.autoZoom = !extentController.autoZoom
-      }
-    }
-  }
-
-  QfToolButton {
-    id: previousButton
-
-    anchors.left: parent.left
-
-    width: ( parent.state == "Navigation" ? 48: 0 )
+    visible: parent.state != "Edit"
+    width: visible ? 48 : 0
     height: 48
     clip: true
 
-    iconSource: Theme.getThemeIcon( "ic_chevron_left_white_24dp" )
-
-    enabled: ( selection.focusedItem > 0 )
+    iconSource: Theme.getThemeIcon( "ic_dot_menu_white_24dp" )
 
     onClicked: {
-      selection.focusedItem = selection.focusedItem - 1
+        console.log(parent.state);
+        if ( parent.state == "Indication" ) {
+            featureListMenu.popup(menuButton.x + menuButton.width - featureListMenu.width, menuButton.y);
+        } else if ( parent.state == "Navigation" ) {
+            featureMenu.popup(menuButton.x + menuButton.width - featureMenu.width, menuButton.y);
+        }
     }
 
     Behavior on width {
@@ -437,7 +422,7 @@ Rectangle {
   QfToolButton {
     id: multiDeleteButton
 
-    anchors.right: parent.right
+    anchors.right: menuButton.right
 
     width: ( parent.state == "Indication" && toolBar.model && toolBar.model.canDeleteSelection ? 48: 0 )
     height: 48
@@ -455,6 +440,70 @@ Rectangle {
       PropertyAnimation {
         easing.type: Easing.InQuart
       }
+    }
+  }
+
+  Menu {
+    id: featureListMenu
+    title: qsTr( "Feature List Menu" )
+
+    width: {
+        var result = 0;
+        var padding = 0;
+        for (var i = 0; i < count; ++i) {
+            var item = itemAt(i);
+            result = Math.max(item.contentItem.implicitWidth, result);
+            padding = Math.max(item.padding, padding);
+        }
+        return result + padding * 2;
+    }
+
+    MenuItem {
+      text: qsTr( 'Select Features' )
+
+      font: Theme.defaultFont
+      height: 48
+      leftPadding: 10
+
+      onTriggered: toggleMultiSelection();
+    }
+  }
+
+  Menu {
+    id: featureMenu
+    title: qsTr( "Feature Menu" )
+
+    width: {
+        var result = 0;
+        var padding = 0;
+        for (var i = 0; i < count; ++i) {
+            var item = itemAt(i);
+            result = Math.max(item.contentItem.implicitWidth, result);
+            padding = Math.max(item.padding, padding);
+        }
+        return result + padding * 2;
+    }
+
+    MenuItem {
+      text: qsTr( 'Zoom to Feature' )
+
+      font: Theme.defaultFont
+      height: 48
+      leftPadding: 10
+
+      onTriggered: extentController.zoomToSelected();
+    }
+
+    MenuItem {
+      text: qsTr( 'Auto-Zoom to Feature' )
+
+      font: Theme.defaultFont
+      height: 48
+      leftPadding: 10
+
+      checked: extentController.autoZoom
+
+      onTriggered: extentController.autoZoom = !extentController.autoZoom
     }
   }
 }
