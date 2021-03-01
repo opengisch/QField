@@ -476,7 +476,8 @@ Rectangle {
       height: 48
       leftPadding: 10
 
-      checked: extentController.autoZoom === true ? true : false
+      checkable: true
+      checked: extentController.autoZoom
 
       onTriggered: extentController.autoZoom = !extentController.autoZoom
     }
