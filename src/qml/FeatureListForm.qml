@@ -219,13 +219,13 @@ Rectangle {
       CheckBox {
           anchors { leftMargin: 5; left: parent.left; verticalCenter: parent.verticalCenter }
           checked: featureSelected
-          visible: multiSelection
+          visible: featureForm.multiSelection
       }
 
       Text {
         id: featureText
         anchors {
-          leftMargin: multiSelection ? 50 : 10
+          leftMargin: featureForm.multiSelection ? 50 : 10
           left: parent.left
           verticalCenter: parent.verticalCenter
         }
@@ -252,18 +252,18 @@ Rectangle {
         anchors.fill: parent
 
         onClicked: {
-          if ( multiSelection ) {
+          if ( featureForm.multiSelection ) {
               featureForm.selection.toggleSelectedItem( index );
               if ( featureForm.selection.model.selectedCount == 0 ) {
                   featureFormList.model.featureModel.modelMode = FeatureModel.SingleFeatureModel
-                  multiSelection = false;
+                  featureForm.multiSelection = false;
               }
               featureForm.selection.focusedItem = featureForm.selection.model.selectedCount > 0 ? index : -1;
           } else {
             featureFormList.model.featureModel.modelMode = FeatureModel.SingleFeatureModel
             featureForm.selection.focusedItem = index
             featureForm.state = "FeatureForm"
-            multiSelection = false;
+            featureForm.multiSelection = false;
           }
         }
 
@@ -272,7 +272,8 @@ Rectangle {
           featureFormList.model.featureModel.modelMode = FeatureModel.MultiFeatureModel
           featureForm.selection.focusedItem = index
           featureForm.selection.toggleSelectedItem( index );
-          multiSelection = true;
+          featureForm.multiSelection = true;
+
         }
       }
 
@@ -340,6 +341,7 @@ Rectangle {
     allowDelete: allowDelete
     model: globalFeaturesList.model
     selection: featureForm.selection
+    multiSelection: featureForm.multiSelection
     extentController: FeaturelistExtentController {
       model: globalFeaturesList.model
       selection: featureForm.selection
@@ -404,14 +406,15 @@ Rectangle {
     }
 
     onToggleMultiSelection: {
-        multiSelection = !multiSelection;
-        if ( !multiSelection ) {
-            featureFormList.model.featureModel.modelMode = FeatureModel.MultiFeatureModel
+        if ( featureForm.multiSelection ) {
+            featureFormList.model.featureModel.modelMode = FeatureModel.SingleFeatureModel
             featureForm.selection.model.clearSelection();
             featureForm.selection.focusedItem = -1;
         } else {
-            featureFormList.model.featureModel.modelMode = FeatureModel.SingleFeatureModel
+            featureFormList.model.featureModel.modelMode = FeatureModel.MultiFeatureModel
         }
+        featureForm.multiSelection = !featureForm.multiSelection;
+        console.log(featureForm.multiSelection)
     }
 
     onMultiEditClicked: {

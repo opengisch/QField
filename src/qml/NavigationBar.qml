@@ -26,6 +26,7 @@ import org.qfield 1.0
 Rectangle {
   id: toolBar
 
+  property bool multiSelection
   property bool allowDelete
   property MultiFeatureListModel model
   property FeatureListModelSelection selection
@@ -83,11 +84,11 @@ Rectangle {
           + (saveButton.visible ? saveButton.width : 0)
           + (previousButton.visible ? previousButton.width : 0)
           + (nextButton.visible ? nextButton.width : 0)
+          + (multiClearButton.visible ? multiClearButton.width : 0)
       anchors.rightMargin: 0
           + (cancelButton.visible ? cancelButton.width : 0)
           + (editButton.visible ? editButton.width : 0)
           + (editGeomButton.visible ? editGeomButton.width : 0)
-          + (multiClearButton.visible ? multiClearButton.width : 0)
           + (multiEditButton.visible ? multiEditButton.width : 0)
           + (menuButton.visible ? menuButton.width : 0)
       height: parent.height
@@ -349,7 +350,7 @@ Rectangle {
 
     anchors.left: parent.left
 
-    width: ( parent.state == "Indication" && toolBar.model && toolBar.model.selectedCount > 0  ? 48: 0 )
+    width: ( parent.state == "Indication" && toolBar.multiSelection && toolBar.model ? 48: 0 )
     height: 48
     clip: true
 
@@ -408,11 +409,16 @@ Rectangle {
     MenuItem {
       text: qsTr( 'Toggle Feature Selection' )
 
+      checkable: true
+      checked: toolBar.multiSelection
+
       font: Theme.defaultFont
       height: 48
-      leftPadding: 10
+      leftPadding: 15
 
-      onTriggered: toggleMultiSelection();
+      onTriggered: {
+          toggleMultiSelection();
+      }
     }
 
     MenuSeparator { width: parent.width }
