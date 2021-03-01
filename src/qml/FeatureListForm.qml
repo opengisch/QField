@@ -404,12 +404,14 @@ Rectangle {
     }
 
     onToggleMultiSelection: {
-        if ( multiSelection )
-        {
+        multiSelection = !multiSelection;
+        if ( !multiSelection ) {
+            featureFormList.model.featureModel.modelMode = FeatureModel.MultiFeatureModel
             featureForm.selection.model.clearSelection();
             featureForm.selection.focusedItem = -1;
+        } else {
+            featureFormList.model.featureModel.modelMode = FeatureModel.SingleFeatureModel
         }
-        multiSelection = !multiSelection;
     }
 
     onMultiEditClicked: {

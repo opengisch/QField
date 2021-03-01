@@ -420,7 +420,7 @@ Rectangle {
     MenuItem {
       text: qsTr( 'Print Atlas Feature(s) to PDF' )
       icon.source: Theme.getThemeIcon( "ic_print_white_24dp" )
-      enabled: toolBar.model && LayerUtils.isAtlasCoverageLayer( toolBar.model.selectedLayer )
+      enabled: toolBar.model && toolBar.model.selectedCount > 0 && LayerUtils.isAtlasCoverageLayer( toolBar.model.selectedLayer )
 
       font: Theme.defaultFont
       height: 48
@@ -507,7 +507,7 @@ Rectangle {
 
       font: Theme.defaultFont
       height: 48
-      leftPadding: 10
+      leftPadding: 15
 
       checkable: true
       checked: extentController.autoZoom
