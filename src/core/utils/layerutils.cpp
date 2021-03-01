@@ -74,7 +74,7 @@ QgsSymbol *LayerUtils::defaultSymbol( QgsVectorLayer *layer )
 
 bool LayerUtils::isAtlasCoverageLayer( QgsVectorLayer *layer )
 {
-  if ( !QgsProject::instance()->layoutManager() )
+  if ( !layer || !QgsProject::instance()->layoutManager() )
     return false;
 
   const QList<QgsPrintLayout *> printLayouts = QgsProject::instance()->layoutManager()->printLayouts();

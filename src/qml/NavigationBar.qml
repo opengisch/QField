@@ -419,6 +419,20 @@ Rectangle {
     MenuSeparator { width: parent.width }
 
     MenuItem {
+      text: qsTr( 'Print Atlas Feature(s) to PDF' )
+      icon.source: Theme.getThemeIcon( "ic_print_white_24dp" )
+      enabled: toolBar.model && LayerUtils.isAtlasCoverageLayer( toolBar.model.selectedLayer )
+
+      font: Theme.defaultFont
+      height: 48
+      leftPadding: 10
+
+      //onTriggered:
+    }
+
+    MenuSeparator { width: parent.width }
+
+    MenuItem {
       text: qsTr( 'Merge Selected Features' )
       icon.source: Theme.getThemeIcon( "ic_merge_features_white_24dp" )
       enabled: toolBar.model && toolBar.model.canMergeSelection && toolBar.model.selectedCount > 1
@@ -457,6 +471,20 @@ Rectangle {
         }
         return result + padding * 2;
     }
+
+    MenuItem {
+      text: qsTr( 'Print Atlas Feature to PDF' )
+      icon.source: Theme.getThemeIcon( "ic_print_white_24dp" )
+      enabled: LayerUtils.isAtlasCoverageLayer( selection.focusedLayer )
+
+      font: Theme.defaultFont
+      height: 48
+      leftPadding: 10
+
+      //onTriggered:
+    }
+
+    MenuSeparator { width: parent.width }
 
     MenuItem {
       text: qsTr( 'Zoom to Feature' )

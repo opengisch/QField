@@ -140,6 +140,11 @@ QList<QgsFeature> MultiFeatureListModel::selectedFeatures()
   return mSourceModel->selectedFeatures();
 }
 
+QgsVectorLayer *MultiFeatureListModel::selectedLayer()
+{
+  return mFilterLayer;
+}
+
 bool MultiFeatureListModel::filterAcceptsRow( int source_row, const QModelIndex &source_parent ) const
 {
   if ( mFilterLayer != nullptr )
