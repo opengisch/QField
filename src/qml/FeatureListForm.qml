@@ -257,9 +257,8 @@ Rectangle {
               if ( featureForm.selection.model.selectedCount == 0 ) {
                   featureFormList.model.featureModel.modelMode = FeatureModel.SingleFeatureModel
                   multiSelection = false;
-              } else {
-                  featureForm.selection.focusedItem = featureForm.selection.model.selectedCount > 0 ? index : -1;
               }
+              featureForm.selection.focusedItem = featureForm.selection.model.selectedCount > 0 ? index : -1;
           } else {
             featureFormList.model.featureModel.modelMode = FeatureModel.SingleFeatureModel
             featureForm.selection.focusedItem = index
@@ -408,6 +407,7 @@ Rectangle {
         if ( multiSelection )
         {
             featureForm.selection.model.clearSelection();
+            featureForm.selection.focusedItem = -1;
         }
         multiSelection = !multiSelection;
     }
