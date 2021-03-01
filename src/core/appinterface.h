@@ -44,7 +44,7 @@ class AppInterface : public QObject
     Q_INVOKABLE void readProject();
     Q_INVOKABLE void removeRecentProject( const QString &path );
 
-    Q_INVOKABLE void print( int layoutIndex );
+    Q_INVOKABLE void print( const QString &layoutName );
 
     static void setInstance( AppInterface *instance ) { sAppInterface = instance; }
     static AppInterface *instance() { return sAppInterface; }

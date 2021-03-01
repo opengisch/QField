@@ -113,7 +113,7 @@ class QgisMobileapp : public QQmlApplicationEngine
      */
     void readProjectFile();
 
-    void print( int layoutIndex );
+    void print( const QString &layoutName );
 
     bool event( QEvent *event ) override;
 

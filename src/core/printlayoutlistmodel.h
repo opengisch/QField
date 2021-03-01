@@ -72,6 +72,8 @@ class PrintLayoutListModel : public QAbstractListModel
     //! Sets the vector layer used to filter layouts to match atlas coverage layer
     void setAtlasCoverageLayer( QgsVectorLayer *layer );
 
+    Q_INVOKABLE const QString titleAt( int row ) const;
+
     //!triggered when set another project
     Q_INVOKABLE void reloadModel();
 

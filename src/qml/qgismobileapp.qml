@@ -1290,7 +1290,7 @@ ApplicationWindow {
         {
           mainMenu.close();
           displayToast( qsTr( 'Printing to PDF') )
-          printMenu.printIndex = 0
+          printMenu.printName =layoutListInstantiator.model.titleAt( 0 );
           printMenu.printTimer.restart();
         }
         highlighted = false

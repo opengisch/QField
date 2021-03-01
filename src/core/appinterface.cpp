@@ -51,9 +51,9 @@ void AppInterface::readProject()
   return mApp->readProjectFile();
 }
 
-void AppInterface::print( int layoutIndex )
+void AppInterface::print( const QString &layoutName )
 {
-  return mApp->print( layoutIndex );
+  return mApp->print( layoutName );
 }
 
 void AppInterface::openFeatureForm()

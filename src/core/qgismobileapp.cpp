@@ -888,13 +888,19 @@ void QgisMobileapp::readProjectFile()
   emit loadProjectEnded( mProjectFilePath, mProjectFileName );
 }
 
-void QgisMobileapp::print( int layoutIndex )
+void QgisMobileapp::print( const QString &layoutName )
 {
-  const QList<QgsPrintLayout *> projectLayouts( mProject->layoutManager()->printLayouts() );
+  QgsPrintLayout *layoutToPrint = nullptr;
+  for( QgsPrintLayout *layout : mProject->layoutManager()->printLayouts() )
+  {
+    if ( layout->name() == layoutName )
+    {
+      layoutToPrint = layout;
+      break;
+    }
+  }
 
-  const auto &layoutToPrint = projectLayouts.at( layoutIndex );
-
-  if ( layoutToPrint->pageCollection()->pageCount() == 0 )
+  if ( !layoutToPrint || layoutToPrint->pageCollection()->pageCount() == 0 )
     return;
 
   layoutToPrint->referenceMap()->zoomToExtent( mMapCanvas->mapSettings()->visibleExtent() );

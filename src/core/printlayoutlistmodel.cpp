@@ -110,3 +110,8 @@ QVariant PrintLayoutListModel::data( const QModelIndex &index, int role ) const
 
   return QVariant();
 }
+
+const QString PrintLayoutListModel::titleAt( int row ) const
+{
+  return mPrintLayouts.at( row ).title;
+}
