@@ -116,11 +116,13 @@ void MultiFeatureListModel::toggleSelectedItem( int item )
   if ( mSourceModel->selectedCount() > 0 && mFilterLayer == nullptr )
   {
     mFilterLayer =  mSourceModel->data( sourceItem, MultiFeatureListModel::LayerRole ).value<QgsVectorLayer *>();
+    emit selectedLayerChanged();
     invalidateFilter();
   }
   else if ( mSourceModel->selectedCount() == 0 && mFilterLayer != nullptr )
   {
     mFilterLayer = nullptr;
+    emit selectedLayerChanged();
     invalidateFilter();
   }
 }
@@ -130,6 +132,7 @@ void MultiFeatureListModel::adjustFilterToSelectedCount()
   if ( mSourceModel->selectedCount() == 0 && mFilterLayer != nullptr )
   {
     mFilterLayer = nullptr;
+    emit selectedLayerChanged();
     invalidateFilter();
   }
   emit selectedCountChanged();
