@@ -1,10 +1,10 @@
 /***************************************************************************
-  featureutils.h - FeatureUtils
+  layerutils.h - LayerUtils
 
  ---------------------
- begin                : 05.03.2020
- copyright            : (C) 2020 by Denis Rouzaud
- email                : denis@opengis.ch
+ begin                : 01.03.2021
+ copyright            : (C) 2020 by Mathieu Pellerin
+ email                : mathieu@opengis.ch
  ***************************************************************************
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
@@ -13,30 +13,35 @@
  *   (at your option) any later version.                                   *
  *                                                                         *
  ***************************************************************************/
-#ifndef FEATUREUTILS_H
-#define FEATUREUTILS_H
+ 
+#ifndef LAYERUTILS_H
+#define LAYERUTILS_H
 
 #include <QObject>
 
-#include <qgsgeometry.h>
-#include <qgsfeature.h>
-
 class QgsVectorLayer;
+class QgsSymbol;
 
-class FeatureUtils : public QObject
+class LayerUtils : public QObject
 {
   Q_OBJECT
-public:
-  explicit FeatureUtils(QObject *parent = nullptr);
 
-  static Q_INVOKABLE QgsFeature initFeature(QgsVectorLayer *layer, QgsGeometry geometry = QgsGeometry());
+public:
+
+  explicit LayerUtils(QObject *parent = nullptr);
 
   /**
-   * Returns the display name of a given feature.
-   * \param layer the vector layer containing the feature
-   * \param feature the feature to be named
+   * Returns the default symbol for a given layer.
+   * \param layer the vector layer used to create the default symbol
    */
-  static Q_INVOKABLE QString displayName( QgsVectorLayer *layer, const QgsFeature &feature );
+  static QgsSymbol *defaultSymbol( QgsVectorLayer *layer );
+
+  /**
+   * Returns TRUE if the vector layer is used as an atlas coverage layer in
+   * any of the print layouts of the currently opened project.
+   * \param layer the vector layer to check against print layouts
+   */
+  static Q_INVOKABLE bool isAtlasCoverageLayer( QgsVectorLayer *layer );
 };
 
-#endif // FEATUREUTILS_H
+#endif // LAYERUTILS_H

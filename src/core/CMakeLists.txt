@@ -61,6 +61,7 @@ SET(QFIELD_CORE_SRCS
   utils/fileutils.cpp
   utils/geometryutils.cpp
   utils/featureutils.cpp
+  utils/layerutils.cpp
   utils/stringutils.cpp
   utils/urlutils.cpp
   expressionevaluator.cpp
@@ -137,6 +138,7 @@ SET(QFIELD_CORE_HDRS
   utils/fileutils.h
   utils/geometryutils.h
   utils/featureutils.h
+  utils/layerutils.h
   utils/stringutils.h
   utils/urlutils.h
   expressionevaluator.h

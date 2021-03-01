@@ -120,6 +120,7 @@
 #include "trackingmodel.h"
 #include "fileutils.h"
 #include "featureutils.h"
+#include "layerutils.h"
 #include "expressionevaluator.h"
 #include "stringutils.h"
 #include "urlutils.h"
@@ -376,6 +377,7 @@ void QgisMobileapp::initDeclarative()
   REGISTER_SINGLETON( "org.qfield", GeometryUtils, "GeometryUtils" );
   REGISTER_SINGLETON( "org.qfield", FeatureUtils, "FeatureUtils" );
   REGISTER_SINGLETON( "org.qfield", FileUtils, "FileUtils" );
+  REGISTER_SINGLETON( "org.qfield", LayerUtils, "LayerUtils" );
   REGISTER_SINGLETON( "org.qfield", StringUtils, "StringUtils" );
   REGISTER_SINGLETON( "org.qfield", UrlUtils, "UrlUtils" );
 
@@ -710,7 +712,7 @@ void QgisMobileapp::readProjectFile()
           vlayer->loadDefaultStyle( ok );
           if ( !ok )
           {
-            QgsSymbol *symbol = FeatureUtils::defaultSymbol( vlayer );
+            QgsSymbol *symbol = LayerUtils::defaultSymbol( vlayer );
             if ( symbol )
             {
               QgsSingleSymbolRenderer *renderer = new QgsSingleSymbolRenderer( symbol );
