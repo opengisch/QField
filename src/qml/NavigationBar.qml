@@ -552,7 +552,7 @@ Rectangle {
 
       model: PrintLayoutListModel {
           project: qgisProject
-          atlasCoverageLayer: parent.state === "Indication" ? model.selectedLayer : selection.focusedLayer
+          atlasCoverageLayer: toolBar.state === "Indication" ? model.selectedLayer : selection.focusedLayer
       }
 
       MenuItem {
@@ -579,7 +579,15 @@ Rectangle {
       interval: 500
       repeat: false
       onTriggered: {
-          iface.printAtlasFeatures( printName, parent.state === "Indication" ? [ model.selectedFeatures[0].id ] : [ selection.focusedFeature.id ] )
+          var ids = [];
+          if ( toolBar.state === "Indication" ) {
+              for( var i = 0; i < model.selectedFeatures.length; i++ ) {
+                  ids.push(model.selectedFeatures[i].id)
+              }
+          } else {
+              ids.push(selection.focusedFeature.id)
+          }
+          iface.printAtlasFeatures( printName, ids )
       }
     }
   }

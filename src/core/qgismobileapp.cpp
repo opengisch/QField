@@ -950,18 +950,16 @@ void QgisMobileapp::printAtlasFeatures( const QString &layoutName, const QList<l
   }
 
   QString error;
-  layoutToPrint->atlas()->setFilterExpression( QStringLiteral( "$id IN (%1) " ).arg( ids.join( ',' ) ), error );
+  layoutToPrint->atlas()->setFilterExpression( QStringLiteral( "$id IN (%1)" ).arg( ids.join( ',' ) ), error );
 
   QString documentsLocation = QStringLiteral( "%1/QField" ).arg( QStandardPaths::writableLocation( QStandardPaths::DocumentsLocation ) );
   QDir documentsDir( documentsLocation );
   if ( !documentsDir.exists() )
     documentsDir.mkpath( "." );
 
-  QString destination;
-  if ( !layoutToPrint->atlas()->filenameExpression().isEmpty() )
-    destination = documentsLocation;
-  else
-    destination = documentsLocation  + '/' + layoutToPrint->name() + QStringLiteral( ".pdf" );
+  QString destination = documentsLocation  + '/';
+  if ( layoutToPrint->customProperty( QStringLiteral( "singleFile" ), true ).toBool() )
+    destination = destination + layoutToPrint->name() + QStringLiteral( ".pdf" );
 
   QgsLayoutExporter::PdfExportSettings pdfSettings;
   pdfSettings.rasterizeWholeImage = layoutToPrint->customProperty( QStringLiteral( "rasterize" ), false ).toBool();
@@ -970,10 +968,9 @@ void QgisMobileapp::printAtlasFeatures( const QString &layoutName, const QList<l
   pdfSettings.exportMetadata = true;
   pdfSettings.simplifyGeometries = true;
 
-  QgsLayoutExporter exporter = QgsLayoutExporter( layoutToPrint );
-
   if ( layoutToPrint->atlas()->updateFeatures() )
   {
+    QgsLayoutExporter exporter = QgsLayoutExporter( layoutToPrint );
     exporter.exportToPdf( layoutToPrint->atlas(), destination, pdfSettings, error );
   }
 
