@@ -114,7 +114,7 @@ class QgisMobileapp : public QQmlApplicationEngine
     void readProjectFile();
 
     void print( const QString &layoutName );
-    void printAtlasFeatures( const QString &layoutName, const QList<long long> featureIds );
+    void printAtlasFeatures( const QString &layoutName, const QList<long long> &featureIds );
 
     bool event( QEvent *event ) override;
 

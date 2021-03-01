@@ -56,7 +56,7 @@ void AppInterface::print( const QString &layoutName )
   return mApp->print( layoutName );
 }
 
-void AppInterface::printAtlasFeatures( const QString &layoutName, const QList<long long> featureIds )
+void AppInterface::printAtlasFeatures( const QString &layoutName, const QList<long long> &featureIds )
 {
   return mApp->printAtlasFeatures( layoutName, featureIds );
 }

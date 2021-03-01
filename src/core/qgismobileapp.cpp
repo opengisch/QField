@@ -927,7 +927,7 @@ void QgisMobileapp::print( const QString &layoutName )
   PlatformUtilities::instance()->open( destination );
 }
 
-void QgisMobileapp::printAtlasFeatures( const QString &layoutName, const QList<long long> featureIds )
+void QgisMobileapp::printAtlasFeatures( const QString &layoutName, const QList<long long> &featureIds )
 {
   const QList<QgsPrintLayout *> printLayouts = mProject->layoutManager()->printLayouts();
   QgsPrintLayout *layoutToPrint = nullptr;
