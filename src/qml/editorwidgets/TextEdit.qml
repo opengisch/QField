@@ -10,7 +10,7 @@ Item {
   // Due to QTextEdit::onLinkActivated does not work on Android & iOS, we need a separate `Text` element to support links https://bugreports.qt.io/browse/QTBUG-38487
   Label {
     id: textReadonlyValue
-    height: textArea.height == 0 ? fontMetrics.height + 20: 0
+    height: textArea.height == 0 ? textField.height : 0
     topPadding: 10
     bottomPadding: 10
     visible: height !== 0 && !isEnabled
@@ -66,10 +66,9 @@ Item {
     inputMethodHints: field && field.isNumeric ? Qt.ImhFormattedNumbersOnly : Qt.ImhNone
 
     background: Rectangle {
-      y: textField.height - height - textField.bottomPadding / 2
-      implicitWidth: 120
-      height: textField.activeFocus ? 2: 1
-      color: textField.activeFocus ? "#4CAF50" : "#C8E6C9"
+        width: parent.width
+        height: parent.height
+        color: white;
     }
 
     onTextChanged: {
@@ -90,9 +89,24 @@ Item {
     text: value !== undefined ? value : ''
     textFormat: config['UseHtml'] ? TextEdit.RichText : TextEdit.PlainText
 
+    background: Rectangle {
+        width: parent.width
+        height: parent.height
+        color: white;
+    }
+
     onEditingFinished: {
       valueChanged( text, text == '' )
     }
+  }
+
+  Rectangle {
+      anchors.left: parent.left
+      anchors.right: parent.right
+      y: Math.max( textField.height, textArea.height ) - height - textField.bottomPadding / 2
+      implicitWidth: 120
+      height: textField.activeFocus || textArea.activeFocus ? 2: 1
+      color: textField.activeFocus || textArea.activeFocus ? "#4CAF50" : "#C8E6C9"
   }
 
   FontMetrics {
