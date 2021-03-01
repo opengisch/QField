@@ -34,9 +34,11 @@ Rectangle {
   property color selectionColor
   property alias model: globalFeaturesList.model
   property alias extentController: featureListToolBar.extentController
+
   property bool allowEdit
   property bool allowDelete
 
+  property bool multiSelection: false
   property bool fullScreenView: qfieldSettings.fullScreenIdentifyView
   property bool isVertical: false
 
@@ -217,13 +219,13 @@ Rectangle {
       CheckBox {
           anchors { leftMargin: 5; left: parent.left; verticalCenter: parent.verticalCenter }
           checked: featureSelected
-          visible: featureForm.selection.model.selectedCount > 0
+          visible: multiSelection
       }
 
       Text {
         id: featureText
         anchors {
-          leftMargin: featureForm.selection.model.selectedCount > 0 ? 50 : 10
+          leftMargin: multiSelection ? 50 : 10
           left: parent.left
           verticalCenter: parent.verticalCenter
         }
@@ -250,13 +252,19 @@ Rectangle {
         anchors.fill: parent
 
         onClicked: {
-          if ( featureForm.selection.model.selectedCount == 0 ) {
+          if ( multiSelection ) {
+              featureForm.selection.toggleSelectedItem( index );
+              if ( featureForm.selection.model.selectedCount == 0 ) {
+                  featureFormList.model.featureModel.modelMode = FeatureModel.SingleFeatureModel
+                  multiSelection = false;
+              } else {
+                  featureForm.selection.focusedItem = featureForm.selection.model.selectedCount > 0 ? index : -1;
+              }
+          } else {
             featureFormList.model.featureModel.modelMode = FeatureModel.SingleFeatureModel
             featureForm.selection.focusedItem = index
             featureForm.state = "FeatureForm"
-          } else {
-            featureForm.selection.toggleSelectedItem( index );
-            featureForm.selection.focusedItem = featureForm.selection.model.selectedCount > 0 ? index : -1;
+            multiSelection = false;
           }
         }
 
@@ -265,6 +273,7 @@ Rectangle {
           featureFormList.model.featureModel.modelMode = FeatureModel.MultiFeatureModel
           featureForm.selection.focusedItem = index
           featureForm.selection.toggleSelectedItem( index );
+          multiSelection = true;
         }
       }
 
@@ -393,6 +402,10 @@ Rectangle {
       featureFormList.model.featureModel.reset()
       featureForm.state = featureForm.selection.model.selectedCount > 0 ? "FeatureList" : "FeatureForm"
       displayToast( qsTr( "Last changes discarded" ) )
+    }
+
+    onToggleMultiSelection: {
+        multiSelection = !multiSelection
     }
 
     onMultiEditClicked: {

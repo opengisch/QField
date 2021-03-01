@@ -89,8 +89,6 @@ Rectangle {
           + (editGeomButton.visible ? editGeomButton.width : 0)
           + (multiClearButton.visible ? multiClearButton.width : 0)
           + (multiEditButton.visible ? multiEditButton.width : 0)
-          + (multiMergeButton.visible ? multiMergeButton.width : 0)
-          + (multiDeleteButton.visible ? multiDeleteButton.width : 0)
           + (menuButton.visible ? menuButton.width : 0)
       height: parent.height
 
@@ -374,7 +372,7 @@ Rectangle {
   QfToolButton {
     id: multiEditButton
 
-    anchors.right: multiMergeButton.left
+    anchors.right: menuButton.left
 
     width: ( parent.state == "Indication" && toolBar.model && toolBar.model.canEditAttributesSelection && toolBar.model.selectedCount > 1 ? 48: 0 )
     height: 48
@@ -386,54 +384,6 @@ Rectangle {
 
     onClicked: {
       multiEditClicked();
-    }
-
-    Behavior on width {
-      PropertyAnimation {
-        easing.type: Easing.InQuart
-      }
-    }
-  }
-
-  QfToolButton {
-    id: multiMergeButton
-
-    anchors.right: multiDeleteButton.left
-
-    width: ( parent.state == "Indication" && toolBar.model && toolBar.model.canMergeSelection && toolBar.model.selectedCount > 1 ? 48: 0 )
-    height: 48
-    clip: true
-
-    iconSource: Theme.getThemeIcon( "ic_merge_features_white_24dp" )
-
-    enabled: ( toolBar.model && toolBar.model.canMergeSelection && toolBar.model.selectedCount > 1 )
-
-    onClicked: {
-      multiMergeClicked();
-    }
-
-    Behavior on width {
-      PropertyAnimation {
-        easing.type: Easing.InQuart
-      }
-    }
-  }
-
-  QfToolButton {
-    id: multiDeleteButton
-
-    anchors.right: menuButton.right
-
-    width: ( parent.state == "Indication" && toolBar.model && toolBar.model.canDeleteSelection ? 48: 0 )
-    height: 48
-    clip: true
-
-    iconSource: Theme.getThemeIcon( "ic_delete_forever_white_24dp" )
-
-    enabled: ( toolBar.model && toolBar.model.canDeleteSelection )
-
-    onClicked: {
-      multiDeleteClicked();
     }
 
     Behavior on width {
@@ -459,13 +409,39 @@ Rectangle {
     }
 
     MenuItem {
-      text: qsTr( 'Select Features' )
+      text: qsTr( 'Toggle Feature Selection' )
 
       font: Theme.defaultFont
       height: 48
       leftPadding: 10
 
       onTriggered: toggleMultiSelection();
+    }
+
+    MenuSeparator { width: parent.width }
+
+    MenuItem {
+      text: qsTr( 'Merge Selected Features' )
+      icon.source: Theme.getThemeIcon( "ic_merge_features_white_24dp" )
+      enabled: toolBar.model && toolBar.model.canMergeSelection && toolBar.model.selectedCount > 1
+
+      font: Theme.defaultFont
+      height: 48
+      leftPadding: 10
+
+      onTriggered: multiMergeClicked();
+    }
+
+    MenuItem {
+      text: qsTr( 'Delete Selected Feature(s)' )
+      icon.source: Theme.getThemeIcon( "ic_delete_forever_white_24dp" )
+      enabled: toolBar.model && toolBar.model.canDeleteSelection
+
+      font: Theme.defaultFont
+      height: 48
+      leftPadding: 10
+
+      onTriggered: multiDeleteClicked();
     }
   }
 
@@ -486,6 +462,7 @@ Rectangle {
 
     MenuItem {
       text: qsTr( 'Zoom to Feature' )
+      icon.source: Theme.getThemeIcon( "ic_fullscreen_white_24dp" )
 
       font: Theme.defaultFont
       height: 48
