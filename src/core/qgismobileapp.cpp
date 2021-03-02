@@ -950,6 +950,7 @@ void QgisMobileapp::printAtlasFeatures( const QString &layoutName, const QList<l
   }
 
   QString error;
+  layoutToPrint->atlas()->setFilterFeatures( true );
   layoutToPrint->atlas()->setFilterExpression( QStringLiteral( "$id IN (%1)" ).arg( ids.join( ',' ) ), error );
 
   QString documentsLocation = QStringLiteral( "%1/QField" ).arg( QStandardPaths::writableLocation( QStandardPaths::DocumentsLocation ) );
