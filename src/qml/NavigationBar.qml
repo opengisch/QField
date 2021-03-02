@@ -568,7 +568,7 @@ Rectangle {
         leftPadding: 10
 
         onTriggered: {
-            displayToast( qsTr( 'Printing Atlas Feature(s) to PDF') )
+            displayToast( qsTr( 'Printing atlas feature(s) to PDF') )
             atlasMenu.printName = Title
             atlasMenu.printTimer.restart();
         }
@@ -605,7 +605,7 @@ Rectangle {
       }
       else
       {
-          displayToast( qsTr( 'Printing Atlas Feature to PDF') )
+          displayToast( qsTr( 'Printing atlas feature to PDF') )
           atlasMenu.printName = atlasListInstantiator.model.titleAt( 0 );
           atlasMenu.printTimer.restart();
       }
