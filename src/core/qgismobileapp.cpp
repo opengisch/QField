@@ -950,17 +950,16 @@ void QgisMobileapp::printAtlasFeatures( const QString &layoutName, const QList<l
   }
 
   QString error;
-  layoutToPrint->atlas()->setFilterFeatures( true );
   layoutToPrint->atlas()->setFilterExpression( QStringLiteral( "$id IN (%1)" ).arg( ids.join( ',' ) ), error );
+  qDebug() << QStringLiteral( "$id IN (%1)" ).arg( ids.join( ',' ) );
+  qDebug() << error;
+  layoutToPrint->atlas()->setFilterFeatures( true );
 
-  QString documentsLocation = QStringLiteral( "%1/QField" ).arg( QStandardPaths::writableLocation( QStandardPaths::DocumentsLocation ) );
+  const QString documentsLocation = QStringLiteral( "%1/QField" ).arg( QStandardPaths::writableLocation( QStandardPaths::DocumentsLocation ) );
   QDir documentsDir( documentsLocation );
   if ( !documentsDir.exists() )
     documentsDir.mkpath( "." );
-
-  QString destination = documentsLocation  + '/';
-  if ( layoutToPrint->customProperty( QStringLiteral( "singleFile" ), true ).toBool() )
-    destination = destination + layoutToPrint->name() + QStringLiteral( ".pdf" );
+  const QString destination = documentsLocation + '/' + layoutToPrint->name() + QStringLiteral( ".pdf" );
 
   QgsLayoutExporter::PdfExportSettings pdfSettings;
   pdfSettings.rasterizeWholeImage = layoutToPrint->customProperty( QStringLiteral( "rasterize" ), false ).toBool();
@@ -972,10 +971,17 @@ void QgisMobileapp::printAtlasFeatures( const QString &layoutName, const QList<l
   if ( layoutToPrint->atlas()->updateFeatures() )
   {
     QgsLayoutExporter exporter = QgsLayoutExporter( layoutToPrint );
-    exporter.exportToPdf( layoutToPrint->atlas(), destination, pdfSettings, error );
+    if ( layoutToPrint->customProperty( QStringLiteral( "singleFile" ), true ).toBool() )
+    {
+      exporter.exportToPdf( layoutToPrint->atlas(), destination, pdfSettings, error );
+      if ( error.isEmpty() )
+        PlatformUtilities::instance()->open( destination );
+    } else {
+      exporter.exportToPdfs( layoutToPrint->atlas(), destination, pdfSettings, error );
+      if ( error.isEmpty() )
+        PlatformUtilities::instance()->open( documentsLocation );
+    }
   }
-
-  PlatformUtilities::instance()->open( destination );
 }
 
 bool QgisMobileapp::event( QEvent *event )
