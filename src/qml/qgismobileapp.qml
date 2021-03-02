@@ -1332,7 +1332,7 @@ ApplicationWindow {
     }
 
     MenuItem {
-      text: qsTr( "View Log Messages" )
+      text: qsTr( "Messages Logs" )
 
       font: Theme.defaultFont
       height: 48
@@ -1358,21 +1358,6 @@ ApplicationWindow {
         highlighted = false
       }
     }
-
-    MenuItem {
-      text: qsTr( "Message Log" )
-
-      font: Theme.defaultFont
-      height: 48
-      leftPadding: 10
-
-      onTriggered: {
-        dashBoard.close()
-        messageLog.visible = true
-      }
-    }
-
-
 
     Connections {
         target: printMenu
