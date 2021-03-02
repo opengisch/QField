@@ -951,8 +951,6 @@ void QgisMobileapp::printAtlasFeatures( const QString &layoutName, const QList<l
 
   QString error;
   layoutToPrint->atlas()->setFilterExpression( QStringLiteral( "$id IN (%1)" ).arg( ids.join( ',' ) ), error );
-  qDebug() << QStringLiteral( "$id IN (%1)" ).arg( ids.join( ',' ) );
-  qDebug() << error;
   layoutToPrint->atlas()->setFilterFeatures( true );
 
   const QString documentsLocation = QStringLiteral( "%1/QField" ).arg( QStandardPaths::writableLocation( QStandardPaths::DocumentsLocation ) );
