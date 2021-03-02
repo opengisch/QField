@@ -113,8 +113,20 @@ class QgisMobileapp : public QQmlApplicationEngine
      */
     void readProjectFile();
 
-    void print( const QString &layoutName );
-    void printAtlasFeatures( const QString &layoutName, const QList<long long> &featureIds );
+    /**
+     * Prints a given layout to a PDF file
+     * \param layoutName the layout name that will be printed
+     * \return TRUE if the layout was successfully printed
+     */
+    bool print( const QString &layoutName );
+
+    /**
+     * Prints a given atlas-driven layout to one or more PDF files
+     * \param layoutName the layout name that will be printed
+     * \param featureIds the features from the atlas coverage vector layer that will be used to print the layout
+     * \return TRUE if the layout was successfully printed
+     */
+    bool printAtlasFeatures( const QString &layoutName, const QList<long long> &featureIds );
 
     bool event( QEvent *event ) override;
 

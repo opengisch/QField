@@ -51,12 +51,12 @@ void AppInterface::readProject()
   return mApp->readProjectFile();
 }
 
-void AppInterface::print( const QString &layoutName )
+bool AppInterface::print( const QString &layoutName )
 {
   return mApp->print( layoutName );
 }
 
-void AppInterface::printAtlasFeatures( const QString &layoutName, const QList<long long> &featureIds )
+bool AppInterface::printAtlasFeatures( const QString &layoutName, const QList<long long> &featureIds )
 {
   return mApp->printAtlasFeatures( layoutName, featureIds );
 }

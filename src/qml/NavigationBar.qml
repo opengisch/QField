@@ -593,7 +593,9 @@ Rectangle {
           } else {
               ids.push(selection.focusedFeature.id)
           }
-          iface.printAtlasFeatures( printName, ids )
+          if ( iface.printAtlasFeatures( printName, ids ) ) {
+              displayToast( qsTr( 'Atlas feature(s) successfully printed to PDF and placed in your documents' ) );
+          }
       }
     }
   }
@@ -605,7 +607,7 @@ Rectangle {
       }
       else
       {
-          displayToast( qsTr( 'Printing atlas feature to PDF') )
+          displayToast( qsTr( 'Printing atlas feature(s) to PDF') )
           atlasMenu.printName = atlasListInstantiator.model.titleAt( 0 );
           atlasMenu.printTimer.restart();
       }

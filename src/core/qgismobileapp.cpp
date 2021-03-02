@@ -889,7 +889,7 @@ void QgisMobileapp::readProjectFile()
   emit loadProjectEnded( mProjectFilePath, mProjectFileName );
 }
 
-void QgisMobileapp::print( const QString &layoutName )
+bool QgisMobileapp::print( const QString &layoutName )
 {
   const QList<QgsPrintLayout *> printLayouts = mProject->layoutManager()->printLayouts();
   QgsPrintLayout *layoutToPrint = nullptr;
@@ -903,7 +903,7 @@ void QgisMobileapp::print( const QString &layoutName )
   }
 
   if ( !layoutToPrint || layoutToPrint->pageCollection()->pageCount() == 0 )
-    return;
+    return false;
 
   layoutToPrint->referenceMap()->zoomToExtent( mMapCanvas->mapSettings()->visibleExtent() );
   layoutToPrint->refresh();
@@ -922,12 +922,15 @@ void QgisMobileapp::print( const QString &layoutName )
   pdfSettings.simplifyGeometries = true;
 
   QgsLayoutExporter exporter = QgsLayoutExporter( layoutToPrint );
-  exporter.exportToPdf( destination, pdfSettings );
+  QgsLayoutExporter::ExportResult result = exporter.exportToPdf( destination, pdfSettings );
 
-  PlatformUtilities::instance()->open( destination );
+  if ( result == QgsLayoutExporter::Success )
+    PlatformUtilities::instance()->open( destination );
+
+  return result == QgsLayoutExporter::Success ? true : false;
 }
 
-void QgisMobileapp::printAtlasFeatures( const QString &layoutName, const QList<long long> &featureIds )
+bool QgisMobileapp::printAtlasFeatures( const QString &layoutName, const QList<long long> &featureIds )
 {
   const QList<QgsPrintLayout *> printLayouts = mProject->layoutManager()->printLayouts();
   QgsPrintLayout *layoutToPrint = nullptr;
@@ -941,7 +944,7 @@ void QgisMobileapp::printAtlasFeatures( const QString &layoutName, const QList<l
   }
 
   if ( !layoutToPrint || !layoutToPrint->atlas() )
-    return;
+    return false;
 
   QStringList ids;
   for( const auto id : featureIds )
@@ -969,19 +972,23 @@ void QgisMobileapp::printAtlasFeatures( const QString &layoutName, const QList<l
   if ( layoutToPrint->atlas()->updateFeatures() )
   {
     QgsLayoutExporter exporter = QgsLayoutExporter( layoutToPrint );
+    QgsLayoutExporter::ExportResult result;
     if ( layoutToPrint->customProperty( QStringLiteral( "singleFile" ), true ).toBool() )
     {
-      exporter.exportToPdf( layoutToPrint->atlas(), destination, pdfSettings, error );
-      if ( error.isEmpty() )
+      result = exporter.exportToPdf( layoutToPrint->atlas(), destination, pdfSettings, error );
+      if ( result == QgsLayoutExporter::Success )
         PlatformUtilities::instance()->open( destination );
     } else {
-      exporter.exportToPdfs( layoutToPrint->atlas(), destination, pdfSettings, error );
+      result = exporter.exportToPdfs( layoutToPrint->atlas(), destination, pdfSettings, error );
 #ifndef Q_OS_ANDROID
-      if ( error.isEmpty() )
+      if ( result == QgsLayoutExporter::Success )
         PlatformUtilities::instance()->open( documentsLocation );
 #endif
     }
+    return result == QgsLayoutExporter::Success ? true : false;
   }
+
+  return false;
 }
 
 bool QgisMobileapp::event( QEvent *event )
