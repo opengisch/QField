@@ -1332,7 +1332,7 @@ ApplicationWindow {
     }
 
     MenuItem {
-      text: qsTr( "Messages Logs" )
+      text: qsTr( "Messages Log" )
 
       font: Theme.defaultFont
       height: 48
