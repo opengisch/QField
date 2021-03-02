@@ -40,14 +40,23 @@ EditorWidgetBase {
   onCurrentValueChanged: {
       if ( isImage ) {
           if ( value === undefined || FileUtils.fileName( qgisProject.homePath + '/' + value ) === '' ) {
-              image.source=Theme.getThemeIcon("ic_photo_notavailable_black_24dp")
+              image.width = 24
+              image.opacity = 0.25
+              image.anchors.topMargin = 11
+              image.source = Theme.getThemeIcon("ic_photo_notavailable_black_24dp")
               geoTagBadge.visible = false
           } else if ( image.status === Image.Error || !FileUtils.fileExists( qgisProject.homePath + '/' + value ) ) {
+              image.width = 24
+              image.opacity = 0.25
+              image.anchors.topMargin = 11
               image.source=Theme.getThemeIcon("ic_broken_image_black_24dp")
               geoTagBadge.visible = false
           } else {
-              geoTagBadge.hasGeoTag = ExifTools.hasGeoTag(qgisProject.homePath + '/' + value)
+              image.width = 220
+              image.opacity = 1
+              image.anchors.topMargin = 0
               image.source= 'file://' + qgisProject.homePath + '/' + value
+              geoTagBadge.hasGeoTag = ExifTools.hasGeoTag(qgisProject.homePath + '/' + value)
               geoTagBadge.visible = true
           }
       } else {
@@ -145,7 +154,11 @@ EditorWidgetBase {
     id: image
     visible: isImage
     enabled: isImage
-    width: 200
+    anchors.left: parent.left
+    anchors.top: parent.top
+    anchors.topMargin: 11
+    width: 24
+    opacity: 0.25
     autoTransform: true
     fillMode: Image.PreserveAspectFit
     horizontalAlignment: Image.AlignLeft
@@ -168,7 +181,8 @@ EditorWidgetBase {
     visible: false
     anchors.bottom: image.bottom
     anchors.right: image.right
-    anchors.margins: 4
+    anchors.rightMargin: 10
+    anchors.bottomMargin: 12
     fillMode: Image.PreserveAspectFit
     width: 24
     height: 24
@@ -191,8 +205,8 @@ EditorWidgetBase {
 
   QfToolButton {
     id: button_camera
-    width: 36
-    height: 36
+    width: 48
+    height: 48
 
     anchors.right: button_gallery.left
     anchors.bottom: parent.bottom
@@ -215,8 +229,8 @@ EditorWidgetBase {
 
   QfToolButton {
     id: button_gallery
-    width: 36
-    height: 36
+    width: 48
+    height: 48
 
     anchors.right: parent.right
     anchors.bottom: parent.bottom
