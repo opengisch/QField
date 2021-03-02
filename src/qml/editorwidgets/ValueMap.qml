@@ -71,7 +71,8 @@ EditorWidgetBase {
       implicitHeight: 36
 
       Rectangle {
-        y: textLabel.height - 8
+        visible: !enabled
+        y: comboBox.height - 8
         width: comboBox.width
         height: comboBox.activeFocus ? 2: 1
         color: comboBox.activeFocus ? "#4CAF50" : "#C8E6C9"
