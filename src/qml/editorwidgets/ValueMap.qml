@@ -66,12 +66,25 @@ EditorWidgetBase {
       onPressAndHold: mouse.accepted = false;
     }
 
+    font: Theme.defaultFont
+    contentItem: Text {
+        leftPadding: enabled ? 5 : 0
+
+        text: comboBox.displayText
+        font: comboBox.font
+        color: enabled ? 'black' : 'gray'
+        verticalAlignment: Text.AlignVCenter
+        horizontalAlignment: Text.AlignLeft
+        elide: Text.ElideRight
+    }
+
     background: Item {
       implicitWidth: 120
       implicitHeight: 36
 
       Rectangle {
-        y: textLabel.height - 8
+        visible: !enabled
+        y: comboBox.height - 12
         width: comboBox.width
         height: comboBox.activeFocus ? 2: 1
         color: comboBox.activeFocus ? "#4CAF50" : "#C8E6C9"
