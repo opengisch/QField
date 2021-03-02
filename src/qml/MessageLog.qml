@@ -96,10 +96,9 @@ Page {
 
     QfButton {
         text: qsTr("Clear message log")
-        anchors.left: parent.left
-        anchors.right: parent.right
-        onClicked:
-        {
+        Layout.fillWidth: true
+
+        onClicked: {
             table.model.clear()
             displayToast(qsTr("Message log cleared"))
         }
