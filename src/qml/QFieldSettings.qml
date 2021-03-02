@@ -23,13 +23,13 @@ Page {
 
   Settings {
     id: registry
-    property bool showScaleBar
-    property bool fullScreenIdentifyView
-    property bool locatorKeepScale
-    property bool numericalDigitizingInformation
+    property bool showScaleBar: true
+    property bool fullScreenIdentifyView: false
+    property bool locatorKeepScale: false
+    property bool numericalDigitizingInformation: false
     property bool nativeCamera: true
-    property bool autoSave
-    property bool mouseAsTouchScreen
+    property bool autoSave: false
+    property bool mouseAsTouchScreen: false
   }
 
   ListModel {
