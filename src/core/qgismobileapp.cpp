@@ -976,8 +976,10 @@ void QgisMobileapp::printAtlasFeatures( const QString &layoutName, const QList<l
         PlatformUtilities::instance()->open( destination );
     } else {
       exporter.exportToPdfs( layoutToPrint->atlas(), destination, pdfSettings, error );
+#ifndef Q_OS_ANDROID
       if ( error.isEmpty() )
         PlatformUtilities::instance()->open( documentsLocation );
+#endif
     }
   }
 }
