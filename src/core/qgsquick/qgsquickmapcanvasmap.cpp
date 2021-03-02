@@ -17,8 +17,9 @@
 #include <QScreen>
 #include <QSGSimpleTextureNode>
 
+#include <qgslabelingresults.h>
 #include <qgsmaprendererparalleljob.h>
-#include "qgsmaprenderercache.h"
+#include <qgsmaprenderercache.h>
 #include <qgsmessagelog.h>
 #include <qgspallabeling.h>
 #include <qgsproject.h>
