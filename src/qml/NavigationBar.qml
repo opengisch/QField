@@ -39,6 +39,8 @@ Rectangle {
   signal save
   signal cancel
 
+  signal deleteClicked
+
   signal toggleMultiSelection
   signal multiEditClicked
   signal multiMergeClicked
@@ -519,6 +521,19 @@ Rectangle {
       checked: extentController.autoZoom
 
       onTriggered: extentController.autoZoom = !extentController.autoZoom
+    }
+
+    MenuSeparator { width: parent.width }
+
+    MenuItem {
+      text: qsTr( 'Delete Feature' )
+      icon.source: Theme.getThemeIcon( "ic_delete_forever_white_24dp" )
+
+      font: Theme.defaultFont
+      height: 48
+      leftPadding: 10
+
+      onTriggered: deleteClicked();
     }
   }
 

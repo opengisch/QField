@@ -405,6 +405,17 @@ Rectangle {
       displayToast( qsTr( "Last changes discarded" ) )
     }
 
+    onDeleteClicked: {
+        if( trackingModel.featureInTracking(featureForm.selection.focusedLayer, featureForm.selection.model.selectedFeatures) )
+        {
+          displayToast( qsTr( "A number of features are being tracked, stop tracking to delete those" ) )
+        }
+        else
+        {
+          deleteDialog.show()
+        }
+    }
+
     onToggleMultiSelection: {
         if ( featureForm.multiSelection ) {
             featureFormList.model.featureModel.modelMode = FeatureModel.SingleFeatureModel
@@ -414,7 +425,6 @@ Rectangle {
             featureFormList.model.featureModel.modelMode = FeatureModel.MultiFeatureModel
         }
         featureForm.multiSelection = !featureForm.multiSelection;
-        console.log(featureForm.multiSelection)
     }
 
     onMultiEditClicked: {
@@ -652,10 +662,18 @@ Rectangle {
         return;
       }
 
-      isDeleted = featureForm.model.deleteSelection()
+      if  ( featureForm.multiSelection ) {
+        isDeleted = featureForm.model.deleteSelection()
+      } else {
+        isDeleted = featureForm.selection.model.deleteFeature(featureForm.selection.focusedLayer,featureForm.selection.focusedFeature.id)
+      }
 
       if ( isDeleted ) {
         displayToast( qsTr( "Successfully deleted %n feature(s)", "", selectedCount ) );
+        if ( !featureForm.multiSelection ) {
+          featureForm.selection.focusedItem = -1
+          featureForm.state = "FeatureList"
+        }
       } else {
         displayToast( qsTr( "Failed to delete %n feature(s)", "", selectedCount ) );
       }
@@ -670,7 +688,7 @@ Rectangle {
 
     function show() {
         this.isDeleted = false;
-        this.selectedCount = featureForm.model.selectedCount;
+        this.selectedCount = featureForm.multiSelection ? featureForm.model.selectedCount : 1;
         this.open();
     }
   }
