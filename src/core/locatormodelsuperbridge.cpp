@@ -16,22 +16,28 @@
 
 
 #include "locatormodelsuperbridge.h"
+#include "qgsquickmapsettings.h"
+#include "featurelistextentcontroller.h"
+#include "featureslocatorfilter.h"
+#include "gotolocatorfilter.h"
+#include "peliasgeocoder.h"
+#include "peliaslocatorfilter.h"
 
 #include <QStandardItem>
 
 #include <qgslocatormodel.h>
 #include <qgslocator.h>
 
-#include "qgsquickmapsettings.h"
-#include "featurelistextentcontroller.h"
-#include "featureslocatorfilter.h"
-#include "gotolocatorfilter.h"
 
 LocatorModelSuperBridge::LocatorModelSuperBridge( QObject *parent )
   : QgsLocatorModelBridge( parent )
 {
   locator()->registerFilter( new GotoLocatorFilter( this ) );
   locator()->registerFilter( new FeaturesLocatorFilter( this ) );
+
+  // Finish's digitransit.fi geocoder
+  mFinlandGeocoder = new PeliasGeocoder( "https://api.digitransit.fi/geocoding/v1/search" );
+  locator()->registerFilter( new PeliasLocatorFilter( mFinlandGeocoder, this ) );
 }
 
 QgsQuickMapSettings *LocatorModelSuperBridge::mapSettings() const

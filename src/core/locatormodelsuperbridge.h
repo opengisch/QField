@@ -22,6 +22,7 @@
 
 class QgsQuickMapSettings;
 class FeatureListExtentController;
+class PeliasGeocoder;
 
 /**
  * LocatorActionsModel is a model used to dislay
@@ -91,6 +92,8 @@ class LocatorModelSuperBridge : public QgsLocatorModelBridge
     QObject *mLocatorHighlightGeometry = nullptr;
     FeatureListExtentController *mFeatureListController = nullptr;
     bool mKeepScale = false;
+
+    PeliasGeocoder *mFinlandGeocoder = nullptr;
 };
 
 #endif // LOCATORMODELSUPERBRIDGE_H

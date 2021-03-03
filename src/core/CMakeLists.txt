@@ -30,6 +30,8 @@ SET(QFIELD_CORE_SRCS
   modelhelper.cpp
   multifeaturelistmodelbase.cpp
   multifeaturelistmodel.cpp
+  peliasgeocoder.cpp
+  peliaslocatorfilter.cpp
   picturesource.cpp
   platformutilities.cpp
   printlayoutlistmodel.cpp
@@ -107,6 +109,8 @@ SET(QFIELD_CORE_HDRS
   modelhelper.h
   multifeaturelistmodelbase.h
   multifeaturelistmodel.h
+  peliasgeocoder.h
+  peliaslocatorfilter.h
   picturesource.h
   platformutilities.h
   printlayoutlistmodel.h
