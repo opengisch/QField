@@ -40,7 +40,7 @@ class CORE_EXPORT PeliasGeocoder : public QgsGeocoderInterface
      *
      * The \a endpoint argument is used to specify an endpoint to use for request.
      */
-    PeliasGeocoder( const QString &endpoint = QString() );
+    explicit PeliasGeocoder( const QString &endpoint = QString() );
 
     Flags flags() const override;
     QgsFields appendedFields() const override;
