@@ -648,6 +648,21 @@ ApplicationWindow {
     source: featureForm
   }
 
+  QfToolButton {
+    id: alertIcon
+    iconSource: Theme.getThemeIcon( "ic_alert_black_24dp" )
+    round: true
+    bgcolor: "transparent"
+
+    visible: messageLog.unreadMessages
+
+    anchors.right: locatorItem.right
+    anchors.top: locatorItem.top
+    anchors.topMargin: 52
+
+    onClicked: messageLog.visible = true
+  }
+
   Column {
     id: zoomToolbar
     anchors.right: mapCanvas.right
@@ -1569,21 +1584,6 @@ ApplicationWindow {
         mapCanvas.mapSettings.setCenter(positionSource.projectedPosition)
       }
     }
-  }
-
-  QfToolButton {
-    id: alertIcon
-    iconSource: Theme.getThemeIcon( "ic_alert_black_24dp" )
-    round: true
-    bgcolor: "transparent"
-
-    visible: messageLog.unreadMessages
-
-    anchors.right: locatorItem.right
-    anchors.top: locatorItem.bottom
-    anchors.topMargin: 5
-
-    onClicked: messageLog.visible = true
   }
 
   /* The feature form */
