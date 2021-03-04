@@ -272,7 +272,7 @@ bool LocatorFiltersModel::setData( const QModelIndex &index, const QVariant &val
   return false;
 }
 
-void LocatorFiltersModel::setGeocoderLocatorFiltersDefaulByPosition( const GnssPositionInformation position )
+void LocatorFiltersModel::setGeocoderLocatorFiltersDefaulByPosition( const GnssPositionInformation &position )
 {
   if ( !mLocatorModelSuperBridge->locator() )
     return;

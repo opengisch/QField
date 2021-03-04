@@ -132,7 +132,7 @@ class LocatorFiltersModel : public QAbstractListModel
     LocatorModelSuperBridge *locatorModelSuperBridge() const;
     void setLocatorModelSuperBridge( LocatorModelSuperBridge *locatorModelSuperBridge );
 
-    Q_INVOKABLE void setGeocoderLocatorFiltersDefaulByPosition( const GnssPositionInformation position );
+    Q_INVOKABLE void setGeocoderLocatorFiltersDefaulByPosition( const GnssPositionInformation &position );
 
   signals:
 
