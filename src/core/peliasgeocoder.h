@@ -91,8 +91,6 @@ class CORE_EXPORT PeliasGeocoder : public QgsGeocoderInterface
     double mRequestsPerSecond = 10;
 
     static QMutex sMutex;
-    static QMap< QUrl, QList< QgsGeocoderResult > > sCachedResults;
-
     static qint64 sLastRequestTimestamp;
 
 };

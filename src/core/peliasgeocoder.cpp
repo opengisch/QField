@@ -28,7 +28,8 @@
 #include <QJsonArray>
 
 QMutex PeliasGeocoder::sMutex;
-QMap< QUrl, QList< QgsGeocoderResult > > PeliasGeocoder::sCachedResults;
+typedef QMap< QUrl, QList< QgsGeocoderResult > > CachedGeocodeResult;
+Q_GLOBAL_STATIC( CachedGeocodeResult, sCachedResults )
 qint64 PeliasGeocoder::sLastRequestTimestamp = 0;
 
 PeliasGeocoder::PeliasGeocoder( const QString &endpoint )
@@ -85,8 +86,8 @@ QList<QgsGeocoderResult> PeliasGeocoder::geocodeString( const QString &string, c
   const QUrl url = requestUrl( string, bounds );
 
   QMutexLocker locker( &sMutex );
-  auto it = sCachedResults.constFind( url );
-  if ( it != sCachedResults.constEnd() )
+  auto it = sCachedResults()->constFind( url );
+  if ( it != sCachedResults()->constEnd() )
   {
     return *it;
   }
@@ -122,7 +123,7 @@ QList<QgsGeocoderResult> PeliasGeocoder::geocodeString( const QString &string, c
   const QVariantList results = doc.object().toVariantMap().value( QStringLiteral( "features" ) ).toList();
   if ( results.isEmpty() )
   {
-    sCachedResults.insert( url, QList<QgsGeocoderResult>() );
+    sCachedResults()->insert( url, QList<QgsGeocoderResult>() );
     return QList<QgsGeocoderResult>();
   }
 
@@ -133,7 +134,7 @@ QList<QgsGeocoderResult> PeliasGeocoder::geocodeString( const QString &string, c
     matches << jsonToResult( result.toMap() );
   }
 
-  sCachedResults.insert( url, matches );
+  sCachedResults()->insert( url, matches );
 
   return matches;
 }
