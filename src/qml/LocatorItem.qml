@@ -10,6 +10,7 @@ Item {
   id: locatorItem
 
   property bool searchFieldVisible: searchField.visible
+  property alias locatorModelSuperBridge: locator
 
   state: "off"
 

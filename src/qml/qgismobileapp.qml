@@ -739,6 +739,11 @@ ApplicationWindow {
     }
   }
 
+  LocatorSettings {
+      id: locatorSettings
+      locatorModelSuperBridge: locatorItem.locatorModelSuperBridge
+  }
+
   DropShadow {
     anchors.fill: locatorItem
     visible: locatorItem.searchFieldVisible

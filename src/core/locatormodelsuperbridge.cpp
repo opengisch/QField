@@ -137,6 +137,10 @@ void LocatorModelSuperBridge::triggerResultAtRow( const int row, const int id )
     triggerResult( index, id );
 }
 
+//
+// LocatorActionsModel
+//
+
 LocatorActionsModel::LocatorActionsModel( QObject *parent )
   : QStandardItemModel( parent )
 {
@@ -159,46 +163,49 @@ QHash<int, QByteArray> LocatorActionsModel::roleNames() const
 // LocatorFiltersModel
 //
 
-LocatorFiltersModel::LocatorFiltersModel( QgsLocator *locator ) : QAbstractItemModel()
-  , mLocator( locator )
+LocatorFiltersModel::LocatorFiltersModel() : QAbstractListModel()
 {
 }
 
 int LocatorFiltersModel::rowCount( const QModelIndex &parent ) const
 {
-  if ( parent.isValid() )
+  if ( !mLocatorModelSuperBridge->locator() || parent.isValid() )
     return 0;
 
-  return mLocator->filters().count();
+  return mLocatorModelSuperBridge->locator()->filters().count();
+}
+
+QHash<int, QByteArray> LocatorFiltersModel::roleNames() const
+{
+  QHash<int, QByteArray> roles = QAbstractListModel::roleNames();
+  roles[NameRole] = "Name";
+  roles[PrefixRole] = "Prefix";
+  roles[ActiveRole] = "Active";
+  roles[DefaultRole] = "Default";
+
+  return roles;
 }
 
 QVariant LocatorFiltersModel::data( const QModelIndex &index, int role ) const
 {
-  if ( !index.isValid() || index.parent().isValid() ||
-       index.row() < 0 || index.column() != 0 || index.row() >= rowCount( QModelIndex() ) )
+  if ( !mLocatorModelSuperBridge->locator() || !index.isValid() || index.parent().isValid() ||
+       index.row() < 0 || index.row() >= rowCount( QModelIndex() ) )
     return QVariant();
 
   switch ( role )
   {
     case Qt::DisplayRole:
-    case LocatorFiltersModel::Name:
-    {
+    case NameRole:
       return filterForIndex( index )->displayName();
-    }
-    case LocatorFiltersModel::Prefix:
-    {
+
+    case PrefixRole:
       return filterForIndex( index )->activePrefix();
-    }
 
-    case LocatorFiltersModel::Active:
-    {
+    case ActiveRole:
       return QVariant( filterForIndex( index )->enabled() );
-    }
 
-    case LocatorFiltersModel::Default:
-    {
+    case DefaultRole:
       return filterForIndex( index )->useWithoutPrefix();
-    }
   }
 
   return QVariant();
@@ -206,33 +213,33 @@ QVariant LocatorFiltersModel::data( const QModelIndex &index, int role ) const
 
 bool LocatorFiltersModel::setData( const QModelIndex &index, const QVariant &value, int role )
 {
-  if ( !index.isValid() || index.parent().isValid() ||
-       index.row() < 0 || index.column() != 0 || index.row() >= rowCount( QModelIndex() ) )
+  if ( !mLocatorModelSuperBridge->locator() || !index.isValid() || index.parent().isValid() ||
+       index.row() < 0 || index.row() >= rowCount( QModelIndex() ) )
     return false;
 
   switch ( role )
   {
-    case LocatorFiltersModel::Name:
-    case LocatorFiltersModel::Prefix:
+    case NameRole:
+    case PrefixRole:
       return false;
 
-    case LocatorFiltersModel::Active:
+    case ActiveRole:
     {
       QgsSettings settings;
       QgsLocatorFilter *filter = filterForIndex( index );
       filter->setEnabled( value.toBool() );
       settings.setValue( QStringLiteral( "locator_filters/enabled_%1" ).arg( filter->name() ), filter->enabled(), QgsSettings::Section::Gui );
-      emit dataChanged( index, index, QVector<int>() << LocatorFiltersModel::Active );
+      emit dataChanged( index, index, QVector<int>() << ActiveRole );
       return true;
     }
 
-    case LocatorFiltersModel::Default:
+    case DefaultRole:
     {
       QgsSettings settings;
       QgsLocatorFilter *filter = filterForIndex( index );
       filter->setUseWithoutPrefix( value.toBool() );
       settings.setValue( QStringLiteral( "locator_filters/default_%1" ).arg( filter->name() ), filter->useWithoutPrefix(), QgsSettings::Section::Gui );
-      emit dataChanged( index, index, QVector<int>() << LocatorFiltersModel::Default );
+      emit dataChanged( index, index, QVector<int>() << DefaultRole );
       return true;
     }
   }
@@ -242,5 +249,25 @@ bool LocatorFiltersModel::setData( const QModelIndex &index, const QVariant &val
 
 QgsLocatorFilter *LocatorFiltersModel::filterForIndex( const QModelIndex &index ) const
 {
-  return mLocator->filters().at( index.row() );
+  if ( !mLocatorModelSuperBridge->locator() )
+    return nullptr;
+
+  return mLocatorModelSuperBridge->locator()->filters().at( index.row() );
+}
+
+LocatorModelSuperBridge *LocatorFiltersModel::locatorModelSuperBridge() const
+{
+  return mLocatorModelSuperBridge;
+}
+
+void LocatorFiltersModel::setLocatorModelSuperBridge( LocatorModelSuperBridge *locatorModelSuperBridge )
+{
+  if ( mLocatorModelSuperBridge == locatorModelSuperBridge )
+    return;
+
+  qDebug() << "XXXXX";
+  emit beginResetModel();
+  mLocatorModelSuperBridge = locatorModelSuperBridge;
+  emit locatorModelSuperBridgeChanged();
+  emit endResetModel();
 }

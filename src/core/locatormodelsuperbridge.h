@@ -24,6 +24,7 @@
 class QgsQuickMapSettings;
 class FeatureListExtentController;
 class PeliasGeocoder;
+class QgsLocator;
 
 /**
  * LocatorActionsModel is a model used to dislay
@@ -97,35 +98,45 @@ class LocatorModelSuperBridge : public QgsLocatorModelBridge
     PeliasGeocoder *mFinlandGeocoder = nullptr;
 };
 
-class LocatorFiltersModel : public QAbstractItemModel
+class LocatorFiltersModel : public QAbstractListModel
 {
     Q_OBJECT
+    Q_PROPERTY( LocatorModelSuperBridge *locatorModelSuperBridge READ locatorModelSuperBridge WRITE setLocatorModelSuperBridge NOTIFY locatorModelSuperBridgeChanged )
 
   public:
 
     //! Custom model roles
     enum Role
     {
-      Name = Qt::UserRole + 1,
-      Prefix,
-      Active,
-      Default,
+      NameRole = Qt::UserRole + 1,
+      PrefixRole,
+      ActiveRole,
+      DefaultRole,
     };
+    Q_ENUM( Role )
 
     /**
      * Constructor for QgsLocatorFiltersModel.
      */
-    LocatorFiltersModel( QgsLocator *locator );
+    LocatorFiltersModel();
 
     int rowCount( const QModelIndex &parent = QModelIndex() ) const override;
+    QHash<int, QByteArray> roleNames() const override;
     QVariant data( const QModelIndex &index, int role = Qt::DisplayRole ) const override;
     bool setData( const QModelIndex &index, const QVariant &value, int role = Qt::EditRole ) override;
 
     QgsLocatorFilter *filterForIndex( const QModelIndex &index ) const;
 
+    LocatorModelSuperBridge *locatorModelSuperBridge() const;
+    void setLocatorModelSuperBridge( LocatorModelSuperBridge *locatorModelSuperBridge );
+
+  signals:
+
+    void locatorModelSuperBridgeChanged();
+
   private:
 
-    QgsLocator *mLocator = nullptr;
+    LocatorModelSuperBridge *mLocatorModelSuperBridge = nullptr;
 
 };
 #endif // LOCATORMODELSUPERBRIDGE_H

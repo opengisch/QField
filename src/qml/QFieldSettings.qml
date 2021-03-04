@@ -215,8 +215,7 @@ Page {
                           bgcolor: "transparent"
 
                           onClicked: {
-                              // to something
-                              console.log('dd');
+                              locatorSettings.open();
                           }
                       }
                   }
