@@ -27,6 +27,7 @@
 
 #include <qgslocatormodel.h>
 #include <qgslocator.h>
+#include <qgssettings.h>
 
 
 LocatorModelSuperBridge::LocatorModelSuperBridge( QObject *parent )
@@ -152,4 +153,94 @@ QHash<int, QByteArray> LocatorActionsModel::roleNames() const
   roles[IconPathRole] = "iconPath";
   roles[IdRole] = "id";
   return roles;
+}
+
+//
+// LocatorFiltersModel
+//
+
+LocatorFiltersModel::LocatorFiltersModel( QgsLocator *locator ) : QAbstractItemModel()
+  , mLocator( locator )
+{
+}
+
+int LocatorFiltersModel::rowCount( const QModelIndex &parent ) const
+{
+  if ( parent.isValid() )
+    return 0;
+
+  return mLocator->filters().count();
+}
+
+QVariant LocatorFiltersModel::data( const QModelIndex &index, int role ) const
+{
+  if ( !index.isValid() || index.parent().isValid() ||
+       index.row() < 0 || index.column() != 0 || index.row() >= rowCount( QModelIndex() ) )
+    return QVariant();
+
+  switch ( role )
+  {
+    case Qt::DisplayRole:
+    case LocatorFiltersModel::Name:
+    {
+      return filterForIndex( index )->displayName();
+    }
+    case LocatorFiltersModel::Prefix:
+    {
+      return filterForIndex( index )->activePrefix();
+    }
+
+    case LocatorFiltersModel::Active:
+    {
+      return QVariant( filterForIndex( index )->enabled() );
+    }
+
+    case LocatorFiltersModel::Default:
+    {
+      return filterForIndex( index )->useWithoutPrefix();
+    }
+  }
+
+  return QVariant();
+}
+
+bool LocatorFiltersModel::setData( const QModelIndex &index, const QVariant &value, int role )
+{
+  if ( !index.isValid() || index.parent().isValid() ||
+       index.row() < 0 || index.column() != 0 || index.row() >= rowCount( QModelIndex() ) )
+    return false;
+
+  switch ( role )
+  {
+    case LocatorFiltersModel::Name:
+    case LocatorFiltersModel::Prefix:
+      return false;
+
+    case LocatorFiltersModel::Active:
+    {
+      QgsSettings settings;
+      QgsLocatorFilter *filter = filterForIndex( index );
+      filter->setEnabled( value.toBool() );
+      settings.setValue( QStringLiteral( "locator_filters/enabled_%1" ).arg( filter->name() ), filter->enabled(), QgsSettings::Section::Gui );
+      emit dataChanged( index, index, QVector<int>() << LocatorFiltersModel::Active );
+      return true;
+    }
+
+    case LocatorFiltersModel::Default:
+    {
+      QgsSettings settings;
+      QgsLocatorFilter *filter = filterForIndex( index );
+      filter->setUseWithoutPrefix( value.toBool() );
+      settings.setValue( QStringLiteral( "locator_filters/default_%1" ).arg( filter->name() ), filter->useWithoutPrefix(), QgsSettings::Section::Gui );
+      emit dataChanged( index, index, QVector<int>() << LocatorFiltersModel::Default );
+      return true;
+    }
+  }
+
+  return false;
+}
+
+QgsLocatorFilter *LocatorFiltersModel::filterForIndex( const QModelIndex &index ) const
+{
+  return mLocator->filters().at( index.row() );
 }

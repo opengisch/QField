@@ -19,6 +19,7 @@
 
 #include <QStandardItemModel>
 #include <qgslocatormodelbridge.h>
+#include <qgslocatorfilter.h>
 
 class QgsQuickMapSettings;
 class FeatureListExtentController;
@@ -96,4 +97,35 @@ class LocatorModelSuperBridge : public QgsLocatorModelBridge
     PeliasGeocoder *mFinlandGeocoder = nullptr;
 };
 
+class LocatorFiltersModel : public QAbstractItemModel
+{
+    Q_OBJECT
+
+  public:
+
+    //! Custom model roles
+    enum Role
+    {
+      Name = Qt::UserRole + 1,
+      Prefix,
+      Active,
+      Default,
+    };
+
+    /**
+     * Constructor for QgsLocatorFiltersModel.
+     */
+    LocatorFiltersModel( QgsLocator *locator );
+
+    int rowCount( const QModelIndex &parent = QModelIndex() ) const override;
+    QVariant data( const QModelIndex &index, int role = Qt::DisplayRole ) const override;
+    bool setData( const QModelIndex &index, const QVariant &value, int role = Qt::EditRole ) override;
+
+    QgsLocatorFilter *filterForIndex( const QModelIndex &index ) const;
+
+  private:
+
+    QgsLocator *mLocator = nullptr;
+
+};
 #endif // LOCATORMODELSUPERBRIDGE_H
