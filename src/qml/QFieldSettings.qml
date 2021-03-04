@@ -134,8 +134,6 @@ Page {
               ColumnLayout {
                   id: generalSettingsGrid
                   width: parent.parent.width
-                  spacing: 10
-
 
                   GridLayout {
                       Layout.fillWidth: true
@@ -170,6 +168,7 @@ Page {
 
                           onClicked: {
                               locatorSettings.open();
+                              locatorSettings.focus = true;
                           }
                       }
                   }
