@@ -22,6 +22,7 @@
 #include "gotolocatorfilter.h"
 #include "peliasgeocoder.h"
 #include "finlandlocatorfilter.h"
+#include "gnsspositioninformation.h"
 
 #include <QStandardItem>
 
@@ -248,6 +249,7 @@ bool LocatorFiltersModel::setData( const QModelIndex &index, const QVariant &val
         emit dataChanged( index, index, QVector<int>() << ActiveRole );
         return true;
       }
+      break;
     }
 
     case DefaultRole:
@@ -263,10 +265,42 @@ bool LocatorFiltersModel::setData( const QModelIndex &index, const QVariant &val
         emit dataChanged( index, index, QVector<int>() << DefaultRole );
         return true;
       }
+      break;
     }
   }
 
   return false;
+}
+
+void LocatorFiltersModel::setGeocoderLocatorFiltersDefaulByPosition( const GnssPositionInformation position )
+{
+  if ( !mLocatorModelSuperBridge->locator() )
+    return;
+
+  QgsPointXY point( position.longitude(), position.latitude() );
+  int i = 0;
+  for ( QgsLocatorFilter *filter : mLocatorModelSuperBridge->locator()->filters() )
+  {
+    FinlandLocatorFilter *f = dynamic_cast<FinlandLocatorFilter *>( filter );
+    if ( f )
+    {
+      if ( f->boundingBox().contains( point ) )
+      {
+        QgsSettings settings;
+        bool filterTouched = settings.value( QStringLiteral( "locator_filters/default_touched_%1" ).arg( f->name() ), false, QgsSettings::Section::Gui ).toBool();
+        bool filterDefault = settings.value( QStringLiteral( "locator_filters/default_%1" ).arg( f->name() ), false, QgsSettings::Section::Gui ).toBool();
+        if ( !filterTouched && !filterDefault )
+        {
+          f->setUseWithoutPrefix( true );
+          settings.setValue( QStringLiteral( "locator_filters/default_%1" ).arg( filter->name() ), true, QgsSettings::Section::Gui );
+          QModelIndex modifiedIndex = index( i, 0 );
+          emit dataChanged( modifiedIndex, modifiedIndex, QVector<int>() << DefaultRole );
+          emit mLocatorModelSuperBridge->emitMessage( tr( "Search filters for your locations have been activated, customize results in the settings panel" ) );
+        }
+      }
+    }
+    i++;
+  }
 }
 
 QgsLocatorFilter *LocatorFiltersModel::filterForIndex( const QModelIndex &index ) const

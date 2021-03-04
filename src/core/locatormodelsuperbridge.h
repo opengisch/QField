@@ -24,6 +24,7 @@
 class QgsQuickMapSettings;
 class FeatureListExtentController;
 class PeliasGeocoder;
+class GnssPositionInformation;
 class QgsLocator;
 
 /**
@@ -130,6 +131,8 @@ class LocatorFiltersModel : public QAbstractListModel
 
     LocatorModelSuperBridge *locatorModelSuperBridge() const;
     void setLocatorModelSuperBridge( LocatorModelSuperBridge *locatorModelSuperBridge );
+
+    Q_INVOKABLE void setGeocoderLocatorFiltersDefaulByPosition( const GnssPositionInformation position );
 
   signals:
 

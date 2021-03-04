@@ -28,6 +28,7 @@ Item{
     property bool valid: qtPositionSource.valid || bluetoothPositionSource.valid
     property alias bluetoothSocketState: bluetoothPositionSource.socketState
     property bool currentness: false
+    property bool geocoderLocatorFiltersChecked: false
 
     property CoordinateTransformer ct: CoordinateTransformer {
         id: _ct
@@ -46,8 +47,13 @@ Item{
         running: true
         triggeredOnStart: true
         onTriggered: {
-            if ( positionSource.positionInfo )
-              currentness = ( ( new Date() - positionSource.positionInfo.utcDateTime ) / 1000 ) < 30
+          if ( positionSource.positionInfo ) {
+            currentness = ( ( new Date() - positionSource.positionInfo.utcDateTime ) / 1000 ) < 30;
+            if ( !geocoderLocatorFiltersChecked && positionSource.valid ) {
+              locatorSettings.model.setGeocoderLocatorFiltersDefaulByPosition( positionSource.positionInfo );
+              geocoderLocatorFiltersChecked = true;
+            }
+          }
         }
     }
 

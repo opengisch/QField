@@ -11,6 +11,7 @@ Popup {
     id: popup
 
     property alias locatorModelSuperBridge: locatorFiltersModel.locatorModelSuperBridge
+    property alias model: locatorFiltersModel
 
     width: Math.min( 400, mainWindow.width - 20 )
     x: (parent.width - width) / 2
