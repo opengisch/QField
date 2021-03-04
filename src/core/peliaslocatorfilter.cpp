@@ -24,8 +24,8 @@
 #include <QAction>
 
 
-PeliasLocatorFilter::PeliasLocatorFilter( QgsGeocoderInterface *geocoder, LocatorModelSuperBridge *locatorBridge )
-  : QgsAbstractGeocoderLocatorFilter( QStringLiteral( "peliasgeocoder" ), tr( "Pelias Geocoder" ), QStringLiteral( "search" ), geocoder )
+PeliasLocatorFilter::PeliasLocatorFilter( const QString &name, const QString &displayName, QgsGeocoderInterface *geocoder, LocatorModelSuperBridge *locatorBridge )
+  : QgsAbstractGeocoderLocatorFilter( name, displayName, QStringLiteral( "fia" ), geocoder )
   , mLocatorBridge( locatorBridge )
 {
   setFetchResultsDelay( 1000 );
@@ -34,7 +34,9 @@ PeliasLocatorFilter::PeliasLocatorFilter( QgsGeocoderInterface *geocoder, Locato
 
 PeliasLocatorFilter *PeliasLocatorFilter::clone() const
 {
-  return new PeliasLocatorFilter( geocoder(), mLocatorBridge );
+  PeliasLocatorFilter *filter = new PeliasLocatorFilter( name(), displayName(), geocoder(), mLocatorBridge );
+  filter->setActivePrefix( activePrefix() );
+  return filter;
 }
 
 void PeliasLocatorFilter::handleGeocodeResult( const QgsGeocoderResult &result )

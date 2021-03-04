@@ -742,6 +742,10 @@ ApplicationWindow {
   LocatorSettings {
       id: locatorSettings
       locatorModelSuperBridge: locatorItem.locatorModelSuperBridge
+
+      modal: true
+      closePolicy: Popup.CloseOnEscape | Popup.CloseOnPressOutside
+      parent: ApplicationWindow.overlay
   }
 
   DropShadow {

@@ -29,16 +29,26 @@
 #include <qgslocator.h>
 #include <qgssettings.h>
 
+static QMap<QString, QString> locatorFilterDescriptionValues() {
+  QMap<QString, QString> map;
+  map.insert( QStringLiteral("allfeatures"), "Returns a list of features accross all searchable layers with matching attributes" );
+  map.insert( QStringLiteral("goto"), "Returns a point from a pair of X and Y coordinates typed in the search bar" );
+  map.insert( QStringLiteral("pelias-finland"), "Returns a list of locations and addresses within Finland with matching terms" );
+  return map;
+}
+static const QMap<QString, QString>  locatorFilterDescriptions = locatorFilterDescriptionValues();
 
 LocatorModelSuperBridge::LocatorModelSuperBridge( QObject *parent )
   : QgsLocatorModelBridge( parent )
 {
-  locator()->registerFilter( new GotoLocatorFilter( this ) );
   locator()->registerFilter( new FeaturesLocatorFilter( this ) );
+  locator()->registerFilter( new GotoLocatorFilter( this ) );
 
   // Finish's digitransit.fi geocoder
   mFinlandGeocoder = new PeliasGeocoder( "https://api.digitransit.fi/geocoding/v1/search" );
-  locator()->registerFilter( new PeliasLocatorFilter( mFinlandGeocoder, this ) );
+  PeliasLocatorFilter *filter = new PeliasLocatorFilter( QStringLiteral( "pelias-finland" ), QStringLiteral( "Finnish address search" ), mFinlandGeocoder, this );
+  filter->setActivePrefix( QStringLiteral( "fis" ) );
+  locator()->registerFilter( filter );
 }
 
 QgsQuickMapSettings *LocatorModelSuperBridge::mapSettings() const
@@ -178,7 +188,9 @@ int LocatorFiltersModel::rowCount( const QModelIndex &parent ) const
 QHash<int, QByteArray> LocatorFiltersModel::roleNames() const
 {
   QHash<int, QByteArray> roles = QAbstractListModel::roleNames();
+
   roles[NameRole] = "Name";
+  roles[DescriptionRole] = "Description";
   roles[PrefixRole] = "Prefix";
   roles[ActiveRole] = "Active";
   roles[DefaultRole] = "Default";
@@ -197,6 +209,9 @@ QVariant LocatorFiltersModel::data( const QModelIndex &index, int role ) const
     case Qt::DisplayRole:
     case NameRole:
       return filterForIndex( index )->displayName();
+
+    case DescriptionRole:
+      return locatorFilterDescriptions.value( filterForIndex( index )->name() );
 
     case PrefixRole:
       return filterForIndex( index )->activePrefix();
@@ -225,22 +240,30 @@ bool LocatorFiltersModel::setData( const QModelIndex &index, const QVariant &val
 
     case ActiveRole:
     {
-      QgsSettings settings;
       QgsLocatorFilter *filter = filterForIndex( index );
-      filter->setEnabled( value.toBool() );
-      settings.setValue( QStringLiteral( "locator_filters/enabled_%1" ).arg( filter->name() ), filter->enabled(), QgsSettings::Section::Gui );
-      emit dataChanged( index, index, QVector<int>() << ActiveRole );
-      return true;
+      const bool newValue = value.toBool();
+      if ( filter->enabled() != newValue )
+      {
+        QgsSettings settings;
+        filter->setEnabled( newValue );
+        settings.setValue( QStringLiteral( "locator_filters/enabled_%1" ).arg( filter->name() ), newValue, QgsSettings::Section::Gui );
+        emit dataChanged( index, index, QVector<int>() << ActiveRole );
+        return true;
+      }
     }
 
     case DefaultRole:
     {
-      QgsSettings settings;
       QgsLocatorFilter *filter = filterForIndex( index );
-      filter->setUseWithoutPrefix( value.toBool() );
-      settings.setValue( QStringLiteral( "locator_filters/default_%1" ).arg( filter->name() ), filter->useWithoutPrefix(), QgsSettings::Section::Gui );
-      emit dataChanged( index, index, QVector<int>() << DefaultRole );
-      return true;
+      const bool newValue = value.toBool();
+      if ( filter->useWithoutPrefix() != newValue )
+      {
+        QgsSettings settings;
+        filter->setUseWithoutPrefix( value.toBool() );
+        settings.setValue( QStringLiteral( "locator_filters/default_%1" ).arg( filter->name() ), newValue, QgsSettings::Section::Gui );
+        emit dataChanged( index, index, QVector<int>() << DefaultRole );
+        return true;
+      }
     }
   }
 
@@ -265,7 +288,6 @@ void LocatorFiltersModel::setLocatorModelSuperBridge( LocatorModelSuperBridge *l
   if ( mLocatorModelSuperBridge == locatorModelSuperBridge )
     return;
 
-  qDebug() << "XXXXX";
   emit beginResetModel();
   mLocatorModelSuperBridge = locatorModelSuperBridge;
   emit locatorModelSuperBridgeChanged();

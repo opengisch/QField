@@ -109,6 +109,7 @@ class LocatorFiltersModel : public QAbstractListModel
     enum Role
     {
       NameRole = Qt::UserRole + 1,
+      DescriptionRole,
       PrefixRole,
       ActiveRole,
       DefaultRole,

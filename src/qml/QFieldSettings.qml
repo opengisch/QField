@@ -136,6 +136,44 @@ Page {
                   width: parent.parent.width
                   spacing: 10
 
+
+                  GridLayout {
+                      Layout.fillWidth: true
+                      Layout.leftMargin: 20
+                      Layout.rightMargin: 20
+
+                      columns: 2
+                      columnSpacing: 0
+                      rowSpacing: 5
+
+                      Label {
+                          text: qsTr("Customize search bar")
+                          font: Theme.defaultFont
+                          wrapMode: Text.WordWrap
+                          Layout.fillWidth: true
+
+                          MouseArea {
+                              anchors.fill: parent
+                              onClicked: showSearchBarSettings.clicked()
+                          }
+                      }
+
+                      QfToolButton {
+                          id: showSearchBarSettings
+                          Layout.preferredWidth: 48
+                          Layout.preferredHeight: 48
+                          Layout.alignment: Qt.AlignVCenter
+                          clip: true
+
+                          iconSource: Theme.getThemeIcon( "ic_gear_black_24dp" )
+                          bgcolor: "transparent"
+
+                          onClicked: {
+                              locatorSettings.open();
+                          }
+                      }
+                  }
+
                   ListView {
                       Layout.preferredWidth: mainWindow.width
                       Layout.preferredHeight: childrenRect.height
@@ -179,43 +217,6 @@ Page {
                               checked: registry[settingAlias]
                               Layout.alignment: Qt.AlignTop | Qt.AlignRight
                               onCheckedChanged: registry[settingAlias] = checked
-                          }
-                      }
-                  }
-
-                  GridLayout {
-                      Layout.fillWidth: true
-                      Layout.leftMargin: 20
-                      Layout.rightMargin: 20
-
-                      columns: 2
-                      columnSpacing: 0
-                      rowSpacing: 5
-
-                      Label {
-                          text: qsTr("Customize search bar")
-                          font: Theme.defaultFont
-                          wrapMode: Text.WordWrap
-                          Layout.fillWidth: true
-
-                          MouseArea {
-                              anchors.fill: parent
-                              onClicked: showSearchBarSettings.clicked()
-                          }
-                      }
-
-                      QfToolButton {
-                          id: showSearchBarSettings
-                          Layout.preferredWidth: 48
-                          Layout.preferredHeight: 48
-                          Layout.alignment: Qt.AlignVCenter
-                          clip: true
-
-                          iconSource: Theme.getThemeIcon( "ic_gear_black_24dp" )
-                          bgcolor: "transparent"
-
-                          onClicked: {
-                              locatorSettings.open();
                           }
                       }
                   }

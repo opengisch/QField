@@ -60,7 +60,7 @@ class FeaturesLocatorFilter : public QgsLocatorFilter
     explicit FeaturesLocatorFilter( LocatorModelSuperBridge *locatorBridge, QObject *parent = nullptr );
     FeaturesLocatorFilter *clone() const override;
     QString name() const override { return QStringLiteral( "allfeatures" ); }
-    QString displayName() const override { return tr( "Features In All Layers" ); }
+    QString displayName() const override { return tr( "Features in all layers" ); }
     Priority priority() const override { return Medium; }
     QString prefix() const override { return QStringLiteral( "af" ); }
 

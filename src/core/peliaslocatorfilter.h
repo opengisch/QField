@@ -35,7 +35,7 @@ class PeliasLocatorFilter : public QgsAbstractGeocoderLocatorFilter
 
   public:
 
-    explicit PeliasLocatorFilter( QgsGeocoderInterface *geocoder, LocatorModelSuperBridge *locatorBridge );
+    explicit PeliasLocatorFilter( const QString &name, const QString &displayName, QgsGeocoderInterface *geocoder, LocatorModelSuperBridge *locatorBridge );
     PeliasLocatorFilter *clone() const override;
 
     //void triggerResultFromAction( const QgsLocatorResult &result, const int actionId ) override;
