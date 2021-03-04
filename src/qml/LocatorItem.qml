@@ -172,7 +172,7 @@ Item {
     id: resultsBox
     z: 1
     width: searchFieldRect.width - 24
-    height: searchFieldRect.visible && resultsList.count > 0 ? resultsList.height : 0
+    height: searchFieldRect.visible && resultsList.count > 0 ? resultsList.height + 24 : 0
     anchors.top: searchFieldRect.top
     anchors.left: searchFieldRect.left
     anchors.topMargin: 24
@@ -188,6 +188,7 @@ Item {
       id: resultsList
       z: 2
       anchors.top: resultsBox.top
+      anchors.topMargin: 24
       model: locator.proxyModel()
       width: parent.width
       height: resultsList.count > 0 ? Math.min( childrenRect.height, mainWindow.height / 2 - searchFieldRect.height - 10 ) : 0
@@ -197,24 +198,25 @@ Item {
         id: delegateRect
 
         property bool isGroup: model.ResultFilterGroupSorting === 0
+        property bool isFilterName: model.ResultType === 0
         property int resultIndex: index
 
         anchors.margins: 10
-        height: isGroup ? 25 : 40
+        height: isFilterName || isGroup ? 30 : 40
         width: parent.width
-        visible: model.ResultType !== 0 // remove filter name
-        color: isGroup ? Theme.lightGray : "white"
+        color: isFilterName ? Theme.mainColor : isGroup ? Theme.lightGray : "white"
         opacity: 0.95
 
         Text {
           id: textCell
-          text: model.Text.trim()
+          text: isFilterName ? model.ResultFilterName : model.Text.trim()
           anchors.verticalCenter: parent.verticalCenter
           anchors.left: parent.left
           anchors.right: actionsRow.left
           leftPadding: 5
-          font.bold: delegateRect.isGroup ? true : false
+          font.bold: false
           font.pointSize: Theme.resultFont.pointSize
+          color: isFilterName ? "white" : "black"
           elide: Text.ElideRight
           horizontalAlignment: isGroup ? Text.AlignHCenter : Text.AlignLeft
         }
@@ -246,7 +248,7 @@ Item {
         /* bottom border */
         Rectangle {
           anchors.bottom: parent.bottom
-          height: isGroup ? 0 : 1
+          height: isFilterName || isGroup ? 0 : 1
           color: "lightGray"
           width: parent.width
         }
