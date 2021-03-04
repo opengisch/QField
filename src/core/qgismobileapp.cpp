@@ -49,6 +49,7 @@
 #include <qgslayoutatlas.h>
 #include <qgslocalizeddatapathregistry.h>
 #include <qgsproject.h>
+#include <qgsprojectviewsettings.h>
 #include <qgsfeature.h>
 #include <qgsvectorlayer.h>
 #include <qgsrasterlayer.h>
@@ -968,6 +969,23 @@ bool QgisMobileapp::printAtlasFeatures( const QString &layoutName, const QList<l
   pdfSettings.appendGeoreference = true;
   pdfSettings.exportMetadata = true;
   pdfSettings.simplifyGeometries = true;
+
+  QVector< double > mapScales = layoutToPrint->project()->viewSettings()->mapScales();
+  bool hasProjectScales( layoutToPrint->project()->viewSettings()->useProjectScales() );
+  if ( !hasProjectScales || mapScales.isEmpty() )
+  {
+    // default to global map tool scales
+    const QStringList scales = Qgis::defaultProjectScales().split( ',' );
+    for ( const QString &scale : scales )
+    {
+      QStringList parts( scale.split( ':' ) );
+      if ( parts.size() == 2 )
+      {
+        mapScales.push_back( parts[1].toDouble() );
+      }
+    }
+  }
+  pdfSettings.predefinedMapScales = mapScales;
 
   if ( layoutToPrint->atlas()->updateFeatures() )
   {
