@@ -119,54 +119,109 @@ Page {
 
       onCurrentIndexChanged: bar.currentIndex = swipeView.currentIndex
 
-      ListView {
-        flickableDirection: Flickable.VerticalFlick
-        boundsBehavior: Flickable.StopAtBounds
-        width: mainWindow.width
-        clip: true
-        ScrollBar.vertical: ScrollBar {}
+      Item {
+          ScrollView {
+              topPadding: 5
+              leftPadding: 0
+              rightPadding: 0
+              ScrollBar.horizontal.policy: ScrollBar.AlwaysOff
+              ScrollBar.vertical.policy: ScrollBar.AsNeeded
+              contentWidth: positioningGrid.width
+              contentHeight: positioningGrid.height
+              anchors.fill: parent
+              clip: true
 
-        model: settingsModel
+              ColumnLayout {
+                  id: generalSettingsGrid
+                  width: parent.parent.width
+                  spacing: 10
 
-        delegate: Row {
-          width: parent ? parent.width - 16 : undefined
+                  ListView {
+                      Layout.preferredWidth: mainWindow.width
+                      Layout.preferredHeight: childrenRect.height
 
-          Column {
-            width: parent.width - toggle.width
-            Label {
-              width: parent.width
-              padding: 8
-              leftPadding: 22
-              text: title
-              font: Theme.defaultFont
-              wrapMode: Text.WordWrap
-              MouseArea {
-                  anchors.fill: parent
-                  onClicked: toggle.toggle()
+                      model: settingsModel
+
+                      delegate: Row {
+                          width: parent ? parent.width - 16 : undefined
+
+                          Column {
+                              width: parent.width - toggle.width
+                              Label {
+                                  width: parent.width
+                                  padding: 8
+                                  leftPadding: 22
+                                  text: title
+                                  font: Theme.defaultFont
+                                  wrapMode: Text.WordWrap
+                                  MouseArea {
+                                      anchors.fill: parent
+                                      onClicked: toggle.toggle()
+                                  }
+                              }
+
+                              Label {
+                                  width: parent.width
+                                  visible: !!description
+                                  padding: !!description ? 8 : 0
+                                  topPadding: 0
+                                  leftPadding: 22
+                                  text: description || ''
+                                  font: Theme.tipFont
+                                  color: Theme.gray
+                                  wrapMode: Text.WordWrap
+                              }
+                          }
+
+                          QfSwitch {
+                              id: toggle
+                              width: implicitContentWidth
+                              checked: registry[settingAlias]
+                              Layout.alignment: Qt.AlignTop | Qt.AlignRight
+                              onCheckedChanged: registry[settingAlias] = checked
+                          }
+                      }
+                  }
+
+                  GridLayout {
+                      Layout.fillWidth: true
+                      Layout.leftMargin: 20
+                      Layout.rightMargin: 20
+
+                      columns: 2
+                      columnSpacing: 0
+                      rowSpacing: 5
+
+                      Label {
+                          text: qsTr("Customize search bar")
+                          font: Theme.defaultFont
+                          wrapMode: Text.WordWrap
+                          Layout.fillWidth: true
+
+                          MouseArea {
+                              anchors.fill: parent
+                              onClicked: showSearchBarSettings.clicked()
+                          }
+                      }
+
+                      QfToolButton {
+                          id: showSearchBarSettings
+                          Layout.preferredWidth: 48
+                          Layout.preferredHeight: 48
+                          Layout.alignment: Qt.AlignVCenter
+                          clip: true
+
+                          iconSource: Theme.getThemeIcon( "ic_gear_black_24dp" )
+                          bgcolor: "transparent"
+
+                          onClicked: {
+                              // to something
+                              console.log('dd');
+                          }
+                      }
+                  }
               }
-            }
-
-            Label {
-              width: parent.width
-              visible: !!description
-              padding: !!description ? 8 : 0
-              topPadding: 0
-              leftPadding: 22
-              text: description || ''
-              font: Theme.tipFont
-              color: Theme.gray
-              wrapMode: Text.WordWrap
-            }
           }
-
-          QfSwitch {
-            id: toggle
-            width: implicitContentWidth
-            checked: registry[settingAlias]
-            Layout.alignment: Qt.AlignTop | Qt.AlignRight
-            onCheckedChanged: registry[settingAlias] = checked
-          }
-        }
       }
 
       Item {

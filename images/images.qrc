@@ -110,6 +110,11 @@
         <file>themes/qfield/xhdpi/ic_close_white_24dp.png</file>
         <file>themes/qfield/xxhdpi/ic_close_white_24dp.png</file>
         <file>themes/qfield/xxxhdpi/ic_close_white_24dp.png</file>
+        <file>themes/qfield/hdpi/ic_gear_black_24dp.png</file>
+        <file>themes/qfield/mdpi/ic_gear_black_24dp.png</file>
+        <file>themes/qfield/xhdpi/ic_gear_black_24dp.png</file>
+        <file>themes/qfield/xxhdpi/ic_gear_black_24dp.png</file>
+        <file>themes/qfield/xxxhdpi/ic_gear_black_24dp.png</file>
         <file>themes/qfield/hdpi/ic_geotag_24dp.png</file>
         <file>themes/qfield/mdpi/ic_geotag_24dp.png</file>
         <file>themes/qfield/xhdpi/ic_geotag_24dp.png</file>
