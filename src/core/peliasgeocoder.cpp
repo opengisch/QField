@@ -67,6 +67,9 @@ QgsWkbTypes::Type PeliasGeocoder::wkbType() const
 
 QList<QgsGeocoderResult> PeliasGeocoder::geocodeString( const QString &string, const QgsGeocoderContext &context, QgsFeedback *feedback ) const
 {
+  if ( string.trimmed().isEmpty() )
+    return QList<QgsGeocoderResult>();
+
   QgsRectangle bounds;
   if ( !context.areaOfInterest().isEmpty() )
   {
