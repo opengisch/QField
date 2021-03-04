@@ -21,7 +21,7 @@
 #include "featureslocatorfilter.h"
 #include "gotolocatorfilter.h"
 #include "peliasgeocoder.h"
-#include "peliaslocatorfilter.h"
+#include "finlandlocatorfilter.h"
 
 #include <QStandardItem>
 
@@ -44,11 +44,9 @@ LocatorModelSuperBridge::LocatorModelSuperBridge( QObject *parent )
   locator()->registerFilter( new FeaturesLocatorFilter( this ) );
   locator()->registerFilter( new GotoLocatorFilter( this ) );
 
-  // Finish's digitransit.fi geocoder
+  // Finnish's Digitransit geocoder
   mFinlandGeocoder = new PeliasGeocoder( "https://api.digitransit.fi/geocoding/v1/search" );
-  PeliasLocatorFilter *filter = new PeliasLocatorFilter( QStringLiteral( "pelias-finland" ), QStringLiteral( "Finnish address search" ), mFinlandGeocoder, this );
-  filter->setActivePrefix( QStringLiteral( "fis" ) );
-  locator()->registerFilter( filter );
+  locator()->registerFilter( new FinlandLocatorFilter( mFinlandGeocoder, this ) );
 }
 
 QgsQuickMapSettings *LocatorModelSuperBridge::mapSettings() const
@@ -261,6 +259,7 @@ bool LocatorFiltersModel::setData( const QModelIndex &index, const QVariant &val
         QgsSettings settings;
         filter->setUseWithoutPrefix( value.toBool() );
         settings.setValue( QStringLiteral( "locator_filters/default_%1" ).arg( filter->name() ), newValue, QgsSettings::Section::Gui );
+        settings.setValue( QStringLiteral( "locator_filters/default_touched_%1" ).arg( filter->name() ), true, QgsSettings::Section::Gui );
         emit dataChanged( index, index, QVector<int>() << DefaultRole );
         return true;
       }

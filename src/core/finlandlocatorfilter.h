@@ -1,5 +1,5 @@
 /***************************************************************************
-  peliaslocatorfilter.h
+  finlandlocatorfilter.h
 
  ---------------------
   Date                 : March 2021
@@ -15,8 +15,8 @@
  ***************************************************************************/
 
 
-#ifndef PELIASLOCATORFILTER_H
-#define PELIASLOCATORFILTER_H
+#ifndef FINLANDLOCATORFILTER_H
+#define FINLANDLOCATORFILTER_H
 
 #include <QObject>
 
@@ -26,19 +26,17 @@
 class LocatorModelSuperBridge;
 
 /**
- * PeliasLocatorFilter is a locator filter to search
- * for and display coordinates.
+ * FinlandLocatorFilter is a locator filter to search for addresses
+ * in Finland through Digitrans's API.
  */
-class PeliasLocatorFilter : public QgsAbstractGeocoderLocatorFilter
+class FinlandLocatorFilter : public QgsAbstractGeocoderLocatorFilter
 {
     Q_OBJECT
 
   public:
 
-    explicit PeliasLocatorFilter( const QString &name, const QString &displayName, QgsGeocoderInterface *geocoder, LocatorModelSuperBridge *locatorBridge );
-    PeliasLocatorFilter *clone() const override;
-
-    //void triggerResultFromAction( const QgsLocatorResult &result, const int actionId ) override;
+    explicit FinlandLocatorFilter( QgsGeocoderInterface *geocoder, LocatorModelSuperBridge *locatorBridge );
+    FinlandLocatorFilter *clone() const override;
 
   private:
     void handleGeocodeResult( const QgsGeocoderResult &result ) override;
@@ -46,4 +44,4 @@ class PeliasLocatorFilter : public QgsAbstractGeocoderLocatorFilter
     LocatorModelSuperBridge *mLocatorBridge = nullptr;
 };
 
-#endif // PELIASLOCATORFILTER_H
+#endif // FINLANDLOCATORFILTER_H

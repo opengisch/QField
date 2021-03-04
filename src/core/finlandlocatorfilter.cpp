@@ -1,5 +1,5 @@
 /***************************************************************************
-  peliaslocatorfilter.cpp
+  finlandlocatorfilter.cpp
 
  ---------------------
   Date                 : March 2021
@@ -14,7 +14,7 @@
  *                                                                         *
  ***************************************************************************/
 
-#include "peliaslocatorfilter.h"
+#include "finlandlocatorfilter.h"
 #include "locatormodelsuperbridge.h"
 #include "qgsquickmapsettings.h"
 
@@ -24,22 +24,20 @@
 #include <QAction>
 
 
-PeliasLocatorFilter::PeliasLocatorFilter( const QString &name, const QString &displayName, QgsGeocoderInterface *geocoder, LocatorModelSuperBridge *locatorBridge )
-  : QgsAbstractGeocoderLocatorFilter( name, displayName, QStringLiteral( "fia" ), geocoder )
+FinlandLocatorFilter::FinlandLocatorFilter( QgsGeocoderInterface *geocoder, LocatorModelSuperBridge *locatorBridge )
+  : QgsAbstractGeocoderLocatorFilter( QStringLiteral( "pelias-finland" ), QStringLiteral( "Finnish address search" ), QStringLiteral( "fia" ), geocoder )
   , mLocatorBridge( locatorBridge )
 {
   setFetchResultsDelay( 1000 );
   setUseWithoutPrefix( true );
 }
 
-PeliasLocatorFilter *PeliasLocatorFilter::clone() const
+FinlandLocatorFilter *FinlandLocatorFilter::clone() const
 {
-  PeliasLocatorFilter *filter = new PeliasLocatorFilter( name(), displayName(), geocoder(), mLocatorBridge );
-  filter->setActivePrefix( activePrefix() );
-  return filter;
+  return new FinlandLocatorFilter( geocoder(), mLocatorBridge );
 }
 
-void PeliasLocatorFilter::handleGeocodeResult( const QgsGeocoderResult &result )
+void FinlandLocatorFilter::handleGeocodeResult( const QgsGeocoderResult &result )
 {
   const QgsCoordinateReferenceSystem currentCrs = mLocatorBridge->mapSettings()->mapSettings().destinationCrs();
   const QgsCoordinateReferenceSystem wgs84Crs( QStringLiteral( "EPSG:4326" ) );
