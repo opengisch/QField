@@ -38,10 +38,14 @@ class FinlandLocatorFilter : public QgsAbstractGeocoderLocatorFilter
     explicit FinlandLocatorFilter( QgsGeocoderInterface *geocoder, LocatorModelSuperBridge *locatorBridge );
     FinlandLocatorFilter *clone() const override;
 
+    const QgsRectangle boundingBox() const { return mBoundingBox; }
+    void setBoundingBox( const QgsRectangle boundingBox ) { mBoundingBox = boundingBox; }
+
   private:
     void handleGeocodeResult( const QgsGeocoderResult &result ) override;
 
     LocatorModelSuperBridge *mLocatorBridge = nullptr;
+    QgsRectangle mBoundingBox;
 };
 
 #endif // FINLANDLOCATORFILTER_H
