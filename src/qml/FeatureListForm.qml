@@ -34,9 +34,11 @@ Rectangle {
   property color selectionColor
   property alias model: globalFeaturesList.model
   property alias extentController: featureListToolBar.extentController
+
   property bool allowEdit
   property bool allowDelete
 
+  property bool multiSelection: false
   property bool fullScreenView: qfieldSettings.fullScreenIdentifyView
   property bool isVertical: false
 
@@ -217,13 +219,13 @@ Rectangle {
       CheckBox {
           anchors { leftMargin: 5; left: parent.left; verticalCenter: parent.verticalCenter }
           checked: featureSelected
-          visible: featureForm.selection.model.selectedCount > 0
+          visible: featureForm.multiSelection
       }
 
       Text {
         id: featureText
         anchors {
-          leftMargin: featureForm.selection.model.selectedCount > 0 ? 50 : 10
+          leftMargin: featureForm.multiSelection ? 50 : 10
           left: parent.left
           verticalCenter: parent.verticalCenter
         }
@@ -250,13 +252,18 @@ Rectangle {
         anchors.fill: parent
 
         onClicked: {
-          if ( featureForm.selection.model.selectedCount == 0 ) {
+          if ( featureForm.multiSelection ) {
+              featureForm.selection.toggleSelectedItem( index );
+              if ( featureForm.selection.model.selectedCount == 0 ) {
+                  featureFormList.model.featureModel.modelMode = FeatureModel.SingleFeatureModel
+                  featureForm.multiSelection = false;
+              }
+              featureForm.selection.focusedItem = featureForm.selection.model.selectedCount > 0 ? index : -1;
+          } else {
             featureFormList.model.featureModel.modelMode = FeatureModel.SingleFeatureModel
             featureForm.selection.focusedItem = index
             featureForm.state = "FeatureForm"
-          } else {
-            featureForm.selection.toggleSelectedItem( index );
-            featureForm.selection.focusedItem = featureForm.selection.model.selectedCount > 0 ? index : -1;
+            featureForm.multiSelection = false;
           }
         }
 
@@ -265,6 +272,8 @@ Rectangle {
           featureFormList.model.featureModel.modelMode = FeatureModel.MultiFeatureModel
           featureForm.selection.focusedItem = index
           featureForm.selection.toggleSelectedItem( index );
+          featureForm.multiSelection = true;
+
         }
       }
 
@@ -332,6 +341,7 @@ Rectangle {
     allowDelete: allowDelete
     model: globalFeaturesList.model
     selection: featureForm.selection
+    multiSelection: featureForm.multiSelection
     extentController: FeaturelistExtentController {
       model: globalFeaturesList.model
       selection: featureForm.selection
@@ -393,6 +403,28 @@ Rectangle {
       featureFormList.model.featureModel.reset()
       featureForm.state = featureForm.selection.model.selectedCount > 0 ? "FeatureList" : "FeatureForm"
       displayToast( qsTr( "Last changes discarded" ) )
+    }
+
+    onDeleteClicked: {
+        if( trackingModel.featureInTracking(featureForm.selection.focusedLayer, featureForm.selection.model.selectedFeatures) )
+        {
+          displayToast( qsTr( "A number of features are being tracked, stop tracking to delete those" ) )
+        }
+        else
+        {
+          deleteDialog.show()
+        }
+    }
+
+    onToggleMultiSelection: {
+        if ( featureForm.multiSelection ) {
+            featureFormList.model.featureModel.modelMode = FeatureModel.SingleFeatureModel
+            featureForm.selection.model.clearSelection();
+            featureForm.selection.focusedItem = -1;
+        } else {
+            featureFormList.model.featureModel.modelMode = FeatureModel.MultiFeatureModel
+        }
+        featureForm.multiSelection = !featureForm.multiSelection;
     }
 
     onMultiEditClicked: {
@@ -630,10 +662,18 @@ Rectangle {
         return;
       }
 
-      isDeleted = featureForm.model.deleteSelection()
+      if  ( featureForm.multiSelection ) {
+        isDeleted = featureForm.model.deleteSelection()
+      } else {
+        isDeleted = featureForm.selection.model.deleteFeature(featureForm.selection.focusedLayer,featureForm.selection.focusedFeature.id)
+      }
 
       if ( isDeleted ) {
         displayToast( qsTr( "Successfully deleted %n feature(s)", "", selectedCount ) );
+        if ( !featureForm.multiSelection ) {
+          featureForm.selection.focusedItem = -1
+          featureForm.state = "FeatureList"
+        }
       } else {
         displayToast( qsTr( "Failed to delete %n feature(s)", "", selectedCount ) );
       }
@@ -648,7 +688,7 @@ Rectangle {
 
     function show() {
         this.isDeleted = false;
-        this.selectedCount = featureForm.model.selectedCount;
+        this.selectedCount = featureForm.multiSelection ? featureForm.model.selectedCount : 1;
         this.open();
     }
   }

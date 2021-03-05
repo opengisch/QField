@@ -19,6 +19,7 @@
 #define QGSGPKGFLUSHER_H
 
 #include <QObject>
+#include <QThread>
 #include <qgsmaplayer.h>
 
 class QgsProject;

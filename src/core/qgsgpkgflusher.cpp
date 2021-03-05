@@ -23,6 +23,7 @@
 #include <qgsproject.h>
 #include <sqlite3.h>
 #include <QObject>
+#include <QTimer>
 
 class Flusher : public QObject
 {

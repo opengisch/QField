@@ -17,6 +17,7 @@
 #include <QScreen>
 #include <QString>
 #include <QWindow>
+#include <QFileInfo>
 
 #include <qgscoordinatereferencesystem.h>
 #include <qgscoordinatetransform.h>

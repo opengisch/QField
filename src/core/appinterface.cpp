@@ -51,9 +51,14 @@ void AppInterface::readProject()
   return mApp->readProjectFile();
 }
 
-void AppInterface::print( int layoutIndex )
+bool AppInterface::print( const QString &layoutName )
 {
-  return mApp->print( layoutIndex );
+  return mApp->print( layoutName );
+}
+
+bool AppInterface::printAtlasFeatures( const QString &layoutName, const QList<long long> &featureIds )
+{
+  return mApp->printAtlasFeatures( layoutName, featureIds );
 }
 
 void AppInterface::openFeatureForm()

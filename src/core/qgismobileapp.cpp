@@ -46,8 +46,10 @@
 #include <QStyleHints>
 
 #include <qgslayertreemodel.h>
+#include <qgslayoutatlas.h>
 #include <qgslocalizeddatapathregistry.h>
 #include <qgsproject.h>
+#include <qgsprojectviewsettings.h>
 #include <qgsfeature.h>
 #include <qgsvectorlayer.h>
 #include <qgsrasterlayer.h>
@@ -120,6 +122,7 @@
 #include "trackingmodel.h"
 #include "fileutils.h"
 #include "featureutils.h"
+#include "layerutils.h"
 #include "expressionevaluator.h"
 #include "stringutils.h"
 #include "urlutils.h"
@@ -376,6 +379,7 @@ void QgisMobileapp::initDeclarative()
   REGISTER_SINGLETON( "org.qfield", GeometryUtils, "GeometryUtils" );
   REGISTER_SINGLETON( "org.qfield", FeatureUtils, "FeatureUtils" );
   REGISTER_SINGLETON( "org.qfield", FileUtils, "FileUtils" );
+  REGISTER_SINGLETON( "org.qfield", LayerUtils, "LayerUtils" );
   REGISTER_SINGLETON( "org.qfield", StringUtils, "StringUtils" );
   REGISTER_SINGLETON( "org.qfield", UrlUtils, "UrlUtils" );
 
@@ -710,7 +714,7 @@ void QgisMobileapp::readProjectFile()
           vlayer->loadDefaultStyle( ok );
           if ( !ok )
           {
-            QgsSymbol *symbol = FeatureUtils::defaultSymbol( vlayer );
+            QgsSymbol *symbol = LayerUtils::defaultSymbol( vlayer );
             if ( symbol )
             {
               QgsSingleSymbolRenderer *renderer = new QgsSingleSymbolRenderer( symbol );
@@ -886,14 +890,21 @@ void QgisMobileapp::readProjectFile()
   emit loadProjectEnded( mProjectFilePath, mProjectFileName );
 }
 
-void QgisMobileapp::print( int layoutIndex )
+bool QgisMobileapp::print( const QString &layoutName )
 {
-  const QList<QgsPrintLayout *> projectLayouts( mProject->layoutManager()->printLayouts() );
+  const QList<QgsPrintLayout *> printLayouts = mProject->layoutManager()->printLayouts();
+  QgsPrintLayout *layoutToPrint = nullptr;
+  for( QgsPrintLayout *layout : printLayouts )
+  {
+    if ( layout->name() == layoutName )
+    {
+      layoutToPrint = layout;
+      break;
+    }
+  }
 
-  const auto &layoutToPrint = projectLayouts.at( layoutIndex );
-
-  if ( layoutToPrint->pageCollection()->pageCount() == 0 )
-    return;
+  if ( !layoutToPrint || layoutToPrint->pageCollection()->pageCount() == 0 )
+    return false;
 
   layoutToPrint->referenceMap()->zoomToExtent( mMapCanvas->mapSettings()->visibleExtent() );
   layoutToPrint->refresh();
@@ -912,9 +923,90 @@ void QgisMobileapp::print( int layoutIndex )
   pdfSettings.simplifyGeometries = true;
 
   QgsLayoutExporter exporter = QgsLayoutExporter( layoutToPrint );
-  exporter.exportToPdf( destination, pdfSettings );
+  QgsLayoutExporter::ExportResult result = exporter.exportToPdf( destination, pdfSettings );
 
-  PlatformUtilities::instance()->open( destination );
+  if ( result == QgsLayoutExporter::Success )
+    PlatformUtilities::instance()->open( destination );
+
+  return result == QgsLayoutExporter::Success ? true : false;
+}
+
+bool QgisMobileapp::printAtlasFeatures( const QString &layoutName, const QList<long long> &featureIds )
+{
+  const QList<QgsPrintLayout *> printLayouts = mProject->layoutManager()->printLayouts();
+  QgsPrintLayout *layoutToPrint = nullptr;
+  for( QgsPrintLayout *layout : printLayouts )
+  {
+    if ( layout->name() == layoutName )
+    {
+      layoutToPrint = layout;
+      break;
+    }
+  }
+
+  if ( !layoutToPrint || !layoutToPrint->atlas() )
+    return false;
+
+  QStringList ids;
+  for( const auto id : featureIds )
+  {
+    ids << QString::number( id );
+  }
+
+  QString error;
+  layoutToPrint->atlas()->setFilterExpression( QStringLiteral( "$id IN (%1)" ).arg( ids.join( ',' ) ), error );
+  layoutToPrint->atlas()->setFilterFeatures( true );
+
+  const QString documentsLocation = QStringLiteral( "%1/QField" ).arg( QStandardPaths::writableLocation( QStandardPaths::DocumentsLocation ) );
+  QDir documentsDir( documentsLocation );
+  if ( !documentsDir.exists() )
+    documentsDir.mkpath( "." );
+  const QString destination = documentsLocation + '/' + layoutToPrint->name() + QStringLiteral( ".pdf" );
+
+  QgsLayoutExporter::PdfExportSettings pdfSettings;
+  pdfSettings.rasterizeWholeImage = layoutToPrint->customProperty( QStringLiteral( "rasterize" ), false ).toBool();
+  pdfSettings.dpi = layoutToPrint->renderContext().dpi();
+  pdfSettings.appendGeoreference = true;
+  pdfSettings.exportMetadata = true;
+  pdfSettings.simplifyGeometries = true;
+
+  QVector< double > mapScales = layoutToPrint->project()->viewSettings()->mapScales();
+  bool hasProjectScales( layoutToPrint->project()->viewSettings()->useProjectScales() );
+  if ( !hasProjectScales || mapScales.isEmpty() )
+  {
+    // default to global map tool scales
+    const QStringList scales = Qgis::defaultProjectScales().split( ',' );
+    for ( const QString &scale : scales )
+    {
+      QStringList parts( scale.split( ':' ) );
+      if ( parts.size() == 2 )
+      {
+        mapScales.push_back( parts[1].toDouble() );
+      }
+    }
+  }
+  pdfSettings.predefinedMapScales = mapScales;
+
+  if ( layoutToPrint->atlas()->updateFeatures() )
+  {
+    QgsLayoutExporter exporter = QgsLayoutExporter( layoutToPrint );
+    QgsLayoutExporter::ExportResult result;
+    if ( layoutToPrint->customProperty( QStringLiteral( "singleFile" ), true ).toBool() )
+    {
+      result = exporter.exportToPdf( layoutToPrint->atlas(), destination, pdfSettings, error );
+      if ( result == QgsLayoutExporter::Success )
+        PlatformUtilities::instance()->open( destination );
+    } else {
+      result = exporter.exportToPdfs( layoutToPrint->atlas(), destination, pdfSettings, error );
+#ifndef Q_OS_ANDROID
+      if ( result == QgsLayoutExporter::Success )
+        PlatformUtilities::instance()->open( documentsLocation );
+#endif
+    }
+    return result == QgsLayoutExporter::Success ? true : false;
+  }
+
+  return false;
 }
 
 bool QgisMobileapp::event( QEvent *event )

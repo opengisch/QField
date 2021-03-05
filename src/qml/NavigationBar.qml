@@ -26,6 +26,7 @@ import org.qfield 1.0
 Rectangle {
   id: toolBar
 
+  property bool multiSelection
   property bool allowDelete
   property MultiFeatureListModel model
   property FeatureListModelSelection selection
@@ -37,6 +38,10 @@ Rectangle {
   signal editGeometryButtonClicked
   signal save
   signal cancel
+
+  signal deleteClicked
+
+  signal toggleMultiSelection
   signal multiEditClicked
   signal multiMergeClicked
   signal multiDeleteClicked
@@ -73,34 +78,22 @@ Rectangle {
     focus: true
 
     Text {
+      // Insure that the text is always visually centered by using the same left and right margi
+      property double balancedMargin: Math.max( (saveButton.visible ? saveButton.width : 0)
+                                               + (previousButton.visible ? previousButton.width : 0)
+                                               + (nextButton.visible ? nextButton.width : 0)
+                                               + (multiClearButton.visible ? multiClearButton.width : 0),
+                                               (cancelButton.visible ? cancelButton.width : 0)
+                                               + (editButton.visible ? editButton.width : 0)
+                                               + (editGeomButton.visible ? editGeomButton.width : 0)
+                                               + (multiEditButton.visible ? multiEditButton.width : 0)
+                                               + (menuButton.visible ? menuButton.width : 0) )
       font: Theme.strongFont
       color: Theme.light
       anchors.left: parent.left
-      anchors.leftMargin: 0
-          + (saveButton.visible ? saveButton.width : 0)
-          + (followCurrentButton.visible ? followCurrentButton.width : 0)
-          + (previousButton.visible ? previousButton.width : 0)
-      anchors.rightMargin: 0
-          + (nextButton.visible ? nextButton.width : 0)
-          + (cancelButton.visible ? cancelButton.width : 0)
-          + (editButton.visible ? editButton.width : 0)
-          + (editGeomButton.visible ? editGeomButton.width : 0)
-          + (multiClearButton.visible ? multiClearButton.width : 0)
-          + (multiEditButton.visible ? multiEditButton.width : 0)
-          + (multiMergeButton.visible ? multiMergeButton.width : 0)
-          + (multiDeleteButton.visible ? multiDeleteButton.width : 0)
-      width: parent.width
-           - (nextButton.visible ? nextButton.width : 0)
-           - (saveButton.visible ? saveButton.width : 0)
-           - (cancelButton.visible ? cancelButton.width : 0)
-           - (editButton.visible ? editButton.width : 0)
-           - (editGeomButton.visible ? editGeomButton.width : 0)
-           - (followCurrentButton.visible ? followCurrentButton.width : 0)
-           - (previousButton.visible ? previousButton.width : 0)
-           - (multiClearButton.visible ? multiClearButton.width : 0)
-           - (multiEditButton.visible ? multiEditButton.width : 0)
-           - (multiMergeButton.visible ? multiMergeButton.width : 0)
-           - (multiDeleteButton.visible ? multiDeleteButton.width : 0)
+      anchors.right: parent.right
+      anchors.leftMargin: 0 + balancedMargin
+      anchors.rightMargin: 0 + balancedMargin
       height: parent.height
 
       text: {
@@ -167,7 +160,7 @@ Rectangle {
   QfToolButton {
     id: nextButton
 
-    anchors.right: parent.right
+    anchors.left: previousButton.right
 
     width: ( parent.state == "Navigation" ? 48: 0 )
     height: 48
@@ -179,6 +172,30 @@ Rectangle {
 
     onClicked: {
       selection.focusedItem = selection.focusedItem + 1
+    }
+
+    Behavior on width {
+      PropertyAnimation {
+        easing.type: Easing.InQuart
+      }
+    }
+  }
+
+  QfToolButton {
+    id: previousButton
+
+    anchors.left: parent.left
+
+    width: ( parent.state == "Navigation" ? 48: 0 )
+    height: 48
+    clip: true
+
+    iconSource: Theme.getThemeIcon( "ic_chevron_left_white_24dp" )
+
+    enabled: ( selection.focusedItem > 0 )
+
+    onClicked: {
+      selection.focusedItem = selection.focusedItem - 1
     }
 
     Behavior on width {
@@ -277,7 +294,7 @@ Rectangle {
 
     property bool supportsEditing: false
 
-    anchors.right: nextButton.left
+    anchors.right: menuButton.left
 
     width: ( parent.state == "Navigation" && supportsEditing ? 48: 0 )
     height: 48
@@ -305,54 +322,23 @@ Rectangle {
   }
 
   QfToolButton {
-    id: followCurrentButton
-    
-    visible: !selection.focusedGeometry.isNull
+    id: menuButton
 
-    anchors.left: previousButton.right
+    anchors.right: parent.right
 
-    width: ( parent.state == "Navigation" ? 48: 0 )
-    height: 48
-    clip: true
-    checkable: true
-    checked: extentController.autoZoom
-
-    iconSource: Theme.getThemeIcon( "ic_fullscreen_white_24dp" )
-
-    Behavior on width {
-      PropertyAnimation {
-        easing.type: Easing.InQuart
-      }
-    }
-
-    MouseArea {
-      anchors.fill: parent
-
-      onClicked: {
-        extentController.zoomToSelected()
-      }
-
-      onPressAndHold: {
-        extentController.autoZoom = !extentController.autoZoom
-      }
-    }
-  }
-
-  QfToolButton {
-    id: previousButton
-
-    anchors.left: parent.left
-
-    width: ( parent.state == "Navigation" ? 48: 0 )
+    visible: parent.state != "Edit"
+    width: visible ? 48 : 0
     height: 48
     clip: true
 
-    iconSource: Theme.getThemeIcon( "ic_chevron_left_white_24dp" )
-
-    enabled: ( selection.focusedItem > 0 )
+    iconSource: Theme.getThemeIcon( "ic_dot_menu_white_24dp" )
 
     onClicked: {
-      selection.focusedItem = selection.focusedItem - 1
+        if ( parent.state == "Indication" ) {
+            featureListMenu.popup(menuButton.x + menuButton.width - featureListMenu.width, menuButton.y);
+        } else if ( parent.state == "Navigation" ) {
+            featureMenu.popup(menuButton.x + menuButton.width - featureMenu.width, menuButton.y);
+        }
     }
 
     Behavior on width {
@@ -367,7 +353,7 @@ Rectangle {
 
     anchors.left: parent.left
 
-    width: ( parent.state == "Indication" && toolBar.model && toolBar.model.selectedCount > 0  ? 48: 0 )
+    width: ( parent.state == "Indication" && toolBar.multiSelection && toolBar.model ? 48: 0 )
     height: 48
     clip: true
 
@@ -375,9 +361,7 @@ Rectangle {
 
     enabled: ( toolBar.model && toolBar.model.selectedCount > 0 )
 
-    onClicked: {
-      toolBar.model.clearSelection();
-    }
+    onClicked: toggleMultiSelection();
 
     Behavior on width {
       PropertyAnimation {
@@ -389,7 +373,7 @@ Rectangle {
   QfToolButton {
     id: multiEditButton
 
-    anchors.right: multiMergeButton.left
+    anchors.right: menuButton.left
 
     width: ( parent.state == "Indication" && toolBar.model && toolBar.model.canEditAttributesSelection && toolBar.model.selectedCount > 1 ? 48: 0 )
     height: 48
@@ -410,51 +394,238 @@ Rectangle {
     }
   }
 
-  QfToolButton {
-    id: multiMergeButton
+  Menu {
+    id: featureListMenu
+    title: qsTr( "Feature List Menu" )
 
-    anchors.right: multiDeleteButton.left
-
-    width: ( parent.state == "Indication" && toolBar.model && toolBar.model.canMergeSelection && toolBar.model.selectedCount > 1 ? 48: 0 )
-    height: 48
-    clip: true
-
-    iconSource: Theme.getThemeIcon( "ic_merge_features_white_24dp" )
-
-    enabled: ( toolBar.model && toolBar.model.canMergeSelection && toolBar.model.selectedCount > 1 )
-
-    onClicked: {
-      multiMergeClicked();
+    width: {
+        var result = 0;
+        var padding = 0;
+        for (var i = 0; i < count; ++i) {
+            var item = itemAt(i);
+            result = Math.max(item.contentItem.implicitWidth, result);
+            padding = Math.max(item.padding, padding);
+        }
+        return result + padding * 2;
     }
 
-    Behavior on width {
-      PropertyAnimation {
-        easing.type: Easing.InQuart
+    MenuItem {
+      text: qsTr( 'Toggle Feature Selection' )
+
+      checkable: true
+      checked: toolBar.multiSelection
+
+      font: Theme.defaultFont
+      height: 48
+      leftPadding: 15
+
+      onTriggered: {
+          toggleMultiSelection();
+      }
+    }
+
+    MenuSeparator { width: parent.width }
+
+    MenuItem {
+      text: qsTr( 'Print Atlas Feature(s) to PDF' )
+      icon.source: Theme.getThemeIcon( "ic_print_white_24dp" )
+      enabled: toolBar.model && toolBar.model.selectedCount > 0 && LayerUtils.isAtlasCoverageLayer( toolBar.model.selectedLayer )
+
+      font: Theme.defaultFont
+      height: 48
+      leftPadding: 10
+
+      onTriggered: {
+          featureListMenu.close();
+          showAtlasMenu();
+      }
+    }
+
+    MenuSeparator { width: parent.width }
+
+    MenuItem {
+      text: qsTr( 'Merge Selected Features' )
+      icon.source: Theme.getThemeIcon( "ic_merge_features_white_24dp" )
+      enabled: toolBar.model && toolBar.model.canMergeSelection && toolBar.model.selectedCount > 1
+
+      font: Theme.defaultFont
+      height: 48
+      leftPadding: 10
+
+      onTriggered: multiMergeClicked();
+    }
+
+    MenuItem {
+      text: qsTr( 'Delete Selected Feature(s)' )
+      icon.source: Theme.getThemeIcon( "ic_delete_forever_white_24dp" )
+      enabled: toolBar.model && toolBar.model.canDeleteSelection
+
+      font: Theme.defaultFont
+      height: 48
+      leftPadding: 10
+
+      onTriggered: multiDeleteClicked();
+    }
+  }
+
+  Menu {
+    id: featureMenu
+    title: qsTr( "Feature Menu" )
+
+    width: {
+        var result = 0;
+        var padding = 0;
+        for (var i = 0; i < count; ++i) {
+            var item = itemAt(i);
+            result = Math.max(item.contentItem.implicitWidth, result);
+            padding = Math.max(item.padding, padding);
+        }
+        return result + padding * 2;
+    }
+
+    MenuItem {
+      text: qsTr( 'Print Atlas Feature to PDF' )
+      icon.source: Theme.getThemeIcon( "ic_print_white_24dp" )
+      enabled: LayerUtils.isAtlasCoverageLayer( selection.focusedLayer )
+
+      font: Theme.defaultFont
+      height: 48
+      leftPadding: 10
+
+      onTriggered: {
+          featureListMenu.close();
+          showAtlasMenu();
+      }
+    }
+
+    MenuSeparator { width: parent.width }
+
+    MenuItem {
+      text: qsTr( 'Zoom to Feature' )
+      icon.source: Theme.getThemeIcon( "ic_fullscreen_white_24dp" )
+
+      font: Theme.defaultFont
+      height: 48
+      leftPadding: 10
+
+      onTriggered: extentController.zoomToSelected();
+    }
+
+    MenuItem {
+      text: qsTr( 'Auto-Zoom to Feature' )
+
+      font: Theme.defaultFont
+      height: 48
+      leftPadding: 15
+
+      checkable: true
+      checked: extentController.autoZoom
+
+      onTriggered: extentController.autoZoom = !extentController.autoZoom
+    }
+
+    MenuSeparator { width: parent.width }
+
+    MenuItem {
+      text: qsTr( 'Delete Feature' )
+      icon.source: Theme.getThemeIcon( "ic_delete_forever_white_24dp" )
+
+      font: Theme.defaultFont
+      height: 48
+      leftPadding: 10
+
+      onTriggered: deleteClicked();
+    }
+  }
+
+  Menu {
+    id: atlasMenu
+
+    property alias printTimer: timer
+    property alias printName: timer.printName
+
+    title: qsTr( "Print Atlas Feature(s) to PDF" )
+
+    signal enablePrintItem( int rows )
+
+    width: {
+        var result = 0;
+        var padding = 0;
+        for (var i = 0; i < count; ++i) {
+            var item = itemAt(i);
+            result = Math.max(item.contentItem.implicitWidth, result);
+            padding = Math.max(item.padding, padding);
+        }
+        return Math.min( result + padding * 2,mainWindow.width - 20);
+    }
+
+    MenuItem {
+      text: qsTr( 'Select template below' )
+
+      font: Theme.defaultFont
+      height: 48
+      leftPadding: 10
+
+      enabled: false
+    }
+
+    Instantiator {
+      id: atlasListInstantiator
+
+      model: PrintLayoutListModel {
+          project: qgisProject
+          atlasCoverageLayer: toolBar.state === "Indication" ? model.selectedLayer : selection.focusedLayer
+      }
+
+      MenuItem {
+        text: Title
+
+        font: Theme.defaultFont
+        leftPadding: 10
+
+        onTriggered: {
+            displayToast( qsTr( 'Printing atlas feature(s) to PDF') )
+            atlasMenu.printName = Title
+            atlasMenu.printTimer.restart();
+        }
+      }
+      onObjectAdded: atlasMenu.insertItem(index+1, object)
+      onObjectRemoved: atlasMenu.removeItem(object)
+    }
+
+    Timer {
+      id: timer
+
+      property string printName: ''
+
+      interval: 500
+      repeat: false
+      onTriggered: {
+          var ids = [];
+          if ( toolBar.state === "Indication" ) {
+              for( var i = 0; i < model.selectedFeatures.length; i++ ) {
+                  ids.push(model.selectedFeatures[i].id)
+              }
+          } else {
+              ids.push(selection.focusedFeature.id)
+          }
+          if ( iface.printAtlasFeatures( printName, ids ) ) {
+              displayToast( qsTr( 'Atlas feature(s) successfully printed to PDF and placed in your documents' ) );
+          }
       }
     }
   }
 
-  QfToolButton {
-    id: multiDeleteButton
-
-    anchors.right: parent.right
-
-    width: ( parent.state == "Indication" && toolBar.model && toolBar.model.canDeleteSelection ? 48: 0 )
-    height: 48
-    clip: true
-
-    iconSource: Theme.getThemeIcon( "ic_delete_forever_white_24dp" )
-
-    enabled: ( toolBar.model && toolBar.model.canDeleteSelection )
-
-    onClicked: {
-      multiDeleteClicked();
-    }
-
-    Behavior on width {
-      PropertyAnimation {
-        easing.type: Easing.InQuart
+  function showAtlasMenu() {
+      if (atlasListInstantiator.model.rowCount() > 1)
+      {
+          atlasMenu.popup(menuButton.x + menuButton.width - atlasMenu.width, menuButton.y);
       }
-    }
+      else
+      {
+          displayToast( qsTr( 'Printing atlas feature(s) to PDF') )
+          atlasMenu.printName = atlasListInstantiator.model.titleAt( 0 );
+          atlasMenu.printTimer.restart();
+      }
   }
 }

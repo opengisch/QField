@@ -194,7 +194,7 @@ class FeatureGatherer: public QThread
     Q_OBJECT
 
   public:
-    FeatureGatherer( QgsFeature feature, QgsRelation relation, QgsRelation nmRelation = QgsRelation() )
+    FeatureGatherer( QgsFeature &feature, QgsRelation relation, QgsRelation nmRelation = QgsRelation() )
       : mFeature( feature )
       , mRelation( relation )
       , mNmRelation( nmRelation )

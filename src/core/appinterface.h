@@ -25,6 +25,7 @@
 
 class QgisMobileapp;
 class QgsRectangle;
+class QgsFeature;
 
 class AppInterface : public QObject
 {
@@ -43,7 +44,9 @@ class AppInterface : public QObject
     Q_INVOKABLE void reloadProject();
     Q_INVOKABLE void readProject();
     Q_INVOKABLE void removeRecentProject( const QString &path );
-    Q_INVOKABLE void print( int layoutIndex );
+
+    Q_INVOKABLE bool print( const QString &layoutName );
+    Q_INVOKABLE bool printAtlasFeatures( const QString &layoutName, const QList<long long> &featureIds );
 
     static void setInstance( AppInterface *instance ) { sAppInterface = instance; }
     static AppInterface *instance() { return sAppInterface; }

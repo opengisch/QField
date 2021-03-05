@@ -1290,7 +1290,7 @@ ApplicationWindow {
         {
           mainMenu.close();
           displayToast( qsTr( 'Printing to PDF') )
-          printMenu.printIndex = 0
+          printMenu.printName =layoutListInstantiator.model.titleAt( 0 );
           printMenu.printTimer.restart();
         }
         highlighted = false
@@ -1389,7 +1389,7 @@ ApplicationWindow {
     id: printMenu
 
     property alias printTimer: timer
-    property alias printIndex: timer.printIndex
+    property alias printName: timer.printName
 
     title: qsTr( "Print to PDF" )
 
@@ -1432,7 +1432,7 @@ ApplicationWindow {
         onTriggered: {
             highlighted = false
             displayToast( qsTr( 'Printing to PDF') )
-            printMenu.printIndex = Index
+            printMenu.printName = Title
             printMenu.printTimer.restart();
         }
       }
@@ -1460,11 +1460,11 @@ ApplicationWindow {
     Timer {
       id: timer
 
-      property int printIndex: 0
+      property string printName: ''
 
       interval: 500
       repeat: false
-      onTriggered: iface.print( printIndex )
+      onTriggered: iface.print( printName )
     }
   }
 
