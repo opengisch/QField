@@ -46,7 +46,7 @@ LocatorModelSuperBridge::LocatorModelSuperBridge( QObject *parent )
   locator()->registerFilter( new GotoLocatorFilter( this ) );
 
   // Finnish's Digitransit geocoder
-  mFinlandGeocoder = new PeliasGeocoder( "https://api.digitransit.fi/geocoding/v1/search" );
+  mFinlandGeocoder = new PeliasGeocoder( QStringLiteral( "https://api.digitransit.fi/geocoding/v1/search" ) );
   locator()->registerFilter( new FinlandLocatorFilter( mFinlandGeocoder, this ) );
 }
 
