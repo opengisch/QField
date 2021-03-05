@@ -19,9 +19,13 @@
 
 #include <QStandardItemModel>
 #include <qgslocatormodelbridge.h>
+#include <qgslocatorfilter.h>
 
 class QgsQuickMapSettings;
 class FeatureListExtentController;
+class PeliasGeocoder;
+class GnssPositionInformation;
+class QgsLocator;
 
 /**
  * LocatorActionsModel is a model used to dislay
@@ -91,6 +95,52 @@ class LocatorModelSuperBridge : public QgsLocatorModelBridge
     QObject *mLocatorHighlightGeometry = nullptr;
     FeatureListExtentController *mFeatureListController = nullptr;
     bool mKeepScale = false;
+
+    PeliasGeocoder *mFinlandGeocoder = nullptr;
 };
 
+class LocatorFiltersModel : public QAbstractListModel
+{
+    Q_OBJECT
+    Q_PROPERTY( LocatorModelSuperBridge *locatorModelSuperBridge READ locatorModelSuperBridge WRITE setLocatorModelSuperBridge NOTIFY locatorModelSuperBridgeChanged )
+
+  public:
+
+    //! Custom model roles
+    enum Role
+    {
+      NameRole = Qt::UserRole + 1,
+      DescriptionRole,
+      PrefixRole,
+      ActiveRole,
+      DefaultRole,
+    };
+    Q_ENUM( Role )
+
+    /**
+     * Constructor for QgsLocatorFiltersModel.
+     */
+    LocatorFiltersModel();
+
+    int rowCount( const QModelIndex &parent = QModelIndex() ) const override;
+    QHash<int, QByteArray> roleNames() const override;
+    QVariant data( const QModelIndex &index, int role = Qt::DisplayRole ) const override;
+    bool setData( const QModelIndex &index, const QVariant &value, int role = Qt::EditRole ) override;
+
+    QgsLocatorFilter *filterForIndex( const QModelIndex &index ) const;
+
+    LocatorModelSuperBridge *locatorModelSuperBridge() const;
+    void setLocatorModelSuperBridge( LocatorModelSuperBridge *locatorModelSuperBridge );
+
+    Q_INVOKABLE void setGeocoderLocatorFiltersDefaulByPosition( const GnssPositionInformation &position );
+
+  signals:
+
+    void locatorModelSuperBridgeChanged();
+
+  private:
+
+    LocatorModelSuperBridge *mLocatorModelSuperBridge = nullptr;
+
+};
 #endif // LOCATORMODELSUPERBRIDGE_H

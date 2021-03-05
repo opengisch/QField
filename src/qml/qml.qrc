@@ -39,6 +39,7 @@
         <file>VertexRubberband.qml</file>
         <file>VisibilityFadingRow.qml</file>
         <file>LocatorItem.qml</file>
+        <file>LocatorSettings.qml</file>
         <file>OverlayFeatureFormDrawer.qml</file>
         <file>GeometryRenderer.qml</file>
         <file>GeometryHighlighter.qml</file>

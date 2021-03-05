@@ -52,6 +52,7 @@ class FlatLayerTreeModel;
 class LayerTreeModel;
 class LegendImageProvider;
 class TrackingModel;
+class LocatorFiltersModel;
 class QgsProject;
 
 

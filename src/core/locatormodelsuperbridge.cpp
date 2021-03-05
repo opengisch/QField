@@ -16,22 +16,38 @@
 
 
 #include "locatormodelsuperbridge.h"
+#include "qgsquickmapsettings.h"
+#include "featurelistextentcontroller.h"
+#include "featureslocatorfilter.h"
+#include "gotolocatorfilter.h"
+#include "peliasgeocoder.h"
+#include "finlandlocatorfilter.h"
+#include "gnsspositioninformation.h"
 
 #include <QStandardItem>
 
 #include <qgslocatormodel.h>
 #include <qgslocator.h>
+#include <qgssettings.h>
 
-#include "qgsquickmapsettings.h"
-#include "featurelistextentcontroller.h"
-#include "featureslocatorfilter.h"
-#include "gotolocatorfilter.h"
+static QMap<QString, QString> locatorFilterDescriptionValues() {
+  QMap<QString, QString> map;
+  map.insert( QStringLiteral("allfeatures"), QObject::tr( "Returns a list of features accross all searchable layers with matching attributes" ) );
+  map.insert( QStringLiteral("goto"), QObject::tr( "Returns a point from a pair of X and Y coordinates typed in the search bar" ) );
+  map.insert( QStringLiteral("pelias-finland"), QObject::tr( "Returns a list of locations and addresses within Finland with matching terms" ) );
+  return map;
+}
+static const QMap<QString, QString>  locatorFilterDescriptions = locatorFilterDescriptionValues();
 
 LocatorModelSuperBridge::LocatorModelSuperBridge( QObject *parent )
   : QgsLocatorModelBridge( parent )
 {
-  locator()->registerFilter( new GotoLocatorFilter( this ) );
   locator()->registerFilter( new FeaturesLocatorFilter( this ) );
+  locator()->registerFilter( new GotoLocatorFilter( this ) );
+
+  // Finnish's Digitransit geocoder
+  mFinlandGeocoder = new PeliasGeocoder( QStringLiteral( "https://api.digitransit.fi/geocoding/v1/search" ) );
+  locator()->registerFilter( new FinlandLocatorFilter( mFinlandGeocoder, this ) );
 }
 
 QgsQuickMapSettings *LocatorModelSuperBridge::mapSettings() const
@@ -130,6 +146,10 @@ void LocatorModelSuperBridge::triggerResultAtRow( const int row, const int id )
     triggerResult( index, id );
 }
 
+//
+// LocatorActionsModel
+//
+
 LocatorActionsModel::LocatorActionsModel( QObject *parent )
   : QStandardItemModel( parent )
 {
@@ -146,4 +166,163 @@ QHash<int, QByteArray> LocatorActionsModel::roleNames() const
   roles[IconPathRole] = "iconPath";
   roles[IdRole] = "id";
   return roles;
+}
+
+//
+// LocatorFiltersModel
+//
+
+LocatorFiltersModel::LocatorFiltersModel() : QAbstractListModel()
+{
+}
+
+int LocatorFiltersModel::rowCount( const QModelIndex &parent ) const
+{
+  if ( !mLocatorModelSuperBridge->locator() || parent.isValid() )
+    return 0;
+
+  return mLocatorModelSuperBridge->locator()->filters().count();
+}
+
+QHash<int, QByteArray> LocatorFiltersModel::roleNames() const
+{
+  QHash<int, QByteArray> roles = QAbstractListModel::roleNames();
+
+  roles[NameRole] = "Name";
+  roles[DescriptionRole] = "Description";
+  roles[PrefixRole] = "Prefix";
+  roles[ActiveRole] = "Active";
+  roles[DefaultRole] = "Default";
+
+  return roles;
+}
+
+QVariant LocatorFiltersModel::data( const QModelIndex &index, int role ) const
+{
+  if ( !mLocatorModelSuperBridge->locator() || !index.isValid() || index.parent().isValid() ||
+       index.row() < 0 || index.row() >= rowCount( QModelIndex() ) )
+    return QVariant();
+
+  switch ( role )
+  {
+    case Qt::DisplayRole:
+    case NameRole:
+      return filterForIndex( index )->displayName();
+
+    case DescriptionRole:
+      return locatorFilterDescriptions.value( filterForIndex( index )->name() );
+
+    case PrefixRole:
+      return filterForIndex( index )->activePrefix();
+
+    case ActiveRole:
+      return QVariant( filterForIndex( index )->enabled() );
+
+    case DefaultRole:
+      return filterForIndex( index )->useWithoutPrefix();
+  }
+
+  return QVariant();
+}
+
+bool LocatorFiltersModel::setData( const QModelIndex &index, const QVariant &value, int role )
+{
+  if ( !mLocatorModelSuperBridge->locator() || !index.isValid() || index.parent().isValid() ||
+       index.row() < 0 || index.row() >= rowCount( QModelIndex() ) )
+    return false;
+
+  switch ( role )
+  {
+    case NameRole:
+    case PrefixRole:
+      return false;
+
+    case ActiveRole:
+    {
+      QgsLocatorFilter *filter = filterForIndex( index );
+      const bool newValue = value.toBool();
+      if ( filter->enabled() != newValue )
+      {
+        QgsSettings settings;
+        filter->setEnabled( newValue );
+        settings.setValue( QStringLiteral( "locator_filters/enabled_%1" ).arg( filter->name() ), newValue, QgsSettings::Section::Gui );
+        emit dataChanged( index, index, QVector<int>() << ActiveRole );
+        return true;
+      }
+      break;
+    }
+
+    case DefaultRole:
+    {
+      QgsLocatorFilter *filter = filterForIndex( index );
+      const bool newValue = value.toBool();
+      if ( filter->useWithoutPrefix() != newValue )
+      {
+        QgsSettings settings;
+        filter->setUseWithoutPrefix( value.toBool() );
+        settings.setValue( QStringLiteral( "locator_filters/default_%1" ).arg( filter->name() ), newValue, QgsSettings::Section::Gui );
+        settings.setValue( QStringLiteral( "locator_filters/default_touched_%1" ).arg( filter->name() ), true, QgsSettings::Section::Gui );
+        emit dataChanged( index, index, QVector<int>() << DefaultRole );
+        return true;
+      }
+      break;
+    }
+  }
+
+  return false;
+}
+
+void LocatorFiltersModel::setGeocoderLocatorFiltersDefaulByPosition( const GnssPositionInformation &position )
+{
+  if ( !mLocatorModelSuperBridge->locator() )
+    return;
+
+  QgsPointXY point( position.longitude(), position.latitude() );
+  int i = 0;
+  for ( QgsLocatorFilter *filter : mLocatorModelSuperBridge->locator()->filters() )
+  {
+    FinlandLocatorFilter *f = dynamic_cast<FinlandLocatorFilter *>( filter );
+    if ( f )
+    {
+      if ( f->boundingBox().contains( point ) )
+      {
+        QgsSettings settings;
+        bool filterTouched = settings.value( QStringLiteral( "locator_filters/default_touched_%1" ).arg( f->name() ), false, QgsSettings::Section::Gui ).toBool();
+        bool filterDefault = settings.value( QStringLiteral( "locator_filters/default_%1" ).arg( f->name() ), false, QgsSettings::Section::Gui ).toBool();
+        if ( !filterTouched && !filterDefault )
+        {
+          f->setUseWithoutPrefix( true );
+          settings.setValue( QStringLiteral( "locator_filters/default_%1" ).arg( filter->name() ), true, QgsSettings::Section::Gui );
+          QModelIndex modifiedIndex = index( i, 0 );
+          emit dataChanged( modifiedIndex, modifiedIndex, QVector<int>() << DefaultRole );
+          emit mLocatorModelSuperBridge->emitMessage( tr( "Search filters for your locations have been activated, customize results in the settings panel" ) );
+        }
+      }
+    }
+    i++;
+  }
+}
+
+QgsLocatorFilter *LocatorFiltersModel::filterForIndex( const QModelIndex &index ) const
+{
+  if ( !mLocatorModelSuperBridge->locator() )
+    return nullptr;
+
+  return mLocatorModelSuperBridge->locator()->filters().at( index.row() );
+}
+
+LocatorModelSuperBridge *LocatorFiltersModel::locatorModelSuperBridge() const
+{
+  return mLocatorModelSuperBridge;
+}
+
+void LocatorFiltersModel::setLocatorModelSuperBridge( LocatorModelSuperBridge *locatorModelSuperBridge )
+{
+  if ( mLocatorModelSuperBridge == locatorModelSuperBridge )
+    return;
+
+  emit beginResetModel();
+  mLocatorModelSuperBridge = locatorModelSuperBridge;
+  emit locatorModelSuperBridgeChanged();
+  emit endResetModel();
 }

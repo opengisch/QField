@@ -648,6 +648,69 @@ ApplicationWindow {
     source: featureForm
   }
 
+  QfToolButton {
+    id: alertIcon
+    iconSource: Theme.getThemeIcon( "ic_alert_black_24dp" )
+    round: true
+    bgcolor: "transparent"
+
+    visible: messageLog.unreadMessages
+
+    anchors.right: locatorItem.right
+    anchors.top: locatorItem.top
+    anchors.topMargin: 52
+
+    onClicked: messageLog.visible = true
+  }
+
+  Column {
+    id: zoomToolbar
+    anchors.right: mapCanvas.right
+    anchors.rightMargin: 4
+    anchors.bottom: mapCanvas.bottom
+    anchors.bottomMargin: ( mapCanvas.height - zoomToolbar.height / 2 ) / 2
+    spacing: 4
+
+    QfToolButton {
+      id: zoomInButton
+      round: true
+      anchors.right: parent.right
+
+      bgcolor: Theme.darkGray
+      iconSource: Theme.getThemeIcon( "ic_add_white_24dp" )
+
+      transform: Scale {
+          origin.x: zoomInButton.width / 1.5
+          origin.y: zoomInButton.height / 1.25
+          xScale: 0.75
+          yScale: 0.75
+      }
+
+      onClicked: {
+          mapCanvasMap.zoomIn(Qt.point(mapCanvas.x + mapCanvas.width / 2,mapCanvas.y + mapCanvas.height / 2));
+      }
+    }
+    QfToolButton {
+      id: zoomOutButton
+      round: true
+      anchors.right: parent.right
+
+      bgcolor: Theme.darkGray
+      iconSource: Theme.getThemeIcon( "ic_remove_white_24dp" )
+
+      transform: Scale {
+          origin.x: zoomOutButton.width / 1.5
+          origin.y: zoomOutButton.height / 1.75
+          xScale: 0.75
+          yScale: 0.75
+      }
+
+      onClicked: {
+          mapCanvasMap.zoomOut(Qt.point(mapCanvas.x + mapCanvas.width / 2,mapCanvas.y + mapCanvas.height / 2));
+      }
+    }
+  }
+
   LocatorItem {
     id: locatorItem
 
@@ -674,6 +737,15 @@ ApplicationWindow {
         }
       }
     }
+  }
+
+  LocatorSettings {
+      id: locatorSettings
+      locatorModelSuperBridge: locatorItem.locatorModelSuperBridge
+
+      modal: true
+      closePolicy: Popup.CloseOnEscape | Popup.CloseOnPressOutside
+      parent: ApplicationWindow.overlay
   }
 
   DropShadow {
@@ -857,54 +929,6 @@ ApplicationWindow {
 
       Component.onCompleted: {
           freehandDigitizing = settings.valueBool( "/QField/Digitizing/FreehandActive", false )
-      }
-    }
-  }
-
-  Column {
-    id: zoomToolbar
-    anchors.right: mapCanvas.right
-    anchors.rightMargin: 4
-    anchors.bottom: mapCanvas.bottom
-    anchors.bottomMargin: ( mapCanvas.height - zoomToolbar.height / 2 ) / 2
-    spacing: 4
-
-    QfToolButton {
-      id: zoomInButton
-      round: true
-      anchors.right: parent.right
-
-      bgcolor: Theme.darkGray
-      iconSource: Theme.getThemeIcon( "ic_add_white_24dp" )
-
-      transform: Scale {
-          origin.x: zoomInButton.width / 1.5
-          origin.y: zoomInButton.height / 1.25
-          xScale: 0.75
-          yScale: 0.75
-      }
-
-      onClicked: {
-          mapCanvasMap.zoomIn(Qt.point(mapCanvas.x + mapCanvas.width / 2,mapCanvas.y + mapCanvas.height / 2));
-      }
-    }
-    QfToolButton {
-      id: zoomOutButton
-      round: true
-      anchors.right: parent.right
-
-      bgcolor: Theme.darkGray
-      iconSource: Theme.getThemeIcon( "ic_remove_white_24dp" )
-
-      transform: Scale {
-          origin.x: zoomOutButton.width / 1.5
-          origin.y: zoomOutButton.height / 1.75
-          xScale: 0.75
-          yScale: 0.75
-      }
-
-      onClicked: {
-          mapCanvasMap.zoomOut(Qt.point(mapCanvas.x + mapCanvas.width / 2,mapCanvas.y + mapCanvas.height / 2));
       }
     }
   }
@@ -1569,21 +1593,6 @@ ApplicationWindow {
         mapCanvas.mapSettings.setCenter(positionSource.projectedPosition)
       }
     }
-  }
-
-  QfToolButton {
-    id: alertIcon
-    iconSource: Theme.getThemeIcon( "ic_alert_black_24dp" )
-    round: true
-    bgcolor: "transparent"
-
-    visible: messageLog.unreadMessages
-
-    anchors.right: locatorItem.right
-    anchors.top: locatorItem.bottom
-    anchors.topMargin: 5
-
-    onClicked: messageLog.visible = true
   }
 
   /* The feature form */
