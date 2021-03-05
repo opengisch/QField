@@ -19,6 +19,7 @@
 #define MULTIFEATURELISTMODEL_H
 
 #include <QAbstractItemModel>
+#include <QSortFilterProxyModel>
 
 #include <qgsfeaturerequest.h>
 

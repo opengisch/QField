@@ -22,6 +22,7 @@
 #include "layertreemodel.h"
 
 #include <QObject>
+#include <QTimer>
 
 /**
  * This class stores current projection information such as
