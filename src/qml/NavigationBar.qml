@@ -78,21 +78,22 @@ Rectangle {
     focus: true
 
     Text {
+      // Insure that the text is always visually centered by using the same left and right margi
+      property double balancedMargin: Math.max( (saveButton.visible ? saveButton.width : 0)
+                                               + (previousButton.visible ? previousButton.width : 0)
+                                               + (nextButton.visible ? nextButton.width : 0)
+                                               + (multiClearButton.visible ? multiClearButton.width : 0),
+                                               (cancelButton.visible ? cancelButton.width : 0)
+                                               + (editButton.visible ? editButton.width : 0)
+                                               + (editGeomButton.visible ? editGeomButton.width : 0)
+                                               + (multiEditButton.visible ? multiEditButton.width : 0)
+                                               + (menuButton.visible ? menuButton.width : 0) )
       font: Theme.strongFont
       color: Theme.light
       anchors.left: parent.left
       anchors.right: parent.right
-      anchors.leftMargin: 0
-          + (saveButton.visible ? saveButton.width : 0)
-          + (previousButton.visible ? previousButton.width : 0)
-          + (nextButton.visible ? nextButton.width : 0)
-          + (multiClearButton.visible ? multiClearButton.width : 0)
-      anchors.rightMargin: 0
-          + (cancelButton.visible ? cancelButton.width : 0)
-          + (editButton.visible ? editButton.width : 0)
-          + (editGeomButton.visible ? editGeomButton.width : 0)
-          + (multiEditButton.visible ? multiEditButton.width : 0)
-          + (menuButton.visible ? menuButton.width : 0)
+      anchors.leftMargin: 0 + balancedMargin
+      anchors.rightMargin: 0 + balancedMargin
       height: parent.height
 
       text: {
