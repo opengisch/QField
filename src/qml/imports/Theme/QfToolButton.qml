@@ -60,7 +60,7 @@ Item {
                 pressed: button.down
                 anchor: parent
                 active: button.down
-                color: "#22FFFFFF"
+                color: bgcolor == "#ffffff" ? "#10000000" : "#22ffffff"
 
                 layer.enabled: true
                 layer.effect: OpacityMask {

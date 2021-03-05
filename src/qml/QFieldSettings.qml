@@ -163,8 +163,8 @@ Page {
                           Layout.alignment: Qt.AlignVCenter
                           clip: true
 
-                          iconSource: Theme.getThemeIcon( "ic_gear_black_24dp" )
-                          bgcolor: "transparent"
+                          iconSource: Theme.getThemeIcon( "ic_ellipsis_green_24dp" )
+                          bgcolor: "#ffffff"
 
                           onClicked: {
                               locatorSettings.open();
