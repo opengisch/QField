@@ -643,8 +643,9 @@ void QgisMobileapp::readProjectFile()
 
   for ( auto filePath : std::as_const( files ) )
   {
+    const QString fileSuffix = QFileInfo( filePath ).suffix().toLower();
     // Load vector dataset
-    if ( SUPPORTED_VECTOR_EXTENSIONS.contains( suffix ) )
+    if ( SUPPORTED_VECTOR_EXTENSIONS.contains( fileSuffix ) )
     {
       if ( suffix == QStringLiteral( "kmz" ) )
       {
@@ -750,7 +751,7 @@ void QgisMobileapp::readProjectFile()
     }
 
     // Load raster dataset
-    if ( SUPPORTED_RASTER_EXTENSIONS.contains( suffix ) ) {
+    if ( SUPPORTED_RASTER_EXTENSIONS.contains( fileSuffix ) ) {
       QgsRasterLayer *layer = new QgsRasterLayer( filePath, mProjectFileName, QLatin1String( "gdal" ) );
       if ( layer->isValid() )
       {
