@@ -92,14 +92,15 @@ EditorWidgetBase {
                   // So we detect if the field is a date only and revert the time zone offset.
                   // [1] http://doc.qt.io/qt-5/qtqml-cppintegration-data.html#basic-qt-data-types
                   if (main.fieldIsDate) {
-                    Qt.formatDateTime( new Date(value.getTime() + value.getTimezoneOffset() * 60000), displayFormat)
+                    const date = new Date(value)
+                    Qt.formatDateTime(new Date(date.getTime() + date.getTimezoneOffset() * 60000), displayFormat)
                   } else {
                     Qt.formatDateTime(value, displayFormat)
                   }
                 }
                 else
                 {
-                  var date = Date.fromLocaleString(Qt.locale(), value, config['field_format'])
+                  const date = Date.fromLocaleString(Qt.locale(), value, config['field_format'])
                   Qt.formatDateTime(date, displayFormat)
                 }
               }
