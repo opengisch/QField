@@ -88,10 +88,8 @@ void SubModel::setModel( QAbstractItemModel *model )
   if ( model == mModel )
     return;
 
-  connect( model, &QAbstractItemModel::rowsAboutToBeInserted, this, &SubModel::onRowsAboutToBeInserted );
   connect( model, &QAbstractItemModel::rowsInserted, this, &SubModel::onRowsInserted );
   connect( model, &QAbstractItemModel::rowsAboutToBeRemoved, this, &SubModel::onRowsAboutToBeRemoved );
-  connect( model, &QAbstractItemModel::rowsRemoved, this, &SubModel::onRowsRemoved );
   connect( model, &QAbstractItemModel::modelAboutToBeReset, this, &SubModel::onModelAboutToBeReset );
   connect( model, &QAbstractItemModel::modelReset, this, &QAbstractItemModel::modelReset );
   connect( model, &QAbstractItemModel::dataChanged, this, &SubModel::onDataChanged );
@@ -100,30 +98,24 @@ void SubModel::setModel( QAbstractItemModel *model )
   emit modelChanged();
 }
 
-void SubModel::onRowsAboutToBeInserted( const QModelIndex &parent, int first, int last )
-{
-  emit beginInsertRows( mapFromSource( parent ), first, last );
-}
-
 void SubModel::onRowsInserted( const QModelIndex &parent, int first, int last )
 {
-  Q_UNUSED( parent )
-  Q_UNUSED( first )
   Q_UNUSED( last )
-  emit endInsertRows();
+  if ( isInSubModel( mModel->index( first, 0, parent ) ) )
+  {
+    emit beginInsertRows( mapFromSource( parent ), first, last );
+    emit endInsertRows();
+  }
 }
 
 void SubModel::onRowsAboutToBeRemoved( const QModelIndex &parent, int first, int last )
 {
-  emit beginRemoveRows( mapFromSource( parent ), first, last );
-}
-
-void SubModel::onRowsRemoved( const QModelIndex &parent, int first, int last )
-{
-  Q_UNUSED( parent )
-  Q_UNUSED( first )
   Q_UNUSED( last )
-  emit endRemoveRows();
+  if ( isInSubModel( mModel->index( first, 0, parent ) ) )
+  {
+    emit beginRemoveRows( mapFromSource( parent ), first, last );
+    emit endRemoveRows();
+  }
 }
 
 void SubModel::onModelAboutToBeReset()
@@ -133,12 +125,35 @@ void SubModel::onModelAboutToBeReset()
 
 void SubModel::onDataChanged( const QModelIndex &topLeft, const QModelIndex &bottomRight, const QVector<int> &roles )
 {
-  emit dataChanged( mapFromSource( topLeft ), mapFromSource( bottomRight ), roles );
+  if ( isInSubModel( topLeft ) )
+    emit dataChanged( mapFromSource( topLeft ), mapFromSource( bottomRight ), roles );
+}
+
+bool SubModel::isInSubModel( const QModelIndex &sourceIndex ) const
+{
+  if ( !mRootIndex.isValid() )
+    return true;
+
+  if ( sourceIndex == mRootIndex || !sourceIndex.isValid() )
+    return false;
+
+  QModelIndex idx = sourceIndex;
+  bool foundRootIndex = false;
+  while( idx.isValid() )
+  {
+    if ( mModel->parent( idx ) == mRootIndex )
+    {
+      foundRootIndex = true;
+      break;
+    }
+    idx = mModel->parent( idx );
+  }
+  return foundRootIndex;
 }
 
 QModelIndex SubModel::mapFromSource( const QModelIndex &sourceIndex ) const
 {
-  if ( sourceIndex == mRootIndex || !sourceIndex.isValid() )
+  if ( !isInSubModel( sourceIndex ) )
     return QModelIndex();
 
   if ( !mMappings.contains( sourceIndex.internalId() ) )

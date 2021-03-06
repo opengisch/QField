@@ -89,7 +89,19 @@ void SnappingUtils::snap()
     if ( vlayer->crs() != mapSettings()->destinationCrs() )
     {
       QgsCoordinateTransform transform( vlayer->crs(), mapSettings()->destinationCrs(), QgsProject::instance()->transformContext() );
-      snappedPoint.transform( transform );
+      try {
+        snappedPoint.transform( transform );
+      }
+      catch ( const QgsException &e )
+      {
+        Q_UNUSED( e )
+        return;
+      }
+      catch(...)
+      {
+        // catch any other errors
+        return;
+      }
     }
     mSnappingResult.setPoint( snappedPoint );
   }
