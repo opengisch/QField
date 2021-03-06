@@ -71,7 +71,7 @@ EditorWidgetBase {
     background: Rectangle {
         width: parent.width
         height: parent.height
-        color: white;
+        color: "white";
     }
 
     onTextChanged: {
@@ -95,7 +95,7 @@ EditorWidgetBase {
     background: Rectangle {
         width: parent.width
         height: parent.height
-        color: white;
+        color: "white";
     }
 
     onEditingFinished: {
