@@ -178,7 +178,7 @@ Page {
                   leftPadding: 3
                   text: {
                     if (index == 0) {
-                        var firstRun = !settings.value( "/QField/FirstRunFlag", false )
+                        var firstRun = settings && !settings.value( "/QField/FirstRunFlag", false )
                         return !firstRun && firstShown === false ? qsTr( "Last session" ) : ""
                     }
                     else
