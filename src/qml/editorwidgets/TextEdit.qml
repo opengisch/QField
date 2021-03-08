@@ -37,6 +37,7 @@ EditorWidgetBase {
     anchors.right: parent.right
     font: Theme.defaultFont
     color: 'black'
+    maximumLength: field.length > 0 ? field.length : -1
     wrapMode: TextInput.Wrap
 
     text: value == null ? '' : value
