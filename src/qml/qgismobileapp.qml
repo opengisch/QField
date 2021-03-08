@@ -2012,7 +2012,7 @@ ApplicationWindow {
       }
 
       Behavior on opacity {
-        NumberAnimation { duration: 500 }
+        NumberAnimation { duration: 250 }
       }
 
       Rectangle {
@@ -2044,14 +2044,6 @@ ApplicationWindow {
           horizontalAlignment: Text.AlignHCenter
           color: Theme.light
         }
-
-        MouseArea {
-          anchors.fill: parent
-          propagateComposedEvents: true
-          onClicked: {
-              mouse.accepted = false
-          }
-        }
       }
 
       FontMetrics {
@@ -2074,6 +2066,14 @@ ApplicationWindow {
               toastContent.visible = false
               toast.close()
           }
+      }
+
+      MouseArea {
+        anchors.fill: parent
+        onClicked: {
+            toast.close()
+            toast.opacity = 0
+        }
       }
   }
 
