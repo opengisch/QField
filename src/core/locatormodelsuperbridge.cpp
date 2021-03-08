@@ -30,14 +30,6 @@
 #include <qgslocator.h>
 #include <qgssettings.h>
 
-static QMap<QString, QString> locatorFilterDescriptionValues() {
-  QMap<QString, QString> map;
-  map.insert( QStringLiteral("allfeatures"), QObject::tr( "Returns a list of features accross all searchable layers with matching attributes" ) );
-  map.insert( QStringLiteral("goto"), QObject::tr( "Returns a point from a pair of X and Y coordinates typed in the search bar" ) );
-  map.insert( QStringLiteral("pelias-finland"), QObject::tr( "Returns a list of locations and addresses within Finland with matching terms" ) );
-  return map;
-}
-static const QMap<QString, QString>  locatorFilterDescriptions = locatorFilterDescriptionValues();
 
 LocatorModelSuperBridge::LocatorModelSuperBridge( QObject *parent )
   : QgsLocatorModelBridge( parent )
@@ -199,6 +191,12 @@ QHash<int, QByteArray> LocatorFiltersModel::roleNames() const
 
 QVariant LocatorFiltersModel::data( const QModelIndex &index, int role ) const
 {
+  const static QMap<QString, QString> sLocatorFilterDescriptions = {
+    { QStringLiteral("allfeatures"), tr( "Returns a list of features accross all searchable layers with matching attributes" ) },
+    { QStringLiteral("goto"), ( "Returns a point from a pair of X and Y coordinates typed in the search bar" ) },
+    { QStringLiteral("pelias-finland"), tr( "Returns a list of locations and addresses within Finland with matching terms" ) }
+  };
+
   if ( !mLocatorModelSuperBridge->locator() || !index.isValid() || index.parent().isValid() ||
        index.row() < 0 || index.row() >= rowCount( QModelIndex() ) )
     return QVariant();
@@ -210,7 +208,7 @@ QVariant LocatorFiltersModel::data( const QModelIndex &index, int role ) const
       return filterForIndex( index )->displayName();
 
     case DescriptionRole:
-      return locatorFilterDescriptions.value( filterForIndex( index )->name() );
+      return sLocatorFilterDescriptions.value( filterForIndex( index )->name() );
 
     case PrefixRole:
       return filterForIndex( index )->activePrefix();
