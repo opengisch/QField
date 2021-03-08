@@ -25,7 +25,7 @@
 
 
 FinlandLocatorFilter::FinlandLocatorFilter( QgsGeocoderInterface *geocoder, LocatorModelSuperBridge *locatorBridge )
-  : QgsAbstractGeocoderLocatorFilter( QStringLiteral( "pelias-finland" ), QStringLiteral( "Finnish address search" ), QStringLiteral( "fia" ), geocoder )
+  : QgsAbstractGeocoderLocatorFilter( QStringLiteral( "pelias-finland" ), tr( "Finnish address search" ), QStringLiteral( "fia" ), geocoder )
   , mLocatorBridge( locatorBridge )
 {
   setBoundingBox( QgsRectangle( 19.0832098, 59.4541578, 31.5867071, 70.0922939) );
