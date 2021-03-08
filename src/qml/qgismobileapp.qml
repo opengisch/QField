@@ -855,7 +855,7 @@ ApplicationWindow {
           && dashBoard.currentLayer
           && dashBoard.currentLayer.isValid
           && ( dashBoard.currentLayer.geometryType() === QgsWkbTypes.PolygonGeometry || dashBoard.currentLayer.geometryType() === QgsWkbTypes.LineGeometry )
-      state: qgisProject.topologicalEditing ? "On" : "Off"
+      state: qgisProject && qgisProject.topologicalEditing ? "On" : "Off"
       iconSource: Theme.getThemeIcon( "ic_topology_white_24dp" )
 
       bgcolor: Theme.darkGray
@@ -1988,9 +1988,7 @@ ApplicationWindow {
     parent: ApplicationWindow.overlay
 
     property var expireDate: new Date(2038,1,19)
-    visible: settings.value( "/QField/ChangelogVersion", "" ) !== appVersion
-               && expireDate > new Date()
-//               || true
+    visible: settings && settings.value( "/QField/ChangelogVersion", "" ) !== appVersion && expireDate > new Date()
   }
 
   // Toast
