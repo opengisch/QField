@@ -260,7 +260,10 @@ EditorWidgetBase {
       id: campopup
 
       Component.onCompleted: {
-        if ( platformUtilities.checkCameraPermissions() )
+        var permi = platformUtilities.checkCameraPermissions();
+        console.log('camera1 '+permi)
+        console.warn('camera2 '+permi)
+        if ( permi )
           open()
       }
 
@@ -271,8 +274,8 @@ EditorWidgetBase {
       height: parent.height
       width: parent.width
 
-      modal: true
-      focus: true
+      modal: false
+      //focus: true
 
       QField.QFieldCamera {
         id: qfieldCamera

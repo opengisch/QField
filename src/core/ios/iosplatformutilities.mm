@@ -41,15 +41,13 @@ bool IosPlatformUtilities::checkPositioningPermissions() const
 {
   CLAuthorizationStatus status = [CLLocationManager authorizationStatus];
 
-  while (true)
-  {
     switch (status)
     {
         case kCLAuthorizationStatusNotDetermined:
         {
             CLLocationManager *locationManager = [[CLLocationManager alloc] init];
             [locationManager requestWhenInUseAuthorization];
-            break;
+            return false;
         }
             
         case kCLAuthorizationStatusAuthorizedAlways:
@@ -66,14 +64,14 @@ bool IosPlatformUtilities::checkPositioningPermissions() const
 
         default:
             return false;
+      }
     }
-  }
-}
 
 
 bool IosPlatformUtilities::checkCameraPermissions() const
 {
   // see https://stackoverflow.com/a/20464727/1548052
+    
     
   NSString *mediaType = AVMediaTypeVideo;
   AVAuthorizationStatus authStatus = [AVCaptureDevice authorizationStatusForMediaType:mediaType];
@@ -92,12 +90,37 @@ bool IosPlatformUtilities::checkCameraPermissions() const
       case AVAuthorizationStatusNotDetermined:
       {
         // not determined?!
-        [AVCaptureDevice requestAccessForMediaType:mediaType completionHandler:^(BOOL granted) {
-          if(granted){
-            return true;
-          } else {
-            return false;
-          }
-        }];
+        [AVCaptureDevice requestAccessForMediaType:mediaType completionHandler:^(BOOL granted){}];
+        return false;
       }
+  }
+}
+
+PictureSource *IosPlatformUtilities::getCameraPicture( const QString &prefix, const QString &pictureFilePath, const QString &suffix )
+{
+  if ( !checkCameraPermissions() )
+    return nullptr;
+    
+    //https://stackoverflow.com/questions/42172454/ios-uiimagecontroller-delegate-undeclared-error
+    
+//    SATController *vc = (__bridge SATController *)object;
+//    UIImagePickerController *picker = [UIImagePickerController new];
+//    picker.delegate = self;
+//    picker.sourceType = UIImagePickerControllerSourceTypeCamera;
+//    picker.allowsEditing = YES;
+//
+//    [self presentModalViewController:picker animated:YES];
+ 
+//  YourCurrentViewController *vc = (__bridge YourCurrentViewController *)object;
+//  UIImagePickerController *picker = [[UIImagePickerController alloc] init];
+//  picker.delegate = vc;
+//  picker.allowsEditing = YES;
+//  picker.sourceType = UIImagePickerControllerSourceTypeCamera;
+//  //[self presentViewController:picker animated:YES completion:nil];
+
+}
+
+- (void)cameraCapture {
+    UIImagePickerController *picker = [UIImagePickerController new];
+    picker.delegate = self;
 }

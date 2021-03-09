@@ -61,6 +61,12 @@
     <key>NSLocationWhenInUseUsageDescription</key>
     <string>Location required</string>
 
+    <key>NSCameraUsageDescription</key>
+    <string>Need to access your camera to capture a picture.</string>
+
+    <key>NSPhotoLibraryUsageDescription</key>
+    <string>Picture Library</string>
+
     <key>CSResourcesFileMapped</key>
     <true/>
 

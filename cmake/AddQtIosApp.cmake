@@ -395,7 +395,7 @@ function(add_qt_ios_app TARGET)
     if(QT_IOS_VERBOSE)
         message(STATUS "Add -e _qt_main_wrapper linker flag to ${QT_IOS_TARGET} to change application entry point to create UIApplication before QApplication")
     endif() # QT_IOS_VERBOSE
-    target_link_libraries(${QT_IOS_TARGET} PUBLIC ${QT_LIBRARIES} "-e _qt_main_wrapper")
+    target_link_libraries(${QT_IOS_TARGET} PUBLIC ${QT_LIBRARIES} "-framework AVFoundation" "-e _qt_main_wrapper")
 
     # Set XCode property for automatic code sign
     if(QT_IOS_CODE_SIGN_IDENTITY)

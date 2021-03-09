@@ -2146,3 +2146,4 @@ ApplicationWindow {
       isHovering: hoverHandler.hovered
   }
 }
+
