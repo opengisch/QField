@@ -6,8 +6,8 @@ CMAKE_MINIMUM_REQUIRED(VERSION 3.5)
 SET(CMAKE_COLOR_MAKEFILE ON)
 SET (APP_NAME "QField" CACHE STRING "Application Name")
 SET (APK_VERSION_CODE "1" CACHE STRING "Apk Version Code (Example: 1)")
-SET (APP_VERSION "1.0.0" CACHE STRING "Application Version (Example: 1.0.0)")
-SET (APP_VERSION_NAME "1.0.0 - dev" CACHE STRING "Application Version Name (Example: 1.0.0 - Homerun)")
+SET (APP_VERSION "" CACHE STRING "Application Version (Example: 1.0.0)")
+SET (APP_VERSION_STR "local - dev" CACHE STRING "Application Version Name (Example: 1.0.0 - Homerun)")
 SET (APP_PACKAGE_NAME "qfield" CACHE STRING "Package name suffix. E.g. qfield --> ch.opengis.qfield")
 
 STRING(REGEX REPLACE "v" "" CLEAN_APP_VERSION "${APP_VERSION}")
@@ -30,7 +30,7 @@ CMAKE_POLICY(SET CMP0071 NEW)
 
 ENABLE_TESTING()
 
-FIND_PACKAGE(Qt5 COMPONENTS Test Concurrent Core Qml Gui Xml Positioning Widgets Network Quick Svg OpenGL Sql Sensors WebView Charts REQUIRED)
+FIND_PACKAGE(Qt5 COMPONENTS Test Concurrent Core Qml Gui Xml Positioning Widgets Network Quick Svg OpenGL Sql Sensors WebView Bluetooth REQUIRED)
 # PrintSupport isn't required, because it doesn't exist for ios
 # qgis will deal with it an define a public 'QT_NO_PRINTER'
 FIND_PACKAGE(Qt5 COMPONENTS PrintSupport QUIET)
