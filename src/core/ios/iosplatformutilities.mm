@@ -120,7 +120,7 @@ PictureSource *IosPlatformUtilities::getCameraPicture( const QString &prefix, co
 
 }
 
-- (void)cameraCapture {
-    UIImagePickerController *picker = [UIImagePickerController new];
-    picker.delegate = self;
-}
+//- (void)cameraCapture {
+//    UIImagePickerController *picker = [UIImagePickerController new];
+//    picker.delegate = self;
+//}
