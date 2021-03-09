@@ -25,7 +25,7 @@ class IosPlatformUtilities : public PlatformUtilities
 {
   public:
     IosPlatformUtilities();
-    QString packagePath() const override;
+    QString systemGenericDataLocation() const override;
     bool checkPositioningPermissions() const override;
     bool checkCameraPermissions() const override;
     virtual PictureSource *getCameraPicture( const QString &prefix, const QString &pictureFilePath, const QString &suffix ) override;

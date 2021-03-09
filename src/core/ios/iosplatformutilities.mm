@@ -28,7 +28,7 @@ IosPlatformUtilities::IosPlatformUtilities()
 
 }
 
-QString IosPlatformUtilities::packagePath() const
+QString IosPlatformUtilities::systemGenericDataLocation() const
 {
   NSBundle *main = [NSBundle mainBundle];
   NSString *bundlePath = [main bundlePath];

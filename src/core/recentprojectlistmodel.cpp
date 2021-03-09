@@ -86,11 +86,9 @@ void RecentProjectListModel::reloadModel()
 
       if ( recentProject.value().path.endsWith( demoProject.path ) )
       {
-        QgsMessageLog::logMessage( "demo project found in recent " + demoProject.title );
-        // update path: on iOS the path seems to change at each run time
-        QString newPath = PlatformUtilities::instance()->packagePath() + demoProject.path;
-        QgsMessageLog::logMessage( newPath );
-        recentProject.value().path = newPath;
+        recentProject.value().path = demoProjectPath;
+        QgsMessageLog::logMessage( demoProjectPath );
+        recentProject.value().path = demoProjectPath;
         recentProject.value().demo = true;
         recentProjectsContainsDemoProject = true;
         break;
@@ -100,7 +98,7 @@ void RecentProjectListModel::reloadModel()
     {
       QgsMessageLog::logMessage( "adding demo project " + demoProject.title );
       mRecentProjects << demoProject;
-      mRecentProjects.last().path = PlatformUtilities::instance()->packagePath() + demoProject.path;
+      mRecentProjects.last().path = demoProjectPath;
     }
   }
 
