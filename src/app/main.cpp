@@ -107,9 +107,10 @@ int main( int argc, char **argv )
   app.setPluginPath( QApplication::applicationDirPath() );
   app.setPkgDataPath( PlatformUtilities::instance()->systemGenericDataLocation() + QStringLiteral( "/qgis" ) );
 #elif defined(Q_OS_IOS)
-  QString projPath = IosPlatformUtilities().packagePath() + QStringLiteral( "/proj" );
+  QString projPath = IosPlatformUtilities().systemGenericDataLocation() + QStringLiteral( "/proj" );
   qputenv( "PROJ_LIB", projPath.toUtf8() );
-  QgsApplication app( argc, argv, true, IosPlatformUtilities().packagePath() );
+  QgsApplication app( argc, argv, true, PlatformUtilities::instance()->systemGenericDataLocation() + QStringLiteral( "/qgis/resources" ) );
+  app.setPkgDataPath( PlatformUtilities::instance()->systemGenericDataLocation() + QStringLiteral( "/qgis" ) );
 #else
   QgsApplication app( argc, argv, true );
 #endif

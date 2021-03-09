@@ -932,10 +932,15 @@ bool QgisMobileapp::print( const QString &layoutName )
     PlatformUtilities::instance()->open( destination );
 
   return result == QgsLayoutExporter::Success ? true : false;
+#else
+#warning "No PrintSupport for iOs. QgisMobileapp::print won't do anything."
+  return false;
+#endif
 }
 
 bool QgisMobileapp::printAtlasFeatures( const QString &layoutName, const QList<long long> &featureIds )
 {
+#ifndef QT_NO_PRINTER
   const QList<QgsPrintLayout *> printLayouts = mProject->layoutManager()->printLayouts();
   QgsPrintLayout *layoutToPrint = nullptr;
   for( QgsPrintLayout *layout : printLayouts )
@@ -1012,6 +1017,7 @@ bool QgisMobileapp::printAtlasFeatures( const QString &layoutName, const QList<l
   return false;
 #else
 #warning "No PrintSupport for iOs. QgisMobileapp::print won't do anything."
+  return false;
 #endif
 }
 
