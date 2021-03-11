@@ -17,7 +17,7 @@
 #include <qgsapplication.h>
 #include <QDir>
 #include <QString>
-#include "qgsmessagelog.h"
+#include <qgsmessagelog.h>
 
 // NOTE directly setting does not work QgsApplication::qgisSettingsDirPath();
 QString QFieldCloudUtils::sQgisSettingsDirPath = QString();
