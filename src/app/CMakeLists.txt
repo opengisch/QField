@@ -84,11 +84,4 @@ IF(${CMAKE_SYSTEM_NAME} STREQUAL "iOS")
     VERBOSE
   )
 
-  #get_target_property(QField_LOCATION qfield LOCATION)
-  #add_custom_command(TARGET qfield
-  #                   POST_BUILD
-  #                   COMMAND mkdir -p ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/Release/qfield.app/Contents/Resources/
-  #                   COMMAND cp -r ${QFIELD_PROJ_DIR} ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/Release/qfield.app/Contents/Resources
-  #                  )
-
 ENDIF()

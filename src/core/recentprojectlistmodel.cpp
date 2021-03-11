@@ -70,9 +70,9 @@ void RecentProjectListModel::reloadModel()
   // update demo projects
   const QList<RecentProject> demoProjects
   {
-    RecentProject( LocalProject, QStringLiteral( "Simple Bee Farming Demo" ), QStringLiteral( "/qfield_resources/demo_projects/simple_bee_farming.qgs" ), true ),
-    RecentProject( LocalProject, QStringLiteral( "Advanced Bee Farming Demo" ), QStringLiteral( "/qfield_resources/demo_projects/advanced_bee_farming.qgs" ), true ),
-    RecentProject( LocalProject, QStringLiteral( "Live QField Users Survey Demo" ), QStringLiteral( "/qfield_resources/demo_projects/live_qfield_users_survey.qgs" ), true )
+    RecentProject( LocalProject, QStringLiteral( "Simple Bee Farming Demo" ), QStringLiteral( "/qfield/demo_projects/simple_bee_farming.qgs" ), true ),
+    RecentProject( LocalProject, QStringLiteral( "Advanced Bee Farming Demo" ), QStringLiteral( "/qfield/demo_projects/advanced_bee_farming.qgs" ), true ),
+    RecentProject( LocalProject, QStringLiteral( "Live QField Users Survey Demo" ), QStringLiteral( "/qfield/demo_projects/live_qfield_users_survey.qgs" ), true )
   };
   for ( const RecentProject &demoProject : demoProjects )
   {
