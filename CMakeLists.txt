@@ -117,24 +117,29 @@ IF (ANDROID)
 
   INCLUDE(CreateZip)
 
-  FILE(COPY resources DESTINATION "${OSGEO4A_STAGE_DIR}/${ANDROID_ABI}/files/") # should we rather INSTALL everything and create the package from the installation instead?
-  FILE(COPY "${OSGEO4A_STAGE_DIR}/${ANDROID_ABI}/share/proj/" DESTINATION "${OSGEO4A_STAGE_DIR}/${ANDROID_ABI}/files/share/proj/") # should we rather INSTALL everything and create the package from the installation instead?
+  set(SHARE_PATH "${CMAKE_CURRENT_BINARY_DIR}/android-build/assets/share")
+  FILE(COPY "${OSGEO4A_STAGE_DIR}/${ANDROID_ABI}/share/proj/" DESTINATION "${SHARE_PATH}/proj/")
 
-  FILE(GLOB_RECURSE asset_files "${OSGEO4A_STAGE_DIR}/${ANDROID_ABI}/files/share/resources/*" "${OSGEO4A_STAGE_DIR}/${ANDROID_ABI}/files/share/svg/*" "${OSGEO4A_STAGE_DIR}/${ANDROID_ABI}/files/resources/*" "${OSGEO4A_STAGE_DIR}/${ANDROID_ABI}/files/share/proj/*")
-  LIST(REMOVE_ITEM asset_files "${OSGEO4A_STAGE_DIR}/${ANDROID_ABI}/files/share/resources/data/world_map.gpkg")
-
-  CREATE_ZIP("${CMAKE_CURRENT_BINARY_DIR}/android-build/assets/assets.zip" "${asset_files}" "${OSGEO4A_STAGE_DIR}/${ANDROID_ABI}/files/")
-  ADD_CUSTOM_TARGET(assets ALL DEPENDS "${CMAKE_CURRENT_BINARY_DIR}/android-build/assets/assets.zip")
+  FILE(COPY "${OSGEO4A_STAGE_DIR}/${ANDROID_ABI}/files/share/svg/" DESTINATION "${SHARE_PATH}/qgis/svg/")
+  FILE(COPY "${OSGEO4A_STAGE_DIR}/${ANDROID_ABI}/files/share/resources/" DESTINATION "${SHARE_PATH}/qgis/resources/")
+  # Remove world map to keep apk size a bit smaller
+  FILE(REMOVE "${SHARE_PATH}/qgis/resources/data/world_map.gpkg")
+  FILE(COPY resources/ DESTINATION "${SHARE_PATH}/qfield/")
 
 ELSEIF (${CMAKE_SYSTEM_NAME} STREQUAL "iOS")
-  # we need to avoid having a folder named resources as iOS signing fails otherwise
-  FILE(COPY ${QGIS_APPLE_RESOURCES_DIR}/resources DESTINATION ${CMAKE_CURRENT_BINARY_DIR}/qgis_resources)
+  set(SHARE_PATH "${CMAKE_CURRENT_BINARY_DIR}/share")
+
+  # keep trailing slash for QField to rename the directory (instead of copying in subdir)
+  FILE(COPY ${CMAKE_CURRENT_SOURCE_DIR}/resources/ DESTINATION ${SHARE_PATH}/qfield)
+  FILE(COPY ${QGIS_APPLE_RESOURCES_DIR}/resources DESTINATION ${SHARE_PATH}/qgis)
+
+  # Remove world map to keep apk size a bit smaller
+  FILE(REMOVE "${SHARE_PATH}/qgis/resources/data/world_map.gpkg")
 
   set(QFIELD_RESOURCE_FILES
     ${QFIELD_PROJ_DIR}
-    ${CMAKE_CURRENT_SOURCE_DIR}/resources/demo_projects
     ${QGIS_APPLE_RESOURCES_DIR}/svg
-    ${CMAKE_CURRENT_BINARY_DIR}/qgis_resources
+    ${SHARE_PATH}
     )
 ENDIF()
 

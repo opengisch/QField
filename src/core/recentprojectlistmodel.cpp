@@ -66,13 +66,13 @@ void RecentProjectListModel::reloadModel()
     settings.endGroup();
   }
   settings.endGroup();
-  
+
   // update demo projects
   const QList<RecentProject> demoProjects
   {
-    RecentProject( LocalProject, QStringLiteral( "Simple Bee Farming Demo" ), QStringLiteral( "/qfield/demo_projects/simple_bee_farming.qgs" ), true ),
-    RecentProject( LocalProject, QStringLiteral( "Advanced Bee Farming Demo" ), QStringLiteral( "/qfield/demo_projects/advanced_bee_farming.qgs" ), true ),
-    RecentProject( LocalProject, QStringLiteral( "Live QField Users Survey Demo" ), QStringLiteral( "/qfield/demo_projects/live_qfield_users_survey.qgs" ), true )
+    RecentProject( LocalProject, QStringLiteral( "Simple Bee Farming Demo" ), QStringLiteral( "/qfield_resources/demo_projects/simple_bee_farming.qgs" ), true ),
+    RecentProject( LocalProject, QStringLiteral( "Advanced Bee Farming Demo" ), QStringLiteral( "/qfield_resources/demo_projects/advanced_bee_farming.qgs" ), true ),
+    RecentProject( LocalProject, QStringLiteral( "Live QField Users Survey Demo" ), QStringLiteral( "/qfield_resources/demo_projects/live_qfield_users_survey.qgs" ), true )
   };
   for ( const RecentProject &demoProject : demoProjects )
   {
@@ -87,8 +87,6 @@ void RecentProjectListModel::reloadModel()
       if ( recentProject.value().path.endsWith( demoProject.path ) )
       {
         recentProject.value().path = demoProjectPath;
-        QgsMessageLog::logMessage( demoProjectPath );
-        recentProject.value().path = demoProjectPath;
         recentProject.value().demo = true;
         recentProjectsContainsDemoProject = true;
         break;
@@ -96,7 +94,6 @@ void RecentProjectListModel::reloadModel()
     }
     if ( !recentProjectsContainsDemoProject )
     {
-      QgsMessageLog::logMessage( "adding demo project " + demoProject.title );
       mRecentProjects << demoProject;
       mRecentProjects.last().path = demoProjectPath;
     }

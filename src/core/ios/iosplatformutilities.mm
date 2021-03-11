@@ -33,7 +33,7 @@ QString IosPlatformUtilities::systemGenericDataLocation() const
   NSBundle *main = [NSBundle mainBundle];
   NSString *bundlePath = [main bundlePath];
   QString path = [bundlePath UTF8String];
-  return path;
+  return path + "/share";
 }
 
 
