@@ -133,11 +133,11 @@ ELSEIF (${CMAKE_SYSTEM_NAME} STREQUAL "iOS")
   # keep trailing slash for QField to rename the directory (instead of copying in subdir)
   FILE(COPY ${CMAKE_CURRENT_SOURCE_DIR}/resources/ DESTINATION ${SHARE_PATH}/qfield)
   FILE(COPY ${QGIS_APPLE_RESOURCES_DIR}/resources DESTINATION ${SHARE_PATH}/qgis)
+  FILE(COPY ${QFIELD_PROJ_DIR} DESTINATION ${SHARE_PATH})
   # Remove world map to keep apk size a bit smaller
   FILE(REMOVE "${SHARE_PATH}/qgis/resources/data/world_map.gpkg")
 
   set(QFIELD_RESOURCE_FILES
-    ${QFIELD_PROJ_DIR}
     ${QGIS_APPLE_RESOURCES_DIR}/svg
     ${SHARE_PATH}
     )
