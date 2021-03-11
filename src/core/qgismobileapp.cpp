@@ -193,7 +193,7 @@ QgisMobileapp::QgisMobileapp( QgsApplication *app, QObject *parent )
 
   mProject = QgsProject::instance();
   mGpkgFlusher = std::make_unique<QgsGpkgFlusher>( mProject );
-  mLayerObserver.reset( new LayerObserver( mProject ) );
+  mLayerObserver = std::make_unique<LayerObserver>( mProject );
   mFlatLayerTree = new FlatLayerTreeModel( mProject->layerTreeRoot(), mProject, this );
   mLegendImageProvider = new LegendImageProvider( mFlatLayerTree->layerTreeModel() );
   mTrackingModel = new TrackingModel;
