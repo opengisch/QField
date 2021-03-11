@@ -53,12 +53,14 @@ VisibilityFadingRow {
       {
         displayToast( qsTr( 'Feature could not be split' ) );
         featureModel.currentLayer.rollBack()
+        rubberbandModel.reset()
         cancel()
         finished()
       }
       else
       {
         featureModel.currentLayer.commitChanges()
+        rubberbandModel.reset()
         cancel()
         finished()
       }
