@@ -798,7 +798,7 @@ bool DeltaFileWrapper::applyInternal( bool shouldApplyInReverse )
         vectorLayers[layerId] = nullptr;
       else
       {
-        QgsMessageLog::logMessage( QStringLiteral( "Failed to commit layer with id \"%1\", all the rest layers will be rollbacked" ).arg( layerId ) );
+        QgsMessageLog::logMessage( QStringLiteral( "Failed to commit layer with id \"%1\", all the rest layers will be rolled back" ).arg( layerId ) );
         isSuccess = false;
         break;
       }
