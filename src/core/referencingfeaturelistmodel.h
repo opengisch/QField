@@ -24,10 +24,12 @@
 //used for gatherer
 #include <QThread>
 
+#include "qfield_core_export.h"
+
 class QgsVectorLayer;
 class FeatureGatherer;
 
-class ReferencingFeatureListModel : public QAbstractItemModel
+class QFIELD_CORE_EXPORT ReferencingFeatureListModel : public QAbstractItemModel
 {
     Q_OBJECT
 

@@ -25,6 +25,7 @@
 #include <qgsmaplayer.h>
 #include <qgsrectangle.h>
 
+#include "qfield_core_export.h"
 
 class QgsProject;
 
@@ -41,7 +42,7 @@ class QgsProject;
  * \sa QgsMapCanvas
  *
  */
-class QgsQuickMapSettings : public QObject
+class QFIELD_CORE_EXPORT QgsQuickMapSettings : public QObject
 {
     Q_OBJECT
 

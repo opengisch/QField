@@ -21,11 +21,13 @@
 #include <qgsgeometry.h>
 #include <qgsfeature.h>
 
+#include "qfield_core_export.h"
+
 class QgsVectorLayer;
 class RubberbandModel;
 
 
-class GeometryUtils : public QObject
+class QFIELD_CORE_EXPORT GeometryUtils : public QObject
 {
     Q_OBJECT
   public:
