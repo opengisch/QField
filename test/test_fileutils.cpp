@@ -54,7 +54,7 @@ class TestFileUtils: public QObject
       QCOMPARE( FileUtils::fileSuffix( QStringLiteral( "../path/to/filename.suffix" ) ), QStringLiteral( "suffix" ) );
       QCOMPARE( FileUtils::fileSuffix( QStringLiteral( "/path/to/filename.suffix" ) ), QStringLiteral( "suffix" ) );
       QCOMPARE( FileUtils::fileSuffix( QStringLiteral( "filename.dbl.suffix" ) ), QStringLiteral( "suffix" ) );
-      QCOMPARE( FileUtils::fileSuffix( QStringLiteral( "nosuffix" ) ), QStringLiteral( "" ) );
+      QCOMPARE( FileUtils::fileSuffix( QStringLiteral( "nosuffix" ) ), QString() );
     }
 
 

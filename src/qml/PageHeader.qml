@@ -9,6 +9,7 @@ ToolBar {
   property alias title: titleLabel.text
   property alias showApplyButton: applyButton.visible
   property alias showCancelButton: cancelButton.visible
+  property alias busyIndicatorState: busyIndicator.state
 
   height: 48
 
@@ -23,7 +24,46 @@ ToolBar {
   }
 
   background: Rectangle {
+    id: backgroundRect
     color: Theme.mainColor
+
+    ProgressBar {
+      id: busyIndicator
+      anchors.top: parent.bottom
+      anchors.left: parent.left
+      width: parent.width
+      height: 6
+      value: 50
+      indeterminate: true
+
+      state: "off"
+
+      visible: opacity > 0
+
+      states: [
+          State { name: 'on'
+                  PropertyChanges { target: busyIndicator; opacity: 1.0 }},
+          State { name: 'off'
+                  PropertyChanges { target: busyIndicator; opacity: 0.0 }}
+      ]
+      transitions: [
+        Transition {
+          from: "off"
+          to: "on"
+          SequentialAnimation {
+            NumberAnimation { target: busyIndicator; property: 'opacity'; duration: 100; }
+          }
+        },
+        Transition {
+          from: "on"
+          to: "off"
+          SequentialAnimation {
+            PauseAnimation { duration: 100 }
+            NumberAnimation { target: busyIndicator; property: 'opacity'; duration: 200; }
+          }
+        }
+      ]
+    }
   }
   Material.foreground: undefined
 

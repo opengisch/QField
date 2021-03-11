@@ -54,6 +54,7 @@ class LegendImageProvider;
 class TrackingModel;
 class LocatorFiltersModel;
 class QgsProject;
+class LayerObserver;
 
 
 #define REGISTER_SINGLETON(uri, _class, name) qmlRegisterSingletonType<_class>( uri, 1, 0, name, [] ( QQmlEngine *engine, QJSEngine *scriptEngine ) -> QObject * { Q_UNUSED(engine); Q_UNUSED(scriptEngine); return new _class(); } )
@@ -181,6 +182,7 @@ class QgisMobileapp : public QQmlApplicationEngine
     QString mProjectFileName;
 
     std::unique_ptr<QgsGpkgFlusher> mGpkgFlusher;
+    std::unique_ptr<LayerObserver> mLayerObserver;
     QFieldAppAuthRequestHandler *mAuthRequestHandler = nullptr;
 
     // Dummy objects. We are not able to call static functions from QML, so we need something here.

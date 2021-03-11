@@ -62,6 +62,8 @@
         <file>QuestionDialog.qml</file>
         <file>ImageDial.qml</file>
         <file>SystemLoader.qml</file>
+        <file>QFieldCloudLogin.qml</file>
+        <file>QFieldCloudScreen.qml</file>
+        <file>QFieldCloudPopup.qml</file>
     </qresource>
-    <qresource prefix="/"/>
 </RCC>

@@ -13,6 +13,7 @@ Item {
     property string iconSource: ''
     property alias checked: button.checked
     property alias checkable: button.checkable
+    property alias enabled: button.enabled
     property bool round: false
     property bool roundborder: false
     property alias text: button.text

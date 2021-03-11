@@ -18,6 +18,7 @@
 #define FILEUTILS_H
 
 #include <QObject>
+#include <QCryptographicHash>
 #include <qgsfeedback.h>
 
 class FileUtils : public QObject
@@ -38,6 +39,14 @@ class FileUtils : public QObject
     //! returns the suffix (extension)
     Q_INVOKABLE static QString fileSuffix( const QString &filePath );
     static bool copyRecursively( const QString &sourceFolder, const QString &destFolder, QgsFeedback *feedback );
+    /**
+     * Creates checksum of a file. Returns null QByteArray if cannot be calculated.
+     *
+     * @param fileName file name to get checksum of
+     * @param hashAlgorithm hash algorithm (md5, sha1, sha256 etc)
+     * @return QByteArray checksum
+     */
+    Q_INVOKABLE static QByteArray fileChecksum( const QString &fileName, const QCryptographicHash::Algorithm hashAlgorithm = QCryptographicHash::Sha256 );
 
   private:
     static int copyRecursivelyPrepare(const QString &sourceFolder, const QString &destFolder, QList<QPair<QString, QString> > &mapping );

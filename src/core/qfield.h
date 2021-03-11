@@ -1,5 +1,5 @@
 /***************************************************************************
-                        stringutils.cpp
+                        qfield.h
                         ---------------
   begin                : Jun 2020
   copyright            : (C) 2020 by Ivan Ivanov
@@ -40,7 +40,7 @@ namespace qfield
   class asKeyValueRange
   {
     public:
-      asKeyValueRange( T &data )
+      explicit asKeyValueRange( T &data )
         : mData{data}
       {
       }

@@ -84,14 +84,14 @@ Page {
 
     Label {
       text: qsTr( "You may check the Portable Project section in the QField documentation for more help." )
-      font.pointSize: 14
-      font.italic: true
+      font: Theme.tipFont
 
       wrapMode: Text.WordWrap
       Layout.fillWidth: true
       Layout.fillHeight: true
       Layout.minimumHeight: contentHeight
       Layout.maximumHeight: contentHeight
+      Layout.topMargin: 5
     }
   }
 }

@@ -99,3 +99,12 @@ QgsExpressionContextScope *ExpressionContextUtils::mapToolCaptureScope( const Sn
 
   return scope;
 }
+
+QgsExpressionContextScope *ExpressionContextUtils::cloudUserScope(const CloudUserInformation &cloudUserInformation)
+{
+    QgsExpressionContextScope *scope = new QgsExpressionContextScope( QObject::tr( "Cloud User Info" ) );
+
+    scope->addVariable( QgsExpressionContextScope::StaticVariable( QStringLiteral( "cloud_username" ), cloudUserInformation.username, true, true ) );
+    scope->addVariable( QgsExpressionContextScope::StaticVariable( QStringLiteral( "cloud_useremail" ), cloudUserInformation.email, true, true ) );
+    return scope;
+}

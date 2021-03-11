@@ -25,6 +25,7 @@
 #include <qgsfeature.h>
 #include "snappingresult.h"
 #include "gnsspositioninformation.h"
+#include "qfieldcloudconnection.h"
 
 #include "geometry.h"
 
@@ -45,6 +46,7 @@ class FeatureModel : public QAbstractListModel
     Q_PROPERTY( GnssPositionInformation positionInformation READ positionInformation WRITE setPositionInformation NOTIFY positionInformationChanged )
     Q_PROPERTY( SnappingResult topSnappingResult READ topSnappingResult WRITE setTopSnappingResult NOTIFY topSnappingResultChanged )
     Q_PROPERTY( bool positionLocked READ positionLocked WRITE setPositionLocked NOTIFY positionLockedChanged )
+    Q_PROPERTY( CloudUserInformation cloudUserInformation WRITE setCloudUserInformation );
 
     //! keeping the information what attributes are remembered and the last edited feature
     struct RememberValues
@@ -213,6 +215,8 @@ class FeatureModel : public QAbstractListModel
      */
     void setPositionLocked( bool positionLocked );
 
+    void setCloudUserInformation( const CloudUserInformation &cloudUserInformation );
+
   public slots:
     void applyGeometry();
     void removeLayer( QObject *layer );
@@ -258,6 +262,7 @@ class FeatureModel : public QAbstractListModel
     Geometry *mGeometry = nullptr;
     GnssPositionInformation mPositionInformation;
     SnappingResult mTopSnappingResult;
+    CloudUserInformation mCloudUserInformation;
     QString mTempName;
     QMap<QgsVectorLayer *, RememberValues> mRememberings;
     bool mPositionLocked = false;
