@@ -86,6 +86,7 @@ void RecentProjectListModel::reloadModel()
 
       if ( recentProject.value().path.endsWith( demoProject.path ) )
       {
+        // update path: on iOS the path seems to change at each run time
         recentProject.value().path = demoProjectPath;
         recentProject.value().demo = true;
         recentProjectsContainsDemoProject = true;
