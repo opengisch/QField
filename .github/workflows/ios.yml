@@ -48,9 +48,9 @@ jobs:
     - name: ⬆️ Install Qt
       uses: jurplel/install-qt-action@v2
       with:
-        version: ${{ matrix.version }}
+        version: ${{ matrix.qt-version }}
         target: ios
-        dir: ${{ github.workspace }}/Qt-${{ runner.os }}-${{ matrix.version }}
+        dir: ${{ github.workspace }}/Qt-${{ runner.os }}-${{ matrix.qt-version }}
         modules: 'qtcharts'
         cached: ${{ steps.cache-qt.outputs.cache-hit }}
 
