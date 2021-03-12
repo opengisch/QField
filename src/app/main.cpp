@@ -113,11 +113,11 @@ int main( int argc, char **argv )
   app.setPkgDataPath( PlatformUtilities::instance()->systemGenericDataLocation() + QStringLiteral( "/qgis" ) );
 #else
   QgsApplication app( argc, argv, true );
-#endif
-
   QSettings settings;
   app.setThemeName( settings.value( "/Themes", "default" ).toString() );
   app.setPrefixPath( CMAKE_INSTALL_PREFIX, true );
+#endif
+
   app.initQgis();
 
   //set NativeFormat for settings
