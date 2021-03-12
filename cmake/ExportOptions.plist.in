@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>method</key>
+    <string>${QT_IOS_DISTRIBUTION_METHOD}</string>
+    ${QT_IOS_PROVISIONING_PROFILES_KEY}
+    <key>signingCertificate</key>
+    <string>${QT_IOS_CODE_SIGN_IDENTITY}</string>
+    <key>signingStyle</key>
+    <string>${QT_IOS_EXPORT_SIGNING_TYPE}</string>
+    <key>stripSwiftSymbols</key>
+    <true/>
+    <key>teamID</key>
+    <string>${QT_IOS_TEAM_ID}</string>
+    ${QT_IOS_UPLOAD_SYMBOL_KEY}
+    ${QT_IOS_ENABLE_BITCODE_KEY}
+</dict>
+</plist>

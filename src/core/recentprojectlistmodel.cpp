@@ -66,7 +66,7 @@ void RecentProjectListModel::reloadModel()
     settings.endGroup();
   }
   settings.endGroup();
-  
+
   // update demo projects
   const QList<RecentProject> demoProjects
   {

@@ -1,6 +1,8 @@
 #############################################################
 # CMake settings
 CMAKE_MINIMUM_REQUIRED(VERSION 3.5)
+
+
 SET(CMAKE_COLOR_MAKEFILE ON)
 SET (APP_NAME "QField" CACHE STRING "Application Name")
 SET (APK_VERSION_CODE "1" CACHE STRING "Apk Version Code (Example: 1)")
@@ -26,13 +28,6 @@ ADD_DEFINITIONS(-DAPP_VERSION_STR="${APP_VERSION_STR}")
 ADD_DEFINITIONS(-DGIT_REV="${GIT_REV}")
 
 CMAKE_POLICY(SET CMP0071 NEW)
-
-ENABLE_TESTING()
-FIND_PACKAGE(QGIS)
-FIND_PACKAGE(Proj)
-FIND_PACKAGE(GDAL)
-
-SET(QT_MIN_VERSION 5.14.0)
 
 SET (DEFAULT_BIN_SUBDIR     bin)
 SET (DEFAULT_CGIBIN_SUBDIR  bin)
@@ -61,6 +56,18 @@ SET (CMAKE_RUNTIME_OUTPUT_DIRECTORY ${QFIELD_OUTPUT_DIRECTORY}/${QFIELD_BIN_SUBD
 SET (CMAKE_LIBRARY_OUTPUT_DIRECTORY ${QFIELD_OUTPUT_DIRECTORY}/${QFIELD_LIB_SUBDIR})
 
 install(DIRECTORY ${CMAKE_SOURCE_DIR}/resources/ DESTINATION ${CMAKE_INSTALL_PREFIX}/share/qfield)
+
+SET(QT_MIN_VERSION 5.14.0)
+FIND_PACKAGE(Qt5 COMPONENTS Test Concurrent Core Qml Gui Xml Positioning Widgets Network Quick Svg OpenGL Sql Sensors WebView Bluetooth REQUIRED)
+# PrintSupport isn't required, because it doesn't exist for ios
+# qgis will deal with it an define a public 'QT_NO_PRINTER'
+FIND_PACKAGE(Qt5 COMPONENTS PrintSupport QUIET)
+
+FIND_PACKAGE(QGIS REQUIRED)
+IF(NOT APPLE)
+  FIND_PACKAGE(Proj)
+  FIND_PACKAGE(GDAL)
+ENDIF()
 
 IF (ANDROID)
   ADD_DEFINITIONS(-DQGIS_INSTALL_DIR="") # TODO: do we need osgeo4a/[lib]/files here? see qgis.pri
@@ -115,11 +122,29 @@ IF (ANDROID)
   # Remove world map to keep apk size a bit smaller
   FILE(REMOVE "${SHARE_PATH}/qgis/resources/data/world_map.gpkg")
   FILE(COPY resources/ DESTINATION "${SHARE_PATH}/qfield/")
-ENDIF (ANDROID)
 
-FIND_PACKAGE(Qt5 COMPONENTS Test Concurrent Core Qml Gui Xml Positioning Widgets PrintSupport Network Quick Svg OpenGL Sql PrintSupport Sensors WebView Bluetooth REQUIRED)
+ELSEIF (${CMAKE_SYSTEM_NAME} STREQUAL "iOS")
+  ADD_DEFINITIONS(-DQT_NO_PRINTER)
+
+  set(SHARE_PATH "${CMAKE_CURRENT_BINARY_DIR}/share/")
+
+  # keep trailing slash for QField to rename the directory (instead of copying in subdir)
+  FILE(COPY ${CMAKE_CURRENT_SOURCE_DIR}/resources/ DESTINATION ${SHARE_PATH}/qfield)
+  FILE(COPY ${QGIS_APPLE_RESOURCES_DIR}/resources DESTINATION ${SHARE_PATH}/qgis)
+  FILE(COPY ${QGIS_APPLE_RESOURCES_DIR}/svg DESTINATION ${SHARE_PATH}/qgis)
+  FILE(COPY ${QFIELD_PROJ_DIR} DESTINATION ${SHARE_PATH})
+  # Remove world map to keep apk size a bit smaller
+  FILE(REMOVE "${SHARE_PATH}/qgis/resources/data/world_map.gpkg")
+
+  set(QFIELD_RESOURCE_FILES ${SHARE_PATH})
+ENDIF()
+
+set (ENABLE_TESTS TRUE CACHE BOOL "Build unit tests?")
 
 ADD_SUBDIRECTORY(3rdparty/tessellate)
 ADD_SUBDIRECTORY(src/core)
 ADD_SUBDIRECTORY(src/app)
-ADD_SUBDIRECTORY(test)
+if (ENABLE_TESTS)
+  ENABLE_TESTING()
+  ADD_SUBDIRECTORY(test)
+endif()

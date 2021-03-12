@@ -43,6 +43,8 @@
 #include "platformutilities.h"
 #if defined(Q_OS_ANDROID)
 #include "androidplatformutilities.h"
+#elif defined(Q_OS_IOS)
+#include "ios/iosplatformutilities.h"
 #endif
 
 class AppInterface;
