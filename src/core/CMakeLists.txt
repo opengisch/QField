@@ -167,7 +167,7 @@ if (ANDROID)
     androidviewstatus.cpp
     androidprojectsource.cpp
   )
-elseif()
+elseif(${CMAKE_SYSTEM_NAME} STREQUAL "iOS")
   set(QFIELD_CORE_HDRS ${QFIELD_CORE_HDRS}
     ios/iosplatformutilities.h
   )
