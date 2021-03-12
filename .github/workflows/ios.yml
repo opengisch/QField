@@ -92,14 +92,14 @@ jobs:
           -DQT_IOS_PROVISIONING_PROFILE_SPECIFIER=${{ secrets.IOS_PROVISIONING_PROFILE_SPECIFIER }} \
           -B ./build/ -S .
 
+    - name: Setup tmate session
+      uses: mxschmitt/action-tmate@v3
+
     - name: 🔨 Build qfield
       run: cmake --build build --target qfield --config "${{ matrix.build-type }}"
 
     - name: 🔨 Build qfield Archive
       run: cmake --build build --target qfieldArchive --config "${{ matrix.build-type }}"
-
-    - name: Setup tmate session
-      uses: mxschmitt/action-tmate@v3
 
     - name: 🚀 Deploy qfield Ipa
       run: cmake --build build --target qfieldIpa --config "${{ matrix.build-type }}"
