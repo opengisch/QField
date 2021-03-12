@@ -1,5 +1,5 @@
 
-name: Backport
+name: ♻ Backport
 on:
   pull_request:
     types:
