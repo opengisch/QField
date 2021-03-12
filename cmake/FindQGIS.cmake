@@ -107,10 +107,12 @@ ELSE(WIN32)
         ${QGIS_INCLUDE_DIR}
         ${QGIS_ANALYSIS_INCLUDE_DIR}
       )
+
+      # qgis_core is an archive without extensions for ios
+      SET(CMAKE_FIND_LIBRARY_SUFFIXES ${CMAKE_FIND_LIBRARY_SUFFIXES} "")
     ENDIF (APPLE)
 
-    # qgis_core is an ar archive without extensions for ios
-    SET(CMAKE_FIND_LIBRARY_SUFFIXES ${CMAKE_FIND_LIBRARY_SUFFIXES} "")
+
     FIND_LIBRARY(QGIS_CORE_LIBRARY
       NAMES qgis_core
       PATHS
