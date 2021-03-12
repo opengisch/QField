@@ -1,7 +1,7 @@
 
-PROJECT(libtess)
+project(libtess)
 
-SET(TESS_SRC
+set(TESS_SRC
   dict.c  
   geom.c  
   # main.c  
@@ -17,21 +17,21 @@ SET(TESS_SRC
   tessmono.c
 )
 
-INCLUDE_DIRECTORIES(include)
+include_directories(include)
 
-SET (CMAKE_POSITION_INDEPENDENT_CODE TRUE)
+set (CMAKE_POSITION_INDEPENDENT_CODE TRUE)
 
-ADD_LIBRARY(tess STATIC ${TESS_SRC})
-IF(NOT MSVC)
-    TARGET_LINK_LIBRARIES(tess m)
-ENDIF(NOT MSVC)
-
-
-SET_PROPERTY(TARGET tess PROPERTY AUTOMOC OFF)
-SET_PROPERTY(TARGET tess PROPERTY AUTOUIC OFF)
-SET_PROPERTY(TARGET tess PROPERTY AUTOGEN OFF)
-SET_PROPERTY(TARGET tess PROPERTY AUTORCC OFF)
+add_library(tess STATIC ${TESS_SRC})
+if(NOT MSVC)
+    target_link_libraries(tess m)
+endif()
 
 
-# ADD_EXECUTABLE(tess_example main.c)
-# TARGET_LINK_LIBRARIES(tess_example tess)
+set_property(TARGET tess PROPERTY AUTOMOC OFF)
+set_property(TARGET tess PROPERTY AUTOUIC OFF)
+set_property(TARGET tess PROPERTY AUTOGEN OFF)
+set_property(TARGET tess PROPERTY AUTORCC OFF)
+
+
+# add_executable(tess_example main.c)
+# target_link_libraries(tess_example tess)
