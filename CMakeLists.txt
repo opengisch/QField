@@ -29,20 +29,6 @@ ADD_DEFINITIONS(-DGIT_REV="${GIT_REV}")
 
 CMAKE_POLICY(SET CMP0071 NEW)
 
-ENABLE_TESTING()
-
-FIND_PACKAGE(Qt5 COMPONENTS Test Concurrent Core Qml Gui Xml Positioning Widgets Network Quick Svg OpenGL Sql Sensors WebView Bluetooth REQUIRED)
-# PrintSupport isn't required, because it doesn't exist for ios
-# qgis will deal with it an define a public 'QT_NO_PRINTER'
-FIND_PACKAGE(Qt5 COMPONENTS PrintSupport QUIET)
-FIND_PACKAGE(QGIS REQUIRED)
-IF(NOT APPLE)
-  FIND_PACKAGE(Proj)
-  FIND_PACKAGE(GDAL)
-ENDIF()
-
-SET(QT_MIN_VERSION 5.14.0)
-
 SET (DEFAULT_BIN_SUBDIR     bin)
 SET (DEFAULT_CGIBIN_SUBDIR  bin)
 SET (DEFAULT_LIB_SUBDIR     lib${LIB_SUFFIX})
@@ -70,6 +56,18 @@ SET (CMAKE_RUNTIME_OUTPUT_DIRECTORY ${QFIELD_OUTPUT_DIRECTORY}/${QFIELD_BIN_SUBD
 SET (CMAKE_LIBRARY_OUTPUT_DIRECTORY ${QFIELD_OUTPUT_DIRECTORY}/${QFIELD_LIB_SUBDIR})
 
 install(DIRECTORY ${CMAKE_SOURCE_DIR}/resources/ DESTINATION ${CMAKE_INSTALL_PREFIX}/share/qfield)
+
+SET(QT_MIN_VERSION 5.14.0)
+FIND_PACKAGE(Qt5 COMPONENTS Test Concurrent Core Qml Gui Xml Positioning Widgets Network Quick Svg OpenGL Sql Sensors WebView Bluetooth REQUIRED)
+# PrintSupport isn't required, because it doesn't exist for ios
+# qgis will deal with it an define a public 'QT_NO_PRINTER'
+FIND_PACKAGE(Qt5 COMPONENTS PrintSupport QUIET)
+
+FIND_PACKAGE(QGIS REQUIRED)
+IF(NOT APPLE)
+  FIND_PACKAGE(Proj)
+  FIND_PACKAGE(GDAL)
+ENDIF()
 
 IF (ANDROID)
   ADD_DEFINITIONS(-DQGIS_INSTALL_DIR="") # TODO: do we need osgeo4a/[lib]/files here? see qgis.pri
@@ -147,5 +145,6 @@ ADD_SUBDIRECTORY(3rdparty/tessellate)
 ADD_SUBDIRECTORY(src/core)
 ADD_SUBDIRECTORY(src/app)
 if (ENABLE_TESTS)
+  ENABLE_TESTING()
   ADD_SUBDIRECTORY(test)
 endif()
