@@ -110,8 +110,21 @@ IF (ANDROID)
   # Remove world map to keep apk size a bit smaller
   FILE(REMOVE "${SHARE_PATH}/qgis/resources/data/world_map.gpkg")
   FILE(COPY resources/ DESTINATION "${SHARE_PATH}/qfield/")
+ENDIF()
 
-ELSEIF (${CMAKE_SYSTEM_NAME} STREQUAL "iOS")
+SET(QT_MIN_VERSION 5.14.0)
+FIND_PACKAGE(Qt5 COMPONENTS Test Concurrent Core Qml Gui Xml Positioning Widgets Network Quick Svg OpenGL Sql Sensors WebView Bluetooth REQUIRED)
+# PrintSupport isn't required, because it doesn't exist for ios
+# qgis will deal with it an define a public 'QT_NO_PRINTER'
+FIND_PACKAGE(Qt5 COMPONENTS PrintSupport QUIET)
+
+FIND_PACKAGE(QGIS REQUIRED)
+IF(NOT APPLE)
+  FIND_PACKAGE(Proj)
+  FIND_PACKAGE(GDAL)
+ENDIF()
+
+IF (${CMAKE_SYSTEM_NAME} STREQUAL "iOS")
   ADD_DEFINITIONS(-DQT_NO_PRINTER)
 
   set(SHARE_PATH "${CMAKE_CURRENT_BINARY_DIR}/share/")
@@ -125,18 +138,6 @@ ELSEIF (${CMAKE_SYSTEM_NAME} STREQUAL "iOS")
   FILE(REMOVE "${SHARE_PATH}/qgis/resources/data/world_map.gpkg")
 
   set(QFIELD_RESOURCE_FILES ${SHARE_PATH})
-ENDIF()
-
-SET(QT_MIN_VERSION 5.14.0)
-FIND_PACKAGE(Qt5 COMPONENTS Test Concurrent Core Qml Gui Xml Positioning Widgets Network Quick Svg OpenGL Sql Sensors WebView Bluetooth REQUIRED)
-# PrintSupport isn't required, because it doesn't exist for ios
-# qgis will deal with it an define a public 'QT_NO_PRINTER'
-FIND_PACKAGE(Qt5 COMPONENTS PrintSupport QUIET)
-
-FIND_PACKAGE(QGIS REQUIRED)
-IF(NOT APPLE)
-  FIND_PACKAGE(Proj)
-  FIND_PACKAGE(GDAL)
 ENDIF()
 
 set (ENABLE_TESTS TRUE CACHE BOOL "Build unit tests?")
