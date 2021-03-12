@@ -81,7 +81,7 @@ jobs:
           -G "Xcode" \
           -DCMAKE_PREFIX_PATH=${{ github.workspace }}/OSGeo4I/arm64 \
           -DCMAKE_TOOLCHAIN_FILE=${{ github.workspace }}/OSGeo4I/cmake/ios.toolchain.cmake \
-          -DCMAKE_CONFIGURATION_TYPES="Release" \
+          -DCMAKE_CONFIGURATION_TYPES="${{ matrix.build-type }}" \
           -DDEPLOYMENT_TARGET=${{ matrix.deployment-target }} \
           -DPLATFORM=${{ matrix.platform }} \
           -DENABLE_VISIBILITY=FALSE \
@@ -97,6 +97,9 @@ jobs:
 
     - name: 🔨 Build qfield Archive
       run: cmake --build build --target qfieldArchive --config "${{ matrix.build-type }}"
+
+    - name: Setup tmate session
+      uses: mxschmitt/action-tmate@v3
 
     - name: 🚀 Deploy qfield Ipa
       run: cmake --build build --target qfieldIpa --config "${{ matrix.build-type }}"
