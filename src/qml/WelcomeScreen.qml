@@ -3,6 +3,7 @@ import QtQuick.Controls 2.12
 import QtQuick.Layouts 1.12
 import QtQuick.Particles 2.0
 
+import org.qfield 1.0
 import Theme 1.0
 
 Page {
@@ -12,6 +13,7 @@ Page {
 
   property alias model: table.model
   signal showOpenProjectDialog
+  signal showQFieldCloudScreen
 
   Rectangle {
     id: welcomeBackground
@@ -89,18 +91,20 @@ Page {
         spacing: 12
 
         QfButton {
+          id: cloudProjectButton
+          Layout.fillWidth: true
+          text: qsTr( "QFieldCloud projects" )
+          onClicked: {
+            showQFieldCloudScreen()
+          }
+        }
+        QfButton {
           id: localProjectButton
           Layout.fillWidth: true
           text: qsTr( "Open local file" )
           onClicked: {
             showOpenProjectDialog()
           }
-        }
-        QfButton {
-          id: cloudProjectButton
-          Layout.fillWidth: true
-          text: qsTr( "QField Cloud projects, coming soon" )
-          enabled: false
         }
 
         Text {
@@ -133,6 +137,7 @@ Page {
             id: rectangle
             property string path: ProjectPath
             property string title: ProjectTitle
+            property var type: ProjectType
             width: parent ? parent.width : undefined
             height: line.height
             color: "transparent"
@@ -150,9 +155,9 @@ Page {
                 anchors.verticalCenter: inner.verticalCenter
                 source: switch(ProjectType) {
                         case 0: return Theme.getThemeIcon('ic_map_green_48dp'); // local project
-                        case 1: return ''; // cloud project
+                        case 1: return Theme.getThemeIcon('ic_cloud_project_48dp'); // cloud project
                         case 2: return Theme.getThemeIcon('ic_file_green_48dp'); // local dataset
-                        default: return'';
+                        default: return '';
                         }
                 sourceSize.width: 80
                 sourceSize.height: 80
@@ -200,8 +205,12 @@ Page {
             anchors.fill: parent
             onClicked: {
               var item = table.itemAt(mouse.x, mouse.y)
-              if (item)
+              if (item) {
+                if ( item.type == 1 && cloudConnection.hasToken && cloudConnection.status !== QFieldCloudConnection.LoggedIn ) {
+                  cloudConnection.login()
+                }
                 iface.loadFile(item.path,item.title)
+              }
             }
             onPressed: {
               var item = table.itemAt(mouse.x, mouse.y)

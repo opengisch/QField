@@ -7,6 +7,7 @@ import QtQuick.Controls.Material.impl 2.12
 
 Button {
   id: button
+  property color bgcolor: Theme.mainColor
   padding: 8
   topInset: 2
   bottomInset: 2

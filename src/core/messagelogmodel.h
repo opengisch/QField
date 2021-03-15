@@ -34,17 +34,17 @@ class MessageLogModel : public QAbstractListModel
       {}
 
       LogMessage( const QString &tag, const QString &message, Qgis::MessageLevel level )
+        : tag( tag )
+        , message( message )
+        , level( level )
+        , datetime( QDateTime::currentDateTime().toString( QStringLiteral( "yyyy-MM-dd hh:mm:ss:zzz" ) ) )
       {
-        this->datetime = QDateTime::currentDateTime().toString( QStringLiteral( "yyyy-MM-dd hh:mm:ss:zzz" ) );
-        this->tag = tag;
-        this->message = message;
-        this->level = level;
       }
 
-      QString datetime;
       QString tag;
       QString message;
       Qgis::MessageLevel level;
+      QString datetime;
     };
 
     enum Roles

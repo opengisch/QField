@@ -75,6 +75,8 @@ ApplicationWindow {
 
   //currentRubberband provides the rubberband depending on the current state (digitize or measure)
   property Rubberband currentRubberband
+  property LayerObserver layerObserverAlias: layerObserver
+  property QgsGpkgFlusher gpkgFlusherAlias: gpkgFlusher
 
   signal closeMeasureTool()
   signal changeMode( string mode )
@@ -1133,6 +1135,7 @@ ApplicationWindow {
         positionInformation: positionSource.positionInfo
         topSnappingResult: coordinateLocator.topSnappingResult
         positionLocked: gpsLinkButton.checked
+        cloudUserInformation: cloudConnection.userInformation
         geometry: Geometry {
           id: digitizingGeometry
           rubberbandModel: digitizingRubberband.model
@@ -1763,6 +1766,8 @@ ApplicationWindow {
         projectInfo.filePath = path;
 
         mapCanvasBackground.color = mapCanvas.mapSettings.backgroundColor
+        cloudProjectsModel.currentProjectId = QFieldCloudUtils.getProjectId(qgisProject)
+        cloudProjectsModel.refreshProjectModification( cloudProjectsModel.currentProjectId )
       }
 
       function onSetMapExtent(extent) {
@@ -1949,6 +1954,68 @@ ApplicationWindow {
     Component.onCompleted: focusstack.addFocusTaker( this )
   }
 
+  QFieldCloudConnection {
+    id: cloudConnection
+    onLoginFailed: function(reason) { displayToast( reason ) }
+  }
+
+  QFieldCloudProjectsModel {
+    id: cloudProjectsModel
+    cloudConnection: cloudConnection
+    layerObserver: layerObserverAlias
+    gpkgFlusher: gpkgFlusherAlias
+
+    onProjectDownloaded: function ( projectId, projectName, hasError, errorString ) {
+      return hasError
+          ? displayToast( qsTr( "Project %1 failed to download" ).arg( projectName ) )
+          : displayToast( qsTr( "Project %1 successfully downloaded, it's now available to open" ).arg( projectName ) );
+    }
+
+    onPushFinished: function ( projectId, hasError, errorString ) {
+      if ( hasError ) {
+        displayToast( qsTr( "Changes failed to reach QFieldCloud: %1" ).arg( errorString ) )
+        return;
+      }
+
+      displayToast( qsTr( "Changes successfully pushed to QFieldCloud" ) )
+    }
+
+    onWarning: displayToast( message )
+  }
+
+  QFieldCloudScreen {
+    id: qfieldCloudScreen
+
+    anchors.fill: parent
+    visible: false
+    focus: visible
+
+    onFinished: {
+      visible = false
+      welcomeScreen.visible = true
+    }
+
+    Component.onCompleted: focusstack.addFocusTaker( this )
+  }
+
+  QFieldCloudPopup {
+    id: cloudPopup
+    visible: false
+    parent: ApplicationWindow.overlay
+
+    width: parent.width
+    height: parent.height
+  }
+
+  QFieldCloudDownloadProjectErrorsPopup {
+    id: cloudDownloadProjectErrorsPopup
+    visible: false
+    parent: ApplicationWindow.overlay
+
+    width: parent.width
+    height: parent.height
+  }
+
   WelcomeScreen {
     id: welcomeScreen
     model: RecentProjectListModel {
@@ -1963,6 +2030,10 @@ ApplicationWindow {
 
     onShowOpenProjectDialog: {
       __projectSource = platformUtilities.openProject()
+    }
+    onShowQFieldCloudScreen: {
+      welcomeScreen.visible = false
+      qfieldCloudScreen.visible = true
     }
 
     Keys.onReleased: {

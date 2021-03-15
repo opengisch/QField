@@ -119,3 +119,19 @@ int FileUtils::copyRecursivelyPrepare( const QString &sourceFolder, const QStrin
 
   return count;
 }
+
+
+QByteArray FileUtils::fileChecksum( const QString &fileName, const QCryptographicHash::Algorithm hashAlgorithm )
+{
+  QFile f( fileName );
+
+  if ( ! f.open( QFile::ReadOnly ) )
+    return QByteArray();
+
+  QCryptographicHash hash( hashAlgorithm );
+
+  if ( hash.addData( &f ) )
+    return hash.result();
+
+  return QByteArray();
+}

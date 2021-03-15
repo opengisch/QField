@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   id="svg8"
+   version="1.1"
+   viewBox="0 0 16.933 16.933"
+   height="64"
+   width="64"
+   sodipodi:docname="ic_cloud_24dp.svg"
+   inkscape:version="1.0.1 (3bc2e813f5, 2020-09-07)">
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="1870"
+     inkscape:window-height="1015"
+     id="namedview7"
+     showgrid="false"
+     inkscape:zoom="6.765625"
+     inkscape:cx="42.564298"
+     inkscape:cy="41.91761"
+     inkscape:window-x="50"
+     inkscape:window-y="28"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg8" />
+  <metadata
+     id="metadata901">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <defs
+     id="defs899" />
+  <path
+     d="M 13.758709,8.4664999 A 5.3070462,5.3070462 0 0 0 8.4671454,3.1749358 5.2902722,5.2902722 0 0 0 3.3407425,7.1761888 C 1.7536609,7.4407025 0.52915642,8.7968193 0.52915642,10.450998 a 3.3160974,3.3160974 0 0 0 3.30835568,3.307066 h 9.9211969 c 1.455469,0 2.645135,-1.190956 2.645135,-2.645136 0,-1.4554709 -1.189666,-2.6464279 -2.645135,-2.6464281 z"
+     id="path912"
+     style="fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.275958;stroke-miterlimit:4;stroke-dasharray:none" />
+  <style
+     type="text/css"
+     id="style902" />
+</svg>

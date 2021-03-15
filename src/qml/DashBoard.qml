@@ -9,6 +9,7 @@ Drawer {
   objectName: "dashBoard"
 
   signal showMenu
+  signal showCloudMenu
 
   property alias allowLayerChange: legend.enabled
   property alias currentLayer: legend.currentLayer
@@ -31,6 +32,7 @@ Drawer {
 
   /* Workaround for menu position, will need to be adjusted when updating menu to Quick2 */
   onShowMenu: mainMenu.popup(settingsButton.x + 2, 2)
+  onShowCloudMenu: cloudPopup.show()
 
   onCurrentLayerChanged: {
     if ( currentLayer && currentLayer.readOnly && stateMachine.state == "digitize" )
@@ -64,6 +66,15 @@ Drawer {
           iconSource: Theme.getThemeIcon( 'ic_settings_white_24dp' )
           bgcolor: "transparent"
           onClicked: showMenu()
+        }
+
+        QfToolButton {
+          id: cloudButton
+          anchors.verticalCenter: parent.verticalCenter
+          iconSource: cloudProjectsModel.currentProjectId ? Theme.getThemeVectorIcon( 'ic_cloud_active_24dp' ) : Theme.getThemeVectorIcon( 'ic_cloud_24dp' )
+          bgcolor: "transparent"
+
+          onClicked: showCloudMenu()
         }
       }
 
