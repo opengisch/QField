@@ -16,7 +16,6 @@
 #include "deltastatuslistmodel.h"
 #include <QJsonObject>
 #include <QJsonArray>
-#include <QDebug>
 
 
 DeltaStatusListModel::DeltaStatusListModel()
