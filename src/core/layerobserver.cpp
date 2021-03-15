@@ -254,7 +254,7 @@ void LayerObserver::addLayerListeners()
 
   for ( QgsMapLayer *layer : layers )
   {
-    QgsVectorLayer *vl = dynamic_cast<QgsVectorLayer *>( layer );
+    QgsVectorLayer *vl = qobject_cast<QgsVectorLayer *>( layer );
 
     if ( vl && vl->dataProvider() )
     {
