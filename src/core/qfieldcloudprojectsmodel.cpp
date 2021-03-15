@@ -84,12 +84,14 @@ QFieldCloudProjectsModel::QFieldCloudProjectsModel() :
     }
   } );
 
-  connect( this, &QFieldCloudProjectsModel::cloudConnectionChanged, this, [=] () {
+  connect( this, &QFieldCloudProjectsModel::cloudConnectionChanged, this, [ = ]()
+  {
     if ( !mCloudConnection )
       return;
 
     mUsername = mCloudConnection->username();
-    connect( mCloudConnection, &QFieldCloudConnection::usernameChanged, this, [=] () {
+    connect( mCloudConnection, &QFieldCloudConnection::usernameChanged, this, [ = ]()
+    {
       mUsername = mCloudConnection->username();
     } );
   } );
@@ -163,8 +165,8 @@ QVariantMap QFieldCloudProjectsModel::getProjectData( const QString &projectId )
   const int index = findProject( projectId );
   const QModelIndex idx = this->index( index, 0 );
 
-  if( !idx.isValid() )
-      return data;
+  if ( !idx.isValid() )
+    return data;
 
   const QHash<int, QByteArray> rn = this->roleNames();
 
@@ -410,8 +412,8 @@ void QFieldCloudProjectsModel::projectGetDownloadStatus( const QString &projectI
     Q_ASSERT( ! payload.isEmpty() );
 
     mCloudProjects[index].exportStatus = ( rawReply->error() == QNetworkReply::NoError )
-        ? exportStatus( payload.value( QStringLiteral( "status" ) ).toString() )
-        : ExportErrorStatus;
+                                         ? exportStatus( payload.value( QStringLiteral( "status" ) ).toString() )
+                                         : ExportErrorStatus;
 
     switch ( mCloudProjects[index].exportStatus )
     {
@@ -489,7 +491,7 @@ void QFieldCloudProjectsModel::projectGetDownloadStatus( const QString &projectI
             mCloudProjects[index].downloadBytesTotal += std::max( fileSize, 0 );
           }
           projectDownloadFiles( projectId );
-        });
+        } );
         break;
     }
   } );
@@ -531,8 +533,8 @@ void QFieldCloudProjectsModel::projectDownloadFiles( const QString &projectId )
     if ( ! file->open() )
     {
       QgsMessageLog::logMessage( QStringLiteral( "Failed to open temporary file for \"%1\", reason:\n%2" )
-                          .arg( fileName )
-                          .arg( file->errorString() ) );
+                                 .arg( fileName )
+                                 .arg( file->errorString() ) );
 
       mCloudProjects[index].downloadFilesFailed++;
 
@@ -589,8 +591,8 @@ void QFieldCloudProjectsModel::projectDownloadFiles( const QString &projectId )
       if ( hasError )
       {
         QString trimmedErrorMessage = errorMessage.size() > 100
-            ? (errorMessage.left( 100 ) + tr( " (see more in the QField error log)…" ))
-            : errorMessage;
+                                      ? ( errorMessage.left( 100 ) + tr( " (see more in the QField error log)…" ) )
+                                      : errorMessage;
         mCloudProjects[index].downloadFilesFailed++;
         mCloudProjects[index].errorStatus = DownloadErrorStatus;
         mCloudProjects[index].exportStatusString = tr( "Failed to write downloaded file stored at \"%1\", reason:\n%2" ).arg( fileName ).arg( trimmedErrorMessage );
@@ -795,7 +797,7 @@ void QFieldCloudProjectsModel::uploadProject( const QString &projectId, const bo
     mCloudProjects[index].uploadDeltaProgress = std::clamp( ( static_cast<double>( bytesSent ) / bytesTotal ), 0., 1. );
 
     emit dataChanged( idx, idx,  QVector<int>() << UploadDeltaProgressRole );
-  });
+  } );
   connect( deltasCloudReply, &NetworkReply::finished, this, [ = ]()
   {
     QNetworkReply *deltasReply = deltasCloudReply->reply();
@@ -993,7 +995,7 @@ void QFieldCloudProjectsModel::projectApplyDeltas( const QString &projectId )
     }
 
     projectGetDeltaStatus( projectId );
-  });
+  } );
 }
 
 
@@ -1095,8 +1097,8 @@ void QFieldCloudProjectsModel::projectUploadAttachments( const QString &projectI
       {
         mCloudProjects[index].uploadAttachmentsFailed++;
         QgsMessageLog::logMessage( tr( "Failed to upload attachment stored at \"%1\", reason:\n%2" )
-                            .arg( fileName )
-                            .arg( QFieldCloudConnection::errorString( attachmentReply ) ) );
+                                   .arg( fileName )
+                                   .arg( QFieldCloudConnection::errorString( attachmentReply ) ) );
       }
 
       mCloudProjects[index].uploadAttachmentsFinished++;
@@ -1227,6 +1229,8 @@ QHash<int, QByteArray> QFieldCloudProjectsModel::roleNames() const
   roles[CanSyncRole] = "CanSync";
   roles[LastLocalExport] = "LastLocalExport";
   roles[LastLocalPushDeltas] = "LastLocalPushDeltas";
+  roles[CollaboratorRole] = "CollaboratorRole";
+
   return roles;
 }
 
@@ -1244,6 +1248,7 @@ void QFieldCloudProjectsModel::reload( const QJsonArray &remoteProjects )
                                projectDetails.value( "owner" ).toString(),
                                projectDetails.value( "name" ).toString(),
                                projectDetails.value( "description" ).toString(),
+                               projectDetails.value( "collaborators__role" ).toString(),
                                QString(),
                                RemoteCheckout,
                                ProjectStatus::Idle );
@@ -1253,6 +1258,7 @@ void QFieldCloudProjectsModel::reload( const QJsonArray &remoteProjects )
     projectSetSetting( cloudProject.id, QStringLiteral( "name" ), cloudProject.name );
     projectSetSetting( cloudProject.id, QStringLiteral( "description" ), cloudProject.description );
     projectSetSetting( cloudProject.id, QStringLiteral( "updatedAt" ), cloudProject.updatedAt );
+    projectSetSetting( cloudProject.id, QStringLiteral( "collaboratorRole" ), cloudProject.collaboratorRole );
 
     if ( !mUsername.isEmpty() )
     {
@@ -1290,8 +1296,9 @@ void QFieldCloudProjectsModel::reload( const QJsonArray &remoteProjects )
       const QString name = projectSetting( projectId, QStringLiteral( "name" ) ).toString();
       const QString description = projectSetting( projectId, QStringLiteral( "description" ) ).toString();
       const QString updatedAt = projectSetting( projectId, QStringLiteral( "updatedAt" ) ).toString();
+      const QString collaboratorRole = projectSetting( projectId, QStringLiteral( "collaboratorRole" ) ).toString();
 
-      CloudProject cloudProject( projectId, owner, name, description, QString(), LocalCheckout, ProjectStatus::Idle );
+      CloudProject cloudProject( projectId, owner, name, description, collaboratorRole, QString(), LocalCheckout, ProjectStatus::Idle );
       QDir localPath( QStringLiteral( "%1/%2/%3" ).arg( QFieldCloudUtils::localCloudDirectory(), mUsername, cloudProject.id ) );
       cloudProject.localPath = QFieldCloudUtils::localProjectFilePath( mUsername, cloudProject.id );
       cloudProject.deltasCount = DeltaFileWrapper( qgisProject, QStringLiteral( "%1/deltafile.json" ).arg( localPath.absolutePath() ) ).count();
@@ -1305,6 +1312,21 @@ void QFieldCloudProjectsModel::reload( const QJsonArray &remoteProjects )
   }
 
   endResetModel();
+}
+
+QVariantMap QFieldCloudProjectsModel::getEntry( int row )
+{
+  QHash<int, QByteArray> names = roleNames();
+  QHashIterator<int, QByteArray> i( names );
+  QVariantMap res;
+  while ( i.hasNext() )
+  {
+    i.next();
+    QModelIndex idx = index( row, 0 );
+    QVariant data = idx.data( i.key() );
+    res[i.value()] = data;
+  }
+  return res;
 }
 
 int QFieldCloudProjectsModel::rowCount( const QModelIndex &parent ) const
@@ -1340,14 +1362,14 @@ QVariant QFieldCloudProjectsModel::data( const QModelIndex &index, int role ) co
       return static_cast<int>( mCloudProjects.at( index.row() ).errorStatus );
     case ErrorStringRole:
       return mCloudProjects.at( index.row() ).errorStatus == DownloadErrorStatus
-          ? mCloudProjects.at( index.row() ).exportStatusString
-          : mCloudProjects.at( index.row() ).errorStatus == UploadErrorStatus
-            ? mCloudProjects.at( index.row() ).deltaFileUploadStatusString
-            : QString();
+             ? mCloudProjects.at( index.row() ).exportStatusString
+             : mCloudProjects.at( index.row() ).errorStatus == UploadErrorStatus
+             ? mCloudProjects.at( index.row() ).deltaFileUploadStatusString
+             : QString();
     case ExportStatusRole:
       return mCloudProjects.at( index.row() ).exportStatus;
     case DownloadProgressRole:
-    return mCloudProjects.at( index.row() ).downloadProgress;
+      return mCloudProjects.at( index.row() ).downloadProgress;
     case UploadAttachmentsProgressRole:
       // when we start syncing also the photos, it would make sense to go there
       return mCloudProjects.at( index.row() ).uploadAttachmentsProgress;
@@ -1367,6 +1389,8 @@ QVariant QFieldCloudProjectsModel::data( const QModelIndex &index, int role ) co
       return mCloudProjects.at( index.row() ).lastLocalExport;
     case LastLocalPushDeltas:
       return mCloudProjects.at( index.row() ).lastLocalPushDeltas;
+    case CollaboratorRole:
+      return mCloudProjects.at( index.row() ).collaboratorRole;
   }
 
   return QVariant();

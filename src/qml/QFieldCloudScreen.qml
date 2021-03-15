@@ -1,6 +1,7 @@
 import QtQuick 2.12
 import QtQuick.Controls 2.12
 import QtQuick.Layouts 1.4
+import QtQml.Models 2.2
 
 import org.qfield 1.0
 import Theme 1.0
@@ -105,239 +106,313 @@ Page {
       Layout.topMargin: 0
       spacing: 2
 
-      Rectangle {
-          Layout.fillWidth: true
-          Layout.fillHeight: true
-          color: "white"
-          border.color: "lightgray"
-          border.width: 1
+      TabBar {
+        id: bar
+        currentIndex: 0
+        Layout.fillWidth: true
+        Layout.preferredHeight: 48
 
-          ListView {
-              id: table
-              property bool overshootRefresh: false
+        onCurrentIndexChanged: {
+          swipeView.currentIndex = bar.currentIndex
+        }
 
-              anchors.fill: parent
+        TabButton {
+          text: qsTr("My Projects")
+          height: 48
+          font: Theme.defaultFont
+          anchors.verticalCenter : parent.verticalCenter
+        }
+        TabButton {
+          text: qsTr("Community Projects")
+          height: 48
+          font: Theme.defaultFont
+          anchors.verticalCenter : parent.verticalCenter
+        }
+      }
 
-              model: cloudProjectsModel
-              clip: true
 
-              onMovingChanged: {
-                if ( !moving && overshootRefresh ) {
-                  refreshProjectsList();
-                }
-                overshootRefresh = false;
-              }
+      SwipeView {
+        id: swipeView
+        width: mainWindow.width
+        currentIndex: 0
+        Layout.fillHeight: true
+        Layout.fillWidth: true
 
-              onVerticalOvershootChanged: {
-                if ( verticalOvershoot < -100 )
-                  overshootRefresh = true;
-              }
+        onCurrentIndexChanged: bar.currentIndex = swipeView.currentIndex
 
-              delegate: Rectangle {
-                  id: rectangle
-                  property string projectId: Id
-                  property string projectOwner: Owner
-                  property string projectName: Name
-                  property string projectLocalPath: LocalPath
-                  width: parent ? parent.width : undefined
-                  height: line.height
-                  color: "transparent"
+        Repeater {
+          model: 2
 
-                  ProgressBar {
-                      anchors.bottom: line.bottom
-                      anchors.bottomMargin: -4
-                      anchors.left: line.left
-                      anchors.leftMargin: line.leftPadding
-                      width: line.width - 20
-                      height: 6
-                      indeterminate: ExportStatus !== QFieldCloudProjectsModel.ExportFinishedStatus
-                      value: DownloadProgress
-                      visible: Status === QFieldCloudProjectsModel.ProjectStatus.Downloading
-                      z: 1
+          Rectangle {
+              Layout.fillWidth: true
+              Layout.fillHeight: true
+              color: "white"
+              border.color: "lightgray"
+              border.width: 1
+
+              DelegateModel {
+                  id: filteredModel
+                  model: cloudProjectsModel
+
+                  groups: [
+                    DelegateModelGroup { name: 'private' },
+                    DelegateModelGroup { name: 'community' }
+                  ]
+
+                  filterOnGroup: swipeView.currentIndex === 0 ? 'private' : 'community'
+
+                  function setGroups(){
+                      var rowCount = cloudProjectsModel.rowCount();
+                      if ( items.count > 0 ) {
+                          items.removeGroups(0,items.count, ['private','community']);
+                          items.remove(0,items.count)
+                      }
+                      for ( var i = 0; i < rowCount; i++ ) {
+                          var entry = cloudProjectsModel.getEntry(i);
+                          if ( entry.Owner === cloudConnection.username || entry.CollaboratorRole ) {
+                            items.insert(entry, 'private');
+                          } else {
+                            items.insert(entry, 'community');
+                          }
+                      }
                   }
 
-                  Row {
-                      id: line
-                      Layout.fillWidth: true
-                      leftPadding: 6
-                      rightPadding: 10
-                      topPadding: 9
-                      bottomPadding: 3
-                      spacing: 0
+                  delegate: Rectangle {
+                      id: rectangle
+                      property string projectId: Id
+                      property string projectOwner: Owner
+                      property string projectName: Name
+                      property string projectLocalPath: LocalPath
+                      width: parent ? parent.width : undefined
+                      height: line.height
+                      color: "transparent"
 
-                      Image {
-                          id: type
-                          anchors.verticalCenter: inner.verticalCenter
-                          source: {
-                            if ( cloudConnection.status !== QFieldCloudConnection.LoggedIn ) {
-                              return Theme.getThemeIcon('ic_cloud_project_offline_48dp')
-                            } else {
-                              var status = ''
-
-                              switch (Status) {
-                                case QFieldCloudProjectsModel.ProjectStatus.Downloading:
-                                  return Theme.getThemeIcon('ic_cloud_project_download_48dp')
-                                case QFieldCloudProjectsModel.ProjectStatus.Uploading:
-                                  return Theme.getThemeIcon('ic_cloud_project_upload_48dp')
-                                default:
-                                  break
-                              }
-
-                              switch (Checkout) {
-                                case QFieldCloudProjectsModel.LocalCheckout:
-                                  return Theme.getThemeIcon('ic_cloud_project_localonly_48dp')
-                                case QFieldCloudProjectsModel.RemoteCheckout:
-                                  return Theme.getThemeIcon('ic_cloud_project_download_48dp')
-                                default:
-                                  break
-                              }
-
-                              return Theme.getThemeIcon('ic_cloud_project_48dp')
-                            }
-                          }
-                          sourceSize.width: 80
-                          sourceSize.height: 80
-                          width: 40
-                          height: 40
-                          opacity: Status === QFieldCloudProjectsModel.ProjectStatus.Downloading ? 0.3 : 1
+                      ProgressBar {
+                          anchors.bottom: line.bottom
+                          anchors.bottomMargin: -4
+                          anchors.left: line.left
+                          anchors.leftMargin: line.leftPadding
+                          width: line.width - 20
+                          height: 6
+                          indeterminate: ExportStatus !== QFieldCloudProjectsModel.ExportFinishedStatus
+                          value: DownloadProgress
+                          visible: Status === QFieldCloudProjectsModel.ProjectStatus.Downloading
+                          z: 1
                       }
-                      ColumnLayout {
-                          id: inner
-                          width: rectangle.width - type.width - 10
-                          Text {
-                              id: projectTitle
-                              topPadding: 5
-                              leftPadding: 3
-                              text: Owner + '/' + Name
-                              font.pointSize: Theme.tipFont.pointSize
-                              font.underline: true
-                              color: Theme.mainColor
-                              wrapMode: Text.WordWrap
-                              Layout.fillWidth: true
-                          }
-                          Text {
-                              id: projectNote
-                              leftPadding: 3
-                              text: {
+
+                      Row {
+                          id: line
+                          Layout.fillWidth: true
+                          leftPadding: 6
+                          rightPadding: 10
+                          topPadding: 9
+                          bottomPadding: 3
+                          spacing: 0
+
+                          Image {
+                              id: type
+                              anchors.verticalCenter: inner.verticalCenter
+                              source: {
                                 if ( cloudConnection.status !== QFieldCloudConnection.LoggedIn ) {
-                                  return qsTr( '(Available locally)' )
+                                  return Theme.getThemeIcon('ic_cloud_project_offline_48dp')
                                 } else {
                                   var status = ''
 
-                                  // TODO I think these should be shown as UI badges
                                   switch (Status) {
-                                    case QFieldCloudProjectsModel.ProjectStatus.Idle:
-                                      break
                                     case QFieldCloudProjectsModel.ProjectStatus.Downloading:
-                                      switch (ExportStatus) {
-                                        case QFieldCloudProjectsModel.ExportFinishedStatus:
-                                          status = qsTr( 'Downloading, %1% fetched…' ).arg( Math.round(DownloadProgress * 100) )
-                                          break;
-                                        default:
-                                          status = qsTr('QFieldCloud is preparing the latest data just for you. This might take some time, please hold tight…')
-                                          break;
-                                      }
-                                      break
+                                      return Theme.getThemeIcon('ic_cloud_project_download_48dp')
                                     case QFieldCloudProjectsModel.ProjectStatus.Uploading:
-                                      status = qsTr( 'Uploading…' )
-                                      break
+                                      return Theme.getThemeIcon('ic_cloud_project_upload_48dp')
                                     default:
                                       break
                                   }
 
-                                  switch (ErrorStatus) {
-                                    case QFieldCloudProjectsModel.NoErrorStatus:
-                                      break
-                                    case QFieldCloudProjectsModel.DownloadErrorStatus:
-                                      status = qsTr('Downloading error. ') + ErrorString
-                                      break
-                                    case QFieldCloudProjectsModel.UploadErrorStatus:
-                                      status = qsTr('Uploading error. ') + ErrorString
+                                  switch (Checkout) {
+                                    case QFieldCloudProjectsModel.LocalCheckout:
+                                      return Theme.getThemeIcon('ic_cloud_project_localonly_48dp')
+                                    case QFieldCloudProjectsModel.RemoteCheckout:
+                                      return Theme.getThemeIcon('ic_cloud_project_download_48dp')
+                                    default:
                                       break
                                   }
 
-                                  if ( ! status ) {
-                                    switch (Checkout) {
-                                      case QFieldCloudProjectsModel.LocalCheckout:
-                                        status = qsTr( 'Available locally, missing on the cloud' )
-                                        break
-                                      case QFieldCloudProjectsModel.RemoteCheckout:
-                                        status = qsTr( 'Available on the cloud, missing locally' )
-                                        break
-                                      case QFieldCloudProjectsModel.LocalAndRemoteCheckout:
-                                        status = qsTr( 'Available locally' )
-                                        break
-                                      default:
-                                        break
-                                    }
-                                  }
-
-                                  var localChanges = ( LocalDeltasCount > 0 ) ? qsTr('Has changes. ') : ''
-                                  var str = '%1 (%2%3)'.arg(Description).arg(localChanges).arg(status)
-                                  return str.trim()
+                                  return Theme.getThemeIcon('ic_cloud_project_48dp')
                                 }
                               }
-                              visible: text != ""
-                              font.pointSize: Theme.tipFont.pointSize - 2
-                              font.italic: true
-                              wrapMode: Text.WordWrap
-                              Layout.fillWidth: true
+                              sourceSize.width: 80
+                              sourceSize.height: 80
+                              width: 40
+                              height: 40
+                              opacity: Status === QFieldCloudProjectsModel.ProjectStatus.Downloading ? 0.3 : 1
+                          }
+                          ColumnLayout {
+                              id: inner
+                              width: rectangle.width - type.width - 10
+                              Text {
+                                  id: projectTitle
+                                  topPadding: 5
+                                  leftPadding: 3
+                                  text: Owner + '/' + Name
+                                  font.pointSize: Theme.tipFont.pointSize
+                                  font.underline: true
+                                  color: Theme.mainColor
+                                  wrapMode: Text.WordWrap
+                                  Layout.fillWidth: true
+                              }
+                              Text {
+                                  id: projectNote
+                                  leftPadding: 3
+                                  text: {
+                                    if ( cloudConnection.status !== QFieldCloudConnection.LoggedIn ) {
+                                      return qsTr( '(Available locally)' )
+                                    } else {
+                                      var status = ''
+
+                                      // TODO I think these should be shown as UI badges
+                                      switch (Status) {
+                                        case QFieldCloudProjectsModel.ProjectStatus.Idle:
+                                          break
+                                        case QFieldCloudProjectsModel.ProjectStatus.Downloading:
+                                          switch (ExportStatus) {
+                                            case QFieldCloudProjectsModel.ExportFinishedStatus:
+                                              status = qsTr( 'Downloading, %1% fetched…' ).arg( Math.round(DownloadProgress * 100) )
+                                              break;
+                                            default:
+                                              status = qsTr('QFieldCloud is preparing the latest data just for you. This might take some time, please hold tight…')
+                                              break;
+                                          }
+                                          break
+                                        case QFieldCloudProjectsModel.ProjectStatus.Uploading:
+                                          status = qsTr( 'Uploading…' )
+                                          break
+                                        default:
+                                          break
+                                      }
+
+                                      switch (ErrorStatus) {
+                                        case QFieldCloudProjectsModel.NoErrorStatus:
+                                          break
+                                        case QFieldCloudProjectsModel.DownloadErrorStatus:
+                                          status = qsTr('Downloading error. ') + ErrorString
+                                          break
+                                        case QFieldCloudProjectsModel.UploadErrorStatus:
+                                          status = qsTr('Uploading error. ') + ErrorString
+                                          break
+                                      }
+
+                                      if ( ! status ) {
+                                        switch (Checkout) {
+                                          case QFieldCloudProjectsModel.LocalCheckout:
+                                            status = qsTr( 'Available locally, missing on the cloud' )
+                                            break
+                                          case QFieldCloudProjectsModel.RemoteCheckout:
+                                            status = qsTr( 'Available on the cloud, missing locally' )
+                                            break
+                                          case QFieldCloudProjectsModel.LocalAndRemoteCheckout:
+                                            status = qsTr( 'Available locally' )
+                                            break
+                                          default:
+                                            break
+                                        }
+                                      }
+
+                                      var localChanges = ( LocalDeltasCount > 0 ) ? qsTr('Has changes. ') : ''
+                                      var str = '%1 (%2%3)'.arg(Description).arg(localChanges).arg(status)
+                                      return str.trim()
+                                    }
+                                  }
+                                  visible: text != ""
+                                  font.pointSize: Theme.tipFont.pointSize - 2
+                                  font.italic: true
+                                  wrapMode: Text.WordWrap
+                                  Layout.fillWidth: true
+                              }
                           }
                       }
                   }
               }
 
-              MouseArea {
-                property Item pressedItem
-                anchors.fill: parent
-                onClicked: {
-                  var item = table.itemAt(mouse.x, mouse.y)
-                  if (item) {
-                    if (item.projectLocalPath != '') {
-                      qfieldcloudScreen.visible = false
-                      iface.loadFile(item.projectLocalPath);
-                    } else {
-                      // fetch remote project
-                      displayToast( qsTr( "Downloading project %1" ).arg( item.projectName ) )
-                      cloudProjectsModel.downloadProject( item.projectId )
-                    }
-                  }
-                }
-                onPressed: {
-                  var item = table.itemAt(mouse.x, mouse.y)
-                  if (item) {
-                    pressedItem = item.children[1].children[1].children[0];
-                    pressedItem.color = "#5a8725"
-                  }
-                }
-                onCanceled: {
-                  if (pressedItem) {
-                    pressedItem.color = Theme.mainColor
-                    pressedItem = null
-                  }
-                }
-                onReleased: {
-                  if (pressedItem) {
-                    pressedItem.color = Theme.mainColor
-                    pressedItem = null
-                  }
-                }
-
-                onPressAndHold: {
-                    var item = table.itemAt(mouse.x, mouse.y)
-                    if (item) {
-                      projectActions.projectId = item.projectId
-                      projectActions.projectOwner = item.projectOwner
-                      projectActions.projectName = item.projectName
-                      projectActions.projectLocalPath = item.projectLocalPath
-                      downloadProject.visible = item.projectLocalPath == ''
-                      openProject.visible = item.projectLocalPath !== ''
-                      removeProject.visible = item.projectLocalPath !== ''
-                      projectActions.popup(mouse.x, mouse.y)
-                    }
+              Connections {
+                target: cloudProjectsModel
+                function onModelReset() {
+                   filteredModel.setGroups()
                 }
               }
+
+              ListView {
+                  id: table
+                  property bool overshootRefresh: false
+
+                  anchors.fill: parent
+
+                  model: filteredModel
+                  clip: true
+
+                  onMovingChanged: {
+                    if ( !moving && overshootRefresh ) {
+                      refreshProjectsList();
+                    }
+                    overshootRefresh = false;
+                  }
+
+                  onVerticalOvershootChanged: {
+                    if ( verticalOvershoot < -100 )
+                      overshootRefresh = true;
+                  }
+
+                  MouseArea {
+                    property Item pressedItem
+                    anchors.fill: parent
+                    onClicked: {
+                      var item = table.itemAt(mouse.x, mouse.y)
+                      if (item) {
+                        if (item.projectLocalPath != '') {
+                          qfieldcloudScreen.visible = false
+                          iface.loadFile(item.projectLocalPath);
+                        } else {
+                          // fetch remote project
+                          displayToast( qsTr( "Downloading project %1" ).arg( item.projectName ) )
+                          cloudProjectsModel.downloadProject( item.projectId )
+                        }
+                      }
+                    }
+                    onPressed: {
+                      var item = table.itemAt(mouse.x, mouse.y)
+                      if (item) {
+                        pressedItem = item.children[1].children[1].children[0];
+                        pressedItem.color = "#5a8725"
+                      }
+                    }
+                    onCanceled: {
+                      if (pressedItem) {
+                        pressedItem.color = Theme.mainColor
+                        pressedItem = null
+                      }
+                    }
+                    onReleased: {
+                      if (pressedItem) {
+                        pressedItem.color = Theme.mainColor
+                        pressedItem = null
+                      }
+                    }
+
+                    onPressAndHold: {
+                        var item = table.itemAt(mouse.x, mouse.y)
+                        if (item) {
+                          projectActions.projectId = item.projectId
+                          projectActions.projectOwner = item.projectOwner
+                          projectActions.projectName = item.projectName
+                          projectActions.projectLocalPath = item.projectLocalPath
+                          downloadProject.visible = item.projectLocalPath == ''
+                          openProject.visible = item.projectLocalPath !== ''
+                          removeProject.visible = item.projectLocalPath !== ''
+                          projectActions.popup(mouse.x, mouse.y)
+                        }
+                    }
+                  }
+              }
           }
+        }
       }
 
       Menu {

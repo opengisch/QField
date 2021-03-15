@@ -61,6 +61,7 @@ class QFieldCloudProjectsModel : public QAbstractListModel
       CanSyncRole,
       LastLocalExport,
       LastLocalPushDeltas,
+      CollaboratorRole,
     };
 
     Q_ENUM( ColumnRole )
@@ -219,6 +220,9 @@ class QFieldCloudProjectsModel : public QAbstractListModel
     //! Reloads the list of cloud projects with the given list of \a remoteProjects.
     Q_INVOKABLE void reload( const QJsonArray &remoteProjects );
 
+    //! Returns an entry as a variant map to provide it the the QML DelegateModel
+    Q_INVOKABLE QVariantMap getEntry( int row );
+
   signals:
     void cloudConnectionChanged();
     void layerObserverChanged();
@@ -280,11 +284,12 @@ class QFieldCloudProjectsModel : public QAbstractListModel
 
     struct CloudProject
     {
-      CloudProject( const QString &id, const QString &owner, const QString &name, const QString &description, const QString &updatedAt, const ProjectCheckouts &checkout, const ProjectStatus &status )
+      CloudProject( const QString &id, const QString &owner, const QString &name, const QString &description, const QString &collaboratorRole, const QString &updatedAt, const ProjectCheckouts &checkout, const ProjectStatus &status )
         : id( id )
         , owner( owner )
         , name( name )
         , description( description )
+        , collaboratorRole( collaboratorRole )
         , updatedAt( updatedAt )
         , status( status )
         , checkout( checkout )
@@ -296,6 +301,7 @@ class QFieldCloudProjectsModel : public QAbstractListModel
       QString owner;
       QString name;
       QString description;
+      QString collaboratorRole;
       QString updatedAt;
       ProjectStatus status;
       ProjectErrorStatus errorStatus = ProjectErrorStatus::NoErrorStatus;
