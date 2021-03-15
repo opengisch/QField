@@ -1484,7 +1484,7 @@ class TestDeltaFileWrapper: public QObject
       QJsonObject o = doc.object();
       QJsonArray deltas;
 
-      if ( o.value( QStringLiteral( "version" ) ).toString() != DeltaFileWrapper::FormatVersion )
+      if ( o.value( QStringLiteral( "version" ) ).toString() != DeltaFormatVersion )
         return QJsonDocument();
       if ( o.value( QStringLiteral( "project" ) ).toString().size() == 0 )
         return QJsonDocument();

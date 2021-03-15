@@ -29,8 +29,6 @@
 #include <qgsmessagelog.h>
 
 
-const QString DeltaFileWrapper::FormatVersion = QStringLiteral( "1.0" );
-
 /**
  * Attachment fields cache.
  */
@@ -102,7 +100,7 @@ DeltaFileWrapper::DeltaFileWrapper( const QgsProject *project, const QString &fi
     if ( mErrorType == DeltaFileWrapper::NoError && ( ! mJsonRoot.value( QStringLiteral( "version" ) ).isString() || mJsonRoot.value( QStringLiteral( "version" ) ).toString().isEmpty() ) )
       mErrorType = DeltaFileWrapper::JsonFormatVersionError;
 
-    if ( mErrorType == DeltaFileWrapper::NoError && mJsonRoot.value( QStringLiteral( "version" ) ) != DeltaFileWrapper::FormatVersion )
+    if ( mErrorType == DeltaFileWrapper::NoError && mJsonRoot.value( QStringLiteral( "version" ) ) != DeltaFormatVersion )
       mErrorType = DeltaFileWrapper::JsonIncompatibleVersionError;
 
     if ( mErrorType == DeltaFileWrapper::NoError )
@@ -125,7 +123,7 @@ DeltaFileWrapper::DeltaFileWrapper( const QgsProject *project, const QString &fi
   }
   else if ( mErrorType == DeltaFileWrapper::NoError )
   {
-    mJsonRoot = QJsonObject( {{"version", DeltaFileWrapper::FormatVersion},
+    mJsonRoot = QJsonObject( {{"version", DeltaFormatVersion},
       {"id", QUuid::createUuid().toString( QUuid::WithoutBraces )},
       {"project", mCloudProjectId},
       {"deltas", mDeltas}} );

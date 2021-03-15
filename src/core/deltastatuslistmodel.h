@@ -58,7 +58,7 @@ public:
     QString output;
   };
 
-  DeltaStatusListModel();
+  DeltaStatusListModel() = default;
   explicit DeltaStatusListModel( QJsonDocument deltasStatusList );
 
   //! Returns number of rows.

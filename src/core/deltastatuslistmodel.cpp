@@ -18,16 +18,13 @@
 #include <QJsonArray>
 
 
-DeltaStatusListModel::DeltaStatusListModel()
-{}
-
 DeltaStatusListModel::DeltaStatusListModel( QJsonDocument deltasStatusList )
   : mJson( deltasStatusList )
 {
   if ( ! mJson.isArray() )
   {
     mIsValid = false;
-    mErrorString = QStringLiteral( "Expected the json document to be an array of delta status" );
+    mErrorString = tr( "Expected the json document to be an array of delta status" );
     return;
   }
 
@@ -39,7 +36,7 @@ DeltaStatusListModel::DeltaStatusListModel( QJsonDocument deltasStatusList )
     if ( ! delta.isObject() )
     {
       mIsValid = false;
-      mErrorString = QStringLiteral( "Expected all array elements to be an object, but the element at #%1 is not" ).arg( mDeltas.size() );
+      mErrorString = tr( "Expected all array elements to be an object, but the element at #%1 is not" ).arg( mDeltas.size() );
       return;
     }
 
@@ -50,7 +47,7 @@ DeltaStatusListModel::DeltaStatusListModel( QJsonDocument deltasStatusList )
       if ( deltaObject.value( requiredKey ).isNull() || deltaObject.value( requiredKey ).isUndefined() )
       {
         mIsValid = false;
-        mErrorString = QStringLiteral( "Expected all array elements to be an object containing a key \"%1\", but the element at #%2 is not" ).arg( requiredKey ).arg( mDeltas.size() );
+        mErrorString = tr( "Expected all array elements to be an object containing a key \"%1\", but the element at #%2 is not" ).arg( requiredKey ).arg( mDeltas.size() );
         return;
       }
     }
@@ -74,7 +71,7 @@ DeltaStatusListModel::DeltaStatusListModel( QJsonDocument deltasStatusList )
     else
     {
       mIsValid = false;
-      mErrorString = QStringLiteral( "Unrecognized status \"%1\" for $%2" ).arg( statusString, mDeltas.size() );
+      mErrorString = tr( "Unrecognized status \"%1\" for $%2" ).arg( statusString, mDeltas.size() );
       return;
     }
 

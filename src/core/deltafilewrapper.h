@@ -26,6 +26,9 @@
 #include <QJsonDocument>
 #include <QJsonObject>
 
+
+const QString DeltaFormatVersion = QStringLiteral( "1.0" );
+
 /**
  * A class that wraps the operations with a delta file. All read and write operations to a delta file should go through this class.
  *
@@ -54,12 +57,6 @@ class DeltaFileWrapper : public QObject
       JsonFormatDeltaItemError,
       JsonIncompatibleVersionError
     };
-
-
-    /**
-     * Stores the current version of the format.
-     */
-    const static QString FormatVersion;
 
 
     /**
