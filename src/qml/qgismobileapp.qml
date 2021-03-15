@@ -1965,7 +1965,7 @@ ApplicationWindow {
     layerObserver: layerObserverAlias
     gpkgFlusher: gpkgFlusherAlias
 
-    onProjectDownloaded: function ( projectId, hasError, projectName ) {
+    onProjectDownloaded: function ( projectId, projectName, hasError, errorString ) {
       return hasError
           ? displayToast( qsTr( "Project %1 failed to download" ).arg( projectName ) )
           : displayToast( qsTr( "Project %1 successfully downloaded, it's now available to open" ).arg( projectName ) );
@@ -2000,6 +2000,15 @@ ApplicationWindow {
 
   QFieldCloudPopup {
     id: cloudPopup
+    visible: false
+    parent: ApplicationWindow.overlay
+
+    width: parent.width
+    height: parent.height
+  }
+
+  QFieldCloudDownloadProjectErrorsPopup {
+    id: cloudDownloadProjectErrorsPopup
     visible: false
     parent: ApplicationWindow.overlay
 

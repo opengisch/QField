@@ -261,9 +261,10 @@ QgisMobileapp::QgisMobileapp( QgsApplication *app, QObject *parent )
 
   QFieldCloudProjectsModel *qFieldCloudProjectsModel = rootObjects().first()->findChild<QFieldCloudProjectsModel *>();
 
-  connect( qFieldCloudProjectsModel, &QFieldCloudProjectsModel::projectDownloaded, this, [ = ] ( const QString &projectId, const bool hasError, const QString &projectName )
+  connect( qFieldCloudProjectsModel, &QFieldCloudProjectsModel::projectDownloaded, this, [ = ] ( const QString &projectId, const QString &projectName, const bool hasError, const QString &errorString )
   {
     Q_UNUSED( projectName );
+    Q_UNUSED( errorString );
     if ( ! hasError )
     {
       if ( projectId == QFieldCloudUtils::getProjectId( mProject ) )

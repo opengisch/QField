@@ -243,6 +243,20 @@ Popup {
                 transferErrorText.text = errorString
             }
 
+            function onProjectDownloaded(projectId, projectName, hasError, errorString) {
+              transferErrorText.visible = hasError && cloudProjectsModel.currentProjectData.Status === QFieldCloudProjectsModel.Idle;
+
+              if (transferErrorText.visible)
+                transferErrorText.text = errorString
+
+              if (cloudProjectsModel.currentProjectData.ExportedLayerErrors.length !== 0)
+              {
+                console.log(cloudProjectsModel.currentProjectData.ExportedLayerErrors.length)
+                cloudDownloadProjectErrorsPopup.exportedLayersListViewModel = cloudProjectsModel.currentProjectData.ExportedLayerErrors;
+                cloudDownloadProjectErrorsPopup.show();
+              }
+            }
+
             function onDataChanged() {
               transferErrorText.visible = cloudProjectsModel.currentProjectData.Status === QFieldCloudProjectsModel.Idle;
             }

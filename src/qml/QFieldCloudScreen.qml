@@ -364,7 +364,10 @@ Page {
                     property Item pressedItem
                     anchors.fill: parent
                     onClicked: {
-                      var item = table.itemAt(mouse.x, mouse.y)
+                      var item = table.itemAt(
+                        table.contentX + mouse.x,
+                        table.contentY + mouse.y
+                      )
                       if (item) {
                         if (item.projectLocalPath != '') {
                           qfieldcloudScreen.visible = false
@@ -377,7 +380,10 @@ Page {
                       }
                     }
                     onPressed: {
-                      var item = table.itemAt(mouse.x, mouse.y)
+                      var item = table.itemAt(
+                        table.contentX + mouse.x,
+                        table.contentY + mouse.y
+                      )
                       if (item) {
                         pressedItem = item.children[1].children[1].children[0];
                         pressedItem.color = "#5a8725"
@@ -397,7 +403,10 @@ Page {
                     }
 
                     onPressAndHold: {
-                        var item = table.itemAt(mouse.x, mouse.y)
+                        var item = table.itemAt(
+                          table.contentX + mouse.x,
+                          table.contentY + mouse.y
+                        )
                         if (item) {
                           projectActions.projectId = item.projectId
                           projectActions.projectOwner = item.projectOwner

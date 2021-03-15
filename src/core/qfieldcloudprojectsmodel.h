@@ -52,6 +52,7 @@ class QFieldCloudProjectsModel : public QAbstractListModel
       ErrorStringRole,
       DownloadProgressRole,
       ExportStatusRole,
+      ExportedLayerErrorsRole,
       UploadAttachmentsProgressRole,
       UploadDeltaProgressRole,
       UploadDeltaStatusRole,
@@ -231,7 +232,7 @@ class QFieldCloudProjectsModel : public QAbstractListModel
     void canSyncCurrentProjectChanged();
     void gpkgFlusherChanged();
     void warning( const QString &message );
-    void projectDownloaded( const QString &projectId, const bool hasError, const QString &projectName );
+    void projectDownloaded( const QString &projectId, const QString &projectName, const bool hasError, const QString &errorString = QString());
     void projectStatusChanged( const QString &projectId, const ProjectStatus &projectStatus );
 
     //
@@ -242,7 +243,6 @@ class QFieldCloudProjectsModel : public QAbstractListModel
     void networkLayerDownloaded( const QString &projectId );
     void networkAllLayersDownloaded( const QString &projectId );
     void pushFinished( const QString &projectId, bool hasError, const QString &errorString = QString() );
-    void downloadFinished( const QString &projectId, bool hasError, const QString &errorString = QString() );
 
   private slots:
     void connectionStatusChanged();
@@ -316,6 +316,7 @@ class QFieldCloudProjectsModel : public QAbstractListModel
 
       ExportStatus exportStatus = ExportUnstartedStatus;
       QString exportStatusString;
+      QList<QString> exportedLayerErrors;
       QMap<QString, FileTransfer> downloadFileTransfers;
       int downloadFilesFinished = 0;
       int downloadFilesFailed = 0;
@@ -352,8 +353,7 @@ class QFieldCloudProjectsModel : public QAbstractListModel
     void projectUploadAttachments( const QString &projectId );
     void projectApplyDeltas( const QString &projectId );
     void projectGetDeltaStatus( const QString &projectId );
-    void projectGetDownloadStatus( const QString &projectId );
-    void projectDownloadLayers( const QString &projectId );
+    void projectGetExportStatus( const QString &projectId );
     bool projectMoveDownloadedFilesToPermanentStorage( const QString &projectId );
     QString projectGetDir( const QString &projectId, const QString &setting );
     void projectSetSetting( const QString &projectId, const QString &setting, const QVariant &value );
@@ -361,6 +361,7 @@ class QFieldCloudProjectsModel : public QAbstractListModel
 
     NetworkReply *downloadFile( const QString &projectId, const QString &fileName );
     void projectDownloadFiles( const QString &projectId );
+    void projectDownloadFinishedWithError( const QString &projectId, const QString &errorString );
 
     bool canSyncProject( const QString &projectId ) const;
 
