@@ -1,72 +1,72 @@
 #############################################################
 # CMake settings
-CMAKE_MINIMUM_REQUIRED(VERSION 3.5)
+cmake_minimum_required(VERSION 3.5)
 
 
-SET(CMAKE_COLOR_MAKEFILE ON)
-SET (APP_NAME "QField" CACHE STRING "Application Name")
-SET (APK_VERSION_CODE "1" CACHE STRING "Apk Version Code (Example: 1)")
-SET (APP_VERSION "" CACHE STRING "Application Version (Example: 1.0.0)")
-SET (APP_VERSION_STR "local - dev" CACHE STRING "Application Version Name (Example: 1.0.0 - Homerun)")
-SET (APP_PACKAGE_NAME "qfield" CACHE STRING "Package name suffix. E.g. qfield --> ch.opengis.qfield")
+set(CMAKE_COLOR_MAKEFILE ON)
+set (APP_NAME "QField" CACHE STRING "Application Name")
+set (APK_VERSION_CODE "1" CACHE STRING "Apk Version Code (Example: 1)")
+set (APP_VERSION "" CACHE STRING "Application Version (Example: 1.0.0)")
+set (APP_VERSION_STR "local - dev" CACHE STRING "Application Version Name (Example: 1.0.0 - Homerun)")
+set (APP_PACKAGE_NAME "qfield" CACHE STRING "Package name suffix. E.g. qfield --> ch.opengis.qfield")
 
-STRING(REGEX REPLACE "v" "" CLEAN_APP_VERSION "${APP_VERSION}")
+string(REGEX REPLACE "v" "" CLEAN_APP_VERSION "${APP_VERSION}")
 
-PROJECT(${APP_NAME}
+project(${APP_NAME}
   LANGUAGES CXX
   VERSION ${CLEAN_APP_VERSION}
 )
 
-SET(CMAKE_MODULE_PATH ${CMAKE_SOURCE_DIR}/cmake ${CMAKE_MODULE_PATH})
+set(CMAKE_MODULE_PATH ${CMAKE_SOURCE_DIR}/cmake ${CMAKE_MODULE_PATH})
 
-INCLUDE(GetGitRevisionDescription)
+include(GetGitRevisionDescription)
 GET_GIT_HEAD_REVISION(GIT_REFSPEC GIT_REV)
 
-ADD_DEFINITIONS(-DAPP_NAME="${APP_NAME}")
-ADD_DEFINITIONS(-DAPP_VERSION="${APP_VERSION}")
-ADD_DEFINITIONS(-DAPP_VERSION_STR="${APP_VERSION_STR}")
-ADD_DEFINITIONS(-DGIT_REV="${GIT_REV}")
+add_definitions(-DAPP_NAME="${APP_NAME}")
+add_definitions(-DAPP_VERSION="${APP_VERSION}")
+add_definitions(-DAPP_VERSION_STR="${APP_VERSION_STR}")
+add_definitions(-DGIT_REV="${GIT_REV}")
 
-CMAKE_POLICY(SET CMP0071 NEW)
+cmake_policy(SET CMP0071 NEW)
 
-SET (DEFAULT_BIN_SUBDIR     bin)
-SET (DEFAULT_CGIBIN_SUBDIR  bin)
-SET (DEFAULT_LIB_SUBDIR     lib${LIB_SUFFIX})
-SET (DEFAULT_INCLUDE_SUBDIR include/qfield)
+set (DEFAULT_BIN_SUBDIR     bin)
+set (DEFAULT_CGIBIN_SUBDIR  bin)
+set (DEFAULT_LIB_SUBDIR     lib${LIB_SUFFIX})
+set (DEFAULT_INCLUDE_SUBDIR include/qfield)
 
-SET (QFIELD_BIN_SUBDIR     ${DEFAULT_BIN_SUBDIR}     CACHE STRING "Subdirectory where executables will be installed")
-SET (QFIELD_LIB_SUBDIR     ${DEFAULT_LIB_SUBDIR}     CACHE STRING "Subdirectory where libraries will be installed")
-SET (QFIELD_INCLUDE_SUBDIR ${DEFAULT_INCLUDE_SUBDIR} CACHE STRING "Subdirectory where header files will be installed")
+set (QFIELD_BIN_SUBDIR     ${DEFAULT_BIN_SUBDIR}     CACHE STRING "Subdirectory where executables will be installed")
+set (QFIELD_LIB_SUBDIR     ${DEFAULT_LIB_SUBDIR}     CACHE STRING "Subdirectory where libraries will be installed")
+set (QFIELD_INCLUDE_SUBDIR ${DEFAULT_INCLUDE_SUBDIR} CACHE STRING "Subdirectory where header files will be installed")
 
-MARK_AS_ADVANCED (QFIELD_INCLUDE_SUBDIR QFIELD_BIN_SUBDIR QFIELD_LIB_SUBDIR)
-SET (QFIELD_BIN_DIR ${QFIELD_BIN_SUBDIR})
-SET (QFIELD_LIB_DIR ${QFIELD_LIB_SUBDIR})
-SET (QFIELD_INCLUDE_DIR ${QFIELD_INCLUDE_SUBDIR})
-SET (QT_ANDROID_APPLICATION_BINARY "qfield")
+mark_as_advanced (QFIELD_INCLUDE_SUBDIR QFIELD_BIN_SUBDIR QFIELD_LIB_SUBDIR)
+set (QFIELD_BIN_DIR ${QFIELD_BIN_SUBDIR})
+set (QFIELD_LIB_DIR ${QFIELD_LIB_SUBDIR})
+set (QFIELD_INCLUDE_DIR ${QFIELD_INCLUDE_SUBDIR})
+set (QT_ANDROID_APPLICATION_BINARY "qfield")
 
 # set the default locations where the targets (executables, libraries) will land when compiled
 # this is to allow running QField directly from the build directory.
-IF (ANDROID)
-  SET (QFIELD_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/android-build)
-ELSE ()
-  SET (QFIELD_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/output)
-ENDIF ()
+if (ANDROID)
+  set (QFIELD_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/android-build)
+else()
+  set (QFIELD_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/output)
+endif()
 
-SET (CMAKE_RUNTIME_OUTPUT_DIRECTORY ${QFIELD_OUTPUT_DIRECTORY}/${QFIELD_BIN_SUBDIR})
-SET (CMAKE_LIBRARY_OUTPUT_DIRECTORY ${QFIELD_OUTPUT_DIRECTORY}/${QFIELD_LIB_SUBDIR})
+set (CMAKE_RUNTIME_OUTPUT_DIRECTORY ${QFIELD_OUTPUT_DIRECTORY}/${QFIELD_BIN_SUBDIR})
+set (CMAKE_LIBRARY_OUTPUT_DIRECTORY ${QFIELD_OUTPUT_DIRECTORY}/${QFIELD_LIB_SUBDIR})
 
 install(DIRECTORY ${CMAKE_SOURCE_DIR}/resources/ DESTINATION ${CMAKE_INSTALL_PREFIX}/share/qfield)
 
-IF (ANDROID)
-  ADD_DEFINITIONS(-DQGIS_INSTALL_DIR="") # TODO: do we need osgeo4a/[lib]/files here? see qgis.pri
-  SET (ANDROID_TARGET_PLATFORM CACHE INT "The target android platform sdk version")
-  SET (ANDROID_PACKAGE_SOURCE_DIR ${CMAKE_SOURCE_DIR}/android)
-  SET (OSGEO4A_STAGE_DIR NONE CACHE DIRECTORY "OSGEO4A stage path (base path without architecture)")
-  SET (OSGEO4A_LIB_DIR ${OSGEO4A_STAGE_DIR}/${ANDROID_ABI}/lib)
-  FILE(GLOB ANDROID_EXTRA_LIBS
+if (ANDROID)
+  add_definitions(-DQGIS_INSTALL_DIR="") # TODO: do we need osgeo4a/[lib]/files here? see qgis.pri
+  set (ANDROID_TARGET_PLATFORM CACHE INT "The target android platform sdk version")
+  set (ANDROID_PACKAGE_SOURCE_DIR ${CMAKE_SOURCE_DIR}/android)
+  set (OSGEO4A_STAGE_DIR NONE CACHE DIRECTORY "OSGEO4A stage path (base path without architecture)")
+  set (OSGEO4A_LIB_DIR ${OSGEO4A_STAGE_DIR}/${ANDROID_ABI}/lib)
+  file(GLOB ANDROID_EXTRA_LIBS
     ${OSGEO4A_LIB_DIR}/*provider*.so
   )
-  LIST(APPEND ANDROID_EXTRA_LIBS
+  list(APPEND ANDROID_EXTRA_LIBS
     ${OSGEO4A_LIB_DIR}/libssl_1_1.so
     ${OSGEO4A_LIB_DIR}/libcrypto_1_1.so
     ${OSGEO4A_LIB_DIR}/libexpat.so
@@ -95,57 +95,57 @@ IF (ANDROID)
     ${OSGEO4A_LIB_DIR}/libpoppler_${ANDROID_ABI}.so
     ${OSGEO4A_LIB_DIR}/libfreetype.so
   )
-  FIND_PACKAGE(Qt5 COMPONENTS AndroidExtras REQUIRED)
+  find_package(Qt5 COMPONENTS AndroidExtras REQUIRED)
 
-  CONFIGURE_FILE(cmake/generated.xml.in ${CMAKE_SOURCE_DIR}/android/res/values/generated.xml @ONLY)
-  CONFIGURE_FILE(cmake/AndroidManifest.xml.in ${CMAKE_SOURCE_DIR}/android/AndroidManifest.xml @ONLY)
+  configure_file(cmake/generated.xml.in ${CMAKE_SOURCE_DIR}/android/res/values/generated.xml @ONLY)
+  configure_file(cmake/AndroidManifest.xml.in ${CMAKE_SOURCE_DIR}/android/AndroidManifest.xml @ONLY)
 
-  INCLUDE(CreateZip)
+  include(CreateZip)
 
   set(SHARE_PATH "${CMAKE_CURRENT_BINARY_DIR}/android-build/assets/share")
-  FILE(COPY "${OSGEO4A_STAGE_DIR}/${ANDROID_ABI}/share/proj/" DESTINATION "${SHARE_PATH}/proj/")
+  file(COPY "${OSGEO4A_STAGE_DIR}/${ANDROID_ABI}/share/proj/" DESTINATION "${SHARE_PATH}/proj/")
 
-  FILE(COPY "${OSGEO4A_STAGE_DIR}/${ANDROID_ABI}/files/share/svg/" DESTINATION "${SHARE_PATH}/qgis/svg/")
-  FILE(COPY "${OSGEO4A_STAGE_DIR}/${ANDROID_ABI}/files/share/resources/" DESTINATION "${SHARE_PATH}/qgis/resources/")
+  file(COPY "${OSGEO4A_STAGE_DIR}/${ANDROID_ABI}/files/share/svg/" DESTINATION "${SHARE_PATH}/qgis/svg/")
+  file(COPY "${OSGEO4A_STAGE_DIR}/${ANDROID_ABI}/files/share/resources/" DESTINATION "${SHARE_PATH}/qgis/resources/")
   # Remove world map to keep apk size a bit smaller
-  FILE(REMOVE "${SHARE_PATH}/qgis/resources/data/world_map.gpkg")
-  FILE(COPY resources/ DESTINATION "${SHARE_PATH}/qfield/")
-ENDIF()
+  file(REMOVE "${SHARE_PATH}/qgis/resources/data/world_map.gpkg")
+  file(COPY resources/ DESTINATION "${SHARE_PATH}/qfield/")
+endif()
 
-SET(QT_MIN_VERSION 5.14.0)
-FIND_PACKAGE(Qt5 COMPONENTS Test Concurrent Core Qml Gui Xml Positioning Widgets Network Quick Svg OpenGL Sql Sensors WebView Bluetooth REQUIRED)
+set(QT_MIN_VERSION 5.14.0)
+find_package(Qt5 COMPONENTS Test Concurrent Core Qml Gui Xml Positioning Widgets Network Quick Svg OpenGL Sql Sensors WebView Bluetooth REQUIRED)
 # PrintSupport isn't required, because it doesn't exist for ios
 # qgis will deal with it an define a public 'QT_NO_PRINTER'
-FIND_PACKAGE(Qt5 COMPONENTS PrintSupport QUIET)
+find_package(Qt5 COMPONENTS PrintSupport QUIET)
 
-FIND_PACKAGE(QGIS REQUIRED)
-IF(NOT APPLE)
-  FIND_PACKAGE(Proj)
-  FIND_PACKAGE(GDAL)
-ENDIF()
+find_package(QGIS REQUIRED)
+if(NOT APPLE)
+  find_package(Proj)
+  find_package(GDAL)
+endif()
 
-IF (${CMAKE_SYSTEM_NAME} STREQUAL "iOS")
-  ADD_DEFINITIONS(-DQT_NO_PRINTER)
+if (${CMAKE_SYSTEM_NAME} STREQUAL "iOS")
+  add_definitions(-DQT_NO_PRINTER)
 
   set(SHARE_PATH "${CMAKE_CURRENT_BINARY_DIR}/share/")
 
   # keep trailing slash for QField to rename the directory (instead of copying in subdir)
-  FILE(COPY ${CMAKE_CURRENT_SOURCE_DIR}/resources/ DESTINATION ${SHARE_PATH}/qfield)
-  FILE(COPY ${QGIS_APPLE_RESOURCES_DIR}/resources DESTINATION ${SHARE_PATH}/qgis)
-  FILE(COPY ${QGIS_APPLE_RESOURCES_DIR}/svg DESTINATION ${SHARE_PATH}/qgis)
-  FILE(COPY ${QFIELD_PROJ_DIR} DESTINATION ${SHARE_PATH})
+  file(COPY ${CMAKE_CURRENT_SOURCE_DIR}/resources/ DESTINATION ${SHARE_PATH}/qfield)
+  file(COPY ${QGIS_APPLE_RESOURCES_DIR}/resources DESTINATION ${SHARE_PATH}/qgis)
+  file(COPY ${QGIS_APPLE_RESOURCES_DIR}/svg DESTINATION ${SHARE_PATH}/qgis)
+  file(COPY ${QFIELD_PROJ_DIR} DESTINATION ${SHARE_PATH})
   # Remove world map to keep apk size a bit smaller
-  FILE(REMOVE "${SHARE_PATH}/qgis/resources/data/world_map.gpkg")
+  file(REMOVE "${SHARE_PATH}/qgis/resources/data/world_map.gpkg")
 
   set(QFIELD_RESOURCE_FILES ${SHARE_PATH})
-ENDIF()
+endif()
 
 set (ENABLE_TESTS TRUE CACHE BOOL "Build unit tests?")
 
-ADD_SUBDIRECTORY(3rdparty/tessellate)
-ADD_SUBDIRECTORY(src/core)
-ADD_SUBDIRECTORY(src/app)
+add_subdirectory(3rdparty/tessellate)
+add_subdirectory(src/core)
+add_subdirectory(src/app)
 if (ENABLE_TESTS)
-  ENABLE_TESTING()
-  ADD_SUBDIRECTORY(test)
+  enable_testing()
+  add_subdirectory(test)
 endif()

@@ -1,52 +1,52 @@
-FIND_PACKAGE(Qt5QuickCompiler QUIET)
-IF(Qt5QuickCompiler_FOUND AND NOT CMAKE_BUILD_TYPE MATCHES Debug AND NOT CMAKE_BUILD_TYPE MATCHES RelWithDebInfo)
+find_package(Qt5QuickCompiler QUIET)
+if(Qt5QuickCompiler_FOUND AND NOT CMAKE_BUILD_TYPE MATCHES Debug AND NOT CMAKE_BUILD_TYPE MATCHES RelWithDebInfo)
   QTQUICK_COMPILER_ADD_RESOURCES(RESOURCES ${CMAKE_SOURCE_DIR}/src/qml/qml.qrc)
-ELSE()
-  SET(RESOURCES ${CMAKE_SOURCE_DIR}/src/qml/qml.qrc)
-ENDIF()
+else()
+  set(RESOURCES ${CMAKE_SOURCE_DIR}/src/qml/qml.qrc)
+endif()
 
-SET(QML_IMPORT_PATH "${CMAKE_SOURCE_DIR}/src/qml/imports")
+set(QML_IMPORT_PATH "${CMAKE_SOURCE_DIR}/src/qml/imports")
 
-FILE(GLOB_RECURSE QML_SOURCES "${CMAKE_SOURCE_DIR}/src/qml/*.qml")
-ADD_CUSTOM_TARGET(qfield_qml SOURCES ${QML_SOURCES})
+file(GLOB_RECURSE QML_SOURCES "${CMAKE_SOURCE_DIR}/src/qml/*.qml")
+add_custom_target(qfield_qml SOURCES ${QML_SOURCES})
 
-IF (ANDROID)
-  ADD_LIBRARY(qfield SHARED
+if (ANDROID)
+  add_library(qfield SHARED
     main.cpp
     ${RESOURCES}
     ${CMAKE_SOURCE_DIR}/images/images.qrc
     ${CMAKE_SOURCE_DIR}/resources/resources.qrc
     ${CMAKE_SOURCE_DIR}/i18n/translations.qrc
   )
-#  ADD_DEPENDENCIES(qfield
+#  add_dependencies(qfield
 #    assets
 #  )
-ELSE ()
-  ADD_EXECUTABLE(qfield
+else()
+  add_executable(qfield
     main.cpp
     ${RESOURCES}
     ${CMAKE_SOURCE_DIR}/images/images.qrc
     ${CMAKE_SOURCE_DIR}/resources/resources.qrc
     ${CMAKE_SOURCE_DIR}/i18n/translations.qrc
   )
-ENDIF ()
+endif()
 
-TARGET_COMPILE_DEFINITIONS(qfield
+target_compile_definitions(qfield
   PRIVATE $<$<OR:$<CONFIG:Debug>,$<CONFIG:RelWithDebInfo>>:QT_QML_DEBUG>)
-IF (ANDROID)
-    TARGET_LINK_LIBRARIES(qfield PRIVATE
+if (ANDROID)
+    target_link_libraries(qfield PRIVATE
       android
       log
     )
-ENDIF(ANDROID)
+endif()
 
-TARGET_LINK_LIBRARIES(qfield PRIVATE
+target_link_libraries(qfield PRIVATE
   qfield_core
   ${QGIS_CORE_LIBRARY}
 )
 
-SET_TARGET_PROPERTIES(qfield PROPERTIES AUTORCC TRUE)
-INSTALL(TARGETS qfield
+set_target_properties(qfield PROPERTIES AUTORCC TRUE)
+install(TARGETS qfield
   BUNDLE DESTINATION ${QFIELD_BIN_DIR}
   RUNTIME DESTINATION ${QFIELD_BIN_DIR}
   LIBRARY DESTINATION ${QFIELD_LIB_DIR}
@@ -55,7 +55,7 @@ INSTALL(TARGETS qfield
   PUBLIC_HEADER DESTINATION ${QFIELD_INCLUDE_DIR}
 )
 
-IF(${CMAKE_SYSTEM_NAME} STREQUAL "iOS")
+if(${CMAKE_SYSTEM_NAME} STREQUAL "iOS")
 
   include("${CMAKE_SOURCE_DIR}/cmake/QtStaticCMake.cmake")
   qt_generate_plugin_import(qfield)
@@ -84,4 +84,4 @@ IF(${CMAKE_SYSTEM_NAME} STREQUAL "iOS")
     VERBOSE
   )
 
-ENDIF()
+endif()

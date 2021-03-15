@@ -1,4 +1,4 @@
-SET(QFIELD_CORE_SRCS
+set(QFIELD_CORE_SRCS
   appinterface.cpp
   appcoordinateoperationhandlers.cpp
   attributeformmodelbase.cpp
@@ -83,7 +83,7 @@ SET(QFIELD_CORE_SRCS
   networkmanager.cpp
 )
 
-SET(QFIELD_CORE_HDRS
+set(QFIELD_CORE_HDRS
   qfield.h
   appinterface.h
   appcoordinateoperationhandlers.h
@@ -170,60 +170,60 @@ SET(QFIELD_CORE_HDRS
   networkmanager.h
 )
 
-IF (ANDROID)
-  SET(QFIELD_CORE_HDRS ${QFIELD_CORE_HDRS}
+if (ANDROID)
+  set(QFIELD_CORE_HDRS ${QFIELD_CORE_HDRS}
     androidplatformutilities.h
     androidpicturesource.h
     androidviewstatus.h
     androidprojectsource.h
   )
-  SET(QFIELD_CORE_SRCS ${QFIELD_CORE_SRCS}
+  set(QFIELD_CORE_SRCS ${QFIELD_CORE_SRCS}
     androidplatformutilities.cpp
     androidpicturesource.cpp
     androidviewstatus.cpp
     androidprojectsource.cpp
   )
-ELSEIF (${CMAKE_SYSTEM_NAME} STREQUAL "iOS")
-  SET(QFIELD_CORE_HDRS ${QFIELD_CORE_HDRS}
+elseif(${CMAKE_SYSTEM_NAME} STREQUAL "iOS")
+  set(QFIELD_CORE_HDRS ${QFIELD_CORE_HDRS}
     ios/iosplatformutilities.h
   )
-  SET(QFIELD_CORE_SRCS ${QFIELD_CORE_SRCS}
+  set(QFIELD_CORE_SRCS ${QFIELD_CORE_SRCS}
     ios/iosplatformutilities.mm
   )
-ENDIF (ANDROID)
+endif()
 
-FIND_PACKAGE(Sqlite3)
+find_package(Sqlite3)
 
-ADD_LIBRARY(qfield_core STATIC ${QFIELD_CORE_SRCS} ${QFIELD_CORE_HDRS})
+add_library(qfield_core STATIC ${QFIELD_CORE_SRCS} ${QFIELD_CORE_HDRS})
 
 include(GenerateExportHeader)
 generate_export_header(qfield_core)
 
-TARGET_INCLUDE_DIRECTORIES(qfield_core SYSTEM PUBLIC
+target_include_directories(qfield_core SYSTEM PUBLIC
   ${QGIS_INCLUDE_DIR}
   ${CMAKE_CURRENT_BINARY_DIR}
 )
 
-TARGET_INCLUDE_DIRECTORIES(qfield_core SYSTEM PRIVATE
+target_include_directories(qfield_core SYSTEM PRIVATE
   ${PROJ_INCLUDE_DIR}
   ${GDAL_INCLUDE_DIR}
   ${SQLITE3_INCLUDE_DIR}
 )
 
-TARGET_INCLUDE_DIRECTORIES(qfield_core PUBLIC
+target_include_directories(qfield_core PUBLIC
   ${CMAKE_SOURCE_DIR}/src/core
   ${CMAKE_SOURCE_DIR}/src/core/qgsquick
   ${CMAKE_SOURCE_DIR}/src/core/utils
   ${CMAKE_SOURCE_DIR}/3rdparty/tessellate
 )
 
-TARGET_COMPILE_FEATURES(qfield_core PUBLIC cxx_std_17)
-SET_TARGET_PROPERTIES(qfield_core PROPERTIES AUTOMOC TRUE)
+target_compile_features(qfield_core PUBLIC cxx_std_17)
+set_target_properties(qfield_core PROPERTIES AUTOMOC TRUE)
 
-TARGET_COMPILE_FEATURES(qfield_core PUBLIC cxx_std_17)
-SET_TARGET_PROPERTIES(qfield_core PROPERTIES AUTOMOC TRUE)
+target_compile_features(qfield_core PUBLIC cxx_std_17)
+set_target_properties(qfield_core PROPERTIES AUTOMOC TRUE)
 
-TARGET_LINK_LIBRARIES(qfield_core PUBLIC
+target_link_libraries(qfield_core PUBLIC
   tess
   Qt5::Core
   Qt5::Gui
@@ -246,20 +246,20 @@ TARGET_LINK_LIBRARIES(qfield_core PUBLIC
   ${GDAL_LIBRARY}
 )
 
-IF (ANDROID)
-  TARGET_LINK_LIBRARIES(qfield_core PUBLIC
+if (ANDROID)
+  target_link_libraries(qfield_core PUBLIC
     Qt5::AndroidExtras
   )
-ENDIF (ANDROID)
+endif()
 
-IF (TARGET Qt5::PrintSupport)
-  TARGET_LINK_LIBRARIES(qfield_core PUBLIC
+if (TARGET Qt5::PrintSupport)
+  target_link_libraries(qfield_core PUBLIC
     Qt5::PrintSupport
   )
-ENDIF ()
+endif()
 
-INSTALL(FILES ${QFIELD_CORE_HDRS} DESTINATION ${QFIELD_INCLUDE_DIR})
-INSTALL(TARGETS qfield_core
+install(FILES ${QFIELD_CORE_HDRS} DESTINATION ${QFIELD_INCLUDE_DIR})
+install(TARGETS qfield_core
   BUNDLE DESTINATION ${QFIELD_BIN_DIR}
   RUNTIME DESTINATION ${QFIELD_BIN_DIR}
   LIBRARY DESTINATION ${QFIELD_LIB_DIR}
