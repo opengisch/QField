@@ -473,6 +473,7 @@ void QFieldCloudProjectsModel::projectGetExportStatus( const QString &projectId 
           }
 
           const QJsonObject layers = exportedFilesPayload.value( QStringLiteral( "layers" ) ).toObject();
+          bool hasLayerExportErrror = false;
           for ( const QString &layerKey : layers.keys() )
           {
             QJsonObject layer = layers.value( layerKey ).toObject();
@@ -487,8 +488,13 @@ void QFieldCloudProjectsModel::projectGetExportStatus( const QString &projectId 
                                                                 .arg( layerStatus ) );
               QgsMessageLog::logMessage( mCloudProjects[index].exportedLayerErrors.last() );
 
-              emit dataChanged( idx, idx,  QVector<int>() << ExportedLayerErrorsRole );
+              hasLayerExportErrror = true;
             }
+          }
+
+          if ( hasLayerExportErrror )
+          {
+            emit dataChanged( idx, idx,  QVector<int>() << ExportedLayerErrorsRole );
           }
 
           projectDownloadFiles( projectId );
@@ -1213,7 +1219,19 @@ void QFieldCloudProjectsModel::projectListReceived()
 
 NetworkReply *QFieldCloudProjectsModel::downloadFile( const QString &projectId, const QString &fileName )
 {
-  return mCloudConnection->get( QStringLiteral( "/api/v1/qfield-files/%1/%2/" ).arg( projectId, fileName ) );
+  QNetworkRequest request;
+  request.setAttribute( QNetworkRequest::RedirectPolicyAttribute, QNetworkRequest::RedirectPolicy::UserVerifiedRedirectPolicy );
+  mCloudConnection->setAuthenticationToken( request );
+
+  NetworkReply *reply = mCloudConnection->get( request, QStringLiteral( "/api/v1/qfield-files/%1/%2/" ).arg( projectId, fileName ) );
+
+  connect( reply, &NetworkReply::redirected, reply, [ = ] ( const QUrl &url ) {
+    qDebug() << projectId << "Project export file redirected: " << fileName << url.toString();
+    Q_UNUSED( url );
+    emit reply->redirectAllowed();
+  });
+
+  return reply;
 }
 
 NetworkReply *QFieldCloudProjectsModel::uploadFile( const QString &projectId, const QString &fileName )

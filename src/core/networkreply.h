@@ -116,6 +116,18 @@ class NetworkReply : public QObject
     void finished();
 
 
+    /**
+     * Replicates `QNetworkReply::redirected` signal.
+     */
+    void redirected( const QUrl &url );
+
+
+    /**
+     * Replicates `QNetworkReply::redirectAllowed` signal.
+     */
+    void redirectAllowed();
+
+
     // /////////////////
     // more than QNetworkReply signals
     // /////////////////

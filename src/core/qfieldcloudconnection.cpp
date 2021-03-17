@@ -334,6 +334,17 @@ NetworkReply *QFieldCloudConnection::post( const QString &endpoint, const QVaria
 NetworkReply *QFieldCloudConnection::get( const QString &endpoint, const QVariantMap &params )
 {
   QNetworkRequest request;
+
+  request.setHeader( QNetworkRequest::ContentTypeHeader, "application/json" );
+  request.setAttribute( QNetworkRequest::RedirectPolicyAttribute, QNetworkRequest::RedirectPolicy::NoLessSafeRedirectPolicy );
+  setAuthenticationToken( request );
+
+  return get( request, endpoint, params );
+}
+
+
+NetworkReply *QFieldCloudConnection::get( QNetworkRequest &request, const QString &endpoint, const QVariantMap &params )
+{
   QUrl url( mUrl + endpoint );
   QUrlQuery urlQuery;
 
@@ -343,9 +354,6 @@ NetworkReply *QFieldCloudConnection::get( const QString &endpoint, const QVarian
   url.setQuery( urlQuery );
 
   request.setUrl( url );
-  request.setHeader( QNetworkRequest::ContentTypeHeader, "application/json" );
-  request.setAttribute( QNetworkRequest::RedirectPolicyAttribute, QNetworkRequest::RedirectPolicy::NoLessSafeRedirectPolicy );
-  setAuthenticationToken( request );
 
   NetworkReply *reply = NetworkManager::get( request );
 

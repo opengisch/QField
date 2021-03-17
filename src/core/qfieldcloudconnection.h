@@ -122,12 +122,25 @@ class QFieldCloudConnection : public QObject
 
 
     /**
-     * Sends a get request to the given \a endpoint.
+     * Sends a get request to the given \a endpoint. Query can be passed via \a params, empty by default.
      *
      * If this connection is not logged in, will return nullptr.
      * The returned reply needs to be deleted by the caller.
      */
     NetworkReply *get( const QString &endpoint, const QVariantMap &params = QVariantMap() );
+
+    /**
+     * Sends a get \a request to a given \a endpoint. Additional query can be passed via \a params, empty by default.
+     *
+     * If this connection is not logged in, will return nullptr.
+     * The returned reply needs to be deleted by the caller.
+     */
+    NetworkReply *get( QNetworkRequest &request, const QString &endpoint, const QVariantMap &params = QVariantMap() );
+
+    /**
+     * Sets authentication token on a \a request.
+     */
+    void setAuthenticationToken( QNetworkRequest &request );
 
   signals:
     void usernameChanged();
@@ -146,7 +159,6 @@ class QFieldCloudConnection : public QObject
     void setState( ConnectionState state );
     void setToken( const QByteArray &token );
     void invalidateToken();
-    void setAuthenticationToken( QNetworkRequest &request );
 
     QString mPassword;
     QString mUsername;
