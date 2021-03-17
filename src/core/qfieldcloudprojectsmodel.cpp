@@ -355,6 +355,8 @@ void QFieldCloudProjectsModel::downloadProject( const QString &projectId )
 
   emit dataChanged( idx, idx,  QVector<int>::fromList( roleNames().keys() ) );
 
+  qDebug() << projectId << "Project export requested: ";
+
   // //////////
   // 1) request a new export the project
   // //////////
@@ -364,6 +366,7 @@ void QFieldCloudProjectsModel::downloadProject( const QString &projectId )
   {
     QNetworkReply *rawReply = reply->reply();
     reply->deleteLater();
+    qDebug() << projectId << "Project request finished: " << rawReply->error();
 
     if ( rawReply->error() != QNetworkReply::NoError )
     {
@@ -396,6 +399,8 @@ void QFieldCloudProjectsModel::projectGetExportStatus( const QString &projectId 
 
   mCloudProjects[index].exportStatusString = QString();
 
+  qDebug() << projectId << "Project export status requested";
+
   connect( downloadStatusReply, &NetworkReply::finished, this, [ = ]()
   {
     QNetworkReply *rawReply = downloadStatusReply->reply();
@@ -406,6 +411,8 @@ void QFieldCloudProjectsModel::projectGetExportStatus( const QString &projectId 
     Q_ASSERT( rawReply );
     Q_ASSERT( ! payload.isEmpty() );
 
+    qDebug() << projectId << "Project export status request finished with http status: " << rawReply->error();
+
     if ( rawReply->error() != QNetworkReply::NoError )
     {
       projectDownloadFinishedWithError( projectId, QFieldCloudConnection::errorString( rawReply ) );
@@ -413,6 +420,9 @@ void QFieldCloudProjectsModel::projectGetExportStatus( const QString &projectId 
     }
 
     mCloudProjects[index].exportStatus = exportStatus( payload.value( QStringLiteral( "status" ) ).toString() );
+
+    qDebug() << projectId << "Project export status request finished with status: " << mCloudProjects[index].exportStatus;
+
     switch ( mCloudProjects[index].exportStatus )
     {
       case ExportUnstartedStatus:
@@ -438,6 +448,8 @@ void QFieldCloudProjectsModel::projectGetExportStatus( const QString &projectId 
       }
       break;
       case ExportFinishedStatus:
+        qDebug() << projectId << "Project export files requested";
+
         NetworkReply *exportedFilesReply = mCloudConnection->get( QStringLiteral( "/api/v1/qfield-files/%1/" ).arg( projectId ) );
 
         mCloudProjects[index].exportStatusString = QString();
@@ -446,6 +458,9 @@ void QFieldCloudProjectsModel::projectGetExportStatus( const QString &projectId 
         connect( exportedFilesReply, &NetworkReply::finished, exportedFilesReply, [ = ]()
         {
           QNetworkReply *exportedFilesRawReply = exportedFilesReply->reply();
+
+          qDebug() << projectId << "Project export files request finished: " << exportedFilesRawReply->error();
+
           if ( exportedFilesRawReply->error() != QNetworkReply::NoError )
           {
             projectDownloadFinishedWithError( projectId, QFieldCloudConnection::errorString( rawReply ) );
@@ -453,6 +468,8 @@ void QFieldCloudProjectsModel::projectGetExportStatus( const QString &projectId 
           }
 
           const QJsonObject exportedFilesPayload = QJsonDocument::fromJson( exportedFilesRawReply->readAll() ).object();
+
+          qDebug() << projectId << "Project export files response payload: " << QStringLiteral( "%s" ).arg( QString::fromUtf8( QJsonDocument( exportedFilesPayload ).toJson( QJsonDocument::Indented ) ) );
 
           const QJsonArray files = exportedFilesPayload.value( QStringLiteral( "files" ) ).toArray();
           for ( const QJsonValue file : files )
@@ -494,6 +511,7 @@ void QFieldCloudProjectsModel::projectGetExportStatus( const QString &projectId 
 
           if ( hasLayerExportErrror )
           {
+            qDebug() << projectId << "Project export problematic files found: " << mCloudProjects[index].exportedLayerErrors;
             emit dataChanged( idx, idx,  QVector<int>() << ExportedLayerErrorsRole );
           }
 
@@ -524,6 +542,8 @@ void QFieldCloudProjectsModel::projectDownloadFiles( const QString &projectId )
     mCloudProjects[index].status = ProjectStatus::Idle;
     mCloudProjects[index].downloadProgress = 1;
 
+    qDebug() << projectId << "Project export has no files to download";
+
     emit dataChanged( idx, idx,  QVector<int>() << StatusRole << DownloadProgressRole );
     emit warning( QStringLiteral( "Project empty" ) );
 
@@ -548,6 +568,8 @@ void QFieldCloudProjectsModel::projectDownloadFiles( const QString &projectId )
 
     mCloudProjects[index].downloadFileTransfers[fileName].tmpFile = file->fileName();
     mCloudProjects[index].downloadFileTransfers[fileName].networkReply = reply;
+
+    qDebug() << projectId << "Project export file requested: " << fileName;
 
     connect( reply, &NetworkReply::downloadProgress, this, [ = ]( int bytesReceived, int bytesTotal )
     {
@@ -576,6 +598,8 @@ void QFieldCloudProjectsModel::projectDownloadFiles( const QString &projectId )
 
       bool hasError = false;
       QString errorMessage;
+
+      qDebug() << projectId << "Project export file request finished: " << rawReply->url() << rawReply->error();
 
       if ( rawReply->error() != QNetworkReply::NoError )
       {
@@ -1224,6 +1248,8 @@ NetworkReply *QFieldCloudProjectsModel::downloadFile( const QString &projectId, 
   mCloudConnection->setAuthenticationToken( request );
 
   NetworkReply *reply = mCloudConnection->get( request, QStringLiteral( "/api/v1/qfield-files/%1/%2/" ).arg( projectId, fileName ) );
+
+  qDebug() << projectId << "Project export file requested: " << fileName;
 
   connect( reply, &NetworkReply::redirected, reply, [ = ] ( const QUrl &url ) {
     qDebug() << projectId << "Project export file redirected: " << fileName << url.toString();
