@@ -43,8 +43,6 @@ Item {
   //! Emitted when a release happens after a long press
   signal longPressReleased(var type)
 
-  signal panned
-
   /**
    * Freezes the map canvas refreshes.
    *
@@ -210,7 +208,6 @@ Item {
                 else
                 {
                     mapCanvasWrapper.pan(centroid.position, oldPos1)
-                    panned()
                 }
             }
         }
@@ -273,18 +270,15 @@ Item {
             if ( active )
             {
                 mapCanvasWrapper.pan(centroid.position, oldPos1)
-                panned()
             }
         }
 
         onActiveScaleChanged: {
             mapCanvasWrapper.zoom( pinch.centroid.position, oldScale / pinch.activeScale )
             mapCanvasWrapper.pan( pinch.centroid.position, oldPos )
-            panned()
             oldScale = pinch.activeScale
         }
     }
-
 
     WheelHandler {
         target: null
