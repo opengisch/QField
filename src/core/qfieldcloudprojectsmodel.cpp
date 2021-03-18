@@ -353,9 +353,9 @@ void QFieldCloudProjectsModel::downloadProject( const QString &projectId )
   mCloudProjects[index].modification = NoModification;
   QModelIndex idx = createIndex( index, 0 );
 
-  emit dataChanged( idx, idx,  QVector<int>::fromList( roleNames().keys() ) );
+  emit dataChanged( idx, idx, QVector<int>::fromList( roleNames().keys() ) );
 
-  qDebug() << projectId << "Project export requested: ";
+  qDebug() << projectId << "Project export requested";
 
   // //////////
   // 1) request a new export the project
@@ -600,20 +600,23 @@ void QFieldCloudProjectsModel::projectDownloadFiles( const QString &projectId )
       QString errorMessage;
 
       qDebug() << projectId << "Project export file request finished: " << rawReply->url() << rawReply->error();
+      qDebug() << 666 << rawReply->request().attribute( QNetworkRequest::RedirectPolicyAttribute );
 
       if ( rawReply->error() != QNetworkReply::NoError )
       {
         hasError = true;
         errorMessage = QFieldCloudConnection::errorString( rawReply );
+        QgsMessageLog::logMessage( tr( "Failed to write downloaded file stored at \"%1\", network reason:\n%2" ).arg( fileName ).arg( errorMessage ) );
       }
 
+      auto a = rawReply->readAll();
       if ( ! hasError && ! file->write( rawReply->readAll() ) )
       {
         hasError = true;
         errorMessage = file->errorString();
+        qDebug() << "zzzzzzz" << a;
+        QgsMessageLog::logMessage( tr( "Failed to write downloaded file stored at \"%1\", fs reason:\n%2" ).arg( fileName ).arg( errorMessage ) );
       }
-
-      QgsMessageLog::logMessage( tr( "Failed to write downloaded file stored at \"%1\", reason:\n%2" ).arg( fileName ).arg( errorMessage ) );
 
       if ( hasError )
       {
@@ -1245,6 +1248,8 @@ NetworkReply *QFieldCloudProjectsModel::downloadFile( const QString &projectId, 
 {
   QNetworkRequest request;
   request.setAttribute( QNetworkRequest::RedirectPolicyAttribute, QNetworkRequest::RedirectPolicy::UserVerifiedRedirectPolicy );
+//  request.setAttribute( QNetworkRequest::RedirectPolicyAttribute, QNetworkRequest::RedirectPolicy::NoLessSafeRedirectPolicy );
+//  request.setAttribute( QNetworkRequest::FollowRedirectsAttribute, true);
   mCloudConnection->setAuthenticationToken( request );
 
   NetworkReply *reply = mCloudConnection->get( request, QStringLiteral( "/api/v1/qfield-files/%1/%2/" ).arg( projectId, fileName ) );
@@ -1255,6 +1260,15 @@ NetworkReply *QFieldCloudProjectsModel::downloadFile( const QString &projectId, 
     qDebug() << projectId << "Project export file redirected: " << fileName << url.toString();
     Q_UNUSED( url );
     emit reply->redirectAllowed();
+  });
+
+  connect( reply, &NetworkReply::finished, reply, [ = ] () {
+    const auto rawReply = reply->reply();
+    qDebug() << projectId
+             << "Project export file finished: "
+             << fileName
+             << rawReply->attribute( QNetworkRequest::HttpStatusCodeAttribute ).toInt();
+    qDebug() << 888888 << rawReply->readAll();
   });
 
   return reply;
