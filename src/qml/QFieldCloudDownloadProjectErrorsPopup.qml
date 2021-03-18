@@ -49,7 +49,7 @@ Popup {
             id: transferErrorText
             visible: true
             font: Theme.defaultFont
-            text: exportedLayersListViewModel.length === 1
+            text: exportedLayersListViewModel && exportedLayersListViewModel.length === 1
                   ? qsTr("One layer was not exported correctly:")
                   : qsTr("Some layers were not exported correctly:")
             color: Theme.darkRed
