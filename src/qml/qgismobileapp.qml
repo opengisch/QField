@@ -359,14 +359,6 @@ ApplicationWindow {
         }
       }
 
-      onPanned: {
-          if ( gpsButton.followActive )
-          {
-            gpsButton.followActive = false
-            displayToast( qsTr( "Canvas stopped following location" ) )
-          }
-      }
-
       Component.onCompleted: platformUtilities.showRateThisApp()
     }
 
@@ -492,7 +484,8 @@ ApplicationWindow {
           if ( screenLocation.x < threshold || screenLocation.x > mainWindow.width - threshold ||
                screenLocation.y < threshold || screenLocation.y > mainWindow.height - threshold )
           {
-            mapCanvas.mapSettings.setCenter(positionSource.projectedPosition);
+              gpsButton.followActiveSkipExtentChanged = true;
+              mapCanvas.mapSettings.setCenter(positionSource.projectedPosition);
           }
         }
       }
@@ -687,6 +680,7 @@ ApplicationWindow {
       }
 
       onClicked: {
+          if ( gpsButton.followActive ) gpsButton.followActiveSkipExtentChanged = true;
           mapCanvasMap.zoomIn(Qt.point(mapCanvas.x + mapCanvas.width / 2,mapCanvas.y + mapCanvas.height / 2));
       }
     }
@@ -706,6 +700,7 @@ ApplicationWindow {
       }
 
       onClicked: {
+          if ( gpsButton.followActive ) gpsButton.followActiveSkipExtentChanged = true;
           mapCanvasMap.zoomOut(Qt.point(mapCanvas.x + mapCanvas.width / 2,mapCanvas.y + mapCanvas.height / 2));
       }
     }
@@ -1014,7 +1009,16 @@ ApplicationWindow {
         }
       }
 
+      /*
+      / When set to true, the map will follow the device's current position; the map
+      / will stop following the position whe the user manually drag the map.
+      */
       property bool followActive: false
+      /*
+      / When set to true, map canvas extent changes will not result in the
+      / deactivation of the above followActive mode.
+      */
+      property bool followActiveSkipExtentChanged: false
 
       states: [
         State {
@@ -1046,8 +1050,9 @@ ApplicationWindow {
           }
           else
           {
-            mapCanvas.mapSettings.setCenter(positionSource.projectedPosition)
-            displayToast( qsTr( "Canvas follows location" ) )
+              gpsButton.followActiveSkipExtentChanged = true;
+              mapCanvas.mapSettings.setCenter(positionSource.projectedPosition)
+              displayToast( qsTr( "Canvas follows location" ) )
           }
         }
         else
@@ -1109,6 +1114,21 @@ ApplicationWindow {
                        ? Theme.warningColor
                        : Theme.mainColor
       }
+    }
+
+    Connections {
+        target: mapCanvas.mapSettings
+
+        function onExtentChanged() {
+            if ( gpsButton.followActive ) {
+                if ( gpsButton.followActiveSkipExtentChanged ) {
+                    gpsButton.followActiveSkipExtentChanged = false;
+                } else {
+                    gpsButton.followActive = false
+                    displayToast( qsTr( "Canvas stopped following location" ) )
+                }
+            }
+        }
     }
 
     DigitizingToolbar {
