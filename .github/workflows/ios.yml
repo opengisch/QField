@@ -1,4 +1,4 @@
-name: 👷 CD iOs
+name: 🍏 iOS build
 
 on:
   push:

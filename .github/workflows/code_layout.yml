@@ -1,4 +1,4 @@
-name: Static Tests
+name: 🧹 Static Tests
 
 on:
   push:
