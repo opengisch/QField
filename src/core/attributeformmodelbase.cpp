@@ -485,7 +485,7 @@ void AttributeFormModelBase::updateVisibilityAndConstraints( int fieldIndex )
   mExpressionContext.setFields( fields );
   mExpressionContext.setFeature( mFeatureModel->feature() );
 
-  for ( const VisibilityExpression &it : qgis::as_const( mVisibilityExpressions ) )
+  for ( const VisibilityExpression &it : std::as_const( mVisibilityExpressions ) )
   {
     if ( fieldIndex == -1 || it.first.referencedAttributeIndexes( fields ).contains( fieldIndex ) )
     {
@@ -493,7 +493,7 @@ void AttributeFormModelBase::updateVisibilityAndConstraints( int fieldIndex )
       exp.prepare( &mExpressionContext );
 
       bool visible = exp.evaluate( &mExpressionContext ).toInt();
-      for ( QStandardItem *item : qgis::as_const( it.second ) )
+      for ( QStandardItem *item : std::as_const( it.second ) )
       {
         if ( item->data( AttributeFormModel::CurrentlyVisible ).toBool() != visible )
         {

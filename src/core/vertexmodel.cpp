@@ -668,7 +668,7 @@ QVector<QgsPoint> VertexModel::flatVertices( int ringId ) const
   }
 
   QVector<QgsPoint> vertices = QVector<QgsPoint>();
-  for ( const Vertex &vertex : qgis::as_const( mVertices ) )
+  for ( const Vertex &vertex : std::as_const( mVertices ) )
   {
     if ( vertex.type != ExistingVertex || vertex.ring != ringId )
       continue;
@@ -685,7 +685,7 @@ QVector<QgsPoint> VertexModel::flatVertices( int ringId ) const
 QVector<QPair<QgsPoint, QgsPoint>> VertexModel::verticesMoved() const
 {
   QVector<QPair<QgsPoint, QgsPoint>> vertices;
-  for ( const Vertex &vertex : qgis::as_const( mVertices ) )
+  for ( const Vertex &vertex : std::as_const( mVertices ) )
   {
     if ( vertex.type != ExistingVertex )
       continue;

@@ -668,7 +668,7 @@ bool FeatureModel::deleteFeature()
   }
 
   // we need to either commit or rollback the child layers that have experienced any modification
-  for ( QgsVectorLayer *childLayer : qgis::as_const( childLayersEdited ) )
+  for ( QgsVectorLayer *childLayer : std::as_const( childLayersEdited ) )
   {
     if ( isSuccess )
     {
