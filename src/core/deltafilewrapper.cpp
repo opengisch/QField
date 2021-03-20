@@ -377,7 +377,7 @@ QMap<QString, QString> DeltaFileWrapper::attachmentFileNames() const
   QMap<QString, QString> fileNames;
   QMap<QString, QString> fileChecksums;
 
-  for ( const QJsonValue &deltaJson : qgis::as_const( mDeltas ) )
+  for ( const QJsonValue &deltaJson : std::as_const( mDeltas ) )
   {
     QVariantMap delta = deltaJson.toObject().toVariantMap();
     const QString localLayerId = delta.value( QStringLiteral( "localLayerId" ) ).toString();
@@ -724,7 +724,7 @@ QStringList DeltaFileWrapper::deltaLayerIds() const
 {
   QStringList layerIds;
 
-  for ( const QJsonValue &v : qgis::as_const( mDeltas ) )
+  for ( const QJsonValue &v : std::as_const( mDeltas ) )
   {
     QJsonObject deltaItem = v.toObject();
     const QString layerId = deltaItem.value( QStringLiteral( "layerId" ) ).toString();
@@ -766,7 +766,7 @@ bool DeltaFileWrapper::applyInternal( bool shouldApplyInReverse )
 
   // 1) get all vector layers referenced in the delta file and make them editable
   QHash<QString, QgsVectorLayer *> vectorLayers;
-  for ( const QJsonValue &deltaJson : qgis::as_const( mDeltas ) )
+  for ( const QJsonValue &deltaJson : std::as_const( mDeltas ) )
   {
     const QVariantMap delta = deltaJson.toObject().toVariantMap();
     const QString layerId = delta.value( QStringLiteral( "localLayerId" ) ).toString();
@@ -835,7 +835,7 @@ bool DeltaFileWrapper::applyDeltasOnLayers( QHash<QString, QgsVectorLayer *> &ve
   else
     deltas = QJsonArray( mDeltas );
 
-  for ( const QJsonValue &deltaJson : qgis::as_const( deltas ) )
+  for ( const QJsonValue &deltaJson : std::as_const( deltas ) )
   {
     const QVariantMap delta = deltaJson.toObject().toVariantMap();
     const QString layerId = delta.value( QStringLiteral( "localLayerId" ) ).toString();

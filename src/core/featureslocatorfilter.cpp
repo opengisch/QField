@@ -95,7 +95,7 @@ void FeaturesLocatorFilter::fetchResults( const QString &string, const QgsLocato
   QgsFeature f;
 
   // we cannot used const loop since iterator::nextFeature is not const
-  for ( auto preparedLayer : qgis::as_const( mPreparedLayers ) )
+  for ( auto preparedLayer : std::as_const( mPreparedLayers ) )
   {
     int foundInCurrentLayer = 0;
     QgsFeatureIterator it = preparedLayer->featureSource->getFeatures( preparedLayer->request );

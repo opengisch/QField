@@ -220,7 +220,7 @@ class TestLayerObserver: public QObject
 
       QJsonArray deltasJsonArray = doc.object().value( QStringLiteral( "deltas" ) ).toArray();
 
-      for ( const QJsonValue &v : qgis::as_const( deltasJsonArray ) )
+      for ( const QJsonValue &v : std::as_const( deltasJsonArray ) )
         operations.append( v.toObject().value( QStringLiteral( "method" ) ).toString() );
 
       return operations;

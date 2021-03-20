@@ -131,7 +131,7 @@ QList<IdentifyTool::IdentifyResult> IdentifyTool::identifyVectorLayer( QgsVector
     filter = renderer->capabilities() & QgsFeatureRenderer::Filter;
   }
 
-  for ( const QgsFeature &feature : qgis::as_const( featureList ) )
+  for ( const QgsFeature &feature : std::as_const( featureList ) )
   {
     context.expressionContext().setFeature( feature );
 

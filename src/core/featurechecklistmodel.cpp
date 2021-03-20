@@ -66,7 +66,7 @@ QVariant FeatureCheckListModel::attributeValue() const
 
   QVariantList vl;
   //store as QVariantList because the field type supports data structure
-  for ( const QString &s : qgis::as_const( mCheckedEntries ) )
+  for ( const QString &s : std::as_const( mCheckedEntries ) )
   {
     // Convert to proper type
     const QVariant::Type type {fkType()};

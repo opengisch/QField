@@ -60,7 +60,7 @@ bool FileUtils::copyRecursively( const QString &sourceFolder, const QString &des
   int fileCount = copyRecursivelyPrepare( sourceFolder, destFolder, mapping );
 
   int current = 0;
-  for ( QPair<QString, QString> srcDestFilePair : qgis::as_const( mapping ) )
+  for ( QPair<QString, QString> srcDestFilePair : std::as_const( mapping ) )
   {
 
     QString srcName = srcDestFilePair.first;

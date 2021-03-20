@@ -96,7 +96,7 @@ class FeatureExpressionValuesGatherer: public QThread
 
       QgsFeature feature;
       QList<int> attributeIndexes;
-      for ( const QString &fieldName : qgis::as_const( mIdentifierFields ) )
+      for ( const QString &fieldName : std::as_const( mIdentifierFields ) )
         attributeIndexes << mSource->fields().indexOf( fieldName );
 
       while ( iterator.nextFeature( feature ) )

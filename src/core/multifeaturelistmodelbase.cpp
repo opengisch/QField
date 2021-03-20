@@ -370,7 +370,7 @@ bool MultiFeatureListModelBase::mergeSelection()
     if ( isSuccess )
     {
       selectedFeatures.removeFirst();
-      for ( const auto &pair : qgis::as_const( selectedFeatures ) )
+      for ( const auto &pair : std::as_const( selectedFeatures ) )
       {
         isSuccess = deleteFeature( pair.first, pair.second.id(), true );
         if ( !isSuccess )
@@ -454,7 +454,7 @@ bool MultiFeatureListModelBase::deleteFeature( QgsVectorLayer *layer, QgsFeature
   }
 
   // we need to either commit or rollback the child layers that have experienced any modification
-  for ( QgsVectorLayer *childLayer : qgis::as_const( childLayersEdited ) )
+  for ( QgsVectorLayer *childLayer : std::as_const( childLayersEdited ) )
   {
     // if everything went well so far, we try to commit
     if ( isSuccess )
