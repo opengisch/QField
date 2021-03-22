@@ -322,6 +322,43 @@ QFieldCloudProjectsModel::ExportStatus QFieldCloudProjectsModel::exportStatus( c
     return ExportErrorStatus;
 }
 
+void QFieldCloudProjectsModel::cancelDownloadProject( const QString &projectId )
+{
+  if ( !mCloudConnection )
+    return;
+
+  int index = findProject( projectId );
+  if ( index == -1 || index >= mCloudProjects.size() )
+    return;
+
+  // before canceling, the project should be downloading
+  if ( mCloudProjects[index].status != ProjectStatus::Downloading )
+    return;
+
+  mCloudProjects[index].exportStatus = ExportAbortStatus;
+
+  const QStringList fileNames = mCloudProjects[index].downloadFileTransfers.keys();
+  for ( const QString &fileName : fileNames )
+  {
+    NetworkReply *reply = mCloudProjects[index].downloadFileTransfers[fileName].networkReply;
+
+    if ( reply )
+      reply->abort();
+
+    mCloudProjects[index].downloadFileTransfers.remove( fileName );
+  }
+
+  if ( mCloudProjects[index].apiNetworkReply )
+  {
+    mCloudProjects[index].apiNetworkReply->abort();
+  }
+
+  mCloudProjects[index].status = ProjectStatus::Idle;
+
+  QModelIndex idx = createIndex( index, 0 );
+  emit dataChanged( idx, idx, QVector<int>() << StatusRole << ExportStatusRole );
+}
+
 void QFieldCloudProjectsModel::downloadProject( const QString &projectId )
 {
   if ( !mCloudConnection )
@@ -362,11 +399,14 @@ void QFieldCloudProjectsModel::downloadProject( const QString &projectId )
   // 1) request a new export the project
   // //////////
   NetworkReply *reply = mCloudConnection->post( QStringLiteral( "/api/v1/qfield-files/export/%1/" ).arg( projectId ) );
+  mCloudProjects[index].apiNetworkReply = reply;
 
   connect( reply, &NetworkReply::finished, reply, [ = ]()
   {
     QNetworkReply *rawReply = reply->reply();
+
     reply->deleteLater();
+    mCloudProjects[index].apiNetworkReply = nullptr;
 
     if ( rawReply->error() != QNetworkReply::NoError )
     {
@@ -394,6 +434,9 @@ void QFieldCloudProjectsModel::projectGetExportStatus( const QString &projectId 
   if ( index == -1 || index >= mCloudProjects.size() )
     return;
 
+  if ( mCloudProjects[index].exportStatus == ExportAbortStatus )
+    return;
+
   Q_ASSERT( index >= 0 && index < mCloudProjects.size() );
   Q_ASSERT( mCloudProjects[index].exportStatus != ExportUnstartedStatus );
 
@@ -401,18 +444,22 @@ void QFieldCloudProjectsModel::projectGetExportStatus( const QString &projectId 
   NetworkReply *downloadStatusReply = mCloudConnection->get( QStringLiteral( "/api/v1/qfield-files/export/%1/" ).arg( projectId ) );
 
   mCloudProjects[index].exportStatusString = QString();
+  mCloudProjects[index].apiNetworkReply = downloadStatusReply;
 
   QgsLogger::debug( QStringLiteral( "Export status requested for \"%1\"" ).arg( projectId ) );
 
   connect( downloadStatusReply, &NetworkReply::finished, this, [ = ]()
   {
+    if ( mCloudProjects[index].exportStatus == ExportAbortStatus )
+      return;
+
     QNetworkReply *rawReply = downloadStatusReply->reply();
-    const QJsonObject payload = QJsonDocument::fromJson( rawReply->readAll() ).object();
-    downloadStatusReply->deleteLater();
 
     Q_ASSERT( downloadStatusReply->isFinished() );
     Q_ASSERT( rawReply );
-    Q_ASSERT( ! payload.isEmpty() );
+
+    downloadStatusReply->deleteLater();
+    mCloudProjects[index].apiNetworkReply = nullptr;
 
     if ( rawReply->error() != QNetworkReply::NoError )
     {
@@ -420,6 +467,9 @@ void QFieldCloudProjectsModel::projectGetExportStatus( const QString &projectId 
       projectDownloadFinishedWithError( projectId, QFieldCloudConnection::errorString( rawReply ) );
       return;
     }
+
+    const QJsonObject payload = QJsonDocument::fromJson( rawReply->readAll() ).object();
+    Q_ASSERT( ! payload.isEmpty() );
 
     mCloudProjects[index].exportStatus = exportStatus( payload.value( QStringLiteral( "status" ) ).toString() );
 
@@ -433,6 +483,8 @@ void QFieldCloudProjectsModel::projectGetExportStatus( const QString &projectId 
         // download export job should be already started!!!
         Q_ASSERT( 0 );
         FALLTHROUGH
+      case ExportAbortStatus:
+        return;
       case ExportPendingStatus:
       case ExportBusyStatus:
         // infinite retry, there should be one day, when we can get the status!
@@ -457,11 +509,19 @@ void QFieldCloudProjectsModel::projectGetExportStatus( const QString &projectId 
         NetworkReply *exportedFilesReply = mCloudConnection->get( QStringLiteral( "/api/v1/qfield-files/%1/" ).arg( projectId ) );
 
         mCloudProjects[index].exportStatusString = QString();
+        mCloudProjects[index].apiNetworkReply = exportedFilesReply;
+
         emit dataChanged( idx, idx, QVector<int>() << ExportStatusRole );
 
         connect( exportedFilesReply, &NetworkReply::finished, exportedFilesReply, [ = ]()
         {
+          if ( mCloudProjects[index].exportStatus == ExportAbortStatus )
+            return;
+
           QNetworkReply *exportedFilesRawReply = exportedFilesReply->reply();
+
+          exportedFilesReply->deleteLater();
+          mCloudProjects[index].apiNetworkReply = nullptr;
 
           if ( exportedFilesRawReply->error() != QNetworkReply::NoError )
           {
@@ -606,7 +666,6 @@ bool QFieldCloudProjectsModel::projectMoveDownloadedFilesToPermanentStorage( con
     return false;
 
   const int index = findProject( projectId );
-
   if ( index == -1 || index >= mCloudProjects.size() )
     return false;
 
@@ -1225,6 +1284,9 @@ void QFieldCloudProjectsModel::downloadFileConnections( const QString &projectId
 
   connect( reply, &NetworkReply::finished, reply, [ = ]()
   {
+    if ( mCloudProjects[index].exportStatus == ExportAbortStatus )
+      return;
+
     QVector<int> rolesChanged;
     QNetworkReply *rawReply = reply->reply();
 
