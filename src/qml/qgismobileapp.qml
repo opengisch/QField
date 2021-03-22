@@ -2008,7 +2008,7 @@ ApplicationWindow {
   }
 
   QFieldCloudExportLayersFeedback {
-    id: cloudDownloadProjectErrorsPopup
+    id: cloudExportLayersFeedback
     visible: false
     parent: ApplicationWindow.overlay
 

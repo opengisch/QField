@@ -253,8 +253,8 @@ Popup {
 
               if (projectData.ExportedLayerErrors.length !== 0)
               {
-                cloudDownloadProjectErrorsPopup.exportedLayersListViewModel = projectData.ExportedLayerErrors;
-                cloudDownloadProjectErrorsPopup.visible = true;
+                cloudExportLayersFeedback.exportedLayersListViewModel = projectData.ExportedLayerErrors;
+                cloudExportLayersFeedback.visible = true;
               }
             }
 
