@@ -170,10 +170,14 @@ Rectangle {
 
     iconSource: Theme.getThemeIcon( "ic_chevron_right_white_24dp" )
 
-    enabled: ( toolBar.model && ( selection.focusedItem + 1 ) < toolBar.model.count )
+    enabled: ( parent.state == "Navigation" )
 
     onClicked: {
-      selection.focusedItem = selection.focusedItem + 1
+      if ( toolBar.model && ( selection.focusedItem + 1 ) < toolBar.model.count ) {
+        selection.focusedItem = selection.focusedItem + 1;
+      } else {
+        statusIndicatorClicked();
+      }
     }
 
     Behavior on width {
@@ -194,10 +198,14 @@ Rectangle {
 
     iconSource: Theme.getThemeIcon( "ic_chevron_left_white_24dp" )
 
-    enabled: ( selection.focusedItem > 0 )
+    enabled: ( parent.state == "Navigation" )
 
     onClicked: {
-      selection.focusedItem = selection.focusedItem - 1
+        if ( toolBar.model && ( selection.focusedItem > 0 ) ) {
+          selection.focusedItem = selection.focusedItem - 1;
+        } else {
+          statusIndicatorClicked();
+        }
     }
 
     Behavior on width {
