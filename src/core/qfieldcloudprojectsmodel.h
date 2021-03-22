@@ -318,7 +318,7 @@ class QFieldCloudProjectsModel : public QAbstractListModel
 
       ExportStatus exportStatus = ExportUnstartedStatus;
       QString exportStatusString;
-      QList<QString> exportedLayerErrors;
+      QStringList exportedLayerErrors;
       QMap<QString, FileTransfer> downloadFileTransfers;
       int downloadFilesFinished = 0;
       int downloadFilesFailed = 0;
