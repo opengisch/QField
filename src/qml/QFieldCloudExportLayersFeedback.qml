@@ -5,7 +5,7 @@ import QtQuick.Layouts 1.12
 import org.qfield 1.0
 import Theme 1.0
 
-
+// QFieldCloudExportLayersFeedback
 Dialog {
   parent: mainWindow.contentItem
 
@@ -28,13 +28,10 @@ Dialog {
     anchors.fill: parent
 
     Label {
-      id: welcomeText
-
       Layout.fillWidth: true
 
-      wrapMode: Text.WordWrap
-
       text: qsTr( "Some layers have not been exported correctly on QFieldCloud. These layers might be misconfigured or the data source is not accessible from the QFieldCloud server." )
+      wrapMode: Text.WordWrap
     }
 
     ListView {
@@ -42,11 +39,13 @@ Dialog {
       model: []
 
       Layout.fillWidth: true
-      Layout.fillHeight: true
+      Layout.topMargin: 10
+      Layout.preferredHeight: Math.max(childrenRect.height, 50)
 
       delegate: Text {
         width: parent.width
         text: modelData
+        font: Theme.resultFont
         wrapMode: Text.WordWrap
       }
     }
