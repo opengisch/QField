@@ -1178,7 +1178,6 @@ void QFieldCloudProjectsModel::downloadFileConnections( const QString &projectId
 
   QStringList fileNames = mCloudProjects[index].downloadFileTransfers.keys();
 
-
   connect( reply, &NetworkReply::redirected, reply, [ = ] ( const QUrl &url )
   {
     QUrl oldUrl = mCloudProjects[index].downloadFileTransfers[fileName].lastRedirectUrl;
@@ -1202,6 +1201,10 @@ void QFieldCloudProjectsModel::downloadFileConnections( const QString &projectId
 
     QNetworkRequest request;
     mCloudProjects[index].downloadFileTransfers[fileName].networkReply = mCloudConnection->get( request, url );
+
+    // we need to somehow finish the request, otherwise it will remain unfinished for the QFieldCloudConnection
+    emit reply->abort();
+
     downloadFileConnections( projectId, fileName );
   });
 
@@ -1227,6 +1230,10 @@ void QFieldCloudProjectsModel::downloadFileConnections( const QString &projectId
 
     Q_ASSERT( reply->isFinished() );
     Q_ASSERT( reply );
+
+    // this is most probably the redirected request, nothing to do with this reply anymore, just ignore it
+    if ( mCloudProjects[index].downloadFileTransfers[fileName].networkReply != reply )
+      return;
 
     mCloudProjects[index].downloadFilesFinished++;
 
@@ -1311,6 +1318,7 @@ void QFieldCloudProjectsModel::downloadFileConnections( const QString &projectId
 
     QModelIndex idx = createIndex( index, 0 );
     rolesChanged << StatusRole << LocalPathRole << CheckoutRole << LastLocalExportRole;
+
     emit dataChanged( idx, idx, rolesChanged );
   } );
 }
