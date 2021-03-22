@@ -361,7 +361,7 @@ Rectangle {
 
     iconSource: Theme.getThemeIcon( "ic_clear_white_24dp" )
 
-    enabled: ( toolBar.model && toolBar.model.selectedCount > 0 )
+    enabled: ( toolBar.multiSelection && toolBar.model )
 
     onClicked: toggleMultiSelection();
 
