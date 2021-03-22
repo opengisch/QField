@@ -345,15 +345,25 @@ NetworkReply *QFieldCloudConnection::get( const QString &endpoint, const QVarian
 
 NetworkReply *QFieldCloudConnection::get( QNetworkRequest &request, const QString &endpoint, const QVariantMap &params )
 {
-  QUrl url( mUrl + endpoint );
-  QUrlQuery urlQuery;
+  QUrl url( endpoint );
+
+  if ( url.isRelative() )
+    url.setUrl( mUrl + endpoint );
+
+  return get( request, url, params );
+}
+
+NetworkReply *QFieldCloudConnection::get( QNetworkRequest &request, const QUrl &url, const QVariantMap &params )
+{
+  QUrlQuery urlQuery = QUrlQuery( url.query() );
 
   for ( auto [ key, value ] : qfield::asKeyValueRange( params ) )
     urlQuery.addQueryItem( key, value.toString() );
 
-  url.setQuery( urlQuery );
+  QUrl requestUrl = url;
+  requestUrl.setQuery( urlQuery );
 
-  request.setUrl( url );
+  request.setUrl( requestUrl );
 
   NetworkReply *reply = NetworkManager::get( request );
 

@@ -136,6 +136,7 @@ class QFieldCloudConnection : public QObject
      * The returned reply needs to be deleted by the caller.
      */
     NetworkReply *get( QNetworkRequest &request, const QString &endpoint, const QVariantMap &params = QVariantMap() );
+    NetworkReply *get( QNetworkRequest &request, const QUrl &url, const QVariantMap &params = QVariantMap() );
 
     /**
      * Sets authentication token on a \a request.
