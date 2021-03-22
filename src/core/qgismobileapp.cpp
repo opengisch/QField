@@ -44,6 +44,7 @@
 #include <QFileInfo>
 #include <QFontDatabase>
 #include <QStyleHints>
+#include <QResource>
 
 #include <qgslayertreemodel.h>
 #include <qgslayoutatlas.h>

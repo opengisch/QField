@@ -17,6 +17,7 @@
 #include "gotolocatorfilter.h"
 
 #include <QAction>
+#include <QRegularExpression>
 
 #include <qgscoordinateutils.h>
 #include <qgsexpressioncontextutils.h>
