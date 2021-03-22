@@ -417,6 +417,7 @@ Rectangle {
     }
 
     onToggleMultiSelection: {
+        console.log('...');
         if ( featureForm.multiSelection ) {
             featureFormList.model.featureModel.modelMode = FeatureModel.SingleFeatureModel
             featureForm.selection.model.clearSelection();
