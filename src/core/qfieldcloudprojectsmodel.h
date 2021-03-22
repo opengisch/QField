@@ -324,7 +324,7 @@ class QFieldCloudProjectsModel : public QAbstractListModel
       QString exportStatusString;
       QStringList exportedLayerErrors;
       QMap<QString, FileTransfer> downloadFileTransfers;
-      NetworkReply *apiNetworkReply;
+      NetworkReply *apiNetworkReply = nullptr;
       int downloadFilesFinished = 0;
       int downloadFilesFailed = 0;
       int downloadBytesTotal = 0;
