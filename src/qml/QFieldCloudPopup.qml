@@ -244,6 +244,10 @@ Popup {
             }
 
             function onProjectDownloaded(projectId, projectName, hasError, errorString) {
+              // NOTE this event can be triggered from the the projects list, so there is no currentProjectId yet
+              if (projectId !== cloudProjectsModel.currentProjectId)
+                return
+
               transferErrorText.visible = hasError && cloudProjectsModel.currentProjectData.Status === QFieldCloudProjectsModel.Idle;
 
               if (transferErrorText.visible)
@@ -251,7 +255,6 @@ Popup {
 
               if (cloudProjectsModel.currentProjectData.ExportedLayerErrors.length !== 0)
               {
-                console.log(cloudProjectsModel.currentProjectData.ExportedLayerErrors.length)
                 cloudDownloadProjectErrorsPopup.exportedLayersListViewModel = cloudProjectsModel.currentProjectData.ExportedLayerErrors;
                 cloudDownloadProjectErrorsPopup.show();
               }
