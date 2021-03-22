@@ -15,11 +15,14 @@
  ***************************************************************************/
 
 #include "changelogcontents.h"
-#include "qregularexpression.h"
-#include "qgsnetworkaccessmanager.h"
-#include "qjsondocument.h"
-#include "qjsonarray.h"
-#include "qjsonobject.h"
+
+#include <qgsnetworkaccessmanager.h>
+
+#include <QJsonArray>
+#include <QJsonDocument>
+#include <QJsonObject>
+#include <QRegularExpression>
+
 
 ChangelogContents::ChangelogContents( QObject *parent ):
     QObject( parent )

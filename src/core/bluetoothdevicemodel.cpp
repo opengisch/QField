@@ -24,7 +24,7 @@ BluetoothDeviceModel::BluetoothDeviceModel( QObject *parent )
     mLocalDevice( std::make_unique<QBluetoothLocalDevice>() )
 {
   connect( &mServiceDiscoveryAgent, &QBluetoothServiceDiscoveryAgent::serviceDiscovered, this, &BluetoothDeviceModel::serviceDiscovered );
-  connect( &mServiceDiscoveryAgent, qgis::overload<QBluetoothServiceDiscoveryAgent::Error>::of( &QBluetoothServiceDiscoveryAgent::error ), this, [ = ]()
+  connect( &mServiceDiscoveryAgent, qOverload<QBluetoothServiceDiscoveryAgent::Error>( &QBluetoothServiceDiscoveryAgent::error ), this, [ = ]()
   {
     setLastError( mServiceDiscoveryAgent.errorString() );
     setScanningStatus( Failed );

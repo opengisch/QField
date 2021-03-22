@@ -17,13 +17,15 @@
 
 
 #include "qgsgpkgflusher.h"
+
 #include <qgsmessagelog.h>
 #include <qgsvectorlayer.h>
-
 #include <qgsproject.h>
-#include <sqlite3.h>
+
+#include <QRegularExpression>
 #include <QObject>
 #include <QTimer>
+#include <sqlite3.h>
 
 class Flusher : public QObject
 {
