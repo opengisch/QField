@@ -31,6 +31,8 @@
 #include <qgsattributeeditorrelation.h>
 #include <qgsmapthemecollection.h>
 
+#include <QRegularExpression>
+
 
 AttributeFormModelBase::AttributeFormModelBase( QObject *parent )
   : QStandardItemModel( 0, 1, parent )

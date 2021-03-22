@@ -19,9 +19,12 @@
 #include "qgsvectorlayer.h"
 #include "stringutils.h"
 
+#include <QRegularExpression>
+
 #include <qgsproject.h>
 #include <qgsexpressioncontextutils.h>
 #include <qgsvaluerelationfieldformatter.h>
+
 
 FeatureListModel::FeatureListModel( QObject *parent )
   : QAbstractItemModel( parent )
