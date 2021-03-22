@@ -244,19 +244,17 @@ Popup {
             }
 
             function onProjectDownloaded(projectId, projectName, hasError, errorString) {
-              // NOTE this event can be triggered from the the projects list, so there is no currentProjectId yet
-              if (projectId !== cloudProjectsModel.currentProjectId)
-                return
+              const projectData = cloudProjectsModel.getProjectData(projectId)
 
-              transferErrorText.visible = hasError && cloudProjectsModel.currentProjectData.Status === QFieldCloudProjectsModel.Idle;
+              transferErrorText.visible = hasError && projectData.Status === QFieldCloudProjectsModel.Idle;
 
               if (transferErrorText.visible)
                 transferErrorText.text = errorString
 
-              if (cloudProjectsModel.currentProjectData.ExportedLayerErrors.length !== 0)
+              if (projectData.ExportedLayerErrors.length !== 0)
               {
-                cloudDownloadProjectErrorsPopup.exportedLayersListViewModel = cloudProjectsModel.currentProjectData.ExportedLayerErrors;
-                cloudDownloadProjectErrorsPopup.show();
+                cloudDownloadProjectErrorsPopup.exportedLayersListViewModel = projectData.ExportedLayerErrors;
+                cloudDownloadProjectErrorsPopup.visible = true;
               }
             }
 
