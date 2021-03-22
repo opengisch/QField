@@ -65,6 +65,6 @@
         <file>QFieldCloudLogin.qml</file>
         <file>QFieldCloudScreen.qml</file>
         <file>QFieldCloudPopup.qml</file>
-        <file>QFieldCloudDownloadProjectErrorsPopup.qml</file>
+        <file>QFieldCloudExportLayersFeedback.qml</file>
     </qresource>
 </RCC>

@@ -2007,7 +2007,7 @@ ApplicationWindow {
     height: parent.height
   }
 
-  QFieldCloudDownloadProjectErrorsPopup {
+  QFieldCloudExportLayersFeedback {
     id: cloudDownloadProjectErrorsPopup
     visible: false
     parent: ApplicationWindow.overlay
