@@ -572,16 +572,19 @@ Rectangle {
 
   function hide()
   {
-    props.isVisible = false
-    focus = false
-    fullScreenView = qfieldSettings.fullScreenIdentifyView
+    props.isVisible = false;
+    focus = false;
+    fullScreenView = qfieldSettings.fullScreenIdentifyView;
 
     if ( !digitizingToolbar.geometryRequested )
     {
-      featureForm.selection.clear()
-      if ( featureForm.selection.model )
-        featureForm.selection.model.clearSelection()
-      model.clear()
+      featureForm.multiSelection = false;
+      featureFormList.model.featureModel.modelMode = FeatureModel.SingleFeatureModel;
+      featureForm.selection.clear();
+      if ( featureForm.selection.model ) {
+        featureForm.selection.model.clearSelection();
+      }
+      model.clear();
     }
   }
 
