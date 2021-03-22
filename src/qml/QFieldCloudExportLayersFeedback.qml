@@ -40,7 +40,7 @@ Dialog {
 
       Layout.fillWidth: true
       Layout.topMargin: 10
-      Layout.preferredHeight: Math.min(Math.max(childrenRect.height, 50), 300)
+      Layout.preferredHeight: Math.min(childrenRect.height, 300)
 
       delegate: Text {
         width: parent.width
