@@ -36,7 +36,6 @@
 #include <QDir>
 #include <QDirIterator>
 #include <QSettings>
-#include <QDebug>
 
 #define MAX_REDIRECTS_ALLOWED 10
 
@@ -357,7 +356,7 @@ void QFieldCloudProjectsModel::downloadProject( const QString &projectId )
 
   emit dataChanged( idx, idx, QVector<int>::fromList( roleNames().keys() ) );
 
-  qDebug() << projectId << "Project export requested";
+  QgsLogger::debug( QStringLiteral( "Export requested for \"%1\"" ).arg( projectId ) );
 
   // //////////
   // 1) request a new export the project
@@ -368,13 +367,15 @@ void QFieldCloudProjectsModel::downloadProject( const QString &projectId )
   {
     QNetworkReply *rawReply = reply->reply();
     reply->deleteLater();
-    qDebug() << projectId << "Project request finished: " << rawReply->error();
 
     if ( rawReply->error() != QNetworkReply::NoError )
     {
+      QgsLogger::debug( QStringLiteral( "Export request for \"%1\" finished with error: %2" ).arg( projectId, rawReply->error() ) );
       projectDownloadFinishedWithError( projectId, QFieldCloudConnection::errorString( rawReply ) );
       return;
     }
+
+    QgsLogger::debug( QStringLiteral( "Export request for \"%1\" finished with no error" ).arg( projectId ) );
 
     const QJsonObject payload = QJsonDocument::fromJson( rawReply->readAll() ).object();
     Q_ASSERT( ! payload.isEmpty() );
@@ -401,7 +402,7 @@ void QFieldCloudProjectsModel::projectGetExportStatus( const QString &projectId 
 
   mCloudProjects[index].exportStatusString = QString();
 
-  qDebug() << projectId << "Project export status requested";
+  QgsLogger::debug( QStringLiteral( "Export status requested for \"%1\"" ).arg( projectId ) );
 
   connect( downloadStatusReply, &NetworkReply::finished, this, [ = ]()
   {
@@ -413,17 +414,18 @@ void QFieldCloudProjectsModel::projectGetExportStatus( const QString &projectId 
     Q_ASSERT( rawReply );
     Q_ASSERT( ! payload.isEmpty() );
 
-    qDebug() << projectId << "Project export status request finished with http status: " << rawReply->error();
-
     if ( rawReply->error() != QNetworkReply::NoError )
     {
+      QgsLogger::debug( QStringLiteral( "Export status request for \"%1\" finished with error: %2" ).arg( projectId, rawReply->error() ) );
       projectDownloadFinishedWithError( projectId, QFieldCloudConnection::errorString( rawReply ) );
       return;
     }
 
     mCloudProjects[index].exportStatus = exportStatus( payload.value( QStringLiteral( "status" ) ).toString() );
 
-    qDebug() << projectId << "Project export status request finished with status: " << mCloudProjects[index].exportStatus;
+    QgsLogger::debug( QStringLiteral( "Export request for \"%1\" finished with no error and status \"%2\"" )
+                      .arg( projectId )
+                      .arg( QVariant::fromValue( mCloudProjects[index].exportStatus ).toString() ) );
 
     switch ( mCloudProjects[index].exportStatus )
     {
@@ -450,7 +452,7 @@ void QFieldCloudProjectsModel::projectGetExportStatus( const QString &projectId 
       }
       break;
       case ExportFinishedStatus:
-        qDebug() << projectId << "Project export files requested";
+        QgsLogger::debug( QStringLiteral( "Export files list requested for \"%1\"" ).arg( projectId ) );
 
         NetworkReply *exportedFilesReply = mCloudConnection->get( QStringLiteral( "/api/v1/qfield-files/%1/" ).arg( projectId ) );
 
@@ -461,17 +463,19 @@ void QFieldCloudProjectsModel::projectGetExportStatus( const QString &projectId 
         {
           QNetworkReply *exportedFilesRawReply = exportedFilesReply->reply();
 
-          qDebug() << projectId << "Project export files request finished: " << exportedFilesRawReply->error();
-
           if ( exportedFilesRawReply->error() != QNetworkReply::NoError )
           {
+            QgsLogger::debug( QStringLiteral( "Export status request for \"%1\" finished with error: %2" ).arg( projectId, rawReply->error() ) );
             projectDownloadFinishedWithError( projectId, QFieldCloudConnection::errorString( rawReply ) );
             return;
           }
 
           const QJsonObject exportedFilesPayload = QJsonDocument::fromJson( exportedFilesRawReply->readAll() ).object();
 
-          qDebug() << projectId << "Project export files response payload: " << QStringLiteral( "%s" ).arg( QString::fromUtf8( QJsonDocument( exportedFilesPayload ).toJson( QJsonDocument::Indented ) ) );
+          QgsLogger::debug( QStringLiteral( "Export files list request finished for \"%1\" with no error and response: %2" ).arg(
+                              projectId,
+                              QString::fromUtf8( QJsonDocument( exportedFilesPayload ).toJson( QJsonDocument::Indented ) )
+                              ) );
 
           const QJsonArray files = exportedFilesPayload.value( QStringLiteral( "files" ) ).toArray();
           for ( const QJsonValue file : files )
@@ -513,7 +517,10 @@ void QFieldCloudProjectsModel::projectGetExportStatus( const QString &projectId 
 
           if ( hasLayerExportErrror )
           {
-            qDebug() << projectId << "Project export problematic files found: " << mCloudProjects[index].exportedLayerErrors;
+            QgsLogger::debug( QStringLiteral( "Export files list request finished for \"%1\" with some failed layers:\n%2" ).arg(
+                                projectId,
+                                mCloudProjects[index].exportedLayerErrors.join( QStringLiteral( "\n" ) )
+                                ) );
             emit dataChanged( idx, idx,  QVector<int>() << ExportedLayerErrorsRole );
           }
 
@@ -544,10 +551,7 @@ void QFieldCloudProjectsModel::projectDownloadFiles( const QString &projectId )
     mCloudProjects[index].status = ProjectStatus::Idle;
     mCloudProjects[index].downloadProgress = 1;
 
-    qDebug() << projectId << "Project export has no files to download";
-
     emit dataChanged( idx, idx,  QVector<int>() << StatusRole << DownloadProgressRole );
-    emit warning( QStringLiteral( "Project empty" ) );
 
     return;
   }
@@ -571,7 +575,7 @@ void QFieldCloudProjectsModel::projectDownloadFiles( const QString &projectId )
     mCloudProjects[index].downloadFileTransfers[fileName].tmpFile = file->fileName();
     mCloudProjects[index].downloadFileTransfers[fileName].networkReply = reply;
 
-    qDebug() << projectId << "Project export file requested: " << fileName;
+    QgsLogger::debug( QStringLiteral( "Export file for \"%1/%2\" requested" ).arg( projectId, fileName ) );
 
     downloadFileConnections( projectId, fileName );
   }
@@ -582,7 +586,7 @@ void QFieldCloudProjectsModel::projectDownloadFinishedWithError( const QString &
   const int index = findProject( projectId );
   if ( index == -1 || index >= mCloudProjects.size() )
   {
-    QgsMessageLog::logMessage( QStringLiteral( "Project id '%1' not found" ).arg( projectId ) );
+    QgsMessageLog::logMessage( QStringLiteral( "Project id \"%1\" not found" ).arg( projectId ) );
     return;
   }
   QModelIndex idx = createIndex( index, 0 );
@@ -591,7 +595,7 @@ void QFieldCloudProjectsModel::projectDownloadFinishedWithError( const QString &
   mCloudProjects[index].status = ProjectStatus::Idle;
   mCloudProjects[index].errorStatus = DownloadErrorStatus;
   mCloudProjects[index].exportStatusString = errorString;
-  QgsMessageLog::logMessage( QStringLiteral( "Download of project id '%1' finished with error '%2'" ).arg( projectId ).arg( mCloudProjects[index].exportStatusString ) );
+  QgsMessageLog::logMessage( QStringLiteral( "Download of project id \"%1\" finished with error: %2" ).arg( projectId ).arg( mCloudProjects[index].exportStatusString ) );
   emit dataChanged( idx, idx, QVector<int>() << StatusRole << ExportStatusRole << ErrorStatusRole << ErrorStringRole);
   emit projectDownloaded( projectId, mCloudProjects[index].name, true, errorString );
 }
@@ -1159,7 +1163,10 @@ void QFieldCloudProjectsModel::downloadFileConnections( const QString &projectId
     return;
 
   if ( !mCloudProjects[index].downloadFileTransfers.contains( fileName ) )
+  {
+    Q_ASSERT( false );
     return;
+  }
 
   NetworkReply *reply = mCloudProjects[index].downloadFileTransfers[fileName].networkReply;
 
@@ -1181,17 +1188,17 @@ void QFieldCloudProjectsModel::downloadFileConnections( const QString &projectId
 
     if ( mCloudProjects[index].downloadFileTransfers[fileName].redirectsCount >= MAX_REDIRECTS_ALLOWED )
     {
-      qDebug() << projectId << "Too many redirects, last two: " << oldUrl << url;
+      QgsLogger::debug( QStringLiteral( "Export file \"%1/%2\" has too many redirects, last two urls are %3 and %4" ).arg( projectId, fileName, oldUrl.toString(), url.toString() ) );
       reply->abort();
     }
 
     if ( oldUrl == url )
     {
-      qDebug() << projectId << "Redirected to the same page twice: " << url;
+      QgsLogger::debug( QStringLiteral( "Export file \"%1/%2\" has redirects to the same URL %3" ).arg( projectId, fileName, url.toString() ) );
       reply->abort();
     }
 
-    qDebug() << projectId << "Redirected to: " << url;
+    QgsLogger::debug( QStringLiteral( "Export file \"%1/%2\" redirected to %3" ).arg( projectId, fileName, url.toString() ) );
 
     QNetworkRequest request;
     mCloudProjects[index].downloadFileTransfers[fileName].networkReply = mCloudConnection->get( request, url );
@@ -1224,39 +1231,38 @@ void QFieldCloudProjectsModel::downloadFileConnections( const QString &projectId
     mCloudProjects[index].downloadFilesFinished++;
 
     bool hasError = false;
-    QString errorMessage;
-
-    qDebug() << projectId << "Project export file request finished: " << rawReply->url() << rawReply->error();
+    QString errorMessageDetail;
+    QString errorMessageTemplate;
 
     if ( rawReply->error() != QNetworkReply::NoError )
     {
       hasError = true;
-      errorMessage = QFieldCloudConnection::errorString( rawReply );
-      QgsMessageLog::logMessage( tr( "Failed to write downloaded file stored at \"%1\", network reason:\n%2" ).arg( fileName ).arg( errorMessage ) );
+      errorMessageDetail = QFieldCloudConnection::errorString( rawReply );
+      errorMessageTemplate = QStringLiteral( "Failed to download file \"%1\", reason:" ).arg( fileName );
     }
 
     QFile file( mCloudProjects[index].downloadFileTransfers[fileName].tmpFile );
 
-    if ( !file.open( QIODevice::ReadWrite ) )
-    {
-      return;
-    }
+    file.open( QIODevice::ReadWrite );
 
     if ( ! hasError && ! file.write( rawReply->readAll() ) )
     {
       hasError = true;
-      errorMessage = file.errorString();
-      QgsMessageLog::logMessage( tr( "Failed to write downloaded file stored at \"%1\", fs reason:\n%2" ).arg( fileName ).arg( errorMessage ) );
+      errorMessageDetail = file.errorString();
+      errorMessageTemplate = QStringLiteral( "Failed to write downloaded file stored at \"%1\", fs reason" ).arg( fileName );
     }
 
     if ( hasError )
     {
-      QString trimmedErrorMessage = errorMessage.size() > 100
-                                    ? ( errorMessage.left( 100 ) + tr( " (see more in the QField error log)…" ) )
-                                    : errorMessage;
+      QString trimmedErrorMessage = errorMessageDetail.size() > 100
+                                    ? ( errorMessageDetail.left( 100 ) + tr( " (see more in the QField error log)…" ) )
+                                    : errorMessageDetail;
       mCloudProjects[index].downloadFilesFailed++;
       mCloudProjects[index].errorStatus = DownloadErrorStatus;
-      mCloudProjects[index].exportStatusString = tr( "Failed to write downloaded file stored at \"%1\", reason:\n%2" ).arg( fileName ).arg( trimmedErrorMessage );
+      mCloudProjects[index].exportStatusString = QStringLiteral( "%1: \n%2" ).arg( errorMessageTemplate, fileName ).arg( trimmedErrorMessage );
+
+      QgsLogger::debug( QStringLiteral( "%1: \n%2" ).arg( errorMessageTemplate, fileName ).arg( errorMessageDetail ) );
+      QgsMessageLog::logMessage( QStringLiteral( "%1: \n%2" ).arg( errorMessageTemplate, fileName ).arg( errorMessageDetail ) );
 
       rolesChanged << StatusRole << LocalPathRole << CheckoutRole << ErrorStringRole;
 
