@@ -86,7 +86,8 @@ Credits
 QField is developped by OPENGIS.ch. OPENGIS.ch does consulting, development and
 training for open source software including QField and QGIS.
 
-.. image:: /images/openGis-websiteLogo.png
+.. image:: /images/opengisch_main_transparent.png
+   :width: 200px
    :alt: OPENGIS.ch
    :target: http://www.opengis.ch
 

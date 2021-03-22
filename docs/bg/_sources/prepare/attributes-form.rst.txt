@@ -156,11 +156,9 @@ will be available to the user.
 
 Let's see what we got on the field:
 
-.. container:: clearer text-left
+.. container::
 
-  .. video:: ../../../../_images/conditional_visibility.webm
-     :width: 700
-
+  .. vimeo:: 499565113
 
 Constraints
 -----------
