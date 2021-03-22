@@ -366,7 +366,7 @@ Page {
                     projectActions.projectOwner = item.projectOwner
                     projectActions.projectName = item.projectName
                     projectActions.projectLocalPath = item.projectLocalPath
-                    downloadProject.visible = item.projectLocalPath === ''
+                    downloadProject.visible = item.projectLocalPath === '' && item.status !== QFieldCloudProjectsModel.ProjectStatus.Downloading
                     openProject.visible = item.projectLocalPath !== ''
                     removeProject.visible = item.projectLocalPath !== ''
                     cancelDownloadProject.visible = item.status === QFieldCloudProjectsModel.ProjectStatus.Downloading
