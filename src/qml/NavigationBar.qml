@@ -108,51 +108,53 @@ Rectangle {
           return qsTr('Features')
         }
       }
+
       horizontalAlignment: Text.AlignHCenter
       verticalAlignment: Text.AlignVCenter
       fontSizeMode: Text.Fit
       wrapMode: Text.Wrap
       elide: Text.ElideRight
-    }
 
-    MouseArea {
-      anchors.fill: parent
 
-      property real velocity: 0.0
-      property int startY: 0
-      property int lastY: 0
-      property int distance: 0
-      property bool isTracing: false
+      MouseArea {
+        anchors.fill: parent
 
-      preventStealing: true
+        property real velocity: 0.0
+        property int startY: 0
+        property int lastY: 0
+        property int distance: 0
+        property bool isTracing: false
 
-      onPressed: {
-        startY = mouse.y
-        lastY = mouse.y
-        velocity = 0
-        distance = 0
-        isTracing = true
-      }
-      onPositionChanged: {
-        if ( !isTracing )
-          return
+        preventStealing: true
 
-        var currentVelocity = Math.abs(mouse.y - lastY)
-        lastY = mouse.y
-        velocity = (velocity + currentVelocity) / 2.0
-        distance = Math.abs(mouse.y - startY)
-        isTracing = velocity > 15 && distance > parent.height
-      }
-      onReleased: {
-        if ( !isTracing ) {
-          toolBar.statusIndicatorSwiped(getDirection())
-        } else {
-          toolBar.statusIndicatorClicked()
+        onPressed: {
+          startY = mouse.y
+          lastY = mouse.y
+          velocity = 0
+          distance = 0
+          isTracing = true
         }
-      }
+        onPositionChanged: {
+          if ( !isTracing )
+            return
 
-      function getDirection() {
-        return lastY < startY ? 'up' : 'down'
+          var currentVelocity = Math.abs(mouse.y - lastY)
+          lastY = mouse.y
+          velocity = (velocity + currentVelocity) / 2.0
+          distance = Math.abs(mouse.y - startY)
+          isTracing = velocity > 15 && distance > parent.height
+        }
+        onReleased: {
+          if ( !isTracing ) {
+            toolBar.statusIndicatorSwiped(getDirection())
+          } else {
+            toolBar.statusIndicatorClicked()
+          }
+        }
+
+        function getDirection() {
+          return lastY < startY ? 'up' : 'down'
+        }
       }
     }
   }
@@ -168,10 +170,14 @@ Rectangle {
 
     iconSource: Theme.getThemeIcon( "ic_chevron_right_white_24dp" )
 
-    enabled: ( toolBar.model && ( selection.focusedItem + 1 ) < toolBar.model.count )
+    enabled: ( parent.state == "Navigation" )
 
     onClicked: {
-      selection.focusedItem = selection.focusedItem + 1
+      if ( toolBar.model && ( selection.focusedItem + 1 ) < toolBar.model.count ) {
+        selection.focusedItem = selection.focusedItem + 1;
+      } else {
+        statusIndicatorClicked();
+      }
     }
 
     Behavior on width {
@@ -192,10 +198,14 @@ Rectangle {
 
     iconSource: Theme.getThemeIcon( "ic_chevron_left_white_24dp" )
 
-    enabled: ( selection.focusedItem > 0 )
+    enabled: ( parent.state == "Navigation" )
 
     onClicked: {
-      selection.focusedItem = selection.focusedItem - 1
+        if ( toolBar.model && ( selection.focusedItem > 0 ) ) {
+          selection.focusedItem = selection.focusedItem - 1;
+        } else {
+          statusIndicatorClicked();
+        }
     }
 
     Behavior on width {
@@ -359,7 +369,7 @@ Rectangle {
 
     iconSource: Theme.getThemeIcon( "ic_clear_white_24dp" )
 
-    enabled: ( toolBar.model && toolBar.model.selectedCount > 0 )
+    enabled: ( toolBar.multiSelection && toolBar.model )
 
     onClicked: toggleMultiSelection();
 
