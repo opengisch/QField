@@ -151,6 +151,7 @@ Item {
           color: serverUrlField.activeFocus ? "#4CAF50" : "#C8E6C9"
         }
 
+        onTextChanged: text = text.replace(/\s+/g, '')
         Keys.onReturnPressed: loginFormSumbitHandler()
         onEditingFinished: {
           cloudConnection.url = text ? prefixUrlWithProtocol(text) : cloudConnection.defaultUrl
@@ -193,6 +194,7 @@ Item {
           color: usernameField.activeFocus ? "#4CAF50" : "#C8E6C9"
         }
 
+        onTextChanged: text = text.replace(/\s+/g, '')
         Keys.onReturnPressed: loginFormSumbitHandler()
       }
 
