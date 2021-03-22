@@ -60,8 +60,8 @@ class QFieldCloudProjectsModel : public QAbstractListModel
       LocalDeltasCountRole,
       LocalPathRole,
       CanSyncRole,
-      LastLocalExport,
-      LastLocalPushDeltas,
+      LastLocalExportRole,
+      LastLocalPushDeltasRole,
       CollaboratorRole,
     };
 

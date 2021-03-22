@@ -864,7 +864,7 @@ void QFieldCloudProjectsModel::uploadProject( const QString &projectId, const bo
 
         projectSetSetting( projectId, QStringLiteral( "lastLocalPushDeltas" ), mCloudProjects[index].lastLocalPushDeltas );
 
-        emit dataChanged( idx, idx, QVector<int>() << ModificationRole );
+        emit dataChanged( idx, idx, QVector<int>() << ModificationRole << LastLocalPushDeltasRole );
 
         // download the updated files, so the files are for sure the same on the client and on the server
         if ( shouldDownloadUpdates )
@@ -1311,7 +1311,7 @@ void QFieldCloudProjectsModel::downloadFileConnections( const QString &projectId
 
 
     QModelIndex idx = createIndex( index, 0 );
-    rolesChanged << StatusRole << LocalPathRole << CheckoutRole;
+    rolesChanged << StatusRole << LocalPathRole << CheckoutRole << LastLocalExportRole;
     emit dataChanged( idx, idx, rolesChanged );
   } );
 }
@@ -1343,8 +1343,8 @@ QHash<int, QByteArray> QFieldCloudProjectsModel::roleNames() const
   roles[LocalDeltasCountRole] = "LocalDeltasCount";
   roles[LocalPathRole] = "LocalPath";
   roles[CanSyncRole] = "CanSync";
-  roles[LastLocalExport] = "LastLocalExport";
-  roles[LastLocalPushDeltas] = "LastLocalPushDeltas";
+  roles[LastLocalExportRole] = "LastLocalExport";
+  roles[LastLocalPushDeltasRole] = "LastLocalPushDeltas";
   roles[CollaboratorRole] = "CollaboratorRole";
 
   return roles;
@@ -1503,9 +1503,9 @@ QVariant QFieldCloudProjectsModel::data( const QModelIndex &index, int role ) co
       return mCloudProjects.at( index.row() ).localPath;
     case CanSyncRole:
       return canSyncProject( mCloudProjects.at( index.row() ).id );
-    case LastLocalExport:
+    case LastLocalExportRole:
       return mCloudProjects.at( index.row() ).lastLocalExport;
-    case LastLocalPushDeltas:
+    case LastLocalPushDeltasRole:
       return mCloudProjects.at( index.row() ).lastLocalPushDeltas;
     case CollaboratorRole:
       return mCloudProjects.at( index.row() ).collaboratorRole;
