@@ -501,12 +501,12 @@ void QFieldCloudProjectsModel::projectGetExportStatus( const QString &projectId 
           {
             QJsonObject layer = layers.value( layerKey ).toObject();
 
-            if ( layer.value( QStringLiteral( "valid" ) ).toBool( false ) == false )
+            if ( !layer.value( QStringLiteral( "valid" ) ).toBool() )
             {
               QString layerName = layer.value( QStringLiteral( "name" ) ).toString();
               QString layerStatus = layer.value( QStringLiteral( "status" ) ).toString();
 
-              mCloudProjects[index].exportedLayerErrors.append( tr( "Exported layer '%1' is not valid, status is '%2'" )
+              mCloudProjects[index].exportedLayerErrors.append( tr( "Exported layer '%1' is not valid: '%2'" )
                                                                 .arg( layerName )
                                                                 .arg( layerStatus ) );
               QgsMessageLog::logMessage( mCloudProjects[index].exportedLayerErrors.last() );

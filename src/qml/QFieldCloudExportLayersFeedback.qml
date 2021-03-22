@@ -5,82 +5,53 @@ import QtQuick.Layouts 1.12
 import org.qfield 1.0
 import Theme 1.0
 
-Popup {
-  id: popup
-  padding: 0
 
+Dialog {
+  parent: mainWindow.contentItem
+
+  property int selectedCount: 0
+  property bool isDeleted: false
   property alias exportedLayersListViewModel: exportedLayersListView.model
 
-  Page {
+  visible: false
+  modal: true
+  width: mainWindow.width - 20
+
+  x: ( mainWindow.width - width ) / 2
+  y: ( mainWindow.height - height ) / 2
+
+  title: qsTr("Problematic QFieldCloud layer exports")
+
+  ColumnLayout {
+    id: layout
+
     anchors.fill: parent
 
-    header: PageHeader {
-      title: qsTr('QFieldCloud')
+    Label {
+      id: welcomeText
 
-      showCancelButton: false
-      showApplyButton: cloudProjectsModel.currentProjectData.Status === QFieldCloudProjectsModel.Idle
-      busyIndicatorState: 'off'
+      Layout.fillWidth: true
 
-      onFinished: {
-        popup.close()
-      }
+      wrapMode: Text.WordWrap
+
+      text: qsTr( "Some layers have not been exported correctly on QFieldCloud. These layers might be misconfigured or the data source is not accessible from the QFieldCloud server." )
     }
 
-      GridLayout {
-        id: mainGrid
-        anchors.fill: parent
-        columns: 1
-        columnSpacing: 2
-        rowSpacing: 2
+    ListView {
+      id: exportedLayersListView
+      model: []
 
-        GridLayout {
-          Layout.margins: 10
-          Layout.maximumWidth: 525
-          Layout.alignment: Qt.AlignHCenter
-          id: mainInnerGrid
-          width: parent.width
-          visible: cloudConnection.status === QFieldCloudConnection.LoggedIn
-                   && cloudProjectsModel.currentProjectData.Status === QFieldCloudProjectsModel.Idle
-          columns: 1
-          columnSpacing: parent.columnSpacing
-          rowSpacing: parent.rowSpacing
+      Layout.fillWidth: true
+      Layout.fillHeight: true
 
-          Text {
-            id: transferErrorText
-            visible: true
-            font: Theme.defaultFont
-            text: exportedLayersListViewModel && exportedLayersListViewModel.length === 1
-                  ? qsTr("One layer was not exported correctly:")
-                  : qsTr("Some layers were not exported correctly:")
-            color: Theme.darkRed
-            wrapMode: Text.WordWrap
-            horizontalAlignment: Text.AlignHCenter
-            Layout.fillWidth: true
-          }
-
-          Item {
-
-            Layout.bottomMargin: 20
-            Layout.fillWidth: true
-            Layout.fillHeight: true
-
-            ListView {
-              id: exportedLayersListView
-              anchors.fill: parent
-
-              delegate:
-                Text {
-                  width: parent.width
-                  text: modelData
-                  wrapMode: Text.WordWrap
-                }
-            }
-          }
-        }
+      delegate: Text {
+        width: parent.width
+        text: modelData
+        wrapMode: Text.WordWrap
       }
+    }
   }
 
-  function show() {
-    visible = true
-  }
+  standardButtons: Dialog.Ok
 }
+
