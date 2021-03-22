@@ -18,6 +18,7 @@
 #include <qgsnetworkaccessmanager.h>
 #include <qgsapplication.h>
 #include <qgsmessagelog.h>
+#include <qgssettings.h>
 #include <QJsonObject>
 #include <QJsonDocument>
 #include <QNetworkCookieJar>
@@ -37,6 +38,9 @@ QFieldCloudConnection::QFieldCloudConnection()
 #if QT_VERSION >= QT_VERSION_CHECK(5, 15, 0)
   QgsNetworkAccessManager::instance()->setTransferTimeout( 5 * 60 * 1000 );
 #endif
+  // we cannot use "/" as separator, since QGIS puts a suffix QGIS/31700 anyway
+  const QString userAgent = QStringLiteral( "qfield|%1|%2|%3|" ).arg( APP_VERSION ).arg( APP_VERSION_STR ).arg( GIT_REV );
+  QgsSettings().setValue( QStringLiteral( "/qgis/networkAndProxy/userAgent" ), userAgent );
 }
 
 QMap<QString, QString> QFieldCloudConnection::sErrors = QMap<QString, QString>({
@@ -320,6 +324,8 @@ NetworkReply *QFieldCloudConnection::post( const QString &endpoint, const QVaria
     multiPart->append( filePart );
   }
 
+  setClientHeaders( request );
+
   NetworkReply *reply = NetworkManager::post( request, multiPart );
 
   multiPart->setParent( reply );
@@ -364,6 +370,8 @@ NetworkReply *QFieldCloudConnection::get( QNetworkRequest &request, const QUrl &
   requestUrl.setQuery( urlQuery );
 
   request.setUrl( requestUrl );
+
+  setClientHeaders( request );
 
   NetworkReply *reply = NetworkManager::get( request );
 
@@ -417,5 +425,15 @@ void QFieldCloudConnection::setAuthenticationToken( QNetworkRequest &request )
   if ( !mToken.isNull() )
   {
     request.setRawHeader( "Authorization", "Token " + mToken );
+  }
+}
+
+void QFieldCloudConnection::setClientHeaders( QNetworkRequest &request )
+{
+  const QByteArray acceptLanguageHeader( "Accept-Language" );
+  if ( !request.hasRawHeader( acceptLanguageHeader ) )
+  {
+    // the standard requires locales with dash instead of underscore
+    request.setRawHeader( acceptLanguageHeader, QLocale::system().name().replace( QStringLiteral( "_" ), QStringLiteral( "-" ) ).toUtf8() );
   }
 }

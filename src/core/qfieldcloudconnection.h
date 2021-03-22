@@ -171,6 +171,7 @@ class QFieldCloudConnection : public QObject
 
     int mPendingRequests = 0;
 
+    void setClientHeaders( QNetworkRequest &request );
 };
 
 #endif // QFIELDCLOUDCONNECTION_H
