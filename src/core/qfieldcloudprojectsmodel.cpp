@@ -38,6 +38,8 @@
 #include <QSettings>
 #include <QDebug>
 
+#define MAX_REDIRECTS_ALLOWED 10
+
 QFieldCloudProjectsModel::QFieldCloudProjectsModel() :
   mProject( QgsProject::instance() )
 {
@@ -571,112 +573,7 @@ void QFieldCloudProjectsModel::projectDownloadFiles( const QString &projectId )
 
     qDebug() << projectId << "Project export file requested: " << fileName;
 
-    connect( reply, &NetworkReply::downloadProgress, this, [ = ]( int bytesReceived, int bytesTotal )
-    {
-      Q_UNUSED( bytesTotal );
-
-      // it means the NetworkReply has failed and retried
-      mCloudProjects[index].downloadBytesReceived -= mCloudProjects[index].downloadFileTransfers[fileName].bytesTransferred;
-      mCloudProjects[index].downloadBytesReceived += bytesReceived;
-      mCloudProjects[index].downloadFileTransfers[fileName].bytesTransferred = bytesReceived;
-      mCloudProjects[index].downloadProgress = std::clamp( ( static_cast<double>( mCloudProjects[index].downloadBytesReceived ) / std::max( mCloudProjects[index].downloadBytesTotal, 1 ) ), 0., 1. );
-
-      QModelIndex idx = createIndex( index, 0 );
-
-      emit dataChanged( idx, idx,  QVector<int>() << DownloadProgressRole );
-    } );
-
-    connect( reply, &NetworkReply::finished, this, [ = ]()
-    {
-      QVector<int> rolesChanged;
-      QNetworkReply *rawReply = reply->reply();
-
-      Q_ASSERT( reply->isFinished() );
-      Q_ASSERT( reply );
-
-      mCloudProjects[index].downloadFilesFinished++;
-
-      bool hasError = false;
-      QString errorMessage;
-
-      qDebug() << projectId << "Project export file request finished: " << rawReply->url() << rawReply->error();
-      qDebug() << 666 << rawReply->request().attribute( QNetworkRequest::RedirectPolicyAttribute );
-
-      if ( rawReply->error() != QNetworkReply::NoError )
-      {
-        hasError = true;
-        errorMessage = QFieldCloudConnection::errorString( rawReply );
-        QgsMessageLog::logMessage( tr( "Failed to write downloaded file stored at \"%1\", network reason:\n%2" ).arg( fileName ).arg( errorMessage ) );
-      }
-
-      auto a = rawReply->readAll();
-      if ( ! hasError && ! file->write( rawReply->readAll() ) )
-      {
-        hasError = true;
-        errorMessage = file->errorString();
-        qDebug() << "zzzzzzz" << a;
-        QgsMessageLog::logMessage( tr( "Failed to write downloaded file stored at \"%1\", fs reason:\n%2" ).arg( fileName ).arg( errorMessage ) );
-      }
-
-      if ( hasError )
-      {
-        QString trimmedErrorMessage = errorMessage.size() > 100
-                                      ? ( errorMessage.left( 100 ) + tr( " (see more in the QField error log)…" ) )
-                                      : errorMessage;
-        mCloudProjects[index].downloadFilesFailed++;
-        mCloudProjects[index].errorStatus = DownloadErrorStatus;
-        mCloudProjects[index].exportStatusString = tr( "Failed to write downloaded file stored at \"%1\", reason:\n%2" ).arg( fileName ).arg( trimmedErrorMessage );
-
-        rolesChanged << StatusRole << LocalPathRole << CheckoutRole << ErrorStringRole;
-
-        emit projectDownloaded( projectId, mCloudProjects[index].name, true, trimmedErrorMessage );
-      }
-
-      if ( mCloudProjects[index].downloadFilesFinished == fileNames.count() )
-      {
-        if ( ! hasError )
-        {
-          const QStringList unprefixedGpkgFileNames = filterGpkgFileNames( mCloudProjects[index].downloadFileTransfers.keys() );
-          const QStringList gpkgFileNames = projectFileNames( mProject->homePath(), unprefixedGpkgFileNames );
-          QString projectFileName = mProject->fileName();
-          mProject->setFileName( QString() );
-
-          for ( const QString &fileName : gpkgFileNames )
-            mGpkgFlusher->stop( fileName );
-
-          // move the files from their temporary location to their permanent one
-          if ( ! projectMoveDownloadedFilesToPermanentStorage( projectId ) )
-            mCloudProjects[index].errorStatus = DownloadErrorStatus;
-
-          deleteGpkgShmAndWal( gpkgFileNames );
-
-          for ( const QString &fileName : gpkgFileNames )
-            mGpkgFlusher->start( fileName );
-
-          mProject->setFileName( projectFileName );
-
-          mCloudProjects[index].checkout = ProjectCheckout::LocalAndRemoteCheckout;
-          mCloudProjects[index].localPath = QFieldCloudUtils::localProjectFilePath( mUsername, projectId );
-          mCloudProjects[index].lastLocalExport = QDateTime::currentDateTimeUtc().toString( Qt::ISODate );
-
-          projectSetSetting( projectId, QStringLiteral( "lastLocalExport" ), mCloudProjects[index].lastLocalExport );
-
-          emit projectDownloaded( projectId, mCloudProjects[index].name, false );
-        }
-
-        for ( const QString &fileName : fileNames )
-        {
-          mCloudProjects[index].downloadFileTransfers[fileName].networkReply->deleteLater();
-        }
-
-        mCloudProjects[index].status = ProjectStatus::Idle;
-      }
-
-
-      QModelIndex idx = createIndex( index, 0 );
-      rolesChanged << StatusRole << LocalPathRole << CheckoutRole;
-      emit dataChanged( idx, idx, rolesChanged );
-    } );
+    downloadFileConnections( projectId, fileName );
   }
 }
 
@@ -1248,30 +1145,169 @@ NetworkReply *QFieldCloudProjectsModel::downloadFile( const QString &projectId, 
 {
   QNetworkRequest request;
   request.setAttribute( QNetworkRequest::RedirectPolicyAttribute, QNetworkRequest::RedirectPolicy::UserVerifiedRedirectPolicy );
-//  request.setAttribute( QNetworkRequest::RedirectPolicyAttribute, QNetworkRequest::RedirectPolicy::NoLessSafeRedirectPolicy );
-//  request.setAttribute( QNetworkRequest::FollowRedirectsAttribute, true);
   mCloudConnection->setAuthenticationToken( request );
 
-  NetworkReply *reply = mCloudConnection->get( request, QStringLiteral( "/api/v1/qfield-files/%1/%2/" ).arg( projectId, fileName ) );
+  return mCloudConnection->get( request, QStringLiteral( "/api/v1/qfield-files/%1/%2/" ).arg( projectId, fileName ) );
+}
 
-  qDebug() << projectId << "Project export file requested: " << fileName;
 
-  connect( reply, &NetworkReply::redirected, reply, [ = ] ( const QUrl &url ) {
-    qDebug() << projectId << "Project export file redirected: " << fileName << url.toString();
-    Q_UNUSED( url );
-    emit reply->redirectAllowed();
+void QFieldCloudProjectsModel::downloadFileConnections( const QString &projectId, const QString &fileName )
+{
+  const int index = findProject( projectId );
+
+  if ( index == -1 || index >= mCloudProjects.size() )
+    return;
+
+  if ( !mCloudProjects[index].downloadFileTransfers.contains( fileName ) )
+    return;
+
+  NetworkReply *reply = mCloudProjects[index].downloadFileTransfers[fileName].networkReply;
+
+  if ( !reply )
+  {
+    Q_ASSERT( false );
+    return;
+  }
+
+  QStringList fileNames = mCloudProjects[index].downloadFileTransfers.keys();
+
+
+  connect( reply, &NetworkReply::redirected, reply, [ = ] ( const QUrl &url )
+  {
+    QUrl oldUrl = mCloudProjects[index].downloadFileTransfers[fileName].lastRedirectUrl;
+
+    mCloudProjects[index].downloadFileTransfers[fileName].redirectsCount++;
+    mCloudProjects[index].downloadFileTransfers[fileName].lastRedirectUrl = url;
+
+    if ( mCloudProjects[index].downloadFileTransfers[fileName].redirectsCount >= MAX_REDIRECTS_ALLOWED )
+    {
+      qDebug() << projectId << "Too many redirects, last two: " << oldUrl << url;
+      reply->abort();
+    }
+
+    if ( oldUrl == url )
+    {
+      qDebug() << projectId << "Redirected to the same page twice: " << url;
+      reply->abort();
+    }
+
+    qDebug() << projectId << "Redirected to: " << url;
+
+    QNetworkRequest request;
+    mCloudProjects[index].downloadFileTransfers[fileName].networkReply = mCloudConnection->get( request, url );
+    downloadFileConnections( projectId, fileName );
   });
 
-  connect( reply, &NetworkReply::finished, reply, [ = ] () {
-    const auto rawReply = reply->reply();
-    qDebug() << projectId
-             << "Project export file finished: "
-             << fileName
-             << rawReply->attribute( QNetworkRequest::HttpStatusCodeAttribute ).toInt();
-    qDebug() << 888888 << rawReply->readAll();
-  });
+  connect( reply, &NetworkReply::downloadProgress, reply, [ = ]( int bytesReceived, int bytesTotal )
+  {
+    Q_UNUSED( bytesTotal );
 
-  return reply;
+    // it means the NetworkReply has failed and retried
+    mCloudProjects[index].downloadBytesReceived -= mCloudProjects[index].downloadFileTransfers[fileName].bytesTransferred;
+    mCloudProjects[index].downloadBytesReceived += bytesReceived;
+    mCloudProjects[index].downloadFileTransfers[fileName].bytesTransferred = bytesReceived;
+    mCloudProjects[index].downloadProgress = std::clamp( ( static_cast<double>( mCloudProjects[index].downloadBytesReceived ) / std::max( mCloudProjects[index].downloadBytesTotal, 1 ) ), 0., 1. );
+
+    QModelIndex idx = createIndex( index, 0 );
+
+    emit dataChanged( idx, idx,  QVector<int>() << DownloadProgressRole );
+  } );
+
+  connect( reply, &NetworkReply::finished, reply, [ = ]()
+  {
+    QVector<int> rolesChanged;
+    QNetworkReply *rawReply = reply->reply();
+
+    Q_ASSERT( reply->isFinished() );
+    Q_ASSERT( reply );
+
+    mCloudProjects[index].downloadFilesFinished++;
+
+    bool hasError = false;
+    QString errorMessage;
+
+    qDebug() << projectId << "Project export file request finished: " << rawReply->url() << rawReply->error();
+
+    if ( rawReply->error() != QNetworkReply::NoError )
+    {
+      hasError = true;
+      errorMessage = QFieldCloudConnection::errorString( rawReply );
+      QgsMessageLog::logMessage( tr( "Failed to write downloaded file stored at \"%1\", network reason:\n%2" ).arg( fileName ).arg( errorMessage ) );
+    }
+
+    QFile file( mCloudProjects[index].downloadFileTransfers[fileName].tmpFile );
+
+    if ( !file.open( QIODevice::ReadWrite ) )
+    {
+      return;
+    }
+
+    if ( ! hasError && ! file.write( rawReply->readAll() ) )
+    {
+      hasError = true;
+      errorMessage = file.errorString();
+      QgsMessageLog::logMessage( tr( "Failed to write downloaded file stored at \"%1\", fs reason:\n%2" ).arg( fileName ).arg( errorMessage ) );
+    }
+
+    if ( hasError )
+    {
+      QString trimmedErrorMessage = errorMessage.size() > 100
+                                    ? ( errorMessage.left( 100 ) + tr( " (see more in the QField error log)…" ) )
+                                    : errorMessage;
+      mCloudProjects[index].downloadFilesFailed++;
+      mCloudProjects[index].errorStatus = DownloadErrorStatus;
+      mCloudProjects[index].exportStatusString = tr( "Failed to write downloaded file stored at \"%1\", reason:\n%2" ).arg( fileName ).arg( trimmedErrorMessage );
+
+      rolesChanged << StatusRole << LocalPathRole << CheckoutRole << ErrorStringRole;
+
+      emit projectDownloaded( projectId, mCloudProjects[index].name, true, trimmedErrorMessage );
+    }
+
+    if ( mCloudProjects[index].downloadFilesFinished == fileNames.count() )
+    {
+      if ( ! hasError )
+      {
+        const QStringList unprefixedGpkgFileNames = filterGpkgFileNames( fileNames );
+        const QStringList gpkgFileNames = projectFileNames( mProject->homePath(), unprefixedGpkgFileNames );
+        QString projectFileName = mProject->fileName();
+        mProject->setFileName( QString() );
+
+        for ( const QString &fileName : gpkgFileNames )
+          mGpkgFlusher->stop( fileName );
+
+        // move the files from their temporary location to their permanent one
+        if ( ! projectMoveDownloadedFilesToPermanentStorage( projectId ) )
+          mCloudProjects[index].errorStatus = DownloadErrorStatus;
+
+        deleteGpkgShmAndWal( gpkgFileNames );
+
+        for ( const QString &fileName : gpkgFileNames )
+          mGpkgFlusher->start( fileName );
+
+        mProject->setFileName( projectFileName );
+
+        mCloudProjects[index].checkout = ProjectCheckout::LocalAndRemoteCheckout;
+        mCloudProjects[index].localPath = QFieldCloudUtils::localProjectFilePath( mUsername, projectId );
+        mCloudProjects[index].lastLocalExport = QDateTime::currentDateTimeUtc().toString( Qt::ISODate );
+
+        projectSetSetting( projectId, QStringLiteral( "lastLocalExport" ), mCloudProjects[index].lastLocalExport );
+
+        emit projectDownloaded( projectId, mCloudProjects[index].name, false );
+      }
+
+      for ( const QString &fileNameKey : fileNames )
+      {
+        mCloudProjects[index].downloadFileTransfers[fileNameKey].networkReply->deleteLater();
+      }
+
+      mCloudProjects[index].status = ProjectStatus::Idle;
+    }
+
+
+    QModelIndex idx = createIndex( index, 0 );
+    rolesChanged << StatusRole << LocalPathRole << CheckoutRole;
+    emit dataChanged( idx, idx, rolesChanged );
+  } );
 }
 
 NetworkReply *QFieldCloudProjectsModel::uploadFile( const QString &projectId, const QString &fileName )
