@@ -165,6 +165,7 @@ Page {
                 property string projectOwner: Owner
                 property string projectName: Name
                 property string projectLocalPath: LocalPath
+                property int status: Status
                 width: parent ? parent.width : undefined
                 height: line.height
                 color: "transparent"
@@ -365,9 +366,10 @@ Page {
                     projectActions.projectOwner = item.projectOwner
                     projectActions.projectName = item.projectName
                     projectActions.projectLocalPath = item.projectLocalPath
-                    downloadProject.visible = item.projectLocalPath == ''
+                    downloadProject.visible = item.projectLocalPath === ''
                     openProject.visible = item.projectLocalPath !== ''
                     removeProject.visible = item.projectLocalPath !== ''
+                    cancelDownloadProject.visible = item.status === QFieldCloudProjectsModel.ProjectStatus.Downloading
                     projectActions.popup(mouse.x, mouse.y)
                   }
               }
@@ -437,6 +439,20 @@ Page {
           text: qsTr( "Remove Stored Project" )
           onTriggered: {
             cloudProjectsModel.removeLocalProject(projectActions.projectId)
+          }
+        }
+
+        MenuItem {
+          id: cancelDownloadProject
+
+          font: Theme.defaultFont
+          width: parent.width
+          height: visible ? 48 : 0
+          leftPadding: 10
+
+          text: qsTr( "Cancel Project Download" )
+          onTriggered: {
+            cloudProjectsModel.cancelDownloadProject(projectActions.projectId)
           }
         }
       }

@@ -134,6 +134,7 @@ class QFieldCloudProjectsModel : public QAbstractListModel
       ExportPendingStatus,
       ExportBusyStatus,
       ExportFinishedStatus,
+      ExportAbortStatus,
     };
 
     Q_ENUM( ExportStatus )
@@ -186,7 +187,10 @@ class QFieldCloudProjectsModel : public QAbstractListModel
     Q_INVOKABLE void refreshProjectsList();
 
     //! Downloads a cloud project with given \a projectId and all of its files.
-    Q_INVOKABLE void downloadProject( const QString &projectId );
+    Q_INVOKABLE void downloadProject( const QString &projectId );    //! Downloads a cloud project with given \a projectId and all of its files.
+
+    //! Cancels ongoing cloud project download with \a projectId.
+    Q_INVOKABLE void cancelDownloadProject( const QString &projectId );
 
     //! Pushes all local deltas for given \a projectId. If \a shouldDownloadUpdates is true, also calls `downloadProject`.
     Q_INVOKABLE void uploadProject( const QString &projectId, const bool shouldDownloadUpdates );
@@ -320,6 +324,7 @@ class QFieldCloudProjectsModel : public QAbstractListModel
       QString exportStatusString;
       QStringList exportedLayerErrors;
       QMap<QString, FileTransfer> downloadFileTransfers;
+      NetworkReply *apiNetworkReply;
       int downloadFilesFinished = 0;
       int downloadFilesFailed = 0;
       int downloadBytesTotal = 0;
