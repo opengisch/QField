@@ -1309,7 +1309,6 @@ void QFieldCloudProjectsModel::downloadFileConnections( const QString &projectId
       mCloudProjects[index].status = ProjectStatus::Idle;
     }
 
-
     QModelIndex idx = createIndex( index, 0 );
     rolesChanged << StatusRole << LocalPathRole << CheckoutRole << LastLocalExportRole;
     emit dataChanged( idx, idx, rolesChanged );
@@ -1485,7 +1484,7 @@ QVariant QFieldCloudProjectsModel::data( const QModelIndex &index, int role ) co
     case ExportStatusRole:
       return mCloudProjects.at( index.row() ).exportStatus;
     case ExportedLayerErrorsRole:
-      return QVariant(mCloudProjects.at( index.row() ).exportedLayerErrors);
+      return QVariant( mCloudProjects.at( index.row() ).exportedLayerErrors );
     case DownloadProgressRole:
       return mCloudProjects.at( index.row() ).downloadProgress;
     case UploadAttachmentsProgressRole:
