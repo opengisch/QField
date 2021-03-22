@@ -103,6 +103,8 @@ void NetworkReply::initiateRequest()
   connect( mReply, &QNetworkReply::encrypted, this, &NetworkReply::encrypted );
   connect( mReply, &QNetworkReply::downloadProgress, this, &NetworkReply::downloadProgress );
   connect( mReply, &QNetworkReply::uploadProgress, this, &NetworkReply::uploadProgress );
+  connect( mReply, &QNetworkReply::redirected, this, &NetworkReply::redirected );
+  connect( this, &NetworkReply::redirectAllowed, mReply, &QNetworkReply::redirectAllowed );
 
   // TODO remove this!!! temporary SSL workaround
   connect( mReply, &QNetworkReply::sslErrors, this, [ = ]( const QList<QSslError> &errors )

@@ -60,8 +60,8 @@ class QFieldCloudProjectsModel : public QAbstractListModel
       LocalDeltasCountRole,
       LocalPathRole,
       CanSyncRole,
-      LastLocalExport,
-      LastLocalPushDeltas,
+      LastLocalExportRole,
+      LastLocalPushDeltasRole,
       CollaboratorRole,
     };
 
@@ -280,6 +280,8 @@ class QFieldCloudProjectsModel : public QAbstractListModel
       NetworkReply *networkReply;
       QNetworkReply::NetworkError error = QNetworkReply::NoError;
       QStringList layerIds;
+      int redirectsCount = 0;
+      QUrl lastRedirectUrl;
     };
 
     struct CloudProject
@@ -316,7 +318,7 @@ class QFieldCloudProjectsModel : public QAbstractListModel
 
       ExportStatus exportStatus = ExportUnstartedStatus;
       QString exportStatusString;
-      QList<QString> exportedLayerErrors;
+      QStringList exportedLayerErrors;
       QMap<QString, FileTransfer> downloadFileTransfers;
       int downloadFilesFinished = 0;
       int downloadFilesFailed = 0;
@@ -370,6 +372,8 @@ class QFieldCloudProjectsModel : public QAbstractListModel
     QStringList filterGpkgFileNames( const QStringList &fileNames ) const;
 
     QFieldCloudProjectsModel::ExportStatus exportStatus( const QString &status ) const;
+
+    void downloadFileConnections( const QString &projectId, const QString &fileName );
 };
 
 Q_DECLARE_METATYPE( QFieldCloudProjectsModel::ProjectStatus )

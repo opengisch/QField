@@ -2027,13 +2027,10 @@ ApplicationWindow {
     height: parent.height
   }
 
-  QFieldCloudDownloadProjectErrorsPopup {
-    id: cloudDownloadProjectErrorsPopup
+  QFieldCloudExportLayersFeedback {
+    id: cloudExportLayersFeedback
     visible: false
     parent: ApplicationWindow.overlay
-
-    width: parent.width
-    height: parent.height
   }
 
   WelcomeScreen {

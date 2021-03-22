@@ -244,16 +244,17 @@ Popup {
             }
 
             function onProjectDownloaded(projectId, projectName, hasError, errorString) {
-              transferErrorText.visible = hasError && cloudProjectsModel.currentProjectData.Status === QFieldCloudProjectsModel.Idle;
+              const projectData = cloudProjectsModel.getProjectData(projectId)
+
+              transferErrorText.visible = hasError && projectData.Status === QFieldCloudProjectsModel.Idle;
 
               if (transferErrorText.visible)
                 transferErrorText.text = errorString
 
-              if (cloudProjectsModel.currentProjectData.ExportedLayerErrors.length !== 0)
+              if (projectData.ExportedLayerErrors.length !== 0)
               {
-                console.log(cloudProjectsModel.currentProjectData.ExportedLayerErrors.length)
-                cloudDownloadProjectErrorsPopup.exportedLayersListViewModel = cloudProjectsModel.currentProjectData.ExportedLayerErrors;
-                cloudDownloadProjectErrorsPopup.show();
+                cloudExportLayersFeedback.exportedLayersListViewModel = projectData.ExportedLayerErrors;
+                cloudExportLayersFeedback.visible = true;
               }
             }
 
