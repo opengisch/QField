@@ -193,7 +193,7 @@ QVariant LocatorFiltersModel::data( const QModelIndex &index, int role ) const
 {
   const static QMap<QString, QString> sLocatorFilterDescriptions = {
     { QStringLiteral("allfeatures"), tr( "Returns a list of features accross all searchable layers with matching attributes" ) },
-    { QStringLiteral("goto"), ( "Returns a point from a pair of X and Y coordinates typed in the search bar" ) },
+    { QStringLiteral("goto"), tr( "Returns a point from a pair of X and Y coordinates typed in the search bar" ) },
     { QStringLiteral("pelias-finland"), tr( "Returns a list of locations and addresses within Finland with matching terms" ) }
   };
 
