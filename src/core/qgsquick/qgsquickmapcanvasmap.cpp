@@ -18,13 +18,16 @@
 #include <QSGSimpleTextureNode>
 
 #include <qgsmaprendererparalleljob.h>
-#include "qgsmaprenderercache.h"
+#include <qgsmaprenderercache.h>
 #include <qgsmessagelog.h>
 #include <qgspallabeling.h>
 #include <qgsproject.h>
 #include <qgsvectorlayer.h>
 #include <qgsexpressioncontextutils.h>
 #include <qgis.h>
+#if _QGIS_VERSION_INT >= 31900
+#include <qgslabelingresults.h>
+#endif
 
 #include "qgsquickmapcanvasmap.h"
 #include "qgsquickmapsettings.h"
