@@ -1690,6 +1690,8 @@ ApplicationWindow {
     id: overlayFeatureFormDrawer
     digitizingToolbar: digitizingToolbar
     featureModel.currentLayer: dashBoard.currentLayer
+    featureModel.positionInformation: positionSource.positionInfo
+    featureModel.positionLocked: gpsLinkButton.checked
   }
 
   function displayToast( message ) {
