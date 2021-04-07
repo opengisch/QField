@@ -5,7 +5,7 @@
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Project selection &#8212; QField Documentation 1.0 - M... ドキュメント</title>
+    <title>Project selection &#8212; QField Documentation 1.0 - M... documentation</title>
     <link rel="stylesheet" href="../../_static/bootstrap-sphinx.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../../_static/style.css" />
@@ -18,8 +18,8 @@
     <script type="text/javascript" src="../../_static/translations.js"></script>
     <script type="text/javascript" src="../../_static/qfield.js"></script>
     <link rel="shortcut icon" href="../../_static/favicon.ico"/>
-    <link rel="index" title="索引" href="../../genindex.html" />
-    <link rel="search" title="検索" href="../../search.html" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="QField User Guide" href="../user-guide/index.html" />
     <link rel="prev" title="Print to PDF" href="print-to-pdf.html" />
 <meta charset='utf-8'>
@@ -130,7 +130,7 @@
     <div class="col-md-9 content">
       
   <div class="section" id="project-selection">
-<h1>Project selection<a class="headerlink" href="#project-selection" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<h1>Project selection<a class="headerlink" href="#project-selection" title="Permalink to this headline">¶</a></h1>
 <p>QField opens QGIS projects in the &quot;.qgs&quot; format. Currently it is not possible to open &quot;.qgz&quot; files.</p>
 <p>QField uses a customized file selector to open the projects. On choosing &quot;Open project&quot; from the QField menu, the file selector will be opened showing the following locations:</p>
 <ul class="simple">
@@ -140,27 +140,27 @@
 <p>Inside these directories, only subdirectories and files with the &quot;.qgs&quot; extension are shown.</p>
 <p>QField requires the project file to be physically on the device, so it is not possible to use providers that work with remote files (e.g. Google Drive). On the other hand you can use apps like <a class="reference external" href="https://syncthing.net/">syncthing</a> or <a class="reference external" href="https://nextcloud.com/">nextcloud</a> (or dropbox and probably many others) that allow you tho physically sync the file to your device.</p>
 <div class="section" id="favorite-directories">
-<h2>Favorite directories<a class="headerlink" href="#favorite-directories" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<h2>Favorite directories<a class="headerlink" href="#favorite-directories" title="Permalink to this headline">¶</a></h2>
 <p>In the first screen of the file selector, there is a section showing the favorite directories. To add a directory to the favorites, long click in the file selector on the directory name. To remove an entry from the favorites, long click on the entry in the favorites list.</p>
 </div>
 <div class="section" id="external-sd-card">
-<h2>External SD card<a class="headerlink" href="#external-sd-card" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<h2>External SD card<a class="headerlink" href="#external-sd-card" title="Permalink to this headline">¶</a></h2>
 <p>The file selector shows the root of the SD card labeled as &quot;read-only&quot; and the application-specific directory separated from the rest of the SD card, as it is the only directory for which the app has write access. The directory is the following:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>/Android/data/ch.opengis.qfield/files
 </pre></div>
 </div>
 <div class="admonition note">
-<p class="first admonition-title">注釈</p>
+<p class="first admonition-title">Note</p>
 <p class="last">Technically, this is due to the fact that Android intents ACTION_OPEN_DOCUMENT and ACTION_OPEN_DOCUMENT_TREE, work and grant read-write access on the content of the returning URI, not on the real linked file. This limitation which makes sense for how Android is structured but currently it is unusable with QField as QField needs to access the real file with a real path.</p>
 </div>
 </div>
 <div class="section" id="warning">
-<h2>Warning!<a class="headerlink" href="#warning" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<h2>Warning!<a class="headerlink" href="#warning" title="Permalink to this headline">¶</a></h2>
 <p>By storing data in this folder, you risk losing data.
 The application-specific directory (<cite>/Android/data/ch.opengis.qfield/</cite>) will be deleted by the system if you uninstall QField from your Android device. This is important if you keep the data in the External sd card.</p>
 </div>
 <div class="section" id="how-to-turn-external-sd-card-into-internal-storage">
-<h2>How to turn external SD card into internal storage<a class="headerlink" href="#how-to-turn-external-sd-card-into-internal-storage" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<h2>How to turn external SD card into internal storage<a class="headerlink" href="#how-to-turn-external-sd-card-into-internal-storage" title="Permalink to this headline">¶</a></h2>
 <p>Starting from Android 6.0, you can use the SD card as internal storage for your Android phone. A feature called Adoptable Storage allows the Android OS to format an external storage media as a permanent internal storage. The data on the adopted SD card is encrypted and it can’t be mounted on another device.</p>
 <p><strong>Please be sure you start with an empty SD card. It needs to be empty because when the card is converted to &quot;Internal&quot; storage, it will be formatted (wiped).</strong></p>
 <ol class="arabic simple">
@@ -200,7 +200,7 @@ The application-specific directory (<cite>/Android/data/ch.opengis.qfield/</cite
     </p>
     <p>
         &copy; Copyright 2019, The QField Project/OPENGIS.ch.<br/>
-      このドキュメントは <a href="http://sphinx-doc.org/">Sphinx</a> 1.8.5 で生成しました。<br/>
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.8.5.<br/>
     </p>
   </div>
 </footer>

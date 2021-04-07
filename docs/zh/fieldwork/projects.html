@@ -5,7 +5,7 @@
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Open a project &#8212; QField Documentation 1.0 - M... 文档</title>
+    <title>Open a project &#8212; QField Documentation 1.0 - M... documentation</title>
     <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/style.css" />
@@ -17,8 +17,8 @@
     <script type="text/javascript" src="../_static/language_data.js"></script>
     <script type="text/javascript" src="../_static/qfield.js"></script>
     <link rel="shortcut icon" href="../_static/favicon.ico"/>
-    <link rel="index" title="索引" href="../genindex.html" />
-    <link rel="search" title="搜索" href="../search.html" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Search" href="search.html" />
     <link rel="prev" title="打印成PDF" href="print-to-pdf.html" />
 <meta charset='utf-8'>
@@ -132,7 +132,7 @@
     <div class="col-md-9 content">
       
   <div class="section" id="open-a-project">
-<h1>Open a project<a class="headerlink" href="#open-a-project" title="永久链接至标题">¶</a></h1>
+<h1>Open a project<a class="headerlink" href="#open-a-project" title="Permalink to this headline">¶</a></h1>
 <p>打开项目的操作为依次点击**菜单按钮” –&gt; 选项按钮 –&gt;打开项目**。</p>
 <p>浏览并选择要打开的项目，或者使用**最近的项目**和**收藏夹**这两种快捷方式打开项目。</p>
 <blockquote>
@@ -140,11 +140,11 @@
 <img alt="../_images/user-guide_open-project-menu.png" src="../_images/user-guide_open-project-menu.png" />
 </div></blockquote>
 <div class="section" id="favorite-directories">
-<h2>首先目录<a class="headerlink" href="#favorite-directories" title="永久链接至标题">¶</a></h2>
+<h2>首先目录<a class="headerlink" href="#favorite-directories" title="Permalink to this headline">¶</a></h2>
 <p>在文件选择器的第一屏中，有一块收藏夹区域。若要将目录添加到收藏夹，请在文件选择器中长按目录名。要从收藏夹中删除条目，请长按收藏夹列表中的相应条目。</p>
 </div>
 <div class="section" id="advanced-project-selection">
-<h2>Advanced project selection<a class="headerlink" href="#advanced-project-selection" title="永久链接至标题">¶</a></h2>
+<h2>Advanced project selection<a class="headerlink" href="#advanced-project-selection" title="Permalink to this headline">¶</a></h2>
 <p>QField opens QGIS projects in the &quot;.qgs&quot; or &quot;.qgz&quot; format.</p>
 <p>QField使用定制化的文件选择器来打开项目。在QField菜单中选择“打开项目”，文件选择器将打开并显示以下位置：</p>
 <ul class="simple">
@@ -154,22 +154,22 @@
 <p>Inside these directories, only subdirectories and files with the &quot;.qgs&quot; or &quot;.qgz&quot; extension are shown.</p>
 <p>QField要求项目文件必须在设备上，因此无法使用操控远程文件（如Google Drive）的数据提供程序。与此同时，您可以使用类似 <a class="reference external" href="https://syncthing.net/">syncthing</a> 、<a class="reference external" href="https://nextcloud.com/">nextcloud</a> （dropbox或者其他）等支持将文件同步到设备上的app。</p>
 <div class="section" id="external-sd-card">
-<h3>外部SD存储卡<a class="headerlink" href="#external-sd-card" title="永久链接至标题">¶</a></h3>
+<h3>外部SD存储卡<a class="headerlink" href="#external-sd-card" title="Permalink to this headline">¶</a></h3>
 <p>文件选择器显示SD卡的根目录为“只读”，应用程序的专用目录与SD卡的其余部分是隔离的，因为它是应用程序唯一具有写入权限的目录。目录如下:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>/Android/data/ch.opengis.qfield/files
 </pre></div>
 </div>
 <div class="admonition note">
-<p class="first admonition-title">注解</p>
+<p class="first admonition-title">Note</p>
 <p class="last">从技术的角度来说，这是由于安卓意在ACTION_OPEN_DOCUMENT和ACTION_OPEN_DOCUMENT_TREE起作用，并允许读写返回的统一资源标识符内容，而不是读写链接指向的文件。这个限制对于安卓系统架构是有意义的，但目前无法为QField所用，因为QField需要访问实际路径下的实际文件。</p>
 </div>
 </div>
 <div class="section" id="warning">
-<h3>警告！<a class="headerlink" href="#warning" title="永久链接至标题">¶</a></h3>
+<h3>警告！<a class="headerlink" href="#warning" title="Permalink to this headline">¶</a></h3>
 <p>在此文件夹中存储数据，可能会丢失数据。如果您从安卓设备上卸载QField，系统将删除应用程序的专用目录（/Android/data/ch.opengis.qfield/）。这一点很重要，如果您将数据保存在外部SD卡中。</p>
 </div>
 <div class="section" id="how-to-turn-external-sd-card-into-internal-storage">
-<h3>如何将外部储存卡转为内部存储<a class="headerlink" href="#how-to-turn-external-sd-card-into-internal-storage" title="永久链接至标题">¶</a></h3>
+<h3>如何将外部储存卡转为内部存储<a class="headerlink" href="#how-to-turn-external-sd-card-into-internal-storage" title="Permalink to this headline">¶</a></h3>
 <p>从安卓6.0开始，您可以将SD卡用作安卓手机的内部存储。一个被称为可接纳存储的特性允许安卓操作系统将外部存储介质格式化为永久的内部存储。被接纳的SD卡上的数据是加密的，不能挂载在其他设备上。</p>
 <p><strong>请确保使用一张空的SD卡。之所以如此，是因为当该卡被转换成“内部”存储时将被格式化（擦除）。</strong></p>
 <ol class="arabic simple">
@@ -210,7 +210,7 @@
     </p>
     <p>
         &copy; Copyright 2019, The QField Project/OPENGIS.ch.<br/>
-      由 <a href="http://sphinx-doc.org/">Sphinx</a> 1.8.5 创建。<br/>
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.8.5.<br/>
     </p>
   </div>
 </footer>

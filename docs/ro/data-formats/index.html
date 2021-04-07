@@ -5,7 +5,7 @@
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Formatele de Date Acceptate &#8212; QField Documentation 1.0 - M... documentație</title>
+    <title>Formatele de Date Acceptate &#8212; QField Documentation 1.0 - M... documentation</title>
     <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/style.css" />
@@ -19,7 +19,7 @@
     <script type="text/javascript" src="../_static/qfield.js"></script>
     <link rel="shortcut icon" href="../_static/favicon.ico"/>
     <link rel="index" title="Index" href="../genindex.html" />
-    <link rel="search" title="Căutare" href="../search.html" />
+    <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Studii de Caz" href="../case-studies/index.html" />
     <link rel="prev" title="Tutoriale introductive" href="../getting-started/index.html" />
 <meta charset='utf-8'>
@@ -131,10 +131,10 @@
     <div class="col-md-9 content">
       
   <div class="section" id="supported-data-formats">
-<h1>Formatele de Date Acceptate<a class="headerlink" href="#supported-data-formats" title="Link permanent la acest titlu">¶</a></h1>
+<h1>Formatele de Date Acceptate<a class="headerlink" href="#supported-data-formats" title="Permalink to this headline">¶</a></h1>
 <p>QField suportă o mare varietate de formate, prin intermediul furnizorilor de date QGIS și GDAL. Această pagină oferă o listă neexhaustivă a formatelor de date permise.</p>
 <div class="section" id="table">
-<h2>Tabel<a class="headerlink" href="#table" title="Link permanent la acest titlu">¶</a></h2>
+<h2>Tabel<a class="headerlink" href="#table" title="Permalink to this headline">¶</a></h2>
 <blockquote>
 <div></div></blockquote>
 <table border="1" class="docutils">
@@ -206,12 +206,12 @@
 </table>
 <p>În cazul în care nu găsiți în acest tabel formatul de date favorit, vă rugăm să verificați dacă acesta funcționează și <a class="reference external" href="https://github.com/opengisch/QField-docs/edit/master/en/project-management/dataformat.rst">completați lista de mai sus</a> împărtășindu-vă concluziile. În cazul în care nu funcționează, vă rugăm să <a class="reference external" href="https://github.com/opengisch/OSGeo4A/issues">deschideți un tichet</a>. Vom fi bucuroși să vă ajutăm la implementare.</p>
 <div class="section" id="raster-data">
-<h3>Date raster<a class="headerlink" href="#raster-data" title="Link permanent la acest titlu">¶</a></h3>
+<h3>Date raster<a class="headerlink" href="#raster-data" title="Permalink to this headline">¶</a></h3>
 <p>Datele raster pot deveni repede destul de mari, mai ales atunci când se lucrează cu fișiere TIFF necomprimate, care au mulți Gb de date. În special pe dispozitive mobile, acest lucru este ineficient.</p>
 </div>
 </div>
 <div class="section" id="use-geopackage">
-<h2>Folosirea GeoPackage<a class="headerlink" href="#use-geopackage" title="Link permanent la acest titlu">¶</a></h2>
+<h2>Folosirea GeoPackage<a class="headerlink" href="#use-geopackage" title="Permalink to this headline">¶</a></h2>
 <p>Vă recomandăm formatul geopackage pentru a lucra cu datele raster. Urmatoarele comenzi vor converti un fișier denumit <code class="code docutils literal notranslate"><span class="pre">raster.tif</span></code> în fișierul cu piramide <code class="code docutils literal notranslate"><span class="pre">raster.gpkg</span></code>. Asigurați-vă că ați schimbat <code class="docutils literal notranslate"><span class="pre">EPSG:21781</span></code> în CRS-ul dorit.</p>
 <div class="code bash highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">gdal_translate</span> <span class="o">--</span><span class="n">config</span> <span class="n">OGR_SQLITE_SYNCHRONOUS</span> <span class="n">OFF</span> <span class="o">-</span><span class="n">co</span>  <span class="n">APPEND_SUBDATASET</span><span class="o">=</span><span class="n">YES</span> <span class="o">-</span><span class="n">co</span> <span class="n">TILE_FORMAT</span><span class="o">=</span><span class="n">WEBP</span> <span class="o">-</span><span class="n">a_srs</span> <span class="n">EPSG</span><span class="p">:</span><span class="mi">21781</span> <span class="o">-</span><span class="n">of</span> <span class="n">GPKG</span> <span class="n">raster</span><span class="o">.</span><span class="n">tif</span> <span class="n">raster</span><span class="o">.</span><span class="n">gpkg</span>
 <span class="n">gdaladdo</span> <span class="o">--</span><span class="n">config</span> <span class="n">OGR_SQLITE_SYNCHRONOUS</span> <span class="n">OFF</span> <span class="o">-</span><span class="n">r</span> <span class="n">AVERAGE</span> <span class="n">raster</span><span class="o">.</span><span class="n">gpkg</span> <span class="mi">2</span> <span class="mi">4</span> <span class="mi">8</span> <span class="mi">16</span> <span class="mi">32</span> <span class="mi">64</span> <span class="mi">128</span> <span class="mi">256</span>
@@ -245,7 +245,7 @@
     </p>
     <p>
         &copy; Copyright 2019, The QField Project/OPENGIS.ch.<br/>
-      Generat cu <a href="http://sphinx-doc.org/">Sphinx</a> 1.8.5.<br/>
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.8.5.<br/>
     </p>
   </div>
 </footer>

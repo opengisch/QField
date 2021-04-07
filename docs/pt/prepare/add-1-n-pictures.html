@@ -5,7 +5,7 @@
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Adicione uma série de fotos a um elemento &#8212; Documentação QField Documentation 1.0 - M...</title>
+    <title>Adicione uma série de fotos a um elemento &#8212; QField Documentation 1.0 - M... documentation</title>
     <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/style.css" />
@@ -18,8 +18,8 @@
     <script type="text/javascript" src="../_static/translations.js"></script>
     <script type="text/javascript" src="../_static/qfield.js"></script>
     <link rel="shortcut icon" href="../_static/favicon.ico"/>
-    <link rel="index" title="Índice" href="../genindex.html" />
-    <link rel="search" title="Pesquisar" href="../search.html" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Avançado" href="advanced.html" />
     <link rel="prev" title="Prepare for Work" href="index.html" />
 <meta charset='utf-8'>
@@ -138,13 +138,13 @@
     <div class="col-md-9 content">
       
   <div class="section" id="add-a-series-of-pictures-to-a-feature">
-<h1>Adicione uma série de fotos a um elemento<a class="headerlink" href="#add-a-series-of-pictures-to-a-feature" title="Link permanente para este título">¶</a></h1>
+<h1>Adicione uma série de fotos a um elemento<a class="headerlink" href="#add-a-series-of-pictures-to-a-feature" title="Permalink to this headline">¶</a></h1>
 <p>Você pode adicionar uma ou mais fotos a um elemento. Abaixo você encontra um exemplo de como proceder.</p>
 <div class="section" id="creating-two-tables">
-<h2>Criando duas tabelas<a class="headerlink" href="#creating-two-tables" title="Link permanente para este título">¶</a></h2>
+<h2>Criando duas tabelas<a class="headerlink" href="#creating-two-tables" title="Permalink to this headline">¶</a></h2>
 <p>Vamos precisar de duas tabelas. Uma tabela onde os elementos estão armazenados e outra com uma lista de fotos.</p>
 <div class="section" id="apiary">
-<h3><strong>Apiary</strong><a class="headerlink" href="#apiary" title="Link permanente para este título">¶</a></h3>
+<h3><strong>Apiary</strong><a class="headerlink" href="#apiary" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><code class="docutils literal notranslate"><span class="pre">id</span></code> (UUID)</li>
 <li><code class="docutils literal notranslate"><span class="pre">geometry</span></code></li>
@@ -152,7 +152,7 @@
 </ul>
 </div>
 <div class="section" id="apiary-pictures">
-<h3><strong>Apiary_pictures</strong><a class="headerlink" href="#apiary-pictures" title="Link permanente para este título">¶</a></h3>
+<h3><strong>Apiary_pictures</strong><a class="headerlink" href="#apiary-pictures" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><code class="docutils literal notranslate"><span class="pre">id</span></code></li>
 <li><code class="docutils literal notranslate"><span class="pre">apiary_id</span></code> (UUID)</li>
@@ -162,7 +162,7 @@
 </div>
 </div>
 <div class="section" id="relations">
-<h2>Relações<a class="headerlink" href="#relations" title="Link permanente para este título">¶</a></h2>
+<h2>Relações<a class="headerlink" href="#relations" title="Permalink to this headline">¶</a></h2>
 <p>Crie uma relação com:</p>
 <ul class="simple">
 <li>Camada referenciada <code class="docutils literal notranslate"><span class="pre">apiary</span></code></li>
@@ -176,9 +176,9 @@
 </div>
 </div>
 <div class="section" id="widgets">
-<h2>Widgets<a class="headerlink" href="#widgets" title="Link permanente para este título">¶</a></h2>
+<h2>Widgets<a class="headerlink" href="#widgets" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="id1">
-<h3>apiary<a class="headerlink" href="#id1" title="Link permanente para este título">¶</a></h3>
+<h3>apiary<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
 <p>Defina o valor por defeito do campo id como <code class="docutils literal notranslate"><span class="pre">uuid()</span></code>. Não é necessário mostrá-lo no formulário.</p>
 <div class="clearer text-center docutils container">
 <a class="reference internal image-reference" href="../_images/add-1-n-pictures-widgets_hive.png"><img alt="widgets" src="../_images/add-1-n-pictures-widgets_hive.png" style="width: 600px;" /></a>
@@ -189,14 +189,14 @@
 </div>
 </div>
 <div class="section" id="picture">
-<h3>foto<a class="headerlink" href="#picture" title="Link permanente para este título">¶</a></h3>
+<h3>foto<a class="headerlink" href="#picture" title="Permalink to this headline">¶</a></h3>
 <p>Defina o tipo de widget do caminho do campo como <a href="#id1"><span class="problematic" id="id2">``</span></a>attachment` e adicione-o ao formulário</p>
 <div class="clearer text-center docutils container">
 <a class="reference internal image-reference" href="../_images/add-1-n-pictures-widgets_picture.png"><img alt="widget picture" src="../_images/add-1-n-pictures-widgets_picture.png" style="width: 600px;" /></a>
 </div>
 </div>
 <div class="section" id="geotagging">
-<h3>Geotagging<a class="headerlink" href="#geotagging" title="Link permanente para este título">¶</a></h3>
+<h3>Geotagging<a class="headerlink" href="#geotagging" title="Permalink to this headline">¶</a></h3>
 <p>Some mobile devices will require Open Camera to be installed in order to enable geotagging.</p>
 <p>To enable geotagging perform the following steps:</p>
 <ol class="arabic simple">
@@ -235,7 +235,7 @@
     </p>
     <p>
         &copy; Copyright 2019, The QField Project/OPENGIS.ch.<br/>
-      Criado utilizando <a href="http://sphinx-doc.org/">Sphinx</a> 1.8.5.<br/>
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.8.5.<br/>
     </p>
   </div>
 </footer>

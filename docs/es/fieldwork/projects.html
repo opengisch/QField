@@ -5,7 +5,7 @@
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Abrir un proyecto &#8212; documentación de QField Documentation - 1.0 - M...</title>
+    <title>Abrir un proyecto &#8212; QField Documentation 1.0 - M... documentation</title>
     <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/style.css" />
@@ -18,8 +18,8 @@
     <script type="text/javascript" src="../_static/translations.js"></script>
     <script type="text/javascript" src="../_static/qfield.js"></script>
     <link rel="shortcut icon" href="../_static/favicon.ico"/>
-    <link rel="index" title="Índice" href="../genindex.html" />
-    <link rel="search" title="Búsqueda" href="../search.html" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Búscar" href="search.html" />
     <link rel="prev" title="Imprimir a PDF" href="print-to-pdf.html" />
 <meta charset='utf-8'>
@@ -133,7 +133,7 @@
     <div class="col-md-9 content">
       
   <div class="section" id="open-a-project">
-<h1>Abrir un proyecto<a class="headerlink" href="#open-a-project" title="Enlazar permanentemente con este título">¶</a></h1>
+<h1>Abrir un proyecto<a class="headerlink" href="#open-a-project" title="Permalink to this headline">¶</a></h1>
 <p>Para abrir un proyecto, pulse en <strong>Botón Menú –&gt; Botón Opción –&gt; Abrir proyecto</strong>.</p>
 <p>Seleccione el proyecto que quiera abrir navegando hasta él o use los atajos <strong>Proyectos recientes</strong> y <strong>Directorios favoritos</strong>.</p>
 <blockquote>
@@ -141,11 +141,11 @@
 <img alt="../_images/user-guide_open-project-menu.png" src="../_images/user-guide_open-project-menu.png" />
 </div></blockquote>
 <div class="section" id="favorite-directories">
-<h2>Directorios favoritos<a class="headerlink" href="#favorite-directories" title="Enlazar permanentemente con este título">¶</a></h2>
+<h2>Directorios favoritos<a class="headerlink" href="#favorite-directories" title="Permalink to this headline">¶</a></h2>
 <p>En la primera pantalla del selector de archivos hay una sección que muestra los directorios favoritos. Para añadir un directorio a los favoritos, haga una pulsación larga sobre el nombre del directorio en el selector de archivos. Para eliminar una entrada de los favoritos, pulsación larga sobre la entrada en la lista de favoritos.</p>
 </div>
 <div class="section" id="advanced-project-selection">
-<h2>Selección avanzada de proyectos<a class="headerlink" href="#advanced-project-selection" title="Enlazar permanentemente con este título">¶</a></h2>
+<h2>Selección avanzada de proyectos<a class="headerlink" href="#advanced-project-selection" title="Permalink to this headline">¶</a></h2>
 <p>QField abre proyectos de QGIS en formato «.qgs» o «.qgz».</p>
 <p>QField utiliza un selector de archivos personalizado para abrir los proyectos. Al seleccionar «Abrir proyecto» en el menú de QField, se abrirá el selector de archivos mostrando las siguientes localizaciones:</p>
 <ul class="simple">
@@ -155,22 +155,22 @@
 <p>Dentro de estos directorios solo se muestran subdirectorios y archivos con la extensión «.qgs» o «.qgz».</p>
 <p>QField necesita que el archivo del proyecto esté físicamente en el dispositivo, por lo que no es posible usar proveedores que trabajan con archivos remotos (ej. Google Drive). Por otra parte, puede usar aplicaciones como <a class="reference external" href="https://syncthing.net/">syncthing</a> o <a class="reference external" href="https://nextcloud.com/">nextcloud</a> (o Dropbox y probablemente otras muchas) que le permiten sincronizar físicamente el archivo con su dispositivo.</p>
 <div class="section" id="external-sd-card">
-<h3>Tarjeta SD externa<a class="headerlink" href="#external-sd-card" title="Enlazar permanentemente con este título">¶</a></h3>
+<h3>Tarjeta SD externa<a class="headerlink" href="#external-sd-card" title="Permalink to this headline">¶</a></h3>
 <p>El selector de archivos muestra la raíz de la tarjeta SD etiquetada como «solo lectura» y el directorio específico de la aplicación separado del resto de la tarjeta SD, ya que es el único directorio para el que la aplicación tiene permiso de escritura. El directorio es el siguiente:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>/Android/data/ch.opengis.qfield/files
 </pre></div>
 </div>
 <div class="admonition note">
-<p class="first admonition-title">Nota</p>
+<p class="first admonition-title">Note</p>
 <p class="last">Técnicamente esto se debe al hecho de que Android intenta que ACTION_OPEN_DOCUMENT y ACTION_OPEN_DOCUMENT_TREE trabajen y permitan acceso de lectura-escritura sobre el contenido de la URI devuelta, no sobre el archivo realmente enlazado. Esta limitación, que tiene sentido para como está estructurado Android, hace que no se pueda usar con QField, ya que QField necesita acceder al archivo real con una ruta real.</p>
 </div>
 </div>
 <div class="section" id="warning">
-<h3>¡Advertencia!<a class="headerlink" href="#warning" title="Enlazar permanentemente con este título">¶</a></h3>
+<h3>¡Advertencia!<a class="headerlink" href="#warning" title="Permalink to this headline">¶</a></h3>
 <p>Al guardar datos en esta carpeta se arriesga a perder datos. El directorio específico de la aplicación (<cite>/Android/data/ch.opengis.qfield/</cite>) se borrará si desinstala QField de su dispositivo Android. Esto es importante si guarda sus datos en la tarjeta SD externa.</p>
 </div>
 <div class="section" id="how-to-turn-external-sd-card-into-internal-storage">
-<h3>Cómo transformar una tarjeta SD externa en almacenamiento interno<a class="headerlink" href="#how-to-turn-external-sd-card-into-internal-storage" title="Enlazar permanentemente con este título">¶</a></h3>
+<h3>Cómo transformar una tarjeta SD externa en almacenamiento interno<a class="headerlink" href="#how-to-turn-external-sd-card-into-internal-storage" title="Permalink to this headline">¶</a></h3>
 <p>Desde Android 6.0 puede usar la tarjeta SD como almacenamiento interno para su teléfono Android. Una función llamada Almacenamiento adoptable permite al SO Android formatear un medio de almacenamiento externo como un almacenamiento interno permanente. Los datos de la tarjeta SD adoptada están encriptados y no se puede montar en otro dispositivo.</p>
 <p><strong>Por favor, asegúrese de comenzar con una tarjeta SD vacía. Tiene que estar vacía porque cuando la tarjeta se convierte en almacenamiento «interno» es formateada (borrada).</strong></p>
 <ol class="arabic simple">
@@ -211,7 +211,7 @@
     </p>
     <p>
         &copy; Copyright 2019, The QField Project/OPENGIS.ch.<br/>
-      Creado con <a href="http://sphinx-doc.org/">Sphinx</a> 1.8.5.<br/>
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.8.5.<br/>
     </p>
   </div>
 </footer>

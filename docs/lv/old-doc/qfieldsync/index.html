@@ -18,8 +18,8 @@
     <script type="text/javascript" src="../../_static/translations.js"></script>
     <script type="text/javascript" src="../../_static/qfield.js"></script>
     <link rel="shortcut icon" href="../../_static/favicon.ico"/>
-    <link rel="index" title="Indekss" href="../../genindex.html" />
-    <link rel="search" title="Meklēt" href="../../search.html" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="Improving Efficiencies in Ecological Surveying using QField" href="../case-studies/ecological-surveying.html" />
     <link rel="prev" title="Development and support" href="../development/index.html" />
 <meta charset='utf-8'>
@@ -136,7 +136,7 @@
     <div class="col-md-9 content">
       
   <div class="section" id="qfieldsync-plugin">
-<h1>QFieldSync plugin<a class="headerlink" href="#qfieldsync-plugin" title="Pastāvīga norāde šo virsrakstu">¶</a></h1>
+<h1>QFieldSync plugin<a class="headerlink" href="#qfieldsync-plugin" title="Permalink to this headline">¶</a></h1>
 <p>The QFieldSync plugin helps preparing and packaging QGIS projects for QField.</p>
 <p>QFieldSync supports your project preparation with automating the following:</p>
 <ul class="simple">
@@ -145,7 +145,7 @@
 <li>Configuring the offline editing functionality and synchronizing changes back.</li>
 </ul>
 <div class="section" id="workflow">
-<h2>Workflow<a class="headerlink" href="#workflow" title="Pastāvīga norāde šo virsrakstu">¶</a></h2>
+<h2>Workflow<a class="headerlink" href="#workflow" title="Permalink to this headline">¶</a></h2>
 <p>To get a quick overview of the process, here is a list of typical steps:</p>
 <ol class="arabic simple">
 <li>Create a QField package. This is a working copy in a separate folder.</li>
@@ -156,17 +156,17 @@
 </ol>
 </div>
 <div class="section" id="installation">
-<h2>Installation<a class="headerlink" href="#installation" title="Pastāvīga norāde šo virsrakstu">¶</a></h2>
+<h2>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h2>
 <p>In QGIS, open the plugin library and search for <strong>qfield sync</strong>. Select the plugin in the list and click on <strong>Install</strong>.</p>
 <img alt="../../_images/qfield-sync_install.png" src="../../_images/qfield-sync_install.png" />
 </div>
 <div class="section" id="configuration">
-<h2>Configuration<a class="headerlink" href="#configuration" title="Pastāvīga norāde šo virsrakstu">¶</a></h2>
+<h2>Configuration<a class="headerlink" href="#configuration" title="Permalink to this headline">¶</a></h2>
 <p>The project configuration is saved in the master .qgs project file.
 This way it is possible to pre-configure a project once and use it repeatedly.</p>
 <img alt="../../_images/qfield-sync_configmenu.png" src="../../_images/qfield-sync_configmenu.png" />
 <div class="section" id="layer-configuration">
-<h3>Layer configuration<a class="headerlink" href="#layer-configuration" title="Pastāvīga norāde šo virsrakstu">¶</a></h3>
+<h3>Layer configuration<a class="headerlink" href="#layer-configuration" title="Permalink to this headline">¶</a></h3>
 <img alt="../../_images/qfield-sync_config.png" src="../../_images/qfield-sync_config.png" />
 <p>In the project configuration dialog, an <em>action</em> can be defined for each layer
 individually. Depending on the layer type, different types of actions are
@@ -190,7 +190,7 @@ used in the basemap and will not be available in the packaged project.</dd>
 </dl>
 </div>
 <div class="section" id="base-map-configuration">
-<h3>Base map configuration<a class="headerlink" href="#base-map-configuration" title="Pastāvīga norāde šo virsrakstu">¶</a></h3>
+<h3>Base map configuration<a class="headerlink" href="#base-map-configuration" title="Permalink to this headline">¶</a></h3>
 <p>A base map is a raster layer which is added as the bottommost layer to the
 packaged project file.</p>
 <p>If the base map option is enabled, a base map will be rendered, whenever the
@@ -214,21 +214,21 @@ to 1, each raster pixel will have a spatial extent of 1x1 m, if it is set to
 1000, each raster pixel will have a spatial extent of 1 square kilometer.</p>
 </div>
 <div class="section" id="offline-editing-configuration">
-<h3>Offline editing configuration<a class="headerlink" href="#offline-editing-configuration" title="Pastāvīga norāde šo virsrakstu">¶</a></h3>
+<h3>Offline editing configuration<a class="headerlink" href="#offline-editing-configuration" title="Permalink to this headline">¶</a></h3>
 <p>If <em>only synchronize features in area of interest</em> is checked, only features
 which are within the extent of the map canvas as packaging time will be copied
 to the offline editing working copy.</p>
 </div>
 </div>
 <div class="section" id="package-for-qfield">
-<h2>Package for Qfield<a class="headerlink" href="#package-for-qfield" title="Pastāvīga norāde šo virsrakstu">¶</a></h2>
+<h2>Package for Qfield<a class="headerlink" href="#package-for-qfield" title="Permalink to this headline">¶</a></h2>
 <p>Once the project is configured, package it in a folder. This folder will contain the .qgs and the data used in it.</p>
 <img alt="../../_images/qfield-sync_package.png" src="../../_images/qfield-sync_package.png" />
 <p>Copy the folder on your device. Open Qfield, open the project and start collecting data.</p>
 <p>Make also sure to save the QGIS project using the regular Save As of QGIS as you’ll have to re-open it later when you want to synchronize the changes.</p>
 </div>
 <div class="section" id="synchronize-from-qfield">
-<h2>Synchronize from Qfield<a class="headerlink" href="#synchronize-from-qfield" title="Pastāvīga norāde šo virsrakstu">¶</a></h2>
+<h2>Synchronize from Qfield<a class="headerlink" href="#synchronize-from-qfield" title="Permalink to this headline">¶</a></h2>
 <p>When you want to synchronize what you have collected, re-open the project in QGIS (the one you saved with a regular Save As).</p>
 <p>Copy the project folder from your device to your computer and use the <strong>Synchronize from Qfield</strong> menu to synchronize your changes from the protable project to the main project.</p>
 <img alt="../../_images/qfield-sync_sync.png" src="../../_images/qfield-sync_sync.png" />
@@ -260,7 +260,7 @@ to the offline editing working copy.</p>
     </p>
     <p>
         &copy; Copyright 2019, The QField Project/OPENGIS.ch.<br/>
-      Sagatavots izmantojot <a href="http://sphinx-doc.org/">Sphinx</a> 1.8.5.<br/>
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.8.5.<br/>
     </p>
   </div>
 </footer>

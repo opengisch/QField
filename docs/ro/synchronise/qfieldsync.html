@@ -5,7 +5,7 @@
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Plugin QFieldSync &#8212; QField Documentation 1.0 - M... documentație</title>
+    <title>Plugin QFieldSync &#8212; QField Documentation 1.0 - M... documentation</title>
     <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/style.css" />
@@ -19,7 +19,7 @@
     <script type="text/javascript" src="../_static/qfield.js"></script>
     <link rel="shortcut icon" href="../_static/favicon.ico"/>
     <link rel="index" title="Index" href="../genindex.html" />
-    <link rel="search" title="Căutare" href="../search.html" />
+    <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Muncă de teren" href="../fieldwork/index.html" />
     <link rel="prev" title="QFieldCloud" href="qfieldcloud.html" />
 <meta charset='utf-8'>
@@ -136,7 +136,7 @@
     <div class="col-md-9 content">
       
   <div class="section" id="qfieldsync-plugin">
-<span id="qfieldsync"></span><h1>Plugin QFieldSync<a class="headerlink" href="#qfieldsync-plugin" title="Link permanent la acest titlu">¶</a></h1>
+<span id="qfieldsync"></span><h1>Plugin QFieldSync<a class="headerlink" href="#qfieldsync-plugin" title="Permalink to this headline">¶</a></h1>
 <p>Plugin-ul QFieldSync ajută la pregătirea și împachetarea proiectelor QGIS pentru QField.</p>
 <p>QFieldSync permite pregătirea proiectului, automatizând următoarele:</p>
 <ul class="simple">
@@ -145,7 +145,7 @@
 <li>Configurarea funcționalităților de editare offline și de sincronizare a anulărilor.</li>
 </ul>
 <div class="section" id="workflow">
-<h2>Fluxul de lucru<a class="headerlink" href="#workflow" title="Link permanent la acest titlu">¶</a></h2>
+<h2>Fluxul de lucru<a class="headerlink" href="#workflow" title="Permalink to this headline">¶</a></h2>
 <p>Pentru a obține o scurtă prezentare a procesului, iată o listă de pași tipici:</p>
 <ol class="arabic simple">
 <li>Creare pachet QField. Acesta reprezintă o copie de lucru, într-un dosar separat.</li>
@@ -156,16 +156,16 @@
 </ol>
 </div>
 <div class="section" id="installation">
-<h2>Instalare<a class="headerlink" href="#installation" title="Link permanent la acest titlu">¶</a></h2>
+<h2>Instalare<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h2>
 <p>In QGIS, open the plugin library and search for <strong>qfield sync</strong>. Select the plugin in the list and click on <strong>Install</strong>.</p>
 <img alt="../_images/qfield-sync_install1.png" src="../_images/qfield-sync_install1.png" />
 </div>
 <div class="section" id="configuration">
-<h2>Configurare<a class="headerlink" href="#configuration" title="Link permanent la acest titlu">¶</a></h2>
+<h2>Configurare<a class="headerlink" href="#configuration" title="Permalink to this headline">¶</a></h2>
 <p>Configurația proiectul este salvată în fișierul master, .qgs, al proiectului. În acest fel este posibilă pre-configurarea, o dată, a unui proiect, apoi utilizarea sa în mod repetat.</p>
 <img alt="../_images/qfield-sync_configmenu1.png" src="../_images/qfield-sync_configmenu1.png" />
 <div class="section" id="layer-configuration">
-<h3>Configurarea stratului<a class="headerlink" href="#layer-configuration" title="Link permanent la acest titlu">¶</a></h3>
+<h3>Configurarea stratului<a class="headerlink" href="#layer-configuration" title="Permalink to this headline">¶</a></h3>
 <img alt="../_images/qfield-sync_config1.png" src="../_images/qfield-sync_config1.png" />
 <p>În dialogul de configurare a proiectului, o <em>acțiune</em> poate fi definită, în mod individual, pentru fiecare strat. În funcție de tipul stratului, sunt disponibile diferite tipuri de acțiuni.</p>
 <dl class="docutils">
@@ -180,7 +180,7 @@
 </dl>
 </div>
 <div class="section" id="base-map-configuration">
-<h3>Configurarea hărții de bază<a class="headerlink" href="#base-map-configuration" title="Link permanent la acest titlu">¶</a></h3>
+<h3>Configurarea hărții de bază<a class="headerlink" href="#base-map-configuration" title="Permalink to this headline">¶</a></h3>
 <p>O hartă de bază este un strat raster, care se adaugă ca fundal la fișierul împachetat al proiectului.</p>
 <p>În cazul în care este activată opțiunea hărții de bază, va fi randată o hartă de bază, la fiecare împachetare a proiectului. Aria de interes - extinderea care va fi randată - va fi aleasă la momentul împachetării.</p>
 <p>Există două surse posibile pentru o hartă de bază:</p>
@@ -193,19 +193,19 @@
 <p>Dimensiunea plăcuțelor definește rezoluția spațială. Ea determină numărul de unități de hartă per pixel. Atunci când CRS-ul canevasului hărții are metrul ca unitate și dimensiunea plăcuței este setată la 1, fiecare pixel raster va avea o extindere spațială de 1x1 m, iar în cazul în care aceasta este setată la 1000, fiecare pixel raster va avea o extindere spațială de 1 kilometru pătrat.</p>
 </div>
 <div class="section" id="offline-editing-configuration">
-<h3>Configurarea editării offline<a class="headerlink" href="#offline-editing-configuration" title="Link permanent la acest titlu">¶</a></h3>
+<h3>Configurarea editării offline<a class="headerlink" href="#offline-editing-configuration" title="Permalink to this headline">¶</a></h3>
 <p>În cazul în care este bifată <em>sincronizarea doar a entităților din zona de interes</em>, numai entitățile care sunt incluse în extinderea canevasului hărții la momentul împachetării, vor fi copiate în copia de lucru editabilă offline.</p>
 </div>
 </div>
 <div class="section" id="package-for-qfield">
-<h2>Pachet pentru Qfield<a class="headerlink" href="#package-for-qfield" title="Link permanent la acest titlu">¶</a></h2>
+<h2>Pachet pentru Qfield<a class="headerlink" href="#package-for-qfield" title="Permalink to this headline">¶</a></h2>
 <p>După ce proiectul este configurat, împachetați-l într-un folder. Acest folder va conține în el proiectul .qgs și datele folosite.</p>
 <img alt="../_images/qfield-sync_package3.png" src="../_images/qfield-sync_package3.png" />
 <p>Copiați folderul pe dispozitiv. Deschideți Qfield, apoi proiectul și începeți colectarea datelor.</p>
 <p>Make also sure to save the QGIS project using the regular Save As of QGIS as you’ll have to re-open it later when you want to synchronize the changes.</p>
 </div>
 <div class="section" id="synchronize-from-qfield">
-<h2>Sincronizare din Qfield<a class="headerlink" href="#synchronize-from-qfield" title="Link permanent la acest titlu">¶</a></h2>
+<h2>Sincronizare din Qfield<a class="headerlink" href="#synchronize-from-qfield" title="Permalink to this headline">¶</a></h2>
 <p>Când doriți să sincronizați ceea ce ați colectat, redeschideți proiectul în QGIS (cel pe care l-ați salvat cu Salvare Ca).</p>
 <p>Copiați folderul proiectului de pe dispozitivul dvs. pe computer, apoi utilizați meniul de <strong>Sincronizare din Qfield</strong> pentru a sincroniza modificările din proiectul portabil în proiectul principal.</p>
 <img alt="../_images/qfield-sync_sync1.png" src="../_images/qfield-sync_sync1.png" />
@@ -237,7 +237,7 @@
     </p>
     <p>
         &copy; Copyright 2019, The QField Project/OPENGIS.ch.<br/>
-      Generat cu <a href="http://sphinx-doc.org/">Sphinx</a> 1.8.5.<br/>
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.8.5.<br/>
     </p>
   </div>
 </footer>

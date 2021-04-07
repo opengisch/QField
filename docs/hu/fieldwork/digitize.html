@@ -5,7 +5,7 @@
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Térképi elemek összegyűjtése &#8212; QField Documentation 1.0 - M... dokumentáció</title>
+    <title>Térképi elemek összegyűjtése &#8212; QField Documentation 1.0 - M... documentation</title>
     <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/style.css" />
@@ -18,8 +18,8 @@
     <script type="text/javascript" src="../_static/translations.js"></script>
     <script type="text/javascript" src="../_static/qfield.js"></script>
     <link rel="shortcut icon" href="../_static/favicon.ico"/>
-    <link rel="index" title="Tárgymutató" href="../genindex.html" />
-    <link rel="search" title="Keresés" href="../search.html" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="GNSS" href="gps.html" />
     <link rel="prev" title="Terepmunka" href="index.html" />
 <meta charset='utf-8'>
@@ -67,7 +67,7 @@
 <li><a class="reference internal" href="#points">Pontok</a></li>
 <li><a class="reference internal" href="#lines-and-polygons">Vonalak és felületek</a></li>
 <li><a class="reference internal" href="#attribute-form">Attribútum űrlap</a><ul>
-<li><a class="reference internal" href="#remember-attribute-values">Remember attribute values</a></li>
+<li><a class="reference internal" href="#remember-attribute-values">Attribútum értékek megjegyzése</a></li>
 </ul>
 </li>
 </ul>
@@ -138,7 +138,7 @@
     <div class="col-md-9 content">
       
   <div class="section" id="collect-features">
-<h1>Térképi elemek összegyűjtése<a class="headerlink" href="#collect-features" title="Hivatkozás erre a fejezetcímre">¶</a></h1>
+<h1>Térképi elemek összegyűjtése<a class="headerlink" href="#collect-features" title="Permalink to this headline">¶</a></h1>
 <p>Az új elemek digitalizálásának megkezdéséhez engedélyezze a <strong>Szerkesztő módot</strong> a fő menüben (<em>ceruza ikon</em>) és válassza ki a réteget, melyhez új elemeket akar adni (a réteget zöld színnel emeljük ki).</p>
 <div class="clearer text-left docutils container">
 <div class="figure">
@@ -146,12 +146,12 @@
 </div>
 </div>
 <div class="section" id="points">
-<h2>Pontok<a class="headerlink" href="#points" title="Hivatkozás erre a fejezetcímre">¶</a></h2>
+<h2>Pontok<a class="headerlink" href="#points" title="Permalink to this headline">¶</a></h2>
 <p>Mozgassa a képernyő közepén megjelenő szálkeresztet a digitalizálandó pozícióba és kattintson a <strong>+ gombra</strong> a képernyő jobb alsó sarkában az új pont elem létrehozásának megerősítéséhez.</p>
 <p>Használhatja a <strong>tartsd középen</strong> gombot, hogy a szálkeresztet az ön pozíciójába kényszerítse, ha bekapcsolta a GPS-t.</p>
 </div>
 <div class="section" id="lines-and-polygons">
-<h2>Vonalak és felületek<a class="headerlink" href="#lines-and-polygons" title="Hivatkozás erre a fejezetcímre">¶</a></h2>
+<h2>Vonalak és felületek<a class="headerlink" href="#lines-and-polygons" title="Permalink to this headline">¶</a></h2>
 <p>Mozgassa a képernyő közepén megjelenő szálkeresztet a digitalizálandó vonal vagy felület kezdőpontjába és kattintson a <strong>plusz(+) gombra</strong> a képernyő jobb alsó sarkában az első töréspont hozzáadásához.</p>
 <p>Haladjon tovább a pontok hozzáadásával a <strong>plusz(+) gombra</strong> kattintva minden alkalommal amikor új töréspontot adna az elemhez, hogy kialakítsa a törtvonalat vagy felületet.</p>
 <p>Kattintson a <strong>mínusz (-) gombra</strong> az utoljára hozzáadott pont eltávolításához.</p>
@@ -159,14 +159,11 @@
 <p>Amikor már két pontot adott a törtvonalhoz vagy három pontot a felülethez, egy <strong>Mentés gomb</strong> jelenik meg. Kattintson erre a rajz befejezéséhez.</p>
 </div>
 <div class="section" id="attribute-form">
-<h2>Attribútum űrlap<a class="headerlink" href="#attribute-form" title="Hivatkozás erre a fejezetcímre">¶</a></h2>
-<p>After digitizing a geometry, the attribute form will be displayed if it is not suppressed
-and the user will be asked to enter the attributes for the new feature.
-The form which appears allows entering attribute values for the new feature.</p>
+<h2>Attribútum űrlap<a class="headerlink" href="#attribute-form" title="Permalink to this headline">¶</a></h2>
+<p>A geometria digitalizálása után az attribútumok űrlapja jelenik meg, ha nincs letiltva és a felhasználó kitöltheti az új elem attribútumait. A megjelenő űrlap lehetővé teszi az attribútumok bevitelét az új elemhez.</p>
 <div class="section" id="remember-attribute-values">
-<h3>Remember attribute values<a class="headerlink" href="#remember-attribute-values" title="Hivatkozás erre a fejezetcímre">¶</a></h3>
-<p>For quick collection of rather homogeneus datasets, it is crucial to not having to enter the same attribute values over an over.
-The checkboxes at the right of every attribute allow remembering each attribute individually so that the next time you will add a feature on the same layer, these attributes will be automatically pre-filled.</p>
+<h3>Attribútum értékek megjegyzése<a class="headerlink" href="#remember-attribute-values" title="Permalink to this headline">¶</a></h3>
+<p>Homogén adatok gyors gyűjtéséhez létfontosságú, hogy ne kelljen újra és újra ugyanazt azt attribútum értéket bevinni. A jelölő négyzet minden attribútum mellett jobbra lehetővé teszi az egyes attribútum értékek megjegyzését. Legközelebb, amikor ugyanehhez a réteghez ad új elemet, ezeket az attribútumokat kitölti a program.</p>
 <div class="docutils container">
 <iframe src="https://player.vimeo.com/video/526919606" style="border: 0; height: 345px; width: 560px">
 </iframe></div>
@@ -174,7 +171,7 @@ The checkboxes at the right of every attribute allow remembering each attribute 
 </div>
 </div>
 <div class="section" id="delete-features">
-<h1>Térképi elemek törlése<a class="headerlink" href="#delete-features" title="Hivatkozás erre a fejezetcímre">¶</a></h1>
+<h1>Térképi elemek törlése<a class="headerlink" href="#delete-features" title="Permalink to this headline">¶</a></h1>
 <p>Az elem törlése csak digitalizáló módban lehetséges.</p>
 <div class="clearer text-left docutils container">
 <div class="figure">
@@ -184,11 +181,11 @@ The checkboxes at the right of every attribute allow remembering each attribute 
 <p>Egy térképi elem törléséhez először azonosítsa azt egy koppintással. Majd válassza ki egy hosszabb nyomással az azonosítási listában, válasszon ki további elemeket ha többet akar törölni és kattintson a kuka gombra a törlés megerősítéséhez.</p>
 </div>
 <div class="section" id="edit-features">
-<h1>Térképi elemek szerkesztése<a class="headerlink" href="#edit-features" title="Hivatkozás erre a fejezetcímre">¶</a></h1>
+<h1>Térképi elemek szerkesztése<a class="headerlink" href="#edit-features" title="Permalink to this headline">¶</a></h1>
 <p>A szerkesztéshez koppintson a <strong>Menü gomb -&gt; ceruzára.</strong></p>
 <p>A meglévő térképi elemeket szerkesztheti a töréspontok mozgatásával, hozzáadásával és törlésével és kettévágással is.</p>
 <div class="section" id="vertex-tool">
-<h2>Csomópont eszköz<a class="headerlink" href="#vertex-tool" title="Hivatkozás erre a fejezetcímre">¶</a></h2>
+<h2>Csomópont eszköz<a class="headerlink" href="#vertex-tool" title="Permalink to this headline">¶</a></h2>
 <p>A geometriák töréspontjait mozgathatjuk és törölhetjük valamint újakat adhatunk hozzá.</p>
 <div class="clearer text-left docutils container">
 <div class="figure">
@@ -197,7 +194,7 @@ The checkboxes at the right of every attribute allow remembering each attribute 
 </div>
 </div>
 <div class="section" id="split-tool">
-<h2>Vágó eszköz<a class="headerlink" href="#split-tool" title="Hivatkozás erre a fejezetcímre">¶</a></h2>
+<h2>Vágó eszköz<a class="headerlink" href="#split-tool" title="Permalink to this headline">¶</a></h2>
 <p>Egy vonat rajzolásával feldarabolhatja egy létező elem geometriáját.</p>
 <div class="clearer text-left docutils container">
 <div class="figure">
@@ -232,7 +229,7 @@ The checkboxes at the right of every attribute allow remembering each attribute 
     </p>
     <p>
         &copy; Copyright 2019, The QField Project/OPENGIS.ch.<br/>
-      <a href="http://sphinx-doc.org/">Sphinx</a> 1.8.5 használatával készült.<br/>
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.8.5.<br/>
     </p>
   </div>
 </footer>

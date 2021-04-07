@@ -5,7 +5,7 @@
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>プロジェクトを開く &#8212; QField Documentation 1.0 - M... ドキュメント</title>
+    <title>プロジェクトを開く &#8212; QField Documentation 1.0 - M... documentation</title>
     <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/style.css" />
@@ -18,8 +18,8 @@
     <script type="text/javascript" src="../_static/translations.js"></script>
     <script type="text/javascript" src="../_static/qfield.js"></script>
     <link rel="shortcut icon" href="../_static/favicon.ico"/>
-    <link rel="index" title="索引" href="../genindex.html" />
-    <link rel="search" title="検索" href="../search.html" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="検索" href="search.html" />
     <link rel="prev" title="PDFに印刷する" href="print-to-pdf.html" />
 <meta charset='utf-8'>
@@ -133,7 +133,7 @@
     <div class="col-md-9 content">
       
   <div class="section" id="open-a-project">
-<h1>プロジェクトを開く<a class="headerlink" href="#open-a-project" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<h1>プロジェクトを開く<a class="headerlink" href="#open-a-project" title="Permalink to this headline">¶</a></h1>
 <p>プロジェクトを開くには、 <strong>メニューボタン --&gt; オプションボタン --&gt; プロジェクトを開く</strong> のようにタップしてください。</p>
 <p>開きたいプロジェクトを選択するか、  <strong>最近のプロジェクト</strong> や <strong>お気に入りのフォルダ</strong> ショートカットを使用してください。</p>
 <blockquote>
@@ -141,11 +141,11 @@
 <img alt="../_images/user-guide_open-project-menu.png" src="../_images/user-guide_open-project-menu.png" />
 </div></blockquote>
 <div class="section" id="favorite-directories">
-<h2>お気に入りのディレクトリ<a class="headerlink" href="#favorite-directories" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<h2>お気に入りのディレクトリ<a class="headerlink" href="#favorite-directories" title="Permalink to this headline">¶</a></h2>
 <p>ファイル選択の最初の画面には、お気に入りのディレクトリを示すセクションがあります。 お気に入りにディレクトリを追加するには、ディレクトリ名のファイル選択しロングタップします。 お気に入りからエントリを削除するには、お気に入りリストのエントリをロングタップします。</p>
 </div>
 <div class="section" id="advanced-project-selection">
-<h2>高度なプロジェクトの選択<a class="headerlink" href="#advanced-project-selection" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<h2>高度なプロジェクトの選択<a class="headerlink" href="#advanced-project-selection" title="Permalink to this headline">¶</a></h2>
 <p>QFieldは、拡張子が「.qgs」または「.qgz」のQGISプロジェクトを開けます。</p>
 <p>QFieldは、カスタマイズされたファイル選択画面を使用してプロジェクトを開きます。 QFieldメニューから &quot;プロジェクトを開く&quot; を選択すると、ファイル選択画面が開き、次の場所が表示されます。</p>
 <ul class="simple">
@@ -155,22 +155,22 @@
 <p>これらのディレクトリ内には、サブディレクトリと「.qgs」または「.qgz」拡張子を持つファイルのみが表示されます。</p>
 <p>QFieldでは、プロジェクトファイルがデバイス上に物理的に存在する必要があるため、リモートファイル（Googleドライブなど）を扱うプロバイダーを使用することはできません。一方、 <a class="reference external" href="https://syncthing.net/">syncthing</a> や <a class="reference external" href="https://nextcloud.com/">nextcloud</a> (もしくは dropboxなどほかの何か)のようなデバイス上にファイルを物理的に同期できるアプリを使うことはできます。</p>
 <div class="section" id="external-sd-card">
-<h3>外付けSDカード<a class="headerlink" href="#external-sd-card" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<h3>外付けSDカード<a class="headerlink" href="#external-sd-card" title="Permalink to this headline">¶</a></h3>
 <p>ファイル選択には、「読み取り専用」というラベルの付いたSDカードのルートと、アプリが書き込み権限を持っているSDカードの残容量から分けれたアプリケーション固有のディレクトリが表示されます。それらディレクトリは次の通りです。</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>/Android/data/ch.opengis.qfield/files
 </pre></div>
 </div>
 <div class="admonition note">
-<p class="first admonition-title">注釈</p>
+<p class="first admonition-title">Note</p>
 <p class="last">技術的には、これはAndroidがACTION_OPEN_DOCUMENTおよびACTION_OPEN_DOCUMENT_TREEを意図しているためで、実際のリンクファイルではなく、返されるURIのコンテンツで読み取り/書き込みアクセスを許可するという事実によっています。 この制限は、Androidがどのように構造化されているかについて説明していますが、QFieldは実際のパスによりファイルにアクセスする必要があるため、今現在はQFieldでは使用できません。</p>
 </div>
 </div>
 <div class="section" id="warning">
-<h3>ご注意ください!<a class="headerlink" href="#warning" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<h3>ご注意ください!<a class="headerlink" href="#warning" title="Permalink to this headline">¶</a></h3>
 <p>このフォルダにデータを保存すると、データを失う可能性があります。 アプリケーション固有のディレクトリ(<cite>/Android/data/ch.opengis.qfield/</cite>)は、AndroidデバイスからQFieldをアンインストールするとシステムによって削除されます。 これは、外部SDカードにデータを保存する場合に重要となります。</p>
 </div>
 <div class="section" id="how-to-turn-external-sd-card-into-internal-storage">
-<h3>外部SDカードを内部ストレージに変える方法<a class="headerlink" href="#how-to-turn-external-sd-card-into-internal-storage" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<h3>外部SDカードを内部ストレージに変える方法<a class="headerlink" href="#how-to-turn-external-sd-card-into-internal-storage" title="Permalink to this headline">¶</a></h3>
 <p>Android 6.0以降では、SDカードをAndroidスマートフォンの内部ストレージとして使用できます。 Adoptable Storageと呼ばれる機能により、Android OSは外部ストレージメディアを永続的な内部ストレージとしてフォーマットできます。 フォーマットされたSDカードのデータは暗号化されており、別のデバイスにマウントすることはできません。</p>
 <p><strong>空のSDカードで設定してください。 カードが「内部」ストレージに変換されると、フォーマット（消去）されるため、空にする必要があります。</strong></p>
 <ol class="arabic simple">
@@ -211,7 +211,7 @@
     </p>
     <p>
         &copy; Copyright 2019, The QField Project/OPENGIS.ch.<br/>
-      このドキュメントは <a href="http://sphinx-doc.org/">Sphinx</a> 1.8.5 で生成しました。<br/>
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.8.5.<br/>
     </p>
   </div>
 </footer>

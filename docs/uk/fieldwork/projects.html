@@ -17,8 +17,8 @@
     <script type="text/javascript" src="../_static/language_data.js"></script>
     <script type="text/javascript" src="../_static/qfield.js"></script>
     <link rel="shortcut icon" href="../_static/favicon.ico"/>
-    <link rel="index" title="Індекс" href="../genindex.html" />
-    <link rel="search" title="Пошук" href="../search.html" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Search" href="search.html" />
     <link rel="prev" title="Print to PDF" href="print-to-pdf.html" />
 <meta charset='utf-8'>
@@ -132,7 +132,7 @@
     <div class="col-md-9 content">
       
   <div class="section" id="open-a-project">
-<h1>Open a project<a class="headerlink" href="#open-a-project" title="Постійне посилання на цей заголовок">¶</a></h1>
+<h1>Open a project<a class="headerlink" href="#open-a-project" title="Permalink to this headline">¶</a></h1>
 <p>To open a project, tap on <strong>Menu button –&gt; Option button –&gt; Open Project</strong>.</p>
 <p>Select the project you want to open by navigating to it, or use the <strong>Recent projects</strong> and <strong>Favorites directories</strong> shortcuts.</p>
 <blockquote>
@@ -140,11 +140,11 @@
 <img alt="../_images/user-guide_open-project-menu.png" src="../_images/user-guide_open-project-menu.png" />
 </div></blockquote>
 <div class="section" id="favorite-directories">
-<h2>Обрані теки<a class="headerlink" href="#favorite-directories" title="Постійне посилання на цей заголовок">¶</a></h2>
+<h2>Обрані теки<a class="headerlink" href="#favorite-directories" title="Permalink to this headline">¶</a></h2>
 <p>На першому екрані файлового провідника є частина, що відображає обрані теки. Для того, щоб додати теку до обраних, довгим натиском виберіть бажану теку із списку файлового провідника. Щоб видалити із обраних, довгим натиском виберіть теку із списку обраних.</p>
 </div>
 <div class="section" id="advanced-project-selection">
-<h2>Advanced project selection<a class="headerlink" href="#advanced-project-selection" title="Постійне посилання на цей заголовок">¶</a></h2>
+<h2>Advanced project selection<a class="headerlink" href="#advanced-project-selection" title="Permalink to this headline">¶</a></h2>
 <p>QField opens QGIS projects in the «.qgs» or «.qgz» format.</p>
 <p>QField використовує налаштований файловий провідник для відкриття проектів. Вибравши «Відкрити проект» із меню QField, файловий провідник відображатиме наступне:</p>
 <ul class="simple">
@@ -154,22 +154,22 @@
 <p>Inside these directories, only subdirectories and files with the «.qgs» or «.qgz» extension are shown.</p>
 <p>Для QField потрібно, аби файл проекту знаходився на пристрої. Тому, з додатками, які забезпечують доступ до віддалених файлів (наприклад, Google Drive, працювати неможливо. Проте, Ви можете використовувати такі додатки, як  <a class="reference external" href="https://syncthing.net/">syncthing</a> чи <a class="reference external" href="https://nextcloud.com/">nextcloud</a> (чи dropbox та інші), котрі дозволяють синхронізувати віддалений файл на Ваш пристрій.</p>
 <div class="section" id="external-sd-card">
-<h3>Зовнішня SD карта<a class="headerlink" href="#external-sd-card" title="Постійне посилання на цей заголовок">¶</a></h3>
+<h3>Зовнішня SD карта<a class="headerlink" href="#external-sd-card" title="Permalink to this headline">¶</a></h3>
 <p>Файловий провідник відображає певний вміст картки SD як «лише для читання». Тека додатку відокремлена від решти вмісту картки SD, тому що це єдина тека, до якої додаток може записувати дані. Ця тека:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>/Android/data/ch.opengis.qfield/files
 </pre></div>
 </div>
 <div class="admonition note">
-<p class="first admonition-title">Примітка</p>
+<p class="first admonition-title">Note</p>
 <p class="last">Technically, this is due to the fact that Android intents ACTION_OPEN_DOCUMENT and ACTION_OPEN_DOCUMENT_TREE, work and grant read-write access on the content of the returning URI, not on the real linked file. This limitation which makes sense for how Android is structured but currently it is unusable with QField as QField needs to access the real file with a real path.</p>
 </div>
 </div>
 <div class="section" id="warning">
-<h3>Увага!<a class="headerlink" href="#warning" title="Постійне посилання на цей заголовок">¶</a></h3>
+<h3>Увага!<a class="headerlink" href="#warning" title="Permalink to this headline">¶</a></h3>
 <p>Зберігаючи дані у цій теці Ви ризикуєте їх втратити. Тека додатку (<cite>/Android/data/ch.opengis.qfield/</cite>) буде видалена системою, коли Ви деінсталюєте QField з пристрою. Пам’ятайте про це, якщо зберігаєте Ваші дані на зовнішній картці SD.</p>
 </div>
 <div class="section" id="how-to-turn-external-sd-card-into-internal-storage">
-<h3>Як перетворити зовнішню картку SD у внутрішнє сховище<a class="headerlink" href="#how-to-turn-external-sd-card-into-internal-storage" title="Постійне посилання на цей заголовок">¶</a></h3>
+<h3>Як перетворити зовнішню картку SD у внутрішнє сховище<a class="headerlink" href="#how-to-turn-external-sd-card-into-internal-storage" title="Permalink to this headline">¶</a></h3>
 <p>Починаючи з версії Android 6.0 Ви можете використовувати Вашу картку SD як внутрішнє сховище даних пристрою. Це називається Гнучке Зберігання і дозволяє ОС Android форматувати зовнішній накопичувач як постійне внутрішнє сховище. Інформацію на такому зовнішньому носію даних буде зашифровано і його неможливо буде використовувати на іншому пристрої.</p>
 <p><strong>Будь ласка, запевніться, що Ви починаєте із порожньою карткою SD. Це необхідно, щоб уникнути будь-якої втрати даних, оскільки в процесі Ваша картка буде відформатована (очищена).</strong></p>
 <ol class="arabic simple">
@@ -210,7 +210,7 @@
     </p>
     <p>
         &copy; Copyright 2019, The QField Project/OPENGIS.ch.<br/>
-      Створено з використанням <a href="http://sphinx-doc.org/">Sphinx</a> 1.8.5.<br/>
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.8.5.<br/>
     </p>
   </div>
 </footer>

@@ -5,7 +5,7 @@
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Formatos de datos soportados &#8212; documentación de QField Documentation - 1.0 - M...</title>
+    <title>Formatos de datos soportados &#8212; QField Documentation 1.0 - M... documentation</title>
     <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/style.css" />
@@ -18,8 +18,8 @@
     <script type="text/javascript" src="../_static/translations.js"></script>
     <script type="text/javascript" src="../_static/qfield.js"></script>
     <link rel="shortcut icon" href="../_static/favicon.ico"/>
-    <link rel="index" title="Índice" href="../genindex.html" />
-    <link rel="search" title="Búsqueda" href="../search.html" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Casos de estudio" href="../case-studies/index.html" />
     <link rel="prev" title="Manuales para comenzar" href="../getting-started/index.html" />
 <meta charset='utf-8'>
@@ -131,10 +131,10 @@
     <div class="col-md-9 content">
       
   <div class="section" id="supported-data-formats">
-<h1>Formatos de datos soportados<a class="headerlink" href="#supported-data-formats" title="Enlazar permanentemente con este título">¶</a></h1>
+<h1>Formatos de datos soportados<a class="headerlink" href="#supported-data-formats" title="Permalink to this headline">¶</a></h1>
 <p>QField soporta una amplia variedad de formatos a través de los proveedores de datos de QGIS y GDAL. Esta página ofrece una lista no exhaustiva de formatos de datos soportados.</p>
 <div class="section" id="table">
-<h2>Tabla<a class="headerlink" href="#table" title="Enlazar permanentemente con este título">¶</a></h2>
+<h2>Tabla<a class="headerlink" href="#table" title="Permalink to this headline">¶</a></h2>
 <blockquote>
 <div></div></blockquote>
 <table border="1" class="docutils">
@@ -206,12 +206,12 @@
 </table>
 <p>Si no encuentra su formato de datos favorito en esta tabla, por favor compruebe si funciona y <a class="reference external" href="https://github.com/opengisch/QField-docs/edit/master/en/project-management/dataformat.rst">adapte la lista de encima</a> para compartir tus hallazgos. Si no funciona por favor, <a class="reference external" href="https://github.com/opengisch/OSGeo4A/issues">abra un tema en</a>. Estaremos encantados de ayudarle con la implementación.</p>
 <div class="section" id="raster-data">
-<h3>Datos ráster<a class="headerlink" href="#raster-data" title="Enlazar permanentemente con este título">¶</a></h3>
+<h3>Datos ráster<a class="headerlink" href="#raster-data" title="Permalink to this headline">¶</a></h3>
 <p>Los datos ráster pueden crecer bastante rápido, cuando se trabaja con ficheros tiff no comprimidos pueden ser varios GB de información. Esto es ineficiente, especialmente en dispositivos móviles.</p>
 </div>
 </div>
 <div class="section" id="use-geopackage">
-<h2>Use GeoPackage<a class="headerlink" href="#use-geopackage" title="Enlazar permanentemente con este título">¶</a></h2>
+<h2>Use GeoPackage<a class="headerlink" href="#use-geopackage" title="Permalink to this headline">¶</a></h2>
 <p>Recomendamos el uso del formato geopackage para trabajar con datos ráster. La siguiente orden puede convertir un fichero <code class="code docutils literal notranslate"><span class="pre">raster.tif</span></code> a <code class="code docutils literal notranslate"><span class="pre">raster.gpkg</span></code> con pirámides. Asegúrese de ajustar <code class="docutils literal notranslate"><span class="pre">EPSG:21781</span></code> a su Sistema de Referencia de Coordenadas (SRC) deseado.</p>
 <div class="code bash highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">gdal_translate</span> <span class="o">--</span><span class="n">config</span> <span class="n">OGR_SQLITE_SYNCHRONOUS</span> <span class="n">OFF</span> <span class="o">-</span><span class="n">co</span>  <span class="n">APPEND_SUBDATASET</span><span class="o">=</span><span class="n">YES</span> <span class="o">-</span><span class="n">co</span> <span class="n">TILE_FORMAT</span><span class="o">=</span><span class="n">WEBP</span> <span class="o">-</span><span class="n">a_srs</span> <span class="n">EPSG</span><span class="p">:</span><span class="mi">21781</span> <span class="o">-</span><span class="n">of</span> <span class="n">GPKG</span> <span class="n">raster</span><span class="o">.</span><span class="n">tif</span> <span class="n">raster</span><span class="o">.</span><span class="n">gpkg</span>
 <span class="n">gdaladdo</span> <span class="o">--</span><span class="n">config</span> <span class="n">OGR_SQLITE_SYNCHRONOUS</span> <span class="n">OFF</span> <span class="o">-</span><span class="n">r</span> <span class="n">AVERAGE</span> <span class="n">raster</span><span class="o">.</span><span class="n">gpkg</span> <span class="mi">2</span> <span class="mi">4</span> <span class="mi">8</span> <span class="mi">16</span> <span class="mi">32</span> <span class="mi">64</span> <span class="mi">128</span> <span class="mi">256</span>
@@ -245,7 +245,7 @@
     </p>
     <p>
         &copy; Copyright 2019, The QField Project/OPENGIS.ch.<br/>
-      Creado con <a href="http://sphinx-doc.org/">Sphinx</a> 1.8.5.<br/>
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.8.5.<br/>
     </p>
   </div>
 </footer>

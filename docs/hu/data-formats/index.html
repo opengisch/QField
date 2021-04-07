@@ -5,7 +5,7 @@
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Támogatott adatformátumok &#8212; QField Documentation 1.0 - M... dokumentáció</title>
+    <title>Támogatott adatformátumok &#8212; QField Documentation 1.0 - M... documentation</title>
     <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/style.css" />
@@ -18,8 +18,8 @@
     <script type="text/javascript" src="../_static/translations.js"></script>
     <script type="text/javascript" src="../_static/qfield.js"></script>
     <link rel="shortcut icon" href="../_static/favicon.ico"/>
-    <link rel="index" title="Tárgymutató" href="../genindex.html" />
-    <link rel="search" title="Keresés" href="../search.html" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Esettanulmányok" href="../case-studies/index.html" />
     <link rel="prev" title="Kezdő oktatóanyag" href="../getting-started/index.html" />
 <meta charset='utf-8'>
@@ -131,10 +131,10 @@
     <div class="col-md-9 content">
       
   <div class="section" id="supported-data-formats">
-<h1>Támogatott adatformátumok<a class="headerlink" href="#supported-data-formats" title="Hivatkozás erre a fejezetcímre">¶</a></h1>
+<h1>Támogatott adatformátumok<a class="headerlink" href="#supported-data-formats" title="Permalink to this headline">¶</a></h1>
 <p>A QField a legkülönbözőbb formátumokat támogatja a QGIS adatszolgáltatókon és a GDAL-on keresztül. Ez az oldal a teljesség igénye nélkül nyújt tájékoztatást a támogatott adatformátumokról.</p>
 <div class="section" id="table">
-<h2>Táblázat<a class="headerlink" href="#table" title="Hivatkozás erre a fejezetcímre">¶</a></h2>
+<h2>Táblázat<a class="headerlink" href="#table" title="Permalink to this headline">¶</a></h2>
 <blockquote>
 <div></div></blockquote>
 <table border="1" class="docutils">
@@ -206,12 +206,12 @@
 </table>
 <p>Amennyiben nem találja kedvenc adatformátumát a táblázatban, úgy kérjük, ellenőrizze, működik-e. Ha működik, akkor szíveskedjen azt a fenti listához illeszteni &lt;<a class="reference external" href="https://github.com/opengisch/QField-docs/edit/master/en/project-management/dataformat.rst">https://github.com/opengisch/QField-docs/edit/master/en/project-management/dataformat.rst</a>&gt;`_  eredményeinek közzététele érdekében, ha pedig nem működik, úgy kérjük, egy új téma megnyitásával jelezze ezt számunkra &lt;<a class="reference external" href="https://github.com/opengisch/OSGeo4A/issues">https://github.com/opengisch/OSGeo4A/issues</a>&gt;_. Örömünkre fog szolgálni, ha segíthetünk Önnek a megoldásban!</p>
 <div class="section" id="raster-data">
-<h3>Raszter adatok<a class="headerlink" href="#raster-data" title="Hivatkozás erre a fejezetcímre">¶</a></h3>
+<h3>Raszter adatok<a class="headerlink" href="#raster-data" title="Permalink to this headline">¶</a></h3>
 <p>A raszter adatok gyorsan egész naggyá válhatnak, amikor tömörítetlen tiff fájlokkal dolgozunk, ez gyakran több Gb adat. Főként mobil eszközökön ez nem hatékony.</p>
 </div>
 </div>
 <div class="section" id="use-geopackage">
-<h2>Geopackage használata<a class="headerlink" href="#use-geopackage" title="Hivatkozás erre a fejezetcímre">¶</a></h2>
+<h2>Geopackage használata<a class="headerlink" href="#use-geopackage" title="Permalink to this headline">¶</a></h2>
 <p>A geopackage formátumot tanácsoljuk önnek, ha raszter adatokkal dolgozik. A következő parancs a <code class="code docutils literal notranslate"><span class="pre">raster.tif</span></code> nevű fájl konvertálja a <code class="code docutils literal notranslate"><span class="pre">raster.gpkg</span></code> fájlba piramisokkal. Győződjön meg róla, hogy módosította az EPSG:21781 beállítást az ön számára kívánatos vetületre.</p>
 <div class="code bash highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">gdal_translate</span> <span class="o">--</span><span class="n">config</span> <span class="n">OGR_SQLITE_SYNCHRONOUS</span> <span class="n">OFF</span> <span class="o">-</span><span class="n">co</span>  <span class="n">APPEND_SUBDATASET</span><span class="o">=</span><span class="n">YES</span> <span class="o">-</span><span class="n">co</span> <span class="n">TILE_FORMAT</span><span class="o">=</span><span class="n">WEBP</span> <span class="o">-</span><span class="n">a_srs</span> <span class="n">EPSG</span><span class="p">:</span><span class="mi">21781</span> <span class="o">-</span><span class="n">of</span> <span class="n">GPKG</span> <span class="n">raster</span><span class="o">.</span><span class="n">tif</span> <span class="n">raster</span><span class="o">.</span><span class="n">gpkg</span>
 <span class="n">gdaladdo</span> <span class="o">--</span><span class="n">config</span> <span class="n">OGR_SQLITE_SYNCHRONOUS</span> <span class="n">OFF</span> <span class="o">-</span><span class="n">r</span> <span class="n">AVERAGE</span> <span class="n">raster</span><span class="o">.</span><span class="n">gpkg</span> <span class="mi">2</span> <span class="mi">4</span> <span class="mi">8</span> <span class="mi">16</span> <span class="mi">32</span> <span class="mi">64</span> <span class="mi">128</span> <span class="mi">256</span>
@@ -245,7 +245,7 @@
     </p>
     <p>
         &copy; Copyright 2019, The QField Project/OPENGIS.ch.<br/>
-      <a href="http://sphinx-doc.org/">Sphinx</a> 1.8.5 használatával készült.<br/>
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.8.5.<br/>
     </p>
   </div>
 </footer>

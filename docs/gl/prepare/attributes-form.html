@@ -324,9 +324,11 @@
 </div>
 <div class="section" id="additional-variables">
 <h3>Variables adicionais<a class="headerlink" href="#additional-variables" title="Permalink to this headline">¶</a></h3>
-<p>Podes obter acceso a información do posicionamento a través de variables de expresión adicionais. Estas só estarán dispoñibles cando se active o posicionamento, tanto a través do receptor interno do dispositivo coma a través dun dispositivo externo conectado mediante unha conexión NMEA.</p>
-<blockquote>
-<div><ul class="simple">
+<p>You can get access to positioning information through additional
+expression variables. These will only be available when the positioning
+is enabled, either through the internal device receiver or through an
+external device connected via NMEA connection.</p>
+<ul class="simple">
 <li><cite>&#64;position_coordinate</cite> - Un punto coa coordenada en WGS84. Lon, Lat, Altitude segundo se envían polo sensor. Só está dispoñible cando o punto de mira se axusta ó sensor. - <cite>x(&#64;position_coordinate)</cite> - IE</li>
 <li><cite>&#64;position_timestamp</cite> - A data e hora da posición en UTC segundo informa o sensor. Só está dispoñible cando o punto de mira se axusta ó sensor. - IE</li>
 <li><cite>&#64;position_direction</cite> - A dirección do movemento en grados dende o norte verdadeiro segundo o informado polo sensor. Só está dispoñible cando o punto de mira se axusta ó sensor. - IE</li>
@@ -346,7 +348,6 @@
 <li><cite>&#64;position_fix_status_description</cite> - O estado «SenDatos», «SenFixar», «Fixado2D» ou «Fixado3D» de fixación do GPS segundo o informado polo sensor. Só está dispoñible cando o punto de mira se axusta ó sensor. - E</li>
 <li><cite>&#64;position_fix_mode</cite> - Modo de fixación (onde “M” = Manual, forzado a operar en 2D ou 3D ou “A” = Automático, 3D/2D) segundo o informado polo sensor. Só está dispoñible cando o punto de mira se axusta ó sensor. - E</li>
 </ul>
-</div></blockquote>
 <p>Todas as variables &#64;position_* teñen unha variable &#64;gnss_* correspondente. As variables gnss sempre informan dos valores do sensor gnss, mesmo cando o punto de mira non está axustado.</p>
 <dl class="docutils">
 <dt>Exemplos:</dt>

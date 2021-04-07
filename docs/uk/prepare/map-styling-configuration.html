@@ -17,8 +17,8 @@
     <script type="text/javascript" src="../_static/language_data.js"></script>
     <script type="text/javascript" src="../_static/qfield.js"></script>
     <link rel="shortcut icon" href="../_static/favicon.ico"/>
-    <link rel="index" title="Індекс" href="../genindex.html" />
-    <link rel="search" title="Пошук" href="../search.html" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Настройка тем мапи" href="map-themes.html" />
     <link rel="prev" title="Display expression" href="display-expression.html" />
 <meta charset='utf-8'>
@@ -135,14 +135,14 @@
     <div class="col-md-9 content">
       
   <div class="section" id="map-styling-and-configuration">
-<h1>Map styling and configuration<a class="headerlink" href="#map-styling-and-configuration" title="Постійне посилання на цей заголовок">¶</a></h1>
+<h1>Map styling and configuration<a class="headerlink" href="#map-styling-and-configuration" title="Permalink to this headline">¶</a></h1>
 <p>Більшість настройок, доступних в QGIS, підтримуються QField без додаткових зусиль.</p>
 <div class="section" id="style">
-<h2>Стилі<a class="headerlink" href="#style" title="Постійне посилання на цей заголовок">¶</a></h2>
+<h2>Стилі<a class="headerlink" href="#style" title="Permalink to this headline">¶</a></h2>
 <p>Всі налаштування стилів з QGIS напряму підтримуються QField. Включаючи всі типи відображдення на кшалт градуйованого, категорій, правил, 2.5D та стилів, які залежать від даних.</p>
 </div>
 <div class="section" id="display-expression">
-<h2>Вираз для відображення<a class="headerlink" href="#display-expression" title="Постійне посилання на цей заголовок">¶</a></h2>
+<h2>Вираз для відображення<a class="headerlink" href="#display-expression" title="Permalink to this headline">¶</a></h2>
 <p>В QField об’єкти ідентифікуються за іменем. Вираз, що генерує це ім’я можна налаштувати. Для цього відкрийте таблицю атрибутів в QGIS та перейдіть у режим форми. Виберіть відповідне поле або вираз зі списку. Починаючи з QGIS 3, це можна зробити напряму на сторінці <span class="menuselection">Vector Layer Properties ‣ Display</span>.</p>
 <p>The display expression is also used to search in layers.</p>
 <div class="clearer text-center docutils container">
@@ -153,7 +153,7 @@
 </div>
 </div>
 <div class="section" id="read-only-non-identifiable-and-searchable-layers">
-<h2>Шари лише для читання, не для визначення та пошуку<a class="headerlink" href="#read-only-non-identifiable-and-searchable-layers" title="Постійне посилання на цей заголовок">¶</a></h2>
+<h2>Шари лише для читання, не для визначення та пошуку<a class="headerlink" href="#read-only-non-identifiable-and-searchable-layers" title="Permalink to this headline">¶</a></h2>
 <p>Деякі шари в проекті мають лише візуальну функцію. Такі шари не повинні потрапляти у список коли користувач виконує ідентифікацію об’єктів.</p>
 <p>Інші шари слугують джерелом інформації та не повинні змінюватися користувачем. Ми передбачили можливість захисту шарів від редагування атрибутів або створення чи видалення нових об’єктів.</p>
 <p>Також можна визначити які шари будуть доступні для пошуку.</p>
@@ -166,11 +166,11 @@
 </div>
 </div>
 <div class="section" id="snapping">
-<h2>Прилипання<a class="headerlink" href="#snapping" title="Постійне посилання на цей заголовок">¶</a></h2>
+<h2>Прилипання<a class="headerlink" href="#snapping" title="Permalink to this headline">¶</a></h2>
 <p>Під час оцифровки нових об’єктів, вершини можуть приклеюватися до наявних об’єктів.</p>
 <p>Всі настройки знаходяться в <span class="menuselection">Project ‣ Snapping Settings</span> (<span class="menuselection">Settings ‣ Snapping Settings</span> у QGIS 2.x).</p>
 <div class="section" id="snapping-types">
-<h3>Типи прилипання<a class="headerlink" href="#snapping-types" title="Постійне посилання на цей заголовок">¶</a></h3>
+<h3>Типи прилипання<a class="headerlink" href="#snapping-types" title="Permalink to this headline">¶</a></h3>
 <p>можна приклеювати нові точки</p>
 <ul class="simple">
 <li>тільки до вузлів наявних об’єктів</li>
@@ -179,17 +179,17 @@
 </ul>
 </div>
 <div class="section" id="snapping-to-layers">
-<h3>Прилипання до шарів<a class="headerlink" href="#snapping-to-layers" title="Постійне посилання на цей заголовок">¶</a></h3>
+<h3>Прилипання до шарів<a class="headerlink" href="#snapping-to-layers" title="Permalink to this headline">¶</a></h3>
 <p>Також можна приклеюватися до одного чи декількох шарів.</p>
 </div>
 <div class="section" id="snapping-tolerance">
-<h3>Поріг приклеювання<a class="headerlink" href="#snapping-tolerance" title="Постійне посилання на цей заголовок">¶</a></h3>
+<h3>Поріг приклеювання<a class="headerlink" href="#snapping-tolerance" title="Permalink to this headline">¶</a></h3>
 <p>Поріг приклеювання можна задавати у пікселях чи одиницях мапи.</p>
 <p>Практично у всіх випадках в якості одиниць слід вибирати пікселі. Ми радимо встановити величину порогу у 20 пікселів.</p>
 </div>
 </div>
 <div class="section" id="d-coordinates">
-<h2>3D Координати<a class="headerlink" href="#d-coordinates" title="Постійне посилання на цей заголовок">¶</a></h2>
+<h2>3D Координати<a class="headerlink" href="#d-coordinates" title="Permalink to this headline">¶</a></h2>
 <p>Пристрої GPS можуть вимірювати висоту над рівнем моря поруч із 2D місцезнаходженням на земній поверхні. Цю інформацію можна зберігати</p>
 </div>
 </div>
@@ -219,7 +219,7 @@
     </p>
     <p>
         &copy; Copyright 2019, The QField Project/OPENGIS.ch.<br/>
-      Створено з використанням <a href="http://sphinx-doc.org/">Sphinx</a> 1.8.5.<br/>
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.8.5.<br/>
     </p>
   </div>
 </footer>

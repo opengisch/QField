@@ -5,7 +5,7 @@
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Uso de Qfield en el contexto del trabajo de recopilación de datos reales sobre mosquitos transmisores de la malaria &#8212; documentación de QField Documentation - 1.0 - M...</title>
+    <title>Uso de Qfield en el contexto del trabajo de recopilación de datos reales sobre mosquitos transmisores de la malaria &#8212; QField Documentation 1.0 - M... documentation</title>
     <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/style.css" />
@@ -18,8 +18,8 @@
     <script type="text/javascript" src="../_static/translations.js"></script>
     <script type="text/javascript" src="../_static/qfield.js"></script>
     <link rel="shortcut icon" href="../_static/favicon.ico"/>
-    <link rel="index" title="Índice" href="../genindex.html" />
-    <link rel="search" title="Búsqueda" href="../search.html" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Formulario del estado del río usando QField" href="river-state-survey.html" />
     <link rel="prev" title="Uso de QField para mapear aves reproductoras en el Mar de Wadden" href="mapping-breeding-birds-in-the-Wadden-Sea.html" />
 <meta charset='utf-8'>
@@ -129,20 +129,20 @@
     <div class="col-md-9 content">
       
   <div class="section" id="use-of-qfield-in-the-context-of-ground-truth-data-collection-work-of-malaria-transmitting-mosquitoes">
-<h1>Uso de Qfield en el contexto del trabajo de recopilación de datos reales sobre mosquitos transmisores de la malaria<a class="headerlink" href="#use-of-qfield-in-the-context-of-ground-truth-data-collection-work-of-malaria-transmitting-mosquitoes" title="Enlazar permanentemente con este título">¶</a></h1>
+<h1>Uso de Qfield en el contexto del trabajo de recopilación de datos reales sobre mosquitos transmisores de la malaria<a class="headerlink" href="#use-of-qfield-in-the-context-of-ground-truth-data-collection-work-of-malaria-transmitting-mosquitoes" title="Permalink to this headline">¶</a></h1>
 <p>Por Paul Taconet, GIS Engineer, French Research Institute for Sustainable Development (IRD) 2018-12-11</p>
 <div class="section" id="goal-and-field-constraints">
-<h2>Limitaciones en el objetivo y el campo<a class="headerlink" href="#goal-and-field-constraints" title="Enlazar permanentemente con este título">¶</a></h2>
+<h2>Limitaciones en el objetivo y el campo<a class="headerlink" href="#goal-and-field-constraints" title="Permalink to this headline">¶</a></h2>
 <p>Para un trabajo de investigación destinado a mejorar el conocimiento sobre el medio ambiente de los mosquitos que transmiten la malaria, el Instituto Francés de Investigación para el Desarrollo Sostenible necesitaba generar un mapa de cobertura terrestre de dos áreas rurales de África, una en Burkina Faso y otra en Costa de Marfil. Se utilizan dos imágenes de satélites (Spot 6 a una resolución espacial de 1,5 metros) como entrada de una clasificación de imágenes supervisada basada en objetos para este trabajo. El método supervisado implica la recolección de parcelas in situ, es decir, la ubicación y georreferenciación de un conjunto de parcelas de cada clase de cobertura terrestre en el suelo, preferiblemente repartidas por todas las áreas de estudio. Ambas áreas tienen 50 km2 de ancho y su naturaleza (sabanas y zonas rurales, donde los caminos son principalmente pistas estrechas de arcilla) implican moverse en moto o a pie. Además, uno podría perderse rápidamente en las pistas del laberinto rural en ausencia de un mapa. Por lo tanto, necesitábamos un equipo ligero y muy portátil, así como una forma de explorar fácilmente el área sin perderse.</p>
 </div>
 <div class="section" id="project-preparation">
-<h2>Preparación del proyecto<a class="headerlink" href="#project-preparation" title="Enlazar permanentemente con este título">¶</a></h2>
+<h2>Preparación del proyecto<a class="headerlink" href="#project-preparation" title="Permalink to this headline">¶</a></h2>
 <p>Creamos un proyecto QGIS con la imagen de Spot y una capa para recopilar los datos del terreno. Primero convertimos nuestra imagen de Spot en un ráster de Geopackage y construimos pirámides para obtener una representación rápida en QField. Toda la imagen (50 km2 a 1,5 m de resolución espacial con 3 bandas) pesaba aproximadamente 800 MB, lo que nos permitió cargarla en nuestra tableta sin necesidad de añadir memoria extra.</p>
 <p>Creamos una capa vectorial para dibujar nuestras parcelas reales in situ (es decir, polígonos de parcelas de cobertura terrestre). Contenía un campo para identificar el tipo de cobertura terrestre, algunos campos para tomar fotografías y un campo para eventuales notas adicionales.</p>
 <p>Luego cargamos el proyecto en QField en nuestra tableta.</p>
 </div>
 <div class="section" id="field-work">
-<h2>Trabajo de campo<a class="headerlink" href="#field-work" title="Enlazar permanentemente con este título">¶</a></h2>
+<h2>Trabajo de campo<a class="headerlink" href="#field-work" title="Permalink to this headline">¶</a></h2>
 <p>En el campo, pudimos movernos fácilmente en moto sin perdernos, gracias a nuestra ubicación mostrada en QField con la imagen de satélite como fondo. Cuando se identificó una parcela de interés, pudimos dibujar su perímetro en QField y completar muy fácilmente la información adecuada en la tabla de atributos (tipo de cobertura terrestre, imágenes). Al dudar sobre el tipo de cobertura terrestre para atribuir a una parcela determinada, pudimos, in situ (es decir, en el sitio), mirar rápidamente las parcelas recuperadas anteriormente y compararlas con la parcela de interés (la realidad con la imagen de satélite).</p>
 <p>Pudimos, sin ningún esfuerzo adicional al final de cada día de trabajo de campo, ver el progreso del trabajo: qué partes de nuestra área de estudio habíamos cubierto, qué quedaba por explorar, cuántas parcelas teníamos para cada clase de cobertura terrestre y cuántos quedaron por recuperar. Esto es muy apreciable en tales condiciones, donde el trabajo puede ser de prueba y las noches pueden ser cortas. De regreso a la oficina, no tuvimos que realizar un trabajo fastidioso y lento, como digitalizar las parcelas desde una capa de puntos GPS tradicional, vincular las imágenes a nuestra capa de cobertura terrestre, etc., que tradicionalmente tomaban días de trabajo.</p>
 <div class="clearer text-center docutils container">
@@ -179,7 +179,7 @@
     </p>
     <p>
         &copy; Copyright 2019, The QField Project/OPENGIS.ch.<br/>
-      Creado con <a href="http://sphinx-doc.org/">Sphinx</a> 1.8.5.<br/>
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.8.5.<br/>
     </p>
   </div>
 </footer>

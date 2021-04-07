@@ -5,7 +5,7 @@
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>マラリアを感染させる蚊のグラウンドトゥルースデータ収集作業におけるQfieldの活用 &#8212; QField Documentation 1.0 - M... ドキュメント</title>
+    <title>マラリアを感染させる蚊のグラウンドトゥルースデータ収集作業におけるQfieldの活用 &#8212; QField Documentation 1.0 - M... documentation</title>
     <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/style.css" />
@@ -18,8 +18,8 @@
     <script type="text/javascript" src="../_static/translations.js"></script>
     <script type="text/javascript" src="../_static/qfield.js"></script>
     <link rel="shortcut icon" href="../_static/favicon.ico"/>
-    <link rel="index" title="索引" href="../genindex.html" />
-    <link rel="search" title="検索" href="../search.html" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="QFieldを使用した河川の状態の調査" href="river-state-survey.html" />
     <link rel="prev" title="ワッデン海の鳥類の繁殖状況をマッピングするためにQFieldを活用" href="mapping-breeding-birds-in-the-Wadden-Sea.html" />
 <meta charset='utf-8'>
@@ -129,20 +129,20 @@
     <div class="col-md-9 content">
       
   <div class="section" id="use-of-qfield-in-the-context-of-ground-truth-data-collection-work-of-malaria-transmitting-mosquitoes">
-<h1>マラリアを感染させる蚊のグラウンドトゥルースデータ収集作業におけるQfieldの活用<a class="headerlink" href="#use-of-qfield-in-the-context-of-ground-truth-data-collection-work-of-malaria-transmitting-mosquitoes" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<h1>マラリアを感染させる蚊のグラウンドトゥルースデータ収集作業におけるQfieldの活用<a class="headerlink" href="#use-of-qfield-in-the-context-of-ground-truth-data-collection-work-of-malaria-transmitting-mosquitoes" title="Permalink to this headline">¶</a></h1>
 <p>Paul Taconet, GISエンジニア, フランス持続可能開発研究所 (IRD) 2018-12-11</p>
 <div class="section" id="goal-and-field-constraints">
-<h2>目標とフィールドでの制約<a class="headerlink" href="#goal-and-field-constraints" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<h2>目標とフィールドでの制約<a class="headerlink" href="#goal-and-field-constraints" title="Permalink to this headline">¶</a></h2>
 <p>マラリアを媒介する蚊の環境に対する理解を向上させることを目的とした調査のために、フランス持続可能開発研究所はアフリカの２つの地域の土地被覆図を作成する必要がありました。一つはブルキナファソで、もう一つはコートジボワールです。この作業では、観測対象のオブジェクトベースの画像分類の入力として、2つの衛星画像（空間解像度1.5メートルのスポット6）が使用されます。監視する方法は、グラウンドトゥルースパーセルの収集、つまり、地上の各土地被覆パーセルのセット位置とジオリファレンスを意味し、それは調査領域全体に広がっています。両方の領域は50 km2の広さがあり、その特徴（道路が主に狭い未舗装路であるサバンナと農村地域）として、バイクまたは徒歩で移動することを意味します。 さらに、地図がないと、地方の迷路のようなみちですぐに迷子になる可能性があります。 したがって、軽量で持ち運びに便利な機器と、道に迷うことなく地域を簡単に探索できる方法が必要でした。</p>
 </div>
 <div class="section" id="project-preparation">
-<h2>プロジェクトの準備<a class="headerlink" href="#project-preparation" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<h2>プロジェクトの準備<a class="headerlink" href="#project-preparation" title="Permalink to this headline">¶</a></h2>
 <p>地表データを収集するために、スポット画像とレイヤーを使用してQGISプロジェクトを作成しました。 最初にスポット画像をGeopackageラスターに変換し、QFieldで迅速にレンダリングできるようにピラミッドを構築しました。 画像全体（3バンドで1.5 mの空間解像度で50 km2）の重みは約800 MBで、追加のメモリも必要なくタブレットに画像を読み込むことができました。</p>
 <p>グラウンドトゥルースパーセル（土地被覆パーセルのポリゴン）を描画するベクターレイヤーを作成しました。 土地被覆タイプを特定するためのフィールド、写真を撮るためのいくつかのフィールド、および最終的な追加のメモのためのフィールドが含まれていました。</p>
 <p>次に、タブレットのQFieldにプロジェクトをアップロードしました。</p>
 </div>
 <div class="section" id="field-work">
-<h2>フィールドワーク<a class="headerlink" href="#field-work" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<h2>フィールドワーク<a class="headerlink" href="#field-work" title="Permalink to this headline">¶</a></h2>
 <p>フィールドでは、衛星画像を背景にしてQFieldに位置が表示されるため、バイクで迷うことなく簡単に移動できました。 関心のある区画が特定されると、QFieldでその境界を描画し、属性テーブルに適切な情報（土地被覆タイプ、写真）を非常に簡単に入力できました。 特定のパーセルに帰属する土地被覆タイプをためらう場合、「ライブ」（つまり、地上）で、以前に取得したパーセルをすばやく確認し、確認したいパーセルと比較することができました（写真と 衛星画像を使って）。</p>
 <p>それぞれのフィールド作業の日の終わりに余計な手間をかけることなく、作業の進捗状況を確認できました。調査範囲のどの部分をカバーし、残りの調査が必要な、各土地被覆クラスで取得した区画の数を確認しました。 回収するために残った数は、作業がテストされている可能性があり、夜が短い可能性があるような状況で非常に顕著です。 オフィスに戻ると、従来のGPSポイントレイヤーからパーセルをデジタル化したり、写真を土地被覆レイヤーにリンクしたりするなど、従来は何日もかかっていた、時間のかかる手間のかかる作業を実施する必要がなくなりました。</p>
 <div class="clearer text-center docutils container">
@@ -179,7 +179,7 @@
     </p>
     <p>
         &copy; Copyright 2019, The QField Project/OPENGIS.ch.<br/>
-      このドキュメントは <a href="http://sphinx-doc.org/">Sphinx</a> 1.8.5 で生成しました。<br/>
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.8.5.<br/>
     </p>
   </div>
 </footer>

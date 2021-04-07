@@ -5,7 +5,7 @@
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Projekt megnyitása &#8212; QField Documentation 1.0 - M... dokumentáció</title>
+    <title>Projekt megnyitása &#8212; QField Documentation 1.0 - M... documentation</title>
     <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/style.css" />
@@ -18,8 +18,8 @@
     <script type="text/javascript" src="../_static/translations.js"></script>
     <script type="text/javascript" src="../_static/qfield.js"></script>
     <link rel="shortcut icon" href="../_static/favicon.ico"/>
-    <link rel="index" title="Tárgymutató" href="../genindex.html" />
-    <link rel="search" title="Keresés" href="../search.html" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Keresés" href="search.html" />
     <link rel="prev" title="Nyomtatás PDF-be" href="print-to-pdf.html" />
 <meta charset='utf-8'>
@@ -133,7 +133,7 @@
     <div class="col-md-9 content">
       
   <div class="section" id="open-a-project">
-<h1>Projekt megnyitása<a class="headerlink" href="#open-a-project" title="Hivatkozás erre a fejezetcímre">¶</a></h1>
+<h1>Projekt megnyitása<a class="headerlink" href="#open-a-project" title="Permalink to this headline">¶</a></h1>
 <p>Egy projekt megnyitásához érintse meg <strong>Menu button –&gt; Option button –&gt; Open Project</strong>  <strong>Menu button –&gt; Option button –&gt; Open Project</strong>.</p>
 <p>Navigáljoni a megnyitandó projektre és válassza ki vagy használja a <strong>Legutóbbi projektek</strong> és <strong>Kedvenc könyvtárak</strong> lehetőséget.</p>
 <blockquote>
@@ -141,11 +141,11 @@
 <img alt="../_images/user-guide_open-project-menu.png" src="../_images/user-guide_open-project-menu.png" />
 </div></blockquote>
 <div class="section" id="favorite-directories">
-<h2>Kedvenc könyvtárak<a class="headerlink" href="#favorite-directories" title="Hivatkozás erre a fejezetcímre">¶</a></h2>
+<h2>Kedvenc könyvtárak<a class="headerlink" href="#favorite-directories" title="Permalink to this headline">¶</a></h2>
 <p>A fájl kiválasztó első képernyőjén egy rész a kedvenc könyvtárakat mutatja. Egy könyvtár kedvencekhez adásához hosszan kattintson a fájl kiválasztóban a könyvtár nevére.  Egy elem eltávolításához a kedvencek közül hosszan kattintson az elemre a kedvencek listájában.</p>
 </div>
 <div class="section" id="advanced-project-selection">
-<h2>Haladó projekt kiválasztás<a class="headerlink" href="#advanced-project-selection" title="Hivatkozás erre a fejezetcímre">¶</a></h2>
+<h2>Haladó projekt kiválasztás<a class="headerlink" href="#advanced-project-selection" title="Permalink to this headline">¶</a></h2>
 <p>A QField „.qgs” vagy „.qgz” formátumú QGIS projekteket nyit meg.</p>
 <p>A QField testre szabott fájl kiválasztót használ a projektek megnyitására. A „projekt nyitás”-t választva a QField menüből a fájl kiválasztó nyílik meg, mely a következő helyeket mutatja:</p>
 <ul class="simple">
@@ -155,22 +155,22 @@
 <p>Ezeken a könyvtárakon belül csak az alkönyvtárak és a „.qgs” vagy a „.qgs”kiterjesztésű fájlok látszanak.</p>
 <p>A QField megköveteli, hogy a projekt fájl fizikailag az szközön legyen, így nem lehetséges távoli fájlokkal dolgozzon (például Google Drive). Másrészről alkalmazásokat használhat mint a <a class="reference external" href="https://syncthing.net/">syncthing</a> vagy <a class="reference external" href="https://nextcloud.com/">nextcloud</a> (vagy dropbox és további számos), melyek lehetővé teszik a a fájl fizika szinkronizálását az eszközére.</p>
 <div class="section" id="external-sd-card">
-<h3>Külső SD kártya<a class="headerlink" href="#external-sd-card" title="Hivatkozás erre a fejezetcímre">¶</a></h3>
-<p>The file selector shows the root of the SD card labeled as „read-only” and the application-specific directory separated from the rest of the SD card, as it is the only directory for which the app has write access. The directory is the following:</p>
+<h3>Külső SD kártya<a class="headerlink" href="#external-sd-card" title="Permalink to this headline">¶</a></h3>
+<p>A fájl kiválasztó az SD kártya gyökerét „csak olvashatóként” mutatja és az alkalmazás specifikus könyvtárat a z SD kártya többi részétől elkülönítve, mivel ez az egyetlen könyvtár, melyhez az alkalmazásnak írási hozzáférése van. A könyvtár a következő:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>/Android/data/ch.opengis.qfield/files
 </pre></div>
 </div>
 <div class="admonition note">
-<p class="first admonition-title">Megjegyzés</p>
+<p class="first admonition-title">Note</p>
 <p class="last">Technically, this is due to the fact that Android intents ACTION_OPEN_DOCUMENT and ACTION_OPEN_DOCUMENT_TREE, work and grant read-write access on the content of the returning URI, not on the real linked file. This limitation which makes sense for how Android is structured but currently it is unusable with QField as QField needs to access the real file with a real path.</p>
 </div>
 </div>
 <div class="section" id="warning">
-<h3>Figyelmeztetés!<a class="headerlink" href="#warning" title="Hivatkozás erre a fejezetcímre">¶</a></h3>
+<h3>Figyelmeztetés!<a class="headerlink" href="#warning" title="Permalink to this headline">¶</a></h3>
 <p>Adatok ebben a mappában tárolásával az adatok elvesztését kockáztatja. Az alkalmazáshoz kapcsolódó (/Android/data/ch.opengis.qfield) könyvtárat a rendszer törli a QField eltávolításakor az Android eszközéről. Ez fontos, ha külső SD kártyán tartja az adatokat.</p>
 </div>
 <div class="section" id="how-to-turn-external-sd-card-into-internal-storage">
-<h3>Hogyan változtassuk a külső SD kártyát belső tárolóvá<a class="headerlink" href="#how-to-turn-external-sd-card-into-internal-storage" title="Hivatkozás erre a fejezetcímre">¶</a></h3>
+<h3>Hogyan változtassuk a külső SD kártyát belső tárolóvá<a class="headerlink" href="#how-to-turn-external-sd-card-into-internal-storage" title="Permalink to this headline">¶</a></h3>
 <p>Az Android 6.0-tól az SD kártyát belső tárolóként használhatja az Android telefonján. Az adoptálható tároló lehetővé teszi az Android OS számára, hogy a külső tároló médiát állandó belső táróként formázza. Az adoptált SD kártyán lévő adatok titkosítottak és nem használhatók más egységben.</p>
 <p><strong>Kérjük győződjön meg róla, hogy üres SD kártyával indul. Azért kell üresnek lennie, mert amikor a kártyát „belső” tárolóvá konvertálja formattálva (törölve) lesz.</strong></p>
 <ol class="arabic simple">
@@ -211,7 +211,7 @@
     </p>
     <p>
         &copy; Copyright 2019, The QField Project/OPENGIS.ch.<br/>
-      <a href="http://sphinx-doc.org/">Sphinx</a> 1.8.5 használatával készült.<br/>
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.8.5.<br/>
     </p>
   </div>
 </footer>

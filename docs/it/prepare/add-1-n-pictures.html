@@ -5,7 +5,7 @@
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Add a series of pictures to a feature &#8212; QField Documentation 1.0 - M... documentazione</title>
+    <title>Add a series of pictures to a feature &#8212; QField Documentation 1.0 - M... documentation</title>
     <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/style.css" />
@@ -18,8 +18,8 @@
     <script type="text/javascript" src="../_static/translations.js"></script>
     <script type="text/javascript" src="../_static/qfield.js"></script>
     <link rel="shortcut icon" href="../_static/favicon.ico"/>
-    <link rel="index" title="Indice" href="../genindex.html" />
-    <link rel="search" title="Cerca" href="../search.html" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Advanced" href="advanced.html" />
     <link rel="prev" title="Prepare for Work" href="index.html" />
 <meta charset='utf-8'>
@@ -121,14 +121,14 @@
         <div id="sidebar" class="bs-sidenav" role="complementary"><ul class="globaltoc"
     role="menu"
     aria-labelledby="dLabelGlobalToc"><ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../install/index.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../install/index.html">Installazione</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">Prepare for Work</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../synchronise/index.html">Synchronisation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../synchronise/index.html">Sincronizzazione</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../fieldwork/index.html">Fieldwork</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../getting-started/index.html">Getting Started Tutorials</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../data-formats/index.html">Supported Data Formats</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting-started/index.html">Tutorial per iniziare</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../data-formats/index.html">Formato dati supportati</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../case-studies/index.html">Case Studies</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../support/index.html">Support and Development</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../support/index.html">Supporto e sviluppo</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../old-doc/index.html">Legacy Documentation</a></li>
 </ul>
 
@@ -138,14 +138,14 @@
     <div class="col-md-9 content">
       
   <div class="section" id="add-a-series-of-pictures-to-a-feature">
-<h1>Add a series of pictures to a feature<a class="headerlink" href="#add-a-series-of-pictures-to-a-feature" title="Link a questa intestazione">¶</a></h1>
+<h1>Add a series of pictures to a feature<a class="headerlink" href="#add-a-series-of-pictures-to-a-feature" title="Permalink to this headline">¶</a></h1>
 <p>You can add one or more pictures to a feature. Below you find an example how to proceed.</p>
 <div class="section" id="creating-two-tables">
-<h2>Creating two tables<a class="headerlink" href="#creating-two-tables" title="Link a questa intestazione">¶</a></h2>
+<h2>Creating two tables<a class="headerlink" href="#creating-two-tables" title="Permalink to this headline">¶</a></h2>
 <p>We will need two tables. One table where the features are stored
 and one with a list of pictures.</p>
 <div class="section" id="apiary">
-<h3><strong>Apiary</strong><a class="headerlink" href="#apiary" title="Link a questa intestazione">¶</a></h3>
+<h3><strong>Apiary</strong><a class="headerlink" href="#apiary" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><code class="docutils literal notranslate"><span class="pre">id</span></code> (UUID)</li>
 <li><code class="docutils literal notranslate"><span class="pre">geometry</span></code></li>
@@ -153,7 +153,7 @@ and one with a list of pictures.</p>
 </ul>
 </div>
 <div class="section" id="apiary-pictures">
-<h3><strong>Apiary_pictures</strong><a class="headerlink" href="#apiary-pictures" title="Link a questa intestazione">¶</a></h3>
+<h3><strong>Apiary_pictures</strong><a class="headerlink" href="#apiary-pictures" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><code class="docutils literal notranslate"><span class="pre">id</span></code></li>
 <li><code class="docutils literal notranslate"><span class="pre">apiary_id</span></code> (UUID)</li>
@@ -163,7 +163,7 @@ and one with a list of pictures.</p>
 </div>
 </div>
 <div class="section" id="relations">
-<h2>Relations<a class="headerlink" href="#relations" title="Link a questa intestazione">¶</a></h2>
+<h2>Relations<a class="headerlink" href="#relations" title="Permalink to this headline">¶</a></h2>
 <p>Create a relation with:</p>
 <ul class="simple">
 <li><code class="docutils literal notranslate"><span class="pre">apiary</span></code> Referenced layer</li>
@@ -177,9 +177,9 @@ and one with a list of pictures.</p>
 </div>
 </div>
 <div class="section" id="widgets">
-<h2>Widgets<a class="headerlink" href="#widgets" title="Link a questa intestazione">¶</a></h2>
+<h2>Widgets<a class="headerlink" href="#widgets" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="id1">
-<h3>apiary<a class="headerlink" href="#id1" title="Link a questa intestazione">¶</a></h3>
+<h3>apiary<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
 <p>Set the default value of the field id to <code class="docutils literal notranslate"><span class="pre">uuid()</span></code>. No need to show it in the form.</p>
 <div class="clearer text-center docutils container">
 <a class="reference internal image-reference" href="../_images/add-1-n-pictures-widgets_hive.png"><img alt="widgets" src="../_images/add-1-n-pictures-widgets_hive.png" style="width: 600px;" /></a>
@@ -190,14 +190,14 @@ and one with a list of pictures.</p>
 </div>
 </div>
 <div class="section" id="picture">
-<h3>picture<a class="headerlink" href="#picture" title="Link a questa intestazione">¶</a></h3>
+<h3>picture<a class="headerlink" href="#picture" title="Permalink to this headline">¶</a></h3>
 <p>Set the widget type of the field path to <code class="docutils literal notranslate"><span class="pre">attachment</span></code> and add it to the form</p>
 <div class="clearer text-center docutils container">
 <a class="reference internal image-reference" href="../_images/add-1-n-pictures-widgets_picture.png"><img alt="widget picture" src="../_images/add-1-n-pictures-widgets_picture.png" style="width: 600px;" /></a>
 </div>
 </div>
 <div class="section" id="geotagging">
-<h3>Geotagging<a class="headerlink" href="#geotagging" title="Link a questa intestazione">¶</a></h3>
+<h3>Geotagging<a class="headerlink" href="#geotagging" title="Permalink to this headline">¶</a></h3>
 <p>Some mobile devices will require Open Camera to be installed in order to enable geotagging.</p>
 <p>To enable geotagging perform the following steps:</p>
 <ol class="arabic simple">
@@ -236,7 +236,7 @@ and one with a list of pictures.</p>
     </p>
     <p>
         &copy; Copyright 2019, The QField Project/OPENGIS.ch.<br/>
-      Creato con <a href="http://sphinx-doc.org/">Sphinx</a> 1.8.5.<br/>
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.8.5.<br/>
     </p>
   </div>
 </footer>

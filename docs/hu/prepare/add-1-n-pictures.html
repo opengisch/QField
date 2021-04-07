@@ -5,7 +5,7 @@
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Képsorozat hozzáadása egy elemhez &#8212; QField Documentation 1.0 - M... dokumentáció</title>
+    <title>Képsorozat hozzáadása egy elemhez &#8212; QField Documentation 1.0 - M... documentation</title>
     <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/style.css" />
@@ -18,8 +18,8 @@
     <script type="text/javascript" src="../_static/translations.js"></script>
     <script type="text/javascript" src="../_static/qfield.js"></script>
     <link rel="shortcut icon" href="../_static/favicon.ico"/>
-    <link rel="index" title="Tárgymutató" href="../genindex.html" />
-    <link rel="search" title="Keresés" href="../search.html" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Haladó" href="advanced.html" />
     <link rel="prev" title="Előkészület a munkához" href="index.html" />
 <meta charset='utf-8'>
@@ -138,13 +138,13 @@
     <div class="col-md-9 content">
       
   <div class="section" id="add-a-series-of-pictures-to-a-feature">
-<h1>Képsorozat hozzáadása egy elemhez<a class="headerlink" href="#add-a-series-of-pictures-to-a-feature" title="Hivatkozás erre a fejezetcímre">¶</a></h1>
+<h1>Képsorozat hozzáadása egy elemhez<a class="headerlink" href="#add-a-series-of-pictures-to-a-feature" title="Permalink to this headline">¶</a></h1>
 <p>Egy vagy több képet adhat egy elemhez. Lentebb talál egy példát hogyan csinálja.</p>
 <div class="section" id="creating-two-tables">
-<h2>Két tábla létrehozása<a class="headerlink" href="#creating-two-tables" title="Hivatkozás erre a fejezetcímre">¶</a></h2>
+<h2>Két tábla létrehozása<a class="headerlink" href="#creating-two-tables" title="Permalink to this headline">¶</a></h2>
 <p>Két táblára lesz szükségünk. Egy tábla, ahol az elemeket tároljuk és egy a képek listájával.</p>
 <div class="section" id="apiary">
-<h3><strong>Méhészet</strong><a class="headerlink" href="#apiary" title="Hivatkozás erre a fejezetcímre">¶</a></h3>
+<h3><strong>Méhészet</strong><a class="headerlink" href="#apiary" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><code class="docutils literal notranslate"><span class="pre">id</span></code> (UUID)</li>
 <li><code class="docutils literal notranslate"><span class="pre">geometria</span></code></li>
@@ -152,7 +152,7 @@
 </ul>
 </div>
 <div class="section" id="apiary-pictures">
-<h3><strong>Méhészet_képek</strong><a class="headerlink" href="#apiary-pictures" title="Hivatkozás erre a fejezetcímre">¶</a></h3>
+<h3><strong>Méhészet_képek</strong><a class="headerlink" href="#apiary-pictures" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><code class="docutils literal notranslate"><span class="pre">id</span></code></li>
 <li><code class="docutils literal notranslate"><span class="pre">apiary_id</span></code> (UUID)</li>
@@ -162,7 +162,7 @@
 </div>
 </div>
 <div class="section" id="relations">
-<h2>Kapcsolatok<a class="headerlink" href="#relations" title="Hivatkozás erre a fejezetcímre">¶</a></h2>
+<h2>Kapcsolatok<a class="headerlink" href="#relations" title="Permalink to this headline">¶</a></h2>
 <p>Kapcsolat létrehozása ezzel:</p>
 <ul class="simple">
 <li><code class="docutils literal notranslate"><span class="pre">méhészet</span></code> hivatkozott réteg</li>
@@ -176,9 +176,9 @@
 </div>
 </div>
 <div class="section" id="widgets">
-<h2>Vezérlők<a class="headerlink" href="#widgets" title="Hivatkozás erre a fejezetcímre">¶</a></h2>
+<h2>Vezérlők<a class="headerlink" href="#widgets" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="id1">
-<h3>méhészet<a class="headerlink" href="#id1" title="Hivatkozás erre a fejezetcímre">¶</a></h3>
+<h3>méhészet<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
 <p>A mező alapértelmezett értéknek <cite>uuid()</cite>-re állítása`. Nem szükséges az űrlapon megjeleníteni.</p>
 <div class="clearer text-center docutils container">
 <a class="reference internal image-reference" href="../_images/add-1-n-pictures-widgets_hive.png"><img alt="widgets" src="../_images/add-1-n-pictures-widgets_hive.png" style="width: 600px;" /></a>
@@ -189,22 +189,22 @@
 </div>
 </div>
 <div class="section" id="picture">
-<h3>kép<a class="headerlink" href="#picture" title="Hivatkozás erre a fejezetcímre">¶</a></h3>
+<h3>kép<a class="headerlink" href="#picture" title="Permalink to this headline">¶</a></h3>
 <p>Állítsa be a mező útvonal típusát <code class="docutils literal notranslate"><span class="pre">hozzárendelés</span></code>-re és adja az űrlaphoz</p>
 <div class="clearer text-center docutils container">
 <a class="reference internal image-reference" href="../_images/add-1-n-pictures-widgets_picture.png"><img alt="widget picture" src="../_images/add-1-n-pictures-widgets_picture.png" style="width: 600px;" /></a>
 </div>
 </div>
 <div class="section" id="geotagging">
-<h3>Geoteggelés<a class="headerlink" href="#geotagging" title="Hivatkozás erre a fejezetcímre">¶</a></h3>
-<p>Some mobile devices will require Open Camera to be installed in order to enable geotagging.</p>
-<p>To enable geotagging perform the following steps:</p>
+<h3>Geoteggelés<a class="headerlink" href="#geotagging" title="Permalink to this headline">¶</a></h3>
+<p>Néhány mobil eszköznél az OpenCamera telepítése szükséges, hogy a geoteggelést engedélyezzük.</p>
+<p>A geoteggelés engedélyezéséhez hajtsa végre a következő lépéseket:</p>
 <ol class="arabic simple">
-<li>In QField, go to the settings and make sure „Use native Camera” is activated</li>
-<li>Install the <a class="reference external" href="https://play.google.com/store/apps/details?id=net.sourceforge.opencamera&amp;hl=en&amp;gl=US">Open Camera app</a> on your mobile device</li>
-<li>Within the Open Camera settings, make sure geotagging is enabled</li>
-<li>Within you mobile device settings, set the default camera app to Open Camera</li>
-<li>Completed! Open Camera will now be utilized while taking pictures with QField</li>
+<li>QFiled-ben menjen a beállításokhoz és győződjön meg róla, hogy a „Natív kamera használata” aktív</li>
+<li>Telepítse az <a class="reference external" href="https://play.google.com/store/apps/details?id=net.sourceforge.opencamera&amp;hl=en&amp;gl=US">Open Camera app</a> alkalmazást a mobil eszközén</li>
+<li>Az Open Camera beállítások között, engedélyezze a geoteggelést</li>
+<li>A mobil eszköz beállításai között állítsa az alapértelmezett kamerát az Open Camera-ra</li>
+<li>Kész! Az Open Camera-t használjuk a QFiled képek készítésénél</li>
 </ol>
 </div>
 </div>
@@ -235,7 +235,7 @@
     </p>
     <p>
         &copy; Copyright 2019, The QField Project/OPENGIS.ch.<br/>
-      <a href="http://sphinx-doc.org/">Sphinx</a> 1.8.5 használatával készült.<br/>
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.8.5.<br/>
     </p>
   </div>
 </footer>

@@ -17,8 +17,8 @@
     <script type="text/javascript" src="../_static/language_data.js"></script>
     <script type="text/javascript" src="../_static/qfield.js"></script>
     <link rel="shortcut icon" href="../_static/favicon.ico"/>
-    <link rel="index" title="Індекс" href="../genindex.html" />
-    <link rel="search" title="Пошук" href="../search.html" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Case Studies" href="../case-studies/index.html" />
     <link rel="prev" title="Getting Started Tutorials" href="../getting-started/index.html" />
 <meta charset='utf-8'>
@@ -130,10 +130,10 @@
     <div class="col-md-9 content">
       
   <div class="section" id="supported-data-formats">
-<h1>Supported Data Formats<a class="headerlink" href="#supported-data-formats" title="Постійне посилання на цей заголовок">¶</a></h1>
+<h1>Supported Data Formats<a class="headerlink" href="#supported-data-formats" title="Permalink to this headline">¶</a></h1>
 <p>QField підтримує велику кількість фоматів даних завдяки постачальникам даних QGIS та GDAL. На цій сторінці знаходиться неповний список підтримуваних форматів даних.</p>
 <div class="section" id="table">
-<h2>Таблиці<a class="headerlink" href="#table" title="Постійне посилання на цей заголовок">¶</a></h2>
+<h2>Таблиці<a class="headerlink" href="#table" title="Permalink to this headline">¶</a></h2>
 <blockquote>
 <div></div></blockquote>
 <table border="1" class="docutils">
@@ -205,12 +205,12 @@
 </table>
 <p>Якщо ви не знайшли свій улюблений формат даних у цій таблиці, будь-ласка, перевірте чи він працює та відповідним чином <a class="reference external" href="https://github.com/opengisch/QField-docs/edit/master/en/project-management/dataformat.rst">відредагуйте вищенаведений список</a>. Якщо підтримка формату відсутня, будь ласка <a class="reference external" href="https://github.com/opengisch/OSGeo4A/issues">повідомте нам</a>. Ми з задоволенням допоможемо вам з реалізацією.</p>
 <div class="section" id="raster-data">
-<h3>Растрові дані<a class="headerlink" href="#raster-data" title="Постійне посилання на цей заголовок">¶</a></h3>
+<h3>Растрові дані<a class="headerlink" href="#raster-data" title="Permalink to this headline">¶</a></h3>
 <p>Растрові дані дуже швидко збільшуються в об’ємі, це гігабайти даних, якщо працювати з нестисненими файлами TIFF. Це не ефективно, особливо на мобільних пристроях.</p>
 </div>
 </div>
 <div class="section" id="use-geopackage">
-<h2>Використання GeoPackage<a class="headerlink" href="#use-geopackage" title="Постійне посилання на цей заголовок">¶</a></h2>
+<h2>Використання GeoPackage<a class="headerlink" href="#use-geopackage" title="Permalink to this headline">¶</a></h2>
 <p>We recommend to us the geopackage format to deal with raster data. The following commands will convert a file called <code class="code docutils literal notranslate"><span class="pre">raster.tif</span></code> to a file <code class="code docutils literal notranslate"><span class="pre">raster.gpkg</span></code> with pyramids. Make sure you adjust <code class="docutils literal notranslate"><span class="pre">EPSG:21781</span></code> to your desired CRS.</p>
 <div class="code bash highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">gdal_translate</span> <span class="o">--</span><span class="n">config</span> <span class="n">OGR_SQLITE_SYNCHRONOUS</span> <span class="n">OFF</span> <span class="o">-</span><span class="n">co</span>  <span class="n">APPEND_SUBDATASET</span><span class="o">=</span><span class="n">YES</span> <span class="o">-</span><span class="n">co</span> <span class="n">TILE_FORMAT</span><span class="o">=</span><span class="n">WEBP</span> <span class="o">-</span><span class="n">a_srs</span> <span class="n">EPSG</span><span class="p">:</span><span class="mi">21781</span> <span class="o">-</span><span class="n">of</span> <span class="n">GPKG</span> <span class="n">raster</span><span class="o">.</span><span class="n">tif</span> <span class="n">raster</span><span class="o">.</span><span class="n">gpkg</span>
 <span class="n">gdaladdo</span> <span class="o">--</span><span class="n">config</span> <span class="n">OGR_SQLITE_SYNCHRONOUS</span> <span class="n">OFF</span> <span class="o">-</span><span class="n">r</span> <span class="n">AVERAGE</span> <span class="n">raster</span><span class="o">.</span><span class="n">gpkg</span> <span class="mi">2</span> <span class="mi">4</span> <span class="mi">8</span> <span class="mi">16</span> <span class="mi">32</span> <span class="mi">64</span> <span class="mi">128</span> <span class="mi">256</span>
@@ -244,7 +244,7 @@
     </p>
     <p>
         &copy; Copyright 2019, The QField Project/OPENGIS.ch.<br/>
-      Створено з використанням <a href="http://sphinx-doc.org/">Sphinx</a> 1.8.5.<br/>
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.8.5.<br/>
     </p>
   </div>
 </footer>

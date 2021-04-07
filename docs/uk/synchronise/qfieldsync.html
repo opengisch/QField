@@ -17,8 +17,8 @@
     <script type="text/javascript" src="../_static/language_data.js"></script>
     <script type="text/javascript" src="../_static/qfield.js"></script>
     <link rel="shortcut icon" href="../_static/favicon.ico"/>
-    <link rel="index" title="Індекс" href="../genindex.html" />
-    <link rel="search" title="Пошук" href="../search.html" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Fieldwork" href="../fieldwork/index.html" />
     <link rel="prev" title="QFieldCloud" href="qfieldcloud.html" />
 <meta charset='utf-8'>
@@ -135,7 +135,7 @@
     <div class="col-md-9 content">
       
   <div class="section" id="qfieldsync-plugin">
-<span id="qfieldsync"></span><h1>Плаґін QFieldSync<a class="headerlink" href="#qfieldsync-plugin" title="Постійне посилання на цей заголовок">¶</a></h1>
+<span id="qfieldsync"></span><h1>Плаґін QFieldSync<a class="headerlink" href="#qfieldsync-plugin" title="Permalink to this headline">¶</a></h1>
 <p>Плаґін QFieldSync допомогає підготувати проект QGIS для QField.</p>
 <p>QFieldSync спрощує підготовку проектів шляхом автоматизації наступних кроків:</p>
 <ul class="simple">
@@ -144,7 +144,7 @@
 <li>настройкою офлайнового редагування та синхронізацією змін.</li>
 </ul>
 <div class="section" id="workflow">
-<h2>Порядок роботи<a class="headerlink" href="#workflow" title="Постійне посилання на цей заголовок">¶</a></h2>
+<h2>Порядок роботи<a class="headerlink" href="#workflow" title="Permalink to this headline">¶</a></h2>
 <p>Ось перелік типових кроків:</p>
 <ol class="arabic simple">
 <li>Створити пакет QField. Це буде робоча копія в окремому каталозі.</li>
@@ -155,16 +155,16 @@
 </ol>
 </div>
 <div class="section" id="installation">
-<h2>Installation<a class="headerlink" href="#installation" title="Постійне посилання на цей заголовок">¶</a></h2>
+<h2>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h2>
 <p>In QGIS, open the plugin library and search for <strong>qfield sync</strong>. Select the plugin in the list and click on <strong>Install</strong>.</p>
 <img alt="../_images/qfield-sync_install1.png" src="../_images/qfield-sync_install1.png" />
 </div>
 <div class="section" id="configuration">
-<h2>Настройки<a class="headerlink" href="#configuration" title="Постійне посилання на цей заголовок">¶</a></h2>
+<h2>Настройки<a class="headerlink" href="#configuration" title="Permalink to this headline">¶</a></h2>
 <p>Настройки проекту зберігаються в основному файлі проекту. Тобто ви можете налаштувати проект лише один раз і постійно його використовувати.</p>
 <img alt="../_images/qfield-sync_configmenu1.png" src="../_images/qfield-sync_configmenu1.png" />
 <div class="section" id="layer-configuration">
-<h3>Настройки шарів<a class="headerlink" href="#layer-configuration" title="Постійне посилання на цей заголовок">¶</a></h3>
+<h3>Настройки шарів<a class="headerlink" href="#layer-configuration" title="Permalink to this headline">¶</a></h3>
 <img alt="../_images/qfield-sync_config1.png" src="../_images/qfield-sync_config1.png" />
 <p>У діалозі настройок проекту для кожного шару можна задати свою <em>дію</em>. В залежності від типу шару, список доступних дій може відрізнятися.</p>
 <dl class="docutils">
@@ -179,7 +179,7 @@
 </dl>
 </div>
 <div class="section" id="base-map-configuration">
-<h3>Настройка базових карт<a class="headerlink" href="#base-map-configuration" title="Постійне посилання на цей заголовок">¶</a></h3>
+<h3>Настройка базових карт<a class="headerlink" href="#base-map-configuration" title="Permalink to this headline">¶</a></h3>
 <p>Базова карта це растровий шар, який буде найнижчим у списку шарів проекту.</p>
 <p>Якщо вибрано цю настройку, базова карта буде генеруватися кожного разу під час підготовки проекту. Область інтересу — тобто регіон, який буде оброблятися — буде вибрано під час створення пакету.</p>
 <p>В якості базової карти може виступати:</p>
@@ -192,19 +192,19 @@
 <p>Розмір тайлів впливає на просторову роздільну здатніть. Він визначає число одиниць мапи в одному пікселі. Якщо мапа використовує метри в якості одиниць виміру, а розмір тайлу дорівнює 1, кожний піксель растру буде мати просторову роздільну здатність 1х1 м. Якщо ж розмір тайлу буде дорівнювати 1000, кожний піксель буде мати просторову роздільну здатність 1 квадратний кілометр.</p>
 </div>
 <div class="section" id="offline-editing-configuration">
-<h3>Настройка офлайнового редагування<a class="headerlink" href="#offline-editing-configuration" title="Постійне посилання на цей заголовок">¶</a></h3>
+<h3>Настройка офлайнового редагування<a class="headerlink" href="#offline-editing-configuration" title="Permalink to this headline">¶</a></h3>
 <p>Якщо встановлено прапорець <em>Синхронізувати об’єкти лише в області інтересу</em>, то до офлайнової робочої копії потраплять лише об’єкти, що знаходяться всередини видимої області мапи.</p>
 </div>
 </div>
 <div class="section" id="package-for-qfield">
-<h2>Package for Qfield<a class="headerlink" href="#package-for-qfield" title="Постійне посилання на цей заголовок">¶</a></h2>
+<h2>Package for Qfield<a class="headerlink" href="#package-for-qfield" title="Permalink to this headline">¶</a></h2>
 <p>Once the project is configured, package it in a folder. This folder will contain the .qgs and the data used in it.</p>
 <img alt="../_images/qfield-sync_package3.png" src="../_images/qfield-sync_package3.png" />
 <p>Copy the folder on your device. Open Qfield, open the project and start collecting data.</p>
 <p>Make also sure to save the QGIS project using the regular Save As of QGIS as you’ll have to re-open it later when you want to synchronize the changes.</p>
 </div>
 <div class="section" id="synchronize-from-qfield">
-<h2>Synchronize from Qfield<a class="headerlink" href="#synchronize-from-qfield" title="Постійне посилання на цей заголовок">¶</a></h2>
+<h2>Synchronize from Qfield<a class="headerlink" href="#synchronize-from-qfield" title="Permalink to this headline">¶</a></h2>
 <p>When you want to synchronize what you have collected, re-open the project in QGIS (the one you saved with a regular Save As).</p>
 <p>Copy the project folder from your device to your computer and use the <strong>Synchronize from Qfield</strong> menu to synchronize your changes from the protable project to the main project.</p>
 <img alt="../_images/qfield-sync_sync1.png" src="../_images/qfield-sync_sync1.png" />
@@ -236,7 +236,7 @@
     </p>
     <p>
         &copy; Copyright 2019, The QField Project/OPENGIS.ch.<br/>
-      Створено з використанням <a href="http://sphinx-doc.org/">Sphinx</a> 1.8.5.<br/>
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.8.5.<br/>
     </p>
   </div>
 </footer>
