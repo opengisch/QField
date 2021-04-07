@@ -102,8 +102,8 @@ QString QFieldCloudConnection::errorString( QNetworkReply *reply )
   }
 
   int httpCode = reply->attribute( QNetworkRequest::HttpStatusCodeAttribute ).toInt();
-  QString httpErrorMessage = QStringLiteral( "[HTTP/%1] %2 %3 " ).arg( httpCode ).arg( reply->url().toString() ).arg( reply->errorString() );
-  httpErrorMessage += ( httpCode > 400 )
+  QString httpErrorMessage = QStringLiteral( "[HTTP/%1] %2 " ).arg( httpCode ).arg( reply->url().toString() );
+  httpErrorMessage += ( httpCode >= 400 )
       ? tr( "Server Error." )
       : tr( "Network Error." );
   httpErrorMessage += payload.left( 200 );
@@ -114,11 +114,11 @@ QString QFieldCloudConnection::errorString( QNetworkReply *reply )
   if ( errorMessage.isEmpty() )
   {
     errorMessage = httpErrorMessage;
-    QgsMessageLog::logMessage( QStringLiteral( "%1\n%2" ).arg( errorMessage, payload ) );
+    QgsMessageLog::logMessage( QStringLiteral( "%1\n%2\n%3" ).arg( errorMessage, payload ).arg( reply->errorString() ) );
   }
   else
   {
-    QgsMessageLog::logMessage( QStringLiteral( "%1\n%2\n%3" ).arg( errorMessage, httpErrorMessage, payload ) );
+    QgsMessageLog::logMessage( QStringLiteral( "%1\n%2\n%3\n%4" ).arg( errorMessage, httpErrorMessage, payload ).arg( reply->errorString() ) );
   }
 
   return errorMessage;
