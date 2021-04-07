@@ -817,11 +817,10 @@ void QFieldCloudProjectsModel::uploadProject( const QString &projectId, const bo
     // if there is an error, cannot continue sync
     if ( deltasReply->error() != QNetworkReply::NoError )
     {
+      mCloudProjects[index].deltaFileUploadStatusString = QFieldCloudConnection::errorString( deltasReply );
       // TODO check why exactly we failed
       // maybe the project does not exist, then create it?
-      QgsMessageLog::logMessage( QStringLiteral( "Failed to upload delta file, reason:\n%1\n%2" ).arg( deltasReply->errorString(), QFieldCloudConnection::errorString( deltasReply ) ) );
-
-      mCloudProjects[index].deltaFileUploadStatusString = QFieldCloudConnection::errorString( deltasReply );
+      QgsMessageLog::logMessage( QStringLiteral( "Failed to upload delta file, reason:\n%1\n%2" ).arg( deltasReply->errorString(), mCloudProjects[index].deltaFileUploadStatusString ) );
       projectCancelUpload( projectId );
       return;
     }
