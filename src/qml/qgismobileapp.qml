@@ -462,7 +462,7 @@ ApplicationWindow {
               return positioningSettings.accuracyBad > 0 &&
                      ( !positionSource.positionInfo ||
                        !positionSource.positionInfo.haccValid ||
-                       positionSource.positionInfo.hacc >= badThreshold )
+                       positionSource.positionInfo.hacc >= positioningSettings.accuracyBad )
           }
           return false
       }
