@@ -6,9 +6,11 @@ import Theme 1.0
 
 VisibilityFadingRow {
   id: digitizingToolbar
+
   property RubberbandModel rubberbandModel
   property CoordinateLocator coordinateLocator // optional coordinateLocator to flash
   property MapSettings mapSettings
+
   property bool showConfirmButton: true //<! if the geometry type is point, it will never be shown
   property bool screenHovering: false //<! if the stylus pen is used, one should not use the add button
 
@@ -157,9 +159,16 @@ VisibilityFadingRow {
     transitions: [ Transition { NumberAnimation { property: "opacity"; duration: 200 } } ]
 
     onClicked: {
-        if ( coordinateLocator && coordinateLocator.overrideLocation !== undefined && coordinateLocator.accuracyRequirementFail ) {
+        if ( coordinateLocator && coordinateLocator.overrideLocation !== undefined &&
+             positioningSettings.accuracyIndicator && positioningSettings.accuracyRequirement ) {
+          if ( positioningSettings.accuracyBad > 0 &&
+               ( !coordinateLocator.positionInformation ||
+                 !coordinateLocator.positionInformation.haccValid ||
+                  coordinateLocator.positionInformation.hacc >= positioningSettings.accuracyBad ) )
+          {
             displayToast( qsTr( "Position accuracy doesn't meet the minimum requirement, vertex not added" ) )
             return;
+          }
         }
 
         if ( Number( rubberbandModel.geometryType ) === QgsWkbTypes.PointGeometry ||
