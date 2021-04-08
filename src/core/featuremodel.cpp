@@ -449,7 +449,9 @@ void FeatureModel::resetAttributes()
 
   QgsExpressionContext expressionContext = mLayer->createExpressionContext();
   if ( mPositionInformation.isValid() )
+  {
     expressionContext << ExpressionContextUtils::positionScope( mPositionInformation, mPositionLocked );
+  }
 
   //set snapping_results to ExpressionScope...
   if ( mTopSnappingResult.isValid() )
