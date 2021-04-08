@@ -76,7 +76,10 @@ Drawer {
     digitizingToolbar: overlayFeatureFormDrawer.digitizingToolbar
     model: AttributeFormModel {
         id: attributeFormModel
-        featureModel: FeatureModel { }
+        featureModel: FeatureModel {
+            positionInformation: overlayFeatureFormDrawer.digitizingToolbar.coordinateLocator.positionInformation
+            positionLocked: overlayFeatureFormDrawer.digitizingToolbar.coordinateLocator.overrideLocation !== undefined
+        }
     }
 
     state: "Add"

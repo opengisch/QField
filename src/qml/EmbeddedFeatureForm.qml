@@ -59,6 +59,8 @@ Popup {
             id: formAttributeFormModel
             featureModel: FeatureModel {
                 id: formFeatureModel
+                positionInformation: digitizingToolbar.coordinateLocator.positionInformation
+                positionLocked: digitizingToolbar.coordinateLocator.overrideLocation !== undefined
             }
         }
 

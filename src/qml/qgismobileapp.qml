@@ -455,17 +455,8 @@ ApplicationWindow {
       highlightColor: digitizingToolbar.isDigitizing ? currentRubberband.color : "#CFD8DC"
       mapSettings: mapCanvas.mapSettings
       currentLayer: dashBoard.currentLayer
+      positionInformation: positionSource.positionInfo
       overrideLocation: gpsLinkButton.linkActive ? positionSource.projectedPosition : undefined
-      accuracyRequirementFail: {
-          if ( positioningSettings.accuracyIndicator && positioningSettings.accuracyRequirement )
-          {
-              return positioningSettings.accuracyBad > 0 &&
-                     ( !positionSource.positionInfo ||
-                       !positionSource.positionInfo.haccValid ||
-                       positionSource.positionInfo.hacc >= positioningSettings.accuracyBad )
-          }
-          return false
-      }
     }
 
     /* GPS marker  */
@@ -1690,8 +1681,6 @@ ApplicationWindow {
     id: overlayFeatureFormDrawer
     digitizingToolbar: digitizingToolbar
     featureModel.currentLayer: dashBoard.currentLayer
-    featureModel.positionInformation: positionSource.positionInfo
-    featureModel.positionLocked: gpsLinkButton.checked
   }
 
   function displayToast( message ) {
@@ -2226,6 +2215,7 @@ ApplicationWindow {
     id: geometryEditingFeature
     currentLayer: null
     positionInformation: positionSource.positionInfo
+    positionLocked: gpsLinkButton.checked
     vertexModel: vertexModel
   }
 
