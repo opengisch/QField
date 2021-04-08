@@ -16,9 +16,9 @@ Item {
   property alias currentLayer: snappingUtils.currentLayer
 
   /**
-   * Returns whether the accuracy requirement is failing.
+   * GNSS position information
    */
-  property bool accuracyRequirementFail: false
+  property var positionInformation: undefined
 
   /**
    * Overrides any possibility for the user to modify the coordinate.
