@@ -1,6 +1,14 @@
 ---
 name: 🪟 Build for Windows
-on: [push]
+on:
+  push:
+    branches:
+      - master
+      - release-**
+  pull_request:
+  release:
+    types: ['prereleased', 'released']
+
 env:
   VCPKG_PRESEED_PKGS: qca qscintilla qt5-activeqt qt5-base qt5-charts qt5-connectivity qt5-declarative qt5-graphicaleffects qt5-imageformats qt5-location qt5-multimedia qt5-quickcontrols qt5-quickcontrols2 qt5-sensors qt5-serialport qt5-svg qt5-tools qt5-webview qt5-winextras qtkeychain qwt
   TRIPLET: x64-windows
@@ -16,6 +24,7 @@ jobs:
       VCPKG_ROOT: 'C:/src'
       CMAKE_BUILD_DIR: C:/builddir/
       VCPKG_DEFAULT_BINARY_CACHE: C:/vcpkg_cache
+      TX_TOKEN: ${{ secrets.TX_TOKEN }}
 
     steps:
       - name: Show space before build
@@ -69,24 +78,19 @@ jobs:
       #   with:
       #     name: build-logs
       #     path: C:/src/buildtrees/**/*.log
-      - name: Show some stats
+
+      - name: "🌍 Pull Translations"
         shell: bash
         run: |
-          cat "${{ env.CMAKE_BUILD_DIR }}/CMakeCache.txt"
+          if [[ -z "${TX_TOKEN}" ]]; then
+            echo "TX_TOKEN not set, skip tx pull"
+          else
+            ./scripts/ci/pull_translations.sh
+          fi
 
       - name: Build
         run: |
           cmake --build "${{ env.CMAKE_BUILD_DIR }}"
-
-      - name: Show some stats
-        shell: bash
-        run: |
-          echo "Output"
-          ls -al "${{ env.CMAKE_BUILD_DIR }}/output"
-          echo "Installed"
-          ls -al "${{ env.VCPKG_ROOT }}/installed"
-          echo "Mediaservice"
-          find "${{ env.VCPKG_ROOT }}/installed" -name mediaservice
 
 
       - uses: actions/upload-artifact@v2
