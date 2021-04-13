@@ -31,9 +31,9 @@
 #include <QGeoPositionInfoSource>
 #include <QMutex>
 
-QMutex FeatureModel::sMutex;
 typedef QMap<QgsVectorLayer *, FeatureModel::RememberValues> Rememberings;
 Q_GLOBAL_STATIC( Rememberings, sRememberings )
+Q_GLOBAL_STATIC( QMutex, sMutex )
 
 FeatureModel::FeatureModel( QObject *parent )
   : QAbstractListModel( parent )
@@ -131,7 +131,7 @@ void FeatureModel::setCurrentLayer( QgsVectorLayer *layer )
     else
     {
       mFeature = QgsFeature( mLayer->fields() );
-      QMutexLocker locker( &sMutex );
+      QMutexLocker locker( sMutex );
       (*sRememberings)[mLayer].rememberedFeature = mFeature;
       (*sRememberings)[mLayer].rememberedAttributes.fill( false, layer->fields().size() );
     }
@@ -309,7 +309,7 @@ bool FeatureModel::setData( const QModelIndex &index, const QVariant &value, int
 
     case RememberAttribute:
     {
-      QMutexLocker locker( &sMutex );
+      QMutexLocker locker( sMutex );
       (*sRememberings)[mLayer].rememberedAttributes[index.row()] = value.toBool();
       emit dataChanged( index, index, QVector<int>() << role );
       break;
@@ -438,7 +438,7 @@ void FeatureModel::resetFeature()
 
   if ( sRememberings->contains( mLayer ) )
   {
-    QMutexLocker locker( &sMutex );
+    QMutexLocker locker( sMutex );
     (*sRememberings)[mLayer].rememberedFeature = mFeature;
   }
 
@@ -619,7 +619,7 @@ bool FeatureModel::create()
 
   if ( isSuccess && sRememberings->contains( mLayer ) )
   {
-    QMutexLocker locker( &sMutex );
+    QMutexLocker locker( sMutex );
     (*sRememberings)[mLayer].rememberedFeature = mFeature;
   }
 

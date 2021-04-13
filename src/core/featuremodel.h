@@ -24,7 +24,6 @@
 
 #include <qgsfeature.h>
 
-#include <QMutex>
 #include <QAbstractListModel>
 #include <QtPositioning/QGeoPositionInfoSource>
 #include <qgsrelationmanager.h>
@@ -263,8 +262,6 @@ class FeatureModel : public QAbstractListModel
     SnappingResult mTopSnappingResult;
     QString mTempName;
     bool mPositionLocked = false;
-
-    static QMutex sMutex;
 };
 
 #endif // FEATUREMODEL_H
