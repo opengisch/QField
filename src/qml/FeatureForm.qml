@@ -455,7 +455,8 @@ Page {
                 target: attributeEditorLoader.item
 
                 function onValueChanged(value, isNull) {
-                  if( AttributeValue != value && !( AttributeValue === undefined && isNull ) ) //do not compare AttributeValue and value with strict comparison operators
+                  //do not compare AttributeValue and value with strict comparison operators
+                  if( ( AttributeValue != value || ( AttributeValue !== undefined && isNull ) ) && !( AttributeValue === undefined && isNull ) )
                   {
                     var oldValue = AttributeValue
                     AttributeValue = isNull ? undefined : value

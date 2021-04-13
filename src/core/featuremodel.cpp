@@ -284,7 +284,7 @@ bool FeatureModel::setData( const QModelIndex &index, const QVariant &value, int
   if ( index.row() < 0 )
     return false;
 
-  if ( data( index, role ) == value )
+  if ( qgsVariantEqual( data( index, role ), value ) )
     return true;
 
   switch ( role )
