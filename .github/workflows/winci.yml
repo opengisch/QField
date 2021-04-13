@@ -87,11 +87,14 @@ jobs:
           else
             ./scripts/ci/pull_translations.sh
           fi
-
       - name: Build
         run: |
           cmake --build "${{ env.CMAKE_BUILD_DIR }}"
 
+      - name: Test
+        run: |
+          cd "${{ env.CMAKE_BUILD_DIR }}"
+          ctest
 
       - uses: actions/upload-artifact@v2
         with:
