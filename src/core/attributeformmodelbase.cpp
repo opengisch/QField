@@ -260,7 +260,7 @@ void AttributeFormModelBase::updateAttributeValue( QStandardItem *item )
   {
     int fieldIndex = item->data( AttributeFormModel::FieldIndex ).toInt();
     QVariant attributeValue = mFeatureModel->data( mFeatureModel->index( fieldIndex ), FeatureModel::AttributeValue );
-    item->setData( attributeValue, AttributeFormModel::AttributeValue );
+    item->setData( attributeValue.isNull() ? QVariant() : attributeValue, AttributeFormModel::AttributeValue );
     item->setData( mFeatureModel->data( mFeatureModel->index( fieldIndex ), FeatureModel::AttributeAllowEdit ), AttributeFormModel::AttributeAllowEdit);
     //set item visibility to false in case it's a linked attribute
     item->setData( !mFeatureModel->data( mFeatureModel->index( fieldIndex ), FeatureModel::LinkedAttribute ).toBool(), AttributeFormModel::CurrentlyVisible );
