@@ -18,15 +18,16 @@
 #ifndef FEATUREMODEL_H
 #define FEATUREMODEL_H
 
+#include "snappingresult.h"
+#include "gnsspositioninformation.h"
+#include "geometry.h"
+
+#include <qgsfeature.h>
+
 #include <QAbstractListModel>
 #include <QtPositioning/QGeoPositionInfoSource>
 #include <qgsrelationmanager.h>
 #include <memory>
-#include <qgsfeature.h>
-#include "snappingresult.h"
-#include "gnsspositioninformation.h"
-
-#include "geometry.h"
 
 class VertexModel;
 
@@ -46,6 +47,8 @@ class FeatureModel : public QAbstractListModel
     Q_PROPERTY( SnappingResult topSnappingResult READ topSnappingResult WRITE setTopSnappingResult NOTIFY topSnappingResultChanged )
     Q_PROPERTY( bool positionLocked READ positionLocked WRITE setPositionLocked NOTIFY positionLockedChanged )
 
+  public:
+
     //! keeping the information what attributes are remembered and the last edited feature
     struct RememberValues
     {
@@ -53,7 +56,6 @@ class FeatureModel : public QAbstractListModel
       QVector<bool> rememberedAttributes;
     };
 
-  public:
     enum ModelModes
     {
       SingleFeatureModel = 1,
@@ -259,7 +261,6 @@ class FeatureModel : public QAbstractListModel
     GnssPositionInformation mPositionInformation;
     SnappingResult mTopSnappingResult;
     QString mTempName;
-    QMap<QgsVectorLayer *, RememberValues> mRememberings;
     bool mPositionLocked = false;
 };
 

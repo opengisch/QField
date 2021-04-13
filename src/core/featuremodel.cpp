@@ -29,6 +29,11 @@
 #include <qgsvectorlayerutils.h>
 
 #include <QGeoPositionInfoSource>
+#include <QMutex>
+
+typedef QMap<QgsVectorLayer *, FeatureModel::RememberValues> Rememberings;
+Q_GLOBAL_STATIC( Rememberings, sRememberings )
+Q_GLOBAL_STATIC( QMutex, sMutex )
 
 FeatureModel::FeatureModel( QObject *parent )
   : QAbstractListModel( parent )
@@ -112,12 +117,6 @@ void FeatureModel::setCurrentLayer( QgsVectorLayer *layer )
   if ( layer == mLayer )
     return;
 
-  //remember the last feature of the old layer
-  if ( mRememberings.contains( mLayer ) )
-  {
-    mRememberings[mLayer].rememberedFeature = mFeature;
-  }
-
   mLayer = layer;
 
   if ( mLayer )
@@ -125,14 +124,16 @@ void FeatureModel::setCurrentLayer( QgsVectorLayer *layer )
     connect( mLayer, &QgsVectorLayer::destroyed, this, &FeatureModel::removeLayer, Qt::UniqueConnection );
 
     //load remember values or create new entry
-    if ( mRememberings.contains( mLayer ) )
+    if ( sRememberings->contains( mLayer ) )
     {
-      mFeature = mRememberings[mLayer].rememberedFeature;
+      mFeature = sRememberings->value( mLayer ).rememberedFeature;
     }
     else
     {
       mFeature = QgsFeature( mLayer->fields() );
-      mRememberings[mLayer].rememberedAttributes.fill( false, layer->fields().size() );
+      QMutexLocker locker( sMutex );
+      (*sRememberings)[mLayer].rememberedFeature = mFeature;
+      (*sRememberings)[mLayer].rememberedAttributes.fill( false, layer->fields().size() );
     }
   }
   emit currentLayerChanged();
@@ -263,7 +264,7 @@ QVariant FeatureModel::data( const QModelIndex &index, int role ) const
       return mLayer->fields().at( index.row() );
 
     case RememberAttribute:
-      return mRememberings[mLayer].rememberedAttributes.at( index.row() );
+      return sRememberings->value( mLayer ).rememberedAttributes.at( index.row() );
 
     case LinkedAttribute:
       return mLinkedAttributeIndexes.contains( index.row() );
@@ -308,7 +309,8 @@ bool FeatureModel::setData( const QModelIndex &index, const QVariant &value, int
 
     case RememberAttribute:
     {
-      mRememberings[mLayer].rememberedAttributes[ index.row() ] = value.toBool();
+      QMutexLocker locker( sMutex );
+      (*sRememberings)[mLayer].rememberedAttributes[index.row()] = value.toBool();
       emit dataChanged( index, index, QVector<int>() << role );
       break;
     }
@@ -434,9 +436,10 @@ void FeatureModel::resetFeature()
   if ( !mLayer )
     return;
 
-  if ( mRememberings.contains( mLayer ) )
+  if ( sRememberings->contains( mLayer ) )
   {
-    mRememberings[mLayer].rememberedFeature = mFeature;
+    QMutexLocker locker( sMutex );
+    (*sRememberings)[mLayer].rememberedFeature = mFeature;
   }
 
   mFeature = QgsFeature( mLayer->fields() );
@@ -465,7 +468,7 @@ void FeatureModel::resetAttributes()
   for ( int i = 0; i < fields.count(); ++i )
   {
     //if the value does not need to be remembered and it's not prefilled by the linked parent feature
-    if ( !mRememberings[mLayer].rememberedAttributes.at( i ) &&
+    if ( !sRememberings->value( mLayer ).rememberedAttributes.at( i ) &&
          !mLinkedAttributeIndexes.contains( i ) )
     {
       if ( fields.at( i ).defaultValueDefinition().isValid() )
@@ -488,9 +491,9 @@ void FeatureModel::resetAttributes()
         mFeature.setAttribute( i, QVariant() );
       }
     }
-    else if ( mRememberings[mLayer].rememberedAttributes.at( i ) )
+    else if ( sRememberings->value( mLayer ).rememberedAttributes.at( i ) )
     {
-      mFeature.setAttribute( i, mRememberings[mLayer].rememberedFeature.attribute( i ) );
+      mFeature.setAttribute( i, sRememberings->value( mLayer ).rememberedFeature.attribute( i ) );
     }
   }
   endResetModel();
@@ -559,7 +562,7 @@ void FeatureModel::applyGeometry()
 
 void FeatureModel::removeLayer( QObject *layer )
 {
-  mRememberings.remove( static_cast< QgsVectorLayer * >( layer ) );
+  sRememberings->remove( static_cast< QgsVectorLayer * >( layer ) );
 }
 
 void FeatureModel::featureAdded( QgsFeatureId fid )
@@ -612,6 +615,12 @@ bool FeatureModel::create()
   {
     QgsMessageLog::logMessage( tr( "Feature %2 could not be added in layer \"%1\"" ).arg( mLayer->name() ).arg( mFeature.id() ), QStringLiteral( "QField" ), Qgis::Critical );
     isSuccess = false;
+  }
+
+  if ( isSuccess && sRememberings->contains( mLayer ) )
+  {
+    QMutexLocker locker( sMutex );
+    (*sRememberings)[mLayer].rememberedFeature = mFeature;
   }
 
   disconnect( mLayer, &QgsVectorLayer::featureAdded, this, &FeatureModel::featureAdded );
@@ -867,7 +876,7 @@ void FeatureModel::applyVertexModelToLayerTopography()
 
 QVector<bool> FeatureModel::rememberedAttributes() const
 {
-  return mRememberings[mLayer].rememberedAttributes;
+  return sRememberings->value( mLayer ).rememberedAttributes;
 }
 
 void FeatureModel::updateRubberband() const
