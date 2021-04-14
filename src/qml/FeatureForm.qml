@@ -193,7 +193,7 @@ Page {
                 Rectangle {
                   width: parent.width
                   height: section === "" ? 0 : childrenRect.height
-                  color: 'lightGray'
+                  color: Theme.lightestGray
 
                   Text {
                     leftPadding: 10

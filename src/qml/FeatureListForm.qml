@@ -186,7 +186,7 @@ Rectangle {
       Rectangle {
         width: parent.width
         height: 30
-        color: "lightGray"
+        color: Theme.lightestGray
 
         Text {
           anchors { horizontalCenter: parent.horizontalCenter; verticalCenter: parent.verticalCenter }
