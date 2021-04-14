@@ -137,13 +137,32 @@ Page {
             id: table
             property bool overshootRefresh: false
 
-            anchors.fill: parent
 
             model: QFieldCloudProjectsFilterModel {
                 projectsModel: cloudProjectsModel
                 filter: filterBar.currentIndex === 0
                     ? QFieldCloudProjectsFilterModel.PrivateProjects
                     : QFieldCloudProjectsFilterModel.PublicProjects
+            }
+
+            anchors.fill: parent
+            anchors.margins: 1
+            section.property: "Owner"
+            section.labelPositioning: ViewSection.CurrentLabelAtStart | ViewSection.InlineLabels
+            section.delegate: Component {
+              /* section header: layer name */
+              Rectangle {
+                width:parent.width
+                height: 30
+                color: Theme.lightestGray
+
+                Text {
+                  anchors { horizontalCenter: parent.horizontalCenter; verticalCenter: parent.verticalCenter }
+                  font.bold: true
+                  font.pointSize: Theme.resultFont.pointSize
+                  text: section
+                }
+              }
             }
             clip: true
 
@@ -188,8 +207,8 @@ Page {
                     Layout.fillWidth: true
                     leftPadding: 6
                     rightPadding: 10
-                    topPadding: 9
-                    bottomPadding: 3
+                    topPadding: 4
+                    bottomPadding: 8
                     spacing: 0
 
                     Image {
@@ -235,7 +254,7 @@ Page {
                             id: projectTitle
                             topPadding: 5
                             leftPadding: 3
-                            text: Owner + '/' + Name
+                            text: Name
                             font.pointSize: Theme.tipFont.pointSize
                             font.underline: true
                             color: Theme.mainColor
