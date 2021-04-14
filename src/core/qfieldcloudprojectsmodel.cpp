@@ -1748,6 +1748,7 @@ bool QFieldCloudProjectsFilterModel::filterAcceptsRow( int source_row, const QMo
   switch( mFilter )
   {
     case PrivateProjects:
+      // the list will include public "community" projects that are present locally so they can appear in the "My projects" list
       ok = mSourceModel->data( mSourceModel->index( source_row, 0, source_parent ), QFieldCloudProjectsModel::PrivateRole ).toBool() ||
            !mSourceModel->data( mSourceModel->index( source_row, 0, source_parent ), QFieldCloudProjectsModel::LocalPathRole ).toString().isEmpty();
       break;
