@@ -677,6 +677,8 @@ Rectangle {
           featureForm.selection.focusedItem = -1
           featureForm.state = "FeatureList"
         }
+        if ( featureForm.selection.model.count === 0 )
+          featureForm.state = "Hidden";
       } else {
         displayToast( qsTr( "Failed to delete %n feature(s)", "", selectedCount ) );
       }
