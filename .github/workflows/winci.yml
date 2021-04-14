@@ -94,7 +94,7 @@ jobs:
       - name: Test
         run: |
           cd "${{ env.CMAKE_BUILD_DIR }}"
-          ctest
+          ctest -V
 
       - uses: actions/upload-artifact@v2
         with:
