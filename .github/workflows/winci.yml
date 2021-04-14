@@ -10,12 +10,12 @@ on:
     types: ['prereleased', 'released']
 
 env:
-  VCPKG_PRESEED_PKGS: qca qscintilla qt5-activeqt qt5-base qt5-charts qt5-connectivity qt5-declarative qt5-graphicaleffects qt5-imageformats qt5-location qt5-multimedia qt5-quickcontrols qt5-quickcontrols2 qt5-sensors qt5-serialport qt5-svg qt5-tools qt5-webview qt5-winextras qtkeychain qwt
+  VCPKG_PRESEED_PKGS: qca qscintilla qt5-activeqt qt5-base qt5-charts qt5-connectivity qt5-declarative qt5-graphicaleffects qt5-imageformats qt5-location qt5-multimedia qt5-quickcontrols qt5-quickcontrols2 qt5-sensors qt5-serialport qt5-svg qt5-tools qt5-webview qt5-winextras qtkeychain qwt gdal
   TRIPLET: x64-windows
 
 jobs:
   vcpkg:
-    needs: build-qt
+    needs: build-seed
     name: Build QField
     runs-on: windows-latest
     strategy:
@@ -63,7 +63,7 @@ jobs:
           key: |
             ${{ hashFiles( 'vcpkg.json' ) }}-${{ hashFiles( '.git/modules/vcpkg/HEAD' )}}-${{ env.TRIPLET }}-qgis
           restore-keys: |
-            ${{ hashFiles( 'vcpkg.json' ) }}-${{ hashFiles( '.git/modules/vcpkg/HEAD' )}}-${{ env.TRIPLET }}-${{ env.VCPKG_PRESEED_PKGS }}-qt
+            ${{ hashFiles( 'vcpkg.json' ) }}-${{ hashFiles( '.git/modules/vcpkg/HEAD' )}}-${{ env.TRIPLET }}-${{ env.VCPKG_PRESEED_PKGS }}-seed
 
       # Target x64 and use the default Windows SDK
       - uses: ilammy/msvc-dev-cmd@v1
@@ -108,7 +108,7 @@ jobs:
 
   # This is just a helper to seed the cache so we can stay
   # within the github job time limit of 6 hours
-  build-qt:
+  build-seed:
     name: Build Qt
     runs-on: windows-latest
     env:
@@ -145,7 +145,7 @@ jobs:
             ${{ env.VCPKG_DEFAULT_BINARY_CACHE }}
             ${{ env.VCPKG_ROOT }}/installed
           key: |
-            ${{ hashFiles( 'vcpkg.json' ) }}-${{ hashFiles( '.git/modules/vcpkg/HEAD' )}}-${{ env.TRIPLET }}-${{ env.VCPKG_PRESEED_PKGS }}-qt
+            ${{ hashFiles( 'vcpkg.json' ) }}-${{ hashFiles( '.git/modules/vcpkg/HEAD' )}}-${{ env.TRIPLET }}-${{ env.VCPKG_PRESEED_PKGS }}-seed
 
       - name: Preseed Qt
         if: steps.cache-vcpkg.outputs.cache-hit != 'true'
