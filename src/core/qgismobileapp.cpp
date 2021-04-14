@@ -406,6 +406,7 @@ void QgisMobileapp::initDeclarative()
   qmlRegisterType<LayerResolver>( "org.qfield", 1, 0, "LayerResolver" );
   qmlRegisterType<QFieldCloudConnection>( "org.qfield", 1, 0, "QFieldCloudConnection" );
   qmlRegisterType<QFieldCloudProjectsModel>( "org.qfield", 1, 0, "QFieldCloudProjectsModel" );
+  qmlRegisterType<QFieldCloudProjectsFilterModel>( "org.qfield", 1, 0, "QFieldCloudProjectsFilterModel" );
 
   qRegisterMetaType<GnssPositionInformation>( "GnssPositionInformation" );
 
