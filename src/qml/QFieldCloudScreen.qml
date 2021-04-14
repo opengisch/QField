@@ -141,7 +141,9 @@ Page {
 
             model: QFieldCloudProjectsFilterModel {
                 projectsModel: cloudProjectsModel
-                filter: filterBar.currentIndex === 1 ? QFieldCloudProjectsFilterModel.PublicProjects : QFieldCloudProjectsFilterModel.PrivateProjects
+                filter: filterBar.currentIndex === 0
+                    ? QFieldCloudProjectsFilterModel.PrivateProjects
+                    : QFieldCloudProjectsFilterModel.PublicProjects
             }
             clip: true
 
