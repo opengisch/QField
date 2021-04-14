@@ -679,10 +679,17 @@ void QgisMobileapp::readProjectFile()
                   if ( crs != sublayer->crs() )
                   {
                     QgsCoordinateTransform transform( sublayer->crs(), crs, mProject->transformContext() );
-                    if ( extent.isEmpty() )
-                      extent = transform.transformBoundingBox( sublayer->extent() );
-                    else
-                      extent.combineExtentWith( transform.transformBoundingBox( sublayer->extent() ) );
+                    try
+                    {
+                      if ( extent.isEmpty() )
+                        extent = transform.transformBoundingBox( sublayer->extent() );
+                      else
+                        extent.combineExtentWith( transform.transformBoundingBox( sublayer->extent() ) );
+                    }
+                    catch ( const QgsCsException &exp )
+                    {
+                      // Ignore extent if it can't be transformed
+                    }
                   }
                   else
                   {
@@ -778,10 +785,17 @@ void QgisMobileapp::readProjectFile()
                   if ( crs != sublayer->crs() )
                   {
                     QgsCoordinateTransform transform( sublayer->crs(), crs, mProject->transformContext() );
-                    if ( extent.isEmpty() )
-                      extent = transform.transformBoundingBox( sublayer->extent() );
-                    else
-                      extent.combineExtentWith( transform.transformBoundingBox( sublayer->extent() ) );
+                    try
+                    {
+                      if ( extent.isEmpty() )
+                        extent = transform.transformBoundingBox( sublayer->extent() );
+                      else
+                        extent.combineExtentWith( transform.transformBoundingBox( sublayer->extent() ) );
+                    }
+                    catch ( const QgsCsException &exp )
+                    {
+                      // Ignore extent if it can't be transformed
+                    }
                   }
                   else
                   {
