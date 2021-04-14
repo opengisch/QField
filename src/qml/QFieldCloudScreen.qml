@@ -107,14 +107,10 @@ Page {
       spacing: 2
 
       TabBar {
-        id: bar
+        id: filterBar
         currentIndex: 0
         Layout.fillWidth: true
         Layout.preferredHeight: 48
-
-        onCurrentIndexChanged: {
-          swipeView.currentIndex = bar.currentIndex
-        }
 
         TabButton {
           text: qsTr("My Projects")
@@ -127,7 +123,6 @@ Page {
           height: 48
           font: Theme.defaultFont
           anchors.verticalCenter : parent.verticalCenter
-          enabled: false
         }
       }
 
@@ -144,7 +139,12 @@ Page {
 
             anchors.fill: parent
 
-            model: cloudProjectsModel
+            model: QFieldCloudProjectsFilterModel {
+                projectsModel: cloudProjectsModel
+                filter: filterBar.currentIndex === 0
+                    ? QFieldCloudProjectsFilterModel.PrivateProjects
+                    : QFieldCloudProjectsFilterModel.PublicProjects
+            }
             clip: true
 
             onMovingChanged: {

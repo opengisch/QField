@@ -21,6 +21,7 @@
 #include "deltastatuslistmodel.h"
 
 #include <QAbstractListModel>
+#include <QSortFilterProxyModel>
 #include <QNetworkReply>
 #include <QTimer>
 
@@ -43,6 +44,7 @@ class QFieldCloudProjectsModel : public QAbstractListModel
     {
       IdRole = Qt::UserRole + 1,
       OwnerRole,
+      PrivateRole,
       NameRole,
       DescriptionRole,
       ModificationRole,
@@ -225,9 +227,6 @@ class QFieldCloudProjectsModel : public QAbstractListModel
     //! Reloads the list of cloud projects with the given list of \a remoteProjects.
     Q_INVOKABLE void reload( const QJsonArray &remoteProjects );
 
-    //! Returns an entry as a variant map to provide it the the QML DelegateModel
-    Q_INVOKABLE QVariantMap getEntry( int row );
-
   signals:
     void cloudConnectionChanged();
     void layerObserverChanged();
@@ -290,8 +289,9 @@ class QFieldCloudProjectsModel : public QAbstractListModel
 
     struct CloudProject
     {
-      CloudProject( const QString &id, const QString &owner, const QString &name, const QString &description, const QString &collaboratorRole, const QString &updatedAt, const ProjectCheckouts &checkout, const ProjectStatus &status )
+      CloudProject( const QString &id, bool isPrivate, const QString &owner, const QString &name, const QString &description, const QString &collaboratorRole, const QString &updatedAt, const ProjectCheckouts &checkout, const ProjectStatus &status )
         : id( id )
+        , isPrivate( isPrivate )
         , owner( owner )
         , name( name )
         , description( description )
@@ -304,6 +304,7 @@ class QFieldCloudProjectsModel : public QAbstractListModel
       CloudProject() = default;
 
       QString id;
+      bool isPrivate = true;
       QString owner;
       QString name;
       QString description;
@@ -312,6 +313,7 @@ class QFieldCloudProjectsModel : public QAbstractListModel
       ProjectStatus status;
       ProjectErrorStatus errorStatus = ProjectErrorStatus::NoErrorStatus;
       ProjectCheckouts checkout;
+
       ProjectModifications modification = ProjectModification::NoModification;
       QString localPath;
 
@@ -388,5 +390,62 @@ Q_DECLARE_OPERATORS_FOR_FLAGS( QFieldCloudProjectsModel::ProjectCheckouts )
 Q_DECLARE_METATYPE( QFieldCloudProjectsModel::ProjectModification )
 Q_DECLARE_METATYPE( QFieldCloudProjectsModel::ProjectModifications )
 Q_DECLARE_OPERATORS_FOR_FLAGS( QFieldCloudProjectsModel::ProjectModifications )
+
+
+class QFieldCloudProjectsFilterModel : public QSortFilterProxyModel
+{
+    Q_OBJECT
+
+    Q_PROPERTY( QFieldCloudProjectsModel *projectsModel READ projectsModel WRITE setProjectsModel NOTIFY projectsModelChanged )
+    Q_PROPERTY( ProjectsFilter filter READ filter WRITE setFilter NOTIFY filterChanged )
+
+  public:
+
+    enum ProjectsFilter
+    {
+      PrivateProjects,
+      PublicProjects,
+    };
+    Q_ENUM( ProjectsFilter )
+
+    explicit QFieldCloudProjectsFilterModel( QObject *parent = nullptr );
+
+    /**
+     * Returns the source cloud projects model from which the filtered list is derived.
+     */
+    QFieldCloudProjectsModel *projectsModel() const;
+
+    /**
+     * Sets the source cloud projects model from which the filtered list is derived.
+     * \param projectsModel the source cloud project model
+     */
+    void setProjectsModel( QFieldCloudProjectsModel *projectsModel );
+
+    /**
+     * Returns the current cloud projects filter.
+     */
+    ProjectsFilter filter() const;
+
+    /**
+     * Sets the the cloud project \a filter.
+     */
+    void setFilter( ProjectsFilter filter );
+
+  signals:
+
+    void projectsModelChanged();
+    void filterChanged();
+
+  protected:
+
+    virtual bool filterAcceptsRow( int source_row, const QModelIndex &source_parent ) const override;
+
+  private:
+
+    QFieldCloudProjectsModel *mSourceModel = nullptr;
+    ProjectsFilter mFilter = PrivateProjects;
+};
+
+Q_DECLARE_METATYPE( QFieldCloudProjectsFilterModel::ProjectsFilter )
 
 #endif // QFIELDCLOUDPROJECTSMODEL_H

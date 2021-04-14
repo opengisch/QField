@@ -185,7 +185,7 @@ void QFieldCloudProjectsModel::refreshProjectsList()
   {
     case QFieldCloudConnection::ConnectionStatus::LoggedIn:
     {
-      NetworkReply *reply = mCloudConnection->get( QStringLiteral( "/api/v1/projects/" ) );
+      NetworkReply *reply = mCloudConnection->get( QStringLiteral( "/api/v1/projects/?include-public=true" ) );
       connect( reply, &NetworkReply::finished, this, &QFieldCloudProjectsModel::projectListReceived );
       break;
     }
@@ -1393,6 +1393,7 @@ QHash<int, QByteArray> QFieldCloudProjectsModel::roleNames() const
 {
   QHash<int, QByteArray> roles;
   roles[IdRole] = "Id";
+  roles[PrivateRole] = "Private";
   roles[OwnerRole] = "Owner";
   roles[NameRole] = "Name";
   roles[DescriptionRole] = "Description";
@@ -1429,6 +1430,7 @@ void QFieldCloudProjectsModel::reload( const QJsonArray &remoteProjects )
   {
     QVariantHash projectDetails = project.toObject().toVariantHash();
     CloudProject cloudProject( projectDetails.value( "id" ).toString(),
+                               projectDetails.value( "private" ).toBool(),
                                projectDetails.value( "owner" ).toString(),
                                projectDetails.value( "name" ).toString(),
                                projectDetails.value( "description" ).toString(),
@@ -1482,7 +1484,7 @@ void QFieldCloudProjectsModel::reload( const QJsonArray &remoteProjects )
       const QString updatedAt = projectSetting( projectId, QStringLiteral( "updatedAt" ) ).toString();
       const QString collaboratorRole = projectSetting( projectId, QStringLiteral( "collaboratorRole" ) ).toString();
 
-      CloudProject cloudProject( projectId, owner, name, description, collaboratorRole, QString(), LocalCheckout, ProjectStatus::Idle );
+      CloudProject cloudProject( projectId, true, owner, name, description, collaboratorRole, QString(), LocalCheckout, ProjectStatus::Idle );
       QDir localPath( QStringLiteral( "%1/%2/%3" ).arg( QFieldCloudUtils::localCloudDirectory(), mUsername, cloudProject.id ) );
       cloudProject.localPath = QFieldCloudUtils::localProjectFilePath( mUsername, cloudProject.id );
       cloudProject.deltasCount = DeltaFileWrapper( qgisProject, QStringLiteral( "%1/deltafile.json" ).arg( localPath.absolutePath() ) ).count();
@@ -1496,21 +1498,6 @@ void QFieldCloudProjectsModel::reload( const QJsonArray &remoteProjects )
   }
 
   endResetModel();
-}
-
-QVariantMap QFieldCloudProjectsModel::getEntry( int row )
-{
-  QHash<int, QByteArray> names = roleNames();
-  QHashIterator<int, QByteArray> i( names );
-  QVariantMap res;
-  while ( i.hasNext() )
-  {
-    i.next();
-    QModelIndex idx = index( row, 0 );
-    QVariant data = idx.data( i.key() );
-    res[i.value()] = data;
-  }
-  return res;
 }
 
 int QFieldCloudProjectsModel::rowCount( const QModelIndex &parent ) const
@@ -1530,6 +1517,8 @@ QVariant QFieldCloudProjectsModel::data( const QModelIndex &index, int role ) co
   {
     case IdRole:
       return mCloudProjects.at( index.row() ).id;
+    case PrivateRole:
+      return mCloudProjects.at( index.row() ).isPrivate;
     case OwnerRole:
       return mCloudProjects.at( index.row() ).owner;
     case NameRole:
@@ -1712,4 +1701,60 @@ QVariant QFieldCloudProjectsModel::projectSetting( const QString &projectId, con
 {
   const QString projectPrefix = QStringLiteral( "QFieldCloud/projects/%1" ).arg( projectId );
   return QSettings().value( QStringLiteral( "%1/%2" ).arg( projectPrefix, setting ), defaultValue );
+}
+
+// --
+
+QFieldCloudProjectsFilterModel::QFieldCloudProjectsFilterModel( QObject *parent )
+  : QSortFilterProxyModel( parent )
+{
+}
+
+void QFieldCloudProjectsFilterModel::setProjectsModel( QFieldCloudProjectsModel *projectsModel )
+{
+  if ( mSourceModel == projectsModel )
+    return;
+
+  mSourceModel = projectsModel;
+  setSourceModel( mSourceModel );
+
+  emit projectsModelChanged();
+}
+
+QFieldCloudProjectsModel *QFieldCloudProjectsFilterModel::projectsModel() const
+{
+  return mSourceModel;
+}
+
+void QFieldCloudProjectsFilterModel::setFilter( ProjectsFilter filter )
+{
+  if ( mFilter == filter )
+    return;
+
+  mFilter = filter;
+  invalidateFilter();
+
+  emit filterChanged();
+}
+
+QFieldCloudProjectsFilterModel::ProjectsFilter QFieldCloudProjectsFilterModel::filter() const
+{
+  return mFilter;
+}
+
+bool QFieldCloudProjectsFilterModel::filterAcceptsRow( int source_row, const QModelIndex &source_parent ) const
+{
+  bool ok = false;
+  switch( mFilter )
+  {
+    case PrivateProjects:
+      // the list will include public "community" projects that are present locally so they can appear in the "My projects" list
+      ok = mSourceModel->data( mSourceModel->index( source_row, 0, source_parent ), QFieldCloudProjectsModel::PrivateRole ).toBool() ||
+           !mSourceModel->data( mSourceModel->index( source_row, 0, source_parent ), QFieldCloudProjectsModel::LocalPathRole ).toString().isEmpty();
+      break;
+    case PublicProjects:
+      ok = !mSourceModel->data( mSourceModel->index( source_row, 0, source_parent ), QFieldCloudProjectsModel::PrivateRole ).toBool();
+      break;
+  }
+  return ok;
 }
