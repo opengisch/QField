@@ -410,10 +410,25 @@ class QFieldCloudProjectsFilterModel : public QSortFilterProxyModel
 
     explicit QFieldCloudProjectsFilterModel( QObject *parent = nullptr );
 
+    /**
+     * Returns the source cloud projects model from which the filtered list is derived.
+     */
     QFieldCloudProjectsModel *projectsModel() const;
+
+    /**
+     * Sets the source cloud projects model from which the filtered list is derived.
+     * \param projectsModel the source cloud project model
+     */
     void setProjectsModel( QFieldCloudProjectsModel *projectsModel );
 
+    /**
+     * Returns the current cloud projects filter.
+     */
     ProjectsFilter filter() const;
+
+    /**
+     * Sets the the cloud project \a filter.
+     */
     void setFilter( ProjectsFilter filter );
 
   signals:

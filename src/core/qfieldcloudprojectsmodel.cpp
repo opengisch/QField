@@ -1728,13 +1728,11 @@ QFieldCloudProjectsModel *QFieldCloudProjectsFilterModel::projectsModel() const
 
 void QFieldCloudProjectsFilterModel::setFilter( ProjectsFilter filter )
 {
-  qDebug() << "invalidated";
   if ( mFilter == filter )
     return;
 
   mFilter = filter;
   invalidateFilter();
-  qDebug() << "invalidated";
 
   emit filterChanged();
 }
