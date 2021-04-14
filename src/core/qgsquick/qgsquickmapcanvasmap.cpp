@@ -397,7 +397,14 @@ void QgsQuickMapCanvasMap::zoomToFullExtent()
     if ( mMapSettings->destinationCrs() != layer->crs() )
     {
       QgsCoordinateTransform transform( layer->crs(), mMapSettings->destinationCrs(), mMapSettings->transformContext() );
-      extent.combineExtentWith( transform.transformBoundingBox( layer->extent() ) );
+      try
+      {
+        extent.combineExtentWith( transform.transformBoundingBox( layer->extent() ) );
+      }
+      catch ( const QgsCsException &exp )
+      {
+        // Ignore extent if it can't be transformed
+      }
     }
     else
     {
