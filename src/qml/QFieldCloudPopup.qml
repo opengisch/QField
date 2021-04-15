@@ -124,11 +124,22 @@ Popup {
             width: 48
             height: 48
             radius: width/2
+            border.color: Theme.mainColor
+            border.width: 1
             clip: true
+
+            Rectangle {
+              id: cloudAvatarMask
+              anchors.centerIn: parent
+              width: 46
+              height: 46
+              radius: width/2
+            }
 
             Image {
               id: cloudAvatar
               anchors.fill: parent
+              anchors.margins: 2
               fillMode: Image.PreserveAspectFit
               smooth: true
               source: cloudConnection.avatarUrl !== ''
@@ -140,7 +151,7 @@ Popup {
               sourceSize.height: height * screen.devicePixelRatio
               layer.enabled: true
               layer.effect: OpacityMask {
-                  maskSource: cloudAvatarRect
+                  maskSource: cloudAvatarMask
               }
             }
           }

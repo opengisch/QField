@@ -253,9 +253,7 @@ void QFieldCloudConnection::login()
     emit usernameChanged();
     mAvatarUrl = resp.value( QStringLiteral( "avatar_url" ) ).toString();
     emit avatarUrlChanged();
-    qDebug() << resp.value( QStringLiteral( "avatar_url" ) ).toString();
-    mUserInformation  = CloudUserInformation( mUsername,
-                                              resp.value( QStringLiteral( "email" ) ).toString() );
+    mUserInformation  = CloudUserInformation( mUsername, resp.value( QStringLiteral( "email" ) ).toString() );
     emit userInformationChanged();
 
     setStatus( ConnectionStatus::LoggedIn );

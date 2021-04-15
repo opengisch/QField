@@ -56,12 +56,23 @@ Page {
           Layout.margins: 10
           width: 48
           height: 48
+          border.color: Theme.mainColor
+          border.width: 1
           radius: width/2
           clip: true
+
+          Rectangle {
+            id: cloudAvatarMask
+            anchors.centerIn: parent
+            width: 46
+            height: 46
+            radius: width/2
+          }
 
           Image {
             id: cloudAvatar
             anchors.fill: parent
+            anchors.margins: 2
             fillMode: Image.PreserveAspectFit
             smooth: true
             source: cloudConnection.avatarUrl !== ''
@@ -73,7 +84,7 @@ Page {
             sourceSize.height: height * screen.devicePixelRatio
             layer.enabled: true
             layer.effect: OpacityMask {
-                maskSource: cloudAvatarRect
+                maskSource: cloudAvatarMask
             }
           }
 
