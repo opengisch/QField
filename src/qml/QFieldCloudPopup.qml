@@ -17,6 +17,7 @@ Popup {
 
       showCancelButton: false
       showApplyButton: cloudProjectsModel.currentProjectData.Status === QFieldCloudProjectsModel.Idle
+            || cloudConnection.status === QFieldCloudConnection.Disconnected
       busyIndicatorState: cloudConnection.status === QFieldCloudConnection.Connecting
             || cloudProjectsModel.currentProjectData.Status === QFieldCloudProjectsModel.Uploading
             || cloudProjectsModel.currentProjectData.Status === QFieldCloudProjectsModel.Downloading

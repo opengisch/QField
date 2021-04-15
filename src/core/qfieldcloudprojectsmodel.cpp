@@ -191,8 +191,8 @@ void QFieldCloudProjectsModel::refreshProjectsList()
     }
     case QFieldCloudConnection::ConnectionStatus::Disconnected:
     {
-      QJsonArray projects;
-      reload( projects );
+      // Nothing done at the moment; since the connection can be disconnected after discovering
+      // a token has been invalidated, be careful with what is added here.
       break;
     }
     case QFieldCloudConnection::ConnectionStatus::Connecting:
