@@ -1742,8 +1742,30 @@ QFieldCloudProjectsFilterModel::ProjectsFilter QFieldCloudProjectsFilterModel::f
   return mFilter;
 }
 
+void QFieldCloudProjectsFilterModel::setShowLocalOnly( bool showLocalOnly )
+{
+  if ( mShowLocalOnly == showLocalOnly)
+    return;
+
+  mShowLocalOnly = showLocalOnly;
+  invalidateFilter();
+
+  emit showLocalOnlyChanged();
+}
+
+bool QFieldCloudProjectsFilterModel::showLocalOnly() const
+{
+  return mShowLocalOnly;
+}
+
 bool QFieldCloudProjectsFilterModel::filterAcceptsRow( int source_row, const QModelIndex &source_parent ) const
 {
+  if ( mShowLocalOnly &&
+       mSourceModel->data( mSourceModel->index( source_row, 0, source_parent ), QFieldCloudProjectsModel::LocalPathRole ).toString().isEmpty() )
+  {
+    return false;
+  }
+
   bool ok = false;
   switch( mFilter )
   {
