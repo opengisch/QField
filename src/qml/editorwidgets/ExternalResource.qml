@@ -16,6 +16,43 @@ EditorWidgetBase {
 
   height: Math.max(isImage? image.height : linkField.height, button_camera.height, button_gallery.height)
 
+  ExpressionEvaluator {
+    id: rootPathEvaluator
+  }
+  property string prefixToRelativePath: {
+    var path = ""
+    if (config["RelativeStorage"] === 1 ) {
+      path = qgisProject.homePath
+      if (!path.endsWith("/")) path = path +  "/"
+    } else if (config["RelativeStorage"] === 2 ) {
+      var collection = config["PropertyCollection"]
+      var props = collection["properties"]
+      if (props) {
+        if(props["propertyRootPath"]) {
+          var rootPathProps = props["propertyRootPath"]
+          rootPathEvaluator.expressionText = rootPathProps["expression"]
+        }
+      }
+      rootPathEvaluator.feature = currentFeature
+      rootPathEvaluator.layer = currentLayer
+      var evaluatedFilepath = rootPathEvaluator.evaluate()
+      if (evaluatedFilepath) {
+        path = evaluatedFilepath
+      } else {
+        path = config["DefaultRoot"] ? config["DefaultRoot"] : qgisProject.homePath
+        if (!path.endsWith("/")) path = path +  "/"
+      }
+    }
+
+    // since we've hardcoded the project path by default so far, let's maintain that until we improve things in qfieldsync
+    if (path == "") {
+      path = qgisProject.homePath
+      if (!path.endsWith("/")) path = path +  "/"
+    }
+
+    return path
+  }
+
   property PictureSource __pictureSource
   property ViewStatus __viewStatus
 
@@ -25,10 +62,8 @@ EditorWidgetBase {
       return true
     } else if ( config.UseLink ) {
       return false
-    } else if ( 
-        FileUtils.mimeTypeName( qgisProject.homePath + '/' + value ).startsWith("image/") 
-        || FileUtils.fileName( qgisProject.homePath + '/' + value ) === ''
-    ) {
+    } else if ( FileUtils.mimeTypeName( prefixToRelativePath + value ).startsWith("image/") ||
+                FileUtils.fileName( prefixToRelativePath + value ) === '' ) {
       return true
     } else {
       return false
@@ -39,13 +74,13 @@ EditorWidgetBase {
   property var currentValue: value
   onCurrentValueChanged: {
       if ( isImage ) {
-          if ( value === undefined || FileUtils.fileName( qgisProject.homePath + '/' + value ) === '' ) {
+          if ( value === undefined || FileUtils.fileName( prefixToRelativePath + value ) === '' ) {
               image.width = 24
               image.opacity = 0.25
               image.anchors.topMargin = 11
               image.source = Theme.getThemeIcon("ic_photo_notavailable_black_24dp")
               geoTagBadge.visible = false
-          } else if ( image.status === Image.Error || !FileUtils.fileExists( qgisProject.homePath + '/' + value ) ) {
+          } else if ( image.status === Image.Error || !FileUtils.fileExists( prefixToRelativePath + value ) ) {
               image.width = 24
               image.opacity = 0.25
               image.anchors.topMargin = 11
@@ -55,8 +90,8 @@ EditorWidgetBase {
               image.width = 220
               image.opacity = 1
               image.anchors.topMargin = 0
-              image.source= 'file://' + qgisProject.homePath + '/' + value
-              geoTagBadge.hasGeoTag = ExifTools.hasGeoTag(qgisProject.homePath + '/' + value)
+              image.source= 'file://' + prefixToRelativePath + value
+              geoTagBadge.hasGeoTag = ExifTools.hasGeoTag(prefixToRelativePath + value)
               geoTagBadge.visible = true
           }
       } else {
@@ -70,7 +105,7 @@ EditorWidgetBase {
     layer: currentLayer
     expressionText: {
       if ( currentLayer && currentLayer.customProperty('QFieldSync/photo_naming') !== undefined ) {
-        return JSON.parse(currentLayer.customProperty('QFieldSync/photo_naming'))[field.name] 
+        return JSON.parse(currentLayer.customProperty('QFieldSync/photo_naming'))[field.name]
       } else {
         return ''
       }
@@ -79,7 +114,7 @@ EditorWidgetBase {
 
   function getPictureFilePath() {
     var evaluatedFilepath = expressionEvaluator.evaluate()
-    
+
     if ( evaluatedFilepath && FileUtils.fileSuffix(evaluatedFilepath) !== '' ) {
       return evaluatedFilepath
     } else {
@@ -97,23 +132,22 @@ EditorWidgetBase {
     visible: !isImage
     anchors.left: parent.left
     anchors.right: parent.right
-    color: FileUtils.fileExists(qgisProject.homePath + '/' + value) ? Theme.hyperlinkBlue : 'gray'
+    color: FileUtils.fileExists(prefixToRelativePath + value) ? Theme.hyperlinkBlue : 'gray'
 
     text: {
-      var fieldValue = value
-
-      if(UrlUtils.isRelativeOrFileUrl(fieldValue))
+      var fieldValue = prefixToRelativePath + value
+      if (UrlUtils.isRelativeOrFileUrl(fieldValue)) {
         fieldValue = config.FullUrl ? fieldValue : FileUtils.fileName(fieldValue)
-
+      }
       fieldValue = StringUtils.insertLinks(fieldValue)
 
       hasValue = !!fieldValue
-
       return hasValue ? fieldValue : qsTr('No Value')
     }
 
     font.pointSize: Theme.defaultFont.pointSize
     font.italic: !hasValue
+    font.underline: FileUtils.fileExists(prefixToRelativePath + value) || FileUtils.fileExists(value)
 
     background: Rectangle {
       y: linkField.height - height - linkField.bottomPadding / 2
@@ -126,23 +160,16 @@ EditorWidgetBase {
       anchors.fill: parent
 
       onClicked: {
-        if ( ! value )
+        if ( !value )
           return
 
-        // matches `http://...` but not `file://...` paths
-        if ( ! UrlUtils.isRelativeOrFileUrl(value)) {
+        if (!UrlUtils.isRelativeOrFileUrl(value)) { // matches `http://...` but not `file://...` paths
           Qt.openUrlExternally(value)
-          return
-        }
-
-        // relative paths `./path/to/image.jpg` or 'path/to/image.jpg`
-        if (FileUtils.fileExists(qgisProject.homePath + '/' + value) ) {
-          __viewStatus = platformUtilities.open(qgisProject.homePath + '/' + value)
-          return
+        } else if (FileUtils.fileExists(prefixToRelativePath + value)) {
+          __viewStatus = platformUtilities.open(prefixToRelativePath + value)
         }
       }
     }
-
   }
 
   FontMetrics {
@@ -169,8 +196,8 @@ EditorWidgetBase {
       anchors.fill: parent
 
       onClicked: {
-        if ( FileUtils.fileExists( qgisProject.homePath + '/' + value ) )
-          platformUtilities.open( qgisProject.homePath + '/' + value );
+        if ( FileUtils.fileExists( prefixToRelativePath + value ) )
+          platformUtilities.open( prefixToRelativePath + value );
       }
     }
   }
