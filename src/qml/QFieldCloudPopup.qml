@@ -1,6 +1,7 @@
 import QtQuick 2.12
 import QtQuick.Controls 2.12
 import QtQuick.Layouts 1.12
+import QtGraphicalEffects 1.12
 
 import org.qfield 1.0
 import Theme 1.0
@@ -117,22 +118,30 @@ Popup {
           }
 
           Rectangle {
+            id: cloudAvatarRect
             Layout.alignment: Qt.AlignHCenter | Qt.AlignVCenter
             Layout.margins: 10
             width: 48
             height: 48
-            color: 'transparent'
+            radius: width/2
+            clip: true
 
             Image {
               id: cloudAvatar
               anchors.fill: parent
               fillMode: Image.PreserveAspectFit
               smooth: true
-              source: 'qrc:/images/qfieldcloud_logo.svg'
+              source: cloudConnection.avatarUrl !== ''
+                      ? cloudConnection.avatarUrl
+                      : 'qrc:/images/qfieldcloud_logo.svg'
               width: 48
               height: 48
               sourceSize.width: width * screen.devicePixelRatio
               sourceSize.height: height * screen.devicePixelRatio
+              layer.enabled: true
+              layer.effect: OpacityMask {
+                  maskSource: cloudAvatarRect
+              }
             }
           }
         }

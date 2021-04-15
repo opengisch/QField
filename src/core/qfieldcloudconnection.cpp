@@ -151,6 +151,11 @@ QString QFieldCloudConnection::username() const
   return mUsername;
 }
 
+QString QFieldCloudConnection::avatarUrl() const
+{
+  return mAvatarUrl;
+}
+
 void QFieldCloudConnection::setUsername( const QString &username )
 {
   if ( mUsername == username )
@@ -246,7 +251,11 @@ void QFieldCloudConnection::login()
 
     mUsername = resp.value( QStringLiteral( "username" ) ).toString();
     emit usernameChanged();
-    mUserInformation  = CloudUserInformation( mUsername, resp.value( QStringLiteral( "email" ) ).toString() );
+    mAvatarUrl = resp.value( QStringLiteral( "avatar_url" ) ).toString();
+    emit avatarUrlChanged();
+    qDebug() << resp.value( QStringLiteral( "avatar_url" ) ).toString();
+    mUserInformation  = CloudUserInformation( mUsername,
+                                              resp.value( QStringLiteral( "email" ) ).toString() );
     emit userInformationChanged();
 
     setStatus( ConnectionStatus::LoggedIn );

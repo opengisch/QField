@@ -65,6 +65,7 @@ class QFieldCloudConnection : public QObject
 
     Q_PROPERTY( QString username READ username WRITE setUsername NOTIFY usernameChanged )
     Q_PROPERTY( QString password READ password WRITE setPassword NOTIFY passwordChanged )
+    Q_PROPERTY( QString avatarUrl READ avatarUrl NOTIFY avatarUrlChanged )
     Q_PROPERTY( QString url READ url WRITE setUrl NOTIFY urlChanged )
     Q_PROPERTY( QString defaultUrl READ defaultUrl CONSTANT )
 
@@ -101,6 +102,8 @@ class QFieldCloudConnection : public QObject
 
     QString password() const;
     void setPassword( const QString &password );
+
+    QString avatarUrl() const;
 
     CloudUserInformation userInformation() const;
 
@@ -146,6 +149,7 @@ class QFieldCloudConnection : public QObject
   signals:
     void usernameChanged();
     void passwordChanged();
+    void avatarUrlChanged();
     void urlChanged();
     void statusChanged();
     void stateChanged();
@@ -163,6 +167,7 @@ class QFieldCloudConnection : public QObject
 
     QString mPassword;
     QString mUsername;
+    QString mAvatarUrl;
     CloudUserInformation mUserInformation;
     QString mUrl;
     ConnectionStatus mStatus = ConnectionStatus::Disconnected;
