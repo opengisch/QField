@@ -280,6 +280,9 @@ void QFieldCloudConnection::logout()
   invalidateToken();
   QSettings().remove( "/QFieldCloud/token" );
 
+  mAvatarUrl.clear();
+  emit avatarUrlChanged();
+
   setStatus( ConnectionStatus::Disconnected );
 }
 
