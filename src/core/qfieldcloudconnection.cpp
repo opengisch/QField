@@ -184,7 +184,7 @@ CloudUserInformation QFieldCloudConnection::userInformation() const
 
 void QFieldCloudConnection::login()
 {
-  NetworkReply *reply = ( ! mToken.isEmpty() && ( mPassword.isEmpty() || mUsername.isEmpty() ) )
+  NetworkReply *reply = ( !mToken.isEmpty() && ( mPassword.isEmpty() || mUsername.isEmpty() ) )
         ? get( QStringLiteral( "/api/v1/auth/user/" ) )
         : post( QStringLiteral( "/api/v1/auth/token/" ), QVariantMap({
                          {"username", mUsername},
@@ -219,11 +219,17 @@ void QFieldCloudConnection::login()
       {
         emit loginFailed( tr( "Wrong username or password" ) );
       }
+      else if ( httpCode == 401 )
+      {
+        emit loginFailed( tr( "Session expired" ) );
+        invalidateToken();
+      }
       else
       {
         QString message( errorString( rawReply ) );
         emit loginFailed( message );
       }
+
       setStatus( ConnectionStatus::Disconnected );
       return;
     }

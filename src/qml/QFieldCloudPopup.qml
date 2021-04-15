@@ -431,7 +431,7 @@ Popup {
 
     function onStatusChanged() {
       if (cloudConnection.status === QFieldCloudConnection.Disconnected) {
-        visible = false
+        //visible = false
         displayToast(qsTr('Logged out'))
       } else if (cloudConnection.status === QFieldCloudConnection.Connecting) {
         displayToast(qsTr('Connecting...'))
