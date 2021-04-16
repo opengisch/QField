@@ -14,12 +14,14 @@ env:
   TRIPLET: x64-windows
 
 jobs:
-  vcpkg:
-    needs: build-seed
+  build-qfield:
+    needs: build-seed2
     name: Build QField
     runs-on: windows-latest
     strategy:
       fail-fast: false
+      matrix:
+        build-type: ['Debug', 'Release']
     env:
       VCPKG_ROOT: 'C:/src'
       CMAKE_BUILD_DIR: C:/builddir/
@@ -27,13 +29,6 @@ jobs:
       TX_TOKEN: ${{ secrets.TX_TOKEN }}
 
     steps:
-      - name: Show space before build
-        run: |
-          Get-PSDrive
-
-      - name: Check LongPathsEnabled
-        run: |
-          (Get-ItemProperty "HKLM:System\CurrentControlSet\Control\FileSystem").LongPathsEnabled
       - name: Checkout
         uses: actions/checkout@v2
         with:
@@ -63,14 +58,14 @@ jobs:
           key: |
             ${{ hashFiles( 'vcpkg.json' ) }}-${{ hashFiles( '.git/modules/vcpkg/HEAD' )}}-${{ env.TRIPLET }}-qgis
           restore-keys: |
-            ${{ hashFiles( 'vcpkg.json' ) }}-${{ hashFiles( '.git/modules/vcpkg/HEAD' )}}-${{ env.TRIPLET }}-${{ env.VCPKG_PRESEED_PKGS }}-seed
+            ${{ hashFiles( 'vcpkg.json' ) }}-${{ hashFiles( '.git/modules/vcpkg/HEAD' )}}-${{ env.TRIPLET }}-${{ env.VCPKG_PRESEED_PKGS }}-seed2
 
       # Target x64 and use the default Windows SDK
       - uses: ilammy/msvc-dev-cmd@v1
 
       - name: Install dependencies and generate project files
         run: |
-          cmake -S "${{ github.workspace }}" -B "${{ env.CMAKE_BUILD_DIR }}" -GNinja -DCMAKE_BUILD_TYPE=Release -DCMAKE_TOOLCHAIN_FILE="${{ env.VCPKG_ROOT }}/scripts/buildsystems/vcpkg.cmake"
+          cmake -S "${{ github.workspace }}" -B "${{ env.CMAKE_BUILD_DIR }}" -GNinja -DCMAKE_BUILD_TYPE=${{ matrix.build-type }} -DCMAKE_TOOLCHAIN_FILE="${{ env.VCPKG_ROOT }}/scripts/buildsystems/vcpkg.cmake"
 
       # - name: Upload Build Logs
       #   uses: actions/upload-artifact@v2
@@ -98,13 +93,70 @@ jobs:
 
       - uses: actions/upload-artifact@v2
         with:
-          name: "QField-dev"
+          name: "QField-dev-${{ matrix.build-type }}"
           path: "${{ env.CMAKE_BUILD_DIR }}/output"
 
       - name: Show space after build
         if: always()
         run: |
           Get-PSDrive
+
+  build-seed2:
+    needs: build-seed
+    name: Build other deps
+    runs-on: windows-latest
+    strategy:
+      fail-fast: false
+    env:
+      VCPKG_ROOT: 'C:/src'
+      CMAKE_BUILD_DIR: C:/builddir/
+      VCPKG_DEFAULT_BINARY_CACHE: C:/vcpkg_cache
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+        with:
+          submodules: recursive
+
+      - name: Install CMake and Ninja
+        uses: lukka/get-cmake@latest
+
+      - name: Bootstrap vcpkg
+        run: |
+          $VCPKG_SHA = Get-Content .git/modules/vcpkg/HEAD -First 1
+          mkdir "${{ env.VCPKG_ROOT }}"
+          cd "${{ env.VCPKG_ROOT }}"
+          git init
+          git remote add origin https://github.com/m-kuhn/vcpkg.git
+          git fetch --depth 1 origin $VCPKG_SHA
+          git checkout FETCH_HEAD
+          .\bootstrap-vcpkg.bat
+          mkdir ${{ env.VCPKG_DEFAULT_BINARY_CACHE }}
+
+      - name: Restore vcpkg and its artifacts
+        uses: pat-s/always-upload-cache@v2.1.3
+        with:
+          path: |
+            ${{ env.VCPKG_DEFAULT_BINARY_CACHE }}
+            ${{ env.VCPKG_ROOT }}/installed
+          key: |
+            ${{ hashFiles( 'vcpkg.json' ) }}-${{ hashFiles( '.git/modules/vcpkg/HEAD' )}}-${{ env.TRIPLET }}-seed2
+          restore-keys: |
+            ${{ hashFiles( 'vcpkg.json' ) }}-${{ hashFiles( '.git/modules/vcpkg/HEAD' )}}-${{ env.TRIPLET }}-${{ env.VCPKG_PRESEED_PKGS }}-seed
+
+      # Target x64 and use the default Windows SDK
+      - uses: ilammy/msvc-dev-cmd@v1
+
+      - name: Install dependencies and generate project files
+        run: |
+          cmake -S "${{ github.workspace }}" -B "${{ env.CMAKE_BUILD_DIR }}" -GNinja -DCMAKE_BUILD_TYPE=Release -DCMAKE_TOOLCHAIN_FILE="${{ env.VCPKG_ROOT }}/scripts/buildsystems/vcpkg.cmake"
+
+      # - name: Upload Build Logs
+      #   uses: actions/upload-artifact@v2
+      #   if: always()
+      #   with:
+      #     name: build-logs
+      #     path: C:/src/buildtrees/**/*.log
 
   # This is just a helper to seed the cache so we can stay
   # within the github job time limit of 6 hours
