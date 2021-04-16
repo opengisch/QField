@@ -765,8 +765,10 @@ void QFieldCloudProjectsModel::uploadProject( const QString &projectId, const bo
   {
     projectCancelUploadAttachments( projectId );
   }
+  mCloudProjects[index].uploadAttachmentsFailed = 0;
 
-  const QStringList attachmentFileNames = deltaFileWrapper->attachmentFileNames().keys();
+  QStringList attachmentFileNames = deltaFileWrapper->attachmentFileNames().keys();
+  attachmentFileNames << QString( "/home/webmaster/Desktop/transparent.png" );
   for ( const QString &fileName : attachmentFileNames )
   {
     QFileInfo fileInfo( fileName );
@@ -1085,7 +1087,7 @@ void QFieldCloudProjectsModel::projectUploadAttachments( const QString &projectI
   emit dataChanged( idx, idx, QVector<int>() << UploadAttachmentsStatusRole);
   for ( const QString &fileName : attachmentFileNames )
   {
-    NetworkReply *attachmentCloudReply = uploadFile( mCloudProjects[index].id, fileName );
+    NetworkReply *attachmentCloudReply = uploadFile( projectId, fileName );
     mCloudProjects[index].uploadAttachments[fileName].networkReply = attachmentCloudReply;
 
     connect( attachmentCloudReply, &NetworkReply::uploadProgress, this, [ = ]( int bytesSent, int bytesTotal )
@@ -1105,15 +1107,19 @@ void QFieldCloudProjectsModel::projectUploadAttachments( const QString &projectI
       // if there is an error, don't panic, we continue uploading. The files may be later manually synced.
       if ( attachmentReply->error() != QNetworkReply::NoError )
       {
+        mCloudProjects[index].uploadAttachmentsFailed++;
         QgsMessageLog::logMessage( tr( "Failed to upload attachment stored at \"%1\", reason:\n%2" )
                                    .arg( fileName )
                                    .arg( QFieldCloudConnection::errorString( attachmentReply ) ) );
       }
+      else
+      {
+        mCloudProjects[index].uploadAttachments.remove( fileName );
+      }
 
       mCloudProjects[index].uploadAttachmentsProgress = ( attachmentFileNames.size() - mCloudProjects[index].uploadAttachments.size() ) / attachmentFileNames.size();
-      mCloudProjects[index].uploadAttachments.remove( fileName );
 
-      if ( mCloudProjects[index].uploadAttachments.size() == 0 )
+      if ( mCloudProjects[index].uploadAttachments.size() - mCloudProjects[index].uploadAttachmentsFailed == 0 )
         mCloudProjects[index].uploadAttachmentsStatus = UploadAttachmentsStatus::UploadAttachmentsDone;
 
       emit dataChanged( idx, idx, QVector<int>() << UploadAttachmentsProgressRole );
