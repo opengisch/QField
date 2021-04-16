@@ -110,9 +110,19 @@ PictureSource *PlatformUtilities::getGalleryPicture( const QString &prefix, cons
   {
     // if the file is already in the prefixed path, no need to copy
     if ( fileName.startsWith( prefix ) )
+    {
       return new PictureSource( nullptr, prefix, fileName );
-    else if ( QFile::copy( fileName, destinationFile ) )
-      return new PictureSource( nullptr, prefix, destinationFile );
+    }
+    else
+    {
+      QFileInfo destinationInfo ( destinationFile );
+      QDir prefixDir( prefix );
+      if ( prefixDir.mkpath( destinationInfo.absolutePath() ) &&
+           QFile::copy( fileName, destinationFile ) )
+      {
+        return new PictureSource( nullptr, prefix, destinationFile );
+      }
+    }
 
     QgsMessageLog::logMessage( tr( "Failed to save gallery picture" ), "QField", Qgis::Critical );
   }
