@@ -54,7 +54,6 @@ jobs:
         with:
           path: |
             ${{ env.VCPKG_DEFAULT_BINARY_CACHE }}
-            ${{ env.VCPKG_ROOT }}/installed
           key: |
             ${{ hashFiles( 'vcpkg.json' ) }}-${{ hashFiles( '.git/modules/vcpkg/HEAD' )}}-${{ env.TRIPLET }}-qgis
           restore-keys: |
@@ -191,7 +190,6 @@ jobs:
         with:
           path: |
             ${{ env.VCPKG_DEFAULT_BINARY_CACHE }}
-            ${{ env.VCPKG_ROOT }}/installed
           key: |
             ${{ hashFiles( 'vcpkg.json' ) }}-${{ hashFiles( '.git/modules/vcpkg/HEAD' )}}-${{ env.TRIPLET }}-${{ env.VCPKG_PRESEED_PKGS }}-seed
 
