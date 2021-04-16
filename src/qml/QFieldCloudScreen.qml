@@ -2,6 +2,7 @@ import QtQuick 2.12
 import QtQuick.Controls 2.12
 import QtQuick.Layouts 1.4
 import QtQml.Models 2.2
+import QtGraphicalEffects 1.12
 
 import org.qfield 1.0
 import Theme 1.0
@@ -49,19 +50,56 @@ Page {
             font: Theme.tipFont
         }
 
-        QfToolButton {
-          id: settingsButton
-          Layout.alignment: Qt.AlignVCenter
-          iconSource: !projects.visible ? Theme.getThemeIcon( 'ic_close_black_24dp' ) : Theme.getThemeIcon( 'ic_gear_black_24dp' )
-          bgcolor: "transparent"
-          onClicked: {
-            if (!connectionSettings.visible) {
-              connectionSettings.visible = true
-              projects.visible = false
-            } else {
-              connectionSettings.visible = false
-              projects.visible = true
-              refreshProjectsListBtn.forceActiveFocus()
+        Rectangle {
+          id: cloudAvatarRect
+          Layout.alignment: Qt.AlignHCenter | Qt.AlignVCenter
+          Layout.margins: 10
+          width: 48
+          height: 48
+          border.color: Theme.mainColor
+          border.width: 1
+          radius: width/2
+          clip: true
+
+          Rectangle {
+            id: cloudAvatarMask
+            anchors.centerIn: parent
+            width: 46
+            height: 46
+            radius: width/2
+          }
+
+          Image {
+            id: cloudAvatar
+            anchors.fill: parent
+            anchors.margins: 2
+            fillMode: Image.PreserveAspectFit
+            smooth: true
+            source: cloudConnection.avatarUrl !== ''
+                    ? cloudConnection.avatarUrl
+                    : 'qrc:/images/qfieldcloud_logo.svg'
+            width: 48
+            height: 48
+            sourceSize.width: width * screen.devicePixelRatio
+            sourceSize.height: height * screen.devicePixelRatio
+            layer.enabled: true
+            layer.effect: OpacityMask {
+                maskSource: cloudAvatarMask
+            }
+          }
+
+          MouseArea {
+            anchors.fill: parent
+
+            onClicked: {
+              if (!connectionSettings.visible) {
+                connectionSettings.visible = true
+                projects.visible = false
+              } else {
+                connectionSettings.visible = false
+                projects.visible = true
+                refreshProjectsListBtn.forceActiveFocus()
+              }
             }
           }
         }
