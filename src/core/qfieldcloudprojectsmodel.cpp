@@ -70,8 +70,8 @@ QFieldCloudProjectsModel::QFieldCloudProjectsModel() :
 
   connect( this, &QFieldCloudProjectsModel::dataChanged, this, [ = ]( const QModelIndex & topLeft, const QModelIndex & bottomRight, const QVector<int> &roles )
   {
-    Q_UNUSED( bottomRight );
-    Q_UNUSED( roles );
+    Q_UNUSED( bottomRight )
+    Q_UNUSED( roles )
 
     const int index = findProject( mCurrentProjectId );
 
@@ -483,8 +483,10 @@ void QFieldCloudProjectsModel::projectGetExportStatus( const QString &projectId 
         // download export job should be already started!!!
         Q_ASSERT( 0 );
         FALLTHROUGH
+
       case ExportAbortStatus:
         return;
+
       case ExportPendingStatus:
       case ExportBusyStatus:
         // infinite retry, there should be one day, when we can get the status!
@@ -493,6 +495,7 @@ void QFieldCloudProjectsModel::projectGetExportStatus( const QString &projectId 
           projectGetExportStatus( projectId );
         } );
         break;
+
       case ExportErrorStatus:
       {
         QString output = payload.value( QStringLiteral( "output" ) ).toString().split( '\n' ).last();
@@ -502,7 +505,7 @@ void QFieldCloudProjectsModel::projectGetExportStatus( const QString &projectId 
           projectDownloadFinishedWithError( projectId, tr( "Export failed" ) );
         return;
       }
-      break;
+
       case ExportFinishedStatus:
         QgsLogger::debug( QStringLiteral( "Export files list requested for \"%1\"" ).arg( projectId ) );
 
@@ -774,7 +777,7 @@ void QFieldCloudProjectsModel::uploadProject( const QString &projectId, const bo
       continue;
     }
 
-    const int fileSize = fileInfo.size();
+    const long long fileSize = fileInfo.size();
 
     // ? should we also check the checksums of the files being uploaded? they are available at deltaFile->attachmentFileNames()->values()
     mCloudProjects[index].uploadAttachments.insert( fileName, FileTransfer( fileName, fileSize ) );
@@ -1087,7 +1090,7 @@ void QFieldCloudProjectsModel::projectUploadAttachments( const QString &projectI
 
     connect( attachmentCloudReply, &NetworkReply::uploadProgress, this, [ = ]( int bytesSent, int bytesTotal )
     {
-      Q_UNUSED( bytesTotal );
+      Q_UNUSED( bytesTotal )
       mCloudProjects[index].uploadAttachments[fileName].bytesTransferred = bytesSent;
       emit dataChanged( idx, idx, QVector<int>() << UploadAttachmentsProgressRole );
     } );
@@ -1169,7 +1172,7 @@ void QFieldCloudProjectsModel::connectionStatusChanged()
 
 void QFieldCloudProjectsModel::layerObserverLayerEdited( const QString &layerId )
 {
-  Q_UNUSED( layerId );
+  Q_UNUSED( layerId )
 
   const int index = findProject( mCurrentProjectId );
 
@@ -1278,7 +1281,7 @@ void QFieldCloudProjectsModel::downloadFileConnections( const QString &projectId
 
   connect( reply, &NetworkReply::downloadProgress, reply, [ = ]( int bytesReceived, int bytesTotal )
   {
-    Q_UNUSED( bytesTotal );
+    Q_UNUSED( bytesTotal )
 
     // it means the NetworkReply has failed and retried
     mCloudProjects[index].downloadBytesReceived -= mCloudProjects[index].downloadFileTransfers[fileName].bytesTransferred;

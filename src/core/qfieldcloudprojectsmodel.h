@@ -273,7 +273,7 @@ class QFieldCloudProjectsModel : public QAbstractListModel
     {
       FileTransfer(
         const QString &fileName,
-        const int bytesTotal,
+        const long long bytesTotal,
         NetworkReply *networkReply = nullptr,
         const QStringList &layerIds = QStringList()
       )
@@ -287,8 +287,8 @@ class QFieldCloudProjectsModel : public QAbstractListModel
 
       QString fileName;
       QString tmpFile;
-      int bytesTotal;
-      int bytesTransferred = 0;
+      long long bytesTotal;
+      long long bytesTransferred = 0;
       bool isFinished = false;
       NetworkReply *networkReply;
       QNetworkReply::NetworkError error = QNetworkReply::NoError;
