@@ -773,8 +773,12 @@ void QFieldCloudProjectsModel::uploadProject( const QString &projectId, const bo
   for ( QString &fileName : attachmentFileNames )
   {
     QFileInfo fileInfo( fileName );
-    if ( fileInfo.isRelative() )
+    if ( fileInfo.isRelative() || !fileInfo.exists() )
     {
+      // QField can end up storing relative paths starting with a slash, deal with it
+      if ( fileName.startsWith( '/' ) )
+        fileName = fileName.mid( 1 );
+
       fileName = projectDir.absoluteFilePath( fileName );
       fileInfo = QFileInfo( fileName );
     }
