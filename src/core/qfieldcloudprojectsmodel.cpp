@@ -758,6 +758,11 @@ void QFieldCloudProjectsModel::uploadProject( const QString &projectId, const bo
   // //////////
   // prepare attachment files to be uploaded
   // //////////
+  if ( mCloudProjects[index].uploadAttachmentsStatus != UploadAttachmentsStatus::UploadAttachmentsDone )
+  {
+    projectCancelUploadAttachments( projectId );
+  }
+
   const QStringList attachmentFileNames = deltaFileWrapper->attachmentFileNames().keys();
   for ( const QString &fileName : attachmentFileNames )
   {
@@ -772,7 +777,6 @@ void QFieldCloudProjectsModel::uploadProject( const QString &projectId, const bo
     const int fileSize = fileInfo.size();
 
     // ? should we also check the checksums of the files being uploaded? they are available at deltaFile->attachmentFileNames()->values()
-
     mCloudProjects[index].uploadAttachments.insert( fileName, FileTransfer( fileName, fileSize ) );
   }
 
@@ -1074,7 +1078,8 @@ void QFieldCloudProjectsModel::projectUploadAttachments( const QString &projectI
 
   // start uploading the attachments
   const QStringList attachmentFileNames = mCloudProjects[index].uploadAttachments.keys();
-   mCloudProjects[index].uploadingAttachments = true;
+  mCloudProjects[index].uploadAttachmentsStatus = UploadAttachmentsStatus::UploadAttachmentsInProgress;
+  emit dataChanged( idx, idx, QVector<int>() << UploadAttachmentsStatusRole);
   for ( const QString &fileName : attachmentFileNames )
   {
     NetworkReply *attachmentCloudReply = uploadFile( mCloudProjects[index].id, fileName );
@@ -1106,7 +1111,7 @@ void QFieldCloudProjectsModel::projectUploadAttachments( const QString &projectI
       mCloudProjects[index].uploadAttachments.remove( fileName );
 
       if ( mCloudProjects[index].uploadAttachments.size() == 0 )
-        mCloudProjects[index].uploadingAttachments = false;
+        mCloudProjects[index].uploadAttachmentsStatus = UploadAttachmentsStatus::UploadAttachmentsDone;
 
       emit dataChanged( idx, idx, QVector<int>() << UploadAttachmentsProgressRole );
     } );
@@ -1125,7 +1130,6 @@ void QFieldCloudProjectsModel::projectCancelUpload( const QString &projectId )
   mCloudProjects[index].errorStatus = UploadErrorStatus;
 
   QModelIndex idx = createIndex( index, 0 );
-
   emit dataChanged( idx, idx, QVector<int>() << StatusRole << ErrorStatusRole );
   emit pushFinished( projectId, true, mCloudProjects[index].deltaFileUploadStatusString );
 
@@ -1153,7 +1157,9 @@ void QFieldCloudProjectsModel::projectCancelUploadAttachments( const QString &pr
 
     attachmentReply->abort();
   }
-  mCloudProjects[index].uploadingAttachments = false;
+  mCloudProjects[index].uploadAttachmentsStatus = UploadAttachmentsStatus::UploadAttachmentsDone;
+  QModelIndex idx = createIndex( index, 0 );
+  emit dataChanged( idx, idx, QVector<int>() << UploadAttachmentsStatusRole);
 }
 
 void QFieldCloudProjectsModel::connectionStatusChanged()
@@ -1549,8 +1555,9 @@ QVariant QFieldCloudProjectsModel::data( const QModelIndex &index, int role ) co
       return QVariant( mCloudProjects.at( index.row() ).exportedLayerErrors );
     case DownloadProgressRole:
       return mCloudProjects.at( index.row() ).downloadProgress;
+    case UploadAttachmentsStatusRole:
+      return mCloudProjects.at( index.row() ).uploadAttachmentsStatus;
     case UploadAttachmentsProgressRole:
-      // when we start syncing also the photos, it would make sense to go there
       return mCloudProjects.at( index.row() ).uploadAttachmentsProgress;
     case UploadDeltaProgressRole:
       return mCloudProjects.at( index.row() ).uploadDeltaProgress;

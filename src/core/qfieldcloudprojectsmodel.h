@@ -55,6 +55,7 @@ class QFieldCloudProjectsModel : public QAbstractListModel
       DownloadProgressRole,
       ExportStatusRole,
       ExportedLayerErrorsRole,
+      UploadAttachmentsStatusRole,
       UploadAttachmentsProgressRole,
       UploadDeltaProgressRole,
       UploadDeltaStatusRole,
@@ -127,6 +128,15 @@ class QFieldCloudProjectsModel : public QAbstractListModel
     };
 
     Q_ENUM( DeltaFileStatus )
+
+    //! The status of attachments uploading to server.
+    enum UploadAttachmentsStatus
+    {
+      UploadAttachmentsDone,
+      UploadAttachmentsInProgress,
+    };
+
+    Q_ENUM( UploadAttachmentsStatus )
 
     //! The status of the running server job for exporting a project.
     enum ExportStatus
@@ -333,9 +343,9 @@ class QFieldCloudProjectsModel : public QAbstractListModel
       int downloadBytesReceived = 0;
       double downloadProgress = 0.0; // range from 0.0 to 1.0
 
+      UploadAttachmentsStatus uploadAttachmentsStatus = UploadAttachmentsStatus::UploadAttachmentsDone;
       QMap<QString, FileTransfer> uploadAttachments;
       double uploadAttachmentsProgress = 0.0; // range from 0.0 to 1.0
-      bool uploadingAttachments;
 
       double uploadDeltaProgress = 0.0; // range from 0.0 to 1.0
       int deltasCount = 0;
