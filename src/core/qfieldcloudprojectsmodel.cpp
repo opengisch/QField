@@ -751,10 +751,6 @@ void QFieldCloudProjectsModel::uploadProject( const QString &projectId, const bo
   mCloudProjects[index].deltaFileUploadStatus = DeltaLocalStatus;
   mCloudProjects[index].deltaFileUploadStatusString = QString();
 
-  mCloudProjects[index].uploadAttachments.empty();
-  mCloudProjects[index].uploadAttachmentsFinished = 0;
-  mCloudProjects[index].uploadAttachmentsFailed = 0;
-
   refreshProjectModification( projectId );
 
   emit dataChanged( idx, idx,  QVector<int>() << StatusRole << UploadAttachmentsProgressRole << UploadDeltaProgressRole << UploadDeltaStatusRole << UploadDeltaStatusStringRole );
@@ -778,7 +774,6 @@ void QFieldCloudProjectsModel::uploadProject( const QString &projectId, const bo
     // ? should we also check the checksums of the files being uploaded? they are available at deltaFile->attachmentFileNames()->values()
 
     mCloudProjects[index].uploadAttachments.insert( fileName, FileTransfer( fileName, fileSize ) );
-    mCloudProjects[index].uploadAttachmentsBytesTotal += fileSize;
   }
 
   QString deltaFileToUpload = deltaFileWrapper->toFileForUpload();
@@ -835,7 +830,7 @@ void QFieldCloudProjectsModel::uploadProject( const QString &projectId, const bo
 
 
   // //////////
-  // 2) delta successfully uploaded, then send attachments
+  // 2) delta successfully uploaded
   // //////////
   QObject *networkDeltaUploadedParent = new QObject( this ); // we need this to unsubscribe
   connect( this, &QFieldCloudProjectsModel::networkDeltaUploaded, networkDeltaUploadedParent, [ = ]( const QString & uploadedProjectId )
@@ -845,8 +840,7 @@ void QFieldCloudProjectsModel::uploadProject( const QString &projectId, const bo
 
     delete networkDeltaUploadedParent;
 
-    // attachments can be uploaded in the background.
-    // ? what if an attachment fail to be uploaded?
+    // send attachment in a non-blocking fashion
     projectUploadAttachments( projectId );
 
     if ( shouldDownloadUpdates )
@@ -870,7 +864,6 @@ void QFieldCloudProjectsModel::uploadProject( const QString &projectId, const bo
       emit pushFinished( projectId, false );
     }
   } );
-
 
   // //////////
   // 3) new delta status received. Never give up to get a successful status.
@@ -1073,16 +1066,18 @@ void QFieldCloudProjectsModel::projectGetDeltaStatus( const QString &projectId )
 void QFieldCloudProjectsModel::projectUploadAttachments( const QString &projectId )
 {
   const int index = findProject( projectId );
-  QModelIndex idx = createIndex( index, 0 );
+  if ( !mCloudConnection || index == -1 || mCloudProjects[index].uploadAttachments.size() == 0 )
+    return;
 
+  QModelIndex idx = createIndex( index, 0 );
   Q_ASSERT( index >= 0 && index < mCloudProjects.size() );
 
   // start uploading the attachments
-  const QStringList attachmentFileNames;
+  const QStringList attachmentFileNames = mCloudProjects[index].uploadAttachments.keys();
+   mCloudProjects[index].uploadingAttachments = true;
   for ( const QString &fileName : attachmentFileNames )
   {
     NetworkReply *attachmentCloudReply = uploadFile( mCloudProjects[index].id, fileName );
-
     mCloudProjects[index].uploadAttachments[fileName].networkReply = attachmentCloudReply;
 
     connect( attachmentCloudReply, &NetworkReply::uploadProgress, this, [ = ]( int bytesSent, int bytesTotal )
@@ -1102,14 +1097,17 @@ void QFieldCloudProjectsModel::projectUploadAttachments( const QString &projectI
       // if there is an error, don't panic, we continue uploading. The files may be later manually synced.
       if ( attachmentReply->error() != QNetworkReply::NoError )
       {
-        mCloudProjects[index].uploadAttachmentsFailed++;
         QgsMessageLog::logMessage( tr( "Failed to upload attachment stored at \"%1\", reason:\n%2" )
                                    .arg( fileName )
                                    .arg( QFieldCloudConnection::errorString( attachmentReply ) ) );
       }
 
-      mCloudProjects[index].uploadAttachmentsFinished++;
-      mCloudProjects[index].uploadAttachmentsProgress = mCloudProjects[index].uploadAttachmentsFinished / attachmentFileNames.size();
+      mCloudProjects[index].uploadAttachmentsProgress = ( attachmentFileNames.size() - mCloudProjects[index].uploadAttachments.size() ) / attachmentFileNames.size();
+      mCloudProjects[index].uploadAttachments.remove( fileName );
+
+      if ( mCloudProjects[index].uploadAttachments.size() == 0 )
+        mCloudProjects[index].uploadingAttachments = false;
+
       emit dataChanged( idx, idx, QVector<int>() << UploadAttachmentsProgressRole );
     } );
   }
@@ -1117,29 +1115,11 @@ void QFieldCloudProjectsModel::projectUploadAttachments( const QString &projectI
 
 void QFieldCloudProjectsModel::projectCancelUpload( const QString &projectId )
 {
-  if ( ! mCloudConnection )
-    return;
-
   int index = findProject( projectId );
-
-  if ( index == -1 )
+  if ( !mCloudConnection || index == -1 )
     return;
 
-  const QStringList attachmentFileNames = mCloudProjects[index].uploadAttachments.keys();
-  for ( const QString &attachmentFileName : attachmentFileNames )
-  {
-    NetworkReply *attachmentReply = mCloudProjects[index].uploadAttachments[attachmentFileName].networkReply;
-
-    // the replies might be already disposed
-    if ( ! attachmentReply )
-      continue;
-
-    // the replies might be already finished
-    if ( attachmentReply->isFinished() )
-      continue;
-
-    attachmentReply->abort();
-  }
+  projectCancelUploadAttachments( projectId );
 
   mCloudProjects[index].status = ProjectStatus::Idle;
   mCloudProjects[index].errorStatus = UploadErrorStatus;
@@ -1150,6 +1130,30 @@ void QFieldCloudProjectsModel::projectCancelUpload( const QString &projectId )
   emit pushFinished( projectId, true, mCloudProjects[index].deltaFileUploadStatusString );
 
   return;
+}
+
+void QFieldCloudProjectsModel::projectCancelUploadAttachments( const QString &projectId )
+{
+  int index = findProject( projectId );
+  if ( !mCloudConnection || index == -1 )
+    return;
+
+  const QStringList attachmentFileNames = mCloudProjects[index].uploadAttachments.keys();
+  for ( const QString &attachmentFileName : attachmentFileNames )
+  {
+    NetworkReply *attachmentReply = mCloudProjects[index].uploadAttachments[attachmentFileName].networkReply;
+
+    // the replies might be already disposed
+    if ( !attachmentReply )
+      continue;
+
+    // the replies might be already finished
+    if ( attachmentReply->isFinished() )
+      continue;
+
+    attachmentReply->abort();
+  }
+  mCloudProjects[index].uploadingAttachments = false;
 }
 
 void QFieldCloudProjectsModel::connectionStatusChanged()

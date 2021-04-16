@@ -334,12 +334,10 @@ class QFieldCloudProjectsModel : public QAbstractListModel
       double downloadProgress = 0.0; // range from 0.0 to 1.0
 
       QMap<QString, FileTransfer> uploadAttachments;
-      int uploadAttachmentsFinished = 0;
-      int uploadAttachmentsFailed = 0;
-      int uploadAttachmentsBytesTotal = 0;
       double uploadAttachmentsProgress = 0.0; // range from 0.0 to 1.0
-      double uploadDeltaProgress = 0.0; // range from 0.0 to 1.0
+      bool uploadingAttachments;
 
+      double uploadDeltaProgress = 0.0; // range from 0.0 to 1.0
       int deltasCount = 0;
 
       QString lastLocalExport;
@@ -359,6 +357,7 @@ class QFieldCloudProjectsModel : public QAbstractListModel
     std::unique_ptr<DeltaStatusListModel> mDeltaStatusListModel;
 
     void projectCancelUpload( const QString &projectId );
+    void projectCancelUploadAttachments( const QString &projectId );
     void projectUploadAttachments( const QString &projectId );
     void projectApplyDeltas( const QString &projectId );
     void projectGetDeltaStatus( const QString &projectId );
