@@ -261,7 +261,7 @@ class QFieldCloudProjectsModel : public QAbstractListModel
     void connectionStatusChanged();
     void projectListReceived();
 
-    NetworkReply *uploadFile( const QString &projectId, const QString &fileName );
+    NetworkReply *uploadAttachment( const QString &projectId, const QString &fileName );
 
     int findProject( const QString &projectId ) const;
 

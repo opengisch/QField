@@ -767,11 +767,11 @@ void QFieldCloudProjectsModel::uploadProject( const QString &projectId, const bo
   }
   mCloudProjects[index].uploadAttachmentsFailed = 0;
 
-  const QStringList attachmentFileNames = deltaFileWrapper->attachmentFileNames().keys();
+  QStringList attachmentFileNames = deltaFileWrapper->attachmentFileNames().keys();
+  attachmentFileNames << QStringLiteral( "/home/webmaster/.local/share/qfield/profiles/default/cloud_projects/mathieu/a83a3b64-cdb4-4ed0-abb4-4a52a4c06135/test/ramps.xml" );
   for ( const QString &fileName : attachmentFileNames )
   {
     QFileInfo fileInfo( fileName );
-
     if ( !fileInfo.exists() )
     {
       QgsMessageLog::logMessage( QStringLiteral( "Attachment file '%1' does not exist" ).arg( fileName ) );
@@ -1086,7 +1086,7 @@ void QFieldCloudProjectsModel::projectUploadAttachments( const QString &projectI
   emit dataChanged( idx, idx, QVector<int>() << UploadAttachmentsStatusRole);
   for ( const QString &fileName : attachmentFileNames )
   {
-    NetworkReply *attachmentCloudReply = uploadFile( projectId, fileName );
+    NetworkReply *attachmentCloudReply = uploadAttachment( projectId, fileName );
     mCloudProjects[index].uploadAttachments[fileName].networkReply = attachmentCloudReply;
 
     connect( attachmentCloudReply, &NetworkReply::uploadProgress, this, [ = ]( int bytesSent, int bytesTotal )
@@ -1403,9 +1403,12 @@ void QFieldCloudProjectsModel::downloadFileConnections( const QString &projectId
   } );
 }
 
-NetworkReply *QFieldCloudProjectsModel::uploadFile( const QString &projectId, const QString &fileName )
+NetworkReply *QFieldCloudProjectsModel::uploadAttachment( const QString &projectId, const QString &fileName )
 {
-  return mCloudConnection->post( QStringLiteral( "/api/v1/files/%1/%2/" ).arg( projectId, fileName ), QVariantMap(), QStringList( {fileName} ) );
+  QFileInfo projectInfo( QFieldCloudUtils::localProjectFilePath( mUsername, projectId ) );
+  QDir projectDir( projectInfo.absolutePath() );
+  const QString apiPath = projectDir.relativeFilePath( fileName );
+  return mCloudConnection->post( QStringLiteral( "/api/v1/files/%1/%2/" ).arg( projectId, apiPath ), QVariantMap(), QStringList( { fileName } ) );
 }
 
 QHash<int, QByteArray> QFieldCloudProjectsModel::roleNames() const
