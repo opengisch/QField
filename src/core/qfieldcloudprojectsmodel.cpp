@@ -767,11 +767,18 @@ void QFieldCloudProjectsModel::uploadProject( const QString &projectId, const bo
   }
   mCloudProjects[index].uploadAttachmentsFailed = 0;
 
+  const QFileInfo projectInfo( QFieldCloudUtils::localProjectFilePath( mUsername, projectId ) );
+  const QDir projectDir( projectInfo.absolutePath() );
   QStringList attachmentFileNames = deltaFileWrapper->attachmentFileNames().keys();
-  attachmentFileNames << QStringLiteral( "/home/webmaster/.local/share/qfield/profiles/default/cloud_projects/mathieu/a83a3b64-cdb4-4ed0-abb4-4a52a4c06135/test/ramps.xml" );
-  for ( const QString &fileName : attachmentFileNames )
+  for ( QString &fileName : attachmentFileNames )
   {
     QFileInfo fileInfo( fileName );
+    if ( fileInfo.isRelative() )
+    {
+      fileName = projectDir.absoluteFilePath( fileName );
+      fileInfo = QFileInfo( fileName );
+    }
+
     if ( !fileInfo.exists() )
     {
       QgsMessageLog::logMessage( QStringLiteral( "Attachment file '%1' does not exist" ).arg( fileName ) );
@@ -1407,7 +1414,9 @@ NetworkReply *QFieldCloudProjectsModel::uploadAttachment( const QString &project
 {
   QFileInfo projectInfo( QFieldCloudUtils::localProjectFilePath( mUsername, projectId ) );
   QDir projectDir( projectInfo.absolutePath() );
+
   const QString apiPath = projectDir.relativeFilePath( fileName );
+
   return mCloudConnection->post( QStringLiteral( "/api/v1/files/%1/%2/" ).arg( projectId, apiPath ), QVariantMap(), QStringList( { fileName } ) );
 }
 
