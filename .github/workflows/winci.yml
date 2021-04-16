@@ -47,9 +47,9 @@ jobs:
           git fetch --depth 1 origin $VCPKG_SHA
           git checkout FETCH_HEAD
           .\bootstrap-vcpkg.bat
-          mkdir ${{ env.VCPKG_DEFAULT_BINARY_CACHE }}
 
       - name: Restore vcpkg and its artifacts
+        id: cache-vcpkg
         uses: pat-s/always-upload-cache@v2.1.3
         with:
           path: |
@@ -60,7 +60,6 @@ jobs:
           restore-keys: |
             ${{ hashFiles( 'vcpkg.json' ) }}-${{ hashFiles( '.git/modules/vcpkg/HEAD' )}}-${{ env.TRIPLET }}-${{ env.VCPKG_PRESEED_PKGS }}-seed2
 
-      # Target x64 and use the default Windows SDK
       - uses: ilammy/msvc-dev-cmd@v1
 
       - name: Install dependencies and generate project files
@@ -101,6 +100,10 @@ jobs:
         run: |
           Get-PSDrive
 
+  ########################################################
+  # This is just a helper to seed the cache so we can stay
+  # within the github job time limit of 6 hours
+  ########################################################
   build-seed2:
     needs: build-seed
     name: Build other deps
@@ -118,21 +121,6 @@ jobs:
         with:
           submodules: recursive
 
-      - name: Install CMake and Ninja
-        uses: lukka/get-cmake@latest
-
-      - name: Bootstrap vcpkg
-        run: |
-          $VCPKG_SHA = Get-Content .git/modules/vcpkg/HEAD -First 1
-          mkdir "${{ env.VCPKG_ROOT }}"
-          cd "${{ env.VCPKG_ROOT }}"
-          git init
-          git remote add origin https://github.com/m-kuhn/vcpkg.git
-          git fetch --depth 1 origin $VCPKG_SHA
-          git checkout FETCH_HEAD
-          .\bootstrap-vcpkg.bat
-          mkdir ${{ env.VCPKG_DEFAULT_BINARY_CACHE }}
-
       - name: Restore vcpkg and its artifacts
         uses: pat-s/always-upload-cache@v2.1.3
         with:
@@ -144,13 +132,33 @@ jobs:
           restore-keys: |
             ${{ hashFiles( 'vcpkg.json' ) }}-${{ hashFiles( '.git/modules/vcpkg/HEAD' )}}-${{ env.TRIPLET }}-${{ env.VCPKG_PRESEED_PKGS }}-seed
 
-      # Target x64 and use the default Windows SDK
+      - name: Install CMake and Ninja
+        if: steps.cache-vcpkg.outputs.cache-hit != 'true'
+        uses: lukka/get-cmake@latest
+
+      - name: Bootstrap vcpkg
+        if: steps.cache-vcpkg.outputs.cache-hit != 'true'
+        run: |
+          $VCPKG_SHA = Get-Content .git/modules/vcpkg/HEAD -First 1
+          mkdir "${{ env.VCPKG_ROOT }}"
+          cd "${{ env.VCPKG_ROOT }}"
+          git init
+          git remote add origin https://github.com/m-kuhn/vcpkg.git
+          git fetch --depth 1 origin $VCPKG_SHA
+          git checkout FETCH_HEAD
+          .\bootstrap-vcpkg.bat
+
+
       - uses: ilammy/msvc-dev-cmd@v1
+        if: steps.cache-vcpkg.outputs.cache-hit != 'true'
 
       - name: Install dependencies and generate project files
+        if: steps.cache-vcpkg.outputs.cache-hit != 'true'
         run: |
           cmake -S "${{ github.workspace }}" -B "${{ env.CMAKE_BUILD_DIR }}" -GNinja -DCMAKE_BUILD_TYPE=Release -DCMAKE_TOOLCHAIN_FILE="${{ env.VCPKG_ROOT }}/scripts/buildsystems/vcpkg.cmake"
 
+      # Left for debugging purpose
+      #
       # - name: Upload Build Logs
       #   uses: actions/upload-artifact@v2
       #   if: always()
@@ -158,8 +166,10 @@ jobs:
       #     name: build-logs
       #     path: C:/src/buildtrees/**/*.log
 
+  ########################################################
   # This is just a helper to seed the cache so we can stay
   # within the github job time limit of 6 hours
+  ########################################################
   build-seed:
     name: Build Qt
     runs-on: windows-latest
@@ -170,24 +180,10 @@ jobs:
 
     steps:
       - name: Checkout
+        if: steps.cache-vcpkg.outputs.cache-hit != 'true'
         uses: actions/checkout@v2
         with:
           submodules: recursive
-
-      - name: Install CMake and Ninja
-        uses: lukka/get-cmake@latest
-
-      - name: Bootstrap vcpkg
-        run: |
-          $VCPKG_SHA = Get-Content .git/modules/vcpkg/HEAD -First 1
-          mkdir "${{ env.VCPKG_ROOT }}"
-          cd "${{ env.VCPKG_ROOT }}"
-          git init
-          git remote add origin https://github.com/m-kuhn/vcpkg.git
-          git fetch --depth 1 origin $VCPKG_SHA
-          git checkout FETCH_HEAD
-          .\bootstrap-vcpkg.bat
-          mkdir ${{ env.VCPKG_DEFAULT_BINARY_CACHE }}
 
       - name: Restore vcpkg and its artifacts
         id: cache-vcpkg
@@ -198,6 +194,22 @@ jobs:
             ${{ env.VCPKG_ROOT }}/installed
           key: |
             ${{ hashFiles( 'vcpkg.json' ) }}-${{ hashFiles( '.git/modules/vcpkg/HEAD' )}}-${{ env.TRIPLET }}-${{ env.VCPKG_PRESEED_PKGS }}-seed
+
+      - name: Install CMake and Ninja
+        if: steps.cache-vcpkg.outputs.cache-hit != 'true'
+        uses: lukka/get-cmake@latest
+
+      - name: Bootstrap vcpkg
+        if: steps.cache-vcpkg.outputs.cache-hit != 'true'
+        run: |
+          $VCPKG_SHA = Get-Content .git/modules/vcpkg/HEAD -First 1
+          mkdir "${{ env.VCPKG_ROOT }}"
+          cd "${{ env.VCPKG_ROOT }}"
+          git init
+          git remote add origin https://github.com/m-kuhn/vcpkg.git
+          git fetch --depth 1 origin $VCPKG_SHA
+          git checkout FETCH_HEAD
+          .\bootstrap-vcpkg.bat
 
       - name: Preseed Qt
         if: steps.cache-vcpkg.outputs.cache-hit != 'true'
