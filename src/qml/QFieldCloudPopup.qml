@@ -438,7 +438,17 @@ Popup {
             }
             wrapMode: Text.WordWrap
             horizontalAlignment: Text.AlignHCenter
-            Layout.bottomMargin: 10
+            Layout.fillWidth: true
+          }
+
+          Text {
+            font: Theme.tipFont
+            color: Theme.mainColor
+            text: cloudProjectsModel.currentProjectData.UploadAttachmentsStatus === QFieldCloudProjectsModel.UploadAttachmentsInProgress
+                  ? qsTr( 'Attachments are currently uploaded in the background' )
+                  : ''
+            wrapMode: Text.WordWrap
+            horizontalAlignment: Text.AlignHCenter
             Layout.fillWidth: true
           }
         }

@@ -767,8 +767,7 @@ void QFieldCloudProjectsModel::uploadProject( const QString &projectId, const bo
   }
   mCloudProjects[index].uploadAttachmentsFailed = 0;
 
-  QStringList attachmentFileNames = deltaFileWrapper->attachmentFileNames().keys();
-  attachmentFileNames << QString( "/home/webmaster/Desktop/transparent.png" );
+  const QStringList attachmentFileNames = deltaFileWrapper->attachmentFileNames().keys();
   for ( const QString &fileName : attachmentFileNames )
   {
     QFileInfo fileInfo( fileName );
@@ -1100,6 +1099,7 @@ void QFieldCloudProjectsModel::projectUploadAttachments( const QString &projectI
     connect( attachmentCloudReply, &NetworkReply::finished, this, [ = ]()
     {
       QNetworkReply *attachmentReply = attachmentCloudReply->reply();
+      attachmentCloudReply->deleteLater();
 
       Q_ASSERT( attachmentCloudReply->isFinished() );
       Q_ASSERT( attachmentReply );
@@ -1424,6 +1424,7 @@ QHash<int, QByteArray> QFieldCloudProjectsModel::roleNames() const
   roles[DownloadProgressRole] = "DownloadProgress";
   roles[ExportStatusRole] = "ExportStatus";
   roles[ExportedLayerErrorsRole] = "ExportedLayerErrors";
+  roles[UploadAttachmentsStatusRole] = "UploadAttachmentsStatus";
   roles[UploadAttachmentsProgressRole] = "UploadAttachmentsProgress";
   roles[UploadDeltaProgressRole] = "UploadDeltaProgress";
   roles[UploadDeltaStatusRole] = "UploadDeltaStatus";
