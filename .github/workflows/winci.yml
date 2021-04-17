@@ -25,7 +25,7 @@ jobs:
     env:
       VCPKG_ROOT: 'C:/src'
       CMAKE_BUILD_DIR: C:/builddir/
-      VCPKG_DEFAULT_BINARY_CACHE: C:/vcpkg_cache
+      VCPKG_DEFAULT_BINARY_CACHE: D:/vcpkg_cache
       TX_TOKEN: ${{ secrets.TX_TOKEN }}
 
     steps:
@@ -112,7 +112,7 @@ jobs:
     env:
       VCPKG_ROOT: 'C:/src'
       CMAKE_BUILD_DIR: C:/builddir/
-      VCPKG_DEFAULT_BINARY_CACHE: C:/vcpkg_cache
+      VCPKG_DEFAULT_BINARY_CACHE: D:/vcpkg_cache
 
     steps:
       - name: Checkout
@@ -175,7 +175,7 @@ jobs:
     env:
       VCPKG_ROOT: 'C:/src'
       CMAKE_BUILD_DIR: C:/builddir/
-      VCPKG_DEFAULT_BINARY_CACHE: C:/vcpkg_cache
+      VCPKG_DEFAULT_BINARY_CACHE: D:/vcpkg_cache
 
     steps:
       - name: Checkout
