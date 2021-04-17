@@ -133,7 +133,7 @@ jobs:
       - name: Debug
         shell: bash
         run: |
-          ls -al "C:"
+          ls -al "/mnt/c"
           ls -al ${VCPKG_ROOT}
 
 
