@@ -57,7 +57,7 @@ jobs:
           key: |
             ${{ hashFiles( 'vcpkg.json' ) }}-${{ hashFiles( '.git/modules/vcpkg/HEAD' )}}-${{ env.TRIPLET }}-qgis
           restore-keys: |
-            ${{ hashFiles( 'vcpkg.json' ) }}-${{ hashFiles( '.git/modules/vcpkg/HEAD' )}}-${{ env.TRIPLET }}-${{ env.VCPKG_PRESEED_PKGS }}-seed2
+            ${{ hashFiles( 'vcpkg.json' ) }}-${{ hashFiles( '.git/modules/vcpkg/HEAD' )}}-${{ env.TRIPLET }}-seed2
 
       - uses: ilammy/msvc-dev-cmd@v1
 
@@ -125,7 +125,6 @@ jobs:
         with:
           path: |
             ${{ env.VCPKG_DEFAULT_BINARY_CACHE }}
-            ${{ env.VCPKG_ROOT }}/installed
           key: |
             ${{ hashFiles( 'vcpkg.json' ) }}-${{ hashFiles( '.git/modules/vcpkg/HEAD' )}}-${{ env.TRIPLET }}-seed2
           restore-keys: |
@@ -179,7 +178,6 @@ jobs:
 
     steps:
       - name: Checkout
-        if: steps.cache-vcpkg.outputs.cache-hit != 'true'
         uses: actions/checkout@v2
         with:
           submodules: recursive
@@ -209,7 +207,7 @@ jobs:
           git checkout FETCH_HEAD
           .\bootstrap-vcpkg.bat
 
-      - name: Preseed Qt
+      - name: Build vcpkg
         if: steps.cache-vcpkg.outputs.cache-hit != 'true'
         run: |
           cd ${{ env.VCPKG_ROOT }}
