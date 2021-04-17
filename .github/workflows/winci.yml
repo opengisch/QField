@@ -190,6 +190,8 @@ jobs:
             ${{ env.VCPKG_DEFAULT_BINARY_CACHE }}
           key: |
             ${{ hashFiles( 'vcpkg.json' ) }}-${{ hashFiles( '.git/modules/vcpkg/HEAD' )}}-${{ env.TRIPLET }}-${{ env.VCPKG_PRESEED_PKGS }}-seed
+          restore-keys: |
+            ${{ hashFiles( 'vcpkg.json' ) }}-${{ hashFiles( '.git/modules/vcpkg/HEAD' )}}-${{ env.TRIPLET }}-seed2
 
       - name: Install CMake and Ninja
         if: steps.cache-vcpkg.outputs.cache-hit != 'true'
@@ -200,6 +202,7 @@ jobs:
         run: |
           $VCPKG_SHA = Get-Content .git/modules/vcpkg/HEAD -First 1
           mkdir "${{ env.VCPKG_ROOT }}"
+          mkdir "${{ env.VCPKG_DEFAULT_BINARY_CACHE }}"
           cd "${{ env.VCPKG_ROOT }}"
           git init
           git remote add origin https://github.com/m-kuhn/vcpkg.git
