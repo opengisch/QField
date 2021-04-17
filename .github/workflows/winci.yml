@@ -130,6 +130,13 @@ jobs:
           restore-keys: |
             ${{ hashFiles( 'vcpkg.json' ) }}-${{ hashFiles( '.git/modules/vcpkg/HEAD' )}}-${{ env.TRIPLET }}-${{ env.VCPKG_PRESEED_PKGS }}-seed
 
+      - name: Debug
+        shell: bash
+        run: |
+          ls -al "C:"
+          ls -al ${VCPKG_ROOT}
+
+
       - name: Install CMake and Ninja
         if: steps.cache-vcpkg.outputs.cache-hit != 'true'
         uses: lukka/get-cmake@latest
@@ -153,7 +160,7 @@ jobs:
       - name: Install dependencies and generate project files
         if: steps.cache-vcpkg.outputs.cache-hit != 'true'
         run: |
-          cmake -S "${{ github.workspace }}" -B "${{ env.CMAKE_BUILD_DIR }}" -GNinja -DCMAKE_BUILD_TYPE=Release -DCMAKE_TOOLCHAIN_FILE="${{ env.VCPKG_ROOT }}/scripts/buildsystems/vcpkg.cmake"
+          cmake -S "${{ github.workspace }}" -B "${{ env.CMAKE_BUILD_DIR }}" -GNinja -DCMAKE_BUILD_TYPE=${{ matrix.build-type }} -DCMAKE_TOOLCHAIN_FILE="${{ env.VCPKG_ROOT }}/scripts/buildsystems/vcpkg.cmake"
 
       # Left for debugging purpose
       #
@@ -214,4 +221,4 @@ jobs:
         if: steps.cache-vcpkg.outputs.cache-hit != 'true'
         run: |
           cd ${{ env.VCPKG_ROOT }}
-          .\vcpkg.exe install --triplet ${{ env.TRIPLET }} ${{ env.VCPKG_PRESEED_PKGS }}
+          .\vcpkg.exe nstall --triplet ${{ env.TRIPLET }} ${{ env.VCPKG_PRESEED_PKGS }}
