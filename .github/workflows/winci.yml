@@ -215,4 +215,4 @@ jobs:
         if: steps.cache-vcpkg.outputs.cache-hit != 'true'
         run: |
           cd ${{ env.VCPKG_ROOT }}
-          .\vcpkg.exe nstall --triplet ${{ env.TRIPLET }} ${{ env.VCPKG_PRESEED_PKGS }}
+          .\vcpkg.exe install --triplet ${{ env.TRIPLET }} ${{ env.VCPKG_PRESEED_PKGS }}
