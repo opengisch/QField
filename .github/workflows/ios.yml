@@ -53,16 +53,17 @@ jobs:
         modules: 'qtcharts'
         cached: ${{ steps.cache-qt.outputs.cache-hit }}
 
-    - name: 🔥 Delete Qt built-in styles (QField use Material)
+    - name: 🔥 Delete Qt built-in styles (QField use Material) and debug libs
       run: |
         rm -rf ${Qt5_Dir}/qml/QtQuick/Controls.2/designer
         rm -rf ${Qt5_Dir}/qml/QtQuick/Controls.2/Fusion
         rm -rf ${Qt5_Dir}/qml/QtQuick/Controls.2/Imagine
         rm -rf ${Qt5_Dir}/qml/QtQuick/Controls.2/Universal
-        du -hs ${Qt5_Dir}/*/*
+        rm -rf ${Qt5_Dir}/lib/*_debug.*
       shell: bash
 
     - uses: Apple-Actions/import-codesign-certs@v1
+      if: github.repository == 'opengisch/QField'
       with:
         p12-file-base64: ${{ secrets.IOS_CERTIFICATES_FILE_BASE64 }}
         p12-password: ${{ secrets.IOS_CERTIFICATES_PASSWORD }}
