@@ -130,12 +130,6 @@ jobs:
           restore-keys: |
             ${{ hashFiles( 'vcpkg.json' ) }}-${{ hashFiles( '.git/modules/vcpkg/HEAD' )}}-${{ env.TRIPLET }}-${{ env.VCPKG_PRESEED_PKGS }}-seed
 
-      - name: Debug
-        shell: bash
-        run: |
-          ls -al "/mnt/c"
-          ls -al ${VCPKG_ROOT}
-
 
       - name: Install CMake and Ninja
         if: steps.cache-vcpkg.outputs.cache-hit != 'true'
