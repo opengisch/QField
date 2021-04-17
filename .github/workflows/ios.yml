@@ -59,6 +59,7 @@ jobs:
         rm -rf ${Qt5_Dir}/qml/QtQuick/Controls.2/Fusion
         rm -rf ${Qt5_Dir}/qml/QtQuick/Controls.2/Imagine
         rm -rf ${Qt5_Dir}/qml/QtQuick/Controls.2/Universal
+        du -hs ${Qt5_Dir}/*/*
       shell: bash
 
     - uses: Apple-Actions/import-codesign-certs@v1
