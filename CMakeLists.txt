@@ -119,7 +119,7 @@ find_package(Qt5 COMPONENTS Test Concurrent Core Qml Gui Xml Positioning Widgets
 find_package(Qt5 COMPONENTS PrintSupport QUIET)
 
 find_package(QGIS REQUIRED)
-if(NOT APPLE)
+if(NOT iOS)
   find_package(Proj)
   find_package(GDAL)
 endif()
