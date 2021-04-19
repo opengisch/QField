@@ -161,21 +161,22 @@ Popup {
           id: statusText
           visible: cloudProjectsModel.currentProjectData.Status === QFieldCloudProjectsModel.Downloading ||
                    cloudProjectsModel.currentProjectData.Status === QFieldCloudProjectsModel.Uploading
-          font: Theme.defaultFont
+          font: Theme.tipFont
+          color: Theme.gray
           text: switch(cloudProjectsModel.currentProjectData.Status ) {
                   case QFieldCloudProjectsModel.Downloading:
                     switch ( cloudProjectsModel.currentProjectData.ExportStatus ) {
                       case QFieldCloudProjectsModel.ExportFinishedStatus:
                         return qsTr('Downloading %1%…').arg( parseInt(cloudProjectsModel.currentProjectData.DownloadProgress * 100) )
                       default:
-                        return qsTr('QFieldCloud is preparing the latest data just for you.\nThis might take some time, please hold tight…')
+                        return qsTr('QFieldCloud is preparing the latest data just for you. This might take some time, please hold tight…')
                     }
                   case QFieldCloudProjectsModel.Uploading:
                     switch ( cloudProjectsModel.currentProjectData.UploadDeltaStatus ) {
                       case QFieldCloudProjectsModel.DeltaFileLocalStatus:
                         return qsTr('Uploading %1%…').arg( parseInt(cloudProjectsModel.currentProjectData.UploadDeltaProgress * 100) );
                       default:
-                        return qsTr('QFieldCloud is applying the latest uploaded changes.\nThis might take some time, please hold tight…')
+                        return qsTr('QFieldCloud is applying the latest uploaded changes. This might take some time, please hold tight…')
                     }
                   default: '';
                 }
@@ -183,8 +184,7 @@ Popup {
           wrapMode: Text.WordWrap
           horizontalAlignment: Text.AlignHCenter
           Layout.fillWidth: true
-          Layout.leftMargin: 10
-          Layout.rightMargin: 10
+          Layout.margins: 10
         }
 
         Rectangle {
