@@ -189,7 +189,7 @@ CloudUserInformation QFieldCloudConnection::userInformation() const
 
 void QFieldCloudConnection::login()
 {
-  NetworkReply *reply = ( ! mToken.isEmpty() && ( mPassword.isEmpty() || mUsername.isEmpty() ) )
+  NetworkReply *reply = ( !mToken.isEmpty() && ( mPassword.isEmpty() || mUsername.isEmpty() ) )
         ? get( QStringLiteral( "/api/v1/auth/user/" ) )
         : post( QStringLiteral( "/api/v1/auth/token/" ), QVariantMap({
                          {"username", mUsername},
@@ -224,11 +224,17 @@ void QFieldCloudConnection::login()
       {
         emit loginFailed( tr( "Wrong username or password" ) );
       }
+      else if ( httpCode == 401 )
+      {
+        emit loginFailed( tr( "Session expired" ) );
+        invalidateToken();
+      }
       else
       {
         QString message( errorString( rawReply ) );
         emit loginFailed( message );
       }
+
       setStatus( ConnectionStatus::Disconnected );
       return;
     }
@@ -276,7 +282,6 @@ void QFieldCloudConnection::logout()
 
   mPassword.clear();
   invalidateToken();
-  QSettings().remove( "/QFieldCloud/token" );
 
   mAvatarUrl.clear();
   emit avatarUrlChanged();
@@ -342,7 +347,23 @@ NetworkReply *QFieldCloudConnection::post( const QString &endpoint, const QVaria
 
   mPendingRequests++;
   setState( ConnectionState::Busy );
-  connect( reply, &NetworkReply::finished, this, [=]() { if ( --mPendingRequests == 0 ) setState( ConnectionState::Idle ); } );
+  connect( reply, &NetworkReply::finished, this, [=]() {
+    QNetworkReply *rawReply = reply->reply();
+    if ( --mPendingRequests == 0 )
+    {
+      if ( rawReply->error() != QNetworkReply::NoError )
+      {
+        int httpCode = rawReply->attribute( QNetworkRequest::HttpStatusCodeAttribute ).toInt();
+        if ( httpCode == 401 )
+        {
+          // Access token has been invalidated remotely
+          invalidateToken();
+          setStatus( ConnectionStatus::Disconnected );
+        }
+      }
+      setState( ConnectionState::Idle );
+    }
+  } );
 
   return reply;
 }
@@ -387,7 +408,23 @@ NetworkReply *QFieldCloudConnection::get( QNetworkRequest &request, const QUrl &
 
   mPendingRequests++;
   setState( ConnectionState::Busy );
-  connect( reply, &NetworkReply::finished, this, [=]() { if ( --mPendingRequests == 0 ) setState( ConnectionState::Idle ); } );
+  connect( reply, &NetworkReply::finished, this, [=]() {
+    QNetworkReply *rawReply = reply->reply();
+    if ( --mPendingRequests == 0 )
+    {
+      if ( rawReply->error() != QNetworkReply::NoError )
+      {
+        int httpCode = rawReply->attribute( QNetworkRequest::HttpStatusCodeAttribute ).toInt();
+        if ( httpCode == 401 )
+        {
+          // Access token has been invalidated remotely
+          invalidateToken();
+          setStatus( ConnectionStatus::Disconnected );
+        }
+      }
+      setState( ConnectionState::Idle );
+    }
+  } );
 
   return reply;
 }
@@ -409,6 +446,8 @@ void QFieldCloudConnection::invalidateToken()
     return;
 
   mToken = QByteArray();
+  QSettings().remove( "/QFieldCloud/token" );
+
   emit tokenChanged();
 }
 

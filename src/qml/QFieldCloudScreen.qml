@@ -181,6 +181,7 @@ Page {
                 filter: filterBar.currentIndex === 0
                     ? QFieldCloudProjectsFilterModel.PrivateProjects
                     : QFieldCloudProjectsFilterModel.PublicProjects
+                showLocalOnly: cloudConnection.status !== QFieldCloudConnection.LoggedIn
             }
 
             anchors.fill: parent

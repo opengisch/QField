@@ -18,6 +18,7 @@ Popup {
 
       showCancelButton: false
       showApplyButton: cloudProjectsModel.currentProjectData.Status === QFieldCloudProjectsModel.Idle
+            || cloudConnection.status === QFieldCloudConnection.Disconnected
       busyIndicatorState: cloudConnection.status === QFieldCloudConnection.Connecting
             || cloudProjectsModel.currentProjectData.Status === QFieldCloudProjectsModel.Uploading
             || cloudProjectsModel.currentProjectData.Status === QFieldCloudProjectsModel.Downloading
@@ -451,7 +452,6 @@ Popup {
 
     function onStatusChanged() {
       if (cloudConnection.status === QFieldCloudConnection.Disconnected) {
-        visible = false
         displayToast(qsTr('Logged out'))
       } else if (cloudConnection.status === QFieldCloudConnection.Connecting) {
         displayToast(qsTr('Connecting...'))

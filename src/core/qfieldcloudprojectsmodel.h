@@ -398,6 +398,7 @@ class QFieldCloudProjectsFilterModel : public QSortFilterProxyModel
 
     Q_PROPERTY( QFieldCloudProjectsModel *projectsModel READ projectsModel WRITE setProjectsModel NOTIFY projectsModelChanged )
     Q_PROPERTY( ProjectsFilter filter READ filter WRITE setFilter NOTIFY filterChanged )
+    Q_PROPERTY( bool showLocalOnly READ showLocalOnly WRITE setShowLocalOnly NOTIFY showLocalOnlyChanged )
 
   public:
 
@@ -431,10 +432,21 @@ class QFieldCloudProjectsFilterModel : public QSortFilterProxyModel
      */
     void setFilter( ProjectsFilter filter );
 
+    /**
+     * Returns whether the filtered cloud projects list will only contain those available locally.
+     */
+    bool showLocalOnly() const;
+
+    /**
+     * Sets whether the filtered cloud projects list will only contain those available locally.
+     */
+    void setShowLocalOnly( bool showLocalOnly );
+
   signals:
 
     void projectsModelChanged();
     void filterChanged();
+    void showLocalOnlyChanged();
 
   protected:
 
@@ -444,6 +456,7 @@ class QFieldCloudProjectsFilterModel : public QSortFilterProxyModel
 
     QFieldCloudProjectsModel *mSourceModel = nullptr;
     ProjectsFilter mFilter = PrivateProjects;
+    bool mShowLocalOnly = false;
 };
 
 Q_DECLARE_METATYPE( QFieldCloudProjectsFilterModel::ProjectsFilter )

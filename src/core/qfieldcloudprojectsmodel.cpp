@@ -191,8 +191,8 @@ void QFieldCloudProjectsModel::refreshProjectsList()
     }
     case QFieldCloudConnection::ConnectionStatus::Disconnected:
     {
-      QJsonArray projects;
-      reload( projects );
+      // Nothing done at the moment; since the connection can be disconnected after discovering
+      // a token has been invalidated, be careful with what is added here.
       break;
     }
     case QFieldCloudConnection::ConnectionStatus::Connecting:
@@ -1742,8 +1742,30 @@ QFieldCloudProjectsFilterModel::ProjectsFilter QFieldCloudProjectsFilterModel::f
   return mFilter;
 }
 
+void QFieldCloudProjectsFilterModel::setShowLocalOnly( bool showLocalOnly )
+{
+  if ( mShowLocalOnly == showLocalOnly)
+    return;
+
+  mShowLocalOnly = showLocalOnly;
+  invalidateFilter();
+
+  emit showLocalOnlyChanged();
+}
+
+bool QFieldCloudProjectsFilterModel::showLocalOnly() const
+{
+  return mShowLocalOnly;
+}
+
 bool QFieldCloudProjectsFilterModel::filterAcceptsRow( int source_row, const QModelIndex &source_parent ) const
 {
+  if ( mShowLocalOnly &&
+       mSourceModel->data( mSourceModel->index( source_row, 0, source_parent ), QFieldCloudProjectsModel::LocalPathRole ).toString().isEmpty() )
+  {
+    return false;
+  }
+
   bool ok = false;
   switch( mFilter )
   {
