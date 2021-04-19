@@ -451,6 +451,14 @@ Popup {
             wrapMode: Text.WordWrap
             horizontalAlignment: Text.AlignHCenter
             Layout.fillWidth: true
+
+            MouseArea {
+              anchors.fill: parent
+              onClicked: {
+                qfieldCloudDeltaHistory.model = cloudProjectsModel.currentProjectData.DeltaList
+                qfieldCloudDeltaHistory.open()
+              }
+            }
           }
         }
       }
@@ -467,6 +475,8 @@ Popup {
         displayToast(qsTr('Connecting...'))
       } else if (cloudConnection.status === QFieldCloudConnection.LoggedIn) {
         displayToast(qsTr('Logged in'))
+        if ( cloudProjectsModel.currentProjectId != '' )
+          cloudProjectsModel.refreshProjectDeltaList(cloudProjectsModel.currentProjectId)
       }
     }
   }
@@ -539,6 +549,8 @@ Popup {
 
     if ( cloudProjectsModel.currentProjectId && cloudConnection.hasToken && cloudConnection.status === QFieldCloudConnection.Disconnected )
       cloudConnection.login();
+    else if ( cloudProjectsModel.currentProjectId != '' )
+      cloudProjectsModel.refreshProjectDeltaList(cloudProjectsModel.currentProjectId)
 
     if ( cloudConnection.status === QFieldCloudConnection.Connectiong )
       displayToast(qsTr('Connecting cloud'))

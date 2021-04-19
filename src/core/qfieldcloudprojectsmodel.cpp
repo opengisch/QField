@@ -155,6 +155,7 @@ void QFieldCloudProjectsModel::setCurrentProjectId( const QString &currentProjec
     return;
 
   mCurrentProjectId = currentProjectId;
+
   emit currentProjectIdChanged();
   emit currentProjectDataChanged();
 }
@@ -1019,17 +1020,13 @@ void QFieldCloudProjectsModel::projectApplyDeltas( const QString &projectId )
   } );
 }
 
-
-void QFieldCloudProjectsModel::projectGetDeltaStatus( const QString &projectId )
+void QFieldCloudProjectsModel::refreshProjectDeltaList( const QString &projectId )
 {
   const int index = findProject( projectId );
+  if ( index < 0 || index >= mCloudProjects.size() )
+    return;
 
-  Q_ASSERT( index >= 0 && index < mCloudProjects.size() );
-
-  QModelIndex idx = createIndex( index, 0 );
-  NetworkReply *deltaStatusReply = mCloudConnection->get( QStringLiteral( "/api/v1/deltas/%1/%2/" ).arg( mCloudProjects[index].id, mCloudProjects[index].deltaFileId ) );
-
-  mCloudProjects[index].deltaFileUploadStatusString = QString();
+  NetworkReply *deltaStatusReply = mCloudConnection->get( QStringLiteral( "/api/v1/deltas/%1/" ).arg( mCloudProjects[index].id ) );
 
   connect( deltaStatusReply, &NetworkReply::finished, this, [ = ]()
   {
@@ -1038,6 +1035,46 @@ void QFieldCloudProjectsModel::projectGetDeltaStatus( const QString &projectId )
 
     Q_ASSERT( deltaStatusReply->isFinished() );
     Q_ASSERT( rawReply );
+
+    const int index = findProject( projectId );
+    QModelIndex idx = createIndex( index, 0 );
+
+    if ( rawReply->error() != QNetworkReply::NoError )
+    {
+      return;
+    }
+
+    const QJsonDocument doc = QJsonDocument::fromJson( rawReply->readAll() );
+
+    if ( mCloudProjects[index].deltaListModel )
+      delete mCloudProjects[index].deltaListModel;
+
+    mCloudProjects[index].deltaListModel = new DeltaListModel( doc );
+
+    emit dataChanged( idx, idx,  QVector<int>() << DeltaListRole );
+    emit networkDeltaStatusChecked( projectId );
+  } );
+}
+
+void QFieldCloudProjectsModel::projectGetDeltaStatus( const QString &projectId )
+{
+  const int index = findProject( projectId );
+  if ( index < 0 || index >= mCloudProjects.size() )
+    return;
+
+  NetworkReply *deltaStatusReply = mCloudConnection->get( QStringLiteral( "/api/v1/deltas/%1/%2/" ).arg( mCloudProjects[index].id, mCloudProjects[index].deltaFileId ) );
+
+  mCloudProjects[index].deltaFileUploadStatusString = QString();
+  connect( deltaStatusReply, &NetworkReply::finished, this, [ = ]()
+  {
+    QNetworkReply *rawReply = deltaStatusReply->reply();
+    deltaStatusReply->deleteLater();
+
+    Q_ASSERT( deltaStatusReply->isFinished() );
+    Q_ASSERT( rawReply );
+
+    const int index = findProject( projectId );
+    QModelIndex idx = createIndex( index, 0 );
 
     if ( rawReply->error() != QNetworkReply::NoError )
     {
@@ -1053,12 +1090,14 @@ void QFieldCloudProjectsModel::projectGetDeltaStatus( const QString &projectId )
 
     const QJsonDocument doc = QJsonDocument::fromJson( rawReply->readAll() );
 
-    mDeltaStatusListModel = std::make_unique<DeltaStatusListModel>( doc );
+    if ( mCloudProjects[index].deltaListModel )
+      delete mCloudProjects[index].deltaListModel;
 
-    if ( ! mDeltaStatusListModel->isValid() )
+    DeltaListModel deltaListModel( doc );
+    if ( !deltaListModel.isValid() )
     {
       mCloudProjects[index].deltaFileUploadStatus = DeltaErrorStatus;
-      mCloudProjects[index].deltaFileUploadStatusString = mDeltaStatusListModel->errorString();
+      mCloudProjects[index].deltaFileUploadStatusString = deltaListModel.errorString();
       emit dataChanged( idx, idx,  QVector<int>() << UploadDeltaStatusRole << UploadDeltaStatusStringRole );
       emit networkDeltaStatusChecked( projectId );
       return;
@@ -1066,16 +1105,13 @@ void QFieldCloudProjectsModel::projectGetDeltaStatus( const QString &projectId )
 
     mCloudProjects[index].deltaFileUploadStatusString = QString();
 
-    if ( ! mDeltaStatusListModel->allHaveFinalStatus() )
+    if ( !deltaListModel.allHaveFinalStatus() )
     {
       mCloudProjects[index].deltaFileUploadStatus = DeltaPendingStatus;
       emit dataChanged( idx, idx,  QVector<int>() << UploadDeltaStatusRole << UploadDeltaStatusStringRole );
       emit networkDeltaStatusChecked( projectId );
       return;
     }
-
-    // probably reseting the uniq ptr is not needed here, but it will be clear when the Delta Status UI is created
-    mDeltaStatusListModel.reset();
 
     mCloudProjects[index].deltaFileUploadStatus = DeltaAppliedStatus;
 
@@ -1452,6 +1488,7 @@ QHash<int, QByteArray> QFieldCloudProjectsModel::roleNames() const
   roles[LastLocalExportRole] = "LastLocalExport";
   roles[LastLocalPushDeltasRole] = "LastLocalPushDeltas";
   roles[UserRoleRole] = "UserRole";
+  roles[DeltaListRole] = "DeltaList";
 
   return roles;
 }
@@ -1529,7 +1566,7 @@ void QFieldCloudProjectsModel::reload( const QJsonArray &remoteProjects )
       const QString projectId = projectDirs.fileName();
       int index = findProject( projectId );
       if ( index != -1 )
-        continue;
+        return;
 
       const QString projectPrefix = QStringLiteral( "QFieldCloud/projects/%1" ).arg( projectId );
       if ( !QSettings().contains( QStringLiteral( "%1/name" ).arg( projectPrefix ) ) )
@@ -1623,6 +1660,8 @@ QVariant QFieldCloudProjectsModel::data( const QModelIndex &index, int role ) co
       return mCloudProjects.at( index.row() ).lastLocalPushDeltas;
     case UserRoleRole:
       return mCloudProjects.at( index.row() ).userRole;
+    case DeltaListRole:
+      return QVariant::fromValue<DeltaListModel *>( mCloudProjects.at( index.row() ).deltaListModel );
   }
 
   return QVariant();

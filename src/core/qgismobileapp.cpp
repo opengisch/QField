@@ -139,6 +139,7 @@
 #include "qfieldcloudutils.h"
 #include "layerobserver.h"
 #include "deltafilewrapper.h"
+#include "deltalistmodel.h"
 
 
 #define QUOTE(string) _QUOTE(string)
@@ -407,6 +408,7 @@ void QgisMobileapp::initDeclarative()
   qmlRegisterType<QFieldCloudConnection>( "org.qfield", 1, 0, "QFieldCloudConnection" );
   qmlRegisterType<QFieldCloudProjectsModel>( "org.qfield", 1, 0, "QFieldCloudProjectsModel" );
   qmlRegisterType<QFieldCloudProjectsFilterModel>( "org.qfield", 1, 0, "QFieldCloudProjectsFilterModel" );
+  qmlRegisterType<DeltaListModel>( "org.qfield", 1, 0, "DeltaListModel" );
 
   qRegisterMetaType<GnssPositionInformation>( "GnssPositionInformation" );
 

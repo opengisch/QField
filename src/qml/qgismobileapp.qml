@@ -2025,6 +2025,14 @@ ApplicationWindow {
     onWarning: displayToast( message )
   }
 
+  QFieldCloudDeltaHistory {
+      id: qfieldCloudDeltaHistory
+
+      modal: true
+      closePolicy: Popup.CloseOnEscape | Popup.CloseOnPressOutside
+      parent: ApplicationWindow.overlay
+  }
+
   QFieldCloudScreen {
     id: qfieldCloudScreen
 

@@ -1,5 +1,5 @@
 /***************************************************************************
-    deltastatuslistmodel.cpp
+    deltalistmodel.cpp
     ---------------------
     begin                : December 2020
     copyright            : (C) 2020 by Ivan Ivanov
@@ -13,12 +13,12 @@
  *                                                                         *
  ***************************************************************************/
 
-#include "deltastatuslistmodel.h"
+#include "deltalistmodel.h"
 #include <QJsonObject>
 #include <QJsonArray>
 
 
-DeltaStatusListModel::DeltaStatusListModel( QJsonDocument deltasStatusList )
+DeltaListModel::DeltaListModel( QJsonDocument deltasStatusList )
   : mJson( deltasStatusList )
 {
   if ( ! mJson.isArray() )
@@ -31,16 +31,16 @@ DeltaStatusListModel::DeltaStatusListModel( QJsonDocument deltasStatusList )
   const QJsonArray deltas = mJson.array();
   QString combinedOutput;
 
-  for ( const QJsonValue &delta : deltas )
+  for ( const QJsonValue &deltaJson : deltas )
   {
-    if ( ! delta.isObject() )
+    if ( ! deltaJson.isObject() )
     {
       mIsValid = false;
       mErrorString = tr( "Expected all array elements to be an object, but the element at #%1 is not" ).arg( mDeltas.size() );
       return;
     }
 
-    const QJsonObject deltaObject = delta.toObject();
+    const QJsonObject deltaObject = deltaJson.toObject();
     const QStringList requiredKeys({"id", "deltafile_id", "created_at", "updated_at", "status"});
     for ( const QString &requiredKey : requiredKeys )
     {
@@ -52,22 +52,22 @@ DeltaStatusListModel::DeltaStatusListModel( QJsonDocument deltasStatusList )
       }
     }
 
-    DeltaStatus deltaStatus;
-    deltaStatus.output = deltaObject.value( QStringLiteral( "output" ) ).toString();
+    Delta delta;
+    delta.output = deltaObject.value( QStringLiteral( "output" ) ).toString();
 
     const QString statusString = deltaObject.value( QStringLiteral( "status" ) ).toString();
     if ( statusString == QStringLiteral( "STATUS_APPLIED" ) )
-      deltaStatus.status = AppliedStatus;
+      delta.status = AppliedStatus;
     else if ( statusString == QStringLiteral( "STATUS_CONFLICT" ) )
-      deltaStatus.status = ConflictStatus;
+      delta.status = ConflictStatus;
     else if ( statusString == QStringLiteral( "STATUS_NOT_APPLIED" ) )
-      deltaStatus.status = NotAppliedStatus;
+      delta.status = NotAppliedStatus;
     else if ( statusString == QStringLiteral( "STATUS_PENDING" ) )
-      deltaStatus.status = PendingStatus;
+      delta.status = PendingStatus;
     else if ( statusString == QStringLiteral( "STATUS_BUSY" ) )
-      deltaStatus.status = BusyStatus;
+      delta.status = BusyStatus;
     else if ( statusString == QStringLiteral( "STATUS_ERROR" ) )
-      deltaStatus.status = ErrorStatus;
+      delta.status = ErrorStatus;
     else
     {
       mIsValid = false;
@@ -75,17 +75,17 @@ DeltaStatusListModel::DeltaStatusListModel( QJsonDocument deltasStatusList )
       return;
     }
 
-    deltaStatus.id = QUuid( deltaObject.value( QStringLiteral( "id" ) ).toString() );
-    deltaStatus.deltafileId = QUuid( deltaObject.value( QStringLiteral( "deltafile_id" ) ).toString() );
-    deltaStatus.createdAt = deltaObject.value( QStringLiteral( "created_at" ) ).toString();
-    deltaStatus.updatedAt = deltaObject.value( QStringLiteral( "updated_at" ) ).toString();
+    delta.id = QUuid( deltaObject.value( QStringLiteral( "id" ) ).toString() );
+    delta.deltafileId = QUuid( deltaObject.value( QStringLiteral( "deltafile_id" ) ).toString() );
+    delta.createdAt = deltaObject.value( QStringLiteral( "created_at" ) ).toString();
+    delta.updatedAt = deltaObject.value( QStringLiteral( "updated_at" ) ).toString();
 
     mIsValid = true;
-    mDeltas.append( deltaStatus );
+    mDeltas.append( delta );
   }
 }
 
-int DeltaStatusListModel::rowCount( const QModelIndex &parent ) const
+int DeltaListModel::rowCount( const QModelIndex &parent ) const
 {
   if ( !parent.isValid() )
     return mDeltas.size();
@@ -93,7 +93,7 @@ int DeltaStatusListModel::rowCount( const QModelIndex &parent ) const
     return 0;
 }
 
-QVariant DeltaStatusListModel::data( const QModelIndex &index, int role ) const
+QVariant DeltaListModel::data( const QModelIndex &index, int role ) const
 {
   if ( index.row() >= mDeltas.size() || index.row() < 0 )
     return QVariant();
@@ -117,7 +117,7 @@ QVariant DeltaStatusListModel::data( const QModelIndex &index, int role ) const
   return QVariant();
 }
 
-QHash<int, QByteArray> DeltaStatusListModel::roleNames() const
+QHash<int, QByteArray> DeltaListModel::roleNames() const
 {
   QHash<int, QByteArray> roles;
   roles[IdRole] = "Id";
@@ -129,26 +129,26 @@ QHash<int, QByteArray> DeltaStatusListModel::roleNames() const
   return roles;
 }
 
-bool DeltaStatusListModel::isValid() const
+bool DeltaListModel::isValid() const
 {
   return mIsValid;
 }
 
-QJsonDocument DeltaStatusListModel::json() const
+QJsonDocument DeltaListModel::json() const
 {
   return mJson;
 }
 
-QString DeltaStatusListModel::errorString() const
+QString DeltaListModel::errorString() const
 {
   return mErrorString;
 }
 
-bool DeltaStatusListModel::allHaveFinalStatus() const
+bool DeltaListModel::allHaveFinalStatus() const
 {
   bool isFinalForAll = false;
 
-  for ( const DeltaStatus &delta : mDeltas )
+  for ( const Delta &delta : mDeltas )
   {
     switch ( delta.status )
     {
@@ -171,11 +171,11 @@ bool DeltaStatusListModel::allHaveFinalStatus() const
   return isFinalForAll;
 }
 
-QString DeltaStatusListModel::combinedOutput() const
+QString DeltaListModel::combinedOutput() const
 {
   QString output;
 
-  for ( const DeltaStatus &delta : mDeltas )
+  for ( const Delta &delta : mDeltas )
   {
     output += delta.output;
     output += QStringLiteral( "\n" );

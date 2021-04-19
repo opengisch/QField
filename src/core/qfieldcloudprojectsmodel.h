@@ -18,7 +18,7 @@
 
 #include "qgsnetworkaccessmanager.h"
 #include "qgsgpkgflusher.h"
-#include "deltastatuslistmodel.h"
+#include "deltalistmodel.h"
 
 #include <QAbstractListModel>
 #include <QSortFilterProxyModel>
@@ -66,6 +66,7 @@ class QFieldCloudProjectsModel : public QAbstractListModel
       LastLocalExportRole,
       LastLocalPushDeltasRole,
       UserRoleRole,
+      DeltaListRole,
     };
 
     Q_ENUM( ColumnRole )
@@ -207,6 +208,9 @@ class QFieldCloudProjectsModel : public QAbstractListModel
     //! Pushes all local deltas for given \a projectId. If \a shouldDownloadUpdates is true, also calls `downloadProject`.
     Q_INVOKABLE void uploadProject( const QString &projectId, const bool shouldDownloadUpdates );
 
+    //! Retreives the delta list for a given \a projectId.
+    Q_INVOKABLE void refreshProjectDeltaList( const QString &projectId );
+
     //! Remove local cloud project with given \a projectId from the device storage
     Q_INVOKABLE void removeLocalProject( const QString &projectId );
 
@@ -312,6 +316,7 @@ class QFieldCloudProjectsModel : public QAbstractListModel
       {}
 
       CloudProject() = default;
+      ~CloudProject() { delete deltaListModel; }
 
       QString id;
       bool isPrivate = true;
@@ -349,6 +354,7 @@ class QFieldCloudProjectsModel : public QAbstractListModel
 
       double uploadDeltaProgress = 0.0; // range from 0.0 to 1.0
       int deltasCount = 0;
+      DeltaListModel *deltaListModel = nullptr;
 
       QString lastLocalExport;
       QString lastLocalPushDeltas;
@@ -363,8 +369,6 @@ class QFieldCloudProjectsModel : public QAbstractListModel
     QgsProject *mProject = nullptr;
     QgsGpkgFlusher *mGpkgFlusher = nullptr;
     QString mUsername;
-
-    std::unique_ptr<DeltaStatusListModel> mDeltaStatusListModel;
 
     void projectCancelUpload( const QString &projectId );
     void projectCancelUploadAttachments( const QString &projectId );
