@@ -794,6 +794,7 @@ void QFieldCloudProjectsModel::uploadProject( const QString &projectId, const bo
     // ? should we also check the checksums of the files being uploaded? they are available at deltaFile->attachmentFileNames()->values()
     mCloudProjects[index].uploadAttachments.insert( fileName, FileTransfer( fileName, fileSize ) );
   }
+  projectSetSetting( projectId, QStringLiteral( "uploadAttachments" ), QStringList( mCloudProjects[index].uploadAttachments.keys() ) );
 
   QString deltaFileToUpload = deltaFileWrapper->toFileForUpload();
 
@@ -1126,6 +1127,7 @@ void QFieldCloudProjectsModel::projectUploadAttachments( const QString &projectI
       else
       {
         mCloudProjects[index].uploadAttachments.remove( fileName );
+        projectSetSetting( projectId, QStringLiteral( "uploadAttachments" ), QStringList( mCloudProjects[index].uploadAttachments.keys() ) );
       }
 
       mCloudProjects[index].uploadAttachmentsProgress = ( attachmentFileNames.size() - mCloudProjects[index].uploadAttachments.size() ) / attachmentFileNames.size();
@@ -1462,6 +1464,21 @@ void QFieldCloudProjectsModel::reload( const QJsonArray &remoteProjects )
 
   QgsProject *qgisProject = QgsProject::instance();
 
+  auto restoreLocalSettings = [=]( CloudProject &cloudProject, const QDir &localPath ) {
+    cloudProject.localPath = QFieldCloudUtils::localProjectFilePath( mUsername, cloudProject.id );
+    cloudProject.deltasCount = DeltaFileWrapper( qgisProject, QStringLiteral( "%1/deltafile.json" ).arg( localPath.absolutePath() ) ).count();
+    cloudProject.lastLocalExport = projectSetting( cloudProject.id, QStringLiteral( "lastLocalExport" ) ).toString();
+    cloudProject.lastLocalPushDeltas = projectSetting( cloudProject.id, QStringLiteral( "lastLocalPushDeltas" ) ).toString();
+
+    const QStringList fileNames = projectSetting( cloudProject.id, QStringLiteral( "uploadAttachments" ) ).toStringList();
+    for ( const QString &fileName : fileNames )
+    {
+      QFileInfo fileInfo( fileName );
+      if ( fileInfo.exists() )
+        cloudProject.uploadAttachments.insert( fileName, FileTransfer( fileName, fileInfo.size() ) );
+    }
+  };
+
   for ( const auto project : remoteProjects )
   {
     QVariantHash projectDetails = project.toObject().toVariantHash();
@@ -1488,10 +1505,7 @@ void QFieldCloudProjectsModel::reload( const QJsonArray &remoteProjects )
       if ( localPath.exists() )
       {
         cloudProject.checkout = LocalAndRemoteCheckout;
-        cloudProject.localPath = QFieldCloudUtils::localProjectFilePath( mUsername, cloudProject.id );
-        cloudProject.deltasCount = DeltaFileWrapper( qgisProject, QStringLiteral( "%1/deltafile.json" ).arg( localPath.absolutePath() ) ).count();
-        cloudProject.lastLocalExport = projectSetting( cloudProject.id, QStringLiteral( "lastLocalExport" ) ).toString();
-        cloudProject.lastLocalPushDeltas = projectSetting( cloudProject.id, QStringLiteral( "lastLocalPushDeltas" ) ).toString();
+        restoreLocalSettings( cloudProject, localPath );
       }
     }
 
@@ -1522,10 +1536,8 @@ void QFieldCloudProjectsModel::reload( const QJsonArray &remoteProjects )
 
       CloudProject cloudProject( projectId, true, owner, name, description, collaboratorRole, QString(), LocalCheckout, ProjectStatus::Idle );
       QDir localPath( QStringLiteral( "%1/%2/%3" ).arg( QFieldCloudUtils::localCloudDirectory(), mUsername, cloudProject.id ) );
-      cloudProject.localPath = QFieldCloudUtils::localProjectFilePath( mUsername, cloudProject.id );
-      cloudProject.deltasCount = DeltaFileWrapper( qgisProject, QStringLiteral( "%1/deltafile.json" ).arg( localPath.absolutePath() ) ).count();
-      cloudProject.lastLocalExport = projectSetting( projectId, QStringLiteral( "lastLocalExport" ) ).toString();
-      cloudProject.lastLocalPushDeltas = projectSetting( projectId, QStringLiteral( "lastLocalPushDeltas" ) ).toString();
+
+      restoreLocalSettings( cloudProject, localPath );
 
       mCloudProjects << cloudProject;
 
