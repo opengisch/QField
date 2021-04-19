@@ -56,7 +56,7 @@ class QFieldCloudProjectsModel : public QAbstractListModel
       ExportStatusRole,
       ExportedLayerErrorsRole,
       UploadAttachmentsStatusRole,
-      UploadAttachmentsProgressRole,
+      UploadAttachmentsCountRole,
       UploadDeltaProgressRole,
       UploadDeltaStatusRole,
       UploadDeltaStatusStringRole,
@@ -346,7 +346,6 @@ class QFieldCloudProjectsModel : public QAbstractListModel
       UploadAttachmentsStatus uploadAttachmentsStatus = UploadAttachmentsStatus::UploadAttachmentsDone;
       QMap<QString, FileTransfer> uploadAttachments;
       int uploadAttachmentsFailed = 0;
-      double uploadAttachmentsProgress = 0.0; // range from 0.0 to 1.0
 
       double uploadDeltaProgress = 0.0; // range from 0.0 to 1.0
       int deltasCount = 0;

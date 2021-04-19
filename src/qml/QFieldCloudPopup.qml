@@ -445,7 +445,7 @@ Popup {
             font: Theme.tipFont
             color: Theme.mainColor
             text: cloudProjectsModel.currentProjectData.UploadAttachmentsStatus === QFieldCloudProjectsModel.UploadAttachmentsInProgress
-                  ? qsTr( 'Attachments are currently uploaded in the background' )
+                  ? qsTr( "%n attachment(s) are currently being uploaded in the background.", "", parseInt(cloudProjectsModel.currentProjectData.UploadAttachmentsCount) )
                   : ''
             wrapMode: Text.WordWrap
             horizontalAlignment: Text.AlignHCenter

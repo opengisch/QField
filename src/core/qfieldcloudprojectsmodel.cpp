@@ -756,7 +756,7 @@ void QFieldCloudProjectsModel::uploadProject( const QString &projectId, const bo
 
   refreshProjectModification( projectId );
 
-  emit dataChanged( idx, idx,  QVector<int>() << StatusRole << UploadAttachmentsProgressRole << UploadDeltaProgressRole << UploadDeltaStatusRole << UploadDeltaStatusStringRole );
+  emit dataChanged( idx, idx,  QVector<int>() << StatusRole << UploadAttachmentsCountRole << UploadDeltaProgressRole << UploadDeltaStatusRole << UploadDeltaStatusStringRole );
 
   // //////////
   // prepare attachment files to be uploaded
@@ -1101,7 +1101,7 @@ void QFieldCloudProjectsModel::projectUploadAttachments( const QString &projectI
     {
       Q_UNUSED( bytesTotal )
       mCloudProjects[index].uploadAttachments[fileName].bytesTransferred = bytesSent;
-      emit dataChanged( idx, idx, QVector<int>() << UploadAttachmentsProgressRole );
+      emit dataChanged( idx, idx, QVector<int>() << UploadAttachmentsCountRole );
     } );
 
     connect( attachmentCloudReply, &NetworkReply::finished, this, [ = ]()
@@ -1126,12 +1126,10 @@ void QFieldCloudProjectsModel::projectUploadAttachments( const QString &projectI
         projectSetSetting( projectId, QStringLiteral( "uploadAttachments" ), QStringList( mCloudProjects[index].uploadAttachments.keys() ) );
       }
 
-      mCloudProjects[index].uploadAttachmentsProgress = ( attachmentFileNames.size() - mCloudProjects[index].uploadAttachments.size() ) / attachmentFileNames.size();
-
       if ( mCloudProjects[index].uploadAttachments.size() - mCloudProjects[index].uploadAttachmentsFailed == 0 )
         mCloudProjects[index].uploadAttachmentsStatus = UploadAttachmentsStatus::UploadAttachmentsDone;
 
-      emit dataChanged( idx, idx, QVector<int>() << UploadAttachmentsProgressRole );
+      emit dataChanged( idx, idx, QVector<int>() << UploadAttachmentsCountRole );
     } );
   }
 }
@@ -1439,7 +1437,7 @@ QHash<int, QByteArray> QFieldCloudProjectsModel::roleNames() const
   roles[ExportStatusRole] = "ExportStatus";
   roles[ExportedLayerErrorsRole] = "ExportedLayerErrors";
   roles[UploadAttachmentsStatusRole] = "UploadAttachmentsStatus";
-  roles[UploadAttachmentsProgressRole] = "UploadAttachmentsProgress";
+  roles[UploadAttachmentsCountRole] = "UploadAttachmentsCount";
   roles[UploadDeltaProgressRole] = "UploadDeltaProgress";
   roles[UploadDeltaStatusRole] = "UploadDeltaStatus";
   roles[UploadDeltaStatusStringRole] = "UploadDeltaStatusString";
@@ -1591,8 +1589,8 @@ QVariant QFieldCloudProjectsModel::data( const QModelIndex &index, int role ) co
       return mCloudProjects.at( index.row() ).downloadProgress;
     case UploadAttachmentsStatusRole:
       return mCloudProjects.at( index.row() ).uploadAttachmentsStatus;
-    case UploadAttachmentsProgressRole:
-      return mCloudProjects.at( index.row() ).uploadAttachmentsProgress;
+    case UploadAttachmentsCountRole:
+      return mCloudProjects.at( index.row() ).uploadAttachments.size() - mCloudProjects[ index.row() ].uploadAttachmentsFailed;
     case UploadDeltaProgressRole:
       return mCloudProjects.at( index.row() ).uploadDeltaProgress;
     case UploadDeltaStatusRole:
