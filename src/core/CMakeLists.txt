@@ -220,9 +220,6 @@ target_include_directories(qfield_core PUBLIC
 target_compile_features(qfield_core PUBLIC cxx_std_17)
 set_target_properties(qfield_core PROPERTIES AUTOMOC TRUE)
 
-target_compile_features(qfield_core PUBLIC cxx_std_17)
-set_target_properties(qfield_core PROPERTIES AUTOMOC TRUE)
-
 target_link_libraries(qfield_core PUBLIC
   tess
   Qt5::Core
