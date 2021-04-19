@@ -36,8 +36,7 @@ namespace qfield
    * }
    * \endcode
    */
-  template <typename T>
-  class asKeyValueRange
+  template <typename T> class asKeyValueRange
   {
     public:
       explicit asKeyValueRange( T &data )

@@ -70,8 +70,8 @@ QFieldCloudProjectsModel::QFieldCloudProjectsModel() :
 
   connect( this, &QFieldCloudProjectsModel::dataChanged, this, [ = ]( const QModelIndex & topLeft, const QModelIndex & bottomRight, const QVector<int> &roles )
   {
-    Q_UNUSED( bottomRight );
-    Q_UNUSED( roles );
+    Q_UNUSED( bottomRight )
+    Q_UNUSED( roles )
 
     const int index = findProject( mCurrentProjectId );
 
@@ -483,8 +483,10 @@ void QFieldCloudProjectsModel::projectGetExportStatus( const QString &projectId 
         // download export job should be already started!!!
         Q_ASSERT( 0 );
         FALLTHROUGH
+
       case ExportAbortStatus:
         return;
+
       case ExportPendingStatus:
       case ExportBusyStatus:
         // infinite retry, there should be one day, when we can get the status!
@@ -493,6 +495,7 @@ void QFieldCloudProjectsModel::projectGetExportStatus( const QString &projectId 
           projectGetExportStatus( projectId );
         } );
         break;
+
       case ExportErrorStatus:
       {
         QString output = payload.value( QStringLiteral( "output" ) ).toString().split( '\n' ).last();
@@ -502,7 +505,7 @@ void QFieldCloudProjectsModel::projectGetExportStatus( const QString &projectId 
           projectDownloadFinishedWithError( projectId, tr( "Export failed" ) );
         return;
       }
-      break;
+
       case ExportFinishedStatus:
         QgsLogger::debug( QStringLiteral( "Export files list requested for \"%1\"" ).arg( projectId ) );
 
@@ -751,21 +754,30 @@ void QFieldCloudProjectsModel::uploadProject( const QString &projectId, const bo
   mCloudProjects[index].deltaFileUploadStatus = DeltaLocalStatus;
   mCloudProjects[index].deltaFileUploadStatusString = QString();
 
-  mCloudProjects[index].uploadAttachments.empty();
-  mCloudProjects[index].uploadAttachmentsFinished = 0;
-  mCloudProjects[index].uploadAttachmentsFailed = 0;
-
   refreshProjectModification( projectId );
 
-  emit dataChanged( idx, idx,  QVector<int>() << StatusRole << UploadAttachmentsProgressRole << UploadDeltaProgressRole << UploadDeltaStatusRole << UploadDeltaStatusStringRole );
+  emit dataChanged( idx, idx,  QVector<int>() << StatusRole << UploadAttachmentsCountRole << UploadDeltaProgressRole << UploadDeltaStatusRole << UploadDeltaStatusStringRole );
 
   // //////////
   // prepare attachment files to be uploaded
   // //////////
-  const QStringList attachmentFileNames = deltaFileWrapper->attachmentFileNames().keys();
-  for ( const QString &fileName : attachmentFileNames )
+  if ( mCloudProjects[index].uploadAttachmentsStatus != UploadAttachmentsStatus::UploadAttachmentsDone )
+  {
+    projectCancelUploadAttachments( projectId );
+  }
+  mCloudProjects[index].uploadAttachmentsFailed = 0;
+
+  const QFileInfo projectInfo( QFieldCloudUtils::localProjectFilePath( mUsername, projectId ) );
+  const QDir projectDir( projectInfo.absolutePath() );
+  QStringList attachmentFileNames = deltaFileWrapper->attachmentFileNames().keys();
+  for ( QString &fileName : attachmentFileNames )
   {
     QFileInfo fileInfo( fileName );
+    if ( fileInfo.isRelative() )
+    {
+      fileName = projectDir.absoluteFilePath( fileName );
+      fileInfo = QFileInfo( fileName );
+    }
 
     if ( !fileInfo.exists() )
     {
@@ -773,13 +785,12 @@ void QFieldCloudProjectsModel::uploadProject( const QString &projectId, const bo
       continue;
     }
 
-    const int fileSize = fileInfo.size();
+    const long long fileSize = fileInfo.size();
 
     // ? should we also check the checksums of the files being uploaded? they are available at deltaFile->attachmentFileNames()->values()
-
     mCloudProjects[index].uploadAttachments.insert( fileName, FileTransfer( fileName, fileSize ) );
-    mCloudProjects[index].uploadAttachmentsBytesTotal += fileSize;
   }
+  projectSetSetting( projectId, QStringLiteral( "uploadAttachments" ), QStringList( mCloudProjects[index].uploadAttachments.keys() ) );
 
   QString deltaFileToUpload = deltaFileWrapper->toFileForUpload();
 
@@ -835,7 +846,7 @@ void QFieldCloudProjectsModel::uploadProject( const QString &projectId, const bo
 
 
   // //////////
-  // 2) delta successfully uploaded, then send attachments
+  // 2) delta successfully uploaded
   // //////////
   QObject *networkDeltaUploadedParent = new QObject( this ); // we need this to unsubscribe
   connect( this, &QFieldCloudProjectsModel::networkDeltaUploaded, networkDeltaUploadedParent, [ = ]( const QString & uploadedProjectId )
@@ -845,8 +856,7 @@ void QFieldCloudProjectsModel::uploadProject( const QString &projectId, const bo
 
     delete networkDeltaUploadedParent;
 
-    // attachments can be uploaded in the background.
-    // ? what if an attachment fail to be uploaded?
+    // send attachment in a non-blocking fashion
     projectUploadAttachments( projectId );
 
     if ( shouldDownloadUpdates )
@@ -870,7 +880,6 @@ void QFieldCloudProjectsModel::uploadProject( const QString &projectId, const bo
       emit pushFinished( projectId, false );
     }
   } );
-
 
   // //////////
   // 3) new delta status received. Never give up to get a successful status.
@@ -1073,28 +1082,32 @@ void QFieldCloudProjectsModel::projectGetDeltaStatus( const QString &projectId )
 void QFieldCloudProjectsModel::projectUploadAttachments( const QString &projectId )
 {
   const int index = findProject( projectId );
-  QModelIndex idx = createIndex( index, 0 );
+  if ( !mCloudConnection || index == -1 || mCloudProjects[index].uploadAttachments.size() == 0 )
+    return;
 
+  QModelIndex idx = createIndex( index, 0 );
   Q_ASSERT( index >= 0 && index < mCloudProjects.size() );
 
   // start uploading the attachments
-  const QStringList attachmentFileNames;
+  const QStringList attachmentFileNames = mCloudProjects[index].uploadAttachments.keys();
+  mCloudProjects[index].uploadAttachmentsStatus = UploadAttachmentsStatus::UploadAttachmentsInProgress;
+  emit dataChanged( idx, idx, QVector<int>() << UploadAttachmentsStatusRole);
   for ( const QString &fileName : attachmentFileNames )
   {
-    NetworkReply *attachmentCloudReply = uploadFile( mCloudProjects[index].id, fileName );
-
+    NetworkReply *attachmentCloudReply = uploadAttachment( projectId, fileName );
     mCloudProjects[index].uploadAttachments[fileName].networkReply = attachmentCloudReply;
 
     connect( attachmentCloudReply, &NetworkReply::uploadProgress, this, [ = ]( int bytesSent, int bytesTotal )
     {
-      Q_UNUSED( bytesTotal );
+      Q_UNUSED( bytesTotal )
       mCloudProjects[index].uploadAttachments[fileName].bytesTransferred = bytesSent;
-      emit dataChanged( idx, idx, QVector<int>() << UploadAttachmentsProgressRole );
+      emit dataChanged( idx, idx, QVector<int>() << UploadAttachmentsCountRole );
     } );
 
     connect( attachmentCloudReply, &NetworkReply::finished, this, [ = ]()
     {
       QNetworkReply *attachmentReply = attachmentCloudReply->reply();
+      attachmentCloudReply->deleteLater();
 
       Q_ASSERT( attachmentCloudReply->isFinished() );
       Q_ASSERT( attachmentReply );
@@ -1107,22 +1120,42 @@ void QFieldCloudProjectsModel::projectUploadAttachments( const QString &projectI
                                    .arg( fileName )
                                    .arg( QFieldCloudConnection::errorString( attachmentReply ) ) );
       }
+      else
+      {
+        mCloudProjects[index].uploadAttachments.remove( fileName );
+        projectSetSetting( projectId, QStringLiteral( "uploadAttachments" ), QStringList( mCloudProjects[index].uploadAttachments.keys() ) );
+      }
 
-      mCloudProjects[index].uploadAttachmentsFinished++;
-      mCloudProjects[index].uploadAttachmentsProgress = mCloudProjects[index].uploadAttachmentsFinished / attachmentFileNames.size();
-      emit dataChanged( idx, idx, QVector<int>() << UploadAttachmentsProgressRole );
+      if ( mCloudProjects[index].uploadAttachments.size() - mCloudProjects[index].uploadAttachmentsFailed == 0 )
+        mCloudProjects[index].uploadAttachmentsStatus = UploadAttachmentsStatus::UploadAttachmentsDone;
+
+      emit dataChanged( idx, idx, QVector<int>() << UploadAttachmentsCountRole );
     } );
   }
 }
 
 void QFieldCloudProjectsModel::projectCancelUpload( const QString &projectId )
 {
-  if ( ! mCloudConnection )
+  int index = findProject( projectId );
+  if ( !mCloudConnection || index == -1 )
     return;
 
-  int index = findProject( projectId );
+  projectCancelUploadAttachments( projectId );
 
-  if ( index == -1 )
+  mCloudProjects[index].status = ProjectStatus::Idle;
+  mCloudProjects[index].errorStatus = UploadErrorStatus;
+
+  QModelIndex idx = createIndex( index, 0 );
+  emit dataChanged( idx, idx, QVector<int>() << StatusRole << ErrorStatusRole );
+  emit pushFinished( projectId, true, mCloudProjects[index].deltaFileUploadStatusString );
+
+  return;
+}
+
+void QFieldCloudProjectsModel::projectCancelUploadAttachments( const QString &projectId )
+{
+  int index = findProject( projectId );
+  if ( !mCloudConnection || index == -1 )
     return;
 
   const QStringList attachmentFileNames = mCloudProjects[index].uploadAttachments.keys();
@@ -1131,7 +1164,7 @@ void QFieldCloudProjectsModel::projectCancelUpload( const QString &projectId )
     NetworkReply *attachmentReply = mCloudProjects[index].uploadAttachments[attachmentFileName].networkReply;
 
     // the replies might be already disposed
-    if ( ! attachmentReply )
+    if ( !attachmentReply )
       continue;
 
     // the replies might be already finished
@@ -1140,16 +1173,9 @@ void QFieldCloudProjectsModel::projectCancelUpload( const QString &projectId )
 
     attachmentReply->abort();
   }
-
-  mCloudProjects[index].status = ProjectStatus::Idle;
-  mCloudProjects[index].errorStatus = UploadErrorStatus;
-
+  mCloudProjects[index].uploadAttachmentsStatus = UploadAttachmentsStatus::UploadAttachmentsDone;
   QModelIndex idx = createIndex( index, 0 );
-
-  emit dataChanged( idx, idx, QVector<int>() << StatusRole << ErrorStatusRole );
-  emit pushFinished( projectId, true, mCloudProjects[index].deltaFileUploadStatusString );
-
-  return;
+  emit dataChanged( idx, idx, QVector<int>() << UploadAttachmentsStatusRole);
 }
 
 void QFieldCloudProjectsModel::connectionStatusChanged()
@@ -1159,7 +1185,7 @@ void QFieldCloudProjectsModel::connectionStatusChanged()
 
 void QFieldCloudProjectsModel::layerObserverLayerEdited( const QString &layerId )
 {
-  Q_UNUSED( layerId );
+  Q_UNUSED( layerId )
 
   const int index = findProject( mCurrentProjectId );
 
@@ -1268,7 +1294,7 @@ void QFieldCloudProjectsModel::downloadFileConnections( const QString &projectId
 
   connect( reply, &NetworkReply::downloadProgress, reply, [ = ]( int bytesReceived, int bytesTotal )
   {
-    Q_UNUSED( bytesTotal );
+    Q_UNUSED( bytesTotal )
 
     // it means the NetworkReply has failed and retried
     mCloudProjects[index].downloadBytesReceived -= mCloudProjects[index].downloadFileTransfers[fileName].bytesTransferred;
@@ -1384,9 +1410,14 @@ void QFieldCloudProjectsModel::downloadFileConnections( const QString &projectId
   } );
 }
 
-NetworkReply *QFieldCloudProjectsModel::uploadFile( const QString &projectId, const QString &fileName )
+NetworkReply *QFieldCloudProjectsModel::uploadAttachment( const QString &projectId, const QString &fileName )
 {
-  return mCloudConnection->post( QStringLiteral( "/api/v1/files/%1/%2/" ).arg( projectId, fileName ), QVariantMap(), QStringList( {fileName} ) );
+  QFileInfo projectInfo( QFieldCloudUtils::localProjectFilePath( mUsername, projectId ) );
+  QDir projectDir( projectInfo.absolutePath() );
+
+  const QString apiPath = projectDir.relativeFilePath( fileName );
+
+  return mCloudConnection->post( QStringLiteral( "/api/v1/files/%1/%2/" ).arg( projectId, apiPath ), QVariantMap(), QStringList( { fileName } ) );
 }
 
 QHash<int, QByteArray> QFieldCloudProjectsModel::roleNames() const
@@ -1405,7 +1436,8 @@ QHash<int, QByteArray> QFieldCloudProjectsModel::roleNames() const
   roles[DownloadProgressRole] = "DownloadProgress";
   roles[ExportStatusRole] = "ExportStatus";
   roles[ExportedLayerErrorsRole] = "ExportedLayerErrors";
-  roles[UploadAttachmentsProgressRole] = "UploadAttachmentsProgress";
+  roles[UploadAttachmentsStatusRole] = "UploadAttachmentsStatus";
+  roles[UploadAttachmentsCountRole] = "UploadAttachmentsCount";
   roles[UploadDeltaProgressRole] = "UploadDeltaProgress";
   roles[UploadDeltaStatusRole] = "UploadDeltaStatus";
   roles[UploadDeltaStatusStringRole] = "UploadDeltaStatusString";
@@ -1425,6 +1457,21 @@ void QFieldCloudProjectsModel::reload( const QJsonArray &remoteProjects )
   mCloudProjects.clear();
 
   QgsProject *qgisProject = QgsProject::instance();
+
+  auto restoreLocalSettings = [=]( CloudProject &cloudProject, const QDir &localPath ) {
+    cloudProject.localPath = QFieldCloudUtils::localProjectFilePath( mUsername, cloudProject.id );
+    cloudProject.deltasCount = DeltaFileWrapper( qgisProject, QStringLiteral( "%1/deltafile.json" ).arg( localPath.absolutePath() ) ).count();
+    cloudProject.lastLocalExport = projectSetting( cloudProject.id, QStringLiteral( "lastLocalExport" ) ).toString();
+    cloudProject.lastLocalPushDeltas = projectSetting( cloudProject.id, QStringLiteral( "lastLocalPushDeltas" ) ).toString();
+
+    const QStringList fileNames = projectSetting( cloudProject.id, QStringLiteral( "uploadAttachments" ) ).toStringList();
+    for ( const QString &fileName : fileNames )
+    {
+      QFileInfo fileInfo( fileName );
+      if ( fileInfo.exists() )
+        cloudProject.uploadAttachments.insert( fileName, FileTransfer( fileName, fileInfo.size() ) );
+    }
+  };
 
   for ( const auto project : remoteProjects )
   {
@@ -1452,10 +1499,7 @@ void QFieldCloudProjectsModel::reload( const QJsonArray &remoteProjects )
       if ( localPath.exists() )
       {
         cloudProject.checkout = LocalAndRemoteCheckout;
-        cloudProject.localPath = QFieldCloudUtils::localProjectFilePath( mUsername, cloudProject.id );
-        cloudProject.deltasCount = DeltaFileWrapper( qgisProject, QStringLiteral( "%1/deltafile.json" ).arg( localPath.absolutePath() ) ).count();
-        cloudProject.lastLocalExport = projectSetting( cloudProject.id, QStringLiteral( "lastLocalExport" ) ).toString();
-        cloudProject.lastLocalPushDeltas = projectSetting( cloudProject.id, QStringLiteral( "lastLocalPushDeltas" ) ).toString();
+        restoreLocalSettings( cloudProject, localPath );
       }
     }
 
@@ -1486,10 +1530,8 @@ void QFieldCloudProjectsModel::reload( const QJsonArray &remoteProjects )
 
       CloudProject cloudProject( projectId, true, owner, name, description, collaboratorRole, QString(), LocalCheckout, ProjectStatus::Idle );
       QDir localPath( QStringLiteral( "%1/%2/%3" ).arg( QFieldCloudUtils::localCloudDirectory(), mUsername, cloudProject.id ) );
-      cloudProject.localPath = QFieldCloudUtils::localProjectFilePath( mUsername, cloudProject.id );
-      cloudProject.deltasCount = DeltaFileWrapper( qgisProject, QStringLiteral( "%1/deltafile.json" ).arg( localPath.absolutePath() ) ).count();
-      cloudProject.lastLocalExport = projectSetting( projectId, QStringLiteral( "lastLocalExport" ) ).toString();
-      cloudProject.lastLocalPushDeltas = projectSetting( projectId, QStringLiteral( "lastLocalPushDeltas" ) ).toString();
+
+      restoreLocalSettings( cloudProject, localPath );
 
       mCloudProjects << cloudProject;
 
@@ -1545,9 +1587,10 @@ QVariant QFieldCloudProjectsModel::data( const QModelIndex &index, int role ) co
       return QVariant( mCloudProjects.at( index.row() ).exportedLayerErrors );
     case DownloadProgressRole:
       return mCloudProjects.at( index.row() ).downloadProgress;
-    case UploadAttachmentsProgressRole:
-      // when we start syncing also the photos, it would make sense to go there
-      return mCloudProjects.at( index.row() ).uploadAttachmentsProgress;
+    case UploadAttachmentsStatusRole:
+      return mCloudProjects.at( index.row() ).uploadAttachmentsStatus;
+    case UploadAttachmentsCountRole:
+      return mCloudProjects.at( index.row() ).uploadAttachments.size() - mCloudProjects[ index.row() ].uploadAttachmentsFailed;
     case UploadDeltaProgressRole:
       return mCloudProjects.at( index.row() ).uploadDeltaProgress;
     case UploadDeltaStatusRole:

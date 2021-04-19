@@ -55,7 +55,8 @@ class QFieldCloudProjectsModel : public QAbstractListModel
       DownloadProgressRole,
       ExportStatusRole,
       ExportedLayerErrorsRole,
-      UploadAttachmentsProgressRole,
+      UploadAttachmentsStatusRole,
+      UploadAttachmentsCountRole,
       UploadDeltaProgressRole,
       UploadDeltaStatusRole,
       UploadDeltaStatusStringRole,
@@ -127,6 +128,15 @@ class QFieldCloudProjectsModel : public QAbstractListModel
     };
 
     Q_ENUM( DeltaFileStatus )
+
+    //! The status of attachments uploading to server.
+    enum UploadAttachmentsStatus
+    {
+      UploadAttachmentsDone,
+      UploadAttachmentsInProgress,
+    };
+
+    Q_ENUM( UploadAttachmentsStatus )
 
     //! The status of the running server job for exporting a project.
     enum ExportStatus
@@ -251,7 +261,7 @@ class QFieldCloudProjectsModel : public QAbstractListModel
     void connectionStatusChanged();
     void projectListReceived();
 
-    NetworkReply *uploadFile( const QString &projectId, const QString &fileName );
+    NetworkReply *uploadAttachment( const QString &projectId, const QString &fileName );
 
     int findProject( const QString &projectId ) const;
 
@@ -263,7 +273,7 @@ class QFieldCloudProjectsModel : public QAbstractListModel
     {
       FileTransfer(
         const QString &fileName,
-        const int bytesTotal,
+        const long long bytesTotal,
         NetworkReply *networkReply = nullptr,
         const QStringList &layerIds = QStringList()
       )
@@ -277,8 +287,8 @@ class QFieldCloudProjectsModel : public QAbstractListModel
 
       QString fileName;
       QString tmpFile;
-      int bytesTotal;
-      int bytesTransferred = 0;
+      long long bytesTotal;
+      long long bytesTransferred = 0;
       bool isFinished = false;
       NetworkReply *networkReply;
       QNetworkReply::NetworkError error = QNetworkReply::NoError;
@@ -333,13 +343,11 @@ class QFieldCloudProjectsModel : public QAbstractListModel
       int downloadBytesReceived = 0;
       double downloadProgress = 0.0; // range from 0.0 to 1.0
 
+      UploadAttachmentsStatus uploadAttachmentsStatus = UploadAttachmentsStatus::UploadAttachmentsDone;
       QMap<QString, FileTransfer> uploadAttachments;
-      int uploadAttachmentsFinished = 0;
       int uploadAttachmentsFailed = 0;
-      int uploadAttachmentsBytesTotal = 0;
-      double uploadAttachmentsProgress = 0.0; // range from 0.0 to 1.0
-      double uploadDeltaProgress = 0.0; // range from 0.0 to 1.0
 
+      double uploadDeltaProgress = 0.0; // range from 0.0 to 1.0
       int deltasCount = 0;
 
       QString lastLocalExport;
@@ -359,6 +367,7 @@ class QFieldCloudProjectsModel : public QAbstractListModel
     std::unique_ptr<DeltaStatusListModel> mDeltaStatusListModel;
 
     void projectCancelUpload( const QString &projectId );
+    void projectCancelUploadAttachments( const QString &projectId );
     void projectUploadAttachments( const QString &projectId );
     void projectApplyDeltas( const QString &projectId );
     void projectGetDeltaStatus( const QString &projectId );

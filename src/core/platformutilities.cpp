@@ -103,16 +103,26 @@ PictureSource *PlatformUtilities::getCameraPicture( const QString &prefix, const
 
 PictureSource *PlatformUtilities::getGalleryPicture( const QString &prefix, const QString &pictureFilePath )
 {
-  QString destinationFile = QStringLiteral( "%1/%2" ).arg( prefix, pictureFilePath );
   QString fileName = QFileDialog::getOpenFileName( nullptr, tr( "Select Media File" ), prefix, tr( "JPEG images (*.jpg *.jpeg)" ) );
 
   if ( QFileInfo::exists( fileName ) )
   {
     // if the file is already in the prefixed path, no need to copy
     if ( fileName.startsWith( prefix ) )
+    {
       return new PictureSource( nullptr, prefix, fileName );
-    else if ( QFile::copy( fileName, destinationFile ) )
-      return new PictureSource( nullptr, prefix, destinationFile );
+    }
+    else
+    {
+      QString destinationFile = prefix + pictureFilePath;
+      QFileInfo destinationInfo ( destinationFile );
+      QDir prefixDir( prefix );
+      if ( prefixDir.mkpath( destinationInfo.absolutePath() ) &&
+           QFile::copy( fileName, destinationFile ) )
+      {
+        return new PictureSource( nullptr, prefix, destinationFile );
+      }
+    }
 
     QgsMessageLog::logMessage( tr( "Failed to save gallery picture" ), "QField", Qgis::Critical );
   }
