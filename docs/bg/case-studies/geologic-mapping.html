@@ -1,0 +1,217 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="bg">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Geologic Mapping with QField &#8212; QField Documentation 1.0 - M... documentation</title>
+    <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/style.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/qfield.css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <script type="text/javascript" src="../_static/qfield.js"></script>
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Ground Truth Data Collection Using QField for LULC Mapping in Fiji" href="lulc-mapping-fiji.html" />
+    <link rel="prev" title="Improving Efficiencies in Ecological Surveying using QField" href="ecological-surveying.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+<script type="text/javascript" src="../_static/js/jquery-1.11.0.min.js "></script>
+<script type="text/javascript" src="../_static/js/jquery-fix.js "></script>
+<script type="text/javascript" src="../_static/bootstrap-3.3.7/js/bootstrap.min.js "></script>
+<script type="text/javascript" src="../_static/bootstrap-sphinx.js "></script>
+
+  </head><body>
+
+  <div id="navbar" class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="https://qfield.org">
+              <img src="../_static/qfield-logo.svg">
+        </a>
+        <span class="navbar-text navbar-title"><b><a href="../index.html">QField Documentation</a> </b></span>
+        <span class="navbar-text navbar-version pull-left"><b>1.0</b></span>
+      </div>
+
+      <div class="collapse navbar-collapse nav-collapse">
+        <ul class="nav navbar-nav">
+          
+          
+            
+              <li class="dropdown">
+  <a role="button"
+     id="dLabelLocalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="#">Page <b class="caret"></b></a>
+  <ul class="dropdown-menu localtoc"
+      role="menu"
+      aria-labelledby="dLabelLocalToc"><ul>
+<li><a class="reference internal" href="#">Geologic Mapping with QField</a><ul>
+<li><a class="reference internal" href="#goal">Goal</a></li>
+<li><a class="reference internal" href="#project-preparation">Project preparation</a></li>
+<li><a class="reference internal" href="#data-collection">Data collection</a></li>
+<li><a class="reference internal" href="#results">Results</a></li>
+</ul>
+</li>
+</ul>
+</ul>
+</li>
+            
+          
+          
+            
+              
+  <li>
+    <a href="ecological-surveying.html" title="Previous Chapter: Improving Efficiencies in Ecological Surveying using QField"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm hidden-tablet">&laquo; Improving Eff...</span>
+    </a>
+  </li>
+  <li>
+    <a href="lulc-mapping-fiji.html" title="Next Chapter: Ground Truth Data Collection Using QField for LULC Mapping in Fiji"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm hidden-tablet">Ground Truth ... &raquo;</span>
+    </a>
+  </li>
+            
+          
+          
+          
+          
+        </ul>
+
+        
+          
+<form class="navbar-form navbar-right" action="../search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+        
+      </div>
+    </div>
+  </div>
+
+<div class="container">
+  <div class="row">
+      <div class="col-md-3">
+        <div id="sidebar" class="bs-sidenav" role="complementary"><ul class="globaltoc"
+    role="menu"
+    aria-labelledby="dLabelGlobalToc"><ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../install/index.html">Инсталация</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../prepare/index.html">Prepare for Work</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../synchronise/index.html">Synchronisation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../fieldwork/index.html">Fieldwork</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting-started/index.html">Ръководства за новодошли</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../data-formats/index.html">Поддържани формати</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Case Studies</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../support/index.html">Поддръжка и разработка</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../old-doc/index.html">Legacy Documentation</a></li>
+</ul>
+
+</ul>
+        </div>
+      </div>
+    <div class="col-md-9 content">
+      
+  <div class="section" id="geologic-mapping-with-qfield">
+<h1>Geologic Mapping with QField<a class="headerlink" href="#geologic-mapping-with-qfield" title="Permalink to this headline">¶</a></h1>
+<p>By Rohanna Gibson, Structural Geologist, Terrane Geoscience</p>
+<div class="section" id="goal">
+<h2>Goal<a class="headerlink" href="#goal" title="Permalink to this headline">¶</a></h2>
+<p>To collect new data on bedrock geology and view existing geoscience data in the field. Geologic mapping is completed using paper maps and/or digital devices for data collection. The goal is to improve the geologic mapping workflow by entering data directly in the field, create quality data with consistent terms, and reference existing geoscience data in the field.</p>
+</div>
+<div class="section" id="project-preparation">
+<h2>Project preparation<a class="headerlink" href="#project-preparation" title="Permalink to this headline">¶</a></h2>
+<p>Prior to starting in QField, a geologic mapping geopackage was designed to collect vector data including point station, structure, photo, and sample layers as well as line and polygon layers for contacts, faults, alteration, and geology. Attribute fields are customized for ease of data entry and data quality assurance using value maps, defaults (value or expression), and constraints within the Attributes Form. For example, the structural layer includes:</p>
+<p><strong>Coordinates</strong></p>
+<p>Fields with default value x and y coordinates from GPS data</p>
+<p><strong>Structure type</strong></p>
+<p>Value map (drop down list) with structural features (e.g., bedding, cleavage, lineation), set with a “not null” constraint</p>
+<p><strong>Azimuth and dip</strong></p>
+<p>Integers with range set from 0-360 and 0-90, respectively</p>
+<p><strong>Date</strong></p>
+<p>Default value current date and time when feature created</p>
+<div class="clearer text-center docutils container">
+<div class="figure" id="id1">
+<a class="reference internal image-reference" href="../_images/geologic_structure_list.png"><img alt="Figure 1 - Structure list" src="../_images/geologic_structure_list.png" style="width: 700px;" /></a>
+<p class="caption"><span class="caption-text">Figure 1: Structure list</span></p>
+</div>
+</div>
+<p>Symbology and labels are customized for each layer, including embedded SVG symbols for structural features that are rotated with the azimuth field.</p>
+<p>In addition to field data, base maps and historic data are compiled into geopackages for reference. Base maps include vector topographic data and raster orthophotos. Raster geophysical data and vector geochemical data are included if available, as well as historic geologic mapping. Map themes are designed to quickly toggle between geologic mapping, geophysics, and geochemistry views.</p>
+</div>
+<div class="section" id="data-collection">
+<h2>Data collection<a class="headerlink" href="#data-collection" title="Permalink to this headline">¶</a></h2>
+<p>Field data collection includes adding point data for map stations, structures, photos, and samples. Polygons and lines are drawn freehand with a stylus or adding vertices manually.</p>
+<p>Location and direction of travel are displayed using internal device GPS (or external GPS device linked via Bluetooth), historic vector and raster layers can be viewed relative to location. Current and historic vector layers can be searched and viewed in QField.</p>
+<p>Field data are synchronized in QGIS followed by a short data clean up and verification process. The QGIS project is then exported back to QField for additional data collection.</p>
+<div class="clearer text-center docutils container">
+<div class="figure" id="id2">
+<a class="reference internal image-reference" href="../_images/geologic_field.png"><img alt="Figure 2 - Field work" src="../_images/geologic_field.png" style="width: 700px;" /></a>
+<p class="caption"><span class="caption-text">Figure 2: Field work</span></p>
+</div>
+<div class="figure" id="id3">
+<a class="reference internal image-reference" href="../_images/geologic_station_qf.jpg"><img alt="Figure 3 - QField form" src="../_images/geologic_station_qf.jpg" style="width: 700px;" /></a>
+<p class="caption"><span class="caption-text">Figure 3: QField form</span></p>
+</div>
+</div>
+</div>
+<div class="section" id="results">
+<h2>Results<a class="headerlink" href="#results" title="Permalink to this headline">¶</a></h2>
+<p>Final geologic maps and analysis are prepared directly from field data sets with no need to digitize field data. Depending on proficiency and type of mapping, the QField geologic mapping workflow takes approximately the same amount of field time as manual (paper) mapping and drastically reduces office data digitization time. Additionally, historic data are easily referred to in the field, allowing for real time interpretation and targeted field work. Maps and attribute tables can be exported directly from QField or the QGIS project for daily field updates or communication between working groups.</p>
+<p>QField allows for data integrity with customizable attribute fields and database compatibility. Field data quality assurance can be built in during project design, ensuring attributes are consistent between users and reducing human error with constraints and default values.</p>
+<div class="clearer text-center docutils container">
+<div class="figure" id="id4">
+<a class="reference internal image-reference" href="../_images/geologic_map.jpg"><img alt="Figure 4 - Map result" src="../_images/geologic_map.jpg" style="width: 700px;" /></a>
+<p class="caption"><span class="caption-text">Figure 2: Map result</span></p>
+</div>
+</div>
+</div>
+</div>
+
+
+    </div>
+      
+  </div>
+</div>
+<footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+      
+        <br/>
+        
+
+ 
+
+
+<div id="sourcelink">
+
+
+  <a href="https://github.com/opengisch/QField-docs/blob/master/en/case-studies/geologic-mapping.rst" class="fa fa-github"> Edit on GitHub</a>
+</div>
+      
+    </p>
+    <p>
+        &copy; Copyright 2019, The QField Project/OPENGIS.ch.<br/>
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.8.5.<br/>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>
