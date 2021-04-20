@@ -67,15 +67,19 @@
 <li><a class="reference internal" href="#points">Points</a></li>
 <li><a class="reference internal" href="#lines-and-polygons">Lignes et polygones</a></li>
 <li><a class="reference internal" href="#attribute-form">Formulaire d’attributs</a><ul>
-<li><a class="reference internal" href="#remember-attribute-values">Remember attribute values</a></li>
+<li><a class="reference internal" href="#remember-attribute-values">Garder en mémoire les valeurs de l’attribut.</a></li>
 </ul>
 </li>
 </ul>
 </li>
 <li><a class="reference internal" href="#delete-features">Supprimer des entités</a></li>
 <li><a class="reference internal" href="#edit-features">Edition des entités</a><ul>
-<li><a class="reference internal" href="#vertex-tool">Outil Vertex</a></li>
 <li><a class="reference internal" href="#split-tool">Outil de Découpage</a></li>
+<li><a class="reference internal" href="#vertex-tool">Outil Vertex</a></li>
+<li><a class="reference internal" href="#demonstration-of-geometries-editing">Demonstration of geometries editing</a></li>
+<li><a class="reference internal" href="#freehand-digitizing">Freehand digitizing</a></li>
+<li><a class="reference internal" href="#topology">Topology</a></li>
+<li><a class="reference internal" href="#multi-editing">Multi editing</a></li>
 </ul>
 </li>
 </ul>
@@ -160,13 +164,10 @@
 </div>
 <div class="section" id="attribute-form">
 <h2>Formulaire d’attributs<a class="headerlink" href="#attribute-form" title="Permalink to this headline">¶</a></h2>
-<p>After digitizing a geometry, the attribute form will be displayed if it is not suppressed
-and the user will be asked to enter the attributes for the new feature.
-The form which appears allows entering attribute values for the new feature.</p>
+<p>Après avoir tracé la géométrie, le formulaire d’attributs s’affichera s’il n’est pas supprimé et l’utilisateur pourra entrer les attributs du nouvel objet.</p>
 <div class="section" id="remember-attribute-values">
-<h3>Remember attribute values<a class="headerlink" href="#remember-attribute-values" title="Permalink to this headline">¶</a></h3>
-<p>For quick collection of rather homogeneus datasets, it is crucial to not having to enter the same attribute values over an over.
-The checkboxes at the right of every attribute allow remembering each attribute individually so that the next time you will add a feature on the same layer, these attributes will be automatically pre-filled.</p>
+<h3>Garder en mémoire les valeurs de l’attribut.<a class="headerlink" href="#remember-attribute-values" title="Permalink to this headline">¶</a></h3>
+<p>Pour une collection rapide de jeux de données plus ou moins homogènes il est important de ne pas avoir à rentrer les mêmes valeurs encore et toujours. La case à cocher à droite de chaque attribut permet de garder en mémoire la valeur entrée. Lors de l’ajout d’un nouvel objet dans la même couche, cette valeur sera automatiquement assignée à l’attribut du nouvel objet.</p>
 <div class="docutils container">
 <iframe src="https://player.vimeo.com/video/526919606" style="border: 0; height: 345px; width: 560px">
 </iframe></div>
@@ -187,23 +188,45 @@ The checkboxes at the right of every attribute allow remembering each attribute 
 <h1>Edition des entités<a class="headerlink" href="#edit-features" title="Permalink to this headline">¶</a></h1>
 <p>Pour modifier, appuyez sur le bouton <strong>Menu -&gt; crayon.</strong></p>
 <p>Vous pouvez modifier un élément existant en déplaçant, ajoutant ou supprimant le sommet et en le scindant également.</p>
-<div class="section" id="vertex-tool">
-<h2>Outil Vertex<a class="headerlink" href="#vertex-tool" title="Permalink to this headline">¶</a></h2>
-<p>Il est possible de déplacer et de supprimer des sommets de géométries et d’en ajouter de nouveaux.</p>
-<div class="clearer text-left docutils container">
-<div class="figure">
-<a class="reference internal image-reference" href="../_images/edit_geom_feature.gif"><img alt="edit_geom_feature" src="../_images/edit_geom_feature.gif" style="width: 300px;" /></a>
-</div>
-</div>
-</div>
 <div class="section" id="split-tool">
 <h2>Outil de Découpage<a class="headerlink" href="#split-tool" title="Permalink to this headline">¶</a></h2>
 <p>Il est possible de découper une géométrie existante en traçant une ligne à l’endroit où elle doit être divisée.</p>
-<div class="clearer text-left docutils container">
-<div class="figure">
-<a class="reference internal image-reference" href="../_images/split_geom_feature.webp"><img alt="split_geom_feature" src="../_images/split_geom_feature.webp" style="width: 300px;" /></a>
 </div>
+<div class="section" id="vertex-tool">
+<h2>Outil Vertex<a class="headerlink" href="#vertex-tool" title="Permalink to this headline">¶</a></h2>
+<p>Il est possible de déplacer et de supprimer des sommets de géométries et d’en ajouter de nouveaux.</p>
 </div>
+<div class="section" id="demonstration-of-geometries-editing">
+<h2>Demonstration of geometries editing<a class="headerlink" href="#demonstration-of-geometries-editing" title="Permalink to this headline">¶</a></h2>
+<p>A video demonstration of some editing possibilities:</p>
+<div class="docutils container">
+<iframe src="https://player.vimeo.com/video/499564854" style="border: 0; height: 345px; width: 560px">
+</iframe></div>
+</div>
+<div class="section" id="freehand-digitizing">
+<h2>Freehand digitizing<a class="headerlink" href="#freehand-digitizing" title="Permalink to this headline">¶</a></h2>
+<p>The freehand digitizing mode allows users to “draw” lines and polygons using their stylus/pen or mouse.
+The mode is available for line/polygon feature additions as well as the geometry editor’s rings tool.</p>
+<p>The freehand digitizing mode is activated through a new toolbar button which appears when QField is set
+to editing mode and a line or polygon vector is selected.</p>
+<div class="docutils container">
+<iframe src="https://player.vimeo.com/video/537673220" style="border: 0; height: 345px; width: 560px">
+</iframe></div>
+</div>
+<div class="section" id="topology">
+<h2>Topology<a class="headerlink" href="#topology" title="Permalink to this headline">¶</a></h2>
+<p>If the topology is activated on the project QGIS before exporting for QField, shared nodes are treated
+as such when moving / deleting vertices, and additional vertices are added on nodes placed on segments.</p>
+<div class="docutils container">
+<iframe src="https://player.vimeo.com/video/499565314" style="border: 0; height: 345px; width: 560px">
+</iframe></div>
+</div>
+<div class="section" id="multi-editing">
+<h2>Multi editing<a class="headerlink" href="#multi-editing" title="Permalink to this headline">¶</a></h2>
+<p>You can make a multi-selection and edit all the features at the same time. In some cases, it can be very efficient.</p>
+<div class="docutils container">
+<iframe src="https://player.vimeo.com/video/499565955" style="border: 0; height: 345px; width: 560px">
+</iframe></div>
 </div>
 </div>
 

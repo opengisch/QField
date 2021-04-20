@@ -71,24 +71,54 @@ To edit, tap on **Menu button -> pencil.**
 
 You can edit an existing feature by moving, adding or deleting the vertex and also spliting. 
 
-Vertex tool
------------
-
-It is possible to move and delete vertices of geometries and add new ones.
-
-.. container:: clearer text-left
-
-  .. figure:: ../images/edit_geom_feature.gif 
-     :width: 300px
-     :alt: edit_geom_feature
-
 Split tool
 ----------
 
 It is possible to split an existing geometry by drawing a line where it should be split.
 
-.. container:: clearer text-left 
+Vertex tool
+-----------
 
-  .. figure:: ../images/split_geom_feature.webp
-     :width: 300px
-     :alt: split_geom_feature
+It is possible to move and delete vertices of geometries and add new ones.
+
+Demonstration of geometries editing
+-----------------------------------
+
+A video demonstration of some editing possibilities:
+
+.. container::
+
+  .. vimeo:: 499564854
+
+Freehand digitizing
+-------------------
+
+The freehand digitizing mode allows users to 'draw' lines and polygons using their stylus/pen or mouse.
+The mode is available for line/polygon feature additions as well as the geometry editor's rings tool.
+
+The freehand digitizing mode is activated through a new toolbar button which appears when QField is set
+to editing mode and a line or polygon vector is selected.
+
+.. container::
+
+  .. vimeo:: 537673220
+
+Topology
+--------
+
+If the topology is activated on the project QGIS before exporting for QField, shared nodes are treated
+as such when moving / deleting vertices, and additional vertices are added on nodes placed on segments.
+
+.. container::
+
+  .. vimeo:: 499565314
+
+
+Multi editing
+-------------
+
+You can make a multi-selection and edit all the features at the same time. In some cases, it can be very efficient.
+
+.. container::
+
+  .. vimeo:: 499565955
