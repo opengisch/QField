@@ -1792,6 +1792,9 @@ ApplicationWindow {
 
     mapSettings: mapCanvas.mapSettings
     layerTree: dashBoard.layerTree
+
+    property bool insertRight: true
+    property bool editRights: false
   }
 
   BusyIndicator {

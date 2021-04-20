@@ -81,8 +81,9 @@ Drawer {
 
       Switch {
         id: modeswitch
+        visible: projectInfo.insertRight
         height: 56
-        width: ( 56 + 36 ) 
+        width: ( 56 + 36 )
         anchors.right: parent.right
         indicator: Rectangle {
           implicitHeight: 36
