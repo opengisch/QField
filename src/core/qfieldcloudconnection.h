@@ -165,14 +165,16 @@ class QFieldCloudConnection : public QObject
     void setToken( const QByteArray &token );
     void invalidateToken();
 
-    QString mPassword;
+    QString mUrl;
+
     QString mUsername;
+    QString mPassword;
+    QByteArray mToken;
+
     QString mAvatarUrl;
     CloudUserInformation mUserInformation;
-    QString mUrl;
     ConnectionStatus mStatus = ConnectionStatus::Disconnected;
     ConnectionState mState = ConnectionState::Idle;
-    QByteArray mToken;
 
     int mPendingRequests = 0;
 

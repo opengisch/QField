@@ -91,6 +91,11 @@ QFieldCloudProjectsModel::QFieldCloudProjectsModel() :
       return;
 
     mUsername = mCloudConnection->username();
+    if ( mCloudConnection->status() != QFieldCloudConnection::ConnectionStatus::LoggedIn )
+    {
+      QJsonArray projects;
+      reload( projects );
+    }
     connect( mCloudConnection, &QFieldCloudConnection::usernameChanged, this, [ = ]()
     {
       mUsername = mCloudConnection->username();
@@ -1459,7 +1464,6 @@ void QFieldCloudProjectsModel::reload( const QJsonArray &remoteProjects )
   QgsProject *qgisProject = QgsProject::instance();
 
   auto restoreLocalSettings = [=]( CloudProject &cloudProject, const QDir &localPath ) {
-    cloudProject.localPath = QFieldCloudUtils::localProjectFilePath( mUsername, cloudProject.id );
     cloudProject.deltasCount = DeltaFileWrapper( qgisProject, QStringLiteral( "%1/deltafile.json" ).arg( localPath.absolutePath() ) ).count();
     cloudProject.lastLocalExport = projectSetting( cloudProject.id, QStringLiteral( "lastLocalExport" ) ).toString();
     cloudProject.lastLocalPushDeltas = projectSetting( cloudProject.id, QStringLiteral( "lastLocalPushDeltas" ) ).toString();
@@ -1495,6 +1499,7 @@ void QFieldCloudProjectsModel::reload( const QJsonArray &remoteProjects )
 
     if ( !mUsername.isEmpty() )
     {
+      cloudProject.localPath = QFieldCloudUtils::localProjectFilePath( mUsername, cloudProject.id );
       QDir localPath( QStringLiteral( "%1/%2/%3" ).arg( QFieldCloudUtils::localCloudDirectory(), mUsername, cloudProject.id ) );
       if ( localPath.exists() )
       {
@@ -1511,6 +1516,11 @@ void QFieldCloudProjectsModel::reload( const QJsonArray &remoteProjects )
   {
     userDirs.next();
     const QString username = userDirs.fileName();
+
+    // We skip cloud projects that are not linked to the last successul logged in account
+    if ( username != mUsername )
+      continue;
+
     QDirIterator projectDirs( QStringLiteral( "%1/%2" ).arg( QFieldCloudUtils::localCloudDirectory(), username ), QDir::Dirs | QDir::NoDotAndDotDot );
     while ( projectDirs.hasNext() )
     {
@@ -1532,8 +1542,9 @@ void QFieldCloudProjectsModel::reload( const QJsonArray &remoteProjects )
       const QString userRole = projectSetting( projectId, QStringLiteral( "userRole" ) ).toString();
 
       CloudProject cloudProject( projectId, true, owner, name, description, userRole, QString(), LocalCheckout, ProjectStatus::Idle );
-      QDir localPath( QStringLiteral( "%1/%2/%3" ).arg( QFieldCloudUtils::localCloudDirectory(), username, cloudProject.id ) );
 
+      cloudProject.localPath = QFieldCloudUtils::localProjectFilePath( username, cloudProject.id );
+      QDir localPath( QStringLiteral( "%1/%2/%3" ).arg( QFieldCloudUtils::localCloudDirectory(), username, cloudProject.id ) );
       restoreLocalSettings( cloudProject, localPath );
 
       mCloudProjects << cloudProject;
