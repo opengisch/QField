@@ -91,6 +91,11 @@ QFieldCloudProjectsModel::QFieldCloudProjectsModel() :
       return;
 
     mUsername = mCloudConnection->username();
+    if ( mCloudConnection->status() != QFieldCloudConnection::ConnectionStatus::LoggedIn )
+    {
+      QJsonArray projects;
+      reload( projects );
+    }
     connect( mCloudConnection, &QFieldCloudConnection::usernameChanged, this, [ = ]()
     {
       mUsername = mCloudConnection->username();
@@ -1446,7 +1451,7 @@ QHash<int, QByteArray> QFieldCloudProjectsModel::roleNames() const
   roles[CanSyncRole] = "CanSync";
   roles[LastLocalExportRole] = "LastLocalExport";
   roles[LastLocalPushDeltasRole] = "LastLocalPushDeltas";
-  roles[CollaboratorRole] = "CollaboratorRole";
+  roles[UserRoleRole] = "UserRole";
 
   return roles;
 }
@@ -1459,7 +1464,6 @@ void QFieldCloudProjectsModel::reload( const QJsonArray &remoteProjects )
   QgsProject *qgisProject = QgsProject::instance();
 
   auto restoreLocalSettings = [=]( CloudProject &cloudProject, const QDir &localPath ) {
-    cloudProject.localPath = QFieldCloudUtils::localProjectFilePath( mUsername, cloudProject.id );
     cloudProject.deltasCount = DeltaFileWrapper( qgisProject, QStringLiteral( "%1/deltafile.json" ).arg( localPath.absolutePath() ) ).count();
     cloudProject.lastLocalExport = projectSetting( cloudProject.id, QStringLiteral( "lastLocalExport" ) ).toString();
     cloudProject.lastLocalPushDeltas = projectSetting( cloudProject.id, QStringLiteral( "lastLocalPushDeltas" ) ).toString();
@@ -1481,7 +1485,7 @@ void QFieldCloudProjectsModel::reload( const QJsonArray &remoteProjects )
                                projectDetails.value( "owner" ).toString(),
                                projectDetails.value( "name" ).toString(),
                                projectDetails.value( "description" ).toString(),
-                               projectDetails.value( "collaborators__role" ).toString(),
+                               projectDetails.value( "user_role" ).toString(),
                                QString(),
                                RemoteCheckout,
                                ProjectStatus::Idle );
@@ -1491,10 +1495,11 @@ void QFieldCloudProjectsModel::reload( const QJsonArray &remoteProjects )
     projectSetSetting( cloudProject.id, QStringLiteral( "name" ), cloudProject.name );
     projectSetSetting( cloudProject.id, QStringLiteral( "description" ), cloudProject.description );
     projectSetSetting( cloudProject.id, QStringLiteral( "updatedAt" ), cloudProject.updatedAt );
-    projectSetSetting( cloudProject.id, QStringLiteral( "collaboratorRole" ), cloudProject.collaboratorRole );
+    projectSetSetting( cloudProject.id, QStringLiteral( "userRole" ), cloudProject.userRole );
 
     if ( !mUsername.isEmpty() )
     {
+      cloudProject.localPath = QFieldCloudUtils::localProjectFilePath( mUsername, cloudProject.id );
       QDir localPath( QStringLiteral( "%1/%2/%3" ).arg( QFieldCloudUtils::localCloudDirectory(), mUsername, cloudProject.id ) );
       if ( localPath.exists() )
       {
@@ -1506,9 +1511,17 @@ void QFieldCloudProjectsModel::reload( const QJsonArray &remoteProjects )
     mCloudProjects << cloudProject;
   }
 
-  if ( !mUsername.isEmpty() )
+  QDirIterator userDirs( QFieldCloudUtils::localCloudDirectory(), QDir::Dirs | QDir::NoDotAndDotDot );
+  while( userDirs.hasNext() )
   {
-    QDirIterator projectDirs( QStringLiteral( "%1/%2" ).arg( QFieldCloudUtils::localCloudDirectory(), mUsername ), QDir::Dirs | QDir::NoDotAndDotDot );
+    userDirs.next();
+    const QString username = userDirs.fileName();
+
+    // We skip cloud projects that are not linked to the last successul logged in account
+    if ( username != mUsername )
+      continue;
+
+    QDirIterator projectDirs( QStringLiteral( "%1/%2" ).arg( QFieldCloudUtils::localCloudDirectory(), username ), QDir::Dirs | QDir::NoDotAndDotDot );
     while ( projectDirs.hasNext() )
     {
       projectDirs.next();
@@ -1526,11 +1539,12 @@ void QFieldCloudProjectsModel::reload( const QJsonArray &remoteProjects )
       const QString name = projectSetting( projectId, QStringLiteral( "name" ) ).toString();
       const QString description = projectSetting( projectId, QStringLiteral( "description" ) ).toString();
       const QString updatedAt = projectSetting( projectId, QStringLiteral( "updatedAt" ) ).toString();
-      const QString collaboratorRole = projectSetting( projectId, QStringLiteral( "collaboratorRole" ) ).toString();
+      const QString userRole = projectSetting( projectId, QStringLiteral( "userRole" ) ).toString();
 
-      CloudProject cloudProject( projectId, true, owner, name, description, collaboratorRole, QString(), LocalCheckout, ProjectStatus::Idle );
-      QDir localPath( QStringLiteral( "%1/%2/%3" ).arg( QFieldCloudUtils::localCloudDirectory(), mUsername, cloudProject.id ) );
+      CloudProject cloudProject( projectId, true, owner, name, description, userRole, QString(), LocalCheckout, ProjectStatus::Idle );
 
+      cloudProject.localPath = QFieldCloudUtils::localProjectFilePath( username, cloudProject.id );
+      QDir localPath( QStringLiteral( "%1/%2/%3" ).arg( QFieldCloudUtils::localCloudDirectory(), username, cloudProject.id ) );
       restoreLocalSettings( cloudProject, localPath );
 
       mCloudProjects << cloudProject;
@@ -1607,8 +1621,8 @@ QVariant QFieldCloudProjectsModel::data( const QModelIndex &index, int role ) co
       return mCloudProjects.at( index.row() ).lastLocalExport;
     case LastLocalPushDeltasRole:
       return mCloudProjects.at( index.row() ).lastLocalPushDeltas;
-    case CollaboratorRole:
-      return mCloudProjects.at( index.row() ).collaboratorRole;
+    case UserRoleRole:
+      return mCloudProjects.at( index.row() ).userRole;
   }
 
   return QVariant();

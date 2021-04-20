@@ -1777,8 +1777,36 @@ ApplicationWindow {
         projectInfo.filePath = path;
 
         mapCanvasBackground.color = mapCanvas.mapSettings.backgroundColor
-        cloudProjectsModel.currentProjectId = QFieldCloudUtils.getProjectId(qgisProject)
-        cloudProjectsModel.refreshProjectModification( cloudProjectsModel.currentProjectId )
+
+        var cloudProjectId = QFieldCloudUtils.getProjectId(qgisProject)
+        cloudProjectsModel.currentProjectId = cloudProjectId
+        cloudProjectsModel.refreshProjectModification(cloudProjectId)
+        if (cloudProjectId != '') {
+          var cloudProjectData = cloudProjectsModel.getProjectData(cloudProjectId)
+          switch(cloudProjectData.UserRole) {
+            case 'reader':
+              projectInfo.insertRights = false
+              projectInfo.editRights = false
+              break;
+            case 'reporter':
+              projectInfo.insertRights = true
+              projectInfo.editRights = false
+              break;
+            case 'editor':
+            case 'manager':
+            case 'admin':
+              projectInfo.insertRights = true
+              projectInfo.editRights = true
+              break;
+            default:
+              projectInfo.insertRights = true
+              projectInfo.editRights = true
+              break;
+          }
+        } else {
+          projectInfo.insertRights = true
+          projectInfo.editRights = true
+        }
       }
 
       function onSetMapExtent(extent) {
@@ -1792,6 +1820,9 @@ ApplicationWindow {
 
     mapSettings: mapCanvas.mapSettings
     layerTree: dashBoard.layerTree
+
+    property bool insertRights: true
+    property bool editRights: true
   }
 
   BusyIndicator {

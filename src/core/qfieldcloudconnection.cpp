@@ -32,6 +32,7 @@
 
 QFieldCloudConnection::QFieldCloudConnection()
   : mUrl( QSettings().value( QStringLiteral( "/QFieldCloud/url" ), defaultUrl() ).toString() )
+  , mUsername( QSettings().value( QStringLiteral( "/QFieldCloud/username" ) ).toString() )
   , mToken( QSettings().value( QStringLiteral( "/QFieldCloud/token" ) ).toByteArray() )
 {
   QgsNetworkAccessManager::instance()->setTimeout( 60 * 60 * 1000 );
@@ -256,7 +257,9 @@ void QFieldCloudConnection::login()
     }
 
     mUsername = resp.value( QStringLiteral( "username" ) ).toString();
+    QSettings().setValue( "/QFieldCloud/username", mUsername );
     emit usernameChanged();
+
     mAvatarUrl = resp.value( QStringLiteral( "avatar_url" ) ).toString();
     emit avatarUrlChanged();
     mUserInformation  = CloudUserInformation( mUsername, resp.value( QStringLiteral( "email" ) ).toString() );

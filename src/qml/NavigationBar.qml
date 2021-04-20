@@ -306,7 +306,7 @@ Rectangle {
 
     anchors.right: menuButton.left
 
-    width: ( parent.state == "Navigation" && supportsEditing ? 48: 0 )
+    width: ( parent.state == "Navigation" && supportsEditing && projectInfo.editRights ? 48: 0 )
     height: 48
     clip: true
 
@@ -385,13 +385,18 @@ Rectangle {
 
     anchors.right: menuButton.left
 
-    width: ( parent.state == "Indication" && toolBar.model && toolBar.model.canEditAttributesSelection && toolBar.model.selectedCount > 1 ? 48: 0 )
+    width: parent.state == "Indication"
+           && toolBar.model && toolBar.model.canEditAttributesSelection && toolBar.model.selectedCount > 1
+           && projectInfo.editRights
+           ? 48
+           : 0
     height: 48
     clip: true
 
     iconSource: Theme.getThemeIcon( "ic_edit_attributes_white" )
 
-    enabled: ( toolBar.model && toolBar.model.canEditAttributesSelection && toolBar.model.selectedCount > 1 )
+    enabled: toolBar.model && toolBar.model.canEditAttributesSelection && toolBar.model.selectedCount > 1
+             && projectInfo.editRights
 
     onClicked: {
       multiEditClicked();
@@ -451,15 +456,19 @@ Rectangle {
       }
     }
 
-    MenuSeparator { width: parent.width }
+    MenuSeparator {
+      visible: projectInfo.editRights
+      width: parent.width
+    }
 
     MenuItem {
       text: qsTr( 'Merge Selected Features' )
       icon.source: Theme.getThemeIcon( "ic_merge_features_white_24dp" )
-      enabled: toolBar.model && toolBar.model.canMergeSelection && toolBar.model.selectedCount > 1
+      enabled: toolBar.model && toolBar.model.canMergeSelection && toolBar.model.selectedCount > 1 && projectInfo.editRights
+      visible: projectInfo.editRights
 
       font: Theme.defaultFont
-      height: 48
+      height: visible ? 48 : 0
       leftPadding: 10
 
       onTriggered: multiMergeClicked();
@@ -468,10 +477,11 @@ Rectangle {
     MenuItem {
       text: qsTr( 'Delete Selected Feature(s)' )
       icon.source: Theme.getThemeIcon( "ic_delete_forever_white_24dp" )
-      enabled: toolBar.model && toolBar.model.canDeleteSelection
+      enabled: toolBar.model && toolBar.model.canDeleteSelection && projectInfo.editRights
+      visible: projectInfo.editRights
 
       font: Theme.defaultFont
-      height: 48
+      height: visible ? 48 : 0
       leftPadding: 10
 
       onTriggered: multiDeleteClicked();
@@ -534,14 +544,19 @@ Rectangle {
       onTriggered: extentController.autoZoom = !extentController.autoZoom
     }
 
-    MenuSeparator { width: parent.width }
+    MenuSeparator {
+      visible: projectInfo.editRights
+      width: parent.width
+    }
 
     MenuItem {
       text: qsTr( 'Delete Feature' )
       icon.source: Theme.getThemeIcon( "ic_delete_forever_white_24dp" )
+      enabled: projectInfo.editRights
+      visible: projectInfo.editRights
 
       font: Theme.defaultFont
-      height: 48
+      height: visible ? 48 : 0
       leftPadding: 10
 
       onTriggered: deleteClicked();
