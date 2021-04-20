@@ -65,7 +65,7 @@ class QFieldCloudProjectsModel : public QAbstractListModel
       CanSyncRole,
       LastLocalExportRole,
       LastLocalPushDeltasRole,
-      CollaboratorRole,
+      UserRoleRole,
     };
 
     Q_ENUM( ColumnRole )
@@ -299,13 +299,13 @@ class QFieldCloudProjectsModel : public QAbstractListModel
 
     struct CloudProject
     {
-      CloudProject( const QString &id, bool isPrivate, const QString &owner, const QString &name, const QString &description, const QString &collaboratorRole, const QString &updatedAt, const ProjectCheckouts &checkout, const ProjectStatus &status )
+      CloudProject( const QString &id, bool isPrivate, const QString &owner, const QString &name, const QString &description, const QString &userRole, const QString &updatedAt, const ProjectCheckouts &checkout, const ProjectStatus &status )
         : id( id )
         , isPrivate( isPrivate )
         , owner( owner )
         , name( name )
         , description( description )
-        , collaboratorRole( collaboratorRole )
+        , userRole( userRole )
         , updatedAt( updatedAt )
         , status( status )
         , checkout( checkout )
@@ -318,7 +318,7 @@ class QFieldCloudProjectsModel : public QAbstractListModel
       QString owner;
       QString name;
       QString description;
-      QString collaboratorRole;
+      QString userRole;
       QString updatedAt;
       ProjectStatus status;
       ProjectErrorStatus errorStatus = ProjectErrorStatus::NoErrorStatus;

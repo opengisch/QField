@@ -1794,7 +1794,7 @@ ApplicationWindow {
     layerTree: dashBoard.layerTree
 
     property bool insertRight: true
-    property bool editRights: false
+    property bool editRights: true
   }
 
   BusyIndicator {
