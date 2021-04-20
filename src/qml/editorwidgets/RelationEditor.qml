@@ -43,11 +43,22 @@ EditorWidgetBase {
         id: referencingFeatureListView
         model: relationEditorModel
         width: parent.width
-        height: Math.min( 5 * itemHeight, referencingFeatureListView.count * itemHeight )
-        delegate: referencingFeatureDelegate
+        height: Math.min( 5 * itemHeight, referencingFeatureListView.count * itemHeight ) + ( referencingFeatureListView.count > 0 ? itemHeight / 2 : 0 )
+        delegate:
         focus: true
         clip: true
         highlightRangeMode: ListView.StrictlyEnforceRange
+
+        ScrollBar.vertical: ScrollBar {
+            width: 10
+            policy: ScrollBar.AlwaysOn
+
+            contentItem: Rectangle {
+                implicitWidth: 10
+                implicitHeight: itemHeight
+                color: Theme.mainColor
+            }
+        }
     }
 
     //the add entry "last row"
@@ -160,7 +171,7 @@ EditorWidgetBase {
           Row
           {
             id: deleteButtonRow
-            anchors { top: parent.top; right: parent.right }
+            anchors { top: parent.top; right: parent.right; rightMargin: 10 }
             height: listitem.height
 
             ToolButton {
