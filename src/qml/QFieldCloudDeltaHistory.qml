@@ -10,27 +10,51 @@ import Theme 1.0
 Popup {
     id: popup
 
-    property alias model: deltasList.model
+    property alias model: deltaList.model
 
     width: Math.min( 400, mainWindow.width - 20 )
     x: (parent.width - width) / 2
-    y: (parent.height - height) / 2
+    y: (parent.height - page.height) / 2
     padding: 0
 
     Page {
         id: page
         width: parent.width
-        height: deltasList.height
+        height: deltaList.height + 60
         padding: 10
-        header: Label {
-            padding: 10
-            topPadding: 15
-            bottomPadding: 0
+        header: ToolBar {
+          id: toolBar;
+          height: 48
+
+          background: Rectangle {
+            color: "transparent"
+          }
+
+          Label {
+            anchors.centerIn: parent
+            leftPadding: 48
+            rightPadding: 48
             width: parent.width - 20
             text: qsTr( "Push History" )
             font: Theme.strongFont
+            color: Theme.mainColor
             horizontalAlignment: Text.AlignHCenter
             wrapMode: Text.WordWrap
+          }
+
+          QfToolButton {
+            id: closeButton
+            anchors {
+              top: parent.top
+              right: parent.right
+            }
+            iconSource: Theme.getThemeIcon( 'ic_close_black_24dp' )
+            bgcolor: "transparent"
+
+            onClicked: {
+              popup.close();
+            }
+          }
         }
 
         Column {
@@ -38,9 +62,9 @@ Popup {
             width: parent.width
 
             ListView {
-                id: deltasList
+                id: deltaList
                 width: parent.width
-                height: Math.min( childrenRect.height, mainWindow.height - 80 );
+                height: Math.min( deltaList.childrenRect.height, mainWindow.height - 160 )
                 clip: true
 
                 delegate: Rectangle {
