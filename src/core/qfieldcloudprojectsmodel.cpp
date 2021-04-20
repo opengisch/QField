@@ -933,8 +933,8 @@ void QFieldCloudProjectsModel::uploadProject( const QString &projectId, const bo
         mCloudProjects[index].status = ProjectStatus::Idle;
         mCloudProjects[index].modification ^= LocalModification;
         mCloudProjects[index].modification |= RemoteModification;
-        mCloudProjects[index].lastLocalPushDeltas = QDateTime::currentDateTimeUtc().toString( Qt::ISODate );
 
+        mCloudProjects[index].lastLocalPushDeltas = QDateTime::currentDateTimeUtc().toString( Qt::ISODate );
         projectSetSetting( projectId, QStringLiteral( "lastLocalPushDeltas" ), mCloudProjects[index].lastLocalPushDeltas );
 
         emit dataChanged( idx, idx, QVector<int>() << ModificationRole << LastLocalPushDeltasRole );
@@ -1430,7 +1430,6 @@ void QFieldCloudProjectsModel::downloadFileConnections( const QString &projectId
         mCloudProjects[index].checkout = ProjectCheckout::LocalAndRemoteCheckout;
         mCloudProjects[index].localPath = QFieldCloudUtils::localProjectFilePath( mUsername, projectId );
         mCloudProjects[index].lastLocalExport = QDateTime::currentDateTimeUtc().toString( Qt::ISODate );
-
         projectSetSetting( projectId, QStringLiteral( "lastLocalExport" ), mCloudProjects[index].lastLocalExport );
 
         emit projectDownloaded( projectId, mCloudProjects[index].name, false );

@@ -399,55 +399,35 @@ Popup {
           }
 
           Text {
-            id: lastExportText
+            id: lastExportPushText
             font: Theme.tipFont
             color: Theme.gray
             text: {
+              var exportText = ''
               var dt = cloudProjectsModel.currentProjectData.LastLocalExport
+              if (dt) {
+                dt = new Date(dt)
+                if (dt.toLocaleDateString() === new Date().toLocaleDateString())
+                  exportText = qsTr( 'Last synchronized at ' ) + dt.toLocaleTimeString()
+                else
+                  exportText = qsTr( 'Last synchronized on ' ) + dt.toLocaleString()
+              }
 
-              if (!dt)
-                return ''
+              var pushText = ''
+              dt = cloudProjectsModel.currentProjectData.LastLocalPushDeltas
 
-              dt = new Date(dt)
+              if (dt) {
+                dt = new Date(dt)
+                if (dt.toLocaleDateString() === new Date().toLocaleDateString())
+                  pushText = qsTr( 'Last changes pushed at ' ) + dt.toLocaleTimeString()
+                else
+                  pushText = qsTr( 'Last changes pushed on ' ) + dt.toLocaleString()
+              } else {
+                pushText = qsTr( 'No changes pushed yet' )
+              }
 
-              if (dt.toLocaleDateString() === new Date().toLocaleDateString())
-                return qsTr( 'Last cloud export at ' ) + dt.toLocaleTimeString()
-              else
-                return qsTr( 'Last cloud export on ' ) + dt.toLocaleString()
+              return exportText + '\n' + pushText
             }
-            wrapMode: Text.WordWrap
-            horizontalAlignment: Text.AlignHCenter
-            Layout.fillWidth: true
-          }
-
-          Text {
-            id: lastPushDeltasText
-            font: Theme.tipFont
-            color: Theme.gray
-            text: {
-              var dt = cloudProjectsModel.currentProjectData.LastLocalPushDeltas
-
-              if (!dt)
-                return qsTr( 'No changes pushed yet' )
-
-              dt = new Date(dt)
-
-              if (dt.toLocaleDateString() === new Date().toLocaleDateString())
-                return qsTr( 'Last changes push at ' ) + dt.toLocaleTimeString()
-              else
-                return qsTr( 'Last changes push on ' ) + dt.toLocaleString()
-            }
-            wrapMode: Text.WordWrap
-            horizontalAlignment: Text.AlignHCenter
-            Layout.fillWidth: true
-          }
-
-          Text {
-            font: Theme.tipFont
-            color: Theme.mainColor
-            text: cloudProjectsModel.currentProjectData.UploadAttachmentsStatus === QFieldCloudProjectsModel.UploadAttachmentsInProgress
-                  ? qsTr( "%n attachment(s) are currently being uploaded in the background.", "", parseInt(cloudProjectsModel.currentProjectData.UploadAttachmentsCount) )
-                  : ''
             wrapMode: Text.WordWrap
             horizontalAlignment: Text.AlignHCenter
             Layout.fillWidth: true
@@ -459,6 +439,17 @@ Popup {
                 qfieldCloudDeltaHistory.open()
               }
             }
+          }
+
+          Text {
+            font: Theme.tipFont
+            color: Theme.mainColor
+            text: cloudProjectsModel.currentProjectData.UploadAttachmentsStatus === QFieldCloudProjectsModel.UploadAttachmentsInProgress
+                  ? qsTr( "%n attachment(s) are currently being uploaded in the background.", "", parseInt(cloudProjectsModel.currentProjectData.UploadAttachmentsCount) )
+                  : ''
+            wrapMode: Text.WordWrap
+            horizontalAlignment: Text.AlignHCenter
+            Layout.fillWidth: true
           }
         }
       }
