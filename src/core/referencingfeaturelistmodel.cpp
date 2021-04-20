@@ -246,6 +246,19 @@ bool ReferencingFeatureListModel::deleteFeature( QgsFeatureId referencingFeature
   return true;
 }
 
+int ReferencingFeatureListModel::getFeatureIdRow( QgsFeatureId featureId )
+{
+  int row = 0;
+  for ( const Entry &entry : mEntries )
+  {
+    if ( entry.referencingFeature.id() == featureId )
+      break;
+    row++;
+  }
+
+  return row < mEntries.size() ? row : -1;
+}
+
 bool ReferencingFeatureListModel::isLoading() const
 {
   return mGatherer;

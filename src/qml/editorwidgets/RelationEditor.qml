@@ -36,6 +36,15 @@ EditorWidgetBase {
         currentRelationId: relationId
         currentNmRelationId: nmRelationId
         feature: currentFeature
+
+        property int featureFocus: -1
+        onModelUpdated: {
+          if (featureFocus > -1) {
+            console.log(relationEditorModel.getFeatureIdRow(featureFocus))
+            referencingFeatureListView.currentIndex = relationEditorModel.getFeatureIdRow(featureFocus)
+            featureFocus = -1
+          }
+        }
     }
 
     //the list
@@ -290,6 +299,7 @@ EditorWidgetBase {
         }
 
         onFeatureSaved: {
+            relationEditorModel.featureFocus = id
             relationEditorModel.reload()
         }
     }
