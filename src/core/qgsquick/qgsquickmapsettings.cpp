@@ -54,6 +54,7 @@ void QgsQuickMapSettings::setProject( QgsProject *project )
     connect( mProject, &QgsProject::crsChanged, this, &QgsQuickMapSettings::onCrsChanged );
     setDestinationCrs( mProject->crs() );
     mMapSettings.setTransformContext( mProject->transformContext() );
+    mMapSettings.setPathResolver( mProject->pathResolver() );
   }
   else
   {
@@ -263,6 +264,7 @@ void QgsQuickMapSettings::onReadProject( const QDomDocument &doc )
   mMapSettings.setRotation( 0 );
 
   mMapSettings.setTransformContext( mProject->transformContext() );
+  mMapSettings.setPathResolver( mProject->pathResolver() );
 
   emit extentChanged();
   emit destinationCrsChanged();
