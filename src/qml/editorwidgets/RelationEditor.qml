@@ -13,7 +13,7 @@ import "."
 EditorWidgetBase {
     id: relationEditor
 
-    property int itemHeight: 32
+    property int itemHeight: 40
 
     // because no additional addEntry item on readOnly (isEnabled false)
     height: isEnabled
@@ -36,6 +36,14 @@ EditorWidgetBase {
         currentRelationId: relationId
         currentNmRelationId: nmRelationId
         feature: currentFeature
+
+        property int featureFocus: -1
+        onModelUpdated: {
+          if (featureFocus > -1) {
+            referencingFeatureListView.currentIndex = relationEditorModel.getFeatureIdRow(featureFocus)
+            featureFocus = -1
+          }
+        }
     }
 
     //the list
@@ -43,11 +51,22 @@ EditorWidgetBase {
         id: referencingFeatureListView
         model: relationEditorModel
         width: parent.width
-        height: Math.min( 5 * itemHeight, referencingFeatureListView.count * itemHeight )
+        height: Math.min( 4 * itemHeight, referencingFeatureListView.count * itemHeight ) + ( referencingFeatureListView.count > 4 ? itemHeight / 2 : 0 )
         delegate: referencingFeatureDelegate
         focus: true
         clip: true
         highlightRangeMode: ListView.StrictlyEnforceRange
+
+        ScrollBar.vertical: ScrollBar {
+            width: 10
+            policy: ScrollBar.AlwaysOn
+
+            contentItem: Rectangle {
+                implicitWidth: 10
+                implicitHeight: itemHeight
+                color: Theme.mainColor
+            }
+        }
     }
 
     //the add entry "last row"
@@ -71,12 +90,13 @@ EditorWidgetBase {
               anchors { leftMargin: 10; left: parent.left; right: addButtonRow.left; verticalCenter: parent.verticalCenter }
               font.bold: true
               font.italic: true
+              font.pointSize: Theme.tipFont.pointSize
           }
 
           Row
           {
             id: addButtonRow
-            anchors { top: parent.top; right: parent.right }
+            anchors { top: parent.top; right: parent.right; rightMargin: 10 }
             height: parent.height
 
             ToolButton {
@@ -90,7 +110,7 @@ EditorWidgetBase {
                     color: parent.enabled ? nmRelationId ? 'blue' : 'black' : 'grey'
                     Image {
                       anchors.fill: parent
-                      anchors.margins: 4
+                      anchors.margins: 8
                       fillMode: Image.PreserveAspectFit
                       horizontalAlignment: Image.AlignHCenter
                       verticalAlignment: Image.AlignVCenter
@@ -139,7 +159,7 @@ EditorWidgetBase {
           Text {
             id: featureText
             anchors { leftMargin: 10; left: parent.left; right: deleteButtonRow.left; verticalCenter: parent.verticalCenter }
-            font.bold: true
+            font: Theme.defaultFont
             color: !isEnabled ? 'grey' : 'black'
             text: { text: nmRelationId ? model.nmDisplayString : model.displayString }
           }
@@ -160,7 +180,7 @@ EditorWidgetBase {
           Row
           {
             id: deleteButtonRow
-            anchors { top: parent.top; right: parent.right }
+            anchors { top: parent.top; right: parent.right; rightMargin: 10 }
             height: listitem.height
 
             ToolButton {
@@ -171,10 +191,10 @@ EditorWidgetBase {
 
                 contentItem: Rectangle {
                     anchors.fill: parent
-                    color: nmRelationId ? 'blue' : '#900000'
+                    color: nmRelationId ? 'blue' : Theme.errorColor
                     Image {
                       anchors.fill: parent
-                      anchors.margins: 4
+                      anchors.margins: 8
                       fillMode: Image.PreserveAspectFit
                       horizontalAlignment: Image.AlignHCenter
                       verticalAlignment: Image.AlignVCenter
@@ -278,6 +298,7 @@ EditorWidgetBase {
         }
 
         onFeatureSaved: {
+            relationEditorModel.featureFocus = id
             relationEditorModel.reload()
         }
     }

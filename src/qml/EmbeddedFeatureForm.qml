@@ -37,7 +37,7 @@ Popup {
         }
     }
 
-    signal featureSaved
+    signal featureSaved(int id)
     signal featureCancelled
 
     parent: ApplicationWindow.overlay
@@ -72,7 +72,7 @@ Popup {
         anchors.fill: parent
 
         onConfirmed: {
-            formPopup.featureSaved()
+            formPopup.featureSaved(formFeatureModel.feature.id)
             closePopup()
         }
 

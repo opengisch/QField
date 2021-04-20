@@ -147,6 +147,7 @@ Page {
               height: parent.height
               text: tabButton.text
               color: !tabButton.enabled ? Theme.darkGray : tabButton.down ? Qt.darker(Theme.mainColor,1.5) : Theme.mainColor
+              font.pointSize: Theme.tipFont.pointSize
               font.weight: isCurrentIndex ? Font.DemiBold : Font.Normal
 
               horizontalAlignment: Text.AlignHCenter

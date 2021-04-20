@@ -254,7 +254,7 @@ class TestReferencingFeatureListModel: public QObject
 
       //check display string of rohan
       QString displayString = mModel->data( mModel->index( 1, 0 ), ReferencingFeatureListModel::DisplayString ).toString();
-      QCOMPARE( displayString, QStringLiteral( "Rohan" ) );
+      QCOMPARE( displayString, QStringLiteral( "Gondor" ) );
 
       //delete Rohan
       mModel->deleteFeature( qvariant_cast<QgsFeature>( mModel->data( mModel->index( 1, 0 ), ReferencingFeatureListModel::ReferencingFeature ) ).id() );
@@ -293,7 +293,7 @@ class TestReferencingFeatureListModel: public QObject
 
       //check display string of Gollums Mordor share (80)
       QString displayString = mModel->data( mModel->index( 0, 0 ), ReferencingFeatureListModel::DisplayString ).toString();
-      QCOMPARE( displayString, QStringLiteral( "80" ) );
+      QCOMPARE( displayString, QStringLiteral( "40" ) );
 
       //delete Gollums share on Mordor
       mModel->deleteFeature( qvariant_cast<QgsFeature>( mModel->data( mModel->index( 0, 0 ), ReferencingFeatureListModel::ReferencingFeature ) ).id() );
