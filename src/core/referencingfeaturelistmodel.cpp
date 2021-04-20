@@ -155,6 +155,10 @@ void ReferencingFeatureListModel::updateModel()
   if ( mGatherer )
     mEntries = mGatherer->entries();
 
+  std::sort( mEntries.begin(), mEntries.end(), []( Entry &e1, Entry &e2 ) {
+    return e1.displayString < e2.displayString;
+  } );
+
   endResetModel();
   modelUpdated();
 }
