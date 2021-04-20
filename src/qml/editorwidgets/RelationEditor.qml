@@ -40,7 +40,6 @@ EditorWidgetBase {
         property int featureFocus: -1
         onModelUpdated: {
           if (featureFocus > -1) {
-            console.log(relationEditorModel.getFeatureIdRow(featureFocus))
             referencingFeatureListView.currentIndex = relationEditorModel.getFeatureIdRow(featureFocus)
             featureFocus = -1
           }
@@ -52,7 +51,7 @@ EditorWidgetBase {
         id: referencingFeatureListView
         model: relationEditorModel
         width: parent.width
-        height: Math.min( 4 * itemHeight, referencingFeatureListView.count * itemHeight ) + ( referencingFeatureListView.count > 0 ? itemHeight / 2 : 0 )
+        height: Math.min( 4 * itemHeight, referencingFeatureListView.count * itemHeight ) + ( referencingFeatureListView.count > 4 ? itemHeight / 2 : 0 )
         delegate: referencingFeatureDelegate
         focus: true
         clip: true
