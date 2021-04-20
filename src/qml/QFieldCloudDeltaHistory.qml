@@ -10,18 +10,17 @@ import Theme 1.0
 Popup {
     id: popup
 
-    property alias locatorModelSuperBridge: locatorFiltersModel.locatorModelSuperBridge
-    property alias model: locatorFiltersModel
+    property alias model: deltaList.model
 
     width: Math.min( 400, mainWindow.width - 20 )
     x: (parent.width - width) / 2
-    y: (parent.height - height) / 2
+    y: (parent.height - page.height) / 2
     padding: 0
 
     Page {
         id: page
         width: parent.width
-        height: locatorfiltersList.height + 60
+        height: deltaList.height + 60
         padding: 10
         header: ToolBar {
           id: toolBar
@@ -36,7 +35,7 @@ Popup {
             leftPadding: 48
             rightPadding: 48
             width: parent.width - 20
-            text: qsTr( "Search Settings" )
+            text: qsTr( "Push History" )
             font: Theme.strongFont
             color: Theme.mainColor
             horizontalAlignment: Text.AlignHCenter
@@ -63,14 +62,10 @@ Popup {
             width: parent.width
 
             ListView {
-                id: locatorfiltersList
+                id: deltaList
                 width: parent.width
-                height: Math.min( childrenRect.height, mainWindow.height - 160 );
+                height: Math.min( deltaList.childrenRect.height, mainWindow.height - 160 )
                 clip: true
-
-                model: LocatorFiltersModel {
-                    id: locatorFiltersModel
-                }
 
                 delegate: Rectangle {
                     id: rectangle
@@ -86,29 +81,43 @@ Popup {
                             Layout.fillWidth: true
                             topPadding: 5
                             leftPadding: 5
-                            text: Name
+                            text: {
+                              var dt = new Date(CreatedAt)
+                              return dt.toLocaleString()
+                            }
                             font: Theme.defaultFont
                             color: "black"
                             wrapMode: Text.WordWrap
                         }
-                        CheckBox {
-                              Layout.fillWidth: true
-                              topPadding: 5
-                              bottomPadding: 5
-                              text: qsTr('Trigger without its prefix')  + ' (' + Prefix + ')'
-                              font: Theme.tipFont
-                              indicator.height: 16
-                              indicator.width: 16
-                              indicator.implicitHeight: 24
-                              indicator.implicitWidth: 24
-                              checked: Default? true : false
-                              onCheckedChanged: Default = checked
-                        }
+
                         Text {
                             Layout.fillWidth: true
                             leftPadding: 5
                             bottomPadding: 5
-                            text: Description
+                            text: {
+                                var status = ''
+                                switch(Status) {
+                                  case DeltaListModel.PendingStatus:
+                                    status = 'pending'
+                                    break;
+                                  case DeltaListModel.BusyStatus:
+                                    status = 'busy'
+                                    break;
+                                  case DeltaListModel.AppliedStatus:
+                                    status = 'applied'
+                                    break;
+                                  case DeltaListModel.ConflictStatus:
+                                    status = 'conflict'
+                                    break;
+                                  case DeltaListModel.NotAppliedStatus:
+                                    status = 'not applied'
+                                    break;
+                                  case DeltaListModel.ErrorStatus:
+                                    status = 'error'
+                                    break;
+                                }
+                                return 'Status: ' + status + ( Output != '' ? ' (' + Output + ')' : '' )
+                              }
                             font: Theme.tipFont
                             color: Theme.gray
                             wrapMode: Text.WordWrap

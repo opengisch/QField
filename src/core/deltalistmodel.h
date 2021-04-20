@@ -1,5 +1,5 @@
 /***************************************************************************
-    deltastatuslistmodel.h
+    deltalistmodel.h
     ---------------------
     begin                : December 2020
     copyright            : (C) 2020 by Ivan Ivanov
@@ -13,14 +13,14 @@
  *                                                                         *
  ***************************************************************************/
 
-#ifndef DELTASTATUSLISTMODEL_H
-#define DELTASTATUSLISTMODEL_H
+#ifndef DELTALISTMODEL_H
+#define DELTALISTMODEL_H
 
 #include <QAbstractListModel>
 #include <QUuid>
 #include <QJsonDocument>
 
-class DeltaStatusListModel : public QAbstractListModel
+class DeltaListModel : public QAbstractListModel
 {
   Q_OBJECT
 
@@ -49,7 +49,7 @@ public:
 
   Q_ENUM( ColumnRole )
 
-  struct DeltaStatus {
+  struct Delta {
     QUuid id;
     QUuid deltafileId;
     QString createdAt;
@@ -58,8 +58,8 @@ public:
     QString output;
   };
 
-  DeltaStatusListModel() = default;
-  explicit DeltaStatusListModel( QJsonDocument deltasStatusList );
+  DeltaListModel() = default;
+  explicit DeltaListModel( QJsonDocument deltasStatusList );
 
   //! Returns number of rows.
   int rowCount( const QModelIndex &parent ) const override;
@@ -89,7 +89,7 @@ private:
   QJsonDocument mJson;
   bool mIsValid = false;
   QString mErrorString;
-  QList<DeltaStatus> mDeltas;
+  QList<Delta> mDeltas;
 };
 
-#endif // DELTASTATUSLISTMODEL_H
+#endif // DELTALISTMODEL_H

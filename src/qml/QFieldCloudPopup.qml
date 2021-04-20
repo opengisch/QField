@@ -16,9 +16,9 @@ Popup {
     header: PageHeader {
       title: qsTr('QFieldCloud')
 
-      showCancelButton: false
-      showApplyButton: cloudProjectsModel.currentProjectData.Status === QFieldCloudProjectsModel.Idle
-            || cloudConnection.status === QFieldCloudConnection.Disconnected
+      showCancelButton: cloudProjectsModel.currentProjectData.Status !== QFieldCloudProjectsModel.Uploading
+                        || cloudConnection.status === QFieldCloudConnection.Disconnected
+      showApplyButton: false
       busyIndicatorState: cloudConnection.status === QFieldCloudConnection.Connecting
             || cloudProjectsModel.currentProjectData.Status === QFieldCloudProjectsModel.Uploading
             || cloudProjectsModel.currentProjectData.Status === QFieldCloudProjectsModel.Downloading
@@ -399,47 +399,46 @@ Popup {
           }
 
           Text {
-            id: lastExportText
+            id: lastExportPushText
             font: Theme.tipFont
             color: Theme.gray
             text: {
+              var exportText = ''
               var dt = cloudProjectsModel.currentProjectData.LastLocalExport
+              if (dt) {
+                dt = new Date(dt)
+                if (dt.toLocaleDateString() === new Date().toLocaleDateString())
+                  exportText = qsTr( 'Last synchronized at ' ) + dt.toLocaleTimeString()
+                else
+                  exportText = qsTr( 'Last synchronized on ' ) + dt.toLocaleString()
+              }
 
-              if (!dt)
-                return ''
+              var pushText = ''
+              dt = cloudProjectsModel.currentProjectData.LastLocalPushDeltas
 
-              dt = new Date(dt)
+              if (dt) {
+                dt = new Date(dt)
+                if (dt.toLocaleDateString() === new Date().toLocaleDateString())
+                  pushText = qsTr( 'Last changes pushed at ' ) + dt.toLocaleTimeString()
+                else
+                  pushText = qsTr( 'Last changes pushed on ' ) + dt.toLocaleString()
+              } else {
+                pushText = qsTr( 'No changes pushed yet' )
+              }
 
-              if (dt.toLocaleDateString() === new Date().toLocaleDateString())
-                return qsTr( 'Last cloud export at ' ) + dt.toLocaleTimeString()
-              else
-                return qsTr( 'Last cloud export on ' ) + dt.toLocaleString()
+              return exportText + '\n' + pushText
             }
             wrapMode: Text.WordWrap
             horizontalAlignment: Text.AlignHCenter
             Layout.fillWidth: true
-          }
 
-          Text {
-            id: lastPushDeltasText
-            font: Theme.tipFont
-            color: Theme.gray
-            text: {
-              var dt = cloudProjectsModel.currentProjectData.LastLocalPushDeltas
-
-              if (!dt)
-                return qsTr( 'No changes pushed yet' )
-
-              dt = new Date(dt)
-
-              if (dt.toLocaleDateString() === new Date().toLocaleDateString())
-                return qsTr( 'Last changes push at ' ) + dt.toLocaleTimeString()
-              else
-                return qsTr( 'Last changes push on ' ) + dt.toLocaleString()
+            MouseArea {
+              anchors.fill: parent
+              onClicked: {
+                qfieldCloudDeltaHistory.model = cloudProjectsModel.currentProjectData.DeltaList
+                qfieldCloudDeltaHistory.open()
+              }
             }
-            wrapMode: Text.WordWrap
-            horizontalAlignment: Text.AlignHCenter
-            Layout.fillWidth: true
           }
 
           Text {
@@ -467,6 +466,8 @@ Popup {
         displayToast(qsTr('Connecting...'))
       } else if (cloudConnection.status === QFieldCloudConnection.LoggedIn) {
         displayToast(qsTr('Logged in'))
+        if ( cloudProjectsModel.currentProjectId != '' )
+          cloudProjectsModel.refreshProjectDeltaList(cloudProjectsModel.currentProjectId)
       }
     }
   }
@@ -539,6 +540,8 @@ Popup {
 
     if ( cloudProjectsModel.currentProjectId && cloudConnection.hasToken && cloudConnection.status === QFieldCloudConnection.Disconnected )
       cloudConnection.login();
+    else if ( cloudProjectsModel.currentProjectId != '' )
+      cloudProjectsModel.refreshProjectDeltaList(cloudProjectsModel.currentProjectId)
 
     if ( cloudConnection.status === QFieldCloudConnection.Connectiong )
       displayToast(qsTr('Connecting cloud'))
