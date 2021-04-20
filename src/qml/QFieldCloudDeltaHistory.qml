@@ -23,7 +23,7 @@ Popup {
         height: deltaList.height + 60
         padding: 10
         header: ToolBar {
-          id: toolBar;
+          id: toolBar
           height: 48
 
           background: Rectangle {
@@ -49,7 +49,7 @@ Popup {
               right: parent.right
             }
             iconSource: Theme.getThemeIcon( 'ic_close_black_24dp' )
-            bgcolor: "transparent"
+            bgcolor: "white"
 
             onClicked: {
               popup.close();

@@ -21,17 +21,41 @@ Popup {
     Page {
         id: page
         width: parent.width
-        height: locatorfiltersList.height
+        height: locatorfiltersList.height + 60
         padding: 10
-        header: Label {
-            padding: 10
-            topPadding: 15
-            bottomPadding: 0
+        header: ToolBar {
+          id: toolBar
+          height: 48
+
+          background: Rectangle {
+            color: "transparent"
+          }
+
+          Label {
+            anchors.centerIn: parent
+            leftPadding: 48
+            rightPadding: 48
             width: parent.width - 20
             text: qsTr( "Search Settings" )
             font: Theme.strongFont
+            color: Theme.mainColor
             horizontalAlignment: Text.AlignHCenter
             wrapMode: Text.WordWrap
+          }
+
+          QfToolButton {
+            id: closeButton
+            anchors {
+              top: parent.top
+              right: parent.right
+            }
+            iconSource: Theme.getThemeIcon( 'ic_close_black_24dp' )
+            bgcolor: "white"
+
+            onClicked: {
+              popup.close();
+            }
+          }
         }
 
         Column {
@@ -41,7 +65,7 @@ Popup {
             ListView {
                 id: locatorfiltersList
                 width: parent.width
-                height: Math.min( childrenRect.height, mainWindow.height - 80 );
+                height: Math.min( childrenRect.height, mainWindow.height - 160 );
                 clip: true
 
                 model: LocatorFiltersModel {
