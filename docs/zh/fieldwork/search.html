@@ -66,6 +66,10 @@
 <li><a class="reference internal" href="#goto-coordinate">GoTo Coordinate</a></li>
 </ul>
 </li>
+<li><a class="reference internal" href="#search-in-layers">在图层中搜索</a><ul>
+<li><a class="reference internal" href="#configure-search-in-qgis">在QGIS中配置搜索</a></li>
+</ul>
+</li>
 </ul>
 </ul>
 </li>
@@ -140,6 +144,17 @@ It is always possible to search WGS84 coordinates (<em>longitude, latitude</em>)
 <div class="docutils container">
 <iframe src="https://player.vimeo.com/video/499566922" style="border: 0; height: 345px; width: 560px">
 </iframe></div>
+</div>
+</div>
+<div class="section" id="search-in-layers">
+<h1>在图层中搜索<a class="headerlink" href="#search-in-layers" title="Permalink to this headline">¶</a></h1>
+<p>您可以搜索矢量图层中的要素。现阶段，搜索的执行方式等同于QGIS桌面中的*针对所有图层中的要素*进行过滤（可以通过QGIS定位器面板使用*af*前缀访问）。</p>
+<div class="section" id="configure-search-in-qgis">
+<h2>在QGIS中配置搜索<a class="headerlink" href="#configure-search-in-qgis" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic simple">
+<li>通过项目 --&gt; 属性 --&gt; 识别图层，选择可搜索的图层。</li>
+<li>定义目标图层的*显示表达式*，这将用于搜索要素。通过矢量图层属性--&gt;显示页面进行配置。</li>
+</ol>
 </div>
 </div>
 
