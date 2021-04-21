@@ -270,12 +270,13 @@ Rectangle {
     visible: stateMachine.state === "digitize"
              && ! selection.focusedGeometry.isNull
              && ! selection.focusedLayer.customProperty( "QFieldSync/is_geometry_locked", false )
+             && projectInfo.editRights
 
     anchors.right: editButton.left
 
     iconSource: Theme.getThemeIcon( "ic_edit_geometry_white" )
 
-    width: ( parent.state == "Navigation" && !readOnly ? 48: 0 )
+    width: ( parent.state == "Navigation" && !readOnly && projectInfo.editRights ? 48: 0 )
     height: 48
     clip: true
 

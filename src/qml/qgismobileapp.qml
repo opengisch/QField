@@ -1785,6 +1785,7 @@ ApplicationWindow {
           var cloudProjectData = cloudProjectsModel.getProjectData(cloudProjectId)
           switch(cloudProjectData.UserRole) {
             case 'reader':
+              stateMachine.state = "browse"
               projectInfo.insertRights = false
               projectInfo.editRights = false
               break;
