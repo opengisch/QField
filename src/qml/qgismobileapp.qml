@@ -1803,6 +1803,10 @@ ApplicationWindow {
               projectInfo.editRights = true
               break;
           }
+
+          if (cloudProjectsModel.layerObserver.deltaFileWrapper.hasError()) {
+            cloudPopup.show()
+          }
         } else {
           projectInfo.insertRights = true
           projectInfo.editRights = true

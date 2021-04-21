@@ -17,7 +17,7 @@ Popup {
       title: qsTr('QFieldCloud')
 
       showCancelButton: cloudProjectsModel.currentProjectData.Status !== QFieldCloudProjectsModel.Uploading
-                        || cloudConnection.status === QFieldCloudConnection.Disconnected
+                        && cloudConnection.status !== QFieldCloudConnection.Connecting
       showApplyButton: false
       busyIndicatorState: cloudConnection.status === QFieldCloudConnection.Connecting
             || cloudProjectsModel.currentProjectData.Status === QFieldCloudProjectsModel.Uploading
