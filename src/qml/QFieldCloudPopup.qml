@@ -401,7 +401,7 @@ Popup {
             color: Theme.gray
             text: !cloudProjectsModel.layerObserver.deltaFileWrapper.hasError()
                   ? qsTr('Revert all modified features in the local cloud layers. You cannot restore those changes.')
-                  : qsTr('The local copy of this cloud project has been corrupted. Resetting the project will re-download the cloud version and will remove any local changes, make sure those were copied first if needed.')
+                  : qsTr('The local copy of this cloud project has been corrupted. Resetting the project will re-download the cloud version and will remove any local changes, make sure those were copied first if needed.\n\nWhile you can still view and use the project, it is strongly recommended to reset to avoid any accidental data loss as none of the changes made will be pushed back to the cloud.')
             wrapMode: Text.WordWrap
             horizontalAlignment: Text.AlignHCenter
             Layout.bottomMargin: 10
