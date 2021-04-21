@@ -365,7 +365,7 @@ void QFieldCloudProjectsModel::cancelDownloadProject( const QString &projectId )
   emit dataChanged( idx, idx, QVector<int>() << StatusRole << ExportStatusRole );
 }
 
-void QFieldCloudProjectsModel::downloadProject( const QString &projectId )
+void QFieldCloudProjectsModel::downloadProject( const QString &projectId, bool overwriteProject )
 {
   if ( !mCloudConnection )
     return;
@@ -379,7 +379,7 @@ void QFieldCloudProjectsModel::downloadProject( const QString &projectId )
     return;
 
   // before downloading, there should be no local modification, otherwise it will be overwritten
-  if ( mCloudProjects[index].modification & LocalModification )
+  if ( mCloudProjects[index].modification & LocalModification && !overwriteProject )
     return;
 
   mCloudProjects[index].exportStatus = ExportUnstartedStatus;
@@ -1698,7 +1698,6 @@ bool QFieldCloudProjectsModel::revertLocalChangesFromCurrentProject()
 bool QFieldCloudProjectsModel::discardLocalChangesFromCurrentProject()
 {
   const int index = findProject( mCurrentProjectId );
-
   if ( index == -1 || index >= mCloudProjects.size() )
     return false;
 
@@ -1712,7 +1711,7 @@ bool QFieldCloudProjectsModel::discardLocalChangesFromCurrentProject()
   deltaFileWrapper->reset();
   deltaFileWrapper->resetId();
 
-  if ( ! deltaFileWrapper->toFile() )
+  if ( !deltaFileWrapper->toFile() )
     return false;
 
   return true;

@@ -141,7 +141,7 @@ class DeltaFileWrapper : public QObject
      *
      * @return bool whether an error has been encountered
      */
-    bool hasError() const;
+    Q_INVOKABLE bool hasError() const;
 
 
     /**

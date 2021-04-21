@@ -245,6 +245,9 @@ QString DeltaFileWrapper::errorString() const
 QByteArray DeltaFileWrapper::toJson( QJsonDocument::JsonFormat jsonFormat ) const
 {
   QJsonObject jsonRoot( mJsonRoot );
+  jsonRoot.insert( QStringLiteral( "version" ), DeltaFormatVersion );
+  jsonRoot.insert( QStringLiteral( "id" ), id() );
+  jsonRoot.insert( QStringLiteral( "project" ), mCloudProjectId );
   jsonRoot.insert( QStringLiteral( "deltas" ), mDeltas );
   jsonRoot.insert( QStringLiteral( "files" ), QJsonArray() );
 
@@ -262,7 +265,7 @@ bool DeltaFileWrapper::toFile()
 {
   QFile deltaFile( mFileName );
 
-  if ( ! deltaFile.open( QIODevice::WriteOnly | QIODevice::Unbuffered ) )
+  if ( !deltaFile.open( QIODevice::WriteOnly | QIODevice::Unbuffered ) )
   {
     mErrorType = DeltaFileWrapper::IOError;
     mErrorDetails = deltaFile.errorString();
