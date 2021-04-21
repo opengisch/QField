@@ -17,6 +17,7 @@ Popup {
       title: qsTr('QFieldCloud')
 
       showCancelButton: cloudProjectsModel.currentProjectData.Status !== QFieldCloudProjectsModel.Uploading
+                        || cloudProjectsModel.currentProjectData.Status !== QFieldCloudProjectsModel.Downloading
       showApplyButton: false
       busyIndicatorState: cloudConnection.status === QFieldCloudConnection.Connecting
             || cloudProjectsModel.currentProjectData.Status === QFieldCloudProjectsModel.Uploading
@@ -385,12 +386,8 @@ Popup {
               if (!cloudProjectsModel.layerObserver.deltaFileWrapper.hasError()) {
                 revertDialog.open();
               } else {
-                discardDialog.open();
+                resetDialog.open();
               }
-            }
-
-            onPressAndHold: {
-              discardDialog.open();
             }
           }
 
@@ -523,7 +520,7 @@ Popup {
   }
 
   Dialog {
-    id: discardDialog
+    id: resetDialog
     parent: mainWindow.contentItem
 
     property int selectedCount: 0
@@ -535,17 +532,17 @@ Popup {
     x: ( mainWindow.width - width ) / 2
     y: ( mainWindow.height - height ) / 2
 
-    title: qsTr( "Discard local changes" )
+    title: qsTr( "Reset cloud project" )
     Label {
       width: parent.width
       wrapMode: Text.WordWrap
-      text: qsTr( "Discarding local changes may result in QFieldCloud conflicts. Should local changes be discarded?" )
+      text: qsTr( "Last warning, resetting the cloud project will erase any local changes, are you sure you want to go ahead?" )
     }
 
     standardButtons: Dialog.Ok | Dialog.Cancel
 
     onAccepted: {
-      discardLocalChangesFromCurrentProject();
+      resetCurrentProject();
     }
     onRejected: {
       visible = false
@@ -585,16 +582,8 @@ Popup {
     displayToast(qsTr('No changes to revert'))
   }
 
-  function discardLocalChangesFromCurrentProject() {
-    if (cloudProjectsModel.currentProjectData && cloudProjectsModel.currentProjectData.CanSync) {
-      if ( cloudProjectsModel.discardLocalChangesFromCurrentProject(cloudProjectsModel.currentProjectId) )
-        displayToast(qsTr('Local changes discarded'))
-      else
-        displayToast(qsTr('Failed to discard changes'))
-
-      return
-    }
-
-    displayToast(qsTr('No changes to discard'))
+  function resetCurrentProject() {
+    cloudProjectsModel.discardLocalChangesFromCurrentProject(cloudProjectsModel.currentProjectId)
+    cloudProjectsModel.downloadProject(cloudProjectsModel.currentProjectId, true)
   }
 }

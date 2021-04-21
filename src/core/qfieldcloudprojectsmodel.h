@@ -200,7 +200,7 @@ class QFieldCloudProjectsModel : public QAbstractListModel
     Q_INVOKABLE void refreshProjectsList();
 
     //! Downloads a cloud project with given \a projectId and all of its files.
-    Q_INVOKABLE void downloadProject( const QString &projectId );    //! Downloads a cloud project with given \a projectId and all of its files.
+    Q_INVOKABLE void downloadProject( const QString &projectId, bool overwriteProject = false );    //! Downloads a cloud project with given \a projectId and all of its files.
 
     //! Cancels ongoing cloud project download with \a projectId.
     Q_INVOKABLE void cancelDownloadProject( const QString &projectId );
