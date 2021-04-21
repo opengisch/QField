@@ -155,6 +155,10 @@ void ReferencingFeatureListModel::updateModel()
   if ( mGatherer )
     mEntries = mGatherer->entries();
 
+  std::sort( mEntries.begin(), mEntries.end(), []( const Entry &e1, const Entry &e2 ) {
+    return e1.displayString < e2.displayString;
+  } );
+
   endResetModel();
   modelUpdated();
 }
@@ -240,6 +244,19 @@ bool ReferencingFeatureListModel::deleteFeature( QgsFeatureId referencingFeature
   reload();
 
   return true;
+}
+
+int ReferencingFeatureListModel::getFeatureIdRow( QgsFeatureId featureId )
+{
+  int row = 0;
+  for ( const Entry &entry : mEntries )
+  {
+    if ( entry.referencingFeature.id() == featureId )
+      break;
+    row++;
+  }
+
+  return row < mEntries.size() ? row : -1;
 }
 
 bool ReferencingFeatureListModel::isLoading() const

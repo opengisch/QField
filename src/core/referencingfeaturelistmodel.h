@@ -139,6 +139,12 @@ class ReferencingFeatureListModel : public QAbstractItemModel
     Q_INVOKABLE bool deleteFeature( QgsFeatureId referencingFeatureId );
 
     /**
+     * Returns the row number for a given feature id
+     * \param featureId the feature id
+     */
+    Q_INVOKABLE int getFeatureIdRow( QgsFeatureId featureId );
+
+    /**
      * Indicator if the model is currently performing any feature iteration in the background.
      */
     bool isLoading() const;
