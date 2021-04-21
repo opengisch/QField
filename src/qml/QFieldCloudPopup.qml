@@ -298,15 +298,20 @@ Popup {
           rowSpacing: parent.rowSpacing
 
           Text {
+            property bool hasError: cloudProjectsModel.layerObserver.deltaFileWrapper.hasError()
             property int changesCount: cloudProjectsModel.layerObserver.deltaFileWrapper.count
             id: changesText
             font: Theme.tipFont
-            color: Theme.gray
-            text: changesCount === 0
-                  ? qsTr('There are no local changes.')
-                  : changesCount === 1
-                    ? qsTr('There is a single local change.')
-                    : qsTr('There are %1 local changes.').arg( changesCount )
+            color: hasError ? Theme.errorColor : Theme.gray
+            text: {
+              if (!hasError) {
+                return changesCount !== 0
+                       ? qsTr('There is/are %n local change(s)','',changesCount)
+                       : qsTr('There are no local changes');
+              } else {
+                return qsTr('The locally stored cloud project has been corrupted')
+              }
+            }
             wrapMode: Text.WordWrap
             horizontalAlignment: Text.AlignHCenter
             Layout.bottomMargin: 20
@@ -318,7 +323,9 @@ Popup {
             Layout.fillWidth: true
             font: Theme.defaultFont
             text: qsTr('Synchronize')
+            visible: !cloudProjectsModel.layerObserver.deltaFileWrapper.hasError()
             enabled: !!(cloudProjectsModel.currentProjectData && cloudProjectsModel.currentProjectData.CanSync)
+                     && !cloudProjectsModel.layerObserver.deltaFileWrapper.hasError()
             icon.source: Theme.getThemeIcon('ic_cloud_download_24dp')
             icon.color: 'white'
 
@@ -329,6 +336,7 @@ Popup {
             id: syncText
             font: Theme.tipFont
             color: Theme.gray
+            visible: !cloudProjectsModel.layerObserver.deltaFileWrapper.hasError()
             text: qsTr('Synchronize the whole project with all modified features and download the freshly updated project with all the applied changes from QFieldCloud.')
             wrapMode: Text.WordWrap
             horizontalAlignment: Text.AlignHCenter
@@ -341,7 +349,9 @@ Popup {
             Layout.fillWidth: true
             font: Theme.defaultFont
             text: qsTr('Push changes')
-            enabled: !!(cloudProjectsModel.currentProjectData && cloudProjectsModel.currentProjectData.CanSync) && cloudProjectsModel.layerObserver.deltaFileWrapper.count > 0
+            visible: !cloudProjectsModel.layerObserver.deltaFileWrapper.hasError()
+            enabled: !!(cloudProjectsModel.currentProjectData && cloudProjectsModel.currentProjectData.CanSync)
+                     && cloudProjectsModel.layerObserver.deltaFileWrapper.count > 0 && !cloudProjectsModel.layerObserver.deltaFileWrapper.hasError()
             icon.source: Theme.getThemeIcon('ic_cloud_upload_24dp')
             icon.color: 'white'
 
@@ -352,6 +362,7 @@ Popup {
             id: pushText
             font: Theme.tipFont
             color: Theme.gray
+            visible: !cloudProjectsModel.layerObserver.deltaFileWrapper.hasError()
             text: qsTr('Save internet bandwidth by only pushing the local features and pictures to the cloud, without updating the whole project.')
             wrapMode: Text.WordWrap
             horizontalAlignment: Text.AlignHCenter
@@ -364,13 +375,19 @@ Popup {
             Layout.fillWidth: true
             font: Theme.defaultFont
             bgcolor: Theme.darkRed
-            text: qsTr('Revert local changes')
-            enabled: cloudProjectsModel.layerObserver.deltaFileWrapper.count > 0
+            text: !cloudProjectsModel.layerObserver.deltaFileWrapper.hasError()
+                  ? qsTr('Revert local changes')
+                  : qsTr('Reset project')
+            enabled: cloudProjectsModel.layerObserver.deltaFileWrapper.count > 0 || cloudProjectsModel.layerObserver.deltaFileWrapper.hasError()
             icon.source: Theme.getThemeIcon('ic_undo_white_24dp')
             icon.color: 'white'
 
             onClicked: {
-              revertDialog.open();
+              if (!cloudProjectsModel.layerObserver.deltaFileWrapper.hasError()) {
+                revertDialog.open();
+              } else {
+                discardDialog.open();
+              }
             }
 
             onPressAndHold: {
@@ -382,7 +399,9 @@ Popup {
             id: discardText
             font: Theme.tipFont
             color: Theme.gray
-            text: qsTr('Revert all modified features in the local cloud layers. You cannot restore those changes.')
+            text: !cloudProjectsModel.layerObserver.deltaFileWrapper.hasError()
+                  ? qsTr('Revert all modified features in the local cloud layers. You cannot restore those changes.')
+                  : qsTr('The local copy of this cloud project has been corrupted. Resetting the project will re-download the cloud version and will remove any local changes, make sure those were copied first if needed.')
             wrapMode: Text.WordWrap
             horizontalAlignment: Text.AlignHCenter
             Layout.bottomMargin: 10
