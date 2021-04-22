@@ -103,11 +103,12 @@ to editing mode and a line or polygon vector is selected.
 
   .. vimeo:: 537673220
 
-Topology
---------
+Topological Editing
+-------------------
 
-If the topology is activated on the project QGIS before exporting for QField, shared nodes are treated
-as such when moving / deleting vertices, and additional vertices are added on nodes placed on segments.
+If topological editing is activated on the project QGIS before exporting for QField, shared nodes of
+neighbouring geometries are modified together when moving / deleting vertices and additional vertices
+are added to segments when a new node is added from neightbouring geometries.
 
 .. container::
 

@@ -64,7 +64,8 @@
       role="menu"
       aria-labelledby="dLabelLocalToc"><ul>
 <li><a class="reference internal" href="#">GNSS</a><ul>
-<li><a class="reference internal" href="#using-external-gnss-reciever">Usar un receptor GNSS externo</a></li>
+<li><a class="reference internal" href="#using-an-external-gnss-receiver">Using an external GNSS-Receiver</a></li>
+<li><a class="reference internal" href="#mock-location">Mock location</a></li>
 </ul>
 </li>
 </ul>
@@ -146,8 +147,14 @@
 <p class="first admonition-title">Note</p>
 <p class="last">Si ve información en WGS 84 lat/lon en lugar de información en su SRC, probablemente aún no tenga señal.</p>
 </div>
-<div class="section" id="using-external-gnss-reciever">
-<h2>Usar un receptor GNSS externo<a class="headerlink" href="#using-external-gnss-reciever" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="using-an-external-gnss-receiver">
+<h2>Using an external GNSS-Receiver<a class="headerlink" href="#using-an-external-gnss-receiver" title="Permalink to this headline">¶</a></h2>
+<p>QField supports connecting external GNSS antennas via bluetooth.</p>
+<p>In settings -&gt; positioning, paired bluetooth devices can be scanned and chosen as position source.</p>
+<p>Make sure no other app like mock location providers are using the bluetooth antenna.</p>
+</div>
+<div class="section" id="mock-location">
+<h2>Mock location<a class="headerlink" href="#mock-location" title="Permalink to this headline">¶</a></h2>
 <p>Es posible proporcionar una ubicación simulada de una aplicación android independiente a QField. Hay varias opciones para esto, una de ellas es <a class="reference external" href="https://play.google.com/store/apps/details?id=com.lefebure.ntripclient">Android NTRIP Client</a>.</p>
 <p>Para usar esto, debe activar las localizaciones simuladas en su dispositivo Android &lt;<a class="reference external" href="https://www.youtube.com/watch?v=v1eRHmMiRJQ">https://www.youtube.com/watch?v=v1eRHmMiRJQ</a>&gt;`_.</p>
 </div>
