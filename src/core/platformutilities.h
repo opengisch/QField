@@ -119,11 +119,6 @@ class QFIELD_CORE_EXPORT PlatformUtilities : public QObject
      */
     Q_INVOKABLE virtual void setScreenLockPermission( const bool allowLock ) { Q_UNUSED( allowLock ); }
 
-    /**
-     * Show the rate this app screen if required.
-    */
-    Q_INVOKABLE virtual void showRateThisApp() const {};
-
     static PlatformUtilities *instance();
 
 };
