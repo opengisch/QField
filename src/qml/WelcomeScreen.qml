@@ -105,7 +105,7 @@ Page {
           Text {
             Layout.margins: 6
             Layout.maximumWidth: feedbackView.width - 12
-            text: "We're sorry to hear that. Click on the button below to comment or seek support."
+            text: qsTr("We're sorry to hear that. Click on the button below to comment or seek support.")
             font: Theme.defaultFont
             horizontalAlignment: Text.AlignHCenter
             wrapMode: Text.WordWrap
@@ -119,7 +119,7 @@ Page {
               leftPadding: 20
               rightPadding: 20
 
-              text: qsTr( "Reach out" )
+              text: qsTr("Reach out")
               icon.source: Theme.getThemeIcon( 'ic_create_white_24dp' )
 
               onClicked: {
@@ -157,7 +157,7 @@ Page {
           Text {
             Layout.margins: 6
             Layout.maximumWidth: feedbackView.width - 12
-            text: "Hey there, how do you like your experience with QField so far?"
+            text: qsTr("Hey there, how do you like your experience with QField so far?")
             font: Theme.defaultFont
             horizontalAlignment: Text.AlignHCenter
             wrapMode: Text.WordWrap
@@ -214,7 +214,7 @@ Page {
           Text {
             Layout.margins: 6
             Layout.maximumWidth: feedbackView.width - 12
-            text: "That's great! We'd love for you to click on the button below and leave a comment on the store."
+            text: qsTr("That's great! We'd love for you to click on the button below and leave a comment on the store.")
             font: Theme.defaultFont
             horizontalAlignment: Text.AlignHCenter
             wrapMode: Text.WordWrap
@@ -229,7 +229,7 @@ Page {
               leftPadding: 20
               rightPadding: 20
 
-              text: qsTr( "Rate us" )
+              text: qsTr("Rate us")
               icon.source: Theme.getThemeVectorIcon( 'ic_star_white_24dp' )
 
               onClicked: {
