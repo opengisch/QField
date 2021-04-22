@@ -63,6 +63,7 @@ Page {
 
     SwipeView {
       id: feedbackView
+      visible: false
 
       Layout.margins: 6
       Layout.topMargin: 10
@@ -598,6 +599,23 @@ Page {
 
   Component.onCompleted: {
     adjustWelcomeScreen()
+
+    var feedbackFormShown = settings.value("/QField/FeedbackFormShown",false)
+    if (!feedbackFormShown) {
+      var now = new Date()
+      var dt = settings.value("/QField/FirstRunDate", "")
+      if (dt != "") {
+        dt = new Date(dt)
+
+        var daysToPrompt = 30;
+        if ((now - dt) >= (daysToPrompt * 24 * 60 * 60 * 1000)) {
+          feedbackView.visible = true
+          settings.setValue("/QField/FeedbackFormShown",true)
+        }
+      } else {
+        settings.setValue("/QField/FirstRunDate", now.toISOString())
+      }
+    }
   }
 
   onVisibleChanged: {
