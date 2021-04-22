@@ -157,7 +157,7 @@ Page {
           Text {
             Layout.margins: 6
             Layout.maximumWidth: feedbackView.width - 12
-            text: "Hey there, so far, how do you like your experience with QField?"
+            text: "Hey there, how do you like your experience with QField so far?"
             font: Theme.defaultFont
             horizontalAlignment: Text.AlignHCenter
             wrapMode: Text.WordWrap
@@ -600,6 +600,7 @@ Page {
   Component.onCompleted: {
     adjustWelcomeScreen()
 
+    var runCount = settings.value("/QField/RunCount",0) * 1
     var feedbackFormShown = settings.value("/QField/FeedbackFormShown",false)
     if (!feedbackFormShown) {
       var now = new Date()
@@ -608,7 +609,8 @@ Page {
         dt = new Date(dt)
 
         var daysToPrompt = 30;
-        if ((now - dt) >= (daysToPrompt * 24 * 60 * 60 * 1000)) {
+        var runsToPrompt = 5;
+        if (runCount >= runsToPrompt && (now - dt) >= (daysToPrompt * 24 * 60 * 60 * 1000)) {
           feedbackView.visible = true
           settings.setValue("/QField/FeedbackFormShown",true)
         }
@@ -616,6 +618,7 @@ Page {
         settings.setValue("/QField/FirstRunDate", now.toISOString())
       }
     }
+    settings.setValue("/QField/RunCount",runCount + 1)
   }
 
   onVisibleChanged: {
