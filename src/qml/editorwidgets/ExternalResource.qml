@@ -285,6 +285,7 @@ EditorWidgetBase {
 
     Popup {
       id: campopup
+      z: 10000 // 1000s are embedded feature forms, use a higher value to insure feature form popups always show above embedded feature forms
 
       Component.onCompleted: {
         if ( platformUtilities.checkCameraPermissions() )
