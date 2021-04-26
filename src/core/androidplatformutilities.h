@@ -42,8 +42,6 @@ class AndroidPlatformUtilities : public PlatformUtilities
 
     bool checkWriteExternalStoragePermissions() const override;
 
-    void showRateThisApp() const override;
-
     void setScreenLockPermission( const bool allowLock ) override;
 
   private:

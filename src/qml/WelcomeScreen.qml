@@ -50,6 +50,7 @@ Page {
     ImageDial{
       id: imageDialLogo
       value: 1
+
       Layout.margins: 6
       Layout.topMargin: 14
       Layout.alignment: Qt.AlignVCenter | Qt.AlignHCenter
@@ -60,18 +61,200 @@ Page {
       rotationOffset: 220
     }
 
+    SwipeView {
+      id: feedbackView
+      visible: false
+
+      Layout.margins: 6
+      Layout.topMargin: 10
+      Layout.bottomMargin: 10
+      Layout.alignment: Qt.AlignVCenter | Qt.AlignHCenter
+      Layout.preferredWidth: Math.min( 410, mainWindow.width - 30 )
+      Layout.preferredHeight: Math.max(ohno.childrenRect.height, intro.childrenRect.height, ohyeah.childrenRect.height)
+      clip: true
+
+      Behavior on Layout.preferredHeight {
+          NumberAnimation { duration: 100; easing.type: Easing.InQuad; }
+      }
+
+      interactive: false
+      currentIndex: 1
+      Item {
+        id: ohno
+
+        Rectangle {
+          anchors.fill: parent
+          gradient: Gradient  {
+            GradientStop  {
+              position: 0.0
+              color: "#4480cc28"
+            }
+            GradientStop  {
+              position: 0.88
+              color: "#0580cc28"
+            }
+          }
+
+          radius: 6
+        }
+
+        ColumnLayout {
+          spacing: 0
+          anchors.centerIn: parent
+
+          Text {
+            Layout.margins: 6
+            Layout.maximumWidth: feedbackView.width - 12
+            text: qsTr("We're sorry to hear that. Click on the button below to comment or seek support.")
+            font: Theme.defaultFont
+            horizontalAlignment: Text.AlignHCenter
+            wrapMode: Text.WordWrap
+          }
+
+          RowLayout {
+            spacing: 6
+            Layout.alignment: Qt.AlignVCenter | Qt.AlignHCenter
+            Layout.bottomMargin: 10
+            QfButton {
+              leftPadding: 20
+              rightPadding: 20
+
+              text: qsTr("Reach out")
+              icon.source: Theme.getThemeIcon( 'ic_create_white_24dp' )
+
+              onClicked: {
+                Qt.openUrlExternally("https://www.qfield.org/")
+                feedbackView.Layout.preferredHeight = 0
+              }
+            }
+          }
+        }
+      }
+
+      Item {
+        id: intro
+
+        Rectangle {
+          anchors.fill: parent
+          gradient: Gradient  {
+            GradientStop  {
+              position: 0.0
+              color: "#4480cc28"
+            }
+            GradientStop  {
+              position: 0.88
+              color: "#0580cc28"
+            }
+          }
+
+          radius: 6
+        }
+
+        ColumnLayout {
+          spacing: 0
+          anchors.centerIn: parent
+
+          Text {
+            Layout.margins: 6
+            Layout.maximumWidth: feedbackView.width - 12
+            text: qsTr("Hey there, how do you like your experience with QField so far?")
+            font: Theme.defaultFont
+            horizontalAlignment: Text.AlignHCenter
+            wrapMode: Text.WordWrap
+          }
+
+          RowLayout {
+            spacing: 6
+            Layout.alignment: Qt.AlignVCenter | Qt.AlignHCenter
+            Layout.bottomMargin: 10
+            QfToolButton {
+              iconSource: Theme.getThemeVectorIcon('ic_dissatisfied_white_24dp')
+              bgcolor: Theme.mainColor
+              round: true
+
+              onClicked: {
+                feedbackView.currentIndex = 0
+              }
+            }
+            QfToolButton {
+              iconSource: Theme.getThemeVectorIcon('ic_satisfied_white_24dp')
+              bgcolor: Theme.mainColor
+              round: true
+
+              onClicked: {
+                feedbackView.currentIndex = 2
+              }
+            }
+          }
+        }
+      }
+      Item {
+        id: ohyeah
+
+        Rectangle {
+          anchors.fill: parent
+          gradient: Gradient  {
+            GradientStop  {
+              position: 0.0
+              color: "#4480cc28"
+            }
+            GradientStop  {
+              position: 0.88
+              color: "#0580cc28"
+            }
+          }
+
+          radius: 6
+        }
+
+        ColumnLayout {
+          spacing: 0
+          anchors.centerIn: parent
+
+          Text {
+            Layout.margins: 6
+            Layout.maximumWidth: feedbackView.width - 12
+            text: qsTr("That's great! We'd love for you to click on the button below and leave a comment on the store.")
+            font: Theme.defaultFont
+            horizontalAlignment: Text.AlignHCenter
+            wrapMode: Text.WordWrap
+          }
+
+          RowLayout {
+            spacing: 6
+            Layout.alignment: Qt.AlignVCenter | Qt.AlignHCenter
+            Layout.margins: 6
+            Layout.bottomMargin: 10
+            QfButton {
+              leftPadding: 20
+              rightPadding: 20
+
+              text: qsTr("Rate us")
+              icon.source: Theme.getThemeVectorIcon( 'ic_star_white_24dp' )
+
+              onClicked: {
+                Qt.openUrlExternally("market://details?id=ch.opengis.qfield")
+                feedbackView.Layout.preferredHeight = 0
+              }
+            }
+          }
+        }
+      }
+    }
+
     Text {
+      id: welcomeText
+      visible: !feedbackView.visible
       Layout.leftMargin: 6
       Layout.rightMargin: 6
       Layout.topMargin: 2
       Layout.bottomMargin: 2
-      id: welcomeText
+      Layout.fillWidth: true
       Layout.alignment: Qt.AlignVCenter | Qt.AlignHCenter
       text: ""
       font: Theme.defaultFont
       horizontalAlignment: Text.AlignHCenter
       wrapMode: Text.WordWrap
-      Layout.fillWidth: true
     }
 
     Rectangle {
@@ -416,11 +599,33 @@ Page {
 
   Component.onCompleted: {
     adjustWelcomeScreen()
+
+    var runCount = settings.value("/QField/RunCount",0) * 1
+    var feedbackFormShown = settings.value("/QField/FeedbackFormShown",false)
+    if (!feedbackFormShown) {
+      var now = new Date()
+      var dt = settings.value("/QField/FirstRunDate", "")
+      if (dt != "") {
+        dt = new Date(dt)
+
+        var daysToPrompt = 30;
+        var runsToPrompt = 5;
+        if (runCount >= runsToPrompt && (now - dt) >= (daysToPrompt * 24 * 60 * 60 * 1000)) {
+          feedbackView.visible = true
+          settings.setValue("/QField/FeedbackFormShown",true)
+        }
+      } else {
+        settings.setValue("/QField/FirstRunDate", now.toISOString())
+      }
+    }
+    settings.setValue("/QField/RunCount",runCount + 1)
   }
 
   onVisibleChanged: {
     adjustWelcomeScreen()
-    if (!visible)
+    if (!visible) {
+      feedbackView.visible = false
       firstShown = true
+    }
   }
 }
