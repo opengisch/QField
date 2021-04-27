@@ -64,8 +64,8 @@
       role="menu"
       aria-labelledby="dLabelLocalToc"><ul>
 <li><a class="reference internal" href="#">GNSS</a><ul>
-<li><a class="reference internal" href="#using-an-external-gnss-receiver">Using an external GNSS-Receiver</a></li>
-<li><a class="reference internal" href="#mock-location">Mock location</a></li>
+<li><a class="reference internal" href="#using-an-external-gnss-receiver">外付けのGNSS受信機を使用する</a></li>
+<li><a class="reference internal" href="#mock-location">擬似ロケーション</a></li>
 </ul>
 </li>
 </ul>
@@ -148,13 +148,13 @@
 <p class="last">プロジェクトの座標系ではなくWGS84の経度/緯度が表示される場合は、まだGNSS信号を受信できていない可能性があります。</p>
 </div>
 <div class="section" id="using-an-external-gnss-receiver">
-<h2>Using an external GNSS-Receiver<a class="headerlink" href="#using-an-external-gnss-receiver" title="Permalink to this headline">¶</a></h2>
-<p>QField supports connecting external GNSS antennas via bluetooth.</p>
-<p>In settings -&gt; positioning, paired bluetooth devices can be scanned and chosen as position source.</p>
-<p>Make sure no other app like mock location providers are using the bluetooth antenna.</p>
+<h2>外付けのGNSS受信機を使用する<a class="headerlink" href="#using-an-external-gnss-receiver" title="Permalink to this headline">¶</a></h2>
+<p>QFieldは、bluetoothによる外付けのGNSS受信機の接続に対応しています。</p>
+<p>設定 -&gt;測位から、ペアリングしているBluetoothデバイスをスキャンして、測位デバイスとして選択することができます。</p>
+<p>例えば位置情報サービス会社などの他のアプリケーションがBluetoothの受信機を使用していないことを確認してください。</p>
 </div>
 <div class="section" id="mock-location">
-<h2>Mock location<a class="headerlink" href="#mock-location" title="Permalink to this headline">¶</a></h2>
+<h2>擬似ロケーション<a class="headerlink" href="#mock-location" title="Permalink to this headline">¶</a></h2>
 <p>QFieldに別のAndroidアプリを介してモックの場所を提供することが可能です。このためにはいくつかの方法があり、その一つが <a class="reference external" href="https://play.google.com/store/apps/details?id=com.lefebure.ntripclient">Android NTRIP Client</a> です。</p>
 <p>これを行うには <a class="reference external" href="https://www.youtube.com/watch?v=v1eRHmMiRJQ">アンドロイド端末で疑似ロケーションを有効</a> にする必要があります。</p>
 </div>
