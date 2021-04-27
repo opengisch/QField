@@ -66,7 +66,7 @@ void BluetoothReceiver::doConnectDevice( const QString &address )
   mAddressToConnect.clear();
 
   //repairing only needed in the linux (not android) environment
-#ifndef Q_OS_ANDROID
+#ifdef Q_OS_LINUX
   repairDevice( QBluetoothAddress( address ) );
 #else
   mSocket->connectToService( QBluetoothAddress( address ), QBluetoothUuid( QBluetoothUuid::SerialPort ), QBluetoothSocket::ReadOnly );
@@ -141,7 +141,7 @@ void BluetoothReceiver::setEllipsoidalElevation( const bool ellipsoidalElevation
   emit ellipsoidalElevationChanged();
 }
 
-#ifndef Q_OS_ANDROID
+#ifdef Q_OS_LINUX
 void BluetoothReceiver::repairDevice( const QBluetoothAddress &address )
 {
   connect( mLocalDevice.get(), &QBluetoothLocalDevice::pairingFinished, this, &BluetoothReceiver::pairingFinished, Qt::UniqueConnection );
