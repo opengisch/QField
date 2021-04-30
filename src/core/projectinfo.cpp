@@ -21,7 +21,8 @@
 #include <QSettings>
 #include <QString>
 
-ProjectInfo::ProjectInfo( QObject *parent ) : QObject( parent )
+ProjectInfo::ProjectInfo( QObject *parent )
+  : QObject( parent )
 {
   mSaveExtentTimer.setSingleShot( true );
   connect( &mSaveExtentTimer, &QTimer::timeout, this, &ProjectInfo::extentChanged );
@@ -31,9 +32,9 @@ void ProjectInfo::setFilePath( const QString &filePath )
 {
   if ( mFilePath == filePath )
     return;
-  
+
   mFilePath = filePath;
-  
+
   emit filePathChanged();
 }
 
@@ -51,10 +52,10 @@ void ProjectInfo::setMapSettings( QgsQuickMapSettings *mapSettings )
   {
     disconnect( mMapSettings, &QgsQuickMapSettings::extentChanged, this, &ProjectInfo::extentChanged );
   }
-  
+
   mMapSettings = mapSettings;
   connect( mMapSettings, &QgsQuickMapSettings::extentChanged, this, [=] { mSaveExtentTimer.start( 750 ); } );
-  
+
   emit mapSettingsChanged();
 }
 
@@ -96,10 +97,7 @@ void ProjectInfo::extentChanged()
     const QgsRectangle extent = mMapSettings->extent();
     settings.beginGroup( QStringLiteral( "/qgis/projectInfo/%1" ).arg( mFilePath ) );
     settings.setValue( QStringLiteral( "filesize" ), fi.size() );
-    settings.setValue( QStringLiteral( "extent" ), QStringLiteral( "%1|%2|%3|%4" ).arg( qgsDoubleToString( extent.xMinimum() ),
-                                                                                        qgsDoubleToString( extent.xMaximum() ),
-                                                                                        qgsDoubleToString( extent.yMinimum() ),
-                                                                                        qgsDoubleToString( extent.yMaximum() ) ) );
+    settings.setValue( QStringLiteral( "extent" ), QStringLiteral( "%1|%2|%3|%4" ).arg( qgsDoubleToString( extent.xMinimum() ), qgsDoubleToString( extent.xMaximum() ), qgsDoubleToString( extent.yMinimum() ), qgsDoubleToString( extent.yMaximum() ) ) );
     settings.endGroup();
   }
 }

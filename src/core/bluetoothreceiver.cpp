@@ -15,13 +15,12 @@
  ***************************************************************************/
 
 #include "bluetoothreceiver.h"
-#include <QSettings>
-#include <QDebug>
 
-BluetoothReceiver::BluetoothReceiver( QObject *parent ) : QObject( parent ),
-  mLocalDevice( std::make_unique<QBluetoothLocalDevice>() ),
-  mSocket( new QBluetoothSocket( QBluetoothServiceInfo::RfcommProtocol ) ),
-  mGpsConnection( std::make_unique<QgsNmeaConnection>( mSocket ) )
+#include <QDebug>
+#include <QSettings>
+
+BluetoothReceiver::BluetoothReceiver( QObject *parent )
+  : QObject( parent ), mLocalDevice( std::make_unique<QBluetoothLocalDevice>() ), mSocket( new QBluetoothSocket( QBluetoothServiceInfo::RfcommProtocol ) ), mGpsConnection( std::make_unique<QgsNmeaConnection>( mSocket ) )
 {
   //socket state changed
   connect( mSocket, &QBluetoothSocket::stateChanged, this, &BluetoothReceiver::setSocketState );
@@ -84,8 +83,8 @@ void BluetoothReceiver::stateChanged( const QgsGpsInformation &info )
 
   // QgsGpsInformation's speed is served in km/h, translate to m/s
   mLastGnssPositionInformation = GnssPositionInformation( info.latitude, info.longitude, mEllipsoidalElevation ? info.elevation + info.elevation_diff : info.elevation, info.speed * 1000 / 60 / 60, info.direction, info.satellitesInView, info.pdop,
-                                 info.hdop, info.vdop, info.hacc, info.vacc, info.utcDateTime, info.fixMode, info.fixType, info.quality,
-                                 info.satellitesUsed, info.status, info.satPrn, info.satInfoComplete );
+                                                          info.hdop, info.vdop, info.hacc, info.vacc, info.utcDateTime, info.fixMode, info.fixType, info.quality,
+                                                          info.satellitesUsed, info.status, info.satPrn, info.satInfoComplete );
   emit lastGnssPositionInformationChanged( mLastGnssPositionInformation );
 }
 
@@ -146,8 +145,7 @@ void BluetoothReceiver::repairDevice( const QBluetoothAddress &address )
 {
   connect( mLocalDevice.get(), &QBluetoothLocalDevice::pairingFinished, this, &BluetoothReceiver::pairingFinished, Qt::UniqueConnection );
   connect( mLocalDevice.get(), &QBluetoothLocalDevice::pairingDisplayConfirmation, this, &BluetoothReceiver::confirmPairing, Qt::UniqueConnection );
-  connect( mLocalDevice.get(),  &QBluetoothLocalDevice::error, [ = ]( QBluetoothLocalDevice::Error error )
-  {
+  connect( mLocalDevice.get(), &QBluetoothLocalDevice::error, [=]( QBluetoothLocalDevice::Error error ) {
     qDebug() << "BluetoothReceiver (not android): Re-pairing device " << address.toString() << " failed:" << error;
   } );
 

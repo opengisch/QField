@@ -1,38 +1,38 @@
 package ch.opengis.qfield;
 
-import java.text.SimpleDateFormat;
-import java.io.File;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.FileInputStream;
-import java.io.OutputStream;
-import java.io.FileOutputStream;
-import java.util.Date;
-
-import android.os.Bundle;
-import android.os.Environment;
-import android.net.Uri;
 import android.app.Activity;
 import android.content.Intent;
-import android.util.Log;
-import android.provider.MediaStore;
 import android.graphics.Bitmap;
-import android.support.v4.content.FileProvider;
 import android.media.MediaScannerConnection;
+import android.net.Uri;
+import android.os.Bundle;
+import android.os.Environment;
+import android.provider.MediaStore;
+import android.support.v4.content.FileProvider;
+import android.util.Log;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
-public class QFieldGalleryPictureActivity extends Activity{
+public class QFieldGalleryPictureActivity extends Activity {
     private static final String TAG = "QField Gallery Picture Activity";
     private String prefix;
     private String pictureFilePath;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState){
+    protected void onCreate(Bundle savedInstanceState) {
         Log.d(TAG, "onCreate()");
         super.onCreate(savedInstanceState);
 
         prefix = getIntent().getExtras().getString("prefix");
         pictureFilePath = getIntent().getExtras().getString("pictureFilePath");
-        Log.d(TAG, "Received prefix: " + prefix + " and pictureFilePath: " + pictureFilePath);
+        Log.d(TAG, "Received prefix: " + prefix +
+                       " and pictureFilePath: " + pictureFilePath);
 
         callGalleryIntent();
 
@@ -48,31 +48,34 @@ public class QFieldGalleryPictureActivity extends Activity{
     }
 
     @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+    protected void onActivityResult(int requestCode, int resultCode,
+                                    Intent data) {
         Log.d(TAG, "onActivityResult()");
-        Log.d(TAG, "resultCode: "+resultCode);
+        Log.d(TAG, "resultCode: " + resultCode);
 
-        File result = new File(prefix+pictureFilePath);
+        File result = new File(prefix + pictureFilePath);
         File path = result.getParentFile();
         path.mkdirs();
 
-        // Let the android scan new media folders/files to make them visible through MTP
+        // Let the android scan new media folders/files to make them visible
+        // through MTP
         path.setExecutable(true);
         path.setReadable(true);
         path.setWritable(true);
-        MediaScannerConnection.scanFile(this, new String[] {path.toString()}, null, null);
+        MediaScannerConnection.scanFile(this, new String[] {path.toString()},
+                                        null, null);
 
         if (resultCode == RESULT_OK) {
 
             Log.d(TAG, "Selected picture: " + data.getData().toString());
-            try{
+            try {
                 copyUriContentToFile(data.getData(), result);
-            }catch(IOException e){
+            } catch (IOException e) {
                 Log.d(TAG, e.getMessage());
             }
 
             Intent intent = this.getIntent();
-            intent.putExtra("PICTURE_IMAGE_FILENAME", prefix+pictureFilePath);
+            intent.putExtra("PICTURE_IMAGE_FILENAME", prefix + pictureFilePath);
             setResult(RESULT_OK, intent);
         } else {
             Intent intent = this.getIntent();
@@ -80,16 +83,19 @@ public class QFieldGalleryPictureActivity extends Activity{
             setResult(RESULT_CANCELED, intent);
         }
 
-        // Let the android scan new media folders/files to make them visible through MTP
+        // Let the android scan new media folders/files to make them visible
+        // through MTP
         result.setReadable(true);
         result.setWritable(true);
-        MediaScannerConnection.scanFile(this, new String[] {result.toString()}, null, null);
+        MediaScannerConnection.scanFile(this, new String[] {result.toString()},
+                                        null, null);
 
         finish();
     }
 
     private void copyUriContentToFile(Uri src, File dst) throws IOException {
-        Log.d(TAG, "Copy Uri content: "+src.toString()+" to file: "+dst.getAbsolutePath());
+        Log.d(TAG, "Copy Uri content: " + src.toString() +
+                       " to file: " + dst.getAbsolutePath());
 
         try (InputStream in = getContentResolver().openInputStream(src)) {
             try (OutputStream out = new FileOutputStream(dst)) {
@@ -102,7 +108,5 @@ public class QFieldGalleryPictureActivity extends Activity{
                 out.close();
             }
         }
-
     }
-
 }

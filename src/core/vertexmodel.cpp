@@ -14,16 +14,15 @@
  *                                                                         *
  ***************************************************************************/
 
-#include <QDebug>
-
-#include <qgsgeometry.h>
-#include <qgswkbtypes.h>
-#include <qgslinestring.h>
-#include <qgspolygon.h>
-#include <qgsmessagelog.h>
-
-#include "vertexmodel.h"
 #include "qgsquickmapsettings.h"
+#include "vertexmodel.h"
+
+#include <QDebug>
+#include <qgsgeometry.h>
+#include <qgslinestring.h>
+#include <qgsmessagelog.h>
+#include <qgspolygon.h>
+#include <qgswkbtypes.h>
 
 
 VertexModel::VertexModel( QObject *parent )
@@ -161,8 +160,8 @@ void VertexModel::createCandidates()
   // remove non existing vertices
   mVertices.erase( std::remove_if( mVertices.begin(),
                                    mVertices.end(),
-  []( const Vertex & vertex ) { return vertex.type != ExistingVertex; } ),
-  mVertices.end() );
+                                   []( const Vertex &vertex ) { return vertex.type != ExistingVertex; } ),
+                   mVertices.end() );
 
   int r = 0;
 
@@ -175,7 +174,7 @@ void VertexModel::createCandidates()
     // adding new vertices
     if ( r < mVertices.count() - 1 && mVertices.at( r + 1 ).ring == vertex.ring && mGeometryType != QgsWkbTypes::PointGeometry )
     {
-      QVector<QgsPoint> points = {mVertices.at( r + 1 ).point, vertex.point};
+      QVector<QgsPoint> points = { mVertices.at( r + 1 ).point, vertex.point };
       QgsPoint centroid = QgsLineString( points ).centroid();
 
       Vertex newVertex;
@@ -219,7 +218,7 @@ void VertexModel::createCandidates()
         // TODO multipart
         lastVertex = mVertices.at( i );
       }
-      QVector<QgsPoint> points = {lastVertex.point, vertex.point};
+      QVector<QgsPoint> points = { lastVertex.point, vertex.point };
       QgsPoint centroid = QgsLineString( points ).centroid();
 
       Vertex newVertex;
@@ -729,14 +728,14 @@ void VertexModel::updateCanRemoveVertex()
         canRemoveVertex = false;
         break;
       case QgsWkbTypes::LineGeometry:
-        canRemoveVertex =  flatVertices().count() > 2;
+        canRemoveVertex = flatVertices().count() > 2;
         break;
       case QgsWkbTypes::PolygonGeometry:
-        canRemoveVertex =  flatVertices().count() > 4; // the polygon is returned closed
+        canRemoveVertex = flatVertices().count() > 4; // the polygon is returned closed
         break;
       case QgsWkbTypes::NullGeometry:
       case QgsWkbTypes::UnknownGeometry:
-        canRemoveVertex =  false;
+        canRemoveVertex = false;
         break;
     }
   }

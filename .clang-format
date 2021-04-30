@@ -52,6 +52,10 @@ DerivePointerAlignment: false
 DisableFormat:   false
 ExperimentalAutoDetectBinPacking: false
 FixNamespaceComments: true
+ForEachMacros:
+  - forever # avoids { wrapped to next line
+  - foreach
+  - BOOST_FOREACH
 IncludeCategories:
   - Regex:           '^<Q.*'
     Priority:        300

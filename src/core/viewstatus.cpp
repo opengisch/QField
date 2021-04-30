@@ -19,5 +19,4 @@
 ViewStatus::ViewStatus( QObject *parent )
   : QObject( parent )
 {
-
 }

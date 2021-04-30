@@ -18,50 +18,50 @@
 
 #include "qgsgpkgflusher.h"
 
-#include <qgsmessagelog.h>
-#include <qgsvectorlayer.h>
-#include <qgsproject.h>
-
-#include <QRegularExpression>
 #include <QObject>
+#include <QRegularExpression>
 #include <QTimer>
+#include <qgsmessagelog.h>
+#include <qgsproject.h>
+#include <qgsvectorlayer.h>
+
 #include <sqlite3.h>
 
 class Flusher : public QObject
 {
-    Q_OBJECT
+  Q_OBJECT
 
-  public slots:
-    /**
+public slots:
+  /**
      * Schedules a new flush for the given \a filename after 500ms.
      * If a new flush is scheduled for the same file before the actual flush is performed, the timer is reset to wait another 500ms.
      */
-    void scheduleFlush( const QString &filename );
+  void scheduleFlush( const QString &filename );
 
-    /**
+  /**
      * Flushes the contents of the given \a filename.
      */
-    void flush( const QString &filename );
+  void flush( const QString &filename );
 
-    /**
+  /**
      * Immediately performs a flush for a given \a fileName and returns. If the flusher is stopped, flush for that \a fileName would be ignored.
      */
-    void stop( const QString &fileName );
+  void stop( const QString &fileName );
 
-    /**
+  /**
      * Reenables scheduling flushes for a given \a fileName.
      */
-    void start( const QString &fileName );
+  void start( const QString &fileName );
 
-    /**
+  /**
      * Returns whether the flusher is stopped for a given \a fileName.
      */
-    bool isStopped( const QString &fileName ) const;
+  bool isStopped( const QString &fileName ) const;
 
-  private:
-    QMutex mMutex;
-    QMap<QString, QTimer *> mScheduledFlushes;
-    QMap<QString, bool> mStoppedFlushes;
+private:
+  QMutex mMutex;
+  QMap<QString, QTimer *> mScheduledFlushes;
+  QMap<QString, bool> mStoppedFlushes;
 };
 
 QgsGpkgFlusher::QgsGpkgFlusher( QgsProject *project )
@@ -184,7 +184,7 @@ void Flusher::flush( const QString &filename )
 
 void Flusher::stop( const QString &fileName )
 {
-  if ( ! mScheduledFlushes.contains( fileName ) )
+  if ( !mScheduledFlushes.contains( fileName ) )
     return;
 
   mScheduledFlushes.value( fileName )->stop();

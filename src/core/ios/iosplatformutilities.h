@@ -23,13 +23,12 @@
 
 class IosPlatformUtilities : public PlatformUtilities
 {
-  public:
-    IosPlatformUtilities();
-    QString systemGenericDataLocation() const override;
-    bool checkPositioningPermissions() const override;
-    bool checkCameraPermissions() const override;
-    virtual PictureSource *getCameraPicture( const QString &prefix, const QString &pictureFilePath, const QString &suffix ) override;
-
+public:
+  IosPlatformUtilities();
+  QString systemGenericDataLocation() const override;
+  bool checkPositioningPermissions() const override;
+  bool checkCameraPermissions() const override;
+  virtual PictureSource *getCameraPicture( const QString &prefix, const QString &pictureFilePath, const QString &suffix ) override;
 };
 
 #endif

@@ -18,13 +18,12 @@
 #include "layerobserver.h"
 #include "qfieldcloudutils.h"
 
+#include <QDir>
 #include <qgsfeature.h>
 #include <qgsfeatureiterator.h>
 #include <qgsfeaturerequest.h>
-#include <qgsvectorlayereditbuffer.h>
 #include <qgsmessagelog.h>
-
-#include <QDir>
+#include <qgsvectorlayereditbuffer.h>
 
 
 LayerObserver::LayerObserver( const QgsProject *project )
@@ -57,7 +56,7 @@ void LayerObserver::onHomePathChanged()
   if ( mProject->homePath().isNull() )
     return;
 
-  Q_ASSERT( mDeltaFileWrapper->hasError() || ! mDeltaFileWrapper->isDirty() );
+  Q_ASSERT( mDeltaFileWrapper->hasError() || !mDeltaFileWrapper->isDirty() );
 
   // we should make deltas only on cloud projects
   if ( QFieldCloudUtils::getProjectId( mProject ).isEmpty() )
@@ -88,7 +87,7 @@ void LayerObserver::onBeforeCommitChanges()
   QgsVectorLayer *vl = qobject_cast<QgsVectorLayer *>( sender() );
   QgsVectorLayerEditBuffer *eb = vl->editBuffer();
 
-  if ( ! eb )
+  if ( !eb )
     return;
 
   const QgsFeatureIds deletedFids = eb->deletedFeatureIds();
@@ -227,7 +226,7 @@ void LayerObserver::onCommittedGeometriesChanges( const QString &localLayerId, c
 }
 
 
-void LayerObserver::onEditingStopped( )
+void LayerObserver::onEditingStopped()
 {
   const QgsVectorLayer *vl = qobject_cast<QgsVectorLayer *>( sender() );
   const QString layerId = vl->id();
@@ -235,7 +234,7 @@ void LayerObserver::onEditingStopped( )
   mPatchedFids.take( layerId );
   mChangedFeatures.take( layerId );
 
-  if ( ! mDeltaFileWrapper->toFile() )
+  if ( !mDeltaFileWrapper->toFile() )
   {
     // TODO somehow indicate the user that writing failed
     QgsMessageLog::logMessage( QStringLiteral( "Failed writing JSON file" ) );

@@ -16,32 +16,32 @@
 #ifndef MODELHELPER_H
 #define MODELHELPER_H
 
-#include <QObject>
 #include <QAbstractItemModel>
+#include <QObject>
 
 class ModelHelper : public QObject
 {
-    Q_OBJECT
+  Q_OBJECT
 
-    Q_PROPERTY( QAbstractItemModel *model READ model WRITE setModel NOTIFY modelChanged )
-  public:
-    explicit ModelHelper( QObject *parent = nullptr );
+  Q_PROPERTY( QAbstractItemModel *model READ model WRITE setModel NOTIFY modelChanged )
+public:
+  explicit ModelHelper( QObject *parent = nullptr );
 
-    Q_INVOKABLE QModelIndex index( int row, int column );
+  Q_INVOKABLE QModelIndex index( int row, int column );
 
-    Q_INVOKABLE int role( QString roleName );
+  Q_INVOKABLE int role( QString roleName );
 
-    Q_INVOKABLE QVariant data( int row, int column, QString roleName );
+  Q_INVOKABLE QVariant data( int row, int column, QString roleName );
 
-    void setModel( QAbstractItemModel *model );
+  void setModel( QAbstractItemModel *model );
 
-    QAbstractItemModel *model() const;
+  QAbstractItemModel *model() const;
 
-  signals:
-    void modelChanged();
+signals:
+  void modelChanged();
 
-  private:
-    QAbstractItemModel *mModel = nullptr;
+private:
+  QAbstractItemModel *mModel = nullptr;
 };
 
 #endif // MODELHELPER_H

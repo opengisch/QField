@@ -18,70 +18,70 @@
 #define BLUETOOTHDEVICEMODEL_H
 
 #include <QAbstractListModel>
+#include <QtBluetooth/QBluetoothLocalDevice>
 #include <QtBluetooth/QBluetoothServiceDiscoveryAgent>
 #include <QtBluetooth/QBluetoothServiceInfo>
-#include <QtBluetooth/QBluetoothLocalDevice>
 
 /**
  * A model that provides all paired bluetooth devices name/address that are accessible over the serial port
  */
 class BluetoothDeviceModel : public QAbstractListModel
 {
-    Q_OBJECT
+  Q_OBJECT
 
-    Q_PROPERTY( ScanningStatus scanningStatus READ scanningStatus NOTIFY scanningStatusChanged )
-    Q_PROPERTY( QString lastError READ lastError NOTIFY lastErrorChanged )
+  Q_PROPERTY( ScanningStatus scanningStatus READ scanningStatus NOTIFY scanningStatusChanged )
+  Q_PROPERTY( QString lastError READ lastError NOTIFY lastErrorChanged )
 
-  public:
-    //! The roles provided by this model
-    enum BluetoothDeviceRoles
-    {
-      DeviceAddressRole = Qt::UserRole + 1,
-      DeviceNameRole,
-    };
-    Q_ENUM( BluetoothDeviceRoles )
+public:
+  //! The roles provided by this model
+  enum BluetoothDeviceRoles
+  {
+    DeviceAddressRole = Qt::UserRole + 1,
+    DeviceNameRole,
+  };
+  Q_ENUM( BluetoothDeviceRoles )
 
-    //! The status telling the result of the scanning
-    enum ScanningStatus
-    {
-      Scanning,
-      Succeeded,
-      Failed,
-      Canceled,
-      NoStatus
-    };
-    Q_ENUM( ScanningStatus )
+  //! The status telling the result of the scanning
+  enum ScanningStatus
+  {
+    Scanning,
+    Succeeded,
+    Failed,
+    Canceled,
+    NoStatus
+  };
+  Q_ENUM( ScanningStatus )
 
 
-    explicit BluetoothDeviceModel( QObject *parent = nullptr );
+  explicit BluetoothDeviceModel( QObject *parent = nullptr );
 
-    int rowCount( const QModelIndex &parent = QModelIndex() ) const override;
+  int rowCount( const QModelIndex &parent = QModelIndex() ) const override;
 
-    QVariant data( const QModelIndex &index, int role = Qt::DisplayRole ) const override;
+  QVariant data( const QModelIndex &index, int role = Qt::DisplayRole ) const override;
 
-    QHash<int, QByteArray> roleNames() const override;
+  QHash<int, QByteArray> roleNames() const override;
 
-    Q_INVOKABLE void startServiceDiscovery( const bool fullDiscovery );
-    Q_INVOKABLE int findAddressIndex( const QString &address ) const;
+  Q_INVOKABLE void startServiceDiscovery( const bool fullDiscovery );
+  Q_INVOKABLE int findAddressIndex( const QString &address ) const;
 
-    ScanningStatus scanningStatus() const { return mScanningStatus; };
-    QString lastError() const { return mLastError; };
+  ScanningStatus scanningStatus() const { return mScanningStatus; };
+  QString lastError() const { return mLastError; };
 
-  signals:
-    void scanningStatusChanged( ScanningStatus scanningStatus );
-    void lastErrorChanged( QString lastError );
+signals:
+  void scanningStatusChanged( ScanningStatus scanningStatus );
+  void lastErrorChanged( QString lastError );
 
-  private slots:
-    void setScanningStatus( const ScanningStatus scanningStatus );
-    void setLastError( const QString &lastError );
-    void serviceDiscovered( const QBluetoothServiceInfo &service );
+private slots:
+  void setScanningStatus( const ScanningStatus scanningStatus );
+  void setLastError( const QString &lastError );
+  void serviceDiscovered( const QBluetoothServiceInfo &service );
 
-  private:
-    std::unique_ptr<QBluetoothLocalDevice> mLocalDevice;
-    QBluetoothServiceDiscoveryAgent mServiceDiscoveryAgent;
-    QList<QPair<QString, QString>> mDiscoveredDevices;
-    ScanningStatus mScanningStatus = NoStatus;
-    QString mLastError;
+private:
+  std::unique_ptr<QBluetoothLocalDevice> mLocalDevice;
+  QBluetoothServiceDiscoveryAgent mServiceDiscoveryAgent;
+  QList<QPair<QString, QString>> mDiscoveredDevices;
+  ScanningStatus mScanningStatus = NoStatus;
+  QString mLastError;
 };
 
 #endif // BLUETOOTHDEVICEMODEL_H

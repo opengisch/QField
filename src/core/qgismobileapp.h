@@ -23,27 +23,24 @@
 
 // QGIS includes
 #include <qgsapplication.h>
+#include <qgsconfig.h>
 #include <qgsexiftools.h>
 #include <qgsmaplayerproxymodel.h>
-#include <qgsconfig.h>
 
 // QGIS mobile includes
 #include "appcoordinateoperationhandlers.h"
-#include "multifeaturelistmodel.h"
-#include "settings.h"
 #include "focusstack.h"
-#include "qgsquickutils.h"
-#include "qgsgpkgflusher.h"
 #include "geometryeditorsmodel.h"
-
-#include "qfieldappauthrequesthandler.h"
-
-#include "qfield_core_export.h"
-
+#include "multifeaturelistmodel.h"
 #include "platformutilities.h"
-#if defined(Q_OS_ANDROID)
+#include "qfield_core_export.h"
+#include "qfieldappauthrequesthandler.h"
+#include "qgsgpkgflusher.h"
+#include "qgsquickutils.h"
+#include "settings.h"
+#if defined( Q_OS_ANDROID )
 #include "androidplatformutilities.h"
-#elif defined(Q_OS_IOS)
+#elif defined( Q_OS_IOS )
 #include "ios/iosplatformutilities.h"
 #endif
 
@@ -61,49 +58,49 @@ class QgsProject;
 class LayerObserver;
 
 
-#define REGISTER_SINGLETON(uri, _class, name) qmlRegisterSingletonType<_class>( uri, 1, 0, name, [] ( QQmlEngine *engine, QJSEngine *scriptEngine ) -> QObject * { Q_UNUSED(engine); Q_UNUSED(scriptEngine); return new _class(); } )
+#define REGISTER_SINGLETON( uri, _class, name ) qmlRegisterSingletonType<_class>( uri, 1, 0, name, []( QQmlEngine *engine, QJSEngine *scriptEngine ) -> QObject * { Q_UNUSED(engine); Q_UNUSED(scriptEngine); return new _class(); } )
 
 #define SUPPORTED_PROJECT_EXTENSIONS QStringList( { QStringLiteral( "qgs" ), QStringLiteral( "qgz" ) } )
-#define SUPPORTED_VECTOR_EXTENSIONS  QStringList( { QStringLiteral( "gpkg" ), QStringLiteral( "shp" ), QStringLiteral( "kml" ), QStringLiteral( "kmz" ), QStringLiteral( "geojson" ), QStringLiteral( "json" ), QStringLiteral( "pdf" ), QStringLiteral( "gpx" ), QStringLiteral( "zip" ) } )
-#define SUPPORTED_RASTER_EXTENSIONS  QStringList( { QStringLiteral( "tif" ), QStringLiteral( "pdf" ), QStringLiteral( "jpg" ), QStringLiteral( "png" ), QStringLiteral( "gpkg" ), QStringLiteral( "jp2" ), QStringLiteral( "webp" ), QStringLiteral( "zip" ) } )
+#define SUPPORTED_VECTOR_EXTENSIONS QStringList( { QStringLiteral( "gpkg" ), QStringLiteral( "shp" ), QStringLiteral( "kml" ), QStringLiteral( "kmz" ), QStringLiteral( "geojson" ), QStringLiteral( "json" ), QStringLiteral( "pdf" ), QStringLiteral( "gpx" ), QStringLiteral( "zip" ) } )
+#define SUPPORTED_RASTER_EXTENSIONS QStringList( { QStringLiteral( "tif" ), QStringLiteral( "pdf" ), QStringLiteral( "jpg" ), QStringLiteral( "png" ), QStringLiteral( "gpkg" ), QStringLiteral( "jp2" ), QStringLiteral( "webp" ), QStringLiteral( "zip" ) } )
 
 class QFIELD_CORE_EXPORT QgisMobileapp : public QQmlApplicationEngine
 {
-    Q_OBJECT
-  public:
-    explicit QgisMobileapp( QgsApplication *app, QObject *parent = nullptr );
-    ~QgisMobileapp() override;
+  Q_OBJECT
+public:
+  explicit QgisMobileapp( QgsApplication *app, QObject *parent = nullptr );
+  ~QgisMobileapp() override;
 
-    /**
+  /**
      * Returns a list of recent projects.
      */
-    QList<QPair<QString, QString>> recentProjects();
+  QList<QPair<QString, QString>> recentProjects();
 
-    /**
+  /**
      * Saves a list of recent \a projects.
      */
-    void saveRecentProjects( QList<QPair<QString, QString>> &projects );
+  void saveRecentProjects( QList<QPair<QString, QString>> &projects );
 
-    /**
+  /**
      * Removes the project with a given \a path from the list of recent projects
      */
-    void removeRecentProject( const QString &path );
+  void removeRecentProject( const QString &path );
 
-    /**
+  /**
      * When called loads the last project
      */
-    void loadLastProject();
+  void loadLastProject();
 
-    /**
+  /**
      * Set the project or dataset file path to be loaded.
      *
      * \param path The project or dataset file to load
      * \param name The project name
      * \note The actual loading is done in readProjectFile
      */
-    void loadProjectFile( const QString &path, const QString &name = QString() );
+  void loadProjectFile( const QString &path, const QString &name = QString() );
 
-    /**
+  /**
      * Reloads the current project
      *
      * \param path The project file to load
@@ -111,91 +108,91 @@ class QFIELD_CORE_EXPORT QgisMobileapp : public QQmlApplicationEngine
      * \note It does not reset the Auth Request Handler.
      * \note The actual loading is done in readProjectFile
      */
-    void reloadProjectFile();
+  void reloadProjectFile();
 
-    /**
+  /**
      * Reads and opens the project file set in the loadProjectFile function
      */
-    void readProjectFile();
+  void readProjectFile();
 
-    /**
+  /**
      * Prints a given layout to a PDF file
      * \param layoutName the layout name that will be printed
      * \return TRUE if the layout was successfully printed
      */
-    bool print( const QString &layoutName );
+  bool print( const QString &layoutName );
 
-    /**
+  /**
      * Prints a given atlas-driven layout to one or more PDF files
      * \param layoutName the layout name that will be printed
      * \param featureIds the features from the atlas coverage vector layer that will be used to print the layout
      * \return TRUE if the layout was successfully printed
      */
-    bool printAtlasFeatures( const QString &layoutName, const QList<long long> &featureIds );
+  bool printAtlasFeatures( const QString &layoutName, const QList<long long> &featureIds );
 
-    bool event( QEvent *event ) override;
+  bool event( QEvent *event ) override;
 
-  signals:
-    /**
+signals:
+  /**
      * Emitted when a project file is being loaded
      *
      * @param filename The filename of the project that is being loaded
      * @param projectname The project name that is being loaded
      */
-    void loadProjectTriggered( const QString &filename, const QString &name );
+  void loadProjectTriggered( const QString &filename, const QString &name );
 
-    /**
+  /**
      * Emitted when the project is fully loaded
      */
-    void loadProjectEnded( const QString &filename, const QString &name );
+  void loadProjectEnded( const QString &filename, const QString &name );
 
-    /**
+  /**
      * Emitted when a map canvas extent change is needed
      */
-    void setMapExtent( const QgsRectangle &extent );
+  void setMapExtent( const QgsRectangle &extent );
 
-  private slots:
+private slots:
 
-    /**
+  /**
      * Is called when a project is read.
      * Saves the last project location for auto-load on next start.
      * @param doc The xml content
      */
-    void onReadProject( const QDomDocument &doc );
+  void onReadProject( const QDomDocument &doc );
 
-    void onAfterFirstRendering();
+  void onAfterFirstRendering();
 
-  private:
-    void initDeclarative();
+private:
+  void initDeclarative();
 
-    void loadProjectQuirks();
+  void loadProjectQuirks();
 
-    QgsOfflineEditing *mOfflineEditing = nullptr;
-    LayerTreeMapCanvasBridge *mLayerTreeCanvasBridge = nullptr;
-    FlatLayerTreeModel *mFlatLayerTree = nullptr;
-    QgsMapLayerProxyModel *mLayerList = nullptr;
-    AppInterface *mIface = nullptr;
-    Settings mSettings;
-    QgsQuickMapCanvasMap *mMapCanvas = nullptr;
-    bool mFirstRenderingFlag;
-    LegendImageProvider *mLegendImageProvider = nullptr;
+  QgsOfflineEditing *mOfflineEditing = nullptr;
+  LayerTreeMapCanvasBridge *mLayerTreeCanvasBridge = nullptr;
+  FlatLayerTreeModel *mFlatLayerTree = nullptr;
+  QgsMapLayerProxyModel *mLayerList = nullptr;
+  AppInterface *mIface = nullptr;
+  Settings mSettings;
+  QgsQuickMapCanvasMap *mMapCanvas = nullptr;
+  bool mFirstRenderingFlag;
+  LegendImageProvider *mLegendImageProvider = nullptr;
 
-    QgsProject *mProject = nullptr;
-    QString mProjectFilePath;
-    QString mProjectFileName;
+  QgsProject *mProject = nullptr;
+  QString mProjectFilePath;
+  QString mProjectFileName;
 
-    std::unique_ptr<QgsGpkgFlusher> mGpkgFlusher;
-    std::unique_ptr<LayerObserver> mLayerObserver;
-    QFieldAppAuthRequestHandler *mAuthRequestHandler = nullptr;
+  std::unique_ptr<QgsGpkgFlusher> mGpkgFlusher;
+  std::unique_ptr<LayerObserver> mLayerObserver;
+  QFieldAppAuthRequestHandler *mAuthRequestHandler = nullptr;
 
-    // Dummy objects. We are not able to call static functions from QML, so we need something here.
-    QgsCoordinateReferenceSystem mCrsFactory;
-    QgsUnitTypes mUnitTypes;
-    QgsExifTools mExifTools;
+  // Dummy objects. We are not able to call static functions from QML, so we need something here.
+  QgsCoordinateReferenceSystem mCrsFactory;
+  QgsUnitTypes mUnitTypes;
+  QgsExifTools mExifTools;
 
-    TrackingModel *mTrackingModel = nullptr;
+  TrackingModel *mTrackingModel = nullptr;
 
-    AppMissingGridHandler *mAppMissingGridHandler = nullptr;
+  AppMissingGridHandler *mAppMissingGridHandler = nullptr;
 };
 
 Q_DECLARE_METATYPE( QgsWkbTypes::GeometryType )

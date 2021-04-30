@@ -13,7 +13,7 @@
  *   (at your option) any later version.                                   *
  *                                                                         *
  ***************************************************************************/
- 
+
 #ifndef LAYERUTILS_H
 #define LAYERUTILS_H
 
@@ -27,8 +27,7 @@ class LayerUtils : public QObject
   Q_OBJECT
 
 public:
-
-  explicit LayerUtils(QObject *parent = nullptr);
+  explicit LayerUtils( QObject *parent = nullptr );
 
   /**
    * Returns the default symbol for a given layer.

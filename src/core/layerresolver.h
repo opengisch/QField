@@ -28,77 +28,77 @@ class QgsProject;
  */
 class LayerResolver : public QObject
 {
-    Q_OBJECT
+  Q_OBJECT
 
-    /**
+  /**
      * The layer id to resolve
      */
-    Q_PROPERTY( QString layerId READ layerId WRITE setLayerId NOTIFY layerIdChanged )
+  Q_PROPERTY( QString layerId READ layerId WRITE setLayerId NOTIFY layerIdChanged )
 
-    /**
+  /**
      * The layer name to resolve
      */
-    Q_PROPERTY( QString layerName READ layerName WRITE setLayerName NOTIFY layerNameChanged )
+  Q_PROPERTY( QString layerName READ layerName WRITE setLayerName NOTIFY layerNameChanged )
 
-    /**
+  /**
      * The layer source to resolve
      */
-    Q_PROPERTY( QString layerSource READ layerSource WRITE setLayerSource NOTIFY layerSourceChanged )
+  Q_PROPERTY( QString layerSource READ layerSource WRITE setLayerSource NOTIFY layerSourceChanged )
 
-    /**
+  /**
      * The layer provider name to resolve
      */
-    Q_PROPERTY( QString layerProviderName READ layerProviderName WRITE setLayerProviderName NOTIFY layerProviderNameChanged )
+  Q_PROPERTY( QString layerProviderName READ layerProviderName WRITE setLayerProviderName NOTIFY layerProviderNameChanged )
 
-    /**
+  /**
      * The qgis project from which layers will be acquired
      */
-    Q_PROPERTY( QgsProject *project READ project WRITE setProject NOTIFY projectChanged )
+  Q_PROPERTY( QgsProject *project READ project WRITE setProject NOTIFY projectChanged )
 
-    /**
+  /**
      * Contains the layer after a successful resolving process
      */
-    Q_PROPERTY( QgsVectorLayer *currentLayer READ currentLayer NOTIFY currentLayerChanged )
+  Q_PROPERTY( QgsVectorLayer *currentLayer READ currentLayer NOTIFY currentLayerChanged )
 
-  public:
-    explicit LayerResolver( QObject *parent = nullptr );
+public:
+  explicit LayerResolver( QObject *parent = nullptr );
 
-    void resolve();
+  void resolve();
 
-    QString layerId() const;
-    void setLayerId( const QString &layerId );
+  QString layerId() const;
+  void setLayerId( const QString &layerId );
 
-    QString layerName() const;
-    void setLayerName( const QString &layerName );
+  QString layerName() const;
+  void setLayerName( const QString &layerName );
 
-    QString layerSource() const;
-    void setLayerSource( const QString &layerSource );
+  QString layerSource() const;
+  void setLayerSource( const QString &layerSource );
 
-    QString layerProviderName() const;
-    void setLayerProviderName( const QString &layerProviderName );
+  QString layerProviderName() const;
+  void setLayerProviderName( const QString &layerProviderName );
 
-    QgsVectorLayer *currentLayer() const;
+  QgsVectorLayer *currentLayer() const;
 
-    QgsProject *project() const;
-    void setProject( QgsProject *project );
+  QgsProject *project() const;
+  void setProject( QgsProject *project );
 
-  signals:
-    void layerIdChanged();
-    void layerNameChanged();
-    void layerSourceChanged();
-    void layerProviderNameChanged();
-    void currentLayerChanged();
-    void projectChanged();
+signals:
+  void layerIdChanged();
+  void layerNameChanged();
+  void layerSourceChanged();
+  void layerProviderNameChanged();
+  void currentLayerChanged();
+  void projectChanged();
 
-  private:
-    void setLayer( QgsVectorLayer *layer );
+private:
+  void setLayer( QgsVectorLayer *layer );
 
-    QString mLayerId;
-    QString mLayerName;
-    QString mLayerSource;
-    QString mLayerProviderName;
-    QgsProject *mProject = nullptr;
-    QgsVectorLayer *mLayer = nullptr;
+  QString mLayerId;
+  QString mLayerName;
+  QString mLayerSource;
+  QString mLayerProviderName;
+  QgsProject *mProject = nullptr;
+  QgsVectorLayer *mLayer = nullptr;
 };
 
 #endif // LAYERRESOLVER_H

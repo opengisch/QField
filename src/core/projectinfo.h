@@ -18,8 +18,8 @@
 #ifndef PROJECTINFO_H
 #define PROJECTINFO_H
 
-#include "qgsquickmapsettings.h"
 #include "layertreemodel.h"
+#include "qgsquickmapsettings.h"
 
 #include <QObject>
 #include <QTimer>
@@ -31,54 +31,52 @@
  */
 class ProjectInfo : public QObject
 {
-    Q_OBJECT
+  Q_OBJECT
 
-    Q_PROPERTY( QString filePath READ filePath WRITE setFilePath NOTIFY filePathChanged )
-    
-    Q_PROPERTY( QgsQuickMapSettings *mapSettings READ mapSettings WRITE setMapSettings NOTIFY mapSettingsChanged )
+  Q_PROPERTY( QString filePath READ filePath WRITE setFilePath NOTIFY filePathChanged )
 
-    Q_PROPERTY( FlatLayerTreeModel *layerTree READ layerTree WRITE setLayerTree NOTIFY layerTreeChanged )
+  Q_PROPERTY( QgsQuickMapSettings *mapSettings READ mapSettings WRITE setMapSettings NOTIFY mapSettingsChanged )
 
-  public:
-  
-    explicit ProjectInfo( QObject *parent = nullptr );
+  Q_PROPERTY( FlatLayerTreeModel *layerTree READ layerTree WRITE setLayerTree NOTIFY layerTreeChanged )
 
-    virtual ~ProjectInfo() = default;
+public:
+  explicit ProjectInfo( QObject *parent = nullptr );
 
-    void setFilePath( const QString &filePath );
-    
-    QString filePath() const;
+  virtual ~ProjectInfo() = default;
 
-    void setMapSettings( QgsQuickMapSettings *mapSettings );
-    
-    QgsQuickMapSettings *mapSettings() const;
+  void setFilePath( const QString &filePath );
 
-    void setLayerTree( FlatLayerTreeModel *layerTree );
+  QString filePath() const;
 
-    FlatLayerTreeModel *layerTree() const;
+  void setMapSettings( QgsQuickMapSettings *mapSettings );
 
-  signals:
-  
-    void filePathChanged();
-    
-    void mapSettingsChanged();
+  QgsQuickMapSettings *mapSettings() const;
 
-    void layerTreeChanged();
+  void setLayerTree( FlatLayerTreeModel *layerTree );
 
-  private slots:
+  FlatLayerTreeModel *layerTree() const;
 
-    void extentChanged();
+signals:
 
-    void mapThemeChanged();
+  void filePathChanged();
 
-  private:
-  
-    QString mFilePath;
+  void mapSettingsChanged();
 
-    QgsQuickMapSettings *mMapSettings = nullptr;
-    QTimer mSaveExtentTimer;
+  void layerTreeChanged();
 
-    FlatLayerTreeModel *mLayerTree = nullptr;
+private slots:
+
+  void extentChanged();
+
+  void mapThemeChanged();
+
+private:
+  QString mFilePath;
+
+  QgsQuickMapSettings *mMapSettings = nullptr;
+  QTimer mSaveExtentTimer;
+
+  FlatLayerTreeModel *mLayerTree = nullptr;
 };
 
 #endif // PROJECTINFO_H

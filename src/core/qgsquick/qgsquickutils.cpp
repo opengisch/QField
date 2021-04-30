@@ -13,24 +13,22 @@
  *                                                                         *
  ***************************************************************************/
 
-#include <QGuiApplication>
-#include <QScreen>
-#include <QString>
-#include <QWindow>
-#include <QFileInfo>
-
-#include <qgscoordinatereferencesystem.h>
-#include <qgscoordinatetransform.h>
-#include <qgsdistancearea.h>
-#include <qgslogger.h>
-#include <qgsvectorlayer.h>
-#include <qgsfeature.h>
-#include <qgsunittypes.h>
-
 #include "qgsquickfeaturelayerpair.h"
 #include "qgsquickmapsettings.h"
 #include "qgsquickutils.h"
 
+#include <QFileInfo>
+#include <QGuiApplication>
+#include <QScreen>
+#include <QString>
+#include <QWindow>
+#include <qgscoordinatereferencesystem.h>
+#include <qgscoordinatetransform.h>
+#include <qgsdistancearea.h>
+#include <qgsfeature.h>
+#include <qgslogger.h>
+#include <qgsunittypes.h>
+#include <qgsvectorlayer.h>
 
 
 QgsQuickUtils::QgsQuickUtils( QObject *parent )
@@ -63,9 +61,9 @@ QgsPoint QgsQuickUtils::coordinateToPoint( const QGeoCoordinate &coor )
 }
 
 QgsPointXY QgsQuickUtils::transformPoint( const QgsCoordinateReferenceSystem &srcCrs,
-    const QgsCoordinateReferenceSystem &destCrs,
-    const QgsCoordinateTransformContext &context,
-    const QgsPointXY &srcPoint )
+                                          const QgsCoordinateReferenceSystem &destCrs,
+                                          const QgsCoordinateTransformContext &context,
+                                          const QgsPointXY &srcPoint )
 {
   QgsCoordinateTransform mTransform( srcCrs, destCrs, context );
   QgsPointXY pt = mTransform.transform( srcPoint );
@@ -79,7 +77,8 @@ double QgsQuickUtils::distanceFromUnitToUnitFactor( const QgsUnitTypes::Distance
 
 double QgsQuickUtils::screenUnitsToMeters( QgsQuickMapSettings *mapSettings, int baseLengthPixels )
 {
-  if ( mapSettings == nullptr ) return 0.0;
+  if ( mapSettings == nullptr )
+    return 0.0;
 
   QgsDistanceArea mDistanceArea;
   mDistanceArea.setEllipsoid( QStringLiteral( "WGS84" ) );
@@ -133,8 +132,7 @@ const QUrl QgsQuickUtils::getEditorComponentSource( const QString &widgetName )
                                    QStringLiteral( "valuemap" ),
                                    QStringLiteral( "checkbox" ),
                                    QStringLiteral( "externalresource" ),
-                                   QStringLiteral( "datetime" )
-                                 };
+                                   QStringLiteral( "datetime" ) };
   if ( supportedWidgets.contains( widgetName ) )
   {
     return QUrl( path.arg( widgetName ) );
@@ -146,10 +144,10 @@ const QUrl QgsQuickUtils::getEditorComponentSource( const QString &widgetName )
 }
 
 QString QgsQuickUtils::formatPoint(
-  const QgsPoint &point,
-  QgsCoordinateFormatter::Format format,
-  int decimals,
-  QgsCoordinateFormatter::FormatFlags flags )
+const QgsPoint &point,
+QgsCoordinateFormatter::Format format,
+int decimals,
+QgsCoordinateFormatter::FormatFlags flags )
 {
   return QgsCoordinateFormatter::format( point, format, decimals, flags );
 }
@@ -165,14 +163,14 @@ QString QgsQuickUtils::formatDistance( double distance,
   humanReadableDistance( distance, units, destSystem, destDistance, destUnits );
 
   return QStringLiteral( "%1 %2" )
-         .arg( QString::number( destDistance, 'f', decimals ) )
-         .arg( QgsUnitTypes::toAbbreviatedString( destUnits ) );
+  .arg( QString::number( destDistance, 'f', decimals ) )
+  .arg( QgsUnitTypes::toAbbreviatedString( destUnits ) );
 }
 
 
 void QgsQuickUtils::humanReadableDistance( double srcDistance, QgsUnitTypes::DistanceUnit srcUnits,
-    QgsUnitTypes::SystemOfMeasurement destSystem,
-    double &destDistance, QgsUnitTypes::DistanceUnit &destUnits )
+                                           QgsUnitTypes::SystemOfMeasurement destSystem,
+                                           double &destDistance, QgsUnitTypes::DistanceUnit &destUnits )
 {
   if ( ( destSystem == QgsUnitTypes::MetricSystem ) || ( destSystem == QgsUnitTypes::UnknownSystem ) )
   {
@@ -193,9 +191,9 @@ void QgsQuickUtils::humanReadableDistance( double srcDistance, QgsUnitTypes::Dis
 }
 
 void QgsQuickUtils::formatToMetricDistance( double srcDistance,
-    QgsUnitTypes::DistanceUnit srcUnits,
-    double &destDistance,
-    QgsUnitTypes::DistanceUnit &destUnits )
+                                            QgsUnitTypes::DistanceUnit srcUnits,
+                                            double &destDistance,
+                                            QgsUnitTypes::DistanceUnit &destUnits )
 {
   double dist = srcDistance * QgsUnitTypes::fromUnitToUnitFactor( srcUnits, QgsUnitTypes::DistanceMillimeters );
   if ( dist < 0 )
@@ -234,9 +232,9 @@ void QgsQuickUtils::formatToMetricDistance( double srcDistance,
 }
 
 void QgsQuickUtils::formatToImperialDistance( double srcDistance,
-    QgsUnitTypes::DistanceUnit srcUnits,
-    double &destDistance,
-    QgsUnitTypes::DistanceUnit &destUnits )
+                                              QgsUnitTypes::DistanceUnit srcUnits,
+                                              double &destDistance,
+                                              QgsUnitTypes::DistanceUnit &destUnits )
 {
   double dist = srcDistance * QgsUnitTypes::fromUnitToUnitFactor( srcUnits, QgsUnitTypes::DistanceFeet );
   if ( dist < 0 )
@@ -268,9 +266,9 @@ void QgsQuickUtils::formatToImperialDistance( double srcDistance,
 }
 
 void QgsQuickUtils::formatToUSCSDistance( double srcDistance,
-    QgsUnitTypes::DistanceUnit srcUnits,
-    double &destDistance,
-    QgsUnitTypes::DistanceUnit &destUnits )
+                                          QgsUnitTypes::DistanceUnit srcUnits,
+                                          double &destDistance,
+                                          QgsUnitTypes::DistanceUnit &destUnits )
 {
   double dist = srcDistance * QgsUnitTypes::fromUnitToUnitFactor( srcUnits, QgsUnitTypes::DistanceFeet );
   if ( dist < 0 )
@@ -333,7 +331,7 @@ qreal QgsQuickUtils::calculateScreenDensity()
   double dpiX = screen->physicalDotsPerInchX();
   double dpiY = screen->physicalDotsPerInchY();
   double dpi = dpiX < dpiY ? dpiX : dpiY; // In case of asymmetrical DPI. Improbable
-  return dpi / 160.;  // 160 DPI is baseline for density-independent pixels in Android
+  return dpi / 160.;                      // 160 DPI is baseline for density-independent pixels in Android
 }
 
 void QgsQuickUtils::selectFeaturesInLayer( QgsVectorLayer *layer, const QList<int> &fids, QgsVectorLayer::SelectBehavior behavior )

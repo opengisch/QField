@@ -17,7 +17,6 @@
 #define QGSQUICKFEATURELAYERPAIR_H
 
 #include <QObject>
-
 #include <qgsfeature.h>
 
 
@@ -36,23 +35,23 @@ class QgsVectorLayer;
  */
 class QgsQuickFeatureLayerPair
 {
-    Q_GADGET
+  Q_GADGET
 
-    /**
+  /**
      * Vector layer to which the feature belongs. May be nullptr if pair is not valid
      *
      * This is a readonly property.
      */
-    Q_PROPERTY( QgsVectorLayer *layer READ layer )
+  Q_PROPERTY( QgsVectorLayer *layer READ layer )
 
-    /**
+  /**
      * Feature that belongs to layer.
      *
      * This is a readonly property.
      */
-    Q_PROPERTY( QgsFeature feature READ feature )
+  Q_PROPERTY( QgsFeature feature READ feature )
 
-    /**
+  /**
      * Whether
      *  - layer is not nullptr
      *  - feature is valid
@@ -60,39 +59,39 @@ class QgsQuickFeatureLayerPair
      *
      * This is a readonly property.
      */
-    Q_PROPERTY( bool valid READ isValid )
+  Q_PROPERTY( bool valid READ isValid )
 
-  public:
-    //! Constructs invalid feature-layer pair.
-    QgsQuickFeatureLayerPair();
+public:
+  //! Constructs invalid feature-layer pair.
+  QgsQuickFeatureLayerPair();
 
-    /**
+  /**
      * Constructor of a new feature-layer pair
      * \param feature QgsFeature associated.
      * \param layer Vector layer which the feature belongs to
      */
-    QgsQuickFeatureLayerPair( const QgsFeature &feature, QgsVectorLayer *layer );
+  QgsQuickFeatureLayerPair( const QgsFeature &feature, QgsVectorLayer *layer );
 
-    //! \copydoc QgsQuickFeatureLayerPair::layer
-    QgsVectorLayer *layer() const;
+  //! \copydoc QgsQuickFeatureLayerPair::layer
+  QgsVectorLayer *layer() const;
 
-    //! \copydoc QgsQuickFeatureLayerPair::feature
-    QgsFeature feature() const;
+  //! \copydoc QgsQuickFeatureLayerPair::feature
+  QgsFeature feature() const;
 
-    //! \copydoc QgsQuickFeatureLayerPair::feature
-    QgsFeature &featureRef();
+  //! \copydoc QgsQuickFeatureLayerPair::feature
+  QgsFeature &featureRef();
 
-    //! \copydoc QgsQuickFeatureLayerPair::valid
-    bool isValid() const;
+  //! \copydoc QgsQuickFeatureLayerPair::valid
+  bool isValid() const;
 
-    bool operator==( const QgsQuickFeatureLayerPair &other ) const;
-    bool operator!=( const QgsQuickFeatureLayerPair &other ) const;
+  bool operator==( const QgsQuickFeatureLayerPair &other ) const;
+  bool operator!=( const QgsQuickFeatureLayerPair &other ) const;
 
-  private:
-    bool hasValidGeometry() const;
+private:
+  bool hasValidGeometry() const;
 
-    QgsVectorLayer *mLayer = nullptr; // not owned
-    QgsFeature mFeature;
+  QgsVectorLayer *mLayer = nullptr; // not owned
+  QgsFeature mFeature;
 };
 
 typedef QList<QgsQuickFeatureLayerPair> QgsQuickFeatureLayerPairs;

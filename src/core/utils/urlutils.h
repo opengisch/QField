@@ -18,25 +18,23 @@
 #ifndef URLUTILS_H
 #define URLUTILS_H
 
-#include <QObject>
-
 #include "qfield_core_export.h"
+
+#include <QObject>
 
 
 class QFIELD_CORE_EXPORT UrlUtils : public QObject
 {
-    Q_OBJECT
+  Q_OBJECT
 
-  public:
-
-
-    explicit UrlUtils( QObject *parent = nullptr );
+public:
+  explicit UrlUtils( QObject *parent = nullptr );
 
 
-    /**
+  /**
      * Checks whether the provided string is a relative url (has no protocol or starts with `file://`).
      */
-    static Q_INVOKABLE bool isRelativeOrFileUrl( const QString &url );
+  static Q_INVOKABLE bool isRelativeOrFileUrl( const QString &url );
 };
 
 #endif // URLUTILS_H

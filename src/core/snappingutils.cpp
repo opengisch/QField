@@ -14,11 +14,11 @@
  *                                                                         *
  ***************************************************************************/
 
-#include "snappingutils.h"
 #include "qgsquickmapsettings.h"
+#include "snappingutils.h"
 
-#include <qgsvectorlayer.h>
 #include <qgsproject.h>
+#include <qgsvectorlayer.h>
 
 SnappingUtils::SnappingUtils( QObject *parent )
   : QgsSnappingUtils( parent, false /*enableSnappingForInvisibleFeature*/ )
@@ -36,7 +36,6 @@ void SnappingUtils::onMapSettingsUpdated()
 
 void SnappingUtils::removeOutdatedLocators()
 {
-
   clearAllLocators();
 }
 
@@ -89,7 +88,8 @@ void SnappingUtils::snap()
     if ( vlayer->crs() != mapSettings()->destinationCrs() )
     {
       QgsCoordinateTransform transform( vlayer->crs(), mapSettings()->destinationCrs(), QgsProject::instance()->transformContext() );
-      try {
+      try
+      {
         snappedPoint.transform( transform );
       }
       catch ( const QgsException &e )
@@ -97,7 +97,7 @@ void SnappingUtils::snap()
         Q_UNUSED( e )
         return;
       }
-      catch(...)
+      catch ( ... )
       {
         // catch any other errors
         return;

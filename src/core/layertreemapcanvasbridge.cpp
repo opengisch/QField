@@ -18,12 +18,12 @@
 #include "qgsquickmapcanvasmap.h"
 #include "qgsquickmapsettings.h"
 
-#include <qgslayertreegroup.h>
 #include <qgslayertree.h>
-#include <qgsmaplayer.h>
-#include <qgslayertreeutils.h>
-#include <qgsmaplayerstylemanager.h>
+#include <qgslayertreegroup.h>
 #include <qgslayertreemodel.h>
+#include <qgslayertreeutils.h>
+#include <qgsmaplayer.h>
+#include <qgsmaplayerstylemanager.h>
 
 LayerTreeMapCanvasBridge::LayerTreeMapCanvasBridge( FlatLayerTreeModel *model, QgsQuickMapSettings *mapSettings, TrackingModel *trackingModel, QObject *parent )
   : QObject( parent )
@@ -50,7 +50,7 @@ void LayerTreeMapCanvasBridge::extentChanged()
 {
   // allow symbols in the legend update their preview if they use map units
   mModel->layerTreeModel()->setLegendMapViewData( mMapSettings->mapSettings().mapUnitsPerPixel(),
-      static_cast< int >( std::round( mMapSettings->outputDpi() ) ), mMapSettings->mapSettings().scale() );
+                                                  static_cast<int>( std::round( mMapSettings->outputDpi() ) ), mMapSettings->mapSettings().scale() );
 }
 
 void LayerTreeMapCanvasBridge::setCanvasLayers()
@@ -166,7 +166,3 @@ void LayerTreeMapCanvasBridge::layerInTrackingChanged( QgsVectorLayer *layer, bo
   QgsLayerTreeLayer *nodeLayer = mRoot->findLayer( layer->id() );
   mModel->setLayerInTracking( nodeLayer, tracking );
 }
-
-
-
-

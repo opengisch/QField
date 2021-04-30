@@ -16,26 +16,26 @@
  *                                                                         *
  ***************************************************************************/
 
-#include "androidplatformutilities.h"
 #include "androidpicturesource.h"
+#include "androidplatformutilities.h"
 #include "androidprojectsource.h"
 #include "androidviewstatus.h"
 #include "appinterface.h"
 #include "feedback.h"
 #include "fileutils.h"
 
-#include <QMap>
-#include <QString>
-#include <QtAndroid>
-#include <QDebug>
 #include <QAndroidJniEnvironment>
-#include <QMimeDatabase>
-#include <QStandardPaths>
-#include <QFile>
 #include <QApplication>
+#include <QDebug>
+#include <QFile>
+#include <QMap>
+#include <QMimeDatabase>
 #include <QQmlApplicationEngine>
 #include <QQmlContext>
+#include <QStandardPaths>
+#include <QString>
 #include <QThread>
+#include <QtAndroid>
 
 #include <jni.h>
 
@@ -46,27 +46,26 @@ AndroidPlatformUtilities::AndroidPlatformUtilities()
 
 class FileCopyThread : public QThread
 {
-    Q_OBJECT
+  Q_OBJECT
 
-  public:
-    FileCopyThread( const QString &source, const QString &destination, Feedback *feedback )
-      : QThread()
-      , mSource( source )
-      , mDestination( destination )
-      , mFeedback( feedback )
-    {
-    }
+public:
+  FileCopyThread( const QString &source, const QString &destination, Feedback *feedback )
+    : QThread()
+    , mSource( source )
+    , mDestination( destination )
+    , mFeedback( feedback )
+  {
+  }
 
-  private:
+private:
+  void run() override
+  {
+    FileUtils::copyRecursively( mSource, mDestination, mFeedback );
+  }
 
-    void run() override
-    {
-      FileUtils::copyRecursively( mSource, mDestination, mFeedback );
-    }
-
-    QString mSource;
-    QString mDestination;
-    Feedback *mFeedback;
+  QString mSource;
+  QString mDestination;
+  Feedback *mFeedback;
 };
 
 
@@ -89,8 +88,7 @@ void AndroidPlatformUtilities::initSystem()
     engine.rootContext()->setContextProperty( "feedback", &feedback );
     engine.load( QUrl( QStringLiteral( "qrc:/qml/SystemLoader.qml" ) ) );
 
-    QMetaObject::invokeMethod( &app, [this, &app, &feedback]
-    {
+    QMetaObject::invokeMethod( &app, [this, &app, &feedback] {
       FileCopyThread *thread = new FileCopyThread( QStringLiteral( "assets:/share" ), mSystemGenericDataLocation, &feedback );
       app.connect( thread, &QThread::finished, &app, QApplication::quit );
       app.connect( thread, &QThread::finished, thread, &QThread::deleteLater );
@@ -324,13 +322,11 @@ void AndroidPlatformUtilities::setScreenLockPermission( const bool allowLock )
 {
   if ( mActivity.isValid() )
   {
-    QtAndroid::runOnAndroidThread( [allowLock]
-    {
+    QtAndroid::runOnAndroidThread( [allowLock] {
       QAndroidJniObject activity = QtAndroid::androidActivity();
       if ( activity.isValid() )
       {
-        QAndroidJniObject window =
-        activity.callObjectMethod( "getWindow", "()Landroid/view/Window;" );
+        QAndroidJniObject window = activity.callObjectMethod( "getWindow", "()Landroid/view/Window;" );
 
         if ( window.isValid() )
         {

@@ -15,11 +15,11 @@
  ***************************************************************************/
 
 
-#include "vertexmodel.h"
+#include "qgsquickmapsettings.h"
 #include "rubberband.h"
 #include "rubberbandmodel.h"
 #include "sgrubberband.h"
-#include "qgsquickmapsettings.h"
+#include "vertexmodel.h"
 
 Rubberband::Rubberband( QQuickItem *parent )
   : QQuickItem( parent )
@@ -133,12 +133,12 @@ void Rubberband::markDirty()
   update();
 }
 
-void Rubberband::transformPoints( QVector<QgsPoint> & points )
+void Rubberband::transformPoints( QVector<QgsPoint> &points )
 {
   const QgsRectangle visibleExtent = mMapSettings->visibleExtent();
   const double scaleFactor = 1.0 / mMapSettings->mapUnitsPerPoint();
 
-  for( QgsPoint &point : points )
+  for ( QgsPoint &point : points )
   {
     point.setX( ( point.x() - visibleExtent.xMinimum() ) * scaleFactor );
     point.setY( ( point.y() - visibleExtent.yMaximum() ) * -scaleFactor );
@@ -251,4 +251,3 @@ void Rubberband::setColorCurrentPoint( const QColor &color )
 
   emit colorCurrentPointChanged();
 }
-

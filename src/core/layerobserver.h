@@ -34,149 +34,148 @@ typedef QMap<QgsFeatureId, QgsFeature> QgsChangedFeatures;
  */
 class LayerObserver : public QObject
 {
-    Q_OBJECT
+  Q_OBJECT
 
-    Q_PROPERTY( DeltaFileWrapper *deltaFileWrapper READ deltaFileWrapper NOTIFY deltaFileWrapperChanged )
+  Q_PROPERTY( DeltaFileWrapper *deltaFileWrapper READ deltaFileWrapper NOTIFY deltaFileWrapperChanged )
 
-  public:
-    /**
+public:
+  /**
      * Construct a new Layer Observer object
      *
      * @param project
      */
-    explicit LayerObserver( const QgsProject *project );
+  explicit LayerObserver( const QgsProject *project );
 
 
-    /**
+  /**
      * Clears the current delta file changes
      */
-    Q_INVOKABLE void reset( bool isHardReset = false ) const;
+  Q_INVOKABLE void reset( bool isHardReset = false ) const;
 
 
-    /**
+  /**
      * Gets the current delta file
      *
      * @return current delta file
      */
-    DeltaFileWrapper *deltaFileWrapper() const;
+  DeltaFileWrapper *deltaFileWrapper() const;
 
 
-  signals:
-    void layerEdited( const QString &layerId );
-    void deltaFileWrapperChanged();
+signals:
+  void layerEdited( const QString &layerId );
+  void deltaFileWrapperChanged();
 
 
-  private slots:
-    /**
+private slots:
+  /**
      * Monitors the current project for new layers.
      *
      * @param layers layers added
      */
-    void onLayersAdded( const QList<QgsMapLayer *> &layers );
+  void onLayersAdded( const QList<QgsMapLayer *> &layers );
 
 
-    /**
+  /**
      * Commit the changes of the current delta file and
      *
      */
-    void onHomePathChanged();
+  void onHomePathChanged();
 
 
-    /**
+  /**
      * Extracts the old values of the modified features
      */
-    void onBeforeCommitChanges();
+  void onBeforeCommitChanges();
 
 
-    /**
+  /**
      * Writes the "create" deltas
      *
      * @param layerId layer ID
      * @param addedFeatures new features
      */
-    void onCommittedFeaturesAdded( const QString &localLayerId, const QgsFeatureList &addedFeatures );
+  void onCommittedFeaturesAdded( const QString &localLayerId, const QgsFeatureList &addedFeatures );
 
 
-    /**
+  /**
      * Writes the "delete" deltas
      *
      * @param layerId layer ID
      * @param deletedFeatureIds old feature IDs
      */
-    void onCommittedFeaturesRemoved( const QString &localLayerId, const QgsFeatureIds &deletedFeatureIds );
+  void onCommittedFeaturesRemoved( const QString &localLayerId, const QgsFeatureIds &deletedFeatureIds );
 
 
-    /**
+  /**
      * Writes the "patch" deltas
      *
      * @param layerId
      * @param changedAttributesValues
      */
-    void onCommittedAttributeValuesChanges( const QString &localLayerId, const QgsChangedAttributesMap &changedAttributesValues );
+  void onCommittedAttributeValuesChanges( const QString &localLayerId, const QgsChangedAttributesMap &changedAttributesValues );
 
 
-    /**
+  /**
      * Writes the "patch" deltas.
      *
      * @param layerId
      * @param changedGeometries
      */
-    void onCommittedGeometriesChanges( const QString &localLayerId, const QgsGeometryMap &changedGeometries );
+  void onCommittedGeometriesChanges( const QString &localLayerId, const QgsGeometryMap &changedGeometries );
 
 
-    /**
+  /**
      * Writes the deltas to the delta file
      */
-    void onEditingStopped();
+  void onEditingStopped();
 
 
-  private:
-    /**
+private:
+  /**
      * The current Deltas File Wrapper object
      */
-    std::unique_ptr<DeltaFileWrapper> mDeltaFileWrapper;
+  std::unique_ptr<DeltaFileWrapper> mDeltaFileWrapper;
 
 
-    /**
+  /**
      * The current project instance
      */
-    const QgsProject *mProject = nullptr;
+  const QgsProject *mProject = nullptr;
 
 
-    /**
+  /**
      * The current project delta file name
      */
-    QString mDeltaFileName = nullptr;
+  QString mDeltaFileName = nullptr;
 
 
-    /**
+  /**
      * Store the old version of changed (patch or delete) features per layer.
      * key    - layer ID
      * value  - changed features for that layer
      */
-    QMap<QString, QgsChangedFeatures> mChangedFeatures;
+  QMap<QString, QgsChangedFeatures> mChangedFeatures;
 
 
-    /**
+  /**
      * Store the old version of patched features per layer.
      * key    - layer ID
      * value  - patched feature IDs for that layer
      */
-    QMap<QString, QgsFeatureIds> mPatchedFids;
+  QMap<QString, QgsFeatureIds> mPatchedFids;
 
 
-    /**
+  /**
      * Layer ids being observed for changes. Should reset when the project is changed.
      */
-    QSet<QString> mObservedLayerIds;
+  QSet<QString> mObservedLayerIds;
 
 
-    /**
+  /**
      * Add the needed event listeners to monitor for changes.
      * Assigns listeners only for layer actions of `cloud` and `offline`.
      */
-    void addLayerListeners();
-
+  void addLayerListeners();
 };
 
 #endif // LAYEROBSERVER_H

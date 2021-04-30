@@ -20,37 +20,38 @@
 #define ANDROIDPLATFORMUTILITIES_H
 
 #include "platformutilities.h"
+
 #include <QAndroidJniObject>
 
 class AndroidPlatformUtilities : public PlatformUtilities
 {
-  public:
-    AndroidPlatformUtilities();
+public:
+  AndroidPlatformUtilities();
 
-    virtual void initSystem() override;
-    virtual QString systemGenericDataLocation() const override;
-    virtual QString qgsProject() const override;
-    virtual QString qfieldDataDir() const override;
-    virtual PictureSource *getCameraPicture( const QString &prefix, const QString &pictureFilePath, const QString &suffix ) override;
-    virtual PictureSource *getGalleryPicture( const QString &prefix, const QString &pictureFilePath ) override;
-    virtual ViewStatus *open( const QString &uri ) override;
-    virtual ProjectSource *openProject() override;
+  virtual void initSystem() override;
+  virtual QString systemGenericDataLocation() const override;
+  virtual QString qgsProject() const override;
+  virtual QString qfieldDataDir() const override;
+  virtual PictureSource *getCameraPicture( const QString &prefix, const QString &pictureFilePath, const QString &suffix ) override;
+  virtual PictureSource *getGalleryPicture( const QString &prefix, const QString &pictureFilePath ) override;
+  virtual ViewStatus *open( const QString &uri ) override;
+  virtual ProjectSource *openProject() override;
 
-    virtual bool checkPositioningPermissions() const override;
+  virtual bool checkPositioningPermissions() const override;
 
-    virtual bool checkCameraPermissions() const override;
+  virtual bool checkCameraPermissions() const override;
 
-    bool checkWriteExternalStoragePermissions() const override;
+  bool checkWriteExternalStoragePermissions() const override;
 
-    void setScreenLockPermission( const bool allowLock ) override;
+  void setScreenLockPermission( const bool allowLock ) override;
 
-  private:
-    bool checkAndAcquirePermissions( const QString &permissionString ) const;
-    QString getIntentExtra( const QString &, QAndroidJniObject = nullptr ) const;
-    QAndroidJniObject getNativeIntent() const;
-    QAndroidJniObject getNativeExtras() const;
-    QAndroidJniObject mActivity;
-    QString mSystemGenericDataLocation;
+private:
+  bool checkAndAcquirePermissions( const QString &permissionString ) const;
+  QString getIntentExtra( const QString &, QAndroidJniObject = nullptr ) const;
+  QAndroidJniObject getNativeIntent() const;
+  QAndroidJniObject getNativeExtras() const;
+  QAndroidJniObject mActivity;
+  QString mSystemGenericDataLocation;
 };
 
 #endif // ANDROIDPLATFORMUTILITIES_H

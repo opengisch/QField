@@ -87,3 +87,14 @@ jobs:
       - name: Check sdk pattern
         run: |
           grep -E 'osgeo4a_version=2[0-9]{7}' sdk.conf
+
+  clang-format:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - uses: DoozyX/clang-format-lint-action@v0.12
+      with:
+        source: '.'
+        extensions: 'h,cpp,c,java'
+        clangFormatVersion: 12

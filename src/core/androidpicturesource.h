@@ -16,31 +16,31 @@
 #ifndef ANDROIDPICTURESOURCE_H
 #define ANDROIDPICTURESOURCE_H
 
-#include <QAndroidActivityResultReceiver>
-
 #include "picturesource.h"
+
+#include <QAndroidActivityResultReceiver>
 
 
 class AndroidPictureSource : public PictureSource, public QAndroidActivityResultReceiver
 {
-    Q_OBJECT
+  Q_OBJECT
 
-  public:
-    /**
+public:
+  /**
      * Construct a new Android Picture Source object
      *
      * @param prefix The project folder. Base directory path for all relative paths.
      */
-    explicit AndroidPictureSource( const QString &prefix );
+  explicit AndroidPictureSource( const QString &prefix );
 
-    //! QAndroidActivityResultReceiver
-    void handleActivityResult( int receiverRequestCode, int resultCode, const QAndroidJniObject &data ) override;
+  //! QAndroidActivityResultReceiver
+  void handleActivityResult( int receiverRequestCode, int resultCode, const QAndroidJniObject &data ) override;
 
-  private:
-    /**
+private:
+  /**
      * Base directory path for all relative paths.
      */
-    QString mPrefix;
+  QString mPrefix;
 };
 
 #endif // ANDROIDPICTURESOURCE_H

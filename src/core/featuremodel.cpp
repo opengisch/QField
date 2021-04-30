@@ -15,21 +15,20 @@
  *                                                                         *
  ***************************************************************************/
 
-#include "featuremodel.h"
 #include "expressioncontextutils.h"
+#include "featuremodel.h"
 #include "vertexmodel.h"
-
-#include <qgsproject.h>
-#include <qgsmessagelog.h>
-#include <qgsvectorlayer.h>
-#include <qgsgeometryoptions.h>
-#include <qgsgeometrycollection.h>
-#include <qgscurvepolygon.h>
-#include <qgsrelationmanager.h>
-#include <qgsvectorlayerutils.h>
 
 #include <QGeoPositionInfoSource>
 #include <QMutex>
+#include <qgscurvepolygon.h>
+#include <qgsgeometrycollection.h>
+#include <qgsgeometryoptions.h>
+#include <qgsmessagelog.h>
+#include <qgsproject.h>
+#include <qgsrelationmanager.h>
+#include <qgsvectorlayer.h>
+#include <qgsvectorlayerutils.h>
 
 typedef QMap<QgsVectorLayer *, FeatureModel::RememberValues> Rememberings;
 Q_GLOBAL_STATIC( Rememberings, sRememberings )
@@ -89,7 +88,8 @@ void FeatureModel::setFeatures( const QList<QgsFeature> &features )
       {
         const int attributeIndex;
         const QgsFeature &feature;
-        AttributeNotEqual( const QgsFeature &feature, int attributeIndex ) : attributeIndex( attributeIndex ), feature( feature ) {}
+        AttributeNotEqual( const QgsFeature &feature, int attributeIndex )
+          : attributeIndex( attributeIndex ), feature( feature ) {}
         bool operator()( const QgsFeature &f ) const { return f.attributes().size() > attributeIndex && feature.attributes().at( attributeIndex ) != f.attributes().at( attributeIndex ); }
       };
 
@@ -132,8 +132,8 @@ void FeatureModel::setCurrentLayer( QgsVectorLayer *layer )
     {
       mFeature = QgsFeature( mLayer->fields() );
       QMutexLocker locker( sMutex );
-      (*sRememberings)[mLayer].rememberedFeature = mFeature;
-      (*sRememberings)[mLayer].rememberedAttributes.fill( false, layer->fields().size() );
+      ( *sRememberings )[mLayer].rememberedFeature = mFeature;
+      ( *sRememberings )[mLayer].rememberedAttributes.fill( false, layer->fields().size() );
     }
   }
   emit currentLayerChanged();
@@ -198,7 +198,7 @@ void FeatureModel::setPositionLocked( bool positionLocked )
 
 void FeatureModel::setCloudUserInformation( const CloudUserInformation &cloudUserInformation )
 {
-    mCloudUserInformation = cloudUserInformation;
+  mCloudUserInformation = cloudUserInformation;
 }
 
 void FeatureModel::setLinkedParentFeature( const QgsFeature &feature )
@@ -233,7 +233,7 @@ QgsRelation FeatureModel::linkedRelation() const
 QHash<int, QByteArray> FeatureModel::roleNames() const
 {
   QHash<int, QByteArray> roles = QAbstractListModel::roleNames();
-  roles[AttributeName]  = "AttributeName";
+  roles[AttributeName] = "AttributeName";
   roles[AttributeValue] = "AttributeValue";
   roles[Field] = "Field";
   roles[RememberAttribute] = "RememberAttribute";
@@ -315,7 +315,7 @@ bool FeatureModel::setData( const QModelIndex &index, const QVariant &value, int
     case RememberAttribute:
     {
       QMutexLocker locker( sMutex );
-      (*sRememberings)[mLayer].rememberedAttributes[index.row()] = value.toBool();
+      ( *sRememberings )[mLayer].rememberedAttributes[index.row()] = value.toBool();
       emit dataChanged( index, index, QVector<int>() << role );
       break;
     }
@@ -444,7 +444,7 @@ void FeatureModel::resetFeature()
   if ( sRememberings->contains( mLayer ) )
   {
     QMutexLocker locker( sMutex );
-    (*sRememberings)[mLayer].rememberedFeature = mFeature;
+    ( *sRememberings )[mLayer].rememberedFeature = mFeature;
   }
 
   mFeature = QgsFeature( mLayer->fields() );
@@ -474,8 +474,7 @@ void FeatureModel::resetAttributes()
   for ( int i = 0; i < fields.count(); ++i )
   {
     //if the value does not need to be remembered and it's not prefilled by the linked parent feature
-    if ( !sRememberings->value( mLayer ).rememberedAttributes.at( i ) &&
-         !mLinkedAttributeIndexes.contains( i ) )
+    if ( !sRememberings->value( mLayer ).rememberedAttributes.at( i ) && !mLinkedAttributeIndexes.contains( i ) )
     {
       if ( fields.at( i ).defaultValueDefinition().isValid() )
       {
@@ -568,7 +567,7 @@ void FeatureModel::applyGeometry()
 
 void FeatureModel::removeLayer( QObject *layer )
 {
-  sRememberings->remove( static_cast< QgsVectorLayer * >( layer ) );
+  sRememberings->remove( static_cast<QgsVectorLayer *>( layer ) );
 }
 
 void FeatureModel::featureAdded( QgsFeatureId fid )
@@ -581,7 +580,7 @@ bool FeatureModel::create()
   if ( !mLayer )
     return false;
 
-  if ( ! startEditing() )
+  if ( !startEditing() )
   {
     QgsMessageLog::logMessage( tr( "Cannot start editing on layer \"%1\" to create feature %2" ).arg( mLayer->name() ).arg( mFeature.id() ), QStringLiteral( "QField" ), Qgis::Critical );
     return false;
@@ -626,7 +625,7 @@ bool FeatureModel::create()
   if ( isSuccess && sRememberings->contains( mLayer ) )
   {
     QMutexLocker locker( sMutex );
-    (*sRememberings)[mLayer].rememberedFeature = mFeature;
+    ( *sRememberings )[mLayer].rememberedFeature = mFeature;
   }
 
   disconnect( mLayer, &QgsVectorLayer::featureAdded, this, &FeatureModel::featureAdded );
@@ -635,7 +634,7 @@ bool FeatureModel::create()
 
 bool FeatureModel::deleteFeature()
 {
-  if ( ! startEditing() )
+  if ( !startEditing() )
   {
     QgsMessageLog::logMessage( tr( "Cannot start editing on layer \"%1\" to delete feature %2" ).arg( mLayer->name() ).arg( mFeature.id() ), QStringLiteral( "QField" ), Qgis::Critical );
     return false;
@@ -657,7 +656,7 @@ bool FeatureModel::deleteFeature()
         QgsFeature childFeature;
         while ( relatedFeaturesIt.nextFeature( childFeature ) )
         {
-          if ( ! childLayer->deleteFeature( childFeature.id() ) )
+          if ( !childLayer->deleteFeature( childFeature.id() ) )
           {
             QgsMessageLog::logMessage( tr( "Cannot delete feature %2 from child layer \"%1\"" ).arg( childLayer->name() ).arg( childFeature.id() ), QStringLiteral( "QField" ), Qgis::Critical );
             isSuccess = false;
@@ -683,7 +682,7 @@ bool FeatureModel::deleteFeature()
   {
     if ( isSuccess )
     {
-      if ( ! childLayer->commitChanges() )
+      if ( !childLayer->commitChanges() )
       {
         const QString msgs = childLayer->commitErrors().join( QStringLiteral( "\n" ) );
         QgsMessageLog::logMessage( tr( "Cannot commit child layer deletions in layer \"%1\". Reason:\n%2" ).arg( childLayer->name(), msgs ), QStringLiteral( "QField" ), Qgis::Critical );
@@ -691,9 +690,9 @@ bool FeatureModel::deleteFeature()
       }
     }
 
-    if ( ! isSuccess )
+    if ( !isSuccess )
     {
-      if ( ! childLayer->rollBack() )
+      if ( !childLayer->rollBack() )
         QgsMessageLog::logMessage( tr( "Cannot rollback layer deletions in layer \"%1\"" ).arg( childLayer->name() ), QStringLiteral( "QField" ), Qgis::Critical );
     }
   }
@@ -704,7 +703,7 @@ bool FeatureModel::deleteFeature()
     if ( mLayer->deleteFeature( mFeature.id() ) )
     {
       // commit parent changes
-      if ( ! mLayer->commitChanges() )
+      if ( !mLayer->commitChanges() )
       {
         const QString msgs = mLayer->commitErrors().join( QStringLiteral( "\n" ) );
         QgsMessageLog::logMessage( tr( "Cannot commit deletion of feature %2 in layer \"%1\". Reason:\n%3" ).arg( mLayer->name() ).arg( mFeature.id() ).arg( msgs ), QStringLiteral( "QField" ), Qgis::Warning );
@@ -719,7 +718,7 @@ bool FeatureModel::deleteFeature()
     }
   }
 
-  if ( ! isSuccess )
+  if ( !isSuccess )
   {
     if ( mLayer->rollBack() )
       QgsMessageLog::logMessage( tr( "Successfully rolled back changes in layer \"%1\" while attempting to delete feature %2" ).arg( mLayer->name() ).arg( mFeature.id() ), QStringLiteral( "QField" ), Qgis::Critical );
@@ -802,53 +801,53 @@ void FeatureModel::applyGeometryToVertexModel()
 // taken from QGIS' qgsvectortool.cpp
 class MatchCollectingFilter : public QgsPointLocator::MatchFilter
 {
-  public:
-    QList<QgsPointLocator::Match> matches;
+public:
+  QList<QgsPointLocator::Match> matches;
 
-    MatchCollectingFilter() {}
+  MatchCollectingFilter() {}
 
-    bool acceptMatch( const QgsPointLocator::Match &match ) override
+  bool acceptMatch( const QgsPointLocator::Match &match ) override
+  {
+    if ( match.distance() > 0 )
+      return false;
+
+    // there may be multiple points at the same location, but we get only one
+    // result... the locator API needs a new method verticesInRect()
+    QgsFeature f;
+    match.layer()->getFeatures( QgsFeatureRequest( match.featureId() ).setNoAttributes() ).nextFeature( f );
+    QgsGeometry matchGeom = f.geometry();
+    bool isPolygon = matchGeom.type() == QgsWkbTypes::PolygonGeometry;
+    QgsVertexId polygonRingVid;
+    QgsVertexId vid;
+    QgsPoint pt;
+    while ( matchGeom.constGet()->nextVertex( vid, pt ) )
     {
-      if ( match.distance() > 0 )
-        return false;
-
-      // there may be multiple points at the same location, but we get only one
-      // result... the locator API needs a new method verticesInRect()
-      QgsFeature f;
-      match.layer()->getFeatures( QgsFeatureRequest( match.featureId() ).setNoAttributes() ).nextFeature( f );
-      QgsGeometry matchGeom  = f.geometry();
-      bool isPolygon = matchGeom.type() == QgsWkbTypes::PolygonGeometry;
-      QgsVertexId polygonRingVid;
-      QgsVertexId vid;
-      QgsPoint pt;
-      while ( matchGeom.constGet()->nextVertex( vid, pt ) )
+      int vindex = matchGeom.vertexNrFromVertexId( vid );
+      if ( pt.x() == match.point().x() && pt.y() == match.point().y() )
       {
-        int vindex = matchGeom.vertexNrFromVertexId( vid );
-        if ( pt.x() == match.point().x() && pt.y() == match.point().y() )
+        if ( isPolygon )
         {
-          if ( isPolygon )
+          // for polygons we need to handle the case where the first vertex is matching because the
+          // last point will have the same coordinates and we would have a duplicate match which
+          // would make subsequent code behave incorrectly (topology editing mode would add a single
+          // vertex twice)
+          if ( vid.vertex == 0 )
           {
-            // for polygons we need to handle the case where the first vertex is matching because the
-            // last point will have the same coordinates and we would have a duplicate match which
-            // would make subsequent code behave incorrectly (topology editing mode would add a single
-            // vertex twice)
-            if ( vid.vertex == 0 )
-            {
-              polygonRingVid = vid;
-            }
-            else if ( vid.ringEqual( polygonRingVid ) && vid.vertex == matchGeom.constGet()->vertexCount( vid.part, vid.ring ) - 1 )
-            {
-              continue;
-            }
+            polygonRingVid = vid;
           }
-
-          QgsPointLocator::Match extra_match( match.type(), match.layer(), match.featureId(),
-                                              0, match.point(), vindex );
-          matches.append( extra_match );
+          else if ( vid.ringEqual( polygonRingVid ) && vid.vertex == matchGeom.constGet()->vertexCount( vid.part, vid.ring ) - 1 )
+          {
+            continue;
+          }
         }
+
+        QgsPointLocator::Match extra_match( match.type(), match.layer(), match.featureId(),
+                                            0, match.point(), vindex );
+        matches.append( extra_match );
       }
-      return true;
     }
+    return true;
+  }
 };
 
 void FeatureModel::applyVertexModelToLayerTopography()

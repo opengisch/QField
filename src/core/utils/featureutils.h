@@ -16,12 +16,11 @@
 #ifndef FEATUREUTILS_H
 #define FEATUREUTILS_H
 
-#include <QObject>
-
-#include <qgsgeometry.h>
-#include <qgsfeature.h>
-
 #include "qfield_core_export.h"
+
+#include <QObject>
+#include <qgsfeature.h>
+#include <qgsgeometry.h>
 
 class QgsVectorLayer;
 
@@ -29,9 +28,9 @@ class QFIELD_CORE_EXPORT FeatureUtils : public QObject
 {
   Q_OBJECT
 public:
-  explicit FeatureUtils(QObject *parent = nullptr);
+  explicit FeatureUtils( QObject *parent = nullptr );
 
-  static Q_INVOKABLE QgsFeature initFeature(QgsVectorLayer *layer, QgsGeometry geometry = QgsGeometry());
+  static Q_INVOKABLE QgsFeature initFeature( QgsVectorLayer *layer, QgsGeometry geometry = QgsGeometry() );
 
   /**
    * Returns the display name of a given feature.

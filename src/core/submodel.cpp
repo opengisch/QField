@@ -14,12 +14,12 @@
  *                                                                         *
  ***************************************************************************/
 #include "submodel.h"
+
 #include <QDebug>
 
 SubModel::SubModel( QObject *parent )
   : QAbstractItemModel( parent )
 {
-
 }
 
 QModelIndex SubModel::index( int row, int column, const QModelIndex &parent ) const
@@ -139,7 +139,7 @@ bool SubModel::isInSubModel( const QModelIndex &sourceIndex ) const
 
   QModelIndex idx = sourceIndex;
   bool foundRootIndex = false;
-  while( idx.isValid() )
+  while ( idx.isValid() )
   {
     if ( mModel->parent( idx ) == mRootIndex )
     {

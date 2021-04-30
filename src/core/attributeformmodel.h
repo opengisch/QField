@@ -16,93 +16,93 @@
 #ifndef ATTRIBUTEFORMMODEL_H
 #define ATTRIBUTEFORMMODEL_H
 
-#include <QSortFilterProxyModel>
-
 #include "attributeformmodelbase.h"
+
+#include <QSortFilterProxyModel>
 
 class FeatureModel;
 
 class AttributeFormModel : public QSortFilterProxyModel
 {
-    Q_OBJECT
+  Q_OBJECT
 
-    Q_PROPERTY( FeatureModel *featureModel READ featureModel WRITE setFeatureModel NOTIFY featureModelChanged )
-    Q_PROPERTY( bool hasTabs READ hasTabs WRITE setHasTabs NOTIFY hasTabsChanged )
-    Q_PROPERTY( bool constraintsHardValid READ constraintsHardValid NOTIFY constraintsHardValidChanged )
-    Q_PROPERTY( bool constraintsSoftValid READ constraintsSoftValid NOTIFY constraintsSoftValidChanged )
+  Q_PROPERTY( FeatureModel *featureModel READ featureModel WRITE setFeatureModel NOTIFY featureModelChanged )
+  Q_PROPERTY( bool hasTabs READ hasTabs WRITE setHasTabs NOTIFY hasTabsChanged )
+  Q_PROPERTY( bool constraintsHardValid READ constraintsHardValid NOTIFY constraintsHardValidChanged )
+  Q_PROPERTY( bool constraintsSoftValid READ constraintsSoftValid NOTIFY constraintsSoftValidChanged )
 
-  public:
-    enum FeatureRoles
-    {
-      ElementType = Qt::UserRole + 1,
-      Name,
-      AttributeValue,
-      AttributeEditable,
-      EditorWidget,
-      EditorWidgetConfig,
-      RememberValue,
-      Field,
-      RelationId,
-      NmRelationId,
-      FieldIndex,
-      Group,
-      AttributeEditorElement,
-      CurrentlyVisible,
-      ConstraintHardValid,
-      ConstraintSoftValid,
-      ConstraintDescription,
-      AttributeAllowEdit,
-      EditorWidgetCode, //<! Returns a QML or HTML code string used by the relevant widgets
-      TabIndex,
-      Color,
-    };
+public:
+  enum FeatureRoles
+  {
+    ElementType = Qt::UserRole + 1,
+    Name,
+    AttributeValue,
+    AttributeEditable,
+    EditorWidget,
+    EditorWidgetConfig,
+    RememberValue,
+    Field,
+    RelationId,
+    NmRelationId,
+    FieldIndex,
+    Group,
+    AttributeEditorElement,
+    CurrentlyVisible,
+    ConstraintHardValid,
+    ConstraintSoftValid,
+    ConstraintDescription,
+    AttributeAllowEdit,
+    EditorWidgetCode, //<! Returns a QML or HTML code string used by the relevant widgets
+    TabIndex,
+    Color,
+  };
 
-    Q_ENUM( FeatureRoles )
+  Q_ENUM( FeatureRoles )
 
-    explicit AttributeFormModel( QObject *parent = nullptr );
+  explicit AttributeFormModel( QObject *parent = nullptr );
 
-    bool hasTabs() const;
-    void setHasTabs( bool hasTabs );
+  bool hasTabs() const;
+  void setHasTabs( bool hasTabs );
 
-    FeatureModel *featureModel() const;
-    void setFeatureModel( FeatureModel *featureModel );
+  FeatureModel *featureModel() const;
+  void setFeatureModel( FeatureModel *featureModel );
 
-    bool constraintsHardValid() const;
-    bool constraintsSoftValid() const;
+  bool constraintsHardValid() const;
+  bool constraintsSoftValid() const;
 
-    /**
+  /**
      * Save the current (already existing) feature
      */
-    Q_INVOKABLE bool save();
-    /**
+  Q_INVOKABLE bool save();
+  /**
      * Create the current (not existing yet) feature
      */
-    Q_INVOKABLE bool create();
+  Q_INVOKABLE bool create();
 
-    /**
+  /**
      * Delete the current feature
      */
-    Q_INVOKABLE bool deleteFeature();
+  Q_INVOKABLE bool deleteFeature();
 
-    /**
+  /**
      * Get the attribute of the current feature by name
      * \param name the name of the attribute
      * \return value of the attribute
      */
-    Q_INVOKABLE QVariant attribute( const QString &name );
+  Q_INVOKABLE QVariant attribute( const QString &name );
 
-  signals:
-    void featureModelChanged();
-    void hasTabsChanged();
-    void featureChanged();
-    void constraintsHardValidChanged();
-    void constraintsSoftValidChanged();
+signals:
+  void featureModelChanged();
+  void hasTabsChanged();
+  void featureChanged();
+  void constraintsHardValidChanged();
+  void constraintsSoftValidChanged();
 
-  protected:
-    virtual bool filterAcceptsRow( int source_row, const QModelIndex &source_parent ) const override;
+protected:
+  virtual bool filterAcceptsRow( int source_row, const QModelIndex &source_parent ) const override;
 
-  private:
-    AttributeFormModelBase *mSourceModel = nullptr;
+private:
+  AttributeFormModelBase *mSourceModel = nullptr;
 };
 
 #endif // ATTRIBUTEFORMMODEL_H

@@ -37,13 +37,13 @@
 
 #include "glu.h"
 
-typedef struct GLUmesh GLUmesh; 
+typedef struct GLUmesh GLUmesh;
 
 typedef struct GLUvertex GLUvertex;
 typedef struct GLUface GLUface;
 typedef struct GLUhalfEdge GLUhalfEdge;
 
-typedef struct ActiveRegion ActiveRegion;	/* Internal data */
+typedef struct ActiveRegion ActiveRegion; /* Internal data */
 
 /* The mesh structure is similar in spirit, notation, and operations
  * to the "quad-edge" structure (see L. Guibas and J. Stolfi, Primitives
@@ -111,60 +111,64 @@ typedef struct ActiveRegion ActiveRegion;	/* Internal data */
  * a region which is not part of the output polygon.
  */
 
-struct GLUvertex {
-  GLUvertex	*next;		/* next vertex (never NULL) */
-  GLUvertex	*prev;		/* previous vertex (never NULL) */
-  GLUhalfEdge	*anEdge;	/* a half-edge with this origin */
-  void		*data;		/* client's data */
+struct GLUvertex
+{
+  GLUvertex *next;     /* next vertex (never NULL) */
+  GLUvertex *prev;     /* previous vertex (never NULL) */
+  GLUhalfEdge *anEdge; /* a half-edge with this origin */
+  void *data;          /* client's data */
 
   /* Internal data (keep hidden) */
-  GLdouble	coords[3];	/* vertex location in 3D */
-  GLdouble	s, t;		/* projection onto the sweep plane */
-  long		pqHandle;	/* to allow deletion from priority queue */
+  GLdouble coords[3]; /* vertex location in 3D */
+  GLdouble s, t;      /* projection onto the sweep plane */
+  long pqHandle;      /* to allow deletion from priority queue */
 };
 
-struct GLUface {
-  GLUface	*next;		/* next face (never NULL) */
-  GLUface	*prev;		/* previous face (never NULL) */
-  GLUhalfEdge	*anEdge;	/* a half edge with this left face */
-  void		*data;		/* room for client's data */
+struct GLUface
+{
+  GLUface *next;       /* next face (never NULL) */
+  GLUface *prev;       /* previous face (never NULL) */
+  GLUhalfEdge *anEdge; /* a half edge with this left face */
+  void *data;          /* room for client's data */
 
   /* Internal data (keep hidden) */
-  GLUface	*trail;		/* "stack" for conversion to strips */
-  GLboolean	marked;		/* flag for conversion to strips */
-  GLboolean	inside;		/* this face is in the polygon interior */
+  GLUface *trail;   /* "stack" for conversion to strips */
+  GLboolean marked; /* flag for conversion to strips */
+  GLboolean inside; /* this face is in the polygon interior */
 };
 
-struct GLUhalfEdge {
-  GLUhalfEdge	*next;		/* doubly-linked list (prev==Sym->next) */
-  GLUhalfEdge	*Sym;		/* same edge, opposite direction */
-  GLUhalfEdge	*Onext;		/* next edge CCW around origin */
-  GLUhalfEdge	*Lnext;		/* next edge CCW around left face */
-  GLUvertex	*Org;		/* origin vertex (Overtex too long) */
-  GLUface	*Lface;		/* left face */
+struct GLUhalfEdge
+{
+  GLUhalfEdge *next;  /* doubly-linked list (prev==Sym->next) */
+  GLUhalfEdge *Sym;   /* same edge, opposite direction */
+  GLUhalfEdge *Onext; /* next edge CCW around origin */
+  GLUhalfEdge *Lnext; /* next edge CCW around left face */
+  GLUvertex *Org;     /* origin vertex (Overtex too long) */
+  GLUface *Lface;     /* left face */
 
   /* Internal data (keep hidden) */
-  ActiveRegion	*activeRegion;	/* a region with this upper edge (sweep.c) */
-  int		winding;	/* change in winding number when crossing
+  ActiveRegion *activeRegion; /* a region with this upper edge (sweep.c) */
+  int winding;                /* change in winding number when crossing
                                    from the right face to the left face */
 };
 
-#define	Rface	Sym->Lface
-#define Dst	Sym->Org
+#define Rface Sym->Lface
+#define Dst Sym->Org
 
-#define Oprev	Sym->Lnext
-#define Lprev   Onext->Sym
-#define Dprev	Lnext->Sym
-#define Rprev	Sym->Onext
-#define Dnext	Rprev->Sym	/* 3 pointers */
-#define Rnext	Oprev->Sym	/* 3 pointers */
+#define Oprev Sym->Lnext
+#define Lprev Onext->Sym
+#define Dprev Lnext->Sym
+#define Rprev Sym->Onext
+#define Dnext Rprev->Sym /* 3 pointers */
+#define Rnext Oprev->Sym /* 3 pointers */
 
 
-struct GLUmesh {
-  GLUvertex	vHead;		/* dummy header for vertex list */
-  GLUface	fHead;		/* dummy header for face list */
-  GLUhalfEdge	eHead;		/* dummy header for edge list */
-  GLUhalfEdge	eHeadSym;	/* and its symmetric counterpart */
+struct GLUmesh
+{
+  GLUvertex vHead;      /* dummy header for vertex list */
+  GLUface fHead;        /* dummy header for face list */
+  GLUhalfEdge eHead;    /* dummy header for edge list */
+  GLUhalfEdge eHeadSym; /* and its symmetric counterpart */
 };
 
 /* The mesh operations below have three motivations: completeness,
@@ -244,23 +248,23 @@ struct GLUmesh {
  * __gl_meshCheckMesh( mesh ) checks a mesh for self-consistency.
  */
 
-GLUhalfEdge	*__gl_meshMakeEdge( GLUmesh *mesh );
-int		__gl_meshSplice( GLUhalfEdge *eOrg, GLUhalfEdge *eDst );
-int		__gl_meshDelete( GLUhalfEdge *eDel );
+GLUhalfEdge *__gl_meshMakeEdge( GLUmesh *mesh );
+int __gl_meshSplice( GLUhalfEdge *eOrg, GLUhalfEdge *eDst );
+int __gl_meshDelete( GLUhalfEdge *eDel );
 
-GLUhalfEdge	*__gl_meshAddEdgeVertex( GLUhalfEdge *eOrg );
-GLUhalfEdge	*__gl_meshSplitEdge( GLUhalfEdge *eOrg );
-GLUhalfEdge	*__gl_meshConnect( GLUhalfEdge *eOrg, GLUhalfEdge *eDst );
+GLUhalfEdge *__gl_meshAddEdgeVertex( GLUhalfEdge *eOrg );
+GLUhalfEdge *__gl_meshSplitEdge( GLUhalfEdge *eOrg );
+GLUhalfEdge *__gl_meshConnect( GLUhalfEdge *eOrg, GLUhalfEdge *eDst );
 
-GLUmesh		*__gl_meshNewMesh( void );
-GLUmesh		*__gl_meshUnion( GLUmesh *mesh1, GLUmesh *mesh2 );
-void		__gl_meshDeleteMesh( GLUmesh *mesh );
-void		__gl_meshZapFace( GLUface *fZap );
+GLUmesh *__gl_meshNewMesh( void );
+GLUmesh *__gl_meshUnion( GLUmesh *mesh1, GLUmesh *mesh2 );
+void __gl_meshDeleteMesh( GLUmesh *mesh );
+void __gl_meshZapFace( GLUface *fZap );
 
 #ifdef NDEBUG
-#define		__gl_meshCheckMesh( mesh )
+#define __gl_meshCheckMesh( mesh )
 #else
-void		__gl_meshCheckMesh( GLUmesh *mesh );
+void __gl_meshCheckMesh( GLUmesh *mesh );
 #endif
 
 #endif

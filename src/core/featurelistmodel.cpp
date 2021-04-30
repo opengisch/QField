@@ -20,9 +20,8 @@
 #include "stringutils.h"
 
 #include <QRegularExpression>
-
-#include <qgsproject.h>
 #include <qgsexpressioncontextutils.h>
+#include <qgsproject.h>
 #include <qgsvaluerelationfieldformatter.h>
 
 
@@ -230,15 +229,14 @@ void FeatureListModel::gatherFeatureList()
 
   request.setSubsetOfAttributes( referencedColumns, fields );
 
-  if ( ! mFilterExpression.isEmpty()
-       && ( ! QgsValueRelationFieldFormatter::expressionRequiresFormScope( mFilterExpression )
-            || QgsValueRelationFieldFormatter::expressionIsUsable( mFilterExpression, mCurrentFormFeature )
-          ) )
+  if ( !mFilterExpression.isEmpty()
+       && ( !QgsValueRelationFieldFormatter::expressionRequiresFormScope( mFilterExpression )
+            || QgsValueRelationFieldFormatter::expressionIsUsable( mFilterExpression, mCurrentFormFeature ) ) )
   {
     QgsExpression exp( mFilterExpression );
     QgsExpressionContext filterContext = QgsExpressionContext( QgsExpressionContextUtils::globalProjectLayerScopes( mCurrentLayer ) );
 
-    if ( mCurrentFormFeature.isValid( ) && QgsValueRelationFieldFormatter::expressionRequiresFormScope( mFilterExpression ) )
+    if ( mCurrentFormFeature.isValid() && QgsValueRelationFieldFormatter::expressionRequiresFormScope( mFilterExpression ) )
       filterContext.appendScope( QgsExpressionContextUtils::formScope( mCurrentFormFeature ) );
 
     request.setExpressionContext( filterContext );
@@ -246,14 +244,14 @@ void FeatureListModel::gatherFeatureList()
   }
 
   QString fieldDisplayString = displayValueIndex >= 0
-    ? QgsExpression::quotedColumnRef( mDisplayValueField )
-    : QStringLiteral( " ( %1 ) " ).arg( mCurrentLayer->displayExpression() );
+                               ? QgsExpression::quotedColumnRef( mDisplayValueField )
+                               : QStringLiteral( " ( %1 ) " ).arg( mCurrentLayer->displayExpression() );
 
   if ( !mSearchTerm.isEmpty() )
   {
     QString escapedSearchTerm = QgsExpression::quotedValue( mSearchTerm ).replace( QRegularExpression( QStringLiteral( "^'|'$" ) ), QString( "" ) );
     QString searchTermExpression = QStringLiteral( " %1 ILIKE '%%2%' " )
-        .arg( fieldDisplayString, escapedSearchTerm );
+                                   .arg( fieldDisplayString, escapedSearchTerm );
 
     QStringList searchTermParts = escapedSearchTerm.split( QRegularExpression( QStringLiteral( "\\s+" ) ) );
 
@@ -297,7 +295,7 @@ void FeatureListModel::processFeatureList()
 
     entry = Entry( gatheredEntry.value, gatheredEntry.identifierFields.at( 0 ), gatheredEntry.featureId );
 
-    if ( ! mSearchTerm.isEmpty() )
+    if ( !mSearchTerm.isEmpty() )
     {
       entry.calcFuzzyScore( mSearchTerm );
 
@@ -309,8 +307,7 @@ void FeatureListModel::processFeatureList()
 
   if ( mOrderByValue )
   {
-    std::sort( entries.begin(), entries.end(), []( const Entry & entry1, const Entry & entry2 )
-    {
+    std::sort( entries.begin(), entries.end(), []( const Entry &entry1, const Entry &entry2 ) {
       if ( entry1.key.isNull() )
         return true;
 
@@ -320,10 +317,9 @@ void FeatureListModel::processFeatureList()
       return entry1.displayString.toLower() < entry2.displayString.toLower();
     } );
   }
-  else if ( ! mSearchTerm.isEmpty() )
+  else if ( !mSearchTerm.isEmpty() )
   {
-    std::sort( entries.begin(), entries.end(), []( const Entry & entry1, const Entry & entry2 )
-    {
+    std::sort( entries.begin(), entries.end(), []( const Entry &entry1, const Entry &entry2 ) {
       return entry1.fuzzyScore == entry2.fuzzyScore
              ? entry1.displayString.toLower() < entry2.displayString.toLower()
              : entry1.fuzzyScore > entry2.fuzzyScore;

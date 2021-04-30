@@ -17,8 +17,8 @@
 #define DELTALISTMODEL_H
 
 #include <QAbstractListModel>
-#include <QUuid>
 #include <QJsonDocument>
+#include <QUuid>
 
 class DeltaListModel : public QAbstractListModel
 {
@@ -49,7 +49,8 @@ public:
 
   Q_ENUM( ColumnRole )
 
-  struct Delta {
+  struct Delta
+  {
     QUuid id;
     QUuid deltafileId;
     QString createdAt;

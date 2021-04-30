@@ -19,20 +19,21 @@
 #ifndef EXPRESSIONCONTEXTUTILS_H
 #define EXPRESSIONCONTEXTUTILS_H
 
-#include <qgsexpressioncontext.h>
-#include "snappingresult.h"
 #include "gnsspositioninformation.h"
 #include "qfieldcloudconnection.h"
+#include "snappingresult.h"
+
+#include <qgsexpressioncontext.h>
 
 class ExpressionContextUtils
 {
-  public:
-    static QgsExpressionContextScope *positionScope( const GnssPositionInformation &positionInformation, bool positionLocked );
-    static QgsExpressionContextScope *mapToolCaptureScope( const SnappingResult &topSnappingResult );
-    static QgsExpressionContextScope *cloudUserScope( const CloudUserInformation &cloudUserInformation );
+public:
+  static QgsExpressionContextScope *positionScope( const GnssPositionInformation &positionInformation, bool positionLocked );
+  static QgsExpressionContextScope *mapToolCaptureScope( const SnappingResult &topSnappingResult );
+  static QgsExpressionContextScope *cloudUserScope( const CloudUserInformation &cloudUserInformation );
 
-  private:
-    ExpressionContextUtils() = default;
+private:
+  ExpressionContextUtils() = default;
 };
 
 #endif // EXPRESSIONCONTEXTUTILS_H

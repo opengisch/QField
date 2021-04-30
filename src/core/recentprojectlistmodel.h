@@ -20,61 +20,60 @@
 
 class RecentProjectListModel : public QAbstractListModel
 {
-    Q_OBJECT
+  Q_OBJECT
 
-  public:
+public:
+  enum ProjectType
+  {
+    LocalProject,
+    CloudProject,
+    LocalDataset,
+  };
 
-    enum ProjectType
-    {
-      LocalProject,
-      CloudProject,
-      LocalDataset,
-    };
+  struct RecentProject
+  {
+    RecentProject() = default;
 
-    struct RecentProject
-    {
-      RecentProject() = default;
+    RecentProject( ProjectType type, const QString &title, const QString &path, bool demo )
+      : type( type )
+      , title( title )
+      , path( path )
+      , demo( demo )
+    {}
 
-      RecentProject( ProjectType type, const QString &title, const QString &path, bool demo )
-        : type( type )
-        , title( title )
-        , path( path )
-        , demo( demo )
-      {}
+    ProjectType type = ProjectType::LocalProject;
+    QString title;
+    QString path;
+    bool demo = false;
+  };
 
-      ProjectType type = ProjectType::LocalProject;
-      QString title;
-      QString path;
-      bool demo = false;
-    };
-
-    /*!
+  /*!
      * Roles to get the data of the model.
     */
-    enum Role
-    {
-      ProjectTypeRole = Qt::UserRole, //! the project type (e.g., local, cloud, etc.)
-      ProjectTitleRole, //! the project title
-      ProjectPathRole, //! the project path
-      ProjectDemoRole, //! if the project is a demo project
-    };
-    Q_ENUM( Role )
+  enum Role
+  {
+    ProjectTypeRole = Qt::UserRole, //! the project type (e.g., local, cloud, etc.)
+    ProjectTitleRole,               //! the project title
+    ProjectPathRole,                //! the project path
+    ProjectDemoRole,                //! if the project is a demo project
+  };
+  Q_ENUM( Role )
 
 
-    explicit RecentProjectListModel( QObject *parent = nullptr );
+  explicit RecentProjectListModel( QObject *parent = nullptr );
 
-    QHash<int, QByteArray> roleNames() const override;
+  QHash<int, QByteArray> roleNames() const override;
 
-    int rowCount( const QModelIndex &parent ) const override;
-    QVariant data( const QModelIndex &index, int role ) const override;
+  int rowCount( const QModelIndex &parent ) const override;
+  QVariant data( const QModelIndex &index, int role ) const override;
 
-    Q_INVOKABLE void reloadModel();
+  Q_INVOKABLE void reloadModel();
 
-  signals:
-    void projectChanged();
+signals:
+  void projectChanged();
 
-  private:
-    QList<RecentProject> mRecentProjects;
+private:
+  QList<RecentProject> mRecentProjects;
 };
 
 #endif // RECENTPROJECTLISTMODEL_H

@@ -77,7 +77,7 @@ QSGGeometryNode *SGRubberband::createPolygonGeometry( const QVector<QgsPoint> &p
   int *tris_out;
   int nverts, ntris;
 
-  double *vertices_in = ( double * )malloc( points.size() * 2 * sizeof( double ) );
+  double *vertices_in = ( double * ) malloc( points.size() * 2 * sizeof( double ) );
   const double *contours_array[] = { vertices_in, vertices_in + points.size() * 2 };
   int i = 0;
 

@@ -15,13 +15,13 @@
 
 #include "featurelistextentcontroller.h"
 
-#include <qgsvectorlayer.h>
 #include <qgsgeometry.h>
+#include <qgsvectorlayer.h>
 
 FeatureListExtentController::FeatureListExtentController( QObject *parent )
   : QObject( parent )
 {
-  connect( this, &FeatureListExtentController::autoZoomChanged, this, [ = ]() {zoomToSelected();} );
+  connect( this, &FeatureListExtentController::autoZoomChanged, this, [=]() { zoomToSelected(); } );
   connect( this, &FeatureListExtentController::modelChanged, this, &FeatureListExtentController::onModelChanged );
   connect( this, &FeatureListExtentController::selectionChanged, this, &FeatureListExtentController::onModelChanged );
 }

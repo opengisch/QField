@@ -16,9 +16,9 @@
 #include "rubberbandmodel.h"
 #include "snappingutils.h"
 
-#include <qgsvectorlayer.h>
-#include <qgsproject.h>
 #include <qgslogger.h>
+#include <qgsproject.h>
+#include <qgsvectorlayer.h>
 
 RubberbandModel::RubberbandModel( QObject *parent )
   : QObject( parent )

@@ -21,16 +21,16 @@
 
 class ViewStatus : public QObject
 {
-    Q_OBJECT
+  Q_OBJECT
 
-  public:
-    explicit ViewStatus( QObject *parent = nullptr );
+public:
+  explicit ViewStatus( QObject *parent = nullptr );
 
-    virtual ~ViewStatus() = default;
+  virtual ~ViewStatus() = default;
 
-  signals:
-    //! This signal is emitted, when a status about the view action has been received
-    void statusReceived( const QString &statusText );
+signals:
+  //! This signal is emitted, when a status about the view action has been received
+  void statusReceived( const QString &statusText );
 };
 
 #endif // VIEWSTATUS_H

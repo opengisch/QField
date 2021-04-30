@@ -16,86 +16,85 @@
 #ifndef TRACKER_H
 #define TRACKER_H
 
-#include <QTimer>
 #include "qgsvectorlayer.h"
+
+#include <QTimer>
 
 class RubberbandModel;
 
 class Tracker : public QObject
 {
-    Q_OBJECT
+  Q_OBJECT
 
-    Q_PROPERTY( QDateTime startPositionTimestamp READ startPositionTimestamp WRITE setStartPositionTimestamp NOTIFY startPositionTimestampChanged )
+  Q_PROPERTY( QDateTime startPositionTimestamp READ startPositionTimestamp WRITE setStartPositionTimestamp NOTIFY startPositionTimestampChanged )
 
-  public:
-    explicit Tracker( QgsVectorLayer *layer, bool visible );
+public:
+  explicit Tracker( QgsVectorLayer *layer, bool visible );
 
-    RubberbandModel *model() const;
-    void setModel( RubberbandModel *model );
+  RubberbandModel *model() const;
+  void setModel( RubberbandModel *model );
 
-    //! the (minimum) time interval between setting trackpoints
-    int timeInterval() const;
-    //! the (minimum) time interval between setting trackpoints
-    void setTimeInterval( const int timeInterval );
+  //! the (minimum) time interval between setting trackpoints
+  int timeInterval() const;
+  //! the (minimum) time interval between setting trackpoints
+  void setTimeInterval( const int timeInterval );
 
-    //! the minimum distance between setting trackpoints
-    int minimumDistance() const;
-    //! the minimum distance between setting trackpoints
-    void setMinimumDistance( const int minimumDistance );
+  //! the minimum distance between setting trackpoints
+  int minimumDistance() const;
+  //! the minimum distance between setting trackpoints
+  void setMinimumDistance( const int minimumDistance );
 
-    //! if both, the minimum distance and the time interval, needs to be fulfilled before setting trackpoints
-    bool conjunction() const;
-    //! if both, the minimum distance and the time interval, needs to be fulfilled before setting trackpoints
-    void setConjunction( const bool conjunction );
+  //! if both, the minimum distance and the time interval, needs to be fulfilled before setting trackpoints
+  bool conjunction() const;
+  //! if both, the minimum distance and the time interval, needs to be fulfilled before setting trackpoints
+  void setConjunction( const bool conjunction );
 
-    //! the timestamp of the first recorded position
-    QDateTime startPositionTimestamp() const;
-    //! the timestamp of the first recorded position
-    void setStartPositionTimestamp( const QDateTime &startPositionTimestamp );
+  //! the timestamp of the first recorded position
+  QDateTime startPositionTimestamp() const;
+  //! the timestamp of the first recorded position
+  void setStartPositionTimestamp( const QDateTime &startPositionTimestamp );
 
-    //! the current layer
-    QgsVectorLayer *layer() const { return mLayer; }
-    //! the current layer
-    void setLayer( QgsVectorLayer *layer ) { mLayer = layer; }
-    //! the created feature
-    QgsFeature feature() const { return mFeature; }
-    //! the created feature
-    void setFeature( const QgsFeature& feature ) { mFeature = feature; }
-    //! if the layer (and the rubberband ) is visible
-    bool visible() const { return mVisible; }
-    //! if the layer (and the rubberband ) is visible
-    void setVisible( const bool visible ) { mVisible = visible; }
+  //! the current layer
+  QgsVectorLayer *layer() const { return mLayer; }
+  //! the current layer
+  void setLayer( QgsVectorLayer *layer ) { mLayer = layer; }
+  //! the created feature
+  QgsFeature feature() const { return mFeature; }
+  //! the created feature
+  void setFeature( const QgsFeature &feature ) { mFeature = feature; }
+  //! if the layer (and the rubberband ) is visible
+  bool visible() const { return mVisible; }
+  //! if the layer (and the rubberband ) is visible
+  void setVisible( const bool visible ) { mVisible = visible; }
 
-    void start();
-    void stop();
+  void start();
+  void stop();
 
-  signals:
-    void startPositionTimestampChanged();
+signals:
+  void startPositionTimestampChanged();
 
-  private slots:
-    void positionReceived();
-    void timeReceived();
+private slots:
+  void positionReceived();
+  void timeReceived();
 
-  private:
-    RubberbandModel *mRubberbandModel = nullptr;
+private:
+  RubberbandModel *mRubberbandModel = nullptr;
 
-    QTimer mTimer;
-    int mTimeInterval = 0;
-    int mMinimumDistance = 0;
-    bool mConjunction = true;
-    bool mTimeIntervalFulfilled = false;
-    bool mMinimumDistanceFulfilled = false;
+  QTimer mTimer;
+  int mTimeInterval = 0;
+  int mMinimumDistance = 0;
+  bool mConjunction = true;
+  bool mTimeIntervalFulfilled = false;
+  bool mMinimumDistanceFulfilled = false;
 
-    QgsVectorLayer *mLayer = nullptr;
-    QgsFeature mFeature;
+  QgsVectorLayer *mLayer = nullptr;
+  QgsFeature mFeature;
 
-    bool mVisible = true;
+  bool mVisible = true;
 
-    QDateTime mStartPositionTimestamp;
+  QDateTime mStartPositionTimestamp;
 
-    void trackPosition();
-
+  void trackPosition();
 };
 
 #endif // TRACKER_H
-
