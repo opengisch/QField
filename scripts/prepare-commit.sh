@@ -1,5 +1,11 @@
 #!/bin/bash
 
+# pre-commit hook
+# Setup with:
+#
+#  ln -s ../../scripts/prepare-commit.sh .git/hooks/pre-commit
+#
+
 STYLE=$(git config --get hooks.clangformat.style)
 if [ -n "${STYLE}" ] ; then
   STYLEARG="-style=${STYLE}"
