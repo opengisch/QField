@@ -73,7 +73,7 @@ class BluetoothReceiver : public QObject
      * since there are troubles by connect to a paired device. Maybe it can be resolved in future
      * but meanwhile we keep them as the developer setup.
      */
-#ifndef Q_OS_ANDROID
+#ifdef Q_OS_LINUX
     void pairingFinished( const QBluetoothAddress &address, QBluetoothLocalDevice::Pairing status );
     void confirmPairing( const QBluetoothAddress &address, QString pin );
 #endif
@@ -81,7 +81,7 @@ class BluetoothReceiver : public QObject
     void setSocketState( const QBluetoothSocket::SocketState socketState );
 
   private:
-#ifndef Q_OS_ANDROID
+#ifdef Q_OS_LINUX
     void connectService( const QBluetoothAddress &address );
     void repairDevice( const QBluetoothAddress &address );
 #endif
