@@ -24,9 +24,11 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        build-type: ['Debug', 'Release']
+#        build-type: ['Debug', 'Release']
+        build-type: ['Release']
     env:
       TX_TOKEN: ${{ secrets.TX_TOKEN }}
+      VCPKG_BINARY_SOURCES: 'clear;nuget,GitHub,readwrite'
 
     steps:
       - name: Checkout
@@ -40,13 +42,25 @@ jobs:
       - name: Bootstrap vcpkg
         run: |
           $VCPKG_SHA = Get-Content .git/modules/vcpkg/HEAD -First 1
-          mkdir "${{ env.VCPKG_ROOT }}"
+          md "${{ env.VCPKG_DEFAULT_BINARY_CACHE }}"
+          md "${{ env.VCPKG_ROOT }}"
           cd "${{ env.VCPKG_ROOT }}"
           git init
           git remote add origin https://github.com/m-kuhn/vcpkg.git
           git fetch --depth 1 origin $VCPKG_SHA
           git checkout FETCH_HEAD
           .\bootstrap-vcpkg.bat
+
+      - name: 'Setup NuGet Credentials'
+        shell: 'bash'
+        run: >
+          ${{ matrix.mono }} $(${{ env.VCPKG_ROOT }}/vcpkg fetch nuget | tail -n 1)
+          sources add
+          -source "https://nuget.pkg.github.com/opengisch/index.json"
+          -storepasswordincleartext
+          -name "GitHub"
+          -username "opengisch"
+          -password "${{ secrets.GITHUB_TOKEN }}"
 
       - name: Restore vcpkg and its artifacts
         id: cache-vcpkg
@@ -139,7 +153,7 @@ jobs:
         if: steps.cache-vcpkg.outputs.cache-hit != 'true'
         run: |
           $VCPKG_SHA = Get-Content .git/modules/vcpkg/HEAD -First 1
-          mkdir "${{ env.VCPKG_ROOT }}"
+          md "${{ env.VCPKG_ROOT }}"
           cd "${{ env.VCPKG_ROOT }}"
           git init
           git remote add origin https://github.com/m-kuhn/vcpkg.git
@@ -202,9 +216,10 @@ jobs:
       - name: Bootstrap vcpkg
         if: steps.cache-vcpkg.outputs.cache-hit != 'true'
         run: |
+          echo "Cache result: ${{ steps.cache-vcpkg.outputs.cache-hit }}"
           $VCPKG_SHA = Get-Content .git/modules/vcpkg/HEAD -First 1
-          mkdir "${{ env.VCPKG_ROOT }}"
-          mkdir "${{ env.VCPKG_DEFAULT_BINARY_CACHE }}"
+          md "${{ env.VCPKG_ROOT }}"
+          md -Force "${{ env.VCPKG_DEFAULT_BINARY_CACHE }}"
           cd "${{ env.VCPKG_ROOT }}"
           git init
           git remote add origin https://github.com/m-kuhn/vcpkg.git
