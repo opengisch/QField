@@ -98,3 +98,4 @@ jobs:
         source: '.'
         extensions: 'h,cpp,c,java'
         clangFormatVersion: 12
+        exclude: './3rdparty'
