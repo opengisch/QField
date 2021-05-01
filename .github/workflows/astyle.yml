@@ -22,6 +22,7 @@ jobs:
 
       - uses: khan/pull-request-comment-trigger@master
         id: indent-check
+        if: ${{ github.event.issue.pull_request }}
         with:
           trigger: 'style police please'
           reaction: rocket
