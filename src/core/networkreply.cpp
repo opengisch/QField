@@ -101,7 +101,8 @@ void NetworkReply::initiateRequest()
   connect( this, &NetworkReply::redirectAllowed, mReply, &QNetworkReply::redirectAllowed );
 
   // TODO remove this!!! temporary SSL workaround
-  connect( mReply, &QNetworkReply::sslErrors, this, [=]( const QList<QSslError> &errors ) {
+  connect( mReply, &QNetworkReply::sslErrors, this, [ = ]( const QList<QSslError> &errors )
+  {
     for ( const QSslError &error : errors )
       qDebug() << "SSL: " << error;
 
@@ -174,7 +175,8 @@ void NetworkReply::onFinished()
 
   // wait random time before the retry is sent
   //  QTimer::singleShot( mRNG.bounded( sMaxTimeoutBetweenRetriesMs ), this, [ = ]()
-  QTimer::singleShot( 100, this, [=]() {
+  QTimer::singleShot( 100, this, [ = ]()
+  {
     emit retry();
 
     mRetriesLeft--;

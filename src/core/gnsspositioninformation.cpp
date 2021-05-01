@@ -25,7 +25,7 @@
 
 
 GnssPositionInformation::GnssPositionInformation( double latitude, double longitude, double elevation, double speed, double direction, const QList<QgsSatelliteInfo> &satellitesInView, double pdop, double hdop, double vdop, double hacc, double vacc,
-                                                  QDateTime utcDateTime, QChar fixMode, int fixType, int quality, int satellitesUsed, QChar status, const QList<int> &satPrn, bool satInfoComplete, double verticalSpeed, double magneticVariation, const QString &sourceName )
+    QDateTime utcDateTime, QChar fixMode, int fixType, int quality, int satellitesUsed, QChar status, const QList<int> &satPrn, bool satInfoComplete, double verticalSpeed, double magneticVariation, const QString &sourceName )
   : mLatitude( latitude ), mLongitude( longitude ), mElevation( elevation ), mSpeed( speed ), mDirection( direction ), mSatellitesInView( satellitesInView ), mPdop( pdop ), mHdop( hdop ), mVdop( vdop ), mHacc( hacc ), mVacc( vacc ), mHvacc( sqrt( ( pow( hacc, 2 ) + pow( hacc, 2 ) + pow( vacc, 2 ) ) / 3 ) ), mUtcDateTime( utcDateTime ), mFixMode( fixMode ), mFixType( fixType ), mQuality( quality ), mSatellitesUsed( satellitesUsed ), mStatus( status ), mSatPrn( satPrn ), mSatInfoComplete( satInfoComplete ), mVerticalSpeed( verticalSpeed ), mMagneticVariation( magneticVariation ), mSourceName( sourceName )
 {
 }

@@ -45,7 +45,8 @@ QFieldCloudProjectsModel::QFieldCloudProjectsModel()
   reload( projects );
 
   // TODO all of these connects are a bit too much, and I guess not very precise, should be refactored!
-  connect( this, &QFieldCloudProjectsModel::currentProjectIdChanged, this, [=]() {
+  connect( this, &QFieldCloudProjectsModel::currentProjectIdChanged, this, [ = ]()
+  {
     const int index = findProject( mCurrentProjectId );
 
     if ( index == -1 || index >= mCloudProjects.size() )
@@ -54,7 +55,8 @@ QFieldCloudProjectsModel::QFieldCloudProjectsModel()
     refreshProjectModification( mCurrentProjectId );
   } );
 
-  connect( this, &QFieldCloudProjectsModel::modelReset, this, [=]() {
+  connect( this, &QFieldCloudProjectsModel::modelReset, this, [ = ]()
+  {
     const int index = findProject( mCurrentProjectId );
 
     if ( index == -1 || index >= mCloudProjects.size() )
@@ -65,7 +67,8 @@ QFieldCloudProjectsModel::QFieldCloudProjectsModel()
     refreshProjectModification( mCurrentProjectId );
   } );
 
-  connect( this, &QFieldCloudProjectsModel::dataChanged, this, [=]( const QModelIndex &topLeft, const QModelIndex &bottomRight, const QVector<int> &roles ) {
+  connect( this, &QFieldCloudProjectsModel::dataChanged, this, [ = ]( const QModelIndex & topLeft, const QModelIndex & bottomRight, const QVector<int> &roles )
+  {
     Q_UNUSED( bottomRight )
     Q_UNUSED( roles )
 
@@ -81,7 +84,8 @@ QFieldCloudProjectsModel::QFieldCloudProjectsModel()
     }
   } );
 
-  connect( this, &QFieldCloudProjectsModel::cloudConnectionChanged, this, [=]() {
+  connect( this, &QFieldCloudProjectsModel::cloudConnectionChanged, this, [ = ]()
+  {
     if ( !mCloudConnection )
       return;
 
@@ -91,7 +95,8 @@ QFieldCloudProjectsModel::QFieldCloudProjectsModel()
       QJsonArray projects;
       reload( projects );
     }
-    connect( mCloudConnection, &QFieldCloudConnection::usernameChanged, this, [=]() {
+    connect( mCloudConnection, &QFieldCloudConnection::usernameChanged, this, [ = ]()
+    {
       mUsername = mCloudConnection->username();
     } );
   } );
@@ -130,7 +135,8 @@ void QFieldCloudProjectsModel::setLayerObserver( LayerObserver *layerObserver )
     return;
 
   connect( layerObserver, &LayerObserver::layerEdited, this, &QFieldCloudProjectsModel::layerObserverLayerEdited );
-  connect( layerObserver->deltaFileWrapper(), &DeltaFileWrapper::countChanged, this, [=]() {
+  connect( layerObserver->deltaFileWrapper(), &DeltaFileWrapper::countChanged, this, [ = ]()
+  {
     refreshProjectModification( mCurrentProjectId );
   } );
 
@@ -400,7 +406,8 @@ void QFieldCloudProjectsModel::downloadProject( const QString &projectId, bool o
   NetworkReply *reply = mCloudConnection->post( QStringLiteral( "/api/v1/qfield-files/export/%1/" ).arg( projectId ) );
   mCloudProjects[index].apiNetworkReply = reply;
 
-  connect( reply, &NetworkReply::finished, reply, [=]() {
+  connect( reply, &NetworkReply::finished, reply, [ = ]()
+  {
     QNetworkReply *rawReply = reply->reply();
 
     reply->deleteLater();
@@ -446,7 +453,8 @@ void QFieldCloudProjectsModel::projectGetExportStatus( const QString &projectId 
 
   QgsLogger::debug( QStringLiteral( "Export status requested for \"%1\"" ).arg( projectId ) );
 
-  connect( downloadStatusReply, &NetworkReply::finished, this, [=]() {
+  connect( downloadStatusReply, &NetworkReply::finished, this, [ = ]()
+  {
     if ( mCloudProjects[index].exportStatus == ExportAbortStatus )
       return;
 
@@ -487,7 +495,8 @@ void QFieldCloudProjectsModel::projectGetExportStatus( const QString &projectId 
       case ExportPendingStatus:
       case ExportBusyStatus:
         // infinite retry, there should be one day, when we can get the status!
-        QTimer::singleShot( sDelayBeforeStatusRetry, [=]() {
+        QTimer::singleShot( sDelayBeforeStatusRetry, [ = ]()
+        {
           projectGetExportStatus( projectId );
         } );
         break;
@@ -512,7 +521,8 @@ void QFieldCloudProjectsModel::projectGetExportStatus( const QString &projectId 
 
         emit dataChanged( idx, idx, QVector<int>() << ExportStatusRole );
 
-        connect( exportedFilesReply, &NetworkReply::finished, exportedFilesReply, [=]() {
+        connect( exportedFilesReply, &NetworkReply::finished, exportedFilesReply, [ = ]()
+        {
           if ( mCloudProjects[index].exportStatus == ExportAbortStatus )
             return;
 
@@ -562,8 +572,8 @@ void QFieldCloudProjectsModel::projectGetExportStatus( const QString &projectId 
               QString layerStatus = layer.value( QStringLiteral( "status" ) ).toString();
 
               mCloudProjects[index].exportedLayerErrors.append( tr( "Exported layer '%1' is not valid: '%2'" )
-                                                                .arg( layerName )
-                                                                .arg( layerStatus ) );
+                  .arg( layerName )
+                  .arg( layerStatus ) );
               QgsMessageLog::logMessage( mCloudProjects[index].exportedLayerErrors.last() );
 
               hasLayerExportErrror = true;
@@ -619,8 +629,8 @@ void QFieldCloudProjectsModel::projectDownloadFiles( const QString &projectId )
     {
       mCloudProjects[index].downloadFilesFailed++;
       projectDownloadFinishedWithError( projectId, tr( "Failed to open temporary file for \"%1\", reason:\n%2" )
-                                                   .arg( fileName )
-                                                   .arg( file->errorString() ) );
+                                        .arg( fileName )
+                                        .arg( file->errorString() ) );
       return;
     }
 
@@ -794,18 +804,20 @@ void QFieldCloudProjectsModel::uploadProject( const QString &projectId, const bo
   // 1) upload the deltas
   // //////////
   NetworkReply *deltasCloudReply = mCloudConnection->post(
-  QStringLiteral( "/api/v1/deltas/%1/" ).arg( projectId ),
-  QVariantMap(),
-  QStringList( { deltaFileToUpload } ) );
+                                     QStringLiteral( "/api/v1/deltas/%1/" ).arg( projectId ),
+                                     QVariantMap(),
+                                     QStringList( { deltaFileToUpload } ) );
 
   Q_ASSERT( deltasCloudReply );
 
-  connect( deltasCloudReply, &NetworkReply::uploadProgress, this, [=]( int bytesSent, int bytesTotal ) {
+  connect( deltasCloudReply, &NetworkReply::uploadProgress, this, [ = ]( int bytesSent, int bytesTotal )
+  {
     mCloudProjects[index].uploadDeltaProgress = std::clamp( ( static_cast<double>( bytesSent ) / bytesTotal ), 0., 1. );
 
     emit dataChanged( idx, idx, QVector<int>() << UploadDeltaProgressRole );
   } );
-  connect( deltasCloudReply, &NetworkReply::finished, this, [=]() {
+  connect( deltasCloudReply, &NetworkReply::finished, this, [ = ]()
+  {
     QNetworkReply *deltasReply = deltasCloudReply->reply();
     deltasCloudReply->deleteLater();
 
@@ -836,7 +848,8 @@ void QFieldCloudProjectsModel::uploadProject( const QString &projectId, const bo
   // 2) delta successfully uploaded
   // //////////
   QObject *networkDeltaUploadedParent = new QObject( this ); // we need this to unsubscribe
-  connect( this, &QFieldCloudProjectsModel::networkDeltaUploaded, networkDeltaUploadedParent, [=]( const QString &uploadedProjectId ) {
+  connect( this, &QFieldCloudProjectsModel::networkDeltaUploaded, networkDeltaUploadedParent, [ = ]( const QString & uploadedProjectId )
+  {
     if ( projectId != uploadedProjectId )
       return;
 
@@ -871,7 +884,8 @@ void QFieldCloudProjectsModel::uploadProject( const QString &projectId, const bo
   // 3) new delta status received. Never give up to get a successful status.
   // //////////
   QObject *networkDeltaStatusCheckedParent = new QObject( this ); // we need this to unsubscribe
-  connect( this, &QFieldCloudProjectsModel::networkDeltaStatusChecked, networkDeltaStatusCheckedParent, [=]( const QString &uploadedProjectId ) {
+  connect( this, &QFieldCloudProjectsModel::networkDeltaStatusChecked, networkDeltaStatusCheckedParent, [ = ]( const QString & uploadedProjectId )
+  {
     if ( projectId != uploadedProjectId )
       return;
 
@@ -884,7 +898,8 @@ void QFieldCloudProjectsModel::uploadProject( const QString &projectId, const bo
       case DeltaPendingStatus:
       case DeltaBusyStatus:
         // infinite retry, there should be one day, when we can get the status!
-        QTimer::singleShot( sDelayBeforeStatusRetry, [=]() {
+        QTimer::singleShot( sDelayBeforeStatusRetry, [ = ]()
+        {
           projectGetDeltaStatus( projectId );
         } );
         break;
@@ -975,7 +990,8 @@ void QFieldCloudProjectsModel::projectApplyDeltas( const QString &projectId )
   QModelIndex idx = createIndex( index, 0 );
   NetworkReply *reply = mCloudConnection->post( QStringLiteral( "/api/v1/deltas/apply/%1/" ).arg( mCloudProjects[index].id ) );
 
-  connect( reply, &NetworkReply::finished, this, [=]() {
+  connect( reply, &NetworkReply::finished, this, [ = ]()
+  {
     QNetworkReply *rawReply = reply->reply();
     reply->deleteLater();
 
@@ -1005,7 +1021,8 @@ void QFieldCloudProjectsModel::refreshProjectDeltaList( const QString &projectId
 
   NetworkReply *deltaStatusReply = mCloudConnection->get( QStringLiteral( "/api/v1/deltas/%1/" ).arg( mCloudProjects[index].id ) );
 
-  connect( deltaStatusReply, &NetworkReply::finished, this, [=]() {
+  connect( deltaStatusReply, &NetworkReply::finished, this, [ = ]()
+  {
     QNetworkReply *rawReply = deltaStatusReply->reply();
     deltaStatusReply->deleteLater();
 
@@ -1041,7 +1058,8 @@ void QFieldCloudProjectsModel::projectGetDeltaStatus( const QString &projectId )
   NetworkReply *deltaStatusReply = mCloudConnection->get( QStringLiteral( "/api/v1/deltas/%1/%2/" ).arg( mCloudProjects[index].id, mCloudProjects[index].deltaFileId ) );
 
   mCloudProjects[index].deltaFileUploadStatusString = QString();
-  connect( deltaStatusReply, &NetworkReply::finished, this, [=]() {
+  connect( deltaStatusReply, &NetworkReply::finished, this, [ = ]()
+  {
     QNetworkReply *rawReply = deltaStatusReply->reply();
     deltaStatusReply->deleteLater();
 
@@ -1113,13 +1131,15 @@ void QFieldCloudProjectsModel::projectUploadAttachments( const QString &projectI
     NetworkReply *attachmentCloudReply = uploadAttachment( projectId, fileName );
     mCloudProjects[index].uploadAttachments[fileName].networkReply = attachmentCloudReply;
 
-    connect( attachmentCloudReply, &NetworkReply::uploadProgress, this, [=]( int bytesSent, int bytesTotal ) {
+    connect( attachmentCloudReply, &NetworkReply::uploadProgress, this, [ = ]( int bytesSent, int bytesTotal )
+    {
       Q_UNUSED( bytesTotal )
       mCloudProjects[index].uploadAttachments[fileName].bytesTransferred = bytesSent;
       emit dataChanged( idx, idx, QVector<int>() << UploadAttachmentsCountRole );
     } );
 
-    connect( attachmentCloudReply, &NetworkReply::finished, this, [=]() {
+    connect( attachmentCloudReply, &NetworkReply::finished, this, [ = ]()
+    {
       QNetworkReply *attachmentReply = attachmentCloudReply->reply();
       attachmentCloudReply->deleteLater();
 
@@ -1276,7 +1296,8 @@ void QFieldCloudProjectsModel::downloadFileConnections( const QString &projectId
 
   QStringList fileNames = mCloudProjects[index].downloadFileTransfers.keys();
 
-  connect( reply, &NetworkReply::redirected, reply, [=]( const QUrl &url ) {
+  connect( reply, &NetworkReply::redirected, reply, [ = ]( const QUrl & url )
+  {
     QUrl oldUrl = mCloudProjects[index].downloadFileTransfers[fileName].lastRedirectUrl;
 
     mCloudProjects[index].downloadFileTransfers[fileName].redirectsCount++;
@@ -1305,7 +1326,8 @@ void QFieldCloudProjectsModel::downloadFileConnections( const QString &projectId
     downloadFileConnections( projectId, fileName );
   } );
 
-  connect( reply, &NetworkReply::downloadProgress, reply, [=]( int bytesReceived, int bytesTotal ) {
+  connect( reply, &NetworkReply::downloadProgress, reply, [ = ]( int bytesReceived, int bytesTotal )
+  {
     Q_UNUSED( bytesTotal )
 
     // it means the NetworkReply has failed and retried
@@ -1319,7 +1341,8 @@ void QFieldCloudProjectsModel::downloadFileConnections( const QString &projectId
     emit dataChanged( idx, idx, QVector<int>() << DownloadProgressRole );
   } );
 
-  connect( reply, &NetworkReply::finished, reply, [=]() {
+  connect( reply, &NetworkReply::finished, reply, [ = ]()
+  {
     if ( mCloudProjects[index].exportStatus == ExportAbortStatus )
       return;
 
@@ -1469,7 +1492,8 @@ void QFieldCloudProjectsModel::reload( const QJsonArray &remoteProjects )
 
   QgsProject *qgisProject = QgsProject::instance();
 
-  auto restoreLocalSettings = [=]( CloudProject &cloudProject, const QDir &localPath ) {
+  auto restoreLocalSettings = [ = ]( CloudProject & cloudProject, const QDir & localPath )
+  {
     cloudProject.deltasCount = DeltaFileWrapper( qgisProject, QStringLiteral( "%1/deltafile.json" ).arg( localPath.absolutePath() ) ).count();
     cloudProject.lastLocalExport = projectSetting( cloudProject.id, QStringLiteral( "lastLocalExport" ) ).toString();
     cloudProject.lastLocalPushDeltas = projectSetting( cloudProject.id, QStringLiteral( "lastLocalPushDeltas" ) ).toString();
@@ -1599,8 +1623,8 @@ QVariant QFieldCloudProjectsModel::data( const QModelIndex &index, int role ) co
       return mCloudProjects.at( index.row() ).errorStatus == DownloadErrorStatus
              ? mCloudProjects.at( index.row() ).exportStatusString
              : mCloudProjects.at( index.row() ).errorStatus == UploadErrorStatus
-               ? mCloudProjects.at( index.row() ).deltaFileUploadStatusString
-               : QString();
+             ? mCloudProjects.at( index.row() ).deltaFileUploadStatusString
+             : QString();
     case ExportStatusRole:
       return mCloudProjects.at( index.row() ).exportStatus;
     case ExportedLayerErrorsRole:

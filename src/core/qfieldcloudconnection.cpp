@@ -45,19 +45,20 @@ QFieldCloudConnection::QFieldCloudConnection()
   QgsSettings().setValue( QStringLiteral( "/qgis/networkAndProxy/userAgent" ), userAgent );
 }
 
-QMap<QString, QString> QFieldCloudConnection::sErrors = QMap<QString, QString>( {
-{ "unknown_error", QObject::tr( "QFieldCloud Unknown Error" ) },
-{ "status_not_ok", QObject::tr( "Status not ok" ) },
-{ "empty_content", QObject::tr( "Empty content" ) },
-{ "object_not_found", QObject::tr( "Object not found" ) },
-{ "api_error", QObject::tr( "API Error" ) },
-{ "validation_error", QObject::tr( "Validation Error" ) },
-{ "multiple_projects", QObject::tr( "Multiple Projects" ) },
-{ "invalid_deltafile", QObject::tr( "Invalid delta file" ) },
-{ "no_qgis_project", QObject::tr( "The project does not contain a valid QGIS project file" ) },
-{ "invalid_job", QObject::tr( "Invalid job" ) },
-{ "qgis_export_error", QObject::tr( "QGIS export failed" ) },
-{ "qgis_cannot_open_project", QObject::tr( "QGIS is unable to open the QGIS project" ) },
+QMap<QString, QString> QFieldCloudConnection::sErrors = QMap<QString, QString>(
+{
+  { "unknown_error", QObject::tr( "QFieldCloud Unknown Error" ) },
+  { "status_not_ok", QObject::tr( "Status not ok" ) },
+  { "empty_content", QObject::tr( "Empty content" ) },
+  { "object_not_found", QObject::tr( "Object not found" ) },
+  { "api_error", QObject::tr( "API Error" ) },
+  { "validation_error", QObject::tr( "Validation Error" ) },
+  { "multiple_projects", QObject::tr( "Multiple Projects" ) },
+  { "invalid_deltafile", QObject::tr( "Invalid delta file" ) },
+  { "no_qgis_project", QObject::tr( "The project does not contain a valid QGIS project file" ) },
+  { "invalid_job", QObject::tr( "Invalid job" ) },
+  { "qgis_export_error", QObject::tr( "QGIS export failed" ) },
+  { "qgis_cannot_open_project", QObject::tr( "QGIS is unable to open the QGIS project" ) },
 } );
 
 QString QFieldCloudConnection::errorString( QNetworkReply *reply )
@@ -192,14 +193,16 @@ void QFieldCloudConnection::login()
 {
   NetworkReply *reply = ( !mToken.isEmpty() && ( mPassword.isEmpty() || mUsername.isEmpty() ) )
                         ? get( QStringLiteral( "/api/v1/auth/user/" ) )
-                        : post( QStringLiteral( "/api/v1/auth/token/" ), QVariantMap( {
-                                                                         { "username", mUsername },
-                                                                         { "password", mPassword },
-                                                                         } ) );
+                        : post( QStringLiteral( "/api/v1/auth/token/" ), QVariantMap(
+  {
+    { "username", mUsername },
+    { "password", mPassword },
+  } ) );
 
   setStatus( ConnectionStatus::Connecting );
 
-  connect( reply, &NetworkReply::finished, this, [=]() {
+  connect( reply, &NetworkReply::finished, this, [ = ]()
+  {
     QNetworkReply *rawReply = reply->reply();
 
     Q_ASSERT( reply->isFinished() );
@@ -277,7 +280,8 @@ void QFieldCloudConnection::logout()
 
   QNetworkReply *reply = nam->post( request, QByteArray() );
 
-  connect( reply, &QNetworkReply::finished, this, [reply]() {
+  connect( reply, &QNetworkReply::finished, this, [reply]()
+  {
     reply->deleteLater();
   } );
 
@@ -348,7 +352,8 @@ NetworkReply *QFieldCloudConnection::post( const QString &endpoint, const QVaria
 
   mPendingRequests++;
   setState( ConnectionState::Busy );
-  connect( reply, &NetworkReply::finished, this, [=]() {
+  connect( reply, &NetworkReply::finished, this, [ = ]()
+  {
     QNetworkReply *rawReply = reply->reply();
     if ( --mPendingRequests == 0 )
     {
@@ -409,7 +414,8 @@ NetworkReply *QFieldCloudConnection::get( QNetworkRequest &request, const QUrl &
 
   mPendingRequests++;
   setState( ConnectionState::Busy );
-  connect( reply, &NetworkReply::finished, this, [=]() {
+  connect( reply, &NetworkReply::finished, this, [ = ]()
+  {
     QNetworkReply *rawReply = reply->reply();
     if ( --mPendingRequests == 0 )
     {

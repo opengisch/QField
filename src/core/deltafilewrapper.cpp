@@ -123,9 +123,9 @@ DeltaFileWrapper::DeltaFileWrapper( const QgsProject *project, const QString &fi
   else if ( mErrorType == DeltaFileWrapper::NoError )
   {
     mJsonRoot = QJsonObject( { { "version", DeltaFormatVersion },
-                               { "id", QUuid::createUuid().toString( QUuid::WithoutBraces ) },
-                               { "project", mCloudProjectId },
-                               { "deltas", mDeltas } } );
+      { "id", QUuid::createUuid().toString( QUuid::WithoutBraces ) },
+      { "project", mCloudProjectId },
+      { "deltas", mDeltas } } );
 
     if ( !deltaFile.open( QIODevice::ReadWrite ) )
     {
@@ -221,7 +221,8 @@ DeltaFileWrapper::ErrorTypes DeltaFileWrapper::errorType() const
 QString DeltaFileWrapper::errorString() const
 {
   const QHash<DeltaFileWrapper::ErrorTypes, QString> errorMessages(
-  { { DeltaFileWrapper::NoError, QString() },
+  {
+    { DeltaFileWrapper::NoError, QString() },
     { DeltaFileWrapper::LockError, QStringLiteral( "Delta file is already opened" ) },
     { DeltaFileWrapper::NotCloudProjectError, QStringLiteral( "The current project is not a cloud project" ) },
     { DeltaFileWrapper::IOError, QStringLiteral( "Cannot open file for read and write" ) },
@@ -448,12 +449,12 @@ void DeltaFileWrapper::addPatch( const QString &localLayerId, const QString &sou
 {
   QJsonObject delta(
   {
-  { "localPk", oldFeature.attribute( localPkAttrName ).toString() },
-  { "localLayerId", localLayerId },
-  { "method", "patch" },
-  { "sourcePk", oldFeature.attribute( sourcePkAttrName ).toString() },
-  { "sourceLayerId", sourceLayerId },
-  { "uuid", QUuid::createUuid().toString( QUuid::WithoutBraces ) },
+    { "localPk", oldFeature.attribute( localPkAttrName ).toString() },
+    { "localLayerId", localLayerId },
+    { "method", "patch" },
+    { "sourcePk", oldFeature.attribute( sourcePkAttrName ).toString() },
+    { "sourceLayerId", sourceLayerId },
+    { "uuid", QUuid::createUuid().toString( QUuid::WithoutBraces ) },
   } );
 
   const QStringList attachmentFieldsList = attachmentFieldNames( mProject, localLayerId );
@@ -587,13 +588,14 @@ void DeltaFileWrapper::addPatch( const QString &localLayerId, const QString &sou
 
 void DeltaFileWrapper::addDelete( const QString &localLayerId, const QString &sourceLayerId, const QString &localPkAttrName, const QString &sourcePkAttrName, const QgsFeature &oldFeature )
 {
-  QJsonObject delta( {
-  { "localPk", oldFeature.attribute( localPkAttrName ).toString() },
-  { "localLayerId", localLayerId },
-  { "method", "delete" },
-  { "sourcePk", oldFeature.attribute( sourcePkAttrName ).toString() },
-  { "sourceLayerId", sourceLayerId },
-  { "uuid", QUuid::createUuid().toString( QUuid::WithoutBraces ) },
+  QJsonObject delta(
+  {
+    { "localPk", oldFeature.attribute( localPkAttrName ).toString() },
+    { "localLayerId", localLayerId },
+    { "method", "delete" },
+    { "sourcePk", oldFeature.attribute( sourcePkAttrName ).toString() },
+    { "sourceLayerId", sourceLayerId },
+    { "uuid", QUuid::createUuid().toString( QUuid::WithoutBraces ) },
   } );
 
   QMap<QString, int> layerPkDeltaIdx = mLocalPkDeltaIdx.value( localLayerId );
@@ -655,13 +657,14 @@ void DeltaFileWrapper::addDelete( const QString &localLayerId, const QString &so
 
 void DeltaFileWrapper::addCreate( const QString &localLayerId, const QString &sourceLayerId, const QString &localPkAttrName, const QString &sourcePkAttrName, const QgsFeature &newFeature )
 {
-  QJsonObject delta( {
-  { "localPk", newFeature.attribute( localPkAttrName ).toString() },
-  { "localLayerId", localLayerId },
-  { "method", "create" },
-  { "sourcePk", newFeature.attribute( sourcePkAttrName ).toString() },
-  { "sourceLayerId", sourceLayerId },
-  { "uuid", QUuid::createUuid().toString( QUuid::WithoutBraces ) },
+  QJsonObject delta(
+  {
+    { "localPk", newFeature.attribute( localPkAttrName ).toString() },
+    { "localLayerId", localLayerId },
+    { "method", "create" },
+    { "sourcePk", newFeature.attribute( sourcePkAttrName ).toString() },
+    { "sourceLayerId", sourceLayerId },
+    { "uuid", QUuid::createUuid().toString( QUuid::WithoutBraces ) },
   } );
   const QStringList attachmentFieldsList = attachmentFieldNames( mProject, localLayerId );
   const QgsAttributes newAttrs = newFeature.attributes();

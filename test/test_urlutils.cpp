@@ -25,21 +25,21 @@
 
 class TestUrlUtils : public QObject
 {
-  Q_OBJECT
-private slots:
+    Q_OBJECT
+  private slots:
 
-  void testHasError()
-  {
-    // should be considered relative
-    QVERIFY( UrlUtils::isRelativeOrFileUrl( QStringLiteral( "path/to/file" ) ) );
-    QVERIFY( UrlUtils::isRelativeOrFileUrl( QStringLiteral( "/path/to/file" ) ) );
-    QVERIFY( UrlUtils::isRelativeOrFileUrl( QStringLiteral( "file:///path/to/file" ) ) );
+    void testHasError()
+    {
+      // should be considered relative
+      QVERIFY( UrlUtils::isRelativeOrFileUrl( QStringLiteral( "path/to/file" ) ) );
+      QVERIFY( UrlUtils::isRelativeOrFileUrl( QStringLiteral( "/path/to/file" ) ) );
+      QVERIFY( UrlUtils::isRelativeOrFileUrl( QStringLiteral( "file:///path/to/file" ) ) );
 
-    // should NOT be considered relative
-    QVERIFY( !UrlUtils::isRelativeOrFileUrl( QStringLiteral( "http://osm.org" ) ) );
-    QVERIFY( !UrlUtils::isRelativeOrFileUrl( QStringLiteral( "http://osm.org/test?query=1" ) ) );
-    QVERIFY( !UrlUtils::isRelativeOrFileUrl( QStringLiteral( "https://osm.org/test?query=1" ) ) );
-  }
+      // should NOT be considered relative
+      QVERIFY( !UrlUtils::isRelativeOrFileUrl( QStringLiteral( "http://osm.org" ) ) );
+      QVERIFY( !UrlUtils::isRelativeOrFileUrl( QStringLiteral( "http://osm.org/test?query=1" ) ) );
+      QVERIFY( !UrlUtils::isRelativeOrFileUrl( QStringLiteral( "https://osm.org/test?query=1" ) ) );
+    }
 };
 
 QFIELDTEST_MAIN( TestUrlUtils )

@@ -43,237 +43,237 @@
 
 class GnssPositionInformation
 {
-  Q_GADGET
+    Q_GADGET
 
-  Q_PROPERTY( double latitude READ latitude )
-  Q_PROPERTY( bool latitudeValid READ latitudeValid )
-  Q_PROPERTY( double longitude READ longitude )
-  Q_PROPERTY( bool longitudeValid READ longitudeValid )
-  Q_PROPERTY( double elevation READ elevation )
-  Q_PROPERTY( bool elevationValid READ elevationValid )
-  Q_PROPERTY( double speed READ speed )
-  Q_PROPERTY( bool speedValid READ speedValid )
-  Q_PROPERTY( double direction READ direction )
-  Q_PROPERTY( bool directionValid READ directionValid )
-  Q_PROPERTY( QList<QgsSatelliteInfo> satellitesInView READ satellitesInView )
-  Q_PROPERTY( double pdop READ pdop )
-  Q_PROPERTY( double hdop READ hdop )
-  Q_PROPERTY( double vdop READ vdop )
-  Q_PROPERTY( double hacc READ hacc )
-  Q_PROPERTY( bool haccValid READ haccValid )
-  Q_PROPERTY( double vacc READ vacc )
-  Q_PROPERTY( bool vaccValid READ vaccValid )
-  Q_PROPERTY( double hvacc READ hvacc )
-  Q_PROPERTY( double hvaccValid READ hvaccValid )
-  Q_PROPERTY( QDateTime utcDateTime READ utcDateTime )
-  Q_PROPERTY( QChar fixMode READ fixMode )
-  Q_PROPERTY( int fixType READ fixType )
-  Q_PROPERTY( int quality READ quality )
-  Q_PROPERTY( int satellitesUsed READ satellitesUsed )
-  Q_PROPERTY( QChar status READ status )
-  Q_PROPERTY( QList<int> satPrn READ satPrn )
-  Q_PROPERTY( bool satInfoComplete READ satInfoComplete )
-  Q_PROPERTY( bool isValid READ isValid )
-  Q_PROPERTY( FixStatus fixStatus READ fixStatus )
-  Q_PROPERTY( QString qualityDescription READ qualityDescription )
-  Q_PROPERTY( QString fixStatusDescription READ fixStatusDescription )
-  Q_PROPERTY( double verticalSpeed READ verticalSpeed )
-  Q_PROPERTY( double magneticVariation READ magneticVariation )
-  Q_PROPERTY( QString sourceName READ sourceName )
+    Q_PROPERTY( double latitude READ latitude )
+    Q_PROPERTY( bool latitudeValid READ latitudeValid )
+    Q_PROPERTY( double longitude READ longitude )
+    Q_PROPERTY( bool longitudeValid READ longitudeValid )
+    Q_PROPERTY( double elevation READ elevation )
+    Q_PROPERTY( bool elevationValid READ elevationValid )
+    Q_PROPERTY( double speed READ speed )
+    Q_PROPERTY( bool speedValid READ speedValid )
+    Q_PROPERTY( double direction READ direction )
+    Q_PROPERTY( bool directionValid READ directionValid )
+    Q_PROPERTY( QList<QgsSatelliteInfo> satellitesInView READ satellitesInView )
+    Q_PROPERTY( double pdop READ pdop )
+    Q_PROPERTY( double hdop READ hdop )
+    Q_PROPERTY( double vdop READ vdop )
+    Q_PROPERTY( double hacc READ hacc )
+    Q_PROPERTY( bool haccValid READ haccValid )
+    Q_PROPERTY( double vacc READ vacc )
+    Q_PROPERTY( bool vaccValid READ vaccValid )
+    Q_PROPERTY( double hvacc READ hvacc )
+    Q_PROPERTY( double hvaccValid READ hvaccValid )
+    Q_PROPERTY( QDateTime utcDateTime READ utcDateTime )
+    Q_PROPERTY( QChar fixMode READ fixMode )
+    Q_PROPERTY( int fixType READ fixType )
+    Q_PROPERTY( int quality READ quality )
+    Q_PROPERTY( int satellitesUsed READ satellitesUsed )
+    Q_PROPERTY( QChar status READ status )
+    Q_PROPERTY( QList<int> satPrn READ satPrn )
+    Q_PROPERTY( bool satInfoComplete READ satInfoComplete )
+    Q_PROPERTY( bool isValid READ isValid )
+    Q_PROPERTY( FixStatus fixStatus READ fixStatus )
+    Q_PROPERTY( QString qualityDescription READ qualityDescription )
+    Q_PROPERTY( QString fixStatusDescription READ fixStatusDescription )
+    Q_PROPERTY( double verticalSpeed READ verticalSpeed )
+    Q_PROPERTY( double magneticVariation READ magneticVariation )
+    Q_PROPERTY( QString sourceName READ sourceName )
 
-public:
-  /**
-     * GPS fix status
-     */
-  enum FixStatus
-  {
-    NoData,
-    NoFix,
-    Fix2D,
-    Fix3D
-  };
+  public:
+    /**
+       * GPS fix status
+       */
+    enum FixStatus
+    {
+      NoData,
+      NoFix,
+      Fix2D,
+      Fix3D
+    };
 
-  Q_ENUM( FixStatus )
+    Q_ENUM( FixStatus )
 
-  GnssPositionInformation( double latitude = std::numeric_limits<double>::quiet_NaN(), double longitude = std::numeric_limits<double>::quiet_NaN(), double elevation = std::numeric_limits<double>::quiet_NaN(),
-                           double speed = std::numeric_limits<double>::quiet_NaN(), double direction = std::numeric_limits<double>::quiet_NaN(), const QList<QgsSatelliteInfo> &satellitesInView = QList<QgsSatelliteInfo>(),
-                           double pdop = 0, double hdop = 0, double vdop = 0, double hacc = std::numeric_limits<double>::quiet_NaN(), double vacc = std::numeric_limits<double>::quiet_NaN(), QDateTime utcDateTime = QDateTime(),
-                           QChar fixMode = QChar(), int fixType = 0, int quality = -1, int satellitesUsed = 0, QChar status = QChar(), const QList<int> &satPrn = QList<int>(), bool satInfoComplete = false,
-                           double verticalSpeed = std::numeric_limits<double>::quiet_NaN(), double magneticVariation = std::numeric_limits<double>::quiet_NaN(), const QString &sourceName = QString() );
+    GnssPositionInformation( double latitude = std::numeric_limits<double>::quiet_NaN(), double longitude = std::numeric_limits<double>::quiet_NaN(), double elevation = std::numeric_limits<double>::quiet_NaN(),
+                             double speed = std::numeric_limits<double>::quiet_NaN(), double direction = std::numeric_limits<double>::quiet_NaN(), const QList<QgsSatelliteInfo> &satellitesInView = QList<QgsSatelliteInfo>(),
+                             double pdop = 0, double hdop = 0, double vdop = 0, double hacc = std::numeric_limits<double>::quiet_NaN(), double vacc = std::numeric_limits<double>::quiet_NaN(), QDateTime utcDateTime = QDateTime(),
+                             QChar fixMode = QChar(), int fixType = 0, int quality = -1, int satellitesUsed = 0, QChar status = QChar(), const QList<int> &satPrn = QList<int>(), bool satInfoComplete = false,
+                             double verticalSpeed = std::numeric_limits<double>::quiet_NaN(), double magneticVariation = std::numeric_limits<double>::quiet_NaN(), const QString &sourceName = QString() );
 
-  /**
-     * Latitude in decimal degrees, using the WGS84 datum. A positive value indicates the Northern Hemisphere, and
-     * a negative value indicates the Southern Hemisphere.
-     */
-  double latitude() const { return mLatitude; }
-  bool latitudeValid() const { return !std::isnan( mLatitude ); }
-  /**
-     * Longitude in decimal degrees, using the WGS84 datum. A positive value indicates the Eastern Hemisphere, and
-     * a negative value indicates the Western Hemisphere.
-     */
-  double longitude() const { return mLongitude; }
-  bool longitudeValid() const { return !std::isnan( mLongitude ); }
+    /**
+       * Latitude in decimal degrees, using the WGS84 datum. A positive value indicates the Northern Hemisphere, and
+       * a negative value indicates the Southern Hemisphere.
+       */
+    double latitude() const { return mLatitude; }
+    bool latitudeValid() const { return !std::isnan( mLatitude ); }
+    /**
+       * Longitude in decimal degrees, using the WGS84 datum. A positive value indicates the Eastern Hemisphere, and
+       * a negative value indicates the Western Hemisphere.
+       */
+    double longitude() const { return mLongitude; }
+    bool longitudeValid() const { return !std::isnan( mLongitude ); }
 
-  /**
-     * Altitude (in meters) above or below the mean sea level.
-     */
-  double elevation() const { return mElevation; }
-  bool elevationValid() const { return !std::isnan( mElevation ); }
+    /**
+       * Altitude (in meters) above or below the mean sea level.
+       */
+    double elevation() const { return mElevation; }
+    bool elevationValid() const { return !std::isnan( mElevation ); }
 
-  /**
-     * Ground speed, in km/h.
-     */
-  double speed() const { return mSpeed; }
-  bool speedValid() const { return !std::isnan( mSpeed ); }
+    /**
+       * Ground speed, in km/h.
+       */
+    double speed() const { return mSpeed; }
+    bool speedValid() const { return !std::isnan( mSpeed ); }
 
-  /**
-     * The bearing measured in degrees clockwise from true north to the direction of travel.
-     */
-  double direction() const { return mDirection; }
-  bool directionValid() const { return !std::isnan( mDirection ); }
-
-
-  /**
-     * Contains a list of information relating to the current satellites in view.
-     */
-  QList<QgsSatelliteInfo> satellitesInView() const { return mSatellitesInView; }
-
-  /**
-     * Dilution of precision.
-     */
-  double pdop() const { return mPdop; }
-
-  /**
-     * Horizontal dilution of precision.
-     */
-  double hdop() const { return mHdop; }
-
-  /**
-     * Vertical dilution of precision.
-     */
-  double vdop() const { return mVdop; }
-
-  /**
-     * Horizontal accuracy in meters.
-     * RMS
-     */
-  double hacc() const { return mHacc; }
-  bool haccValid() const { return !std::isnan( mHacc ); }
+    /**
+       * The bearing measured in degrees clockwise from true north to the direction of travel.
+       */
+    double direction() const { return mDirection; }
+    bool directionValid() const { return !std::isnan( mDirection ); }
 
 
-  /**
-     * Vertical accuracy in meters
-     * VRMS
-     */
-  double vacc() const { return mVacc; }
-  bool vaccValid() const { return !std::isnan( mVacc ); }
+    /**
+       * Contains a list of information relating to the current satellites in view.
+       */
+    QList<QgsSatelliteInfo> satellitesInView() const { return mSatellitesInView; }
 
-  /**
-     * 3D accuracy in meters
-     * 3DRMS
-     */
-  double hvacc() const { return mHvacc; }
-  bool hvaccValid() const { return !std::isnan( mHvacc ); }
+    /**
+       * Dilution of precision.
+       */
+    double pdop() const { return mPdop; }
 
-  /**
-     * The date and time at which this position was reported, in UTC time.
-     */
-  QDateTime utcDateTime() const { return mUtcDateTime; }
+    /**
+       * Horizontal dilution of precision.
+       */
+    double hdop() const { return mHdop; }
 
-  /**
-     * Fix mode (where M = Manual, forced to operate in 2D or 3D or A = Automatic, 3D/2D)
-     */
-  QChar fixMode() const { return mFixMode; }
+    /**
+       * Vertical dilution of precision.
+       */
+    double vdop() const { return mVdop; }
 
-  /**
-     * Contains the fix type, where 1 = no fix, 2 = 2d fix, 3 = 3d fix
-     */
-  int fixType() const { return mFixType; }
+    /**
+       * Horizontal accuracy in meters.
+       * RMS
+       */
+    double hacc() const { return mHacc; }
+    bool haccValid() const { return !std::isnan( mHacc ); }
 
-  /**
-     * GPS quality indicator (0 = Invalid; 1 = Fix; 2 = Differential, 3 = Sensitive)
-     */
-  int quality() const { return mQuality; }
 
-  /**
-     * Count of satellites used in obtaining the fix.
-     */
-  int satellitesUsed() const { return mSatellitesUsed; }
+    /**
+       * Vertical accuracy in meters
+       * VRMS
+       */
+    double vacc() const { return mVacc; }
+    bool vaccValid() const { return !std::isnan( mVacc ); }
 
-  /**
-     * Status (A = active or V = void)
-     */
-  QChar status() const { return mStatus; }
+    /**
+       * 3D accuracy in meters
+       * 3DRMS
+       */
+    double hvacc() const { return mHvacc; }
+    bool hvaccValid() const { return !std::isnan( mHvacc ); }
 
-  /**
-     * IDs of satellites used in the position fix.
-     */
-  QList<int> satPrn() const { return mSatPrn; }
+    /**
+       * The date and time at which this position was reported, in UTC time.
+       */
+    QDateTime utcDateTime() const { return mUtcDateTime; }
 
-  /**
-     * TRUE if satellite information is complete.
-     */
-  bool satInfoComplete() const { return mSatInfoComplete; }
+    /**
+       * Fix mode (where M = Manual, forced to operate in 2D or 3D or A = Automatic, 3D/2D)
+       */
+    QChar fixMode() const { return mFixMode; }
 
-  /**
-     * Vertical speed, in km/h.
-     */
-  double verticalSpeed() const { return mVerticalSpeed; }
+    /**
+       * Contains the fix type, where 1 = no fix, 2 = 2d fix, 3 = 3d fix
+       */
+    int fixType() const { return mFixType; }
 
-  /**
-     * magnetic variation in degrees
-     */
-  double magneticVariation() const { return mMagneticVariation; }
+    /**
+       * GPS quality indicator (0 = Invalid; 1 = Fix; 2 = Differential, 3 = Sensitive)
+       */
+    int quality() const { return mQuality; }
 
-  /**
-     * source name (used by QtPositioning)
-     */
-  QString sourceName() const { return mSourceName; }
+    /**
+       * Count of satellites used in obtaining the fix.
+       */
+    int satellitesUsed() const { return mSatellitesUsed; }
 
-  /**
-     * Returns whether the connection information is valid
-     */
-  bool isValid() const;
+    /**
+       * Status (A = active or V = void)
+       */
+    QChar status() const { return mStatus; }
 
-  /**
-     * Returns the fix status
-     */
-  FixStatus fixStatus() const;
+    /**
+       * IDs of satellites used in the position fix.
+       */
+    QList<int> satPrn() const { return mSatPrn; }
 
-  /**
-     * Returns a descriptive string for the signal quality.
-     */
-  QString qualityDescription() const;
+    /**
+       * TRUE if satellite information is complete.
+       */
+    bool satInfoComplete() const { return mSatInfoComplete; }
 
-  /**
-     * Returns the fix status as string
-     */
-  QString fixStatusDescription() const;
+    /**
+       * Vertical speed, in km/h.
+       */
+    double verticalSpeed() const { return mVerticalSpeed; }
 
-private:
-  double mLatitude = std::numeric_limits<double>::quiet_NaN();
-  double mLongitude = std::numeric_limits<double>::quiet_NaN();
-  double mElevation = std::numeric_limits<double>::quiet_NaN();
-  double mSpeed = std::numeric_limits<double>::quiet_NaN();
-  double mDirection = std::numeric_limits<double>::quiet_NaN();
-  QList<QgsSatelliteInfo> mSatellitesInView;
-  double mPdop = 0;
-  double mHdop = 0;
-  double mVdop = 0;
-  double mHacc = std::numeric_limits<double>::quiet_NaN();
-  double mVacc = std::numeric_limits<double>::quiet_NaN();
-  double mHvacc = std::numeric_limits<double>::quiet_NaN();
-  QDateTime mUtcDateTime;
-  QChar mFixMode;
-  int mFixType = 0;
-  int mQuality = -1;
-  int mSatellitesUsed = 0;
-  QChar mStatus;
-  QList<int> mSatPrn;
-  bool mSatInfoComplete = false;
-  double mVerticalSpeed = std::numeric_limits<double>::quiet_NaN();
-  double mMagneticVariation = std::numeric_limits<double>::quiet_NaN();
-  QString mSourceName;
+    /**
+       * magnetic variation in degrees
+       */
+    double magneticVariation() const { return mMagneticVariation; }
+
+    /**
+       * source name (used by QtPositioning)
+       */
+    QString sourceName() const { return mSourceName; }
+
+    /**
+       * Returns whether the connection information is valid
+       */
+    bool isValid() const;
+
+    /**
+       * Returns the fix status
+       */
+    FixStatus fixStatus() const;
+
+    /**
+       * Returns a descriptive string for the signal quality.
+       */
+    QString qualityDescription() const;
+
+    /**
+       * Returns the fix status as string
+       */
+    QString fixStatusDescription() const;
+
+  private:
+    double mLatitude = std::numeric_limits<double>::quiet_NaN();
+    double mLongitude = std::numeric_limits<double>::quiet_NaN();
+    double mElevation = std::numeric_limits<double>::quiet_NaN();
+    double mSpeed = std::numeric_limits<double>::quiet_NaN();
+    double mDirection = std::numeric_limits<double>::quiet_NaN();
+    QList<QgsSatelliteInfo> mSatellitesInView;
+    double mPdop = 0;
+    double mHdop = 0;
+    double mVdop = 0;
+    double mHacc = std::numeric_limits<double>::quiet_NaN();
+    double mVacc = std::numeric_limits<double>::quiet_NaN();
+    double mHvacc = std::numeric_limits<double>::quiet_NaN();
+    QDateTime mUtcDateTime;
+    QChar mFixMode;
+    int mFixType = 0;
+    int mQuality = -1;
+    int mSatellitesUsed = 0;
+    QChar mStatus;
+    QList<int> mSatPrn;
+    bool mSatInfoComplete = false;
+    double mVerticalSpeed = std::numeric_limits<double>::quiet_NaN();
+    double mMagneticVariation = std::numeric_limits<double>::quiet_NaN();
+    QString mSourceName;
 };
 
 Q_DECLARE_METATYPE( GnssPositionInformation )

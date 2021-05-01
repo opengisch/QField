@@ -33,45 +33,45 @@ class LocatorModelSuperBridge;
  */
 class FeaturesLocatorFilter : public QgsLocatorFilter
 {
-  Q_OBJECT
+    Q_OBJECT
 
-public:
-  //! Origin of the action which triggers the result
-  enum ActionOrigin
-  {
-    Normal,
-    OpenForm
-  };
-
-  struct PreparedLayer
-  {
   public:
-    QgsExpression expression;
-    QgsExpressionContext context;
-    std::unique_ptr<QgsVectorLayerFeatureSource> featureSource;
-    QgsFeatureRequest request;
-    QString layerName;
-    QString layerId;
-    QIcon layerIcon;
-  };
+    //! Origin of the action which triggers the result
+    enum ActionOrigin
+    {
+      Normal,
+      OpenForm
+    };
 
-  explicit FeaturesLocatorFilter( LocatorModelSuperBridge *locatorBridge, QObject *parent = nullptr );
-  FeaturesLocatorFilter *clone() const override;
-  QString name() const override { return QStringLiteral( "allfeatures" ); }
-  QString displayName() const override { return tr( "Features in all layers" ); }
-  Priority priority() const override { return Medium; }
-  QString prefix() const override { return QStringLiteral( "af" ); }
+    struct PreparedLayer
+    {
+      public:
+        QgsExpression expression;
+        QgsExpressionContext context;
+        std::unique_ptr<QgsVectorLayerFeatureSource> featureSource;
+        QgsFeatureRequest request;
+        QString layerName;
+        QString layerId;
+        QIcon layerIcon;
+    };
 
-  QStringList prepare( const QString &string, const QgsLocatorContext &locatorContext ) override;
-  void fetchResults( const QString &string, const QgsLocatorContext &context, QgsFeedback *feedback ) override;
-  void triggerResult( const QgsLocatorResult &result ) override;
-  void triggerResultFromAction( const QgsLocatorResult &result, const int actionId ) override;
+    explicit FeaturesLocatorFilter( LocatorModelSuperBridge *locatorBridge, QObject *parent = nullptr );
+    FeaturesLocatorFilter *clone() const override;
+    QString name() const override { return QStringLiteral( "allfeatures" ); }
+    QString displayName() const override { return tr( "Features in all layers" ); }
+    Priority priority() const override { return Medium; }
+    QString prefix() const override { return QStringLiteral( "af" ); }
 
-private:
-  int mMaxResultsPerLayer = 12;
-  int mMaxTotalResults = 16;
-  QList<std::shared_ptr<PreparedLayer>> mPreparedLayers;
-  LocatorModelSuperBridge *mLocatorBridge = nullptr;
+    QStringList prepare( const QString &string, const QgsLocatorContext &locatorContext ) override;
+    void fetchResults( const QString &string, const QgsLocatorContext &context, QgsFeedback *feedback ) override;
+    void triggerResult( const QgsLocatorResult &result ) override;
+    void triggerResultFromAction( const QgsLocatorResult &result, const int actionId ) override;
+
+  private:
+    int mMaxResultsPerLayer = 12;
+    int mMaxTotalResults = 16;
+    QList<std::shared_ptr<PreparedLayer>> mPreparedLayers;
+    LocatorModelSuperBridge *mLocatorBridge = nullptr;
 };
 
 #endif // FEATURESLOCATORFILTER_H

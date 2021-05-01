@@ -29,80 +29,80 @@
  */
 class BluetoothReceiver : public QObject
 {
-  Q_OBJECT
+    Q_OBJECT
 
-  Q_PROPERTY( GnssPositionInformation lastGnssPositionInformation READ lastGnssPositionInformation NOTIFY lastGnssPositionInformationChanged )
-  Q_PROPERTY( QBluetoothSocket::SocketState socketState READ socketState NOTIFY socketStateChanged )
-  Q_PROPERTY( QString socketStateString READ socketStateString NOTIFY socketStateStringChanged )
-  Q_PROPERTY( bool ellipsoidalElevation READ ellipsoidalElevation WRITE setEllipsoidalElevation NOTIFY ellipsoidalElevationChanged )
+    Q_PROPERTY( GnssPositionInformation lastGnssPositionInformation READ lastGnssPositionInformation NOTIFY lastGnssPositionInformationChanged )
+    Q_PROPERTY( QBluetoothSocket::SocketState socketState READ socketState NOTIFY socketStateChanged )
+    Q_PROPERTY( QString socketStateString READ socketStateString NOTIFY socketStateStringChanged )
+    Q_PROPERTY( bool ellipsoidalElevation READ ellipsoidalElevation WRITE setEllipsoidalElevation NOTIFY ellipsoidalElevationChanged )
 
-public:
-  explicit BluetoothReceiver( QObject *parent = nullptr );
+  public:
+    explicit BluetoothReceiver( QObject *parent = nullptr );
 
-  Q_INVOKABLE void disconnectDevice();
-  Q_INVOKABLE void connectDevice( const QString &address );
+    Q_INVOKABLE void disconnectDevice();
+    Q_INVOKABLE void connectDevice( const QString &address );
 
-  GnssPositionInformation lastGnssPositionInformation() const { return mLastGnssPositionInformation; }
-  QBluetoothSocket::SocketState socketState() const { return mSocketState; }
-  QString socketStateString() const { return mSocketStateString; }
+    GnssPositionInformation lastGnssPositionInformation() const { return mLastGnssPositionInformation; }
+    QBluetoothSocket::SocketState socketState() const { return mSocketState; }
+    QString socketStateString() const { return mSocketStateString; }
 
-  /**
-     * Creates a GnssPositionInformation with values.
-     * The status will be set to "A"ctive by default.
-     */
-  static Q_INVOKABLE GnssPositionInformation createGnssPositionInformation( double latitude, double longitude, double altitude, double speed, double direction, double horizontalAccuracy, double verticalAcurracy, double verticalSpeed, double magneticVariation, const QDateTime &timestamp, const QString &sourceName );
+    /**
+       * Creates a GnssPositionInformation with values.
+       * The status will be set to "A"ctive by default.
+       */
+    static Q_INVOKABLE GnssPositionInformation createGnssPositionInformation( double latitude, double longitude, double altitude, double speed, double direction, double horizontalAccuracy, double verticalAcurracy, double verticalSpeed, double magneticVariation, const QDateTime &timestamp, const QString &sourceName );
 
-  /**
-     * Sets whether the elevation value provided will be ellipsoidal or, if not, orthometric
-     */
-  void setEllipsoidalElevation( const bool ellipsoidalElevation );
+    /**
+       * Sets whether the elevation value provided will be ellipsoidal or, if not, orthometric
+       */
+    void setEllipsoidalElevation( const bool ellipsoidalElevation );
 
-  /**
-     * Returns whether the elevation value provided will be ellipsoidal or orthometric
-     */
-  bool ellipsoidalElevation() const { return mEllipsoidalElevation; }
+    /**
+       * Returns whether the elevation value provided will be ellipsoidal or orthometric
+       */
+    bool ellipsoidalElevation() const { return mEllipsoidalElevation; }
 
-signals:
-  void lastGnssPositionInformationChanged( GnssPositionInformation lastGnssPositionInformation );
-  void socketStateChanged( QBluetoothSocket::SocketState socketState );
-  void socketStateStringChanged( QString socketStateString );
-  void ellipsoidalElevationChanged();
+  signals:
+    void lastGnssPositionInformationChanged( GnssPositionInformation lastGnssPositionInformation );
+    void socketStateChanged( QBluetoothSocket::SocketState socketState );
+    void socketStateStringChanged( QString socketStateString );
+    void ellipsoidalElevationChanged();
 
-private slots:
-  /**
-     * these functions used for repairing are only needed in the linux (not android) environment
-     * since there are troubles by connect to a paired device. Maybe it can be resolved in future
-     * but meanwhile we keep them as the developer setup.
-     */
+  private slots:
+    /**
+       * these functions used for repairing are only needed in the linux (not android) environment
+       * since there are troubles by connect to a paired device. Maybe it can be resolved in future
+       * but meanwhile we keep them as the developer setup.
+       */
 #ifdef Q_OS_LINUX
-  void pairingFinished( const QBluetoothAddress &address, QBluetoothLocalDevice::Pairing status );
-  void confirmPairing( const QBluetoothAddress &address, QString pin );
+    void pairingFinished( const QBluetoothAddress &address, QBluetoothLocalDevice::Pairing status );
+    void confirmPairing( const QBluetoothAddress &address, QString pin );
 #endif
-  void stateChanged( const QgsGpsInformation &info );
-  void setSocketState( const QBluetoothSocket::SocketState socketState );
+    void stateChanged( const QgsGpsInformation &info );
+    void setSocketState( const QBluetoothSocket::SocketState socketState );
 
-private:
+  private:
 #ifdef Q_OS_LINUX
-  void connectService( const QBluetoothAddress &address );
-  void repairDevice( const QBluetoothAddress &address );
+    void connectService( const QBluetoothAddress &address );
+    void repairDevice( const QBluetoothAddress &address );
 #endif
 
-  //! Used to wait for previous connection to finish disconnecting
-  void doConnectDevice( const QString &address );
+    //! Used to wait for previous connection to finish disconnecting
+    void doConnectDevice( const QString &address );
 
-  std::unique_ptr<QBluetoothLocalDevice> mLocalDevice;
-  QBluetoothSocket *mSocket = nullptr;
-  std::unique_ptr<QgsNmeaConnection> mGpsConnection;
-  GnssPositionInformation mLastGnssPositionInformation;
-  bool mLastGnssPositionValid = false;
+    std::unique_ptr<QBluetoothLocalDevice> mLocalDevice;
+    QBluetoothSocket *mSocket = nullptr;
+    std::unique_ptr<QgsNmeaConnection> mGpsConnection;
+    GnssPositionInformation mLastGnssPositionInformation;
+    bool mLastGnssPositionValid = false;
 
-  QBluetoothSocket::SocketState mSocketState = QBluetoothSocket::UnconnectedState;
-  QString mSocketStateString;
-  bool mDisconnecting = false;
+    QBluetoothSocket::SocketState mSocketState = QBluetoothSocket::UnconnectedState;
+    QString mSocketStateString;
+    bool mDisconnecting = false;
 
-  QString mAddressToConnect;
+    QString mAddressToConnect;
 
-  bool mEllipsoidalElevation = true;
+    bool mEllipsoidalElevation = true;
 };
 
 #endif // BLUETOOTHRECEIVER_H

@@ -34,17 +34,17 @@
  */
 class ProjectSource : public QObject
 {
-  Q_OBJECT
-public:
-  explicit ProjectSource( QObject *parent = nullptr );
+    Q_OBJECT
+  public:
+    explicit ProjectSource( QObject *parent = nullptr );
 
-  virtual ~ProjectSource() = default;
+    virtual ~ProjectSource() = default;
 
-signals:
-  /**
-     * This signal communitcates, when a project has been opened.
-     */
-  void projectOpened( const QString &path );
+  signals:
+    /**
+       * This signal communitcates, when a project has been opened.
+       */
+    void projectOpened( const QString &path );
 };
 
 #endif // PROJECTSOURCE_H

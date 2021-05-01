@@ -30,20 +30,20 @@ class LocatorModelSuperBridge;
  */
 class FinlandLocatorFilter : public QgsAbstractGeocoderLocatorFilter
 {
-  Q_OBJECT
+    Q_OBJECT
 
-public:
-  explicit FinlandLocatorFilter( QgsGeocoderInterface *geocoder, LocatorModelSuperBridge *locatorBridge );
-  FinlandLocatorFilter *clone() const override;
+  public:
+    explicit FinlandLocatorFilter( QgsGeocoderInterface *geocoder, LocatorModelSuperBridge *locatorBridge );
+    FinlandLocatorFilter *clone() const override;
 
-  const QgsRectangle boundingBox() const { return mBoundingBox; }
-  void setBoundingBox( const QgsRectangle boundingBox ) { mBoundingBox = boundingBox; }
+    const QgsRectangle boundingBox() const { return mBoundingBox; }
+    void setBoundingBox( const QgsRectangle boundingBox ) { mBoundingBox = boundingBox; }
 
-private:
-  void handleGeocodeResult( const QgsGeocoderResult &result ) override;
+  private:
+    void handleGeocodeResult( const QgsGeocoderResult &result ) override;
 
-  LocatorModelSuperBridge *mLocatorBridge = nullptr;
-  QgsRectangle mBoundingBox;
+    LocatorModelSuperBridge *mLocatorBridge = nullptr;
+    QgsRectangle mBoundingBox;
 };
 
 #endif // FINLANDLOCATORFILTER_H

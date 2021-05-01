@@ -28,40 +28,40 @@
  */
 class QgsGeometryWrapper : public QObject
 {
-  Q_OBJECT
-  Q_PROPERTY( QgsGeometry qgsGeometry READ qgsGeometry WRITE setQgsGeometry NOTIFY qgsGeometryChanged )
-  Q_PROPERTY( QgsCoordinateReferenceSystem crs READ crs WRITE setCrs NOTIFY crsChanged )
+    Q_OBJECT
+    Q_PROPERTY( QgsGeometry qgsGeometry READ qgsGeometry WRITE setQgsGeometry NOTIFY qgsGeometryChanged )
+    Q_PROPERTY( QgsCoordinateReferenceSystem crs READ crs WRITE setCrs NOTIFY crsChanged )
 
-public:
-  explicit QgsGeometryWrapper( QObject *parent = nullptr )
-    : QObject( parent )
-  {}
+  public:
+    explicit QgsGeometryWrapper( QObject *parent = nullptr )
+      : QObject( parent )
+    {}
 
-  QgsGeometryWrapper( const QgsGeometry &geometry, QgsCoordinateReferenceSystem crs, QObject *parent = nullptr )
-    : QObject( parent )
-    , mQgsGeometry( geometry )
-    , mCrs( crs )
-  {}
+    QgsGeometryWrapper( const QgsGeometry &geometry, QgsCoordinateReferenceSystem crs, QObject *parent = nullptr )
+      : QObject( parent )
+      , mQgsGeometry( geometry )
+      , mCrs( crs )
+    {}
 
-  //! Returns a list of points if the geometry has point type (point, multipoint), an empty list otherwise
-  Q_INVOKABLE QVariantList pointList() const;
+    //! Returns a list of points if the geometry has point type (point, multipoint), an empty list otherwise
+    Q_INVOKABLE QVariantList pointList() const;
 
-  //! Clear the wrapper by setting empty geometry and invalid CRS
-  Q_INVOKABLE void clear();
+    //! Clear the wrapper by setting empty geometry and invalid CRS
+    Q_INVOKABLE void clear();
 
-  QgsGeometry qgsGeometry() const;
-  void setQgsGeometry( const QgsGeometry &qgsGeometry );
+    QgsGeometry qgsGeometry() const;
+    void setQgsGeometry( const QgsGeometry &qgsGeometry );
 
-  QgsCoordinateReferenceSystem crs() const;
-  void setCrs( const QgsCoordinateReferenceSystem &crs );
+    QgsCoordinateReferenceSystem crs() const;
+    void setCrs( const QgsCoordinateReferenceSystem &crs );
 
-signals:
-  void qgsGeometryChanged();
-  void crsChanged();
+  signals:
+    void qgsGeometryChanged();
+    void crsChanged();
 
-private:
-  QgsGeometry mQgsGeometry;
-  QgsCoordinateReferenceSystem mCrs;
+  private:
+    QgsGeometry mQgsGeometry;
+    QgsCoordinateReferenceSystem mCrs;
 };
 
 

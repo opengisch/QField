@@ -24,23 +24,23 @@ class QgsSymbol;
 
 class LayerUtils : public QObject
 {
-  Q_OBJECT
+    Q_OBJECT
 
-public:
-  explicit LayerUtils( QObject *parent = nullptr );
+  public:
+    explicit LayerUtils( QObject *parent = nullptr );
 
-  /**
-   * Returns the default symbol for a given layer.
-   * \param layer the vector layer used to create the default symbol
-   */
-  static QgsSymbol *defaultSymbol( QgsVectorLayer *layer );
+    /**
+     * Returns the default symbol for a given layer.
+     * \param layer the vector layer used to create the default symbol
+     */
+    static QgsSymbol *defaultSymbol( QgsVectorLayer *layer );
 
-  /**
-   * Returns TRUE if the vector layer is used as an atlas coverage layer in
-   * any of the print layouts of the currently opened project.
-   * \param layer the vector layer to check against print layouts
-   */
-  static Q_INVOKABLE bool isAtlasCoverageLayer( QgsVectorLayer *layer );
+    /**
+     * Returns TRUE if the vector layer is used as an atlas coverage layer in
+     * any of the print layouts of the currently opened project.
+     * \param layer the vector layer to check against print layouts
+     */
+    static Q_INVOKABLE bool isAtlasCoverageLayer( QgsVectorLayer *layer );
 };
 
 #endif // LAYERUTILS_H

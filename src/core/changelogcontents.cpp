@@ -39,7 +39,8 @@ void ChangelogContents::request()
   mStatus = LoadingStatus;
   emit statusChanged();
 
-  connect( manager, &QNetworkAccessManager::finished, this, [=]( QNetworkReply *reply ) {
+  connect( manager, &QNetworkAccessManager::finished, this, [ = ]( QNetworkReply * reply )
+  {
     QJsonParseError error;
     QJsonDocument json = QJsonDocument::fromJson( reply->readAll(), &error );
 

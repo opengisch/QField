@@ -31,52 +31,52 @@
  */
 class ProjectInfo : public QObject
 {
-  Q_OBJECT
+    Q_OBJECT
 
-  Q_PROPERTY( QString filePath READ filePath WRITE setFilePath NOTIFY filePathChanged )
+    Q_PROPERTY( QString filePath READ filePath WRITE setFilePath NOTIFY filePathChanged )
 
-  Q_PROPERTY( QgsQuickMapSettings *mapSettings READ mapSettings WRITE setMapSettings NOTIFY mapSettingsChanged )
+    Q_PROPERTY( QgsQuickMapSettings *mapSettings READ mapSettings WRITE setMapSettings NOTIFY mapSettingsChanged )
 
-  Q_PROPERTY( FlatLayerTreeModel *layerTree READ layerTree WRITE setLayerTree NOTIFY layerTreeChanged )
+    Q_PROPERTY( FlatLayerTreeModel *layerTree READ layerTree WRITE setLayerTree NOTIFY layerTreeChanged )
 
-public:
-  explicit ProjectInfo( QObject *parent = nullptr );
+  public:
+    explicit ProjectInfo( QObject *parent = nullptr );
 
-  virtual ~ProjectInfo() = default;
+    virtual ~ProjectInfo() = default;
 
-  void setFilePath( const QString &filePath );
+    void setFilePath( const QString &filePath );
 
-  QString filePath() const;
+    QString filePath() const;
 
-  void setMapSettings( QgsQuickMapSettings *mapSettings );
+    void setMapSettings( QgsQuickMapSettings *mapSettings );
 
-  QgsQuickMapSettings *mapSettings() const;
+    QgsQuickMapSettings *mapSettings() const;
 
-  void setLayerTree( FlatLayerTreeModel *layerTree );
+    void setLayerTree( FlatLayerTreeModel *layerTree );
 
-  FlatLayerTreeModel *layerTree() const;
+    FlatLayerTreeModel *layerTree() const;
 
-signals:
+  signals:
 
-  void filePathChanged();
+    void filePathChanged();
 
-  void mapSettingsChanged();
+    void mapSettingsChanged();
 
-  void layerTreeChanged();
+    void layerTreeChanged();
 
-private slots:
+  private slots:
 
-  void extentChanged();
+    void extentChanged();
 
-  void mapThemeChanged();
+    void mapThemeChanged();
 
-private:
-  QString mFilePath;
+  private:
+    QString mFilePath;
 
-  QgsQuickMapSettings *mMapSettings = nullptr;
-  QTimer mSaveExtentTimer;
+    QgsQuickMapSettings *mMapSettings = nullptr;
+    QTimer mSaveExtentTimer;
 
-  FlatLayerTreeModel *mLayerTree = nullptr;
+    FlatLayerTreeModel *mLayerTree = nullptr;
 };
 
 #endif // PROJECTINFO_H

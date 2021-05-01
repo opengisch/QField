@@ -61,8 +61,8 @@ typedef struct Dict Dict;
 typedef struct DictNode DictNode;
 
 Dict *dictNewDict(
-void *frame,
-int ( *leq )( void *frame, DictKey key1, DictKey key2 ) );
+  void *frame,
+  int ( *leq )( void *frame, DictKey key1, DictKey key2 ) );
 
 void dictDeleteDict( Dict *dict );
 

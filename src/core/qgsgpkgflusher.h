@@ -35,41 +35,41 @@ class Flusher;
  */
 class QgsGpkgFlusher : public QObject
 {
-  Q_OBJECT
+    Q_OBJECT
 
-public:
-  explicit QgsGpkgFlusher( QgsProject *project );
-  ~QgsGpkgFlusher();
+  public:
+    explicit QgsGpkgFlusher( QgsProject *project );
+    ~QgsGpkgFlusher();
 
-  /**
-     * Immediately performs a flush for a given \a fileName and returns. If the flusher is stopped, flush for that \a fileName would be ignored.
-     */
-  void stop( const QString &fileName );
+    /**
+       * Immediately performs a flush for a given \a fileName and returns. If the flusher is stopped, flush for that \a fileName would be ignored.
+       */
+    void stop( const QString &fileName );
 
-  /**
-     * Reenables scheduling a flush for a given \a fileName.
-     */
-  void start( const QString &fileName );
+    /**
+       * Reenables scheduling a flush for a given \a fileName.
+       */
+    void start( const QString &fileName );
 
-  /**
-     * Returns whether the flusher is stopped for a given \a fileName
-     */
-  bool isStopped( const QString &fileName ) const;
+    /**
+       * Returns whether the flusher is stopped for a given \a fileName
+       */
+    bool isStopped( const QString &fileName ) const;
 
-signals:
+  signals:
 
-  /**
-     * Emitted when a file has changed and a flush should be scheduled.
-     */
-  void requestFlush( const QString &filename );
+    /**
+       * Emitted when a file has changed and a flush should be scheduled.
+       */
+    void requestFlush( const QString &filename );
 
-private slots:
-  void onLayersAdded( const QList<QgsMapLayer *> &layers );
+  private slots:
+    void onLayersAdded( const QList<QgsMapLayer *> &layers );
 
-private:
-  QgsProject *mProject = nullptr;
-  QThread mFlusherThread;
-  Flusher *mFlusher = nullptr;
+  private:
+    QgsProject *mProject = nullptr;
+    QThread mFlusherThread;
+    Flusher *mFlusher = nullptr;
 };
 
 #endif // QGSGPKGFLUSHER_H

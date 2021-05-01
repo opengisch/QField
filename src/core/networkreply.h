@@ -29,206 +29,206 @@
  */
 class NetworkReply : public QObject
 {
-  Q_OBJECT
+    Q_OBJECT
 
-public:
-  /**
-     * A wrapper around QNetworkReply that allows retriable requests.
-     * @param op HTTP method
-     * @param nam network access manager
-     * @param request the request to be performed
-     * @param payload the request payload
-     */
-  NetworkReply( const QNetworkAccessManager::Operation operation, const QNetworkRequest &request, const QByteArray &payloadByteArray );
-
-
-  /**
-     * A wrapper around QNetworkReply that allows retriable requests.
-     * @param op HTTP method
-     * @param nam network access manager
-     * @param request the request to be performed
-     * @param payload the request payload
-     */
-  NetworkReply( const QNetworkAccessManager::Operation operation, const QNetworkRequest &request, QHttpMultiPart *payloadMultiPart );
+  public:
+    /**
+       * A wrapper around QNetworkReply that allows retriable requests.
+       * @param op HTTP method
+       * @param nam network access manager
+       * @param request the request to be performed
+       * @param payload the request payload
+       */
+    NetworkReply( const QNetworkAccessManager::Operation operation, const QNetworkRequest &request, const QByteArray &payloadByteArray );
 
 
-  /**
-     * Aborts the current request and any other retries. Makes the current object into a final state.
-     */
-  void abort();
+    /**
+       * A wrapper around QNetworkReply that allows retriable requests.
+       * @param op HTTP method
+       * @param nam network access manager
+       * @param request the request to be performed
+       * @param payload the request payload
+       */
+    NetworkReply( const QNetworkAccessManager::Operation operation, const QNetworkRequest &request, QHttpMultiPart *payloadMultiPart );
 
 
-  /**
-     * Get the QNetworkReply object once the CloudReply is finilized. Do not delete it manually.
-     * @return network reply
-     */
-  QNetworkReply *reply() const;
+    /**
+       * Aborts the current request and any other retries. Makes the current object into a final state.
+       */
+    void abort();
 
 
-  /**
-     * Reimplements QNetworkReply::ignoreSslErrors.
-     * @param error a list of error to be ignored.
-     */
-  void ignoreSslErrors( const QList<QSslError> &errors );
+    /**
+       * Get the QNetworkReply object once the CloudReply is finilized. Do not delete it manually.
+       * @return network reply
+       */
+    QNetworkReply *reply() const;
 
 
-  /**
-     * Whether the request reached a final status.
-     * @return true if the request reached a final status.
-     */
-  bool isFinished() const;
+    /**
+       * Reimplements QNetworkReply::ignoreSslErrors.
+       * @param error a list of error to be ignored.
+       */
+    void ignoreSslErrors( const QList<QSslError> &errors );
 
 
-signals:
-
-  /**
-     * Replicates `QNetworkReply::downloadProgress` signal.
-     * @note Because download may fail mid request and then retried, the bytesReceived may be reset back to 0.
-     * @param bytesSent
-     * @param bytesTotal
-     */
-  void downloadProgress( int bytesReceived, int bytesTotal );
+    /**
+       * Whether the request reached a final status.
+       * @return true if the request reached a final status.
+       */
+    bool isFinished() const;
 
 
-  /**
-     * Replicates `QNetworkReply::uploadProgress` signal.
-     * @note Because upload may fail mid request and then retried, the bytesSent may be reset back to 0.
-     * @param bytesSent
-     * @param bytesTotal
-     */
-  void uploadProgress( int bytesSent, int bytesTotal );
+  signals:
+
+    /**
+       * Replicates `QNetworkReply::downloadProgress` signal.
+       * @note Because download may fail mid request and then retried, the bytesReceived may be reset back to 0.
+       * @param bytesSent
+       * @param bytesTotal
+       */
+    void downloadProgress( int bytesReceived, int bytesTotal );
 
 
-  /**
-     * Replicates `QNetworkReply::encrypted` signal.
-     * @note May be called multiple times for each retry.
-     */
-  void encrypted();
+    /**
+       * Replicates `QNetworkReply::uploadProgress` signal.
+       * @note Because upload may fail mid request and then retried, the bytesSent may be reset back to 0.
+       * @param bytesSent
+       * @param bytesTotal
+       */
+    void uploadProgress( int bytesSent, int bytesTotal );
 
 
-  /**
-     * Replicates `QNetworkReply::finished` signal. It is called only once, when the request was successfull, got a final error or ran out of retries.
-     */
-  void finished();
+    /**
+       * Replicates `QNetworkReply::encrypted` signal.
+       * @note May be called multiple times for each retry.
+       */
+    void encrypted();
 
 
-  /**
-     * Replicates `QNetworkReply::redirected` signal.
-     */
-  void redirected( const QUrl &url );
+    /**
+       * Replicates `QNetworkReply::finished` signal. It is called only once, when the request was successfull, got a final error or ran out of retries.
+       */
+    void finished();
 
 
-  /**
-     * Replicates `QNetworkReply::redirectAllowed` signal.
-     */
-  void redirectAllowed();
+    /**
+       * Replicates `QNetworkReply::redirected` signal.
+       */
+    void redirected( const QUrl &url );
 
 
-  // /////////////////
-  // more than QNetworkReply signals
-  // /////////////////
-  /**
-     * Emitted when a new retry is initiated.
-     */
-  void retry();
+    /**
+       * Replicates `QNetworkReply::redirectAllowed` signal.
+       */
+    void redirectAllowed();
 
 
-  /**
-     * Emitted when a new error has occured.
-     * @param code
-     */
-  void errorOccurred( QNetworkReply::NetworkError code );
+    // /////////////////
+    // more than QNetworkReply signals
+    // /////////////////
+    /**
+       * Emitted when a new retry is initiated.
+       */
+    void retry();
 
 
-  /**
-     * Emitted when a new temporary error has occured. This is basically emitting the error that has occured during a retry.
-     * @param code
-     */
-  void temporaryErrorOccurred( QNetworkReply::NetworkError code );
-
-private:
-  /**
-     * Upper bound of the delay between retries in milliseconds.
-     */
-  static const int sMaxTimeoutBetweenRetriesMs = 2000;
+    /**
+       * Emitted when a new error has occured.
+       * @param code
+       */
+    void errorOccurred( QNetworkReply::NetworkError code );
 
 
-  /**
-     * The current HTTP method.
-     */
-  QNetworkAccessManager::Operation mOperation;
+    /**
+       * Emitted when a new temporary error has occured. This is basically emitting the error that has occured during a retry.
+       * @param code
+       */
+    void temporaryErrorOccurred( QNetworkReply::NetworkError code );
+
+  private:
+    /**
+       * Upper bound of the delay between retries in milliseconds.
+       */
+    static const int sMaxTimeoutBetweenRetriesMs = 2000;
 
 
-  /**
-     * Whether the cloud reply has reached a final state.
-     */
-  bool mIsFinished = false;
+    /**
+       * The current HTTP method.
+       */
+    QNetworkAccessManager::Operation mOperation;
 
 
-  /**
-     * Whether it is a multi-part request
-     */
-  bool mIsMultiPartPayload = false;
+    /**
+       * Whether the cloud reply has reached a final state.
+       */
+    bool mIsFinished = false;
 
 
-  /**
-     * Number of retries left. Once the value reaches zero, the status of the last reply is the final status.
-     */
-  int mRetriesLeft = 5;
+    /**
+       * Whether it is a multi-part request
+       */
+    bool mIsMultiPartPayload = false;
 
 
-  /**
-     * Expected SSL errors to be ignored.
-     */
-  QList<QSslError> mExpectedSslErrors;
+    /**
+       * Number of retries left. Once the value reaches zero, the status of the last reply is the final status.
+       */
+    int mRetriesLeft = 5;
 
 
-  /**
-     * Random number generator instance. Used to create random delay bettween retries.
-     */
-  //    QRandomGenerator mRNG;
+    /**
+       * Expected SSL errors to be ignored.
+       */
+    QList<QSslError> mExpectedSslErrors;
 
 
-  /**
-     * Network access manager.
-     */
-  QgsNetworkAccessManager *mNetworkAccessManager = QgsNetworkAccessManager::instance();
+    /**
+       * Random number generator instance. Used to create random delay bettween retries.
+       */
+    //    QRandomGenerator mRNG;
 
 
-  /**
-     * The current request.
-     */
-  QNetworkRequest mRequest;
+    /**
+       * Network access manager.
+       */
+    QgsNetworkAccessManager *mNetworkAccessManager = QgsNetworkAccessManager::instance();
 
 
-  /**
-     * Request payload
-     */
-  const QByteArray mPayloadByteArray;
+    /**
+       * The current request.
+       */
+    QNetworkRequest mRequest;
 
 
-  /**
-     * Request payload as multipart
-     */
-  QHttpMultiPart *mPayloadMultiPart = nullptr;
+    /**
+       * Request payload
+       */
+    const QByteArray mPayloadByteArray;
 
 
-  /**
-     * The current outgoing request. If the request fails and can be retried, the object is disposed and replaced with a new one.
-     */
-  QNetworkReply *mReply = nullptr;
+    /**
+       * Request payload as multipart
+       */
+    QHttpMultiPart *mPayloadMultiPart = nullptr;
 
 
-  /**
-     * Binds signal listeners to `QNetworkReply` object
-     */
-  void initiateRequest();
+    /**
+       * The current outgoing request. If the request fails and can be retried, the object is disposed and replaced with a new one.
+       */
+    QNetworkReply *mReply = nullptr;
 
 
-  /**
-     * Called when a request attempt is finished. If needed, make a retry.
-     */
-  void onFinished();
+    /**
+       * Binds signal listeners to `QNetworkReply` object
+       */
+    void initiateRequest();
+
+
+    /**
+       * Called when a request attempt is finished. If needed, make a retry.
+       */
+    void onFinished();
 };
 
 

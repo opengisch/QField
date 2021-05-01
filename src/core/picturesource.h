@@ -24,42 +24,42 @@
  */
 class PictureSource : public QObject
 {
-  Q_OBJECT
-public:
-  /**
-     * Construct a new Picture Source object.
-     * 
-     * @note Subclasses which implement their own file dialog should provide an empty string for \a pictureFilePath and emit \a pictureReceived when appropriate.
-     * @param parent Parent object
-     * @param prefix The project folder. Base directory path for all relative paths.
-     * @param pictureFilePath Suggested file path to permanently store the file. If the file is not existing yet, it must be an empty string.
-     */
-  explicit PictureSource( QObject *parent = nullptr, const QString &prefix = QString(), const QString &pictureFilePath = QString() );
+    Q_OBJECT
+  public:
+    /**
+       * Construct a new Picture Source object.
+       *
+       * @note Subclasses which implement their own file dialog should provide an empty string for \a pictureFilePath and emit \a pictureReceived when appropriate.
+       * @param parent Parent object
+       * @param prefix The project folder. Base directory path for all relative paths.
+       * @param pictureFilePath Suggested file path to permanently store the file. If the file is not existing yet, it must be an empty string.
+       */
+    explicit PictureSource( QObject *parent = nullptr, const QString &prefix = QString(), const QString &pictureFilePath = QString() );
 
-  /**
-     * Destroy the Picture Source object
-     */
-  virtual ~PictureSource();
+    /**
+       * Destroy the Picture Source object
+       */
+    virtual ~PictureSource();
 
-signals:
+  signals:
 
-  /**
-     * Emit this signal when a picture really has been received. 
-     * 
-     * @note When the constructor received a non-empty \a pictureFilePath, the signal is emitted in the constructor.
-     */
-  void pictureReceived( const QString &path );
+    /**
+       * Emit this signal when a picture really has been received.
+       *
+       * @note When the constructor received a non-empty \a pictureFilePath, the signal is emitted in the constructor.
+       */
+    void pictureReceived( const QString &path );
 
-private:
-  /**
-     * Base directory path for all relative paths.
-     */
-  QString mPrefix;
+  private:
+    /**
+       * Base directory path for all relative paths.
+       */
+    QString mPrefix;
 
-  /**
-     * Suggested file path to permanently store the file. If the file is not existing yet, it must be an empty string.
-     */
-  QString mPictureFilePath;
+    /**
+       * Suggested file path to permanently store the file. If the file is not existing yet, it must be an empty string.
+       */
+    QString mPictureFilePath;
 };
 
 #endif // PICTURESOURCE_H

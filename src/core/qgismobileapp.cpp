@@ -176,10 +176,10 @@ QgisMobileapp::QgisMobileapp( QgsApplication *app, QObject *parent )
     if ( fontsDir.exists() )
     {
       const QStringList fonts = fontsDir.entryList( QStringList() << "*.ttf"
-                                                                  << "*.TTF"
-                                                                  << "*.otf"
-                                                                  << "*.OTF",
-                                                    QDir::Files );
+                                << "*.TTF"
+                                << "*.otf"
+                                << "*.OTF",
+                                QDir::Files );
       for ( auto font : fonts )
       {
         QFontDatabase::addApplicationFont( fontsPath + font );
@@ -267,7 +267,8 @@ QgisMobileapp::QgisMobileapp( QgsApplication *app, QObject *parent )
 
   QFieldCloudProjectsModel *qFieldCloudProjectsModel = rootObjects().first()->findChild<QFieldCloudProjectsModel *>();
 
-  connect( qFieldCloudProjectsModel, &QFieldCloudProjectsModel::projectDownloaded, this, [=]( const QString &projectId, const QString &projectName, const bool hasError, const QString &errorString ) {
+  connect( qFieldCloudProjectsModel, &QFieldCloudProjectsModel::projectDownloaded, this, [ = ]( const QString & projectId, const QString & projectName, const bool hasError, const QString & errorString )
+  {
     Q_UNUSED( projectName );
     Q_UNUSED( errorString );
     if ( !hasError )
@@ -280,7 +281,7 @@ QgisMobileapp::QgisMobileapp( QgsApplication *app, QObject *parent )
   } );
 
   mFlatLayerTree->layerTreeModel()->setLegendMapViewData( mMapCanvas->mapSettings()->mapSettings().mapUnitsPerPixel(),
-                                                          static_cast<int>( std::round( mMapCanvas->mapSettings()->outputDpi() ) ), mMapCanvas->mapSettings()->mapSettings().scale() );
+      static_cast<int>( std::round( mMapCanvas->mapSettings()->outputDpi() ) ), mMapCanvas->mapSettings()->mapSettings().scale() );
 
   Q_ASSERT_X( mMapCanvas, "QML Init", "QgsQuickMapCanvasMap not found. It is likely that we failed to load the QML files. Check debug output for related messages." );
 
@@ -627,9 +628,9 @@ void QgisMobileapp::readProjectFile()
     // load fonts in same directory
     QDir fontDir = QDir::cleanPath( QFileInfo( mProjectFilePath ).absoluteDir().path() + QDir::separator() + ".fonts" );
     QStringList fontExts = QStringList() << "*.ttf"
-                                         << "*.TTF"
-                                         << "*.otf"
-                                         << "*.OTF";
+                           << "*.TTF"
+                           << "*.otf"
+                           << "*.OTF";
     const QStringList fontFiles = fontDir.entryList( fontExts, QDir::Files );
     for ( const QString &fontFile : fontFiles )
     {
@@ -717,8 +718,8 @@ void QgisMobileapp::readProjectFile()
           {
             const QStringList info = sublayerInfo.split( QgsDataProvider::sublayerSeparator() );
             QgsVectorLayer *sublayer = new QgsVectorLayer( QStringLiteral( "%1|layerid=%2" ).arg( filePath, info.at( 0 ) ),
-                                                           QStringLiteral( "%1: %2" ).arg( mProjectFileName, info.at( 1 ) ),
-                                                           QLatin1String( "ogr" ), options );
+                QStringLiteral( "%1: %2" ).arg( mProjectFileName, info.at( 1 ) ),
+                QLatin1String( "ogr" ), options );
             if ( sublayer->isValid() )
             {
               if ( sublayer->crs().isValid() )
@@ -785,7 +786,8 @@ void QgisMobileapp::readProjectFile()
 
         if ( vectorLayers.size() > 1 )
         {
-          std::sort( vectorLayers.begin(), vectorLayers.end(), []( QgsMapLayer *a, QgsMapLayer *b ) {
+          std::sort( vectorLayers.begin(), vectorLayers.end(), []( QgsMapLayer * a, QgsMapLayer * b )
+          {
             QgsVectorLayer *alayer = qobject_cast<QgsVectorLayer *>( a );
             QgsVectorLayer *blayer = qobject_cast<QgsVectorLayer *>( b );
             if ( alayer->geometryType() == QgsWkbTypes::PointGeometry && blayer->geometryType() != QgsWkbTypes::PointGeometry )
@@ -822,8 +824,8 @@ void QgisMobileapp::readProjectFile()
           {
             const QStringList info = sublayerInfo.split( QgsDataProvider::sublayerSeparator() );
             QgsRasterLayer *sublayer = new QgsRasterLayer( QStringLiteral( "%1|layerid=%2" ).arg( filePath, info.at( 0 ) ),
-                                                           QStringLiteral( "%1: %2" ).arg( mProjectFileName, info.at( 1 ) ),
-                                                           QLatin1String( "gdal" ) );
+                QStringLiteral( "%1: %2" ).arg( mProjectFileName, info.at( 1 ) ),
+                QLatin1String( "gdal" ) );
             if ( sublayer->isValid() )
             {
               if ( sublayer->crs().isValid() )

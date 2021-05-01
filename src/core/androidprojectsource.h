@@ -24,12 +24,12 @@
 
 class AndroidProjectSource : public ProjectSource, public QAndroidActivityResultReceiver
 {
-  Q_OBJECT
+    Q_OBJECT
 
-public:
-  AndroidProjectSource();
+  public:
+    AndroidProjectSource();
 
-  void handleActivityResult( int receiverRequestCode, int resultCode, const QAndroidJniObject &data ) override;
+    void handleActivityResult( int receiverRequestCode, int resultCode, const QAndroidJniObject &data ) override;
 };
 
 #endif // ANDROIDPROJECTSOURCE_H

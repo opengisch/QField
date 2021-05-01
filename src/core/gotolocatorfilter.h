@@ -31,30 +31,30 @@ class LocatorModelSuperBridge;
  */
 class GotoLocatorFilter : public QgsLocatorFilter
 {
-  Q_OBJECT
+    Q_OBJECT
 
-public:
-  //! Origin of the action which triggers the result
-  enum ActionOrigin
-  {
-    Normal,
-    AddFeature
-  };
+  public:
+    //! Origin of the action which triggers the result
+    enum ActionOrigin
+    {
+      Normal,
+      AddFeature
+    };
 
-  explicit GotoLocatorFilter( LocatorModelSuperBridge *locatorBridge, QObject *parent = nullptr );
-  GotoLocatorFilter *clone() const override;
-  QString name() const override { return QStringLiteral( "goto" ); }
-  QString displayName() const override { return tr( "Go to coordinate" ); }
-  Priority priority() const override { return Medium; }
-  QString prefix() const override { return QStringLiteral( "go" ); }
-  QgsLocatorFilter::Flags flags() const override { return QgsLocatorFilter::FlagFast; }
+    explicit GotoLocatorFilter( LocatorModelSuperBridge *locatorBridge, QObject *parent = nullptr );
+    GotoLocatorFilter *clone() const override;
+    QString name() const override { return QStringLiteral( "goto" ); }
+    QString displayName() const override { return tr( "Go to coordinate" ); }
+    Priority priority() const override { return Medium; }
+    QString prefix() const override { return QStringLiteral( "go" ); }
+    QgsLocatorFilter::Flags flags() const override { return QgsLocatorFilter::FlagFast; }
 
-  void fetchResults( const QString &string, const QgsLocatorContext &context, QgsFeedback *feedback ) override;
-  void triggerResult( const QgsLocatorResult &result ) override;
-  void triggerResultFromAction( const QgsLocatorResult &result, const int actionId ) override;
+    void fetchResults( const QString &string, const QgsLocatorContext &context, QgsFeedback *feedback ) override;
+    void triggerResult( const QgsLocatorResult &result ) override;
+    void triggerResultFromAction( const QgsLocatorResult &result, const int actionId ) override;
 
-private:
-  LocatorModelSuperBridge *mLocatorBridge = nullptr;
+  private:
+    LocatorModelSuperBridge *mLocatorBridge = nullptr;
 };
 
 #endif // GOTOLOCATORFILTER_H

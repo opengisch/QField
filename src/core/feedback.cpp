@@ -20,7 +20,8 @@
 
 Feedback::Feedback()
 {
-  connect( this, &QgsFeedback::progressChanged, this, [this]( double progress ) {
+  connect( this, &QgsFeedback::progressChanged, this, [this]( double progress )
+  {
     mProgressProxy = progress;
     emit progressChanged();
   } );

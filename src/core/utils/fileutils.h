@@ -25,33 +25,33 @@
 
 class QFIELD_CORE_EXPORT FileUtils : public QObject
 {
-  Q_OBJECT
+    Q_OBJECT
 
-public:
-  explicit FileUtils( QObject *parent = nullptr );
-  //! Destructor
-  ~FileUtils() = default;
+  public:
+    explicit FileUtils( QObject *parent = nullptr );
+    //! Destructor
+    ~FileUtils() = default;
 
-  //! returns the mimetype of a filepath as string
-  Q_INVOKABLE static QString mimeTypeName( const QString &filePath );
-  //! returns the filename of a filepath - if no file name exists it's empty
-  Q_INVOKABLE static QString fileName( const QString &filePath );
-  //! returns true if the file exists (false if it's a directory)
-  Q_INVOKABLE static bool fileExists( const QString &filePath );
-  //! returns the suffix (extension)
-  Q_INVOKABLE static QString fileSuffix( const QString &filePath );
-  static bool copyRecursively( const QString &sourceFolder, const QString &destFolder, QgsFeedback *feedback );
-  /**
-     * Creates checksum of a file. Returns null QByteArray if cannot be calculated.
-     *
-     * @param fileName file name to get checksum of
-     * @param hashAlgorithm hash algorithm (md5, sha1, sha256 etc)
-     * @return QByteArray checksum
-     */
-  Q_INVOKABLE static QByteArray fileChecksum( const QString &fileName, const QCryptographicHash::Algorithm hashAlgorithm = QCryptographicHash::Sha256 );
+    //! returns the mimetype of a filepath as string
+    Q_INVOKABLE static QString mimeTypeName( const QString &filePath );
+    //! returns the filename of a filepath - if no file name exists it's empty
+    Q_INVOKABLE static QString fileName( const QString &filePath );
+    //! returns true if the file exists (false if it's a directory)
+    Q_INVOKABLE static bool fileExists( const QString &filePath );
+    //! returns the suffix (extension)
+    Q_INVOKABLE static QString fileSuffix( const QString &filePath );
+    static bool copyRecursively( const QString &sourceFolder, const QString &destFolder, QgsFeedback *feedback );
+    /**
+       * Creates checksum of a file. Returns null QByteArray if cannot be calculated.
+       *
+       * @param fileName file name to get checksum of
+       * @param hashAlgorithm hash algorithm (md5, sha1, sha256 etc)
+       * @return QByteArray checksum
+       */
+    Q_INVOKABLE static QByteArray fileChecksum( const QString &fileName, const QCryptographicHash::Algorithm hashAlgorithm = QCryptographicHash::Sha256 );
 
-private:
-  static int copyRecursivelyPrepare( const QString &sourceFolder, const QString &destFolder, QList<QPair<QString, QString>> &mapping );
+  private:
+    static int copyRecursivelyPrepare( const QString &sourceFolder, const QString &destFolder, QList<QPair<QString, QString>> &mapping );
 };
 
 #endif // FILEUTILS_H

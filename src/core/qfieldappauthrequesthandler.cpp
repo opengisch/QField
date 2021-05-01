@@ -33,7 +33,7 @@ void QFieldAppAuthRequestHandler::enterCredentials( const QString &realm, const 
 
 QString QFieldAppAuthRequestHandler::getFirstUnhandledRealm() const
 {
-  auto entry = std::find_if( mRealms.begin(), mRealms.end(), []( const RealmEntry &entry ) { return !entry.canceled; } );
+  auto entry = std::find_if( mRealms.begin(), mRealms.end(), []( const RealmEntry & entry ) { return !entry.canceled; } );
   return entry != mRealms.end() ? entry->realm : QString();
 }
 
@@ -43,7 +43,8 @@ bool QFieldAppAuthRequestHandler::handleLayerLogins()
   {
     emit showLoginDialog( getFirstUnhandledRealm() );
 
-    connect( this, &QFieldAppAuthRequestHandler::loginDialogClosed, [=]( const QString &realm, bool canceled ) {
+    connect( this, &QFieldAppAuthRequestHandler::loginDialogClosed, [ = ]( const QString & realm, bool canceled )
+    {
       if ( canceled )
       {
         //realm not successful handled - but canceled
@@ -94,7 +95,7 @@ void QFieldAppAuthRequestHandler::clearStoredRealms()
 
 void QFieldAppAuthRequestHandler::authNeeded( const QString &realm )
 {
-  if ( std::any_of( mRealms.begin(), mRealms.end(), [&realm]( const RealmEntry &entry ) { return entry.realm == realm; } ) )
+  if ( std::any_of( mRealms.begin(), mRealms.end(), [&realm]( const RealmEntry & entry ) { return entry.realm == realm; } ) )
   {
     //realm already in list
     return;
@@ -129,9 +130,9 @@ void QFieldAppAuthRequestHandler::handleAuthRequest( QNetworkReply *reply, QAuth
   for ( ;; )
   {
     bool ok = QgsCredentials::instance()->get(
-    QStringLiteral( "%1 at %2" ).arg( auth->realm(), reply->url().host() ),
-    username, password,
-    QObject::tr( "Authentication required" ) );
+                QStringLiteral( "%1 at %2" ).arg( auth->realm(), reply->url().host() ),
+                username, password,
+                QObject::tr( "Authentication required" ) );
 
     if ( !ok )
     {
@@ -143,16 +144,16 @@ void QFieldAppAuthRequestHandler::handleAuthRequest( QNetworkReply *reply, QAuth
     {
       // save credentials
       QgsCredentials::instance()->put(
-      QStringLiteral( "%1 at %2" ).arg( auth->realm(), reply->url().host() ),
-      username, password );
+        QStringLiteral( "%1 at %2" ).arg( auth->realm(), reply->url().host() ),
+        username, password );
       break;
     }
     else
     {
       // credentials didn't change - stored ones probably wrong? clear password and retry
       QgsCredentials::instance()->put(
-      QStringLiteral( "%1 at %2" ).arg( auth->realm(), reply->url().host() ),
-      username, QString() );
+        QStringLiteral( "%1 at %2" ).arg( auth->realm(), reply->url().host() ),
+        username, QString() );
     }
   }
 

@@ -27,13 +27,13 @@
 
 class ExpressionContextUtils
 {
-public:
-  static QgsExpressionContextScope *positionScope( const GnssPositionInformation &positionInformation, bool positionLocked );
-  static QgsExpressionContextScope *mapToolCaptureScope( const SnappingResult &topSnappingResult );
-  static QgsExpressionContextScope *cloudUserScope( const CloudUserInformation &cloudUserInformation );
+  public:
+    static QgsExpressionContextScope *positionScope( const GnssPositionInformation &positionInformation, bool positionLocked );
+    static QgsExpressionContextScope *mapToolCaptureScope( const SnappingResult &topSnappingResult );
+    static QgsExpressionContextScope *cloudUserScope( const CloudUserInformation &cloudUserInformation );
 
-private:
-  ExpressionContextUtils() = default;
+  private:
+    ExpressionContextUtils() = default;
 };
 
 #endif // EXPRESSIONCONTEXTUTILS_H

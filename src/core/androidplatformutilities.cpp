@@ -46,26 +46,26 @@ AndroidPlatformUtilities::AndroidPlatformUtilities()
 
 class FileCopyThread : public QThread
 {
-  Q_OBJECT
+    Q_OBJECT
 
-public:
-  FileCopyThread( const QString &source, const QString &destination, Feedback *feedback )
-    : QThread()
-    , mSource( source )
-    , mDestination( destination )
-    , mFeedback( feedback )
-  {
-  }
+  public:
+    FileCopyThread( const QString &source, const QString &destination, Feedback *feedback )
+      : QThread()
+      , mSource( source )
+      , mDestination( destination )
+      , mFeedback( feedback )
+    {
+    }
 
-private:
-  void run() override
-  {
-    FileUtils::copyRecursively( mSource, mDestination, mFeedback );
-  }
+  private:
+    void run() override
+    {
+      FileUtils::copyRecursively( mSource, mDestination, mFeedback );
+    }
 
-  QString mSource;
-  QString mDestination;
-  Feedback *mFeedback;
+    QString mSource;
+    QString mDestination;
+    Feedback *mFeedback;
 };
 
 
@@ -88,7 +88,8 @@ void AndroidPlatformUtilities::initSystem()
     engine.rootContext()->setContextProperty( "feedback", &feedback );
     engine.load( QUrl( QStringLiteral( "qrc:/qml/SystemLoader.qml" ) ) );
 
-    QMetaObject::invokeMethod( &app, [this, &app, &feedback] {
+    QMetaObject::invokeMethod( &app, [this, &app, &feedback]
+    {
       FileCopyThread *thread = new FileCopyThread( QStringLiteral( "assets:/share" ), mSystemGenericDataLocation, &feedback );
       app.connect( thread, &QThread::finished, &app, QApplication::quit );
       app.connect( thread, &QThread::finished, thread, &QThread::deleteLater );
@@ -322,7 +323,8 @@ void AndroidPlatformUtilities::setScreenLockPermission( const bool allowLock )
 {
   if ( mActivity.isValid() )
   {
-    QtAndroid::runOnAndroidThread( [allowLock] {
+    QtAndroid::runOnAndroidThread( [allowLock]
+    {
       QAndroidJniObject activity = QtAndroid::androidActivity();
       if ( activity.isValid() )
       {

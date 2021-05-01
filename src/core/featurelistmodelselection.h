@@ -24,39 +24,39 @@
 
 class FeatureListModelSelection : public QObject
 {
-  Q_OBJECT
-  Q_PROPERTY( MultiFeatureListModel *model READ model WRITE setModel NOTIFY modelChanged )
-  Q_PROPERTY( int focusedItem READ focusedItem WRITE setFocusedItem NOTIFY focusedItemChanged )
-  Q_PROPERTY( QgsVectorLayer *focusedLayer READ focusedLayer NOTIFY focusedItemChanged )
-  Q_PROPERTY( QgsFeature focusedFeature READ focusedFeature NOTIFY focusedItemChanged )
-  Q_PROPERTY( QgsGeometry focusedGeometry READ focusedGeometry NOTIFY focusedItemChanged )
+    Q_OBJECT
+    Q_PROPERTY( MultiFeatureListModel *model READ model WRITE setModel NOTIFY modelChanged )
+    Q_PROPERTY( int focusedItem READ focusedItem WRITE setFocusedItem NOTIFY focusedItemChanged )
+    Q_PROPERTY( QgsVectorLayer *focusedLayer READ focusedLayer NOTIFY focusedItemChanged )
+    Q_PROPERTY( QgsFeature focusedFeature READ focusedFeature NOTIFY focusedItemChanged )
+    Q_PROPERTY( QgsGeometry focusedGeometry READ focusedGeometry NOTIFY focusedItemChanged )
 
-public:
-  explicit FeatureListModelSelection( QObject *parent = nullptr );
+  public:
+    explicit FeatureListModelSelection( QObject *parent = nullptr );
 
-  int focusedItem() const;
+    int focusedItem() const;
 
-  void setFocusedItem( int item );
+    void setFocusedItem( int item );
 
-  Q_INVOKABLE void toggleSelectedItem( int item );
+    Q_INVOKABLE void toggleSelectedItem( int item );
 
-  Q_INVOKABLE void clear();
+    Q_INVOKABLE void clear();
 
-  MultiFeatureListModel *model() const;
-  void setModel( MultiFeatureListModel *model );
+    MultiFeatureListModel *model() const;
+    void setModel( MultiFeatureListModel *model );
 
-  QgsVectorLayer *focusedLayer() const;
-  QgsFeature focusedFeature() const;
-  QgsGeometry focusedGeometry() const;
+    QgsVectorLayer *focusedLayer() const;
+    QgsFeature focusedFeature() const;
+    QgsGeometry focusedGeometry() const;
 
-signals:
-  void modelChanged();
-  void focusedItemChanged();
-  void selectedFeaturesChanged();
+  signals:
+    void modelChanged();
+    void focusedItemChanged();
+    void selectedFeaturesChanged();
 
-private:
-  MultiFeatureListModel *mModel = nullptr;
-  int mFocusedItem = -1;
+  private:
+    MultiFeatureListModel *mModel = nullptr;
+    int mFocusedItem = -1;
 };
 
 #endif // FEATURELISTMODELSELECTION_H

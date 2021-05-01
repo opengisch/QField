@@ -28,44 +28,44 @@ class QgsFeature;
 
 class AppInterface : public QObject
 {
-  Q_OBJECT
+    Q_OBJECT
 
-public:
-  explicit AppInterface( QgisMobileapp *app );
-  AppInterface()
-  {
-    // You shouldn't get here, this constructor only exists that we can register it as a QML type
-    Q_ASSERT( false );
-  }
+  public:
+    explicit AppInterface( QgisMobileapp *app );
+    AppInterface()
+    {
+      // You shouldn't get here, this constructor only exists that we can register it as a QML type
+      Q_ASSERT( false );
+    }
 
-  Q_INVOKABLE void loadLastProject();
-  Q_INVOKABLE void loadFile( const QString &path, const QString &name = QString() );
-  Q_INVOKABLE void reloadProject();
-  Q_INVOKABLE void readProject();
-  Q_INVOKABLE void removeRecentProject( const QString &path );
+    Q_INVOKABLE void loadLastProject();
+    Q_INVOKABLE void loadFile( const QString &path, const QString &name = QString() );
+    Q_INVOKABLE void reloadProject();
+    Q_INVOKABLE void readProject();
+    Q_INVOKABLE void removeRecentProject( const QString &path );
 
-  Q_INVOKABLE bool print( const QString &layoutName );
-  Q_INVOKABLE bool printAtlasFeatures( const QString &layoutName, const QList<long long> &featureIds );
+    Q_INVOKABLE bool print( const QString &layoutName );
+    Q_INVOKABLE bool printAtlasFeatures( const QString &layoutName, const QList<long long> &featureIds );
 
-  static void setInstance( AppInterface *instance ) { sAppInterface = instance; }
-  static AppInterface *instance() { return sAppInterface; }
+    static void setInstance( AppInterface *instance ) { sAppInterface = instance; }
+    static AppInterface *instance() { return sAppInterface; }
 
-public slots:
-  void openFeatureForm();
+  public slots:
+    void openFeatureForm();
 
-signals:
-  void openFeatureFormRequested();
+  signals:
+    void openFeatureFormRequested();
 
-  void loadProjectTriggered( const QString &path, const QString &name );
+    void loadProjectTriggered( const QString &path, const QString &name );
 
-  void loadProjectEnded( const QString &path, const QString &name );
+    void loadProjectEnded( const QString &path, const QString &name );
 
-  void setMapExtent( const QgsRectangle &extent );
+    void setMapExtent( const QgsRectangle &extent );
 
-private:
-  static AppInterface *sAppInterface;
+  private:
+    static AppInterface *sAppInterface;
 
-  QgisMobileapp *mApp = nullptr;
+    QgisMobileapp *mApp = nullptr;
 };
 
 #endif // APPINTERFACE_H

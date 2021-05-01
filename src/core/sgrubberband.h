@@ -31,14 +31,14 @@ class RubberbandModel;
 
 class SGRubberband : public QSGNode
 {
-public:
-  SGRubberband( const QVector<QgsPoint> &points, QgsWkbTypes::GeometryType type, const QColor &color, qreal width );
+  public:
+    SGRubberband( const QVector<QgsPoint> &points, QgsWkbTypes::GeometryType type, const QColor &color, qreal width );
 
-private:
-  QSGGeometryNode *createLineGeometry( const QVector<QgsPoint> &points, qreal width );
-  QSGGeometryNode *createPolygonGeometry( const QVector<QgsPoint> &points );
+  private:
+    QSGGeometryNode *createLineGeometry( const QVector<QgsPoint> &points, qreal width );
+    QSGGeometryNode *createPolygonGeometry( const QVector<QgsPoint> &points );
 
-  QSGFlatColorMaterial mMaterial;
+    QSGFlatColorMaterial mMaterial;
 };
 
 #endif // QGSSGRUBBERBAND_H

@@ -801,53 +801,53 @@ void FeatureModel::applyGeometryToVertexModel()
 // taken from QGIS' qgsvectortool.cpp
 class MatchCollectingFilter : public QgsPointLocator::MatchFilter
 {
-public:
-  QList<QgsPointLocator::Match> matches;
+  public:
+    QList<QgsPointLocator::Match> matches;
 
-  MatchCollectingFilter() {}
+    MatchCollectingFilter() {}
 
-  bool acceptMatch( const QgsPointLocator::Match &match ) override
-  {
-    if ( match.distance() > 0 )
-      return false;
-
-    // there may be multiple points at the same location, but we get only one
-    // result... the locator API needs a new method verticesInRect()
-    QgsFeature f;
-    match.layer()->getFeatures( QgsFeatureRequest( match.featureId() ).setNoAttributes() ).nextFeature( f );
-    QgsGeometry matchGeom = f.geometry();
-    bool isPolygon = matchGeom.type() == QgsWkbTypes::PolygonGeometry;
-    QgsVertexId polygonRingVid;
-    QgsVertexId vid;
-    QgsPoint pt;
-    while ( matchGeom.constGet()->nextVertex( vid, pt ) )
+    bool acceptMatch( const QgsPointLocator::Match &match ) override
     {
-      int vindex = matchGeom.vertexNrFromVertexId( vid );
-      if ( pt.x() == match.point().x() && pt.y() == match.point().y() )
-      {
-        if ( isPolygon )
-        {
-          // for polygons we need to handle the case where the first vertex is matching because the
-          // last point will have the same coordinates and we would have a duplicate match which
-          // would make subsequent code behave incorrectly (topology editing mode would add a single
-          // vertex twice)
-          if ( vid.vertex == 0 )
-          {
-            polygonRingVid = vid;
-          }
-          else if ( vid.ringEqual( polygonRingVid ) && vid.vertex == matchGeom.constGet()->vertexCount( vid.part, vid.ring ) - 1 )
-          {
-            continue;
-          }
-        }
+      if ( match.distance() > 0 )
+        return false;
 
-        QgsPointLocator::Match extra_match( match.type(), match.layer(), match.featureId(),
-                                            0, match.point(), vindex );
-        matches.append( extra_match );
+      // there may be multiple points at the same location, but we get only one
+      // result... the locator API needs a new method verticesInRect()
+      QgsFeature f;
+      match.layer()->getFeatures( QgsFeatureRequest( match.featureId() ).setNoAttributes() ).nextFeature( f );
+      QgsGeometry matchGeom = f.geometry();
+      bool isPolygon = matchGeom.type() == QgsWkbTypes::PolygonGeometry;
+      QgsVertexId polygonRingVid;
+      QgsVertexId vid;
+      QgsPoint pt;
+      while ( matchGeom.constGet()->nextVertex( vid, pt ) )
+      {
+        int vindex = matchGeom.vertexNrFromVertexId( vid );
+        if ( pt.x() == match.point().x() && pt.y() == match.point().y() )
+        {
+          if ( isPolygon )
+          {
+            // for polygons we need to handle the case where the first vertex is matching because the
+            // last point will have the same coordinates and we would have a duplicate match which
+            // would make subsequent code behave incorrectly (topology editing mode would add a single
+            // vertex twice)
+            if ( vid.vertex == 0 )
+            {
+              polygonRingVid = vid;
+            }
+            else if ( vid.ringEqual( polygonRingVid ) && vid.vertex == matchGeom.constGet()->vertexCount( vid.part, vid.ring ) - 1 )
+            {
+              continue;
+            }
+          }
+
+          QgsPointLocator::Match extra_match( match.type(), match.layer(), match.featureId(),
+                                              0, match.point(), vindex );
+          matches.append( extra_match );
+        }
       }
+      return true;
     }
-    return true;
-  }
 };
 
 void FeatureModel::applyVertexModelToLayerTopography()

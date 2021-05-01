@@ -65,11 +65,11 @@ typedef struct ActiveRegion ActiveRegion; /* Internal data */
  * pointer for the global edge list (see below).
  *
  * The notation used for mesh navigation:
- *	Sym   = the mate of a half-edge (same edge, but opposite direction)
- *	Onext = edge CCW around origin vertex (keep same origin)
- *	Dnext = edge CCW around destination vertex (keep same dest)
- *	Lnext = edge CCW around left face (dest becomes new origin)
- *	Rnext = edge CCW around right face (origin becomes new dest)
+ *  Sym   = the mate of a half-edge (same edge, but opposite direction)
+ *  Onext = edge CCW around origin vertex (keep same origin)
+ *  Dnext = edge CCW around destination vertex (keep same dest)
+ *  Lnext = edge CCW around left face (dest becomes new origin)
+ *  Rnext = edge CCW around right face (origin becomes new dest)
  *
  * "prev" means to substitute CW for CCW in the definitions above.
  *
@@ -192,8 +192,8 @@ struct GLUmesh
  *
  * __gl_meshSplice( eOrg, eDst ) is the basic operation for changing the
  * mesh connectivity and topology.  It changes the mesh so that
- *	eOrg->Onext <- OLD( eDst->Onext )
- *	eDst->Onext <- OLD( eOrg->Onext )
+ *  eOrg->Onext <- OLD( eDst->Onext )
+ *  eDst->Onext <- OLD( eOrg->Onext )
  * where OLD(...) means the value before the meshSplice operation.
  *
  * This can have two effects on the vertex structure:

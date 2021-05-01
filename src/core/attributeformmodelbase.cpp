@@ -48,7 +48,7 @@ AttributeFormModelBase::~AttributeFormModelBase()
 
 void AttributeFormModelBase::onMapThemeCollectionChanged()
 {
-  connect( QgsProject::instance()->mapThemeCollection(), &QgsMapThemeCollection::mapThemeChanged, this, [=] { resetModel(); applyFeatureModel(); } );
+  connect( QgsProject::instance()->mapThemeCollection(), &QgsMapThemeCollection::mapThemeChanged, this, [ = ] { resetModel(); applyFeatureModel(); } );
 }
 
 QHash<int, QByteArray> AttributeFormModelBase::roleNames() const

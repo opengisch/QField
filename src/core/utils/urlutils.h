@@ -25,16 +25,16 @@
 
 class QFIELD_CORE_EXPORT UrlUtils : public QObject
 {
-  Q_OBJECT
+    Q_OBJECT
 
-public:
-  explicit UrlUtils( QObject *parent = nullptr );
+  public:
+    explicit UrlUtils( QObject *parent = nullptr );
 
 
-  /**
-     * Checks whether the provided string is a relative url (has no protocol or starts with `file://`).
-     */
-  static Q_INVOKABLE bool isRelativeOrFileUrl( const QString &url );
+    /**
+       * Checks whether the provided string is a relative url (has no protocol or starts with `file://`).
+       */
+    static Q_INVOKABLE bool isRelativeOrFileUrl( const QString &url );
 };
 
 #endif // URLUTILS_H
