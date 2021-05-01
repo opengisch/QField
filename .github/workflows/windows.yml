@@ -10,7 +10,6 @@ on:
     types: ['prereleased', 'released']
 
 env:
-  VCPKG_PRESEED_PKGS: qca  qscintilla qt5-activeqt qt5-base qt5-charts qt5-connectivity qt5-declarative qt5-graphicaleffects qt5-imageformats qt5-location qt5-multimedia qt5-quickcontrols qt5-quickcontrols2 qt5-sensors qt5-serialport qt5-svg qt5-tools qt5-webview qt5-winextras qtkeychain qwt gdal gettext protobuf
   VCPKG_ROOT: 'C:/src'
   CMAKE_BUILD_DIR: 'C:/builddir'
   VCPKG_DEFAULT_BINARY_CACHE: 'C:/vcpkg_cache'
@@ -18,7 +17,6 @@ env:
 
 jobs:
   build-qfield:
-    needs: build-seed2
     name: Build QField
     runs-on: windows-latest
     strategy:
@@ -61,17 +59,6 @@ jobs:
           -name "GitHub"
           -username "opengisch"
           -password "${{ secrets.GITHUB_TOKEN }}"
-
-      - name: Restore vcpkg and its artifacts
-        id: cache-vcpkg
-        uses: actions/cache@v2.1.5
-        with:
-          path: |
-            ${{ env.VCPKG_DEFAULT_BINARY_CACHE }}
-          key: |
-            ${{ hashFiles( 'vcpkg.json' ) }}-${{ hashFiles( '.git/modules/vcpkg/HEAD' )}}-${{ env.TRIPLET }}-qgis
-          restore-keys: |
-            ${{ hashFiles( 'vcpkg.json' ) }}-${{ hashFiles( '.git/modules/vcpkg/HEAD' )}}-${{ env.TRIPLET }}-seed2
 
       - uses: ilammy/msvc-dev-cmd@v1
 
@@ -116,119 +103,3 @@ jobs:
         if: always()
         run: |
           Get-PSDrive
-
-  ########################################################
-  # This is just a helper to seed the cache so we can stay
-  # within the github job time limit of 6 hours
-  ########################################################
-  build-seed2:
-    needs: build-seed
-    name: Build other deps
-    runs-on: windows-latest
-    strategy:
-      fail-fast: false
-
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v2
-        with:
-          submodules: recursive
-
-      - name: Restore vcpkg and its artifacts
-        uses: actions/cache@v2.1.5
-        with:
-          path: |
-            ${{ env.VCPKG_DEFAULT_BINARY_CACHE }}
-          key: |
-            ${{ hashFiles( 'vcpkg.json' ) }}-${{ hashFiles( '.git/modules/vcpkg/HEAD' )}}-${{ env.TRIPLET }}-seed2
-          restore-keys: |
-            ${{ hashFiles( 'vcpkg.json' ) }}-${{ hashFiles( '.git/modules/vcpkg/HEAD' )}}-${{ env.TRIPLET }}-${{ env.VCPKG_PRESEED_PKGS }}-seed
-
-
-      - name: Install CMake and Ninja
-        if: steps.cache-vcpkg.outputs.cache-hit != 'true'
-        uses: lukka/get-cmake@latest
-
-      - name: Bootstrap vcpkg
-        if: steps.cache-vcpkg.outputs.cache-hit != 'true'
-        run: |
-          $VCPKG_SHA = Get-Content .git/modules/vcpkg/HEAD -First 1
-          md "${{ env.VCPKG_ROOT }}"
-          cd "${{ env.VCPKG_ROOT }}"
-          git init
-          git remote add origin https://github.com/m-kuhn/vcpkg.git
-          git fetch --depth 1 origin $VCPKG_SHA
-          git checkout FETCH_HEAD
-          .\bootstrap-vcpkg.bat
-
-
-      - uses: ilammy/msvc-dev-cmd@v1
-        if: steps.cache-vcpkg.outputs.cache-hit != 'true'
-
-      - name: Install dependencies and generate project files
-        if: steps.cache-vcpkg.outputs.cache-hit != 'true'
-        run: |
-          cmake -S "${{ github.workspace }}" -B "${{ env.CMAKE_BUILD_DIR }}" -GNinja -DCMAKE_BUILD_TYPE=${{ matrix.build-type }} -DCMAKE_TOOLCHAIN_FILE="${{ env.VCPKG_ROOT }}/scripts/buildsystems/vcpkg.cmake"
-
-#      - name: Export nuget
-#        run: |
-#          cd ${{ env.VCPKG_ROOT }}
-#          .\vcpkg.exe export --triplet ${{ env.TRIPLET }} qt5-base --nuget
-
-      # Left for debugging purpose
-      #
-      # - name: Upload Build Logs
-      #   uses: actions/upload-artifact@v2
-      #   if: always()
-      #   with:
-      #     name: build-logs
-      #     path: C:/src/buildtrees/**/*.log
-
-  ########################################################
-  # This is just a helper to seed the cache so we can stay
-  # within the github job time limit of 6 hours
-  ########################################################
-  build-seed:
-    name: Build Qt
-    runs-on: windows-latest
-
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v2
-        with:
-          submodules: recursive
-
-      - name: Restore vcpkg and its artifacts
-        id: cache-vcpkg
-        uses: actions/cache@v2.1.5
-        with:
-          path: |
-            ${{ env.VCPKG_DEFAULT_BINARY_CACHE }}
-          key: |
-            ${{ hashFiles( 'vcpkg.json' ) }}-${{ hashFiles( '.git/modules/vcpkg/HEAD' )}}-${{ env.TRIPLET }}-${{ env.VCPKG_PRESEED_PKGS }}-seed
-          restore-keys: |
-            ${{ hashFiles( 'vcpkg.json' ) }}-${{ hashFiles( '.git/modules/vcpkg/HEAD' )}}-${{ env.TRIPLET }}-seed2
-
-      - name: Install CMake and Ninja
-        if: steps.cache-vcpkg.outputs.cache-hit != 'true'
-        uses: lukka/get-cmake@latest
-
-      - name: Bootstrap vcpkg
-        if: steps.cache-vcpkg.outputs.cache-hit != 'true'
-        run: |
-          echo "Cache result: ${{ steps.cache-vcpkg.outputs.cache-hit }}"
-          $VCPKG_SHA = Get-Content .git/modules/vcpkg/HEAD -First 1
-          md "${{ env.VCPKG_ROOT }}"
-          md -Force "${{ env.VCPKG_DEFAULT_BINARY_CACHE }}"
-          cd "${{ env.VCPKG_ROOT }}"
-          git init
-          git remote add origin https://github.com/m-kuhn/vcpkg.git
-          git fetch --depth 1 origin $VCPKG_SHA
-          git checkout FETCH_HEAD
-          .\bootstrap-vcpkg.bat
-
-      - name: Build vcpkg
-        if: steps.cache-vcpkg.outputs.cache-hit != 'true'
-        run: |
-          cd ${{ env.VCPKG_ROOT }}
-          .\vcpkg.exe install --triplet ${{ env.TRIPLET }} ${{ env.VCPKG_PRESEED_PKGS }}
