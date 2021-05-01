@@ -99,4 +99,7 @@ jobs:
           sudo apt install -y astyle
           find src/ -name '*.cpp' -o -name '*.h' | xargs ./scripts/astyle.sh
           find test/ -name '*.cpp' -o -name '*.h' | xargs ./scripts/astyle.sh
-          [ -z "$(git status --porcelain)" ]
+          if [ ! -z "$(git status --porcelain)" ]; then
+            git diff
+            false
+          fi
