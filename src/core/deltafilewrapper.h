@@ -18,13 +18,12 @@
 #ifndef FEATUREDELTAS_H
 #define FEATUREDELTAS_H
 
-#include <qgsfeature.h>
-#include <qgsvectorlayer.h>
-#include <qgslogger.h>
-
 #include <QJsonArray>
 #include <QJsonDocument>
 #include <QJsonObject>
+#include <qgsfeature.h>
+#include <qgslogger.h>
+#include <qgsvectorlayer.h>
 
 
 const QString DeltaFormatVersion = QStringLiteral( "1.0" );
@@ -322,7 +321,6 @@ class DeltaFileWrapper : public QObject
 
 
   private:
-
     /**
      * Converts geometry to QJsonValue string in WKT format.
      * Returns null if the geometry is null, or WKT string of the geometry

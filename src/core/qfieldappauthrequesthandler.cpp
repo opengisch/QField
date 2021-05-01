@@ -19,13 +19,11 @@
 
 #include <QAuthenticator>
 #include <QThread>
-#include <qgsmessagelog.h>
-
 #include <qgscredentials.h>
+#include <qgsmessagelog.h>
 
 QFieldAppAuthRequestHandler::QFieldAppAuthRequestHandler()
 {
-
 }
 
 void QFieldAppAuthRequestHandler::enterCredentials( const QString &realm, const QString &username, const QString &password )
@@ -35,7 +33,7 @@ void QFieldAppAuthRequestHandler::enterCredentials( const QString &realm, const 
 
 QString QFieldAppAuthRequestHandler::getFirstUnhandledRealm() const
 {
-  auto entry = std::find_if( mRealms.begin(), mRealms.end(), []( const RealmEntry &entry ) { return !entry.canceled; } );
+  auto entry = std::find_if( mRealms.begin(), mRealms.end(), []( const RealmEntry & entry ) { return !entry.canceled; } );
   return entry != mRealms.end() ? entry->realm : QString();
 }
 
@@ -97,7 +95,7 @@ void QFieldAppAuthRequestHandler::clearStoredRealms()
 
 void QFieldAppAuthRequestHandler::authNeeded( const QString &realm )
 {
-  if ( std::any_of( mRealms.begin(), mRealms.end(), [&realm]( const RealmEntry &entry ) { return entry.realm == realm; } ) )
+  if ( std::any_of( mRealms.begin(), mRealms.end(), [&realm]( const RealmEntry & entry ) { return entry.realm == realm; } ) )
   {
     //realm already in list
     return;
@@ -147,8 +145,7 @@ void QFieldAppAuthRequestHandler::handleAuthRequest( QNetworkReply *reply, QAuth
       // save credentials
       QgsCredentials::instance()->put(
         QStringLiteral( "%1 at %2" ).arg( auth->realm(), reply->url().host() ),
-        username, password
-      );
+        username, password );
       break;
     }
     else

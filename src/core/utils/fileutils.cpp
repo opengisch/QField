@@ -15,17 +15,17 @@
  ***************************************************************************/
 
 #include "fileutils.h"
-#include <qgis.h>
-#include <QMimeDatabase>
+
 #include <QDebug>
-#include <QFileInfo>
 #include <QDir>
 #include <QDirIterator>
+#include <QFileInfo>
+#include <QMimeDatabase>
+#include <qgis.h>
 
 FileUtils::FileUtils( QObject *parent )
   : QObject( parent )
 {
-
 }
 
 QString FileUtils::mimeTypeName( const QString &filePath )
@@ -62,7 +62,6 @@ bool FileUtils::copyRecursively( const QString &sourceFolder, const QString &des
   int current = 0;
   for ( QPair<QString, QString> srcDestFilePair : std::as_const( mapping ) )
   {
-
     QString srcName = srcDestFilePair.first;
     QString destName = srcDestFilePair.second;
 
@@ -125,7 +124,7 @@ QByteArray FileUtils::fileChecksum( const QString &fileName, const QCryptographi
 {
   QFile f( fileName );
 
-  if ( ! f.open( QFile::ReadOnly ) )
+  if ( !f.open( QFile::ReadOnly ) )
     return QByteArray();
 
   QCryptographicHash hash( hashAlgorithm );

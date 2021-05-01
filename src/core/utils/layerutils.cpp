@@ -29,9 +29,9 @@
 #include <qgsvectorlayer.h>
 #include <qgswkbtypes.h>
 
-LayerUtils::LayerUtils( QObject *parent ) : QObject( parent )
+LayerUtils::LayerUtils( QObject *parent )
+  : QObject( parent )
 {
-
 }
 
 QgsSymbol *LayerUtils::defaultSymbol( QgsVectorLayer *layer )
@@ -59,7 +59,7 @@ QgsSymbol *LayerUtils::defaultSymbol( QgsVectorLayer *layer )
 
     case QgsWkbTypes::PolygonGeometry:
     {
-      QgsSimpleFillSymbolLayer *symbolLayer = new QgsSimpleFillSymbolLayer( QColor( 255, 0, 0, 100), DEFAULT_SIMPLEFILL_STYLE, QColor( 255, 0, 0), DEFAULT_SIMPLEFILL_BORDERSTYLE, 0.6 );
+      QgsSimpleFillSymbolLayer *symbolLayer = new QgsSimpleFillSymbolLayer( QColor( 255, 0, 0, 100 ), DEFAULT_SIMPLEFILL_STYLE, QColor( 255, 0, 0 ), DEFAULT_SIMPLEFILL_BORDERSTYLE, 0.6 );
       symbolLayers << symbolLayer;
       symbol = new QgsFillSymbol( symbolLayers );
       break;
@@ -78,7 +78,7 @@ bool LayerUtils::isAtlasCoverageLayer( QgsVectorLayer *layer )
     return false;
 
   const QList<QgsPrintLayout *> printLayouts = QgsProject::instance()->layoutManager()->printLayouts();
-  for( QgsPrintLayout *printLayout : printLayouts )
+  for ( QgsPrintLayout *printLayout : printLayouts )
   {
     if ( printLayout->atlas() )
     {

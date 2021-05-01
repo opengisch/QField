@@ -15,8 +15,10 @@
  ***************************************************************************/
 
 #include "projectsource.h"
+
 #include <QDebug>
 
-ProjectSource::ProjectSource( QObject *parent ) : QObject( parent )
+ProjectSource::ProjectSource( QObject *parent )
+  : QObject( parent )
 {
 }

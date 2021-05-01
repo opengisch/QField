@@ -17,7 +17,6 @@
 #define QGSQUICKFEATURELAYERPAIR_H
 
 #include <QObject>
-
 #include <qgsfeature.h>
 
 

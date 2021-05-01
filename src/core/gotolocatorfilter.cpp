@@ -15,18 +15,16 @@
  ***************************************************************************/
 
 #include "gotolocatorfilter.h"
+#include "locatormodelsuperbridge.h"
+#include "qgsquickmapsettings.h"
 
 #include <QAction>
 #include <QRegularExpression>
-
 #include <qgscoordinateutils.h>
 #include <qgsexpressioncontextutils.h>
 #include <qgsfeedback.h>
 #include <qgspoint.h>
 #include <qgsproject.h>
-
-#include "locatormodelsuperbridge.h"
-#include "qgsquickmapsettings.h"
 
 
 GotoLocatorFilter::GotoLocatorFilter( LocatorModelSuperBridge *locatorBridge, QObject *parent )
@@ -55,9 +53,7 @@ void GotoLocatorFilter::fetchResults( const QString &string, const QgsLocatorCon
   QLocale locale;
 
   // Coordinates such as 106.8468,-6.3804
-  QRegularExpression separatorRx( QStringLiteral( "^([0-9\\-\\%1\\%2]*)[\\s%3]*([0-9\\-\\%1\\%2]*)$" ).arg( locale.decimalPoint(),
-                                  locale.groupSeparator(),
-                                  locale.decimalPoint() != ',' && locale.groupSeparator() != ',' ? QStringLiteral( "\\," ) : QString() ) );
+  QRegularExpression separatorRx( QStringLiteral( "^([0-9\\-\\%1\\%2]*)[\\s%3]*([0-9\\-\\%1\\%2]*)$" ).arg( locale.decimalPoint(), locale.groupSeparator(), locale.decimalPoint() != ',' && locale.groupSeparator() != ',' ? QStringLiteral( "\\," ) : QString() ) );
   QRegularExpressionMatch match = separatorRx.match( string.trimmed() );
   if ( match.hasMatch() )
   {
@@ -122,7 +118,7 @@ void GotoLocatorFilter::fetchResults( const QString &string, const QgsLocatorCon
           Q_UNUSED( e )
           return;
         }
-        catch(...)
+        catch ( ... )
         {
           // catch any other errors
           return;

@@ -17,7 +17,6 @@
 #define APPCOORDINATEOPERATIONHANDLERS_H
 
 #include <QObject>
-
 #include <qgscoordinatereferencesystem.h>
 #include <qgsdatumtransform.h>
 
@@ -30,7 +29,6 @@ class AppMissingGridHandler : public QObject
 {
     Q_OBJECT
   public:
-
     explicit AppMissingGridHandler( QObject *parent );
 
   signals:
@@ -80,14 +78,13 @@ class AppMissingGridHandler : public QObject
                                       const QString &desired );
 
   private:
-
     bool shouldWarnAboutPair( const QgsCoordinateReferenceSystem &source, const QgsCoordinateReferenceSystem &dest );
     bool shouldWarnAboutPairForCurrentProject( const QgsCoordinateReferenceSystem &source, const QgsCoordinateReferenceSystem &dest );
     bool shouldWarnAboutBallparkPairForCurrentProject( const QgsCoordinateReferenceSystem &source, const QgsCoordinateReferenceSystem &dest );
 
-    QList< QPair< QgsCoordinateReferenceSystem, QgsCoordinateReferenceSystem > > mAlreadyWarnedPairs;
-    QList< QPair< QgsCoordinateReferenceSystem, QgsCoordinateReferenceSystem > > mAlreadyWarnedPairsForProject;
-    QList< QPair< QgsCoordinateReferenceSystem, QgsCoordinateReferenceSystem > > mAlreadyWarnedBallparkPairsForProject;
+    QList<QPair<QgsCoordinateReferenceSystem, QgsCoordinateReferenceSystem>> mAlreadyWarnedPairs;
+    QList<QPair<QgsCoordinateReferenceSystem, QgsCoordinateReferenceSystem>> mAlreadyWarnedPairsForProject;
+    QList<QPair<QgsCoordinateReferenceSystem, QgsCoordinateReferenceSystem>> mAlreadyWarnedBallparkPairsForProject;
 };
 
 #endif // QGSAPPCOORDINATEOPERATIONHANDLERS_H

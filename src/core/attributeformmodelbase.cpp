@@ -14,24 +14,23 @@
  *                                                                         *
  ***************************************************************************/
 
-#include "attributeformmodelbase.h"
 #include "attributeformmodel.h"
+#include "attributeformmodelbase.h"
 
-#include <qgsvectorlayer.h>
-#include <qgseditorwidgetsetup.h>
-#include <qgsproject.h>
-#include <qgsrelationmanager.h>
-#include <qgsdatetimefieldformatter.h>
-#include <qgsvectorlayerutils.h>
+#include <QRegularExpression>
 #include <qgsattributeeditorcontainer.h>
 #include <qgsattributeeditorelement.h>
 #include <qgsattributeeditorfield.h>
 #include <qgsattributeeditorhtmlelement.h>
 #include <qgsattributeeditorqmlelement.h>
 #include <qgsattributeeditorrelation.h>
+#include <qgsdatetimefieldformatter.h>
+#include <qgseditorwidgetsetup.h>
 #include <qgsmapthemecollection.h>
-
-#include <QRegularExpression>
+#include <qgsproject.h>
+#include <qgsrelationmanager.h>
+#include <qgsvectorlayer.h>
+#include <qgsvectorlayerutils.h>
 
 
 AttributeFormModelBase::AttributeFormModelBase( QObject *parent )
@@ -49,15 +48,15 @@ AttributeFormModelBase::~AttributeFormModelBase()
 
 void AttributeFormModelBase::onMapThemeCollectionChanged()
 {
-  connect( QgsProject::instance()->mapThemeCollection(), &QgsMapThemeCollection::mapThemeChanged, this, [=] { resetModel(); applyFeatureModel(); } );
+  connect( QgsProject::instance()->mapThemeCollection(), &QgsMapThemeCollection::mapThemeChanged, this, [ = ] { resetModel(); applyFeatureModel(); } );
 }
 
 QHash<int, QByteArray> AttributeFormModelBase::roleNames() const
 {
   QHash<int, QByteArray> roles = QAbstractItemModel::roleNames();
 
-  roles[AttributeFormModel::ElementType]  = "Type";
-  roles[AttributeFormModel::Name]  = "Name";
+  roles[AttributeFormModel::ElementType] = "Type";
+  roles[AttributeFormModel::Name] = "Name";
   roles[AttributeFormModel::AttributeValue] = "AttributeValue";
   roles[AttributeFormModel::AttributeEditable] = "AttributeEditable";
   roles[AttributeFormModel::EditorWidget] = "EditorWidget";
@@ -219,7 +218,7 @@ void AttributeFormModelBase::resetModel()
 
 void AttributeFormModelBase::applyFeatureModel()
 {
-  for ( int i = 0 ; i < invisibleRootItem()->rowCount(); ++i )
+  for ( int i = 0; i < invisibleRootItem()->rowCount(); ++i )
   {
     updateAttributeValue( invisibleRootItem()->child( i ) );
   }
@@ -261,18 +260,17 @@ void AttributeFormModelBase::updateAttributeValue( QStandardItem *item )
     int fieldIndex = item->data( AttributeFormModel::FieldIndex ).toInt();
     QVariant attributeValue = mFeatureModel->data( mFeatureModel->index( fieldIndex ), FeatureModel::AttributeValue );
     item->setData( attributeValue.isNull() ? QVariant() : attributeValue, AttributeFormModel::AttributeValue );
-    item->setData( mFeatureModel->data( mFeatureModel->index( fieldIndex ), FeatureModel::AttributeAllowEdit ), AttributeFormModel::AttributeAllowEdit);
+    item->setData( mFeatureModel->data( mFeatureModel->index( fieldIndex ), FeatureModel::AttributeAllowEdit ), AttributeFormModel::AttributeAllowEdit );
     //set item visibility to false in case it's a linked attribute
     item->setData( !mFeatureModel->data( mFeatureModel->index( fieldIndex ), FeatureModel::LinkedAttribute ).toBool(), AttributeFormModel::CurrentlyVisible );
   }
-  else if ( item->data( AttributeFormModel::ElementType ) == QStringLiteral( "qml" ) ||
-            item->data( AttributeFormModel::ElementType ) == QStringLiteral( "html" ) )
+  else if ( item->data( AttributeFormModel::ElementType ) == QStringLiteral( "qml" ) || item->data( AttributeFormModel::ElementType ) == QStringLiteral( "html" ) )
   {
     QString code = mEditorWidgetCodes[item];
 
     QRegularExpression re( "expression\\.evaluate\\(\\s*\\\"(.*?[^\\\\])\\\"\\s*\\)" );
     QRegularExpressionMatch match = re.match( code );
-    while( match.hasMatch() )
+    while ( match.hasMatch() )
     {
       QString expression = match.captured( 1 );
       expression = expression.replace( QStringLiteral( "\\\"" ), QStringLiteral( "\"" ) );
@@ -285,7 +283,7 @@ void AttributeFormModelBase::updateAttributeValue( QStandardItem *item )
       QVariant result = exp.evaluate( &expressionContext );
 
       QString resultString;
-      switch( static_cast<QMetaType::Type>( result.type() ) )
+      switch ( static_cast<QMetaType::Type>( result.type() ) )
       {
         case QMetaType::Int:
         case QMetaType::UInt:
@@ -372,7 +370,7 @@ void AttributeFormModelBase::flatten( QgsAttributeEditorContainer *container, QS
         item->setData( true, AttributeFormModel::ConstraintSoftValid );
         item->setData( mFeatureModel->data( mFeatureModel->index( fieldIndex ), FeatureModel::AttributeAllowEdit ), AttributeFormModel::AttributeAllowEdit );
         if ( color.isValid() )
-            item->setData( color, AttributeFormModel::Color );
+          item->setData( color, AttributeFormModel::Color );
 
         // create constraint description
         QStringList descriptions;
@@ -417,7 +415,7 @@ void AttributeFormModelBase::flatten( QgsAttributeEditorContainer *container, QS
         item->setData( "relation", AttributeFormModel::ElementType );
         item->setData( "RelationEditor", AttributeFormModel::EditorWidget );
         item->setData( relation.id(), AttributeFormModel::RelationId );
-        item->setData( mLayer->editFormConfig().widgetConfig( relation.id() )[ QStringLiteral( "nm-rel" ) ].toString(), AttributeFormModel::NmRelationId );
+        item->setData( mLayer->editFormConfig().widgetConfig( relation.id() )[QStringLiteral( "nm-rel" )].toString(), AttributeFormModel::NmRelationId );
         item->setData( container->isGroupBox() ? container->name() : QString(), AttributeFormModel::Group );
         item->setData( true, AttributeFormModel::CurrentlyVisible );
         item->setData( true, AttributeFormModel::ConstraintHardValid );

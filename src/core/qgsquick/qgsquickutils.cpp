@@ -13,24 +13,22 @@
  *                                                                         *
  ***************************************************************************/
 
-#include <QGuiApplication>
-#include <QScreen>
-#include <QString>
-#include <QWindow>
-#include <QFileInfo>
-
-#include <qgscoordinatereferencesystem.h>
-#include <qgscoordinatetransform.h>
-#include <qgsdistancearea.h>
-#include <qgslogger.h>
-#include <qgsvectorlayer.h>
-#include <qgsfeature.h>
-#include <qgsunittypes.h>
-
 #include "qgsquickfeaturelayerpair.h"
 #include "qgsquickmapsettings.h"
 #include "qgsquickutils.h"
 
+#include <QFileInfo>
+#include <QGuiApplication>
+#include <QScreen>
+#include <QString>
+#include <QWindow>
+#include <qgscoordinatereferencesystem.h>
+#include <qgscoordinatetransform.h>
+#include <qgsdistancearea.h>
+#include <qgsfeature.h>
+#include <qgslogger.h>
+#include <qgsunittypes.h>
+#include <qgsvectorlayer.h>
 
 
 QgsQuickUtils::QgsQuickUtils( QObject *parent )
@@ -79,7 +77,8 @@ double QgsQuickUtils::distanceFromUnitToUnitFactor( const QgsUnitTypes::Distance
 
 double QgsQuickUtils::screenUnitsToMeters( QgsQuickMapSettings *mapSettings, int baseLengthPixels )
 {
-  if ( mapSettings == nullptr ) return 0.0;
+  if ( mapSettings == nullptr )
+    return 0.0;
 
   QgsDistanceArea mDistanceArea;
   mDistanceArea.setEllipsoid( QStringLiteral( "WGS84" ) );
@@ -333,7 +332,7 @@ qreal QgsQuickUtils::calculateScreenDensity()
   double dpiX = screen->physicalDotsPerInchX();
   double dpiY = screen->physicalDotsPerInchY();
   double dpi = dpiX < dpiY ? dpiX : dpiY; // In case of asymmetrical DPI. Improbable
-  return dpi / 160.;  // 160 DPI is baseline for density-independent pixels in Android
+  return dpi / 160.;                      // 160 DPI is baseline for density-independent pixels in Android
 }
 
 void QgsQuickUtils::selectFeaturesInLayer( QgsVectorLayer *layer, const QList<int> &fids, QgsVectorLayer::SelectBehavior behavior )

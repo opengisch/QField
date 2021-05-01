@@ -19,9 +19,8 @@
 
 #include <QObject>
 #include <QStandardItemModel>
-
-#include <qgsgeometry.h>
 #include <qgscoordinatereferencesystem.h>
+#include <qgsgeometry.h>
 
 /**
  * @brief The QgsGeometryWrapper class wraps QGIS geometry and CRS classes
@@ -64,9 +63,6 @@ class QgsGeometryWrapper : public QObject
     QgsGeometry mQgsGeometry;
     QgsCoordinateReferenceSystem mCrs;
 };
-
-
-
 
 
 Q_DECLARE_METATYPE( QgsGeometryWrapper * )

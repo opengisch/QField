@@ -16,16 +16,16 @@
 #ifndef RUBBERBANDMODEL_H
 #define RUBBERBANDMODEL_H
 
-#include <QVector>
+#include "qfield_core_export.h"
+
+#include <QDateTime>
 #include <QObject>
 #include <QPointF>
-#include <QDateTime>
+#include <QVector>
 #include <qgis.h>
-#include <qgspoint.h>
 #include <qgsabstractgeometry.h>
 #include <qgsgeometry.h>
-
-#include "qfield_core_export.h"
+#include <qgspoint.h>
 
 class QgsVectorLayer;
 
@@ -103,7 +103,7 @@ class QFIELD_CORE_EXPORT RubberbandModel : public QObject
     Q_INVOKABLE void addVertex();
 
     //! Add vertex with a given point
-    Q_INVOKABLE void addVertexFromPoint(const QgsPoint &point );
+    Q_INVOKABLE void addVertexFromPoint( const QgsPoint &point );
 
     Q_INVOKABLE void removeVertex();
 

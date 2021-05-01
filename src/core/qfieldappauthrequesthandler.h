@@ -38,7 +38,6 @@ class QFieldAppAuthRequestHandler : public QObject, public QgsNetworkAuthenticat
     Q_OBJECT
 
   public:
-
     QFieldAppAuthRequestHandler();
 
     //! handles the auth request - triggered by the authRequestOccurred signal
@@ -60,7 +59,6 @@ class QFieldAppAuthRequestHandler : public QObject, public QgsNetworkAuthenticat
     void reloadEverything();
 
   private:
-
     //! adds the realm to the list on loading the project
     void authNeeded( const QString &realm );
 

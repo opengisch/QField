@@ -14,10 +14,10 @@
  *                                                                         *
  ***************************************************************************/
 
+#include "referencingfeaturelistmodel.h"
+
 #include <qgsmessagelog.h>
 #include <qgsproject.h>
-
-#include "referencingfeaturelistmodel.h"
 
 ReferencingFeatureListModel::ReferencingFeatureListModel( QObject *parent )
   : QAbstractItemModel( parent )
@@ -155,7 +155,8 @@ void ReferencingFeatureListModel::updateModel()
   if ( mGatherer )
     mEntries = mGatherer->entries();
 
-  std::sort( mEntries.begin(), mEntries.end(), []( const Entry &e1, const Entry &e2 ) {
+  std::sort( mEntries.begin(), mEntries.end(), []( const Entry & e1, const Entry & e2 )
+  {
     return e1.displayString < e2.displayString;
   } );
 
@@ -218,24 +219,24 @@ void ReferencingFeatureListModel::reload()
 bool ReferencingFeatureListModel::deleteFeature( QgsFeatureId referencingFeatureId )
 {
   QgsVectorLayer *vl = mRelation.referencingLayer();
-  
-  if ( ! vl->startEditing() )
+
+  if ( !vl->startEditing() )
   {
     QgsMessageLog::logMessage( tr( "Cannot start editing" ), "QField", Qgis::Critical );
     return false;
   }
 
-  if ( ! vl->deleteFeature( referencingFeatureId ) )
+  if ( !vl->deleteFeature( referencingFeatureId ) )
   {
     QgsMessageLog::logMessage( tr( "Cannot delete feature" ), "QField", Qgis::Critical );
     return false;
   }
 
-  if ( ! vl->commitChanges() )
+  if ( !vl->commitChanges() )
   {
     QgsMessageLog::logMessage( tr( "Cannot commit layer changes in layer %1." ).arg( vl->name() ), "QField", Qgis::Critical );
 
-    if ( ! vl->rollBack() )
+    if ( !vl->rollBack() )
       QgsMessageLog::logMessage( tr( "Cannot rollback layer changes in layer %1" ).arg( vl->name() ), "QField", Qgis::Critical );
 
     return false;

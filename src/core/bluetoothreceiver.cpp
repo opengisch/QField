@@ -15,13 +15,12 @@
  ***************************************************************************/
 
 #include "bluetoothreceiver.h"
-#include <QSettings>
-#include <QDebug>
 
-BluetoothReceiver::BluetoothReceiver( QObject *parent ) : QObject( parent ),
-  mLocalDevice( std::make_unique<QBluetoothLocalDevice>() ),
-  mSocket( new QBluetoothSocket( QBluetoothServiceInfo::RfcommProtocol ) ),
-  mGpsConnection( std::make_unique<QgsNmeaConnection>( mSocket ) )
+#include <QDebug>
+#include <QSettings>
+
+BluetoothReceiver::BluetoothReceiver( QObject *parent )
+  : QObject( parent ), mLocalDevice( std::make_unique<QBluetoothLocalDevice>() ), mSocket( new QBluetoothSocket( QBluetoothServiceInfo::RfcommProtocol ) ), mGpsConnection( std::make_unique<QgsNmeaConnection>( mSocket ) )
 {
   //socket state changed
   connect( mSocket, &QBluetoothSocket::stateChanged, this, &BluetoothReceiver::setSocketState );
@@ -146,7 +145,7 @@ void BluetoothReceiver::repairDevice( const QBluetoothAddress &address )
 {
   connect( mLocalDevice.get(), &QBluetoothLocalDevice::pairingFinished, this, &BluetoothReceiver::pairingFinished, Qt::UniqueConnection );
   connect( mLocalDevice.get(), &QBluetoothLocalDevice::pairingDisplayConfirmation, this, &BluetoothReceiver::confirmPairing, Qt::UniqueConnection );
-  connect( mLocalDevice.get(),  &QBluetoothLocalDevice::error, [ = ]( QBluetoothLocalDevice::Error error )
+  connect( mLocalDevice.get(), &QBluetoothLocalDevice::error, [ = ]( QBluetoothLocalDevice::Error error )
   {
     qDebug() << "BluetoothReceiver (not android): Re-pairing device " << address.toString() << " failed:" << error;
   } );

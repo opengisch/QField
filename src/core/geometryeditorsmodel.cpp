@@ -14,9 +14,9 @@
  *                                                                         *
  ***************************************************************************/
 
-#include <qgswkbtypes.h>
-
 #include "geometryeditorsmodel.h"
+
+#include <qgswkbtypes.h>
 
 GeometryEditorsModel::GeometryEditorsModel( QObject *parent )
   : QStandardItemModel( parent )
@@ -70,4 +70,3 @@ void GeometryEditorsModel::setVertexModel( VertexModel *vertexModel )
   mVertexModel = vertexModel;
   emit vertexModelChanged();
 }
-

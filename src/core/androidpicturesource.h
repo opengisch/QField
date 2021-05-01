@@ -16,9 +16,9 @@
 #ifndef ANDROIDPICTURESOURCE_H
 #define ANDROIDPICTURESOURCE_H
 
-#include <QAndroidActivityResultReceiver>
-
 #include "picturesource.h"
+
+#include <QAndroidActivityResultReceiver>
 
 
 class AndroidPictureSource : public PictureSource, public QAndroidActivityResultReceiver

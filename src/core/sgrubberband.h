@@ -15,9 +15,8 @@
 #ifndef QGSSGRUBBERBAND_H
 #define QGSSGRUBBERBAND_H
 
-#include <QtQuick/QSGNode>
 #include <QtQuick/QSGFlatColorMaterial>
-
+#include <QtQuick/QSGNode>
 #include <qgspoint.h>
 #include <qgswkbtypes.h>
 

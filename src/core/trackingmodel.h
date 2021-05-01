@@ -16,10 +16,10 @@
 #ifndef TRACKINGMODEL_H
 #define TRACKINGMODEL_H
 
-#include <QAbstractItemModel>
-
 #include "rubberbandmodel.h"
 #include "tracker.h"
+
+#include <QAbstractItemModel>
 
 class RubberbandModel;
 class Track;
@@ -35,14 +35,14 @@ class TrackingModel : public QAbstractItemModel
     enum TrackingRoles
     {
       DisplayString = Qt::UserRole,
-      VectorLayer,        //! the layer in the current tracking session
-      RubberModel,        //! the rubberbandmodel used in the current tracking session
-      TimeInterval,       //! the (minimum) time interval between setting trackpoints
-      MinimumDistance,    //! the minimum distance between setting trackpoints
-      Conjunction,        //! if both, the minimum distance and the time interval, needs to be fulfilled before setting trackpoints
-      Visible,            //! if the layer and so the tracking components like rubberband is visible
-      Feature,            //! the feature in the current tracking session
-      StartPositionTimestamp             //!
+      VectorLayer,           //! the layer in the current tracking session
+      RubberModel,           //! the rubberbandmodel used in the current tracking session
+      TimeInterval,          //! the (minimum) time interval between setting trackpoints
+      MinimumDistance,       //! the minimum distance between setting trackpoints
+      Conjunction,           //! if both, the minimum distance and the time interval, needs to be fulfilled before setting trackpoints
+      Visible,               //! if the layer and so the tracking components like rubberband is visible
+      Feature,               //! the feature in the current tracking session
+      StartPositionTimestamp //!
     };
 
     QHash<int, QByteArray> roleNames() const override;
@@ -77,10 +77,9 @@ class TrackingModel : public QAbstractItemModel
     QList<Tracker *> mTrackers;
     QList<Tracker *>::const_iterator trackerIterator( QgsVectorLayer *layer )
     {
-      return std::find_if( mTrackers.constBegin(), mTrackers.constEnd(), [layer]( const Tracker * tracker ) { return tracker->layer() == layer;} );
+      return std::find_if( mTrackers.constBegin(), mTrackers.constEnd(), [layer]( const Tracker * tracker ) { return tracker->layer() == layer; } );
     }
 };
-
 
 
 #endif // TRACKINGMODEL_H

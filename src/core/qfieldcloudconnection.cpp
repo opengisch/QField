@@ -15,19 +15,20 @@
 
 #include "qfield.h"
 #include "qfieldcloudconnection.h"
-#include <qgsnetworkaccessmanager.h>
-#include <qgsapplication.h>
-#include <qgsmessagelog.h>
-#include <qgssettings.h>
-#include <QJsonObject>
-#include <QJsonDocument>
-#include <QNetworkCookieJar>
-#include <QNetworkCookie>
+
+#include <QFile>
 #include <QHttpMultiPart>
+#include <QJsonDocument>
+#include <QJsonObject>
+#include <QNetworkCookie>
+#include <QNetworkCookieJar>
 #include <QSettings>
 #include <QTimer>
 #include <QUrlQuery>
-#include <QFile>
+#include <qgsapplication.h>
+#include <qgsmessagelog.h>
+#include <qgsnetworkaccessmanager.h>
+#include <qgssettings.h>
 
 
 QFieldCloudConnection::QFieldCloudConnection()
@@ -36,7 +37,7 @@ QFieldCloudConnection::QFieldCloudConnection()
   , mToken( QSettings().value( QStringLiteral( "/QFieldCloud/token" ) ).toByteArray() )
 {
   QgsNetworkAccessManager::instance()->setTimeout( 60 * 60 * 1000 );
-#if QT_VERSION >= QT_VERSION_CHECK(5, 15, 0)
+#if QT_VERSION >= QT_VERSION_CHECK( 5, 15, 0 )
   QgsNetworkAccessManager::instance()->setTransferTimeout( 5 * 60 * 1000 );
 #endif
   // we cannot use "/" as separator, since QGIS puts a suffix QGIS/31700 anyway
@@ -44,20 +45,21 @@ QFieldCloudConnection::QFieldCloudConnection()
   QgsSettings().setValue( QStringLiteral( "/qgis/networkAndProxy/userAgent" ), userAgent );
 }
 
-QMap<QString, QString> QFieldCloudConnection::sErrors = QMap<QString, QString>({
-{"unknown_error", QObject::tr( "QFieldCloud Unknown Error" )},
-{"status_not_ok", QObject::tr( "Status not ok" )},
-{"empty_content", QObject::tr( "Empty content" )},
-{"object_not_found", QObject::tr( "Object not found" )},
-{"api_error", QObject::tr( "API Error" )},
-{"validation_error", QObject::tr( "Validation Error" )},
-{"multiple_projects", QObject::tr( "Multiple Projects" )},
-{"invalid_deltafile", QObject::tr( "Invalid delta file" )},
-{"no_qgis_project", QObject::tr( "The project does not contain a valid QGIS project file" )},
-{"invalid_job", QObject::tr( "Invalid job" )},
-{"qgis_export_error", QObject::tr( "QGIS export failed" )},
-{"qgis_cannot_open_project", QObject::tr( "QGIS is unable to open the QGIS project" )},
-});
+QMap<QString, QString> QFieldCloudConnection::sErrors = QMap<QString, QString>(
+{
+  { "unknown_error", QObject::tr( "QFieldCloud Unknown Error" ) },
+  { "status_not_ok", QObject::tr( "Status not ok" ) },
+  { "empty_content", QObject::tr( "Empty content" ) },
+  { "object_not_found", QObject::tr( "Object not found" ) },
+  { "api_error", QObject::tr( "API Error" ) },
+  { "validation_error", QObject::tr( "Validation Error" ) },
+  { "multiple_projects", QObject::tr( "Multiple Projects" ) },
+  { "invalid_deltafile", QObject::tr( "Invalid delta file" ) },
+  { "no_qgis_project", QObject::tr( "The project does not contain a valid QGIS project file" ) },
+  { "invalid_job", QObject::tr( "Invalid job" ) },
+  { "qgis_export_error", QObject::tr( "QGIS export failed" ) },
+  { "qgis_cannot_open_project", QObject::tr( "QGIS is unable to open the QGIS project" ) },
+} );
 
 QString QFieldCloudConnection::errorString( QNetworkReply *reply )
 {
@@ -105,8 +107,8 @@ QString QFieldCloudConnection::errorString( QNetworkReply *reply )
   int httpCode = reply->attribute( QNetworkRequest::HttpStatusCodeAttribute ).toInt();
   QString httpErrorMessage = QStringLiteral( "[HTTP/%1] %2 " ).arg( httpCode ).arg( reply->url().toString() );
   httpErrorMessage += ( httpCode >= 400 )
-      ? tr( "Server Error." )
-      : tr( "Network Error." );
+                      ? tr( "Server Error." )
+                      : tr( "Network Error." );
   httpErrorMessage += payload.left( 200 );
 
   if ( payload.size() > 200 )
@@ -180,22 +182,22 @@ void QFieldCloudConnection::setPassword( const QString &password )
 
   mPassword = password;
   emit passwordChanged();
-
 }
 
 CloudUserInformation QFieldCloudConnection::userInformation() const
 {
-    return mUserInformation;
+  return mUserInformation;
 }
 
 void QFieldCloudConnection::login()
 {
   NetworkReply *reply = ( !mToken.isEmpty() && ( mPassword.isEmpty() || mUsername.isEmpty() ) )
-        ? get( QStringLiteral( "/api/v1/auth/user/" ) )
-        : post( QStringLiteral( "/api/v1/auth/token/" ), QVariantMap({
-                         {"username", mUsername},
-                         {"password", mPassword},
-                       }) );
+                        ? get( QStringLiteral( "/api/v1/auth/user/" ) )
+                        : post( QStringLiteral( "/api/v1/auth/token/" ), QVariantMap(
+  {
+    { "username", mUsername },
+    { "password", mPassword },
+  } ) );
 
   setStatus( ConnectionStatus::Connecting );
 
@@ -262,7 +264,7 @@ void QFieldCloudConnection::login()
 
     mAvatarUrl = resp.value( QStringLiteral( "avatar_url" ) ).toString();
     emit avatarUrlChanged();
-    mUserInformation  = CloudUserInformation( mUsername, resp.value( QStringLiteral( "email" ) ).toString() );
+    mUserInformation = CloudUserInformation( mUsername, resp.value( QStringLiteral( "email" ) ).toString() );
     emit userInformationChanged();
 
     setStatus( ConnectionStatus::LoggedIn );
@@ -331,7 +333,7 @@ NetworkReply *QFieldCloudConnection::post( const QString &endpoint, const QVaria
     QHttpPart filePart;
     QFile *file = new QFile( fileName, multiPart );
 
-    if ( ! file->open( QIODevice::ReadOnly ) )
+    if ( !file->open( QIODevice::ReadOnly ) )
       return nullptr;
 
     const QString header = QStringLiteral( "form-data; name=\"file\"; filename=\"%1\"" ).arg( fileName );
@@ -350,7 +352,8 @@ NetworkReply *QFieldCloudConnection::post( const QString &endpoint, const QVaria
 
   mPendingRequests++;
   setState( ConnectionState::Busy );
-  connect( reply, &NetworkReply::finished, this, [=]() {
+  connect( reply, &NetworkReply::finished, this, [ = ]()
+  {
     QNetworkReply *rawReply = reply->reply();
     if ( --mPendingRequests == 0 )
     {
@@ -397,7 +400,7 @@ NetworkReply *QFieldCloudConnection::get( QNetworkRequest &request, const QUrl &
 {
   QUrlQuery urlQuery = QUrlQuery( url.query() );
 
-  for ( auto [ key, value ] : qfield::asKeyValueRange( params ) )
+  for ( auto [key, value] : qfield::asKeyValueRange( params ) )
     urlQuery.addQueryItem( key, value.toString() );
 
   QUrl requestUrl = url;
@@ -411,7 +414,8 @@ NetworkReply *QFieldCloudConnection::get( QNetworkRequest &request, const QUrl &
 
   mPendingRequests++;
   setState( ConnectionState::Busy );
-  connect( reply, &NetworkReply::finished, this, [=]() {
+  connect( reply, &NetworkReply::finished, this, [ = ]()
+  {
     QNetworkReply *rawReply = reply->reply();
     if ( --mPendingRequests == 0 )
     {

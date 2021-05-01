@@ -25,10 +25,9 @@
  */
 namespace qfield
 {
-
   /**
    * Can be used to iterate over `QMap`s in a convenient way.
-   * 
+   *
    * \code{.cpp}
    * for (auto [key, value]: asKeyValueRange(map))
    * {
@@ -36,11 +35,11 @@ namespace qfield
    * }
    * \endcode
    */
-  template <typename T> class asKeyValueRange
+  template<typename T> class asKeyValueRange
   {
     public:
       explicit asKeyValueRange( T &data )
-        : mData{data}
+        : mData { data }
       {
       }
 
@@ -51,6 +50,6 @@ namespace qfield
     private:
       T &mData;
   };
-};
+}; // namespace qfield
 
 #endif // QFIELD_H

@@ -15,16 +15,15 @@
  *                                                                         *
  ***************************************************************************/
 
-#include <QtTest>
-#include <QFileInfo>
-#include <QDebug>
-
 #include "qfield_testbase.h"
-
 #include "utils/urlutils.h"
 
+#include <QDebug>
+#include <QFileInfo>
+#include <QtTest>
 
-class TestUrlUtils: public QObject
+
+class TestUrlUtils : public QObject
 {
     Q_OBJECT
   private slots:
@@ -37,12 +36,10 @@ class TestUrlUtils: public QObject
       QVERIFY( UrlUtils::isRelativeOrFileUrl( QStringLiteral( "file:///path/to/file" ) ) );
 
       // should NOT be considered relative
-      QVERIFY( ! UrlUtils::isRelativeOrFileUrl( QStringLiteral( "http://osm.org" ) ) );
-      QVERIFY( ! UrlUtils::isRelativeOrFileUrl( QStringLiteral( "http://osm.org/test?query=1" ) ) );
-      QVERIFY( ! UrlUtils::isRelativeOrFileUrl( QStringLiteral( "https://osm.org/test?query=1" ) ) );
+      QVERIFY( !UrlUtils::isRelativeOrFileUrl( QStringLiteral( "http://osm.org" ) ) );
+      QVERIFY( !UrlUtils::isRelativeOrFileUrl( QStringLiteral( "http://osm.org/test?query=1" ) ) );
+      QVERIFY( !UrlUtils::isRelativeOrFileUrl( QStringLiteral( "https://osm.org/test?query=1" ) ) );
     }
-
-
 };
 
 QFIELDTEST_MAIN( TestUrlUtils )

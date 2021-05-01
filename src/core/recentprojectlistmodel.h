@@ -23,7 +23,6 @@ class RecentProjectListModel : public QAbstractListModel
     Q_OBJECT
 
   public:
-
     enum ProjectType
     {
       LocalProject,
@@ -54,9 +53,9 @@ class RecentProjectListModel : public QAbstractListModel
     enum Role
     {
       ProjectTypeRole = Qt::UserRole, //! the project type (e.g., local, cloud, etc.)
-      ProjectTitleRole, //! the project title
-      ProjectPathRole, //! the project path
-      ProjectDemoRole, //! if the project is a demo project
+      ProjectTitleRole,               //! the project title
+      ProjectPathRole,                //! the project path
+      ProjectDemoRole,                //! if the project is a demo project
     };
     Q_ENUM( Role )
 

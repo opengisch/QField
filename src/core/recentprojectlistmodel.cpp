@@ -14,14 +14,14 @@
  *                                                                         *
  ***************************************************************************/
 
-#include "recentprojectlistmodel.h"
 #include "platformutilities.h"
-#include "qgismobileapp.h"
 #include "qfieldcloudutils.h"
+#include "qgismobileapp.h"
+#include "recentprojectlistmodel.h"
 
-#include <QSettings>
-#include <QFile>
 #include <QDir>
+#include <QFile>
+#include <QSettings>
 
 RecentProjectListModel::RecentProjectListModel( QObject *parent )
   : QAbstractListModel( parent )
@@ -32,10 +32,10 @@ RecentProjectListModel::RecentProjectListModel( QObject *parent )
 QHash<int, QByteArray> RecentProjectListModel::roleNames() const
 {
   QHash<int, QByteArray> roles = QAbstractListModel::roleNames();
-  roles[ProjectTypeRole]  = "ProjectType";
-  roles[ProjectTitleRole]  = "ProjectTitle";
-  roles[ProjectPathRole]  = "ProjectPath";
-  roles[ProjectDemoRole]  = "ProjectDemo";
+  roles[ProjectTypeRole] = "ProjectType";
+  roles[ProjectTitleRole] = "ProjectTitle";
+  roles[ProjectPathRole] = "ProjectPath";
+  roles[ProjectDemoRole] = "ProjectDemo";
 
   return roles;
 }
@@ -62,10 +62,10 @@ void RecentProjectListModel::reloadModel()
     if ( fi.exists() )
     {
       ProjectType projectType = path.startsWith( QFieldCloudUtils::localCloudDirectory() )
-        ? CloudProject
-        : SUPPORTED_PROJECT_EXTENSIONS.contains( fi.suffix() )
-          ? LocalProject
-          : LocalDataset;
+                                ? CloudProject
+                                : SUPPORTED_PROJECT_EXTENSIONS.contains( fi.suffix() )
+                                ? LocalProject
+                                : LocalDataset;
       mRecentProjects.append( RecentProject( projectType,
                                              settings.value( QStringLiteral( "title" ) ).toString(),
                                              path,
@@ -81,8 +81,7 @@ void RecentProjectListModel::reloadModel()
   {
     RecentProject( LocalProject, QStringLiteral( "Simple Bee Farming Demo" ), QStringLiteral( "/qfield/demo_projects/simple_bee_farming.qgs" ), true ),
     RecentProject( LocalProject, QStringLiteral( "Advanced Bee Farming Demo" ), QStringLiteral( "/qfield/demo_projects/advanced_bee_farming.qgs" ), true ),
-    RecentProject( LocalProject, QStringLiteral( "Live QField Users Survey Demo" ), QStringLiteral( "/qfield/demo_projects/live_qfield_users_survey.qgs" ), true )
-  };
+    RecentProject( LocalProject, QStringLiteral( "Live QField Users Survey Demo" ), QStringLiteral( "/qfield/demo_projects/live_qfield_users_survey.qgs" ), true ) };
   for ( const RecentProject &demoProject : demoProjects )
   {
     bool recentProjectsContainsDemoProject = false;
@@ -114,7 +113,7 @@ void RecentProjectListModel::reloadModel()
   {
     recentProject.next();
 
-    if ( ! QFile::exists( recentProject.value().path ) )
+    if ( !QFile::exists( recentProject.value().path ) )
       recentProject.remove();
   }
 

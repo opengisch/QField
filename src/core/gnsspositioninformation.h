@@ -16,30 +16,30 @@
 #ifndef GNSSPOSITIONINFORMATION_H
 #define GNSSPOSITIONINFORMATION_H
 
-#include <QDateTime>
 #include "qgis.h"
+#include "qgsgpsconnection.h"
+
+#include <QDateTime>
 #include <QObject>
 #include <QString>
-
-#include "qgsgpsconnection.h"
 #include <QtPositioning/QGeoPositionInfoSource>
 
 /* Statics from external/nmea/info.h:*/
-#define NMEA_SIG_BAD        (0)
-#define NMEA_SIG_LOW        (1)
-#define NMEA_SIG_MID        (2)
-#define NMEA_SIG_HIGH       (3)
+#define NMEA_SIG_BAD ( 0 )
+#define NMEA_SIG_LOW ( 1 )
+#define NMEA_SIG_MID ( 2 )
+#define NMEA_SIG_HIGH ( 3 )
 
-#define NMEA_FIX_BAD        (1)
-#define NMEA_FIX_2D         (2)
-#define NMEA_FIX_3D         (3)
+#define NMEA_FIX_BAD ( 1 )
+#define NMEA_FIX_2D ( 2 )
+#define NMEA_FIX_3D ( 3 )
 
-#define NMEA_MAXSAT         (12)
-#define NMEA_SATINPACK      (4)
-#define NMEA_NSATPACKS      (NMEA_MAXSAT / NMEA_SATINPACK)
+#define NMEA_MAXSAT ( 12 )
+#define NMEA_SATINPACK ( 4 )
+#define NMEA_NSATPACKS ( NMEA_MAXSAT / NMEA_SATINPACK )
 
-#define NMEA_DEF_LAT        (5001.2621)
-#define NMEA_DEF_LON        (3613.0595)
+#define NMEA_DEF_LAT ( 5001.2621 )
+#define NMEA_DEF_LON ( 3613.0595 )
 
 class GnssPositionInformation
 {
@@ -82,7 +82,6 @@ class GnssPositionInformation
     Q_PROPERTY( QString sourceName READ sourceName )
 
   public:
-
     /**
      * GPS fix status
      */
@@ -96,11 +95,11 @@ class GnssPositionInformation
 
     Q_ENUM( FixStatus )
 
-    GnssPositionInformation( double latitude = std::numeric_limits< double >::quiet_NaN(), double longitude = std::numeric_limits< double >::quiet_NaN(), double elevation = std::numeric_limits< double >::quiet_NaN(),
-                             double speed = std::numeric_limits< double >::quiet_NaN(), double direction = std::numeric_limits< double >::quiet_NaN(), const QList<QgsSatelliteInfo> &satellitesInView = QList<QgsSatelliteInfo>(),
-                             double pdop = 0, double hdop = 0, double vdop = 0, double hacc = std::numeric_limits< double >::quiet_NaN(), double vacc = std::numeric_limits< double >::quiet_NaN(), QDateTime utcDateTime = QDateTime(),
+    GnssPositionInformation( double latitude = std::numeric_limits<double>::quiet_NaN(), double longitude = std::numeric_limits<double>::quiet_NaN(), double elevation = std::numeric_limits<double>::quiet_NaN(),
+                             double speed = std::numeric_limits<double>::quiet_NaN(), double direction = std::numeric_limits<double>::quiet_NaN(), const QList<QgsSatelliteInfo> &satellitesInView = QList<QgsSatelliteInfo>(),
+                             double pdop = 0, double hdop = 0, double vdop = 0, double hacc = std::numeric_limits<double>::quiet_NaN(), double vacc = std::numeric_limits<double>::quiet_NaN(), QDateTime utcDateTime = QDateTime(),
                              QChar fixMode = QChar(), int fixType = 0, int quality = -1, int satellitesUsed = 0, QChar status = QChar(), const QList<int> &satPrn = QList<int>(), bool satInfoComplete = false,
-                             double verticalSpeed = std::numeric_limits< double >::quiet_NaN(), double magneticVariation = std::numeric_limits< double >::quiet_NaN(), const QString &sourceName = QString() );
+                             double verticalSpeed = std::numeric_limits<double>::quiet_NaN(), double magneticVariation = std::numeric_limits<double>::quiet_NaN(), const QString &sourceName = QString() );
 
     /**
      * Latitude in decimal degrees, using the WGS84 datum. A positive value indicates the Northern Hemisphere, and
@@ -174,7 +173,7 @@ class GnssPositionInformation
      * 3DRMS
      */
     double hvacc() const { return mHvacc; }
-    bool hvaccValid() const  { return !std::isnan( mHvacc ); }
+    bool hvaccValid() const { return !std::isnan( mHvacc ); }
 
     /**
      * The date and time at which this position was reported, in UTC time.
@@ -252,18 +251,18 @@ class GnssPositionInformation
     QString fixStatusDescription() const;
 
   private:
-    double mLatitude = std::numeric_limits< double >::quiet_NaN();
-    double mLongitude = std::numeric_limits< double >::quiet_NaN();
-    double mElevation = std::numeric_limits< double >::quiet_NaN();
-    double mSpeed = std::numeric_limits< double >::quiet_NaN();
-    double mDirection = std::numeric_limits< double >::quiet_NaN();
+    double mLatitude = std::numeric_limits<double>::quiet_NaN();
+    double mLongitude = std::numeric_limits<double>::quiet_NaN();
+    double mElevation = std::numeric_limits<double>::quiet_NaN();
+    double mSpeed = std::numeric_limits<double>::quiet_NaN();
+    double mDirection = std::numeric_limits<double>::quiet_NaN();
     QList<QgsSatelliteInfo> mSatellitesInView;
     double mPdop = 0;
     double mHdop = 0;
     double mVdop = 0;
-    double mHacc = std::numeric_limits< double >::quiet_NaN();
-    double mVacc = std::numeric_limits< double >::quiet_NaN();
-    double mHvacc = std::numeric_limits< double >::quiet_NaN();
+    double mHacc = std::numeric_limits<double>::quiet_NaN();
+    double mVacc = std::numeric_limits<double>::quiet_NaN();
+    double mHvacc = std::numeric_limits<double>::quiet_NaN();
     QDateTime mUtcDateTime;
     QChar mFixMode;
     int mFixType = 0;
@@ -272,8 +271,8 @@ class GnssPositionInformation
     QChar mStatus;
     QList<int> mSatPrn;
     bool mSatInfoComplete = false;
-    double mVerticalSpeed = std::numeric_limits< double >::quiet_NaN();
-    double mMagneticVariation = std::numeric_limits< double >::quiet_NaN();
+    double mVerticalSpeed = std::numeric_limits<double>::quiet_NaN();
+    double mMagneticVariation = std::numeric_limits<double>::quiet_NaN();
     QString mSourceName;
 };
 

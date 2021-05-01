@@ -19,13 +19,12 @@
 
 #include "fieldexpressionvaluesgatherer.h"
 
-#include <stringutils.h>
-
 #include <QAbstractItemModel>
 #include <QTimer>
-
 #include <qgsfeature.h>
 #include <qgsstringutils.h>
+
+#include <stringutils.h>
 
 class QgsVectorLayer;
 

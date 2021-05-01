@@ -33,9 +33,7 @@
 */
 class QFIELD_CORE_EXPORT PeliasGeocoder : public QgsGeocoderInterface
 {
-
   public:
-
     /**
      * Constructor for PeliasGeocoder.
      *
@@ -46,7 +44,7 @@ class QFIELD_CORE_EXPORT PeliasGeocoder : public QgsGeocoderInterface
     Flags flags() const override;
     QgsFields appendedFields() const override;
     QgsWkbTypes::Type wkbType() const override;
-    QList< QgsGeocoderResult > geocodeString( const QString &string, const QgsGeocoderContext &context, QgsFeedback *feedback = nullptr ) const override;
+    QList<QgsGeocoderResult> geocodeString( const QString &string, const QgsGeocoderContext &context, QgsFeedback *feedback = nullptr ) const override;
 
     /**
      * Returns the URL generated for geocoding the specified \a address.
@@ -87,12 +85,10 @@ class QFIELD_CORE_EXPORT PeliasGeocoder : public QgsGeocoderInterface
     void setRequestsPerSecond( double number ) { mRequestsPerSecond = number; }
 
   private:
-
     QString mEndpoint;
     double mRequestsPerSecond = 10;
 
     static qint64 sLastRequestTimestamp;
-
 };
 
 #endif // PELIASGEOCODER_H

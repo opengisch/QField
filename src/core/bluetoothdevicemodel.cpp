@@ -16,12 +16,12 @@
 
 #include "bluetoothdevicemodel.h"
 #include "qgis.h"
-#include <QSettings>
+
 #include <QDebug>
+#include <QSettings>
 
 BluetoothDeviceModel::BluetoothDeviceModel( QObject *parent )
-  : QAbstractListModel( parent ),
-    mLocalDevice( std::make_unique<QBluetoothLocalDevice>() )
+  : QAbstractListModel( parent ), mLocalDevice( std::make_unique<QBluetoothLocalDevice>() )
 {
   connect( &mServiceDiscoveryAgent, &QBluetoothServiceDiscoveryAgent::serviceDiscovered, this, &BluetoothDeviceModel::serviceDiscovered );
   connect( &mServiceDiscoveryAgent, qOverload<QBluetoothServiceDiscoveryAgent::Error>( &QBluetoothServiceDiscoveryAgent::error ), this, [ = ]()
@@ -113,7 +113,7 @@ QVariant BluetoothDeviceModel::data( const QModelIndex &index, int role ) const
   {
     case Qt::DisplayRole:
       return QStringLiteral( "%1%2" ).arg( mDiscoveredDevices.at( index.row() ).first,
-                                            index.row() > 0 ? QStringLiteral( " (%2)" ).arg ( mDiscoveredDevices.at( index.row() ).second ) : QString() );
+                                           index.row() > 0 ? QStringLiteral( " (%2)" ).arg( mDiscoveredDevices.at( index.row() ).second ) : QString() );
       break;
 
     case DeviceAddressRole:

@@ -16,11 +16,12 @@
 #ifndef BLUETOOTHRECEIVER_H
 #define BLUETOOTHRECEIVER_H
 
+#include "gnsspositioninformation.h"
+#include "qgsnmeaconnection.h"
+
 #include <QObject>
 #include <QtBluetooth/QBluetoothLocalDevice>
 #include <QtBluetooth/QBluetoothSocket>
-#include "qgsnmeaconnection.h"
-#include "gnsspositioninformation.h"
 
 /**
  * The bluetoothreceiver connects to a device and feeds the QgsNmeaConnection over QBluetoothSocket.
@@ -42,7 +43,7 @@ class BluetoothReceiver : public QObject
     Q_INVOKABLE void connectDevice( const QString &address );
 
     GnssPositionInformation lastGnssPositionInformation() const { return mLastGnssPositionInformation; }
-    QBluetoothSocket::SocketState socketState() const { return mSocketState;}
+    QBluetoothSocket::SocketState socketState() const { return mSocketState; }
     QString socketStateString() const { return mSocketStateString; }
 
     /**
@@ -102,7 +103,6 @@ class BluetoothReceiver : public QObject
     QString mAddressToConnect;
 
     bool mEllipsoidalElevation = true;
-
 };
 
 #endif // BLUETOOTHRECEIVER_H

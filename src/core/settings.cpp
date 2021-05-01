@@ -18,8 +18,8 @@
 
 #include <QDebug>
 
-Settings::Settings( QObject *parent ) :
-  QSettings( parent )
+Settings::Settings( QObject *parent )
+  : QSettings( parent )
 {
 }
 

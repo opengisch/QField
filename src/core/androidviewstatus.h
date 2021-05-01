@@ -17,8 +17,9 @@
 #ifndef ANDROIDVIEWSTATUS_H
 #define ANDROIDVIEWSTATUS_H
 
-#include <QAndroidActivityResultReceiver>
 #include "viewstatus.h"
+
+#include <QAndroidActivityResultReceiver>
 
 class AndroidViewStatus : public ViewStatus, public QAndroidActivityResultReceiver
 {

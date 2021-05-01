@@ -19,10 +19,11 @@
 #ifndef EXPRESSIONCONTEXTUTILS_H
 #define EXPRESSIONCONTEXTUTILS_H
 
-#include <qgsexpressioncontext.h>
-#include "snappingresult.h"
 #include "gnsspositioninformation.h"
 #include "qfieldcloudconnection.h"
+#include "snappingresult.h"
+
+#include <qgsexpressioncontext.h>
 
 class ExpressionContextUtils
 {

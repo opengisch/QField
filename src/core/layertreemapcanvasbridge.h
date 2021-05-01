@@ -16,15 +16,13 @@
 #ifndef LAYERTREEMAPCANVASBRIDGE_H
 #define LAYERTREEMAPCANVASBRIDGE_H
 
+#include "layertreemodel.h"
+#include "trackingmodel.h"
+
 #include <QObject>
 #include <QStringList>
-
 #include <qgscoordinatereferencesystem.h>
 #include <qgsmapthemecollection.h>
-
-#include "layertreemodel.h"
-
-#include "trackingmodel.h"
 
 class QgsLayerTreeGroup;
 class QgsLayerTreeNode;
@@ -59,8 +57,8 @@ class LayerTreeMapCanvasBridge : public QObject
 
     //! if enabled, will automatically set full canvas extent and destination CRS + map units
     //! when first layer(s) are added
-    void setAutoSetupOnFirstLayer( bool enabled ) {  mAutoSetupOnFirstLayer = enabled; }
-    bool autoSetupOnFirstLayer() const    {  return mAutoSetupOnFirstLayer;  }
+    void setAutoSetupOnFirstLayer( bool enabled ) { mAutoSetupOnFirstLayer = enabled; }
+    bool autoSetupOnFirstLayer() const { return mAutoSetupOnFirstLayer; }
 
     //! if enabled, will automatically turn on on-the-fly reprojection of layers if a layer
     //! with different source CRS is added
@@ -83,7 +81,6 @@ class LayerTreeMapCanvasBridge : public QObject
     void layerInTrackingChanged( QgsVectorLayer *layer, bool tracking );
 
   private:
-
     void setCanvasLayers( QgsLayerTreeNode *node, QList<QgsMapLayer *> &canvasLayers, QList<QgsMapLayer *> &allLayers );
 
     void deferredSetCanvasLayers();

@@ -16,8 +16,8 @@
 #ifndef MODELHELPER_H
 #define MODELHELPER_H
 
-#include <QObject>
 #include <QAbstractItemModel>
+#include <QObject>
 
 class ModelHelper : public QObject
 {

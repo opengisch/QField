@@ -16,26 +16,26 @@
  *                                                                         *
  ***************************************************************************/
 
-#include "androidplatformutilities.h"
 #include "androidpicturesource.h"
+#include "androidplatformutilities.h"
 #include "androidprojectsource.h"
 #include "androidviewstatus.h"
 #include "appinterface.h"
 #include "feedback.h"
 #include "fileutils.h"
 
-#include <QMap>
-#include <QString>
-#include <QtAndroid>
-#include <QDebug>
 #include <QAndroidJniEnvironment>
-#include <QMimeDatabase>
-#include <QStandardPaths>
-#include <QFile>
 #include <QApplication>
+#include <QDebug>
+#include <QFile>
+#include <QMap>
+#include <QMimeDatabase>
 #include <QQmlApplicationEngine>
 #include <QQmlContext>
+#include <QStandardPaths>
+#include <QString>
 #include <QThread>
+#include <QtAndroid>
 
 #include <jni.h>
 
@@ -58,7 +58,6 @@ class FileCopyThread : public QThread
     }
 
   private:
-
     void run() override
     {
       FileUtils::copyRecursively( mSource, mDestination, mFeedback );
@@ -329,8 +328,7 @@ void AndroidPlatformUtilities::setScreenLockPermission( const bool allowLock )
       QAndroidJniObject activity = QtAndroid::androidActivity();
       if ( activity.isValid() )
       {
-        QAndroidJniObject window =
-        activity.callObjectMethod( "getWindow", "()Landroid/view/Window;" );
+        QAndroidJniObject window = activity.callObjectMethod( "getWindow", "()Landroid/view/Window;" );
 
         if ( window.isValid() )
         {

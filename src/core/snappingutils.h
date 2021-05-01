@@ -19,9 +19,9 @@
 
 class QgsQuickMapSettings;
 
-#include <qgssnappingutils.h>
-
 #include "snappingresult.h"
+
+#include <qgssnappingutils.h>
 
 class SnappingUtils : public QgsSnappingUtils
 {

@@ -18,9 +18,9 @@
 #ifndef EXPRESSIONEVALUATOR_H
 #define EXPRESSIONEVALUATOR_H
 
+#include <QObject>
 #include <qgsexpression.h>
 #include <qgsexpressioncontext.h>
-#include <QObject>
 
 class ExpressionEvaluator : public QObject
 {
@@ -53,6 +53,5 @@ class ExpressionEvaluator : public QObject
     QString mExpressionText;
     QgsFeature mFeature;
     QgsMapLayer *mLayer = nullptr;
-
 };
 #endif // EXPRESSIONEVALUATOR_H

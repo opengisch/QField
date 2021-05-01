@@ -1,14 +1,14 @@
-#include <QtTest>
-#include <qgsapplication.h>
-#include <qgsvectorlayer.h>
-#include <qgsproject.h>
-#include <qgsrelationmanager.h>
-
+#include "qfield_testbase.h"
 #include "qgsquickmapsettings.h"
 #include "referencingfeaturelistmodel.h"
-#include "qfield_testbase.h"
 
-class TestReferencingFeatureListModel: public QObject
+#include <QtTest>
+#include <qgsapplication.h>
+#include <qgsproject.h>
+#include <qgsrelationmanager.h>
+#include <qgsvectorlayer.h>
+
+class TestReferencingFeatureListModel : public QObject
 {
     Q_OBJECT
   private slots:
@@ -261,7 +261,6 @@ class TestReferencingFeatureListModel: public QObject
       QVERIFY( QSignalSpy( mModel, &ReferencingFeatureListModel::modelUpdated ).wait( 1000 ) );
       //Frodo rules 2 lands (Gondor, Eriador) no Rohan anymore
       QCOMPARE( mModel->rowCount(), 2 );
-
     }
 
     /*
@@ -325,7 +324,6 @@ class TestReferencingFeatureListModel: public QObject
     QgsRelation mR_Sharehasoneking;
     QgsRelation mR_Shareofoneland;
     ReferencingFeatureListModel *mModel;
-
 };
 
 QFIELDTEST_MAIN( TestReferencingFeatureListModel )

@@ -18,16 +18,16 @@
 #ifndef FEATUREMODEL_H
 #define FEATUREMODEL_H
 
-#include "snappingresult.h"
+#include "geometry.h"
 #include "gnsspositioninformation.h"
 #include "qfieldcloudconnection.h"
-#include "geometry.h"
-
-#include <qgsfeature.h>
+#include "snappingresult.h"
 
 #include <QAbstractListModel>
 #include <QtPositioning/QGeoPositionInfoSource>
+#include <qgsfeature.h>
 #include <qgsrelationmanager.h>
+
 #include <memory>
 
 class VertexModel;
@@ -50,7 +50,6 @@ class FeatureModel : public QAbstractListModel
     Q_PROPERTY( CloudUserInformation cloudUserInformation WRITE setCloudUserInformation );
 
   public:
-
     //! keeping the information what attributes are remembered and the last edited feature
     struct RememberValues
     {
@@ -71,7 +70,7 @@ class FeatureModel : public QAbstractListModel
       AttributeValue,
       Field,
       RememberAttribute,
-      LinkedAttribute,  //! value of this attribute is given by the parent feature and does not to be available for editing in the form
+      LinkedAttribute,    //! value of this attribute is given by the parent feature and does not to be available for editing in the form
       AttributeAllowEdit, //! value of this attribute is equal across features being edited
     };
     Q_ENUM( FeatureRoles )

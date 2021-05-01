@@ -15,17 +15,15 @@
  *                                                                         *
  ***************************************************************************/
 
+#include "qfield_testbase.h"
+#include "qgsvectorlayer.h"
+#include "rubberbandmodel.h"
+#include "utils/geometryutils.h"
+
 #include <QtTest>
 
-#include "qfield_testbase.h"
 
-#include "utils/geometryutils.h"
-#include "rubberbandmodel.h"
-
-#include "qgsvectorlayer.h"
-
-
-class TestGeometryUtils: public QObject
+class TestGeometryUtils : public QObject
 {
     Q_OBJECT
   private slots:

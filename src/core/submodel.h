@@ -62,7 +62,6 @@ class SubModel : public QAbstractItemModel
 
     // Map internal id to parent index
     mutable QHash<qintptr, QModelIndex> mMappings;
-
 };
 
 #endif // SUBMODEL_H

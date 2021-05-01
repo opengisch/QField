@@ -13,23 +13,21 @@
  *                                                                         *
  ***************************************************************************/
 
-#include "qgsquickcoordinatetransformer.h"
 #include "platformutilities.h"
-#if defined(Q_OS_ANDROID)
+#include "qgsquickcoordinatetransformer.h"
+#if defined( Q_OS_ANDROID )
 #include "androidplatformutilities.h"
 #endif
 
 #include <QFile>
 #include <QSettings>
-
-#include <vector>
-
-#include <proj.h>
-#include <gdal.h>
-#include <cpl_conv.h>
-#include <ogr_srs_api.h>
-
 #include <qgslogger.h>
+
+#include <cpl_conv.h>
+#include <gdal.h>
+#include <ogr_srs_api.h>
+#include <proj.h>
+#include <vector>
 
 QgsQuickCoordinateTransformer::QgsQuickCoordinateTransformer( QObject *parent )
   : QObject( parent )
@@ -153,7 +151,7 @@ void QgsQuickCoordinateTransformer::updatePosition()
       mVerticalGridName = verticalGridName;
       if ( !PlatformUtilities::instance()->qfieldDataDir().isEmpty() )
       {
-        const QString verticalGridPath = QStringLiteral( "%1proj/%2" ).arg( PlatformUtilities::instance()->qfieldDataDir(),  verticalGridName );
+        const QString verticalGridPath = QStringLiteral( "%1proj/%2" ).arg( PlatformUtilities::instance()->qfieldDataDir(), verticalGridName );
         if ( QFile::exists( verticalGridPath ) )
         {
           GDALDatasetH hDataset;
@@ -165,7 +163,7 @@ void QgsQuickCoordinateTransformer::updatePosition()
             char *pszWkt = nullptr;
             const QByteArray multiLineOption = QStringLiteral( "MULTILINE=NO" ).toLocal8Bit();
             const QByteArray formatOption = QStringLiteral( "FORMAT=WKT2" ).toLocal8Bit();
-            const char *const options[] = {multiLineOption.constData(), formatOption.constData(), nullptr};
+            const char *const options[] = { multiLineOption.constData(), formatOption.constData(), nullptr };
             OSRExportToWktEx( spatialRef, &pszWkt, options );
             mCoordinateVerticalGridTransform.setDestinationCrs( QgsCoordinateReferenceSystem::fromWkt( QString( pszWkt ) ) );
             mCoordinateVerticalGridTransform.setContext( mCoordinateTransform.context() );
@@ -176,9 +174,9 @@ void QgsQuickCoordinateTransformer::updatePosition()
       }
     }
 
-    std::vector< double > xVector = { mSourcePosition.x() };
-    std::vector< double > yVector = { mSourcePosition.y() };
-    std::vector< double > zVector = { !std::isnan( mSourcePosition.z() ) ? mSourcePosition.z() : 0 };
+    std::vector<double> xVector = { mSourcePosition.x() };
+    std::vector<double> yVector = { mSourcePosition.y() };
+    std::vector<double> zVector = { !std::isnan( mSourcePosition.z() ) ? mSourcePosition.z() : 0 };
     double zDummy = 0.0; // we don't want to manipulate the elevation data yet, use a dummy z value to transform coordinates first
     mCoordinateVerticalGridTransform.transformInPlace( xVector[0], yVector[0], zDummy );
 
@@ -224,8 +222,7 @@ void QgsQuickCoordinateTransformer::setSourceCoordinate( const QGeoCoordinate &s
 {
   if ( qgsDoubleNear( sourceCoordinate.latitude(), mSourcePosition.y() )
        && qgsDoubleNear( sourceCoordinate.longitude(), mSourcePosition.x() )
-       && qgsDoubleNear( sourceCoordinate.altitude(), mSourcePosition.z() )
-     )
+       && qgsDoubleNear( sourceCoordinate.altitude(), mSourcePosition.z() ) )
     return;
 
   mSourcePosition = QgsPoint( sourceCoordinate.longitude(), sourceCoordinate.latitude(), sourceCoordinate.altitude() );

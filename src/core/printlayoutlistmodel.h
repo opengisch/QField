@@ -17,10 +17,9 @@
 #define PRINTLAYOUTLISTMODEL_H
 
 #include <QAbstractListModel>
-
-#include <qgsprintlayout.h>
 #include <qgslayoutmanager.h>
 #include <qgslayoutpagecollection.h>
+#include <qgsprintlayout.h>
 
 class QStringList;
 class QgsProject;

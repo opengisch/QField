@@ -20,132 +20,127 @@
 #ifndef _MSC_VER
 #include <unistd.h>
 #endif
+#include <proj.h>
 #include <stdlib.h>
 
-#include <proj.h>
-
 // use GDAL VSI mechanism
-#define CPL_SUPRESS_CPLUSPLUS  //#spellok
+#define CPL_SUPRESS_CPLUSPLUS //#spellok
 #include "cpl_conv.h"
 #include "cpl_string.h"
 #include "cpl_vsi.h"
 
 #include <QFontDatabase>
+#include <QStandardItemModel>
 #include <QStandardPaths>
-#include <QtQml/QQmlEngine>
-#include <QtQml/QQmlContext>
 #include <QtQml/QQmlApplicationEngine>
+#include <QtQml/QQmlContext>
+#include <QtQml/QQmlEngine>
 #include <QtWidgets/QDesktopWidget>
 #include <QtWidgets/QFileDialog> // Until native looking QML dialogs are implemented (Qt5.4?)
-#include <QtWidgets/QMenu> // Until native looking QML dialogs are implemented (Qt5.4?)
+#include <QtWidgets/QMenu>       // Until native looking QML dialogs are implemented (Qt5.4?)
 #include <QtWidgets/QMenuBar>
-#include <QStandardItemModel>
 #ifndef QT_NO_PRINTER
-#include <QPrinter>
 #include <QPrintDialog>
+#include <QPrinter>
 #endif
-#include <QTemporaryFile>
-#include <QFileInfo>
-#include <QFontDatabase>
-#include <QStyleHints>
-#include <QResource>
-
-#include <qgslayertreemodel.h>
-#include <qgslayoutatlas.h>
-#include <qgslocalizeddatapathregistry.h>
-#include <qgsproject.h>
-#include <qgsprojectviewsettings.h>
-#include <qgsfeature.h>
-#include <qgsvectorlayer.h>
-#include <qgsrasterlayer.h>
-#include <qgsrasterresamplefilter.h>
-#include <qgsbilinearrasterresampler.h>
-#include <qgssnappingutils.h>
-#include <qgsunittypes.h>
-#include <qgscoordinatereferencesystem.h>
-#include <qgsmapthemecollection.h>
-#include <qgsprintlayout.h>
-#include <qgslayoutmanager.h>
-#include <qgslayoutpagecollection.h>
-#include <qgslayoutitemmap.h>
-#include <qgslocator.h>
-#include <qgslocatormodel.h>
-#include <qgsfield.h>
-#include <qgsfieldconstraints.h>
-#include <qgsmaplayer.h>
-#include <qgsvectorlayereditbuffer.h>
-#include <qgsexpressionfunction.h>
-#include <qgslayertree.h>
-#include <qgssinglesymbolrenderer.h>
-
-#include "qgsquickmapsettings.h"
-#include "qgsquickmapcanvasmap.h"
-#include "qgsquickcoordinatetransformer.h"
-#include "qgsquickmaptransform.h"
-
-#include "qgsnetworkaccessmanager.h"
-
-#include "qgismobileapp.h"
-
 #include "appinterface.h"
-#include "featurelistmodelselection.h"
-#include "featurelistextentcontroller.h"
-#include "modelhelper.h"
-#include "rubberband.h"
-#include "rubberbandmodel.h"
-#include "qgsofflineediting.h"
-#include "messagelogmodel.h"
 #include "attributeformmodel.h"
-#include "geometry.h"
-#include "featuremodel.h"
-#include "layertreemapcanvasbridge.h"
-#include "identifytool.h"
-#include "submodel.h"
-#include "expressionvariablemodel.h"
 #include "badlayerhandler.h"
-#include "snappingutils.h"
-#include "snappingresult.h"
-#include "layertreemodel.h"
-#include "legendimageprovider.h"
-#include "featurelistmodel.h"
-#include "qgsrelationmanager.h"
+#include "bluetoothdevicemodel.h"
+#include "bluetoothreceiver.h"
+#include "changelogcontents.h"
+#include "deltafilewrapper.h"
+#include "deltalistmodel.h"
 #include "distancearea.h"
-#include "printlayoutlistmodel.h"
-#include "vertexmodel.h"
-#include "maptoscreen.h"
-#include "projectinfo.h"
-#include "projectsource.h"
-#include "locatormodelsuperbridge.h"
-#include "qgsgeometrywrapper.h"
-#include "linepolygonhighlight.h"
-#include "valuemapmodel.h"
-#include "recentprojectlistmodel.h"
-#include "referencingfeaturelistmodel.h"
+#include "expressionevaluator.h"
+#include "expressionvariablemodel.h"
 #include "featurechecklistmodel.h"
+#include "featurelistextentcontroller.h"
+#include "featurelistmodel.h"
+#include "featurelistmodelselection.h"
+#include "featuremodel.h"
+#include "featureutils.h"
+#include "fileutils.h"
+#include "geometry.h"
 #include "geometryeditorsmodel.h"
 #include "geometryutils.h"
-#include "trackingmodel.h"
-#include "fileutils.h"
-#include "featureutils.h"
-#include "layerutils.h"
-#include "expressionevaluator.h"
-#include "stringutils.h"
-#include "urlutils.h"
-#include "bluetoothreceiver.h"
-#include "bluetoothdevicemodel.h"
 #include "gnsspositioninformation.h"
-#include "changelogcontents.h"
+#include "identifytool.h"
+#include "layerobserver.h"
 #include "layerresolver.h"
+#include "layertreemapcanvasbridge.h"
+#include "layertreemodel.h"
+#include "layerutils.h"
+#include "legendimageprovider.h"
+#include "linepolygonhighlight.h"
+#include "locatormodelsuperbridge.h"
+#include "maptoscreen.h"
+#include "messagelogmodel.h"
+#include "modelhelper.h"
+#include "printlayoutlistmodel.h"
+#include "projectinfo.h"
+#include "projectsource.h"
 #include "qfieldcloudconnection.h"
 #include "qfieldcloudprojectsmodel.h"
 #include "qfieldcloudutils.h"
-#include "layerobserver.h"
-#include "deltafilewrapper.h"
-#include "deltalistmodel.h"
+#include "qgismobileapp.h"
+#include "qgsgeometrywrapper.h"
+#include "qgsnetworkaccessmanager.h"
+#include "qgsofflineediting.h"
+#include "qgsquickcoordinatetransformer.h"
+#include "qgsquickmapcanvasmap.h"
+#include "qgsquickmapsettings.h"
+#include "qgsquickmaptransform.h"
+#include "qgsrelationmanager.h"
+#include "recentprojectlistmodel.h"
+#include "referencingfeaturelistmodel.h"
+#include "rubberband.h"
+#include "rubberbandmodel.h"
+#include "snappingresult.h"
+#include "snappingutils.h"
+#include "stringutils.h"
+#include "submodel.h"
+#include "trackingmodel.h"
+#include "urlutils.h"
+#include "valuemapmodel.h"
+#include "vertexmodel.h"
+
+#include <QFileInfo>
+#include <QFontDatabase>
+#include <QResource>
+#include <QStyleHints>
+#include <QTemporaryFile>
+#include <qgsbilinearrasterresampler.h>
+#include <qgscoordinatereferencesystem.h>
+#include <qgsexpressionfunction.h>
+#include <qgsfeature.h>
+#include <qgsfield.h>
+#include <qgsfieldconstraints.h>
+#include <qgslayertree.h>
+#include <qgslayertreemodel.h>
+#include <qgslayoutatlas.h>
+#include <qgslayoutitemmap.h>
+#include <qgslayoutmanager.h>
+#include <qgslayoutpagecollection.h>
+#include <qgslocalizeddatapathregistry.h>
+#include <qgslocator.h>
+#include <qgslocatormodel.h>
+#include <qgsmaplayer.h>
+#include <qgsmapthemecollection.h>
+#include <qgsprintlayout.h>
+#include <qgsproject.h>
+#include <qgsprojectviewsettings.h>
+#include <qgsrasterlayer.h>
+#include <qgsrasterresamplefilter.h>
+#include <qgssinglesymbolrenderer.h>
+#include <qgssnappingutils.h>
+#include <qgsunittypes.h>
+#include <qgsvectorlayer.h>
+#include <qgsvectorlayereditbuffer.h>
 
 
-#define QUOTE(string) _QUOTE(string)
-#define _QUOTE(string) #string
+#define QUOTE( string ) _QUOTE( string )
+#define _QUOTE( string ) #string
 
 
 QgisMobileapp::QgisMobileapp( QgsApplication *app, QObject *parent )
@@ -176,11 +171,15 @@ QgisMobileapp::QgisMobileapp( QgsApplication *app, QObject *parent )
     QgsApplication::instance()->localizedDataPathRegistry()->setPaths( localizedDataPaths );
 
     // set fonts
-    const QString fontsPath  = PlatformUtilities::instance()->qfieldDataDir() + QStringLiteral( "fonts/" );
+    const QString fontsPath = PlatformUtilities::instance()->qfieldDataDir() + QStringLiteral( "fonts/" );
     QDir fontsDir( fontsPath );
     if ( fontsDir.exists() )
     {
-      const QStringList fonts = fontsDir.entryList( QStringList() << "*.ttf" << "*.TTF" << "*.otf" << "*.OTF", QDir::Files );
+      const QStringList fonts = fontsDir.entryList( QStringList() << "*.ttf"
+                                << "*.TTF"
+                                << "*.otf"
+                                << "*.OTF",
+                                QDir::Files );
       for ( auto font : fonts )
       {
         QFontDatabase::addApplicationFont( fontsPath + font );
@@ -250,7 +249,7 @@ QgisMobileapp::QgisMobileapp( QgsApplication *app, QObject *parent )
     {
       free( newPaths[i] );
     }
-    delete [] newPaths;
+    delete[] newPaths;
 
 #ifdef Q_OS_ANDROID
     setenv( "PGSYSCONFDIR", PlatformUtilities::instance()->qfieldDataDir().toUtf8(), true );
@@ -272,7 +271,7 @@ QgisMobileapp::QgisMobileapp( QgsApplication *app, QObject *parent )
   {
     Q_UNUSED( projectName );
     Q_UNUSED( errorString );
-    if ( ! hasError )
+    if ( !hasError )
     {
       if ( projectId == QFieldCloudUtils::getProjectId( mProject ) )
       {
@@ -282,7 +281,7 @@ QgisMobileapp::QgisMobileapp( QgsApplication *app, QObject *parent )
   } );
 
   mFlatLayerTree->layerTreeModel()->setLegendMapViewData( mMapCanvas->mapSettings()->mapSettings().mapUnitsPerPixel(),
-      static_cast< int >( std::round( mMapCanvas->mapSettings()->outputDpi() ) ), mMapCanvas->mapSettings()->mapSettings().scale() );
+      static_cast<int>( std::round( mMapCanvas->mapSettings()->outputDpi() ) ), mMapCanvas->mapSettings()->mapSettings().scale() );
 
   Q_ASSERT_X( mMapCanvas, "QML Init", "QgsQuickMapCanvasMap not found. It is likely that we failed to load the QML files. Check debug output for related messages." );
 
@@ -308,8 +307,7 @@ QgisMobileapp::QgisMobileapp( QgsApplication *app, QObject *parent )
 
 void QgisMobileapp::initDeclarative()
 {
-
-#if defined(Q_OS_ANDROID) && QT_VERSION >= QT_VERSION_CHECK(5, 14, 0)
+#if defined( Q_OS_ANDROID ) && QT_VERSION >= QT_VERSION_CHECK( 5, 14, 0 )
   QResource::registerResource( QStringLiteral( "assets:/android_rcc_bundle.rcc" ) );
 #endif
   addImportPath( QStringLiteral( "qrc:/qml/imports" ) );
@@ -329,8 +327,8 @@ void QgisMobileapp::initDeclarative()
   qRegisterMetaType<QgsPointSequence>( "QgsPointSequence" );
   qRegisterMetaType<QgsCoordinateTransformContext>( "QgsCoordinateTransformContext" );
   qRegisterMetaType<QgsWkbTypes::GeometryType>( "QgsWkbTypes::GeometryType" ); // could be removed since we have now qmlRegisterUncreatableType<QgsWkbTypes> ?
-  qRegisterMetaType<QgsWkbTypes::Type>( "QgsWkbTypes::Type" ); // could be removed since we have now qmlRegisterUncreatableType<QgsWkbTypes> ?
-  qRegisterMetaType<QgsMapLayerType>( "QgsMapLayerType" ); // could be removed since we have now qmlRegisterUncreatableType<QgsWkbTypes> ?
+  qRegisterMetaType<QgsWkbTypes::Type>( "QgsWkbTypes::Type" );                 // could be removed since we have now qmlRegisterUncreatableType<QgsWkbTypes> ?
+  qRegisterMetaType<QgsMapLayerType>( "QgsMapLayerType" );                     // could be removed since we have now qmlRegisterUncreatableType<QgsWkbTypes> ?
   qRegisterMetaType<QgsFeatureId>( "QgsFeatureId" );
   qRegisterMetaType<QgsAttributes>( "QgsAttributes" );
   qRegisterMetaType<QgsSnappingConfig>( "QgsSnappingConfig" );
@@ -590,9 +588,7 @@ void QgisMobileapp::loadProjectFile( const QString &path, const QString &name )
     QgsMessageLog::logMessage( tr( "Project file \"%1\" does not exist" ).arg( path ), QStringLiteral( "QField" ), Qgis::Warning );
 
   const QString suffix = fi.suffix().toLower();
-  if ( SUPPORTED_PROJECT_EXTENSIONS.contains( suffix ) ||
-       SUPPORTED_VECTOR_EXTENSIONS.contains( suffix ) ||
-       SUPPORTED_RASTER_EXTENSIONS.contains( suffix ) )
+  if ( SUPPORTED_PROJECT_EXTENSIONS.contains( suffix ) || SUPPORTED_VECTOR_EXTENSIONS.contains( suffix ) || SUPPORTED_RASTER_EXTENSIONS.contains( suffix ) )
   {
     mAuthRequestHandler->clearStoredRealms();
 
@@ -631,7 +627,10 @@ void QgisMobileapp::readProjectFile()
 
     // load fonts in same directory
     QDir fontDir = QDir::cleanPath( QFileInfo( mProjectFilePath ).absoluteDir().path() + QDir::separator() + ".fonts" );
-    QStringList fontExts = QStringList() << "*.ttf" << "*.TTF" << "*.otf" << "*.OTF";
+    QStringList fontExts = QStringList() << "*.ttf"
+                           << "*.TTF"
+                           << "*.otf"
+                           << "*.OTF";
     const QStringList fontFiles = fontDir.entryList( fontExts, QDir::Files );
     for ( const QString &fontFile : fontFiles )
     {
@@ -682,8 +681,7 @@ void QgisMobileapp::readProjectFile()
         if ( tmpPath.right( 1 ) != QLatin1String( "/" ) )
         {
           const QFileInfo tmpFi( tmpPath );
-          if ( SUPPORTED_VECTOR_EXTENSIONS.contains( tmpFi.suffix().toLower() ) ||
-               SUPPORTED_RASTER_EXTENSIONS.contains( tmpFi.suffix().toLower() ) )
+          if ( SUPPORTED_VECTOR_EXTENSIONS.contains( tmpFi.suffix().toLower() ) || SUPPORTED_RASTER_EXTENSIONS.contains( tmpFi.suffix().toLower() ) )
             files << QStringLiteral( "/vsizip/%1/%2" ).arg( mProjectFilePath, tmpPath );
         }
       }
@@ -772,7 +770,7 @@ void QgisMobileapp::readProjectFile()
 
         for ( QgsMapLayer *l : std::as_const( vectorLayers ) )
         {
-          QgsVectorLayer *vlayer = qobject_cast< QgsVectorLayer * >( l );
+          QgsVectorLayer *vlayer = qobject_cast<QgsVectorLayer *>( l );
           bool ok;
           vlayer->loadDefaultStyle( ok );
           if ( !ok )
@@ -790,8 +788,8 @@ void QgisMobileapp::readProjectFile()
         {
           std::sort( vectorLayers.begin(), vectorLayers.end(), []( QgsMapLayer * a, QgsMapLayer * b )
           {
-            QgsVectorLayer *alayer = qobject_cast< QgsVectorLayer * >( a );
-            QgsVectorLayer *blayer = qobject_cast< QgsVectorLayer * >( b );
+            QgsVectorLayer *alayer = qobject_cast<QgsVectorLayer *>( a );
+            QgsVectorLayer *blayer = qobject_cast<QgsVectorLayer *>( b );
             if ( alayer->geometryType() == QgsWkbTypes::PointGeometry && blayer->geometryType() != QgsWkbTypes::PointGeometry )
             {
               return true;
@@ -878,7 +876,7 @@ void QgisMobileapp::readProjectFile()
 
         for ( QgsMapLayer *l : std::as_const( rasterLayers ) )
         {
-          QgsRasterLayer *rlayer = qobject_cast< QgsRasterLayer * >( l );
+          QgsRasterLayer *rlayer = qobject_cast<QgsRasterLayer *>( l );
           bool ok;
           rlayer->loadDefaultStyle( ok );
           if ( !ok && fi.size() < 50000000 )
@@ -939,9 +937,7 @@ void QgisMobileapp::readProjectFile()
   // Restore last extent if present
   QSettings settings;
   const QStringList parts = settings.value( QStringLiteral( "/qgis/projectInfo/%1/extent" ).arg( mProjectFilePath ), QString() ).toString().split( '|' );
-  if ( parts.size() == 4 &&
-       ( SUPPORTED_PROJECT_EXTENSIONS.contains( fi.suffix().toLower() ) ||
-         fi.size() == settings.value( QStringLiteral( "/qgis/projectInfo/%1/filesize" ).arg( mProjectFilePath ), 0 ).toLongLong() ) )
+  if ( parts.size() == 4 && ( SUPPORTED_PROJECT_EXTENSIONS.contains( fi.suffix().toLower() ) || fi.size() == settings.value( QStringLiteral( "/qgis/projectInfo/%1/filesize" ).arg( mProjectFilePath ), 0 ).toLongLong() ) )
   {
     extent.setXMinimum( parts[0].toDouble() );
     extent.setXMaximum( parts[1].toDouble() );
@@ -988,7 +984,7 @@ bool QgisMobileapp::print( const QString &layoutName )
   QDir documentsDir( documentsLocation );
   if ( !documentsDir.exists() )
     documentsDir.mkpath( "." );
-  const QString destination = documentsLocation  + '/' + layoutToPrint->name() + QStringLiteral( ".pdf" );
+  const QString destination = documentsLocation + '/' + layoutToPrint->name() + QStringLiteral( ".pdf" );
 
   QgsLayoutExporter::PdfExportSettings pdfSettings;
   pdfSettings.rasterizeWholeImage = layoutToPrint->customProperty( QStringLiteral( "rasterize" ), false ).toBool();
@@ -1050,7 +1046,7 @@ bool QgisMobileapp::printAtlasFeatures( const QString &layoutName, const QList<l
   pdfSettings.exportMetadata = true;
   pdfSettings.simplifyGeometries = true;
 
-  QVector< double > mapScales = layoutToPrint->project()->viewSettings()->mapScales();
+  QVector<double> mapScales = layoutToPrint->project()->viewSettings()->mapScales();
   bool hasProjectScales( layoutToPrint->project()->viewSettings()->useProjectScales() );
   if ( !hasProjectScales || mapScales.isEmpty() )
   {
@@ -1111,4 +1107,3 @@ QgisMobileapp::~QgisMobileapp()
   delete mProject;
   delete mAppMissingGridHandler;
 }
-
