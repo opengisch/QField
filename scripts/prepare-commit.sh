@@ -13,14 +13,11 @@ else
   STYLEARG=""
 fi
 
-docker build -t clang-format-lint github.com/DoozyX/clang-format-lint-action
-
 format_file() {
   file="${1}"
   if [ -f $file ]; then
     clang-format -i ${STYLEARG} ${1}
-    docker run --rm --workdir /src -v $(pwd):/src \
-    /clang-format/clang-format12 -i ${STYLEARG} ${1}
+    ./scripts/astyle.sh ${1}
     git add ${1}
   fi
 }
