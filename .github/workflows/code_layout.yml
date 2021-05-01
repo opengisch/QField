@@ -87,3 +87,16 @@ jobs:
       - name: Check sdk pattern
         run: |
           grep -E 'osgeo4a_version=2[0-9]{7}' sdk.conf
+
+  astyle-check:
+    runs-on: ubuntu-20.04
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Check astyle
+        run: |
+          sudo apt install -y astyle
+          find src/ -name '*.cpp' -o -name '*.h' | xargs ./scripts/astyle.sh
+          find test/ -name '*.cpp' -o -name '*.h' | xargs ./scripts/astyle.sh
+          [ -z "$(git status --porcelain)" ]
