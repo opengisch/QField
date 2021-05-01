@@ -16,12 +16,12 @@
  *                                                                         *
  ***************************************************************************/
 #include "layerresolver.h"
+
 #include <qgsvectorlayerref.h>
 
 LayerResolver::LayerResolver( QObject *parent )
   : QObject( parent )
 {
-
 }
 
 void LayerResolver::resolve()

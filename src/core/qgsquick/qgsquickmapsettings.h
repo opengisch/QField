@@ -16,16 +16,15 @@
 #ifndef QGSQUICKMAPSETTINGS_H
 #define QGSQUICKMAPSETTINGS_H
 
-#include <QObject>
+#include "qfield_core_export.h"
 
+#include <QObject>
 #include <qgscoordinatetransformcontext.h>
+#include <qgsmaplayer.h>
 #include <qgsmapsettings.h>
 #include <qgsmapthemecollection.h>
 #include <qgspoint.h>
-#include <qgsmaplayer.h>
 #include <qgsrectangle.h>
-
-#include "qfield_core_export.h"
 
 class QgsProject;
 
@@ -258,7 +257,6 @@ class QFIELD_CORE_EXPORT QgsQuickMapSettings : public QObject
     QgsProject *mProject = nullptr;
     QgsMapSettings mMapSettings;
     qreal mDevicePixelRatio = 1.0;
-
 };
 
 #endif // QGSQUICKMAPSETTINGS_H

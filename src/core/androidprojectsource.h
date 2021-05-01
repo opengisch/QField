@@ -18,8 +18,9 @@
 #ifndef ANDROIDPROJECTSOURCE_H
 #define ANDROIDPROJECTSOURCE_H
 
-#include <QAndroidActivityResultReceiver>
 #include "projectsource.h"
+
+#include <QAndroidActivityResultReceiver>
 
 class AndroidProjectSource : public ProjectSource, public QAndroidActivityResultReceiver
 {
@@ -29,7 +30,6 @@ class AndroidProjectSource : public ProjectSource, public QAndroidActivityResult
     AndroidProjectSource();
 
     void handleActivityResult( int receiverRequestCode, int resultCode, const QAndroidJniObject &data ) override;
-
 };
 
 #endif // ANDROIDPROJECTSOURCE_H

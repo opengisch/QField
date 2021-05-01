@@ -14,9 +14,10 @@
  ***************************************************************************/
 
 #include "qfieldcloudutils.h"
-#include <qgsapplication.h>
+
 #include <QDir>
 #include <QString>
+#include <qgsapplication.h>
 #include <qgsmessagelog.h>
 
 // NOTE directly setting does not work QgsApplication::qgisSettingsDirPath();
@@ -46,9 +47,7 @@ bool QFieldCloudUtils::isCloudAction( const QgsMapLayer *layer )
 
   const QString layerAction( layer->customProperty( QStringLiteral( "QFieldSync/action" ) ).toString().toUpper() );
 
-  if ( layerAction == QStringLiteral( "NO_ACTION" ) ||
-       layerAction == QStringLiteral( "REMOVE" )
-       )
+  if ( layerAction == QStringLiteral( "NO_ACTION" ) || layerAction == QStringLiteral( "REMOVE" ) )
     return false;
   return true;
 }

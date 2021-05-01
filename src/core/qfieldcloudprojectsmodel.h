@@ -16,13 +16,13 @@
 #ifndef QFIELDCLOUDPROJECTSMODEL_H
 #define QFIELDCLOUDPROJECTSMODEL_H
 
-#include "qgsnetworkaccessmanager.h"
-#include "qgsgpkgflusher.h"
 #include "deltalistmodel.h"
+#include "qgsgpkgflusher.h"
+#include "qgsnetworkaccessmanager.h"
 
 #include <QAbstractListModel>
-#include <QSortFilterProxyModel>
 #include <QNetworkReply>
+#include <QSortFilterProxyModel>
 #include <QTimer>
 
 
@@ -39,7 +39,6 @@ class QFieldCloudProjectsModel : public QAbstractListModel
     Q_OBJECT
 
   public:
-
     enum ColumnRole
     {
       IdRole = Qt::UserRole + 1,
@@ -200,7 +199,7 @@ class QFieldCloudProjectsModel : public QAbstractListModel
     Q_INVOKABLE void refreshProjectsList();
 
     //! Downloads a cloud project with given \a projectId and all of its files.
-    Q_INVOKABLE void downloadProject( const QString &projectId, bool overwriteProject = false );    //! Downloads a cloud project with given \a projectId and all of its files.
+    Q_INVOKABLE void downloadProject( const QString &projectId, bool overwriteProject = false ); //! Downloads a cloud project with given \a projectId and all of its files.
 
     //! Cancels ongoing cloud project download with \a projectId.
     Q_INVOKABLE void cancelDownloadProject( const QString &projectId );
@@ -249,7 +248,7 @@ class QFieldCloudProjectsModel : public QAbstractListModel
     void canSyncCurrentProjectChanged();
     void gpkgFlusherChanged();
     void warning( const QString &message );
-    void projectDownloaded( const QString &projectId, const QString &projectName, const bool hasError, const QString &errorString = QString());
+    void projectDownloaded( const QString &projectId, const QString &projectName, const bool hasError, const QString &errorString = QString() );
     void projectStatusChanged( const QString &projectId, const ProjectStatus &projectStatus );
 
     //
@@ -270,6 +269,7 @@ class QFieldCloudProjectsModel : public QAbstractListModel
     int findProject( const QString &projectId ) const;
 
     void layerObserverLayerEdited( const QString &layerId );
+
   private:
     static const int sDelayBeforeStatusRetry = 1000;
 
@@ -279,13 +279,8 @@ class QFieldCloudProjectsModel : public QAbstractListModel
         const QString &fileName,
         const long long bytesTotal,
         NetworkReply *networkReply = nullptr,
-        const QStringList &layerIds = QStringList()
-      )
-        : fileName( fileName ),
-          bytesTotal( bytesTotal ),
-          networkReply( networkReply ),
-          layerIds( layerIds )
-      {};
+        const QStringList &layerIds = QStringList() )
+        : fileName( fileName ), bytesTotal( bytesTotal ), networkReply( networkReply ), layerIds( layerIds ) {};
 
       FileTransfer() = default;
 
@@ -414,7 +409,6 @@ class QFieldCloudProjectsFilterModel : public QSortFilterProxyModel
     Q_PROPERTY( bool showLocalOnly READ showLocalOnly WRITE setShowLocalOnly NOTIFY showLocalOnlyChanged )
 
   public:
-
     enum ProjectsFilter
     {
       PrivateProjects,
@@ -462,11 +456,9 @@ class QFieldCloudProjectsFilterModel : public QSortFilterProxyModel
     void showLocalOnlyChanged();
 
   protected:
-
     virtual bool filterAcceptsRow( int source_row, const QModelIndex &source_parent ) const override;
 
   private:
-
     QFieldCloudProjectsModel *mSourceModel = nullptr;
     ProjectsFilter mFilter = PrivateProjects;
     bool mShowLocalOnly = false;

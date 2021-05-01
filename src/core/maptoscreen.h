@@ -16,11 +16,11 @@
 #ifndef MAPTOSCREEN_H
 #define MAPTOSCREEN_H
 
+#include "qgsquickmapsettings.h"
+
 #include <QObject>
 #include <QPointF>
 #include <qgspoint.h>
-
-#include "qgsquickmapsettings.h"
 
 /**
  * @brief The MapToScreen class transform a map point to screen coordinates.

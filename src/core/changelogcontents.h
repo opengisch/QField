@@ -23,11 +23,11 @@ class ChangelogContents : public QObject
 {
     Q_OBJECT
 
-  //! Holds the current changelog contents formatted as markdown.
-  Q_PROPERTY( QString markdown READ markdown NOTIFY markdownChanged )
+    //! Holds the current changelog contents formatted as markdown.
+    Q_PROPERTY( QString markdown READ markdown NOTIFY markdownChanged )
 
-  //! Holds the current changelog contents status.
-  Q_PROPERTY( Status status READ status NOTIFY statusChanged )
+    //! Holds the current changelog contents status.
+    Q_PROPERTY( Status status READ status NOTIFY statusChanged )
 
   public:
     //! Constructor

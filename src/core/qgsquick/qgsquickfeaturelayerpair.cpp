@@ -13,10 +13,10 @@
  *                                                                         *
  ***************************************************************************/
 
-#include <qgsvectorlayer.h>
-#include <qgsfeature.h>
-
 #include "qgsquickfeaturelayerpair.h"
+
+#include <qgsfeature.h>
+#include <qgsvectorlayer.h>
 
 QgsQuickFeatureLayerPair::QgsQuickFeatureLayerPair() = default;
 

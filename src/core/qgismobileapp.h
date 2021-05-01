@@ -23,27 +23,24 @@
 
 // QGIS includes
 #include <qgsapplication.h>
+#include <qgsconfig.h>
 #include <qgsexiftools.h>
 #include <qgsmaplayerproxymodel.h>
-#include <qgsconfig.h>
 
 // QGIS mobile includes
 #include "appcoordinateoperationhandlers.h"
-#include "multifeaturelistmodel.h"
-#include "settings.h"
 #include "focusstack.h"
-#include "qgsquickutils.h"
-#include "qgsgpkgflusher.h"
 #include "geometryeditorsmodel.h"
-
-#include "qfieldappauthrequesthandler.h"
-
-#include "qfield_core_export.h"
-
+#include "multifeaturelistmodel.h"
 #include "platformutilities.h"
-#if defined(Q_OS_ANDROID)
+#include "qfield_core_export.h"
+#include "qfieldappauthrequesthandler.h"
+#include "qgsgpkgflusher.h"
+#include "qgsquickutils.h"
+#include "settings.h"
+#if defined( Q_OS_ANDROID )
 #include "androidplatformutilities.h"
-#elif defined(Q_OS_IOS)
+#elif defined( Q_OS_IOS )
 #include "ios/iosplatformutilities.h"
 #endif
 
@@ -61,11 +58,11 @@ class QgsProject;
 class LayerObserver;
 
 
-#define REGISTER_SINGLETON(uri, _class, name) qmlRegisterSingletonType<_class>( uri, 1, 0, name, [] ( QQmlEngine *engine, QJSEngine *scriptEngine ) -> QObject * { Q_UNUSED(engine); Q_UNUSED(scriptEngine); return new _class(); } )
+#define REGISTER_SINGLETON( uri, _class, name ) qmlRegisterSingletonType<_class>( uri, 1, 0, name, []( QQmlEngine *engine, QJSEngine *scriptEngine ) -> QObject * { Q_UNUSED(engine); Q_UNUSED(scriptEngine); return new _class(); } )
 
 #define SUPPORTED_PROJECT_EXTENSIONS QStringList( { QStringLiteral( "qgs" ), QStringLiteral( "qgz" ) } )
-#define SUPPORTED_VECTOR_EXTENSIONS  QStringList( { QStringLiteral( "gpkg" ), QStringLiteral( "shp" ), QStringLiteral( "kml" ), QStringLiteral( "kmz" ), QStringLiteral( "geojson" ), QStringLiteral( "json" ), QStringLiteral( "pdf" ), QStringLiteral( "gpx" ), QStringLiteral( "zip" ) } )
-#define SUPPORTED_RASTER_EXTENSIONS  QStringList( { QStringLiteral( "tif" ), QStringLiteral( "pdf" ), QStringLiteral( "jpg" ), QStringLiteral( "png" ), QStringLiteral( "gpkg" ), QStringLiteral( "jp2" ), QStringLiteral( "webp" ), QStringLiteral( "zip" ) } )
+#define SUPPORTED_VECTOR_EXTENSIONS QStringList( { QStringLiteral( "gpkg" ), QStringLiteral( "shp" ), QStringLiteral( "kml" ), QStringLiteral( "kmz" ), QStringLiteral( "geojson" ), QStringLiteral( "json" ), QStringLiteral( "pdf" ), QStringLiteral( "gpx" ), QStringLiteral( "zip" ) } )
+#define SUPPORTED_RASTER_EXTENSIONS QStringList( { QStringLiteral( "tif" ), QStringLiteral( "pdf" ), QStringLiteral( "jpg" ), QStringLiteral( "png" ), QStringLiteral( "gpkg" ), QStringLiteral( "jp2" ), QStringLiteral( "webp" ), QStringLiteral( "zip" ) } )
 
 class QFIELD_CORE_EXPORT QgisMobileapp : public QQmlApplicationEngine
 {

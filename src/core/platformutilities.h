@@ -19,14 +19,12 @@
 #ifndef PLATFORMUTILITIES_H
 #define PLATFORMUTILITIES_H
 
-#include <QObject>
-
-#include <qgsfield.h>
-
 #include "picturesource.h"
+#include "qfield_core_export.h"
 #include "viewstatus.h"
 
-#include "qfield_core_export.h"
+#include <QObject>
+#include <qgsfield.h>
 
 class ProjectSource;
 
@@ -120,6 +118,5 @@ class QFIELD_CORE_EXPORT PlatformUtilities : public QObject
     Q_INVOKABLE virtual void setScreenLockPermission( const bool allowLock ) { Q_UNUSED( allowLock ); }
 
     static PlatformUtilities *instance();
-
 };
 #endif // PLATFORMUTILITIES_H

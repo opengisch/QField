@@ -20,6 +20,7 @@
 #define ANDROIDPLATFORMUTILITIES_H
 
 #include "platformutilities.h"
+
 #include <QAndroidJniObject>
 
 class AndroidPlatformUtilities : public PlatformUtilities

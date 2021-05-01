@@ -16,9 +16,9 @@
 #ifndef QFIELDCLOUDUTILS_H
 #define QFIELDCLOUDUTILS_H
 
-#include <qgsproject.h>
-#include <qgsmaplayer.h>
 #include <qfieldcloudprojectsmodel.h>
+#include <qgsmaplayer.h>
+#include <qgsproject.h>
 
 class QString;
 class QFieldCloudProjectsModel;
@@ -30,7 +30,6 @@ class QFieldCloudUtils : public QObject
     Q_OBJECT
 
   public:
-
     static const QString localCloudDirectory();
     static const QString localProjectFilePath( const QString &username, const QString &projectId );
 
@@ -59,11 +58,10 @@ class QFieldCloudUtils : public QObject
     Q_INVOKABLE static const QString getProjectId( QgsProject *project );
 
   private:
-
     static QString sQgisSettingsDirPath;
 
-  friend TestDeltaFileWrapper;
-  friend TestLayerObserver;
+    friend TestDeltaFileWrapper;
+    friend TestLayerObserver;
 };
 
 #endif // QFIELDCLOUDUTILS_H

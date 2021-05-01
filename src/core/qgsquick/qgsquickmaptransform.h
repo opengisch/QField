@@ -16,8 +16,8 @@
 #ifndef QGSQUICKMAPTRANSFORM_H
 #define QGSQUICKMAPTRANSFORM_H
 
-#include <QQuickItem>
 #include <QMatrix4x4>
+#include <QQuickItem>
 
 
 class QgsQuickMapSettings;

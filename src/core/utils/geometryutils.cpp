@@ -15,17 +15,16 @@
  ***************************************************************************/
 
 #include "geometryutils.h"
+#include "rubberbandmodel.h"
 
 #include <qgslinestring.h>
 #include <qgspolygon.h>
-#include <qgsvectorlayer.h>
 #include <qgsproject.h>
+#include <qgsvectorlayer.h>
 
-#include "rubberbandmodel.h"
-
-GeometryUtils::GeometryUtils( QObject *parent ) : QObject( parent )
+GeometryUtils::GeometryUtils( QObject *parent )
+  : QObject( parent )
 {
-
 }
 
 
@@ -33,7 +32,7 @@ QgsGeometry GeometryUtils::polygonFromRubberband( RubberbandModel *rubberBandMod
 {
   QgsPointSequence ring = rubberBandModel->pointSequence( crs, QgsWkbTypes::Point, true );
   QgsLineString ext( ring );
-  std::unique_ptr< QgsPolygon > polygon = std::make_unique< QgsPolygon >( );
+  std::unique_ptr<QgsPolygon> polygon = std::make_unique<QgsPolygon>();
   polygon->setExteriorRing( ext.clone() );
   QgsGeometry g( std::move( polygon ) );
   return g;
@@ -43,8 +42,7 @@ QgsGeometry::OperationResult GeometryUtils::reshapeFromRubberband( QgsVectorLaye
 {
   QgsFeature feature = layer->getFeature( fid );
   QgsGeometry geom = feature.geometry();
-  if ( geom.isNull() ||
-       ( QgsWkbTypes::geometryType( geom.wkbType() ) != QgsWkbTypes::LineGeometry && QgsWkbTypes::geometryType( geom.wkbType() ) != QgsWkbTypes::PolygonGeometry ) )
+  if ( geom.isNull() || ( QgsWkbTypes::geometryType( geom.wkbType() ) != QgsWkbTypes::LineGeometry && QgsWkbTypes::geometryType( geom.wkbType() ) != QgsWkbTypes::PolygonGeometry ) )
     return QgsGeometry::InvalidBaseGeometry;
 
   QgsPointSequence points = rubberBandModel->pointSequence( layer->crs(), QgsWkbTypes::Point, false );
@@ -56,7 +54,7 @@ QgsGeometry::OperationResult GeometryUtils::reshapeFromRubberband( QgsVectorLaye
     //avoid intersections on polygon layers
     if ( layer->geometryType() == QgsWkbTypes::PolygonGeometry )
     {
-      QList<QgsVectorLayer *>  avoidIntersectionsLayers;
+      QList<QgsVectorLayer *> avoidIntersectionsLayers;
       switch ( QgsProject::instance()->avoidIntersectionsMode() )
       {
         case QgsProject::AvoidIntersectionsMode::AvoidIntersectionsCurrentLayer:
@@ -123,4 +121,3 @@ QgsGeometry::OperationResult GeometryUtils::splitFeatureFromRubberband( QgsVecto
   QgsPointSequence line = rubberBandModel->pointSequence( layer->crs(), QgsWkbTypes::Point, false );
   return layer->splitFeatures( line, true );
 }
-

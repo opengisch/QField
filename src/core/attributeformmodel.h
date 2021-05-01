@@ -16,9 +16,9 @@
 #ifndef ATTRIBUTEFORMMODEL_H
 #define ATTRIBUTEFORMMODEL_H
 
-#include <QSortFilterProxyModel>
-
 #include "attributeformmodelbase.h"
+
+#include <QSortFilterProxyModel>
 
 class FeatureModel;
 

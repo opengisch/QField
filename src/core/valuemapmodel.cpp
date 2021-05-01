@@ -16,8 +16,9 @@
  *                                                                         *
  ***************************************************************************/
 
-#include "valuemapmodel.h"
 #include "qgsvaluemapfieldformatter.h"
+#include "valuemapmodel.h"
+
 #include <QDebug>
 
 ValueMapModel::ValueMapModel( QObject *parent )

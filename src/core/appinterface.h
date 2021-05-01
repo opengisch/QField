@@ -20,7 +20,6 @@
 
 #include <QObject>
 #include <QPointF>
-
 #include <QStandardItemModel>
 
 class QgisMobileapp;

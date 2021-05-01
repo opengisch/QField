@@ -19,9 +19,8 @@
 #define FEATURESLOCATORFILTER_H
 
 #include <QObject>
-
-#include <qgslocatorfilter.h>
 #include <qgsexpressioncontext.h>
+#include <qgslocatorfilter.h>
 #include <qgsvectorlayerfeatureiterator.h>
 
 
@@ -37,7 +36,6 @@ class FeaturesLocatorFilter : public QgsLocatorFilter
     Q_OBJECT
 
   public:
-
     //! Origin of the action which triggers the result
     enum ActionOrigin
     {
@@ -55,7 +53,7 @@ class FeaturesLocatorFilter : public QgsLocatorFilter
         QString layerName;
         QString layerId;
         QIcon layerIcon;
-    } ;
+    };
 
     explicit FeaturesLocatorFilter( LocatorModelSuperBridge *locatorBridge, QObject *parent = nullptr );
     FeaturesLocatorFilter *clone() const override;

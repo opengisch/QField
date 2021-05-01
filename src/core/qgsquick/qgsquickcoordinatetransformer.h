@@ -16,13 +16,10 @@
 #ifndef QGSQUICKCOORDINATETRANSFORMER_H
 #define QGSQUICKCOORDINATETRANSFORMER_H
 
-#include <QObject>
 #include <QGeoCoordinate>
-
-#include <qgspoint.h>
-
-#include <qgscoordinatetransformcontext.h>
+#include <QObject>
 #include <qgscoordinatereferencesystem.h>
+#include <qgscoordinatetransformcontext.h>
 #include <qgspoint.h>
 
 /**

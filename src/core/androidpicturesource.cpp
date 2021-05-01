@@ -14,27 +14,26 @@
  *                                                                         *
  ***************************************************************************/
 #include "androidpicturesource.h"
-#include "qgsmessagelog.h"
 #include "qgsapplication.h"
+#include "qgsmessagelog.h"
+
 #include <QAndroidJniEnvironment>
-#include <QtAndroid>
+#include <QDebug>
 #include <QDir>
 #include <QFile>
-#include <QDebug>
+#include <QtAndroid>
 
 AndroidPictureSource::AndroidPictureSource( const QString &prefix )
   : PictureSource( nullptr, prefix )
   , QAndroidActivityResultReceiver()
   , mPrefix( prefix )
 {
-
 }
 
 void AndroidPictureSource::handleActivityResult( int receiverRequestCode, int resultCode, const QAndroidJniObject &data )
 {
   if ( receiverRequestCode == 171 )
   {
-
     jint RESULT_OK = QAndroidJniObject::getStaticField<jint>( "android/app/Activity", "RESULT_OK" );
     if ( resultCode == RESULT_OK )
     {
@@ -54,5 +53,4 @@ void AndroidPictureSource::handleActivityResult( int receiverRequestCode, int re
       emit pictureReceived( QString() );
     }
   }
-
 }

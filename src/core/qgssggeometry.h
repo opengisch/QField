@@ -15,10 +15,10 @@
 #ifndef QGSSGGEOMETRY_H
 #define QGSSGGEOMETRY_H
 
-#include <QtQuick/QSGGeometryNode>
-#include <QtQuick/QSGFlatColorMaterial>
-
 #include "qgsgeometry.h"
+
+#include <QtQuick/QSGFlatColorMaterial>
+#include <QtQuick/QSGGeometryNode>
 
 class QgsSGGeometry : public QSGNode
 {

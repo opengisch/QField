@@ -17,22 +17,21 @@
 #define QGSQUICKUTILS_H
 
 
+#include "qgsquickfeaturelayerpair.h"
+#include "qgsquickmapsettings.h"
+
 #include <QObject>
 #include <QString>
 #include <QUrl>
 #include <QtPositioning/QGeoCoordinate>
-
-#include <limits>
-
+#include <qgscoordinateformatter.h>
 #include <qgsmessagelog.h>
 #include <qgspoint.h>
 #include <qgspointxy.h>
 #include <qgsunittypes.h>
-#include <qgscoordinateformatter.h>
 #include <qgsvectorlayer.h>
 
-#include "qgsquickmapsettings.h"
-#include "qgsquickfeaturelayerpair.h"
+#include <limits>
 
 
 class QgsFeature;
@@ -46,7 +45,7 @@ class QgsCoordinateReferenceSystem;
  * \note QML Type: Utils (Singleton)
  *
  */
-class QgsQuickUtils: public QObject
+class QgsQuickUtils : public QObject
 {
     Q_OBJECT
 

@@ -1,33 +1,34 @@
 
-#include <QtTest>
-#include <qgsapplication.h>
-#include <qgslinestring.h>
-#include <qgsgeometry.h>
-#include <qgspoint.h>
-#include <qgspointxy.h>
-#include <qgsmessagelog.h>
-
+#include "qfield_testbase.h"
 #include "qgsquickmapsettings.h"
 #include "vertexmodel.h"
-#include "qfield_testbase.h"
+
+#include <QtTest>
+#include <qgsapplication.h>
+#include <qgsgeometry.h>
+#include <qgslinestring.h>
+#include <qgsmessagelog.h>
+#include <qgspoint.h>
+#include <qgspointxy.h>
 
 
-#define VERIFYNEAR(value,expected,epsilon) { \
-    QVERIFY2( qgsDoubleNear( value, expected, epsilon ), QStringLiteral("Expecting %1 got %2 (diff %3 > %4)").arg(expected).arg(value).arg(std::fabs( static_cast< double >( expected ) - value )).arg(epsilon).toUtf8().constData() ); \
-  }(void)(0)
+#define VERIFYNEAR( value, expected, epsilon )                                                                                                                                                                                                  \
+  {                                                                                                                                                                                                                                             \
+    QVERIFY2( qgsDoubleNear( value, expected, epsilon ), QStringLiteral( "Expecting %1 got %2 (diff %3 > %4)" ).arg( expected ).arg( value ).arg( std::fabs( static_cast<double>( expected ) - value ) ).arg( epsilon ).toUtf8().constData() ); \
+  }                                                                                                                                                                                                                                             \
+  ( void ) ( 0 )
 
 namespace QTest
 {
   template<>
   char *toString( const QgsPoint &point )
   {
-    QByteArray ba = "QgsPoint(" + QByteArray::number( point.x() ) +
-                    ", " + QByteArray::number( point.y() ) + ")";
+    QByteArray ba = "QgsPoint(" + QByteArray::number( point.x() ) + ", " + QByteArray::number( point.y() ) + ")";
     return qstrdup( ba.data() );
   }
-}
+} // namespace QTest
 
-class TestVertexModel: public QObject
+class TestVertexModel : public QObject
 {
     Q_OBJECT
   private slots:
@@ -48,7 +49,7 @@ class TestVertexModel: public QObject
                               << QgsPointXY( 2, 0 )
                               << QgsPointXY( 2, 2 )
                               << QgsPointXY( 0, 2 )
-                              << QgsPointXY( 0, 0 ) ) ) ;
+                              << QgsPointXY( 0, 0 ) ) );
 
       mRingPolygonGeometry = QgsGeometry::fromPolygonXY( QVector<QVector<QgsPointXY>>()
                              << ( QVector<QgsPointXY>()
@@ -62,12 +63,12 @@ class TestVertexModel: public QObject
                                   << QgsPointXY( 3, 1 )
                                   << QgsPointXY( 3, 3 )
                                   << QgsPointXY( 1, 3 )
-                                  << QgsPointXY( 1, 1 ) ) ) ;
+                                  << QgsPointXY( 1, 1 ) ) );
 
 
       mPoint2056Geometry = QgsGeometry::fromPointXY( QgsPointXY( 2500000, 1200000 ) );
 
-      mLine2056Geometry = QgsGeometry::fromPolylineXY( {QgsPointXY( 2500001, 1200001 ), QgsPointXY( 2500002, 1200002 ), QgsPointXY( 2500004, 1200004 )} );
+      mLine2056Geometry = QgsGeometry::fromPolylineXY( { QgsPointXY( 2500001, 1200001 ), QgsPointXY( 2500002, 1200002 ), QgsPointXY( 2500004, 1200004 ) } );
     }
 
     void testCandidates()

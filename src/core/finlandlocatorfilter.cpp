@@ -18,17 +18,16 @@
 #include "locatormodelsuperbridge.h"
 #include "qgsquickmapsettings.h"
 
+#include <QAction>
 #include <qgsgeocoderresult.h>
 #include <qgsproject.h>
-
-#include <QAction>
 
 
 FinlandLocatorFilter::FinlandLocatorFilter( QgsGeocoderInterface *geocoder, LocatorModelSuperBridge *locatorBridge )
   : QgsAbstractGeocoderLocatorFilter( QStringLiteral( "pelias-finland" ), tr( "Finnish address search" ), QStringLiteral( "fia" ), geocoder )
   , mLocatorBridge( locatorBridge )
 {
-  setBoundingBox( QgsRectangle( 19.0832098, 59.4541578, 31.5867071, 70.0922939) );
+  setBoundingBox( QgsRectangle( 19.0832098, 59.4541578, 31.5867071, 70.0922939 ) );
   setFetchResultsDelay( 1000 );
   setUseWithoutPrefix( false );
 }
@@ -54,7 +53,7 @@ void FinlandLocatorFilter::handleGeocodeResult( const QgsGeocoderResult &result 
     Q_UNUSED( e )
     return;
   }
-  catch(...)
+  catch ( ... )
   {
     // catch any other errors
     return;

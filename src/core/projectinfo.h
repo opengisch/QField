@@ -18,8 +18,8 @@
 #ifndef PROJECTINFO_H
 #define PROJECTINFO_H
 
-#include "qgsquickmapsettings.h"
 #include "layertreemodel.h"
+#include "qgsquickmapsettings.h"
 
 #include <QObject>
 #include <QTimer>
@@ -34,23 +34,22 @@ class ProjectInfo : public QObject
     Q_OBJECT
 
     Q_PROPERTY( QString filePath READ filePath WRITE setFilePath NOTIFY filePathChanged )
-    
+
     Q_PROPERTY( QgsQuickMapSettings *mapSettings READ mapSettings WRITE setMapSettings NOTIFY mapSettingsChanged )
 
     Q_PROPERTY( FlatLayerTreeModel *layerTree READ layerTree WRITE setLayerTree NOTIFY layerTreeChanged )
 
   public:
-  
     explicit ProjectInfo( QObject *parent = nullptr );
 
     virtual ~ProjectInfo() = default;
 
     void setFilePath( const QString &filePath );
-    
+
     QString filePath() const;
 
     void setMapSettings( QgsQuickMapSettings *mapSettings );
-    
+
     QgsQuickMapSettings *mapSettings() const;
 
     void setLayerTree( FlatLayerTreeModel *layerTree );
@@ -58,9 +57,9 @@ class ProjectInfo : public QObject
     FlatLayerTreeModel *layerTree() const;
 
   signals:
-  
+
     void filePathChanged();
-    
+
     void mapSettingsChanged();
 
     void layerTreeChanged();
@@ -72,7 +71,6 @@ class ProjectInfo : public QObject
     void mapThemeChanged();
 
   private:
-  
     QString mFilePath;
 
     QgsQuickMapSettings *mMapSettings = nullptr;

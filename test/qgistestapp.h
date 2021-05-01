@@ -28,7 +28,7 @@ class QgisTestApp
       mApp = new QgsApplication( argc, argv, false );
 
       // load providers
-#if defined(Q_WS_WIN)
+#if defined( Q_WS_WIN )
       QString prefixPath = QApplication::applicationDirPath();
 #else
       QString prefixPath = QApplication::applicationDirPath() + "/..";
@@ -56,4 +56,3 @@ class QgisTestApp
 };
 
 #endif // QGISTESTAPP
-

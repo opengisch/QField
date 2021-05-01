@@ -45,20 +45,20 @@
 ****************************************************************************/
 
 
-#include <QtGui/QtGui>
-
 #include "modeltest.h"
 
+#include <QtGui/QtGui>
 #include <QtTest/QtTest>
 #undef Q_ASSERT
-#define Q_ASSERT  QVERIFY
+#define Q_ASSERT QVERIFY
 
 Q_DECLARE_METATYPE( QModelIndex )
 
 /*!
     Connect to all of the models signals.  Whenever anything happens recheck everything.
 */
-ModelTest::ModelTest( QAbstractItemModel *_model, QObject *parent ) : QObject( parent ), model( _model ), fetchingMore( false )
+ModelTest::ModelTest( QAbstractItemModel *_model, QObject *parent )
+  : QObject( parent ), model( _model ), fetchingMore( false )
 {
   Q_ASSERT( model );
 
@@ -159,7 +159,7 @@ void ModelTest::nonDestructiveBasicTest()
  */
 void ModelTest::rowCount()
 {
-//     qDebug() << "rc";
+  //     qDebug() << "rc";
   // check top row
   QModelIndex topIndex = model->index( 0, 0, QModelIndex() );
   int rows = model->rowCount( topIndex );
@@ -168,7 +168,7 @@ void ModelTest::rowCount()
     Q_ASSERT( model->hasChildren( topIndex ) );
 
   QModelIndex secondLevelIndex = model->index( 0, 0, topIndex );
-  if ( secondLevelIndex.isValid() )   // not the top level
+  if ( secondLevelIndex.isValid() ) // not the top level
   {
     // check a row count where parent is valid
     rows = model->rowCount( secondLevelIndex );
@@ -204,7 +204,7 @@ void ModelTest::columnCount()
  */
 void ModelTest::hasIndex()
 {
-//     qDebug() << "hi";
+  //     qDebug() << "hi";
   // Make sure that invalid values returns an invalid index
   Q_ASSERT( !model->hasIndex( -2, -2 ) );
   Q_ASSERT( !model->hasIndex( -2, 0 ) );
@@ -229,7 +229,7 @@ void ModelTest::hasIndex()
  */
 void ModelTest::index()
 {
-//     qDebug() << "i";
+  //     qDebug() << "i";
   // Make sure that invalid values returns an invalid index
   Q_ASSERT( model->index( -2, -2 ) == QModelIndex() );
   Q_ASSERT( model->index( -2, 0 ) == QModelIndex() );
@@ -259,7 +259,7 @@ void ModelTest::index()
  */
 void ModelTest::parent()
 {
-//     qDebug() << "p";
+  //     qDebug() << "p";
   // Make sure the model wont crash and will return an invalid QModelIndex
   // when asked for the parent of an invalid index.
   Q_ASSERT( model->parent( QModelIndex() ) == QModelIndex() );
@@ -377,7 +377,7 @@ void ModelTest::checkChildren( const QModelIndex &parent, int currentDepth )
       Q_ASSERT( index.column() == c );
       // While you can technically return a QVariant usually this is a sign
       // of an bug in data()  Disable if this really is ok in your model.
-//            Q_ASSERT ( model->data ( index, Qt::DisplayRole ).isValid() );
+      //            Q_ASSERT ( model->data ( index, Qt::DisplayRole ).isValid() );
 
       // If the next test fails here is some somewhat useful debug you play with.
 
@@ -386,14 +386,14 @@ void ModelTest::checkChildren( const QModelIndex &parent, int currentDepth )
         qDebug() << r << c << currentDepth << model->data( index ).toString()
                  << model->data( parent ).toString();
         qDebug() << index << parent << model->parent( index );
-//                 And a view that you can even use to show the model.
-//                 QTreeView view;
-//                 view.setModel(model);
-//                 view.show();
+        //                 And a view that you can even use to show the model.
+        //                 QTreeView view;
+        //                 view.setModel(model);
+        //                 view.show();
       }
 
       // Check that we can get back our real parent.
-//            qDebug() << model->parent ( index ) << parent;
+      //            qDebug() << model->parent ( index ) << parent;
       Q_ASSERT( model->parent( index ) == parent );
 
       // recursively go down the children
@@ -401,7 +401,7 @@ void ModelTest::checkChildren( const QModelIndex &parent, int currentDepth )
       {
         //qDebug() << r << c << "has children" << model->rowCount(index);
         checkChildren( index, ++currentDepth );
-      }/* else { if (currentDepth >= 10) qDebug() << "checked 10 deep"; };*/
+      } /* else { if (currentDepth >= 10) qDebug() << "checked 10 deep"; };*/
 
       // make sure that after testing the children that the index doesn't change.
       QModelIndex newerIndex = model->index( r, c, parent );
@@ -484,9 +484,7 @@ void ModelTest::data()
   if ( checkStateVariant.isValid() )
   {
     int state = checkStateVariant.toInt();
-    Q_ASSERT( state == Qt::Unchecked ||
-              state == Qt::PartiallyChecked ||
-              state == Qt::Checked );
+    Q_ASSERT( state == Qt::Unchecked || state == Qt::PartiallyChecked || state == Qt::Checked );
   }
 }
 
@@ -498,9 +496,9 @@ void ModelTest::data()
 void ModelTest::rowsAboutToBeInserted( const QModelIndex &parent, int start, int end )
 {
   Q_UNUSED( end );
-//    qDebug() << "rowsAboutToBeInserted" << "start=" << start << "end=" << end << "parent=" << model->data ( parent ).toString()
-//    << "current count of parent=" << model->rowCount ( parent ); // << "display of last=" << model->data( model->index(start-1, 0, parent) );
-//     qDebug() << model->index(start-1, 0, parent) << model->data( model->index(start-1, 0, parent) );
+  //    qDebug() << "rowsAboutToBeInserted" << "start=" << start << "end=" << end << "parent=" << model->data ( parent ).toString()
+  //    << "current count of parent=" << model->rowCount ( parent ); // << "display of last=" << model->data( model->index(start-1, 0, parent) );
+  //     qDebug() << model->index(start-1, 0, parent) << model->data( model->index(start-1, 0, parent) );
   Changing c;
   c.parent = parent;
   c.oldSize = model->rowCount( parent );
@@ -518,14 +516,14 @@ void ModelTest::rowsInserted( const QModelIndex &parent, int start, int end )
 {
   Changing c = insert.pop();
   Q_ASSERT( c.parent == parent );
-//    qDebug() << "rowsInserted"  << "start=" << start << "end=" << end << "oldsize=" << c.oldSize
-//    << "parent=" << model->data ( parent ).toString() << "current rowcount of parent=" << model->rowCount ( parent );
+  //    qDebug() << "rowsInserted"  << "start=" << start << "end=" << end << "oldsize=" << c.oldSize
+  //    << "parent=" << model->data ( parent ).toString() << "current rowcount of parent=" << model->rowCount ( parent );
 
-//    for (int ii=start; ii <= end; ii++)
-//    {
-//      qDebug() << "itemWasInserted:" << ii << model->data ( model->index ( ii, 0, parent ));
-//    }
-//    qDebug();
+  //    for (int ii=start; ii <= end; ii++)
+  //    {
+  //      qDebug() << "itemWasInserted:" << ii << model->data ( model->index ( ii, 0, parent ));
+  //    }
+  //    qDebug();
 
   Q_ASSERT( c.oldSize + ( end - start + 1 ) == model->rowCount( parent ) );
   Q_ASSERT( c.last == model->data( model->index( start - 1, 0, c.parent ) ) );
@@ -587,5 +585,3 @@ void ModelTest::rowsRemoved( const QModelIndex &parent, int start, int end )
   Q_ASSERT( c.last == model->data( model->index( start - 1, 0, c.parent ) ) );
   Q_ASSERT( c.next == model->data( model->index( start, 0, c.parent ) ) );
 }
-
-

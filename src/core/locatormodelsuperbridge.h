@@ -18,8 +18,8 @@
 #define LOCATORMODELSUPERBRIDGE_H
 
 #include <QStandardItemModel>
-#include <qgslocatormodelbridge.h>
 #include <qgslocatorfilter.h>
+#include <qgslocatormodelbridge.h>
 
 class QgsQuickMapSettings;
 class FeatureListExtentController;
@@ -105,7 +105,6 @@ class LocatorFiltersModel : public QAbstractListModel
     Q_PROPERTY( LocatorModelSuperBridge *locatorModelSuperBridge READ locatorModelSuperBridge WRITE setLocatorModelSuperBridge NOTIFY locatorModelSuperBridgeChanged )
 
   public:
-
     //! Custom model roles
     enum Role
     {
@@ -139,8 +138,6 @@ class LocatorFiltersModel : public QAbstractListModel
     void locatorModelSuperBridgeChanged();
 
   private:
-
     LocatorModelSuperBridge *mLocatorModelSuperBridge = nullptr;
-
 };
 #endif // LOCATORMODELSUPERBRIDGE_H

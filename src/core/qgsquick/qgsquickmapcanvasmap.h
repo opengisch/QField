@@ -16,16 +16,15 @@
 #ifndef QGSQUICKMAPCANVASMAP_H
 #define QGSQUICKMAPCANVASMAP_H
 
-#include <memory>
+#include "qgsquickmapsettings.h"
 
-#include <QtQuick/QQuickItem>
 #include <QFutureSynchronizer>
 #include <QTimer>
-
+#include <QtQuick/QQuickItem>
 #include <qgsmapsettings.h>
 #include <qgspoint.h>
 
-#include "qgsquickmapsettings.h"
+#include <memory>
 
 class QgsMapRendererParallelJob;
 class QgsMapRendererCache;
@@ -173,7 +172,6 @@ class QgsQuickMapCanvasMap : public QQuickItem
     void onLayersChanged();
 
   private:
-
     /**
      * Should only be called by stopRendering()!
      */

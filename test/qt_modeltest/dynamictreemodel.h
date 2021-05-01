@@ -48,7 +48,6 @@
 #define DYNAMICTREEMODEL_H
 
 #include <QtCore/QAbstractItemModel>
-
 #include <QtCore/QHash>
 #include <QtCore/QList>
 
@@ -80,7 +79,7 @@ class DynamicTreeModel : public QAbstractItemModel
 
   private:
     QHash<qint64, QString> m_items;
-    QHash<qint64, QList<QList<qint64> > > m_childItems;
+    QHash<qint64, QList<QList<qint64>>> m_childItems;
     qint64 nextId;
     qint64 newId()
     {
@@ -97,7 +96,6 @@ class DynamicTreeModel : public QAbstractItemModel
     friend class ModelMoveCommand;
     friend class ModelResetCommand;
     friend class ModelResetCommandFixed;
-
 };
 
 
@@ -105,7 +103,6 @@ class ModelChangeCommand : public QObject
 {
     Q_OBJECT
   public:
-
     ModelChangeCommand( DynamicTreeModel *model, QObject *parent = 0 );
 
     virtual ~ModelChangeCommand() {}
@@ -140,7 +137,6 @@ class ModelChangeCommand : public QObject
     int m_numCols;
     int m_startRow;
     int m_endRow;
-
 };
 
 typedef QList<ModelChangeCommand *> ModelChangeCommandList;
@@ -150,7 +146,6 @@ class ModelInsertCommand : public ModelChangeCommand
     Q_OBJECT
 
   public:
-
     ModelInsertCommand( DynamicTreeModel *model, QObject *parent = 0 );
     virtual ~ModelInsertCommand() {}
 
@@ -200,7 +195,6 @@ class ModelResetCommand : public ModelMoveCommand
 
     virtual bool emitPreSignal( const QModelIndex &srcParent, int srcStart, int srcEnd, const QModelIndex &destParent, int destRow );
     virtual void emitPostSignal();
-
 };
 
 /**
@@ -216,7 +210,6 @@ class ModelResetCommandFixed : public ModelMoveCommand
 
     virtual bool emitPreSignal( const QModelIndex &srcParent, int srcStart, int srcEnd, const QModelIndex &destParent, int destRow );
     virtual void emitPostSignal();
-
 };
 
 

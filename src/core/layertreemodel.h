@@ -18,7 +18,6 @@
 #define LAYERTREEMODEL_H
 
 #include <QSortFilterProxyModel>
-
 #include <qgslayertreelayer.h>
 
 class QgsLayerTree;
@@ -156,7 +155,6 @@ class FlatLayerTreeModel : public QSortFilterProxyModel
     virtual bool filterAcceptsRow( int source_row, const QModelIndex &source_parent ) const override;
 
   private:
-
     FlatLayerTreeModelBase *mSourceModel = nullptr;
 };
 

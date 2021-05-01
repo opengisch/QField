@@ -16,13 +16,12 @@
 #ifndef ATTRIBUTEFORMMODELBASE_H
 #define ATTRIBUTEFORMMODELBASE_H
 
-#include <QStandardItemModel>
-#include<QStack>
+#include "featuremodel.h"
 
+#include <QStack>
+#include <QStandardItemModel>
 #include <qgseditformconfig.h>
 #include <qgsexpressioncontext.h>
-
-#include "featuremodel.h"
 
 class AttributeFormModelBase : public QStandardItemModel
 {
@@ -35,7 +34,7 @@ class AttributeFormModelBase : public QStandardItemModel
 
   public:
     explicit AttributeFormModelBase( QObject *parent = nullptr );
-    ~AttributeFormModelBase() override ;
+    ~AttributeFormModelBase() override;
 
     QHash<int, QByteArray> roleNames() const override;
 
@@ -77,7 +76,7 @@ class AttributeFormModelBase : public QStandardItemModel
 
     void updateAttributeValue( QStandardItem *item );
 
-    void flatten(QgsAttributeEditorContainer *container, QStandardItem *parent, const QString &parentVisibilityExpressions, QVector<QStandardItem *> &items, int currentTabIndex = 0 , const QColor &color = QColor() );
+    void flatten( QgsAttributeEditorContainer *container, QStandardItem *parent, const QString &parentVisibilityExpressions, QVector<QStandardItem *> &items, int currentTabIndex = 0, const QColor &color = QColor() );
 
     void updateVisibilityAndConstraints( int fieldIndex = -1 );
 
@@ -106,7 +105,7 @@ class AttributeFormModelBase : public QStandardItemModel
     QgsAttributeEditorContainer *mTemporaryContainer = nullptr;
     bool mHasTabs = false;
 
-    typedef QPair<QgsExpression, QVector<QStandardItem *> > VisibilityExpression;
+    typedef QPair<QgsExpression, QVector<QStandardItem *>> VisibilityExpression;
     QList<VisibilityExpression> mVisibilityExpressions;
     QMap<QStandardItem *, QgsFieldConstraints> mConstraints;
     QMap<QStandardItem *, QString> mEditorWidgetCodes;

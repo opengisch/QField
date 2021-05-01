@@ -16,22 +16,21 @@
  *                                                                         *
  ***************************************************************************/
 
-#include "qgismobileapp.h"
 #include "fileutils.h"
-
-#include <QLocale>
-#include <QDir>
-#include <QSettings>
-#include <QTranslator>
-#include <QMainWindow>
-#include <QLabel>
-#include <QDialog>
-#include <QApplication>
-#include <QtWebView/QtWebView>
-#include <QStandardPaths>
-
+#include "qgismobileapp.h"
 #include "qgsapplication.h"
 #include "qgslogger.h"
+
+#include <QApplication>
+#include <QDialog>
+#include <QDir>
+#include <QLabel>
+#include <QLocale>
+#include <QMainWindow>
+#include <QSettings>
+#include <QStandardPaths>
+#include <QTranslator>
+#include <QtWebView/QtWebView>
 
 #ifdef ANDROID
 #include <android/log.h>
@@ -94,7 +93,7 @@ int main( int argc, char **argv )
 
   QGuiApplication::setAttribute( Qt::AA_EnableHighDpiScaling );
   QtWebView::initialize();
-#if defined(Q_OS_ANDROID)
+#if defined( Q_OS_ANDROID )
   QString projPath = PlatformUtilities::instance()->systemGenericDataLocation() + QStringLiteral( "/proj" );
   qputenv( "PROJ_LIB", projPath.toUtf8() );
   QgsApplication app( argc, argv, true, PlatformUtilities::instance()->systemGenericDataLocation() + QStringLiteral( "/qgis/resources" ) );
@@ -106,7 +105,7 @@ int main( int argc, char **argv )
   app.setPrefixPath( "" QGIS_INSTALL_DIR, true );
   app.setPluginPath( QApplication::applicationDirPath() );
   app.setPkgDataPath( PlatformUtilities::instance()->systemGenericDataLocation() + QStringLiteral( "/qgis" ) );
-#elif defined(Q_OS_IOS)
+#elif defined( Q_OS_IOS )
   QString projPath = IosPlatformUtilities().systemGenericDataLocation() + QStringLiteral( "/proj" );
   qputenv( "PROJ_LIB", projPath.toUtf8() );
   QgsApplication app( argc, argv, true, PlatformUtilities::instance()->systemGenericDataLocation() + QStringLiteral( "/qgis/resources" ) );
@@ -116,13 +115,13 @@ int main( int argc, char **argv )
   QSettings settings;
   app.setThemeName( settings.value( "/Themes", "default" ).toString() );
 
-#  if defined( Q_OS_WIN )
+#if defined( Q_OS_WIN )
   qputenv( "GDAL_DATA", QDir::toNativeSeparators( app.applicationDirPath() + "/gdal" ).toLocal8Bit() );
   qputenv( "PROJ_LIB", QDir::toNativeSeparators( app.applicationDirPath() + "/proj" ).toLocal8Bit() );
   app.setPrefixPath( app.applicationDirPath() + "/qgis", true );
-#  else
+#else
   app.setPrefixPath( CMAKE_INSTALL_PREFIX, true );
-#  endif
+#endif
 #endif
 
   app.initQgis();

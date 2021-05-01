@@ -18,18 +18,16 @@
 #ifndef MULTIFEATURELISTMODELBASE_H
 #define MULTIFEATURELISTMODELBASE_H
 
-#include <QAbstractItemModel>
-
-#include <qgsfeaturerequest.h>
-
 #include "identifytool.h"
+
+#include <QAbstractItemModel>
+#include <qgsfeaturerequest.h>
 
 class MultiFeatureListModelBase : public QAbstractItemModel
 {
     Q_OBJECT
 
   public:
-
     explicit MultiFeatureListModelBase( QObject *parent = nullptr );
 
     /**
@@ -137,14 +135,13 @@ class MultiFeatureListModelBase : public QAbstractItemModel
     void geometryChanged( QgsFeatureId fid, const QgsGeometry &geometry );
 
   private:
-
-    inline QPair< QgsVectorLayer *, QgsFeature > *toFeature( const QModelIndex &index ) const
+    inline QPair<QgsVectorLayer *, QgsFeature> *toFeature( const QModelIndex &index ) const
     {
-      return static_cast<QPair< QgsVectorLayer *, QgsFeature >*>( index.internalPointer() );
+      return static_cast<QPair<QgsVectorLayer *, QgsFeature> *>( index.internalPointer() );
     }
 
-    QList< QPair< QgsVectorLayer *, QgsFeature > > mFeatures;
-    QList< QPair< QgsVectorLayer *, QgsFeature > > mSelectedFeatures;
+    QList<QPair<QgsVectorLayer *, QgsFeature>> mFeatures;
+    QList<QPair<QgsVectorLayer *, QgsFeature>> mSelectedFeatures;
 };
 
 #endif // MULTIFEATURELISTMODELBASE_H

@@ -15,9 +15,9 @@
  ***************************************************************************/
 #include "distancearea.h"
 #include "geometry.h"
-#include "rubberband.h"
-#include "qgsvectorlayer.h"
 #include "qgsproject.h"
+#include "qgsvectorlayer.h"
+#include "rubberband.h"
 
 DistanceArea::DistanceArea( QObject *parent )
   : QObject( parent )

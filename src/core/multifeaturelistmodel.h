@@ -18,13 +18,12 @@
 #ifndef MULTIFEATURELISTMODEL_H
 #define MULTIFEATURELISTMODEL_H
 
-#include <QAbstractItemModel>
-#include <QSortFilterProxyModel>
-
-#include <qgsfeaturerequest.h>
-
 #include "identifytool.h"
 #include "multifeaturelistmodelbase.h"
+
+#include <QAbstractItemModel>
+#include <QSortFilterProxyModel>
+#include <qgsfeaturerequest.h>
 
 class MultiFeatureListModel : public QSortFilterProxyModel
 {
@@ -34,9 +33,9 @@ class MultiFeatureListModel : public QSortFilterProxyModel
     Q_PROPERTY( QList<QgsFeature> selectedFeatures READ selectedFeatures NOTIFY selectedCountChanged )
     Q_PROPERTY( QgsVectorLayer *selectedLayer READ selectedLayer NOTIFY selectedLayerChanged )
     Q_PROPERTY( int selectedCount READ selectedCount NOTIFY selectedCountChanged )
-    Q_PROPERTY( bool canEditAttributesSelection READ canEditAttributesSelection NOTIFY selectedCountChanged  )
-    Q_PROPERTY( bool canMergeSelection READ canMergeSelection NOTIFY selectedCountChanged  )
-    Q_PROPERTY( bool canDeleteSelection READ canDeleteSelection NOTIFY selectedCountChanged  )
+    Q_PROPERTY( bool canEditAttributesSelection READ canEditAttributesSelection NOTIFY selectedCountChanged )
+    Q_PROPERTY( bool canMergeSelection READ canMergeSelection NOTIFY selectedCountChanged )
+    Q_PROPERTY( bool canDeleteSelection READ canDeleteSelection NOTIFY selectedCountChanged )
 
   public:
     enum FeatureListRoles
@@ -144,13 +143,11 @@ class MultiFeatureListModel : public QSortFilterProxyModel
     void selectedLayerChanged();
 
   protected:
-
     virtual bool filterAcceptsRow( int source_row, const QModelIndex &source_parent ) const override;
 
     void adjustFilterToSelectedCount();
 
   private:
-
     MultiFeatureListModelBase *mSourceModel = nullptr;
 
     QgsVectorLayer *mFilterLayer = nullptr;

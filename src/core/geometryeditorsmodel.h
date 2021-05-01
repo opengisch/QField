@@ -18,11 +18,10 @@
 #define GEOMETRYEDITORSMODEL_H
 
 
-
-#include <QStandardItemModel>
-#include <QQuickItem>
-
 #include "vertexmodel.h"
+
+#include <QQuickItem>
+#include <QStandardItemModel>
 
 
 class GeometryEditorsModel : public QStandardItemModel
@@ -59,11 +58,12 @@ class GeometryEditorsModel : public QStandardItemModel
 
     Q_INVOKABLE static bool supportsGeometry( const QgsGeometry &geometry, const SupportedGeometries &supportedGeometries );
 
-    VertexModel *vertexModel() const {return mVertexModel;}
+    VertexModel *vertexModel() const { return mVertexModel; }
     void setVertexModel( VertexModel *vertexModel );
 
   signals:
     void vertexModelChanged();
+
   private:
     VertexModel *mVertexModel = nullptr;
 };

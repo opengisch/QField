@@ -14,13 +14,13 @@
  ***************************************************************************/
 
 
+#include "qgis.h"
+#include "qgsquickmapsettings.h"
+
 #include <qgsmaplayer.h>
 #include <qgsmaplayerstylemanager.h>
 #include <qgsmessagelog.h>
 #include <qgsproject.h>
-#include "qgis.h"
-
-#include "qgsquickmapsettings.h"
 
 QgsQuickMapSettings::QgsQuickMapSettings( QObject *parent )
   : QObject( parent )
@@ -245,8 +245,7 @@ void QgsQuickMapSettings::onReadProject( const QDomDocument &doc )
     QDomNode node = nodes.item( 0 );
     QDomElement element = node.toElement();
 
-    if ( element.hasAttribute( QStringLiteral( "name" ) ) &&
-         element.attribute( QStringLiteral( "name" ) ) == QStringLiteral( "theMapCanvas" ) )
+    if ( element.hasAttribute( QStringLiteral( "name" ) ) && element.attribute( QStringLiteral( "name" ) ) == QStringLiteral( "theMapCanvas" ) )
     {
       foundTheMapCanvas = true;
       mMapSettings.readXml( node );
