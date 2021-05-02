@@ -161,7 +161,7 @@ if(MSVC)
   add_custom_target(deploy)
   add_custom_command(TARGET deploy
     POST_BUILD
-    COMMAND ${CMAKE_COMMAND} -E make_directory "${CMAKE_BINARY_DIR}/output/bin/$<CONFIG>/qgis/plugins"
+    COMMAND ${CMAKE_COMMAND} -E make_directory "${CMAKE_BINARY_DIR}/output/bin/qgis/plugins"
   )
   foreach(LIB ${PROVIDER_LIBS})
     add_custom_command(TARGET deploy
