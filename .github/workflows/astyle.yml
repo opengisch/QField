@@ -79,5 +79,6 @@ jobs:
           author_name: Style police
           author_email: fairy@qfield.org
           message: 'Committing astyle changes'
+          branch: ${{ fromJSON(steps.get-pr.outputs.result).head.ref }}
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
