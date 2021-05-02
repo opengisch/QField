@@ -42,7 +42,7 @@ jobs:
           ref: ${{ fromJSON(steps.get-pr.outputs.result).head.sha }} # or .head.ref for branch name
 
       - uses: actions/checkout@v2
-        if: !${{ github.event.issue.pull_request }}
+        if: ${{ !github.event.issue.pull_request }}
           
       - uses: khan/pull-request-comment-trigger@master
         id: indent-check
