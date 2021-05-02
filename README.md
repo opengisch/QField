@@ -14,6 +14,8 @@ Check the [documentation](http://qfield.org/docs)
 
 [![Get in Google play](http://www.qfield.org/images/Get_it_on_Google_play.png)](https://play.google.com/store/apps/details?id=ch.opengis.qfield)
 
+[Download the latest windows beta version](https://nightly.link/opengisch/QField/actions/artifacts/57744340.zip)
+
 ## Contribute
 
 QField is an open source project, licensed under the terms of the GPLv2 or later. This means that it is free to use and modify and will stay like that.
