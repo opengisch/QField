@@ -25,7 +25,7 @@
 
 AndroidPictureSource::AndroidPictureSource( const QString &prefix )
   : PictureSource( nullptr, prefix )
-        , QAndroidActivityResultReceiver()
+  , QAndroidActivityResultReceiver()
   , mPrefix( prefix )
 {
 }
