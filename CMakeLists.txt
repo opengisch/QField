@@ -161,30 +161,30 @@ if(MSVC)
   add_custom_target(deploy)
   add_custom_command(TARGET deploy
     POST_BUILD
-    COMMAND ${CMAKE_COMMAND} -E make_directory "${CMAKE_BINARY_DIR}/output/bin/$<CONFIG>/qgis/plugins"
+    COMMAND ${CMAKE_COMMAND} -E make_directory "${CMAKE_BINARY_DIR}/output/bin/qgis/plugins"
   )
   foreach(LIB ${PROVIDER_LIBS})
     add_custom_command(TARGET deploy
                       POST_BUILD
-                      COMMAND ${CMAKE_COMMAND} -E copy_if_different "${LIB}" "${CMAKE_BINARY_DIR}/output/bin/$<CONFIG>/qgis/plugins"
+                      COMMAND ${CMAKE_COMMAND} -E copy_if_different "${LIB}" "${CMAKE_BINARY_DIR}/output/bin/qgis/plugins"
     )
   endforeach()
   add_custom_command(TARGET deploy
     POST_BUILD
-    COMMAND ${CMAKE_COMMAND} -E copy_directory "${QGIS_PLUGIN_DIR}/../resources" "${CMAKE_BINARY_DIR}/output/bin/$<CONFIG>/qgis/resources"
+    COMMAND ${CMAKE_COMMAND} -E copy_directory "${QGIS_PLUGIN_DIR}/../resources" "${CMAKE_BINARY_DIR}/output/bin/qgis/resources"
   )
   add_custom_command(TARGET deploy
     POST_BUILD
-    COMMAND ${CMAKE_COMMAND} -E copy_directory "${QGIS_PLUGIN_DIR}/../../../share/proj4" "${CMAKE_BINARY_DIR}/output/bin/$<CONFIG>/proj"
+    COMMAND ${CMAKE_COMMAND} -E copy_directory "${QGIS_PLUGIN_DIR}/../../../share/proj4" "${CMAKE_BINARY_DIR}/output/bin/proj"
   )
   add_custom_command(TARGET deploy
     POST_BUILD
-    COMMAND ${CMAKE_COMMAND} -E copy_directory "${QGIS_PLUGIN_DIR}/../../../share/gdal" "${CMAKE_BINARY_DIR}/output/bin/$<CONFIG>/gdal"
+    COMMAND ${CMAKE_COMMAND} -E copy_directory "${QGIS_PLUGIN_DIR}/../../../share/gdal" "${CMAKE_BINARY_DIR}/output/bin/gdal"
   )
 
   add_custom_command(TARGET deploy
     POST_BUILD
-    COMMAND ${CMAKE_COMMAND} -E copy_directory "${QGIS_PLUGIN_DIR}/../../../plugins/mediaservice" "${CMAKE_BINARY_DIR}/output/bin/$<CONFIG>/plugins/mediaservice"
+    COMMAND ${CMAKE_COMMAND} -E copy_directory "${QGIS_PLUGIN_DIR}/../../../plugins/mediaservice" "${CMAKE_BINARY_DIR}/output/bin/plugins/mediaservice"
   )
 
   add_dependencies(qfield deploy)
