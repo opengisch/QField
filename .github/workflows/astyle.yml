@@ -48,10 +48,10 @@ jobs:
         id: indent-check
         if: ${{ github.event.issue.pull_request }}
         with:
-          trigger: 'style police please'
+          trigger: '@qfield-fairy style please'
           reaction: rocket
         env:
-          GITHUB_TOKEN: '${{ secrets.GITHUB_TOKEN }}'
+          GITHUB_TOKEN: '${{ secrets.FAIRY_TOKEN }}'
 
       - name: Check astyle
         run: |
@@ -71,14 +71,14 @@ jobs:
           message: |
             Astyle suggested changes
 
-            Accept them manually or add a comment with `style police please` to invoke some magic 🪄.
+            Accept them manually or add a comment with `@qfield-fairy style please` to invoke some magic 🪄.
 
       - uses: EndBug/add-and-commit@v4
         if: steps.indent-check.outputs.triggered == 'true'
         with:
-          author_name: Style police
+          author_name: Style Fairy
           author_email: fairy@qfield.org
           message: 'Committing astyle changes'
           ref: ${{ fromJSON(steps.get-pr.outputs.result).head.ref }}
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.FAIRY_TOKEN }}
