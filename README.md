@@ -14,7 +14,7 @@ Check the [documentation](http://qfield.org/docs)
 
 [![Get in Google play](http://www.qfield.org/images/Get_it_on_Google_play.png)](https://play.google.com/store/apps/details?id=ch.opengis.qfield)
 
-[Download the latest windows beta version](https://nightly.link/opengisch/QField/actions/artifacts/57744340.zip)
+[Download the latest windows beta version](https://nightly.link/opengisch/QField/workflows/windows/master/QField-dev-Release.zip)
 
 ## Contribute
 
