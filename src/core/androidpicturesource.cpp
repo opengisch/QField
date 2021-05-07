@@ -30,14 +30,14 @@ AndroidPictureSource::AndroidPictureSource( const QString &prefix )
 {
 }
 
-void AndroidPictureSource::handleActivityResult( int receiverRequestCode, int resultCode, const QAndroidJniObject &data )
+void AndroidPictureSource::handleActivityResult(int receiverRequestCode, int resultCode, const QAndroidJniObject &data )
 {
-  if ( receiverRequestCode == 171 )
+  if ( receiverRequestCode ==  171 )
   {
     jint RESULT_OK = QAndroidJniObject::getStaticField<jint>( "android/app/Activity", "RESULT_OK" );
-    if ( resultCode == RESULT_OK )
+    if ( resultCode == RESULT_OK  )
     {
-      QAndroidJniObject extras = data.callObjectMethod( "getExtras", "()Landroid/os/Bundle;" );
+            QAndroidJniObject extras = data.callObjectMethod( "getExtras", "()Landroid/os/Bundle;" );
 
 
       QAndroidJniObject picture_image_path = QAndroidJniObject::fromString( "PICTURE_IMAGE_FILENAME" );
@@ -48,9 +48,9 @@ void AndroidPictureSource::handleActivityResult( int receiverRequestCode, int re
 
       emit pictureReceived( picture_image_relative_path );
     }
-    else
-    {
-      emit pictureReceived( QString() );
+    else {
+      emit pictureReceived( 
+        QString() );
     }
   }
 }
