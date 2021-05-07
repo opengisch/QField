@@ -30,7 +30,7 @@ AndroidPictureSource::AndroidPictureSource( const QString &prefix )
 {
 }
 
-void AndroidPictureSource::handleActivityResult( int receiverRequestCode, int resultCode, const QAndroidJniObject &data )
+void AndroidPictureSource::handleActivityResult(  int receiverRequestCode, int resultCode, const QAndroidJniObject &data )
 {
   if ( receiverRequestCode == 171 )
   {
@@ -48,9 +48,7 @@ void AndroidPictureSource::handleActivityResult( int receiverRequestCode, int re
 
       emit pictureReceived( picture_image_relative_path );
     }
-    else
-    {
+    else {
       emit pictureReceived( QString() );
-    }
-  }
+    }  }
 }
