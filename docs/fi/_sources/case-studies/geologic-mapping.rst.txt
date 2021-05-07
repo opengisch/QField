@@ -64,6 +64,9 @@ Field data are synchronized in QGIS followed by a short data clean up and verifi
 
           Figure 3: QField form
 
+Structural data collection may be upgraded with future development of a geologic compass feature. 
+`https://github.com/opengisch/QField/issues/1882 <https://github.com/opengisch/QField/issues/1882>`_
+
 Results
 -------
 
