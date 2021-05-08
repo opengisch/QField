@@ -47,10 +47,11 @@ EditorWidgetBase {
     enabled: isEnabled
     visible: isEnabled
     width: implicitContentWidth
-    switchWidth: 36
+    small: true
 
     anchors {
       right: parent.right
+      verticalCenter: checkValue.verticalCenter
     }
 
     //if the field type is boolean, ignore the configured 'CheckedState' and 'UncheckedState' values and work with true/false always
