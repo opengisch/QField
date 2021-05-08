@@ -425,6 +425,7 @@ Rectangle {
             featureFormList.model.featureModel.modelMode = FeatureModel.MultiFeatureModel
         }
         featureForm.multiSelection = !featureForm.multiSelection;
+        featureForm.focus = true;
     }
 
     onMultiEditClicked: {
@@ -459,26 +460,30 @@ Rectangle {
   }
 
   Keys.onReleased: {
-    if ( event.key === Qt.Key_Back ||
-        event.key === Qt.Key_Escape ) {
-      if( state != "FeatureList" ) {
-        if( featureListToolBar.state === "Edit"){
-          if( featureFormList.model.constraintsHardValid ) {
-            featureListToolBar.save()
-          } else {
-            displayToast( "Constraints not valid" )
-            if( qfieldSettings.autoSave ){
-               featureListToolBar.cancel()
-            }
+      if (event.key === Qt.Key_Back || event.key === Qt.Key_Escape) {
+          if (state != "FeatureList") {
+              if (featureListToolBar.state === "Edit") {
+                  if (featureFormList.model.constraintsHardValid) {
+                      featureListToolBar.save();
+                  } else {
+                      displayToast( "Constraints not valid" );
+                      if (qfieldSettings.autoSave) {
+                          featureListToolBar.cancel();
+                      }
+                  }
+              } else {
+                  state = "FeatureList";
+              }
+          } else  {
+              if (featureForm.multiSelection) {
+                  featureForm.selection.focusedItem = -1
+                  featureForm.multiSelection = false;
+              } else {
+                  state = "Hidden";
+              }
           }
-        }else{
-          state = "FeatureList"
-        }
-      }else{
-        state = "Hidden"
+          event.accepted = true;
       }
-      event.accepted = true
-    }
   }
 
   Behavior on width {
@@ -574,6 +579,7 @@ Rectangle {
   {
     props.isVisible = false;
     focus = false;
+
     fullScreenView = qfieldSettings.fullScreenIdentifyView;
 
     if ( !digitizingToolbar.geometryRequested )
