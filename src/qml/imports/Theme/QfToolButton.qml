@@ -30,6 +30,7 @@ Item {
 
     RoundButton {
         id: button
+        focusPolicy: Qt.NoFocus
         anchors.fill: parent
         topInset:0
         bottomInset:0
