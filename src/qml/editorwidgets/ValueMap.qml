@@ -13,7 +13,6 @@ EditorWidgetBase {
   anchors {
     left: parent.left
     right: parent.right
-    rightMargin: 10
   }
 
   property var currentKeyValue: value
