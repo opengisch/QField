@@ -59,9 +59,10 @@ ApplicationWindow {
     focus: true
 
     Keys.onReleased: {
-      if ( event.key === Qt.Key_Back ||
-        event.key === Qt.Key_Escape ) {
-        if ( stateMachine.state === 'measure' ) {
+      if ( event.key === Qt.Key_Back || event.key === Qt.Key_Escape ) {
+        if ( featureForm.visible ) {
+            featureForm.hide();
+        } else if ( stateMachine.state === 'measure' ) {
           mainWindow.closeMeasureTool()
         } else {
           mainWindow.close();
@@ -673,6 +674,7 @@ ApplicationWindow {
       onClicked: {
           if ( gpsButton.followActive ) gpsButton.followActiveSkipExtentChanged = true;
           mapCanvasMap.zoomIn(Qt.point(mapCanvas.x + mapCanvas.width / 2,mapCanvas.y + mapCanvas.height / 2));
+          keyHandler.focus = true
       }
     }
     QfToolButton {
@@ -693,6 +695,7 @@ ApplicationWindow {
       onClicked: {
           if ( gpsButton.followActive ) gpsButton.followActiveSkipExtentChanged = true;
           mapCanvasMap.zoomOut(Qt.point(mapCanvas.x + mapCanvas.width / 2,mapCanvas.y + mapCanvas.height / 2));
+          keyHandler.focus = true
       }
     }
   }
@@ -1060,6 +1063,7 @@ ApplicationWindow {
             }
           }
         }
+        keyHandler.focus = true
       }
 
       onPressAndHold: {
