@@ -39,16 +39,12 @@ EditorWidgetBase {
       Layout.minimumHeight: 48
 
       Rectangle {
-        id: backgroundRect
-        anchors.top: label.top
-        anchors.left: label.left
+        visible: !enabled
+        y: label.height - height - label.bottomPadding / 2
+        implicitWidth: 120
         width: label.width
-        height: label.height - label.bottomPadding / 2
-        border.color: label.activeFocus ? "#17a81a" : "#21be2b"
-        border.width: label.activeFocus ? 2 : 1
-        color: enabled ? Theme.lightGray : "transparent"
-        radius: 2
-        visible: enabled
+        height: 1
+        color: "#C8E6C9"
       }
 
       TextField {
@@ -61,6 +57,7 @@ EditorWidgetBase {
         height: fontMetrics.height + 20
         topPadding: 10
         bottomPadding: 10
+        leftPadding: enabled ? 5 : 0
 
         inputMethodHints: Qt.ImhDigitsOnly
 
@@ -108,12 +105,18 @@ EditorWidgetBase {
         color: value === undefined || !enabled ? 'gray' : 'black'
 
         background: Rectangle {
-          visible: !enabled
-          y: label.height - height - label.bottomPadding / 2
-          implicitWidth: 120
-          height: label.activeFocus ? 2: 1
-          color: label.activeFocus ? "#4CAF50" : "#C8E6C9"
-        }
+              id: backgroundRect
+              anchors.top: label.top
+              anchors.left: label.left
+              anchors.topMargin: label.bottomPadding / 2
+              width: label.width
+              height: fontMetrics.height + label.bottomPadding
+              border.color: label.activeFocus ? "#4CAF50" : "#C8E6C9"
+              border.width: label.activeFocus ? 2 : 1
+              color: enabled ? Theme.lightGray : "transparent"
+              radius: 2
+              visible: enabled
+            }
 
         MouseArea {
           enabled: config['calendar_popup']
