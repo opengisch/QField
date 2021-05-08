@@ -14,9 +14,6 @@ Item {
 
   Component.onCompleted: {
     comboBox.currentIndex = featureListModel.findKey(value)
-    comboBox.visible = !useCompleter && (_relation !== undefined ? _relation.isValid : true)
-    searchableLabel.visible = !comboBox.visible
-    searchButton.visible = comboBox.visible
     addButton.visible = _relation !== undefined ? _relation.isValid : false
     invalidWarning.visible = _relation !== undefined ? !(_relation.isValid) : false
   }
@@ -256,10 +253,11 @@ Item {
 
     ComboBox {
       id: comboBox
+      visible: !enabled || (!useCompleter && (_relation !== undefined ? _relation.isValid : true))
+      Layout.fillWidth: true
 
       property var _cachedCurrentValue
-      Layout.fillWidth: true
-      textRole: 'display'
+
       model: featureListModel
 
       onCurrentIndexChanged: {
@@ -294,20 +292,17 @@ Item {
           comboBox.popup.z = 10000 // 1000s are embedded feature forms, use a higher value to insure popups always show above embedded feature formes
       }
 
+      textRole: 'display'
+      font: Theme.defaultFont
       contentItem: Text {
-        id: textLabel
+        leftPadding: enabled ? 5 : 0
         height: fontMetrics.height + 20
         text: comboBox.displayText
-        font: Theme.defaultFont
+        font: comboBox.font
+        color: value === undefined || enabled ? 'black' : 'gray'
         horizontalAlignment: Text.AlignLeft
         verticalAlignment: Text.AlignVCenter
         elide: Text.ElideRight
-        color: value === undefined || !enabled ? 'gray' : 'black'
-      }
-
-      FontMetrics {
-        id: fontMetrics
-        font: textLabel.font
       }
 
       background: Item {
@@ -315,7 +310,8 @@ Item {
         implicitHeight: 36
 
         Rectangle {
-          y: textLabel.height - 8
+          visible: !enabled
+          y: comboBox.height - 12
           width: comboBox.width
           height: comboBox.activeFocus ? 2 : 1
           color: comboBox.activeFocus ? "#4CAF50" : "#C8E6C9"
@@ -332,23 +328,52 @@ Item {
       }
     }
 
+    FontMetrics {
+      id: fontMetrics
+      font: comboBox.font
+    }
+
     Rectangle {
       id: searchableLabel
+      visible: !comboBox.visible
       height: fontMetrics.height + 10
       Layout.fillWidth: true
+      Layout.topMargin: 5
+      Layout.bottomMargin: 5
 
       Text {
         padding: 5
-        width: parent.width
+        width: parent.width - dropDownArrowCanvas.width - dropDownArrowCanvas.anchors.rightMargin * 2
         text: comboBox.displayText
-        font: Theme.defaultFont
+        font: comboBox.font
         horizontalAlignment: Text.AlignLeft
         verticalAlignment: Text.AlignVCenter
         elide: Text.ElideRight
         color: value === undefined || !enabled ? 'gray' : 'black'
       }
 
-      visible: enabled
+      Canvas {
+        id: dropDownArrowCanvas
+        anchors.right: parent.right
+        anchors.rightMargin: 10
+        anchors.verticalCenter: parent.verticalCenter
+        width: 10
+        height: 5
+        contextType: "2d"
+
+        onPaint: {
+            context.reset();
+            context.moveTo(0, 0);
+            context.lineTo(width, 0);
+            context.lineTo(width / 2, height);
+            context.closePath();
+            context.fillStyle = !enabled ? 'gray' : 'black'
+            context.fill();
+        }
+
+        onEnabledChanged: requestPaint()
+      }
+
       border.color: comboBox.pressed ? "#4CAF50" : "#C8E6C9"
       border.width: comboBox.visualFocus ? 2 : 1
       color: Theme.lightGray
@@ -366,6 +391,7 @@ Item {
 
     Image {
       id: searchButton
+      visible: enabled && comboBox.visible
 
       Layout.margins: 4
       Layout.preferredWidth: width
