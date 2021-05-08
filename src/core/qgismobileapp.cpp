@@ -335,6 +335,9 @@ void QgisMobileapp::initDeclarative()
   qRegisterMetaType<QgsUnitTypes::DistanceUnit>( "QgsUnitTypes::DistanceUnit" );
   qRegisterMetaType<QgsUnitTypes::AreaUnit>( "QgsUnitTypes::AreaUnit" );
   qRegisterMetaType<QgsRelation>( "QgsRelation" );
+#if _QGIS_VERSION_INT >= 31900
+  qRegisterMetaType<QgsPolymorphicRelation>( "QgsPolymorphicRelation" );
+#endif
   qRegisterMetaType<QgsField>( "QgsField" );
   qRegisterMetaType<QVariant::Type>( "QVariant::Type" );
   qRegisterMetaType<QgsDefaultValue>( "QgsDefaultValue" );
