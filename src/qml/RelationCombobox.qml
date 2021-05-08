@@ -172,51 +172,54 @@ Item {
             width: parent ? parent.width : undefined
             color: model.checked ? Theme.mainColor : 'transparent'
 
-            RadioButton {
-              id: radioButton
+            Row {
+                height: parent.height
 
-              visible: !featureListModel.allowMulti
-              checked: model.checked
-              anchors.verticalCenter: parent.verticalCenter
-              anchors.left: parent.left
-              text: displayString
-              width: parent.width
-              padding: 12
-              ButtonGroup.group: buttonGroup
-              font.weight: model.checked ? Font.DemiBold : Font.Normal
+                RadioButton {
+                    id: radioButton
 
-              indicator: Rectangle {}
-              contentItem: Text {
-                text: parent.text
-                font: parent.font
-                width: parent.width
-                verticalAlignment: Text.AlignVCenter
-                leftPadding: parent.indicator.width + parent.spacing
-                elide: Text.ElideRight
-                color: model.checked ? Theme.light : Theme.darkGray
-              }
+                    visible: !featureListModel.allowMulti
+                    checked: model.checked
+                    anchors.verticalCenter: parent.verticalCenter
+                    anchors.left: parent.left
+                    text: displayString
+                    width: parent.width
+                    padding: 12
+                    ButtonGroup.group: buttonGroup
+                    font.weight: model.checked ? Font.DemiBold : Font.Normal
+
+                    indicator: Rectangle {}
+                    contentItem: Text {
+                        text: parent.text
+                        font: parent.font
+                        width: parent.width
+                        verticalAlignment: Text.AlignVCenter
+                        leftPadding: parent.indicator.width + parent.spacing
+                        elide: Text.ElideRight
+                        color: model.checked ? Theme.light : Theme.darkGray
+                    }
+                }
+
+                CheckBox {
+                    id: checkBoxButton
+
+                    visible: !!featureListModel.allowMulti
+                    anchors.verticalCenter: parent.verticalCenter
+                    anchors.left: parent.left
+                    text: displayString
+                    padding: 12
+                }
+
+                /* bottom border */
+                Rectangle {
+                    anchors.bottom: parent.bottom
+                    height: 1
+                    color: "lightGray"
+                    width: parent.width
+                }
             }
-
-            CheckBox {
-              id: checkBoxButton
-
-              visible: !!featureListModel.allowMulti
-              anchors.verticalCenter: parent.verticalCenter
-              anchors.left: parent.left
-              text: displayString
-              padding: 12
-            }
-
-            /* bottom border */
-            Rectangle {
-              anchors.bottom: parent.bottom
-              height: 1
-              color: "lightGray"
-              width: parent.width
-            }
-
             function performClick() {
-              model.checked = true
+                model.checked = true;
             }
           }
 
@@ -225,23 +228,15 @@ Item {
             propagateComposedEvents: true
 
             onClicked: {
-              var allowMulti = resultsList.model.allowMulti;
-              var popupRef = searchFeaturePopup;
-              var item = resultsList.itemAt(
-                resultsList.contentX + mouse.x,
-                resultsList.contentY + mouse.y
-              )
-
+              var item = resultsList.itemAt(resultsList.contentX + mouse.x, resultsList.contentY + mouse.y)
               if (!item)
                 return;
 
               item.performClick()
-
-              // after this line, all the references get wrong, that's why we have `popupRef` defined above
               model.checked = !model.checked
 
-              if (!allowMulti) {
-                popupRef.close()
+              if (!resultsList.model.allowMulti) {
+                searchFeaturePopup.close()
               }
             }
           }
