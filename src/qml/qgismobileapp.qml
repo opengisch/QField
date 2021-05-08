@@ -50,7 +50,6 @@ ApplicationWindow {
   }
 
   //this keyHandler is because otherwise the back-key is not handled in the mainWindow. Probably this could be solved cuter.
-
   Item {
     id: keyHandler
     objectName: "keyHandler"
@@ -674,7 +673,6 @@ ApplicationWindow {
       onClicked: {
           if ( gpsButton.followActive ) gpsButton.followActiveSkipExtentChanged = true;
           mapCanvasMap.zoomIn(Qt.point(mapCanvas.x + mapCanvas.width / 2,mapCanvas.y + mapCanvas.height / 2));
-          keyHandler.focus = true
       }
     }
     QfToolButton {
@@ -695,7 +693,6 @@ ApplicationWindow {
       onClicked: {
           if ( gpsButton.followActive ) gpsButton.followActiveSkipExtentChanged = true;
           mapCanvasMap.zoomOut(Qt.point(mapCanvas.x + mapCanvas.width / 2,mapCanvas.y + mapCanvas.height / 2));
-          keyHandler.focus = true
       }
     }
   }
@@ -1063,7 +1060,6 @@ ApplicationWindow {
             }
           }
         }
-        keyHandler.focus = true
       }
 
       onPressAndHold: {
