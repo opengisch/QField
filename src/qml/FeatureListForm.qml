@@ -352,6 +352,15 @@ Rectangle {
       }
     }
 
+    onBackClicked: {
+        featureForm.focus = true;
+        if ( featureForm.state != "FeatureList" ) {
+            featureForm.state = "FeatureList";
+        } else {
+            featureForm.state = "Hidden";
+        }
+    }
+
     onStatusIndicatorClicked: {
       featureForm.state = "FeatureList"
     }
