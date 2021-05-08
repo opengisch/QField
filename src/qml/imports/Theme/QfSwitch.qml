@@ -2,7 +2,9 @@ import QtQuick.Controls 2.12
 import QtQuick 2.12
 
 SwitchDelegate {
-    width: 48
+    property int switchWidth: 48
+
+    width: switchWidth
     padding: 10
     indicator: Rectangle {
         implicitWidth: 48
@@ -18,7 +20,7 @@ SwitchDelegate {
             width: 26
             height: 26
             radius: 13
-            color: parent.parent.down ? Theme.lightGray : Theme.light
+            color: parent.parent.down ? Theme.lightestGray : Theme.light
             border.color: parent.parent.checked ? Theme.mainColor : Theme.lightGray
             Behavior on x {
                 PropertyAnimation {
@@ -27,5 +29,12 @@ SwitchDelegate {
                 }
             }
         }
+    }
+
+    background: Rectangle {
+        implicitWidth: 100
+        implicitHeight: 40
+        visible: false
+        color: "transparent"
     }
 }
