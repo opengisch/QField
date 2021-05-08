@@ -214,7 +214,7 @@ Page {
                 target: master
 
                 function onReset() {
-                  content.contentY = 0
+                    content.positionViewAtBeginning();
                 }
               }
 
