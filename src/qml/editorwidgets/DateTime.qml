@@ -56,7 +56,6 @@ EditorWidgetBase {
         font: Theme.defaultFont
         leftPadding: enabled ? 5 : 0
 
-        Component.onCompleted: { console.log(label.topPadding); console.log(label.bottomPadding); console.log(label.height); }
         inputMethodHints: Qt.ImhDigitsOnly
 
         // TODO[DR] generate input mask using regex
