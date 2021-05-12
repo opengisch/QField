@@ -32,6 +32,7 @@ Rectangle {
   property FeatureListModelSelection selection
   property FeaturelistExtentController extentController
 
+  signal backClicked
   signal statusIndicatorClicked
   signal statusIndicatorSwiped(var direction)
   signal editAttributesButtonClicked
@@ -176,7 +177,7 @@ Rectangle {
       if ( toolBar.model && ( selection.focusedItem + 1 ) < toolBar.model.count ) {
         selection.focusedItem = selection.focusedItem + 1;
       } else {
-        statusIndicatorClicked();
+        backClicked();
       }
     }
 
@@ -192,19 +193,19 @@ Rectangle {
 
     anchors.left: parent.left
 
-    width: ( parent.state == "Navigation" ? 48: 0 )
+    width: ( parent.state != "Edit" ? 48: 0 )
     height: 48
     clip: true
 
     iconSource: Theme.getThemeIcon( "ic_chevron_left_white_24dp" )
 
-    enabled: ( parent.state == "Navigation" )
+    enabled: ( parent.state != "Edit" )
 
     onClicked: {
         if ( toolBar.model && ( selection.focusedItem > 0 ) ) {
           selection.focusedItem = selection.focusedItem - 1;
         } else {
-          statusIndicatorClicked();
+          backClicked();
         }
     }
 

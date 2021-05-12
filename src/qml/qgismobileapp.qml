@@ -50,7 +50,6 @@ ApplicationWindow {
   }
 
   //this keyHandler is because otherwise the back-key is not handled in the mainWindow. Probably this could be solved cuter.
-
   Item {
     id: keyHandler
     objectName: "keyHandler"
@@ -59,9 +58,10 @@ ApplicationWindow {
     focus: true
 
     Keys.onReleased: {
-      if ( event.key === Qt.Key_Back ||
-        event.key === Qt.Key_Escape ) {
-        if ( stateMachine.state === 'measure' ) {
+      if ( event.key === Qt.Key_Back || event.key === Qt.Key_Escape ) {
+        if ( featureForm.visible ) {
+            featureForm.hide();
+        } else if ( stateMachine.state === 'measure' ) {
           mainWindow.closeMeasureTool()
         } else {
           mainWindow.close();
