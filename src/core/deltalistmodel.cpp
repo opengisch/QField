@@ -69,6 +69,10 @@ DeltaListModel::DeltaListModel( QJsonDocument deltasStatusList )
       delta.status = BusyStatus;
     else if ( statusString == QStringLiteral( "STATUS_ERROR" ) )
       delta.status = ErrorStatus;
+    else if ( statusString == QStringLiteral( "STATUS_IGNORED" ) )
+      delta.status = IgnoredStatus;
+    else if ( statusString == QStringLiteral( "STATUS_UNPERMITTED" ) )
+      delta.status = UnpermittedStatus;
     else
     {
       mIsValid = false;
@@ -157,6 +161,8 @@ bool DeltaListModel::allHaveFinalStatus() const
       case NotAppliedStatus:
       case ConflictStatus:
       case ErrorStatus:
+      case UnpermittedStatus:
+      case IgnoredStatus:
         isFinalForAll = true;
         break;
       case PendingStatus:
