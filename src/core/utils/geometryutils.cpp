@@ -121,3 +121,8 @@ QgsGeometry::OperationResult GeometryUtils::splitFeatureFromRubberband( QgsVecto
   QgsPointSequence line = rubberBandModel->pointSequence( layer->crs(), QgsWkbTypes::Point, false );
   return layer->splitFeatures( line, true );
 }
+
+QgsPoint GeometryUtils::coordinateToPoint( const QGeoCoordinate &coor )
+{
+  return QgsPoint( coor.longitude(), coor.latitude(), coor.altitude() );
+}

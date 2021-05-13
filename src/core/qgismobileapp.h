@@ -36,7 +36,6 @@
 #include "qfield_core_export.h"
 #include "qfieldappauthrequesthandler.h"
 #include "qgsgpkgflusher.h"
-#include "qgsquickutils.h"
 #include "settings.h"
 #if defined( Q_OS_ANDROID )
 #include "androidplatformutilities.h"

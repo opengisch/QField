@@ -21,6 +21,7 @@
 #include <QObject>
 #include <qgsfeature.h>
 #include <qgsgeometry.h>
+#include <QtPositioning/QGeoCoordinate>
 
 class QgsVectorLayer;
 class RubberbandModel;
@@ -43,6 +44,9 @@ class QFIELD_CORE_EXPORT GeometryUtils : public QObject
 
     //! This will perform a split using the line in the rubberband model. It works with the layer selection if some features are selected.
     static Q_INVOKABLE QgsGeometry::OperationResult splitFeatureFromRubberband( QgsVectorLayer *layer, RubberbandModel *rubberBandModel );
+
+    //! Converts QGeoCoordinate to QgsPoint
+    static Q_INVOKABLE QgsPoint coordinateToPoint( const QGeoCoordinate &coor );
 };
 
 #endif // GEOMETRYUTILS_H
