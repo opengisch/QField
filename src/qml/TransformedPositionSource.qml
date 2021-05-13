@@ -35,7 +35,7 @@ Item{
     }
 
     onPositionInfoChanged: {
-        _ct.sourcePosition = Utils.coordinateToPoint(QtPositioning.coordinate( positionInfo.latitude, positionInfo.longitude, positionInfo.elevation ) )
+        _ct.sourcePosition = GeometryUtils.coordinateToPoint(QtPositioning.coordinate( positionInfo.latitude, positionInfo.longitude, positionInfo.elevation ) )
     }
 
     Timer {
