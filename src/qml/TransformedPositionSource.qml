@@ -13,7 +13,13 @@ Item{
 
     property alias destinationCrs: _ct.destinationCrs
     property alias projectedPosition: _ct.projectedPosition
-    property real projectedHorizontalAccuracy: positionInfo && positionInfo.haccValid && destinationCrs.mapUnits !== QgsUnitTypes.DistanceUnknownUnit ? positionInfo.hacc * UnitTypes.formatDistance( QgsUnitTypes.DistanceMeters, destinationCrs.mapUnits ) : 0.0
+    property real projectedHorizontalAccuracy: {
+      return positionInfo
+        && positionInfo.haccValid
+        && destinationCrs.mapUnits !== QgsUnitTypes.DistanceUnknownUnit
+          ? positionInfo.hacc * UnitTypes.formatDistance( QgsUnitTypes.DistanceMeters, destinationCrs.mapUnits, false )
+          : 0.0
+    }
     property alias deltaZ: _ct.deltaZ
     property alias skipAltitudeTransformation: _ct.skipAltitudeTransformation
 
