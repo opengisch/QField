@@ -1559,7 +1559,7 @@ void QFieldCloudProjectsModel::reload( const QJsonArray &remoteProjects )
       const QString projectId = projectDirs.fileName();
       int index = findProject( projectId );
       if ( index != -1 )
-        return;
+        continue;
 
       const QString projectPrefix = QStringLiteral( "QFieldCloud/projects/%1" ).arg( projectId );
       if ( !QSettings().contains( QStringLiteral( "%1/name" ).arg( projectPrefix ) ) )
