@@ -5,8 +5,6 @@ import QtBluetooth 5.14
 import org.qfield 1.0
 import org.qgis 1.0
 
-import Utils 1.0
-
 Item{
     id: positionSource
 
@@ -15,7 +13,7 @@ Item{
 
     property alias destinationCrs: _ct.destinationCrs
     property alias projectedPosition: _ct.projectedPosition
-    property real projectedHorizontalAccuracy: positionInfo && positionInfo.haccValid && destinationCrs.mapUnits !== QgsUnitTypes.DistanceUnknownUnit ? positionInfo.hacc * Utils.distanceFromUnitToUnitFactor( QgsUnitTypes.DistanceMeters, destinationCrs.mapUnits ) : 0.0
+    property real projectedHorizontalAccuracy: positionInfo && positionInfo.haccValid && destinationCrs.mapUnits !== QgsUnitTypes.DistanceUnknownUnit ? positionInfo.hacc * UnitTypes.formatDistance( QgsUnitTypes.DistanceMeters, destinationCrs.mapUnits ) : 0.0
     property alias deltaZ: _ct.deltaZ
     property alias skipAltitudeTransformation: _ct.skipAltitudeTransformation
 

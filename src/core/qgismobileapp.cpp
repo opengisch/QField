@@ -363,8 +363,6 @@ void QgisMobileapp::initDeclarative()
   qmlRegisterType<QgsQuickMapSettings>( "org.qgis", 1, 0, "MapSettings" );
   qmlRegisterType<QgsQuickCoordinateTransformer>( "org.qfield", 1, 0, "CoordinateTransformer" );
 
-  REGISTER_SINGLETON( "Utils", QgsQuickUtils, "Utils" );
-
   qmlRegisterType<QgsQuickMapTransform>( "org.qgis", 1, 0, "MapTransform" );
 
   // Register QField QML types

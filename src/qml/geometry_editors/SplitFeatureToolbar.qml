@@ -3,7 +3,6 @@ import QtQuick 2.12
 import org.qgis 1.0
 import org.qfield 1.0
 import Theme 1.0
-import Utils 1.0
 import ".."
 
 
@@ -44,7 +43,7 @@ VisibilityFadingRow {
       rubberbandModel.removeVertex()
 
       // TODO: featureModel.currentLayer.selectByIds([featureModel.feature.id], VectorLayerStatic.SetSelection)
-      Utils.selectFeaturesInLayer(featureModel.currentLayer, [featureModel.feature.id], VectorLayerStatic.SetSelection)
+      LayerUtils.selectFeaturesInLayer(featureModel.currentLayer, [featureModel.feature.id], VectorLayerStatic.SetSelection)
       if (!featureModel.currentLayer.editBuffer())
         featureModel.currentLayer.startEditing()
 

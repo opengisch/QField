@@ -19,6 +19,8 @@
 
 #include <QObject>
 
+#include <qgsvectorlayer.h>
+
 class QgsVectorLayer;
 class QgsSymbol;
 
@@ -41,6 +43,15 @@ class LayerUtils : public QObject
     * \param layer the vector layer to check against print layouts
     */
     static Q_INVOKABLE bool isAtlasCoverageLayer( QgsVectorLayer *layer );
+
+    /**
+     * Selects features in a layer
+     * This method is required since QML cannot perform the conversion of a feature ID to a QgsFeatureId
+     * \param layer the vector layer
+     * \param fids the list of feature IDs
+     * \param behavior the selection behavior
+     */
+    static Q_INVOKABLE void selectFeaturesInLayer( QgsVectorLayer *layer, const QList<int> &fids, QgsVectorLayer::SelectBehavior behavior = QgsVectorLayer::SetSelection );
 };
 
 #endif // LAYERUTILS_H

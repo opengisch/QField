@@ -69,11 +69,9 @@ set(QFIELD_CORE_SRCS
   utils/qfieldcloudutils.cpp
   expressionevaluator.cpp
   qgsquick/qgsquickcoordinatetransformer.cpp
-  qgsquick/qgsquickfeaturelayerpair.cpp
   qgsquick/qgsquickmapcanvasmap.cpp
   qgsquick/qgsquickmapsettings.cpp
   qgsquick/qgsquickmaptransform.cpp
-  qgsquick/qgsquickutils.cpp
   qfieldcloudconnection.cpp
   qfieldcloudprojectsmodel.cpp
   deltafilewrapper.cpp
@@ -156,11 +154,9 @@ set(QFIELD_CORE_HDRS
   utils/qfieldcloudutils.h
   expressionevaluator.h
   qgsquick/qgsquickcoordinatetransformer.h
-  qgsquick/qgsquickfeaturelayerpair.h
   qgsquick/qgsquickmapcanvasmap.h
   qgsquick/qgsquickmapsettings.h
   qgsquick/qgsquickmaptransform.h
-  qgsquick/qgsquickutils.h
   qfieldcloudconnection.h
   qfieldcloudprojectsmodel.h
   deltafilewrapper.h

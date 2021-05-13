@@ -89,3 +89,13 @@ bool LayerUtils::isAtlasCoverageLayer( QgsVectorLayer *layer )
 
   return false;
 }
+
+void LayerUtils::selectFeaturesInLayer( QgsVectorLayer *layer, const QList<int> &fids, QgsVectorLayer::SelectBehavior behavior )
+{
+  if ( !layer )
+    return;
+  QgsFeatureIds qgsFids;
+  for ( const int &fid : fids )
+    qgsFids << fid;
+  layer->selectByIds( qgsFids, behavior );
+}
