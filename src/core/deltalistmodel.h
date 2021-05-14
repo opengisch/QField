@@ -33,6 +33,8 @@ class DeltaListModel : public QAbstractListModel
       ConflictStatus,
       NotAppliedStatus,
       ErrorStatus,
+      IgnoredStatus,
+      UnpermittedStatus,
     };
 
     Q_ENUM( Status )
