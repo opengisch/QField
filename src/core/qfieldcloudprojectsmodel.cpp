@@ -1082,10 +1082,6 @@ void QFieldCloudProjectsModel::projectGetDeltaStatus( const QString &projectId )
     }
 
     const QJsonDocument doc = QJsonDocument::fromJson( rawReply->readAll() );
-
-    if ( mCloudProjects[index].deltaListModel )
-      delete mCloudProjects[index].deltaListModel;
-
     DeltaListModel deltaListModel( doc );
     if ( !deltaListModel.isValid() )
     {
