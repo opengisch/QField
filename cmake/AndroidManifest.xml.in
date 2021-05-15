@@ -5,6 +5,7 @@
     android:name="org.qtproject.qt5.android.bindings.QtApplication"
     android:label="@string/app_name"
     android:icon="@drawable/qfield_logo"
+    android:usesCleartextTraffic="true"
     android:requestLegacyExternalStorage="true" >
     <activity
       android:name="ch.opengis.@APP_PACKAGE_NAME@.QFieldActivity"

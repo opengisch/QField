@@ -110,6 +110,7 @@
 #include <QResource>
 #include <QStyleHints>
 #include <QTemporaryFile>
+#include <qgsauthmanager.h>
 #include <qgsbilinearrasterresampler.h>
 #include <qgscoordinatereferencesystem.h>
 #include <qgsexpressionfunction.h>
@@ -137,7 +138,6 @@
 #include <qgsunittypes.h>
 #include <qgsvectorlayer.h>
 #include <qgsvectorlayereditbuffer.h>
-
 
 #define QUOTE( string ) _QUOTE( string )
 #define _QUOTE( string ) #string
@@ -225,7 +225,7 @@ QgisMobileapp::QgisMobileapp( QgsApplication *app, QObject *parent )
     paths = path.split( ':' );
 #endif
 
-    // thin out duplicates from paths -- see https://github.com/OSGeo/proj.4/pull/1498
+    // thin out duplicates from paths -- see https://github.com/OSGeo/PROJ/pull/1498
     QSet<QString> existing;
     QStringList searchPaths;
     searchPaths.reserve( paths.count() );
@@ -254,6 +254,19 @@ QgisMobileapp::QgisMobileapp( QgsApplication *app, QObject *parent )
 #ifdef Q_OS_ANDROID
     setenv( "PGSYSCONFDIR", PlatformUtilities::instance()->qfieldDataDir().toUtf8(), true );
 #endif
+
+    QgsApplication::instance()->authManager()->setPasswordHelperEnabled( false );
+    QgsApplication::instance()->authManager()->setMasterPassword( QString( "qfield" ) );
+    // import authentication method configurations
+    QDir configurationsDir( QStringLiteral( "%1/auth/" ).arg( PlatformUtilities::instance()->qfieldDataDir() ) );
+    if ( configurationsDir.exists() )
+    {
+      const QStringList configurations = configurationsDir.entryList( QStringList() << QStringLiteral( "*.xml" ) << QStringLiteral( "*.XML" ), QDir::Files );
+      for ( const QString &configuration : configurations )
+      {
+        QgsApplication::instance()->authManager()->importAuthenticationConfigsFromXml( configurationsDir.absoluteFilePath( configuration ), QString(), true );
+      }
+    }
   }
 
   PlatformUtilities::instance()->setScreenLockPermission( false );

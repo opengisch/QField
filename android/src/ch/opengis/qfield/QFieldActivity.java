@@ -98,6 +98,7 @@ public class QFieldActivity extends QtActivity {
         new File(qFieldDir + "basemaps/").mkdir();
         new File(qFieldDir + "fonts/").mkdir();
         new File(qFieldDir + "proj/").mkdir();
+        new File(qFieldDir + "auth/").mkdir();
 
         Intent intent = new Intent();
         intent.setClass(QFieldActivity.this, QtActivity.class);
@@ -137,7 +138,7 @@ public class QFieldActivity extends QtActivity {
             permissionsList.add(Manifest.permission.BLUETOOTH_ADMIN);
         }
         if ( permissionsList.size() > 0 ) {
-			String[] permissions = new String[ permissionsList.size() ];
+            String[] permissions = new String[ permissionsList.size() ];
             permissionsList.toArray( permissions );
             ActivityCompat.requestPermissions(QFieldActivity.this, permissions, 101);
         }

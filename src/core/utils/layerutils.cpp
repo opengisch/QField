@@ -26,6 +26,9 @@
 #include <qgssinglesymbolrenderer.h>
 #include <qgssymbol.h>
 #include <qgssymbollayer.h>
+#include <qgsmarkersymbol.h>
+#include <qgslinesymbol.h>
+#include <qgsfillsymbol.h>
 #include <qgsvectorlayer.h>
 #include <qgswkbtypes.h>
 
