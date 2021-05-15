@@ -618,7 +618,7 @@ Page {
 
         Layout.alignment: Qt.AlignTop | Qt.AlignLeft
 
-        visible: ( form.state === 'Add' || form.state === 'Edit' ) && ( !qfieldSettings.autoSave || dontSave )
+        visible: ( form.state === 'Add' || form.state === 'Edit' ) && !dontSave
         width: 48
         height: 48
         clip: true
