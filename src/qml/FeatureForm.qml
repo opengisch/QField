@@ -671,7 +671,7 @@ Page {
         height: 48
         clip: true
         bgcolor: form.state === 'Add' ? "#900000" : Theme.darkGray
-        visible: !qfieldSettings.autoSave || dontSave
+        visible: !dontSave
 
         iconSource: form.state === 'Add' ? Theme.getThemeIcon( 'ic_delete_forever_white_24dp' ) : Theme.getThemeIcon( 'ic_close_white_24dp' )
 
