@@ -30,8 +30,8 @@ Page {
   //! if embedded form called by RelationEditor or RelationReferenceWidget
   property bool embedded: false
   property int embeddedLevel: 0
-  //dontSave means data would be neither saved nor cleared (so feature data is handled elsewhere like e.g. in the tracking)
-  property bool dontSave: false
+  //setupOnly means data would be neither saved nor cleared (feature creation is handled elsewhere like e.g. in the tracking)
+  property bool setupOnly: false
   property bool featureCreated: false
 
   function reset() {
@@ -468,7 +468,7 @@ Page {
                       AttributeAllowEdit = true;
                     }
 
-                    if ( qfieldSettings.autoSave && !dontSave ) {
+                    if ( qfieldSettings.autoSave && !setupOnly ) {
                       // indirect action, no need to check for success and display a toast, the log is enough
                       save()
                     }
@@ -537,7 +537,7 @@ Page {
 
     parent.focus = true
 
-    if( dontSave ) {
+    if( setupOnly ) {
       temporaryStored()
       return
     }
@@ -618,7 +618,7 @@ Page {
 
         Layout.alignment: Qt.AlignTop | Qt.AlignLeft
 
-        visible: ( form.state === 'Add' || form.state === 'Edit' ) && !dontSave
+        visible: ( form.state === 'Add' || form.state === 'Edit' )
         width: 48
         height: 48
         clip: true
@@ -671,7 +671,7 @@ Page {
         height: 48
         clip: true
         bgcolor: form.state === 'Add' ? "#900000" : Theme.darkGray
-        visible: !dontSave
+        visible: !setupOnly
 
         iconSource: form.state === 'Add' ? Theme.getThemeIcon( 'ic_delete_forever_white_24dp' ) : Theme.getThemeIcon( 'ic_close_white_24dp' )
 
