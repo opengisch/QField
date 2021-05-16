@@ -485,6 +485,7 @@ Rectangle {
               }
           } else  {
               if (featureForm.multiSelection) {
+                  featureForm.selection.model.clearSelection();
                   featureForm.selection.focusedItem = -1
                   featureForm.multiSelection = false;
               } else {
