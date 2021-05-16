@@ -222,7 +222,7 @@ Rectangle {
     width: ( parent.state == "Edit" ? 48: 0 )
     height: 48
     clip: true
-    visible: !qfieldSettings.autoSave
+    visible: true
 
     iconSource: featureFormList.model.constraintsHardValid ? Theme.getThemeIcon( "ic_check_white_48dp" ) : Theme.getThemeIcon( "ic_check_gray_48dp" )
     onClicked: {

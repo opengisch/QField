@@ -542,13 +542,12 @@ Page {
       return
     }
 
-    if ( !save() ) {
+    state = 'Edit'
+
+    if ( !qfieldSettings.autoSave && !save() ) {
       displayToast( qsTr( 'Unable to save changes') )
-      state = 'Edit'
       return
     }
-
-    state = 'Edit'
 
     confirmed()
     featureCreated = false
