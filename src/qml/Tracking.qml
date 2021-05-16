@@ -112,7 +112,7 @@ Item{
             model: embeddedAttributeFormModel
 
             focus: true
-            dontSave: true
+            setupOnly: true
             embedded: true
             toolbarVisible: true
 
