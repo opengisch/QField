@@ -66,12 +66,12 @@ jobs:
         run: |
           cmake -S "${{ github.workspace }}" -B "${{ env.CMAKE_BUILD_DIR }}" -GNinja -DCMAKE_BUILD_TYPE=${{ matrix.build-type }} -DCMAKE_TOOLCHAIN_FILE="${{ env.VCPKG_ROOT }}/scripts/buildsystems/vcpkg.cmake"
 
-      # - name: Upload Build Logs
-      #   uses: actions/upload-artifact@v2
-      #   if: always()
-      #   with:
-      #     name: build-logs
-      #     path: C:/src/buildtrees/**/*.log
+      - name: Upload Build Logs
+        uses: actions/upload-artifact@v2
+        if: always()
+        with:
+          name: build-logs
+          path: C:/src/buildtrees/**/*.log
 
       - name: "🌍 Pull Translations"
         shell: bash

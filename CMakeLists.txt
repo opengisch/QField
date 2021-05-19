@@ -79,12 +79,15 @@ if (ANDROID)
     ${OSGEO4A_LIB_DIR}/libiconv.so
     ${OSGEO4A_LIB_DIR}/libopenjp2.so
     ${OSGEO4A_LIB_DIR}/libfreexl.so
+    ${OSGEO4A_LIB_DIR}/libtiff.so
     ${OSGEO4A_LIB_DIR}/libpng16.so
     ${OSGEO4A_LIB_DIR}/libgdal.so
     ${OSGEO4A_LIB_DIR}/libproj.so
     ${OSGEO4A_LIB_DIR}/libspatialindex.so
     ${OSGEO4A_LIB_DIR}/libpq.so
     ${OSGEO4A_LIB_DIR}/libspatialite.so
+    ${OSGEO4A_LIB_DIR}/libgsl.so
+    ${OSGEO4A_LIB_DIR}/libgslcblas.so
     ${OSGEO4A_LIB_DIR}/libqca-qt5_${ANDROID_ABI}.so
     ${OSGEO4A_LIB_DIR}/libqgis_core_${ANDROID_ABI}.so
     ${OSGEO4A_LIB_DIR}/libqgis_analysis_${ANDROID_ABI}.so
