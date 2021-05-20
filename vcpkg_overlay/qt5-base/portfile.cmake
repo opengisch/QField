@@ -75,8 +75,8 @@ qt_download_submodule(  OUT_SOURCE_PATH SOURCE_PATH
                             patches/xlib.patch                 #Patches Xlib check to actually use Pkgconfig instead of makeSpec only
                             patches/egl.patch                  #Fix egl detection logic.
                             patches/zstdd.patch                #Fix detection of zstd in debug builds
-                            patches/mysql_plugin_include.patch #Fix include path of mysql plugin
-                            patches/mysql-configure.patch      #Fix mysql project
+			    #patches/mysql_plugin_include.patch #Fix include path of mysql plugin
+			    #patches/mysql-configure.patch      #Fix mysql project
                             #patches/static_opengl.patch       #Use this patch if you really want to statically link angle on windows (e.g. using -opengl es2 and -static).
                                                                #Be carefull since it requires definining _GDI32_ for all dependent projects due to redefinition errors in the
                                                                #the windows supplied gl.h header and the angle gl.h otherwise.
