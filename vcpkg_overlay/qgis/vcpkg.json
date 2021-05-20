@@ -1,0 +1,80 @@
+{
+    "name": "qgis",
+    "version-string": "3.18.0",
+    "port-version": 0,
+    "homepage": "https://qgis.org",
+    "description": "QGIS is a free, open source, cross platform (lin/win/mac) geographical information system (GIS)",
+    "dependencies": [
+      "expat",
+      "hdf5",
+      "libxml2",
+      "libzip",
+      "zlib",
+      "libspatialindex",
+      "libspatialite",
+      "glib",
+      "gdal",
+      "opencl",
+      "exiv2",
+      "gsl",
+      "libpq",
+      "protobuf",
+      "proj4",
+      "geos",
+      "qt5-base",
+      "qt5-svg",
+      "qt5-location",
+      "qt5-tools",
+      {
+        "name": "qt5-macextras",
+        "platform": "osx"
+      },
+      {
+        "name": "qt5-winextras",
+        "platform": "windows"
+      },
+      "qwt",
+      "qca",
+      "qscintilla",
+      "qtkeychain"
+    ],
+    "features":
+    [
+        {
+            "name": "server",
+            "description": "Determines whether QGIS server should be built",
+            "dependencies":
+            [
+                "fastcgi"
+            ]
+        },
+        {
+            "name": "process",
+            "description": "Determines whether the command line QGIS process tool should be built"
+        },
+        {
+            "name": "3d",
+            "description": "Determines whether QGIS 3D library should be built",
+            "dependencies":
+            [
+                "qt5-3d"
+            ]
+        },
+        {
+            "name": "bindings",
+            "description": "Determines whether Python bindings should be built"
+        },
+        {
+            "name": "gui",
+            "description": "Determines whether the QGIS gui should be built"
+        },
+        {
+            "name": "desktop",
+            "description": "Determines whether the QGIS desktop (main app) should be built"
+        },
+        {
+            "name": "customwidgets",
+            "description": "Determines whether the QGIS custom widgets for QtCreator should be built"
+        }
+    ]
+  }
