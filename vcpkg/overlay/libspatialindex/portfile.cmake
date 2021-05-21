@@ -2,7 +2,7 @@ vcpkg_from_github(
     OUT_SOURCE_PATH SOURCE_PATH
     REPO libspatialindex/libspatialindex
     REF 1.9.3
-    SHA512   7922807a2f7026542a014d3d7943da5410429b291cf469267ffea5b8075eab2a94e68b6c013425615d221b930fd319c403f3bf43404c9b1d2c92d0e2baae3066
+    SHA512   d4c608abbd631dc163b7b4fb6bf09dee3e85ce692a5f8875d51f05a26e09c75cd17dff1ed9d2c232a071f0f5864d21d877b4cbc252f3416896db24dfa3fa18cb
     HEAD_REF master
 )
 
