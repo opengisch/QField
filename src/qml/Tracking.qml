@@ -73,6 +73,7 @@ Item{
           rubberbandModel: rubberbandModel
           vectorLayer: mainModel.vectorLayer
         }
+        cloudUserInformation: cloudConnection.userInformation
     }
 
 

@@ -2259,6 +2259,7 @@ ApplicationWindow {
     positionInformation: positionSource.positionInfo
     positionLocked: gpsLinkButton.checked
     vertexModel: vertexModel
+    cloudUserInformation: cloudConnection.userInformation
   }
 
   VertexModel {
