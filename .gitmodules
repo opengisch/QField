@@ -2,5 +2,5 @@
 	path = test/QGIS-Sampledata
 	url = https://github.com/opengisch/QGIS-Sampledata.git
 [submodule "vcpkg"]
-	path = vcpkg
-	url = https://github.com/opengisch/vcpkg.git
+	path = vcpkg/base
+	url = https://github.com/microsoft/vcpkg.git
