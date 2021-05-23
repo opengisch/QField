@@ -172,6 +172,7 @@ set (ENABLE_TESTS TRUE CACHE BOOL "Build unit tests?")
 if(MSVC)
   find_package(Qt5 COMPONENTS Charts REQUIRED) # vcpkg doesn't include QtCharts.dll as dep of the qml module otherwise
   add_definitions(-D_USE_MATH_DEFINES)
+  add_definitions(-DNOMINMAX)
 endif()
 
 add_subdirectory(3rdparty/tessellate)
