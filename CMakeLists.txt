@@ -108,7 +108,7 @@ if (ANDROID)
   file(GLOB PLUGINS_QGIS_AUTHMETHODS
     ${OSGEO4A_LIB_DIR}/*authmethod*.so
   )
-  
+
   set(SHARE_PATH "${CMAKE_CURRENT_BINARY_DIR}/android-build/assets/share")
   file(COPY ${PLUGINS_QGIS_PROVIDERS} DESTINATION "${SHARE_PATH}/plugins/")
   file(COPY ${PLUGINS_QGIS_AUTHMETHODS} DESTINATION "${SHARE_PATH}/plugins/")
@@ -116,6 +116,22 @@ if (ANDROID)
   file(COPY "${OSGEO4A_STAGE_DIR}/${ANDROID_ABI}/share/proj/" DESTINATION "${SHARE_PATH}/proj/")
   file(COPY "${OSGEO4A_STAGE_DIR}/${ANDROID_ABI}/files/share/svg/" DESTINATION "${SHARE_PATH}/qgis/svg/")
   file(COPY "${OSGEO4A_STAGE_DIR}/${ANDROID_ABI}/files/share/resources/" DESTINATION "${SHARE_PATH}/qgis/resources/")
+
+  # Strip libs to save space
+  file(GLOB_RECURSE PLUGINS_LIBS
+    ${SHARE_PATH}/plugins/*.so
+  )
+  foreach(PLUGINS_LIB IN LISTS PLUGINS_LIBS)
+    if(ANDROID_ABI STREQUAL "x86")
+      EXECUTE_PROCESS(COMMAND "${ANDROID_NDK}/toolchains/llvm/prebuilt/linux-x86_64/bin/i686-linux-android-strip" "${PLUGINS_LIB}")
+    elseif(ANDROID_ABI STREQUAL "x86_64")
+      EXECUTE_PROCESS(COMMAND "${ANDROID_NDK}/toolchains/llvm/prebuilt/linux-x86_64/bin/x86_64-linux-android-strip" "${PLUGINS_LIB}")
+    elseif(ANDROID_ABI STREQUAL "armeabi-v7a")
+      EXECUTE_PROCESS(COMMAND "${ANDROID_NDK}/toolchains/llvm/prebuilt/linux-x86_64/bin/arm-linux-android-strip" "${PLUGINS_LIB}")
+    elseif(ANDROID_ABI STREQUAL "arm64-v8a")
+      EXECUTE_PROCESS(COMMAND "${ANDROID_NDK}/toolchains/llvm/prebuilt/linux-x86_64/bin/aarch64-linux-android-strip" "${PLUGINS_LIB}")
+    endif()
+  endforeach()
 
   # Remove world map to keep apk size a bit smaller
   file(REMOVE "${SHARE_PATH}/qgis/resources/data/world_map.gpkg")
