@@ -33,7 +33,6 @@
         "name": "qt5-winextras",
         "platform": "windows"
       },
-      "qwt",
       "qca",
       "qscintilla",
       "qtkeychain"
@@ -66,7 +65,11 @@
         },
         {
             "name": "gui",
-            "description": "Determines whether the QGIS gui should be built"
+            "description": "Determines whether the QGIS gui should be built",
+            "dependencies":
+            [
+                "qwt"
+            ]
         },
         {
             "name": "desktop",
