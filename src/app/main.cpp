@@ -103,7 +103,7 @@ int main( int argc, char **argv )
 
   app.setThemeName( settings.value( "/Themes", "default" ).toString() );
   app.setPrefixPath( "" QGIS_INSTALL_DIR, true );
-  app.setPluginPath( QApplication::applicationDirPath() );
+  app.setPluginPath( PlatformUtilities::instance()->systemGenericDataLocation() + QStringLiteral( "/plugins" ) );
   app.setPkgDataPath( PlatformUtilities::instance()->systemGenericDataLocation() + QStringLiteral( "/qgis" ) );
 #elif defined( Q_OS_IOS )
   QString projPath = IosPlatformUtilities().systemGenericDataLocation() + QStringLiteral( "/proj" );

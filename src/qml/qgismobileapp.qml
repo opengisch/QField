@@ -1908,14 +1908,49 @@ ApplicationWindow {
       target: qfieldAuthRequestHandler
 
       function onShowLoginDialog(realm) {
-        loginDialogPopup.realm = realm || ""
-        badLayersView.visible = false
-        loginDialogPopup.open()
+          loginDialogPopup.realm = realm || ""
+          badLayersView.visible = false
+          loginDialogPopup.open()
       }
 
       function onReloadEverything() {
-        iface.reloadProject()
+          iface.reloadProject()
       }
+
+      function onShowLoginBrowser(url) {
+          loginBrowserPopup.url = url;
+          loginBrowserPopup.open();
+      }
+
+      function onHideLoginBrowser() {
+          loginBrowserPopup.close();
+      }
+    }
+
+    Popup {
+        id: loginBrowserPopup
+        parent: ApplicationWindow.overlay
+
+        property alias url: browserPanel.url
+
+        x: 24
+        y: 24
+        width: parent.width - 48
+        height: parent.height - 48
+        padding: 0
+        modal: true
+        closePolicy: Popup.CloseOnEscape
+
+        BrowserPanel {
+            id: browserPanel
+            anchors.fill: parent
+            visible: true
+
+            onCancel: {
+                qfieldAuthRequestHandler.abortAuthBrowser();
+                loginBrowserPopup.close();
+            }
+        }
     }
 
     Popup {
@@ -1954,7 +1989,7 @@ ApplicationWindow {
       }
 
       onClosed: {
-        //it's handeled here with parameter inCancelation because the loginDialog needs to be closed before the signal is fired
+        // handled here with parameter inCancelation because the loginDialog needs to be closed before the signal is fired
         qfieldAuthRequestHandler.loginDialogClosed(loginDialog.realm, loginDialog.inCancelation )
       }
     }

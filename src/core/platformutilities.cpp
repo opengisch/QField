@@ -58,7 +58,7 @@ QString PlatformUtilities::qgsProject() const
 
 QString PlatformUtilities::qfieldDataDir() const
 {
-  return QString();
+  return QStandardPaths::standardLocations( QStandardPaths::DocumentsLocation ).first() + QStringLiteral( "/QField/" );
 }
 
 QStringList PlatformUtilities::availableGrids() const

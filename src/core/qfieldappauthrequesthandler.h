@@ -41,7 +41,9 @@ class QFieldAppAuthRequestHandler : public QObject, public QgsNetworkAuthenticat
     QFieldAppAuthRequestHandler();
 
     //! handles the auth request - triggered by the authRequestOccurred signal
-    void handleAuthRequest( QNetworkReply *reply, QAuthenticator *auth );
+    void handleAuthRequest( QNetworkReply *reply, QAuthenticator *auth ) override;
+    void handleAuthRequestOpenBrowser( const QUrl &url ) override;
+    void handleAuthRequestCloseBrowser() override;
 
     //! stores the credentials after the information is entered in the login dialog
     Q_INVOKABLE void enterCredentials( const QString &realm, const QString &username, const QString &password );
@@ -52,11 +54,16 @@ class QFieldAppAuthRequestHandler : public QObject, public QgsNetworkAuthenticat
     //! clears the stored realms
     Q_INVOKABLE void clearStoredRealms();
 
+    //! abort an ongoing external browser authentication request
+    Q_INVOKABLE void abortAuthBrowser();
+
 
   signals:
     void showLoginDialog( const QString &realm );
     void loginDialogClosed( const QString &realm, const bool canceled );
     void reloadEverything();
+    void showLoginBrowser( const QString &url );
+    void hideLoginBrowser();
 
   private:
     //! adds the realm to the list on loading the project

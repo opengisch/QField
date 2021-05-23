@@ -17,10 +17,11 @@
 
 #include "qfieldappauthrequesthandler.h"
 
-#include <QAuthenticator>
-#include <QThread>
 #include <qgscredentials.h>
 #include <qgsmessagelog.h>
+
+#include <QAuthenticator>
+#include <QThread>
 
 QFieldAppAuthRequestHandler::QFieldAppAuthRequestHandler()
 {
@@ -159,4 +160,19 @@ void QFieldAppAuthRequestHandler::handleAuthRequest( QNetworkReply *reply, QAuth
 
   auth->setUser( username );
   auth->setPassword( password );
+}
+
+void QFieldAppAuthRequestHandler::handleAuthRequestOpenBrowser( const QUrl &url )
+{
+  emit showLoginBrowser( url.toString() );
+}
+
+void QFieldAppAuthRequestHandler::handleAuthRequestCloseBrowser()
+{
+  emit hideLoginBrowser();
+}
+
+void QFieldAppAuthRequestHandler::abortAuthBrowser()
+{
+  QgsNetworkAccessManager::instance()->abortAuthBrowser();
 }
