@@ -12,6 +12,7 @@ vcpkg_from_github(
     PATCHES
         # Make qgis support python's debug library
         qgspython.patch
+        geos.patch
 )
 
 vcpkg_find_acquire_program(FLEX)
@@ -140,12 +141,14 @@ if(VCPKG_TARGET_IS_WINDOWS)
     FIND_LIB_OPTIONS(PROJ proj proj_d LIBRARY ${VCPKG_TARGET_IMPORT_LIBRARY_SUFFIX})
     FIND_LIB_OPTIONS(PYTHON python39 python39_d LIBRARY ${VCPKG_TARGET_IMPORT_LIBRARY_SUFFIX})
     FIND_LIB_OPTIONS(QCA qca qcad LIBRARY ${VCPKG_TARGET_IMPORT_LIBRARY_SUFFIX})
-    FIND_LIB_OPTIONS(QWT qwt qwtd LIBRARY ${VCPKG_TARGET_IMPORT_LIBRARY_SUFFIX})
     FIND_LIB_OPTIONS(QTKEYCHAIN qt5keychain qt5keychaind LIBRARY ${VCPKG_TARGET_IMPORT_LIBRARY_SUFFIX})
     FIND_LIB_OPTIONS(QSCINTILLA qscintilla2_qt5 qscintilla2_qt5d LIBRARY ${VCPKG_TARGET_IMPORT_LIBRARY_SUFFIX})
     if("server" IN_LIST FEATURES)
         FIND_LIB_OPTIONS(FCGI libfcgi libfcgi LIBRARY ${VCPKG_TARGET_IMPORT_LIBRARY_SUFFIX})
         list(APPEND QGIS_OPTIONS -DFCGI_INCLUDE_DIR="${CURRENT_INSTALLED_DIR}/include/fastcgi")
+    endif()
+    if("gui" IN_LIST FEATURES)
+        FIND_LIB_OPTIONS(QWT qwt qwtd LIBRARY ${VCPKG_TARGET_IMPORT_LIBRARY_SUFFIX})
     endif()
 
     set(SPATIALINDEX_LIB_NAME spatialindex)
@@ -156,60 +159,16 @@ if(VCPKG_TARGET_IS_WINDOWS)
     endif()
     FIND_LIB_OPTIONS(SPATIALINDEX ${SPATIALINDEX_LIB_NAME} ${SPATIALINDEX_LIB_NAME}d LIBRARY ${VCPKG_TARGET_IMPORT_LIBRARY_SUFFIX})
 elseif(VCPKG_TARGET_IS_LINUX OR VCPKG_TARGET_IS_OSX) # Build in UNIX
-    macro(INSTALL_PROGRAM program)
-        if(VCPKG_TARGET_IS_OSX)
-            message(STATUS "brew install ${program}")
-            vcpkg_execute_required_process(
-              COMMAND brew install ${program}
-              WORKING_DIRECTORY ${CURRENT_BUILDTREES_DIR}
-            )
-        else()
-            message(STATUS "sudo apt-get install ${program}")
-            vcpkg_execute_required_process(
-              COMMAND sudo apt-get install -y ${program}
-              WORKING_DIRECTORY ${CURRENT_BUILDTREES_DIR}
-            )
-        endif()
-    endmacro()
-
-    find_program(PIP3 pip3)
-    if (NOT PIP3)
-        INSTALL_PROGRAM(python3-pip)
-    endif()
-
-    vcpkg_execute_required_process(
-        COMMAND "${PYTHON_EXECUTABLE}" -m pip install --upgrade pip
-        WORKING_DIRECTORY ${PYTHON3_PATH}
-        LOGNAME pip
-    )
-
-    find_program(PYUIC5 pyuic5)
-    if (NOT PYUIC5)
-        INSTALL_PROGRAM(pyqt5-dev-tools)
-    endif()
-
-    find_program(PYRCC5 pyrcc5)
-
     list(APPEND QGIS_OPTIONS_DEBUG -DQT_INSTALL_LIBS:PATH=${CURRENT_INSTALLED_DIR}/debug/lib)
     list(APPEND QGIS_OPTIONS_RELEASE -DQT_INSTALL_LIBS:PATH=${CURRENT_INSTALLED_DIR}/lib)
-    list(APPEND QGIS_OPTIONS -DGDAL_CONFIG=" ")
-    list(APPEND QGIS_OPTIONS -DGDAL_INCLUDE_DIR:PATH=${CURRENT_INSTALLED_DIR}/include)
-    FIND_LIB_OPTIONS(GDAL gdal gdal LIBRARY ${VCPKG_TARGET_SHARED_LIBRARY_SUFFIX})
-    list(APPEND QGIS_OPTIONS -DGEOS_CONFIG=" ")
-    FIND_LIB_OPTIONS(GEOS geos_c geos_cd LIBRARY ${VCPKG_TARGET_STATIC_LIBRARY_SUFFIX})
     list(APPEND QGIS_OPTIONS -DGSL_CONFIG=" ")
     list(APPEND QGIS_OPTIONS -DGSL_INCLUDE_DIR:PATH=${CURRENT_INSTALLED_DIR}/include)
     list(APPEND QGIS_OPTIONS_DEBUG -DGSL_LIBRARIES:FILEPATH=${CURRENT_INSTALLED_DIR}/debug/lib/${VCPKG_TARGET_STATIC_LIBRARY_PREFIX}gsld${VCPKG_TARGET_STATIC_LIBRARY_SUFFIX};${CURRENT_INSTALLED_DIR}/debug/lib/${VCPKG_TARGET_STATIC_LIBRARY_PREFIX}gslcblasd${VCPKG_TARGET_STATIC_LIBRARY_SUFFIX})
     list(APPEND QGIS_OPTIONS_RELEASE -DGSL_LIBRARIES:FILEPATH="${CURRENT_INSTALLED_DIR}/lib/${VCPKG_TARGET_STATIC_LIBRARY_PREFIX}gsl${VCPKG_TARGET_STATIC_LIBRARY_SUFFIX} ${CURRENT_INSTALLED_DIR}/lib/${VCPKG_TARGET_STATIC_LIBRARY_PREFIX}gslcblas${VCPKG_TARGET_STATIC_LIBRARY_SUFFIX}")
-    list(APPEND QGIS_OPTIONS -DPYTHON_INCLUDE_PATH:PATH=${CURRENT_INSTALLED_DIR}/include/python3.9m)
-    FIND_LIB_OPTIONS(PYTHON python3.9m python3.9dm LIBRARY ${VCPKG_TARGET_STATIC_LIBRARY_SUFFIX})
-    FIND_LIB_OPTIONS(QTKEYCHAIN qt5keychain qt5keychaind LIBRARY  ${VCPKG_TARGET_STATIC_LIBRARY_SUFFIX})
     if("server" IN_LIST FEATURES)
         FIND_LIB_OPTIONS(FCGI fcgi fcgi LIBRARY ${VCPKG_TARGET_SHARED_LIBRARY_SUFFIX})
         list(APPEND QGIS_OPTIONS -DFCGI_INCLUDE_DIR="${CURRENT_INSTALLED_DIR}/include/fastcgi")
     endif()
-
-    FIND_LIB_OPTIONS(SPATIALINDEX spatialindex spatialindexd LIBRARY ${VCPKG_TARGET_STATIC_LIBRARY_SUFFIX})
 else() # Other build system
   message(FATAL_ERROR "Unsupport build system.")
 endif()
