@@ -98,7 +98,7 @@ ELSE(WIN32)
     )
 
     # also get other frameworks' headers folders on OS X
-    IF (APPLE)
+    IF (APPLE AND USE_MAC_BUNDLING)
       FIND_PATH(QGIS_ANALYSIS_INCLUDE_DIR
         NAMES qgsanalysis.h
         PATHS
@@ -117,7 +117,7 @@ ELSE(WIN32)
 
       # qgis_core is an archive without extensions for ios
       SET(CMAKE_FIND_LIBRARY_SUFFIXES ${CMAKE_FIND_LIBRARY_SUFFIXES} "")
-    ENDIF (APPLE)
+    ENDIF (APPLE AND USE_MAC_BUNDLING)
 
 
     FIND_LIBRARY(QGIS_CORE_LIBRARY
@@ -153,7 +153,7 @@ ELSE(WIN32)
         QGIS.app/Contents/Frameworks/qgis_analysis.framework
     )
 
-    IF (APPLE)
+    IF (APPLE AND USE_MAC_BUNDLING)
       FIND_PATH(QGIS_APPLE_RESOURCES_DIR
         NAMES FindQGIS.cmake
         PATHS
@@ -222,6 +222,7 @@ ELSE(WIN32)
       find_library(QGIS_WSMPROVIDER_PLUGIN_LIBRARY wmsprovider_a
         PATH_SUFFIXES
          QGIS.app/Contents/PlugIns/qgis/
+	 qgis/plugins
       )
       if(QGIS_WSMPROVIDER_PLUGIN_LIBRARY)
         message(STATUS "Link ${QGIS_WSMPROVIDER_PLUGIN_LIBRARY} interface to qgis_core")
@@ -233,6 +234,7 @@ ELSE(WIN32)
       find_library(QGIS_POSTGRESPROVIDER_PLUGIN_LIBRARY postgresprovider_a
         PATH_SUFFIXES
          QGIS.app/Contents/PlugIns/qgis/
+	 qgis/plugins
       )
       if(QGIS_POSTGRESPROVIDER_PLUGIN_LIBRARY)
         message(STATUS "Link ${QGIS_POSTGRESPROVIDER_PLUGIN_LIBRARY} interface to qgis_core")
@@ -244,6 +246,7 @@ ELSE(WIN32)
       find_library(QGIS_POSTGRESRASTERPROVIDER_PLUGIN_LIBRARY postgresrasterprovider_a
         PATH_SUFFIXES
          QGIS.app/Contents/PlugIns/qgis/
+	 qgis/plugins
       )
       if(QGIS_POSTGRESRASTERPROVIDER_PLUGIN_LIBRARY)
         message(STATUS "Link ${QGIS_POSTGRESRASTERPROVIDER_PLUGIN_LIBRARY} interface to qgis_core")
@@ -269,13 +272,14 @@ ELSE(WIN32)
       qgis_analysis_link_library(exiv2 TRUE)
       qgis_analysis_link_library(exiv2-xmp TRUE)
 
+
       target_include_directories(qgis_analysis INTERFACE ${QGIS_ANALYSIS_INCLUDE_DIR})
 
       # Overwrite the variable to point to the interface library
       set(QGIS_CORE_LIBRARY qgis_core)
       set(QGIS_ANALYSIS_LIBRARY qgis_analysis)
 
-      find_file(PROJ_DB proj.db PATHS ${CMAKE_PREFIX_PATH} PATH_SUFFIXES share/proj REQUIRED)
+      find_file(PROJ_DB proj.db PATHS ${CMAKE_PREFIX_PATH} PATH_SUFFIXES share/proj share/proj4 REQUIRED)
       get_filename_component(QFIELD_PROJ_DIR ${PROJ_DB} DIRECTORY)
       message("Found Proj DB directory: " ${QFIELD_PROJ_DIR})
 

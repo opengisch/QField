@@ -1,0 +1,214 @@
+---
+name: 🎁 Package with vcpkg
+on:
+  push:
+    branches:
+      - master
+      - release-**
+  pull_request:
+  release:
+    types: ['published', 'released']
+
+
+jobs:
+  build:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - os: 'windows-2019'
+            triplet: 'x64-windows'
+            mono: ''
+            build-type: 'Release'
+            vcpkg-root: 'C:'
+            pathconvert: 'cygpath -u'
+            exclude-tests: '(deltafilewrappertest|smoke_test)'
+
+          - os: 'ubuntu-20.04'
+            triplet: 'x64-linux'
+            # To run `nuget.exe` on non-Windows platforms, we must use `mono`.
+            mono: 'mono'
+            build-type: 'Release'
+            vcpkg-root: '/home/runner'
+            overlay: 'vcpkg/overlay_system_qt'
+            install_qt: true
+            qt_target: 'desktop'
+            qt_arch: ''
+            pathconvert: 'echo'
+
+    env:
+      TX_TOKEN: ${{ secrets.TX_TOKEN }}
+      VCPKG_BINARY_SOURCES: 'clear;nuget,GitHub,readwrite'
+      VCPKG_ROOT: ${{ matrix.vcpkg-root }}/src
+      CMAKE_BUILD_DIR: ${{ matrix.vcpkg-root}}/builddir
+      VCPKG_DEFAULT_BINARY_CACHE: ${{ matrix.vcpkg-root }}/vcpkg_cache
+
+    steps:
+# Avoid that we run out of disk space
+#      - name: Free additional space
+#        uses: easimon/maximize-build-space@master
+#        if: ${{ matrix.triplet == 'x64-linux' }}
+#        with:
+#          remove-haskell: true # 9G
+#          remove-android: true # 18G
+#          remove-dotnet: true # 30G
+
+      - name: Checkout
+        uses: actions/checkout@v2
+        with:
+          submodules: recursive
+
+      - name: Install CMake and Ninja
+        uses: lukka/get-cmake@latest
+
+      - name: Clone vcpkg
+        shell: bash
+        run: |
+          VCPKG_SHA=$(head -1 .git/modules/vcpkg/HEAD)
+          mkdir -p "${{ env.VCPKG_DEFAULT_BINARY_CACHE }}"
+          mkdir -p "${{ env.VCPKG_ROOT }}"
+          cd "${{ env.VCPKG_ROOT }}"
+          git init
+          git remote add origin https://github.com/microsoft/vcpkg.git
+          git fetch --depth 1 origin $VCPKG_SHA
+          git checkout FETCH_HEAD
+
+      - name: Cache vcpkg
+        id: cache-vcpkg-tool
+        uses: pat-s/always-upload-cache@v2.1.5
+        with:
+          path: |
+            ${{ env.VCPKG_ROOT }}/vcpkg
+            ${{ env.VCPKG_ROOT }}/vcpkg.exe
+          key: ${{ runner.os }}-${{ hashFiles('.git/modules/vcpkg/HEAD') }}-x
+
+      - name: Bootstrap vcpkg
+        if: steps.cache-vcpkg-tool.outputs.cache-hit != 'true'
+        shell: bash
+        working-directory: ${{ env.VCPKG_ROOT }}
+        run: |
+          if grep -qEi "(Microsoft|WSL)" /proc/version &> /dev/null ; then
+            ./bootstrap-vcpkg.bat
+          else
+            ./bootstrap-vcpkg.sh
+          fi
+
+      - name: Setup NuGet Credentials
+        shell: bash
+        run: |
+          ${{ matrix.mono }} $(${{ env.VCPKG_ROOT }}/vcpkg fetch nuget | tail -n 1) \
+          sources add \
+          -source "https://nuget.pkg.github.com/opengisch/index.json" \
+          -storepasswordincleartext \
+          -name "GitHub" \
+          -username "opengisch" \
+          -password "${{ secrets.GITHUB_TOKEN }}"
+
+          ${{ matrix.mono }} $(${{ env.VCPKG_ROOT }}/vcpkg fetch nuget | tail -n 1) \
+          setapikey ${{ secrets.GITHUB_TOKEN }} -src "https://nuget.pkg.github.com/opengisch/index.json"
+
+      - uses: ilammy/msvc-dev-cmd@v1
+        if: ${{ matrix.os == 'windows-2019' }}
+
+      - name: Free additional space
+        if: ${{ matrix.triplet == 'x64-linux' }}
+        run: |
+          df -h
+          sudo rm -rf /usr/share/dotnet/sdk
+          sudo rm -rf /usr/share/rust
+          sudo rm -rf /usr/share/swift
+          sudo rm -rf /usr/local/lib/android
+          sudo apt remove llvm-* ghc-* google-chrome-* dotnet-sdk-* azure-cli google-cloud-sdk google-chrome-stable firefox
+          dpkg-query -Wf '${Installed-Size}\t${Package}\n' | sort -n | tail -n 100
+          du -a /usr/share | sort -n -r | head -n 10
+          du -a /usr/local/share | sort -n -r | head -n 10
+          df -h
+          sudo apt clean
+          df -h
+
+      - name: Install Qt
+        if: ${{ matrix.install_qt }}
+        uses: jurplel/install-qt-action@v2
+        with:
+          version: 5.15.2
+          modules: 'qtcharts'
+          target: ${{ matrix.qt_target }}
+          arch: ${{ matrix.qt_arch }}
+
+      - name: Prepare linux build env
+        if: ${{ matrix.triplet == 'x64-linux' }}
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y gperf autopoint '^libxcb.*-dev' libx11-xcb-dev libglu1-mesa-dev libxrender-dev libxi-dev libxkbcommon-dev libxkbcommon-x11-dev
+          sudo apt-get remove -y libopenexr-dev # Avoid gdal picking this system lib up
+          # echo "CMAKE_EXTRA_CXX_STANDARD_LIBRARIES=${Qt5_DIR}/lib/libQt5DBus.so /home/runner/builddir/vcpkg_installed/x64-linux/lib/libpgcommon.a /home/runner/builddir/vcpkg_installed/x64-linux/lib/libpgport.a /home/runner/builddir/vcpkg_installed/x64-linux/lib/libwebp.a" >> $GITHUB_ENV
+          # Required to run unit tests on linux
+          echo "QT_QPA_PLATFORM=offscreen" >> $GITHUB_ENV
+          echo "TESTWRAPPER=xvfb-run" >> $GITHUB_ENV
+
+      - name: Install dependencies and generate project files
+        shell: bash
+        env:
+          WORKSPACE: ${{ github.workspace }}
+        run: |
+          # Convert paths to bash compatible ones. Thanks to whoever decided to use drive letters and backslashes.
+          CMAKE_BUILD_DIR=$( ${{ matrix.pathconvert }} "${CMAKE_BUILD_DIR}" )
+          VCPKG_ROOT=$( ${{ matrix.pathconvert }} "${VCPKG_ROOT}" )
+          SOURCE_DIR=$( ${{ matrix.pathconvert }} "${WORKSPACE}" )
+
+          overlay_ports=(${WORKSPACE}/${{ matrix.overlay }} ${WORKSPACE}/vcpkg/overlay)
+          echo "Building with $(IFS=\; ; echo "${overlay_ports[*]}")"
+          cmake -S "${SOURCE_DIR}" \
+                -B "${CMAKE_BUILD_DIR}" \
+                -DCMAKE_BUILD_TYPE=${{ matrix.build-type }} \
+                -DCMAKE_TOOLCHAIN_FILE="${VCPKG_ROOT}/scripts/buildsystems/vcpkg.cmake" \
+                -DVCPKG_OVERLAY_PORTS=$(IFS=\; ; echo "${overlay_ports[*]}") \
+                -DVCPKG_TARGET_TRIPLET="${{ matrix.triplet }}" \
+                -DWITH_VCPKG=ON \
+                -DWITH_SPIX=ON \
+                ${EXTRA_CMAKE_ARGS}
+
+      - name: Upload Build Logs
+        uses: actions/upload-artifact@v2
+        if: failure()
+        with:
+          name: build-logs-${{ matrix.triplet }}
+          path: ${{ env.VCPKG_ROOT }}/buildtrees/**/*.log
+
+      - name: 🌍 Pull Translations
+        shell: bash
+        run: |
+          if [[ -z "${TX_TOKEN}" ]]; then
+            echo "TX_TOKEN not set, skip tx pull"
+          else
+            pip install transifex-client
+            pushd "${{ env.VCPKG_ROOT }}"
+            ./vcpkg integrate install
+            popd
+            ./scripts/ci/pull_translations.sh
+          fi
+
+      - name: Build
+        run: |
+          cmake --build "${{ env.CMAKE_BUILD_DIR }}" --config ${{ matrix.build-type }} # --target qfield
+
+      - name: Test
+        shell: bash
+        env:
+          WORKSPACE: ${{ github.workspace }}
+        run: |
+          SOURCE_DIR=$( ${{ matrix.pathconvert }} "${WORKSPACE}" )
+          pip install -r "${SOURCE_DIR}/test/spix/requirements.txt"
+          cd "${{ env.CMAKE_BUILD_DIR }}"
+          ${TESTWRAPPER} ctest --output-on-failure -E '${{ matrix.exclude-tests }}' -C ${{ matrix.build-type }}
+
+      - uses: actions/upload-artifact@v2
+        with:
+          name: "QField-dev-${{ matrix.triplet }}-${{ matrix.build-type }}"
+          path: "${{ env.CMAKE_BUILD_DIR }}/output"
+
+      - uses: actions/upload-artifact@v2
+        with:
+          name: "test-report-${{ matrix.triplet }}-${{ matrix.build-type }}"
+          path: "${{ env.CMAKE_BUILD_DIR }}/report"

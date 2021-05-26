@@ -7,7 +7,7 @@ on:
       - release-**
   pull_request:
   release:
-    types: ['prereleased', 'released']
+    types: ['published', 'released']
 
 env:
   VCPKG_ROOT: 'C:/src'

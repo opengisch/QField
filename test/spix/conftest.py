@@ -57,10 +57,18 @@ def report_summary():
 
 @pytest.fixture
 def process():
-    process = subprocess.Popen(
-        "./output/bin/qfield", stdout=subprocess.PIPE, stderr=subprocess.PIPE
-    )
-    yield process
+    filenames = ['./output/bin/qfield', './output/bin/Release/qfield.exe', './output/bin/Debug/qfield.exe']
+    for filename in filenames:
+        try:
+            process = subprocess.Popen(
+                filename, stdout=subprocess.PIPE, stderr=subprocess.PIPE
+            )
+            yield process
+            break
+        except FileNotFoundError:
+            pass
+    else:
+        assert False, f'No qfield executable found in {filenames}'
 
 @pytest.fixture
 def app(process, process_communicate):

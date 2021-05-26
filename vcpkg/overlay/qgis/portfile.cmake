@@ -12,8 +12,17 @@ vcpkg_from_github(
     PATCHES
         # Make qgis support python's debug library
         qgspython.patch
-        geos.patch
+        gdal.patch
+        keychain.patch
+        libxml2.patch
+        exiv2.patch
 )
+
+file(REMOVE ${SOURCE_PATH}/cmake/FindQtKeychain.cmake)
+file(REMOVE ${SOURCE_PATH}/cmake/FindGDAL.cmake)
+file(REMOVE ${SOURCE_PATH}/cmake/FindGEOS.cmake)
+file(REMOVE ${SOURCE_PATH}/cmake/FindEXIV2.cmake)
+file(REMOVE ${SOURCE_PATH}/cmake/FindIconv.cmake)
 
 vcpkg_find_acquire_program(FLEX)
 vcpkg_find_acquire_program(BISON)
@@ -26,7 +35,13 @@ set(PYTHON_EXECUTABLE ${PYTHON3})
 list(APPEND QGIS_OPTIONS -DENABLE_TESTS:BOOL=OFF)
 list(APPEND QGIS_OPTIONS -DWITH_QTWEBKIT:BOOL=OFF)
 list(APPEND QGIS_OPTIONS -DWITH_GRASS7:BOOL=OFF)
-list(APPEND QGIS_OPTIONS -DWITH_QSPATIALITE:BOOL=ON)
+list(APPEND QGIS_OPTIONS -DWITH_QSPATIALITE:BOOL=OFF)
+
+if("opencl" IN_LIST FEATURES)
+    list(APPEND QGIS_OPTIONS -DUSE_OPENCL:BOOL=ON)
+else()
+    list(APPEND QGIS_OPTIONS -DUSE_OPENCL:BOOL=OFF)
+endif()
 
 if("bindings" IN_LIST FEATURES)
     list(APPEND QGIS_OPTIONS -DWITH_BINDINGS:BOOL=ON)
@@ -64,7 +79,6 @@ if("server" IN_LIST FEATURES)
     endif()
 else()
     list(APPEND QGIS_OPTIONS -DWITH_SERVER:BOOL=OFF)
-    list(APPEND QGIS_OPTIONS -DWITH_SERVER_PLUGINS:BOOL=OFF)
 endif()
 
 if("process" IN_LIST FEATURES)
@@ -77,6 +91,12 @@ if("3d" IN_LIST FEATURES)
     list(APPEND QGIS_OPTIONS -DWITH_3D:BOOL=ON)
 else()
     list(APPEND QGIS_OPTIONS -DWITH_3D:BOOL=OFF)
+endif()
+
+if("quick" IN_LIST FEATURES)
+    list(APPEND QGIS_OPTIONS -DWITH_QUICK:BOOL=ON)
+else()
+    list(APPEND QGIS_OPTIONS -DWITH_QUICK:BOOL=OFF)
 endif()
 
 # Configure debug and release library paths
@@ -92,6 +112,12 @@ macro(FIND_LIB_OPTIONS basename relname debname suffix libsuffix)
         list(APPEND QGIS_OPTIONS -D${basename}_${suffix}:FILEPATH=${${basename}_LIBRARY_DEBUG})
    endif()
 endmacro()
+
+
+if (VCPKG_LIBRARY_LINKAGE STREQUAL static)
+    list(APPEND QGIS_OPTIONS -DFORCE_STATIC_LIBS=TRUE)
+    list(APPEND QGIS_OPTIONS -DFORCE_STATIC_PROVIDERS=TRUE)
+endif()
 
 if(VCPKG_TARGET_IS_WINDOWS)
     ##############################################################################
@@ -158,19 +184,34 @@ if(VCPKG_TARGET_IS_WINDOWS)
         set( SPATIALINDEX_LIB_NAME "spatialindex-32" )
     endif()
     FIND_LIB_OPTIONS(SPATIALINDEX ${SPATIALINDEX_LIB_NAME} ${SPATIALINDEX_LIB_NAME}d LIBRARY ${VCPKG_TARGET_IMPORT_LIBRARY_SUFFIX})
-elseif(VCPKG_TARGET_IS_LINUX OR VCPKG_TARGET_IS_OSX) # Build in UNIX
+else() # Build in UNIX
+    list(APPEND QGIS_OPTIONS -DCMAKE_FIND_ROOT_PATH=$ENV{Qt5_DIR}) # for building with system Qt. Should find a nicer solution.
+    list(APPEND QGIS_OPTIONS -DWITH_QTMOBILITY=OFF)
     list(APPEND QGIS_OPTIONS_DEBUG -DQT_INSTALL_LIBS:PATH=${CURRENT_INSTALLED_DIR}/debug/lib)
     list(APPEND QGIS_OPTIONS_RELEASE -DQT_INSTALL_LIBS:PATH=${CURRENT_INSTALLED_DIR}/lib)
     list(APPEND QGIS_OPTIONS -DGSL_CONFIG=" ")
     list(APPEND QGIS_OPTIONS -DGSL_INCLUDE_DIR:PATH=${CURRENT_INSTALLED_DIR}/include)
     list(APPEND QGIS_OPTIONS_DEBUG -DGSL_LIBRARIES:FILEPATH=${CURRENT_INSTALLED_DIR}/debug/lib/${VCPKG_TARGET_STATIC_LIBRARY_PREFIX}gsld${VCPKG_TARGET_STATIC_LIBRARY_SUFFIX};${CURRENT_INSTALLED_DIR}/debug/lib/${VCPKG_TARGET_STATIC_LIBRARY_PREFIX}gslcblasd${VCPKG_TARGET_STATIC_LIBRARY_SUFFIX})
-    list(APPEND QGIS_OPTIONS_RELEASE -DGSL_LIBRARIES:FILEPATH="${CURRENT_INSTALLED_DIR}/lib/${VCPKG_TARGET_STATIC_LIBRARY_PREFIX}gsl${VCPKG_TARGET_STATIC_LIBRARY_SUFFIX} ${CURRENT_INSTALLED_DIR}/lib/${VCPKG_TARGET_STATIC_LIBRARY_PREFIX}gslcblas${VCPKG_TARGET_STATIC_LIBRARY_SUFFIX}")
+    list(APPEND QGIS_OPTIONS_RELEASE -DGSL_LIBRARIES:FILEPATH=${CURRENT_INSTALLED_DIR}/lib/${VCPKG_TARGET_STATIC_LIBRARY_PREFIX}gsl${VCPKG_TARGET_STATIC_LIBRARY_SUFFIX} ${CURRENT_INSTALLED_DIR}/lib/${VCPKG_TARGET_STATIC_LIBRARY_PREFIX}gslcblas${VCPKG_TARGET_STATIC_LIBRARY_SUFFIX})
+    list(APPEND QGIS_OPTIONS_DEBUG "-DCMAKE_CXX_STANDARD_LIBRARIES=${CURRENT_INSTALLED_DIR}/debug/lib/libgeos_cd.a ${CURRENT_INSTALLED_DIR}/debug/lib/libgeosd.a ${CURRENT_INSTALLED_DIR}/debug/lib/librttopo.a ${CURRENT_INSTALLED_DIR}/debug/lib/libfreexl.a ${CURRENT_INSTALLED_DIR}/debug/lib/libbz2d.a ${CURRENT_INSTALLED_DIR}/debug/lib/libgslcblasd.a $ENV{CMAKE_EXTRA_CXX_STANDARD_LIBRARIES}")
+    list(APPEND QGIS_OPTIONS_RELEASE "-DCMAKE_CXX_STANDARD_LIBRARIES:FILEPATH=${CURRENT_INSTALLED_DIR}/lib/libgeos_c.a ${CURRENT_INSTALLED_DIR}/lib/libgeos.a ${CURRENT_INSTALLED_DIR}/lib/librttopo.a ${CURRENT_INSTALLED_DIR}/lib/libfreexl.a ${CURRENT_INSTALLED_DIR}/lib/libbz2.a ${CURRENT_INSTALLED_DIR}/lib/libgslcblas.a $ENV{CMAKE_EXTRA_CXX_STANDARD_LIBRARIES}")
     if("server" IN_LIST FEATURES)
         FIND_LIB_OPTIONS(FCGI fcgi fcgi LIBRARY ${VCPKG_TARGET_SHARED_LIBRARY_SUFFIX})
         list(APPEND QGIS_OPTIONS -DFCGI_INCLUDE_DIR="${CURRENT_INSTALLED_DIR}/include/fastcgi")
     endif()
-else() # Other build system
-  message(FATAL_ERROR "Unsupport build system.")
+    if(EXISTS "${CURRENT_INSTALLED_DIR}/debug/lib/libqt_poly2tri_debug.a")
+        list(APPEND QGIS_OPTIONS -DWITH_INTERNAL_POLY2TRI=OFF)
+        list(APPEND QGIS_OPTIONS -DPoly2Tri_INCLUDE_DIR:PATH=${CMAKE_CURRENT_LIST_DIR}/poly2tri)
+        list(APPEND QGIS_OPTIONS_DEBUG -DPoly2Tri_LIBRARY:PATH=${CURRENT_INSTALLED_DIR}/debug/lib/libqt_poly2tri_debug.a) # static qt only
+        list(APPEND QGIS_OPTIONS_RELEASE -DPoly2Tri_LIBRARY:PATH=${CURRENT_INSTALLED_DIR}/lib/libqt_poly2tri.a) # static qt only
+    endif()
+endif()
+
+list(APPEND QGIS_OPTIONS -DQGIS_MACAPP_FRAMEWORK=FALSE)
+
+if(VCPKG_TARGET_IS_IOS)
+    list(APPEND QGIS_OPTIONS -DWITH_QT5SERIALPORT=FALSE)
+    list(APPEND QGIS_OPTIONS -DWITH_AUTH=FALSE) # Trying to link shared libs will fail on ios because https://gist.github.com/agirault/3244bf956c2cad7217b148291135f85e (2.3)
 endif()
 
 vcpkg_configure_cmake(
@@ -183,76 +224,76 @@ vcpkg_configure_cmake(
 
 vcpkg_install_cmake()
 
-# handle qgis tools and plugins
-function(copy_path basepath)
-    file(GLOB ${basepath}_PATH ${CURRENT_PACKAGES_DIR}/${basepath}/*)
-    if( ${basepath}_PATH )
-        file(MAKE_DIRECTORY ${CURRENT_PACKAGES_DIR}/tools/${PORT}/${basepath})
-        file(COPY ${${basepath}_PATH} DESTINATION ${CURRENT_PACKAGES_DIR}/tools/${PORT}/${basepath})
+if(VCPKG_TARGET_IS_WINDOWS)
+    # handle qgis tools and plugins
+    function(copy_path basepath)
+        file(GLOB ${basepath}_PATH ${CURRENT_PACKAGES_DIR}/${basepath}/*)
+        if( ${basepath}_PATH )
+            file(MAKE_DIRECTORY ${CURRENT_PACKAGES_DIR}/tools/${PORT}/${basepath})
+            file(COPY ${${basepath}_PATH} DESTINATION ${CURRENT_PACKAGES_DIR}/tools/${PORT}/${basepath})
+        endif()
+    
+        if(EXISTS "${CURRENT_PACKAGES_DIR}/${basepath}/")
+            file(REMOVE_RECURSE ${CURRENT_PACKAGES_DIR}/${basepath}/)
+        endif()
+    
+        if("debug-tools" IN_LIST FEATURES)
+            file(GLOB ${basepath}_DEBUG_PATH ${CURRENT_PACKAGES_DIR}/debug/${basepath}/*)
+            if( ${basepath}_DEBUG_PATH )
+                file(MAKE_DIRECTORY ${CURRENT_PACKAGES_DIR}/debug/tools/${PORT}/${basepath})
+                file(COPY ${${basepath}_DEBUG_PATH} DESTINATION ${CURRENT_PACKAGES_DIR}/debug/tools/${PORT}/${basepath})
+            endif()
+        endif()
+    
+        if(EXISTS "${CURRENT_PACKAGES_DIR}/debug/${basepath}/")
+            file(REMOVE_RECURSE ${CURRENT_PACKAGES_DIR}/debug/${basepath}/)
+        endif()
+    endfunction()
+    
+    file(GLOB QGIS_CMAKE_PATH ${CURRENT_PACKAGES_DIR}/*.cmake)
+    if(QGIS_CMAKE_PATH)
+        file(COPY ${QGIS_CMAKE_PATH} DESTINATION ${CURRENT_PACKAGES_DIR}/share/cmake/${PORT})
+        file(REMOVE_RECURSE ${QGIS_CMAKE_PATH})
     endif()
-
-    if(EXISTS "${CURRENT_PACKAGES_DIR}/${basepath}/")
-        file(REMOVE_RECURSE ${CURRENT_PACKAGES_DIR}/${basepath}/)
+    file(GLOB QGIS_CMAKE_PATH_DEBUG ${CURRENT_PACKAGES_DIR}/debug/*.cmake)
+    if( QGIS_CMAKE_PATH_DEBUG )
+        file(REMOVE_RECURSE ${QGIS_CMAKE_PATH_DEBUG})
     endif()
-
-    if("debug-tools" IN_LIST FEATURES)
-        file(GLOB ${basepath}_DEBUG_PATH ${CURRENT_PACKAGES_DIR}/debug/${basepath}/*)
-        if( ${basepath}_DEBUG_PATH )
-            file(MAKE_DIRECTORY ${CURRENT_PACKAGES_DIR}/debug/tools/${PORT}/${basepath})
-            file(COPY ${${basepath}_DEBUG_PATH} DESTINATION ${CURRENT_PACKAGES_DIR}/debug/tools/${PORT}/${basepath})
+    
+    file(GLOB QGIS_TOOL_PATH ${CURRENT_PACKAGES_DIR}/bin/*${VCPKG_TARGET_EXECUTABLE_SUFFIX} ${CURRENT_PACKAGES_DIR}/*${VCPKG_TARGET_EXECUTABLE_SUFFIX})
+    if(QGIS_TOOL_PATH)
+        file(MAKE_DIRECTORY ${CURRENT_PACKAGES_DIR}/tools/${PORT}/bin)
+        file(COPY ${QGIS_TOOL_PATH} DESTINATION ${CURRENT_PACKAGES_DIR}/tools/${PORT}/bin)
+        file(REMOVE_RECURSE ${QGIS_TOOL_PATH})
+        file(GLOB QGIS_TOOL_PATH ${CURRENT_PACKAGES_DIR}/bin/* )
+        file(COPY ${QGIS_TOOL_PATH} DESTINATION ${CURRENT_PACKAGES_DIR}/tools/${PORT}/bin)
+    endif()
+    
+    file(GLOB QGIS_TOOL_PATH_DEBUG ${CURRENT_PACKAGES_DIR}/debug/bin/*${VCPKG_TARGET_EXECUTABLE_SUFFIX} ${CURRENT_PACKAGES_DIR}/debug/*${VCPKG_TARGET_EXECUTABLE_SUFFIX})
+    if(QGIS_TOOL_PATH_DEBUG)
+        if("debug-tools" IN_LIST FEATURES)
+            file(MAKE_DIRECTORY ${CURRENT_PACKAGES_DIR}/debug/tools/${PORT}/bin)
+            file(COPY ${QGIS_TOOL_PATH_DEBUG} DESTINATION ${CURRENT_PACKAGES_DIR}/debug/tools/${PORT}/bin)
+            file(REMOVE_RECURSE ${QGIS_TOOL_PATH_DEBUG})
+            file(GLOB QGIS_TOOL_PATH_DEBUG ${CURRENT_PACKAGES_DIR}/debug/bin/* )
+            file(COPY ${QGIS_TOOL_PATH_DEBUG} DESTINATION ${CURRENT_PACKAGES_DIR}/debug/tools/${PORT}/bin)
+        else()
+            file(REMOVE_RECURSE ${QGIS_TOOL_PATH_DEBUG})
         endif()
     endif()
-
-    if(EXISTS "${CURRENT_PACKAGES_DIR}/debug/${basepath}/")
-        file(REMOVE_RECURSE ${CURRENT_PACKAGES_DIR}/debug/${basepath}/)
+    
+    copy_path(doc)
+    copy_path(i18n)
+    copy_path(icons)
+    copy_path(images)
+    copy_path(plugins)
+    copy_path(python)
+    copy_path(resources)
+    if("server" IN_LIST FEATURES)
+        copy_path(server)
     endif()
-endfunction()
+    copy_path(svg)
 
-file(GLOB QGIS_CMAKE_PATH ${CURRENT_PACKAGES_DIR}/*.cmake)
-if(QGIS_CMAKE_PATH)
-    file(COPY ${QGIS_CMAKE_PATH} DESTINATION ${CURRENT_PACKAGES_DIR}/share/cmake/${PORT})
-    file(REMOVE_RECURSE ${QGIS_CMAKE_PATH})
-endif()
-file(GLOB QGIS_CMAKE_PATH_DEBUG ${CURRENT_PACKAGES_DIR}/debug/*.cmake)
-if( QGIS_CMAKE_PATH_DEBUG )
-    file(REMOVE_RECURSE ${QGIS_CMAKE_PATH_DEBUG})
-endif()
-
-file(GLOB QGIS_TOOL_PATH ${CURRENT_PACKAGES_DIR}/bin/*${VCPKG_TARGET_EXECUTABLE_SUFFIX} ${CURRENT_PACKAGES_DIR}/*${VCPKG_TARGET_EXECUTABLE_SUFFIX})
-if(QGIS_TOOL_PATH)
-    file(MAKE_DIRECTORY ${CURRENT_PACKAGES_DIR}/tools/${PORT}/bin)
-    file(COPY ${QGIS_TOOL_PATH} DESTINATION ${CURRENT_PACKAGES_DIR}/tools/${PORT}/bin)
-    file(REMOVE_RECURSE ${QGIS_TOOL_PATH})
-    file(GLOB QGIS_TOOL_PATH ${CURRENT_PACKAGES_DIR}/bin/* )
-    file(COPY ${QGIS_TOOL_PATH} DESTINATION ${CURRENT_PACKAGES_DIR}/tools/${PORT}/bin)
-endif()
-
-file(GLOB QGIS_TOOL_PATH_DEBUG ${CURRENT_PACKAGES_DIR}/debug/bin/*${VCPKG_TARGET_EXECUTABLE_SUFFIX} ${CURRENT_PACKAGES_DIR}/debug/*${VCPKG_TARGET_EXECUTABLE_SUFFIX})
-if(QGIS_TOOL_PATH_DEBUG)
-    if("debug-tools" IN_LIST FEATURES)
-        file(MAKE_DIRECTORY ${CURRENT_PACKAGES_DIR}/debug/tools/${PORT}/bin)
-        file(COPY ${QGIS_TOOL_PATH_DEBUG} DESTINATION ${CURRENT_PACKAGES_DIR}/debug/tools/${PORT}/bin)
-        file(REMOVE_RECURSE ${QGIS_TOOL_PATH_DEBUG})
-        file(GLOB QGIS_TOOL_PATH_DEBUG ${CURRENT_PACKAGES_DIR}/debug/bin/* )
-        file(COPY ${QGIS_TOOL_PATH_DEBUG} DESTINATION ${CURRENT_PACKAGES_DIR}/debug/tools/${PORT}/bin)
-    else()
-        file(REMOVE_RECURSE ${QGIS_TOOL_PATH_DEBUG})
-    endif()
-endif()
-
-copy_path(doc)
-copy_path(i18n)
-copy_path(icons)
-copy_path(images)
-copy_path(plugins)
-copy_path(python)
-copy_path(resources)
-if("server" IN_LIST FEATURES)
-    copy_path(server)
-endif()
-copy_path(svg)
-
-if(VCPKG_TARGET_IS_WINDOWS)
     # Extend vcpkg_copy_tool_dependencies to support the export of dll and exe dependencies in different directories to the same directory,
     # and support the copy of debug dependencies
     function(vcpkg_copy_tool_dependencies_ex TOOL_DIR OUTPUT_DIR SEARCH_DIR)
@@ -294,6 +335,9 @@ endif()
 
 file(REMOVE_RECURSE
     ${CURRENT_PACKAGES_DIR}/debug/include
+)
+file(REMOVE_RECURSE # Added for debug porpose
+    ${CURRENT_PACKAGES_DIR}/debug/share
 )
 
 # Handle copyright

@@ -1,4 +1,4 @@
-name: 🧪 Continuous integration
+name: 🧪 Android packages
 
 on:
   push:
@@ -7,42 +7,9 @@ on:
       - release-**
   pull_request:
   release:
-    types: ['prereleased', 'released']
+    types: ['published', 'released']
 
 jobs:
-  # Run unit tests
-  test:
-    runs-on: ubuntu-20.04
-    env:
-      TX_TOKEN: ${{ secrets.TX_TOKEN }}
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v2
-      - name: Setup build environment
-        run: |
-          sudo apt update && sudo apt install -y qttools5-dev-tools qt5-default transifex-client
-          sed -i 's/git@github.com:/https:\/\/github.com\//' .gitmodules
-          git submodule update --init --recursive
-          echo "::group::GitHub Event"
-          cat "$GITHUB_EVENT_PATH"
-          echo "" # NOTE missing newline from the GitHub event file
-          echo "::endgroup::"
-          ./scripts/ci/env_gh.sh
-
-      - name: Test
-        run: |
-          ./test/test_version_number.sh
-          echo "::group::Build QField"
-          export QFIELD_SDK_VERSION=$(awk -F "=" '/osgeo4a_version/{print $2}' sdk.conf)
-          docker-compose -f .docker/testing/docker-compose-ci.yml run qgis /usr/src/.docker/testing/build-test.sh
-          echo "::endgroup::"
-
-      - uses: actions/upload-artifact@v2
-        if: always()
-        with:
-          name: "Report"
-          path: "build/report"
-
   # Build Android packages
   build:
     runs-on: ubuntu-20.04

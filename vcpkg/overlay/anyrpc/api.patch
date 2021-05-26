@@ -1,0 +1,51 @@
+From c8ece5d572bf68a7d0f63405089a7a8d7d6206ee Mon Sep 17 00:00:00 2001
+From: "email@email.com" <email@email.com>
+Date: Fri, 31 Jul 2020 15:37:29 +0300
+Subject: [PATCH] fixed 'undefined reference' error when compile for windows
+ platform
+
+---
+ include/anyrpc/json/jsonserver.h               | 2 +-
+ include/anyrpc/messagepack/messagepackserver.h | 2 +-
+ include/anyrpc/xml/xmlserver.h                 | 2 +-
+ 3 files changed, 3 insertions(+), 3 deletions(-)
+
+diff --git a/include/anyrpc/json/jsonserver.h b/include/anyrpc/json/jsonserver.h
+index d883b16..000bbd4 100644
+--- a/include/anyrpc/json/jsonserver.h
++++ b/include/anyrpc/json/jsonserver.h
+@@ -24,7 +24,7 @@
+ namespace anyrpc
+ {
+ 
+-bool JsonRpcHandler(MethodManager* manager, char* request, std::size_t length, Stream &response);
++ANYRPC_API bool JsonRpcHandler(MethodManager* manager, char* request, std::size_t length, Stream &response);
+ 
+ ////////////////////////////////////////////////////////////////////////////////
+ 
+diff --git a/include/anyrpc/messagepack/messagepackserver.h b/include/anyrpc/messagepack/messagepackserver.h
+index cc708f8..708bd72 100644
+--- a/include/anyrpc/messagepack/messagepackserver.h
++++ b/include/anyrpc/messagepack/messagepackserver.h
+@@ -24,7 +24,7 @@
+ namespace anyrpc
+ {
+ 
+-bool MessagePackRpcHandler(MethodManager* manager, char* request, std::size_t length, Stream &response);
++ANYRPC_API bool MessagePackRpcHandler(MethodManager* manager, char* request, std::size_t length, Stream &response);
+ 
+ ////////////////////////////////////////////////////////////////////////////////
+ 
+diff --git a/include/anyrpc/xml/xmlserver.h b/include/anyrpc/xml/xmlserver.h
+index 5350ca5..fe0ed23 100644
+--- a/include/anyrpc/xml/xmlserver.h
++++ b/include/anyrpc/xml/xmlserver.h
+@@ -24,7 +24,7 @@
+ namespace anyrpc
+ {
+ 
+-bool XmlRpcHandler(MethodManager* manager, char* request, std::size_t length, Stream &response);
++ANYRPC_API bool XmlRpcHandler(MethodManager* manager, char* request, std::size_t length, Stream &response);
+ 
+ ////////////////////////////////////////////////////////////////////////////////
+ 

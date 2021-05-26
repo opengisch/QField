@@ -14,7 +14,7 @@ get_filename_component(ROOT "${ROOT}" PATH)
 get_filename_component(ROOT "${ROOT}" PATH)
 
 if (CMAKE_HOST_WIN32)
-  set_library_target("AnyRPC" "anyrpc" "${ROOT}/debug/lib/anyrpc-d.lib" "${ROOT}/lib/anyrpc.lib" "${ROOT}/include/")
+  set_library_target("AnyRPC" "anyrpc" "${ROOT}/debug/lib/anyrpc.lib" "${ROOT}/lib/anyrpc.lib" "${ROOT}/include/")
 else ()
   set_library_target("AnyRPC" "anyrpc" "${ROOT}/debug/lib/libanyrpc.a" "${ROOT}/lib/libanyrpc.a" "${ROOT}/include/")
 endif ()
