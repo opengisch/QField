@@ -121,5 +121,5 @@ Copy the project folder from your device to your computer and use the **Synchron
 
 .. image:: ../images/qfield-sync_sync.png
 
-
+Make sure that you synchronize your data back only once. That means, if you go out again to collect more data, you should create a new QField package before to avoid sync problems later on (like e.g. duplicates).
 
