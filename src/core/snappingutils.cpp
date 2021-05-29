@@ -90,13 +90,16 @@ void SnappingUtils::snap()
     case QgsPointLocator::Type::Invalid:
     case QgsPointLocator::Type::MiddleOfSegment:
       vertexIndexValid = false;
+      break;
 
     case QgsPointLocator::Type::Vertex:
     case QgsPointLocator::Type::LineEndpoint:
       vertexIndexValid = true;
+      break;
 
     case QgsPointLocator::Type::All:
       Q_ASSERT( false );
+      break;
   }
 
   if ( vertexIndexValid
