@@ -61,6 +61,11 @@ Page {
      * be restored.
      */
     signal reset
+
+    /**
+     * When set to true, changed value signals are ignored to avoid double feature creation / save when in fast editing mode
+     */
+    property bool ignoreChanges: false
   }
 
   Item {
@@ -468,7 +473,7 @@ Page {
                       AttributeAllowEdit = true;
                     }
 
-                    if ( qfieldSettings.autoSave && !setupOnly ) {
+                    if ( qfieldSettings.autoSave && !setupOnly && !master.ignoreChanges ) {
                       // indirect action, no need to check for success and display a toast, the log is enough
                       save()
                     }
@@ -545,13 +550,14 @@ Page {
     if ( !save() ) {
       displayToast( qsTr( 'Unable to save changes') )
       state = 'Edit'
+      featureCreated = false
       return
     }
 
     state = 'Edit'
+    featureCreated = false
 
     confirmed()
-    featureCreated = false
   }
 
   function save() {
@@ -560,9 +566,10 @@ Page {
     }
 
     aboutToSave()
-    
-    var isSuccess = false;
 
+    master.ignoreChanges = true;
+
+    var isSuccess = false;
     if( form.state === 'Add' && !featureCreated ) {
       isSuccess = model.create()
       featureCreated = isSuccess
@@ -570,6 +577,7 @@ Page {
       isSuccess = model.save()
     }
 
+    master.ignoreChanges = false;
     return isSuccess
   }
 
