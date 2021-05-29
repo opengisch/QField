@@ -1177,12 +1177,13 @@ ApplicationWindow {
                   digitizingFeature.geometry.applyRubberband()
                   digitizingFeature.applyGeometry()
                 }
+
                 if( !overlayFeatureFormDrawer.featureForm.featureCreated )
                 {
                     overlayFeatureFormDrawer.featureModel.geometry = digitizingFeature.geometry
                     overlayFeatureFormDrawer.featureModel.applyGeometry()
                     overlayFeatureFormDrawer.featureForm.resetAttributes()
-                    if( overlayFeatureFormDrawer.featureForm.model.constraintsHardValid ){
+                    if( overlayFeatureFormDrawer.featureForm.model.constraintsHardValid ) {
                       // when the constrainst are fulfilled
                       // indirect action, no need to check for success and display a toast, the log is enough
                       overlayFeatureFormDrawer.featureForm.featureCreated = overlayFeatureFormDrawer.featureForm.create()
