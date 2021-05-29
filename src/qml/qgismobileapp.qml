@@ -31,6 +31,7 @@ import 'geometry_editors'
 
 ApplicationWindow {
   id: mainWindow
+  objectName: 'mainWindow'
   visible: true
 
   LabSettings.Settings {
