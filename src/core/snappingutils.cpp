@@ -85,18 +85,18 @@ void SnappingUtils::snap()
   bool vertexIndexValid;
   switch ( match.type() )
   {
-      case QgsPointLocator::Type::Area:
-      case QgsPointLocator::Type::Centroid:
-      case QgsPointLocator::Type::Edge:
-      case QgsPointLocator::Type::Invalid:
-      case QgsPointLocator::Type::MiddleOfSegment:
+    case QgsPointLocator::Type::Area:
+    case QgsPointLocator::Type::Centroid:
+    case QgsPointLocator::Type::Edge:
+    case QgsPointLocator::Type::Invalid:
+    case QgsPointLocator::Type::MiddleOfSegment:
       vertexIndexValid = false;
 
     case QgsPointLocator::Type::Vertex:
-      case QgsPointLocator::Type::LineEndpoint:
+    case QgsPointLocator::Type::LineEndpoint:
       vertexIndexValid = true;
 
-      case QgsPointLocator::Type::All:
+    case QgsPointLocator::Type::All:
       Q_ASSERT( false );
   }
 
