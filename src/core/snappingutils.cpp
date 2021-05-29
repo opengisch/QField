@@ -94,7 +94,6 @@ void SnappingUtils::snap()
       break;
 
     case QgsPointLocator::Type::Vertex:
-    case QgsPointLocator::Type::LineEndpoint:
       vertexIndexValid = true;
       break;
 
