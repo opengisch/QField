@@ -79,9 +79,32 @@ void SnappingUtils::snap()
   QgsPointLocator::Match match = snapToMap( point );
   mSnappingResult = SnappingResult( match );
 
-  //set point containing ZM if existing
+  //set point containing ZM if we snapped to a point/vertex
   QgsVectorLayer *vlayer = qobject_cast<QgsVectorLayer *>( currentLayer() );
-  if ( vlayer && match.layer()
+
+  bool vertexIndexValid;
+  switch ( match.type() )
+  {
+    case QgsPointLocator::Type::Area:
+    case QgsPointLocator::Type::Centroid:
+    case QgsPointLocator::Type::Edge:
+    case QgsPointLocator::Type::Invalid:
+    case QgsPointLocator::Type::MiddleOfSegment:
+      vertexIndexValid = false;
+      break;
+
+    case QgsPointLocator::Type::Vertex:
+      vertexIndexValid = true;
+      break;
+
+    case QgsPointLocator::Type::All:
+      Q_ASSERT( false );
+      break;
+  }
+
+  if ( vertexIndexValid
+       && vlayer
+       && match.layer()
        && ( QgsWkbTypes::hasZ( vlayer->wkbType() ) || QgsWkbTypes::hasM( vlayer->wkbType() ) ) )
   {
     const QgsFeature ft = match.layer()->getFeature( match.featureId() );
