@@ -21,6 +21,10 @@
 #include "qgsapplication.h"
 #include "qgslogger.h"
 
+#ifdef WITH_SPIX
+#include <Spix/AnyRpcServer.h>
+#include <Spix/QtQmlBot.h>
+#endif
 #include <QApplication>
 #include <QDialog>
 #include <QDir>
@@ -142,5 +146,12 @@ int main( int argc, char **argv )
   app.installTranslator( &qfieldTranslator );
 
   QgisMobileapp mApp( &app );
+
+#ifdef WITH_SPIX
+  spix::AnyRpcServer server;
+  auto bot = new spix::QtQmlBot();
+  bot->runTestServer( server );
+#endif
+
   return app.exec();
 }
