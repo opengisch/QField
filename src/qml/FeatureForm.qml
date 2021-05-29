@@ -32,7 +32,6 @@ Page {
   property int embeddedLevel: 0
   //setupOnly means data would be neither saved nor cleared (feature creation is handled elsewhere like e.g. in the tracking)
   property bool setupOnly: false
-  property bool ignoreChanges: false
   property bool featureCreated: false
 
   function reset() {
@@ -62,6 +61,11 @@ Page {
      * be restored.
      */
     signal reset
+
+    /**
+     * When set to true, changed value signals are ignored to avoid double feature creation / save when in fast editing mode
+     */
+    property bool ignoreChanges: false
   }
 
   Item {
@@ -469,7 +473,7 @@ Page {
                       AttributeAllowEdit = true;
                     }
 
-                    if ( qfieldSettings.autoSave && !setupOnly && !ignoreChanges ) {
+                    if ( qfieldSettings.autoSave && !setupOnly && !master.ignoreChanges ) {
                       // indirect action, no need to check for success and display a toast, the log is enough
                       save()
                     }
@@ -563,8 +567,7 @@ Page {
 
     aboutToSave()
 
-    // ignore changed value signals to avoid double feature creation / save when in fast editing mode
-    ignoreChanges = true;
+    master.ignoreChanges = true;
 
     var isSuccess = false;
     if( form.state === 'Add' && !featureCreated ) {
@@ -574,7 +577,7 @@ Page {
       isSuccess = model.save()
     }
 
-    ignoreChanges = false;
+    master.ignoreChanges = false;
     return isSuccess
   }
 
