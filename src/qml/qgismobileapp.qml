@@ -2104,6 +2104,7 @@ ApplicationWindow {
 
   WelcomeScreen {
     id: welcomeScreen
+    objectName: 'welcomeScreen'
     model: RecentProjectListModel {
       id: recentProjectListModel
     }
