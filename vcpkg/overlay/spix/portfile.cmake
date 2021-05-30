@@ -4,6 +4,8 @@ vcpkg_from_github(
     REF v0.2
     SHA512 14eb742b7861d510466341f90f8d5b9d519aeaf27a032a8be8ab15743c7dd20d0584aa1f815a82dd54e73cb747612975f4a52db23c57390e9b5cd4a102a789c6
     HEAD_REF master
+    PATCHES
+        export-header.patch
 )
 
 string(COMPARE EQUAL "${VCPKG_LIBRARY_LINKAGE}" "dynamic" ANYRPC_LIB_BUILD_SHARED)
