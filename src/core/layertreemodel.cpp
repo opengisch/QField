@@ -136,6 +136,24 @@ void FlatLayerTreeModelBase::insertInMap( const QModelIndex &parent, int first, 
   if ( mFrozen )
     return;
 
+  bool resetNeeded = false;
+  for ( int i = 0; first + i <= last; i++ )
+  {
+    QModelIndex index = mLayerTreeModel->index( first + i, 0, parent );
+    if ( mLayerTreeModel->hasChildren( index ) )
+    {
+      resetNeeded = true;
+      break;
+    }
+  }
+
+  if ( resetNeeded )
+  {
+    // Added rows with pre-existing children can't be handled, model reset needed
+    buildMap( mLayerTreeModel );
+    return;
+  }
+
   int insertedAt = -1;
   if ( first == 0 )
   {
