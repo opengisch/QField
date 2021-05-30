@@ -22,6 +22,9 @@ def get_test_app():
             return process, s
         except (ConnectionRefusedError, OSError) as e:
             if time.time() - start > 30:
+                output, errors = process.communicat()
+                print(output)
+                print(errors)
                 assert False # Could not start app after 30 seconds
             print(str(e))
             time.sleep(0.2)
