@@ -21,7 +21,7 @@ def get_test_app():
             s.existsAndVisible('mainWindow')
             return process, s
         except (ConnectionRefusedError, OSError) as e:
-            if time.time() - start > 3:
+            if time.time() - start > 30:
                 assert False # Could not start app after 30 seconds
             print(str(e))
             time.sleep(0.2)
