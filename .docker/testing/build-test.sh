@@ -18,6 +18,5 @@ echo ::group::make
 ninja -j2
 echo ::endgroup::
 
-xvfb-run ./output/bin/qfield
+LD_PRELOAD=/usr/lib64/libSegFault.so xvfb-run ./output/bin/qfield
 xvfb-run ctest --output-on-failure
-
