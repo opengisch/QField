@@ -13,7 +13,6 @@
     "qt5-declarative",
     "qt5-location",
     "qt5-charts",
-    "qt5-multimedia",
-    "spix"
+    "qt5-multimedia"
   ]
 }
