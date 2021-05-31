@@ -318,6 +318,7 @@ Page {
 
           delegate: Rectangle {
             id: rectangle
+            objectName: "loadProjectItem_1" // todo, suffix with e.g. ProjectTitle
             property string path: ProjectPath
             property string title: ProjectTitle
             property var type: ProjectType

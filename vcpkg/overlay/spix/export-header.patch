@@ -1,0 +1,96 @@
+From 8f57c624b6759406b9aa148e95538cd90c8a4e36 Mon Sep 17 00:00:00 2001
+From: Matthias Kuhn <matthias@opengis.ch>
+Date: Sun, 30 May 2021 19:46:46 +0200
+Subject: [PATCH] Add export header
+
+---
+ lib/CMakeLists.txt              | 8 +++++++-
+ lib/include/Spix/AnyRpcServer.h | 3 ++-
+ lib/include/Spix/QtQmlBot.h     | 3 ++-
+ 3 files changed, 11 insertions(+), 3 deletions(-)
+
+diff --git a/lib/CMakeLists.txt b/lib/CMakeLists.txt
+index 643a4c8..b1b1f70 100644
+--- a/lib/CMakeLists.txt
++++ b/lib/CMakeLists.txt
+@@ -4,7 +4,6 @@
+ include(GNUInstallDirs)
+ include(CMakePackageConfigHelpers)
+ 
+-
+ #
+ # Dependencies
+ #
+@@ -117,6 +116,7 @@ add_library(Spix ${SOURCES} ${MOC_FILES})
+ target_include_directories(Spix
+     PUBLIC
+         $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
++	$<BUILD_INTERFACE:${CMAKE_CURRENT_BINARY_DIR}>
+         $<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}>
+     PRIVATE
+         src
+@@ -130,6 +130,11 @@ target_link_libraries(Spix
+         AnyRPC::anyrpc
+ )
+ 
++#
++# Export headers
++#
++include(GenerateExportHeader)
++generate_export_header(Spix)
+ 
+ #
+ # SpixConfig.cmake File
+@@ -153,6 +158,7 @@ install(
+     ARCHIVE DESTINATION ${CMAKE_INSTALL_LIBDIR}
+ )
+ install(DIRECTORY include/Spix DESTINATION ${CMAKE_INSTALL_INCLUDEDIR})
++install(FILES ${CMAKE_CURRENT_BINARY_DIR}/spix_export.h DESTINATION ${CMAKE_INSTALL_INCLUDEDIR})
+ install(
+     EXPORT SpixTargets
+     FILE SpixTargets.cmake
+diff --git a/lib/include/Spix/AnyRpcServer.h b/lib/include/Spix/AnyRpcServer.h
+index 8a3c447..601eada 100644
+--- a/lib/include/Spix/AnyRpcServer.h
++++ b/lib/include/Spix/AnyRpcServer.h
+@@ -7,6 +7,7 @@
+ #pragma once
+ 
+ #include <Spix/TestServer.h>
++#include "spix_export.h"
+ 
+ namespace spix {
+ 
+@@ -20,7 +21,7 @@ struct AnyRpcServerPimpl;
+  * application through external scripts (e.g. python with
+  * its xml-rpc library).
+  */
+-class AnyRpcServer : public TestServer {
++SPIX_EXPORT class AnyRpcServer : public TestServer {
+ public:
+     AnyRpcServer(int anyrpcPort = 9000);
+     ~AnyRpcServer() override;
+diff --git a/lib/include/Spix/QtQmlBot.h b/lib/include/Spix/QtQmlBot.h
+index 1f69a50..c81f3a3 100644
+--- a/lib/include/Spix/QtQmlBot.h
++++ b/lib/include/Spix/QtQmlBot.h
+@@ -9,6 +9,7 @@
+ #include <QObject>
+ #include <Spix/TestServer.h>
+ #include <memory>
++#include "spix_export.h"
+ 
+ namespace spix {
+ 
+@@ -25,7 +26,7 @@ class QtScene;
+  * Usually it is enough to create one object of this type
+  * in `main()` of your application to start processing tests.
+  */
+-class QtQmlBot : public QObject {
++SPIX_EXPORT class QtQmlBot : public QObject {
+     Q_OBJECT
+ 
+ public:
+-- 
+2.31.1
+

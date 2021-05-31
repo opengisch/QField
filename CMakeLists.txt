@@ -57,6 +57,12 @@ set (CMAKE_LIBRARY_OUTPUT_DIRECTORY ${QFIELD_OUTPUT_DIRECTORY}/${QFIELD_LIB_SUBD
 
 install(DIRECTORY ${CMAKE_SOURCE_DIR}/resources/ DESTINATION ${CMAKE_INSTALL_PREFIX}/share/qfield)
 
+set (WITH_SPIX FALSE CACHE STRING "Compile with Spix for testing")
+
+if (WITH_SPIX)
+  find_package(Spix)
+endif ()
+
 if (ANDROID)
   add_definitions(-DQGIS_INSTALL_DIR="") # TODO: do we need osgeo4a/[lib]/files here? see qgis.pri
   set (ANDROID_TARGET_PLATFORM CACHE INT "The target android platform sdk version")

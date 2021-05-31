@@ -31,6 +31,7 @@ import 'geometry_editors'
 
 ApplicationWindow {
   id: mainWindow
+  objectName: 'mainWindow'
   visible: true
 
   LabSettings.Settings {
@@ -2104,6 +2105,7 @@ ApplicationWindow {
 
   WelcomeScreen {
     id: welcomeScreen
+    objectName: 'welcomeScreen'
     model: RecentProjectListModel {
       id: recentProjectListModel
     }

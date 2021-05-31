@@ -5,6 +5,8 @@ astyle.*.diff
 *.orig
 *.iml
 *.swp
+*.pyc
+__pycache__
 *.autosave
 .DS_Store
 .idea

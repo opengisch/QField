@@ -94,6 +94,13 @@ jobs:
       #    cd "${{ env.CMAKE_BUILD_DIR }}"
       #    ctest -V
 
+      - name: Upload Build Logs
+        uses: actions/upload-artifact@v2
+        if: failure()
+        with:
+          name: build-logs
+          path: ${{ env.VCPKG_ROOT }}/buildtrees/**/*.log
+
       - uses: actions/upload-artifact@v2
         with:
           name: "QField-dev-${{ matrix.build-type }}"
