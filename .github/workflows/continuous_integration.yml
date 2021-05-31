@@ -37,6 +37,10 @@ jobs:
           docker-compose -f .docker/testing/docker-compose-ci.yml run qgis /usr/src/.docker/testing/build-test.sh
           echo "::endgroup::"
 
+      - uses: actions/upload-artifact@v2
+        with:
+          name: "Report"
+          path: "build/report"
 
   # Build Android packages
   build:

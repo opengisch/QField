@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 
 import pytest
+from pytest_html import extras
 import xmlrpc.client
 import time
 import subprocess
@@ -10,7 +11,29 @@ import os
 
 
 @pytest.fixture
+def screenshot_path():
+    """
+    Returns the path for a folder to put screenshots into.
+    Supposed to be in the path where pytest-html writes its report.
+    """
+    img_path = os.path.join(os.getcwd(), "report", "images")
+    print(f'Images will be written to {img_path}')
+    os.makedirs(img_path, exist_ok=True)
+    return img_path
+
+
+@pytest.fixture
 def app():
+    """
+    Starts a qfield process and connects an xmlrpc client to it.
+    Returns the xmlrpc client that can send commands to the running process.
+
+    Will wait up to 30 seconds for the process to start and return as soon
+    as either the process is started and QML initialized, the process exits
+    or the timeout occurs.
+
+    Also makes sure it cleans up properly after running the app.
+    """
     process = subprocess.Popen(
         "./output/bin/qfield", stdout=subprocess.PIPE, stderr=subprocess.PIPE
     )
@@ -52,7 +75,10 @@ def app():
         process.kill()
 
 
-def test_load_project(app):
+def test_start_app(app, screenshot_path, extra):
+    """
+    Starts a test app to the welcome screen and creates a screenshot.
+    """
     assert app.existsAndVisible("mainWindow")
 
     assert app.existsAndVisible("mainWindow/welcomeScreen")
@@ -61,9 +87,8 @@ def test_load_project(app):
         "mainWindow/welcomeScreen/loadProjectItem_1", "title"
     )
     app.mouseClick("mainWindow/welcomeScreen/loadProjectItem_1")
-    app.takeScreenshot(
-        "mainWindow", os.path.join(os.environ["QFIELD_SCREENSHOT_PATH"], "startup.png")
-    )
+    app.takeScreenshot("mainWindow", os.path.join(screenshot_path, "startup.png"))
+    extra.append(extras.html('<img src="images/startup.png"/>'))
 
 
 # @pytest.mark.parametrize('project', ['some_project.qgz'])
