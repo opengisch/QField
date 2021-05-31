@@ -39,32 +39,32 @@ def app():
         "./output/bin/qfield", stdout=subprocess.PIPE, stderr=subprocess.PIPE
     )
     app = xmlrpc.client.ServerProxy("http://localhost:9000")
+    
+    def print_process_output():
+        output, errors = process.communicate()
+        print("== OUTPUT ==")
+        print(output.decode("utf-8"))
+        print("== ERRORS ==")
+        print(errors.decode("utf-8"))
 
     start = time.time()
     while True:
         try:
             exit_code = process.poll()
             if exit_code is not None:
-                output, errors = process.communicate()
-                print("== OUTPUT ==")
-                print(output.decode("utf-8"))
-                print("== ERRORS ==")
-                print(errors.decode("utf-8"))
-
+                print_process_output()
                 assert exit_code is None
             app.existsAndVisible("mainWindow")
             yield app
             break
         except (ConnectionRefusedError, OSError) as e:
             if time.time() - start > 30:
-                output, errors = process.communicate()
-                print(output)
-                print(errors)
+                print_process_output()
                 assert False  # Could not start app after 30 seconds
             print(str(e))
             time.sleep(0.2)
         except Exception as e:
-            output, errors = process.communicate()
+            print_process_output()
             assert False  # Unexcpected exception while starting up app
 
     app.quit()
@@ -72,6 +72,7 @@ def app():
     timeout = 100
     try:
         process.wait(timeout)
+        print_process_output()
     except subprocess.TimeoutExpired:
         print(f"Process did not quit after {timeout} second. Killing it.")
         process.kill()
