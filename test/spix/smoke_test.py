@@ -69,10 +69,11 @@ def app():
 
     app.quit()
     app.quit()
+    timeout = 5
     try:
-        process.wait(1)
+        process.wait(timeout)
     except subprocess.TimeoutExpired:
-        print("Process did not quit after 1 second. Killing it.")
+        print("Process did not quit after {timeout} second. Killing it.")
         process.kill()
 
 
