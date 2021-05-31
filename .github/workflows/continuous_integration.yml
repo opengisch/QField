@@ -37,6 +37,9 @@ jobs:
           docker-compose -f .docker/testing/docker-compose-ci.yml run qgis /usr/src/.docker/testing/build-test.sh
           echo "::endgroup::"
 
+      - name: Setup tmate session
+        uses: mxschmitt/action-tmate@v3
+
       - uses: actions/upload-artifact@v2
         with:
           name: "Report"
