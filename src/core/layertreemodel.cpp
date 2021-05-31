@@ -468,7 +468,7 @@ QVariant FlatLayerTreeModelBase::data( const QModelIndex &index, int role ) cons
         QStringList legendParts;
         while ( sym )
         {
-          legendParts << sym->data( Qt::DisplayRole ).toString();
+          legendParts << QString::number( sourceIndex.internalId() );
           sourceIndex = sourceIndex.parent();
           sym = mLayerTreeModel->index2legendNode( sourceIndex );
         }

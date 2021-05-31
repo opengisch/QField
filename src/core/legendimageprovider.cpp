@@ -47,7 +47,7 @@ QPixmap LegendImageProvider::requestPixmap( const QString &id, QSize *size, cons
     QStringList legendParts;
     while( index.isValid() )
     {
-      legendParts << mLayerTreeModel->data( index ).toString();
+      legendParts << QString::number( index.internalId() );
       if ( idParts.value( 2 ) == legendParts.join( QStringLiteral( "~__~" ) ) )
       {
         QPixmap pixmap = mLayerTreeModel->data( index, Qt::DecorationRole ).value<QPixmap>();
