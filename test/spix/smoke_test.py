@@ -19,6 +19,7 @@ def screenshot_path():
     img_path = os.path.join(os.getcwd(), "report", "images")
     print(f'Images will be written to {img_path}')
     os.makedirs(img_path, exist_ok=True)
+    print("screenshot path exists" if os.path.exists(img_path) else "screenshot path missing")
     return img_path
 
 
@@ -88,6 +89,8 @@ def test_start_app(app, screenshot_path, extra):
     )
     app.mouseClick("mainWindow/welcomeScreen/loadProjectItem_1")
     app.takeScreenshot("mainWindow", os.path.join(screenshot_path, "startup.png"))
+    print()
+    print("screenshot exists" if os.path.exists(os.path.join(screenshot_path, "startup.png")) else "screenshot missing")
     extra.append(extras.html('<img src="images/startup.png"/>'))
 
 
