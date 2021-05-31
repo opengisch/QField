@@ -89,9 +89,9 @@ def test_start_app(app, screenshot_path, extra):
     first_title = app.getStringProperty(
         "mainWindow/welcomeScreen/loadProjectItem_1", "title"
     )
-    app.mouseClick("mainWindow/welcomeScreen/loadProjectItem_1")
-    app.takeScreenshot("mainWindow", os.path.join(screenshot_path, "startup.png"))
-    app.takeScreenshot("mainWindow", os.path.join('/tmp', "startup.png"))
+    # app.mouseClick("mainWindow/welcomeScreen/loadProjectItem_1")
+    # app.takeScreenshot("mainWindow", os.path.join(screenshot_path, "startup.png"))
+    # app.takeScreenshot("mainWindow", os.path.join('/tmp', "startup.png"))
     time.sleep(5) # Debug missing images
     print()
     print("screenshot exists" if os.path.exists(os.path.join(screenshot_path, "startup.png")) else "screenshot missing")
