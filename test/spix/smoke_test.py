@@ -89,8 +89,11 @@ def test_start_app(app, screenshot_path, extra):
     )
     app.mouseClick("mainWindow/welcomeScreen/loadProjectItem_1")
     app.takeScreenshot("mainWindow", os.path.join(screenshot_path, "startup.png"))
+    app.takeScreenshot("mainWindow", os.path.join('/tmp', "startup.png"))
+    time.sleep(5) # Debug missing images
     print()
     print("screenshot exists" if os.path.exists(os.path.join(screenshot_path, "startup.png")) else "screenshot missing")
+    print("tmp screenshot exists" if os.path.exists(os.path.join('/tmp', "startup.png")) else "screenshot missing")
     extra.append(extras.html('<img src="images/startup.png"/>'))
 
 
