@@ -34,7 +34,7 @@ jobs:
       env:
         SDK_VERSION: ${{ matrix.sdk-version }}
       run: |
-        wget -O OSGeo4I-arm64.zip https://github.com/opengisch/qfield-sdk/releases/download/${SDK_VERSION}/OSGeo4I-Qt${{ matrix.qt-version }}-arm64.zip
+        wget -O OSGeo4I-arm64.zip https://github.com/opengisch/qfield-sdk/releases/download/${SDK_VERSION}/OSGeo4I-Qt${{ matrix.qt-version }}-arm64-${{ matrix.sdk-version }}.zip
         unzip OSGeo4I-arm64.zip -d ${{ github.workspace }}
 
     - name: Cache Qt
