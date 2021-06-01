@@ -39,7 +39,7 @@ jobs:
 
     - name: Cache Qt
       id: cache-qt
-      uses: actions/cache@v2.1.5
+      uses: actions/cache@v2.1.6
       with:
         path: ${{ github.workspace }}/Qt-${{ runner.os }}-${{ matrix.qt-version }}
         key: ${{ runner.os }}-QtCache-${{ matrix.qt-version }}-ios
