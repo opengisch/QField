@@ -73,7 +73,7 @@ jobs:
 
             Accept them manually or add a comment with `@qfield-fairy style please` to invoke some magic 🪄.
 
-      - uses: EndBug/add-and-commit@v4
+      - uses: EndBug/add-and-commit@v7.2.1
         if: steps.indent-check.outputs.triggered == 'true'
         with:
           author_name: Style Fairy
