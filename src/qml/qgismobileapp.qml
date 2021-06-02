@@ -1778,7 +1778,7 @@ ApplicationWindow {
 
         mapCanvasBackground.color = mapCanvas.mapSettings.backgroundColor
 
-        var cloudProjectId = QFieldCloudUtils.getProjectId(qgisProject)
+        var cloudProjectId = QFieldCloudUtils.getProjectId(qgisProject.fileName)
         cloudProjectsModel.currentProjectId = cloudProjectId
         cloudProjectsModel.refreshProjectModification(cloudProjectId)
         if (cloudProjectId != '') {

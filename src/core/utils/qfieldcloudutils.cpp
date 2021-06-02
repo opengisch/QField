@@ -52,23 +52,10 @@ bool QFieldCloudUtils::isCloudAction( const QgsMapLayer *layer )
   return true;
 }
 
-const QString QFieldCloudUtils::getProjectId( const QgsProject *project )
+const QString QFieldCloudUtils::getProjectId( const QString &fileName )
 {
-  Q_ASSERT( project );
-
-  QFileInfo fi( project->fileName() );
-  if ( project->fileName().startsWith( localCloudDirectory() ) )
-    return fi.dir().dirName();
-
-  return QString();
-}
-
-const QString QFieldCloudUtils::getProjectId( QgsProject *project )
-{
-  Q_ASSERT( project );
-
-  QFileInfo fi( project->fileName() );
-  if ( project->fileName().startsWith( localCloudDirectory() ) )
+  QFileInfo fi( fileName );
+  if ( fileName.startsWith( localCloudDirectory() ) )
     return fi.dir().dirName();
 
   return QString();

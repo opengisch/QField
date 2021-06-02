@@ -59,7 +59,7 @@ DeltaFileWrapper::DeltaFileWrapper( const QgsProject *project, const QString &fi
 #endif
 
   if ( mErrorType == DeltaFileWrapper::NoError )
-    mCloudProjectId = QFieldCloudUtils::getProjectId( mProject );
+    mCloudProjectId = QFieldCloudUtils::getProjectId( mProject->fileName() );
 
   if ( mErrorType == DeltaFileWrapper::NoError && mCloudProjectId.isNull() )
     mErrorType = DeltaFileWrapper::NotCloudProjectError;
