@@ -420,12 +420,20 @@ Popup {
             text: {
               var exportText = ''
               var dt = cloudProjectsModel.currentProjectData.LastLocalExport
+              var timeDeltaMinutes = null
+
               if (dt) {
                 dt = new Date(dt)
-                if (dt.toLocaleDateString() === new Date().toLocaleDateString())
-                  exportText = qsTr( 'Last synchronized at ' ) + dt.toLocaleTimeString()
+                timeDeltaMinutes = parseInt( Math.max( new Date() - dt, 0 ) / (60 * 1000) );
+
+                if ( timeDeltaMinutes < 1)
+                  exportText = qsTr( 'Last synchronized just now' )
+                else if (timeDeltaMinutes < 60)
+                  exportText = qsTr( 'Last synchronized %1 minutes ago' ).arg( timeDeltaMinutes )
+                else if (dt.toLocaleDateString() === new Date().toLocaleDateString())
+                  exportText = qsTr( 'Last synchronized at %1' ).arg( dt.toLocaleTimeString() )
                 else
-                  exportText = qsTr( 'Last synchronized on ' ) + dt.toLocaleString()
+                  exportText = qsTr( 'Last synchronized on %1' ).arg( dt.toLocaleString() )
               }
 
               var pushText = ''
@@ -433,10 +441,16 @@ Popup {
 
               if (dt) {
                 dt = new Date(dt)
-                if (dt.toLocaleDateString() === new Date().toLocaleDateString())
-                  pushText = qsTr( 'Last changes pushed at ' ) + dt.toLocaleTimeString()
+                timeDeltaMinutes = parseInt( Math.max( new Date() - dt, 0 ) / (60 * 1000) );
+
+                if ( timeDeltaMinutes < 1 )
+                  exportText = qsTr( 'Last changes pushed just now' )
+                else if (timeDeltaMinutes < 60)
+                  exportText = qsTr( 'Last changes pushed %1 minutes ago' ).arg( timeDeltaMinutes )
+                else if (dt.toLocaleDateString() === new Date().toLocaleDateString())
+                  pushText = qsTr( 'Last changes pushed at %1' ).arg( dt.toLocaleTimeString() )
                 else
-                  pushText = qsTr( 'Last changes pushed on ' ) + dt.toLocaleString()
+                  pushText = qsTr( 'Last changes pushed on %1' ).arg( dt.toLocaleString() )
               } else {
                 pushText = qsTr( 'No changes pushed yet' )
               }
