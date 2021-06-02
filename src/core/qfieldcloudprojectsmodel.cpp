@@ -1399,7 +1399,7 @@ void QFieldCloudProjectsModel::downloadFileConnections( const QString &projectId
       {
         const QStringList unprefixedGpkgFileNames = filterGpkgFileNames( fileNames );
         const QStringList gpkgFileNames = projectFileNames( mProject->homePath(), unprefixedGpkgFileNames );
-        QString projectFileName = mProject->fileName();
+        // we need to close the project to safely flush the gpkg files
         mProject->setFileName( QString() );
 
         for ( const QString &fileName : gpkgFileNames )
@@ -1413,8 +1413,6 @@ void QFieldCloudProjectsModel::downloadFileConnections( const QString &projectId
 
         for ( const QString &fileName : gpkgFileNames )
           mGpkgFlusher->start( fileName );
-
-        mProject->setFileName( projectFileName );
 
         mCloudProjects[index].checkout = ProjectCheckout::LocalAndRemoteCheckout;
         mCloudProjects[index].localPath = QFieldCloudUtils::localProjectFilePath( mUsername, projectId );
