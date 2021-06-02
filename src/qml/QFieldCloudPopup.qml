@@ -189,6 +189,7 @@ Popup {
         }
 
         Rectangle {
+          id: cloudAnimation
           Layout.alignment: Qt.AlignHCenter | Qt.AlignVCenter
           Layout.margins: 10
           width: 64
@@ -238,7 +239,7 @@ Popup {
                   duration: 2000
                   target: statusIcon
               }
-              running: true
+              running: cloudAnimation.visible
               loops: Animation.Infinite
             }
           }
