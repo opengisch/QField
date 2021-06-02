@@ -102,8 +102,6 @@ class QFIELD_CORE_EXPORT QgisMobileapp : public QQmlApplicationEngine
     /**
      * Reloads the current project
      *
-     * \param path The project file to load
-     * \param name The project name
      * \note It does not reset the Auth Request Handler.
      * \note The actual loading is done in readProjectFile
      */
