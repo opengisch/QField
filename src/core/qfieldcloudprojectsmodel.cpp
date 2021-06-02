@@ -1406,7 +1406,8 @@ void QFieldCloudProjectsModel::downloadFileConnections( const QString &projectId
           mGpkgFlusher->stop( fileName );
 
         // move the files from their temporary location to their permanent one
-        if ( !projectMoveDownloadedFilesToPermanentStorage( projectId ) ) {
+        if ( !projectMoveDownloadedFilesToPermanentStorage( projectId ) )
+        {
           mCloudProjects[index].errorStatus = DownloadErrorStatus;
           mCloudProjects[index].exportStatus = ExportErrorStatus;
           mCloudProjects[index].exportStatusString = tr( "Failed to copy some of the downloaded files on your device. Check your device storage." );
