@@ -3,6 +3,7 @@ import QtQuick.Controls 2.12
 import QtQuick.Layouts 1.12
 
 import org.qgis 1.0
+import org.qfield 1.0
 import Theme 1.0
 
 Drawer {
@@ -71,10 +72,49 @@ Drawer {
         QfToolButton {
           id: cloudButton
           anchors.verticalCenter: parent.verticalCenter
-          iconSource: cloudProjectsModel.currentProjectId ? Theme.getThemeVectorIcon( 'ic_cloud_active_24dp' ) : Theme.getThemeVectorIcon( 'ic_cloud_24dp' )
+          iconSource: switch(cloudProjectsModel.currentProjectData.Status ) {
+                        case QFieldCloudProjectsModel.Downloading:
+                          switch ( cloudProjectsModel.currentProjectData.ExportStatus ) {
+                            case QFieldCloudProjectsModel.ExportFinishedStatus:
+                              return Theme.getThemeVectorIcon('ic_cloud_download_24dp');
+                            default:
+                              return Theme.getThemeVectorIcon('ic_cloud_active_24dp');
+                          }
+                        case QFieldCloudProjectsModel.Uploading:
+                          switch ( cloudProjectsModel.currentProjectData.UploadDeltaStatus ) {
+                            case QFieldCloudProjectsModel.DeltaFileLocalStatus:
+                              return Theme.getThemeVectorIcon('ic_cloud_upload_24dp');
+                            default:
+                              return Theme.getThemeVectorIcon('ic_cloud_active_24dp');
+                          }
+                        case QFieldCloudProjectsModel.Idle:
+                          return Theme.getThemeVectorIcon('ic_cloud_active_24dp');
+                        default: Theme.getThemeVectorIcon( 'ic_cloud_24dp' );
+                      }
           bgcolor: "transparent"
 
           onClicked: showCloudMenu()
+
+          SequentialAnimation {
+            OpacityAnimator {
+                from: 1
+                to: 0.2
+                duration: 2000
+                target: cloudButton
+            }
+            OpacityAnimator {
+                from: 0.2
+                to: 1
+                duration: 2000
+                target: cloudButton
+            }
+            running: cloudProjectsModel.currentProjectData.Status === QFieldCloudProjectsModel.Downloading ||
+                     cloudProjectsModel.currentProjectData.Status === QFieldCloudProjectsModel.Uploading
+            loops: Animation.Infinite
+            onStopped: {
+              cloudButton.opacity = 1
+            }
+          }
         }
       }
 
