@@ -1362,7 +1362,7 @@ void QFieldCloudProjectsModel::downloadFileConnections( const QString &projectId
     {
       hasError = true;
       errorMessageDetail = QFieldCloudConnection::errorString( rawReply );
-      errorMessageTemplate = QStringLiteral( "Failed to download file \"%1\", reason:" ).arg( fileName );
+      errorMessageTemplate = tr( "Failed to download file \"%1\", reason:" ).arg( fileName );
     }
 
     QFile file( mCloudProjects[index].downloadFileTransfers[fileName].tmpFile );
@@ -1373,7 +1373,7 @@ void QFieldCloudProjectsModel::downloadFileConnections( const QString &projectId
     {
       hasError = true;
       errorMessageDetail = file.errorString();
-      errorMessageTemplate = QStringLiteral( "Failed to write downloaded file stored at \"%1\", fs reason" ).arg( fileName );
+      errorMessageTemplate = tr( "Failed to write downloaded file stored at \"%1\", fs reason" ).arg( fileName );
     }
 
     if ( hasError )
