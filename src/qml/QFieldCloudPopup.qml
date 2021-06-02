@@ -141,7 +141,7 @@ Popup {
               id: cloudAvatar
               anchors.fill: parent
               anchors.margins: 2
-              fillMode: Image.PreserveAspectFit
+              fillMode: Image.PreserveAspectCrop
               smooth: true
               source: cloudConnection.avatarUrl !== ''
                       ? cloudConnection.avatarUrl
