@@ -94,6 +94,9 @@ Drawer {
           bgcolor: "transparent"
 
           onClicked: showCloudMenu()
+          bottomRightIndicatorText: cloudProjectsModel.layerObserver.deltaFileWrapper.count > 0
+                                      ? cloudProjectsModel.layerObserver.deltaFileWrapper.count
+                                      : ''
 
           SequentialAnimation {
             OpacityAnimator {
