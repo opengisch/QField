@@ -549,7 +549,6 @@ Page {
 
     if ( !save() ) {
       displayToast( qsTr( 'Unable to save changes') )
-      state = 'Edit'
       featureCreated = false
       return
     }
