@@ -1406,14 +1406,22 @@ void QFieldCloudProjectsModel::downloadFileConnections( const QString &projectId
           mGpkgFlusher->stop( fileName );
 
         // move the files from their temporary location to their permanent one
-        if ( !projectMoveDownloadedFilesToPermanentStorage( projectId ) )
+        if ( !projectMoveDownloadedFilesToPermanentStorage( projectId ) ) {
           mCloudProjects[index].errorStatus = DownloadErrorStatus;
+          mCloudProjects[index].exportStatus = ExportErrorStatus;
+          mCloudProjects[index].exportStatusString = tr( "Failed to copy some of the downloaded files on your device. Check your device storage." );
+          emit projectDownloaded( projectId, mCloudProjects[index].name, true, mCloudProjects[index].exportStatusString );
+          return;
+        }
 
         deleteGpkgShmAndWal( gpkgFileNames );
 
         for ( const QString &fileName : gpkgFileNames )
           mGpkgFlusher->start( fileName );
 
+        mCloudProjects[index].errorStatus = NoErrorStatus;
+        mCloudProjects[index].exportStatus = ExportFinishedStatus;
+        mCloudProjects[index].exportStatusString = QString();
         mCloudProjects[index].checkout = ProjectCheckout::LocalAndRemoteCheckout;
         mCloudProjects[index].localPath = QFieldCloudUtils::localProjectFilePath( mUsername, projectId );
         mCloudProjects[index].lastLocalExport = QDateTime::currentDateTimeUtc().toString( Qt::ISODate );
