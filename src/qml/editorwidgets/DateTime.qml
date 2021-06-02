@@ -103,7 +103,6 @@ EditorWidgetBase {
 
         background: Item {
             implicitWidth: 120
-            implicitHeight: label.height
             height: label.height
 
             Rectangle {
