@@ -549,7 +549,6 @@ Page {
 
     if ( !save() ) {
       displayToast( qsTr( 'Unable to save changes') )
-      state = 'Edit'
       featureCreated = false
       return
     }
@@ -664,6 +663,8 @@ Page {
         }
         font: Theme.strongFont
         color: "#FFFFFF"
+        fontSizeMode: Text.Fit
+        wrapMode: Text.Wrap
         elide: Label.ElideRight
         horizontalAlignment: Qt.AlignHCenter
         verticalAlignment: Qt.AlignVCenter

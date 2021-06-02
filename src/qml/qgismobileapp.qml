@@ -2002,6 +2002,7 @@ ApplicationWindow {
       height: 40;
       width: parent.width
       y: parent.height - 112
+      z: 10001
       margins: 0
       closePolicy: Popup.NoAutoClose
 
