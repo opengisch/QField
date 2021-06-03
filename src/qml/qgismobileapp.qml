@@ -2165,7 +2165,7 @@ ApplicationWindow {
 
       function show(text, type) {
           toastMessage.text = text
-          toastContent.type = type
+          toastContent.type = type || "info"
           toast.open()
           toastContent.visible = true
           toast.opacity = 1
@@ -2311,4 +2311,3 @@ ApplicationWindow {
       isHovering: hoverHandler.hovered
   }
 }
-
