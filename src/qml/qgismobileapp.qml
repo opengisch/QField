@@ -1681,10 +1681,10 @@ ApplicationWindow {
     featureModel.currentLayer: dashBoard.currentLayer
   }
 
-  function displayToast( message ) {
+  function displayToast( message, type ) {
     //toastMessage.text = message
     if( !welcomeScreen.visible )
-      toast.show(message)
+      toast.show(message, type)
   }
 
   Rectangle {
@@ -2124,8 +2124,9 @@ ApplicationWindow {
 
       background: Rectangle { color: "transparent" }
 
-      function show(text) {
+      function show(text, type) {
           toastMessage.text = text
+          toastContent.type = type
           toast.open()
           toastContent.visible = true
           toast.opacity = 1
@@ -2139,6 +2140,8 @@ ApplicationWindow {
       Rectangle {
         id: toastContent
         color: "#66212121"
+
+        property var type: 'info'
 
         height: toastMessage.height
         width: 8 + toastMessage.text.length * toastFontMetrics.averageCharacterWidth > mainWindow.width
@@ -2163,7 +2166,7 @@ ApplicationWindow {
 
           font: Theme.secondaryTitleFont
           horizontalAlignment: Text.AlignHCenter
-          color: Theme.light
+          color: parent.type === 'error' ? "#ff0000" : parent.type === 'warning' ? "#ffa500" : Theme.light
         }
       }
 
