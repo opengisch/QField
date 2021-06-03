@@ -17,11 +17,11 @@
 #ifndef FILEUTILS_H
 #define FILEUTILS_H
 
-#include <QObject>
-#include <QCryptographicHash>
-#include <qgsfeedback.h>
-
 #include "qfield_core_export.h"
+
+#include <QCryptographicHash>
+#include <QObject>
+#include <qgsfeedback.h>
 
 class QFIELD_CORE_EXPORT FileUtils : public QObject
 {
@@ -51,7 +51,7 @@ class QFIELD_CORE_EXPORT FileUtils : public QObject
     Q_INVOKABLE static QByteArray fileChecksum( const QString &fileName, const QCryptographicHash::Algorithm hashAlgorithm = QCryptographicHash::Sha256 );
 
   private:
-    static int copyRecursivelyPrepare(const QString &sourceFolder, const QString &destFolder, QList<QPair<QString, QString> > &mapping );
+    static int copyRecursivelyPrepare( const QString &sourceFolder, const QString &destFolder, QList<QPair<QString, QString>> &mapping );
 };
 
 #endif // FILEUTILS_H

@@ -15,14 +15,14 @@
  *                                                                         *
  ***************************************************************************/
 
-#include <QtTest>
-
-#include "qfield_testbase.h"
 #include "layerobserver.h"
+#include "qfield_testbase.h"
 #include "utils/qfieldcloudutils.h"
 
+#include <QtTest>
 
-class TestLayerObserver: public QObject
+
+class TestLayerObserver : public QObject
 {
     Q_OBJECT
   private slots:
@@ -32,7 +32,7 @@ class TestLayerObserver: public QObject
       settingsDir.setAutoRemove( false );
 
       QVERIFY2( settingsDir.isValid(), "Failed to create temp dir" );
-      QVERIFY2( QDir( settingsDir.path() ).mkpath( QStringLiteral("cloud_projects/TEST_PROJECT_ID") ), "Failed to create project dir" );
+      QVERIFY2( QDir( settingsDir.path() ).mkpath( QStringLiteral( "cloud_projects/TEST_PROJECT_ID" ) ), "Failed to create project dir" );
 
       QDir projectDir( QStringLiteral( "%1/cloud_projects/TEST_PROJECT_ID" ).arg( settingsDir.path() ) );
       QFieldCloudUtils::sQgisSettingsDirPath = settingsDir.path();
@@ -71,7 +71,7 @@ class TestLayerObserver: public QObject
       mLayerObserver.reset( new LayerObserver( QgsProject::instance() ) );
 
       QVERIFY( QgsProject::instance()->addMapLayer( mLayer.get(), false, false ) );
-      QVERIFY( ! mLayerObserver->deltaFileWrapper()->hasError() );
+      QVERIFY( !mLayerObserver->deltaFileWrapper()->hasError() );
     }
 
 
@@ -139,7 +139,7 @@ class TestLayerObserver: public QObject
       QCOMPARE( getDeltaOperations( mLayerObserver->deltaFileWrapper()->fileName() ), QStringList() );
       // when we stop editing, all changes are written
       QVERIFY( mLayer->commitChanges() );
-      QCOMPARE( getDeltaOperations( mLayerObserver->deltaFileWrapper()->fileName() ), QStringList( {"create"} ) );
+      QCOMPARE( getDeltaOperations( mLayerObserver->deltaFileWrapper()->fileName() ), QStringList( { "create" } ) );
     }
 
 
@@ -153,7 +153,7 @@ class TestLayerObserver: public QObject
       QVERIFY( mLayer->startEditing() );
       QVERIFY( mLayer->addFeature( f1 ) );
       QVERIFY( mLayer->commitChanges() );
-      QCOMPARE( getDeltaOperations( mLayerObserver->deltaFileWrapper()->fileName() ), QStringList( {"create"} ) );
+      QCOMPARE( getDeltaOperations( mLayerObserver->deltaFileWrapper()->fileName() ), QStringList( { "create" } ) );
     }
 
 
@@ -162,7 +162,7 @@ class TestLayerObserver: public QObject
       QVERIFY( mLayer->startEditing() );
       QVERIFY( mLayer->deleteFeature( 1 ) );
       QVERIFY( mLayer->commitChanges() );
-      QCOMPARE( getDeltaOperations( mLayerObserver->deltaFileWrapper()->fileName() ), QStringList( {"delete"} ) );
+      QCOMPARE( getDeltaOperations( mLayerObserver->deltaFileWrapper()->fileName() ), QStringList( { "delete" } ) );
     }
 
 
@@ -178,7 +178,7 @@ class TestLayerObserver: public QObject
       QVERIFY( mLayer->updateFeature( f1 ) );
       QVERIFY( mLayer->updateFeature( f2 ) );
       QVERIFY( mLayer->commitChanges() );
-      QCOMPARE( getDeltaOperations( mLayerObserver->deltaFileWrapper()->fileName() ), QStringList( {"patch", "patch"} ) );
+      QCOMPARE( getDeltaOperations( mLayerObserver->deltaFileWrapper()->fileName() ), QStringList( { "patch", "patch" } ) );
     }
 
 
@@ -196,11 +196,10 @@ class TestLayerObserver: public QObject
       QVERIFY( mLayer->updateFeature( f2 ) );
 
       QVERIFY( mLayer->commitChanges() );
-      QCOMPARE( getDeltaOperations( mLayerObserver->deltaFileWrapper()->fileName() ), QStringList( {"patch", "patch"} ) );
+      QCOMPARE( getDeltaOperations( mLayerObserver->deltaFileWrapper()->fileName() ), QStringList( { "patch", "patch" } ) );
     }
 
   private:
-
     std::unique_ptr<QgsVectorLayer> mLayer;
     std::unique_ptr<LayerObserver> mLayerObserver;
 
@@ -210,7 +209,7 @@ class TestLayerObserver: public QObject
       QStringList operations;
       QFile deltaFile( fileName );
 
-      if ( ! deltaFile.open( QIODevice::ReadOnly ) )
+      if ( !deltaFile.open( QIODevice::ReadOnly ) )
         return operations;
 
       QJsonDocument doc = QJsonDocument::fromJson( deltaFile.readAll() );
@@ -231,7 +230,7 @@ class TestLayerObserver: public QObject
     {
       QFile deltaFile( fileName );
 
-      if ( ! deltaFile.open( QIODevice::ReadOnly ) )
+      if ( !deltaFile.open( QIODevice::ReadOnly ) )
         return QString();
 
       QJsonDocument doc = QJsonDocument::fromJson( deltaFile.readAll() );

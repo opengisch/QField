@@ -45,6 +45,13 @@ target_link_libraries(qfield PRIVATE
   ${QGIS_CORE_LIBRARY}
 )
 
+if (WITH_SPIX)
+  target_link_libraries(qfield PRIVATE
+    Spix::Spix
+  )
+  target_compile_definitions(qfield PUBLIC WITH_SPIX)
+endif ()
+
 set_target_properties(qfield PROPERTIES AUTORCC TRUE)
 install(TARGETS qfield
   BUNDLE DESTINATION ${QFIELD_BIN_DIR}

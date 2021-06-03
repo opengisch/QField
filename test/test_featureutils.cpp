@@ -15,16 +15,14 @@
  *                                                                         *
  ***************************************************************************/
 
-#include <QtTest>
-
 #include "qfield_testbase.h"
-
+#include "qgsvectorlayer.h"
 #include "utils/featureutils.h"
 
-#include "qgsvectorlayer.h"
+#include <QtTest>
 
 
-class TestFeatureUtils: public QObject
+class TestFeatureUtils : public QObject
 {
     Q_OBJECT
   private slots:
@@ -41,7 +39,6 @@ class TestFeatureUtils: public QObject
       QCOMPARE( f.fields(), vl->fields() );
       QVERIFY( f.geometry().equals( geometry ) );
     }
-
 };
 
 QFIELDTEST_MAIN( TestFeatureUtils )

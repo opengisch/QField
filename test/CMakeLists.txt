@@ -14,6 +14,10 @@ macro (ADD_QFIELD_TEST TESTNAME TESTSRC)
   add_test(NAME ${TESTNAME} COMMAND ${TESTNAME})
 endmacro (ADD_QFIELD_TEST)
 
+if (WITH_SPIX)
+  add_subdirectory(spix)
+endif ()
+
 ADD_QFIELD_TEST(vertexmodeltest test_vertexmodel.cpp)
 ADD_QFIELD_TEST(referencingfeaturelistmodeltest test_referencingfeaturelistmodel.cpp)
 ADD_QFIELD_TEST(deltafilewrappertest test_deltafilewrapper.cpp)

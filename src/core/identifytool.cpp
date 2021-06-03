@@ -14,21 +14,19 @@
  *                                                                         *
  ***************************************************************************/
 #include "identifytool.h"
-
-#include "qgsquickmapsettings.h"
 #include "multifeaturelistmodel.h"
+#include "qgsquickmapsettings.h"
 
-#include <qgsvectorlayer.h>
+#include <qgsexpressioncontextutils.h>
 #include <qgsproject.h>
 #include <qgsrenderer.h>
-#include <qgsexpressioncontextutils.h>
+#include <qgsvectorlayer.h>
 
 IdentifyTool::IdentifyTool( QObject *parent )
   : QObject( parent )
   , mMapSettings( nullptr )
   , mSearchRadiusMm( 8 )
 {
-
 }
 
 QgsQuickMapSettings *IdentifyTool::mapSettings() const

@@ -18,9 +18,9 @@
 #ifndef FEATURELISTMODELSELECTION_H
 #define FEATURELISTMODELSELECTION_H
 
-#include <QObject>
-
 #include "multifeaturelistmodel.h"
+
+#include <QObject>
 
 class FeatureListModelSelection : public QObject
 {

@@ -48,8 +48,8 @@
 #ifndef MODELTEST_H
 #define MODELTEST_H
 
-#include <QtCore/QObject>
 #include <QtCore/QAbstractItemModel>
+#include <QtCore/QObject>
 #include <QtCore/QStack>
 
 class ModelTest : public QObject

@@ -18,9 +18,9 @@
 #ifndef URLUTILS_H
 #define URLUTILS_H
 
-#include <QObject>
-
 #include "qfield_core_export.h"
+
+#include <QObject>
 
 
 class QFIELD_CORE_EXPORT UrlUtils : public QObject
@@ -28,8 +28,6 @@ class QFIELD_CORE_EXPORT UrlUtils : public QObject
     Q_OBJECT
 
   public:
-
-
     explicit UrlUtils( QObject *parent = nullptr );
 
 

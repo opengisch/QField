@@ -61,6 +61,8 @@ Popup {
                 id: formFeatureModel
                 positionInformation: digitizingToolbar.coordinateLocator.positionInformation
                 positionLocked: digitizingToolbar.coordinateLocator.overrideLocation !== undefined
+                topSnappingResult: coordinateLocator.topSnappingResult
+                cloudUserInformation: cloudConnection.userInformation
             }
         }
 

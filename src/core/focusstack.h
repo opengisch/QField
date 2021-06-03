@@ -36,4 +36,3 @@ class FocusStack : public QObject
 };
 
 #endif // FOCUSSTACK_H
-

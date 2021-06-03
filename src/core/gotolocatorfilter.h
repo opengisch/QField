@@ -19,9 +19,8 @@
 #define GOTOLOCATORFILTER_H
 
 #include <QObject>
-
-#include <qgslocatorfilter.h>
 #include <qgsexpressioncontext.h>
+#include <qgslocatorfilter.h>
 
 
 class LocatorModelSuperBridge;
@@ -35,7 +34,6 @@ class GotoLocatorFilter : public QgsLocatorFilter
     Q_OBJECT
 
   public:
-
     //! Origin of the action which triggers the result
     enum ActionOrigin
     {

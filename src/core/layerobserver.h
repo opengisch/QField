@@ -176,7 +176,6 @@ class LayerObserver : public QObject
      * Assigns listeners only for layer actions of `cloud` and `offline`.
      */
     void addLayerListeners();
-
 };
 
 #endif // LAYEROBSERVER_H

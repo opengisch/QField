@@ -15,18 +15,17 @@
  *                                                                         *
  ***************************************************************************/
 
-#include <qgsvectorlayer.h>
-#include <qgsvectordataprovider.h>
-#include <qgsproject.h>
-#include <qgsgeometry.h>
-#include <qgscoordinatereferencesystem.h>
-#include <qgsexpressioncontextutils.h>
-#include <qgsrelationmanager.h>
-#include <qgsmessagelog.h>
-
 #include "multifeaturelistmodel.h"
 
 #include <QDebug>
+#include <qgscoordinatereferencesystem.h>
+#include <qgsexpressioncontextutils.h>
+#include <qgsgeometry.h>
+#include <qgsmessagelog.h>
+#include <qgsproject.h>
+#include <qgsrelationmanager.h>
+#include <qgsvectordataprovider.h>
+#include <qgsvectorlayer.h>
 
 MultiFeatureListModel::MultiFeatureListModel( QObject *parent )
   : QSortFilterProxyModel( parent )
@@ -35,7 +34,7 @@ MultiFeatureListModel::MultiFeatureListModel( QObject *parent )
   setSourceModel( mSourceModel );
   connect( mSourceModel, &MultiFeatureListModelBase::modelReset, this, &MultiFeatureListModel::countChanged );
   connect( mSourceModel, &MultiFeatureListModelBase::countChanged, this, &MultiFeatureListModel::countChanged );
-  connect( mSourceModel, &MultiFeatureListModelBase::selectedCountChanged, this, &MultiFeatureListModel::adjustFilterToSelectedCount);
+  connect( mSourceModel, &MultiFeatureListModelBase::selectedCountChanged, this, &MultiFeatureListModel::adjustFilterToSelectedCount );
 }
 
 void MultiFeatureListModel::setFeatures( const QMap<QgsVectorLayer *, QgsFeatureRequest> requests )
@@ -45,7 +44,7 @@ void MultiFeatureListModel::setFeatures( const QMap<QgsVectorLayer *, QgsFeature
 
 void MultiFeatureListModel::setFeatures( QgsVectorLayer *vl )
 {
-  QMap<QgsVectorLayer *, QgsFeatureRequest> requests({{vl, QgsFeatureRequest()}});
+  QMap<QgsVectorLayer *, QgsFeatureRequest> requests( { { vl, QgsFeatureRequest() } } );
   mSourceModel->setFeatures( requests );
 }
 
@@ -115,7 +114,7 @@ void MultiFeatureListModel::toggleSelectedItem( int item )
   mSourceModel->toggleSelectedItem( sourceItem.row() );
   if ( mSourceModel->selectedCount() > 0 && mFilterLayer == nullptr )
   {
-    mFilterLayer =  mSourceModel->data( sourceItem, MultiFeatureListModel::LayerRole ).value<QgsVectorLayer *>();
+    mFilterLayer = mSourceModel->data( sourceItem, MultiFeatureListModel::LayerRole ).value<QgsVectorLayer *>();
     emit selectedLayerChanged();
     invalidateFilter();
   }

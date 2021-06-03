@@ -15,17 +15,16 @@
  *                                                                         *
  ***************************************************************************/
 
+#include "qgsstringutils.h"
 #include "stringutils.h"
 
-#include "qgsstringutils.h"
-#include <QRegularExpression>
 #include <QDebug>
+#include <QRegularExpression>
 
 
 StringUtils::StringUtils( QObject *parent )
   : QObject( parent )
 {
-
 }
 
 
@@ -61,6 +60,6 @@ bool StringUtils::fuzzyMatch( const QString &source, const QString &term )
   }
 
   return lastMatchedTermPartIdx >= 0 && matchedTermItems == termPartsCount
-      ? true
-      : false;
+         ? true
+         : false;
 }

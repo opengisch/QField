@@ -17,7 +17,6 @@
 #define DISTANCEAREA_H
 
 #include <QObject>
-
 #include <qgsdistancearea.h>
 
 class Geometry;

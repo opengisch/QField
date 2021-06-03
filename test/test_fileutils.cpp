@@ -15,14 +15,13 @@
  *                                                                         *
  ***************************************************************************/
 
-#include <QtTest>
-
 #include "qfield_testbase.h"
-
 #include "utils/fileutils.h"
 
+#include <QtTest>
 
-class TestFileUtils: public QObject
+
+class TestFileUtils : public QObject
 {
     Q_OBJECT
   private slots:
@@ -66,7 +65,7 @@ class TestFileUtils: public QObject
       QString fileName( f->fileName() );
       QVERIFY( FileUtils::fileExists( fileName ) );
       delete f;
-      QVERIFY( ! FileUtils::fileExists( fileName ) );
+      QVERIFY( !FileUtils::fileExists( fileName ) );
     }
 };
 

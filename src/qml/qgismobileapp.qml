@@ -31,6 +31,7 @@ import 'geometry_editors'
 
 ApplicationWindow {
   id: mainWindow
+  objectName: 'mainWindow'
   visible: true
 
   LabSettings.Settings {
@@ -50,7 +51,6 @@ ApplicationWindow {
   }
 
   //this keyHandler is because otherwise the back-key is not handled in the mainWindow. Probably this could be solved cuter.
-
   Item {
     id: keyHandler
     objectName: "keyHandler"
@@ -59,9 +59,10 @@ ApplicationWindow {
     focus: true
 
     Keys.onReleased: {
-      if ( event.key === Qt.Key_Back ||
-        event.key === Qt.Key_Escape ) {
-        if ( stateMachine.state === 'measure' ) {
+      if ( event.key === Qt.Key_Back || event.key === Qt.Key_Escape ) {
+        if ( featureForm.visible ) {
+            featureForm.hide();
+        } else if ( stateMachine.state === 'measure' ) {
           mainWindow.closeMeasureTool()
         } else {
           mainWindow.close();
@@ -1178,12 +1179,13 @@ ApplicationWindow {
                   digitizingFeature.geometry.applyRubberband()
                   digitizingFeature.applyGeometry()
                 }
+
                 if( !overlayFeatureFormDrawer.featureForm.featureCreated )
                 {
                     overlayFeatureFormDrawer.featureModel.geometry = digitizingFeature.geometry
                     overlayFeatureFormDrawer.featureModel.applyGeometry()
                     overlayFeatureFormDrawer.featureForm.resetAttributes()
-                    if( overlayFeatureFormDrawer.featureForm.model.constraintsHardValid ){
+                    if( overlayFeatureFormDrawer.featureForm.model.constraintsHardValid ) {
                       // when the constrainst are fulfilled
                       // indirect action, no need to check for success and display a toast, the log is enough
                       overlayFeatureFormDrawer.featureForm.featureCreated = overlayFeatureFormDrawer.featureForm.create()
@@ -1908,14 +1910,49 @@ ApplicationWindow {
       target: qfieldAuthRequestHandler
 
       function onShowLoginDialog(realm) {
-        loginDialogPopup.realm = realm || ""
-        badLayersView.visible = false
-        loginDialogPopup.open()
+          loginDialogPopup.realm = realm || ""
+          badLayersView.visible = false
+          loginDialogPopup.open()
       }
 
       function onReloadEverything() {
-        iface.reloadProject()
+          iface.reloadProject()
       }
+
+      function onShowLoginBrowser(url) {
+          loginBrowserPopup.url = url;
+          loginBrowserPopup.open();
+      }
+
+      function onHideLoginBrowser() {
+          loginBrowserPopup.close();
+      }
+    }
+
+    Popup {
+        id: loginBrowserPopup
+        parent: ApplicationWindow.overlay
+
+        property alias url: browserPanel.url
+
+        x: 24
+        y: 24
+        width: parent.width - 48
+        height: parent.height - 48
+        padding: 0
+        modal: true
+        closePolicy: Popup.CloseOnEscape
+
+        BrowserPanel {
+            id: browserPanel
+            anchors.fill: parent
+            visible: true
+
+            onCancel: {
+                qfieldAuthRequestHandler.abortAuthBrowser();
+                loginBrowserPopup.close();
+            }
+        }
     }
 
     Popup {
@@ -1954,7 +1991,7 @@ ApplicationWindow {
       }
 
       onClosed: {
-        //it's handeled here with parameter inCancelation because the loginDialog needs to be closed before the signal is fired
+        // handled here with parameter inCancelation because the loginDialog needs to be closed before the signal is fired
         qfieldAuthRequestHandler.loginDialogClosed(loginDialog.realm, loginDialog.inCancelation )
       }
     }
@@ -2068,6 +2105,7 @@ ApplicationWindow {
 
   WelcomeScreen {
     id: welcomeScreen
+    objectName: 'welcomeScreen'
     model: RecentProjectListModel {
       id: recentProjectListModel
     }
@@ -2119,6 +2157,7 @@ ApplicationWindow {
       height: 40;
       width: parent.width
       y: parent.height - 112
+      z: 10001
       margins: 0
       closePolicy: Popup.NoAutoClose
 
@@ -2262,6 +2301,7 @@ ApplicationWindow {
     positionInformation: positionSource.positionInfo
     positionLocked: gpsLinkButton.checked
     vertexModel: vertexModel
+    cloudUserInformation: cloudConnection.userInformation
   }
 
   VertexModel {

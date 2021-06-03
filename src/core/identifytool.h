@@ -17,10 +17,9 @@
 #define IDENTIFYTOOL_H
 
 #include <QObject>
-
 #include <qgsfeature.h>
-#include <qgspoint.h>
 #include <qgsmapsettings.h>
+#include <qgspoint.h>
 #include <qgsrendercontext.h>
 
 class QgsMapLayer;

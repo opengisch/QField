@@ -17,11 +17,10 @@
 #ifndef NETWORKREPLY_H
 #define NETWORKREPLY_H
 
-#include <qgsnetworkaccessmanager.h>
-
-#include <QObject>
 #include <QNetworkAccessManager>
 #include <QNetworkReply>
+#include <QObject>
+#include <qgsnetworkaccessmanager.h>
 //#include <QRandomGenerator>
 
 
@@ -30,12 +29,9 @@
  */
 class NetworkReply : public QObject
 {
-
     Q_OBJECT
 
   public:
-
-
     /**
      * A wrapper around QNetworkReply that allows retriable requests.
      * @param op HTTP method
@@ -151,8 +147,6 @@ class NetworkReply : public QObject
     void temporaryErrorOccurred( QNetworkReply::NetworkError code );
 
   private:
-
-
     /**
      * Upper bound of the delay between retries in milliseconds.
      */
@@ -192,7 +186,7 @@ class NetworkReply : public QObject
     /**
      * Random number generator instance. Used to create random delay bettween retries.
      */
-//    QRandomGenerator mRNG;
+    //    QRandomGenerator mRNG;
 
 
     /**

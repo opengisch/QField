@@ -14,17 +14,16 @@
  ***************************************************************************/
 
 #include <QQuickWindow>
-#include <QScreen>
 #include <QSGSimpleTextureNode>
-
-#include <qgsmaprendererparalleljob.h>
+#include <QScreen>
+#include <qgis.h>
+#include <qgsexpressioncontextutils.h>
 #include <qgsmaprenderercache.h>
+#include <qgsmaprendererparalleljob.h>
 #include <qgsmessagelog.h>
 #include <qgspallabeling.h>
 #include <qgsproject.h>
 #include <qgsvectorlayer.h>
-#include <qgsexpressioncontextutils.h>
-#include <qgis.h>
 #if _QGIS_VERSION_INT >= 31900
 #include <qgslabelingresults.h>
 #endif
@@ -321,9 +320,7 @@ QSGNode *QgsQuickMapCanvasMap::updatePaintNode( QSGNode *oldNode, QQuickItem::Up
     size /= mMapSettings->devicePixelRatio();
 
   // Check for resizes that change the w/h ratio
-  if ( !rect.isEmpty() &&
-       !size.isEmpty() &&
-       !qgsDoubleNear( rect.width() / rect.height(), ( size.width() ) / static_cast<double>( size.height() ), 3 ) )
+  if ( !rect.isEmpty() && !size.isEmpty() && !qgsDoubleNear( rect.width() / rect.height(), ( size.width() ) / static_cast<double>( size.height() ), 3 ) )
   {
     if ( qgsDoubleNear( rect.height(), mImage.height() ) )
     {
@@ -419,7 +416,7 @@ void QgsQuickMapCanvasMap::zoomToFullExtent()
 void QgsQuickMapCanvasMap::refresh()
 {
   if ( mMapSettings->outputSize().isNull() )
-    return;  // the map image size has not been set yet
+    return; // the map image size has not been set yet
 
   if ( !mFreeze )
     mRefreshTimer.start( 1 );

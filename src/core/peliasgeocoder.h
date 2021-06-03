@@ -16,6 +16,7 @@
 #ifndef PELIASGEOCODER_H
 #define PELIASGEOCODER_H
 
+#include "qfield_core_export.h"
 #include "qgis_core.h"
 #include "qgsgeocoder.h"
 
@@ -30,11 +31,9 @@
  *
  * \since QField 1.9
 */
-class CORE_EXPORT PeliasGeocoder : public QgsGeocoderInterface
+class QFIELD_CORE_EXPORT PeliasGeocoder : public QgsGeocoderInterface
 {
-
   public:
-
     /**
      * Constructor for PeliasGeocoder.
      *
@@ -45,7 +44,7 @@ class CORE_EXPORT PeliasGeocoder : public QgsGeocoderInterface
     Flags flags() const override;
     QgsFields appendedFields() const override;
     QgsWkbTypes::Type wkbType() const override;
-    QList< QgsGeocoderResult > geocodeString( const QString &string, const QgsGeocoderContext &context, QgsFeedback *feedback = nullptr ) const override;
+    QList<QgsGeocoderResult> geocodeString( const QString &string, const QgsGeocoderContext &context, QgsFeedback *feedback = nullptr ) const override;
 
     /**
      * Returns the URL generated for geocoding the specified \a address.
@@ -86,13 +85,10 @@ class CORE_EXPORT PeliasGeocoder : public QgsGeocoderInterface
     void setRequestsPerSecond( double number ) { mRequestsPerSecond = number; }
 
   private:
-
     QString mEndpoint;
     double mRequestsPerSecond = 10;
 
-    static QMutex sMutex;
     static qint64 sLastRequestTimestamp;
-
 };
 
 #endif // PELIASGEOCODER_H

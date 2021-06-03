@@ -26,7 +26,7 @@ PrintLayoutListModel::PrintLayoutListModel( QObject *parent )
 QHash<int, QByteArray> PrintLayoutListModel::roleNames() const
 {
   QHash<int, QByteArray> roles = QAbstractListModel::roleNames();
-  roles[TitleRow]  = "Title";
+  roles[TitleRow] = "Title";
   roles[IndexRow] = "Index";
 
   return roles;
@@ -67,7 +67,7 @@ void PrintLayoutListModel::reloadModel()
   beginResetModel();
   mPrintLayouts.clear();
 
-  const QList< QgsPrintLayout * > layouts( mProject->layoutManager()->printLayouts() );
+  const QList<QgsPrintLayout *> layouts( mProject->layoutManager()->printLayouts() );
   for ( const auto &layout : layouts )
   {
     if ( mAtlasCoverageLayr )
@@ -86,7 +86,6 @@ void PrintLayoutListModel::reloadModel()
     }
   }
   endResetModel();
-
 }
 
 int PrintLayoutListModel::rowCount( const QModelIndex &parent ) const
@@ -105,7 +104,7 @@ QVariant PrintLayoutListModel::data( const QModelIndex &index, int role ) const
   if ( role == TitleRow )
     return mPrintLayouts.at( index.row() ).title;
   else if ( role == IndexRow )
-    return  index.row();
+    return index.row();
 
   return QVariant();
 }

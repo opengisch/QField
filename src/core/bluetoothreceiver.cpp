@@ -15,13 +15,12 @@
  ***************************************************************************/
 
 #include "bluetoothreceiver.h"
-#include <QSettings>
-#include <QDebug>
 
-BluetoothReceiver::BluetoothReceiver( QObject *parent ) : QObject( parent ),
-  mLocalDevice( std::make_unique<QBluetoothLocalDevice>() ),
-  mSocket( new QBluetoothSocket( QBluetoothServiceInfo::RfcommProtocol ) ),
-  mGpsConnection( std::make_unique<QgsNmeaConnection>( mSocket ) )
+#include <QDebug>
+#include <QSettings>
+
+BluetoothReceiver::BluetoothReceiver( QObject *parent )
+  : QObject( parent ), mLocalDevice( std::make_unique<QBluetoothLocalDevice>() ), mSocket( new QBluetoothSocket( QBluetoothServiceInfo::RfcommProtocol ) ), mGpsConnection( std::make_unique<QgsNmeaConnection>( mSocket ) )
 {
   //socket state changed
   connect( mSocket, &QBluetoothSocket::stateChanged, this, &BluetoothReceiver::setSocketState );
@@ -66,7 +65,7 @@ void BluetoothReceiver::doConnectDevice( const QString &address )
   mAddressToConnect.clear();
 
   //repairing only needed in the linux (not android) environment
-#ifndef Q_OS_ANDROID
+#ifdef Q_OS_LINUX
   repairDevice( QBluetoothAddress( address ) );
 #else
   mSocket->connectToService( QBluetoothAddress( address ), QBluetoothUuid( QBluetoothUuid::SerialPort ), QBluetoothSocket::ReadOnly );
@@ -141,12 +140,12 @@ void BluetoothReceiver::setEllipsoidalElevation( const bool ellipsoidalElevation
   emit ellipsoidalElevationChanged();
 }
 
-#ifndef Q_OS_ANDROID
+#ifdef Q_OS_LINUX
 void BluetoothReceiver::repairDevice( const QBluetoothAddress &address )
 {
   connect( mLocalDevice.get(), &QBluetoothLocalDevice::pairingFinished, this, &BluetoothReceiver::pairingFinished, Qt::UniqueConnection );
   connect( mLocalDevice.get(), &QBluetoothLocalDevice::pairingDisplayConfirmation, this, &BluetoothReceiver::confirmPairing, Qt::UniqueConnection );
-  connect( mLocalDevice.get(),  &QBluetoothLocalDevice::error, [ = ]( QBluetoothLocalDevice::Error error )
+  connect( mLocalDevice.get(), &QBluetoothLocalDevice::error, [ = ]( QBluetoothLocalDevice::Error error )
   {
     qDebug() << "BluetoothReceiver (not android): Re-pairing device " << address.toString() << " failed:" << error;
   } );

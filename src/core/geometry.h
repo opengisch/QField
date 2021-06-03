@@ -15,10 +15,10 @@
 #ifndef GEOMETRY_H
 #define GEOMETRY_H
 
-#include <qgsgeometry.h>
 #include "rubberbandmodel.h"
 
 #include <QtPositioning/QGeoCoordinate>
+#include <qgsgeometry.h>
 
 class Geometry : public QObject
 {

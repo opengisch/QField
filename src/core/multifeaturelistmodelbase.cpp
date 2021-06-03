@@ -15,27 +15,26 @@
  *                                                                         *
  ***************************************************************************/
 
-#include <qgsvectorlayer.h>
-#include <qgsvectordataprovider.h>
-#include <qgsproject.h>
-#include <qgsgeometry.h>
-#include <qgscoordinatereferencesystem.h>
-#include <qgsrelationmanager.h>
-#include <qgsmessagelog.h>
-
+#include "featureutils.h"
 #include "multifeaturelistmodel.h"
 #include "multifeaturelistmodelbase.h"
-#include "featureutils.h"
 
 #include <QDebug>
+#include <qgscoordinatereferencesystem.h>
+#include <qgsgeometry.h>
+#include <qgsmessagelog.h>
+#include <qgsproject.h>
+#include <qgsrelationmanager.h>
+#include <qgsvectordataprovider.h>
+#include <qgsvectorlayer.h>
 
 MultiFeatureListModelBase::MultiFeatureListModelBase( QObject *parent )
-  :  QAbstractItemModel( parent )
+  : QAbstractItemModel( parent )
 {
   connect( this, &MultiFeatureListModelBase::modelReset, this, &MultiFeatureListModelBase::countChanged );
 }
 
-void MultiFeatureListModelBase::setFeatures( const QMap< QgsVectorLayer *, QgsFeatureRequest> requests )
+void MultiFeatureListModelBase::setFeatures( const QMap<QgsVectorLayer *, QgsFeatureRequest> requests )
 {
   beginResetModel();
 
@@ -46,14 +45,14 @@ void MultiFeatureListModelBase::setFeatures( const QMap< QgsVectorLayer *, QgsFe
   {
     QgsVectorLayer *vl = it.key();
 
-    if ( ! vl || ! vl->isValid() )
+    if ( !vl || !vl->isValid() )
       continue;
 
     QgsFeature feat;
     QgsFeatureIterator fit = vl->getFeatures( it.value() );
     while ( fit.nextFeature( feat ) )
     {
-      mFeatures.append( QPair< QgsVectorLayer *, QgsFeature >( vl, feat ) );
+      mFeatures.append( QPair<QgsVectorLayer *, QgsFeature>( vl, feat ) );
       connect( vl, &QgsVectorLayer::destroyed, this, &MultiFeatureListModelBase::layerDeleted, Qt::UniqueConnection );
       connect( vl, &QgsVectorLayer::featureDeleted, this, &MultiFeatureListModelBase::featureDeleted, Qt::UniqueConnection );
       connect( vl, &QgsVectorLayer::attributeValueChanged, this, &MultiFeatureListModelBase::attributeValueChanged, Qt::UniqueConnection );
@@ -152,7 +151,7 @@ void MultiFeatureListModelBase::toggleSelectedItem( int item )
 QList<QgsFeature> MultiFeatureListModelBase::selectedFeatures()
 {
   QList<QgsFeature> features;
-  for ( const QPair< QgsVectorLayer *, QgsFeature > &pair : mSelectedFeatures )
+  for ( const QPair<QgsVectorLayer *, QgsFeature> &pair : mSelectedFeatures )
   {
     features << pair.second;
   }
@@ -184,7 +183,7 @@ QModelIndex MultiFeatureListModelBase::index( int row, int column, const QModelI
   if ( row < 0 || row >= mFeatures.size() || column != 0 )
     return QModelIndex();
 
-  return createIndex( row, column, const_cast<QPair< QgsVectorLayer *, QgsFeature >*>( &mFeatures.at( row ) ) );
+  return createIndex( row, column, const_cast<QPair<QgsVectorLayer *, QgsFeature> *>( &mFeatures.at( row ) ) );
 }
 
 QModelIndex MultiFeatureListModelBase::parent( const QModelIndex &child ) const
@@ -209,7 +208,7 @@ int MultiFeatureListModelBase::columnCount( const QModelIndex &parent ) const
 
 QVariant MultiFeatureListModelBase::data( const QModelIndex &index, int role ) const
 {
-  QPair< QgsVectorLayer *, QgsFeature > *feature = toFeature( index );
+  QPair<QgsVectorLayer *, QgsFeature> *feature = toFeature( index );
   if ( !feature )
     return QVariant();
 
@@ -242,14 +241,14 @@ QVariant MultiFeatureListModelBase::data( const QModelIndex &index, int role ) c
       return QVariant::fromValue<QgsCoordinateReferenceSystem>( feature->first->crs() );
 
     case MultiFeatureListModel::DeleteFeatureRole:
-      return ! feature->first->readOnly()
+      return !feature->first->readOnly()
              && ( feature->first->dataProvider()->capabilities() & QgsVectorDataProvider::DeleteFeatures )
-             && ! feature->first->customProperty( QStringLiteral( "QFieldSync/is_geometry_locked" ), false ).toBool();
+             && !feature->first->customProperty( QStringLiteral( "QFieldSync/is_geometry_locked" ), false ).toBool();
 
     case MultiFeatureListModel::EditGeometryRole:
-      return ! feature->first->readOnly()
+      return !feature->first->readOnly()
              && ( feature->first->dataProvider()->capabilities() & QgsVectorDataProvider::ChangeGeometries )
-             && ! feature->first->customProperty( QStringLiteral( "QFieldSync/is_geometry_locked" ), false ).toBool();
+             && !feature->first->customProperty( QStringLiteral( "QFieldSync/is_geometry_locked" ), false ).toBool();
   }
 
   return QVariant();
@@ -261,7 +260,7 @@ bool MultiFeatureListModelBase::removeRows( int row, int count, const QModelInde
     return true;
 
   int i = 0;
-  QMutableListIterator<QPair< QgsVectorLayer *, QgsFeature >> it( mFeatures );
+  QMutableListIterator<QPair<QgsVectorLayer *, QgsFeature>> it( mFeatures );
   while ( i < row )
   {
     it.next();
@@ -299,20 +298,16 @@ bool MultiFeatureListModelBase::canEditAttributesSelection()
     return false;
 
   QgsVectorLayer *vlayer = mSelectedFeatures[0].first;
-  return !vlayer->readOnly() &&
-         ( vlayer->dataProvider()->capabilities() & QgsVectorDataProvider::ChangeAttributeValues );
+  return !vlayer->readOnly() && ( vlayer->dataProvider()->capabilities() & QgsVectorDataProvider::ChangeAttributeValues );
 }
 
 bool MultiFeatureListModelBase::canMergeSelection()
 {
-  if ( mSelectedFeatures.isEmpty()  )
+  if ( mSelectedFeatures.isEmpty() )
     return false;
 
   QgsVectorLayer *vlayer = mSelectedFeatures[0].first;
-  return !vlayer->readOnly() && QgsWkbTypes::isMultiType( vlayer->wkbType() ) &&
-         ( vlayer->dataProvider()->capabilities() & QgsVectorDataProvider::DeleteFeatures ) &&
-         ( vlayer->dataProvider()->capabilities() & QgsVectorDataProvider::ChangeGeometries ) &&
-         !vlayer->customProperty( QStringLiteral( "QFieldSync/is_geometry_locked" ), false ).toBool();
+  return !vlayer->readOnly() && QgsWkbTypes::isMultiType( vlayer->wkbType() ) && ( vlayer->dataProvider()->capabilities() & QgsVectorDataProvider::DeleteFeatures ) && ( vlayer->dataProvider()->capabilities() & QgsVectorDataProvider::ChangeGeometries ) && !vlayer->customProperty( QStringLiteral( "QFieldSync/is_geometry_locked" ), false ).toBool();
 }
 
 bool MultiFeatureListModelBase::canDeleteSelection()
@@ -321,9 +316,7 @@ bool MultiFeatureListModelBase::canDeleteSelection()
     return false;
 
   QgsVectorLayer *vlayer = mSelectedFeatures[0].first;
-  return !vlayer->readOnly() &&
-         ( vlayer->dataProvider()->capabilities() & QgsVectorDataProvider::DeleteFeatures ) &&
-         !vlayer->customProperty( QStringLiteral( "QFieldSync/is_geometry_locked" ), false ).toBool();
+  return !vlayer->readOnly() && ( vlayer->dataProvider()->capabilities() & QgsVectorDataProvider::DeleteFeatures ) && !vlayer->customProperty( QStringLiteral( "QFieldSync/is_geometry_locked" ), false ).toBool();
 }
 
 bool MultiFeatureListModelBase::mergeSelection()
@@ -331,7 +324,7 @@ bool MultiFeatureListModelBase::mergeSelection()
   if ( !canMergeSelection() )
     return false;
 
-  QList< QPair< QgsVectorLayer *, QgsFeature > > selectedFeatures = mSelectedFeatures;
+  QList<QPair<QgsVectorLayer *, QgsFeature>> selectedFeatures = mSelectedFeatures;
   QgsVectorLayer *vlayer = selectedFeatures[0].first;
   bool isSuccess = true;
   QgsGeometry combinedGeometry;
@@ -357,7 +350,7 @@ bool MultiFeatureListModelBase::mergeSelection()
 
   if ( isSuccess )
   {
-    if ( ! vlayer->startEditing() )
+    if ( !vlayer->startEditing() )
     {
       QgsMessageLog::logMessage( tr( "Cannot start editing" ), "QField", Qgis::Warning );
       return false;
@@ -409,7 +402,7 @@ bool MultiFeatureListModelBase::deleteFeature( QgsVectorLayer *layer, QgsFeature
 
   if ( !selectionAction )
   {
-    if ( ! layer->startEditing() )
+    if ( !layer->startEditing() )
     {
       QgsMessageLog::logMessage( tr( "Cannot start editing" ), "QField", Qgis::Warning );
       return false;
@@ -432,7 +425,7 @@ bool MultiFeatureListModelBase::deleteFeature( QgsVectorLayer *layer, QgsFeature
         QgsFeature childFeature;
         while ( relatedFeaturesIt.nextFeature( childFeature ) )
         {
-          if ( ! childLayer->deleteFeature( childFeature.id() ) )
+          if ( !childLayer->deleteFeature( childFeature.id() ) )
           {
             QgsMessageLog::logMessage( tr( "Cannot delete feature from child layer" ), "QField", Qgis::Critical );
             isSuccess = false;
@@ -459,7 +452,7 @@ bool MultiFeatureListModelBase::deleteFeature( QgsVectorLayer *layer, QgsFeature
     // if everything went well so far, we try to commit
     if ( isSuccess )
     {
-      if ( ! childLayer->commitChanges() )
+      if ( !childLayer->commitChanges() )
       {
         QgsMessageLog::logMessage( tr( "Cannot commit layer changes in layer %1." ).arg( childLayer->name() ), "QField", Qgis::Critical );
         isSuccess = false;
@@ -467,9 +460,9 @@ bool MultiFeatureListModelBase::deleteFeature( QgsVectorLayer *layer, QgsFeature
     }
 
     // if the commit failed, we try to rollback the changes and the rest of the modified layers (parent and children) will be rollbacked
-    if ( ! isSuccess )
+    if ( !isSuccess )
     {
-      if ( ! childLayer->rollBack() )
+      if ( !childLayer->rollBack() )
         QgsMessageLog::logMessage( tr( "Cannot rollback layer changes in layer %1" ).arg( childLayer->name() ), "QField", Qgis::Critical );
     }
   }
@@ -482,7 +475,7 @@ bool MultiFeatureListModelBase::deleteFeature( QgsVectorLayer *layer, QgsFeature
       if ( !selectionAction )
       {
         // commit changes
-        if ( ! layer->commitChanges() )
+        if ( !layer->commitChanges() )
           isSuccess = false;
       }
     }
@@ -496,9 +489,9 @@ bool MultiFeatureListModelBase::deleteFeature( QgsVectorLayer *layer, QgsFeature
 
   if ( !selectionAction )
   {
-    if ( ! isSuccess )
+    if ( !isSuccess )
     {
-      if ( ! layer->rollBack() )
+      if ( !layer->rollBack() )
         QgsMessageLog::logMessage( tr( "Cannot rollback layer changes in layer %1" ).arg( layer->name() ), "QField", Qgis::Critical );
     }
   }
@@ -518,7 +511,7 @@ bool MultiFeatureListModelBase::deleteSelection()
     return false;
   }
 
-  const QList< QPair< QgsVectorLayer *, QgsFeature > > selectedFeatures = mSelectedFeatures;
+  const QList<QPair<QgsVectorLayer *, QgsFeature>> selectedFeatures = mSelectedFeatures;
   bool isSuccess = false;
   for ( const auto &pair : selectedFeatures )
   {

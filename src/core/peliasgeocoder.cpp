@@ -20,15 +20,14 @@
 #include "qgsnetworkaccessmanager.h"
 
 #include <QDateTime>
-#include <QUrl>
-#include <QUrlQuery>
+#include <QJsonArray>
+#include <QJsonDocument>
 #include <QMutex>
 #include <QNetworkRequest>
-#include <QJsonDocument>
-#include <QJsonArray>
+#include <QUrl>
+#include <QUrlQuery>
 
-QMutex PeliasGeocoder::sMutex;
-typedef QMap< QUrl, QList< QgsGeocoderResult > > CachedGeocodeResult;
+typedef QMap<QUrl, QList<QgsGeocoderResult>> CachedGeocodeResult;
 Q_GLOBAL_STATIC( CachedGeocodeResult, sCachedResults )
 qint64 PeliasGeocoder::sLastRequestTimestamp = 0;
 
@@ -88,7 +87,8 @@ QList<QgsGeocoderResult> PeliasGeocoder::geocodeString( const QString &string, c
 
   const QUrl url = requestUrl( string, bounds );
 
-  QMutexLocker locker( &sMutex );
+  static QMutex mutex;
+  QMutexLocker locker( &mutex );
   auto it = sCachedResults()->constFind( url );
   if ( it != sCachedResults()->constEnd() )
   {
@@ -130,7 +130,7 @@ QList<QgsGeocoderResult> PeliasGeocoder::geocodeString( const QString &string, c
     return QList<QgsGeocoderResult>();
   }
 
-  QList< QgsGeocoderResult > matches;
+  QList<QgsGeocoderResult> matches;
   matches.reserve( results.size() );
   for ( const QVariant &result : results )
   {

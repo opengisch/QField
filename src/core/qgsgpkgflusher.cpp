@@ -18,13 +18,13 @@
 
 #include "qgsgpkgflusher.h"
 
-#include <qgsmessagelog.h>
-#include <qgsvectorlayer.h>
-#include <qgsproject.h>
-
-#include <QRegularExpression>
 #include <QObject>
+#include <QRegularExpression>
 #include <QTimer>
+#include <qgsmessagelog.h>
+#include <qgsproject.h>
+#include <qgsvectorlayer.h>
+
 #include <sqlite3.h>
 
 class Flusher : public QObject
@@ -184,7 +184,7 @@ void Flusher::flush( const QString &filename )
 
 void Flusher::stop( const QString &fileName )
 {
-  if ( ! mScheduledFlushes.contains( fileName ) )
+  if ( !mScheduledFlushes.contains( fileName ) )
     return;
 
   mScheduledFlushes.value( fileName )->stop();

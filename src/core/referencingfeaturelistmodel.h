@@ -16,15 +16,16 @@
 #ifndef REFERENCINGFEATURELISTMODEL_H
 #define REFERENCINGFEATURELISTMODEL_H
 
+#include "attributeformmodel.h"
+#include "qgsvectorlayer.h"
+
 #include <QAbstractItemModel>
 #include <QPair>
-#include "qgsvectorlayer.h"
-#include "attributeformmodel.h"
 
 //used for gatherer
-#include <QThread>
-
 #include "qfield_core_export.h"
+
+#include <QThread>
 
 class QgsVectorLayer;
 class FeatureGatherer;
@@ -197,7 +198,7 @@ class QFIELD_CORE_EXPORT ReferencingFeatureListModel : public QAbstractItemModel
     friend class TestReferencingFeatureListModel;
 };
 
-class FeatureGatherer: public QThread
+class FeatureGatherer : public QThread
 {
     Q_OBJECT
 
@@ -267,7 +268,6 @@ class FeatureGatherer: public QThread
     void collectedValues();
 
   private:
-
     QList<ReferencingFeatureListModel::Entry> mEntries;
 
     QgsFeature mFeature;

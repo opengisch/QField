@@ -79,6 +79,8 @@ Drawer {
         featureModel: FeatureModel {
             positionInformation: overlayFeatureFormDrawer.digitizingToolbar.coordinateLocator.positionInformation
             positionLocked: overlayFeatureFormDrawer.digitizingToolbar.coordinateLocator.overrideLocation !== undefined
+            topSnappingResult: coordinateLocator.topSnappingResult
+            cloudUserInformation: cloudConnection.userInformation
         }
     }
 

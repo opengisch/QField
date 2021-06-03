@@ -15,19 +15,18 @@
  ***************************************************************************/
 
 
-#include "locatormodelsuperbridge.h"
-#include "qgsquickmapsettings.h"
 #include "featurelistextentcontroller.h"
 #include "featureslocatorfilter.h"
-#include "gotolocatorfilter.h"
-#include "peliasgeocoder.h"
 #include "finlandlocatorfilter.h"
 #include "gnsspositioninformation.h"
+#include "gotolocatorfilter.h"
+#include "locatormodelsuperbridge.h"
+#include "peliasgeocoder.h"
+#include "qgsquickmapsettings.h"
 
 #include <QStandardItem>
-
-#include <qgslocatormodel.h>
 #include <qgslocator.h>
+#include <qgslocatormodel.h>
 #include <qgssettings.h>
 
 
@@ -57,8 +56,8 @@ void LocatorModelSuperBridge::setMapSettings( QgsQuickMapSettings *mapSettings )
   updateCanvasExtent( mMapSettings->extent() );
   updateCanvasCrs( mMapSettings->destinationCrs() );
 
-  connect( mMapSettings, &QgsQuickMapSettings::visibleExtentChanged, this, [ = ]() {updateCanvasExtent( mMapSettings->visibleExtent() );} );
-  connect( mMapSettings, &QgsQuickMapSettings::destinationCrsChanged, this, [ = ]() {updateCanvasCrs( mMapSettings->destinationCrs() );} ) ;
+  connect( mMapSettings, &QgsQuickMapSettings::visibleExtentChanged, this, [ = ]() { updateCanvasExtent( mMapSettings->visibleExtent() ); } );
+  connect( mMapSettings, &QgsQuickMapSettings::destinationCrsChanged, this, [ = ]() { updateCanvasCrs( mMapSettings->destinationCrs() ); } );
 
   emit mapSettingsChanged();
 }
@@ -164,7 +163,8 @@ QHash<int, QByteArray> LocatorActionsModel::roleNames() const
 // LocatorFiltersModel
 //
 
-LocatorFiltersModel::LocatorFiltersModel() : QAbstractListModel()
+LocatorFiltersModel::LocatorFiltersModel()
+  : QAbstractListModel()
 {
 }
 
@@ -191,14 +191,14 @@ QHash<int, QByteArray> LocatorFiltersModel::roleNames() const
 
 QVariant LocatorFiltersModel::data( const QModelIndex &index, int role ) const
 {
-  const static QMap<QString, QString> sLocatorFilterDescriptions = {
-    { QStringLiteral("allfeatures"), tr( "Returns a list of features accross all searchable layers with matching attributes" ) },
-    { QStringLiteral("goto"), tr( "Returns a point from a pair of X and Y coordinates typed in the search bar" ) },
-    { QStringLiteral("pelias-finland"), tr( "Returns a list of locations and addresses within Finland with matching terms" ) }
+  const static QMap<QString, QString> sLocatorFilterDescriptions =
+  {
+    { QStringLiteral( "allfeatures" ), tr( "Returns a list of features accross all searchable layers with matching attributes" ) },
+    { QStringLiteral( "goto" ), tr( "Returns a point from a pair of X and Y coordinates typed in the search bar" ) },
+    { QStringLiteral( "pelias-finland" ), tr( "Returns a list of locations and addresses within Finland with matching terms" ) }
   };
 
-  if ( !mLocatorModelSuperBridge->locator() || !index.isValid() || index.parent().isValid() ||
-       index.row() < 0 || index.row() >= rowCount( QModelIndex() ) )
+  if ( !mLocatorModelSuperBridge->locator() || !index.isValid() || index.parent().isValid() || index.row() < 0 || index.row() >= rowCount( QModelIndex() ) )
     return QVariant();
 
   switch ( role )
@@ -225,8 +225,7 @@ QVariant LocatorFiltersModel::data( const QModelIndex &index, int role ) const
 
 bool LocatorFiltersModel::setData( const QModelIndex &index, const QVariant &value, int role )
 {
-  if ( !mLocatorModelSuperBridge->locator() || !index.isValid() || index.parent().isValid() ||
-       index.row() < 0 || index.row() >= rowCount( QModelIndex() ) )
+  if ( !mLocatorModelSuperBridge->locator() || !index.isValid() || index.parent().isValid() || index.row() < 0 || index.row() >= rowCount( QModelIndex() ) )
     return false;
 
   switch ( role )

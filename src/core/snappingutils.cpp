@@ -14,11 +14,11 @@
  *                                                                         *
  ***************************************************************************/
 
-#include "snappingutils.h"
 #include "qgsquickmapsettings.h"
+#include "snappingutils.h"
 
-#include <qgsvectorlayer.h>
 #include <qgsproject.h>
+#include <qgsvectorlayer.h>
 
 SnappingUtils::SnappingUtils( QObject *parent )
   : QgsSnappingUtils( parent, false /*enableSnappingForInvisibleFeature*/ )
@@ -36,7 +36,6 @@ void SnappingUtils::onMapSettingsUpdated()
 
 void SnappingUtils::removeOutdatedLocators()
 {
-
   clearAllLocators();
 }
 
@@ -79,9 +78,30 @@ void SnappingUtils::snap()
   QgsPointLocator::Match match = snapToMap( point );
   mSnappingResult = SnappingResult( match );
 
-  //set point containing ZM if existing
+  //set point containing ZM if we snapped to a point/vertex
   QgsVectorLayer *vlayer = qobject_cast<QgsVectorLayer *>( currentLayer() );
-  if ( vlayer && match.layer()
+
+  bool vertexIndexValid;
+  switch ( match.type() )
+  {
+    case QgsPointLocator::Type::Area:
+    case QgsPointLocator::Type::Centroid:
+    case QgsPointLocator::Type::Edge:
+    case QgsPointLocator::Type::Invalid:
+    case QgsPointLocator::Type::MiddleOfSegment:
+    case QgsPointLocator::Type::All:
+      vertexIndexValid = false;
+      break;
+
+    case QgsPointLocator::Type::Vertex:
+    case QgsPointLocator::Type::LineEndpoint:
+      vertexIndexValid = true;
+      break;
+  }
+
+  if ( vertexIndexValid
+       && vlayer
+       && match.layer()
        && ( QgsWkbTypes::hasZ( vlayer->wkbType() ) || QgsWkbTypes::hasM( vlayer->wkbType() ) ) )
   {
     const QgsFeature ft = match.layer()->getFeature( match.featureId() );
@@ -89,7 +109,8 @@ void SnappingUtils::snap()
     if ( vlayer->crs() != mapSettings()->destinationCrs() )
     {
       QgsCoordinateTransform transform( vlayer->crs(), mapSettings()->destinationCrs(), QgsProject::instance()->transformContext() );
-      try {
+      try
+      {
         snappedPoint.transform( transform );
       }
       catch ( const QgsException &e )
@@ -97,7 +118,7 @@ void SnappingUtils::snap()
         Q_UNUSED( e )
         return;
       }
-      catch(...)
+      catch ( ... )
       {
         // catch any other errors
         return;

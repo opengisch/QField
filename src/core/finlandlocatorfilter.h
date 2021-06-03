@@ -19,7 +19,6 @@
 #define FINLANDLOCATORFILTER_H
 
 #include <QObject>
-
 #include <qgsabstractgeocoderlocatorfilter.h>
 
 
@@ -34,7 +33,6 @@ class FinlandLocatorFilter : public QgsAbstractGeocoderLocatorFilter
     Q_OBJECT
 
   public:
-
     explicit FinlandLocatorFilter( QgsGeocoderInterface *geocoder, LocatorModelSuperBridge *locatorBridge );
     FinlandLocatorFilter *clone() const override;
 

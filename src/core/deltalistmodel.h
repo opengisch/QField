@@ -17,79 +17,82 @@
 #define DELTALISTMODEL_H
 
 #include <QAbstractListModel>
-#include <QUuid>
 #include <QJsonDocument>
+#include <QUuid>
 
 class DeltaListModel : public QAbstractListModel
 {
-  Q_OBJECT
+    Q_OBJECT
 
-public:
-  enum Status
-  {
-    PendingStatus,
-    BusyStatus,
-    AppliedStatus,
-    ConflictStatus,
-    NotAppliedStatus,
-    ErrorStatus,
-  };
+  public:
+    enum Status
+    {
+      PendingStatus,
+      BusyStatus,
+      AppliedStatus,
+      ConflictStatus,
+      NotAppliedStatus,
+      ErrorStatus,
+      IgnoredStatus,
+      UnpermittedStatus,
+    };
 
-  Q_ENUM( Status )
+    Q_ENUM( Status )
 
-  enum ColumnRole
-  {
-    IdRole,
-    DeltafileIdRole,
-    CreatedAtRole,
-    UpdatedAtRole,
-    StatusRole,
-    OutputRole,
-  };
+    enum ColumnRole
+    {
+      IdRole,
+      DeltafileIdRole,
+      CreatedAtRole,
+      UpdatedAtRole,
+      StatusRole,
+      OutputRole,
+    };
 
-  Q_ENUM( ColumnRole )
+    Q_ENUM( ColumnRole )
 
-  struct Delta {
-    QUuid id;
-    QUuid deltafileId;
-    QString createdAt;
-    QString updatedAt;
-    Status status;
-    QString output;
-  };
+    struct Delta
+    {
+      QUuid id;
+      QUuid deltafileId;
+      QString createdAt;
+      QString updatedAt;
+      Status status;
+      QString output;
+    };
 
-  DeltaListModel() = default;
-  explicit DeltaListModel( QJsonDocument deltasStatusList );
+    DeltaListModel() = default;
+    explicit DeltaListModel( QJsonDocument deltasStatusList );
 
-  //! Returns number of rows.
-  int rowCount( const QModelIndex &parent ) const override;
+    //! Returns number of rows.
+    int rowCount( const QModelIndex &parent ) const override;
 
-  //! Returns the data at given \a index with given \a role.
-  QVariant data( const QModelIndex &index, int role ) const override;
+    //! Returns the data at given \a index with given \a role.
+    QVariant data( const QModelIndex &index, int role ) const override;
 
-  //! Returns the model role names.
-  QHash<int, QByteArray> roleNames() const override;
+    //! Returns the model role names.
+    QHash<int, QByteArray> roleNames() const override;
 
-  //! Returns the json document used to initialize the model.
-  QJsonDocument json() const;
+    //! Returns the json document used to initialize the model.
+    QJsonDocument json() const;
 
-  //! Whether the model is valid and can be used.
-  bool isValid() const;
+    //! Whether the model is valid and can be used.
+    bool isValid() const;
 
-  //! Holds the reason why it is invalid. Null string if not invalid.
-  QString errorString() const;
+    //! Holds the reason why it is invalid. Null string if not invalid.
+    QString errorString() const;
 
-  //! Whether all the deltas are in final status.
-  bool allHaveFinalStatus() const;
+    //! Whether all the deltas are in final status.
+    bool allHaveFinalStatus() const;
 
-  //! Returns a combined output for all deltas, separated by a new line.
-  QString combinedOutput() const;
+    //! Returns a combined output for all deltas, separated by a new line.
+    QString combinedOutput() const;
 
-private:
-  QJsonDocument mJson;
-  bool mIsValid = false;
-  QString mErrorString;
-  QList<Delta> mDeltas;
+  private:
+    QJsonDocument mJson;
+    bool mIsValid = false;
+    QString mErrorString;
+    QList<Delta> mDeltas;
 };
 
 #endif // DELTALISTMODEL_H

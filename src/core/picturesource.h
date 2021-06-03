@@ -28,7 +28,7 @@ class PictureSource : public QObject
   public:
     /**
      * Construct a new Picture Source object.
-     * 
+     *
      * @note Subclasses which implement their own file dialog should provide an empty string for \a pictureFilePath and emit \a pictureReceived when appropriate.
      * @param parent Parent object
      * @param prefix The project folder. Base directory path for all relative paths.
@@ -42,16 +42,15 @@ class PictureSource : public QObject
     virtual ~PictureSource();
 
   signals:
-  
+
     /**
-     * Emit this signal when a picture really has been received. 
-     * 
+     * Emit this signal when a picture really has been received.
+     *
      * @note When the constructor received a non-empty \a pictureFilePath, the signal is emitted in the constructor.
      */
     void pictureReceived( const QString &path );
-  
-  private:
 
+  private:
     /**
      * Base directory path for all relative paths.
      */

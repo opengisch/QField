@@ -16,8 +16,8 @@
 
 #include "featurechecklistmodel.h"
 #include "qgsmessagelog.h"
-#include "qgsvaluerelationfieldformatter.h"
 #include "qgspostgresstringutils.h"
+#include "qgsvaluerelationfieldformatter.h"
 
 FeatureCheckListModel::FeatureCheckListModel( QObject *parent )
   : FeatureListModel( parent )
@@ -69,7 +69,7 @@ QVariant FeatureCheckListModel::attributeValue() const
   for ( const QString &s : std::as_const( mCheckedEntries ) )
   {
     // Convert to proper type
-    const QVariant::Type type {fkType()};
+    const QVariant::Type type { fkType() };
     switch ( type )
     {
       case QVariant::Type::Int:
@@ -127,13 +127,8 @@ void FeatureCheckListModel::setAttributeValue( const QVariant &attributeValue )
     {
       QString value = attributeValue.value<QString>();
 
-      if ( ! value.isEmpty() )
+      if ( !value.isEmpty() )
         checkedEntries << value;
-    }
-
-    if ( checkedEntries.isEmpty() )
-    {
-      checkedEntries = mCheckedEntries;
     }
   }
 
@@ -193,14 +188,13 @@ void FeatureCheckListModel::toggleCheckAll( const bool toggleChecked )
   }
   else
   {
-    if ( ! mCheckedEntries.isEmpty() )
+    if ( !mCheckedEntries.isEmpty() )
     {
       beginResetModel();
       mCheckedEntries = QStringList();
       endResetModel();
     }
   }
-
 }
 
 void FeatureCheckListModel::setChecked( const QModelIndex &index )
@@ -230,7 +224,7 @@ QVariant::Type FeatureCheckListModel::fkType() const
   if ( currentLayer() )
   {
     QgsFields fields = currentLayer()->fields();
-    int idx {fields.indexOf( keyField() )};
+    int idx { fields.indexOf( keyField() ) };
     if ( idx >= 0 )
     {
       return fields.at( idx ).type();

@@ -20,11 +20,10 @@
 
 class QgsQuickMapSettings;
 
-#include "qgspoint.h"
-#include "qgsgeometry.h"
-#include "qgscoordinatetransform.h"
-
 #include "qfield_core_export.h"
+#include "qgscoordinatetransform.h"
+#include "qgsgeometry.h"
+#include "qgspoint.h"
 
 /**
  * The VertexModel class is a model to highlight and edit vertices.

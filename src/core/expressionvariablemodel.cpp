@@ -15,12 +15,11 @@
  ***************************************************************************/
 
 #include "expressionvariablemodel.h"
+
+#include <QDebug>
+#include <QSettings>
 #include <qgsexpressioncontext.h>
 #include <qgsexpressioncontextutils.h>
-
-
-#include <QSettings>
-#include <QDebug>
 
 ExpressionVariableModel::ExpressionVariableModel( QObject *parent )
   : QStandardItemModel( parent )
@@ -113,7 +112,7 @@ void ExpressionVariableModel::setName( int row, const QString &name )
 {
   QStandardItem *rowItem = item( row );
 
-  if ( ! rowItem )
+  if ( !rowItem )
     return;
 
   if ( rowItem->data( VariableName ).toString() == name )
@@ -126,7 +125,7 @@ void ExpressionVariableModel::setValue( int row, const QString &value )
 {
   QStandardItem *rowItem = item( row );
 
-  if ( ! rowItem )
+  if ( !rowItem )
     return;
 
   if ( rowItem->data( VariableValue ).toString() == value )

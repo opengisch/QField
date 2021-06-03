@@ -16,8 +16,9 @@
 #ifndef TRACKER_H
 #define TRACKER_H
 
-#include <QTimer>
 #include "qgsvectorlayer.h"
+
+#include <QTimer>
 
 class RubberbandModel;
 
@@ -60,7 +61,7 @@ class Tracker : public QObject
     //! the created feature
     QgsFeature feature() const { return mFeature; }
     //! the created feature
-    void setFeature( const QgsFeature& feature ) { mFeature = feature; }
+    void setFeature( const QgsFeature &feature ) { mFeature = feature; }
     //! if the layer (and the rubberband ) is visible
     bool visible() const { return mVisible; }
     //! if the layer (and the rubberband ) is visible
@@ -94,8 +95,6 @@ class Tracker : public QObject
     QDateTime mStartPositionTimestamp;
 
     void trackPosition();
-
 };
 
 #endif // TRACKER_H
-

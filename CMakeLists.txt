@@ -57,15 +57,18 @@ set (CMAKE_LIBRARY_OUTPUT_DIRECTORY ${QFIELD_OUTPUT_DIRECTORY}/${QFIELD_LIB_SUBD
 
 install(DIRECTORY ${CMAKE_SOURCE_DIR}/resources/ DESTINATION ${CMAKE_INSTALL_PREFIX}/share/qfield)
 
+set (WITH_SPIX FALSE CACHE STRING "Compile with Spix for testing")
+
+if (WITH_SPIX)
+  find_package(Spix)
+endif ()
+
 if (ANDROID)
   add_definitions(-DQGIS_INSTALL_DIR="") # TODO: do we need osgeo4a/[lib]/files here? see qgis.pri
   set (ANDROID_TARGET_PLATFORM CACHE INT "The target android platform sdk version")
   set (ANDROID_PACKAGE_SOURCE_DIR ${CMAKE_SOURCE_DIR}/android)
   set (OSGEO4A_STAGE_DIR NONE CACHE DIRECTORY "OSGEO4A stage path (base path without architecture)")
   set (OSGEO4A_LIB_DIR ${OSGEO4A_STAGE_DIR}/${ANDROID_ABI}/lib)
-  file(GLOB ANDROID_EXTRA_LIBS
-    ${OSGEO4A_LIB_DIR}/*provider*.so
-  )
   list(APPEND ANDROID_EXTRA_LIBS
     ${OSGEO4A_LIB_DIR}/libssl_1_1.so
     ${OSGEO4A_LIB_DIR}/libcrypto_1_1.so
@@ -79,12 +82,15 @@ if (ANDROID)
     ${OSGEO4A_LIB_DIR}/libiconv.so
     ${OSGEO4A_LIB_DIR}/libopenjp2.so
     ${OSGEO4A_LIB_DIR}/libfreexl.so
+    ${OSGEO4A_LIB_DIR}/libtiff.so
     ${OSGEO4A_LIB_DIR}/libpng16.so
     ${OSGEO4A_LIB_DIR}/libgdal.so
     ${OSGEO4A_LIB_DIR}/libproj.so
     ${OSGEO4A_LIB_DIR}/libspatialindex.so
     ${OSGEO4A_LIB_DIR}/libpq.so
     ${OSGEO4A_LIB_DIR}/libspatialite.so
+    ${OSGEO4A_LIB_DIR}/libgsl.so
+    ${OSGEO4A_LIB_DIR}/libgslcblas.so
     ${OSGEO4A_LIB_DIR}/libqca-qt5_${ANDROID_ABI}.so
     ${OSGEO4A_LIB_DIR}/libqgis_core_${ANDROID_ABI}.so
     ${OSGEO4A_LIB_DIR}/libqgis_analysis_${ANDROID_ABI}.so
@@ -102,11 +108,37 @@ if (ANDROID)
 
   include(CreateZip)
 
-  set(SHARE_PATH "${CMAKE_CURRENT_BINARY_DIR}/android-build/assets/share")
-  file(COPY "${OSGEO4A_STAGE_DIR}/${ANDROID_ABI}/share/proj/" DESTINATION "${SHARE_PATH}/proj/")
+  file(GLOB PLUGINS_QGIS_PROVIDERS
+    ${OSGEO4A_LIB_DIR}/*provider*.so
+  )
+  file(GLOB PLUGINS_QGIS_AUTHMETHODS
+    ${OSGEO4A_LIB_DIR}/*authmethod*.so
+  )
 
+  set(SHARE_PATH "${CMAKE_CURRENT_BINARY_DIR}/android-build/assets/share")
+  file(COPY ${PLUGINS_QGIS_PROVIDERS} DESTINATION "${SHARE_PATH}/plugins/")
+  file(COPY ${PLUGINS_QGIS_AUTHMETHODS} DESTINATION "${SHARE_PATH}/plugins/")
+  file(COPY "${OSGEO4A_LIB_DIR}/qca-qt5/crypto/" DESTINATION "${SHARE_PATH}/plugins/crypto/")
+  file(COPY "${OSGEO4A_STAGE_DIR}/${ANDROID_ABI}/share/proj/" DESTINATION "${SHARE_PATH}/proj/")
   file(COPY "${OSGEO4A_STAGE_DIR}/${ANDROID_ABI}/files/share/svg/" DESTINATION "${SHARE_PATH}/qgis/svg/")
   file(COPY "${OSGEO4A_STAGE_DIR}/${ANDROID_ABI}/files/share/resources/" DESTINATION "${SHARE_PATH}/qgis/resources/")
+
+  # Strip libs to save space
+  file(GLOB_RECURSE PLUGINS_LIBS
+    ${SHARE_PATH}/plugins/*.so
+  )
+  foreach(PLUGINS_LIB IN LISTS PLUGINS_LIBS)
+    if(ANDROID_ABI STREQUAL "x86")
+      EXECUTE_PROCESS(COMMAND "${ANDROID_NDK}/toolchains/llvm/prebuilt/linux-x86_64/bin/i686-linux-android-strip" "${PLUGINS_LIB}")
+    elseif(ANDROID_ABI STREQUAL "x86_64")
+      EXECUTE_PROCESS(COMMAND "${ANDROID_NDK}/toolchains/llvm/prebuilt/linux-x86_64/bin/x86_64-linux-android-strip" "${PLUGINS_LIB}")
+    elseif(ANDROID_ABI STREQUAL "armeabi-v7a")
+      EXECUTE_PROCESS(COMMAND "${ANDROID_NDK}/toolchains/llvm/prebuilt/linux-x86_64/bin/arm-linux-android-strip" "${PLUGINS_LIB}")
+    elseif(ANDROID_ABI STREQUAL "arm64-v8a")
+      EXECUTE_PROCESS(COMMAND "${ANDROID_NDK}/toolchains/llvm/prebuilt/linux-x86_64/bin/aarch64-linux-android-strip" "${PLUGINS_LIB}")
+    endif()
+  endforeach()
+
   # Remove world map to keep apk size a bit smaller
   file(REMOVE "${SHARE_PATH}/qgis/resources/data/world_map.gpkg")
   file(COPY resources/ DESTINATION "${SHARE_PATH}/qfield/")
@@ -123,6 +155,8 @@ if(NOT ${CMAKE_SYSTEM_NAME} STREQUAL "iOS")
   find_package(Proj)
   find_package(GDAL)
 endif()
+find_package(QCA)
+find_package(QtKeychain)
 
 if (${CMAKE_SYSTEM_NAME} STREQUAL "iOS")
   add_definitions(-DQT_NO_PRINTER)
@@ -141,6 +175,11 @@ if (${CMAKE_SYSTEM_NAME} STREQUAL "iOS")
 endif()
 
 set (ENABLE_TESTS TRUE CACHE BOOL "Build unit tests?")
+if(MSVC)
+  find_package(Qt5 COMPONENTS Charts REQUIRED) # vcpkg doesn't include QtCharts.dll as dep of the qml module otherwise
+  add_definitions(-D_USE_MATH_DEFINES)
+  add_definitions(-DNOMINMAX)
+endif()
 
 add_subdirectory(3rdparty/tessellate)
 add_subdirectory(src/core)
@@ -148,4 +187,40 @@ add_subdirectory(src/app)
 if (ENABLE_TESTS)
   enable_testing()
   add_subdirectory(test)
+endif()
+
+if(MSVC)
+  file(GLOB PROVIDER_LIBS
+    "${QGIS_PLUGIN_DIR}/*provider.dll"
+  )
+  add_custom_target(deploy)
+  add_custom_command(TARGET deploy
+    POST_BUILD
+    COMMAND ${CMAKE_COMMAND} -E make_directory "${CMAKE_BINARY_DIR}/output/bin/qgis/plugins"
+  )
+  foreach(LIB ${PROVIDER_LIBS})
+    add_custom_command(TARGET deploy
+                      POST_BUILD
+                      COMMAND ${CMAKE_COMMAND} -E copy_if_different "${LIB}" "${CMAKE_BINARY_DIR}/output/bin/qgis/plugins"
+    )
+  endforeach()
+  add_custom_command(TARGET deploy
+    POST_BUILD
+    COMMAND ${CMAKE_COMMAND} -E copy_directory "${QGIS_PLUGIN_DIR}/../resources" "${CMAKE_BINARY_DIR}/output/bin/qgis/resources"
+  )
+  add_custom_command(TARGET deploy
+    POST_BUILD
+    COMMAND ${CMAKE_COMMAND} -E copy_directory "${QGIS_PLUGIN_DIR}/../../../share/proj4" "${CMAKE_BINARY_DIR}/output/bin/proj"
+  )
+  add_custom_command(TARGET deploy
+    POST_BUILD
+    COMMAND ${CMAKE_COMMAND} -E copy_directory "${QGIS_PLUGIN_DIR}/../../../share/gdal" "${CMAKE_BINARY_DIR}/output/bin/gdal"
+  )
+
+  add_custom_command(TARGET deploy
+    POST_BUILD
+    COMMAND ${CMAKE_COMMAND} -E copy_directory "${QGIS_PLUGIN_DIR}/../../../plugins/mediaservice" "${CMAKE_BINARY_DIR}/output/bin/plugins/mediaservice"
+  )
+
+  add_dependencies(qfield deploy)
 endif()

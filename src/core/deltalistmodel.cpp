@@ -14,14 +14,15 @@
  ***************************************************************************/
 
 #include "deltalistmodel.h"
-#include <QJsonObject>
+
 #include <QJsonArray>
+#include <QJsonObject>
 
 
 DeltaListModel::DeltaListModel( QJsonDocument deltasStatusList )
   : mJson( deltasStatusList )
 {
-  if ( ! mJson.isArray() )
+  if ( !mJson.isArray() )
   {
     mIsValid = false;
     mErrorString = tr( "Expected the json document to be an array of delta status" );
@@ -33,7 +34,7 @@ DeltaListModel::DeltaListModel( QJsonDocument deltasStatusList )
 
   for ( const QJsonValue &deltaJson : deltas )
   {
-    if ( ! deltaJson.isObject() )
+    if ( !deltaJson.isObject() )
     {
       mIsValid = false;
       mErrorString = tr( "Expected all array elements to be an object, but the element at #%1 is not" ).arg( mDeltas.size() );
@@ -41,7 +42,7 @@ DeltaListModel::DeltaListModel( QJsonDocument deltasStatusList )
     }
 
     const QJsonObject deltaObject = deltaJson.toObject();
-    const QStringList requiredKeys({"id", "deltafile_id", "created_at", "updated_at", "status"});
+    const QStringList requiredKeys( { "id", "deltafile_id", "created_at", "updated_at", "status" } );
     for ( const QString &requiredKey : requiredKeys )
     {
       if ( deltaObject.value( requiredKey ).isNull() || deltaObject.value( requiredKey ).isUndefined() )
@@ -68,6 +69,10 @@ DeltaListModel::DeltaListModel( QJsonDocument deltasStatusList )
       delta.status = BusyStatus;
     else if ( statusString == QStringLiteral( "STATUS_ERROR" ) )
       delta.status = ErrorStatus;
+    else if ( statusString == QStringLiteral( "STATUS_IGNORED" ) )
+      delta.status = IgnoredStatus;
+    else if ( statusString == QStringLiteral( "STATUS_UNPERMITTED" ) )
+      delta.status = UnpermittedStatus;
     else
     {
       mIsValid = false;
@@ -156,6 +161,8 @@ bool DeltaListModel::allHaveFinalStatus() const
       case NotAppliedStatus:
       case ConflictStatus:
       case ErrorStatus:
+      case UnpermittedStatus:
+      case IgnoredStatus:
         isFinalForAll = true;
         break;
       case PendingStatus:
@@ -164,7 +171,7 @@ bool DeltaListModel::allHaveFinalStatus() const
         break;
     }
 
-    if ( ! isFinalForAll )
+    if ( !isFinalForAll )
       break;
   }
 

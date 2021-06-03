@@ -65,6 +65,7 @@ IncludeCategories:
     Priority:        1
 IncludeIsMainRegex: false
 IncludeBlocks: Regroup
+IndentAccessModifiers: true
 IndentCaseLabels: true
 IndentWidth: 2
 IndentWrappedFunctionNames: true

@@ -23,7 +23,6 @@
 UrlUtils::UrlUtils( QObject *parent )
   : QObject( parent )
 {
-
 }
 
 

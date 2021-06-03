@@ -16,27 +16,26 @@
  *                                                                         *
  ***************************************************************************/
 
-#include "qgsmessagelog.h"
-
 #include "platformutilities.h"
 #include "projectsource.h"
 #include "qgismobileapp.h"
+#include "qgsmessagelog.h"
 
 #include <QDebug>
-#include <QDir>
 #include <QDesktopServices>
-#include <QUrl>
+#include <QDir>
 #include <QFileDialog>
 #include <QTimer>
+#include <QUrl>
 
-#if defined (Q_OS_ANDROID)
+#if defined( Q_OS_ANDROID )
 #include "androidplatformutilities.h"
-Q_GLOBAL_STATIC(AndroidPlatformUtilities, sPlatformUtils)
-#elif defined (Q_OS_IOS)
+Q_GLOBAL_STATIC( AndroidPlatformUtilities, sPlatformUtils )
+#elif defined( Q_OS_IOS )
 #include "ios/iosplatformutilities.h"
-Q_GLOBAL_STATIC(IosPlatformUtilities, sPlatformUtils)
+Q_GLOBAL_STATIC( IosPlatformUtilities, sPlatformUtils )
 #else
-Q_GLOBAL_STATIC(PlatformUtilities, sPlatformUtils)
+Q_GLOBAL_STATIC( PlatformUtilities, sPlatformUtils )
 #endif
 
 PlatformUtilities::~PlatformUtilities()
@@ -59,7 +58,7 @@ QString PlatformUtilities::qgsProject() const
 
 QString PlatformUtilities::qfieldDataDir() const
 {
-  return QString();
+  return QStandardPaths::standardLocations( QStandardPaths::DocumentsLocation ).first() + QStringLiteral( "/QField/" );
 }
 
 QStringList PlatformUtilities::availableGrids() const
@@ -115,10 +114,9 @@ PictureSource *PlatformUtilities::getGalleryPicture( const QString &prefix, cons
     else
     {
       QString destinationFile = prefix + pictureFilePath;
-      QFileInfo destinationInfo ( destinationFile );
+      QFileInfo destinationInfo( destinationFile );
       QDir prefixDir( prefix );
-      if ( prefixDir.mkpath( destinationInfo.absolutePath() ) &&
-           QFile::copy( fileName, destinationFile ) )
+      if ( prefixDir.mkpath( destinationInfo.absolutePath() ) && QFile::copy( fileName, destinationFile ) )
       {
         return new PictureSource( nullptr, prefix, destinationFile );
       }
@@ -144,20 +142,11 @@ QString PlatformUtilities::fieldType( const QgsField &field ) const
 ProjectSource *PlatformUtilities::openProject()
 {
   QSettings settings;
-  ProjectSource *source = new ProjectSource( );
+  ProjectSource *source = new ProjectSource();
   QString fileName { QFileDialog::getOpenFileName( nullptr,
-                                               tr( "Open File" ),
-                                               settings.value( QStringLiteral( "QField/lastOpenDir" ), QString() ).toString(),
-                                               QStringLiteral( "%1 (*.%2);;%3 (*.%4);;%5 (*.%6);;%7 (*.%8)" ).arg( tr( "All Supported Files" ),
-                                                                                                                   ( SUPPORTED_PROJECT_EXTENSIONS +
-                                                                                                                     SUPPORTED_VECTOR_EXTENSIONS +
-                                                                                                                     SUPPORTED_RASTER_EXTENSIONS ).join( QStringLiteral( " *." ) ),
-                                                                                                                   tr( "QGIS Project Files" ),
-                                                                                                                   SUPPORTED_PROJECT_EXTENSIONS.join( QStringLiteral( " *." ) ),
-                                                                                                                   tr( "Vector Datasets" ),
-                                                                                                                   SUPPORTED_VECTOR_EXTENSIONS.join( QStringLiteral( " *." ) ),
-                                                                                                                   tr( "Raster Datasets" ),
-                                                                                                                   SUPPORTED_RASTER_EXTENSIONS.join( QStringLiteral( " *." ) ) ) ) };
+                     tr( "Open File" ),
+                     settings.value( QStringLiteral( "QField/lastOpenDir" ), QString() ).toString(),
+                     QStringLiteral( "%1 (*.%2);;%3 (*.%4);;%5 (*.%6);;%7 (*.%8)" ).arg( tr( "All Supported Files" ), ( SUPPORTED_PROJECT_EXTENSIONS + SUPPORTED_VECTOR_EXTENSIONS + SUPPORTED_RASTER_EXTENSIONS ).join( QStringLiteral( " *." ) ), tr( "QGIS Project Files" ), SUPPORTED_PROJECT_EXTENSIONS.join( QStringLiteral( " *." ) ), tr( "Vector Datasets" ), SUPPORTED_VECTOR_EXTENSIONS.join( QStringLiteral( " *." ) ), tr( "Raster Datasets" ), SUPPORTED_RASTER_EXTENSIONS.join( QStringLiteral( " *." ) ) ) ) };
   if ( !fileName.isEmpty() )
   {
     settings.setValue( QStringLiteral( "/QField/lastOpenDir" ), QFileInfo( fileName ).absolutePath() );

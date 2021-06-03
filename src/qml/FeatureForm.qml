@@ -30,8 +30,8 @@ Page {
   //! if embedded form called by RelationEditor or RelationReferenceWidget
   property bool embedded: false
   property int embeddedLevel: 0
-  //dontSave means data would be neither saved nor cleared (so feature data is handled elsewhere like e.g. in the tracking)
-  property bool dontSave: false
+  //setupOnly means data would be neither saved nor cleared (feature creation is handled elsewhere like e.g. in the tracking)
+  property bool setupOnly: false
   property bool featureCreated: false
 
   function reset() {
@@ -61,6 +61,11 @@ Page {
      * be restored.
      */
     signal reset
+
+    /**
+     * When set to true, changed value signals are ignored to avoid double feature creation / save when in fast editing mode
+     */
+    property bool ignoreChanges: false
   }
 
   Item {
@@ -214,7 +219,7 @@ Page {
                 target: master
 
                 function onReset() {
-                  content.contentY = 0
+                    content.positionViewAtBeginning();
                 }
               }
 
@@ -468,7 +473,7 @@ Page {
                       AttributeAllowEdit = true;
                     }
 
-                    if ( qfieldSettings.autoSave && !dontSave ) {
+                    if ( qfieldSettings.autoSave && !setupOnly && !master.ignoreChanges ) {
                       // indirect action, no need to check for success and display a toast, the log is enough
                       save()
                     }
@@ -537,21 +542,21 @@ Page {
 
     parent.focus = true
 
-    if( dontSave ) {
+    if( setupOnly ) {
       temporaryStored()
       return
     }
 
     if ( !save() ) {
       displayToast( qsTr( 'Unable to save changes'), 'warning' )
-      state = 'Edit'
+      featureCreated = false
       return
     }
 
     state = 'Edit'
+    featureCreated = false
 
     confirmed()
-    featureCreated = false
   }
 
   function save() {
@@ -560,9 +565,10 @@ Page {
     }
 
     aboutToSave()
-    
-    var isSuccess = false;
 
+    master.ignoreChanges = true;
+
+    var isSuccess = false;
     if( form.state === 'Add' && !featureCreated ) {
       isSuccess = model.create()
       featureCreated = isSuccess
@@ -570,6 +576,7 @@ Page {
       isSuccess = model.save()
     }
 
+    master.ignoreChanges = false;
     return isSuccess
   }
 
@@ -618,7 +625,7 @@ Page {
 
         Layout.alignment: Qt.AlignTop | Qt.AlignLeft
 
-        visible: ( form.state === 'Add' || form.state === 'Edit' ) && ( !qfieldSettings.autoSave || dontSave )
+        visible: ( form.state === 'Add' || form.state === 'Edit' )
         width: 48
         height: 48
         clip: true
@@ -656,6 +663,8 @@ Page {
         }
         font: Theme.strongFont
         color: "#FFFFFF"
+        fontSizeMode: Text.Fit
+        wrapMode: Text.Wrap
         elide: Label.ElideRight
         horizontalAlignment: Qt.AlignHCenter
         verticalAlignment: Qt.AlignVCenter
@@ -671,7 +680,7 @@ Page {
         height: 48
         clip: true
         bgcolor: form.state === 'Add' ? "#900000" : Theme.darkGray
-        visible: !qfieldSettings.autoSave || dontSave
+        visible: !setupOnly
 
         iconSource: form.state === 'Add' ? Theme.getThemeIcon( 'ic_delete_forever_white_24dp' ) : Theme.getThemeIcon( 'ic_close_white_24dp' )
 

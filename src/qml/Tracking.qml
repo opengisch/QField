@@ -73,6 +73,7 @@ Item{
           rubberbandModel: rubberbandModel
           vectorLayer: mainModel.vectorLayer
         }
+        cloudUserInformation: cloudConnection.userInformation
     }
 
 
@@ -112,7 +113,7 @@ Item{
             model: embeddedAttributeFormModel
 
             focus: true
-            dontSave: true
+            setupOnly: true
             embedded: true
             toolbarVisible: true
 

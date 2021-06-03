@@ -15,14 +15,13 @@
  *                                                                         *
  ***************************************************************************/
 
-#include <QtTest>
-
 #include "qfield_testbase.h"
-
 #include "utils/stringutils.h"
 
+#include <QtTest>
 
-class TestStringUtils: public QObject
+
+class TestStringUtils : public QObject
 {
     Q_OBJECT
   private slots:
@@ -52,7 +51,6 @@ class TestStringUtils: public QObject
       QCOMPARE( StringUtils::fuzzyMatch( "Quercus rubra", "q   r" ), true );
       QCOMPARE( StringUtils::fuzzyMatch( "Quercus rubra", "q   ubra" ), false );
     }
-
 };
 
 QFIELDTEST_MAIN( TestStringUtils )

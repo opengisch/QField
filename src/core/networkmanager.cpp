@@ -15,7 +15,6 @@
 
 #include "networkmanager.h"
 #include "networkreply.h"
-
 #include "qgsnetworkaccessmanager.h"
 
 

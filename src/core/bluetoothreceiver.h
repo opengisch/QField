@@ -16,11 +16,12 @@
 #ifndef BLUETOOTHRECEIVER_H
 #define BLUETOOTHRECEIVER_H
 
+#include "gnsspositioninformation.h"
+#include "qgsnmeaconnection.h"
+
 #include <QObject>
 #include <QtBluetooth/QBluetoothLocalDevice>
 #include <QtBluetooth/QBluetoothSocket>
-#include "qgsnmeaconnection.h"
-#include "gnsspositioninformation.h"
 
 /**
  * The bluetoothreceiver connects to a device and feeds the QgsNmeaConnection over QBluetoothSocket.
@@ -42,7 +43,7 @@ class BluetoothReceiver : public QObject
     Q_INVOKABLE void connectDevice( const QString &address );
 
     GnssPositionInformation lastGnssPositionInformation() const { return mLastGnssPositionInformation; }
-    QBluetoothSocket::SocketState socketState() const { return mSocketState;}
+    QBluetoothSocket::SocketState socketState() const { return mSocketState; }
     QString socketStateString() const { return mSocketStateString; }
 
     /**
@@ -73,7 +74,7 @@ class BluetoothReceiver : public QObject
      * since there are troubles by connect to a paired device. Maybe it can be resolved in future
      * but meanwhile we keep them as the developer setup.
      */
-#ifndef Q_OS_ANDROID
+#ifdef Q_OS_LINUX
     void pairingFinished( const QBluetoothAddress &address, QBluetoothLocalDevice::Pairing status );
     void confirmPairing( const QBluetoothAddress &address, QString pin );
 #endif
@@ -81,7 +82,7 @@ class BluetoothReceiver : public QObject
     void setSocketState( const QBluetoothSocket::SocketState socketState );
 
   private:
-#ifndef Q_OS_ANDROID
+#ifdef Q_OS_LINUX
     void connectService( const QBluetoothAddress &address );
     void repairDevice( const QBluetoothAddress &address );
 #endif
@@ -102,7 +103,6 @@ class BluetoothReceiver : public QObject
     QString mAddressToConnect;
 
     bool mEllipsoidalElevation = true;
-
 };
 
 #endif // BLUETOOTHRECEIVER_H

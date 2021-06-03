@@ -18,21 +18,15 @@
 #include <QTimer>
 
 
-NetworkReply::NetworkReply( const QNetworkAccessManager::Operation operation, const QNetworkRequest &request, const QByteArray &payloadByteArray = QByteArray() ):
-  mOperation( operation ),
-  mIsMultiPartPayload( false ),
-  mRequest( request ),
-  mPayloadByteArray( payloadByteArray )
+NetworkReply::NetworkReply( const QNetworkAccessManager::Operation operation, const QNetworkRequest &request, const QByteArray &payloadByteArray = QByteArray() )
+  : mOperation( operation ), mIsMultiPartPayload( false ), mRequest( request ), mPayloadByteArray( payloadByteArray )
 {
   initiateRequest();
 };
 
 
-NetworkReply::NetworkReply( const QNetworkAccessManager::Operation operation, const QNetworkRequest &request, QHttpMultiPart *payloadMultiPart ):
-  mOperation( operation ),
-  mIsMultiPartPayload( true ),
-  mRequest( request ),
-  mPayloadMultiPart( payloadMultiPart )
+NetworkReply::NetworkReply( const QNetworkAccessManager::Operation operation, const QNetworkRequest &request, QHttpMultiPart *payloadMultiPart )
+  : mOperation( operation ), mIsMultiPartPayload( true ), mRequest( request ), mPayloadMultiPart( payloadMultiPart )
 {
   initiateRequest();
 };
@@ -167,7 +161,7 @@ void NetworkReply::onFinished()
       break;
   }
 
-  if ( ! canRetry || mRetriesLeft == 0 )
+  if ( !canRetry || mRetriesLeft == 0 )
   {
     mIsFinished = true;
 
@@ -180,7 +174,7 @@ void NetworkReply::onFinished()
   emit temporaryErrorOccurred( error );
 
   // wait random time before the retry is sent
-//  QTimer::singleShot( mRNG.bounded( sMaxTimeoutBetweenRetriesMs ), this, [ = ]()
+  //  QTimer::singleShot( mRNG.bounded( sMaxTimeoutBetweenRetriesMs ), this, [ = ]()
   QTimer::singleShot( 100, this, [ = ]()
   {
     emit retry();

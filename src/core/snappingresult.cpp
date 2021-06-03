@@ -114,4 +114,3 @@ void SnappingResult::edgePoints( QgsPoint &pt1, QgsPoint &pt2 ) const
   pt1 = mEdgePoints[0];
   pt2 = mEdgePoints[1];
 }
-

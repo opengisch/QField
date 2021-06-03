@@ -29,12 +29,12 @@ PictureSource::PictureSource( QObject *parent, const QString &prefix, const QStr
   if ( mPictureFilePath.startsWith( mPrefix ) )
     mPictureFilePath = mPictureFilePath.remove( mPrefix );
 
-  QTimer::singleShot(0, this, [ = ] () {
+  QTimer::singleShot( 0, this, [ = ]()
+  {
     emit pictureReceived( mPictureFilePath );
-  });
+  } );
 }
 
 PictureSource::~PictureSource()
 {
-
 }

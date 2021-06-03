@@ -29,7 +29,6 @@ class IosPlatformUtilities : public PlatformUtilities
     bool checkPositioningPermissions() const override;
     bool checkCameraPermissions() const override;
     virtual PictureSource *getCameraPicture( const QString &prefix, const QString &pictureFilePath, const QString &suffix ) override;
-
 };
 
 #endif

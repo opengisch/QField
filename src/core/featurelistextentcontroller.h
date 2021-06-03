@@ -16,11 +16,11 @@
 #ifndef FEATURELISTEXTENTCONTROLLER_H
 #define FEATURELISTEXTENTCONTROLLER_H
 
-#include <QObject>
-
-#include "multifeaturelistmodel.h"
 #include "featurelistmodelselection.h"
+#include "multifeaturelistmodel.h"
 #include "qgsquickmapsettings.h"
+
+#include <QObject>
 
 class FeatureListExtentController : public QObject
 {

@@ -13,35 +13,45 @@
  *   (at your option) any later version.                                   *
  *                                                                         *
  ***************************************************************************/
- 
+
 #ifndef LAYERUTILS_H
 #define LAYERUTILS_H
 
 #include <QObject>
+
+#include <qgsvectorlayer.h>
 
 class QgsVectorLayer;
 class QgsSymbol;
 
 class LayerUtils : public QObject
 {
-  Q_OBJECT
+    Q_OBJECT
 
-public:
+  public:
+    explicit LayerUtils( QObject *parent = nullptr );
 
-  explicit LayerUtils(QObject *parent = nullptr);
+    /**
+    * Returns the default symbol for a given layer.
+    * \param layer the vector layer used to create the default symbol
+    */
+    static QgsSymbol *defaultSymbol( QgsVectorLayer *layer );
 
-  /**
-   * Returns the default symbol for a given layer.
-   * \param layer the vector layer used to create the default symbol
-   */
-  static QgsSymbol *defaultSymbol( QgsVectorLayer *layer );
+    /**
+    * Returns TRUE if the vector layer is used as an atlas coverage layer in
+    * any of the print layouts of the currently opened project.
+    * \param layer the vector layer to check against print layouts
+    */
+    static Q_INVOKABLE bool isAtlasCoverageLayer( QgsVectorLayer *layer );
 
-  /**
-   * Returns TRUE if the vector layer is used as an atlas coverage layer in
-   * any of the print layouts of the currently opened project.
-   * \param layer the vector layer to check against print layouts
-   */
-  static Q_INVOKABLE bool isAtlasCoverageLayer( QgsVectorLayer *layer );
+    /**
+     * Selects features in a layer
+     * This method is required since QML cannot perform the conversion of a feature ID to a QgsFeatureId
+     * \param layer the vector layer
+     * \param fids the list of feature IDs
+     * \param behavior the selection behavior
+     */
+    static Q_INVOKABLE void selectFeaturesInLayer( QgsVectorLayer *layer, const QList<int> &fids, QgsVectorLayer::SelectBehavior behavior = QgsVectorLayer::SetSelection );
 };
 
 #endif // LAYERUTILS_H

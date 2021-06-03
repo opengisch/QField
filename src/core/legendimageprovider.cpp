@@ -15,11 +15,11 @@
  ***************************************************************************/
 #include "legendimageprovider.h"
 
-#include <qgsproject.h>
 #include <qgslayertree.h>
 #include <qgslayertreelayer.h>
 #include <qgslayertreemodel.h>
 #include <qgslayertreemodellegendnode.h>
+#include <qgsproject.h>
 
 LegendImageProvider::LegendImageProvider( QgsLayerTreeModel *layerTreeModel )
   : QQuickImageProvider( Pixmap )
@@ -45,9 +45,9 @@ QPixmap LegendImageProvider::requestPixmap( const QString &id, QSize *size, cons
     QModelIndex layerIndex = mLayerTreeModel->node2index( layerNode );
     QModelIndex index = mLayerTreeModel->index( 0, 0, layerIndex );
     QStringList legendParts;
-    while( index.isValid() )
+    while ( index.isValid() )
     {
-      legendParts << mLayerTreeModel->data( index ).toString();
+      legendParts << QString::number( index.internalId() );
       if ( idParts.value( 2 ) == legendParts.join( QStringLiteral( "~__~" ) ) )
       {
         QPixmap pixmap = mLayerTreeModel->data( index, Qt::DecorationRole ).value<QPixmap>();
@@ -98,9 +98,9 @@ QPixmap LegendImageProvider::requestPixmap( const QString &id, QSize *size, cons
         QPixmap pixmap = legendNode->data( Qt::DecorationRole ).value<QPixmap>();
         if ( pixmap.isNull() )
         {
-         QIcon icon = legendNode->data( Qt::DecorationRole ).value<QIcon>();
-         if ( !icon.isNull() )
-           pixmap = icon.pixmap( iconSize, iconSize );
+          QIcon icon = legendNode->data( Qt::DecorationRole ).value<QIcon>();
+          if ( !icon.isNull() )
+            pixmap = icon.pixmap( iconSize, iconSize );
         }
         if ( pixmap.isNull() )
         {

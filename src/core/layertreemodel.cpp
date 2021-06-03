@@ -15,10 +15,10 @@
  ***************************************************************************/
 #include "layertreemodel.h"
 
-#include <qgslayertreemodel.h>
-#include <qgslayertreenode.h>
 #include <qgslayertree.h>
+#include <qgslayertreemodel.h>
 #include <qgslayertreemodellegendnode.h>
+#include <qgslayertreenode.h>
 #include <qgsmapthemecollection.h>
 #include <qgsrasterlayer.h>
 #include <qgsvectorlayer.h>
@@ -136,6 +136,24 @@ void FlatLayerTreeModelBase::insertInMap( const QModelIndex &parent, int first, 
   if ( mFrozen )
     return;
 
+  bool resetNeeded = false;
+  for ( int i = 0; first + i <= last; i++ )
+  {
+    QModelIndex index = mLayerTreeModel->index( first + i, 0, parent );
+    if ( mLayerTreeModel->hasChildren( index ) )
+    {
+      resetNeeded = true;
+      break;
+    }
+  }
+
+  if ( resetNeeded )
+  {
+    // Added rows with pre-existing children can't be handled, model reset needed
+    buildMap( mLayerTreeModel );
+    return;
+  }
+
   int insertedAt = -1;
   if ( first == 0 )
   {
@@ -157,7 +175,7 @@ void FlatLayerTreeModelBase::insertInMap( const QModelIndex &parent, int first, 
     }
   }
 
-  if ( insertedAt >  -1 )
+  if ( insertedAt > -1 )
   {
     beginInsertRows( QModelIndex(), insertedAt, insertedAt + ( last - first ) );
 
@@ -236,7 +254,7 @@ void FlatLayerTreeModelBase::removeFromMap( const QModelIndex &parent, int first
     const int treeLevelRemovedAt = mTreeLevelMap[removedAt];
     while ( modifiedUntil < mTreeLevelMap.size() && mTreeLevelMap[modifiedUntil] >= treeLevelRemovedAt )
     {
-      if ( mTreeLevelMap[modifiedUntil]  > treeLevelRemovedAt )
+      if ( mTreeLevelMap[modifiedUntil] > treeLevelRemovedAt )
       {
         resetNeeded = true;
         break;
@@ -262,7 +280,7 @@ void FlatLayerTreeModelBase::removeFromMap( const QModelIndex &parent, int first
       int row = mRowMap[index];
       int treeLevel = mTreeLevelMap[row];
 
-      if ( row >= removedAt  && row <= removedAt + ( last - first ) )
+      if ( row >= removedAt && row <= removedAt + ( last - first ) )
       {
         mRowMap.remove( index );
         continue;
@@ -450,7 +468,7 @@ QVariant FlatLayerTreeModelBase::data( const QModelIndex &index, int role ) cons
         QStringList legendParts;
         while ( sym )
         {
-          legendParts << sym->data( Qt::DisplayRole ).toString();
+          legendParts << QString::number( sourceIndex.internalId() );
           sourceIndex = sourceIndex.parent();
           sym = mLayerTreeModel->index2legendNode( sourceIndex );
         }
@@ -470,7 +488,7 @@ QVariant FlatLayerTreeModelBase::data( const QModelIndex &index, int role ) cons
             if ( vectorLayer && vectorLayer->geometryType() != QgsWkbTypes::NullGeometry )
             {
               id += QStringLiteral( "layer" );
-              id += '/' +  nodeLayer->layerId();
+              id += '/' + nodeLayer->layerId();
             }
           }
         }
@@ -702,7 +720,7 @@ QVariant FlatLayerTreeModelBase::data( const QModelIndex &index, int role ) cons
       if ( layer->renderer() && layer->renderer()->legendSymbolItems().size() > 0 )
       {
         const long count = layer->featureCount( layer->renderer()->legendSymbolItems().at( 0 ).ruleKey() );
-        if (  count == -1 )
+        if ( count == -1 )
         {
           connect( layer, &QgsVectorLayer::symbolFeatureCountMapChanged, this, &FlatLayerTreeModelBase::featureCountChanged, Qt::UniqueConnection );
           layer->countSymbolFeatures();

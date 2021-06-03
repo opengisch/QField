@@ -27,18 +27,18 @@ class QNetworkRequest;
 
 struct CloudUserInformation
 {
-  Q_GADGET
+    Q_GADGET
 
   public:
-  CloudUserInformation() = default;
+    CloudUserInformation() = default;
 
-  CloudUserInformation(const QString &username, const QString &email )
-    : username( username )
-    , email( email )
-  {}
+    CloudUserInformation( const QString &username, const QString &email )
+      : username( username )
+      , email( email )
+    {}
 
-  QString username;
-  QString email;
+    QString username;
+    QString email;
 };
 
 class QFieldCloudConnection : public QObject

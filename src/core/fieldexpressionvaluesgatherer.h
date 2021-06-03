@@ -18,26 +18,24 @@
 #ifndef FIELDEXPRESSIONVALUESGATHERER_H
 #define FIELDEXPRESSIONVALUESGATHERER_H
 
-#include <QThread>
 #include <QMutex>
-
+#include <QThread>
 #include <qgsapplication.h>
+#include <qgsfeature.h>
 #include <qgslogger.h>
 #include <qgsvectorlayer.h>
 #include <qgsvectorlayerfeatureiterator.h>
-#include <qgsfeature.h>
 
 /**
  * \class FieldExpressionValuesGatherer
  * Gathers features with substring matching on an expression.
  * \note This is a is an exact copy of QGIS' QgsFieldExpressionValuesGatherer
  */
-class FeatureExpressionValuesGatherer: public QThread
+class FeatureExpressionValuesGatherer : public QThread
 {
     Q_OBJECT
 
   public:
-
     /**
        * Constructor
        * \param layer the vector layer
@@ -46,9 +44,9 @@ class FeatureExpressionValuesGatherer: public QThread
        * \param identifierFields an optional list of fields name to be save in a variant list for an easier reuse
        */
     explicit FeatureExpressionValuesGatherer( QgsVectorLayer *layer,
-                                        const QString &displayExpression = QString(),
-                                        const QgsFeatureRequest &request = QgsFeatureRequest(),
-                                        const QStringList &identifierFields = QStringList() )
+        const QString &displayExpression = QString(),
+        const QgsFeatureRequest &request = QgsFeatureRequest(),
+        const QStringList &identifierFields = QStringList() )
       : mSource( new QgsVectorLayerFeatureSource( layer ) )
       , mDisplayExpression( displayExpression.isEmpty() ? layer->displayExpression() : displayExpression )
       , mRequest( request )

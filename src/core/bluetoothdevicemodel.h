@@ -18,9 +18,9 @@
 #define BLUETOOTHDEVICEMODEL_H
 
 #include <QAbstractListModel>
+#include <QtBluetooth/QBluetoothLocalDevice>
 #include <QtBluetooth/QBluetoothServiceDiscoveryAgent>
 #include <QtBluetooth/QBluetoothServiceInfo>
-#include <QtBluetooth/QBluetoothLocalDevice>
 
 /**
  * A model that provides all paired bluetooth devices name/address that are accessible over the serial port

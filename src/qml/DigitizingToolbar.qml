@@ -45,13 +45,13 @@ VisibilityFadingRow {
           }
           else if  ( Number( rubberbandModel.geometryType ) === 1 )
           {
-            // Line: at least 2 points (last point not saved)
-            geometryValid = rubberbandModel.vertexCount > 2
+            // Line: at least 2 points
+            geometryValid = rubberbandModel.vertexCount > 1
           }
           else if  ( Number( rubberbandModel.geometryType ) === 2 )
           {
-            // Polygon: at least 3 points (last point not saved)
-            geometryValid = rubberbandModel.vertexCount > 3
+            // Polygon: at least 3 points
+            geometryValid = rubberbandModel.vertexCount > 2
           }
           else
           {
