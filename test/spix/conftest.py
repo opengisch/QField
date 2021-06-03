@@ -27,11 +27,13 @@ def process_alive(process, process_communicate):
 def process_communicate(process, report_summary):
     def func():
         try:
-            output, errors = process.communicate(timeout=0.1)
+            output_b, errors_b = process.communicate(timeout=0.1)
+            output = output_b.decode('utf-8')
+            errors = errors_b.decode('utf-8')
             print(errors)
             print(output)
-            report_summary[0].append(output.decode('utf-8'))
-            report_summary[1].append(errors.decode('utf-8'))
+            report_summary[0].append(output)
+            report_summary[1].append(errors)
         except subprocess.TimeoutExpired:
             pass
     yield func
