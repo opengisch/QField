@@ -82,8 +82,12 @@ def app(process, process_communicate):
             process_communicate(process)
             assert False  # Unexcpected exception while starting up app
 
-    app.quit()
-    app.quit()
+    try:
+        app.quit()
+        app.quit()
+    except Exception:
+        print('Exception while trying to exit app. The process probably died.')
+        pass
     timeout = 5
     try:
         process.wait(timeout)
