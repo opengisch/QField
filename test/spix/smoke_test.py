@@ -35,7 +35,8 @@ def test_start_app(app, screenshot_path, extra, process_alive):
         "mainWindow/welcomeScreen/loadProjectItem_1", "title"
     )
     app.mouseClick("mainWindow/welcomeScreen/loadProjectItem_1")
-    app.takeScreenshot("mainWindow", os.path.join(screenshot_path, "startup.png"))
+    # Crahes on CI
+    # app.takeScreenshot("mainWindow", os.path.join(screenshot_path, "startup.png"))
     assert process_alive()
     extra.append(extras.html('<img src="images/startup.png"/>'))
 
