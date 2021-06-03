@@ -38,6 +38,7 @@ jobs:
           echo "::endgroup::"
 
       - uses: actions/upload-artifact@v2
+        if: always()
         with:
           name: "Report"
           path: "build/report"
