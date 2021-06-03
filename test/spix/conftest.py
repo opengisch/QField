@@ -7,20 +7,33 @@ import time
 
 stderr = list()
 stdout = list()
+apperrs = list()
 
 def pytest_html_results_summary(prefix, summary, postfix):
     prefix.extend([html.h3("stderr")])
     prefix.extend([html.pre(''.join([line for line in stderr]))])
     prefix.extend([html.h3("stdout")])
     prefix.extend([html.pre(''.join([line for line in stdout]))])
+    prefix.extend([html.h3("App errors")])
+    prefix.extend([html.pre(''.join([line for line in apperrs]))])
 
 
 @pytest.fixture
-def process_alive(process, process_communicate):
+def process_alive(app, process, process_communicate):
     def func():
-        process_communicate()
-        exit_code = process.poll()
-        return exit_code is None
+        try:
+            # We need to call something on the rpc server
+            # the process might still be running but frozen or only almost dead
+            apperrs += app.getErrors()
+        except Exception as e:
+            # Process probably died
+            pass
+        finally:
+            process_communicate()
+            exit_code = process.poll()
+            if exit_code is not None:
+                print(f'Process exited with {exit_code}')
+            return exit_code is None
     yield func
 
 @pytest.fixture
