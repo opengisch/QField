@@ -87,7 +87,8 @@ def app(process, process_communicate):
         app.quit()
     except Exception:
         print('Exception while trying to exit app. The process probably died.')
-        pass
+        process_communicate()
+        raise
     timeout = 5
     try:
         process.wait(timeout)
