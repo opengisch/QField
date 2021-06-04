@@ -59,7 +59,7 @@ void LayerObserver::onHomePathChanged()
   Q_ASSERT( mDeltaFileWrapper->hasError() || !mDeltaFileWrapper->isDirty() );
 
   // we should make deltas only on cloud projects
-  if ( QFieldCloudUtils::getProjectId( mProject ).isEmpty() )
+  if ( QFieldCloudUtils::getProjectId( mProject->fileName() ).isEmpty() )
     return;
 
   mDeltaFileWrapper = std::unique_ptr<DeltaFileWrapper>( new DeltaFileWrapper( mProject, QStringLiteral( "%1/deltafile.json" ).arg( mProject->homePath() ) ) );
@@ -248,7 +248,7 @@ void LayerObserver::addLayerListeners()
   const QList<QgsMapLayer *> layers = mProject->mapLayers().values();
 
   // we should keep track only of the layers on cloud projects
-  if ( QFieldCloudUtils::getProjectId( mProject ).isEmpty() )
+  if ( QFieldCloudUtils::getProjectId( mProject->fileName() ).isEmpty() )
     return;
 
   for ( QgsMapLayer *layer : layers )

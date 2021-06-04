@@ -11,6 +11,9 @@ Item {
     id: item
 
     property string iconSource: ''
+    property string bottomRightIndicatorText: ''
+    property string bottomRightIndicatorBgColor: Theme.cloudColor
+    property string bottomRightIndicatorFgColor: Theme.light
     property alias checked: button.checked
     property alias checkable: button.checkable
     property alias enabled: button.enabled
@@ -86,6 +89,7 @@ Item {
             implicitWidth: 100
             implicitHeight: 25
             color: "transparent"
+            z: 1
 
             Image {
                 anchors.fill: parent
@@ -108,6 +112,33 @@ Item {
                     duration: 200
                 }
 
+            }
+        }
+
+        Rectangle {
+            id: bottomRightIndicator
+            color: bottomRightIndicatorBgColor
+            anchors.bottom: button.bottom
+            anchors.right: button.right
+            anchors.bottomMargin: 7
+            anchors.rightMargin: 5
+            width: button.width / 2.5
+            height: width
+            visible: bottomRightIndicatorText
+            radius: width
+            border.width: 2
+            border.color: Theme.mainColor
+            z: 2
+
+            Text {
+              anchors.fill: parent
+              color: bottomRightIndicatorFgColor
+              text: bottomRightIndicatorText
+              font.pixelSize: bottomRightIndicatorText.length == 1
+                ? height / 1.6
+                : height / 1.8
+              horizontalAlignment: Qt.AlignHCenter
+              verticalAlignment: Qt.AlignVCenter
             }
         }
     }

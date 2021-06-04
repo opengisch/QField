@@ -286,7 +286,7 @@ QgisMobileapp::QgisMobileapp( QgsApplication *app, QObject *parent )
     Q_UNUSED( errorString );
     if ( !hasError )
     {
-      if ( projectId == QFieldCloudUtils::getProjectId( mProject ) )
+      if ( projectId == QFieldCloudUtils::getProjectId( mProjectFilePath ) )
       {
         reloadProjectFile();
       }

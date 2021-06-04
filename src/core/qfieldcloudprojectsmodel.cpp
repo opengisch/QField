@@ -1362,7 +1362,7 @@ void QFieldCloudProjectsModel::downloadFileConnections( const QString &projectId
     {
       hasError = true;
       errorMessageDetail = QFieldCloudConnection::errorString( rawReply );
-      errorMessageTemplate = QStringLiteral( "Failed to download file \"%1\", reason:" ).arg( fileName );
+      errorMessageTemplate = tr( "Failed to download file \"%1\", reason:" ).arg( fileName );
     }
 
     QFile file( mCloudProjects[index].downloadFileTransfers[fileName].tmpFile );
@@ -1373,7 +1373,7 @@ void QFieldCloudProjectsModel::downloadFileConnections( const QString &projectId
     {
       hasError = true;
       errorMessageDetail = file.errorString();
-      errorMessageTemplate = QStringLiteral( "Failed to write downloaded file stored at \"%1\", fs reason" ).arg( fileName );
+      errorMessageTemplate = tr( "Failed to write downloaded file stored at \"%1\", fs reason:" ).arg( fileName );
     }
 
     if ( hasError )
@@ -1399,7 +1399,7 @@ void QFieldCloudProjectsModel::downloadFileConnections( const QString &projectId
       {
         const QStringList unprefixedGpkgFileNames = filterGpkgFileNames( fileNames );
         const QStringList gpkgFileNames = projectFileNames( mProject->homePath(), unprefixedGpkgFileNames );
-        QString projectFileName = mProject->fileName();
+        // we need to close the project to safely flush the gpkg files
         mProject->setFileName( QString() );
 
         for ( const QString &fileName : gpkgFileNames )
@@ -1407,15 +1407,22 @@ void QFieldCloudProjectsModel::downloadFileConnections( const QString &projectId
 
         // move the files from their temporary location to their permanent one
         if ( !projectMoveDownloadedFilesToPermanentStorage( projectId ) )
+        {
           mCloudProjects[index].errorStatus = DownloadErrorStatus;
+          mCloudProjects[index].exportStatus = ExportErrorStatus;
+          mCloudProjects[index].exportStatusString = tr( "Failed to copy some of the downloaded files on your device. Check your device storage." );
+          emit projectDownloaded( projectId, mCloudProjects[index].name, true, mCloudProjects[index].exportStatusString );
+          return;
+        }
 
         deleteGpkgShmAndWal( gpkgFileNames );
 
         for ( const QString &fileName : gpkgFileNames )
           mGpkgFlusher->start( fileName );
 
-        mProject->setFileName( projectFileName );
-
+        mCloudProjects[index].errorStatus = NoErrorStatus;
+        mCloudProjects[index].exportStatus = ExportFinishedStatus;
+        mCloudProjects[index].exportStatusString = QString();
         mCloudProjects[index].checkout = ProjectCheckout::LocalAndRemoteCheckout;
         mCloudProjects[index].localPath = QFieldCloudUtils::localProjectFilePath( mUsername, projectId );
         mCloudProjects[index].lastLocalExport = QDateTime::currentDateTimeUtc().toString( Qt::ISODate );

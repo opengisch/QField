@@ -44,18 +44,10 @@ class QFieldCloudUtils : public QObject
     /**
      * Get the cloud project id.
      *
-     * @param project project to be checked, const
+     * @param fileName file name of the project to be checked
      * @return const QString either UUID-like string or a null string in case of failure
      */
-    Q_INVOKABLE static const QString getProjectId( const QgsProject *project );
-
-    /**
-     * Get the cloud project id.
-     *
-     * @param project project to be checked
-     * @return const QString either UUID-like string or a null string in case of failure
-     */
-    Q_INVOKABLE static const QString getProjectId( QgsProject *project );
+    Q_INVOKABLE static const QString getProjectId( const QString &fileName );
 
   private:
     static QString sQgisSettingsDirPath;
