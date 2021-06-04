@@ -166,7 +166,7 @@ VisibilityFadingRow {
                  !coordinateLocator.positionInformation.haccValid ||
                   coordinateLocator.positionInformation.hacc >= positioningSettings.accuracyBad ) )
           {
-            displayToast( qsTr( "Position accuracy doesn't meet the minimum requirement, vertex not added" ) )
+            displayToast( qsTr( "Position accuracy doesn't meet the minimum requirement, vertex not added" ), 'warning' )
             return;
           }
         }

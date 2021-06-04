@@ -135,7 +135,7 @@ EditorWidgetBase {
                 }
                 else
                 {
-                    displayToast (qsTr( 'Cannot add child feature: parent primary keys are not available' ) )
+                    displayToast (qsTr( 'Cannot add child feature: parent primary keys are not available' ), 'warning' )
                 }
               }
             }
@@ -267,7 +267,7 @@ EditorWidgetBase {
       standardButtons: Dialog.Ok | Dialog.Cancel
       onAccepted: {
         if ( ! referencingFeatureListView.model.deleteFeature( referencingFeatureId ) ) {
-          displayToast( qsTr( "Failed to delete referencing feature" ) )
+          displayToast( qsTr( "Failed to delete referencing feature" ), 'error' )
         }
         
         visible = false

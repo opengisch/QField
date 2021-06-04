@@ -302,7 +302,7 @@ Page {
                                   }
                                   if( scanningStatus === BluetoothDeviceModel.Failed )
                                   {
-                                      displayToast( qsTr('Scanning failed: %1').arg( bluetoothDeviceModel.lastError ) )
+                                      displayToast( qsTr('Scanning failed: %1').arg( bluetoothDeviceModel.lastError ), 'error' )
                                   }
                                   if( scanningStatus === BluetoothDeviceModel.Succeeded )
                                   {

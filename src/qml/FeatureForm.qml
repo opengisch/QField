@@ -531,7 +531,7 @@ Page {
     //if this is not handled before (e.g. when this is called because the drawer is closed by tipping on the map)
     if ( !model.constraintsHardValid )
     {
-      displayToast( qsTr( 'Constraints not valid') )
+      displayToast( qsTr( 'Constraints not valid'), 'warning' )
       cancel()
       return
     }
@@ -548,7 +548,7 @@ Page {
     }
 
     if ( !save() ) {
-      displayToast( qsTr( 'Unable to save changes') )
+      displayToast( qsTr( 'Unable to save changes'), 'error' )
       featureCreated = false
       return
     }
@@ -640,7 +640,7 @@ Page {
             }
             confirm()
           } else {
-            displayToast( qsTr('Constraints not valid') )
+            displayToast( qsTr('Constraints not valid'), 'warning' )
           }
         }
       }

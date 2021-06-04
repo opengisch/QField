@@ -37,7 +37,7 @@ VisibilityFadingRow {
       featureModel.applyVertexModelToGeometry()
 
       if ( ! featureModel.save() ) {
-        displayToast( qsTr( "Failed to save feature!" ) );
+        displayToast( qsTr( "Failed to save feature!" ), 'error' );
       }
       
       //set the vertexModel original geometry to the one of the updated feature

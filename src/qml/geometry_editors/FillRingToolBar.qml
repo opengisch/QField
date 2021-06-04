@@ -66,15 +66,15 @@ VisibilityFadingRow {
       if ( result !== QgsGeometryStatic.Success )
       {
         if ( result === QgsGeometryStatic.AddRingNotClosed )
-          displayToast( qsTr( 'Error: the input ring is not closed' ) );
+          displayToast( qsTr( 'The ring is not closed' ), 'error' );
         else if ( result === QgsGeometryStatic.AddRingNotValid )
-          displayToast( qsTr( 'Error: the input ring is not valid' ) );
+          displayToast( qsTr( 'The ring is not valid' ), 'error' );
         else if ( result === QgsGeometryStatic.AddRingCrossesExistingRings )
-          displayToast( qsTr( 'Error: the input ring crosses existing rings (it is not disjoint)' ) );
+          displayToast( qsTr( 'The ring crosses existing rings (it is not disjoint)' ), 'error' );
         else if ( result === QgsGeometryStatic.AddRingNotInExistingFeature )
-          displayToast( qsTr( 'Error: the input ring doesn\'t have any existing ring to fit into' ) );
+          displayToast( qsTr( 'The ring doesn\'t have any existing ring to fit into' ), 'error' );
         else
-          displayToast( qsTr( 'Unknown error when creating the ring' ) );
+          displayToast( qsTr( 'Unknown error when creating the ring' ), 'error' );
 
         featureModel.currentLayer.rollBack()
       }

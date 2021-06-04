@@ -116,7 +116,7 @@ Drawer {
           overlayFeatureFormDrawer.close()
         } else {
           //block closing to fix constraints or cancel with button
-          displayToast( qsTr( "Constraints not valid" ) )
+          displayToast( qsTr( "Constraints not valid" ), 'warning' )
         }
         event.accepted = true
       }

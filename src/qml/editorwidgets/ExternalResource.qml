@@ -337,7 +337,7 @@ EditorWidgetBase {
       if( status )
       {
         //default message (we would have the passed error message still)
-        displayToast( qsTr("Cannot handle this file type"))
+        displayToast( qsTr("Cannot handle this file type"), 'error')
       }
     }
   }
