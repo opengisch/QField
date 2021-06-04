@@ -97,7 +97,7 @@ Drawer {
           bottomRightIndicatorText: cloudProjectsModel.layerObserver.deltaFileWrapper.count > 0
                                       ? cloudProjectsModel.layerObserver.deltaFileWrapper.count
                                       : cloudProjectsModel.layerObserver.deltaFileWrapper.count >= 10
-                                        ? '9+'
+                                        ? '+'
                                         : ''
 
           SequentialAnimation {
