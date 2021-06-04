@@ -1373,7 +1373,7 @@ void QFieldCloudProjectsModel::downloadFileConnections( const QString &projectId
     {
       hasError = true;
       errorMessageDetail = file.errorString();
-      errorMessageTemplate = tr( "Failed to write downloaded file stored at \"%1\", fs reason" ).arg( fileName );
+      errorMessageTemplate = tr( "Failed to write downloaded file stored at \"%1\", fs reason:" ).arg( fileName );
     }
 
     if ( hasError )
