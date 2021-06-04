@@ -72,7 +72,7 @@ VisibilityFadingRow {
         else if ( result === QgsGeometryStatic.AddRingCrossesExistingRings )
           displayToast( qsTr( 'Error: the input ring crosses existing rings (it is not disjoint)' ), 'error' );
         else if ( result === QgsGeometryStatic.AddRingNotInExistingFeature )
-          displayToast( qsTr( 'Error: the input ring doesn\'t have any existing ring to fit into' ), 'error' );
+          displayToast( qsTr( 'The ring doesn\'t have any existing ring to fit into' ), 'error' );
         else
           displayToast( qsTr( 'Unknown error when creating the ring' ), 'error' );
 
