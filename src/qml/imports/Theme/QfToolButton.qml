@@ -89,6 +89,7 @@ Item {
             implicitWidth: 100
             implicitHeight: 25
             color: "transparent"
+            z: 1
 
             Image {
                 anchors.fill: parent
@@ -119,16 +120,23 @@ Item {
             color: bottomRightIndicatorBgColor
             anchors.bottom: button.bottom
             anchors.right: button.right
-            width: button.width / 3
+            anchors.bottomMargin: 7
+            anchors.rightMargin: 5
+            width: button.width / 2.5
             height: width
             visible: bottomRightIndicatorText
             radius: width
+            border.width: 2
+            border.color: Theme.mainColor
+            z: 2
 
             Text {
               anchors.fill: parent
               color: bottomRightIndicatorFgColor
               text: bottomRightIndicatorText
-              fontSizeMode: Text.Fit
+              font.pixelSize: bottomRightIndicatorText.length == 1
+                ? height / 1.6
+                : height / 1.8
               horizontalAlignment: Qt.AlignHCenter
               verticalAlignment: Qt.AlignVCenter
             }
