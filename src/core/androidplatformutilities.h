@@ -28,22 +28,24 @@ class AndroidPlatformUtilities : public PlatformUtilities
   public:
     AndroidPlatformUtilities();
 
-    virtual void initSystem() override;
-    virtual QString systemGenericDataLocation() const override;
-    virtual QString qgsProject() const override;
-    virtual QString qfieldDataDir() const override;
-    virtual PictureSource *getCameraPicture( const QString &prefix, const QString &pictureFilePath, const QString &suffix ) override;
-    virtual PictureSource *getGalleryPicture( const QString &prefix, const QString &pictureFilePath ) override;
-    virtual ViewStatus *open( const QString &uri ) override;
-    virtual ProjectSource *openProject() override;
+    void initSystem() override;
+    QString systemGenericDataLocation() const override;
+    QString qgsProject() const override;
+    QString qfieldDataDir() const override;
+    PictureSource *getCameraPicture( const QString &prefix, const QString &pictureFilePath, const QString &suffix ) override;
+    PictureSource *getGalleryPicture( const QString &prefix, const QString &pictureFilePath ) override;
+    ViewStatus *open( const QString &uri ) override;
+    ProjectSource *openProject() override;
 
-    virtual bool checkPositioningPermissions() const override;
+    bool checkPositioningPermissions() const override;
 
-    virtual bool checkCameraPermissions() const override;
+    bool checkCameraPermissions() const override;
 
     bool checkWriteExternalStoragePermissions() const override;
 
     void setScreenLockPermission( const bool allowLock ) override;
+
+    bool supportsNativeCamera() const override;
 
   private:
     bool checkAndAcquirePermissions( const QString &permissionString ) const;

@@ -174,3 +174,8 @@ PlatformUtilities *PlatformUtilities::instance()
 {
   return sPlatformUtils;
 }
+
+bool PlatformUtilities::supportsNativeCamera() const
+{
+  return false;
+}

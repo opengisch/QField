@@ -27,7 +27,7 @@ Page {
     property bool fullScreenIdentifyView: false
     property bool locatorKeepScale: false
     property bool numericalDigitizingInformation: false
-    property bool nativeCamera: true
+    property bool nativeCamera: platformUtilities.supportsNativeCamera
     property bool autoSave: false
     property bool mouseAsTouchScreen: false
   }
@@ -56,6 +56,7 @@ Page {
           title: qsTr( "Use native camera" )
           description: qsTr( "If disabled, QField will use a minimalist internal camera instead of the camera app on the device.<br>Tip: Enable this option and install the open camera app to create geo tagged photos." )
           settingAlias: "nativeCamera"
+          isVisible: true
       }
       ListElement {
           title: qsTr( "Fast editing mode" )
@@ -66,6 +67,15 @@ Page {
           title: qsTr( "Consider mouse as a touchscreen device" )
           description: qsTr( "If disabled, the mouse will act as a stylus pen." )
           settingAlias: "mouseAsTouchScreen"
+      }
+      Component.onCompleted: {
+          var i;
+          for (i = 0; i < count; i++) {
+              if (get(i).settingAlias == 'nativeCamera')
+                  setProperty(i, 'isVisible', platformUtilities.supportsNativeCamera)
+              else
+                  setProperty(i, 'isVisible', true)
+          }
       }
   }
 
@@ -181,6 +191,8 @@ Page {
 
                       delegate: Row {
                           width: parent ? parent.width - 16 : undefined
+                          height: !!isVisible ? undefined : 0
+                          visible: !!isVisible
 
                           Column {
                               width: parent.width - toggle.width
