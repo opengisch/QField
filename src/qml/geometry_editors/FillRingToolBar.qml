@@ -66,7 +66,7 @@ VisibilityFadingRow {
       if ( result !== QgsGeometryStatic.Success )
       {
         if ( result === QgsGeometryStatic.AddRingNotClosed )
-          displayToast( qsTr( 'Error: the input ring is not closed' ), 'error' );
+          displayToast( qsTr( 'The ring is not closed' ), 'error' );
         else if ( result === QgsGeometryStatic.AddRingNotValid )
           displayToast( qsTr( 'The ring is not valid' ), 'error' );
         else if ( result === QgsGeometryStatic.AddRingCrossesExistingRings )
