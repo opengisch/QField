@@ -183,7 +183,7 @@ Item{
                           ( Number(timeIntervalText.text) === 0 || Number(distanceText.text) === 0 ) ) ||
                         ( !timeIntervalCheck.checked && !distanceCheck.checked ) )
                     {
-                        displayToast( qsTr( 'Cannot start track with empty values' ) )
+                        displayToast( qsTr( 'Cannot start track with empty values' ), 'warning' )
                     }
                     else
                     {

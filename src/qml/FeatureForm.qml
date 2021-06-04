@@ -548,7 +548,7 @@ Page {
     }
 
     if ( !save() ) {
-      displayToast( qsTr( 'Unable to save changes'), 'warning' )
+      displayToast( qsTr( 'Unable to save changes'), 'error' )
       featureCreated = false
       return
     }
@@ -640,7 +640,7 @@ Page {
             }
             confirm()
           } else {
-            displayToast( qsTr('Constraints not valid'), 'warning'  )
+            displayToast( qsTr('Constraints not valid'), 'warning' )
           }
         }
       }

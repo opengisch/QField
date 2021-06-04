@@ -476,7 +476,7 @@ Rectangle {
                   if (featureFormList.model.constraintsHardValid) {
                       featureListToolBar.save();
                   } else {
-                      displayToast( "Constraints not valid" );
+                      displayToast( "Constraints not valid", 'warning' );
                       if (qfieldSettings.autoSave) {
                           featureListToolBar.cancel();
                       }
@@ -637,7 +637,7 @@ Rectangle {
       if ( isMerged ) {
         displayToast( qsTr( "Successfully merged %n feature(s)", "", selectedCount ) );
       } else {
-        displayToast( qsTr( "Failed to merge %n feature(s)", "", selectedCount ) );
+        displayToast( qsTr( "Failed to merge %n feature(s)", "", selectedCount ), 'warning' );
       }
 
       visible = false
@@ -697,7 +697,7 @@ Rectangle {
         if ( featureForm.selection.model.count === 0 )
           featureForm.state = "Hidden";
       } else {
-        displayToast( qsTr( "Failed to delete %n feature(s)", "", selectedCount ) );
+        displayToast( qsTr( "Failed to delete %n feature(s)", "", selectedCount ), 'error' );
       }
 
       visible = false
@@ -724,7 +724,7 @@ Rectangle {
         if( state != "FeatureList" ) {
           if( featureListToolBar.state === "Edit"){
               featureForm.state = "FeatureForm"
-              displayToast( qsTr( "Changes discarded" ) )
+              displayToast( qsTr( "Changes discarded" ), 'warning' )
           }
           state = "FeatureList"
         }

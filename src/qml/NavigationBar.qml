@@ -229,7 +229,7 @@ Rectangle {
      if( featureFormList.model.constraintsHardValid ) {
        toolBar.save()
      } else {
-       displayToast( "Constraints not valid" )
+       displayToast( "Constraints not valid", 'warning' )
      }
     }
     Behavior on width {

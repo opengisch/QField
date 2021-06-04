@@ -574,7 +574,7 @@ Popup {
       if ( cloudProjectsModel.revertLocalChangesFromCurrentProject(cloudProjectsModel.currentProjectId) )
         displayToast(qsTr('Local changes reverted'))
       else
-        displayToast(qsTr('Failed to revert changes'))
+        displayToast(qsTr('Failed to revert changes'), 'error')
 
       return
     }

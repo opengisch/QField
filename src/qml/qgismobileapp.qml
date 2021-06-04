@@ -1256,11 +1256,11 @@ ApplicationWindow {
               overlayFeatureFormDrawer.featureModel.applyGeometry()
               overlayFeatureFormDrawer.featureModel.resetAttributes()
               if ( !overlayFeatureFormDrawer.featureModel.create() ) {
-                displayToast( qsTr( "Failed to create feature!" ) )
+                displayToast( qsTr( "Failed to create feature!" ), 'error' )
               }
           } else {
               if ( !overlayFeatureFormDrawer.featureModel.save() ) {
-                displayToast( qsTr( "Failed to save feature!" ) )
+                displayToast( qsTr( "Failed to save feature!" ), 'error' )
               }
           }
           digitizingRubberband.model.reset()
@@ -1519,7 +1519,7 @@ ApplicationWindow {
             }
             else
             {
-              displayToast( qsTr( "QField has no permissions to use positioning." ) )
+              displayToast( qsTr( "QField has no permissions to use positioning." ), 'warning' )
               positioningSettings.positioningActivated = false
             }
           }
@@ -2049,13 +2049,13 @@ ApplicationWindow {
 
     onProjectDownloaded: function ( projectId, projectName, hasError, errorString ) {
       return hasError
-          ? displayToast( qsTr( "Project %1 failed to download" ).arg( projectName ) )
+          ? displayToast( qsTr( "Project %1 failed to download" ).arg( projectName ), 'error' )
           : displayToast( qsTr( "Project %1 successfully downloaded, it's now available to open" ).arg( projectName ) );
     }
 
     onPushFinished: function ( projectId, hasError, errorString ) {
       if ( hasError ) {
-        displayToast( qsTr( "Changes failed to reach QFieldCloud: %1" ).arg( errorString ) )
+        displayToast( qsTr( "Changes failed to reach QFieldCloud: %1" ).arg( errorString ), 'error' )
         return;
       }
 
@@ -2165,7 +2165,7 @@ ApplicationWindow {
 
       function show(text, type) {
           toastMessage.text = text
-          toastContent.type = type || "info"
+          toastContent.type = type || 'info'
           toast.open()
           toastContent.visible = true
           toast.opacity = 1
@@ -2193,19 +2193,31 @@ ApplicationWindow {
 
         z: 1
 
+        Rectangle {
+          id: toastIndicator
+          anchors.left: parent.left
+          anchors.leftMargin: 8
+          anchors.verticalCenter: parent.verticalCenter
+          width:  10
+          height: 10
+          radius: 5
+          color: toastContent.type === 'error' ? Theme.errorColor : Theme.warningColor
+          visible: toastContent.type != 'info'
+        }
+
         Text {
           id: toastMessage
           anchors.left: parent.left
           anchors.right: parent.right
           wrapMode: Text.Wrap
-          leftPadding: 16
-          rightPadding: 16
+          leftPadding: 18
+          rightPadding: 18
           topPadding: 3
           bottomPadding: 3
+          color: Theme.light
 
           font: Theme.secondaryTitleFont
           horizontalAlignment: Text.AlignHCenter
-          color: parent.type === 'error' ? "#ff0000" : parent.type === 'warning' ? "#ffa500" : Theme.light
         }
       }
 
