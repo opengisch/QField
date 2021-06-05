@@ -296,3 +296,13 @@ void QgsQuickMapSettings::setBackgroundColor( const QColor &color )
   mMapSettings.setBackgroundColor( color );
   emit backgroundColorChanged();
 }
+
+qreal QgsQuickMapSettings::devicePixelRatio() const
+{
+  return mDevicePixelRatio;
+}
+
+void QgsQuickMapSettings::setDevicePixelRatio( const qreal &devicePixelRatio )
+{
+  mDevicePixelRatio = devicePixelRatio;
+}
