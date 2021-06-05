@@ -198,15 +198,40 @@ class QFIELD_CORE_EXPORT QgsQuickMapSettings : public QObject
     //! \copydoc QgsMapSettings::setDestinationCrs()
     void setDestinationCrs( const QgsCoordinateReferenceSystem &destinationCrs );
 
-    //! \copydoc QgsMapSettings::layers()
+    /**
+     * Returns the list of layers which will be rendered in the map.
+     *
+     * The layers are stored in the reverse order of how they are rendered (layer with index 0 will be on top)
+     *
+     * \see setLayers()
+     */
     QList<QgsMapLayer *> layers() const;
 
-    //! \copydoc QgsMapSettings::setLayers()
+    /**
+     * Sets the list of \a layers to render in the map.
+     *
+     * The layers are stored in the reverse order of how they are rendered (layer with index 0 will be on top)
+     *
+     * \note Any non-spatial layers will be automatically stripped from the list (since they cannot be rendered!).
+     *
+     * \see layers()
+     */
     void setLayers( const QList<QgsMapLayer *> &layers );
 
-    qreal devicePixelRatio() const { return mDevicePixelRatio; }
+    /**
+     * Returns the ratio between physical pixels and device-independent pixels.
+     * This value is dependent on the screen the window is on, and may change when the window is moved.
+     * Common values are 1.0 on normal displays and 2.0 on Apple "retina" displays.
+     */
+    qreal devicePixelRatio() const;
 
-    void setDevicePixelRatio( const qreal ratio ) { mDevicePixelRatio = ratio; }
+
+    /**
+     * Sets the ratio between physical pixels and device-independent pixels.
+     * This value is dependent on the screen the window is on, and may change when the window is moved.
+     * Common values are 1.0 on normal displays and 2.0 on Apple "retina" displays.
+     */
+    void setDevicePixelRatio( const qreal &devicePixelRatio );
 
   signals:
     //! \copydoc QgsQuickMapSettings::project
