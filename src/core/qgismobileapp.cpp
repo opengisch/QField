@@ -117,6 +117,7 @@
 #include <qgsfeature.h>
 #include <qgsfield.h>
 #include <qgsfieldconstraints.h>
+#include <qgsgeopackageprojectstorage.h>
 #include <qgslayertree.h>
 #include <qgslayertreemodel.h>
 #include <qgslayoutatlas.h>
@@ -130,6 +131,8 @@
 #include <qgsmapthemecollection.h>
 #include <qgsprintlayout.h>
 #include <qgsproject.h>
+#include <qgsprojectstorage.h>
+#include <qgsprojectstorageregistry.h>
 #include <qgsprojectviewsettings.h>
 #include <qgsrasterlayer.h>
 #include <qgsrasterresamplefilter.h>
@@ -635,10 +638,29 @@ void QgisMobileapp::readProjectFile()
   mTrackingModel->reset();
 
   // Load project file
+  bool projectLoaded = false;
   if ( SUPPORTED_PROJECT_EXTENSIONS.contains( suffix ) )
   {
     mProject->read( mProjectFilePath );
+    projectLoaded = true;
+  }
+  else if ( suffix == QStringLiteral( "gpkg" ) )
+  {
+    QgsProjectStorage *storage = QgsApplication::projectStorageRegistry()->projectStorageFromType( "geopackage" );
+    if ( storage )
+    {
+      const QStringList projectNames = storage->listProjects( mProjectFilePath );
+      if ( !projectNames.isEmpty() )
+      {
+        QgsGeoPackageProjectUri projectUri { true, mProjectFilePath, projectNames.at( 0 ) };
+        mProject->read( QgsGeoPackageProjectStorage::encodeUri( projectUri ) );
+        projectLoaded = true;
+      }
+    }
+  }
 
+  if ( projectLoaded )
+  {
     // load fonts in same directory
     QDir fontDir = QDir::cleanPath( QFileInfo( mProjectFilePath ).absoluteDir().path() + QDir::separator() + ".fonts" );
     QStringList fontExts = QStringList() << "*.ttf"
@@ -702,7 +724,7 @@ void QgisMobileapp::readProjectFile()
       CSLDestroy( papszSiblingFiles );
     }
   }
-  else
+  else if ( !projectLoaded )
   {
     files << mProjectFilePath;
   }
