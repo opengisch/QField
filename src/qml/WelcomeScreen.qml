@@ -2,6 +2,7 @@ import QtQuick 2.12
 import QtQuick.Controls 2.12
 import QtQuick.Layouts 1.12
 import QtQuick.Particles 2.0
+import Qt.labs.settings 1.0
 
 import org.qfield 1.0
 import Theme 1.0
@@ -14,6 +15,11 @@ Page {
   property alias model: table.model
   signal showOpenProjectDialog
   signal showQFieldCloudScreen
+
+  Settings {
+    id: registry
+    property string baseMapProject: ''
+  }
 
   Rectangle {
     id: welcomeBackground
@@ -366,13 +372,21 @@ Page {
                   id: projectNote
                   leftPadding: 3
                   text: {
-                    if (index == 0) {
+                    var notes = [];
+
+                    if ( index == 0 ) {
                         var firstRun = settings && !settings.value( "/QField/FirstRunFlag", false )
-                        return !firstRun && firstShown === false ? qsTr( "Last session" ) : ""
+                        if (!firstRun && firstShown === false) notes.push( qsTr( "Last session" ) );
                     }
-                    else
-                    {
-                        return ""
+
+                    if ( ProjectPath === registry.baseMapProject ) {
+                        notes.push( qsTr( "Base map project" ) );
+                    }
+
+                    if ( notes.length > 0 ) {
+                        return notes.join( '; ' );
+                    } else {
+                        return "";
                     }
                   }
                   visible: text != ""
@@ -445,21 +459,27 @@ Page {
             }
 
             MenuItem {
-              id: fileAssociationProject
+              id: baseMapProject
               visible: recentProjectActions.recentProjectType != 2;
 
               font: Theme.defaultFont
               width: parent.width
               height: visible ? 48: 0
-              leftPadding: 10
+              checkable: true
+              checked: recentProjectActions.recentProjectPath === registry.baseMapProject
 
-              text: recentProjectActions.recentProjectPath === settings.value( '/QField/fileAssociationProject', '' ) ? qsTr( "Unset as Default Project" ) : qsTr( "Set as Default Project" )
+              text: qsTr( "Base Map Project" )
               onTriggered: {
-                  settings.setValue( '/QField/fileAssociationProject', recentProjectActions.recentProjectPath === settings.value( '/QField/fileAssociationProject', '' ) ? '' : recentProjectActions.recentProjectPath );
-                  // reset the recentProjectPath to update menu item text
-                  recentProjectActions.recentProjectPath = '';
+                  registry.baseMapProject = recentProjectActions.recentProjectPath === registry.baseMapProject ? '' : recentProjectActions.recentProjectPath;
               }
             }
+
+            MenuSeparator {
+                visible: baseMapProject.visible
+                width: parent.width
+                height: visible ? undefined : 0
+            }
+
             MenuItem {
               id: removeProject
 
