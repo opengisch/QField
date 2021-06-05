@@ -35,6 +35,7 @@
 QgsQuickMapCanvasMap::QgsQuickMapCanvasMap( QQuickItem *parent )
   : QQuickItem( parent )
   , mMapSettings( std::make_unique<QgsQuickMapSettings>() )
+  , mCache( std::make_unique<QgsMapRendererCache>() )
 {
   connect( this, &QQuickItem::windowChanged, this, &QgsQuickMapCanvasMap::onWindowChanged );
   connect( &mRefreshTimer, &QTimer::timeout, this, &QgsQuickMapCanvasMap::refreshMap );
@@ -46,8 +47,6 @@ QgsQuickMapCanvasMap::QgsQuickMapCanvasMap( QQuickItem *parent )
   connect( this, &QgsQuickMapCanvasMap::renderStarting, this, &QgsQuickMapCanvasMap::isRenderingChanged );
   connect( this, &QgsQuickMapCanvasMap::mapCanvasRefreshed, this, &QgsQuickMapCanvasMap::isRenderingChanged );
 
-  mCache = new QgsMapRendererCache();
-
   mMapUpdateTimer.setSingleShot( false );
   mMapUpdateTimer.setInterval( 250 );
   mRefreshTimer.setSingleShot( true );
@@ -55,10 +54,7 @@ QgsQuickMapCanvasMap::QgsQuickMapCanvasMap( QQuickItem *parent )
   setFlags( QQuickItem::ItemHasContents );
 }
 
-QgsQuickMapCanvasMap::~QgsQuickMapCanvasMap()
-{
-  delete mCache;
-}
+QgsQuickMapCanvasMap::~QgsQuickMapCanvasMap() = default;
 
 QgsQuickMapSettings *QgsQuickMapCanvasMap::mapSettings() const
 {
@@ -133,7 +129,7 @@ void QgsQuickMapCanvasMap::refreshMap()
 
   connect( mJob, &QgsMapRendererJob::renderingLayersFinished, this, &QgsQuickMapCanvasMap::renderJobUpdated );
   connect( mJob, &QgsMapRendererJob::finished, this, &QgsQuickMapCanvasMap::renderJobFinished );
-  mJob->setCache( mCache );
+  mJob->setCache( mCache.get() );
 
   mJob->start();
 
