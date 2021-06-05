@@ -28,15 +28,28 @@ description:
 
     genericName: QField
     longDescription: |
+      QField is the leading GIS data collection app.
+      It integrates perfectly with QGIS.
+      
       ## Features
 
-      ### 1. Flexible and powerful spatial data management
+      ### 1. Efficient field work
+      
+      - Touch optimized, simple user interface
+      - Fully QGIS compatible
+      - Highly configurable data entry forms
+      - Adaptable to any data model
+      - Capture pictures to illustrate the data
+      - External GNSS antenna integration through bluetooth
+      - Store accuracy information alongside recorded points for Q/A
+      - Print to mobile printers or PDF
+
+      ### 2. Flexible and powerful spatial data management
 
       - Supports raster, vector, mesh, and point cloud data in a range of
       industry-standard formats
           - _Raster formats include_: GeoPackage, GeoTIFF, GRASS, ArcInfo binary and ASCII grids, ERDAS Imagine SDTS, WMS, WCS, PostgreSQL/PostGIS, and [other GDAL supported formats](https://gdal.org/drivers/raster/index.html).
           - _Vector formats include_: GeoPackage, ESRI Shapefiles, GRASS, SpatiaLite, PostgreSQL/PostGIS, WFS, Vector Tiles and [other OGR supported formats](http://www.gdal.org/ogr_formats.html).
-          - _Mesh formats include_: NetCDF, GRIB, 2DM, and [other MDAL supported formats](https://github.com/lutraconsulting/MDAL#supported-formats).
           - _Point-cloud format_: LAS/LAZ and EPT datasets.
       - Access and display local files, spatial databases (PostGIS,  SpatiaLite), web services (WMS, WCS, WFS,  ArcGIS REST
       services), tile services, etc.
@@ -48,7 +61,7 @@ description:
       - Temporal support
 
 
-      ### 2. Beautiful cartography
+      ### 3. Beautiful cartography
 
       - Large variety of rendering options
 
@@ -70,6 +83,10 @@ description:
       - On-the-fly rendering enhancements using geometry generators (e.g. create
       and style new geometries from existing features)
 
+      ### 4. Collaborative work
+      
+      - Collaboratively work on datasets through [QFieldCloud](https://qfield.cloud)
+      
     screenshots:
       - https://github.com/opengisch/QField-docs/raw/master/en/images/qfield_picture.png
     shortDescription: |-
