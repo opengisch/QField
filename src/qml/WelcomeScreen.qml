@@ -419,6 +419,7 @@ Page {
                 var item = table.itemAt(mouse.x, mouse.y)
                 if (item) {
                     recentProjectActions.recentProjectPath = item.path;
+                    recentProjectActions.recentProjectType = item.type;
                     recentProjectActions.popup(mouse.x, mouse.y)
                 }
             }
@@ -428,8 +429,10 @@ Page {
             id: recentProjectActions
 
             property string recentProjectPath: ''
+            property int recentProjectType: 0
 
             title: 'Recent Project Actions'
+
             width: {
                 var result = 0;
                 var padding = 0;
@@ -442,6 +445,22 @@ Page {
             }
 
             MenuItem {
+              id: fileAssociationProject
+              visible: recentProjectActions.recentProjectType != 2;
+
+              font: Theme.defaultFont
+              width: parent.width
+              height: visible ? 48: 0
+              leftPadding: 10
+
+              text: recentProjectActions.recentProjectPath === settings.value( '/QField/fileAssociationProject', '' ) ? qsTr( "Unset as Default Project" ) : qsTr( "Set as Default Project" )
+              onTriggered: {
+                  settings.setValue( '/QField/fileAssociationProject', recentProjectActions.recentProjectPath === settings.value( '/QField/fileAssociationProject', '' ) ? '' : recentProjectActions.recentProjectPath );
+                  // reset the recentProjectPath to update menu item text
+                  recentProjectActions.recentProjectPath = '';
+              }
+            }
+            MenuItem {
               id: removeProject
 
               font: Theme.defaultFont
@@ -449,7 +468,7 @@ Page {
               height: visible ? 48: 0
               leftPadding: 10
 
-              text: qsTr( "Remove Recent Project" )
+              text: qsTr( "Remove from Recent Projects" )
               onTriggered: {
                   iface.removeRecentProject( recentProjectActions.recentProjectPath );
                   model.reloadModel();
