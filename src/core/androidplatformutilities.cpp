@@ -353,6 +353,11 @@ void AndroidPlatformUtilities::setScreenLockPermission( const bool allowLock )
   }
 }
 
+bool AndroidPlatformUtilities::supportsNativeCamera() const
+{
+  return true;
+}
+
 #ifdef __cplusplus
 extern "C" {
 #endif

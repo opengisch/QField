@@ -32,6 +32,8 @@ class QFIELD_CORE_EXPORT PlatformUtilities : public QObject
 {
     Q_OBJECT
 
+    Q_PROPERTY( bool supportsNativeCamera READ supportsNativeCamera NOTIFY supportsNativeCameraChanged )
+
   public:
     virtual ~PlatformUtilities();
 
@@ -118,5 +120,17 @@ class QFIELD_CORE_EXPORT PlatformUtilities : public QObject
     Q_INVOKABLE virtual void setScreenLockPermission( const bool allowLock ) { Q_UNUSED( allowLock ); }
 
     static PlatformUtilities *instance();
+
+    /**
+     * Returns true if the platform supports native camera.
+     * This returns true on Android where this is implemented through intents
+     */
+    virtual bool supportsNativeCamera() const;
+
+  signals:
+    /**
+     * Will never be emitted, just here to avoid a warning about a non-signalling-property
+     */
+    void supportsNativeCameraChanged();
 };
 #endif // PLATFORMUTILITIES_H
