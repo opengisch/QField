@@ -184,7 +184,7 @@ class QgsQuickMapCanvasMap : public QQuickItem
     bool mPinching = false;
     QPoint mPinchStartPoint;
     QgsMapRendererParallelJob *mJob = nullptr;
-    QgsMapRendererCache *mCache = nullptr;
+    std::unique_ptr<QgsMapRendererCache> mCache;
     QgsLabelingResults *mLabelingResults = nullptr;
     QImage mImage;
     QgsMapSettings mImageMapSettings;
