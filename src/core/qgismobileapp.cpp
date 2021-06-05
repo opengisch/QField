@@ -909,7 +909,13 @@ void QgisMobileapp::readProjectFile()
   {
     if ( crs.isValid() )
     {
-      if ( QFile::exists( PlatformUtilities::instance()->qfieldDataDir() + QStringLiteral( "basemap.qgs" ) ) )
+      QSettings settings;
+      const QString fileAssociationProject = settings.value( QStringLiteral( "QField/fileAssociationProject" ), QString() ).toString();
+      if ( !fileAssociationProject.isEmpty() && QFile::exists( fileAssociationProject ) )
+      {
+        mProject->read( fileAssociationProject );
+      }
+      else if ( QFile::exists( PlatformUtilities::instance()->qfieldDataDir() + QStringLiteral( "basemap.qgs" ) ) )
       {
         mProject->read( PlatformUtilities::instance()->qfieldDataDir() + QStringLiteral( "basemap.qgs" ) );
       }

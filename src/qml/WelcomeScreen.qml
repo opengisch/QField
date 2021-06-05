@@ -2,6 +2,7 @@ import QtQuick 2.12
 import QtQuick.Controls 2.12
 import QtQuick.Layouts 1.12
 import QtQuick.Particles 2.0
+import Qt.labs.settings 1.0
 
 import org.qfield 1.0
 import Theme 1.0
@@ -14,6 +15,11 @@ Page {
   property alias model: table.model
   signal showOpenProjectDialog
   signal showQFieldCloudScreen
+
+  Settings {
+    id: registry
+    property string baseMapProject: ''
+  }
 
   Rectangle {
     id: welcomeBackground
@@ -366,13 +372,21 @@ Page {
                   id: projectNote
                   leftPadding: 3
                   text: {
-                    if (index == 0) {
+                    var notes = [];
+
+                    if ( index == 0 ) {
                         var firstRun = settings && !settings.value( "/QField/FirstRunFlag", false )
-                        return !firstRun && firstShown === false ? qsTr( "Last session" ) : ""
+                        if (!firstRun && firstShown === false) notes.push( qsTr( "Last session" ) );
                     }
-                    else
-                    {
-                        return ""
+
+                    if ( ProjectPath === registry.baseMapProject ) {
+                        notes.push( qsTr( "Base map project" ) );
+                    }
+
+                    if ( notes.length > 0 ) {
+                        return notes.join( '; ' );
+                    } else {
+                        return "";
                     }
                   }
                   visible: text != ""
@@ -419,6 +433,7 @@ Page {
                 var item = table.itemAt(mouse.x, mouse.y)
                 if (item) {
                     recentProjectActions.recentProjectPath = item.path;
+                    recentProjectActions.recentProjectType = item.type;
                     recentProjectActions.popup(mouse.x, mouse.y)
                 }
             }
@@ -428,8 +443,10 @@ Page {
             id: recentProjectActions
 
             property string recentProjectPath: ''
+            property int recentProjectType: 0
 
             title: 'Recent Project Actions'
+
             width: {
                 var result = 0;
                 var padding = 0;
@@ -442,6 +459,28 @@ Page {
             }
 
             MenuItem {
+              id: baseMapProject
+              visible: recentProjectActions.recentProjectType != 2;
+
+              font: Theme.defaultFont
+              width: parent.width
+              height: visible ? 48: 0
+              checkable: true
+              checked: recentProjectActions.recentProjectPath === registry.baseMapProject
+
+              text: qsTr( "Base Map Project" )
+              onTriggered: {
+                  registry.baseMapProject = recentProjectActions.recentProjectPath === registry.baseMapProject ? '' : recentProjectActions.recentProjectPath;
+              }
+            }
+
+            MenuSeparator {
+                visible: baseMapProject.visible
+                width: parent.width
+                height: visible ? undefined : 0
+            }
+
+            MenuItem {
               id: removeProject
 
               font: Theme.defaultFont
@@ -449,7 +488,7 @@ Page {
               height: visible ? 48: 0
               leftPadding: 10
 
-              text: qsTr( "Remove Recent Project" )
+              text: qsTr( "Remove from Recent Projects" )
               onTriggered: {
                   iface.removeRecentProject( recentProjectActions.recentProjectPath );
                   model.reloadModel();
