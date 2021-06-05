@@ -69,12 +69,12 @@ Page {
           settingAlias: "mouseAsTouchScreen"
       }
       Component.onCompleted: {
-          var i;
-          for (i = 0; i < count; i++) {
-              if (get(i).settingAlias == 'nativeCamera')
-                  setProperty(i, 'isVisible', platformUtilities.supportsNativeCamera)
-              else
-                  setProperty(i, 'isVisible', true)
+          for (var i = 0; i < settingsModel.count; i++) {
+              if (settingsModel.get(i).settingAlias === 'nativeCamera') {
+                  settingsModel.setProperty(i, 'isVisible', platformUtilities.supportsNativeCamera)
+              } else {
+                  settingsModel.setProperty(i, 'isVisible', true)   
+              }
           }
       }
   }
