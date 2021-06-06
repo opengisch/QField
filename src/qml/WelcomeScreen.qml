@@ -18,6 +18,7 @@ Page {
 
   Settings {
     id: registry
+    category: 'QField'
     property string baseMapProject: ''
   }
 

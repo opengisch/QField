@@ -932,7 +932,7 @@ void QgisMobileapp::readProjectFile()
     if ( crs.isValid() )
     {
       QSettings settings;
-      const QString fileAssociationProject = settings.value( QStringLiteral( "QField/fileAssociationProject" ), QString() ).toString();
+      const QString fileAssociationProject = settings.value( QStringLiteral( "QField/baseMapProject" ), QString() ).toString();
       if ( !fileAssociationProject.isEmpty() && QFile::exists( fileAssociationProject ) )
       {
         mProject->read( fileAssociationProject );
