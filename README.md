@@ -16,6 +16,8 @@ Check the [documentation](http://qfield.org/docs)
 
 [Download the latest windows beta version](https://nightly.link/opengisch/QField/workflows/windows/master/QField-dev-Release.zip)
 
+[An iOS version is being developed, subscribe to be among the first to test](https://forms.clickup.com/f/22wqj-2878/D6IEV7K3PKVONXPX8P)
+
 ## Contribute
 
 QField is an open source project, licensed under the terms of the GPLv2 or later. This means that it is free to use and modify and will stay like that.
@@ -59,7 +61,7 @@ ARCH=x86_64 ./scripts/build.sh
 
 ### For iOs
 
-- [ ] Build sdk in cloud
+- [x] Build sdk in cloud
 - [x] Simplify framework linking
 - [ ] Dedicated Info.plist.in
 - [x] Icon folder
