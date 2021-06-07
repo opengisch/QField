@@ -1,3 +1,20 @@
+/***************************************************************************
+  orderedrelationmodel.h - OrderedRelationModel
+
+ ---------------------
+ begin                : Jun 2021
+ copyright            : (C) 2021 by Ivan Ivanov
+ email                : ivan (at) opengis.ch
+ ***************************************************************************
+ *                                                                         *
+ *   This program is free software; you can redistribute it and/or modify  *
+ *   it under the terms of the GNU General Public License as published by  *
+ *   the Free Software Foundation; either version 2 of the License, or     *
+ *   (at your option) any later version.                                   *
+ *                                                                         *
+ ***************************************************************************/
+#ifndef ORDEREDRELATIONMODEL_H
+#define ORDEREDRELATIONMODEL_H
 
 #include "qgsrelation.h"
 #include "qgsfeature.h"
@@ -9,52 +26,57 @@ class FeatureExpressionValuesGatherer;
 
 class OrderedRelationModel: public QAbstractTableModel
 {
+    Q_OBJECT
+
+    Q_PROPERTY( QgsRelation relation READ relation WRITE setRelation NOTIFY relationChanged)
+    Q_PROPERTY( QString currentRelationId READ currentRelationId WRITE setCurrentRelationId NOTIFY relationChanged)
+    Q_PROPERTY( QgsFeature feature READ feature WRITE setFeature NOTIFY featureChanged)
+    Q_PROPERTY( QString orderingField READ orderingField WRITE setOrderingField NOTIFY orderingFieldChanged)
+    Q_PROPERTY( QString imagePath READ imagePath WRITE setImagePath NOTIFY imagePathChanged)
+    Q_PROPERTY( QString description READ description WRITE setDescription NOTIFY descriptionChanged)
+    Q_PROPERTY( QString isLoading READ isLoading NOTIFY isLoadingChanged)
+
   public:
 
-  enum Roles
-  {
-    ImagePathRole = Qt::UserRole + 1,
-    DescriptionRole,
-    FeatureIdRole,
-  };
+    explicit OrderedRelationModel( QObject *parent = nullptr );
 
-  Q_PROPERTY( QgsRelation relation READ relation WRITE relation NOTIFY relationChanged)
-  Q_PROPERTY( QgsFeature feature READ feature WRITE feature NOTIFY featureChanged)
-  Q_PROPERTY( QString orderingField READ orderingField WRITE orderingField NOTIFY orderingFieldChanged)
-  Q_PROPERTY( QString imagePath READ imagePath WRITE imagePath NOTIFY imagePathChanged)
-  Q_PROPERTY( QString description READ description WRITE description NOTIFY descriptionChanged)
+    enum Roles
+    {
+      ImagePathRole = Qt::UserRole + 1,
+      DescriptionRole,
+      FeatureIdRole,
+    };
 
-  OrderedRelationModel( QObject *parent );
+    QgsRelation relation() const;
+    void setRelation( const QgsRelation &relation );
+    QString currentRelationId() const;
+    void setCurrentRelationId( const QString &relationId );
+    QgsFeature feature() const;
+    void setFeature( const QgsFeature &feature );
+    QString orderingField() const;
+    void setOrderingField( const QString &orderingField );
+    QString imagePath() const;
+    void setImagePath( const QString &imagePath );
+    QString description() const;
+    void setDescription( const QString &description );
+    int rowCount( const QModelIndex &parent ) const override;
+    int columnCount( const QModelIndex &parent ) const override;
+    QVariant data( const QModelIndex &index, int role = Qt::DisplayRole ) const override;
+    bool setData( const QModelIndex &index, const QVariant &value, int role = Qt::EditRole ) override;
+    bool isLoading() const;
 
-  QgsRelation relation() const;
-  void setRelation( const QgsRelation &relation );
-  QString relationId() const;
-  void setRelationId( const QString &relationId );
-  QgsFeature feature() const;
-  void setFeature( const QgsFeature &feature );
-  QString orderingField() const;
-  void setOrderingField( const QString &orderingField );
-  QString imagePath() const;
-  void setImagePath( const QString &imagePath );
-  QString description() const;
-  void setDescription( const QString &description );
-  int rowCount( const QModelIndex &parent ) const override;
-  int columnCount( const QModelIndex &parent ) const override;
-  QVariant data( const QModelIndex index, Roles role );
-  bool setData( const QModelIndex index, const QVariant value, Roles role);
+    QHash<int, QByteArray> roleNames() const override;
 
-
-  QHash<int, QByteArray> roleNames() const override;
-
-  void reloadData();
-  void processFeatureList();
+    void reload();
+    void processFeatureList();
 
   signals:
-  void relationChanged();
-  void featureChanged();
-  void orderingFieldChanged();
-  void imagePathChanged();
-  void descriptionChanged();
+    void relationChanged();
+    void featureChanged();
+    void orderingFieldChanged();
+    void imagePathChanged();
+    void descriptionChanged();
+    void isLoadingChanged();
 
 
   private:
@@ -65,6 +87,9 @@ class OrderedRelationModel: public QAbstractTableModel
     QString mDescription;
     QgsFeature mFeature;
     QList<QgsFeature> mRelatedFeatures;
+    bool mIsLoading = false;
 
     FeatureExpressionValuesGatherer *mGatherer = nullptr;
 };
+
+#endif // ORDEREDRELATIONMODEL_H

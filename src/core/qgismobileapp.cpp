@@ -94,6 +94,7 @@
 #include "qgsrelationmanager.h"
 #include "recentprojectlistmodel.h"
 #include "referencingfeaturelistmodel.h"
+#include "orderedrelationmodel.h"
 #include "rubberband.h"
 #include "rubberbandmodel.h"
 #include "snappingresult.h"
@@ -415,6 +416,7 @@ void QgisMobileapp::initDeclarative()
   qmlRegisterType<ValueMapModel>( "org.qfield", 1, 0, "ValueMapModel" );
   qmlRegisterType<RecentProjectListModel>( "org.qgis", 1, 0, "RecentProjectListModel" );
   qmlRegisterType<ReferencingFeatureListModel>( "org.qgis", 1, 0, "ReferencingFeatureListModel" );
+  qmlRegisterType<OrderedRelationModel>( "org.qgis", 1, 0, "OrderedRelationModel" );
   qmlRegisterType<FeatureCheckListModel>( "org.qgis", 1, 0, "FeatureCheckListModel" );
   qmlRegisterType<GeometryEditorsModel>( "org.qfield", 1, 0, "GeometryEditorsModel" );
   qmlRegisterType<ExpressionEvaluator>( "org.qfield", 1, 0, "ExpressionEvaluator" );

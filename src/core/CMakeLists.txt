@@ -44,6 +44,7 @@ set(QFIELD_CORE_SRCS
   qgssggeometry.cpp
   gnsspositioninformation.cpp
   referencingfeaturelistmodel.cpp
+  orderedrelationmodel.cpp
   recentprojectlistmodel.cpp
   rubberband.cpp
   rubberbandmodel.cpp
@@ -129,6 +130,7 @@ set(QFIELD_CORE_HDRS
   qgssggeometry.h
   gnsspositioninformation.h
   referencingfeaturelistmodel.h
+  orderedrelationmodel.h
   recentprojectlistmodel.h
   rubberband.h
   rubberbandmodel.h

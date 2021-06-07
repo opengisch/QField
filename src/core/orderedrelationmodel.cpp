@@ -5,9 +5,11 @@
 #include "qgsfeature.h"
 #include "qgsfeaturerequest.h"
 #include "qgsvectorlayer.h"
+#include "qgsproject.h"
 #include "qgsexpressioncontextutils.h"
 #include <QAbstractTableModel>
 
+#include "qfield_core_export.h"
 
 OrderedRelationModel::OrderedRelationModel( QObject *parent )
   :QAbstractTableModel( parent )
@@ -55,6 +57,7 @@ void OrderedRelationModel::setFeature( const QgsFeature &feature )
     return;
 
   mFeature = feature;
+  reload();
   emit featureChanged();
 }
 
@@ -69,6 +72,7 @@ void OrderedRelationModel::setOrderingField( const QString &orderingField )
     return;
 
   mOrderingField = orderingField;
+  reload();
   emit orderingFieldChanged();
 }
 
@@ -79,10 +83,12 @@ QString OrderedRelationModel::imagePath() const
 
 void OrderedRelationModel::setImagePath( const QString &imagePath )
 {
+  qDebug() << "sssssssssssssssss" << imagePath;
   if ( mImagePath == imagePath )
     return;
 
   mImagePath = imagePath;
+  reload();
   emit imagePathChanged();
 }
 
@@ -97,6 +103,7 @@ void OrderedRelationModel::setDescription( const QString &description )
     return;
 
   mDescription = description;
+  reload();
   emit descriptionChanged();
 }
 
@@ -125,7 +132,7 @@ QHash<int, QByteArray> OrderedRelationModel::roleNames() const
   return roles;
 }
 
-void OrderedRelationModel::reloadData()
+void OrderedRelationModel::reload()
 {
   if ( mOrderingField.isEmpty() || !mRelation.isValid() )
     return;
@@ -136,6 +143,10 @@ void OrderedRelationModel::reloadData()
         mRelation.referencingLayer()->displayExpression(),
         request
   );
+
+  mIsLoading = true;
+  emit isLoadingChanged();
+
   connect( mGatherer, &QThread::finished, this, &OrderedRelationModel::processFeatureList );
   mGatherer->start();
 }
@@ -157,13 +168,14 @@ void OrderedRelationModel::processFeatureList()
 
   mGatherer->deleteLater();
   mGatherer = nullptr;
+  mIsLoading = false;
 
   beginResetModel();
   mRelatedFeatures = relatedFeatures;
   endResetModel();
 }
 
-QVariant OrderedRelationModel::data(const QModelIndex index, Roles role )
+QVariant OrderedRelationModel::data(const QModelIndex &index, int role ) const
 {
   QVariant result;
 
@@ -192,12 +204,17 @@ QVariant OrderedRelationModel::data(const QModelIndex index, Roles role )
 }
 
 
-bool OrderedRelationModel::setData( const QModelIndex index, const QVariant value, Roles role)
+bool OrderedRelationModel::setData( const QModelIndex &index, const QVariant &value, int role)
 {
   Q_UNUSED( index );
   Q_UNUSED( value );
   Q_UNUSED( role );
   return false;
+}
+
+bool OrderedRelationModel::isLoading() const
+{
+  return mIsLoading;
 }
 
 //def moveitems(self, index_from, index_to):
