@@ -8,7 +8,7 @@ jobs:
         with:
           fetch-depth: 0
       - name: Parse publiccode.yml
-        uses: italia/publiccode-softwareversion-check-action
+        uses: italia/publiccode-softwareversion-check-action@v1.1.0
         id: pva
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v3
