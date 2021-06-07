@@ -90,7 +90,7 @@ description:
     screenshots:
       - https://github.com/opengisch/QField-docs/raw/master/en/images/qfield_picture.png
     shortDescription: |-
-      QField is a full-featured, user-friendly, free-and-open-source mobile data collection
+      QField is the leading full-featured, user-friendly, free-and-open-source mobile data collection
       app that integrates perfectly with QGIS and runs on various platforms.
 intendedAudience:
   scope:
@@ -107,7 +107,7 @@ intendedAudience:
     - welfare
 it:
   conforme:
-    gdpr: false
+    gdpr: true
     lineeGuidaDesign: false
     misureMinimeSicurezza: false
     modelloInteroperabilita: false
