@@ -1,0 +1,180 @@
+---
+# This repository adheres to the publiccode.yml standard by including this
+# metadata file that makes public software easily discoverable.
+# More info at https://github.com/italia/publiccode.yml
+
+publiccodeYmlVersion: '0.2'
+name: QField
+url: 'https://github.com/opengisch/QField'
+logo: https://raw.githubusercontent.com/opengisch/QField/master/images/icons/qfield_logo.svg
+softwareVersion: "1.9.5"
+releaseDate: "2021-05-01"
+
+categories:
+  - collaboration
+  - data-analytics
+  - data-collection
+  - data-visualization
+  - facility-management
+  - geographic-information-systems
+  - survey
+
+description:
+  en:
+    features:
+      - Geospatial field data collection
+      - Spatial data management
+      - Cartography
+
+    genericName: QField
+    longDescription: |
+      QField is the leading GIS data collection app.
+      It integrates perfectly with QGIS.
+      
+      ## Features
+
+      ### 1. Efficient field work
+      
+      - Touch optimized, simple user interface
+      - Fully QGIS compatible
+      - Highly configurable data entry forms
+      - Adaptable to any data model
+      - Capture pictures to illustrate the data
+      - External GNSS antenna integration through bluetooth
+      - Store accuracy information alongside recorded points for Q/A
+      - Print to mobile printers or PDF
+
+      ### 2. Flexible and powerful spatial data management
+
+      - Supports raster, vector, mesh, and point cloud data in a range of
+      industry-standard formats
+          - _Raster formats include_: GeoPackage, GeoTIFF, GRASS, ArcInfo binary and ASCII grids, ERDAS Imagine SDTS, WMS, WCS, PostgreSQL/PostGIS, and [other GDAL supported formats](https://gdal.org/drivers/raster/index.html).
+          - _Vector formats include_: GeoPackage, ESRI Shapefiles, GRASS, SpatiaLite, PostgreSQL/PostGIS, WFS, Vector Tiles and [other OGR supported formats](http://www.gdal.org/ogr_formats.html).
+          - _Point-cloud format_: LAS/LAZ and EPT datasets.
+      - Access and display local files, spatial databases (PostGIS,  SpatiaLite), web services (WMS, WCS, WFS,  ArcGIS REST
+      services), tile services, etc.
+
+      - Visual and numerical digitizing and editing
+
+      - On-the-fly reprojection between coordinate reference systems (CRS)
+
+      - Temporal support
+
+
+      ### 3. Beautiful cartography
+
+      - Large variety of rendering options
+
+      - Fine control over symbology, labeling, legends and additional graphical
+      elements for beautifully rendered maps
+
+      - Advanced styling using data-defined overrides, blending modes, and draw
+      effects
+
+      - Create and update maps with specified scale, extent, style, and
+      decorations via saved layouts
+
+      - Generate multiple maps (and reports) automatically using QGIS Atlas and
+      QGIS Reports
+
+      - Flexible output direct to printer, or as image (raster), PDF, or SVG for
+      further customization
+
+      - On-the-fly rendering enhancements using geometry generators (e.g. create
+      and style new geometries from existing features)
+
+      ### 4. Collaborative work
+      
+      - Collaboratively work on datasets through [QFieldCloud](https://qfield.cloud)
+      
+    screenshots:
+      - https://github.com/opengisch/QField-docs/raw/master/en/images/qfield_picture.png
+    shortDescription: |-
+      QField is the leading full-featured, user-friendly, free-and-open-source mobile data collection
+      app that integrates perfectly with QGIS and runs on various platforms.
+intendedAudience:
+  scope:
+    - agriculture
+    - education
+    - emergency-services
+    - energy
+    - environment
+    - government
+    - infrastructures
+    - local-authorities
+    - transportation
+    - tourism
+    - welfare
+it:
+  conforme:
+    gdpr: true
+    lineeGuidaDesign: false
+    misureMinimeSicurezza: false
+    modelloInteroperabilita: false
+  countryExtensionVersion: '0.2'
+  piattaforme:
+    anpr: false
+    cie: false
+    pagopa: false
+    spid: false
+landingURL: 'https://qfield.org'
+legal:
+  license: GPL-2.0-or-later
+localisation:
+  availableLanguages:
+    - af
+    - bg
+    - ca
+    - cs
+    - de
+    - el
+    - en
+    - es_AR
+    - es
+    - et
+    - eu
+    - fa
+    - fi
+    - fr
+    - gl
+    - he
+    - hi
+    - hr
+    - hu
+    - id
+    - it
+    - ja
+    - ko
+    - lt
+    - lv
+    - mn
+    - nb_NO
+    - nl
+    - no
+    - ny
+    - pl
+    - pt_BR
+    - pt
+    - rm
+    - ro
+    - rw
+    - sv
+    - tr
+    - uk
+    - zh
+  localisationReady: true
+
+maintenance:
+  contacts:
+    - email: users@lists.qfield.org
+      name: QField user list
+  type: community
+
+platforms:
+  - linux
+  - windows
+  - android
+  - ios
+
+softwareType: standalone/mobile
+developmentStatus: stable
