@@ -7,8 +7,8 @@ publiccodeYmlVersion: '0.2'
 name: QField
 url: 'https://github.com/opengisch/QField'
 logo: https://raw.githubusercontent.com/opengisch/QField/master/images/icons/qfield_logo.svg
-softwareVersion: "1.9.5"
-releaseDate: "2021-05-01"
+softwareVersion: v1.9.6
+releaseDate: '2021-06-02'
 
 categories:
   - collaboration
