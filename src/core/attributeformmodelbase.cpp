@@ -61,6 +61,8 @@ QHash<int, QByteArray> AttributeFormModelBase::roleNames() const
   roles[AttributeFormModel::AttributeEditable] = "AttributeEditable";
   roles[AttributeFormModel::EditorWidget] = "EditorWidget";
   roles[AttributeFormModel::EditorWidgetConfig] = "EditorWidgetConfig";
+  roles[AttributeFormModel::RelationEditorWidget] = "RelationEditorWidget";
+  roles[AttributeFormModel::RelationEditorWidgetConfig] = "RelationEditorWidgetConfig";
   roles[AttributeFormModel::RememberValue] = "RememberValue";
   roles[AttributeFormModel::Field] = "Field";
   roles[AttributeFormModel::RelationId] = "RelationId";
@@ -414,6 +416,8 @@ void AttributeFormModelBase::flatten( QgsAttributeEditorContainer *container, QS
         item->setData( true, AttributeFormModel::CurrentlyVisible );
         item->setData( "relation", AttributeFormModel::ElementType );
         item->setData( "RelationEditor", AttributeFormModel::EditorWidget );
+        item->setData( editorRelation->relationWidgetTypeId(), AttributeFormModel::RelationEditorWidget );
+        item->setData( editorRelation->relationEditorConfiguration(), AttributeFormModel::RelationEditorWidgetConfig );
         item->setData( relation.id(), AttributeFormModel::RelationId );
         item->setData( mLayer->editFormConfig().widgetConfig( relation.id() )[QStringLiteral( "nm-rel" )].toString(), AttributeFormModel::NmRelationId );
         item->setData( container->isGroupBox() ? container->name() : QString(), AttributeFormModel::Group );

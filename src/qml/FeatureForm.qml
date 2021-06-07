@@ -368,7 +368,13 @@ Page {
               font.bold: true
               topPadding: 10
               bottomPadding: 5
-              color: ConstraintHardValid ? form.state === 'ReadOnly' || embedded && EditorWidget === 'RelationEditor' ? 'grey' : ConstraintSoftValid ? 'black' : Theme.warningColor : Theme.errorColor
+              color: ConstraintHardValid
+                     ? form.state === 'ReadOnly' || embedded && EditorWidget === 'RelationEditor'
+                         ? 'grey'
+                         : ConstraintSoftValid
+                           ? 'black'
+                           : Theme.warningColor
+                     : Theme.errorColor
             }
 
             Label {
@@ -414,6 +420,8 @@ Page {
                 property var value: AttributeValue
                 property var config: ( EditorWidgetConfig || {} )
                 property var widget: EditorWidget
+                property var relationEditorWidget: RelationEditorWidget
+                property var relationEditorWidgetConfig: RelationEditorWidgetConfig
                 property var field: Field
                 property var fieldLabel: Name
                 property var relationId: RelationId
@@ -431,7 +439,7 @@ Page {
                 active: widget !== 'Hidden'
                 source: {
                   if ( widget === 'RelationEditor' ) {
-                    return 'editorwidgets/' + ( widget || 'relation_editor' ) + '.qml'
+                    return 'editorwidgets/RelationEditor/' + ( RelationEditorWidget || 'relation_editor' ) + '.qml'
                   }
 
                   return 'editorwidgets/' + ( widget || 'TextEdit' ) + '.qml'
