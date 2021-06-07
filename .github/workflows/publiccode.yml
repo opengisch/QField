@@ -16,3 +16,4 @@ jobs:
         with:
           title: "feat: update softwareVersion ${{ steps.pva.outputs.version }} in publiccode.yml"
           branch: feature/publiccode-${{ steps.pva.outputs.version }}
+          token: ${{ secrets.FAIRY_TOKEN }}
