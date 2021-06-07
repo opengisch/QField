@@ -1,5 +1,6 @@
 import QtQuick 2.12
 import QtQuick.Controls 2.12
+import QtQml.Models 2.15
 import QtGraphicalEffects 1.0
 import QtQuick.Layouts 1.12
 
@@ -7,8 +8,8 @@ import org.qfield 1.0
 import org.qgis 1.0
 import Theme 1.0
 
+import "../.."
 import ".."
-import "."
 
 EditorWidgetBase {
     id: relationEditor
@@ -17,8 +18,8 @@ EditorWidgetBase {
 
     // because no additional addEntry item on readOnly (isEnabled false)
     height: isEnabled
-            ? referencingFeatureListView.height + itemHeight
-            : Math.max( referencingFeatureListView.height, itemHeight)
+            ? listView.height + itemHeight
+            : Math.max( listView.height, itemHeight)
     enabled: true
 
     Rectangle {
@@ -34,36 +35,31 @@ EditorWidgetBase {
         id: orderedRelationModel
         currentRelationId: relationId
         feature: currentFeature
-        orderingField: Config['ordering_field']
-        imagePath: Config['image_path']
-        description: Config['description']
+        orderingField: relationEditorWidgetConfig['ordering_field']
+        imagePath: relationEditorWidgetConfig['image_path']
+        description: relationEditorWidgetConfig['description']
 
         property int featureFocus: -1
-        onModelUpdated: {
-          if (featureFocus > -1) {
-            referencingFeatureListView.currentIndex = orderedRelationModel.getFeatureIdRow(featureFocus)
-            featureFocus = -1
-          }
-        }
     }
 
     DelegateModel {
       id: visualModel
 
       model: orderedRelationModel
+//      delegate: referencingFeatureDelegate
       delegate: dragDelegate
     }
 
     //the list
     ListView {
-        id: referencingFeatureListView
+        id: listView
         model: visualModel
         width: parent.width
         height: Math.min(
                   4 * itemHeight,
-                  referencingFeatureListView.count * itemHeight
+                  listView.count * itemHeight
                 ) + (
-                  referencingFeatureListView.count > 4
+                  listView.count > 4
                     ? itemHeight / 2
                     : 0
                 )
@@ -86,7 +82,7 @@ EditorWidgetBase {
     //the add entry "last row"
     Item {
       id: addEntry
-      anchors.top: referencingFeatureListView.bottom
+      anchors.top: listView.bottom
       height: itemHeight
       width: parent.width
 
@@ -170,28 +166,25 @@ EditorWidgetBase {
             property int indexFrom: -1
             property int indexTo: -1
 
-            anchors { left: parent.left; right: parent.right }
+            anchors.left: parent ? parent.left : undefined
+            anchors.right: parent ? parent.right : undefined
             height: content.height
 
             drag.target: held ? content : undefined
             drag.axis: Drag.YAxis
 
             onPressAndHold: {
-                if (orderedModel.layerEditingEnabled)
-                {
+                if (orderedRelationModel.layerEditingEnabled) {
                     held = true
                 }
             }
             onReleased: {
-               if (held === true)
-               {
+               if (held === true) {
                    held = false
-                   orderedModel.moveitems(indexFrom, indexTo)
-               }
-               else if (listView.currentIndex !== dragArea.DelegateModel.itemsIndex)
-               {
+                   orderedRelationModel.moveitems(indexFrom, indexTo)
+               } else if (listView.currentIndex !== dragArea.DelegateModel.itemsIndex) {
                    listView.currentIndex = dragArea.DelegateModel.itemsIndex
-                   orderedModel.onViewCurrentFeatureChanged(listView.currentIndex)
+                   orderedRelationModel.onViewCurrentFeatureChanged(listView.currentIndex)
                }
             }
 
@@ -206,7 +199,11 @@ EditorWidgetBase {
                 border.width: 1
                 border.color: "lightsteelblue"
 
-                color: dragArea.held ? "coral" : listView.currentIndex === dragArea.DelegateModel.itemsIndex ? "lightsteelblue" : "white"
+                color: dragArea.held
+                       ? "coral"
+                       : listView.currentIndex === dragArea.DelegateModel.itemsIndex
+                         ? "lightsteelblue"
+                         : "white"
                 Behavior on color { ColorAnimation { duration: 100 } }
 
                 radius: 2
@@ -228,8 +225,20 @@ EditorWidgetBase {
                 Row {
                     id: row
                     anchors { fill: parent; margins: 2 }
-                    Image { source: ImagePath; width: 50; fillMode: Image.PreserveAspectFit; visible: ImagePath !== "" }
-                    Text { text: Description; height: 40; verticalAlignment: Text.AlignVCenter; padding: 4 }
+
+                    Image {
+                      source: ImagePath || Theme.getThemeIcon("ic_photo_notavailable_black_24dp")
+                      width: 50
+                      fillMode: Image.PreserveAspectFit
+                      visible: !!ImagePath
+                    }
+
+                    Text {
+                      text: Description
+                      height: 40
+                      verticalAlignment: Text.AlignVCenter
+                      padding: 4
+                    }
                 }
             }
             DropArea {
@@ -268,7 +277,7 @@ EditorWidgetBase {
             anchors { leftMargin: 10; left: parent.left; right: deleteButtonRow.left; verticalCenter: parent.verticalCenter }
             font: Theme.defaultFont
             color: !isEnabled ? 'grey' : 'black'
-            text: { text: nmRelationId ? model.nmDisplayString : model.displayString }
+            text: Description
           }
 
           MouseArea {
@@ -284,8 +293,7 @@ EditorWidgetBase {
             }
           }
 
-          Row
-          {
+          Row {
             id: deleteButtonRow
             anchors { top: parent.top; right: parent.right; rightMargin: 10 }
             height: listitem.height
@@ -338,10 +346,6 @@ EditorWidgetBase {
       property int referencingFeatureId
       property string referencingFeatureDisplayMessage
       property string referencingLayerName: orderedRelationModel.relation.referencingLayer ? orderedRelationModel.relation.referencingLayer.name : ''
-      property int nmReferencedFeatureId
-      property string nmReferencedFeatureDisplayMessage
-      property string nmReferencedLayerName: orderedRelationModel.nmRelation.referencedLayer ? orderedRelationModel.nmRelation.referencedLayer.name : ''
-      property string nmReferencingLayerName
 
       visible: false
       modal: true
@@ -373,7 +377,7 @@ EditorWidgetBase {
 
       standardButtons: Dialog.Ok | Dialog.Cancel
       onAccepted: {
-        if ( ! referencingFeatureListView.model.deleteFeature( referencingFeatureId ) ) {
+        if ( ! listView.model.deleteFeature( referencingFeatureId ) ) {
           displayToast( qsTr( "Failed to delete referencing feature" ), 'error' )
         }
         
