@@ -1127,6 +1127,19 @@ ApplicationWindow {
         }
     }
 
+    DigitizingLogger {
+      id: digitizingLogger
+      project: qgisProject
+
+      positionInformation: positionSource.positionInfo
+      positionLocked: gpsLinkButton.checked
+      topSnappingResult: coordinateLocator.topSnappingResult
+
+      currentCoordinate: coordinateLocator.currentCoordinate
+
+      cloudUserInformation: cloudConnection.userInformation
+    }
+
     DigitizingToolbar {
       id: digitizingToolbar
 

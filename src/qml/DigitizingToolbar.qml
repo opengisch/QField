@@ -211,6 +211,9 @@ VisibilityFadingRow {
   {
     if (coordinateLocator)
       coordinateLocator.flash()
+
+    digitizingLogger.writeCurrentCoordinate('add');
+
     rubberbandModel.addVertex()
   }
 
