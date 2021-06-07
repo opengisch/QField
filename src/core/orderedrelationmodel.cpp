@@ -22,8 +22,27 @@ QgsRelation OrderedRelationModel::relation() const
 void OrderedRelationModel::setRelation( const QgsRelation &relation )
 {
   mRelation = relation;
+  reload();
   emit relationChanged();
 }
+
+QString OrderedRelationModel::currentRelationId() const
+{
+  return mRelation.isValid() ? mRelation.id() : QString();
+}
+
+void OrderedRelationModel::setCurrentRelationId( const QString &relationId )
+{
+
+  if ( relationId == currentRelationId() )
+    return;
+
+
+  mRelation = QgsProject::instance()->relationManager()->relation( relationId );
+  reload();
+  emit relationChanged();
+}
+
 
 QgsFeature OrderedRelationModel::feature() const
 {

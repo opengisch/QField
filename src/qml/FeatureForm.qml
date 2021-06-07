@@ -429,7 +429,13 @@ Page {
                 property var stringUtilities: StringUtils
 
                 active: widget !== 'Hidden'
-                source: 'editorwidgets/' + ( widget || 'TextEdit' ) + '.qml'
+                source: {
+                  if ( widget === 'RelationEditor' ) {
+                    return 'editorwidgets/' + ( widget || 'relation_editor' ) + '.qml'
+                  }
+
+                  return 'editorwidgets/' + ( widget || 'TextEdit' ) + '.qml'
+                }
 
                 onStatusChanged: {
                   if ( attributeEditorLoader.status === Loader.Error )

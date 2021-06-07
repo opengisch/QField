@@ -269,7 +269,7 @@ EditorWidgetBase {
         if ( ! referencingFeatureListView.model.deleteFeature( referencingFeatureId ) ) {
           displayToast( qsTr( "Failed to delete referencing feature" ), 'error' )
         }
-        
+
         visible = false
       }
       onRejected: {

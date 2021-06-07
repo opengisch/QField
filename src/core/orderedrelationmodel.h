@@ -28,6 +28,8 @@ class OrderedRelationModel: public QAbstractTableModel
 
   QgsRelation relation() const;
   void setRelation( const QgsRelation &relation );
+  QString relationId() const;
+  void setRelationId( const QString &relationId );
   QgsFeature feature() const;
   void setFeature( const QgsFeature &feature );
   QString orderingField() const;
