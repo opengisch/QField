@@ -25,14 +25,14 @@ DigitizingLogger::DigitizingLogger()
 {
 }
 
-void DigitizingLogger::setCurrentCoordinate( const QgsPoint &currentCoordinate )
+void DigitizingLogger::setCategory( const QString &category )
 {
-  if ( mCurrentCoordinate == currentCoordinate )
+  if ( mCategory == category )
     return;
 
-  mCurrentCoordinate = currentCoordinate;
+  mCategory = category;
 
-  emit currentCoordinateChanged();
+  emit categoryChanged();
 }
 
 void DigitizingLogger::setPositionInformation( const GnssPositionInformation &positionInformation )
@@ -72,6 +72,7 @@ void DigitizingLogger::setProject( QgsProject *project )
   mProject = project;
   connect( mProject, &QgsProject::readProject, this, &DigitizingLogger::findLogsLayer );
 
+  clearCoordinates();
   findLogsLayer();
 
   emit projectChanged();
@@ -88,20 +89,23 @@ void DigitizingLogger::findLogsLayer()
       QgsVectorLayer *layer = qobject_cast< QgsVectorLayer * >( item->layer() );
       if ( layer && layer->geometryType() == QgsWkbTypes::PointGeometry && item->layer()->customProperty( QStringLiteral( "digitizingLogsLayer" ), false ).toBool() )
       {
-        mLayer = layer;
+        if ( layer->dataProvider() && layer->dataProvider()->capabilities() & QgsVectorDataProvider::AddFeatures )
+        {
+          mLayer = layer;
+        }
         break;
       }
     }
   }
 }
 
-void DigitizingLogger::writeCurrentCoordinate( const QString &action )
+void DigitizingLogger::addCoordinate( const QgsPoint &point )
 {
-  if ( !mLayer || !mLayer->dataProvider() || mLayer->dataProvider()->capabilities() &! QgsVectorDataProvider::AddFeatures )
+  if ( !mLayer )
     return;
 
   QgsFeature feature = QgsFeature( mLayer->fields() );
-  QgsGeometry geom( mCurrentCoordinate.clone() );
+  QgsGeometry geom( point.clone() );
   if ( mProject->crs() != mLayer->crs() )
   {
     QgsCoordinateTransform ct( mProject->crs(), mLayer->crs(), mProject->transformContext() );
@@ -128,7 +132,7 @@ void DigitizingLogger::writeCurrentCoordinate( const QString &action )
   expressionContext << ExpressionContextUtils::cloudUserScope( mCloudUserInformation );
 
   QgsExpressionContextScope *scope = new QgsExpressionContextScope( QObject::tr( "Digitizing Logger" ) );
-  scope->addVariable( QgsExpressionContextScope::StaticVariable( QStringLiteral( "digitizing_logger_action" ), action, true, true ) );
+  scope->addVariable( QgsExpressionContextScope::StaticVariable( QStringLiteral( "digitizing_logger_category" ), mCategory, true, true ) );
   expressionContext << scope;
 
   expressionContext.setFeature( feature );
@@ -155,23 +159,41 @@ void DigitizingLogger::writeCurrentCoordinate( const QString &action )
     }
   }
 
+  qDebug() << "ADD";
+  mPointFeatures << feature;
+  qDebug() << mPointFeatures.size();
+}
+
+void DigitizingLogger::writeCoordinates()
+{
+  if ( !mLayer )
+    return;
+
+  qDebug() << "WRITE";
   if ( mLayer->startEditing() )
   {
-    QgsFeature createdFeature = QgsVectorLayerUtils::createFeature( mLayer, feature.geometry(), feature.attributes().toMap() );
-    if ( mLayer->addFeature( createdFeature ) )
+    for ( const auto &pointFeature : std::as_const( mPointFeatures ) )
     {
-      if ( !mLayer->commitChanges( true ) )
+      QgsFeature createdFeature = QgsVectorLayerUtils::createFeature( mLayer, pointFeature.geometry(), pointFeature.attributes().toMap() );
+      qDebug() << "XXX";
+      if ( !mLayer->addFeature( createdFeature ) )
       {
-        qDebug() << "commit error";
+        qDebug() << "add error";
       }
     }
-    else
+
+    if ( !mLayer->commitChanges( true ) )
     {
-      qDebug() << "add error";
+      qDebug() << "commit error";
     }
   }
   else
   {
     qDebug() << "start editing error";
   }
+}
+
+void DigitizingLogger::clearCoordinates()
+{
+  mPointFeatures.clear();
 }

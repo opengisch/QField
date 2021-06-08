@@ -77,8 +77,8 @@ Drawer {
     model: AttributeFormModel {
         id: attributeFormModel
         featureModel: FeatureModel {
-            positionInformation: overlayFeatureFormDrawer.digitizingToolbar.coordinateLocator.positionInformation
-            positionLocked: overlayFeatureFormDrawer.digitizingToolbar.coordinateLocator.overrideLocation !== undefined
+            positionInformation: coordinateLocator.positionInformation
+            positionLocked: coordinateLocator.overrideLocation !== undefined
             topSnappingResult: coordinateLocator.topSnappingResult
             cloudUserInformation: cloudConnection.userInformation
         }

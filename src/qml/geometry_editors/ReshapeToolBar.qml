@@ -50,6 +50,8 @@ VisibilityFadingRow {
         showConfirmButton: true
         screenHovering: reshapeToolbar.screenHovering
 
+        digitizingLoggerCategory: 'edit_reshape'
+
         onConfirm: {
             rubberbandModel.frozen = true
             if (!featureModel.currentLayer.editBuffer())

@@ -1127,19 +1127,6 @@ ApplicationWindow {
         }
     }
 
-    DigitizingLogger {
-      id: digitizingLogger
-      project: qgisProject
-
-      positionInformation: positionSource.positionInfo
-      positionLocked: gpsLinkButton.checked
-      topSnappingResult: coordinateLocator.topSnappingResult
-
-      currentCoordinate: coordinateLocator.currentCoordinate
-
-      cloudUserInformation: cloudConnection.userInformation
-    }
-
     DigitizingToolbar {
       id: digitizingToolbar
 
@@ -1151,10 +1138,11 @@ ApplicationWindow {
                      && !geometryEditorsToolbar.stateVisible) || stateMachine.state === 'measure' ||
                     (stateMachine.state === "digitize" && digitizingToolbar.geometryRequested)
       rubberbandModel: currentRubberband ? currentRubberband.model : null
-      coordinateLocator: coordinateLocator
       mapSettings: mapCanvas.mapSettings
       showConfirmButton: stateMachine.state === "digitize"
       screenHovering: hoverHandler.hovered
+
+      digitizingLoggerCategory: 'add'
 
       FeatureModel {
         id: digitizingFeature

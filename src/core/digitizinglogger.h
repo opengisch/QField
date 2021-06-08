@@ -30,18 +30,24 @@ class DigitizingLogger : public QObject
 {
     Q_OBJECT
 
+    Q_PROPERTY( QString category READ category WRITE setCategory NOTIFY categoryChanged )
     Q_PROPERTY( QgsProject *project READ project WRITE setProject NOTIFY projectChanged )
     Q_PROPERTY( GnssPositionInformation positionInformation READ positionInformation WRITE setPositionInformation NOTIFY positionInformationChanged )
     Q_PROPERTY( bool positionLocked READ positionLocked WRITE setPositionLocked NOTIFY positionLockedChanged )
     Q_PROPERTY( SnappingResult topSnappingResult READ topSnappingResult WRITE setTopSnappingResult NOTIFY topSnappingResultChanged )
-    Q_PROPERTY( QgsPoint currentCoordinate READ currentCoordinate WRITE setCurrentCoordinate NOTIFY currentCoordinateChanged )
     Q_PROPERTY( CloudUserInformation cloudUserInformation WRITE setCloudUserInformation );
 
   public:
     explicit DigitizingLogger();
 
+    //! Returns the digitizing logs category
+    QString category() const { return mCategory; }
+
+    //! Sets the digitizing logs \a category
+    void setCategory( const QString &category );
+
     //! Returns the layer used as digitizing logs
-    QgsProject *project() const { return mProject; };
+    QgsProject *project() const { return mProject; }
 
     //! Sets the \a layer used as digitizing logs
     void setProject( QgsProject *project );
@@ -86,24 +92,23 @@ class DigitizingLogger : public QObject
     void setCloudUserInformation( const CloudUserInformation &cloudUserInformation ) { mCloudUserInformation = cloudUserInformation; }
 
     /**
-     * Returns the current coordinate
+     * Adds a \a point into the digitizing logs' buffer.
      */
-    QgsPoint currentCoordinate() const { return mCurrentCoordinate; };
+    Q_INVOKABLE void addCoordinate( const QgsPoint &point );
 
     /**
-     * Sets the current coordinate
-     * \param currentCoordinate the current coordinate point
+     * Writes the points buffer to the digitizing logs layer.
      */
-    void setCurrentCoordinate( const QgsPoint &currentCoordinate );
+    Q_INVOKABLE void writeCoordinates();
 
     /**
-     * Writes the current coordinate into the logs layer.
-     * \param action a string to describe the digitizing action attached to the current coordinate being logged
+     * Clear the points buffer from the digitizing logs.
      */
-    Q_INVOKABLE void writeCurrentCoordinate( const QString &action = QString() );
+    Q_INVOKABLE void clearCoordinates();
 
   signals:
   
+    void categoryChanged();
     void projectChanged();
     void positionInformationChanged();
     void positionLockedChanged();
@@ -115,17 +120,18 @@ class DigitizingLogger : public QObject
     //! Finds and link to the logs layer in present in the project
     void findLogsLayer();
 
+    QString mCategory;
+
     QgsProject *mProject = nullptr;
     QgsVectorLayer *mLayer = nullptr;
 
     GnssPositionInformation mPositionInformation;
     bool mPositionLocked = false;
-
     SnappingResult mTopSnappingResult;
-
-    QgsPoint mCurrentCoordinate;
-
     CloudUserInformation mCloudUserInformation;
+
+    QList<QgsFeature> mPointFeatures;
+
 };
 
 #endif // DIGITIZINGLOGGER_H
