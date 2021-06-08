@@ -161,7 +161,7 @@ void ReferencingFeatureListModel::updateModel()
   } );
 
   endResetModel();
-  modelUpdated();
+  emit modelUpdated();
 }
 
 void ReferencingFeatureListModel::gathererThreadFinished()
