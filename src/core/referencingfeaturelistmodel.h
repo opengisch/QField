@@ -29,6 +29,7 @@
 
 class QgsVectorLayer;
 class FeatureGatherer;
+class OrderedRelationModel;
 
 class QFIELD_CORE_EXPORT ReferencingFeatureListModel : public QAbstractItemModel
 {
@@ -195,6 +196,7 @@ class QFIELD_CORE_EXPORT ReferencingFeatureListModel : public QAbstractItemModel
     bool checkParentPrimaries();
 
     friend class FeatureGatherer;
+    friend class OrderedRelationModel;
     friend class TestReferencingFeatureListModel;
 };
 
