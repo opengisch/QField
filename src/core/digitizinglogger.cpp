@@ -93,19 +93,20 @@ void DigitizingLogger::setDigitizingLayer( QgsVectorLayer *layer )
 void DigitizingLogger::findLogsLayer()
 {
   mLogsLayer = nullptr;
-  if ( mProject && mProject->layerTreeRoot() )
+  if ( mProject )
   {
-    const QList< QgsLayerTreeLayer * > items = mProject->layerTreeRoot()->findLayers();
-    for ( const auto *item : items )
+    const QString logsLayerId = mProject->readEntry( QStringLiteral( "QField" ), QStringLiteral( "digitizingLogsLayer" ) );
+    if ( !logsLayerId.isEmpty() )
     {
-      QgsVectorLayer *layer = qobject_cast< QgsVectorLayer * >( item->layer() );
-      if ( layer && layer->geometryType() == QgsWkbTypes::PointGeometry && item->layer()->customProperty( QStringLiteral( "digitizingLogsLayer" ), false ).toBool() )
+      QgsLayerTreeLayer *item = mProject->layerTreeRoot()->findLayer( logsLayerId );
+      if ( item )
       {
-        if ( layer->dataProvider() && layer->dataProvider()->capabilities() & QgsVectorDataProvider::AddFeatures )
+        QgsVectorLayer *layer = qobject_cast< QgsVectorLayer * >( item->layer() );
+        if ( layer && layer->geometryType() == QgsWkbTypes::PointGeometry &&
+             layer->dataProvider() && layer->dataProvider()->capabilities() & QgsVectorDataProvider::AddFeatures )
         {
           mLogsLayer = layer;
         }
-        break;
       }
     }
   }
@@ -174,9 +175,7 @@ void DigitizingLogger::addCoordinate( const QgsPoint &point )
     }
   }
 
-  qDebug() << "ADD";
   mPointFeatures << feature;
-  qDebug() << mPointFeatures.size();
 }
 
 void DigitizingLogger::writeCoordinates()
@@ -184,27 +183,25 @@ void DigitizingLogger::writeCoordinates()
   if ( !mLogsLayer )
     return;
 
-  qDebug() << "WRITE";
   if ( mLogsLayer->startEditing() )
   {
     for ( const auto &pointFeature : std::as_const( mPointFeatures ) )
     {
       QgsFeature createdFeature = QgsVectorLayerUtils::createFeature( mLogsLayer, pointFeature.geometry(), pointFeature.attributes().toMap() );
-      qDebug() << "XXX";
       if ( !mLogsLayer->addFeature( createdFeature ) )
       {
-        qDebug() << "add error";
+        QgsMessageLog::logMessage( tr( "Digitizing logs layer feature addition failed" ), QStringLiteral( "QField" ) );
       }
     }
 
     if ( !mLogsLayer->commitChanges( true ) )
     {
-      qDebug() << "commit error";
+      QgsMessageLog::logMessage( tr( "Digitizing logs layer change commits failed" ), QStringLiteral( "QField" ) );
     }
   }
   else
   {
-    qDebug() << "start editing error";
+    QgsMessageLog::logMessage( tr( "Digitizing logs layer editing failed" ), QStringLiteral( "QField" ) );
   }
 }
 
