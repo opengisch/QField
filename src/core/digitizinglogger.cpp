@@ -21,6 +21,8 @@
 #include <qgsvectorlayerutils.h>
 #include <qgswkbtypes.h>
 
+#include <QDateTime>
+
 DigitizingLogger::DigitizingLogger()
 {
 }
@@ -142,7 +144,10 @@ void DigitizingLogger::addCoordinate( const QgsPoint &point )
   expressionContext << ExpressionContextUtils::cloudUserScope( mCloudUserInformation );
 
   QgsExpressionContextScope *scope = new QgsExpressionContextScope( QObject::tr( "Digitizing Logger" ) );
-  scope->addVariable( QgsExpressionContextScope::StaticVariable( QStringLiteral( "digitizing_logger_category" ), mCategory, true, true ) );
+  scope->addVariable( QgsExpressionContextScope::StaticVariable( QStringLiteral( "digitizing_category" ), mCategory, true, true ) );
+  scope->addVariable( QgsExpressionContextScope::StaticVariable( QStringLiteral( "digitizing_datetime" ), QDateTime::currentDateTime(), true, true ) );
+  scope->addVariable( QgsExpressionContextScope::StaticVariable( QStringLiteral( "digitizing_layer_name" ), mDigitizingLayer ? mDigitizingLayer->name() : QString(), true, true ) );
+  scope->addVariable( QgsExpressionContextScope::StaticVariable( QStringLiteral( "digitizing_layer_id" ), mDigitizingLayer ? mDigitizingLayer->id() : QString(), true, true ) );
   expressionContext << scope;
 
   expressionContext.setFeature( feature );

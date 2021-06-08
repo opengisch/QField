@@ -69,6 +69,7 @@ VisibilityFadingRow {
     id: digitizingLogger
 
     project: qgisProject
+    digitizingLayer: rubberbandModel.vectorLayer
 
     positionInformation: positionSource.positionInfo
     positionLocked: gpsLinkButton.checked
