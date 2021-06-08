@@ -35,7 +35,7 @@ EditorWidgetBase {
       }
       rootPathEvaluator.feature = currentFeature
       rootPathEvaluator.layer = currentLayer
-      var evaluatedFilepath = rootPathEvaluator.evaluate()
+      var evaluatedFilepath = rootPathEvaluator.evaluate().replace("\\", "/")
       if (evaluatedFilepath) {
         path = evaluatedFilepath
       } else {
