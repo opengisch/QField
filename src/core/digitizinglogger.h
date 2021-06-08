@@ -30,7 +30,7 @@ class DigitizingLogger : public QObject
 {
     Q_OBJECT
 
-    Q_PROPERTY( QString category READ category WRITE setCategory NOTIFY categoryChanged )
+    Q_PROPERTY( QString type READ type WRITE setType NOTIFY typeChanged )
     Q_PROPERTY( QgsProject *project READ project WRITE setProject NOTIFY projectChanged )
     Q_PROPERTY( QgsVectorLayer *digitizingLayer READ digitizingLayer WRITE setDigitizingLayer NOTIFY digitizingLayerChanged )
     Q_PROPERTY( GnssPositionInformation positionInformation READ positionInformation WRITE setPositionInformation NOTIFY positionInformationChanged )
@@ -41,11 +41,11 @@ class DigitizingLogger : public QObject
   public:
     explicit DigitizingLogger();
 
-    //! Returns the digitizing logs category
-    QString category() const { return mCategory; }
+    //! Returns the digitizing logs type
+    QString type() const { return mType; }
 
-    //! Sets the digitizing logs \a category
-    void setCategory( const QString &category );
+    //! Sets the digitizing logs \a type
+    void setType( const QString &type);
 
     //! Returns the current project from which the digitizing logs will be sought
     QgsProject *project() const { return mProject; }
@@ -115,7 +115,7 @@ class DigitizingLogger : public QObject
 
   signals:
   
-    void categoryChanged();
+    void typeChanged();
     void projectChanged();
     void digitizingLayerChanged();
     void positionInformationChanged();
@@ -128,7 +128,7 @@ class DigitizingLogger : public QObject
     //! Finds and link to the logs layer in present in the project
     void findLogsLayer();
 
-    QString mCategory;
+    QString mType;
 
     QgsProject *mProject = nullptr;
     QgsVectorLayer *mLogsLayer = nullptr;

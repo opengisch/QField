@@ -27,14 +27,14 @@ DigitizingLogger::DigitizingLogger()
 {
 }
 
-void DigitizingLogger::setCategory( const QString &category )
+void DigitizingLogger::setType( const QString &type )
 {
-  if ( mCategory == category )
+  if ( mType == type )
     return;
 
-  mCategory = category;
+  mType = type;
 
-  emit categoryChanged();
+  emit typeChanged();
 }
 
 void DigitizingLogger::setPositionInformation( const GnssPositionInformation &positionInformation )
@@ -145,7 +145,7 @@ void DigitizingLogger::addCoordinate( const QgsPoint &point )
   expressionContext << ExpressionContextUtils::cloudUserScope( mCloudUserInformation );
 
   QgsExpressionContextScope *scope = new QgsExpressionContextScope( QObject::tr( "Digitizing Logger" ) );
-  scope->addVariable( QgsExpressionContextScope::StaticVariable( QStringLiteral( "digitizing_category" ), mCategory, true, true ) );
+  scope->addVariable( QgsExpressionContextScope::StaticVariable( QStringLiteral( "digitizing_type" ), mType, true, true ) );
   scope->addVariable( QgsExpressionContextScope::StaticVariable( QStringLiteral( "digitizing_datetime" ), QDateTime::currentDateTime(), true, true ) );
   scope->addVariable( QgsExpressionContextScope::StaticVariable( QStringLiteral( "digitizing_layer_name" ), mDigitizingLayer ? mDigitizingLayer->name() : QString(), true, true ) );
   scope->addVariable( QgsExpressionContextScope::StaticVariable( QStringLiteral( "digitizing_layer_id" ), mDigitizingLayer ? mDigitizingLayer->id() : QString(), true, true ) );

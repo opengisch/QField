@@ -51,7 +51,7 @@ VisibilityFadingRow {
     showConfirmButton: true
     screenHovering: fillRingToolbar.screenHovering
 
-    digitizingLoggerCategory: 'edit_fillring'
+    digitizingType: 'edit_fillring'
 
     EmbeddedFeatureForm {
       id: formPopupLoader

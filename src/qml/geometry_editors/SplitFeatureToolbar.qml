@@ -38,7 +38,7 @@ VisibilityFadingRow {
     showConfirmButton: true
     screenHovering: splitFeatureToolbar.screenHovering
 
-    digitizingLoggerCategory: 'edit_split'
+    digitizingType: 'edit_split'
 
     onConfirm: {
       rubberbandModel.frozen = true

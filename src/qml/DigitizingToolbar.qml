@@ -18,7 +18,7 @@ VisibilityFadingRow {
   property var geometryRequestedItem
   property VectorLayer geometryRequestedLayer
 
-  property alias digitizingLoggerCategory: digitizingLogger.category
+  property alias digitizingType: digitizingLogger.type
 
   readonly property bool isDigitizing: rubberbandModel ? rubberbandModel.vertexCount > 1 : false //!< Readonly
 
