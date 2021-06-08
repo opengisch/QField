@@ -78,9 +78,19 @@ void DigitizingLogger::setProject( QgsProject *project )
   emit projectChanged();
 }
 
+void DigitizingLogger::setDigitizingLayer( QgsVectorLayer *layer )
+{
+  if ( mDigitizingLayer == layer )
+    return;
+
+  mDigitizingLayer = layer;
+
+  emit digitizingLayerChanged();
+}
+
 void DigitizingLogger::findLogsLayer()
 {
-  mLayer = nullptr;
+  mLogsLayer = nullptr;
   if ( mProject && mProject->layerTreeRoot() )
   {
     const QList< QgsLayerTreeLayer * > items = mProject->layerTreeRoot()->findLayers();
@@ -91,7 +101,7 @@ void DigitizingLogger::findLogsLayer()
       {
         if ( layer->dataProvider() && layer->dataProvider()->capabilities() & QgsVectorDataProvider::AddFeatures )
         {
-          mLayer = layer;
+          mLogsLayer = layer;
         }
         break;
       }
@@ -101,14 +111,14 @@ void DigitizingLogger::findLogsLayer()
 
 void DigitizingLogger::addCoordinate( const QgsPoint &point )
 {
-  if ( !mLayer )
+  if ( !mLogsLayer )
     return;
 
-  QgsFeature feature = QgsFeature( mLayer->fields() );
+  QgsFeature feature = QgsFeature( mLogsLayer->fields() );
   QgsGeometry geom( point.clone() );
-  if ( mProject->crs() != mLayer->crs() )
+  if ( mProject->crs() != mLogsLayer->crs() )
   {
-    QgsCoordinateTransform ct( mProject->crs(), mLayer->crs(), mProject->transformContext() );
+    QgsCoordinateTransform ct( mProject->crs(), mLogsLayer->crs(), mProject->transformContext() );
     try
     {
       geom.transform( ct );
@@ -121,7 +131,7 @@ void DigitizingLogger::addCoordinate( const QgsPoint &point )
   }
   feature.setGeometry( geom );
 
-  QgsExpressionContext expressionContext = mLayer->createExpressionContext();
+  QgsExpressionContext expressionContext = mLogsLayer->createExpressionContext();
 
   if ( mPositionInformation.isValid() )
     expressionContext << ExpressionContextUtils::positionScope( mPositionInformation, mPositionLocked );
@@ -137,7 +147,7 @@ void DigitizingLogger::addCoordinate( const QgsPoint &point )
 
   expressionContext.setFeature( feature );
 
-  const QgsFields fields = mLayer->fields();
+  const QgsFields fields = mLogsLayer->fields();
   for ( int i = 0; i < fields.count(); ++i )
   {
     if ( fields.at( i ).defaultValueDefinition().isValid() )
@@ -145,11 +155,11 @@ void DigitizingLogger::addCoordinate( const QgsPoint &point )
       QgsExpression exp( fields.at( i ).defaultValueDefinition().expression() );
       exp.prepare( &expressionContext );
       if ( exp.hasParserError() )
-        QgsMessageLog::logMessage( tr( "Default value expression for the digitizing logger's %2 field has a parser error: %3" ).arg( mLayer->name(), fields.at( i ).name(), exp.parserErrorString() ), QStringLiteral( "QField" ) );
+        QgsMessageLog::logMessage( tr( "Default value expression for the digitizing logger's %2 field has a parser error: %3" ).arg( mLogsLayer->name(), fields.at( i ).name(), exp.parserErrorString() ), QStringLiteral( "QField" ) );
 
       QVariant value = exp.evaluate( &expressionContext );
       if ( exp.hasEvalError() )
-        QgsMessageLog::logMessage( tr( "Default value expression for the digitizing logger's %2 field has an evaluation error: %3" ).arg( mLayer->name(), fields.at( i ).name(), exp.evalErrorString() ), QStringLiteral( "QField" ) );
+        QgsMessageLog::logMessage( tr( "Default value expression for the digitizing logger's %2 field has an evaluation error: %3" ).arg( mLogsLayer->name(), fields.at( i ).name(), exp.evalErrorString() ), QStringLiteral( "QField" ) );
 
       feature.setAttribute( i, value );
     }
@@ -166,23 +176,23 @@ void DigitizingLogger::addCoordinate( const QgsPoint &point )
 
 void DigitizingLogger::writeCoordinates()
 {
-  if ( !mLayer )
+  if ( !mLogsLayer )
     return;
 
   qDebug() << "WRITE";
-  if ( mLayer->startEditing() )
+  if ( mLogsLayer->startEditing() )
   {
     for ( const auto &pointFeature : std::as_const( mPointFeatures ) )
     {
-      QgsFeature createdFeature = QgsVectorLayerUtils::createFeature( mLayer, pointFeature.geometry(), pointFeature.attributes().toMap() );
+      QgsFeature createdFeature = QgsVectorLayerUtils::createFeature( mLogsLayer, pointFeature.geometry(), pointFeature.attributes().toMap() );
       qDebug() << "XXX";
-      if ( !mLayer->addFeature( createdFeature ) )
+      if ( !mLogsLayer->addFeature( createdFeature ) )
       {
         qDebug() << "add error";
       }
     }
 
-    if ( !mLayer->commitChanges( true ) )
+    if ( !mLogsLayer->commitChanges( true ) )
     {
       qDebug() << "commit error";
     }
