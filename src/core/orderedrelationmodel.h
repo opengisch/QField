@@ -50,7 +50,7 @@ class OrderedRelationModel: public ReferencingFeatureListModel
     QString description() const;
     void setDescription( const QString &description );
     QVariant data( const QModelIndex &index, int role = Qt::DisplayRole ) const override;
-    void moveItems( const int fromIdx, const int toIdx );
+    Q_INVOKABLE void moveItems( const int fromIdx, const int toIdx );
     QHash<int, QByteArray> roleNames() const override;
 
   signals:

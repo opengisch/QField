@@ -25,7 +25,7 @@ EditorWidgetBase {
     Rectangle {
         anchors.fill: parent
         color: "transparent"
-        border.color: 'darkgray'
+        border.color: 'lightgray'
         border.width: 1
     }
 
@@ -46,7 +46,6 @@ EditorWidgetBase {
       id: visualModel
 
       model: orderedRelationModel
-//      delegate: referencingFeatureDelegate
       delegate: dragDelegate
     }
 
@@ -155,179 +154,139 @@ EditorWidgetBase {
 
 
     Component {
-        id: dragDelegate
+      id: dragDelegate
 
-        MouseArea {
-            id: dragArea
-            pressAndHoldInterval: 130
+      MouseArea {
+        id: dragArea
+        pressAndHoldInterval: 130
 
-            property bool held: false
+        property bool held: false
 
-            property int indexFrom: -1
-            property int indexTo: -1
+        property int indexFrom: -1
+        property int indexTo: -1
 
-            anchors.left: parent ? parent.left : undefined
-            anchors.right: parent ? parent.right : undefined
-            height: content.height
+        anchors.left: parent ? parent.left : undefined
+        anchors.right: parent ? parent.right : undefined
+        height: content.height
 
-            drag.target: held ? content : undefined
-            drag.axis: Drag.YAxis
+        drag.target: held ? content : undefined
+        drag.axis: Drag.YAxis
 
-            onPressAndHold: {
-                if (orderedRelationModel.layerEditingEnabled) {
-                    held = true
-                }
-            }
-            onReleased: {
-               if (held === true) {
-                   held = false
-                   orderedRelationModel.moveitems(indexFrom, indexTo)
-               } else if (listView.currentIndex !== dragArea.DelegateModel.itemsIndex) {
-                   listView.currentIndex = dragArea.DelegateModel.itemsIndex
-                   orderedRelationModel.onViewCurrentFeatureChanged(listView.currentIndex)
-               }
-            }
-
-            Rectangle {
-                id: content
-                anchors {
-                    horizontalCenter: parent.horizontalCenter
-                    verticalCenter: parent.verticalCenter
-                }
-                width: dragArea.width; height: row.implicitHeight + 4
-
-                border.width: 1
-                border.color: "lightsteelblue"
-
-                color: dragArea.held
-                       ? "coral"
-                       : listView.currentIndex === dragArea.DelegateModel.itemsIndex
-                         ? "lightsteelblue"
-                         : "white"
-                Behavior on color { ColorAnimation { duration: 100 } }
-
-                radius: 2
-                Drag.active: dragArea.held
-                Drag.source: dragArea
-                Drag.hotSpot.x: width / 2
-                Drag.hotSpot.y: height / 2
-
-                states: State {
-                    when: dragArea.held
-
-                    ParentChange { target: content; parent: root }
-                    AnchorChanges {
-                        target: content
-                        anchors { horizontalCenter: undefined; verticalCenter: undefined }
-                    }
-                }
-
-                Row {
-                    id: row
-                    anchors { fill: parent; margins: 2 }
-
-                    Image {
-                      source: ImagePath || Theme.getThemeIcon("ic_photo_notavailable_black_24dp")
-                      width: 50
-                      fillMode: Image.PreserveAspectFit
-                      visible: !!ImagePath
-                    }
-
-                    Text {
-                      text: Description
-                      height: 40
-                      verticalAlignment: Text.AlignVCenter
-                      padding: 4
-                    }
-                }
-            }
-            DropArea {
-                anchors { fill: parent; margins: 10 }
-
-                onEntered: {
-                    if (dragArea.indexFrom === -1) {
-                      dragArea.indexFrom = drag.source.DelegateModel.itemsIndex
-                    }
-
-                    dragArea.indexTo = dragArea.DelegateModel.itemsIndex
-                    visualModel.items.move(
-                            drag.source.DelegateModel.itemsIndex,
-                            dragArea.DelegateModel.itemsIndex)
-                }
-            }
-        }
-    }
-
-
-    //list components
-    Component {
-        id: referencingFeatureDelegate
-
-        Item {
-          id: listitem
-          anchors.left: parent ? parent.left : undefined
-          anchors.right: parent ? parent.right : undefined
-
-          focus: true
-
-          height: Math.max( itemHeight, featureText.height )
-
-          Text {
-            id: featureText
-            anchors { leftMargin: 10; left: parent.left; right: deleteButtonRow.left; verticalCenter: parent.verticalCenter }
-            font: Theme.defaultFont
-            color: !isEnabled ? 'grey' : 'black'
-            text: Description
+        onPressAndHold: {
+          if (isEnabled) {
+            held = true
           }
+        }
+        onReleased: {
+           if (held === true) {
+             held = false
+             orderedRelationModel.moveItems(indexFrom, indexTo)
+           } else if (listView.currentIndex !== dragArea.DelegateModel.itemsIndex) {
+             listView.currentIndex = dragArea.DelegateModel.itemsIndex
+             orderedRelationModel.onViewCurrentFeatureChanged(listView.currentIndex)
+           }
+        }
 
-          MouseArea {
-            anchors.fill: parent
+        onClicked: {
+          embeddedPopup.state = isEnabled ? 'Edit' : 'ReadOnly'
+          embeddedPopup.currentLayer = orderedRelationModel.relation.referencingLayer
+          embeddedPopup.linkedRelation = orderedRelationModel.relation
+          embeddedPopup.linkedParentFeature = orderedRelationModel.feature
+          embeddedPopup.feature = model.referencingFeature
+          embeddedPopup.open()
+        }
 
-            onClicked: {
-                embeddedPopup.state = isEnabled ? 'Edit' : 'ReadOnly'
-                embeddedPopup.currentLayer = nmRelationId ?  orderedRelationModel.nmRelation.referencedLayer : orderedRelationModel.relation.referencingLayer
-                embeddedPopup.linkedRelation = orderedRelationModel.relation
-                embeddedPopup.linkedParentFeature = orderedRelationModel.feature
-                embeddedPopup.feature = nmRelationId ? model.nmReferencedFeature : model.referencingFeature
-                embeddedPopup.open()
+        Rectangle {
+          id: content
+          anchors {
+              horizontalCenter: parent.horizontalCenter
+              verticalCenter: parent.verticalCenter
+          }
+          width: dragArea.width
+          height: row.implicitHeight + 4
+
+          color: dragArea.held
+                   ? "coral"
+                   : "transparent"
+          Behavior on color { ColorAnimation { duration: 100 } }
+
+          radius: 2
+          Drag.active: dragArea.held
+          Drag.source: dragArea
+          Drag.hotSpot.x: width / 2
+          Drag.hotSpot.y: height / 2
+
+          states: State {
+            when: dragArea.held
+
+            // ParentChange { target: content; parent: root }
+            AnchorChanges {
+              target: content
+              anchors.horizontalCenter: undefined
+              anchors.verticalCenter: undefined
             }
           }
 
           Row {
-            id: deleteButtonRow
-            anchors { top: parent.top; right: parent.right; rightMargin: 10 }
-            height: listitem.height
+            id: row
+            anchors.fill: parent
+            anchors.margins: 2
+
+            height: Math.max( itemHeight, featureText.height )
+
+            Image {
+              id: featureImage
+              source: ImagePath
+                        ? ('file://' + ImagePath)
+                        : Theme.getThemeIcon("ic_photo_notavailable_black_24dp")
+              width: parent.height
+              height: parent.height
+              fillMode: Image.PreserveAspectFit
+              visible: !!ImagePath
+            }
+
+            Text {
+              id: featureText
+              font: Theme.defaultFont
+              color: !isEnabled ? 'grey' : 'black'
+              text: Description || model.displayString
+              verticalAlignment: Text.AlignVCenter
+              padding: 4
+              width: parent.width
+                      - (featureImage.visible ? featureImage.width : 0)
+                      - (deleteButton.visible ? deleteButton.width : 0)
+            }
 
             ToolButton {
-                id: deleteButton
-                width: parent.height
-                height: parent.height
-                visible: isEnabled
+              id: deleteButton
+              width: parent.height
+              height: parent.height
+              visible: isEnabled
 
-                contentItem: Rectangle {
-                    anchors.fill: parent
-                    color: nmRelationId ? 'blue' : Theme.errorColor
-                    Image {
-                      anchors.fill: parent
-                      anchors.margins: 8
-                      fillMode: Image.PreserveAspectFit
-                      horizontalAlignment: Image.AlignHCenter
-                      verticalAlignment: Image.AlignVCenter
-                      source: Theme.getThemeIcon( 'ic_delete_forever_white_24dp' )
-                    }
+              contentItem: Rectangle {
+                anchors.fill: parent
+                color: nmRelationId ? 'blue' : Theme.errorColor
+                Image {
+                  anchors.fill: parent
+                  anchors.margins: 8
+                  fillMode: Image.PreserveAspectFit
+                  horizontalAlignment: Image.AlignHCenter
+                  verticalAlignment: Image.AlignVCenter
+                  source: Theme.getThemeIcon( 'ic_delete_forever_white_24dp' )
                 }
+              }
 
-                onClicked: {
-                    deleteDialog.referencingFeatureId = model.referencingFeature.id
-                    deleteDialog.referencingFeatureDisplayMessage = model.displayString
-                    deleteDialog.nmReferencedFeatureId = nmRelationId ? model.model.nmReferencedFeature.id : ''
-                    deleteDialog.nmReferencedFeatureDisplayMessage = nmRelationId ? model.nmDisplayString : ''
-                    deleteDialog.visible = true
-                }
+              onClicked: {
+                deleteDialog.referencingFeatureId = model.referencingFeature.id
+                deleteDialog.referencingFeatureDisplayMessage = model.displayString
+                deleteDialog.nmReferencedFeatureId = nmRelationId ? model.model.nmReferencedFeature.id : ''
+                deleteDialog.nmReferencedFeatureDisplayMessage = nmRelationId ? model.nmDisplayString : ''
+                deleteDialog.visible = true
+              }
             }
+
           }
 
-          //bottom line
           Rectangle {
             id: bottomLine
             anchors.bottom: parent.bottom
@@ -336,7 +295,105 @@ EditorWidgetBase {
             width: parent.width
           }
         }
+
+        DropArea {
+          anchors.fill: parent
+          anchors.margins: 10
+
+          onEntered: {
+            if (dragArea.indexFrom === -1) {
+              dragArea.indexFrom = drag.source.DelegateModel.itemsIndex
+            }
+
+            dragArea.indexTo = dragArea.DelegateModel.itemsIndex
+            visualModel.items.move(
+              drag.source.DelegateModel.itemsIndex,
+              dragArea.DelegateModel.itemsIndex
+            )
+          }
+        }
+      }
     }
+
+
+//    //list components
+//    Component {
+//        id: referencingFeatureDelegate
+
+//        Item {
+//          id: listitem
+//          anchors.left: parent ? parent.left : undefined
+//          anchors.right: parent ? parent.right : undefined
+
+//          focus: true
+
+//          height: Math.max( itemHeight, featureText.height )
+
+//          Text {
+//            id: featureText
+//            anchors { leftMargin: 10; left: parent.left; right: deleteButtonRow.left; verticalCenter: parent.verticalCenter }
+//            font: Theme.defaultFont
+//            color: !isEnabled ? 'grey' : 'black'
+//            text: Description
+//          }
+
+//          MouseArea {
+//            anchors.fill: parent
+
+//            onClicked: {
+//                embeddedPopup.state = isEnabled ? 'Edit' : 'ReadOnly'
+//                embeddedPopup.currentLayer = nmRelationId ?  orderedRelationModel.nmRelation.referencedLayer : orderedRelationModel.relation.referencingLayer
+//                embeddedPopup.linkedRelation = orderedRelationModel.relation
+//                embeddedPopup.linkedParentFeature = orderedRelationModel.feature
+//                embeddedPopup.feature = nmRelationId ? model.nmReferencedFeature : model.referencingFeature
+//                embeddedPopup.open()
+//            }
+//          }
+
+//          Row {
+//            id: deleteButtonRow
+//            anchors { top: parent.top; right: parent.right; rightMargin: 10 }
+//            height: listitem.height
+
+//            ToolButton {
+//                id: deleteButton
+//                width: parent.height
+//                height: parent.height
+//                visible: isEnabled
+
+//                contentItem: Rectangle {
+//                    anchors.fill: parent
+//                    color: nmRelationId ? 'blue' : Theme.errorColor
+//                    Image {
+//                      anchors.fill: parent
+//                      anchors.margins: 8
+//                      fillMode: Image.PreserveAspectFit
+//                      horizontalAlignment: Image.AlignHCenter
+//                      verticalAlignment: Image.AlignVCenter
+//                      source: Theme.getThemeIcon( 'ic_delete_forever_white_24dp' )
+//                    }
+//                }
+
+//                onClicked: {
+//                    deleteDialog.referencingFeatureId = model.referencingFeature.id
+//                    deleteDialog.referencingFeatureDisplayMessage = model.displayString
+//                    deleteDialog.nmReferencedFeatureId = nmRelationId ? model.model.nmReferencedFeature.id : ''
+//                    deleteDialog.nmReferencedFeatureDisplayMessage = nmRelationId ? model.nmDisplayString : ''
+//                    deleteDialog.visible = true
+//                }
+//            }
+//          }
+
+//          //bottom line
+//          Rectangle {
+//            id: bottomLine
+//            anchors.bottom: parent.bottom
+//            height: 1
+//            color: 'lightGray'
+//            width: parent.width
+//          }
+//        }
+//    }
 
     //the delete entry stuff
     Dialog {
@@ -345,7 +402,11 @@ EditorWidgetBase {
 
       property int referencingFeatureId
       property string referencingFeatureDisplayMessage
-      property string referencingLayerName: orderedRelationModel.relation.referencingLayer ? orderedRelationModel.relation.referencingLayer.name : ''
+      property string referencingLayerName: relationEditorModel.relation.referencingLayer ? relationEditorModel.relation.referencingLayer.name : ''
+      property int nmReferencedFeatureId
+      property string nmReferencedFeatureDisplayMessage
+      property string nmReferencedLayerName: relationEditorModel.nmRelation.referencedLayer ? relationEditorModel.nmRelation.referencedLayer.name : ''
+      property string nmReferencingLayerName
 
       visible: false
       modal: true
@@ -377,10 +438,10 @@ EditorWidgetBase {
 
       standardButtons: Dialog.Ok | Dialog.Cancel
       onAccepted: {
-        if ( ! listView.model.deleteFeature( referencingFeatureId ) ) {
+        if ( ! referencingFeatureListView.model.deleteFeature( referencingFeatureId ) ) {
           displayToast( qsTr( "Failed to delete referencing feature" ), 'error' )
         }
-        
+
         visible = false
       }
       onRejected: {
