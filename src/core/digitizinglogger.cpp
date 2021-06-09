@@ -132,7 +132,7 @@ void DigitizingLogger::addCoordinate( const QgsPoint &point )
       return;
     }
   }
-  feature.setGeometry( geom );
+  feature.setGeometry( geom.coerceToType( mLogsLayer->wkbType() ).at( 0 ) );
 
   QgsExpressionContext expressionContext = mLogsLayer->createExpressionContext();
 
