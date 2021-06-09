@@ -79,6 +79,6 @@ jobs:
           author_name: Style Fairy
           author_email: fairy@qfield.org
           message: 'Committing astyle changes'
-          ref: ${{ fromJSON(steps.get-pr.outputs.result).head.ref }}
+          branch: ${{ fromJSON(steps.get-pr.outputs.result).head.ref }}
         env:
           GITHUB_TOKEN: ${{ secrets.FAIRY_TOKEN }}
