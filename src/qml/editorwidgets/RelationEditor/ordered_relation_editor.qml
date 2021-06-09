@@ -218,6 +218,14 @@ EditorWidgetBase {
             height: Math.max( itemHeight, featureText.height )
 
             Image {
+              id: handleImage
+              source: Theme.getThemeVectorIcon("ic_drag_handle_48dp")
+              width: parent.height
+              height: parent.height
+              opacity: !!isEnabled ? 1 : 0.5
+            }
+
+            Image {
               id: featureImage
               source: ImagePath
                         ? ('file://' + ImagePath)
@@ -234,10 +242,12 @@ EditorWidgetBase {
               color: !isEnabled ? 'grey' : 'black'
               text: Description || model.displayString
               verticalAlignment: Text.AlignVCenter
+              height: 50
               padding: 4
               width: parent.width
-                      - (featureImage.visible ? featureImage.width : 0)
-                      - (deleteButton.visible ? deleteButton.width : 0)
+                       - handleImage.width
+                       - (featureImage.visible ? featureImage.width : 0)
+                       - (deleteButton.visible ? deleteButton.width : 0)
             }
 
             ToolButton {
