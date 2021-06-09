@@ -106,7 +106,7 @@ void DigitizingLogger::findLogsLayer()
   mLogsLayer = nullptr;
   if ( mProject )
   {
-    const QString logsLayerId = mProject->readEntry( QStringLiteral( "QField" ), QStringLiteral( "digitizingLogsLayer" ) );
+    const QString logsLayerId = mProject->readEntry( QStringLiteral( "qfieldsync" ), QStringLiteral( "digitizingLogsLayer" ) );
     if ( !logsLayerId.isEmpty() )
     {
       QgsLayerTreeLayer *item = mProject->layerTreeRoot()->findLayer( logsLayerId );
