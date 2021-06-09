@@ -39,6 +39,10 @@ EditorWidgetBase {
         description: relationEditorWidgetConfig['description']
 
         property int featureFocus: -1
+
+        onFailedReorder: {
+          displayToast( "Failed to reorder features.", "error" )
+        }
     }
 
     DelegateModel {
@@ -235,15 +239,81 @@ EditorWidgetBase {
               text: Description || model.displayString
               verticalAlignment: Text.AlignVCenter
               padding: 4
+              elide: Text.ElideRight
               width: parent.width
-                      - (featureImage.visible ? featureImage.width : 0)
-                      - (deleteButton.visible ? deleteButton.width : 0)
+                       - 8
+                       - (featureImage.visible ? featureImage.width : 0)
+                       - (moveDownButton.visible ? moveDownButton.width : 0)
+                       - (moveUpButton.visible ? moveUpButton.width : 0)
+                       - (deleteButton.visible ? deleteButton.width : 0)
+            }
+
+            ToolButton {
+              id: moveDownButton
+              width: itemHeight
+              height: itemHeight
+              visible: isEnabled
+
+              contentItem: Rectangle {
+                anchors.fill: parent
+                color: 'transparent'
+                Image {
+                  anchors.fill: parent
+                  anchors.margins: 8
+                  fillMode: Image.PreserveAspectFit
+                  horizontalAlignment: Image.AlignHCenter
+                  verticalAlignment: Image.AlignVCenter
+                  source: Theme.getThemeVectorIcon( 'ic_chevron_down' )
+                }
+              }
+
+              onClicked: {
+                if (index === listView.count - 1) {
+                  return
+                }
+
+                orderedRelationModel.moveItems(
+                  index,
+                  index + 1
+                )
+              }
+            }
+
+            ToolButton {
+              id: moveUpButton
+              width: itemHeight
+              height: itemHeight
+              visible: isEnabled
+
+              contentItem: Rectangle {
+                anchors.fill: parent
+                color: 'transparent'
+                Image {
+                  anchors.fill: parent
+                  anchors.margins: 8
+                  fillMode: Image.PreserveAspectFit
+                  horizontalAlignment: Image.AlignHCenter
+                  verticalAlignment: Image.AlignVCenter
+                  source: Theme.getThemeVectorIcon( 'ic_chevron_up' )
+                }
+              }
+
+              onClicked: {
+                if (index === 0) {
+                  return
+                }
+
+                orderedRelationModel.moveItems(
+                  index,
+                  index - 1
+                )
+              }
             }
 
             ToolButton {
               id: deleteButton
-              width: parent.height
-              height: parent.height
+              width: itemHeight
+              height: itemHeight
               visible: isEnabled
 
               contentItem: Rectangle {
@@ -267,7 +337,6 @@ EditorWidgetBase {
                 deleteDialog.visible = true
               }
             }
-
           }
 
           Rectangle {

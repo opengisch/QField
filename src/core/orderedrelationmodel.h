@@ -61,7 +61,7 @@ class OrderedRelationModel: public ReferencingFeatureListModel
     void failedReorder();
 
   public slots:
-    void updateModel();
+    void updateModel() override;
     void onViewCurrentFeatureChanged(int index);
 
   private:

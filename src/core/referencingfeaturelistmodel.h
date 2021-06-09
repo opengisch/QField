@@ -163,8 +163,8 @@ class QFIELD_CORE_EXPORT ReferencingFeatureListModel : public QAbstractItemModel
     void modelUpdated();
 
   private slots:
-    void updateModel();
-    void gathererThreadFinished();
+    virtual void updateModel();
+    virtual void gathererThreadFinished();
 
   private:
     struct Entry
