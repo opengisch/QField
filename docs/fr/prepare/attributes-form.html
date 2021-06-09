@@ -20,7 +20,7 @@
     <link rel="shortcut icon" href="../_static/favicon.ico"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Symboles SVG personnalisés" href="custom-svg.html" />
+    <link rel="next" title="Authentication" href="authentication.html" />
     <link rel="prev" title="Autoriser le masquage des nœuds de légende" href="allow-hiding-legend-nodes.html" />
 <meta charset='utf-8'>
 <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
@@ -99,7 +99,7 @@
     </a>
   </li>
   <li>
-    <a href="custom-svg.html" title="Next Chapter: Symboles SVG personnalisés"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm hidden-tablet">Symboles SVG ... &raquo;</span>
+    <a href="authentication.html" title="Next Chapter: Authentication"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm hidden-tablet">Authentication &raquo;</span>
     </a>
   </li>
             
@@ -325,37 +325,8 @@
 </div>
 <div class="section" id="additional-variables">
 <h3>Variables supplémentaires<a class="headerlink" href="#additional-variables" title="Permalink to this headline">¶</a></h3>
-<p>Vous pouvez accéder à l’information sur le positionnement via des variables d’expression additionnelles. Elles ne seront accessibles que lorsque le positionnement est activé, soit par le récepteur interne de l’appareil, soit via un appareil externe connecté en NMEA.</p>
-<ul class="simple">
-<li><cite>&#64;position_coordinate</cite> - Un point avec la coordonnée en WGS84. Lon, Lat, Altitude tels que fournis par le capteur. Il n’est disponible que lorsque la croix est accrochée au capteur. - <cite>x(&#64;position_coordinate)</cite> - IE</li>
-<li><cite>&#64;position_timestamp</cite> - Horodatage de la position en UTC tel que rapporté par le capteur. Il n’est disponible que lorsque la croix est accrochée au capteur. - IE</li>
-<li><cite>&#64;position_direction</cite> - Direction du mouvement en degrés par rapport au nord géographique comme indiqué par le capteur. Elle n’est disponible que lorsque la croix est accrochée au capteur. - IE</li>
-<li><cite>&#64;position_ground_speed</cite> - Vitesse au sol (en m / s) telle que rapportée par le capteur. Elle n’est disponible que lorsque la croix est accrochée au capteur. - IE</li>
-<li><cite>&#64;position_magnetic_variation</cite> - L’angle entre la composante horizontale du champ magnétique et le nord géographique, en degrés tel que rapporté par le capteur. Aussi connu sous le nom de déclinaison magnétique. Une valeur positive indique une direction horaire à partir du nord géographique et une valeur négative indique une direction anti-horaire. Il n’est disponible que lorsque la croix est accrochée au capteur. - IE</li>
-<li><cite>&#64;position_horizontal_accuracy</cite> - La précision horizontale de la coordonnée (en mètres) telle que rapportée par le capteur. Il n’est disponible que lorsque la croix est accrochée au capteur. - IE</li>
-<li><cite>&#64;position_vertical_accuracy</cite> - La précision verticale de la coordonnée (en mètres) telle que rapportée par le capteur. Il n’est disponible que lorsque la croix est accrochée au capteur. - IE</li>
-<li><cite>&#64;position_3d_accuracy</cite> - La précision tridimensionnelle de la coordonnée (en mètres), 3D-RMS telle que rapportée par le capteur. Il n’est disponible que lorsque la croix est accrochée au capteur. - IE</li>
-<li><cite>&#64;position_vertical_speed</cite> - La vitesse verticale (en m / s) indiquée par le capteur. Elle n’est disponible que lorsque la croix est accrochée au capteur. - IE</li>
-<li><cite>&#64;position_source_name</cite> - Le nom de l’appareil qui a donné les informations de localisation telles que rapportées par le capteur. Si la position est réglée manuellement, le nom de la source est «&nbsp;manual&nbsp;». - IE</li>
-<li><cite>&#64;position_pdop</cite> - Position de dilution de précision comme indiqué par le capteur. Il n’est disponible que lorsque la croix est accrochée au capteur. - E</li>
-<li><cite>&#64;position_hdop</cite> - Dilution horizontale de la précision rapportée par le capteur. Elle n’est disponible que lorsque la croix est accrochée au capteur. - E</li>
-<li><cite>&#64;position_vdop</cite> - Dilution verticale de la précision rapportée par le capteur. Elle n’est disponible que lorsque la croix est accrochée au capteur. - E</li>
-<li><cite>&#64;position_number_of_used_satellites</cite> - Nombre de satellites rapporté par le capteur. Il n’est disponible que lorsque la croix est accrochée au capteur. - E</li>
-<li><cite>&#64;position_used_satellites</cite> - Liste des satellites utilisés (pri) tels que rapportés par le capteur. Il n’est disponible que lorsque la croix est accrochée au capteur. - <cite>array_count(&#64;position_used_satellites)</cite> - E</li>
-<li><cite>&#64;position_quality_description</cite> - Une description compréhensible et synthétique de la qualité rapportée par le capteur. Par exemple. «&nbsp;RTK fixe&nbsp;». Elle n’est disponible que lorsque la croix est accrochée au capteur. - E</li>
-<li><cite>&#64;position_fix_status_description</cite> - Le statut de la correction GPS «&nbsp;NoData&nbsp;», «&nbsp;NoFix&nbsp;», «&nbsp;Fix2D&nbsp;» ou «&nbsp;Fix3D&nbsp;» tel que rapporté par le capteur. Il n’est disponible que lorsque la croix est accrochée au capteur. - E</li>
-<li><cite>&#64;position_fix_mode</cite> - Mode fixe (où “M” = Manuel, forcé de fonctionner en 2D ou 3D ou “A” = Automatique, 3D / 2D) tel que rapporté par le capteur. Il n’est disponible que lorsque la croix est accrochée au capteur. - E</li>
-</ul>
-<p>Toutes les variables de &#64;position_* ont une variable &#64;gnss_* correspondante. Les variables gnss signalent toujours les valeurs du capteur gnss, même lorsque la croix n’est pas accrochée.</p>
-<dl class="docutils">
-<dt>Exemples:</dt>
-<dd><ul class="first last simple">
-<li>Lorsque le réticule est accroché au capteur - <cite>&#64;gnss_horizontal_accuracy</cite> -&gt; précision horizontale de la coordonnée (en mètres) telle que rapportée par le capteur. - <cite>&#64;position_horizontal_accuracy</cite> -&gt; précision horizontale de la coordonnée (en mètres) telle que rapportée par le capteur. - <cite>&#64;position_source_name</cite> -&gt; nom du capteur.</li>
-<li>Lorsque la croix est déplacée manuellement - <cite>&#64;gnss_horizontal_accuracy</cite> -&gt; précision horizontale de la coordonnée (en mètres) telle que rapportée par le capteur. - <cite>&#64;position_horizontal_accuracy</cite> -&gt; La valeur est <cite>NULL</cite>. - <cite>&#64;position_source_name</cite> -&gt; La valeur est <cite>manual</cite>.</li>
-</ul>
-</dd>
-</dl>
-<p>I: Source de position interne E: Source de position externe (NMEA)</p>
+<p>For more information regarding storing information related to your position in object
+attributes, refer to the deticated <a class="reference internal" href="gnss.html#gnss-variables"><span class="std std-ref">GNSS documentation</span></a>.</p>
 </div>
 <div class="section" id="id1">
 <h3>Cas d’utilisation courante<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>

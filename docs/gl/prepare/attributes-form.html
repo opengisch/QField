@@ -19,7 +19,7 @@
     <link rel="shortcut icon" href="../_static/favicon.ico"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Símbolos SVG personalizados" href="custom-svg.html" />
+    <link rel="next" title="Authentication" href="authentication.html" />
     <link rel="prev" title="Permite agochar os nodos da lenda" href="allow-hiding-legend-nodes.html" />
 <meta charset='utf-8'>
 <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
@@ -98,7 +98,7 @@
     </a>
   </li>
   <li>
-    <a href="custom-svg.html" title="Next Chapter: Símbolos SVG personalizados"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm hidden-tablet">Símbolos SVG ... &raquo;</span>
+    <a href="authentication.html" title="Next Chapter: Authentication"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm hidden-tablet">Authentication &raquo;</span>
     </a>
   </li>
             
@@ -324,37 +324,8 @@
 </div>
 <div class="section" id="additional-variables">
 <h3>Variables adicionais<a class="headerlink" href="#additional-variables" title="Permalink to this headline">¶</a></h3>
-<p>Podes obter acceso a información do posicionamento a través de variables de expresión adicionais. Estas só estarán dispoñibles cando se active o posicionamento, tanto a través do receptor interno do dispositivo coma a través dun dispositivo externo conectado mediante unha conexión NMEA.</p>
-<ul class="simple">
-<li><cite>&#64;position_coordinate</cite> - Un punto coa coordenada en WGS84. Lon, Lat, Altitude segundo se envían polo sensor. Só está dispoñible cando o punto de mira se axusta ó sensor. - <cite>x(&#64;position_coordinate)</cite> - IE</li>
-<li><cite>&#64;position_timestamp</cite> - A data e hora da posición en UTC segundo informa o sensor. Só está dispoñible cando o punto de mira se axusta ó sensor. - IE</li>
-<li><cite>&#64;position_direction</cite> - A dirección do movemento en grados dende o norte verdadeiro segundo o informado polo sensor. Só está dispoñible cando o punto de mira se axusta ó sensor. - IE</li>
-<li><cite>&#64;position_ground_speed</cite> - Velocidade no terreo (en m/s) segundo o informado polo sensor. Só está dispoñible cando o punto de mira se axusta ó sensor. - IE</li>
-<li><cite>&#64;position_magnetic_variation</cite> - O ángulo entre a compoñente horizontal do campo magnético e o norte verdadeiro, en graos segundo o informado polo sensor. Tamén coñecido como declinación magnética. Un valor positivo indica unha dirección no sentido horario dende o norte verdadeiro e un valor negativo indica dirección antihoraria. Só está dispoñible cando o punto de mira se axusta ó sensor - IE</li>
-<li><cite>&#64;position_horizontal_accuracy</cite> - A precisión horizontal da coordenada (en metros) segundo o informado polo sensor. Só está dispoñible cando o punto de mira se axusta ó sensor. - IE</li>
-<li><cite>&#64;position_vertical_accuracy</cite> - A precisión vertical da coordenada (en metros) segundo o informado polo sensor. Só está dispoñible cando o punto de mira se axusta ó sensor. - IE</li>
-<li><cite>&#64;position_3d_accuracy</cite> - A precisión tridimensional da coordenada (en metros), 3D-RMS segundo o informado polo sensor. Só está dispoñible cando o punto de mira se axusta ó sensor. - IE</li>
-<li><cite>&#64;position_vertical_speed</cite> - A velocidade vertical (en m/s) segundo o informado polo sensor. Só está dispoñible cando o punto de mira se axusta ó sensor. - IE</li>
-<li><cite>&#64;position_source_name</cite> - O nome do dispositivo que proporcionou a información da localización segundo o informado polo sensor. Se a posición se introduciu manualmente, a nome da fonte é «manual» - IE</li>
-<li><cite>&#64;position_pdop</cite> - Dilución da posición da precisión segundo o informado polo sensor. Só está dispoñible cando o punto de mira se axusta ó sensor. - E</li>
-<li><cite>&#64;position_hdop</cite> - Dilución horizontal da precisión segundo o informado polo sensor. Só está dispoñible cando o punto de mira se axusta ó sensor. - E</li>
-<li><cite>&#64;position_vdop</cite> - Dilución vertical da precisión segundo o informado polo sensor. Só está dispoñible cando o punto de mira se axusta ó sensor. - E</li>
-<li><cite>&#64;position_number_of_used_satellites</cite> - Número de satélites segundo o informado polo sensor. Só está dispoñible cando o punto de mira se axusta ó sensor. - E</li>
-<li><cite>&#64;position_used_satellites</cite> - Unha lista de satélites en uso (pri) segundo o informado polo sensor. Só está dispoñible cando o punto de mira se axusta ó sensor. - <cite>array_count(&#64;position_used_satellites)</cite> - E</li>
-<li><cite>&#64;position_quality_description</cite> - Unha cadea traducida e lexible para a calidade segundo o informado polo sensor. Ex: «RTK Fixada». Só está dispoñible cando o punto de mira se axusta ó sensor. - E</li>
-<li><cite>&#64;position_fix_status_description</cite> - O estado «SenDatos», «SenFixar», «Fixado2D» ou «Fixado3D» de fixación do GPS segundo o informado polo sensor. Só está dispoñible cando o punto de mira se axusta ó sensor. - E</li>
-<li><cite>&#64;position_fix_mode</cite> - Modo de fixación (onde “M” = Manual, forzado a operar en 2D ou 3D ou “A” = Automático, 3D/2D) segundo o informado polo sensor. Só está dispoñible cando o punto de mira se axusta ó sensor. - E</li>
-</ul>
-<p>Todas as variables &#64;position_* teñen unha variable &#64;gnss_* correspondente. As variables gnss sempre informan dos valores do sensor gnss, mesmo cando o punto de mira non está axustado.</p>
-<dl class="docutils">
-<dt>Exemplos:</dt>
-<dd><ul class="first last simple">
-<li>cando o punto de mira está axustado ó sensor  - <cite>&#64;gnss_horizontal_accuracy</cite> –&gt; A precisión horizontal da coordenada (en metros) segundo o informado polo sensor.  - <cite>&#64;position_horizontal_accuracy</cite> –&gt; A precisión horizontal da coordenada (en metros) segundo o informado polo sensor.  - <cite>&#64;position_source_name</cite> –&gt; nome do sensor.</li>
-<li>cando o punto de mira se move manualmente - <cite>&#64;gnss_horizontal_accuracy</cite> –&gt; A precisión horizontal da coordenada (en metros) segundo o informado polo sensor. - <cite>&#64;position_horizontal_accuracy</cite> –&gt; O valor é  <cite>NULO</cite>. - <cite>&#64;position_source_name</cite> –&gt; O valor é <cite>manual</cite>.</li>
-</ul>
-</dd>
-</dl>
-<p>I: Fonte de posición interna E: Fonte de posición externa (NMEA)</p>
+<p>For more information regarding storing information related to your position in object
+attributes, refer to the deticated <a class="reference internal" href="gnss.html#gnss-variables"><span class="std std-ref">GNSS documentation</span></a>.</p>
 </div>
 <div class="section" id="id1">
 <h3>Casos comúns de uso<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>

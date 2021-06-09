@@ -19,7 +19,7 @@
     <link rel="shortcut icon" href="../_static/favicon.ico"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Custom SVG symbols" href="custom-svg.html" />
+    <link rel="next" title="Authentication" href="authentication.html" />
     <link rel="prev" title="允许隐藏图例节点" href="allow-hiding-legend-nodes.html" />
 <meta charset='utf-8'>
 <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
@@ -98,7 +98,7 @@
     </a>
   </li>
   <li>
-    <a href="custom-svg.html" title="Next Chapter: Custom SVG symbols"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm hidden-tablet">Custom SVG symbols &raquo;</span>
+    <a href="authentication.html" title="Next Chapter: Authentication"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm hidden-tablet">Authentication &raquo;</span>
     </a>
   </li>
             
@@ -338,85 +338,8 @@ expression variables.</p>
 </div>
 <div class="section" id="additional-variables">
 <h3>其他变量<a class="headerlink" href="#additional-variables" title="Permalink to this headline">¶</a></h3>
-<p>You can get access to positioning information through additional
-expression variables. These will only be available when the positioning
-is enabled, either through the internal device receiver or through an
-external device connected via NMEA connection.</p>
-<ul class="simple">
-<li><cite>&#64;position_coordinate</cite>
-- A point with the coordinate in WGS84. Lon, Lat, Altitude as delivered by the sensor. It is only available when the crosshair is snapped to the sensor.
-- <cite>x(&#64;position_coordinate)</cite>
-- IE</li>
-<li><cite>&#64;position_timestamp</cite>
-- The timestamp of the position in UTC as reported by the sensor. It is only available when the crosshair is snapped to the sensor.
-- IE</li>
-<li><cite>&#64;position_direction</cite>
-- The direction of movement in degrees from true north as reported by the sensor. It is only available when the crosshair is snapped to the sensor.
-- IE</li>
-<li><cite>&#64;position_ground_speed</cite>
-- Groundspeed (in m/s) as reported by the sensor. It is only available when the crosshair is snapped to the sensor.
-- IE</li>
-<li><cite>&#64;position_magnetic_variation</cite>
-- The angle between the horizontal component of the magnetic field and true north, in degrees as reported by the sensor. Also known as magnetic declination. A positive value indicates a clockwise direction from true north and a negative value indicates a counter-clockwise direction. It is only available when the crosshair is snapped to the sensor.
-- IE</li>
-<li><cite>&#64;position_horizontal_accuracy</cite>
-- The horizontal accuracy of the coordinate (in meters) as reported by the sensor. It is only available when the crosshair is snapped to the sensor.
-- IE</li>
-<li><cite>&#64;position_vertical_accuracy</cite>
-- The vertical accuracy of the coordinate (in meters) as reported by the sensor. It is only available when the crosshair is snapped to the sensor.
-- IE</li>
-<li><cite>&#64;position_3d_accuracy</cite>
-- The 3 dimensional accuracy of the coordinate (in meters), 3D-RMS as reported by the sensor. It is only available when the crosshair is snapped to the sensor.
-- IE</li>
-<li><cite>&#64;position_vertical_speed</cite>
-- The vertical speed (in m/s) as reported by the sensor. It is only available when the crosshair is snapped to the sensor.
-- IE</li>
-<li><cite>&#64;position_source_name</cite>
-- The name of the device that gave location information as reported by the sensor. If the position is manually set, the source name is &quot;manual&quot;.
-- IE</li>
-<li><cite>&#64;position_pdop</cite>
-- Position dilution of precision as reported by the sensor. It is only available when the crosshair is snapped to the sensor.
-- E</li>
-<li><cite>&#64;position_hdop</cite>
-- Horizontal dilution of precision as reported by the sensor. It is only available when the crosshair is snapped to the sensor.
-- E</li>
-<li><cite>&#64;position_vdop</cite>
-- Vertical dilution of precision as reported by the sensor. It is only available when the crosshair is snapped to the sensor.
-- E</li>
-<li><cite>&#64;position_number_of_used_satellites</cite>
-- Number of satellites as reported by the sensor. It is only available when the crosshair is snapped to the sensor.
-- E</li>
-<li><cite>&#64;position_used_satellites</cite>
-- A list of satellites in use (pri) as reported by the sensor. It is only available when the crosshair is snapped to the sensor.
-- <cite>array_count(&#64;position_used_satellites)</cite>
-- E</li>
-<li><cite>&#64;position_quality_description</cite>
-- A human readable and translated string for the quality as reported by the sensor. E.g. &quot;Fixed RTK&quot;. It is only available when the crosshair is snapped to the sensor.
-- E</li>
-<li><cite>&#64;position_fix_status_description</cite>
-- The GPS Fix Status &quot;NoData&quot;, &quot;NoFix&quot;, &quot;Fix2D&quot; or &quot;Fix3D&quot; as reported by the sensor. It is only available when the crosshair is snapped to the sensor.
-- E</li>
-<li><cite>&#64;position_fix_mode</cite>
-- Fix mode (where 'M' = Manual, forced to operate in 2D or 3D or 'A' = Automatic, 3D/2D) as reported by the sensor. It is only available when the crosshair is snapped to the sensor.
-- E</li>
-</ul>
-<p>All &#64;position_* variables have a corresponding &#64;gnss_* variable. The gnss variables always report the gnss sensor values, even when the crosshair is not snapped.</p>
-<dl class="docutils">
-<dt>Examples:</dt>
-<dd><ul class="first last simple">
-<li>when the crosshair is snapped to the sensor
-- <cite>&#64;gnss_horizontal_accuracy</cite> --&gt; The horizontal accuracy of the coordinate (in meters) as reported by the sensor.
-- <cite>&#64;position_horizontal_accuracy</cite> --&gt; The horizontal accuracy of the coordinate (in meters) as reported by the sensor.
-- <cite>&#64;position_source_name</cite> --&gt; sensor name.</li>
-<li>when the crosshair is manually moved
-- <cite>&#64;gnss_horizontal_accuracy</cite> --&gt; The horizontal accuracy of the coordinate (in meters) as reported by the sensor.
-- <cite>&#64;position_horizontal_accuracy</cite> --&gt; The value is <cite>NULL</cite>.
-- <cite>&#64;position_source_name</cite> --&gt; The value is <cite>manual</cite>.</li>
-</ul>
-</dd>
-</dl>
-<p>I: Internal position source
-E: External (NMEA) position source</p>
+<p>For more information regarding storing information related to your position in object
+attributes, refer to the deticated <a class="reference internal" href="gnss.html#gnss-variables"><span class="std std-ref">GNSS documentation</span></a>.</p>
 </div>
 <div class="section" id="id1">
 <h3>常规用例<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
