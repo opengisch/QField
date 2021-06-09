@@ -18,6 +18,7 @@
 
 #include "gnsspositioninformation.h"
 #include "qfieldcloudconnection.h"
+#include "qgsquickmapsettings.h"
 #include "snappingresult.h"
 
 #include <qgspoint.h>
@@ -32,6 +33,7 @@ class DigitizingLogger : public QObject
 
     Q_PROPERTY( QString type READ type WRITE setType NOTIFY typeChanged )
     Q_PROPERTY( QgsProject *project READ project WRITE setProject NOTIFY projectChanged )
+    Q_PROPERTY( QgsQuickMapSettings *mapSettings READ mapSettings WRITE setMapSettings NOTIFY mapSettingsChanged )
     Q_PROPERTY( QgsVectorLayer *digitizingLayer READ digitizingLayer WRITE setDigitizingLayer NOTIFY digitizingLayerChanged )
     Q_PROPERTY( GnssPositionInformation positionInformation READ positionInformation WRITE setPositionInformation NOTIFY positionInformationChanged )
     Q_PROPERTY( bool positionLocked READ positionLocked WRITE setPositionLocked NOTIFY positionLockedChanged )
@@ -55,6 +57,15 @@ class DigitizingLogger : public QObject
 
     //! Sets the \a project used to find the digitizing logs layer
     void setProject( QgsProject *project );
+
+    //! Returns map settings
+    QgsQuickMapSettings *mapSettings() const { return mMapSettings; }
+
+    /**
+     * Sets map settings
+     * \param mapSettings the QgsQuickMapSettings object
+     */
+    void setMapSettings( QgsQuickMapSettings *mapSettings );
 
     //! Returns the current vector layer used to digitize features
     QgsVectorLayer *digitizingLayer() const { return mDigitizingLayer; }
@@ -120,6 +131,7 @@ class DigitizingLogger : public QObject
 
     void typeChanged();
     void projectChanged();
+    void mapSettingsChanged();
     void digitizingLayerChanged();
     void positionInformationChanged();
     void positionLockedChanged();
@@ -134,8 +146,8 @@ class DigitizingLogger : public QObject
     QString mType;
 
     QgsProject *mProject = nullptr;
+    QgsQuickMapSettings *mMapSettings = nullptr;
     QgsVectorLayer *mLogsLayer = nullptr;
-
     QgsVectorLayer *mDigitizingLayer = nullptr;
 
     GnssPositionInformation mPositionInformation;

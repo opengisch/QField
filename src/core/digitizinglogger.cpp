@@ -16,6 +16,7 @@
 #include "digitizinglogger.h"
 #include "expressioncontextutils.h"
 
+#include <qgsexpressioncontextutils.h>
 #include <qgslayertree.h>
 #include <qgsmessagelog.h>
 #include <qgsvectorlayerutils.h>
@@ -63,7 +64,7 @@ void DigitizingLogger::setTopSnappingResult( const SnappingResult &topSnappingRe
 
 void DigitizingLogger::setProject( QgsProject *project )
 {
-  if ( project == mProject )
+  if ( mProject == project )
     return;
 
   if ( mProject )
@@ -78,6 +79,16 @@ void DigitizingLogger::setProject( QgsProject *project )
   findLogsLayer();
 
   emit projectChanged();
+}
+
+void DigitizingLogger::setMapSettings( QgsQuickMapSettings *mapSettings )
+{
+  if ( mMapSettings == mapSettings )
+    return;
+
+  mMapSettings = mapSettings;
+
+  emit mapSettingsChanged();
 }
 
 void DigitizingLogger::setDigitizingLayer( QgsVectorLayer *layer )
@@ -135,6 +146,8 @@ void DigitizingLogger::addCoordinate( const QgsPoint &point )
   feature.setGeometry( geom.coerceToType( mLogsLayer->wkbType() ).at( 0 ) );
 
   QgsExpressionContext expressionContext = mLogsLayer->createExpressionContext();
+
+  expressionContext << QgsExpressionContextUtils::mapSettingsScope( mMapSettings->mapSettings() );
 
   if ( mPositionInformation.isValid() )
     expressionContext << ExpressionContextUtils::positionScope( mPositionInformation, mPositionLocked );

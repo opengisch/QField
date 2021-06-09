@@ -69,6 +69,7 @@ VisibilityFadingRow {
     id: digitizingLogger
 
     project: qgisProject
+    mapSettings: digitizingToolbar.mapSettings
     digitizingLayer: rubberbandModel.vectorLayer
 
     positionInformation: positionSource.positionInfo
