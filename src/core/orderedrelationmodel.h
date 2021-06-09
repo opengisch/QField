@@ -28,9 +28,9 @@ class OrderedRelationModel: public ReferencingFeatureListModel
 {
     Q_OBJECT
 
-    Q_PROPERTY( QString orderingField READ orderingField WRITE setOrderingField NOTIFY orderingFieldChanged)
-    Q_PROPERTY( QString imagePath READ imagePath WRITE setImagePath NOTIFY imagePathChanged)
-    Q_PROPERTY( QString description READ description WRITE setDescription NOTIFY descriptionChanged)
+    Q_PROPERTY( QString orderingField READ orderingField WRITE setOrderingField NOTIFY orderingFieldChanged )
+    Q_PROPERTY( QString imagePath READ imagePath WRITE setImagePath NOTIFY imagePathChanged )
+    Q_PROPERTY( QString description READ description WRITE setDescription NOTIFY descriptionChanged )
 
   public:
 
@@ -62,7 +62,7 @@ class OrderedRelationModel: public ReferencingFeatureListModel
 
   public slots:
     void updateModel() override;
-    void onViewCurrentFeatureChanged(int index);
+    void onViewCurrentFeatureChanged( int index );
 
   private:
 
