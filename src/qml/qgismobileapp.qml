@@ -307,12 +307,11 @@ ApplicationWindow {
                   if ( Number( currentRubberband.model.geometryType ) === QgsWkbTypes.PointGeometry ||
                           Number( currentRubberband.model.geometryType ) === QgsWkbTypes.NullGeometry )
                   {
-                      digitizingToolbar.confirm()
+                      digitizingToolbar.confirming()
                   }
                   else
                   {
-                      currentRubberband.model.addVertex()
-                      coordinateLocator.flash()
+                      digitizingToolbar.addVertex()
                   }
               }
               else
@@ -341,13 +340,10 @@ ApplicationWindow {
           if ( stateMachine.state === "digitize" && dashBoard.currentLayer ) { // the sourceLocation test checks if a (stylus) hover is active
             if ( ( Number( currentRubberband.model.geometryType ) === QgsWkbTypes.LineGeometry && currentRubberband.model.vertexCount >= 1 )
                || ( Number( currentRubberband.model.geometryType ) === QgsWkbTypes.PolygonGeometry && currentRubberband.model.vertexCount >= 2 ) ) {
-                var mapPoint = mapSettings.screenToCoordinate(point)
-                digitizingToolbar.rubberbandModel.addVertexFromPoint(mapPoint) // The onLongPressed event is triggered while the button is down.
                 // When it's released, it will normally cause a release event to close the attribute form.
                 // We get around this by temporarily switching the closePolicy.
                 overlayFeatureFormDrawer.closePolicy = Popup.CloseOnEscape
-                digitizingToolbar.confirm()
-                coordinateLocator.flash()
+                digitizingToolbar.confirming()
                 return
             }
           }
