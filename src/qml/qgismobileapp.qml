@@ -187,7 +187,7 @@ ApplicationWindow {
                 if (geometryEditorsToolbar.canvasClicked(centroid.position)) {
                     // needed to handle freehand digitizing of rings
                 } else {
-                    currentRubberband.model.addVertex()
+                    digitizingToolbar.addVertex();
                 }
             }
         }
