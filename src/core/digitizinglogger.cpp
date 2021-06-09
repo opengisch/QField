@@ -114,7 +114,7 @@ void DigitizingLogger::findLogsLayer()
 
 void DigitizingLogger::addCoordinate( const QgsPoint &point )
 {
-  if ( !mLogsLayer )
+  if ( !mLogsLayer || mType.isEmpty() )
     return;
 
   QgsFeature feature = QgsFeature( mLogsLayer->fields() );

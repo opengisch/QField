@@ -44,7 +44,10 @@ class DigitizingLogger : public QObject
     //! Returns the digitizing logs type
     QString type() const { return mType; }
 
-    //! Sets the digitizing logs \a type
+    /*
+     * Sets the digitizing logs \a type
+     * \note if the type is an empty string, digitized vertices will not be logged
+     */
     void setType( const QString &type );
 
     //! Returns the current project from which the digitizing logs will be sought

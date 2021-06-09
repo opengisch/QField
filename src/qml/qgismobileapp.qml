@@ -1142,7 +1142,7 @@ ApplicationWindow {
       showConfirmButton: stateMachine.state === "digitize"
       screenHovering: hoverHandler.hovered
 
-      digitizingType: 'add'
+      digitizingType: stateMachine.state === 'measure' ? '' : 'add'
 
       FeatureModel {
         id: digitizingFeature
