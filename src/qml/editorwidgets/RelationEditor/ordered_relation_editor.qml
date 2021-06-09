@@ -17,9 +17,8 @@ EditorWidgetBase {
     property int itemHeight: 40
 
     // because no additional addEntry item on readOnly (isEnabled false)
-    height: isEnabled
-            ? listView.height + itemHeight
-            : Math.max( listView.height, itemHeight)
+    height: listView.contentHeight
+              + (addEntry.visible ? addEntry.height : 0)
     enabled: true
 
     Rectangle {
@@ -54,12 +53,13 @@ EditorWidgetBase {
         id: listView
         model: visualModel
         width: parent.width
-        height: listView.count * itemHeight
+        height: contentHeight
         focus: true
         clip: true
         boundsMovement: Flickable.StopAtBounds
-        highlightRangeMode: ListView.StrictlyEnforceRange
+        highlightRangeMode: ListView.ApplyRange
     }
+
 
     //the add entry "last row"
     Item {
