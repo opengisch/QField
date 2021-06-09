@@ -28,7 +28,7 @@ if [[ -z $APP_VERSION_STR ]]; then
   exit 2
 fi
 
-if [[ $( echo "${APK_VERSION_CODE} > 020000000" | bc ) == 1 ]]; then
+if [[ $( echo "${APK_VERSION_CODE} > 030000000" | bc ) == 1 ]]; then
   echo "*** ERROR TOO BIG VERSION CODE ${APK_VERSION_CODE}"
   echo "Remove this check if QField is now 2.x"
   exit 1
