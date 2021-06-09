@@ -7,6 +7,7 @@
 #include "qgsvectorlayer.h"
 #include "qgsproject.h"
 #include "qgsexpressioncontextutils.h"
+#include "qgsmessagelog.h"
 #include <QAbstractTableModel>
 
 #include "qfield_core_export.h"
@@ -81,7 +82,7 @@ void OrderedRelationModel::updateModel()
 
   std::sort( mEntries.begin(), mEntries.end(), [=]( const Entry & e1, const Entry & e2 )
   {
-    return e1.referencingFeature.attribute( mOrderingField ).toFloat() < e2.referencingFeature.attribute( mOrderingField ).toFloat();
+    return e1.referencingFeature.attribute( mOrderingField ).toInt() < e2.referencingFeature.attribute( mOrderingField ).toInt();
   } );
 
   endResetModel();
@@ -124,36 +125,70 @@ void OrderedRelationModel::onViewCurrentFeatureChanged( int index )
   emit currentFeatureChanged( mEntries[index].referencingFeature );
 }
 
-void OrderedRelationModel::moveItems(const int fromIdx, const int toIdx)
+bool OrderedRelationModel::moveItems(const int fromIdx, const int toIdx)
 {
   if ( fromIdx == toIdx )
-    return;
+    return false;
 
   if ( !mRelation.isValid() )
-    return;
+    return false;
 
-  int orderingFieldIdx = mRelation.referencingLayer()->fields().indexFromName( mOrderingField );
+  QgsVectorLayer *referencingLayer = mRelation.referencingLayer();
+  int orderingFieldIdx = referencingLayer->fields().indexFromName( mOrderingField );
 
   if ( orderingFieldIdx == -1 )
-    return;
+    return false;
 
   int startIdx = std::min( fromIdx, toIdx );
   int endIdx = std::max( fromIdx, toIdx );
   int delta = fromIdx > toIdx ? 1 : -1;
 
-  beginResetModel();
+  if ( !referencingLayer->startEditing() )
+  {
+    QgsMessageLog::logMessage( tr( "Cannot start editing" ), "QField", Qgis::Critical );
+    return false;
+  }
 
-//      for i in range(start_index, end_index+1):
-//          f = self._related_features[i]
-//          if i == index_from:
-//              self._related_features[i][self._ordering_field] = index_to + 1  # ranks are index +1 (start at 1)
-//          else:
-//              self._related_features[i][self._ordering_field] += delta
+  qDebug() << "FROM-TO:" << fromIdx << toIdx << delta;
 
-//          res = self._relation.referencingLayer().changeAttributeValue(f.id(), field_index, f[self._ordering_field])
-//          print(res)
+  for ( int i = startIdx; i <= endIdx; i++ )
+  {
+    int oldIx = mEntries[i].referencingFeature.attribute( orderingFieldIdx ).toInt();
+    int newIdx = ( i == fromIdx )
+      ? toIdx + 1
+      : mEntries[i].referencingFeature.attribute( orderingFieldIdx ).toInt() + delta;
+    bool isSuccess = referencingLayer->changeAttributeValue( mEntries[i].referencingFeature.id(), orderingFieldIdx, newIdx );
 
-//      self._related_features = sorted(self._related_features, key=lambda _f: _f[self._ordering_field])
+    if ( !isSuccess )
+    {
+      if ( referencingLayer->rollBack() )
+        QgsMessageLog::logMessage( tr( "Cannot rollback layer changes in layer %1" ).arg( referencingLayer->name() ), "QField", Qgis::Critical );
 
-  endResetModel();
+      emit failedReorder();
+      return false;
+    }
+
+    qDebug()
+        << "YES:"
+        << mEntries[i].referencingFeature.id()
+        << "idx:"
+        << i
+        << oldIx
+        << newIdx
+        << isSuccess;
+  }
+
+  if ( !referencingLayer->commitChanges() )
+  {
+    QgsMessageLog::logMessage( tr( "Cannot commit layer changes in layer %1." ).arg( referencingLayer->name() ), "QField", Qgis::Critical );
+
+    if ( !referencingLayer->rollBack() )
+      QgsMessageLog::logMessage( tr( "Cannot rollback layer changes in layer %1" ).arg( referencingLayer->name() ), "QField", Qgis::Critical );
+
+    return false;
+  }
+
+  reload();
+
+  return true;
 }

@@ -54,28 +54,11 @@ EditorWidgetBase {
         id: listView
         model: visualModel
         width: parent.width
-        height: Math.min(
-                  4 * itemHeight,
-                  listView.count * itemHeight
-                ) + (
-                  listView.count > 4
-                    ? itemHeight / 2
-                    : 0
-                )
+        height: listView.count * itemHeight
         focus: true
         clip: true
+        boundsMovement: Flickable.StopAtBounds
         highlightRangeMode: ListView.StrictlyEnforceRange
-
-        ScrollBar.vertical: ScrollBar {
-            width: 10
-            policy: ScrollBar.AlwaysOn
-
-            contentItem: Rectangle {
-                implicitWidth: 10
-                implicitHeight: itemHeight
-                color: Theme.mainColor
-            }
-        }
     }
 
     //the add entry "last row"
