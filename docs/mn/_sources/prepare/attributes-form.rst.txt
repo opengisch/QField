@@ -254,6 +254,23 @@ To transform the coordinates received from @position_coordinate to the coordinat
   x(transform(@position_coordinate, 'EPSG:4326', @project_crs ))
   y(transform(@position_coordinate, 'EPSG:4326', @project_crs ))
 
+If you want to use the snapping results after drawing a line, you can use the `@snapping_results` variable.
+The following code extracts the value of the attribute `id` of the snapping match of the first point of a line.
+
+.. code-block:: sql
+
+  with_variable(
+    'first_snapped_point',
+    array_first( @snapping_results ),
+    attribute(
+      get_feature_by_id(
+        @first_snapped_point['layer'],
+        @first_snapped_point['feature_id']
+      ),
+      'id'
+    )
+)
+
 Editable
 --------
 

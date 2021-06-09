@@ -371,6 +371,21 @@ inserted, you can do so by using an aggregate expression:</p>
 <span class="n">y</span><span class="p">(</span><span class="k">transform</span><span class="p">(</span><span class="o">@</span><span class="n">position_coordinate</span><span class="p">,</span> <span class="s1">&#39;EPSG:4326&#39;</span><span class="p">,</span> <span class="o">@</span><span class="n">project_crs</span> <span class="p">))</span>
 </pre></div>
 </div>
+<p>If you want to use the snapping results after drawing a line, you can use the <cite>&#64;snapping_results</cite> variable.
+The following code extracts the value of the attribute <cite>id</cite> of the snapping match of the first point of a line.</p>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="n">with_variable</span><span class="p">(</span>
+  <span class="s1">&#39;first_snapped_point&#39;</span><span class="p">,</span>
+  <span class="n">array_first</span><span class="p">(</span> <span class="o">@</span><span class="n">snapping_results</span> <span class="p">),</span>
+  <span class="n">attribute</span><span class="p">(</span>
+    <span class="n">get_feature_by_id</span><span class="p">(</span>
+      <span class="o">@</span><span class="n">first_snapped_point</span><span class="p">[</span><span class="s1">&#39;layer&#39;</span><span class="p">],</span>
+      <span class="o">@</span><span class="n">first_snapped_point</span><span class="p">[</span><span class="s1">&#39;feature_id&#39;</span><span class="p">]</span>
+    <span class="p">),</span>
+    <span class="s1">&#39;id&#39;</span>
+  <span class="p">)</span>
+</pre></div>
+</div>
+<p>)</p>
 </div>
 </div>
 <div class="section" id="editable">
