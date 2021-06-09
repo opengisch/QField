@@ -80,7 +80,7 @@ void OrderedRelationModel::updateModel()
   if ( mGatherer )
     mEntries = mGatherer->entries();
 
-  std::sort( mEntries.begin(), mEntries.end(), [ = ]( const Entry & e1, const Entry & e2 )
+  std::sort( mEntries.begin(), mEntries.end(), [=]( const Entry & e1, const Entry & e2 )
   {
     return e1.referencingFeature.attribute( mOrderingField ).toInt() < e2.referencingFeature.attribute( mOrderingField ).toInt();
   } );
@@ -89,27 +89,26 @@ void OrderedRelationModel::updateModel()
   emit modelUpdated();
 }
 
-QVariant OrderedRelationModel::data( const QModelIndex &index, int role ) const
+QVariant OrderedRelationModel::data(const QModelIndex &index, int role ) const
 {
   QVariant result;
 
-  if ( index.row() < 0 || index.row() >= rowCount( QModelIndex() ) )
+  if (index.row() < 0 || index.row() >= rowCount(QModelIndex()))
     return QVariant();
 
   QgsExpression expr;
   QgsExpressionContext context;
-  context.appendScopes( QgsExpressionContextUtils::globalProjectLayerScopes( mRelation.referencingLayer() ) );
-  context.setFeature( mEntries.at( index.row() ).referencingFeature );
+  context.appendScopes(QgsExpressionContextUtils::globalProjectLayerScopes(mRelation.referencingLayer()));
+  context.setFeature( mEntries.at(index.row()).referencingFeature );
 
-  switch ( role )
-  {
+  switch ( role ) {
     case ImagePathRole:
-      expr = QgsExpression( mImagePath );
-      result = expr.evaluate( &context );
+      expr = QgsExpression(mImagePath);
+      result = expr.evaluate(&context);
       return result;
     case DescriptionRole:
-      expr = QgsExpression( mDescription );
-      result = expr.evaluate( &context );
+      expr = QgsExpression(mDescription);
+      result = expr.evaluate(&context);
       return result;
     case FeatureIdRole:
       return mEntries[index.row()].referencingFeature.id();
@@ -120,13 +119,13 @@ QVariant OrderedRelationModel::data( const QModelIndex &index, int role ) const
 
 void OrderedRelationModel::onViewCurrentFeatureChanged( int index )
 {
-  if ( index < 0 || index >= rowCount( QModelIndex() ) )
+  if (index < 0 || index >= rowCount(QModelIndex()))
     return;
 
   emit currentFeatureChanged( mEntries[index].referencingFeature );
 }
 
-bool OrderedRelationModel::moveItems( const int fromIdx, const int toIdx )
+bool OrderedRelationModel::moveItems(const int fromIdx, const int toIdx)
 {
   if ( fromIdx == toIdx )
     return false;
@@ -156,8 +155,8 @@ bool OrderedRelationModel::moveItems( const int fromIdx, const int toIdx )
   {
     int oldIx = mEntries[i].referencingFeature.attribute( orderingFieldIdx ).toInt();
     int newIdx = ( i == fromIdx )
-                 ? toIdx + 1
-                 : mEntries[i].referencingFeature.attribute( orderingFieldIdx ).toInt() + delta;
+      ? toIdx + 1
+      : mEntries[i].referencingFeature.attribute( orderingFieldIdx ).toInt() + delta;
     bool isSuccess = referencingLayer->changeAttributeValue( mEntries[i].referencingFeature.id(), orderingFieldIdx, newIdx );
 
     if ( !isSuccess )
