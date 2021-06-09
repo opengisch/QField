@@ -34,6 +34,10 @@ Export the authentication from QGIS
    Exporting an auth configuration requires at least QGIS 3.20.
    It is possible to only use QGIS 3.20 to prepare the auth config and configure the
    QGIS project itself with an earlier version of QGIS.
+ 
+.. note::
+   It is important that the Configuration ID of the exported configuration
+   and the configuration stored in the QGIS project match.
 
 At this point, verify that you are able to properly connect to the service from QGIS.
 This authentication configuration must first be exported from QGIS itself.
