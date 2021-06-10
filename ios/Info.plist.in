@@ -73,6 +73,12 @@
     <!-- Copyright -->
     <key>NSHumanReadableCopyright</key>
     <string>${MACOSX_BUNDLE_COPYRIGHT}</string>
+    
+    <key>NSBluetoothPeripheralUsageDescription</key>
+    <string>Bluetooth access needed to connect an external GNSS device.</string>
+
+    <key>NSBluetoothAlwaysUsageDescription</key>
+    <string>Bluetooth access needed to connect an external GNSS device.</string>
 
     <!-- Ui Orientation -->
     <key>UISupportedInterfaceOrientations</key>
