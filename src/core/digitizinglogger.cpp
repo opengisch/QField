@@ -147,7 +147,8 @@ void DigitizingLogger::addCoordinate( const QgsPoint &point )
 
   QgsExpressionContext expressionContext = mLogsLayer->createExpressionContext();
 
-  expressionContext << QgsExpressionContextUtils::mapSettingsScope( mMapSettings->mapSettings() );
+  if ( mMapSettings )
+    expressionContext << QgsExpressionContextUtils::mapSettingsScope( mMapSettings->mapSettings() );
 
   if ( mPositionInformation.isValid() )
     expressionContext << ExpressionContextUtils::positionScope( mPositionInformation, mPositionLocked );
