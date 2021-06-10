@@ -61,11 +61,18 @@
     <key>NSLocationWhenInUseUsageDescription</key>
     <string>Location required</string>
 
+    <!-- Peripherals -->
     <key>NSCameraUsageDescription</key>
     <string>Need to access your camera to capture a picture.</string>
 
     <key>NSPhotoLibraryUsageDescription</key>
     <string>Picture Library</string>
+
+    <key>NSBluetoothPeripheralUsageDescription</key>
+    <string>Bluetooth access needed to connect an external GNSS device.</string>
+
+    <key>NSBluetoothAlwaysUsageDescription</key>
+    <string>Bluetooth access needed to connect an external GNSS device.</string>
 
     <key>CSResourcesFileMapped</key>
     <true/>
