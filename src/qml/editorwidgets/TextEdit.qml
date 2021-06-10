@@ -8,6 +8,8 @@ import "."
 EditorWidgetBase {
   id: topItem
 
+  property bool isEditable: isEnabled && typeof(value) != object
+
   height: childrenRect.height
 
   // Due to QTextEdit::onLinkActivated does not work on Android & iOS, we need a separate `Text` element to support links https://bugreports.qt.io/browse/QTBUG-38487
@@ -16,7 +18,7 @@ EditorWidgetBase {
     height: textArea.height == 0 ? textField.height : 0
     topPadding: 10
     bottomPadding: 10
-    visible: height !== 0 && !isEnabled
+    visible: height !== 0 && !isEditable
     anchors.left: parent.left
     anchors.right: parent.right
     font: Theme.defaultFont
@@ -32,7 +34,7 @@ EditorWidgetBase {
     id: textField
     topPadding: 10
     bottomPadding: 10
-    visible: height !== 0 && isEnabled
+    visible: height !== 0 && isEditable
     anchors.left: parent.left
     anchors.right: parent.right
     font: Theme.defaultFont
@@ -84,7 +86,7 @@ EditorWidgetBase {
     id: textArea
     height: config['IsMultiline'] === true ? undefined : 0
     visible: height !== 0
-    enabled: isEnabled
+    enabled: isEditable
     anchors.left: parent.left
     anchors.right: parent.right
     wrapMode: Text.Wrap
