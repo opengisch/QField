@@ -44,3 +44,8 @@ There are several options for this, one of them is `Android NTRIP Client
 
 To use this you have to `enable mock locations on your Android device
 <https://www.youtube.com/watch?v=v1eRHmMiRJQ>`_.
+
+High precision surveying and quality metadata
+---------------------------------------------
+
+For more information how to setup high precision measurement and add quality indication metadata to collected features, see the corresponding :ref:`GNSS documentation<gnss_variables>`.
