@@ -212,6 +212,10 @@ void DigitizingLogger::writeCoordinates()
     {
       QgsMessageLog::logMessage( tr( "Digitizing logs layer change commits failed" ), QStringLiteral( "QField" ) );
     }
+    else
+    {
+      clearCoordinates();
+    }
   }
   else
   {

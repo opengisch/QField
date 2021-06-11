@@ -60,6 +60,10 @@ class TestDigitizingLogger : public QObject
       mDigitizingLogger->addCoordinate( QgsPoint( 2, 2 ) );
       mDigitizingLogger->writeCoordinates();
       QCOMPARE( mLogsLayer->featureCount(), 2 );
+      mDigitizingLogger->addCoordinate( QgsPoint( 1, 1 ) );
+      mDigitizingLogger->addCoordinate( QgsPoint( 2, 2 ) );
+      mDigitizingLogger->writeCoordinates();
+      QCOMPARE( mLogsLayer->featureCount(), 4 );
 
       QgsFeature feature = mLogsLayer->getFeature( 1 );
       QCOMPARE( feature.attributes().at( 1 ), mDigitizingLogger->type() );
