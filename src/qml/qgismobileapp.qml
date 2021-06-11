@@ -203,12 +203,16 @@ ApplicationWindow {
         grabPermissions: PointerHandler.TakeOverForbidden
 
         onPointChanged: {
-            var digitizingToolbarCoordinates = digitizingToolbar.mapToItem(mainWindow.contentItem, 0, 0)
-            if ( !freehandHandler.active &&
-                 point.position.x >= digitizingToolbarCoordinates.x && point.position.x <= digitizingToolbarCoordinates.x + digitizingToolbar.width &&
-                 point.position.y >= digitizingToolbarCoordinates.y && point.position.y <= digitizingToolbarCoordinates.y + digitizingToolbar.height ) {
-                // when hovering digitizing toolbar, reset coordinate locator position for nicer UX
+            function pointInItem(point, item) {
+                var itemCoordinates = item.mapToItem(mainWindow.contentItem, 0, 0);
+                return point.position.x >= itemCoordinates.x && point.position.x <= itemCoordinates.x + item.width &&
+                       point.position.y >= itemCoordinates.y && point.position.y <= itemCoordinates.y + item.height;
+            }
+            // when hovering digitizing toolbars, reset coordinate locator position for nicer UX
+            if ( !freehandHandler.active && pointInItem( point, digitizingToolbar ) ) {
                 coordinateLocator.sourceLocation = mapCanvas.mapSettings.coordinateToScreen( digitizingToolbar.rubberbandModel.lastCoordinate );
+            } else if ( !freehandHandler.active && pointInItem( point, geometryEditorsToolbar ) ) {
+                coordinateLocator.sourceLocation = mapCanvas.mapSettings.coordinateToScreen( geometryEditorsToolbar.editorRubberbandModel.lastCoordinate );
             } else {
                 // after a click, it seems that the position is sent once at 0,0 => weird
                 if (point.position !== Qt.point(0, 0))

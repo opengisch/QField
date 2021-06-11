@@ -40,7 +40,6 @@ VisibilityFadingRow {
 
     onConfirm: {
       rubberbandModel.frozen = true
-      rubberbandModel.removeVertex()
 
       // TODO: featureModel.currentLayer.selectByIds([featureModel.feature.id], VectorLayerStatic.SetSelection)
       LayerUtils.selectFeaturesInLayer(featureModel.currentLayer, [featureModel.feature.id], VectorLayerStatic.SetSelection)
