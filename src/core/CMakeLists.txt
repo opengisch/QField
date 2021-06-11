@@ -39,14 +39,11 @@ set(QFIELD_CORE_SRCS
   featurelistmodel.cpp
   featurelistmodelselection.cpp
   featuremodel.cpp
-  featureslocatorfilter.cpp
   feedback.cpp
-  finlandlocatorfilter.cpp
   focusstack.cpp
   geometry.cpp
   geometryeditorsmodel.cpp
   gnsspositioninformation.cpp
-  gotolocatorfilter.cpp
   identifytool.cpp
   layerobserver.cpp
   layerresolver.cpp
@@ -54,7 +51,6 @@ set(QFIELD_CORE_SRCS
   layertreemodel.cpp
   legendimageprovider.cpp
   linepolygonhighlight.cpp
-  locatormodelsuperbridge.cpp
   maptoscreen.cpp
   messagelogmodel.cpp
   modelhelper.cpp
