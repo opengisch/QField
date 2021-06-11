@@ -51,6 +51,7 @@ VisibilityFadingRow {
       featureModel.vertexModel.selectVertexAtPosition(point, 10)
     else
     {
+      digitizingLogger.addCoordinate(featureModel.vertexModel.currentPoint)
       featureModel.vertexModel.currentVertexIndex = -1
     }
 
@@ -64,6 +65,7 @@ VisibilityFadingRow {
     visible: featureModel.vertexModel.dirty && !qfieldSettings.autoSave
     bgcolor: "#900000"
     onClicked: {
+      digitizingLogger.clearCoordinates();
       cancel()
     }
   }
@@ -76,6 +78,7 @@ VisibilityFadingRow {
     bgcolor: !qfieldSettings.autoSave ? Theme.mainColor : Theme.darkGray
 
     onClicked: {
+      digitizingLogger.writeCoordinates();
       applyChanges( true )
       if( !qfieldSettings.autoSave )
         finished()
@@ -141,6 +144,20 @@ VisibilityFadingRow {
       applyChanges( qfieldSettings.autoSave )
       featureModel.vertexModel.next()
     }
+  }
+
+  DigitizingLogger {
+    id: digitizingLogger
+    type: 'edit_vertex'
+
+    project: qgisProject
+    mapSettings: mapSettings
+    digitizingLayer: featureModel.currentLayer
+
+    positionInformation: positionSource.positionInfo
+    positionLocked: gpsLinkButton.checked
+    topSnappingResult: coordinateLocator.topSnappingResult
+    cloudUserInformation: cloudConnection.userInformation
   }
 
   Connections {
