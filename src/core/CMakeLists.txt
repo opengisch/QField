@@ -1,12 +1,27 @@
 set(QFIELD_CORE_SRCS
   platforms/platformutilities.cpp
+
+  utils/expressioncontextutils.cpp
+  utils/featureutils.cpp
+  utils/fileutils.cpp
+  utils/geometryutils.cpp
+  utils/layerutils.cpp
+  utils/qfieldcloudutils.cpp
+  utils/snappingutils.cpp
+  utils/stringutils.cpp
+  utils/urlutils.cpp
+
+  qgsquick/qgsquickcoordinatetransformer.cpp
+  qgsquick/qgsquickmapcanvasmap.cpp
+  qgsquick/qgsquickmapsettings.cpp
+  qgsquick/qgsquickmaptransform.cpp
+
   appinterface.cpp
   appcoordinateoperationhandlers.cpp
   attributeformmodelbase.cpp
   attributeformmodel.cpp
   badlayerhandler.cpp
   distancearea.cpp
-  expressioncontextutils.cpp
   expressionvariablemodel.cpp
   featurechecklistmodel.cpp
   featurelistextentcontroller.cpp
@@ -50,7 +65,6 @@ set(QFIELD_CORE_SRCS
   settings.cpp
   sgrubberband.cpp
   snappingresult.cpp
-  snappingutils.cpp
   submodel.cpp
   valuemapmodel.cpp
   vertexmodel.cpp
@@ -60,18 +74,7 @@ set(QFIELD_CORE_SRCS
   bluetoothreceiver.cpp
   bluetoothdevicemodel.cpp
   changelogcontents.cpp
-  utils/fileutils.cpp
-  utils/geometryutils.cpp
-  utils/featureutils.cpp
-  utils/layerutils.cpp
-  utils/stringutils.cpp
-  utils/urlutils.cpp
-  utils/qfieldcloudutils.cpp
   expressionevaluator.cpp
-  qgsquick/qgsquickcoordinatetransformer.cpp
-  qgsquick/qgsquickmapcanvasmap.cpp
-  qgsquick/qgsquickmapsettings.cpp
-  qgsquick/qgsquickmaptransform.cpp
   qfieldcloudconnection.cpp
   qfieldcloudprojectsmodel.cpp
   deltafilewrapper.cpp
@@ -83,6 +86,22 @@ set(QFIELD_CORE_SRCS
 
 set(QFIELD_CORE_HDRS
   platforms/platformutilities.h
+
+  utils/expressioncontextutils.cpp
+  utils/featureutils.cpp
+  utils/fileutils.cpp
+  utils/geometryutils.cpp
+  utils/layerutils.cpp
+  utils/qfieldcloudutils.cpp
+  utils/snappingutils.cpp
+  utils/stringutils.cpp
+  utils/urlutils.cpp
+
+  qgsquick/qgsquickcoordinatetransformer.cpp
+  qgsquick/qgsquickmapcanvasmap.cpp
+  qgsquick/qgsquickmapsettings.cpp
+  qgsquick/qgsquickmaptransform.cpp
+
   qfield.h
   appinterface.h
   appcoordinateoperationhandlers.h
@@ -90,7 +109,6 @@ set(QFIELD_CORE_HDRS
   attributeformmodel.h
   badlayerhandler.h
   distancearea.h
-  expressioncontextutils.h
   expressionvariablemodel.h
   featurechecklistmodel.h
   featurelistextentcontroller.h
@@ -135,7 +153,6 @@ set(QFIELD_CORE_HDRS
   settings.h
   sgrubberband.h
   snappingresult.h
-  snappingutils.h
   submodel.h
   valuemapmodel.h
   vertexmodel.h
@@ -145,18 +162,7 @@ set(QFIELD_CORE_HDRS
   tracker.h
   viewstatus.h
   changelogcontents.h
-  utils/fileutils.h
-  utils/geometryutils.h
-  utils/featureutils.h
-  utils/layerutils.h
-  utils/stringutils.h
-  utils/urlutils.h
-  utils/qfieldcloudutils.h
   expressionevaluator.h
-  qgsquick/qgsquickcoordinatetransformer.h
-  qgsquick/qgsquickmapcanvasmap.h
-  qgsquick/qgsquickmapsettings.h
-  qgsquick/qgsquickmaptransform.h
   qfieldcloudconnection.h
   qfieldcloudprojectsmodel.h
   deltafilewrapper.h
