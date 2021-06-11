@@ -35,11 +35,12 @@ VisibilityFadingRow {
     showConfirmButton: true
     screenHovering: splitFeatureToolbar.screenHovering
 
-    digitizingType: 'edit_split'
+    digitizingLogger.type: 'edit_split'
 
     onConfirm: {
-      rubberbandModel.frozen = true
+      digitizingLogger.writeCoordinates()
 
+      rubberbandModel.frozen = true
       // TODO: featureModel.currentLayer.selectByIds([featureModel.feature.id], VectorLayerStatic.SetSelection)
       LayerUtils.selectFeaturesInLayer(featureModel.currentLayer, [featureModel.feature.id], VectorLayerStatic.SetSelection)
       if (!featureModel.currentLayer.editBuffer())

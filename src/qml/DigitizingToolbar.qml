@@ -18,7 +18,7 @@ VisibilityFadingRow {
   property var geometryRequestedItem
   property VectorLayer geometryRequestedLayer
 
-  property alias digitizingType: digitizingLogger.type
+  property alias digitizingLogger: digitizingLogger
 
   readonly property bool isDigitizing: rubberbandModel ? rubberbandModel.vertexCount > 1 : false //!< Readonly
 
@@ -241,7 +241,6 @@ VisibilityFadingRow {
   function confirming()
   {
       digitizingLogger.addCoordinate( coordinateLocator.currentCoordinate )
-      digitizingLogger.writeCoordinates()
       confirm()
   }
 }

@@ -47,9 +47,11 @@ VisibilityFadingRow {
         showConfirmButton: true
         screenHovering: reshapeToolbar.screenHovering
 
-        digitizingType: 'edit_reshape'
+        digitizingLogger.type: 'edit_reshape'
 
         onConfirm: {
+            digitizingLogger.writeCoordinates()
+
             rubberbandModel.frozen = true
             if (!featureModel.currentLayer.editBuffer())
                 featureModel.currentLayer.startEditing()

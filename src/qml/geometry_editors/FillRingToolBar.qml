@@ -48,7 +48,7 @@ VisibilityFadingRow {
     showConfirmButton: true
     screenHovering: fillRingToolbar.screenHovering
 
-    digitizingType: 'edit_fillring'
+    digitizingLogger.type: 'edit_fillring'
 
     EmbeddedFeatureForm {
       id: formPopupLoader
@@ -57,6 +57,8 @@ VisibilityFadingRow {
     }
 
     onConfirm: {
+      digitizingLogger.writeCoordinates()
+
       rubberbandModel.frozen = true
       if (!featureModel.currentLayer.editBuffer())
         featureModel.currentLayer.startEditing()
