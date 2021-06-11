@@ -19,17 +19,14 @@ VisibilityFadingRow {
 
     function canvasClicked(point)
     {
-        var mapPoint = drawPolygonToolbar.mapSettings.screenToCoordinate(point)
-        drawPolygonToolbar.rubberbandModel.addVertexFromPoint(mapPoint)
-        return true // handled
+        drawPolygonToolbar.addVertex();
+        return true; // handled
     }
 
     function canvasLongPressed(point)
     {
-        var mapPoint = drawPolygonToolbar.mapSettings.screenToCoordinate(point)
-        drawPolygonToolbar.rubberbandModel.addVertexFromPoint(mapPoint)
-        drawPolygonToolbar.confirm()
-        return true // handled
+        drawPolygonToolbar.confirming();
+        return true; // handled
     }
 
     QfToolButton {

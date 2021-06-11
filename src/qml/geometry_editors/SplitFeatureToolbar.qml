@@ -20,17 +20,14 @@ VisibilityFadingRow {
 
   function canvasClicked(point)
   {
-    var mapPoint = drawLineToolbar.mapSettings.screenToCoordinate(point)
-    drawLineToolbar.rubberbandModel.addVertexFromPoint(mapPoint)
-    return true // handled
+    drawLineToolbar.addVertex();
+    return true; // handled
   }
 
   function canvasLongPressed(point)
   {
-    var mapPoint = drawLineToolbar.mapSettings.screenToCoordinate(point)
-    drawLineToolbar.rubberbandModel.addVertexFromPoint(mapPoint)
-    drawLineToolbar.confirm()
-    return true // handled
+    drawLineToolbar.confirming();
+    return true; // handled
   }
 
   DigitizingToolbar {
