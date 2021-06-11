@@ -1,4 +1,5 @@
 set(QFIELD_CORE_SRCS
+  platforms/platformutilities.cpp
   appinterface.cpp
   appcoordinateoperationhandlers.cpp
   attributeformmodelbase.cpp
@@ -33,7 +34,6 @@ set(QFIELD_CORE_SRCS
   peliasgeocoder.cpp
   finlandlocatorfilter.cpp
   picturesource.cpp
-  platformutilities.cpp
   printlayoutlistmodel.cpp
   projectinfo.cpp
   projectsource.cpp
@@ -82,6 +82,7 @@ set(QFIELD_CORE_SRCS
 )
 
 set(QFIELD_CORE_HDRS
+  platforms/platformutilities.h
   qfield.h
   appinterface.h
   appcoordinateoperationhandlers.h
@@ -118,7 +119,6 @@ set(QFIELD_CORE_HDRS
   peliasgeocoder.h
   finlandlocatorfilter.h
   picturesource.h
-  platformutilities.h
   printlayoutlistmodel.h
   projectinfo.h
   projectsource.h
@@ -168,23 +168,23 @@ set(QFIELD_CORE_HDRS
 
 if (ANDROID)
   set(QFIELD_CORE_HDRS ${QFIELD_CORE_HDRS}
-    androidplatformutilities.h
-    androidpicturesource.h
-    androidviewstatus.h
-    androidprojectsource.h
+    platforms/android/androidplatformutilities.h
+    platforms/android/androidpicturesource.h
+    platforms/android/androidviewstatus.h
+    platforms/android/androidprojectsource.h
   )
   set(QFIELD_CORE_SRCS ${QFIELD_CORE_SRCS}
-    androidplatformutilities.cpp
-    androidpicturesource.cpp
-    androidviewstatus.cpp
-    androidprojectsource.cpp
+    platforms/android/androidplatformutilities.cpp
+    platforms/android/androidpicturesource.cpp
+    platforms/android/androidviewstatus.cpp
+    platforms/android/androidprojectsource.cpp
   )
 elseif(${CMAKE_SYSTEM_NAME} STREQUAL "iOS")
   set(QFIELD_CORE_HDRS ${QFIELD_CORE_HDRS}
-    ios/iosplatformutilities.h
+    platforms/ios/iosplatformutilities.h
   )
   set(QFIELD_CORE_SRCS ${QFIELD_CORE_SRCS}
-    ios/iosplatformutilities.mm
+    platforms/ios/iosplatformutilities.mm
   )
 endif()
 
@@ -210,10 +210,16 @@ target_include_directories(qfield_core SYSTEM PRIVATE
 
 target_include_directories(qfield_core PUBLIC
   ${CMAKE_SOURCE_DIR}/src/core
+  ${CMAKE_SOURCE_DIR}/src/core/platforms
   ${CMAKE_SOURCE_DIR}/src/core/qgsquick
   ${CMAKE_SOURCE_DIR}/src/core/utils
   ${CMAKE_SOURCE_DIR}/3rdparty/tessellate
 )
+if (ANDROID)
+  target_include_directories(qfield_core PUBLIC ${CMAKE_SOURCE_DIR}/src/core/platforms/android)
+elseif(${CMAKE_SYSTEM_NAME} STREQUAL "iOS")
+  target_include_directories(qfield_core PUBLIC ${CMAKE_SOURCE_DIR}/src/core/platforms/ios)
+endif()
 
 target_compile_features(qfield_core PUBLIC cxx_std_17)
 set_target_properties(qfield_core PROPERTIES AUTOMOC TRUE)
