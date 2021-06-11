@@ -1,12 +1,33 @@
 set(QFIELD_CORE_SRCS
   platforms/platformutilities.cpp
-  appinterface.cpp
+
+  utils/expressioncontextutils.cpp
+  utils/featureutils.cpp
+  utils/fileutils.cpp
+  utils/geometryutils.cpp
+  utils/layerutils.cpp
+  utils/qfieldcloudutils.cpp
+  utils/snappingutils.cpp
+  utils/stringutils.cpp
+  utils/urlutils.cpp
+
+  qgsquick/qgsquickcoordinatetransformer.cpp
+  qgsquick/qgsquickmapcanvasmap.cpp
+  qgsquick/qgsquickmapsettings.cpp
+  qgsquick/qgsquickmaptransform.cpp
+
   appcoordinateoperationhandlers.cpp
-  attributeformmodelbase.cpp
+  appinterface.cpp
   attributeformmodel.cpp
+  attributeformmodelbase.cpp
   badlayerhandler.cpp
+  bluetoothdevicemodel.cpp
+  bluetoothreceiver.cpp
+  changelogcontents.cpp
+  deltafilewrapper.cpp
+  deltalistmodel.cpp
   distancearea.cpp
-  expressioncontextutils.cpp
+  expressionevaluator.cpp
   expressionvariablemodel.cpp
   featurechecklistmodel.cpp
   featurelistextentcontroller.cpp
@@ -15,82 +36,85 @@ set(QFIELD_CORE_SRCS
   featuremodel.cpp
   featureslocatorfilter.cpp
   feedback.cpp
+  finlandlocatorfilter.cpp
   focusstack.cpp
   geometry.cpp
   geometryeditorsmodel.cpp
+  gnsspositioninformation.cpp
   gotolocatorfilter.cpp
   identifytool.cpp
+  layerobserver.cpp
+  layerresolver.cpp
   layertreemapcanvasbridge.cpp
   layertreemodel.cpp
-  layerresolver.cpp
   legendimageprovider.cpp
   linepolygonhighlight.cpp
   locatormodelsuperbridge.cpp
   maptoscreen.cpp
   messagelogmodel.cpp
   modelhelper.cpp
-  multifeaturelistmodelbase.cpp
   multifeaturelistmodel.cpp
+  multifeaturelistmodelbase.cpp
+  networkmanager.cpp
+  networkreply.cpp
   peliasgeocoder.cpp
-  finlandlocatorfilter.cpp
   picturesource.cpp
   printlayoutlistmodel.cpp
   projectinfo.cpp
   projectsource.cpp
   qfieldappauthrequesthandler.cpp
+  qfieldcloudconnection.cpp
+  qfieldcloudprojectsmodel.cpp
   qgismobileapp.cpp
   qgsgeometrywrapper.cpp
   qgsgpkgflusher.cpp
   qgssggeometry.cpp
-  gnsspositioninformation.cpp
-  referencingfeaturelistmodel.cpp
   recentprojectlistmodel.cpp
+  referencingfeaturelistmodel.cpp
   rubberband.cpp
   rubberbandmodel.cpp
   settings.cpp
   sgrubberband.cpp
   snappingresult.cpp
-  snappingutils.cpp
   submodel.cpp
+  tracker.cpp
+  trackingmodel.cpp
   valuemapmodel.cpp
   vertexmodel.cpp
-  trackingmodel.cpp
-  tracker.cpp
   viewstatus.cpp
-  bluetoothreceiver.cpp
-  bluetoothdevicemodel.cpp
-  changelogcontents.cpp
-  utils/fileutils.cpp
-  utils/geometryutils.cpp
-  utils/featureutils.cpp
-  utils/layerutils.cpp
-  utils/stringutils.cpp
-  utils/urlutils.cpp
-  utils/qfieldcloudutils.cpp
-  expressionevaluator.cpp
-  qgsquick/qgsquickcoordinatetransformer.cpp
-  qgsquick/qgsquickmapcanvasmap.cpp
-  qgsquick/qgsquickmapsettings.cpp
-  qgsquick/qgsquickmaptransform.cpp
-  qfieldcloudconnection.cpp
-  qfieldcloudprojectsmodel.cpp
-  deltafilewrapper.cpp
-  deltalistmodel.cpp
-  layerobserver.cpp
-  networkreply.cpp
-  networkmanager.cpp
 )
 
 set(QFIELD_CORE_HDRS
   platforms/platformutilities.h
+
+  utils/expressioncontextutils.cpp
+  utils/featureutils.cpp
+  utils/fileutils.cpp
+  utils/geometryutils.cpp
+  utils/layerutils.cpp
+  utils/qfieldcloudutils.cpp
+  utils/snappingutils.cpp
+  utils/stringutils.cpp
+  utils/urlutils.cpp
+
+  qgsquick/qgsquickcoordinatetransformer.cpp
+  qgsquick/qgsquickmapcanvasmap.cpp
+  qgsquick/qgsquickmapsettings.cpp
+  qgsquick/qgsquickmaptransform.cpp
+
   qfield.h
-  appinterface.h
   appcoordinateoperationhandlers.h
-  attributeformmodelbase.h
+  appinterface.h
   attributeformmodel.h
+  attributeformmodelbase.h
   badlayerhandler.h
+  bluetoothdevicemodel.h
+  bluetoothreceiver.h
+  changelogcontents.h
+  deltafilewrapper.h
+  deltalistmodel.h
   distancearea.h
-  expressioncontextutils.h
+  expressionevaluator.h
   expressionvariablemodel.h
   featurechecklistmodel.h
   featurelistextentcontroller.h
@@ -100,70 +124,52 @@ set(QFIELD_CORE_HDRS
   featureslocatorfilter.h
   feedback.h
   fieldexpressionvaluesgatherer.h
+  finlandlocatorfilter.h
   focusstack.h
   geometry.h
   geometryeditorsmodel.h
+  gnsspositioninformation.h
   gotolocatorfilter.h
   identifytool.h
+  layerobserver.h
+  layerresolver.h
   layertreemapcanvasbridge.h
   layertreemodel.h
-  layerresolver.h
   legendimageprovider.h
   linepolygonhighlight.h
   locatormodelsuperbridge.h
   maptoscreen.h
   messagelogmodel.h
   modelhelper.h
-  multifeaturelistmodelbase.h
   multifeaturelistmodel.h
+  multifeaturelistmodelbase.h
+  networkmanager.h
+  networkreply.h
   peliasgeocoder.h
-  finlandlocatorfilter.h
   picturesource.h
   printlayoutlistmodel.h
   projectinfo.h
   projectsource.h
   qfieldappauthrequesthandler.h
+  qfieldcloudconnection.h
+  qfieldcloudprojectsmodel.h
   qgismobileapp.h
   qgsgeometrywrapper.h
   qgsgpkgflusher.h
   qgssggeometry.h
-  gnsspositioninformation.h
-  referencingfeaturelistmodel.h
   recentprojectlistmodel.h
+  referencingfeaturelistmodel.h
   rubberband.h
   rubberbandmodel.h
   settings.h
   sgrubberband.h
   snappingresult.h
-  snappingutils.h
   submodel.h
+  tracker.h
+  trackingmodel.h
   valuemapmodel.h
   vertexmodel.h
-  trackingmodel.h
-  bluetoothreceiver.h
-  bluetoothdevicemodel.h
-  tracker.h
   viewstatus.h
-  changelogcontents.h
-  utils/fileutils.h
-  utils/geometryutils.h
-  utils/featureutils.h
-  utils/layerutils.h
-  utils/stringutils.h
-  utils/urlutils.h
-  utils/qfieldcloudutils.h
-  expressionevaluator.h
-  qgsquick/qgsquickcoordinatetransformer.h
-  qgsquick/qgsquickmapcanvasmap.h
-  qgsquick/qgsquickmapsettings.h
-  qgsquick/qgsquickmaptransform.h
-  qfieldcloudconnection.h
-  qfieldcloudprojectsmodel.h
-  deltafilewrapper.h
-  deltalistmodel.h
-  layerobserver.h
-  networkreply.h
-  networkmanager.h
 )
 
 if (ANDROID)
