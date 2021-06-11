@@ -79,7 +79,7 @@
 </li>
 <li><a class="reference internal" href="#default-values">Valori implicite</a><ul>
 <li><a class="reference internal" href="#additional-variables">Variabile adiționale</a></li>
-<li><a class="reference internal" href="#id1">Cazuri obișnuite de utilizare</a></li>
+<li><a class="reference internal" href="#common-use-cases-expressions">Cazuri obișnuite de utilizare</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#editable">Editabil</a></li>
@@ -331,8 +331,8 @@ and doc (if the user has an appropriate viewer)
 <p>For more information regarding storing information related to your position in object
 attributes, refer to the deticated <a class="reference internal" href="gnss.html#gnss-variables"><span class="std std-ref">GNSS documentation</span></a>.</p>
 </div>
-<div class="section" id="id1">
-<h3>Cazuri obișnuite de utilizare<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="common-use-cases-expressions">
+<span id="id1"></span><h3>Cazuri obișnuite de utilizare<a class="headerlink" href="#common-use-cases-expressions" title="Permalink to this headline">¶</a></h3>
 <p>Introduceți ca variabile informațiile de poziționare:</p>
 <div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="o">@</span><span class="n">position_horizontal_accuracy</span>
 </pre></div>
@@ -358,7 +358,7 @@ attributes, refer to the deticated <a class="reference internal" href="gnss.html
 <span class="n">y</span><span class="p">(</span><span class="k">transform</span><span class="p">(</span><span class="o">@</span><span class="n">position_coordinate</span><span class="p">,</span> <span class="s1">&#39;EPSG:4326&#39;</span><span class="p">,</span> <span class="o">@</span><span class="n">project_crs</span> <span class="p">))</span>
 </pre></div>
 </div>
-<p>If you want to use the snapping results after drawing a line, you can use the <cite>&#64;snapping_results</cite> variable.
+<p id="snapping-results">If you want to use the snapping results after drawing a line, you can use the <cite>&#64;snapping_results</cite> variable.
 The following code extracts the value of the attribute <cite>id</cite> of the snapping match of the first point of a line.</p>
 <div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="n">with_variable</span><span class="p">(</span>
   <span class="s1">&#39;first_snapped_point&#39;</span><span class="p">,</span>

@@ -213,6 +213,8 @@ Additional variables
 For more information regarding storing information related to your position in object
 attributes, refer to the deticated :ref:`GNSS documentation<gnss_variables>`.
 
+.. _common_use_cases_expressions:
+
 Common use cases
 ................
 
@@ -253,6 +255,8 @@ To transform the coordinates received from @position_coordinate to the coordinat
 
   x(transform(@position_coordinate, 'EPSG:4326', @project_crs ))
   y(transform(@position_coordinate, 'EPSG:4326', @project_crs ))
+
+.. _snapping_results:
 
 If you want to use the snapping results after drawing a line, you can use the `@snapping_results` variable.
 The following code extracts the value of the attribute `id` of the snapping match of the first point of a line.
