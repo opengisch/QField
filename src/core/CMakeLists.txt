@@ -16,6 +16,11 @@ set(QFIELD_CORE_SRCS
   qgsquick/qgsquickmapsettings.cpp
   qgsquick/qgsquickmaptransform.cpp
 
+  locator/featureslocatorfilter.cpp
+  locator/finlandlocatorfilter.cpp
+  locator/gotolocatorfilter.cpp
+  locator/locatormodelsuperbridge.cpp
+
   appcoordinateoperationhandlers.cpp
   appinterface.cpp
   attributeformmodel.cpp
@@ -102,6 +107,11 @@ set(QFIELD_CORE_HDRS
   qgsquick/qgsquickmapsettings.cpp
   qgsquick/qgsquickmaptransform.cpp
 
+  locator/featureslocatorfilter.h
+  locator/finlandlocatorfilter.h
+  locator/gotolocatorfilter.h
+  locator/locatormodelsuperbridge.h
+
   qfield.h
   appcoordinateoperationhandlers.h
   appinterface.h
@@ -121,15 +131,12 @@ set(QFIELD_CORE_HDRS
   featurelistmodel.h
   featurelistmodelselection.h
   featuremodel.h
-  featureslocatorfilter.h
   feedback.h
   fieldexpressionvaluesgatherer.h
-  finlandlocatorfilter.h
   focusstack.h
   geometry.h
   geometryeditorsmodel.h
   gnsspositioninformation.h
-  gotolocatorfilter.h
   identifytool.h
   layerobserver.h
   layerresolver.h
@@ -137,7 +144,6 @@ set(QFIELD_CORE_HDRS
   layertreemodel.h
   legendimageprovider.h
   linepolygonhighlight.h
-  locatormodelsuperbridge.h
   maptoscreen.h
   messagelogmodel.h
   modelhelper.h
@@ -216,6 +222,7 @@ target_include_directories(qfield_core SYSTEM PRIVATE
 
 target_include_directories(qfield_core PUBLIC
   ${CMAKE_SOURCE_DIR}/src/core
+  ${CMAKE_SOURCE_DIR}/src/core/locator
   ${CMAKE_SOURCE_DIR}/src/core/platforms
   ${CMAKE_SOURCE_DIR}/src/core/qgsquick
   ${CMAKE_SOURCE_DIR}/src/core/utils
