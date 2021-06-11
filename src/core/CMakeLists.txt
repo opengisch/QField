@@ -107,10 +107,10 @@ set(QFIELD_CORE_HDRS
   qgsquick/qgsquickmapsettings.cpp
   qgsquick/qgsquickmaptransform.cpp
 
-  locator/featureslocatorfilter.h
-  locator/finlandlocatorfilter.h
-  locator/gotolocatorfilter.h
-  locator/locatormodelsuperbridge.h
+  locator/featureslocatorfilter.cpp
+  locator/finlandlocatorfilter.cpp
+  locator/gotolocatorfilter.cpp
+  locator/locatormodelsuperbridge.cpp
 
   qfield.h
   appcoordinateoperationhandlers.h
