@@ -25,7 +25,7 @@ VisibilityFadingRow {
 
     function canvasLongPressed(point)
     {
-        drawPolygonToolbar.confirming();
+        drawPolygonToolbar.confirm();
         return true; // handled
     }
 
@@ -49,7 +49,7 @@ VisibilityFadingRow {
 
         digitizingLogger.type: 'edit_reshape'
 
-        onConfirm: {
+        onConfirmed: {
             digitizingLogger.writeCoordinates()
 
             rubberbandModel.frozen = true

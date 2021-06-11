@@ -26,7 +26,7 @@ VisibilityFadingRow {
 
   function canvasLongPressed(point)
   {
-    drawLineToolbar.confirming();
+    drawLineToolbar.confirm();
     return true; // handled
   }
 
@@ -37,7 +37,7 @@ VisibilityFadingRow {
 
     digitizingLogger.type: 'edit_split'
 
-    onConfirm: {
+    onConfirmed: {
       digitizingLogger.writeCoordinates()
 
       rubberbandModel.frozen = true

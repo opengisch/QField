@@ -26,10 +26,10 @@ VisibilityFadingRow {
 
   spacing: 4
 
-  /* This signal is emitted when the user confirms the digitized geometry.
-   * The correspoding handler is \c onConfirm.
+  /* This signal is emitted when the digitized geometry has been confirmed.
+   * The correspoding handler is \c onConfirmed.
    */
-  signal confirm
+  signal confirmed
   /* This signal is emitted when the user cancels geometry digitizing.
    * The correspoding handler is \c onCancel.
    */
@@ -110,7 +110,7 @@ VisibilityFadingRow {
 
     onClicked: {
       rubberbandModel.frozen = true
-      confirming()
+      confirm()
     }
   }
 
@@ -188,7 +188,7 @@ VisibilityFadingRow {
 
         if ( Number( rubberbandModel.geometryType ) === QgsWkbTypes.PointGeometry ||
              Number( rubberbandModel.geometryType ) === QgsWkbTypes.NullGeometry ) {
-            confirming()
+            confirm()
         } else {
             addVertex()
         }
@@ -238,9 +238,9 @@ VisibilityFadingRow {
     mapSettings.setCenter( rubberbandModel.currentCoordinate )
   }
 
-  function confirming()
+  function confirm()
   {
       digitizingLogger.addCoordinate( coordinateLocator.currentCoordinate )
-      confirm()
+      confirmed()
   }
 }

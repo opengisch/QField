@@ -26,7 +26,7 @@ VisibilityFadingRow {
 
   function canvasLongPressed(point)
   {
-    drawPolygonToolbar.confirming();
+    drawPolygonToolbar.confirm();
     return true; // handled
   }
 
@@ -56,7 +56,7 @@ VisibilityFadingRow {
       currentLayer: featureModel && featureModel.currentLayer
     }
 
-    onConfirm: {
+    onConfirmed: {
       digitizingLogger.writeCoordinates()
 
       rubberbandModel.frozen = true
