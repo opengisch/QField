@@ -13,8 +13,11 @@ VisibilityFadingRow {
 
   property FeatureModel featureModel
   property MapSettings mapSettings
+
   property bool screenHovering: false //<! if the stylus pen is used, one should not use the add button
   property bool vertexRubberbandVisible: true
+  property int currentVertexId: -1
+  property bool currentVertexModified: false
 
   readonly property bool blocking: featureModel.vertexModel.dirty
 
@@ -53,6 +56,7 @@ VisibilityFadingRow {
     {
       digitizingLogger.addCoordinate(featureModel.vertexModel.currentPoint)
       featureModel.vertexModel.currentVertexIndex = -1
+      vertexEditorToolbar.currentVertexModified = false
     }
 
     return true // handled
@@ -78,6 +82,9 @@ VisibilityFadingRow {
     bgcolor: !qfieldSettings.autoSave ? Theme.mainColor : Theme.darkGray
 
     onClicked: {
+      if (vertexEditorToolbar.currentVertexModified)
+          digitizingLogger.addCoordinate(featureModel.vertexModel.currentPoint)
+
       digitizingLogger.writeCoordinates();
       applyChanges( true )
       if( !qfieldSettings.autoSave )
@@ -128,6 +135,9 @@ VisibilityFadingRow {
     bgcolor: featureModel.vertexModel.canPreviousVertex ? Theme.darkGray : Theme.darkGraySemiOpaque
 
     onClicked: {
+      if (vertexEditorToolbar.currentVertexModified)
+          digitizingLogger.addCoordinate(featureModel.vertexModel.currentPoint)
+
       applyChanges( qfieldSettings.autoSave )
       featureModel.vertexModel.previous()
     }
@@ -141,6 +151,9 @@ VisibilityFadingRow {
     bgcolor: featureModel.vertexModel && featureModel.vertexModel.canNextVertex ? Theme.darkGray : Theme.darkGraySemiOpaque
 
     onClicked: {
+      if (vertexEditorToolbar.currentVertexModified)
+          digitizingLogger.addCoordinate(featureModel.vertexModel.currentPoint)
+
       applyChanges( qfieldSettings.autoSave )
       featureModel.vertexModel.next()
     }
@@ -162,13 +175,26 @@ VisibilityFadingRow {
 
   Connections {
     target: vertexModel
-    onCurrentVertexIndexChanged:
-    {
+
+    function onCurrentVertexIndexChanged() {
       if ( featureModel.vertexModel.currentVertexIndex != -1
-          && !screenHovering
-          && featureModel.vertexModel.editingMode !== VertexModel.NoEditing )
+           && vertexEditorToolbar.currentVertexId !== featureModel.vertexModel.currentVertexIndex
+           && !screenHovering
+           && featureModel.vertexModel.editingMode !== VertexModel.NoEditing )
       {
         mapSettings.setCenter(featureModel.vertexModel.currentPoint)
+        vertexEditorToolbar.currentVertexId = featureModel.vertexModel.currentVertexIndex
+        vertexEditorToolbar.currentVertexModified = false
+      }
+    }
+  }
+
+  Connections {
+    target: mapSettings
+
+    function onExtentChanged() {
+      if ( featureModel.vertexModel.currentVertexIndex != -1 ) {
+          vertexEditorToolbar.currentVertexModified = true
       }
     }
   }
