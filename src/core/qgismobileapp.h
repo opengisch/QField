@@ -37,11 +37,6 @@
 #include "qfieldappauthrequesthandler.h"
 #include "qgsgpkgflusher.h"
 #include "settings.h"
-#if defined( Q_OS_ANDROID )
-#include "androidplatformutilities.h"
-#elif defined( Q_OS_IOS )
-#include "iosplatformutilities.h"
-#endif
 
 class AppInterface;
 class AppMissingGridHandler;
