@@ -192,6 +192,12 @@ void DigitizingLogger::addCoordinate( const QgsPoint &point )
   mPointFeatures << feature;
 }
 
+void DigitizingLogger::removeLastCoordinate()
+{
+  if ( !mPointFeatures.isEmpty() )
+    mPointFeatures.removeLast();
+}
+
 void DigitizingLogger::writeCoordinates()
 {
   if ( !mLogsLayer )

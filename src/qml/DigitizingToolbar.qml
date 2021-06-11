@@ -234,6 +234,7 @@ VisibilityFadingRow {
 
   function removeVertex()
   {
+    digitizingLogger.removeLastCoordinate();
     rubberbandModel.removeVertex()
     mapSettings.setCenter( rubberbandModel.currentCoordinate )
   }

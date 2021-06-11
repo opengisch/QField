@@ -118,6 +118,11 @@ class DigitizingLogger : public QObject
     Q_INVOKABLE void addCoordinate( const QgsPoint &point );
 
     /**
+     * Removes the last point entered into the digitizing logs' buffer.
+     */
+    Q_INVOKABLE void removeLastCoordinate();
+
+    /**
      * Writes the points buffer to the digitizing logs layer.
      */
     Q_INVOKABLE void writeCoordinates();

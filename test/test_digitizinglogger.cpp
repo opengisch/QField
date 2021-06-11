@@ -62,8 +62,9 @@ class TestDigitizingLogger : public QObject
       QCOMPARE( mLogsLayer->featureCount(), 2 );
       mDigitizingLogger->addCoordinate( QgsPoint( 1, 1 ) );
       mDigitizingLogger->addCoordinate( QgsPoint( 2, 2 ) );
+      mDigitizingLogger->removeLastCoordinate();
       mDigitizingLogger->writeCoordinates();
-      QCOMPARE( mLogsLayer->featureCount(), 4 );
+      QCOMPARE( mLogsLayer->featureCount(), 3 );
 
       QgsFeature feature = mLogsLayer->getFeature( 1 );
       QCOMPARE( feature.attributes().at( 1 ), mDigitizingLogger->type() );
