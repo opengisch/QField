@@ -117,14 +117,18 @@ EditorWidgetBase {
 
         focus: true
 
-        Row {
+        Rectangle {
           id: checkBoxRow
+          width: parent.width
           height: listItem.height
+          color: "transparent"
 
           CheckDelegate {
             id: checkBox
-            width: parent.height
-            height: parent.height
+            anchors.verticalCenter: parent.verticalCenter
+            anchors.left: parent.left
+            width: valueRelationList.itemHeight
+            height: valueRelationList.itemHeight
             enabled: isEnabled
 
             checked: model.checked
@@ -142,9 +146,16 @@ EditorWidgetBase {
           Text {
             id: valueText
             anchors.verticalCenter: parent.verticalCenter
+            anchors.right: parent.right
+            anchors.left: checkBox.right
+            anchors.leftMargin: 4
+            width: parent.width - checkBox.width
+            topPadding: 4
+            bottomPadding: 4
             font: Theme.defaultFont
             color: !isEnabled ? 'grey' : 'black'
             text: { text: model.displayString }
+            wrapMode: Text.WordWrap
           }
         }
 
