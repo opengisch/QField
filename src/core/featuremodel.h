@@ -200,8 +200,8 @@ class FeatureModel : public QAbstractListModel
     //! Apply the feature geometry to a vertex model if present.
     Q_INVOKABLE void applyGeometryToVertexModel();
 
-    //! Apply the vertex model changes to the layer topography.
-    Q_INVOKABLE void applyVertexModelToLayerTopography();
+    //! Apply the vertex model changes to editablelayers' topography.
+    Q_INVOKABLE void applyVertexModelTopography();
 
     //! Update the linked geometry rubber band to match the feature's geometry
     Q_INVOKABLE void updateRubberband() const;
