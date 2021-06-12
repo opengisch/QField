@@ -338,11 +338,14 @@ ApplicationWindow {
             return
           }
           if ( stateMachine.state === "digitize" && dashBoard.currentLayer ) { // the sourceLocation test checks if a (stylus) hover is active
-            if ( ( Number( currentRubberband.model.geometryType ) === QgsWkbTypes.LineGeometry && currentRubberband.model.vertexCount >= 1 )
+            if ( ( Number( currentRubberband.model.geometryType ) === QgsWkbTypes.LineGeometry && currentRubberband.model.vertexCount >= 2 )
                || ( Number( currentRubberband.model.geometryType ) === QgsWkbTypes.PolygonGeometry && currentRubberband.model.vertexCount >= 2 ) ) {
+                digitizingToolbar.addVertex();
+
                 // When it's released, it will normally cause a release event to close the attribute form.
                 // We get around this by temporarily switching the closePolicy.
                 overlayFeatureFormDrawer.closePolicy = Popup.CloseOnEscape
+
                 digitizingToolbar.confirm()
                 return
             }
