@@ -39,7 +39,9 @@ void ChangelogContents::request()
   mStatus = LoadingStatus;
   emit statusChanged();
 
-  connect( manager, &QNetworkAccessManager::finished, this, [ = ]( QNetworkReply * reply )
+  QNetworkReply *reply = manager->get( QNetworkRequest( QUrl( QStringLiteral( "https://api.github.com/repos/opengisch/qfield/releases" ) ) ) );
+
+  connect( reply, &QNetworkReply::finished, this, [ = ]()
   {
     QJsonParseError error;
     QJsonDocument json = QJsonDocument::fromJson( reply->readAll(), &error );
@@ -94,8 +96,6 @@ void ChangelogContents::request()
     emit statusChanged();
     emit markdownChanged();
   } );
-
-  manager->get( QNetworkRequest( QUrl( QStringLiteral( "https://api.github.com/repos/opengisch/qfield/releases" ) ) ) );
 }
 
 QString ChangelogContents::markdown()
