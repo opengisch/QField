@@ -187,15 +187,9 @@ VisibilityFadingRow {
         vertexEditorToolbar.currentVertexModified = false
       }
     }
-  }
 
-  Connections {
-    target: mapSettings
-
-    function onExtentChanged() {
-      if ( featureModel.vertexModel.currentVertexIndex != -1 ) {
-          vertexEditorToolbar.currentVertexModified = true
-      }
+    function onCurrentPointChanged() {
+        vertexEditorToolbar.currentVertexModified = true
     }
   }
 }

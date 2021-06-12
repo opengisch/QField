@@ -565,6 +565,10 @@ void VertexModel::setCurrentPoint( const QgsPoint &point )
     vertex.type = ExistingVertex;
     setEditingMode( EditVertex );
   }
+  else
+  {
+    emit currentPointChanged();
+  }
 
   createCandidates();
   endResetModel();
