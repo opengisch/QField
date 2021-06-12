@@ -48,6 +48,7 @@ VisibilityFadingRow {
         screenHovering: reshapeToolbar.screenHovering
 
         digitizingLogger.type: 'edit_reshape'
+        digitizingLogger.digitizingLayer: featureModel.currentLayer
 
         onConfirmed: {
             digitizingLogger.writeCoordinates()

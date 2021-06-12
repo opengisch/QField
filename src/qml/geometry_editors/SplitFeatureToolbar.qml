@@ -36,6 +36,7 @@ VisibilityFadingRow {
     screenHovering: splitFeatureToolbar.screenHovering
 
     digitizingLogger.type: 'edit_split'
+    digitizingLogger.digitizingLayer: featureModel.currentLayer
 
     onConfirmed: {
       digitizingLogger.writeCoordinates()

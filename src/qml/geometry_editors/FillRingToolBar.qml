@@ -49,6 +49,7 @@ VisibilityFadingRow {
     screenHovering: fillRingToolbar.screenHovering
 
     digitizingLogger.type: 'edit_fillring'
+    digitizingLogger.digitizingLayer: featureModel.currentLayer
 
     EmbeddedFeatureForm {
       id: formPopupLoader
