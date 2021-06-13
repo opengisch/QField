@@ -20,17 +20,14 @@ VisibilityFadingRow {
 
   function canvasClicked(point)
   {
-    var mapPoint = drawLineToolbar.mapSettings.screenToCoordinate(point)
-    drawLineToolbar.rubberbandModel.addVertexFromPoint(mapPoint)
-    return true // handled
+    drawLineToolbar.addVertex();
+    return true; // handled
   }
 
   function canvasLongPressed(point)
   {
-    var mapPoint = drawLineToolbar.mapSettings.screenToCoordinate(point)
-    drawLineToolbar.rubberbandModel.addVertexFromPoint(mapPoint)
-    drawLineToolbar.confirm()
-    return true // handled
+    drawLineToolbar.confirm();
+    return true; // handled
   }
 
   DigitizingToolbar {
@@ -38,9 +35,13 @@ VisibilityFadingRow {
     showConfirmButton: true
     screenHovering: splitFeatureToolbar.screenHovering
 
-    onConfirm: {
-      rubberbandModel.frozen = true
+    digitizingLogger.type: 'edit_split'
+    digitizingLogger.digitizingLayer: featureModel.currentLayer
 
+    onConfirmed: {
+      digitizingLogger.writeCoordinates()
+
+      rubberbandModel.frozen = true
       // TODO: featureModel.currentLayer.selectByIds([featureModel.feature.id], VectorLayerStatic.SetSelection)
       LayerUtils.selectFeaturesInLayer(featureModel.currentLayer, [featureModel.feature.id], VectorLayerStatic.SetSelection)
       if (!featureModel.currentLayer.editBuffer())

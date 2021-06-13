@@ -67,6 +67,7 @@ Item{
 
     FeatureModel {
         id: featureModel
+        project: qgisProject
         currentLayer: mainModel.vectorLayer
         geometry: Geometry {
           id: featureModelGeometry

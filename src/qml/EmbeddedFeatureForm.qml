@@ -59,6 +59,7 @@ Popup {
             id: formAttributeFormModel
             featureModel: FeatureModel {
                 id: formFeatureModel
+                project: qgisProject
                 positionInformation: digitizingToolbar.coordinateLocator.positionInformation
                 positionLocked: digitizingToolbar.coordinateLocator.overrideLocation !== undefined
                 topSnappingResult: coordinateLocator.topSnappingResult
@@ -96,8 +97,10 @@ Popup {
     onClosed: {
         if (!form.isSaved) {
             form.confirm()
+            digitizingToolbar.digitizingLogger.writeCoordinates();
         } else {
             form.isSaved = false
+            digitizingToolbar.digitizingLogger.clearCoordinates();
         }
     }
 

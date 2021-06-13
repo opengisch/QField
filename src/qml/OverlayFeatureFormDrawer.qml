@@ -77,8 +77,9 @@ Drawer {
     model: AttributeFormModel {
         id: attributeFormModel
         featureModel: FeatureModel {
-            positionInformation: overlayFeatureFormDrawer.digitizingToolbar.coordinateLocator.positionInformation
-            positionLocked: overlayFeatureFormDrawer.digitizingToolbar.coordinateLocator.overrideLocation !== undefined
+            project: qgisProject
+            positionInformation: coordinateLocator.positionInformation
+            positionLocked: coordinateLocator.overrideLocation !== undefined
             topSnappingResult: coordinateLocator.topSnappingResult
             cloudUserInformation: cloudConnection.userInformation
         }
@@ -92,22 +93,24 @@ Drawer {
       displayToast( qsTr( "Changes saved" ) )
       //close drawer if still open
       if ( overlayFeatureFormDrawer.position > 0 ) {
-        overlayFeatureForm.isSaved = true //because just saved
-        overlayFeatureFormDrawer.close()
+        overlayFeatureForm.isSaved = true; //because just saved
+        overlayFeatureFormDrawer.close();
       } else {
         overlayFeatureForm.isSaved = false //reset
       }
+      digitizingToolbar.digitizingLogger.writeCoordinates();
     }
 
     onCancelled: {
       displayToast( qsTr( "Last changes discarded" ) )
       //close drawer if still open
-      if( overlayFeatureFormDrawer.position > 0 ) {
-        overlayFeatureForm.isSaved=true //because never changed
-        overlayFeatureFormDrawer.close()
+      if ( overlayFeatureFormDrawer.position > 0 ) {
+        overlayFeatureForm.isSaved = true; //because never changed
+        overlayFeatureFormDrawer.close();
       } else {
-        overlayFeatureForm.isSaved=false //reset
+        overlayFeatureForm.isSaved = false; //reset
       }
+      digitizingToolbar.digitizingLogger.clearCoordinates();
     }
 
     Keys.onReleased: {
