@@ -70,16 +70,11 @@ QgsGeometry::OperationResult GeometryUtils::reshapeFromRubberband( QgsVectorLaye
       {
         QHash<QgsVectorLayer *, QSet<QgsFeatureId>> ignoredFeature;
         ignoredFeature.insert( layer, QSet<QgsFeatureId>() << fid );
-        if ( geom.avoidIntersections( avoidIntersectionsLayers, ignoredFeature ) != 0 )
-        {
-          layer->destroyEditCommand();
-          return QgsGeometry::NothingHappened;
-        }
+        geom.avoidIntersections( avoidIntersectionsLayers, ignoredFeature );
       }
 
       if ( geom.isEmpty() ) //intersection removal might have removed the whole geometry
       {
-        layer->destroyEditCommand();
         return QgsGeometry::NothingHappened;
       }
     }
@@ -90,11 +85,6 @@ QgsGeometry::OperationResult GeometryUtils::reshapeFromRubberband( QgsVectorLaye
     {
       layer->addTopologicalPoints( geom );
     }
-    layer->endEditCommand();
-  }
-  else
-  {
-    layer->destroyEditCommand();
   }
 
   return reshapeReturn;
