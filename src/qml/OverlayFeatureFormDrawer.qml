@@ -77,6 +77,7 @@ Drawer {
     model: AttributeFormModel {
         id: attributeFormModel
         featureModel: FeatureModel {
+            project: qgisProject
             positionInformation: coordinateLocator.positionInformation
             positionLocked: coordinateLocator.overrideLocation !== undefined
             topSnappingResult: coordinateLocator.topSnappingResult

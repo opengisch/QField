@@ -354,7 +354,7 @@ bool FeatureModel::save()
       if ( !mLayer->updateFeature( feat ) )
         QgsMessageLog::logMessage( tr( "Cannot update feature" ), QStringLiteral( "QField" ), Qgis::Warning );
 
-      if ( QgsProject::instance()->topologicalEditing() )
+      if ( mProject && mProject->topologicalEditing() )
       {
         applyVertexModelTopography();
       }
@@ -528,26 +528,29 @@ void FeatureModel::applyGeometry()
     if ( sanitizedGeometry.constGet()->isValid( error ) )
       geometry = sanitizedGeometry;
 
-    QList<QgsVectorLayer *> intersectionLayers;
-    switch ( QgsProject::instance()->avoidIntersectionsMode() )
+    if ( mProject )
     {
-      case QgsProject::AvoidIntersectionsMode::AvoidIntersectionsCurrentLayer:
-        intersectionLayers.append( mLayer );
-        break;
-      case QgsProject::AvoidIntersectionsMode::AvoidIntersectionsLayers:
-        intersectionLayers = QgsProject::instance()->avoidIntersectionsLayers();
-        break;
-      case QgsProject::AvoidIntersectionsMode::AllowIntersections:
-        break;
-    }
-    if ( !intersectionLayers.isEmpty() )
-    {
-      QHash<QgsVectorLayer *, QSet<QgsFeatureId>> ignoredFeature;
-      if ( mFeature.id() != FID_NULL )
+      QList<QgsVectorLayer *> intersectionLayers;
+      switch ( mProject->avoidIntersectionsMode() )
       {
-        ignoredFeature.insert( mLayer, QSet<QgsFeatureId>() << mFeature.id() );
+        case QgsProject::AvoidIntersectionsMode::AvoidIntersectionsCurrentLayer:
+          intersectionLayers.append( mLayer );
+          break;
+        case QgsProject::AvoidIntersectionsMode::AvoidIntersectionsLayers:
+          intersectionLayers = QgsProject::instance()->avoidIntersectionsLayers();
+          break;
+        case QgsProject::AvoidIntersectionsMode::AllowIntersections:
+          break;
       }
-      geometry.avoidIntersections( intersectionLayers, ignoredFeature );
+      if ( !intersectionLayers.isEmpty() )
+      {
+        QHash<QgsVectorLayer *, QSet<QgsFeatureId>> ignoredFeature;
+        if ( mFeature.id() != FID_NULL )
+        {
+          ignoredFeature.insert( mLayer, QSet<QgsFeatureId>() << mFeature.id() );
+        }
+        geometry.avoidIntersections( intersectionLayers, ignoredFeature );
+      }
     }
   }
 
@@ -592,7 +595,7 @@ bool FeatureModel::create()
 
   if ( mLayer->addFeature( createdFeature ) )
   {
-    if ( QgsProject::instance()->topologicalEditing() )
+    if ( mProject && mProject->topologicalEditing() )
       mLayer->addTopologicalPoints( mFeature.geometry() );
 
     if ( commit() )
@@ -640,7 +643,7 @@ bool FeatureModel::deleteFeature()
   }
 
   //delete child features in case of compositions
-  const QList<QgsRelation> referencingRelations = QgsProject::instance()->relationManager()->referencedRelations( mLayer );
+  const QList<QgsRelation> referencingRelations = mProject ? mProject->relationManager()->referencedRelations( mLayer ) : QList<QgsRelation>();
   QList<QgsVectorLayer *> childLayersEdited;
   bool isSuccess = true;
   for ( const QgsRelation &referencingRelation : referencingRelations )
@@ -857,7 +860,7 @@ void FeatureModel::applyVertexModelTopography()
   const QVector<QPair<QgsPoint, QgsPoint>> pointsMoved = mVertexModel->verticesMoved();
   const QVector<QgsPoint> pointsDeleted = mVertexModel->verticesDeleted();
 
-  const QVector<QgsVectorLayer *> vectorLayers = QgsProject::instance()->layers<QgsVectorLayer *>();
+  const QVector<QgsVectorLayer *> vectorLayers = mProject ? mProject->layers<QgsVectorLayer *>() : QVector<QgsVectorLayer *>() << mLayer;
   for ( auto vectorLayer : vectorLayers )
   {
     if ( vectorLayer->readOnly() )
@@ -905,4 +908,14 @@ QVector<bool> FeatureModel::rememberedAttributes() const
 void FeatureModel::updateRubberband() const
 {
   mGeometry->updateRubberband( mFeature.geometry() );
+}
+
+void FeatureModel::setProject( QgsProject *project )
+{
+  if ( mProject == project )
+    return;
+
+  mProject = project;
+
+  emit projectChanged();
 }

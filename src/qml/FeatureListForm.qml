@@ -325,6 +325,7 @@ Rectangle {
 
     model: AttributeFormModel {
       featureModel: FeatureModel {
+        project: qgisProject
         currentLayer: featureForm.selection.focusedLayer
         feature: featureForm.selection.focusedFeature
         features: featureForm.selection.model.selectedFeatures
