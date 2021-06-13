@@ -13,6 +13,6 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Backport
-        uses: m-kuhn/backport@v1.2.2
+        uses: m-kuhn/backport@v1.2.3
         with:
           github_token: ${{ secrets.FAIRY_TOKEN }}
