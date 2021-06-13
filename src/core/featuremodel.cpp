@@ -857,7 +857,7 @@ void FeatureModel::applyVertexModelTopography()
   const QVector<QPair<QgsPoint, QgsPoint>> pointsMoved = mVertexModel->verticesMoved();
   const QVector<QgsPoint> pointsDeleted = mVertexModel->verticesDeleted();
 
-  const QVector<QgsVectorLayer*> vectorLayers = QgsProject::instance()->layers<QgsVectorLayer*>();
+  const QVector<QgsVectorLayer *> vectorLayers = QgsProject::instance()->layers<QgsVectorLayer *>();
   for ( auto vectorLayer : vectorLayers )
   {
     if ( vectorLayer->readOnly() )
