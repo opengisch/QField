@@ -46,6 +46,9 @@ class SnappingResult
 
     SnappingResult( Type t, QgsVectorLayer *vl, QgsFeatureId fid, double dist, const QgsPoint &pt, int vertexIndex = 0, QgsPoint *edgePoints = nullptr );
 
+    bool operator==( const SnappingResult &other ) const;
+    bool operator!=( const SnappingResult &other ) const { return !operator==( other ); }
+
     explicit SnappingResult( const QgsPointLocator::Match &match );
 
     Type type() const;

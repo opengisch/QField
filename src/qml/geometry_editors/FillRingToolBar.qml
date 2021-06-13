@@ -20,17 +20,14 @@ VisibilityFadingRow {
 
   function canvasClicked(point)
   {
-    var mapPoint = drawPolygonToolbar.mapSettings.screenToCoordinate(point)
-    drawPolygonToolbar.rubberbandModel.addVertexFromPoint(mapPoint)
-    return true // handled
+    drawPolygonToolbar.addVertex();
+    return true; // handled
   }
 
   function canvasLongPressed(point)
   {
-    var mapPoint = drawPolygonToolbar.mapSettings.screenToCoordinate(point)
-    drawPolygonToolbar.rubberbandModel.addVertexFromPoint(mapPoint)
-    drawPolygonToolbar.confirm()
-    return true // handled
+    drawPolygonToolbar.confirm();
+    return true; // handled
   }
 
   QfToolButton {
@@ -51,13 +48,18 @@ VisibilityFadingRow {
     showConfirmButton: true
     screenHovering: fillRingToolbar.screenHovering
 
+    digitizingLogger.type: 'edit_fillring'
+    digitizingLogger.digitizingLayer: featureModel.currentLayer
+
     EmbeddedFeatureForm {
       id: formPopupLoader
       state: 'Add'
       currentLayer: featureModel && featureModel.currentLayer
     }
 
-    onConfirm: {
+    onConfirmed: {
+      digitizingLogger.writeCoordinates()
+
       rubberbandModel.frozen = true
       if (!featureModel.currentLayer.editBuffer())
         featureModel.currentLayer.startEditing()

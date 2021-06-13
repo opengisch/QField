@@ -187,7 +187,7 @@ ApplicationWindow {
                 if (geometryEditorsToolbar.canvasClicked(centroid.position)) {
                     // needed to handle freehand digitizing of rings
                 } else {
-                    currentRubberband.model.addVertex()
+                    digitizingToolbar.addVertex();
                 }
             }
         }
@@ -311,8 +311,7 @@ ApplicationWindow {
                   }
                   else
                   {
-                      currentRubberband.model.addVertex()
-                      coordinateLocator.flash()
+                      digitizingToolbar.addVertex()
                   }
               }
               else
@@ -339,15 +338,15 @@ ApplicationWindow {
             return
           }
           if ( stateMachine.state === "digitize" && dashBoard.currentLayer ) { // the sourceLocation test checks if a (stylus) hover is active
-            if ( ( Number( currentRubberband.model.geometryType ) === QgsWkbTypes.LineGeometry && currentRubberband.model.vertexCount >= 1 )
+            if ( ( Number( currentRubberband.model.geometryType ) === QgsWkbTypes.LineGeometry && currentRubberband.model.vertexCount >= 2 )
                || ( Number( currentRubberband.model.geometryType ) === QgsWkbTypes.PolygonGeometry && currentRubberband.model.vertexCount >= 2 ) ) {
-                var mapPoint = mapSettings.screenToCoordinate(point)
-                digitizingToolbar.rubberbandModel.addVertexFromPoint(mapPoint) // The onLongPressed event is triggered while the button is down.
+                digitizingToolbar.addVertex();
+
                 // When it's released, it will normally cause a release event to close the attribute form.
                 // We get around this by temporarily switching the closePolicy.
                 overlayFeatureFormDrawer.closePolicy = Popup.CloseOnEscape
+
                 digitizingToolbar.confirm()
-                coordinateLocator.flash()
                 return
             }
           }
@@ -1138,10 +1137,11 @@ ApplicationWindow {
                      && !geometryEditorsToolbar.stateVisible) || stateMachine.state === 'measure' ||
                     (stateMachine.state === "digitize" && digitizingToolbar.geometryRequested)
       rubberbandModel: currentRubberband ? currentRubberband.model : null
-      coordinateLocator: coordinateLocator
       mapSettings: mapCanvas.mapSettings
       showConfirmButton: stateMachine.state === "digitize"
       screenHovering: hoverHandler.hovered
+
+      digitizingLogger.type: stateMachine.state === 'measure' ? '' : 'add'
 
       FeatureModel {
         id: digitizingFeature
@@ -1217,7 +1217,7 @@ ApplicationWindow {
           }
       }
 
-      onConfirm: {
+      onConfirmed: {
         if ( geometryRequested )
         {
             if ( overlayFeatureFormDrawer.isAdding )

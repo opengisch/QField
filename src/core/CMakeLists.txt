@@ -31,6 +31,7 @@ set(QFIELD_CORE_SRCS
   changelogcontents.cpp
   deltafilewrapper.cpp
   deltalistmodel.cpp
+  digitizinglogger.cpp
   distancearea.cpp
   expressionevaluator.cpp
   expressionvariablemodel.cpp
@@ -119,6 +120,7 @@ set(QFIELD_CORE_HDRS
   changelogcontents.h
   deltafilewrapper.h
   deltalistmodel.h
+  digitizinglogger.h
   distancearea.h
   expressionevaluator.h
   expressionvariablemodel.h
