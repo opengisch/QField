@@ -33,25 +33,25 @@ GnssPositionInformation::GnssPositionInformation( double latitude, double longit
 bool GnssPositionInformation::operator==( const GnssPositionInformation &other ) const
 {
   return mLatitude == other.mLatitude &&
-      mLongitude == other.mLongitude &&
-      mElevation== other.mElevation &&
-      mSpeed == other.mSpeed &&
-      mDirection == other.mDirection &&
-      mPdop == other.mPdop &&
-      mHdop == other.mHdop &&
-      mVdop == other.mVdop &&
-      mHacc == other.mHacc &&
-      mVacc == other.mVacc &&
-      mVacc == other.mVacc &&
-      mUtcDateTime == other.mUtcDateTime &&
-      mFixMode == other.mFixMode &&
-      mQuality == other.mQuality &&
-      mStatus == other.mStatus &&
-      mSatPrn == other.mSatPrn &&
-      mSatInfoComplete == other.mLongitude &&
-      mVerticalSpeed == other.mLongitude &&
-      mMagneticVariation == other.mLongitude &&
-      mSourceName == other.mSourceName;
+         mLongitude == other.mLongitude &&
+         mElevation == other.mElevation &&
+         mSpeed == other.mSpeed &&
+         mDirection == other.mDirection &&
+         mPdop == other.mPdop &&
+         mHdop == other.mHdop &&
+         mVdop == other.mVdop &&
+         mHacc == other.mHacc &&
+         mVacc == other.mVacc &&
+         mVacc == other.mVacc &&
+         mUtcDateTime == other.mUtcDateTime &&
+         mFixMode == other.mFixMode &&
+         mQuality == other.mQuality &&
+         mStatus == other.mStatus &&
+         mSatPrn == other.mSatPrn &&
+         mSatInfoComplete == other.mLongitude &&
+         mVerticalSpeed == other.mLongitude &&
+         mMagneticVariation == other.mLongitude &&
+         mSourceName == other.mSourceName;
 }
 
 bool GnssPositionInformation::isValid() const
