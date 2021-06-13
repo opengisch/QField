@@ -42,7 +42,6 @@ bool GnssPositionInformation::operator==( const GnssPositionInformation &other )
          mVdop == other.mVdop &&
          mHacc == other.mHacc &&
          mVacc == other.mVacc &&
-         mVacc == other.mVacc &&
          mUtcDateTime == other.mUtcDateTime &&
          mFixMode == other.mFixMode &&
          mQuality == other.mQuality &&
