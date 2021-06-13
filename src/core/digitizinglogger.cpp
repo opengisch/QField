@@ -40,6 +40,9 @@ void DigitizingLogger::setType( const QString &type )
 
 void DigitizingLogger::setPositionInformation( const GnssPositionInformation &positionInformation )
 {
+  if ( mPositionInformation == positionInformation )
+    return;
+
   mPositionInformation = positionInformation;
 
   emit positionInformationChanged();
@@ -57,6 +60,9 @@ void DigitizingLogger::setPositionLocked( bool positionLocked )
 
 void DigitizingLogger::setTopSnappingResult( const SnappingResult &topSnappingResult )
 {
+  if ( mTopSnappingResult == topSnappingResult )
+    return;
+
   mTopSnappingResult = topSnappingResult;
 
   emit topSnappingResultChanged();
@@ -73,7 +79,11 @@ void DigitizingLogger::setProject( QgsProject *project )
   }
 
   mProject = project;
-  connect( mProject, &QgsProject::readProject, this, &DigitizingLogger::findLogsLayer );
+
+  if ( mProject )
+  {
+    connect( mProject, &QgsProject::readProject, this, &DigitizingLogger::findLogsLayer );
+  }
 
   clearCoordinates();
   findLogsLayer();
