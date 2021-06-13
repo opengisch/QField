@@ -2,13 +2,13 @@ import QtQuick 2.12
 import QtQuick.Controls 2.12
 
 import org.qgis 1.0
+import org.qfield 1.0
 import Theme 1.0
 
 VisibilityFadingRow {
   id: digitizingToolbar
 
   property RubberbandModel rubberbandModel
-  property CoordinateLocator coordinateLocator // optional coordinateLocator to flash
   property MapSettings mapSettings
 
   property bool showConfirmButton: true //<! if the geometry type is point, it will never be shown
@@ -18,16 +18,18 @@ VisibilityFadingRow {
   property var geometryRequestedItem
   property VectorLayer geometryRequestedLayer
 
+  property alias digitizingLogger: digitizingLogger
+
   readonly property bool isDigitizing: rubberbandModel ? rubberbandModel.vertexCount > 1 : false //!< Readonly
 
   property bool geometryValid: false
 
   spacing: 4
 
-  /* This signal is emitted when the user confirms the digitized geometry.
-   * The correspoding handler is \c onConfirm.
+  /* This signal is emitted when the digitized geometry has been confirmed.
+   * The correspoding handler is \c onConfirmed.
    */
-  signal confirm
+  signal confirmed
   /* This signal is emitted when the user cancels geometry digitizing.
    * The correspoding handler is \c onCancel.
    */
@@ -61,6 +63,19 @@ VisibilityFadingRow {
           // emit the signal of digitizingToolbar
           vertexCountChanged()
       }
+  }
+
+  DigitizingLogger {
+    id: digitizingLogger
+
+    project: qgisProject
+    mapSettings: digitizingToolbar.mapSettings
+    digitizingLayer: rubberbandModel.vectorLayer
+
+    positionInformation: positionSource.positionInfo
+    positionLocked: gpsLinkButton.checked
+    topSnappingResult: coordinateLocator.topSnappingResult
+    cloudUserInformation: cloudConnection.userInformation
   }
 
   QfToolButton {
@@ -172,10 +187,11 @@ VisibilityFadingRow {
         }
 
         if ( Number( rubberbandModel.geometryType ) === QgsWkbTypes.PointGeometry ||
-                Number( rubberbandModel.geometryType ) === QgsWkbTypes.NullGeometry )
+             Number( rubberbandModel.geometryType ) === QgsWkbTypes.NullGeometry ) {
             confirm()
-        else
+        } else {
             addVertex()
+        }
     }
   }
 
@@ -198,6 +214,7 @@ VisibilityFadingRow {
 
     standardButtons: Dialog.Ok | Dialog.Cancel
     onAccepted: {
+      digitizingLogger.clearCoordinates();
       rubberbandModel.reset()
       cancel();
       visible = false;
@@ -209,14 +226,22 @@ VisibilityFadingRow {
 
   function addVertex()
   {
-    if (coordinateLocator)
-      coordinateLocator.flash()
+    digitizingLogger.addCoordinate( coordinateLocator.currentCoordinate )
+    coordinateLocator.flash()
+
     rubberbandModel.addVertex()
   }
 
   function removeVertex()
   {
+    digitizingLogger.removeLastCoordinate();
     rubberbandModel.removeVertex()
     mapSettings.setCenter( rubberbandModel.currentCoordinate )
+  }
+
+  function confirm()
+  {
+      digitizingLogger.addCoordinate( coordinateLocator.currentCoordinate )
+      confirmed()
   }
 }

@@ -43,6 +43,7 @@
 #include <QPrintDialog>
 #include <QPrinter>
 #endif
+
 #include "appinterface.h"
 #include "attributeformmodel.h"
 #include "badlayerhandler.h"
@@ -51,6 +52,7 @@
 #include "changelogcontents.h"
 #include "deltafilewrapper.h"
 #include "deltalistmodel.h"
+#include "digitizinglogger.h"
 #include "distancearea.h"
 #include "expressionevaluator.h"
 #include "expressionvariablemodel.h"
@@ -85,13 +87,6 @@
 #include "qfieldcloudutils.h"
 #include "qgismobileapp.h"
 #include "qgsgeometrywrapper.h"
-#include "qgsnetworkaccessmanager.h"
-#include "qgsofflineediting.h"
-#include "qgsquickcoordinatetransformer.h"
-#include "qgsquickmapcanvasmap.h"
-#include "qgsquickmapsettings.h"
-#include "qgsquickmaptransform.h"
-#include "qgsrelationmanager.h"
 #include "recentprojectlistmodel.h"
 #include "referencingfeaturelistmodel.h"
 #include "rubberband.h"
@@ -105,11 +100,17 @@
 #include "valuemapmodel.h"
 #include "vertexmodel.h"
 
+#include "qgsquickcoordinatetransformer.h"
+#include "qgsquickmapcanvasmap.h"
+#include "qgsquickmapsettings.h"
+#include "qgsquickmaptransform.h"
+
 #include <QFileInfo>
 #include <QFontDatabase>
 #include <QResource>
 #include <QStyleHints>
 #include <QTemporaryFile>
+
 #include <qgsauthmanager.h>
 #include <qgsbilinearrasterresampler.h>
 #include <qgscoordinatereferencesystem.h>
@@ -129,6 +130,8 @@
 #include <qgslocatormodel.h>
 #include <qgsmaplayer.h>
 #include <qgsmapthemecollection.h>
+#include <qgsnetworkaccessmanager.h>
+#include <qgsofflineediting.h>
 #include <qgsprintlayout.h>
 #include <qgsproject.h>
 #include <qgsprojectstorage.h>
@@ -136,6 +139,7 @@
 #include <qgsprojectviewsettings.h>
 #include <qgsrasterlayer.h>
 #include <qgsrasterresamplefilter.h>
+#include <qgsrelationmanager.h>
 #include <qgssinglesymbolrenderer.h>
 #include <qgssnappingutils.h>
 #include <qgsunittypes.h>
@@ -395,6 +399,8 @@ void QgisMobileapp::initDeclarative()
   qmlRegisterType<ProjectSource>( "org.qgis", 1, 0, "ProjectSource" );
   qmlRegisterType<ViewStatus>( "org.qgis", 1, 0, "ViewStatus" );
   qmlRegisterType<MessageLogModel>( "org.qgis", 1, 0, "MessageLogModel" );
+
+  qmlRegisterType<DigitizingLogger>( "org.qfield", 1, 0, "DigitizingLogger" );
   qmlRegisterType<AttributeFormModel>( "org.qfield", 1, 0, "AttributeFormModel" );
   qmlRegisterType<FeatureModel>( "org.qfield", 1, 0, "FeatureModel" );
   qmlRegisterType<IdentifyTool>( "org.qfield", 1, 0, "IdentifyTool" );

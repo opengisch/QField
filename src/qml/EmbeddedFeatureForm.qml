@@ -96,8 +96,10 @@ Popup {
     onClosed: {
         if (!form.isSaved) {
             form.confirm()
+            digitizingToolbar.digitizingLogger.writeCoordinates();
         } else {
             form.isSaved = false
+            digitizingToolbar.digitizingLogger.clearCoordinates();
         }
     }
 

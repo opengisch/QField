@@ -101,6 +101,9 @@ class GnssPositionInformation
                              QChar fixMode = QChar(), int fixType = 0, int quality = -1, int satellitesUsed = 0, QChar status = QChar(), const QList<int> &satPrn = QList<int>(), bool satInfoComplete = false,
                              double verticalSpeed = std::numeric_limits<double>::quiet_NaN(), double magneticVariation = std::numeric_limits<double>::quiet_NaN(), const QString &sourceName = QString() );
 
+    bool operator==( const GnssPositionInformation &other ) const;
+    bool operator!=( const GnssPositionInformation &other ) const { return !operator==( other ); }
+
     /**
      * Latitude in decimal degrees, using the WGS84 datum. A positive value indicates the Northern Hemisphere, and
      * a negative value indicates the Southern Hemisphere.

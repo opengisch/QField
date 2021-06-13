@@ -13,8 +13,11 @@ VisibilityFadingRow {
 
   property FeatureModel featureModel
   property MapSettings mapSettings
+
   property bool screenHovering: false //<! if the stylus pen is used, one should not use the add button
   property bool vertexRubberbandVisible: true
+  property int currentVertexId: -1
+  property bool currentVertexModified: false
 
   readonly property bool blocking: featureModel.vertexModel.dirty
 
@@ -51,7 +54,9 @@ VisibilityFadingRow {
       featureModel.vertexModel.selectVertexAtPosition(point, 10)
     else
     {
+      digitizingLogger.addCoordinate(featureModel.vertexModel.currentPoint)
       featureModel.vertexModel.currentVertexIndex = -1
+      vertexEditorToolbar.currentVertexModified = false
     }
 
     return true // handled
@@ -64,6 +69,7 @@ VisibilityFadingRow {
     visible: featureModel.vertexModel.dirty && !qfieldSettings.autoSave
     bgcolor: "#900000"
     onClicked: {
+      digitizingLogger.clearCoordinates();
       cancel()
     }
   }
@@ -76,6 +82,10 @@ VisibilityFadingRow {
     bgcolor: !qfieldSettings.autoSave ? Theme.mainColor : Theme.darkGray
 
     onClicked: {
+      if (vertexEditorToolbar.currentVertexModified)
+          digitizingLogger.addCoordinate(featureModel.vertexModel.currentPoint)
+
+      digitizingLogger.writeCoordinates();
       applyChanges( true )
       if( !qfieldSettings.autoSave )
         finished()
@@ -125,6 +135,9 @@ VisibilityFadingRow {
     bgcolor: featureModel.vertexModel.canPreviousVertex ? Theme.darkGray : Theme.darkGraySemiOpaque
 
     onClicked: {
+      if (vertexEditorToolbar.currentVertexModified)
+          digitizingLogger.addCoordinate(featureModel.vertexModel.currentPoint)
+
       applyChanges( qfieldSettings.autoSave )
       featureModel.vertexModel.previous()
     }
@@ -138,21 +151,45 @@ VisibilityFadingRow {
     bgcolor: featureModel.vertexModel && featureModel.vertexModel.canNextVertex ? Theme.darkGray : Theme.darkGraySemiOpaque
 
     onClicked: {
+      if (vertexEditorToolbar.currentVertexModified)
+          digitizingLogger.addCoordinate(featureModel.vertexModel.currentPoint)
+
       applyChanges( qfieldSettings.autoSave )
       featureModel.vertexModel.next()
     }
   }
 
+  DigitizingLogger {
+    id: digitizingLogger
+    type: 'edit_vertex'
+
+    project: qgisProject
+    mapSettings: mapSettings
+    digitizingLayer: featureModel.currentLayer
+
+    positionInformation: positionSource.positionInfo
+    positionLocked: gpsLinkButton.checked
+    topSnappingResult: coordinateLocator.topSnappingResult
+    cloudUserInformation: cloudConnection.userInformation
+  }
+
   Connections {
     target: vertexModel
-    onCurrentVertexIndexChanged:
-    {
+
+    function onCurrentVertexIndexChanged() {
       if ( featureModel.vertexModel.currentVertexIndex != -1
-          && !screenHovering
-          && featureModel.vertexModel.editingMode !== VertexModel.NoEditing )
+           && vertexEditorToolbar.currentVertexId !== featureModel.vertexModel.currentVertexIndex
+           && !screenHovering
+           && featureModel.vertexModel.editingMode !== VertexModel.NoEditing )
       {
         mapSettings.setCenter(featureModel.vertexModel.currentPoint)
+        vertexEditorToolbar.currentVertexId = featureModel.vertexModel.currentVertexIndex
+        vertexEditorToolbar.currentVertexModified = false
       }
+    }
+
+    function onCurrentPointChanged() {
+        vertexEditorToolbar.currentVertexModified = true
     }
   }
 }
