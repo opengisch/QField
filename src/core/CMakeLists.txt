@@ -1,190 +1,198 @@
 set(QFIELD_CORE_SRCS
-  appinterface.cpp
+  platforms/platformutilities.cpp
+
+  utils/expressioncontextutils.cpp
+  utils/featureutils.cpp
+  utils/fileutils.cpp
+  utils/geometryutils.cpp
+  utils/layerutils.cpp
+  utils/qfieldcloudutils.cpp
+  utils/snappingutils.cpp
+  utils/stringutils.cpp
+  utils/urlutils.cpp
+
+  qgsquick/qgsquickcoordinatetransformer.cpp
+  qgsquick/qgsquickmapcanvasmap.cpp
+  qgsquick/qgsquickmapsettings.cpp
+  qgsquick/qgsquickmaptransform.cpp
+
+  locator/featureslocatorfilter.cpp
+  locator/finlandlocatorfilter.cpp
+  locator/gotolocatorfilter.cpp
+  locator/locatormodelsuperbridge.cpp
+
   appcoordinateoperationhandlers.cpp
-  attributeformmodelbase.cpp
+  appinterface.cpp
   attributeformmodel.cpp
+  attributeformmodelbase.cpp
   badlayerhandler.cpp
+  bluetoothdevicemodel.cpp
+  bluetoothreceiver.cpp
+  changelogcontents.cpp
+  deltafilewrapper.cpp
+  deltalistmodel.cpp
   distancearea.cpp
-  expressioncontextutils.cpp
+  expressionevaluator.cpp
   expressionvariablemodel.cpp
   featurechecklistmodel.cpp
   featurelistextentcontroller.cpp
   featurelistmodel.cpp
   featurelistmodelselection.cpp
   featuremodel.cpp
-  featureslocatorfilter.cpp
   feedback.cpp
   focusstack.cpp
   geometry.cpp
   geometryeditorsmodel.cpp
-  gotolocatorfilter.cpp
+  gnsspositioninformation.cpp
   identifytool.cpp
+  layerobserver.cpp
+  layerresolver.cpp
   layertreemapcanvasbridge.cpp
   layertreemodel.cpp
-  layerresolver.cpp
   legendimageprovider.cpp
   linepolygonhighlight.cpp
-  locatormodelsuperbridge.cpp
   maptoscreen.cpp
   messagelogmodel.cpp
   modelhelper.cpp
-  multifeaturelistmodelbase.cpp
   multifeaturelistmodel.cpp
+  multifeaturelistmodelbase.cpp
+  networkmanager.cpp
+  networkreply.cpp
   peliasgeocoder.cpp
-  finlandlocatorfilter.cpp
   picturesource.cpp
-  platformutilities.cpp
   printlayoutlistmodel.cpp
   projectinfo.cpp
   projectsource.cpp
   qfieldappauthrequesthandler.cpp
+  qfieldcloudconnection.cpp
+  qfieldcloudprojectsmodel.cpp
   qgismobileapp.cpp
   qgsgeometrywrapper.cpp
   qgsgpkgflusher.cpp
   qgssggeometry.cpp
-  gnsspositioninformation.cpp
-  referencingfeaturelistmodel.cpp
   recentprojectlistmodel.cpp
+  referencingfeaturelistmodel.cpp
   rubberband.cpp
   rubberbandmodel.cpp
   settings.cpp
   sgrubberband.cpp
   snappingresult.cpp
-  snappingutils.cpp
   submodel.cpp
+  tracker.cpp
+  trackingmodel.cpp
   valuemapmodel.cpp
   vertexmodel.cpp
-  trackingmodel.cpp
-  tracker.cpp
   viewstatus.cpp
-  bluetoothreceiver.cpp
-  bluetoothdevicemodel.cpp
-  changelogcontents.cpp
+)
+
+set(QFIELD_CORE_HDRS
+  platforms/platformutilities.h
+
+  utils/expressioncontextutils.cpp
+  utils/featureutils.cpp
   utils/fileutils.cpp
   utils/geometryutils.cpp
-  utils/featureutils.cpp
   utils/layerutils.cpp
+  utils/qfieldcloudutils.cpp
+  utils/snappingutils.cpp
   utils/stringutils.cpp
   utils/urlutils.cpp
-  utils/qfieldcloudutils.cpp
-  expressionevaluator.cpp
+
   qgsquick/qgsquickcoordinatetransformer.cpp
   qgsquick/qgsquickmapcanvasmap.cpp
   qgsquick/qgsquickmapsettings.cpp
   qgsquick/qgsquickmaptransform.cpp
-  qfieldcloudconnection.cpp
-  qfieldcloudprojectsmodel.cpp
-  deltafilewrapper.cpp
-  deltalistmodel.cpp
-  layerobserver.cpp
-  networkreply.cpp
-  networkmanager.cpp
-)
 
-set(QFIELD_CORE_HDRS
+  locator/featureslocatorfilter.cpp
+  locator/finlandlocatorfilter.cpp
+  locator/gotolocatorfilter.cpp
+  locator/locatormodelsuperbridge.cpp
+
   qfield.h
-  appinterface.h
   appcoordinateoperationhandlers.h
-  attributeformmodelbase.h
+  appinterface.h
   attributeformmodel.h
+  attributeformmodelbase.h
   badlayerhandler.h
+  bluetoothdevicemodel.h
+  bluetoothreceiver.h
+  changelogcontents.h
+  deltafilewrapper.h
+  deltalistmodel.h
   distancearea.h
-  expressioncontextutils.h
+  expressionevaluator.h
   expressionvariablemodel.h
   featurechecklistmodel.h
   featurelistextentcontroller.h
   featurelistmodel.h
   featurelistmodelselection.h
   featuremodel.h
-  featureslocatorfilter.h
   feedback.h
   fieldexpressionvaluesgatherer.h
   focusstack.h
   geometry.h
   geometryeditorsmodel.h
-  gotolocatorfilter.h
+  gnsspositioninformation.h
   identifytool.h
+  layerobserver.h
+  layerresolver.h
   layertreemapcanvasbridge.h
   layertreemodel.h
-  layerresolver.h
   legendimageprovider.h
   linepolygonhighlight.h
-  locatormodelsuperbridge.h
   maptoscreen.h
   messagelogmodel.h
   modelhelper.h
-  multifeaturelistmodelbase.h
   multifeaturelistmodel.h
+  multifeaturelistmodelbase.h
+  networkmanager.h
+  networkreply.h
   peliasgeocoder.h
-  finlandlocatorfilter.h
   picturesource.h
-  platformutilities.h
   printlayoutlistmodel.h
   projectinfo.h
   projectsource.h
   qfieldappauthrequesthandler.h
+  qfieldcloudconnection.h
+  qfieldcloudprojectsmodel.h
   qgismobileapp.h
   qgsgeometrywrapper.h
   qgsgpkgflusher.h
   qgssggeometry.h
-  gnsspositioninformation.h
-  referencingfeaturelistmodel.h
   recentprojectlistmodel.h
+  referencingfeaturelistmodel.h
   rubberband.h
   rubberbandmodel.h
   settings.h
   sgrubberband.h
   snappingresult.h
-  snappingutils.h
   submodel.h
+  tracker.h
+  trackingmodel.h
   valuemapmodel.h
   vertexmodel.h
-  trackingmodel.h
-  bluetoothreceiver.h
-  bluetoothdevicemodel.h
-  tracker.h
   viewstatus.h
-  changelogcontents.h
-  utils/fileutils.h
-  utils/geometryutils.h
-  utils/featureutils.h
-  utils/layerutils.h
-  utils/stringutils.h
-  utils/urlutils.h
-  utils/qfieldcloudutils.h
-  expressionevaluator.h
-  qgsquick/qgsquickcoordinatetransformer.h
-  qgsquick/qgsquickmapcanvasmap.h
-  qgsquick/qgsquickmapsettings.h
-  qgsquick/qgsquickmaptransform.h
-  qfieldcloudconnection.h
-  qfieldcloudprojectsmodel.h
-  deltafilewrapper.h
-  deltalistmodel.h
-  layerobserver.h
-  networkreply.h
-  networkmanager.h
 )
 
 if (ANDROID)
   set(QFIELD_CORE_HDRS ${QFIELD_CORE_HDRS}
-    androidplatformutilities.h
-    androidpicturesource.h
-    androidviewstatus.h
-    androidprojectsource.h
+    platforms/android/androidplatformutilities.h
+    platforms/android/androidpicturesource.h
+    platforms/android/androidviewstatus.h
+    platforms/android/androidprojectsource.h
   )
   set(QFIELD_CORE_SRCS ${QFIELD_CORE_SRCS}
-    androidplatformutilities.cpp
-    androidpicturesource.cpp
-    androidviewstatus.cpp
-    androidprojectsource.cpp
+    platforms/android/androidplatformutilities.cpp
+    platforms/android/androidpicturesource.cpp
+    platforms/android/androidviewstatus.cpp
+    platforms/android/androidprojectsource.cpp
   )
 elseif(${CMAKE_SYSTEM_NAME} STREQUAL "iOS")
   set(QFIELD_CORE_HDRS ${QFIELD_CORE_HDRS}
-    ios/iosplatformutilities.h
+    platforms/ios/iosplatformutilities.h
   )
   set(QFIELD_CORE_SRCS ${QFIELD_CORE_SRCS}
-    ios/iosplatformutilities.mm
+    platforms/ios/iosplatformutilities.mm
   )
 endif()
 
@@ -210,10 +218,17 @@ target_include_directories(qfield_core SYSTEM PRIVATE
 
 target_include_directories(qfield_core PUBLIC
   ${CMAKE_SOURCE_DIR}/src/core
+  ${CMAKE_SOURCE_DIR}/src/core/locator
+  ${CMAKE_SOURCE_DIR}/src/core/platforms
   ${CMAKE_SOURCE_DIR}/src/core/qgsquick
   ${CMAKE_SOURCE_DIR}/src/core/utils
   ${CMAKE_SOURCE_DIR}/3rdparty/tessellate
 )
+if (ANDROID)
+  target_include_directories(qfield_core PUBLIC ${CMAKE_SOURCE_DIR}/src/core/platforms/android)
+elseif(${CMAKE_SYSTEM_NAME} STREQUAL "iOS")
+  target_include_directories(qfield_core PUBLIC ${CMAKE_SOURCE_DIR}/src/core/platforms/ios)
+endif()
 
 target_compile_features(qfield_core PUBLIC cxx_std_17)
 set_target_properties(qfield_core PROPERTIES AUTOMOC TRUE)
