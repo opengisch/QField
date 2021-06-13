@@ -356,8 +356,7 @@ bool FeatureModel::save()
 
       if ( QgsProject::instance()->topologicalEditing() )
       {
-        applyVertexModelToLayerTopography();
-        mLayer->addTopologicalPoints( feat.geometry() );
+        applyVertexModelTopography();
       }
 
       rv &= commit();
@@ -850,31 +849,50 @@ class MatchCollectingFilter : public QgsPointLocator::MatchFilter
     }
 };
 
-void FeatureModel::applyVertexModelToLayerTopography()
+void FeatureModel::applyVertexModelTopography()
 {
   if ( !mVertexModel )
     return;
 
-  QgsPointLocator *loc = new QgsPointLocator( mLayer );
   const QVector<QPair<QgsPoint, QgsPoint>> pointsMoved = mVertexModel->verticesMoved();
-  for ( const auto &point : pointsMoved )
-  {
-    MatchCollectingFilter filter;
-    loc->nearestVertex( point.first, 0, &filter );
-    for ( int i = 0; i < filter.matches.size(); i++ )
-    {
-      mLayer->moveVertex( point.second, filter.matches.at( i ).featureId(), filter.matches.at( i ).vertexIndex() );
-    }
-  }
-
   const QVector<QgsPoint> pointsDeleted = mVertexModel->verticesDeleted();
-  for ( const auto &point : pointsDeleted )
+
+  const QVector<QgsVectorLayer *> vectorLayers = QgsProject::instance()->layers<QgsVectorLayer *>();
+  for ( auto vectorLayer : vectorLayers )
   {
-    MatchCollectingFilter filter;
-    loc->nearestVertex( point, 0, &filter );
-    for ( int i = 0; i < filter.matches.size(); i++ )
+    if ( vectorLayer->readOnly() )
+      continue;
+
+    if ( vectorLayer != mLayer )
     {
-      mLayer->deleteVertex( filter.matches.at( i ).featureId(), filter.matches.at( i ).vertexIndex() );
+      vectorLayer->startEditing();
+    }
+
+    QgsPointLocator loc( vectorLayer );
+    for ( const auto &point : pointsMoved )
+    {
+      MatchCollectingFilter filter;
+      loc.nearestVertex( point.first, 0, &filter );
+      for ( int i = 0; i < filter.matches.size(); i++ )
+      {
+        vectorLayer->moveVertex( point.second, filter.matches.at( i ).featureId(), filter.matches.at( i ).vertexIndex() );
+      }
+    }
+
+    for ( const auto &point : pointsDeleted )
+    {
+      MatchCollectingFilter filter;
+      loc.nearestVertex( point, 0, &filter );
+      for ( int i = 0; i < filter.matches.size(); i++ )
+      {
+        vectorLayer->deleteVertex( filter.matches.at( i ).featureId(), filter.matches.at( i ).vertexIndex() );
+      }
+    }
+
+    vectorLayer->addTopologicalPoints( mFeature.geometry() );
+    if ( vectorLayer != mLayer )
+    {
+      vectorLayer->commitChanges( true );
     }
   }
 }
