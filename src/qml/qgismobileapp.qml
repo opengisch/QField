@@ -1397,6 +1397,7 @@ ApplicationWindow {
     enabled: true
     gestures : ["QtSensors.shake"]
     onDetected:{
+      displayToast("Milk, banana or strawberry?")
       if ( stateMachine.state === 'digitize' )
          stateMachine.state = 'browse'
       else if ( stateMachine.state === 'browse' )
