@@ -1145,6 +1145,7 @@ ApplicationWindow {
 
       FeatureModel {
         id: digitizingFeature
+        project: qgisProject
         currentLayer: digitizingToolbar.geometryRequested ? digitizingToolbar.geometryRequestedLayer : dashBoard.currentLayer
         positionInformation: positionSource.positionInfo
         topSnappingResult: coordinateLocator.topSnappingResult
@@ -2313,6 +2314,7 @@ ApplicationWindow {
   // ! MODELS !
   FeatureModel {
     id: geometryEditingFeature
+    project: qgisProject
     currentLayer: null
     positionInformation: positionSource.positionInfo
     positionLocked: gpsLinkButton.checked

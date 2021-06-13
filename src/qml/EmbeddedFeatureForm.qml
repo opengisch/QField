@@ -59,6 +59,7 @@ Popup {
             id: formAttributeFormModel
             featureModel: FeatureModel {
                 id: formFeatureModel
+                project: qgisProject
                 positionInformation: digitizingToolbar.coordinateLocator.positionInformation
                 positionLocked: digitizingToolbar.coordinateLocator.overrideLocation !== undefined
                 topSnappingResult: coordinateLocator.topSnappingResult
