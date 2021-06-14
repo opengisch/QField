@@ -8,7 +8,10 @@ import "."
 EditorWidgetBase {
   id: topItem
 
-  property bool isEditable: isEnabled && value && typeof(value) !== 'object'
+  property bool isEditable: isEnabled &&
+                            platformUtilities.fieldType( field ) !== 'QStringList' &&
+                            platformUtilities.fieldType( field ) !== 'QVariantList' &&
+                            platformUtilities.fieldType( field ) !== 'QVariantMap'
 
   height: childrenRect.height
 
