@@ -1395,13 +1395,17 @@ ApplicationWindow {
   SensorGesture {
     id: sensorGesture
     enabled: true
-    gestures : ["QtSensors.shake"]
+    gestures : ["QtSensors.shake", "QtSensors.whip", "QtSensors.twist", "QtSensors.cover",
+             "QtSensors.hover", "QtSensors.turnover", "QtSensors.pickup", "QtSensors.slam" , "QtSensors.doubletap"]
     onDetected:{
+      displayToast(gesture)
+    /*
       displayToast("Milk, banana or strawberry?")
       if ( stateMachine.state === 'digitize' )
          stateMachine.state = 'browse'
       else if ( stateMachine.state === 'browse' )
          stateMachine.state = 'digitize'
+         */
     }
   }
 
