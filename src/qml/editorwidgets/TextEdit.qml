@@ -8,7 +8,7 @@ import "."
 EditorWidgetBase {
   id: topItem
 
-  property bool isEditable: isEnabled && value && typeof(value) !== 'object'
+  property bool isEditable: isEnabled && typeof(value) !== 'object'
 
   height: childrenRect.height
 
