@@ -8,6 +8,7 @@ import Theme 1.0
 Item {
   id: qfieldcloudLogin
   property bool isServerUrlEditingActive: false
+  property bool isSupportedDevice: settings && !settings.valueBool( "QField/isCrashingSslDevice", false )
 
   Image {
     id: sourceImg
@@ -74,6 +75,18 @@ Item {
       }
 
       Text {
+        text: qsTr( "This mobile device does not support QFieldCloud. Please upgrade your system to a newer Android version or use another device." )
+              + ' <a href="https://qfield.cloud/">' + qsTr( 'Learn more about QFieldCloud' ) + '</a>.'
+        horizontalAlignment: Text.AlignHCenter
+        font: Theme.defaultFont
+        textFormat: Text.RichText
+        wrapMode: Text.WordWrap
+        Layout.fillWidth: true
+        visible: !isSupportedDevice
+        onLinkActivated: Qt.openUrlExternally(link)
+      }
+
+      Text {
         id: cloudIntroLabel
         Layout.fillWidth: true
         text: '<style>a, a:hover, a:visited { color:' + Theme.mainColor + '; }></style>' +
@@ -83,6 +96,7 @@ Item {
         font: Theme.defaultFont
         textFormat: Text.RichText
         wrapMode: Text.WordWrap
+        visible: isSupportedDevice
 
         onLinkActivated: Qt.openUrlExternally(link)
       }
@@ -122,7 +136,8 @@ Item {
       Text {
         id: serverUrlLabel
         Layout.fillWidth: true
-        visible: cloudConnection.status === QFieldCloudConnection.Disconnected
+        visible: isSupportedDevice
+                 && cloudConnection.status === QFieldCloudConnection.Disconnected
                  && ( cloudConnection.url !== cloudConnection.defaultUrl || isServerUrlEditingActive )
         text: qsTr( "Server URL\n(Leave empty to use the default server)" )
         horizontalAlignment: Text.AlignHCenter
@@ -135,7 +150,8 @@ Item {
         id: serverUrlField
         Layout.preferredWidth: parent.width / 1.3
         Layout.alignment: Qt.AlignHCenter
-        visible: cloudConnection.status === QFieldCloudConnection.Disconnected
+        visible: isSupportedDevice
+                 && cloudConnection.status === QFieldCloudConnection.Disconnected
                  && ( prefixUrlWithProtocol(cloudConnection.url) !== cloudConnection.defaultUrl || isServerUrlEditingActive )
         enabled: visible
         height: Math.max(fontMetrics.height, fontMetrics.boundingRect(text).height) + 34
@@ -168,7 +184,7 @@ Item {
       Text {
         id: usernamelabel
         Layout.fillWidth: true
-        visible: cloudConnection.status === QFieldCloudConnection.Disconnected
+        visible: isSupportedDevice && cloudConnection.status === QFieldCloudConnection.Disconnected
         text: qsTr( "Username or email" )
         horizontalAlignment: Text.AlignHCenter
         font: Theme.defaultFont
@@ -179,7 +195,7 @@ Item {
         id: usernameField
         Layout.preferredWidth: parent.width / 1.3
         Layout.alignment: Qt.AlignHCenter
-        visible: cloudConnection.status === QFieldCloudConnection.Disconnected
+        visible: isSupportedDevice && cloudConnection.status === QFieldCloudConnection.Disconnected
         enabled: visible
         height: Math.max(fontMetrics.height, fontMetrics.boundingRect(text).height) + 34
         topPadding: 10
@@ -201,7 +217,7 @@ Item {
       Text {
         id: passwordlabel
         Layout.fillWidth: true
-        visible: cloudConnection.status === QFieldCloudConnection.Disconnected
+        visible: isSupportedDevice && cloudConnection.status === QFieldCloudConnection.Disconnected
         text: qsTr( "Password" )
         horizontalAlignment: Text.AlignHCenter
         font: Theme.defaultFont
@@ -213,7 +229,7 @@ Item {
         echoMode: TextInput.Password
         Layout.preferredWidth: parent.width / 1.3
         Layout.alignment: Qt.AlignHCenter
-        visible: cloudConnection.status === QFieldCloudConnection.Disconnected
+        visible: isSupportedDevice && cloudConnection.status === QFieldCloudConnection.Disconnected
         enabled: visible
         height: Math.max(fontMetrics.height, fontMetrics.boundingRect(text).height) + 34
         topPadding: 10
@@ -240,7 +256,7 @@ Item {
         Layout.fillWidth: true
         text: cloudConnection.status == QFieldCloudConnection.LoggedIn ? qsTr( "Logout" ) : cloudConnection.status == QFieldCloudConnection.Connecting ? qsTr( "Logging in, please wait" ) : qsTr( "Login" )
         enabled: cloudConnection.status != QFieldCloudConnection.Connecting
-
+        visible: isSupportedDevice
         onClicked: loginFormSumbitHandler()
       }
     }
