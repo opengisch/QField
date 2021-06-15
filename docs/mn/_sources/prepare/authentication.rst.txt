@@ -2,6 +2,10 @@
 Authentication
 ==============
 
+QField supports connecting to OAuth2 protected web services.
+By using OAuth2, it is possible to protect layers and services with a wide
+variety of authentiaction schemes like for example two factor authentication.
+
 To successfully load OAuth2-protected layer(s) in QField, the QGIS project must be
 setup to use OAuth2.
 
