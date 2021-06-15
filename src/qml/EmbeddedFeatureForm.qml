@@ -60,8 +60,8 @@ Popup {
             featureModel: FeatureModel {
                 id: formFeatureModel
                 project: qgisProject
-                positionInformation: digitizingToolbar.coordinateLocator.positionInformation
-                positionLocked: digitizingToolbar.coordinateLocator.overrideLocation !== undefined
+                positionInformation: coordinateLocator.positionInformation
+                positionLocked: coordinateLocator.overrideLocation !== undefined
                 topSnappingResult: coordinateLocator.topSnappingResult
                 cloudUserInformation: cloudConnection.userInformation
             }
