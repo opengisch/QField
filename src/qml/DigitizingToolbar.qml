@@ -70,7 +70,7 @@ VisibilityFadingRow {
 
     project: qgisProject
     mapSettings: digitizingToolbar.mapSettings
-    digitizingLayer: rubberbandModel.vectorLayer
+    digitizingLayer: rubberbandModel ? rubberbandModel.vectorLayer : null
 
     positionInformation: positionSource.positionInfo
     positionLocked: gpsLinkButton.checked
