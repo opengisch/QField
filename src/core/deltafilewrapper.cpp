@@ -473,24 +473,73 @@ void DeltaFileWrapper::addPatch( const QString &localLayerId, const QString &sou
     areFeaturesEqual = true;
   }
 
-  // TODO types should be checked too, however QgsFields::operator== is checking instances, not values
-  // TODO be careful with calculated fields here!!! Needs a fix!
-  Q_ASSERT( oldFeature.fields().names() == newFeature.fields().names() );
+  QgsFields fields;
+  QgsFields oldFields = oldFeature.fields();
+  QgsFields newFields = newFeature.fields();
+  int ignoredFields = 0;
 
-  QgsFields fields = newFeature.fields();
+  for ( int idx = 0, l = newFields.count(); idx < l; idx++ )
+  {
+    const QgsField newField = newFields.at( idx );
+    const int oldFieldIdx = oldFields.indexFromName( newField.name() );
+
+    Q_ASSERT( oldFieldIdx != -1 );
+
+    switch ( newFields.fieldOrigin( idx ) )
+    {
+      case QgsFields::OriginExpression:
+      case QgsFields::OriginEdit:
+      // TODO probably one day when QField supports editable joins we need to change that, if the other feature change is not a separate delta.
+      case QgsFields::OriginJoin:
+        ignoredFields++;
+        continue;
+      case QgsFields::OriginProvider:
+      case QgsFields::OriginUnknown:
+        break;
+    }
+
+    // Check if the new field is present in the fields of the old feature.
+    // This would happen when there are calculated or joined fields. However, they should be already filtered out.
+    if ( oldFieldIdx == -1 )
+    {
+      QgsLogger::warning( QStringLiteral( "Unable to find field \"%1\" in the fields of the old feature." ).arg( newField.name() ) );
+      ignoredFields++;
+      continue;
+    }
+
+    QgsField oldField = oldFields.at( oldFieldIdx );
+
+    // check if types do match, but remember the delta anyways.
+    // NOTE there is no known situation when it is expected to happen.
+    if ( oldField.type() != newField.type() )
+    {
+      QgsLogger::warning( QStringLiteral( "Field \"%1\" has field types mismatch: %2 and %3." ).arg( oldField.name() ).arg( oldField.type() ).arg( newField.type() ) );
+    }
+
+    fields.append( newField );
+  }
+
+  Q_ASSERT( fields.count() == newFields.count() - ignoredFields );
+
   QJsonObject tmpOldAttrs;
   QJsonObject tmpNewAttrs;
   QJsonObject tmpOldFileChecksums;
   QJsonObject tmpNewFileChecksums;
 
-  for ( int idx = 0; idx < fields.count(); ++idx )
+  for ( const QgsField &field : fields )
   {
-    const QVariant oldVal = oldAttrs.at( idx );
-    const QVariant newVal = newAttrs.at( idx );
+    const QString name = field.name();
+    const int oldFieldIdx = oldFields.indexFromName( name );
+    const int newFieldIdx = newFields.indexFromName( name );
+
+    Q_ASSERT( oldFieldIdx != -1 );
+    Q_ASSERT( newFieldIdx != -1 );
+
+    const QVariant oldVal = oldAttrs.at( oldFieldIdx );
+    const QVariant newVal = newAttrs.at( newFieldIdx );
 
     if ( newVal != oldVal )
     {
-      const QString name = fields.at( idx ).name();
       tmpOldAttrs.insert( name, oldVal.isNull() ? QJsonValue::Null : QJsonValue::fromVariant( oldVal ) );
       tmpNewAttrs.insert( name, newVal.isNull() ? QJsonValue::Null : QJsonValue::fromVariant( newVal ) );
       areFeaturesEqual = true;
@@ -668,6 +717,7 @@ void DeltaFileWrapper::addCreate( const QString &localLayerId, const QString &so
   } );
   const QStringList attachmentFieldsList = attachmentFieldNames( mProject, localLayerId );
   const QgsAttributes newAttrs = newFeature.attributes();
+  const QgsFields newFields = newFeature.fields();
   QJsonObject newData( { { "geometry", geometryToJsonValue( newFeature.geometry() ) } } );
   QJsonObject tmpNewAttrs;
   QJsonObject tmpNewFileChecksums;
@@ -675,7 +725,21 @@ void DeltaFileWrapper::addCreate( const QString &localLayerId, const QString &so
   for ( int idx = 0; idx < newAttrs.count(); ++idx )
   {
     const QVariant newVal = newAttrs.at( idx );
-    const QString name = newFeature.fields().at( idx ).name();
+    const QgsField newField = newFields.at( idx );
+    const QString name = newField.name();
+
+    switch ( newFields.fieldOrigin( idx ) )
+    {
+      case QgsFields::OriginExpression:
+      case QgsFields::OriginEdit:
+      // TODO probably one day when QField supports editable joins we need to change that, if the other feature change is not a separate delta.
+      case QgsFields::OriginJoin:
+        continue;
+      case QgsFields::OriginProvider:
+      case QgsFields::OriginUnknown:
+        break;
+    }
+
     tmpNewAttrs.insert( name, QJsonValue::fromVariant( newVal ) );
 
     if ( attachmentFieldsList.contains( name ) )
