@@ -20,6 +20,7 @@ endif ()
 
 ADD_QFIELD_TEST(vertexmodeltest test_vertexmodel.cpp)
 ADD_QFIELD_TEST(referencingfeaturelistmodeltest test_referencingfeaturelistmodel.cpp)
+ADD_QFIELD_TEST(orderedrelationmodeltest test_orderedrelationmodel.cpp)
 ADD_QFIELD_TEST(deltafilewrappertest test_deltafilewrapper.cpp)
 ADD_QFIELD_TEST(layerobservertest test_layerobserver.cpp)
 ADD_QFIELD_TEST(featureutilstest test_featureutils.cpp)
