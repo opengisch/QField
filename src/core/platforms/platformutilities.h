@@ -119,7 +119,14 @@ class QFIELD_CORE_EXPORT PlatformUtilities : public QObject
      */
     Q_INVOKABLE virtual void setScreenLockPermission( const bool allowLock ) { Q_UNUSED( allowLock ); }
 
+    /**
+     * Dims the brightness of the screen on supported devices.
+     */
     Q_INVOKABLE virtual void dimBrightness() { return; };
+
+    /**
+     * Restores the brightness of the screen to its original value on supported devices.
+     */
     Q_INVOKABLE virtual void restoreBrightness() { return; };
 
     static PlatformUtilities *instance();
