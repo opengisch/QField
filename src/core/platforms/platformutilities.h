@@ -119,6 +119,9 @@ class QFIELD_CORE_EXPORT PlatformUtilities : public QObject
      */
     Q_INVOKABLE virtual void setScreenLockPermission( const bool allowLock ) { Q_UNUSED( allowLock ); }
 
+    Q_INVOKABLE virtual void dimBrightness() { return; };
+    Q_INVOKABLE virtual void restoreBrightness() { return; };
+
     static PlatformUtilities *instance();
 
     /**

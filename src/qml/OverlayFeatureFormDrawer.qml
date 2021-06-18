@@ -39,10 +39,13 @@ Drawer {
    */
 
   onOpened: {
+      dimmer.suspended = true;
+      dimmer.resetTimer();
       isAdding = true
   }
 
   onClosed: {
+      dimmer.suspended = false;
       if ( !digitizingToolbar.geometryRequested ) {
           if( !overlayFeatureForm.isSaved ) {
               overlayFeatureForm.confirm()

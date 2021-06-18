@@ -45,6 +45,9 @@ class AndroidPlatformUtilities : public PlatformUtilities
 
     void setScreenLockPermission( const bool allowLock ) override;
 
+    void dimBrightness() override;
+    void restoreBrightness() override;
+
     bool supportsNativeCamera() const override;
 
   private:

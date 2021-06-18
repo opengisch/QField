@@ -20,6 +20,7 @@ Page {
   property alias nativeCamera: registry.nativeCamera
   property alias autoSave: registry.autoSave
   property alias mouseAsTouchScreen: registry.mouseAsTouchScreen
+  property alias dimBrightness: registry.dimBrightness
 
   Settings {
     id: registry
@@ -30,6 +31,7 @@ Page {
     property bool nativeCamera: platformUtilities.supportsNativeCamera
     property bool autoSave: false
     property bool mouseAsTouchScreen: false
+    property bool dimBrightness: true
   }
 
   ListModel {
@@ -62,6 +64,11 @@ Page {
           title: qsTr( "Fast editing mode" )
           description: qsTr( "If enabled, the feature is stored after having a valid geometry and the constraints are fulfilled and atributes are commited immediately." )
           settingAlias: "autoSave"
+      }
+      ListElement {
+          title: qsTr( "Dim screen when idling" )
+          description: qsTr( "If enabled, the screen brightness will be dimmed after 20 seconds of inactivity to preserve battery." )
+          settingAlias: "dimBrightness"
       }
       ListElement {
           title: qsTr( "Consider mouse as a touchscreen device" )

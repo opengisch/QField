@@ -755,8 +755,15 @@ ApplicationWindow {
     interactive: !welcomeScreen.visible
 
     onOpenedChanged: {
-      if ( !opened && featureForm.visible )
-        featureForm.focus = true
+      if ( opened ) {
+          dimmer.suspended = true;
+          dimmer.resetTimer();
+      } else {
+        dimmer.suspended = false;
+        if ( featureForm.visible ) {
+          featureForm.focus = true;
+        }
+      }
     }
 
     function ensureEditableLayerSelected() {
@@ -2327,5 +2334,42 @@ ApplicationWindow {
       currentPoint: coordinateLocator.currentCoordinate
       mapSettings: mapCanvas.mapSettings
       isHovering: hoverHandler.hovered
+  }
+
+  MouseArea {
+      id: dimmer
+
+      property bool dimmed: false
+      property bool suspended: false
+
+      anchors.fill: parent
+      propagateComposedEvents: true
+      onPressed: {
+          resetTimer();
+          mouse.accepted = false
+      }
+
+      Timer {
+          id: dimmerTimer
+          interval: 20000
+          repeat: false
+
+          onTriggered: {
+              if (!dimmer.suspended) {
+                dimmer.dimmed = true
+                platformUtilities.dimBrightness();
+              }
+          }
+      }
+
+      function resetTimer() {
+          if (dimmed) {
+              platformUtilities.restoreBrightness();
+              dimmed = false;
+          }
+          if (qfieldSettings.dimBrightness && !suspended) {
+            dimmerTimer.restart();
+          }
+      }
   }
 }
