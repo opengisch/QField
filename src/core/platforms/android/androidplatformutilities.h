@@ -28,7 +28,7 @@ class AndroidPlatformUtilities : public PlatformUtilities
   public:
     AndroidPlatformUtilities();
 
-    PlatformUtilities::Capabilities capabilities() const override { return PlatformUtilities::AdjustBrightness; };
+    PlatformUtilities::Capabilities capabilities() const override { return Capabilities() | NativeCamera | AdjustBrightness; }
 
     void initSystem() override;
     QString systemGenericDataLocation() const override;

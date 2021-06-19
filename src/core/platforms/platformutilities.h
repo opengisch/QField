@@ -51,7 +51,7 @@ class QFIELD_CORE_EXPORT PlatformUtilities : public QObject
     /**
      * Returns flags containing the supported capabilities of the platform.
      */
-    virtual PlatformUtilities::Capabilities capabilities() const { return PlatformUtilities::NoCapabilities; }
+    virtual PlatformUtilities::Capabilities capabilities() const { return Capabilities() | NoCapabilities; }
 
     virtual void initSystem();
 
