@@ -478,7 +478,8 @@ void DeltaFileWrapper::addPatch( const QString &localLayerId, const QString &sou
   QgsFields newFields = newFeature.fields();
   int ignoredFields = 0;
 
-  for ( int idx = 0, l = newFields.count(); idx < l; idx++ )
+  const int fieldCount = newFields.count();
+  for ( int idx = 0; idx < fieldCount; idx++ )
   {
     const QgsField newField = newFields.at( idx );
     const int oldFieldIdx = oldFields.indexFromName( newField.name() );
