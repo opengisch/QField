@@ -2345,8 +2345,8 @@ ApplicationWindow {
       anchors.fill: parent
       propagateComposedEvents: true
       onPressed: {
+          mouse.accepted = dimmed
           resetTimer();
-          mouse.accepted = false
       }
 
       Timer {
