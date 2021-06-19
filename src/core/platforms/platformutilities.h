@@ -32,10 +32,26 @@ class QFIELD_CORE_EXPORT PlatformUtilities : public QObject
 {
     Q_OBJECT
 
-    Q_PROPERTY( bool supportsNativeCamera READ supportsNativeCamera NOTIFY supportsNativeCameraChanged )
+    Q_PROPERTY( PlatformUtilities::Capabilities capabilities READ capabilities CONSTANT )
 
   public:
+
+    enum Capability
+    {
+      NoCapabilities = 0,    //!< No capabilities
+      NativeCamera = 1,      //!< Native camera handling support (returns true on Android where this is implemented through intents)
+      AdjustBrightness = 2,  //!< Capable of adjusting screen brightness
+    };
+
+    Q_DECLARE_FLAGS( Capabilities, Capability )
+    Q_FLAGS( Capabilities )
+
     virtual ~PlatformUtilities();
+
+    /**
+     * Returns flags containing the supported capabilities of the platform.
+     */
+    virtual PlatformUtilities::Capabilities capabilities() const { return Capabilities() | NoCapabilities; }
 
     virtual void initSystem();
 
@@ -119,18 +135,17 @@ class QFIELD_CORE_EXPORT PlatformUtilities : public QObject
      */
     Q_INVOKABLE virtual void setScreenLockPermission( const bool allowLock ) { Q_UNUSED( allowLock ); }
 
+    /**
+     * Dims the brightness of the screen on supported devices.
+     */
+    Q_INVOKABLE virtual void dimBrightness() { return; };
+
+    /**
+     * Restores the brightness of the screen to its original value on supported devices.
+     */
+    Q_INVOKABLE virtual void restoreBrightness() { return; };
+
     static PlatformUtilities *instance();
 
-    /**
-     * Returns true if the platform supports native camera.
-     * This returns true on Android where this is implemented through intents
-     */
-    virtual bool supportsNativeCamera() const;
-
-  signals:
-    /**
-     * Will never be emitted, just here to avoid a warning about a non-signalling-property
-     */
-    void supportsNativeCameraChanged();
 };
 #endif // PLATFORMUTILITIES_H

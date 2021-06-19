@@ -20,6 +20,7 @@ Page {
   property alias nativeCamera: registry.nativeCamera
   property alias autoSave: registry.autoSave
   property alias mouseAsTouchScreen: registry.mouseAsTouchScreen
+  property alias dimBrightness: registry.dimBrightness
 
   Settings {
     id: registry
@@ -27,9 +28,10 @@ Page {
     property bool fullScreenIdentifyView: false
     property bool locatorKeepScale: false
     property bool numericalDigitizingInformation: false
-    property bool nativeCamera: platformUtilities.supportsNativeCamera
+    property bool nativeCamera: platformUtilities.capabilities & PlatformUtilities.NativeCamera
     property bool autoSave: false
     property bool mouseAsTouchScreen: false
+    property bool dimBrightness: platformUtilities.capabilities & PlatformUtilities.AdjustBrightness
   }
 
   ListModel {
@@ -64,6 +66,11 @@ Page {
           settingAlias: "autoSave"
       }
       ListElement {
+          title: qsTr( "Dim screen when idling" )
+          description: qsTr( "If enabled, the screen brightness will be dimmed after 20 seconds of inactivity to preserve battery." )
+          settingAlias: "dimBrightness"
+      }
+      ListElement {
           title: qsTr( "Consider mouse as a touchscreen device" )
           description: qsTr( "If disabled, the mouse will act as a stylus pen." )
           settingAlias: "mouseAsTouchScreen"
@@ -71,7 +78,9 @@ Page {
       Component.onCompleted: {
           for (var i = 0; i < settingsModel.count; i++) {
               if (settingsModel.get(i).settingAlias === 'nativeCamera') {
-                  settingsModel.setProperty(i, 'isVisible', platformUtilities.supportsNativeCamera)
+                  settingsModel.setProperty(i, 'isVisible', platformUtilities.capabilities & PlatformUtilities.NativeCamera)
+              } else if (settingsModel.get(i).settingAlias === 'dimBrightness') {
+                  settingsModel.setProperty(i, 'isVisible', platformUtilities.capabilities & PlatformUtilities.AdjustBrightness)
               } else {
                   settingsModel.setProperty(i, 'isVisible', true)   
               }

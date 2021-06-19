@@ -353,9 +353,34 @@ void AndroidPlatformUtilities::setScreenLockPermission( const bool allowLock )
   }
 }
 
-bool AndroidPlatformUtilities::supportsNativeCamera() const
+void AndroidPlatformUtilities::dimBrightness()
 {
-  return true;
+  if ( mActivity.isValid() )
+  {
+    QtAndroid::runOnAndroidThread( []
+    {
+      QAndroidJniObject activity = QtAndroid::androidActivity();
+      if ( activity.isValid() )
+      {
+        activity.callMethod<void>( "dimBrightness" );
+      }
+    } );
+  }
+}
+
+void AndroidPlatformUtilities::restoreBrightness()
+{
+  if ( mActivity.isValid() )
+  {
+    QtAndroid::runOnAndroidThread( []
+    {
+      QAndroidJniObject activity = QtAndroid::androidActivity();
+      if ( activity.isValid() )
+      {
+        activity.callMethod<void>( "restoreBrightness" );
+      }
+    } );
+  }
 }
 
 #ifdef __cplusplus

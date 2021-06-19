@@ -59,6 +59,8 @@ import android.os.Bundle;
 import android.os.Environment;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
+import android.view.WindowManager;
+import android.view.WindowManager.LayoutParams;
 
 import org.qtproject.qt5.android.bindings.QtActivity;
 
@@ -69,6 +71,7 @@ import ch.opengis.qfield.QFieldUtils;
 public class QFieldActivity extends QtActivity {
 
     public static native void openProject(String url);
+    private float originalBrightness;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -84,6 +87,19 @@ public class QFieldActivity extends QtActivity {
             Context context = getApplication().getApplicationContext();
             openProject(QFieldUtils.getPathFromUri(context, uri));
         }
+    }
+
+    private void dimBrightness() {
+        WindowManager.LayoutParams lp = getWindow().getAttributes();
+        originalBrightness = lp.screenBrightness;
+        lp.screenBrightness = 0.01f;
+        getWindow().setAttributes(lp);
+    }
+
+    private void restoreBrightness() {
+        WindowManager.LayoutParams lp = getWindow().getAttributes();
+        lp.screenBrightness = originalBrightness;
+        getWindow().setAttributes(lp);
     }
 
     private void prepareQtActivity() {

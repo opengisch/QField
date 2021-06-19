@@ -31,9 +31,11 @@ Popup {
     }
 
     onAboutToShow: {
+        dimmer.suspended = true;
+        dimmer.resetTimer();
         if( state === 'Add' ) {
-           form.featureCreated = false
-           formFeatureModel.resetAttributes()
+           form.featureCreated = false;
+           formFeatureModel.resetAttributes();
         }
     }
 
@@ -95,6 +97,7 @@ Popup {
     }
 
     onClosed: {
+        dimmer.suspended = false
         if (!form.isSaved) {
             form.confirm()
             digitizingToolbar.digitizingLogger.writeCoordinates();

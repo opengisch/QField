@@ -28,6 +28,8 @@ class AndroidPlatformUtilities : public PlatformUtilities
   public:
     AndroidPlatformUtilities();
 
+    PlatformUtilities::Capabilities capabilities() const override { return Capabilities() | NativeCamera | AdjustBrightness; }
+
     void initSystem() override;
     QString systemGenericDataLocation() const override;
     QString qgsProject() const override;
@@ -45,7 +47,8 @@ class AndroidPlatformUtilities : public PlatformUtilities
 
     void setScreenLockPermission( const bool allowLock ) override;
 
-    bool supportsNativeCamera() const override;
+    void dimBrightness() override;
+    void restoreBrightness() override;
 
   private:
     bool checkAndAcquirePermissions( const QString &permissionString ) const;

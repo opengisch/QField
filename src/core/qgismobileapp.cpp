@@ -358,6 +358,7 @@ void QgisMobileapp::initDeclarative()
 #if _QGIS_VERSION_INT >= 31900
   qRegisterMetaType<QgsPolymorphicRelation>( "QgsPolymorphicRelation" );
 #endif
+  qRegisterMetaType<PlatformUtilities::Capabilities>( "PlatformUtilities::Capabilities" );
   qRegisterMetaType<QgsField>( "QgsField" );
   qRegisterMetaType<QVariant::Type>( "QVariant::Type" );
   qRegisterMetaType<QgsDefaultValue>( "QgsDefaultValue" );
@@ -447,7 +448,7 @@ void QgisMobileapp::initDeclarative()
 
   qmlRegisterUncreatableType<AppInterface>( "org.qgis", 1, 0, "QgisInterface", "QgisInterface is only provided by the environment and cannot be created ad-hoc" );
   qmlRegisterUncreatableType<Settings>( "org.qgis", 1, 0, "Settings", "" );
-  qmlRegisterUncreatableType<PlatformUtilities>( "org.qgis", 1, 0, "PlatformUtilities", "" );
+  qmlRegisterUncreatableType<PlatformUtilities>( "org.qfield", 1, 0, "PlatformUtilities", "" );
   qmlRegisterUncreatableType<FlatLayerTreeModel>( "org.qfield", 1, 0, "FlatLayerTreeModel", "The FlatLayerTreeModel is available as context property `flatLayerTree`." );
   qmlRegisterUncreatableType<TrackingModel>( "org.qfield", 1, 0, "TrackingModel", "The TrackingModel is available as context property `trackingModel`." );
   qmlRegisterUncreatableType<QgsGpkgFlusher>( "org.qfield", 1, 0, "QgsGpkgFlusher", "The gpkgFlusher is available as context property `gpkgFlusher`" );
