@@ -383,11 +383,6 @@ void AndroidPlatformUtilities::restoreBrightness()
   }
 }
 
-bool AndroidPlatformUtilities::supportsNativeCamera() const
-{
-  return true;
-}
-
 #ifdef __cplusplus
 extern "C" {
 #endif

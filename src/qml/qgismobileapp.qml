@@ -2342,10 +2342,16 @@ ApplicationWindow {
       property bool dimmed: false
       property bool suspended: false
 
+      enabled: platformUtilities.capabilities & PlatformUtilities.AdjustBrightness
       anchors.fill: parent
       propagateComposedEvents: true
       onPressed: {
-          mouse.accepted = dimmed
+          mouse.accepted = dimmed;
+          if (!dimmed)
+              resetTimer();
+      }
+      onClicked: {
+          mouse.accepted = dimmed;
           resetTimer();
       }
 
@@ -2363,6 +2369,9 @@ ApplicationWindow {
       }
 
       function resetTimer() {
+          if (!platformUtilities.capabilities & PlatformUtilities.AdjustBrightness)
+              return;
+
           if (dimmed) {
               platformUtilities.restoreBrightness();
               dimmed = false;

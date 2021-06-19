@@ -28,10 +28,10 @@ Page {
     property bool fullScreenIdentifyView: false
     property bool locatorKeepScale: false
     property bool numericalDigitizingInformation: false
-    property bool nativeCamera: platformUtilities.supportsNativeCamera
+    property bool nativeCamera: platformUtilities.capabilities & PlatformUtilities.NativeCamera
     property bool autoSave: false
     property bool mouseAsTouchScreen: false
-    property bool dimBrightness: true
+    property bool dimBrightness: platformUtilities.capabilities & PlatformUtilities.AdjustBrightness
   }
 
   ListModel {
@@ -78,7 +78,9 @@ Page {
       Component.onCompleted: {
           for (var i = 0; i < settingsModel.count; i++) {
               if (settingsModel.get(i).settingAlias === 'nativeCamera') {
-                  settingsModel.setProperty(i, 'isVisible', platformUtilities.supportsNativeCamera)
+                  settingsModel.setProperty(i, 'isVisible', platformUtilities.capabilities & PlatformUtilities.NativeCamera)
+              } else if (settingsModel.get(i).settingAlias === 'dimBrightness') {
+                  settingsModel.setProperty(i, 'isVisible', platformUtilities.capabilities & PlatformUtilities.AdjustBrightness)
               } else {
                   settingsModel.setProperty(i, 'isVisible', true)   
               }
