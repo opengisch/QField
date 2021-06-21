@@ -484,8 +484,6 @@ void DeltaFileWrapper::addPatch( const QString &localLayerId, const QString &sou
     const QgsField newField = newFields.at( idx );
     const int oldFieldIdx = oldFields.indexFromName( newField.name() );
 
-    Q_ASSERT( oldFieldIdx != -1 );
-
     switch ( newFields.fieldOrigin( idx ) )
     {
       case QgsFields::OriginExpression:
@@ -498,6 +496,8 @@ void DeltaFileWrapper::addPatch( const QString &localLayerId, const QString &sou
       case QgsFields::OriginUnknown:
         break;
     }
+
+    Q_ASSERT( oldFieldIdx != -1 );
 
     // Check if the new field is present in the fields of the old feature.
     // This would happen when there are calculated or joined fields. However, they should be already filtered out.
