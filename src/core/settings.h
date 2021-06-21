@@ -38,6 +38,16 @@ class Settings : public QSettings
      */
     Q_INVOKABLE bool valueBool( const QString &key, bool defaultValue );
 
+    /**
+     * Removes the given \a key from settings.
+     */
+    Q_INVOKABLE void remove( const QString &key );
+
+    /**
+     * Writes any unsaved changes to permanent storage, and reloads the settings.
+     */
+    Q_INVOKABLE void sync();
+
   signals:
     void settingChanged( const QString &key );
 };

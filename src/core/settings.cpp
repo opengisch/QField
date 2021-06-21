@@ -38,3 +38,13 @@ bool Settings::valueBool( const QString &key, bool defaultValue )
 {
   return QSettings::value( key, defaultValue ).toBool();
 }
+
+void Settings::remove( const QString &key )
+{
+  QSettings::remove( key );
+}
+
+void Settings::sync()
+{
+  QSettings::sync();
+}

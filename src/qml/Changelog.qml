@@ -112,6 +112,12 @@ Popup {
 
   ChangelogContents {
     id: changelogContents
+    onMarkdownChanged: {
+      if ( changelogContents.markdown ) {
+        settings.setValue( "/QField/isLoadingChangelog", false )
+        settings.remove( "/QField/isCrashingSslDevice" )
+      }
+    }
   }
 
   onClosed: {
@@ -123,8 +129,24 @@ Popup {
   }
 
   onOpened: {
+    if ( settings.valueBool( "/QField/isLoadingChangelog", false ) ) {
+      settings.setValue( "/QField/isCrashingSslDevice", true )
+    } else {
+      settings.remove( "/QField/isCrashingSslDevice" )
+    }
+
+    if ( settings.valueBool( "/QField/isCrashingSslDevice", false ) === true ) {
+      changelogBody.text = qsTr( "Change the latest QField changes on " )
+                            + ' <a href="https://github.com/opengisch/qfield/releases">' + qsTr( 'QField releases page' ) + '</a>.'
+      return
+    }
+
     if ( changelogContents.status === ChangelogContents.SuccessStatus || changelogContents.status === ChangelogContents.LoadingStatus )
       return
+
+    settings.remove( "/QField/isLoadingChangelog" )
+    settings.setValue( "/QField/isLoadingChangelog", true )
+    settings.sync()
 
     changelogContents.request()
   }
