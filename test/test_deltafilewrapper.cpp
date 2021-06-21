@@ -20,6 +20,7 @@
 #include "qfield_testbase.h"
 #include "utils/fileutils.h"
 #include "utils/qfieldcloudutils.h"
+#include "qgsvectorlayerjoininfo.h"
 
 #include <QtTest>
 #include <qgsproject.h>
@@ -59,7 +60,12 @@ class TestDeltaFileWrapper : public QObject
       mLayer.reset( new QgsVectorLayer( QStringLiteral( "Point?crs=EPSG:3857&field=fid:integer&field=int:integer&field=dbl:double&field=str:string&field=attachment:string" ), QStringLiteral( "layer_name" ), QStringLiteral( "memory" ) ) );
       mLayer->setEditorWidgetSetup( mLayer->fields().indexFromName( QStringLiteral( "attachment" ) ), QgsEditorWidgetSetup( QStringLiteral( "ExternalResource" ), QVariantMap() ) );
 
+      mJoinedLayer.reset( new QgsVectorLayer( QStringLiteral( "NoGeometry?field=fid:integer&field=number_field:integer" ), QStringLiteral( "joined_layer" ), QStringLiteral( "memory" ) ) );
+
+      QVERIFY( mLayer->isValid() );
+      QVERIFY( mJoinedLayer->isValid() );
       QVERIFY( QgsProject::instance()->addMapLayer( mLayer.get(), false, false ) );
+      QVERIFY( QgsProject::instance()->addMapLayer( mJoinedLayer.get(), false, false ) );
     }
 
 
@@ -68,11 +74,17 @@ class TestDeltaFileWrapper : public QObject
       mTmpFile.resize( 0 );
 
       QgsProject::instance()->removeMapLayer( mLayer.get() );
+      QgsProject::instance()->removeMapLayer( mJoinedLayer.get() );
 
       mLayer.reset( new QgsVectorLayer( QStringLiteral( "Point?crs=EPSG:3857&field=fid:integer&field=int:integer&field=dbl:double&field=str:string&field=attachment:string" ), QStringLiteral( "layer_name" ), QStringLiteral( "memory" ) ) );
       mLayer->setEditorWidgetSetup( mLayer->fields().indexFromName( QStringLiteral( "attachment" ) ), QgsEditorWidgetSetup( QStringLiteral( "ExternalResource" ), QVariantMap() ) );
 
+      mJoinedLayer.reset( new QgsVectorLayer( QStringLiteral( "NoGeometry?field=fid:integer&field=number_field:integer" ), QStringLiteral( "joined_Layer" ), QStringLiteral( "memory" ) ) );
+
+      QVERIFY( mLayer->isValid() );
+      QVERIFY( mJoinedLayer->isValid() );
       QVERIFY( QgsProject::instance()->addMapLayer( mLayer.get(), false, false ) );
+      QVERIFY( QgsProject::instance()->addMapLayer( mJoinedLayer.get(), false, false ) );
 
       QgsFeature f( mLayer->fields(), 1 );
 
@@ -85,6 +97,14 @@ class TestDeltaFileWrapper : public QObject
       QVERIFY( mLayer->startEditing() );
       QVERIFY( mLayer->addFeature( f ) );
       QVERIFY( mLayer->commitChanges() );
+
+      QgsFeature jf1( mJoinedLayer->fields() );
+      jf1.setAttribute( QStringLiteral( "fid" ), 1 );
+      jf1.setAttribute( QStringLiteral( "number_field" ), 100 );
+
+      QVERIFY( mJoinedLayer->startEditing() );
+      QVERIFY( mJoinedLayer->addFeature( jf1 ) );
+      QVERIFY( mJoinedLayer->commitChanges() );
     }
 
 
@@ -1468,6 +1488,230 @@ class TestDeltaFileWrapper : public QObject
     }
 
 
+    void testAddCreateWithJoinedLayer()
+    {
+      QgsVectorLayerJoinInfo ji;
+      ji.setTargetFieldName( QStringLiteral( "fid" ) );
+      ji.setJoinLayer( mJoinedLayer.get() );
+      ji.setJoinFieldName( QStringLiteral( "fid" ) );
+      ji.setPrefix( QString( "" ) );
+      ji.setEditable( false );
+
+      QVERIFY( mLayer->addJoin( ji ) );
+
+      DeltaFileWrapper dfw( mProject, QString( std::tmpnam( nullptr ) ) );
+      QgsFeature f( mLayer->fields(), 2 );
+      f.setAttribute( QStringLiteral( "fid" ), 2 );
+      f.setAttribute( QStringLiteral( "dbl" ), 3.14 );
+      f.setAttribute( QStringLiteral( "int" ), 42 );
+      f.setAttribute( QStringLiteral( "str" ), QStringLiteral( "stringy" ) );
+      f.setAttribute( QStringLiteral( "attachment" ), mAttachmentFileName );
+
+      QVERIFY( f.isValid() );
+      QVERIFY( mLayer->startEditing() );
+      QVERIFY( mLayer->addFeature( f ) );
+      QVERIFY( mLayer->commitChanges() );
+
+      QgsFeature savedFeat = mLayer->getFeature( 2 );
+
+      dfw.addCreate( mLayer->id(), mLayer->id(), QStringLiteral( "fid" ), QStringLiteral( "fid" ), savedFeat );
+
+      QCOMPARE( QJsonDocument( getDeltasArray( dfw.toString() ) ), QJsonDocument::fromJson( QStringLiteral( R""""(
+        [
+          {
+            "uuid": "11111111-1111-1111-1111-111111111111",
+            "localLayerId": "dummyLayerIdL1",
+            "localPk": "2",
+            "sourceLayerId": "dummyLayerIdS1",
+            "sourcePk": "2",
+            "method": "create",
+            "new": {
+              "attributes": {
+                "attachment": "%1",
+                "dbl": 3.14,
+                "fid": 2,
+                "int": 42,
+                "str": "stringy"
+              },
+              "files_sha256": {
+                "%1": "%2"
+              },
+              "geometry": null
+            }
+          }
+        ]
+      )"""" )
+                .arg( mAttachmentFileName, mAttachmentFileChecksum )
+                .toUtf8() ) );
+    }
+
+
+    void testAddCreateWithExpressionField()
+    {
+      DeltaFileWrapper dfw( mProject, QString( std::tmpnam( nullptr ) ) );
+      QgsFields fields = mLayer->fields();
+      QgsField expressionField( QStringLiteral( "expression" ), QVariant::String, QStringLiteral( "text" ) );
+
+      QgsFeature f( fields, 2 );
+      f.setAttribute( QStringLiteral( "fid" ), 2 );
+      f.setAttribute( QStringLiteral( "dbl" ), 3.14 );
+      f.setAttribute( QStringLiteral( "int" ), 42 );
+      f.setAttribute( QStringLiteral( "str" ), QStringLiteral( "stringy" ) );
+      f.setAttribute( QStringLiteral( "attachment" ), mAttachmentFileName );
+
+      QVERIFY( f.isValid() );
+      QVERIFY( mLayer->startEditing() );
+      QVERIFY( mLayer->addFeature( f ) );
+      QVERIFY( mLayer->commitChanges() );
+      QVERIFY( mLayer->addExpressionField( QStringLiteral( " UPPER( str ) " ), expressionField ) >= 0 );
+
+      QgsFeature savedFeat = mLayer->getFeature( 2 );
+
+      dfw.addCreate( mLayer->id(), mLayer->id(), QStringLiteral( "fid" ), QStringLiteral( "fid" ), savedFeat );
+
+      QCOMPARE( QJsonDocument( getDeltasArray( dfw.toString() ) ), QJsonDocument::fromJson( QStringLiteral( R""""(
+        [
+          {
+            "uuid": "11111111-1111-1111-1111-111111111111",
+            "localLayerId": "dummyLayerIdL1",
+            "localPk": "2",
+            "sourceLayerId": "dummyLayerIdS1",
+            "sourcePk": "2",
+            "method": "create",
+            "new": {
+              "attributes": {
+                "attachment": "%1",
+                "dbl": 3.14,
+                "fid": 2,
+                "int": 42,
+                "str": "stringy"
+              },
+              "files_sha256": {
+                "%1": "%2"
+              },
+              "geometry": null
+            }
+          }
+        ]
+      )"""" )
+                .arg( mAttachmentFileName, mAttachmentFileChecksum )
+                .toUtf8() ) );
+    }
+
+
+    void testAddPatchWithJoinedLayer()
+    {
+      QgsVectorLayerJoinInfo ji;
+      ji.setTargetFieldName( QStringLiteral( "fid" ) );
+      ji.setJoinLayer( mJoinedLayer.get() );
+      ji.setJoinFieldName( QStringLiteral( "fid" ) );
+      ji.setPrefix( QString( "" ) );
+      ji.setEditable( false );
+
+      QVERIFY( mLayer->addJoin( ji ) );
+
+      DeltaFileWrapper dfw( mProject, QString( std::tmpnam( nullptr ) ) );
+      QgsFields fields = mLayer->fields();
+      QgsField expressionField( QStringLiteral( "expression" ), QVariant::String, QStringLiteral( "text" ) );
+
+      QgsFeature oldFeature = mLayer->getFeature( 1 );
+      QgsFeature newFeature = mLayer->getFeature( 1 );
+
+      QVERIFY( newFeature.setAttribute( QStringLiteral( "dbl" ), 9.81 ) );
+      QVERIFY( newFeature.setAttribute( QStringLiteral( "int" ), 680 ) );
+      QVERIFY( newFeature.setAttribute( QStringLiteral( "str" ), QStringLiteral( "pingy" ) ) );
+
+      // Patch both the attributes with existing attachment and the geometry
+      oldFeature.setGeometry( QgsGeometry( new QgsPoint( 25.9657, 43.8356 ) ) );
+      newFeature.setGeometry( QgsGeometry( new QgsPoint( 23.398819, 41.7672147 ) ) );
+
+      dfw.addPatch( mLayer->id(), mLayer->id(), QStringLiteral( "fid" ), QStringLiteral( "fid" ), oldFeature, newFeature );
+
+      QCOMPARE( QJsonDocument( getDeltasArray( dfw.toString() ) ), QJsonDocument::fromJson( QStringLiteral( R""""(
+        [
+          {
+            "uuid": "11111111-1111-1111-1111-111111111111",
+            "localLayerId": "dummyLayerIdL1",
+            "localPk": "1",
+            "sourceLayerId": "dummyLayerIdS1",
+            "sourcePk": "1",
+            "method": "patch",
+            "new": {
+              "attributes": {
+                "dbl": 9.81,
+                "int": 680,
+                "str": "pingy"
+              },
+              "geometry": "Point (23.39881899999999959 41.7672146999999967)"
+            },
+            "old": {
+              "attributes": {
+                "dbl": 3.14,
+                "int": 42,
+                "str": "stringy"
+              },
+              "geometry": "Point (25.96569999999999823 43.83559999999999945)"
+            }
+          }
+        ]
+      )"""" )
+                .toUtf8() ) );
+    }
+
+
+    void testAddPatchWithExpressionField()
+    {
+      DeltaFileWrapper dfw( mProject, QString( std::tmpnam( nullptr ) ) );
+      QgsFields fields = mLayer->fields();
+      QgsField expressionField( QStringLiteral( "expression" ), QVariant::String, QStringLiteral( "text" ) );
+
+      // this is the easiest way to create an expression field
+      QVERIFY( mLayer->addExpressionField( QStringLiteral( " UPPER( str ) " ), expressionField ) >= 0 );
+
+      QgsFeature oldFeature = mLayer->getFeature( 1 );
+      QgsFeature newFeature = mLayer->getFeature( 1 );
+
+      QVERIFY( newFeature.setAttribute( QStringLiteral( "dbl" ), 9.81 ) );
+      QVERIFY( newFeature.setAttribute( QStringLiteral( "int" ), 680 ) );
+      QVERIFY( newFeature.setAttribute( QStringLiteral( "str" ), QStringLiteral( "pingy" ) ) );
+
+      // Patch both the attributes with existing attachment and the geometry
+      oldFeature.setGeometry( QgsGeometry( new QgsPoint( 25.9657, 43.8356 ) ) );
+      newFeature.setGeometry( QgsGeometry( new QgsPoint( 23.398819, 41.7672147 ) ) );
+
+      dfw.addPatch( mLayer->id(), mLayer->id(), QStringLiteral( "fid" ), QStringLiteral( "fid" ), oldFeature, newFeature );
+
+      QCOMPARE( QJsonDocument( getDeltasArray( dfw.toString() ) ), QJsonDocument::fromJson( QStringLiteral( R""""(
+        [
+          {
+            "uuid": "11111111-1111-1111-1111-111111111111",
+            "localLayerId": "dummyLayerIdL1",
+            "localPk": "1",
+            "sourceLayerId": "dummyLayerIdS1",
+            "sourcePk": "1",
+            "method": "patch",
+            "new": {
+              "attributes": {
+                "dbl": 9.81,
+                "int": 680,
+                "str": "pingy"
+              },
+              "geometry": "Point (23.39881899999999959 41.7672146999999967)"
+            },
+            "old": {
+              "attributes": {
+                "dbl": 3.14,
+                "int": 42,
+                "str": "stringy"
+              },
+              "geometry": "Point (25.96569999999999823 43.83559999999999945)"
+            }
+          }
+        ]
+      )"""" )
+                .toUtf8() ) );
+    }
+
   private:
     QgsProject *mProject = QgsProject::instance();
 
@@ -1476,6 +1720,7 @@ class TestDeltaFileWrapper : public QObject
 
 
     std::unique_ptr<QgsVectorLayer> mLayer;
+    std::unique_ptr<QgsVectorLayer> mJoinedLayer;
 
 
     QString mAttachmentFileName;
