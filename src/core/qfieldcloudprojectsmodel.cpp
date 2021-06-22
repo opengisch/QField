@@ -789,7 +789,7 @@ void QFieldCloudProjectsModel::uploadProject( const QString &projectId, const bo
     // ? should we also check the checksums of the files being uploaded? they are available at deltaFile->attachmentFileNames()->values()
     mCloudProjects[index].uploadAttachments.insert( fileName, FileTransfer( fileName, fileSize ) );
   }
-  projectSetSetting( projectId, QStringLiteral( "uploadAttachments" ), QStringList( mCloudProjects[index].uploadAttachments.keys() ) );
+  QFieldCloudUtils::setProjectSetting( projectId, QStringLiteral( "uploadAttachments" ), QStringList( mCloudProjects[index].uploadAttachments.keys() ) );
 
   QString deltaFileToUpload = deltaFileWrapper->toFileForUpload();
 
@@ -928,7 +928,7 @@ void QFieldCloudProjectsModel::uploadProject( const QString &projectId, const bo
         mCloudProjects[index].modification |= RemoteModification;
 
         mCloudProjects[index].lastLocalPushDeltas = QDateTime::currentDateTimeUtc().toString( Qt::ISODate );
-        projectSetSetting( projectId, QStringLiteral( "lastLocalPushDeltas" ), mCloudProjects[index].lastLocalPushDeltas );
+        QFieldCloudUtils::setProjectSetting( projectId, QStringLiteral( "lastLocalPushDeltas" ), mCloudProjects[index].lastLocalPushDeltas );
 
         emit dataChanged( idx, idx, QVector<int>() << ModificationRole << LastLocalPushDeltasRole );
 
@@ -1153,7 +1153,7 @@ void QFieldCloudProjectsModel::projectUploadAttachments( const QString &projectI
       else
       {
         mCloudProjects[index].uploadAttachments.remove( fileName );
-        projectSetSetting( projectId, QStringLiteral( "uploadAttachments" ), QStringList( mCloudProjects[index].uploadAttachments.keys() ) );
+        QFieldCloudUtils::setProjectSetting( projectId, QStringLiteral( "uploadAttachments" ), QStringList( mCloudProjects[index].uploadAttachments.keys() ) );
       }
 
       if ( mCloudProjects[index].uploadAttachments.size() - mCloudProjects[index].uploadAttachmentsFailed == 0 )
@@ -1426,7 +1426,7 @@ void QFieldCloudProjectsModel::downloadFileConnections( const QString &projectId
         mCloudProjects[index].checkout = ProjectCheckout::LocalAndRemoteCheckout;
         mCloudProjects[index].localPath = QFieldCloudUtils::localProjectFilePath( mUsername, projectId );
         mCloudProjects[index].lastLocalExport = QDateTime::currentDateTimeUtc().toString( Qt::ISODate );
-        projectSetSetting( projectId, QStringLiteral( "lastLocalExport" ), mCloudProjects[index].lastLocalExport );
+        QFieldCloudUtils::setProjectSetting( projectId, QStringLiteral( "lastLocalExport" ), mCloudProjects[index].lastLocalExport );
 
         emit projectDownloaded( projectId, mCloudProjects[index].name, false );
       }
@@ -1498,10 +1498,10 @@ void QFieldCloudProjectsModel::reload( const QJsonArray &remoteProjects )
   auto restoreLocalSettings = [ = ]( CloudProject & cloudProject, const QDir & localPath )
   {
     cloudProject.deltasCount = DeltaFileWrapper( qgisProject, QStringLiteral( "%1/deltafile.json" ).arg( localPath.absolutePath() ) ).count();
-    cloudProject.lastLocalExport = projectSetting( cloudProject.id, QStringLiteral( "lastLocalExport" ) ).toString();
-    cloudProject.lastLocalPushDeltas = projectSetting( cloudProject.id, QStringLiteral( "lastLocalPushDeltas" ) ).toString();
+    cloudProject.lastLocalExport = QFieldCloudUtils::projectSetting( cloudProject.id, QStringLiteral( "lastLocalExport" ) ).toString();
+    cloudProject.lastLocalPushDeltas = QFieldCloudUtils::projectSetting( cloudProject.id, QStringLiteral( "lastLocalPushDeltas" ) ).toString();
 
-    const QStringList fileNames = projectSetting( cloudProject.id, QStringLiteral( "uploadAttachments" ) ).toStringList();
+    const QStringList fileNames = QFieldCloudUtils::projectSetting( cloudProject.id, QStringLiteral( "uploadAttachments" ) ).toStringList();
     for ( const QString &fileName : fileNames )
     {
       QFileInfo fileInfo( fileName );
@@ -1524,11 +1524,11 @@ void QFieldCloudProjectsModel::reload( const QJsonArray &remoteProjects )
                                ProjectStatus::Idle );
 
     const QString projectPrefix = QStringLiteral( "QFieldCloud/projects/%1" ).arg( cloudProject.id );
-    projectSetSetting( cloudProject.id, QStringLiteral( "owner" ), cloudProject.owner );
-    projectSetSetting( cloudProject.id, QStringLiteral( "name" ), cloudProject.name );
-    projectSetSetting( cloudProject.id, QStringLiteral( "description" ), cloudProject.description );
-    projectSetSetting( cloudProject.id, QStringLiteral( "updatedAt" ), cloudProject.updatedAt );
-    projectSetSetting( cloudProject.id, QStringLiteral( "userRole" ), cloudProject.userRole );
+    QFieldCloudUtils::setProjectSetting( cloudProject.id, QStringLiteral( "owner" ), cloudProject.owner );
+    QFieldCloudUtils::setProjectSetting( cloudProject.id, QStringLiteral( "name" ), cloudProject.name );
+    QFieldCloudUtils::setProjectSetting( cloudProject.id, QStringLiteral( "description" ), cloudProject.description );
+    QFieldCloudUtils::setProjectSetting( cloudProject.id, QStringLiteral( "updatedAt" ), cloudProject.updatedAt );
+    QFieldCloudUtils::setProjectSetting( cloudProject.id, QStringLiteral( "userRole" ), cloudProject.userRole );
 
     if ( !mUsername.isEmpty() )
     {
@@ -1568,11 +1568,11 @@ void QFieldCloudProjectsModel::reload( const QJsonArray &remoteProjects )
       if ( !QSettings().contains( QStringLiteral( "%1/name" ).arg( projectPrefix ) ) )
         continue;
 
-      const QString owner = projectSetting( projectId, QStringLiteral( "owner" ) ).toString();
-      const QString name = projectSetting( projectId, QStringLiteral( "name" ) ).toString();
-      const QString description = projectSetting( projectId, QStringLiteral( "description" ) ).toString();
-      const QString updatedAt = projectSetting( projectId, QStringLiteral( "updatedAt" ) ).toString();
-      const QString userRole = projectSetting( projectId, QStringLiteral( "userRole" ) ).toString();
+      const QString owner = QFieldCloudUtils::projectSetting( projectId, QStringLiteral( "owner" ) ).toString();
+      const QString name = QFieldCloudUtils::projectSetting( projectId, QStringLiteral( "name" ) ).toString();
+      const QString description = QFieldCloudUtils::projectSetting( projectId, QStringLiteral( "description" ) ).toString();
+      const QString updatedAt = QFieldCloudUtils::projectSetting( projectId, QStringLiteral( "updatedAt" ) ).toString();
+      const QString userRole = QFieldCloudUtils::projectSetting( projectId, QStringLiteral( "userRole" ) ).toString();
 
       CloudProject cloudProject( projectId, true, owner, name, description, userRole, QString(), LocalCheckout, ProjectStatus::Idle );
 
@@ -1780,18 +1780,6 @@ QStringList QFieldCloudProjectsModel::projectFileNames( const QString &projectPa
   }
 
   return prefixedFileNames;
-}
-
-void QFieldCloudProjectsModel::projectSetSetting( const QString &projectId, const QString &setting, const QVariant &value )
-{
-  const QString projectPrefix = QStringLiteral( "QFieldCloud/projects/%1" ).arg( projectId );
-  return QSettings().setValue( QStringLiteral( "%1/%2" ).arg( projectPrefix, setting ), value );
-}
-
-QVariant QFieldCloudProjectsModel::projectSetting( const QString &projectId, const QString &setting, const QVariant &defaultValue )
-{
-  const QString projectPrefix = QStringLiteral( "QFieldCloud/projects/%1" ).arg( projectId );
-  return QSettings().value( QStringLiteral( "%1/%2" ).arg( projectPrefix, setting ), defaultValue );
 }
 
 // --

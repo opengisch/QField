@@ -49,6 +49,12 @@ class QFieldCloudUtils : public QObject
      */
     Q_INVOKABLE static const QString getProjectId( const QString &fileName );
 
+    //! Sets a \a setting to a given \a value for project with given \a projectId to the permanent storage.
+    static void setProjectSetting( const QString &projectId, const QString &setting, const QVariant &value );
+
+    //! Gets a \a setting value for project with given \a projectId from the permanent storage. Return \a defaultValue if not present.
+    static const QVariant projectSetting( const QString &projectId, const QString &setting, const QVariant &defaultValue = QVariant() );
+
   private:
     static QString sQgisSettingsDirPath;
 
