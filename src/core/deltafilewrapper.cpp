@@ -455,6 +455,8 @@ void DeltaFileWrapper::addPatch( const QString &localLayerId, const QString &sou
     { "sourcePk", oldFeature.attribute( sourcePkAttrName ).toString() },
     { "sourceLayerId", sourceLayerId },
     { "uuid", QUuid::createUuid().toString( QUuid::WithoutBraces ) },
+    { "exportId", QFieldCloudUtils::projectSetting( mCloudProjectId, QStringLiteral( "lastExportId" ) ).toString() },
+    { "clientId", QFieldCloudUtils::projectSetting( mCloudProjectId, QStringLiteral( "lastLocalExportId" ) ).toString() },
   } );
 
   const QStringList attachmentFieldsList = attachmentFieldNames( mProject, localLayerId );
@@ -646,6 +648,8 @@ void DeltaFileWrapper::addDelete( const QString &localLayerId, const QString &so
     { "sourcePk", oldFeature.attribute( sourcePkAttrName ).toString() },
     { "sourceLayerId", sourceLayerId },
     { "uuid", QUuid::createUuid().toString( QUuid::WithoutBraces ) },
+    { "exportId", QFieldCloudUtils::projectSetting( mCloudProjectId, QStringLiteral( "lastExportId" ) ).toString() },
+    { "clientId", QFieldCloudUtils::projectSetting( mCloudProjectId, QStringLiteral( "lastLocalExportId" ) ).toString() },
   } );
 
   QMap<QString, int> layerPkDeltaIdx = mLocalPkDeltaIdx.value( localLayerId );
@@ -715,6 +719,8 @@ void DeltaFileWrapper::addCreate( const QString &localLayerId, const QString &so
     { "sourcePk", newFeature.attribute( sourcePkAttrName ).toString() },
     { "sourceLayerId", sourceLayerId },
     { "uuid", QUuid::createUuid().toString( QUuid::WithoutBraces ) },
+    { "exportId", QFieldCloudUtils::projectSetting( mCloudProjectId, QStringLiteral( "lastExportId" ) ).toString() },
+    { "clientId", QFieldCloudUtils::projectSetting( mCloudProjectId, QStringLiteral( "lastLocalExportId" ) ).toString() },
   } );
   const QStringList attachmentFieldsList = attachmentFieldNames( mProject, localLayerId );
   const QgsAttributes newAttrs = newFeature.attributes();

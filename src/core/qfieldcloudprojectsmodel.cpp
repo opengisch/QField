@@ -540,10 +540,13 @@ void QFieldCloudProjectsModel::projectGetExportStatus( const QString &projectId 
 
           const QJsonObject exportedFilesPayload = QJsonDocument::fromJson( exportedFilesRawReply->readAll() ).object();
 
+          mCloudProjects[index].lastExportedAt = exportedFilesPayload.value( QStringLiteral( "exported_at" ) ).toString();
+          mCloudProjects[index].lastExportId = exportedFilesPayload.value( QStringLiteral( "export_id" ) ).toString();
+
           QgsLogger::debug( QStringLiteral( "Export files list request finished for \"%1\" with no error and response: %2" ).arg( projectId, QString::fromUtf8( QJsonDocument( exportedFilesPayload ).toJson( QJsonDocument::Indented ) ) ) );
 
           const QJsonArray files = exportedFilesPayload.value( QStringLiteral( "files" ) ).toArray();
-          for ( const QJsonValue file : files )
+          for ( const QJsonValue &file : files )
           {
             QJsonObject fileObject = file.toObject();
             QString fileName = fileObject.value( QStringLiteral( "name" ) ).toString();
@@ -1425,8 +1428,12 @@ void QFieldCloudProjectsModel::downloadFileConnections( const QString &projectId
         mCloudProjects[index].exportStatusString = QString();
         mCloudProjects[index].checkout = ProjectCheckout::LocalAndRemoteCheckout;
         mCloudProjects[index].localPath = QFieldCloudUtils::localProjectFilePath( mUsername, projectId );
-        mCloudProjects[index].lastLocalExport = QDateTime::currentDateTimeUtc().toString( Qt::ISODate );
-        QFieldCloudUtils::setProjectSetting( projectId, QStringLiteral( "lastLocalExport" ), mCloudProjects[index].lastLocalExport );
+        mCloudProjects[index].lastLocalExportedAt = QDateTime::currentDateTimeUtc().toString( Qt::ISODate );
+        mCloudProjects[index].lastLocalExportId = QUuid::createUuid().toString( QUuid::WithoutBraces );
+        QFieldCloudUtils::setProjectSetting( projectId, QStringLiteral( "lastExportedAt" ), mCloudProjects[index].lastExportedAt );
+        QFieldCloudUtils::setProjectSetting( projectId, QStringLiteral( "lastExportId" ), mCloudProjects[index].lastExportId );
+        QFieldCloudUtils::setProjectSetting( projectId, QStringLiteral( "lastLocalExportedAt" ), mCloudProjects[index].lastLocalExportedAt );
+        QFieldCloudUtils::setProjectSetting( projectId, QStringLiteral( "lastLocalExportId" ), mCloudProjects[index].lastLocalExportId );
 
         emit projectDownloaded( projectId, mCloudProjects[index].name, false );
       }
@@ -1440,7 +1447,7 @@ void QFieldCloudProjectsModel::downloadFileConnections( const QString &projectId
     }
 
     QModelIndex idx = createIndex( index, 0 );
-    rolesChanged << StatusRole << LocalPathRole << CheckoutRole << LastLocalExportRole;
+    rolesChanged << StatusRole << LocalPathRole << CheckoutRole << LastLocalExportedAtRole;
 
     emit dataChanged( idx, idx, rolesChanged );
   } );
@@ -1480,7 +1487,7 @@ QHash<int, QByteArray> QFieldCloudProjectsModel::roleNames() const
   roles[LocalDeltasCountRole] = "LocalDeltasCount";
   roles[LocalPathRole] = "LocalPath";
   roles[CanSyncRole] = "CanSync";
-  roles[LastLocalExportRole] = "LastLocalExport";
+  roles[LastLocalExportedAtRole] = "LastLocalExportedAt";
   roles[LastLocalPushDeltasRole] = "LastLocalPushDeltas";
   roles[UserRoleRole] = "UserRole";
   roles[DeltaListRole] = "DeltaList";
@@ -1498,8 +1505,20 @@ void QFieldCloudProjectsModel::reload( const QJsonArray &remoteProjects )
   auto restoreLocalSettings = [ = ]( CloudProject & cloudProject, const QDir & localPath )
   {
     cloudProject.deltasCount = DeltaFileWrapper( qgisProject, QStringLiteral( "%1/deltafile.json" ).arg( localPath.absolutePath() ) ).count();
-    cloudProject.lastLocalExport = QFieldCloudUtils::projectSetting( cloudProject.id, QStringLiteral( "lastLocalExport" ) ).toString();
+    cloudProject.lastExportId = QFieldCloudUtils::projectSetting( cloudProject.id, QStringLiteral( "lastExportId" ) ).toString();
+    cloudProject.lastExportedAt = QFieldCloudUtils::projectSetting( cloudProject.id, QStringLiteral( "lastExportedAt" ) ).toString();
+    cloudProject.lastLocalExportId = QFieldCloudUtils::projectSetting( cloudProject.id, QStringLiteral( "lastLocalExportId" ) ).toString();
+    cloudProject.lastLocalExportedAt = QFieldCloudUtils::projectSetting( cloudProject.id, QStringLiteral( "lastLocalExportedAt" ) ).toString();
     cloudProject.lastLocalPushDeltas = QFieldCloudUtils::projectSetting( cloudProject.id, QStringLiteral( "lastLocalPushDeltas" ) ).toString();
+
+    // generate local export id if not present. Possible reasons for missing localExportId are:
+    // - just upgraded QField that introduced the field
+    // - the local settings were somehow deleted, but not the project itself
+    if ( cloudProject.lastLocalExportId.isEmpty() )
+    {
+      cloudProject.lastLocalExportId = QUuid::createUuid().toString( QUuid::WithoutBraces );
+      QFieldCloudUtils::setProjectSetting( cloudProject.id, QStringLiteral( "lastLocalExportId" ), cloudProject.lastLocalExportId );
+    }
 
     const QStringList fileNames = QFieldCloudUtils::projectSetting( cloudProject.id, QStringLiteral( "uploadAttachments" ) ).toStringList();
     for ( const QString &fileName : fileNames )
@@ -1650,8 +1669,8 @@ QVariant QFieldCloudProjectsModel::data( const QModelIndex &index, int role ) co
       return mCloudProjects.at( index.row() ).localPath;
     case CanSyncRole:
       return canSyncProject( mCloudProjects.at( index.row() ).id );
-    case LastLocalExportRole:
-      return mCloudProjects.at( index.row() ).lastLocalExport;
+    case LastLocalExportedAtRole:
+      return mCloudProjects.at( index.row() ).lastLocalExportedAt;
     case LastLocalPushDeltasRole:
       return mCloudProjects.at( index.row() ).lastLocalPushDeltas;
     case UserRoleRole:

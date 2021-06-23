@@ -66,6 +66,9 @@ class TestDeltaFileWrapper : public QObject
       QVERIFY( mJoinedLayer->isValid() );
       QVERIFY( QgsProject::instance()->addMapLayer( mLayer.get(), false, false ) );
       QVERIFY( QgsProject::instance()->addMapLayer( mJoinedLayer.get(), false, false ) );
+
+      QFieldCloudUtils::setProjectSetting( QStringLiteral( "TEST_PROJECT_ID" ), QStringLiteral( "lastLocalExportId" ), QStringLiteral( "22222222-2222-2222-2222-222222222222" ) );
+      QFieldCloudUtils::setProjectSetting( QStringLiteral( "TEST_PROJECT_ID" ), QStringLiteral( "lastExportId" ), QStringLiteral( "33333333-3333-3333-3333-333333333333" ) );
     }
 
 
@@ -330,6 +333,8 @@ class TestDeltaFileWrapper : public QObject
           "deltas": [
             {
               "uuid": "11111111-1111-1111-1111-111111111111",
+              "clientId": "22222222-2222-2222-2222-222222222222",
+              "exportId": "33333333-3333-3333-3333-333333333333",
               "localLayerId": "dummyLayerIdL1",
               "localPk": "100",
               "sourceLayerId": "dummyLayerIdS1",
@@ -344,6 +349,8 @@ class TestDeltaFileWrapper : public QObject
             },
             {
               "uuid": "11111111-1111-1111-1111-111111111111",
+              "clientId": "22222222-2222-2222-2222-222222222222",
+              "exportId": "33333333-3333-3333-3333-333333333333",
               "localLayerId": "dummyLayerIdL1",
               "localPk": "101",
               "sourceLayerId": "dummyLayerIdS1",
@@ -389,6 +396,8 @@ class TestDeltaFileWrapper : public QObject
           "deltas": [
             {
               "uuid": "11111111-1111-1111-1111-111111111111",
+              "clientId": "22222222-2222-2222-2222-222222222222",
+              "exportId": "33333333-3333-3333-3333-333333333333",
               "localLayerId": "dummyLayerIdL1",
               "localPk": "100",
               "sourceLayerId": "dummyLayerIdS1",
@@ -403,6 +412,8 @@ class TestDeltaFileWrapper : public QObject
             },
             {
               "uuid": "11111111-1111-1111-1111-111111111111",
+              "clientId": "22222222-2222-2222-2222-222222222222",
+              "exportId": "33333333-3333-3333-3333-333333333333",
               "localLayerId": "dummyLayerIdL1",
               "localPk": "101",
               "sourceLayerId": "dummyLayerIdS1",
@@ -485,6 +496,8 @@ class TestDeltaFileWrapper : public QObject
         [
           {
             "uuid": "11111111-1111-1111-1111-111111111111",
+            "clientId": "22222222-2222-2222-2222-222222222222",
+            "exportId": "33333333-3333-3333-3333-333333333333",
             "localLayerId": "dummyLayerIdL1",
             "localPk": "100",
             "sourceLayerId": "dummyLayerIdS1",
@@ -508,6 +521,8 @@ class TestDeltaFileWrapper : public QObject
         [
           {
             "uuid": "11111111-1111-1111-1111-111111111111",
+            "clientId": "22222222-2222-2222-2222-222222222222",
+            "exportId": "33333333-3333-3333-3333-333333333333",
             "localLayerId": "dummyLayerIdL1",
             "localPk": "100",
             "sourceLayerId": "dummyLayerIdS1",
@@ -522,6 +537,8 @@ class TestDeltaFileWrapper : public QObject
           },
           {
             "uuid": "11111111-1111-1111-1111-111111111111",
+            "clientId": "22222222-2222-2222-2222-222222222222",
+            "exportId": "33333333-3333-3333-3333-333333333333",
             "localLayerId": "dummyLayerIdL1",
             "localPk": "101",
             "sourceLayerId": "dummyLayerIdS1",
@@ -587,6 +604,8 @@ class TestDeltaFileWrapper : public QObject
           "deltas": [
             {
               "uuid": "11111111-1111-1111-1111-111111111111",
+              "clientId": "22222222-2222-2222-2222-222222222222",
+              "exportId": "33333333-3333-3333-3333-333333333333",
               "localLayerId": "%1",
               "localPk": "100",
               "sourceLayerId": "%1",
@@ -607,6 +626,8 @@ class TestDeltaFileWrapper : public QObject
             },
             {
               "uuid": "11111111-1111-1111-1111-111111111111",
+              "clientId": "22222222-2222-2222-2222-222222222222",
+              "exportId": "33333333-3333-3333-3333-333333333333",
               "localLayerId": "%1",
               "localPk": "102",
               "sourceLayerId": "%1",
@@ -627,6 +648,8 @@ class TestDeltaFileWrapper : public QObject
             },
             {
               "uuid": "11111111-1111-1111-1111-111111111111",
+              "clientId": "22222222-2222-2222-2222-222222222222",
+              "exportId": "33333333-3333-3333-3333-333333333333",
               "localLayerId": "%1",
               "localPk": "102",
               "sourceLayerId": "%1",
@@ -694,6 +717,8 @@ class TestDeltaFileWrapper : public QObject
         [
           {
             "uuid": "11111111-1111-1111-1111-111111111111",
+            "clientId": "22222222-2222-2222-2222-222222222222",
+            "exportId": "33333333-3333-3333-3333-333333333333",
             "localLayerId": "dummyLayerIdL1",
             "localPk": "100",
             "sourceLayerId": "dummyLayerIdS1",
@@ -730,6 +755,8 @@ class TestDeltaFileWrapper : public QObject
         [
           {
             "uuid": "11111111-1111-1111-1111-111111111111",
+            "clientId": "22222222-2222-2222-2222-222222222222",
+            "exportId": "33333333-3333-3333-3333-333333333333",
             "localLayerId": "dummyLayerIdL1",
             "localPk": "100",
             "sourceLayerId": "dummyLayerIdS1",
@@ -771,6 +798,8 @@ class TestDeltaFileWrapper : public QObject
         [
           {
             "uuid": "11111111-1111-1111-1111-111111111111",
+            "clientId": "22222222-2222-2222-2222-222222222222",
+            "exportId": "33333333-3333-3333-3333-333333333333",
             "localLayerId": "dummyLayerIdL1",
             "localPk": "101",
             "sourceLayerId": "dummyLayerIdS1",
@@ -815,6 +844,8 @@ class TestDeltaFileWrapper : public QObject
         [
           {
             "uuid": "11111111-1111-1111-1111-111111111111",
+            "clientId": "22222222-2222-2222-2222-222222222222",
+            "exportId": "33333333-3333-3333-3333-333333333333",
             "localLayerId": "dummyLayerIdL1",
             "localPk": "100",
             "sourceLayerId": "dummyLayerIdS1",
@@ -860,6 +891,8 @@ class TestDeltaFileWrapper : public QObject
         [
           {
             "uuid": "11111111-1111-1111-1111-111111111111",
+            "clientId": "22222222-2222-2222-2222-222222222222",
+            "exportId": "33333333-3333-3333-3333-333333333333",
             "localLayerId": "dummyLayerIdL1",
             "localPk": "100",
             "sourceLayerId": "dummyLayerIdS1",
@@ -915,6 +948,8 @@ class TestDeltaFileWrapper : public QObject
         [
           {
             "uuid": "11111111-1111-1111-1111-111111111111",
+            "clientId": "22222222-2222-2222-2222-222222222222",
+            "exportId": "33333333-3333-3333-3333-333333333333",
             "localLayerId": "dummyLayerIdL1",
             "localPk": "100",
             "sourceLayerId": "dummyLayerIdS1",
@@ -958,6 +993,8 @@ class TestDeltaFileWrapper : public QObject
           [
             {
               "uuid": "11111111-1111-1111-1111-111111111111",
+              "clientId": "22222222-2222-2222-2222-222222222222",
+              "exportId": "33333333-3333-3333-3333-333333333333",
               "localLayerId": "dummyLayerIdL1",
               "localPk": "100",
               "sourceLayerId": "dummyLayerIdS1",
@@ -1003,6 +1040,8 @@ class TestDeltaFileWrapper : public QObject
         [
           {
             "uuid": "11111111-1111-1111-1111-111111111111",
+            "clientId": "22222222-2222-2222-2222-222222222222",
+            "exportId": "33333333-3333-3333-3333-333333333333",
             "localLayerId": "dummyLayerIdL1",
             "localPk": "100",
             "sourceLayerId": "dummyLayerIdS1",
@@ -1038,6 +1077,8 @@ class TestDeltaFileWrapper : public QObject
         [
           {
             "uuid": "11111111-1111-1111-1111-111111111111",
+            "clientId": "22222222-2222-2222-2222-222222222222",
+            "exportId": "33333333-3333-3333-3333-333333333333",
             "localLayerId": "dummyLayerIdL1",
             "localPk": "100",
             "sourceLayerId": "dummyLayerIdS1",
@@ -1079,6 +1120,8 @@ class TestDeltaFileWrapper : public QObject
         [
           {
             "uuid": "11111111-1111-1111-1111-111111111111",
+            "clientId": "22222222-2222-2222-2222-222222222222",
+            "exportId": "33333333-3333-3333-3333-333333333333",
             "localLayerId": "dummyLayerIdL1",
             "localPk": "101",
             "sourceLayerId": "dummyLayerIdS1",
@@ -1130,6 +1173,8 @@ class TestDeltaFileWrapper : public QObject
           "deltas": [
             {
               "uuid": "11111111-1111-1111-1111-111111111111",
+              "clientId": "22222222-2222-2222-2222-222222222222",
+              "exportId": "33333333-3333-3333-3333-333333333333",
               "localLayerId": "dummyLayerIdL1",
               "localPk": "100",
               "sourceLayerId": "dummyLayerIdS1",
@@ -1147,6 +1192,8 @@ class TestDeltaFileWrapper : public QObject
             },
             {
               "uuid": "11111111-1111-1111-1111-111111111111",
+              "clientId": "22222222-2222-2222-2222-222222222222",
+              "exportId": "33333333-3333-3333-3333-333333333333",
               "localLayerId": "dummyLayerIdL2",
               "localPk": "101",
               "sourceLayerId": "dummyLayerIdS2",
@@ -1161,6 +1208,8 @@ class TestDeltaFileWrapper : public QObject
             },
             {
               "uuid": "11111111-1111-1111-1111-111111111111",
+              "clientId": "22222222-2222-2222-2222-222222222222",
+              "exportId": "33333333-3333-3333-3333-333333333333",
               "localLayerId": "dummyLayerIdL1",
               "localPk": "102",
               "sourceLayerId": "dummyLayerIdS1",
@@ -1196,6 +1245,8 @@ class TestDeltaFileWrapper : public QObject
           "deltas": [
             {
               "uuid": "11111111-1111-1111-1111-111111111111",
+              "clientId": "22222222-2222-2222-2222-222222222222",
+              "exportId": "33333333-3333-3333-3333-333333333333",
               "localLayerId": "%1",
               "localPk": "100",
               "sourceLayerId": "%1",
@@ -1217,6 +1268,8 @@ class TestDeltaFileWrapper : public QObject
             },
             {
               "uuid": "11111111-1111-1111-1111-111111111111",
+              "clientId": "22222222-2222-2222-2222-222222222222",
+              "exportId": "33333333-3333-3333-3333-333333333333",
               "localLayerId": "%1",
               "localPk": "102",
               "sourceLayerId": "%1",
@@ -1238,6 +1291,8 @@ class TestDeltaFileWrapper : public QObject
             },
             {
               "uuid": "11111111-1111-1111-1111-111111111111",
+              "clientId": "22222222-2222-2222-2222-222222222222",
+              "exportId": "33333333-3333-3333-3333-333333333333",
               "localLayerId": "%1",
               "localPk": "102",
               "sourceLayerId": "%1",
@@ -1264,6 +1319,8 @@ class TestDeltaFileWrapper : public QObject
             },
             {
               "uuid": "11111111-1111-1111-1111-111111111111",
+              "clientId": "22222222-2222-2222-2222-222222222222",
+              "exportId": "33333333-3333-3333-3333-333333333333",
               "localLayerId": "%1",
               "localPk": "1",
               "sourceLayerId": "%1",
@@ -1335,6 +1392,8 @@ class TestDeltaFileWrapper : public QObject
           "deltas": [
             {
               "uuid": "11111111-1111-1111-1111-111111111111",
+              "clientId": "22222222-2222-2222-2222-222222222222",
+              "exportId": "33333333-3333-3333-3333-333333333333",
               "localLayerId": "%1",
               "localPk": "100",
               "sourceLayerId": "%1",
@@ -1356,6 +1415,8 @@ class TestDeltaFileWrapper : public QObject
             },
             {
               "uuid": "11111111-1111-1111-1111-111111111111",
+              "clientId": "22222222-2222-2222-2222-222222222222",
+              "exportId": "33333333-3333-3333-3333-333333333333",
               "localLayerId": "%1",
               "localPk": "102",
               "sourceLayerId": "%1",
@@ -1377,6 +1438,8 @@ class TestDeltaFileWrapper : public QObject
             },
             {
               "uuid": "11111111-1111-1111-1111-111111111111",
+              "clientId": "22222222-2222-2222-2222-222222222222",
+              "exportId": "33333333-3333-3333-3333-333333333333",
               "localLayerId": "%1",
               "localPk": "102",
               "sourceLayerId": "%1",
@@ -1403,6 +1466,8 @@ class TestDeltaFileWrapper : public QObject
             },
             {
               "uuid": "11111111-1111-1111-1111-111111111111",
+              "clientId": "22222222-2222-2222-2222-222222222222",
+              "exportId": "33333333-3333-3333-3333-333333333333",
               "localLayerId": "%1",
               "localPk": "1",
               "sourceLayerId": "%1",
@@ -1520,6 +1585,8 @@ class TestDeltaFileWrapper : public QObject
         [
           {
             "uuid": "11111111-1111-1111-1111-111111111111",
+            "clientId": "22222222-2222-2222-2222-222222222222",
+            "exportId": "33333333-3333-3333-3333-333333333333",
             "localLayerId": "dummyLayerIdL1",
             "localPk": "2",
             "sourceLayerId": "dummyLayerIdS1",
@@ -1573,6 +1640,8 @@ class TestDeltaFileWrapper : public QObject
         [
           {
             "uuid": "11111111-1111-1111-1111-111111111111",
+            "clientId": "22222222-2222-2222-2222-222222222222",
+            "exportId": "33333333-3333-3333-3333-333333333333",
             "localLayerId": "dummyLayerIdL1",
             "localPk": "2",
             "sourceLayerId": "dummyLayerIdS1",
@@ -1631,6 +1700,8 @@ class TestDeltaFileWrapper : public QObject
         [
           {
             "uuid": "11111111-1111-1111-1111-111111111111",
+            "clientId": "22222222-2222-2222-2222-222222222222",
+            "exportId": "33333333-3333-3333-3333-333333333333",
             "localLayerId": "dummyLayerIdL1",
             "localPk": "1",
             "sourceLayerId": "dummyLayerIdS1",
@@ -1685,6 +1756,8 @@ class TestDeltaFileWrapper : public QObject
         [
           {
             "uuid": "11111111-1111-1111-1111-111111111111",
+            "clientId": "22222222-2222-2222-2222-222222222222",
+            "exportId": "33333333-3333-3333-3333-333333333333",
             "localLayerId": "dummyLayerIdL1",
             "localPk": "1",
             "sourceLayerId": "dummyLayerIdS1",

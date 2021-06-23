@@ -62,7 +62,7 @@ class QFieldCloudProjectsModel : public QAbstractListModel
       LocalDeltasCountRole,
       LocalPathRole,
       CanSyncRole,
-      LastLocalExportRole,
+      LastLocalExportedAtRole,
       LastLocalPushDeltasRole,
       UserRoleRole,
       DeltaListRole,
@@ -351,7 +351,10 @@ class QFieldCloudProjectsModel : public QAbstractListModel
       int deltasCount = 0;
       DeltaListModel *deltaListModel = nullptr;
 
-      QString lastLocalExport;
+      QString lastExportedAt;
+      QString lastExportId;
+      QString lastLocalExportedAt;
+      QString lastLocalExportId;
       QString lastLocalPushDeltas;
     };
 

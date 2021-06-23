@@ -420,7 +420,7 @@ Popup {
             color: Theme.gray
             text: {
               var exportText = ''
-              var dt = cloudProjectsModel.currentProjectData.LastLocalExport
+              var dt = cloudProjectsModel.currentProjectData.LastLocalExportedAt
               var timeDeltaMinutes = null
 
               if (dt) {
