@@ -29,6 +29,7 @@
 
 class QgsVectorLayer;
 class FeatureGatherer;
+class OrderedRelationModel;
 
 class QFIELD_CORE_EXPORT ReferencingFeatureListModel : public QAbstractItemModel
 {
@@ -139,7 +140,7 @@ class QFIELD_CORE_EXPORT ReferencingFeatureListModel : public QAbstractItemModel
      * Deletes a feature regarding the referencing layer and the feature id of the selected child
      * \param referencingFeatureId id of the selected child
      */
-    Q_INVOKABLE bool deleteFeature( QgsFeatureId referencingFeatureId );
+    Q_INVOKABLE virtual bool deleteFeature( QgsFeatureId referencingFeatureId );
 
     /**
      * Returns the row number for a given feature id
@@ -162,8 +163,8 @@ class QFIELD_CORE_EXPORT ReferencingFeatureListModel : public QAbstractItemModel
     void modelUpdated();
 
   private slots:
-    void updateModel();
-    void gathererThreadFinished();
+    virtual void updateModel();
+    virtual void gathererThreadFinished();
 
   private:
     struct Entry
@@ -195,6 +196,7 @@ class QFIELD_CORE_EXPORT ReferencingFeatureListModel : public QAbstractItemModel
     bool checkParentPrimaries();
 
     friend class FeatureGatherer;
+    friend class OrderedRelationModel;
     friend class TestReferencingFeatureListModel;
 };
 

@@ -40,6 +40,8 @@ class AttributeFormModel : public QSortFilterProxyModel
       AttributeEditable,
       EditorWidget,
       EditorWidgetConfig,
+      RelationEditorWidget,
+      RelationEditorWidgetConfig,
       RememberValue,
       Field,
       RelationId,

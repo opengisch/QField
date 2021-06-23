@@ -7,8 +7,8 @@ import org.qfield 1.0
 import org.qgis 1.0
 import Theme 1.0
 
+import "../.."
 import ".."
-import "."
 
 EditorWidgetBase {
     id: relationEditor
@@ -269,7 +269,7 @@ EditorWidgetBase {
         if ( ! referencingFeatureListView.model.deleteFeature( referencingFeatureId ) ) {
           displayToast( qsTr( "Failed to delete referencing feature" ), 'error' )
         }
-        
+
         visible = false
       }
       onRejected: {

@@ -368,7 +368,13 @@ Page {
               font.bold: true
               topPadding: 10
               bottomPadding: 5
-              color: ConstraintHardValid ? form.state === 'ReadOnly' || embedded && EditorWidget === 'RelationEditor' ? 'grey' : ConstraintSoftValid ? 'black' : Theme.warningColor : Theme.errorColor
+              color: ConstraintHardValid
+                     ? form.state === 'ReadOnly' || embedded && EditorWidget === 'RelationEditor'
+                         ? 'grey'
+                         : ConstraintSoftValid
+                           ? 'black'
+                           : Theme.warningColor
+                     : Theme.errorColor
             }
 
             Label {
@@ -414,6 +420,8 @@ Page {
                 property var value: AttributeValue
                 property var config: ( EditorWidgetConfig || {} )
                 property var widget: EditorWidget
+                property var relationEditorWidget: RelationEditorWidget
+                property var relationEditorWidgetConfig: RelationEditorWidgetConfig
                 property var field: Field
                 property var fieldLabel: Name
                 property var relationId: RelationId
@@ -429,12 +437,19 @@ Page {
                 property var stringUtilities: StringUtils
 
                 active: widget !== 'Hidden'
-                source: 'editorwidgets/' + ( widget || 'TextEdit' ) + '.qml'
+                source: {
+                  if ( widget === 'RelationEditor' ) {
+                    return 'editorwidgets/relationeditors/' + ( RelationEditorWidget || 'relation_editor' ) + '.qml'
+                  }
+
+                  return 'editorwidgets/' + ( widget || 'TextEdit' ) + '.qml'
+                }
 
                 onStatusChanged: {
-                  if ( attributeEditorLoader.status === Loader.Error )
-                  {
-                    source = 'editorwidgets/TextEdit.qml'
+                  if ( attributeEditorLoader.status === Loader.Error ) {
+                    source = ( widget === 'RelationEditor' )
+                      ? 'editorwidgets/relationeditors/relation_editor.qml'
+                      : 'editorwidgets/TextEdit.qml'
                   }
                 }
               }

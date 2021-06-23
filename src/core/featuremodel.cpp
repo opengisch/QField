@@ -230,6 +230,21 @@ QgsRelation FeatureModel::linkedRelation() const
   return mLinkedRelation;
 }
 
+QString FeatureModel::linkedRelationOrderingField() const
+{
+  return mLinkedRelationOrderingField;
+}
+
+void FeatureModel::setLinkedRelationOrderingField( const QString &orderingField )
+{
+  if ( orderingField == mLinkedRelationOrderingField )
+    return;
+
+  mLinkedRelationOrderingField = orderingField;
+
+  emit linkedRelationOrderingFieldChanged();
+}
+
 QHash<int, QByteArray> FeatureModel::roleNames() const
 {
   QHash<int, QByteArray> roles = QAbstractListModel::roleNames();
@@ -498,6 +513,25 @@ void FeatureModel::resetAttributes()
     else if ( sRememberings->value( mLayer ).rememberedAttributes.at( i ) )
     {
       mFeature.setAttribute( i, sRememberings->value( mLayer ).rememberedFeature.attribute( i ) );
+    }
+
+    if ( mLinkedRelationOrderingField == fields.at( i ).name() && mLinkedRelation.isValid() && mLinkedParentFeature.isValid() )
+    {
+      int maxOrdering = 0;
+
+      QgsFeatureIterator relatedFeaturesIt = mLinkedRelation.getRelatedFeatures( mLinkedParentFeature );
+      QgsFeature siblingFeature;
+
+      while ( relatedFeaturesIt.nextFeature( siblingFeature ) )
+      {
+        int siblingOrdering = siblingFeature.attribute( mLinkedRelationOrderingField ).toInt();
+        if ( siblingOrdering > maxOrdering )
+          maxOrdering = siblingOrdering;
+      }
+
+      maxOrdering += 1;
+
+      mFeature.setAttribute( i, maxOrdering );
     }
   }
   endResetModel();
