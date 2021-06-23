@@ -57,7 +57,6 @@ Page {
     ImageDial{
       id: imageDialLogo
       value: 1
-
       Layout.margins: 6
       Layout.topMargin: 14
       Layout.alignment: Qt.AlignVCenter | Qt.AlignHCenter
@@ -74,12 +73,13 @@ Page {
       Layout.rightMargin: 6
       Layout.topMargin: 2
       Layout.bottomMargin: 2
-      Layout.fillWidth: true
+      id: welcomeText
       Layout.alignment: Qt.AlignVCenter | Qt.AlignHCenter
       text: ""
       font: Theme.defaultFont
       horizontalAlignment: Text.AlignHCenter
       wrapMode: Text.WordWrap
+      Layout.fillWidth: true
     }
 
     Rectangle {
@@ -458,31 +458,11 @@ Page {
 
   Component.onCompleted: {
     adjustWelcomeScreen()
-
-    var runCount = settings.value("/QField/RunCount",0) * 1
-    var feedbackFormShown = settings.value("/QField/FeedbackFormShown",false)
-    if (!feedbackFormShown) {
-      var now = new Date()
-      var dt = settings.value("/QField/FirstRunDate", "")
-      if (dt != "") {
-        dt = new Date(dt)
-
-        var daysToPrompt = 30;
-        var runsToPrompt = 5;
-        if (runCount >= runsToPrompt && (now - dt) >= (daysToPrompt * 24 * 60 * 60 * 1000)) {
-          settings.setValue("/QField/FeedbackFormShown",true)
-        }
-      } else {
-        settings.setValue("/QField/FirstRunDate", now.toISOString())
-      }
-    }
-    settings.setValue("/QField/RunCount",runCount + 1)
   }
 
   onVisibleChanged: {
     adjustWelcomeScreen()
     if (!visible) {
       firstShown = true
-    }
   }
 }
