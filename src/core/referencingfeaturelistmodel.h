@@ -194,6 +194,7 @@ class QFIELD_CORE_EXPORT ReferencingFeatureListModel : public QAbstractItemModel
 
     //! Checks if the parent pk(s) is not null
     bool checkParentPrimaries();
+    virtual bool beforeDeleteFeature( QgsVectorLayer *referencingLayer, QgsFeatureId referencingFeatureId );
 
     friend class FeatureGatherer;
     friend class OrderedRelationModel;

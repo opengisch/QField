@@ -218,26 +218,39 @@ void ReferencingFeatureListModel::reload()
 
 bool ReferencingFeatureListModel::deleteFeature( QgsFeatureId referencingFeatureId )
 {
-  QgsVectorLayer *vl = mRelation.referencingLayer();
+  QgsVectorLayer *referencingLayer = mRelation.referencingLayer();
 
-  if ( !vl->startEditing() )
+  if ( !referencingLayer || !referencingLayer->isValid() )
+  {
+    QgsMessageLog::logMessage( tr( "Invalid referencing layer" ), "QField", Qgis::Critical );
+    return false;
+  }
+
+  if ( !referencingLayer->startEditing() )
   {
     QgsMessageLog::logMessage( tr( "Cannot start editing" ), "QField", Qgis::Critical );
     return false;
   }
 
-  if ( !vl->deleteFeature( referencingFeatureId ) )
+  if ( !beforeDeleteFeature( referencingLayer, referencingFeatureId ) )
+    return false;
+
+  if ( !referencingLayer->deleteFeature( referencingFeatureId ) )
   {
     QgsMessageLog::logMessage( tr( "Cannot delete feature" ), "QField", Qgis::Critical );
+
+    if ( !referencingLayer->rollBack() )
+      QgsMessageLog::logMessage( tr( "Cannot rollback layer changes in layer %1" ).arg( referencingLayer->name() ), "QField", Qgis::Critical );
+
     return false;
   }
 
-  if ( !vl->commitChanges() )
+  if ( !referencingLayer->commitChanges() )
   {
-    QgsMessageLog::logMessage( tr( "Cannot commit layer changes in layer %1." ).arg( vl->name() ), "QField", Qgis::Critical );
+    QgsMessageLog::logMessage( tr( "Cannot commit layer changes in layer %1." ).arg( referencingLayer->name() ), "QField", Qgis::Critical );
 
-    if ( !vl->rollBack() )
-      QgsMessageLog::logMessage( tr( "Cannot rollback layer changes in layer %1" ).arg( vl->name() ), "QField", Qgis::Critical );
+    if ( !referencingLayer->rollBack() )
+      QgsMessageLog::logMessage( tr( "Cannot rollback layer changes in layer %1" ).arg( referencingLayer->name() ), "QField", Qgis::Critical );
 
     return false;
   }
@@ -276,5 +289,12 @@ bool ReferencingFeatureListModel::checkParentPrimaries()
     if ( mFeature.attribute( fieldPair.second ).isNull() )
       return false;
   }
+  return true;
+}
+
+bool ReferencingFeatureListModel::beforeDeleteFeature( QgsVectorLayer *referencingLayer, QgsFeatureId referencingFeatureId )
+{
+  Q_UNUSED( referencingLayer );
+  Q_UNUSED( referencingFeatureId );
   return true;
 }

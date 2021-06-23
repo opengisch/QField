@@ -200,22 +200,8 @@ bool OrderedRelationModel::moveItems( const int fromIdx, const int toIdx )
   return true;
 }
 
-bool OrderedRelationModel::deleteFeature( QgsFeatureId referencingFeatureId )
+bool OrderedRelationModel::beforeDeleteFeature( QgsVectorLayer *referencingLayer, QgsFeatureId referencingFeatureId )
 {
-  QgsVectorLayer *referencingLayer = mRelation.referencingLayer();
-
-  if ( !referencingLayer || !referencingLayer->isValid() )
-  {
-    QgsMessageLog::logMessage( tr( "Invalid referencing layer" ), "QField", Qgis::Critical );
-    return false;
-  }
-
-  if ( !referencingLayer->startEditing() )
-  {
-    QgsMessageLog::logMessage( tr( "Cannot start editing" ), "QField", Qgis::Critical );
-    return false;
-  }
-
   int orderingFieldIdx = referencingLayer->fields().indexFromName( mOrderingField );
 
   if ( orderingFieldIdx == -1 )
@@ -255,28 +241,6 @@ bool OrderedRelationModel::deleteFeature( QgsFeatureId referencingFeatureId )
     // increment the absolute value of the ordering for the next element
     ordering++;
   }
-
-  if ( !referencingLayer->deleteFeature( referencingFeatureId ) )
-  {
-    QgsMessageLog::logMessage( tr( "Cannot delete feature" ), "QField", Qgis::Critical );
-
-    if ( !referencingLayer->rollBack() )
-      QgsMessageLog::logMessage( tr( "Cannot rollback layer changes in layer %1" ).arg( referencingLayer->name() ), "QField", Qgis::Critical );
-
-    return false;
-  }
-
-  if ( !referencingLayer->commitChanges() )
-  {
-    QgsMessageLog::logMessage( tr( "Cannot commit layer changes in layer %1." ).arg( referencingLayer->name() ), "QField", Qgis::Critical );
-
-    if ( !referencingLayer->rollBack() )
-      QgsMessageLog::logMessage( tr( "Cannot rollback layer changes in layer %1" ).arg( referencingLayer->name() ), "QField", Qgis::Critical );
-
-    return false;
-  }
-
-  reload();
 
   return true;
 }
