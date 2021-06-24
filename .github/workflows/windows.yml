@@ -109,7 +109,7 @@ jobs:
       - name: Get the current release version
         id: get_version
         shell: bash
-        run: echo VERSION::${GITHUB_REF/refs\/tags\//} >> $GITHUB_ENV
+        run: echo VERSION=${GITHUB_REF/refs\/tags\//} >> $GITHUB_ENV
 
       - name: Create package
         shell: powershell
