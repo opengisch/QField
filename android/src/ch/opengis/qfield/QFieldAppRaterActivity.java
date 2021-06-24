@@ -62,7 +62,7 @@ public class QFieldAppRaterActivity extends Activity{
 
         // Wait at least n days before opening
         if (launchCount >= LAUNCHES_UNTIL_PROMPT) {
-            if (System.currentTimeMillis() >= firstLaunch +
+            if (1 == 2 && System.currentTimeMillis() >= firstLaunch +
                     (DAYS_UNTIL_PROMPT * 24 * 60 * 60 * 1000)) {
                 showRateDialog();
             }else{
