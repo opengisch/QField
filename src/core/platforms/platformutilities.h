@@ -145,6 +145,11 @@ class QFIELD_CORE_EXPORT PlatformUtilities : public QObject
      */
     Q_INVOKABLE virtual void restoreBrightness() { return; };
 
+    /**
+     * Show the rate this app screen if required.
+    */
+    Q_INVOKABLE virtual void showRateThisApp() const {};
+
     static PlatformUtilities *instance();
 
 };

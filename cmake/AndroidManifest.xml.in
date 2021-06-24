@@ -196,6 +196,9 @@
     <!-- Activity to choose a .qgs file to open -->
     <activity android:name="ch.opengis.@APP_PACKAGE_NAME@.QFieldProjectActivity" />
 
+    <!-- Activity "Rate this app" -->
+    <activity android:name="ch.opengis.@APP_PACKAGE_NAME@.QFieldAppRaterActivity" />
+
     <!-- Activity to get picture with the native camera -->
     <activity android:name="ch.opengis.@APP_PACKAGE_NAME@.QFieldCameraPictureActivity" android:configChanges="orientation|screenSize|screenLayout|keyboardHidden" />
 
