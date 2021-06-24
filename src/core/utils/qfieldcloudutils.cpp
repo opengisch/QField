@@ -60,3 +60,15 @@ const QString QFieldCloudUtils::getProjectId( const QString &fileName )
 
   return QString();
 }
+
+void QFieldCloudUtils::setProjectSetting( const QString &projectId, const QString &setting, const QVariant &value )
+{
+  const QString projectPrefix = QStringLiteral( "QFieldCloud/projects/%1" ).arg( projectId );
+  return QSettings().setValue( QStringLiteral( "%1/%2" ).arg( projectPrefix, setting ), value );
+}
+
+const QVariant QFieldCloudUtils::projectSetting( const QString &projectId, const QString &setting, const QVariant &defaultValue )
+{
+  const QString projectPrefix = QStringLiteral( "QFieldCloud/projects/%1" ).arg( projectId );
+  return QSettings().value( QStringLiteral( "%1/%2" ).arg( projectPrefix, setting ), defaultValue );
+}

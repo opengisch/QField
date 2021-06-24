@@ -540,10 +540,13 @@ void QFieldCloudProjectsModel::projectGetExportStatus( const QString &projectId 
 
           const QJsonObject exportedFilesPayload = QJsonDocument::fromJson( exportedFilesRawReply->readAll() ).object();
 
+          mCloudProjects[index].lastExportedAt = exportedFilesPayload.value( QStringLiteral( "exported_at" ) ).toString();
+          mCloudProjects[index].lastExportId = exportedFilesPayload.value( QStringLiteral( "export_id" ) ).toString();
+
           QgsLogger::debug( QStringLiteral( "Export files list request finished for \"%1\" with no error and response: %2" ).arg( projectId, QString::fromUtf8( QJsonDocument( exportedFilesPayload ).toJson( QJsonDocument::Indented ) ) ) );
 
           const QJsonArray files = exportedFilesPayload.value( QStringLiteral( "files" ) ).toArray();
-          for ( const QJsonValue file : files )
+          for ( const QJsonValue &file : files )
           {
             QJsonObject fileObject = file.toObject();
             QString fileName = fileObject.value( QStringLiteral( "name" ) ).toString();
@@ -789,7 +792,7 @@ void QFieldCloudProjectsModel::uploadProject( const QString &projectId, const bo
     // ? should we also check the checksums of the files being uploaded? they are available at deltaFile->attachmentFileNames()->values()
     mCloudProjects[index].uploadAttachments.insert( fileName, FileTransfer( fileName, fileSize ) );
   }
-  projectSetSetting( projectId, QStringLiteral( "uploadAttachments" ), QStringList( mCloudProjects[index].uploadAttachments.keys() ) );
+  QFieldCloudUtils::setProjectSetting( projectId, QStringLiteral( "uploadAttachments" ), QStringList( mCloudProjects[index].uploadAttachments.keys() ) );
 
   QString deltaFileToUpload = deltaFileWrapper->toFileForUpload();
 
@@ -928,7 +931,7 @@ void QFieldCloudProjectsModel::uploadProject( const QString &projectId, const bo
         mCloudProjects[index].modification |= RemoteModification;
 
         mCloudProjects[index].lastLocalPushDeltas = QDateTime::currentDateTimeUtc().toString( Qt::ISODate );
-        projectSetSetting( projectId, QStringLiteral( "lastLocalPushDeltas" ), mCloudProjects[index].lastLocalPushDeltas );
+        QFieldCloudUtils::setProjectSetting( projectId, QStringLiteral( "lastLocalPushDeltas" ), mCloudProjects[index].lastLocalPushDeltas );
 
         emit dataChanged( idx, idx, QVector<int>() << ModificationRole << LastLocalPushDeltasRole );
 
@@ -1153,7 +1156,7 @@ void QFieldCloudProjectsModel::projectUploadAttachments( const QString &projectI
       else
       {
         mCloudProjects[index].uploadAttachments.remove( fileName );
-        projectSetSetting( projectId, QStringLiteral( "uploadAttachments" ), QStringList( mCloudProjects[index].uploadAttachments.keys() ) );
+        QFieldCloudUtils::setProjectSetting( projectId, QStringLiteral( "uploadAttachments" ), QStringList( mCloudProjects[index].uploadAttachments.keys() ) );
       }
 
       if ( mCloudProjects[index].uploadAttachments.size() - mCloudProjects[index].uploadAttachmentsFailed == 0 )
@@ -1425,8 +1428,12 @@ void QFieldCloudProjectsModel::downloadFileConnections( const QString &projectId
         mCloudProjects[index].exportStatusString = QString();
         mCloudProjects[index].checkout = ProjectCheckout::LocalAndRemoteCheckout;
         mCloudProjects[index].localPath = QFieldCloudUtils::localProjectFilePath( mUsername, projectId );
-        mCloudProjects[index].lastLocalExport = QDateTime::currentDateTimeUtc().toString( Qt::ISODate );
-        projectSetSetting( projectId, QStringLiteral( "lastLocalExport" ), mCloudProjects[index].lastLocalExport );
+        mCloudProjects[index].lastLocalExportedAt = QDateTime::currentDateTimeUtc().toString( Qt::ISODate );
+        mCloudProjects[index].lastLocalExportId = QUuid::createUuid().toString( QUuid::WithoutBraces );
+        QFieldCloudUtils::setProjectSetting( projectId, QStringLiteral( "lastExportedAt" ), mCloudProjects[index].lastExportedAt );
+        QFieldCloudUtils::setProjectSetting( projectId, QStringLiteral( "lastExportId" ), mCloudProjects[index].lastExportId );
+        QFieldCloudUtils::setProjectSetting( projectId, QStringLiteral( "lastLocalExportedAt" ), mCloudProjects[index].lastLocalExportedAt );
+        QFieldCloudUtils::setProjectSetting( projectId, QStringLiteral( "lastLocalExportId" ), mCloudProjects[index].lastLocalExportId );
 
         emit projectDownloaded( projectId, mCloudProjects[index].name, false );
       }
@@ -1440,7 +1447,7 @@ void QFieldCloudProjectsModel::downloadFileConnections( const QString &projectId
     }
 
     QModelIndex idx = createIndex( index, 0 );
-    rolesChanged << StatusRole << LocalPathRole << CheckoutRole << LastLocalExportRole;
+    rolesChanged << StatusRole << LocalPathRole << CheckoutRole << LastLocalExportedAtRole;
 
     emit dataChanged( idx, idx, rolesChanged );
   } );
@@ -1480,7 +1487,7 @@ QHash<int, QByteArray> QFieldCloudProjectsModel::roleNames() const
   roles[LocalDeltasCountRole] = "LocalDeltasCount";
   roles[LocalPathRole] = "LocalPath";
   roles[CanSyncRole] = "CanSync";
-  roles[LastLocalExportRole] = "LastLocalExport";
+  roles[LastLocalExportedAtRole] = "LastLocalExportedAt";
   roles[LastLocalPushDeltasRole] = "LastLocalPushDeltas";
   roles[UserRoleRole] = "UserRole";
   roles[DeltaListRole] = "DeltaList";
@@ -1498,10 +1505,22 @@ void QFieldCloudProjectsModel::reload( const QJsonArray &remoteProjects )
   auto restoreLocalSettings = [ = ]( CloudProject & cloudProject, const QDir & localPath )
   {
     cloudProject.deltasCount = DeltaFileWrapper( qgisProject, QStringLiteral( "%1/deltafile.json" ).arg( localPath.absolutePath() ) ).count();
-    cloudProject.lastLocalExport = projectSetting( cloudProject.id, QStringLiteral( "lastLocalExport" ) ).toString();
-    cloudProject.lastLocalPushDeltas = projectSetting( cloudProject.id, QStringLiteral( "lastLocalPushDeltas" ) ).toString();
+    cloudProject.lastExportId = QFieldCloudUtils::projectSetting( cloudProject.id, QStringLiteral( "lastExportId" ) ).toString();
+    cloudProject.lastExportedAt = QFieldCloudUtils::projectSetting( cloudProject.id, QStringLiteral( "lastExportedAt" ) ).toString();
+    cloudProject.lastLocalExportId = QFieldCloudUtils::projectSetting( cloudProject.id, QStringLiteral( "lastLocalExportId" ) ).toString();
+    cloudProject.lastLocalExportedAt = QFieldCloudUtils::projectSetting( cloudProject.id, QStringLiteral( "lastLocalExportedAt" ) ).toString();
+    cloudProject.lastLocalPushDeltas = QFieldCloudUtils::projectSetting( cloudProject.id, QStringLiteral( "lastLocalPushDeltas" ) ).toString();
 
-    const QStringList fileNames = projectSetting( cloudProject.id, QStringLiteral( "uploadAttachments" ) ).toStringList();
+    // generate local export id if not present. Possible reasons for missing localExportId are:
+    // - just upgraded QField that introduced the field
+    // - the local settings were somehow deleted, but not the project itself
+    if ( cloudProject.lastLocalExportId.isEmpty() )
+    {
+      cloudProject.lastLocalExportId = QUuid::createUuid().toString( QUuid::WithoutBraces );
+      QFieldCloudUtils::setProjectSetting( cloudProject.id, QStringLiteral( "lastLocalExportId" ), cloudProject.lastLocalExportId );
+    }
+
+    const QStringList fileNames = QFieldCloudUtils::projectSetting( cloudProject.id, QStringLiteral( "uploadAttachments" ) ).toStringList();
     for ( const QString &fileName : fileNames )
     {
       QFileInfo fileInfo( fileName );
@@ -1524,11 +1543,11 @@ void QFieldCloudProjectsModel::reload( const QJsonArray &remoteProjects )
                                ProjectStatus::Idle );
 
     const QString projectPrefix = QStringLiteral( "QFieldCloud/projects/%1" ).arg( cloudProject.id );
-    projectSetSetting( cloudProject.id, QStringLiteral( "owner" ), cloudProject.owner );
-    projectSetSetting( cloudProject.id, QStringLiteral( "name" ), cloudProject.name );
-    projectSetSetting( cloudProject.id, QStringLiteral( "description" ), cloudProject.description );
-    projectSetSetting( cloudProject.id, QStringLiteral( "updatedAt" ), cloudProject.updatedAt );
-    projectSetSetting( cloudProject.id, QStringLiteral( "userRole" ), cloudProject.userRole );
+    QFieldCloudUtils::setProjectSetting( cloudProject.id, QStringLiteral( "owner" ), cloudProject.owner );
+    QFieldCloudUtils::setProjectSetting( cloudProject.id, QStringLiteral( "name" ), cloudProject.name );
+    QFieldCloudUtils::setProjectSetting( cloudProject.id, QStringLiteral( "description" ), cloudProject.description );
+    QFieldCloudUtils::setProjectSetting( cloudProject.id, QStringLiteral( "updatedAt" ), cloudProject.updatedAt );
+    QFieldCloudUtils::setProjectSetting( cloudProject.id, QStringLiteral( "userRole" ), cloudProject.userRole );
 
     if ( !mUsername.isEmpty() )
     {
@@ -1568,11 +1587,11 @@ void QFieldCloudProjectsModel::reload( const QJsonArray &remoteProjects )
       if ( !QSettings().contains( QStringLiteral( "%1/name" ).arg( projectPrefix ) ) )
         continue;
 
-      const QString owner = projectSetting( projectId, QStringLiteral( "owner" ) ).toString();
-      const QString name = projectSetting( projectId, QStringLiteral( "name" ) ).toString();
-      const QString description = projectSetting( projectId, QStringLiteral( "description" ) ).toString();
-      const QString updatedAt = projectSetting( projectId, QStringLiteral( "updatedAt" ) ).toString();
-      const QString userRole = projectSetting( projectId, QStringLiteral( "userRole" ) ).toString();
+      const QString owner = QFieldCloudUtils::projectSetting( projectId, QStringLiteral( "owner" ) ).toString();
+      const QString name = QFieldCloudUtils::projectSetting( projectId, QStringLiteral( "name" ) ).toString();
+      const QString description = QFieldCloudUtils::projectSetting( projectId, QStringLiteral( "description" ) ).toString();
+      const QString updatedAt = QFieldCloudUtils::projectSetting( projectId, QStringLiteral( "updatedAt" ) ).toString();
+      const QString userRole = QFieldCloudUtils::projectSetting( projectId, QStringLiteral( "userRole" ) ).toString();
 
       CloudProject cloudProject( projectId, true, owner, name, description, userRole, QString(), LocalCheckout, ProjectStatus::Idle );
 
@@ -1650,8 +1669,8 @@ QVariant QFieldCloudProjectsModel::data( const QModelIndex &index, int role ) co
       return mCloudProjects.at( index.row() ).localPath;
     case CanSyncRole:
       return canSyncProject( mCloudProjects.at( index.row() ).id );
-    case LastLocalExportRole:
-      return mCloudProjects.at( index.row() ).lastLocalExport;
+    case LastLocalExportedAtRole:
+      return mCloudProjects.at( index.row() ).lastLocalExportedAt;
     case LastLocalPushDeltasRole:
       return mCloudProjects.at( index.row() ).lastLocalPushDeltas;
     case UserRoleRole:
@@ -1780,18 +1799,6 @@ QStringList QFieldCloudProjectsModel::projectFileNames( const QString &projectPa
   }
 
   return prefixedFileNames;
-}
-
-void QFieldCloudProjectsModel::projectSetSetting( const QString &projectId, const QString &setting, const QVariant &value )
-{
-  const QString projectPrefix = QStringLiteral( "QFieldCloud/projects/%1" ).arg( projectId );
-  return QSettings().setValue( QStringLiteral( "%1/%2" ).arg( projectPrefix, setting ), value );
-}
-
-QVariant QFieldCloudProjectsModel::projectSetting( const QString &projectId, const QString &setting, const QVariant &defaultValue )
-{
-  const QString projectPrefix = QStringLiteral( "QFieldCloud/projects/%1" ).arg( projectId );
-  return QSettings().value( QStringLiteral( "%1/%2" ).arg( projectPrefix, setting ), defaultValue );
 }
 
 // --

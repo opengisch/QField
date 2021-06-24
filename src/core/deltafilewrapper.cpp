@@ -455,6 +455,8 @@ void DeltaFileWrapper::addPatch( const QString &localLayerId, const QString &sou
     { "sourcePk", oldFeature.attribute( sourcePkAttrName ).toString() },
     { "sourceLayerId", sourceLayerId },
     { "uuid", QUuid::createUuid().toString( QUuid::WithoutBraces ) },
+    { "exportId", QFieldCloudUtils::projectSetting( mCloudProjectId, QStringLiteral( "lastExportId" ) ).toString() },
+    { "clientId", QFieldCloudUtils::projectSetting( mCloudProjectId, QStringLiteral( "lastLocalExportId" ) ).toString() },
   } );
 
   const QStringList attachmentFieldsList = attachmentFieldNames( mProject, localLayerId );
@@ -484,8 +486,6 @@ void DeltaFileWrapper::addPatch( const QString &localLayerId, const QString &sou
     const QgsField newField = newFields.at( idx );
     const int oldFieldIdx = oldFields.indexFromName( newField.name() );
 
-    Q_ASSERT( oldFieldIdx != -1 );
-
     switch ( newFields.fieldOrigin( idx ) )
     {
       case QgsFields::OriginExpression:
@@ -498,6 +498,8 @@ void DeltaFileWrapper::addPatch( const QString &localLayerId, const QString &sou
       case QgsFields::OriginUnknown:
         break;
     }
+
+    Q_ASSERT( oldFieldIdx != -1 );
 
     // Check if the new field is present in the fields of the old feature.
     // This would happen when there are calculated or joined fields. However, they should be already filtered out.
@@ -646,6 +648,8 @@ void DeltaFileWrapper::addDelete( const QString &localLayerId, const QString &so
     { "sourcePk", oldFeature.attribute( sourcePkAttrName ).toString() },
     { "sourceLayerId", sourceLayerId },
     { "uuid", QUuid::createUuid().toString( QUuid::WithoutBraces ) },
+    { "exportId", QFieldCloudUtils::projectSetting( mCloudProjectId, QStringLiteral( "lastExportId" ) ).toString() },
+    { "clientId", QFieldCloudUtils::projectSetting( mCloudProjectId, QStringLiteral( "lastLocalExportId" ) ).toString() },
   } );
 
   QMap<QString, int> layerPkDeltaIdx = mLocalPkDeltaIdx.value( localLayerId );
@@ -715,6 +719,8 @@ void DeltaFileWrapper::addCreate( const QString &localLayerId, const QString &so
     { "sourcePk", newFeature.attribute( sourcePkAttrName ).toString() },
     { "sourceLayerId", sourceLayerId },
     { "uuid", QUuid::createUuid().toString( QUuid::WithoutBraces ) },
+    { "exportId", QFieldCloudUtils::projectSetting( mCloudProjectId, QStringLiteral( "lastExportId" ) ).toString() },
+    { "clientId", QFieldCloudUtils::projectSetting( mCloudProjectId, QStringLiteral( "lastLocalExportId" ) ).toString() },
   } );
   const QStringList attachmentFieldsList = attachmentFieldNames( mProject, localLayerId );
   const QgsAttributes newAttrs = newFeature.attributes();
