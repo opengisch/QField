@@ -106,6 +106,25 @@ jobs:
           name: "QField-dev-${{ matrix.build-type }}"
           path: "${{ env.CMAKE_BUILD_DIR }}/output"
 
+      - name: Get the current release version
+        id: get_version
+        shell: bash
+        run: echo VERSION::${GITHUB_REF/refs\/tags\//} >> $GITHUB_ENV
+
+      - name: Create package
+        shell: powershell
+        run: |
+          Compress-Archive "${{ env.CMAKE_BUILD_DIR }}/output" QField-win64-${{ steps.get_version.outputs.VERSION }}.zip
+
+      - name: 🚀 Upload Release Asset
+        if: github.event_name == 'release' && startsWith(github.ref, 'refs/tags/v')
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ github.event.release.upload_url }}
+          asset_path: QField-win64-${{ steps.get_version.outputs.VERSION }}.zip
+
       - name: Show space after build
         if: always()
         run: |
