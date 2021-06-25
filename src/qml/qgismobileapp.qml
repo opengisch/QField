@@ -2359,7 +2359,7 @@ ApplicationWindow {
 
       Timer {
           id: dimmerTimer
-          interval: 20000
+          interval: 60000
           repeat: false
 
           onTriggered: {
