@@ -40,6 +40,7 @@ class FeatureModel : public QAbstractListModel
     Q_PROPERTY( QList<QgsFeature> features READ features WRITE setFeatures NOTIFY featuresChanged )
     Q_PROPERTY( QgsFeature linkedParentFeature READ linkedParentFeature WRITE setLinkedParentFeature NOTIFY linkedParentFeatureChanged )
     Q_PROPERTY( QgsRelation linkedRelation READ linkedRelation WRITE setLinkedRelation NOTIFY linkedRelationChanged )
+    Q_PROPERTY( QString linkedRelationOrderingField READ linkedRelationOrderingField WRITE setLinkedRelationOrderingField NOTIFY linkedRelationOrderingFieldChanged )
     //! the vertex model is used to highlight vertices on the map
     Q_PROPERTY( VertexModel *vertexModel READ vertexModel WRITE setVertexModel NOTIFY vertexModelChanged )
     Q_PROPERTY( Geometry *geometry MEMBER mGeometry NOTIFY geometryChanged )
@@ -124,6 +125,18 @@ class FeatureModel : public QAbstractListModel
      * \see setLinkedRelation
      */
     QgsRelation linkedRelation() const;
+
+    /**
+     * Returns the field name used for ordering in ordered relations. Empty string if not available.
+     * \see setLinkedRelationOrderingField
+     */
+    QString linkedRelationOrderingField() const;
+
+    /**
+     * Sets the field name used for ordering in ordered relations. Empty string if not available.
+     * \see linkedRelationOrderingField
+     */
+    void setLinkedRelationOrderingField( const QString &orderingField );
 
     void setCurrentLayer( QgsVectorLayer *layer );
     QgsVectorLayer *layer() const;
@@ -247,6 +260,7 @@ class FeatureModel : public QAbstractListModel
 
     void linkedParentFeatureChanged();
     void linkedRelationChanged();
+    void linkedRelationOrderingFieldChanged();
     void vertexModelChanged();
     void geometryChanged();
     void currentLayerChanged();
@@ -272,6 +286,7 @@ class FeatureModel : public QAbstractListModel
     QList<bool> mAttributesAllowEdit;
     QgsFeature mLinkedParentFeature;
     QgsRelation mLinkedRelation;
+    QString mLinkedRelationOrderingField;
     QList<int> mLinkedAttributeIndexes;
     VertexModel *mVertexModel = nullptr;
     Geometry *mGeometry = nullptr;

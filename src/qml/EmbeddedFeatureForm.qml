@@ -10,6 +10,7 @@ Popup {
     property alias embeddedLevel: form.embeddedLevel
     property alias currentLayer: formFeatureModel.currentLayer
     property alias linkedRelation: formFeatureModel.linkedRelation
+    property alias linkedRelationOrderingField: formFeatureModel.linkedRelationOrderingField
     property alias linkedParentFeature: formFeatureModel.linkedParentFeature
     property alias feature: formFeatureModel.feature
     property alias attributeFormModel: formAttributeFormModel

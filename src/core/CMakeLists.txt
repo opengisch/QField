@@ -59,6 +59,7 @@ set(QFIELD_CORE_SRCS
   multifeaturelistmodelbase.cpp
   networkmanager.cpp
   networkreply.cpp
+  orderedrelationmodel.cpp
   peliasgeocoder.cpp
   picturesource.cpp
   printlayoutlistmodel.cpp
@@ -149,6 +150,7 @@ set(QFIELD_CORE_HDRS
   multifeaturelistmodelbase.h
   networkmanager.h
   networkreply.h
+  orderedrelationmodel.h
   peliasgeocoder.h
   picturesource.h
   printlayoutlistmodel.h
