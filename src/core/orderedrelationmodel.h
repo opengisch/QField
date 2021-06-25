@@ -62,11 +62,11 @@ class OrderedRelationModel: public ReferencingFeatureListModel
     void failedReorder();
 
   private slots:
-    void updateModel() override;
     void onViewCurrentFeatureChanged( int index );
 
   private:
     bool beforeDeleteFeature( QgsVectorLayer *referencingLayer, QgsFeatureId referencingFeatureId ) override;
+    void sortEntries() override;
 
     QString mOrderingField;
     QString mImagePath;

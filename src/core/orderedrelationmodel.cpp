@@ -88,22 +88,6 @@ QHash<int, QByteArray> OrderedRelationModel::roleNames() const
   return roles;
 }
 
-void OrderedRelationModel::updateModel()
-{
-  beginResetModel();
-
-  if ( mGatherer )
-    mEntries = mGatherer->entries();
-
-  std::sort( mEntries.begin(), mEntries.end(), [ = ]( const Entry & e1, const Entry & e2 )
-  {
-    return e1.referencingFeature.attribute( mOrderingField ).toInt() < e2.referencingFeature.attribute( mOrderingField ).toInt();
-  } );
-
-  endResetModel();
-  emit modelUpdated();
-}
-
 QVariant OrderedRelationModel::data( const QModelIndex &index, int role ) const
 {
   QVariant result;
@@ -243,4 +227,12 @@ bool OrderedRelationModel::beforeDeleteFeature( QgsVectorLayer *referencingLayer
   }
 
   return true;
+}
+
+void OrderedRelationModel::sortEntries()
+{
+  std::sort( mEntries.begin(), mEntries.end(), [ = ]( const Entry & e1, const Entry & e2 )
+  {
+    return e1.referencingFeature.attribute( mOrderingField ).toInt() < e2.referencingFeature.attribute( mOrderingField ).toInt();
+  } );
 }

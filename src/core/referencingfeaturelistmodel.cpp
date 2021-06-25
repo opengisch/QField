@@ -155,10 +155,7 @@ void ReferencingFeatureListModel::updateModel()
   if ( mGatherer )
     mEntries = mGatherer->entries();
 
-  std::sort( mEntries.begin(), mEntries.end(), []( const Entry & e1, const Entry & e2 )
-  {
-    return e1.displayString < e2.displayString;
-  } );
+  sortEntries();
 
   endResetModel();
   emit modelUpdated();
@@ -297,4 +294,12 @@ bool ReferencingFeatureListModel::beforeDeleteFeature( QgsVectorLayer *referenci
   Q_UNUSED( referencingLayer );
   Q_UNUSED( referencingFeatureId );
   return true;
+}
+
+void ReferencingFeatureListModel::sortEntries()
+{
+  std::sort( mEntries.begin(), mEntries.end(), []( const Entry & e1, const Entry & e2 )
+  {
+    return e1.displayString < e2.displayString;
+  } );
 }
