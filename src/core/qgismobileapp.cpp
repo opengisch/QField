@@ -163,6 +163,13 @@ QgisMobileapp::QgisMobileapp( QgsApplication *app, QObject *parent )
   create();
 #endif
 
+  QSettings settings;
+  if ( PlatformUtilities::instance()->capabilities() & PlatformUtilities::AdjustBrightness )
+  {
+    mScreenDimmer.reset( new ScreenDimmer( app ) );
+    mScreenDimmer->setActive( settings.value( QStringLiteral( "dimBrightness" ), true ).toBool() );
+  }
+
   AppInterface::setInstance( mIface );
 
   //set the authHandler to qfield-handler
@@ -212,7 +219,6 @@ QgisMobileapp::QgisMobileapp( QgsApplication *app, QObject *parent )
   mTrackingModel = new TrackingModel;
 
   // Transition from 1.8 to 1.8.1+
-  QSettings settings;
   const QString deviceAddress = settings.value( QStringLiteral( "positioningDevice" ), QString() ).toString();
   if ( deviceAddress == QStringLiteral( "internal" ) )
   {
@@ -1140,6 +1146,14 @@ bool QgisMobileapp::printAtlasFeatures( const QString &layoutName, const QList<l
 #warning "No PrintSupport for iOs. QgisMobileapp::print won't do anything."
   return false;
 #endif
+}
+
+void QgisMobileapp::setScreenDimmerActive( bool active )
+{
+  if ( mScreenDimmer )
+  {
+    mScreenDimmer->setActive( active );
+  }
 }
 
 bool QgisMobileapp::event( QEvent *event )
