@@ -36,6 +36,7 @@
 #include "qfield_core_export.h"
 #include "qfieldappauthrequesthandler.h"
 #include "qgsgpkgflusher.h"
+#include "screendimmer.h"
 #include "settings.h"
 
 class AppInterface;
@@ -50,7 +51,6 @@ class TrackingModel;
 class LocatorFiltersModel;
 class QgsProject;
 class LayerObserver;
-
 
 #define REGISTER_SINGLETON( uri, _class, name ) qmlRegisterSingletonType<_class>( uri, 1, 0, name, []( QQmlEngine *engine, QJSEngine *scriptEngine ) -> QObject * { Q_UNUSED(engine); Q_UNUSED(scriptEngine); return new _class(); } )
 
@@ -122,6 +122,12 @@ class QFIELD_CORE_EXPORT QgisMobileapp : public QQmlApplicationEngine
      */
     bool printAtlasFeatures( const QString &layoutName, const QList<long long> &featureIds );
 
+    /**
+     * Sets whether the screen dimmer will be active or not
+     * \param active set to TRUE to activate screen dimmer
+     */
+    void setScreenDimmerActive( bool active );
+
     bool event( QEvent *event ) override;
 
   signals:
@@ -185,6 +191,8 @@ class QFIELD_CORE_EXPORT QgisMobileapp : public QQmlApplicationEngine
     TrackingModel *mTrackingModel = nullptr;
 
     AppMissingGridHandler *mAppMissingGridHandler = nullptr;
+
+    std::unique_ptr<ScreenDimmer> mScreenDimmer;
 };
 
 Q_DECLARE_METATYPE( QgsWkbTypes::GeometryType )
@@ -193,6 +201,5 @@ Q_DECLARE_METATYPE( QgsFeatureIds )
 Q_DECLARE_METATYPE( QgsAttributes )
 Q_DECLARE_METATYPE( QVariant::Type )
 Q_DECLARE_METATYPE( QgsFieldConstraints )
-
 
 #endif // QGISMOBILEAPP_H

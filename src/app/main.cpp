@@ -18,8 +18,9 @@
 
 #include "fileutils.h"
 #include "qgismobileapp.h"
-#include "qgsapplication.h"
-#include "qgslogger.h"
+
+#include <qgsapplication.h>
+#include <qgslogger.h>
 
 #ifdef WITH_SPIX
 #include <Spix/AnyRpcServer.h>

@@ -757,11 +757,7 @@ ApplicationWindow {
     interactive: !welcomeScreen.visible
 
     onOpenedChanged: {
-      if ( opened ) {
-          dimmer.suspended = true;
-          dimmer.resetTimer();
-      } else {
-        dimmer.suspended = false;
+      if ( !opened ) {
         if ( featureForm.visible ) {
           featureForm.focus = true;
         }
@@ -2047,6 +2043,7 @@ ApplicationWindow {
       }
     }
 
+    onDimBrightnessChanged: iface.setScreenDimmerActive( qfieldSettings.dimBrightness )
     Component.onCompleted: focusstack.addFocusTaker( this )
   }
 
@@ -2336,51 +2333,5 @@ ApplicationWindow {
       currentPoint: coordinateLocator.currentCoordinate
       mapSettings: mapCanvas.mapSettings
       isHovering: hoverHandler.hovered
-  }
-
-  MouseArea {
-      id: dimmer
-
-      property bool dimmed: false
-      property bool suspended: false
-
-      enabled: platformUtilities.capabilities & PlatformUtilities.AdjustBrightness
-      anchors.fill: parent
-      propagateComposedEvents: true
-      onPressed: {
-          mouse.accepted = dimmed;
-          if (!dimmed)
-              resetTimer();
-      }
-      onClicked: {
-          mouse.accepted = dimmed;
-          resetTimer();
-      }
-
-      Timer {
-          id: dimmerTimer
-          interval: 60000
-          repeat: false
-
-          onTriggered: {
-              if (!dimmer.suspended) {
-                dimmer.dimmed = true
-                platformUtilities.dimBrightness();
-              }
-          }
-      }
-
-      function resetTimer() {
-          if (!platformUtilities.capabilities & PlatformUtilities.AdjustBrightness)
-              return;
-
-          if (dimmed) {
-              platformUtilities.restoreBrightness();
-              dimmed = false;
-          }
-          if (qfieldSettings.dimBrightness && !suspended) {
-            dimmerTimer.restart();
-          }
-      }
   }
 }

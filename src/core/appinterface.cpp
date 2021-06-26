@@ -65,3 +65,8 @@ void AppInterface::openFeatureForm()
 {
   emit openFeatureFormRequested();
 }
+
+void AppInterface::setScreenDimmerActive( bool active )
+{
+  mApp->setScreenDimmerActive( active );
+}
