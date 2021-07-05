@@ -166,7 +166,7 @@ QgisMobileapp::QgisMobileapp( QgsApplication *app, QObject *parent )
   QSettings settings;
   if ( PlatformUtilities::instance()->capabilities() & PlatformUtilities::AdjustBrightness )
   {
-    mScreenDimmer.reset( new ScreenDimmer( app ) );
+    mScreenDimmer = std::make_unique<ScreenDimmer>( app );
     mScreenDimmer->setActive( settings.value( QStringLiteral( "dimBrightness" ), true ).toBool() );
   }
 

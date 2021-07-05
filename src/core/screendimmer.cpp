@@ -17,7 +17,6 @@
 #include "platformutilities.h"
 
 #include <QEvent>
-#include <QDebug>
 
 ScreenDimmer::ScreenDimmer( QgsApplication *app ) : QObject( app )
 {

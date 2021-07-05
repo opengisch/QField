@@ -31,8 +31,14 @@ class ScreenDimmer : public QObject
 
     explicit ScreenDimmer( QgsApplication *app );
 
+    /**
+     * Sets whether the screen dimmer is \a active or not.
+     */
     void setActive( bool active );
 
+    /**
+     * Temporarily suspends the screen dimmer when \a is set to TRUE.
+     */
     void setSuspend( bool suspend );
 
   protected:
