@@ -8,8 +8,8 @@ then
     TMP_CI_TAG=${GITHUB_REF#refs/tags/}
     TMP_CI_BRANCH=$TMP_CI_TAG
 else
-    ${TMP_CI_BRANCH:=""}
-    ${TMP_CI_TAG:=""}
+    TMP_CI_BRANCH=${TMP_CI_BRANCH:=""}
+    TMP_CI_TAG=${TMP_CI_TAG:=""}
 fi
 
 TMP_CI_COMMIT_BEFORE=$(jq --raw-output .before "$GITHUB_EVENT_PATH")
