@@ -80,7 +80,6 @@ ToolBar {
       width: 48
       height: 48
       clip: true
-      bgcolor: Theme.darkGray
 
       iconSource: Theme.getThemeIcon( 'ic_check_white_48dp' )
 
@@ -111,7 +110,6 @@ ToolBar {
       width: 48
       height: 48
       clip: true
-      bgcolor: Theme.darkGray
 
       iconSource: Theme.getThemeIcon( 'ic_close_white_24dp' )
 
