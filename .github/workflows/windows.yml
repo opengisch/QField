@@ -124,6 +124,8 @@ jobs:
         with:
           upload_url: ${{ github.event.release.upload_url }}
           asset_path: QField-win64-${{ steps.get_version.outputs.VERSION }}.zip
+          asset_name: QField-win64-${{ steps.get_version.outputs.VERSION }}.zip
+          asset_content_type: application/zip
 
       - name: Show space after build
         if: always()
