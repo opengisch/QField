@@ -37,7 +37,7 @@ class ScreenDimmer : public QObject
     void setActive( bool active );
 
     /**
-     * Temporarily suspends the screen dimmer when \a is set to TRUE.
+     * Temporarily suspends the screen dimmer when \a suspend is set to TRUE.
      */
     void setSuspend( bool suspend );
 
