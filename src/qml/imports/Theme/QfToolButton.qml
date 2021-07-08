@@ -20,7 +20,7 @@ Item {
     property bool round: false
     property bool roundborder: false
     property alias text: button.text
-    property color bgcolor: Theme.darkGray
+    property color bgcolor: 'transparent'
     property color borderColor: bgcolor
 
     signal clicked
