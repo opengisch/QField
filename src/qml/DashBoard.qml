@@ -56,7 +56,7 @@ Drawer {
         QfToolButton {
           id: closeButton
           anchors.verticalCenter: parent.verticalCenter
-          iconSource: Theme.getThemeIcon( 'ic_chevron_left_white_24dp' )
+          iconSource: Theme.getThemeVectorIcon( 'ic_arrow_left_white_24dp' )
           bgcolor: "transparent"
           onClicked: close()
         }
