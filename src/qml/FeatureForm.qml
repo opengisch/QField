@@ -646,7 +646,8 @@ Page {
         clip: true
         bgcolor: Theme.darkGray
 
-        iconSource: model.constraintsHardValid ? Theme.getThemeIcon( "ic_check_white_48dp" ) : Theme.getThemeIcon( "ic_check_gray_48dp" )
+        iconSource: Theme.getThemeIcon( "ic_check_white_48dp" )
+        opacity: featureFormList.model.constraintsHardValid ? 1.0 : 0.3
 
         onClicked: {
           if( model.constraintsHardValid ) {
