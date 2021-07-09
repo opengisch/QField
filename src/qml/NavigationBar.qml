@@ -193,13 +193,13 @@ Rectangle {
 
     anchors.left: parent.left
 
-    width: ( parent.state != "Edit" ? 48: 0 )
+    width: parent.state == "Navigation" ? 48: 0
     height: 48
     clip: true
 
     iconSource: Theme.getThemeIcon( "ic_chevron_left_white_24dp" )
 
-    enabled: ( parent.state != "Edit" )
+    enabled: ( parent.state == "Navigation" )
 
     onClicked: {
         if ( toolBar.model && ( selection.focusedItem > 0 ) ) {
@@ -224,7 +224,8 @@ Rectangle {
     clip: true
     visible: true
 
-    iconSource: featureFormList.model.constraintsHardValid ? Theme.getThemeIcon( "ic_check_white_48dp" ) : Theme.getThemeIcon( "ic_check_gray_48dp" )
+    iconSource: Theme.getThemeIcon( "ic_check_white_48dp" )
+    opacity: featureFormList.model.constraintsHardValid ? 1.0 : 0.3
     onClicked: {
      if( featureFormList.model.constraintsHardValid ) {
        toolBar.save()
@@ -380,6 +381,23 @@ Rectangle {
         easing.type: Easing.InQuart
       }
     }
+  }
+
+  Text {
+    id: multiSelectCount
+
+    anchors.left: multiClearButton.right
+
+    width: ( parent.state == "Indication" && toolBar.multiSelection && toolBar.model ? 48: 0 )
+    visible: width > 0
+    height: 48
+    verticalAlignment: Text.AlignVCenter
+    font: Theme.strongFont
+    color: Theme.light
+
+    text: model.selectedFeatures.length < 100 ? model.selectedFeatures.length : '99+'
+
+    enabled: multiClearButton.enabled
   }
 
   QfToolButton {
