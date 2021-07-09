@@ -370,7 +370,7 @@ Rectangle {
     height: 48
     clip: true
 
-    iconSource: Theme.getThemeVectorIcon( 'ic_arrow_left_white_24dp' )
+    iconSource: Theme.getThemeIcon( "ic_clear_white_24dp" )
 
     enabled: ( toolBar.multiSelection && toolBar.model )
 
@@ -381,6 +381,23 @@ Rectangle {
         easing.type: Easing.InQuart
       }
     }
+  }
+
+  Text {
+    id: multiSelectCount
+
+    anchors.left: multiClearButton.right
+
+    width: ( parent.state == "Indication" && toolBar.multiSelection && toolBar.model ? 48: 0 )
+    visible: width > 0
+    height: 48
+    verticalAlignment: Text.AlignVCenter
+    font: Theme.strongFont
+    color: Theme.light
+
+    text: model.selectedFeatures.length < 100 ? model.selectedFeatures.length : '99+'
+
+    enabled: multiClearButton.enabled
   }
 
   QfToolButton {
