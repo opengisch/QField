@@ -193,13 +193,15 @@ Rectangle {
 
     anchors.left: parent.left
 
-    width: parent.state == "Navigation" ? 48: 0
+    width: parent.state != "Edit" && !toolBar.multiSelection ? 48: 0
     height: 48
     clip: true
 
-    iconSource: Theme.getThemeIcon( "ic_chevron_left_white_24dp" )
+    iconSource: parent.state == "Navigation"
+                ? Theme.getThemeIcon( "ic_chevron_left_white_24dp" )
+                : Theme.getThemeVectorIcon( "ic_arrow_left_white_24dp" )
 
-    enabled: ( parent.state == "Navigation" )
+    enabled: parent.state != "Edit" && !toolBar.multiSelection
 
     onClicked: {
         if ( toolBar.model && ( selection.focusedItem > 0 ) ) {
