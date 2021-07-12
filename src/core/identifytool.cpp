@@ -120,7 +120,8 @@ QList<IdentifyTool::IdentifyResult> IdentifyTool::identifyVectorLayer( QgsVector
   bool filter = false;
 
   QgsRenderContext context( QgsRenderContext::fromMapSettings( mMapSettings->mapSettings() ) );
-  context.expressionContext() << QgsExpressionContextUtils::layerScope( layer );
+  context.setExpressionContext( QgsExpressionContext( QgsExpressionContextUtils::globalProjectLayerScopes( layer ) ) );
+  context.expressionContext() << QgsExpressionContextUtils::mapSettingsScope( mMapSettings->mapSettings() );
   QgsFeatureRenderer *renderer = layer->renderer();
   if ( renderer && renderer->capabilities() & QgsFeatureRenderer::ScaleDependent )
   {
