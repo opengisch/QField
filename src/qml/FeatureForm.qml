@@ -647,7 +647,7 @@ Page {
         bgcolor: Theme.darkGray
 
         iconSource: Theme.getThemeIcon( "ic_check_white_48dp" )
-        opacity: featureFormList.model.constraintsHardValid ? 1.0 : 0.3
+        opacity: typeof featureFormList !== "undefined" ? featureFormList.model.constraintsHardValid ? 1.0 : 0.3 : 1.0
 
         onClicked: {
           if( model.constraintsHardValid ) {
