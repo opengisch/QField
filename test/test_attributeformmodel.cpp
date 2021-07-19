@@ -86,7 +86,7 @@ class TestAttributeFormModel : public QObject
       QVERIFY( mAttributeFormModel->save() );
 
       QgsFeature feature = mLayer->getFeature( fid );
-      QCOMPARE(feature.attributes().at( 2 ), QStringLiteral( "edit_feature__" ) );
+      QCOMPARE( feature.attributes().at( 2 ), QStringLiteral( "edit_feature__" ) );
     }
 
   private:
