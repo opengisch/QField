@@ -293,7 +293,7 @@ class FeatureModel : public QAbstractListModel
     GnssPositionInformation mPositionInformation;
     SnappingResult mTopSnappingResult;
     CloudUserInformation mCloudUserInformation;
-    QgsProject *mProject;
+    QgsProject *mProject = nullptr;
     QString mTempName;
     bool mPositionLocked = false;
 };
