@@ -114,6 +114,7 @@ bool AttributeFormModelBase::setData( const QModelIndex &index, const QVariant &
           item->setData( value, AttributeFormModel::AttributeValue );
           emit dataChanged( index, index, QVector<int>() << role );
         }
+        updateDefaultValues();
         updateVisibilityAndConstraints( fieldIndex );
         return changed;
       }
@@ -479,6 +480,31 @@ void AttributeFormModelBase::flatten( QgsAttributeEditorContainer *container, QS
       case QgsAttributeEditorElement::AeTypeInvalid:
         // todo
         break;
+    }
+  }
+}
+
+void AttributeFormModelBase::updateDefaultValues( int skipFieldIndex )
+{
+  const QgsFields fields = mFeatureModel->feature().fields();
+  mExpressionContext.setFields( fields );
+  mExpressionContext.setFeature( mFeatureModel->feature() );
+
+  QMap<QStandardItem *, QgsFieldConstraints>::ConstIterator constraintIterator( mConstraints.constBegin() );
+  for ( ; constraintIterator != mConstraints.constEnd(); ++constraintIterator )
+  {
+    QStandardItem *item = constraintIterator.key();
+    int fidx = item->data( AttributeFormModel::FieldIndex ).toInt();
+    if ( fidx == skipFieldIndex || !fields.at( fidx ).defaultValueDefinition().isValid() || !fields.at( fidx ).defaultValueDefinition().applyOnUpdate() )
+      continue;
+
+    QgsExpression exp( fields.at( fidx ).defaultValueDefinition().expression() );
+    exp.prepare( &mExpressionContext );
+    QVariant defaultValue = exp.evaluate( &mExpressionContext );
+    bool changed = mFeatureModel->setData( mFeatureModel->index( fidx ), defaultValue, FeatureModel::AttributeValue );
+    if ( changed )
+    {
+      item->setData( defaultValue, AttributeFormModel::AttributeValue );
     }
   }
 }
