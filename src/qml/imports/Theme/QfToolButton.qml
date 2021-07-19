@@ -24,6 +24,7 @@ Item {
     property color borderColor: bgcolor
 
     signal clicked
+    signal doubleClicked
     signal pressed
     signal pressAndHold
     signal released
@@ -80,6 +81,7 @@ Item {
         }
 
         onClicked: item.clicked()
+        onDoubleClicked: item.doubleClicked()
         onPressed: item.pressed()
         onPressAndHold: item.pressAndHold()
         onReleased: item.released()

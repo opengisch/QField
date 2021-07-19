@@ -17,42 +17,145 @@ EditorWidgetBase {
   property real step: config["Step"] ? config["Step"] : 1
   property string suffix: config["Suffix"] ? config["Suffix"] : ""
 
-  TextField {
-    id: textField
-    height: fontMetrics.height + 20
-    topPadding: 10
-    bottomPadding: 10
-    visible: widgetStyle != "Slider"
-    anchors.left: parent.left
-    anchors.right: parent.right
-    font: Theme.defaultFont
-    color: value === undefined || !enabled ? 'gray' : 'black'
+  Row {
+      anchors.left: parent.left
+      anchors.right: parent.right
+      anchors.top: parent.top
+      visible: widgetStyle != "Slider"
 
-    text: value !== undefined ? value : ''
+      TextField {
+          id: textField
+          height: fontMetrics.height + 20
+          topPadding: 10
+          bottomPadding: 10
+          anchors.left: parent.left
+          anchors.right: decreaseButton.left
+          font: Theme.defaultFont
+          color: value === undefined || !enabled ? 'gray' : 'black'
 
-    validator: {
-      if (platformUtilities.fieldType( field ) === 'double')
-      {
-        doubleValidator;
+          text: value !== undefined ? value : ''
+
+          validator: {
+              if (platformUtilities.fieldType( field ) === 'double')
+              {
+                  doubleValidator;
+              }
+              else
+              {
+                  intValidator;
+              }
+          }
+
+          inputMethodHints: Qt.ImhFormattedNumbersOnly
+
+          background: Rectangle {
+              y: textField.height - height - textField.bottomPadding / 2
+              implicitWidth: 120
+              height: textField.activeFocus ? 2: 1
+              color: textField.activeFocus ? "#4CAF50" : "#C8E6C9"
+          }
+
+          onTextChanged: {
+              valueChanged( text, text == '' )
+          }
       }
-      else
-      {
-        intValidator;
+
+      QfToolButton {
+          id: decreaseButton
+          width: enabled ? 48 : 0
+          height: 48
+
+          anchors.right: increaseButton.left
+          anchors.verticalCenter: textField.verticalCenter
+
+          bgcolor: "white"
+          visible: enabled
+
+          onPressed: {
+              decreaseValue();
+              changeValueTimer.increase = false
+              changeValueTimer.interval = 700
+              changeValueTimer.restart()
+          }
+          onReleased: {
+              changeValueTimer.stop()
+          }
+          onCanceled: {
+              changeValueTimer.stop()
+          }
+
+          iconSource: Theme.getThemeIcon("ic_remove_black_48dp")
       }
-    }
 
-    inputMethodHints: Qt.ImhFormattedNumbersOnly
+      QfToolButton {
+          id: increaseButton
+          width: enabled ? 48 : 0
+          height: 48
 
-    background: Rectangle {
-      y: textField.height - height - textField.bottomPadding / 2
-      implicitWidth: 120
-      height: textField.activeFocus ? 2: 1
-      color: textField.activeFocus ? "#4CAF50" : "#C8E6C9"
-    }
+          anchors.right: parent.right
+          anchors.verticalCenter: textField.verticalCenter
 
-    onTextChanged: {
-      valueChanged( text, text == '' )
-    }
+          bgcolor: "white"
+          visible: enabled
+
+          onPressed: {
+              increaseValue();
+              changeValueTimer.increase = true
+              changeValueTimer.interval = 700
+              changeValueTimer.restart()
+          }
+          onReleased: {
+              changeValueTimer.stop()
+          }
+          onCanceled: {
+              changeValueTimer.stop()
+          }
+
+          iconSource: Theme.getThemeIcon("ic_add_black_48dp")
+      }
+  }
+
+  Timer {
+      id: changeValueTimer
+      interval: 700
+      repeat: true
+
+      property bool increase: true
+
+      onTriggered: {
+          var hitBoundary = false;
+          if ( increase ) {
+              increaseValue();
+              hitBoundary = textField.text == rangeItem.to
+          } else {
+              decreaseValue();
+              hitBoundary = textField.text == rangeItem.from;
+          }
+
+          if ( !hitBoundary ) {
+              if ( interval > 50 ) interval = interval * 0.7;
+          } else {
+              stop();
+          }
+      }
+  }
+
+  function decreaseValue() {
+      if ( textField.text != '' ) {
+          var newValue = textField.text * 1 - rangeItem.step;
+          textField.text = Math.max( rangeItem.from, newValue );
+      } else {
+          textField.text = rangeItem.from != -Infinity ? rangeItem.from : 0;
+      }
+  }
+
+  function increaseValue() {
+      if ( textField.text != '' ) {
+          var newValue = textField.text * 1 + rangeItem.step;
+          textField.text = Math.min( rangeItem.to, newValue );
+      } else {
+          textField.text = rangeItem.to != -Infinity ? rangeItem.to : 0;
+      }
   }
 
   Row {
