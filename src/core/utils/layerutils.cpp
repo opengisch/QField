@@ -96,7 +96,7 @@ bool LayerUtils::isAtlasCoverageLayer( QgsVectorLayer *layer )
 #if _QGIS_VERSION_INT >= 32100
 void LayerUtils::selectFeaturesInLayer( QgsVectorLayer *layer, const QList<int> &fids, Qgis::SelectBehavior behavior )
 #else
-void LayerUtils::selectFeaturesInLayer( QgsVectorLayer *layer, const QList<int> &fids, Qgis::SelectBehavior behavior )
+void LayerUtils::selectFeaturesInLayer( QgsVectorLayer *layer, const QList<int> &fids, QgsVectorLayer::SelectBehavior behavior )
 #endif
 {
   if ( !layer )
