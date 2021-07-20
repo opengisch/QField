@@ -9,9 +9,9 @@ EditorWidgetBase {
   id: topItem
 
   property bool isEditable: isEnabled &&
-                            platformUtilities.fieldType( field ) !== 'QStringList' &&
-                            platformUtilities.fieldType( field ) !== 'QVariantList' &&
-                            platformUtilities.fieldType( field ) !== 'QVariantMap'
+                            LayerUtils.fieldType( field ) !== 'QStringList' &&
+                            LayerUtils.fieldType( field ) !== 'QVariantList' &&
+                            LayerUtils.fieldType( field ) !== 'QVariantMap'
 
   height: childrenRect.height
 
@@ -49,7 +49,7 @@ EditorWidgetBase {
 
     validator: {
       if (field && field.isNumeric)
-          if ( platformUtilities.fieldType( field ) === 'double')
+          if ( LayerUtils.fieldType( field ) === 'double')
           {
             doubleValidator;
           }
