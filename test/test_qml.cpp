@@ -29,11 +29,11 @@ class Setup : public QObject
 {
     Q_OBJECT
 
-public:
+  public:
     Setup() {}
 
-public slots:
-    void qmlEngineAvailable(QQmlEngine *engine)
+  public slots:
+    void qmlEngineAvailable( QQmlEngine *engine )
     {
       Q_UNUSED( engine )
 
@@ -44,6 +44,6 @@ public slots:
     }
 };
 
-QUICK_TEST_MAIN_WITH_SETUP(test_qml, Setup)
+QUICK_TEST_MAIN_WITH_SETUP( test_qml, Setup )
 
 #include "test_qml.moc"
