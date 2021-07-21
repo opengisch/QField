@@ -1,6 +1,6 @@
 /***************************************************************************
-                        test_qml_editorwidgets.cpp
-                        --------------------------
+                        qfield_qml_init.h
+                        -----------------
   begin                : Jul 2021
   copyright            : (C) 2021 by Mathieu Pellerin
   email                : mathieu@opengis.ch
@@ -15,7 +15,9 @@
  *                                                                         *
  ***************************************************************************/
 
-#include "qfield_qml_init.h"
+#include "layerutils.h"
+
+#include <qgsfield.h>
 
 #include <QtQuickTest>
 #include <QQmlEngine>
@@ -23,20 +25,12 @@
 
 #define REGISTER_SINGLETON( uri, _class, name ) qmlRegisterSingletonType<_class>( uri, 1, 0, name, []( QQmlEngine *engine, QJSEngine *scriptEngine ) -> QObject * { Q_UNUSED(engine); Q_UNUSED(scriptEngine); return new _class(); } )
 
-class Setup : public QObject
+void qmlInit( QQmlEngine *engine )
 {
-    Q_OBJECT
+  Q_UNUSED( engine )
 
-  public:
-    Setup() {}
+  REGISTER_SINGLETON( "org.qfield", LayerUtils, "LayerUtils" );
 
-  public slots:
-    void qmlEngineAvailable( QQmlEngine *engine )
-    {
-      qmlInit( engine );
-    }
-};
-
-QUICK_TEST_MAIN_WITH_SETUP( test_qml_editorwidgets, Setup )
-
-#include "test_qml_editorwidgets.moc"
+  qRegisterMetaType<QgsField>( "QgsField" );
+  qRegisterMetaType<QVariant::Type>( "QVariant::Type" );
+}
