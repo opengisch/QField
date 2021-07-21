@@ -1,6 +1,6 @@
 /***************************************************************************
-                        test_qml_test.cpp
-                        --------------------
+                        test_qml_editorwidgets.cpp
+                        --------------------------
   begin                : Jul 2021
   copyright            : (C) 2021 by Mathieu Pellerin
   email                : mathieu@opengis.ch
@@ -44,6 +44,6 @@ class Setup : public QObject
     }
 };
 
-QUICK_TEST_MAIN_WITH_SETUP( test_qml, Setup )
+QUICK_TEST_MAIN_WITH_SETUP( test_qml_editorwidgets, Setup )
 
-#include "test_qml.moc"
+#include "test_qml_editorwidgets.moc"
