@@ -243,7 +243,7 @@ void QgsQuickMapSettings::onReadProject( const QDomDocument &doc )
   bool foundTheMapCanvas = false;
   for ( int i = 0; i < nodes.size(); i++ )
   {
-    QDomNode node = nodes.item( 0 );
+    QDomNode node = nodes.item( i );
     QDomElement element = node.toElement();
 
     if ( element.hasAttribute( QStringLiteral( "name" ) ) && element.attribute( QStringLiteral( "name" ) ) == QStringLiteral( "theMapCanvas" ) )
