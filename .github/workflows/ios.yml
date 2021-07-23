@@ -18,7 +18,7 @@ jobs:
     runs-on: macOS-latest
     strategy:
       matrix:
-        sdk-version: ['96']
+        sdk-version: ['97']
         deployment-target: ['12.0']
         platform: ['OS64']
         qt-version: ['5.14.2']
