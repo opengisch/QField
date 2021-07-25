@@ -46,6 +46,6 @@ ADD_QFIELD_TEST(geometryutilstest test_geometryutils.cpp)
 ADD_QFIELD_TEST(stringutilstest test_stringutils.cpp)
 ADD_QFIELD_TEST(urlutilstest test_urlutils.cpp)
 ADD_QFIELD_TEST(digitizingloggertest test_digitizinglogger.cpp)
+ADD_QFIELD_TEST(attributeformmodeltest test_attributeformmodel.cpp)
 
 ADD_QFIELD_QML_TEST(qmltest test_qml_editorwidgets.cpp)
-
