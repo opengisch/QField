@@ -410,6 +410,8 @@ bool MultiFeatureListModelBase::deleteFeature( QgsVectorLayer *layer, QgsFeature
   }
 
   bool isSuccess = true;
+
+  // delete parent and related features
   QgsVectorLayer::DeleteContext deleteContext( true, QgsProject::instance() );
   if ( layer->deleteFeature( fid, &deleteContext ) )
   {
@@ -417,7 +419,33 @@ bool MultiFeatureListModelBase::deleteFeature( QgsVectorLayer *layer, QgsFeature
     {
       // commit changes
       if ( !layer->commitChanges() )
+      {
+        const QString msgs = layer->commitErrors().join( QStringLiteral( "\n" ) );
+        QgsMessageLog::logMessage( tr( "Cannot commit deletion of feature %2 in layer \"%1\". Reason:\n%3" ).arg( layer->name() ).arg( fid ).arg( msgs ), QStringLiteral( "QField" ), Qgis::Warning );
         isSuccess = false;
+      }
+    }
+
+    if ( isSuccess )
+    {
+      // loop and commit referenced layers in reverse
+      QList<QgsVectorLayer *> constHandledLayers = deleteContext.handledLayers();
+
+      for ( QList<QgsVectorLayer *>::reverse_iterator it = constHandledLayers.rbegin(); it != constHandledLayers.rend(); ++it )
+      {
+        QgsVectorLayer *vl = *it;
+
+        if ( vl == layer )
+          continue;
+
+        if ( !vl->commitChanges() )
+        {
+          const QString msgs = vl->commitErrors().join( QStringLiteral( "\n" ) );
+          QgsMessageLog::logMessage( tr( "Cannot commit deletion in layer \"%1\". Reason:\n%3" ).arg( vl->name() ).arg( msgs ), QStringLiteral( "QField" ), Qgis::Warning );
+          isSuccess = false;
+          break;
+        }
+      }
     }
   }
   else
@@ -431,6 +459,12 @@ bool MultiFeatureListModelBase::deleteFeature( QgsVectorLayer *layer, QgsFeature
   {
     if ( !isSuccess )
     {
+      const QList<QgsVectorLayer *> constHandledLayers = deleteContext.handledLayers();
+      for ( QgsVectorLayer *vl : constHandledLayers )
+        if ( vl != layer )
+          if ( !vl->rollBack() )
+            QgsMessageLog::logMessage( tr( "Cannot rollback layer changes in layer %1" ).arg( vl->name() ), "QField", Qgis::Critical );
+
       if ( !layer->rollBack() )
         QgsMessageLog::logMessage( tr( "Cannot rollback layer changes in layer %1" ).arg( layer->name() ), "QField", Qgis::Critical );
     }
