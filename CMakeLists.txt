@@ -162,7 +162,7 @@ find_package(QtKeychain)
 if (${CMAKE_SYSTEM_NAME} STREQUAL "iOS")
   add_definitions(-DQT_NO_PRINTER)
 
-  set(SHARE_PATH "${CMAKE_CURRENT_BINARY_DIR}/share/")
+  set(SHARE_PATH "${CMAKE_CURRENT_BINARY_DIR}/share")
 
   # keep trailing slash for QField to rename the directory (instead of copying in subdir)
   file(COPY ${CMAKE_CURRENT_SOURCE_DIR}/resources/ DESTINATION ${SHARE_PATH}/qfield)
