@@ -36,42 +36,15 @@ QString IosPlatformUtilities::systemGenericDataLocation() const
   return path + "/share";
 }
 
-
 bool IosPlatformUtilities::checkPositioningPermissions() const
 {
-  CLAuthorizationStatus status = [CLLocationManager authorizationStatus];
-
-    switch (status)
-    {
-        case kCLAuthorizationStatusNotDetermined:
-        {
-            CLLocationManager *locationManager = [[CLLocationManager alloc] init];
-            [locationManager requestWhenInUseAuthorization];
-            return false;
-        }
-            
-        case kCLAuthorizationStatusAuthorizedAlways:
-        case kCLAuthorizationStatusAuthorizedWhenInUse:
-            return true;
-
-        case kCLAuthorizationStatusRestricted:
-            //The user can't choose whether or not your app can use location services or not, this could be due to parental controls for example.
-            // TODO: check?
-            return true;
-
-        case kCLAuthorizationStatusDenied:
-            return false;
-
-        default:
-            return false;
-      }
-    }
-
+  return true;
+}
 
 bool IosPlatformUtilities::checkCameraPermissions() const
 {
   // see https://stackoverflow.com/a/20464727/1548052
-    
+  return true;
     
   NSString *mediaType = AVMediaTypeVideo;
   AVAuthorizationStatus authStatus = [AVCaptureDevice authorizationStatusForMediaType:mediaType];
