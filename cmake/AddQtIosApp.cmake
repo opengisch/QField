@@ -1,33 +1,6 @@
 #
-# Copyright (c) 2019 Olivier Le Doeuff <olivier.ldff@gmail.com>
-#
-# All rights reserved.
-#
-# Redistribution and use in source and binary forms, with or without
-# modification, are permitted provided that the following conditions are met:
-#
-# 1. Redistributions of source code must retain the above copyright notice, this
-# list of conditions and the following disclaimer.
-#
-# 2. Redistributions in binary form must reproduce the above copyright notice,
-# this list of conditions and the following disclaimer in the documentation
-# and/or other materials provided with the distribution.
-#
-# 3. Neither the name of the copyright holder nor the names of its contributors
-# may be used to endorse or promote products derived from this software without
-# specific prior written permission.
-#
-# THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
-# ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
-# WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
-# DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE
-# FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL
-# DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR
-# SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
-# CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
-# OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
-# OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
-#
+# CMake Script by Olivier Le Doeuff
+# Copyright (c) 2019 - All Right Reserved
 # add_qt_ios_app help you deploy iOs application with Qt.
 #
 
@@ -85,6 +58,7 @@ include(CMakeParseArguments)
 #    ORIENTATION_PORTRAIT_UPDOWN
 #    ORIENTATION_LANDSCAPE_LEFT
 #    ORIENTATION_LANDSCAPE_RIGHT
+#    PHOTO_LIBRARY_USAGE_DESCRIPTION "My App needs to access your photo library."
 #    SUPPORT_IPHONE
 #    SUPPORT_IPAD
 #    REQUIRES_FULL_SCREEN
@@ -107,6 +81,7 @@ function(add_qt_ios_app TARGET)
         HIDDEN_STATUS_BAR
         IPA
         UPLOAD_SYMBOL
+        ITS_ENCRYPTION_EXPORT_COMPLIANCE_CODE
         )
     set(QT_IOS_ONE_VALUE_ARG NAME
         BUNDLE_IDENTIFIER
@@ -125,6 +100,7 @@ function(add_qt_ios_app TARGET)
         CATALOG_APPICON
         CATALOG_LAUNCHIMAGE
         DISTRIBUTION_METHOD
+        PHOTO_LIBRARY_USAGE_DESCRIPTION
         )
     set(QT_IOS_MULTI_VALUE_ARG
         RESOURCE_FILES
@@ -147,7 +123,6 @@ function(add_qt_ios_app TARGET)
         set(QT_IOS_CODE_SIGN_IDENTITY "iPhone Developer")
     endif()
     if(NOT QT_IOS_TEAM_ID)
-        message(STATUS "QT_IOS_TEAM_ID : ${QT_IOS_TEAM_ID}")
         set(QT_IOS_TEAM_ID ${ARGIOS_TEAM_ID})
     endif()
     if(NOT QT_IOS_PROVISIONING_PROFILE_SPECIFIER AND ARGIOS_PROVISIONING_PROFILE_SPECIFIER)
@@ -171,6 +146,7 @@ function(add_qt_ios_app TARGET)
     set(QT_IOS_SUPPORT_IPAD ${ARGIOS_SUPPORT_IPAD})
     set(QT_IOS_REQUIRES_FULL_SCREEN ${ARGIOS_REQUIRES_FULL_SCREEN})
     set(QT_IOS_HIDDEN_STATUS_BAR ${ARGIOS_HIDDEN_STATUS_BAR})
+    set(QT_IOS_PHOTO_LIBRARY_USAGE_DESCRIPTION ${ARGIOS_PHOTO_LIBRARY_USAGE_DESCRIPTION})
 
     set(QT_IOS_IPA ${ARGIOS_IPA})
     set(QT_IOS_UPLOAD_SYMBOL ${ARGIOS_UPLOAD_SYMBOL})
@@ -179,6 +155,17 @@ function(add_qt_ios_app TARGET)
     endif()
     if("${QT_IOS_DISTRIBUTION_METHOD}" STREQUAL "")
         set(QT_IOS_DISTRIBUTION_METHOD "app-store")
+    endif()
+
+    # Allow user to override QT_IOS_ITS_ENCRYPTION_EXPORT_COMPLIANCE_CODE from cache/command line
+    if(NOT QT_IOS_ITS_ENCRYPTION_EXPORT_COMPLIANCE_CODE)
+        set(QT_IOS_ITS_ENCRYPTION_EXPORT_COMPLIANCE_CODE ${ARGIOS_ITS_ENCRYPTION_EXPORT_COMPLIANCE_CODE})
+    endif()
+    # QT_IOS_ITS_ENCRYPTION_KEYS is used in Info.plist.in
+    if(QT_IOS_ITS_ENCRYPTION_EXPORT_COMPLIANCE_CODE)
+        set(QT_IOS_ITS_ENCRYPTION_KEYS "<key>ITSAppUsesNonExemptEncryption</key><true/>\n    <key>ITSEncryptionExportComplianceCode</key>\n    <string>${QT_IOS_ITS_ENCRYPTION_EXPORT_COMPLIANCE_CODE}</string>" PARENT_SCOPE)
+    else()
+        set(QT_IOS_ITS_ENCRYPTION_KEYS "<key>ITSAppUsesNonExemptEncryption</key><false/>" PARENT_SCOPE)
     endif()
 
     set(QT_IOS_VERBOSE ${ARGIOS_VERBOSE})
@@ -251,13 +238,6 @@ function(add_qt_ios_app TARGET)
         endif() # QT_IOS_VERBOSE
     endif() # NOT QT_IOS_CATALOG_APPICON
 
-    # if(NOT QT_IOS_CATALOG_LAUNCHIMAGE)
-    #     set(QT_IOS_CATALOG_LAUNCHIMAGE "LaunchImage")
-    #     if(QT_IOS_VERBOSE)
-    #         message(STATUS "CATALOG_LAUNCHIMAGE not specified, default to ${QT_IOS_CATALOG_LAUNCHIMAGE}.")
-    #     endif() # QT_IOS_VERBOSE
-    # endif() # NOT QT_IOS_CATALOG_LAUNCHIMAGE
-
     # Print macro configuration
     if(QT_IOS_VERBOSE)
         message(STATUS "------ QtIosCMake Configuration ------")
@@ -284,6 +264,9 @@ function(add_qt_ios_app TARGET)
         message(STATUS "ORIENTATION_PORTRAIT_UPDOWN         : ${QT_IOS_ORIENTATION_PORTRAIT_UPDOWN}")
         message(STATUS "ORIENTATION_LANDSCAPE_LEFT          : ${QT_IOS_ORIENTATION_LANDSCAPE_LEFT}")
         message(STATUS "ORIENTATION_LANDSCAPE_RIGHT         : ${QT_IOS_ORIENTATION_LANDSCAPE_RIGHT}")
+        if(QT_IOS_PHOTO_LIBRARY_USAGE_DESCRIPTION)
+            message(STATUS "PHOTO_LIBRARY_USAGE_DESCRIPTION     : ${QT_IOS_PHOTO_LIBRARY_USAGE_DESCRIPTION}")
+        endif()
         message(STATUS "SUPPORT_IPHONE                      : ${QT_IOS_SUPPORT_IPHONE}")
         message(STATUS "SUPPORT_IPAD                        : ${QT_IOS_SUPPORT_IPAD}")
         message(STATUS "REQUIRES_FULL_SCREEN                : ${QT_IOS_REQUIRES_FULL_SCREEN}")
@@ -291,6 +274,7 @@ function(add_qt_ios_app TARGET)
         message(STATUS "IPA                                 : ${QT_IOS_IPA}")
         message(STATUS "UPLOAD_SYMBOL                       : ${QT_IOS_UPLOAD_SYMBOL}")
         message(STATUS "DISTRIBUTION_METHOD                 : ${QT_IOS_DISTRIBUTION_METHOD}")
+        message(STATUS "RESOURCE_FILES                      : ${QT_IOS_RESOURCE_FILES}")
         message(STATUS "------ QtIosCMake END Configuration ------")
     endif() # QT_IOS_VERBOSE
 
@@ -298,9 +282,7 @@ function(add_qt_ios_app TARGET)
     if(QT_IOS_VERBOSE)
         message(STATUS "Set property MACOSX_BUNDLE to ${QT_IOS_TARGET}")
     endif() # QT_IOS_VERBOSE
-    set_target_properties(${QT_IOS_TARGET}
-      PROPERTIES MACOSX_BUNDLE ON
-    )
+    set_target_properties(${QT_IOS_TARGET} PROPERTIES MACOSX_BUNDLE ON)
 
     # Qt Mess
     function(qt_ios_clean_paths)
@@ -395,7 +377,7 @@ function(add_qt_ios_app TARGET)
     if(QT_IOS_VERBOSE)
         message(STATUS "Add -e _qt_main_wrapper linker flag to ${QT_IOS_TARGET} to change application entry point to create UIApplication before QApplication")
     endif() # QT_IOS_VERBOSE
-    target_link_libraries(${QT_IOS_TARGET} PUBLIC ${QT_LIBRARIES} "-framework AVFoundation" "-e _qt_main_wrapper")
+    target_link_libraries(${QT_IOS_TARGET} PUBLIC ${QT_LIBRARIES} "-e _qt_main_wrapper")
 
     # Set XCode property for automatic code sign
     if(QT_IOS_CODE_SIGN_IDENTITY)
@@ -554,7 +536,6 @@ function(add_qt_ios_app TARGET)
         set(MACOSX_BUNDLE_MAIN_STORYBOARD ${CMAKE_MATCH_1} PARENT_SCOPE)
     endif(QT_IOS_MAIN_STORYBOARD)
 
-
     if(${PLATFORM_INT} MATCHES ".*SIMULATOR.*" AND QT_IOS_IPA)
         unset(QT_IOS_IPA)
         message(WARNING "Ipa can't be enabled for simulator.")
@@ -606,6 +587,10 @@ function(add_qt_ios_app TARGET)
             set(QT_IOS_UPLOAD_SYMBOL_KEY "")
         endif()
 
+        if(QT_IOS_PHOTO_LIBRARY_USAGE_DESCRIPTION)
+            set(MACOSX_BUNDLE_PHOTO_LIBRARY_USAGE_DESCRIPTION "<key>NSPhotoLibraryUsageDescription</key> <string>${QT_IOS_PHOTO_LIBRARY_USAGE_DESCRIPTION}</string>" PARENT_SCOPE)
+        endif()
+
         set(QT_IOS_EXPORT_OPTIONS_FILE ${CMAKE_CURRENT_BINARY_DIR}/${QT_IOS_TARGET}ExportOptions.plist)
         configure_file(${QT_IOS_SOURCE_DIR}/ExportOptions.plist.in ${QT_IOS_EXPORT_OPTIONS_FILE})
 
@@ -616,6 +601,7 @@ function(add_qt_ios_app TARGET)
           -archivePath ${QT_IOS_TARGET_ARCHIVE_PATH}
           -exportOptionsPlist ${QT_IOS_EXPORT_OPTIONS_FILE}
           -exportPath ${QT_IOS_TARGET_IPA_PATH}
+          ${QT_IOS_EXPORT_ARCHIVE_XCODEBUILD_FLAGS}
         )
 
     endif()
