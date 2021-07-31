@@ -9,4 +9,9 @@ Item {
      * handler is \c onRequestGeometry.
      */
     signal requestGeometry(var item, var layer)
+
+    /* This signal is emitted by the attribute form item when a value or the editable state
+     * has changed.
+     */
+    signal processValue();
 }

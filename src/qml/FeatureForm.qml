@@ -441,8 +441,23 @@ Page {
                   if ( widget === 'RelationEditor' ) {
                     return 'editorwidgets/relationeditors/' + ( RelationEditorWidget || 'relation_editor' ) + '.qml'
                   }
-
                   return 'editorwidgets/' + ( widget || 'TextEdit' ) + '.qml'
+                }
+
+                onLoaded: {
+                    item.processValue();
+                }
+
+                onIsEnabledChanged: {
+                    if (status == Loader.Ready) {
+                        item.processValue();
+                    }
+                }
+
+                onValueChanged: {
+                    if (status == Loader.Ready) {
+                        item.processValue();
+                    }
                 }
 
                 onStatusChanged: {
