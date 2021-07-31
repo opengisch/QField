@@ -82,7 +82,7 @@ EditorWidgetBase {
     }
 
     onTextChanged: {
-      valueChanged( text, text == '' )
+      valueChangeRequested( text, text == '' )
     }
   }
 
@@ -106,7 +106,7 @@ EditorWidgetBase {
     }
 
     onEditingFinished: {
-      valueChanged( text, text == '' )
+      valueChangeRequested( text, text == '' )
     }
   }
 

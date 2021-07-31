@@ -147,11 +147,11 @@ EditorWidgetBase {
                 {
                     newDate = Qt.formatDateTime(newDate, config['field_format'])
                 }
-                valueChanged(newDate, newDate === undefined)
+                valueChangeRequested(newDate, newDate === undefined)
             }
             else
             {
-                valueChanged(undefined, true)
+                valueChangeRequested(undefined, true)
             }
         }
 
@@ -198,13 +198,13 @@ EditorWidgetBase {
                     if ( main.isDateTimeType )
                     {
                         var currentDateTime = new Date()
-                        valueChanged(currentDateTime, false)
+                        valueChangeRequested(currentDateTime, false)
                     }
                     else
                     {
                         var currentDate = new Date()
                         var textDate = Qt.formatDateTime(currentDate, config['field_format'])
-                        valueChanged(textDate, false)
+                        valueChangeRequested(textDate, false)
                     }
                     displayToast(qsTr( 'Date value set to today.'))
                 }
@@ -228,7 +228,7 @@ EditorWidgetBase {
             MouseArea {
                 anchors.fill: parent
                 onClicked: {
-                    valueChanged(undefined, true)
+                    valueChangeRequested(undefined, true)
                 }
             }
         }
@@ -468,12 +468,12 @@ EditorWidgetBase {
                         newDate.setSeconds(secondsSpinBox.value);
                         if ( main.isDateTimeType )
                         {
-                            valueChanged(newDate, newDate === undefined)
+                            valueChangeRequested(newDate, newDate === undefined)
                         }
                         else
                         {
                             var textDate = Qt.formatDateTime(newDate, config['field_format'])
-                            valueChanged(textDate, textDate === undefined)
+                            valueChangeRequested(textDate, textDate === undefined)
                         }
 
                         popup.close()

@@ -310,7 +310,7 @@ EditorWidgetBase {
         onFinished: {
             var filepath = getPictureFilePath()
             platformUtilities.renameFile( path, qgisProject.homePath +'/' + filepath)
-            valueChanged(filepath, false)
+            valueChangeRequested(filepath, false)
             campopup.close()
         }
         onCanceled: {
@@ -326,7 +326,7 @@ EditorWidgetBase {
     function onPictureReceived(path) {
       if( path )
       {
-          valueChanged(path, false)
+          valueChangeRequested(path, false)
       }
     }
   }

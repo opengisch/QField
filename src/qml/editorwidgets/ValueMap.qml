@@ -50,7 +50,7 @@ EditorWidgetBase {
 
     onCurrentTextChanged: {
       var key = model.keyForValue(currentText)
-      valueChanged(key, false)
+      valueChangeRequested(key, false)
     }
 
     MouseArea {

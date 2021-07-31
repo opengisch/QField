@@ -11,8 +11,7 @@ EditorWidgetBase {
 
   onProcessValue: {
       if (isEnabled && (value === undefined || value == '')) {
-          console.log('changing');
-          valueChanged(StringUtils.createUuid() ,false);
+          valueChangeRequested(StringUtils.createUuid() ,false);
       }
   }
 
