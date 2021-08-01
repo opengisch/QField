@@ -1,6 +1,10 @@
 import QtQuick 2.12
 
 Item {
+    /* This property indicates whether the editor widget has been fully loaded by its Loader.
+     * Note: prior to this property being true, signals emitted by the editor widget will not be
+     * propagated.
+     */
     property bool isLoaded: false
 
     /* This signal is emmited when an editor widget has changed the value.
