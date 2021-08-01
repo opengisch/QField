@@ -57,7 +57,7 @@ EditorWidgetBase {
           }
 
           onTextChanged: {
-              valueChanged( text, text == '' )
+              valueChangeRequested( text, text == '' )
           }
       }
 

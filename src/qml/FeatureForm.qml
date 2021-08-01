@@ -441,8 +441,11 @@ Page {
                   if ( widget === 'RelationEditor' ) {
                     return 'editorwidgets/relationeditors/' + ( RelationEditorWidget || 'relation_editor' ) + '.qml'
                   }
-
                   return 'editorwidgets/' + ( widget || 'TextEdit' ) + '.qml'
+                }
+
+                onLoaded: {
+                    item.isLoaded = true;
                 }
 
                 onStatusChanged: {
@@ -475,7 +478,7 @@ Page {
               Connections {
                 target: attributeEditorLoader.item
 
-                function onValueChanged(value, isNull) {
+                function onValueChangeRequested(value, isNull) {
                   //do not compare AttributeValue and value with strict comparison operators
                   if( ( AttributeValue != value || ( AttributeValue !== undefined && isNull ) ) && !( AttributeValue === undefined && isNull ) )
                   {

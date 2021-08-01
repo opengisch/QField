@@ -66,7 +66,7 @@ EditorWidgetBase {
     }
 
     onCheckedChanged: {
-        valueChanged( isBool ? checked : checked ? config['CheckedState'] : config['UncheckedState'], false )
+        valueChangeRequested( isBool ? checked : checked ? config['CheckedState'] : config['UncheckedState'], false )
         forceActiveFocus()
     }
   }

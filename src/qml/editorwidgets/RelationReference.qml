@@ -45,7 +45,7 @@ EditorWidgetBase {
       }
     }
 
-    onValueChanged: parent.valueChanged(value, isNull)
+    onValueChanged: parent.valueChangeRequested(value, isNull)
   }
 
   Image {

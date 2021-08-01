@@ -18,9 +18,8 @@
 #include "qgsstringutils.h"
 #include "stringutils.h"
 
-#include <QDebug>
 #include <QRegularExpression>
-
+#include <QUuid>
 
 StringUtils::StringUtils( QObject *parent )
   : QObject( parent )
@@ -33,6 +32,10 @@ QString StringUtils::insertLinks( const QString &string )
   return QgsStringUtils::insertLinks( string );
 }
 
+QString StringUtils::createUuid()
+{
+  return QUuid::createUuid().toString();
+}
 
 bool StringUtils::fuzzyMatch( const QString &source, const QString &term )
 {

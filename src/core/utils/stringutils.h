@@ -35,6 +35,11 @@ class QFIELD_CORE_EXPORT StringUtils : public QObject
      */
     static Q_INVOKABLE QString insertLinks( const QString &string );
 
+    /**
+     * Returns a new UUID string.
+     */
+    static Q_INVOKABLE QString createUuid();
+
     //! Checks whether the string \a term is part of \a source
     static bool fuzzyMatch( const QString &source, const QString &term );
 };
