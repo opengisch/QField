@@ -9,7 +9,7 @@ import "."
 EditorWidgetBase {
   height: childrenRect.height
 
-  onProcessValue: {
+  function processValue() {
       if (isEnabled && (value === undefined || value == '')) {
           valueChangeRequested(StringUtils.createUuid() ,false);
       }
