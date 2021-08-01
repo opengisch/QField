@@ -9,12 +9,6 @@ import "."
 EditorWidgetBase {
   height: childrenRect.height
 
-  function processValue() {
-      if (isEnabled && (value === undefined || value == '')) {
-          valueChangeRequested(StringUtils.createUuid() ,false);
-      }
-  }
-
   anchors {
     right: parent.right
     left: parent.left
@@ -32,7 +26,14 @@ EditorWidgetBase {
       bottomPadding: 10
       font: Theme.defaultFont
       color: 'gray'
-      text: value !== undefined ? value : ''
+      text: {
+        var displayValue = value !== undefined ? value : ''
+        if (isLoaded && isEnabled && (value === undefined || value == '')) {
+            displayValue = StringUtils.createUuid();
+            valueChangeRequested(displayValue ,false);
+        }
+        return displayValue;
+      }
   }
 
   Rectangle {

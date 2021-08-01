@@ -445,19 +445,7 @@ Page {
                 }
 
                 onLoaded: {
-                    item.processValue();
-                }
-
-                onIsEnabledChanged: {
-                    if (status == Loader.Ready) {
-                        item.processValue();
-                    }
-                }
-
-                onValueChanged: {
-                    if (status == Loader.Ready) {
-                        item.processValue();
-                    }
+                    item.isLoaded = true;
                 }
 
                 onStatusChanged: {

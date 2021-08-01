@@ -1,10 +1,7 @@
 import QtQuick 2.12
 
 Item {
-    /* This function is triggered by the attribute form whenever a field value or
-     * editable state has changed.
-     */
-    function processValue() {}
+    property bool isLoaded: false
 
     /* This signal is emmited when an editor widget has changed the value.
      */
