@@ -87,11 +87,8 @@ description:
       
       - Collaboratively work on datasets through [QFieldCloud](https://qfield.cloud)
       
-    screenshots:
-      - https://github.com/opengisch/QField-docs/raw/master/en/images/qfield_picture.png
     shortDescription: |-
-      QField is the leading full-featured, user-friendly, free-and-open-source mobile data collection
-      app that integrates perfectly with QGIS and runs on various platforms.
+      QField is the leading full-featured, user-friendly, free-and-open-source mobile data collection app that integrates perfectly with QGIS.
 intendedAudience:
   scope:
     - agriculture
