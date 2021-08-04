@@ -114,12 +114,12 @@ EditorWidgetBase {
 
   function getPictureFilePath() {
     var evaluatedFilepath = expressionEvaluator.evaluate()
+    var filepath = ( evaluatedFilepath && FileUtils.fileSuffix(evaluatedFilepath) !== '' )
+      ? evaluatedFilepath
+      : ('DCIM/JPEG_' + (new Date()).toISOString().replace(/[^0-9]/g, '') + '.jpg')
+    filepath = filepath.replace('\\', '/')
 
-    if ( evaluatedFilepath && FileUtils.fileSuffix(evaluatedFilepath) !== '' ) {
-      return evaluatedFilepath
-    } else {
-      return 'DCIM/JPEG_' + (new Date()).toISOString().replace(/[^0-9]/g, '') + '.jpg'
-    }
+    return filepath;
   }
 
   Label {
