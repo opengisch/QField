@@ -47,9 +47,9 @@ bool GnssPositionInformation::operator==( const GnssPositionInformation &other )
          mQuality == other.mQuality &&
          mStatus == other.mStatus &&
          mSatPrn == other.mSatPrn &&
-         mSatInfoComplete == other.mLongitude &&
-         mVerticalSpeed == other.mLongitude &&
-         mMagneticVariation == other.mLongitude &&
+         mSatInfoComplete == other.mSatInfoComplete &&
+         mVerticalSpeed == other.mVerticalSpeed &&
+         mMagneticVariation == other.mMagneticVariation &&
          mSourceName == other.mSourceName;
 }
 
