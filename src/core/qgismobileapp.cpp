@@ -296,8 +296,8 @@ QgisMobileapp::QgisMobileapp( QgsApplication *app, QObject *parent )
 
   connect( qFieldCloudProjectsModel, &QFieldCloudProjectsModel::projectDownloaded, this, [ = ]( const QString & projectId, const QString & projectName, const bool hasError, const QString & errorString )
   {
-    Q_UNUSED( projectName );
-    Q_UNUSED( errorString );
+    Q_UNUSED( projectName )
+    Q_UNUSED( errorString )
     if ( !hasError )
     {
       if ( projectId == QFieldCloudUtils::getProjectId( mProjectFilePath ) )
@@ -792,6 +792,7 @@ void QgisMobileapp::readProjectFile()
                     }
                     catch ( const QgsCsException &exp )
                     {
+                      Q_UNUSED( exp )
                       // Ignore extent if it can't be transformed
                     }
                   }
@@ -898,6 +899,7 @@ void QgisMobileapp::readProjectFile()
                     }
                     catch ( const QgsCsException &exp )
                     {
+                      Q_UNUSED( exp )
                       // Ignore extent if it can't be transformed
                     }
                   }
