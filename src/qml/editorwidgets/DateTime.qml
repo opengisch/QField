@@ -5,6 +5,7 @@ import QtGraphicalEffects 1.0
 import Qt.labs.calendar 1.0
 
 import Theme 1.0
+import org.qfield 1.0
 
 import "."
 
