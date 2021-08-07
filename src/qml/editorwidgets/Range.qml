@@ -188,7 +188,7 @@ EditorWidgetBase {
 
       onValueChanged: {
         if (sliderRow.visible) {
-          rangeItem.valueChanged(slider.value, false)
+          rangeItem.valueChangeRequested(slider.value, false)
         }
       }
 
