@@ -38,18 +38,26 @@ QgsGeometry GeometryUtils::polygonFromRubberband( RubberbandModel *rubberBandMod
   return g;
 }
 
-QgsGeometry::OperationResult GeometryUtils::reshapeFromRubberband( QgsVectorLayer *layer, QgsFeatureId fid, RubberbandModel *rubberBandModel )
+GeometryOperationResult GeometryUtils::reshapeFromRubberband( QgsVectorLayer *layer, QgsFeatureId fid, RubberbandModel *rubberBandModel )
 {
   QgsFeature feature = layer->getFeature( fid );
   QgsGeometry geom = feature.geometry();
   if ( geom.isNull() || ( QgsWkbTypes::geometryType( geom.wkbType() ) != QgsWkbTypes::LineGeometry && QgsWkbTypes::geometryType( geom.wkbType() ) != QgsWkbTypes::PolygonGeometry ) )
+#if _QGIS_VERSION_INT >= 32100
+    return Qgis::GeometryOperationResult::InvalidBaseGeometry;
+#else
     return QgsGeometry::InvalidBaseGeometry;
+#endif
 
   QgsPointSequence points = rubberBandModel->pointSequence( layer->crs(), QgsWkbTypes::Point, false );
   QgsLineString reshapeLineString( points );
 
-  QgsGeometry::OperationResult reshapeReturn = geom.reshapeGeometry( reshapeLineString );
+  GeometryOperationResult reshapeReturn = geom.reshapeGeometry( reshapeLineString );
+#if _QGIS_VERSION_INT >= 32100
+  if ( reshapeReturn == Qgis::GeometryOperationResult::Success )
+#else
   if ( reshapeReturn == QgsGeometry::Success )
+#endif
   {
     //avoid intersections on polygon layers
     if ( layer->geometryType() == QgsWkbTypes::PolygonGeometry )
@@ -75,7 +83,11 @@ QgsGeometry::OperationResult GeometryUtils::reshapeFromRubberband( QgsVectorLaye
 
       if ( geom.isEmpty() ) //intersection removal might have removed the whole geometry
       {
+#if _QGIS_VERSION_INT >= 32100
+        return Qgis::GeometryOperationResult::NothingHappened;
+#else
         return QgsGeometry::NothingHappened;
+#endif
       }
     }
     layer->changeGeometry( fid, geom );
@@ -90,7 +102,7 @@ QgsGeometry::OperationResult GeometryUtils::reshapeFromRubberband( QgsVectorLaye
   return reshapeReturn;
 }
 
-QgsGeometry::OperationResult GeometryUtils::addRingFromRubberband( QgsVectorLayer *layer, QgsFeatureId fid, RubberbandModel *rubberBandModel )
+GeometryOperationResult GeometryUtils::addRingFromRubberband( QgsVectorLayer *layer, QgsFeatureId fid, RubberbandModel *rubberBandModel )
 {
   QgsPointSequence ring = rubberBandModel->pointSequence( layer->crs(), layer->wkbType(), true );
 
@@ -106,7 +118,7 @@ QgsGeometry::OperationResult GeometryUtils::addRingFromRubberband( QgsVectorLaye
   return layer->addRing( ring, &fid );
 }
 
-QgsGeometry::OperationResult GeometryUtils::splitFeatureFromRubberband( QgsVectorLayer *layer, RubberbandModel *rubberBandModel )
+GeometryOperationResult GeometryUtils::splitFeatureFromRubberband( QgsVectorLayer *layer, RubberbandModel *rubberBandModel )
 {
   QgsPointSequence line = rubberBandModel->pointSequence( layer->crs(), QgsWkbTypes::Point, false );
   return layer->splitFeatures( line, true );
