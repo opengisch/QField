@@ -18,14 +18,21 @@
 
 #include "qfield_core_export.h"
 
-#include <QObject>
+#include <qgis.h>
 #include <qgsfeature.h>
 #include <qgsgeometry.h>
+
 #include <QtPositioning/QGeoCoordinate>
+#include <QObject>
 
 class QgsVectorLayer;
 class RubberbandModel;
 
+#if _QGIS_VERSION_INT >= 32100
+typedef Qgis::GeometryOperationResult GeometryOperationResult;
+#else
+typedef QgsGeometry::OperationResult GeometryOperationResult;
+#endif
 
 class QFIELD_CORE_EXPORT GeometryUtils : public QObject
 {
@@ -37,13 +44,13 @@ class QFIELD_CORE_EXPORT GeometryUtils : public QObject
     static Q_INVOKABLE QgsGeometry polygonFromRubberband( RubberbandModel *rubberBandModel, const QgsCoordinateReferenceSystem &crs );
 
     //! Reshape a polyon with given \a fid using the ring in the rubberband model.
-    static Q_INVOKABLE QgsGeometry::OperationResult reshapeFromRubberband( QgsVectorLayer *layer, QgsFeatureId fid, RubberbandModel *rubberBandModel );
+    static Q_INVOKABLE GeometryOperationResult reshapeFromRubberband( QgsVectorLayer *layer, QgsFeatureId fid, RubberbandModel *rubberBandModel );
 
     //! Add a ring to a polyon with given \a fid using the ring in the rubberband model.
-    static Q_INVOKABLE QgsGeometry::OperationResult addRingFromRubberband( QgsVectorLayer *layer, QgsFeatureId fid, RubberbandModel *rubberBandModel );
+    static Q_INVOKABLE GeometryOperationResult addRingFromRubberband( QgsVectorLayer *layer, QgsFeatureId fid, RubberbandModel *rubberBandModel );
 
     //! This will perform a split using the line in the rubberband model. It works with the layer selection if some features are selected.
-    static Q_INVOKABLE QgsGeometry::OperationResult splitFeatureFromRubberband( QgsVectorLayer *layer, RubberbandModel *rubberBandModel );
+    static Q_INVOKABLE GeometryOperationResult splitFeatureFromRubberband( QgsVectorLayer *layer, RubberbandModel *rubberBandModel );
 
     //! Converts QGeoCoordinate to QgsPoint
     static Q_INVOKABLE QgsPoint coordinateToPoint( const QGeoCoordinate &coor );

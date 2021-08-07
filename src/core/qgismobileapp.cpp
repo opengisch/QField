@@ -370,7 +370,11 @@ void QgisMobileapp::initDeclarative()
   qRegisterMetaType<QVariant::Type>( "QVariant::Type" );
   qRegisterMetaType<QgsDefaultValue>( "QgsDefaultValue" );
   qRegisterMetaType<QgsFieldConstraints>( "QgsFieldConstraints" );
+#if _QGIS_VERSION_INT >= 32100
+  qRegisterMetaType<Qgis::GeometryOperationResult>( "QgsGeometry::OperationResult" );
+#else
   qRegisterMetaType<QgsGeometry::OperationResult>( "QgsGeometry::OperationResult" );
+#endif
   qRegisterMetaType<QFieldCloudConnection::ConnectionStatus>( "QFieldCloudConnection::ConnectionStatus" );
   qRegisterMetaType<CloudUserInformation>( "CloudUserInformation" );
   qRegisterMetaType<QFieldCloudProjectsModel::ProjectStatus>( "QFieldCloudProjectsModel::ProjectStatus" );

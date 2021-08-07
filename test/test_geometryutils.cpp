@@ -16,9 +16,12 @@
  ***************************************************************************/
 
 #include "qfield_testbase.h"
-#include "qgsvectorlayer.h"
+
 #include "rubberbandmodel.h"
 #include "utils/geometryutils.h"
+
+#include <qgis.h>
+#include <qgsvectorlayer.h>
 
 #include <QtTest>
 
@@ -66,14 +69,22 @@ class TestGeometryUtils : public QObject
     void testAddRingFromRubberband()
     {
       QVERIFY( mLayer->startEditing() );
+#if _QGIS_VERSION_INT >= 32100
+      QCOMPARE( GeometryUtils::addRingFromRubberband( mLayer.get(), 100, mModel.get() ), Qgis::GeometryOperationResult::AddRingNotInExistingFeature );
+#else
       QCOMPARE( GeometryUtils::addRingFromRubberband( mLayer.get(), 100, mModel.get() ), QgsGeometry::AddRingNotInExistingFeature );
+#endif
 
       mModel->addVertexFromPoint( QgsPoint( 8.1, 8.1 ) );
       mModel->addVertexFromPoint( QgsPoint( 8.9, 8.1 ) );
       mModel->addVertexFromPoint( QgsPoint( 8.1, 8.9 ) );
       mLayer->select( 1 );
 
+#if _QGIS_VERSION_INT >= 32100
+      QCOMPARE( GeometryUtils::addRingFromRubberband( mLayer.get(), 1, mModel.get() ), Qgis::GeometryOperationResult::Success );
+#else
       QCOMPARE( GeometryUtils::addRingFromRubberband( mLayer.get(), 1, mModel.get() ), QgsGeometry::Success );
+#endif
       QVERIFY( mLayer->rollBack() );
     }
 
@@ -81,13 +92,21 @@ class TestGeometryUtils : public QObject
     void testSplitFeatureFromRubberband()
     {
       QVERIFY( mLayer->startEditing() );
+#if _QGIS_VERSION_INT >= 32100
+      QCOMPARE( GeometryUtils::splitFeatureFromRubberband( mLayer.get(), mModel.get() ), Qgis::GeometryOperationResult::NothingHappened );
+#else
       QCOMPARE( GeometryUtils::splitFeatureFromRubberband( mLayer.get(), mModel.get() ), QgsGeometry::NothingHappened );
+#endif
 
       mModel->addVertexFromPoint( QgsPoint( 7.5, 8.5 ) );
       mModel->addVertexFromPoint( QgsPoint( 9.5, 8.5 ) );
       mLayer->select( 1 );
 
+#if _QGIS_VERSION_INT >= 32100
+      QCOMPARE( GeometryUtils::splitFeatureFromRubberband( mLayer.get(), mModel.get() ), Qgis::GeometryOperationResult::Success );
+#else
       QCOMPARE( GeometryUtils::splitFeatureFromRubberband( mLayer.get(), mModel.get() ), QgsGeometry::Success );
+#endif
       QVERIFY( mLayer->rollBack() );
     }
 
