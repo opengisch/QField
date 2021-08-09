@@ -18,6 +18,7 @@
 #include "expressioncontextutils.h"
 #include "featuremodel.h"
 #include "vertexmodel.h"
+#include "layerutils.h"
 
 #include <QGeoPositionInfoSource>
 #include <QMutex>
@@ -674,69 +675,7 @@ bool FeatureModel::create()
 
 bool FeatureModel::deleteFeature()
 {
-  if ( !startEditing() )
-  {
-    QgsMessageLog::logMessage( tr( "Cannot start editing on layer \"%1\" to delete feature %2" ).arg( mLayer->name() ).arg( mFeature.id() ), QStringLiteral( "QField" ), Qgis::Critical );
-    return false;
-  }
-
-  bool isSuccess = true;
-
-  // delete parent and related features
-  QgsVectorLayer::DeleteContext deleteContext( true, mProject );
-  if ( mLayer->deleteFeature( mFeature.id(), &deleteContext ) )
-  {
-    // commit parent changes
-    if ( mLayer->commitChanges() )
-    {
-      // loop and commit referenced layers in reverse
-      QList<QgsVectorLayer *> constHandledLayers = deleteContext.handledLayers();
-
-      for ( QList<QgsVectorLayer *>::reverse_iterator it = constHandledLayers.rbegin(); it != constHandledLayers.rend(); ++it )
-      {
-        QgsVectorLayer *vl = *it;
-
-        if ( vl == mLayer )
-          continue;
-
-        if ( !vl->commitChanges() )
-        {
-          const QString msgs = vl->commitErrors().join( QStringLiteral( "\n" ) );
-          QgsMessageLog::logMessage( tr( "Cannot commit deletion in layer \"%1\". Reason:\n%3" ).arg( vl->name() ).arg( msgs ), QStringLiteral( "QField" ), Qgis::Warning );
-          isSuccess = false;
-          break;
-        }
-      }
-    }
-    else
-    {
-      const QString msgs = mLayer->commitErrors().join( QStringLiteral( "\n" ) );
-      QgsMessageLog::logMessage( tr( "Cannot commit deletion of feature %2 in layer \"%1\". Reason:\n%3" ).arg( mLayer->name() ).arg( mFeature.id() ).arg( msgs ), QStringLiteral( "QField" ), Qgis::Warning );
-      isSuccess = false;
-    }
-  }
-  else
-  {
-    QgsMessageLog::logMessage( tr( "Cannot delete feature %2 in layer %1" ).arg( mLayer->name() ).arg( mFeature.id() ), QStringLiteral( "QField" ), Qgis::Warning );
-
-    isSuccess = false;
-  }
-
-  if ( !isSuccess )
-  {
-    const QList<QgsVectorLayer *> constHandledLayers = deleteContext.handledLayers();
-    for ( QgsVectorLayer *vl : constHandledLayers )
-      if ( vl != mLayer )
-        if ( !vl->rollBack() )
-          QgsMessageLog::logMessage( tr( "Cannot rollback layer changes in layer %1" ).arg( vl->name() ), "QField", Qgis::Critical );
-
-    if ( mLayer->rollBack() )
-      QgsMessageLog::logMessage( tr( "Successfully rolled back changes in layer \"%1\" while attempting to delete feature %2" ).arg( mLayer->name() ).arg( mFeature.id() ), QStringLiteral( "QField" ), Qgis::Critical );
-    else
-      QgsMessageLog::logMessage( tr( "Cannot rollback layer changes in layer \"%1\" while attempting to delete feature %2" ).arg( mLayer->name() ).arg( mFeature.id() ), QStringLiteral( "QField" ), Qgis::Critical );
-  }
-
-  return isSuccess;
+  return LayerUtils::deleteFeature( mProject, mLayer, mFeature.id() );
 }
 
 bool FeatureModel::commit()
@@ -764,10 +703,8 @@ bool FeatureModel::startEditing()
     QgsMessageLog::logMessage( tr( "Cannot start editing" ), QStringLiteral( "QField" ), Qgis::Warning );
     return false;
   }
-  else
-  {
-    return true;
-  }
+
+  return true;
 }
 
 GnssPositionInformation FeatureModel::positionInformation() const

@@ -58,6 +58,8 @@ class LayerUtils : public QObject
     static Q_INVOKABLE void selectFeaturesInLayer( QgsVectorLayer *layer, const QList<int> &fids, QgsVectorLayer::SelectBehavior behavior = QgsVectorLayer::SetSelection );
 #endif
 
+    static bool deleteFeature( QgsProject *project, QgsVectorLayer *layer, const QgsFeatureId fid, bool shouldWriteChanges = true );
+
     /**
      * Returns the QVariant typeName of a \a field.
      * This is a stable identifier (compared to the provider field name).
