@@ -6,21 +6,28 @@
     "description": "QGIS is a free, open source, cross platform (lin/win/mac) geographical information system (GIS)",
     "dependencies": [
       "expat",
-      "hdf5",
       "libxml2",
       "libzip",
       "zlib",
       "libspatialindex",
       "libspatialite",
-      "glib",
       "gdal",
-      "opencl",
-      "exiv2",
+      {
+        "name": "exiv2",
+        "features":
+        [
+          "xmp"
+        ]
+      },
       "gsl",
       "libpq",
       "protobuf",
       "proj4",
       "geos",
+      {
+        "name": "libtasn1",
+        "platform": "ios"
+      },
       "qt5-base",
       "qt5-svg",
       "qt5-location",
@@ -34,11 +41,18 @@
         "platform": "windows"
       },
       "qca",
-      "qscintilla",
       "qtkeychain"
     ],
     "features":
     [
+	{
+            "name": "opencl",
+            "description": "Should OpenCL support be added",
+            "dependencies":
+            [
+                "opencl"
+            ]
+	},
         {
             "name": "server",
             "description": "Determines whether QGIS server should be built",
@@ -68,7 +82,8 @@
             "description": "Determines whether the QGIS gui should be built",
             "dependencies":
             [
-                "qwt"
+                "qwt",
+                "qscintilla"
             ]
         },
         {
@@ -78,6 +93,15 @@
         {
             "name": "customwidgets",
             "description": "Determines whether the QGIS custom widgets for QtCreator should be built"
+        },
+        {
+            "name": "quick",
+            "description": "Build the QGIS quick components for mobile interfaces",
+            "dependencies":
+            [
+                "qt5-quickcontrols2",
+                "qt5-declarative"
+            ]
         }
     ]
   }

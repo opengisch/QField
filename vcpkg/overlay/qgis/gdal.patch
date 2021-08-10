@@ -1,0 +1,25 @@
+From 1e4d3489a8a84d3003af6e1690234746c667f31f Mon Sep 17 00:00:00 2001
+From: Matthias Kuhn <matthias@opengis.ch>
+Date: Wed, 28 Jul 2021 09:54:01 +0200
+Subject: [PATCH] Link to all gdal deps
+
+---
+ CMakeLists.txt | 2 ++
+ 1 file changed, 2 insertions(+)
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 7a41b0d1e2..1141d6815a 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -336,6 +336,8 @@ if(WITH_CORE)
+   find_package(Proj)
+   find_package(GEOS)
+   find_package(GDAL)
++  # Make sure we link to all gdal dependencies
++  set(GDAL_LIBRARY ${GDAL_LIBRARIES})
+   find_package(Expat REQUIRED)
+   find_package(Spatialindex REQUIRED)
+   if (WITH_GUI)
+-- 
+2.31.1
+

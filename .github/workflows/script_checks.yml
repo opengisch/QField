@@ -1,0 +1,21 @@
+name: 🤹 Script checks
+
+on:
+  push:
+    branches:
+      - master
+      - release-**
+  pull_request:
+  release:
+    types: ['published', 'released']
+
+jobs:
+  test:
+    runs-on: ubuntu-20.04
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Check version number
+        run: |
+          ./test/test_version_number.sh

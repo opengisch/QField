@@ -1,4 +1,4 @@
-From 8f57c624b6759406b9aa148e95538cd90c8a4e36 Mon Sep 17 00:00:00 2001
+From 372d1f5067a873ad9a59021a2b2e7afbd83cfe04 Mon Sep 17 00:00:00 2001
 From: Matthias Kuhn <matthias@opengis.ch>
 Date: Sun, 30 May 2021 19:46:46 +0200
 Subject: [PATCH] Add export header
@@ -10,7 +10,7 @@ Subject: [PATCH] Add export header
  3 files changed, 11 insertions(+), 3 deletions(-)
 
 diff --git a/lib/CMakeLists.txt b/lib/CMakeLists.txt
-index 643a4c8..b1b1f70 100644
+index 643a4c8..1e6b9b4 100644
 --- a/lib/CMakeLists.txt
 +++ b/lib/CMakeLists.txt
 @@ -4,7 +4,6 @@
@@ -25,7 +25,7 @@ index 643a4c8..b1b1f70 100644
  target_include_directories(Spix
      PUBLIC
          $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
-+	$<BUILD_INTERFACE:${CMAKE_CURRENT_BINARY_DIR}>
++        $<BUILD_INTERFACE:${CMAKE_CURRENT_BINARY_DIR}>
          $<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}>
      PRIVATE
          src
@@ -50,7 +50,7 @@ index 643a4c8..b1b1f70 100644
      EXPORT SpixTargets
      FILE SpixTargets.cmake
 diff --git a/lib/include/Spix/AnyRpcServer.h b/lib/include/Spix/AnyRpcServer.h
-index 8a3c447..601eada 100644
+index 8a3c447..a1e0707 100644
 --- a/lib/include/Spix/AnyRpcServer.h
 +++ b/lib/include/Spix/AnyRpcServer.h
 @@ -7,6 +7,7 @@
@@ -66,12 +66,12 @@ index 8a3c447..601eada 100644
   * its xml-rpc library).
   */
 -class AnyRpcServer : public TestServer {
-+SPIX_EXPORT class AnyRpcServer : public TestServer {
++class SPIX_EXPORT AnyRpcServer : public TestServer {
  public:
      AnyRpcServer(int anyrpcPort = 9000);
      ~AnyRpcServer() override;
 diff --git a/lib/include/Spix/QtQmlBot.h b/lib/include/Spix/QtQmlBot.h
-index 1f69a50..c81f3a3 100644
+index 1f69a50..7ec88c6 100644
 --- a/lib/include/Spix/QtQmlBot.h
 +++ b/lib/include/Spix/QtQmlBot.h
 @@ -9,6 +9,7 @@
@@ -87,7 +87,7 @@ index 1f69a50..c81f3a3 100644
   * in `main()` of your application to start processing tests.
   */
 -class QtQmlBot : public QObject {
-+SPIX_EXPORT class QtQmlBot : public QObject {
++class SPIX_EXPORT QtQmlBot : public QObject {
      Q_OBJECT
  
  public:

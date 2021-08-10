@@ -259,7 +259,7 @@ target_link_libraries(qfield_core PUBLIC
   ${QGIS_CORE_LIBRARY}
   ${QGIS_ANALYSIS_LIBRARY}
   ${PROJ_LIBRARY}
-  ${GDAL_LIBRARY}
+  ${GDAL_LIBRARIES}
 )
 
 if (ANDROID)

@@ -1,0 +1,25 @@
+From 5436aa8f61c232e38c579340ecffe601c49555dc Mon Sep 17 00:00:00 2001
+From: Matthias Kuhn <matthias@opengis.ch>
+Date: Wed, 28 Jul 2021 17:27:28 +0200
+Subject: [PATCH] Fix dependency libxml2
+
+---
+ src/providers/mdal/CMakeLists.txt | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/src/providers/mdal/CMakeLists.txt b/src/providers/mdal/CMakeLists.txt
+index e507a0f4cb..56edb89210 100644
+--- a/src/providers/mdal/CMakeLists.txt
++++ b/src/providers/mdal/CMakeLists.txt
+@@ -16,7 +16,7 @@ if(MSVC)
+ endif()
+ find_package(HDF5)
+ find_package(NetCDF)
+-find_package(LibXml2)
++find_package(libxml2 CONFIG)
+ 
+ ########################################################
+ # Compile internal MDAL
+-- 
+2.31.1
+
