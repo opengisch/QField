@@ -27,7 +27,7 @@ class QgsQuickMapSettings;
 
 // Copied from gtest/gtest_prod.h
 #define FRIEND_TEST(test_case_name, test_name)\
-friend class test_case_name##_##test_name##_Test
+  friend class test_case_name##_##test_name##_Test
 
 /**
  * The VertexModel class is a model to highlight and edit vertices.
