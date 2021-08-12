@@ -255,7 +255,7 @@ void LayerObserver::addLayerListeners()
   {
     QgsVectorLayer *vl = qobject_cast<QgsVectorLayer *>( layer );
 
-    if ( vl && vl->dataProvider() )
+    if ( vl && vl->isValid() )
     {
       if ( mObservedLayerIds.contains( vl->id() ) )
         continue;

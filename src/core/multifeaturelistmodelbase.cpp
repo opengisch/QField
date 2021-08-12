@@ -18,6 +18,7 @@
 #include "featureutils.h"
 #include "multifeaturelistmodel.h"
 #include "multifeaturelistmodelbase.h"
+#include "layerutils.h"
 
 #include <QDebug>
 #include <qgscoordinatereferencesystem.h>
@@ -394,109 +395,7 @@ bool MultiFeatureListModelBase::mergeSelection()
 
 bool MultiFeatureListModelBase::deleteFeature( QgsVectorLayer *layer, QgsFeatureId fid, bool selectionAction )
 {
-  if ( !layer )
-  {
-    QgsMessageLog::logMessage( tr( "Cannot start editing, no layer" ), "QField", Qgis::Warning );
-    return false;
-  }
-
-  if ( !selectionAction )
-  {
-    if ( !layer->startEditing() )
-    {
-      QgsMessageLog::logMessage( tr( "Cannot start editing" ), "QField", Qgis::Warning );
-      return false;
-    }
-  }
-
-  //delete child features in case of compositions
-  const QList<QgsRelation> referencingRelations = QgsProject::instance()->relationManager()->referencedRelations( layer );
-  QList<QgsVectorLayer *> childLayersEdited;
-  bool isSuccess = true;
-  for ( const QgsRelation &referencingRelation : referencingRelations )
-  {
-    if ( referencingRelation.strength() == QgsRelation::Composition )
-    {
-      QgsVectorLayer *childLayer = referencingRelation.referencingLayer();
-
-      if ( childLayer->startEditing() )
-      {
-        QgsFeatureIterator relatedFeaturesIt = referencingRelation.getRelatedFeatures( layer->getFeature( fid ) );
-        QgsFeature childFeature;
-        while ( relatedFeaturesIt.nextFeature( childFeature ) )
-        {
-          if ( !childLayer->deleteFeature( childFeature.id() ) )
-          {
-            QgsMessageLog::logMessage( tr( "Cannot delete feature from child layer" ), "QField", Qgis::Critical );
-            isSuccess = false;
-          }
-        }
-      }
-      else
-      {
-        QgsMessageLog::logMessage( tr( "Cannot start editing child layer" ), "QField", Qgis::Critical );
-        isSuccess = false;
-        break;
-      }
-
-      if ( isSuccess )
-        childLayersEdited.append( childLayer );
-      else
-        break;
-    }
-  }
-
-  // we need to either commit or rollback the child layers that have experienced any modification
-  for ( QgsVectorLayer *childLayer : std::as_const( childLayersEdited ) )
-  {
-    // if everything went well so far, we try to commit
-    if ( isSuccess )
-    {
-      if ( !childLayer->commitChanges() )
-      {
-        QgsMessageLog::logMessage( tr( "Cannot commit layer changes in layer %1." ).arg( childLayer->name() ), "QField", Qgis::Critical );
-        isSuccess = false;
-      }
-    }
-
-    // if the commit failed, we try to rollback the changes and the rest of the modified layers (parent and children) will be rollbacked
-    if ( !isSuccess )
-    {
-      if ( !childLayer->rollBack() )
-        QgsMessageLog::logMessage( tr( "Cannot rollback layer changes in layer %1" ).arg( childLayer->name() ), "QField", Qgis::Critical );
-    }
-  }
-
-  if ( isSuccess )
-  {
-    //delete parent
-    if ( layer->deleteFeature( fid ) )
-    {
-      if ( !selectionAction )
-      {
-        // commit changes
-        if ( !layer->commitChanges() )
-          isSuccess = false;
-      }
-    }
-    else
-    {
-      QgsMessageLog::logMessage( tr( "Cannot delete feature %1" ).arg( fid ), "QField", Qgis::Warning );
-
-      isSuccess = false;
-    }
-  }
-
-  if ( !selectionAction )
-  {
-    if ( !isSuccess )
-    {
-      if ( !layer->rollBack() )
-        QgsMessageLog::logMessage( tr( "Cannot rollback layer changes in layer %1" ).arg( layer->name() ), "QField", Qgis::Critical );
-    }
-  }
-
-  return isSuccess;
+  return LayerUtils::deleteFeature( QgsProject::instance(), layer, fid, selectionAction );
 }
 
 bool MultiFeatureListModelBase::deleteSelection()
