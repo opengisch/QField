@@ -23,7 +23,7 @@ jobs:
             build-type: 'Release'
             vcpkg-root: 'C:'
             pathconvert: 'cygpath -u'
-            exclude-tests: '(deltafilewrappertest|smoke_test)'
+            exclude-tests: '(smoke_test)'
 
           - os: 'ubuntu-20.04'
             triplet: 'x64-linux'
