@@ -18,56 +18,46 @@
 #include "qfield_testbase.h"
 #include "utils/fileutils.h"
 
-#include <QtTest>
+#include <QTemporaryFile>
+#include <gtest/gtest.h>
 
-
-class TestFileUtils : public QObject
+TEST( TestFileUtils, MimeTypeName )
 {
-    Q_OBJECT
-  private slots:
+  EXPECT_EQ( FileUtils::mimeTypeName( QStringLiteral( "filename.txt" ) ), QStringLiteral( "text/plain" ) );
+}
 
 
-    void testMimeTypeName()
-    {
-      QCOMPARE( FileUtils::mimeTypeName( QStringLiteral( "filename.txt" ) ), QStringLiteral( "text/plain" ) );
-    }
+TEST( TestFileUtils, FileName )
+{
+  EXPECT_EQ( FileUtils::fileName( QStringLiteral( "filename.suffix" ) ), QStringLiteral( "filename.suffix" ) );
+  EXPECT_EQ( FileUtils::fileName( QStringLiteral( "path/to/filename.suffix" ) ), QStringLiteral( "filename.suffix" ) );
+  EXPECT_EQ( FileUtils::fileName( QStringLiteral( "./path/to/filename.suffix" ) ), QStringLiteral( "filename.suffix" ) );
+  EXPECT_EQ( FileUtils::fileName( QStringLiteral( "../path/to/filename.suffix" ) ), QStringLiteral( "filename.suffix" ) );
+  EXPECT_EQ( FileUtils::fileName( QStringLiteral( "/path/to/filename.suffix" ) ), QStringLiteral( "filename.suffix" ) );
+  EXPECT_EQ( FileUtils::fileName( QStringLiteral( "filename.dbl.suffix" ) ), QStringLiteral( "filename.dbl.suffix" ) );
+  EXPECT_EQ( FileUtils::fileName( QStringLiteral( "nosuffix" ) ), QStringLiteral( "nosuffix" ) );
+}
 
 
-    void testFileName()
-    {
-      QCOMPARE( FileUtils::fileName( QStringLiteral( "filename.suffix" ) ), QStringLiteral( "filename.suffix" ) );
-      QCOMPARE( FileUtils::fileName( QStringLiteral( "path/to/filename.suffix" ) ), QStringLiteral( "filename.suffix" ) );
-      QCOMPARE( FileUtils::fileName( QStringLiteral( "./path/to/filename.suffix" ) ), QStringLiteral( "filename.suffix" ) );
-      QCOMPARE( FileUtils::fileName( QStringLiteral( "../path/to/filename.suffix" ) ), QStringLiteral( "filename.suffix" ) );
-      QCOMPARE( FileUtils::fileName( QStringLiteral( "/path/to/filename.suffix" ) ), QStringLiteral( "filename.suffix" ) );
-      QCOMPARE( FileUtils::fileName( QStringLiteral( "filename.dbl.suffix" ) ), QStringLiteral( "filename.dbl.suffix" ) );
-      QCOMPARE( FileUtils::fileName( QStringLiteral( "nosuffix" ) ), QStringLiteral( "nosuffix" ) );
-    }
+TEST( TestFileUtils, FileSuffix )
+{
+  EXPECT_EQ( FileUtils::fileSuffix( QStringLiteral( "filename.suffix" ) ), QStringLiteral( "suffix" ) );
+  EXPECT_EQ( FileUtils::fileSuffix( QStringLiteral( "path/to/filename.suffix" ) ), QStringLiteral( "suffix" ) );
+  EXPECT_EQ( FileUtils::fileSuffix( QStringLiteral( "./path/to/filename.suffix" ) ), QStringLiteral( "suffix" ) );
+  EXPECT_EQ( FileUtils::fileSuffix( QStringLiteral( "../path/to/filename.suffix" ) ), QStringLiteral( "suffix" ) );
+  EXPECT_EQ( FileUtils::fileSuffix( QStringLiteral( "/path/to/filename.suffix" ) ), QStringLiteral( "suffix" ) );
+  EXPECT_EQ( FileUtils::fileSuffix( QStringLiteral( "filename.dbl.suffix" ) ), QStringLiteral( "suffix" ) );
+  EXPECT_EQ( FileUtils::fileSuffix( QStringLiteral( "nosuffix" ) ), QString() );
+}
 
 
-    void testFileSuffix()
-    {
-      QCOMPARE( FileUtils::fileSuffix( QStringLiteral( "filename.suffix" ) ), QStringLiteral( "suffix" ) );
-      QCOMPARE( FileUtils::fileSuffix( QStringLiteral( "path/to/filename.suffix" ) ), QStringLiteral( "suffix" ) );
-      QCOMPARE( FileUtils::fileSuffix( QStringLiteral( "./path/to/filename.suffix" ) ), QStringLiteral( "suffix" ) );
-      QCOMPARE( FileUtils::fileSuffix( QStringLiteral( "../path/to/filename.suffix" ) ), QStringLiteral( "suffix" ) );
-      QCOMPARE( FileUtils::fileSuffix( QStringLiteral( "/path/to/filename.suffix" ) ), QStringLiteral( "suffix" ) );
-      QCOMPARE( FileUtils::fileSuffix( QStringLiteral( "filename.dbl.suffix" ) ), QStringLiteral( "suffix" ) );
-      QCOMPARE( FileUtils::fileSuffix( QStringLiteral( "nosuffix" ) ), QString() );
-    }
+TEST( TestFileUtils, FileExists )
+{
+  QTemporaryFile *f = new QTemporaryFile();
 
-
-    void testFileExists()
-    {
-      QTemporaryFile *f = new QTemporaryFile();
-
-      QVERIFY( f->open() );
-      QString fileName( f->fileName() );
-      QVERIFY( FileUtils::fileExists( fileName ) );
-      delete f;
-      QVERIFY( !FileUtils::fileExists( fileName ) );
-    }
-};
-
-QFIELDTEST_MAIN( TestFileUtils )
-#include "test_fileutils.moc"
+  EXPECT_TRUE( f->open() );
+  QString fileName( f->fileName() );
+  EXPECT_TRUE( FileUtils::fileExists( fileName ) );
+  delete f;
+  EXPECT_TRUE( !FileUtils::fileExists( fileName ) );
+}

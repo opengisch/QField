@@ -18,40 +18,31 @@
 #include "qfield_testbase.h"
 #include "utils/stringutils.h"
 
-#include <QtTest>
+#include <gtest/gtest.h>
 
 
-class TestStringUtils : public QObject
+TEST( StringUtils, InsertLinks )
 {
-    Q_OBJECT
-  private slots:
+  EXPECT_EQ( StringUtils::insertLinks( QStringLiteral( "http://osm.org/" ) ), QStringLiteral( "<a href=\"http://osm.org/\">http://osm.org/</a>" ) );
+  EXPECT_EQ( StringUtils::insertLinks( QStringLiteral( "https://osm.org/" ) ), QStringLiteral( "<a href=\"https://osm.org/\">https://osm.org/</a>" ) );
+  EXPECT_EQ( StringUtils::insertLinks( QStringLiteral( "before https://osm.org/ after" ) ), QStringLiteral( "before <a href=\"https://osm.org/\">https://osm.org/</a> after" ) );
+  EXPECT_EQ( StringUtils::insertLinks( QStringLiteral( "before https://osm.org/path?resource=;or=this%20one after" ) ), QStringLiteral( "before <a href=\"https://osm.org/path?resource=;or=this%20one\">https://osm.org/path?resource=;or=this%20one</a> after" ) );
+}
 
-    void testInsertLinks()
-    {
-      QCOMPARE( StringUtils::insertLinks( QStringLiteral( "http://osm.org/" ) ), QStringLiteral( "<a href=\"http://osm.org/\">http://osm.org/</a>" ) );
-      QCOMPARE( StringUtils::insertLinks( QStringLiteral( "https://osm.org/" ) ), QStringLiteral( "<a href=\"https://osm.org/\">https://osm.org/</a>" ) );
-      QCOMPARE( StringUtils::insertLinks( QStringLiteral( "before https://osm.org/ after" ) ), QStringLiteral( "before <a href=\"https://osm.org/\">https://osm.org/</a> after" ) );
-      QCOMPARE( StringUtils::insertLinks( QStringLiteral( "before https://osm.org/path?resource=;or=this%20one after" ) ), QStringLiteral( "before <a href=\"https://osm.org/path?resource=;or=this%20one\">https://osm.org/path?resource=;or=this%20one</a> after" ) );
-    }
-
-    void testFuzzyMatch()
-    {
-      QCOMPARE( StringUtils::fuzzyMatch( "Quercus rubra", "Quercus rubra" ), true );
-      QCOMPARE( StringUtils::fuzzyMatch( "Quercus rubra", "quercus r" ), true );
-      QCOMPARE( StringUtils::fuzzyMatch( "Quercus rubra", "Pinus nigra" ), false );
-      QCOMPARE( StringUtils::fuzzyMatch( "Quercus rubra", "Quercus" ), true );
-      QCOMPARE( StringUtils::fuzzyMatch( "Quercus rubra", "qUERCUS" ), true );
-      QCOMPARE( StringUtils::fuzzyMatch( "Quercus rubra", "ERcU" ), true );
-      QCOMPARE( StringUtils::fuzzyMatch( "Quercus rubra", "rubra" ), true );
-      QCOMPARE( StringUtils::fuzzyMatch( "Quercus rubra", "Rubra" ), true );
-      QCOMPARE( StringUtils::fuzzyMatch( "Quercus rubra", "bra" ), true );
-      QCOMPARE( StringUtils::fuzzyMatch( "Quercus rubra forma variegata", "rubra varieg" ), true );
-      QCOMPARE( StringUtils::fuzzyMatch( "Quercus rubra (forma variegata)", "quercus forma" ), true );
-      QCOMPARE( StringUtils::fuzzyMatch( "Quercus rubra", "q r" ), true );
-      QCOMPARE( StringUtils::fuzzyMatch( "Quercus rubra", "q   r" ), true );
-      QCOMPARE( StringUtils::fuzzyMatch( "Quercus rubra", "q   ubra" ), false );
-    }
-};
-
-QFIELDTEST_MAIN( TestStringUtils )
-#include "test_stringutils.moc"
+TEST( StringUtils, FuzzyMatch )
+{
+  EXPECT_EQ( StringUtils::fuzzyMatch( "Quercus rubra", "Quercus rubra" ), true );
+  EXPECT_EQ( StringUtils::fuzzyMatch( "Quercus rubra", "quercus r" ), true );
+  EXPECT_EQ( StringUtils::fuzzyMatch( "Quercus rubra", "Pinus nigra" ), false );
+  EXPECT_EQ( StringUtils::fuzzyMatch( "Quercus rubra", "Quercus" ), true );
+  EXPECT_EQ( StringUtils::fuzzyMatch( "Quercus rubra", "qUERCUS" ), true );
+  EXPECT_EQ( StringUtils::fuzzyMatch( "Quercus rubra", "ERcU" ), true );
+  EXPECT_EQ( StringUtils::fuzzyMatch( "Quercus rubra", "rubra" ), true );
+  EXPECT_EQ( StringUtils::fuzzyMatch( "Quercus rubra", "Rubra" ), true );
+  EXPECT_EQ( StringUtils::fuzzyMatch( "Quercus rubra", "bra" ), true );
+  EXPECT_EQ( StringUtils::fuzzyMatch( "Quercus rubra forma variegata", "rubra varieg" ), true );
+  EXPECT_EQ( StringUtils::fuzzyMatch( "Quercus rubra (forma variegata)", "quercus forma" ), true );
+  EXPECT_EQ( StringUtils::fuzzyMatch( "Quercus rubra", "q r" ), true );
+  EXPECT_EQ( StringUtils::fuzzyMatch( "Quercus rubra", "q   r" ), true );
+  EXPECT_EQ( StringUtils::fuzzyMatch( "Quercus rubra", "q   ubra" ), false );
+}

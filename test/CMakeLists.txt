@@ -1,3 +1,6 @@
+include(GoogleTest)
+find_package(GTest CONFIG REQUIRED)
+
 macro (ADD_QFIELD_TEST TESTNAME TESTSRC)
   add_executable(${TESTNAME} ${TESTSRC})
   set_target_properties(${TESTNAME} PROPERTIES AUTOMOC TRUE)
@@ -10,8 +13,10 @@ macro (ADD_QFIELD_TEST TESTNAME TESTSRC)
     Qt5::Gui
     Qt5::Widgets
     Qt5::Xml
+    GTest::gtest
+    GTest::gtest_main
   )
-  add_test(NAME ${TESTNAME} COMMAND ${TESTNAME})
+  gtest_add_tests(TARGET ${TESTNAME} COMMAND ${TESTNAME})
 endmacro (ADD_QFIELD_TEST)
 
 macro (ADD_QFIELD_QML_TEST TESTNAME TESTSRC)

@@ -19,27 +19,17 @@
 #include "qgsvectorlayer.h"
 #include "utils/featureutils.h"
 
-#include <QtTest>
+#include <gtest/gtest.h>
 
 
-class TestFeatureUtils : public QObject
+TEST( FeatureUtils, InitFeature )
 {
-    Q_OBJECT
-  private slots:
+  std::unique_ptr<QgsVectorLayer> vl( new QgsVectorLayer( QStringLiteral( "Polygon?crs=epsg:3946" ), QStringLiteral( "vl" ), QStringLiteral( "memory" ) ) );
 
+  QgsGeometry geometry = QgsGeometry::fromWkt( QStringLiteral( "Polygon (((8 8, 9 8, 8 9, 8 8)))" ) );
 
-    void testInitFeature()
-    {
-      std::unique_ptr<QgsVectorLayer> vl( new QgsVectorLayer( QStringLiteral( "Polygon?crs=epsg:3946" ), QStringLiteral( "vl" ), QStringLiteral( "memory" ) ) );
+  QgsFeature f = FeatureUtils::initFeature( vl.get(), geometry );
 
-      QgsGeometry geometry = QgsGeometry::fromWkt( QStringLiteral( "Polygon (((8 8, 9 8, 8 9, 8 8)))" ) );
-
-      QgsFeature f = FeatureUtils::initFeature( vl.get(), geometry );
-
-      QCOMPARE( f.fields(), vl->fields() );
-      QVERIFY( f.geometry().equals( geometry ) );
-    }
-};
-
-QFIELDTEST_MAIN( TestFeatureUtils )
-#include "test_featureutils.moc"
+  EXPECT_EQ( f.fields(), vl->fields() );
+  EXPECT_TRUE( f.geometry().equals( geometry ) );
+}

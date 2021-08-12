@@ -20,19 +20,16 @@
 
 #include <qgscoordinatereferencesystem.h>
 
-#include <QtTest>
+#include <gtest/gtest.h>
 
 
-class TestDigitizingLogger : public QObject
+class TestDigitizingLogger : public ::testing::Test
 {
-    Q_OBJECT
-
-  private slots:
-
-    void initTestCase()
+  protected:
+    void SetUp()
     {
       mLogsLayer.reset( new QgsVectorLayer( QStringLiteral( "Point?crs=EPSG:3857&field=fid:integer&field=digitizing_action:string&field=digitizing_layer_name:string&field=digitizing_layer_id:string&field=digitizing_datetime:datetime" ), QStringLiteral( "Logs Layer" ), QStringLiteral( "memory" ) ) );
-      QVERIFY( mLogsLayer->isValid() );
+      EXPECT_TRUE( mLogsLayer->isValid() );
 
       mLogsLayer->setDefaultValueDefinition( 1, QgsDefaultValue( QStringLiteral( "@digitizing_type" ), false ) );
       mLogsLayer->setDefaultValueDefinition( 2, QgsDefaultValue( QStringLiteral( "@digitizing_layer_name" ), false ) );
@@ -45,7 +42,7 @@ class TestDigitizingLogger : public QObject
       qDebug() << mLogsLayer->id();
 
       mLayer.reset( new QgsVectorLayer( QStringLiteral( "Point?crs=EPSG:3857&field=fid:integer&field=str:string" ), QStringLiteral( "Input Layer" ), QStringLiteral( "memory" ) ) );
-      QVERIFY( mLayer->isValid() );
+      EXPECT_TRUE( mLayer->isValid() );
 
       mDigitizingLogger.reset( new DigitizingLogger() );
       mDigitizingLogger->setType( QStringLiteral( "rock" ) );
@@ -53,33 +50,28 @@ class TestDigitizingLogger : public QObject
       mDigitizingLogger->setDigitizingLayer( mLayer.get() );
     }
 
-    void testAddAndWritePoints()
-    {
-      mDigitizingLogger->clearCoordinates();
-      mDigitizingLogger->addCoordinate( QgsPoint( 1, 1 ) );
-      mDigitizingLogger->addCoordinate( QgsPoint( 2, 2 ) );
-      mDigitizingLogger->writeCoordinates();
-      QCOMPARE( mLogsLayer->featureCount(), 2 );
-      mDigitizingLogger->addCoordinate( QgsPoint( 1, 1 ) );
-      mDigitizingLogger->addCoordinate( QgsPoint( 2, 2 ) );
-      mDigitizingLogger->removeLastCoordinate();
-      mDigitizingLogger->writeCoordinates();
-      QCOMPARE( mLogsLayer->featureCount(), 3 );
-
-      QgsFeature feature = mLogsLayer->getFeature( 1 );
-      QCOMPARE( feature.attributes().at( 1 ), mDigitizingLogger->type() );
-      QCOMPARE( feature.attributes().at( 2 ), mLayer->name() );
-      QCOMPARE( feature.attributes().at( 3 ), mLayer->id() );
-      QCOMPARE( feature.attributes().at( 4 ).toDateTime().isValid(), true );
-    }
-
-  private:
-
     std::unique_ptr<DigitizingLogger> mDigitizingLogger;
 
     std::unique_ptr<QgsVectorLayer> mLogsLayer;
     std::unique_ptr<QgsVectorLayer> mLayer;
 };
 
-QFIELDTEST_MAIN( TestDigitizingLogger )
-#include "test_digitizinglogger.moc"
+TEST_F( TestDigitizingLogger, AddAndWritePoints )
+{
+  mDigitizingLogger->clearCoordinates();
+  mDigitizingLogger->addCoordinate( QgsPoint( 1, 1 ) );
+  mDigitizingLogger->addCoordinate( QgsPoint( 2, 2 ) );
+  mDigitizingLogger->writeCoordinates();
+  EXPECT_EQ( mLogsLayer->featureCount(), 2 );
+  mDigitizingLogger->addCoordinate( QgsPoint( 1, 1 ) );
+  mDigitizingLogger->addCoordinate( QgsPoint( 2, 2 ) );
+  mDigitizingLogger->removeLastCoordinate();
+  mDigitizingLogger->writeCoordinates();
+  EXPECT_EQ( mLogsLayer->featureCount(), 3 );
+
+  QgsFeature feature = mLogsLayer->getFeature( 1 );
+  EXPECT_EQ( feature.attributes().at( 1 ), mDigitizingLogger->type() );
+  EXPECT_EQ( feature.attributes().at( 2 ), mLayer->name() );
+  EXPECT_EQ( feature.attributes().at( 3 ), mLayer->id() );
+  EXPECT_EQ( feature.attributes().at( 4 ).toDateTime().isValid(), true );
+}

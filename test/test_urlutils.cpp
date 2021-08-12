@@ -20,27 +20,18 @@
 
 #include <QDebug>
 #include <QFileInfo>
-#include <QtTest>
+#include <gtest/gtest.h>
 
 
-class TestUrlUtils : public QObject
+TEST( UrlUtils, HasError )
 {
-    Q_OBJECT
-  private slots:
+  // should be considered relative
+  EXPECT_TRUE( UrlUtils::isRelativeOrFileUrl( QStringLiteral( "path/to/file" ) ) );
+  EXPECT_TRUE( UrlUtils::isRelativeOrFileUrl( QStringLiteral( "/path/to/file" ) ) );
+  EXPECT_TRUE( UrlUtils::isRelativeOrFileUrl( QStringLiteral( "file:///path/to/file" ) ) );
 
-    void testHasError()
-    {
-      // should be considered relative
-      QVERIFY( UrlUtils::isRelativeOrFileUrl( QStringLiteral( "path/to/file" ) ) );
-      QVERIFY( UrlUtils::isRelativeOrFileUrl( QStringLiteral( "/path/to/file" ) ) );
-      QVERIFY( UrlUtils::isRelativeOrFileUrl( QStringLiteral( "file:///path/to/file" ) ) );
-
-      // should NOT be considered relative
-      QVERIFY( !UrlUtils::isRelativeOrFileUrl( QStringLiteral( "http://osm.org" ) ) );
-      QVERIFY( !UrlUtils::isRelativeOrFileUrl( QStringLiteral( "http://osm.org/test?query=1" ) ) );
-      QVERIFY( !UrlUtils::isRelativeOrFileUrl( QStringLiteral( "https://osm.org/test?query=1" ) ) );
-    }
-};
-
-QFIELDTEST_MAIN( TestUrlUtils )
-#include "test_urlutils.moc"
+  // should NOT be considered relative
+  EXPECT_TRUE( !UrlUtils::isRelativeOrFileUrl( QStringLiteral( "http://osm.org" ) ) );
+  EXPECT_TRUE( !UrlUtils::isRelativeOrFileUrl( QStringLiteral( "http://osm.org/test?query=1" ) ) );
+  EXPECT_TRUE( !UrlUtils::isRelativeOrFileUrl( QStringLiteral( "https://osm.org/test?query=1" ) ) );
+}

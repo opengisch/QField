@@ -22,7 +22,7 @@
 
 class QString;
 class QFieldCloudProjectsModel;
-class TestDeltaFileWrapper;
+class DeltaFileWrapperTest;
 class TestLayerObserver;
 
 class QFieldCloudUtils : public QObject
@@ -58,7 +58,7 @@ class QFieldCloudUtils : public QObject
   private:
     static QString sQgisSettingsDirPath;
 
-    friend TestDeltaFileWrapper;
+    friend DeltaFileWrapperTest;
     friend TestLayerObserver;
 };
 

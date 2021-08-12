@@ -24,6 +24,7 @@ class QgsQuickMapSettings;
 #include "qgscoordinatetransform.h"
 #include "qgsgeometry.h"
 #include "qgspoint.h"
+#include <gtest/gtest_prod.h>
 
 /**
  * The VertexModel class is a model to highlight and edit vertices.
@@ -303,7 +304,13 @@ class QFIELD_CORE_EXPORT VertexModel : public QAbstractListModel
     bool mCanNextVertex = false;
     bool mIsHovering = false;
 
-    friend class TestVertexModel;
+    FRIEND_TEST( TestVertexModel, Candidates );
+    FRIEND_TEST( TestVertexModel, CanRemoveVertex );
+    FRIEND_TEST( TestVertexModel, AddVertex );
+    FRIEND_TEST( TestVertexModel, EditingMode );
+    FRIEND_TEST( TestVertexModel, Transform );
+    FRIEND_TEST( TestVertexModel, SelectVertexAtPosition );
+
 };
 
 Q_DECLARE_METATYPE( VertexModel::Vertex );

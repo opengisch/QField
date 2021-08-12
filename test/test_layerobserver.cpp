@@ -19,28 +19,28 @@
 #include "qfield_testbase.h"
 #include "utils/qfieldcloudutils.h"
 
-#include <QtTest>
+#include <gtest/gtest.h>
 
 
-class TestLayerObserver : public QObject
+class TestLayerObserver : public ::testing::Test
 {
-    Q_OBJECT
-  private slots:
-    void initTestCase()
+  protected:
+
+    void SetUp()
     {
       QTemporaryDir settingsDir;
       settingsDir.setAutoRemove( false );
 
-      QVERIFY2( settingsDir.isValid(), "Failed to create temp dir" );
-      QVERIFY2( QDir( settingsDir.path() ).mkpath( QStringLiteral( "cloud_projects/TEST_PROJECT_ID" ) ), "Failed to create project dir" );
+      EXPECT_TRUE( settingsDir.isValid() ) << "Failed to create temp dir";
+      EXPECT_TRUE( QDir( settingsDir.path() ).mkpath( QStringLiteral( "cloud_projects/TEST_PROJECT_ID" ) ) ) << "Failed to create project dir";
 
       QDir projectDir( QStringLiteral( "%1/cloud_projects/TEST_PROJECT_ID" ).arg( settingsDir.path() ) );
       QFieldCloudUtils::sQgisSettingsDirPath = settingsDir.path();
       QFile projectFile( QStringLiteral( "%1/%2" ).arg( projectDir.path(), QStringLiteral( "project.qgs" ) ) );
       QFile attachmentFile( QStringLiteral( "%1/%2" ).arg( projectDir.path(), QStringLiteral( "attachment.jpg" ) ) );
 
-      QVERIFY( projectFile.open( QIODevice::WriteOnly ) );
-      QVERIFY( projectFile.flush() );
+      EXPECT_TRUE( projectFile.open( QIODevice::WriteOnly ) );
+      EXPECT_TRUE( projectFile.flush() );
 
       QgsProject::instance()->setFileName( projectFile.fileName() );
 
@@ -48,7 +48,7 @@ class TestLayerObserver : public QObject
       mLayer->setCustomProperty( QStringLiteral( "QFieldSync/action" ), QStringLiteral( "CLOUD" ) );
       mLayer->setCustomProperty( QStringLiteral( "QFieldSync/sourceDataPrimaryKeys" ), QStringLiteral( "fid" ) );
 
-      QVERIFY( mLayer->isValid() );
+      EXPECT_TRUE( mLayer->isValid() );
 
       QgsFeature f1( mLayer->fields() );
       f1.setAttribute( QStringLiteral( "fid" ), 1 );
@@ -62,144 +62,18 @@ class TestLayerObserver : public QObject
       f3.setAttribute( QStringLiteral( "fid" ), 3 );
       f3.setAttribute( QStringLiteral( "str" ), "string3" );
 
-      QVERIFY( mLayer->startEditing() );
-      QVERIFY( mLayer->addFeature( f1 ) );
-      QVERIFY( mLayer->addFeature( f2 ) );
-      QVERIFY( mLayer->addFeature( f3 ) );
-      QVERIFY( mLayer->commitChanges() );
+      EXPECT_TRUE( mLayer->startEditing() );
+      EXPECT_TRUE( mLayer->addFeature( f1 ) );
+      EXPECT_TRUE( mLayer->addFeature( f2 ) );
+      EXPECT_TRUE( mLayer->addFeature( f3 ) );
+      EXPECT_TRUE( mLayer->commitChanges() );
 
       mLayerObserver.reset( new LayerObserver( QgsProject::instance() ) );
 
-      QVERIFY( QgsProject::instance()->addMapLayer( mLayer.get(), false, false ) );
-      QVERIFY( !mLayerObserver->deltaFileWrapper()->hasError() );
+      EXPECT_TRUE( QgsProject::instance()->addMapLayer( mLayer.get(), false, false ) );
+      EXPECT_TRUE( !mLayerObserver->deltaFileWrapper()->hasError() );
     }
 
-
-    void init()
-    {
-      mLayerObserver->reset();
-    }
-
-
-    void cleanup()
-    {
-      mLayerObserver->reset();
-    }
-
-
-    void testHasError()
-    {
-      // ? how I can test such thing?
-      QSKIP( "decide how we test errors" );
-      QCOMPARE( mLayerObserver->deltaFileWrapper()->hasError(), false );
-      QVERIFY( QFile::exists( mLayerObserver->deltaFileWrapper()->fileName() ) );
-    }
-
-
-    void testClear()
-    {
-      QgsFeature f1( mLayer->fields() );
-      f1.setAttribute( QStringLiteral( "fid" ), 1000 );
-      f1.setAttribute( QStringLiteral( "str" ), "new_string1" );
-      f1.setGeometry( QgsGeometry( new QgsPoint( 25.9657, 43.8356 ) ) );
-
-      QVERIFY( mLayer->startEditing() );
-      QVERIFY( mLayer->addFeature( f1 ) );
-      QVERIFY( mLayer->commitChanges() );
-      QCOMPARE( getDeltaOperations( mLayerObserver->deltaFileWrapper()->fileName() ).size(), 1 );
-
-      QgsFeature f2( mLayer->fields() );
-      f2.setAttribute( QStringLiteral( "fid" ), 1001 );
-      f2.setAttribute( QStringLiteral( "str" ), "new_string2" );
-      f2.setGeometry( QgsGeometry( new QgsPoint( 25.9657, 43.8356 ) ) );
-
-      QVERIFY( mLayer->startEditing() );
-      QVERIFY( mLayer->addFeature( f1 ) );
-      QVERIFY( mLayer->commitChanges() );
-      QCOMPARE( getDeltaOperations( mLayerObserver->deltaFileWrapper()->fileName() ).size(), 2 );
-
-      mLayerObserver->reset();
-      QVERIFY( mLayer->startEditing() );
-      QVERIFY( mLayer->commitChanges() );
-
-      QCOMPARE( getDeltaOperations( mLayerObserver->deltaFileWrapper()->fileName() ).size(), 0 );
-    }
-
-
-    void testObservesEditingStopped()
-    {
-      QgsFeature f1( mLayer->fields() );
-      f1.setAttribute( QStringLiteral( "fid" ), 1002 );
-      f1.setAttribute( QStringLiteral( "str" ), "new_string" );
-      f1.setGeometry( QgsGeometry( new QgsPoint( 25.9657, 43.8356 ) ) );
-
-      QVERIFY( mLayer->startEditing() );
-      QVERIFY( mLayer->addFeature( f1 ) );
-      // the changes are not written on the disk yet
-      QCOMPARE( getDeltaOperations( mLayerObserver->deltaFileWrapper()->fileName() ), QStringList() );
-      // when we stop editing, all changes are written
-      QVERIFY( mLayer->commitChanges() );
-      QCOMPARE( getDeltaOperations( mLayerObserver->deltaFileWrapper()->fileName() ), QStringList( { "create" } ) );
-    }
-
-
-    void testObservesAdded()
-    {
-      QgsFeature f1( mLayer->fields() );
-      f1.setAttribute( QStringLiteral( "fid" ), 1003 );
-      f1.setAttribute( QStringLiteral( "str" ), "new_string" );
-      f1.setGeometry( QgsGeometry( new QgsPoint( 25.9657, 43.8356 ) ) );
-
-      QVERIFY( mLayer->startEditing() );
-      QVERIFY( mLayer->addFeature( f1 ) );
-      QVERIFY( mLayer->commitChanges() );
-      QCOMPARE( getDeltaOperations( mLayerObserver->deltaFileWrapper()->fileName() ), QStringList( { "create" } ) );
-    }
-
-
-    void testObservesRemoved()
-    {
-      QVERIFY( mLayer->startEditing() );
-      QVERIFY( mLayer->deleteFeature( 1 ) );
-      QVERIFY( mLayer->commitChanges() );
-      QCOMPARE( getDeltaOperations( mLayerObserver->deltaFileWrapper()->fileName() ), QStringList( { "delete" } ) );
-    }
-
-
-    void testObservesAttributeValueChanges()
-    {
-      QgsFeature f1 = mLayer->getFeature( 2 );
-      f1.setAttribute( QStringLiteral( "str" ), f1.attribute( QStringLiteral( "str" ) ).toString() + "_new" );
-      QgsFeature f2 = mLayer->getFeature( 3 );
-      f2.setAttribute( QStringLiteral( "str" ), f2.attribute( QStringLiteral( "str" ) ).toString() + "_new" );
-      f2.setGeometry( QgsGeometry( new QgsPoint( 88.7695313, 51.0897229 ) ) );
-
-      QVERIFY( mLayer->startEditing() );
-      QVERIFY( mLayer->updateFeature( f1 ) );
-      QVERIFY( mLayer->updateFeature( f2 ) );
-      QVERIFY( mLayer->commitChanges() );
-      QCOMPARE( getDeltaOperations( mLayerObserver->deltaFileWrapper()->fileName() ), QStringList( { "patch", "patch" } ) );
-    }
-
-
-    void testObservesGeometryChanges()
-    {
-      QVERIFY( mLayer->startEditing() );
-
-      QgsFeature f1 = mLayer->getFeature( 2 );
-      f1.setGeometry( QgsGeometry( new QgsPoint( 13.0545044, 47.8094654 ) ) );
-      QgsFeature f2 = mLayer->getFeature( 3 );
-      f2.setAttribute( QStringLiteral( "str" ), f2.attribute( QStringLiteral( "str" ) ).toString() + "_new" );
-      f2.setGeometry( QgsGeometry( new QgsPoint( 13.0545044, 47.8094654 ) ) );
-
-      QVERIFY( mLayer->updateFeature( f1 ) );
-      QVERIFY( mLayer->updateFeature( f2 ) );
-
-      QVERIFY( mLayer->commitChanges() );
-      QCOMPARE( getDeltaOperations( mLayerObserver->deltaFileWrapper()->fileName() ), QStringList( { "patch", "patch" } ) );
-    }
-
-  private:
     std::unique_ptr<QgsVectorLayer> mLayer;
     std::unique_ptr<LayerObserver> mLayerObserver;
 
@@ -242,5 +116,115 @@ class TestLayerObserver : public QObject
     }
 };
 
-QFIELDTEST_MAIN( TestLayerObserver )
-#include "test_layerobserver.moc"
+#if 0
+TEST_F( TestLayerObserver, HasError )
+{
+  // ? how I can test such thing?
+  QSKIP( "decide how we test errors" );
+  EXPECT_EQ( mLayerObserver->deltaFileWrapper()->hasError(), false );
+  EXPECT_TRUE( QFile::exists( mLayerObserver->deltaFileWrapper()->fileName() ) );
+}
+#endif
+
+TEST_F( TestLayerObserver, Clear )
+{
+  QgsFeature f1( mLayer->fields() );
+  f1.setAttribute( QStringLiteral( "fid" ), 1000 );
+  f1.setAttribute( QStringLiteral( "str" ), "new_string1" );
+  f1.setGeometry( QgsGeometry( new QgsPoint( 25.9657, 43.8356 ) ) );
+
+  EXPECT_TRUE( mLayer->startEditing() );
+  EXPECT_TRUE( mLayer->addFeature( f1 ) );
+  EXPECT_TRUE( mLayer->commitChanges() );
+  EXPECT_EQ( getDeltaOperations( mLayerObserver->deltaFileWrapper()->fileName() ).size(), 1 );
+
+  QgsFeature f2( mLayer->fields() );
+  f2.setAttribute( QStringLiteral( "fid" ), 1001 );
+  f2.setAttribute( QStringLiteral( "str" ), "new_string2" );
+  f2.setGeometry( QgsGeometry( new QgsPoint( 25.9657, 43.8356 ) ) );
+
+  EXPECT_TRUE( mLayer->startEditing() );
+  EXPECT_TRUE( mLayer->addFeature( f1 ) );
+  EXPECT_TRUE( mLayer->commitChanges() );
+  EXPECT_EQ( getDeltaOperations( mLayerObserver->deltaFileWrapper()->fileName() ).size(), 2 );
+
+  mLayerObserver->reset();
+  EXPECT_TRUE( mLayer->startEditing() );
+  EXPECT_TRUE( mLayer->commitChanges() );
+
+  EXPECT_EQ( getDeltaOperations( mLayerObserver->deltaFileWrapper()->fileName() ).size(), 0 );
+}
+
+
+TEST_F( TestLayerObserver, ObservesEditingStopped )
+{
+  QgsFeature f1( mLayer->fields() );
+  f1.setAttribute( QStringLiteral( "fid" ), 1002 );
+  f1.setAttribute( QStringLiteral( "str" ), "new_string" );
+  f1.setGeometry( QgsGeometry( new QgsPoint( 25.9657, 43.8356 ) ) );
+
+  EXPECT_TRUE( mLayer->startEditing() );
+  EXPECT_TRUE( mLayer->addFeature( f1 ) );
+  // the changes are not written on the disk yet
+  EXPECT_EQ( getDeltaOperations( mLayerObserver->deltaFileWrapper()->fileName() ), QStringList() );
+  // when we stop editing, all changes are written
+  EXPECT_TRUE( mLayer->commitChanges() );
+  EXPECT_EQ( getDeltaOperations( mLayerObserver->deltaFileWrapper()->fileName() ), QStringList( { "create" } ) );
+}
+
+
+TEST_F( TestLayerObserver, ObservesAdded )
+{
+  QgsFeature f1( mLayer->fields() );
+  f1.setAttribute( QStringLiteral( "fid" ), 1003 );
+  f1.setAttribute( QStringLiteral( "str" ), "new_string" );
+  f1.setGeometry( QgsGeometry( new QgsPoint( 25.9657, 43.8356 ) ) );
+
+  EXPECT_TRUE( mLayer->startEditing() );
+  EXPECT_TRUE( mLayer->addFeature( f1 ) );
+  EXPECT_TRUE( mLayer->commitChanges() );
+  EXPECT_EQ( getDeltaOperations( mLayerObserver->deltaFileWrapper()->fileName() ), QStringList( { "create" } ) );
+}
+
+
+TEST_F( TestLayerObserver, ObservesRemoved )
+{
+  EXPECT_TRUE( mLayer->startEditing() );
+  EXPECT_TRUE( mLayer->deleteFeature( 1 ) );
+  EXPECT_TRUE( mLayer->commitChanges() );
+  EXPECT_EQ( getDeltaOperations( mLayerObserver->deltaFileWrapper()->fileName() ), QStringList( { "delete" } ) );
+}
+
+
+TEST_F( TestLayerObserver, ObservesAttributeValueChanges )
+{
+  QgsFeature f1 = mLayer->getFeature( 2 );
+  f1.setAttribute( QStringLiteral( "str" ), f1.attribute( QStringLiteral( "str" ) ).toString() + "_new" );
+  QgsFeature f2 = mLayer->getFeature( 3 );
+  f2.setAttribute( QStringLiteral( "str" ), f2.attribute( QStringLiteral( "str" ) ).toString() + "_new" );
+  f2.setGeometry( QgsGeometry( new QgsPoint( 88.7695313, 51.0897229 ) ) );
+
+  EXPECT_TRUE( mLayer->startEditing() );
+  EXPECT_TRUE( mLayer->updateFeature( f1 ) );
+  EXPECT_TRUE( mLayer->updateFeature( f2 ) );
+  EXPECT_TRUE( mLayer->commitChanges() );
+  EXPECT_EQ( getDeltaOperations( mLayerObserver->deltaFileWrapper()->fileName() ), QStringList( { "patch", "patch" } ) );
+}
+
+
+TEST_F( TestLayerObserver, ObservesGeometryChanges )
+{
+  EXPECT_TRUE( mLayer->startEditing() );
+
+  QgsFeature f1 = mLayer->getFeature( 2 );
+  f1.setGeometry( QgsGeometry( new QgsPoint( 13.0545044, 47.8094654 ) ) );
+  QgsFeature f2 = mLayer->getFeature( 3 );
+  f2.setAttribute( QStringLiteral( "str" ), f2.attribute( QStringLiteral( "str" ) ).toString() + "_new" );
+  f2.setGeometry( QgsGeometry( new QgsPoint( 13.0545044, 47.8094654 ) ) );
+
+  EXPECT_TRUE( mLayer->updateFeature( f1 ) );
+  EXPECT_TRUE( mLayer->updateFeature( f2 ) );
+
+  EXPECT_TRUE( mLayer->commitChanges() );
+  EXPECT_EQ( getDeltaOperations( mLayerObserver->deltaFileWrapper()->fileName() ), QStringList( { "patch", "patch" } ) );
+}
