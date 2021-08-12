@@ -79,9 +79,15 @@ jobs:
 
     - name: 🔧 Configure
       run: |
+        source ./scripts/version_number.sh
+        source ./scripts/ci/generate-version-details.sh
         mkdir -p build
         cmake \
           -G "Xcode" \
+          -DAPK_VERSION_CODE=${APK_VERSION_CODE} \
+          -DAPP_VERSION=${APP_VERSION} \
+          -DAPP_VERSION_STR=${APP_VERSION_STR} \
+          -DAPP_PACKAGE_NAME=${APP_PACKAGE_NAME} \
           -DCMAKE_PREFIX_PATH=${{ github.workspace }}/OSGeo4I/arm64 \
           -DCMAKE_TOOLCHAIN_FILE=${{ github.workspace }}/OSGeo4I/cmake/ios.toolchain.cmake \
           -DCMAKE_CONFIGURATION_TYPES="${{ matrix.build-type }}" \
@@ -93,7 +99,6 @@ jobs:
           -DQT_IOS_TEAM_ID=${{ secrets.IOS_TEAM_ID }} \
           -DQT_IOS_CODE_SIGN_IDENTITY=${{ secrets.IOS_CODE_SIGN_IDENTITY }} \
           -DQT_IOS_PROVISIONING_PROFILE_SPECIFIER=${{ secrets.IOS_PROVISIONING_PROFILE_SPECIFIER }} \
-          -DAPP_VERSION=${CI_TAG} \
           -B ./build/ -S .
 
     - name: 🔨 Build qfield

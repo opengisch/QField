@@ -73,6 +73,9 @@ if(${CMAKE_SYSTEM_NAME} STREQUAL "iOS")
   include("${CMAKE_SOURCE_DIR}/cmake/AddQtIosApp.cmake")
   add_qt_ios_app(qfield
     NAME "QField"
+    VERSION "${APK_VERSION_CODE}"
+    SHORT_VERSION "${APK_VERSION_CODE}"
+    LONG_VERSION "${APK_VERSION_CODE}"
     ASSET_DIR "${PROJECT_SOURCE_DIR}/ios/Assets.xcassets"
     CATALOG_APPICON "AppIcon${QFIELD_APP_ICON_SUFFIX}"
     LAUNCHSCREEN_STORYBOARD "${PROJECT_SOURCE_DIR}/ios/LaunchScreen.storyboard"
