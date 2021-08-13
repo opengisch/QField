@@ -24,6 +24,18 @@
 #include <gtest/gtest.h>
 #include <qgsproject.h>
 
+// TODO move to common test header
+QT_BEGIN_NAMESPACE
+inline void PrintTo( const QString &qString, ::std::ostream *os )
+{
+  *os << qUtf8Printable( qString );
+}
+
+inline void PrintTo( const QJsonDocument &qJsonDocument, ::std::ostream *os )
+{
+  *os << qJsonDocument.toJson().constData();
+}
+QT_END_NAMESPACE
 
 class DeltaFileWrapperTest : public ::testing::Test
 {
