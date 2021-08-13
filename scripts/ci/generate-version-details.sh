@@ -2,6 +2,7 @@
 
 
 CURRENT_COMMIT=$(git rev-parse --short HEAD)
+echo "CURRENT_COMMIT: ${CURRENT_COMMIT}"
 
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null && pwd )"
 source ${DIR}/../version_number.sh
@@ -38,7 +39,7 @@ elif [[ ${CI_PULL_REQUEST} = false ]]; then
   # 01930000 has no meaning - it's just where we had to start
   # max = 2100000000
   export APP_VERSION_STR="${CI_BRANCH}-dev"
-  if [[ -n $CUSTOM_APP_PACKAGE_NAME ]]; then
+  if [[ -n ${CUSTOM_APP_PACKAGE_NAME} ]]; then
     export APK_VERSION_CODE="${GITHUB_RUN_NUMBER}${ARCH_NUMBER}"
   else
     export APK_VERSION_CODE=0$((1930000+NUMBER_OF_COMMITS))${ARCH_NUMBER}
