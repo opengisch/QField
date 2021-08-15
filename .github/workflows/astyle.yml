@@ -65,13 +65,15 @@ jobs:
             echo "::endgroup"
           fi
 
-      - uses: getsentry/action-git-diff-suggestions@main
+      - name: Comment
+        uses: thollander/actions-comment-pull-request@master
         if: steps.indent-check.outputs.triggered != 'true'
         with:
           message: |
-            Astyle suggested changes
-
-            Accept them manually or add a comment with `@qfield-fairy style please` to invoke some magic 🪄.
+            Code formatting issues have been detected.
+          
+            Reply with `@qfield-fairy style please` to fix it up 🪄.
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - uses: EndBug/add-and-commit@v7.2.1
         if: steps.indent-check.outputs.triggered == 'true'
