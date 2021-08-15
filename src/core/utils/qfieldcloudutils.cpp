@@ -20,13 +20,17 @@
 #include <qgsapplication.h>
 #include <qgsmessagelog.h>
 
-// NOTE directly setting does not work QgsApplication::qgisSettingsDirPath();
-QString QFieldCloudUtils::sQgisSettingsDirPath = QString();
+static QString sLocalCloudDirectory;
+
+void QFieldCloudUtils::setLocalCloudDirectory( const QString &path )
+{
+  sLocalCloudDirectory = path;
+}
 
 const QString QFieldCloudUtils::localCloudDirectory()
 {
-  const QString qgisSettingsDirPath = sQgisSettingsDirPath.isNull() ? QgsApplication::qgisSettingsDirPath() : sQgisSettingsDirPath;
-  return QDir::cleanPath( qgisSettingsDirPath ) + QStringLiteral( "/cloud_projects" );
+  QString cloudDirectoryPath = sLocalCloudDirectory.isNull() ? QDir::cleanPath( QgsApplication::qgisSettingsDirPath() ) + QStringLiteral( "/cloud_projects" ) : sLocalCloudDirectory;
+  return cloudDirectoryPath;
 }
 
 const QString QFieldCloudUtils::localProjectFilePath( const QString &username, const QString &projectId )

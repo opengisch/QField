@@ -35,7 +35,7 @@ class TestLayerObserver : public ::testing::Test
       EXPECT_TRUE( QDir( settingsDir.path() ).mkpath( QStringLiteral( "cloud_projects/TEST_PROJECT_ID" ) ) ) << "Failed to create project dir";
 
       QDir projectDir( QStringLiteral( "%1/cloud_projects/TEST_PROJECT_ID" ).arg( settingsDir.path() ) );
-      QFieldCloudUtils::sQgisSettingsDirPath = settingsDir.path();
+      QFieldCloudUtils::setLocalCloudDirectory( settingsDir.path() );
       QFile projectFile( QStringLiteral( "%1/%2" ).arg( projectDir.path(), QStringLiteral( "project.qgs" ) ) );
       QFile attachmentFile( QStringLiteral( "%1/%2" ).arg( projectDir.path(), QStringLiteral( "attachment.jpg" ) ) );
 
