@@ -1,6 +1,3 @@
-include(GoogleTest)
-find_package(GTest CONFIG REQUIRED)
-
 find_package(Catch2 REQUIRED)
 
 include(CTest)
@@ -36,7 +33,6 @@ macro (ADD_QFIELD_TEST TESTNAME TESTSRC)
     Qt5::Widgets
     Qt5::Xml
   )
-  gtest_add_tests(TARGET ${TESTNAME} COMMAND ${TESTNAME})
 endmacro (ADD_QFIELD_TEST)
 
 macro (ADD_QFIELD_QML_TEST TESTNAME TESTSRC)

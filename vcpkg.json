@@ -16,6 +16,5 @@
     "qt5-multimedia",
     "spix",
     "catch2"
-    "gtest"
   ]
 }
