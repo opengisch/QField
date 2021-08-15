@@ -396,7 +396,7 @@ void QgsQuickMapCanvasMap::zoomToFullExtent()
       {
         extent.combineExtentWith( transform.transformBoundingBox( layer->extent() ) );
       }
-      catch ( const QgsCsException &exp )
+      catch ( const QgsCsException & )
       {
         // Ignore extent if it can't be transformed
       }
