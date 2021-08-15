@@ -67,12 +67,14 @@ const QString QFieldCloudUtils::getProjectId( const QString &fileName )
 
 void QFieldCloudUtils::setProjectSetting( const QString &projectId, const QString &setting, const QVariant &value )
 {
+  thread_local QgsSettings settings;
   const QString projectPrefix = QStringLiteral( "QFieldCloud/projects/%1" ).arg( projectId );
-  return QSettings().setValue( QStringLiteral( "%1/%2" ).arg( projectPrefix, setting ), value );
+  return settings.setValue( QStringLiteral( "%1/%2" ).arg( projectPrefix, setting ), value );
 }
 
 const QVariant QFieldCloudUtils::projectSetting( const QString &projectId, const QString &setting, const QVariant &defaultValue )
 {
+  thread_local QgsSettings settings;
   const QString projectPrefix = QStringLiteral( "QFieldCloud/projects/%1" ).arg( projectId );
-  return QSettings().value( QStringLiteral( "%1/%2" ).arg( projectPrefix, setting ), defaultValue );
+  return settings.value( QStringLiteral( "%1/%2" ).arg( projectPrefix, setting ), defaultValue );
 }
