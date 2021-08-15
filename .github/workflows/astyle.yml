@@ -54,6 +54,7 @@ jobs:
           GITHUB_TOKEN: '${{ secrets.FAIRY_TOKEN }}'
 
       - name: Check astyle
+        id: astyle-check
         run: |
           sudo apt install -y astyle
           find src/ -name '*.cpp' -o -name '*.h' | xargs ./scripts/astyle.sh
@@ -63,11 +64,12 @@ jobs:
             echo "::group::Indentation changes"
             git diff
             echo "::endgroup"
+            echo '::set-output name=changed::true'
           fi
 
       - name: Comment
         uses: thollander/actions-comment-pull-request@master
-        if: steps.indent-check.outputs.triggered != 'true'
+        if: steps.indent-check.outputs.changed == 'true' && steps.indent-check.outputs.triggered != 'true'
         with:
           message: |
             Code formatting issues have been detected.
