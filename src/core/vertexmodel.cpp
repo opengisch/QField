@@ -700,6 +700,11 @@ QVector<QPair<QgsPoint, QgsPoint>> VertexModel::verticesMoved() const
   return vertices;
 }
 
+QList<VertexModel::Vertex> VertexModel::vertices() const
+{
+  return mVertices;
+}
+
 QHash<int, QByteArray> VertexModel::roleNames() const
 {
   QHash<int, QByteArray> roles;

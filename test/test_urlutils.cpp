@@ -15,23 +15,24 @@
  *                                                                         *
  ***************************************************************************/
 
+#define CATCH_CONFIG_MAIN
 #include "qfield_testbase.h"
 #include "utils/urlutils.h"
 
 #include <QDebug>
 #include <QFileInfo>
-#include <gtest/gtest.h>
+#include <catch2/catch.hpp>
 
 
-TEST( UrlUtils, HasError )
+TEST_CASE( "UrlUtils" )
 {
   // should be considered relative
-  EXPECT_TRUE( UrlUtils::isRelativeOrFileUrl( QStringLiteral( "path/to/file" ) ) );
-  EXPECT_TRUE( UrlUtils::isRelativeOrFileUrl( QStringLiteral( "/path/to/file" ) ) );
-  EXPECT_TRUE( UrlUtils::isRelativeOrFileUrl( QStringLiteral( "file:///path/to/file" ) ) );
+  REQUIRE( UrlUtils::isRelativeOrFileUrl( QStringLiteral( "path/to/file" ) ) );
+  REQUIRE( UrlUtils::isRelativeOrFileUrl( QStringLiteral( "/path/to/file" ) ) );
+  REQUIRE( UrlUtils::isRelativeOrFileUrl( QStringLiteral( "file:///path/to/file" ) ) );
 
   // should NOT be considered relative
-  EXPECT_TRUE( !UrlUtils::isRelativeOrFileUrl( QStringLiteral( "http://osm.org" ) ) );
-  EXPECT_TRUE( !UrlUtils::isRelativeOrFileUrl( QStringLiteral( "http://osm.org/test?query=1" ) ) );
-  EXPECT_TRUE( !UrlUtils::isRelativeOrFileUrl( QStringLiteral( "https://osm.org/test?query=1" ) ) );
+  REQUIRE( !UrlUtils::isRelativeOrFileUrl( QStringLiteral( "http://osm.org" ) ) );
+  REQUIRE( !UrlUtils::isRelativeOrFileUrl( QStringLiteral( "http://osm.org/test?query=1" ) ) );
+  REQUIRE( !UrlUtils::isRelativeOrFileUrl( QStringLiteral( "https://osm.org/test?query=1" ) ) );
 }

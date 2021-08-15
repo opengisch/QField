@@ -15,63 +15,57 @@
  *                                                                         *
  ***************************************************************************/
 
+#define CATCH_CONFIG_MAIN
 #include "digitizinglogger.h"
 #include "qfield_testbase.h"
 
 #include <qgscoordinatereferencesystem.h>
 
-#include <gtest/gtest.h>
+#include <catch2/catch.hpp>
 
 
-class TestDigitizingLogger : public ::testing::Test
+TEST_CASE( "Digitizing logger" )
 {
-  protected:
-    void SetUp()
-    {
-      mLogsLayer.reset( new QgsVectorLayer( QStringLiteral( "Point?crs=EPSG:3857&field=fid:integer&field=digitizing_action:string&field=digitizing_layer_name:string&field=digitizing_layer_id:string&field=digitizing_datetime:datetime" ), QStringLiteral( "Logs Layer" ), QStringLiteral( "memory" ) ) );
-      EXPECT_TRUE( mLogsLayer->isValid() );
+  std::unique_ptr<QgsVectorLayer> logsLayer = std::make_unique<QgsVectorLayer>( QStringLiteral( "Point?crs=EPSG:3857&field=fid:integer&field=digitizing_action:string&field=digitizing_layer_name:string&field=digitizing_layer_id:string&field=digitizing_datetime:datetime" ), QStringLiteral( "Logs Layer" ), QStringLiteral( "memory" ) );
+  REQUIRE( logsLayer->isValid() );
 
-      mLogsLayer->setDefaultValueDefinition( 1, QgsDefaultValue( QStringLiteral( "@digitizing_type" ), false ) );
-      mLogsLayer->setDefaultValueDefinition( 2, QgsDefaultValue( QStringLiteral( "@digitizing_layer_name" ), false ) );
-      mLogsLayer->setDefaultValueDefinition( 3, QgsDefaultValue( QStringLiteral( "@digitizing_layer_id" ), false ) );
-      mLogsLayer->setDefaultValueDefinition( 4, QgsDefaultValue( QStringLiteral( "@digitizing_datetime" ), false ) );
+  logsLayer->setDefaultValueDefinition( 1, QgsDefaultValue( QStringLiteral( "@digitizing_type" ), false ) );
+  logsLayer->setDefaultValueDefinition( 2, QgsDefaultValue( QStringLiteral( "@digitizing_layer_name" ), false ) );
+  logsLayer->setDefaultValueDefinition( 3, QgsDefaultValue( QStringLiteral( "@digitizing_layer_id" ), false ) );
+  logsLayer->setDefaultValueDefinition( 4, QgsDefaultValue( QStringLiteral( "@digitizing_datetime" ), false ) );
 
-      QgsProject::instance()->addMapLayer( mLogsLayer.get() );
-      QgsProject::instance()->setCrs( QgsCoordinateReferenceSystem( QStringLiteral( "EPSG:3857" ) ) );
-      QgsProject::instance()->writeEntry( QStringLiteral( "qfieldsync" ), QStringLiteral( "digitizingLogsLayer" ), mLogsLayer->id() );
-      qDebug() << mLogsLayer->id();
+  QgsProject::instance()->addMapLayer( logsLayer.get() );
+  QgsProject::instance()->setCrs( QgsCoordinateReferenceSystem( QStringLiteral( "EPSG:3857" ) ) );
+  QgsProject::instance()->writeEntry( QStringLiteral( "qfieldsync" ), QStringLiteral( "digitizingLogsLayer" ), logsLayer->id() );
+  qDebug() << logsLayer->id();
 
-      mLayer.reset( new QgsVectorLayer( QStringLiteral( "Point?crs=EPSG:3857&field=fid:integer&field=str:string" ), QStringLiteral( "Input Layer" ), QStringLiteral( "memory" ) ) );
-      EXPECT_TRUE( mLayer->isValid() );
+  std::unique_ptr<QgsVectorLayer> layer = std::make_unique<QgsVectorLayer>( QStringLiteral( "Point?crs=EPSG:3857&field=fid:integer&field=str:string" ), QStringLiteral( "Input Layer" ), QStringLiteral( "memory" ) );
+  REQUIRE( layer->isValid() );
 
-      mDigitizingLogger.reset( new DigitizingLogger() );
-      mDigitizingLogger->setType( QStringLiteral( "rock" ) );
-      mDigitizingLogger->setProject( QgsProject::instance() );
-      mDigitizingLogger->setDigitizingLayer( mLayer.get() );
-    }
+  std::unique_ptr<DigitizingLogger> digitizingLogger = std::make_unique<DigitizingLogger>();
+  digitizingLogger->setType( QStringLiteral( "rock" ) );
+  digitizingLogger->setProject( QgsProject::instance() );
+  digitizingLogger->setDigitizingLayer( layer.get() );
 
-    std::unique_ptr<DigitizingLogger> mDigitizingLogger;
 
-    std::unique_ptr<QgsVectorLayer> mLogsLayer;
-    std::unique_ptr<QgsVectorLayer> mLayer;
-};
 
-TEST_F( TestDigitizingLogger, AddAndWritePoints )
-{
-  mDigitizingLogger->clearCoordinates();
-  mDigitizingLogger->addCoordinate( QgsPoint( 1, 1 ) );
-  mDigitizingLogger->addCoordinate( QgsPoint( 2, 2 ) );
-  mDigitizingLogger->writeCoordinates();
-  EXPECT_EQ( mLogsLayer->featureCount(), 2 );
-  mDigitizingLogger->addCoordinate( QgsPoint( 1, 1 ) );
-  mDigitizingLogger->addCoordinate( QgsPoint( 2, 2 ) );
-  mDigitizingLogger->removeLastCoordinate();
-  mDigitizingLogger->writeCoordinates();
-  EXPECT_EQ( mLogsLayer->featureCount(), 3 );
+  SECTION( "AddAndWritePoints" )
+  {
+    digitizingLogger->clearCoordinates();
+    digitizingLogger->addCoordinate( QgsPoint( 1, 1 ) );
+    digitizingLogger->addCoordinate( QgsPoint( 2, 2 ) );
+    digitizingLogger->writeCoordinates();
+    REQUIRE( logsLayer->featureCount() == 2 );
+    digitizingLogger->addCoordinate( QgsPoint( 1, 1 ) );
+    digitizingLogger->addCoordinate( QgsPoint( 2, 2 ) );
+    digitizingLogger->removeLastCoordinate();
+    digitizingLogger->writeCoordinates();
+    REQUIRE( logsLayer->featureCount() == 3 );
 
-  QgsFeature feature = mLogsLayer->getFeature( 1 );
-  EXPECT_EQ( feature.attributes().at( 1 ), mDigitizingLogger->type() );
-  EXPECT_EQ( feature.attributes().at( 2 ), mLayer->name() );
-  EXPECT_EQ( feature.attributes().at( 3 ), mLayer->id() );
-  EXPECT_EQ( feature.attributes().at( 4 ).toDateTime().isValid(), true );
+    QgsFeature feature = logsLayer->getFeature( 1 );
+    REQUIRE( feature.attributes().at( 1 ) == digitizingLogger->type() );
+    REQUIRE( feature.attributes().at( 2 ) == layer->name() );
+    REQUIRE( feature.attributes().at( 3 ) == layer->id() );
+    REQUIRE( feature.attributes().at( 4 ).toDateTime().isValid() == true );
+  }
 }

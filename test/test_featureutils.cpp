@@ -15,21 +15,22 @@
  *                                                                         *
  ***************************************************************************/
 
+#define CATCH_CONFIG_MAIN
 #include "qfield_testbase.h"
 #include "qgsvectorlayer.h"
 #include "utils/featureutils.h"
 
-#include <gtest/gtest.h>
+#include <catch2/catch.hpp>
 
 
-TEST( FeatureUtils, InitFeature )
+TEST_CASE( "FeatureUtils" )
 {
-  std::unique_ptr<QgsVectorLayer> vl( new QgsVectorLayer( QStringLiteral( "Polygon?crs=epsg:3946" ), QStringLiteral( "vl" ), QStringLiteral( "memory" ) ) );
+  std::unique_ptr<QgsVectorLayer> vl = std::make_unique<QgsVectorLayer>( QStringLiteral( "Polygon?crs=epsg:3946" ), QStringLiteral( "vl" ), QStringLiteral( "memory" ) );
 
   QgsGeometry geometry = QgsGeometry::fromWkt( QStringLiteral( "Polygon (((8 8, 9 8, 8 9, 8 8)))" ) );
 
   QgsFeature f = FeatureUtils::initFeature( vl.get(), geometry );
 
-  EXPECT_EQ( f.fields(), vl->fields() );
-  EXPECT_TRUE( f.geometry().equals( geometry ) );
+  REQUIRE( f.fields() == vl->fields() );
+  REQUIRE( f.geometry().equals( geometry ) );
 }

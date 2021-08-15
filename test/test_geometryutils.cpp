@@ -15,6 +15,7 @@
  *                                                                         *
  ***************************************************************************/
 
+#define CATCH_CONFIG_MAIN
 #include "qfield_testbase.h"
 
 #include "rubberbandmodel.h"
@@ -23,88 +24,78 @@
 #include <qgis.h>
 #include <qgsvectorlayer.h>
 
-#include <gtest/gtest.h>
+#include <catch2/catch.hpp>
 
 
-class TestGeometryUtils : public ::testing::Test
+TEST_CASE( "GeometryUtils" )
 {
-  protected:
+  std::unique_ptr<RubberbandModel> model = std::make_unique<RubberbandModel>();
+  std::unique_ptr<QgsVectorLayer> mLayer = std::make_unique<QgsVectorLayer>( QStringLiteral( "Polygon?crs=epsg:3946" ), QStringLiteral( "vl" ), QStringLiteral( "memory" ) );
 
-    void SetUp()
-    {
-      mModel = std::unique_ptr<RubberbandModel>( new RubberbandModel() );
-      mLayer = std::unique_ptr<QgsVectorLayer>( new QgsVectorLayer( QStringLiteral( "Polygon?crs=epsg:3946" ), QStringLiteral( "vl" ), QStringLiteral( "memory" ) ) );
+  QgsFeature f( mLayer->fields(), 1 );
+  f.setGeometry( QgsGeometry::fromWkt( QStringLiteral( "Polygon ((8 8, 9 8, 8 9, 8 8))" ) ) );
 
-      QgsFeature f( mLayer->fields(), 1 );
-      f.setGeometry( QgsGeometry::fromWkt( QStringLiteral( "Polygon ((8 8, 9 8, 8 9, 8 8))" ) ) );
+  REQUIRE( mLayer->startEditing() );
+  REQUIRE( mLayer->addFeature( f ) );
+  REQUIRE( mLayer->commitChanges() );
 
-      EXPECT_TRUE( mLayer->startEditing() );
-      EXPECT_TRUE( mLayer->addFeature( f ) );
-      EXPECT_TRUE( mLayer->commitChanges() );
+  model->setGeometryType( mLayer->geometryType() );
 
-      mModel->setGeometryType( mLayer->geometryType() );
-    }
+  SECTION( "PolygonFromRubberband" )
+  {
+    const QgsCoordinateReferenceSystem crs = QgsCoordinateReferenceSystem::fromEpsgId( 3946 );
 
-    std::unique_ptr<RubberbandModel> mModel;
-    std::unique_ptr<QgsVectorLayer> mLayer;
-};
+    model->addVertexFromPoint( QgsPoint( 0, 0 ) );
+    model->addVertexFromPoint( QgsPoint( 2, 1 ) );
+    model->addVertexFromPoint( QgsPoint( 1, 2 ) );
 
-TEST_F( TestGeometryUtils, PolygonFromRubberband )
-{
-  const QgsCoordinateReferenceSystem crs = QgsCoordinateReferenceSystem::fromEpsgId( 3946 );
+    QgsGeometry geom = GeometryUtils::polygonFromRubberband( model.get(), crs );
 
-  mModel->addVertexFromPoint( QgsPoint( 0, 0 ) );
-  mModel->addVertexFromPoint( QgsPoint( 2, 1 ) );
-  mModel->addVertexFromPoint( QgsPoint( 1, 2 ) );
+    REQUIRE( geom.asWkt() == QStringLiteral( "Polygon ((0 0, 2 1, 1 2, 1 2, 0 0))" ) );
+  }
 
-  QgsGeometry geom = GeometryUtils::polygonFromRubberband( mModel.get(), crs );
+  SECTION( "   AddRingFromRubberband" )
+  {
+    REQUIRE( mLayer->startEditing() );
+#if _QGIS_VERSION_INT >= 32100
+    REQUIRE( GeometryUtils::addRingFromRubberband( mLayer.get(), 100, model.get() ) == Qgis::GeometryOperationResult::AddRingNotInExistingFeature );
+#else
+    REQUIRE( GeometryUtils::addRingFromRubberband( mLayer.get(), 100, model.get() ) == QgsGeometry::AddRingNotInExistingFeature );
+#endif
 
-  EXPECT_EQ( geom.asWkt(), QStringLiteral( "Polygon ((0 0, 2 1, 1 2, 1 2, 0 0))" ) );
+    model->addVertexFromPoint( QgsPoint( 8.1, 8.1 ) );
+    model->addVertexFromPoint( QgsPoint( 8.9, 8.1 ) );
+    model->addVertexFromPoint( QgsPoint( 8.1, 8.9 ) );
+    mLayer->select( 1 );
+
+#if _QGIS_VERSION_INT >= 32100
+    REQUIRE( GeometryUtils::addRingFromRubberband( mLayer.get(), 1, model.get() ) == Qgis::GeometryOperationResult::Success );
+#else
+    REQUIRE( GeometryUtils::addRingFromRubberband( mLayer.get(), 1, model.get() ) == QgsGeometry::Success );
+#endif
+    REQUIRE( mLayer->rollBack() );
+  }
+
+
+  SECTION( "SplitFeatureFromRubberband" )
+  {
+    REQUIRE( mLayer->startEditing() );
+#if _QGIS_VERSION_INT >= 32100
+    REQUIRE( GeometryUtils::splitFeatureFromRubberband( mLayer.get(), model.get() ) == Qgis::GeometryOperationResult::NothingHappened );
+#else
+    REQUIRE( GeometryUtils::splitFeatureFromRubberband( mLayer.get(), model.get() ) == QgsGeometry::NothingHappened );
+#endif
+
+    model->addVertexFromPoint( QgsPoint( 7.5, 8.5 ) );
+    model->addVertexFromPoint( QgsPoint( 9.5, 8.5 ) );
+    mLayer->select( 1 );
+
+#if _QGIS_VERSION_INT >= 32100
+    REQUIRE( GeometryUtils::splitFeatureFromRubberband( mLayer.get(), model.get() ) == Qgis::GeometryOperationResult::Success );
+#else
+    REQUIRE( GeometryUtils::splitFeatureFromRubberband( mLayer.get(), model.get() ) == QgsGeometry::Success );
+#endif
+    REQUIRE( mLayer->rollBack() );
+  }
+
 }
-
-TEST_F( TestGeometryUtils,    AddRingFromRubberband )
-{
-  EXPECT_TRUE( mLayer->startEditing() );
-#if _QGIS_VERSION_INT >= 32100
-  EXPECT_EQ( GeometryUtils::addRingFromRubberband( mLayer.get(), 100, mModel.get() ), Qgis::GeometryOperationResult::AddRingNotInExistingFeature );
-#else
-  EXPECT_EQ( GeometryUtils::addRingFromRubberband( mLayer.get(), 100, mModel.get() ), QgsGeometry::AddRingNotInExistingFeature );
-#endif
-
-  mModel->addVertexFromPoint( QgsPoint( 8.1, 8.1 ) );
-  mModel->addVertexFromPoint( QgsPoint( 8.9, 8.1 ) );
-  mModel->addVertexFromPoint( QgsPoint( 8.1, 8.9 ) );
-  mLayer->select( 1 );
-
-#if _QGIS_VERSION_INT >= 32100
-  EXPECT_EQ( GeometryUtils::addRingFromRubberband( mLayer.get(), 1, mModel.get() ), Qgis::GeometryOperationResult::Success );
-#else
-  EXPECT_EQ( GeometryUtils::addRingFromRubberband( mLayer.get(), 1, mModel.get() ), QgsGeometry::Success );
-#endif
-  EXPECT_TRUE( mLayer->rollBack() );
-}
-
-
-TEST_F( TestGeometryUtils, SplitFeatureFromRubberband )
-{
-  EXPECT_TRUE( mLayer->startEditing() );
-#if _QGIS_VERSION_INT >= 32100
-  EXPECT_EQ( GeometryUtils::splitFeatureFromRubberband( mLayer.get(), mModel.get() ), Qgis::GeometryOperationResult::NothingHappened );
-#else
-  EXPECT_EQ( GeometryUtils::splitFeatureFromRubberband( mLayer.get(), mModel.get() ), QgsGeometry::NothingHappened );
-#endif
-
-  mModel->addVertexFromPoint( QgsPoint( 7.5, 8.5 ) );
-  mModel->addVertexFromPoint( QgsPoint( 9.5, 8.5 ) );
-  mLayer->select( 1 );
-
-#if _QGIS_VERSION_INT >= 32100
-  EXPECT_EQ( GeometryUtils::splitFeatureFromRubberband( mLayer.get(), mModel.get() ), Qgis::GeometryOperationResult::Success );
-#else
-  EXPECT_EQ( GeometryUtils::splitFeatureFromRubberband( mLayer.get(), mModel.get() ), QgsGeometry::Success );
-#endif
-  EXPECT_TRUE( mLayer->rollBack() );
-}
-
-
-

@@ -15,79 +15,72 @@
  *                                                                         *
  ***************************************************************************/
 
+#define CATCH_CONFIG_MAIN
 #include "attributeformmodel.h"
 #include "featuremodel.h"
 
 #include "qfield_testbase.h"
 
-#include <gtest/gtest.h>
+#include <catch2/catch.hpp>
 
 
-class TestAttributeFormModel : public ::testing::Test
+TEST_CASE( "Attribute form model" )
 {
-  protected:
-    void SetUp()
-    {
-      mLayer = std::make_unique< QgsVectorLayer >( QStringLiteral( "Point?crs=EPSG:3857&field=fid:integer&field=str:string&field=str2:string" ), QStringLiteral( "Input Layer" ), QStringLiteral( "memory" ) );
-      EXPECT_TRUE( mLayer->isValid() );
+  std::unique_ptr<QgsVectorLayer> layer = std::make_unique<QgsVectorLayer>( QStringLiteral( "Point?crs=EPSG:3857&field=fid:integer&field=str:string&field=str2:string" ), QStringLiteral( "Input Layer" ), QStringLiteral( "memory" ) );
+  REQUIRE( layer->isValid() );
 
-      QgsFeature f1;
-      f1.setAttributes( QgsAttributes() << 1 << QStringLiteral( "string_a1" ) << QStringLiteral( "string_b1" ) );
-      qDebug() << f1.attributes();
-      QgsFeature f2;
-      f2.setAttributes( QgsAttributes() << 2 << QStringLiteral( "string_a2" ) << QStringLiteral( "string_b2" ) );
-      QgsFeature f3;
-      f3.setAttributes( QgsAttributes() << 1 << QStringLiteral( "string_a3" ) << QStringLiteral( "string_b3" ) );
+  QgsFeature f1;
+  f1.setAttributes( QgsAttributes() << 1 << QStringLiteral( "string_a1" ) << QStringLiteral( "string_b1" ) );
+  qDebug() << f1.attributes();
+  QgsFeature f2;
+  f2.setAttributes( QgsAttributes() << 2 << QStringLiteral( "string_a2" ) << QStringLiteral( "string_b2" ) );
+  QgsFeature f3;
+  f3.setAttributes( QgsAttributes() << 1 << QStringLiteral( "string_a3" ) << QStringLiteral( "string_b3" ) );
 
-      mLayer->startEditing();
-      mLayer->addFeature( f1 );
-      mLayer->addFeature( f2 );
-      mLayer->addFeature( f3 );
-      mLayer->commitChanges();
-      EXPECT_EQ( mLayer->featureCount(), 3 );
+  layer->startEditing();
+  layer->addFeature( f1 );
+  layer->addFeature( f2 );
+  layer->addFeature( f3 );
+  layer->commitChanges();
+  REQUIRE( layer->featureCount() == 3 );
 
-      mLayer->setDefaultValueDefinition( 2, QgsDefaultValue( QStringLiteral( " coalesce(\"str\",'') || '__'" ), true ) );
+  layer->setDefaultValueDefinition( 2, QgsDefaultValue( QStringLiteral( " coalesce(\"str\",'') || '__'" ), true ) );
 
-      mAttributeFormModel = std::make_unique< AttributeFormModel >();
-      mFeatureModel = std::make_unique< FeatureModel >();
-      mAttributeFormModel->setFeatureModel( mFeatureModel.get() );
-      mFeatureModel->setCurrentLayer( mLayer.get() );
-    }
+  std::unique_ptr<AttributeFormModel> attributeFormModel = std::make_unique< AttributeFormModel >();
+  std::unique_ptr<FeatureModel> featureModel = std::make_unique< FeatureModel >();
+  attributeFormModel->setFeatureModel( featureModel.get() );
+  featureModel->setCurrentLayer( layer.get() );
 
-    std::unique_ptr<QgsVectorLayer> mLayer;
-    std::unique_ptr<FeatureModel> mFeatureModel;
-    std::unique_ptr<AttributeFormModel> mAttributeFormModel;
+  SECTION( "Attributes" )
+  {
+    featureModel->setFeature( layer->getFeature( 1 ) );
+    REQUIRE( attributeFormModel->attribute( QStringLiteral( "str" ) ) == QStringLiteral( "string_a1" ) );
+    REQUIRE( attributeFormModel->data( attributeFormModel->index( 1, 0 ), AttributeFormModel::AttributeValue ) == QStringLiteral( "string_a1" ) );
+  }
 
-};
-TEST_F( TestAttributeFormModel, Attributes )
-{
-  mFeatureModel->setFeature( mLayer->getFeature( 1 ) );
-  EXPECT_EQ( mAttributeFormModel->attribute( QStringLiteral( "str" ) ), QStringLiteral( "string_a1" ) );
-  EXPECT_EQ( mAttributeFormModel->data( mAttributeFormModel->index( 1, 0 ), AttributeFormModel::AttributeValue ), QStringLiteral( "string_a1" ) );
+  SECTION( "FeatureDefaultValue" )
+  {
+    featureModel->resetFeature();
+    featureModel->resetAttributes();
+
+    attributeFormModel->setData( attributeFormModel->index( 1, 0 ), QString( "new_feature" ), AttributeFormModel::AttributeValue );
+    // test default value changed on update with new feature
+    REQUIRE( attributeFormModel->attribute( QStringLiteral( "str2" ) ) == QStringLiteral( "new_feature__" ) );
+
+    // create a feature through the attribute form model
+    REQUIRE( attributeFormModel->create() );
+
+    QgsFeatureId fid = featureModel->feature().id();
+    REQUIRE( fid > 0 );
+
+    attributeFormModel->setData( attributeFormModel->index( 1, 0 ), QString( "edit_feature" ), AttributeFormModel::AttributeValue );
+    // test default value changed on update with existing feature being edited
+    REQUIRE( attributeFormModel->attribute( QStringLiteral( "str2" ) ) == QStringLiteral( "edit_feature__" ) );
+
+    REQUIRE( attributeFormModel->save() );
+
+    QgsFeature feature = layer->getFeature( fid );
+    REQUIRE( feature.attributes().at( 2 ) == QStringLiteral( "edit_feature__" ) );
+  }
+
 }
-
-TEST_F( TestAttributeFormModel, FeatureDefaultValue )
-{
-  mFeatureModel->resetFeature();
-  mFeatureModel->resetAttributes();
-
-  mAttributeFormModel->setData( mAttributeFormModel->index( 1, 0 ), QString( "new_feature" ), AttributeFormModel::AttributeValue );
-  // test default value changed on update with new feature
-  EXPECT_EQ( mAttributeFormModel->attribute( QStringLiteral( "str2" ) ), QStringLiteral( "new_feature__" ) );
-
-  // create a feature through the attribute form model
-  EXPECT_TRUE( mAttributeFormModel->create() );
-
-  QgsFeatureId fid = mFeatureModel->feature().id();
-  EXPECT_TRUE( fid > 0 );
-
-  mAttributeFormModel->setData( mAttributeFormModel->index( 1, 0 ), QString( "edit_feature" ), AttributeFormModel::AttributeValue );
-  // test default value changed on update with existing feature being edited
-  EXPECT_EQ( mAttributeFormModel->attribute( QStringLiteral( "str2" ) ), QStringLiteral( "edit_feature__" ) );
-
-  EXPECT_TRUE( mAttributeFormModel->save() );
-
-  QgsFeature feature = mLayer->getFeature( fid );
-  EXPECT_EQ( feature.attributes().at( 2 ), QStringLiteral( "edit_feature__" ) );
-}
-
