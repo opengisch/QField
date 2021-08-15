@@ -22,6 +22,8 @@
 #include "utils/fileutils.h"
 #include "utils/qfieldcloudutils.h"
 #include "qgsvectorlayerjoininfo.h"
+#include "qgssettings.h"
+#include "qgsapplication.h"
 
 #include <qgsproject.h>
 #include <QFileInfo>
@@ -137,6 +139,13 @@ QJsonArray getDeltasArray( const QString &json )
 
 TEST_CASE( "Delta File Wrapper" )
 {
+  int argc = 0;
+  char **argv;
+  QgsApplication app( argc, argv, false );
+  app.init();
+  app.setPrefixPath( CMAKE_INSTALL_PREFIX, true );
+  app.initQgis();
+  app.setAttribute( Qt::AA_Use96Dpi, true );
   QgsProject *project = QgsProject::instance();
   QTemporaryDir settingsDir;
   QTemporaryFile tmpDeltaFile;
@@ -177,7 +186,6 @@ TEST_CASE( "Delta File Wrapper" )
   QFieldCloudUtils::setProjectSetting( QStringLiteral( "TEST_PROJECT_ID" ), QStringLiteral( "lastLocalExportId" ), QStringLiteral( "22222222-2222-2222-2222-222222222222" ) );
   QFieldCloudUtils::setProjectSetting( QStringLiteral( "TEST_PROJECT_ID" ), QStringLiteral( "lastExportId" ), QStringLiteral( "33333333-3333-3333-3333-333333333333" ) );
 
-  // INIT ...
   QgsFeature f( layer->fields(), 1 );
 
   f.setAttribute( QStringLiteral( "fid" ), 1 );

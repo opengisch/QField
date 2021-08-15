@@ -69,7 +69,7 @@ void QFieldCloudUtils::setProjectSetting( const QString &projectId, const QStrin
 {
   thread_local QgsSettings settings;
   const QString projectPrefix = QStringLiteral( "QFieldCloud/projects/%1" ).arg( projectId );
-  return settings.setValue( QStringLiteral( "%1/%2" ).arg( projectPrefix, setting ), value );
+  settings.setValue( QStringLiteral( "%1/%2" ).arg( projectPrefix, setting ), value );
 }
 
 const QVariant QFieldCloudUtils::projectSetting( const QString &projectId, const QString &setting, const QVariant &defaultValue )
