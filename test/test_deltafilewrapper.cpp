@@ -23,6 +23,7 @@
 
 #include <gtest/gtest.h>
 #include <qgsproject.h>
+#include <QFileInfo>
 
 // TODO move to common test header
 QT_BEGIN_NAMESPACE
@@ -384,7 +385,7 @@ TEST_F( DeltaFileWrapperTest, ErrorJsonFormatDeltasType )
 
 TEST_F( DeltaFileWrapperTest, FileName )
 {
-  QString fileName( std::tmpnam( nullptr ) );
+  QString fileName( QFileInfo( std::tmpnam( nullptr ) ).absoluteFilePath() );
   DeltaFileWrapper dfw( mProject, fileName );
   EXPECT_EQ( dfw.fileName(), fileName );
 }
@@ -448,8 +449,7 @@ TEST_F( DeltaFileWrapperTest, ToString )
   QJsonDocument doc = normalizeSchema( dfw.toString() );
 
   EXPECT_TRUE( !doc.isNull() );
-  qDebug() << doc;
-  EXPECT_EQ( doc, QJsonDocument::fromJson( R""""(
+  QJsonDocument expected_doc = QJsonDocument::fromJson( R""""(
         {
           "deltas": [
             {
@@ -490,7 +490,8 @@ TEST_F( DeltaFileWrapperTest, ToString )
           "project": "projectId",
           "version": "1.0"
         }
-      )"""" ) );
+      )"""" );
+  EXPECT_EQ( doc, expected_doc );
 }
 
 
