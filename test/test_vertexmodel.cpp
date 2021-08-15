@@ -16,12 +16,11 @@
  ***************************************************************************/
 
 #define CATCH_CONFIG_MAIN
-#include "qfield_testbase.h"
 #include "qgsquickmapsettings.h"
 #include "vertexmodel.h"
 #include "qgsgeometry.h"
 
-#include <catch2/catch.hpp>
+#include "catch2.h"
 #include <qgsapplication.h>
 #include <qgsgeometry.h>
 #include <qgslinestring.h>

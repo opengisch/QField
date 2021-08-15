@@ -15,13 +15,11 @@
  *                                                                         *
  ***************************************************************************/
 
-#define CATCH_CONFIG_MAIN
+#define QFIELDTEST_MAIN
 #include "attributeformmodel.h"
 #include "featuremodel.h"
 
-#include "qfield_testbase.h"
-
-#include <catch2/catch.hpp>
+#include "catch2.h"
 
 
 TEST_CASE( "Attribute form model" )

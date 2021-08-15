@@ -16,11 +16,10 @@
  ***************************************************************************/
 
 #define CATCH_CONFIG_MAIN
-#include "qfield_testbase.h"
 #include "qgsvectorlayer.h"
 #include "utils/featureutils.h"
 
-#include <catch2/catch.hpp>
+#include "catch2.h"
 
 
 TEST_CASE( "FeatureUtils" )

@@ -15,7 +15,7 @@
  *                                                                         *
  ***************************************************************************/
 
-#define CATCH_CONFIG_MAIN
+#define QFIELDTEST_MAIN
 
 #include "deltafilewrapper.h"
 #include "qfield.h"
@@ -24,26 +24,18 @@
 #include "qgsvectorlayerjoininfo.h"
 #include "qgssettings.h"
 #include "qgsapplication.h"
+#include "catch2.h"
 
 #include <qgsproject.h>
 #include <QFileInfo>
-#include <catch2/catch.hpp>
 
-// TODO move to common test header
 QT_BEGIN_NAMESPACE
-std::ostream &operator << ( std::ostream &os, const QString &value )
-{
-  os << qUtf8Printable( value );
-  return os;
-}
-
 std::ostream &operator << ( std::ostream &os, const QJsonDocument &value )
 {
   os << value.toJson().constData();
   return os;
 }
 QT_END_NAMESPACE
-
 
 QJsonArray normalizeDeltasSchema( const QJsonArray &deltasJson )
 {
@@ -139,13 +131,6 @@ QJsonArray getDeltasArray( const QString &json )
 
 TEST_CASE( "Delta File Wrapper" )
 {
-  int argc = 0;
-  char **argv;
-  QgsApplication app( argc, argv, false );
-  app.init();
-  app.setPrefixPath( CMAKE_INSTALL_PREFIX, true );
-  app.initQgis();
-  app.setAttribute( Qt::AA_Use96Dpi, true );
   QgsProject *project = QgsProject::instance();
   QTemporaryDir settingsDir;
   QTemporaryFile tmpDeltaFile;

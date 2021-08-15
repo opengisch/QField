@@ -15,13 +15,12 @@
  *                                                                         *
  ***************************************************************************/
 
-#define CATCH_CONFIG_MAIN
+#define QFIELDTEST_MAIN
 #include "digitizinglogger.h"
-#include "qfield_testbase.h"
 
 #include <qgscoordinatereferencesystem.h>
 
-#include <catch2/catch.hpp>
+#include "catch2.h"
 
 
 TEST_CASE( "Digitizing logger" )

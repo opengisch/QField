@@ -16,7 +16,6 @@
  ***************************************************************************/
 
 #define CATCH_CONFIG_MAIN
-#include "qfield_testbase.h"
 
 #include "rubberbandmodel.h"
 #include "utils/geometryutils.h"
@@ -24,7 +23,7 @@
 #include <qgis.h>
 #include <qgsvectorlayer.h>
 
-#include <catch2/catch.hpp>
+#include "catch2.h"
 
 
 TEST_CASE( "GeometryUtils" )

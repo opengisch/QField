@@ -15,12 +15,11 @@
  *                                                                         *
  ***************************************************************************/
 
-#define CATCH_CONFIG_MAIN
+#define QFIELDTEST_MAIN
 #include "layerobserver.h"
-#include "qfield_testbase.h"
 #include "utils/qfieldcloudutils.h"
 
-#include <catch2/catch.hpp>
+#include "catch2.h"
 
 QStringList getDeltaOperations( QString fileName )
 {
