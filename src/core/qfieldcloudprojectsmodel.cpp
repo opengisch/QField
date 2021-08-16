@@ -781,7 +781,7 @@ void QFieldCloudProjectsModel::uploadProject( const QString &projectId, const bo
       fileInfo = QFileInfo( fileName );
     }
 
-    if ( !fileInfo.exists() )
+    if ( !fileInfo.exists() || !fileInfo.isFile() )
     {
       QgsMessageLog::logMessage( QStringLiteral( "Attachment file '%1' does not exist" ).arg( fileName ) );
       continue;
@@ -1123,8 +1123,6 @@ void QFieldCloudProjectsModel::projectUploadAttachments( const QString &projectI
 
   // start uploading the attachments
   const QStringList attachmentFileNames = mCloudProjects[index].uploadAttachments.keys();
-  mCloudProjects[index].uploadAttachmentsStatus = UploadAttachmentsStatus::UploadAttachmentsInProgress;
-  emit dataChanged( idx, idx, QVector<int>() << UploadAttachmentsStatusRole );
   for ( const QString &fileName : attachmentFileNames )
   {
     NetworkReply *attachmentCloudReply = uploadAttachment( projectId, fileName );
@@ -1164,6 +1162,11 @@ void QFieldCloudProjectsModel::projectUploadAttachments( const QString &projectI
 
       emit dataChanged( idx, idx, QVector<int>() << UploadAttachmentsCountRole );
     } );
+  }
+  if ( attachmentFileNames.size() > 0 )
+  {
+    mCloudProjects[index].uploadAttachmentsStatus = UploadAttachmentsStatus::UploadAttachmentsInProgress;
+    emit dataChanged( idx, idx, QVector<int>() << UploadAttachmentsStatusRole );
   }
 }
 
@@ -1524,8 +1527,10 @@ void QFieldCloudProjectsModel::reload( const QJsonArray &remoteProjects )
     for ( const QString &fileName : fileNames )
     {
       QFileInfo fileInfo( fileName );
-      if ( fileInfo.exists() )
+      if ( fileInfo.exists() && !fileInfo.isDir() )
+      {
         cloudProject.uploadAttachments.insert( fileName, FileTransfer( fileName, fileInfo.size() ) );
+      }
     }
   };
 

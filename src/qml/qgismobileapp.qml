@@ -2112,6 +2112,9 @@ ApplicationWindow {
     id: cloudExportLayersFeedback
     visible: false
     parent: ApplicationWindow.overlay
+
+    width: parent.width
+    height: parent.height
   }
 
   WelcomeScreen {
