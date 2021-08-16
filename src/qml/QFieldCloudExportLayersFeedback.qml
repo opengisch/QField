@@ -5,7 +5,6 @@ import QtQuick.Layouts 1.12
 import org.qfield 1.0
 import Theme 1.0
 
-// QFieldCloudExportLayersFeedback
 Dialog {
   parent: mainWindow.contentItem
 
