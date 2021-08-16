@@ -335,7 +335,7 @@
             <prop k="angle" v="0"/>
             <prop k="chr" v="A"/>
             <prop k="color" v="250,176,124,255"/>
-            <prop k="font" v="Cantarell"/>
+            <prop k="font" v="Arial"/>
             <prop k="horizontal_anchor_point" v="1"/>
             <prop k="joinstyle" v="bevel"/>
             <prop k="offset" v="0,-1.09374999999999867"/>
