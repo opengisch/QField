@@ -50,7 +50,7 @@ EditorWidgetBase {
       filterExpression: config['FilterExpression']
       allowMulti: Number(config['AllowMulti']) === 1
       onListUpdated: {
-        valueRelation.valueChanged( attributeValue, false )
+        valueChangeRequested( attributeValue, false )
       }
     }
   }
@@ -83,7 +83,7 @@ EditorWidgetBase {
         filterExpression: config['FilterExpression']
         allowMulti: true
         onListUpdated: {
-            valueRelation.valueChanged( attributeValue, false )
+            valueChangeRequested( attributeValue, false )
         }
     }
 
