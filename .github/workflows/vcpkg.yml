@@ -23,7 +23,7 @@ jobs:
             build-type: 'Release'
             vcpkg-root: 'C:'
             pathconvert: 'cygpath -u'
-            exclude-tests: '(deltafilewrappertest|smoke_test)'
+            exclude-tests: '(smoke_test)'
 
           - os: 'ubuntu-20.04'
             triplet: 'x64-linux'
@@ -97,6 +97,7 @@ jobs:
       - name: Setup NuGet Credentials
         shell: bash
         run: |
+          ${{ env.VCPKG_ROOT }}/vcpkg fetch nuget
           ${{ matrix.mono }} $(${{ env.VCPKG_ROOT }}/vcpkg fetch nuget | tail -n 1) \
           sources add \
           -source "https://nuget.pkg.github.com/opengisch/index.json" \

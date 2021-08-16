@@ -15,31 +15,21 @@
  *                                                                         *
  ***************************************************************************/
 
-#include "qfield_testbase.h"
+#define CATCH_CONFIG_MAIN
 #include "qgsvectorlayer.h"
 #include "utils/featureutils.h"
 
-#include <QtTest>
+#include "catch2.h"
 
 
-class TestFeatureUtils : public QObject
+TEST_CASE( "FeatureUtils" )
 {
-    Q_OBJECT
-  private slots:
+  std::unique_ptr<QgsVectorLayer> vl = std::make_unique<QgsVectorLayer>( QStringLiteral( "Polygon?crs=epsg:3946" ), QStringLiteral( "vl" ), QStringLiteral( "memory" ) );
 
+  QgsGeometry geometry = QgsGeometry::fromWkt( QStringLiteral( "Polygon (((8 8, 9 8, 8 9, 8 8)))" ) );
 
-    void testInitFeature()
-    {
-      std::unique_ptr<QgsVectorLayer> vl( new QgsVectorLayer( QStringLiteral( "Polygon?crs=epsg:3946" ), QStringLiteral( "vl" ), QStringLiteral( "memory" ) ) );
+  QgsFeature f = FeatureUtils::initFeature( vl.get(), geometry );
 
-      QgsGeometry geometry = QgsGeometry::fromWkt( QStringLiteral( "Polygon (((8 8, 9 8, 8 9, 8 8)))" ) );
-
-      QgsFeature f = FeatureUtils::initFeature( vl.get(), geometry );
-
-      QCOMPARE( f.fields(), vl->fields() );
-      QVERIFY( f.geometry().equals( geometry ) );
-    }
-};
-
-QFIELDTEST_MAIN( TestFeatureUtils )
-#include "test_featureutils.moc"
+  REQUIRE( f.fields() == vl->fields() );
+  REQUIRE( f.geometry().equals( geometry ) );
+}

@@ -54,6 +54,7 @@ jobs:
           GITHUB_TOKEN: '${{ secrets.FAIRY_TOKEN }}'
 
       - name: Check astyle
+        id: astyle-check
         run: |
           sudo apt install -y astyle
           find src/ -name '*.cpp' -o -name '*.h' | xargs ./scripts/astyle.sh
@@ -63,15 +64,18 @@ jobs:
             echo "::group::Indentation changes"
             git diff
             echo "::endgroup"
+            echo '::set-output name=changed::true'
           fi
 
-      - uses: getsentry/action-git-diff-suggestions@main
-        if: steps.indent-check.outputs.triggered != 'true'
+      - name: Comment
+        uses: thollander/actions-comment-pull-request@master
+        if: steps.indent-check.outputs.changed == 'true' && steps.indent-check.outputs.triggered != 'true'
         with:
           message: |
-            Astyle suggested changes
-
-            Accept them manually or add a comment with `@qfield-fairy style please` to invoke some magic 🪄.
+            Code formatting issues have been detected.
+          
+            Reply with `@qfield-fairy style please` to fix it up 🪄.
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - uses: EndBug/add-and-commit@v7.2.1
         if: steps.indent-check.outputs.triggered == 'true'

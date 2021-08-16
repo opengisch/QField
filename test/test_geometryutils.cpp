@@ -15,7 +15,7 @@
  *                                                                         *
  ***************************************************************************/
 
-#include "qfield_testbase.h"
+#define CATCH_CONFIG_MAIN
 
 #include "rubberbandmodel.h"
 #include "utils/geometryutils.h"
@@ -23,98 +23,78 @@
 #include <qgis.h>
 #include <qgsvectorlayer.h>
 
-#include <QtTest>
+#include "catch2.h"
 
 
-class TestGeometryUtils : public QObject
+TEST_CASE( "GeometryUtils" )
 {
-    Q_OBJECT
-  private slots:
-    void initTestCase()
-    {
-      mModel = std::unique_ptr<RubberbandModel>( new RubberbandModel() );
-      mLayer = std::unique_ptr<QgsVectorLayer>( new QgsVectorLayer( QStringLiteral( "Polygon?crs=epsg:3946" ), QStringLiteral( "vl" ), QStringLiteral( "memory" ) ) );
+  std::unique_ptr<RubberbandModel> model = std::make_unique<RubberbandModel>();
+  std::unique_ptr<QgsVectorLayer> mLayer = std::make_unique<QgsVectorLayer>( QStringLiteral( "Polygon?crs=epsg:3946" ), QStringLiteral( "vl" ), QStringLiteral( "memory" ) );
 
-      QgsFeature f( mLayer->fields(), 1 );
-      f.setGeometry( QgsGeometry::fromWkt( QStringLiteral( "Polygon ((8 8, 9 8, 8 9, 8 8))" ) ) );
+  QgsFeature f( mLayer->fields(), 1 );
+  f.setGeometry( QgsGeometry::fromWkt( QStringLiteral( "Polygon ((8 8, 9 8, 8 9, 8 8))" ) ) );
 
-      QVERIFY( mLayer->startEditing() );
-      QVERIFY( mLayer->addFeature( f ) );
-      QVERIFY( mLayer->commitChanges() );
+  REQUIRE( mLayer->startEditing() );
+  REQUIRE( mLayer->addFeature( f ) );
+  REQUIRE( mLayer->commitChanges() );
 
-      mModel->setGeometryType( mLayer->geometryType() );
-    }
+  model->setGeometryType( mLayer->geometryType() );
 
+  SECTION( "PolygonFromRubberband" )
+  {
+    const QgsCoordinateReferenceSystem crs = QgsCoordinateReferenceSystem::fromEpsgId( 3946 );
 
-    void cleanup()
-    {
-      mModel->reset();
-    }
+    model->addVertexFromPoint( QgsPoint( 0, 0 ) );
+    model->addVertexFromPoint( QgsPoint( 2, 1 ) );
+    model->addVertexFromPoint( QgsPoint( 1, 2 ) );
 
+    QgsGeometry geom = GeometryUtils::polygonFromRubberband( model.get(), crs );
 
-    void testPolygonFromRubberband()
-    {
-      const QgsCoordinateReferenceSystem crs = QgsCoordinateReferenceSystem::fromEpsgId( 3946 );
+    REQUIRE( geom.asWkt() == QStringLiteral( "Polygon ((0 0, 2 1, 1 2, 1 2, 0 0))" ) );
+  }
 
-      mModel->addVertexFromPoint( QgsPoint( 0, 0 ) );
-      mModel->addVertexFromPoint( QgsPoint( 2, 1 ) );
-      mModel->addVertexFromPoint( QgsPoint( 1, 2 ) );
-
-      QgsGeometry geom = GeometryUtils::polygonFromRubberband( mModel.get(), crs );
-
-      QCOMPARE( geom.asWkt(), QStringLiteral( "Polygon ((0 0, 2 1, 1 2, 1 2, 0 0))" ) );
-    }
-
-
-    void testAddRingFromRubberband()
-    {
-      QVERIFY( mLayer->startEditing() );
+  SECTION( "   AddRingFromRubberband" )
+  {
+    REQUIRE( mLayer->startEditing() );
 #if _QGIS_VERSION_INT >= 32100
-      QCOMPARE( GeometryUtils::addRingFromRubberband( mLayer.get(), 100, mModel.get() ), Qgis::GeometryOperationResult::AddRingNotInExistingFeature );
+    REQUIRE( GeometryUtils::addRingFromRubberband( mLayer.get(), 100, model.get() ) == Qgis::GeometryOperationResult::AddRingNotInExistingFeature );
 #else
-      QCOMPARE( GeometryUtils::addRingFromRubberband( mLayer.get(), 100, mModel.get() ), QgsGeometry::AddRingNotInExistingFeature );
+    REQUIRE( GeometryUtils::addRingFromRubberband( mLayer.get(), 100, model.get() ) == QgsGeometry::AddRingNotInExistingFeature );
 #endif
 
-      mModel->addVertexFromPoint( QgsPoint( 8.1, 8.1 ) );
-      mModel->addVertexFromPoint( QgsPoint( 8.9, 8.1 ) );
-      mModel->addVertexFromPoint( QgsPoint( 8.1, 8.9 ) );
-      mLayer->select( 1 );
+    model->addVertexFromPoint( QgsPoint( 8.1, 8.1 ) );
+    model->addVertexFromPoint( QgsPoint( 8.9, 8.1 ) );
+    model->addVertexFromPoint( QgsPoint( 8.1, 8.9 ) );
+    mLayer->select( 1 );
 
 #if _QGIS_VERSION_INT >= 32100
-      QCOMPARE( GeometryUtils::addRingFromRubberband( mLayer.get(), 1, mModel.get() ), Qgis::GeometryOperationResult::Success );
+    REQUIRE( GeometryUtils::addRingFromRubberband( mLayer.get(), 1, model.get() ) == Qgis::GeometryOperationResult::Success );
 #else
-      QCOMPARE( GeometryUtils::addRingFromRubberband( mLayer.get(), 1, mModel.get() ), QgsGeometry::Success );
+    REQUIRE( GeometryUtils::addRingFromRubberband( mLayer.get(), 1, model.get() ) == QgsGeometry::Success );
 #endif
-      QVERIFY( mLayer->rollBack() );
-    }
+    REQUIRE( mLayer->rollBack() );
+  }
 
 
-    void testSplitFeatureFromRubberband()
-    {
-      QVERIFY( mLayer->startEditing() );
+  SECTION( "SplitFeatureFromRubberband" )
+  {
+    REQUIRE( mLayer->startEditing() );
 #if _QGIS_VERSION_INT >= 32100
-      QCOMPARE( GeometryUtils::splitFeatureFromRubberband( mLayer.get(), mModel.get() ), Qgis::GeometryOperationResult::NothingHappened );
+    REQUIRE( GeometryUtils::splitFeatureFromRubberband( mLayer.get(), model.get() ) == Qgis::GeometryOperationResult::NothingHappened );
 #else
-      QCOMPARE( GeometryUtils::splitFeatureFromRubberband( mLayer.get(), mModel.get() ), QgsGeometry::NothingHappened );
+    REQUIRE( GeometryUtils::splitFeatureFromRubberband( mLayer.get(), model.get() ) == QgsGeometry::NothingHappened );
 #endif
 
-      mModel->addVertexFromPoint( QgsPoint( 7.5, 8.5 ) );
-      mModel->addVertexFromPoint( QgsPoint( 9.5, 8.5 ) );
-      mLayer->select( 1 );
+    model->addVertexFromPoint( QgsPoint( 7.5, 8.5 ) );
+    model->addVertexFromPoint( QgsPoint( 9.5, 8.5 ) );
+    mLayer->select( 1 );
 
 #if _QGIS_VERSION_INT >= 32100
-      QCOMPARE( GeometryUtils::splitFeatureFromRubberband( mLayer.get(), mModel.get() ), Qgis::GeometryOperationResult::Success );
+    REQUIRE( GeometryUtils::splitFeatureFromRubberband( mLayer.get(), model.get() ) == Qgis::GeometryOperationResult::Success );
 #else
-      QCOMPARE( GeometryUtils::splitFeatureFromRubberband( mLayer.get(), mModel.get() ), QgsGeometry::Success );
+    REQUIRE( GeometryUtils::splitFeatureFromRubberband( mLayer.get(), model.get() ) == QgsGeometry::Success );
 #endif
-      QVERIFY( mLayer->rollBack() );
-    }
+    REQUIRE( mLayer->rollBack() );
+  }
 
-
-  private:
-    std::unique_ptr<RubberbandModel> mModel;
-    std::unique_ptr<QgsVectorLayer> mLayer;
-};
-
-QFIELDTEST_MAIN( TestGeometryUtils )
-#include "test_geometryutils.moc"
+}

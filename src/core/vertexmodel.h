@@ -25,6 +25,7 @@ class QgsQuickMapSettings;
 #include "qgsgeometry.h"
 #include "qgspoint.h"
 
+// Copied from gtest/gtest_prod.h
 /**
  * The VertexModel class is a model to highlight and edit vertices.
  * The model is used in map coordinates.
@@ -214,6 +215,9 @@ class QFIELD_CORE_EXPORT VertexModel : public QAbstractListModel
     //! Returns a list of added vertices not found in linked geometry
     QVector<QgsPoint> verticesDeleted() const { return mVerticesDeleted; }
 
+    //! Returns a list of vertices
+    QList<Vertex> vertices() const;
+
     QHash<int, QByteArray> roleNames() const override;
 
     int currentVertexIndex() const;
@@ -221,6 +225,9 @@ class QFIELD_CORE_EXPORT VertexModel : public QAbstractListModel
     void setCurrentVertexIndex( int currentIndex );
 
     Vertex vertex( int row ) const;
+
+    //! Selects the vertex at the given \a mapPoint and
+    void selectVertexAtPosition( const QgsPoint &mapPoint, double threshold );
 
   signals:
     //! \copydoc editingMode
@@ -269,7 +276,6 @@ class QFIELD_CORE_EXPORT VertexModel : public QAbstractListModel
     void updateCanAddVertex();
     void updateCanPreviousNextVertex();
     void setGeometryType( const QgsWkbTypes::GeometryType &geometryType );
-    void selectVertexAtPosition( const QgsPoint &mapPoint, double threshold );
 
     QList<Vertex> mVertices;
 
@@ -303,7 +309,7 @@ class QFIELD_CORE_EXPORT VertexModel : public QAbstractListModel
     bool mCanNextVertex = false;
     bool mIsHovering = false;
 
-    friend class TestVertexModel;
+    friend class VertexModelTest;
 };
 
 Q_DECLARE_METATYPE( VertexModel::Vertex );

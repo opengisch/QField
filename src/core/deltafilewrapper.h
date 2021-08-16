@@ -42,7 +42,7 @@ class DeltaFileWrapper : public QObject
     /**
      * Error types
      */
-    enum ErrorTypes
+    enum class ErrorTypes
     {
       NoError,
       LockError,
@@ -381,7 +381,7 @@ class DeltaFileWrapper : public QObject
     /**
      * Type of error that the constructor has encountered.
      */
-    ErrorTypes mErrorType = NoError;
+    ErrorTypes mErrorType = ErrorTypes::NoError;
 
 
     /**

@@ -22,7 +22,7 @@
 
 class QString;
 class QFieldCloudProjectsModel;
-class TestDeltaFileWrapper;
+class DeltaFileWrapperTest;
 class TestLayerObserver;
 
 class QFieldCloudUtils : public QObject
@@ -30,11 +30,22 @@ class QFieldCloudUtils : public QObject
     Q_OBJECT
 
   public:
+    /**
+     * Sets the local cloud directory.
+     * Must be set before the first call to localCloudDirectory.
+     */
+    static void setLocalCloudDirectory( const QString &path );
+
+    /**
+     * Returns the path to the local cloud directory.
+     * By default inside the user profile unless overwritten with setLocalCloudDirectory
+     */
     static const QString localCloudDirectory();
+
     static const QString localProjectFilePath( const QString &username, const QString &projectId );
 
     /**
-     * Get if the \layer action has do be handled with QFieldCloud.
+     * Returns if the \layer action has do be handled with QFieldCloud.
      *
      * @param layer to be checked
      * @return const bool true if the layer has the action not selected 'no_action' (on online databases) or 'remove'
@@ -42,7 +53,7 @@ class QFieldCloudUtils : public QObject
     static bool isCloudAction( const QgsMapLayer *layer );
 
     /**
-     * Get the cloud project id.
+     * Returns the cloud project id.
      *
      * @param fileName file name of the project to be checked
      * @return const QString either UUID-like string or a null string in case of failure
@@ -54,12 +65,6 @@ class QFieldCloudUtils : public QObject
 
     //! Gets a \a setting value for project with given \a projectId from the permanent storage. Return \a defaultValue if not present.
     static const QVariant projectSetting( const QString &projectId, const QString &setting, const QVariant &defaultValue = QVariant() );
-
-  private:
-    static QString sQgisSettingsDirPath;
-
-    friend TestDeltaFileWrapper;
-    friend TestLayerObserver;
 };
 
 #endif // QFIELDCLOUDUTILS_H
