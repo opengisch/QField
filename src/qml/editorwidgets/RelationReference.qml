@@ -21,8 +21,6 @@ EditorWidgetBase {
     enabled: isEnabled
     useCompleter: true
 
-    signal valueChanged(var value, bool isNull)
-
     property var _relation: qgisProject.relationManager.relation(config['Relation'])
 
     FeatureCheckListModel {
@@ -41,11 +39,9 @@ EditorWidgetBase {
       filterExpression: ""
       allowMulti: false
       onListUpdated: {
-        valueChanged( attributeValue, false )
+        valueChangeRequested( attributeValue, false )
       }
     }
-
-    onValueChanged: parent.valueChangeRequested(value, isNull)
   }
 
   Image {
