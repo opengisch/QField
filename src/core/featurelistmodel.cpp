@@ -168,6 +168,23 @@ int FeatureListModel::findKey( const QVariant &key ) const
   return -1;
 }
 
+QList<int> FeatureListModel::findDisplayValueMatches( const QString &filter ) const
+{
+  QMap<QString,int> matches;
+  const QString preparedFilter = filter.trimmed().toLower();
+  if ( !filter.trimmed().isEmpty() )
+  {
+    int idx = 0;
+    for ( const Entry &entry : mEntries )
+    {
+      if ( entry.displayString.trimmed().toLower().startsWith( preparedFilter ) )
+        matches.insert( entry.displayString.trimmed().toLower(), idx );
+      ++idx;
+    }
+  }
+  return matches.values();
+}
+
 void FeatureListModel::onFeatureAdded()
 {
   reloadLayer();

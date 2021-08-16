@@ -19,7 +19,7 @@ EditorWidgetBase {
     id: relationReference
     anchors { left: parent.left; right: parent.right; rightMargin: showOpenFormButton ? 24 : 0 }
     enabled: isEnabled
-    useCompleter: true
+    useSearch: true
 
     property var _relation: qgisProject.relationManager.relation(config['Relation'])
 

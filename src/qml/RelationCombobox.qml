@@ -11,6 +11,7 @@ Item {
   id: relationCombobox
 
   property bool useCompleter: false
+  property bool useSearch: false
 
   Component.onCompleted: {
     comboBox.currentIndex = featureListModel.findKey(value)
@@ -67,6 +68,10 @@ Item {
     focus: visible
 
     onOpened: {
+      if (searchableText.text != '') {
+          searchField.text = searchableText.text.trim();
+      }
+
       if (resultsList.contentHeight > resultsList.height) {
         searchField.forceActiveFocus()
       }
@@ -253,7 +258,7 @@ Item {
 
     ComboBox {
       id: comboBox
-      visible: !enabled || (!useCompleter && (_relation !== undefined ? _relation.isValid : true))
+      visible: !enabled || (!useSearch && !useCompleter && (_relation !== undefined ? _relation.isValid : true))
       Layout.fillWidth: true
 
       property var _cachedCurrentValue
@@ -334,67 +339,141 @@ Item {
     }
 
     Rectangle {
-      id: searchableLabel
-      visible: !comboBox.visible
-      height: fontMetrics.height + 10
-      Layout.fillWidth: true
-      Layout.topMargin: 5
-      Layout.bottomMargin: 5
+        id: searchable
+        visible: !comboBox.visible
+        height: fontMetrics.height + 10
+        Layout.fillWidth: true
+        Layout.topMargin: 5
+        Layout.bottomMargin: 5
 
-      Text {
-        padding: 5
-        width: parent.width - dropDownArrowCanvas.width - dropDownArrowCanvas.anchors.rightMargin * 2
-        text: comboBox.displayText
-        font: comboBox.font
-        horizontalAlignment: Text.AlignLeft
-        verticalAlignment: Text.AlignVCenter
-        elide: Text.ElideRight
-        color: value === undefined || !enabled ? 'gray' : 'black'
-      }
+        Text {
+            id: searchableLabel
 
-      Canvas {
-        id: dropDownArrowCanvas
-        anchors.right: parent.right
-        anchors.rightMargin: 10
-        anchors.verticalCenter: parent.verticalCenter
-        width: 10
-        height: 5
-        contextType: "2d"
+            leftPadding: 5
+            rightPadding: 5
+            width: parent.width - dropDownArrowCanvas.width - dropDownArrowCanvas.anchors.rightMargin * 2
+            height: fontMetrics.height + 12
+            text: comboBox.displayText
+            font: comboBox.font
+            horizontalAlignment: Text.AlignLeft
+            verticalAlignment: Text.AlignVCenter
+            textFormat: Text.RichText
+            clip: true
+            elide: Text.ElideRight
 
-        onPaint: {
-          if (!context) {
-            return
-          }
-            context.reset();
-            context.moveTo(0, 0);
-            context.lineTo(width, 0);
-            context.lineTo(width / 2, height);
-            context.closePath();
-            context.fillStyle = !enabled ? 'gray' : 'black'
-            context.fill();
+            color: value === undefined || !enabled ? 'gray' : searchableText.text === '' ? 'black' : 'gray'
         }
 
-        onEnabledChanged: requestPaint()
-      }
+        TextField  {
+            id: searchableText
 
-      border.color: comboBox.pressed ? "#4CAF50" : "#C8E6C9"
-      border.width: comboBox.visualFocus ? 2 : 1
-      color: Theme.lightGray
-      radius: 2
+            leftPadding: 5
+            rightPadding: 5
+            width: parent.width - dropDownArrowCanvas.width - dropDownArrowCanvas.anchors.rightMargin * 2
+            height: comboBox.height
+            text: ''
+            font: comboBox.font
+            horizontalAlignment: Text.AlignLeft
+            verticalAlignment: Text.AlignVCenter
 
+            color: 'black'
+            background: Rectangle {
+                implicitHeight: searchableText.height
+                color: "transparent"
+            }
 
-      MouseArea {
-        anchors.fill: parent
-        onClicked: {
-            mouse.accepted = true;
-            searchFeaturePopup.open()
+            inputMethodHints: Qt.ImhNoPredictiveText | Qt.ImhNoAutoUppercase | Qt.ImhSensitiveData
+
+            onDisplayTextChanged: {
+                if (text != comboBox.displayText) {
+                    var trimmedText = text.trim();
+                    var matches = featureListModel.findDisplayValueMatches(trimmedText)
+                    if (matches.length > 0) {
+                        searchableLabel.text = '<span style="color:rgba(0,0,0,0);">' + text + '</span><span style="font-weight:' + (matches.length === 1 ? 'bold' : 'normal' ) + ';">'  + featureListModel.dataFromRowIndex(matches[0], featureListModel.DisplayStringRole).substring(trimmedText.length) + '</span>'
+                    } else {
+                        searchableLabel.text = ''
+                    }
+                } else {
+                    searchableLabel.text = comboBox.displayText
+                }
+            }
+
+            onActiveFocusChanged: {
+                if (!activeFocus) {
+                    applyAutoCompletion(true)
+                }
+            }
+
+            Keys.onPressed: {
+                if (event.key === Qt.Key_Return || event.key === Qt.Key_Enter) {
+                    applyAutoCompletion()
+                }
+            }
+
+            function applyAutoCompletion(resetIfNone = false) {
+                var trimmedText = text.trim();
+                var matches = featureListModel.findDisplayValueMatches(trimmedText)
+                if (matches.length > 0) {
+                    text = ''
+                    searchableLabel.text = featureListModel.dataFromRowIndex(matches[0], featureListModel.DisplayStringRole)
+                    comboBox.currentIndex = matches[0];
+                } else if (resetIfNone) {
+                    text = ''
+                    searchableLabel.text = comboBox.displayText
+                }
+            }
         }
-      }
+
+        Canvas {
+            id: dropDownArrowCanvas
+            anchors.right: parent.right
+            anchors.verticalCenter: parent.verticalCenter
+            width: 30
+            height: 15
+            contextType: "2d"
+
+            onPaint: {
+                if (!context) {
+                    return
+                }
+                context.reset();
+                context.moveTo(10, 5);
+                context.lineTo(20, 5);
+                context.lineTo(15, 10);
+                context.closePath();
+                context.fillStyle = !enabled ? 'gray' : 'black'
+                context.fill();
+            }
+
+            onEnabledChanged: requestPaint()
+
+            MouseArea {
+                anchors.fill: parent
+                onClicked: {
+                    mouse.accepted = true
+                    searchFeaturePopup.open()
+                }
+            }
+        }
+
+        border.color: comboBox.pressed ? "#4CAF50" : "#C8E6C9"
+        border.width: comboBox.visualFocus ? 2 : 1
+        color: Theme.lightGray
+        radius: 2
+
+        MouseArea {
+            enabled: !useCompleter
+            anchors.fill: parent
+            onClicked: {
+                mouse.accepted = true
+                searchFeaturePopup.open()
+            }
+        }
     }
 
     Image {
       id: searchButton
-      visible: enabled && comboBox.visible
+      visible: enabled
 
       Layout.margins: 4
       Layout.preferredWidth: width
