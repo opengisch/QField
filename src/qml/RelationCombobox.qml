@@ -22,9 +22,8 @@ Item {
   anchors {
     left: parent.left
     right: parent.right
-    rightMargin: 10
   }
-  height: childrenRect.height + 10
+  height: childrenRect.height
 
   property var currentKeyValue: value
   property EmbeddedFeatureForm embeddedFeatureForm: embeddedPopup
@@ -51,7 +50,6 @@ Item {
           }
       }
   }
-
 
   Popup {
     id: searchFeaturePopup
@@ -511,44 +509,39 @@ Item {
         }
     }
 
-    Image {
-      id: searchButton
-      visible: enabled
+    QfToolButton {
+        id: searchButton
 
-      Layout.margins: 4
-      Layout.preferredWidth: width
-      Layout.preferredHeight: 18
-      source: Theme.getThemeIcon("ic_baseline_search_black")
-      width: visible ? 18 : 0
-      height: 18
-      opacity: enabled ? 1 : 0.3
+        Layout.preferredWidth: enabled ? 48 : 0
+        Layout.preferredHeight: 48
 
-      MouseArea {
-        anchors.fill: parent
+        bgcolor: "white"
+        iconSource: Theme.getThemeIcon("ic_baseline_search_black")
+
+        visible: enabled
+
         onClicked: {
           searchFeaturePopup.open()
         }
-      }
     }
 
-    Image {
-      Layout.margins: 4
-      Layout.preferredWidth: width
-      Layout.preferredHeight: 18
-      id: addButton
-      source: Theme.getThemeIcon("ic_add_black_48dp")
-      width: comboBox.enabled ? 18 : 0
-      height: 18
-      opacity: enabled ? 1 : 0.3
+    QfToolButton {
+        id: addButton
 
-      MouseArea {
-        anchors.fill: parent
+        Layout.preferredWidth: comboBox.enabled ? 48 : 0
+        Layout.preferredHeight: 48
+
+        bgcolor: "white"
+        opacity: enabled ? 1 : 0.3
+        iconSource: Theme.getThemeIcon("ic_add_black_48dp")
+
+        visible: enabled
+
         onClicked: {
             embeddedPopup.state = 'Add'
             embeddedPopup.currentLayer = relationCombobox._relation ? relationCombobox._relation.referencedLayer : null
             embeddedPopup.open()
         }
-      }
     }
 
     Text {

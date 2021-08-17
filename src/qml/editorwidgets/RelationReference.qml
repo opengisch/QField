@@ -17,7 +17,7 @@ EditorWidgetBase {
 
   RelationCombobox {
     id: relationReference
-    anchors { left: parent.left; right: parent.right; rightMargin: showOpenFormButton ? 24 : 0 }
+    anchors { left: parent.left; right: parent.right; rightMargin: showOpenFormButton ? viewButton.width : 0 }
     enabled: isEnabled
     useSearch: true
 
@@ -44,24 +44,25 @@ EditorWidgetBase {
     }
   }
 
-  Image {
+  QfToolButton  {
     id: viewButton
-    anchors { right: parent.right; top: relationReference.top; topMargin: relationReference.childrenRect.height / 2 - 9 }
-    source: Theme.getThemeIcon("ic_view_green_48dp")
-    enabled: showOpenFormButton && relationReference.currentKeyValue !== undefined && relationReference.currentKeyValue !== ''
-    width: enabled ? 18 : 0
-    height: 18
 
-    MouseArea {
-      anchors.fill: parent
-      onClicked: {
+    enabled: showOpenFormButton && relationReference.currentKeyValue !== undefined && relationReference.currentKeyValue !== ''
+    anchors { right: parent.right; top: parent.top; }
+
+    width: enabled ? 48 : 0
+    height: 48
+
+    bgcolor: "white"
+    iconSource: Theme.getThemeIcon("ic_view_green_48dp")
+
+    onClicked: {
         if ( relationReference.currentKeyValue !== undefined && relationReference.currentKeyValue !== '' ) {
           relationReference.embeddedFeatureForm.state = isEnabled ? 'Edit' : 'ReadOnly'
           relationReference.embeddedFeatureForm.currentLayer = featureListModel.currentLayer
           relationReference.embeddedFeatureForm.feature = featureListModel.getFeatureFromKeyValue( relationReference.currentKeyValue )
           relationReference.embeddedFeatureForm.open()
         }
-      }
     }
   }
 }
