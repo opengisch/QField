@@ -185,13 +185,19 @@ Item{
                 }
             }
 
-            GridLayout {
+            ScrollView {
+                padding: 20
+                ScrollBar.horizontal.policy: ScrollBar.AlwaysOff
+                ScrollBar.vertical.policy: ScrollBar.AsNeeded
+                contentWidth: trackerSettingsGrid.width
+                contentHeight: trackerSettingsGrid.height
                 anchors.fill: parent
-                anchors {
-                    margins: 20
-                }
+                clip: true
+
+            GridLayout {
+                id: trackerSettingsGrid
+                width: parent.parent.width
                 Layout.fillWidth: true
-                Layout.fillHeight: true
 
                 columns: 2
                 columnSpacing: 0
@@ -406,6 +412,8 @@ Item{
                     Layout.fillWidth: true
                     Layout.fillHeight: true
                 }
+            }
+
             }
         }
       }
