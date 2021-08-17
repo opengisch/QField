@@ -107,10 +107,19 @@ Item {
         selectByMouse: true
         verticalAlignment: TextInput.AlignVCenter
 
-        inputMethodHints: Qt.ImhNoPredictiveText | Qt.ImhNoAutoUppercase
+        inputMethodHints: Qt.ImhNoPredictiveText | Qt.ImhNoAutoUppercase | Qt.ImhSensitiveData
 
         onDisplayTextChanged: {
           featureListModel.searchTerm = searchField.displayText
+        }
+
+        Keys.onPressed: {
+            if (event.key === Qt.Key_Return || event.key === Qt.Key_Enter) {
+                if (featureListModel.rowCount() === 1) {
+                    resultsList.itemAtIndex(0).performClick()
+                    searchFeaturePopup.close()
+                }
+            }
         }
       }
 
@@ -175,15 +184,12 @@ Item {
             color: model.checked ? Theme.mainColor : 'transparent'
 
             Row {
-                height: parent.height
-
                 RadioButton {
                     id: radioButton
 
                     visible: !featureListModel.allowMulti
                     checked: model.checked
                     anchors.verticalCenter: parent.verticalCenter
-                    anchors.left: parent.left
                     text: displayString
                     width: resultsList.width - padding * 2
                     padding: 12
@@ -207,19 +213,20 @@ Item {
 
                     visible: !!featureListModel.allowMulti
                     anchors.verticalCenter: parent.verticalCenter
-                    anchors.left: parent.left
                     text: displayString
                     padding: 12
                 }
-
-                /* bottom border */
-                Rectangle {
-                    anchors.bottom: parent.bottom
-                    height: 1
-                    color: "lightGray"
-                    width: parent.width
-                }
             }
+
+
+            /* bottom border */
+            Rectangle {
+                anchors.bottom: parent.bottom
+                height: 1
+                color: "lightGray"
+                width: resultsList.width
+            }
+
             function performClick() {
                 model.checked = true;
             }
