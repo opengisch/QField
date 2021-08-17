@@ -185,7 +185,7 @@ Item {
                     anchors.verticalCenter: parent.verticalCenter
                     anchors.left: parent.left
                     text: displayString
-                    width: parent.width
+                    width: resultsList.width - padding * 2
                     padding: 12
                     ButtonGroup.group: buttonGroup
                     font.weight: model.checked ? Font.DemiBold : Font.Normal
