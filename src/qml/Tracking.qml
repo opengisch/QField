@@ -342,10 +342,12 @@ Item{
                 }
 
                 Label {
-                    text: qsTr("Record when all active constraints are met")
+                    text: qsTr("Record when both active constraints are met")
                     font: Theme.defaultFont
                     wrapMode: Text.WordWrap
                     Layout.fillWidth: true
+                    enabled: timeInterval.checked && minimumDistance.checked
+                    visible: timeInterval.checked && minimumDistance.checked
 
                     MouseArea {
                         anchors.fill: parent
@@ -357,6 +359,8 @@ Item{
                     id: allConstraints
                     Layout.preferredWidth: implicitContentWidth
                     Layout.alignment: Qt.AlignTop
+                    enabled: timeInterval.checked && minimumDistance.checked
+                    visible: timeInterval.checked && minimumDistance.checked
                     checked: positioningSettings.trackerMeetAllConstraints
                     onCheckedChanged: {
                         positioningSettings.trackerMeetAllConstraints = checked
@@ -365,12 +369,14 @@ Item{
 
 
                 Label {
-                    text: qsTr( "When enabled, vertices with only be recorded when all active constraints are met. If the setting is disabled, individual constraints met will trigger a vertex addition." )
+                    text: qsTr( "When enabled, vertices with only be recorded when both active constraints are met. If the setting is disabled, individual constraints met will trigger a vertex addition." )
                     font: Theme.tipFont
                     color: Theme.gray
                     textFormat: Qt.RichText
                     wrapMode: Text.WordWrap
                     Layout.fillWidth: true
+                    enabled: timeInterval.checked && minimumDistance.checked
+                    visible: timeInterval.checked && minimumDistance.checked
                 }
 
                 Item {
@@ -398,7 +404,7 @@ Item{
                       {
                           mainModel.timeInterval = timeIntervalValue.text.length == 0 || !timeInterval.checked ? 0 : timeIntervalValue.text
                           mainModel.minimumDistance = minimumDistanceValue.text.length == 0 || !minimumDistance.checked ? 0 : minimumDistanceValue.text
-                          mainModel.conjunction = allConstraints.checked
+                          mainModel.conjunction = timeInterval.checked && minimumDistance.checked && allConstraints.checked
                           mainModel.rubberModel = rubberbandModel
 
                           trackInformationDialog.active = false
