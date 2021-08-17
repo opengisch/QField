@@ -8,8 +8,8 @@ import "."
 EditorWidgetBase {
   height: childrenRect.height
 
-  property string checkedLabel: config['TextDisplayMethod'] === 1 && config['CheckedState'] != '' ? config['CheckedState'] : qsTr('True')
-  property string uncheckedLabel: config['TextDisplayMethod'] === 1 && config['UncheckedState'] != '' ? config['UncheckedState'] : qsTr('False')
+  property string checkedLabel: config['TextDisplayMethod'] === 1 && config['CheckedState'] != null && config['CheckedState'] !== '' ? config['CheckedState'] : qsTr('True')
+  property string uncheckedLabel: config['TextDisplayMethod'] === 1 && config['UncheckedState'] != null && config['UncheckedState'] !== '' ? config['UncheckedState'] : qsTr('False')
 
   anchors {
     right: parent.right
