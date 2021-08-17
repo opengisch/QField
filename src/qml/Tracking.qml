@@ -205,7 +205,7 @@ Item{
 
 
                 Label {
-                    text: qsTr("Activate time interval constraint")
+                    text: qsTr("Activate time constraint")
                     font: Theme.defaultFont
                     wrapMode: Text.WordWrap
                     Layout.fillWidth: true
@@ -270,7 +270,7 @@ Item{
                 }
 
                 Label {
-                    text: qsTr("Activate distance interval constraint")
+                    text: qsTr("Activate distance constraint")
                     font: Theme.defaultFont
                     wrapMode: Text.WordWrap
                     Layout.fillWidth: true
@@ -342,7 +342,7 @@ Item{
                 }
 
                 Label {
-                    text: qsTr("Digitize when all constraints are met")
+                    text: qsTr("Record when all active constraints are met")
                     font: Theme.defaultFont
                     wrapMode: Text.WordWrap
                     Layout.fillWidth: true
@@ -365,7 +365,7 @@ Item{
 
 
                 Label {
-                    text: qsTr( "When enabled, vertices with only be digitized when all active constraints are met. If the setting is disabled, individual constraints met will trigger a vertex addition." )
+                    text: qsTr( "When enabled, vertices with only be recorded when all active constraints are met. If the setting is disabled, individual constraints met will trigger a vertex addition." )
                     font: Theme.tipFont
                     color: Theme.gray
                     textFormat: Qt.RichText
