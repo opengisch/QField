@@ -404,11 +404,20 @@ Item {
             onActiveFocusChanged: {
                 if (activeFocus) {
                     if (text === '') {
-                        text = comboBox.displayText
-                        searchableLabel.text = ''
+                        if (!featureListModel.addNull || comboBox.currentIndex != 0) {
+                            text = comboBox.displayText
+                            searchableLabel.text = ''
+                        } else {
+                            searchableLabel.text = ''
+                        }
                     }
-                } else  {
-                    applyAutoCompletion(true)
+                } else {
+                    if (text === '' && featureListModel.addNull) {
+                        comboBox.currentIndex = 0;
+                        searchableLabel.text = comboBox.displayText
+                    } else {
+                        applyAutoCompletion(true)
+                    }
                 }
             }
 
