@@ -43,7 +43,7 @@ Popup {
     showFeaturesListButtonVisible = isShowFeaturesListButtonVisible();
 
     trackingButtonVisible = isTrackingButtonVisible()
-    trackingButtonText = trackingModel.layerInTracking( layerTree.data(index, FlatLayerTreeModel.VectorLayerPointer) ) ? qsTr('Stop tracking') : qsTr('Start tracking')
+    trackingButtonText = trackingModel.layerInTracking( layerTree.data(index, FlatLayerTreeModel.VectorLayerPointer) ) ? qsTr('Stop tracking') : qsTr('Setup tracking')
   }
 
   Page {

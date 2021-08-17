@@ -175,28 +175,9 @@ Item{
             header: PageHeader {
                 title: qsTr("Tracker Settings")
 
-                showApplyButton: true
+                showApplyButton: false
                 showCancelButton: true
 
-                onApply: {
-                    if( Number(timeIntervalValue.text) + Number(minimumDistanceValue.text) === 0 ||
-                        ( timeInterval.checked && minimumDistance.checked && allConstraints.checked &&
-                          ( Number(timeIntervalValue.text) === 0 || Number(minimumDistanceValue.text) === 0 ) ) ||
-                        ( !timeInterval.checked && !minimumDistance.checked ) )
-                    {
-                        displayToast( qsTr( 'Cannot start track with empty values' ), 'warning' )
-                    }
-                    else
-                    {
-                        mainModel.timeInterval = timeIntervalValue.text.length == 0 || !timeInterval.checked ? 0 : timeIntervalValue.text
-                        mainModel.minimumDistance = minimumDistanceValue.text.length == 0 || !minimumDistance.checked ? 0 : minimumDistanceValue.text
-                        mainModel.conjunction = allConstraints.checked
-                        mainModel.rubberModel = rubberbandModel
-
-                        trackInformationDialog.active = false
-                        embeddedFeatureForm.active = true
-                    }
-                }
                 onCancel: {
                     trackInformationDialog.active = false
                     trackingModel.stopTracker( mainModel.vectorLayer )
@@ -387,6 +368,37 @@ Item{
 
                 Item {
                     Layout.preferredWidth: allConstraints.width
+                }
+
+                QfButton {
+                  id: trackingButton
+                  Layout.topMargin: 8
+                  Layout.fillWidth: true
+                  Layout.columnSpan: 2
+                  font: Theme.defaultFont
+                  text: qsTr( "Start tracking")
+                  visible: trackingButtonVisible
+                  icon.source: Theme.getThemeVectorIcon( 'directions_walk_24dp' )
+
+                  onClicked: {
+                      if( Number(timeIntervalValue.text) + Number(minimumDistanceValue.text) === 0 ||
+                              ( timeInterval.checked && minimumDistance.checked && allConstraints.checked &&
+                               ( Number(timeIntervalValue.text) === 0 || Number(minimumDistanceValue.text) === 0 ) ) ||
+                              ( !timeInterval.checked && !minimumDistance.checked ) )
+                      {
+                          displayToast( qsTr( 'Cannot start track with empty values' ), 'warning' )
+                      }
+                      else
+                      {
+                          mainModel.timeInterval = timeIntervalValue.text.length == 0 || !timeInterval.checked ? 0 : timeIntervalValue.text
+                          mainModel.minimumDistance = minimumDistanceValue.text.length == 0 || !minimumDistance.checked ? 0 : minimumDistanceValue.text
+                          mainModel.conjunction = allConstraints.checked
+                          mainModel.rubberModel = rubberbandModel
+
+                          trackInformationDialog.active = false
+                          embeddedFeatureForm.active = true
+                      }
+                  }
                 }
 
                 Item {
