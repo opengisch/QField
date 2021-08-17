@@ -257,7 +257,7 @@ Item{
                     }
 
                     Component.onCompleted: {
-                        text = isNaN( positioningSettings.trackerTimeInterval) ? '' : positioningSettings.trackerTimeInterval
+                        text = isNaN(positioningSettings.trackerTimeInterval) ? '' : positioningSettings.trackerTimeInterval
                     }
 
                     onTextChanged: {
