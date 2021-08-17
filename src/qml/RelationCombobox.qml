@@ -68,8 +68,8 @@ Item {
     focus: visible
 
     onOpened: {
-      if (searchableText.text != '') {
-          searchField.text = searchableText.text.trim();
+      if (searchableText.typedFilter != '') {
+          searchField.text = searchableText.typedFilter
       }
 
       if (resultsList.contentHeight > resultsList.height) {
@@ -367,6 +367,8 @@ Item {
         TextField  {
             id: searchableText
 
+            property string typedFilter: ''
+
             anchors.verticalCenter: parent.verticalCenter
             padding: 5
             topPadding: fontMetrics.ascent - 1
@@ -434,9 +436,23 @@ Item {
                     text = ''
                     searchableLabel.text = featureListModel.dataFromRowIndex(matches[0], featureListModel.DisplayStringRole)
                     comboBox.currentIndex = matches[0];
+
+                    if (matches.length > 1) {
+                        // remember the typed filter in case users want to see the multiple hits by clicking on the search button
+                        typedFilter = trimmedText
+                        searchableTimer.restart()
+                    }
                 } else if (resetIfNone) {
                     text = ''
                     searchableLabel.text = comboBox.displayText
+                }
+            }
+
+            Timer {
+                id: searchableTimer
+                interval: 500
+                onTriggered: {
+                    searchableText.typedFilter = ''
                 }
             }
         }
