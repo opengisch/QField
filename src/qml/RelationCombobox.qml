@@ -341,7 +341,7 @@ Item {
     Rectangle {
         id: searchable
         visible: !comboBox.visible
-        height: fontMetrics.height + 10
+        height: fontMetrics.height + 12
         Layout.fillWidth: true
         Layout.topMargin: 5
         Layout.bottomMargin: 5
