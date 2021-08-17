@@ -176,9 +176,10 @@ Item{
                 title: qsTr("Tracker Settings")
 
                 showApplyButton: false
-                showCancelButton: true
+                showCancelButton: false
+                showBackButton: true
 
-                onCancel: {
+                onBack: {
                     trackInformationDialog.active = false
                     trackingModel.stopTracker( mainModel.vectorLayer )
                 }
@@ -377,7 +378,6 @@ Item{
                   Layout.columnSpan: 2
                   font: Theme.defaultFont
                   text: qsTr( "Start tracking")
-                  visible: trackingButtonVisible
                   icon.source: Theme.getThemeVectorIcon( 'directions_walk_24dp' )
 
                   onClicked: {

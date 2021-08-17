@@ -7,6 +7,7 @@ import Theme 1.0
 
 ToolBar {
   property alias title: titleLabel.text
+  property alias showBackButton: backButton.visible
   property alias showApplyButton: applyButton.visible
   property alias showCancelButton: cancelButton.visible
   property alias busyIndicatorState: busyIndicator.state
@@ -15,6 +16,7 @@ ToolBar {
 
   signal cancel
   signal apply
+  signal back
   signal finished
 
   anchors {
@@ -73,6 +75,24 @@ ToolBar {
     Layout.margins: 0
 
     QfToolButton {
+      id: backButton
+
+      Layout.alignment: Qt.AlignTop | Qt.AlignLeft
+
+      width: 48
+      height: 48
+      clip: true
+
+      iconSource: Theme.getThemeVectorIcon( 'ic_arrow_left_white_24dp' )
+
+      onClicked:
+      {
+        back()
+        finished()
+      }
+    }
+
+    QfToolButton {
       id: applyButton
 
       Layout.alignment: Qt.AlignTop | Qt.AlignLeft
@@ -93,7 +113,7 @@ ToolBar {
     Label {
       id: titleLabel
       leftPadding: !showApplyButton && showCancelButton ? 48: 0
-      rightPadding: showApplyButton && !showCancelButton ? 48: 0
+      rightPadding: (showApplyButton || showBackButton) && !showCancelButton ? 48: 0
       font: Theme.strongFont
       color: Theme.light
       elide: Label.ElideRight
