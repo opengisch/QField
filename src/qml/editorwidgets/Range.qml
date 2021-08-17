@@ -29,8 +29,8 @@ EditorWidgetBase {
           height: fontMetrics.height + 20
           topPadding: 10
           bottomPadding: 10
-          anchors.left: parent.left
-          anchors.right: decreaseButton.left
+          width: parent.width - decreaseButton.width - increaseButton.width
+
           font: Theme.defaultFont
           color: value === undefined || !enabled ? 'gray' : 'black'
 
@@ -66,7 +66,6 @@ EditorWidgetBase {
           width: enabled ? 48 : 0
           height: 48
 
-          anchors.right: increaseButton.left
           anchors.verticalCenter: textField.verticalCenter
 
           bgcolor: "white"
@@ -93,7 +92,6 @@ EditorWidgetBase {
           width: enabled ? 48 : 0
           height: 48
 
-          anchors.right: parent.right
           anchors.verticalCenter: textField.verticalCenter
 
           bgcolor: "white"

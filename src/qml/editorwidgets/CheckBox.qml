@@ -8,6 +8,9 @@ import "."
 EditorWidgetBase {
   height: childrenRect.height
 
+  property string checkedLabel: config['TextDisplayMethod'] === 1 && config['CheckedState'] != null && config['CheckedState'] !== '' ? config['CheckedState'] : qsTr('True')
+  property string uncheckedLabel: config['TextDisplayMethod'] === 1 && config['UncheckedState'] != null && config['UncheckedState'] !== '' ? config['UncheckedState'] : qsTr('False')
+
   anchors {
     right: parent.right
     left: parent.left
@@ -26,9 +29,7 @@ EditorWidgetBase {
       font: Theme.defaultFont
       color: isEnabled ? 'black' : 'gray'
 
-      text: config['TextDisplayMethod'] === 1
-            ? checkBox.checked ? config['CheckedState'] : config['UncheckedState']
-            : checkBox.checked ? qsTr('True') : qsTr('False')
+      text: checkBox.checked ? checkedLabel : uncheckedLabel
 
       MouseArea {
           id: checkArea
