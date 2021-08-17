@@ -367,19 +367,22 @@ Item {
         TextField  {
             id: searchableText
 
-            leftPadding: 5
-            rightPadding: 5
+            anchors.verticalCenter: parent.verticalCenter
+            padding: 5
+            topPadding: fontMetrics.ascent - 1
+            topInset: 0
+            bottomInset: 0
             width: parent.width - dropDownArrowCanvas.width - dropDownArrowCanvas.anchors.rightMargin * 2
-            height: comboBox.height
             text: ''
             font: comboBox.font
-            horizontalAlignment: Text.AlignLeft
-            verticalAlignment: Text.AlignVCenter
+            horizontalAlignment: TextInput.AlignLeft
+            verticalAlignment: TextInput.AlignVCenter
 
             color: 'black'
             background: Rectangle {
-                implicitHeight: searchableText.height
                 color: "transparent"
+                border.color: "transparent"
+                border.width: 0
             }
 
             inputMethodHints: Qt.ImhNoPredictiveText | Qt.ImhNoAutoUppercase | Qt.ImhSensitiveData
@@ -394,12 +397,17 @@ Item {
                         searchableLabel.text = ''
                     }
                 } else {
-                    searchableLabel.text = comboBox.displayText
+                    searchableLabel.text = ''
                 }
             }
 
             onActiveFocusChanged: {
-                if (!activeFocus) {
+                if (activeFocus) {
+                    if (text === '') {
+                        text = comboBox.displayText
+                        searchableLabel.text = ''
+                    }
+                } else  {
                     applyAutoCompletion(true)
                 }
             }
