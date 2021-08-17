@@ -354,11 +354,14 @@ Item {
         Text {
             id: searchableLabel
 
+            property bool useCompleter: false
+            property string completer: ''
+
             leftPadding: 5
             rightPadding: 5
             width: parent.width - dropDownArrowCanvas.width - dropDownArrowCanvas.anchors.rightMargin * 2
             height: fontMetrics.height + 12
-            text: comboBox.displayText
+            text: useCompleter ? completer : comboBox.displayText
             font: comboBox.font
             horizontalAlignment: Text.AlignLeft
             verticalAlignment: Text.AlignVCenter
@@ -395,33 +398,36 @@ Item {
             inputMethodHints: Qt.ImhNoPredictiveText | Qt.ImhNoAutoUppercase | Qt.ImhSensitiveData
 
             onDisplayTextChanged: {
-                if (text != comboBox.displayText) {
-                    var trimmedText = text.trim();
-                    var matches = featureListModel.findDisplayValueMatches(trimmedText)
-                    if (matches.length > 0) {
-                        searchableLabel.text = '<span style="color:rgba(0,0,0,0);">' + text + '</span><span style="font-weight:' + (matches.length === 1 ? 'bold' : 'normal' ) + ';">'  + featureListModel.dataFromRowIndex(matches[0], featureListModel.DisplayStringRole).substring(trimmedText.length) + '</span>'
+                if (activeFocus) {
+                    if (text != comboBox.displayText) {
+                        var trimmedText = text.trim();
+                        var matches = featureListModel.findDisplayValueMatches(trimmedText)
+                        if (matches.length > 0) {
+                            searchableLabel.completer = '<span style="color:rgba(0,0,0,0);">' + text + '</span><span style="font-weight:' + (matches.length === 1 ? 'bold' : 'normal' ) + ';">'  + featureListModel.dataFromRowIndex(matches[0], featureListModel.DisplayStringRole).substring(trimmedText.length) + '</span>'
+                        } else {
+                            searchableLabel.completer = ''
+                        }
                     } else {
-                        searchableLabel.text = ''
+                        searchableLabel.completer = ''
                     }
-                } else {
-                    searchableLabel.text = ''
                 }
             }
 
             onActiveFocusChanged: {
+                searchableLabel.useCompleter = activeFocus
                 if (activeFocus) {
                     if (text === '') {
                         if (!featureListModel.addNull || comboBox.currentIndex != 0) {
                             text = comboBox.displayText
-                            searchableLabel.text = ''
+                            searchableLabel.completer = ''
                         } else {
-                            searchableLabel.text = ''
+                            searchableLabel.completer = ''
                         }
                     }
                 } else {
                     if (text === '' && featureListModel.addNull) {
                         comboBox.currentIndex = 0;
-                        searchableLabel.text = comboBox.displayText
+                        searchableLabel.completer = comboBox.displayText
                     } else {
                         applyAutoCompletion(true)
                     }
@@ -439,8 +445,8 @@ Item {
                 var matches = featureListModel.findDisplayValueMatches(trimmedText)
                 if (matches.length > 0) {
                     text = ''
-                    searchableLabel.text = featureListModel.dataFromRowIndex(matches[0], featureListModel.DisplayStringRole)
-                    comboBox.currentIndex = matches[0];
+                    comboBox.currentIndex = matches[0]
+                    searchableLabel.completer = comboBox.displayText
 
                     if (matches.length > 1) {
                         // remember the typed filter in case users want to see the multiple hits by clicking on the search button
@@ -449,7 +455,7 @@ Item {
                     }
                 } else if (resetIfNone) {
                     text = ''
-                    searchableLabel.text = comboBox.displayText
+                    searchableLabel.completer = comboBox.displayText
                 }
             }
 
