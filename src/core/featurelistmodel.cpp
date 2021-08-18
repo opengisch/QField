@@ -281,6 +281,14 @@ void FeatureListModel::gatherFeatureList()
       request.setFilterExpression( QStringLiteral( " (%1) AND (%2) " ).arg( mFilterExpression, searchTermExpression ) );
   }
 
+  if ( mGatherer )
+  {
+    disconnect( mGatherer, &QThread::finished, this, &FeatureListModel::processFeatureList );
+    connect( mGatherer, &QThread::finished, mGatherer, &QObject::deleteLater );
+    mGatherer->stop();
+    mGatherer = nullptr;
+  }
+
   mGatherer = new FeatureExpressionValuesGatherer( mCurrentLayer, fieldDisplayString, request, QStringList() << keyField() );
   connect( mGatherer, &QThread::finished, this, &FeatureListModel::processFeatureList );
   mGatherer->start();
@@ -298,7 +306,11 @@ void FeatureListModel::processFeatureList()
   if ( mAddNull )
     entries.append( Entry( QStringLiteral( "<i>NULL</i>" ), QVariant(), QgsFeatureId() ) );
 
-  for ( const FeatureExpressionValuesGatherer::Entry &gatheredEntry : mGatherer->entries() )
+  const QVector<FeatureExpressionValuesGatherer::Entry> gatheredEntries = mGatherer->entries();
+  mGatherer->deleteLater();
+  mGatherer = nullptr;
+
+  for ( const FeatureExpressionValuesGatherer::Entry &gatheredEntry : gatheredEntries )
   {
     Entry entry;
 
@@ -336,9 +348,6 @@ void FeatureListModel::processFeatureList()
              : entry1.fuzzyScore > entry2.fuzzyScore;
     } );
   }
-
-  mGatherer->deleteLater();
-  mGatherer = nullptr;
 
   beginResetModel();
   mEntries = entries;
