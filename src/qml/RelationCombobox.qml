@@ -403,7 +403,9 @@ Item {
                         var trimmedText = text.trim();
                         var matches = featureListModel.findDisplayValueMatches(trimmedText)
                         if (matches.length > 0) {
-                            searchableLabel.completer = '<span style="color:rgba(0,0,0,0);">' + text + '</span><span style="font-weight:' + (matches.length === 1 ? 'bold' : 'normal' ) + ';">'  + featureListModel.dataFromRowIndex(matches[0], featureListModel.DisplayStringRole).substring(trimmedText.length) + '</span>'
+                            var remainder = featureListModel.dataFromRowIndex(matches[0], featureListModel.DisplayStringRole).substring(trimmedText.length)
+                            searchableLabel.completer = '<span style="color:rgba(0,0,0,0);">' + trimmedText + '</span><span style="font-weight:'
+                                                        + (matches.length === 1 ? 'bold' : 'normal' ) + ';">'  + remainder + '</span>'
                         } else {
                             searchableLabel.completer = ''
                         }
@@ -475,6 +477,7 @@ Item {
             width: 30
             height: 15
             contextType: "2d"
+            visible: !useCompleter
 
             onPaint: {
                 if (!context) {
@@ -490,14 +493,6 @@ Item {
             }
 
             onEnabledChanged: requestPaint()
-
-            MouseArea {
-                anchors.fill: parent
-                onClicked: {
-                    mouse.accepted = true
-                    searchFeaturePopup.open()
-                }
-            }
         }
 
         border.color: comboBox.pressed ? "#4CAF50" : "#C8E6C9"
