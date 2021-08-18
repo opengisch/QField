@@ -112,13 +112,18 @@ class FeatureListModel : public QAbstractItemModel
     void setDisplayValueField( const QString &displayValueField );
 
     /**
-       * Get the row for a given key value.
-       */
+     * Get the row for a given key value.
+     */
     Q_INVOKABLE int findKey( const QVariant &key ) const;
 
     /**
-       * Orders all the values alphabethically by their displayString.
-       */
+     * Get rows for a given filter string used to match display values.
+     */
+    Q_INVOKABLE QList<int> findDisplayValueMatches( const QString &filter ) const;
+
+    /**
+     * Orders all the values alphabethically by their displayString.
+     */
     bool orderByValue() const;
 
     /**

@@ -168,6 +168,23 @@ int FeatureListModel::findKey( const QVariant &key ) const
   return -1;
 }
 
+QList<int> FeatureListModel::findDisplayValueMatches( const QString &filter ) const
+{
+  QMap<QString,int> matches;
+  const QString preparedFilter = filter.trimmed().toLower();
+  if ( !filter.trimmed().isEmpty() )
+  {
+    int idx = 0;
+    for ( const Entry &entry : mEntries )
+    {
+      if ( entry.displayString.trimmed().toLower().startsWith( preparedFilter ) )
+        matches.insert( entry.displayString.trimmed().toLower(), idx );
+      ++idx;
+    }
+  }
+  return matches.values();
+}
+
 void FeatureListModel::onFeatureAdded()
 {
   reloadLayer();
@@ -250,20 +267,12 @@ void FeatureListModel::gatherFeatureList()
   if ( !mSearchTerm.isEmpty() )
   {
     QString escapedSearchTerm = QgsExpression::quotedValue( mSearchTerm ).replace( QRegularExpression( QStringLiteral( "^'|'$" ) ), QString( "" ) );
-    QString searchTermExpression = QStringLiteral( " %1 ILIKE '%%2%' " )
-                                   .arg( fieldDisplayString, escapedSearchTerm );
+    QString searchTermExpression = QStringLiteral( " %1 ILIKE '%%2%' " ).arg( fieldDisplayString, escapedSearchTerm );
 
-    QStringList searchTermParts = escapedSearchTerm.split( QRegularExpression( QStringLiteral( "\\s+" ) ) );
-
-    if ( searchTermParts.length() > 1 )
+    const QStringList searchTermParts = escapedSearchTerm.split( QRegularExpression( QStringLiteral( "\\s+" ) ), Qt::SkipEmptyParts );
+    for ( const QString &searchTermPart : searchTermParts )
     {
-      for ( const QString &searchTermPart : searchTermParts )
-      {
-        if ( searchTermPart.isEmpty() )
-          continue;
-
-        searchTermExpression += QStringLiteral( " OR %1 ILIKE '%%2%' " ).arg( fieldDisplayString, searchTermPart );
-      }
+      searchTermExpression += QStringLiteral( " OR %1 ILIKE '%%2%' " ).arg( fieldDisplayString, searchTermPart );
     }
 
     if ( mFilterExpression.isEmpty() )
