@@ -93,10 +93,10 @@ bool TrackingModel::setData( const QModelIndex &index, const QVariant &value, in
   switch ( role )
   {
     case TimeInterval:
-      currentTracker->setTimeInterval( value.toInt() );
+      currentTracker->setTimeInterval( value.toDouble() );
       break;
     case MinimumDistance:
-      currentTracker->setMinimumDistance( value.toInt() );
+      currentTracker->setMinimumDistance( value.toDouble() );
       break;
     case Conjunction:
       currentTracker->setConjunction( value.toBool() );
