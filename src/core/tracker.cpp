@@ -36,46 +36,6 @@ void Tracker::setModel( RubberbandModel *model )
   mRubberbandModel = model;
 }
 
-int Tracker::timeInterval() const
-{
-  return mTimeInterval;
-}
-
-void Tracker::setTimeInterval( const int timeInterval )
-{
-  mTimeInterval = timeInterval;
-}
-
-int Tracker::minimumDistance() const
-{
-  return mMinimumDistance;
-}
-
-void Tracker::setConjunction( const bool conjunction )
-{
-  mConjunction = conjunction;
-}
-
-QDateTime Tracker::startPositionTimestamp() const
-{
-  return mStartPositionTimestamp;
-}
-
-void Tracker::setStartPositionTimestamp( const QDateTime &startPositionTimestamp )
-{
-  mStartPositionTimestamp = startPositionTimestamp;
-}
-
-bool Tracker::conjunction() const
-{
-  return mConjunction;
-}
-
-void Tracker::setMinimumDistance( const int minimumDistance )
-{
-  mMinimumDistance = minimumDistance;
-}
-
 void Tracker::trackPosition()
 {
   if ( std::isnan( model()->currentCoordinate().x() ) || std::isnan( model()->currentCoordinate().y() ) )

@@ -35,24 +35,24 @@ class Tracker : public QObject
     void setModel( RubberbandModel *model );
 
     //! the (minimum) time interval between setting trackpoints
-    int timeInterval() const;
+    double timeInterval() const { return mTimeInterval; }
     //! the (minimum) time interval between setting trackpoints
-    void setTimeInterval( const int timeInterval );
+    void setTimeInterval( const double timeInterval ) { mTimeInterval = timeInterval; }
 
     //! the minimum distance between setting trackpoints
-    int minimumDistance() const;
+    double minimumDistance() const { return mMinimumDistance; }
     //! the minimum distance between setting trackpoints
-    void setMinimumDistance( const int minimumDistance );
+    void setMinimumDistance( const double minimumDistance ) { mMinimumDistance = minimumDistance; };
 
     //! if both, the minimum distance and the time interval, needs to be fulfilled before setting trackpoints
-    bool conjunction() const;
+    bool conjunction() const { return mConjunction; }
     //! if both, the minimum distance and the time interval, needs to be fulfilled before setting trackpoints
-    void setConjunction( const bool conjunction );
+    void setConjunction( const bool conjunction ) { mConjunction = conjunction; }
 
     //! the timestamp of the first recorded position
-    QDateTime startPositionTimestamp() const;
+    QDateTime startPositionTimestamp() const { return mStartPositionTimestamp; }
     //! the timestamp of the first recorded position
-    void setStartPositionTimestamp( const QDateTime &startPositionTimestamp );
+    void setStartPositionTimestamp( const QDateTime &startPositionTimestamp ) { mStartPositionTimestamp = startPositionTimestamp; }
 
     //! the current layer
     QgsVectorLayer *layer() const { return mLayer; }
@@ -81,8 +81,8 @@ class Tracker : public QObject
     RubberbandModel *mRubberbandModel = nullptr;
 
     QTimer mTimer;
-    int mTimeInterval = 0;
-    int mMinimumDistance = 0;
+    double mTimeInterval = 0;
+    double mMinimumDistance = 0;
     bool mConjunction = true;
     bool mTimeIntervalFulfilled = false;
     bool mMinimumDistanceFulfilled = false;
