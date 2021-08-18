@@ -175,140 +175,242 @@ Item{
             header: PageHeader {
                 title: qsTr("Tracker Settings")
 
-                showApplyButton: true
-                showCancelButton: true
+                showApplyButton: false
+                showCancelButton: false
+                showBackButton: true
 
-                onApply: {
-                    if( Number(timeIntervalText.text) + Number(distanceText.text) === 0 ||
-                        ( timeIntervalCheck.checked && distanceCheck.checked && conjunction.checked &&
-                          ( Number(timeIntervalText.text) === 0 || Number(distanceText.text) === 0 ) ) ||
-                        ( !timeIntervalCheck.checked && !distanceCheck.checked ) )
-                    {
-                        displayToast( qsTr( 'Cannot start track with empty values' ), 'warning' )
-                    }
-                    else
-                    {
-                        mainModel.timeInterval = timeIntervalText.text.length == 0 || !timeIntervalCheck.checked ? 0 : timeIntervalText.text
-                        mainModel.minimumDistance = distanceText.text.length == 0 || !distanceCheck.checked ? 0 : distanceText.text
-                        mainModel.conjunction = conjunction.checked
-                        mainModel.rubberModel = rubberbandModel
-
-                        trackInformationDialog.active = false
-                        embeddedFeatureForm.active = true
-                    }
-                }
-                onCancel: {
+                onBack: {
                     trackInformationDialog.active = false
                     trackingModel.stopTracker( mainModel.vectorLayer )
                 }
             }
 
-            ColumnLayout{
+            ScrollView {
+                padding: 20
+                ScrollBar.horizontal.policy: ScrollBar.AlwaysOff
+                ScrollBar.vertical.policy: ScrollBar.AsNeeded
+                contentWidth: trackerSettingsGrid.width
+                contentHeight: trackerSettingsGrid.height
                 anchors.fill: parent
+                clip: true
+
+            GridLayout {
+                id: trackerSettingsGrid
+                width: parent.parent.width
                 Layout.fillWidth: true
-                Layout.fillHeight: true
 
-                spacing: 2
-                anchors {
-                    margins: 4
-                    topMargin: 35// Leave space for the toolbar
-                }
+                columns: 2
+                columnSpacing: 0
+                rowSpacing: 5
 
-                CheckBox {
-                    id: timeIntervalCheck
-                    text: qsTr( 'Time interval (s)' )
+
+                Label {
+                    text: qsTr("Activate time constraint")
                     font: Theme.defaultFont
-
+                    wrapMode: Text.WordWrap
                     Layout.fillWidth: true
-                    indicator.height: 16
-                    indicator.width: 16
-                    indicator.implicitHeight: 24
-                    indicator.implicitWidth: 24
-                }
 
-                TextField {
-                    id: timeIntervalText
-                    enabled: timeIntervalCheck.checked
-                    height: fontMetrics.height + 20
-                    topPadding: 10
-                    bottomPadding: 10
-                    Layout.fillWidth: true
-                    font: Theme.defaultFont
-                    text: '30'
-
-                    inputMethodHints: Qt.ImhFormattedNumbersOnly
-
-                    validator: IntValidator {
-                    }
-
-                    background: Rectangle {
-                    y: timeIntervalText.height - height - timeIntervalText.bottomPadding / 2
-                    implicitWidth: 120
-                    height: timeIntervalText.activeFocus ? 2: 1
-                    color: timeIntervalText.activeFocus ? "#4CAF50" : "#C8E6C9"
+                    MouseArea {
+                        anchors.fill: parent
+                        onClicked: timeInterval.toggle()
                     }
                 }
 
-                CheckBox {
-                    DistanceArea {
-                      id: infoDistanceArea
-                      property VectorLayer currentLayer: mainModel.vectorLayer
-                      project: qgisProject
-                      crs: qgisProject.crs
+                QfSwitch {
+                    id: timeInterval
+                    Layout.preferredWidth: implicitContentWidth
+                    Layout.alignment: Qt.AlignTop
+                    checked: positioningSettings.trackerTimeIntervalConstraint
+                    onCheckedChanged: {
+                        positioningSettings.trackerTimeIntervalConstraint = checked
                     }
+                }
 
-                    id: distanceCheck
-
-                    text: qsTr( 'Distance (%1)' ).arg( UnitTypes.toAbbreviatedString( infoDistanceArea.lengthUnits ) )
+                Label {
+                    text: qsTr("Minimum time [sec]")
                     font: Theme.defaultFont
-
+                    wrapMode: Text.WordWrap
+                    enabled: timeInterval.checked
+                    visible: timeInterval.checked
+                    Layout.leftMargin: 8
                     Layout.fillWidth: true
-                    indicator.height: 16
-                    indicator.width: 16
-                    indicator.implicitHeight: 24
-                    indicator.implicitWidth: 24
                 }
 
                 TextField {
-                    id: distanceText
-                    enabled: distanceCheck.checked
-                    height: fontMetrics.height + 20
-                    topPadding: 10
-                    bottomPadding: 10
-                    Layout.fillWidth: true
+                    id: timeIntervalValue
+                    width: timeInterval.width
                     font: Theme.defaultFont
-                    text: '50'
+                    enabled: timeInterval.checked
+                    visible: timeInterval.checked
+                    horizontalAlignment: TextInput.AlignHCenter
+                    Layout.preferredWidth: 60
+                    Layout.preferredHeight: font.height + 20
 
                     inputMethodHints: Qt.ImhFormattedNumbersOnly
-
-                    validator: IntValidator {
-                    }
+                    validator: DoubleValidator { locale: 'C' }
 
                     background: Rectangle {
-                    y: distanceText.height - height - distanceText.bottomPadding / 2
-                    implicitWidth: 120
-                    height: distanceText.activeFocus ? 2: 1
-                    color: distanceText.activeFocus ? "#4CAF50" : "#C8E6C9"
+                      y: parent.height - height - parent.bottomPadding / 2
+                      implicitWidth: 120
+                      height: parent.activeFocus ? 2: 1
+                      color: parent.activeFocus ? '#4CAF50' : '#C8E6C9'
                     }
+
+                    Component.onCompleted: {
+                        text = isNaN(positioningSettings.trackerTimeInterval) ? '' : positioningSettings.trackerTimeInterval
+                    }
+
+                    onTextChanged: {
+                        if( text.length === 0 || isNaN(text) ) {
+                            positioningSettings.trackerTimeInterval = NaN
+                        } else {
+                            positioningSettings.trackerTimeInterval = parseFloat( text )
+                        }
+                    }
+                }
+
+                Label {
+                    text: qsTr("Activate distance constraint")
+                    font: Theme.defaultFont
+                    wrapMode: Text.WordWrap
+                    Layout.fillWidth: true
+
+                    MouseArea {
+                        anchors.fill: parent
+                        onClicked: minimumDistance.toggle()
+                    }
+                }
+
+                QfSwitch {
+                    id: minimumDistance
+                    Layout.preferredWidth: implicitContentWidth
+                    Layout.alignment: Qt.AlignTop
+                    checked: positioningSettings.trackerMinimumDistanceConstraint
+                    onCheckedChanged: {
+                        positioningSettings.trackerMinimumDistanceConstraint = checked
+                    }
+                }
+
+                DistanceArea {
+                  id: infoDistanceArea
+                  property VectorLayer currentLayer: mainModel.vectorLayer
+                  project: qgisProject
+                  crs: qgisProject.crs
+                }
+
+                Label {
+                    text: qsTr("Minimum distance [%1]").arg( UnitTypes.toAbbreviatedString( infoDistanceArea.lengthUnits ) )
+                    font: Theme.defaultFont
+                    wrapMode: Text.WordWrap
+                    enabled: minimumDistance.checked
+                    visible: minimumDistance.checked
+                    Layout.leftMargin: 8
+                    Layout.fillWidth: true
+                }
+
+                TextField {
+                    id: minimumDistanceValue
+                    width: minimumDistance.width
+                    font: Theme.defaultFont
+                    enabled: minimumDistance.checked
+                    visible: minimumDistance.checked
+                    horizontalAlignment: TextInput.AlignHCenter
+                    Layout.preferredWidth: 60
+                    Layout.preferredHeight: font.height + 20
+
+                    inputMethodHints: Qt.ImhFormattedNumbersOnly
+                    validator: DoubleValidator { locale: 'C' }
+
+                    background: Rectangle {
+                      y: parent.height - height - parent.bottomPadding / 2
+                      implicitWidth: 120
+                      height: parent.activeFocus ? 2: 1
+                      color: parent.activeFocus ? '#4CAF50' : '#C8E6C9'
+                    }
+
+                    Component.onCompleted: {
+                        text = isNaN( positioningSettings.trackerMinimumDistance) ? '' : positioningSettings.trackerMinimumDistance
+                    }
+
+                    onTextChanged: {
+                        if( text.length === 0 || isNaN(text) ) {
+                            positioningSettings.trackerMinimumDistance = NaN
+                        } else {
+                            positioningSettings.trackerMinimumDistance = parseFloat( text )
+                        }
+                    }
+                }
+
+                Label {
+                    text: qsTr("Record when both active constraints are met")
+                    font: Theme.defaultFont
+                    wrapMode: Text.WordWrap
+                    Layout.fillWidth: true
+                    enabled: timeInterval.checked && minimumDistance.checked
+                    visible: timeInterval.checked && minimumDistance.checked
+
+                    MouseArea {
+                        anchors.fill: parent
+                        onClicked: allConstraints.toggle()
+                    }
+                }
+
+                QfSwitch {
+                    id: allConstraints
+                    Layout.preferredWidth: implicitContentWidth
+                    Layout.alignment: Qt.AlignTop
+                    enabled: timeInterval.checked && minimumDistance.checked
+                    visible: timeInterval.checked && minimumDistance.checked
+                    checked: positioningSettings.trackerMeetAllConstraints
+                    onCheckedChanged: {
+                        positioningSettings.trackerMeetAllConstraints = checked
+                    }
+                }
+
+
+                Label {
+                    text: qsTr( "When enabled, vertices with only be recorded when both active constraints are met. If the setting is disabled, individual constraints met will trigger a vertex addition." )
+                    font: Theme.tipFont
+                    color: Theme.gray
+                    textFormat: Qt.RichText
+                    wrapMode: Text.WordWrap
+                    Layout.fillWidth: true
+                    enabled: timeInterval.checked && minimumDistance.checked
+                    visible: timeInterval.checked && minimumDistance.checked
                 }
 
                 Item {
-                    // spacer item
-                    height: 12
+                    Layout.preferredWidth: allConstraints.width
                 }
 
-                CheckBox {
-                    id: conjunction
-                    text: qsTr('Digitize vertex only when both conditions are met')
-                    font: Theme.defaultFont
-                    checked: timeIntervalCheck.checked && distanceCheck.checked
-                    enabled: timeIntervalCheck.checked && distanceCheck.checked
+                QfButton {
+                  id: trackingButton
+                  Layout.topMargin: 8
+                  Layout.fillWidth: true
+                  Layout.columnSpan: 2
+                  font: Theme.defaultFont
+                  text: qsTr( "Start tracking")
+                  icon.source: Theme.getThemeVectorIcon( 'directions_walk_24dp' )
 
-                    Layout.fillWidth: true
-                    indicator.height: 16
-                    indicator.width: 16
-                    indicator.implicitHeight: 24
-                    indicator.implicitWidth: 24
+                  onClicked: {
+                      if( Number(timeIntervalValue.text) + Number(minimumDistanceValue.text) === 0 ||
+                              ( timeInterval.checked && minimumDistance.checked && allConstraints.checked &&
+                               ( Number(timeIntervalValue.text) === 0 || Number(minimumDistanceValue.text) === 0 ) ) ||
+                              ( !timeInterval.checked && !minimumDistance.checked ) )
+                      {
+                          displayToast( qsTr( 'Cannot start track with empty values' ), 'warning' )
+                      }
+                      else
+                      {
+                          mainModel.timeInterval = timeIntervalValue.text.length == 0 || !timeInterval.checked ? 0 : timeIntervalValue.text
+                          mainModel.minimumDistance = minimumDistanceValue.text.length == 0 || !minimumDistance.checked ? 0 : minimumDistanceValue.text
+                          mainModel.conjunction = timeInterval.checked && minimumDistance.checked && allConstraints.checked
+                          mainModel.rubberModel = rubberbandModel
+
+                          trackInformationDialog.active = false
+                          embeddedFeatureForm.active = true
+                      }
+                  }
                 }
 
                 Item {
@@ -318,10 +420,6 @@ Item{
                 }
             }
 
-            onVisibleChanged: {
-                if (visible) {
-                    timeIntervalText.forceActiveFocus();
-                }
             }
         }
       }

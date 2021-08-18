@@ -20,4 +20,10 @@ LabSettings.Settings {
     property bool skipAltitudeCorrection: false
 
     property string verticalGrid: ""
+
+    property bool trackerTimeIntervalConstraint: false
+    property double trackerTimeInterval: 30
+    property bool trackerMinimumDistanceConstraint: false
+    property double trackerMinimumDistance: 30
+    property bool trackerMeetAllConstraints: false
 }
