@@ -31,7 +31,7 @@ EditorWidgetBase {
         left: parent.left
     }
 
-    height: childrenRect.height + 10
+    height: childrenRect.height
     enabled: isEnabled
 
     property bool isDateTimeType: field.isDateOrTime

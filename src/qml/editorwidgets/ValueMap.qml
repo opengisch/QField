@@ -21,7 +21,7 @@ EditorWidgetBase {
     comboBox.currentIndex = comboBox.model.keyToIndex(currentKeyValue)
   }
 
-  height: childrenRect.height + 10
+  height: childrenRect.height
   enabled: isEnabled
 
 

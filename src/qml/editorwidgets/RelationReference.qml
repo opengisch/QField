@@ -11,6 +11,7 @@ import ".."
 import "."
 
 EditorWidgetBase {
+  height: childrenRect.height
   anchors { left: parent.left; right: parent.right; }
 
   property bool showOpenFormButton: config['ShowOpenFormButton'] === undefined || config['ShowOpenFormButton'] === true
