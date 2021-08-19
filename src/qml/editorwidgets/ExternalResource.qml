@@ -191,6 +191,21 @@ EditorWidgetBase {
 
     source: Theme.getThemeIcon("ic_photo_notavailable_black_24dp")
 
+    onStatusChanged: {
+        if (status == Image.Ready) {
+            if (sourceSize.height > sourceSize.width && sourceSize.height > 220) {
+                width = sourceSize.width * 220 / sourceSize.height
+                height = 220
+            } else if (sourceSize.width > 220) {
+                width = 220
+                height = sourceSize.height * 220 / sourceSize.width
+            } else {
+                width = sourceSize.width
+                height = sourceSize.height
+            }
+        }
+    }
+
     MouseArea {
       anchors.fill: parent
 
