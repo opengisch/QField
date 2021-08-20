@@ -536,6 +536,7 @@ void AttributeFormModelBase::updateVisibilityAndConstraints( int fieldIndex )
         if ( item->data( AttributeFormModel::CurrentlyVisible ).toBool() != visible )
         {
           item->setData( visible, AttributeFormModel::CurrentlyVisible );
+          emit dataChanged( item->index(), item->index(), QVector<int>() << AttributeFormModel::CurrentlyVisible );
         }
       }
     }

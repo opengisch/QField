@@ -22,11 +22,22 @@ AttributeFormModel::AttributeFormModel( QObject *parent )
   , mSourceModel( new AttributeFormModelBase( this ) )
 {
   setSourceModel( mSourceModel );
+
   connect( mSourceModel, &AttributeFormModelBase::hasTabsChanged, this, &AttributeFormModel::hasTabsChanged );
   connect( mSourceModel, &AttributeFormModelBase::featureModelChanged, this, &AttributeFormModel::featureModelChanged );
   connect( mSourceModel, &AttributeFormModelBase::featureChanged, this, &AttributeFormModel::featureChanged );
   connect( mSourceModel, &AttributeFormModelBase::constraintsHardValidChanged, this, &AttributeFormModel::constraintsHardValidChanged );
   connect( mSourceModel, &AttributeFormModelBase::constraintsSoftValidChanged, this, &AttributeFormModel::constraintsSoftValidChanged );
+
+  connect( mSourceModel, &AttributeFormModelBase::dataChanged, this, [=]( const QModelIndex &from, const QModelIndex &, const QVector<int> &roles )
+  {
+    // listen for visibility change of root items and reset model when needed to work around feature form falling out of sync
+    if ( roles.contains( AttributeFormModel::CurrentlyVisible ) && !from.parent().isValid() )
+    {
+      emit beginResetModel();
+      emit endResetModel();
+    }
+  } );
 }
 
 bool AttributeFormModel::hasTabs() const
