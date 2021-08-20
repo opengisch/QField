@@ -14,7 +14,7 @@ EditorWidgetBase {
   anchors.left: parent.left
   anchors.right: parent.right
 
-  height: Math.max(isImage? image.height : linkField.height, button_camera.height, button_gallery.height)
+  height: childrenRect.height
 
   ExpressionEvaluator {
     id: rootPathEvaluator
@@ -183,14 +183,28 @@ EditorWidgetBase {
     enabled: isImage
     anchors.left: parent.left
     anchors.top: parent.top
-    anchors.topMargin: 11
-    width: 24
+    width: 48
     opacity: 0.25
     autoTransform: true
     fillMode: Image.PreserveAspectFit
     horizontalAlignment: Image.AlignLeft
 
     source: Theme.getThemeIcon("ic_photo_notavailable_black_24dp")
+
+    onStatusChanged: {
+        if (status == Image.Ready) {
+            if (sourceSize.height > sourceSize.width && sourceSize.height > 220) {
+                width = sourceSize.width * 220 / sourceSize.height
+                height = 220
+            } else if (sourceSize.width > 220) {
+                width = 220
+                height = sourceSize.height * 220 / sourceSize.width
+            } else {
+                width = sourceSize.width
+                height = sourceSize.height
+            }
+        }
+    }
 
     MouseArea {
       anchors.fill: parent
@@ -200,34 +214,34 @@ EditorWidgetBase {
           platformUtilities.open( prefixToRelativePath + value );
       }
     }
-  }
 
-  Image {
-    property bool hasGeoTag: false
-    id: geoTagBadge
-    visible: false
-    anchors.bottom: image.bottom
-    anchors.right: image.right
-    anchors.rightMargin: 10
-    anchors.bottomMargin: 12
-    fillMode: Image.PreserveAspectFit
-    width: 24
-    height: 24
-    source: hasGeoTag ? Theme.getThemeIcon("ic_geotag_24dp") : Theme.getThemeIcon("ic_geotag_missing_24dp")
-    sourceSize.width: 24 * Screen.devicePixelRatio
-    sourceSize.height: 24 * Screen.devicePixelRatio
+    Image {
+      property bool hasGeoTag: false
+      id: geoTagBadge
+      visible: false
+      anchors.bottom: image.bottom
+      anchors.right: image.right
+      anchors.rightMargin: 10
+      anchors.bottomMargin: 12
+      fillMode: Image.PreserveAspectFit
+      width: 24
+      height: 24
+      source: hasGeoTag ? Theme.getThemeIcon("ic_geotag_24dp") : Theme.getThemeIcon("ic_geotag_missing_24dp")
+      sourceSize.width: 24 * Screen.devicePixelRatio
+      sourceSize.height: 24 * Screen.devicePixelRatio
 
-  }
+    }
 
-  DropShadow {
-    anchors.fill: geoTagBadge
-    visible: geoTagBadge.visible
-    horizontalOffset: 0
-    verticalOffset: 0
-    radius: 6.0
-    samples: 17
-    color: "#DD000000"
-    source: geoTagBadge
+    DropShadow {
+      anchors.fill: geoTagBadge
+      visible: geoTagBadge.visible
+      horizontalOffset: 0
+      verticalOffset: 0
+      radius: 6.0
+      samples: 17
+      color: "#DD000000"
+      source: geoTagBadge
+    }
   }
 
   QfToolButton {
@@ -236,9 +250,9 @@ EditorWidgetBase {
     height: 48
 
     anchors.right: button_gallery.left
-    anchors.bottom: parent.bottom
+    anchors.top: parent.top
 
-    bgcolor: "transparent"
+    bgcolor: "white"
     visible: isImage && isEnabled
 
     onClicked: {
@@ -260,9 +274,9 @@ EditorWidgetBase {
     height: 48
 
     anchors.right: parent.right
-    anchors.bottom: parent.bottom
+    anchors.top: parent.top
 
-    bgcolor: "transparent"
+    bgcolor: "white"
     visible: isImage && isEnabled
 
     onClicked: {
