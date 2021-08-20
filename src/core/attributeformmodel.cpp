@@ -32,7 +32,7 @@ AttributeFormModel::AttributeFormModel( QObject *parent )
   connect( mSourceModel, &AttributeFormModelBase::dataChanged, this, [=]( const QModelIndex &from, const QModelIndex &, const QVector<int> &roles )
   {
     // listen for visibility change of root items and reset model when needed to work around feature form falling out of sync
-    if ( roles.contains( AttributeFormModel::CurrentlyVisible ) && !from.parent().isValid() )
+    if ( hasTabs() && roles.contains( AttributeFormModel::CurrentlyVisible ) && !from.parent().isValid() )
     {
       emit beginResetModel();
       emit endResetModel();
