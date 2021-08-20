@@ -14,6 +14,7 @@ Page {
   header: PageHeader {
       title: qsTr( 'Message Logs' )
 
+      showBackButton: false
       showApplyButton: false
       showCancelButton: true
 

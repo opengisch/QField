@@ -806,7 +806,8 @@ Page {
   header: PageHeader {
       title: qsTr("QField Settings")
 
-      showApplyButton: true
+      showBackButton: true
+      showApplyButton: false
       showCancelButton: false
 
       onFinished: {

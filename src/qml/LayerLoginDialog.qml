@@ -15,6 +15,7 @@ Page {
     header: PageHeader {
         title: qsTr("Login information")
 
+        showBackButton: false
         showApplyButton: true
         showCancelButton: true
 
