@@ -16,6 +16,7 @@ Page {
         id: pageHeader
         title: qsTr("Browser")
 
+        showBackButton: false
         showApplyButton: false
         showCancelButton: true
 

@@ -84,6 +84,7 @@ Item {
 
             header: PageHeader {
                 title: fieldLabel
+                showBackButton: false
                 showApplyButton: false
                 showCancelButton: true
                 onCancel: searchFeaturePopup.close()
