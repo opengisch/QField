@@ -15,8 +15,6 @@
  ***************************************************************************/
 #include "submodel.h"
 
-#include <QDebug>
-
 SubModel::SubModel( QObject *parent )
   : QAbstractItemModel( parent )
 {
@@ -69,11 +67,9 @@ QModelIndex SubModel::rootIndex() const
 
 void SubModel::setRootIndex( const QModelIndex &rootIndex )
 {
-  if ( rootIndex == mRootIndex )
-    return;
-
   beginResetModel();
   mRootIndex = rootIndex;
+  mMappings.clear();
   endResetModel();
   emit rootIndexChanged();
 }
@@ -95,7 +91,7 @@ void SubModel::setModel( QAbstractItemModel *model )
   connect( model, &QAbstractItemModel::dataChanged, this, &SubModel::onDataChanged );
 
   mModel = model;
-  emit modelChanged();
+  mMappings.clear();
 }
 
 void SubModel::onRowsInserted( const QModelIndex &parent, int first, int last )
