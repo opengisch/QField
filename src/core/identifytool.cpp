@@ -58,7 +58,7 @@ void IdentifyTool::identify( const QPointF &point ) const
 
   QgsPointXY mapPoint = mMapSettings->screenToCoordinate( point );
 
-  const QList<QgsMapLayer *> layers { mMapSettings->mapSettings().layers() };
+  const QList<QgsMapLayer *> layers = mModel->selectedLayer() ? QList<QgsMapLayer *>() << mModel->selectedLayer() : mMapSettings->mapSettings().layers();
   for ( QgsMapLayer *layer : layers )
   {
     if ( !layer->flags().testFlag( QgsMapLayer::Identifiable ) )
