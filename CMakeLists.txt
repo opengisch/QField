@@ -197,7 +197,7 @@ if (ENABLE_TESTS)
   add_subdirectory(test)
 endif()
 
-if(VCPKG)
+if(WITH_VCPKG)
   if(MSVC)
     file(GLOB PROVIDER_LIBS
       "${QGIS_PLUGIN_DIR}/*provider.dll"
