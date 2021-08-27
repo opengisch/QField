@@ -233,10 +233,12 @@ if(WITH_VCPKG)
     COMMAND ${CMAKE_COMMAND} -E copy_directory "${VCPKG_BASE_DIR}/share/gdal" "${CMAKE_BINARY_DIR}/output/bin/gdal"
   )
 
-  add_custom_command(TARGET deploy
-    POST_BUILD
-    COMMAND ${CMAKE_COMMAND} -E copy_directory "${VCPKG_BASE_DIR}/plugins/mediaservice" "${CMAKE_BINARY_DIR}/output/bin/plugins/mediaservice"
-  )
+  if(EXISTS ${VCPKG_BASE_DIR}/plugins/mediaservice)
+    add_custom_command(TARGET deploy
+      POST_BUILD
+      COMMAND ${CMAKE_COMMAND} -E copy_directory "${VCPKG_BASE_DIR}/plugins/mediaservice" "${CMAKE_BINARY_DIR}/output/bin/plugins/mediaservice"
+    )
+  endif()
 
   add_dependencies(qfield deploy)
 endif()
