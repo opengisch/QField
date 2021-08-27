@@ -68,7 +68,7 @@ jobs:
           fi
 
       - name: Comment
-        uses: thollander/actions-comment-pull-request@master
+        uses: thollander/actions-comment-pull-request@main
         if: steps.indent-check.outputs.changed == 'true' && steps.indent-check.outputs.triggered != 'true'
         with:
           message: |

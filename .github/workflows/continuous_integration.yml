@@ -151,7 +151,7 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           hide_user_name: qfield-fairy
       - name: Comment PR
-        uses: thollander/actions-comment-pull-request@master
+        uses: thollander/actions-comment-pull-request@main
         with:
           GITHUB_TOKEN: ${{ secrets.FAIRY_TOKEN }}
           message: |
