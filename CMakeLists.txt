@@ -198,6 +198,7 @@ if (ENABLE_TESTS)
 endif()
 
 if(WITH_VCPKG)
+  SET(QGIS_PLUGIN_DIR "${_VCPKG_INSTALLED_DIR}/${VCPKG_TARGET_TRIPLET}/tools/qgis/plugins")
   if(MSVC)
     file(GLOB PROVIDER_LIBS
       "${QGIS_PLUGIN_DIR}/*provider.dll"
