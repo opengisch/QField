@@ -54,15 +54,15 @@ jobs:
 #          remove-android: true # 18G
 #          remove-dotnet: true # 30G
 
-      - name: Checkout
+      - name: 🐣 Checkout
         uses: actions/checkout@v2
         with:
           submodules: recursive
 
-      - name: Install CMake and Ninja
+      - name: 🐩 Install CMake and Ninja
         uses: lukka/get-cmake@latest
 
-      - name: Clone vcpkg
+      - name: 📪 Clone vcpkg
         shell: bash
         run: |
           VCPKG_SHA=$(head -1 .git/modules/vcpkg/HEAD)
@@ -74,7 +74,7 @@ jobs:
           git fetch --depth 1 origin $VCPKG_SHA
           git checkout FETCH_HEAD
 
-      - name: Cache vcpkg
+      - name: 📫 Cache vcpkg
         id: cache-vcpkg-tool
         uses: pat-s/always-upload-cache@v2.1.5
         with:
@@ -83,7 +83,7 @@ jobs:
             ${{ env.VCPKG_ROOT }}/vcpkg.exe
           key: ${{ runner.os }}-${{ hashFiles('.git/modules/vcpkg/HEAD') }}-x
 
-      - name: Bootstrap vcpkg
+      - name: 📬 Bootstrap vcpkg
         if: steps.cache-vcpkg-tool.outputs.cache-hit != 'true'
         shell: bash
         working-directory: ${{ env.VCPKG_ROOT }}
@@ -94,7 +94,7 @@ jobs:
             ./bootstrap-vcpkg.sh
           fi
 
-      - name: Setup NuGet Credentials
+      - name: 🔐 Setup NuGet Credentials
         shell: bash
         run: |
           ${{ env.VCPKG_ROOT }}/vcpkg fetch nuget
@@ -109,10 +109,10 @@ jobs:
           ${{ matrix.mono }} $(${{ env.VCPKG_ROOT }}/vcpkg fetch nuget | tail -n 1) \
           setapikey ${{ secrets.GITHUB_TOKEN }} -src "https://nuget.pkg.github.com/opengisch/index.json"
 
-      - uses: ilammy/msvc-dev-cmd@v1
+      - uses: 🧽 ilammy/msvc-dev-cmd@v1
         if: ${{ matrix.os == 'windows-2019' }}
 
-      - name: Free additional space
+      - name: 🔥 Free additional space
         if: ${{ matrix.triplet == 'x64-linux' }}
         run: |
           df -h
@@ -128,7 +128,7 @@ jobs:
           sudo apt clean
           df -h
 
-      - name: Install Qt
+      - name: 💐 Install Qt
         if: ${{ matrix.install_qt }}
         uses: jurplel/install-qt-action@v2
         with:
@@ -137,7 +137,7 @@ jobs:
           target: ${{ matrix.qt_target }}
           arch: ${{ matrix.qt_arch }}
 
-      - name: Prepare linux build env
+      - name: 🐧 Prepare linux build env
         if: ${{ matrix.triplet == 'x64-linux' }}
         run: |
           sudo apt-get update
@@ -148,7 +148,7 @@ jobs:
           echo "QT_QPA_PLATFORM=offscreen" >> $GITHUB_ENV
           echo "TESTWRAPPER=xvfb-run" >> $GITHUB_ENV
 
-      - name: Install dependencies and generate project files
+      - name: 🌱 Install dependencies and generate project files
         shell: bash
         env:
           WORKSPACE: ${{ github.workspace }}
@@ -170,7 +170,7 @@ jobs:
                 -DWITH_SPIX=ON \
                 ${EXTRA_CMAKE_ARGS}
 
-      - name: Upload Build Logs
+      - name: 📑 Upload Build Logs
         uses: actions/upload-artifact@v2
         if: failure()
         with:
@@ -190,11 +190,11 @@ jobs:
             ./scripts/ci/pull_translations.sh
           fi
 
-      - name: Build
+      - name: 🌋 Build
         run: |
           cmake --build "${{ env.CMAKE_BUILD_DIR }}" --config ${{ matrix.build-type }} # --target qfield
 
-      - name: Test
+      - name: 🧫 Test
         shell: bash
         env:
           WORKSPACE: ${{ github.workspace }}
@@ -204,23 +204,26 @@ jobs:
           cd "${{ env.CMAKE_BUILD_DIR }}"
           ${TESTWRAPPER} ctest --output-on-failure -E '${{ matrix.exclude-tests }}' -C ${{ matrix.build-type }}
 
-      - uses: actions/upload-artifact@v2
+      - name: 📦 Upload package
+        uses: actions/upload-artifact@v2
         with:
           name: "QField-dev-${{ matrix.triplet }}-${{ matrix.build-type }}"
           path: "${{ env.CMAKE_BUILD_DIR }}/output"
 
-      - uses: actions/upload-artifact@v2
+      - name: 📊 Upload test report
+        uses: actions/upload-artifact@v2
         with:
           name: "test-report-${{ matrix.triplet }}-${{ matrix.build-type }}"
           path: "${{ env.CMAKE_BUILD_DIR }}/report"
 
-      - name: Get the current release version
+      - name: 🪔 Get the current release version
         id: get_version
         shell: bash
         run: |
           echo "::set-output name=version::${GITHUB_REF##*/}"
 
-      - uses: papeloto/action-zip@v1
+      - name: 🎂 Create release package
+        uses: papeloto/action-zip@v1
         with:
           files: ${{ env.CMAKE_BUILD_DIR }}/output
           dest: QField-${{ matrix.triplet }}-${{ steps.get_version.outputs.version }}.zip
@@ -236,7 +239,7 @@ jobs:
           asset_name: QField-${{ matrix.triplet }}-${{ steps.get_version.outputs.version }}.zip
           asset_content_type: application/zip
 
-      - name: Setup tmate session
+      - name: 🦨 Setup tmate session
         if: failure()
         uses: mxschmitt/action-tmate@v3
         with:
