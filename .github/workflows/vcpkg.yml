@@ -44,7 +44,7 @@ jobs:
               BUILD_ROOT="C:"
               echo "::set-output name=MONO::"
               echo "::set-output name=PATHCONVERT::cygpath -u"
-              # echo "::set-output name=EXCLUDE_TESTS::(smoke_test)"
+              echo "::set-output name=EXCLUDE_TESTS::(smoke_test)"
               ;;
 
             x64-linux)

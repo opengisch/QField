@@ -263,7 +263,7 @@ if(VCPKG_TARGET_IS_WINDOWS)
     copy_path(i18n share)
     copy_path(icons share)
     copy_path(images share)
-    copy_path(plugins lib)
+    copy_path(plugins tools)
     copy_path(resources share)
     copy_path(svg share)
     
