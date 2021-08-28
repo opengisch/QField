@@ -225,41 +225,6 @@ vcpkg_configure_cmake(
 vcpkg_install_cmake()
 
 if(VCPKG_TARGET_IS_WINDOWS)
-    # handle qgis tools and plugins
-    function(copy_path basepath)
-        file(GLOB ${basepath}_PATH ${CURRENT_PACKAGES_DIR}/${basepath}/*)
-        if( ${basepath}_PATH )
-            file(MAKE_DIRECTORY ${CURRENT_PACKAGES_DIR}/tools/${PORT}/${basepath})
-            file(COPY ${${basepath}_PATH} DESTINATION ${CURRENT_PACKAGES_DIR}/tools/${PORT}/${basepath})
-        endif()
-    
-        if(EXISTS "${CURRENT_PACKAGES_DIR}/${basepath}/")
-            file(REMOVE_RECURSE ${CURRENT_PACKAGES_DIR}/${basepath}/)
-        endif()
-    
-        if("debug-tools" IN_LIST FEATURES)
-            file(GLOB ${basepath}_DEBUG_PATH ${CURRENT_PACKAGES_DIR}/debug/${basepath}/*)
-            if( ${basepath}_DEBUG_PATH )
-                file(MAKE_DIRECTORY ${CURRENT_PACKAGES_DIR}/debug/tools/${PORT}/${basepath})
-                file(COPY ${${basepath}_DEBUG_PATH} DESTINATION ${CURRENT_PACKAGES_DIR}/debug/tools/${PORT}/${basepath})
-            endif()
-        endif()
-    
-        if(EXISTS "${CURRENT_PACKAGES_DIR}/debug/${basepath}/")
-            file(REMOVE_RECURSE ${CURRENT_PACKAGES_DIR}/debug/${basepath}/)
-        endif()
-    endfunction()
-    
-    file(GLOB QGIS_CMAKE_PATH ${CURRENT_PACKAGES_DIR}/*.cmake)
-    if(QGIS_CMAKE_PATH)
-        file(COPY ${QGIS_CMAKE_PATH} DESTINATION ${CURRENT_PACKAGES_DIR}/share/cmake/${PORT})
-        file(REMOVE_RECURSE ${QGIS_CMAKE_PATH})
-    endif()
-    file(GLOB QGIS_CMAKE_PATH_DEBUG ${CURRENT_PACKAGES_DIR}/debug/*.cmake)
-    if( QGIS_CMAKE_PATH_DEBUG )
-        file(REMOVE_RECURSE ${QGIS_CMAKE_PATH_DEBUG})
-    endif()
-    
     file(GLOB QGIS_TOOL_PATH ${CURRENT_PACKAGES_DIR}/bin/*${VCPKG_TARGET_EXECUTABLE_SUFFIX} ${CURRENT_PACKAGES_DIR}/*${VCPKG_TARGET_EXECUTABLE_SUFFIX})
     if(QGIS_TOOL_PATH)
         file(MAKE_DIRECTORY ${CURRENT_PACKAGES_DIR}/tools/${PORT}/bin)
@@ -282,18 +247,6 @@ if(VCPKG_TARGET_IS_WINDOWS)
         endif()
     endif()
     
-    copy_path(doc)
-    copy_path(i18n)
-    copy_path(icons)
-    copy_path(images)
-    copy_path(plugins)
-    copy_path(python)
-    copy_path(resources)
-    if("server" IN_LIST FEATURES)
-        copy_path(server)
-    endif()
-    copy_path(svg)
-
     # Extend vcpkg_copy_tool_dependencies to support the export of dll and exe dependencies in different directories to the same directory,
     # and support the copy of debug dependencies
     function(vcpkg_copy_tool_dependencies_ex TOOL_DIR OUTPUT_DIR SEARCH_DIR)
