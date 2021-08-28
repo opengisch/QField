@@ -225,6 +225,18 @@ vcpkg_configure_cmake(
 vcpkg_install_cmake()
 
 if(VCPKG_TARGET_IS_WINDOWS)
+    function(copy_path basepath targetdir)
+        file(GLOB ${basepath}_PATH ${CURRENT_PACKAGES_DIR}/${basepath}/*)
+        if( ${basepath}_PATH )
+            file(MAKE_DIRECTORY ${CURRENT_PACKAGES_DIR}/${targetdir}/${PORT}/${basepath})
+            file(COPY ${${basepath}_PATH} DESTINATION ${CURRENT_PACKAGES_DIR}/${targetdir}/${PORT}/${basepath})
+        endif()
+ 
+        if(EXISTS "${CURRENT_PACKAGES_DIR}/${basepath}/")
+            file(REMOVE_RECURSE ${CURRENT_PACKAGES_DIR}/${basepath}/)
+        endif()
+    endfunction()
+
     file(GLOB QGIS_TOOL_PATH ${CURRENT_PACKAGES_DIR}/bin/*${VCPKG_TARGET_EXECUTABLE_SUFFIX} ${CURRENT_PACKAGES_DIR}/*${VCPKG_TARGET_EXECUTABLE_SUFFIX})
     if(QGIS_TOOL_PATH)
         file(MAKE_DIRECTORY ${CURRENT_PACKAGES_DIR}/tools/${PORT}/bin)
@@ -246,6 +258,14 @@ if(VCPKG_TARGET_IS_WINDOWS)
             file(REMOVE_RECURSE ${QGIS_TOOL_PATH_DEBUG})
         endif()
     endif()
+
+    copy_path(doc share)
+    copy_path(i18n share)
+    copy_path(icons share)
+    copy_path(images share)
+    copy_path(plugins lib)
+    copy_path(resources share)
+    copy_path(svg share)
     
     # Extend vcpkg_copy_tool_dependencies to support the export of dll and exe dependencies in different directories to the same directory,
     # and support the copy of debug dependencies
