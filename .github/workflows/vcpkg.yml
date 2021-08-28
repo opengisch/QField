@@ -217,7 +217,8 @@ jobs:
       - name: Get the current release version
         id: get_version
         shell: bash
-        run: echo "::set-output name=version::${GITHUB_REF##*/}"
+        run: |
+          echo "::set-output name=version::${GITHUB_REF##*/}"
 
       - uses: papeloto/action-zip@v1
         with:
@@ -231,8 +232,8 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           upload_url: ${{ github.event.release.upload_url }}
-          asset_path: QField-win64-${{ steps.get_version.outputs.version }}.zip
-          asset_name: QField-win64-${{ steps.get_version.outputs.version }}.zip
+          asset_path: QField-${{ matrix.triplet }}-${{ steps.get_version.outputs.version }}.zip
+          asset_name: QField-${{ matrix.triplet }}-${{ steps.get_version.outputs.version }}.zip
           asset_content_type: application/zip
 
       - name: Setup tmate session
