@@ -219,10 +219,10 @@ jobs:
         shell: bash
         run: echo "::set-output name=version::${GITHUB_REF##*/}"
 
-      - name: Create package
-        shell: powershell
-        run: |
-          Compress-Archive "${{ env.CMAKE_BUILD_DIR }}/output" QField-win64-${{ steps.get_version.outputs.version }}.zip
+      - uses: papeloto/action-zip@v1
+        with:
+          files: ${{ env.CMAKE_BUILD_DIR }}/output
+          dest: QField-${{ matrix.triplet }}-${{ steps.get_version.outputs.version }}.zip
 
       - name: 🚀 Upload Release Asset
         if: github.event_name == 'release' && startsWith(github.ref, 'refs/tags/v')
