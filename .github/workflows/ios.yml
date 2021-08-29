@@ -110,7 +110,7 @@ jobs:
 
     - name: 🚀 Deploy qfield Ipa
       run: |
-        rm /Users/runner/work/QField/QField/build/output/bin/Release/qfield.app
+        rm /Users/runner/work/QField/QField/build/output/bin/qfield.app
         cmake --build build --target qfieldIpa --config "${{ matrix.build-type }}"
 
     - name: 📦 Upload qfield App
