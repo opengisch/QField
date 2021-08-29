@@ -22,7 +22,7 @@ Check the [documentation](http://qfield.org/docs)
 
 ### iOS (Alpha)
 
-An iOS version is being developed, [subscribe as iOS tester](https://forms.clickup.com/f/22wqj-2878/D6IEV7K3PKVONXPX8P) to be among the first to try
+An iOS version is in alpha state, [subscribe as iOS tester](https://forms.clickup.com/f/22wqj-2878/D6IEV7K3PKVONXPX8P) to be among the first to try
 
 ## Contribute
 
