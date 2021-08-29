@@ -157,7 +157,7 @@ jobs:
           sudo apt-get remove -y libopenexr-dev # Avoid gdal picking this system lib up
           # Required to run unit tests on linux
           echo "QT_QPA_PLATFORM=offscreen" >> $GITHUB_ENV
-          echo "TESTWRAPPER=xfvb-run -a -s '-screen 0 540x960x24'" >> $GITHUB_ENV
+          echo "TESTWRAPPER=xvfb-run -a -s '-screen 0 540x960x24'" >> $GITHUB_ENV
 
       - name: 🌱 Install dependencies and generate project files
         shell: bash
