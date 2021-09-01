@@ -29,7 +29,7 @@ FeatureListModel::FeatureListModel( QObject *parent )
   : QAbstractItemModel( parent )
   , mCurrentLayer( nullptr )
 {
-  mReloadTimer.setInterval( 100 );
+  mReloadTimer.setInterval( 200 );
   mReloadTimer.setSingleShot( true );
   connect( &mReloadTimer, &QTimer::timeout, this, &FeatureListModel::gatherFeatureList );
 }
@@ -441,6 +441,9 @@ void FeatureListModel::setCurrentFormFeature( const QgsFeature &feature )
     return;
 
   mCurrentFormFeature = feature;
-  reloadLayer();
+
+  if ( !mFilterExpression.isEmpty() && QgsValueRelationFieldFormatter::expressionRequiresFormScope( mFilterExpression ) )
+    reloadLayer();
+
   emit currentFormFeatureChanged();
 }
