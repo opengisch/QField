@@ -1,7 +1,8 @@
 #############################################################
 # CMake settings
 cmake_minimum_required(VERSION 3.5)
-
+cmake_policy(SET CMP0071 NEW)
+cmake_policy(SET CMP0074 NEW)
 
 set(CMAKE_COLOR_MAKEFILE ON)
 set (APP_NAME "QField" CACHE STRING "Application Name")
@@ -26,8 +27,6 @@ add_definitions(-DAPP_NAME="${APP_NAME}")
 add_definitions(-DAPP_VERSION="${APP_VERSION}")
 add_definitions(-DAPP_VERSION_STR="${APP_VERSION_STR}")
 add_definitions(-DGIT_REV="${GIT_REV}")
-
-cmake_policy(SET CMP0071 NEW)
 
 set (DEFAULT_BIN_SUBDIR     bin)
 set (DEFAULT_CGIBIN_SUBDIR  bin)
@@ -157,6 +156,10 @@ find_package(Qt5 COMPONENTS PrintSupport QUIET)
 find_package(QGIS REQUIRED)
 if(NOT ${CMAKE_SYSTEM_NAME} STREQUAL "iOS")
   find_package(Proj)
+  if(ANDROID)
+    # If the build target is Android, we use OSGeo4A libraries instead
+    set(ENV{GDAL_ROOT} ${OSGEO4A_STAGE_DIR}/${ANDROID_ABI})
+  endif(ANDROID)
   find_package(GDAL)
 endif()
 find_package(QCA)
