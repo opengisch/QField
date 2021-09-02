@@ -1,3 +1,20 @@
 site_name: QField Documentation
 theme:
   name: material
+  custom_dir: theme_overrides/
+  features:
+    - navigation.tabs
+    - search.suggest
+  logo: assets/images/qfield_logo.svg
+  favicon: assets/images/favicon.ico
+  palette:
+    - scheme: default
+      primary: green
+      toggle:
+        icon: octicons/sun-24
+        name: Switch to light mode
+    - scheme: slate
+      primary: blue
+      toggle:
+        icon: octicons/moon-24
+        name: Switch to dark mode
