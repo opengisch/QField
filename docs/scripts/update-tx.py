@@ -1,4 +1,4 @@
-#!python3
+#!/usr/bin/env python
 
 import pathlib
 from slugify import slugify
