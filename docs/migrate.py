@@ -14,8 +14,6 @@ args = parser.parse_args()
 
 print(pathlib.Path(args.source))
 
-copy_tree(os.path.join(args.source, 'en/images'), 'docs/en/images')
-
 for rst_file in list(pathlib.Path(args.source).glob('**/*.rst')):
     rst_file_relpath = os.path.join('docs', rst_file.relative_to(args.source))
     basename, _ = os.path.splitext(rst_file_relpath)
@@ -25,3 +23,5 @@ for rst_file in list(pathlib.Path(args.source).glob('**/*.rst')):
     pathlib.Path(basedir).mkdir(parents=True, exist_ok=True)
 
     subprocess.run(['pandoc', '-s', '-o', md_file_relpath, rst_file])
+
+copy_tree(os.path.join(args.source, 'en/images'), 'docs/images')
