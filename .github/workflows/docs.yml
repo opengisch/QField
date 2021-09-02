@@ -46,3 +46,10 @@ jobs:
       - name: Build docs
         run: |
           pipenv run mkdocs build
+
+
+      - name: Deploy 🚀
+        uses: JamesIves/github-pages-deploy-action@4.1.4
+        with:
+          branch: gh-pages-test
+          folder: docs/site
