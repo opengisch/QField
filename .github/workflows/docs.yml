@@ -1,0 +1,44 @@
+name: Docs
+
+on:
+  push:
+    branches:
+      - mkdocs # TODO
+  pull_request:
+    branches:
+      - master
+      - release-**
+
+defaults:
+  run:
+    working-directory: ./docs
+
+jobs:
+  build-docs:
+    runs-on: ubuntu-20.04
+    steps:
+      - uses: actions/checkout@v2
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.9
+
+      - name: Install dependencies
+        run: |
+          pip install pipenv
+          pipenv install
+
+      - name: Push source files for translation
+        if: github.ref == 'refs/heads/mkdocs' # TODO
+        run: |
+          ./scripts/update-tx.py
+          tx push -s
+
+      - name: Pull translations
+        # if secrets available
+        run: |
+          tx pull -a
+
+      - name: Build docs
+        run: |
+          pipenv run mkdocs build
