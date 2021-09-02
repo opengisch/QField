@@ -19,3 +19,5 @@ source_file = docs/en/{relpath}
 source_lang = en
 type = GITHUBMARKDOWN
 ''')
+
+# TODO: keep mkdocs.yml translation languages up to date
