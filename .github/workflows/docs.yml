@@ -29,12 +29,16 @@ jobs:
           pipenv install --dev
 
       - name: Push source files for translation
+        env:
+          TX_TOKEN: ${{ secrets.TX_TOKEN }}
         if: github.ref == 'refs/heads/mkdocs' # TODO
         run: |
           pipenv run ./scripts/update-tx.py
           pipenv run tx push -s
 
       - name: Pull translations
+        env:
+          TX_TOKEN: ${{ secrets.TX_TOKEN }}
         # if secrets available
         run: |
           pipenv run tx pull -a
