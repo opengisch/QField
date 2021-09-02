@@ -4,12 +4,14 @@ cmake_minimum_required(VERSION 3.5)
 cmake_policy(SET CMP0071 NEW)
 cmake_policy(SET CMP0074 NEW)
 
+set(QML_IMPORT_PATH ${CMAKE_SOURCE_DIR}/src/qml/imports CACHE PATH "")
+
 set(CMAKE_COLOR_MAKEFILE ON)
-set (APP_NAME "QField" CACHE STRING "Application Name")
-set (APK_VERSION_CODE "1" CACHE STRING "Apk Version Code (Example: 1)")
-set (APP_VERSION "" CACHE STRING "Application Version (Example: 1.0.0)")
-set (APP_VERSION_STR "local - dev" CACHE STRING "Application Version Name (Example: 1.0.0 - Homerun)")
-set (APP_PACKAGE_NAME "qfield" CACHE STRING "Package name suffix. E.g. qfield --> ch.opengis.qfield")
+set(APP_NAME "QField" CACHE STRING "Application Name")
+set(APK_VERSION_CODE "1" CACHE STRING "Apk Version Code (Example: 1)")
+set(APP_VERSION "" CACHE STRING "Application Version (Example: 1.0.0)")
+set(APP_VERSION_STR "local - dev" CACHE STRING "Application Version Name (Example: 1.0.0 - Homerun)")
+set(APP_PACKAGE_NAME "qfield" CACHE STRING "Package name suffix. E.g. qfield --> ch.opengis.qfield")
 
 string(REGEX REPLACE "v" "" CLEAN_APP_VERSION "${APP_VERSION}")
 
@@ -19,6 +21,12 @@ project(${APP_NAME}
 )
 
 set(CMAKE_MODULE_PATH ${CMAKE_SOURCE_DIR}/cmake ${CMAKE_MODULE_PATH})
+if(ANDROID)
+  # You probably have installed Qt for Android somewhere else
+  # other than /usr. In that case, this is necessary
+
+  LIST(APPEND CMAKE_FIND_ROOT_PATH "/")
+endif()
 
 include(GetGitRevisionDescription)
 GET_GIT_HEAD_REVISION(GIT_REFSPEC GIT_REV)
@@ -38,7 +46,7 @@ set (QFIELD_LIB_SUBDIR     ${DEFAULT_LIB_SUBDIR}     CACHE STRING "Subdirectory 
 set (QFIELD_INCLUDE_SUBDIR ${DEFAULT_INCLUDE_SUBDIR} CACHE STRING "Subdirectory where header files will be installed")
 
 set (WITH_VCPKG OFF CACHE BOOL "Build with vcpkg packaging layout")
-set (USE_MAC_BUNDLING NOT ${WITH_VCPKG} CACHE BOOL "Use mac bundling")
+set (USE_MAC_BUNDLING ${WITH_VCPKG} CACHE BOOL "Use mac bundling")
 
 mark_as_advanced (QFIELD_INCLUDE_SUBDIR QFIELD_BIN_SUBDIR QFIELD_LIB_SUBDIR WITH_VCPKG USE_MAC_BUNDLING)
 set (QFIELD_BIN_DIR ${QFIELD_BIN_SUBDIR})
@@ -67,10 +75,11 @@ endif ()
 
 if (ANDROID)
   add_definitions(-DQGIS_INSTALL_DIR="") # TODO: do we need osgeo4a/[lib]/files here? see qgis.pri
-  set (ANDROID_TARGET_PLATFORM CACHE INT "The target android platform sdk version")
-  set (ANDROID_PACKAGE_SOURCE_DIR ${CMAKE_SOURCE_DIR}/android)
-  set (OSGEO4A_STAGE_DIR NONE CACHE DIRECTORY "OSGEO4A stage path (base path without architecture)")
-  set (OSGEO4A_LIB_DIR ${OSGEO4A_STAGE_DIR}/${ANDROID_ABI}/lib)
+  set(ANDROID_TARGET_PLATFORM CACHE INT "")
+  set(ANDROID_PLATFORM 21 CACHE INT "")
+  set(ANDROID_PACKAGE_SOURCE_DIR ${CMAKE_SOURCE_DIR}/android)
+  set(OSGEO4A_STAGE_DIR NONE CACHE PATH "OSGeo4A stage path (base path without architecture)")
+  set(OSGEO4A_LIB_DIR ${OSGEO4A_STAGE_DIR}/${ANDROID_ABI}/lib)
   list(APPEND ANDROID_EXTRA_LIBS
     ${OSGEO4A_LIB_DIR}/libssl_1_1.so
     ${OSGEO4A_LIB_DIR}/libcrypto_1_1.so
@@ -147,7 +156,7 @@ if (ANDROID)
 endif()
 
 set(QT_MIN_VERSION 5.14.0)
-find_package(Qt5 COMPONENTS Concurrent Core Qml Gui Xml Positioning Widgets Network Quick Svg OpenGL Sql Sensors WebView Bluetooth Multimedia REQUIRED)
+find_package(Qt5 COMPONENTS Charts Concurrent Core Qml Gui Xml Positioning Widgets Network Quick Svg OpenGL Sql Sensors WebView Bluetooth Multimedia REQUIRED)
 
 # PrintSupport isn't required, because it doesn't exist for ios
 # qgis will deal with it an define a public 'QT_NO_PRINTER'
@@ -181,10 +190,14 @@ if (${CMAKE_SYSTEM_NAME} STREQUAL "iOS")
   set(QFIELD_RESOURCE_FILES ${SHARE_PATH})
 endif()
 
-set (ENABLE_TESTS TRUE CACHE BOOL "Build unit tests?")
+set(ENABLE_TESTS CACHE BOOL "Build unit tests")
+IF(ANDROID)
+  set(ENABLE_TESTS FALSE)
+else()
+  set(ENABLE_TESTS TRUE)
+endif()
 
 if(MSVC)
-  find_package(Qt5 COMPONENTS Charts REQUIRED) # vcpkg doesn't include QtCharts.dll as dep of the qml module otherwise
   add_definitions(-D_USE_MATH_DEFINES)
   add_definitions(-DNOMINMAX)
   add_definitions(-D_CRT_NONSTDC_NO_DEPRECATE)
