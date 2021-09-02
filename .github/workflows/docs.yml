@@ -26,12 +26,12 @@ jobs:
       - name: Install dependencies
         run: |
           pip install pipenv
-          pipenv install
+          pipenv install --dev
 
       - name: Push source files for translation
         if: github.ref == 'refs/heads/mkdocs' # TODO
         run: |
-          ./scripts/update-tx.py
+          pipenv run ./scripts/update-tx.py
           pipenv run tx push -s
 
       - name: Pull translations

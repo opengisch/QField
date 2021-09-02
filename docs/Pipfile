@@ -7,10 +7,10 @@ name = "pypi"
 mkdocs-material = "*"
 fancyboxmd = "*"
 markdown-i18n = "*"
-transifex-client = "*"
-slugify = "*"
 
 [dev-packages]
+transifex-client = "*"
+slugify = "*"
 
 [requires]
 python_version = "3.9"
