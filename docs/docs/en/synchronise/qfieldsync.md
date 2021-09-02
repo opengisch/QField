@@ -33,7 +33,7 @@ Installation
 In QGIS, open the plugin library and search for **qfield sync**. Select
 the plugin in the list and click on **Install**.
 
-![image](../images/qfield-sync_install.png)
+!![image](../images/qfield-sync_install.png)
 
 Configuration
 =============

@@ -18,3 +18,20 @@ theme:
       toggle:
         icon: octicons/moon-24
         name: Switch to dark mode
+extra:
+  alternate:
+
+    # Switch to English
+    - name: English
+      link: /en/
+      lang: en
+
+    # Switch to German
+    - name: Deutsch
+      link: /de/
+      lang: de
+
+    # Switch to Japanese
+    - name: 日本語
+      link: /ja/
+      lang: ja
