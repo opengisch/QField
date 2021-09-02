@@ -8,6 +8,7 @@ mkdocs-material = "*"
 fancyboxmd = "*"
 markdown-i18n = "*"
 transifex-client = "*"
+slugify = "*"
 
 [dev-packages]
 
