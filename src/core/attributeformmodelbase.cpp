@@ -513,6 +513,8 @@ void AttributeFormModelBase::updateDefaultValues( int fieldIndex )
     if ( changed )
     {
       item->setData( defaultValue, AttributeFormModel::AttributeValue );
+      updateDefaultValues( fidx );
+      updateVisibilityAndConstraints( fidx );
     }
   }
 }
