@@ -696,7 +696,12 @@ QgsEditorWidgetSetup AttributeFormModelBase::findBest( const int fieldIndex )
       setup = QgsEditorWidgetSetup( QStringLiteral( "Range" ), QVariantMap() );
     //if it's a foreign key configured in a relation take "RelationReference"
     if ( !mLayer->referencingRelations( fieldIndex ).isEmpty() )
-      setup = QgsEditorWidgetSetup( QStringLiteral( "RelationReference" ), QVariantMap() );
+    {
+      QgsRelation relation = mLayer->referencingRelations( fieldIndex )[0];
+      QVariantMap config;
+      config.insert( QStringLiteral( "Relation" ), relation.id() );
+      setup = QgsEditorWidgetSetup( QStringLiteral( "RelationReference" ), config );
+    }
   }
 
   return setup;
