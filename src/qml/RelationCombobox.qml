@@ -310,7 +310,7 @@ Item {
                 height: fontMetrics.height + 20
                 text: comboBox.displayText
                 font: comboBox.font
-                color: value === undefined || enabled ? 'black' : 'gray'
+                color: value === undefined || !enabled ? 'gray' : 'black'
                 horizontalAlignment: Text.AlignLeft
                 verticalAlignment: Text.AlignVCenter
                 elide: Text.ElideRight
