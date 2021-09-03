@@ -1,4 +1,19 @@
+# Project information
 site_name: QField Documentation
+site_url: https://qfield.org/
+site_author: OPENGIS.ch
+site_description: >-
+  This site contains documentation of products that belong to the QField ecosystem. QField itself, the app for having QGIS at your fingertips, QFieldCloud which allows online synchronization of data, and QFieldSync which allows QGIS to communicate with QFieldCloud.
+
+# Repository
+repo_name: opengisch/qfield
+repo_url: https://github.com/opengisch/qfield
+edit_uri: https://github.com/opengisch/mkdocs_test/tree/master/docs/
+
+# Copyright
+copyright: Copyright &copy; 2020 OPENGIS.ch
+
+# Configuration
 theme:
   name: material
   custom_dir: theme_overrides/
@@ -18,6 +33,13 @@ theme:
       toggle:
         icon: octicons/moon-24
         name: Switch to dark mode
+
+# Page tree
+nav:
+  - Home:
+    - Welcome: index.md
+  - QField:
+    - qfield/concepts.md
 # Extensions
 markdown_extensions:
   - admonition
