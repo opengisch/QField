@@ -14,7 +14,7 @@ pictures are saved into the [DCIM]{.title-ref} folder with a timestamp
 as name.
 
 ::: {.container .clearer .text-center}
-![picture\_path](/images/picture_path.png){width="600px"}
+![picture\_path](/assets/images/picture_path.png)
 :::
 
 ::: {.note}

@@ -58,7 +58,7 @@ For more information refer to the relations chapter of the official
 Documentation](https://docs.qgis.org/3.4/en/docs/user_manual/working_with_vector/attribute_table.html#creating-one-or-many-to-many-relations).
 
 ::: {.container .clearer .text-center}
-![](/images/relation_editor_widget_list.png){width="500px"}
+![](/assets/images/relation_editor_widget_list.png)
 :::
 
 The relation widget shows all the referencing child features in a list.
@@ -91,7 +91,7 @@ The second case is usually used when there are additional relation
 information (e.g. percentage) in the linking table.
 
 ::: {.container .clearer .text-center}
-![](/images/relation_widget_cardinality.png){width="500px"}
+![](/assets/images/relation_widget_cardinality.png)
 :::
 
 In case of the many-to-one cardinality on many-to-many relations the
@@ -109,7 +109,7 @@ It can be used to:
 -   show links to external files like pdfs or documents
 
 ::: {.container .clearer .text-center}
-![](/images/attachement-setting.png){width="600px"}
+![](/assets/images/attachement-setting.png)
 :::
 
 The path should be set to relative. The pictures, pdf and docs are
@@ -120,7 +120,7 @@ In QField the picture is displayed. By clicking the camera symbol the
 camera is started to update the picture with a new photo.
 
 ::: {.container .clearer .text-center}
-![](/images/qfield_picture.png){width="600px"}
+![](/assets/images/qfield_picture.png)
 :::
 
 On synchronization the sub-directory with the pictures, pdf and docs has
@@ -131,7 +131,7 @@ camera functionality and enable a hyperlink to open a document (pdf,
 doc, \...).
 
 ::: {.container .clearer .text-center}
-![](/images/hyperlink_option.png){width="600px"}
+![](/assets/images/hyperlink_option.png)
 :::
 
 Value Relation
@@ -144,7 +144,7 @@ value, order by value and allow multiple selections. The widget will
 display a drop-down or multiple-select list of the referenced features.
 
 ::: {.container .clearer .text-center}
-![](/images/value_relation_widget.gif){width="600px"}
+![](/assets/images/value_relation_widget.gif)
 :::
 
 Drag and drop designer forms
@@ -166,7 +166,7 @@ checkbox is checked, the list of diseases will be available to the user.
 ::: {.container .clearer .text-center}
 ![Configuration of a group box that will only be shown if the checkbox
 \"measures\_taken\" is
-checked.](/images/conditional_visibility_configuration.png){width="600px"}
+checked.](/assets/images/conditional_visibility_configuration.png)
 :::
 
 Let\'s see what we got on the field:
@@ -188,7 +188,7 @@ constraint is not satisfied.
 
 ::: {.container .clearer .text-center}
 ![Configuration of a constraint within a
-range](/images/constraint_configuration.png){width="600px"}
+range](/assets/images/constraint_configuration.png)
 :::
 
 Common use cases
@@ -217,130 +217,15 @@ can be based on the geometry or expression variables.
 
 ::: {.container .clearer .text-center}
 ![Configuration of a formatted date as default
-value](/images/default_value_configuration.png){width="600px"}
+value](/assets/images/default_value_configuration.png)
 :::
 
 Additional variables
 --------------------
 
-You can get access to positioning information through additional
-expression variables. These will only be available when the positioning
-is enabled, either through the internal device receiver or through an
-external device connected via NMEA connection.
-
--   [\@position\_coordinate]{.title-ref}
-    -   A point with the coordinate in WGS84. Lon, Lat, Altitude as
-        delivered by the sensor. It is only available when the crosshair
-        is snapped to the sensor.
-    -   [x(\@position\_coordinate)]{.title-ref}
-    -   IE
--   [\@position\_timestamp]{.title-ref}
-    -   The timestamp of the position in UTC as reported by the sensor.
-        It is only available when the crosshair is snapped to the
-        sensor.
-    -   IE
--   [\@position\_direction]{.title-ref}
-    -   The direction of movement in degrees from true north as reported
-        by the sensor. It is only available when the crosshair is
-        snapped to the sensor.
-    -   IE
--   [\@position\_ground\_speed]{.title-ref}
-    -   Groundspeed (in m/s) as reported by the sensor. It is only
-        available when the crosshair is snapped to the sensor.
-    -   IE
--   [\@position\_magnetic\_variation]{.title-ref}
-    -   The angle between the horizontal component of the magnetic field
-        and true north, in degrees as reported by the sensor. Also known
-        as magnetic declination. A positive value indicates a clockwise
-        direction from true north and a negative value indicates a
-        counter-clockwise direction. It is only available when the
-        crosshair is snapped to the sensor.
-    -   IE
--   [\@position\_horizontal\_accuracy]{.title-ref}
-    -   The horizontal accuracy of the coordinate (in meters) as
-        reported by the sensor. It is only available when the crosshair
-        is snapped to the sensor.
-    -   IE
--   [\@position\_vertical\_accuracy]{.title-ref}
-    -   The vertical accuracy of the coordinate (in meters) as reported
-        by the sensor. It is only available when the crosshair is
-        snapped to the sensor.
-    -   IE
--   [\@position\_3d\_accuracy]{.title-ref}
-    -   The 3 dimensional accuracy of the coordinate (in meters), 3D-RMS
-        as reported by the sensor. It is only available when the
-        crosshair is snapped to the sensor.
-    -   IE
--   [\@position\_vertical\_speed]{.title-ref}
-    -   The vertical speed (in m/s) as reported by the sensor. It is
-        only available when the crosshair is snapped to the sensor.
-    -   IE
--   [\@position\_source\_name]{.title-ref}
-    -   The name of the device that gave location information as
-        reported by the sensor. If the position is manually set, the
-        source name is \"manual\".
-    -   IE
--   [\@position\_pdop]{.title-ref}
-    -   Position dilution of precision as reported by the sensor. It is
-        only available when the crosshair is snapped to the sensor.
-    -   E
--   [\@position\_hdop]{.title-ref}
-    -   Horizontal dilution of precision as reported by the sensor. It
-        is only available when the crosshair is snapped to the sensor.
-    -   E
--   [\@position\_vdop]{.title-ref}
-    -   Vertical dilution of precision as reported by the sensor. It is
-        only available when the crosshair is snapped to the sensor.
-    -   E
--   [\@position\_number\_of\_used\_satellites]{.title-ref}
-    -   Number of satellites as reported by the sensor. It is only
-        available when the crosshair is snapped to the sensor.
-    -   E
--   [\@position\_used\_satellites]{.title-ref}
-    -   A list of satellites in use (pri) as reported by the sensor. It
-        is only available when the crosshair is snapped to the sensor.
-    -   [array\_count(\@position\_used\_satellites)]{.title-ref}
-    -   E
--   [\@position\_quality\_description]{.title-ref}
-    -   A human readable and translated string for the quality as
-        reported by the sensor. E.g. \"Fixed RTK\". It is only available
-        when the crosshair is snapped to the sensor.
-    -   E
--   [\@position\_fix\_status\_description]{.title-ref}
-    -   The GPS Fix Status \"NoData\", \"NoFix\", \"Fix2D\" or \"Fix3D\"
-        as reported by the sensor. It is only available when the
-        crosshair is snapped to the sensor.
-    -   E
--   [\@position\_fix\_mode]{.title-ref}
-    -   Fix mode (where \'M\' = Manual, forced to operate in 2D or 3D or
-        \'A\' = Automatic, 3D/2D) as reported by the sensor. It is only
-        available when the crosshair is snapped to the sensor.
-    -   E
-
-All \@position\_\* variables have a corresponding \@gnss\_\* variable.
-The gnss variables always report the gnss sensor values, even when the
-crosshair is not snapped.
-
-Examples:
-
-:   -   when the crosshair is snapped to the sensor
-        -   [\@gnss\_horizontal\_accuracy]{.title-ref} \--\> The
-            horizontal accuracy of the coordinate (in meters) as
-            reported by the sensor.
-        -   [\@position\_horizontal\_accuracy]{.title-ref} \--\> The
-            horizontal accuracy of the coordinate (in meters) as
-            reported by the sensor.
-        -   [\@position\_source\_name]{.title-ref} \--\> sensor name.
-    -   when the crosshair is manually moved
-        -   [\@gnss\_horizontal\_accuracy]{.title-ref} \--\> The
-            horizontal accuracy of the coordinate (in meters) as
-            reported by the sensor.
-        -   [\@position\_horizontal\_accuracy]{.title-ref} \--\> The
-            value is [NULL]{.title-ref}.
-        -   [\@position\_source\_name]{.title-ref} \--\> The value is
-            [manual]{.title-ref}.
-
-I: Internal position source E: External (NMEA) position source
+For more information regarding storing information related to your
+position in object attributes, refer to the deticated
+`GNSS documentation<gnss_variables>`{.interpreted-text role="ref"}.
 
 Common use cases
 ----------------

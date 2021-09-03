@@ -9,7 +9,7 @@ Activate edit mode and press on the target button, the cross in the
 center means it is using GNSS positioning.
 
 ::: {.container .clearer .text-left}
-![](../images/gnss_use.webp){width="300px"}
+![](/assets/images/gnss_use.webp)
 :::
 
 A long press on the GNSS button will show the positioning menu.
@@ -19,7 +19,7 @@ which will show the current coordinates which are reprojected into the
 project CRS along with precision information.
 
 ::: {.container .clearer .text-left}
-![](../images/user-guide_gps.jpg){width="600px"}
+![](/assets/images/user-guide_gps.jpg)
 :::
 
 ::: {.note}
@@ -31,8 +31,19 @@ If you see WGS 84 lat/lon information instead of information in your
 project CRS, you probably have no signal yet.
 :::
 
-Using external GNSS-Reciever
-============================
+Using an external GNSS-Receiver
+===============================
+
+QField supports connecting external GNSS antennas via bluetooth.
+
+In settings -\> positioning, paired bluetooth devices can be scanned and
+chosen as position source.
+
+Make sure no other app like mock location providers are using the
+bluetooth antenna.
+
+Mock location
+=============
 
 It is possible to provide a mock location via a separate android app to
 QField. There are several options for this, one of them is [Android

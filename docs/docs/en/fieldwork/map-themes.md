@@ -16,5 +16,5 @@ The combo box is only available if you did
 :::
 
 ::: {.container .clearer .text-left}
-![](../images/theme.webp){width="600px"}
+![](/assets/images/theme.webp)
 :::

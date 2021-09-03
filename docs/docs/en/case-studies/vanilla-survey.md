@@ -51,16 +51,16 @@ Acknowledgements
 The project was funded by the Australian Centre for International
 Agricultural Research (ACIAR; ASEM/2016/101).
 
-![](/images/use_study_vanilla1.jpg){width="400px"}
+![](/assets/images/use_study_vanilla1.jpg)
 
-![](/images/use_study_vanilla2.png){width="600px"}
+![](/assets/images/use_study_vanilla2.png)
 
 ![Extension Officers, Tangaki Aloua and Selimoti Fetokai, looking for
 the exact location of the vanilla plantation before the plot
-survey.](/images/use_study_vanilla3.jpg){width="600px"}
+survey.](/assets/images/use_study_vanilla3.jpg)
 
 ![Entering attribute data into QField such as number of vanilla plants
 and block sheet and lot number which identify land
-parcels.](/images/use_study_vanilla4.jpg){width="600px"}
+parcels.](/assets/images/use_study_vanilla4.jpg)
 
-![](/images/use_study_vanilla5.jpg){width="400px"}
+![](/assets/images/use_study_vanilla5.jpg)

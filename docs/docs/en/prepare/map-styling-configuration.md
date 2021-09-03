@@ -28,7 +28,7 @@ The display expression is also used to search in layers.
 ::: {.container .clearer .text-center}
 ![The display expression will be used to represent features with an
 identification string throughout
-QField.](/images/define_display_expression.png){width="500px"}
+QField.](/assets/images/define_display_expression.png)
 :::
 
 Read only, non-identifiable and searchable layers
@@ -52,7 +52,7 @@ desired behavior.
 ::: {.container .clearer .text-center}
 ![Configuration of layers that will not be identifiable, not modifiable
 and/or not
-searchable.](/images/project_configuration_readonly.png){width="500px"}
+searchable.](/assets/images/project_configuration_readonly.png)
 :::
 
 Snapping

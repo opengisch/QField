@@ -7,7 +7,7 @@ Switching Map Themes is possible from the Dashboard.
 Use the *Map Themes* combobox to chose the active theme.
 
 ::: {.container .clearer .text-center}
-![Change Map Theme](/images/mapthemes.gif){width="640px"}
+![Change Map Theme](/assets/images/mapthemes.gif)
 :::
 
 ::: {.note}

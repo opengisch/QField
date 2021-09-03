@@ -11,14 +11,14 @@ It is possible to embed SVG symbols directly within a QGIS projects.
 3.  In the **Symbol Layer Panel** choose Simple marker.
 
 ::: {.container .clearer .text-center}
-![](../images/symbol_layer_panel.png){width="500px"}
+![](/assets/images/symbol_layer_panel.png)
 :::
 
 4.  Change the Symbol layer type in :menuselection: [Symbol layer type
     \--\> SVG marker]{.title-ref}.
 
 ::: {.container .clearer .text-center}
-![](../images/symbol_layer_type.png){width="500px"}
+![](/assets/images/symbol_layer_type.png)
 :::
 
 5.  Scroll down the bottom panel.
@@ -26,7 +26,7 @@ It is possible to embed SVG symbols directly within a QGIS projects.
     drop down menu.
 
 ::: {.container .clearer .text-center}
-![](../images/drop_down_svg_menu.png){width="500px"}
+![](/assets/images/drop_down_svg_menu.png)
 :::
 
 7.  Select Embed File and choose the SVG file in the file selection
@@ -34,5 +34,5 @@ It is possible to embed SVG symbols directly within a QGIS projects.
 8.  Apply the changes and click OK.
 
 ::: {.container .clearer .text-center}
-![](../images/custom_svg_symbols.gif){width="500px"}
+![](/assets/images/custom_svg_symbols.gif)
 :::

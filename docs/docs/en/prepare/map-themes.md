@@ -14,7 +14,7 @@ Creating a Map Theme
 Creating a Map Theme in QGIS is a very simple task.
 
 ::: {.container .clearer .text-center}
-![Map Theme Configuration](/images/map_themes_configuration.gif){width="600px"}
+![Map Theme Configuration](/assets/images/map_themes_configuration.gif)
 :::
 
 1.  Style the map and layers to your requirements
@@ -29,5 +29,5 @@ Switching Map Themes is possible from the Dashboard.
 Use the *Map Themes* combobox to chose the active theme.
 
 ::: {.container .clearer .text-center}
-![Change Map Theme](/images/mapthemes.gif){width="640px"}
+![Change Map Theme](/assets/images/mapthemes.gif)
 :::

@@ -38,7 +38,7 @@ Create a relation with:
 -   `strength` Composition
 
 ::: {.container .clearer .text-center}
-![Relations](/images/add-1-n-pictures-relations.png){width="600px"}
+![Relations](/assets/images/add-1-n-pictures-relations.png)
 :::
 
 Widgets
@@ -51,14 +51,14 @@ Set the default value of the field id to `uuid()`. No need to show it in
 the form.
 
 ::: {.container .clearer .text-center}
-![widgets](/images/add-1-n-pictures-widgets_hive.png){width="600px"}
+![widgets](/assets/images/add-1-n-pictures-widgets_hive.png)
 :::
 
 Set the relation widget to `Many to one relation` and add the relation
 to the form
 
 ::: {.container .clearer .text-center}
-![widgets2](/images/add-1-n-pictures-widgets_hive2.png){width="600px"}
+![widgets2](/assets/images/add-1-n-pictures-widgets_hive2.png)
 :::
 
 picture
@@ -68,5 +68,5 @@ Set the widget type of the field path to `attachment` and add it to the
 form
 
 ::: {.container .clearer .text-center}
-![widget picture](/images/add-1-n-pictures-widgets_picture.png){width="600px"}
+![widget picture](/assets/images/add-1-n-pictures-widgets_picture.png)
 :::

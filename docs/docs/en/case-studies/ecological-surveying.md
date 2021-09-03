@@ -50,7 +50,7 @@ Timestamp
 :   records the time and date that a feature was created/last modified
 
 ::: {.container .clearer .text-center}
-![Figure 1 - Overview of the traditional workflow in ecological surveying at Delta-Simons compared with the workflow created using QField. Single-headed arrows indicate the direction of one-way communication, whereas double-headed arrows indicate two-way conversation.](/images/eco-survey.png){width="500px"}
+![Figure 1 - Overview of the traditional workflow in ecological surveying at Delta-Simons compared with the workflow created using QField. Single-headed arrows indicate the direction of one-way communication, whereas double-headed arrows indicate two-way conversation.](/assets/images/eco-survey.png)
 :::
 
 Result
@@ -66,5 +66,5 @@ significantly improved the ecological surveying workflow by:
 -   Improving the accuracy and quality of data
 
 ::: {.container .clearer .text-center}
-[![Delta Simons](/images/delta-simons.png){width="400px"}](https://www.deltasimons.com/)
+[![Delta Simons](/assets/images/delta-simons.png)](https://www.deltasimons.com/)
 :::
