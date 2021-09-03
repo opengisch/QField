@@ -223,9 +223,124 @@ value](/images/default_value_configuration.png){width="600px"}
 Additional variables
 --------------------
 
-For more information regarding storing information related to your
-position in object attributes, refer to the deticated
-`GNSS documentation<gnss_variables>`{.interpreted-text role="ref"}.
+You can get access to positioning information through additional
+expression variables. These will only be available when the positioning
+is enabled, either through the internal device receiver or through an
+external device connected via NMEA connection.
+
+-   [\@position\_coordinate]{.title-ref}
+    -   A point with the coordinate in WGS84. Lon, Lat, Altitude as
+        delivered by the sensor. It is only available when the crosshair
+        is snapped to the sensor.
+    -   [x(\@position\_coordinate)]{.title-ref}
+    -   IE
+-   [\@position\_timestamp]{.title-ref}
+    -   The timestamp of the position in UTC as reported by the sensor.
+        It is only available when the crosshair is snapped to the
+        sensor.
+    -   IE
+-   [\@position\_direction]{.title-ref}
+    -   The direction of movement in degrees from true north as reported
+        by the sensor. It is only available when the crosshair is
+        snapped to the sensor.
+    -   IE
+-   [\@position\_ground\_speed]{.title-ref}
+    -   Groundspeed (in m/s) as reported by the sensor. It is only
+        available when the crosshair is snapped to the sensor.
+    -   IE
+-   [\@position\_magnetic\_variation]{.title-ref}
+    -   The angle between the horizontal component of the magnetic field
+        and true north, in degrees as reported by the sensor. Also known
+        as magnetic declination. A positive value indicates a clockwise
+        direction from true north and a negative value indicates a
+        counter-clockwise direction. It is only available when the
+        crosshair is snapped to the sensor.
+    -   IE
+-   [\@position\_horizontal\_accuracy]{.title-ref}
+    -   The horizontal accuracy of the coordinate (in meters) as
+        reported by the sensor. It is only available when the crosshair
+        is snapped to the sensor.
+    -   IE
+-   [\@position\_vertical\_accuracy]{.title-ref}
+    -   The vertical accuracy of the coordinate (in meters) as reported
+        by the sensor. It is only available when the crosshair is
+        snapped to the sensor.
+    -   IE
+-   [\@position\_3d\_accuracy]{.title-ref}
+    -   The 3 dimensional accuracy of the coordinate (in meters), 3D-RMS
+        as reported by the sensor. It is only available when the
+        crosshair is snapped to the sensor.
+    -   IE
+-   [\@position\_vertical\_speed]{.title-ref}
+    -   The vertical speed (in m/s) as reported by the sensor. It is
+        only available when the crosshair is snapped to the sensor.
+    -   IE
+-   [\@position\_source\_name]{.title-ref}
+    -   The name of the device that gave location information as
+        reported by the sensor. If the position is manually set, the
+        source name is \"manual\".
+    -   IE
+-   [\@position\_pdop]{.title-ref}
+    -   Position dilution of precision as reported by the sensor. It is
+        only available when the crosshair is snapped to the sensor.
+    -   E
+-   [\@position\_hdop]{.title-ref}
+    -   Horizontal dilution of precision as reported by the sensor. It
+        is only available when the crosshair is snapped to the sensor.
+    -   E
+-   [\@position\_vdop]{.title-ref}
+    -   Vertical dilution of precision as reported by the sensor. It is
+        only available when the crosshair is snapped to the sensor.
+    -   E
+-   [\@position\_number\_of\_used\_satellites]{.title-ref}
+    -   Number of satellites as reported by the sensor. It is only
+        available when the crosshair is snapped to the sensor.
+    -   E
+-   [\@position\_used\_satellites]{.title-ref}
+    -   A list of satellites in use (pri) as reported by the sensor. It
+        is only available when the crosshair is snapped to the sensor.
+    -   [array\_count(\@position\_used\_satellites)]{.title-ref}
+    -   E
+-   [\@position\_quality\_description]{.title-ref}
+    -   A human readable and translated string for the quality as
+        reported by the sensor. E.g. \"Fixed RTK\". It is only available
+        when the crosshair is snapped to the sensor.
+    -   E
+-   [\@position\_fix\_status\_description]{.title-ref}
+    -   The GPS Fix Status \"NoData\", \"NoFix\", \"Fix2D\" or \"Fix3D\"
+        as reported by the sensor. It is only available when the
+        crosshair is snapped to the sensor.
+    -   E
+-   [\@position\_fix\_mode]{.title-ref}
+    -   Fix mode (where \'M\' = Manual, forced to operate in 2D or 3D or
+        \'A\' = Automatic, 3D/2D) as reported by the sensor. It is only
+        available when the crosshair is snapped to the sensor.
+    -   E
+
+All \@position\_\* variables have a corresponding \@gnss\_\* variable.
+The gnss variables always report the gnss sensor values, even when the
+crosshair is not snapped.
+
+Examples:
+
+:   -   when the crosshair is snapped to the sensor
+        -   [\@gnss\_horizontal\_accuracy]{.title-ref} \--\> The
+            horizontal accuracy of the coordinate (in meters) as
+            reported by the sensor.
+        -   [\@position\_horizontal\_accuracy]{.title-ref} \--\> The
+            horizontal accuracy of the coordinate (in meters) as
+            reported by the sensor.
+        -   [\@position\_source\_name]{.title-ref} \--\> sensor name.
+    -   when the crosshair is manually moved
+        -   [\@gnss\_horizontal\_accuracy]{.title-ref} \--\> The
+            horizontal accuracy of the coordinate (in meters) as
+            reported by the sensor.
+        -   [\@position\_horizontal\_accuracy]{.title-ref} \--\> The
+            value is [NULL]{.title-ref}.
+        -   [\@position\_source\_name]{.title-ref} \--\> The value is
+            [manual]{.title-ref}.
+
+I: Internal position source E: External (NMEA) position source
 
 Common use cases
 ----------------

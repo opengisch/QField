@@ -1,0 +1,271 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+CAUTION: Do not modify this file unless you know what you are doing.
+         Unexpected results may occur if the code is changed deliberately.
+-->
+<dbmodel pgmodeler-ver="0.9.2" last-position="0,0" last-zoom="1" max-obj-count="8"
+	 default-schema="public" default-owner="postgres">
+<role name="qfieldcloud_dev_db_admin"
+      superuser="true"
+      createdb="true"
+      replication="true"
+      createrole="true"
+      inherit="true"
+      login="true"
+      bypassrls="true"
+      encrypted="true"
+      password="********"
+      sql-disabled="true">
+</role>
+
+<database name="qfieldcloud_dev_db" encoding="UTF8" lc-collate="en_US.utf8" lc-ctype="en_US.utf8" is-template="false" allow-conns="true">
+	<role name="qfieldcloud_dev_db_admin"/>
+	<tablespace name="pg_default"/>
+</database>
+
+<schema name="public" layer="0" rect-visible="true" fill-color="#e1e1e1" sql-disabled="true">
+</schema>
+
+<table name="User" layer="0" collapse-mode="1" max-obj-count="14">
+	<schema name="public"/>
+	<role name="qfieldcloud_dev_db_admin"/>
+	<position x="60" y="60"/>
+	<column name="id" not-null="true" default-value="nextval('core_user_id_seq'::regclass)">
+		<type name="integer" length="0"/>
+	</column>
+	<column name="password" not-null="true">
+		<type name="character varying" length="128"/>
+	</column>
+	<column name="last_login">
+		<type name="timestamp with time zone" length="0" with-timezone="true"/>
+	</column>
+	<column name="is_superuser" not-null="true">
+		<type name="boolean" length="0"/>
+	</column>
+	<column name="username" not-null="true">
+		<type name="character varying" length="150"/>
+	</column>
+	<column name="first_name" not-null="true">
+		<type name="character varying" length="30"/>
+	</column>
+	<column name="last_name" not-null="true">
+		<type name="character varying" length="150"/>
+	</column>
+	<column name="email" not-null="true">
+		<type name="character varying" length="254"/>
+	</column>
+	<column name="is_staff" not-null="true">
+		<type name="boolean" length="0"/>
+	</column>
+	<column name="is_active" not-null="true">
+		<type name="boolean" length="0"/>
+	</column>
+	<column name="date_joined" not-null="true">
+		<type name="timestamp with time zone" length="0" with-timezone="true"/>
+	</column>
+	<column name="user_type" not-null="true">
+		<type name="smallint" length="0"/>
+	</column>
+	<constraint name="core_user_user_type_check" type="ck-constr" table="public.&quot;User&quot;">
+			<expression><![CDATA[(user_type >= 0)]]></expression>
+	</constraint>
+	<constraint name="core_user_pkey" type="pk-constr" table="public.&quot;User&quot;">
+		<columns names="id" ref-type="src-columns"/>
+	</constraint>
+	<constraint name="core_user_username_key" type="uq-constr" table="public.&quot;User&quot;">
+		<columns names="username" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="Project" layer="0" collapse-mode="1" max-obj-count="8">
+	<schema name="public"/>
+	<role name="qfieldcloud_dev_db_admin"/>
+	<position x="780" y="340"/>
+	<column name="id" not-null="true">
+		<type name="uuid" length="0"/>
+	</column>
+	<column name="name" not-null="true">
+		<type name="character varying" length="255"/>
+	</column>
+	<column name="description" not-null="true">
+		<type name="text" length="0"/>
+	</column>
+	<column name="private" not-null="true">
+		<type name="boolean" length="0"/>
+	</column>
+	<column name="created_at" not-null="true">
+		<type name="timestamp with time zone" length="0" with-timezone="true"/>
+	</column>
+	<column name="updated_at" not-null="true">
+		<type name="timestamp with time zone" length="0" with-timezone="true"/>
+	</column>
+	<column name="owner_id" not-null="true">
+		<type name="integer" length="0"/>
+	</column>
+	<constraint name="core_project_pkey" type="pk-constr" table="public.&quot;Project&quot;">
+		<columns names="id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="Organization" layer="0" collapse-mode="1" max-obj-count="3">
+	<schema name="public"/>
+	<role name="qfieldcloud_dev_db_admin"/>
+	<position x="80" y="480"/>
+	<column name="user_ptr_id" not-null="true">
+		<type name="integer" length="0"/>
+	</column>
+	<column name="organization_owner_id" not-null="true">
+		<type name="integer" length="0"/>
+	</column>
+	<constraint name="core_organization_pkey" type="pk-constr" table="public.&quot;Organization&quot;">
+		<columns names="user_ptr_id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="ProjectCollaborator" layer="0" collapse-mode="1" max-obj-count="4">
+	<schema name="public"/>
+	<role name="qfieldcloud_dev_db_admin"/>
+	<position x="680" y="60"/>
+	<column name="id" not-null="true" default-value="nextval('core_projectcollaborator_id_seq'::regclass)">
+		<type name="integer" length="0"/>
+	</column>
+	<column name="role" not-null="true">
+		<type name="smallint" length="0"/>
+	</column>
+	<column name="collaborator_id" not-null="true">
+		<type name="integer" length="0"/>
+	</column>
+	<column name="project_id" not-null="true">
+		<type name="uuid" length="0"/>
+	</column>
+	<constraint name="core_projectcollaborator_role_check" type="ck-constr" table="public.&quot;ProjectCollaborator&quot;">
+			<expression><![CDATA[(role >= 0)]]></expression>
+	</constraint>
+	<constraint name="core_projectcollaborator_pkey" type="pk-constr" table="public.&quot;ProjectCollaborator&quot;">
+		<columns names="id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="OrganizationMember" layer="0" collapse-mode="1" max-obj-count="4">
+	<schema name="public"/>
+	<role name="qfieldcloud_dev_db_admin"/>
+	<position x="580" y="620"/>
+	<column name="id" not-null="true" default-value="nextval('core_organizationmember_id_seq'::regclass)">
+		<type name="integer" length="0"/>
+	</column>
+	<column name="role" not-null="true">
+		<type name="smallint" length="0"/>
+	</column>
+	<column name="member_id" not-null="true">
+		<type name="integer" length="0"/>
+	</column>
+	<column name="organization_id" not-null="true">
+		<type name="integer" length="0"/>
+	</column>
+	<constraint name="core_organizationmember_role_check" type="ck-constr" table="public.&quot;OrganizationMember&quot;">
+			<expression><![CDATA[(role >= 0)]]></expression>
+	</constraint>
+	<constraint name="core_organizationmember_pkey" type="pk-constr" table="public.&quot;OrganizationMember&quot;">
+		<columns names="id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<constraint name="core_project_owner_id_26945739_fk_core_user_id" type="fk-constr" comparison-type="MATCH SIMPLE"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="public.&quot;User&quot;"
+	deferrable="true" defer-type="INITIALLY DEFERRED"
+ table="public.&quot;Project&quot;">
+	<columns names="owner_id" ref-type="src-columns"/>
+	<columns names="id" ref-type="dst-columns"/>
+</constraint>
+
+<constraint name="core_organization_user_ptr_id_bfd41191_fk_core_user_id" type="fk-constr" comparison-type="MATCH SIMPLE"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="public.&quot;User&quot;"
+	deferrable="true" defer-type="INITIALLY DEFERRED"
+ table="public.&quot;Organization&quot;">
+	<columns names="user_ptr_id" ref-type="src-columns"/>
+	<columns names="id" ref-type="dst-columns"/>
+</constraint>
+
+<constraint name="core_organization_organization_owner_i_5346c7ba_fk_core_user" type="fk-constr" comparison-type="MATCH SIMPLE"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="public.&quot;User&quot;"
+	deferrable="true" defer-type="INITIALLY DEFERRED"
+ table="public.&quot;Organization&quot;">
+	<columns names="organization_owner_id" ref-type="src-columns"/>
+	<columns names="id" ref-type="dst-columns"/>
+</constraint>
+
+<constraint name="core_projectcollabor_collaborator_id_dac1d029_fk_core_user" type="fk-constr" comparison-type="MATCH SIMPLE"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="public.&quot;User&quot;"
+	deferrable="true" defer-type="INITIALLY DEFERRED"
+ table="public.&quot;ProjectCollaborator&quot;">
+	<columns names="collaborator_id" ref-type="src-columns"/>
+	<columns names="id" ref-type="dst-columns"/>
+</constraint>
+
+<constraint name="core_projectcollaborator_project_id_20df83b7_fk_core_project_id" type="fk-constr" comparison-type="MATCH SIMPLE"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="public.&quot;Project&quot;"
+	deferrable="true" defer-type="INITIALLY DEFERRED"
+ table="public.&quot;ProjectCollaborator&quot;">
+	<columns names="project_id" ref-type="src-columns"/>
+	<columns names="id" ref-type="dst-columns"/>
+</constraint>
+
+<constraint name="core_organizationmember_member_id_75cb9989_fk_core_user_id" type="fk-constr" comparison-type="MATCH SIMPLE"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="public.&quot;User&quot;"
+	deferrable="true" defer-type="INITIALLY DEFERRED"
+ table="public.&quot;OrganizationMember&quot;">
+	<columns names="member_id" ref-type="src-columns"/>
+	<columns names="id" ref-type="dst-columns"/>
+</constraint>
+
+<constraint name="core_organizationmem_organization_id_546733e4_fk_core_orga" type="fk-constr" comparison-type="MATCH SIMPLE"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="public.&quot;Organization&quot;"
+	deferrable="true" defer-type="INITIALLY DEFERRED"
+ table="public.&quot;OrganizationMember&quot;">
+	<columns names="organization_id" ref-type="src-columns"/>
+	<columns names="user_ptr_id" ref-type="dst-columns"/>
+</constraint>
+
+<relationship name="rel_core_project_core_user" type="relfk" layer="0"
+	 custom-color="#fce875"
+	 src-table="public.&quot;Project&quot;"
+	 dst-table="public.&quot;User&quot;" reference-fk="core_project_owner_id_26945739_fk_core_user_id"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="rel_core_organization_core_user" type="relfk" layer="0"
+	 custom-color="#1bd6da"
+	 src-table="public.&quot;Organization&quot;"
+	 dst-table="public.&quot;User&quot;" reference-fk="core_organization_user_ptr_id_bfd41191_fk_core_user_id"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="rel_core_organization_core_user1" type="relfk" layer="0"
+	 custom-color="#4ea799"
+	 src-table="public.&quot;Organization&quot;"
+	 dst-table="public.&quot;User&quot;" reference-fk="core_organization_organization_owner_i_5346c7ba_fk_core_user"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="rel_core_projectcollaborator_core_user" type="relfk" layer="0"
+	 custom-color="#a7f5f0"
+	 src-table="public.&quot;ProjectCollaborator&quot;"
+	 dst-table="public.&quot;User&quot;" reference-fk="core_projectcollabor_collaborator_id_dac1d029_fk_core_user"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="rel_core_projectcollaborator_core_project" type="relfk" layer="0"
+	 custom-color="#2f96de"
+	 src-table="public.&quot;ProjectCollaborator&quot;"
+	 dst-table="public.&quot;Project&quot;" reference-fk="core_projectcollaborator_project_id_20df83b7_fk_core_project_id"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="rel_core_organizationmember_core_user" type="relfk" layer="0"
+	 custom-color="#a39c75"
+	 src-table="public.&quot;OrganizationMember&quot;"
+	 dst-table="public.&quot;User&quot;" reference-fk="core_organizationmember_member_id_75cb9989_fk_core_user_id"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="rel_core_organizationmember_core_organization" type="relfk" layer="0"
+	 custom-color="#51575f"
+	 src-table="public.&quot;OrganizationMember&quot;"
+	 dst-table="public.&quot;Organization&quot;" reference-fk="core_organizationmem_organization_id_546733e4_fk_core_orga"
+	 src-required="false" dst-required="false"/>
+
+</dbmodel>

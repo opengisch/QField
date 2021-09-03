@@ -33,7 +33,7 @@ Installation
 In QGIS, open the plugin library and search for **qfield sync**. Select
 the plugin in the list and click on **Install**.
 
-!![image](../images/qfield-sync_install.png)
+![image](../images/qfield-sync_install.png)
 
 Configuration
 =============
@@ -141,7 +141,3 @@ Copy the project folder from your device to your computer and use the
 protable project to the main project.
 
 ![image](../images/qfield-sync_sync.png)
-
-Make sure that you synchronize your data back only once. That means, if
-you go out again to collect more data, you should create a new QField
-package before to avoid sync problems later on (like e.g. duplicates).

@@ -18,10 +18,40 @@ theme:
       toggle:
         icon: octicons/moon-24
         name: Switch to dark mode
-extra:
-  alternate:
+# Extensions
+markdown_extensions:
+  - admonition
+  - pymdownx.details
+  - def_list
+  - attr_list
+  - pymdownx.inlinehilite
+  - pymdownx.highlight
+  - pymdownx.superfences
+  - pymdownx.keys
+  - pymdownx.tabbed
+  - fancyboxmd
+  - pymdownx.emoji:
+      emoji_index: !!python/name:materialx.emoji.twemoji
+      emoji_generator: !!python/name:materialx.emoji.to_svg
+  - toc:
+      permalink: true
 
-    # Switch to English
+# Css
+extra_css:
+  - stylesheets/extra.css
+  - stylesheets/jquery.fancybox.min.css
+
+# Extra javascript
+extra_javascript:
+  - javascript/jquery.min.js
+  - javascript/jquery.fancybox.min.js
+
+extra:
+  # Remove "Made with Material for MkDocs" from footer
+  generator: false
+  # Languages. Don't add translated content into this repo It will be
+  # added by github ci based on transifex translations.
+  alternate:
     - name: English
       link: /en/
       lang: en
@@ -35,3 +65,12 @@ extra:
     - name: 日本語
       link: /ja/
       lang: ja
+
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/opengisch
+    - icon: fontawesome/brands/twitter
+      link: https://twitter.com/opengisch
+    - icon: fontawesome/brands/linkedin
+      link: https://www.linkedin.com/company/opengisch/
+

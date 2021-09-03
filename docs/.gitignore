@@ -1,4 +1,5 @@
 site
 docs/*
 !docs/en
+!docs/assets
 .tx
