@@ -29,7 +29,8 @@
 LayerObserver::LayerObserver( const QgsProject *project )
   : mProject( project )
 {
-  mDeltaFileWrapper = std::make_unique<DeltaFileWrapper>( mProject, QStringLiteral( "%1/deltafile.json" ).arg( mProject->homePath() ) );
+  QString dirPath = QFileInfo( mProject->absoluteFilePath() ).path();
+  mDeltaFileWrapper = std::make_unique<DeltaFileWrapper>( mProject, QStringLiteral( "%1/deltafile.json" ).arg( dirPath ) );
 
   connect( mProject, &QgsProject::homePathChanged, this, &LayerObserver::onHomePathChanged );
   connect( mProject, &QgsProject::layersAdded, this, &LayerObserver::onLayersAdded );
@@ -62,7 +63,8 @@ void LayerObserver::onHomePathChanged()
   if ( QFieldCloudUtils::getProjectId( mProject->fileName() ).isEmpty() )
     return;
 
-  mDeltaFileWrapper = std::unique_ptr<DeltaFileWrapper>( new DeltaFileWrapper( mProject, QStringLiteral( "%1/deltafile.json" ).arg( mProject->homePath() ) ) );
+  QString dirPath = QFileInfo( mProject->absoluteFilePath() ).path();
+  mDeltaFileWrapper = std::unique_ptr<DeltaFileWrapper>( new DeltaFileWrapper( mProject, QStringLiteral( "%1/deltafile.json" ).arg( dirPath ) ) );
 
   if ( mDeltaFileWrapper->hasError() )
     QgsMessageLog::logMessage( QStringLiteral( "The current delta file wrapper experienced an error: %1" ).arg( mDeltaFileWrapper->errorString() ) );
