@@ -700,6 +700,8 @@ QgsEditorWidgetSetup AttributeFormModelBase::findBest( const int fieldIndex )
       QgsRelation relation = mLayer->referencingRelations( fieldIndex )[0];
       QVariantMap config;
       config.insert( QStringLiteral( "Relation" ), relation.id() );
+      config.insert( QStringLiteral( "AllowAddFeatures" ), false );
+      config.insert( QStringLiteral( "ShowOpenFormButton" ), true );
       setup = QgsEditorWidgetSetup( QStringLiteral( "RelationReference" ), config );
     }
   }
