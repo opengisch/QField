@@ -57,4 +57,4 @@ jobs:
           branch: gh-pages
           folder: docs/site
           repository-name: opengisch/qfield-doc-preview
-          token: secrets.FAIRY_TOKEN
+          token: ${{ secrets.FAIRY_TOKEN }}
