@@ -41,7 +41,7 @@ Geopackage to PostGIS database. We completed our initial data collection
 works until April 2019.
 
 ::: {.container .clearer .text-center}
-![data collection procedure](/assets/images/rwanda-rural-water-1.png)
+![data collection procedure](../../assets/images/rwanda-rural-water-1.png)
 :::
 
 Data distribution and updating
@@ -67,7 +67,7 @@ they sent the geopackage to central office again, MIS specialist update
 PostGIS database and regenerate geopackages for QField.
 
 ::: {.container .clearer .text-center}
-![data distribution and updating procedure](/assets/images/rwanda-rural-water-2.png)
+![data distribution and updating procedure](../../assets/images/rwanda-rural-water-2.png)
 :::
 
 Data sharing via vectortiles
@@ -106,7 +106,7 @@ operators in 27 districts. Total number of water supply systems in the
 database is 1,000+.
 
 ::: {.container .clearer .text-center}
-![Organogram of WASAC](/assets/images/rwanda-rural-water-3.png)
+![Organogram of WASAC](../../assets/images/rwanda-rural-water-3.png)
 :::
 
 Also, one of our colleagues presented WASAC\'s activity in FOSS4G 2019

@@ -8,7 +8,7 @@ If the project has at least one print layout defined, printing is
 available over the menu.
 
 ::: {.container .clearer .text-center}
-![](/assets/images/print_menu.jpg)
+![](../../assets/images/print_menu.jpg)
 :::
 
 After selecting the print layout, the PDF document is created and stored
@@ -17,13 +17,13 @@ in the devices documents directory.
 By choosing the PDF reader app, the document can be opened directly.
 
 ::: {.container .clearer .text-center}
-![](/assets/images/print_open.jpg)
+![](../../assets/images/print_open.jpg)
 :::
 
 Done.
 
 ::: {.container .clearer .text-center}
-![](/assets/images/print_document.jpg)
+![](../../assets/images/print_document.jpg)
 :::
 
 A video demonstration of how the complete workflow looks:

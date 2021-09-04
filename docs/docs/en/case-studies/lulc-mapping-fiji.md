@@ -42,10 +42,10 @@ Workflow
 
 ::: {.container .clearer .text-center}
 ![Figure 1: Predefined Ground Truth
-Plots](/assets/images/use_study_fiji1.png)
+Plots](../../assets/images/use_study_fiji1.png)
 
 ![Figure 2: Capturing land cover
-class](/assets/images/use_study_fiji2.png)
+class](../../assets/images/use_study_fiji2.png)
 :::
 
 Preliminary Results and Future Work
@@ -62,7 +62,7 @@ collaborative fieldwork.
 
 ::: {.container .clearer .text-center}
 ![Figure 3: Preliminary land cover map for the Ba region, Viti Levu,
-Fiji](/assets/images/use_study_fiji3.png)
+Fiji](../../assets/images/use_study_fiji3.png)
 :::
 
 Acknowledgement
@@ -75,5 +75,5 @@ ASEM/2016/101).
 
 ::: {.container .clearer .text-center}
 ![The Fiji Forestry/USP field team is about to collect ground truth data
-with QField.](/assets/images/use_study_fiji4.jpg)
+with QField.](../../assets/images/use_study_fiji4.jpg)
 :::

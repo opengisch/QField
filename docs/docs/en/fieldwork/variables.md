@@ -12,7 +12,7 @@ To configure a device-specific variable, open the settings and click the
 ::: {.container .clearer .text-center}
 ![Configuration of two new global variables in addition to the
 pre-defined system
-variables.](/assets/images/configure_global_variables.png)
+variables.](../../assets/images/configure_global_variables.png)
 :::
 
 On the variable page, you can see predefined variables. To add new

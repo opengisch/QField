@@ -66,11 +66,11 @@ GPS point layer, linking the pictures to our land cover layer, etc.,
 which traditionally took days of work.
 
 ::: {.container .clearer .text-center}
-![3 land cover parcels that were digitalized on the ground](/assets/images/mosquito_1.jpg)
+![3 land cover parcels that were digitalized on the ground](../../assets/images/mosquito_1.jpg)
 
-![Getting back to one parcel: which information was collected](/assets/images/mosquito_2.jpg)
+![Getting back to one parcel: which information was collected](../../assets/images/mosquito_2.jpg)
 
-![Digitalizing a new parcel and filling the attribute table](/assets/images/mosquito_3.jpg)
+![Digitalizing a new parcel and filling the attribute table](../../assets/images/mosquito_3.jpg)
 
-![On the field work using Qfield](/assets/images/mosquito-4.jpg)
+![On the field work using Qfield](../../assets/images/mosquito-4.jpg)
 :::

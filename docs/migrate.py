@@ -26,7 +26,7 @@ for rst_file in list(pathlib.Path(args.source).glob('**/*.rst')):
 
     subprocess.run(['pandoc', '-s', '-o', md_file_relpath, rst_file])
     subprocess.run(['sed', '-i', 's/{width=.*}//g', md_file_relpath])
-    subprocess.run(['sed', '-i', r's|\(\](\)\.*/image|\1/assets/image|g', md_file_relpath])
+    subprocess.run(['sed', '-i', r's|\(\](\)\.*/image|\1../../assets/image|g', md_file_relpath])
 
 copy_tree(os.path.join(args.source, 'en/images'), 'docs/assets/images')
 

@@ -9,7 +9,7 @@ Open the **Main menu** and expend the layers list to display the legend
 of the map.
 
 ::: {.container .clearer .text-left}
-![](/assets/images/user-guide_legend.png)
+![](../../assets/images/user-guide_legend.png)
 :::
 
 Turning on and off layers
@@ -19,7 +19,7 @@ Turning on and off layers
 role="menuselection"}
 
 ::: {.container .clearer .text-left}
-![](/assets/images/turning_on_off.webp)
+![](../../assets/images/turning_on_off.webp)
 :::
 
 Identify features
@@ -32,7 +32,7 @@ they will all be listed in the menu that opens on the right of the
 screen.
 
 ::: {.container .clearer .text-left}
-![](/assets/images/identify_features.webp)
+![](../../assets/images/identify_features.webp)
 :::
 
 Tap on one of the listed feature to access its attributes.

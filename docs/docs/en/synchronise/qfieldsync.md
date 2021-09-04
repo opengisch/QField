@@ -33,7 +33,7 @@ Installation
 In QGIS, open the plugin library and search for **qfield sync**. Select
 the plugin in the list and click on **Install**.
 
-![image](/assets/images/qfield-sync_install.png)
+![image](../../assets/images/qfield-sync_install.png)
 
 Configuration
 =============
@@ -42,12 +42,12 @@ The project configuration is saved in the master .qgs project file. This
 way it is possible to pre-configure a project once and use it
 repeatedly.
 
-![image](/assets/images/qfield-sync_configmenu.png)
+![image](../../assets/images/qfield-sync_configmenu.png)
 
 Layer configuration
 -------------------
 
-![image](/assets/images/qfield-sync_config.png)
+![image](../../assets/images/qfield-sync_config.png)
 
 In the project configuration dialog, an *action* can be defined for each
 layer individually. Depending on the layer type, different types of
@@ -121,7 +121,7 @@ Package for Qfield
 Once the project is configured, package it in a folder. This folder will
 contain the .qgs and the data used in it.
 
-![image](/assets/images/qfield-sync_package.png)
+![image](../../assets/images/qfield-sync_package.png)
 
 Copy the folder on your device. Open Qfield, open the project and start
 collecting data.
@@ -140,7 +140,7 @@ Copy the project folder from your device to your computer and use the
 **Synchronize from Qfield** menu to synchronize your changes from the
 protable project to the main project.
 
-![image](/assets/images/qfield-sync_sync.png)
+![image](../../assets/images/qfield-sync_sync.png)
 
 Make sure that you synchronize your data back only once. That means, if
 you go out again to collect more data, you should create a new QField

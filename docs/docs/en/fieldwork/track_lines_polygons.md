@@ -19,9 +19,9 @@ There can be several trackings session active on several layers. But
 only one tracking session per layer can be active at the time.
 
 ::: {.container .clearer .text-center}
-![tracking\_layers1](/assets/images/track_lines_tracking_layers1.jpeg)
+![tracking\_layers1](../../assets/images/track_lines_tracking_layers1.jpeg)
 
-![tracking\_layers2](/assets/images/track_lines_tracking_layers2.jpeg)
+![tracking\_layers2](../../assets/images/track_lines_tracking_layers2.jpeg)
 :::
 
 The tracked feature is saved on every vertex. While the tracking session
@@ -30,7 +30,7 @@ edited or deleted until the tracking session is stopped over the legend
 again.
 
 ::: {.container .clearer .text-center}
-![stop\_tracking\_delete](/assets/images/track_lines_stop_tracking_delete.jpeg)
+![stop\_tracking\_delete](../../assets/images/track_lines_stop_tracking_delete.jpeg)
 :::
 
 If the layer geometry supports m value, the time is stored in the m

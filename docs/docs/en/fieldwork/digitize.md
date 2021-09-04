@@ -6,7 +6,7 @@ menu (*pencil button*) and select the layer on which you want to add a
 new feature (the layer will be highlighted in green).
 
 ::: {.container .clearer .text-left}
-![](/assets/images/collect_features.webp)
+![](../../assets/images/collect_features.webp)
 :::
 
 Points
@@ -65,7 +65,7 @@ Delete features
 Deleting features is only possible in digitize mode.
 
 ::: {.container .clearer .text-left}
-![](/assets/images/delete_features.webp)
+![](../../assets/images/delete_features.webp)
 :::
 
 To delete a feature, identify it first by a short tap on it. Then select

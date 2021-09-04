@@ -9,7 +9,7 @@ Activate edit mode and press on the target button, the cross in the
 center means it is using GNSS positioning.
 
 ::: {.container .clearer .text-left}
-![](/assets/images/gnss_use.webp)
+![](../../assets/images/gnss_use.webp)
 :::
 
 A long press on the GNSS button will show the positioning menu.
@@ -19,7 +19,7 @@ which will show the current coordinates which are reprojected into the
 project CRS along with precision information.
 
 ::: {.container .clearer .text-left}
-![](/assets/images/user-guide_gps.jpg)
+![](../../assets/images/user-guide_gps.jpg)
 :::
 
 ::: {.note}

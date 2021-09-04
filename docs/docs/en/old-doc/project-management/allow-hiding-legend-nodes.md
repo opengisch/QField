@@ -8,14 +8,14 @@ to **Plugins \> Manage and install plugins \> find Invisible layers and
 groups \> click in install plugin**.
 
 ::: {.container .clearer .text-center}
-![](/assets/images/install_plugin.png)
+![](../../assets/images/install_plugin.png)
 :::
 
 When you finish the installation of the plugin, you will see in the QGIS
 interface this buttons:
 
 ::: {.container .clearer .text-center}
-![](/assets/images/plugin_invisible_layers.png)
+![](../../assets/images/plugin_invisible_layers.png)
 :::
 
 Once the installation process is finished, it is possible to start
@@ -28,7 +28,7 @@ hiding the nodes of the legend our project.
     available in the project for visualization and joins, though.
 
 ::: {.container .clearer .text-center}
-![](/assets/images/plugin_invisible_layers_hide.png)
+![](../../assets/images/plugin_invisible_layers_hide.png)
 :::
 
 3.  Save your project, you can use the section QFieldSync plugin to save
@@ -39,12 +39,12 @@ hiding the nodes of the legend our project.
     hidden legend nodes.
 
 ::: {.container .clearer .text-center}
-![](/assets/images/process_hide_and_show_layers.gif)
+![](../../assets/images/process_hide_and_show_layers.gif)
 :::
 
 Note: If you want to see the hidden layers/groups again, click on show
 invisible layers and groups.
 
 ::: {.container .clearer .text-center}
-![](/assets/images/plugin_invisible_layers_show.png)
+![](../../assets/images/plugin_invisible_layers_show.png)
 :::

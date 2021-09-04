@@ -44,7 +44,7 @@ Default value current date and time when feature created
 
 ::: {.container .clearer .text-center}
 ![Figure 1: Structure
-list](/assets/images/geologic_structure_list.png)
+list](../../assets/images/geologic_structure_list.png)
 :::
 
 Symbology and labels are customized for each layer, including embedded
@@ -75,9 +75,9 @@ and verification process. The QGIS project is then exported back to
 QField for additional data collection.
 
 ::: {.container .clearer .text-center}
-![Figure 2: Field work](/assets/images/geologic_field.png)
+![Figure 2: Field work](../../assets/images/geologic_field.png)
 
-![Figure 3: QField form](/assets/images/geologic_station_qf.jpg)
+![Figure 3: QField form](../../assets/images/geologic_station_qf.jpg)
 :::
 
 Structural data collection may be upgraded with future development of a
@@ -103,5 +103,5 @@ during project design, ensuring attributes are consistent between users
 and reducing human error with constraints and default values.
 
 ::: {.container .clearer .text-center}
-![Figure 2: Map result](/assets/images/geologic_map.jpg)
+![Figure 2: Map result](../../assets/images/geologic_map.jpg)
 :::

@@ -58,7 +58,7 @@ For more information refer to the relations chapter of the official
 Documentation](https://docs.qgis.org/3.4/en/docs/user_manual/working_with_vector/attribute_table.html#creating-one-or-many-to-many-relations).
 
 ::: {.container .clearer .text-center}
-![](/assets/images/relation_editor_widget_list.png)
+![](../../assets/images/relation_editor_widget_list.png)
 :::
 
 The relation widget shows all the referencing child features in a list.
@@ -91,7 +91,7 @@ The second case is usually used when there are additional relation
 information (e.g. percentage) in the linking table.
 
 ::: {.container .clearer .text-center}
-![](/assets/images/relation_widget_cardinality.png)
+![](../../assets/images/relation_widget_cardinality.png)
 :::
 
 In case of the many-to-one cardinality on many-to-many relations the
@@ -109,7 +109,7 @@ It can be used to:
 -   show links to external files like pdfs or documents
 
 ::: {.container .clearer .text-center}
-![](/assets/images/attachement-setting.png)
+![](../../assets/images/attachement-setting.png)
 :::
 
 The path should be set to relative. The pictures, pdf and docs are
@@ -120,7 +120,7 @@ In QField the picture is displayed. By clicking the camera symbol the
 camera is started to update the picture with a new photo.
 
 ::: {.container .clearer .text-center}
-![](/assets/images/qfield_picture.png)
+![](../../assets/images/qfield_picture.png)
 :::
 
 On synchronization the sub-directory with the pictures, pdf and docs has
@@ -131,7 +131,7 @@ camera functionality and enable a hyperlink to open a document (pdf,
 doc, \...).
 
 ::: {.container .clearer .text-center}
-![](/assets/images/hyperlink_option.png)
+![](../../assets/images/hyperlink_option.png)
 :::
 
 Value Relation
@@ -144,7 +144,7 @@ value, order by value and allow multiple selections. The widget will
 display a drop-down or multiple-select list of the referenced features.
 
 ::: {.container .clearer .text-center}
-![](/assets/images/value_relation_widget.gif)
+![](../../assets/images/value_relation_widget.gif)
 :::
 
 Drag and drop designer forms
@@ -166,7 +166,7 @@ checkbox is checked, the list of diseases will be available to the user.
 ::: {.container .clearer .text-center}
 ![Configuration of a group box that will only be shown if the checkbox
 \"measures\_taken\" is
-checked.](/assets/images/conditional_visibility_configuration.png)
+checked.](../../assets/images/conditional_visibility_configuration.png)
 :::
 
 Let\'s see what we got on the field:
@@ -188,7 +188,7 @@ constraint is not satisfied.
 
 ::: {.container .clearer .text-center}
 ![Configuration of a constraint within a
-range](/assets/images/constraint_configuration.png)
+range](../../assets/images/constraint_configuration.png)
 :::
 
 Common use cases
@@ -217,7 +217,7 @@ can be based on the geometry or expression variables.
 
 ::: {.container .clearer .text-center}
 ![Configuration of a formatted date as default
-value](/assets/images/default_value_configuration.png)
+value](../../assets/images/default_value_configuration.png)
 :::
 
 Additional variables
