@@ -31,6 +31,7 @@ jobs:
       - name: Init tx config
         run: |
           pipenv run ./scripts/update-tx.py
+          cat .tx/config
 
       - name: Push source files for translation
         env:
