@@ -11,7 +11,7 @@ repo_url: https://github.com/opengisch/qfield
 edit_uri: https://github.com/opengisch/mkdocs_test/tree/master/docs/
 
 # Copyright
-copyright: Copyright &copy; 2020 OPENGIS.ch
+copyright: Copyright &copy; 2021 OPENGIS.ch
 
 # Configuration
 theme:
@@ -43,11 +43,12 @@ plugins:
         fr: Français
 
 # Page tree
-nav:
-  - Home:
-    - Welcome: index.md
-  - QField:
-    - qfield/concepts.md
+# nav:
+#   - Home:
+#     - Welcome: index.md
+#   - QField:
+#     - qfield/concepts.md
+
 # Extensions
 markdown_extensions:
   - admonition

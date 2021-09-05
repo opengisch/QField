@@ -50,11 +50,10 @@ jobs:
         run: |
           pipenv run mkdocs build
 
-
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@4.1.4
         with:
           branch: gh-pages
           folder: docs/site
-          repository-name: opengisch/qfield-doc-preview
+          repository-name: opengisch/qfield-doc-preview # TODO
           token: ${{ secrets.FAIRY_TOKEN }}
