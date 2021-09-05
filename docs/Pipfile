@@ -5,6 +5,7 @@ name = "pypi"
 
 [packages]
 mkdocs-material = "*"
+mkdocs-static-i18n = "*"
 fancyboxmd = "*"
 markdown-i18n = "*"
 

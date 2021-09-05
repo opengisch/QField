@@ -34,6 +34,14 @@ theme:
         icon: octicons/moon-24
         name: Switch to dark mode
 
+plugins:
+  - i18n:
+      default_language: en
+      languages:
+        en: English
+        de: Deutsch
+        fr: Français
+
 # Page tree
 nav:
   - Home:
