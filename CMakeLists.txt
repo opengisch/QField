@@ -68,12 +68,21 @@ if (WITH_SPIX)
 endif ()
 
 if (ANDROID)
+  # This is necessary in order for CMake to be able to detect libraries in OSGeo4A
+  list(APPEND CMAKE_FIND_ROOT_PATH /)
+
   add_definitions(-DQGIS_INSTALL_DIR="") # TODO: do we need osgeo4a/[lib]/files here? see qgis.pri
+
+  # Android SDK stuff
   set(ANDROID_TARGET_PLATFORM CACHE INT "Target Android platform SDK version")
   set(ANDROID_PLATFORM 21 CACHE INT "Minimum Android platform SDK version")
   set(ANDROID_PACKAGE_SOURCE_DIR ${CMAKE_SOURCE_DIR}/android)
+
+  # Paths relevant to OSGeo4A
   set(OSGEO4A_STAGE_DIR NONE CACHE PATH "OSGeo4A stage path (base path without architecture)")
   set(OSGEO4A_LIB_DIR ${OSGEO4A_STAGE_DIR}/${ANDROID_ABI}/lib)
+
+  # Extra libraries to be copied after building
   list(APPEND ANDROID_EXTRA_LIBS
     ${OSGEO4A_LIB_DIR}/libssl_1_1.so
     ${OSGEO4A_LIB_DIR}/libcrypto_1_1.so
@@ -106,6 +115,7 @@ if (ANDROID)
     ${OSGEO4A_LIB_DIR}/libpoppler_${ANDROID_ABI}.so
     ${OSGEO4A_LIB_DIR}/libfreetype.so
   )
+
   find_package(Qt5 COMPONENTS AndroidExtras REQUIRED)
 
   configure_file(cmake/generated.xml.in ${CMAKE_SOURCE_DIR}/android/res/values/generated.xml @ONLY)
@@ -147,6 +157,12 @@ if (ANDROID)
   # Remove world map to keep apk size a bit smaller
   file(REMOVE "${SHARE_PATH}/qgis/resources/data/world_map.gpkg")
   file(COPY resources/ DESTINATION "${SHARE_PATH}/qfield/")
+
+  # We use GDAL in OSGeo4A instead
+  set(ENV{GDAL_ROOT} ${OSGEO4A_STAGE_DIR}/${ANDROID_ABI})
+
+  # Don't do tests when building for Android
+  set(ENABLE_TESTS FALSE)
 endif()
 
 set(QT_MIN_VERSION 5.14.0)
@@ -159,10 +175,6 @@ find_package(Qt5 COMPONENTS PrintSupport QUIET)
 find_package(QGIS REQUIRED)
 if(NOT ${CMAKE_SYSTEM_NAME} STREQUAL "iOS")
   find_package(Proj)
-  if(ANDROID)
-    # If the build target is Android, we use OSGeo4A libraries instead
-    set(ENV{GDAL_ROOT} ${OSGEO4A_STAGE_DIR}/${ANDROID_ABI})
-  endif(ANDROID)
   find_package(GDAL)
 endif()
 find_package(QCA)
@@ -182,11 +194,6 @@ if (${CMAKE_SYSTEM_NAME} STREQUAL "iOS")
   file(REMOVE "${SHARE_PATH}/qgis/resources/data/world_map.gpkg")
 
   set(QFIELD_RESOURCE_FILES ${SHARE_PATH})
-endif()
-
-# Don't do tests when building for Android
-IF(ANDROID)
-  set(ENABLE_TESTS FALSE)
 endif()
 
 set(ENABLE_TESTS CACHE BOOL "Build unit tests")
