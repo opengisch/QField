@@ -50,8 +50,9 @@ Please remember that this is the latest development build and is **not** tested 
 
 ### For Android
 
-Building QField is a multi layered process with more than a few caveats.
-Luckily there is a super simple build script that does the dirty work for you.
+#### Automatic (Docker)
+
+You can build QField for Android using our Docker image. Just execute the provided script:
 
 ```
 ./scripts/build.sh
@@ -65,6 +66,23 @@ If you want to build for a different architecture, set the ARCH enviroment varia
 ARCH=x86_64 ./scripts/build.sh
 ```
 
+#### Manual (Qt Creator)
+
+You need to have Qt for Android installed and Qt Creator set up for Android development as in [Qt documentation](https://doc.qt.io/qt-5/android-getting-started.html).
+
+To setup QField for development in Qt Creator, do as follows:
+
+- Download the latest version of QField SDK from [here](https://github.com/opengisch/OSGeo4A/releases) and extract it.
+- In Qt Creator, import the source tree, enable Android kit and in initial CMake parameters, set `OSGEO4A_STAGE_DIR` to where you have extracted QField SDK to.
+- Set `ANDROID_TARGET_PLATFORM` to an Android target platform version number of your choice. If in doubt, set it to the version of the SDK platform that you're going to use to build QField.
+- Configure the project and build.
+
+Please note that you may get SIGILL when trying to debug QField using GDB. If that's the case, set this startup command for GDB in Qt Creator settings:
+
+```
+handle SIGILL pass nostop noprint
+```
+
 ### For iOs
 
 - [x] Build sdk in cloud
@@ -75,8 +93,6 @@ ARCH=x86_64 ./scripts/build.sh
 - [ ] Update https://www.opengis.ch/android-gis/qfield/donate-and-sponsor/ in About.qml to https://www.opengis.ch/projects/qfield-love/
 
 ### For Desktop
-
-In general it's much easier to develop on Desktop where you get quick feedback and a step by step debugger.
 
 To build QField for a desktop environment:
 

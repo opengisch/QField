@@ -14,26 +14,34 @@
 #    QTKEYCHAIN_INCLUDE_DIR
 #    QTKEYCHAIN_LIBRARY
 
-FIND_PATH(QTKEYCHAIN_INCLUDE_DIR keychain.h
-  PATHS
-  ${LIB_DIR}/include
-  "$ENV{LIB_DIR}/include"
-  $ENV{INCLUDE}
-  /usr/local/include
-  /usr/include
-  PATH_SUFFIXES qt5keychain qtkeychain qt6keychain
-)
+if(ANDROID)
+  set(QTKEYCHAIN_INCLUDE_DIR ${OSGEO4A_STAGE_DIR}/${ANDROID_ABI}/include/qt5keychain CACHE PATH "")
+  set(QTKEYCHAIN_LIBRARY ${OSGEO4A_STAGE_DIR}/${ANDROID_ABI}/lib/libqt5keychain_${ANDROID_ABI}.so CACHE PATH "")
 
-FIND_LIBRARY(QTKEYCHAIN_LIBRARY NAMES qt5keychain qtkeychain qt6keychain
-  PATHS
-  ${LIB_DIR}
-  "$ENV{LIB_DIR}"
-  $ENV{LIB_DIR}/lib
-  $ENV{LIB}
-  /usr/local/lib
-  /usr/lib
-)
+else()
+  FIND_PATH(QTKEYCHAIN_INCLUDE_DIR keychain.h
+    PATHS
+    ${LIB_DIR}/include
+    "$ENV{LIB_DIR}/include"
+    $ENV{INCLUDE}
+    /usr/local/include
+    /usr/include
+    ${OSGEO4A_STAGE_DIR}/${ANDROID_ABI}/include
+    PATH_SUFFIXES qt5keychain qtkeychain qt6keychain
+  )
 
+  FIND_LIBRARY(QTKEYCHAIN_LIBRARY NAMES qt5keychain qtkeychain qt6keychain qt5keychain_${ANDROID_ABI}
+    PATHS
+    ${LIB_DIR}
+    "$ENV{LIB_DIR}"
+    $ENV{LIB_DIR}/lib
+    $ENV{LIB}
+    /usr/local/lib
+    /usr/lib
+    ${OSGEO4A_STAGE_DIR}/${ANDROID_ABI}/lib
+  )
+
+endif()
 
 IF (QTKEYCHAIN_INCLUDE_DIR AND QTKEYCHAIN_LIBRARY)
   SET(QTKEYCHAIN_FOUND TRUE)

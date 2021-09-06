@@ -13,48 +13,51 @@
 # Redistribution and use is allowed according to the terms of the BSD license.
 # For details see the accompanying COPYING-CMAKE-SCRIPTS file.
 
-
-if(QCA_INCLUDE_DIR AND QCA_LIBRARY)
-
+if(ANDROID)
+  set(QCA_INCLUDE_DIR ${OSGEO4A_STAGE_DIR}/${ANDROID_ABI}/include/Qca-qt5/QtCrypto CACHE PATH "")
+  set(QCA_LIBRARY ${OSGEO4A_STAGE_DIR}/${ANDROID_ABI}/lib/libqca-qt5_${ANDROID_ABI}.so CACHE PATH "")
   set(QCA_FOUND TRUE)
 
-else(QCA_INCLUDE_DIR AND QCA_LIBRARY)
-
-  set(QCA_LIBRARY_NAMES qca-qt5 qca2-qt5 qca-qt6 qca qca-qt5_${ANDROID_ABI})
-
-  find_library(QCA_LIBRARY
-    NAMES ${QCA_LIBRARY_NAMES}
-    PATHS
-      ${LIB_DIR}
-      $ENV{LIB}
-      "$ENV{LIB_DIR}"
-      $ENV{LIB_DIR}/lib
-      /usr/local/lib
-      ${OSGEO4A_STAGE_DIR}/${ANDROID_ABI}/lib
-  )
-
-  set(_qca_fw)
-  if(QCA_LIBRARY MATCHES "/qca.*\\.framework")
-    string(REGEX REPLACE "^(.*/qca.*\\.framework).*$" "\\1" _qca_fw "${QCA_LIBRARY}")
-  endif()
-
-  find_path(QCA_INCLUDE_DIR
-    NAMES QtCrypto
-    PATHS
-      "${_qca_fw}/Headers"
-      ${LIB_DIR}/include
-      "$ENV{LIB_DIR}/include"
-      $ENV{INCLUDE}
-      /usr/local/include
-      ${OSGEO4A_STAGE_DIR}/${ANDROID_ABI}/include
-      PATH_SUFFIXES QtCrypto qt5/QtCrypto Qca-qt5/QtCrypto qt/Qca-qt5/QtCrypto qt5/Qca-qt5/QtCrypto Qca-qt6/QtCrypto
-  )
-
-  if(QCA_LIBRARY AND QCA_INCLUDE_DIR)
+else()
+  if(QCA_INCLUDE_DIR AND QCA_LIBRARY)
     set(QCA_FOUND TRUE)
-  endif()
+  else(QCA_INCLUDE_DIR AND QCA_LIBRARY)
+    set(QCA_LIBRARY_NAMES qca-qt5 qca2-qt5 qca-qt6 qca qca-qt5_${ANDROID_ABI})
 
-endif(QCA_INCLUDE_DIR AND QCA_LIBRARY)
+    find_library(QCA_LIBRARY
+      NAMES ${QCA_LIBRARY_NAMES}
+      PATHS
+        ${LIB_DIR}
+        $ENV{LIB}
+        "$ENV{LIB_DIR}"
+        $ENV{LIB_DIR}/lib
+        /usr/local/lib
+        ${OSGEO4A_STAGE_DIR}/${ANDROID_ABI}/lib
+    )
+
+    set(_qca_fw)
+    if(QCA_LIBRARY MATCHES "/qca.*\\.framework")
+      string(REGEX REPLACE "^(.*/qca.*\\.framework).*$" "\\1" _qca_fw "${QCA_LIBRARY}")
+    endif()
+
+    find_path(QCA_INCLUDE_DIR
+      NAMES QtCrypto
+      PATHS
+        "${_qca_fw}/Headers"
+        ${LIB_DIR}/include
+        "$ENV{LIB_DIR}/include"
+        $ENV{INCLUDE}
+        /usr/local/include
+        ${OSGEO4A_STAGE_DIR}/${ANDROID_ABI}/include
+        PATH_SUFFIXES QtCrypto qt5/QtCrypto Qca-qt5/QtCrypto qt/Qca-qt5/QtCrypto qt5/Qca-qt5/QtCrypto Qca-qt6/QtCrypto
+    )
+
+    if(QCA_LIBRARY AND QCA_INCLUDE_DIR)
+      set(QCA_FOUND TRUE)
+    endif()
+  endif(QCA_INCLUDE_DIR AND QCA_LIBRARY)
+
+endif()
 
 if(NOT QCA_FOUND)
 

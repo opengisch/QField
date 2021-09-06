@@ -18,39 +18,46 @@
 # locations. When an earlier FIND_* succeeds, subsequent FIND_*s
 # searching for the same item do nothing.
 
-# try to use framework on mac
-# want clean framework path, not unix compatibility path
-IF (APPLE)
-  IF (CMAKE_FIND_FRAMEWORK MATCHES "FIRST"
-      OR CMAKE_FRAMEWORK_PATH MATCHES "ONLY"
-      OR NOT CMAKE_FIND_FRAMEWORK)
-    SET (CMAKE_FIND_FRAMEWORK_save ${CMAKE_FIND_FRAMEWORK} CACHE STRING "" FORCE)
-    SET (CMAKE_FIND_FRAMEWORK "ONLY" CACHE STRING "" FORCE)
-    #FIND_PATH(PROJ_INCLUDE_DIR PROJ/proj_api.h)
-    FIND_LIBRARY(PROJ_LIBRARY PROJ)
-    IF (PROJ_LIBRARY)
-      # FIND_PATH doesn't add "Headers" for a framework
-      SET (PROJ_INCLUDE_DIR ${PROJ_LIBRARY}/Headers CACHE PATH "Path to a file.")
-    ENDIF (PROJ_LIBRARY)
-    SET (CMAKE_FIND_FRAMEWORK ${CMAKE_FIND_FRAMEWORK_save} CACHE STRING "" FORCE)
-  ENDIF ()
-ENDIF (APPLE)
+if(ANDROID)
+  set(PROJ_INCLUDE_DIR ${OSGEO4A_STAGE_DIR}/${ANDROID_ABI}/include CACHE PATH "")
+  set(PROJ_LIBRARY ${OSGEO4A_STAGE_DIR}/${ANDROID_ABI}/lib/libproj.so CACHE PATH "")
 
-FIND_PATH(PROJ_INCLUDE_DIR proj_api.h
-  "$ENV{INCLUDE}"
-  "$ENV{LIB_DIR}/include"
-  )
-IF (NOT PROJ_INCLUDE_DIR)
-  FIND_PATH(PROJ_INCLUDE_DIR proj.h
+else()
+  # try to use framework on mac
+  # want clean framework path, not unix compatibility path
+  IF (APPLE)
+    IF (CMAKE_FIND_FRAMEWORK MATCHES "FIRST"
+        OR CMAKE_FRAMEWORK_PATH MATCHES "ONLY"
+        OR NOT CMAKE_FIND_FRAMEWORK)
+      SET (CMAKE_FIND_FRAMEWORK_save ${CMAKE_FIND_FRAMEWORK} CACHE STRING "" FORCE)
+      SET (CMAKE_FIND_FRAMEWORK "ONLY" CACHE STRING "" FORCE)
+      #FIND_PATH(PROJ_INCLUDE_DIR PROJ/proj_api.h)
+      FIND_LIBRARY(PROJ_LIBRARY PROJ)
+      IF (PROJ_LIBRARY)
+        # FIND_PATH doesn't add "Headers" for a framework
+        SET (PROJ_INCLUDE_DIR ${PROJ_LIBRARY}/Headers CACHE PATH "Path to a file.")
+      ENDIF (PROJ_LIBRARY)
+      SET (CMAKE_FIND_FRAMEWORK ${CMAKE_FIND_FRAMEWORK_save} CACHE STRING "" FORCE)
+    ENDIF ()
+  ENDIF (APPLE)
+
+  FIND_PATH(PROJ_INCLUDE_DIR proj_api.h
     "$ENV{INCLUDE}"
     "$ENV{LIB_DIR}/include"
-    )
-ENDIF (NOT PROJ_INCLUDE_DIR)
-
-FIND_LIBRARY(PROJ_LIBRARY NAMES proj_i proj PATHS
-  "$ENV{LIB}"
-  "$ENV{LIB_DIR}/lib"
   )
+  IF (NOT PROJ_INCLUDE_DIR)
+    FIND_PATH(PROJ_INCLUDE_DIR proj.h
+      "$ENV{INCLUDE}"
+      "$ENV{LIB_DIR}/include"
+    )
+  ENDIF (NOT PROJ_INCLUDE_DIR)
+
+  FIND_LIBRARY(PROJ_LIBRARY NAMES proj_i proj PATHS
+    "$ENV{LIB}"
+    "$ENV{LIB_DIR}/lib"
+  )
+
+endif()
 
 IF (PROJ_INCLUDE_DIR AND PROJ_LIBRARY)
    SET(PROJ_FOUND TRUE)
