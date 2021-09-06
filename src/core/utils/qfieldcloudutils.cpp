@@ -29,7 +29,9 @@ void QFieldCloudUtils::setLocalCloudDirectory( const QString &path )
 
 const QString QFieldCloudUtils::localCloudDirectory()
 {
-  QString cloudDirectoryPath = sLocalCloudDirectory.isNull() ? QDir::cleanPath( QgsApplication::qgisSettingsDirPath() ) + QStringLiteral( "/cloud_projects" ) : sLocalCloudDirectory;
+  QString cloudDirectoryPath = sLocalCloudDirectory.isNull()
+                               ? QFileInfo( QgsApplication::qgisSettingsDirPath() ).canonicalFilePath() + QStringLiteral( "/cloud_projects" )
+                               : sLocalCloudDirectory;
   return cloudDirectoryPath;
 }
 
@@ -58,9 +60,12 @@ bool QFieldCloudUtils::isCloudAction( const QgsMapLayer *layer )
 
 const QString QFieldCloudUtils::getProjectId( const QString &fileName )
 {
-  QFileInfo fi( fileName );
-  if ( fileName.startsWith( localCloudDirectory() ) )
-    return fi.dir().dirName();
+  QDir baseDir = QFileInfo( fileName ).dir();
+  QString basePath = QFileInfo( baseDir.path() ).canonicalFilePath();
+  QString cloudPath = QFileInfo( localCloudDirectory() ).canonicalFilePath();
+
+  if ( basePath.startsWith( cloudPath ) )
+    return baseDir.dirName();
 
   return QString();
 }
