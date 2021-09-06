@@ -4,7 +4,7 @@ cmake_minimum_required(VERSION 3.5)
 cmake_policy(SET CMP0071 NEW)
 cmake_policy(SET CMP0074 NEW)
 
-set(QML_IMPORT_PATH ${CMAKE_SOURCE_DIR}/src/qml/imports CACHE PATH "")
+set(QML_IMPORT_PATH ${CMAKE_SOURCE_DIR}/src/qml/imports CACHE PATH "QML import path for Qt Creator to detect custom modules properly")
 
 set(CMAKE_COLOR_MAKEFILE ON)
 set(APP_NAME "QField" CACHE STRING "Application Name")
@@ -21,12 +21,6 @@ project(${APP_NAME}
 )
 
 set(CMAKE_MODULE_PATH ${CMAKE_SOURCE_DIR}/cmake ${CMAKE_MODULE_PATH})
-if(ANDROID)
-  # You probably have installed Qt for Android somewhere else
-  # other than /usr. In that case, this is necessary
-
-  LIST(APPEND CMAKE_FIND_ROOT_PATH "/")
-endif()
 
 include(GetGitRevisionDescription)
 GET_GIT_HEAD_REVISION(GIT_REFSPEC GIT_REV)
@@ -36,38 +30,38 @@ add_definitions(-DAPP_VERSION="${APP_VERSION}")
 add_definitions(-DAPP_VERSION_STR="${APP_VERSION_STR}")
 add_definitions(-DGIT_REV="${GIT_REV}")
 
-set (DEFAULT_BIN_SUBDIR     bin)
-set (DEFAULT_CGIBIN_SUBDIR  bin)
-set (DEFAULT_LIB_SUBDIR     lib${LIB_SUFFIX})
-set (DEFAULT_INCLUDE_SUBDIR include/qfield)
+set(DEFAULT_BIN_SUBDIR     bin)
+set(DEFAULT_CGIBIN_SUBDIR  bin)
+set(DEFAULT_LIB_SUBDIR     lib${LIB_SUFFIX})
+set(DEFAULT_INCLUDE_SUBDIR include/qfield)
 
-set (QFIELD_BIN_SUBDIR     ${DEFAULT_BIN_SUBDIR}     CACHE STRING "Subdirectory where executables will be installed")
-set (QFIELD_LIB_SUBDIR     ${DEFAULT_LIB_SUBDIR}     CACHE STRING "Subdirectory where libraries will be installed")
-set (QFIELD_INCLUDE_SUBDIR ${DEFAULT_INCLUDE_SUBDIR} CACHE STRING "Subdirectory where header files will be installed")
+set(QFIELD_BIN_SUBDIR     ${DEFAULT_BIN_SUBDIR}     CACHE STRING "Subdirectory where executables will be installed")
+set(QFIELD_LIB_SUBDIR     ${DEFAULT_LIB_SUBDIR}     CACHE STRING "Subdirectory where libraries will be installed")
+set(QFIELD_INCLUDE_SUBDIR ${DEFAULT_INCLUDE_SUBDIR} CACHE STRING "Subdirectory where header files will be installed")
 
-set (WITH_VCPKG OFF CACHE BOOL "Build with vcpkg packaging layout")
-set (USE_MAC_BUNDLING ${WITH_VCPKG} CACHE BOOL "Use mac bundling")
+set(WITH_VCPKG OFF CACHE BOOL "Build with vcpkg packaging layout")
+set(USE_MAC_BUNDLING NOT ${WITH_VCPKG} CACHE BOOL "Use mac bundling")
 
 mark_as_advanced (QFIELD_INCLUDE_SUBDIR QFIELD_BIN_SUBDIR QFIELD_LIB_SUBDIR WITH_VCPKG USE_MAC_BUNDLING)
-set (QFIELD_BIN_DIR ${QFIELD_BIN_SUBDIR})
-set (QFIELD_LIB_DIR ${QFIELD_LIB_SUBDIR})
-set (QFIELD_INCLUDE_DIR ${QFIELD_INCLUDE_SUBDIR})
-set (QT_ANDROID_APPLICATION_BINARY "qfield")
+set(QFIELD_BIN_DIR ${QFIELD_BIN_SUBDIR})
+set(QFIELD_LIB_DIR ${QFIELD_LIB_SUBDIR})
+set(QFIELD_INCLUDE_DIR ${QFIELD_INCLUDE_SUBDIR})
+set(QT_ANDROID_APPLICATION_BINARY "qfield")
 
 # set the default locations where the targets (executables, libraries) will land when compiled
 # this is to allow running QField directly from the build directory.
 if (ANDROID)
-  set (QFIELD_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/android-build)
+  set(QFIELD_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/android-build)
 else()
-  set (QFIELD_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/output)
+  set(QFIELD_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/output)
 endif()
 
-set (CMAKE_RUNTIME_OUTPUT_DIRECTORY ${QFIELD_OUTPUT_DIRECTORY}/${QFIELD_BIN_SUBDIR})
-set (CMAKE_LIBRARY_OUTPUT_DIRECTORY ${QFIELD_OUTPUT_DIRECTORY}/${QFIELD_LIB_SUBDIR})
+set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${QFIELD_OUTPUT_DIRECTORY}/${QFIELD_BIN_SUBDIR})
+set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${QFIELD_OUTPUT_DIRECTORY}/${QFIELD_LIB_SUBDIR})
 
 install(DIRECTORY ${CMAKE_SOURCE_DIR}/resources/ DESTINATION ${CMAKE_INSTALL_PREFIX}/share/qfield)
 
-set (WITH_SPIX FALSE CACHE STRING "Compile with Spix for testing")
+set(WITH_SPIX FALSE CACHE STRING "Compile with Spix for testing")
 
 if (WITH_SPIX)
   find_package(Spix)
@@ -75,8 +69,8 @@ endif ()
 
 if (ANDROID)
   add_definitions(-DQGIS_INSTALL_DIR="") # TODO: do we need osgeo4a/[lib]/files here? see qgis.pri
-  set(ANDROID_TARGET_PLATFORM CACHE INT "")
-  set(ANDROID_PLATFORM 21 CACHE INT "")
+  set(ANDROID_TARGET_PLATFORM CACHE INT "Target Android platform SDK version")
+  set(ANDROID_PLATFORM 21 CACHE INT "Minimum Android platform SDK version")
   set(ANDROID_PACKAGE_SOURCE_DIR ${CMAKE_SOURCE_DIR}/android)
   set(OSGEO4A_STAGE_DIR NONE CACHE PATH "OSGeo4A stage path (base path without architecture)")
   set(OSGEO4A_LIB_DIR ${OSGEO4A_STAGE_DIR}/${ANDROID_ABI}/lib)
@@ -190,12 +184,12 @@ if (${CMAKE_SYSTEM_NAME} STREQUAL "iOS")
   set(QFIELD_RESOURCE_FILES ${SHARE_PATH})
 endif()
 
-set(ENABLE_TESTS CACHE BOOL "Build unit tests")
+# Don't do tests when building for Android
 IF(ANDROID)
   set(ENABLE_TESTS FALSE)
-else()
-  set(ENABLE_TESTS TRUE)
 endif()
+
+set(ENABLE_TESTS CACHE BOOL "Build unit tests")
 
 if(MSVC)
   add_definitions(-D_USE_MATH_DEFINES)
