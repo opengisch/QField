@@ -22,6 +22,7 @@ AttributeFormModel::AttributeFormModel( QObject *parent )
   , mSourceModel( new AttributeFormModelBase( this ) )
 {
   setSourceModel( mSourceModel );
+
   connect( mSourceModel, &AttributeFormModelBase::hasTabsChanged, this, &AttributeFormModel::hasTabsChanged );
   connect( mSourceModel, &AttributeFormModelBase::featureModelChanged, this, &AttributeFormModel::featureModelChanged );
   connect( mSourceModel, &AttributeFormModelBase::featureChanged, this, &AttributeFormModel::featureChanged );

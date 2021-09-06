@@ -75,22 +75,26 @@ EditorWidgetBase {
   onCurrentValueChanged: {
       if ( isImage ) {
           if ( value === undefined || FileUtils.fileName( prefixToRelativePath + value ) === '' ) {
-              image.width = 24
+              image.hasImage = false
+              imageFrame.height = 48
               image.opacity = 0.25
               image.anchors.topMargin = 11
               image.source = Theme.getThemeIcon("ic_photo_notavailable_black_24dp")
               geoTagBadge.visible = false
           } else if ( image.status === Image.Error || !FileUtils.fileExists( prefixToRelativePath + value ) ) {
-              image.width = 24
+              image.hasImage = false
+              imageFrame.height = 48
               image.opacity = 0.25
               image.anchors.topMargin = 11
               image.source=Theme.getThemeIcon("ic_broken_image_black_24dp")
               geoTagBadge.visible = false
           } else {
-              image.width = 220
+              image.hasImage = true
+              imageFrame.height = 200
               image.opacity = 1
               image.anchors.topMargin = 0
               image.source= 'file://' + prefixToRelativePath + value
+              console.log(image.source)
               geoTagBadge.hasGeoTag = ExifTools.hasGeoTag(prefixToRelativePath + value)
               geoTagBadge.visible = true
           }
@@ -177,76 +181,84 @@ EditorWidgetBase {
     font: linkField.font
   }
 
-  Image {
-    id: image
-    visible: isImage
-    enabled: isImage
-    anchors.left: parent.left
-    anchors.top: parent.top
-    width: 48
-    opacity: 0.25
-    autoTransform: true
-    fillMode: Image.PreserveAspectFit
-    horizontalAlignment: Image.AlignLeft
 
-    source: Theme.getThemeIcon("ic_photo_notavailable_black_24dp")
+  Rectangle {
+      id: imageFrame
+      width: parent.width - button_gallery.width - button_camera.width
+      height: 48
+      color: isEnabled ? Theme.lightGray : "transparent"
+      radius: 2
+      clip: true
 
-    onStatusChanged: {
-        if (status == Image.Ready) {
-            if (sourceSize.height > sourceSize.width && sourceSize.height > 220) {
-                width = sourceSize.width * 220 / sourceSize.height
-                height = 220
-            } else if (sourceSize.width > 220) {
-                width = 220
-                height = sourceSize.height * 220 / sourceSize.width
-            } else {
-                width = sourceSize.width
-                height = sourceSize.height
-            }
-        }
-    }
+      Image {
+          id: image
 
-    MouseArea {
-      anchors.fill: parent
+          property bool hasImage: false
 
-      onClicked: {
-        if ( FileUtils.fileExists( prefixToRelativePath + value ) )
-          platformUtilities.open( prefixToRelativePath + value );
+          visible: isImage
+          enabled: isImage
+          anchors.centerIn: parent
+          width: hasImage ? parent.width : 24
+          height: hasImage ? parent.height : 24
+          opacity: 0.25
+          autoTransform: true
+          fillMode: Image.PreserveAspectFit
+          horizontalAlignment: Image.AlignHCenter
+          verticalAlignment: Image.AlignVCenter
+
+          source: Theme.getThemeIcon("ic_photo_notavailable_black_24dp")
+
+          MouseArea {
+              anchors.fill: parent
+
+              onClicked: {
+                  if ( FileUtils.fileExists( prefixToRelativePath + value ) )
+                      platformUtilities.open( prefixToRelativePath + value );
+              }
+          }
+
+          Image {
+              property bool hasGeoTag: false
+              id: geoTagBadge
+              visible: false
+              anchors.top: image.top
+              anchors.right: image.right
+              anchors.rightMargin: 10
+              anchors.topMargin: 12
+              fillMode: Image.PreserveAspectFit
+              width: 24
+              height: 24
+              source: hasGeoTag ? Theme.getThemeIcon("ic_geotag_24dp") : Theme.getThemeIcon("ic_geotag_missing_24dp")
+              sourceSize.width: 24 * Screen.devicePixelRatio
+              sourceSize.height: 24 * Screen.devicePixelRatio
+          }
+
+          DropShadow {
+              anchors.fill: geoTagBadge
+              visible: geoTagBadge.visible
+              horizontalOffset: 0
+              verticalOffset: 0
+              radius: 6.0
+              samples: 17
+              color: "#DD000000"
+              source: geoTagBadge
+          }
       }
-    }
-
-    Image {
-      property bool hasGeoTag: false
-      id: geoTagBadge
-      visible: false
-      anchors.bottom: image.bottom
-      anchors.right: image.right
-      anchors.rightMargin: 10
-      anchors.bottomMargin: 12
-      fillMode: Image.PreserveAspectFit
-      width: 24
-      height: 24
-      source: hasGeoTag ? Theme.getThemeIcon("ic_geotag_24dp") : Theme.getThemeIcon("ic_geotag_missing_24dp")
-      sourceSize.width: 24 * Screen.devicePixelRatio
-      sourceSize.height: 24 * Screen.devicePixelRatio
-
-    }
-
-    DropShadow {
-      anchors.fill: geoTagBadge
-      visible: geoTagBadge.visible
-      horizontalOffset: 0
-      verticalOffset: 0
-      radius: 6.0
-      samples: 17
-      color: "#DD000000"
-      source: geoTagBadge
-    }
+      Rectangle {
+          color: "transparent"
+          anchors.left: parent.left
+          anchors.right: parent.right
+          height: isEnabled ? parent.height : 1
+          y: isEnabled ? 0 : parent.height - 1
+          border.width: 1
+          border.color: Theme.mainColor
+          radius: 2
+      }
   }
 
   QfToolButton {
     id: button_camera
-    width: 48
+    width: visible ? 48 : 0
     height: 48
 
     anchors.right: button_gallery.left
@@ -270,7 +282,7 @@ EditorWidgetBase {
 
   QfToolButton {
     id: button_gallery
-    width: 48
+    width: visible ? 48 : 0
     height: 48
 
     anchors.right: parent.right

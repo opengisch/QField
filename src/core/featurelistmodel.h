@@ -86,6 +86,7 @@ class FeatureListModel : public QAbstractItemModel
     Q_ENUM( FeatureListRoles )
 
     explicit FeatureListModel( QObject *parent = nullptr );
+    ~FeatureListModel();
 
     virtual QModelIndex index( int row, int column, const QModelIndex &parent ) const override;
     virtual QModelIndex parent( const QModelIndex &child ) const override;
@@ -226,6 +227,8 @@ class FeatureListModel : public QAbstractItemModel
        * in the end.
        */
     void reloadLayer();
+
+    void cleanupGatherer();
 
     QgsVectorLayer *mCurrentLayer = nullptr;
 

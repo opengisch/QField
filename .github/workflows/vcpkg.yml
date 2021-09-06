@@ -17,32 +17,14 @@ jobs:
       fail-fast: false
       matrix:
         include:
-          - os: 'windows-2019'
-            triplet: 'x64-windows'
-            mono: ''
-            build-type: 'Release'
-            vcpkg-root: 'C:'
-            pathconvert: 'cygpath -u'
-            exclude-tests: '(smoke_test)'
+          - triplet: 'x64-windows'
+            os: 'windows-2019'
 
-          - os: 'ubuntu-20.04'
-            triplet: 'x64-linux'
-            # To run `nuget.exe` on non-Windows platforms, we must use `mono`.
-            mono: 'mono'
-            build-type: 'Release'
-            vcpkg-root: '/home/runner'
-            overlay: 'vcpkg/overlay_system_qt'
-            install_qt: true
-            qt_target: 'desktop'
-            qt_arch: ''
-            pathconvert: 'echo'
+          - triplet: 'x64-linux'
+            os: 'ubuntu-20.04'
 
     env:
       TX_TOKEN: ${{ secrets.TX_TOKEN }}
-      VCPKG_BINARY_SOURCES: 'clear;nuget,GitHub,readwrite'
-      VCPKG_ROOT: ${{ matrix.vcpkg-root }}/src
-      CMAKE_BUILD_DIR: ${{ matrix.vcpkg-root}}/builddir
-      VCPKG_DEFAULT_BINARY_CACHE: ${{ matrix.vcpkg-root }}/vcpkg_cache
 
     steps:
 # Avoid that we run out of disk space
@@ -53,40 +35,69 @@ jobs:
 #          remove-haskell: true # 9G
 #          remove-android: true # 18G
 #          remove-dotnet: true # 30G
+      - name: 🌾 Prepare vars
+        id: vars
+        shell: bash
+        run: |
+          case ${{ matrix.triplet }} in
+            x64-windows)
+              BUILD_ROOT="C:"
+              echo "::set-output name=MONO::"
+              echo "::set-output name=PATHCONVERT::cygpath -u"
+              echo "::set-output name=EXCLUDE_TESTS::(smoke_test)"
+              ;;
 
-      - name: Checkout
+            x64-linux)
+              BUILD_ROOT="/home/runner"
+              echo "::set-output name=MONO::mono"
+              echo "::set-output name=OVERLAY::vcpkg/overlay_system_qt"
+              echo "::set-output name=PATHCONVERT::echo"
+              echo "::set-output name=INSTALL_QT::true"
+              echo "::set-output name=QT_TARGET::desktop"
+              echo "::set-output name=QT_ARCH::"
+              ;;
+          esac
+
+          echo "::set-output name=VCPKG_ROOT::${BUILD_ROOT}/src"
+          echo "::set-output name=BUILD_TYPE::Release"
+
+          echo "VCPKG_ROOT=${BUILD_ROOT}/src" >> $GITHUB_ENV
+          echo "CMAKE_BUILD_DIR=${BUILD_ROOT}/builddir" >> $GITHUB_ENV
+          echo "VCPKG_DEFAULT_BINARY_CACHE=${BUILD_ROOT}/vcpkg_cache" >> $GITHUB_ENV
+
+      - name: 🐣 Checkout
         uses: actions/checkout@v2
         with:
           submodules: recursive
 
-      - name: Install CMake and Ninja
+      - name: 🐩 Install CMake and Ninja
         uses: lukka/get-cmake@latest
 
-      - name: Clone vcpkg
+      - name: 📪 Clone vcpkg
         shell: bash
         run: |
           VCPKG_SHA=$(head -1 .git/modules/vcpkg/HEAD)
           mkdir -p "${{ env.VCPKG_DEFAULT_BINARY_CACHE }}"
-          mkdir -p "${{ env.VCPKG_ROOT }}"
-          cd "${{ env.VCPKG_ROOT }}"
+          mkdir -p "${{ steps.vars.outputs.VCPKG_ROOT }}"
+          cd "${{ steps.vars.outputs.VCPKG_ROOT }}"
           git init
           git remote add origin https://github.com/microsoft/vcpkg.git
           git fetch --depth 1 origin $VCPKG_SHA
           git checkout FETCH_HEAD
 
-      - name: Cache vcpkg
+      - name: 📫 Cache vcpkg
         id: cache-vcpkg-tool
         uses: pat-s/always-upload-cache@v2.1.5
         with:
           path: |
-            ${{ env.VCPKG_ROOT }}/vcpkg
-            ${{ env.VCPKG_ROOT }}/vcpkg.exe
+            ${{ steps.vars.outputs.VCPKG_ROOT }}/vcpkg
+            ${{ steps.vars.outputs.VCPKG_ROOT }}/vcpkg.exe
           key: ${{ runner.os }}-${{ hashFiles('.git/modules/vcpkg/HEAD') }}-x
 
-      - name: Bootstrap vcpkg
+      - name: 📬 Bootstrap vcpkg
         if: steps.cache-vcpkg-tool.outputs.cache-hit != 'true'
         shell: bash
-        working-directory: ${{ env.VCPKG_ROOT }}
+        working-directory: ${{ steps.vars.outputs.VCPKG_ROOT }}
         run: |
           if grep -qEi "(Microsoft|WSL)" /proc/version &> /dev/null ; then
             ./bootstrap-vcpkg.bat
@@ -94,11 +105,11 @@ jobs:
             ./bootstrap-vcpkg.sh
           fi
 
-      - name: Setup NuGet Credentials
+      - name: 🔐 Setup NuGet Credentials
         shell: bash
         run: |
-          ${{ env.VCPKG_ROOT }}/vcpkg fetch nuget
-          ${{ matrix.mono }} $(${{ env.VCPKG_ROOT }}/vcpkg fetch nuget | tail -n 1) \
+          ${{ steps.vars.outputs.VCPKG_ROOT }}/vcpkg fetch nuget
+          ${{ steps.vars.outputs.MONO }} $(${{ steps.vars.outputs.VCPKG_ROOT }}/vcpkg fetch nuget | tail -n 1) \
           sources add \
           -source "https://nuget.pkg.github.com/opengisch/index.json" \
           -storepasswordincleartext \
@@ -106,13 +117,14 @@ jobs:
           -username "opengisch" \
           -password "${{ secrets.GITHUB_TOKEN }}"
 
-          ${{ matrix.mono }} $(${{ env.VCPKG_ROOT }}/vcpkg fetch nuget | tail -n 1) \
+          ${{ steps.vars.outputs.MONO }} $(${{ steps.vars.outputs.VCPKG_ROOT }}/vcpkg fetch nuget | tail -n 1) \
           setapikey ${{ secrets.GITHUB_TOKEN }} -src "https://nuget.pkg.github.com/opengisch/index.json"
 
-      - uses: ilammy/msvc-dev-cmd@v1
+      - name: 🧽 Developer Command Prompt for Microsoft Visual C++
+        uses: ilammy/msvc-dev-cmd@v1
         if: ${{ matrix.os == 'windows-2019' }}
 
-      - name: Free additional space
+      - name: 🔥 Free additional space
         if: ${{ matrix.triplet == 'x64-linux' }}
         run: |
           df -h
@@ -128,41 +140,41 @@ jobs:
           sudo apt clean
           df -h
 
-      - name: Install Qt
-        if: ${{ matrix.install_qt }}
+      - name: 💐 Install Qt
+        if: ${{ steps.vars.outputs.INSTALL_QT }}
         uses: jurplel/install-qt-action@v2
         with:
           version: 5.15.2
           modules: 'qtcharts'
-          target: ${{ matrix.qt_target }}
-          arch: ${{ matrix.qt_arch }}
+          target: ${{ steps.vars.outputs.QT_TARGET }}
+          arch: ${{ steps.vars.outputs.QT_ARCH }}
 
-      - name: Prepare linux build env
+      - name: 🐧 Prepare linux build env
         if: ${{ matrix.triplet == 'x64-linux' }}
         run: |
           sudo apt-get update
           sudo apt-get install -y gperf autopoint '^libxcb.*-dev' libx11-xcb-dev libglu1-mesa-dev libxrender-dev libxi-dev libxkbcommon-dev libxkbcommon-x11-dev
           sudo apt-get remove -y libopenexr-dev # Avoid gdal picking this system lib up
-          # echo "CMAKE_EXTRA_CXX_STANDARD_LIBRARIES=${Qt5_DIR}/lib/libQt5DBus.so /home/runner/builddir/vcpkg_installed/x64-linux/lib/libpgcommon.a /home/runner/builddir/vcpkg_installed/x64-linux/lib/libpgport.a /home/runner/builddir/vcpkg_installed/x64-linux/lib/libwebp.a" >> $GITHUB_ENV
           # Required to run unit tests on linux
           echo "QT_QPA_PLATFORM=offscreen" >> $GITHUB_ENV
           echo "TESTWRAPPER=xvfb-run" >> $GITHUB_ENV
 
-      - name: Install dependencies and generate project files
+      - name: 🌱 Install dependencies and generate project files
         shell: bash
         env:
           WORKSPACE: ${{ github.workspace }}
+          VCPKG_BINARY_SOURCES: 'clear;nuget,GitHub,readwrite'
         run: |
           # Convert paths to bash compatible ones. Thanks to whoever decided to use drive letters and backslashes.
-          CMAKE_BUILD_DIR=$( ${{ matrix.pathconvert }} "${CMAKE_BUILD_DIR}" )
-          VCPKG_ROOT=$( ${{ matrix.pathconvert }} "${VCPKG_ROOT}" )
-          SOURCE_DIR=$( ${{ matrix.pathconvert }} "${WORKSPACE}" )
+          CMAKE_BUILD_DIR=$( ${{ steps.vars.outputs.PATHCONVERT }} "${CMAKE_BUILD_DIR}" )
+          VCPKG_ROOT=$( ${{ steps.vars.outputs.PATHCONVERT }} "${VCPKG_ROOT}" )
+          SOURCE_DIR=$( ${{ steps.vars.outputs.PATHCONVERT }} "${WORKSPACE}" )
 
-          overlay_ports=(${WORKSPACE}/${{ matrix.overlay }} ${WORKSPACE}/vcpkg/overlay)
+          overlay_ports=(${WORKSPACE}/${{ steps.vars.outputs.OVERLAY }} ${WORKSPACE}/vcpkg/overlay)
           echo "Building with $(IFS=\; ; echo "${overlay_ports[*]}")"
           cmake -S "${SOURCE_DIR}" \
                 -B "${CMAKE_BUILD_DIR}" \
-                -DCMAKE_BUILD_TYPE=${{ matrix.build-type }} \
+                -DCMAKE_BUILD_TYPE=${{ steps.vars.outputs.BUILD_TYPE }} \
                 -DCMAKE_TOOLCHAIN_FILE="${VCPKG_ROOT}/scripts/buildsystems/vcpkg.cmake" \
                 -DVCPKG_OVERLAY_PORTS=$(IFS=\; ; echo "${overlay_ports[*]}") \
                 -DVCPKG_TARGET_TRIPLET="${{ matrix.triplet }}" \
@@ -170,12 +182,12 @@ jobs:
                 -DWITH_SPIX=ON \
                 ${EXTRA_CMAKE_ARGS}
 
-      - name: Upload Build Logs
+      - name: 📑 Upload Build Logs
         uses: actions/upload-artifact@v2
         if: failure()
         with:
           name: build-logs-${{ matrix.triplet }}
-          path: ${{ env.VCPKG_ROOT }}/buildtrees/**/*.log
+          path: ${{ steps.vars.outputs.VCPKG_ROOT }}/buildtrees/**/*.log
 
       - name: 🌍 Pull Translations
         shell: bash
@@ -184,32 +196,63 @@ jobs:
             echo "TX_TOKEN not set, skip tx pull"
           else
             pip install transifex-client
-            pushd "${{ env.VCPKG_ROOT }}"
+            pushd "${{ steps.vars.outputs.VCPKG_ROOT }}"
             ./vcpkg integrate install
             popd
             ./scripts/ci/pull_translations.sh
           fi
 
-      - name: Build
+      - name: 🌋 Build
         run: |
-          cmake --build "${{ env.CMAKE_BUILD_DIR }}" --config ${{ matrix.build-type }} # --target qfield
+          cmake --build "${{ env.CMAKE_BUILD_DIR }}" --config ${{ steps.vars.outputs.BUILD_TYPE }} # --target qfield
 
-      - name: Test
+      - name: 🧫 Test
         shell: bash
         env:
           WORKSPACE: ${{ github.workspace }}
         run: |
-          SOURCE_DIR=$( ${{ matrix.pathconvert }} "${WORKSPACE}" )
+          SOURCE_DIR=$( ${{ steps.vars.outputs.PATHCONVERT }} "${WORKSPACE}" )
           pip install -r "${SOURCE_DIR}/test/spix/requirements.txt"
           cd "${{ env.CMAKE_BUILD_DIR }}"
-          ${TESTWRAPPER} ctest --output-on-failure -E '${{ matrix.exclude-tests }}' -C ${{ matrix.build-type }}
+          ${TESTWRAPPER} ctest --output-on-failure -E '${{ steps.vars.outputs.EXCLUDE_TESTS }}' -C ${{ steps.vars.outputs.BUILD_TYPE }}
 
-      - uses: actions/upload-artifact@v2
+      - name: 📦 Upload package
+        uses: actions/upload-artifact@v2
         with:
-          name: "QField-dev-${{ matrix.triplet }}-${{ matrix.build-type }}"
+          name: "QField-dev-${{ matrix.triplet }}-${{ steps.vars.outputs.BUILD_TYPE }}"
           path: "${{ env.CMAKE_BUILD_DIR }}/output"
 
-      - uses: actions/upload-artifact@v2
+      - name: 📊 Upload test report
+        uses: actions/upload-artifact@v2
         with:
-          name: "test-report-${{ matrix.triplet }}-${{ matrix.build-type }}"
+          name: "test-report-${{ matrix.triplet }}-${{ steps.vars.outputs.BUILD_TYPE }}"
           path: "${{ env.CMAKE_BUILD_DIR }}/report"
+
+      - name: 🪔 Get the current release version
+        id: get_version
+        shell: bash
+        run: |
+          echo "::set-output name=version::${GITHUB_REF##*/}"
+
+      - name: 🎂 Create release package
+        uses: papeloto/action-zip@v1
+        with:
+          files: ${{ env.CMAKE_BUILD_DIR }}/output
+          dest: QField-${{ matrix.triplet }}-${{ steps.get_version.outputs.version }}.zip
+
+      - name: 🚀 Upload Release Asset
+        if: github.event_name == 'release' && startsWith(github.ref, 'refs/tags/v')
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ github.event.release.upload_url }}
+          asset_path: QField-${{ matrix.triplet }}-${{ steps.get_version.outputs.version }}.zip
+          asset_name: QField-${{ matrix.triplet }}-${{ steps.get_version.outputs.version }}.zip
+          asset_content_type: application/zip
+
+      - name: 🦨 Setup tmate session
+        if: failure()
+        uses: mxschmitt/action-tmate@v3
+        with:
+          limit-access-to-actor: true

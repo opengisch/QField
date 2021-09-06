@@ -12,10 +12,10 @@ Item {
 
     property bool useCompleter: false
     property bool useSearch: false
+    property bool allowAddFeature: false
 
     Component.onCompleted: {
         comboBox.currentIndex = featureListModel.findKey(value)
-        addButton.visible = _relation !== undefined ? _relation.isValid : false
         invalidWarning.visible = _relation !== undefined ? !(_relation.isValid) : false
     }
 
@@ -84,6 +84,7 @@ Item {
 
             header: PageHeader {
                 title: fieldLabel
+                showBackButton: false
                 showApplyButton: false
                 showCancelButton: true
                 onCancel: searchFeaturePopup.close()
@@ -309,7 +310,7 @@ Item {
                 height: fontMetrics.height + 20
                 text: comboBox.displayText
                 font: comboBox.font
-                color: value === undefined || enabled ? 'black' : 'gray'
+                color: value === undefined || !enabled ? 'gray' : 'black'
                 horizontalAlignment: Text.AlignLeft
                 verticalAlignment: Text.AlignVCenter
                 elide: Text.ElideRight
@@ -527,7 +528,7 @@ Item {
         }
 
         QfToolButton {
-            id: addButton
+            id: addFeatureButton
 
             Layout.preferredWidth: comboBox.enabled ? 48 : 0
             Layout.preferredHeight: 48
@@ -536,7 +537,7 @@ Item {
             opacity: enabled ? 1 : 0.3
             iconSource: Theme.getThemeIcon("ic_add_black_48dp")
 
-            visible: enabled
+            visible: enabled && allowAddFeature && _relation !== undefined && _relation.isValid
 
             onClicked: {
                 embeddedPopup.state = 'Add'

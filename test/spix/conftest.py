@@ -22,6 +22,7 @@ def pytest_html_results_summary(prefix, summary, postfix):
 def process_alive(app, process, process_communicate):
     def func():
         try:
+            global apperrs
             # We need to call something on the rpc server
             # the process might still be running but frozen or only almost dead
             apperrs += app.getErrors()

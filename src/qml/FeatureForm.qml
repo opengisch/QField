@@ -369,7 +369,7 @@ Page {
               topPadding: 10
               bottomPadding: 5
               color: ConstraintHardValid
-                     ? form.state === 'ReadOnly' || embedded && EditorWidget === 'RelationEditor'
+                     ? ( form.state === 'ReadOnly' || !AttributeEditable ) || embedded && EditorWidget === 'RelationEditor'
                          ? 'grey'
                          : ConstraintSoftValid
                            ? 'black'

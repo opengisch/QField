@@ -13,6 +13,7 @@ Page {
   header: PageHeader {
       title: qsTr( 'Unable to load some layers' )
 
+      showBackButton: false
       showApplyButton: false
       showCancelButton: true
 

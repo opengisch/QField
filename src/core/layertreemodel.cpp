@@ -554,11 +554,17 @@ QVariant FlatLayerTreeModelBase::data( const QModelIndex &index, int role ) cons
 
     case FlatLayerTreeModel::Name:
     {
-      QgsLayerTreeNode *node = mLayerTreeModel->index2node( mapToSource( index ) );
+      const QModelIndex sourceIndex = mapToSource( index );
+      QgsLayerTreeNode *node = mLayerTreeModel->index2node( sourceIndex );
       QString name;
       if ( QgsLayerTree::isLayer( node ) || QgsLayerTree::isGroup( node ) )
       {
         name = node->name();
+        if ( node->customProperty( QStringLiteral( "showFeatureCount" ), 0 ).toInt() )
+        {
+          int count = data( index, FlatLayerTreeModel::FeatureCount ).toInt();
+          name += QStringLiteral( " [%1]" ).arg( count );
+        }
       }
       else if ( QgsLayerTreeModelLegendNode *sym = mLayerTreeModel->index2legendNode( mapToSource( index ) ) )
       {
@@ -717,7 +723,7 @@ QVariant FlatLayerTreeModelBase::data( const QModelIndex &index, int role ) cons
       if ( layer->dataProvider() && layer->dataProvider()->name() == QStringLiteral( "WFS" ) )
         return QVariant();
 
-      if ( layer->renderer() && layer->renderer()->legendSymbolItems().size() > 0 )
+      if ( layer->renderer() && layer->renderer()->type() == QStringLiteral( "singleSymbol") && layer->renderer()->legendSymbolItems().size() > 0 )
       {
         const long count = layer->featureCount( layer->renderer()->legendSymbolItems().at( 0 ).ruleKey() );
         if ( count == -1 )
@@ -817,7 +823,7 @@ bool FlatLayerTreeModelBase::setData( const QModelIndex &index, const QVariant &
 
 void FlatLayerTreeModelBase::featureCountChanged()
 {
-  emit dataChanged( createIndex( 0, 0 ), createIndex( rowCount() - 1, 0 ), QVector<int>() << FlatLayerTreeModel::FeatureCount );
+  emit dataChanged( createIndex( 0, 0 ), createIndex( rowCount() - 1, 0 ), QVector<int>() << FlatLayerTreeModel::Name << FlatLayerTreeModel::FeatureCount );
 }
 
 QHash<int, QByteArray> FlatLayerTreeModelBase::roleNames() const

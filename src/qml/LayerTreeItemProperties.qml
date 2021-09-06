@@ -240,7 +240,7 @@ Popup {
       if (index === undefined)
           return
 
-      title = layerTree.data(index, Qt.DisplayName)
+      title = layerTree.data(index, Qt.Name)
       var vl = layerTree.data(index, FlatLayerTreeModel.VectorLayerPointer)
 
       if (vl && layerTree.data(index, FlatLayerTreeModel.IsValid) && layerTree.data( index, FlatLayerTreeModel.Type ) === 'layer') {

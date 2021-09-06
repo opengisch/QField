@@ -21,6 +21,7 @@ EditorWidgetBase {
     anchors { left: parent.left; right: parent.right; rightMargin: showOpenFormButton ? viewButton.width : 0 }
     enabled: isEnabled
     useSearch: true
+    allowAddFeature: config['AllowAddFeatures'] !== undefined && config['AllowAddFeatures'] === true
 
     property var _relation: qgisProject.relationManager.relation(config['Relation'])
 

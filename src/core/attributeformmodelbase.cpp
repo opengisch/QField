@@ -513,6 +513,8 @@ void AttributeFormModelBase::updateDefaultValues( int fieldIndex )
     if ( changed )
     {
       item->setData( defaultValue, AttributeFormModel::AttributeValue );
+      updateDefaultValues( fidx );
+      updateVisibilityAndConstraints( fidx );
     }
   }
 }
@@ -536,6 +538,7 @@ void AttributeFormModelBase::updateVisibilityAndConstraints( int fieldIndex )
         if ( item->data( AttributeFormModel::CurrentlyVisible ).toBool() != visible )
         {
           item->setData( visible, AttributeFormModel::CurrentlyVisible );
+          emit dataChanged( item->index(), item->index(), QVector<int>() << AttributeFormModel::CurrentlyVisible );
         }
       }
     }
@@ -693,7 +696,14 @@ QgsEditorWidgetSetup AttributeFormModelBase::findBest( const int fieldIndex )
       setup = QgsEditorWidgetSetup( QStringLiteral( "Range" ), QVariantMap() );
     //if it's a foreign key configured in a relation take "RelationReference"
     if ( !mLayer->referencingRelations( fieldIndex ).isEmpty() )
-      setup = QgsEditorWidgetSetup( QStringLiteral( "RelationReference" ), QVariantMap() );
+    {
+      QgsRelation relation = mLayer->referencingRelations( fieldIndex )[0];
+      QVariantMap config;
+      config.insert( QStringLiteral( "Relation" ), relation.id() );
+      config.insert( QStringLiteral( "AllowAddFeatures" ), false );
+      config.insert( QStringLiteral( "ShowOpenFormButton" ), true );
+      setup = QgsEditorWidgetSetup( QStringLiteral( "RelationReference" ), config );
+    }
   }
 
   return setup;

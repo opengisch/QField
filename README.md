@@ -18,11 +18,11 @@ Check the [documentation](http://qfield.org/docs)
 
 ### Windows (Beta)
 
-[![Download the latest windows beta version](https://qgis.org/en/_static/images/app_download_windows.png)](https://nightly.link/opengisch/QField/workflows/windows/master/QField-dev-Release.zip)
+[![Download the latest windows beta version](https://qgis.org/en/_static/images/app_download_windows.png)](https://nightly.link/opengisch/QField/workflows/vcpkg/master/QField-dev-x64-windows-Release.zip)
 
 ### iOS (Alpha)
 
-An iOS version is being developed, [subscribe as iOS tester](https://forms.clickup.com/f/22wqj-2878/D6IEV7K3PKVONXPX8P) to be among the first to try
+An iOS version is in alpha state, [subscribe as iOS tester](https://forms.clickup.com/f/22wqj-2878/D6IEV7K3PKVONXPX8P) to be among the first to try
 
 ## Contribute
 

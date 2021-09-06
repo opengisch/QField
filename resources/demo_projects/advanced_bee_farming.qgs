@@ -1149,7 +1149,7 @@ def my_form_open(dialog, layer, feature):
             <layerOpacity>1</layerOpacity>
             <SingleCategoryDiagramRenderer attributeLegend="1" diagramType="Histogram">
               <DiagramCategory backgroundAlpha="255" backgroundColor="#ffffff" barWidth="5" diagramOrientation="Up" direction="1" enabled="0" height="15" labelPlacementMethod="XHeight" lineSizeScale="3x:0,0,0,0,0,0" lineSizeType="MM" maxScaleDenominator="1e+08" minScaleDenominator="0" minimumSize="0" opacity="1" penAlpha="255" penColor="#000000" penWidth="0" rotationOffset="0" scaleBasedVisibility="0" scaleDependency="Area" showAxis="0" sizeScale="3x:0,0,0,0,0,0" sizeType="MM" spacing="0" spacingUnit="MM" spacingUnitScale="3x:0,0,0,0,0,0" width="15">
-                <fontProperties description="Cantarell,11,-1,5,50,0,0,0,0,0" style=""></fontProperties>
+                <fontProperties description="Arial,11,-1,5,50,0,0,0,0,0" style=""></fontProperties>
                 <attribute color="#000000" field="" label=""></attribute>
                 <axisSymbol>
                   <symbol alpha="1" clip_to_extent="1" force_rhr="0" name="" type="line">
@@ -1575,7 +1575,7 @@ def my_form_open(dialog, layer, feature):
             <layerOpacity>0.8</layerOpacity>
             <SingleCategoryDiagramRenderer attributeLegend="1" diagramType="Histogram">
               <DiagramCategory backgroundAlpha="255" backgroundColor="#ffffff" barWidth="5" diagramOrientation="Up" direction="1" enabled="0" height="15" labelPlacementMethod="XHeight" lineSizeScale="3x:0,0,0,0,0,0" lineSizeType="MM" maxScaleDenominator="1e+08" minScaleDenominator="0" minimumSize="0" opacity="1" penAlpha="255" penColor="#000000" penWidth="0" rotationOffset="0" scaleBasedVisibility="0" scaleDependency="Area" showAxis="0" sizeScale="3x:0,0,0,0,0,0" sizeType="MM" spacing="0" spacingUnit="MM" spacingUnitScale="3x:0,0,0,0,0,0" width="15">
-                <fontProperties description="Cantarell,11,-1,5,50,0,0,0,0,0" style=""></fontProperties>
+                <fontProperties description="Arial,11,-1,5,50,0,0,0,0,0" style=""></fontProperties>
                 <attribute color="#000000" field="" label=""></attribute>
                 <axisSymbol>
                   <symbol alpha="1" clip_to_extent="1" force_rhr="0" name="" type="line">
@@ -2168,7 +2168,7 @@ def my_form_open(dialog, layer, feature):
             <prop k="angle" v="0"></prop>
             <prop k="chr" v="A"></prop>
             <prop k="color" v="175,179,138,255"></prop>
-            <prop k="font" v="Cantarell"></prop>
+            <prop k="font" v="Arial"></prop>
             <prop k="font_style" v=""></prop>
             <prop k="horizontal_anchor_point" v="1"></prop>
             <prop k="joinstyle" v="bevel"></prop>
@@ -2296,7 +2296,7 @@ def my_form_open(dialog, layer, feature):
       <layerOpacity>1</layerOpacity>
       <SingleCategoryDiagramRenderer attributeLegend="1" diagramType="Histogram">
         <DiagramCategory backgroundAlpha="255" backgroundColor="#ffffff" barWidth="5" diagramOrientation="Up" direction="1" enabled="0" height="15" labelPlacementMethod="XHeight" lineSizeScale="3x:0,0,0,0,0,0" lineSizeType="MM" maxScaleDenominator="1e+08" minScaleDenominator="0" minimumSize="0" opacity="1" penAlpha="255" penColor="#000000" penWidth="0" rotationOffset="0" scaleBasedVisibility="0" scaleDependency="Area" showAxis="0" sizeScale="3x:0,0,0,0,0,0" sizeType="MM" spacing="0" spacingUnit="MM" spacingUnitScale="3x:0,0,0,0,0,0" width="15">
-          <fontProperties description="Cantarell,11,-1,5,50,0,0,0,0,0" style=""></fontProperties>
+          <fontProperties description="Arial,11,-1,5,50,0,0,0,0,0" style=""></fontProperties>
           <attribute color="#000000" field="" label=""></attribute>
           <axisSymbol>
             <symbol alpha="1" clip_to_extent="1" force_rhr="0" name="" type="line">
@@ -2968,7 +2968,7 @@ def my_form_open(dialog, layer, feature):
       <layerOpacity>1</layerOpacity>
       <SingleCategoryDiagramRenderer attributeLegend="1" diagramType="Histogram">
         <DiagramCategory backgroundAlpha="255" backgroundColor="#ffffff" barWidth="5" diagramOrientation="Up" direction="1" enabled="0" height="15" labelPlacementMethod="XHeight" lineSizeScale="3x:0,0,0,0,0,0" lineSizeType="MM" maxScaleDenominator="1e+08" minScaleDenominator="1000" minimumSize="0" opacity="1" penAlpha="255" penColor="#000000" penWidth="0" rotationOffset="270" scaleBasedVisibility="0" scaleDependency="Area" showAxis="0" sizeScale="3x:0,0,0,0,0,0" sizeType="MM" spacing="0" spacingUnit="MM" spacingUnitScale="3x:0,0,0,0,0,0" width="15">
-          <fontProperties description="Cantarell,11,-1,5,50,0,0,0,0,0" style=""></fontProperties>
+          <fontProperties description="Arial,11,-1,5,50,0,0,0,0,0" style=""></fontProperties>
           <attribute color="#000000" field="" label=""></attribute>
           <axisSymbol>
             <symbol alpha="1" clip_to_extent="1" force_rhr="0" name="" type="line">
@@ -3720,7 +3720,7 @@ def my_form_open(dialog, layer, feature):
       <layerOpacity>1</layerOpacity>
       <SingleCategoryDiagramRenderer attributeLegend="1" diagramType="Histogram">
         <DiagramCategory backgroundAlpha="255" backgroundColor="#ffffff" barWidth="5" diagramOrientation="Up" direction="1" enabled="0" height="15" labelPlacementMethod="XHeight" lineSizeScale="3x:0,0,0,0,0,0" lineSizeType="MM" maxScaleDenominator="1e+08" minScaleDenominator="0" minimumSize="0" opacity="1" penAlpha="255" penColor="#000000" penWidth="0" rotationOffset="270" scaleBasedVisibility="0" scaleDependency="Area" showAxis="0" sizeScale="3x:0,0,0,0,0,0" sizeType="MM" spacing="0" spacingUnit="MM" spacingUnitScale="3x:0,0,0,0,0,0" width="15">
-          <fontProperties description="Cantarell,11,-1,5,50,0,0,0,0,0" style=""></fontProperties>
+          <fontProperties description="Arial,11,-1,5,50,0,0,0,0,0" style=""></fontProperties>
           <attribute color="#000000" field="" label=""></attribute>
           <axisSymbol>
             <symbol alpha="1" clip_to_extent="1" force_rhr="0" name="" type="line">
@@ -4947,7 +4947,7 @@ def my_form_open(dialog, layer, feature):
       <layerOpacity>1</layerOpacity>
       <SingleCategoryDiagramRenderer attributeLegend="1" diagramType="Histogram">
         <DiagramCategory backgroundAlpha="255" backgroundColor="#ffffff" barWidth="5" diagramOrientation="Up" direction="1" enabled="0" height="15" labelPlacementMethod="XHeight" lineSizeScale="3x:0,0,0,0,0,0" lineSizeType="MM" maxScaleDenominator="1e+08" minScaleDenominator="0" minimumSize="0" opacity="1" penAlpha="255" penColor="#000000" penWidth="0" rotationOffset="270" scaleBasedVisibility="0" scaleDependency="Area" showAxis="0" sizeScale="3x:0,0,0,0,0,0" sizeType="MM" spacing="0" spacingUnit="MM" spacingUnitScale="3x:0,0,0,0,0,0" width="15">
-          <fontProperties description="Cantarell,11,-1,5,50,0,0,0,0,0" style=""></fontProperties>
+          <fontProperties description="Arial,11,-1,5,50,0,0,0,0,0" style=""></fontProperties>
           <attribute color="#000000" field="" label=""></attribute>
           <axisSymbol>
             <symbol alpha="1" clip_to_extent="1" force_rhr="0" name="" type="line">
@@ -6086,7 +6086,7 @@ def my_form_open(dialog, layer, feature):
       <layerOpacity>1</layerOpacity>
       <SingleCategoryDiagramRenderer attributeLegend="1" diagramType="Histogram">
         <DiagramCategory backgroundAlpha="255" backgroundColor="#ffffff" barWidth="5" diagramOrientation="Up" direction="1" enabled="0" height="15" labelPlacementMethod="XHeight" lineSizeScale="3x:0,0,0,0,0,0" lineSizeType="MM" maxScaleDenominator="1e+08" minScaleDenominator="0" minimumSize="0" opacity="1" penAlpha="255" penColor="#000000" penWidth="0" rotationOffset="0" scaleBasedVisibility="0" scaleDependency="Area" showAxis="0" sizeScale="3x:0,0,0,0,0,0" sizeType="MM" spacing="0" spacingUnit="MM" spacingUnitScale="3x:0,0,0,0,0,0" width="15">
-          <fontProperties description="Cantarell,11,-1,5,50,0,0,0,0,0" style=""></fontProperties>
+          <fontProperties description="Arial,11,-1,5,50,0,0,0,0,0" style=""></fontProperties>
           <attribute color="#000000" field="" label=""></attribute>
           <axisSymbol>
             <symbol alpha="1" clip_to_extent="1" force_rhr="0" name="" type="line">

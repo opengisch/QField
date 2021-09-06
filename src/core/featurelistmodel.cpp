@@ -29,9 +29,25 @@ FeatureListModel::FeatureListModel( QObject *parent )
   : QAbstractItemModel( parent )
   , mCurrentLayer( nullptr )
 {
-  mReloadTimer.setInterval( 100 );
+  mReloadTimer.setInterval( 200 );
   mReloadTimer.setSingleShot( true );
   connect( &mReloadTimer, &QTimer::timeout, this, &FeatureListModel::gatherFeatureList );
+}
+
+FeatureListModel::~FeatureListModel()
+{
+  cleanupGatherer();
+}
+
+void FeatureListModel::cleanupGatherer()
+{
+  if ( mGatherer )
+  {
+    disconnect( mGatherer, &QThread::finished, this, &FeatureListModel::processFeatureList );
+    connect( mGatherer, &QThread::finished, mGatherer, &QObject::deleteLater );
+    mGatherer->stop();
+    mGatherer = nullptr;
+  }
 }
 
 QModelIndex FeatureListModel::index( int row, int column, const QModelIndex &parent ) const
@@ -107,9 +123,9 @@ void FeatureListModel::setCurrentLayer( QgsVectorLayer *currentLayer )
 
   if ( mCurrentLayer )
   {
-    connect( currentLayer, &QgsVectorLayer::featureAdded, this, &FeatureListModel::onFeatureAdded );
+    connect( mCurrentLayer, &QgsVectorLayer::featureAdded, this, &FeatureListModel::onFeatureAdded );
     connect( mCurrentLayer, &QgsVectorLayer::attributeValueChanged, this, &FeatureListModel::onAttributeValueChanged );
-    connect( currentLayer, &QgsVectorLayer::featureDeleted, this, &FeatureListModel::onFeatureDeleted );
+    connect( mCurrentLayer, &QgsVectorLayer::featureDeleted, this, &FeatureListModel::onFeatureDeleted );
   }
 
   reloadLayer();
@@ -281,13 +297,7 @@ void FeatureListModel::gatherFeatureList()
       request.setFilterExpression( QStringLiteral( " (%1) AND (%2) " ).arg( mFilterExpression, searchTermExpression ) );
   }
 
-  if ( mGatherer )
-  {
-    disconnect( mGatherer, &QThread::finished, this, &FeatureListModel::processFeatureList );
-    connect( mGatherer, &QThread::finished, mGatherer, &QObject::deleteLater );
-    mGatherer->stop();
-    mGatherer = nullptr;
-  }
+  cleanupGatherer();
 
   mGatherer = new FeatureExpressionValuesGatherer( mCurrentLayer, fieldDisplayString, request, QStringList() << keyField() );
   connect( mGatherer, &QThread::finished, this, &FeatureListModel::processFeatureList );
@@ -356,6 +366,7 @@ void FeatureListModel::processFeatureList()
 
 void FeatureListModel::reloadLayer()
 {
+  cleanupGatherer();
   mReloadTimer.start();
 }
 
@@ -430,6 +441,9 @@ void FeatureListModel::setCurrentFormFeature( const QgsFeature &feature )
     return;
 
   mCurrentFormFeature = feature;
-  reloadLayer();
+
+  if ( !mFilterExpression.isEmpty() && QgsValueRelationFieldFormatter::expressionRequiresFormScope( mFilterExpression ) )
+    reloadLayer();
+
   emit currentFormFeatureChanged();
 }

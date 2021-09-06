@@ -17,6 +17,7 @@ Page {
   header: PageHeader {
       title: qsTr("QFieldCloud Projects")
 
+      showBackButton: false
       showApplyButton: false
       showCancelButton: true
       busyIndicatorState: cloudConnection.status === QFieldCloudConnection.Connecting ||

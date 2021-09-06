@@ -47,27 +47,30 @@ void FeatureListExtentController::requestFeatureFormState()
 
 void FeatureListExtentController::zoomToSelected( bool skipIfIntersects ) const
 {
-  if ( mModel && mSelection && mMapSettings )
+  if ( mModel && mSelection && mSelection->focusedItem() > -1 && mMapSettings )
   {
     QgsFeature feat = mSelection->focusedFeature();
     QgsVectorLayer *layer = mSelection->focusedLayer();
 
-    QgsCoordinateTransform transf( layer->crs(), mMapSettings->destinationCrs(), mMapSettings->mapSettings().transformContext() );
-    QgsGeometry geom( feat.geometry() );
-    geom.transform( transf );
-
-    if ( geom.type() == QgsWkbTypes::PointGeometry )
+    if ( layer )
     {
-      if ( !skipIfIntersects || !mMapSettings->extent().intersects( geom.boundingBox() ) )
-        mMapSettings->setCenter( QgsPoint( geom.asPoint() ) );
-    }
-    else
-    {
-      QgsRectangle featureExtent = geom.boundingBox();
-      QgsRectangle bufferedExtent = featureExtent.buffered( std::max( featureExtent.width(), featureExtent.height() ) );
+      QgsCoordinateTransform transf( layer->crs(), mMapSettings->destinationCrs(), mMapSettings->mapSettings().transformContext() );
+      QgsGeometry geom( feat.geometry() );
+      geom.transform( transf );
 
-      if ( !skipIfIntersects || !mMapSettings->extent().intersects( bufferedExtent ) )
-        mMapSettings->setExtent( bufferedExtent );
+      if ( geom.type() == QgsWkbTypes::PointGeometry )
+      {
+        if ( !skipIfIntersects || !mMapSettings->extent().intersects( geom.boundingBox() ) )
+          mMapSettings->setCenter( QgsPoint( geom.asPoint() ) );
+      }
+      else
+      {
+        QgsRectangle featureExtent = geom.boundingBox();
+        QgsRectangle bufferedExtent = featureExtent.buffered( std::max( featureExtent.width(), featureExtent.height() ) );
+
+        if ( !skipIfIntersects || !mMapSettings->extent().intersects( bufferedExtent ) )
+          mMapSettings->setExtent( bufferedExtent );
+      }
     }
   }
 }

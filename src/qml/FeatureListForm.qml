@@ -417,7 +417,14 @@ Rectangle {
     }
 
     onDeleteClicked: {
-        if( trackingModel.featureInTracking(featureForm.selection.focusedLayer, featureForm.selection.model.selectedFeatures) )
+        var selectedFeatures = featureForm.selection.model.selectedFeatures
+        var selectedFeature = selectedFeatures && selectedFeatures.length > 0 ? selectedFeatures[0] : null
+
+        if(
+            selectedFeature
+            && featureForm.selection.focusedLayer
+            && trackingModel.featureInTracking(featureForm.selection.focusedLayer, selectedFeature)
+        )
         {
           displayToast( qsTr( "A number of features are being tracked, stop tracking to delete those" ) )
         }

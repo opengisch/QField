@@ -126,7 +126,7 @@ bool LayerUtils::deleteFeature( QgsProject *project, QgsVectorLayer *layer, cons
 
   if ( !shouldWriteChanges )
   {
-    if ( ! layer->editBuffer() || !layer->startEditing() )
+    if ( !layer->startEditing() || !layer->editBuffer() )
     {
       QgsMessageLog::logMessage( tr( "Cannot start editing" ), "QField", Qgis::Warning );
       return false;

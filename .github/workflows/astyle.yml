@@ -17,7 +17,7 @@ jobs:
   astyle-check:
     runs-on: ubuntu-20.04
     steps:
-      - uses: actions/github-script@v4.0.2
+      - uses: actions/github-script@v4.1
         if: ${{ github.event.issue.pull_request }}
         id: get-pr
         with:
@@ -68,7 +68,7 @@ jobs:
           fi
 
       - name: Comment
-        uses: thollander/actions-comment-pull-request@master
+        uses: thollander/actions-comment-pull-request@main
         if: steps.indent-check.outputs.changed == 'true' && steps.indent-check.outputs.triggered != 'true'
         with:
           message: |
