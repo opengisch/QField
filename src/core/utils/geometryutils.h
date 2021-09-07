@@ -28,16 +28,35 @@
 class QgsVectorLayer;
 class RubberbandModel;
 
-#if _QGIS_VERSION_INT >= 32100
-typedef Qgis::GeometryOperationResult GeometryOperationResult;
-#else
-typedef QgsGeometry::OperationResult GeometryOperationResult;
-#endif
-
 class QFIELD_CORE_EXPORT GeometryUtils : public QObject
 {
     Q_OBJECT
   public:
+
+    // Copy of the QGIS GeometryOperationResult enum, needed to keep compatibility with QGIS < 3.22
+    enum class GeometryOperationResult : int
+    {
+      Success = 0, //!< Operation succeeded
+      NothingHappened = 1000, //!< Nothing happened, without any error
+      InvalidBaseGeometry, //!< The base geometry on which the operation is done is invalid or empty
+      InvalidInputGeometryType, //!< The input geometry (ring, part, split line, etc.) has not the correct geometry type
+      SelectionIsEmpty, //!< No features were selected
+      SelectionIsGreaterThanOne, //!< More than one features were selected
+      GeometryEngineError, //!< Geometry engine misses a method implemented or an error occurred in the geometry engine
+      LayerNotEditable, //!< Cannot edit layer
+      /* Add part issues */
+      AddPartSelectedGeometryNotFound, //!< The selected geometry cannot be found
+      AddPartNotMultiGeometry, //!< The source geometry is not multi
+      /* Add ring issues*/
+      AddRingNotClosed, //!< The input ring is not closed
+      AddRingNotValid, //!< The input ring is not valid
+      AddRingCrossesExistingRings, //!< The input ring crosses existing rings (it is not disjoint)
+      AddRingNotInExistingFeature, //!< The input ring doesn't have any existing ring to fit into
+      /* Split features */
+      SplitCannotSplitPoint, //!< Cannot split points
+    };
+    Q_ENUM( GeometryOperationResult )
+
     explicit GeometryUtils( QObject *parent = nullptr );
 
     //! Returns a QgsGeometry with a polygon by using the point sequence in the rubberband model.

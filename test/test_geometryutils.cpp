@@ -56,22 +56,14 @@ TEST_CASE( "GeometryUtils" )
   SECTION( "   AddRingFromRubberband" )
   {
     REQUIRE( mLayer->startEditing() );
-#if _QGIS_VERSION_INT >= 32100
-    REQUIRE( GeometryUtils::addRingFromRubberband( mLayer.get(), 100, model.get() ) == Qgis::GeometryOperationResult::AddRingNotInExistingFeature );
-#else
-    REQUIRE( GeometryUtils::addRingFromRubberband( mLayer.get(), 100, model.get() ) == QgsGeometry::AddRingNotInExistingFeature );
-#endif
+    REQUIRE( GeometryUtils::addRingFromRubberband( mLayer.get(), 100, model.get() ) == GeometryUtils::GeometryOperationResult::AddRingNotInExistingFeature );
 
     model->addVertexFromPoint( QgsPoint( 8.1, 8.1 ) );
     model->addVertexFromPoint( QgsPoint( 8.9, 8.1 ) );
     model->addVertexFromPoint( QgsPoint( 8.1, 8.9 ) );
     mLayer->select( 1 );
 
-#if _QGIS_VERSION_INT >= 32100
-    REQUIRE( GeometryUtils::addRingFromRubberband( mLayer.get(), 1, model.get() ) == Qgis::GeometryOperationResult::Success );
-#else
-    REQUIRE( GeometryUtils::addRingFromRubberband( mLayer.get(), 1, model.get() ) == QgsGeometry::Success );
-#endif
+    REQUIRE( GeometryUtils::addRingFromRubberband( mLayer.get(), 1, model.get() ) == GeometryUtils::GeometryOperationResult::Success );
     REQUIRE( mLayer->rollBack() );
   }
 
@@ -79,21 +71,13 @@ TEST_CASE( "GeometryUtils" )
   SECTION( "SplitFeatureFromRubberband" )
   {
     REQUIRE( mLayer->startEditing() );
-#if _QGIS_VERSION_INT >= 32100
-    REQUIRE( GeometryUtils::splitFeatureFromRubberband( mLayer.get(), model.get() ) == Qgis::GeometryOperationResult::NothingHappened );
-#else
-    REQUIRE( GeometryUtils::splitFeatureFromRubberband( mLayer.get(), model.get() ) == QgsGeometry::NothingHappened );
-#endif
+    REQUIRE( GeometryUtils::splitFeatureFromRubberband( mLayer.get(), model.get() ) == GeometryUtils::GeometryOperationResult::NothingHappened );
 
     model->addVertexFromPoint( QgsPoint( 7.5, 8.5 ) );
     model->addVertexFromPoint( QgsPoint( 9.5, 8.5 ) );
     mLayer->select( 1 );
 
-#if _QGIS_VERSION_INT >= 32100
-    REQUIRE( GeometryUtils::splitFeatureFromRubberband( mLayer.get(), model.get() ) == Qgis::GeometryOperationResult::Success );
-#else
-    REQUIRE( GeometryUtils::splitFeatureFromRubberband( mLayer.get(), model.get() ) == QgsGeometry::Success );
-#endif
+    REQUIRE( GeometryUtils::splitFeatureFromRubberband( mLayer.get(), model.get() ) == GeometryUtils::GeometryOperationResult::Success );
     REQUIRE( mLayer->rollBack() );
   }
 

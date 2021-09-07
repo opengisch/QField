@@ -370,11 +370,7 @@ void QgisMobileapp::initDeclarative()
   qRegisterMetaType<QVariant::Type>( "QVariant::Type" );
   qRegisterMetaType<QgsDefaultValue>( "QgsDefaultValue" );
   qRegisterMetaType<QgsFieldConstraints>( "QgsFieldConstraints" );
-#if _QGIS_VERSION_INT >= 32100
-  qRegisterMetaType<Qgis::GeometryOperationResult>( "QgsGeometry::OperationResult" );
-#else
-  qRegisterMetaType<QgsGeometry::OperationResult>( "QgsGeometry::OperationResult" );
-#endif
+  qRegisterMetaType<GeometryUtils::GeometryOperationResult>( "GeometryOperationResult" );
   qRegisterMetaType<QFieldCloudConnection::ConnectionStatus>( "QFieldCloudConnection::ConnectionStatus" );
   qRegisterMetaType<CloudUserInformation>( "CloudUserInformation" );
   qRegisterMetaType<QFieldCloudProjectsModel::ProjectStatus>( "QFieldCloudProjectsModel::ProjectStatus" );
@@ -388,7 +384,6 @@ void QgisMobileapp::initDeclarative()
   qmlRegisterUncreatableType<QgsWkbTypes>( "org.qgis", 1, 0, "QgsWkbTypes", "" );
   qmlRegisterUncreatableType<QgsMapLayer>( "org.qgis", 1, 0, "MapLayer", "" );
   qmlRegisterUncreatableType<QgsVectorLayer>( "org.qgis", 1, 0, "VectorLayerStatic", "" );
-  qmlRegisterUncreatableType<QgsGeometry>( "org.qgis", 1, 0, "QgsGeometryStatic", "" );
 
   // Register QgsQuick QML types
   qmlRegisterType<QgsQuickMapCanvasMap>( "org.qgis", 1, 0, "MapCanvasMap" );
