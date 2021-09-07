@@ -260,3 +260,10 @@ if(WITH_VCPKG)
 
   add_dependencies(qfield deploy)
 endif()
+
+if(${CMAKE_SYSTEM_NAME} STREQUAL "Linux")
+  install(FILES ${CMAKE_SOURCE_DIR}/images/icons/qfield.svg DESTINATION ${CMAKE_INSTALL_PREFIX}/share/icons)
+  install(FILES ${CMAKE_SOURCE_DIR}/resources/qfield.desktop DESTINATION ${CMAKE_INSTALL_PREFIX}/share/qfield/qfield.desktop)
+endif()
+
+include(${CMAKE_CURRENT_LIST_DIR}/cmake/Package.cmake)
