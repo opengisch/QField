@@ -57,7 +57,7 @@ VisibilityFadingRow {
             if (!featureModel.currentLayer.editBuffer())
                 featureModel.currentLayer.startEditing()
             var result = GeometryUtils.reshapeFromRubberband(featureModel.currentLayer, featureModel.feature.id, rubberbandModel)
-            if ( result !== QgsGeometryStatic.Success )
+            if ( result !== GeometryUtils.Success )
             {
                 displayToast( qsTr( 'The geometry could not be reshaped' ), 'error' );
                 featureModel.currentLayer.rollBack()

@@ -64,15 +64,15 @@ VisibilityFadingRow {
       if (!featureModel.currentLayer.editBuffer())
         featureModel.currentLayer.startEditing()
       var result = GeometryUtils.addRingFromRubberband(featureModel.currentLayer, featureModel.feature.id, rubberbandModel)
-      if ( result !== QgsGeometryStatic.Success )
+      if ( result !== GeometryUtils.Success )
       {
-        if ( result === QgsGeometryStatic.AddRingNotClosed )
+        if ( result === GeometryUtils.AddRingNotClosed )
           displayToast( qsTr( 'The ring is not closed' ), 'error' );
-        else if ( result === QgsGeometryStatic.AddRingNotValid )
+        else if ( result === GeometryUtils.AddRingNotValid )
           displayToast( qsTr( 'The ring is not valid' ), 'error' );
-        else if ( result === QgsGeometryStatic.AddRingCrossesExistingRings )
+        else if ( result === GeometryUtils.AddRingCrossesExistingRings )
           displayToast( qsTr( 'The ring crosses existing rings (it is not disjoint)' ), 'error' );
-        else if ( result === QgsGeometryStatic.AddRingNotInExistingFeature )
+        else if ( result === GeometryUtils.AddRingNotInExistingFeature )
           displayToast( qsTr( 'The ring doesn\'t have any existing ring to fit into' ), 'error' );
         else
           displayToast( qsTr( 'Unknown error when creating the ring' ), 'error' );
