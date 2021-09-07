@@ -5,6 +5,7 @@ on:
     branches:
       - master
       - release-**
+      - vcpkg_package
   pull_request:
   release:
     types: ['published', 'released']
