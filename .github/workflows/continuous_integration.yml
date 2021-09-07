@@ -119,7 +119,7 @@ jobs:
         run: |
           pip install google-api-python-client google-auth-httplib2 google-auth-oauthlib oauth2client
 
-          ./scripts/basic_upload_apks_service_account.py ch.opengis.${{ step.vars.outputs.APP_PACKAGE_NAME }} beta "Update from commit ${GITHUB_SHA}" \
+          ./scripts/basic_upload_apks_service_account.py ch.opengis.${{ steps.vars.outputs.APP_PACKAGE_NAME }} beta "Update from commit ${GITHUB_SHA}" \
               ${{ steps.vars.outputs.CI_PACKAGE_FILE_BASENAME }}-arm64_v8a.apk \
               ${{ steps.vars.outputs.CI_PACKAGE_FILE_BASENAME }}-armv7.apk \
               ${{ steps.vars.outputs.CI_PACKAGE_FILE_BASENAME }}-x86_64.apk \
