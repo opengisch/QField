@@ -222,9 +222,14 @@ jobs:
         with:
           plugins: qt appimage
 
+      - name: Install nsis
+        if: ${{ matrix.os == 'windows-2019' }}
+        run: |
+          Install-Binary -Url 'https://downloads.sourceforge.net/project/nsis/NSIS%203/3.06.1/nsis-3.06.1-setup.exe' -Name  nsis-3.06.1-setup.exe -ArgumentList ('/S')
+
       - name: Package
         run: |
-          cmake --build bundle
+          cmake --build . --target bundle --config Release
 
       - name: 📦 Upload package
         uses: actions/upload-artifact@v2
