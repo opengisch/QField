@@ -216,6 +216,15 @@ jobs:
           cd "${{ env.CMAKE_BUILD_DIR }}"
           ${TESTWRAPPER} ctest --output-on-failure -E '${{ steps.vars.outputs.EXCLUDE_TESTS }}' -C ${{ steps.vars.outputs.BUILD_TYPE }}
 
+      - name: Install linuxdeploy
+        uses: miurahr/install-linuxdeploy-action@v1
+        with:
+          plugins: qt appimage
+
+      - name: Package
+        run: |
+          cmake --build bundle
+
       - name: 📦 Upload package
         uses: actions/upload-artifact@v2
         with:
