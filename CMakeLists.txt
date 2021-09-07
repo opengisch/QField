@@ -166,7 +166,7 @@ if (ANDROID)
 endif()
 
 set(QT_MIN_VERSION 5.14.0)
-find_package(Qt5 COMPONENTS Charts Concurrent Core Qml Gui Xml Positioning Widgets Network Quick Svg OpenGL Sql Sensors WebView Bluetooth Multimedia REQUIRED)
+find_package(Qt5 COMPONENTS Concurrent Core Qml Gui Xml Positioning Widgets Network Quick Svg OpenGL Sql Sensors WebView Bluetooth Multimedia REQUIRED)
 
 # PrintSupport isn't required, because it doesn't exist for ios
 # qgis will deal with it an define a public 'QT_NO_PRINTER'
@@ -199,6 +199,7 @@ endif()
 set(ENABLE_TESTS CACHE BOOL "Build unit tests")
 
 if(MSVC)
+  find_package(Qt5 COMPONENTS Charts REQUIRED) # vcpkg doesn't include QtCharts.dll as dep of the qml module otherwise
   add_definitions(-D_USE_MATH_DEFINES)
   add_definitions(-DNOMINMAX)
   add_definitions(-D_CRT_NONSTDC_NO_DEPRECATE)
