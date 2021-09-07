@@ -40,7 +40,7 @@ class QFIELD_CORE_EXPORT FileUtils : public QObject
     Q_INVOKABLE static bool fileExists( const QString &filePath );
     //! returns the suffix (extension)
     Q_INVOKABLE static QString fileSuffix( const QString &filePath );
-    static bool copyRecursively( const QString &sourceFolder, const QString &destFolder, QgsFeedback *feedback );
+    static bool copyRecursively( const QString &sourceFolder, const QString &destFolder, QgsFeedback *feedback, bool wipeDestFolder = true );
     /**
      * Creates checksum of a file. Returns null QByteArray if cannot be calculated.
      *

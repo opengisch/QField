@@ -53,10 +53,17 @@ bool FileUtils::fileExists( const QString &filePath )
   return ( fileInfo.exists() && fileInfo.isFile() );
 }
 
-bool FileUtils::copyRecursively( const QString &sourceFolder, const QString &destFolder, QgsFeedback *feedback )
+bool FileUtils::copyRecursively( const QString &sourceFolder, const QString &destFolder, QgsFeedback *feedback, bool wipeDestFolder )
 {
-  QList<QPair<QString, QString>> mapping;
+  // Remove the destination folder and its content if it already exists
+  if ( wipeDestFolder )
+  {
+    QDir destDir( destFolder );
+    if ( destDir.exists() )
+      destDir.removeRecursively();
+  }
 
+  QList<QPair<QString, QString>> mapping;
   int fileCount = copyRecursivelyPrepare( sourceFolder, destFolder, mapping );
 
   int current = 0;
