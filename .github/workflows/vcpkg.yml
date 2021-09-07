@@ -160,6 +160,18 @@ jobs:
           echo "QT_QPA_PLATFORM=offscreen" >> $GITHUB_ENV
           echo "TESTWRAPPER=xvfb-run" >> $GITHUB_ENV
 
+      - name: Install linuxdeploy
+        if: ${{ matrix.triplet == 'x64-linux' }}
+        uses: miurahr/install-linuxdeploy-action@v1
+        with:
+          plugins: qt appimage
+
+      - name: Install nsis
+        if: ${{ matrix.os == 'windows-2019' }}
+        run: |
+          Install-Binary -Url 'https://downloads.sourceforge.net/project/nsis/NSIS%203/3.06.1/nsis-3.06.1-setup.exe' -Name  nsis-3.06.1-setup.exe -ArgumentList ('/S')
+
+
       - name: 🌱 Install dependencies and generate project files
         shell: bash
         env:
@@ -216,16 +228,6 @@ jobs:
           pip install -r "${SOURCE_DIR}/test/spix/requirements.txt"
           cd "${{ env.CMAKE_BUILD_DIR }}"
           ${TESTWRAPPER} ctest --output-on-failure -E '${{ steps.vars.outputs.EXCLUDE_TESTS }}' -C ${{ steps.vars.outputs.BUILD_TYPE }}
-
-      - name: Install linuxdeploy
-        uses: miurahr/install-linuxdeploy-action@v1
-        with:
-          plugins: qt appimage
-
-      - name: Install nsis
-        if: ${{ matrix.os == 'windows-2019' }}
-        run: |
-          Install-Binary -Url 'https://downloads.sourceforge.net/project/nsis/NSIS%203/3.06.1/nsis-3.06.1-setup.exe' -Name  nsis-3.06.1-setup.exe -ArgumentList ('/S')
 
       - name: Package
         run: |
