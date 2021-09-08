@@ -237,7 +237,7 @@ if(WITH_VCPKG)
                       POST_BUILD
                       COMMAND ${CMAKE_COMMAND} -E copy_if_different "${LIB}" "${CMAKE_BINARY_DIR}/output/bin/qgis/plugins"
     )
-    install(FILES "${LIB}" "${CMAKE_LIBRARY_OUTPUT_DIRECTORY}/qgis")
+    install(FILES "${LIB}" DESTINATION "${CMAKE_LIBRARY_OUTPUT_DIRECTORY}/qgis")
   endforeach()
   add_custom_command(TARGET deploy
     POST_BUILD
@@ -251,9 +251,9 @@ if(WITH_VCPKG)
     POST_BUILD
     COMMAND ${CMAKE_COMMAND} -E copy_directory "${VCPKG_BASE_DIR}/share/gdal" "${CMAKE_BINARY_DIR}/output/bin/gdal"
   )
-  install(DIRECTORY "${VCPKG_BASE_DIR}/share/qgis/resources" "${CMAKE_INSTALL_PREFIX}/share/qgis/resources")
-  install(DIRECTORY "${VCPKG_BASE_DIR}/share/proj4" "${CMAKE_INSTALL_PREFIX}/share/proj")
-  install(DIRECTORY "${VCPKG_BASE_DIR}/share/gdal" "${CMAKE_INSTALL_PREFIX}/share/gdal")
+  install(DIRECTORY "${VCPKG_BASE_DIR}/share/qgis/resources" DESTINATION "${CMAKE_INSTALL_PREFIX}/share/qgis/resources")
+  install(DIRECTORY "${VCPKG_BASE_DIR}/share/proj4" DESTINATION "${CMAKE_INSTALL_PREFIX}/share/proj")
+  install(DIRECTORY "${VCPKG_BASE_DIR}/share/gdal" DESTINATION "${CMAKE_INSTALL_PREFIX}/share/gdal")
 
   if(EXISTS ${VCPKG_BASE_DIR}/plugins/mediaservice)
     add_custom_command(TARGET deploy
