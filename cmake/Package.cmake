@@ -43,7 +43,7 @@ if(WIN32)
         message(STATUS "   + NSIS                                 NO ")
     endif()
 
-    windeployqt(qfield)
+    windeployqt(QField)
 endif()
 
 get_target_property(qmake_executable Qt5::qmake IMPORTED_LOCATION)

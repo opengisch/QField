@@ -231,7 +231,7 @@ jobs:
 
       - name: Package
         run: |
-          cmake --build . --target bundle --config Release
+          cmake --build  "${{ env.CMAKE_BUILD_DIR }}" --target bundle --config Release
 
       - name: 📦 Upload package
         uses: actions/upload-artifact@v2
