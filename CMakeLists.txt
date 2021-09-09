@@ -266,7 +266,7 @@ if(WITH_VCPKG)
 endif()
 
 if(${CMAKE_SYSTEM_NAME} STREQUAL "Linux")
-  install(FILES ${CMAKE_SOURCE_DIR}/images/icons/qfield.svg DESTINATION ${CMAKE_INSTALL_PREFIX}/share/icons)
+  install(FILES ${CMAKE_SOURCE_DIR}/images/icons/qfield_logo.svg DESTINATION ${CMAKE_INSTALL_PREFIX}/share/icons/qfield.svg)
   install(FILES ${CMAKE_SOURCE_DIR}/resources/qfield.desktop DESTINATION ${CMAKE_INSTALL_PREFIX}/share/qfield/qfield.desktop)
 endif()
 
