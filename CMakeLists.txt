@@ -270,4 +270,4 @@ if(${CMAKE_SYSTEM_NAME} STREQUAL "Linux")
   install(FILES ${CMAKE_SOURCE_DIR}/resources/qfield.desktop DESTINATION ${CMAKE_INSTALL_PREFIX}/share/qfield)
 endif()
 
-include(${CMAKE_CURRENT_LIST_DIR}/cmake/Package.cmake)
+include(${CMAKE_CURRENT_LIST_DIR}/Package.cmake)
