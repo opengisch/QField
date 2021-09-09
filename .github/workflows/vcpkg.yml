@@ -159,6 +159,7 @@ jobs:
           # Required to run unit tests on linux
           echo "QT_QPA_PLATFORM=offscreen" >> $GITHUB_ENV
           echo "TESTWRAPPER=xvfb-run" >> $GITHUB_ENV
+          echo "EXTRA_CMAKE_ARGS=-GNinja" >> $GITHUB_ENV
 
       - name: Install linuxdeploy
         if: ${{ matrix.triplet == 'x64-linux' }}
