@@ -61,6 +61,7 @@ jobs:
 
           echo "::set-output name=VCPKG_ROOT::${BUILD_ROOT}/src"
           echo "::set-output name=BUILD_TYPE::Release"
+          echo "::set-output name=BUILD_ROOT::${BUILD_ROOT}"
 
           echo "VCPKG_ROOT=${BUILD_ROOT}/src" >> $GITHUB_ENV
           echo "CMAKE_BUILD_DIR=${BUILD_ROOT}/builddir" >> $GITHUB_ENV
@@ -165,6 +166,7 @@ jobs:
         if: ${{ matrix.triplet == 'x64-linux' }}
         uses: miurahr/install-linuxdeploy-action@v1
         with:
+          dir: ${{ steps.vars.outputs.BUILD_ROOT }}
           plugins: qt appimage
 
       - name: Install nsis
@@ -195,6 +197,7 @@ jobs:
                 -DVCPKG_TARGET_TRIPLET="${{ matrix.triplet }}" \
                 -DWITH_VCPKG=ON \
                 -DWITH_SPIX=ON \
+                -DLINUXDEPLOY_EXECUTABLE=${{ steps.vars.outputs.BUILD_ROOT }} \
                 ${EXTRA_CMAKE_ARGS}
 
       - name: 📑 Upload Build Logs
