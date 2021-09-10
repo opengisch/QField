@@ -59,7 +59,7 @@ endif()
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${QFIELD_OUTPUT_DIRECTORY}/${QFIELD_BIN_SUBDIR}/$<0:>)
 set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${QFIELD_OUTPUT_DIRECTORY}/${QFIELD_LIB_SUBDIR}/$<0:>)
 
-install(DIRECTORY ${CMAKE_SOURCE_DIR}/resources/ DESTINATION ${CMAKE_INSTALL_PREFIX}/share/qfield)
+install(DIRECTORY ${CMAKE_SOURCE_DIR}/resources DESTINATION ${CMAKE_INSTALL_PREFIX}/share/qfield)
 
 set(WITH_SPIX FALSE CACHE STRING "Compile with Spix for testing")
 
@@ -251,7 +251,7 @@ if(WITH_VCPKG)
     POST_BUILD
     COMMAND ${CMAKE_COMMAND} -E copy_directory "${VCPKG_BASE_DIR}/share/gdal" "${CMAKE_BINARY_DIR}/output/bin/gdal"
   )
-  install(DIRECTORY "${VCPKG_BASE_DIR}/share/qgis/resources" DESTINATION "${CMAKE_INSTALL_PREFIX}/share/qgis/resources")
+  install(DIRECTORY "${VCPKG_BASE_DIR}/share/qgis/resources" DESTINATION "${CMAKE_INSTALL_PREFIX}/share/qgis")
   install(DIRECTORY "${VCPKG_BASE_DIR}/share/proj4" DESTINATION "${CMAKE_INSTALL_PREFIX}/share/proj")
   install(DIRECTORY "${VCPKG_BASE_DIR}/share/gdal" DESTINATION "${CMAKE_INSTALL_PREFIX}/share/gdal")
 
