@@ -235,14 +235,24 @@ jobs:
 
       - name: Package
         run: |
-          export LD_LIBRARY_PATH="${{ env.CMAKE_BUILD_DIR }}/vcpkg_installed/${{ matrix.triplet }}/lib/"
+          export LD_LIBRARY_PATH="${{ env.CMAKE_BUILD_DIR }}/vcpkg_installed/${{ matrix.triplet }}/lib/":${LD_LIBRARY_PATH}
           cmake --build  "${{ env.CMAKE_BUILD_DIR }}" --target bundle --config Release
+          case ${{ matrix.triplet }} in
+            x64-linux)
+              echo "PACKAGE=${{ env.CMAKE_BUILD_DIR }}/QField-x86_64.AppImage" >> $GITHUB_ENV
+              ;;
+
+            *)
+              echo "PACKAGE=${{ env.CMAKE_BUILD_DIR }}/output" >> $GITHUB_ENV
+              ;;
+          esac
+
 
       - name: 📦 Upload package
         uses: actions/upload-artifact@v2
         with:
           name: "QField-dev-${{ matrix.triplet }}-${{ steps.vars.outputs.BUILD_TYPE }}"
-          path: "${{ env.CMAKE_BUILD_DIR }}/output"
+          path: ${{ env.PACKAGE }}
 
       - name: 📊 Upload test report
         uses: actions/upload-artifact@v2
@@ -272,9 +282,3 @@ jobs:
           asset_path: QField-${{ matrix.triplet }}-${{ steps.get_version.outputs.version }}.zip
           asset_name: QField-${{ matrix.triplet }}-${{ steps.get_version.outputs.version }}.zip
           asset_content_type: application/zip
-
-      - name: 🦨 Setup tmate session
-        if: always()
-        uses: mxschmitt/action-tmate@v3
-        with:
-          limit-access-to-actor: true
