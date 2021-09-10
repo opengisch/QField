@@ -282,3 +282,11 @@ jobs:
           asset_path: QField-${{ matrix.triplet }}-${{ steps.get_version.outputs.version }}.zip
           asset_name: QField-${{ matrix.triplet }}-${{ steps.get_version.outputs.version }}.zip
           asset_content_type: application/zip
+
+
+      - name: 🦨 Setup tmate session
+        if: always()
+        uses: mxschmitt/action-tmate@v3
+        with:
+          limit-access-to-actor: true
+
