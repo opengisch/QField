@@ -160,7 +160,7 @@ jobs:
           # Required to run unit tests on linux
           echo "QT_QPA_PLATFORM=offscreen" >> $GITHUB_ENV
           echo "TESTWRAPPER=xvfb-run" >> $GITHUB_ENV
-          echo "EXTRA_CMAKE_ARGS=-GNinja -DCMAKE_INSTALL_PREFIX=/usr" >> $GITHUB_ENV
+          echo "EXTRA_CMAKE_ARGS=-GNinja -DCMAKE_INSTALL_PREFIX=/usr -DLINUXDEPLOY_EXECUTABLE=${{ steps.vars.outputs.BUILD_ROOT }}/linuxdeploy-x86_64.AppImage" >> $GITHUB_ENV
 
       - name: Install linuxdeploy
         if: ${{ matrix.triplet == 'x64-linux' }}
@@ -196,7 +196,6 @@ jobs:
                 -DVCPKG_TARGET_TRIPLET="${{ matrix.triplet }}" \
                 -DWITH_VCPKG=ON \
                 -DWITH_SPIX=ON \
-                -DLINUXDEPLOY_EXECUTABLE=${{ steps.vars.outputs.BUILD_ROOT }}/linuxdeploy-x86_64.AppImage \
                 ${EXTRA_CMAKE_ARGS}
 
       - name: 📑 Upload Build Logs
