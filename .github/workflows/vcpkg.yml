@@ -235,6 +235,7 @@ jobs:
 
       - name: Package
         run: |
+          export LD_LIBRARY_PATH="${{ env.CMAKE_BUILD_DIR }}/vcpkg_installed/${{ matrix.triplet }}/lib/"
           cmake --build  "${{ env.CMAKE_BUILD_DIR }}" --target bundle --config Release
 
       - name: 📦 Upload package
