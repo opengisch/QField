@@ -233,6 +233,7 @@ jobs:
           ${TESTWRAPPER} ctest --output-on-failure -E '${{ steps.vars.outputs.EXCLUDE_TESTS }}' -C ${{ steps.vars.outputs.BUILD_TYPE }}
 
       - name: Package
+        shell: bash
         run: |
           export LD_LIBRARY_PATH="${{ env.CMAKE_BUILD_DIR }}/vcpkg_installed/${{ matrix.triplet }}/lib/":${LD_LIBRARY_PATH}
           cmake --build  "${{ env.CMAKE_BUILD_DIR }}" --target bundle --config Release
