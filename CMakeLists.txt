@@ -20,7 +20,6 @@ string(REGEX REPLACE "v" "" CLEAN_APP_VERSION "${APP_VERSION}")
 set(CMAKE_MODULE_PATH ${CMAKE_SOURCE_DIR}/cmake ${CMAKE_MODULE_PATH})
 
 include(GetGitRevisionDescription)
-include(VcpkgBuild)
 
 project(${APP_NAME}
   LANGUAGES CXX
