@@ -23,6 +23,7 @@
 #include <qgsmessagelog.h>
 #include <qgspallabeling.h>
 #include <qgsproject.h>
+#include <qgsannotationlayer.h>
 #include <qgsvectorlayer.h>
 #if _QGIS_VERSION_INT >= 31900
 #include <qgslabelingresults.h>
@@ -113,6 +114,11 @@ void QgsQuickMapCanvasMap::refreshMap()
     expressionContext << QgsExpressionContextUtils::projectScope( project );
 
     mapSettings.setLabelingEngineSettings( project->labelingEngineSettings() );
+
+    // render main annotation layer above all other layers
+    QList<QgsMapLayer *> allLayers = mapSettings.layers();
+    allLayers.insert( 0, project->mainAnnotationLayer() );
+    mapSettings.setLayers( allLayers );
   }
 
   mapSettings.setExpressionContext( expressionContext );
