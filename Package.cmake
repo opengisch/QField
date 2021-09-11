@@ -12,6 +12,9 @@ endfunction()
 
 if(WIN32)
     message(STATUS "   + WIX                             YES ")
+    set(CPACK_WIX_UPGRADE_GUID 357E1535-9094-4550-8B42-D01EFD885686)
+    # set(CPACK_WIX_PRODUCT_ICON we need a bmp)
+    set(CPACK_PACKAGE_EXECUTABLES qfield;QField)
     set(CPACK_GENERATOR "WIX")
 endif()
 
