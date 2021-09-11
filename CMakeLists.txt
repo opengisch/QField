@@ -3,6 +3,8 @@
 cmake_minimum_required(VERSION 3.5)
 cmake_policy(SET CMP0071 NEW)
 cmake_policy(SET CMP0074 NEW)
+cmake_policy(SET CMP0077 NEW)
+cmake_policy(SET CMP0087 NEW)
 
 set(QML_IMPORT_PATH ${CMAKE_SOURCE_DIR}/src/qml/imports CACHE PATH "QML import path for Qt Creator to detect custom modules properly")
 
@@ -15,16 +17,17 @@ set(APP_PACKAGE_NAME "qfield" CACHE STRING "Package name suffix. E.g. qfield -->
 
 string(REGEX REPLACE "v" "" CLEAN_APP_VERSION "${APP_VERSION}")
 
+set(CMAKE_MODULE_PATH ${CMAKE_SOURCE_DIR}/cmake ${CMAKE_MODULE_PATH})
+
+include(GetGitRevisionDescription)
+include(VcpkgBuild)
+
 project(${APP_NAME}
   LANGUAGES CXX
   VERSION ${CLEAN_APP_VERSION}
 )
 
-set(CMAKE_MODULE_PATH ${CMAKE_SOURCE_DIR}/cmake ${CMAKE_MODULE_PATH})
 
-set(X_VCPKG_APPLOCAL_DEPS_INSTALL ON)
-
-include(GetGitRevisionDescription)
 GET_GIT_HEAD_REVISION(GIT_REFSPEC GIT_REV)
 
 add_definitions(-DAPP_NAME="${APP_NAME}")
@@ -219,12 +222,13 @@ endif()
 
 if(WITH_VCPKG)
   SET(VCPKG_BASE_DIR "${_VCPKG_INSTALLED_DIR}/${VCPKG_TARGET_TRIPLET}")
-  SET(QGIS_PLUGIN_DIR "${VCPKG_BASE_DIR}/lib/qgis/plugins")
   if(MSVC)
+    SET(QGIS_PLUGIN_DIR "${VCPKG_BASE_DIR}/bin/qgis/plugins")
     file(GLOB PROVIDER_LIBS
       "${QGIS_PLUGIN_DIR}/*provider.dll"
     )
   else()
+    SET(QGIS_PLUGIN_DIR "${VCPKG_BASE_DIR}/lib/qgis/plugins")
     file(GLOB PROVIDER_LIBS
       "${QGIS_PLUGIN_DIR}/*provider.so"
     )
