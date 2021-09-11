@@ -59,7 +59,7 @@ endif()
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${QFIELD_OUTPUT_DIRECTORY}/${QFIELD_BIN_SUBDIR}/$<0:>)
 set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${QFIELD_OUTPUT_DIRECTORY}/${QFIELD_LIB_SUBDIR}/$<0:>)
 
-install(DIRECTORY ${CMAKE_SOURCE_DIR}/resources DESTINATION ${CMAKE_INSTALL_PREFIX}/share/qfield)
+install(DIRECTORY ${CMAKE_SOURCE_DIR}/resources DESTINATION share/qfield)
 
 set(WITH_SPIX FALSE CACHE STRING "Compile with Spix for testing")
 
@@ -237,7 +237,7 @@ if(WITH_VCPKG)
                       POST_BUILD
                       COMMAND ${CMAKE_COMMAND} -E copy_if_different "${LIB}" "${CMAKE_BINARY_DIR}/output/bin/qgis/plugins"
     )
-    install(FILES "${LIB}" DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/qgis")
+    install(FILES "${LIB}" DESTINATION "lib/qgis")
   endforeach()
   add_custom_command(TARGET deploy
     POST_BUILD
@@ -251,9 +251,9 @@ if(WITH_VCPKG)
     POST_BUILD
     COMMAND ${CMAKE_COMMAND} -E copy_directory "${VCPKG_BASE_DIR}/share/gdal" "${CMAKE_BINARY_DIR}/output/bin/gdal"
   )
-  install(DIRECTORY "${VCPKG_BASE_DIR}/share/qgis/resources" DESTINATION "${CMAKE_INSTALL_PREFIX}/share/qgis")
-  install(DIRECTORY "${VCPKG_BASE_DIR}/share/proj4" DESTINATION "${CMAKE_INSTALL_PREFIX}/share/proj")
-  install(DIRECTORY "${VCPKG_BASE_DIR}/share/gdal" DESTINATION "${CMAKE_INSTALL_PREFIX}/share/gdal")
+  install(DIRECTORY "${VCPKG_BASE_DIR}/share/qgis/resources" DESTINATION "share/qgis")
+  install(DIRECTORY "${VCPKG_BASE_DIR}/share/proj4" DESTINATION "share/proj")
+  install(DIRECTORY "${VCPKG_BASE_DIR}/share/gdal" DESTINATION "share/gdal")
 
   if(EXISTS ${VCPKG_BASE_DIR}/plugins/mediaservice)
     add_custom_command(TARGET deploy
@@ -266,8 +266,8 @@ if(WITH_VCPKG)
 endif()
 
 if(${CMAKE_SYSTEM_NAME} STREQUAL "Linux")
-  install(FILES ${CMAKE_SOURCE_DIR}/images/icons/qfield_logo.svg DESTINATION ${CMAKE_INSTALL_PREFIX}/share/icons RENAME qfield.svg)
-  install(FILES ${CMAKE_SOURCE_DIR}/resources/qfield.desktop DESTINATION ${CMAKE_INSTALL_PREFIX}/share/qfield)
+  install(FILES ${CMAKE_SOURCE_DIR}/images/icons/qfield_logo.svg DESTINATION share/icons RENAME qfield.svg)
+  install(FILES ${CMAKE_SOURCE_DIR}/resources/qfield.desktop DESTINATION share/qfield)
 endif()
 
 include(${CMAKE_CURRENT_LIST_DIR}/Package.cmake)
