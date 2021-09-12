@@ -21,6 +21,9 @@ set(CMAKE_MODULE_PATH ${CMAKE_SOURCE_DIR}/cmake ${CMAKE_MODULE_PATH})
 
 include(GetGitRevisionDescription)
 
+set(VCPKG_APPLOCAL_DEPS ON)
+set(X_VCPKG_APPLOCAL_DEPS_INSTALL ON)
+
 project(${APP_NAME}
   LANGUAGES CXX
   VERSION ${CLEAN_APP_VERSION}
@@ -275,4 +278,4 @@ if(${CMAKE_SYSTEM_NAME} STREQUAL "Linux")
   install(FILES ${CMAKE_SOURCE_DIR}/resources/qfield.desktop DESTINATION share/qfield)
 endif()
 
-include(${CMAKE_CURRENT_LIST_DIR}/Package.cmake)
+include(Package)
