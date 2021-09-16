@@ -5,7 +5,7 @@
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>GNSS and precision measurement &#8212; QField Documentation 1.0 - M... documentation</title>
+    <title>GNSSと高精度測量 &#8212; QField Documentation 1.0 - M... documentation</title>
     <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/style.css" />
@@ -26,9 +26,9 @@
 <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
 <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
 <meta name="apple-mobile-web-app-capable" content="yes">
-<script type="text/javascript" src="../_static/js/jquery-1.11.0.min.js "></script>
+<script type="text/javascript" src="../_static/js/jquery-1.12.4.min.js "></script>
 <script type="text/javascript" src="../_static/js/jquery-fix.js "></script>
-<script type="text/javascript" src="../_static/bootstrap-3.3.7/js/bootstrap.min.js "></script>
+<script type="text/javascript" src="../_static/bootstrap-3.4.1/js/bootstrap.min.js "></script>
 <script type="text/javascript" src="../_static/bootstrap-sphinx.js "></script>
 
   </head><body>
@@ -63,15 +63,15 @@
   <ul class="dropdown-menu localtoc"
       role="menu"
       aria-labelledby="dLabelLocalToc"><ul>
-<li><a class="reference internal" href="#">GNSS and precision measurement</a><ul>
-<li><a class="reference internal" href="#quality-indication">Quality indication</a><ul>
+<li><a class="reference internal" href="#">GNSSと高精度測量</a><ul>
+<li><a class="reference internal" href="#quality-indication">品質指標</a><ul>
 <li><a class="reference internal" href="#additional-variables">追加の変数</a></li>
-<li><a class="reference internal" href="#accuracy-requirement">Accuracy requirement</a></li>
+<li><a class="reference internal" href="#accuracy-requirement">高精度測位に必要なこと</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#altitude">Altitude</a><ul>
-<li><a class="reference internal" href="#antenna-height-compensation">Antenna height compensation</a></li>
-<li><a class="reference internal" href="#altitude-correction-vertical-grid-shift">Altitude correction / vertical grid shift</a></li>
+<li><a class="reference internal" href="#altitude">高度</a><ul>
+<li><a class="reference internal" href="#antenna-height-compensation">アンテナの高さ補正</a></li>
+<li><a class="reference internal" href="#altitude-correction-vertical-grid-shift">高度補正／垂直方向のグリッドシフト</a></li>
 </ul>
 </li>
 </ul>
@@ -136,24 +136,17 @@
     <div class="col-md-9 content">
       
   <div class="section" id="gnss-and-precision-measurement">
-<h1>GNSS and precision measurement<a class="headerlink" href="#gnss-and-precision-measurement" title="Permalink to this headline">¶</a></h1>
-<p>QField can make use of the internal GNSS (Global Navigation Satellite System, like GPS, GLONASS, Galileo or Beidou).
-QField can also connect to external antennas through bluetooth and directly integrate their NMEA stream.</p>
+<h1>GNSSと高精度測量<a class="headerlink" href="#gnss-and-precision-measurement" title="Permalink to this headline">¶</a></h1>
+<p>QField は内蔵の GNSS（GPS、GLONASS、Galileo、Beidou などの全地球測位衛星システム）を利用することができます。また、QField は Bluetooth で外部アンテナに接続し、その NMEA ストリームを直接使用することもできます。</p>
 <div class="section" id="quality-indication">
-<h2>Quality indication<a class="headerlink" href="#quality-indication" title="Permalink to this headline">¶</a></h2>
+<h2>品質指標<a class="headerlink" href="#quality-indication" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="additional-variables">
 <span id="gnss-variables"></span><h3>追加の変数<a class="headerlink" href="#additional-variables" title="Permalink to this headline">¶</a></h3>
-<p>You can get access to positioning information through additional expression variables.
-These will only be available when positioning is enabled.</p>
-<p>These variables are commonly used as default values for fields to keep track of the quality of
-individual measured points.</p>
+<p>追加の式の変数を使用して、測位情報にアクセスすることができます。これらは、GNSS測位が有効になっている場合にのみ利用可能になります。</p>
+<p>これらの変数は、個々の測定地点の品質を把握するためのフィールドのデフォルト値としてよく使われます。</p>
 <ul class="simple">
-<li><cite>&#64;position_source_name</cite>
-- The name of the device that gave location information as reported by the sensor. To differenciate between internal and external sensor. If the position is manually set, and the position is not snapped to the cursor, the source name is &quot;manual&quot;. <strong>In case the cursor is not snapped to the position, all other variables will be null, if you need this, use the ``gnss_`` variables instead</strong>.</li>
-<li><cite>&#64;position_quality_description</cite>
-- A human readable and translated string for the quality as reported by the sensor. E.g. &quot;Fixed RTK&quot;. It is only available when the crosshair is snapped to the sensor.
-- E
-- IE</li>
+<li><cite>&#64;position_source_name</cite> - 内部センサーと外部センサーを区別するためのセンサーから取得した位置情報を提供したデバイスの名前です。座標位置が手動で設定されていて、その位置がカーソルにスナップされていない場合、ソース名は「manual」となります。<strong>カーソルが座標位置にスナップされていない場合、他のすべての変数はNULLとなります。必要であれば、代わりに ``gnss_`` 変数を使用してください</strong>。</li>
+<li><cite>&#64;position_quality_description</cite> - センサーからの情報を人間が読めるように変換された文字列。 例:「Fixed RTK」。十字線がセンサーにスナップされる場合のみ利用できます。 - E</li>
 <li><cite>&#64;position_coordinate</cite> - WGS84の座標を持つ点。センサーから取得された経度、緯度、高度。十字線がセンサーにスナップされる場合のみ利用できます。 - <cite>x(&#64;position_coordinate)</cite> - IE</li>
 <li><cite>&#64;position_horizontal_accuracy</cite> - センサーによって取得した座標の水平精度（メートル単位）。十字線がセンサーにスナップされる場合のみ利用できます。 - IE</li>
 <li><cite>&#64;position_timestamp</cite> - センサーにより取得した座標のUTC時間のタイムスタンプ。十字線がセンサーにスナップされる場合のみ利用できます。 - IE</li>
@@ -183,27 +176,23 @@ individual measured points.</p>
 <p>I: 内部の測位情報 E: 外部 (NMEA) の測位情報</p>
 </div>
 <div class="section" id="accuracy-requirement">
-<h3>Accuracy requirement<a class="headerlink" href="#accuracy-requirement" title="Permalink to this headline">¶</a></h3>
-<p>A minimum desired accuracy for measurements can be defined.
-The quality will be reported in three classes, bad (red), ok (yellow) and excellent (green).
-These colors will show up as a dot on top of the GNSS button.</p>
-<p>The thresholds can be defined in the positioning settings.</p>
-<p>If the <cite>Enable accuracy requirement</cite> setting is activated, a user will not be able to collect
-new measurements with the cursor snapped to the position with an accuracy value which is bad (red).</p>
+<h3>高精度測位に必要なこと<a class="headerlink" href="#accuracy-requirement" title="Permalink to this headline">¶</a></h3>
+<p>測位に必要な最低限の精度を定義することができます。精度の質は、悪い（赤）、良い（黄）、とても良い（緑）の3つのクラスで報告されます。これらの色は、GNSSボタンの上にドットで表示されます。</p>
+<p>しきい値は、GNSS測位の設定で定義できます。</p>
+<p><cite>高精度測位に必要</cite> な設定が有効になっていると、精度の値が悪い（赤）位置にカーソルがスナップされた状態では、新しい測位を行うことができません。</p>
 </div>
 </div>
 <div class="section" id="altitude">
-<h2>Altitude<a class="headerlink" href="#altitude" title="Permalink to this headline">¶</a></h2>
+<h2>高度<a class="headerlink" href="#altitude" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="antenna-height-compensation">
-<h3>Antenna height compensation<a class="headerlink" href="#antenna-height-compensation" title="Permalink to this headline">¶</a></h3>
-<p>The height of the antenna pole in use can be defined in the settings.
-Any measured altitude will be corrected by this value.</p>
+<h3>アンテナの高さ補正<a class="headerlink" href="#antenna-height-compensation" title="Permalink to this headline">¶</a></h3>
+<p>使用するアンテナポールの高さは、設定で定義できます。測位された高度は、この値で補正されます</p>
 </div>
 <div class="section" id="altitude-correction-vertical-grid-shift">
-<h3>Altitude correction / vertical grid shift<a class="headerlink" href="#altitude-correction-vertical-grid-shift" title="Permalink to this headline">¶</a></h3>
-<p>Altitude values can be corrected with vertical grid shift files to calculate orthometric height</p>
-<p>Vertical grid shift files have to be made available to QField by putting them into the QField base folder (<cite>&lt;external storage&gt;/QField/proj</cite>).</p>
-<p>If you are using altitude correction and an external bluetooth connected antenna consider turning <cite>Use orthometric altitude from device</cite> off.</p>
+<h3>高度補正／垂直方向のグリッドシフト<a class="headerlink" href="#altitude-correction-vertical-grid-shift" title="Permalink to this headline">¶</a></h3>
+<p>高度の値は、垂直方向のグリッドシフトファイルで補正して、正距方位を算出することができます。</p>
+<p>垂直方向のグリッドシフトファイルは、QField のベースフォルダ(<cite>&lt;external storage&gt;/QField/proj</cite>)に入れて、QField で利用できるようにする必要があります。</p>
+<p>高度補正を行う場合や、Bluetooth接続の外部アンテナを使用している場合は、<cite>デバイスからの正距方位の使用</cite> をオフにすることを検討してください。</p>
 </div>
 </div>
 </div>

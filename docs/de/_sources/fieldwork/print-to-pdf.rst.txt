@@ -36,5 +36,11 @@ A video demonstration of how the complete workflow looks:
   .. vimeo:: 499566180
 
 
+You can also print an atlas by selecting features:
+
+.. container::
+
+  .. vimeo:: 604740848
+
 
 .. note::  The devices documents directory is :code:`USER>/<APPNAME>/Documents`. For :code:`QField` this is usually a path like :code:`////storage/emulated/0/Documents/QField`

@@ -26,9 +26,9 @@
 <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
 <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
 <meta name="apple-mobile-web-app-capable" content="yes">
-<script type="text/javascript" src="../_static/js/jquery-1.11.0.min.js "></script>
+<script type="text/javascript" src="../_static/js/jquery-1.12.4.min.js "></script>
 <script type="text/javascript" src="../_static/js/jquery-fix.js "></script>
-<script type="text/javascript" src="../_static/bootstrap-3.3.7/js/bootstrap.min.js "></script>
+<script type="text/javascript" src="../_static/bootstrap-3.4.1/js/bootstrap.min.js "></script>
 <script type="text/javascript" src="../_static/bootstrap-sphinx.js "></script>
 
   </head><body>
@@ -68,7 +68,7 @@
 <li><a class="reference internal" href="#installation">Installation</a></li>
 <li><a class="reference internal" href="#configuration">Configuration</a><ul>
 <li><a class="reference internal" href="#layer-configuration">Configuration de la couche</a></li>
-<li><a class="reference internal" href="#base-map-configuration">Configuration du fond de carte</a></li>
+<li><a class="reference internal" href="#base-map-configuration">Configuration du fond de plan</a></li>
 <li><a class="reference internal" href="#offline-editing-configuration">Configuration de l’édition hors-ligne</a></li>
 </ul>
 </li>
@@ -141,7 +141,7 @@
 <p>QFieldSync aide à la préparation de votre projet en automatisant les éléments suivants :</p>
 <ul class="simple">
 <li>Étapes requises pour la mise en place du projet (ex. <a class="reference internal" href="movable-project.html#portable-project"><span class="std std-ref">Projet déplaçable</span></a>)</li>
-<li>Création d’un fond de carte à partir d’un raster seul ou d’un style défini dans un thème de carte.</li>
+<li>Création d’un fond de plan à partir d’un raster seul ou d’un style défini dans un thème de carte.</li>
 <li>Configuration de la fonctionnalité d’édition hors-ligne et synchronisation des changements</li>
 </ul>
 <div class="section" id="workflow">
@@ -170,25 +170,25 @@
 <p>Dans la boîte de dialogue de configuration du projet, une <em>action</em> peut être définie individuellement pour chaque couche. Selon le type de couche, différents types d’actions sont disponibles.</p>
 <dl class="docutils">
 <dt>Copier</dt>
-<dd>La couche va être copié dans le répertoire du paquet. Cela est disponible seulement pour les couches basées sur des fichiers.</dd>
+<dd>La couche va être copiée dans le répertoire du paquet. Cela est disponible seulement pour les couches basées sur des fichiers.</dd>
 <dt>Pas d’action</dt>
 <dd>La couche-source va être abandonnée sans modification. Cela est disponible seulement pour les couches non-basées sur des fichiers telles WMS, WFS, Postgis…</dd>
 <dt>Édition hors-ligne</dt>
 <dd>Une copie de travail de la couche est faite dans le répertoire du paquet. Chaque modification réalisée dans le projet empaqueté durant le travail est enregistré dans un fichier de journalisation. Plus tard, lors de la synchronisation-retour, ce fichier sera relancé et tous les changements appliqués aussi à la base de données principale. Il n’y a pas de conflit de traitement.</dd>
 <dt>Enlever</dt>
-<dd>La couche va être enlevée de la copie de travail. Cela est utile si une couche est utilisée dans le fond de carte et ne sera pas disponible dans le projet empaqueté.</dd>
+<dd>La couche va être enlevée de la copie de travail. Cela est utile si une couche est utilisée dans le fond de plan et ne sera pas disponible dans le projet empaqueté.</dd>
 </dl>
 </div>
 <div class="section" id="base-map-configuration">
-<h3>Configuration du fond de carte<a class="headerlink" href="#base-map-configuration" title="Permalink to this headline">¶</a></h3>
-<p>Un fond de carte est une couche raster ajoutée comme couche d’arrière-plan au fichier du projet empaqueté.</p>
-<p>Si l’option «&nbsp;fond de carte&nbsp;» est activée, un fond de carte sera affiché, dès que le projet sera empaqueté. La zone d’intérêt - l’étendue qui sera affichée - sera choisi au moment de l’empaquetqge.</p>
-<p>Il y a deux sources possibles pour un fond de carte :</p>
+<h3>Configuration du fond de plan<a class="headerlink" href="#base-map-configuration" title="Permalink to this headline">¶</a></h3>
+<p>Un fond de plan est une couche raster ajoutée comme couche d’arrière-plan au fichier du projet empaqueté.</p>
+<p>Si l’option «&nbsp;fond de plan&nbsp;» est activée, un fond de carte sera affiché, dès que le projet sera empaqueté. La zone d’intérêt - l’étendue qui sera affichée - sera choisi au moment de l’empaquetqge.</p>
+<p>Il y a deux sources possibles pour un fond de plan :</p>
 <dl class="docutils">
 <dt>Couche</dt>
 <dd>Couche raster. Utile pour faire une copie hors-ligne d’une couche en ligne tel un WMS ou réaliser une copie de travail d’un format non supporté comme une couche ECW ou MrSid.</dd>
 <dt>Thème de carte</dt>
-<dd>Thème de carte. Cela est utile pour créer un fond de carte basé sur la combinaison de plusieurs couches avec une mise en forme. Ces couches peuvent être retirées du paquet de travail et n’ont plus besoin d’être affichées sur le périphérique. On peut économiser sur l’espace-disque et la batterie du périphérique.</dd>
+<dd>Thème de carte. Cela est utile pour créer un fond de plan basé sur la combinaison de plusieurs couches avec une mise en forme. Ces couches peuvent être retirées du paquet de travail et n’ont plus besoin d’être affichées sur le périphérique. On peut économiser sur l’espace-disque et la batterie du périphérique.</dd>
 </dl>
 <p>La taille des tuiles définit la résolution spatiale. Elle détermine le nombre d’unités de carte par pixel. Si le SCR du canevas de carte a pour unité le mètre et que la taille de la tuile est fixée à 1, chaque pixel du raster aura une étendue spatiale d’1x1 m, si elle est fixée à 1000, chaque pixel du raster aura une étendue spatiale d’1 kilomètre carré.</p>
 </div>
@@ -209,7 +209,7 @@
 <p>Lorsque vous voulez synchroniser ce que vous avez collecté, commencez par re-ouvrir le projet dans QGIS (celui que vous avez sauvegardé précédement avec Enregister Sous … ).</p>
 <p>Copiez le dossier du projet depuis votre appareil sur votre ordinateur et utilisez <strong>Synchroniser depuis QField</strong> pour synchroniser vos changements depuis le projet portable vers le projet principal.</p>
 <img alt="../_images/qfield-sync_sync1.png" src="../_images/qfield-sync_sync1.png" />
-<p>Make sure that you synchronize your data back only once. That means, if you go out again to collect more data, you should create a new QField package before to avoid sync problems later on (like e.g. duplicates).</p>
+<p>Soyez sûr de ne synchroniser vos données qu’une seule fois : si vous ressortez sur le terrain collecter des données supplémentaires, vous devriez créer auparavant un nouveau paquet QField pour éviter au retour des problèmes de synchronisation (doublons par exemple).</p>
 </div>
 </div>
 

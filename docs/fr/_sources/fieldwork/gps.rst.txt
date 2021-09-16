@@ -35,6 +35,10 @@ In settings -> positioning, paired bluetooth devices can be scanned and chosen a
 
 Make sure no other app like mock location providers are using the bluetooth antenna.
 
+.. container::
+
+  .. vimeo:: 604667820
+
 Mock location
 -------------
 
