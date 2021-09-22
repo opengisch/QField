@@ -66,6 +66,7 @@
 <li><a class="reference internal" href="#">GNSSと高精度測量</a><ul>
 <li><a class="reference internal" href="#quality-indication">品質指標</a><ul>
 <li><a class="reference internal" href="#additional-variables">追加の変数</a></li>
+<li><a class="reference internal" href="#vertex-log">Vertex log</a></li>
 <li><a class="reference internal" href="#accuracy-requirement">高精度測位に必要なこと</a></li>
 </ul>
 </li>
@@ -174,6 +175,25 @@
 </dd>
 </dl>
 <p>I: 内部の測位情報 E: 外部 (NMEA) の測位情報</p>
+</div>
+<div class="section" id="vertex-log">
+<h3>Vertex log<a class="headerlink" href="#vertex-log" title="Permalink to this headline">¶</a></h3>
+<p>It is possible to setup a log layer of the collected vertices.
+This allows to keep track of meta data for each vertex like GNSS quality attributes and more.
+To set this up, a point layer can be added to the project and attributes configured to store this information.</p>
+<div class="clearer text-left docutils container">
+<div class="figure">
+<a class="reference internal image-reference" href="../_images/vertex_log1.png"><img alt="set up attributes with variables" src="../_images/vertex_log1.png" style="width: 600px;" /></a>
+</div>
+</div>
+<p>Then the user assigns the role &quot;digitizing logger&quot; on a point layer.</p>
+<p>Go to QFieldSync --&gt; project Properties</p>
+<div class="clearer text-left docutils container">
+<div class="figure">
+<a class="reference internal image-reference" href="../_images/vertex_log2.png"><img alt="set up vertex log" src="../_images/vertex_log2.png" style="width: 600px;" /></a>
+</div>
+</div>
+<p>The layer fields must have default value with GNSS variables.</p>
 </div>
 <div class="section" id="accuracy-requirement">
 <h3>高精度測位に必要なこと<a class="headerlink" href="#accuracy-requirement" title="Permalink to this headline">¶</a></h3>

@@ -93,6 +93,32 @@ Examples:
 I: Internal position source
 E: External (NMEA) position source
 
+Vertex log
+..........
+
+It is possible to setup a log layer of the collected vertices.
+This allows to keep track of meta data for each vertex like GNSS quality attributes and more.
+To set this up, a point layer can be added to the project and attributes configured to store this information.
+
+.. container:: clearer text-left
+
+  .. figure:: ../images/vertex_log1.png
+     :width: 600px
+     :alt: set up attributes with variables
+
+
+Then the user assigns the role "digitizing logger" on a point layer.
+
+Go to QFieldSync --> project Properties
+
+.. container:: clearer text-left
+
+  .. figure:: ../images/vertex_log2.png
+     :width: 600px
+     :alt: set up vertex log
+
+The layer fields must have default value with GNSS variables. 
+
 Accuracy requirement
 ....................
 
