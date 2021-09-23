@@ -31,7 +31,7 @@ class IosPlatformUtilities : public PlatformUtilities
     QString systemGenericDataLocation() const override;
     bool checkPositioningPermissions() const override;
     bool checkCameraPermissions() const override;
-    virtual PictureSource *getCameraPicture( QQuickItem* item, const QString &prefix, const QString &pictureFilePath, const QString &suffix ) override;
+    virtual PictureSource *getCameraPicture( QQuickItem* parent, const QString &prefix, const QString &pictureFilePath, const QString &suffix ) override;
 };
 
 #endif

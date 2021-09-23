@@ -92,9 +92,10 @@ bool PlatformUtilities::renameFile( const QString &filename, const QString &newn
   QFile file( filename );
   return file.rename( newname );
 }
-/*
-PictureSource *PlatformUtilities::getCameraPicture( const QString &prefix, const QString &pictureFilePath, const QString &suffix )
+
+PictureSource *PlatformUtilities::getCameraPicture( QQuickItem *parent, const QString &prefix, const QString &pictureFilePath, const QString &suffix )
 {
+  Q_UNUSED( parent )
   Q_UNUSED( prefix )
   Q_UNUSED( pictureFilePath )
   Q_UNUSED( suffix )
@@ -128,7 +129,7 @@ PictureSource *PlatformUtilities::getGalleryPicture( const QString &prefix, cons
 
   return new PictureSource( nullptr, prefix, QString() );
 }
-*/
+
 ViewStatus *PlatformUtilities::open( const QString &uri )
 {
   QDesktopServices::openUrl( QStringLiteral( "file://%1" ).arg( uri ) );

@@ -58,9 +58,9 @@ bool IosPlatformUtilities::checkCameraPermissions() const
   return true;
 }
 
-PictureSource *IosPlatformUtilities::getCameraPicture( QQuickItem* item, const QString &prefix, const QString &pictureFilePath, const QString &suffix )
+PictureSource *IosPlatformUtilities::getCameraPicture( QQuickItem* parent, const QString &prefix, const QString &pictureFilePath, const QString &suffix )
 {
-  IosPictureSource *pictureSource = new IosPictureSource( item, prefix, pictureFilePath );
+  IosPictureSource *pictureSource = new IosPictureSource( parent, prefix, pictureFilePath );
   pictureSource->takePicture();
   return pictureSource;
 }
