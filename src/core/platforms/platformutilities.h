@@ -19,7 +19,6 @@
 #ifndef PLATFORMUTILITIES_H
 #define PLATFORMUTILITIES_H
 
-#include "picturesource.h"
 #include "qfield_core_export.h"
 #include "viewstatus.h"
 
@@ -27,6 +26,9 @@
 #include <qgsfield.h>
 
 class ProjectSource;
+class ImagePicker;
+
+class QQuickItem;
 
 class QFIELD_CORE_EXPORT PlatformUtilities : public QObject
 {
@@ -74,7 +76,7 @@ class QFIELD_CORE_EXPORT PlatformUtilities : public QObject
      * @param pictureFilePath The path (including subfolders and name) of the file
      * @return The name of the picture or null
      */
-    Q_INVOKABLE virtual PictureSource *getCameraPicture( const QString &prefix, const QString &pictureFilePath, const QString &suffix );
+    Q_INVOKABLE virtual ImagePicker *getCameraPicture( QQuickItem* item, const QString &prefix, const QString &pictureFilePath, const QString &suffix )  {return nullptr;}
 
     /**
      * Get a picture from gallery and copy it to the requested prefix
@@ -82,7 +84,7 @@ class QFIELD_CORE_EXPORT PlatformUtilities : public QObject
      * @param pictureFilePath The path (including subfolders and name) of the file
      * @return The name of the picture or null
      */
-    Q_INVOKABLE virtual PictureSource *getGalleryPicture( const QString &prefix, const QString &pictureFilePath );
+    Q_INVOKABLE virtual ImagePicker *getGalleryPicture( const QString &prefix, const QString &pictureFilePath ) {return nullptr;}
 
     /**
      * Open the resource (file, image, ...) that is available under \a uri.

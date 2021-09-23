@@ -100,6 +100,8 @@
 #include "urlutils.h"
 #include "valuemapmodel.h"
 #include "vertexmodel.h"
+#include "iosplatformutilities.h"
+#include "ioscamera.h"
 
 #include "qgsquickcoordinatetransformer.h"
 #include "qgsquickmapcanvasmap.h"
@@ -401,7 +403,7 @@ void QgisMobileapp::initDeclarative()
   qmlRegisterType<ModelHelper>( "org.qgis", 1, 0, "ModelHelper" );
   qmlRegisterType<Rubberband>( "org.qgis", 1, 0, "Rubberband" );
   qmlRegisterType<RubberbandModel>( "org.qgis", 1, 0, "RubberbandModel" );
-  qmlRegisterType<PictureSource>( "org.qgis", 1, 0, "PictureSource" );
+  qmlRegisterType<ImagePicker>( "org.qgis", 1, 0, "PictureSource" );
   qmlRegisterType<ProjectInfo>( "org.qgis", 1, 0, "ProjectInfo" );
   qmlRegisterType<ProjectSource>( "org.qgis", 1, 0, "ProjectSource" );
   qmlRegisterType<ViewStatus>( "org.qgis", 1, 0, "ViewStatus" );
