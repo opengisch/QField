@@ -197,12 +197,10 @@ elseif(${CMAKE_SYSTEM_NAME} STREQUAL "iOS")
   set(QFIELD_CORE_HDRS ${QFIELD_CORE_HDRS}
     platforms/ios/iosplatformutilities.h
     platforms/ios/iospicturesource.h
-    platforms/ios/ioscamera.h
   )
   set(QFIELD_CORE_SRCS ${QFIELD_CORE_SRCS}
     platforms/ios/iosplatformutilities.mm
     platforms/ios/iospicturesource.mm
-    platforms/ios/ioscamera.mm
   )
 endif()
 

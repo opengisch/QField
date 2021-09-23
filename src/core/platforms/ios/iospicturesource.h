@@ -23,21 +23,25 @@ class IosPictureSource : public PictureSource
 {
     Q_OBJECT
 
-  public:
-    /**
-     * Construct a new Ios Picture Source object
-     *
-     * @param prefix The project folder. Base directory path for all relative paths.
-     */
-    explicit IosPictureSource( const QString &prefix );
+public:
+    explicit IosPictureSource( QObject *parent = nullptr, const QString &prefix = QString(), const QString &pictureFilePath = QString() );
 
-    void handleActivityResult( int receiverRequestCode, int resultCode );
+    QString picturePath() {
+        return mPicturePath;
+    }
 
-  private:
-    /**
-     * Base directory path for all relative paths.
-     */
-    QString mPrefix;
+signals:
+    void pictureReceived( const QString &path );
+
+public slots:
+    void takePicture();
+
+private:
+    QQuickItem *mParent = nullptr;
+    QString mPicturePath;
+    class CameraDelegateContainer;
+    CameraDelegateContainer *mDelegate = nullptr;
 };
+
 
 #endif // IOSPICTURESOURCE_H

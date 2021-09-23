@@ -18,6 +18,7 @@
 
 #include "platformutilities.h"
 #include "projectsource.h"
+#include "picturesource.h"
 #include "qgismobileapp.h"
 #include "qgsmessagelog.h"
 

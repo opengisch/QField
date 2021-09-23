@@ -1,41 +1,79 @@
-/***************************************************************************
-  iospicturesource.cpp - IosPictureSource
+#include <UIKit/UIKit.h>
 
- ---------------------
- begin                : 5.7.2016
- copyright            : (C) 2016 by Matthias Kuhn
- email                : matthias@opengis.ch
- ***************************************************************************
- *                                                                         *
- *   This program is free software; you can redistribute it and/or modify  *
- *   it under the terms of the GNU General Public License as published by  *
- *   the Free Software Foundation; either version 2 of the License, or     *
- *   (at your option) any later version.                                   *
- *                                                                         *
- ***************************************************************************/
+#include <qpa/qplatformnativeinterface.h>
+#include <QGuiApplication>
+#include <QQuickItem>
+#include <QQuickWindow>
 
 #include "iospicturesource.h"
-#include "qgsapplication.h"
-#include "qgsmessagelog.h"
 
-#include <QDir>
-#include <QFile>
+@interface CameraDelegate
+  : NSObject <UIImagePickerControllerDelegate, UINavigationControllerDelegate>
+  {
+    IosPictureSource *mIosCamera;
+  }
+@end
 
+@implementation CameraDelegate
 
-IosPictureSource::IosPictureSource( const QString &prefix )
-  : PictureSource( nullptr, prefix )
-  , mPrefix( prefix )
+- (id) initWithIosPictureSource:(IosPictureSource *)iosCamera
 {
+    self = [super init];
+    if (self) {
+        mIosCamera = iosCamera;
+    }
+    return self;
 }
 
-void IosPictureSource::handleActivityResult( int receiverRequestCode, int resultCode )
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
 {
-  if ( receiverRequestCode == 171 )
-  {
-    emit pictureReceived( "" );
-  }
-  else
-  {
-    emit pictureReceived( QString() );
-  }
+    Q_UNUSED(picker);
+
+    NSString *path = [[NSString alloc] initWithUTF8String:mIosCamera->picturePath().toUtf8().constData()];
+
+    // Save image:
+    UIImage *image = [info objectForKey:UIImagePickerControllerOriginalImage];
+    [UIImagePNGRepresentation(image) writeToFile:path options:NSAtomicWrite error:nil];
+
+    // Update imagePath property to trigger QML code:
+    QString filePath = QStringLiteral("file:") + QString::fromNSString( path );
+    emit mIosCamera->pictureReceived(filePath);
+
+    // Bring back Qt's view controller:
+    UIViewController *rvc = [[[UIApplication sharedApplication] keyWindow] rootViewController];
+    [rvc dismissViewControllerAnimated:YES completion:nil];
+}
+@end
+
+
+class IosPictureSource::CameraDelegateContainer
+{
+  public:
+    CameraDelegate *_cameraDelegate = nullptr;
+};
+
+IosPictureSource::IosPictureSource(QObject *parent, const QString &prefix, const QString &pictureFilePath )
+    : PictureSource( parent, prefix, pictureFilePath )
+    , mDelegate( new CameraDelegateContainer() )
+{
+  mParent = qobject_cast<QQuickItem*>( parent );
+    Q_ASSERT(mParent);
+  const QString path =
+  mPicturePath = prefix + pictureFilePath;
+  mDelegate->_cameraDelegate = [[CameraDelegate alloc] initWithIosPictureSource:this];
+}
+
+void IosPictureSource::takePicture()
+{
+    // Get the UIView that backs our QQuickWindow:
+    UIView *view = (__bridge UIView*)(QGuiApplication::platformNativeInterface()->nativeResourceForWindow("uiview", mParent->window()));
+    UIViewController *qtController = [[view window] rootViewController];
+
+    // Create a new image picker controller to show on top of Qt's view controller:
+    UIImagePickerController *imageController = [[UIImagePickerController alloc] init];
+    [imageController setSourceType:UIImagePickerControllerSourceTypeCamera];
+    [imageController setDelegate:id(mDelegate->_cameraDelegate)];
+
+    // Tell the imagecontroller to animate on top:
+    [qtController presentViewController:imageController animated:YES completion:nil];
 }
