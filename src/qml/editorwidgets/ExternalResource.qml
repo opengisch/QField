@@ -270,7 +270,7 @@ EditorWidgetBase {
     onClicked: {
         if ( settings.valueBool("nativeCamera", true) ) {
             var filepath = getPictureFilePath()
-            __pictureSource = platformUtilities.getCameraPicture(qgisProject.homePath+'/', filepath, FileUtils.fileSuffix(filepath) )
+            __pictureSource = platformUtilities.getCameraPicture(this, qgisProject.homePath+'/', filepath, FileUtils.fileSuffix(filepath) )
         } else {
             platformUtilities.createDir( qgisProject.homePath, 'DCIM' )
             camloader.active = true
@@ -293,7 +293,7 @@ EditorWidgetBase {
 
     onClicked: {
           var filepath = getPictureFilePath()
-        __pictureSource = platformUtilities.getGalleryPicture(qgisProject.homePath+'/', filepath)
+        __pictureSource = platformUtilities.getGalleryPicture(this, qgisProject.homePath+'/', filepath)
     }
 
     iconSource: Theme.getThemeIcon("baseline_photo_library_black_24")

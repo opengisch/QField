@@ -18,6 +18,7 @@
 
 #include "platformutilities.h"
 #include "projectsource.h"
+#include "picturesource.h"
 #include "qgismobileapp.h"
 #include "qgsmessagelog.h"
 
@@ -92,16 +93,18 @@ bool PlatformUtilities::renameFile( const QString &filename, const QString &newn
   return file.rename( newname );
 }
 
-PictureSource *PlatformUtilities::getCameraPicture( const QString &prefix, const QString &pictureFilePath, const QString &suffix )
+PictureSource *PlatformUtilities::getCameraPicture( QQuickItem *parent, const QString &prefix, const QString &pictureFilePath, const QString &suffix )
 {
+  Q_UNUSED( parent )
   Q_UNUSED( prefix )
   Q_UNUSED( pictureFilePath )
   Q_UNUSED( suffix )
   return nullptr;
 }
 
-PictureSource *PlatformUtilities::getGalleryPicture( const QString &prefix, const QString &pictureFilePath )
+PictureSource *PlatformUtilities::getGalleryPicture( QQuickItem* parent, const QString &prefix, const QString &pictureFilePath )
 {
+  Q_UNUSED( parent )
   QString fileName = QFileDialog::getOpenFileName( nullptr, tr( "Select Media File" ), prefix, tr( "JPEG images (*.jpg *.jpeg)" ) );
 
   if ( QFileInfo::exists( fileName ) )

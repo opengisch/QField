@@ -17,15 +17,25 @@
  ***************************************************************************/
 
 #include "iosplatformutilities.h"
+#include "iospicturesource.h"
 
 #import <UIKit/UIKit.h>
 #import <CoreLocation/CoreLocation.h>
 #import <AVFoundation/AVFoundation.h>
+#include <MobileCoreServices/MobileCoreServices.h>
+
+#include <QDebug>
+#include <QGuiApplication>
+#include <qpa/qplatformnativeinterface.h>
+
+#include <QtGui>
+#include <QtQuick>
+
+
 
 IosPlatformUtilities::IosPlatformUtilities()
   : PlatformUtilities()
 {
-
 }
 
 QString IosPlatformUtilities::systemGenericDataLocation() const
@@ -45,55 +55,18 @@ bool IosPlatformUtilities::checkCameraPermissions() const
 {
   // see https://stackoverflow.com/a/20464727/1548052
   return true;
-    
-  NSString *mediaType = AVMediaTypeVideo;
-  AVAuthorizationStatus authStatus = [AVCaptureDevice authorizationStatusForMediaType:mediaType];
-  switch(authStatus)
-  {
-      case AVAuthorizationStatusAuthorized:
-          return true;
-
-      case AVAuthorizationStatusDenied:
-          return false;
-
-      case AVAuthorizationStatusRestricted:
-         // restricted, normally won't happen
-        return false;
-  
-      case AVAuthorizationStatusNotDetermined:
-      {
-        // not determined?!
-        [AVCaptureDevice requestAccessForMediaType:mediaType completionHandler:^(BOOL granted){}];
-        return false;
-      }
-  }
 }
 
-PictureSource *IosPlatformUtilities::getCameraPicture( const QString &prefix, const QString &pictureFilePath, const QString &suffix )
+PictureSource *IosPlatformUtilities::getCameraPicture( QQuickItem *parent, const QString &prefix, const QString &pictureFilePath, const QString &suffix )
 {
-  if ( !checkCameraPermissions() )
-    return nullptr;
-    
-    //https://stackoverflow.com/questions/42172454/ios-uiimagecontroller-delegate-undeclared-error
-    
-//    SATController *vc = (__bridge SATController *)object;
-//    UIImagePickerController *picker = [UIImagePickerController new];
-//    picker.delegate = self;
-//    picker.sourceType = UIImagePickerControllerSourceTypeCamera;
-//    picker.allowsEditing = YES;
-//
-//    [self presentModalViewController:picker animated:YES];
- 
-//  YourCurrentViewController *vc = (__bridge YourCurrentViewController *)object;
-//  UIImagePickerController *picker = [[UIImagePickerController alloc] init];
-//  picker.delegate = vc;
-//  picker.allowsEditing = YES;
-//  picker.sourceType = UIImagePickerControllerSourceTypeCamera;
-//  //[self presentViewController:picker animated:YES completion:nil];
-
+  IosPictureSource *pictureSource = new IosPictureSource( parent, prefix, pictureFilePath );
+  pictureSource->takePicture();
+  return pictureSource;
 }
 
-//- (void)cameraCapture {
-//    UIImagePickerController *picker = [UIImagePickerController new];
-//    picker.delegate = self;
-//}
+PictureSource *IosPlatformUtilities::getGalleryPicture( QQuickItem *parent, const QString &prefix, const QString &pictureFilePath )
+{
+  IosPictureSource *pictureSource = new IosPictureSource( parent, prefix, pictureFilePath );
+  pictureSource->pickGalleryPicture();
+  return pictureSource;
+}

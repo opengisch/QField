@@ -159,8 +159,9 @@ QAndroidJniObject AndroidPlatformUtilities::getNativeExtras() const
   return nullptr;
 }
 
-PictureSource *AndroidPlatformUtilities::getCameraPicture( const QString &prefix, const QString &pictureFilePath, const QString &suffix )
+PictureSource *AndroidPlatformUtilities::getCameraPicture( QQuickItem *parent, const QString &prefix, const QString &pictureFilePath, const QString &suffix )
 {
+  Q_UNUSED( parent )
   if ( !checkCameraPermissions() )
     return nullptr;
 
@@ -199,8 +200,10 @@ PictureSource *AndroidPlatformUtilities::getCameraPicture( const QString &prefix
   return pictureSource;
 }
 
-PictureSource *AndroidPlatformUtilities::getGalleryPicture( const QString &prefix, const QString &pictureFilePath )
+PictureSource *AndroidPlatformUtilities::getGalleryPicture( QQuickItem *parent, const QString &prefix, const QString &pictureFilePath )
 {
+  Q_UNUSED( parent )
+
   QAndroidJniObject activity = QAndroidJniObject::fromString( QStringLiteral( "ch.opengis.qfield.QFieldGalleryPictureActivity" ) );
   QAndroidJniObject intent = QAndroidJniObject( "android/content/Intent", "(Ljava/lang/String;)V", activity.object<jstring>() );
   QAndroidJniObject packageName = QAndroidJniObject::fromString( QStringLiteral( "ch.opengis.qfield" ) );
