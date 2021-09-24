@@ -34,6 +34,7 @@ signals:
 
 public slots:
     void takePicture();
+    void pickGalleryPicture();
 
 private:
     QQuickItem *mParent = nullptr;

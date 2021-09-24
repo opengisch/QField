@@ -102,8 +102,9 @@ PictureSource *PlatformUtilities::getCameraPicture( QQuickItem *parent, const QS
   return nullptr;
 }
 
-PictureSource *PlatformUtilities::getGalleryPicture( const QString &prefix, const QString &pictureFilePath )
+PictureSource *PlatformUtilities::getGalleryPicture( QQuickItem* parent, const QString &prefix, const QString &pictureFilePath )
 {
+  Q_UNUSED( parent )
   QString fileName = QFileDialog::getOpenFileName( nullptr, tr( "Select Media File" ), prefix, tr( "JPEG images (*.jpg *.jpeg)" ) );
 
   if ( QFileInfo::exists( fileName ) )

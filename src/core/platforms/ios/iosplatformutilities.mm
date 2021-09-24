@@ -36,7 +36,6 @@
 IosPlatformUtilities::IosPlatformUtilities()
   : PlatformUtilities()
 {
-
 }
 
 QString IosPlatformUtilities::systemGenericDataLocation() const
@@ -62,5 +61,12 @@ PictureSource *IosPlatformUtilities::getCameraPicture( QQuickItem* parent, const
 {
   IosPictureSource *pictureSource = new IosPictureSource( parent, prefix, pictureFilePath );
   pictureSource->takePicture();
+  return pictureSource;
+}
+
+PictureSource *IosPlatformUtilities::getGalleryPicture( QQuickItem* parent, const QString &prefix, const QString &pictureFilePath )
+{
+  IosPictureSource *pictureSource = new IosPictureSource( parent, prefix, pictureFilePath );
+  pictureSource->pickGalleryPicture();
   return pictureSource;
 }

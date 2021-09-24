@@ -293,7 +293,7 @@ EditorWidgetBase {
 
     onClicked: {
           var filepath = getPictureFilePath()
-        __pictureSource = platformUtilities.getGalleryPicture(qgisProject.homePath+'/', filepath)
+        __pictureSource = platformUtilities.getGalleryPicture(this, qgisProject.homePath+'/', filepath)
     }
 
     iconSource: Theme.getThemeIcon("baseline_photo_library_black_24")
