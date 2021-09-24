@@ -23,20 +23,20 @@ class IosPictureSource : public PictureSource
 {
     Q_OBJECT
 
-public:
+  public:
     explicit IosPictureSource( QObject *parent = nullptr, const QString &prefix = QString(), const QString &pictureFilePath = QString() );
 
     QString pictureFilePath() { return mPictureFilePath; }
     QString prefixPath() { return mPrefixPath; }
 
-signals:
+  signals:
     void pictureReceived( const QString &path );
 
-public slots:
+  public slots:
     void takePicture();
     void pickGalleryPicture();
 
-private:
+  private:
     QQuickItem *mParent = nullptr;
     QString mPrefixPath;
     QString mPictureFilePath;

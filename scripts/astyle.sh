@@ -52,7 +52,7 @@ MY_ARTISTIC_STYLE_OPTIONS=" \
 
 for f in "$@"; do
   case "$f" in
-        *.cpp|*.h|*.c|*.cxx|*.hxx|*.c++|*.h++|*.cc|*.hh|*.C|*.H|*.hpp)
+        *.cpp|*.h|*.c|*.cxx|*.hxx|*.c++|*.h++|*.cc|*.hh|*.C|*.H|*.hpp|*.mm)
                 cmd="astyle $MY_ARTISTIC_STYLE_OPTIONS"
                 ;;
 
