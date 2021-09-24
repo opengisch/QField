@@ -1,10 +1,10 @@
 /***************************************************************************
-                            iosplatformutilities.h  -  utilities for qfield
+    iosplatformutilities.h  -  utilities for qfield
 
-                              -------------------
-              begin                : November 2020
-              copyright            : (C) 2020 by Denis Rouzaud
-              email                : denis@opengis.ch
+      -------------------
+    begin                : November 2020
+    copyright            : (C) 2020 by Denis Rouzaud
+    email                : denis@opengis.ch
  ***************************************************************************/
 
 /***************************************************************************

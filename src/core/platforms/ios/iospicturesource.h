@@ -1,10 +1,9 @@
 /***************************************************************************
   iospicturesource.h - IosPictureSource
 
- ---------------------
- begin                : 5.7.2016
- copyright            : (C) 2016 by Matthias Kuhn
- email                : matthias@opengis.ch
+  begin                : September 2021
+  copyright            : (C) 2020 by Denis Rouzaud
+  email                : denis@opengis.ch
  ***************************************************************************
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
