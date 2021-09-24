@@ -773,8 +773,6 @@ void QFieldCloudProjectsModel::uploadProject( const QString &projectId, const bo
   const QDir projectDir( projectInfo.absolutePath() );
   QStringList attachmentFileNames = deltaFileWrapper->attachmentFileNames().keys();
 
-  QgsMessageLog::logMessage( QStringLiteral( "Pushing %1 attachment files" ).arg( attachmentFileNames.count() ) );
-
   for ( QString &fileName : attachmentFileNames )
   {
     QFileInfo fileInfo( fileName );
@@ -795,9 +793,6 @@ void QFieldCloudProjectsModel::uploadProject( const QString &projectId, const bo
     // ? should we also check the checksums of the files being uploaded? they are available at deltaFile->attachmentFileNames()->values()
     mCloudProjects[index].uploadAttachments.insert( fileName, FileTransfer( fileName, fileSize ) );
   }
-
-  for ( int pp = 0; pp < mCloudProjects[index].uploadAttachments.count(); pp++)
-    QgsMessageLog::logMessage( mCloudProjects[index].uploadAttachments.keys()[pp] );
 
   QFieldCloudUtils::setProjectSetting( projectId, QStringLiteral( "uploadAttachments" ), QStringList( mCloudProjects[index].uploadAttachments.keys() ) );
 

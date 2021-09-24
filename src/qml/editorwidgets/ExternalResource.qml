@@ -350,10 +350,8 @@ EditorWidgetBase {
   Connections {
     target: __pictureSource
     function onPictureReceived(path) {
-      console.log("picture received: " + path)
       if( path )
       {
-          console.log("setting path")
           valueChangeRequested(path, false)
       }
     }
