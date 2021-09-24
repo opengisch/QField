@@ -771,7 +771,7 @@ void QFieldCloudProjectsModel::uploadProject( const QString &projectId, const bo
 
   const QFileInfo projectInfo( QFieldCloudUtils::localProjectFilePath( mUsername, projectId ) );
   const QDir projectDir( projectInfo.absolutePath() );
-  QStringList attachmentFileNames = deltaFileWrapper->attachmentFileNames().keys();
+  const QStringList attachmentFileNames = deltaFileWrapper->attachmentFileNames().keys();
   for ( QString &fileName : attachmentFileNames )
   {
     QFileInfo fileInfo( fileName );
