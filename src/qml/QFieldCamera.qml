@@ -68,7 +68,7 @@ Item{
 
 
     QfToolButton {
-      id: video_button_click
+      id: videoButtonClick
       visible: true
 
       anchors.right: parent.right

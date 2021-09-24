@@ -100,6 +100,7 @@
 #include "urlutils.h"
 #include "valuemapmodel.h"
 #include "vertexmodel.h"
+#include "picturesource.h"
 
 #include "qgsquickcoordinatetransformer.h"
 #include "qgsquickmapcanvasmap.h"
