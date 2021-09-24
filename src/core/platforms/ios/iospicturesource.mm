@@ -29,15 +29,15 @@
 {
     Q_UNUSED(picker);
 
-    NSString *path = [[NSString alloc] initWithUTF8String:mIosCamera->picturePath().toUtf8().constData()];
+    NSString *path = [[NSString alloc] initWithUTF8String:(mIosCamera->prefixPath()+mIosCamera->pictureFilePath()).toUtf8().constData()];
 
     // Save image:
     UIImage *image = [info objectForKey:UIImagePickerControllerOriginalImage];
     [UIImagePNGRepresentation(image) writeToFile:path options:NSAtomicWrite error:nil];
 
     // Update imagePath property to trigger QML code:
-    QString filePath = QStringLiteral("file:") + QString::fromNSString( path );
-    emit mIosCamera->pictureReceived(filePath);
+    QString filePath = /*StringLiteral("file:") +*/ QString::fromNSString( path );
+    emit mIosCamera->pictureReceived(mIosCamera->pictureFilePath());
 
     // Bring back Qt's view controller:
     UIViewController *rvc = [[[UIApplication sharedApplication] keyWindow] rootViewController];
@@ -58,8 +58,8 @@ IosPictureSource::IosPictureSource(QObject *parent, const QString &prefix, const
 {
   mParent = qobject_cast<QQuickItem*>( parent );
     Q_ASSERT(mParent);
-  const QString path =
-  mPicturePath = prefix + pictureFilePath;
+  mPrefixPath = prefix;
+  mPictureFilePath = pictureFilePath;
   mDelegate->_cameraDelegate = [[CameraDelegate alloc] initWithIosPictureSource:this];
 }
 
@@ -77,3 +77,5 @@ void IosPictureSource::takePicture()
     // Tell the imagecontroller to animate on top:
     [qtController presentViewController:imageController animated:YES completion:nil];
 }
+
+

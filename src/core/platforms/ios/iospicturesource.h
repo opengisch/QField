@@ -26,9 +26,8 @@ class IosPictureSource : public PictureSource
 public:
     explicit IosPictureSource( QObject *parent = nullptr, const QString &prefix = QString(), const QString &pictureFilePath = QString() );
 
-    QString picturePath() {
-        return mPicturePath;
-    }
+    QString pictureFilePath() { return mPictureFilePath; }
+    QString prefixPath() { return mPrefixPath; }
 
 signals:
     void pictureReceived( const QString &path );
@@ -38,7 +37,8 @@ public slots:
 
 private:
     QQuickItem *mParent = nullptr;
-    QString mPicturePath;
+    QString mPrefixPath;
+    QString mPictureFilePath;
     class CameraDelegateContainer;
     CameraDelegateContainer *mDelegate = nullptr;
 };
