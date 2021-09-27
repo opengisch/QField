@@ -444,10 +444,8 @@ bool MultiFeatureListModelBase::deleteSelection()
 
 bool MultiFeatureListModelBase::duplicateFeature( QgsVectorLayer *layer, const QgsFeature &feature )
 {
-  bool isSuccess = false;
   QgsFeature duplicatedFeature = LayerUtils::duplicateFeature( layer, feature );
-  isSuccess = feature.isValid();
-  if ( isSuccess )
+  if ( feature.isValid() )
   {
     QList<QPair<QgsVectorLayer *, QgsFeature>> duplicatedFeatures;
     duplicatedFeatures << QPair<QgsVectorLayer *, QgsFeature>( layer, duplicatedFeature );
@@ -459,7 +457,7 @@ bool MultiFeatureListModelBase::duplicateFeature( QgsVectorLayer *layer, const Q
     emit selectedCountChanged();
   }
 
-  return isSuccess;
+  return feature.isValid();
 }
 
 bool MultiFeatureListModelBase::duplicateSelection()
