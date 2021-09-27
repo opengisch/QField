@@ -17,7 +17,6 @@
 
 #include "featurelistmodelselection.h"
 
-#include <QDebug>
 #include <qgsvectorlayer.h>
 
 FeatureListModelSelection::FeatureListModelSelection( QObject *parent )

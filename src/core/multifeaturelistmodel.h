@@ -36,6 +36,7 @@ class MultiFeatureListModel : public QSortFilterProxyModel
     Q_PROPERTY( bool canEditAttributesSelection READ canEditAttributesSelection NOTIFY selectedCountChanged )
     Q_PROPERTY( bool canMergeSelection READ canMergeSelection NOTIFY selectedCountChanged )
     Q_PROPERTY( bool canDeleteSelection READ canDeleteSelection NOTIFY selectedCountChanged )
+    Q_PROPERTY( bool canDuplicateSelection READ canDuplicateSelection NOTIFY selectedCountChanged )
 
   public:
     enum FeatureListRoles
@@ -98,6 +99,9 @@ class MultiFeatureListModel : public QSortFilterProxyModel
     //! Returns TRUE if the selected features can be deleted
     bool canDeleteSelection();
 
+    //! Returns TRUE if the selected features can be duplicated onto their associated layer
+    bool canDuplicateSelection();
+
     /**
      * Merges selected features by updating the first seleted feature's geometry
      * to a combination (i.e. union) of geometries of all selected features.
@@ -117,6 +121,17 @@ class MultiFeatureListModel : public QSortFilterProxyModel
 
     //! Deletes selected features
     Q_INVOKABLE bool deleteSelection();
+
+    /**
+     * Duplicates a feature on a given layer
+     *
+     * \param layer The layer within which the feature will be duplicated
+     * \param feature The feature to be duplicated
+     */
+    Q_INVOKABLE bool duplicateFeature( QgsVectorLayer *layer, const QgsFeature &feature );
+
+    //! Deletes selected features
+    Q_INVOKABLE bool duplicateSelection();
 
     /**
      * Toggles the selection state of a given item.

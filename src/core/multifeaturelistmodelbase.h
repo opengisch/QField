@@ -87,6 +87,9 @@ class MultiFeatureListModelBase : public QAbstractItemModel
     //! Returns TRUE if the selected features can be deleted
     bool canDeleteSelection();
 
+    //! Returns TRUE if the selected features can be duplicated onto their associated layer
+    bool canDuplicateSelection();
+
     /**
      * Merges selected features by updating the first seleted feature's geometry
      * to a combination (i.e. union) of geometries of all selected features.
@@ -106,6 +109,17 @@ class MultiFeatureListModelBase : public QAbstractItemModel
 
     //! Deletes selected features
     bool deleteSelection();
+
+    /**
+     * Duplicates a feature on a given layer
+     *
+     * \param layer The layer within which the feature will be duplicated
+     * \param feature The feature to be duplicated
+     */
+    bool duplicateFeature( QgsVectorLayer *layer, const QgsFeature &feature );
+
+    //! Duplicate selected features onto their associated layer
+    bool duplicateSelection();
 
     /**
      * Toggles the selection state of a given item.
