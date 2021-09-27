@@ -13,9 +13,11 @@
  *                                                                         *
  ***************************************************************************/
 
-#include "qgsproject.h"
 #include "rubberbandmodel.h"
 #include "tracker.h"
+
+#include <qgsdistancearea.h>
+#include <qgsproject.h>
 
 #include <QTimer>
 
