@@ -445,7 +445,7 @@ Rectangle {
             result = Math.max(item.contentItem.implicitWidth, result);
             padding = Math.max(item.padding, padding);
         }
-        return result + padding * 2;
+        return result + padding * 2 + 10;
     }
 
     MenuItem {
@@ -499,7 +499,7 @@ Rectangle {
     }
 
     MenuItem {
-      text: qsTr( 'Duplicate Selected Features' )
+      text: qsTr( 'Duplicate Selected Feature(s)' )
       enabled: toolBar.model && toolBar.model.canDuplicateSelection && projectInfo.insertRights
       visible: projectInfo.insertRights
 
