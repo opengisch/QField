@@ -40,11 +40,13 @@ Rectangle {
   signal save
   signal cancel
 
+  signal duplicateClicked
   signal deleteClicked
 
   signal toggleMultiSelection
   signal multiEditClicked
   signal multiMergeClicked
+  signal multiDuplicateClicked
   signal multiDeleteClicked
 
   anchors.top:parent.top
@@ -497,6 +499,18 @@ Rectangle {
     }
 
     MenuItem {
+      text: qsTr( 'Duplicate Selected Features' )
+      enabled: toolBar.model && toolBar.model.canDuplicateSelection && projectInfo.insertRights
+      visible: projectInfo.insertRights
+
+      font: Theme.defaultFont
+      height: visible ? 48 : 0
+      leftPadding: 50
+
+      onTriggered: multiDuplicateClicked();
+    }
+
+    MenuItem {
       text: qsTr( 'Delete Selected Feature(s)' )
       icon.source: Theme.getThemeIcon( "ic_delete_forever_white_24dp" )
       enabled: toolBar.model && toolBar.model.canDeleteSelection && projectInfo.editRights
@@ -569,6 +583,19 @@ Rectangle {
     MenuSeparator {
       visible: projectInfo.editRights
       width: parent.width
+    }
+
+    MenuItem {
+        text: qsTr( 'Duplicate Feature' )
+        enabled: projectInfo.insertRights
+        visible: projectInfo.insertRights
+
+        font: Theme.defaultFont
+        height: visible ? 48 : 0
+        leftPadding: 50
+
+        onTriggered: duplicateClicked();
+
     }
 
     MenuItem {

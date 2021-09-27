@@ -30,6 +30,7 @@
 #include <qgslinesymbol.h>
 #include <qgsfillsymbol.h>
 #include <qgsvectorlayer.h>
+#include <qgsvectorlayerutils.h>
 #include <qgswkbtypes.h>
 #include <qgsmessagelog.h>
 
@@ -202,4 +203,46 @@ bool LayerUtils::deleteFeature( QgsProject *project, QgsVectorLayer *layer, cons
   }
 
   return isSuccess;
+}
+
+QgsFeature LayerUtils::duplicateFeature( QgsVectorLayer *layer, const QgsFeature &feature, bool toggleEditing )
+{
+  if ( !layer )
+  {
+    QgsMessageLog::logMessage( tr( "Cannot start editing, no layer" ), "QField", Qgis::Warning );
+    return QgsFeature();
+  }
+
+  if ( toggleEditing && ( !layer->startEditing() || !layer->editBuffer() ) )
+  {
+    QgsMessageLog::logMessage( tr( "Cannot start editing" ), "QField", Qgis::Warning );
+    return QgsFeature();
+  }
+
+  QgsFeature duplicatedFeature;
+  QObject tmp;
+  auto featureAdded = [ layer, &duplicatedFeature ]( QgsFeatureId fid )
+  {
+    duplicatedFeature = layer->getFeature( fid );
+  };
+  connect( layer, &QgsVectorLayer::featureAdded, &tmp, featureAdded );
+
+  duplicatedFeature = QgsVectorLayerUtils::createFeature( layer, feature.geometry(), feature.attributes().toMap() );
+  if ( layer->addFeature( duplicatedFeature ) )
+  {
+    // commit changes
+    if ( toggleEditing && !layer->commitChanges() )
+    {
+      const QString msgs = layer->commitErrors().join( QStringLiteral( "\n" ) );
+      QgsMessageLog::logMessage( tr( "Cannot add new feature in layer \"%1\". Reason:\n%2" ).arg( layer->name(), msgs ), "QField", Qgis::Warning );
+      return QgsFeature();
+    }
+  }
+  else
+  {
+    QgsMessageLog::logMessage( tr( "Cannot add new feature in layer \"%1\"." ).arg( layer->name() ), "QField", Qgis::Warning );
+    return QgsFeature();
+  }
+
+  return duplicatedFeature;
 }

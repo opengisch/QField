@@ -20,7 +20,6 @@
 #include "multifeaturelistmodelbase.h"
 #include "layerutils.h"
 
-#include <QDebug>
 #include <qgscoordinatereferencesystem.h>
 #include <qgsgeometry.h>
 #include <qgsmessagelog.h>
@@ -320,6 +319,15 @@ bool MultiFeatureListModelBase::canDeleteSelection()
   return !vlayer->readOnly() && ( vlayer->dataProvider()->capabilities() & QgsVectorDataProvider::DeleteFeatures ) && !vlayer->customProperty( QStringLiteral( "QFieldSync/is_geometry_locked" ), false ).toBool();
 }
 
+bool MultiFeatureListModelBase::canDuplicateSelection()
+{
+  if ( mSelectedFeatures.isEmpty() )
+    return false;
+
+  QgsVectorLayer *vlayer = mSelectedFeatures[0].first;
+  return !vlayer->readOnly() && ( vlayer->dataProvider()->capabilities() & QgsVectorDataProvider::AddFeatures );
+}
+
 bool MultiFeatureListModelBase::mergeSelection()
 {
   if ( !canMergeSelection() )
@@ -429,6 +437,73 @@ bool MultiFeatureListModelBase::deleteSelection()
   {
     if ( !vlayer->rollBack() )
       QgsMessageLog::logMessage( tr( "Cannot rollback layer changes in layer %1" ).arg( vlayer->name() ), "QField", Qgis::Critical );
+  }
+
+  return isSuccess;
+}
+
+bool MultiFeatureListModelBase::duplicateFeature( QgsVectorLayer *layer, const QgsFeature &feature )
+{
+  bool isSuccess = false;
+  QgsFeature duplicatedFeature = LayerUtils::duplicateFeature( layer, feature );
+  isSuccess = feature.isValid();
+  if ( isSuccess )
+  {
+    QList<QPair<QgsVectorLayer *, QgsFeature>> duplicatedFeatures;
+    duplicatedFeatures << QPair<QgsVectorLayer *, QgsFeature>( layer, duplicatedFeature );
+
+    beginResetModel();
+    mFeatures = duplicatedFeatures;
+    mSelectedFeatures = duplicatedFeatures;
+    endResetModel();
+    emit selectedCountChanged();
+  }
+
+  return isSuccess;
+}
+
+bool MultiFeatureListModelBase::duplicateSelection()
+{
+  if ( !canDuplicateSelection() )
+    return false;
+
+  QgsVectorLayer *vlayer = mSelectedFeatures[0].first;
+  if ( !vlayer->startEditing() )
+  {
+    QgsMessageLog::logMessage( tr( "Cannot start editing" ), "QField", Qgis::Warning );
+    return false;
+  }
+
+  const QList<QPair<QgsVectorLayer *, QgsFeature>> selectedFeatures = mSelectedFeatures;
+  QList<QPair<QgsVectorLayer *, QgsFeature>> duplicatedFeatures;
+  bool isSuccess = false;
+  for ( const auto &pair : selectedFeatures )
+  {
+    QgsFeature duplicatedFeature = LayerUtils::duplicateFeature( vlayer, pair.second, false );
+    duplicatedFeatures << QPair<QgsVectorLayer *, QgsFeature>( vlayer, duplicatedFeature );
+    isSuccess = duplicatedFeature.isValid();
+    if ( !isSuccess )
+      break;
+  }
+
+  if ( isSuccess )
+  {
+    // commit changes
+    isSuccess = vlayer->commitChanges();
+  }
+
+  if ( !isSuccess )
+  {
+    if ( !vlayer->rollBack() )
+      QgsMessageLog::logMessage( tr( "Cannot rollback layer changes in layer %1" ).arg( vlayer->name() ), "QField", Qgis::Critical );
+  }
+  else
+  {
+    beginResetModel();
+    mFeatures = duplicatedFeatures;
+    mSelectedFeatures = duplicatedFeatures;
+    endResetModel();
+    emit selectedCountChanged();
   }
 
   return isSuccess;

@@ -17,7 +17,6 @@
 
 #include "multifeaturelistmodel.h"
 
-#include <QDebug>
 #include <qgscoordinatereferencesystem.h>
 #include <qgsexpressioncontextutils.h>
 #include <qgsgeometry.h>
@@ -93,6 +92,11 @@ bool MultiFeatureListModel::canDeleteSelection()
   return mSourceModel->canDeleteSelection();
 }
 
+bool MultiFeatureListModel::canDuplicateSelection()
+{
+  return mSourceModel->canDuplicateSelection();
+}
+
 bool MultiFeatureListModel::mergeSelection()
 {
   return mSourceModel->mergeSelection();
@@ -106,6 +110,16 @@ bool MultiFeatureListModel::deleteFeature( QgsVectorLayer *layer, QgsFeatureId f
 bool MultiFeatureListModel::deleteSelection()
 {
   return mSourceModel->deleteSelection();
+}
+
+bool MultiFeatureListModel::duplicateFeature( QgsVectorLayer *layer, const QgsFeature &feature )
+{
+  return mSourceModel->duplicateFeature( layer, feature );
+}
+
+bool MultiFeatureListModel::duplicateSelection()
+{
+  return mSourceModel->duplicateSelection();
 }
 
 void MultiFeatureListModel::toggleSelectedItem( int item )

@@ -405,15 +405,25 @@ Rectangle {
     }
 
     onSave: {
-      featureFormList.confirm()
-      featureForm.state = featureForm.selection.model.selectedCount > 0 ? "FeatureList" : "FeatureForm"
-      displayToast( qsTr( "Changes saved" ) )
+        featureFormList.confirm()
+        featureForm.state = featureForm.selection.model.selectedCount > 0 ? "FeatureList" : "FeatureForm"
+        displayToast( qsTr( "Changes saved" ) )
     }
 
     onCancel: {
-      featureFormList.model.featureModel.reset()
-      featureForm.state = featureForm.selection.model.selectedCount > 0 ? "FeatureList" : "FeatureForm"
-      displayToast( qsTr( "Last changes discarded" ) )
+        featureFormList.model.featureModel.reset()
+        featureForm.state = featureForm.selection.model.selectedCount > 0 ? "FeatureList" : "FeatureForm"
+        displayToast( qsTr( "Last changes discarded" ) )
+    }
+
+    onDuplicateClicked: {
+        if (featureForm.selection.model.duplicateFeature(featureForm.selection.focusedLayer,featureForm.selection.focusedFeature)) {
+          displayToast( qsTr( "Successfully duplicated feature" ) )
+
+          featureForm.selection.focusedItem = -1
+          featureForm.state = "FeatureList"
+          featureForm.multiSelection = true
+        }
     }
 
     onDeleteClicked: {
@@ -462,6 +472,14 @@ Rectangle {
         else
         {
           mergeDialog.show()
+        }
+    }
+
+    onMultiDuplicateClicked: {
+        if  (featureForm.multiSelection) {
+          if (featureForm.model.duplicateSelection()) {
+              displayToast( qsTr( "Successfully duplicated selected features, list updated to show newly-created features" ) )
+          }
         }
     }
 
