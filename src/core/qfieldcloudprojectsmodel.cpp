@@ -778,7 +778,7 @@ void QFieldCloudProjectsModel::uploadProject( const QString &projectId, const bo
     QFileInfo fileInfo( fileName );
     if ( fileInfo.isRelative() )
     {
-      fileName = projectDir.absoluteFilePath( absoluteFilePath );
+      absoluteFilePath = projectDir.absoluteFilePath( fileName );
       fileInfo = QFileInfo( absoluteFilePath );
     }
 
