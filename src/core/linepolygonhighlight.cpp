@@ -18,6 +18,7 @@
 #include "qgssggeometry.h"
 
 #include <qgscoordinatereferencesystem.h>
+#include <qgscoordinatetransform.h>
 #include <qgsgeometry.h>
 #include <qgsproject.h>
 

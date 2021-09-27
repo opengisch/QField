@@ -19,6 +19,7 @@
 #include "qfield_core_export.h"
 
 #include <qgis.h>
+#include <qgscoordinatereferencesystem.h>
 #include <qgsfeature.h>
 #include <qgsgeometry.h>
 
