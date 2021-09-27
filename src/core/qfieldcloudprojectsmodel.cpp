@@ -774,23 +774,24 @@ void QFieldCloudProjectsModel::uploadProject( const QString &projectId, const bo
   const QStringList attachmentFileNames = deltaFileWrapper->attachmentFileNames().keys();
   for ( const QString &fileName : attachmentFileNames )
   {
+    QString absoluteFilePath = fileName;
     QFileInfo fileInfo( fileName );
     if ( fileInfo.isRelative() )
     {
-      fileName = projectDir.absoluteFilePath( fileName );
-      fileInfo = QFileInfo( fileName );
+      fileName = projectDir.absoluteFilePath( absoluteFilePath );
+      fileInfo = QFileInfo( absoluteFilePath );
     }
 
     if ( !fileInfo.exists() || !fileInfo.isFile() )
     {
-      QgsMessageLog::logMessage( QStringLiteral( "Attachment file '%1' does not exist" ).arg( fileName ) );
+      QgsMessageLog::logMessage( QStringLiteral( "Attachment file '%1' does not exist" ).arg( absoluteFilePath ) );
       continue;
     }
 
     const long long fileSize = fileInfo.size();
 
     // ? should we also check the checksums of the files being uploaded? they are available at deltaFile->attachmentFileNames()->values()
-    mCloudProjects[index].uploadAttachments.insert( fileName, FileTransfer( fileName, fileSize ) );
+    mCloudProjects[index].uploadAttachments.insert( absoluteFilePath, FileTransfer( absoluteFilePath, fileSize ) );
   }
 
   QFieldCloudUtils::setProjectSetting( projectId, QStringLiteral( "uploadAttachments" ), QStringList( mCloudProjects[index].uploadAttachments.keys() ) );
