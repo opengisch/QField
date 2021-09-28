@@ -106,6 +106,7 @@ jobs:
           -DCMAKE_TOOLCHAIN_FILE=${{ github.workspace }}/OSGeo4I/cmake/ios.toolchain.cmake \
           -DCMAKE_BUILD_TYPE="${{ env.BUILD_TYPE }}" \
           -DDEPLOYMENT_TARGET=${{ env.DEPLOYMENT_TARGET }} \
+          -DFORCE_STATIC_LIBS=TRUE \
           -DPLATFORM=${{ env.PLATFORM }} \
           -DENABLE_VISIBILITY=FALSE \
           -DENABLE_BITCODE=${{ env.BITCODE }} \
