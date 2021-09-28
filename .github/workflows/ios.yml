@@ -17,10 +17,10 @@ jobs:
 
     runs-on: macOS-latest
     env:
-      SDK_VERSION: '96'
+      SDK_VERSION: '166'
       DEPLOYMENT_TARGET: '12.0'
       PLATFORM: 'OS64'
-      QT_VERSION: '5.14.2'
+      QT_VERSION: '5.15.2'
       BUILD_TYPE: 'RelWithDebInfo'
       BITCODE: 'FALSE'
 
