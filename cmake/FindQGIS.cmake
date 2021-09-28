@@ -251,16 +251,16 @@ ELSEIF(UNIX)
       message(FATAL_ERROR "Fail to find library provider_wms_a. Make sure it is present in CMAKE_PREFIX_PATH/QGIS.app/Contents/PlugIns/qgis/")
     endif()
 
-    find_library(QGIS_POSTGRESPROVIDER_PLUGIN_LIBRARY postgresprovider_a
+    find_library(QGIS_PROVIDERPOSTGRES_PLUGIN_LIBRARY provider_postgres_a
       PATH_SUFFIXES
         QGIS.app/Contents/PlugIns/qgis/
         qgis/plugins
     )
-    if(QGIS_POSTGRESPROVIDER_PLUGIN_LIBRARY)
-      message(STATUS "Link ${QGIS_POSTGRESPROVIDER_PLUGIN_LIBRARY} interface to qgis_core")
-      target_link_libraries(qgis_core INTERFACE ${QGIS_POSTGRESPROVIDER_PLUGIN_LIBRARY})
+    if(QGIS_PROVIDERPOSTGRES_PLUGIN_LIBRARY)
+      message(STATUS "Link ${QGIS_PROVIDERPOSTGRES_PLUGIN_LIBRARY} interface to qgis_core")
+      target_link_libraries(qgis_core INTERFACE ${QGIS_PROVIDERPOSTGRES_PLUGIN_LIBRARY})
     else()
-      message(FATAL_ERROR "Fail to find library postgresprovider_a. Make sure it is present in CMAKE_PREFIX_PATH/QGIS.app/Contents/PlugIns/qgis/")
+      message(FATAL_ERROR "Fail to find library provider_postgres_a. Make sure it is present in CMAKE_PREFIX_PATH/QGIS.app/Contents/PlugIns/qgis/")
     endif()
 
     find_library(QGIS_POSTGRESRASTERPROVIDER_PLUGIN_LIBRARY postgresrasterprovider_a
