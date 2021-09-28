@@ -20,7 +20,7 @@ jobs:
       SDK_VERSION: '96'
       DEPLOYMENT_TARGET: '12.0'
       PLATFORM: 'OS64'
-      QT_VERSION: '5.15.2'
+      QT_VERSION: '5.14.2'
       BUILD_TYPE: 'RelWithDebInfo'
       BITCODE: 'FALSE'
 
