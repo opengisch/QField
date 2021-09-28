@@ -24,6 +24,8 @@ jobs:
         qt-version: ['5.14.2']
         build-type: ['Release']
         bitcode: ['FALSE']
+    env:
+      TX_TOKEN: ${{ secrets.TX_TOKEN }}
 
     steps:
     - uses: actions/checkout@v2
