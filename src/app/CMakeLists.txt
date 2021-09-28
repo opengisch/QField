@@ -31,14 +31,21 @@ else()
   )
 endif()
 
-target_compile_definitions(qfield
-  PRIVATE $<$<OR:$<CONFIG:Debug>,$<CONFIG:RelWithDebInfo>>:QT_QML_DEBUG>)
+target_compile_definitions(qfield PRIVATE $<$<OR:$<CONFIG:Debug>,$<CONFIG:RelWithDebInfo>>:QT_QML_DEBUG>)
+
 if (ANDROID)
     target_link_libraries(qfield PRIVATE
       android
       log
     )
 endif()
+
+if(${CMAKE_SYSTEM_NAME} STREQUAL "iOS")
+  # debug symbols
+  # https://stackoverflow.com/a/49714128/1548052
+  target_compile_options(qfield PRIVATE $<$<CXX_COMPILER_ID:Clang>:-g>)
+endif()
+
 
 target_link_libraries(qfield PRIVATE
   qfield_core
