@@ -37,6 +37,7 @@ class MultiFeatureListModel : public QSortFilterProxyModel
     Q_PROPERTY( bool canMergeSelection READ canMergeSelection NOTIFY selectedCountChanged )
     Q_PROPERTY( bool canDeleteSelection READ canDeleteSelection NOTIFY selectedCountChanged )
     Q_PROPERTY( bool canDuplicateSelection READ canDuplicateSelection NOTIFY selectedCountChanged )
+    Q_PROPERTY( bool canMoveSelection READ canMoveSelection NOTIFY selectedCountChanged )
 
   public:
     enum FeatureListRoles
@@ -102,6 +103,9 @@ class MultiFeatureListModel : public QSortFilterProxyModel
     //! Returns TRUE if the selected features can be duplicated onto their associated layer
     bool canDuplicateSelection();
 
+    //! Returns TRUE if the selected features' geometry can be moved
+    bool canMoveSelection();
+
     /**
      * Merges selected features by updating the first seleted feature's geometry
      * to a combination (i.e. union) of geometries of all selected features.
@@ -133,11 +137,14 @@ class MultiFeatureListModel : public QSortFilterProxyModel
     //! Deletes selected features
     Q_INVOKABLE bool duplicateSelection();
 
+    //! Moves selected features along a given \a vector.
+    Q_INVOKABLE bool moveSelection( const double x, const double y );
+
     /**
      * Toggles the selection state of a given item.
      * \param item the item's row number
      */
-    void toggleSelectedItem( int item );
+    Q_INVOKABLE void toggleSelectedItem( int item );
 
     /**
      * Returns the list of currently selected features.

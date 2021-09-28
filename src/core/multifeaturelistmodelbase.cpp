@@ -328,6 +328,15 @@ bool MultiFeatureListModelBase::canDuplicateSelection()
   return !vlayer->readOnly() && ( vlayer->dataProvider()->capabilities() & QgsVectorDataProvider::AddFeatures );
 }
 
+bool MultiFeatureListModelBase::canMoveSelection()
+{
+  if ( mSelectedFeatures.isEmpty() )
+    return false;
+
+  QgsVectorLayer *vlayer = mSelectedFeatures[0].first;
+  return !vlayer->readOnly() && ( vlayer->dataProvider()->capabilities() & QgsVectorDataProvider::ChangeGeometries );
+}
+
 bool MultiFeatureListModelBase::mergeSelection()
 {
   if ( !canMergeSelection() )
@@ -486,6 +495,46 @@ bool MultiFeatureListModelBase::duplicateSelection()
     mSelectedFeatures = duplicatedFeatures;
     endResetModel();
     emit selectedCountChanged();
+  }
+
+  return isSuccess;
+}
+
+bool MultiFeatureListModelBase::moveSelection( const double x, const double y )
+{
+  if ( !canDuplicateSelection() )
+    return false;
+
+
+  QgsVectorLayer *vlayer = mSelectedFeatures[0].first;
+  if ( !vlayer->startEditing() )
+  {
+    QgsMessageLog::logMessage( tr( "Cannot start editing" ), "QField", Qgis::Warning );
+    return false;
+  }
+
+  //QList<QPair<QgsVectorLayer *, QgsFeature>> movedFeatures;
+  bool isSuccess = false;
+  for ( auto &pair : mSelectedFeatures )
+  {
+    QgsGeometry geom = pair.second.geometry();
+    geom.translate( x, y );
+    pair.second.setGeometry( geom );
+    isSuccess = vlayer->changeGeometry( pair.second.id(), geom );
+    if ( !isSuccess )
+      break;
+  }
+
+  if ( isSuccess )
+  {
+    // commit changes
+    isSuccess = vlayer->commitChanges();
+  }
+
+  if ( !isSuccess )
+  {
+    if ( !vlayer->rollBack() )
+      QgsMessageLog::logMessage( tr( "Cannot rollback layer changes in layer %1" ).arg( vlayer->name() ), "QField", Qgis::Critical );
   }
 
   return isSuccess;

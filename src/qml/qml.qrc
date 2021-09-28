@@ -3,6 +3,7 @@
         <file>About.qml</file>
         <file>BadLayerItem.qml</file>
         <file>BrowserPanel.qml</file>
+        <file>ConfirmationToolbar.qml</file>
         <file>CoordinateLocator.qml</file>
         <file>DashBoard.qml</file>
         <file>DigitizingToolbar.qml</file>

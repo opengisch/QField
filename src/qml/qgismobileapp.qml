@@ -509,22 +509,48 @@ ApplicationWindow {
     /* Locator Highlight */
     GeometryHighlighter {
       id: locatorHighlightItem
-      //width: 10
-      //color: "yellow"
     }
 
     /* Highlight the currently selected item on the feature list */
     FeatureListSelectionHighlight {
+      id: featureListHighlight
+      visible: !moveFeaturesToolbar.moveFeaturesRequested
+
       selectionModel: featureForm.selection
       mapSettings: mapCanvas.mapSettings
-
-      //model: featureForm.model
-      //selection: featureForm.selection
 
       color: "yellow"
       focusedColor: "#ff7777"
       selectedColor: Theme.mainColor
       width: 5
+    }
+
+    /* Highlight the currently selected item being moved */
+    FeatureListSelectionHighlight {
+      id: moveFeaturesHighlight
+      visible: moveFeaturesToolbar.moveFeaturesRequested
+      showSelectedOnly: true
+
+      selectionModel: featureForm.selection
+      mapSettings: mapCanvas.mapSettings
+      translateX: mapToScreenTranslateX.screenDistance
+      translateY: mapToScreenTranslateY.screenDistance
+
+      color: "yellow"
+      focusedColor: "#ff7777"
+      selectedColor: Theme.mainColor
+      width: 5
+    }
+
+    MapToScreen {
+      id: mapToScreenTranslateX
+      mapSettings: mapCanvas.mapSettings
+      mapDistance: moveFeaturesToolbar.moveFeaturesRequested ? mapCanvas.mapSettings.center.x - moveFeaturesToolbar.startPoint.x : 0
+    }
+    MapToScreen {
+      id: mapToScreenTranslateY
+      mapSettings: mapCanvas.mapSettings
+      mapDistance: moveFeaturesToolbar.moveFeaturesRequested ? mapCanvas.mapSettings.center.y - moveFeaturesToolbar.startPoint.y : 0
     }
   }
 
@@ -1139,8 +1165,10 @@ ApplicationWindow {
                      && !dashBoard.currentLayer.readOnly
                      // unfortunately there is no way to call QVariant::toBool in QML so the value is a string
                      && dashBoard.currentLayer.customProperty( 'QFieldSync/is_geometry_locked' ) !== 'true'
-                     && !geometryEditorsToolbar.stateVisible) || stateMachine.state === 'measure' ||
-                    (stateMachine.state === "digitize" && digitizingToolbar.geometryRequested)
+                     && !geometryEditorsToolbar.stateVisible
+                     && !moveFeaturesToolbar.stateVisible)
+                    || stateMachine.state === 'measure'
+                    || (stateMachine.state === "digitize" && digitizingToolbar.geometryRequested)
       rubberbandModel: currentRubberband ? currentRubberband.model : null
       mapSettings: mapCanvas.mapSettings
       showConfirmButton: stateMachine.state === "digitize"
@@ -1288,6 +1316,35 @@ ApplicationWindow {
       screenHovering: hoverHandler.hovered
 
       stateVisible: ( stateMachine.state === "digitize" && vertexModel.vertexCount > 0 )
+    }
+
+    ConfirmationToolbar {
+        id: moveFeaturesToolbar
+
+        property bool moveFeaturesRequested: false
+        property variant startPoint: undefined // QgsPoint or undefined
+        property variant endPoint: undefined // QgsPoint or undefined
+        signal moveConfirmed
+        signal moveCanceled
+
+        stateVisible: moveFeaturesRequested
+
+        onConfirm: {
+            endPoint = mapCanvas.mapSettings.center
+            moveFeaturesRequested = false
+            moveConfirmed()
+        }
+        onCancel: {
+            startPoint = undefined
+            endPoint = undefined
+            moveFeaturesRequested = false
+            moveCanceled()
+        }
+
+        function initializeMoveFeatures() {
+            startPoint = mapCanvas.mapSettings.center
+            moveFeaturesRequested = true
+        }
     }
   }
 
@@ -1626,6 +1683,7 @@ ApplicationWindow {
     objectName: "featureForm"
     mapSettings: mapCanvas.mapSettings
     digitizingToolbar: digitizingToolbar
+    moveFeaturesToolbar: moveFeaturesToolbar
 
     visible: state != "Hidden"
     focus: visible
