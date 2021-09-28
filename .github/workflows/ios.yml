@@ -30,11 +30,16 @@ jobs:
       with:
         submodules: 'recursive'
 
+    - uses: actions/setup-python@v2
+      with:
+        python-version: '3.8'
+
     - name: "🌍 Pull Translations"
       run: |
         if [[ -z "${TX_TOKEN}" ]]; then
           echo "TX_TOKEN not set, skip tx pull"
         else
+          pip install transifex-client
           ./scripts/ci/pull_translations.sh
         fi
 
