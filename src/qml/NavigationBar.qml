@@ -40,12 +40,14 @@ Rectangle {
   signal save
   signal cancel
 
+  signal moveClicked
   signal duplicateClicked
   signal deleteClicked
 
   signal toggleMultiSelection
   signal multiEditClicked
   signal multiMergeClicked
+  signal multiMoveClicked
   signal multiDuplicateClicked
   signal multiDeleteClicked
 
@@ -499,6 +501,18 @@ Rectangle {
     }
 
     MenuItem {
+      text: qsTr( 'Move Selected Feature(s)' )
+      enabled: toolBar.model && toolBar.model.canMoveSelection && projectInfo.editRights
+      visible: projectInfo.editRights
+
+      font: Theme.defaultFont
+      height: visible ? 48 : 0
+      leftPadding: 50
+
+      onTriggered: multiMoveClicked();
+    }
+
+    MenuItem {
       text: qsTr( 'Duplicate Selected Feature(s)' )
       enabled: toolBar.model && toolBar.model.canDuplicateSelection && projectInfo.insertRights
       visible: projectInfo.insertRights
@@ -586,16 +600,27 @@ Rectangle {
     }
 
     MenuItem {
-        text: qsTr( 'Duplicate Feature' )
-        enabled: projectInfo.insertRights
-        visible: projectInfo.insertRights
+      text: qsTr( 'Move Feature' )
+      enabled: projectInfo.editRights
+      visible: projectInfo.editRights
 
-        font: Theme.defaultFont
-        height: visible ? 48 : 0
-        leftPadding: 50
+      font: Theme.defaultFont
+      height: visible ? 48 : 0
+      leftPadding: 50
 
-        onTriggered: duplicateClicked();
+      onTriggered: moveClicked();
+    }
 
+    MenuItem {
+      text: qsTr( 'Duplicate Feature' )
+      enabled: projectInfo.insertRights
+      visible: projectInfo.insertRights
+
+      font: Theme.defaultFont
+      height: visible ? 48 : 0
+      leftPadding: 50
+
+      onTriggered: duplicateClicked();
     }
 
     MenuItem {

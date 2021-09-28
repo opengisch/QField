@@ -97,6 +97,11 @@ bool MultiFeatureListModel::canDuplicateSelection()
   return mSourceModel->canDuplicateSelection();
 }
 
+bool MultiFeatureListModel::canMoveSelection()
+{
+  return mSourceModel->canMoveSelection();
+}
+
 bool MultiFeatureListModel::mergeSelection()
 {
   return mSourceModel->mergeSelection();
@@ -120,6 +125,11 @@ bool MultiFeatureListModel::duplicateFeature( QgsVectorLayer *layer, const QgsFe
 bool MultiFeatureListModel::duplicateSelection()
 {
   return mSourceModel->duplicateSelection();
+}
+
+bool MultiFeatureListModel::moveSelection( const double x, const double y )
+{
+  return mSourceModel->moveSelection( x, y );
 }
 
 void MultiFeatureListModel::toggleSelectedItem( int item )

@@ -36,11 +36,12 @@ void MapToScreen::setMapSettings( QgsQuickMapSettings *mapSettings )
   connect( mMapSettings, &QgsQuickMapSettings::extentChanged, this, &MapToScreen::transformPoint );
 
   transformPoint();
+  transformDistance();
 
   emit mapSettingsChanged();
 }
 
-QgsQuickMapSettings *MapToScreen::mapSettings()
+QgsQuickMapSettings *MapToScreen::mapSettings() const
 {
   return mMapSettings;
 }
@@ -55,12 +56,12 @@ void MapToScreen::setMapPoint( const QgsPoint &point )
   transformPoint();
 }
 
-QgsPoint MapToScreen::mapPoint()
+QgsPoint MapToScreen::mapPoint() const
 {
   return mMapPoint;
 }
 
-QPointF MapToScreen::screenPoint()
+QPointF MapToScreen::screenPoint() const
 {
   return mScreenPoint;
 }
@@ -76,4 +77,37 @@ void MapToScreen::transformPoint()
     mScreenPoint = mMapSettings->coordinateToScreen( mMapPoint );
   }
   emit screenPointChanged();
+}
+
+void MapToScreen::setMapDistance( const double distance )
+{
+  if ( mMapDistance == distance )
+    return;
+
+  mMapDistance = distance;
+  emit mapDistanceChanged();
+  transformDistance();
+}
+
+double MapToScreen::mapDistance() const
+{
+  return mMapDistance;
+}
+
+double MapToScreen::screenDistance() const
+{
+  return mScreenDistance;
+}
+
+void MapToScreen::transformDistance()
+{
+  if ( !mMapSettings || qgsDoubleNear( mMapDistance, 0.0 ) )
+  {
+    mScreenDistance = 0.0;
+  }
+  else
+  {
+    mScreenDistance = mMapDistance / mMapSettings->mapUnitsPerPoint();
+  }
+  emit screenDistanceChanged();
 }
