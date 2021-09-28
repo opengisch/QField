@@ -16,14 +16,13 @@ jobs:
   BuildIpa:
 
     runs-on: macOS-latest
-    strategy:
-      matrix:
-        sdk-version: ['96']
-        deployment-target: ['12.0']
-        platform: ['OS64']
-        qt-version: ['5.14.2']
-        build-type: ['Release']
-        bitcode: ['FALSE']
+    env:
+      SDK_VERSION: '96'
+      DEPLOYMENT_TARGET: '12.0'
+      PLATFORM: 'OS64'
+      QT_VERSION: '5.15.2'
+      BUILD_TYPE: 'RelWithDebInfo'
+      BITCODE: 'FALSE'
 
     steps:
     - uses: actions/checkout@v2
@@ -47,24 +46,24 @@ jobs:
 
     - name: Download artifact
       env:
-        SDK_VERSION: ${{ matrix.sdk-version }}
+        SDK_VERSION: ${{ env.SDK_VERSION }}
       run: |
-        wget -O OSGeo4I-arm64.zip https://github.com/opengisch/qfield-sdk/releases/download/${SDK_VERSION}/OSGeo4I-Qt${{ matrix.qt-version }}-arm64-${{ matrix.sdk-version }}.zip
+        wget -O OSGeo4I-arm64.zip https://github.com/opengisch/qfield-sdk/releases/download/${SDK_VERSION}/OSGeo4I-Qt${{ env.QT_VERSION }}-arm64-${{ env.SDK_VERSION }}.zip
         unzip OSGeo4I-arm64.zip -d ${{ github.workspace }}
 
     - name: Cache Qt
       id: cache-qt
       uses: actions/cache@v2.1.6
       with:
-        path: ${{ github.workspace }}/Qt-${{ runner.os }}-${{ matrix.qt-version }}
-        key: ${{ runner.os }}-QtCache-${{ matrix.qt-version }}-ios
+        path: ${{ github.workspace }}/Qt-${{ runner.os }}-${{ env.QT_VERSION }}
+        key: ${{ runner.os }}-QtCache-${{ env.QT_VERSION }}-ios
 
     - name: ⬆️ Install Qt
       uses: jurplel/install-qt-action@v2
       with:
-        version: ${{ matrix.qt-version }}
+        version: ${{ env.QT_VERSION }}
         target: ios
-        dir: ${{ github.workspace }}/Qt-${{ runner.os }}-${{ matrix.qt-version }}
+        dir: ${{ github.workspace }}/Qt-${{ runner.os }}-${{ env.QT_VERSION }}
         modules: 'qtcharts'
         cached: ${{ steps.cache-qt.outputs.cache-hit }}
 
@@ -105,11 +104,11 @@ jobs:
           -DAPP_PACKAGE_NAME=${APP_PACKAGE_NAME} \
           -DCMAKE_PREFIX_PATH=${{ github.workspace }}/OSGeo4I/arm64 \
           -DCMAKE_TOOLCHAIN_FILE=${{ github.workspace }}/OSGeo4I/cmake/ios.toolchain.cmake \
-          -DCMAKE_CONFIGURATION_TYPES="${{ matrix.build-type }}" \
-          -DDEPLOYMENT_TARGET=${{ matrix.deployment-target }} \
-          -DPLATFORM=${{ matrix.platform }} \
+          -DCMAKE_BUILD_TYPE="${{ env.BUILD_TYPE }}" \
+          -DDEPLOYMENT_TARGET=${{ env.DEPLOYMENT_TARGET }} \
+          -DPLATFORM=${{ env.PLATFORM }} \
           -DENABLE_VISIBILITY=FALSE \
-          -DENABLE_BITCODE=${{ matrix.bitcode }} \
+          -DENABLE_BITCODE=${{ env.BITCODE }} \
           -DENABLE_ARC=TRUE \
           -DQT_IOS_TEAM_ID=${{ secrets.IOS_TEAM_ID }} \
           -DQT_IOS_CODE_SIGN_IDENTITY=${{ secrets.IOS_CODE_SIGN_IDENTITY }} \
@@ -118,26 +117,26 @@ jobs:
           -B ./build/ -S .
 
     - name: 🔨 Build qfield
-      run: cmake --build build --target qfield --config "${{ matrix.build-type }}"
+      run: cmake --build build --target qfield --config "${{ env.BUILD_TYPE }}"
 
     - name: 🔨 Build qfield Archive
-      run: cmake --build build --target qfieldArchive --config "${{ matrix.build-type }}"
+      run: cmake --build build --target qfieldArchive --config "${{ env.BUILD_TYPE }}"
 
     - name: 🚀 Deploy qfield Ipa
       run: |
         rm /Users/runner/work/QField/QField/build/output/bin/qfield.app
-        cmake --build build --target qfieldIpa --config "${{ matrix.build-type }}"
+        cmake --build build --target qfieldIpa --config "${{ env.BUILD_TYPE }}"
 
     - name: 📦 Upload qfield App
       uses: actions/upload-artifact@v2
       with:
-        name: qfield-${{ matrix.platform }}-${{ matrix.deployment-target }}.app
-        path: build/output/bin/${{ matrix.build-type }}/qfield.app
+        name: qfield-${{ env.PLATFORM }}-${{ env.DEPLOYMENT_TARGET }}.app
+        path: build/output/bin/${{ env.BUILD_TYPE }}/qfield.app
 
     - name: 📦 Upload qfield Ipa
       uses: actions/upload-artifact@v2
       with:
-        name: qfield-i${{ matrix.platform }}-${{ matrix.deployment-target }}.ipa
+        name: qfield-i${{ env.PLATFORM }}-${{ env.DEPLOYMENT_TARGET }}.ipa
         path: build/src/app/qfieldIpa/qfield.ipa
 
     - uses: Apple-Actions/upload-testflight-build@v1
@@ -157,5 +156,5 @@ jobs:
       with:
         upload_url: ${{ github.event.release.upload_url }}
         asset_path: build/src/app/qfieldIpa/qfield.ipa
-        asset_name: qfield-i${{ matrix.platform }}-${{ matrix.deployment-target }}.ipa
+        asset_name: qfield-i${{ env.PLATFORM }}-${{ env.DEPLOYMENT_TARGET }}.ipa
         asset_content_type: application/zip
