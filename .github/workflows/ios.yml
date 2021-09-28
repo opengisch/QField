@@ -30,6 +30,14 @@ jobs:
       with:
         submodules: 'recursive'
 
+    - name: "🌍 Pull Translations"
+      run: |
+        if [[ -z "${TX_TOKEN}" ]]; then
+          echo "TX_TOKEN not set, skip tx pull"
+        else
+          ./scripts/ci/pull_translations.sh
+        fi
+
     - name: Download artifact
       env:
         SDK_VERSION: ${{ matrix.sdk-version }}
