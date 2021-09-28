@@ -239,16 +239,16 @@ ELSEIF(UNIX)
     qgis_core_link_library(tasn1 TRUE)
     qgis_core_link_library(zip TRUE)
 
-    find_library(QGIS_WSMPROVIDER_PLUGIN_LIBRARY wmsprovider_a
+    find_library(QGIS_PROVIDERWMS_PLUGIN_LIBRARY provider_wms_a
       PATH_SUFFIXES
         QGIS.app/Contents/PlugIns/qgis/
         qgis/plugins
     )
-    if(QGIS_WSMPROVIDER_PLUGIN_LIBRARY)
-      message(STATUS "Link ${QGIS_WSMPROVIDER_PLUGIN_LIBRARY} interface to qgis_core")
-      target_link_libraries(qgis_core INTERFACE ${QGIS_WSMPROVIDER_PLUGIN_LIBRARY})
+    if(QGIS_PROVIDERWMS_PLUGIN_LIBRARY)
+      message(STATUS "Link ${QGIS_PROVIDERWMS_PLUGIN_LIBRARY} interface to qgis_core")
+      target_link_libraries(qgis_core INTERFACE ${QGIS_PROVIDERWMS_PLUGIN_LIBRARY})
     else()
-      message(FATAL_ERROR "Fail to find library wmsprovider_a. Make sure it is present in CMAKE_PREFIX_PATH/QGIS.app/Contents/PlugIns/qgis/")
+      message(FATAL_ERROR "Fail to find library provider_wms_a. Make sure it is present in CMAKE_PREFIX_PATH/QGIS.app/Contents/PlugIns/qgis/")
     endif()
 
     find_library(QGIS_POSTGRESPROVIDER_PLUGIN_LIBRARY postgresprovider_a

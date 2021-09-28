@@ -53,7 +53,7 @@ jobs:
 
     - name: Cache Qt
       id: cache-qt
-      uses: actions/cache@v2.1.6
+      uses: pat-s/always-upload-cache@v2.1.5
       with:
         path: ${{ github.workspace }}/Qt-${{ runner.os }}-${{ env.QT_VERSION }}
         key: ${{ runner.os }}-QtCache-${{ env.QT_VERSION }}-ios
