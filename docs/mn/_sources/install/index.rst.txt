@@ -29,4 +29,4 @@ Windows support is currently in beta status.
 
 iOS
 -------
-An iOS version is in the making. You can `sign up for beta testing <https://forms.clickup.com/f/22wqj-2878/D6IEV7K3PKVONXPX8P>`_ to get access earlier than everyone else.
+An iOS version is in the making. You can `sign up for beta testing in testflight <https://testflight.apple.com/join/TbG1kJVI>`_ to get access earlier than everyone else.
