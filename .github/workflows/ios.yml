@@ -17,10 +17,10 @@ jobs:
 
     runs-on: macOS-latest
     env:
-      SDK_VERSION: '135'
+      SDK_VERSION: '96'
       DEPLOYMENT_TARGET: '12.0'
       PLATFORM: 'OS64'
-      QT_VERSION: '5.15.2'
+      QT_VERSION: '5.14.2'
       BUILD_TYPE: 'RelWithDebInfo'
       BITCODE: 'FALSE'
 
@@ -53,7 +53,7 @@ jobs:
 
     - name: Cache Qt
       id: cache-qt
-      uses: pat-s/always-upload-cache@v2.1.5
+      uses: actions/cache@v2.1.6
       with:
         path: ${{ github.workspace }}/Qt-${{ runner.os }}-${{ env.QT_VERSION }}
         key: ${{ runner.os }}-QtCache-${{ env.QT_VERSION }}-ios
@@ -106,7 +106,6 @@ jobs:
           -DCMAKE_TOOLCHAIN_FILE=${{ github.workspace }}/OSGeo4I/cmake/ios.toolchain.cmake \
           -DCMAKE_BUILD_TYPE="${{ env.BUILD_TYPE }}" \
           -DDEPLOYMENT_TARGET=${{ env.DEPLOYMENT_TARGET }} \
-          -DFORCE_STATIC_LIBS=TRUE \
           -DPLATFORM=${{ env.PLATFORM }} \
           -DENABLE_VISIBILITY=FALSE \
           -DENABLE_BITCODE=${{ env.BITCODE }} \
