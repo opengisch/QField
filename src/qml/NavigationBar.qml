@@ -502,24 +502,26 @@ Rectangle {
 
     MenuItem {
       text: qsTr( 'Move Selected Feature(s)' )
+      icon.source: Theme.getThemeVectorIcon( "ic_move_white_24dp" )
       enabled: toolBar.model && toolBar.model.canMoveSelection && projectInfo.editRights
       visible: projectInfo.editRights
 
       font: Theme.defaultFont
       height: visible ? 48 : 0
-      leftPadding: 50
+      leftPadding: 10
 
       onTriggered: multiMoveClicked();
     }
 
     MenuItem {
       text: qsTr( 'Duplicate Selected Feature(s)' )
+      icon.source: Theme.getThemeVectorIcon( "ic_duplicate_black_24dp" )
       enabled: toolBar.model && toolBar.model.canDuplicateSelection && projectInfo.insertRights
       visible: projectInfo.insertRights
 
       font: Theme.defaultFont
       height: visible ? 48 : 0
-      leftPadding: 50
+      leftPadding: 10
 
       onTriggered: multiDuplicateClicked();
     }
@@ -601,24 +603,26 @@ Rectangle {
 
     MenuItem {
       text: qsTr( 'Move Feature' )
+      icon.source: Theme.getThemeVectorIcon( "ic_move_white_24dp" )
       enabled: projectInfo.editRights
       visible: projectInfo.editRights
 
       font: Theme.defaultFont
       height: visible ? 48 : 0
-      leftPadding: 50
+      leftPadding: 10
 
       onTriggered: moveClicked();
     }
 
     MenuItem {
       text: qsTr( 'Duplicate Feature' )
+      icon.source: Theme.getThemeVectorIcon( "ic_duplicate_black_24dp" )
       enabled: projectInfo.insertRights
       visible: projectInfo.insertRights
 
       font: Theme.defaultFont
       height: visible ? 48 : 0
-      leftPadding: 50
+      leftPadding: 10
 
       onTriggered: duplicateClicked();
     }
