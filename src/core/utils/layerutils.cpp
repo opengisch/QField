@@ -34,6 +34,8 @@
 #include <qgswkbtypes.h>
 #include <qgsmessagelog.h>
 
+#include <QScopeGuard>
+
 LayerUtils::LayerUtils( QObject *parent )
   : QObject( parent )
 {
@@ -220,12 +222,11 @@ QgsFeature LayerUtils::duplicateFeature( QgsVectorLayer *layer, const QgsFeature
   }
 
   QgsFeature duplicatedFeature;
-  QObject tmp;
-  auto featureAdded = [ layer, &duplicatedFeature ]( QgsFeatureId fid )
+  QMetaObject::Connection connection = connect( layer, &QgsVectorLayer::featureAdded, [ layer, &duplicatedFeature ]( QgsFeatureId fid )
   {
     duplicatedFeature = layer->getFeature( fid );
-  };
-  connect( layer, &QgsVectorLayer::featureAdded, &tmp, featureAdded );
+  } );
+  auto sweaper = qScopeGuard( [ layer, connection ] { layer->disconnect( connection ); } );
 
   duplicatedFeature = QgsVectorLayerUtils::createFeature( layer, feature.geometry(), feature.attributes().toMap() );
   if ( layer->addFeature( duplicatedFeature ) )
