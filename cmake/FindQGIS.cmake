@@ -239,6 +239,7 @@ ELSEIF(UNIX)
     qgis_core_link_library(spatialite TRUE)
     qgis_core_link_library(tasn1 TRUE)
     qgis_core_link_library(zip TRUE)
+    qgis_core_link_library(zstd TRUE)
 
     find_library(QGIS_PROVIDERWMS_PLUGIN_LIBRARY provider_wms_a
       PATH_SUFFIXES
