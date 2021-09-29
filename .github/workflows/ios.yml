@@ -21,7 +21,7 @@ jobs:
       DEPLOYMENT_TARGET: '12.0'
       PLATFORM: 'OS64'
       QT_VERSION: '5.15.2'
-      BUILD_TYPE: 'Release'
+      BUILD_TYPE: 'RelWithDebInfo'
       BITCODE: 'FALSE'
 
     steps:
