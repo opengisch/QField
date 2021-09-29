@@ -219,6 +219,7 @@ ELSEIF(UNIX)
     qgis_core_link_library(bz2 FALSE)
     qgis_core_link_library(z FALSE)
     qgis_core_link_library(xml2 FALSE)
+    qgis_core_link_library(lzma FALSE)
     qgis_core_link_library(iconv FALSE)
     qgis_core_link_library(charset TRUE)
     qgis_core_link_library(expat TRUE)
@@ -238,42 +239,31 @@ ELSEIF(UNIX)
     qgis_core_link_library(spatialite TRUE)
     qgis_core_link_library(tasn1 TRUE)
     qgis_core_link_library(zip TRUE)
+    qgis_core_link_library(zstd TRUE)
 
-    find_library(QGIS_WSMPROVIDER_PLUGIN_LIBRARY wmsprovider_a
-      PATH_SUFFIXES
-        QGIS.app/Contents/PlugIns/qgis/
-        qgis/plugins
-    )
-    if(QGIS_WSMPROVIDER_PLUGIN_LIBRARY)
-      message(STATUS "Link ${QGIS_WSMPROVIDER_PLUGIN_LIBRARY} interface to qgis_core")
-      target_link_libraries(qgis_core INTERFACE ${QGIS_WSMPROVIDER_PLUGIN_LIBRARY})
-    else()
-      message(FATAL_ERROR "Fail to find library wmsprovider_a. Make sure it is present in CMAKE_PREFIX_PATH/QGIS.app/Contents/PlugIns/qgis/")
-    endif()
+    function(qgis_core_link_plugin PLUGIN)
+        find_library(QGIS_${PLUGIN}_PLUGIN_LIBRARY ${PLUGIN}
+          PATH_SUFFIXES
+            QGIS.app/Contents/PlugIns/qgis/
+            qgis/plugins
+        )
+        if(QGIS_${PLUGIN}_PLUGIN_LIBRARY)
+          message(STATUS "Link ${QGIS_${PLUGIN}_PLUGIN_LIBRARY} interface to qgis_core")
+          target_link_libraries(qgis_core INTERFACE ${QGIS_${PLUGIN}_PLUGIN_LIBRARY})
+        else()
+          message(FATAL_ERROR "Fail to find library ${PLUGIN}. Make sure it is present in CMAKE_PREFIX_PATH/QGIS.app/Contents/PlugIns/qgis/")
+        endif()
+    endfunction()
 
-    find_library(QGIS_POSTGRESPROVIDER_PLUGIN_LIBRARY postgresprovider_a
-      PATH_SUFFIXES
-        QGIS.app/Contents/PlugIns/qgis/
-        qgis/plugins
-    )
-    if(QGIS_POSTGRESPROVIDER_PLUGIN_LIBRARY)
-      message(STATUS "Link ${QGIS_POSTGRESPROVIDER_PLUGIN_LIBRARY} interface to qgis_core")
-      target_link_libraries(qgis_core INTERFACE ${QGIS_POSTGRESPROVIDER_PLUGIN_LIBRARY})
-    else()
-      message(FATAL_ERROR "Fail to find library postgresprovider_a. Make sure it is present in CMAKE_PREFIX_PATH/QGIS.app/Contents/PlugIns/qgis/")
-    endif()
-
-    find_library(QGIS_POSTGRESRASTERPROVIDER_PLUGIN_LIBRARY postgresrasterprovider_a
-      PATH_SUFFIXES
-        QGIS.app/Contents/PlugIns/qgis/
-        qgis/plugins
-    )
-    if(QGIS_POSTGRESRASTERPROVIDER_PLUGIN_LIBRARY)
-      message(STATUS "Link ${QGIS_POSTGRESRASTERPROVIDER_PLUGIN_LIBRARY} interface to qgis_core")
-      target_link_libraries(qgis_core INTERFACE ${QGIS_POSTGRESRASTERPROVIDER_PLUGIN_LIBRARY})
-    else()
-      message(FATAL_ERROR "Fail to find library postgresrasterprovider_a. Make sure it is present in CMAKE_PREFIX_PATH/QGIS.app/Contents/PlugIns/qgis/")
-    endif()
+    qgis_core_link_plugin(provider_wms_a)
+    qgis_core_link_plugin(provider_postgres_a)
+    qgis_core_link_plugin(provider_postgresraster_a)
+    qgis_core_link_plugin(authmethod_basic_a)
+    qgis_core_link_plugin(authmethod_esritoken_a)
+    qgis_core_link_plugin(authmethod_identcert_a)
+    qgis_core_link_plugin(authmethod_oauth2_a)
+    qgis_core_link_plugin(authmethod_pkcs12_a)
+    qgis_core_link_plugin(authmethod_pkipaths_a)
 
     target_include_directories(qgis_core INTERFACE ${QGIS_INCLUDE_DIR})
 
