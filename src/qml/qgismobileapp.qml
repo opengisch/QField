@@ -282,7 +282,7 @@ ApplicationWindow {
       color: mapCanvas.mapSettings.backgroundColor
     }
 
-    /* The base map */
+    /* The map canvas */
     MapCanvas {
       id: mapCanvasMap
       incrementalRendering: true
@@ -332,7 +332,7 @@ ApplicationWindow {
       }
 
       onLongPressed: {
-        if ( type === "stylus" ){
+        if ( type === "stylus" ) {
           if (geometryEditorsToolbar.canvasLongPressed(point)) {
             // for instance, the vertex editor will select a vertex if possible
             return
@@ -358,7 +358,7 @@ ApplicationWindow {
       }
 
       onLongPressReleased: {
-        if ( type === "stylus" ){
+        if ( type === "stylus" ) {
           // The user has released the long press. We can re-enable the default close behavior for the feature form.
           // The next press will be intentional to close the form.
           overlayFeatureFormDrawer.closePolicy = Popup.CloseOnEscape | Popup.CloseOnPressOutside
