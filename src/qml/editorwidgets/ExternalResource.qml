@@ -94,7 +94,6 @@ EditorWidgetBase {
               image.opacity = 1
               image.anchors.topMargin = 0
               image.source= 'file://' + prefixToRelativePath + value
-              console.log(image.source)
               geoTagBadge.hasGeoTag = ExifTools.hasGeoTag(prefixToRelativePath + value)
               geoTagBadge.visible = true
           }
