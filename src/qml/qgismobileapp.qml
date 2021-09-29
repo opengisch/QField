@@ -301,7 +301,7 @@ ApplicationWindow {
               if ( !gpsLinkButton.linkActive && geometryEditorsToolbar.canvasClicked(point) )
                   return;
 
-              if ( !gpsLinkButton.linkActive && (!featureForm.visible || featureForm.canvasOperationRequested ) &&
+              if ( !gpsLinkButton.linkActive && (!featureForm.visible || digitizingToolbar.geometryRequested ) &&
                    ( ( stateMachine.state === "digitize" && digitizingFeature.currentLayer ) || stateMachine.state === 'measure' ) )
               {
                   if ( Number( currentRubberband.model.geometryType ) === QgsWkbTypes.PointGeometry ||
@@ -316,7 +316,7 @@ ApplicationWindow {
               }
               else
               {
-                  if( !overlayFeatureFormDrawer.visible )
+                  if ( !overlayFeatureFormDrawer.visible || !featureForm.canvasOperationRequested )
                   {
                       identifyTool.identify(point)
                   }
