@@ -60,7 +60,7 @@ class LayerUtils : public QObject
 
     static bool deleteFeature( QgsProject *project, QgsVectorLayer *layer, const QgsFeatureId fid, bool shouldWriteChanges = true );
 
-    static QgsFeature duplicateFeature( QgsVectorLayer *layer, const QgsFeature &feature, bool toggleEditing = true );
+    static QgsFeature duplicateFeature( QgsVectorLayer *layer, const QgsFeature &feature );
 
     /**
      * Returns the QVariant typeName of a \a field.

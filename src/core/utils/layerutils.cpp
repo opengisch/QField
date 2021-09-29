@@ -207,7 +207,7 @@ bool LayerUtils::deleteFeature( QgsProject *project, QgsVectorLayer *layer, cons
   return isSuccess;
 }
 
-QgsFeature LayerUtils::duplicateFeature( QgsVectorLayer *layer, const QgsFeature &feature, bool toggleEditing )
+QgsFeature LayerUtils::duplicateFeature( QgsVectorLayer *layer, const QgsFeature &feature )
 {
   if ( !layer )
   {
@@ -215,7 +215,7 @@ QgsFeature LayerUtils::duplicateFeature( QgsVectorLayer *layer, const QgsFeature
     return QgsFeature();
   }
 
-  if ( toggleEditing && ( !layer->startEditing() || !layer->editBuffer() ) )
+  if ( !layer->startEditing() || !layer->editBuffer() )
   {
     QgsMessageLog::logMessage( tr( "Cannot start editing" ), "QField", Qgis::Warning );
     return QgsFeature();
@@ -232,7 +232,7 @@ QgsFeature LayerUtils::duplicateFeature( QgsVectorLayer *layer, const QgsFeature
   if ( layer->addFeature( duplicatedFeature ) )
   {
     // commit changes
-    if ( toggleEditing && !layer->commitChanges() )
+    if ( !layer->commitChanges() )
     {
       const QString msgs = layer->commitErrors().join( QStringLiteral( "\n" ) );
       QgsMessageLog::logMessage( tr( "Cannot add new feature in layer \"%1\". Reason:\n%2" ).arg( layer->name(), msgs ), "QField", Qgis::Warning );
