@@ -75,7 +75,7 @@ jobs:
           CACHE_DIR: ${{ env.GITHUB_WORKSPACE }}/cache
         run: |
           ./scripts/ci/docker_pull.sh
-          source ./scripts/ci/version_number.sh
+          source ./scripts/version_number.sh
           source ./scripts/ci/generate-version-details.sh
           ./scripts/build.sh
           ls $CACHE_DIR
