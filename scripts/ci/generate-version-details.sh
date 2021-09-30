@@ -65,7 +65,8 @@ echo "APK_VERSION_CODE: ${APK_VERSION_CODE}"
 
 
 # safe guard to avoid too big number
-if [[ ( "${APK_VERSION_CODE}" -gt 2000000000 )  ]] ; then
+# remove leading 0 to avoid var recognized as an octal number
+if [[ ( $(echo "${APK_VERSION_CODE}" | sed 's/^0*//') -gt 2000000000 )  ]] ; then
   echo "APK_VERSION_CODE is getting too big!"
   exit 1
 fi
