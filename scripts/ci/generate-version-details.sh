@@ -64,7 +64,7 @@ echo "ANDROID_NDK_PLATFORM : ${ANDROID_NDK_PLATFORM}"
 echo "APK_VERSION_CODE: ${APK_VERSION_CODE}"
 
 
-# safe guard to avoid to big number
+# safe guard to avoid too big number
 if [[ ( "${APK_VERSION_CODE}" -gt 2000000000 )  ]] ; then
   echo "APK_VERSION_CODE is getting too big!"
   exit 1
