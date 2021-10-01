@@ -236,67 +236,50 @@ Popup {
           }
         }
 
-        Text {
-          id: transferErrorText
+        QfCollapsibleMessage {
+            id: transferError
 
-          property string errorString: '[QF/invalid] This is an invalid error'
-          property bool showAllErrorString: false
+            visible: false
 
-          visible: false
-          font: Theme.tipFont
-          text: {
-              if (errorString != '') {
-                  var errorLabel = errorString.startsWith('[QF/')
-                                   ? qsTr('A server error has occured, please try again.')
-                                   : qsTr('A network error has occured, please try again.');
-                  if (showAllErrorString) {
-                      errorLabel += '\n' + errorString;
-                  }
-                  return errorLabel;
-              }
-              return '';
-          }
-          color: Theme.darkRed
-          wrapMode: Text.WordWrap
-          horizontalAlignment: Text.AlignHCenter
-          Layout.fillWidth: true
+            Layout.fillWidth: true
+            Layout.leftMargin: 10
+            Layout.rightMargin: 10
 
-          MouseArea {
-              anchors.fill: parent
-              onClicked: transferErrorText.showAllErrorString = !transferErrorText.showAllErrorString
-          }
+            color: Theme.darkRed
+            font: Theme.tipFont
 
-          Connections {
-            target: cloudProjectsModel
+            titleText: detailsText.startsWith('[QF/')
+                       ? qsTr('A server error has occured, please try again.')
+                       : qsTr('A network error has occured, please try again.');
+            detailsText: '[HTTP/0] https://dev.qfield.cloud/api/v1/deltas/a5-66c6-4d76-eds4-dsddsa5d45/2dsadsad45-dsa545ddsa-dsa/ Network error'
 
-            function onPushFinished(projectId, hasError, errorString) {
-              transferErrorText.visible = hasError && cloudProjectsModel.currentProjectData.Status === QFieldCloudProjectsModel.Idle;
+            Connections {
+              target: cloudProjectsModel
 
-              if (transferErrorText.visible) {
-                transferErrorText.errorString = errorString
-              }
-            }
+              function onPushFinished(projectId, hasError, errorString) {
+                transferError.visible = hasError && cloudProjectsModel.currentProjectData.Status === QFieldCloudProjectsModel.Idle;
 
-            function onProjectDownloaded(projectId, projectName, hasError, errorString) {
-              const projectData = cloudProjectsModel.getProjectData(projectId)
-
-              transferErrorText.visible = hasError && projectData.Status === QFieldCloudProjectsModel.Idle;
-
-              if (transferErrorText.visible) {
-                transferErrorText.errorString = errorString
+                if (transferError.visible) {
+                  transferError.detailsText = errorString
+                }
               }
 
-              if (projectData.ExportedLayerErrors.length !== 0)
-              {
-                cloudExportLayersFeedback.exportedLayersListViewModel = projectData.ExportedLayerErrors;
-                cloudExportLayersFeedback.visible = true;
+              function onProjectDownloaded(projectId, projectName, hasError, errorString) {
+                const projectData = cloudProjectsModel.getProjectData(projectId)
+
+                transferError.visible = hasError && projectData.Status === QFieldCloudProjectsModel.Idle;
+
+                if (transferError.visible) {
+                  transferError.detailsText = errorString
+                }
+
+                if (projectData.ExportedLayerErrors.length !== 0)
+                {
+                  cloudExportLayersFeedback.exportedLayersListViewModel = projectData.ExportedLayerErrors;
+                  cloudExportLayersFeedback.visible = true;
+                }
               }
             }
-
-            function onDataChanged() {
-              transferErrorText.visible = cloudProjectsModel.currentProjectData.Status === QFieldCloudProjectsModel.Idle;
-            }
-          }
         }
 
         GridLayout {

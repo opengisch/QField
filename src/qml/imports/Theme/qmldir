@@ -4,3 +4,4 @@ QfSwitch 1.0 QfSwitch.qml
 QfButton 1.0 QfButton.qml
 QfToolButton 1.0 QfToolButton.qml
 QfTextField 1.0 QfTextField.qml
+QfCollapsibleMessage 1.0 QfCollapsibleMessage.qml
