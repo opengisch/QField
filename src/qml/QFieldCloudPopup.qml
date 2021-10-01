@@ -328,7 +328,7 @@ Popup {
             visible: !cloudProjectsModel.layerObserver.deltaFileWrapper.hasError()
             enabled: !!(cloudProjectsModel.currentProjectData && cloudProjectsModel.currentProjectData.CanSync)
                      && !cloudProjectsModel.layerObserver.deltaFileWrapper.hasError()
-            icon.source: Theme.getThemeIcon('ic_cloud_download_24dp')
+            icon.source: Theme.getThemeIcon('ic_cloud_synchronize_24dp')
             icon.color: 'white'
 
             onClicked: uploadProject(true)
