@@ -32,35 +32,6 @@ Popup {
     }
 
     ColumnLayout {
-      visible: cloudProjectsModel.currentProjectId && cloudConnection.status !== QFieldCloudConnection.LoggedIn
-      id: connectionSettings
-      anchors.fill: parent
-      spacing: 2
-
-      ScrollView {
-        Layout.fillWidth: true
-        Layout.fillHeight: true
-        Layout.margins: 10
-        height: parent.height
-        ScrollBar.horizontal.policy: ScrollBar.AlwaysOff
-        ScrollBar.vertical.policy: ScrollBar.AsNeeded
-        contentWidth: qfieldCloudLogin.width
-        contentHeight: qfieldCloudLogin.childrenRect.height
-        clip: true
-
-        QFieldCloudLogin {
-          id: qfieldCloudLogin
-          width: parent.parent.width
-        }
-      }
-
-      Item {
-          Layout.fillHeight: true
-          height: 15
-      }
-    }
-
-    ColumnLayout {
       visible: !cloudProjectsModel.currentProjectId
       anchors.fill: parent
       anchors.margins: 20
@@ -88,7 +59,6 @@ Popup {
     }
 
     ScrollView {
-      visible: cloudProjectsModel.currentProjectId && cloudConnection.status === QFieldCloudConnection.LoggedIn
       padding: 0
       ScrollBar.horizontal.policy: ScrollBar.AlwaysOff
       ScrollBar.vertical.policy: ScrollBar.AsNeeded
@@ -105,6 +75,8 @@ Popup {
         rowSpacing: 2
 
         RowLayout {
+          visible: cloudConnection.status === QFieldCloudConnection.LoggedIn
+
           Text {
               Layout.fillWidth: true
               Layout.alignment: Qt.AlignHCenter | Qt.AlignVCenter
@@ -154,6 +126,24 @@ Popup {
               layer.enabled: true
               layer.effect: OpacityMask {
                   maskSource: cloudAvatarMask
+              }
+
+              MouseArea {
+                anchors.fill: parent
+
+                onClicked: {
+                  if (cloudConnection.status !== QFieldCloudConnection.LoggedIn ||
+                      cloudProjectsModel.currentProjectData.Status !== QFieldCloudProjectsModel.Idle)
+                      return;
+
+                  if (!connectionSettings.visible) {
+                    connectionSettings.visible = true;
+                    projects.visible = false;
+                  } else {
+                    connectionSettings.visible = false;
+                    projects.visible = true;
+                  }
+                }
               }
             }
           }
@@ -288,12 +278,12 @@ Popup {
         }
 
         GridLayout {
+          id: mainInnerGrid
           Layout.margins: 10
           Layout.maximumWidth: 525
           Layout.alignment: Qt.AlignHCenter
-          id: mainInnerGrid
           width: parent.width
-          visible: cloudConnection.status === QFieldCloudConnection.LoggedIn &&
+          visible: !connectionSettings.visible &&
                    cloudProjectsModel.currentProjectData.Status === QFieldCloudProjectsModel.Idle
           columns: 1
           columnSpacing: parent.columnSpacing
@@ -481,6 +471,38 @@ Popup {
             wrapMode: Text.WordWrap
             horizontalAlignment: Text.AlignHCenter
             Layout.fillWidth: true
+          }
+        }
+
+        ColumnLayout {
+          id: connectionSettings
+          Layout.fillWidth: true
+          Layout.fillHeight: true
+          spacing: 2
+
+          property bool visibility: false
+          visible: visibility || (cloudProjectsModel.currentProjectId && cloudConnection.status !== QFieldCloudConnection.LoggedIn)
+
+          ScrollView {
+            Layout.fillWidth: true
+            Layout.fillHeight: true
+            Layout.margins: 10
+            height: parent.height
+            ScrollBar.horizontal.policy: ScrollBar.AlwaysOff
+            ScrollBar.vertical.policy: ScrollBar.AsNeeded
+            contentWidth: qfieldCloudLogin.width
+            contentHeight: qfieldCloudLogin.childrenRect.height
+            clip: true
+
+            QFieldCloudLogin {
+              id: qfieldCloudLogin
+              width: parent.parent.width
+            }
+          }
+
+          Item {
+              Layout.fillHeight: true
+              height: 15
           }
         }
       }
