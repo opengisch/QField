@@ -2212,9 +2212,9 @@ ApplicationWindow {
         property var type: 'info'
 
         height: toastMessage.height
-        width: 8 + toastMessage.text.length * toastFontMetrics.averageCharacterWidth > mainWindow.width
+        width: 30 + toastMessage.text.length * toastFontMetrics.averageCharacterWidth > mainWindow.width
                ? mainWindow.width - 16
-               : 8 + toastMessage.text.length * toastFontMetrics.averageCharacterWidth
+               : 30 + toastMessage.text.length * toastFontMetrics.averageCharacterWidth
 
         anchors.centerIn: parent
 
@@ -2225,7 +2225,7 @@ ApplicationWindow {
         Rectangle {
           id: toastIndicator
           anchors.left: parent.left
-          anchors.leftMargin: 8
+          anchors.leftMargin: 6
           anchors.verticalCenter: parent.verticalCenter
           width:  10
           height: 10
