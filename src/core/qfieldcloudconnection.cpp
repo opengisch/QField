@@ -104,7 +104,7 @@ QString QFieldCloudConnection::errorString( QNetworkReply *reply )
       break;
   }
 
-  int httpCode = reply->attribute( QNetworkRequest::HttpStatusCodeAttribute ).toInt();
+  const int httpCode = reply->attribute( QNetworkRequest::HttpStatusCodeAttribute ).toInt();
   QString httpErrorMessage = QStringLiteral( "[HTTP/%1] %2 " ).arg( httpCode ).arg( reply->url().toString() );
   httpErrorMessage += ( httpCode >= 400 )
                       ? tr( "Server Error." )
