@@ -57,11 +57,12 @@ Item {
       Layout.fillWidth: true
       Layout.fillHeight: true
       Layout.maximumWidth: 410
-      Layout.minimumHeight: 800
+      Layout.minimumHeight: (logo.height + fontMetrics.height * 9) * 2
       Layout.alignment: Qt.AlignHCenter
       spacing: 10
 
       Image {
+        id: logo
         Layout.alignment: Qt.AlignVCenter | Qt.AlignHCenter
         fillMode: Image.PreserveAspectFit
         smooth: true
