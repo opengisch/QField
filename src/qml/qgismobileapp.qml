@@ -2049,6 +2049,21 @@ ApplicationWindow {
 
   QFieldCloudConnection {
     id: cloudConnection
+
+    property int previousStatus: QFieldCloudConnection.Disconnected
+
+    onStatusChanged: {
+      if (cloudConnection.status === QFieldCloudConnection.Disconnected && previousStatus === QFieldCloudConnection.LoggedIn) {
+        displayToast(qsTr('Logged out'))
+      } else if (cloudConnection.status === QFieldCloudConnection.Connecting) {
+        displayToast(qsTr('Connecting...'))
+      } else if (cloudConnection.status === QFieldCloudConnection.LoggedIn) {
+        displayToast(qsTr('Logged in'))
+        if ( cloudProjectsModel.currentProjectId != '' )
+          cloudProjectsModel.refreshProjectDeltaList(cloudProjectsModel.currentProjectId)
+      }
+      previousStatus = cloudConnection.status
+    }
     onLoginFailed: function(reason) { displayToast( reason ) }
   }
 

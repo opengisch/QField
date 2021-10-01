@@ -487,23 +487,6 @@ Popup {
     }
   }
 
-  Connections {
-    target: cloudConnection
-
-    function onStatusChanged() {
-      if (cloudConnection.status === QFieldCloudConnection.Disconnected) {
-        displayToast(qsTr('Logged out'))
-      } else if (cloudConnection.status === QFieldCloudConnection.Connecting) {
-        displayToast(qsTr('Connecting...'))
-      } else if (cloudConnection.status === QFieldCloudConnection.LoggedIn) {
-        displayToast(qsTr('Logged in'))
-        if ( cloudProjectsModel.currentProjectId != '' )
-          cloudProjectsModel.refreshProjectDeltaList(cloudProjectsModel.currentProjectId)
-      }
-    }
-  }
-
-
   Dialog {
     id: revertDialog
     parent: mainWindow.contentItem
