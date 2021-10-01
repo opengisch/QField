@@ -55,7 +55,9 @@ Item {
 
     ColumnLayout {
       Layout.fillWidth: true
+      Layout.fillHeight: true
       Layout.maximumWidth: 410
+      Layout.minimumHeight: 800
       Layout.alignment: Qt.AlignHCenter
       spacing: 10
 
@@ -71,20 +73,6 @@ Item {
           anchors.fill: parent
           onDoubleClicked: toggleServerUrlEditing()
         }
-      }
-
-      Text {
-        id: cloudIntroLabel
-        Layout.fillWidth: true
-        text: '<style>a, a:hover, a:visited { color:' + Theme.mainColor + '; }></style>' +
-              qsTr( 'The easiest way to transfer you project from QGIS to your devices!' ) +
-              ' <a href="https://qfield.cloud/">' + qsTr( 'Learn more about QFieldCloud' ) + '</a>.'
-        horizontalAlignment: Text.AlignHCenter
-        font: Theme.defaultFont
-        textFormat: Text.RichText
-        wrapMode: Text.WordWrap
-
-        onLinkActivated: Qt.openUrlExternally(link)
       }
 
       Text {
@@ -242,6 +230,26 @@ Item {
         enabled: cloudConnection.status != QFieldCloudConnection.Connecting
 
         onClicked: loginFormSumbitHandler()
+      }
+
+      Text {
+        id: cloudIntroLabel
+        Layout.fillWidth: true
+        text: '<style>a, a:hover, a:visited { color:' + Theme.mainColor + '; }></style>' +
+              qsTr( 'The easiest way to transfer you project from QGIS to your devices!' ) +
+              ' <a href="https://qfield.cloud/">' + qsTr( 'Learn more about QFieldCloud' ) + '</a>.'
+        horizontalAlignment: Text.AlignHCenter
+        font: Theme.defaultFont
+        textFormat: Text.RichText
+        wrapMode: Text.WordWrap
+
+        onLinkActivated: Qt.openUrlExternally(link)
+      }
+
+      Item {
+          // spacer item
+          Layout.fillWidth: true
+          Layout.fillHeight: true
       }
     }
   }
