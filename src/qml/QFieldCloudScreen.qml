@@ -111,7 +111,6 @@ Page {
       Layout.fillWidth: true
       Layout.fillHeight: true
       Layout.margins: 10
-      Layout.topMargin: !connectionInformation.visible ? connectionInformation.height + parent.spacing : 0
       spacing: 2
       visible: !connectionInformation.visible
 
