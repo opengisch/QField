@@ -238,9 +238,24 @@ Popup {
 
         Text {
           id: transferErrorText
+
+          property string errorString: '[QF/invalid] This is an invalid error'
+          property bool showAllErrorString: false
+
           visible: false
-          font: Theme.defaultFont
-          text: ''
+          font: Theme.tipFont
+          text: {
+              if (errorString != '') {
+                  var errorLabel = errorString.startsWith('[QF/')
+                                   ? qsTr('A server error has occured, please try again.')
+                                   : qsTr('A network error has occured, please try again.');
+                  if (showAllErrorString) {
+                      errorLabel += '\n' + errorString;
+                  }
+                  return errorLabel;
+              }
+              return '';
+          }
           color: Theme.darkRed
           wrapMode: Text.WordWrap
           horizontalAlignment: Text.AlignHCenter
@@ -248,7 +263,7 @@ Popup {
 
           MouseArea {
               anchors.fill: parent
-              onClicked: transferErrorDialog.open()
+              onClicked: transferErrorText.showAllErrorString = !transferErrorText.showAllErrorString
           }
 
           Connections {
@@ -258,10 +273,7 @@ Popup {
               transferErrorText.visible = hasError && cloudProjectsModel.currentProjectData.Status === QFieldCloudProjectsModel.Idle;
 
               if (transferErrorText.visible) {
-                transferErrorText = errorString.startsWith('[QF/')
-                                    ? qsTr('A server error has occured, please try again.')
-                                    : qsTr('A network error has occured, please try again.')
-                transferErrorDialog.errorString = errorString
+                transferErrorText.errorString = errorString
               }
             }
 
@@ -271,10 +283,7 @@ Popup {
               transferErrorText.visible = hasError && projectData.Status === QFieldCloudProjectsModel.Idle;
 
               if (transferErrorText.visible) {
-                  transferErrorText = errorString.startsWith('[QF/')
-                                      ? qsTr('A server error has occured, please try again.')
-                                      : qsTr('A network error has occured, please try again.')
-                  transferErrorDialog.errorString = errorString
+                transferErrorText.errorString = errorString
               }
 
               if (projectData.ExportedLayerErrors.length !== 0)
@@ -519,31 +528,6 @@ Popup {
           }
         }
       }
-    }
-  }
-
-  Dialog {
-    id: transferErrorDialog
-    parent: mainWindow.contentItem
-
-    property string errorString: '[QF/fiction] This is a fictive server error'
-    visible: false
-    modal: true
-
-    x: ( mainWindow.width - width ) / 2
-    y: ( mainWindow.height - height ) / 2
-
-    title: qsTr( "Transfer Error" )
-    Label {
-      width: parent.width
-      wrapMode: Text.WordWrap
-      text: qsTr( "The following error occured while attempting to communicate with the QFieldCloud server:\n\n%1" ).arg( transferErrorDialog.errorString )
-    }
-
-    standardButtons: Dialog.Ok
-
-    onAccepted: {
-      revertLocalChangesFromCurrentProject();
     }
   }
 
