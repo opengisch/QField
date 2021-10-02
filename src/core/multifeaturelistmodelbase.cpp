@@ -148,7 +148,7 @@ void MultiFeatureListModelBase::toggleSelectedItem( int item )
   emit selectedCountChanged();
 }
 
-QList<QgsFeature> MultiFeatureListModelBase::selectedFeatures()
+QList<QgsFeature> MultiFeatureListModelBase::selectedFeatures() const
 {
   QList<QgsFeature> features;
   for ( const QPair<QgsVectorLayer *, QgsFeature> &pair : mSelectedFeatures )
@@ -156,6 +156,11 @@ QList<QgsFeature> MultiFeatureListModelBase::selectedFeatures()
     features << pair.second;
   }
   return features;
+}
+
+QgsVectorLayer *MultiFeatureListModelBase::selectedLayer() const
+{
+  return mSelectedFeatures.size() > 0 ? mSelectedFeatures[0].first : nullptr;
 }
 
 QHash<int, QByteArray> MultiFeatureListModelBase::roleNames() const
@@ -342,8 +347,9 @@ bool MultiFeatureListModelBase::mergeSelection()
   if ( !canMergeSelection() )
     return false;
 
+  QgsVectorLayer *vlayer = selectedLayer();
+
   QList<QPair<QgsVectorLayer *, QgsFeature>> selectedFeatures = mSelectedFeatures;
-  QgsVectorLayer *vlayer = selectedFeatures[0].first;
   bool isSuccess = true;
   QgsGeometry combinedGeometry;
   for ( const auto &pair : selectedFeatures )
@@ -420,7 +426,7 @@ bool MultiFeatureListModelBase::deleteSelection()
   if ( !canDeleteSelection() )
     return false;
 
-  QgsVectorLayer *vlayer = mSelectedFeatures[0].first;
+  QgsVectorLayer *vlayer = selectedLayer();
   if ( !vlayer->startEditing() )
   {
     QgsMessageLog::logMessage( tr( "Cannot start editing" ), "QField", Qgis::Warning );
@@ -463,7 +469,6 @@ bool MultiFeatureListModelBase::duplicateFeature( QgsVectorLayer *layer, const Q
     mFeatures = duplicatedFeatures;
     mSelectedFeatures = duplicatedFeatures;
     endResetModel();
-    emit selectedCountChanged();
   }
 
   return feature.isValid();
@@ -474,7 +479,7 @@ bool MultiFeatureListModelBase::duplicateSelection()
   if ( !canDuplicateSelection() )
     return false;
 
-  QgsVectorLayer *vlayer = mSelectedFeatures[0].first;
+  QgsVectorLayer *vlayer = selectedLayer();
 
   const QList<QPair<QgsVectorLayer *, QgsFeature>> selectedFeatures = mSelectedFeatures;
   QList<QPair<QgsVectorLayer *, QgsFeature>> duplicatedFeatures;
