@@ -435,10 +435,10 @@ Rectangle {
     }
 
     onToggleMultiSelection: {
+        featureForm.selection.focusedItem = -1;
         if ( featureForm.multiSelection ) {
             featureFormList.model.featureModel.modelMode = FeatureModel.SingleFeatureModel
             featureForm.selection.model.clearSelection();
-            featureForm.selection.focusedItem = -1;
         } else {
             featureFormList.model.featureModel.modelMode = FeatureModel.MultiFeatureModel
         }
