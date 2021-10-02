@@ -767,7 +767,7 @@ ApplicationWindow {
     function ensureEditableLayerSelected() {
       var firstEditableLayer = null;
       var currentLayerLocked = false;
-      for (var i = 0; layerTree.rowCount(); i++)
+      for (var i = 0; i < layerTree.rowCount(); i++)
       {
         var index = layerTree.index(i,0)
         if (firstEditableLayer === null)
