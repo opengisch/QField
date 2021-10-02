@@ -152,7 +152,13 @@ void MultiFeatureListModel::toggleSelectedItem( int item )
 
 void MultiFeatureListModel::adjustFilterToSelectedCount()
 {
-  if ( mSourceModel->selectedCount() == 0 && mFilterLayer != nullptr )
+  if ( mSourceModel->selectedCount() > 0 && mFilterLayer == nullptr )
+  {
+    mFilterLayer = mSourceModel->selectedLayer();
+    emit selectedLayerChanged();
+    invalidateFilter();
+  }
+  else if ( mSourceModel->selectedCount() == 0 && mFilterLayer != nullptr )
   {
     mFilterLayer = nullptr;
     emit selectedLayerChanged();

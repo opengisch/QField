@@ -136,7 +136,12 @@ class MultiFeatureListModelBase : public QAbstractItemModel
     /**
      * Returns the list of currently selected features.
      */
-    QList<QgsFeature> selectedFeatures();
+    QList<QgsFeature> selectedFeatures() const;
+
+    /**
+     * Returns the layer containing the list of currently selected features.
+     */
+    QgsVectorLayer *selectedLayer() const;
 
   signals:
 
