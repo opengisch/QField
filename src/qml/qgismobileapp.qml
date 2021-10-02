@@ -316,7 +316,7 @@ ApplicationWindow {
               }
               else
               {
-                  if ( !overlayFeatureFormDrawer.visible || !featureForm.canvasOperationRequested )
+                  if (!overlayFeatureFormDrawer.visible || !featureForm.canvasOperationRequested)
                   {
                       identifyTool.identify(point)
                   }
@@ -325,7 +325,7 @@ ApplicationWindow {
       }
 
       onConfirmedClicked: {
-          if( !featureForm.canvasOperationRequested && !overlayFeatureFormDrawer.visible )
+          if (!featureForm.canvasOperationRequested && !overlayFeatureFormDrawer.visible)
           {
               identifyTool.identify(point)
           }
