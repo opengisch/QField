@@ -134,7 +134,7 @@ class MultiFeatureListModel : public QSortFilterProxyModel
      */
     Q_INVOKABLE bool duplicateFeature( QgsVectorLayer *layer, const QgsFeature &feature );
 
-    //! Deletes selected features
+    //! Duplicates selected features onto their associated layer
     Q_INVOKABLE bool duplicateSelection();
 
     //! Moves selected features along a given \a vector.

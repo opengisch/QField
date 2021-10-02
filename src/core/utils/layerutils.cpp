@@ -215,6 +215,12 @@ QgsFeature LayerUtils::duplicateFeature( QgsVectorLayer *layer, const QgsFeature
     return QgsFeature();
   }
 
+  if ( !feature.isValid() )
+  {
+    QgsMessageLog::logMessage( tr( "Cannot copy invalid feature" ), "QField", Qgis::Warning );
+    return QgsFeature();
+  }
+
   if ( !layer->startEditing() || !layer->editBuffer() )
   {
     QgsMessageLog::logMessage( tr( "Cannot start editing" ), "QField", Qgis::Warning );
