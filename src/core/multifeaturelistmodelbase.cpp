@@ -518,7 +518,6 @@ bool MultiFeatureListModelBase::moveSelection( const double x, const double y )
     return false;
   }
 
-  //QList<QPair<QgsVectorLayer *, QgsFeature>> movedFeatures;
   bool isSuccess = false;
   for ( auto &pair : mSelectedFeatures )
   {
@@ -527,7 +526,10 @@ bool MultiFeatureListModelBase::moveSelection( const double x, const double y )
     pair.second.setGeometry( geom );
     isSuccess = vlayer->changeGeometry( pair.second.id(), geom );
     if ( !isSuccess )
+    {
+      QgsMessageLog::logMessage( tr( "Cannot change geometry of feature %1 in %2" ).arg( pair.second.id() ).arg( vlayer->name() ), "QField", Qgis::Critical );
       break;
+    }
   }
 
   if ( isSuccess )
