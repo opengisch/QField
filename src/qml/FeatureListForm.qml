@@ -479,6 +479,10 @@ Rectangle {
 
   Keys.onReleased: {
       if (event.key === Qt.Key_Back || event.key === Qt.Key_Escape) {
+          // if visible overlays (such as embedded feature forms) are present, don't take over
+          if (ApplicationWindow.overlay.visibleChildren.length > 0)
+              return;
+
           if (state != "FeatureList") {
               if (featureListToolBar.state === "Edit") {
                   if (featureFormList.model.constraintsHardValid) {
