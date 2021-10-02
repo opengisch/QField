@@ -47,7 +47,7 @@ EditorWidgetBase {
               }
           }
 
-          inputMethodHints: Qt.ImhFormattedNumbersOnly
+          inputMethodHints: Qt.ImhFormattedNumbersOnly | Qt.ImhNoPredictiveText | Qt.ImhNoAutoUppercase | Qt.ImhSensitiveData
 
           background: Rectangle {
               y: textField.height - height - textField.bottomPadding / 2
