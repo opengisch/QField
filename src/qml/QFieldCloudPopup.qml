@@ -251,7 +251,7 @@ Popup {
             titleText: detailsText.startsWith('[QF/')
                        ? qsTr('A server error has occured, please try again.')
                        : qsTr('A network error has occured, please try again.');
-            detailsText: '[HTTP/0] https://dev.qfield.cloud/api/v1/deltas/a5-66c6-4d76-eds4-dsddsa5d45/2dsadsad45-dsa545ddsa-dsa/ Network error'
+            detailsText: ''
 
             Connections {
               target: cloudProjectsModel

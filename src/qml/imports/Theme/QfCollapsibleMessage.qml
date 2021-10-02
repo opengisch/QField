@@ -23,12 +23,14 @@ Item {
     }
 
     Rectangle {
+        id: background
         anchors.fill: parent
+
         color: "transparent"
         border.color: titleText.color
         border.width: 1
+        opacity: 0.25
         radius: 12
-        clip: true
     }
 
     Text {
@@ -57,6 +59,7 @@ Item {
 
         height: 1
         color: titleText.color
+        opacity: 0.25
     }
 
     Text {
@@ -74,6 +77,7 @@ Item {
         font.family: titleText.font.family
 
         color: titleText.color
+        opacity: 0.25
 
         horizontalAlignment: Text.AlignHCenter
         wrapMode: Text.WordWrap
