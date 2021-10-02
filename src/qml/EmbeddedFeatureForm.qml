@@ -32,7 +32,7 @@ Popup {
     }
 
     onAboutToShow: {
-        if( state === 'Add' ) {
+        if (state === 'Add') {
            form.featureCreated = false;
            formFeatureModel.resetAttributes();
         }
@@ -85,11 +85,11 @@ Popup {
             closePopup()
         }
 
-        function closePopup(){
-            if( formPopup.opened ){
+        function closePopup() {
+            if (formPopup.opened) {
                 isSaved = true
                 formPopup.close()
-            }else{
+            } else {
                 isSaved = false
             }
         }
