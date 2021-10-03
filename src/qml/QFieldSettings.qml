@@ -278,7 +278,7 @@ Page {
                           Layout.fillWidth: true
                           Layout.alignment: Qt.AlignVCenter
 
-                          property variant languages: {"":"System language","en":"English","bg":"български (Bulgarian)","zn":"中文 (Chinese)","fi":"Suomi (Finnish)","fr":"Français (French)","gl":"Galego (Galician)","de":"Deutsch (German)","hu":"Magyar (Hungarian)","ja":"日本 (Japanese)","pl":"Polskie (Polish)","pt":"Português (Portuguese)","pt_BR":"Português/Brasil (Portuguese/Brazil)","ru":"Pусский (Russian)","es":"Español (Spanish)","tr":"Türk (Turkish)"}
+                          property variant languages: {"":"System language","en":"English","bg":"български (Bulgarian)","zh":"中文 (Chinese)","fi":"Suomi (Finnish)","fr":"Français (French)","gl":"Galego (Galician)","de":"Deutsch (German)","hu":"Magyar (Hungarian)","ja":"日本 (Japanese)","pl":"Polskie (Polish)","pt":"Português (Portuguese)","pt_BR":"Português/Brasil (Portuguese/Brazil)","ru":"Pусский (Russian)","es":"Español (Spanish)","tr":"Türk (Turkish)"}
                           property string currentLanguage: undefined
 
                           onCurrentIndexChanged: {
