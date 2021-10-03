@@ -479,6 +479,9 @@ void AttributeFormModelBase::flatten( QgsAttributeEditorContainer *container, QS
       }
 
       case QgsAttributeEditorElement::AeTypeInvalid:
+#if _QGIS_VERSION_INT >= 32100
+      case QgsAttributeEditorElement::AeTypeAction:
+#endif
         // todo
         break;
     }
