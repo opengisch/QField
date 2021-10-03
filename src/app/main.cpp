@@ -132,15 +132,6 @@ int main( int argc, char **argv )
 #endif
 #endif
 
-  std::unique_ptr<QTranslator> qFieldTranslator = std::make_unique<QTranslator>();
-  if ( !customLanguage.isEmpty() )
-  {
-    if ( qFieldTranslator->load( QStringLiteral( "qfield_%1" ).arg( customLanguage ), QStringLiteral( ":" ) ) )
-    {
-      app.installTranslator( qFieldTranslator.get() );
-    }
-  }
-
   app.initQgis();
 
   //set NativeFormat for settings
@@ -153,8 +144,16 @@ int main( int argc, char **argv )
 
   QTranslator qfieldTranslator;
   QTranslator qtTranslator;
-  qfieldTranslator.load( QLocale(), "qfield", "_", ":/" );
-  qtTranslator.load( QLocale(), "qt", "_", ":/" );
+  if ( !customLanguage.isEmpty() )
+  {
+    qfieldTranslator.load( QStringLiteral( "qfield_%1" ).arg( customLanguage ), QStringLiteral( ":" ) );
+    qtTranslator.load( QLocale(), "qt", "_", ":/" );
+  }
+  if ( qfieldTranslator.isEmpty() )
+  {
+    qfieldTranslator.load( QLocale(), "qfield", "_", ":/" );
+    qtTranslator.load( QLocale(), "qt", "_", ":/" );
+  }
   app.installTranslator( &qtTranslator );
   app.installTranslator( &qfieldTranslator );
 
