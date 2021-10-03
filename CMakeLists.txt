@@ -225,7 +225,7 @@ endif()
 if(WITH_VCPKG)
   SET(VCPKG_BASE_DIR "${_VCPKG_INSTALLED_DIR}/${VCPKG_TARGET_TRIPLET}")
   if(MSVC)
-    SET(QGIS_PLUGIN_DIR "${VCPKG_BASE_DIR}/bin/qgis/plugins")
+    SET(QGIS_PLUGIN_DIR "${VCPKG_BASE_DIR}/tools/qgis/plugins")
     file(GLOB PROVIDER_LIBS
       "${QGIS_PLUGIN_DIR}/*provider.dll"
     )
@@ -259,15 +259,16 @@ if(WITH_VCPKG)
     POST_BUILD
     COMMAND ${CMAKE_COMMAND} -E copy_directory "${VCPKG_BASE_DIR}/share/gdal" "${CMAKE_BINARY_DIR}/output/bin/gdal"
   )
-  install(DIRECTORY "${VCPKG_BASE_DIR}/share/qgis/resources" DESTINATION "share/qgis")
-  install(DIRECTORY "${VCPKG_BASE_DIR}/share/proj4" DESTINATION "share/proj")
-  install(DIRECTORY "${VCPKG_BASE_DIR}/share/gdal" DESTINATION "share/gdal")
+  install(DIRECTORY "${VCPKG_BASE_DIR}/share/qgis/resources/" DESTINATION "share/qgis/resources")
+  install(DIRECTORY "${VCPKG_BASE_DIR}/share/proj4/" DESTINATION "share/proj")
+  install(DIRECTORY "${VCPKG_BASE_DIR}/share/gdal/" DESTINATION "share/gdal")
 
   if(EXISTS ${VCPKG_BASE_DIR}/plugins/mediaservice)
     add_custom_command(TARGET deploy
       POST_BUILD
       COMMAND ${CMAKE_COMMAND} -E copy_directory "${VCPKG_BASE_DIR}/plugins/mediaservice" "${CMAKE_BINARY_DIR}/output/bin/plugins/mediaservice"
     )
+    install(DIRECTORY "${VCPKG_BASE_DIR}/plugins/mediaservice/" DESTINATION "bin/plugins/mediaservice")
   endif()
 
   add_dependencies(qfield deploy)
