@@ -121,11 +121,9 @@ int main( int argc, char **argv )
   app.setThemeName( settings.value( "/Themes", "default" ).toString() );
 
 #if defined( Q_OS_WIN )
-  qputenv( "GDAL_DATA", QDir::toNativeSeparators( app.applicationDirPath() + "../share/gdal" ).toLocal8Bit() );
-  qputenv( "PROJ_LIB", QDir::toNativeSeparators( app.applicationDirPath() + "../share/proj" ).toLocal8Bit() );
-  app.setPrefixPath( app.applicationDirPath() + "../share/qgis", true );
-
-   std::cout << "Application dir path " << app.applicationDirPath().toUtf8().constData();
+  qputenv( "GDAL_DATA", QDir::toNativeSeparators( app.applicationDirPath() + "/../share/gdal" ).toLocal8Bit() );
+  qputenv( "PROJ_LIB", QDir::toNativeSeparators( app.applicationDirPath() + "/../share/proj" ).toLocal8Bit() );
+  app.setPrefixPath( app.applicationDirPath() + "/../share/qgis", true );
 #else
   app.setPrefixPath( CMAKE_INSTALL_PREFIX, true );
 #endif
