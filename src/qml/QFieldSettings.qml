@@ -145,8 +145,8 @@ Page {
               rightPadding: 0
               ScrollBar.horizontal.policy: ScrollBar.AlwaysOff
               ScrollBar.vertical.policy: ScrollBar.AsNeeded
-              contentWidth: positioningGrid.width
-              contentHeight: positioningGrid.height
+              contentWidth: generalSettingsGrid.width
+              contentHeight: generalSettingsGrid.height
               anchors.fill: parent
               clip: true
 
