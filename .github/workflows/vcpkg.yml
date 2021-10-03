@@ -237,7 +237,6 @@ jobs:
               ;;
 
             *)
-              find /c -name vcredist_x64.exe
               echo "PACKAGE=${{ env.CMAKE_BUILD_DIR }}/QField-0.1.1-win64.*" >> $GITHUB_ENV
               ;;
           esac
