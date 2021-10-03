@@ -195,6 +195,7 @@ Page {
                   ListView {
                       Layout.preferredWidth: mainWindow.width
                       Layout.preferredHeight: childrenRect.height
+                      interactive: false
 
                       model: settingsModel
 
@@ -259,6 +260,18 @@ Page {
                           wrapMode: Text.WordWrap
                       }
 
+                      Label {
+                          id: languageTip
+                          visible: false
+
+                          Layout.fillWidth: true
+                          text: qsTr( "To apply the selected user interface language, QField needs to completely shutdown and restart." )
+                          font: Theme.tipFont
+                          color: Theme.warningColor
+
+                          wrapMode: Text.WordWrap
+                      }
+
                       ComboBox {
                           id: languageComboBox
                           enabled: true
@@ -284,18 +297,6 @@ Page {
                               currentLanguage = language
                               languageTip.visible = false
                           }
-                      }
-
-                      Label {
-                          id: languageTip
-                          visible: false
-
-                          Layout.fillWidth: true
-                          text: qsTr( "To apply the selected user interface language, QField needs to completely shutdown and restart." )
-                          font: Theme.tipFont
-                          color: Theme.warningColor
-
-                          wrapMode: Text.WordWrap
                       }
                   }
               }
