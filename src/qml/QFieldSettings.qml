@@ -240,6 +240,64 @@ Page {
                           }
                       }
                   }
+
+                  GridLayout {
+                      Layout.fillWidth: true
+                      Layout.leftMargin: 20
+                      Layout.rightMargin: 20
+                      Layout.topMargin: 5
+
+                      columns: 1
+                      columnSpacing: 0
+                      rowSpacing: 5
+
+                      Label {
+                          Layout.fillWidth: true
+                          text: qsTr( "QField user interface language:" )
+                          font: Theme.defaultFont
+
+                          wrapMode: Text.WordWrap
+                      }
+
+                      ComboBox {
+                          id: languageComboBox
+                          enabled: true
+                          Layout.fillWidth: true
+                          Layout.alignment: Qt.AlignVCenter
+
+                          property variant languages: {"":"System language","en":"English","bg":"български (Bulgarian)","zn":"中文 (Chinese)","fi":"Suomi (Finnish)","fr":"Français (French)","gl":"Galego (Galician)","de":"Deutsch (German)","hu":"Magyar (Hungarian)","ja":"日本 (Japanese)","pl":"Polskie (Polish)","pt":"Português (Portuguese)","pt":"Português/Brasil (Portuguese/Brazil)","ru":"Pусский (Russian)","es":"Español (Spanish)","tr":"Türk (Turkish)"}
+                          property string currentLanguage: undefined
+
+                          onCurrentIndexChanged: {
+                              if (currentLanguage != undefined) {
+                                  var keys = Object.keys(languages);
+                                  settings.setValue("customLanguage",keys[currentIndex]);
+                                  languageTip.visible = keys[currentIndex] !== currentLanguage;
+                              }
+                          }
+
+                          Component.onCompleted: {
+                              var language = settings.value("customLanguage", '');
+                              var keys = Object.keys(languages);
+                              model = Object.values(languages);
+                              currentIndex = keys.indexOf(language);
+                              currentLanguage = language
+                              languageTip.visible = false
+                          }
+                      }
+
+                      Label {
+                          id: languageTip
+                          visible: false
+
+                          Layout.fillWidth: true
+                          text: qsTr( "To apply the selected user interface language, QField needs to completely shutdown and restart." )
+                          font: Theme.tipFont
+                          color: Theme.warningColor
+
+                          wrapMode: Text.WordWrap
+                      }
+                  }
               }
           }
       }

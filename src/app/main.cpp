@@ -81,23 +81,25 @@ void qfMessageHandler( QtMsgType type, const QMessageLogContext &context, const 
 
 int main( int argc, char **argv )
 {
-#if 0
   // A dummy app for reading settings that need to be used before constructing the real app
   QCoreApplication *dummyApp = new QCoreApplication( argc, argv );
-  // Set up the QSettings environment must be done after qapp is created
   QCoreApplication::setOrganizationName( "OPENGIS.ch" );
   QCoreApplication::setOrganizationDomain( "opengis.ch" );
-  QCoreApplication::setApplicationName( "QField" );
-
-  if ( settings.value( "/HighDpiScaling", false ).toBool() )
-    QGuiApplication::setAttribute( Qt::AA_EnableHighDpiScaling );
+  QCoreApplication::setApplicationName( APP_NAME );
+  QString customLanguage;
+  {
+    QSettings settings;
+    customLanguage = settings.value( "/customLanguage", QString() ).toString();
+  }
   delete dummyApp;
-#endif
 
   PlatformUtilities::instance()->initSystem();
 
   QGuiApplication::setAttribute( Qt::AA_EnableHighDpiScaling );
   QtWebView::initialize();
+
+  if ( !customLanguage.isEmpty() )
+    QgsApplication::setTranslation( QStringLiteral( "ja" ) );
 #if defined( Q_OS_ANDROID )
   QString projPath = PlatformUtilities::instance()->systemGenericDataLocation() + QStringLiteral( "/proj" );
   qputenv( "PROJ_LIB", projPath.toUtf8() );
@@ -128,6 +130,15 @@ int main( int argc, char **argv )
   app.setPrefixPath( CMAKE_INSTALL_PREFIX, true );
 #endif
 #endif
+
+  std::unique_ptr<QTranslator> qFieldTranslator = std::make_unique<QTranslator>();
+  if ( !customLanguage.isEmpty() )
+  {
+    if ( qFieldTranslator->load( QStringLiteral( "qfield_%1" ).arg( customLanguage ), QStringLiteral( ":" ) ) )
+    {
+      app.installTranslator( qFieldTranslator.get() );
+    }
+  }
 
   app.initQgis();
 
