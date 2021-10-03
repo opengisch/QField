@@ -93,13 +93,14 @@ int main( int argc, char **argv )
   }
   delete dummyApp;
 
+  if ( !customLanguage.isEmpty() )
+    QgsApplication::setTranslation( customLanguage );
+
   PlatformUtilities::instance()->initSystem();
 
   QGuiApplication::setAttribute( Qt::AA_EnableHighDpiScaling );
   QtWebView::initialize();
 
-  if ( !customLanguage.isEmpty() )
-    QgsApplication::setTranslation( QStringLiteral( "ja" ) );
 #if defined( Q_OS_ANDROID )
   QString projPath = PlatformUtilities::instance()->systemGenericDataLocation() + QStringLiteral( "/proj" );
   qputenv( "PROJ_LIB", projPath.toUtf8() );
