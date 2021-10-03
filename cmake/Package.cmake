@@ -19,6 +19,9 @@ if(WIN32)
     set(CPACK_WIX_EXTRA_SOURCES "${CMAKE_SOURCE_DIR}/cmake/windows/shortcuts.wxs")
     set(CPACK_PACKAGE_EXECUTABLES qfield;QField)
     set(CPACK_GENERATOR "WIX")
+
+    message(STATUS "   + NSIS                             YES ")
+    list(APPEND CPACK_GENERATOR "NSIS")
 endif()
 
 get_target_property(qmake_executable Qt5::qmake IMPORTED_LOCATION)
