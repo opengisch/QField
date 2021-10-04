@@ -15,5 +15,5 @@ for x in android/res/values-*_*;do mv $x $(echo $x | sed -e 's/_/-r/') ;done
 echo "::endgroup::"
 
 echo "::group::lrelease"
-find ${DIR}/../../i18n -type f -name "*.ts" -exec lrelease "{}" \;
+find ${DIR}/../../i18n -type f -name "*.ts" | xargs lrelease
 echo "::endgroup::"

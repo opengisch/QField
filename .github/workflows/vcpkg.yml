@@ -199,7 +199,8 @@ jobs:
             pushd "${{ steps.vars.outputs.VCPKG_ROOT }}"
             ./vcpkg integrate install
             popd
-            ./scripts/ci/pull_translations.sh
+            #  lrelease is not installed yet
+            # ./scripts/ci/pull_translations.sh
           fi
 
       - name: 🌋 Build
