@@ -653,10 +653,14 @@ FunctionEnd
 ;Installer Sections
 
 
+; ----------------
+; Install vcredist
+; TODO: x86 and msvc number (14.29.30133) configurable from the env
+; ----------------
 Section "Visual Studio Runtime"
   SetOutPath "$INSTDIR"
   File "C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\VC\Redist\MSVC\14.29.30133\vcredist_x64.exe"
-  ExecWait "$INSTDIR\vcredist_x64.exe /quiet" ; You may want to remove quiet
+  ExecWait "$INSTDIR\vcredist_x64.exe"
   Delete "$INSTDIR\vcredist_x64.exe"
 SectionEnd
 
