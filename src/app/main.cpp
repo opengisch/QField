@@ -124,6 +124,7 @@ int main( int argc, char **argv )
   qputenv( "GDAL_DATA", QDir::toNativeSeparators( app.applicationDirPath() + "/../share/gdal" ).toLocal8Bit() );
   qputenv( "PROJ_LIB", QDir::toNativeSeparators( app.applicationDirPath() + "/../share/proj" ).toLocal8Bit() );
   app.setPrefixPath( app.applicationDirPath() + "/..", true );
+  std::cout << "Plugin path " << app.pluginPath().toUtf8().constData();
 #else
   app.setPrefixPath( CMAKE_INSTALL_PREFIX, true );
 #endif
