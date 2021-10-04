@@ -30,7 +30,9 @@ jobs:
 
       - name: Setup build environment
         run: |
+          echo ::group::install packages
           sudo apt update && sudo apt install -y qttools5-dev-tools qt5-default transifex-client
+          echo ::endgroup::
           sed -i 's/git@github.com:/https:\/\/github.com\//' .gitmodules
           git submodule update --init --recursive
           ./scripts/ci/env_gh.sh
