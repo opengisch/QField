@@ -247,6 +247,7 @@ Page {
                       Layout.leftMargin: 20
                       Layout.rightMargin: 20
                       Layout.topMargin: 5
+                      Layout.bottomMargin: 40
 
                       columns: 1
                       columnSpacing: 0
@@ -278,7 +279,7 @@ Page {
                           Layout.fillWidth: true
                           Layout.alignment: Qt.AlignVCenter
 
-                          property variant languages: {"":"System language",
+                          property variant languages: {
                               "en":"English",
                               "bg":"български (Bulgarian)",
                               "zh":"中文 (Chinese)",
@@ -293,12 +294,13 @@ Page {
                               "pt_BR":"Português/Brasil (Portuguese/Brazil)",
                               "ru":"Pусский (Russian)",
                               "es":"Español (Spanish)",
-                              "tr":"Türk (Turkish)"}
+                              "tr":"Türk (Turkish)"
+                          }
                           property string currentLanguage: undefined
 
                           onCurrentIndexChanged: {
                               if (currentLanguage != undefined) {
-                                  var keys = Object.keys(languages);
+                                  var keys = [""].concat(Object.keys(languages));
                                   settings.setValue("customLanguage",keys[currentIndex]);
                                   languageTip.visible = keys[currentIndex] !== currentLanguage;
                               }
@@ -306,8 +308,12 @@ Page {
 
                           Component.onCompleted: {
                               var language = settings.value('customLanguage', '');
-                              var keys = Object.keys(languages);
-                              model = Object.values(languages);
+                              var keys = [""].concat(Object.keys(languages));
+                              var systemLanguage = qsTr( "System language" );
+                              var systemLanguageSuffix = systemLanguage !== 'System language' ? ' (System language)' : ''
+                              var items = [systemLanguage + systemLanguageSuffix]
+                              model = items.concat(Object.values(languages));
+
                               currentIndex = keys.indexOf(language);
                               currentLanguage = language
                               languageTip.visible = false
@@ -824,6 +830,7 @@ Page {
 
               ColumnLayout {
                   Layout.fillWidth: true
+                  Layout.bottomMargin: 40
 
                   Label {
                       text: qsTr( "Vertical grid shift in use:" )
