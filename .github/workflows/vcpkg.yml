@@ -199,8 +199,8 @@ jobs:
             pushd "${{ steps.vars.outputs.VCPKG_ROOT }}"
             ./vcpkg integrate install
             popd
-            #  lrelease is not installed yet
-            # ./scripts/ci/pull_translations.sh
+            export LRELEASE_PATH="D:\\a\\QField\\QField\\\vcpkg\\overlay\\qt5-tools\\lrelease.exe"
+            ./scripts/ci/pull_translations.sh
           fi
 
       - name: 🌋 Build
