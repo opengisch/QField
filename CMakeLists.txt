@@ -245,7 +245,7 @@ if(WITH_VCPKG)
                       POST_BUILD
                       COMMAND ${CMAKE_COMMAND} -E copy_if_different "${LIB}" "${CMAKE_BINARY_DIR}/output/bin/qgis/plugins"
     )
-    install(FILES "${LIB}" DESTINATION "lib/qgis")
+    install(FILES "${LIB}" DESTINATION "lib/qgis/plugins")
   endforeach()
   add_custom_command(TARGET deploy
     POST_BUILD
