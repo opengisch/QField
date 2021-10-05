@@ -267,7 +267,7 @@ EditorWidgetBase {
     visible: isImage && isEnabled
 
     onClicked: {
-        if ( settings.valueBool("nativeCamera", true) ) {
+        if ( platformUtilities.capabilities & PlatformUtilities.NativeCamera && settings.valueBool("nativeCamera", true) ) {
             var filepath = getPictureFilePath()
             __pictureSource = platformUtilities.getCameraPicture(this, qgisProject.homePath+'/', filepath, FileUtils.fileSuffix(filepath) )
         } else {
