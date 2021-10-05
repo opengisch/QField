@@ -237,7 +237,7 @@ jobs:
               ;;
 
             *)
-              echo "PACKAGE=${{ env.CMAKE_BUILD_DIR }}/QField-0.1.1-win64.*" >> $GITHUB_ENV
+              echo "PACKAGE=${{ env.CMAKE_BUILD_DIR }}/QField-*-win64.*" >> $GITHUB_ENV
               ;;
           esac
 
