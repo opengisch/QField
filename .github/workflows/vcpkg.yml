@@ -159,6 +159,19 @@ jobs:
           echo "QT_QPA_PLATFORM=offscreen" >> $GITHUB_ENV
           echo "TESTWRAPPER=xvfb-run" >> $GITHUB_ENV
 
+      - name: 🌍 Pull Translations
+        shell: bash
+        run: |
+          if [[ -z "${TX_TOKEN}" ]]; then
+            echo "TX_TOKEN not set, skip tx pull"
+          else
+            pip install transifex-client
+            pushd "${{ steps.vars.outputs.VCPKG_ROOT }}"
+            ./vcpkg integrate install
+            popd
+            ./scripts/ci/pull_translations.sh
+          fi
+
       - name: 🌱 Install dependencies and generate project files
         shell: bash
         env:
@@ -188,19 +201,6 @@ jobs:
         with:
           name: build-logs-${{ matrix.triplet }}
           path: ${{ steps.vars.outputs.VCPKG_ROOT }}/buildtrees/**/*.log
-
-      - name: 🌍 Pull Translations
-        shell: bash
-        run: |
-          if [[ -z "${TX_TOKEN}" ]]; then
-            echo "TX_TOKEN not set, skip tx pull"
-          else
-            pip install transifex-client
-            pushd "${{ steps.vars.outputs.VCPKG_ROOT }}"
-            ./vcpkg integrate install
-            popd
-            ./scripts/ci/pull_translations.sh
-          fi
 
       - name: 🌋 Build
         run: |
