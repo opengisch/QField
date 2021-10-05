@@ -1,0 +1,9 @@
+set(ENV{QML_SOURCES_PATHS} ${CMAKE_SOURCE_DIR}/src/qml)
+set(ENV{DESTDIR} ${CPACK_PACKAGE_DIRECTORY}/_CPack_Packages/Linux/External/AppImage)
+message("Installing to ${CPACK_PACKAGE_DIRECTORY}/_CPack_Packages/Linux/External/AppImage")
+message("  - qmake path: ${qmake_executable}")
+execute_process(COMMAND ${CMAKE_MAKE_PROGRAM} install
+                WORKING_DIRECTORY ${CMAKE_BINARY_DIR})
+              execute_process(COMMAND env QMAKE=${qmake_executable} "${LINUXDEPLOY_EXECUTABLE}" --plugin=qt --output=appimage --appdir=${CPACK_PACKAGE_DIRECTORY}/_CPack_Packages/Linux/External/AppImage -e ./output/bin/qfield -d ${CPACK_PACKAGE_DIRECTORY}/_CPack_Packages/Linux/External/AppImage/usr/share/qfield/qfield.desktop
+                WORKING_DIRECTORY ${CPACK_PACKAGE_DIRECTORY}
+                COMMAND_ECHO STDERR)

@@ -1,0 +1,11 @@
+[Desktop Entry]
+Type=Application
+Version=1.0
+Name=QField
+GenericName=QField
+Comment=Example
+Icon=qfield
+Terminal=false
+Exec=qfield %F
+MimeType=text/text;
+Categories=Qt;Utility;

@@ -3,6 +3,8 @@
 cmake_minimum_required(VERSION 3.5)
 cmake_policy(SET CMP0071 NEW)
 cmake_policy(SET CMP0074 NEW)
+cmake_policy(SET CMP0077 NEW)
+cmake_policy(SET CMP0087 NEW)
 
 set(QML_IMPORT_PATH ${CMAKE_SOURCE_DIR}/src/qml/imports CACHE PATH "QML import path for Qt Creator to detect custom modules properly")
 
@@ -15,14 +17,19 @@ set(APP_PACKAGE_NAME "qfield" CACHE STRING "Package name suffix. E.g. qfield -->
 
 string(REGEX REPLACE "v" "" CLEAN_APP_VERSION "${APP_VERSION}")
 
+set(CMAKE_MODULE_PATH ${CMAKE_SOURCE_DIR}/cmake ${CMAKE_MODULE_PATH})
+
+include(GetGitRevisionDescription)
+
+set(VCPKG_APPLOCAL_DEPS ON)
+set(X_VCPKG_APPLOCAL_DEPS_INSTALL ON)
+
 project(${APP_NAME}
   LANGUAGES CXX
   VERSION ${CLEAN_APP_VERSION}
 )
 
-set(CMAKE_MODULE_PATH ${CMAKE_SOURCE_DIR}/cmake ${CMAKE_MODULE_PATH})
 
-include(GetGitRevisionDescription)
 GET_GIT_HEAD_REVISION(GIT_REFSPEC GIT_REV)
 
 add_definitions(-DAPP_NAME="${APP_NAME}")
@@ -42,6 +49,11 @@ set(QFIELD_INCLUDE_SUBDIR ${DEFAULT_INCLUDE_SUBDIR} CACHE STRING "Subdirectory w
 set(WITH_VCPKG OFF CACHE BOOL "Build with vcpkg packaging layout")
 set(USE_MAC_BUNDLING NOT ${WITH_VCPKG} CACHE BOOL "Use mac bundling")
 
+set(RELATIVE_PREFIX_PATH ${WITH_VCPKG} CACHE BOOL "Use a prefix path relative to the application itself rather than hard coding the path while compiling")
+if(RELATIVE_PREFIX_PATH)
+  add_definitions(-DRELATIVE_PREFIX_PATH)
+endif()
+
 mark_as_advanced (QFIELD_INCLUDE_SUBDIR QFIELD_BIN_SUBDIR QFIELD_LIB_SUBDIR WITH_VCPKG USE_MAC_BUNDLING)
 set(QFIELD_BIN_DIR ${QFIELD_BIN_SUBDIR})
 set(QFIELD_LIB_DIR ${QFIELD_LIB_SUBDIR})
@@ -59,7 +71,7 @@ endif()
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${QFIELD_OUTPUT_DIRECTORY}/${QFIELD_BIN_SUBDIR}/$<0:>)
 set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${QFIELD_OUTPUT_DIRECTORY}/${QFIELD_LIB_SUBDIR}/$<0:>)
 
-install(DIRECTORY ${CMAKE_SOURCE_DIR}/resources/ DESTINATION ${CMAKE_INSTALL_PREFIX}/share/qfield)
+install(DIRECTORY ${CMAKE_SOURCE_DIR}/resources DESTINATION share/qfield)
 
 set(WITH_SPIX FALSE CACHE STRING "Compile with Spix for testing")
 
@@ -217,21 +229,26 @@ endif()
 
 if(WITH_VCPKG)
   SET(VCPKG_BASE_DIR "${_VCPKG_INSTALLED_DIR}/${VCPKG_TARGET_TRIPLET}")
-  SET(QGIS_PLUGIN_DIR "${VCPKG_BASE_DIR}/tools/qgis/plugins")
   if(MSVC)
+    SET(QGIS_PLUGIN_DIR "${VCPKG_BASE_DIR}/tools/qgis/plugins")
     file(GLOB PROVIDER_LIBS
       "${QGIS_PLUGIN_DIR}/*provider*.dll"
     )
     file(GLOB AUTHMETHODS_LIBS
       "${QGIS_PLUGIN_DIR}/*authmethod*.dll"
     )
+    # From QGIS CMakeLists.txt
+    set(QGIS_PLUGIN_INSTALL_PREFIX "plugins")
   else()
+    SET(QGIS_PLUGIN_DIR "${VCPKG_BASE_DIR}/lib/qgis/plugins")
     file(GLOB PROVIDER_LIBS
       "${QGIS_PLUGIN_DIR}/*provider*.so"
     )
     file(GLOB AUTHMETHODS_LIBS
       "${QGIS_PLUGIN_DIR}/*authmethod*.so"
     )
+    # From QGIS CMakeLists.txt
+    set(QGIS_PLUGIN_INSTALL_PREFIX "lib${LIB_SUFFIX}/qgis/plugins")
   endif()
   add_custom_target(deploy)
   add_custom_command(TARGET deploy
@@ -243,6 +260,7 @@ if(WITH_VCPKG)
                       POST_BUILD
                       COMMAND ${CMAKE_COMMAND} -E copy_if_different "${LIB}" "${CMAKE_BINARY_DIR}/output/bin/qgis/plugins"
     )
+    install(FILES "${LIB}" DESTINATION "${QGIS_PLUGIN_INSTALL_PREFIX}")
   endforeach()
   foreach(LIB ${AUTHMETHODS_LIBS})
     add_custom_command(TARGET deploy
@@ -262,13 +280,24 @@ if(WITH_VCPKG)
     POST_BUILD
     COMMAND ${CMAKE_COMMAND} -E copy_directory "${VCPKG_BASE_DIR}/share/gdal" "${CMAKE_BINARY_DIR}/output/bin/gdal"
   )
+  install(DIRECTORY "${VCPKG_BASE_DIR}/share/qgis/resources/" DESTINATION "share/qgis/resources")
+  install(DIRECTORY "${VCPKG_BASE_DIR}/share/proj4/" DESTINATION "share/proj")
+  install(DIRECTORY "${VCPKG_BASE_DIR}/share/gdal/" DESTINATION "share/gdal")
 
   if(EXISTS ${VCPKG_BASE_DIR}/plugins/mediaservice)
     add_custom_command(TARGET deploy
       POST_BUILD
       COMMAND ${CMAKE_COMMAND} -E copy_directory "${VCPKG_BASE_DIR}/plugins/mediaservice" "${CMAKE_BINARY_DIR}/output/bin/plugins/mediaservice"
     )
+    install(DIRECTORY "${VCPKG_BASE_DIR}/plugins/mediaservice/" DESTINATION "bin/plugins/mediaservice")
   endif()
 
   add_dependencies(qfield deploy)
 endif()
+
+if(${CMAKE_SYSTEM_NAME} STREQUAL "Linux")
+  install(FILES ${CMAKE_SOURCE_DIR}/images/icons/qfield_logo.svg DESTINATION share/icons RENAME qfield.svg)
+  install(FILES ${CMAKE_SOURCE_DIR}/platform/linux/qfield.desktop DESTINATION share/qfield)
+endif()
+
+include(Package)

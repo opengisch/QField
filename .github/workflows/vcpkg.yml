@@ -60,6 +60,7 @@ jobs:
 
           echo "::set-output name=VCPKG_ROOT::${BUILD_ROOT}/src"
           echo "::set-output name=BUILD_TYPE::Release"
+          echo "::set-output name=BUILD_ROOT::${BUILD_ROOT}"
 
           echo "VCPKG_ROOT=${BUILD_ROOT}/src" >> $GITHUB_ENV
           echo "CMAKE_BUILD_DIR=${BUILD_ROOT}/builddir" >> $GITHUB_ENV
@@ -158,6 +159,14 @@ jobs:
           # Required to run unit tests on linux
           echo "QT_QPA_PLATFORM=offscreen" >> $GITHUB_ENV
           echo "TESTWRAPPER=xvfb-run" >> $GITHUB_ENV
+          echo "EXTRA_CMAKE_ARGS=-GNinja -DCMAKE_INSTALL_PREFIX=/usr -DLINUXDEPLOY_EXECUTABLE=${{ steps.vars.outputs.BUILD_ROOT }}/linuxdeploy-x86_64.AppImage" >> $GITHUB_ENV
+
+      - name: Install linuxdeploy
+        if: ${{ matrix.triplet == 'x64-linux' }}
+        uses: miurahr/install-linuxdeploy-action@v1
+        with:
+          dir: ${{ steps.vars.outputs.BUILD_ROOT }}
+          plugins: qt appimage
 
       - name: 🌍 Pull Translations
         shell: bash
@@ -183,6 +192,9 @@ jobs:
           VCPKG_ROOT=$( ${{ steps.vars.outputs.PATHCONVERT }} "${VCPKG_ROOT}" )
           SOURCE_DIR=$( ${{ steps.vars.outputs.PATHCONVERT }} "${WORKSPACE}" )
 
+          source ./scripts/version_number.sh
+          source ./scripts/ci/generate-version-details.sh
+
           overlay_ports=(${WORKSPACE}/${{ steps.vars.outputs.OVERLAY }} ${WORKSPACE}/vcpkg/overlay)
           echo "Building with $(IFS=\; ; echo "${overlay_ports[*]}")"
           cmake -S "${SOURCE_DIR}" \
@@ -193,6 +205,9 @@ jobs:
                 -DVCPKG_TARGET_TRIPLET="${{ matrix.triplet }}" \
                 -DWITH_VCPKG=ON \
                 -DWITH_SPIX=ON \
+                -DAPP_VERSION=${APP_VERSION} \
+                -DAPP_VERSION_STR=${APP_VERSION_STR} \
+                -DAPP_PACKAGE_NAME=${APP_PACKAGE_NAME} \
                 ${EXTRA_CMAKE_ARGS}
 
       - name: 📑 Upload Build Logs
@@ -216,11 +231,34 @@ jobs:
           cd "${{ env.CMAKE_BUILD_DIR }}"
           ${TESTWRAPPER} ctest --output-on-failure -E '${{ steps.vars.outputs.EXCLUDE_TESTS }}' -C ${{ steps.vars.outputs.BUILD_TYPE }}
 
+      - name: Package
+        shell: bash
+        run: |
+          export LD_LIBRARY_PATH="${{ env.CMAKE_BUILD_DIR }}/vcpkg_installed/${{ matrix.triplet }}/lib/":${LD_LIBRARY_PATH}
+          cmake --build  "${{ env.CMAKE_BUILD_DIR }}" --target bundle --config Release
+          case ${{ matrix.triplet }} in
+            x64-linux)
+              echo "PACKAGE=${{ env.CMAKE_BUILD_DIR }}/QField-x86_64.AppImage" >> $GITHUB_ENV
+              ;;
+
+            *)
+              echo "PACKAGE=${{ env.CMAKE_BUILD_DIR }}/QField-*-win64.*" >> $GITHUB_ENV
+              ;;
+          esac
+
+      - name: 📑 Upload Package Logs
+        uses: actions/upload-artifact@v2
+        if: failure()
+        with:
+          name: package-logs-${{ matrix.triplet }}
+          path: ${{ steps.vars.outputs.BUILD_ROOT }}/builddir/_CPack_Packages/**/*.log
+
+
       - name: 📦 Upload package
         uses: actions/upload-artifact@v2
         with:
           name: "QField-dev-${{ matrix.triplet }}-${{ steps.vars.outputs.BUILD_TYPE }}"
-          path: "${{ env.CMAKE_BUILD_DIR }}/output"
+          path: ${{ env.PACKAGE }}
 
       - name: 📊 Upload test report
         uses: actions/upload-artifact@v2
