@@ -30,8 +30,11 @@
 #include <qgslinesymbol.h>
 #include <qgsfillsymbol.h>
 #include <qgsvectorlayer.h>
+#include <qgsvectorlayerutils.h>
 #include <qgswkbtypes.h>
 #include <qgsmessagelog.h>
+
+#include <QScopeGuard>
 
 LayerUtils::LayerUtils( QObject *parent )
   : QObject( parent )
@@ -202,4 +205,51 @@ bool LayerUtils::deleteFeature( QgsProject *project, QgsVectorLayer *layer, cons
   }
 
   return isSuccess;
+}
+
+QgsFeature LayerUtils::duplicateFeature( QgsVectorLayer *layer, const QgsFeature &feature )
+{
+  if ( !layer )
+  {
+    QgsMessageLog::logMessage( tr( "Cannot start editing, no layer" ), "QField", Qgis::Warning );
+    return QgsFeature();
+  }
+
+  if ( !feature.isValid() )
+  {
+    QgsMessageLog::logMessage( tr( "Cannot copy invalid feature" ), "QField", Qgis::Warning );
+    return QgsFeature();
+  }
+
+  if ( !layer->startEditing() || !layer->editBuffer() )
+  {
+    QgsMessageLog::logMessage( tr( "Cannot start editing" ), "QField", Qgis::Warning );
+    return QgsFeature();
+  }
+
+  QgsFeature duplicatedFeature;
+  QMetaObject::Connection connection = connect( layer, &QgsVectorLayer::featureAdded, [ layer, &duplicatedFeature ]( QgsFeatureId fid )
+  {
+    duplicatedFeature = layer->getFeature( fid );
+  } );
+  auto sweaper = qScopeGuard( [ layer, connection ] { layer->disconnect( connection ); } );
+
+  duplicatedFeature = QgsVectorLayerUtils::createFeature( layer, feature.geometry(), feature.attributes().toMap() );
+  if ( layer->addFeature( duplicatedFeature ) )
+  {
+    // commit changes
+    if ( !layer->commitChanges() )
+    {
+      const QString msgs = layer->commitErrors().join( QStringLiteral( "\n" ) );
+      QgsMessageLog::logMessage( tr( "Cannot add new feature in layer \"%1\". Reason:\n%2" ).arg( layer->name(), msgs ), "QField", Qgis::Warning );
+      return QgsFeature();
+    }
+  }
+  else
+  {
+    QgsMessageLog::logMessage( tr( "Cannot add new feature in layer \"%1\"." ).arg( layer->name() ), "QField", Qgis::Warning );
+    return QgsFeature();
+  }
+
+  return duplicatedFeature;
 }

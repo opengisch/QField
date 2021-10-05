@@ -65,7 +65,7 @@ const QString QFieldCloudUtils::getProjectId( const QString &fileName )
   QString basePath = QFileInfo( baseDir.path() ).canonicalFilePath();
   QString cloudPath = QFileInfo( localCloudDirectory() ).canonicalFilePath();
 
-  if ( basePath.startsWith( cloudPath ) )
+  if ( !cloudPath.isEmpty() && basePath.startsWith( cloudPath ) )
     return baseDir.dirName();
 
   return QString();

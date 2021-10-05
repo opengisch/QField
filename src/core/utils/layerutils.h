@@ -61,6 +61,13 @@ class LayerUtils : public QObject
     static bool deleteFeature( QgsProject *project, QgsVectorLayer *layer, const QgsFeatureId fid, bool shouldWriteChanges = true );
 
     /**
+     * Duplicates a given \a feature within the provided vector \a layer. If successful, the function will
+     * return the duplicated feature with attribute values saved updated to match what was saved
+     * into the layer dataset.
+     */
+    static QgsFeature duplicateFeature( QgsVectorLayer *layer, const QgsFeature &feature );
+
+    /**
      * Returns the QVariant typeName of a \a field.
      * This is a stable identifier (compared to the provider field name).
      */

@@ -40,11 +40,15 @@ Rectangle {
   signal save
   signal cancel
 
+  signal moveClicked
+  signal duplicateClicked
   signal deleteClicked
 
   signal toggleMultiSelection
   signal multiEditClicked
   signal multiMergeClicked
+  signal multiMoveClicked
+  signal multiDuplicateClicked
   signal multiDeleteClicked
 
   anchors.top:parent.top
@@ -443,7 +447,7 @@ Rectangle {
             result = Math.max(item.contentItem.implicitWidth, result);
             padding = Math.max(item.padding, padding);
         }
-        return result + padding * 2;
+        return result + padding * 2 + 10;
     }
 
     MenuItem {
@@ -494,6 +498,32 @@ Rectangle {
       leftPadding: 10
 
       onTriggered: multiMergeClicked();
+    }
+
+    MenuItem {
+      text: qsTr( 'Move Selected Feature(s)' )
+      icon.source: Theme.getThemeVectorIcon( "ic_move_white_24dp" )
+      enabled: toolBar.model && toolBar.model.canMoveSelection && projectInfo.editRights
+      visible: projectInfo.editRights
+
+      font: Theme.defaultFont
+      height: visible ? 48 : 0
+      leftPadding: 10
+
+      onTriggered: multiMoveClicked();
+    }
+
+    MenuItem {
+      text: qsTr( 'Duplicate Selected Feature(s)' )
+      icon.source: Theme.getThemeVectorIcon( "ic_duplicate_black_24dp" )
+      enabled: toolBar.model && toolBar.model.canDuplicateSelection && projectInfo.insertRights
+      visible: projectInfo.insertRights
+
+      font: Theme.defaultFont
+      height: visible ? 48 : 0
+      leftPadding: 10
+
+      onTriggered: multiDuplicateClicked();
     }
 
     MenuItem {
@@ -569,6 +599,32 @@ Rectangle {
     MenuSeparator {
       visible: projectInfo.editRights
       width: parent.width
+    }
+
+    MenuItem {
+      text: qsTr( 'Move Feature' )
+      icon.source: Theme.getThemeVectorIcon( "ic_move_white_24dp" )
+      enabled: projectInfo.editRights
+      visible: projectInfo.editRights
+
+      font: Theme.defaultFont
+      height: visible ? 48 : 0
+      leftPadding: 10
+
+      onTriggered: moveClicked();
+    }
+
+    MenuItem {
+      text: qsTr( 'Duplicate Feature' )
+      icon.source: Theme.getThemeVectorIcon( "ic_duplicate_black_24dp" )
+      enabled: projectInfo.insertRights
+      visible: projectInfo.insertRights
+
+      font: Theme.defaultFont
+      height: visible ? 48 : 0
+      leftPadding: 10
+
+      onTriggered: duplicateClicked();
     }
 
     MenuItem {

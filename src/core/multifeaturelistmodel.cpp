@@ -17,7 +17,6 @@
 
 #include "multifeaturelistmodel.h"
 
-#include <QDebug>
 #include <qgscoordinatereferencesystem.h>
 #include <qgsexpressioncontextutils.h>
 #include <qgsgeometry.h>
@@ -93,6 +92,16 @@ bool MultiFeatureListModel::canDeleteSelection()
   return mSourceModel->canDeleteSelection();
 }
 
+bool MultiFeatureListModel::canDuplicateSelection()
+{
+  return mSourceModel->canDuplicateSelection();
+}
+
+bool MultiFeatureListModel::canMoveSelection()
+{
+  return mSourceModel->canMoveSelection();
+}
+
 bool MultiFeatureListModel::mergeSelection()
 {
   return mSourceModel->mergeSelection();
@@ -106,6 +115,21 @@ bool MultiFeatureListModel::deleteFeature( QgsVectorLayer *layer, QgsFeatureId f
 bool MultiFeatureListModel::deleteSelection()
 {
   return mSourceModel->deleteSelection();
+}
+
+bool MultiFeatureListModel::duplicateFeature( QgsVectorLayer *layer, const QgsFeature &feature )
+{
+  return mSourceModel->duplicateFeature( layer, feature );
+}
+
+bool MultiFeatureListModel::duplicateSelection()
+{
+  return mSourceModel->duplicateSelection();
+}
+
+bool MultiFeatureListModel::moveSelection( const double x, const double y )
+{
+  return mSourceModel->moveSelection( x, y );
 }
 
 void MultiFeatureListModel::toggleSelectedItem( int item )
@@ -128,7 +152,13 @@ void MultiFeatureListModel::toggleSelectedItem( int item )
 
 void MultiFeatureListModel::adjustFilterToSelectedCount()
 {
-  if ( mSourceModel->selectedCount() == 0 && mFilterLayer != nullptr )
+  if ( mSourceModel->selectedCount() > 0 && mFilterLayer == nullptr )
+  {
+    mFilterLayer = mSourceModel->selectedLayer();
+    emit selectedLayerChanged();
+    invalidateFilter();
+  }
+  else if ( mSourceModel->selectedCount() == 0 && mFilterLayer != nullptr )
   {
     mFilterLayer = nullptr;
     emit selectedLayerChanged();
