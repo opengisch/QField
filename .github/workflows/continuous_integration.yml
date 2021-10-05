@@ -30,7 +30,9 @@ jobs:
 
       - name: Setup build environment
         run: |
+          echo ::group::install packages
           sudo apt update && sudo apt install -y qttools5-dev-tools qt5-default transifex-client
+          echo ::endgroup::
           sed -i 's/git@github.com:/https:\/\/github.com\//' .gitmodules
           git submodule update --init --recursive
           ./scripts/ci/env_gh.sh
@@ -75,6 +77,7 @@ jobs:
           CACHE_DIR: ${{ env.GITHUB_WORKSPACE }}/cache
         run: |
           ./scripts/ci/docker_pull.sh
+          source ./scripts/version_number.sh
           source ./scripts/ci/generate-version-details.sh
           ./scripts/build.sh
           ls $CACHE_DIR
@@ -98,7 +101,7 @@ jobs:
   deploy_to_playstore:
     runs-on: ubuntu-20.04
     needs: build
-    if: ${{ github.event_name == 'published' || ( github.event_name == 'push' && github.ref == 'refs/heads/master' ) }}
+    if: ${{ github.event_name == 'released' || ( github.event_name == 'push' && github.ref == 'refs/heads/master' ) }}
     steps:
       - name: Checkout
         uses: actions/checkout@v2

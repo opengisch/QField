@@ -51,7 +51,6 @@ DeltaFileWrapper *LayerObserver::deltaFileWrapper() const
   return mDeltaFileWrapper.get();
 }
 
-
 void LayerObserver::onHomePathChanged()
 {
   if ( mProject->homePath().isNull() )
@@ -59,23 +58,20 @@ void LayerObserver::onHomePathChanged()
 
   Q_ASSERT( mDeltaFileWrapper->hasError() || !mDeltaFileWrapper->isDirty() );
 
-  // we should make deltas only on cloud projects
-  if ( QFieldCloudUtils::getProjectId( mProject->fileName() ).isEmpty() )
-    return;
-
   QString dirPath = QFileInfo( mProject->absoluteFilePath() ).path();
   mDeltaFileWrapper = std::unique_ptr<DeltaFileWrapper>( new DeltaFileWrapper( mProject, QStringLiteral( "%1/deltafile.json" ).arg( dirPath ) ) );
-
-  if ( mDeltaFileWrapper->hasError() )
-    QgsMessageLog::logMessage( QStringLiteral( "The current delta file wrapper experienced an error: %1" ).arg( mDeltaFileWrapper->errorString() ) );
-
   emit deltaFileWrapperChanged();
 
   mObservedLayerIds.clear();
 
-  addLayerListeners();
-}
+  if ( !QFieldCloudUtils::getProjectId( mProject->fileName() ).isEmpty() )
+  {
+    if ( mDeltaFileWrapper->hasError() )
+      QgsMessageLog::logMessage( QStringLiteral( "The current delta file wrapper experienced an error: %1" ).arg( mDeltaFileWrapper->errorString() ) );
 
+    addLayerListeners();
+  }
+}
 
 void LayerObserver::onLayersAdded( const QList<QgsMapLayer *> &layers )
 {

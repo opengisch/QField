@@ -227,14 +227,20 @@ if(WITH_VCPKG)
   if(MSVC)
     SET(QGIS_PLUGIN_DIR "${VCPKG_BASE_DIR}/tools/qgis/plugins")
     file(GLOB PROVIDER_LIBS
-      "${QGIS_PLUGIN_DIR}/*provider.dll"
+      "${QGIS_PLUGIN_DIR}/*provider*.dll"
+    )
+    file(GLOB AUTHMETHODS_LIBS
+      "${QGIS_PLUGIN_DIR}/*authmethod*.dll"
     )
     # From QGIS CMakeLists.txt
     set(QGIS_PLUGIN_INSTALL_PREFIX "plugins")
   else()
     SET(QGIS_PLUGIN_DIR "${VCPKG_BASE_DIR}/lib/qgis/plugins")
     file(GLOB PROVIDER_LIBS
-      "${QGIS_PLUGIN_DIR}/*provider.so"
+      "${QGIS_PLUGIN_DIR}/*provider*.so"
+    )
+    file(GLOB AUTHMETHODS_LIBS
+      "${QGIS_PLUGIN_DIR}/*authmethod*.so"
     )
     # From QGIS CMakeLists.txt
     set(QGIS_PLUGIN_INSTALL_PREFIX "lib${LIB_SUFFIX}/qgis/plugins")
@@ -250,6 +256,12 @@ if(WITH_VCPKG)
                       COMMAND ${CMAKE_COMMAND} -E copy_if_different "${LIB}" "${CMAKE_BINARY_DIR}/output/bin/qgis/plugins"
     )
     install(FILES "${LIB}" DESTINATION "${QGIS_PLUGIN_INSTALL_PREFIX}")
+  endforeach()
+  foreach(LIB ${AUTHMETHODS_LIBS})
+    add_custom_command(TARGET deploy
+                      POST_BUILD
+                      COMMAND ${CMAKE_COMMAND} -E copy_if_different "${LIB}" "${CMAKE_BINARY_DIR}/output/bin/qgis/plugins"
+    )
   endforeach()
   add_custom_command(TARGET deploy
     POST_BUILD

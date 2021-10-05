@@ -282,7 +282,7 @@ ApplicationWindow {
       color: mapCanvas.mapSettings.backgroundColor
     }
 
-    /* The base map */
+    /* The map canvas */
     MapCanvas {
       id: mapCanvasMap
       incrementalRendering: true
@@ -316,7 +316,7 @@ ApplicationWindow {
               }
               else
               {
-                  if( !overlayFeatureFormDrawer.visible )
+                  if (!overlayFeatureFormDrawer.visible || !featureForm.canvasOperationRequested)
                   {
                       identifyTool.identify(point)
                   }
@@ -325,14 +325,14 @@ ApplicationWindow {
       }
 
       onConfirmedClicked: {
-          if( !digitizingToolbar.geometryRequested && !overlayFeatureFormDrawer.visible )
+          if (!featureForm.canvasOperationRequested && !overlayFeatureFormDrawer.visible)
           {
               identifyTool.identify(point)
           }
       }
 
       onLongPressed: {
-        if ( type === "stylus" ){
+        if ( type === "stylus" ) {
           if (geometryEditorsToolbar.canvasLongPressed(point)) {
             // for instance, the vertex editor will select a vertex if possible
             return
@@ -358,7 +358,7 @@ ApplicationWindow {
       }
 
       onLongPressReleased: {
-        if ( type === "stylus" ){
+        if ( type === "stylus" ) {
           // The user has released the long press. We can re-enable the default close behavior for the feature form.
           // The next press will be intentional to close the form.
           overlayFeatureFormDrawer.closePolicy = Popup.CloseOnEscape | Popup.CloseOnPressOutside
@@ -509,22 +509,48 @@ ApplicationWindow {
     /* Locator Highlight */
     GeometryHighlighter {
       id: locatorHighlightItem
-      //width: 10
-      //color: "yellow"
     }
 
     /* Highlight the currently selected item on the feature list */
     FeatureListSelectionHighlight {
+      id: featureListHighlight
+      visible: !moveFeaturesToolbar.moveFeaturesRequested
+
       selectionModel: featureForm.selection
       mapSettings: mapCanvas.mapSettings
-
-      //model: featureForm.model
-      //selection: featureForm.selection
 
       color: "yellow"
       focusedColor: "#ff7777"
       selectedColor: Theme.mainColor
       width: 5
+    }
+
+    /* Highlight the currently selected item being moved */
+    FeatureListSelectionHighlight {
+      id: moveFeaturesHighlight
+      visible: moveFeaturesToolbar.moveFeaturesRequested
+      showSelectedOnly: true
+
+      selectionModel: featureForm.selection
+      mapSettings: mapCanvas.mapSettings
+      translateX: mapToScreenTranslateX.screenDistance
+      translateY: mapToScreenTranslateY.screenDistance
+
+      color: "yellow"
+      focusedColor: "#ff7777"
+      selectedColor: Theme.mainColor
+      width: 5
+    }
+
+    MapToScreen {
+      id: mapToScreenTranslateX
+      mapSettings: mapCanvas.mapSettings
+      mapDistance: moveFeaturesToolbar.moveFeaturesRequested ? mapCanvas.mapSettings.center.x - moveFeaturesToolbar.startPoint.x : 0
+    }
+    MapToScreen {
+      id: mapToScreenTranslateY
+      mapSettings: mapCanvas.mapSettings
+      mapDistance: moveFeaturesToolbar.moveFeaturesRequested ? mapCanvas.mapSettings.center.y - moveFeaturesToolbar.startPoint.y : 0
     }
   }
 
@@ -767,7 +793,7 @@ ApplicationWindow {
     function ensureEditableLayerSelected() {
       var firstEditableLayer = null;
       var currentLayerLocked = false;
-      for (var i = 0; layerTree.rowCount(); i++)
+      for (var i = 0; i < layerTree.rowCount(); i++)
       {
         var index = layerTree.index(i,0)
         if (firstEditableLayer === null)
@@ -1139,8 +1165,10 @@ ApplicationWindow {
                      && !dashBoard.currentLayer.readOnly
                      // unfortunately there is no way to call QVariant::toBool in QML so the value is a string
                      && dashBoard.currentLayer.customProperty( 'QFieldSync/is_geometry_locked' ) !== 'true'
-                     && !geometryEditorsToolbar.stateVisible) || stateMachine.state === 'measure' ||
-                    (stateMachine.state === "digitize" && digitizingToolbar.geometryRequested)
+                     && !geometryEditorsToolbar.stateVisible
+                     && !moveFeaturesToolbar.stateVisible)
+                    || stateMachine.state === 'measure'
+                    || (stateMachine.state === "digitize" && digitizingToolbar.geometryRequested)
       rubberbandModel: currentRubberband ? currentRubberband.model : null
       mapSettings: mapCanvas.mapSettings
       showConfirmButton: stateMachine.state === "digitize"
@@ -1288,6 +1316,35 @@ ApplicationWindow {
       screenHovering: hoverHandler.hovered
 
       stateVisible: ( stateMachine.state === "digitize" && vertexModel.vertexCount > 0 )
+    }
+
+    ConfirmationToolbar {
+        id: moveFeaturesToolbar
+
+        property bool moveFeaturesRequested: false
+        property variant startPoint: undefined // QgsPoint or undefined
+        property variant endPoint: undefined // QgsPoint or undefined
+        signal moveConfirmed
+        signal moveCanceled
+
+        stateVisible: moveFeaturesRequested
+
+        onConfirm: {
+            endPoint = mapCanvas.mapSettings.center
+            moveFeaturesRequested = false
+            moveConfirmed()
+        }
+        onCancel: {
+            startPoint = undefined
+            endPoint = undefined
+            moveFeaturesRequested = false
+            moveCanceled()
+        }
+
+        function initializeMoveFeatures() {
+            startPoint = mapCanvas.mapSettings.center
+            moveFeaturesRequested = true
+        }
     }
   }
 
@@ -1626,6 +1683,7 @@ ApplicationWindow {
     objectName: "featureForm"
     mapSettings: mapCanvas.mapSettings
     digitizingToolbar: digitizingToolbar
+    moveFeaturesToolbar: moveFeaturesToolbar
 
     visible: state != "Hidden"
     focus: visible
@@ -2049,6 +2107,21 @@ ApplicationWindow {
 
   QFieldCloudConnection {
     id: cloudConnection
+
+    property int previousStatus: QFieldCloudConnection.Disconnected
+
+    onStatusChanged: {
+      if (cloudConnection.status === QFieldCloudConnection.Disconnected && previousStatus === QFieldCloudConnection.LoggedIn) {
+        displayToast(qsTr('Logged out'))
+      } else if (cloudConnection.status === QFieldCloudConnection.Connecting) {
+        displayToast(qsTr('Connecting...'))
+      } else if (cloudConnection.status === QFieldCloudConnection.LoggedIn) {
+        displayToast(qsTr('Logged in'))
+        if ( cloudProjectsModel.currentProjectId != '' )
+          cloudProjectsModel.refreshProjectDeltaList(cloudProjectsModel.currentProjectId)
+      }
+      previousStatus = cloudConnection.status
+    }
     onLoginFailed: function(reason) { displayToast( reason ) }
   }
 
@@ -2197,9 +2270,9 @@ ApplicationWindow {
         property var type: 'info'
 
         height: toastMessage.height
-        width: 8 + toastMessage.text.length * toastFontMetrics.averageCharacterWidth > mainWindow.width
+        width: 30 + toastMessage.text.length * toastFontMetrics.averageCharacterWidth > mainWindow.width
                ? mainWindow.width - 16
-               : 8 + toastMessage.text.length * toastFontMetrics.averageCharacterWidth
+               : 30 + toastMessage.text.length * toastFontMetrics.averageCharacterWidth
 
         anchors.centerIn: parent
 
@@ -2210,7 +2283,7 @@ ApplicationWindow {
         Rectangle {
           id: toastIndicator
           anchors.left: parent.left
-          anchors.leftMargin: 8
+          anchors.leftMargin: 6
           anchors.verticalCenter: parent.verticalCenter
           width:  10
           height: 10

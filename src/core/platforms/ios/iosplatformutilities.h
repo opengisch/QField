@@ -1,10 +1,10 @@
 /***************************************************************************
-                            iosplatformutilities.h  -  utilities for qfield
+    iosplatformutilities.h  -  utilities for qfield
 
-                              -------------------
-              begin                : November 2020
-              copyright            : (C) 2020 by Denis Rouzaud
-              email                : denis@opengis.ch
+      -------------------
+    begin                : November 2020
+    copyright            : (C) 2020 by Denis Rouzaud
+    email                : denis@opengis.ch
  ***************************************************************************/
 
 /***************************************************************************
@@ -21,14 +21,18 @@
 
 #include "platformutilities.h"
 
+class PictureSource;
+
 class IosPlatformUtilities : public PlatformUtilities
 {
   public:
     IosPlatformUtilities();
+    PlatformUtilities::Capabilities capabilities() const override { return Capabilities() | NativeCamera | AdjustBrightness; }
     QString systemGenericDataLocation() const override;
     bool checkPositioningPermissions() const override;
     bool checkCameraPermissions() const override;
-    virtual PictureSource *getCameraPicture( const QString &prefix, const QString &pictureFilePath, const QString &suffix ) override;
+    virtual PictureSource *getCameraPicture( QQuickItem *parent, const QString &prefix, const QString &pictureFilePath, const QString &suffix ) override;
+    virtual PictureSource *getGalleryPicture( QQuickItem *parent, const QString &prefix, const QString &pictureFilePath ) override;
 };
 
 #endif

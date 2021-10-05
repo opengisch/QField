@@ -19,6 +19,7 @@
 #include <QGeoCoordinate>
 #include <QObject>
 #include <qgscoordinatereferencesystem.h>
+#include <qgscoordinatetransform.h>
 #include <qgscoordinatetransformcontext.h>
 #include <qgspoint.h>
 

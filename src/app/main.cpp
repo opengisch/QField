@@ -81,27 +81,30 @@ void qfMessageHandler( QtMsgType type, const QMessageLogContext &context, const 
 
 int main( int argc, char **argv )
 {
-#if 0
   // A dummy app for reading settings that need to be used before constructing the real app
   QCoreApplication *dummyApp = new QCoreApplication( argc, argv );
-  // Set up the QSettings environment must be done after qapp is created
   QCoreApplication::setOrganizationName( "OPENGIS.ch" );
   QCoreApplication::setOrganizationDomain( "opengis.ch" );
-  QCoreApplication::setApplicationName( "QField" );
-
-  if ( settings.value( "/HighDpiScaling", false ).toBool() )
-    QGuiApplication::setAttribute( Qt::AA_EnableHighDpiScaling );
+  QCoreApplication::setApplicationName( APP_NAME );
+  QString customLanguage;
+  {
+    QSettings settings;
+    customLanguage = settings.value( "/customLanguage", QString() ).toString();
+  }
   delete dummyApp;
-#endif
+
+  if ( !customLanguage.isEmpty() )
+    QgsApplication::setTranslation( customLanguage );
 
   PlatformUtilities::instance()->initSystem();
 
   QGuiApplication::setAttribute( Qt::AA_EnableHighDpiScaling );
   QtWebView::initialize();
+
 #if defined( Q_OS_ANDROID )
   QString projPath = PlatformUtilities::instance()->systemGenericDataLocation() + QStringLiteral( "/proj" );
   qputenv( "PROJ_LIB", projPath.toUtf8() );
-  QgsApplication app( argc, argv, true, PlatformUtilities::instance()->systemGenericDataLocation() + QStringLiteral( "/qgis/resources" ) );
+  QgsApplication app( argc, argv, true, PlatformUtilities::instance()->systemGenericDataLocation() + QStringLiteral( "/qgis/resources" ), QStringLiteral( "mobile" ) );
   qInstallMessageHandler( qfMessageHandler );
 
   QSettings settings;
@@ -113,7 +116,7 @@ int main( int argc, char **argv )
 #elif defined( Q_OS_IOS )
   QString projPath = PlatformUtilities::instance()->systemGenericDataLocation() + QStringLiteral( "/proj" );
   qputenv( "PROJ_LIB", projPath.toUtf8() );
-  QgsApplication app( argc, argv, true, PlatformUtilities::instance()->systemGenericDataLocation() + QStringLiteral( "/qgis/resources" ) );
+  QgsApplication app( argc, argv, true, PlatformUtilities::instance()->systemGenericDataLocation() + QStringLiteral( "/qgis/resources" ), QStringLiteral( "mobile" ) );
   app.setPkgDataPath( PlatformUtilities::instance()->systemGenericDataLocation() + QStringLiteral( "/qgis" ) );
 #else
   QgsApplication app( argc, argv, true );
@@ -140,8 +143,16 @@ int main( int argc, char **argv )
 
   QTranslator qfieldTranslator;
   QTranslator qtTranslator;
-  qfieldTranslator.load( QLocale(), "qfield", "_", ":/" );
-  qtTranslator.load( QLocale(), "qt", "_", ":/" );
+  if ( !customLanguage.isEmpty() )
+  {
+    qfieldTranslator.load( QStringLiteral( "qfield_%1" ).arg( customLanguage ), QStringLiteral( ":/i18n/" ) );
+    qtTranslator.load( QLocale(), "qt", "_", ":/i18n/" );
+  }
+  if ( qfieldTranslator.isEmpty() )
+  {
+    qfieldTranslator.load( QLocale(), "qfield", "_", ":/i18n/" );
+    qtTranslator.load( QLocale(), "qt", "_", ":/i18n/" );
+  }
   app.installTranslator( &qtTranslator );
   app.installTranslator( &qfieldTranslator );
 

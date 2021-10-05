@@ -14,10 +14,12 @@
  ***************************************************************************/
 
 #include "peliasgeocoder.h"
-#include "qgsblockingnetworkrequest.h"
-#include "qgsgeocodercontext.h"
-#include "qgslogger.h"
-#include "qgsnetworkaccessmanager.h"
+
+#include <qgsblockingnetworkrequest.h>
+#include <qgscoordinatetransform.h>
+#include <qgsgeocodercontext.h>
+#include <qgslogger.h>
+#include <qgsnetworkaccessmanager.h>
 
 #include <QDateTime>
 #include <QJsonArray>

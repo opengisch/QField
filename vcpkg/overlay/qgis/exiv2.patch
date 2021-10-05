@@ -1,26 +1,25 @@
-From fb3d0cdf29c191f300c41226e302694c7f1a9342 Mon Sep 17 00:00:00 2001
+From 180179ea725247a8875a76a57985d69f42041022 Mon Sep 17 00:00:00 2001
 From: Matthias Kuhn <matthias@opengis.ch>
-Date: Sat, 7 Aug 2021 17:32:38 +0200
-Subject: [PATCH] Fixup exiv2 find_package
+Date: Thu, 30 Sep 2021 10:49:40 +0200
+Subject: [PATCH] patch exiv2
 
 ---
- src/analysis/CMakeLists.txt | 3 ++-
+ CMakeLists.txt | 3 ++-
  1 file changed, 2 insertions(+), 1 deletion(-)
 
-diff --git a/src/analysis/CMakeLists.txt b/src/analysis/CMakeLists.txt
-index 56f698adfc..d38e1e1798 100644
---- a/src/analysis/CMakeLists.txt
-+++ b/src/analysis/CMakeLists.txt
-@@ -396,7 +396,8 @@ if(TARGET Qt5::PrintSupport)
-   )
- endif()
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 897b0fcfa9..3b54a2a01d 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -356,7 +356,8 @@ if(WITH_CORE)
+   find_package(ZLIB REQUIRED)       # for decompression of vector tiles in MBTiles file
+   message(STATUS "Found zlib: ${ZLIB_LIBRARIES}")
  
--find_package(EXIV2 REQUIRED)
-+find_package(exiv2 REQUIRED)
-+set(EXIV2_LIBRARY exiv2lib)
+-  find_package(EXIV2 REQUIRED)
++  find_package(exiv2 REQUIRED)
++  set(EXIV2_LIBRARY exiv2lib)
  
- include_directories(SYSTEM ${SPATIALITE_INCLUDE_DIR})
- include_directories(SYSTEM ${SPATIALINDEX_INCLUDE_DIR})
+   # optional
+   if (WITH_POSTGRESQL)
 -- 
 2.31.1
-

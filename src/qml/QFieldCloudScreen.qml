@@ -45,7 +45,7 @@ Page {
             text: switch(cloudConnection.status) {
                     case 0: qsTr( 'Disconnected from the cloud.' ); break;
                     case 1: qsTr( 'Connecting to the cloud.' ); break;
-                    case 2: qsTr( 'Greetings %1.' ).arg( cloudConnection.username ); break;
+                    case 2: qsTr( 'Greetings <strong>%1</strong>.' ).arg( cloudConnection.username ); break;
                   }
             wrapMode: Text.WordWrap
             font: Theme.tipFont
@@ -111,7 +111,6 @@ Page {
       Layout.fillWidth: true
       Layout.fillHeight: true
       Layout.margins: 10
-      Layout.topMargin: !connectionInformation.visible ? connectionInformation.height + parent.spacing : 0
       spacing: 2
       visible: !connectionInformation.visible
 

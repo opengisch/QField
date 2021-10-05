@@ -20,7 +20,6 @@
 #include "multifeaturelistmodelbase.h"
 #include "layerutils.h"
 
-#include <QDebug>
 #include <qgscoordinatereferencesystem.h>
 #include <qgsgeometry.h>
 #include <qgsmessagelog.h>
@@ -149,7 +148,7 @@ void MultiFeatureListModelBase::toggleSelectedItem( int item )
   emit selectedCountChanged();
 }
 
-QList<QgsFeature> MultiFeatureListModelBase::selectedFeatures()
+QList<QgsFeature> MultiFeatureListModelBase::selectedFeatures() const
 {
   QList<QgsFeature> features;
   for ( const QPair<QgsVectorLayer *, QgsFeature> &pair : mSelectedFeatures )
@@ -157,6 +156,11 @@ QList<QgsFeature> MultiFeatureListModelBase::selectedFeatures()
     features << pair.second;
   }
   return features;
+}
+
+QgsVectorLayer *MultiFeatureListModelBase::selectedLayer() const
+{
+  return mSelectedFeatures.size() > 0 ? mSelectedFeatures[0].first : nullptr;
 }
 
 QHash<int, QByteArray> MultiFeatureListModelBase::roleNames() const
@@ -320,13 +324,32 @@ bool MultiFeatureListModelBase::canDeleteSelection()
   return !vlayer->readOnly() && ( vlayer->dataProvider()->capabilities() & QgsVectorDataProvider::DeleteFeatures ) && !vlayer->customProperty( QStringLiteral( "QFieldSync/is_geometry_locked" ), false ).toBool();
 }
 
+bool MultiFeatureListModelBase::canDuplicateSelection()
+{
+  if ( mSelectedFeatures.isEmpty() )
+    return false;
+
+  QgsVectorLayer *vlayer = mSelectedFeatures[0].first;
+  return !vlayer->readOnly() && ( vlayer->dataProvider()->capabilities() & QgsVectorDataProvider::AddFeatures );
+}
+
+bool MultiFeatureListModelBase::canMoveSelection()
+{
+  if ( mSelectedFeatures.isEmpty() )
+    return false;
+
+  QgsVectorLayer *vlayer = mSelectedFeatures[0].first;
+  return !vlayer->readOnly() && ( vlayer->dataProvider()->capabilities() & QgsVectorDataProvider::ChangeGeometries );
+}
+
 bool MultiFeatureListModelBase::mergeSelection()
 {
   if ( !canMergeSelection() )
     return false;
 
+  QgsVectorLayer *vlayer = selectedLayer();
+
   QList<QPair<QgsVectorLayer *, QgsFeature>> selectedFeatures = mSelectedFeatures;
-  QgsVectorLayer *vlayer = selectedFeatures[0].first;
   bool isSuccess = true;
   QgsGeometry combinedGeometry;
   for ( const auto &pair : selectedFeatures )
@@ -403,7 +426,7 @@ bool MultiFeatureListModelBase::deleteSelection()
   if ( !canDeleteSelection() )
     return false;
 
-  QgsVectorLayer *vlayer = mSelectedFeatures[0].first;
+  QgsVectorLayer *vlayer = selectedLayer();
   if ( !vlayer->startEditing() )
   {
     QgsMessageLog::logMessage( tr( "Cannot start editing" ), "QField", Qgis::Warning );
@@ -417,6 +440,96 @@ bool MultiFeatureListModelBase::deleteSelection()
     isSuccess = deleteFeature( pair.first, pair.second.id(), true );
     if ( !isSuccess )
       break;
+  }
+
+  if ( isSuccess )
+  {
+    // commit changes
+    isSuccess = vlayer->commitChanges();
+  }
+
+  if ( !isSuccess )
+  {
+    if ( !vlayer->rollBack() )
+      QgsMessageLog::logMessage( tr( "Cannot rollback layer changes in layer %1" ).arg( vlayer->name() ), "QField", Qgis::Critical );
+  }
+
+  return isSuccess;
+}
+
+bool MultiFeatureListModelBase::duplicateFeature( QgsVectorLayer *layer, const QgsFeature &feature )
+{
+  QgsFeature duplicatedFeature = LayerUtils::duplicateFeature( layer, feature );
+  if ( feature.isValid() )
+  {
+    QList<QPair<QgsVectorLayer *, QgsFeature>> duplicatedFeatures;
+    duplicatedFeatures << QPair<QgsVectorLayer *, QgsFeature>( layer, duplicatedFeature );
+
+    beginResetModel();
+    mFeatures = duplicatedFeatures;
+    mSelectedFeatures = duplicatedFeatures;
+    endResetModel();
+  }
+
+  return feature.isValid();
+}
+
+bool MultiFeatureListModelBase::duplicateSelection()
+{
+  if ( !canDuplicateSelection() )
+    return false;
+
+  QgsVectorLayer *vlayer = selectedLayer();
+
+  const QList<QPair<QgsVectorLayer *, QgsFeature>> selectedFeatures = mSelectedFeatures;
+  QList<QPair<QgsVectorLayer *, QgsFeature>> duplicatedFeatures;
+  bool isSuccess = false;
+  for ( const auto &pair : selectedFeatures )
+  {
+    QgsFeature duplicatedFeature = LayerUtils::duplicateFeature( vlayer, pair.second );
+    duplicatedFeatures << QPair<QgsVectorLayer *, QgsFeature>( vlayer, duplicatedFeature );
+    isSuccess = duplicatedFeature.isValid();
+    if ( !isSuccess )
+      break;
+  }
+
+  if ( isSuccess )
+  {
+    beginResetModel();
+    mFeatures = duplicatedFeatures;
+    mSelectedFeatures = duplicatedFeatures;
+    endResetModel();
+    emit selectedCountChanged();
+  }
+
+  return isSuccess;
+}
+
+bool MultiFeatureListModelBase::moveSelection( const double x, const double y )
+{
+  if ( !canDuplicateSelection() )
+    return false;
+
+
+  QgsVectorLayer *vlayer = mSelectedFeatures[0].first;
+  if ( !vlayer->startEditing() )
+  {
+    QgsMessageLog::logMessage( tr( "Cannot start editing" ), "QField", Qgis::Warning );
+    return false;
+  }
+
+  bool isSuccess = false;
+  for ( auto &pair : mSelectedFeatures )
+  {
+    QgsGeometry geom = pair.second.geometry();
+    geom.translate( x, y );
+    pair.second.setGeometry( geom );
+    isSuccess = vlayer->changeGeometry( pair.second.id(), geom );
+    if ( !isSuccess )
+    {
+      QgsMessageLog::logMessage( tr( "Cannot change geometry of feature %1 in %2" ).arg( pair.second.id() ).arg( vlayer->name() ), "QField", Qgis::Critical );
+      break;
+    }
   }
 
   if ( isSuccess )

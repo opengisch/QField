@@ -23,6 +23,7 @@
 #include <qgsmessagelog.h>
 #include <qgspallabeling.h>
 #include <qgsproject.h>
+#include <qgsannotationlayer.h>
 #include <qgsvectorlayer.h>
 #if _QGIS_VERSION_INT >= 31900
 #include <qgslabelingresults.h>
@@ -113,14 +114,27 @@ void QgsQuickMapCanvasMap::refreshMap()
     expressionContext << QgsExpressionContextUtils::projectScope( project );
 
     mapSettings.setLabelingEngineSettings( project->labelingEngineSettings() );
+
+    // render main annotation layer above all other layers
+    QList<QgsMapLayer *> allLayers = mapSettings.layers();
+    allLayers.insert( 0, project->mainAnnotationLayer() );
+    mapSettings.setLayers( allLayers );
   }
 
   mapSettings.setExpressionContext( expressionContext );
 
   // enables on-the-fly simplification of geometries to spend less time rendering
+#if _QGIS_VERSION_INT >= 32100
+  mapSettings.setFlag( Qgis::MapSettingsFlag::UseRenderingOptimization );
+#else
   mapSettings.setFlag( QgsMapSettings::UseRenderingOptimization );
+#endif
   // with incremental rendering - enables updates of partially rendered layers (good for WMTS, XYZ layers)
+#if _QGIS_VERSION_INT >= 32100
+  mapSettings.setFlag( Qgis::MapSettingsFlag::RenderPartialOutput, mIncrementalRendering );
+#else
   mapSettings.setFlag( QgsMapSettings::RenderPartialOutput, mIncrementalRendering );
+#endif
 
   // create the renderer job
   Q_ASSERT( !mJob );

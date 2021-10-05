@@ -3,6 +3,7 @@
         <file>About.qml</file>
         <file>BadLayerItem.qml</file>
         <file>BrowserPanel.qml</file>
+        <file>ConfirmationToolbar.qml</file>
         <file>CoordinateLocator.qml</file>
         <file>DashBoard.qml</file>
         <file>DigitizingToolbar.qml</file>
@@ -57,6 +58,7 @@
         <file>imports/Theme/QfButton.qml</file>
         <file>imports/Theme/QfSwitch.qml</file>
         <file>imports/Theme/QfTextField.qml</file>
+        <file>imports/Theme/QfCollapsibleMessage.qml</file>
         <file>imports/Theme/qmldir</file>
         <file>PageHeader.qml</file>
         <file>Tracking.qml</file>

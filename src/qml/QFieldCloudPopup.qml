@@ -32,35 +32,6 @@ Popup {
     }
 
     ColumnLayout {
-      visible: cloudProjectsModel.currentProjectId && cloudConnection.status !== QFieldCloudConnection.LoggedIn
-      id: connectionSettings
-      anchors.fill: parent
-      spacing: 2
-
-      ScrollView {
-        Layout.fillWidth: true
-        Layout.fillHeight: true
-        Layout.margins: 10
-        height: parent.height
-        ScrollBar.horizontal.policy: ScrollBar.AlwaysOff
-        ScrollBar.vertical.policy: ScrollBar.AsNeeded
-        contentWidth: qfieldCloudLogin.width
-        contentHeight: qfieldCloudLogin.childrenRect.height
-        clip: true
-
-        QFieldCloudLogin {
-          id: qfieldCloudLogin
-          width: parent.parent.width
-        }
-      }
-
-      Item {
-          Layout.fillHeight: true
-          height: 15
-      }
-    }
-
-    ColumnLayout {
       visible: !cloudProjectsModel.currentProjectId
       anchors.fill: parent
       anchors.margins: 20
@@ -88,7 +59,6 @@ Popup {
     }
 
     ScrollView {
-      visible: cloudProjectsModel.currentProjectId && cloudConnection.status === QFieldCloudConnection.LoggedIn
       padding: 0
       ScrollBar.horizontal.policy: ScrollBar.AlwaysOff
       ScrollBar.vertical.policy: ScrollBar.AsNeeded
@@ -105,6 +75,8 @@ Popup {
         rowSpacing: 2
 
         RowLayout {
+          visible: cloudConnection.status === QFieldCloudConnection.LoggedIn
+
           Text {
               Layout.fillWidth: true
               Layout.alignment: Qt.AlignHCenter | Qt.AlignVCenter
@@ -154,6 +126,24 @@ Popup {
               layer.enabled: true
               layer.effect: OpacityMask {
                   maskSource: cloudAvatarMask
+              }
+
+              MouseArea {
+                anchors.fill: parent
+
+                onClicked: {
+                  if (cloudConnection.status !== QFieldCloudConnection.LoggedIn ||
+                      cloudProjectsModel.currentProjectData.Status !== QFieldCloudProjectsModel.Idle)
+                      return;
+
+                  if (!connectionSettings.visible) {
+                    connectionSettings.visible = true;
+                    projects.visible = false;
+                  } else {
+                    connectionSettings.visible = false;
+                    projects.visible = true;
+                  }
+                }
               }
             }
           }
@@ -246,54 +236,59 @@ Popup {
           }
         }
 
-        Text {
-          id: transferErrorText
-          visible: false
-          font: Theme.defaultFont
-          text: ''
-          color: Theme.darkRed
-          wrapMode: Text.WordWrap
-          horizontalAlignment: Text.AlignHCenter
-          Layout.fillWidth: true
+        QfCollapsibleMessage {
+            id: transferError
 
-          Connections {
-            target: cloudProjectsModel
+            visible: false
 
-            function onPushFinished(projectId, hasError, errorString) {
-              transferErrorText.visible = hasError && cloudProjectsModel.currentProjectData.Status === QFieldCloudProjectsModel.Idle;
+            Layout.fillWidth: true
+            Layout.leftMargin: 10
+            Layout.rightMargin: 10
 
-              if (transferErrorText.visible)
-                transferErrorText.text = errorString
-            }
+            color: Theme.darkRed
+            font: Theme.tipFont
 
-            function onProjectDownloaded(projectId, projectName, hasError, errorString) {
-              const projectData = cloudProjectsModel.getProjectData(projectId)
+            titleText: detailsText.startsWith('[QF/')
+                       ? qsTr('A server error has occured, please try again.')
+                       : qsTr('A network error has occured, please try again.');
+            detailsText: ''
 
-              transferErrorText.visible = hasError && projectData.Status === QFieldCloudProjectsModel.Idle;
+            Connections {
+              target: cloudProjectsModel
 
-              if (transferErrorText.visible)
-                transferErrorText.text = errorString
+              function onPushFinished(projectId, hasError, errorString) {
+                transferError.visible = hasError && cloudProjectsModel.currentProjectData.Status === QFieldCloudProjectsModel.Idle;
 
-              if (projectData.ExportedLayerErrors.length !== 0)
-              {
-                cloudExportLayersFeedback.exportedLayersListViewModel = projectData.ExportedLayerErrors;
-                cloudExportLayersFeedback.visible = true;
+                if (transferError.visible) {
+                  transferError.detailsText = errorString
+                }
+              }
+
+              function onProjectDownloaded(projectId, projectName, hasError, errorString) {
+                const projectData = cloudProjectsModel.getProjectData(projectId)
+
+                transferError.visible = hasError && projectData.Status === QFieldCloudProjectsModel.Idle;
+
+                if (transferError.visible) {
+                  transferError.detailsText = errorString
+                }
+
+                if (projectData.ExportedLayerErrors.length !== 0)
+                {
+                  cloudExportLayersFeedback.exportedLayersListViewModel = projectData.ExportedLayerErrors;
+                  cloudExportLayersFeedback.visible = true;
+                }
               }
             }
-
-            function onDataChanged() {
-              transferErrorText.visible = cloudProjectsModel.currentProjectData.Status === QFieldCloudProjectsModel.Idle;
-            }
-          }
         }
 
         GridLayout {
+          id: mainInnerGrid
           Layout.margins: 10
           Layout.maximumWidth: 525
           Layout.alignment: Qt.AlignHCenter
-          id: mainInnerGrid
           width: parent.width
-          visible: cloudConnection.status === QFieldCloudConnection.LoggedIn &&
+          visible: !connectionSettings.visible &&
                    cloudProjectsModel.currentProjectData.Status === QFieldCloudProjectsModel.Idle
           columns: 1
           columnSpacing: parent.columnSpacing
@@ -328,7 +323,7 @@ Popup {
             visible: !cloudProjectsModel.layerObserver.deltaFileWrapper.hasError()
             enabled: !!(cloudProjectsModel.currentProjectData && cloudProjectsModel.currentProjectData.CanSync)
                      && !cloudProjectsModel.layerObserver.deltaFileWrapper.hasError()
-            icon.source: Theme.getThemeIcon('ic_cloud_download_24dp')
+            icon.source: Theme.getThemeIcon('ic_cloud_synchronize_24dp')
             icon.color: 'white'
 
             onClicked: uploadProject(true)
@@ -483,26 +478,41 @@ Popup {
             Layout.fillWidth: true
           }
         }
+
+        ColumnLayout {
+          id: connectionSettings
+          Layout.fillWidth: true
+          Layout.fillHeight: true
+          spacing: 2
+
+          property bool visibility: false
+          visible: visibility || (cloudProjectsModel.currentProjectId && cloudConnection.status !== QFieldCloudConnection.LoggedIn)
+
+          ScrollView {
+            Layout.fillWidth: true
+            Layout.fillHeight: true
+            Layout.margins: 10
+            height: parent.height
+            ScrollBar.horizontal.policy: ScrollBar.AlwaysOff
+            ScrollBar.vertical.policy: ScrollBar.AsNeeded
+            contentWidth: qfieldCloudLogin.width
+            contentHeight: qfieldCloudLogin.childrenRect.height
+            clip: true
+
+            QFieldCloudLogin {
+              id: qfieldCloudLogin
+              width: parent.parent.width
+            }
+          }
+
+          Item {
+              Layout.fillHeight: true
+              height: 15
+          }
+        }
       }
     }
   }
-
-  Connections {
-    target: cloudConnection
-
-    function onStatusChanged() {
-      if (cloudConnection.status === QFieldCloudConnection.Disconnected) {
-        displayToast(qsTr('Logged out'))
-      } else if (cloudConnection.status === QFieldCloudConnection.Connecting) {
-        displayToast(qsTr('Connecting...'))
-      } else if (cloudConnection.status === QFieldCloudConnection.LoggedIn) {
-        displayToast(qsTr('Logged in'))
-        if ( cloudProjectsModel.currentProjectId != '' )
-          cloudProjectsModel.refreshProjectDeltaList(cloudProjectsModel.currentProjectId)
-      }
-    }
-  }
-
 
   Dialog {
     id: revertDialog

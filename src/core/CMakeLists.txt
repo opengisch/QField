@@ -196,9 +196,11 @@ if (ANDROID)
 elseif(${CMAKE_SYSTEM_NAME} STREQUAL "iOS")
   set(QFIELD_CORE_HDRS ${QFIELD_CORE_HDRS}
     platforms/ios/iosplatformutilities.h
+    platforms/ios/iospicturesource.h
   )
   set(QFIELD_CORE_SRCS ${QFIELD_CORE_SRCS}
     platforms/ios/iosplatformutilities.mm
+    platforms/ios/iospicturesource.mm
   )
 endif()
 
@@ -221,6 +223,10 @@ target_include_directories(qfield_core SYSTEM PRIVATE
   ${QTKEYCHAIN_INCLUDE_DIR}
   ${SQLITE3_INCLUDE_DIR}
 )
+if (IOS)
+  # to include <qpa/qplatformnativeinterface.h>
+  target_include_directories(qfield_core SYSTEM PRIVATE ${Qt5Gui_PRIVATE_INCLUDE_DIRS})
+endif()
 
 target_include_directories(qfield_core PUBLIC
   ${CMAKE_SOURCE_DIR}/src/core
@@ -261,6 +267,7 @@ target_link_libraries(qfield_core PUBLIC
   ${PROJ_LIBRARY}
   ${GDAL_LIBRARIES}
 )
+
 
 if (ANDROID)
   target_link_libraries(qfield_core PUBLIC

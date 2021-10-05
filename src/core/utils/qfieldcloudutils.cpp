@@ -17,6 +17,7 @@
 
 #include <QDir>
 #include <QString>
+#include <QStandardPaths>
 #include <qgsapplication.h>
 #include <qgsmessagelog.h>
 
@@ -30,7 +31,7 @@ void QFieldCloudUtils::setLocalCloudDirectory( const QString &path )
 const QString QFieldCloudUtils::localCloudDirectory()
 {
   QString cloudDirectoryPath = sLocalCloudDirectory.isNull()
-                               ? QFileInfo( QgsApplication::qgisSettingsDirPath() ).canonicalFilePath() + QStringLiteral( "/cloud_projects" )
+                               ? QStandardPaths::writableLocation( QStandardPaths::AppDataLocation ) + QStringLiteral( "/cloud_projects" )
                                : sLocalCloudDirectory;
   return cloudDirectoryPath;
 }
@@ -64,7 +65,7 @@ const QString QFieldCloudUtils::getProjectId( const QString &fileName )
   QString basePath = QFileInfo( baseDir.path() ).canonicalFilePath();
   QString cloudPath = QFileInfo( localCloudDirectory() ).canonicalFilePath();
 
-  if ( basePath.startsWith( cloudPath ) )
+  if ( !cloudPath.isEmpty() && basePath.startsWith( cloudPath ) )
     return baseDir.dirName();
 
   return QString();

@@ -145,8 +145,8 @@ Page {
               rightPadding: 0
               ScrollBar.horizontal.policy: ScrollBar.AlwaysOff
               ScrollBar.vertical.policy: ScrollBar.AsNeeded
-              contentWidth: positioningGrid.width
-              contentHeight: positioningGrid.height
+              contentWidth: generalSettingsGrid.width
+              contentHeight: generalSettingsGrid.height
               anchors.fill: parent
               clip: true
 
@@ -195,6 +195,7 @@ Page {
                   ListView {
                       Layout.preferredWidth: mainWindow.width
                       Layout.preferredHeight: childrenRect.height
+                      interactive: false
 
                       model: settingsModel
 
@@ -237,6 +238,71 @@ Page {
                               checked: registry[settingAlias]
                               Layout.alignment: Qt.AlignTop | Qt.AlignRight
                               onCheckedChanged: registry[settingAlias] = checked
+                          }
+                      }
+                  }
+
+                  GridLayout {
+                      Layout.fillWidth: true
+                      Layout.leftMargin: 20
+                      Layout.rightMargin: 20
+                      Layout.topMargin: 5
+                      Layout.bottomMargin: 40
+
+                      columns: 1
+                      columnSpacing: 0
+                      rowSpacing: 5
+
+                      Label {
+                          Layout.fillWidth: true
+                          text: qsTr( "QField user interface language:" )
+                          font: Theme.defaultFont
+
+                          wrapMode: Text.WordWrap
+                      }
+
+                      Label {
+                          id: languageTip
+                          visible: false
+
+                          Layout.fillWidth: true
+                          text: qsTr( "To apply the selected user interface language, QField needs to completely shutdown and restart." )
+                          font: Theme.tipFont
+                          color: Theme.warningColor
+
+                          wrapMode: Text.WordWrap
+                      }
+
+                      ComboBox {
+                          id: languageComboBox
+                          enabled: true
+                          Layout.fillWidth: true
+                          Layout.alignment: Qt.AlignVCenter
+
+                          property variant languageCodes: undefined
+                          property string currentLanguageCode: undefined
+
+                          onCurrentIndexChanged: {
+                              if (currentLanguageCode != undefined) {
+                                  settings.setValue("customLanguage",languageCodes[currentIndex]);
+                                  languageTip.visible = languageCodes[currentIndex] !== currentLanguageCode;
+                              }
+                          }
+
+                          Component.onCompleted: {
+                              var customLanguageCode = settings.value('customLanguage', '');
+
+                              var languages = iface.availableLanguages();
+                              languageCodes = [""].concat(Object.keys(languages));
+
+                              var systemLanguage = qsTr( "system language" );
+                              var systemLanguageSuffix = systemLanguage !== 'system language' ? ' (system language)' : ''
+                              var items = [systemLanguage + systemLanguageSuffix]
+                              model = items.concat(Object.values(languages));
+
+                              currentIndex = languageCodes.indexOf(customLanguageCode);
+                              currentLanguageCode = customLanguageCode
+                              languageTip.visible = false
                           }
                       }
                   }
@@ -750,6 +816,7 @@ Page {
 
               ColumnLayout {
                   Layout.fillWidth: true
+                  Layout.bottomMargin: 40
 
                   Label {
                       text: qsTr( "Vertical grid shift in use:" )

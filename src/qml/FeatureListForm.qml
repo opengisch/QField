@@ -31,6 +31,8 @@ Rectangle {
   property FeatureListModelSelection selection
   property MapSettings mapSettings
   property DigitizingToolbar digitizingToolbar
+  property ConfirmationToolbar moveFeaturesToolbar
+
   property color selectionColor
   property alias model: globalFeaturesList.model
   property alias extentController: featureListToolBar.extentController
@@ -42,11 +44,14 @@ Rectangle {
   property bool fullScreenView: qfieldSettings.fullScreenIdentifyView
   property bool isVertical: false
 
+  property bool canvasOperationRequested: digitizingToolbar.geometryRequested ||
+                                          moveFeaturesToolbar.moveFeaturesRequested
+
   signal showMessage(string message)
   signal editGeometry
 
   width: {
-      if ( props.isVisible || digitizingToolbar.geometryRequested )
+      if ( props.isVisible || featureForm.canvasOperationRequested )
       {
           if (qfieldSettings.fullScreenIdentifyView || parent.width < parent.height || parent.width < 300)
           {
@@ -65,7 +70,7 @@ Rectangle {
       }
   }
   height: {
-     if ( props.isVisible || digitizingToolbar.geometryRequested )
+     if ( props.isVisible || featureForm.canvasOperationRequested )
      {
          if (fullScreenView || parent.width > parent.height)
          {
@@ -83,11 +88,11 @@ Rectangle {
      }
   }
 
-  anchors.bottomMargin: digitizingToolbar.geometryRequested ? featureForm.height : 0
-  anchors.rightMargin: digitizingToolbar.geometryRequested ? -featureForm.width : 0
-  opacity: digitizingToolbar.geometryRequested ? 0.5 : 1
+  anchors.bottomMargin: featureForm.canvasOperationRequested ? featureForm.height : 0
+  anchors.rightMargin: featureForm.canvasOperationRequested ? -featureForm.width : 0
+  opacity: featureForm.canvasOperationRequested ? 0.5 : 1
 
-  enabled: !digitizingToolbar.geometryRequested
+  enabled: !featureForm.canvasOperationRequested
   visible: props.isVisible
 
   states: [
@@ -405,15 +410,34 @@ Rectangle {
     }
 
     onSave: {
-      featureFormList.confirm()
-      featureForm.state = featureForm.selection.model.selectedCount > 0 ? "FeatureList" : "FeatureForm"
-      displayToast( qsTr( "Changes saved" ) )
+        featureFormList.confirm()
+        featureForm.state = featureForm.selection.model.selectedCount > 0 ? "FeatureList" : "FeatureForm"
+        displayToast( qsTr( "Changes saved" ) )
     }
 
     onCancel: {
-      featureFormList.model.featureModel.reset()
-      featureForm.state = featureForm.selection.model.selectedCount > 0 ? "FeatureList" : "FeatureForm"
-      displayToast( qsTr( "Last changes discarded" ) )
+        featureFormList.model.featureModel.reset()
+        featureForm.state = featureForm.selection.model.selectedCount > 0 ? "FeatureList" : "FeatureForm"
+        displayToast( qsTr( "Last changes discarded" ) )
+    }
+
+    onMoveClicked: {
+        if (featureForm.selection.focusedItem != -1) {
+            featureForm.state = "FeatureList"
+            featureForm.multiSelection = true
+            featureForm.selection.model.toggleSelectedItem(featureForm.selection.focusedItem)
+            moveFeaturesToolbar.initializeMoveFeatures()
+        }
+    }
+
+    onDuplicateClicked: {
+        if (featureForm.selection.model.duplicateFeature(featureForm.selection.focusedLayer,featureForm.selection.focusedFeature)) {
+          displayToast( qsTr( "Successfully duplicated feature" ) )
+
+          featureForm.selection.focusedItem = -1
+          featureForm.state = "FeatureList"
+          featureForm.multiSelection = true
+        }
     }
 
     onDeleteClicked: {
@@ -435,10 +459,10 @@ Rectangle {
     }
 
     onToggleMultiSelection: {
+        featureForm.selection.focusedItem = -1;
         if ( featureForm.multiSelection ) {
             featureFormList.model.featureModel.modelMode = FeatureModel.SingleFeatureModel
             featureForm.selection.model.clearSelection();
-            featureForm.selection.focusedItem = -1;
         } else {
             featureFormList.model.featureModel.modelMode = FeatureModel.MultiFeatureModel
         }
@@ -465,6 +489,38 @@ Rectangle {
         }
     }
 
+    onMultiMoveClicked: {
+        moveFeaturesToolbar.initializeMoveFeatures()
+    }
+
+    CoordinateTransformer {
+        id: moveFeaturesTransformer
+        sourceCrs: mapCanvas.mapSettings.destinationCrs
+        destinationCrs: featureForm.selection.model.selectedLayer.crs
+    }
+
+    Connections {
+        target: moveFeaturesToolbar
+
+        function onMoveConfirmed() {
+            moveFeaturesTransformer.sourcePosition = moveFeaturesToolbar.endPoint
+            var translateX = moveFeaturesTransformer.projectedPosition.x
+            var translateY = moveFeaturesTransformer.projectedPosition.y
+            moveFeaturesTransformer.sourcePosition = moveFeaturesToolbar.startPoint
+            translateX -= moveFeaturesTransformer.projectedPosition.x
+            translateY -= moveFeaturesTransformer.projectedPosition.y
+            featureForm.model.moveSelection(translateX, translateY)
+        }
+    }
+
+    onMultiDuplicateClicked: {
+        if  (featureForm.multiSelection) {
+          if (featureForm.model.duplicateSelection()) {
+              displayToast( qsTr( "Successfully duplicated selected features, list updated to show newly-created features" ) )
+          }
+        }
+    }
+
     onMultiDeleteClicked: {
         if( trackingModel.featureInTracking(featureForm.selection.focusedLayer, featureForm.selection.model.selectedFeatures) )
         {
@@ -479,6 +535,10 @@ Rectangle {
 
   Keys.onReleased: {
       if (event.key === Qt.Key_Back || event.key === Qt.Key_Escape) {
+          // if visible overlays (such as embedded feature forms) are present, don't take over
+          if (ApplicationWindow.overlay.visibleChildren.length > 1 || (ApplicationWindow.overlay.visibleChildren.length === 1 && !toast.visible))
+              return;
+
           if (state != "FeatureList") {
               if (featureListToolBar.state === "Edit") {
                   if (featureFormList.model.constraintsHardValid) {
@@ -601,7 +661,7 @@ Rectangle {
 
     fullScreenView = qfieldSettings.fullScreenIdentifyView;
 
-    if ( !digitizingToolbar.geometryRequested )
+    if ( !featureForm.canvasOperationRequested )
     {
       featureForm.multiSelection = false;
       featureFormList.model.featureModel.modelMode = FeatureModel.SingleFeatureModel;

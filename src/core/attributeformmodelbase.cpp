@@ -479,6 +479,9 @@ void AttributeFormModelBase::flatten( QgsAttributeEditorContainer *container, QS
       }
 
       case QgsAttributeEditorElement::AeTypeInvalid:
+#if _QGIS_VERSION_INT >= 32100
+      case QgsAttributeEditorElement::AeTypeAction:
+#endif
         // todo
         break;
     }
@@ -488,6 +491,8 @@ void AttributeFormModelBase::flatten( QgsAttributeEditorContainer *container, QS
 void AttributeFormModelBase::updateDefaultValues( int fieldIndex )
 {
   const QgsFields fields = mFeatureModel->feature().fields();
+  if ( fieldIndex < 0 || fieldIndex > fields.size() )
+    return;
   const QString fieldName = fields.at( fieldIndex ).name();
 
   mExpressionContext.setFields( fields );

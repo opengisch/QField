@@ -62,13 +62,13 @@ Item {
         }
 
         MapToScreen {
-          id: mapToScreen
+          id: mapToScreenPosition
           mapSettings: mapCanvas.mapSettings
           mapPoint: _ct.projectedPosition
         }
 
-        x: mapToScreen.screenPoint.x - width/2
-        y: mapToScreen.screenPoint.y - width/2
+        x: mapToScreenPosition.screenPoint.x - width/2
+        y: mapToScreenPosition.screenPoint.y - width/2
 
         color: geometryRenderer.color
         width: geometryRenderer.pointSize
