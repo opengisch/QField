@@ -1,3 +1,30 @@
 <?xml version='1.0' encoding='utf-8'?>
 <resources>
-    </resources>
+    <string name="done_unpacking_msg">Kwitegura byarangiye, fungura QGIS.</string>
+    <string name="unpacking_title">QField iri kwitegura</string>
+    <string name="unpacking_msg">Uyu mukoro ushobora gutinda ho gato</string>
+    <string name="unpacking_msg_following">Iri hafi gusoza, nimutegereze gato!</string>
+    <string name="use_internal_storage">Koresha ububiko bwa telefone</string>
+    <string name="external_storage_unavailable">QField Iri kubikura amakuru, bishobora gutinda.</string>
+    <string name="noexternalstorage_dialog">Birasa naho memori kadi (/sdcard) itabashije gukoreshwa. Akenshi ibi biterwa nuko telefone icometse kuri mudasobwa.
+QGIS yakorana n\'ububiko bwa telefone ariko sibyiza kuko ubunini bwabwo bushobora kuba budahagije.
+Bishobotse mwafunga QGIS mukongera mukayifungura hanyuma mukanacomora imigozi yose icometse kuri telefone.</string>
+    <string name="primary_storage">Ububiko bwa telefone</string>
+    <string name="secondary_storage">Dosiye ya QField kuri memori kadi</string>
+    <string name="secondary_storage_read_only">Memori kadi (isoma amakuru gusa)</string>
+    <string name="inaccessible">Ntabwo ibashije kuboneka</string>
+    <string name="loading">Biri gutunganywa</string>
+    <string name="select_project">Hitamo dosiye ya QGIS cyangwa aho amakuru abitse</string>
+    <string name="recent_projects">Dosiye, imishinga n\'amakuru aheruka gukoreshwa.</string>
+    <string name="rate_title">Ha QField amanota</string>
+    <string name="rate_message">Niba wishimiye imikorere ya QField, fata akanya gato uyihe amanota. Murakoze!</string>
+    <string name="rate_now">Tanga amanota</string>
+    <string name="remind_later">Uzanyibutse ikindi gihe</string>
+    <string name="no_thanks">Oya</string>
+    <string name="favorite_directories">Dosiye ukoresha kenshi</string>
+    <string name="added_to_favorites">Ibitswe muri dosiye ukoresha kenshi</string>
+    <string name="removed_from_favorites">Ikuwe muri dosiye ukoresha kenshi</string>
+    <string name="alert_sd_card_title">Ikitonderwa</string>
+    <string name="alert_sd_card_message">Nukuramo QField, Iyi dosiye nibiyirimo byose nabyo birava muri telefone yawe!</string>
+    <string name="alert_sd_card_ok">OK</string>
+</resources>
