@@ -18,6 +18,8 @@
 #include "appinterface.h"
 #include "qgismobileapp.h"
 
+#include <QDirIterator>
+
 AppInterface *AppInterface::sAppInterface = nullptr;
 
 AppInterface::AppInterface( QgisMobileapp *app )
@@ -69,4 +71,38 @@ void AppInterface::openFeatureForm()
 void AppInterface::setScreenDimmerActive( bool active )
 {
   mApp->setScreenDimmerActive( active );
+}
+
+QVariantMap AppInterface::availableLanguages() const
+{
+  QVariantMap languages;
+  QDirIterator it( QStringLiteral( ":/i18n/" ), { QStringLiteral( "*.qm" ) }, QDir::Files );
+  while( it.hasNext() )
+  {
+    it.next();
+    if ( it.fileName().startsWith( "qfield_" ) )
+    {
+      const int delimiter = it.fileName().indexOf( '.' );
+      const QString languageCode = it.fileName().mid( 7, delimiter - 7 );
+      const bool hasCoutryCode = languageCode.indexOf( '_' ) > -1;
+
+      const QLocale locale( languageCode );
+      QString displayName;
+      if ( languageCode == QStringLiteral( "en" ) )
+      {
+        displayName = QStringLiteral( "english" );
+      }
+      else if ( locale.nativeLanguageName().isEmpty() )
+      {
+        displayName = QStringLiteral( "code (%1)" ).arg( languageCode );
+      }
+      else
+      {
+        displayName = locale.nativeLanguageName().toLower() + ( hasCoutryCode ? QStringLiteral( " / %1" ).arg( locale.nativeCountryName() ) : QString() );
+      }
+
+      languages.insert( languageCode, displayName );
+    }
+  }
+  return languages;
 }

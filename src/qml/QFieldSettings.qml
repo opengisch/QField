@@ -279,43 +279,29 @@ Page {
                           Layout.fillWidth: true
                           Layout.alignment: Qt.AlignVCenter
 
-                          property variant languages: {
-                              "en":"English",
-                              "bg":"български (Bulgarian)",
-                              "zh":"中文 (Chinese)",
-                              "fi":"Suomi (Finnish)",
-                              "fr":"Français (French)",
-                              "gl":"Galego (Galician)",
-                              "de":"Deutsch (German)",
-                              "hu":"Magyar (Hungarian)",
-                              "ja":"日本 (Japanese)",
-                              "pl":"Polskie (Polish)",
-                              "pt":"Português (Portuguese)",
-                              "pt_BR":"Português/Brasil (Portuguese/Brazil)",
-                              "ru":"Pусский (Russian)",
-                              "es":"Español (Spanish)",
-                              "tr":"Türk (Turkish)"
-                          }
-                          property string currentLanguage: undefined
+                          property variant languageCodes: undefined
+                          property string currentLanguageCode: undefined
 
                           onCurrentIndexChanged: {
-                              if (currentLanguage != undefined) {
-                                  var keys = [""].concat(Object.keys(languages));
-                                  settings.setValue("customLanguage",keys[currentIndex]);
-                                  languageTip.visible = keys[currentIndex] !== currentLanguage;
+                              if (currentLanguageCode != undefined) {
+                                  settings.setValue("customLanguage",languageCodes[currentIndex]);
+                                  languageTip.visible = languageCodes[currentIndex] !== currentLanguageCode;
                               }
                           }
 
                           Component.onCompleted: {
-                              var language = settings.value('customLanguage', '');
-                              var keys = [""].concat(Object.keys(languages));
-                              var systemLanguage = qsTr( "System language" );
-                              var systemLanguageSuffix = systemLanguage !== 'System language' ? ' (System language)' : ''
+                              var customLanguageCode = settings.value('customLanguage', '');
+
+                              var languages = iface.availableLanguages();
+                              languageCodes = [""].concat(Object.keys(languages));
+
+                              var systemLanguage = qsTr( "system language" );
+                              var systemLanguageSuffix = systemLanguage !== 'system language' ? ' (system language)' : ''
                               var items = [systemLanguage + systemLanguageSuffix]
                               model = items.concat(Object.values(languages));
 
-                              currentIndex = keys.indexOf(language);
-                              currentLanguage = language
+                              currentIndex = languageCodes.indexOf(customLanguageCode);
+                              currentLanguageCode = customLanguageCode
                               languageTip.visible = false
                           }
                       }

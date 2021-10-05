@@ -49,6 +49,8 @@ class AppInterface : public QObject
 
     Q_INVOKABLE void setScreenDimmerActive( bool active );
 
+    Q_INVOKABLE QVariantMap availableLanguages() const;
+
     static void setInstance( AppInterface *instance ) { sAppInterface = instance; }
     static AppInterface *instance() { return sAppInterface; }
 
