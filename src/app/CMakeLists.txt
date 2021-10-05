@@ -41,7 +41,6 @@ if (ANDROID)
     ${RESOURCES}
     ${CMAKE_SOURCE_DIR}/images/images.qrc
     ${CMAKE_SOURCE_DIR}/resources/resources.qrc
-    ${ICON_SRC}
     ${TRANSLATIONS_QRC}
   )
 #  add_dependencies(qfield
@@ -53,6 +52,7 @@ else()
     ${RESOURCES}
     ${CMAKE_SOURCE_DIR}/images/images.qrc
     ${CMAKE_SOURCE_DIR}/resources/resources.qrc
+    ${ICON_SRC}
     ${TRANSLATIONS_QRC}
   )
 endif()
