@@ -241,6 +241,13 @@ jobs:
               ;;
           esac
 
+      - name: 📑 Upload Package Logs
+        uses: actions/upload-artifact@v2
+        if: failure()
+        with:
+          name: package-logs-${{ matrix.triplet }}
+          path: ${{ steps.vars.outputs.CMAKE_BUILD_DIR }}/_CPack_Packages/**/*.log
+
 
       - name: 📦 Upload package
         uses: actions/upload-artifact@v2
@@ -276,11 +283,3 @@ jobs:
           asset_path: QField-${{ matrix.triplet }}-${{ steps.get_version.outputs.version }}.zip
           asset_name: QField-${{ matrix.triplet }}-${{ steps.get_version.outputs.version }}.zip
           asset_content_type: application/zip
-
-
-      - name: 🦨 Setup tmate session
-        if: failure()
-        uses: mxschmitt/action-tmate@v3
-        with:
-          limit-access-to-actor: true
-
