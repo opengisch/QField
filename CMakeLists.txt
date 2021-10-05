@@ -49,6 +49,11 @@ set(QFIELD_INCLUDE_SUBDIR ${DEFAULT_INCLUDE_SUBDIR} CACHE STRING "Subdirectory w
 set(WITH_VCPKG OFF CACHE BOOL "Build with vcpkg packaging layout")
 set(USE_MAC_BUNDLING NOT ${WITH_VCPKG} CACHE BOOL "Use mac bundling")
 
+set(RELATIVE_PREFIX_PATH ${WITH_VCPKG} "Use a prefix path relative to the application itself rather than hard coding the path while compiling")
+if(RELATIVE_PREFIX_PATH)
+  add_definitions(-DRELATIVE_PREFIX_PATH)
+endif()
+
 mark_as_advanced (QFIELD_INCLUDE_SUBDIR QFIELD_BIN_SUBDIR QFIELD_LIB_SUBDIR WITH_VCPKG USE_MAC_BUNDLING)
 set(QFIELD_BIN_DIR ${QFIELD_BIN_SUBDIR})
 set(QFIELD_LIB_DIR ${QFIELD_LIB_SUBDIR})
