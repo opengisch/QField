@@ -246,7 +246,7 @@ jobs:
         if: failure()
         with:
           name: package-logs-${{ matrix.triplet }}
-          path: ${{ steps.vars.outputs.CMAKE_BUILD_DIR }}/_CPack_Packages/**/*.log
+          path: ${{ steps.vars.outputs.BUILD_ROOT }}/builddir/_CPack_Packages/**/*.log
 
 
       - name: 📦 Upload package
