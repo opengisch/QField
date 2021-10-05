@@ -1,7 +1,8 @@
 <?xml version='1.0' encoding='utf-8'?>
 <resources>
     <string name="done_unpacking_msg">Despaketatzea amaitu da, abiarazi QGIS.</string>
-    <string name="unpacking_msg">Instalazio ondoko datuak despaketatzen. Horrek tartetxo bat beharko du.</string>
+    <string name="unpacking_title">QField prestatzen ari da</string>
+    <string name="unpacking_msg_following">Amaitzen ari gara, itxaron momentutxo bat!</string>
     <string name="use_internal_storage">Erabili barneko biltegiratzea</string>
     <string name="external_storage_unavailable">Instalazio ondoko datuak despaketatzen. Horrek tartetxo bat beharko du.</string>
     <string name="noexternalstorage_dialog">Badirudi kanpoko biltegiratzea (/sdcard) ez dagoela erabilgarri. Hori gertatzen da zure gailua PCra USB bidez konektatu duzulako.\nQGIS barneko biltegiratzetik exekutatu daiteke, baina ez da gomendagarria hori egitea, txikiegia izan baitaiteke.\nHobe da UTZI aukeratzen baduzu, USB kablea deskonektatzen baduzu eta QGIS berrabiarazten baduzu.</string>
@@ -10,8 +11,6 @@
     <string name="secondary_storage_read_only">Kanpoko biltegiratzea (irakurtzeko soilik)</string>
     <string name="inaccessible">atziezina</string>
     <string name="loading">Kargatzen</string>
-    <string name="select_project">Hautatu QGIS proiektu bat</string>
-    <string name="recent_projects">Azken proiektuak</string>
     <string name="rate_title">Puntuatu QField</string>
     <string name="rate_message">QField erabiltzea gustuko izan baduzu, har ezazu unetxo bat hura puntuatzeko. Eskerrik asko zure laguntzagatik!</string>
     <string name="rate_now">Puntuatu</string>
