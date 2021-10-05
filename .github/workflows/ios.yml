@@ -33,10 +33,6 @@ jobs:
       with:
         python-version: '3.8'
 
-    # required for lrelease
-    - name: Install Qt
-      uses: jurplel/install-qt-action@v2
-
     - name: "🌍 Pull Translations"
       run: |
         if [[ -z "${TX_TOKEN}" ]]; then
