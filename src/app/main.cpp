@@ -128,7 +128,6 @@ int main( int argc, char **argv )
   qputenv( "PROJ_LIB", QDir::toNativeSeparators( app.applicationDirPath() + "/../share/proj" ).toLocal8Bit() );
 #endif
   app.setPrefixPath( app.applicationDirPath() + "/..", true );
-  std::cout << "Plugin path " << app.pluginPath().toUtf8().constData();
 #endif
 
   app.initQgis();
