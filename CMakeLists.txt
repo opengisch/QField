@@ -229,11 +229,15 @@ if(WITH_VCPKG)
     file(GLOB PROVIDER_LIBS
       "${QGIS_PLUGIN_DIR}/*provider.dll"
     )
+    # From QGIS CMakeLists.txt
+    set(QGIS_PLUGIN_INSTALL_PREFIX "plugins")
   else()
     SET(QGIS_PLUGIN_DIR "${VCPKG_BASE_DIR}/lib/qgis/plugins")
     file(GLOB PROVIDER_LIBS
       "${QGIS_PLUGIN_DIR}/*provider.so"
     )
+    # From QGIS CMakeLists.txt
+    set(QGIS_PLUGIN_INSTALL_PREFIX "lib${LIB_SUFFIX}/qgis/plugins")
   endif()
   add_custom_target(deploy)
   add_custom_command(TARGET deploy
@@ -245,7 +249,7 @@ if(WITH_VCPKG)
                       POST_BUILD
                       COMMAND ${CMAKE_COMMAND} -E copy_if_different "${LIB}" "${CMAKE_BINARY_DIR}/output/bin/qgis/plugins"
     )
-    install(FILES "${LIB}" DESTINATION "lib/qgis/plugins")
+    install(FILES "${LIB}" DESTINATION "${QGIS_PLUGIN_INSTALL_PREFIX}")
   endforeach()
   add_custom_command(TARGET deploy
     POST_BUILD
