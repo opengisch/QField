@@ -220,11 +220,17 @@ if(WITH_VCPKG)
   SET(QGIS_PLUGIN_DIR "${VCPKG_BASE_DIR}/tools/qgis/plugins")
   if(MSVC)
     file(GLOB PROVIDER_LIBS
-      "${QGIS_PLUGIN_DIR}/*provider.dll"
+      "${QGIS_PLUGIN_DIR}/*provider*.dll"
+    )
+    file(GLOB AUTHMETHODS_LIBS
+      "${QGIS_PLUGIN_DIR}/*authmethod*.dll"
     )
   else()
     file(GLOB PROVIDER_LIBS
-      "${QGIS_PLUGIN_DIR}/*provider.so"
+      "${QGIS_PLUGIN_DIR}/*provider*.so"
+    )
+    file(GLOB AUTHMETHODS_LIBS
+      "${QGIS_PLUGIN_DIR}/*authmethod*.so"
     )
   endif()
   add_custom_target(deploy)
@@ -233,6 +239,12 @@ if(WITH_VCPKG)
     COMMAND ${CMAKE_COMMAND} -E make_directory "${CMAKE_BINARY_DIR}/output/bin/qgis/plugins"
   )
   foreach(LIB ${PROVIDER_LIBS})
+    add_custom_command(TARGET deploy
+                      POST_BUILD
+                      COMMAND ${CMAKE_COMMAND} -E copy_if_different "${LIB}" "${CMAKE_BINARY_DIR}/output/bin/qgis/plugins"
+    )
+  endforeach()
+  foreach(LIB ${AUTHMETHODS_LIBS})
     add_custom_command(TARGET deploy
                       POST_BUILD
                       COMMAND ${CMAKE_COMMAND} -E copy_if_different "${LIB}" "${CMAKE_BINARY_DIR}/output/bin/qgis/plugins"
