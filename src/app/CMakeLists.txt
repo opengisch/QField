@@ -5,6 +5,11 @@ else()
   set(RESOURCES ${CMAKE_SOURCE_DIR}/src/qml/qml.qrc)
 endif()
 
+if(MSVC)
+  configure_file("${CMAKE_SOURCE_DIR}/platform/windows/appicon.rc.in" "${CMAKE_CURRENT_BINARY_DIR}/appicon.rc")
+  set(ICON_SRC "${CMAKE_CURRENT_BINARY_DIR}/appicon.rc")
+endif()
+
 set(QML_IMPORT_PATH "${CMAKE_SOURCE_DIR}/src/qml/imports")
 
 file(GLOB_RECURSE QML_SOURCES "${CMAKE_SOURCE_DIR}/src/qml/*.qml")
@@ -17,6 +22,7 @@ if (ANDROID)
     ${CMAKE_SOURCE_DIR}/images/images.qrc
     ${CMAKE_SOURCE_DIR}/resources/resources.qrc
     ${CMAKE_SOURCE_DIR}/i18n/translations.qrc
+    ${ICON_SRC}
   )
 #  add_dependencies(qfield
 #    assets
