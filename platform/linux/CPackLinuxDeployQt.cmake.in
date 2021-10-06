@@ -1,4 +1,5 @@
 set(ENV{QML_SOURCES_PATHS} ${CMAKE_SOURCE_DIR}/src/qml)
+set(ENV{EXTRA_QT_PLUGINS} "multimedia")
 set(ENV{DESTDIR} ${CPACK_PACKAGE_DIRECTORY}/_CPack_Packages/Linux/External/AppImage)
 message("Installing to ${CPACK_PACKAGE_DIRECTORY}/_CPack_Packages/Linux/External/AppImage")
 message("  - qmake path: ${qmake_executable}")
