@@ -285,3 +285,4 @@ jobs:
           upload_url: ${{ github.event.release.upload_url }}
           asset_path: ${{ env.ARTIFACT_PATHNAME }}
           asset_name: ${{ env.ARTIFACT_NAME }}
+          overwrite: true
