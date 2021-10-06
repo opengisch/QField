@@ -20,17 +20,21 @@ function deployPluginsIfQt([string]$targetBinaryDir, [string]$QtPluginsDir, [str
                 deployBinary "$targetBinaryDir\plugins\$pluginSubdirName" "$QtPluginsDir\$pluginSubdirName" $_.Name
                 resolve "$targetBinaryDir\plugins\$pluginSubdirName\$($_.Name)"
             }
+            Get-ChildItem "$QtPluginsDir\$pluginSubdirName\*.so" | % {
+                deployBinary "$targetBinaryDir\plugins\$pluginSubdirName" "$QtPluginsDir\$pluginSubdirName" $_.Name
+                resolve "$targetBinaryDir\plugins\$pluginSubdirName\$($_.Name)"
+            }
         } else {
             Write-Verbose "  Skipping plugins directory '$pluginSubdirName': doesn't exist"
         }
     }
 
     # We detect Qt modules in use via the DLLs themselves. See qtModuleEntries in Qt to find the mapping.
-    if ($targetBinaryName -match "Qt5Cored?.dll") {
+    if ($targetBinaryName -imatch ".*Qt5Cored?.(dll|so)") {
         if (!(Test-Path "$targetBinaryDir\qt.conf")) {
             "[Paths]" | Out-File -encoding ascii "$targetBinaryDir\qt.conf"
         }
-    } elseif ($targetBinaryName -match "Qt5Guid?.dll") {
+    } elseif ($targetBinaryName -imatch ".*Qt5Guid?.(dll|so)") {
         Write-Verbose "  Deploying platforms"
         New-Item "$targetBinaryDir\plugins\platforms" -ItemType Directory -ErrorAction SilentlyContinue | Out-Null
         Get-ChildItem "$QtPluginsDir\platforms\qwindows*.dll" | % {
@@ -42,7 +46,7 @@ function deployPluginsIfQt([string]$targetBinaryDir, [string]$QtPluginsDir, [str
         deployPlugins "iconengines"
         deployPlugins "platforminputcontexts"
         deployPlugins "styles"
-    } elseif ($targetBinaryName -match "Qt5Networkd?.dll") {
+    } elseif ($targetBinaryName -imatch ".*Qt5Networkd?.(dll|so)") {
         deployPlugins "bearer"
         if (Test-Path "$binDir\libcrypto-1_1-x64.dll")
         {
@@ -54,15 +58,15 @@ function deployPluginsIfQt([string]$targetBinaryDir, [string]$QtPluginsDir, [str
             deployBinary "$targetBinaryDir" "$binDir" "libcrypto-1_1.dll"
             deployBinary "$targetBinaryDir" "$binDir" "libssl-1_1.dll"
         }
-    } elseif ($targetBinaryName -match "Qt5Sqld?.dll") {
+    } elseif ($targetBinaryName -imatch ".*Qt5Sqld?.(dll|so)") {
         deployPlugins "sqldrivers"
-    } elseif ($targetBinaryName -match "Qt5Multimediad?.dll") {
+    } elseif ($targetBinaryName -imatch ".*Qt5Multimediad?.(dll|so)") {
         deployPlugins "audio"
         deployPlugins "mediaservice"
         deployPlugins "playlistformats"
-    } elseif ($targetBinaryName -match "Qt5PrintSupportd?.dll") {
+    } elseif ($targetBinaryName -imatch ".*Qt5PrintSupportd?.(dll|so)") {
         deployPlugins "printsupport"
-    } elseif ($targetBinaryName -match "Qt5Qmld?.dll") {
+    } elseif ($targetBinaryName -imatch ".*Qt5Qmld?.(dll|so)") {
         if(!(Test-Path "$targetBinaryDir\qml"))
         {
             if (Test-Path "$binDir\..\qml") {
@@ -73,32 +77,32 @@ function deployPluginsIfQt([string]$targetBinaryDir, [string]$QtPluginsDir, [str
                 throw "FAILED"
             }
         }
-    } elseif ($targetBinaryName -match "Qt5Quickd?.dll") {
+    } elseif ($targetBinaryName -imatch ".*Qt5Quickd?.(dll|so)") {
         foreach ($a in @("Qt5QuickControls2", "Qt5QuickControls2d", "Qt5QuickShapes", "Qt5QuickShapesd", "Qt5QuickTemplates2", "Qt5QuickTemplates2d", "Qt5QmlWorkerScript", "Qt5QmlWorkerScriptd", "Qt5QuickParticles", "Qt5QuickParticlesd", "Qt5QuickWidgets", "Qt5QuickWidgetsd", "Qt5PositioningQuick", "Qt5PositioningQuickd", "Qt5Multimedia", "Qt5Multimediad", "Qt5MultimediaQuick", "Qt5MultimediaQuickd", "Qt5Charts", "Qt5Chartsd"))
         {
-            if (Test-Path "$binDir\$a.dll")
+            if (Test-Path "$binDir\$a.(dll|so)")
             {
-                deployBinary "$targetBinaryDir" "$binDir" "$a.dll"
+                deployBinary "$targetBinaryDir" "$binDir" "$a.(dll|so)"
             }
         }
         deployPlugins "scenegraph"
         deployPlugins "qmltooling"
-    } elseif ($targetBinaryName -like "Qt5Declarative*.dll") {
+    } elseif ($targetBinaryName -imatch ".*Qt5Declarative.*(dll|so)") {
         deployPlugins "qml1tooling"
-    } elseif ($targetBinaryName -like "Qt5Positioning*.dll") {
+    } elseif ($targetBinaryName -imatch ".*Qt5Positioning.*(dll|so)") {
         deployPlugins "position"
-    } elseif ($targetBinaryName -like "Qt5Location*.dll") {
+    } elseif ($targetBinaryName -imatch ".*Qt5Location.*(dll|so)") {
         deployPlugins "geoservices"
-    } elseif ($targetBinaryName -like "Qt5Sensors*.dll") {
+    } elseif ($targetBinaryName -imatch ".*Qt5Sensors.*(dll|so)") {
         deployPlugins "sensors"
         deployPlugins "sensorgestures"
-    } elseif ($targetBinaryName -like "Qt5WebEngineCore*.dll") {
+    } elseif ($targetBinaryName -imatch ".*Qt5WebEngineCore.*(dll|so)") {
         deployPlugins "qtwebengine"
-    } elseif ($targetBinaryName -like "Qt53DRenderer*.dll") {
+    } elseif ($targetBinaryName -imatch ".*Qt53DRenderer.*(dll|so)") {
         deployPlugins "sceneparsers"
-    } elseif ($targetBinaryName -like "Qt5TextToSpeech*.dll") {
+    } elseif ($targetBinaryName -imatch ".*Qt5TextToSpeech.*(dll|so)") {
         deployPlugins "texttospeech"
-    } elseif ($targetBinaryName -like "Qt5SerialBus*.dll") {
+    } elseif ($targetBinaryName -imatch ".*Qt5SerialBus.*(dll|so)") {
         deployPlugins "canbus"
     }
 }
