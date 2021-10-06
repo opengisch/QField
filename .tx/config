@@ -9,8 +9,8 @@ source_lang = en
 type = QT
 
 [qfield-for-qgis.qfield_android]
-file_filter = android/res/values-<lang>/strings.xml
-source_file = android/res/values/strings.xml
+file_filter = platform/android/res/values-<lang>/strings.xml
+source_file = platform/android/res/values/strings.xml
 source_lang = en
 type = ANDROID
 

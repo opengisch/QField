@@ -1,8 +1,8 @@
 vcpkg_from_github(
     OUT_SOURCE_PATH SOURCE_PATH
     REPO frankosterfeld/qtkeychain
-    REF 6743abd98586fbabd01da9839f53f61ccfb7f83c # v0.11.1
-    SHA512 0ad6b82b972ca1cc5f1f8318899637ce0a6786f912b7f9efc1b7eea132ccefbe9a5dc0eb82d0dc9a020bcd55cd538d9e962fc40eb5c828142a7f2186b19633b1
+    REF a9ee15f1457fa4bfc8673edeaf6ec20b8f110dd6 # v0.11.1
+    SHA512 1fea21fad2310e5900525ec36f4575edffc3fc0d53cdd8863a476de09df9cd0dd943c7bede25ca688298c58f06bb94d41a539db7153d6b7f4e42ae14fe8cdd09
     HEAD_REF master
 )
 

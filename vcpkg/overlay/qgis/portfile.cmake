@@ -1,5 +1,3 @@
-vcpkg_check_linkage(ONLY_DYNAMIC_LIBRARY)
-
 set(QGIS_REF final-3_22_0)
 set(QGIS_SHA512 01e84756b68a33e107f9d00083acb8dc3970aad944f09f034dfccc4983e80284b0c6d00547f853895446ac95e5c8b150677ee3253421395b83badcc2168fb032)
 
@@ -16,6 +14,9 @@ vcpkg_from_github(
         keychain.patch
         libxml2.patch
         exiv2.patch
+        androidextras.patch
+        findpg.patch
+        crssync.patch
 )
 
 file(REMOVE ${SOURCE_PATH}/cmake/FindQtKeychain.cmake)
@@ -113,11 +114,17 @@ macro(FIND_LIB_OPTIONS basename relname debname suffix libsuffix)
    endif()
 endmacro()
 
-
-if (VCPKG_LIBRARY_LINKAGE STREQUAL static)
-    list(APPEND QGIS_OPTIONS -DFORCE_STATIC_LIBS=TRUE)
-    list(APPEND QGIS_OPTIONS -DFORCE_STATIC_PROVIDERS=TRUE)
+if (VCPKG_LIBRARY_LINKAGE STREQUAL "static")
+  list(APPEND QGIS_OPTIONS -DFORCE_STATIC_LIBS=TRUE)
+  list(APPEND QGIS_OPTIONS -DFORCE_STATIC_PROVIDERS=TRUE)
+  # QGIS likes to install auth and providers to different locations on each platform
+  # let's keep things clean and tidy and put them at a predictable location
+  list(APPEND QGIS_OPTIONS -DQGIS_PLUGIN_SUBDIR=lib)
 endif()
+
+# By default QGIS installs includes into "include" on Windows and into "include/qgis" everywhere else
+# let's keep things clean and tidy and put them at a predictable location
+list(APPEND QGIS_OPTIONS -DQGIS_INCLUDE_SUBDIR=include/qgis)
 
 if(VCPKG_TARGET_IS_WINDOWS)
     ##############################################################################
@@ -126,9 +133,9 @@ if(VCPKG_TARGET_IS_WINDOWS)
         MESSAGE(STATUS  "Install pip for Python Begin ...")
         vcpkg_download_distfile(
             GET_PIP_PATH
-            URLS https://bootstrap.pypa.io/pip/3.4/get-pip.py
+            URLS https://bootstrap.pypa.io/pip/3.5/get-pip.py
             FILENAME get-pip.py
-            SHA512  2accfa705be5ca38bb2c7851292cf985e9c1eaa8b8a0871bdbf37672c0af796d4f976fa8caf7764d8ddfce46f6396d546e5d446812ef9e2f6411dc30b40764ed
+            SHA512  a408dd74e69a2c3259e06669562bebfff676156a1a3b2f8ba6594ed308e3f94afdf79257688e59b02bf02bd7f6ecbea510fc6665b403149031f14bcc08308a47
         )
 
         vcpkg_execute_required_process(
@@ -169,6 +176,9 @@ if(VCPKG_TARGET_IS_WINDOWS)
     FIND_LIB_OPTIONS(QCA qca qcad LIBRARY ${VCPKG_TARGET_IMPORT_LIBRARY_SUFFIX})
     FIND_LIB_OPTIONS(QTKEYCHAIN qt5keychain qt5keychaind LIBRARY ${VCPKG_TARGET_IMPORT_LIBRARY_SUFFIX})
     FIND_LIB_OPTIONS(QSCINTILLA qscintilla2_qt5 qscintilla2_qt5d LIBRARY ${VCPKG_TARGET_IMPORT_LIBRARY_SUFFIX})
+    if (VCPKG_LIBRARY_LINKAGE STREQUAL "static")
+      FIND_LIB_OPTIONS(ZSTD zstd_static zstd_staticd LIBRARY ${VCPKG_TARGET_IMPORT_LIBRARY_SUFFIX})
+    endif()
     if("server" IN_LIST FEATURES)
         FIND_LIB_OPTIONS(FCGI libfcgi libfcgi LIBRARY ${VCPKG_TARGET_IMPORT_LIBRARY_SUFFIX})
         list(APPEND QGIS_OPTIONS -DFCGI_INCLUDE_DIR="${CURRENT_INSTALLED_DIR}/include/fastcgi")
@@ -323,6 +333,8 @@ file(REMOVE_RECURSE
 file(REMOVE_RECURSE # Added for debug porpose
     ${CURRENT_PACKAGES_DIR}/debug/share
 )
+
+configure_file("${CMAKE_CURRENT_LIST_DIR}/vcpkg-cmake-wrapper.cmake" "${CURRENT_PACKAGES_DIR}/share/${PORT}/vcpkg-cmake-wrapper.cmake" @ONLY)
 
 # Handle copyright
 file(INSTALL ${SOURCE_PATH}/COPYING DESTINATION ${CURRENT_PACKAGES_DIR}/share/${PORT} RENAME copyright)

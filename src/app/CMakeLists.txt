@@ -40,11 +40,21 @@ foreach(QM_FILE ${QM_FILES})
 endforeach()
 file(APPEND ${TRANSLATIONS_QRC} "\n    </qresource>\n</RCC>")
 
+configure_file(${CMAKE_SOURCE_DIR}/images/logo.qrc.in
+               ${CMAKE_BINARY_DIR}/images/logo.qrc @ONLY)
+
 if(ANDROID)
   add_library(
     qfield SHARED
     main.cpp ${RESOURCES} ${CMAKE_SOURCE_DIR}/images/images.qrc
+    ${CMAKE_BINARY_DIR}/images/logo.qrc
     ${CMAKE_SOURCE_DIR}/resources/resources.qrc ${TRANSLATIONS_QRC})
+
+  # Strip binary for release builds
+  add_custom_command(
+    TARGET qfield
+    POST_BUILD
+    COMMAND ${CMAKE_STRIP} $<TARGET_FILE:qfield>)
   # add_dependencies(qfield assets )
 else()
   add_executable(
@@ -66,6 +76,8 @@ if(${CMAKE_SYSTEM_NAME} STREQUAL "iOS")
 endif()
 
 target_link_libraries(qfield PRIVATE qfield_core ${QGIS_CORE_LIBRARY})
+
+target_link_libraries(qfield PRIVATE qfield_core)
 
 if(WITH_SPIX)
   target_link_libraries(qfield PRIVATE Spix::Spix)

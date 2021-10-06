@@ -15,6 +15,7 @@
  ***************************************************************************/
 
 #include "changelogcontents.h"
+#include "qfield.h"
 
 #include <QJsonArray>
 #include <QJsonDocument>
@@ -55,7 +56,7 @@ void ChangelogContents::request()
 
     QString changelog;
     QString versionNumbersOnly;
-    QList<int> qfieldVersion = parseVersion( APP_VERSION_STR );
+    QList<int> qfieldVersion = parseVersion( qfield::appVersion );
     const QJsonArray releases = json.array();
 
     for ( const QJsonValue &releaseValue : releases )

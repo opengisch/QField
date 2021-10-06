@@ -16,6 +16,7 @@ vcpkg_configure_cmake(
     OPTIONS
         -DSPIX_BUILD_EXAMPLES=OFF
         -DBUILD_TESTS=OFF
+        -DCMAKE_FIND_ROOT_PATH=$ENV{Qt5_DIR}
 )
 
 vcpkg_install_cmake()

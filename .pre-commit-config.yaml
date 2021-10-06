@@ -2,7 +2,7 @@
 # See https://pre-commit.com/hooks.html for more hooks
 exclude: |
   (?x)^(
-    vcpkg/|
+    vcpkg/ |
     3rdparty/ |
     .clang-format$
   )
@@ -45,5 +45,5 @@ repos:
   - id: cmake-format
     additional_dependencies: [pyyaml>=5.1]
     args: [--in-place]
-    files: '^(src|test)/.*/CMakeLists.txt'
+    files: (src|test)/.*/CMakeLists.txt$
 

@@ -41,7 +41,7 @@ QFieldCloudConnection::QFieldCloudConnection()
   QgsNetworkAccessManager::instance()->setTransferTimeout( 5 * 60 * 1000 );
 #endif
   // we cannot use "/" as separator, since QGIS puts a suffix QGIS/31700 anyway
-  const QString userAgent = QStringLiteral( "qfield|%1|%2|%3|" ).arg( APP_VERSION ).arg( APP_VERSION_STR ).arg( GIT_REV );
+  const QString userAgent = QStringLiteral( "qfield|%1|%2|%3|" ).arg( qfield::appVersion, qfield::appVersionStr, qfield::gitRev );
   QgsSettings().setValue( QStringLiteral( "/qgis/networkAndProxy/userAgent" ), userAgent );
 }
 

@@ -103,7 +103,6 @@ set(QFIELD_CORE_HDRS
     locator/finlandlocatorfilter.cpp
     locator/gotolocatorfilter.cpp
     locator/locatormodelsuperbridge.cpp
-    qfield.h
     appcoordinateoperationhandlers.h
     appinterface.h
     attributeformmodel.h
@@ -170,7 +169,8 @@ set(QFIELD_CORE_HDRS
     trackingmodel.h
     valuemapmodel.h
     vertexmodel.h
-    viewstatus.h)
+    viewstatus.h
+    ${CMAKE_CURRENT_BINARY_DIR}/qfield.h)
 
 if(ANDROID)
   set(QFIELD_CORE_HDRS
@@ -178,7 +178,8 @@ if(ANDROID)
       platforms/android/androidplatformutilities.h
       platforms/android/androidpicturesource.h
       platforms/android/androidviewstatus.h
-      platforms/android/androidprojectsource.h)
+      platforms/android/androidprojectsource.h
+      ${CMAKE_CURRENT_BINARY_DIR}/qfield_android.h)
   set(QFIELD_CORE_SRCS
       ${QFIELD_CORE_SRCS}
       platforms/android/androidplatformutilities.cpp
@@ -200,12 +201,14 @@ add_library(qfield_core STATIC ${QFIELD_CORE_SRCS} ${QFIELD_CORE_HDRS})
 include(GenerateExportHeader)
 generate_export_header(qfield_core)
 
-target_include_directories(
-  qfield_core SYSTEM PUBLIC ${QGIS_INCLUDE_DIR} ${CMAKE_CURRENT_BINARY_DIR})
+configure_file(qfield.h.in ${CMAKE_CURRENT_BINARY_DIR}/qfield.h @ONLY)
+
+target_include_directories(qfield_core SYSTEM
+                           PUBLIC ${CMAKE_CURRENT_BINARY_DIR})
 
 target_include_directories(
   qfield_core SYSTEM
-  PRIVATE ${PROJ_INCLUDE_DIR} ${GDAL_INCLUDE_DIR} ${QCA_INCLUDE_DIR}
+  PRIVATE ${PROJ_INCLUDE_DIR} ${GDAL_INCLUDE_DIR} ${Qca_INCLUDE_DIR}
           ${QTKEYCHAIN_INCLUDE_DIR} ${SQLITE3_INCLUDE_DIR})
 if(IOS)
   # to include <qpa/qplatformnativeinterface.h>
@@ -222,6 +225,8 @@ target_include_directories(
          ${CMAKE_SOURCE_DIR}/src/core/utils
          ${CMAKE_SOURCE_DIR}/3rdparty/tessellate)
 if(ANDROID)
+  configure_file(platforms/android/qfield_android.h.in
+                 ${CMAKE_CURRENT_BINARY_DIR}/qfield_android.h @ONLY)
   target_include_directories(
     qfield_core PUBLIC ${CMAKE_SOURCE_DIR}/src/core/platforms/android)
 elseif(${CMAKE_SYSTEM_NAME} STREQUAL "iOS")
@@ -255,8 +260,8 @@ target_link_libraries(
          Qt5::Concurrent
          Qt5::WebView
          Qt5::Bluetooth
-         ${QGIS_CORE_LIBRARY}
-         ${QGIS_ANALYSIS_LIBRARY}
+         QGIS::Core
+         QGIS::Analysis
          ${PROJ_LIBRARY}
          ${GDAL_LIBRARIES})
 
