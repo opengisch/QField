@@ -39,6 +39,8 @@ jobs:
         id: vars
         shell: bash
         run: |
+          ./scripts/ci/env_gh.sh
+
           case ${{ matrix.triplet }} in
             x64-windows)
               BUILD_ROOT="C:"
@@ -192,7 +194,6 @@ jobs:
           VCPKG_ROOT=$( ${{ steps.vars.outputs.PATHCONVERT }} "${VCPKG_ROOT}" )
           SOURCE_DIR=$( ${{ steps.vars.outputs.PATHCONVERT }} "${WORKSPACE}" )
 
-          source ./scripts/ci/env_gh.sh
           source ./scripts/version_number.sh
           source ./scripts/ci/generate-version-details.sh
 
