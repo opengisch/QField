@@ -51,6 +51,8 @@ class AppInterface : public QObject
 
     Q_INVOKABLE QVariantMap availableLanguages() const;
 
+    Q_INVOKABLE bool isFileExtensionSupported( const QString &filename ) const;
+
     static void setInstance( AppInterface *instance ) { sAppInterface = instance; }
     static AppInterface *instance() { return sAppInterface; }
 

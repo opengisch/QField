@@ -2343,8 +2343,7 @@ ApplicationWindow {
     id: dropArea
     anchors.fill: parent
     onEntered: {
-      if ( drag.urls.length !== 1
-         || !validateFileExtension( drag.urls[0] ) ) {
+      if ( drag.urls.length !== 1 || !iface.isFileExtensionSupported( drag.urls[0] ) ) {
           drag.accepted = false
       }
       else {
@@ -2354,10 +2353,6 @@ ApplicationWindow {
     }
     onDropped: {
       iface.loadFile( drop.urls[0] )
-    }
-
-    function validateFileExtension(filePath) {
-      return filePath.split('.').pop() === "qgs" || filePath.split('.').pop() === "qgz"
     }
   }
 
