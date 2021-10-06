@@ -19,6 +19,7 @@
 #include "qgismobileapp.h"
 
 #include <QDirIterator>
+#include <QFileInfo>
 
 AppInterface *AppInterface::sAppInterface = nullptr;
 
@@ -105,4 +106,13 @@ QVariantMap AppInterface::availableLanguages() const
     }
   }
   return languages;
+}
+
+bool AppInterface::isFileExtensionSupported( const QString &filename ) const
+{
+   const QFileInfo fi( filename );
+   const QString suffix = fi.suffix().toLower();
+   return SUPPORTED_PROJECT_EXTENSIONS.contains( suffix ) ||
+          SUPPORTED_VECTOR_EXTENSIONS.contains( suffix ) ||
+          SUPPORTED_RASTER_EXTENSIONS.contains( suffix );
 }
