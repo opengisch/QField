@@ -35,6 +35,12 @@ jobs:
 #          remove-haskell: true # 9G
 #          remove-android: true # 18G
 #          remove-dotnet: true # 30G
+
+      - name: 🐣 Checkout
+        uses: actions/checkout@v2
+        with:
+          submodules: recursive
+
       - name: 🌾 Prepare vars
         id: vars
         shell: bash
@@ -67,11 +73,6 @@ jobs:
           echo "VCPKG_ROOT=${BUILD_ROOT}/src" >> $GITHUB_ENV
           echo "CMAKE_BUILD_DIR=${BUILD_ROOT}/builddir" >> $GITHUB_ENV
           echo "VCPKG_DEFAULT_BINARY_CACHE=${BUILD_ROOT}/vcpkg_cache" >> $GITHUB_ENV
-
-      - name: 🐣 Checkout
-        uses: actions/checkout@v2
-        with:
-          submodules: recursive
 
       - name: 🐩 Install CMake and Ninja
         uses: lukka/get-cmake@latest
