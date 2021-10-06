@@ -207,9 +207,9 @@ jobs:
                 -DVCPKG_TARGET_TRIPLET="${{ matrix.triplet }}" \
                 -DWITH_VCPKG=ON \
                 -DWITH_SPIX=ON \
-                -DAPP_VERSION=${APP_VERSION} \
-                -DAPP_VERSION_STR=${APP_VERSION_STR} \
-                -DAPP_PACKAGE_NAME=${APP_PACKAGE_NAME} \
+                -DAPP_VERSION="${APP_VERSION}" \
+                -DAPP_VERSION_STR="${APP_VERSION_STR}" \
+                -DAPP_PACKAGE_NAME="${APP_PACKAGE_NAME}" \
                 ${EXTRA_CMAKE_ARGS}
 
       - name: 📑 Upload Build Logs
