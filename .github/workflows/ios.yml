@@ -6,7 +6,8 @@ on:
       - master
   release:
     types:
-      - created
+      - published
+      - released
   pull_request:
     branches:
       - master
