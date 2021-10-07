@@ -255,7 +255,7 @@ Page {
 
                       Label {
                           Layout.fillWidth: true
-                          text: qsTr( "QField user interface language:" )
+                          text: qsTr( "User interface language:" )
                           font: Theme.defaultFont
 
                           wrapMode: Text.WordWrap
@@ -295,8 +295,8 @@ Page {
                               var languages = iface.availableLanguages();
                               languageCodes = [""].concat(Object.keys(languages));
 
-                              var systemLanguage = qsTr( "system language" );
-                              var systemLanguageSuffix = systemLanguage !== 'system language' ? ' (system language)' : ''
+                              var systemLanguage = qsTr( "system" );
+                              var systemLanguageSuffix = systemLanguage !== 'system' ? ' (system)' : ''
                               var items = [systemLanguage + systemLanguageSuffix]
                               model = items.concat(Object.values(languages));
 
@@ -304,6 +304,20 @@ Page {
                               currentLanguageCode = customLanguageCode
                               languageTip.visible = false
                           }
+                      }
+
+                      Label {
+                          text: '<style>a, a:hover, a:visited { color:' + Theme.mainColor + '; }></style>' +
+                                qsTr( "Found a missing or incomplete language? %1Join the translator community.%2" )
+                                  .arg( '<a href="https://www.transifex.com/opengisch/qfield-for-qgis/">' )
+                                  .arg( '</a>' );
+                          font: Theme.tipFont
+                          color: Theme.gray
+                          textFormat: Qt.RichText
+                          wrapMode: Text.WordWrap
+                          Layout.fillWidth: true
+
+                          onLinkActivated: Qt.openUrlExternally(link)
                       }
                   }
               }
