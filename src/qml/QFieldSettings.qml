@@ -308,7 +308,7 @@ Page {
 
                       Label {
                           text: '<style>a, a:hover, a:visited { color:' + Theme.mainColor + '; }></style>' +
-                                qsTr( "QField's user interface is available in many languages through the efforts of to its community members. If you find a language is missing or incomplete, visit its %1transifex page%2 and help out." )
+                                qsTr( "QField's user interface is available in many languages through the efforts of its community members. If you find a language is missing or incomplete, visit its %1transifex page%2 and help out." )
                                   .arg( '<a href="https://www.transifex.com/opengisch/qfield-for-qgis/">' )
                                   .arg( '</a>' );
                           font: Theme.tipFont
