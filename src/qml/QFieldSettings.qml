@@ -295,8 +295,8 @@ Page {
                               var languages = iface.availableLanguages();
                               languageCodes = [""].concat(Object.keys(languages));
 
-                              var systemLanguage = qsTr( "system language" );
-                              var systemLanguageSuffix = systemLanguage !== 'system language' ? ' (system language)' : ''
+                              var systemLanguage = qsTr( "system" );
+                              var systemLanguageSuffix = systemLanguage !== 'system' ? ' (system)' : ''
                               var items = [systemLanguage + systemLanguageSuffix]
                               model = items.concat(Object.values(languages));
 
