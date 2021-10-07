@@ -255,7 +255,7 @@ Page {
 
                       Label {
                           Layout.fillWidth: true
-                          text: qsTr( "QField user interface language:" )
+                          text: qsTr( "User interface language:" )
                           font: Theme.defaultFont
 
                           wrapMode: Text.WordWrap
@@ -304,6 +304,20 @@ Page {
                               currentLanguageCode = customLanguageCode
                               languageTip.visible = false
                           }
+                      }
+
+                      Label {
+                          text: '<style>a, a:hover, a:visited { color:' + Theme.mainColor + '; }></style>' +
+                                qsTr( "QField's user interface is available in many languages through the efforts of to its community members. If you find a language is missing or incomplete, visit its %1transifex page%2 and help out." )
+                                  .arg( '<a href="https://www.transifex.com/opengisch/qfield-for-qgis/">' )
+                                  .arg( '</a>' );
+                          font: Theme.tipFont
+                          color: Theme.gray
+                          textFormat: Qt.RichText
+                          wrapMode: Text.WordWrap
+                          Layout.fillWidth: true
+
+                          onLinkActivated: Qt.openUrlExternally(link)
                       }
                   }
               }
