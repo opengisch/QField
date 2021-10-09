@@ -92,6 +92,7 @@
 #include "orderedrelationmodel.h"
 #include "rubberband.h"
 #include "rubberbandmodel.h"
+#include "scalebarmeasurement.h"
 #include "snappingresult.h"
 #include "snappingutils.h"
 #include "stringutils.h"
@@ -441,6 +442,7 @@ void QgisMobileapp::initDeclarative()
   qmlRegisterType<QFieldCloudProjectsModel>( "org.qfield", 1, 0, "QFieldCloudProjectsModel" );
   qmlRegisterType<QFieldCloudProjectsFilterModel>( "org.qfield", 1, 0, "QFieldCloudProjectsFilterModel" );
   qmlRegisterType<DeltaListModel>( "org.qfield", 1, 0, "DeltaListModel" );
+  qmlRegisterType<ScaleBarMeasurement>( "org.qfield", 1, 0, "ScaleBarMeasurement" );
 
   qRegisterMetaType<GnssPositionInformation>( "GnssPositionInformation" );
 
@@ -977,6 +979,7 @@ void QgisMobileapp::readProjectFile()
     }
 
     mProject->setCrs( crs );
+    mProject->setEllipsoid( crs.ellipsoidAcronym() );
     mProject->setTitle( mProjectFileName );
 
     mProject->addMapLayers( rasterLayers );

@@ -76,6 +76,7 @@ set(QFIELD_CORE_SRCS
   referencingfeaturelistmodel.cpp
   rubberband.cpp
   rubberbandmodel.cpp
+  scalebarmeasurement.cpp
   screendimmer.cpp
   settings.cpp
   sgrubberband.cpp
@@ -168,6 +169,7 @@ set(QFIELD_CORE_HDRS
   referencingfeaturelistmodel.h
   rubberband.h
   rubberbandmodel.h
+  scalebarmeasurement.h
   screendimmer.h
   settings.h
   sgrubberband.h
