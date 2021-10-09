@@ -1,27 +1,22 @@
 import QtQuick 2.12
 
+import org.qfield 1.0
 import org.qgis 1.0
 import Theme 1.0
 
 Item {
-  property MapSettings mapSettings
-  property int referenceWidth: 300
+  property alias mapSettings: measurement.mapSettings
   property double lineWidth: 2
 
-  QtObject {
-    id: vars
-
-    property int units: mapSettings.destinationCrs.mapUnits
-    property real range: referenceWidth * mapSettings.mapUnitsPerPoint
-    property real exponent: Math.floor(Math.log(range) / Math.LN10)
-    property real magnitude: Math.pow(10, exponent)
-    property real adjustedMagnitude: units == QgsUnitTypes.DistanceDegrees ? magnitude / (1 + (magnitude / mapSettings.mapUnitsPerPoint) / referenceWidth) : magnitude / (1 + Math.round((magnitude / mapSettings.mapUnitsPerPoint) / referenceWidth))
-    property real decimalsAdjustment: units == QgsUnitTypes.DistanceDegrees ? adjustedMagnitude < 0.01 ? 4 : 3 : 0
+  ScaleBarMeasurement {
+      id: measurement
+      project: qgisProject
+      referenceScreenLength: 300
   }
 
   Rectangle {
     id: mainLineBackground
-    width: ( vars.adjustedMagnitude / mapSettings.mapUnitsPerPoint ) + 2
+    width: measurement.screenLength + 2
     height: lineWidth + 2
     color: "#AAFFFFFF"
   }
@@ -36,7 +31,7 @@ Item {
 
   Rectangle {
     width: lineWidth + 2
-    height: ( 3*lineWidth ) + 1
+    height: ( 3 * lineWidth ) + 1
     color: "#AAFFFFFF"
     anchors.right: mainLineBackground.right
     anchors.bottom: mainLineBackground.top
@@ -44,7 +39,7 @@ Item {
 
   Rectangle {
     id: mainLine
-    width: vars.adjustedMagnitude / mapSettings.mapUnitsPerPoint
+    width: measurement.screenLength
     height: lineWidth
     color: Theme.darkGray
     anchors {
@@ -90,10 +85,6 @@ Item {
         }
     }
 
-    text: if (vars.units === QgsUnitTypes.DistanceMeters && vars.adjustedMagnitude >= 1000 ) {
-            vars.adjustedMagnitude/1000 + ' ' + UnitTypes.toAbbreviatedString( QgsUnitTypes.DistanceKilometers )
-          } else {
-              Math.round(vars.adjustedMagnitude * Math.pow(10, vars.decimalsAdjustment )) / Math.pow(10, vars.decimalsAdjustment) + ' ' + UnitTypes.toAbbreviatedString( mapSettings.destinationCrs.mapUnits )
-          }
+    text: measurement.label
   }
 }
