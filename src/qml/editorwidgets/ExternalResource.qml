@@ -2,6 +2,7 @@ import QtQuick 2.12
 import QtQuick.Controls 2.12
 import QtGraphicalEffects 1.0
 import QtQuick.Window 2.12
+import QtMultimedia 5.14
 
 import org.qgis 1.0
 import org.qfield 1.0
@@ -183,7 +184,7 @@ EditorWidgetBase {
 
   Rectangle {
       id: imageFrame
-      width: parent.width - button_gallery.width - button_camera.width
+      width: parent.width - galleryButton.width - cameraButton.width
       height: 48
       color: isEnabled ? Theme.lightGray : "transparent"
       radius: 2
@@ -256,15 +257,19 @@ EditorWidgetBase {
   }
 
   QfToolButton {
-    id: button_camera
+    id: cameraButton
     width: visible ? 48 : 0
     height: 48
 
-    anchors.right: button_gallery.left
+    property bool isCameraAvailable: ((platformUtilities.capabilities & PlatformUtilities.NativeCamera) && settings.valueBool("nativeCamera", true))
+                                     || ((!( platformUtilities.capabilities & PlatformUtilities.NativeCamera) || settings.valueBool("nativeCamera", false))
+                                         && QtMultimedia.availableCameras.length > 0)
+
+    anchors.right: galleryButton.left
     anchors.top: parent.top
 
     bgcolor: "white"
-    visible: isImage && isEnabled
+    visible: isImage && isEnabled && isCameraAvailable
 
     onClicked: {
         if ( platformUtilities.capabilities & PlatformUtilities.NativeCamera && settings.valueBool("nativeCamera", true) ) {
@@ -280,7 +285,7 @@ EditorWidgetBase {
   }
 
   QfToolButton {
-    id: button_gallery
+    id: galleryButton
     width: visible ? 48 : 0
     height: 48
 
