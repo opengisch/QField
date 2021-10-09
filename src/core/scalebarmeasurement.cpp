@@ -121,6 +121,9 @@ void ScaleBarMeasurement::measure()
     {
       mLabel = QStringLiteral( "%1 %2" ).arg( std::round( adjustedMagnitude * std::pow( 10, decimalsAdjustment ) ) / std::pow( 10, decimalsAdjustment ) ).arg( QgsUnitTypes::toAbbreviatedString( mapUnits ) );
     }
+    const bool impreciseUnits = mMapSettings->mapSettings().mapUnits() == QgsUnitTypes::DistanceDegrees;
+    if ( impreciseUnits )
+      mLabel = QStringLiteral( "~") + mLabel;
   }
   else
   {
