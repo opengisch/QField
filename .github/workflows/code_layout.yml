@@ -25,19 +25,6 @@ jobs:
       - name: Run License Check
         run: ./scripts/test_licenses.sh
 
-  shell_check:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v2
-      - name: Install Requirements
-        run: |
-            sudo apt install -y \
-              shellcheck
-
-      - name: Run Shellcheck
-        run: ./scripts/test_shellcheck.sh
-
   banned_keywords_check:
     runs-on: ubuntu-latest
     steps:
@@ -88,11 +75,16 @@ jobs:
         run: |
           grep -E 'osgeo4a_version=2[0-9]{7}' sdk.conf
 
-  cmake-check:
+  pre-commit:
     runs-on: ubuntu-20.04
     steps:
       - name: Checkout
         uses: actions/checkout@v2
+
+      - name: Install Requirements
+        run: |
+            sudo apt install -y \
+              shellcheck
 
       - name: Check pre-commit hooks
         uses: pre-commit/action@v2.0.3
