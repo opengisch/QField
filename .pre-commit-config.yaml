@@ -2,10 +2,11 @@
 # See https://pre-commit.com/hooks.html for more hooks
 exclude: |
   (?x)^(
-    vcpkg/*|
-    3rdparty/* |
-    .clang-format
+    vcpkg/|
+    3rdparty/ |
+    .clang-format$
   )
+
 repos:
 # Base
 - repo: https://github.com/pre-commit/pre-commit-hooks
@@ -32,9 +33,8 @@ repos:
       language: script
       types: [text]
 
-
 - repo: https://github.com/ambv/black
-  rev: stable
+  rev: 21.9b0
   hooks:
     - id: black
 
