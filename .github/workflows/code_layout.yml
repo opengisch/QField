@@ -33,14 +33,6 @@ jobs:
       - name: Run Banned Keywords Test
         run: ./scripts/test_banned_keywords.sh
 
-  spell_check:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v2
-      - name: Indentation Test
-        run: ./scripts/spell_check/spell_test.sh
-
   cppcheck-1_8:
     runs-on: ubuntu-18.04 # cppcheck 1.8 shows some errors 1.9 does not show
     steps:
