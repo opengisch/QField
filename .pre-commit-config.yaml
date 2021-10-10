@@ -1,0 +1,21 @@
+# See https://pre-commit.com for more information
+# See https://pre-commit.com/hooks.html for more hooks
+exclude: |
+  (?x)^(
+    vcpkg/*|
+    3rdparty/* |
+    .clang-format
+  )
+repos:
+- repo: https://github.com/pre-commit/pre-commit-hooks
+  rev: v3.2.0
+  hooks:
+  - id: trailing-whitespace
+  - id: check-yaml
+  - id: check-added-large-files
+#- repo: https://github.com/cheshirekow/cmake-format-precommit
+#  rev: v0.6.10
+#  hooks:
+#  - id: cmake-format
+#    args: [--in-place, --max-subgroups-hwrap]
+
