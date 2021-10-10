@@ -21,7 +21,7 @@ jobs:
             os: 'windows-2019'
 
           - triplet: 'x64-linux'
-            os: 'ubuntu-20.04'
+            os: 'ubuntu-18.04'
 
           - triplet: 'x64-osx'
             os: 'macos-10.15'
@@ -157,21 +157,23 @@ jobs:
           sudo apt clean
           df -h
 
-      - name: 💐 Install Qt
-        if: ${{ steps.vars.outputs.INSTALL_QT }}
-        uses: jurplel/install-qt-action@v2
-        with:
-          version: 5.15.2
-          modules: 'qtcharts'
-          target: ${{ steps.vars.outputs.QT_TARGET }}
-          arch: ${{ steps.vars.outputs.QT_ARCH }}
+          #      - name: 💐 Install Qt
+          #        if: ${{ steps.vars.outputs.INSTALL_QT }}
+          #        uses: jurplel/install-qt-action@v2
+          #        with:
+          #          version: 5.15.2
+          #          modules: 'qtcharts'
+          #          target: ${{ steps.vars.outputs.QT_TARGET }}
+          #          arch: ${{ steps.vars.outputs.QT_ARCH }}
 
       - name: 🐧 Prepare linux build env
         if: ${{ matrix.triplet == 'x64-linux' }}
         run: |
+          sudo add-apt-repository ppa:beineri/opt-qt-5.14.2-bionic
           sudo apt-get update
-          sudo apt-get install -y gperf autopoint '^libxcb.*-dev' libx11-xcb-dev libglu1-mesa-dev libxrender-dev libxi-dev libxkbcommon-dev libxkbcommon-x11-dev gstreamer1.0-plugins-base gstreamer1.0-plugins-bad
+          sudo apt-get install -y gperf autopoint '^libxcb.*-dev' libx11-xcb-dev libglu1-mesa-dev libxrender-dev libxi-dev libxkbcommon-dev libxkbcommon-x11-dev qt514-meta-full
           sudo apt-get remove -y libopenexr-dev # Avoid gdal picking this system lib up
+
           # Required to run unit tests on linux
           echo "QT_QPA_PLATFORM=offscreen" >> $GITHUB_ENV
           echo "TESTWRAPPER=xvfb-run" >> $GITHUB_ENV
@@ -182,7 +184,7 @@ jobs:
         uses: miurahr/install-linuxdeploy-action@v1
         with:
           dir: ${{ steps.vars.outputs.BUILD_ROOT }}
-          plugins: qt appimage gstreamer
+          plugins: qt appimage
 
       - name: 🌍 Pull Translations
         shell: bash
@@ -219,6 +221,7 @@ jobs:
 
           source ./scripts/version_number.sh
           source ./scripts/ci/generate-version-details.sh
+          source /opt/qt514/bin/qt514-env.sh
 
           overlay_ports=(${WORKSPACE}/${{ steps.vars.outputs.OVERLAY }} ${WORKSPACE}/vcpkg/overlay)
           echo "Building with $(IFS=\; ; echo "${overlay_ports[*]}")"
