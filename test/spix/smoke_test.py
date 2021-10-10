@@ -15,7 +15,7 @@ import os
 def screenshot_path():
     """
     Returns the path for a folder to put screenshots into.
-    Supposed to be in the path where pytest-html writes its report.And then soon we can
+    Supposed to be in the path where pytest-html writes its report.
     """
     img_path = os.path.join(os.getcwd(), "report", "images")
     print(f'Images will be written to {img_path}')
