@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:background="?android:selectableItemBackground">
- 
+
      <!-- icon -->
      <ImageView
          android:id="@+id/item_icon"
@@ -16,7 +16,7 @@
          android:layout_marginBottom="10dp"
          android:layout_centerVertical="true"
          />
- 
+
      <!-- title -->
      <TextView
          android:id="@+id/item_title"
@@ -28,5 +28,5 @@
          android:layout_toRightOf="@+id/item_icon"
          android:layout_centerVertical="true"
          android:textSize="18dp" />
- 
+
 </RelativeLayout>

@@ -83,7 +83,7 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
-        
+
       - name: Check sdk pattern
         run: |
           grep -E 'osgeo4a_version=2[0-9]{7}' sdk.conf

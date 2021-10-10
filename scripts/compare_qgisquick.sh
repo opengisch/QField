@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-set -e 
+set -e
 
 FILE=$1
 
@@ -20,7 +20,7 @@ for f in $(find ${OUT_PATH} -type f); do
 	gsed -i -r 's/QUICK_EXPORT //;' $f
 	gsed -i -r 's/^#include <(qgsquick[^>]+)>/#include "\1"/;' $f
 	#tmpfile=$(mktemp /tmp/abc-script.XXXXXX)
-	
+
 done
 echo "running: meld ${CURDIR}/../src/qgsquick/${FILE} ${OUT_PATH}/${FILE} &"
 if [[ -n ${FILE} ]]; then

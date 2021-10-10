@@ -14,7 +14,7 @@ SwitchDelegate {
         radius: implicitHeight / 2
         color: parent.checked ? Theme.mainColor : Theme.lightGray
         border.color: parent.checked ? Theme.mainColor : Theme.lightGray
-    
+
         Rectangle {
             x: parent.parent.checked ? parent.width - width : 0
             width: parent.implicitHeight

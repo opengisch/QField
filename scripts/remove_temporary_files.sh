@@ -15,7 +15,7 @@
 ###########################################################################
 
 #
-# A simple script to get rid of QGIS related temporary files left in 
+# A simple script to get rid of QGIS related temporary files left in
 # your QGIS source folder by git
 
 # Tim Sutton, May 2008

@@ -144,12 +144,12 @@ jobs:
           ./scripts/ci/env_gh.sh
       - uses: kanga333/comment-hider@master
         name: Hide outdated comments from the default github user
-        with: 
+        with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           hide_user_name: github-actions[bot]
       - uses: kanga333/comment-hider@master
         name: Hide outdated comments from qfield-fairy
-        with: 
+        with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           hide_user_name: qfield-fairy
       - name: Comment PR

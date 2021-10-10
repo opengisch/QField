@@ -46,7 +46,7 @@ public class QFieldOpenExternallyActivity extends Activity{
             Log.d(TAG, e.getMessage());
             finish();
         }
-      
+
         Uri contentUri =  Build.VERSION.SDK_INT < 24 ? Uri.fromFile(file) : FileProvider.getUriForFile( this, BuildConfig.APPLICATION_ID+".fileprovider", cacheFile );
 
         Log.d(TAG, "content URI: " + contentUri);
@@ -64,7 +64,7 @@ public class QFieldOpenExternallyActivity extends Activity{
     }
 
     @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) 
+    protected void onActivityResult(int requestCode, int resultCode, Intent data)
     {
       //on ACTION_VIEW back key pressed it returns RESULT_CANCEL - on error as well
       if (resultCode == RESULT_OK) {
@@ -78,7 +78,7 @@ public class QFieldOpenExternallyActivity extends Activity{
 
       finish();
     }
-    
+
     private void copyFile(File src, File dst) throws IOException {
         Log.d(TAG, "Copy file: "+src.getAbsolutePath()+" to file: "+dst.getAbsolutePath());
         try (InputStream in = new FileInputStream(src)) {

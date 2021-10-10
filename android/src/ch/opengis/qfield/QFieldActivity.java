@@ -103,7 +103,7 @@ public class QFieldActivity extends QtActivity {
     }
 
     private void prepareQtActivity() {
-        checkPermissions(); 
+        checkPermissions();
 
         String storagePath = Environment.getExternalStorageDirectory().getAbsolutePath();
 

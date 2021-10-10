@@ -42,12 +42,12 @@ VisibilityFadingRow {
       if ( ! featureModel.save() ) {
         displayToast( qsTr( "Failed to save feature!" ), 'error' );
       }
-      
+
       //set the vertexModel original geometry to the one of the updated feature
       featureModel.vertexModel.updateGeometry( featureModel.feature.geometry )
     }
   }
-  
+
   function canvasClicked(point)
   {
     if ( featureModel.vertexModel.currentVertexIndex == -1 )

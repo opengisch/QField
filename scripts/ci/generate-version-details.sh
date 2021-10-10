@@ -11,7 +11,7 @@ DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null && pwd )"
 if [[ -n ${CI_TAG} ]]; then
   echo "Building release from tag"
   APP_VERSION_NAME=$(cat ${DIR}/../../RELEASE_NAME)
-  # v1.2.3 Release Name -> 1.2.3 Release Name 
+  # v1.2.3 Release Name -> 1.2.3 Release Name
   # v1.2.3-rc4 Release Name -> 1.2.3 RC4 Release Name
   APP_VERSION_STR="$(app_version_str ${CI_TAG}) - ${APP_VERSION_NAME}"
   # v1.2.3-rc4 arm7 -> 0102030400

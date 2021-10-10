@@ -43,7 +43,7 @@ jobs:
 
       - uses: actions/checkout@v2
         if: ${{ !github.event.issue.pull_request }}
-          
+
       - uses: khan/pull-request-comment-trigger@master
         id: indent-check
         if: ${{ github.event.issue.pull_request }}
@@ -73,7 +73,7 @@ jobs:
         with:
           message: |
             Code formatting issues have been detected.
-          
+
             Reply with `@qfield-fairy style please` to fix it up 🪄.
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
