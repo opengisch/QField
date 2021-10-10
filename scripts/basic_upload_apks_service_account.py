@@ -27,18 +27,18 @@ import json
 
 # Declare command-line flags.
 argparser = argparse.ArgumentParser(add_help=False)
-argparser.add_argument('package_name',
-                       help='The package name. Example: com.android.sample')
-argparser.add_argument('package_track',
-                       help='The track to deploy to.'
-                            ' Can be "alpha", "beta", "production" or "rollout"')
-argparser.add_argument('release_note',
-                       help='text to add as en-US release notes')
-argparser.add_argument('apk_files',
-                       nargs='*',
-                       help='Paths to the APK files to upload.')
+argparser.add_argument(
+    "package_name", help="The package name. Example: com.android.sample"
+)
+argparser.add_argument(
+    "package_track",
+    help="The track to deploy to." ' Can be "alpha", "beta", "production" or "rollout"',
+)
+argparser.add_argument("release_note", help="text to add as en-US release notes")
+argparser.add_argument("apk_files", nargs="*", help="Paths to the APK files to upload.")
 
-google_service_account_config=json.loads(os.environ['GOOGLE_SERVICE_ACCOUNT'])
+google_service_account_config = json.loads(os.environ["GOOGLE_SERVICE_ACCOUNT"])
+
 
 def main():
     # Create an httplib2.Http object to handle our HTTP requests and authorize it
@@ -47,11 +47,12 @@ def main():
     # address associated with the key that was created.
     credentials = ServiceAccountCredentials.from_json_keyfile_dict(
         google_service_account_config,
-        scopes='https://www.googleapis.com/auth/androidpublisher')
+        scopes="https://www.googleapis.com/auth/androidpublisher",
+    )
     http = httplib2.Http()
     http = credentials.authorize(http)
 
-    service = build('androidpublisher', 'v3', http=http)
+    service = build("androidpublisher", "v3", http=http)
 
     # Process flags and read their values.
     flags = argparser.parse_args()
@@ -64,45 +65,65 @@ def main():
     try:
         edit_request = service.edits().insert(body={}, packageName=package_name)
         result = edit_request.execute()
-        edit_id = result['id']
+        edit_id = result["id"]
 
         version_codes = list()
         for filepath in apk_files:
-            apk_response = service.edits().apks().upload(
+            apk_response = (
+                service.edits()
+                .apks()
+                .upload(editId=edit_id, packageName=package_name, media_body=filepath)
+                .execute()
+            )
+
+            print(
+                "Version code {version_code} has been uploaded".format(
+                    version_code=apk_response["versionCode"]
+                )
+            )
+            version_codes.append(apk_response["versionCode"])
+
+        track_response = (
+            service.edits()
+            .tracks()
+            .update(
                 editId=edit_id,
+                track=package_track,
                 packageName=package_name,
-                media_body=filepath).execute()
+                body={
+                    "track": package_track,
+                    "releases": [
+                        {
+                            "versionCodes": version_codes,
+                            "releaseNotes": [
+                                {"language": "en-US", "text": release_note}
+                            ],
+                            "status": "completed",
+                        }
+                    ],
+                },
+            )
+            .execute()
+        )
 
-            print('Version code {version_code} has been uploaded'.format(
-                version_code=apk_response['versionCode']))
-            version_codes.append(apk_response['versionCode'])
+        print(
+            "Track {track} is set for releases {releases}".format(
+                track=track_response["track"], releases=track_response["releases"]
+            )
+        )
 
-        track_response = service.edits().tracks().update(
-            editId=edit_id,
-            track=package_track,
-            packageName=package_name,
-            body={'track': package_track,
-                'releases': [{'versionCodes': version_codes,
-                              'releaseNotes': [
-                                  {'language': 'en-US', 'text': release_note}],
-                              'status': 'completed'}]
-                }
-            ).execute()
+        commit_request = (
+            service.edits().commit(editId=edit_id, packageName=package_name).execute()
+        )
 
-        print('Track {track} is set for releases {releases}'.format(
-            track=track_response['track'],
-            releases=track_response['releases']
-        ))
-
-        commit_request = service.edits().commit(
-            editId=edit_id, packageName=package_name).execute()
-
-        print('Edit "{id}" has been committed'.format(id=commit_request['id']))
+        print('Edit "{id}" has been committed'.format(id=commit_request["id"]))
 
     except client.AccessTokenRefreshError:
-        print('The credentials have been revoked or expired, please re-run the '
-              'application to re-authorize')
+        print(
+            "The credentials have been revoked or expired, please re-run the "
+            "application to re-authorize"
+        )
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

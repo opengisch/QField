@@ -78,7 +78,7 @@ QVariantMap AppInterface::availableLanguages() const
 {
   QVariantMap languages;
   QDirIterator it( QStringLiteral( ":/i18n/" ), { QStringLiteral( "*.qm" ) }, QDir::Files );
-  while( it.hasNext() )
+  while ( it.hasNext() )
   {
     it.next();
     if ( it.fileName().startsWith( "qfield_" ) )
@@ -110,9 +110,9 @@ QVariantMap AppInterface::availableLanguages() const
 
 bool AppInterface::isFileExtensionSupported( const QString &filename ) const
 {
-   const QFileInfo fi( filename );
-   const QString suffix = fi.suffix().toLower();
-   return SUPPORTED_PROJECT_EXTENSIONS.contains( suffix ) ||
-          SUPPORTED_VECTOR_EXTENSIONS.contains( suffix ) ||
-          SUPPORTED_RASTER_EXTENSIONS.contains( suffix );
+  const QFileInfo fi( filename );
+  const QString suffix = fi.suffix().toLower();
+  return SUPPORTED_PROJECT_EXTENSIONS.contains( suffix ) ||
+         SUPPORTED_VECTOR_EXTENSIONS.contains( suffix ) ||
+         SUPPORTED_RASTER_EXTENSIONS.contains( suffix );
 }

@@ -23,7 +23,8 @@
 
 #ifdef QFIELDTEST_MAIN
 #include <qgsapplication.h>
-int main( int argc, char* argv[] ) {
+int main( int argc, char *argv[] )
+{
   int ac = 0;
   char **av;
   QgsApplication app( ac, av, false );

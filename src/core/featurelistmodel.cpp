@@ -186,7 +186,7 @@ int FeatureListModel::findKey( const QVariant &key ) const
 
 QList<int> FeatureListModel::findDisplayValueMatches( const QString &filter ) const
 {
-  QMap<QString,int> matches;
+  QMap<QString, int> matches;
   const QString preparedFilter = filter.trimmed().toLower();
   if ( !filter.trimmed().isEmpty() )
   {

@@ -723,7 +723,7 @@ QVariant FlatLayerTreeModelBase::data( const QModelIndex &index, int role ) cons
       if ( layer->dataProvider() && layer->dataProvider()->name() == QStringLiteral( "WFS" ) )
         return QVariant();
 
-      if ( layer->renderer() && layer->renderer()->type() == QStringLiteral( "singleSymbol") && layer->renderer()->legendSymbolItems().size() > 0 )
+      if ( layer->renderer() && layer->renderer()->type() == QStringLiteral( "singleSymbol" ) && layer->renderer()->legendSymbolItems().size() > 0 )
       {
         const long count = layer->featureCount( layer->renderer()->legendSymbolItems().at( 0 ).ruleKey() );
         if ( count == -1 )
