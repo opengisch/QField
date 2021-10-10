@@ -76,7 +76,8 @@ jobs:
       - name: Install Requirements
         run: |
             sudo apt install -y \
-              shellcheck
+              shellcheck \
+              astyle
 
       - name: Check pre-commit hooks
         uses: pre-commit/action@v2.0.3
