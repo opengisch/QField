@@ -222,7 +222,7 @@ jobs:
 
           source ./scripts/version_number.sh
           source ./scripts/ci/generate-version-details.sh
-          source /opt/qt514/bin/qt514-env.sh
+          # source /opt/qt514/bin/qt514-env.sh
 
           overlay_ports=(${WORKSPACE}/${{ steps.vars.outputs.OVERLAY }} ${WORKSPACE}/vcpkg/overlay)
           echo "Building with $(IFS=\; ; echo "${overlay_ports[*]}")"
