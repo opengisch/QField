@@ -100,15 +100,15 @@ void ScaleBarMeasurement::measure()
     const QgsRectangle extent = mMapSettings->mapSettings().extent();
     const double yPosition = 0.5 * ( extent.yMinimum() + extent.yMaximum() );
     const double extentLength = mDistanceArea.measureLine( QgsPointXY( extent.xMinimum(), yPosition ),
-                                                       QgsPointXY( extent.xMaximum(), yPosition ) );
+                                QgsPointXY( extent.xMaximum(), yPosition ) );
     const double factor = ( extentLength / extent.width() ) * mMapSettings->mapUnitsPerPoint();
 
     const double range = mReferenceScreenLength * factor;
     const double exponent = std::floor( std::log( range ) / 2.302585092994046 );
     const double magnitude = std::pow( 10, exponent );
     const double adjustedMagnitude = ( mapUnits == QgsUnitTypes::DistanceDegrees
-                                       ? magnitude / (1 + ( magnitude / factor ) / mReferenceScreenLength )
-                                       : magnitude / (1 + std::round( ( magnitude / factor ) / mReferenceScreenLength ) ) );
+                                       ? magnitude / ( 1 + ( magnitude / factor ) / mReferenceScreenLength )
+                                       : magnitude / ( 1 + std::round( ( magnitude / factor ) / mReferenceScreenLength ) ) );
     const double decimalsAdjustment = mapUnits == QgsUnitTypes::DistanceDegrees ? adjustedMagnitude < 0.01 ? 4 : 3 : 0;
 
     mScreenLength = adjustedMagnitude / factor;
@@ -123,7 +123,7 @@ void ScaleBarMeasurement::measure()
     }
     const bool impreciseUnits = mMapSettings->mapSettings().mapUnits() == QgsUnitTypes::DistanceDegrees;
     if ( impreciseUnits )
-      mLabel = QStringLiteral( "~") + mLabel;
+      mLabel = QStringLiteral( "~" ) + mLabel;
   }
   else
   {
