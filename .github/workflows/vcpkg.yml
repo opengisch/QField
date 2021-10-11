@@ -21,7 +21,7 @@ jobs:
             os: 'windows-2019'
 
           - triplet: 'x64-linux'
-            os: 'ubuntu-18.04'
+            os: 'ubuntu-20.04'
 
           - triplet: 'x64-osx'
             os: 'macos-10.15'
@@ -169,7 +169,7 @@ jobs:
       - name: 🐧 Prepare linux build env
         if: ${{ matrix.triplet == 'x64-linux' }}
         run: |
-          sudo add-apt-repository ppa:beineri/opt-qt-5.14.2-bionic
+          sudo add-apt-repository ppa:beineri/opt-qt-5.14.2-focal
           sudo apt-get update
           sudo apt-get install -y gperf autopoint '^libxcb.*-dev' libx11-xcb-dev libglu1-mesa-dev libxrender-dev libxi-dev libxkbcommon-dev libxkbcommon-x11-dev qt514-meta-full
           sudo apt-get remove -y libopenexr-dev # Avoid gdal picking this system lib up
@@ -192,7 +192,6 @@ jobs:
           if [[ -z "${TX_TOKEN}" ]]; then
             echo "TX_TOKEN not set, skip tx pull"
           else
-            sudo apt-get install python3-setuptools
             pip3 install transifex-client
             pushd "${{ steps.vars.outputs.VCPKG_ROOT }}"
             ./vcpkg integrate install
