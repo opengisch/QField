@@ -9,13 +9,14 @@ stderr = list()
 stdout = list()
 apperrs = list()
 
+
 def pytest_html_results_summary(prefix, summary, postfix):
     prefix.extend([html.h3("stderr")])
-    prefix.extend([html.pre(''.join([line for line in stderr]))])
+    prefix.extend([html.pre("".join([line for line in stderr]))])
     prefix.extend([html.h3("stdout")])
-    prefix.extend([html.pre(''.join([line for line in stdout]))])
+    prefix.extend([html.pre("".join([line for line in stdout]))])
     prefix.extend([html.h3("App errors")])
-    prefix.extend([html.pre(''.join([line for line in apperrs]))])
+    prefix.extend([html.pre("".join([line for line in apperrs]))])
 
 
 @pytest.fixture
@@ -33,32 +34,43 @@ def process_alive(app, process, process_communicate):
             process_communicate()
             exit_code = process.poll()
             if exit_code is not None:
-                print(f'Process exited with {exit_code}')
+                print(f"Process exited with {exit_code}")
             return exit_code is None
+
     yield func
+
 
 @pytest.fixture
 def process_communicate(process, report_summary):
     def func():
         try:
             output_b, errors_b = process.communicate(timeout=0.1)
-            output = output_b.decode('utf-8')
-            errors = errors_b.decode('utf-8')
+            output = output_b.decode("utf-8")
+            errors = errors_b.decode("utf-8")
             print(errors)
             print(output)
             report_summary[0].append(output)
             report_summary[1].append(errors)
         except subprocess.TimeoutExpired:
             pass
+
     yield func
+
 
 @pytest.fixture
 def report_summary():
     yield stdout, stderr
 
+
 @pytest.fixture
 def process():
-    filenames = ['./output/bin/qfield', './output/bin/Release/qfield.exe', './output/bin/Debug/qfield.exe', './output/bin/qfield.app/qfield.exe', './output/bin/qfield.app/Contents/MacOS/qfield']
+    filenames = [
+        "./output/bin/qfield",
+        "./output/bin/Release/qfield.exe",
+        "./output/bin/Debug/qfield.exe",
+        "./output/bin/qfield.app/qfield.exe",
+        "./output/bin/qfield.app/Contents/MacOS/qfield",
+    ]
     for filename in filenames:
         try:
             process = subprocess.Popen(
@@ -69,7 +81,8 @@ def process():
         except FileNotFoundError:
             pass
     else:
-        assert False, f'No qfield executable found in {filenames}'
+        assert False, f"No qfield executable found in {filenames}"
+
 
 @pytest.fixture
 def app(process, process_communicate):
@@ -110,7 +123,7 @@ def app(process, process_communicate):
         app.quit()
         app.quit()
     except Exception:
-        print('Exception while trying to exit app. The process probably died.')
+        print("Exception while trying to exit app. The process probably died.")
         process_communicate()
         raise
     timeout = 5

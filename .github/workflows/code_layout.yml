@@ -25,19 +25,6 @@ jobs:
       - name: Run License Check
         run: ./scripts/test_licenses.sh
 
-  shell_check:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v2
-      - name: Install Requirements
-        run: |
-            sudo apt install -y \
-              shellcheck
-
-      - name: Run Shellcheck
-        run: ./scripts/test_shellcheck.sh
-
   banned_keywords_check:
     runs-on: ubuntu-latest
     steps:
@@ -45,14 +32,6 @@ jobs:
         uses: actions/checkout@v2
       - name: Run Banned Keywords Test
         run: ./scripts/test_banned_keywords.sh
-
-  spell_check:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v2
-      - name: Indentation Test
-        run: ./scripts/spell_check/spell_test.sh
 
   cppcheck-1_8:
     runs-on: ubuntu-18.04 # cppcheck 1.8 shows some errors 1.9 does not show
@@ -83,7 +62,22 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
-        
+
       - name: Check sdk pattern
         run: |
           grep -E 'osgeo4a_version=2[0-9]{7}' sdk.conf
+
+  pre-commit:
+    runs-on: ubuntu-20.04
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Install Requirements
+        run: |
+            sudo apt install -y \
+              shellcheck \
+              astyle
+
+      - name: Check pre-commit hooks
+        uses: pre-commit/action@v2.0.3

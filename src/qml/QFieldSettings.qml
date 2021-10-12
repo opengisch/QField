@@ -82,7 +82,7 @@ Page {
               } else if (settingsModel.get(i).settingAlias === 'dimBrightness') {
                   settingsModel.setProperty(i, 'isVisible', platformUtilities.capabilities & PlatformUtilities.AdjustBrightness)
               } else {
-                  settingsModel.setProperty(i, 'isVisible', true)   
+                  settingsModel.setProperty(i, 'isVisible', true)
               }
           }
       }

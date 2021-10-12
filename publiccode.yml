@@ -30,11 +30,11 @@ description:
     longDescription: |
       QField is the leading GIS data collection app.
       It integrates perfectly with QGIS.
-      
+
       ## Features
 
       ### 1. Efficient field work
-      
+
       - Touch optimized, simple user interface
       - Fully QGIS compatible
       - Highly configurable data entry forms
@@ -84,9 +84,9 @@ description:
       and style new geometries from existing features)
 
       ### 4. Collaborative work
-      
+
       - Collaboratively work on datasets through [QFieldCloud](https://qfield.cloud)
-      
+
     shortDescription: |-
       QField is the leading full-featured, user-friendly, free-and-open-source mobile data collection app that integrates perfectly with QGIS.
 intendedAudience:

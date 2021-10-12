@@ -10,15 +10,14 @@ import time
 import os
 
 
-
 @pytest.fixture
 def screenshot_path():
     """
     Returns the path for a folder to put screenshots into.
-    Supposed to be in the path where pytest-html writes its report.And then soon we can 
+    Supposed to be in the path where pytest-html writes its report.
     """
     img_path = os.path.join(os.getcwd(), "report", "images")
-    print(f'Images will be written to {img_path}')
+    print(f"Images will be written to {img_path}")
     os.makedirs(img_path, exist_ok=True)
     return img_path
 

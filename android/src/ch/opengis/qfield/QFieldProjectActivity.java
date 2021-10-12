@@ -46,7 +46,7 @@ public class QFieldProjectActivity extends Activity {
         sharedPreferences = getPreferences(Context.MODE_PRIVATE);
         editor = sharedPreferences.edit();
         setContentView(R.layout.list_projects);
-        getActionBar().setBackgroundDrawable(new ColorDrawable(Color.parseColor("#80CC28"))); 
+        getActionBar().setBackgroundDrawable(new ColorDrawable(Color.parseColor("#80CC28")));
         drawView();
     }
 
@@ -142,15 +142,15 @@ public class QFieldProjectActivity extends Activity {
                         continue;
                     }else if (file.getName().toLowerCase().endsWith(".qgs") ||
                               file.getName().toLowerCase().endsWith(".qgz") ||
-                              file.getName().toLowerCase().endsWith(".gpkg") || 
-                              file.getName().toLowerCase().endsWith(".shp") || 
-                              file.getName().toLowerCase().endsWith(".kml") || 
-                              file.getName().toLowerCase().endsWith(".kmz") || 
+                              file.getName().toLowerCase().endsWith(".gpkg") ||
+                              file.getName().toLowerCase().endsWith(".shp") ||
+                              file.getName().toLowerCase().endsWith(".kml") ||
+                              file.getName().toLowerCase().endsWith(".kmz") ||
                               file.getName().toLowerCase().endsWith(".geojson") ||
-                              file.getName().toLowerCase().endsWith(".json") || 
-                              file.getName().toLowerCase().endsWith(".tif") || 
-                              file.getName().toLowerCase().endsWith(".jpg") || 
-                              file.getName().toLowerCase().endsWith(".png") || 
+                              file.getName().toLowerCase().endsWith(".json") ||
+                              file.getName().toLowerCase().endsWith(".tif") ||
+                              file.getName().toLowerCase().endsWith(".jpg") ||
+                              file.getName().toLowerCase().endsWith(".png") ||
                               file.getName().toLowerCase().endsWith(".pdf") ||
                               file.getName().toLowerCase().endsWith(".gpx") ||
                               file.getName().toLowerCase().endsWith(".jp2") ||
@@ -224,7 +224,7 @@ public class QFieldProjectActivity extends Activity {
 
     private void startItemClickActivity(QFieldProjectListItem item){
         File file = item.getFile();
-        Log.d(TAG, "file: "+file.getPath());                
+        Log.d(TAG, "file: "+file.getPath());
         if (file.isDirectory()) {
             Intent intent = new Intent(this, QFieldProjectActivity.class);
             intent.putExtra("path", file.getPath());

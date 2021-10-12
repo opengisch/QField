@@ -60,10 +60,6 @@ for f in "$@"; do
                 cmd=:
                 ;;
 
-        *.py)
-                cmd="perl -i.prepare -pe 's/[\r\t ]+$//;'"
-                ;;
-
         *)
                 echo -ne "$f skipped $elcr"
                 continue

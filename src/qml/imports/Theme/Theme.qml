@@ -68,7 +68,7 @@ QtObject {
 
     function colorToHtml(color) {
       return "rgba(%1,%2,%3,%4)".arg(Math.floor(Theme.errorColor.r * 255)).arg(Math.floor(Theme.errorColor.g * 255)).arg(Math.floor(Theme.errorColor.b * 255)).arg(Math.floor(Theme.errorColor.a * 255));
-      
+
     }
 
     function toInlineStyles(styleProperties) {

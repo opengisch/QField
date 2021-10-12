@@ -109,7 +109,7 @@ VisibilityFadingRow {
   Loader {
     id: toolbarRow
 
-    width: item && item.stateVisible ? item.implicitWidth : 0   
+    width: item && item.stateVisible ? item.implicitWidth : 0
 
     function load(qmlSource, iconPath, name){
       source = qmlSource
