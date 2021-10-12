@@ -1311,12 +1311,14 @@ void QFieldCloudProjectsModel::downloadFileConnections( const QString &projectId
     {
       QgsLogger::debug( QStringLiteral( "Export file \"%1/%2\" has too many redirects, last two urls are %3 and %4" ).arg( projectId, fileName, oldUrl.toString(), url.toString() ) );
       reply->abort();
+      return;
     }
 
     if ( oldUrl == url )
     {
       QgsLogger::debug( QStringLiteral( "Export file \"%1/%2\" has redirects to the same URL %3" ).arg( projectId, fileName, url.toString() ) );
       reply->abort();
+      return;
     }
 
     QgsLogger::debug( QStringLiteral( "Export file \"%1/%2\" redirected to %3" ).arg( projectId, fileName, url.toString() ) );
@@ -1325,7 +1327,7 @@ void QFieldCloudProjectsModel::downloadFileConnections( const QString &projectId
     mCloudProjects[index].downloadFileTransfers[fileName].networkReply = mCloudConnection->get( request, url );
 
     // we need to somehow finish the request, otherwise it will remain unfinished for the QFieldCloudConnection
-    emit reply->abort();
+    reply->abort();
 
     downloadFileConnections( projectId, fileName );
   } );
