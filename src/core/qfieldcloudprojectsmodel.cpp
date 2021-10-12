@@ -37,6 +37,7 @@
 #include <qgsproviderregistry.h>
 
 #define MAX_REDIRECTS_ALLOWED 10
+#define MAX_PARALLEL_REQUESTS 6
 
 QFieldCloudProjectsModel::QFieldCloudProjectsModel()
   : mProject( QgsProject::instance() )
@@ -403,6 +404,7 @@ void QFieldCloudProjectsModel::downloadProject( const QString &projectId, bool o
   // //////////
   // 1) request a new export the project
   // //////////
+  /// If you want to skip packaging as being the slowest action, change /qfield-files/export/<PROJECT_ID> from POST to GET request
   NetworkReply *reply = mCloudConnection->post( QStringLiteral( "/api/v1/qfield-files/export/%1/" ).arg( projectId ) );
   mCloudProjects[index].apiNetworkReply = reply;
 
@@ -589,6 +591,11 @@ void QFieldCloudProjectsModel::projectGetExportStatus( const QString &projectId 
             emit dataChanged( idx, idx, QVector<int>() << ExportedLayerErrorsRole );
           }
 
+          QgsLogger::debug( QStringLiteral( "Packaged files to download - %1 files, namely: %2" )
+                            .arg( mCloudProjects[index].downloadFileTransfers.count() )
+                            .arg( mCloudProjects[index].downloadFileTransfers.keys().join( ", " ) ) );
+
+          updateActiveProjectFilesToDownload( projectId );
           projectDownloadFiles( projectId );
         } );
         break;
@@ -596,7 +603,7 @@ void QFieldCloudProjectsModel::projectGetExportStatus( const QString &projectId 
   } );
 }
 
-void QFieldCloudProjectsModel::projectDownloadFiles( const QString &projectId )
+void QFieldCloudProjectsModel::updateActiveProjectFilesToDownload( const QString &projectId )
 {
   if ( !mCloudConnection )
     return;
@@ -608,8 +615,61 @@ void QFieldCloudProjectsModel::projectDownloadFiles( const QString &projectId )
 
   const QStringList fileNames = mCloudProjects[index].downloadFileTransfers.keys();
 
-  // why call download project files, if there are no project files?
+  QgsLogger::debug( QStringLiteral( "Active download files list before update: %1" ).arg( mActiveProjectFilesToDownload.join( ", " ) ) );
+
   if ( fileNames.isEmpty() )
+  {
+    mActiveProjectFilesToDownload.clear();
+    return;
+  }
+
+  for ( const QString &fileName : fileNames )
+  {
+    if ( mCloudProjects[index].downloadFileTransfers[fileName].networkReply )
+    {
+      if ( mCloudProjects[index].downloadFileTransfers[fileName].networkReply->isFinished() )
+      {
+        QgsLogger::debug( QStringLiteral( "Remove file \"%1\" from the active download files list if still present" ).arg( fileName ) );
+
+        mActiveProjectFilesToDownload.removeOne( fileName );
+        continue;
+      }
+      else
+      {
+        // the request is still active
+        QgsLogger::debug( QStringLiteral( "File \"%1\" is still downloading, keep it in the active download files list" ).arg( fileName ) );
+        continue;
+      }
+    }
+
+    if ( mActiveProjectFilesToDownload.size() >= MAX_PARALLEL_REQUESTS )
+    {
+      QgsLogger::debug( QStringLiteral( "Active download files list is full, wait before continue with \"%1\"" ).arg( fileName ) );
+      return;
+    }
+
+    QgsLogger::debug( QStringLiteral( "File \"%1\" appended to the active download files list" ).arg( fileName ) );
+
+    mActiveProjectFilesToDownload.append( fileName );
+  }
+
+  QgsLogger::debug( QStringLiteral( "Active download files list after update: %1" ).arg( mActiveProjectFilesToDownload.join( ", " ) ) );
+}
+
+void QFieldCloudProjectsModel::projectDownloadFiles( const QString &projectId )
+{
+  // calling updateActiveProjectFilesToDownload() before calling this function is mandatory
+
+  if ( !mCloudConnection )
+    return;
+
+  const int index = findProject( projectId );
+
+  if ( index == -1 || index >= mCloudProjects.size() )
+    return;
+
+  // Don't call download project files, if there are no project files
+  if ( mActiveProjectFilesToDownload.isEmpty() )
   {
     QModelIndex idx = createIndex( index, 0 );
 
@@ -621,8 +681,16 @@ void QFieldCloudProjectsModel::projectDownloadFiles( const QString &projectId )
     return;
   }
 
-  for ( const QString &fileName : fileNames )
+  QgsLogger::debug( QStringLiteral( "Active download files list before actual download: %1" ).arg( mActiveProjectFilesToDownload.join( ", " ) ) );
+
+  for ( const QString &fileName : std::as_const( mActiveProjectFilesToDownload ) )
   {
+    if ( mCloudProjects[index].downloadFileTransfers[fileName].networkReply )
+    {
+      // Download is already in progress
+      continue;
+    }
+
     NetworkReply *reply = downloadFile( projectId, fileName );
     QTemporaryFile *file = new QTemporaryFile( reply );
 
@@ -640,7 +708,7 @@ void QFieldCloudProjectsModel::projectDownloadFiles( const QString &projectId )
     mCloudProjects[index].downloadFileTransfers[fileName].tmpFile = file->fileName();
     mCloudProjects[index].downloadFileTransfers[fileName].networkReply = reply;
 
-    QgsLogger::debug( QStringLiteral( "Export file for \"%1/%2\" requested" ).arg( projectId, fileName ) );
+    QgsLogger::debug( QStringLiteral( "Requested file \"%1/%2\"" ).arg( projectId, fileName ) );
 
     downloadFileConnections( projectId, fileName );
   }
@@ -649,6 +717,9 @@ void QFieldCloudProjectsModel::projectDownloadFiles( const QString &projectId )
 void QFieldCloudProjectsModel::projectDownloadFinishedWithError( const QString &projectId, const QString &errorString )
 {
   const int index = findProject( projectId );
+
+  mActiveProjectFilesToDownload.clear();
+
   if ( index == -1 || index >= mCloudProjects.size() )
   {
     QgsMessageLog::logMessage( QStringLiteral( "Project id \"%1\" not found" ).arg( projectId ) );
@@ -1300,6 +1371,8 @@ void QFieldCloudProjectsModel::downloadFileConnections( const QString &projectId
 
   QStringList fileNames = mCloudProjects[index].downloadFileTransfers.keys();
 
+  QgsLogger::debug( QStringLiteral( "File \"%1\" requested." ).arg( fileName ) );
+
   connect( reply, &NetworkReply::redirected, reply, [ = ]( const QUrl & url )
   {
     QUrl oldUrl = mCloudProjects[index].downloadFileTransfers[fileName].lastRedirectUrl;
@@ -1403,8 +1476,16 @@ void QFieldCloudProjectsModel::downloadFileConnections( const QString &projectId
       emit projectDownloaded( projectId, mCloudProjects[index].name, true, trimmedErrorMessage );
     }
 
+    QgsLogger::debug( QStringLiteral( "File \"%1\" downloaded." ).arg( fileName ) );
+
+    updateActiveProjectFilesToDownload( projectId );
+
     if ( mCloudProjects[index].downloadFilesFinished == fileNames.count() )
     {
+      QgsLogger::debug( QStringLiteral( "All files downloaded." ) );
+
+      Q_ASSERT( mActiveProjectFilesToDownload.size() == 0 );
+
       if ( !hasError )
       {
         const QStringList unprefixedGpkgFileNames = filterGpkgFileNames( fileNames );
@@ -1451,6 +1532,10 @@ void QFieldCloudProjectsModel::downloadFileConnections( const QString &projectId
       }
 
       mCloudProjects[index].status = ProjectStatus::Idle;
+    }
+    else
+    {
+      projectDownloadFiles( projectId );
     }
 
     QModelIndex idx = createIndex( index, 0 );
