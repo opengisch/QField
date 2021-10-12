@@ -164,6 +164,10 @@ class NetworkReply : public QObject
      */
     bool mIsFinished = false;
 
+    /**
+     * Whether the cloud reply is redirected.
+     */
+    bool mIsRedirected = false;
 
     /**
      * Whether it is a multi-part request
@@ -229,6 +233,12 @@ class NetworkReply : public QObject
      * Called when a request attempt is finished. If needed, make a retry.
      */
     void onFinished();
+
+
+    /**
+     * Called when a request attempt is redirected.
+     */
+    void onRedirected( const QUrl &url );
 };
 
 
