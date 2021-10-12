@@ -284,3 +284,14 @@ Remember last values
 --------------------
 
 QField offers a much more fine-grained control over the last used values and ignores the QGIS setting.
+
+Auto-complete value
+-------------------
+
+.. _autocomplete_value:
+
+The “Use completer” checkbox must be checked to be able to use the auto-complete in the value relation.
+
+.. image:: ../images/autocomplet_form.png
+
+Here a video showing how it works on QField :ref:`Search in value list<search_value_list>`.

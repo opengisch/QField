@@ -21,7 +21,7 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="凡例のノードを非表示にするのを許可する" href="allow-hiding-legend-nodes.html" />
-    <link rel="prev" title="フィーチャに一連の写真を追加する" href="add-1-n-pictures.html" />
+    <link rel="prev" title="地物に一連の写真を追加する" href="add-1-n-pictures.html" />
 <meta charset='utf-8'>
 <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
 <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
@@ -76,7 +76,7 @@
             
               
   <li>
-    <a href="add-1-n-pictures.html" title="Previous Chapter: フィーチャに一連の写真を追加する"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm hidden-tablet">&laquo; フィーチャに一連の写真を追加する</span>
+    <a href="add-1-n-pictures.html" title="Previous Chapter: 地物に一連の写真を追加する"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm hidden-tablet">&laquo; 地物に一連の写真を追加する</span>
     </a>
   </li>
   <li>
@@ -130,7 +130,7 @@
 <h1>高度な使い方<a class="headerlink" href="#advanced" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="itinerary">
 <h2>アイティナリー(Itinerary)<a class="headerlink" href="#itinerary" title="Permalink to this headline">¶</a></h2>
-<p>この機能は、特定の基準に一致するオブジェクトのリストを検査するために使用されます。 次に、矢印を使用してこれらのフィーチャをナビゲートし、ステータスを確認したり、必要に応じて属性を調整したりできます。</p>
+<p>この機能は、特定の基準に一致するオブジェクトのリストを検査するために使用されます。 次に、矢印を使用してこれらの地物をナビゲートし、ステータスを確認したり、必要に応じて属性を調整したりできます。</p>
 <p>レビューするアイティナリーを定義するには、現時点ではPythonコンソールを使用する必要があります。 QgsExpressionを使用して、レビューリストを定義できます。 凡例で目的のレイヤーを選択し、次のPythonコードを使用してQGISプロジェクトにアイティナリーを追加します。</p>
 <div class="code python highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">l</span><span class="o">=</span><span class="n">iface</span><span class="o">.</span><span class="n">activeLayer</span><span class="p">()</span>
 <span class="n">l</span><span class="o">.</span><span class="n">setCustomProperty</span><span class="p">(</span><span class="s1">&#39;qgisMobile/itinerary&#39;</span><span class="p">,</span> <span class="s1">&#39;status &lt;&gt; 1&#39;</span><span class="p">)</span>

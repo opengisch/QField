@@ -84,6 +84,7 @@
 </li>
 <li><a class="reference internal" href="#editable">編集可否</a></li>
 <li><a class="reference internal" href="#remember-last-values">最後の値を記憶する</a></li>
+<li><a class="reference internal" href="#auto-complete-value">Auto-complete value</a></li>
 </ul>
 </li>
 </ul>
@@ -223,11 +224,11 @@
 <a class="reference internal image-reference" href="../_images/relation_editor_widget_list.png"><img alt="../_images/relation_editor_widget_list.png" src="../_images/relation_editor_widget_list.png" style="width: 500px;" /></a>
 </div>
 </div>
-<p>リレーションウィジェットは全ての参照する子フィーチャをリスト形式で表示します。それらを追加、削除したり、開いたりすることが可能です。</p>
+<p>リレーションウィジェットは全ての参照する子地物をリスト形式で表示します。それらを追加、削除したり、開いたりすることが可能です。</p>
 <p>リストエントリの視覚的な識別は、子レイヤーの「表示式」を介して行われます。</p>
 <p><strong>キーの処理</strong></p>
-<p>親の主キーは、参照する子フィーチャの外部キーとして使用されるため、これらの主キーは、オリジナルのデータに同期した後でも使用するために保持されなければいけません。 したがって、主キーにはUUIDなどの安定した値を使用することをお勧めします。</p>
-<p>追加しようとしている親フィーチャから既に存在している子フィーチャを追加することは可能です。 親に有効な主キーがないか、制約に違反している場合、これはブロックされる可能性があります。 いくつかの子フィーチャがすでに追加された後で親フィーチャの追加がキャンセルされた場合、子フィーチャも削除されます。</p>
+<p>親の主キーは、参照する子地物の外部キーとして使用されるため、これらの主キーは、オリジナルのデータに同期した後でも使用するために保持されなければいけません。 したがって、主キーにはUUIDなどの安定した値を使用することをお勧めします。</p>
+<p>追加しようとしている親地物から既に存在している子地物を追加することは可能です。 親に有効な主キーがないか、制約に違反している場合、これはブロックされる可能性があります。 いくつかの子フィーチャがすでに追加された後で親地物の追加がキャンセルされた場合、子地物も削除されます。</p>
 <p><strong>多対多のリレーション</strong></p>
 <p>多対多の関係では、QGISのベクターレイヤープロパティでのカーディナリティーカラムに格納されているデータの種類がどのくらいあるかの設定に従って、追加、削除、もしくはリストのエントリを開いたりする際に子レイヤー（直接的なカーディナリティ）またはリンクされたテーブル（多対1のカーディナリティ）に直接的に影響します。</p>
 <p>通常、2番目のケースは、リンクしているテーブルに追加の関係情報（パーセンテージなど）がある場合に使用されます。</p>
@@ -268,7 +269,7 @@
 </div>
 <div class="section" id="value-relation">
 <h2>値のリレーション<a class="headerlink" href="#value-relation" title="Permalink to this headline">¶</a></h2>
-<p>ウィジェットの「値のリレーション」はコンボボックスで関連づけられたテーブルからの値を参照することを可能にします。レイヤ、キーカラム、値カラムを選択できます。標準の動作を変えるいくつかのオプション（NULL値を許容する、値で並べ替える、複数選択を許容する）があります。このウィジェットは参照するフィーチャのドロップダウンリストか複数選択リストで表示されます。</p>
+<p>ウィジェットの「値のリレーション」はコンボボックスで関連づけられたテーブルからの値を参照することを可能にします。レイヤ、キーカラム、値カラムを選択できます。標準の動作を変えるいくつかのオプション（NULL値を許容する、値で並べ替える、複数選択を許容する）があります。このウィジェットは参照する地物のドロップダウンリストか複数選択リストで表示されます。</p>
 <div class="clearer text-center docutils container">
 <div class="figure">
 <a class="reference internal image-reference" href="../_images/value_relation_widget.gif"><img alt="value_relation_widget" src="../_images/value_relation_widget.gif" style="width: 600px;" /></a>
@@ -316,7 +317,7 @@
 </div>
 <div class="section" id="default-values">
 <h2>初期値<a class="headerlink" href="#default-values" title="Permalink to this headline">¶</a></h2>
-<p>フィールドには初期値を設定できます。 新しいフィーチャをデジタイズするときに、初期値が属性フォームに入力されます。 これらはユーザーに表示され、フィールドが編集可能な限り変更できます。 それらは、ジオメトリ変数または式変数に基づくことができます。</p>
+<p>フィールドには初期値を設定できます。 新しい地物をデジタイズするときに、初期値が属性フォームに入力されます。 これらはユーザーに表示され、フィールドが編集可能な限り変更できます。 それらは、ジオメトリ変数または式変数に基づくことができます。</p>
 <div class="clearer text-center docutils container">
 <div class="figure" id="id4">
 <a class="reference internal image-reference" href="../_images/default_value_configuration.png"><img alt="Default value configuration" src="../_images/default_value_configuration.png" style="width: 600px;" /></a>
@@ -345,7 +346,7 @@
 <div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="o">@</span><span class="n">operator_name</span>
 </pre></div>
 </div>
-<p>新しいフィーチャが挿入される場所に基づいて地域コードを割り当てる場合は、集計式を使用して割り当てることができます。</p>
+<p>新しい地物が挿入される場所に基づいて地域コードを割り当てる場合は、集計式を使用して割り当てることができます。</p>
 <div class="highlight-sql notranslate"><div class="highlight"><pre><span></span>aggregate( layer:=&#39;regions&#39;, aggregate:=&#39;max&#39;, expression:=&quot;code&quot;, filter:=intersects( $geometry, geometry( @parent ) ) )
 </pre></div>
 </div>
@@ -377,6 +378,12 @@
 <div class="section" id="remember-last-values">
 <h2>最後の値を記憶する<a class="headerlink" href="#remember-last-values" title="Permalink to this headline">¶</a></h2>
 <p>QFieldは、最後に使用した値をよりきめ細かく制御することでQGIS設定を無視します。</p>
+</div>
+<div class="section" id="auto-complete-value">
+<h2>Auto-complete value<a class="headerlink" href="#auto-complete-value" title="Permalink to this headline">¶</a></h2>
+<p id="autocomplete-value">The “Use completer” checkbox must be checked to be able to use the auto-complete in the value relation.</p>
+<img alt="../_images/autocomplet_form.png" src="../_images/autocomplet_form.png" />
+<p>Here a video showing how it works on QField <a class="reference internal" href="../fieldwork/search.html#search-value-list"><span class="std std-ref">Search in value list</span></a>.</p>
 </div>
 </div>
 
