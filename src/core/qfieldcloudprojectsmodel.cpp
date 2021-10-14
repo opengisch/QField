@@ -438,13 +438,14 @@ void QFieldCloudProjectsModel::projectGetExportStatus( const QString &projectId 
 {
   const int index = findProject( projectId );
 
+  Q_ASSERT( index >= 0 && index < mCloudProjects.size() );
+
   if ( index < 0 || index >= mCloudProjects.size() )
     return;
 
   if ( mCloudProjects[index].exportStatus == ExportAbortStatus )
     return;
 
-  Q_ASSERT( index >= 0 && index < mCloudProjects.size() );
   Q_ASSERT( mCloudProjects[index].exportStatus != ExportUnstartedStatus );
 
   QModelIndex idx = createIndex( index, 0 );
@@ -1063,6 +1064,9 @@ void QFieldCloudProjectsModel::projectApplyDeltas( const QString &projectId )
 
   Q_ASSERT( index >= 0 && index < mCloudProjects.size() );
 
+  if ( index < 0 || index >= mCloudProjects.size() )
+    return;
+
   QModelIndex idx = createIndex( index, 0 );
   NetworkReply *reply = mCloudConnection->post( QStringLiteral( "/api/v1/deltas/apply/%1/" ).arg( mCloudProjects[index].id ) );
 
@@ -1188,11 +1192,13 @@ void QFieldCloudProjectsModel::projectGetDeltaStatus( const QString &projectId )
 void QFieldCloudProjectsModel::projectUploadAttachments( const QString &projectId )
 {
   const int index = findProject( projectId );
+
+  Q_ASSERT( index >= 0 && index < mCloudProjects.size() );
+
   if ( !mCloudConnection || index < 0 || index >= mCloudProjects.size() || mCloudProjects[index].uploadAttachments.size() == 0 )
     return;
 
   QModelIndex idx = createIndex( index, 0 );
-  Q_ASSERT( index >= 0 && index < mCloudProjects.size() );
 
   // start uploading the attachments
   const QStringList attachmentFileNames = mCloudProjects[index].uploadAttachments.keys();
