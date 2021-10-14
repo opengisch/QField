@@ -50,7 +50,7 @@ QFieldCloudProjectsModel::QFieldCloudProjectsModel()
   {
     const int index = findProject( mCurrentProjectId );
 
-    if ( index == -1 || index >= mCloudProjects.size() )
+    if ( index < 0 || index >= mCloudProjects.size() )
       return;
 
     refreshProjectModification( mCurrentProjectId );
@@ -60,7 +60,7 @@ QFieldCloudProjectsModel::QFieldCloudProjectsModel()
   {
     const int index = findProject( mCurrentProjectId );
 
-    if ( index == -1 || index >= mCloudProjects.size() )
+    if ( index < 0 || index >= mCloudProjects.size() )
       return;
 
     emit currentProjectDataChanged();
@@ -75,7 +75,7 @@ QFieldCloudProjectsModel::QFieldCloudProjectsModel()
 
     const int index = findProject( mCurrentProjectId );
 
-    if ( index == -1 || index >= mCloudProjects.size() )
+    if ( index < 0 || index >= mCloudProjects.size() )
       return;
 
     // current project
@@ -257,7 +257,7 @@ QFieldCloudProjectsModel::ProjectStatus QFieldCloudProjectsModel::projectStatus(
 {
   const int index = findProject( projectId );
 
-  if ( index == -1 || index >= mCloudProjects.size() )
+  if ( index < 0 || index >= mCloudProjects.size() )
     return QFieldCloudProjectsModel::ProjectStatus::Idle;
 
   return mCloudProjects[index].status;
@@ -267,7 +267,7 @@ bool QFieldCloudProjectsModel::canSyncProject( const QString &projectId ) const
 {
   const int index = findProject( projectId );
 
-  if ( index == -1 || index >= mCloudProjects.size() )
+  if ( index < 0 || index >= mCloudProjects.size() )
     return false;
 
   if ( mCurrentProjectId.isEmpty() )
@@ -282,7 +282,7 @@ QFieldCloudProjectsModel::ProjectModifications QFieldCloudProjectsModel::project
 {
   const int index = findProject( projectId );
 
-  if ( index == -1 || index >= mCloudProjects.size() )
+  if ( index < 0 || index >= mCloudProjects.size() )
     return NoModification;
 
   return mCloudProjects[index].modification;
@@ -292,7 +292,7 @@ void QFieldCloudProjectsModel::refreshProjectModification( const QString &projec
 {
   const int index = findProject( projectId );
 
-  if ( index == -1 || index >= mCloudProjects.size() )
+  if ( index < 0 || index >= mCloudProjects.size() )
     return;
 
   ProjectModifications oldModifications = mCloudProjects[index].modification;
@@ -334,7 +334,7 @@ void QFieldCloudProjectsModel::cancelDownloadProject( const QString &projectId )
     return;
 
   int index = findProject( projectId );
-  if ( index == -1 || index >= mCloudProjects.size() )
+  if ( index < 0 || index >= mCloudProjects.size() )
     return;
 
   // before canceling, the project should be downloading
@@ -371,7 +371,7 @@ void QFieldCloudProjectsModel::downloadProject( const QString &projectId, bool o
     return;
 
   int index = findProject( projectId );
-  if ( index == -1 || index >= mCloudProjects.size() )
+  if ( index < 0 || index >= mCloudProjects.size() )
     return;
 
   // before downloading, the project should be idle
@@ -438,7 +438,7 @@ void QFieldCloudProjectsModel::projectGetExportStatus( const QString &projectId 
 {
   const int index = findProject( projectId );
 
-  if ( index == -1 || index >= mCloudProjects.size() )
+  if ( index < 0 || index >= mCloudProjects.size() )
     return;
 
   if ( mCloudProjects[index].exportStatus == ExportAbortStatus )
@@ -610,7 +610,7 @@ void QFieldCloudProjectsModel::updateActiveProjectFilesToDownload( const QString
 
   const int index = findProject( projectId );
 
-  if ( index == -1 || index >= mCloudProjects.size() )
+  if ( index < 0 || index >= mCloudProjects.size() )
     return;
 
   const QStringList fileNames = mCloudProjects[index].downloadFileTransfers.keys();
@@ -665,7 +665,7 @@ void QFieldCloudProjectsModel::projectDownloadFiles( const QString &projectId )
 
   const int index = findProject( projectId );
 
-  if ( index == -1 || index >= mCloudProjects.size() )
+  if ( index < 0 || index >= mCloudProjects.size() )
     return;
 
   // Don't call download project files, if there are no project files
@@ -720,7 +720,7 @@ void QFieldCloudProjectsModel::projectDownloadFinishedWithError( const QString &
 
   mActiveProjectFilesToDownload.clear();
 
-  if ( index == -1 || index >= mCloudProjects.size() )
+  if ( index < 0 || index >= mCloudProjects.size() )
   {
     QgsMessageLog::logMessage( QStringLiteral( "Project id \"%1\" not found" ).arg( projectId ) );
     return;
@@ -742,7 +742,7 @@ bool QFieldCloudProjectsModel::projectMoveDownloadedFilesToPermanentStorage( con
     return false;
 
   const int index = findProject( projectId );
-  if ( index == -1 || index >= mCloudProjects.size() )
+  if ( index < 0 || index >= mCloudProjects.size() )
     return false;
 
   bool hasError = false;
@@ -794,7 +794,7 @@ void QFieldCloudProjectsModel::uploadProject( const QString &projectId, const bo
 
   int index = findProject( projectId );
 
-  if ( index == -1 )
+  if ( index < 0 )
     return;
 
   if ( !( mCloudProjects[index].status == ProjectStatus::Idle ) )
@@ -1188,7 +1188,7 @@ void QFieldCloudProjectsModel::projectGetDeltaStatus( const QString &projectId )
 void QFieldCloudProjectsModel::projectUploadAttachments( const QString &projectId )
 {
   const int index = findProject( projectId );
-  if ( !mCloudConnection || index == -1 || mCloudProjects[index].uploadAttachments.size() == 0 )
+  if ( !mCloudConnection || index < 0 || index >= mCloudProjects.size() || mCloudProjects[index].uploadAttachments.size() == 0 )
     return;
 
   QModelIndex idx = createIndex( index, 0 );
@@ -1246,7 +1246,7 @@ void QFieldCloudProjectsModel::projectUploadAttachments( const QString &projectI
 void QFieldCloudProjectsModel::projectCancelUpload( const QString &projectId )
 {
   int index = findProject( projectId );
-  if ( !mCloudConnection || index == -1 )
+  if ( !mCloudConnection || index < 0 || index >= mCloudProjects.size() )
     return;
 
   projectCancelUploadAttachments( projectId );
@@ -1264,7 +1264,7 @@ void QFieldCloudProjectsModel::projectCancelUpload( const QString &projectId )
 void QFieldCloudProjectsModel::projectCancelUploadAttachments( const QString &projectId )
 {
   int index = findProject( projectId );
-  if ( !mCloudConnection || index == -1 )
+  if ( !mCloudConnection || index < 0 || index >= mCloudProjects.size() )
     return;
 
   const QStringList attachmentFileNames = mCloudProjects[index].uploadAttachments.keys();
@@ -1298,7 +1298,7 @@ void QFieldCloudProjectsModel::layerObserverLayerEdited( const QString &layerId 
 
   const int index = findProject( mCurrentProjectId );
 
-  if ( index == -1 || index >= mCloudProjects.size() )
+  if ( index < 0 || index >= mCloudProjects.size() )
   {
     QgsMessageLog::logMessage( QStringLiteral( "Layer observer triggered `isDirtyChanged` signal incorrectly" ) );
     return;
@@ -1352,7 +1352,7 @@ void QFieldCloudProjectsModel::downloadFileConnections( const QString &projectId
 {
   const int index = findProject( projectId );
 
-  if ( index == -1 || index >= mCloudProjects.size() )
+  if ( index < 0 || index >= mCloudProjects.size() )
     return;
 
   if ( !mCloudProjects[index].downloadFileTransfers.contains( fileName ) )
@@ -1780,7 +1780,7 @@ bool QFieldCloudProjectsModel::revertLocalChangesFromCurrentProject()
 {
   const int index = findProject( mCurrentProjectId );
 
-  if ( index == -1 || index >= mCloudProjects.size() )
+  if ( index < 0 || index >= mCloudProjects.size() )
     return false;
 
   DeltaFileWrapper *deltaFileWrapper = mLayerObserver->deltaFileWrapper();
@@ -1808,7 +1808,7 @@ bool QFieldCloudProjectsModel::revertLocalChangesFromCurrentProject()
 bool QFieldCloudProjectsModel::discardLocalChangesFromCurrentProject()
 {
   const int index = findProject( mCurrentProjectId );
-  if ( index == -1 || index >= mCloudProjects.size() )
+  if ( index < 0 || index >= mCloudProjects.size() )
     return false;
 
   DeltaFileWrapper *deltaFileWrapper = mLayerObserver->deltaFileWrapper();
