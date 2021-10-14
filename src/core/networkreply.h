@@ -160,12 +160,12 @@ class NetworkReply : public QObject
 
 
     /**
-     * Whether the cloud reply has reached a final state.
+     * Whether the reply has reached a final state.
      */
     bool mIsFinished = false;
 
     /**
-     * Whether the cloud reply is redirected.
+     * Whether the reply is redirected.
      */
     bool mIsRedirected = false;
 
