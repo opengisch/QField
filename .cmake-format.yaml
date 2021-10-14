@@ -1,0 +1,25 @@
+parse:
+  additional_commands:
+    add_qt_ios_app:
+      pargs: 1
+      kwargs:
+        NAME: '*'
+        VERSION: '*'
+        SHORT_VERSION: '*'
+        LONG_VERSION: '*'
+        ASSET_DIR: '*'
+        CATALOG_APPICON: '*'
+        LAUNCHSCREEN_STORYBOARD: '*'
+        RESOURCE_FILES: '*'
+        CUSTOM_PLIST: '*'
+        BUNDLE_IDENTIFIER: '*'
+      flags:
+        - ORIENTATION_PORTRAIT
+        - ORIENTATION_PORTRAIT_UPDOWN
+        - ORIENTATION_LANDSCAPE_LEFT
+        - ORIENTATION_LANDSCAPE_RIGHT
+        - REQUIRES_FULL_SCREEN
+        - HIDDEN_STATUS_BAR
+        - IPA
+        - UPLOAD_SYMBOL
+        - VERBOSE
