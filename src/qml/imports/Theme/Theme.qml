@@ -19,26 +19,33 @@ QtObject {
 
     property font defaultFont
     defaultFont.pointSize: 16
+    defaultFont.weight: Font.Normal
 
     property font tipFont
     tipFont.pointSize: 14
+    tipFont.weight: Font.Normal
 
     property font resultFont
     resultFont.pointSize: 13
+    resultFont.weight: Font.Normal
 
     property font strongFont
     strongFont.pointSize: defaultFont.pointSize
     strongFont.bold: true
+    strongFont.weight: Font.Bold
 
     property font strongTipFont
     strongTipFont.pointSize: tipFont.pointSize
     strongTipFont.bold: true
+    strongTipFont.weight: Font.Bold
 
     property font secondaryTitleFont
     secondaryTitleFont.pointSize: 18
+    secondaryTitleFont.weight: Font.Normal
 
     property font titleFont
     titleFont.pointSize: 20
+    titleFont.weight: Font.Normal
 
     function getThemeIcon(name) {
       var ppiName
