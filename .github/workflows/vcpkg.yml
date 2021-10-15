@@ -26,9 +26,6 @@ jobs:
           - triplet: 'x64-osx'
             os: 'macos-10.15'
 
-    env:
-      TX_TOKEN: ${{ secrets.TX_TOKEN }}
-
     steps:
 # Avoid that we run out of disk space
 #      - name: Free additional space
@@ -186,6 +183,8 @@ jobs:
 
       - name: 🌍 Pull Translations
         shell: bash
+        env:
+          TX_TOKEN: ${{ secrets.TX_TOKEN }}
         run: |
           if [[ -z "${TX_TOKEN}" ]]; then
             echo "TX_TOKEN not set, skip tx pull"
