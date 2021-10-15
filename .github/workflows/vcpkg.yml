@@ -26,9 +26,6 @@ jobs:
           - triplet: 'x64-osx'
             os: 'macos-10.15'
 
-    env:
-      TX_TOKEN: ${{ secrets.TX_TOKEN }}
-
     steps:
 # Avoid that we run out of disk space
 #      - name: Free additional space
@@ -184,16 +181,19 @@ jobs:
           dir: ${{ steps.vars.outputs.BUILD_ROOT }}
           plugins: qt appimage
 
+      - uses: actions/setup-python@v2
+        with:
+          python-version: '3.9'
+
       - name: 🌍 Pull Translations
         shell: bash
+        env:
+          TX_TOKEN: ${{ secrets.TX_TOKEN }}
         run: |
           if [[ -z "${TX_TOKEN}" ]]; then
             echo "TX_TOKEN not set, skip tx pull"
           else
-            pip3 install transifex-client
-            pushd "${{ steps.vars.outputs.VCPKG_ROOT }}"
-            ./vcpkg integrate install
-            popd
+            pip install transifex-client==0.14.3
             ./scripts/ci/pull_translations.sh
           fi
 
