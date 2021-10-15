@@ -189,7 +189,7 @@ jobs:
           if [[ -z "${TX_TOKEN}" ]]; then
             echo "TX_TOKEN not set, skip tx pull"
           else
-            pip3 install transifex-client
+            pip install transifex-client
             ./scripts/ci/pull_translations.sh
           fi
 
