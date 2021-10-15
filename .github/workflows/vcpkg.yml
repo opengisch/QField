@@ -181,6 +181,10 @@ jobs:
           dir: ${{ steps.vars.outputs.BUILD_ROOT }}
           plugins: qt appimage
 
+      - uses: actions/setup-python@v2
+        with:
+          python-version: '3.9'
+
       - name: 🌍 Pull Translations
         shell: bash
         env:
