@@ -367,6 +367,7 @@ class QFieldCloudProjectsModel : public QAbstractListModel
     QgsProject *mProject = nullptr;
     QgsGpkgFlusher *mGpkgFlusher = nullptr;
     QString mUsername;
+    QStringList mActiveProjectFilesToDownload;
 
     void projectCancelUpload( const QString &projectId );
     void projectCancelUploadAttachments( const QString &projectId );
@@ -382,6 +383,7 @@ class QFieldCloudProjectsModel : public QAbstractListModel
     NetworkReply *downloadFile( const QString &projectId, const QString &fileName );
     void projectDownloadFiles( const QString &projectId );
     void projectDownloadFinishedWithError( const QString &projectId, const QString &errorString );
+    void updateActiveProjectFilesToDownload( const QString &projectId );
 
     bool canSyncProject( const QString &projectId ) const;
 

@@ -37,6 +37,7 @@
 #include <qgsproviderregistry.h>
 
 #define MAX_REDIRECTS_ALLOWED 10
+#define MAX_PARALLEL_REQUESTS 6
 
 QFieldCloudProjectsModel::QFieldCloudProjectsModel()
   : mProject( QgsProject::instance() )
@@ -49,7 +50,7 @@ QFieldCloudProjectsModel::QFieldCloudProjectsModel()
   {
     const int index = findProject( mCurrentProjectId );
 
-    if ( index == -1 || index >= mCloudProjects.size() )
+    if ( index < 0 || index >= mCloudProjects.size() )
       return;
 
     refreshProjectModification( mCurrentProjectId );
@@ -59,7 +60,7 @@ QFieldCloudProjectsModel::QFieldCloudProjectsModel()
   {
     const int index = findProject( mCurrentProjectId );
 
-    if ( index == -1 || index >= mCloudProjects.size() )
+    if ( index < 0 || index >= mCloudProjects.size() )
       return;
 
     emit currentProjectDataChanged();
@@ -74,7 +75,7 @@ QFieldCloudProjectsModel::QFieldCloudProjectsModel()
 
     const int index = findProject( mCurrentProjectId );
 
-    if ( index == -1 || index >= mCloudProjects.size() )
+    if ( index < 0 || index >= mCloudProjects.size() )
       return;
 
     // current project
@@ -256,7 +257,7 @@ QFieldCloudProjectsModel::ProjectStatus QFieldCloudProjectsModel::projectStatus(
 {
   const int index = findProject( projectId );
 
-  if ( index == -1 || index >= mCloudProjects.size() )
+  if ( index < 0 || index >= mCloudProjects.size() )
     return QFieldCloudProjectsModel::ProjectStatus::Idle;
 
   return mCloudProjects[index].status;
@@ -266,7 +267,7 @@ bool QFieldCloudProjectsModel::canSyncProject( const QString &projectId ) const
 {
   const int index = findProject( projectId );
 
-  if ( index == -1 || index >= mCloudProjects.size() )
+  if ( index < 0 || index >= mCloudProjects.size() )
     return false;
 
   if ( mCurrentProjectId.isEmpty() )
@@ -281,7 +282,7 @@ QFieldCloudProjectsModel::ProjectModifications QFieldCloudProjectsModel::project
 {
   const int index = findProject( projectId );
 
-  if ( index == -1 || index >= mCloudProjects.size() )
+  if ( index < 0 || index >= mCloudProjects.size() )
     return NoModification;
 
   return mCloudProjects[index].modification;
@@ -291,7 +292,7 @@ void QFieldCloudProjectsModel::refreshProjectModification( const QString &projec
 {
   const int index = findProject( projectId );
 
-  if ( index == -1 || index >= mCloudProjects.size() )
+  if ( index < 0 || index >= mCloudProjects.size() )
     return;
 
   ProjectModifications oldModifications = mCloudProjects[index].modification;
@@ -333,7 +334,7 @@ void QFieldCloudProjectsModel::cancelDownloadProject( const QString &projectId )
     return;
 
   int index = findProject( projectId );
-  if ( index == -1 || index >= mCloudProjects.size() )
+  if ( index < 0 || index >= mCloudProjects.size() )
     return;
 
   // before canceling, the project should be downloading
@@ -370,7 +371,7 @@ void QFieldCloudProjectsModel::downloadProject( const QString &projectId, bool o
     return;
 
   int index = findProject( projectId );
-  if ( index == -1 || index >= mCloudProjects.size() )
+  if ( index < 0 || index >= mCloudProjects.size() )
     return;
 
   // before downloading, the project should be idle
@@ -403,6 +404,7 @@ void QFieldCloudProjectsModel::downloadProject( const QString &projectId, bool o
   // //////////
   // 1) request a new export the project
   // //////////
+  /// If you want to skip packaging as being the slowest action, change /qfield-files/export/<PROJECT_ID> from POST to GET request
   NetworkReply *reply = mCloudConnection->post( QStringLiteral( "/api/v1/qfield-files/export/%1/" ).arg( projectId ) );
   mCloudProjects[index].apiNetworkReply = reply;
 
@@ -436,13 +438,14 @@ void QFieldCloudProjectsModel::projectGetExportStatus( const QString &projectId 
 {
   const int index = findProject( projectId );
 
-  if ( index == -1 || index >= mCloudProjects.size() )
+  Q_ASSERT( index >= 0 && index < mCloudProjects.size() );
+
+  if ( index < 0 || index >= mCloudProjects.size() )
     return;
 
   if ( mCloudProjects[index].exportStatus == ExportAbortStatus )
     return;
 
-  Q_ASSERT( index >= 0 && index < mCloudProjects.size() );
   Q_ASSERT( mCloudProjects[index].exportStatus != ExportUnstartedStatus );
 
   QModelIndex idx = createIndex( index, 0 );
@@ -589,6 +592,11 @@ void QFieldCloudProjectsModel::projectGetExportStatus( const QString &projectId 
             emit dataChanged( idx, idx, QVector<int>() << ExportedLayerErrorsRole );
           }
 
+          QgsLogger::debug( QStringLiteral( "Packaged files to download - %1 files, namely: %2" )
+                            .arg( mCloudProjects[index].downloadFileTransfers.count() )
+                            .arg( mCloudProjects[index].downloadFileTransfers.keys().join( ", " ) ) );
+
+          updateActiveProjectFilesToDownload( projectId );
           projectDownloadFiles( projectId );
         } );
         break;
@@ -596,20 +604,73 @@ void QFieldCloudProjectsModel::projectGetExportStatus( const QString &projectId 
   } );
 }
 
-void QFieldCloudProjectsModel::projectDownloadFiles( const QString &projectId )
+void QFieldCloudProjectsModel::updateActiveProjectFilesToDownload( const QString &projectId )
 {
   if ( !mCloudConnection )
     return;
 
   const int index = findProject( projectId );
 
-  if ( index == -1 || index >= mCloudProjects.size() )
+  if ( index < 0 || index >= mCloudProjects.size() )
     return;
 
   const QStringList fileNames = mCloudProjects[index].downloadFileTransfers.keys();
 
-  // why call download project files, if there are no project files?
+  QgsLogger::debug( QStringLiteral( "Active download files list before update: %1" ).arg( mActiveProjectFilesToDownload.join( ", " ) ) );
+
   if ( fileNames.isEmpty() )
+  {
+    mActiveProjectFilesToDownload.clear();
+    return;
+  }
+
+  for ( const QString &fileName : fileNames )
+  {
+    if ( mCloudProjects[index].downloadFileTransfers[fileName].networkReply )
+    {
+      if ( mCloudProjects[index].downloadFileTransfers[fileName].networkReply->isFinished() )
+      {
+        QgsLogger::debug( QStringLiteral( "Remove file \"%1\" from the active download files list if still present" ).arg( fileName ) );
+
+        mActiveProjectFilesToDownload.removeOne( fileName );
+        continue;
+      }
+      else
+      {
+        // the request is still active
+        QgsLogger::debug( QStringLiteral( "File \"%1\" is still downloading, keep it in the active download files list" ).arg( fileName ) );
+        continue;
+      }
+    }
+
+    if ( mActiveProjectFilesToDownload.size() >= MAX_PARALLEL_REQUESTS )
+    {
+      QgsLogger::debug( QStringLiteral( "Active download files list is full, wait before continue with \"%1\"" ).arg( fileName ) );
+      return;
+    }
+
+    QgsLogger::debug( QStringLiteral( "File \"%1\" appended to the active download files list" ).arg( fileName ) );
+
+    mActiveProjectFilesToDownload.append( fileName );
+  }
+
+  QgsLogger::debug( QStringLiteral( "Active download files list after update: %1" ).arg( mActiveProjectFilesToDownload.join( ", " ) ) );
+}
+
+void QFieldCloudProjectsModel::projectDownloadFiles( const QString &projectId )
+{
+  // calling updateActiveProjectFilesToDownload() before calling this function is mandatory
+
+  if ( !mCloudConnection )
+    return;
+
+  const int index = findProject( projectId );
+
+  if ( index < 0 || index >= mCloudProjects.size() )
+    return;
+
+  // Don't call download project files, if there are no project files
+  if ( mActiveProjectFilesToDownload.isEmpty() )
   {
     QModelIndex idx = createIndex( index, 0 );
 
@@ -621,8 +682,16 @@ void QFieldCloudProjectsModel::projectDownloadFiles( const QString &projectId )
     return;
   }
 
-  for ( const QString &fileName : fileNames )
+  QgsLogger::debug( QStringLiteral( "Active download files list before actual download: %1" ).arg( mActiveProjectFilesToDownload.join( ", " ) ) );
+
+  for ( const QString &fileName : std::as_const( mActiveProjectFilesToDownload ) )
   {
+    if ( mCloudProjects[index].downloadFileTransfers[fileName].networkReply )
+    {
+      // Download is already in progress
+      continue;
+    }
+
     NetworkReply *reply = downloadFile( projectId, fileName );
     QTemporaryFile *file = new QTemporaryFile( reply );
 
@@ -640,7 +709,7 @@ void QFieldCloudProjectsModel::projectDownloadFiles( const QString &projectId )
     mCloudProjects[index].downloadFileTransfers[fileName].tmpFile = file->fileName();
     mCloudProjects[index].downloadFileTransfers[fileName].networkReply = reply;
 
-    QgsLogger::debug( QStringLiteral( "Export file for \"%1/%2\" requested" ).arg( projectId, fileName ) );
+    QgsLogger::debug( QStringLiteral( "Requested file \"%1/%2\"" ).arg( projectId, fileName ) );
 
     downloadFileConnections( projectId, fileName );
   }
@@ -649,7 +718,10 @@ void QFieldCloudProjectsModel::projectDownloadFiles( const QString &projectId )
 void QFieldCloudProjectsModel::projectDownloadFinishedWithError( const QString &projectId, const QString &errorString )
 {
   const int index = findProject( projectId );
-  if ( index == -1 || index >= mCloudProjects.size() )
+
+  mActiveProjectFilesToDownload.clear();
+
+  if ( index < 0 || index >= mCloudProjects.size() )
   {
     QgsMessageLog::logMessage( QStringLiteral( "Project id \"%1\" not found" ).arg( projectId ) );
     return;
@@ -671,7 +743,7 @@ bool QFieldCloudProjectsModel::projectMoveDownloadedFilesToPermanentStorage( con
     return false;
 
   const int index = findProject( projectId );
-  if ( index == -1 || index >= mCloudProjects.size() )
+  if ( index < 0 || index >= mCloudProjects.size() )
     return false;
 
   bool hasError = false;
@@ -723,7 +795,7 @@ void QFieldCloudProjectsModel::uploadProject( const QString &projectId, const bo
 
   int index = findProject( projectId );
 
-  if ( index == -1 )
+  if ( index < 0 )
     return;
 
   if ( !( mCloudProjects[index].status == ProjectStatus::Idle ) )
@@ -992,6 +1064,9 @@ void QFieldCloudProjectsModel::projectApplyDeltas( const QString &projectId )
 
   Q_ASSERT( index >= 0 && index < mCloudProjects.size() );
 
+  if ( index < 0 || index >= mCloudProjects.size() )
+    return;
+
   QModelIndex idx = createIndex( index, 0 );
   NetworkReply *reply = mCloudConnection->post( QStringLiteral( "/api/v1/deltas/apply/%1/" ).arg( mCloudProjects[index].id ) );
 
@@ -1117,11 +1192,13 @@ void QFieldCloudProjectsModel::projectGetDeltaStatus( const QString &projectId )
 void QFieldCloudProjectsModel::projectUploadAttachments( const QString &projectId )
 {
   const int index = findProject( projectId );
-  if ( !mCloudConnection || index == -1 || mCloudProjects[index].uploadAttachments.size() == 0 )
+
+  Q_ASSERT( index >= 0 && index < mCloudProjects.size() );
+
+  if ( !mCloudConnection || index < 0 || index >= mCloudProjects.size() || mCloudProjects[index].uploadAttachments.size() == 0 )
     return;
 
   QModelIndex idx = createIndex( index, 0 );
-  Q_ASSERT( index >= 0 && index < mCloudProjects.size() );
 
   // start uploading the attachments
   const QStringList attachmentFileNames = mCloudProjects[index].uploadAttachments.keys();
@@ -1175,7 +1252,7 @@ void QFieldCloudProjectsModel::projectUploadAttachments( const QString &projectI
 void QFieldCloudProjectsModel::projectCancelUpload( const QString &projectId )
 {
   int index = findProject( projectId );
-  if ( !mCloudConnection || index == -1 )
+  if ( !mCloudConnection || index < 0 || index >= mCloudProjects.size() )
     return;
 
   projectCancelUploadAttachments( projectId );
@@ -1193,7 +1270,7 @@ void QFieldCloudProjectsModel::projectCancelUpload( const QString &projectId )
 void QFieldCloudProjectsModel::projectCancelUploadAttachments( const QString &projectId )
 {
   int index = findProject( projectId );
-  if ( !mCloudConnection || index == -1 )
+  if ( !mCloudConnection || index < 0 || index >= mCloudProjects.size() )
     return;
 
   const QStringList attachmentFileNames = mCloudProjects[index].uploadAttachments.keys();
@@ -1227,7 +1304,7 @@ void QFieldCloudProjectsModel::layerObserverLayerEdited( const QString &layerId 
 
   const int index = findProject( mCurrentProjectId );
 
-  if ( index == -1 || index >= mCloudProjects.size() )
+  if ( index < 0 || index >= mCloudProjects.size() )
   {
     QgsMessageLog::logMessage( QStringLiteral( "Layer observer triggered `isDirtyChanged` signal incorrectly" ) );
     return;
@@ -1281,7 +1358,7 @@ void QFieldCloudProjectsModel::downloadFileConnections( const QString &projectId
 {
   const int index = findProject( projectId );
 
-  if ( index == -1 || index >= mCloudProjects.size() )
+  if ( index < 0 || index >= mCloudProjects.size() )
     return;
 
   if ( !mCloudProjects[index].downloadFileTransfers.contains( fileName ) )
@@ -1300,6 +1377,8 @@ void QFieldCloudProjectsModel::downloadFileConnections( const QString &projectId
 
   QStringList fileNames = mCloudProjects[index].downloadFileTransfers.keys();
 
+  QgsLogger::debug( QStringLiteral( "File \"%1\" requested." ).arg( fileName ) );
+
   connect( reply, &NetworkReply::redirected, reply, [ = ]( const QUrl & url )
   {
     QUrl oldUrl = mCloudProjects[index].downloadFileTransfers[fileName].lastRedirectUrl;
@@ -1311,12 +1390,14 @@ void QFieldCloudProjectsModel::downloadFileConnections( const QString &projectId
     {
       QgsLogger::debug( QStringLiteral( "Export file \"%1/%2\" has too many redirects, last two urls are %3 and %4" ).arg( projectId, fileName, oldUrl.toString(), url.toString() ) );
       reply->abort();
+      return;
     }
 
     if ( oldUrl == url )
     {
       QgsLogger::debug( QStringLiteral( "Export file \"%1/%2\" has redirects to the same URL %3" ).arg( projectId, fileName, url.toString() ) );
       reply->abort();
+      return;
     }
 
     QgsLogger::debug( QStringLiteral( "Export file \"%1/%2\" redirected to %3" ).arg( projectId, fileName, url.toString() ) );
@@ -1325,7 +1406,7 @@ void QFieldCloudProjectsModel::downloadFileConnections( const QString &projectId
     mCloudProjects[index].downloadFileTransfers[fileName].networkReply = mCloudConnection->get( request, url );
 
     // we need to somehow finish the request, otherwise it will remain unfinished for the QFieldCloudConnection
-    emit reply->abort();
+    reply->abort();
 
     downloadFileConnections( projectId, fileName );
   } );
@@ -1401,8 +1482,16 @@ void QFieldCloudProjectsModel::downloadFileConnections( const QString &projectId
       emit projectDownloaded( projectId, mCloudProjects[index].name, true, trimmedErrorMessage );
     }
 
+    QgsLogger::debug( QStringLiteral( "File \"%1\" downloaded." ).arg( fileName ) );
+
+    updateActiveProjectFilesToDownload( projectId );
+
     if ( mCloudProjects[index].downloadFilesFinished == fileNames.count() )
     {
+      QgsLogger::debug( QStringLiteral( "All files downloaded." ) );
+
+      Q_ASSERT( mActiveProjectFilesToDownload.size() == 0 );
+
       if ( !hasError )
       {
         const QStringList unprefixedGpkgFileNames = filterGpkgFileNames( fileNames );
@@ -1449,6 +1538,10 @@ void QFieldCloudProjectsModel::downloadFileConnections( const QString &projectId
       }
 
       mCloudProjects[index].status = ProjectStatus::Idle;
+    }
+    else
+    {
+      projectDownloadFiles( projectId );
     }
 
     QModelIndex idx = createIndex( index, 0 );
@@ -1693,7 +1786,7 @@ bool QFieldCloudProjectsModel::revertLocalChangesFromCurrentProject()
 {
   const int index = findProject( mCurrentProjectId );
 
-  if ( index == -1 || index >= mCloudProjects.size() )
+  if ( index < 0 || index >= mCloudProjects.size() )
     return false;
 
   DeltaFileWrapper *deltaFileWrapper = mLayerObserver->deltaFileWrapper();
@@ -1721,7 +1814,7 @@ bool QFieldCloudProjectsModel::revertLocalChangesFromCurrentProject()
 bool QFieldCloudProjectsModel::discardLocalChangesFromCurrentProject()
 {
   const int index = findProject( mCurrentProjectId );
-  if ( index == -1 || index >= mCloudProjects.size() )
+  if ( index < 0 || index >= mCloudProjects.size() )
     return false;
 
   DeltaFileWrapper *deltaFileWrapper = mLayerObserver->deltaFileWrapper();

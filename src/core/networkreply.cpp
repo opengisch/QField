@@ -97,7 +97,7 @@ void NetworkReply::initiateRequest()
   connect( mReply, &QNetworkReply::encrypted, this, &NetworkReply::encrypted );
   connect( mReply, &QNetworkReply::downloadProgress, this, &NetworkReply::downloadProgress );
   connect( mReply, &QNetworkReply::uploadProgress, this, &NetworkReply::uploadProgress );
-  connect( mReply, &QNetworkReply::redirected, this, &NetworkReply::redirected );
+  connect( mReply, &QNetworkReply::redirected, this, &NetworkReply::onRedirected );
   connect( this, &NetworkReply::redirectAllowed, mReply, &QNetworkReply::redirectAllowed );
 
   // TODO remove this!!! temporary SSL workaround
@@ -110,9 +110,18 @@ void NetworkReply::initiateRequest()
   } );
 }
 
+void NetworkReply::onRedirected( const QUrl &url )
+{
+  mIsRedirected = true;
+  emit redirected( url );
+}
 
 void NetworkReply::onFinished()
 {
+  // NOTE redirected requests also end up here
+  if ( mIsRedirected )
+    return;
+
   bool canRetry = false;
   QNetworkReply::NetworkError error = mReply->error();
 
