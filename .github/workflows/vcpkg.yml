@@ -190,9 +190,6 @@ jobs:
             echo "TX_TOKEN not set, skip tx pull"
           else
             pip3 install transifex-client
-            pushd "${{ steps.vars.outputs.VCPKG_ROOT }}"
-            ./vcpkg integrate install
-            popd
             ./scripts/ci/pull_translations.sh
           fi
 
