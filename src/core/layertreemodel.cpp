@@ -759,6 +759,40 @@ QVariant FlatLayerTreeModelBase::data( const QModelIndex &index, int role ) cons
       return mTreeLevelMap.contains( index.row() + 1 ) && mTreeLevelMap[index.row() + 1] > mTreeLevelMap[index.row()];
     }
 
+    case FlatLayerTreeModel::HasLabels:
+    {
+      QModelIndex sourceIndex = mapToSource( index );
+      if ( !sourceIndex.isValid() )
+        return false;
+
+      QgsLayerTreeNode *node = mLayerTreeModel->index2node( sourceIndex );
+      QgsVectorLayer *layer = nullptr;
+      if ( QgsLayerTree::isLayer( node ) )
+      {
+        QgsLayerTreeLayer *nodeLayer = QgsLayerTree::toLayer( node );
+        layer = qobject_cast<QgsVectorLayer *>( nodeLayer->layer() );
+      }
+
+      return layer && layer->isSpatial() && layer->labeling();
+    }
+
+    case FlatLayerTreeModel::LabelsVisible:
+    {
+      QModelIndex sourceIndex = mapToSource( index );
+      if ( !sourceIndex.isValid() )
+        return false;
+
+      QgsLayerTreeNode *node = mLayerTreeModel->index2node( sourceIndex );
+      QgsVectorLayer *layer = nullptr;
+      if ( QgsLayerTree::isLayer( node ) )
+      {
+        QgsLayerTreeLayer *nodeLayer = QgsLayerTree::toLayer( node );
+        layer = qobject_cast<QgsVectorLayer *>( nodeLayer->layer() );
+      }
+
+      return layer && layer->isSpatial() && layer->labeling() && layer->labelsEnabled();
+    }
+
     default:
       return QAbstractProxyModel::data( index, role );
   }
@@ -790,6 +824,31 @@ bool FlatLayerTreeModelBase::setData( const QModelIndex &index, const QVariant &
         endRow++;
 
       emit dataChanged( index, createIndex( endRow, 0 ), QVector<int>() << FlatLayerTreeModel::Visible );
+      return true;
+    }
+
+    case FlatLayerTreeModel::LabelsVisible:
+    {
+      QModelIndex sourceIndex = mapToSource( index );
+      if ( !sourceIndex.isValid() )
+        return false;
+
+      QgsLayerTreeNode *node = mLayerTreeModel->index2node( sourceIndex );
+      QgsVectorLayer *layer = nullptr;
+      if ( QgsLayerTree::isLayer( node ) )
+      {
+        QgsLayerTreeLayer *nodeLayer = QgsLayerTree::toLayer( node );
+        layer = qobject_cast<QgsVectorLayer *>( nodeLayer->layer() );
+      }
+
+      if ( !layer || !layer->isSpatial() || !layer->labeling() )
+        return false;
+
+      layer->setLabelsEnabled( !layer->labelsEnabled() );
+      layer->emitStyleChanged();
+      layer->triggerRepaint();
+
+      emit dataChanged( index, index, QVector<int>() << FlatLayerTreeModel::LabelsVisible );
       return true;
     }
 
@@ -846,6 +905,8 @@ QHash<int, QByteArray> FlatLayerTreeModelBase::roleNames() const
   roleNames[FlatLayerTreeModel::IsParentCollapsed] = "IsParentCollapsed";
   roleNames[FlatLayerTreeModel::HasChildren] = "HasChildren";
   roleNames[FlatLayerTreeModel::CanReloadData] = "CanReloadData";
+  roleNames[FlatLayerTreeModel::HasLabels] = "HasLabels";
+  roleNames[FlatLayerTreeModel::LabelsVisible] = "LabelsVisible";
   return roleNames;
 }
 
