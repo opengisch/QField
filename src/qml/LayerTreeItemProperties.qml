@@ -21,9 +21,6 @@ Popup {
   property bool trackingButtonVisible: false
   property var trackingButtonText
 
-  property bool expandCheckBoxVisible: false
-
-
   width: Math.min( childrenRect.width, mainWindow.width - 20 )
   x: (parent.width - width) / 2
   y: (parent.height - height) / 2
@@ -33,8 +30,8 @@ Popup {
     updateTitle();
 
     itemVisibleCheckBox.checked = layerTree.data(index, FlatLayerTreeModel.Visible);
+    itemLabelsVisibleCheckBox.checked = layerTree.data(index, FlatLayerTreeModel.LabelsVisible);
 
-    expandCheckBoxVisible = layerTree.data(index, FlatLayerTreeModel.HasChildren)
     expandCheckBox.text = layerTree.data( index, FlatLayerTreeModel.Type ) === 'group' ? qsTr('Expand group') : qsTr('Expand legend item')
     expandCheckBox.checked = !layerTree.data(index, FlatLayerTreeModel.IsCollapsed)
 
@@ -93,8 +90,8 @@ Popup {
         bottomPadding: 5
         text: qsTr('Show on map')
         font: Theme.defaultFont
-        // everything but nonspatial vector layer
-        visible: !!(index && (!isSpatialLayer() && layerTree.data( index, FlatLayerTreeModel.LayerType ) !== 'vectorlayer' || isSpatialLayer()))
+        // visible for all layer tree items but nonspatial vector LayerSelector
+        visible: index && (layerTree.data(index, FlatLayerTreeModel.LayerType) !== 'vectorlayer' || isSpatialLayer()) ? true : false
         indicator.height: 16
         indicator.width: 16
         indicator.implicitHeight: 24
@@ -107,11 +104,32 @@ Popup {
       }
 
       CheckBox {
+        id: itemLabelsVisibleCheckBox
+        Layout.fillWidth: true
+        topPadding: 5
+        bottomPadding: 5
+        text: qsTr('Show labels')
+        font: Theme.defaultFont
+        visible: index && layerTree.data(index, FlatLayerTreeModel.HasLabels) ? true : false
+        indicator.height: 16
+        indicator.width: 16
+        indicator.implicitHeight: 24
+        indicator.implicitWidth: 24
+
+        onClicked: {
+          layerTree.setData(index, checkState === Qt.Checked, FlatLayerTreeModel.LabelsVisible);
+          close()
+        }
+      }
+
+      CheckBox {
         id: expandCheckBox
         Layout.fillWidth: true
+        topPadding: 5
+        bottomPadding: 5
         text: qsTr('Expand legend item')
         font: Theme.defaultFont
-        visible: expandCheckBoxVisible
+        visible: index && layerTree.data(index, FlatLayerTreeModel.HasChildren) ? true : false
 
         onClicked: {
           layerTree.setData(index, checkState === Qt.Unchecked, FlatLayerTreeModel.IsCollapsed);
