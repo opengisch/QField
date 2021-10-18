@@ -148,14 +148,14 @@ int main( int argc, char **argv )
   QTranslator qtTranslator;
   if ( !customLanguage.isEmpty() )
   {
-    qfieldTranslator.load( QStringLiteral( "qfield_%1" ).arg( customLanguage ), QStringLiteral( ":/i18n/" ) );
-    qtTranslator.load( QLocale(), "qt", "_", ":/i18n/" );
+    qfieldTranslator.load( QStringLiteral( "qfield_%1" ).arg( customLanguage ), QStringLiteral( ":/i18n/" ), "_" );
+    qtTranslator.load( QStringLiteral( "qt_%1" ).arg( customLanguage ), QStringLiteral( ":/i18n/" ), "_" );
   }
   if ( qfieldTranslator.isEmpty() )
-  {
     qfieldTranslator.load( QLocale(), "qfield", "_", ":/i18n/" );
+  if ( qtTranslator.isEmpty() )
     qtTranslator.load( QLocale(), "qt", "_", ":/i18n/" );
-  }
+
   app.installTranslator( &qtTranslator );
   app.installTranslator( &qfieldTranslator );
 
