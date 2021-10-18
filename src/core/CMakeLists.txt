@@ -191,6 +191,8 @@ elseif(${CMAKE_SYSTEM_NAME} STREQUAL "iOS")
   set(QFIELD_CORE_SRCS
       ${QFIELD_CORE_SRCS} platforms/ios/iosplatformutilities.mm
       platforms/ios/iospicturesource.mm)
+elseif(WIN32)
+  set(QFIELD_CORE_SRCS ${QFIELD_CORE_SRCS} platforms/windows/highdpifix.cpp)
 endif()
 
 find_package(Sqlite3)
