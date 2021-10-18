@@ -1,6 +1,5 @@
 Using additional fonts
-
-=====================
+======================
 
 In QField, you are able to use all the fonts you want.
 
