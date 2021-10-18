@@ -10,4 +10,4 @@ There add the path to the folder where are the external data.
 
 .. image:: ../images/external_path.png
 
-To make it works in the device, add the layers in the folder `QField/basemaps`
+To make it works in the device, add the layers in the folder `<device root>/QField/basemaps`
