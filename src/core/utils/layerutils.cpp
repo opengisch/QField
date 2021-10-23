@@ -49,7 +49,11 @@ QgsSymbol *LayerUtils::defaultSymbol( QgsVectorLayer *layer )
   {
     case QgsWkbTypes::PointGeometry:
     {
+#if _QGIS_VERSION_INT >= 32300
+      QgsSimpleMarkerSymbolLayer *symbolLayer = new QgsSimpleMarkerSymbolLayer( Qgis::MarkerShape::Circle, 2.6, 0.0, DEFAULT_SCALE_METHOD, QColor( 255, 0, 0, 100 ), QColor( 255, 0, 0 ) );
+#else
       QgsSimpleMarkerSymbolLayer *symbolLayer = new QgsSimpleMarkerSymbolLayer( QgsSimpleMarkerSymbolLayerBase::Circle, 2.6, 0.0, DEFAULT_SCALE_METHOD, QColor( 255, 0, 0, 100 ), QColor( 255, 0, 0 ) );
+#endif
       symbolLayer->setStrokeWidth( 0.6 );
       symbolLayers << symbolLayer;
       symbol = new QgsMarkerSymbol( symbolLayers );
