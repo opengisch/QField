@@ -836,6 +836,15 @@ void QgisMobileapp::readProjectFile()
               vlayer->setRenderer( renderer );
             }
           }
+          if ( !vlayer->labeling() )
+          {
+            QgsAbstractVectorLayerLabeling *labeling = LayerUtils::defaultLabeling( vlayer );
+            if ( labeling )
+            {
+              vlayer->setLabeling( labeling );
+              vlayer->setLabelsEnabled( vlayer->geometryType() == QgsWkbTypes::PointGeometry ? true : false );
+            }
+          }
         }
 
         if ( vectorLayers.size() > 1 )
