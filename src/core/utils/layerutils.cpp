@@ -17,10 +17,12 @@
 #include "layerutils.h"
 
 #include <qgsfillsymbollayer.h>
+#include <qgslabelobstaclesettings.h>
 #include <qgslayoutatlas.h>
 #include <qgslayoutmanager.h>
 #include <qgslinesymbollayer.h>
 #include <qgsmarkersymbollayer.h>
+#include <qgspallabeling.h>
 #include <qgsprintlayout.h>
 #include <qgsproject.h>
 #include <qgssinglesymbolrenderer.h>
@@ -30,9 +32,12 @@
 #include <qgslinesymbol.h>
 #include <qgsfillsymbol.h>
 #include <qgsvectorlayer.h>
+#include <qgsvectorlayerlabeling.h>
 #include <qgsvectorlayerutils.h>
 #include <qgswkbtypes.h>
 #include <qgsmessagelog.h>
+#include <qgstextformat.h>
+#include <qgstextbuffersettings.h>
 
 #include <QScopeGuard>
 
@@ -44,6 +49,10 @@ LayerUtils::LayerUtils( QObject *parent )
 QgsSymbol *LayerUtils::defaultSymbol( QgsVectorLayer *layer )
 {
   QgsSymbol *symbol = nullptr;
+
+  if ( !layer )
+    return symbol;
+
   QgsSymbolLayerList symbolLayers;
   switch ( layer->geometryType() )
   {
@@ -81,6 +90,70 @@ QgsSymbol *LayerUtils::defaultSymbol( QgsVectorLayer *layer )
       break;
   }
   return symbol;
+}
+
+QgsAbstractVectorLayerLabeling *LayerUtils::defaultLabeling( QgsVectorLayer *layer )
+{
+  QgsAbstractVectorLayerLabeling *labeling = nullptr;
+
+  if ( !layer )
+    return labeling;
+
+#if _QGIS_VERSION_INT >= 32100
+  bool foundFriendlyIdentifier = true;
+  QString fieldName = QgsVectorLayerUtils::guessFriendlyIdentifierField( layer->fields(), &foundFriendlyIdentifier );
+  if ( !foundFriendlyIdentifier )
+    return labeling;
+#else
+  QString fieldName = QgsVectorLayerUtils::guessFriendlyIdentifierField( layer->fields() );
+#endif
+
+  QgsPalLayerSettings settings;
+  settings.fieldName = fieldName;
+  settings.obstacleSettings().setIsObstacle( true );
+  switch ( layer->geometryType() )
+  {
+    case QgsWkbTypes::PointGeometry:
+    {
+      settings.placement = QgsPalLayerSettings::OrderedPositionsAroundPoint;
+      settings.offsetType = QgsPalLayerSettings::FromSymbolBounds;
+      break;
+    }
+
+    case QgsWkbTypes::LineGeometry:
+    {
+      settings.placement = QgsPalLayerSettings::Curved;
+      break;
+    }
+
+    case QgsWkbTypes::PolygonGeometry:
+    {
+      settings.placement = QgsPalLayerSettings::AroundPoint;
+      settings.obstacleSettings().setType( QgsLabelObstacleSettings::PolygonBoundary );
+      break;
+    }
+
+    case QgsWkbTypes::UnknownGeometry:
+    case QgsWkbTypes::NullGeometry:
+      break;
+  }
+
+  QgsTextFormat textFormat;
+  textFormat.setSize( 9 );
+  textFormat.setSizeUnit( QgsUnitTypes::RenderPoints );
+  textFormat.setColor( QColor( 0, 0, 0 ) );
+
+  QgsTextBufferSettings bufferSettings;
+  bufferSettings.setEnabled( true );
+  bufferSettings.setColor( QColor( 255, 255, 255 ) );
+  bufferSettings.setSize( 1 );
+  bufferSettings.setSizeUnit( QgsUnitTypes::RenderMillimeters );
+  textFormat.setBuffer( bufferSettings );
+  settings.setFormat( textFormat );
+
+  labeling = new QgsVectorLayerSimpleLabeling( settings );
+
+  return labeling;
 }
 
 bool LayerUtils::isAtlasCoverageLayer( QgsVectorLayer *layer )

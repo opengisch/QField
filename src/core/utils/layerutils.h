@@ -38,6 +38,8 @@ class LayerUtils : public QObject
     */
     static QgsSymbol *defaultSymbol( QgsVectorLayer *layer );
 
+    static QgsAbstractVectorLayerLabeling *defaultLabeling( QgsVectorLayer *layer );
+
     /**
     * Returns TRUE if the vector layer is used as an atlas coverage layer in
     * any of the print layouts of the currently opened project.
