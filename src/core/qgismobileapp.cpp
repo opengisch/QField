@@ -842,7 +842,7 @@ void QgisMobileapp::readProjectFile()
             if ( labeling )
             {
               vlayer->setLabeling( labeling );
-              vlayer->setLabelsEnabled( vlayer->geometryType() == QgsWkbTypes::PointGeometry ? true : false );
+              vlayer->setLabelsEnabled( vlayer->geometryType() == QgsWkbTypes::PointGeometry );
             }
           }
         }
