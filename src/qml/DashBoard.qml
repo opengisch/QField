@@ -71,8 +71,6 @@ Drawer {
 
         QfToolButton {
           id: cloudButton
-          enabled: false
-          visible: false
           anchors.verticalCenter: parent.verticalCenter
           iconSource: switch(cloudProjectsModel.currentProjectData.Status ) {
                         case QFieldCloudProjectsModel.Downloading:

@@ -281,18 +281,20 @@ Page {
         spacing: 12
 
         QfButton {
+          id: cloudProjectButton
+          Layout.fillWidth: true
+          text: qsTr( "QFieldCloud projects" )
+          onClicked: {
+            showQFieldCloudScreen()
+          }
+        }
+        QfButton {
           id: localProjectButton
           Layout.fillWidth: true
           text: qsTr( "Open local file" )
           onClicked: {
             showOpenProjectDialog()
           }
-        }
-        QfButton {
-          id: cloudProjectButton
-          Layout.fillWidth: true
-          text: qsTr( "QField Cloud projects, coming soon" )
-          enabled: false
         }
 
         Text {
