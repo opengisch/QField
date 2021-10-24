@@ -21,95 +21,92 @@ Popup {
     closePolicy: Popup.CloseOnEscape | Popup.CloseOnPressOutside
     focus: visible
 
-    ColumnLayout {
+    Page {
+        focus: true
         anchors.fill: parent
-        anchors.margins: 10
 
-        Text {
-            id: title
-            Layout.fillWidth: true
+        header: PageHeader {
+            title: qsTr("What's new in QField")
 
-            color: Theme.mainColor
-            font: Theme.titleFont
-            wrapMode: Text.WordWrap
-            horizontalAlignment: Text.AlignHCenter
+            showApplyButton: false
+            showCancelButton: false
+            showBackButton: true
 
-            text: qsTr( "What's new in QField" )
-        }
-
-        Flickable {
-            id: changelogFlickable
-            Layout.fillWidth: true
-            Layout.fillHeight: true
-            Layout.topMargin: 10
-            Layout.bottomMargin: 10
-            flickableDirection: Flickable.VerticalFlick
-            interactive: true
-            contentWidth: parent.width;
-            contentHeight: changelogGrid.height
-            clip: true
-
-            GridLayout {
-                id: changelogGrid
-
-                anchors.left: parent.left
-                anchors.right: parent.right
-
-                columns: 1
-
-                Text {
-                    id: changelogBody
-                    Layout.fillWidth: true
-                    Layout.fillHeight: true
-                    Layout.minimumHeight: contentHeight
-                    Layout.maximumHeight: contentHeight
-                    visible: changelogContents.status != ChangelogContents.LoadingStatus
-
-                    color: '#95000000'
-                    font: Theme.tipFont
-
-                    fontSizeMode: Text.VerticalFit
-                    textFormat: Text.MarkdownText
-                    wrapMode: Text.WordWrap
-
-                    text: {
-                        switch ( changelogContents.status ) {
-                        case ChangelogContents.IdleStatus:
-                        case ChangelogContents.LoadingStatus:
-                            return ''
-                        case ChangelogContents.SuccessStatus:
-                            return changelogContents.markdown
-                        case ChangelogContents.ErrorStatus:
-                            return qsTr( 'Error while fetching changelog, try again later.' )
-                        }
-                    }
-
-                    onLinkActivated: Qt.openUrlExternally(link)
-                }
-
-                BusyIndicator {
-                    Layout.alignment: Qt.AlignHCenter | Qt.AlignVCenter
-
-                    visible: changelogContents.status == ChangelogContents.LoadingStatus
-                    running: visible
-                }
+            onBack: {
+                changelogPopup.close()
             }
         }
 
-        QfButton {
-            id: sponsorshipButton
-            Layout.fillWidth: true
+        ColumnLayout {
+            anchors.fill: parent
+            anchors.margins: 10
 
-            text: qsTr( 'Help sponsor QField development')
-            onClicked: Qt.openUrlExternally("https://github.com/sponsors/opengisch")
-        }
+            Flickable {
+                id: changelogFlickable
+                Layout.fillWidth: true
+                Layout.fillHeight: true
+                Layout.topMargin: 10
+                Layout.bottomMargin: 10
+                flickableDirection: Flickable.VerticalFlick
+                interactive: true
+                contentWidth: parent.width;
+                contentHeight: changelogGrid.height
+                clip: true
 
-        QfButton {
-            id: closeButton
-            Layout.fillWidth: true
+                GridLayout {
+                    id: changelogGrid
 
-            text: qsTr( 'OK' )
-            onClicked: changelogPopup.close()
+                    anchors.left: parent.left
+                    anchors.right: parent.right
+
+                    columns: 1
+
+                    Text {
+                        id: changelogBody
+                        Layout.fillWidth: true
+                        Layout.fillHeight: true
+                        Layout.minimumHeight: contentHeight
+                        Layout.maximumHeight: contentHeight
+                        visible: changelogContents.status != ChangelogContents.LoadingStatus
+
+                        color: '#95000000'
+                        font: Theme.tipFont
+
+                        fontSizeMode: Text.VerticalFit
+                        textFormat: Text.MarkdownText
+                        wrapMode: Text.WordWrap
+
+                        text: {
+                            switch ( changelogContents.status ) {
+                            case ChangelogContents.IdleStatus:
+                            case ChangelogContents.LoadingStatus:
+                                return ''
+                            case ChangelogContents.SuccessStatus:
+                                return changelogContents.markdown
+                            case ChangelogContents.ErrorStatus:
+                                return qsTr( 'Error while fetching changelog, try again later.' )
+                            }
+                        }
+
+                        onLinkActivated: Qt.openUrlExternally(link)
+                    }
+
+                    BusyIndicator {
+                        Layout.alignment: Qt.AlignHCenter | Qt.AlignVCenter
+
+                        visible: changelogContents.status == ChangelogContents.LoadingStatus
+                        running: visible
+                    }
+                }
+            }
+
+            QfButton {
+                id: sponsorshipButton
+                Layout.fillWidth: true
+
+                text: qsTr( 'Help sponsor QField development')
+                onClicked: Qt.openUrlExternally("https://github.com/sponsors/opengisch")
+            }
         }
     }
 
