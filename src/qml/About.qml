@@ -113,7 +113,7 @@ Item {
             Layout.fillWidth: true
 
             text: qsTr( 'Help sponsor QField development')
-            onClicked: Qt.openUrlExternally("https://www.opengis.ch/android-gis/qfield/donate-and-sponsor/")
+            onClicked: Qt.openUrlExternally("https://github.com/sponsors/opengisch")
         }
 
         QfButton {
