@@ -111,8 +111,9 @@ Item {
         QfButton {
             id: sponsorshipButton
             Layout.fillWidth: true
+            icon.source: Theme.getThemeVectorIcon( 'ic_sponsor_white_24dp' )
 
-            text: qsTr( 'Help sponsor QField development')
+            text: qsTr( 'Support QField')
             onClicked: Qt.openUrlExternally("https://github.com/sponsors/opengisch")
         }
 
