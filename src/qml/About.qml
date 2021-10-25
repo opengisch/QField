@@ -6,84 +6,124 @@ import Theme 1.0
 import org.qfield 1.0
 
 Item {
-  Rectangle {
-    color: "black"
-    opacity: 0.8
-    anchors.fill: parent
-    MouseArea {
-      anchors.fill: parent
-      onClicked: {
-        parent.parent.visible = false
-      }
-    }
-  }
-
-  ColumnLayout {
-    id: informations
-    anchors.fill: parent
-    anchors.margins: 20
-
-    Label {
-      Layout.alignment: Qt.AlignCenter
-      Layout.maximumWidth: parent.width
-      horizontalAlignment: Text.AlignHCenter
-      color: Theme.light
-      font: Theme.strongFont
-      wrapMode: Text.WordWrap
-      text: {
-        var links = '<a href="https://github.com/opengisch/QField/commit/' + gitRev + '">' + gitRev.substr(0, 6) + '</a>'
-
-        if (appVersion)
-          links += ' <a href="https://github.com/opengisch/QField/releases/tag/' + appVersion + '">' + appVersion + '</a>'
-
-        qsTr( "QField Version: %1 (%2)").arg( appVersionStr ).arg( links )
-      }
-      onLinkActivated: Qt.openUrlExternally(link)
+    Rectangle {
+        color: "black"
+        opacity: 0.8
+        anchors.fill: parent
+        MouseArea {
+            anchors.fill: parent
+            onClicked: {
+                parent.parent.visible = false
+            }
+        }
     }
 
-    Item{
-      Layout.minimumHeight: 20
-    }
+    ColumnLayout {
+        id: aboutContainer
+        anchors.fill: parent
+        anchors.margins: 20
 
-    Label {
-      Layout.alignment: Qt.AlignCenter
-      font: Theme.strongFont
-      color: Theme.light
-      text: qsTr( "Developed by" )
-    }
-    MouseArea {
-      Layout.alignment: Qt.AlignCenter
-      width: opengis_logo.width
-      height: opengis_logo.height
-      Image {
-        id: opengis_logo
-        source: "qrc:/images/opengis-logo.svg"
-      }
-      onClicked: Qt.openUrlExternally("https://opengis.ch")
-    }
-    Label {
-      Layout.alignment: Qt.AlignCenter
-      font: Theme.strongFont
-      color: Theme.light
-      text: qsTr( "Support the development" )
-    }
-    MouseArea {
-      Layout.alignment: Qt.AlignCenter
-      width: donate_image.width
-      height: donate_image.height
-      Image {
-        id: donate_image
-        source: "qrc:/images/karma-logo.svg"
-      }
-      onClicked: Qt.openUrlExternally("https://www.opengis.ch/android-gis/qfield/donate-and-sponsor/")
-    }
-    QfButton {
-      id: changelogButton
-      Layout.fillWidth: true
+        ScrollView {
+            Layout.fillWidth: true
+            Layout.fillHeight: true
+            ScrollBar.horizontal.policy: ScrollBar.AlwaysOff
+            ScrollBar.vertical.policy: ScrollBar.AsNeeded
+            contentItem: information
+            contentWidth: information.width
+            contentHeight: information.height
+            clip: true
 
-      text: qsTr( 'Changelog' )
+            ColumnLayout {
+                id: information
+                width: aboutContainer.width
+                height: Math.max(mainWindow.height - changelogButton.height * 2 - 60, childrenRect.height)
 
-      onClicked: changelogPopup.open()
+                ColumnLayout {
+                    Layout.fillHeight: true
+                    width: aboutContainer.width
+
+                    MouseArea {
+                        Layout.alignment: Qt.AlignCenter
+                        Layout.preferredWidth: Math.min( 138, mainWindow.height / 4 )
+                        Layout.preferredHeight: Math.min( 138, mainWindow.height / 4 )
+                        Image {
+                            id: qfieldLogo
+                            width: parent.width
+                            source: "qrc:/images/qfield_logo.svg"
+                            sourceSize.width: width * screen.devicePixelRatio
+                        }
+                        onClicked: Qt.openUrlExternally("https://qfield.org/")
+                    }
+
+                    Label {
+                        Layout.fillWidth: true
+                        Layout.maximumWidth: parent.width
+                        Layout.alignment: Qt.AlignCenter
+                        horizontalAlignment: Text.AlignHCenter
+                        font: Theme.strongFont
+                        color: Theme.light
+                        textFormat: Text.RichText
+                        text: {
+                            var links = '<a href="https://github.com/opengisch/QField/commit/' + gitRev + '">' + gitRev.substr(0, 6) + '</a>'
+
+                            if (appVersion && appVersion !== '1.0.0')
+                                links += ' <a href="https://github.com/opengisch/QField/releases/tag/' + appVersion + '">' + appVersion + '</a>'
+
+                            return "<style>a, a:hover, a:visited { color:" + Theme.mainColor + "; }></style>QField<br>" + appVersionStr + " (" + links + ")"
+                        }
+                        onLinkActivated: Qt.openUrlExternally(link)
+                    }
+                }
+
+                ColumnLayout {
+                    Layout.fillHeight: true
+                    width: aboutContainer.width
+
+                    MouseArea {
+                        Layout.alignment: Qt.AlignCenter
+                        Layout.preferredWidth: Math.min( 91, mainWindow.height / 4 )
+                        Layout.preferredHeight: Math.min( 138, mainWindow.height / 4 )
+                        Image {
+                            id: opengisLogo
+                            width: parent.width
+                            source: "qrc:/images/opengis-logo.svg"
+                            sourceSize.width: width * screen.devicePixelRatio
+                        }
+                        onClicked: Qt.openUrlExternally("https://opengis.ch")
+                    }
+
+                    Label {
+                        Layout.fillWidth: true
+                        Layout.maximumWidth: parent.width
+                        Layout.alignment: Qt.AlignCenter
+                        horizontalAlignment: Text.AlignHCenter
+                        font: Theme.strongFont
+                        color: Theme.light
+                        textFormat: Text.RichText
+                        text: '<style>a, a:hover, a:visited { color:' + Theme.mainColor + '; }></style>' +qsTr( "Developed by" ) + '<br><a href="https://opengis.ch">OPENGIS.ch</a>'
+                        onLinkActivated: Qt.openUrlExternally(link)
+                    }
+                }
+            }
+        }
+
+
+        QfButton {
+            id: sponsorshipButton
+            Layout.fillWidth: true
+            icon.source: Theme.getThemeVectorIcon( 'ic_sponsor_white_24dp' )
+
+            text: qsTr( 'Support QField')
+            onClicked: Qt.openUrlExternally("https://github.com/sponsors/opengisch")
+        }
+
+        QfButton {
+            id: changelogButton
+            Layout.fillWidth: true
+
+            text: qsTr( 'Changelog' )
+
+            onClicked: changelogPopup.open()
+        }
     }
-  }
 }

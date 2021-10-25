@@ -9,145 +9,146 @@ import org.qfield 1.0
 
 
 Popup {
-  id: changelogPopup
+    id: changelogPopup
 
-  parent: ApplicationWindow.overlay
-  x: 24
-  y: 24
-  width: parent.width - 48
-  height: parent.height - 48
-  padding: 0
-  modal: true
-  closePolicy: Popup.CloseOnEscape | Popup.CloseOnPressOutside
-  focus: visible
+    parent: ApplicationWindow.overlay
+    x: 12
+    y: 12
+    width: parent.width - 24
+    height: parent.height - 24
+    padding: 0
+    modal: true
+    closePolicy: Popup.CloseOnEscape | Popup.CloseOnPressOutside
+    focus: visible
 
-  Flickable {
-    id: changelogFlickable
-    anchors.fill: parent
-    flickableDirection: Flickable.VerticalFlick
-    interactive: true
-    contentWidth: parent.width; contentHeight: changelogGrid.height
-    clip: true
+    Page {
+        focus: true
+        anchors.fill: parent
 
-    GridLayout {
-      id: changelogGrid
+        header: PageHeader {
+            title: qsTr("What's new in QField")
 
-      anchors.left: parent.left
-      anchors.right: parent.right
-      anchors.margins: 20
+            showApplyButton: false
+            showCancelButton: false
+            showBackButton: true
 
-      columns: 1
-
-      Item {
-          // top margin
-          height: 20
-      }
-
-      Text {
-        id: title
-        text: qsTr( "What's new in the latest QField" )
-        color: Theme.mainColor
-        font: Theme.titleFont
-        minimumPixelSize: 12
-
-
-        fontSizeMode: Text.VerticalFit
-        wrapMode: Text.WordWrap
-        Layout.fillWidth: true
-        Layout.fillHeight: true
-        Layout.minimumHeight: contentHeight
-        Layout.maximumHeight: contentHeight
-      }
-
-      Text {
-        id: changelogBody
-        color: '#95000000'
-        font: Theme.tipFont
-        visible: changelogContents.status != ChangelogContents.LoadingStatus
-
-        fontSizeMode: Text.VerticalFit
-        textFormat: Text.MarkdownText
-        wrapMode: Text.WordWrap
-        Layout.fillWidth: true
-        Layout.fillHeight: true
-        Layout.minimumHeight: contentHeight
-        Layout.maximumHeight: contentHeight
-
-        text: {
-          switch ( changelogContents.status ) {
-            case ChangelogContents.IdleStatus:
-            case ChangelogContents.LoadingStatus:
-              return ''
-            case ChangelogContents.SuccessStatus:
-              return changelogContents.markdown
-            case ChangelogContents.ErrorStatus:
-              return qsTr( 'Error while fetching changelog. Try again later.' )
-          }
+            onBack: {
+                changelogPopup.close()
+            }
         }
 
-        onLinkActivated: Qt.openUrlExternally(link)
-      }
+        ColumnLayout {
+            anchors.fill: parent
+            anchors.margins: 10
 
-      BusyIndicator {
-        Layout.alignment: parent.Layout.alignment
+            Flickable {
+                id: changelogFlickable
+                Layout.fillWidth: true
+                Layout.fillHeight: true
+                Layout.topMargin: 10
+                Layout.bottomMargin: 10
+                flickableDirection: Flickable.VerticalFlick
+                interactive: true
+                contentWidth: parent.width;
+                contentHeight: changelogGrid.height
+                clip: true
 
-        visible: changelogContents.status == ChangelogContents.LoadingStatus
-        running: visible
-      }
+                GridLayout {
+                    id: changelogGrid
 
-      QfButton {
-        id: closeButton
-        Layout.fillWidth: true
+                    anchors.left: parent.left
+                    anchors.right: parent.right
 
-        text: qsTr( 'OK' )
-        onClicked: changelogPopup.close()
-      }
+                    columns: 1
 
-      Item {
-          // bottom
-          height: 20
-      }
+                    Text {
+                        id: changelogBody
+                        Layout.fillWidth: true
+                        Layout.fillHeight: true
+                        Layout.minimumHeight: contentHeight
+                        Layout.maximumHeight: contentHeight
+                        visible: changelogContents.status != ChangelogContents.LoadingStatus
+
+                        color: '#95000000'
+                        font: Theme.tipFont
+
+                        fontSizeMode: Text.VerticalFit
+                        textFormat: Text.MarkdownText
+                        wrapMode: Text.WordWrap
+
+                        text: {
+                            switch ( changelogContents.status ) {
+                            case ChangelogContents.IdleStatus:
+                            case ChangelogContents.LoadingStatus:
+                                return ''
+                            case ChangelogContents.SuccessStatus:
+                                return changelogContents.markdown
+                            case ChangelogContents.ErrorStatus:
+                                return qsTr( 'Error while fetching changelog, try again later.' )
+                            }
+                        }
+
+                        onLinkActivated: Qt.openUrlExternally(link)
+                    }
+
+                    BusyIndicator {
+                        Layout.alignment: Qt.AlignHCenter | Qt.AlignVCenter
+
+                        visible: changelogContents.status == ChangelogContents.LoadingStatus
+                        running: visible
+                    }
+                }
+            }
+
+            QfButton {
+                id: sponsorshipButton
+                Layout.fillWidth: true
+                icon.source: Theme.getThemeVectorIcon( 'ic_sponsor_white_24dp' )
+
+                text: qsTr( 'Support QField')
+                onClicked: Qt.openUrlExternally("https://github.com/sponsors/opengisch")
+            }
+        }
     }
-  }
 
-  ChangelogContents {
-    id: changelogContents
-    onMarkdownChanged: {
-      if ( changelogContents.markdown ) {
-        settings.setValue( "/QField/isLoadingChangelog", false )
-        settings.remove( "/QField/isCrashingSslDevice" )
-      }
-    }
-  }
-
-  onClosed: {
-    if ( changelogContents.status === ChangelogContents.SuccessStatus ) {
-      settings.setValue( "/QField/ChangelogVersion", appVersion )
+    ChangelogContents {
+        id: changelogContents
+        onMarkdownChanged: {
+            if ( changelogContents.markdown ) {
+                settings.setValue( "/QField/isLoadingChangelog", false )
+                settings.remove( "/QField/isCrashingSslDevice" )
+            }
+        }
     }
 
-    changelogFlickable.contentY = 0
-  }
+    onClosed: {
+        if ( changelogContents.status === ChangelogContents.SuccessStatus ) {
+            settings.setValue( "/QField/ChangelogVersion", appVersion )
+        }
 
-  onOpened: {
-    if ( settings.valueBool( "/QField/isLoadingChangelog", false ) ) {
-      settings.setValue( "/QField/isCrashingSslDevice", true )
-    } else {
-      settings.remove( "/QField/isCrashingSslDevice" )
+        changelogFlickable.contentY = 0
     }
 
-    if ( settings.valueBool( "/QField/isCrashingSslDevice", false ) === true ) {
-      changelogBody.text = qsTr( "Change the latest QField changes on " )
-                            + ' <a href="https://github.com/opengisch/qfield/releases">' + qsTr( 'QField releases page' ) + '</a>.'
-      return
+    onOpened: {
+        if ( settings.valueBool( "/QField/isLoadingChangelog", false ) ) {
+            settings.setValue( "/QField/isCrashingSslDevice", true )
+        } else {
+            settings.remove( "/QField/isCrashingSslDevice" )
+        }
+
+        if ( settings.valueBool( "/QField/isCrashingSslDevice", false ) === true ) {
+            changelogBody.text = qsTr( "Change the latest QField changes on " )
+                    + ' <a href="https://github.com/opengisch/qfield/releases">' + qsTr( 'QField releases page' ) + '</a>.'
+            return
+        }
+
+        if ( changelogContents.status === ChangelogContents.SuccessStatus || changelogContents.status === ChangelogContents.LoadingStatus )
+            return
+
+        settings.remove( "/QField/isLoadingChangelog" )
+        settings.setValue( "/QField/isLoadingChangelog", true )
+        settings.sync()
+
+        changelogContents.request()
     }
-
-    if ( changelogContents.status === ChangelogContents.SuccessStatus || changelogContents.status === ChangelogContents.LoadingStatus )
-      return
-
-    settings.remove( "/QField/isLoadingChangelog" )
-    settings.setValue( "/QField/isLoadingChangelog", true )
-    settings.sync()
-
-    changelogContents.request()
-  }
 }
