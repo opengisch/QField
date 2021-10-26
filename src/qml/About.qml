@@ -44,13 +44,15 @@ Item {
 
                     MouseArea {
                         Layout.alignment: Qt.AlignCenter
-                        Layout.preferredWidth: Math.min( 138, mainWindow.height / 4 )
-                        Layout.preferredHeight: Math.min( 138, mainWindow.height / 4 )
+                        Layout.preferredWidth: 138
+                        Layout.preferredHeight: 138
                         Image {
                             id: qfieldLogo
                             width: parent.width
+                            height: parent.height
                             source: "qrc:/images/qfield_logo.svg"
                             sourceSize.width: width * screen.devicePixelRatio
+                            sourceSize.height: height * screen.devicePixelRatio
                         }
                         onClicked: Qt.openUrlExternally("https://qfield.org/")
                     }
@@ -81,13 +83,15 @@ Item {
 
                     MouseArea {
                         Layout.alignment: Qt.AlignCenter
-                        Layout.preferredWidth: Math.min( 91, mainWindow.height / 4 )
-                        Layout.preferredHeight: Math.min( 138, mainWindow.height / 4 )
+                        Layout.preferredWidth: 91
+                        Layout.preferredHeight:113
                         Image {
                             id: opengisLogo
                             width: parent.width
+                            height: parent.height
                             source: "qrc:/images/opengis-logo.svg"
                             sourceSize.width: width * screen.devicePixelRatio
+                            sourceSize.height: height * screen.devicePixelRatio
                         }
                         onClicked: Qt.openUrlExternally("https://opengis.ch")
                     }
