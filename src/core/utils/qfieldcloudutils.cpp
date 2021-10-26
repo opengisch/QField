@@ -52,7 +52,7 @@ bool QFieldCloudUtils::isCloudAction( const QgsMapLayer *layer )
 {
   Q_ASSERT( layer );
 
-  const QString layerAction( layer->customProperty( QStringLiteral( "QFieldSync/action" ) ).toString().toUpper() );
+  const QString layerAction( layer->customProperty( QStringLiteral( "QFieldSync/cloud_action" ) ).toString().toUpper() );
 
   if ( layerAction == QStringLiteral( "NO_ACTION" ) || layerAction == QStringLiteral( "REMOVE" ) )
     return false;
