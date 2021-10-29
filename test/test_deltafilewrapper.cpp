@@ -921,7 +921,7 @@ TEST_CASE( "Delta File Wrapper" )
     oldFeature.setGeometry( QgsGeometry( new QgsPoint( 25.9657, 43.8356 ) ) );
     newFeature.setGeometry( QgsGeometry( new QgsPoint( 23.398819, 41.7672147 ) ) );
 
-    dfw.addPatch( layer->id(), layer->id(), QStringLiteral( "fid" ), QStringLiteral( "fid" ), oldFeature, newFeature );
+    dfw.addPatch( layer->id(), layer->id(), QStringLiteral( "fid" ), QStringLiteral( "fid" ), oldFeature, newFeature, false );
 
     QJsonDocument expectedDoc = QJsonDocument::fromJson( QStringLiteral( R""""(
         [
@@ -953,7 +953,8 @@ TEST_CASE( "Delta File Wrapper" )
                 "int": 42,
                 "str": "stringy"
               },
-              "geometry": "Point (25.96569999999999823 43.83559999999999945)"
+              "geometry": "Point (25.96569999999999823 43.83559999999999945)",
+              "stores_snapshot": false
             }
           }
         ]
@@ -969,7 +970,7 @@ TEST_CASE( "Delta File Wrapper" )
     newFeature.setAttribute( QStringLiteral( "attachment" ), workDir.filePath( QUuid::createUuid().toString() ) );
     oldFeature.setGeometry( QgsGeometry( new QgsPoint( 25.9657, 43.8356 ) ) );
 
-    dfw.addPatch( layer->id(), layer->id(), QStringLiteral( "fid" ), QStringLiteral( "fid" ), oldFeature, newFeature );
+    dfw.addPatch( layer->id(), layer->id(), QStringLiteral( "fid" ), QStringLiteral( "fid" ), oldFeature, newFeature, false );
 
     expectedDoc = QJsonDocument::fromJson( QStringLiteral( R""""(
         [
@@ -999,7 +1000,8 @@ TEST_CASE( "Delta File Wrapper" )
                 "dbl": 3.14,
                 "int": 42,
                 "str": "stringy"
-              }
+              },
+              "stores_snapshot": false
             }
           }
         ]
@@ -1016,7 +1018,7 @@ TEST_CASE( "Delta File Wrapper" )
 
     dfw.addPatch( layer->id(), layer->id(), QStringLiteral( "fid" ), QStringLiteral( "fid" ), oldFeature, newFeature );
 
-    // Patch geometry only
+    // Patch geometry only, switch store snapshot on
     dfw.reset();
     newFeature.setAttribute( QStringLiteral( "dbl" ), 3.14 );
     newFeature.setAttribute( QStringLiteral( "int" ), 42 );
@@ -1027,7 +1029,7 @@ TEST_CASE( "Delta File Wrapper" )
     oldFeature.setAttribute( QStringLiteral( "attachment" ), QVariant() );
     oldFeature.setGeometry( QgsGeometry( new QgsPoint( 25.9657, 43.8356 ) ) );
 
-    dfw.addPatch( layer->id(), layer->id(), QStringLiteral( "fid" ), QStringLiteral( "fid" ), oldFeature, newFeature );
+    dfw.addPatch( layer->id(), layer->id(), QStringLiteral( "fid" ), QStringLiteral( "fid" ), oldFeature, newFeature, true );
 
     expectedDoc = QJsonDocument::fromJson( R""""(
         [
@@ -1041,10 +1043,20 @@ TEST_CASE( "Delta File Wrapper" )
             "sourcePk": "100",
             "method": "patch",
             "new": {
+              "attributes": {
+              },
               "geometry": "Point (23.39881899999999959 41.7672146999999967)"
             },
             "old": {
-              "geometry": "Point (25.96569999999999823 43.83559999999999945)"
+              "attributes": {
+                "attachment": null,
+                "dbl": 3.14,
+                "fid": 100,
+                "int": 42,
+                "str": "stringy"
+              },
+              "geometry": "Point (25.96569999999999823 43.83559999999999945)",
+              "stores_snapshot": true
             }
           }
         ]
@@ -1057,7 +1069,7 @@ TEST_CASE( "Delta File Wrapper" )
     oldFeature.setGeometry( QgsGeometry( new QgsPoint( 25.9657, 43.8356 ) ) );
     newFeature.setGeometry( QgsGeometry( new QgsPoint( 25.9657, 43.8356 ) ) );
 
-    dfw.addPatch( layer->id(), layer->id(), QStringLiteral( "fid" ), QStringLiteral( "fid" ), oldFeature, newFeature );
+    dfw.addPatch( layer->id(), layer->id(), QStringLiteral( "fid" ), QStringLiteral( "fid" ), oldFeature, newFeature, false );
 
     REQUIRE( QJsonDocument( getDeltasArray( dfw.toString() ) ) == QJsonDocument::fromJson( "[]" ) );
   }
@@ -1783,7 +1795,7 @@ TEST_CASE( "Delta File Wrapper" )
     oldFeature.setGeometry( QgsGeometry( new QgsPoint( 25.9657, 43.8356 ) ) );
     newFeature.setGeometry( QgsGeometry( new QgsPoint( 23.398819, 41.7672147 ) ) );
 
-    dfw.addPatch( layer->id(), layer->id(), QStringLiteral( "fid" ), QStringLiteral( "fid" ), oldFeature, newFeature );
+    dfw.addPatch( layer->id(), layer->id(), QStringLiteral( "fid" ), QStringLiteral( "fid" ), oldFeature, newFeature, false );
 
     REQUIRE( QJsonDocument( getDeltasArray( dfw.toString() ) ) == QJsonDocument::fromJson( QStringLiteral( R""""(
         [
@@ -1810,7 +1822,8 @@ TEST_CASE( "Delta File Wrapper" )
                 "int": 42,
                 "str": "stringy"
               },
-              "geometry": "Point (25.96569999999999823 43.83559999999999945)"
+              "geometry": "Point (25.96569999999999823 43.83559999999999945)",
+              "stores_snapshot": false
             }
           }
         ]
@@ -1839,7 +1852,7 @@ TEST_CASE( "Delta File Wrapper" )
     oldFeature.setGeometry( QgsGeometry( new QgsPoint( 25.9657, 43.8356 ) ) );
     newFeature.setGeometry( QgsGeometry( new QgsPoint( 23.398819, 41.7672147 ) ) );
 
-    dfw.addPatch( layer->id(), layer->id(), QStringLiteral( "fid" ), QStringLiteral( "fid" ), oldFeature, newFeature );
+    dfw.addPatch( layer->id(), layer->id(), QStringLiteral( "fid" ), QStringLiteral( "fid" ), oldFeature, newFeature, false );
 
     REQUIRE( QJsonDocument( getDeltasArray( dfw.toString() ) ) == QJsonDocument::fromJson( QStringLiteral( R""""(
         [
@@ -1866,7 +1879,8 @@ TEST_CASE( "Delta File Wrapper" )
                 "int": 42,
                 "str": "stringy"
               },
-              "geometry": "Point (25.96569999999999823 43.83559999999999945)"
+              "geometry": "Point (25.96569999999999823 43.83559999999999945)",
+              "stores_snapshot": false
             }
           }
         ]
