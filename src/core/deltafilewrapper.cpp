@@ -116,9 +116,11 @@ DeltaFileWrapper::DeltaFileWrapper( const QgsProject *project, const QString &fi
         // TODO validate delta item properties
 
         QVariantMap delta = v.toObject().toVariantMap();
+        const QString method = delta.value( QStringLiteral( "method" ) ).toString();
         const QString localLayerId = delta.value( QStringLiteral( "localLayerId" ) ).toString();
         const QString localPk = delta.value( QStringLiteral( "localPk" ) ).toString();
-        mLocalPkDeltaIdx[localLayerId][localPk] = mDeltas.count();
+        if ( method == QStringLiteral( "create" ) )
+          mLocalPkDeltaIdx[localLayerId][localPk] = mDeltas.count();
 
         mDeltas.append( v );
       }
@@ -449,7 +451,7 @@ QMap<QString, QString> DeltaFileWrapper::attachmentFileNames() const
 }
 
 
-void DeltaFileWrapper::addPatch( const QString &localLayerId, const QString &sourceLayerId, const QString &localPkAttrName, const QString &sourcePkAttrName, const QgsFeature &oldFeature, const QgsFeature &newFeature )
+void DeltaFileWrapper::addPatch( const QString &localLayerId, const QString &sourceLayerId, const QString &localPkAttrName, const QString &sourcePkAttrName, const QgsFeature &oldFeature, const QgsFeature &newFeature, bool storeSnapshot )
 {
   QJsonObject delta(
   {
@@ -470,13 +472,17 @@ void DeltaFileWrapper::addPatch( const QString &localLayerId, const QString &sou
   const QgsAttributes newAttrs = newFeature.attributes();
   QJsonObject oldData;
   QJsonObject newData;
-  bool areFeaturesEqual = false;
+  bool hasFeatureChanged = false;
 
   if ( !oldGeom.equals( newGeom ) )
   {
     oldData.insert( QStringLiteral( "geometry" ), geometryToJsonValue( oldGeom ) );
     newData.insert( QStringLiteral( "geometry" ), geometryToJsonValue( newGeom ) );
-    areFeaturesEqual = true;
+    hasFeatureChanged = true;
+  }
+  else if ( storeSnapshot )
+  {
+    oldData.insert( QStringLiteral( "geometry" ), geometryToJsonValue( oldGeom ) );
   }
 
   QgsFields fields;
@@ -549,7 +555,7 @@ void DeltaFileWrapper::addPatch( const QString &localLayerId, const QString &sou
     {
       tmpOldAttrs.insert( name, oldVal.isNull() ? QJsonValue::Null : QJsonValue::fromVariant( oldVal ) );
       tmpNewAttrs.insert( name, newVal.isNull() ? QJsonValue::Null : QJsonValue::fromVariant( newVal ) );
-      areFeaturesEqual = true;
+      hasFeatureChanged = true;
 
       if ( attachmentFieldsList.contains( name ) )
       {
@@ -575,20 +581,24 @@ void DeltaFileWrapper::addPatch( const QString &localLayerId, const QString &sou
         }
       }
     }
+    else if ( storeSnapshot )
+    {
+      tmpOldAttrs.insert( name, oldVal.isNull() ? QJsonValue::Null : QJsonValue::fromVariant( oldVal ) );
+    }
   }
 
   // if features are completely equal, there is no need to change the JSON
-  if ( !areFeaturesEqual )
+  if ( !hasFeatureChanged )
     return;
 
   if ( tmpOldAttrs.length() > 0 || tmpNewAttrs.length() > 0 )
   {
     oldData.insert( QStringLiteral( "attributes" ), tmpOldAttrs );
-    newData.insert( QStringLiteral( "attributes" ), tmpNewAttrs );
-
+    oldData.insert( QStringLiteral( "stores_snapshot" ), storeSnapshot );
     if ( tmpOldFileChecksums.length() > 0 )
       oldData.insert( QStringLiteral( "files_sha256" ), tmpOldFileChecksums );
 
+    newData.insert( QStringLiteral( "attributes" ), tmpNewAttrs );
     if ( tmpNewFileChecksums.length() > 0 )
       newData.insert( QStringLiteral( "files_sha256" ), tmpNewFileChecksums );
   }
