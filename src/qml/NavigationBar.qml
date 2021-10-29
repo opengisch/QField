@@ -312,10 +312,11 @@ Rectangle {
     id: editButton
 
     property bool supportsEditing: false
+    property bool isNewCloudFeature: false
 
     anchors.right: menuButton.left
 
-    width: ( parent.state == "Navigation" && supportsEditing && projectInfo.editRights ? 48: 0 )
+    width: ( parent.state == "Navigation" && supportsEditing && ( projectInfo.editRights || isNewCloudFeature ) ? 48: 0 )
     height: 48
     clip: true
 
@@ -336,6 +337,9 @@ Rectangle {
 
       function onFocusedItemChanged() {
         editButton.supportsEditing = selection.focusedLayer && selection.focusedLayer.supportsEditing
+      }
+      function onFocusedFeatureChanged() {
+        editButton.isNewCloudFeature = cloudProjectsModel.layerObserver.deltaFileWrapper.isNewFeature(selection.focusedLayer,selection.focusedFeature)
       }
     }
   }
