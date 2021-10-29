@@ -273,7 +273,7 @@ class DeltaFileWrapper : public QObject
      * @param oldFeature the old version of the feature that has been modified
      * @param newFeature the new version of the feature that has been modified
      */
-    void addPatch( const QString &localLayerId, const QString &sourceLayerId, const QString &localPkAttrName, const QString &sourcePkAttrName, const QgsFeature &oldFeature, const QgsFeature &newFeature );
+    void addPatch( const QString &localLayerId, const QString &sourceLayerId, const QString &localPkAttrName, const QString &sourcePkAttrName, const QgsFeature &oldFeature, const QgsFeature &newFeature, bool storeSnapshot = true );
 
 
     /**
