@@ -594,7 +594,6 @@ void DeltaFileWrapper::addPatch( const QString &localLayerId, const QString &sou
   if ( tmpOldAttrs.length() > 0 || tmpNewAttrs.length() > 0 )
   {
     oldData.insert( QStringLiteral( "attributes" ), tmpOldAttrs );
-    oldData.insert( QStringLiteral( "stores_snapshot" ), storeSnapshot );
     if ( tmpOldFileChecksums.length() > 0 )
       oldData.insert( QStringLiteral( "files_sha256" ), tmpOldFileChecksums );
 
@@ -607,6 +606,8 @@ void DeltaFileWrapper::addPatch( const QString &localLayerId, const QString &sou
     Q_ASSERT( tmpOldFileChecksums.isEmpty() );
     Q_ASSERT( tmpNewFileChecksums.isEmpty() );
   }
+
+  oldData.insert( QStringLiteral( "stores_snapshot" ), storeSnapshot );
 
   delta.insert( QStringLiteral( "old" ), oldData );
   delta.insert( QStringLiteral( "new" ), newData );
