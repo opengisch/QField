@@ -71,6 +71,6 @@
         <file>QFieldCloudScreen.qml</file>
         <file>QFieldCloudPopup.qml</file>
         <file>QFieldCloudDeltaHistory.qml</file>
-        <file>QFieldCloudExportLayersFeedback.qml</file>
+        <file>QFieldCloudPackageLayersFeedback.qml</file>
     </qresource>
 </RCC>

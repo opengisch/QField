@@ -52,8 +52,8 @@ class QFieldCloudProjectsModel : public QAbstractListModel
       ErrorStatusRole,
       ErrorStringRole,
       DownloadProgressRole,
-      ExportStatusRole,
-      ExportedLayerErrorsRole,
+      PackagingStatusRole,
+      PackagedLayerErrorsRole,
       UploadAttachmentsStatusRole,
       UploadAttachmentsCountRole,
       UploadDeltaProgressRole,
@@ -138,18 +138,18 @@ class QFieldCloudProjectsModel : public QAbstractListModel
 
     Q_ENUM( UploadAttachmentsStatus )
 
-    //! The status of the running server job for exporting a project.
-    enum ExportStatus
+    //! The status of the running server job for packaging a project.
+    enum PackagingStatus
     {
-      ExportErrorStatus,
-      ExportUnstartedStatus,
-      ExportPendingStatus,
-      ExportBusyStatus,
-      ExportFinishedStatus,
-      ExportAbortStatus,
+      PackagingErrorStatus,
+      PackagingUnstartedStatus,
+      PackagingPendingStatus,
+      PackagingBusyStatus,
+      PackagingFinishedStatus,
+      PackagingAbortStatus,
     };
 
-    Q_ENUM( ExportStatus )
+    Q_ENUM( PackagingStatus )
 
     QFieldCloudProjectsModel();
 
@@ -332,9 +332,9 @@ class QFieldCloudProjectsModel : public QAbstractListModel
       QString deltaFileUploadStatusString;
       QStringList deltaLayersToDownload;
 
-      ExportStatus exportStatus = ExportUnstartedStatus;
-      QString exportStatusString;
-      QStringList exportedLayerErrors;
+      PackagingStatus packagingStatus = PackagingUnstartedStatus;
+      QString packagingStatusString;
+      QStringList packagedLayerErrors;
       QMap<QString, FileTransfer> downloadFileTransfers;
       NetworkReply *apiNetworkReply = nullptr;
       int downloadFilesFinished = 0;
@@ -374,7 +374,7 @@ class QFieldCloudProjectsModel : public QAbstractListModel
     void projectUploadAttachments( const QString &projectId );
     void projectApplyDeltas( const QString &projectId );
     void projectGetDeltaStatus( const QString &projectId );
-    void projectGetExportStatus( const QString &projectId );
+    void projectGetPackagingStatus( const QString &projectId );
     bool projectMoveDownloadedFilesToPermanentStorage( const QString &projectId );
     QString projectGetDir( const QString &projectId, const QString &setting );
     void projectSetSetting( const QString &projectId, const QString &setting, const QVariant &value );
@@ -391,7 +391,7 @@ class QFieldCloudProjectsModel : public QAbstractListModel
     QStringList projectFileNames( const QString &projectPath, const QStringList &fileNames ) const;
     QStringList filterGpkgFileNames( const QStringList &fileNames ) const;
 
-    QFieldCloudProjectsModel::ExportStatus exportStatus( const QString &status ) const;
+    QFieldCloudProjectsModel::PackagingStatus packagingStatus( const QString &status ) const;
 
     void downloadFileConnections( const QString &projectId, const QString &fileName );
 };

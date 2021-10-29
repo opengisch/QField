@@ -74,8 +74,8 @@ Drawer {
           anchors.verticalCenter: parent.verticalCenter
           iconSource: switch(cloudProjectsModel.currentProjectData.Status ) {
                         case QFieldCloudProjectsModel.Downloading:
-                          switch ( cloudProjectsModel.currentProjectData.ExportStatus ) {
-                            case QFieldCloudProjectsModel.ExportFinishedStatus:
+                          switch ( cloudProjectsModel.currentProjectData.PackagingStatus ) {
+                            case QFieldCloudProjectsModel.PackagingFinishedStatus:
                               return Theme.getThemeVectorIcon('ic_cloud_download_24dp');
                             default:
                               return Theme.getThemeVectorIcon('ic_cloud_active_24dp');

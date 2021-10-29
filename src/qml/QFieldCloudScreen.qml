@@ -235,7 +235,7 @@ Page {
                     anchors.leftMargin: line.leftPadding
                     width: line.width - 20
                     height: 6
-                    indeterminate: ExportStatus !== QFieldCloudProjectsModel.ExportFinishedStatus
+                    indeterminate: PackagingStatus !== QFieldCloudProjectsModel.PackagingFinishedStatus
                     value: DownloadProgress
                     visible: Status === QFieldCloudProjectsModel.ProjectStatus.Downloading
                     z: 1
@@ -314,8 +314,8 @@ Page {
                                   case QFieldCloudProjectsModel.ProjectStatus.Idle:
                                     break
                                   case QFieldCloudProjectsModel.ProjectStatus.Downloading:
-                                    switch (ExportStatus) {
-                                      case QFieldCloudProjectsModel.ExportFinishedStatus:
+                                    switch (PackagingStatus) {
+                                      case QFieldCloudProjectsModel.PackagingFinishedStatus:
                                         status = qsTr( 'Downloading, %1% fetched…' ).arg( Math.round(DownloadProgress * 100) )
                                         break;
                                       default:

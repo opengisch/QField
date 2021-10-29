@@ -10,7 +10,7 @@ Dialog {
 
   property int selectedCount: 0
   property bool isDeleted: false
-  property alias exportedLayersListViewModel: exportedLayersListView.model
+  property alias packagedLayersListViewModel: packagedLayersListView.model
 
   visible: false
   modal: true
@@ -19,7 +19,7 @@ Dialog {
   x: ( mainWindow.width - width ) / 2
   y: ( mainWindow.height - height ) / 2
 
-  title: qsTr("Problematic QFieldCloud layer exports")
+  title: qsTr("Problematic QFieldCloud layer packaging")
 
   ColumnLayout {
     id: layout
@@ -29,12 +29,12 @@ Dialog {
     Label {
       Layout.fillWidth: true
 
-      text: qsTr( "Some layers have not been exported correctly on QFieldCloud. These layers might be misconfigured or the data source is not accessible from the QFieldCloud server." )
+      text: qsTr( "Some layers have not been packaged correctly on QFieldCloud. These layers might be misconfigured or their data source is not accessible from the QFieldCloud server." )
       wrapMode: Text.WordWrap
     }
 
     ListView {
-      id: exportedLayersListView
+      id: packagedLayersListView
       model: []
 
       Layout.fillWidth: true

@@ -2181,8 +2181,8 @@ ApplicationWindow {
     height: parent.height
   }
 
-  QFieldCloudExportLayersFeedback {
-    id: cloudExportLayersFeedback
+  QFieldCloudPackageLayersFeedback {
+    id: cloudPackageLayersFeedback
     visible: false
     parent: ApplicationWindow.overlay
 

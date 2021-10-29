@@ -157,8 +157,8 @@ Popup {
           color: Theme.gray
           text: switch(cloudProjectsModel.currentProjectData.Status ) {
                   case QFieldCloudProjectsModel.Downloading:
-                    switch ( cloudProjectsModel.currentProjectData.ExportStatus ) {
-                      case QFieldCloudProjectsModel.ExportFinishedStatus:
+                    switch ( cloudProjectsModel.currentProjectData.PackagingStatus ) {
+                      case QFieldCloudProjectsModel.PackagingFinishedStatus:
                         return qsTr('Downloading %1%…').arg( parseInt(cloudProjectsModel.currentProjectData.DownloadProgress * 100) )
                       default:
                         return qsTr('QFieldCloud is preparing the latest data just for you. This might take some time, please hold tight…')
@@ -196,8 +196,8 @@ Popup {
             smooth: true
             source: switch(cloudProjectsModel.currentProjectData.Status ) {
                     case QFieldCloudProjectsModel.Downloading:
-                      switch ( cloudProjectsModel.currentProjectData.ExportStatus ) {
-                        case QFieldCloudProjectsModel.ExportFinishedStatus:
+                      switch ( cloudProjectsModel.currentProjectData.PackagingStatus ) {
+                        case QFieldCloudProjectsModel.PackagingFinishedStatus:
                           return Theme.getThemeVectorIcon('ic_cloud_download_24dp');
                         default:
                           return Theme.getThemeVectorIcon('ic_cloud_active_24dp');
@@ -273,10 +273,10 @@ Popup {
                   transferError.detailsText = errorString
                 }
 
-                if (projectData.ExportedLayerErrors.length !== 0)
+                if (projectData.PackagedLayerErrors.length !== 0)
                 {
-                  cloudExportLayersFeedback.exportedLayersListViewModel = projectData.ExportedLayerErrors;
-                  cloudExportLayersFeedback.visible = true;
+                  cloudPackageLayersFeedback.packagedLayersListViewModel = projectData.PackagedLayerErrors;
+                  cloudPackageLayersFeedback.visible = true;
                 }
               }
             }
