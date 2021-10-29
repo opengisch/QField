@@ -215,7 +215,14 @@ class DeltaFileWrapper : public QObject
     Q_INVOKABLE QString toFileForUpload( const QString &outFileName = QString() ) const;
 
 
-    Q_INVOKABLE bool isNewFeature( QgsVectorLayer *vl, QgsFeature feature );
+    /**
+     * Returns TRUE if a feature from a given vector layer is recorded as being
+     * created in the deltas file.
+     *
+     * @param vl the vector layer
+     * @param feature the feature
+     */
+    Q_INVOKABLE bool isCreatedFeature( QgsVectorLayer *vl, QgsFeature feature );
 
 
     /**
