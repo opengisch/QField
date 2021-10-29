@@ -339,7 +339,7 @@ Rectangle {
         editButton.supportsEditing = selection.focusedLayer && selection.focusedLayer.supportsEditing
       }
       function onFocusedFeatureChanged() {
-        editButton.isNewCloudFeature = cloudProjectsModel.layerObserver.deltaFileWrapper.isNewFeature(selection.focusedLayer,selection.focusedFeature)
+        editButton.isNewCloudFeature = cloudProjectsModel.layerObserver.deltaFileWrapper.isCreatedFeature(selection.focusedLayer,selection.focusedFeature)
       }
     }
   }

@@ -1022,7 +1022,7 @@ bool DeltaFileWrapper::applyDeltasOnLayers( QHash<QString, QgsVectorLayer *> &ve
   return true;
 }
 
-bool DeltaFileWrapper::isNewFeature( QgsVectorLayer *vl, QgsFeature feature )
+bool DeltaFileWrapper::isCreatedFeature( QgsVectorLayer *vl, QgsFeature feature )
 {
   if ( !vl )
     return false;
