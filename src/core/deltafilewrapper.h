@@ -215,6 +215,9 @@ class DeltaFileWrapper : public QObject
     Q_INVOKABLE QString toFileForUpload( const QString &outFileName = QString() ) const;
 
 
+    Q_INVOKABLE bool isNewFeature( QgsVectorLayer *vl, QgsFeature feature );
+
+
     /**
      * Appends the provided deltas JSON array at the end of the current file.
      */

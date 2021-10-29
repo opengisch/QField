@@ -1018,6 +1018,35 @@ bool DeltaFileWrapper::applyDeltasOnLayers( QHash<QString, QgsVectorLayer *> &ve
   return true;
 }
 
+bool DeltaFileWrapper::isNewFeature( QgsVectorLayer *vl, QgsFeature feature )
+{
+  if ( !vl )
+    return false;
+
+  const QPair<int, QString> localPkAttrPair = getLocalPkAttribute( vl );
+  // no local primary key, we can't assess state
+  if ( localPkAttrPair.first == -1 )
+    return false;
+
+  const QString pk = feature.attribute( localPkAttrPair.second ).toString();
+  const QString layerId = vl->id();
+
+  for ( const QJsonValue &deltaJson : std::as_const( mDeltas ) )
+  {
+    QVariantMap delta = deltaJson.toObject().toVariantMap();
+    const QString method = delta.value( QStringLiteral( "method" ) ).toString();
+    if ( method != QStringLiteral( "create" ) )
+      continue;
+
+    const QString localLayerId = delta.value( QStringLiteral( "localLayerId" ) ).toString();
+    const QString localPk = delta.value( QStringLiteral( "localPk" ) ).toString();
+    if ( localLayerId == layerId && localPk == pk )
+      return true;
+  }
+
+  return false;
+}
+
 
 QPair<int, QString> DeltaFileWrapper::getLocalPkAttribute( const QgsVectorLayer *vl )
 {
