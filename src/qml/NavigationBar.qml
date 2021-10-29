@@ -312,11 +312,11 @@ Rectangle {
     id: editButton
 
     property bool supportsEditing: false
-    property bool isNewCloudFeature: false
+    property bool isCreatedCloudFeature: false
 
     anchors.right: menuButton.left
 
-    width: ( parent.state == "Navigation" && supportsEditing && ( projectInfo.editRights || isNewCloudFeature ) ? 48: 0 )
+    width: ( parent.state == "Navigation" && supportsEditing && ( projectInfo.editRights || isCreatedCloudFeature ) ? 48: 0 )
     height: 48
     clip: true
 
@@ -339,7 +339,7 @@ Rectangle {
         editButton.supportsEditing = selection.focusedLayer && selection.focusedLayer.supportsEditing
       }
       function onFocusedFeatureChanged() {
-        editButton.isNewCloudFeature = cloudProjectsModel.layerObserver.deltaFileWrapper.isCreatedFeature(selection.focusedLayer,selection.focusedFeature)
+        editButton.isCreatedCloudFeature = cloudProjectsModel.layerObserver.deltaFileWrapper.isCreatedFeature(selection.focusedLayer,selection.focusedFeature)
       }
     }
   }
@@ -634,8 +634,8 @@ Rectangle {
     MenuItem {
       text: qsTr( 'Delete Feature' )
       icon.source: Theme.getThemeIcon( "ic_delete_forever_white_24dp" )
-      enabled: projectInfo.editRights
-      visible: projectInfo.editRights
+      enabled: projectInfo.editRights || editButton.isCreatedCloudFeature
+      visible: projectInfo.editRights || editButton.isCreatedCloudFeature
 
       font: Theme.defaultFont
       height: visible ? 48 : 0
