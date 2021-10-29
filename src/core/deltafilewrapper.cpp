@@ -113,8 +113,12 @@ DeltaFileWrapper::DeltaFileWrapper( const QgsProject *project, const QString &fi
           mErrorType = DeltaFileWrapper::ErrorTypes::JsonFormatDeltaItemError;
           continue;
         }
-
         // TODO validate delta item properties
+
+        QVariantMap delta = v.toObject().toVariantMap();
+        const QString localLayerId = delta.value( QStringLiteral( "localLayerId" ) ).toString();
+        const QString localPk = delta.value( QStringLiteral( "localPk" ) ).toString();
+        mLocalPkDeltaIdx[localLayerId][localPk] = mDeltas.count();
 
         mDeltas.append( v );
       }
