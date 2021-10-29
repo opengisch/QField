@@ -278,7 +278,7 @@ Rectangle {
     visible: stateMachine.state === "digitize"
              && ! selection.focusedGeometry.isNull
              && ! selection.focusedLayer.customProperty( "QFieldSync/is_geometry_locked", false )
-             && projectInfo.editRights
+             && ( projectInfo.editRights || editButton.isCreatedCloudFeature )
 
     anchors.right: editButton.left
 
@@ -608,8 +608,8 @@ Rectangle {
     MenuItem {
       text: qsTr( 'Move Feature' )
       icon.source: Theme.getThemeVectorIcon( "ic_move_white_24dp" )
-      enabled: projectInfo.editRights
-      visible: projectInfo.editRights
+      enabled: projectInfo.editRights || editButton.isCreatedCloudFeature
+      visible: projectInfo.editRights || editButton.isCreatedCloudFeature
 
       font: Theme.defaultFont
       height: visible ? 48 : 0
