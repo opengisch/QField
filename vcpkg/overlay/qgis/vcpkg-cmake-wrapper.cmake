@@ -107,6 +107,13 @@ if(QGIS_FOUND AND "@VCPKG_LIBRARY_LINKAGE@" STREQUAL "static")
   _find_and_link_library(provider_postgres_a qgis_core)
   _find_and_link_library(provider_postgresraster_a qgis_core)
   _find_and_link_library(provider_wms_a qgis_core)
+  _find_and_link_library(provider_delimitedtext_a qgis_core)
+  _find_and_link_library(provider_arcgisfeatureserver_a qgis_core)
+  _find_and_link_library(provider_arcgismapserver_a qgis_core)
+  _find_and_link_library(provider_spatialite_a qgis_core)
+  _find_and_link_library(provider_wfs_a qgis_core)
+  _find_and_link_library(provider_virtuallayer_a qgis_core)
+
   _find_and_link_library(pq qgis_core)
   # Relink qgis_core in the end, to make all the qgis plugins happy that need symbols from it
   _find_and_link_library(qgis_core qgis_core)
