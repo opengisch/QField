@@ -151,7 +151,7 @@
 <p>QField creates forms similar to, but not equal to QGIS.</p>
 <div class="section" id="suppress-attribute-form">
 <h2>Suppress Attribute Form<a class="headerlink" href="#suppress-attribute-form" title="Permalink to this headline">¶</a></h2>
-<p>The setting 《suppress attribute form》 is directly applied to the QField form.</p>
+<p>The setting “suppress attribute form” is directly applied to the QField form.</p>
 </div>
 <div class="section" id="field-widget">
 <span id="edit-field-widgets"></span><h2>Field widget<a class="headerlink" href="#field-widget" title="Permalink to this headline">¶</a></h2>
@@ -229,7 +229,7 @@ and doc (if the user has an appropriate viewer)
 </div>
 </div>
 <p>The relation widget shows all the referencing child features in a list. It is possible to add, delete and open them.</p>
-<p>The visual identification of the list entries are done via the 《Display Expression》 of the child layer.</p>
+<p>The visual identification of the list entries are done via the “Display Expression” of the child layer.</p>
 <p><strong>Key handling</strong></p>
 <p>Since the parents primary keys are used as foreign keys on the referencing child features, these primary keys must be save to use even after the synchronization back to the original data. Therefore we recommend to use stable values such as UUIDs for primary keys.</p>
 <p>It is possible to already add children from a parent that is about to be added. This possibility will be blocked if there is no valid primary key on the parent or the constraints are violated. In case the adding of the parent feature is canceled after some children have been added already, the children are deleted as well.</p>
@@ -244,7 +244,7 @@ and doc (if the user has an appropriate viewer)
 <p>In case of the many-to-one cardinality on many-to-many relations the Display Expression needs to be set on the linking table.</p>
 <div class="section" id="attachment-photo-settings">
 <span id="attachment"></span><h3>Attachment (photo settings)<a class="headerlink" href="#attachment-photo-settings" title="Permalink to this headline">¶</a></h3>
-<p>The widget type 《Attachment》 is used with fields that store the path to files.</p>
+<p>The widget type “Attachment” is used with fields that store the path to files.</p>
 <p>It can be used to:</p>
 <ul class="simple">
 <li>show and take photos</li>
@@ -263,7 +263,7 @@ and doc (if the user has an appropriate viewer)
 </div>
 </div>
 <p>On synchronization the sub-directory with the pictures, pdf and docs has to be copied as well.</p>
-<p>The option 《hyperlink》 on the attachment widget will disable the camera functionality and enable a hyperlink to open a document (pdf, doc, …).</p>
+<p>The option “hyperlink” on the attachment widget will disable the camera functionality and enable a hyperlink to open a document (pdf, doc, …).</p>
 <div class="clearer text-center docutils container">
 <div class="figure">
 <a class="reference internal image-reference" href="../_images/hyperlink_option.png"><img alt="hyperlink_option" src="../_images/hyperlink_option.png" style="width: 600px;" /></a>
@@ -273,7 +273,7 @@ and doc (if the user has an appropriate viewer)
 </div>
 <div class="section" id="value-relation">
 <h2>Value Relation<a class="headerlink" href="#value-relation" title="Permalink to this headline">¶</a></h2>
-<p>The widget 《Value Relation》 offers values from a related table in a combobox. You can select layer, key column and value column. Several options are available to change the standard behaviors: allow null value, order by value and allow multiple selections. The widget will display a drop-down or multiple-select list of the referenced features.</p>
+<p>The widget “Value Relation” offers values from a related table in a combobox. You can select layer, key column and value column. Several options are available to change the standard behaviors: allow null value, order by value and allow multiple selections. The widget will display a drop-down or multiple-select list of the referenced features.</p>
 <div class="clearer text-center docutils container">
 <div class="figure">
 <a class="reference internal image-reference" href="../_images/value_relation_widget.gif"><img alt="value_relation_widget" src="../_images/value_relation_widget.gif" style="width: 600px;" /></a>
@@ -289,13 +289,13 @@ and doc (if the user has an appropriate viewer)
 <p>Groups can be hidden based on an expression. This is useful when certain attributes are
 only required under certain conditions. As an example imagine mapping trees. Some of them
 might have a disease and you have a list of possible deseases. To not clutter the form with
-many fields, make a group and configure a visibility expression for a group 《diseases》. Add
-a field 《desease》 with a checkbox. Only when the checkbox is checked, the list of diseases
+many fields, make a group and configure a visibility expression for a group “diseases”. Add
+a field “desease” with a checkbox. Only when the checkbox is checked, the list of diseases
 will be available to the user.</p>
 <div class="clearer text-center docutils container">
 <div class="figure" id="id2">
 <a class="reference internal image-reference" href="../_images/conditional_visibility_configuration.png"><img alt="Conditional visibility configuration" src="../_images/conditional_visibility_configuration.png" style="width: 600px;" /></a>
-<p class="caption"><span class="caption-text">Configuration of a group box that will only be shown if the checkbox 《measures_taken》 is checked.</span></p>
+<p class="caption"><span class="caption-text">Configuration of a group box that will only be shown if the checkbox “measures_taken” is checked.</span></p>
 </div>
 </div>
 <p>Let’s see what we got on the field:</p>

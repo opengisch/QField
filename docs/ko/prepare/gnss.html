@@ -20,7 +20,7 @@
     <link rel="shortcut icon" href="../_static/favicon.ico"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="〈Live〉 default value updates when editing features" href="live_default_value.html" />
+    <link rel="next" title="‘Live’ default value updates when editing features" href="live_default_value.html" />
     <link rel="prev" title="Display expression" href="display-expression.html" />
 <meta charset='utf-8'>
 <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
@@ -90,7 +90,7 @@
     </a>
   </li>
   <li>
-    <a href="live_default_value.html" title="Next Chapter: 〈Live〉 default value updates when editing features"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm hidden-tablet">〈Live〉 defaul... &raquo;</span>
+    <a href="live_default_value.html" title="Next Chapter: ‘Live’ default value updates when editing features"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm hidden-tablet">‘Live’ defaul... &raquo;</span>
     </a>
   </li>
             
@@ -150,9 +150,9 @@ These will only be available when positioning is enabled.</p>
 individual measured points.</p>
 <ul class="simple">
 <li><cite>&#64;position_source_name</cite>
-- The name of the device that gave location information as reported by the sensor. To differenciate between internal and external sensor. If the position is manually set, and the position is not snapped to the cursor, the source name is 《manual》. <strong>In case the cursor is not snapped to the position, all other variables will be null, if you need this, use the ``gnss_`` variables instead</strong>.</li>
+- The name of the device that gave location information as reported by the sensor. To differenciate between internal and external sensor. If the position is manually set, and the position is not snapped to the cursor, the source name is “manual”. <strong>In case the cursor is not snapped to the position, all other variables will be null, if you need this, use the ``gnss_`` variables instead</strong>.</li>
 <li><cite>&#64;position_quality_description</cite>
-- A human readable and translated string for the quality as reported by the sensor. E.g. 《Fixed RTK》. It is only available when the crosshair is snapped to the sensor.
+- A human readable and translated string for the quality as reported by the sensor. E.g. “Fixed RTK”. It is only available when the crosshair is snapped to the sensor.
 - E
 - IE</li>
 <li><cite>&#64;position_coordinate</cite>
@@ -200,10 +200,10 @@ individual measured points.</p>
 - <cite>array_count(&#64;position_used_satellites)</cite>
 - E</li>
 <li><cite>&#64;position_fix_status_description</cite>
-- The GPS Fix Status 《NoData》, 《NoFix》, 《Fix2D》 or 《Fix3D》 as reported by the sensor. It is only available when the crosshair is snapped to the sensor.
+- The GPS Fix Status “NoData”, “NoFix”, “Fix2D” or “Fix3D” as reported by the sensor. It is only available when the crosshair is snapped to the sensor.
 - E</li>
 <li><cite>&#64;position_fix_mode</cite>
-- Fix mode (where 〈M〉 = Manual, forced to operate in 2D or 3D or 〈A〉 = Automatic, 3D/2D) as reported by the sensor. It is only available when the crosshair is snapped to the sensor.
+- Fix mode (where ‘M’ = Manual, forced to operate in 2D or 3D or ‘A’ = Automatic, 3D/2D) as reported by the sensor. It is only available when the crosshair is snapped to the sensor.
 - E</li>
 </ul>
 <p>All &#64;position_* variables have a corresponding &#64;gnss_* variable. The gnss variables always report the gnss sensor values, even when the crosshair is not snapped.</p>
@@ -234,7 +234,7 @@ To set this up, a point layer can be added to the project and attributes configu
 <a class="reference internal image-reference" href="../_images/vertex_log1.png"><img alt="set up attributes with variables" src="../_images/vertex_log1.png" style="width: 600px;" /></a>
 </div>
 </div>
-<p>Then the user assigns the role 《digitizing logger》 on a point layer.</p>
+<p>Then the user assigns the role “digitizing logger” on a point layer.</p>
 <p>Go to QFieldSync –&gt; project Properties</p>
 <div class="clearer text-left docutils container">
 <div class="figure">
