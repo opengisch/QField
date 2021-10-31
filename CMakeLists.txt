@@ -96,6 +96,7 @@ if (ANDROID)
 
   set(SHARE_PATH "${CMAKE_CURRENT_BINARY_DIR}/android-build/assets/share")
   file(COPY "${VCPKG_BASE_DIR}/share/proj4/" DESTINATION "${SHARE_PATH}/proj/")
+  file(MAKE_DIRECTORY "${SHARE_PATH}/qgis/")
   file(COPY "${VCPKG_BASE_DIR}/files/share/svg/" DESTINATION "${SHARE_PATH}/qgis/svg/")
   file(COPY "${VCPKG_BASE_DIR}/files/share/resources/" DESTINATION "${SHARE_PATH}/qgis/resources/")
 
