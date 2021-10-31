@@ -1,5 +1,5 @@
 set(QGIS_REF backport-45737-to-release-3_22)
-set(QGIS_SHA512 backport-45737-to-release-3_22)
+set(QGIS_SHA512 0)
 
 vcpkg_from_github(
     OUT_SOURCE_PATH SOURCE_PATH
