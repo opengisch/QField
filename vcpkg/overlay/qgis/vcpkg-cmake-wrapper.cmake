@@ -112,6 +112,7 @@ if(QGIS_FOUND AND "@VCPKG_LIBRARY_LINKAGE@" STREQUAL "static")
   _find_and_link_library(provider_arcgismapserver_a qgis_core)
   _find_and_link_library(provider_spatialite_a qgis_core)
   _find_and_link_library(provider_wfs_a qgis_core)
+  _find_and_link_library(provider_wcs_a qgis_core)
   _find_and_link_library(provider_virtuallayer_a qgis_core)
 
   _find_and_link_library(pq qgis_core)
