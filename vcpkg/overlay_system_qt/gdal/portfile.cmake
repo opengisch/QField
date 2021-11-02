@@ -229,7 +229,7 @@ else()
     endif()
 
     if ("libspatialite" IN_LIST FEATURES)
-        add_config("--with-spatialite=yes"  "SpatiaLite support:        yes")
+        add_config("--with-spatialite=${CURRENT_INSTALLED_DIR}"  "SpatiaLite support:        yes")
     elseif(DISABLE_SYSTEM_LIBRARIES)
         add_config("--with-spatialite=no"   "SpatiaLite support:        no")
     endif()
