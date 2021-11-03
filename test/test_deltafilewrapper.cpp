@@ -944,7 +944,8 @@ TEST_CASE( "Delta File Wrapper" )
               "files_sha256": {
                 "%1": "%2"
               },
-              "geometry": "Point (23.39881899999999959 41.7672146999999967)"
+              "geometry": "Point (23.39881899999999959 41.7672146999999967)",
+              "is_snapshot": false
             },
             "old": {
               "attributes": {
@@ -954,7 +955,7 @@ TEST_CASE( "Delta File Wrapper" )
                 "str": "stringy"
               },
               "geometry": "Point (25.96569999999999823 43.83559999999999945)",
-              "stores_snapshot": false
+              "is_snapshot": false
             }
           }
         ]
@@ -992,7 +993,8 @@ TEST_CASE( "Delta File Wrapper" )
               },
               "files_sha256": {
                 "%1": null
-              }
+              },
+              "is_snapshot": false
             },
             "old": {
               "attributes": {
@@ -1001,7 +1003,7 @@ TEST_CASE( "Delta File Wrapper" )
                 "int": 42,
                 "str": "stringy"
               },
-              "stores_snapshot": false
+              "is_snapshot": false
             }
           }
         ]
@@ -1045,7 +1047,8 @@ TEST_CASE( "Delta File Wrapper" )
             "new": {
               "attributes": {
               },
-              "geometry": "Point (23.39881899999999959 41.7672146999999967)"
+              "geometry": "Point (23.39881899999999959 41.7672146999999967)",
+              "is_snapshot": false
             },
             "old": {
               "attributes": {
@@ -1056,7 +1059,7 @@ TEST_CASE( "Delta File Wrapper" )
                 "str": "stringy"
               },
               "geometry": "Point (25.96569999999999823 43.83559999999999945)",
-              "stores_snapshot": true
+              "is_snapshot": true
             }
           }
         ]
@@ -1814,7 +1817,8 @@ TEST_CASE( "Delta File Wrapper" )
                 "int": 680,
                 "str": "pingy"
               },
-              "geometry": "Point (23.39881899999999959 41.7672146999999967)"
+              "geometry": "Point (23.39881899999999959 41.7672146999999967)",
+              "is_snapshot": false
             },
             "old": {
               "attributes": {
@@ -1823,7 +1827,7 @@ TEST_CASE( "Delta File Wrapper" )
                 "str": "stringy"
               },
               "geometry": "Point (25.96569999999999823 43.83559999999999945)",
-              "stores_snapshot": false
+              "is_snapshot": false
             }
           }
         ]
@@ -1871,7 +1875,8 @@ TEST_CASE( "Delta File Wrapper" )
                 "int": 680,
                 "str": "pingy"
               },
-              "geometry": "Point (23.39881899999999959 41.7672146999999967)"
+              "geometry": "Point (23.39881899999999959 41.7672146999999967)",
+              "is_snapshot": false
             },
             "old": {
               "attributes": {
@@ -1880,7 +1885,7 @@ TEST_CASE( "Delta File Wrapper" )
                 "str": "stringy"
               },
               "geometry": "Point (25.96569999999999823 43.83559999999999945)",
-              "stores_snapshot": false
+              "is_snapshot": false
             }
           }
         ]
