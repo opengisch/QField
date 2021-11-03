@@ -1138,9 +1138,6 @@ def my_form_open(dialog, layer, feature):
             </renderer-v2>
             <customproperties>
               <property key="embeddedWidgets/count" value="0"></property>
-              <property key="isOfflineEditable" value="true"></property>
-              <property key="remoteProvider" value="postgres"></property>
-              <property key="remoteSource" value="dbname='demo' host=lizmapdemo.opengis.ch port=5432 user='editor1' password='editor1' sslmode=disable key='id' srid=2056 type=Point table=&quot;citybees&quot;.&quot;apiary&quot; (geom) sql="></property>
               <property key="variableNames"></property>
               <property key="variableValues"></property>
             </customproperties>
@@ -1564,9 +1561,6 @@ def my_form_open(dialog, layer, feature):
             </renderer-v2>
             <customproperties>
               <property key="embeddedWidgets/count" value="0"></property>
-              <property key="isOfflineEditable" value="true"></property>
-              <property key="remoteProvider" value="postgres"></property>
-              <property key="remoteSource" value="dbname='demo' host=lizmapdemo.opengis.ch port=5432 user='editor1' password='editor1' sslmode=disable key='id' srid=2056 type=Point table=&quot;citybees&quot;.&quot;apiary&quot; (geom) sql="></property>
               <property key="variableNames"></property>
               <property key="variableValues"></property>
             </customproperties>
@@ -2285,9 +2279,6 @@ def my_form_open(dialog, layer, feature):
         <property key="QFieldSync/photo_naming" value="{&quot;picture&quot;: &quot;'DCIM/apiary_' || format_date(now(),'yyyyMMddhhmmsszzz') || '.jpg'&quot;}"></property>
         <property key="dualview/previewExpressions" value="concat( &quot;beekeeper&quot;,  ' - ' ||  represent_value( &quot;bee_species&quot; ) )"></property>
         <property key="embeddedWidgets/count" value="0"></property>
-        <property key="isOfflineEditable" value="true"></property>
-        <property key="remoteProvider" value="postgres"></property>
-        <property key="remoteSource" value="dbname='demo' host=lizmapdemo.opengis.ch port=5432 user='editor1' password='editor1' sslmode=disable key='id' srid=2056 type=Point table=&quot;citybees&quot;.&quot;apiary&quot; (geom) sql="></property>
         <property key="variableNames"></property>
         <property key="variableValues"></property>
       </customproperties>
@@ -6075,9 +6066,6 @@ def my_form_open(dialog, layer, feature):
         <property key="QFieldSync/photo_naming" value="{&quot;picture&quot;: &quot;'DCIM/fields_' || format_date(now(),'yyyyMMddhhmmsszzz') || '.jpg'&quot;}"></property>
         <property key="dualview/previewExpressions" value="represent_value(&quot;plant_species&quot;)  || ' ('  ||  represent_value(&quot;proprietor&quot;) || ' ) '"></property>
         <property key="embeddedWidgets/count" value="0"></property>
-        <property key="isOfflineEditable" value="true"></property>
-        <property key="remoteProvider" value="postgres"></property>
-        <property key="remoteSource" value="dbname='demo' host=lizmapdemo.opengis.ch port=5432 user='editor1' password='editor1' sslmode=disable key='id' srid=2056 type=Polygon table=&quot;citybees&quot;.&quot;area&quot; (geom) sql="></property>
         <property key="variableNames"></property>
         <property key="variableValues"></property>
       </customproperties>
