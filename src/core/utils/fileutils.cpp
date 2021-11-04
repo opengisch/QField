@@ -16,7 +16,6 @@
 
 #include "fileutils.h"
 
-#include <QDebug>
 #include <QDir>
 #include <QDirIterator>
 #include <QFileInfo>
@@ -60,7 +59,11 @@ bool FileUtils::copyRecursively( const QString &sourceFolder, const QString &des
   {
     QDir destDir( destFolder );
     if ( destDir.exists() )
-      destDir.removeRecursively();
+    {
+      bool success = destDir.removeRecursively();
+      if ( !success )
+        return false;
+    }
   }
 
   QList<QPair<QString, QString>> mapping;
@@ -116,8 +119,8 @@ int FileUtils::copyRecursivelyPrepare( const QString &sourceFolder, const QStrin
     if ( relPath.endsWith( QLatin1String( "/." ) ) || relPath.endsWith( QLatin1String( "/.." ) ) )
       continue;
 
-    QString srcName = sourceFolder + QDir::separator() + relPath;
-    QString destName = destFolder + QDir::separator() + relPath;
+    QString srcName = QDir::cleanPath( sourceFolder + QDir::separator() + relPath );
+    QString destName = QDir::cleanPath( destFolder + QDir::separator() + relPath );
 
     mapping.append( qMakePair( srcName, destName ) );
     count += 1;
