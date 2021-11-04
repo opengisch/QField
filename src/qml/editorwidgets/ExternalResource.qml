@@ -261,9 +261,7 @@ EditorWidgetBase {
     width: visible ? 48 : 0
     height: 48
 
-    property bool isCameraAvailable: ((platformUtilities.capabilities & PlatformUtilities.NativeCamera) && settings.valueBool("nativeCamera", true))
-                                     || ((!( platformUtilities.capabilities & PlatformUtilities.NativeCamera) || settings.valueBool("nativeCamera", false))
-                                         && QtMultimedia.availableCameras.length > 0)
+    property bool isCameraAvailable: platformUtilities.capabilities & PlatformUtilities.NativeCamera || QtMultimedia.availableCameras.length > 0
 
     anchors.right: galleryButton.left
     anchors.top: parent.top
