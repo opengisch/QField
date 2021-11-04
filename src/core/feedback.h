@@ -37,19 +37,29 @@ class Feedback : public QgsFeedback
      * Current status.
      */
     Q_PROPERTY( QString status READ status WRITE setStatus NOTIFY statusChanged )
+
+    /**
+     * Success value to indicate whether an operation was successful or not.
+     */
+    Q_PROPERTY( bool success READ success WRITE setSuccess NOTIFY successChanged )
   public:
     Feedback();
 
     QString status() const;
     void setStatus( const QString &status );
 
+    bool success() const;
+    void setSuccess( const bool success );
+
     double progress();
 
   signals:
+    void successChanged();
     void statusChanged();
     void progressChanged();
 
   private:
+    bool mSuccess = false;
     QString mStatus;
     double mProgressProxy = -1;
 };

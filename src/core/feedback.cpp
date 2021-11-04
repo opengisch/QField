@@ -27,6 +27,19 @@ Feedback::Feedback()
   } );
 }
 
+bool Feedback::success() const
+{
+  return mSuccess;
+}
+
+void Feedback::setSuccess( const bool success )
+{
+  if ( success == mSuccess )
+    return;
+  mSuccess = success;
+  emit successChanged();
+}
+
 QString Feedback::status() const
 {
   return mStatus;
