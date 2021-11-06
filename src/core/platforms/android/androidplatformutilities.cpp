@@ -83,7 +83,9 @@ void AndroidPlatformUtilities::initSystem()
   QByteArray appGitRev = getIntentExtra( "GIT_REV" ).toLocal8Bit();
   if ( localGitRev != appGitRev )
   {
-    qDebug() << "Different build git revision detected";
+    qDebug() << QStringLiteral( "Different build git revision detected (previous: %1, current: %2)" )
+             .arg( localGitRev.size() > 0 ? localGitRev.mid( 0, 7 ) : QStringLiteral( "n/a" ) )
+             .arg( appGitRev.size() > 0 ? appGitRev.mid( 0, 7 ) : QStringLiteral( "n/a" ) );
     int argc = 0;
     QApplication app( argc, nullptr );
     QQmlApplicationEngine engine;

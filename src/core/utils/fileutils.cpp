@@ -16,11 +16,13 @@
 
 #include "fileutils.h"
 
+#include <qgis.h>
+
+#include <QDebug>
 #include <QDir>
 #include <QDirIterator>
 #include <QFileInfo>
 #include <QMimeDatabase>
-#include <qgis.h>
 
 FileUtils::FileUtils( QObject *parent )
   : QObject( parent )
@@ -62,7 +64,10 @@ bool FileUtils::copyRecursively( const QString &sourceFolder, const QString &des
     {
       bool success = destDir.removeRecursively();
       if ( !success )
+      {
+        qDebug() << QStringLiteral( "Failed to recursively delete directory %1" ).arg( destFolder );
         return false;
+      }
     }
   }
 
@@ -89,7 +94,11 @@ bool FileUtils::copyRecursively( const QString &sourceFolder, const QString &des
 
     bool success = QFile::copy( srcName, destName );
     if ( !success )
+    {
+      qDebug() << QStringLiteral( "Failed to write file %1" ).arg( destName );
       return false;
+    }
+
     QFile( destName ).setPermissions( QFileDevice::ReadOwner | QFileDevice::WriteOwner );
 
     feedback->setProgress( 100 * current / fileCount );
