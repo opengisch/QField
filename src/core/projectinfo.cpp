@@ -104,7 +104,7 @@ void ProjectInfo::extentChanged()
 
 void ProjectInfo::mapThemeChanged()
 {
-  if ( mFilePath.isEmpty() )
+  if ( mFilePath.isEmpty() || mLayerTree->mapTheme().isEmpty() )
     return;
 
   QFileInfo fi( mFilePath );
