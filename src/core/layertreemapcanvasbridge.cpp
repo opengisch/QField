@@ -157,8 +157,8 @@ void LayerTreeMapCanvasBridge::nodeVisibilityChanged()
 
 void LayerTreeMapCanvasBridge::mapThemeChanged()
 {
-  QgsProject::instance()->mapThemeCollection()->applyTheme( mModel->mapTheme(), mRoot, mModel->layerTreeModel() );
-  // rebuilt the flat layer tree model
+  if ( !mModel->mapTheme().isEmpty() )
+    QgsProject::instance()->mapThemeCollection()->applyTheme( mModel->mapTheme(), mRoot, mModel->layerTreeModel() );
 }
 
 void LayerTreeMapCanvasBridge::layerInTrackingChanged( QgsVectorLayer *layer, bool tracking )
