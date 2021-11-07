@@ -225,8 +225,11 @@ Drawer {
         Connections {
           target: iface
 
+          function onLoadProjectTriggered() {
+              mapThemeContainer.isLoading = true
+          }
+
           function onLoadProjectEnded() {
-            mapThemeContainer.isLoading = true
             var themes = qgisProject.mapThemeCollection.mapThemes
             mapThemeComboBox.model = themes
             mapThemeContainer.visible = themes.length > 1
@@ -234,6 +237,18 @@ Drawer {
             mapThemeComboBox.currentIndex = flatLayerTree.mapTheme != '' ? mapThemeComboBox.find( flatLayerTree.mapTheme ) : -1
             mapThemeContainer.isLoading = false
           }
+        }
+
+        Connections {
+            target: flatLayerTree
+
+            function onMapThemeChanged() {
+                if (!mapThemeContainer.isLoading && mapThemeComboBox.currentText != flatLayerTree.mapTheme) {
+                  mapThemeContainer.isLoading = true
+                  mapThemeComboBox.currentIndex = flatLayerTree.mapTheme != '' ? mapThemeComboBox.find( flatLayerTree.mapTheme ) : -1
+                  mapThemeContainer.isLoading = false
+                }
+            }
         }
 
         onCurrentTextChanged: {

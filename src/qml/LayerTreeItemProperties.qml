@@ -99,7 +99,8 @@ Popup {
 
         onClicked: {
           layerTree.setData(index, checkState === Qt.Checked, FlatLayerTreeModel.Visible);
-          close()
+          flatLayerTree.mapTheme = '';
+          close();
         }
       }
 
@@ -118,7 +119,7 @@ Popup {
 
         onClicked: {
           layerTree.setData(index, checkState === Qt.Checked, FlatLayerTreeModel.LabelsVisible);
-          close()
+          close();
         }
       }
 
