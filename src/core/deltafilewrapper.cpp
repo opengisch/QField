@@ -607,7 +607,8 @@ void DeltaFileWrapper::addPatch( const QString &localLayerId, const QString &sou
     Q_ASSERT( tmpNewFileChecksums.isEmpty() );
   }
 
-  oldData.insert( QStringLiteral( "stores_snapshot" ), storeSnapshot );
+  newData.insert( QStringLiteral( "is_snapshot" ), false );
+  oldData.insert( QStringLiteral( "is_snapshot" ), storeSnapshot );
 
   delta.insert( QStringLiteral( "old" ), oldData );
   delta.insert( QStringLiteral( "new" ), newData );

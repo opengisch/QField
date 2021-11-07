@@ -55,12 +55,12 @@ jobs:
         wget -O OSGeo4I-arm64.zip https://github.com/opengisch/qfield-sdk/releases/download/${SDK_VERSION}/OSGeo4I-Qt${{ env.QT_VERSION }}-arm64-${{ env.SDK_VERSION }}.zip
         unzip OSGeo4I-arm64.zip -d ${{ github.workspace }}
 
-    - name: Cache Qt
-      id: cache-qt
-      uses: pat-s/always-upload-cache@v2.1.5
-      with:
-        path: ${{ github.workspace }}/Qt-${{ runner.os }}-${{ env.QT_VERSION }}
-        key: ${{ runner.os }}-QtCache-${{ env.QT_VERSION }}-ios
+#    - name: Cache Qt
+#      id: cache-qt
+#      uses: pat-s/always-upload-cache@v2.1.5
+#      with:
+#        path: ${{ github.workspace }}/Qt-${{ runner.os }}-${{ env.QT_VERSION }}
+#        key: ${{ runner.os }}-QtCache-${{ env.QT_VERSION }}-ios
 
     - name: ⬆️ Install Qt
       uses: jurplel/install-qt-action@v2

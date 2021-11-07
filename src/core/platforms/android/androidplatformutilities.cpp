@@ -67,7 +67,8 @@ class FileCopyThread : public QThread
   private:
     void run() override
     {
-      FileUtils::copyRecursively( mSource, mDestination, mFeedback );
+      const bool success = FileUtils::copyRecursively( mSource, mDestination, mFeedback );
+      mFeedback->setSuccess( success );
     }
 
     QString mSource;
@@ -81,16 +82,19 @@ void AndroidPlatformUtilities::initSystem()
   // Copy data away from the virtual path `assets:/` to a path accessible also for non-qt-based libs
   const QString appDataLocation = QStandardPaths::writableLocation( QStandardPaths::AppDataLocation );
   mSystemGenericDataLocation = appDataLocation + QStringLiteral( "/share" );
+
   QFile gitRevFile( appDataLocation + QStringLiteral( "/gitRev" ) );
   gitRevFile.open( QIODevice::ReadOnly );
-  const QByteArray localGitRev = gitRevFile.readAll();
 
-  const bool doUpdate = localGitRev != qfield::gitRev;
-  QString logMsg = QStringLiteral( "Starting git rev: %1, previous: %2. %3" ).arg( qfield::gitRev, localGitRev, doUpdate ? "Extract data" : "No update" );
+  QByteArray localGitRev = gitRevFile.readAll();
+  gitRevFile.close();
+  QByteArray appGitRev = getIntentExtra( "GIT_REV" ).toLocal8Bit();
+  if ( localGitRev != appGitRev )
 
-  __android_log_write( ANDROID_LOG_INFO, applicationName, logMsg.toLocal8Bit().constData() );
-  if ( doUpdate )
   {
+    qDebug() << QStringLiteral( "Different build git revision detected (previous: %1, current: %2)" )
+             .arg( localGitRev.size() > 0 ? localGitRev.mid( 0, 7 ) : QStringLiteral( "n/a" ) )
+             .arg( appGitRev.size() > 0 ? appGitRev.mid( 0, 7 ) : QStringLiteral( "n/a" ) );
     int argc = 0;
     QApplication app( argc, nullptr );
     QQmlApplicationEngine engine;
@@ -99,7 +103,7 @@ void AndroidPlatformUtilities::initSystem()
     engine.rootContext()->setContextProperty( "feedback", &feedback );
     engine.load( QUrl( QStringLiteral( "qrc:/qml/SystemLoader.qml" ) ) );
 
-    QMetaObject::invokeMethod( &app, [this, &app, &feedback]
+    QMetaObject::invokeMethod( &app, [this, &app, &feedback ]
     {
       FileCopyThread *thread = new FileCopyThread( QStringLiteral( "assets:/share" ), mSystemGenericDataLocation, &feedback );
       app.connect( thread, &QThread::finished, &app, QApplication::quit );
@@ -109,9 +113,14 @@ void AndroidPlatformUtilities::initSystem()
     } );
     app.exec();
 
-    gitRevFile.close();
-    gitRevFile.open( QIODevice::WriteOnly | QIODevice::Truncate );
-    gitRevFile.write( qfield::gitRev.toUtf8() );
+
+    if ( feedback.success() )
+    {
+      qDebug() << "Successfully copied share assets content";
+      gitRevFile.open( QIODevice::WriteOnly | QIODevice::Truncate );
+      gitRevFile.write( appGitRev );
+      gitRevFile.close();
+    }
   }
 }
 
