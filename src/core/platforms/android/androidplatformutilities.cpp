@@ -88,7 +88,7 @@ void AndroidPlatformUtilities::initSystem()
 
   QByteArray localGitRev = gitRevFile.readAll();
   gitRevFile.close();
-  QByteArray appGitRev = getIntentExtra( "GIT_REV" ).toLocal8Bit();
+  QByteArray appGitRev = qfield::gitRev;
   if ( localGitRev != appGitRev )
 
   {
