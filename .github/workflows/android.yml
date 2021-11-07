@@ -196,6 +196,7 @@ jobs:
                 -DAPP_VERSION_STR="${APP_VERSION_STR}" \
                 -DAPP_PACKAGE_NAME="${APP_PACKAGE_NAME}" \
                 -DAPP_ICON="${APP_ICON}" \
+                -DAPP_NAME="${APP_NAME}" \
                 -DVCPKG_CHAINLOAD_TOOLCHAIN_FILE=${ANDROID_NDK_HOME}/build/cmake/android.toolchain.cmake \
                 -DANDROID_ABI=${{ steps.vars.outputs.ABI }} \
                 -DANDROID_PLATFORM=${{ env.ANDROID_PLATFORM }} \
