@@ -18,7 +18,7 @@ jobs:
 
     runs-on: macOS-latest
     env:
-      SDK_VERSION: '142'
+      SDK_VERSION: '144'
       DEPLOYMENT_TARGET: '12.0'
       PLATFORM: 'OS64'
       QT_VERSION: '5.15.2'
