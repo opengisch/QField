@@ -1,0 +1,338 @@
+---
+name: 📱 Package for Android
+on:
+  push:
+    branches:
+      - master
+      - release-**
+  pull_request:
+  release:
+    types: ['published', 'released']
+
+
+jobs:
+  build:
+    runs-on: ubuntu-20.04
+    strategy:
+      fail-fast: true
+      matrix:
+        include:
+          - triplet: 'arm64-android'
+          - triplet: 'arm-android'
+          - triplet: 'x64-android'
+          - triplet: 'x86-android'
+
+    env:
+      ANDROID_PLATFORM: 21
+      ANDROID_TARGET_PLATFORM: 29
+
+    steps:
+      - name: 🐣 Checkout
+        uses: actions/checkout@v2
+        with:
+          submodules: recursive
+
+      - name: 🌾 Prepare vars
+        id: vars
+        shell: bash
+        run: |
+          ./scripts/ci/env_gh.sh
+
+          case ${{ matrix.triplet }} in
+            arm64-android)
+              echo "::set-output name=ARCH::arm64_v8a"
+              echo "::set-output name=ABI::arm64-v8a"
+              ;;
+            arm-android)
+              echo "::set-output name=ARCH::armv7"
+              echo "::set-output name=ABI::armeabi-v7a"
+              ;;
+            x64-android)
+              echo "::set-output name=ARCH::x86_64"
+              echo "::set-output name=ABI::x86_64"
+              ;;
+            x86-android)
+              echo "::set-output name=ARCH::x86"
+              echo "::set-output name=ABI::x86"
+              ;;
+          esac
+
+
+          BUILD_ROOT="/home/runner"
+          echo "::set-output name=MONO::mono"
+          echo "::set-output name=OVERLAY::vcpkg/overlay_system_qt"
+          echo "::set-output name=PATHCONVERT::echo"
+          echo "::set-output name=INSTALL_QT::true"
+          echo "::set-output name=QT_TARGET::android"
+          echo "::set-output name=VCPKG_ROOT::${BUILD_ROOT}/src"
+          echo "::set-output name=BUILD_TYPE::Release"
+          echo "::set-output name=BUILD_ROOT::${BUILD_ROOT}"
+
+          echo "VCPKG_ROOT=${BUILD_ROOT}/src" >> $GITHUB_ENV
+          echo "CMAKE_BUILD_DIR=${BUILD_ROOT}/builddir" >> $GITHUB_ENV
+          echo "VCPKG_DEFAULT_BINARY_CACHE=${BUILD_ROOT}/vcpkg_cache" >> $GITHUB_ENV
+
+      - name: 🐩 Install CMake and Ninja
+        uses: lukka/get-cmake@latest
+
+      - name: 📪 Clone vcpkg
+        shell: bash
+        run: |
+          VCPKG_SHA=$(head -1 .git/modules/vcpkg/HEAD)
+          mkdir -p "${{ env.VCPKG_DEFAULT_BINARY_CACHE }}"
+          mkdir -p "${{ steps.vars.outputs.VCPKG_ROOT }}"
+          cd "${{ steps.vars.outputs.VCPKG_ROOT }}"
+          git init
+          git remote add origin https://github.com/microsoft/vcpkg.git
+          git fetch --depth 1 origin $VCPKG_SHA
+          git checkout FETCH_HEAD
+
+      - name: 📫 Cache vcpkg
+        id: cache-vcpkg-tool
+        uses: pat-s/always-upload-cache@v2.1.5
+        with:
+          path: |
+            ${{ steps.vars.outputs.VCPKG_ROOT }}/vcpkg
+            ${{ steps.vars.outputs.VCPKG_ROOT }}/vcpkg.exe
+          key: ${{ runner.os }}-${{ hashFiles('.git/modules/vcpkg/HEAD') }}-x
+
+      - name: 📬 Bootstrap vcpkg
+        if: steps.cache-vcpkg-tool.outputs.cache-hit != 'true'
+        shell: bash
+        working-directory: ${{ steps.vars.outputs.VCPKG_ROOT }}
+        run: |
+          if grep -qEi "(Microsoft|WSL)" /proc/version &> /dev/null ; then
+            ./bootstrap-vcpkg.bat
+          else
+            ./bootstrap-vcpkg.sh
+          fi
+
+      - name: 🔐 Setup NuGet Credentials
+        shell: bash
+        run: |
+          ${{ steps.vars.outputs.VCPKG_ROOT }}/vcpkg fetch nuget
+          ${{ steps.vars.outputs.MONO }} $(${{ steps.vars.outputs.VCPKG_ROOT }}/vcpkg fetch nuget | tail -n 1) \
+          sources add \
+          -source "https://nuget.pkg.github.com/opengisch/index.json" \
+          -storepasswordincleartext \
+          -name "GitHub" \
+          -username "opengisch" \
+          -password "${{ secrets.GITHUB_TOKEN }}"
+
+          ${{ steps.vars.outputs.MONO }} $(${{ steps.vars.outputs.VCPKG_ROOT }}/vcpkg fetch nuget | tail -n 1) \
+          setapikey ${{ secrets.GITHUB_TOKEN }} -src "https://nuget.pkg.github.com/opengisch/index.json"
+
+      - name: 🔥 Free additional space
+        run: |
+          df -h
+          sudo rm -rf /usr/share/dotnet/sdk
+          sudo rm -rf /usr/share/rust
+          sudo rm -rf /usr/share/swift
+          sudo apt remove llvm-* ghc-* google-chrome-* dotnet-sdk-* azure-cli google-cloud-sdk google-chrome-stable firefox
+          dpkg-query -Wf '${Installed-Size}\t${Package}\n' | sort -n | tail -n 100
+          du -a /usr/share | sort -n -r | head -n 10
+          du -a /usr/local/share | sort -n -r | head -n 10
+          df -h
+          sudo apt clean
+          df -h
+
+      - name: 💐 Install Qt
+        if: ${{ steps.vars.outputs.INSTALL_QT }}
+        uses: jurplel/install-qt-action@v2
+        with:
+          version: 5.14.2
+          modules: 'qtcharts'
+          target: ${{ steps.vars.outputs.QT_TARGET }}
+
+      # transifex-client is not compatible with py >= 3.10
+      # temporary band aid
+      - uses: actions/setup-python@v2
+        with:
+          python-version: '3.9'
+
+
+      - name: 🌍 Pull Translations
+        shell: bash
+        env:
+          TX_TOKEN: ${{ secrets.TX_TOKEN }}
+        run: |
+          if [[ -z "${TX_TOKEN}" ]]; then
+            echo "TX_TOKEN not set, skip tx pull"
+          else
+            pip install transifex-client
+            pushd "${{ steps.vars.outputs.VCPKG_ROOT }}"
+            ./vcpkg integrate install
+            popd
+            ./scripts/ci/pull_translations.sh
+          fi
+
+      - name: 🌱 Install dependencies and generate project files
+        shell: bash
+        env:
+          WORKSPACE: ${{ github.workspace }}
+          VCPKG_BINARY_SOURCES: 'clear;nuget,GitHub,readwrite'
+          Qt5Core_ROOT: ${{ env.Qt5_DIR }}
+        run: |
+          # Convert paths to bash compatible ones. Thanks to whoever decided to use drive letters and backslashes.
+          CMAKE_BUILD_DIR=$( ${{ steps.vars.outputs.PATHCONVERT }} "${CMAKE_BUILD_DIR}" )
+          VCPKG_ROOT=$( ${{ steps.vars.outputs.PATHCONVERT }} "${VCPKG_ROOT}" )
+          SOURCE_DIR=$( ${{ steps.vars.outputs.PATHCONVERT }} "${WORKSPACE}" )
+
+          source ./scripts/version_number.sh
+          source ./scripts/ci/generate-version-details.sh
+
+          overlay_ports=(${WORKSPACE}/vcpkg/overlay_system_qt ${WORKSPACE}/vcpkg/overlay)
+          echo "Building with $(IFS=\; ; echo "${overlay_ports[*]}")"
+          cmake -S "${SOURCE_DIR}" \
+                -B "${CMAKE_BUILD_DIR}" \
+                -G Ninja \
+                -DCMAKE_BUILD_TYPE=${{ steps.vars.outputs.BUILD_TYPE }} \
+                -DCMAKE_TOOLCHAIN_FILE="${VCPKG_ROOT}/scripts/buildsystems/vcpkg.cmake" \
+                -DVCPKG_OVERLAY_PORTS=$(IFS=\; ; echo "${overlay_ports[*]}") \
+                -DVCPKG_TARGET_TRIPLET="${{ matrix.triplet }}" \
+                -DWITH_VCPKG=ON \
+                -DWITH_SPIX=ON \
+                -DAPP_VERSION="${APP_VERSION}" \
+                -DAPP_VERSION_STR="${APP_VERSION_STR}" \
+                -DAPP_PACKAGE_NAME="${APP_PACKAGE_NAME}" \
+                -DAPP_ICON="${APP_ICON}" \
+                -DAPP_NAME="${APP_NAME}" \
+                -DVCPKG_CHAINLOAD_TOOLCHAIN_FILE=${ANDROID_NDK_HOME}/build/cmake/android.toolchain.cmake \
+                -DANDROID_ABI=${{ steps.vars.outputs.ABI }} \
+                -DANDROID_PLATFORM=${{ env.ANDROID_PLATFORM }} \
+                -DANDROID_TARGET_PLATFORM=${{ env.ANDROID_TARGET_PLATFORM}} \
+                ${EXTRA_CMAKE_ARGS}
+
+      - name: 📑 Upload Dep Build Logs
+        uses: actions/upload-artifact@v2
+        if: failure()
+        with:
+          name: build-logs-${{ matrix.triplet }}
+          path: ${{ steps.vars.outputs.VCPKG_ROOT }}/buildtrees/**/*.log
+
+      - name: 🌋 Build
+        run: |
+          cmake --build "${{ env.CMAKE_BUILD_DIR }}" --config ${{ steps.vars.outputs.BUILD_TYPE }} # --target qfield
+
+      - name: Setup signing key
+        env:
+          SIGNINGKEY: ${{ secrets.PLAYSTORE_SIGNINGKEY }}
+        run: |
+          echo "$SIGNINGKEY" | base64 --decode > ./keystore.p12
+
+      - name: Package
+        env:
+          KEYNAME: qfield
+          KEYPASS: ${{ secrets.KEYPASS }}
+          STOREPASS: ${{ secrets.STOREPASS }}
+        run: |
+          mv ${{ env.CMAKE_BUILD_DIR }}/android_deployment_settings.json ${{ env.CMAKE_BUILD_DIR }}/android_deployment_settings.tmp
+          cat <<< "$(jq ". += { \"sdkBuildToolsRevision\" : \"29.0.2\" }" < ${{ env.CMAKE_BUILD_DIR }}/android_deployment_settings.tmp)" > ${{ env.CMAKE_BUILD_DIR }}/android_deployment_settings.json
+          cmake --build  "${{ env.CMAKE_BUILD_DIR }}" --target bundle --config Release
+
+      - name: 📦 Upload apk
+        uses: actions/upload-artifact@v2
+        with:
+          name: android-${{ matrix.triplet }}.apk
+          path: |
+            ${{ env.CMAKE_BUILD_DIR }}/android-build/build/outputs/apk/release/android-build-release-signed.apk
+
+      - name: 🍺 Deploy
+        run: |
+          sudo apt install -y s3cmd
+          ./scripts/ci/upload_artifacts.sh
+        env:
+          S3CFG: ${{ secrets.S3CFG }}
+          ARCH: ${{  steps.vars.outputs.ARCH }}
+
+      - name: Upload release assets
+        uses: AButler/upload-release-assets@v2.0
+        if: ${{ github.event_name == 'release' }}
+        with:
+          files: /tmp/qfield-*.apk
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
+          release-tag: ${{ env.CI_TAG }}
+
+  deploy_to_playstore:
+    runs-on: ubuntu-20.04
+    needs: build
+    if: ${{ github.event_name == 'released' || ( github.event_name == 'push' && github.ref == 'refs/heads/master' ) }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Vars
+        id: vars
+        run: |
+          ./scripts/ci/env_gh.sh
+
+      - name: Download apks
+        run: |
+          wget https://sos-ch-dk-2.exo.io/qfieldapks/ci-builds/${{ steps.vars.outputs.CI_PACKAGE_FILE_BASENAME }}-arm64_v8a.apk
+          wget https://sos-ch-dk-2.exo.io/qfieldapks/ci-builds/${{ steps.vars.outputs.CI_PACKAGE_FILE_BASENAME }}-armv7.apk
+          wget https://sos-ch-dk-2.exo.io/qfieldapks/ci-builds/${{ steps.vars.outputs.CI_PACKAGE_FILE_BASENAME }}-x86_64.apk
+          wget https://sos-ch-dk-2.exo.io/qfieldapks/ci-builds/${{ steps.vars.outputs.CI_PACKAGE_FILE_BASENAME }}-x86.apk
+
+      - name: Upload to Google Play Store
+        run: |
+          pip install google-api-python-client google-auth-httplib2 google-auth-oauthlib oauth2client
+
+          ./scripts/basic_upload_apks_service_account.py ch.opengis.${{ steps.vars.outputs.APP_PACKAGE_NAME }} beta "Update from commit ${GITHUB_SHA}" \
+              ${{ steps.vars.outputs.CI_PACKAGE_FILE_BASENAME }}-arm64_v8a.apk \
+              ${{ steps.vars.outputs.CI_PACKAGE_FILE_BASENAME }}-armv7.apk \
+              ${{ steps.vars.outputs.CI_PACKAGE_FILE_BASENAME }}-x86_64.apk \
+              ${{ steps.vars.outputs.CI_PACKAGE_FILE_BASENAME }}-x86.apk
+        env:
+          GOOGLE_SERVICE_ACCOUNT: ${{ secrets.GOOGLE_SERVICE_ACCOUNT }}
+
+
+  comment_pr:
+    runs-on: ubuntu-20.04
+    needs: build
+    if: ${{ github.event_name == 'pull_request' }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Vars
+        id: vars
+        run: |
+          ./scripts/ci/env_gh.sh
+      - uses: kanga333/comment-hider@master
+        name: Hide outdated comments from the default github user
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          hide_user_name: github-actions[bot]
+      - uses: kanga333/comment-hider@master
+        name: Hide outdated comments from qfield-fairy
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          hide_user_name: qfield-fairy
+      - name: Comment PR
+        uses: thollander/actions-comment-pull-request@main
+        with:
+          GITHUB_TOKEN: ${{ secrets.FAIRY_TOKEN }}
+          message: |
+            🎉 Ta-daaa, freshly created APKs are available for ${{ github.event.pull_request.head.sha }}:
+              - [**arm64_v8a**](https://sos-ch-dk-2.exo.io/qfieldapks/ci-builds/${{ steps.vars.outputs.CI_PACKAGE_FILE_BASENAME }}-arm64_v8a.apk)
+
+            Other architectures: [armv7](https://sos-ch-dk-2.exo.io/qfieldapks/ci-builds/${{ steps.vars.outputs.CI_PACKAGE_FILE_BASENAME }}-armv7.apk), [x86_64](https://sos-ch-dk-2.exo.io/qfieldapks/ci-builds/${{ steps.vars.outputs.CI_PACKAGE_FILE_BASENAME }}-x86_64.apk), [x86](https://sos-ch-dk-2.exo.io/qfieldapks/ci-builds/${{ steps.vars.outputs.CI_PACKAGE_FILE_BASENAME }}-x86.apk)
+
+  comment_commit:
+    runs-on: ubuntu-20.04
+    needs: build
+    if: ${{ github.event_name == 'push' }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Vars
+        id: vars
+        run: |
+          ./scripts/ci/env_gh.sh
+      - name: Comment commit
+        uses: peter-evans/commit-comment@v1
+        with:
+          token: ${{ secrets.FAIRY_TOKEN }}
+          body: |
+            🎉 Ta-daaa, freshly created APKs are available:
+              - [**arm64_v8a**](https://sos-ch-dk-2.exo.io/qfieldapks/ci-builds/${{ steps.vars.outputs.CI_PACKAGE_FILE_BASENAME }}-arm64_v8a.apk)
+

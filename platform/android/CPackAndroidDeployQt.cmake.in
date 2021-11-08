@@ -1,0 +1,40 @@
+set(ANDROID_TEMPLATE_FOLDER "@CMAKE_BINARY_DIR@/android-template")
+file(COPY @CMAKE_SOURCE_DIR@/platform/android/
+     DESTINATION ${ANDROID_TEMPLATE_FOLDER}/)
+
+set(SRC_FOLDER "${ANDROID_TEMPLATE_FOLDER}/src/ch/opengis/@APP_PACKAGE_NAME@")
+file(RENAME "${ANDROID_TEMPLATE_FOLDER}/src/ch/opengis/qfield" ${SRC_FOLDER})
+file(GLOB_RECURSE JAVA_FILES "${SRC_FOLDER}" "*.java")
+foreach(JAVA_FILE ${JAVA_FILES})
+  file(READ ${JAVA_FILE} CONTENT)
+  string(REGEX REPLACE "ch.opengis.qfield" "ch.opengis.@APP_PACKAGE_NAME@"
+                       CONTENT "${CONTENT}")
+  file(WRITE ${JAVA_FILE} "${CONTENT}")
+endforeach()
+
+if(DEFINED ENV{KEYNAME}
+   AND DEFINED ENV{KEYPASS}
+   AND DEFINED ENV{STOREPASS})
+  execute_process(
+    COMMAND
+      "@ANDROIDDEPLOYQT_EXECUTABLE@"
+      --sign @CMAKE_SOURCE_DIR@/keystore.p12 "$ENV{KEYNAME}"
+      --storepass "$ENV{STOREPASS}"
+      --keypass "$ENV{KEYPASS}"
+      --input @CMAKE_BINARY_DIR@/android_deployment_settings.json
+      --output @CMAKE_BINARY_DIR@/android-build
+      --deployment bundled
+      --android-platform android-@ANDROID_TARGET_PLATFORM@
+      --gradle
+    WORKING_DIRECTORY @CMAKE_BINARY_DIR@ COMMAND_ECHO STDERR)
+else()
+  execute_process(
+    COMMAND
+      "@ANDROIDDEPLOYQT_EXECUTABLE@"
+      --input @CMAKE_BINARY_DIR@/android_deployment_settings.json
+      --output @CMAKE_BINARY_DIR@/android-build
+      --deployment bundled
+      --android-platform android-@ANDROID_TARGET_PLATFORM@
+      --gradle
+    WORKING_DIRECTORY @CMAKE_BINARY_DIR@ COMMAND_ECHO STDERR)
+endif()

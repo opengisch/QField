@@ -107,6 +107,7 @@
 #include "qgsquickmapcanvasmap.h"
 #include "qgsquickmapsettings.h"
 #include "qgsquickmaptransform.h"
+#include "qfield.h"
 
 #include <QFileInfo>
 #include <QFontDatabase>
@@ -477,9 +478,9 @@ void QgisMobileapp::initDeclarative()
   rootContext()->setContextProperty( "qgisProject", mProject );
   rootContext()->setContextProperty( "iface", mIface );
   rootContext()->setContextProperty( "settings", &mSettings );
-  rootContext()->setContextProperty( "appVersion", QString( "" APP_VERSION ) );
-  rootContext()->setContextProperty( "appVersionStr", QString( QUOTE( APP_VERSION_STR ) ) );
-  rootContext()->setContextProperty( "gitRev", QString( "" GIT_REV ) );
+  rootContext()->setContextProperty( "appVersion", qfield::appVersion );
+  rootContext()->setContextProperty( "appVersionStr", qfield::appVersionStr );
+  rootContext()->setContextProperty( "gitRev", qfield::gitRev );
   rootContext()->setContextProperty( "flatLayerTree", mFlatLayerTree );
   rootContext()->setContextProperty( "platformUtilities", PlatformUtilities::instance() );
   rootContext()->setContextProperty( "CrsFactory", QVariant::fromValue<QgsCoordinateReferenceSystem>( mCrsFactory ) );

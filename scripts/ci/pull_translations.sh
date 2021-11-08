@@ -10,5 +10,5 @@ tx pull --all --source --minimum-perc=50 --force
 echo "::endgroup::"
 
 echo "::group::android specific translations"
-for x in android/res/values-*_*;do mv $x $(echo $x | sed -e 's/_/-r/') ;done
+for x in platform/android/res/values-*_*;do mv $x $(echo $x | sed -e 's/_/-r/') ;done
 echo "::endgroup::"

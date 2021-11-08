@@ -1,5 +1,5 @@
 ---
-name: 🎁 Package with vcpkg
+name: 🎁 Package for desktop
 on:
   push:
     branches:
@@ -48,7 +48,7 @@ jobs:
           ./scripts/ci/env_gh.sh
 
           case ${{ matrix.triplet }} in
-            x64-windows)
+            x64-windows*)
               BUILD_ROOT="C:"
               echo "::set-output name=MONO::"
               echo "::set-output name=PATHCONVERT::cygpath -u"
@@ -238,7 +238,7 @@ jobs:
                 -DENABLE_TESTS=ON \
                 ${EXTRA_CMAKE_ARGS}
 
-      - name: 📑 Upload Build Logs
+      - name: 📑 Upload Dep Build Logs
         uses: actions/upload-artifact@v2
         if: failure()
         with:
@@ -270,7 +270,7 @@ jobs:
               echo "ARTIFACT_NAME=${{ steps.vars.outputs.CI_PACKAGE_FILE_BASENAME }}-linux-x64.AppImage" >> $GITHUB_ENV
               ;;
 
-            x64-windows)
+            x64-windows*)
               ARTIFACT_PATHNAME=$(ls ${{ env.CMAKE_BUILD_DIR }}/QField-*-win64.* | head -n 1)
               ARTIFACT_NAME=$(basename $ARTIFACT_PATHNAME)
               echo "ARTIFACT_PATHNAME=${ARTIFACT_PATHNAME}" >> $GITHUB_ENV

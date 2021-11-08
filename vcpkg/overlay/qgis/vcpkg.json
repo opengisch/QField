@@ -11,7 +11,13 @@
       "zlib",
       "libspatialindex",
       "libspatialite",
-      "gdal",
+      {
+        "name": "gdal",
+        "features":
+        [
+          "libspatialite"
+        ]
+      },
       {
         "name": "exiv2",
         "features":

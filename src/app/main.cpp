@@ -36,6 +36,7 @@
 #include <QStandardPaths>
 #include <QTranslator>
 #include <QtWebView/QtWebView>
+#include "qfield.h"
 
 #ifdef ANDROID
 #include <android/log.h>
@@ -85,7 +86,7 @@ int main( int argc, char **argv )
   QCoreApplication *dummyApp = new QCoreApplication( argc, argv );
   QCoreApplication::setOrganizationName( "OPENGIS.ch" );
   QCoreApplication::setOrganizationDomain( "opengis.ch" );
-  QCoreApplication::setApplicationName( APP_NAME );
+  QCoreApplication::setApplicationName( qfield::appName );
   QString customLanguage;
   {
     QSettings settings;
@@ -142,7 +143,7 @@ int main( int argc, char **argv )
   // Set up the QSettings environment must be done after qapp is created
   QCoreApplication::setOrganizationName( "OPENGIS.ch" );
   QCoreApplication::setOrganizationDomain( "opengis.ch" );
-  QCoreApplication::setApplicationName( APP_NAME );
+  QCoreApplication::setApplicationName( qfield::appName );
 
   QTranslator qfieldTranslator;
   QTranslator qtTranslator;
