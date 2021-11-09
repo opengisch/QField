@@ -233,9 +233,9 @@ jobs:
       - name: 📦 Upload apk
         uses: actions/upload-artifact@v2
         with:
-          name: android-${{ matrix.triplet }}.apk
+          name: android-${{ matrix.triplet }}.aab
           path: |
-            ${{ env.CMAKE_BUILD_DIR }}/android-build/build/outputs/apk/release/android-build-release-signed.apk
+            ${{ env.CMAKE_BUILD_DIR }}/android-build/build/outputs/bundle/release/android-build-release.aab
 
       - name: 🍺 Deploy
         run: |
