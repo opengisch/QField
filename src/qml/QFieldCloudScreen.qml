@@ -387,7 +387,7 @@ Page {
                   } else {
                     // fetch remote project
                     displayToast( qsTr( "Downloading project %1" ).arg( item.projectName ) )
-                    cloudProjectsModel.downloadProject( item.projectId )
+                    cloudProjectsModel.projectDownload( item.projectId )
                   }
                 }
               }
@@ -465,7 +465,7 @@ Page {
 
           text: qsTr( "Download Project" )
           onTriggered: {
-            cloudProjectsModel.downloadProject(projectActions.projectId)
+            cloudProjectsModel.projectDownload(projectActions.projectId)
           }
         }
 
@@ -512,7 +512,7 @@ Page {
 
           text: qsTr( "Cancel Project Download" )
           onTriggered: {
-            cloudProjectsModel.cancelDownloadProject(projectActions.projectId)
+            cloudProjectsModel.cancelprojectDownload(projectActions.projectId)
           }
         }
       }

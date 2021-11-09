@@ -38,6 +38,7 @@
 
 #define MAX_REDIRECTS_ALLOWED 10
 #define MAX_PARALLEL_REQUESTS 6
+#define CACHE_PROJECT_DATA_SECS 5
 
 QFieldCloudProjectsModel::QFieldCloudProjectsModel()
   : mProject( QgsProject::instance() )
@@ -318,6 +319,26 @@ QString QFieldCloudProjectsModel::layerFileName( const QgsMapLayer *layer ) cons
   return layer->dataProvider()->dataSourceUri().split( '|' )[0];
 }
 
+QFieldCloudProjectsModel::JobStatus QFieldCloudProjectsModel::jobStatus( const QString &status ) const
+{
+  const QString statusUpper = status.toLower();
+  if ( statusUpper == QStringLiteral( "pending" ) )
+    return JobPendingStatus;
+  else if ( statusUpper == QStringLiteral( "queued" ) )
+    return JobQueuedStatus;
+  else if ( statusUpper == QStringLiteral( "started" ) )
+    return JobStartedStatus;
+  else if ( statusUpper == QStringLiteral( "stopped" ) )
+    return JobStoppedStatus;
+  else if ( statusUpper == QStringLiteral( "finished" ) )
+    return JobFinishedStatus;
+  else if ( statusUpper == QStringLiteral( "failed" ) )
+    return JobFinishedStatus;
+  else
+    // "STATUS_ERROR" or any unknown status is considered an error
+    return JobFailedStatus;
+}
+
 QFieldCloudProjectsModel::PackagingStatus QFieldCloudProjectsModel::packagingStatus( const QString &status ) const
 {
   const QString statusUpper = status.toUpper();
@@ -340,6 +361,7 @@ void QFieldCloudProjectsModel::cancelDownloadProject( const QString &projectId )
   const QModelIndex projectIndex = findProjectIndex( projectId );
   if ( !projectIndex.isValid() )
     return;
+
   CloudProject *project = mProjects[projectIndex.row()];
 
   // before canceling, the project should be downloading
@@ -369,7 +391,7 @@ void QFieldCloudProjectsModel::cancelDownloadProject( const QString &projectId )
   emit dataChanged( projectIndex, projectIndex, QVector<int>() << StatusRole << PackagingStatusRole );
 }
 
-void QFieldCloudProjectsModel::downloadProject( const QString &projectId, bool overwriteProject )
+void QFieldCloudProjectsModel::projectRefreshData( const QString &projectId, const ProjectRefreshReason &refreshReason )
 {
   if ( !mCloudConnection )
     return;
@@ -377,15 +399,206 @@ void QFieldCloudProjectsModel::downloadProject( const QString &projectId, bool o
   const QModelIndex projectIndex = findProjectIndex( projectId );
   if ( !projectIndex.isValid() )
     return;
+
   CloudProject *project = mProjects[projectIndex.row()];
 
-  // before downloading, the project should be idle
-  if ( project->status != ProjectStatus::Idle )
+  NetworkReply *reply = mCloudConnection->get( QStringLiteral( "/api/v1/projects/%1/" ).arg( projectId ) );
+  connect( reply, &NetworkReply::finished, reply, [ = ]()
+  {
+    QNetworkReply *rawReply = reply->reply();
+    const QJsonObject projectData = QJsonDocument::fromJson( rawReply->readAll() ).object();
+
+    if ( projectData.value( "id" ).toString() != projectId )
+      return;
+
+    project->name = projectData.value( "name" ).toString();
+    project->owner = projectData.value( "owner" ).toString();
+    project->description = projectData.value( "description" ).toString();
+    project->userRole = projectData.value( "user_role" ).toString();
+    project->isPrivate = projectData.value( "is_private" ).toBool();
+    project->canRepackage = projectData.value( "can_repackage" ).toBool();
+    project->needsRepackaging = projectData.value( "needs_repackaging" ).toBool();
+    project->lastRefreshDt = QDateTime::currentDateTimeUtc();
+
+    const QString projectPrefix = QStringLiteral( "QFieldCloud/projects/%1" ).arg( project->id );
+    QFieldCloudUtils::setProjectSetting( project->id, QStringLiteral( "name" ), project->name );
+    QFieldCloudUtils::setProjectSetting( project->id, QStringLiteral( "owner" ), project->owner );
+    QFieldCloudUtils::setProjectSetting( project->id, QStringLiteral( "description" ), project->description );
+    QFieldCloudUtils::setProjectSetting( project->id, QStringLiteral( "userRole" ), project->userRole );
+    QFieldCloudUtils::setProjectSetting( project->id, QStringLiteral( "updatedAt" ), project->updatedAt );
+    QFieldCloudUtils::setProjectSetting( project->id, QStringLiteral( "isPrivate" ), project->isPrivate );
+    QFieldCloudUtils::setProjectSetting( project->id, QStringLiteral( "canRepackage" ), project->canRepackage );
+    QFieldCloudUtils::setProjectSetting( project->id, QStringLiteral( "needsRepackaging" ), project->needsRepackaging );
+
+    emit dataChanged( projectIndex, projectIndex );
+    emit projectRefreshed( projectId, refreshReason );
+  } );
+}
+
+/**
+
+  projectStartJob( projectId );
+  projectGetJobStatus( projectId, jobId );
+  projectJobFinished( projectId, jobId );
+
+  projectDownload( projectId );
+
+ */
+
+void QFieldCloudProjectsModel::projectStartJob( const QString &projectId, const JobType jobType )
+{
+  const QModelIndex projectIndex = findProjectIndex( projectId );
+  if ( projectIndex.isValid() )
     return;
 
-  // before downloading, there should be no local modification, otherwise it will be overwritten
-  if ( project->modification & LocalModification && !overwriteProject )
+  CloudProject *project = mProjects[projectIndex.row()];
+  project->jobs[jobType] = Job( QString(), projectId, jobType );
+
+  emit dataChanged( projectIndex, projectIndex, QVector<int>::fromList( roleNames().keys() ) );
+
+  auto getStringJobType = []( JobType jobType )
+  {
+    switch ( jobType )
+    {
+      case JobType::Package:
+        return QStringLiteral( "package" );
+    }
+
+    return QString();
+  };
+
+  NetworkReply *reply = mCloudConnection->post(
+                          QStringLiteral( "/api/v1/jobs/" ),
+                          QVariantMap(
+  {
+    {"project_id", projectId},
+    {"type", getStringJobType( jobType )},
+  } ) );
+
+  connect( reply, &NetworkReply::finished, reply, [ = ]()
+  {
+    if ( project->isPackagingAborted )
+      return;
+
+    QNetworkReply *rawReply = reply->reply();
+
+    reply->deleteLater();
+    project->apiNetworkReply = nullptr;
+
+    if ( rawReply->error() != QNetworkReply::NoError )
+    {
+      project->jobs[jobType].replyError = rawReply->error();
+      project->jobs[jobType].errorString = QFieldCloudConnection::errorString( rawReply );
+      emit projectJobFinished( projectId, jobType );
+      return;
+    }
+
+    const QJsonObject payload = QJsonDocument::fromJson( rawReply->readAll() ).object();
+
+    if ( payload.isEmpty() )
+    {
+      QgsLogger::debug( QStringLiteral( "Job trigger request for \"%1\" finished with error: empty JSON payload" ).arg( projectId ) );
+      project->jobs[jobType].errorString = QFieldCloudConnection::errorString( rawReply );
+      emit projectJobFinished( projectId, jobType );
+      return;
+    }
+
+    const QString jobId = payload.value( QStringLiteral( "id" ) ).toString();
+
+    if ( jobId.isEmpty() )
+    {
+      QgsLogger::debug( QStringLiteral( "Job trigger request for \"%1\" finished with error: no job id returned" ).arg( projectId ) );
+      project->jobs[jobType].errorString = QFieldCloudConnection::errorString( rawReply );
+      emit projectJobFinished( projectId, jobType );
+      return;
+    }
+
+    QgsLogger::debug( QStringLiteral( "Job trigger request for \"%1\" finished with no error, job id \"%2\"" ).arg( projectId ).arg( jobId ) );
+
+    project->jobs[jobType].id = jobId;
+
+    emit dataChanged( projectIndex, projectIndex, QVector<int>() << PackagingStatusRole );
+
+    projectGetJobStatus( projectId, jobType );
+  } );
+}
+
+
+void QFieldCloudProjectsModel::projectGetJobStatus( const QString &projectId, const JobType jobType )
+{
+  CloudProject *project = findProject( projectId );
+  if ( !project )
     return;
+
+  if ( project->isPackagingAborted )
+    return;
+
+  if ( !project->jobs.contains( jobType ) )
+    return;
+
+  NetworkReply *reply = mCloudConnection->get( QStringLiteral( "/api/v1/jobs/%1/" ).arg( project->jobs[jobType].id ) );
+
+  connect( reply, &NetworkReply::finished, this, [ = ]()
+  {
+    if ( project->isPackagingAborted )
+      return;
+
+    QNetworkReply *rawReply = reply->reply();
+
+    reply->deleteLater();
+
+    if ( rawReply->error() != QNetworkReply::NoError )
+    {
+      project->jobs[jobType].replyError = rawReply->error();
+      project->jobs[jobType].errorString = QFieldCloudConnection::errorString( rawReply );
+      emit projectJobFinished( projectId, jobType );
+      return;
+    }
+
+    const QJsonObject payload = QJsonDocument::fromJson( rawReply->readAll() ).object();
+
+    if ( payload.isEmpty() )
+    {
+      QgsLogger::debug( QStringLiteral( "Job trigger request for \"%1\" finished with error: empty JSON payload" ).arg( projectId ) );
+      project->jobs[jobType].errorString = QFieldCloudConnection::errorString( rawReply );
+      emit projectJobFinished( projectId, jobType );
+      return;
+    }
+
+    project->jobs[jobType].status = jobStatus( payload.value( QStringLiteral( "status" ) ).toString() );
+    project->jobs[jobType].lastPayload = payload;
+
+    switch ( project->jobs[jobType].status )
+    {
+      case JobPendingStatus:
+      case JobQueuedStatus:
+      case JobStartedStatus:
+      case JobStoppedStatus:
+        // infinite retry, there should be one day, when we can get the status!
+        QTimer::singleShot( sDelayBeforeStatusRetry, [ = ]()
+        {
+          projectGetJobStatus( projectId, jobType );
+        } );
+        break;
+
+      case JobFailedStatus:
+      case JobFinishedStatus:
+        emit projectJobFinished( projectId, jobType );
+        return;
+    }
+  } );
+}
+
+void QFieldCloudProjectsModel::projectDownload( const QString &projectId )
+{
+  if ( !mCloudConnection )
+    return;
+
+  const QModelIndex projectIndex = findProjectIndex( projectId );
+  if ( !projectIndex.isValid() )
+    return;
+
+  CloudProject *project = mProjects[projectIndex.row()];
 
   project->packagingStatus = PackagingUnstartedStatus;
   project->packagingStatusString = QString();
@@ -401,39 +614,191 @@ void QFieldCloudProjectsModel::downloadProject( const QString &projectId, bool o
   project->errorStatus = NoErrorStatus;
   project->modification = NoModification;
 
-  emit dataChanged( projectIndex, projectIndex, QVector<int>::fromList( roleNames().keys() ) );
+  auto projectRepackageIfNeededAndThenDownload = [ = ]()
+  {
+    if ( project->needsRepackaging )
+    {
+      projectStartJob( projectId, JobType::Package );
 
-  QgsLogger::debug( QStringLiteral( "Packaging requested for \"%1\"" ).arg( projectId ) );
+      QObject *tempProjectJobFinishedParent = new QObject( this ); // we need this to unsubscribe
+      connect( this, &QFieldCloudProjectsModel::projectJobFinished, tempProjectJobFinishedParent, [ = ]( const QString & jobProjectId, const JobType jobType )
+      {
+        if ( jobProjectId != projectId )
+          return;
 
-  // //////////
-  // 1) request a new project packaging
-  // //////////
-  /// If you want to skip packaging as being the slowest action, change /qfield-files/export/<PROJECT_ID> from POST to GET request
-  NetworkReply *reply = mCloudConnection->post( QStringLiteral( "/api/v1/qfield-files/export/%1/" ).arg( projectId ) );
-  project->apiNetworkReply = reply;
+        if ( jobType != JobType::Package )
+          return;
 
-  connect( reply, &NetworkReply::finished, reply, [=]() {
+        if ( project->isPackagingAborted )
+          return;
+
+        tempProjectJobFinishedParent->deleteLater();
+
+        projectDownload1( projectId );
+      } );
+    }
+    else
+    {
+      projectDownload1( projectId );
+    }
+  };
+
+  // Check and refresh project data if needed, because it might be outdated
+  if ( !project->lastRefreshDt.isValid()
+       || project->lastRefreshDt.secsTo( QDateTime::currentDateTimeUtc() ) > CACHE_PROJECT_DATA_SECS
+     )
+  {
+    projectRefreshData( projectId, ProjectRefreshReason::Package );
+
+    QObject *tempProjectRefreshParent = new QObject( this ); // we need this to unsubscribe
+    connect( this, &QFieldCloudProjectsModel::projectRefreshed, tempProjectRefreshParent, [ = ]( const QString & refreshedProjectId, const ProjectRefreshReason refreshReason )
+    {
+      if ( refreshedProjectId != projectId )
+        return;
+
+      if ( refreshReason != ProjectRefreshReason::Package )
+        return;
+
+      tempProjectRefreshParent->deleteLater();
+
+      projectRepackageIfNeededAndThenDownload();
+    } );
+  }
+  else
+  {
+    projectRepackageIfNeededAndThenDownload();
+  }
+
+  QObject *tempProjectDownloadFinishedParent = new QObject( this ); // we need this to unsubscribe
+  connect( this, &QFieldCloudProjectsModel::projectDownloadFinished, tempProjectDownloadFinishedParent, [ = ]( const QString & finishedProjectId )
+  {
+    if ( finishedProjectId != projectId )
+      return;
+
+    if ( project->isPackagingAborted )
+      return;
+
+    tempProjectDownloadFinishedParent->deleteLater();
+  } );
+}
+
+void QFieldCloudProjectsModel::projectDownload1( const QString &projectId )
+{
+  if ( !mCloudConnection )
+    return;
+
+  const QModelIndex projectIndex = findProjectIndex( projectId );
+  if ( !projectIndex.isValid() )
+    return;
+
+  CloudProject *project = mProjects[projectIndex.row()];
+
+  if ( project->isPackagingAborted )
+    return;
+
+  NetworkReply *reply = mCloudConnection->get( QStringLiteral( "/api/v1/packages/%1/latest/" ).arg( projectId ) );
+
+  emit dataChanged( projectIndex, projectIndex, QVector<int>() << PackagingStatusRole );
+
+  connect( reply, &NetworkReply::finished, reply, [ = ]()
+  {
+    if ( project->isPackagingAborted )
+      return;
+
     QNetworkReply *rawReply = reply->reply();
 
     reply->deleteLater();
-    project->apiNetworkReply = nullptr;
 
     if ( rawReply->error() != QNetworkReply::NoError )
     {
-      QgsLogger::debug( QStringLiteral( "Packaging request for \"%1\" finished with error: %2" ).arg( projectId, rawReply->error() ) );
-      projectDownloadFinishedWithError( projectId, QFieldCloudConnection::errorString( rawReply ) );
       return;
     }
 
-    QgsLogger::debug( QStringLiteral( "Packaging request for \"%1\" finished with no error" ).arg( projectId ) );
-
     const QJsonObject payload = QJsonDocument::fromJson( rawReply->readAll() ).object();
-    Q_ASSERT( !payload.isEmpty() );
-    project->packagingStatus = packagingStatus( payload.value( QStringLiteral( "status" ) ).toString() );
+    const QString packageId = payload.value( QStringLiteral( "package_id" ) ).toString();
+    const QString packagedAt = payload.value( QStringLiteral( "packaged_at" ) ).toString();
 
-    emit dataChanged( projectIndex, projectIndex, QVector<int>() << PackagingStatusRole );
+    if (
+      packageId.isNull()
+      || packagedAt.isNull()
+      || !payload.value( QStringLiteral( "files" ) ).isArray()
+      || !payload.value( QStringLiteral( "layers" ) ).isObject()
+    )
+    {
+      QgsLogger::debug( QStringLiteral( "JSON structure for \"%1\" package does not contains the expected fields: package_id(string), packaged_at(string), files(array), layers(object)" ).arg( projectId ) );
+      return;
+    }
 
-    projectGetPackagingStatus( projectId );
+    const QJsonArray files = payload.value( QStringLiteral( "files" ) ).toArray();
+    for ( const QJsonValue &fileValue : files )
+    {
+      QJsonObject fileObject = fileValue.toObject();
+      int fileSize = fileObject.value( QStringLiteral( "size" ) ).toInt();
+      QString fileName = fileObject.value( QStringLiteral( "name" ) ).toString();
+      QString projectFileName = QStringLiteral( "%1/%2/%3/%4" ).arg( QFieldCloudUtils::localCloudDirectory(), mUsername, projectId, fileName );
+      QString cloudChecksum = fileObject.value( QStringLiteral( "sha256" ) ).toString();
+      QString localChecksum = FileUtils::fileChecksum( projectFileName, QCryptographicHash::Sha256 ).toHex();
+
+      if (
+        !fileObject.value( QStringLiteral( "size" ) ).isDouble()
+        || fileName.isEmpty()
+        || cloudChecksum.isEmpty()
+      )
+      {
+        QgsLogger::debug( QStringLiteral( "JSON structure for \"%1\" package in \"files\" list does not contains the expected fields: size(int), name(string), sha256(string)" ).arg( projectId ) );
+        return;
+      }
+
+      if ( cloudChecksum == localChecksum )
+        continue;
+
+      project->downloadFileTransfers.insert( fileName, FileTransfer( fileName, fileSize ) );
+      project->downloadBytesTotal += std::max( fileSize, 0 );
+    }
+
+    const QJsonObject layers = payload.value( QStringLiteral( "layers" ) ).toObject();
+    bool hasLayerExportErrror = false;
+    for ( const QString &layerKey : layers.keys() )
+    {
+      QJsonObject layer = layers.value( layerKey ).toObject();
+      QString layerName = layer.value( QStringLiteral( "name" ) ).toString();
+      QString layerStatus = layer.value( QStringLiteral( "status" ) ).toString();
+
+      if (
+        layerKey.isEmpty()
+        || layerName.isEmpty()
+        || layerStatus.isEmpty()
+        || !layer.value( QStringLiteral( "valid" ) ).isBool()
+      )
+      {
+        QgsLogger::debug( QStringLiteral( "JSON structure for \"%1\" package in \"files\" list does not contains the expected fields: size(int), name(string), sha256(string)" ).arg( projectId ) );
+        return;
+      }
+
+      if ( !layer.value( QStringLiteral( "valid" ) ).toBool() )
+      {
+        project->packagedLayerErrors.append( tr( "Packaged layer '%1' is not valid: '%2'" ).arg( layerName, layerStatus ) );
+        QgsMessageLog::logMessage( project->packagedLayerErrors.last() );
+
+        hasLayerExportErrror = true;
+      }
+    }
+
+    if ( hasLayerExportErrror )
+    {
+      QgsLogger::debug( QStringLiteral( "Packaged files list request finished for \"%1\" with some failed layers:\n%2" ).arg( projectId, project->packagedLayerErrors.join( QStringLiteral( "\n" ) ) ) );
+      emit dataChanged( projectIndex, projectIndex, QVector<int>() << PackagedLayerErrorsRole );
+    }
+
+    project->lastExportId = packageId;
+    project->lastExportedAt = packagedAt;
+
+    QgsLogger::debug( QStringLiteral( "Packaged files to download - %1 files, namely: %2" )
+                      .arg( project->downloadFileTransfers.count() )
+                      .arg( project->downloadFileTransfers.keys().join( ", " ) ) );
+
+    updateActiveProjectFilesToDownload( projectId );
+    projectDownloadFiles( projectId );
   } );
 }
 
@@ -754,7 +1119,7 @@ bool QFieldCloudProjectsModel::projectMoveDownloadedFilesToPermanentStorage( con
       QgsMessageLog::logMessage( QStringLiteral( "Failed to create directory at \"%1\"" ).arg( dir.path() ) );
     }
 
-    const QString destinationFileName( dir.filePath( fileInfo.fileName() ) );
+    const QString destinationFileName( QDir::cleanPath( dir.filePath( fileInfo.fileName() ) ) );
 
     // if the file already exists, we need to delete it first, as QT does not support overwriting
     // NOTE: it is possible that someone creates the file in the meantime between this and the next if statement
@@ -797,7 +1162,7 @@ void QFieldCloudProjectsModel::uploadProject( const QString &projectId, const bo
 
   if ( shouldDownloadUpdates && deltaFileWrapper->count() == 0 )
   {
-    downloadProject( projectId );
+    projectDownload( projectId );
     return;
   }
 
@@ -995,7 +1360,7 @@ void QFieldCloudProjectsModel::uploadProject( const QString &projectId, const bo
         // download the updated files, so the files are for sure the same on the client and on the server
         if ( shouldDownloadUpdates )
         {
-          downloadProject( projectId );
+          projectDownload( projectId );
         }
         else
         {
@@ -1323,7 +1688,7 @@ NetworkReply *QFieldCloudProjectsModel::downloadFile( const QString &projectId, 
   request.setAttribute( QNetworkRequest::RedirectPolicyAttribute, QNetworkRequest::RedirectPolicy::UserVerifiedRedirectPolicy );
   mCloudConnection->setAuthenticationToken( request );
 
-  return mCloudConnection->get( request, QStringLiteral( "/api/v1/qfield-files/%1/%2/" ).arg( projectId, fileName ) );
+  return mCloudConnection->get( request, QStringLiteral( "/api/v1/packages/%1/latest/files/%2" ).arg( projectId, fileName ) );
 }
 
 
@@ -1600,14 +1965,17 @@ void QFieldCloudProjectsModel::reload( const QJsonArray &remoteProjects )
   {
     QVariantHash projectDetails = project.toObject().toVariantHash();
     CloudProject *cloudProject = new CloudProject( projectDetails.value( "id" ).toString(),
-                                                   projectDetails.value( "private" ).toBool(),
-                                                   projectDetails.value( "owner" ).toString(),
-                                                   projectDetails.value( "name" ).toString(),
-                                                   projectDetails.value( "description" ).toString(),
-                                                   projectDetails.value( "user_role" ).toString(),
-                                                   QString(),
-                                                   RemoteCheckout,
-                                                   ProjectStatus::Idle );
+                               projectDetails.value( "private" ).toBool(),
+                               projectDetails.value( "owner" ).toString(),
+                               projectDetails.value( "name" ).toString(),
+                               projectDetails.value( "description" ).toString(),
+                               projectDetails.value( "user_role" ).toString(),
+                               QString(),
+                               RemoteCheckout,
+                               ProjectStatus::Idle,
+                               projectDetails.value( "can_repackage" ).toBool(),
+                               projectDetails.value( "needs_repackaging" ).toBool()
+                             );
 
     const QString projectPrefix = QStringLiteral( "QFieldCloud/projects/%1" ).arg( cloudProject->id );
     QFieldCloudUtils::setProjectSetting( cloudProject->id, QStringLiteral( "owner" ), cloudProject->owner );
@@ -1615,6 +1983,8 @@ void QFieldCloudProjectsModel::reload( const QJsonArray &remoteProjects )
     QFieldCloudUtils::setProjectSetting( cloudProject->id, QStringLiteral( "description" ), cloudProject->description );
     QFieldCloudUtils::setProjectSetting( cloudProject->id, QStringLiteral( "updatedAt" ), cloudProject->updatedAt );
     QFieldCloudUtils::setProjectSetting( cloudProject->id, QStringLiteral( "userRole" ), cloudProject->userRole );
+    QFieldCloudUtils::setProjectSetting( cloudProject->id, QStringLiteral( "canRepackage" ), cloudProject->canRepackage );
+    QFieldCloudUtils::setProjectSetting( cloudProject->id, QStringLiteral( "needsRepackaging" ), cloudProject->needsRepackaging );
 
     if ( !mUsername.isEmpty() )
     {
@@ -1626,6 +1996,8 @@ void QFieldCloudProjectsModel::reload( const QJsonArray &remoteProjects )
         restoreLocalSettings( cloudProject, localPath );
       }
     }
+
+    cloudProject->lastRefreshDt = QDateTime::currentDateTimeUtc();
 
     mProjects << cloudProject;
   }
@@ -1660,7 +2032,7 @@ void QFieldCloudProjectsModel::reload( const QJsonArray &remoteProjects )
       const QString updatedAt = QFieldCloudUtils::projectSetting( projectId, QStringLiteral( "updatedAt" ) ).toString();
       const QString userRole = QFieldCloudUtils::projectSetting( projectId, QStringLiteral( "userRole" ) ).toString();
 
-      CloudProject *cloudProject = new CloudProject( projectId, true, owner, name, description, userRole, QString(), LocalCheckout, ProjectStatus::Idle );
+      CloudProject *cloudProject = new CloudProject( projectId, true, owner, name, description, userRole, QString(), LocalCheckout, ProjectStatus::Idle, false, false );
 
       cloudProject->localPath = QFieldCloudUtils::localProjectFilePath( username, cloudProject->id );
       QDir localPath( QStringLiteral( "%1/%2/%3" ).arg( QFieldCloudUtils::localCloudDirectory(), username, cloudProject->id ) );
