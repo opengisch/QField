@@ -23,8 +23,8 @@ jobs:
           - triplet: 'x86-android'
 
     env:
-      ANDROID_PLATFORM: 21
-      ANDROID_TARGET_PLATFORM: 29
+      ANDROID_PLATFORM: 24
+      ANDROID_TARGET_PLATFORM: 30
 
     steps:
       - name: 🐣 Checkout
