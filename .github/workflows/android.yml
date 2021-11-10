@@ -24,7 +24,7 @@ jobs:
 
     env:
       ANDROID_PLATFORM: 21
-      ANDROID_TARGET_PLATFORM: 30
+      ANDROID_TARGET_PLATFORM: 29
 
     steps:
       - name: 🐣 Checkout
