@@ -255,7 +255,7 @@ jobs:
           release-tag: ${{ env.CI_TAG }}
 
       - name: 🦨 Setup tmate session
-        if: failure()
+        if: always()
         uses: mxschmitt/action-tmate@v3
         with:
           limit-access-to-actor: true
