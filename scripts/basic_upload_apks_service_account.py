@@ -72,7 +72,12 @@ def main():
             apk_response = (
                 service.edits()
                 .bundles()
-                .upload(editId=edit_id, packageName=package_name, media_body=filepath, media_mime_type="application/octet-stream")
+                .upload(
+                    editId=edit_id,
+                    packageName=package_name,
+                    media_body=filepath,
+                    media_mime_type="application/octet-stream",
+                )
                 .execute()
             )
 
