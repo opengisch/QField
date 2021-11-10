@@ -447,7 +447,6 @@ class QFieldCloudProjectsModel : public QAbstractListModel
     void projectUploadAttachments( const QString &projectId );
     void projectApplyDeltas( const QString &projectId );
     void projectGetDeltaStatus( const QString &projectId );
-    void projectGetPackagingStatus( const QString &projectId );
     bool projectMoveDownloadedFilesToPermanentStorage( const QString &projectId );
     void projectRefreshData( const QString &projectId, const ProjectRefreshReason &refreshReason );
     void projectStartJob( const QString &projectId, const JobType jobType );
@@ -470,7 +469,6 @@ class QFieldCloudProjectsModel : public QAbstractListModel
     QStringList filterGpkgFileNames( const QStringList &fileNames ) const;
 
     QFieldCloudProjectsModel::JobStatus jobStatus( const QString &status ) const;
-    QFieldCloudProjectsModel::PackagingStatus packagingStatus( const QString &status ) const;
 
     void downloadFileConnections( const QString &projectId, const QString &fileName );
 };
