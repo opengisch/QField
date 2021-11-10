@@ -229,7 +229,7 @@ jobs:
           mv ${{ env.CMAKE_BUILD_DIR }}/android_deployment_settings.json ${{ env.CMAKE_BUILD_DIR }}/android_deployment_settings.tmp
           cat <<< "$(jq ". += { \"sdkBuildToolsRevision\" : \"29.0.2\" }" < ${{ env.CMAKE_BUILD_DIR }}/android_deployment_settings.tmp)" > ${{ env.CMAKE_BUILD_DIR }}/android_deployment_settings.json
           cmake --build  "${{ env.CMAKE_BUILD_DIR }}" --target bundle --config Release
-          /usr/local/lib/android/sdk/build-tools/29.0.2/apksigner sign --ks ${{ env.CMAKE_SOURCE_DIR }}/keystore.p12 --ks-pass pass:"${{ secrets.STOREPASS }}" --ks-key-alias "qfield" --key-pass pass:"${{ secrets.KEYPASS }}" ${{ env.CMAKE_BUILD_DIR }}/android-build/build/outputs/apk/release/android-build-release-signed.apk
+          /usr/local/lib/android/sdk/build-tools/29.0.2/apksigner sign --ks ./keystore.p12 --ks-pass pass:"${{ secrets.STOREPASS }}" --ks-key-alias "qfield" --key-pass pass:"${{ secrets.KEYPASS }}" ${{ env.CMAKE_BUILD_DIR }}/android-build/build/outputs/apk/release/android-build-release-signed.apk
 
       - name: 📦 Upload artifacts
         uses: actions/upload-artifact@v2
