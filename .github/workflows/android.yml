@@ -255,12 +255,6 @@ jobs:
           repo-token: ${{ secrets.GITHUB_TOKEN }}
           release-tag: ${{ env.CI_TAG }}
 
-      - name: 🦨 Setup tmate session
-        if: failure()
-        uses: mxschmitt/action-tmate@v3
-        with:
-          limit-access-to-actor: true
-
   deploy_to_playstore:
     runs-on: ubuntu-20.04
     needs: build
