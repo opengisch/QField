@@ -24,7 +24,7 @@ jobs:
 
     env:
       ANDROID_PLATFORM: 21
-      ANDROID_TARGET_PLATFORM: 29
+      ANDROID_TARGET_PLATFORM: 30
 
     steps:
       - name: 🐣 Checkout
@@ -229,12 +229,14 @@ jobs:
           mv ${{ env.CMAKE_BUILD_DIR }}/android_deployment_settings.json ${{ env.CMAKE_BUILD_DIR }}/android_deployment_settings.tmp
           cat <<< "$(jq ". += { \"sdkBuildToolsRevision\" : \"29.0.2\" }" < ${{ env.CMAKE_BUILD_DIR }}/android_deployment_settings.tmp)" > ${{ env.CMAKE_BUILD_DIR }}/android_deployment_settings.json
           cmake --build  "${{ env.CMAKE_BUILD_DIR }}" --target bundle --config Release
+          ${ANDROID_SDK_ROOT}/build-tools/29.0.2/apksigner sign --v2-signing-enabled true --ks ./keystore.p12 --ks-pass pass:"${{ secrets.STOREPASS }}" --ks-key-alias "qfield" --key-pass pass:"${{ secrets.KEYPASS }}" ${{ env.CMAKE_BUILD_DIR }}/android-build/build/outputs/apk/release/android-build-release-signed.apk
 
-      - name: 📦 Upload apk
+      - name: 📦 Upload artifacts
         uses: actions/upload-artifact@v2
         with:
-          name: android-${{ matrix.triplet }}.apk
+          name: android-${{ matrix.triplet }}
           path: |
+            ${{ env.CMAKE_BUILD_DIR }}/android-build/build/outputs/bundle/release/android-build-release.aab
             ${{ env.CMAKE_BUILD_DIR }}/android-build/build/outputs/apk/release/android-build-release-signed.apk
 
       - name: 🍺 Deploy
@@ -268,20 +270,20 @@ jobs:
 
       - name: Download apks
         run: |
-          wget https://sos-ch-dk-2.exo.io/qfieldapks/ci-builds/${{ steps.vars.outputs.CI_PACKAGE_FILE_BASENAME }}-arm64_v8a.apk
-          wget https://sos-ch-dk-2.exo.io/qfieldapks/ci-builds/${{ steps.vars.outputs.CI_PACKAGE_FILE_BASENAME }}-armv7.apk
-          wget https://sos-ch-dk-2.exo.io/qfieldapks/ci-builds/${{ steps.vars.outputs.CI_PACKAGE_FILE_BASENAME }}-x86_64.apk
-          wget https://sos-ch-dk-2.exo.io/qfieldapks/ci-builds/${{ steps.vars.outputs.CI_PACKAGE_FILE_BASENAME }}-x86.apk
+          wget https://sos-ch-dk-2.exo.io/qfieldapks/ci-builds/${{ steps.vars.outputs.CI_PACKAGE_FILE_BASENAME }}-arm64_v8a.aab
+          wget https://sos-ch-dk-2.exo.io/qfieldapks/ci-builds/${{ steps.vars.outputs.CI_PACKAGE_FILE_BASENAME }}-armv7.aab
+          wget https://sos-ch-dk-2.exo.io/qfieldapks/ci-builds/${{ steps.vars.outputs.CI_PACKAGE_FILE_BASENAME }}-x86_64.aab
+          wget https://sos-ch-dk-2.exo.io/qfieldapks/ci-builds/${{ steps.vars.outputs.CI_PACKAGE_FILE_BASENAME }}-x86.aab
 
       - name: Upload to Google Play Store
         run: |
           pip install google-api-python-client google-auth-httplib2 google-auth-oauthlib oauth2client
 
           ./scripts/basic_upload_apks_service_account.py ch.opengis.${{ steps.vars.outputs.APP_PACKAGE_NAME }} beta "Update from commit ${GITHUB_SHA}" \
-              ${{ steps.vars.outputs.CI_PACKAGE_FILE_BASENAME }}-arm64_v8a.apk \
-              ${{ steps.vars.outputs.CI_PACKAGE_FILE_BASENAME }}-armv7.apk \
-              ${{ steps.vars.outputs.CI_PACKAGE_FILE_BASENAME }}-x86_64.apk \
-              ${{ steps.vars.outputs.CI_PACKAGE_FILE_BASENAME }}-x86.apk
+              ${{ steps.vars.outputs.CI_PACKAGE_FILE_BASENAME }}-arm64_v8a.aab \
+              ${{ steps.vars.outputs.CI_PACKAGE_FILE_BASENAME }}-armv7.aab \
+              ${{ steps.vars.outputs.CI_PACKAGE_FILE_BASENAME }}-x86_64.aab \
+              ${{ steps.vars.outputs.CI_PACKAGE_FILE_BASENAME }}-x86.aab
         env:
           GOOGLE_SERVICE_ACCOUNT: ${{ secrets.GOOGLE_SERVICE_ACCOUNT }}
 

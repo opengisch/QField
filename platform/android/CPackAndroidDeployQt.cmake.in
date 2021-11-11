@@ -26,6 +26,7 @@ if(DEFINED ENV{KEYNAME}
       --deployment bundled
       --android-platform android-@ANDROID_TARGET_PLATFORM@
       --gradle
+      --aab
     WORKING_DIRECTORY @CMAKE_BINARY_DIR@ COMMAND_ECHO STDERR)
 else()
   execute_process(
