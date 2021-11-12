@@ -270,20 +270,20 @@ jobs:
 
       - name: Download apks
         run: |
-          wget https://sos-ch-dk-2.exo.io/qfieldapks/ci-builds/${{ steps.vars.outputs.CI_PACKAGE_FILE_BASENAME }}-arm64_v8a.aab
-          wget https://sos-ch-dk-2.exo.io/qfieldapks/ci-builds/${{ steps.vars.outputs.CI_PACKAGE_FILE_BASENAME }}-armv7.aab
-          wget https://sos-ch-dk-2.exo.io/qfieldapks/ci-builds/${{ steps.vars.outputs.CI_PACKAGE_FILE_BASENAME }}-x86_64.aab
-          wget https://sos-ch-dk-2.exo.io/qfieldapks/ci-builds/${{ steps.vars.outputs.CI_PACKAGE_FILE_BASENAME }}-x86.aab
+          wget https://sos-ch-dk-2.exo.io/qfieldapks/ci-builds/${{ steps.vars.outputs.CI_PACKAGE_FILE_BASENAME }}-arm64_v8a.apk
+          wget https://sos-ch-dk-2.exo.io/qfieldapks/ci-builds/${{ steps.vars.outputs.CI_PACKAGE_FILE_BASENAME }}-armv7.apk
+          wget https://sos-ch-dk-2.exo.io/qfieldapks/ci-builds/${{ steps.vars.outputs.CI_PACKAGE_FILE_BASENAME }}-x86_64.apk
+          wget https://sos-ch-dk-2.exo.io/qfieldapks/ci-builds/${{ steps.vars.outputs.CI_PACKAGE_FILE_BASENAME }}-x86.apk
 
       - name: Upload to Google Play Store
         run: |
           pip install google-api-python-client google-auth-httplib2 google-auth-oauthlib oauth2client
 
           ./scripts/basic_upload_apks_service_account.py ch.opengis.${{ steps.vars.outputs.APP_PACKAGE_NAME }} beta "Update from commit ${GITHUB_SHA}" \
-              ${{ steps.vars.outputs.CI_PACKAGE_FILE_BASENAME }}-arm64_v8a.aab \
-              ${{ steps.vars.outputs.CI_PACKAGE_FILE_BASENAME }}-armv7.aab \
-              ${{ steps.vars.outputs.CI_PACKAGE_FILE_BASENAME }}-x86_64.aab \
-              ${{ steps.vars.outputs.CI_PACKAGE_FILE_BASENAME }}-x86.aab
+              ${{ steps.vars.outputs.CI_PACKAGE_FILE_BASENAME }}-arm64_v8a.apk \
+              ${{ steps.vars.outputs.CI_PACKAGE_FILE_BASENAME }}-armv7.apk \
+              ${{ steps.vars.outputs.CI_PACKAGE_FILE_BASENAME }}-x86_64.apk \
+              ${{ steps.vars.outputs.CI_PACKAGE_FILE_BASENAME }}-x86.apk
         env:
           GOOGLE_SERVICE_ACCOUNT: ${{ secrets.GOOGLE_SERVICE_ACCOUNT }}
 
