@@ -193,6 +193,7 @@ jobs:
                 -DWITH_VCPKG=ON \
                 -DWITH_SPIX=ON \
                 -DAPP_VERSION="${APP_VERSION}" \
+                -DAPK_VERSION_CODE="${APK_VERSION_CODE}" \
                 -DAPP_VERSION_STR="${APP_VERSION_STR}" \
                 -DAPP_PACKAGE_NAME="${APP_PACKAGE_NAME}" \
                 -DAPP_ICON="${APP_ICON}" \
