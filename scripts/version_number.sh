@@ -10,13 +10,13 @@ fi
 # arg1: ARCH
 arch_to_build_number() {
   ARCH=$1
-  if [[ ${ARCH} == armv7 ]]; then
+  if [[ ${ARCH} == arm-android ]]; then
     echo 1
-  elif [[ ${ARCH} == arm64_v8a ]]; then
+  elif [[ ${ARCH} == arm64-android ]]; then
     echo 2
-  elif [[ ${ARCH} == x86 ]]; then
+  elif [[ ${ARCH} == x86-android ]]; then
     echo 3
-  elif [[ ${ARCH} == x86_64 ]]; then
+  elif [[ ${ARCH} == x86-android ]]; then
     echo 4
   else
     echo 0
