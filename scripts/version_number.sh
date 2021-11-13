@@ -16,7 +16,7 @@ arch_to_build_number() {
     echo 2
   elif [[ ${ARCH} == x86-android ]]; then
     echo 3
-  elif [[ ${ARCH} == x86-android ]]; then
+  elif [[ ${ARCH} == x64-android ]]; then
     echo 4
   else
     echo 0
