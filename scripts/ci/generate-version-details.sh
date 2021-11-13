@@ -41,7 +41,7 @@ elif [[ ${CI_PULL_REQUEST} = false ]]; then
   if [[ -n ${CUSTOM_APP_PACKAGE_NAME} ]]; then
     export APK_VERSION_CODE="${CI_RUN_NUMBER}${ARCH_NUMBER}"
   else
-    export APK_VERSION_CODE=0$((1940000+CI_RUN_NUMBER))${ARCH_NUMBER}
+    export APK_VERSION_CODE=0$((1950000+CI_RUN_NUMBER))${ARCH_NUMBER}
   fi
 
 else
