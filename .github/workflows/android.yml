@@ -172,6 +172,7 @@ jobs:
           WORKSPACE: ${{ github.workspace }}
           VCPKG_BINARY_SOURCES: 'clear;nuget,GitHub,readwrite'
           Qt5Core_ROOT: ${{ env.Qt5_DIR }}
+          ARCH: ${{ matrix.triplet }}
         run: |
           # Convert paths to bash compatible ones. Thanks to whoever decided to use drive letters and backslashes.
           CMAKE_BUILD_DIR=$( ${{ steps.vars.outputs.PATHCONVERT }} "${CMAKE_BUILD_DIR}" )
