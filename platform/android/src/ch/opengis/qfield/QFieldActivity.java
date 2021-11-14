@@ -65,6 +65,7 @@ import android.os.Environment;
 import android.provider.Settings;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
+import android.text.Html;
 import android.util.Log;
 import android.view.WindowManager;
 import android.view.WindowManager.LayoutParams;
@@ -179,7 +180,7 @@ public class QFieldActivity extends QtActivity {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R && !Environment.isExternalStorageManager() && !sharedPreferences.getBoolean("DontAskAllFilesPermission", false)) {
             AlertDialog.Builder builder = new AlertDialog.Builder(this);
             builder.setTitle("All files access");
-            builder.setMessage("QField needs all files access permission to be able to open local projects and datasets as well as supporting custom projection grids, fonts, and base maps. While not required, allowing access is highly recommended.\n\nOn the next screen, please select QField and select the 'Allow access to all files' option.");
+            builder.setMessage(Html.fromHtml("QField needs all files access permission to be able to open local projects and datasets as well as supporting custom projection grids, fonts, and base maps. While not required, <i>allowing access is highly recommended</i>.<br><br>On the next screen, please select <b>QField</b> and select the <b>Allow access to all files</b> option.", Html.FROM_HTML_MODE_LEGACY));
             builder.setPositiveButton("Allow", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
                         try {
