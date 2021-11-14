@@ -38,8 +38,15 @@ public class QFieldProjectListItem implements Comparable<QFieldProjectListItem>{
         return this.type;
     }
 
+    public boolean isDirectory(){
+        return this.imageId == R.drawable.directory;
+    }
+
     @Override
     public int compareTo(QFieldProjectListItem item){
+        if (this.isDirectory() != item.isDirectory()) {
+            return this.isDirectory() ? -1 : 1;
+        }
         return this.file.getName().compareToIgnoreCase(item.getFile().getName());
     }
 }
