@@ -192,7 +192,7 @@ jobs:
                 -DVCPKG_OVERLAY_PORTS=$(IFS=\; ; echo "${overlay_ports[*]}") \
                 -DVCPKG_TARGET_TRIPLET="${{ matrix.triplet }}" \
                 -DWITH_VCPKG=ON \
-                -DWITH_SPIX=ON \
+                -DWITH_SPIX=OFF \
                 -DAPP_VERSION="${APP_VERSION}" \
                 -DAPK_VERSION_CODE="${APK_VERSION_CODE}" \
                 -DAPP_VERSION_STR="${APP_VERSION_STR}" \
