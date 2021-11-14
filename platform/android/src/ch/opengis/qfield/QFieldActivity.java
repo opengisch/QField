@@ -46,19 +46,27 @@ import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.app.Application;
+import android.app.Dialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.ActivityInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.PackageManager.NameNotFoundException;
 import android.Manifest;
 import android.net.Uri;
 import android.os.AsyncTask;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
+import android.provider.Settings;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
+import android.text.Html;
+import android.util.Log;
 import android.view.WindowManager;
 import android.view.WindowManager.LayoutParams;
 
@@ -69,6 +77,9 @@ import ch.opengis.qfield.QFieldUtils;
 
 
 public class QFieldActivity extends QtActivity {
+
+    private SharedPreferences sharedPreferences;
+    private SharedPreferences.Editor sharedPreferenceEditor;
 
     public static native void openProject(String url);
     private float originalBrightness;
@@ -103,7 +114,11 @@ public class QFieldActivity extends QtActivity {
     }
 
     private void prepareQtActivity() {
+        sharedPreferences = getSharedPreferences("QField", Context.MODE_PRIVATE);
+        sharedPreferenceEditor = sharedPreferences.edit();
+
         checkPermissions();
+        checkAllFileAccess(); // Storage access permission handling for Android 11+
 
         String storagePath = Environment.getExternalStorageDirectory().getAbsolutePath();
 
@@ -157,6 +172,44 @@ public class QFieldActivity extends QtActivity {
             String[] permissions = new String[ permissionsList.size() ];
             permissionsList.toArray( permissions );
             ActivityCompat.requestPermissions(QFieldActivity.this, permissions, 101);
+        }
+    }
+
+    private void checkAllFileAccess()
+    {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R && !Environment.isExternalStorageManager() && !sharedPreferences.getBoolean("DontAskAllFilesPermission", false)) {
+            AlertDialog.Builder builder = new AlertDialog.Builder(this);
+            builder.setTitle("All files access");
+            builder.setMessage(Html.fromHtml("QField needs all files access permission to be able to open local projects and datasets as well as supporting custom projection grids, fonts, and base maps. While not required, <i>allowing access is highly recommended</i>.<br><br>On the next screen, please select <b>QField</b> and select the <b>Allow access to all files</b> option.", Html.FROM_HTML_MODE_LEGACY));
+            builder.setPositiveButton("Allow", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        try {
+                            Intent intent = new Intent(Settings.ACTION_MANAGE_ALL_FILES_ACCESS_PERMISSION);
+                            startActivity(intent);
+                        } catch (Exception e) {
+                            Log.e("QField", "Failed to initial activity to grant all files access", e);
+                        }
+                        dialog.dismiss();
+                    }
+                });
+            builder.setNegativeButton("Deny Permanently", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        sharedPreferenceEditor.putBoolean("DontAskAllFilesPermission", true);
+                        sharedPreferenceEditor.commit();
+
+                        dialog.dismiss();
+                    }
+                });
+
+            builder.setNeutralButton("Deny Once", new DialogInterface.OnClickListener() {
+                public void onClick(DialogInterface dialog, int id) {
+                        dialog.dismiss();
+                }
+            });
+
+            AlertDialog dialog = builder.create();
+            dialog.setCancelable(false);
+            dialog.show();
         }
     }
 }
