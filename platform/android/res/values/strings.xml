@@ -31,5 +31,5 @@
     <string name="grant_all_files_permission">QField needs all files access permission to be able to open local projects and datasets as well as supporting custom projection grids, fonts, and base maps. While not required, <i>allowing access is highly recommended</i>.<br/><br/>On the next screen, please select <b>QField</b> and select the <b>Allow access to all files</b> option.</string>
     <string name="grant">Allow</string>
     <string name="deny_always">Deny Permanently</string>
-    <string name="deny_now">Deny Once</string>
+    <string name="deny_once">Deny Once</string>
 </resources>
