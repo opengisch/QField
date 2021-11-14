@@ -179,12 +179,14 @@ public class QFieldActivity extends QtActivity {
     {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R && !Environment.isExternalStorageManager() && !sharedPreferences.getBoolean("DontAskAllFilesPermission", false)) {
             AlertDialog.Builder builder = new AlertDialog.Builder(this);
-            builder.setTitle("All files access");
-            builder.setMessage(Html.fromHtml("QField needs all files access permission to be able to open local projects and datasets as well as supporting custom projection grids, fonts, and base maps. While not required, <i>allowing access is highly recommended</i>.<br><br>On the next screen, please select <b>QField</b> and select the <b>Allow access to all files</b> option.", Html.FROM_HTML_MODE_LEGACY));
-            builder.setPositiveButton("Allow", new DialogInterface.OnClickListener() {
+            builder.setTitle(getString(R.string.grant_permission));
+            builder.setMessage(Html.fromHtml(getString(R.string.grant_all_files_permission), Html.FROM_HTML_MODE_LEGACY));
+            builder.setPositiveButton(getString(R.string.grant), new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
                         try {
                             Intent intent = new Intent(Settings.ACTION_MANAGE_ALL_FILES_ACCESS_PERMISSION);
+                            intent.addCategory("android.intent.category.DEFAULT");
+                            intent.setData(Uri.parse(String.format("package:%s",getApplicationContext().getPackageName())));
                             startActivity(intent);
                         } catch (Exception e) {
                             Log.e("QField", "Failed to initial activity to grant all files access", e);
@@ -192,7 +194,7 @@ public class QFieldActivity extends QtActivity {
                         dialog.dismiss();
                     }
                 });
-            builder.setNegativeButton("Deny Permanently", new DialogInterface.OnClickListener() {
+            builder.setNegativeButton(getString(R.string.deny_always), new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
                         sharedPreferenceEditor.putBoolean("DontAskAllFilesPermission", true);
                         sharedPreferenceEditor.commit();
@@ -201,7 +203,7 @@ public class QFieldActivity extends QtActivity {
                     }
                 });
 
-            builder.setNeutralButton("Deny Once", new DialogInterface.OnClickListener() {
+            builder.setNeutralButton(getString(R.string.deny_once), new DialogInterface.OnClickListener() {
                 public void onClick(DialogInterface dialog, int id) {
                         dialog.dismiss();
                 }
