@@ -185,8 +185,6 @@ public class QFieldActivity extends QtActivity {
                     public void onClick(DialogInterface dialog, int id) {
                         try {
                             Intent intent = new Intent(Settings.ACTION_MANAGE_ALL_FILES_ACCESS_PERMISSION);
-                            Uri uri = Uri.fromParts("package", getApplication().getApplicationContext().getPackageName(), null);
-                            intent.setData(uri);
                             startActivity(intent);
                         } catch (Exception e) {
                             Log.e("QField", "Failed to initial activity to grant all files access", e);
