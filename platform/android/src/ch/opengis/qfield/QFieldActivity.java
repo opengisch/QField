@@ -171,8 +171,9 @@ public class QFieldActivity extends QtActivity {
     {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R && !Environment.isExternalStorageManager()) {
             AlertDialog.Builder builder = new AlertDialog.Builder(this);
-            builder.setMessage("Grant me all the rights");
-            builder.setPositiveButton("Grant right", new DialogInterface.OnClickListener() {
+            builder.setTitle(getString(R.string.grant_permission));
+            builder.setMessage(getString(R.string.grant_all_files_permission));
+            builder.setPositiveButton(getString(R.string.grant), new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
                         try {
                             Intent intent = new Intent(Settings.ACTION_MANAGE_ALL_FILES_ACCESS_PERMISSION);
@@ -183,11 +184,18 @@ public class QFieldActivity extends QtActivity {
                         dialog.dismiss();
                     }
                 });
-            builder.setNegativeButton("Deny right", new DialogInterface.OnClickListener() {
+            builder.setNegativeButton(getString(R.string.deny_always), new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
                         dialog.dismiss();
                     }
                 });
+
+            builder.setNeutralButton(getString(R.string.deny_now), new DialogInterface.OnClickListener() {
+                public void onClick(DialogInterface dialog, int id) {
+                        dialog.dismiss();
+                }
+            });
+
             AlertDialog dialog = builder.create();
             dialog.setCancelable(false);
             dialog.show();
