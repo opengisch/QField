@@ -46,8 +46,11 @@ import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.app.Application;
+import android.app.Dialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.content.pm.PackageManager;
@@ -55,10 +58,13 @@ import android.content.pm.PackageManager.NameNotFoundException;
 import android.Manifest;
 import android.net.Uri;
 import android.os.AsyncTask;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
+import android.provider.Settings;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
+import android.util.Log;
 import android.view.WindowManager;
 import android.view.WindowManager.LayoutParams;
 
@@ -104,6 +110,7 @@ public class QFieldActivity extends QtActivity {
 
     private void prepareQtActivity() {
         checkPermissions();
+        checkAllFileAccess(); // Storage access permission handling for Android 11+
 
         String storagePath = Environment.getExternalStorageDirectory().getAbsolutePath();
 
@@ -157,6 +164,33 @@ public class QFieldActivity extends QtActivity {
             String[] permissions = new String[ permissionsList.size() ];
             permissionsList.toArray( permissions );
             ActivityCompat.requestPermissions(QFieldActivity.this, permissions, 101);
+        }
+    }
+
+    private void checkAllFileAccess()
+    {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R && !Environment.isExternalStorageManager()) {
+            AlertDialog.Builder builder = new AlertDialog.Builder(this);
+            builder.setMessage("Grant me all the rights");
+            builder.setPositiveButton("Grant right", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        try {
+                            Intent intent = new Intent(Settings.ACTION_MANAGE_ALL_FILES_ACCESS_PERMISSION);
+                            startActivity(intent);
+                        } catch (Exception e) {
+                            Log.e("QField", "Failed to initial activity to grant all files access", e);
+                        }
+                        dialog.dismiss();
+                    }
+                });
+            builder.setNegativeButton("Deny right", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        dialog.dismiss();
+                    }
+                });
+            AlertDialog dialog = builder.create();
+            dialog.setCancelable(false);
+            dialog.show();
         }
     }
 }
