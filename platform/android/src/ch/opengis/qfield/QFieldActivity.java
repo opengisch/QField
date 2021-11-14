@@ -178,9 +178,9 @@ public class QFieldActivity extends QtActivity {
     {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R && !Environment.isExternalStorageManager() && !sharedPreferences.getBoolean("DontAskAllFilesPermission", false)) {
             AlertDialog.Builder builder = new AlertDialog.Builder(this);
-            builder.setTitle("Grant permission");
-            builder.setMessage("<html><body>To open local projects and datasets, QField needs to be granted all files access permission.<br>On the next screen, please select <b>QField</b> and select <b>Allow access to manage all files</b> option.</body></html>");
-            builder.setPositiveButton("Grant", new DialogInterface.OnClickListener() {
+            builder.setTitle("All files access");
+            builder.setMessage("QField needs all files access permission to be able to open local projects and datasets as well as supporting custom projection grids, fonts, and base maps. While not required, allowing access is highly recommended.\n\nOn the next screen, please select QField and select the 'Allow access to all files' option.");
+            builder.setPositiveButton("Allow", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
                         try {
                             Intent intent = new Intent(Settings.ACTION_MANAGE_ALL_FILES_ACCESS_PERMISSION);
@@ -191,7 +191,7 @@ public class QFieldActivity extends QtActivity {
                         dialog.dismiss();
                     }
                 });
-            builder.setNegativeButton("Deny Always", new DialogInterface.OnClickListener() {
+            builder.setNegativeButton("Deny Permanently", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
                         sharedPreferenceEditor.putBoolean("DontAskAllFilesPermission", true);
                         sharedPreferenceEditor.commit();
@@ -200,7 +200,7 @@ public class QFieldActivity extends QtActivity {
                     }
                 });
 
-            builder.setNeutralButton("Deny For Now", new DialogInterface.OnClickListener() {
+            builder.setNeutralButton("Deny Once", new DialogInterface.OnClickListener() {
                 public void onClick(DialogInterface dialog, int id) {
                         dialog.dismiss();
                 }
