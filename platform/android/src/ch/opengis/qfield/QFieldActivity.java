@@ -178,9 +178,9 @@ public class QFieldActivity extends QtActivity {
     {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R && !Environment.isExternalStorageManager() && !sharedPreferences.getBoolean("DontAskAllFilesPermission", false)) {
             AlertDialog.Builder builder = new AlertDialog.Builder(this);
-            builder.setTitle(getString(R.string.grant_permission));
-            builder.setMessage(getString(R.string.grant_all_files_permission));
-            builder.setPositiveButton(getString(R.string.grant), new DialogInterface.OnClickListener() {
+            builder.setTitle("Grant permission");
+            builder.setMessage("<html><body>To open local projects and datasets, QField needs to be granted all files access permission.<br>On the next screen, please select <b>QField</b> and select <b>Allow access to manage all files</b> option.</body></html>");
+            builder.setPositiveButton("Grant", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
                         try {
                             Intent intent = new Intent(Settings.ACTION_MANAGE_ALL_FILES_ACCESS_PERMISSION);
@@ -191,7 +191,7 @@ public class QFieldActivity extends QtActivity {
                         dialog.dismiss();
                     }
                 });
-            builder.setNegativeButton(getString(R.string.deny_always), new DialogInterface.OnClickListener() {
+            builder.setNegativeButton("Deny Always", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
                         sharedPreferenceEditor.putBoolean("DontAskAllFilesPermission", true);
                         sharedPreferenceEditor.commit();
@@ -200,7 +200,7 @@ public class QFieldActivity extends QtActivity {
                     }
                 });
 
-            builder.setNeutralButton(getString(R.string.deny_now), new DialogInterface.OnClickListener() {
+            builder.setNeutralButton("Deny For Now", new DialogInterface.OnClickListener() {
                 public void onClick(DialogInterface dialog, int id) {
                         dialog.dismiss();
                 }
