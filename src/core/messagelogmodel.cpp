@@ -86,7 +86,7 @@ void MessageLogModel::clear()
 
 void MessageLogModel::onMessageReceived( const QString &message, const QString &tag, Qgis::MessageLevel level )
 {
-  if ( mSuppressedTags.contains( tag ) )
+  if ( mSuppressedTags.contains( tag ) || tag == QLatin1String( "3D" ) )
     return;
 
   beginInsertRows( QModelIndex(), 0, 0 );
