@@ -152,7 +152,6 @@ if(MSVC)
   add_definitions(-D_CRT_NONSTDC_NO_DEPRECATE)
 endif()
 
-add_subdirectory(3rdparty/tessellate)
 add_subdirectory(src/core)
 add_subdirectory(src/app)
 
