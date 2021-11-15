@@ -78,10 +78,10 @@ QSGGeometryNode *SGRubberband::createLineGeometry( const QVector<QgsPoint> &poin
 
 QSGGeometryNode *SGRubberband::createPolygonGeometry( const QVector<QgsPoint> &points )
 {
-  QgsPolygon *polygon = new QgsPolygon( new QgsLineString( points ) );
+  QgsPolygon polygon = QgsPolygon( new QgsLineString( points ) );
   QgsTessellator t( 0, 0, false, false, false, true );
   if ( points.size() > 2 )
-    t.addPolygon( *polygon, 0 );
+    t.addPolygon( polygon, 0 );
 
   QSGGeometryNode *node = new QSGGeometryNode;
   QSGGeometry *sgGeom = new QSGGeometry( QSGGeometry::defaultAttributes_Point2D(), t.dataVerticesCount() );
