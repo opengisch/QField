@@ -219,11 +219,13 @@ Page {
 
             delegate: Rectangle {
                 id: rectangle
+
                 property string projectId: Id
                 property string projectOwner: Owner
                 property string projectName: Name
                 property string projectLocalPath: LocalPath
                 property int status: Status
+
                 width: parent ? parent.width : undefined
                 height: line.height
                 color: "transparent"
@@ -359,6 +361,10 @@ Page {
 
                                 var localChanges = ( LocalDeltasCount > 0 ) ? qsTr('Has changes. ') : ''
                                 var str = '%1 (%2%3)'.arg(Description).arg(localChanges).arg(status)
+
+
+                                console.log(Status, PackagingStatus, ErrorStatus, Checkout, localChanges, str)
+                                console.log(QFieldCloudProjectsModel.LocalCheckout, QFieldCloudProjectsModel.RemoteCheckout, QFieldCloudProjectsModel.LocalAndRemoteCheckout)
                                 return str.trim()
                               }
                             }
@@ -387,7 +393,7 @@ Page {
                   } else {
                     // fetch remote project
                     displayToast( qsTr( "Downloading project %1" ).arg( item.projectName ) )
-                    cloudProjectsModel.projectDownload( item.projectId )
+                    cloudProjectsModel.projectPackageAndDownload( item.projectId )
                   }
                 }
               }
@@ -465,7 +471,7 @@ Page {
 
           text: qsTr( "Download Project" )
           onTriggered: {
-            cloudProjectsModel.projectDownload(projectActions.projectId)
+            cloudProjectsModel.projectPackageAndDownload(projectActions.projectId)
           }
         }
 
@@ -512,7 +518,7 @@ Page {
 
           text: qsTr( "Cancel Project Download" )
           onTriggered: {
-            cloudProjectsModel.cancelprojectDownload(projectActions.projectId)
+            cloudProjectsModel.projectCancelDownload(projectActions.projectId)
           }
         }
       }

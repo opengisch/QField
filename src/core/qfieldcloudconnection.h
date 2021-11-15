@@ -74,9 +74,7 @@ class QFieldCloudConnection : public QObject
     Q_PROPERTY( bool hasToken READ hasToken NOTIFY tokenChanged )
     Q_PROPERTY( CloudUserInformation userInformation READ userInformation NOTIFY userInformationChanged )
 
-    /**
-     * Returns an error string to be shown to the user if \a reply has an error.
-     */
+    //!Returns an error string to be shown to the user if \a reply has an error.
     static QString errorString( QNetworkReply *reply );
 
     //!Contains a map of error codes and translated messages
