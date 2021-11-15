@@ -30,7 +30,7 @@ class QgsSGGeometry : public QSGNode
     void applyStyle( QSGGeometryNode *geomNode );
 
     static QSGGeometry *qgsPolylineToQSGGeometry( const QgsPolylineXY &line, int width, const QgsRectangle visibleExtent, double scaleFactor );
-    static QSGGeometry *qgsPolygonToQSGGeometry( const QgsPolygonXY &polygon, const QgsRectangle visibleExtent, double scaleFactor );
+    static QSGGeometry *qgsPolygonToQSGGeometry( const QgsPolygon *polygon, const QgsRectangle visibleExtent, double scaleFactor );
 
     QSGFlatColorMaterial mMaterial;
 };

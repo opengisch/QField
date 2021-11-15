@@ -12,12 +12,15 @@
  *   (at your option) any later version.                                   *
  *                                                                         *
  ***************************************************************************/
-#include "math.h"
-#include "qgssggeometry.h"
-extern "C" {
-#include "tessellate.h"
-}
 
+#include "qgssggeometry.h"
+
+#include <qgsgeometry.h>
+#include <qgspolygon.h>
+#include <qgscurve.h>
+#include <qgstessellator.h>
+
+#include <math.h>
 
 QgsSGGeometry::QgsSGGeometry()
 {
@@ -64,21 +67,22 @@ QgsSGGeometry::QgsSGGeometry( const QgsGeometry &geom, const QColor &color, int 
     case QgsWkbTypes::PolygonGeometry:
       if ( gg.isMultipart() )
       {
-        const QgsMultiPolygonXY polygons = gg.asMultiPolygon();
-
         QSGOpacityNode *on = new QSGOpacityNode;
         on->setOpacity( 0.5 );
 
-        for ( const QgsPolygonXY &polygon : polygons )
+        QgsGeometryPartIterator it =  gg.parts();
+        while ( it.hasNext() )
         {
+          QgsPolygon *polygon = qgsgeometry_cast< QgsPolygon * >( it.next() );
           QSGGeometryNode *geomNode = new QSGGeometryNode;
           geomNode->setGeometry( qgsPolygonToQSGGeometry( polygon, visibleExtent, scaleFactor ) );
           geomNode->setFlag( QSGNode::OwnsGeometry );
           applyStyle( geomNode );
           on->appendChildNode( geomNode );
 
+          QgsGeometry exterior( polygon->toCurveType()->exteriorRing() );
           geomNode = new QSGGeometryNode;
-          geomNode->setGeometry( qgsPolylineToQSGGeometry( polygon.first(), width, visibleExtent, scaleFactor ) );
+          geomNode->setGeometry( qgsPolylineToQSGGeometry( exterior.asPolyline(), width, visibleExtent, scaleFactor ) );
           geomNode->setFlag( QSGNode::OwnsGeometry );
           applyStyle( geomNode );
           appendChildNode( geomNode );
@@ -91,7 +95,7 @@ QgsSGGeometry::QgsSGGeometry( const QgsGeometry &geom, const QColor &color, int 
         QSGOpacityNode *on = new QSGOpacityNode;
         on->setOpacity( 0.5 );
         QSGGeometryNode *geomNode = new QSGGeometryNode;
-        geomNode->setGeometry( qgsPolygonToQSGGeometry( gg.asPolygon(), visibleExtent, scaleFactor ) );
+        geomNode->setGeometry( qgsPolygonToQSGGeometry( qgsgeometry_cast< QgsPolygon * >( gg.get() ), visibleExtent, scaleFactor ) );
         geomNode->setFlag( QSGNode::OwnsGeometry );
         applyStyle( geomNode );
         on->appendChildNode( geomNode );
@@ -134,43 +138,34 @@ QSGGeometry *QgsSGGeometry::qgsPolylineToQSGGeometry( const QgsPolylineXY &line,
   return sgGeom;
 }
 
-QSGGeometry *QgsSGGeometry::qgsPolygonToQSGGeometry( const QgsPolygonXY &polygon, const QgsRectangle visibleExtent, double scaleFactor )
+QSGGeometry *QgsSGGeometry::qgsPolygonToQSGGeometry( const QgsPolygon *polygon, const QgsRectangle visibleExtent, double scaleFactor )
 {
-  QgsPolygonXY::ConstIterator it = polygon.constBegin();
+  QgsTessellator t( visibleExtent.xMinimum(), visibleExtent.yMaximum(), false, false, false, true );
+  t.addPolygon( *polygon, 0 );
 
-  double *coordinates_out;
-  int *tris_out;
-  int nverts, ntris;
-
-  const QgsPolylineXY &ring = *it;
-
-  double *vertices_in = ( double * ) malloc( ring.size() * 2 * sizeof( double ) );
-  const double *contours_array[] = { vertices_in, vertices_in + ring.size() * 2 };
-  int i = 0;
-
-  for ( const QgsPointXY &point : ring )
-  {
-    vertices_in[i++] = ( point.x() - visibleExtent.xMinimum() ) * scaleFactor;
-    vertices_in[i++] = ( point.y() - visibleExtent.yMaximum() ) * -scaleFactor;
-  }
-
-  tessellate( &coordinates_out, &nverts,
-              &tris_out, &ntris,
-              contours_array, contours_array + 2 );
-
-  QSGGeometry *sgGeom = new QSGGeometry( QSGGeometry::defaultAttributes_Point2D(), ntris * 3 );
+  QSGGeometry *sgGeom = new QSGGeometry( QSGGeometry::defaultAttributes_Point2D(), t.dataVerticesCount() );
 
   QSGGeometry::Point2D *vertices = sgGeom->vertexDataAsPoint2D();
 
-  for ( int j = 0; j < ntris * 3; j++ )
+  const QVector<float> triangleData = t.data();
+  int currentVertex = 0;
+  for ( auto it = triangleData.constBegin(); it != triangleData.constEnd(); )
   {
-    vertices[j].x = coordinates_out[tris_out[j] * 2];
-    vertices[j].y = coordinates_out[tris_out[j] * 2 + 1];
-  }
+    vertices[currentVertex].x = ( *it++ * scaleFactor );
+    ( void )it++; // z
+    vertices[currentVertex].y = ( ( *it++ ) * scaleFactor );
+    currentVertex++;
 
-  free( vertices_in );
-  free( coordinates_out );
-  free( tris_out );
+    vertices[currentVertex].x = ( *it++ * scaleFactor );
+    ( void )it++; // z
+    vertices[currentVertex].y = ( ( *it++ * scaleFactor ) );
+    currentVertex++;
+
+    vertices[currentVertex].x = ( *it++ * scaleFactor );
+    ( void )it++; // z
+    vertices[currentVertex].y = ( ( *it++ * scaleFactor ) );
+    currentVertex++;
+  }
 
   sgGeom->setDrawingMode( QSGGeometry::DrawTriangles );
 

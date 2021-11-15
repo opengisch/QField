@@ -222,8 +222,7 @@ target_include_directories(
          ${CMAKE_SOURCE_DIR}/src/core/locator
          ${CMAKE_SOURCE_DIR}/src/core/platforms
          ${CMAKE_SOURCE_DIR}/src/core/qgsquick
-         ${CMAKE_SOURCE_DIR}/src/core/utils
-         ${CMAKE_SOURCE_DIR}/3rdparty/tessellate)
+         ${CMAKE_SOURCE_DIR}/src/core/utils)
 if(ANDROID)
   configure_file(platforms/android/qfield_android.h.in
                  ${CMAKE_CURRENT_BINARY_DIR}/qfield_android.h @ONLY)
@@ -244,8 +243,7 @@ endif()
 
 target_link_libraries(
   qfield_core
-  PUBLIC tess
-         Qt5::Core
+  PUBLIC Qt5::Core
          Qt5::Gui
          Qt5::Xml
          Qt5::Positioning
