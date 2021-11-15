@@ -340,3 +340,5 @@ jobs:
             🎉 Ta-daaa, freshly created APKs are available:
               - [**arm64_v8a**](https://sos-ch-dk-2.exo.io/qfieldapks/ci-builds/${{ steps.vars.outputs.CI_PACKAGE_FILE_BASENAME }}-arm64_v8a.apk)
 
+            Other architectures: [armv7](https://sos-ch-dk-2.exo.io/qfieldapks/ci-builds/${{ steps.vars.outputs.CI_PACKAGE_FILE_BASENAME }}-armv7.apk), [x86_64](https://sos-ch-dk-2.exo.io/qfieldapks/ci-builds/${{ steps.vars.outputs.CI_PACKAGE_FILE_BASENAME }}-x86_64.apk), [x86](https://sos-ch-dk-2.exo.io/qfieldapks/ci-builds/${{ steps.vars.outputs.CI_PACKAGE_FILE_BASENAME }}-x86.apk)
+
