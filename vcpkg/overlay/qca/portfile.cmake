@@ -16,6 +16,8 @@ vcpkg_from_github(
     PATCHES
         0001-fix-path-for-vcpkg.patch
         0002-fix-build-error.patch
+        0003-ios.patch
+        0004-Use-generate_export_headers-to-fix-static-windows-bu.patch
 )
 
 if(VCPKG_LIBRARY_LINKAGE STREQUAL "dynamic")

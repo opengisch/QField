@@ -18,7 +18,10 @@ find_library(GDAL_LIBRARY_RELEASE
     NO_DEFAULT_PATH
 )
 # Work around linker choking on the optimized keyword
-# select_library_configurations(GDAL)
+# message(STATUS "== GDAL found GDAL_LIBRARY_RELEASE ${GDAL_LIBRARY_RELEASE}")
+# message(STATUS "== GDAL found GDAL_LIBRARY_DEBUG ${GDAL_LIBRARY_DEBUG}")
+select_library_configurations(GDAL)
+# message(STATUS "== GDAL found lib config ${GDAL_LIBRARY} -- ${GDAL_LIBRARIES}")
 set(GDAL_LIBRARIES ${GDAL_LIBRARY_RELEASE})
 set(GDAL_LIBRARY ${GDAL_LIBRARY_RELEASE})
 

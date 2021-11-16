@@ -1,0 +1,34 @@
+From c49dd471d25c25d433c050f0de63d8cb66a5e1ea Mon Sep 17 00:00:00 2001
+From: Matthias Kuhn <matthias@opengis.ch>
+Date: Sun, 14 Nov 2021 16:40:36 +0100
+Subject: [PATCH] ios
+
+---
+ src/CMakeLists.txt | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/src/CMakeLists.txt b/src/CMakeLists.txt
+index 70668395..cf837b0c 100644
+--- a/src/CMakeLists.txt
++++ b/src/CMakeLists.txt
+@@ -52,7 +52,7 @@ SET( SOURCES
+ 
+ IF (WIN32)
+   SET( SOURCES ${SOURCES} qca_systemstore_win.cpp )
+-elseif(APPLE)
++elseif(APPLE AND NOT CMAKE_SYSTEM_NAME STREQUAL "iOS")
+   set( SOURCES ${SOURCES} qca_systemstore_mac.cpp)
+ else()
+   SET( SOURCES ${SOURCES} qca_systemstore_flatfile.cpp )
+@@ -130,7 +130,7 @@ if(WIN32)
+ 	TARGET_LINK_LIBRARIES(${QCA_LIB_NAME} crypt32 ws2_32)
+ endif()
+ 
+-if(APPLE)
++if(APPLE AND NOT CMAKE_SYSTEM_NAME STREQUAL "iOS")
+   set(COREFOUNDATION_LIBRARY "-framework CoreFoundation")
+   set(COREFOUNDATION_LIBRARY_SECURITY "-framework Security")
+   TARGET_LINK_LIBRARIES(${QCA_LIB_NAME} ${COREFOUNDATION_LIBRARY} ${COREFOUNDATION_LIBRARY_SECURITY})
+-- 
+2.31.1
+

@@ -20,6 +20,9 @@ jobs:
           - triplet: 'x64-windows'
             os: 'windows-2019'
 
+          - triplet: 'x64-windows-static'
+            os: 'windows-2019'
+
           - triplet: 'x64-linux'
             os: 'ubuntu-20.04'
 
@@ -129,6 +132,13 @@ jobs:
           modules: 'qtcharts'
           target: ${{ steps.vars.outputs.QT_TARGET }}
           arch: ${{ steps.vars.outputs.QT_ARCH }}
+
+
+      - name: Prepare windows static build env
+        if: ${{ matrix.triplet == 'x64-windows-static' }}
+        shell: bash
+        run: |
+          echo "EXTRA_CMAKE_ARGS=-DCMAKE_MSVC_RUNTIME_LIBRARY=MultiThreaded" >> $GITHUB_ENV
 
       - name: 🐧 Prepare linux build env
         if: ${{ matrix.triplet == 'x64-linux' }}
