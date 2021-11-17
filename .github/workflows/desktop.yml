@@ -262,7 +262,7 @@ jobs:
           SOURCE_DIR=$( ${{ steps.vars.outputs.PATHCONVERT }} "${WORKSPACE}" )
           pip install -r "${SOURCE_DIR}/test/spix/requirements.txt"
           cd "${{ env.CMAKE_BUILD_DIR }}"
-          ${TESTWRAPPER} ctest --output-on-failure -E '${{ steps.vars.outputs.EXCLUDE_TESTS }}' -C ${{ steps.vars.outputs.BUILD_TYPE }}
+          ${TESTWRAPPER} ctest --verbose --output-on-failure -E '${{ steps.vars.outputs.EXCLUDE_TESTS }}' -C ${{ steps.vars.outputs.BUILD_TYPE }}
 
       - name: Package
         shell: bash
