@@ -71,4 +71,4 @@ ADD_CATCH2_TEST(urlutilstest test_urlutils.cpp)
 ADD_CATCH2_TEST(digitizingloggertest test_digitizinglogger.cpp)
 ADD_CATCH2_TEST(attributeformmodeltest test_attributeformmodel.cpp)
 
-ADD_QFIELD_QML_TEST(qmltest test_qml_editorwidgets.cpp)
+ADD_QFIELD_QML_TEST(qml_editorwidgets_test test_qml_editorwidgets.cpp)

@@ -28,11 +28,15 @@ class Setup : public QObject
     Q_OBJECT
 
   public:
-    Setup() {}
+    Setup()
+    {
+      qDebug() << "Starting";
+    }
 
   public slots:
     void qmlEngineAvailable( QQmlEngine *engine )
     {
+      qDebug() << "Initializing";
       qmlInit( engine );
     }
 };
