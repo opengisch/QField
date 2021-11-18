@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Arrays;
 
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
 import android.net.Uri;
@@ -16,6 +17,9 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.pm.PackageManager;
+import android.Manifest;
+import android.support.v4.app.ActivityCompat;
 import android.util.Log;
 import android.view.View;
 import android.view.Window;
@@ -56,13 +60,16 @@ public class QFieldProjectActivity extends Activity {
 
         // Roots
         if (!getIntent().hasExtra("path")) {
-
-            File externalStorageDirectory = Environment.getExternalStorageDirectory();
-            Log.d(TAG, "externalStorageDirectory: " + externalStorageDirectory);
-            if (externalStorageDirectory != null){
-                values.add(new QFieldProjectListItem(externalStorageDirectory, getString(R.string.primary_storage),
-                                                     R.drawable.tablet, QFieldProjectListItem.TYPE_ROOT));
-           }
+            File externalStorageDirectory = null;
+            if (ActivityCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED ||
+                (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R && Environment.isExternalStorageManager())) {
+                externalStorageDirectory = Environment.getExternalStorageDirectory();
+                Log.d(TAG, "externalStorageDirectory: " + externalStorageDirectory);
+                if (externalStorageDirectory != null){
+                    values.add(new QFieldProjectListItem(externalStorageDirectory, getString(R.string.primary_storage),
+                                                         R.drawable.tablet, QFieldProjectListItem.TYPE_ROOT));
+                }
+            }
 
             File[] externalFilesDirs = getExternalFilesDirs(null);
             Log.d(TAG, "externalFilesDirs: " + Arrays.toString(externalFilesDirs));
@@ -70,9 +77,9 @@ public class QFieldProjectActivity extends Activity {
                 if (file != null){
                     // Don't add a external storage path if already included in the primary one
                     if(externalStorageDirectory != null){
-                        values.add(new QFieldProjectListItem(file, getString(R.string.secondary_storage), R.drawable.card, QFieldProjectListItem.TYPE_SECONDARY_ROOT));
-
                         if (!file.getAbsolutePath().contains(externalStorageDirectory.getAbsolutePath())){
+                            values.add(new QFieldProjectListItem(file, getString(R.string.secondary_storage), R.drawable.card, QFieldProjectListItem.TYPE_SECONDARY_ROOT));
+
                             // Add root as read-only
                             if(file.getPath().contains("/Android/data/ch.opengis.qfield/files")){
                                 values.add(new QFieldProjectListItem(file.getParentFile().getParentFile().getParentFile().getParentFile(), getString(R.string.secondary_storage_read_only), R.drawable.card, QFieldProjectListItem.TYPE_SECONDARY_ROOT_RO));
