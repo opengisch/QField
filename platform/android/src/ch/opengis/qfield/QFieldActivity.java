@@ -162,6 +162,9 @@ public class QFieldActivity extends QtActivity {
         if (ContextCompat.checkSelfPermission(QFieldActivity.this, Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_DENIED) {
             permissionsList.add(Manifest.permission.ACCESS_FINE_LOCATION);
         }
+        if (ContextCompat.checkSelfPermission(QFieldActivity.this, Manifest.permission.ACCESS_MEDIA_LOCATION) == PackageManager.PERMISSION_DENIED) {
+            permissionsList.add(Manifest.permission.ACCESS_MEDIA_LOCATION);
+        }
         if (ContextCompat.checkSelfPermission(QFieldActivity.this, Manifest.permission.BLUETOOTH) == PackageManager.PERMISSION_DENIED) {
             permissionsList.add(Manifest.permission.BLUETOOTH);
         }
