@@ -119,7 +119,7 @@ public class QFieldProjectActivity extends Activity {
                 for (int i=favoriteDirsArray.length-1; i>=0; i--) {
                     File f = new File(favoriteDirsArray[i]);
                     if (f.exists()){
-                        values.add(new QFieldProjectListItem(f, f.getName(), R.drawable.directory, QFieldProjectListItem.TYPE_ITEM));
+                        values.add(new QFieldProjectListItem(f, getString(R.string.favorites_demo_projects), R.drawable.directory, QFieldProjectListItem.TYPE_ITEM));
                     }
                 }
             }

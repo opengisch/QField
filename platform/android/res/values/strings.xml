@@ -22,6 +22,7 @@
     <string name="remind_later">Remind me later</string>
     <string name="no_thanks">No, thanks!</string>
     <string name="favorite_directories">Favorite directories</string>
+    <string name="favorites_demo_projects">Demo projects</string>
     <string name="added_to_favorites">Added to favorites</string>
     <string name="removed_from_favorites">Removed from favorites</string>
     <string name="external_files_title">Important Note</string>
