@@ -19,7 +19,7 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.pm.PackageManager;
 import android.Manifest;
-import android.support.v4.app.ActivityCompat;
+import android.support.v4.content.ContextCompat;
 import android.util.Log;
 import android.view.View;
 import android.view.Window;
@@ -61,7 +61,8 @@ public class QFieldProjectActivity extends Activity {
         // Roots
         if (!getIntent().hasExtra("path")) {
             File externalStorageDirectory = null;
-            if (ActivityCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED ||
+            Log.d(TAG, ContextCompat.checkSelfPermission(QFieldProjectActivity.this, Manifest.permission.WRITE_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED ? "granted" : "not granted" );
+            if (ContextCompat.checkSelfPermission(QFieldProjectActivity.this, Manifest.permission.WRITE_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED ||
                 (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R && Environment.isExternalStorageManager())) {
                 externalStorageDirectory = Environment.getExternalStorageDirectory();
                 Log.d(TAG, "externalStorageDirectory: " + externalStorageDirectory);
@@ -78,19 +79,10 @@ public class QFieldProjectActivity extends Activity {
                     // Don't add a external storage path if already included in the primary one
                     if(externalStorageDirectory != null){
                         if (!file.getAbsolutePath().contains(externalStorageDirectory.getAbsolutePath())){
-                            values.add(new QFieldProjectListItem(file, getString(R.string.secondary_storage), R.drawable.card, QFieldProjectListItem.TYPE_SECONDARY_ROOT));
-
-                            // Add root as read-only
-                            if(file.getPath().contains("/Android/data/ch.opengis.qfield/files")){
-                                values.add(new QFieldProjectListItem(file.getParentFile().getParentFile().getParentFile().getParentFile(), getString(R.string.secondary_storage_read_only), R.drawable.card, QFieldProjectListItem.TYPE_SECONDARY_ROOT_RO));
-                            }
+                            values.add(new QFieldProjectListItem(file, getString(R.string.secondary_storage), R.drawable.tablet, QFieldProjectListItem.TYPE_SECONDARY_ROOT));
                         }
                     }else{
                         values.add(new QFieldProjectListItem(file, getString(R.string.secondary_storage), R.drawable.card, QFieldProjectListItem.TYPE_SECONDARY_ROOT));
-                        // Add root as read-only
-                        if(file.getPath().contains("/Android/data/ch.opengis.qfield/files")){
-                            values.add(new QFieldProjectListItem(file.getParentFile().getParentFile().getParentFile().getParentFile(), getString(R.string.secondary_storage_read_only), R.drawable.card, QFieldProjectListItem.TYPE_SECONDARY_ROOT_RO));
-                        }
                     }
                 }
             }
