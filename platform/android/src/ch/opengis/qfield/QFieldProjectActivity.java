@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Arrays;
 
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
 import android.net.Uri;
@@ -16,6 +17,9 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.pm.PackageManager;
+import android.Manifest;
+import android.support.v4.content.ContextCompat;
 import android.util.Log;
 import android.view.View;
 import android.view.Window;
@@ -28,6 +32,7 @@ import android.widget.AdapterView.OnItemClickListener;
 import android.widget.AdapterView.OnItemLongClickListener;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
+import android.text.Html;
 import android.text.TextUtils;
 
 public class QFieldProjectActivity extends Activity {
@@ -40,7 +45,6 @@ public class QFieldProjectActivity extends Activity {
 
     @Override
     public void onCreate(Bundle bundle) {
-        Log.d(TAG, "onCreate() ");
         super.onCreate(bundle);
 
         sharedPreferences = getPreferences(Context.MODE_PRIVATE);
@@ -56,13 +60,16 @@ public class QFieldProjectActivity extends Activity {
 
         // Roots
         if (!getIntent().hasExtra("path")) {
-
-            File externalStorageDirectory = Environment.getExternalStorageDirectory();
-            Log.d(TAG, "externalStorageDirectory: " + externalStorageDirectory);
-            if (externalStorageDirectory != null){
-                values.add(new QFieldProjectListItem(externalStorageDirectory, getString(R.string.primary_storage),
-                                                     R.drawable.tablet, QFieldProjectListItem.TYPE_ROOT));
-           }
+            File externalStorageDirectory = null;
+            if (ContextCompat.checkSelfPermission(QFieldProjectActivity.this, Manifest.permission.WRITE_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED ||
+                (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R && Environment.isExternalStorageManager())) {
+                externalStorageDirectory = Environment.getExternalStorageDirectory();
+                Log.d(TAG, "externalStorageDirectory: " + externalStorageDirectory);
+                if (externalStorageDirectory != null){
+                    values.add(new QFieldProjectListItem(externalStorageDirectory, getString(R.string.primary_storage),
+                                                         R.drawable.tablet, QFieldProjectListItem.TYPE_ROOT));
+                }
+            }
 
             File[] externalFilesDirs = getExternalFilesDirs(null);
             Log.d(TAG, "externalFilesDirs: " + Arrays.toString(externalFilesDirs));
@@ -71,19 +78,10 @@ public class QFieldProjectActivity extends Activity {
                     // Don't add a external storage path if already included in the primary one
                     if(externalStorageDirectory != null){
                         if (!file.getAbsolutePath().contains(externalStorageDirectory.getAbsolutePath())){
-                            values.add(new QFieldProjectListItem(file, getString(R.string.secondary_storage), R.drawable.card, QFieldProjectListItem.TYPE_SECONDARY_ROOT));
-
-                            // Add root as read-only
-                            if(file.getPath().contains("/Android/data/ch.opengis.qfield/files")){
-                                values.add(new QFieldProjectListItem(file.getParentFile().getParentFile().getParentFile().getParentFile(), getString(R.string.secondary_storage_read_only), R.drawable.card, QFieldProjectListItem.TYPE_SECONDARY_ROOT_RO));
-                            }
+                            values.add(new QFieldProjectListItem(file, getString(R.string.secondary_storage), R.drawable.tablet, QFieldProjectListItem.TYPE_EXTERNAL_FILES));
                         }
                     }else{
-                        values.add(new QFieldProjectListItem(file, getString(R.string.secondary_storage), R.drawable.card, QFieldProjectListItem.TYPE_SECONDARY_ROOT));
-                        // Add root as read-only
-                        if(file.getPath().contains("/Android/data/ch.opengis.qfield/files")){
-                            values.add(new QFieldProjectListItem(file.getParentFile().getParentFile().getParentFile().getParentFile(), getString(R.string.secondary_storage_read_only), R.drawable.card, QFieldProjectListItem.TYPE_SECONDARY_ROOT_RO));
-                        }
+                        values.add(new QFieldProjectListItem(file, getString(R.string.secondary_storage), R.drawable.tablet, QFieldProjectListItem.TYPE_EXTERNAL_FILES));
                     }
                 }
             }
@@ -107,11 +105,11 @@ public class QFieldProjectActivity extends Activity {
             String favoriteDirs = sharedPreferences.getString("FavoriteDirs", null);
 
             // The first time, add the demo projects directory to the favorites
-            boolean addDemoProjectsFavoriteDir = sharedPreferences.getBoolean("AddDemoProjectsFavoriteDir", true);
+            boolean addDemoProjectsFavoriteDir = sharedPreferences.getBoolean("AddDemoProjectsFavoriteDir2", true);
             if (addDemoProjectsFavoriteDir){
-                favoriteDirs = getFilesDir().toString() + "/resources/demo_projects";
+                favoriteDirs = getFilesDir().toString() + "/share/qfield/demo_projects";
                 editor.putString("FavoriteDirs", favoriteDirs);
-                editor.putBoolean("AddDemoProjectsFavoriteDir", false);
+                editor.putBoolean("AddDemoProjectsFavoriteDir2", false);
                 editor.commit();
             }
             if (favoriteDirs != null){
@@ -121,7 +119,7 @@ public class QFieldProjectActivity extends Activity {
                 for (int i=favoriteDirsArray.length-1; i>=0; i--) {
                     File f = new File(favoriteDirsArray[i]);
                     if (f.exists()){
-                        values.add(new QFieldProjectListItem(f, f.getName(), R.drawable.directory, QFieldProjectListItem.TYPE_ITEM));
+                        values.add(new QFieldProjectListItem(f, getString(R.string.favorites_demo_projects), R.drawable.directory, QFieldProjectListItem.TYPE_ITEM));
                     }
                 }
             }
@@ -202,20 +200,20 @@ public class QFieldProjectActivity extends Activity {
         if (item.getType() == QFieldProjectListItem.TYPE_SEPARATOR){
             return;
         }
-        // Show a warning if it's the first time the sd-card is used
-        boolean showSdCardWarning = sharedPreferences.getBoolean("ShowSdCardWarning", true);
-        if (item.getType() == QFieldProjectListItem.TYPE_SECONDARY_ROOT && showSdCardWarning){
+        // Show an information notice if it's the first time the external files directory is used
+        boolean showExternalFilesNotice = sharedPreferences.getBoolean("ShowExternalFilesNotice", true);
+        if (item.getType() == QFieldProjectListItem.TYPE_EXTERNAL_FILES && showExternalFilesNotice){
             AlertDialog alertDialog = new AlertDialog.Builder(this).create();
-            alertDialog.setTitle(getString(R.string.alert_sd_card_title));
-            alertDialog.setMessage(getString(R.string.alert_sd_card_message));
-            alertDialog.setButton(AlertDialog.BUTTON_POSITIVE, getString(R.string.alert_sd_card_ok), new DialogInterface.OnClickListener() {
+            alertDialog.setTitle(getString(R.string.external_files_title));
+            alertDialog.setMessage(Html.fromHtml(getString(R.string.external_files_message), Html.FROM_HTML_MODE_LEGACY));
+            alertDialog.setButton(AlertDialog.BUTTON_POSITIVE, getString(R.string.external_files_ok), new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int which) {
                         dialog.dismiss();
                         startItemClickActivity(item);
                     }
                 });
             alertDialog.show();
-            editor.putBoolean("ShowSdCardWarning", false);
+            editor.putBoolean("ShowExternalFilesNotice", false);
             editor.commit();
         }else {
             startItemClickActivity(item);
