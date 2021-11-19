@@ -32,6 +32,7 @@ import android.widget.AdapterView.OnItemClickListener;
 import android.widget.AdapterView.OnItemLongClickListener;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
+import android.text.Html;
 import android.text.TextUtils;
 
 public class QFieldProjectActivity extends Activity {
@@ -44,7 +45,6 @@ public class QFieldProjectActivity extends Activity {
 
     @Override
     public void onCreate(Bundle bundle) {
-        Log.d(TAG, "onCreate() ");
         super.onCreate(bundle);
 
         sharedPreferences = getPreferences(Context.MODE_PRIVATE);
@@ -61,7 +61,6 @@ public class QFieldProjectActivity extends Activity {
         // Roots
         if (!getIntent().hasExtra("path")) {
             File externalStorageDirectory = null;
-            Log.d(TAG, ContextCompat.checkSelfPermission(QFieldProjectActivity.this, Manifest.permission.WRITE_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED ? "granted" : "not granted" );
             if (ContextCompat.checkSelfPermission(QFieldProjectActivity.this, Manifest.permission.WRITE_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED ||
                 (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R && Environment.isExternalStorageManager())) {
                 externalStorageDirectory = Environment.getExternalStorageDirectory();
@@ -79,10 +78,10 @@ public class QFieldProjectActivity extends Activity {
                     // Don't add a external storage path if already included in the primary one
                     if(externalStorageDirectory != null){
                         if (!file.getAbsolutePath().contains(externalStorageDirectory.getAbsolutePath())){
-                            values.add(new QFieldProjectListItem(file, getString(R.string.secondary_storage), R.drawable.tablet, QFieldProjectListItem.TYPE_SECONDARY_ROOT));
+                            values.add(new QFieldProjectListItem(file, getString(R.string.secondary_storage), R.drawable.tablet, QFieldProjectListItem.TYPE_EXTERNAL_FILES));
                         }
                     }else{
-                        values.add(new QFieldProjectListItem(file, getString(R.string.secondary_storage), R.drawable.card, QFieldProjectListItem.TYPE_SECONDARY_ROOT));
+                        values.add(new QFieldProjectListItem(file, getString(R.string.secondary_storage), R.drawable.tablet, QFieldProjectListItem.TYPE_EXTERNAL_FILES));
                     }
                 }
             }
@@ -201,20 +200,20 @@ public class QFieldProjectActivity extends Activity {
         if (item.getType() == QFieldProjectListItem.TYPE_SEPARATOR){
             return;
         }
-        // Show a warning if it's the first time the sd-card is used
-        boolean showSdCardWarning = sharedPreferences.getBoolean("ShowSdCardWarning", true);
-        if (item.getType() == QFieldProjectListItem.TYPE_SECONDARY_ROOT && showSdCardWarning){
+        // Show an information notice if it's the first time the external files directory is used
+        boolean showExternalFilesNotice = sharedPreferences.getBoolean("ShowExternalFilesNotice", true);
+        if (item.getType() == QFieldProjectListItem.TYPE_EXTERNAL_FILES && showExternalFilesNotice){
             AlertDialog alertDialog = new AlertDialog.Builder(this).create();
-            alertDialog.setTitle(getString(R.string.alert_sd_card_title));
-            alertDialog.setMessage(getString(R.string.alert_sd_card_message));
-            alertDialog.setButton(AlertDialog.BUTTON_POSITIVE, getString(R.string.alert_sd_card_ok), new DialogInterface.OnClickListener() {
+            alertDialog.setTitle(getString(R.string.external_files_title));
+            alertDialog.setMessage(Html.fromHtml(getString(R.string.external_files_message), Html.FROM_HTML_MODE_LEGACY));
+            alertDialog.setButton(AlertDialog.BUTTON_POSITIVE, getString(R.string.external_files_ok), new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int which) {
                         dialog.dismiss();
                         startItemClickActivity(item);
                     }
                 });
             alertDialog.show();
-            editor.putBoolean("ShowSdCardWarning", false);
+            editor.putBoolean("ShowExternalFilesNotice", false);
             editor.commit();
         }else {
             startItemClickActivity(item);

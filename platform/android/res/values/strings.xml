@@ -24,9 +24,9 @@
     <string name="favorite_directories">Favorite directories</string>
     <string name="added_to_favorites">Added to favorites</string>
     <string name="removed_from_favorites">Removed from favorites</string>
-    <string name="alert_sd_card_title">Warning</string>
-    <string name="alert_sd_card_message">This directory, including all contained files, will be deleted by the system if you uninstall QField from your Android device.</string>
-    <string name="alert_sd_card_ok">OK</string>
+    <string name="external_files_title">Important Note</string>
+    <string name="external_files_message"><![CDATA[The QField files directory can be used to copy files and projects onto your device via USB cable. You can see the directory\'s absolute path in the header bar.<br/><br/>Be aware that content of this directory <i>will be deleted</i> if you uninstall QField from your device.]]></string>
+    <string name="external_files_ok">OK</string>
     <string name="grant_permission">All files access</string>
     <string name="grant_all_files_permission"><![CDATA[QField needs all files access permission to be able to open local projects and datasets as well as supporting custom projection grids, fonts, and base maps. While not required, <i>allowing access is highly recommended</i>.<br/><br/>On the next screen, please select <b>QField</b> and select the <b>Allow access to all files</b> option.]]></string>
     <string name="grant">Allow</string>
