@@ -10,7 +10,6 @@
     "expat",
     "geos",
     "giflib",
-    "hdf5",
     {
       "name": "json-c",
       "platform": "!windows | mingw"
@@ -22,7 +21,6 @@
     "libpq",
     "libwebp",
     "libxml2",
-    "netcdf-c",
     "openjpeg",
     "proj4",
     "sqlite3",
