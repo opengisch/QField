@@ -323,6 +323,11 @@ else()
     else()
         list(APPEND CONF_OPTS "--with-tools=no")
     endif()
+    
+    # This is no only required for 32 bit android with android api < 24
+    if(VCPKG_TARGET_IS_ANDROID AND VCPKG_TARGET_ARCHITECTURE STREQUAL "arm" OR VCPKG_TARGET_ARCHITECTURE STREQUAL "x86")
+        list(APPEND CONF_OPTS "--with-unix-stdio-64=no")
+    endif()
 
     vcpkg_configure_make(
         SOURCE_PATH "${SOURCE_PATH}/gdal"
