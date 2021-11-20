@@ -17,7 +17,10 @@ find_library(GDAL_LIBRARY_RELEASE
     PATHS "${CMAKE_CURRENT_LIST_DIR}/../../lib"
     NO_DEFAULT_PATH
 )
-select_library_configurations(GDAL)
+# Work around linker choking on the optimized keyword
+# select_library_configurations(GDAL)
+set(GDAL_LIBRARIES ${GDAL_LIBRARY_RELEASE})
+set(GDAL_LIBRARY ${GDAL_LIBRARY_RELEASE})
 
 if(NOT GDAL_INCLUDE_DIR OR NOT GDAL_LIBRARY)
     message(FATAL_ERROR "Installation of vcpkg port gdal is broken.")
