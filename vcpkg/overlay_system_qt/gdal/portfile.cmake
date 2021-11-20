@@ -13,11 +13,13 @@ endif()
 vcpkg_from_github(
     OUT_SOURCE_PATH SOURCE_PATH
     REPO OSGeo/gdal
-    REF 348075f26f8e4c200a34818123beeb4abe53c876 # 3.3.2
-    SHA512 84bd7c74a079c4aa8cbefbbb1c4ab782e74a85d37d4c875a203760939f4f7c9175c40abc5184d8c1c521fd3b37bb90bc7bf046021ade22e510810535e3f61bd2
+    REF d699b38a744301368070ef780f797340da4a9c3c # 3.4.0
+    SHA512 709523740a51a0a2a144debcfa5fbc5a5b3d93cc3632856cfbc37f7ca52f2e83f4942d9a27d4c723ee19d2397cc91a4b1ba4543547afdfefb3980a7ba6684bd7
     HEAD_REF master
     PATCHES ${GDAL_PATCHES}
 )
+# `vcpkg clean` stumbles over one subdir
+file(REMOVE_RECURSE "${SOURCE_PATH}/autotest")
 
 if (VCPKG_TARGET_IS_WINDOWS AND NOT VCPKG_TARGET_IS_MINGW)
     set(NATIVE_DATA_DIR "${CURRENT_PACKAGES_DIR}/share/gdal")
@@ -57,7 +59,6 @@ if (VCPKG_TARGET_IS_WINDOWS AND NOT VCPKG_TARGET_IS_MINGW)
         "PNGDIR=${PNG_INCLUDE_DIR}"
         "ZLIB_INC=-I${ZLIB_INCLUDE_DIR}"
         ZLIB_EXTERNAL_LIB=1
-        ACCEPT_USE_OF_DEPRECATED_PROJ_API_H=1
         MSVC_VER=1900
         )
 
@@ -202,15 +203,17 @@ else()
     add_config("--with-expat=yes"    "Expat support:             yes")
     add_config("--with-geos=yes"     "GEOS support:              yes")
     add_config("--with-gif=yes"      "LIBGIF support:            external")
+    # add_config("--with-hdf5=yes"     "HDF5 support:              yes")
     add_config("--with-libjson=yes"  "checking for JSONC... yes")
     add_config("--with-geotiff=yes"  "LIBGEOTIFF support:        external")
     add_config("--with-jpeg=yes"     "LIBJPEG support:           external")
     add_config("--with-liblzma=yes"  "LIBLZMA support:           yes")
-    add_config("--with-png=yes"      "LIBPNG support:            external")
-    # Postgres is built, but not found by gdal on android.
-    #    add_config("--with-pg=yes"       "PostgreSQL support:        yes")
+    # postgres is built, but not found by gdal on android.
+    # add_config("--with-png=yes"      "LIBPNG support:            external")
+    add_config("--with-pg=yes"       "PostgreSQL support:        yes")
     add_config("--with-webp=yes"     "WebP support:              yes")
     add_config("--with-xml2=yes"     "libxml2 support:           yes")
+    # add_config("--with-netcdf=yes"   "NetCDF support:            yes")
     add_config("--with-openjpeg=yes" "OpenJPEG support:          yes")
     add_config("--with-proj=yes"     "PROJ >= 6:                 yes")
     add_config("--with-sqlite3=yes"  "SQLite support:            yes")
@@ -233,6 +236,7 @@ else()
         if(VCPKG_LIBRARY_LINKAGE STREQUAL "static")
             list(APPEND CONF_OPTS "ac_cv_lib_spatialite_spatialite_init=yes")
         endif()
+
     elseif(DISABLE_SYSTEM_LIBRARIES)
         add_config("--with-spatialite=no"   "SpatiaLite support:        no")
     endif()
@@ -241,6 +245,12 @@ else()
         add_config("--with-mysql=yes"  "MySQL support:             yes")
     elseif(DISABLE_SYSTEM_LIBRARIES)
         add_config("--with-mysql=no"   "MySQL support:             no")
+    endif()
+
+    if ("cfitsio" IN_LIST FEATURES)
+        add_config("--with-cfitsio=yes"  "CFITSIO support:           external")
+    elseif(DISABLE_SYSTEM_LIBRARIES)
+        add_config("--with-cfitsio=no"   "CFITSIO support:           no")
     endif()
 
     if(DISABLE_SYSTEM_LIBRARIES)
@@ -313,6 +323,11 @@ else()
     else()
         list(APPEND CONF_OPTS "--with-tools=no")
     endif()
+    
+    # This is no only required for 32 bit android with android api < 24
+    if(VCPKG_TARGET_IS_ANDROID AND VCPKG_TARGET_ARCHITECTURE STREQUAL "arm" OR VCPKG_TARGET_ARCHITECTURE STREQUAL "x86")
+        list(APPEND CONF_OPTS "--with-unix-stdio-64=no")
+    endif()
 
     vcpkg_configure_make(
         SOURCE_PATH "${SOURCE_PATH}/gdal"
@@ -361,6 +376,11 @@ else()
         vcpkg_replace_string("${pc_file_debug}" "${exec_prefix}/include" "${prefix}/../include")
     endif()
 
+    vcpkg_replace_string("${CURRENT_PACKAGES_DIR}/tools/gdal/bin/gdal-config" "${CURRENT_INSTALLED_DIR}" "`dirname $0`/../../..")
+    if(NOT VCPKG_BUILD_TYPE)
+        vcpkg_replace_string("${CURRENT_PACKAGES_DIR}/tools/gdal/debug/bin/gdal-config" "${CURRENT_INSTALLED_DIR}" "`dirname $0`/../../../..")
+    endif()
+    vcpkg_replace_string("${CURRENT_PACKAGES_DIR}/include/cpl_config.h" "#define GDAL_PREFIX \"${CURRENT_INSTALLED_DIR}\"" "")
 endif()
 
 file(INSTALL "${CMAKE_CURRENT_LIST_DIR}/usage" DESTINATION "${CURRENT_PACKAGES_DIR}/share/${PORT}")
