@@ -59,9 +59,13 @@ if(ANDROID)
 else()
   add_executable(
     qfield
-    main.cpp ${RESOURCES} ${CMAKE_SOURCE_DIR}/images/images.qrc
+    main.cpp
+    ${RESOURCES}
+    ${CMAKE_SOURCE_DIR}/images/images.qrc
     ${CMAKE_BINARY_DIR}/images/logo.qrc
-    ${CMAKE_SOURCE_DIR}/resources/resources.qrc ${ICON_SRC} ${TRANSLATIONS_QRC})
+    ${CMAKE_SOURCE_DIR}/resources/resources.qrc
+    ${ICON_SRC}
+    ${TRANSLATIONS_QRC})
 endif()
 
 target_compile_definitions(
