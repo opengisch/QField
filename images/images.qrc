@@ -274,6 +274,7 @@
         <file>themes/qfield/xxhdpi/ic_alert_black_24dp.png</file>
         <file>themes/qfield/xxxhdpi/ic_alert_black_24dp.png</file>
         <file>themes/qfield/nodpi/ic_alert_black_24dp.svg</file>
+        <file>themes/qfield/nodpi/ic_speaker_white_24dp.svg</file>
         <file>themes/qfield/nodpi/ic_sponsor_white_24dp.svg</file>
         <file>themes/qfield/nodpi/ic_satisfied_white_24dp.svg</file>
         <file>themes/qfield/nodpi/ic_dissatisfied_white_24dp.svg</file>
