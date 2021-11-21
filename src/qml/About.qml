@@ -124,6 +124,7 @@ Item {
         QfButton {
             id: changelogButton
             Layout.fillWidth: true
+            icon.source: Theme.getThemeVectorIcon( 'ic_speaker_white_24dp' )
 
             text: qsTr( 'Changelog' )
 
