@@ -61,6 +61,9 @@ public class QFieldProjectActivity extends Activity {
         drawView();
 
         Intent intent = new Intent(Intent.ACTION_OPEN_DOCUMENT_TREE);
+        intent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION | Intent.FLAG_GRANT_WRITE_URI_PERMISSION);
+        intent.addFlags(Intent.FLAG_GRANT_PREFIX_URI_PERMISSION);
+        intent.addFlags(Intent.FLAG_GRANT_PERSISTABLE_URI_PERMISSION);
         startActivityForResult(intent, 777);
     }
 
@@ -319,7 +322,7 @@ public class QFieldProjectActivity extends Activity {
             if (SDK_INT >= Q) {
                 Context context = getApplication().getApplicationContext();
                 context.getContentResolver()
-                       .takePersistableUriPermission(data.getData(),Intent.FLAG_GRANT_READ_URI_PERMISSION | Intent.FLAG_GRANT_WRITE_URI_PERMISSION);
+                       .takePersistableUriPermission(data.getData(),Intent.FLAG_GRANT_READ_URI_PERMISSION | Intent.FLAG_GRANT_WRITE_URI_PERMISSION );
                 String path = data.getDataString();
                 Log.d("QField Testing", path);
                 
