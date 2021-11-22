@@ -73,13 +73,12 @@ public class QFieldProjectActivity extends Activity {
     
                 String path = result.getData().getDataString();
                 Log.d("QField Testing", path);
-                String suffix = path.substringAfter(Environment.getExternalStorageDirectory().absolutePath)
-                String documentId = "primary:${suffix.substring(1)}"
-                String altPath = DocumentsContract.buildTreeDocumentUri("com.android.externalstorage.documents", documentId).toString()
+                String suffix = path.substringAfter(Environment.getExternalStorageDirectory().absolutePath);
+                String documentId = "primary:${suffix.substring(1)}";
+                String altPath = DocumentsContract.buildTreeDocumentUri("com.android.externalstorage.documents", documentId).toString();
                 Log.d("QField Testing", altPath);
               }
             });
-            
         Intent intent = new Intent(Intent.ACTION_OPEN_DOCUMENT_TREE);
         startForResult.launch(intent);
     }
