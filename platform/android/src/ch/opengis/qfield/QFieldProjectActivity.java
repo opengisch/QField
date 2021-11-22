@@ -1,5 +1,7 @@
 package ch.opengis.qfield;
 
+import static android.os.Build.VERSION.SDK_INT;
+
 import java.io.File;
 import java.util.List;
 import java.util.ArrayList;
@@ -35,6 +37,11 @@ import android.graphics.drawable.ColorDrawable;
 import android.text.Html;
 import android.text.TextUtils;
 
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
+import android.provider.DocumentsContract;
+
+
 public class QFieldProjectActivity extends Activity {
 
     private static final String TAG = "QField Project Activity";
@@ -52,6 +59,29 @@ public class QFieldProjectActivity extends Activity {
         setContentView(R.layout.list_projects);
         getActionBar().setBackgroundDrawable(new ColorDrawable(Color.parseColor("#80CC28")));
         drawView();
+
+        val startForResult = registerForActivityResult(
+            new ActivityResultContracts.StartActivityForResult(),
+            result -> {
+              if (SDK_INT >= Q) {
+                getContext()
+                    .getContentResolver()
+                    .takePersistableUriPermission(
+                        result.getData().getData(),
+                        Intent.FLAG_GRANT_READ_URI_PERMISSION
+                            | Intent.FLAG_GRANT_WRITE_URI_PERMISSION);
+    
+                String path = result.getData().getDataString();
+                Log.d("QField Testing", path);
+                String suffix = path.substringAfter(Environment.getExternalStorageDirectory().absolutePath)
+                String documentId = "primary:${suffix.substring(1)}"
+                String altPath = DocumentsContract.buildTreeDocumentUri("com.android.externalstorage.documents", documentId).toString()
+                Log.d("QField Testing", altPath);
+              }
+            });
+            
+        Intent intent = new Intent(Intent.ACTION_OPEN_DOCUMENT_TREE);
+        startForResult.launch(intent);
     }
 
     private void drawView() {
