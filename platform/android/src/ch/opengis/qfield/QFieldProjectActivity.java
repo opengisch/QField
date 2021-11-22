@@ -39,6 +39,8 @@ import android.graphics.drawable.ColorDrawable;
 import android.text.Html;
 import android.text.TextUtils;
 
+import ch.opengis.qfield.QFieldUtils;
+
 
 public class QFieldProjectActivity extends Activity {
 
@@ -314,22 +316,15 @@ public class QFieldProjectActivity extends Activity {
         Log.d(TAG, "resultCode: " + resultCode);
 
         if (requestCode == 777) {
-                if (SDK_INT >= Q) {
-                getApplication().getApplicationContext().getContentResolver()
-                                .takePersistableUriPermission(data.getData(),Intent.FLAG_GRANT_READ_URI_PERMISSION | Intent.FLAG_GRANT_WRITE_URI_PERMISSION);
+            if (SDK_INT >= Q) {
+                Context context = getApplication().getApplicationContext();
+                context.getContentResolver()
+                       .takePersistableUriPermission(data.getData(),Intent.FLAG_GRANT_READ_URI_PERMISSION | Intent.FLAG_GRANT_WRITE_URI_PERMISSION);
                 String path = data.getDataString();
                 Log.d("QField Testing", path);
-                String storagePath = Environment.getExternalStorageDirectory().getAbsolutePath();
-                Log.d("QField Testing", storagePath);
-                String suffix = path;
-                if (path.indexOf(storagePath) > -1) {
-                    suffix = path.substring(path.indexOf(storagePath) + storagePath.length());
-                }
-                Log.d("QField Testing", suffix);
-                String documentId = "primary:" + suffix.substring(1);
-                Log.d("QField Testing", documentId);
-                String altPath = DocumentsContract.buildTreeDocumentUri("com.android.externalstorage.documents", documentId).toString();
-                Log.d("QField Testing", altPath);
+                
+                String absolutePath = QFieldUtils.getPathFromUri(context, data.getData());
+                Log.d("QField Testing", absolutePath);
             }
             return;
         }
