@@ -1,6 +1,7 @@
 package ch.opengis.qfield;
 
 import static android.os.Build.VERSION.SDK_INT;
+import static android.os.Build.VERSION_CODES.Q;
 
 import java.io.File;
 import java.util.List;
@@ -21,6 +22,7 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.pm.PackageManager;
 import android.Manifest;
+import android.provider.DocumentsContract;
 import android.support.v4.content.ContextCompat;
 import android.util.Log;
 import android.view.View;
@@ -36,10 +38,6 @@ import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.text.Html;
 import android.text.TextUtils;
-
-import androidx.activity.result.ActivityResultLauncher;
-import androidx.activity.result.contract.ActivityResultContracts;
-import android.provider.DocumentsContract;
 
 
 public class QFieldProjectActivity extends Activity {
@@ -60,27 +58,8 @@ public class QFieldProjectActivity extends Activity {
         getActionBar().setBackgroundDrawable(new ColorDrawable(Color.parseColor("#80CC28")));
         drawView();
 
-        val startForResult = registerForActivityResult(
-            new ActivityResultContracts.StartActivityForResult(),
-            result -> {
-              if (SDK_INT >= Q) {
-                getContext()
-                    .getContentResolver()
-                    .takePersistableUriPermission(
-                        result.getData().getData(),
-                        Intent.FLAG_GRANT_READ_URI_PERMISSION
-                            | Intent.FLAG_GRANT_WRITE_URI_PERMISSION);
-    
-                String path = result.getData().getDataString();
-                Log.d("QField Testing", path);
-                String suffix = path.substringAfter(Environment.getExternalStorageDirectory().absolutePath);
-                String documentId = "primary:${suffix.substring(1)}";
-                String altPath = DocumentsContract.buildTreeDocumentUri("com.android.externalstorage.documents", documentId).toString();
-                Log.d("QField Testing", altPath);
-              }
-            });
         Intent intent = new Intent(Intent.ACTION_OPEN_DOCUMENT_TREE);
-        startForResult.launch(intent);
+        startActivityForResult(intent, 777);
     }
 
     private void drawView() {
@@ -90,15 +69,15 @@ public class QFieldProjectActivity extends Activity {
         // Roots
         if (!getIntent().hasExtra("path")) {
             File externalStorageDirectory = null;
-            if (ContextCompat.checkSelfPermission(QFieldProjectActivity.this, Manifest.permission.WRITE_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED ||
-                (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R && Environment.isExternalStorageManager())) {
-                externalStorageDirectory = Environment.getExternalStorageDirectory();
-                Log.d(TAG, "externalStorageDirectory: " + externalStorageDirectory);
-                if (externalStorageDirectory != null){
-                    values.add(new QFieldProjectListItem(externalStorageDirectory, getString(R.string.primary_storage),
-                                                         R.drawable.tablet, QFieldProjectListItem.TYPE_ROOT));
-                }
+            //if (ContextCompat.checkSelfPermission(QFieldProjectActivity.this, Manifest.permission.WRITE_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED ||
+            //    (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R && Environment.isExternalStorageManager())) {
+            externalStorageDirectory = Environment.getExternalStorageDirectory();
+            Log.d(TAG, "externalStorageDirectory: " + externalStorageDirectory);
+            if (externalStorageDirectory != null){
+                values.add(new QFieldProjectListItem(externalStorageDirectory, getString(R.string.primary_storage),
+                                                        R.drawable.tablet, QFieldProjectListItem.TYPE_ROOT));
             }
+            //}
 
             File[] externalFilesDirs = getExternalFilesDirs(null);
             Log.d(TAG, "externalFilesDirs: " + Arrays.toString(externalFilesDirs));
@@ -333,6 +312,27 @@ public class QFieldProjectActivity extends Activity {
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         Log.d(TAG, "onActivityResult ");
         Log.d(TAG, "resultCode: " + resultCode);
+
+        if (requestCode == 777) {
+                if (SDK_INT >= Q) {
+                getApplication().getApplicationContext().getContentResolver()
+                                .takePersistableUriPermission(data.getData(),Intent.FLAG_GRANT_READ_URI_PERMISSION | Intent.FLAG_GRANT_WRITE_URI_PERMISSION);
+                String path = data.getDataString();
+                Log.d("QField Testing", path);
+                String storagePath = Environment.getExternalStorageDirectory().getAbsolutePath();
+                Log.d("QField Testing", storagePath);
+                String suffix = path;
+                if (path.indexOf(storagePath) > -1) {
+                    suffix = path.substring(path.indexOf(storagePath) + storagePath.length());
+                }
+                Log.d("QField Testing", suffix);
+                String documentId = "primary:" + suffix.substring(1);
+                Log.d("QField Testing", documentId);
+                String altPath = DocumentsContract.buildTreeDocumentUri("com.android.externalstorage.documents", documentId).toString();
+                Log.d("QField Testing", altPath);
+            }
+            return;
+        }
 
         // Close recursively the activity stack
         if (resultCode == Activity.RESULT_OK){
