@@ -183,6 +183,13 @@ QgisMobileapp::QgisMobileapp( QgsApplication *app, QObject *parent )
 
   if ( !PlatformUtilities::instance()->qfieldDataDir().isEmpty() )
   {
+    QDir d( PlatformUtilities::instance()->qfieldDataDir() );
+    const QStringList fs = d.entryList( QStringList() << "*.*", QDir::Files );
+    for ( auto f : fs )
+    {
+      qDebug() << f;
+    }
+
     //set localized data paths
     QStringList localizedDataPaths;
     localizedDataPaths << PlatformUtilities::instance()->qfieldDataDir() + QStringLiteral( "basemaps/" );
