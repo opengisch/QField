@@ -22,9 +22,8 @@ import java.text.SimpleDateFormat;
 
 public class QFieldOpenExternallyActivity extends Activity{
     private static final String TAG = "QField Open (file) Externally Activity";
-    private String filePath;
-    private String mimeType;
-    private String tempFileName;
+    private File file;
+    private File cacheFile;
     private String errorMessage;
 
     @Override
@@ -32,16 +31,16 @@ public class QFieldOpenExternallyActivity extends Activity{
         Log.d(TAG, "onCreate()");
         super.onCreate(savedInstanceState);
 
-        filePath = getIntent().getExtras().getString("filepath");
-        mimeType = getIntent().getExtras().getString("filetype");
+        String filePath = getIntent().getExtras().getString("filepath");
+        String mimeType = getIntent().getExtras().getString("filetype");
         Log.d(TAG, "Received filepath: " + filePath + " and mimeType: " + mimeType);
 
-        File file = new File(filePath);
-        File cacheFile = new File(getCacheDir(), file.getName());
+        file = new File(filePath);
+        cacheFile = new File(getCacheDir(), file.getName());
 
         //copy file to a temporary file
         try{
-            copyFile( file, cacheFile );
+            copyFile(file, cacheFile);
         }catch(IOException e){
             Log.d(TAG, e.getMessage());
             finish();
