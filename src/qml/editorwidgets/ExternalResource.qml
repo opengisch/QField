@@ -213,7 +213,7 @@ EditorWidgetBase {
 
               onClicked: {
                   if ( FileUtils.fileExists( prefixToRelativePath + value ) )
-                      platformUtilities.open( prefixToRelativePath + value );
+                      platformUtilities.open( prefixToRelativePath + value, isEnabled );
               }
           }
 

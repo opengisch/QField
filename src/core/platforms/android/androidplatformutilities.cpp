@@ -269,7 +269,7 @@ ViewStatus *AndroidPlatformUtilities::open( const QString &uri, bool editing )
   QAndroidJniObject filetype_label = QAndroidJniObject::fromString( "filetype" );
   QAndroidJniObject filetype = QAndroidJniObject::fromString( db.mimeTypeForFile( uri ).name() );
   QAndroidJniObject fileediting_label = QAndroidJniObject::fromString( "fileediting" );
-  QAndroidJniObject fileediting = QAndroidJniObject::fromString( editing ? QStringLiteral( "true" ) : QStringLiteral( "false" ) );
+  QAndroidJniObject fileediting = QAndroidJniObject::fromString( editing ? "true" : "false" );
 
   intent.callObjectMethod( "putExtra", "(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;", filepath_label.object<jstring>(), filepath.object<jstring>() );
   intent.callObjectMethod( "putExtra", "(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;", filetype_label.object<jstring>(), filetype.object<jstring>() );
