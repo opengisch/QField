@@ -50,13 +50,12 @@ public class QFieldOpenExternallyActivity extends Activity{
 
         Log.d(TAG, "content URI: " + contentUri);
         Log.d(TAG, "call ACTION_VIEW intent");
-        Intent intent = new Intent();
-        intent.setAction(Intent.ACTION_VIEW);
+        Intent intent = new Intent(Intent.ACTION_EDIT);
         intent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
         intent.setDataAndType(contentUri, mimeType);
-        try{
+        try {
             startActivityForResult(intent, 102);
-        }catch (Exception e) {
+        } catch (Exception e) {
             Log.d(TAG, e.getMessage());
             errorMessage = e.getMessage();
         }
@@ -67,8 +66,15 @@ public class QFieldOpenExternallyActivity extends Activity{
     {
       //on ACTION_VIEW back key pressed it returns RESULT_CANCEL - on error as well
       if (resultCode == RESULT_OK) {
-          Intent intent = this.getIntent();
-          setResult(RESULT_OK, intent);
+          try {
+              copyFile( cacheFile, file );
+              Intent intent = this.getIntent();
+              setResult(RESULT_OK, intent);
+          } catch(IOException e) {
+              Intent intent = this.getIntent();
+              intent.putExtra("ERROR_MESSAGE", e.getMessage());
+              setResult(RESULT_CANCELED, intent);
+          }
       } else {
           Intent intent = this.getIntent();
           intent.putExtra("ERROR_MESSAGE", errorMessage);
