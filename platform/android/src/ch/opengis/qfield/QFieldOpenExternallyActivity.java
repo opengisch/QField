@@ -24,6 +24,7 @@ public class QFieldOpenExternallyActivity extends Activity{
     private static final String TAG = "QField Open (file) Externally Activity";
     private File file;
     private File cacheFile;
+    private boolean isEditing;
     private String errorMessage;
 
     @Override
@@ -33,6 +34,7 @@ public class QFieldOpenExternallyActivity extends Activity{
 
         String filePath = getIntent().getExtras().getString("filepath");
         String mimeType = getIntent().getExtras().getString("filetype");
+        isEditing = getIntent().getExtras().getString("fileediting").compareTo("true") == 0;
         Log.d(TAG, "Received filepath: " + filePath + " and mimeType: " + mimeType);
 
         file = new File(filePath);
@@ -50,7 +52,7 @@ public class QFieldOpenExternallyActivity extends Activity{
 
         Log.d(TAG, "content URI: " + contentUri);
         Log.d(TAG, "call ACTION_VIEW intent");
-        Intent intent = new Intent(Intent.ACTION_EDIT);
+        Intent intent = new Intent(isEditing ? Intent.ACTION_EDIT : Intent.ACTION_VIEW);
         intent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
         intent.setDataAndType(contentUri, mimeType);
         try {
@@ -67,7 +69,9 @@ public class QFieldOpenExternallyActivity extends Activity{
       //on ACTION_VIEW back key pressed it returns RESULT_CANCEL - on error as well
       if (resultCode == RESULT_OK) {
           try {
-              copyFile( cacheFile, file );
+              if (isEditing) {
+                  copyFile( cacheFile, file );
+              }
               Intent intent = this.getIntent();
               setResult(RESULT_OK, intent);
           } catch(IOException e) {

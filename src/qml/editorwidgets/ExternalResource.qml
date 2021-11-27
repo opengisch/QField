@@ -170,7 +170,7 @@ EditorWidgetBase {
         if (!UrlUtils.isRelativeOrFileUrl(value)) { // matches `http://...` but not `file://...` paths
           Qt.openUrlExternally(value)
         } else if (FileUtils.fileExists(prefixToRelativePath + value)) {
-          __viewStatus = platformUtilities.open(prefixToRelativePath + value)
+          __viewStatus = platformUtilities.open(prefixToRelativePath + value, isEnabled)
         }
       }
     }
