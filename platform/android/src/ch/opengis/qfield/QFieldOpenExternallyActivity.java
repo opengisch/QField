@@ -11,6 +11,7 @@ import android.content.Intent;
 import android.util.Log;
 import android.support.v4.content.FileProvider;
 import android.widget.Toast;
+import android.provider.MediaStore;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -53,8 +54,14 @@ public class QFieldOpenExternallyActivity extends Activity{
         Log.d(TAG, "content URI: " + contentUri);
         Log.d(TAG, isEditing ? "call ACTION_EDIT intent" : "call ACTION_VIEW intent");
         Intent intent = new Intent(isEditing ? Intent.ACTION_EDIT : Intent.ACTION_VIEW);
-        intent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
-        intent.setDataAndType(contentUri, isEditing ? "image/*" : mimeType);
+        if (isEditing) {
+            intent.setDataAndType(contentUri, "image/*");
+            intent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION | Intent.FLAG_GRANT_WRITE_URI_PERMISSION);
+            intent.putExtra(MediaStore.EXTRA_OUTPUT, contentUri);
+        } else {
+            intent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
+            intent.setDataAndType(contentUri, mimeType);
+        }
         try {
             startActivityForResult(intent, 102);
         } catch (Exception e) {
