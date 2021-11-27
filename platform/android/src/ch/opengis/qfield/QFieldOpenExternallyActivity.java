@@ -51,7 +51,7 @@ public class QFieldOpenExternallyActivity extends Activity{
         Uri contentUri =  Build.VERSION.SDK_INT < 24 ? Uri.fromFile(file) : FileProvider.getUriForFile( this, BuildConfig.APPLICATION_ID+".fileprovider", cacheFile );
 
         Log.d(TAG, "content URI: " + contentUri);
-        Log.d(TAG, "call ACTION_VIEW intent");
+        Log.d(TAG, isEditing ? "call ACTION_EDIT intent" : "call ACTION_VIEW intent");
         Intent intent = new Intent(isEditing ? Intent.ACTION_EDIT : Intent.ACTION_VIEW);
         intent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
         intent.setDataAndType(contentUri, mimeType);
@@ -71,6 +71,7 @@ public class QFieldOpenExternallyActivity extends Activity{
           try {
               if (isEditing) {
                   copyFile( cacheFile, file );
+                  Log.d(TAG, "copying file back");
               }
               Intent intent = this.getIntent();
               setResult(RESULT_OK, intent);
