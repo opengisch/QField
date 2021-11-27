@@ -374,6 +374,35 @@ QStringList DeltaFileWrapper::attachmentFieldNames( const QgsProject *project, c
   return attachmentFieldNames;
 }
 
+QString DeltaFileWrapper::crsByLayerId( const QgsProject *project, const QString &layerId )
+{
+  if ( project && project->mapLayer( layerId ) )
+  {
+    const QString authid = project->mapLayer( layerId )->crs().authid();
+
+    if ( authid.isEmpty() )
+      return QString();
+
+    if ( authid.startsWith( QStringLiteral( "EPSG:" ) ) )
+      return authid;
+
+    return project->mapLayer( layerId )->crs().toWkt( QgsCoordinateReferenceSystem::WKT_PREFERRED );
+  }
+
+  return QString();
+}
+
+
+QString DeltaFileWrapper::nameByLayerId( const QgsProject *project, const QString &layerId )
+{
+  if ( project && project->mapLayer( layerId ) )
+  {
+    return project->mapLayer( layerId )->name();
+  }
+
+  return QString();
+}
+
 
 QMap<QString, QString> DeltaFileWrapper::attachmentFileNames() const
 {
@@ -456,6 +485,8 @@ void DeltaFileWrapper::addPatch( const QString &localLayerId, const QString &sou
     {
       { "localPk", oldFeature.attribute( localPkAttrName ).toString() },
       { "localLayerId", localLayerId },
+      { "localLayerCrs", crsByLayerId( mProject, localLayerId ) },
+      { "localLayerName", nameByLayerId( mProject, localLayerId ) },
       { "method", "patch" },
       { "sourcePk", oldFeature.attribute( sourcePkAttrName ).toString() },
       { "sourceLayerId", sourceLayerId },
@@ -659,6 +690,8 @@ void DeltaFileWrapper::addDelete( const QString &localLayerId, const QString &so
     {
       { "localPk", oldFeature.attribute( localPkAttrName ).toString() },
       { "localLayerId", localLayerId },
+      { "localLayerCrs", crsByLayerId( mProject, localLayerId ) },
+      { "localLayerName", nameByLayerId( mProject, localLayerId ) },
       { "method", "delete" },
       { "sourcePk", oldFeature.attribute( sourcePkAttrName ).toString() },
       { "sourceLayerId", sourceLayerId },
@@ -730,6 +763,8 @@ void DeltaFileWrapper::addCreate( const QString &localLayerId, const QString &so
     {
       { "localPk", newFeature.attribute( localPkAttrName ).toString() },
       { "localLayerId", localLayerId },
+      { "localLayerCrs", crsByLayerId( mProject, localLayerId ) },
+      { "localLayerName", nameByLayerId( mProject, localLayerId ) },
       { "method", "create" },
       { "sourcePk", newFeature.attribute( sourcePkAttrName ).toString() },
       { "sourceLayerId", sourceLayerId },

@@ -80,6 +80,15 @@ class DeltaFileWrapper : public QObject
      */
     static QStringList attachmentFieldNames( const QgsProject *project, const QString &layerId );
 
+    /**
+     * Returns the CRS as WKT for given \a layerId in the \a project
+     */
+    static QString crsByLayerId( const QgsProject *project, const QString &layerId );
+
+    /**
+     * Returns the name for given \a layerId in the \a project
+     */
+    static QString nameByLayerId( const QgsProject *project, const QString &layerId );
 
     /**
      * @brief Get a pair of the index and the name of the primary key column of given \a vl layer. We assume there is no multi-column primary key.
