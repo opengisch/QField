@@ -95,6 +95,10 @@ public class QFieldOpenExternallyActivity extends Activity{
               }
               Intent intent = this.getIntent();
               setResult(RESULT_OK, intent);
+          } catch (SecurityException e) {
+              Intent intent = this.getIntent();
+              intent.putExtra("ERROR_MESSAGE", e.getMessage());
+              setResult(RESULT_CANCELED, intent);
           } catch(IOException e) {
               Intent intent = this.getIntent();
               intent.putExtra("ERROR_MESSAGE", e.getMessage());
