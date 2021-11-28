@@ -366,6 +366,7 @@ EditorWidgetBase {
 
     onFinished: {
       if (isImage) {
+        // In order to make sure the image shown reflects edits, reset the source
         var imageSource = image.source;
         image.source = '';
         image.source = imageSource;
