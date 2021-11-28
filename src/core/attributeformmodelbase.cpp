@@ -412,7 +412,7 @@ void AttributeFormModelBase::flatten( QgsAttributeEditorContainer *container, QS
         QStandardItem *item = new QStandardItem();
 
         item->setData( currentTabIndex, AttributeFormModel::TabIndex );
-        item->setData( relation.name(), AttributeFormModel::Name );
+        item->setData( !editorRelation->label().isEmpty() ? editorRelation->label() : relation.name(), AttributeFormModel::Name );
         item->setData( true, AttributeFormModel::AttributeEditable );
         item->setData( true, AttributeFormModel::CurrentlyVisible );
         item->setData( "relation", AttributeFormModel::ElementType );
