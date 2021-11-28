@@ -55,9 +55,9 @@ public class QFieldOpenExternallyActivity extends Activity{
         Log.d(TAG, isEditing ? "call ACTION_EDIT intent" : "call ACTION_VIEW intent");
         Intent intent = new Intent(isEditing ? Intent.ACTION_EDIT : Intent.ACTION_VIEW);
         if (isEditing) {
-            intent.setDataAndType(contentUri, "image/*");
             intent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION | Intent.FLAG_GRANT_WRITE_URI_PERMISSION);
-            intent.putExtra(MediaStore.EXTRA_OUTPUT, contentUri);
+            intent.setDataAndType(contentUri, mimeType);
+            //intent.putExtra(MediaStore.EXTRA_OUTPUT, contentUri);
         } else {
             intent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
             intent.setDataAndType(contentUri, mimeType);
