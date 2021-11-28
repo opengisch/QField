@@ -87,7 +87,6 @@ ListView {
               smooth: true
               mipmap: true
               source: {
-                console.log(legend.isVisible);
                 if ( !legend.isVisible )
                   return '';
 
