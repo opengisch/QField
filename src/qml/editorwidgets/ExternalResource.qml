@@ -94,7 +94,8 @@ EditorWidgetBase {
               imageFrame.height = 200
               image.opacity = 1
               image.anchors.topMargin = 0
-              image.source= 'file://' + prefixToRelativePath + value
+              var date = new Date()
+              image.source= 'file://' + prefixToRelativePath + value + '?' + date.getTime()
               geoTagBadge.hasGeoTag = ExifTools.hasGeoTag(prefixToRelativePath + value)
               geoTagBadge.visible = true
           }
@@ -216,8 +217,8 @@ EditorWidgetBase {
                   if ( FileUtils.fileExists( prefixToRelativePath + value ) ) {
                       platformUtilities.open( prefixToRelativePath + value, isEnabled );
                       var imageSource = image.source;
-                      image.source = '';
-                      image.source = imageSource;
+                      var date = new Date()
+                      image.source = imageSource + date.getTime();
                   }
               }
           }
