@@ -1,5 +1,5 @@
 ---
-name: 🎁 Package for desktop
+name: 🎁 Desktop
 on:
   push:
     branches:
@@ -83,38 +83,6 @@ jobs:
 
       - name: 🐩 Install CMake and Ninja
         uses: lukka/get-cmake@latest
-
-      - name: 📪 Clone vcpkg
-        shell: bash
-        run: |
-          VCPKG_SHA=$(head -1 .git/modules/vcpkg/HEAD)
-          mkdir -p "${{ env.VCPKG_DEFAULT_BINARY_CACHE }}"
-          mkdir -p "${{ steps.vars.outputs.VCPKG_ROOT }}"
-          cd "${{ steps.vars.outputs.VCPKG_ROOT }}"
-          git init
-          git remote add origin https://github.com/microsoft/vcpkg.git
-          git fetch --depth 1 origin $VCPKG_SHA
-          git checkout FETCH_HEAD
-
-      - name: 📫 Cache vcpkg
-        id: cache-vcpkg-tool
-        uses: pat-s/always-upload-cache@v2.1.5
-        with:
-          path: |
-            ${{ steps.vars.outputs.VCPKG_ROOT }}/vcpkg
-            ${{ steps.vars.outputs.VCPKG_ROOT }}/vcpkg.exe
-          key: ${{ runner.os }}-${{ hashFiles('.git/modules/vcpkg/HEAD') }}-x
-
-      - name: 📬 Bootstrap vcpkg
-        if: steps.cache-vcpkg-tool.outputs.cache-hit != 'true'
-        shell: bash
-        working-directory: ${{ steps.vars.outputs.VCPKG_ROOT }}
-        run: |
-          if grep -qEi "(Microsoft|WSL)" /proc/version &> /dev/null ; then
-            ./bootstrap-vcpkg.bat
-          else
-            ./bootstrap-vcpkg.sh
-          fi
 
       - name: 🧽 Developer Command Prompt for Microsoft Visual C++
         uses: ilammy/msvc-dev-cmd@v1
