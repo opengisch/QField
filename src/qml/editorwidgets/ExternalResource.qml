@@ -170,7 +170,7 @@ EditorWidgetBase {
         if (!UrlUtils.isRelativeOrFileUrl(value)) { // matches `http://...` but not `file://...` paths
           Qt.openUrlExternally(value)
         } else if (FileUtils.fileExists(prefixToRelativePath + value)) {
-          __viewStatus = platformUtilities.open(prefixToRelativePath + value)
+          __viewStatus = platformUtilities.open(prefixToRelativePath + value, isEnabled)
         }
       }
     }
@@ -207,13 +207,15 @@ EditorWidgetBase {
           verticalAlignment: Image.AlignVCenter
 
           source: Theme.getThemeIcon("ic_photo_notavailable_black_24dp")
+          cache: false
 
           MouseArea {
               anchors.fill: parent
 
               onClicked: {
-                  if ( FileUtils.fileExists( prefixToRelativePath + value ) )
-                      platformUtilities.open( prefixToRelativePath + value );
+                  if ( FileUtils.fileExists( prefixToRelativePath + value ) ) {
+                      __viewStatus = platformUtilities.open( prefixToRelativePath + value, isEnabled );
+                  }
               }
           }
 
@@ -361,6 +363,16 @@ EditorWidgetBase {
 
   Connections {
     target: __viewStatus
+
+    onFinished: {
+      if (isImage) {
+        // In order to make sure the image shown reflects edits, reset the source
+        var imageSource = image.source;
+        image.source = '';
+        image.source = imageSource;
+      }
+    }
+
     onStatusReceived: {
       if( status )
       {
