@@ -68,6 +68,9 @@ public class QFieldOpenExternallyActivity extends Activity{
         }
         try {
             startActivityForResult(intent, 102);
+        } catch(IllegalArgumentException e) {
+            Log.d(TAG, e.getMessage());
+            errorMessage = e.getMessage();
         } catch (Exception e) {
             Log.d(TAG, e.getMessage());
             errorMessage = e.getMessage();
