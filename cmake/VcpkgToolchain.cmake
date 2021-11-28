@@ -9,8 +9,7 @@ string(ASCII ${NUGET_TOKEN_ASCII} NUGET_TOKEN_DEFAULT)
 set(NUGET_TOKEN ${NUGET_TOKEN_DEFAULT} CACHE STRING "Nuget token")
 
 string(COMPARE EQUAL "${CMAKE_HOST_SYSTEM_NAME}" "Windows" _HOST_IS_WINDOWS)
-option(WITH_VCPKG "Use the vcpkg submodule for dependency management."
-       ${_HOST_IS_WINDOWS})
+set(WITH_VCPKG ${_HOST_IS_WINDOWS} CACHE BOOL "Use the vcpkg submodule for dependency management.")
 if(NOT WITH_VCPKG)
   return()
 endif()
