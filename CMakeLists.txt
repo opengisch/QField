@@ -1,10 +1,6 @@
 #############################################################
 # CMake settings
-cmake_minimum_required(VERSION 3.5)
-cmake_policy(SET CMP0071 NEW)
-cmake_policy(SET CMP0074 NEW)
-cmake_policy(SET CMP0077 NEW)
-cmake_policy(SET CMP0087 NEW)
+cmake_minimum_required(VERSION 3.15)
 
 set(QML_IMPORT_PATH ${CMAKE_SOURCE_DIR}/src/qml/imports CACHE PATH "QML import path for Qt Creator to detect custom modules properly")
 
