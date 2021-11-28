@@ -59,8 +59,7 @@ jobs:
 
 
           BUILD_ROOT="/home/runner"
-          echo "::set-output name=MONO::mono"
-          echo "::set-output name=OVERLAY::vcpkg/overlay_system_qt"
+          echo "::set-output name=SYSTEM_QT::ON"
           echo "::set-output name=PATHCONVERT::echo"
           echo "::set-output name=INSTALL_QT::true"
           echo "::set-output name=QT_TARGET::android"
@@ -106,21 +105,6 @@ jobs:
           else
             ./bootstrap-vcpkg.sh
           fi
-
-      - name: 🔐 Setup NuGet Credentials
-        shell: bash
-        run: |
-          ${{ steps.vars.outputs.VCPKG_ROOT }}/vcpkg fetch nuget
-          ${{ steps.vars.outputs.MONO }} $(${{ steps.vars.outputs.VCPKG_ROOT }}/vcpkg fetch nuget | tail -n 1) \
-          sources add \
-          -source "https://nuget.pkg.github.com/opengisch/index.json" \
-          -storepasswordincleartext \
-          -name "GitHub" \
-          -username "opengisch" \
-          -password "${{ secrets.GITHUB_TOKEN }}"
-
-          ${{ steps.vars.outputs.MONO }} $(${{ steps.vars.outputs.VCPKG_ROOT }}/vcpkg fetch nuget | tail -n 1) \
-          setapikey ${{ secrets.GITHUB_TOKEN }} -src "https://nuget.pkg.github.com/opengisch/index.json"
 
       - name: 🔥 Free additional space
         run: |
@@ -182,14 +166,11 @@ jobs:
           source ./scripts/version_number.sh
           source ./scripts/ci/generate-version-details.sh
 
-          overlay_ports=(${WORKSPACE}/vcpkg/overlay_system_qt ${WORKSPACE}/vcpkg/overlay)
-          echo "Building with $(IFS=\; ; echo "${overlay_ports[*]}")"
           cmake -S "${SOURCE_DIR}" \
                 -B "${CMAKE_BUILD_DIR}" \
                 -G Ninja \
                 -DCMAKE_BUILD_TYPE=${{ steps.vars.outputs.BUILD_TYPE }} \
-                -DCMAKE_TOOLCHAIN_FILE="${VCPKG_ROOT}/scripts/buildsystems/vcpkg.cmake" \
-                -DVCPKG_OVERLAY_PORTS=$(IFS=\; ; echo "${overlay_ports[*]}") \
+                -DSYSTEM_QT=ON \
                 -DVCPKG_TARGET_TRIPLET="${{ matrix.triplet }}" \
                 -DWITH_VCPKG=ON \
                 -DWITH_SPIX=OFF \
@@ -200,6 +181,8 @@ jobs:
                 -DAPP_ICON="${APP_ICON}" \
                 -DAPP_NAME="${APP_NAME}" \
                 -DVCPKG_CHAINLOAD_TOOLCHAIN_FILE=${ANDROID_NDK_HOME}/build/cmake/android.toolchain.cmake \
+                -DNUGET_OWNER=opengisch \
+                -DNUGET_TOKEN=${{ secrets.GITHUB_TOKEN }} \
                 -DANDROID_ABI=${{ steps.vars.outputs.ABI }} \
                 -DANDROID_PLATFORM=${{ env.ANDROID_PLATFORM }} \
                 -DANDROID_TARGET_PLATFORM=${{ env.ANDROID_TARGET_PLATFORM}} \

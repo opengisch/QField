@@ -18,6 +18,8 @@ set(CMAKE_MODULE_PATH ${CMAKE_SOURCE_DIR}/cmake ${CMAKE_MODULE_PATH})
 
 include(GetGitRevisionDescription)
 
+include(VcpkgToolchain)
+
 set(VCPKG_APPLOCAL_DEPS ON)
 set(X_VCPKG_APPLOCAL_DEPS_INSTALL ON)
 
@@ -39,7 +41,6 @@ set(QFIELD_BIN_SUBDIR     ${DEFAULT_BIN_SUBDIR}     CACHE STRING "Subdirectory w
 set(QFIELD_LIB_SUBDIR     ${DEFAULT_LIB_SUBDIR}     CACHE STRING "Subdirectory where libraries will be installed")
 set(QFIELD_INCLUDE_SUBDIR ${DEFAULT_INCLUDE_SUBDIR} CACHE STRING "Subdirectory where header files will be installed")
 
-set(WITH_VCPKG OFF CACHE BOOL "Build with vcpkg packaging layout")
 set(USE_MAC_BUNDLING NOT ${WITH_VCPKG} CACHE BOOL "Use mac bundling")
 
 set(RELATIVE_PREFIX_PATH ${WITH_VCPKG} CACHE BOOL "Use a prefix path relative to the application itself rather than hard coding the path while compiling")
