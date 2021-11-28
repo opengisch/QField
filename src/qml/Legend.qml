@@ -84,6 +84,8 @@ ListView {
               anchors.fill: parent
               anchors.margins: 4
               cache: false
+              smooth: true
+              mipmap: true
               source: {
                 console.log(legend.isVisible);
                 if ( !legend.isVisible )
