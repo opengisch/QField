@@ -165,7 +165,7 @@ ApplicationWindow {
     DragHandler {
         id: freehandHandler
         property bool isDigitizing: false
-        enabled: freehandButton.visible && freehandButton.freehandDigitizing && !digitizingToolbar.rubberbandModel.frozen && !featureForm.visible
+        enabled: freehandButton.visible && freehandButton.freehandDigitizing && !digitizingToolbar.rubberbandModel.frozen && (!featureForm.visible || digitizingToolbar.geometryRequested)
         acceptedDevices: !qfieldSettings.mouseAsTouchScreen ? PointerDevice.Stylus | PointerDevice.Mouse : PointerDevice.Stylus
         grabPermissions: PointerHandler.CanTakeOverFromHandlersOfSameType | PointerHandler.CanTakeOverFromHandlersOfDifferentType | PointerHandler.ApprovesTakeOverByAnything
 
@@ -912,9 +912,12 @@ ApplicationWindow {
       id: freehandButton
       round: true
       visible: hoverHandler.hovered && !gpsLinkButton.linkActive && stateMachine.state === "digitize"
-          && dashBoard.currentLayer
-          && dashBoard.currentLayer.isValid
-          && ( dashBoard.currentLayer.geometryType() === QgsWkbTypes.PolygonGeometry || dashBoard.currentLayer.geometryType() === QgsWkbTypes.LineGeometry )
+               && ((digitizingToolbar.geometryRequested && digitizingToolbar.geometryRequestedLayer && digitizingToolbar.geometryRequestedLayer.isValid &&
+                   (digitizingToolbar.geometryRequestedLayer.geometryType() === QgsWkbTypes.PolygonGeometry
+                    || digitizingToolbar.geometryRequestedLayer.geometryType() === QgsWkbTypes.LineGeometry))
+                   || (!digitizingToolbar.geometryRequested && dashBoard.currentLayer && dashBoard.currentLayer.isValid &&
+                   (dashBoard.currentLayer.geometryType() === QgsWkbTypes.PolygonGeometry
+                    || dashBoard.currentLayer.geometryType() === QgsWkbTypes.LineGeometry)))
       iconSource: Theme.getThemeIcon( "ic_freehand_white_24dp" )
 
       bgcolor: Theme.darkGray
