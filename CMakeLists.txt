@@ -20,8 +20,6 @@ include(GetGitRevisionDescription)
 
 include(VcpkgToolchain)
 
-set(VCPKG_APPLOCAL_DEPS ON)
-set(X_VCPKG_APPLOCAL_DEPS_INSTALL ON)
 
 project(${APP_NAME}
   VERSION ${CLEAN_APP_VERSION}
