@@ -291,33 +291,31 @@ ApplicationWindow {
       anchors.fill: parent
 
       onClicked:  {
-          if (locatorItem.state == "on")
-          {
-              locatorItem.state = "off"
+          if (featureForm.state == "FeatureFormEdit") {
+              // We are editing a feature form, don't accidentally close to prevent from accidental data loss
+              return;
           }
-          else if ( type === "stylus" )
-          {
+
+          if (locatorItem.state == "on") {
+              locatorItem.state = "off"
+              return;
+          }
+
+          if ( type === "stylus" ) {
               // Check if geometry editor is taking over
               if ( !gpsLinkButton.linkActive && geometryEditorsToolbar.canvasClicked(point) )
                   return;
 
               if ( !gpsLinkButton.linkActive && (!featureForm.visible || digitizingToolbar.geometryRequested ) &&
-                   ( ( stateMachine.state === "digitize" && digitizingFeature.currentLayer ) || stateMachine.state === 'measure' ) )
-              {
+                   ( ( stateMachine.state === "digitize" && digitizingFeature.currentLayer ) || stateMachine.state === 'measure' ) ) {
                   if ( Number( currentRubberband.model.geometryType ) === QgsWkbTypes.PointGeometry ||
-                          Number( currentRubberband.model.geometryType ) === QgsWkbTypes.NullGeometry )
-                  {
+                          Number( currentRubberband.model.geometryType ) === QgsWkbTypes.NullGeometry ) {
                       digitizingToolbar.confirm()
-                  }
-                  else
-                  {
+                  } else {
                       digitizingToolbar.addVertex()
                   }
-              }
-              else
-              {
-                  if (!overlayFeatureFormDrawer.visible || !featureForm.canvasOperationRequested)
-                  {
+              } else {
+                  if (!overlayFeatureFormDrawer.visible || !featureForm.canvasOperationRequested) {
                       identifyTool.identify(point)
                   }
               }
@@ -325,7 +323,7 @@ ApplicationWindow {
       }
 
       onConfirmedClicked: {
-          if (!featureForm.canvasOperationRequested && !overlayFeatureFormDrawer.visible)
+          if (!featureForm.canvasOperationRequested && !overlayFeatureFormDrawer.visible && featureForm.state != "FeatureFormEdit")
           {
               identifyTool.identify(point)
           }
