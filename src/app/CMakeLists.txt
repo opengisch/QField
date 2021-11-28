@@ -43,53 +43,51 @@ file(APPEND ${TRANSLATIONS_QRC} "\n    </qresource>\n</RCC>")
 configure_file(${CMAKE_SOURCE_DIR}/images/logo.qrc.in
                ${CMAKE_BINARY_DIR}/images/logo.qrc @ONLY)
 
-if(ANDROID)
-  add_library(
-    qfield SHARED
-    main.cpp ${RESOURCES} ${CMAKE_SOURCE_DIR}/images/images.qrc
-    ${CMAKE_BINARY_DIR}/images/logo.qrc
-    ${CMAKE_SOURCE_DIR}/resources/resources.qrc ${TRANSLATIONS_QRC})
+function(create_executable TARGET)
+  set(QFIELD_SOURCES
+      main.cpp
+      ${RESOURCES}
+      ${CMAKE_SOURCE_DIR}/images/images.qrc
+      ${CMAKE_BINARY_DIR}/images/logo.qrc
+      ${CMAKE_SOURCE_DIR}/resources/resources.qrc
+      ${ICON_SRC}
+      ${TRANSLATIONS_QRC})
+  if(ANDROID)
+    add_library(${TARGET} SHARED ${QFIELD_SOURCES})
 
-  # Strip binary for release builds
-  add_custom_command(
-    TARGET qfield
-    POST_BUILD
-    COMMAND ${CMAKE_STRIP} $<TARGET_FILE:qfield>)
-  # add_dependencies(qfield assets )
-else()
-  add_executable(
-    qfield
-    main.cpp
-    ${RESOURCES}
-    ${CMAKE_SOURCE_DIR}/images/images.qrc
-    ${CMAKE_BINARY_DIR}/images/logo.qrc
-    ${CMAKE_SOURCE_DIR}/resources/resources.qrc
-    ${ICON_SRC}
-    ${TRANSLATIONS_QRC})
-endif()
+    # Strip binary for release builds
+    add_custom_command(
+      TARGET ${TARGET}
+      POST_BUILD
+      COMMAND ${CMAKE_STRIP} $<TARGET_FILE:qfield>)
+    # add_dependencies(${TARGET} assets )
 
-target_compile_definitions(
-  qfield PRIVATE $<$<OR:$<CONFIG:Debug>,$<CONFIG:RelWithDebInfo>>:QT_QML_DEBUG>)
+    target_link_libraries(${TARGET} PRIVATE android log)
+  else()
+    add_executable(${TARGET} ${QFIELD_SOURCES})
+  endif()
 
-if(ANDROID)
-  target_link_libraries(qfield PRIVATE android log)
-endif()
+  target_compile_definitions(
+    ${TARGET}
+    PRIVATE $<$<OR:$<CONFIG:Debug>,$<CONFIG:RelWithDebInfo>>:QT_QML_DEBUG>)
 
-if(${CMAKE_SYSTEM_NAME} STREQUAL "iOS")
-  # debug symbols https://stackoverflow.com/a/49714128/1548052
-  target_compile_options(qfield PRIVATE $<$<CXX_COMPILER_ID:Clang>:-g>)
-endif()
+  if(${CMAKE_SYSTEM_NAME} STREQUAL "iOS")
+    # debug symbols https://stackoverflow.com/a/49714128/1548052
+    target_compile_options(${TARGET} PRIVATE $<$<CXX_COMPILER_ID:Clang>:-g>)
+  endif()
 
-target_link_libraries(qfield PRIVATE qfield_core ${QGIS_CORE_LIBRARY})
+  target_link_libraries(${TARGET} PRIVATE qfield_core ${QGIS_CORE_LIBRARY})
 
-target_link_libraries(qfield PRIVATE qfield_core)
+  target_link_libraries(${TARGET} PRIVATE qfield_core)
+  set_target_properties(${TARGET} PROPERTIES AUTORCC TRUE)
+endfunction()
 
+create_executable(qfield)
 if(WITH_SPIX)
-  target_link_libraries(qfield PRIVATE Spix::Spix)
-  target_compile_definitions(qfield PUBLIC WITH_SPIX)
+  create_executable(qfield_spix)
+  target_link_libraries(qfield_spix PRIVATE Spix::Spix)
+  target_compile_definitions(qfield_spix PUBLIC WITH_SPIX)
 endif()
-
-set_target_properties(qfield PROPERTIES AUTORCC TRUE)
 install(
   TARGETS qfield
   BUNDLE DESTINATION ${QFIELD_BIN_DIR}

@@ -65,11 +65,11 @@ def report_summary():
 @pytest.fixture
 def process():
     filenames = [
-        "./output/bin/qfield",
-        "./output/bin/Release/qfield.exe",
-        "./output/bin/Debug/qfield.exe",
-        "./output/bin/qfield.app/qfield.exe",
-        "./output/bin/qfield.app/Contents/MacOS/qfield",
+        "./output/bin/qfield_spix",
+        "./output/bin/Release/qfield_spix.exe",
+        "./output/bin/Debug/qfield_spix.exe",
+        "./output/bin/qfield.app/qfield_spix.exe",
+        "./output/bin/qfield.app/Contents/MacOS/qfield_spix",
     ]
     for filename in filenames:
         try:
