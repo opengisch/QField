@@ -82,8 +82,16 @@ public class QFieldOpenExternallyActivity extends Activity{
       if (resultCode == RESULT_OK) {
           try {
               if (isEditing) {
-                  copyFile( cacheFile, file );
-                  Log.d(TAG, "copying file back");
+                  Log.d(TAG, "Copy file back from uri " + data.getDataString() + " to file: "+file.getAbsolutePath());
+                  InputStream in = getContentResolver().openInputStream(data.getData());
+                  OutputStream out = new FileOutputStream(file);
+                  // Transfer bytes from in to out
+                  byte[] buf = new byte[1024];
+                  int len;
+                  while ((len = in.read(buf)) > 0) {
+                      out.write(buf, 0, len);
+                  }
+                  out.close();
               }
               Intent intent = this.getIntent();
               setResult(RESULT_OK, intent);
