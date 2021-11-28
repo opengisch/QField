@@ -181,6 +181,15 @@ jobs:
           dir: ${{ steps.vars.outputs.BUILD_ROOT }}
           plugins: qt appimage
 
+      - name:  Prepare windows build env
+        shell: bash
+        if: ${{ matrix.os == 'windows-2019' }}
+        run: |
+          # Hide terminal for release builds
+          if [ -z "${{ env.CI_TAG }}" ]; then
+            echo "EXTRA_CMAKE_ARGS=-DCMAKE_WIN32_EXECUTABLE=ON" >> $GITHUB_ENV
+          fi
+
       # transifex-client is not compatible with py >= 3.10
       # temporary band aid
       - uses: actions/setup-python@v2
