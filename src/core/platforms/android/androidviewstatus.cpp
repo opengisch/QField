@@ -40,5 +40,6 @@ void AndroidViewStatus::handleActivityResult( int receiverRequestCode, int resul
     {
       emit statusReceived( errorMessage.toString() );
     }
+    emit finished();
   }
 }
