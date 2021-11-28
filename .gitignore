@@ -1,6 +1,5 @@
 CMakeLists.txt.user*
 sha-*.diff
-astyle.*.diff
 *.prepare
 *.orig
 *.iml
@@ -15,7 +14,6 @@ __pycache__
 /QField.pro.user.*
 /config.pri
 /build*
-/scripts/astyle
 /platform/android/gradle.properties
 /platform/android/local.properties
 /platform/android/res/values/generated.xml
