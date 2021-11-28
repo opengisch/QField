@@ -19,6 +19,9 @@
 #define CATCH_CONFIG_RUNNER
 #endif
 
+#include <QString>
+#include <QtGlobal>
+
 #include <catch2/catch.hpp>
 
 #ifdef QFIELDTEST_MAIN
