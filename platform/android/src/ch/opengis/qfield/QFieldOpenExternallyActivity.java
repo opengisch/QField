@@ -81,7 +81,6 @@ public class QFieldOpenExternallyActivity extends Activity{
     protected void onActivityResult(int requestCode, int resultCode, Intent data)
     {
       //on ACTION_VIEW back key pressed it returns RESULT_CANCEL - on error as well
-      Log.d(TAG, data.getDataString());
       if (resultCode == RESULT_OK) {
           try {
               if (isEditing) {
