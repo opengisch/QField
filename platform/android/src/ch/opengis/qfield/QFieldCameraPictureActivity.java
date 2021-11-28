@@ -1,26 +1,25 @@
 package ch.opengis.qfield;
 
-import java.text.SimpleDateFormat;
-import java.io.File;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.FileInputStream;
-import java.io.OutputStream;
-import java.io.FileOutputStream;
-import java.util.Date;
-
-import android.os.Bundle;
-import android.os.Environment;
-import android.net.Uri;
 import android.app.Activity;
 import android.content.Intent;
-import android.util.Log;
-import android.provider.MediaStore;
 import android.graphics.Bitmap;
-import android.support.v4.content.FileProvider;
 import android.media.MediaScannerConnection;
+import android.net.Uri;
+import android.os.Bundle;
+import android.os.Environment;
+import android.provider.MediaStore;
+import android.support.v4.content.FileProvider;
+import android.util.Log;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
-public class QFieldCameraPictureActivity extends Activity{
+public class QFieldCameraPictureActivity extends Activity {
     private static final String TAG = "QField Camera Picture Activity";
     private String prefix;
     private String pictureFilePath;
@@ -28,16 +27,18 @@ public class QFieldCameraPictureActivity extends Activity{
     private String pictureTempFileName;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState){
+    protected void onCreate(Bundle savedInstanceState) {
         Log.d(TAG, "onCreate()");
         super.onCreate(savedInstanceState);
         prefix = getIntent().getExtras().getString("prefix");
         pictureFilePath = getIntent().getExtras().getString("pictureFilePath");
         suffix = getIntent().getExtras().getString("suffix");
-        Log.d(TAG, "Received prefix: " + prefix +" and pictureFilePath: " + pictureFilePath + "and suffix: " + suffix);
+        Log.d(TAG, "Received prefix: " + prefix + " and pictureFilePath: " +
+                       pictureFilePath + "and suffix: " + suffix);
 
-        String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
-        pictureTempFileName = "QFieldPicture" + timeStamp + '.' +suffix;
+        String timeStamp =
+            new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
+        pictureTempFileName = "QFieldPicture" + timeStamp + '.' + suffix;
         Log.d(TAG, "Created pictureTempFileName: " + pictureTempFileName);
 
         callCameraIntent();
@@ -53,9 +54,8 @@ public class QFieldCameraPictureActivity extends Activity{
 
             if (pictureFile != null) {
 
-                Uri photoURI = FileProvider.getUriForFile(this,
-                                                          "ch.opengis.qfield.fileprovider",
-                                                          pictureFile);
+                Uri photoURI = FileProvider.getUriForFile(
+                    this, "ch.opengis.qfield.fileprovider", pictureFile);
 
                 takePictureIntent.putExtra(MediaStore.EXTRA_OUTPUT, photoURI);
                 startActivityForResult(takePictureIntent, 172);
@@ -64,32 +64,35 @@ public class QFieldCameraPictureActivity extends Activity{
     }
 
     @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+    protected void onActivityResult(int requestCode, int resultCode,
+                                    Intent data) {
         Log.d(TAG, "onActivityResult()");
-        Log.d(TAG, "resultCode: "+resultCode);
+        Log.d(TAG, "resultCode: " + resultCode);
 
-        File result = new File(prefix+pictureFilePath);
+        File result = new File(prefix + pictureFilePath);
         File path = result.getParentFile();
         path.mkdirs();
 
-        // Let the android scan new media folders/files to make them visible through MTP
+        // Let the android scan new media folders/files to make them visible
+        // through MTP
         path.setExecutable(true);
         path.setReadable(true);
         path.setWritable(true);
-        MediaScannerConnection.scanFile(this, new String[] {path.toString()}, null, null);
+        MediaScannerConnection.scanFile(this, new String[] {path.toString()},
+                                        null, null);
 
         if (resultCode == RESULT_OK) {
 
             File pictureFile = new File(getCacheDir(), pictureTempFileName);
             Log.d(TAG, "Taken picture: " + pictureFile.getAbsolutePath());
-            try{
+            try {
                 copyFile(pictureFile, result);
-            }catch(IOException e){
+            } catch (IOException e) {
                 Log.d(TAG, e.getMessage());
             }
 
             Intent intent = this.getIntent();
-            intent.putExtra("PICTURE_IMAGE_FILENAME", prefix+pictureFilePath);
+            intent.putExtra("PICTURE_IMAGE_FILENAME", prefix + pictureFilePath);
             setResult(RESULT_OK, intent);
         } else {
             Intent intent = this.getIntent();
@@ -97,16 +100,19 @@ public class QFieldCameraPictureActivity extends Activity{
             setResult(RESULT_CANCELED, intent);
         }
 
-        // Let the android scan new media folders/files to make them visible through MTP
+        // Let the android scan new media folders/files to make them visible
+        // through MTP
         result.setReadable(true);
         result.setWritable(true);
-        MediaScannerConnection.scanFile(this, new String[] {result.toString()}, null, null);
+        MediaScannerConnection.scanFile(this, new String[] {result.toString()},
+                                        null, null);
 
         finish();
     }
 
     private void copyFile(File src, File dst) throws IOException {
-        Log.d(TAG, "Copy file: "+src.getAbsolutePath()+" to file: "+dst.getAbsolutePath());
+        Log.d(TAG, "Copy file: " + src.getAbsolutePath() +
+                       " to file: " + dst.getAbsolutePath());
         try (InputStream in = new FileInputStream(src)) {
             try (OutputStream out = new FileOutputStream(dst)) {
                 // Transfer bytes from in to out
@@ -119,5 +125,4 @@ public class QFieldCameraPictureActivity extends Activity{
             }
         }
     }
-
 }

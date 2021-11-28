@@ -48,7 +48,7 @@ AttributeFormModelBase::~AttributeFormModelBase()
 
 void AttributeFormModelBase::onMapThemeCollectionChanged()
 {
-  connect( QgsProject::instance()->mapThemeCollection(), &QgsMapThemeCollection::mapThemeChanged, this, [ = ] { resetModel(); applyFeatureModel(); } );
+  connect( QgsProject::instance()->mapThemeCollection(), &QgsMapThemeCollection::mapThemeChanged, this, [=] { resetModel(); applyFeatureModel(); } );
 }
 
 QHash<int, QByteArray> AttributeFormModelBase::roleNames() const
@@ -359,8 +359,7 @@ void AttributeFormModelBase::flatten( QgsAttributeEditorContainer *container, QS
 
         item->setData( currentTabIndex, AttributeFormModel::TabIndex );
         item->setData( mLayer->attributeDisplayName( fieldIndex ), AttributeFormModel::Name );
-        item->setData( !mLayer->editFormConfig().readOnly( fieldIndex ) &&
-                       !( field.defaultValueDefinition().isValid() && field.defaultValueDefinition().applyOnUpdate() ), AttributeFormModel::AttributeEditable );
+        item->setData( !mLayer->editFormConfig().readOnly( fieldIndex ) && !( field.defaultValueDefinition().isValid() && field.defaultValueDefinition().applyOnUpdate() ), AttributeFormModel::AttributeEditable );
         const QgsEditorWidgetSetup setup = findBest( fieldIndex );
         item->setData( setup.type(), AttributeFormModel::EditorWidget );
         item->setData( setup.config(), AttributeFormModel::EditorWidgetConfig );

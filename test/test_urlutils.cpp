@@ -16,11 +16,11 @@
  ***************************************************************************/
 
 #define CATCH_CONFIG_MAIN
+#include "catch2.h"
 #include "utils/urlutils.h"
 
 #include <QDebug>
 #include <QFileInfo>
-#include "catch2.h"
 
 
 TEST_CASE( "UrlUtils" )

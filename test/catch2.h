@@ -39,7 +39,7 @@ int main( int argc, char *argv[] )
 #endif
 
 QT_BEGIN_NAMESPACE
-std::ostream &operator << ( std::ostream &os, const QString &value )
+std::ostream &operator<<( std::ostream &os, const QString &value )
 {
   os << qUtf8Printable( value );
   return os;

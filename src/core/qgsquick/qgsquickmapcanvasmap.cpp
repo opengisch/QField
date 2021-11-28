@@ -17,13 +17,13 @@
 #include <QSGSimpleTextureNode>
 #include <QScreen>
 #include <qgis.h>
+#include <qgsannotationlayer.h>
 #include <qgsexpressioncontextutils.h>
 #include <qgsmaprenderercache.h>
 #include <qgsmaprendererparalleljob.h>
 #include <qgsmessagelog.h>
 #include <qgspallabeling.h>
 #include <qgsproject.h>
-#include <qgsannotationlayer.h>
 #include <qgsvectorlayer.h>
 #if _QGIS_VERSION_INT >= 31900
 #include <qgslabelingresults.h>

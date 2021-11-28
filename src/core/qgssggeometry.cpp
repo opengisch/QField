@@ -15,9 +15,9 @@
 
 #include "qgssggeometry.h"
 
+#include <qgscurve.h>
 #include <qgsgeometry.h>
 #include <qgspolygon.h>
-#include <qgscurve.h>
 #include <qgstessellator.h>
 
 #include <math.h>
@@ -70,10 +70,10 @@ QgsSGGeometry::QgsSGGeometry( const QgsGeometry &geom, const QColor &color, int 
         QSGOpacityNode *on = new QSGOpacityNode;
         on->setOpacity( 0.5 );
 
-        QgsGeometryPartIterator it =  gg.parts();
+        QgsGeometryPartIterator it = gg.parts();
         while ( it.hasNext() )
         {
-          QgsPolygon *polygon = qgsgeometry_cast< QgsPolygon * >( it.next() );
+          QgsPolygon *polygon = qgsgeometry_cast<QgsPolygon *>( it.next() );
           QSGGeometryNode *geomNode = new QSGGeometryNode;
           geomNode->setGeometry( qgsPolygonToQSGGeometry( polygon, visibleExtent, scaleFactor ) );
           geomNode->setFlag( QSGNode::OwnsGeometry );
@@ -95,7 +95,7 @@ QgsSGGeometry::QgsSGGeometry( const QgsGeometry &geom, const QColor &color, int 
         QSGOpacityNode *on = new QSGOpacityNode;
         on->setOpacity( 0.5 );
         QSGGeometryNode *geomNode = new QSGGeometryNode;
-        geomNode->setGeometry( qgsPolygonToQSGGeometry( qgsgeometry_cast< QgsPolygon * >( gg.get() ), visibleExtent, scaleFactor ) );
+        geomNode->setGeometry( qgsPolygonToQSGGeometry( qgsgeometry_cast<QgsPolygon *>( gg.get() ), visibleExtent, scaleFactor ) );
         geomNode->setFlag( QSGNode::OwnsGeometry );
         applyStyle( geomNode );
         on->appendChildNode( geomNode );
@@ -152,17 +152,17 @@ QSGGeometry *QgsSGGeometry::qgsPolygonToQSGGeometry( const QgsPolygon *polygon, 
   for ( auto it = triangleData.constBegin(); it != triangleData.constEnd(); )
   {
     vertices[currentVertex].x = ( *it++ * scaleFactor );
-    ( void )it++; // z
+    ( void ) it++; // z
     vertices[currentVertex].y = ( ( *it++ ) * scaleFactor );
     currentVertex++;
 
     vertices[currentVertex].x = ( *it++ * scaleFactor );
-    ( void )it++; // z
+    ( void ) it++; // z
     vertices[currentVertex].y = ( ( *it++ * scaleFactor ) );
     currentVertex++;
 
     vertices[currentVertex].x = ( *it++ * scaleFactor );
-    ( void )it++; // z
+    ( void ) it++; // z
     vertices[currentVertex].y = ( ( *it++ * scaleFactor ) );
     currentVertex++;
   }

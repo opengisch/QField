@@ -17,11 +17,10 @@
 
 #include "layerutils.h"
 
-#include <qgsfield.h>
-
-#include <QtQuickTest>
-#include <QQmlEngine>
 #include <QQmlContext>
+#include <QQmlEngine>
+#include <QtQuickTest>
+#include <qgsfield.h>
 
 #define REGISTER_SINGLETON( uri, _class, name ) qmlRegisterSingletonType<_class>( uri, 1, 0, name, []( QQmlEngine *engine, QJSEngine *scriptEngine ) -> QObject * { Q_UNUSED(engine); Q_UNUSED(scriptEngine); return new _class(); } )
 

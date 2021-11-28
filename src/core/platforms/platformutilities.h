@@ -37,12 +37,11 @@ class QFIELD_CORE_EXPORT PlatformUtilities : public QObject
     Q_PROPERTY( PlatformUtilities::Capabilities capabilities READ capabilities CONSTANT )
 
   public:
-
     enum Capability
     {
-      NoCapabilities = 0,    //!< No capabilities
-      NativeCamera = 1,      //!< Native camera handling support (returns true on Android where this is implemented through intents)
-      AdjustBrightness = 2,  //!< Capable of adjusting screen brightness
+      NoCapabilities = 0,   //!< No capabilities
+      NativeCamera = 1,     //!< Native camera handling support (returns true on Android where this is implemented through intents)
+      AdjustBrightness = 2, //!< Capable of adjusting screen brightness
     };
 
     Q_DECLARE_FLAGS( Capabilities, Capability )
@@ -148,6 +147,5 @@ class QFIELD_CORE_EXPORT PlatformUtilities : public QObject
     Q_INVOKABLE virtual void showRateThisApp() const {};
 
     static PlatformUtilities *instance();
-
 };
 #endif // PLATFORMUTILITIES_H

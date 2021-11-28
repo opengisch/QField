@@ -17,20 +17,20 @@
 
 #define QFIELDTEST_MAIN
 
+#include "catch2.h"
 #include "deltafilewrapper.h"
 #include "qfield.h"
+#include "qgsapplication.h"
+#include "qgssettings.h"
+#include "qgsvectorlayerjoininfo.h"
 #include "utils/fileutils.h"
 #include "utils/qfieldcloudutils.h"
-#include "qgsvectorlayerjoininfo.h"
-#include "qgssettings.h"
-#include "qgsapplication.h"
-#include "catch2.h"
 
-#include <qgsproject.h>
 #include <QFileInfo>
+#include <qgsproject.h>
 
 QT_BEGIN_NAMESPACE
-std::ostream &operator << ( std::ostream &os, const QJsonDocument &value )
+std::ostream &operator<<( std::ostream &os, const QJsonDocument &value )
 {
   os << value.toJson().constData();
   return os;
@@ -123,9 +123,9 @@ QJsonDocument normalizeSchema( const QString &json )
 QJsonArray getDeltasArray( const QString &json )
 {
   return normalizeSchema( json.toUtf8() )
-         .object()
-         .value( QStringLiteral( "deltas" ) )
-         .toArray();
+  .object()
+  .value( QStringLiteral( "deltas" ) )
+  .toArray();
 }
 
 
@@ -771,8 +771,7 @@ TEST_CASE( "Delta File Wrapper" )
 
     QMap<QString, QString> attachmentFileNames = dfw.attachmentFileNames();
     QMap<QString, QString> expectedAttachmentFileNames(
-    {
-      { "FILE1.jpg", "" },
+    { { "FILE1.jpg", "" },
       { "FILE3.jpg", "" } } );
 
     REQUIRE( attachmentFileNames == expectedAttachmentFileNames );
@@ -820,8 +819,8 @@ TEST_CASE( "Delta File Wrapper" )
           }
         ]
       )"""" )
-                                .arg( attachmentFileName, attachmentFileChecksum )
-                                .toUtf8() );
+                                                         .arg( attachmentFileName, attachmentFileChecksum )
+                                                         .toUtf8() );
     REQUIRE( QJsonDocument( getDeltasArray( dfw.toString() ) ) == expectedDoc );
 
 
@@ -960,8 +959,8 @@ TEST_CASE( "Delta File Wrapper" )
           }
         ]
       )"""" )
-                                .arg( attachmentFileName, attachmentFileChecksum )
-                                .toUtf8() ) ;
+                                                         .arg( attachmentFileName, attachmentFileChecksum )
+                                                         .toUtf8() );
     REQUIRE( QJsonDocument( getDeltasArray( dfw.toString() ) ) == expectedDoc );
 
 
@@ -1009,7 +1008,7 @@ TEST_CASE( "Delta File Wrapper" )
         ]
       )"""" )
                                            .arg( newFeature.attribute( "attachment" ).toString() )
-                                           .toUtf8() ) ;
+                                           .toUtf8() );
     REQUIRE( QJsonDocument( getDeltasArray( dfw.toString() ) ) == expectedDoc );
 
 
@@ -1117,8 +1116,8 @@ TEST_CASE( "Delta File Wrapper" )
             }
           ]
         )"""" )
-                                .arg( f.attribute( QStringLiteral( "attachment" ) ).toString() )
-                                .toUtf8() ) ;
+                                                         .arg( f.attribute( QStringLiteral( "attachment" ) ).toString() )
+                                                         .toUtf8() );
     REQUIRE( QJsonDocument( getDeltasArray( dfw.toString() ) ) == expectedDoc );
   }
 
@@ -1165,8 +1164,8 @@ TEST_CASE( "Delta File Wrapper" )
           }
         ]
       )"""" )
-                                .arg( attachmentFileName, attachmentFileChecksum )
-                                .toUtf8() );
+                                                         .arg( attachmentFileName, attachmentFileChecksum )
+                                                         .toUtf8() );
     REQUIRE( QJsonDocument( getDeltasArray( dfw.toString() ) ) == expectedDoc );
 
     // Check if creates delta of a feature with a NULL geometry and non existant attachment.
@@ -1203,8 +1202,8 @@ TEST_CASE( "Delta File Wrapper" )
           }
         ]
       )"""" )
-             .arg( f.attribute( QStringLiteral( "attachment" ) ).toString() )
-             .toUtf8() ) );
+                                                                                           .arg( f.attribute( QStringLiteral( "attachment" ) ).toString() )
+                                                                                           .toUtf8() ) );
 
 
     // Check if creates delta of a feature without attributes
@@ -1712,8 +1711,8 @@ TEST_CASE( "Delta File Wrapper" )
           }
         ]
       )"""" )
-             .arg( attachmentFileName, attachmentFileChecksum )
-             .toUtf8() ) );
+                                                                                           .arg( attachmentFileName, attachmentFileChecksum )
+                                                                                           .toUtf8() ) );
   }
 
 
@@ -1767,8 +1766,8 @@ TEST_CASE( "Delta File Wrapper" )
           }
         ]
       )"""" )
-             .arg( attachmentFileName, attachmentFileChecksum )
-             .toUtf8() ) );
+                                                                                           .arg( attachmentFileName, attachmentFileChecksum )
+                                                                                           .toUtf8() ) );
   }
 
 
@@ -1832,7 +1831,7 @@ TEST_CASE( "Delta File Wrapper" )
           }
         ]
       )"""" )
-             .toUtf8() ) );
+                                                                                           .toUtf8() ) );
   }
 
 
@@ -1890,7 +1889,7 @@ TEST_CASE( "Delta File Wrapper" )
           }
         ]
       )"""" )
-             .toUtf8() ) );
+                                                                                           .toUtf8() ) );
   }
 
   project->removeMapLayer( layer.get() );

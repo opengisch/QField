@@ -56,12 +56,7 @@ SnappingResult::SnappingResult( const QgsPointLocator::Match &match )
 
 bool SnappingResult::operator==( const SnappingResult &other ) const
 {
-  return mType == other.mType &&
-         mDist == other.mDist &&
-         mPoint == other.mPoint &&
-         mLayer == other.mLayer &&
-         mFid == other.mFid &&
-         mVertexIndex == other.mVertexIndex;
+  return mType == other.mType && mDist == other.mDist && mPoint == other.mPoint && mLayer == other.mLayer && mFid == other.mFid && mVertexIndex == other.mVertexIndex;
 }
 
 SnappingResult::Type SnappingResult::type() const

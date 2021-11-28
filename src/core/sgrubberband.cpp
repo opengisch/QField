@@ -15,12 +15,12 @@
 
 #include "sgrubberband.h"
 
-#include <qgstessellator.h>
-#include <qgsgeometry.h>
-#include <qgspolygon.h>
-#include <qgslinestring.h>
-#include <qgssurface.h>
 #include <qgscurvepolygon.h>
+#include <qgsgeometry.h>
+#include <qgslinestring.h>
+#include <qgspolygon.h>
+#include <qgssurface.h>
+#include <qgstessellator.h>
 
 SGRubberband::SGRubberband( const QVector<QgsPoint> &points, QgsWkbTypes::GeometryType type, const QColor &color, qreal width )
   : QSGNode()
@@ -93,17 +93,17 @@ QSGGeometryNode *SGRubberband::createPolygonGeometry( const QVector<QgsPoint> &p
   for ( auto it = triangleData.constBegin(); it != triangleData.constEnd(); )
   {
     vertices[currentVertex].x = ( *it++ );
-    ( void )it++; // z
+    ( void ) it++; // z
     vertices[currentVertex].y = -( *it++ );
     currentVertex++;
 
     vertices[currentVertex].x = ( *it++ );
-    ( void )it++; // z
+    ( void ) it++; // z
     vertices[currentVertex].y = -( *it++ );
     currentVertex++;
 
     vertices[currentVertex].x = ( *it++ );
-    ( void )it++; // z
+    ( void ) it++; // z
     vertices[currentVertex].y = -( *it++ );
     currentVertex++;
   }

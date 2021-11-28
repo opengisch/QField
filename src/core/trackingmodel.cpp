@@ -134,7 +134,7 @@ bool TrackingModel::featuresInTracking( QgsVectorLayer *layer, const QList<QgsFe
   {
     int listIndex = trackerIterator( layer ) - mTrackers.constBegin();
     QgsFeatureId fid = mTrackers[listIndex]->feature().id();
-    if ( std::any_of( features.begin(), features.end(), [fid]( const QgsFeature & f ) { return f.id() == fid; } ) )
+    if ( std::any_of( features.begin(), features.end(), [fid]( const QgsFeature &f ) { return f.id() == fid; } ) )
     {
       return true;
     }

@@ -18,7 +18,6 @@
 #define LAYERUTILS_H
 
 #include <QObject>
-
 #include <qgis.h>
 #include <qgsvectorlayer.h>
 

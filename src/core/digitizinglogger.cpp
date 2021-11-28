@@ -16,13 +16,12 @@
 #include "digitizinglogger.h"
 #include "expressioncontextutils.h"
 
+#include <QDateTime>
 #include <qgsexpressioncontextutils.h>
 #include <qgslayertree.h>
 #include <qgsmessagelog.h>
 #include <qgsvectorlayerutils.h>
 #include <qgswkbtypes.h>
-
-#include <QDateTime>
 
 DigitizingLogger::DigitizingLogger()
 {
@@ -122,9 +121,8 @@ void DigitizingLogger::findLogsLayer()
       QgsLayerTreeLayer *item = mProject->layerTreeRoot()->findLayer( logsLayerId );
       if ( item )
       {
-        QgsVectorLayer *layer = qobject_cast< QgsVectorLayer * >( item->layer() );
-        if ( layer && layer->geometryType() == QgsWkbTypes::PointGeometry &&
-             layer->dataProvider() && layer->dataProvider()->capabilities() & QgsVectorDataProvider::AddFeatures )
+        QgsVectorLayer *layer = qobject_cast<QgsVectorLayer *>( item->layer() );
+        if ( layer && layer->geometryType() == QgsWkbTypes::PointGeometry && layer->dataProvider() && layer->dataProvider()->capabilities() & QgsVectorDataProvider::AddFeatures )
         {
           mLogsLayer = layer;
         }

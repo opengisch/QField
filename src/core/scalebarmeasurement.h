@@ -17,11 +17,9 @@
 #ifndef SCALEBARMEASUREMENT_H
 #define SCALEBARMEASUREMENT_H
 
-#include <qgsquickmapsettings.h>
-
-#include <qgsdistancearea.h>
-
 #include <QObject>
+#include <qgsdistancearea.h>
+#include <qgsquickmapsettings.h>
 
 class QgsProject;
 
@@ -67,7 +65,6 @@ class ScaleBarMeasurement : public QObject
     void measure();
 
   private:
-
     QgsProject *mProject = nullptr;
     QgsQuickMapSettings *mMapSettings = nullptr;
 
@@ -78,7 +75,6 @@ class ScaleBarMeasurement : public QObject
     QString mLabel;
 
     double mReferenceScreenLength = 300.0;
-
 };
 
 #endif // SCALEBARMEASUREMENT_H

@@ -16,10 +16,9 @@
 #include "rubberbandmodel.h"
 #include "tracker.h"
 
+#include <QTimer>
 #include <qgsdistancearea.h>
 #include <qgsproject.h>
-
-#include <QTimer>
 
 Tracker::Tracker( QgsVectorLayer *layer, bool visible )
   : mLayer( layer ), mVisible( visible )

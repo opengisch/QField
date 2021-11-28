@@ -106,13 +106,13 @@ void tst_ModelTest::stringListModel()
   proxy.setSourceModel( &model );
 
   model.setStringList( QStringList() << "2"
-                       << "3"
-                       << "1" );
+                                     << "3"
+                                     << "1" );
   model.setStringList( QStringList() << "a"
-                       << "e"
-                       << "plop"
-                       << "b"
-                       << "c" );
+                                     << "e"
+                                     << "plop"
+                                     << "b"
+                                     << "c" );
 
   proxy.setDynamicSortFilter( true );
   proxy.setFilterRegExp( QRegExp( "[^b]" ) );

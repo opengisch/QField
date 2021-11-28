@@ -54,7 +54,7 @@ void ProjectInfo::setMapSettings( QgsQuickMapSettings *mapSettings )
   }
 
   mMapSettings = mapSettings;
-  connect( mMapSettings, &QgsQuickMapSettings::extentChanged, this, [ = ] { mSaveExtentTimer.start( 750 ); } );
+  connect( mMapSettings, &QgsQuickMapSettings::extentChanged, this, [=] { mSaveExtentTimer.start( 750 ); } );
 
   emit mapSettingsChanged();
 }

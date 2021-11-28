@@ -21,11 +21,10 @@
 #include "qgsquickmapsettings.h"
 #include "snappingresult.h"
 
+#include <QObject>
 #include <qgspoint.h>
 #include <qgsproject.h>
 #include <qgsvectorlayer.h>
-
-#include <QObject>
 
 class DigitizingLogger : public QObject
 {
@@ -144,7 +143,6 @@ class DigitizingLogger : public QObject
     void currentCoordinateChanged();
 
   private:
-
     //! Finds and link to the logs layer in present in the project
     void findLogsLayer();
 
@@ -161,7 +159,6 @@ class DigitizingLogger : public QObject
     CloudUserInformation mCloudUserInformation;
 
     QList<QgsFeature> mPointFeatures;
-
 };
 
 #endif // DIGITIZINGLOGGER_H

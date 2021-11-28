@@ -338,8 +338,7 @@ void FeatureListModel::processFeatureList()
 
   if ( mOrderByValue )
   {
-    std::sort( entries.begin(), entries.end(), []( const Entry & entry1, const Entry & entry2 )
-    {
+    std::sort( entries.begin(), entries.end(), []( const Entry &entry1, const Entry &entry2 ) {
       if ( entry1.key.isNull() )
         return true;
 
@@ -351,8 +350,7 @@ void FeatureListModel::processFeatureList()
   }
   else if ( !mSearchTerm.isEmpty() )
   {
-    std::sort( entries.begin(), entries.end(), []( const Entry & entry1, const Entry & entry2 )
-    {
+    std::sort( entries.begin(), entries.end(), []( const Entry &entry1, const Entry &entry2 ) {
       return entry1.fuzzyScore == entry2.fuzzyScore
              ? entry1.displayString.toLower() < entry2.displayString.toLower()
              : entry1.fuzzyScore > entry2.fuzzyScore;

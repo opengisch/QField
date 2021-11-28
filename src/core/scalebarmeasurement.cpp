@@ -100,7 +100,7 @@ void ScaleBarMeasurement::measure()
     const QgsRectangle extent = mMapSettings->mapSettings().extent();
     const double yPosition = 0.5 * ( extent.yMinimum() + extent.yMaximum() );
     const double extentLength = mDistanceArea.measureLine( QgsPointXY( extent.xMinimum(), yPosition ),
-                                QgsPointXY( extent.xMaximum(), yPosition ) );
+                                                           QgsPointXY( extent.xMaximum(), yPosition ) );
     const double factor = ( extentLength / extent.width() ) * mMapSettings->mapUnitsPerPoint();
 
     const double range = mReferenceScreenLength * factor;

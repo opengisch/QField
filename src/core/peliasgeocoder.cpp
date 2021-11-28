@@ -15,12 +15,6 @@
 
 #include "peliasgeocoder.h"
 
-#include <qgsblockingnetworkrequest.h>
-#include <qgscoordinatetransform.h>
-#include <qgsgeocodercontext.h>
-#include <qgslogger.h>
-#include <qgsnetworkaccessmanager.h>
-
 #include <QDateTime>
 #include <QJsonArray>
 #include <QJsonDocument>
@@ -28,6 +22,11 @@
 #include <QNetworkRequest>
 #include <QUrl>
 #include <QUrlQuery>
+#include <qgsblockingnetworkrequest.h>
+#include <qgscoordinatetransform.h>
+#include <qgsgeocodercontext.h>
+#include <qgslogger.h>
+#include <qgsnetworkaccessmanager.h>
 
 typedef QMap<QUrl, QList<QgsGeocoderResult>> CachedGeocodeResult;
 Q_GLOBAL_STATIC( CachedGeocodeResult, sCachedResults )

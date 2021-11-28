@@ -16,13 +16,12 @@
 
 #include "fileutils.h"
 
-#include <qgis.h>
-
 #include <QDebug>
 #include <QDir>
 #include <QDirIterator>
 #include <QFileInfo>
 #include <QMimeDatabase>
+#include <qgis.h>
 
 FileUtils::FileUtils( QObject *parent )
   : QObject( parent )

@@ -42,8 +42,7 @@ void ChangelogContents::request()
 
   QNetworkReply *reply = manager->get( QNetworkRequest( QUrl( QStringLiteral( "https://api.github.com/repos/opengisch/qfield/releases" ) ) ) );
 
-  connect( reply, &QNetworkReply::finished, this, [ = ]()
-  {
+  connect( reply, &QNetworkReply::finished, this, [=]() {
     QJsonParseError error;
     QJsonDocument json = QJsonDocument::fromJson( reply->readAll(), &error );
 

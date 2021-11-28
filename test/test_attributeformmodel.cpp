@@ -17,9 +17,8 @@
 
 #define QFIELDTEST_MAIN
 #include "attributeformmodel.h"
-#include "featuremodel.h"
-
 #include "catch2.h"
+#include "featuremodel.h"
 
 
 TEST_CASE( "Attribute form model" )
@@ -44,8 +43,8 @@ TEST_CASE( "Attribute form model" )
 
   layer->setDefaultValueDefinition( 2, QgsDefaultValue( QStringLiteral( " coalesce(\"str\",'') || '__'" ), true ) );
 
-  std::unique_ptr<AttributeFormModel> attributeFormModel = std::make_unique< AttributeFormModel >();
-  std::unique_ptr<FeatureModel> featureModel = std::make_unique< FeatureModel >();
+  std::unique_ptr<AttributeFormModel> attributeFormModel = std::make_unique<AttributeFormModel>();
+  std::unique_ptr<FeatureModel> featureModel = std::make_unique<FeatureModel>();
   attributeFormModel->setFeatureModel( featureModel.get() );
   featureModel->setCurrentLayer( layer.get() );
 
@@ -80,5 +79,4 @@ TEST_CASE( "Attribute form model" )
     QgsFeature feature = layer->getFeature( fid );
     REQUIRE( feature.attributes().at( 2 ) == QStringLiteral( "edit_feature__" ) );
   }
-
 }

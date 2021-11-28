@@ -198,25 +198,25 @@ class FeatureListModel : public QAbstractItemModel
   private:
     struct Entry
     {
-      Entry( const QString &displayString, const QVariant &key, const QgsFeatureId &fid )
-        : displayString( displayString )
-        , key( key )
-        , fid( fid )
-        , fuzzyScore( 0 )
-      {}
+        Entry( const QString &displayString, const QVariant &key, const QgsFeatureId &fid )
+          : displayString( displayString )
+          , key( key )
+          , fid( fid )
+          , fuzzyScore( 0 )
+        {}
 
-      Entry() = default;
+        Entry() = default;
 
-      void calcFuzzyScore( const QString &searchTerm )
-      {
-        fuzzyScore = StringUtils::fuzzyMatch( displayString, searchTerm ) ? 0.5 : 0;
-        fuzzyScore += QgsStringUtils::fuzzyScore( displayString, searchTerm ) * 0.5;
-      }
+        void calcFuzzyScore( const QString &searchTerm )
+        {
+          fuzzyScore = StringUtils::fuzzyMatch( displayString, searchTerm ) ? 0.5 : 0;
+          fuzzyScore += QgsStringUtils::fuzzyScore( displayString, searchTerm ) * 0.5;
+        }
 
-      QString displayString;
-      QVariant key;
-      QgsFeatureId fid;
-      double fuzzyScore;
+        QString displayString;
+        QVariant key;
+        QgsFeatureId fid;
+        double fuzzyScore;
     };
 
     /**

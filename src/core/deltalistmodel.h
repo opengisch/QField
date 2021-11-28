@@ -53,12 +53,12 @@ class DeltaListModel : public QAbstractListModel
 
     struct Delta
     {
-      QUuid id;
-      QUuid deltafileId;
-      QString createdAt;
-      QString updatedAt;
-      Status status;
-      QString output;
+        QUuid id;
+        QUuid deltafileId;
+        QString createdAt;
+        QString updatedAt;
+        Status status;
+        QString output;
     };
 
     DeltaListModel() = default;

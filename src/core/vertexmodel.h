@@ -107,11 +107,11 @@ class QFIELD_CORE_EXPORT VertexModel : public QAbstractListModel
 
     struct Vertex
     {
-      QgsPoint point;
-      QgsPoint originalPoint;
-      bool currentVertex;
-      PointType type;
-      int ring;
+        QgsPoint point;
+        QgsPoint originalPoint;
+        bool currentVertex;
+        PointType type;
+        int ring;
     };
 
     explicit VertexModel( QObject *parent = nullptr );

@@ -44,9 +44,9 @@ class FeatureExpressionValuesGatherer : public QThread
        * \param identifierFields an optional list of fields name to be save in a variant list for an easier reuse
        */
     explicit FeatureExpressionValuesGatherer( QgsVectorLayer *layer,
-        const QString &displayExpression = QString(),
-        const QgsFeatureRequest &request = QgsFeatureRequest(),
-        const QStringList &identifierFields = QStringList() )
+                                              const QString &displayExpression = QString(),
+                                              const QgsFeatureRequest &request = QgsFeatureRequest(),
+                                              const QStringList &identifierFields = QStringList() )
       : mSource( new QgsVectorLayerFeatureSource( layer ) )
       , mDisplayExpression( displayExpression.isEmpty() ? layer->displayExpression() : displayExpression )
       , mRequest( request )
@@ -56,27 +56,27 @@ class FeatureExpressionValuesGatherer : public QThread
 
     struct Entry
     {
-      Entry() = default;
+        Entry() = default;
 
-      Entry( const QVariantList &_identifierFields, const QString &_value, const QgsFeature &_feature )
-        : identifierFields( _identifierFields )
-        , featureId( _feature.isValid() ? _feature.id() : FID_NULL )
-        , value( _value )
-        , feature( _feature )
-      {}
+        Entry( const QVariantList &_identifierFields, const QString &_value, const QgsFeature &_feature )
+          : identifierFields( _identifierFields )
+          , featureId( _feature.isValid() ? _feature.id() : FID_NULL )
+          , value( _value )
+          , feature( _feature )
+        {}
 
-      Entry( const QgsFeatureId &_featureId, const QString &_value, const QgsVectorLayer *layer )
-        : featureId( _featureId )
-        , value( _value )
-        , feature( QgsFeature( layer ? layer->fields() : QgsFields() ) )
-      {}
+        Entry( const QgsFeatureId &_featureId, const QString &_value, const QgsVectorLayer *layer )
+          : featureId( _featureId )
+          , value( _value )
+          , feature( QgsFeature( layer ? layer->fields() : QgsFields() ) )
+        {}
 
-      QVariantList identifierFields;
-      QgsFeatureId featureId;
-      QString value;
-      QgsFeature feature;
+        QVariantList identifierFields;
+        QgsFeatureId featureId;
+        QString value;
+        QgsFeature feature;
 
-      bool operator()( const Entry &lhs, const Entry &rhs ) const;
+        bool operator()( const Entry &lhs, const Entry &rhs ) const;
     };
 
     static Entry nullEntry( QgsVectorLayer *layer )

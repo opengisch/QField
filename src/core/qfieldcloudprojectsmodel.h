@@ -275,87 +275,87 @@ class QFieldCloudProjectsModel : public QAbstractListModel
 
     struct FileTransfer
     {
-      FileTransfer(
+        FileTransfer(
         const QString &fileName,
         const long long bytesTotal,
         NetworkReply *networkReply = nullptr,
         const QStringList &layerIds = QStringList() )
-        : fileName( fileName ), bytesTotal( bytesTotal ), networkReply( networkReply ), layerIds( layerIds ) {};
+          : fileName( fileName ), bytesTotal( bytesTotal ), networkReply( networkReply ), layerIds( layerIds ) {};
 
-      FileTransfer() = default;
+        FileTransfer() = default;
 
-      QString fileName;
-      QString tmpFile;
-      long long bytesTotal;
-      long long bytesTransferred = 0;
-      bool isFinished = false;
-      NetworkReply *networkReply;
-      QNetworkReply::NetworkError error = QNetworkReply::NoError;
-      QStringList layerIds;
-      int redirectsCount = 0;
-      QUrl lastRedirectUrl;
+        QString fileName;
+        QString tmpFile;
+        long long bytesTotal;
+        long long bytesTransferred = 0;
+        bool isFinished = false;
+        NetworkReply *networkReply;
+        QNetworkReply::NetworkError error = QNetworkReply::NoError;
+        QStringList layerIds;
+        int redirectsCount = 0;
+        QUrl lastRedirectUrl;
     };
 
     struct CloudProject
     {
-      CloudProject( const QString &id, bool isPrivate, const QString &owner, const QString &name, const QString &description, const QString &userRole, const QString &updatedAt, const ProjectCheckouts &checkout, const ProjectStatus &status )
-        : id( id )
-        , isPrivate( isPrivate )
-        , owner( owner )
-        , name( name )
-        , description( description )
-        , userRole( userRole )
-        , updatedAt( updatedAt )
-        , status( status )
-        , checkout( checkout )
-      {}
+        CloudProject( const QString &id, bool isPrivate, const QString &owner, const QString &name, const QString &description, const QString &userRole, const QString &updatedAt, const ProjectCheckouts &checkout, const ProjectStatus &status )
+          : id( id )
+          , isPrivate( isPrivate )
+          , owner( owner )
+          , name( name )
+          , description( description )
+          , userRole( userRole )
+          , updatedAt( updatedAt )
+          , status( status )
+          , checkout( checkout )
+        {}
 
-      CloudProject() = default;
-      ~CloudProject() { delete deltaListModel; }
+        CloudProject() = default;
+        ~CloudProject() { delete deltaListModel; }
 
-      QString id;
-      bool isPrivate = true;
-      QString owner;
-      QString name;
-      QString description;
-      QString userRole;
-      QString updatedAt;
-      ProjectStatus status;
-      ProjectErrorStatus errorStatus = ProjectErrorStatus::NoErrorStatus;
-      ProjectCheckouts checkout;
+        QString id;
+        bool isPrivate = true;
+        QString owner;
+        QString name;
+        QString description;
+        QString userRole;
+        QString updatedAt;
+        ProjectStatus status;
+        ProjectErrorStatus errorStatus = ProjectErrorStatus::NoErrorStatus;
+        ProjectCheckouts checkout;
 
-      ProjectModifications modification = ProjectModification::NoModification;
-      QString localPath;
+        ProjectModifications modification = ProjectModification::NoModification;
+        QString localPath;
 
-      QString deltaFileId;
-      DeltaFileStatus deltaFileUploadStatus = DeltaLocalStatus;
-      QString deltaFileUploadStatusString;
-      QStringList deltaLayersToDownload;
+        QString deltaFileId;
+        DeltaFileStatus deltaFileUploadStatus = DeltaLocalStatus;
+        QString deltaFileUploadStatusString;
+        QStringList deltaLayersToDownload;
 
-      PackagingStatus packagingStatus = PackagingUnstartedStatus;
-      QString packagingStatusString;
-      QStringList packagedLayerErrors;
-      QMap<QString, FileTransfer> downloadFileTransfers;
-      NetworkReply *apiNetworkReply = nullptr;
-      int downloadFilesFinished = 0;
-      int downloadFilesFailed = 0;
-      int downloadBytesTotal = 0;
-      int downloadBytesReceived = 0;
-      double downloadProgress = 0.0; // range from 0.0 to 1.0
+        PackagingStatus packagingStatus = PackagingUnstartedStatus;
+        QString packagingStatusString;
+        QStringList packagedLayerErrors;
+        QMap<QString, FileTransfer> downloadFileTransfers;
+        NetworkReply *apiNetworkReply = nullptr;
+        int downloadFilesFinished = 0;
+        int downloadFilesFailed = 0;
+        int downloadBytesTotal = 0;
+        int downloadBytesReceived = 0;
+        double downloadProgress = 0.0; // range from 0.0 to 1.0
 
-      UploadAttachmentsStatus uploadAttachmentsStatus = UploadAttachmentsStatus::UploadAttachmentsDone;
-      QMap<QString, FileTransfer> uploadAttachments;
-      int uploadAttachmentsFailed = 0;
+        UploadAttachmentsStatus uploadAttachmentsStatus = UploadAttachmentsStatus::UploadAttachmentsDone;
+        QMap<QString, FileTransfer> uploadAttachments;
+        int uploadAttachmentsFailed = 0;
 
-      double uploadDeltaProgress = 0.0; // range from 0.0 to 1.0
-      int deltasCount = 0;
-      DeltaListModel *deltaListModel = nullptr;
+        double uploadDeltaProgress = 0.0; // range from 0.0 to 1.0
+        int deltasCount = 0;
+        DeltaListModel *deltaListModel = nullptr;
 
-      QString lastExportedAt;
-      QString lastExportId;
-      QString lastLocalExportedAt;
-      QString lastLocalExportId;
-      QString lastLocalPushDeltas;
+        QString lastExportedAt;
+        QString lastExportId;
+        QString lastLocalExportedAt;
+        QString lastLocalExportId;
+        QString lastLocalPushDeltas;
     };
 
     inline QString layerFileName( const QgsMapLayer *layer ) const;

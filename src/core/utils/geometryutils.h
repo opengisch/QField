@@ -18,13 +18,12 @@
 
 #include "qfield_core_export.h"
 
+#include <QObject>
+#include <QtPositioning/QGeoCoordinate>
 #include <qgis.h>
 #include <qgscoordinatereferencesystem.h>
 #include <qgsfeature.h>
 #include <qgsgeometry.h>
-
-#include <QtPositioning/QGeoCoordinate>
-#include <QObject>
 
 class QgsVectorLayer;
 class RubberbandModel;
@@ -33,24 +32,23 @@ class QFIELD_CORE_EXPORT GeometryUtils : public QObject
 {
     Q_OBJECT
   public:
-
     // Copy of the QGIS GeometryOperationResult enum, needed to keep compatibility with QGIS < 3.22
     enum class GeometryOperationResult : int
     {
-      Success = 0, //!< Operation succeeded
-      NothingHappened = 1000, //!< Nothing happened, without any error
-      InvalidBaseGeometry, //!< The base geometry on which the operation is done is invalid or empty
-      InvalidInputGeometryType, //!< The input geometry (ring, part, split line, etc.) has not the correct geometry type
-      SelectionIsEmpty, //!< No features were selected
+      Success = 0,               //!< Operation succeeded
+      NothingHappened = 1000,    //!< Nothing happened, without any error
+      InvalidBaseGeometry,       //!< The base geometry on which the operation is done is invalid or empty
+      InvalidInputGeometryType,  //!< The input geometry (ring, part, split line, etc.) has not the correct geometry type
+      SelectionIsEmpty,          //!< No features were selected
       SelectionIsGreaterThanOne, //!< More than one features were selected
-      GeometryEngineError, //!< Geometry engine misses a method implemented or an error occurred in the geometry engine
-      LayerNotEditable, //!< Cannot edit layer
+      GeometryEngineError,       //!< Geometry engine misses a method implemented or an error occurred in the geometry engine
+      LayerNotEditable,          //!< Cannot edit layer
       /* Add part issues */
       AddPartSelectedGeometryNotFound, //!< The selected geometry cannot be found
-      AddPartNotMultiGeometry, //!< The source geometry is not multi
+      AddPartNotMultiGeometry,         //!< The source geometry is not multi
       /* Add ring issues*/
-      AddRingNotClosed, //!< The input ring is not closed
-      AddRingNotValid, //!< The input ring is not valid
+      AddRingNotClosed,            //!< The input ring is not closed
+      AddRingNotValid,             //!< The input ring is not valid
       AddRingCrossesExistingRings, //!< The input ring crosses existing rings (it is not disjoint)
       AddRingNotInExistingFeature, //!< The input ring doesn't have any existing ring to fit into
       /* Split features */

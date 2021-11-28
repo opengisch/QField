@@ -17,20 +17,22 @@
 
 package ch.opengis.qfield;
 
-import android.content.Context;
 import android.content.ContentResolver;
 import android.content.ContentUris;
+import android.content.Context;
+import android.database.Cursor;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Environment;
 import android.provider.DocumentsContract;
 import android.provider.MediaStore;
-import android.database.Cursor;
 
 public class QFieldUtils {
-    // original script by SANJAY GUPTA (https://stackoverflow.com/questions/17546101/get-real-path-for-uri-android)
+    // original script by SANJAY GUPTA
+    // (https://stackoverflow.com/questions/17546101/get-real-path-for-uri-android)
     public static String getPathFromUri(final Context context, final Uri uri) {
-        final boolean isKitKat = Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT;
+        final boolean isKitKat =
+            Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT;
         String path = null;
 
         // DocumentProvider
@@ -42,7 +44,8 @@ public class QFieldUtils {
                 final String type = split[0];
 
                 if ("primary".equalsIgnoreCase(type)) {
-                    return Environment.getExternalStorageDirectory() + "/" + split[1];
+                    return Environment.getExternalStorageDirectory() + "/" +
+                        split[1];
                 }
                 // TODO handle non-primary volumes
             }
@@ -50,7 +53,8 @@ public class QFieldUtils {
             else if (isDownloadsDocument(uri)) {
                 final String id = DocumentsContract.getDocumentId(uri);
                 final Uri contentUri = ContentUris.withAppendedId(
-                    Uri.parse("content://downloads/public_downloads"), Long.valueOf(id));
+                    Uri.parse("content://downloads/public_downloads"),
+                    Long.valueOf(id));
 
                 path = getDataColumn(context, contentUri, null, null);
             }
@@ -70,11 +74,10 @@ public class QFieldUtils {
                 }
 
                 final String selection = "_id=?";
-                final String[] selectionArgs = new String[] {
-                    split[1]
-                };
+                final String[] selectionArgs = new String[] {split[1]};
 
-                path = getDataColumn(context, contentUri, selection, selectionArgs);
+                path = getDataColumn(context, contentUri, selection,
+                                     selectionArgs);
             }
         }
         // MediaStore (and general)
@@ -86,32 +89,32 @@ public class QFieldUtils {
             path = getDataColumn(context, uri, null, null);
         }
 
-        if (path == null && ("content".equalsIgnoreCase(uri.getScheme()) || "file".equalsIgnoreCase(uri.getScheme()))) {
+        if (path == null && ("content".equalsIgnoreCase(uri.getScheme()) ||
+                             "file".equalsIgnoreCase(uri.getScheme()))) {
             path = uri.getPath();
-            if ( path != null )
+            if (path != null)
                 path = path.replaceFirst("^/storage_root", "");
         }
 
         return path;
     }
 
-    public static String getDataColumn(Context context, Uri uri, String selection,
-        String[] selectionArgs) {
+    public static String getDataColumn(Context context, Uri uri,
+                                       String selection,
+                                       String[] selectionArgs) {
 
         Cursor cursor = null;
         final String column = "_data";
-        final String[] projection = {
-            column
-        };
+        final String[] projection = {column};
 
         try {
-            cursor = context.getContentResolver().query(uri, projection, selection, selectionArgs,
-                null);
+            cursor = context.getContentResolver().query(
+                uri, projection, selection, selectionArgs, null);
             if (cursor != null && cursor.moveToFirst()) {
                 final int index = cursor.getColumnIndexOrThrow(column);
                 return cursor.getString(index);
             }
-        } catch(Exception e) {
+        } catch (Exception e) {
             if (cursor != null)
                 cursor.close();
         } finally {
@@ -122,18 +125,22 @@ public class QFieldUtils {
     }
 
     public static boolean isExternalStorageDocument(Uri uri) {
-        return "com.android.externalstorage.documents".equals(uri.getAuthority());
+        return "com.android.externalstorage.documents".equals(
+            uri.getAuthority());
     }
 
     public static boolean isDownloadsDocument(Uri uri) {
-        return "com.android.providers.downloads.documents".equals(uri.getAuthority());
+        return "com.android.providers.downloads.documents".equals(
+            uri.getAuthority());
     }
 
     public static boolean isMediaDocument(Uri uri) {
-        return "com.android.providers.media.documents".equals(uri.getAuthority());
+        return "com.android.providers.media.documents".equals(
+            uri.getAuthority());
     }
 
     public static boolean isGooglePhotosUri(Uri uri) {
-        return "com.google.android.apps.photos.content".equals(uri.getAuthority());
+        return "com.google.android.apps.photos.content".equals(
+            uri.getAuthority());
     }
 }

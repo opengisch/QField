@@ -15,98 +15,109 @@
 
 #include <UIKit/UIKit.h>
 
-#include <qpa/qplatformnativeinterface.h>
 #include <QGuiApplication>
 #include <QQuickItem>
 #include <QQuickWindow>
+#include <qpa/qplatformnativeinterface.h>
 
 #include "iospicturesource.h"
 
-@interface CameraDelegate
-  : NSObject <UIImagePickerControllerDelegate, UINavigationControllerDelegate>
-{
+@interface CameraDelegate : NSObject <UIImagePickerControllerDelegate,
+                                      UINavigationControllerDelegate> {
   IosPictureSource *mIosCamera;
 }
 @end
 
 @implementation CameraDelegate
 
-- ( id ) initWithIosPictureSource:( IosPictureSource * )iosCamera
-{
+- (id)initWithIosPictureSource:(IosPictureSource *)iosCamera {
   self = [super init];
-  if ( self )
-  {
+  if (self) {
     mIosCamera = iosCamera;
   }
   return self;
 }
 
-- ( void )imagePickerController:( UIImagePickerController * )picker didFinishPickingMediaWithInfo:( NSDictionary * )info
-{
-  Q_UNUSED( picker );
+- (void)imagePickerController:(UIImagePickerController *)picker
+    didFinishPickingMediaWithInfo:(NSDictionary *)info {
+  Q_UNUSED(picker);
 
-  NSString *path = [[NSString alloc] initWithUTF8String:( mIosCamera->prefixPath() + mIosCamera->pictureFilePath() ).toUtf8().constData()];
+  NSString *path =
+      [[NSString alloc] initWithUTF8String:(mIosCamera->prefixPath() +
+                                            mIosCamera->pictureFilePath())
+                                               .toUtf8()
+                                               .constData()];
 
   // Save image:
   UIImage *image = [info objectForKey:UIImagePickerControllerOriginalImage];
-  [UIImagePNGRepresentation( image ) writeToFile:path options:NSAtomicWrite error:nil];
+  [UIImagePNGRepresentation(image) writeToFile:path
+                                       options:NSAtomicWrite
+                                         error:nil];
 
   // Update imagePath property to trigger QML code:
-  QString filePath = /*StringLiteral("file:") +*/ QString::fromNSString( path );
-  emit mIosCamera->pictureReceived( mIosCamera->pictureFilePath() );
+  QString filePath = /*StringLiteral("file:") +*/ QString::fromNSString(path);
+  emit mIosCamera->pictureReceived(mIosCamera->pictureFilePath());
 
   // Bring back Qt's view controller:
-  UIViewController *rvc = [[[UIApplication sharedApplication] keyWindow] rootViewController];
+  UIViewController *rvc =
+      [[[UIApplication sharedApplication] keyWindow] rootViewController];
   [rvc dismissViewControllerAnimated:YES completion:nil];
 }
 @end
 
-
-class IosPictureSource::CameraDelegateContainer
-{
-  public:
-    CameraDelegate *_cameraDelegate = nullptr;
+class IosPictureSource::CameraDelegateContainer {
+public:
+  CameraDelegate *_cameraDelegate = nullptr;
 };
 
-IosPictureSource::IosPictureSource( QObject *parent, const QString &prefix, const QString &pictureFilePath )
-  : PictureSource( parent, prefix, pictureFilePath )
-  , mDelegate( new CameraDelegateContainer() )
-{
-  mParent = qobject_cast<QQuickItem *>( parent );
-  Q_ASSERT( mParent );
+IosPictureSource::IosPictureSource(QObject *parent, const QString &prefix,
+                                   const QString &pictureFilePath)
+    : PictureSource(parent, prefix, pictureFilePath),
+      mDelegate(new CameraDelegateContainer()) {
+  mParent = qobject_cast<QQuickItem *>(parent);
+  Q_ASSERT(mParent);
   mPrefixPath = prefix;
   mPictureFilePath = pictureFilePath;
-  mDelegate->_cameraDelegate = [[CameraDelegate alloc] initWithIosPictureSource:this];
+  mDelegate->_cameraDelegate =
+      [[CameraDelegate alloc] initWithIosPictureSource:this];
 }
 
-void IosPictureSource::takePicture()
-{
+void IosPictureSource::takePicture() {
   // Get the UIView that backs our QQuickWindow:
-  UIView *view = ( __bridge UIView * )( QGuiApplication::platformNativeInterface()->nativeResourceForWindow( "uiview", mParent->window() ) );
+  UIView *view = (__bridge UIView *)(QGuiApplication::platformNativeInterface()
+                                         ->nativeResourceForWindow(
+                                             "uiview", mParent->window()));
   UIViewController *qtController = [[view window] rootViewController];
 
-  // Create a new image picker controller to show on top of Qt's view controller:
-  UIImagePickerController *imageController = [[UIImagePickerController alloc] init];
+  // Create a new image picker controller to show on top of Qt's view
+  // controller:
+  UIImagePickerController *imageController =
+      [[UIImagePickerController alloc] init];
   [imageController setSourceType:UIImagePickerControllerSourceTypeCamera];
-  [imageController setDelegate:id( mDelegate->_cameraDelegate )];
+  [imageController setDelegate:id(mDelegate->_cameraDelegate)];
 
   // Tell the imagecontroller to animate on top:
-  [qtController presentViewController:imageController animated:YES completion:nil];
+  [qtController presentViewController:imageController
+                             animated:YES
+                           completion:nil];
 }
 
-void IosPictureSource::pickGalleryPicture()
-{
+void IosPictureSource::pickGalleryPicture() {
   // Get the UIView that backs our QQuickWindow:
-  UIView *view = ( __bridge UIView * )( QGuiApplication::platformNativeInterface()->nativeResourceForWindow( "uiview", mParent->window() ) );
+  UIView *view = (__bridge UIView *)(QGuiApplication::platformNativeInterface()
+                                         ->nativeResourceForWindow(
+                                             "uiview", mParent->window()));
   UIViewController *qtController = [[view window] rootViewController];
 
-  // Create a new image picker controller to show on top of Qt's view controller:
-  UIImagePickerController *imageController = [[UIImagePickerController alloc] init];
+  // Create a new image picker controller to show on top of Qt's view
+  // controller:
+  UIImagePickerController *imageController =
+      [[UIImagePickerController alloc] init];
   [imageController setSourceType:UIImagePickerControllerSourceTypePhotoLibrary];
-  [imageController setDelegate:id( mDelegate->_cameraDelegate )];
+  [imageController setDelegate:id(mDelegate->_cameraDelegate)];
 
   // Tell the imagecontroller to animate on top:
-  [qtController presentViewController:imageController animated:YES completion:nil];
+  [qtController presentViewController:imageController
+                             animated:YES
+                           completion:nil];
 }
-
-

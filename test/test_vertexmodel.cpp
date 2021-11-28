@@ -16,11 +16,11 @@
  ***************************************************************************/
 
 #define CATCH_CONFIG_MAIN
+#include "catch2.h"
+#include "qgsgeometry.h"
 #include "qgsquickmapsettings.h"
 #include "vertexmodel.h"
-#include "qgsgeometry.h"
 
-#include "catch2.h"
 #include <qgsapplication.h>
 #include <qgsgeometry.h>
 #include <qgslinestring.h>
@@ -40,32 +40,32 @@ class VertexModelTest
 
 TEST_CASE( "VertexModel" )
 {
-  std::unique_ptr<VertexModel> model = std::make_unique<VertexModel> ();
+  std::unique_ptr<VertexModel> model = std::make_unique<VertexModel>();
 
   QgsLineString *lineString = new QgsLineString( QVector<QgsPoint>() << QgsPoint( 0, 0 ) << QgsPoint( 2, 2 ) << QgsPoint( 4, 4 ) );
   QgsGeometry lineGeometry( lineString );
 
   QgsGeometry polygonGeometry = QgsGeometry::fromPolygonXY( QVector<QVector<QgsPointXY>>()
-                                << ( QVector<QgsPointXY>()
-                                     << QgsPointXY( 0, 0 )
-                                     << QgsPointXY( 2, 0 )
-                                     << QgsPointXY( 2, 2 )
-                                     << QgsPointXY( 0, 2 )
-                                     << QgsPointXY( 0, 0 ) ) );
+                                                            << ( QVector<QgsPointXY>()
+                                                                 << QgsPointXY( 0, 0 )
+                                                                 << QgsPointXY( 2, 0 )
+                                                                 << QgsPointXY( 2, 2 )
+                                                                 << QgsPointXY( 0, 2 )
+                                                                 << QgsPointXY( 0, 0 ) ) );
 
   QgsGeometry ringPolygonGeometry = QgsGeometry::fromPolygonXY( QVector<QVector<QgsPointXY>>()
-                                    << ( QVector<QgsPointXY>()
-                                         << QgsPointXY( 0, 0 )
-                                         << QgsPointXY( 4, 0 )
-                                         << QgsPointXY( 4, 4 )
-                                         << QgsPointXY( 0, 4 )
-                                         << QgsPointXY( 0, 0 ) )
-                                    << ( QVector<QgsPointXY>()
-                                         << QgsPointXY( 1, 1 )
-                                         << QgsPointXY( 3, 1 )
-                                         << QgsPointXY( 3, 3 )
-                                         << QgsPointXY( 1, 3 )
-                                         << QgsPointXY( 1, 1 ) ) );
+                                                                << ( QVector<QgsPointXY>()
+                                                                     << QgsPointXY( 0, 0 )
+                                                                     << QgsPointXY( 4, 0 )
+                                                                     << QgsPointXY( 4, 4 )
+                                                                     << QgsPointXY( 0, 4 )
+                                                                     << QgsPointXY( 0, 0 ) )
+                                                                << ( QVector<QgsPointXY>()
+                                                                     << QgsPointXY( 1, 1 )
+                                                                     << QgsPointXY( 3, 1 )
+                                                                     << QgsPointXY( 3, 3 )
+                                                                     << QgsPointXY( 1, 3 )
+                                                                     << QgsPointXY( 1, 1 ) ) );
 
 
   QgsGeometry point2056Geometry = QgsGeometry::fromPointXY( QgsPointXY( 2500000, 1200000 ) );

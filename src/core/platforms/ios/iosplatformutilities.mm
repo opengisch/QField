@@ -19,10 +19,10 @@
 #include "iosplatformutilities.h"
 #include "iospicturesource.h"
 
-#import <UIKit/UIKit.h>
-#import <CoreLocation/CoreLocation.h>
 #import <AVFoundation/AVFoundation.h>
+#import <CoreLocation/CoreLocation.h>
 #include <MobileCoreServices/MobileCoreServices.h>
+#import <UIKit/UIKit.h>
 
 #include <QDebug>
 #include <QGuiApplication>
@@ -31,42 +31,35 @@
 #include <QtGui>
 #include <QtQuick>
 
+IosPlatformUtilities::IosPlatformUtilities() : PlatformUtilities() {}
 
-
-IosPlatformUtilities::IosPlatformUtilities()
-  : PlatformUtilities()
-{
-}
-
-QString IosPlatformUtilities::systemGenericDataLocation() const
-{
+QString IosPlatformUtilities::systemGenericDataLocation() const {
   NSBundle *main = [NSBundle mainBundle];
   NSString *bundlePath = [main bundlePath];
   QString path = [bundlePath UTF8String];
   return path + "/share";
 }
 
-bool IosPlatformUtilities::checkPositioningPermissions() const
-{
-  return true;
-}
+bool IosPlatformUtilities::checkPositioningPermissions() const { return true; }
 
-bool IosPlatformUtilities::checkCameraPermissions() const
-{
+bool IosPlatformUtilities::checkCameraPermissions() const {
   // see https://stackoverflow.com/a/20464727/1548052
   return true;
 }
 
-PictureSource *IosPlatformUtilities::getCameraPicture( QQuickItem *parent, const QString &prefix, const QString &pictureFilePath, const QString &suffix )
-{
-  IosPictureSource *pictureSource = new IosPictureSource( parent, prefix, pictureFilePath );
+PictureSource *IosPlatformUtilities::getCameraPicture(
+    QQuickItem *parent, const QString &prefix, const QString &pictureFilePath,
+    const QString &suffix) {
+  IosPictureSource *pictureSource =
+      new IosPictureSource(parent, prefix, pictureFilePath);
   pictureSource->takePicture();
   return pictureSource;
 }
 
-PictureSource *IosPlatformUtilities::getGalleryPicture( QQuickItem *parent, const QString &prefix, const QString &pictureFilePath )
-{
-  IosPictureSource *pictureSource = new IosPictureSource( parent, prefix, pictureFilePath );
+PictureSource *IosPlatformUtilities::getGalleryPicture(
+    QQuickItem *parent, const QString &prefix, const QString &pictureFilePath) {
+  IosPictureSource *pictureSource =
+      new IosPictureSource(parent, prefix, pictureFilePath);
   pictureSource->pickGalleryPicture();
   return pictureSource;
 }
