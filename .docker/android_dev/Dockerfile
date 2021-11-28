@@ -16,5 +16,6 @@ RUN apt-get update && \
     flex \
     bison \
     ninja-build \
+    jq \
     && \
   rm -rf /var/lib/apt/lists/*

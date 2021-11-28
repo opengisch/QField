@@ -12,7 +12,6 @@ docker build ${SRC_DIR}/.docker/android_dev -t qfield_and_dev
 docker run --rm \
   -v "$SRC_DIR":/usr/src/qfield:Z \
   $(if [ -n "$CACHE_DIR" ]; then echo "-v $CACHE_DIR:/io/data"; fi) \
-  -e "BUILD_FOLDER=build-${triplet}" \
   -e triplet=${triplet} \
   -e STOREPASS \
   -e KEYNAME \

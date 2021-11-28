@@ -3,6 +3,9 @@
 echo "building for ${triplet}"
 
 cd /usr/src/qfield || exit
+
+CMAKE_BUILD_DIR=/usr/src/qfield/build-${triplet}
+
 ./vcpkg/base/bootstrap-vcpkg.sh
 pip3 install aqtinstall
 /home/devel/.local/bin/aqt install-qt linux android 5.14.2 -m qtcharts
@@ -38,6 +41,7 @@ case ${triplet} in
     ;;
 esac
 
+# Configure and install deps
 cmake -S "${SOURCE_DIR}" \
       -B "${CMAKE_BUILD_DIR}" \
       -G Ninja \
@@ -57,4 +61,11 @@ cmake -S "${SOURCE_DIR}" \
       -DANDROID_PLATFORM=${ANDROID_PLATFORM} \
       -DANDROID_TARGET_PLATFORM=${ANDROID_TARGET_PLATFORM}
 
-ninja
+# Build app
+cmake --build "${CMAKE_BUILD_DIR}"
+
+# Package app
+mv ${CMAKE_BUILD_DIR}/android_deployment_settings.json ${CMAKE_BUILD_DIR}/android_deployment_settings.tmp
+cat <<< "$(jq ". += { \"sdkBuildToolsRevision\" : \"29.0.2\" }" < ${CMAKE_BUILD_DIR}/android_deployment_settings.tmp)" > ${CMAKE_BUILD_DIR}/android_deployment_settings.json
+cmake --build  "${CMAKE_BUILD_DIR}" --target bundle --config Release
+${ANDROID_SDK_ROOT}/build-tools/29.0.2/apksigner sign --v2-signing-enabled true --ks ./keystore.p12 --ks-pass pass:"${STOREPASS}" --ks-key-alias "qfield" --key-pass pass:"${KEYPASS}" ${CMAKE_BUILD_DIR}/android-build/build/outputs/apk/release/android-build-release-signed.apk
