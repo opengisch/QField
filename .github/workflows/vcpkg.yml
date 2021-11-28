@@ -216,7 +216,7 @@ jobs:
           cmake -S "${SOURCE_DIR}" \
                 -B "${CMAKE_BUILD_DIR}" \
                 -DCMAKE_BUILD_TYPE=${{ steps.vars.outputs.BUILD_TYPE }} \
-                -DSYSTEM_QT=${{ env.SYSTEM_QT }}
+                -DSYSTEM_QT=${{ env.SYSTEM_QT }} \
                 -DVCPKG_TARGET_TRIPLET="${{ matrix.triplet }}" \
                 -DWITH_VCPKG=ON \
                 -DNUGET_OWNER=opengisch \
