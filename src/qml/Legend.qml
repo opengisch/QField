@@ -11,9 +11,11 @@ import "."
 
 
 ListView {
+  id: legend
+
+  property bool isVisible: false
   property VectorLayer currentLayer
 
-  id: table
   model: flatLayerTree
   flickableDirection: Flickable.VerticalFlick
   boundsBehavior: Flickable.StopAtBounds
@@ -83,6 +85,10 @@ ListView {
               anchors.margins: 4
               cache: false
               source: {
+                console.log(legend.isVisible);
+                if ( !legend.isVisible )
+                  return '';
+
                 if ( LegendImage != '' ) {
                   return "image://legend/" + LegendImage
                 } else if ( LayerType == "vectorlayer" ) {
@@ -211,7 +217,7 @@ ListView {
       property Item pressedItem
       anchors.fill: parent
       onClicked: {
-          var item = table.itemAt(table.contentX + mouse.x, table.contentY + mouse.y)
+          var item = legend.itemAt(legend.contentX + mouse.x, legend.contentY + mouse.y)
           if (item) {
               if (item.vectorLayer && item.vectorLayer.isValid) {
                 currentLayer = item.vectorLayer
@@ -219,22 +225,22 @@ ListView {
           }
       }
       onPressed: {
-          var item = table.itemAt(table.contentX + mouse.x, table.contentY + mouse.y)
+          var item = legend.itemAt(legend.contentX + mouse.x, legend.contentY + mouse.y)
           if (item && item.itemType) {
               pressedItem = item;
               pressedItem.state = "pressed"
           }
       }
       onDoubleClicked: {
-          var item = table.itemAt(table.contentX + mouse.x, table.contentY + mouse.y)
+          var item = legend.itemAt(legend.contentX + mouse.x, legend.contentY + mouse.y)
           if (item) {
-            itemProperties.index = table.model.index(item.itemRow, 0)
+            itemProperties.index = legend.model.index(item.itemRow, 0)
             itemProperties.open()
           }
       }
       onPressAndHold: {
           if (pressedItem) {
-            itemProperties.index = table.model.index(pressedItem.itemRow, 0)
+            itemProperties.index = legend.model.index(pressedItem.itemRow, 0)
             itemProperties.open()
           }
       }
@@ -254,7 +260,7 @@ ListView {
 
   LayerTreeItemProperties {
       id: itemProperties
-      layerTree: table.model
+      layerTree: legend.model
 
       modal: true
       closePolicy: Popup.CloseOnEscape | Popup.CloseOnPressOutside

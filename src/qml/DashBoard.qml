@@ -7,6 +7,7 @@ import org.qfield 1.0
 import Theme 1.0
 
 Drawer {
+  id: dashBoard
   objectName: "dashBoard"
 
   signal showMenu
@@ -292,6 +293,7 @@ Drawer {
 
     Legend {
       id: legend
+      isVisible: position > 0
       Layout.fillWidth: true
       Layout.fillHeight: true
     }
