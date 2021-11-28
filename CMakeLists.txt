@@ -18,8 +18,9 @@ set(CMAKE_MODULE_PATH ${CMAKE_SOURCE_DIR}/cmake ${CMAKE_MODULE_PATH})
 
 include(GetGitRevisionDescription)
 
-set(VCPKG_APPLOCAL_DEPS ON)
-set(X_VCPKG_APPLOCAL_DEPS_INSTALL ON)
+set(USE_MAC_BUNDLING ON) # Will be overwritten by the VcpkgToolchain for vcpkg builds
+include(VcpkgToolchain)
+
 
 project(${APP_NAME}
   VERSION ${CLEAN_APP_VERSION}
@@ -39,15 +40,13 @@ set(QFIELD_BIN_SUBDIR     ${DEFAULT_BIN_SUBDIR}     CACHE STRING "Subdirectory w
 set(QFIELD_LIB_SUBDIR     ${DEFAULT_LIB_SUBDIR}     CACHE STRING "Subdirectory where libraries will be installed")
 set(QFIELD_INCLUDE_SUBDIR ${DEFAULT_INCLUDE_SUBDIR} CACHE STRING "Subdirectory where header files will be installed")
 
-set(WITH_VCPKG OFF CACHE BOOL "Build with vcpkg packaging layout")
-set(USE_MAC_BUNDLING NOT ${WITH_VCPKG} CACHE BOOL "Use mac bundling")
 
 set(RELATIVE_PREFIX_PATH ${WITH_VCPKG} CACHE BOOL "Use a prefix path relative to the application itself rather than hard coding the path while compiling")
 if(RELATIVE_PREFIX_PATH)
   add_definitions(-DRELATIVE_PREFIX_PATH)
 endif()
 
-mark_as_advanced (QFIELD_INCLUDE_SUBDIR QFIELD_BIN_SUBDIR QFIELD_LIB_SUBDIR WITH_VCPKG USE_MAC_BUNDLING)
+mark_as_advanced (QFIELD_INCLUDE_SUBDIR QFIELD_BIN_SUBDIR QFIELD_LIB_SUBDIR)
 set(QFIELD_BIN_DIR ${QFIELD_BIN_SUBDIR})
 set(QFIELD_LIB_DIR ${QFIELD_LIB_SUBDIR})
 set(QFIELD_INCLUDE_DIR ${QFIELD_INCLUDE_SUBDIR})

@@ -1,5 +1,5 @@
 ---
-name: 🎁 Package for desktop
+name: 🎁 Desktop
 on:
   push:
     branches:
@@ -50,15 +50,12 @@ jobs:
           case ${{ matrix.triplet }} in
             x64-windows*)
               BUILD_ROOT="C:"
-              echo "::set-output name=MONO::"
               echo "::set-output name=PATHCONVERT::cygpath -u"
               echo "::set-output name=EXCLUDE_TESTS::(smoke_test)"
               ;;
 
             x64-linux)
               BUILD_ROOT="/home/runner"
-              echo "::set-output name=MONO::mono"
-              echo "::set-output name=OVERLAY::vcpkg/overlay_system_qt"
               echo "::set-output name=PATHCONVERT::echo"
               echo "::set-output name=INSTALL_QT::true"
               echo "::set-output name=QT_TARGET::desktop"
@@ -67,8 +64,6 @@ jobs:
 
             x64-osx)
               BUILD_ROOT="/Users/runner"
-              echo "::set-output name=MONO::mono"
-              echo "::set-output name=OVERLAY::vcpkg/overlay_system_qt"
               echo "::set-output name=PATHCONVERT::echo"
               echo "::set-output name=INSTALL_QT::true"
               echo "::set-output name=QT_TARGET::desktop"
@@ -80,18 +75,20 @@ jobs:
           echo "::set-output name=BUILD_TYPE::Release"
           echo "::set-output name=BUILD_ROOT::${BUILD_ROOT}"
 
-          echo "VCPKG_ROOT=${BUILD_ROOT}/src" >> $GITHUB_ENV
           echo "CMAKE_BUILD_DIR=${BUILD_ROOT}/builddir" >> $GITHUB_ENV
-          echo "VCPKG_DEFAULT_BINARY_CACHE=${BUILD_ROOT}/vcpkg_cache" >> $GITHUB_ENV
+          mkdir -p "${BUILD_ROOT}/vcpkg_cache"
 
       - name: 🐩 Install CMake and Ninja
         uses: lukka/get-cmake@latest
+
+      - name: 🧽 Developer Command Prompt for Microsoft Visual C++
+        uses: ilammy/msvc-dev-cmd@v1
+        if: ${{ matrix.os == 'windows-2019' }}
 
       - name: 📪 Clone vcpkg
         shell: bash
         run: |
           VCPKG_SHA=$(head -1 .git/modules/vcpkg/HEAD)
-          mkdir -p "${{ env.VCPKG_DEFAULT_BINARY_CACHE }}"
           mkdir -p "${{ steps.vars.outputs.VCPKG_ROOT }}"
           cd "${{ steps.vars.outputs.VCPKG_ROOT }}"
           git init
@@ -104,39 +101,9 @@ jobs:
         uses: pat-s/always-upload-cache@v2.1.5
         with:
           path: |
-            ${{ steps.vars.outputs.VCPKG_ROOT }}/vcpkg
-            ${{ steps.vars.outputs.VCPKG_ROOT }}/vcpkg.exe
-          key: ${{ runner.os }}-${{ hashFiles('.git/modules/vcpkg/HEAD') }}-x
-
-      - name: 📬 Bootstrap vcpkg
-        if: steps.cache-vcpkg-tool.outputs.cache-hit != 'true'
-        shell: bash
-        working-directory: ${{ steps.vars.outputs.VCPKG_ROOT }}
-        run: |
-          if grep -qEi "(Microsoft|WSL)" /proc/version &> /dev/null ; then
-            ./bootstrap-vcpkg.bat
-          else
-            ./bootstrap-vcpkg.sh
-          fi
-
-      - name: 🔐 Setup NuGet Credentials
-        shell: bash
-        run: |
-          ${{ steps.vars.outputs.VCPKG_ROOT }}/vcpkg fetch nuget
-          ${{ steps.vars.outputs.MONO }} $(${{ steps.vars.outputs.VCPKG_ROOT }}/vcpkg fetch nuget | tail -n 1) \
-          sources add \
-          -source "https://nuget.pkg.github.com/opengisch/index.json" \
-          -storepasswordincleartext \
-          -name "GitHub" \
-          -username "opengisch" \
-          -password "${{ secrets.GITHUB_TOKEN }}"
-
-          ${{ steps.vars.outputs.MONO }} $(${{ steps.vars.outputs.VCPKG_ROOT }}/vcpkg fetch nuget | tail -n 1) \
-          setapikey ${{ secrets.GITHUB_TOKEN }} -src "https://nuget.pkg.github.com/opengisch/index.json"
-
-      - name: 🧽 Developer Command Prompt for Microsoft Visual C++
-        uses: ilammy/msvc-dev-cmd@v1
-        if: ${{ matrix.os == 'windows-2019' }}
+            ${{ steps.vars.outputs.VCPKG_ROOT }}/vcpkg/base/vcpkg
+            ${{ steps.vars.outputs.VCPKG_ROOT }}/vcpkg/base/vcpkg.exe
+          key: ${{ runner.os }}-${{ hashFiles('.git/modules/vcpkg/HEAD') }}
 
       - name: 🔥 Free additional space
         if: ${{ matrix.triplet == 'x64-linux' }}
@@ -204,7 +171,7 @@ jobs:
           if [[ -z "${TX_TOKEN}" ]]; then
             echo "TX_TOKEN not set, skip tx pull"
           else
-            pip install transifex-client>=0.14.3
+            pip install transifex-client
             ./scripts/ci/pull_translations.sh
           fi
 
@@ -214,30 +181,27 @@ jobs:
           brew install automake bison flex
           echo $(brew --prefix bison)/bin >> $GITHUB_PATH
           echo $(brew --prefix flex)/bin >> $GITHUB_PATH
-          echo "EXTRA_CMAKE_ARGS=-GXcode -DUSE_MAC_BUNDLING=OFF -Tbuildsystem=1" >> $GITHUB_ENV
+          echo "EXTRA_CMAKE_ARGS=-GXcode" >> $GITHUB_ENV
           sudo xcode-select -s /Applications/Xcode_12.app/Contents/Developer
 
       - name: 🌱 Install dependencies and generate project files
         shell: bash
         env:
           WORKSPACE: ${{ github.workspace }}
-          VCPKG_BINARY_SOURCES: 'clear;nuget,GitHub,readwrite'
+          VCPKG_ROOT: ${{ steps.vars.outputs.VCPKG_ROOT }}
         run: |
           # Convert paths to bash compatible ones. Thanks to whoever decided to use drive letters and backslashes.
-          CMAKE_BUILD_DIR=$( ${{ steps.vars.outputs.PATHCONVERT }} "${CMAKE_BUILD_DIR}" )
           VCPKG_ROOT=$( ${{ steps.vars.outputs.PATHCONVERT }} "${VCPKG_ROOT}" )
+          CMAKE_BUILD_DIR=$( ${{ steps.vars.outputs.PATHCONVERT }} "${CMAKE_BUILD_DIR}" )
           SOURCE_DIR=$( ${{ steps.vars.outputs.PATHCONVERT }} "${WORKSPACE}" )
 
           source ./scripts/version_number.sh
           source ./scripts/ci/generate-version-details.sh
 
-          overlay_ports=(${WORKSPACE}/${{ steps.vars.outputs.OVERLAY }} ${WORKSPACE}/vcpkg/overlay)
-          echo "Building with $(IFS=\; ; echo "${overlay_ports[*]}")"
           cmake -S "${SOURCE_DIR}" \
                 -B "${CMAKE_BUILD_DIR}" \
                 -DCMAKE_BUILD_TYPE=${{ steps.vars.outputs.BUILD_TYPE }} \
-                -DCMAKE_TOOLCHAIN_FILE="${VCPKG_ROOT}/scripts/buildsystems/vcpkg.cmake" \
-                -DVCPKG_OVERLAY_PORTS=$(IFS=\; ; echo "${overlay_ports[*]}") \
+                -DSYSTEM_QT=${{ steps.vars.outputs.INSTALL_QT }} \
                 -DVCPKG_TARGET_TRIPLET="${{ matrix.triplet }}" \
                 -DWITH_VCPKG=ON \
                 -DWITH_SPIX=ON \
@@ -245,14 +209,29 @@ jobs:
                 -DAPP_VERSION_STR="${APP_VERSION_STR}" \
                 -DAPP_PACKAGE_NAME="${APP_PACKAGE_NAME}" \
                 -DENABLE_TESTS=ON \
+                -DVCPKG_ROOT="${VCPKG_ROOT}" \
+                -DNUGET_USERNAME=opengisch \
+                -DNUGET_TOKEN=${{ secrets.GITHUB_TOKEN }} \
                 ${EXTRA_CMAKE_ARGS}
+
 
       - name: 📑 Upload Dep Build Logs
         uses: actions/upload-artifact@v2
         if: failure()
         with:
           name: build-logs-${{ matrix.triplet }}
-          path: ${{ steps.vars.outputs.VCPKG_ROOT }}/buildtrees/**/*.log
+          path: |
+            ${{ env.CMAKE_BUILD_DIR }}/vcpkg-manifest-install.log
+
+      - name: 📑 Upload Dep Build Logs
+        uses: actions/upload-artifact@v2
+        if: failure()
+        with:
+          name: build-logs-${{ matrix.triplet }}
+          path: |
+            ${{ env.CMAKE_BUILD_DIR }}/vcpkg-manifest-install.log
+
+            ${{ github.workspace }}/vcpkg/base/buildtrees/**/*.log
 
       - name: 🌋 Build
         run: |

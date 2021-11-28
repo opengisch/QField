@@ -43,15 +43,15 @@ file(APPEND ${TRANSLATIONS_QRC} "\n    </qresource>\n</RCC>")
 configure_file(${CMAKE_SOURCE_DIR}/images/logo.qrc.in
                ${CMAKE_BINARY_DIR}/images/logo.qrc @ONLY)
 
+add_library(
+  qfield_resources OBJECT
+  ${RESOURCES} ${CMAKE_SOURCE_DIR}/images/images.qrc
+  ${CMAKE_BINARY_DIR}/images/logo.qrc
+  ${CMAKE_SOURCE_DIR}/resources/resources.qrc ${ICON_SRC} ${TRANSLATIONS_QRC})
+target_link_libraries(qfield_resources PUBLIC Qt5::Quick)
+
 function(create_executable TARGET)
-  set(QFIELD_SOURCES
-      main.cpp
-      ${RESOURCES}
-      ${CMAKE_SOURCE_DIR}/images/images.qrc
-      ${CMAKE_BINARY_DIR}/images/logo.qrc
-      ${CMAKE_SOURCE_DIR}/resources/resources.qrc
-      ${ICON_SRC}
-      ${TRANSLATIONS_QRC})
+  set(QFIELD_SOURCES main.cpp)
   if(ANDROID)
     add_library(${TARGET} SHARED ${QFIELD_SOURCES})
 
@@ -76,9 +76,8 @@ function(create_executable TARGET)
     target_compile_options(${TARGET} PRIVATE $<$<CXX_COMPILER_ID:Clang>:-g>)
   endif()
 
-  target_link_libraries(${TARGET} PRIVATE qfield_core ${QGIS_CORE_LIBRARY})
-
-  target_link_libraries(${TARGET} PRIVATE qfield_core)
+  target_link_libraries(${TARGET} PRIVATE qfield_core ${QGIS_CORE_LIBRARY}
+                                          qfield_resources)
   set_target_properties(${TARGET} PROPERTIES AUTORCC TRUE)
 endfunction()
 

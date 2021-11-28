@@ -59,68 +59,26 @@ jobs:
 
 
           BUILD_ROOT="/home/runner"
-          echo "::set-output name=MONO::mono"
-          echo "::set-output name=OVERLAY::vcpkg/overlay_system_qt"
+          echo "::set-output name=SYSTEM_QT::ON"
           echo "::set-output name=PATHCONVERT::echo"
           echo "::set-output name=INSTALL_QT::true"
           echo "::set-output name=QT_TARGET::android"
-          echo "::set-output name=VCPKG_ROOT::${BUILD_ROOT}/src"
           echo "::set-output name=BUILD_TYPE::Release"
           echo "::set-output name=BUILD_ROOT::${BUILD_ROOT}"
 
-          echo "VCPKG_ROOT=${BUILD_ROOT}/src" >> $GITHUB_ENV
           echo "CMAKE_BUILD_DIR=${BUILD_ROOT}/builddir" >> $GITHUB_ENV
-          echo "VCPKG_DEFAULT_BINARY_CACHE=${BUILD_ROOT}/vcpkg_cache" >> $GITHUB_ENV
 
       - name: 🐩 Install CMake and Ninja
         uses: lukka/get-cmake@latest
-
-      - name: 📪 Clone vcpkg
-        shell: bash
-        run: |
-          VCPKG_SHA=$(head -1 .git/modules/vcpkg/HEAD)
-          mkdir -p "${{ env.VCPKG_DEFAULT_BINARY_CACHE }}"
-          mkdir -p "${{ steps.vars.outputs.VCPKG_ROOT }}"
-          cd "${{ steps.vars.outputs.VCPKG_ROOT }}"
-          git init
-          git remote add origin https://github.com/microsoft/vcpkg.git
-          git fetch --depth 1 origin $VCPKG_SHA
-          git checkout FETCH_HEAD
 
       - name: 📫 Cache vcpkg
         id: cache-vcpkg-tool
         uses: pat-s/always-upload-cache@v2.1.5
         with:
           path: |
-            ${{ steps.vars.outputs.VCPKG_ROOT }}/vcpkg
-            ${{ steps.vars.outputs.VCPKG_ROOT }}/vcpkg.exe
-          key: ${{ runner.os }}-${{ hashFiles('.git/modules/vcpkg/HEAD') }}-x
-
-      - name: 📬 Bootstrap vcpkg
-        if: steps.cache-vcpkg-tool.outputs.cache-hit != 'true'
-        shell: bash
-        working-directory: ${{ steps.vars.outputs.VCPKG_ROOT }}
-        run: |
-          if grep -qEi "(Microsoft|WSL)" /proc/version &> /dev/null ; then
-            ./bootstrap-vcpkg.bat
-          else
-            ./bootstrap-vcpkg.sh
-          fi
-
-      - name: 🔐 Setup NuGet Credentials
-        shell: bash
-        run: |
-          ${{ steps.vars.outputs.VCPKG_ROOT }}/vcpkg fetch nuget
-          ${{ steps.vars.outputs.MONO }} $(${{ steps.vars.outputs.VCPKG_ROOT }}/vcpkg fetch nuget | tail -n 1) \
-          sources add \
-          -source "https://nuget.pkg.github.com/opengisch/index.json" \
-          -storepasswordincleartext \
-          -name "GitHub" \
-          -username "opengisch" \
-          -password "${{ secrets.GITHUB_TOKEN }}"
-
-          ${{ steps.vars.outputs.MONO }} $(${{ steps.vars.outputs.VCPKG_ROOT }}/vcpkg fetch nuget | tail -n 1) \
-          setapikey ${{ secrets.GITHUB_TOKEN }} -src "https://nuget.pkg.github.com/opengisch/index.json"
+            ${{ github.workspace }}/vcpkg/base/vcpkg
+            ${{ github.workspace }}/vcpkg/base/vcpkg.exe
+          key: ${{ runner.os }}-${{ hashFiles('.git/modules/vcpkg/HEAD') }}
 
       - name: 🔥 Free additional space
         run: |
@@ -160,9 +118,6 @@ jobs:
             echo "TX_TOKEN not set, skip tx pull"
           else
             pip install transifex-client
-            pushd "${{ steps.vars.outputs.VCPKG_ROOT }}"
-            ./vcpkg integrate install
-            popd
             ./scripts/ci/pull_translations.sh
           fi
 
@@ -170,26 +125,21 @@ jobs:
         shell: bash
         env:
           WORKSPACE: ${{ github.workspace }}
-          VCPKG_BINARY_SOURCES: 'clear;nuget,GitHub,readwrite'
           Qt5Core_ROOT: ${{ env.Qt5_DIR }}
           ARCH: ${{ matrix.triplet }}
         run: |
           # Convert paths to bash compatible ones. Thanks to whoever decided to use drive letters and backslashes.
           CMAKE_BUILD_DIR=$( ${{ steps.vars.outputs.PATHCONVERT }} "${CMAKE_BUILD_DIR}" )
-          VCPKG_ROOT=$( ${{ steps.vars.outputs.PATHCONVERT }} "${VCPKG_ROOT}" )
           SOURCE_DIR=$( ${{ steps.vars.outputs.PATHCONVERT }} "${WORKSPACE}" )
 
           source ./scripts/version_number.sh
           source ./scripts/ci/generate-version-details.sh
 
-          overlay_ports=(${WORKSPACE}/vcpkg/overlay_system_qt ${WORKSPACE}/vcpkg/overlay)
-          echo "Building with $(IFS=\; ; echo "${overlay_ports[*]}")"
           cmake -S "${SOURCE_DIR}" \
                 -B "${CMAKE_BUILD_DIR}" \
                 -G Ninja \
                 -DCMAKE_BUILD_TYPE=${{ steps.vars.outputs.BUILD_TYPE }} \
-                -DCMAKE_TOOLCHAIN_FILE="${VCPKG_ROOT}/scripts/buildsystems/vcpkg.cmake" \
-                -DVCPKG_OVERLAY_PORTS=$(IFS=\; ; echo "${overlay_ports[*]}") \
+                -DSYSTEM_QT=ON \
                 -DVCPKG_TARGET_TRIPLET="${{ matrix.triplet }}" \
                 -DWITH_VCPKG=ON \
                 -DWITH_SPIX=OFF \
@@ -200,17 +150,21 @@ jobs:
                 -DAPP_ICON="${APP_ICON}" \
                 -DAPP_NAME="${APP_NAME}" \
                 -DVCPKG_CHAINLOAD_TOOLCHAIN_FILE=${ANDROID_NDK_HOME}/build/cmake/android.toolchain.cmake \
+                -DNUGET_USERNAME=opengisch \
+                -DNUGET_TOKEN=${{ secrets.GITHUB_TOKEN }} \
                 -DANDROID_ABI=${{ steps.vars.outputs.ABI }} \
                 -DANDROID_PLATFORM=${{ env.ANDROID_PLATFORM }} \
                 -DANDROID_TARGET_PLATFORM=${{ env.ANDROID_TARGET_PLATFORM}} \
                 ${EXTRA_CMAKE_ARGS}
+
 
       - name: 📑 Upload Dep Build Logs
         uses: actions/upload-artifact@v2
         if: failure()
         with:
           name: build-logs-${{ matrix.triplet }}
-          path: ${{ steps.vars.outputs.VCPKG_ROOT }}/buildtrees/**/*.log
+          path: |
+            ${{ env.CMAKE_BUILD_DIR }}/vcpkg-manifest-install.log
 
       - name: 🌋 Build
         run: |

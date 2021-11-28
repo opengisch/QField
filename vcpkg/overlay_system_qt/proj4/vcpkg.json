@@ -1,6 +1,7 @@
 {
   "name": "proj4",
   "version-semver": "8.0.0",
+  "port-version": 2,
   "description": "PROJ.4 library for cartographic projections",
   "homepage": "https://github.com/OSGeo/PROJ",
   "dependencies": [
