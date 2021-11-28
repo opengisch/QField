@@ -30,21 +30,21 @@ class MessageLogModel : public QAbstractListModel
 
     struct LogMessage
     {
-      LogMessage()
-      {}
+        LogMessage()
+        {}
 
-      LogMessage( const QString &tag, const QString &message, Qgis::MessageLevel level )
-        : tag( tag )
-        , message( message )
-        , level( level )
-        , datetime( QDateTime::currentDateTime().toString( QStringLiteral( "yyyy-MM-dd hh:mm:ss:zzz" ) ) )
-      {
-      }
+        LogMessage( const QString &tag, const QString &message, Qgis::MessageLevel level )
+          : tag( tag )
+          , message( message )
+          , level( level )
+          , datetime( QDateTime::currentDateTime().toString( QStringLiteral( "yyyy-MM-dd hh:mm:ss:zzz" ) ) )
+        {
+        }
 
-      QString tag;
-      QString message;
-      Qgis::MessageLevel level;
-      QString datetime;
+        QString tag;
+        QString message;
+        Qgis::MessageLevel level;
+        QString datetime;
     };
 
     enum Roles

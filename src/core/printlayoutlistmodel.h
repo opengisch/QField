@@ -46,11 +46,11 @@ class PrintLayoutListModel : public QAbstractListModel
     */
     struct PrintLayout
     {
-      explicit PrintLayout( const QString &title )
-        : title( title )
-      {}
+        explicit PrintLayout( const QString &title )
+          : title( title )
+        {}
 
-      QString title;
+        QString title;
     };
 
   public:

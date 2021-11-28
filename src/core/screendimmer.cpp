@@ -13,15 +13,16 @@
  *                                                                         *
  ***************************************************************************/
 
-#include "screendimmer.h"
 #include "platformutilities.h"
+#include "screendimmer.h"
 
 #include <QEvent>
 
-ScreenDimmer::ScreenDimmer( QgsApplication *app ) : QObject( app )
+ScreenDimmer::ScreenDimmer( QgsApplication *app )
+  : QObject( app )
 {
   app->installEventFilter( this );
-  connect( app, &QGuiApplication::applicationStateChanged, this, [ = ]() { setSuspend( app->applicationState() != Qt::ApplicationActive ); } );
+  connect( app, &QGuiApplication::applicationStateChanged, this, [=]() { setSuspend( app->applicationState() != Qt::ApplicationActive ); } );
 
   mTimer.setSingleShot( true );
   mTimer.setInterval( 20000 );
@@ -65,10 +66,7 @@ void ScreenDimmer::setSuspend( bool suspend )
 
 bool ScreenDimmer::eventFilter( QObject *obj, QEvent *event )
 {
-  if ( event->type() == QEvent::KeyPress ||
-       event->type() == QEvent::MouseButtonPress ||
-       event->type() == QEvent::TouchBegin ||
-       event->type() == QEvent::InputMethod )
+  if ( event->type() == QEvent::KeyPress || event->type() == QEvent::MouseButtonPress || event->type() == QEvent::TouchBegin || event->type() == QEvent::InputMethod )
   {
     if ( mActive && !mSuspend )
       mTimer.start();

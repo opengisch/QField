@@ -66,8 +66,8 @@ class AppMissingGridHandler : public QObject
                                  const QgsDatumTransform::TransformDetails &availableOperation );
 
     void onCoordinateOperationCreationError( const QgsCoordinateReferenceSystem &sourceCrs,
-        const QgsCoordinateReferenceSystem &destinationCrs,
-        const QString &error );
+                                             const QgsCoordinateReferenceSystem &destinationCrs,
+                                             const QString &error );
 
     void onMissingGridUsedByContextHandler( const QgsCoordinateReferenceSystem &sourceCrs,
                                             const QgsCoordinateReferenceSystem &destinationCrs,

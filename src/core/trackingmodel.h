@@ -77,7 +77,7 @@ class TrackingModel : public QAbstractItemModel
     QList<Tracker *> mTrackers;
     QList<Tracker *>::const_iterator trackerIterator( QgsVectorLayer *layer )
     {
-      return std::find_if( mTrackers.constBegin(), mTrackers.constEnd(), [layer]( const Tracker * tracker ) { return tracker->layer() == layer; } );
+      return std::find_if( mTrackers.constBegin(), mTrackers.constEnd(), [layer]( const Tracker *tracker ) { return tracker->layer() == layer; } );
     }
 };
 

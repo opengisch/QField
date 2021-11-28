@@ -18,16 +18,15 @@
 
 #include "qfield_core_export.h"
 
+#include <QDateTime>
+#include <QObject>
+#include <QPointF>
+#include <QVector>
 #include <qgis.h>
 #include <qgsabstractgeometry.h>
 #include <qgscoordinatereferencesystem.h>
 #include <qgsgeometry.h>
 #include <qgspoint.h>
-
-#include <QDateTime>
-#include <QObject>
-#include <QPointF>
-#include <QVector>
 
 class QgsVectorLayer;
 

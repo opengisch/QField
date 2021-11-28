@@ -17,13 +17,12 @@
 
 #define CATCH_CONFIG_MAIN
 
+#include "catch2.h"
 #include "rubberbandmodel.h"
 #include "utils/geometryutils.h"
 
 #include <qgis.h>
 #include <qgsvectorlayer.h>
-
-#include "catch2.h"
 
 
 TEST_CASE( "GeometryUtils" )
@@ -80,5 +79,4 @@ TEST_CASE( "GeometryUtils" )
     REQUIRE( GeometryUtils::splitFeatureFromRubberband( mLayer.get(), model.get() ) == GeometryUtils::GeometryOperationResult::Success );
     REQUIRE( mLayer->rollBack() );
   }
-
 }

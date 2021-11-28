@@ -55,8 +55,8 @@ class FeatureModel : public QAbstractListModel
     //! keeping the information what attributes are remembered and the last edited feature
     struct RememberValues
     {
-      QgsFeature rememberedFeature;
-      QVector<bool> rememberedAttributes;
+        QgsFeature rememberedFeature;
+        QVector<bool> rememberedAttributes;
     };
 
     enum ModelModes

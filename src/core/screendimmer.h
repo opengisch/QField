@@ -16,9 +16,8 @@
 #ifndef SCREENDIMMER_H
 #define SCREENDIMMER_H
 
-#include <qgsapplication.h>
-
 #include <QTimer>
+#include <qgsapplication.h>
 
 /**
  * @brief The ScreenDimmer class handles dimming of screen brightness.
@@ -28,7 +27,6 @@ class ScreenDimmer : public QObject
     Q_OBJECT
 
   public:
-
     explicit ScreenDimmer( QgsApplication *app );
 
     /**
@@ -42,11 +40,9 @@ class ScreenDimmer : public QObject
     void setSuspend( bool suspend );
 
   protected:
-
     bool eventFilter( QObject *obj, QEvent *event ) override;
 
   private:
-
     void timeout();
 
     QTimer mTimer;
@@ -54,7 +50,6 @@ class ScreenDimmer : public QObject
     bool mActive = false;
     bool mSuspend = false;
     bool mDimmed = false;
-
 };
 
 #endif // SCREENDIMMER_H

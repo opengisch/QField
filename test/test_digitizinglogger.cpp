@@ -16,11 +16,10 @@
  ***************************************************************************/
 
 #define QFIELDTEST_MAIN
+#include "catch2.h"
 #include "digitizinglogger.h"
 
 #include <qgscoordinatereferencesystem.h>
-
-#include "catch2.h"
 
 
 TEST_CASE( "Digitizing logger" )
@@ -45,7 +44,6 @@ TEST_CASE( "Digitizing logger" )
   digitizingLogger->setType( QStringLiteral( "rock" ) );
   digitizingLogger->setProject( QgsProject::instance() );
   digitizingLogger->setDigitizingLayer( layer.get() );
-
 
 
   SECTION( "AddAndWritePoints" )

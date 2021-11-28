@@ -24,17 +24,14 @@ BluetoothDeviceModel::BluetoothDeviceModel( QObject *parent )
   : QAbstractListModel( parent ), mLocalDevice( std::make_unique<QBluetoothLocalDevice>() )
 {
   connect( &mServiceDiscoveryAgent, &QBluetoothServiceDiscoveryAgent::serviceDiscovered, this, &BluetoothDeviceModel::serviceDiscovered );
-  connect( &mServiceDiscoveryAgent, qOverload<QBluetoothServiceDiscoveryAgent::Error>( &QBluetoothServiceDiscoveryAgent::error ), this, [ = ]()
-  {
+  connect( &mServiceDiscoveryAgent, qOverload<QBluetoothServiceDiscoveryAgent::Error>( &QBluetoothServiceDiscoveryAgent::error ), this, [=]() {
     setLastError( mServiceDiscoveryAgent.errorString() );
     setScanningStatus( Failed );
   } );
-  connect( &mServiceDiscoveryAgent, &QBluetoothServiceDiscoveryAgent::finished, [ = ]()
-  {
+  connect( &mServiceDiscoveryAgent, &QBluetoothServiceDiscoveryAgent::finished, [=]() {
     setScanningStatus( mServiceDiscoveryAgent.error() == QBluetoothServiceDiscoveryAgent::NoError ? Succeeded : Failed );
   } );
-  connect( &mServiceDiscoveryAgent, &QBluetoothServiceDiscoveryAgent::canceled, [ = ]()
-  {
+  connect( &mServiceDiscoveryAgent, &QBluetoothServiceDiscoveryAgent::canceled, [=]() {
     setScanningStatus( Canceled );
   } );
 

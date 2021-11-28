@@ -39,13 +39,13 @@ class IdentifyTool : public QObject
   public:
     struct IdentifyResult
     {
-      IdentifyResult( QgsMapLayer *layer, const QgsFeature &feature )
-        : layer( layer )
-        , feature( feature )
-      {}
+        IdentifyResult( QgsMapLayer *layer, const QgsFeature &feature )
+          : layer( layer )
+          , feature( feature )
+        {}
 
-      QgsMapLayer *layer;
-      QgsFeature feature;
+        QgsMapLayer *layer;
+        QgsFeature feature;
     };
 
   public:

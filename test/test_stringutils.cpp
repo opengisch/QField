@@ -16,9 +16,8 @@
  ***************************************************************************/
 
 #define CATCH_CONFIG_MAIN
-#include "utils/stringutils.h"
-
 #include "catch2.h"
+#include "utils/stringutils.h"
 
 
 TEST_CASE( "StringUtils" )

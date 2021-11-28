@@ -16,8 +16,8 @@
 #include "qfieldcloudutils.h"
 
 #include <QDir>
-#include <QString>
 #include <QStandardPaths>
+#include <QString>
 #include <qgsapplication.h>
 #include <qgsmessagelog.h>
 

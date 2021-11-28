@@ -1,6 +1,7 @@
 /**
- * QFieldActivity.java - class needed to copy files from assets to getExternalFilesDir() before starting QtActivity
- * this can be used to perform actions before QtActivity takes over.
+ * QFieldActivity.java - class needed to copy files from assets to
+ * getExternalFilesDir() before starting QtActivity this can be used to perform
+ * actions before QtActivity takes over.
  * @author  Marco Bernasocchi - <marco@opengis.ch>
  * @version 0.5
  */
@@ -19,32 +20,21 @@
  names of its contributors may be used to endorse or promote products
  derived from this software without specific prior written permission.
 
- THIS SOFTWARE IS PROVIDED BY Marco Bernasocchi <marco@opengis.ch> ''AS IS'' AND ANY
- EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+ THIS SOFTWARE IS PROVIDED BY Marco Bernasocchi <marco@opengis.ch> ''AS IS'' AND
+ ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
  WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
- DISCLAIMED. IN NO EVENT SHALL Marco Bernasocchi <marco@opengis.ch> BE LIABLE FOR ANY
- DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
- (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
- LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND
- ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
- (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
- SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+ DISCLAIMED. IN NO EVENT SHALL Marco Bernasocchi <marco@opengis.ch> BE LIABLE
+ FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL
+ DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR
+ SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
+ CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
+ OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
 package ch.opengis.qfield;
 
-import java.io.BufferedInputStream;
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.io.InputStream;
-import java.lang.Thread;
-import java.util.List;
-import java.util.ArrayList;
-import java.util.zip.ZipEntry;
-import java.util.zip.ZipInputStream;
-
+import android.Manifest;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Application;
@@ -56,7 +46,6 @@ import android.content.SharedPreferences;
 import android.content.pm.ActivityInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.PackageManager.NameNotFoundException;
-import android.Manifest;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Build;
@@ -69,12 +58,20 @@ import android.text.Html;
 import android.util.Log;
 import android.view.WindowManager;
 import android.view.WindowManager.LayoutParams;
-
-import org.qtproject.qt5.android.bindings.QtActivity;
-
-import ch.opengis.qfield.R;
 import ch.opengis.qfield.QFieldUtils;
-
+import ch.opengis.qfield.R;
+import java.io.BufferedInputStream;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.lang.Thread;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.zip.ZipEntry;
+import java.util.zip.ZipInputStream;
+import org.qtproject.qt5.android.bindings.QtActivity;
 
 public class QFieldActivity extends QtActivity {
 
@@ -114,13 +111,16 @@ public class QFieldActivity extends QtActivity {
     }
 
     private void prepareQtActivity() {
-        sharedPreferences = getSharedPreferences("QField", Context.MODE_PRIVATE);
+        sharedPreferences =
+            getSharedPreferences("QField", Context.MODE_PRIVATE);
         sharedPreferenceEditor = sharedPreferences.edit();
 
         checkPermissions();
-        checkAllFileAccess(); // Storage access permission handling for Android 11+
+        checkAllFileAccess(); // Storage access permission handling for Android
+                              // 11+
 
-        String storagePath = Environment.getExternalStorageDirectory().getAbsolutePath();
+        String storagePath =
+            Environment.getExternalStorageDirectory().getAbsolutePath();
 
         String qFieldDir = storagePath + "/QField/";
         new File(qFieldDir).mkdir();
@@ -134,8 +134,10 @@ public class QFieldActivity extends QtActivity {
         Intent intent = new Intent();
         intent.setClass(QFieldActivity.this, QtActivity.class);
         try {
-            ActivityInfo activityInfo = getPackageManager().getActivityInfo(getComponentName(), PackageManager.GET_META_DATA);
-            intent.putExtra("GIT_REV", activityInfo.metaData.getString("android.app.git_rev"));
+            ActivityInfo activityInfo = getPackageManager().getActivityInfo(
+                getComponentName(), PackageManager.GET_META_DATA);
+            intent.putExtra("GIT_REV", activityInfo.metaData.getString(
+                                           "android.app.git_rev"));
         } catch (NameNotFoundException e) {
             e.printStackTrace();
             finish();
@@ -148,67 +150,96 @@ public class QFieldActivity extends QtActivity {
         if (sourceIntent.getAction() == Intent.ACTION_VIEW) {
             Uri uri = sourceIntent.getData();
             Context context = getApplication().getApplicationContext();
-            intent.putExtra("QGS_PROJECT", QFieldUtils.getPathFromUri(context, uri));
+            intent.putExtra("QGS_PROJECT",
+                            QFieldUtils.getPathFromUri(context, uri));
         }
         setIntent(intent);
     }
 
-    private void checkPermissions()
-    {
+    private void checkPermissions() {
         List<String> permissionsList = new ArrayList<String>();
-        if (ContextCompat.checkSelfPermission(QFieldActivity.this, Manifest.permission.WRITE_EXTERNAL_STORAGE) == PackageManager.PERMISSION_DENIED) {
+        if (ContextCompat.checkSelfPermission(
+                QFieldActivity.this,
+                Manifest.permission.WRITE_EXTERNAL_STORAGE) ==
+            PackageManager.PERMISSION_DENIED) {
             permissionsList.add(Manifest.permission.WRITE_EXTERNAL_STORAGE);
         }
-        if (ContextCompat.checkSelfPermission(QFieldActivity.this, Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_DENIED) {
+        if (ContextCompat.checkSelfPermission(
+                QFieldActivity.this,
+                Manifest.permission.ACCESS_FINE_LOCATION) ==
+            PackageManager.PERMISSION_DENIED) {
             permissionsList.add(Manifest.permission.ACCESS_FINE_LOCATION);
         }
-        if (ContextCompat.checkSelfPermission(QFieldActivity.this, Manifest.permission.ACCESS_MEDIA_LOCATION) == PackageManager.PERMISSION_DENIED) {
+        if (ContextCompat.checkSelfPermission(
+                QFieldActivity.this,
+                Manifest.permission.ACCESS_MEDIA_LOCATION) ==
+            PackageManager.PERMISSION_DENIED) {
             permissionsList.add(Manifest.permission.ACCESS_MEDIA_LOCATION);
         }
-        if (ContextCompat.checkSelfPermission(QFieldActivity.this, Manifest.permission.BLUETOOTH) == PackageManager.PERMISSION_DENIED) {
+        if (ContextCompat.checkSelfPermission(QFieldActivity.this,
+                                              Manifest.permission.BLUETOOTH) ==
+            PackageManager.PERMISSION_DENIED) {
             permissionsList.add(Manifest.permission.BLUETOOTH);
         }
-        if (ContextCompat.checkSelfPermission(QFieldActivity.this, Manifest.permission.BLUETOOTH_ADMIN) == PackageManager.PERMISSION_DENIED) {
+        if (ContextCompat.checkSelfPermission(
+                QFieldActivity.this, Manifest.permission.BLUETOOTH_ADMIN) ==
+            PackageManager.PERMISSION_DENIED) {
             permissionsList.add(Manifest.permission.BLUETOOTH_ADMIN);
         }
-        if ( permissionsList.size() > 0 ) {
-            String[] permissions = new String[ permissionsList.size() ];
-            permissionsList.toArray( permissions );
-            ActivityCompat.requestPermissions(QFieldActivity.this, permissions, 101);
+        if (permissionsList.size() > 0) {
+            String[] permissions = new String[permissionsList.size()];
+            permissionsList.toArray(permissions);
+            ActivityCompat.requestPermissions(QFieldActivity.this, permissions,
+                                              101);
         }
     }
 
-    private void checkAllFileAccess()
-    {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R && !Environment.isExternalStorageManager() && !sharedPreferences.getBoolean("DontAskAllFilesPermission", false)) {
+    private void checkAllFileAccess() {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R &&
+            !Environment.isExternalStorageManager() &&
+            !sharedPreferences.getBoolean("DontAskAllFilesPermission", false)) {
             AlertDialog.Builder builder = new AlertDialog.Builder(this);
             builder.setTitle(getString(R.string.grant_permission));
-            builder.setMessage(Html.fromHtml(getString(R.string.grant_all_files_permission), Html.FROM_HTML_MODE_LEGACY));
-            builder.setPositiveButton(getString(R.string.grant), new DialogInterface.OnClickListener() {
+            builder.setMessage(
+                Html.fromHtml(getString(R.string.grant_all_files_permission),
+                              Html.FROM_HTML_MODE_LEGACY));
+            builder.setPositiveButton(
+                getString(R.string.grant),
+                new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
                         try {
-                            Intent intent = new Intent(Settings.ACTION_MANAGE_ALL_FILES_ACCESS_PERMISSION);
+                            Intent intent = new Intent(
+                                Settings
+                                    .ACTION_MANAGE_ALL_FILES_ACCESS_PERMISSION);
                             startActivity(intent);
                         } catch (Exception e) {
-                            Log.e("QField", "Failed to initial activity to grant all files access", e);
+                            Log.e(
+                                "QField",
+                                "Failed to initial activity to grant all files access",
+                                e);
                         }
                         dialog.dismiss();
                     }
                 });
-            builder.setNegativeButton(getString(R.string.deny_always), new DialogInterface.OnClickListener() {
+            builder.setNegativeButton(
+                getString(R.string.deny_always),
+                new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
-                        sharedPreferenceEditor.putBoolean("DontAskAllFilesPermission", true);
+                        sharedPreferenceEditor.putBoolean(
+                            "DontAskAllFilesPermission", true);
                         sharedPreferenceEditor.commit();
 
                         dialog.dismiss();
                     }
                 });
 
-            builder.setNeutralButton(getString(R.string.deny_once), new DialogInterface.OnClickListener() {
-                public void onClick(DialogInterface dialog, int id) {
-                        dialog.dismiss();
-                }
-            });
+            builder.setNeutralButton(getString(R.string.deny_once),
+                                     new DialogInterface.OnClickListener() {
+                                         public void onClick(
+                                             DialogInterface dialog, int id) {
+                                             dialog.dismiss();
+                                         }
+                                     });
 
             AlertDialog dialog = builder.create();
             dialog.setCancelable(false);

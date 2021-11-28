@@ -25,39 +25,34 @@
 AppMissingGridHandler::AppMissingGridHandler( QObject *parent )
   : QObject( parent )
 {
-  QgsCoordinateTransform::setCustomMissingRequiredGridHandler( [ = ]( const QgsCoordinateReferenceSystem & sourceCrs,
-      const QgsCoordinateReferenceSystem & destinationCrs,
-      const QgsDatumTransform::GridDetails & grid )
-  {
+  QgsCoordinateTransform::setCustomMissingRequiredGridHandler( [=]( const QgsCoordinateReferenceSystem &sourceCrs,
+                                                                    const QgsCoordinateReferenceSystem &destinationCrs,
+                                                                    const QgsDatumTransform::GridDetails &grid ) {
     emit missingRequiredGrid( sourceCrs, destinationCrs, grid );
   } );
 
-  QgsCoordinateTransform::setCustomMissingPreferredGridHandler( [ = ]( const QgsCoordinateReferenceSystem & sourceCrs,
-      const QgsCoordinateReferenceSystem & destinationCrs,
-      const QgsDatumTransform::TransformDetails & preferredOperation,
-      const QgsDatumTransform::TransformDetails & availableOperation )
-  {
+  QgsCoordinateTransform::setCustomMissingPreferredGridHandler( [=]( const QgsCoordinateReferenceSystem &sourceCrs,
+                                                                     const QgsCoordinateReferenceSystem &destinationCrs,
+                                                                     const QgsDatumTransform::TransformDetails &preferredOperation,
+                                                                     const QgsDatumTransform::TransformDetails &availableOperation ) {
     emit missingPreferredGrid( sourceCrs, destinationCrs, preferredOperation, availableOperation );
   } );
 
-  QgsCoordinateTransform::setCustomCoordinateOperationCreationErrorHandler( [ = ]( const QgsCoordinateReferenceSystem & sourceCrs,
-      const QgsCoordinateReferenceSystem & destinationCrs,
-      const QString & error )
-  {
+  QgsCoordinateTransform::setCustomCoordinateOperationCreationErrorHandler( [=]( const QgsCoordinateReferenceSystem &sourceCrs,
+                                                                                 const QgsCoordinateReferenceSystem &destinationCrs,
+                                                                                 const QString &error ) {
     emit coordinateOperationCreationError( sourceCrs, destinationCrs, error );
   } );
 
-  QgsCoordinateTransform::setCustomMissingGridUsedByContextHandler( [ = ]( const QgsCoordinateReferenceSystem & sourceCrs,
-      const QgsCoordinateReferenceSystem & destinationCrs,
-      const QgsDatumTransform::TransformDetails & desired )
-  {
+  QgsCoordinateTransform::setCustomMissingGridUsedByContextHandler( [=]( const QgsCoordinateReferenceSystem &sourceCrs,
+                                                                         const QgsCoordinateReferenceSystem &destinationCrs,
+                                                                         const QgsDatumTransform::TransformDetails &desired ) {
     emit missingGridUsedByContextHandler( sourceCrs, destinationCrs, desired );
   } );
 
-  QgsCoordinateTransform::setFallbackOperationOccurredHandler( [ = ]( const QgsCoordinateReferenceSystem & sourceCrs,
-      const QgsCoordinateReferenceSystem & destinationCrs,
-      const QString & desired )
-  {
+  QgsCoordinateTransform::setFallbackOperationOccurredHandler( [=]( const QgsCoordinateReferenceSystem &sourceCrs,
+                                                                    const QgsCoordinateReferenceSystem &destinationCrs,
+                                                                    const QString &desired ) {
     emit fallbackOperationOccurred( sourceCrs, destinationCrs, desired );
   } );
 
@@ -67,8 +62,7 @@ AppMissingGridHandler::AppMissingGridHandler( QObject *parent )
   connect( this, &AppMissingGridHandler::missingGridUsedByContextHandler, this, &AppMissingGridHandler::onMissingGridUsedByContextHandler, Qt::QueuedConnection );
   connect( this, &AppMissingGridHandler::fallbackOperationOccurred, this, &AppMissingGridHandler::onFallbackOperationOccurred, Qt::QueuedConnection );
 
-  connect( QgsProject::instance(), &QgsProject::cleared, this, [ = ]
-  {
+  connect( QgsProject::instance(), &QgsProject::cleared, this, [=] {
     mAlreadyWarnedPairsForProject.clear();
     mAlreadyWarnedBallparkPairsForProject.clear();
   } );

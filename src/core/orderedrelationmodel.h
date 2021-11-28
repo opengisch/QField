@@ -17,15 +17,15 @@
 #ifndef ORDEREDRELATIONMODEL_H
 #define ORDEREDRELATIONMODEL_H
 
-#include "qgsrelation.h"
 #include "qgsfeature.h"
 #include "qgsfeaturerequest.h"
+#include "qgsrelation.h"
 #include "qgsvectorlayer.h"
 #include "referencingfeaturelistmodel.h"
 
 class FeatureExpressionValuesGatherer;
 
-class OrderedRelationModel: public ReferencingFeatureListModel
+class OrderedRelationModel : public ReferencingFeatureListModel
 {
     Q_OBJECT
 
@@ -34,7 +34,6 @@ class OrderedRelationModel: public ReferencingFeatureListModel
     Q_PROPERTY( QString description READ description WRITE setDescription NOTIFY descriptionChanged )
 
   public:
-
     explicit OrderedRelationModel( QObject *parent = nullptr );
 
     enum Roles

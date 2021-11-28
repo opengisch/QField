@@ -99,8 +99,8 @@ FlatLayerTreeModelBase::FlatLayerTreeModelBase( QgsLayerTree *layerTree, QgsProj
   mLayerTreeModel = new QgsLayerTreeModel( layerTree, this );
   mLayerTreeModel->setFlag( QgsLayerTreeModel::ShowLegendAsTree, true );
   setSourceModel( mLayerTreeModel );
-  connect( mProject, &QgsProject::cleared, this, [ = ] { buildMap( nullptr ); } );
-  connect( mProject, &QgsProject::readProject, this, [ = ] { buildMap( mLayerTreeModel ); } );
+  connect( mProject, &QgsProject::cleared, this, [=] { buildMap( nullptr ); } );
+  connect( mProject, &QgsProject::readProject, this, [=] { buildMap( mLayerTreeModel ); } );
   connect( mLayerTreeModel, &QAbstractItemModel::dataChanged, this, &FlatLayerTreeModelBase::updateMap );
   connect( mLayerTreeModel, &QAbstractItemModel::rowsRemoved, this, &FlatLayerTreeModelBase::removeFromMap );
   connect( mLayerTreeModel, &QAbstractItemModel::rowsInserted, this, &FlatLayerTreeModelBase::insertInMap );

@@ -160,8 +160,8 @@ void VertexModel::createCandidates()
   // remove non existing vertices
   mVertices.erase( std::remove_if( mVertices.begin(),
                                    mVertices.end(),
-  []( const Vertex & vertex ) { return vertex.type != ExistingVertex; } ),
-  mVertices.end() );
+                                   []( const Vertex &vertex ) { return vertex.type != ExistingVertex; } ),
+                   mVertices.end() );
 
   int r = 0;
 

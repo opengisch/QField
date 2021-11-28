@@ -14,18 +14,18 @@
  *                                                                         *
  ***************************************************************************/
 
-#include "orderedrelationmodel.h"
 #include "fieldexpressionvaluesgatherer.h"
-#include "qgsrelation.h"
+#include "orderedrelationmodel.h"
+#include "qfield_core_export.h"
+#include "qgsexpressioncontextutils.h"
 #include "qgsfeature.h"
 #include "qgsfeaturerequest.h"
-#include "qgsvectorlayer.h"
-#include "qgsproject.h"
-#include "qgsexpressioncontextutils.h"
 #include "qgsmessagelog.h"
-#include <QAbstractTableModel>
+#include "qgsproject.h"
+#include "qgsrelation.h"
+#include "qgsvectorlayer.h"
 
-#include "qfield_core_export.h"
+#include <QAbstractTableModel>
 
 OrderedRelationModel::OrderedRelationModel( QObject *parent )
   : ReferencingFeatureListModel( parent )
@@ -231,8 +231,7 @@ bool OrderedRelationModel::beforeDeleteFeature( QgsVectorLayer *referencingLayer
 
 void OrderedRelationModel::sortEntries()
 {
-  std::sort( mEntries.begin(), mEntries.end(), [ = ]( const Entry & e1, const Entry & e2 )
-  {
+  std::sort( mEntries.begin(), mEntries.end(), [=]( const Entry &e1, const Entry &e2 ) {
     return e1.referencingFeature.attribute( mOrderingField ).toInt() < e2.referencingFeature.attribute( mOrderingField ).toInt();
   } );
 }

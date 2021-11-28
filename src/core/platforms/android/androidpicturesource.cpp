@@ -42,7 +42,7 @@ void AndroidPictureSource::handleActivityResult( int receiverRequestCode, int re
 
       QAndroidJniObject picture_image_path = QAndroidJniObject::fromString( "PICTURE_IMAGE_FILENAME" );
       picture_image_path = extras.callObjectMethod( "getString", "(Ljava/lang/String;)Ljava/lang/String;",
-                           picture_image_path.object<jstring>() );
+                                                    picture_image_path.object<jstring>() );
 
       QString picture_image_relative_path = picture_image_path.toString().remove( mPrefix );
 

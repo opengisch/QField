@@ -18,11 +18,10 @@
 #include "locatormodelsuperbridge.h"
 #include "qgsquickmapsettings.h"
 
+#include <QAction>
 #include <qgscoordinatetransform.h>
 #include <qgsgeocoderresult.h>
 #include <qgsproject.h>
-
-#include <QAction>
 
 FinlandLocatorFilter::FinlandLocatorFilter( QgsGeocoderInterface *geocoder, LocatorModelSuperBridge *locatorBridge )
   : QgsAbstractGeocoderLocatorFilter( QStringLiteral( "pelias-finland" ), tr( "Finnish address search" ), QStringLiteral( "fia" ), geocoder )

@@ -169,19 +169,19 @@ class QFIELD_CORE_EXPORT ReferencingFeatureListModel : public QAbstractItemModel
   private:
     struct Entry
     {
-      Entry( const QString &displayString, const QgsFeature &referencingFeature, const QString &nmDisplayString = QString(), const QgsFeature &nmReferencedFeature = QgsFeature() )
-        : displayString( displayString )
-        , referencingFeature( referencingFeature )
-        , nmDisplayString( nmDisplayString )
-        , nmReferencedFeature( nmReferencedFeature )
-      {}
+        Entry( const QString &displayString, const QgsFeature &referencingFeature, const QString &nmDisplayString = QString(), const QgsFeature &nmReferencedFeature = QgsFeature() )
+          : displayString( displayString )
+          , referencingFeature( referencingFeature )
+          , nmDisplayString( nmDisplayString )
+          , nmReferencedFeature( nmReferencedFeature )
+        {}
 
-      Entry() = default;
+        Entry() = default;
 
-      QString displayString;
-      QgsFeature referencingFeature;
-      QString nmDisplayString;
-      QgsFeature nmReferencedFeature;
+        QString displayString;
+        QgsFeature referencingFeature;
+        QString nmDisplayString;
+        QgsFeature nmReferencedFeature;
     };
 
     QList<Entry> mEntries;

@@ -109,6 +109,8 @@ SpacesInSquareBrackets: false
 Standard:        Cpp11
 TabWidth:        2
 UseTab:       Never
+ObjCBlockIndentWidth: 4
+
 
 ---
 
@@ -117,3 +119,9 @@ TabWidth:        4
 IndentWidth:     4
 AllowShortBlocksOnASingleLine: false
 AllowShortFunctionsOnASingleLine: None
+
+---
+
+Language:        ObjC
+
+ObjCBlockIndentWidth: 4

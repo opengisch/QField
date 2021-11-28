@@ -16,10 +16,9 @@
  ***************************************************************************/
 
 #define CATCH_CONFIG_MAIN
+#include "catch2.h"
 #include "qgsvectorlayer.h"
 #include "utils/featureutils.h"
-
-#include "catch2.h"
 
 
 TEST_CASE( "FeatureUtils" )

@@ -16,30 +16,29 @@
 
 #include "layerutils.h"
 
+#include <QScopeGuard>
+#include <qgsfillsymbol.h>
 #include <qgsfillsymbollayer.h>
 #include <qgslabelobstaclesettings.h>
 #include <qgslayoutatlas.h>
 #include <qgslayoutmanager.h>
+#include <qgslinesymbol.h>
 #include <qgslinesymbollayer.h>
+#include <qgsmarkersymbol.h>
 #include <qgsmarkersymbollayer.h>
+#include <qgsmessagelog.h>
 #include <qgspallabeling.h>
 #include <qgsprintlayout.h>
 #include <qgsproject.h>
 #include <qgssinglesymbolrenderer.h>
 #include <qgssymbol.h>
 #include <qgssymbollayer.h>
-#include <qgsmarkersymbol.h>
-#include <qgslinesymbol.h>
-#include <qgsfillsymbol.h>
+#include <qgstextbuffersettings.h>
+#include <qgstextformat.h>
 #include <qgsvectorlayer.h>
 #include <qgsvectorlayerlabeling.h>
 #include <qgsvectorlayerutils.h>
 #include <qgswkbtypes.h>
-#include <qgsmessagelog.h>
-#include <qgstextformat.h>
-#include <qgstextbuffersettings.h>
-
-#include <QScopeGuard>
 
 LayerUtils::LayerUtils( QObject *parent )
   : QObject( parent )
@@ -305,11 +304,10 @@ QgsFeature LayerUtils::duplicateFeature( QgsVectorLayer *layer, const QgsFeature
   }
 
   QgsFeature duplicatedFeature;
-  QMetaObject::Connection connection = connect( layer, &QgsVectorLayer::featureAdded, [ layer, &duplicatedFeature ]( QgsFeatureId fid )
-  {
+  QMetaObject::Connection connection = connect( layer, &QgsVectorLayer::featureAdded, [layer, &duplicatedFeature]( QgsFeatureId fid ) {
     duplicatedFeature = layer->getFeature( fid );
   } );
-  auto sweaper = qScopeGuard( [ layer, connection ] { layer->disconnect( connection ); } );
+  auto sweaper = qScopeGuard( [layer, connection] { layer->disconnect( connection ); } );
 
   duplicatedFeature = QgsVectorLayerUtils::createFeature( layer, feature.geometry(), feature.attributes().toMap() );
   if ( layer->addFeature( duplicatedFeature ) )

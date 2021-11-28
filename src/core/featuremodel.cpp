@@ -17,8 +17,8 @@
 
 #include "expressioncontextutils.h"
 #include "featuremodel.h"
-#include "vertexmodel.h"
 #include "layerutils.h"
+#include "vertexmodel.h"
 
 #include <QGeoPositionInfoSource>
 #include <QMutex>
@@ -87,11 +87,11 @@ void FeatureModel::setFeatures( const QList<QgsFeature> &features )
       bool equalValue = true;
       struct AttributeNotEqual
       {
-        const int attributeIndex;
-        const QgsFeature &feature;
-        AttributeNotEqual( const QgsFeature &feature, int attributeIndex )
-          : attributeIndex( attributeIndex ), feature( feature ) {}
-        bool operator()( const QgsFeature &f ) const { return f.attributes().size() > attributeIndex && feature.attributes().at( attributeIndex ) != f.attributes().at( attributeIndex ); }
+          const int attributeIndex;
+          const QgsFeature &feature;
+          AttributeNotEqual( const QgsFeature &feature, int attributeIndex )
+            : attributeIndex( attributeIndex ), feature( feature ) {}
+          bool operator()( const QgsFeature &f ) const { return f.attributes().size() > attributeIndex && feature.attributes().at( attributeIndex ) != f.attributes().at( attributeIndex ); }
       };
 
       if ( std::any_of( mFeatures.begin(), mFeatures.end(), AttributeNotEqual( mFeature, i ) ) )

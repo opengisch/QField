@@ -16,9 +16,9 @@
  ***************************************************************************/
 
 #include "featureutils.h"
+#include "layerutils.h"
 #include "multifeaturelistmodel.h"
 #include "multifeaturelistmodelbase.h"
-#include "layerutils.h"
 
 #include <qgscoordinatereferencesystem.h>
 #include <qgsgeometry.h>

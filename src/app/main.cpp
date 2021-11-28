@@ -26,6 +26,8 @@
 #include <Spix/AnyRpcServer.h>
 #include <Spix/QtQmlBot.h>
 #endif
+#include "qfield.h"
+
 #include <QApplication>
 #include <QDialog>
 #include <QDir>
@@ -36,7 +38,6 @@
 #include <QStandardPaths>
 #include <QTranslator>
 #include <QtWebView/QtWebView>
-#include "qfield.h"
 
 #ifdef ANDROID
 #include <android/log.h>
