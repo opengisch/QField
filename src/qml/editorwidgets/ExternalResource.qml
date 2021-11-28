@@ -207,13 +207,18 @@ EditorWidgetBase {
           verticalAlignment: Image.AlignVCenter
 
           source: Theme.getThemeIcon("ic_photo_notavailable_black_24dp")
+          cache: false
 
           MouseArea {
               anchors.fill: parent
 
               onClicked: {
-                  if ( FileUtils.fileExists( prefixToRelativePath + value ) )
+                  if ( FileUtils.fileExists( prefixToRelativePath + value ) ) {
                       platformUtilities.open( prefixToRelativePath + value, isEnabled );
+                      var imageSource = image.source;
+                      image.source = '';
+                      image.source = imageSource;
+                  }
               }
           }
 
