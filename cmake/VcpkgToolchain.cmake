@@ -49,7 +49,6 @@ endfunction()
 # Binarycache can only be used on Windows or if mono is available.
 find_program(_VCPKG_MONO mono)
 if(_HOST_IS_WINDOWS OR EXISTS "${_VCPKG_MONO}")
-  set(Z_VCPKG_ROOT_DIR )
   # Early bootstrap, copied from the vcpkg toolchain, we need this to fetch mono
   if(CMAKE_HOST_SYSTEM_NAME STREQUAL "Windows")
     set(Z_VCPKG_EXECUTABLE "${Z_VCPKG_ROOT_DIR}/vcpkg.exe")
@@ -73,18 +72,20 @@ if(_HOST_IS_WINDOWS OR EXISTS "${_VCPKG_MONO}")
       message(STATUS "Bootstrapping vcpkg before install - done")
     else()
       message(STATUS "Bootstrapping vcpkg before install - failed")
-      message(FATAL_ERROR "vcpkg install failed. See logs for more information: ${Z_VCPKG_BOOTSTRAP_LOG}")
+      file(READ ${Z_VCPKG_BOOTSTRAP_LOG} MSG)
+      message(FATAL_ERROR "vcpkg install failed. See logs for more information: ${MSG}")
     endif()
   endif()
 
   execute_process(
     COMMAND ${Z_VCPKG_EXECUTABLE} fetch nuget
+    OUTPUT_STRIP_TRAILING_WHITESPACE
     OUTPUT_VARIABLE NUGET_PATH)
 
   execute_process(
-    COMMAND ${_VCPKG_MONO} ${NUGET_PATH} add source --username ${NUGET_USERNAME} --password ${NUGET_TOKEN} --store-password-in-clear-text --name github ${NUGET_SOURCE})
+    COMMAND ${_VCPKG_MONO} ${NUGET_PATH} sources add -source "${NUGET_SOURCE}" -username "${NUGET_USERNAME}" -password "${NUGET_TOKEN}" -storepasswordincleartext -name "github")
 
-  set(ENV{VCPKG_BINARY_SOURCES} "$ENV{VCPKG_BINARY_SOURCES};nugetconfig,${_CONFIG_PATH_NATIVE},readwrite")
+  set(ENV{VCPKG_BINARY_SOURCES} "$ENV{VCPKG_BINARY_SOURCES};nuget,github,readwrite")
   #  _qfield_vcpkg_setup_binarycache(NAME mainline PREFIX NUGET)
 endif()
 
