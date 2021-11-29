@@ -14,7 +14,8 @@ if(NOT WITH_VCPKG)
   return()
 endif()
 
-set(CMAKE_TOOLCHAIN_FILE "${CMAKE_SOURCE_DIR}/vcpkg/base/scripts/buildsystems/vcpkg.cmake" CACHE STRING "" FORCE)
+set(Z_VCPKG_ROOT_DIR "${CMAKE_SOURCE_DIR}/vcpkg/base")
+set(CMAKE_TOOLCHAIN_FILE "${Z_VCPKG_ROOT_DIR}/scripts/buildsystems/vcpkg.cmake" CACHE STRING "" FORCE)
 
 function(_qfield_vcpkg_generate_nuget_config)
   cmake_parse_arguments(
@@ -48,7 +49,43 @@ endfunction()
 # Binarycache can only be used on Windows or if mono is available.
 find_program(_VCPKG_MONO mono)
 if(_HOST_IS_WINDOWS OR EXISTS "${_VCPKG_MONO}")
-  _qfield_vcpkg_setup_binarycache(NAME mainline PREFIX NUGET)
+  set(Z_VCPKG_ROOT_DIR )
+  # Early bootstrap, copied from the vcpkg toolchain, we need this to fetch mono
+  if(CMAKE_HOST_SYSTEM_NAME STREQUAL "Windows")
+    set(Z_VCPKG_EXECUTABLE "${Z_VCPKG_ROOT_DIR}/vcpkg.exe")
+    set(Z_VCPKG_BOOTSTRAP_SCRIPT "${Z_VCPKG_ROOT_DIR}/bootstrap-vcpkg.bat")
+  else()
+    set(Z_VCPKG_EXECUTABLE "${Z_VCPKG_ROOT_DIR}/vcpkg")
+    set(Z_VCPKG_BOOTSTRAP_SCRIPT "${Z_VCPKG_ROOT_DIR}/bootstrap-vcpkg.sh")
+  endif()
+
+  if(NOT EXISTS "${Z_VCPKG_EXECUTABLE}")
+    message(STATUS "Bootstrapping vcpkg before install")
+
+    file(TO_NATIVE_PATH "${CMAKE_BINARY_DIR}/vcpkg-bootstrap.log" Z_VCPKG_BOOTSTRAP_LOG)
+    execute_process(
+      COMMAND "${Z_VCPKG_BOOTSTRAP_SCRIPT}" ${VCPKG_BOOTSTRAP_OPTIONS}
+      OUTPUT_FILE "${Z_VCPKG_BOOTSTRAP_LOG}"
+      ERROR_FILE "${Z_VCPKG_BOOTSTRAP_LOG}"
+      RESULT_VARIABLE Z_VCPKG_BOOTSTRAP_RESULT)
+
+    if(Z_VCPKG_BOOTSTRAP_RESULT EQUAL 0)
+      message(STATUS "Bootstrapping vcpkg before install - done")
+    else()
+      message(STATUS "Bootstrapping vcpkg before install - failed")
+      message(FATAL_ERROR "vcpkg install failed. See logs for more information: ${Z_VCPKG_BOOTSTRAP_LOG}")
+    endif()
+  endif()
+
+  execute_process(
+    COMMAND ${Z_VCPKG_EXECUTABLE} fetch nuget
+    OUTPUT_VARIABLE NUGET_PATH)
+
+  execute_process(
+    COMMAND ${_VCPKG_MONO} ${NUGET_PATH} add source --username ${NUGET_USERNAME} --password ${NUGET_TOKEN} --store-password-in-clear-text --name github ${NUGET_SOURCE})
+
+  set(ENV{VCPKG_BINARY_SOURCES} "$ENV{VCPKG_BINARY_SOURCES};nugetconfig,${_CONFIG_PATH_NATIVE},readwrite")
+  #  _qfield_vcpkg_setup_binarycache(NAME mainline PREFIX NUGET)
 endif()
 
 set(SYSTEM_QT OFF CACHE BOOL "Determines if system Qt libraries should be used or Qt should be built from source.")
