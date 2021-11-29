@@ -80,6 +80,7 @@ jobs:
           echo "VCPKG_ROOT=${BUILD_ROOT}/src" >> $GITHUB_ENV
           echo "CMAKE_BUILD_DIR=${BUILD_ROOT}/builddir" >> $GITHUB_ENV
           echo "VCPKG_DEFAULT_BINARY_CACHE=${BUILD_ROOT}/vcpkg_cache" >> $GITHUB_ENV
+          mkdir -p "${BUILD_ROOT}/vcpkg_cache"
 
       - name: 🐩 Install CMake and Ninja
         uses: lukka/get-cmake@latest
