@@ -1,6 +1,6 @@
 find_program(LINUXDEPLOY_EXECUTABLE linuxdeploy linuxdeploy-x86_64.AppImage)
-find_program(MACDEPLOYQT_EXECUTABLE macdeployqt HINTS "${_qt_bin_dir}")
-find_program(ANDROIDDEPLOYQT_EXECUTABLE androiddeployqt HINTS "${_qt_bin_dir}")
+find_program(MACDEPLOYQT_EXECUTABLE macdeployqt HINTS "$ENV{Qt5_DIR}/bin")
+find_program(ANDROIDDEPLOYQT_EXECUTABLE androiddeployqt HINTS "$ENV{Qt5_DIR}/bin")
 
 set(CPACK_GENERATOR)
 set(CPACK_PACKAGE_EXECUTABLES qfield;QField)
