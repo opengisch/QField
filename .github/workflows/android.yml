@@ -110,14 +110,14 @@ jobs:
         shell: bash
         run: |
           ${{ steps.vars.outputs.VCPKG_ROOT }}/vcpkg fetch nuget
-          ${{ steps.vars.outputs.MONO }} $(${{ steps.vars.outputs.VCPKG_ROOT }}/vcpkg fetch nuget | tail -n 1) \
+          mono $(${{ steps.vars.outputs.VCPKG_ROOT }}/vcpkg fetch nuget | tail -n 1) \
           sources add \
           -source "https://nuget.pkg.github.com/opengisch/index.json" \
           -storepasswordincleartext \
           -name "GitHub" \
           -username "opengisch" \
           -password "${{ secrets.GITHUB_TOKEN }}"
-          ${{ steps.vars.outputs.MONO }} $(${{ steps.vars.outputs.VCPKG_ROOT }}/vcpkg fetch nuget | tail -n 1) \
+          mono $(${{ steps.vars.outputs.VCPKG_ROOT }}/vcpkg fetch nuget | tail -n 1) \
           setapikey ${{ secrets.GITHUB_TOKEN }} -src "https://nuget.pkg.github.com/opengisch/index.json"
 
       - name: 🔥 Free additional space
