@@ -201,7 +201,9 @@ jobs:
         if: failure()
         with:
           name: build-logs-${{ matrix.triplet }}
-          path: ${{ steps.vars.outputs.VCPKG_ROOT }}/buildtrees/**/*.log
+          path: |
+            ${{ env.CMAKE_BUILD_DIR }}/vcpkg-manifest-install.log
+            ${{ steps.vars.outputs.VCPKG_ROOT }}/buildtrees/**/*.log
 
       - name: 🌋 Build
         run: |
