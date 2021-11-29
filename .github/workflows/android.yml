@@ -202,6 +202,13 @@ jobs:
                 -DANDROID_TARGET_PLATFORM=${{ env.ANDROID_TARGET_PLATFORM}} \
                 ${EXTRA_CMAKE_ARGS}
 
+
+      - name: Setup tmate session
+        if: always()
+        uses: mxschmitt/action-tmate@v3
+        with:
+          limit-access-to-actor: true
+
       - name: 📑 Upload Dep Build Logs
         uses: actions/upload-artifact@v2
         if: failure()
