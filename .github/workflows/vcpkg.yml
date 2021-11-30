@@ -73,11 +73,9 @@ jobs:
               ;;
           esac
 
-          echo "::set-output name=VCPKG_ROOT::${BUILD_ROOT}/src"
           echo "::set-output name=BUILD_TYPE::Release"
           echo "::set-output name=BUILD_ROOT::${BUILD_ROOT}"
 
-          echo "VCPKG_ROOT=${BUILD_ROOT}/src" >> $GITHUB_ENV
           echo "CMAKE_BUILD_DIR=${BUILD_ROOT}/builddir" >> $GITHUB_ENV
           echo "VCPKG_DEFAULT_BINARY_CACHE=${BUILD_ROOT}/vcpkg_cache" >> $GITHUB_ENV
           mkdir -p "${BUILD_ROOT}/vcpkg_cache"
@@ -184,7 +182,6 @@ jobs:
         run: |
           # Convert paths to bash compatible ones. Thanks to whoever decided to use drive letters and backslashes.
           CMAKE_BUILD_DIR=$( ${{ steps.vars.outputs.PATHCONVERT }} "${CMAKE_BUILD_DIR}" )
-          VCPKG_ROOT=$( ${{ steps.vars.outputs.PATHCONVERT }} "${VCPKG_ROOT}" )
           SOURCE_DIR=$( ${{ steps.vars.outputs.PATHCONVERT }} "${WORKSPACE}" )
 
           source ./scripts/version_number.sh
@@ -219,7 +216,6 @@ jobs:
           name: build-logs-${{ matrix.triplet }}
           path: |
             ${{ env.CMAKE_BUILD_DIR }}/vcpkg-manifest-install.log
-            ${{ steps.vars.outputs.VCPKG_ROOT }}/buildtrees/**/*.log
 
       - name: 🌋 Build
         run: |
