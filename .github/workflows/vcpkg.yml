@@ -89,6 +89,15 @@ jobs:
         uses: ilammy/msvc-dev-cmd@v1
         if: ${{ matrix.os == 'windows-2019' }}
 
+      - name: 📫 Cache vcpkg
+        id: cache-vcpkg-tool
+        uses: pat-s/always-upload-cache@v2.1.5
+        with:
+          path: |
+            ${{ github.workspace }}/vcpkg/base/vcpkg
+            ${{ github.workspace }}/vcpkg/base/vcpkg.exe
+          key: ${{ runner.os }}-${{ hashFiles('.git/modules/vcpkg/HEAD') }}-x
+
       - name: 🔥 Free additional space
         if: ${{ matrix.triplet == 'x64-linux' }}
         run: |
