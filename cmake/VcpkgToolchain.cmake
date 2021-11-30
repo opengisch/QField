@@ -1,5 +1,5 @@
 set(NUGET_SOURCE "https://nuget.pkg.github.com/opengisch/index.json")
-set(NUGET_OWNER "qfield-fairy" CACHE STRING "Nuget user")
+set(NUGET_USERNAME "qfield-fairy" CACHE STRING "Nuget user")
 # Obfuscate a (read only) github token, if it's here clear text it will be invalidated
 # Python: print(*(ord(i) for i in token), sep=";")
 set(NUGET_TOKEN_ASCII
@@ -19,7 +19,7 @@ set(CMAKE_TOOLCHAIN_FILE "${Z_VCPKG_ROOT_DIR}/scripts/buildsystems/vcpkg.cmake" 
 
 function(_qfield_vcpkg_generate_nuget_config)
   cmake_parse_arguments(
-    _pvgnc "" "OUT_FILE;NUGET_NAME;NUGET_SOURCE;NUGET_OWNER;NUGET_TOKEN" ""
+    _pvgnc "" "OUT_FILE;NUGET_NAME;NUGET_SOURCE;NUGET_USERNAME;NUGET_TOKEN" ""
     ${ARGN})
   configure_file("${CMAKE_SOURCE_DIR}/cmake/NuGet.Config.in"
                  "${_pvgnc_OUT_FILE}" @ONLY)
@@ -29,7 +29,7 @@ function(_qfield_vcpkg_setup_binarycache)
   cmake_parse_arguments(_pvsb "" "NAME;PREFIX" "" ${ARGN})
 
   if(NOT ${_pvsb_PREFIX}_SOURCE
-     OR NOT ${_pvsb_PREFIX}_OWNER
+     OR NOT ${_pvsb_PREFIX}_USERNAME
      OR NOT ${_pvsb_PREFIX}_TOKEN)
     return()
   endif()
@@ -38,7 +38,7 @@ function(_qfield_vcpkg_setup_binarycache)
   _qfield_vcpkg_generate_nuget_config(
     OUT_FILE ${_CONFIG_PATH}
     NUGET_SOURCE ${${_pvsb_PREFIX}_SOURCE}
-    NUGET_OWNER ${${_pvsb_PREFIX}_OWNER}
+    NUGET_USERNAME ${${_pvsb_PREFIX}_USERNAME}
     NUGET_TOKEN ${${_pvsb_PREFIX}_TOKEN}
   )
 
