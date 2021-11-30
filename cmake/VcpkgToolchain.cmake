@@ -102,10 +102,12 @@ endif()
 list(APPEND VCPKG_OVERLAY_PORTS "${CMAKE_SOURCE_DIR}/vcpkg/overlay")
 # list(APPEND VCPKG_OVERLAY_TRIPLETS "${CMAKE_SOURCE_DIR}/vcpkg/triplets")
 
-# With Xcode 12, a new toolset is used. We use the old one because
-# with the new one the build fails if spix is enabled
-set(CMAKE_GENERATOR_TOOLSET 1)
-set(USE_MAC_BUNDLING OFF)
+if(APPLE)
+  # With Xcode 12, a new toolset is used. We use the old one because
+  # with the new one the build fails if spix is enabled
+  set(CMAKE_GENERATOR_TOOLSET 1)
+  set(USE_MAC_BUNDLING OFF)
+endif()
 
 # Copies DLLs built by vcpkg when an install() command is run. Probably only
 # works on Windows.
