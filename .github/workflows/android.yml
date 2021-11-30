@@ -165,7 +165,6 @@ jobs:
         shell: bash
         env:
           WORKSPACE: ${{ github.workspace }}
-          VCPKG_BINARY_SOURCES: 'clear;nuget,GitHub,readwrite'
           Qt5Core_ROOT: ${{ env.Qt5_DIR }}
           ARCH: ${{ matrix.triplet }}
         run: |
