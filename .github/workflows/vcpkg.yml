@@ -155,7 +155,7 @@ jobs:
           if [[ -z "${TX_TOKEN}" ]]; then
             echo "TX_TOKEN not set, skip tx pull"
           else
-            pip install transifex-client>=0.14.3
+            pip install transifex-client
             ./scripts/ci/pull_translations.sh
           fi
 
@@ -187,14 +187,14 @@ jobs:
                 -DCMAKE_BUILD_TYPE=${{ steps.vars.outputs.BUILD_TYPE }} \
                 -DSYSTEM_QT=${{ env.SYSTEM_QT }} \
                 -DVCPKG_TARGET_TRIPLET="${{ matrix.triplet }}" \
-                -DWITH_VCPKG=ON \
-                -DNUGET_OWNER=opengisch \
-                -DNUGET_TOKEN=${{ secrets.GITHUB_TOKEN }} \
                 -DWITH_SPIX=ON \
                 -DAPP_VERSION="${APP_VERSION}" \
                 -DAPP_VERSION_STR="${APP_VERSION_STR}" \
                 -DAPP_PACKAGE_NAME="${APP_PACKAGE_NAME}" \
                 -DENABLE_TESTS=ON \
+                -DWITH_VCPKG=ON \
+                -DNUGET_OWNER=opengisch \
+                -DNUGET_TOKEN=${{ secrets.GITHUB_TOKEN }} \
                 ${EXTRA_CMAKE_ARGS}
 
       - name: 📑 Upload Dep Build Logs
