@@ -43,7 +43,7 @@ function(_qfield_vcpkg_setup_binarycache)
   )
 
   file(TO_NATIVE_PATH "${_CONFIG_PATH}" _CONFIG_PATH_NATIVE)
-  set(ENV{VCPKG_BINARY_SOURCES} "$ENV{VCPKG_BINARY_SOURCES};nugetconfig,${_CONFIG_PATH_NATIVE},readwrite")
+  set(ENV{VCPKG_BINARY_SOURCES} "$ENV{VCPKG_BINARY_SOURCES};nuget,${_CONFIG_PATH_NATIVE},readwrite")
 endfunction()
 
 # Binarycache can only be used on Windows or if mono is available.
