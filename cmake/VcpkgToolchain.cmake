@@ -80,7 +80,11 @@ if(_HOST_IS_WINDOWS OR EXISTS "${_VCPKG_MONO}")
   execute_process(
     COMMAND ${Z_VCPKG_EXECUTABLE} fetch nuget
     OUTPUT_STRIP_TRAILING_WHITESPACE
-    OUTPUT_VARIABLE NUGET_PATH)
+    OUTPUT_VARIABLE FETCH_NUGET_OUTPUT)
+
+  STRING(REGEX REPLACE "\n" ";" FETCH_NUGET_OUTPUT "${FETCH_NUGET_OUTPUT}")
+  list(GET FETCH_NUGET_OUTPUT -1 NUGET_PATH)
+
 
   execute_process(
     COMMAND ${_VCPKG_MONO} ${NUGET_PATH} sources add -source "${NUGET_SOURCE}" -username "${NUGET_USERNAME}" -password "${NUGET_TOKEN}" -storepasswordincleartext -name "github")
