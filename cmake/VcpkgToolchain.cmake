@@ -84,6 +84,8 @@ if(_HOST_IS_WINDOWS OR EXISTS "${_VCPKG_MONO}")
 
   execute_process(
     COMMAND ${_VCPKG_MONO} ${NUGET_PATH} sources add -source "${NUGET_SOURCE}" -username "${NUGET_USERNAME}" -password "${NUGET_TOKEN}" -storepasswordincleartext -name "github")
+  execute_process(
+    COMMAND ${_VCPKG_MONO} ${NUGET_PATH} setapikey "${NUGET_TOKEN}" -src "https://nuget.pkg.github.com/opengisch/index.json")
 
   set(ENV{VCPKG_BINARY_SOURCES} "$ENV{VCPKG_BINARY_SOURCES};nuget,github,readwrite")
   #  _qfield_vcpkg_setup_binarycache(NAME mainline PREFIX NUGET)
