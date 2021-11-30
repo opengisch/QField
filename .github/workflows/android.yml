@@ -63,62 +63,23 @@ jobs:
           echo "::set-output name=PATHCONVERT::echo"
           echo "::set-output name=INSTALL_QT::true"
           echo "::set-output name=QT_TARGET::android"
-          echo "::set-output name=VCPKG_ROOT::${BUILD_ROOT}/src"
           echo "::set-output name=BUILD_TYPE::Release"
           echo "::set-output name=BUILD_ROOT::${BUILD_ROOT}"
 
-          echo "VCPKG_ROOT=${BUILD_ROOT}/src" >> $GITHUB_ENV
           echo "CMAKE_BUILD_DIR=${BUILD_ROOT}/builddir" >> $GITHUB_ENV
           echo "VCPKG_DEFAULT_BINARY_CACHE=${BUILD_ROOT}/vcpkg_cache" >> $GITHUB_ENV
 
       - name: 🐩 Install CMake and Ninja
         uses: lukka/get-cmake@latest
 
-      - name: 📪 Clone vcpkg
-        shell: bash
-        run: |
-          VCPKG_SHA=$(head -1 .git/modules/vcpkg/HEAD)
-          mkdir -p "${{ env.VCPKG_DEFAULT_BINARY_CACHE }}"
-          mkdir -p "${{ steps.vars.outputs.VCPKG_ROOT }}"
-          cd "${{ steps.vars.outputs.VCPKG_ROOT }}"
-          git init
-          git remote add origin https://github.com/microsoft/vcpkg.git
-          git fetch --depth 1 origin $VCPKG_SHA
-          git checkout FETCH_HEAD
-
       - name: 📫 Cache vcpkg
         id: cache-vcpkg-tool
         uses: pat-s/always-upload-cache@v2.1.5
         with:
           path: |
-            ${{ steps.vars.outputs.VCPKG_ROOT }}/vcpkg
-            ${{ steps.vars.outputs.VCPKG_ROOT }}/vcpkg.exe
-          key: ${{ runner.os }}-${{ hashFiles('.git/modules/vcpkg/HEAD') }}-x
-
-      - name: 📬 Bootstrap vcpkg
-        if: steps.cache-vcpkg-tool.outputs.cache-hit != 'true'
-        shell: bash
-        working-directory: ${{ steps.vars.outputs.VCPKG_ROOT }}
-        run: |
-          if grep -qEi "(Microsoft|WSL)" /proc/version &> /dev/null ; then
-            ./bootstrap-vcpkg.bat
-          else
-            ./bootstrap-vcpkg.sh
-          fi
-
-      - name: 🔐 Setup NuGet Credentials
-        shell: bash
-        run: |
-          ${{ steps.vars.outputs.VCPKG_ROOT }}/vcpkg fetch nuget
-          mono $(${{ steps.vars.outputs.VCPKG_ROOT }}/vcpkg fetch nuget | tail -n 1) \
-          sources add \
-          -source "https://nuget.pkg.github.com/opengisch/index.json" \
-          -storepasswordincleartext \
-          -name "GitHub" \
-          -username "opengisch" \
-          -password "${{ secrets.GITHUB_TOKEN }}"
-          mono $(${{ steps.vars.outputs.VCPKG_ROOT }}/vcpkg fetch nuget | tail -n 1) \
-          setapikey ${{ secrets.GITHUB_TOKEN }} -src "https://nuget.pkg.github.com/opengisch/index.json"
+            ${{ github.workspace }}/vcpkg/base/vcpkg
+            ${{ github.workspace }}/vcpkg/base/vcpkg.exe
+          key: ${{ runner.os }}-${{ hashFiles('.git/modules/vcpkg/HEAD') }}
 
       - name: 🔥 Free additional space
         run: |
@@ -170,7 +131,6 @@ jobs:
         run: |
           # Convert paths to bash compatible ones. Thanks to whoever decided to use drive letters and backslashes.
           CMAKE_BUILD_DIR=$( ${{ steps.vars.outputs.PATHCONVERT }} "${CMAKE_BUILD_DIR}" )
-          VCPKG_ROOT=$( ${{ steps.vars.outputs.PATHCONVERT }} "${VCPKG_ROOT}" )
           SOURCE_DIR=$( ${{ steps.vars.outputs.PATHCONVERT }} "${WORKSPACE}" )
 
           source ./scripts/version_number.sh
@@ -199,18 +159,13 @@ jobs:
                 ${EXTRA_CMAKE_ARGS}
 
 
-      - name: Setup tmate session
-        if: always()
-        uses: mxschmitt/action-tmate@v3
-        with:
-          limit-access-to-actor: true
-
       - name: 📑 Upload Dep Build Logs
         uses: actions/upload-artifact@v2
         if: failure()
         with:
           name: build-logs-${{ matrix.triplet }}
-          path: ${{ steps.vars.outputs.VCPKG_ROOT }}/buildtrees/**/*.log
+          path: |
+            ${{ env.CMAKE_BUILD_DIR }}/vcpkg-manifest-install.log
 
       - name: 🌋 Build
         run: |
