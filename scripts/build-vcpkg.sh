@@ -6,12 +6,8 @@ cd /usr/src/qfield || exit
 
 CMAKE_BUILD_DIR=/usr/src/qfield/build-${triplet}
 
-./vcpkg/base/bootstrap-vcpkg.sh
-pip3 install aqtinstall
-/home/devel/.local/bin/aqt install-qt linux android 5.14.2 -m qtcharts
-
 export ANDROID_NDK_HOME=/home/devel/android/ndk/21.4.7075529/
-export Qt5_DIR=/usr/src/qfield/5.14.2/android/
+export Qt5_DIR=/home/devel/5.14.2/android/
 export ANDROID_PLATFORM=21
 export ANDROID_TARGET_PLATFORM=30
 
@@ -59,7 +55,9 @@ cmake -S "${SOURCE_DIR}" \
       -DVCPKG_CHAINLOAD_TOOLCHAIN_FILE=${ANDROID_NDK_HOME}/build/cmake/android.toolchain.cmake \
       -DANDROID_ABI=${ABI} \
       -DANDROID_PLATFORM=${ANDROID_PLATFORM} \
-      -DANDROID_TARGET_PLATFORM=${ANDROID_TARGET_PLATFORM}
+      -DANDROID_TARGET_PLATFORM=${ANDROID_TARGET_PLATFORM} \
+      -DNUGET_TOKEN=${NUGET_TOKEN} \
+      -DNUGET_TOKEN=${NUGET_USERNAME}
 
 # Build app
 cmake --build "${CMAKE_BUILD_DIR}"

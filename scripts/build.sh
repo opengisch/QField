@@ -22,5 +22,9 @@ docker run --rm \
   -e APP_VERSION \
   -e APP_VERSION_STR \
   -e APK_VERSION_CODE \
+  -e NUGET_TOKEN \
+  -e NUGET_USERNAME \
+  -e USER_GID=$(stat -c "%g" .) \
+  -e USER_UID=$(stat -c "%u" .) \
   qfield_and_dev \
-  /usr/src/qfield/scripts/build-vcpkg.sh
+  /usr/src/qfield/scripts/vcpkg-build.sh

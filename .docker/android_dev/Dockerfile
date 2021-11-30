@@ -19,3 +19,7 @@ RUN apt-get update && \
     jq \
     && \
   rm -rf /var/lib/apt/lists/*
+WORKDIR /home/devel
+RUN pip3 install aqtinstall && \
+    /usr/local/bin/aqt install-qt linux android 5.14.2 -m qtcharts
+
