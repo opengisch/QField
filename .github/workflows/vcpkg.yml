@@ -56,7 +56,6 @@ jobs:
 
             x64-linux)
               BUILD_ROOT="/home/runner"
-              echo "::set-output name=SYSTEM_QT::ON"
               echo "::set-output name=PATHCONVERT::echo"
               echo "::set-output name=INSTALL_QT::true"
               echo "::set-output name=QT_TARGET::desktop"
@@ -65,7 +64,6 @@ jobs:
 
             x64-osx)
               BUILD_ROOT="/Users/runner"
-              echo "::set-output name=SYSTEM_QT::ON"
               echo "::set-output name=PATHCONVERT::echo"
               echo "::set-output name=INSTALL_QT::true"
               echo "::set-output name=QT_TARGET::desktop"
@@ -190,7 +188,7 @@ jobs:
           cmake -S "${SOURCE_DIR}" \
                 -B "${CMAKE_BUILD_DIR}" \
                 -DCMAKE_BUILD_TYPE=${{ steps.vars.outputs.BUILD_TYPE }} \
-                -DSYSTEM_QT=${{ env.SYSTEM_QT }} \
+                -DSYSTEM_QT=${{ steps.vars.outputs.INSTALL_QT }} \
                 -DVCPKG_TARGET_TRIPLET="${{ matrix.triplet }}" \
                 -DWITH_VCPKG=ON \
                 -DWITH_SPIX=ON \
