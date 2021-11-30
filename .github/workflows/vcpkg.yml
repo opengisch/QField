@@ -201,7 +201,7 @@ jobs:
                 -DAPP_PACKAGE_NAME="${APP_PACKAGE_NAME}" \
                 -DENABLE_TESTS=ON \
                 -DWITH_VCPKG=ON \
-                -DNUGET_OWNER=opengisch \
+                -DNUGET_USERNAME=opengisch \
                 -DNUGET_TOKEN=${{ secrets.GITHUB_TOKEN }} \
                 ${EXTRA_CMAKE_ARGS}
 

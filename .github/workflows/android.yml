@@ -191,7 +191,7 @@ jobs:
                 -DAPP_ICON="${APP_ICON}" \
                 -DAPP_NAME="${APP_NAME}" \
                 -DVCPKG_CHAINLOAD_TOOLCHAIN_FILE=${ANDROID_NDK_HOME}/build/cmake/android.toolchain.cmake \
-                -DNUGET_OWNER=opengisch \
+                -DNUGET_USERNAME=opengisch \
                 -DNUGET_TOKEN=${{ secrets.GITHUB_TOKEN }} \
                 -DANDROID_ABI=${{ steps.vars.outputs.ABI }} \
                 -DANDROID_PLATFORM=${{ env.ANDROID_PLATFORM }} \
