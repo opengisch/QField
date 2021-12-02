@@ -27,4 +27,4 @@ docker run --rm \
   -e USER_GID=$(stat -c "%g" .) \
   -e USER_UID=$(stat -c "%u" .) \
   qfield_and_dev \
-  /usr/src/qfield/scripts/vcpkg-build.sh
+  /usr/src/qfield/scripts/build-vcpkg.sh
