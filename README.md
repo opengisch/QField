@@ -60,54 +60,29 @@ You can build QField for Android using our Docker image. Just execute the provid
 
 This will put the apk into a subfolder `build-docker/out/build-arm64_v8a/outputs/apk`
 
-If you want to build for a different architecture, set the ARCH enviroment variable.
+If you want to build for a different architecture, set the `triplet` enviroment variable.
 
 ```
-ARCH=x86_64 ./scripts/build.sh
+triplet=arm-android ./scripts/build.sh
 ```
 
-#### Manual (Qt Creator)
+Supported triplets are:
 
-You need to have Qt for Android installed and Qt Creator set up for Android development as in [Qt documentation](https://doc.qt.io/qt-5/android-getting-started.html).
-
-To setup QField for development in Qt Creator, do as follows:
-
-- Download the latest version of QField SDK from [here](https://github.com/opengisch/OSGeo4A/releases) and extract it.
-- In Qt Creator, import the source tree, enable Android kit and in initial CMake parameters, set `OSGEO4A_STAGE_DIR` to where you have extracted QField SDK to.
-- Set `ANDROID_TARGET_PLATFORM` to an Android target platform version number of your choice. If in doubt, set it to the version of the SDK platform that you're going to use to build QField.
-- Configure the project and build.
-
-Please note that you may get SIGILL when trying to debug QField using GDB. If that's the case, set this startup command for GDB in Qt Creator settings:
-
-```
-handle SIGILL pass nostop noprint
-```
+ - `arm64-android`
+ - `arm-android`
+ - `x64-android`
+ - `x86-android`
 
 ### For iOs
 
-- [x] Build sdk in cloud
-- [x] Simplify framework linking
-- [ ] Dedicated Info.plist.in
-- [x] Icon folder
-- [x] LaunchScreen.storyboard
-- [ ] Update https://www.opengis.ch/android-gis/qfield/donate-and-sponsor/ in About.qml to https://www.opengis.ch/projects/qfield-love/
+[documentation to do]
 
 ### For Desktop
 
-To build QField for a desktop environment:
+- Install QGIS development libraries.
+  QField often requires QGIS nightly builds. You can also compile it on your own and install to a custom prefix path. See more about QGIS compilation [here](https://github.com/qgis/QGIS/blob/master/INSTALL.md).
 
-* Get QGIS development libraries. QField normally uses bleeding edge QGIS code. Ideally install nightly builds or compile it on your own and install to a custom prefix path. See more about QGIS compilation [here](https://github.com/qgis/QGIS/blob/master/INSTALL.md).
-* If your system comes with a Qt version which is too low for QField, you can also install Qt manually. Download the most recent Qt 5.x version from the [Qt Website](https://www.qt.io/download) to satisfy QField dependencies. Setup a new QtCreator kit that uses the downloaded Qt libs.
-* Get QField source code:
-
-```sh
-cd QField
-```
-
- * Open `CMakeList.txt` with QtCreator.
- * Hit build
-
-(??)If you make your own QGIS build, use the following variables: `QGIS_ANALYSIS_LIBRARY`, `QGIS_CORE_LIBRARY`, `QGIS_INCLUDE_DIR`, and `QGIS_PLUGIN_DIR`.
+- If you have QGIS installed into a custom prefix path, provide this as `-DQGIS_PREFIX_PATH=[path]` to cmake
 
 ### On OS X
 
