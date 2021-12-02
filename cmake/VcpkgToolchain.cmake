@@ -69,20 +69,6 @@ if(_HOST_IS_WINDOWS OR EXISTS "${_VCPKG_MONO}")
     "${CMAKE_SOURCE_DIR}/cmake/NuGet.Config.in"
     "${_CONFIG_PATH}"
     @ONLY)
-  #  execute_process(
-  #    COMMAND ${_NUGET_EXE} sources add -source "${NUGET_SOURCE}" -username "${NUGET_USERNAME}" -password "${NUGET_TOKEN}" -storepasswordincleartext -name "github" -configfile ${_CONFIG_PATH}
-  #    OUTPUT_VARIABLE _OUTPUT
-  #    ERROR_VARIABLE _ERROR
-  #    RESULT_VARIABLE _RESULT)
-  #  if(_RESULT EQUAL 0)
-  #    message(STATUS "Setup nuget source [github] - done")
-  #  else()
-  #    message(STATUS "Setup nuget source [github] - failed")
-  #    message(STATUS "Output:")
-  #    message(STATUS ${_OUTPUT})
-  #    message(STATUS "Error:")
-  #    message(STATUS ${_ERROR})
-  #  endif()
   execute_process(
     COMMAND ${_NUGET_EXE} setapikey "${NUGET_TOKEN}" -src "https://nuget.pkg.github.com/opengisch/index.json" -configfile ${_CONFIG_PATH}
     OUTPUT_VARIABLE _OUTPUT
