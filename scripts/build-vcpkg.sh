@@ -46,7 +46,7 @@ cmake -S "${SOURCE_DIR}" \
       -DVCPKG_TARGET_TRIPLET="${triplet}" \
       -DWITH_VCPKG=ON \
       -DWITH_SPIX=OFF \
-      -DAPP_VERSION="${APP_VERSION}" \
+      -DAPP_VERSION="v1.0.0" \
       -DAPK_VERSION_CODE="${APK_VERSION_CODE}" \
       -DAPP_VERSION_STR="${APP_VERSION_STR}" \
       -DAPP_PACKAGE_NAME="${APP_PACKAGE_NAME}" \
