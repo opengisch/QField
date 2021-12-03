@@ -3,4 +3,4 @@
 	url = https://github.com/microsoft/vcpkg.git
 [submodule "platform/android/openssl"]
 	path = platform/android/openssl
-	url = git@github.com:KDAB/android_openssl.git
+	url = https://github.com/KDAB/android_openssl.git
