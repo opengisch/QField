@@ -102,8 +102,7 @@ if (ANDROID)
 endif()
 
 set(QT_MIN_VERSION 5.14.0)
-# TODO Check if MultimediaQuick is sufficient
-find_package(Qt5 COMPONENTS Concurrent Core Qml Gui Xml Positioning Widgets Network Quick Svg OpenGL Sql Sensors WebView Bluetooth Multimedia REQUIRED)
+find_package(Qt5 COMPONENTS Concurrent Core Qml Gui Xml Positioning Widgets Network Quick Svg OpenGL Sql Sensors WebView Bluetooth MultimediaQuick REQUIRED)
 
 # PrintSupport isn't required, because it doesn't exist for ios
 # qgis will deal with it an define a public 'QT_NO_PRINTER'
