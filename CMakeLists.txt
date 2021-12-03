@@ -97,9 +97,6 @@ if (ANDROID)
   file(REMOVE "${SHARE_PATH}/qgis/resources/data/world_map.gpkg")
   file(COPY resources/ DESTINATION "${SHARE_PATH}/qfield/")
 
-  # We use GDAL in OSGeo4A instead
-  set(ENV{GDAL_ROOT} ${OSGEO4A_STAGE_DIR}/${ANDROID_ABI})
-
   # Don't do tests when building for Android
   set(ENABLE_TESTS FALSE)
 endif()
