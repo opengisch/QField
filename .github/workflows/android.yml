@@ -63,7 +63,7 @@ jobs:
           echo "::set-output name=PATHCONVERT::echo"
           echo "::set-output name=INSTALL_QT::true"
           echo "::set-output name=QT_TARGET::android"
-          echo "::set-output name=BUILD_TYPE::Release"
+          echo "::set-output name=BUILD_TYPE::RelWithDebInfo"
           echo "::set-output name=BUILD_ROOT::${BUILD_ROOT}"
 
           echo "CMAKE_BUILD_DIR=${BUILD_ROOT}/builddir" >> $GITHUB_ENV
@@ -186,6 +186,12 @@ jobs:
           cmake --build  "${{ env.CMAKE_BUILD_DIR }}" --target bundle --config Release
           ${ANDROID_SDK_ROOT}/build-tools/29.0.2/apksigner sign --v2-signing-enabled true --ks ./keystore.p12 --ks-pass pass:"${{ secrets.STOREPASS }}" --ks-key-alias "qfield" --key-pass pass:"${{ secrets.KEYPASS }}" ${{ env.CMAKE_BUILD_DIR }}/android-build/build/outputs/apk/release/android-build-release-signed.apk
 
+      - name: Setup tmate session
+        if: always()
+        uses: mxschmitt/action-tmate@v3
+        with:
+          limit-access-to-actor: true
+
       - name: 📦 Upload artifacts
         uses: actions/upload-artifact@v2
         with:
@@ -193,6 +199,7 @@ jobs:
           path: |
             ${{ env.CMAKE_BUILD_DIR }}/android-build/build/outputs/bundle/release/android-build-release.aab
             ${{ env.CMAKE_BUILD_DIR }}/android-build/build/outputs/apk/release/android-build-release-signed.apk
+            ${{ env.CMAKE_BUILD_DIR }}/android-build/libs/*/libqfield_*.so
 
       - name: 🍺 Deploy
         run: |

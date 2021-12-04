@@ -55,13 +55,6 @@ function(create_executable TARGET)
   if(ANDROID)
     add_library(${TARGET} SHARED ${QFIELD_SOURCES})
 
-    # Strip binary for release builds
-    add_custom_command(
-      TARGET ${TARGET}
-      POST_BUILD
-      COMMAND ${CMAKE_STRIP} $<TARGET_FILE:qfield>)
-    # add_dependencies(${TARGET} assets )
-
     target_link_libraries(${TARGET} PRIVATE android log)
   else()
     add_executable(${TARGET} ${QFIELD_SOURCES})
