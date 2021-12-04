@@ -141,7 +141,6 @@ jobs:
                 -DCMAKE_BUILD_TYPE=${{ steps.vars.outputs.BUILD_TYPE }} \
                 -DSYSTEM_QT=ON \
                 -DVCPKG_TARGET_TRIPLET="${{ matrix.triplet }}" \
-                -DWITH_VCPKG=ON \
                 -DWITH_SPIX=OFF \
                 -DAPP_VERSION="${APP_VERSION}" \
                 -DAPK_VERSION_CODE="${APK_VERSION_CODE}" \
@@ -149,7 +148,6 @@ jobs:
                 -DAPP_PACKAGE_NAME="${APP_PACKAGE_NAME}" \
                 -DAPP_ICON="${APP_ICON}" \
                 -DAPP_NAME="${APP_NAME}" \
-                -DVCPKG_CHAINLOAD_TOOLCHAIN_FILE=${ANDROID_NDK_HOME}/build/cmake/android.toolchain.cmake \
                 -DNUGET_USERNAME=opengisch \
                 -DNUGET_TOKEN=${{ secrets.GITHUB_TOKEN }} \
                 -DANDROID_ABI=${{ steps.vars.outputs.ABI }} \
@@ -169,6 +167,7 @@ jobs:
       - name: 🌋 Build
         run: |
           cmake --build "${{ env.CMAKE_BUILD_DIR }}" --config ${{ steps.vars.outputs.BUILD_TYPE }} # --target qfield
+
 
       - name: Setup signing key
         env:
