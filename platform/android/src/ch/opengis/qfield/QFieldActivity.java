@@ -211,7 +211,7 @@ public class QFieldActivity extends QtActivity {
                             Uri uri = Uri.parse("package:ch.opengis.qfield");
                             Intent intent = new Intent(
                                 Settings
-                                    .ACTION_MANAGE_ALL_FILES_ACCESS_PERMISSION,
+                                    .ACTION_MANAGE_APP_ALL_FILES_ACCESS_PERMISSION,
                                 uri);
                             startActivity(intent);
                         } catch (Exception e) {
