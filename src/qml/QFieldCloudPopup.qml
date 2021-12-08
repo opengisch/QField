@@ -581,7 +581,7 @@ Popup {
 
     if ( cloudProjectsModel.currentProjectId && cloudConnection.hasToken && cloudConnection.status === QFieldCloudConnection.Disconnected )
       cloudConnection.login();
-    else if ( cloudProjectsModel.currentProjectId != '' )
+    else if ( cloudProjectsModel.currentProjectId )
       cloudProjectsModel.refreshProjectDeltaList(cloudProjectsModel.currentProjectId)
 
     if ( cloudConnection.status === QFieldCloudConnection.Connecting )
