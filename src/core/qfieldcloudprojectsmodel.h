@@ -250,6 +250,7 @@ class QFieldCloudProjectsModel : public QAbstractListModel
     void warning( const QString &message );
     void projectDownloaded( const QString &projectId, const QString &projectName, const bool hasError, const QString &errorString = QString() );
     void projectStatusChanged( const QString &projectId, const ProjectStatus &projectStatus );
+    void deltaListModelChanged();
 
     //
     void networkDeltaUploaded( const QString &projectId );

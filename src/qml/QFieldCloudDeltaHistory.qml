@@ -17,6 +17,18 @@ Popup {
     y: (parent.height - page.height) / 2
     padding: 0
 
+    onOpened: function () {
+      page.height = mainWindow.height - 160 + 60
+
+      if ( cloudProjectsModel.currentProjectId ) {
+        cloudProjectsModel.refreshProjectDeltaList(cloudProjectsModel.currentProjectId)
+      }
+    }
+
+    onClosed: function () {
+      deltaList.model = null
+    }
+
     Page {
         id: page
         width: parent.width
@@ -35,7 +47,7 @@ Popup {
             leftPadding: 48
             rightPadding: 48
             width: parent.width - 20
-            text: qsTr( "Push History" )
+            text: !!model ? qsTr( "Push History" ) : qsTr( "Loading..." )
             font: Theme.strongFont
             color: Theme.mainColor
             horizontalAlignment: Text.AlignHCenter
@@ -64,7 +76,7 @@ Popup {
             ListView {
                 id: deltaList
                 width: parent.width
-                height: Math.min( deltaList.childrenRect.height, mainWindow.height - 160 )
+                height: mainWindow.height - 160
                 clip: true
 
                 delegate: Rectangle {

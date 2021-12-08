@@ -2118,8 +2118,6 @@ ApplicationWindow {
         displayToast(qsTr('Connecting...'))
       } else if (cloudConnection.status === QFieldCloudConnection.LoggedIn) {
         displayToast(qsTr('Logged in'))
-        if ( cloudProjectsModel.currentProjectId )
-          cloudProjectsModel.refreshProjectDeltaList(cloudProjectsModel.currentProjectId)
       }
       previousStatus = cloudConnection.status
     }
@@ -2148,6 +2146,10 @@ ApplicationWindow {
     }
 
     onWarning: displayToast( message )
+
+    onDeltaListModelChanged: function () {
+      qfieldCloudDeltaHistory.model = cloudProjectsModel.currentProjectData.DeltaList
+    }
   }
 
   QFieldCloudDeltaHistory {
