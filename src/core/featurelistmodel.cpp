@@ -277,8 +277,8 @@ void FeatureListModel::gatherFeatureList()
   }
 
   QString fieldDisplayString = displayValueIndex >= 0
-                               ? QgsExpression::quotedColumnRef( mDisplayValueField )
-                               : QStringLiteral( " ( %1 ) " ).arg( mCurrentLayer->displayExpression() );
+                                 ? QgsExpression::quotedColumnRef( mDisplayValueField )
+                                 : QStringLiteral( " ( %1 ) " ).arg( mCurrentLayer->displayExpression() );
 
   if ( !mSearchTerm.isEmpty() )
   {
@@ -352,8 +352,8 @@ void FeatureListModel::processFeatureList()
   {
     std::sort( entries.begin(), entries.end(), []( const Entry &entry1, const Entry &entry2 ) {
       return entry1.fuzzyScore == entry2.fuzzyScore
-             ? entry1.displayString.toLower() < entry2.displayString.toLower()
-             : entry1.fuzzyScore > entry2.fuzzyScore;
+               ? entry1.displayString.toLower() < entry2.displayString.toLower()
+               : entry1.fuzzyScore > entry2.fuzzyScore;
     } );
   }
 

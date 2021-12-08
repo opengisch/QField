@@ -31,8 +31,8 @@ void QFieldCloudUtils::setLocalCloudDirectory( const QString &path )
 const QString QFieldCloudUtils::localCloudDirectory()
 {
   QString cloudDirectoryPath = sLocalCloudDirectory.isNull()
-                               ? QStandardPaths::writableLocation( QStandardPaths::AppDataLocation ) + QStringLiteral( "/cloud_projects" )
-                               : sLocalCloudDirectory;
+                                 ? QStandardPaths::writableLocation( QStandardPaths::AppDataLocation ) + QStringLiteral( "/cloud_projects" )
+                                 : sLocalCloudDirectory;
   return cloudDirectoryPath;
 }
 

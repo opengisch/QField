@@ -155,8 +155,8 @@ bool OrderedRelationModel::moveItems( const int fromIdx, const int toIdx )
   for ( int i = startIdx; i <= endIdx; i++ )
   {
     int newIdx = ( i == fromIdx )
-                 ? toIdx + 1
-                 : mEntries[i].referencingFeature.attribute( orderingFieldIdx ).toInt() + delta;
+                   ? toIdx + 1
+                   : mEntries[i].referencingFeature.attribute( orderingFieldIdx ).toInt() + delta;
     bool isSuccess = referencingLayer->changeAttributeValue( mEntries[i].referencingFeature.id(), orderingFieldIdx, newIdx );
 
     if ( !isSuccess )

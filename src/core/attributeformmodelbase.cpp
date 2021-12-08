@@ -380,8 +380,8 @@ void AttributeFormModelBase::flatten( QgsAttributeEditorContainer *container, QS
         if ( field.constraints().constraints() & QgsFieldConstraints::ConstraintExpression )
         {
           descriptions << ( !field.constraints().constraintDescription().isEmpty()
-                            ? field.constraints().constraintDescription()
-                            : tr( "Expression constraint" ) );
+                              ? field.constraints().constraintDescription()
+                              : tr( "Expression constraint" ) );
         }
         if ( field.constraints().constraints() & QgsFieldConstraints::ConstraintNotNull )
         {

@@ -276,10 +276,10 @@ class QFieldCloudProjectsModel : public QAbstractListModel
     struct FileTransfer
     {
         FileTransfer(
-        const QString &fileName,
-        const long long bytesTotal,
-        NetworkReply *networkReply = nullptr,
-        const QStringList &layerIds = QStringList() )
+          const QString &fileName,
+          const long long bytesTotal,
+          NetworkReply *networkReply = nullptr,
+          const QStringList &layerIds = QStringList() )
           : fileName( fileName ), bytesTotal( bytesTotal ), networkReply( networkReply ), layerIds( layerIds ) {};
 
         FileTransfer() = default;

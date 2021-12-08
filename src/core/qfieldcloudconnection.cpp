@@ -46,20 +46,20 @@ QFieldCloudConnection::QFieldCloudConnection()
 }
 
 QMap<QString, QString> QFieldCloudConnection::sErrors = QMap<QString, QString>(
-{
-{ "unknown_error", QObject::tr( "QFieldCloud Unknown Error" ) },
-{ "status_not_ok", QObject::tr( "Status not ok" ) },
-{ "empty_content", QObject::tr( "Empty content" ) },
-{ "object_not_found", QObject::tr( "Object not found" ) },
-{ "api_error", QObject::tr( "API Error" ) },
-{ "validation_error", QObject::tr( "Validation Error" ) },
-{ "multiple_projects", QObject::tr( "Multiple Projects" ) },
-{ "invalid_deltafile", QObject::tr( "Invalid delta file" ) },
-{ "no_qgis_project", QObject::tr( "The project does not contain a valid QGIS project file" ) },
-{ "invalid_job", QObject::tr( "Invalid job" ) },
-{ "qgis_export_error", QObject::tr( "QGIS export failed" ) },
-{ "qgis_cannot_open_project", QObject::tr( "QGIS is unable to open the QGIS project" ) },
-} );
+  {
+    { "unknown_error", QObject::tr( "QFieldCloud Unknown Error" ) },
+    { "status_not_ok", QObject::tr( "Status not ok" ) },
+    { "empty_content", QObject::tr( "Empty content" ) },
+    { "object_not_found", QObject::tr( "Object not found" ) },
+    { "api_error", QObject::tr( "API Error" ) },
+    { "validation_error", QObject::tr( "Validation Error" ) },
+    { "multiple_projects", QObject::tr( "Multiple Projects" ) },
+    { "invalid_deltafile", QObject::tr( "Invalid delta file" ) },
+    { "no_qgis_project", QObject::tr( "The project does not contain a valid QGIS project file" ) },
+    { "invalid_job", QObject::tr( "Invalid job" ) },
+    { "qgis_export_error", QObject::tr( "QGIS export failed" ) },
+    { "qgis_cannot_open_project", QObject::tr( "QGIS is unable to open the QGIS project" ) },
+  } );
 
 QString QFieldCloudConnection::errorString( QNetworkReply *reply )
 {
@@ -107,8 +107,8 @@ QString QFieldCloudConnection::errorString( QNetworkReply *reply )
   const int httpCode = reply->attribute( QNetworkRequest::HttpStatusCodeAttribute ).toInt();
   QString httpErrorMessage = QStringLiteral( "[HTTP/%1] %2 " ).arg( httpCode ).arg( reply->url().toString() );
   httpErrorMessage += ( httpCode >= 400 )
-                      ? tr( "Server Error." )
-                      : tr( "Network Error." );
+                        ? tr( "Server Error." )
+                        : tr( "Network Error." );
   httpErrorMessage += payload.left( 200 );
 
   if ( payload.size() > 200 )
@@ -192,12 +192,12 @@ CloudUserInformation QFieldCloudConnection::userInformation() const
 void QFieldCloudConnection::login()
 {
   NetworkReply *reply = ( !mToken.isEmpty() && ( mPassword.isEmpty() || mUsername.isEmpty() ) )
-                        ? get( QStringLiteral( "/api/v1/auth/user/" ) )
-                        : post( QStringLiteral( "/api/v1/auth/token/" ), QVariantMap(
-                                                                         {
-                                                                         { "username", mUsername },
-                                                                         { "password", mPassword },
-                                                                         } ) );
+                          ? get( QStringLiteral( "/api/v1/auth/user/" ) )
+                          : post( QStringLiteral( "/api/v1/auth/token/" ), QVariantMap(
+                                                                             {
+                                                                               { "username", mUsername },
+                                                                               { "password", mPassword },
+                                                                             } ) );
 
   setStatus( ConnectionStatus::Connecting );
 
