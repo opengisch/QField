@@ -1108,7 +1108,6 @@ void QFieldCloudProjectsModel::refreshProjectDeltaList( const QString &projectId
     mCloudProjects[index].deltaListModel = new DeltaListModel( doc );
 
     emit dataChanged( idx, idx, QVector<int>() << DeltaListRole );
-    emit networkDeltaStatusChecked( projectId );
   } );
 }
 
