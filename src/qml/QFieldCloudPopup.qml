@@ -584,7 +584,7 @@ Popup {
     else if ( cloudProjectsModel.currentProjectId != '' )
       cloudProjectsModel.refreshProjectDeltaList(cloudProjectsModel.currentProjectId)
 
-    if ( cloudConnection.status === QFieldCloudConnection.Connectiong )
+    if ( cloudConnection.status === QFieldCloudConnection.Connecting )
       displayToast(qsTr('Connecting cloud'))
   }
 
