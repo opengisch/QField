@@ -343,7 +343,6 @@ class QFieldCloudProjectsModel : public QAbstractListModel
       QNetworkReply::NetworkError replyError;
       QString errorString;
       JobStatus status = JobPendingStatus;
-      QJsonObject lastPayload;
     };
 
     struct CloudProject

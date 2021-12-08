@@ -563,7 +563,6 @@ void QFieldCloudProjectsModel::projectGetJobStatus( const QString &projectId, co
     }
 
     project->jobs[jobType].status = jobStatus( jobStatusString );
-    project->jobs[jobType].lastPayload = payload;
 
     switch ( project->jobs[jobType].status )
     {
@@ -963,6 +962,9 @@ void QFieldCloudProjectsModel::projectDownloadFiles( const QString &projectId )
     if ( !file->open() )
     {
       project->downloadFilesFailed++;
+      projectDownloadFinished( projectId, tr( "Failed to open temporary file for \"%1\", reason:\n%2" )
+                                                     .arg( fileName )
+                                                     .arg( file->errorString() ) );
       return;
     }
 
