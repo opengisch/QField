@@ -47,7 +47,7 @@ Popup {
             leftPadding: 48
             rightPadding: 48
             width: parent.width - 20
-            text: !!model ? qsTr( "Push History" ) : qsTr( "Loading..." )
+            text: !!model ? qsTr( "Push History" ) : qsTr( "Loading…" )
             font: Theme.strongFont
             color: Theme.mainColor
             horizontalAlignment: Text.AlignHCenter
