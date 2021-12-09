@@ -239,7 +239,9 @@ Popup {
         QfCollapsibleMessage {
             id: transferError
 
-            visible: false
+            property bool hasError: false
+
+            visible: hasError && cloudProjectsModel.currentProjectData.Status === QFieldCloudProjectsModel.Idle
 
             Layout.fillWidth: true
             Layout.leftMargin: 10
@@ -254,10 +256,18 @@ Popup {
             detailsText: ''
 
             Connections {
+              target: iface
+
+              function onLoadProjectEnded() {
+                transferError.hasError = false
+              }
+            }
+
+            Connections {
               target: cloudProjectsModel
 
               function onPushFinished(projectId, hasError, errorString) {
-                transferError.visible = hasError && cloudProjectsModel.currentProjectData.Status === QFieldCloudProjectsModel.Idle;
+                transferError.hasError = hasError;
 
                 if (transferError.visible) {
                   transferError.detailsText = errorString
@@ -265,9 +275,7 @@ Popup {
               }
 
               function onProjectDownloaded(projectId, projectName, hasError, errorString) {
-                const projectData = cloudProjectsModel.getProjectData(projectId)
-
-                transferError.visible = hasError && projectData.Status === QFieldCloudProjectsModel.Idle;
+                transferError.hasError = hasError;
 
                 if (transferError.visible) {
                   transferError.detailsText = errorString
