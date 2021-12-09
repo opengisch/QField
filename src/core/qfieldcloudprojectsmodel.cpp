@@ -1085,6 +1085,13 @@ void QFieldCloudProjectsModel::refreshProjectDeltaList( const QString &projectId
 
   NetworkReply *deltaStatusReply = mCloudConnection->get( QStringLiteral( "/api/v1/deltas/%1/" ).arg( mCloudProjects[index].id ) );
 
+  if ( mCloudProjects[index].deltaListModel )
+  {
+    delete mCloudProjects[index].deltaListModel;
+    mCloudProjects[index].deltaListModel = nullptr;
+    emit deltaListModelChanged();
+  }
+
   connect( deltaStatusReply, &NetworkReply::finished, this, [=]() {
     QNetworkReply *rawReply = deltaStatusReply->reply();
     deltaStatusReply->deleteLater();
@@ -1102,13 +1109,10 @@ void QFieldCloudProjectsModel::refreshProjectDeltaList( const QString &projectId
 
     const QJsonDocument doc = QJsonDocument::fromJson( rawReply->readAll() );
 
-    if ( mCloudProjects[index].deltaListModel )
-      delete mCloudProjects[index].deltaListModel;
-
     mCloudProjects[index].deltaListModel = new DeltaListModel( doc );
 
     emit dataChanged( idx, idx, QVector<int>() << DeltaListRole );
-    emit networkDeltaStatusChecked( projectId );
+    emit deltaListModelChanged();
   } );
 }
 

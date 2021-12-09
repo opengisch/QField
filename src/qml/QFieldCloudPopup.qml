@@ -461,7 +461,6 @@ Popup {
             MouseArea {
               anchors.fill: parent
               onClicked: {
-                qfieldCloudDeltaHistory.model = cloudProjectsModel.currentProjectData.DeltaList
                 qfieldCloudDeltaHistory.open()
               }
             }
@@ -581,10 +580,8 @@ Popup {
 
     if ( cloudProjectsModel.currentProjectId && cloudConnection.hasToken && cloudConnection.status === QFieldCloudConnection.Disconnected )
       cloudConnection.login();
-    else if ( cloudProjectsModel.currentProjectId != '' )
-      cloudProjectsModel.refreshProjectDeltaList(cloudProjectsModel.currentProjectId)
 
-    if ( cloudConnection.status === QFieldCloudConnection.Connectiong )
+    if ( cloudConnection.status === QFieldCloudConnection.Connecting )
       displayToast(qsTr('Connecting cloud'))
   }
 
