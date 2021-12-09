@@ -63,6 +63,6 @@ bool StringUtils::fuzzyMatch( const QString &source, const QString &term )
   }
 
   return lastMatchedTermPartIdx >= 0 && matchedTermItems == termPartsCount
-         ? true
-         : false;
+           ? true
+           : false;
 }

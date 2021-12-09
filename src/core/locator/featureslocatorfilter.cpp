@@ -69,8 +69,8 @@ QStringList FeaturesLocatorFilter::prepare( const QString &string, const QgsLoca
     QString enhancedSearch = string;
     enhancedSearch.replace( " ", "%" );
     req.setFilterExpression( QStringLiteral( "%1 ILIKE '%%2%'" )
-                             .arg( layer->displayExpression() )
-                             .arg( enhancedSearch ) );
+                               .arg( layer->displayExpression() )
+                               .arg( enhancedSearch ) );
     req.setLimit( 30 );
 
     std::shared_ptr<PreparedLayer> preparedLayer( new PreparedLayer() );

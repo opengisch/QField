@@ -474,8 +474,8 @@ void QFieldCloudProjectsModel::projectGetPackagingStatus( const QString &project
     mCloudProjects[index].packagingStatus = packagingStatus( payload.value( QStringLiteral( "status" ) ).toString() );
 
     QgsLogger::debug( QStringLiteral( "Packaging request for \"%1\" finished with no error and status \"%2\"" )
-                      .arg( projectId )
-                      .arg( QVariant::fromValue( mCloudProjects[index].packagingStatus ).toString() ) );
+                        .arg( projectId )
+                        .arg( QVariant::fromValue( mCloudProjects[index].packagingStatus ).toString() ) );
 
     switch ( mCloudProjects[index].packagingStatus )
     {
@@ -568,8 +568,8 @@ void QFieldCloudProjectsModel::projectGetPackagingStatus( const QString &project
               QString layerStatus = layer.value( QStringLiteral( "status" ) ).toString();
 
               mCloudProjects[index].packagedLayerErrors.append( tr( "Packaged layer '%1' is not valid: '%2'" )
-                                                                .arg( layerName )
-                                                                .arg( layerStatus ) );
+                                                                  .arg( layerName )
+                                                                  .arg( layerStatus ) );
               QgsMessageLog::logMessage( mCloudProjects[index].packagedLayerErrors.last() );
 
               hasLayerExportErrror = true;
@@ -583,8 +583,8 @@ void QFieldCloudProjectsModel::projectGetPackagingStatus( const QString &project
           }
 
           QgsLogger::debug( QStringLiteral( "Packaged files to download - %1 files, namely: %2" )
-                            .arg( mCloudProjects[index].downloadFileTransfers.count() )
-                            .arg( mCloudProjects[index].downloadFileTransfers.keys().join( ", " ) ) );
+                              .arg( mCloudProjects[index].downloadFileTransfers.count() )
+                              .arg( mCloudProjects[index].downloadFileTransfers.keys().join( ", " ) ) );
 
           updateActiveProjectFilesToDownload( projectId );
           projectDownloadFiles( projectId );
@@ -691,8 +691,8 @@ void QFieldCloudProjectsModel::projectDownloadFiles( const QString &projectId )
     {
       mCloudProjects[index].downloadFilesFailed++;
       projectDownloadFinishedWithError( projectId, tr( "Failed to open temporary file for \"%1\", reason:\n%2" )
-                                                   .arg( fileName )
-                                                   .arg( file->errorString() ) );
+                                                     .arg( fileName )
+                                                     .arg( file->errorString() ) );
       return;
     }
 
@@ -871,9 +871,9 @@ void QFieldCloudProjectsModel::uploadProject( const QString &projectId, const bo
   // 1) upload the deltas
   // //////////
   NetworkReply *deltasCloudReply = mCloudConnection->post(
-  QStringLiteral( "/api/v1/deltas/%1/" ).arg( projectId ),
-  QVariantMap(),
-  QStringList( { deltaFileToUpload } ) );
+    QStringLiteral( "/api/v1/deltas/%1/" ).arg( projectId ),
+    QVariantMap(),
+    QStringList() );
 
   Q_ASSERT( deltasCloudReply );
 
@@ -1207,8 +1207,8 @@ void QFieldCloudProjectsModel::projectUploadAttachments( const QString &projectI
       {
         mCloudProjects[index].uploadAttachmentsFailed++;
         QgsMessageLog::logMessage( tr( "Failed to upload attachment stored at \"%1\", reason:\n%2" )
-                                   .arg( fileName )
-                                   .arg( QFieldCloudConnection::errorString( attachmentReply ) ) );
+                                     .arg( fileName )
+                                     .arg( QFieldCloudConnection::errorString( attachmentReply ) ) );
       }
       else
       {
@@ -1445,8 +1445,8 @@ void QFieldCloudProjectsModel::downloadFileConnections( const QString &projectId
     if ( hasError )
     {
       QString trimmedErrorMessage = errorMessageDetail.size() > 100
-                                    ? ( errorMessageDetail.left( 100 ) + tr( " (see more in the QField error log)…" ) )
-                                    : errorMessageDetail;
+                                      ? ( errorMessageDetail.left( 100 ) + tr( " (see more in the QField error log)…" ) )
+                                      : errorMessageDetail;
       mCloudProjects[index].downloadFilesFailed++;
       mCloudProjects[index].errorStatus = DownloadErrorStatus;
       mCloudProjects[index].packagingStatusString = QStringLiteral( "%1: \n%2" ).arg( errorMessageTemplate, fileName ).arg( trimmedErrorMessage );
@@ -1719,7 +1719,7 @@ QVariant QFieldCloudProjectsModel::data( const QModelIndex &index, int role ) co
       return static_cast<int>( mCloudProjects.at( index.row() ).errorStatus );
     case ErrorStringRole:
       return mCloudProjects.at( index.row() ).errorStatus == DownloadErrorStatus
-             ? mCloudProjects.at( index.row() ).packagingStatusString
+               ? mCloudProjects.at( index.row() ).packagingStatusString
              : mCloudProjects.at( index.row() ).errorStatus == UploadErrorStatus
                ? mCloudProjects.at( index.row() ).deltaFileUploadStatusString
                : QString();

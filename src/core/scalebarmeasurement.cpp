@@ -107,8 +107,8 @@ void ScaleBarMeasurement::measure()
     const double exponent = std::floor( std::log( range ) / 2.302585092994046 );
     const double magnitude = std::pow( 10, exponent );
     const double adjustedMagnitude = ( mapUnits == QgsUnitTypes::DistanceDegrees
-                                       ? magnitude / ( 1 + ( magnitude / factor ) / mReferenceScreenLength )
-                                       : magnitude / ( 1 + std::round( ( magnitude / factor ) / mReferenceScreenLength ) ) );
+                                         ? magnitude / ( 1 + ( magnitude / factor ) / mReferenceScreenLength )
+                                         : magnitude / ( 1 + std::round( ( magnitude / factor ) / mReferenceScreenLength ) ) );
     const double decimalsAdjustment = mapUnits == QgsUnitTypes::DistanceDegrees ? adjustedMagnitude < 0.01 ? 4 : 3 : 0;
 
     mScreenLength = adjustedMagnitude / factor;

@@ -129,9 +129,9 @@ void QFieldAppAuthRequestHandler::handleAuthRequest( QNetworkReply *reply, QAuth
   for ( ;; )
   {
     bool ok = QgsCredentials::instance()->get(
-    QStringLiteral( "%1 at %2" ).arg( auth->realm(), reply->url().host() ),
-    username, password,
-    QObject::tr( "Authentication required" ) );
+      QStringLiteral( "%1 at %2" ).arg( auth->realm(), reply->url().host() ),
+      username, password,
+      QObject::tr( "Authentication required" ) );
 
     if ( !ok )
     {
@@ -143,16 +143,16 @@ void QFieldAppAuthRequestHandler::handleAuthRequest( QNetworkReply *reply, QAuth
     {
       // save credentials
       QgsCredentials::instance()->put(
-      QStringLiteral( "%1 at %2" ).arg( auth->realm(), reply->url().host() ),
-      username, password );
+        QStringLiteral( "%1 at %2" ).arg( auth->realm(), reply->url().host() ),
+        username, password );
       break;
     }
     else
     {
       // credentials didn't change - stored ones probably wrong? clear password and retry
       QgsCredentials::instance()->put(
-      QStringLiteral( "%1 at %2" ).arg( auth->realm(), reply->url().host() ),
-      username, QString() );
+        QStringLiteral( "%1 at %2" ).arg( auth->realm(), reply->url().host() ),
+        username, QString() );
     }
   }
 

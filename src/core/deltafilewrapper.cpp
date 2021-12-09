@@ -227,17 +227,17 @@ DeltaFileWrapper::ErrorTypes DeltaFileWrapper::errorType() const
 QString DeltaFileWrapper::errorString() const
 {
   const QMap<DeltaFileWrapper::ErrorTypes, QString> errorMessages(
-  { { DeltaFileWrapper::ErrorTypes::NoError, QString() },
-    { DeltaFileWrapper::ErrorTypes::LockError, QStringLiteral( "Delta file is already opened" ) },
-    { DeltaFileWrapper::ErrorTypes::NotCloudProjectError, QStringLiteral( "The current project is not a cloud project" ) },
-    { DeltaFileWrapper::ErrorTypes::IOError, QStringLiteral( "Cannot open file for read and write" ) },
-    { DeltaFileWrapper::ErrorTypes::JsonParseError, QStringLiteral( "Unable to parse JSON" ) },
-    { DeltaFileWrapper::ErrorTypes::JsonFormatIdError, QStringLiteral( "Delta file is missing a valid id" ) },
-    { DeltaFileWrapper::ErrorTypes::JsonFormatProjectIdError, QStringLiteral( "Delta file is missing a valid project id" ) },
-    { DeltaFileWrapper::ErrorTypes::JsonFormatVersionError, QStringLiteral( "Delta file is missing a valid version" ) },
-    { DeltaFileWrapper::ErrorTypes::JsonFormatDeltasError, QStringLiteral( "Delta file is missing a valid deltas" ) },
-    { DeltaFileWrapper::ErrorTypes::JsonFormatDeltaItemError, QStringLiteral( "Delta file is missing a valid delta item" ) },
-    { DeltaFileWrapper::ErrorTypes::JsonIncompatibleVersionError, QStringLiteral( "Delta file has incompatible version" ) } } );
+    { { DeltaFileWrapper::ErrorTypes::NoError, QString() },
+      { DeltaFileWrapper::ErrorTypes::LockError, QStringLiteral( "Delta file is already opened" ) },
+      { DeltaFileWrapper::ErrorTypes::NotCloudProjectError, QStringLiteral( "The current project is not a cloud project" ) },
+      { DeltaFileWrapper::ErrorTypes::IOError, QStringLiteral( "Cannot open file for read and write" ) },
+      { DeltaFileWrapper::ErrorTypes::JsonParseError, QStringLiteral( "Unable to parse JSON" ) },
+      { DeltaFileWrapper::ErrorTypes::JsonFormatIdError, QStringLiteral( "Delta file is missing a valid id" ) },
+      { DeltaFileWrapper::ErrorTypes::JsonFormatProjectIdError, QStringLiteral( "Delta file is missing a valid project id" ) },
+      { DeltaFileWrapper::ErrorTypes::JsonFormatVersionError, QStringLiteral( "Delta file is missing a valid version" ) },
+      { DeltaFileWrapper::ErrorTypes::JsonFormatDeltasError, QStringLiteral( "Delta file is missing a valid deltas" ) },
+      { DeltaFileWrapper::ErrorTypes::JsonFormatDeltaItemError, QStringLiteral( "Delta file is missing a valid delta item" ) },
+      { DeltaFileWrapper::ErrorTypes::JsonIncompatibleVersionError, QStringLiteral( "Delta file has incompatible version" ) } } );
 
   Q_ASSERT( errorMessages.contains( mErrorType ) );
 
@@ -453,16 +453,16 @@ QMap<QString, QString> DeltaFileWrapper::attachmentFileNames() const
 void DeltaFileWrapper::addPatch( const QString &localLayerId, const QString &sourceLayerId, const QString &localPkAttrName, const QString &sourcePkAttrName, const QgsFeature &oldFeature, const QgsFeature &newFeature, bool storeSnapshot )
 {
   QJsonObject delta(
-  {
-  { "localPk", oldFeature.attribute( localPkAttrName ).toString() },
-  { "localLayerId", localLayerId },
-  { "method", "patch" },
-  { "sourcePk", oldFeature.attribute( sourcePkAttrName ).toString() },
-  { "sourceLayerId", sourceLayerId },
-  { "uuid", QUuid::createUuid().toString( QUuid::WithoutBraces ) },
-  { "exportId", QFieldCloudUtils::projectSetting( mCloudProjectId, QStringLiteral( "lastExportId" ) ).toString() },
-  { "clientId", QFieldCloudUtils::projectSetting( mCloudProjectId, QStringLiteral( "lastLocalExportId" ) ).toString() },
-  } );
+    {
+      { "localPk", oldFeature.attribute( localPkAttrName ).toString() },
+      { "localLayerId", localLayerId },
+      { "method", "patch" },
+      { "sourcePk", oldFeature.attribute( sourcePkAttrName ).toString() },
+      { "sourceLayerId", sourceLayerId },
+      { "uuid", QUuid::createUuid().toString( QUuid::WithoutBraces ) },
+      { "exportId", QFieldCloudUtils::projectSetting( mCloudProjectId, QStringLiteral( "lastExportId" ) ).toString() },
+      { "clientId", QFieldCloudUtils::projectSetting( mCloudProjectId, QStringLiteral( "lastLocalExportId" ) ).toString() },
+    } );
 
   const QStringList attachmentFieldsList = attachmentFieldNames( mProject, localLayerId );
   const QgsGeometry oldGeom = oldFeature.geometry();
@@ -656,16 +656,16 @@ void DeltaFileWrapper::addPatch( const QString &localLayerId, const QString &sou
 void DeltaFileWrapper::addDelete( const QString &localLayerId, const QString &sourceLayerId, const QString &localPkAttrName, const QString &sourcePkAttrName, const QgsFeature &oldFeature )
 {
   QJsonObject delta(
-  {
-  { "localPk", oldFeature.attribute( localPkAttrName ).toString() },
-  { "localLayerId", localLayerId },
-  { "method", "delete" },
-  { "sourcePk", oldFeature.attribute( sourcePkAttrName ).toString() },
-  { "sourceLayerId", sourceLayerId },
-  { "uuid", QUuid::createUuid().toString( QUuid::WithoutBraces ) },
-  { "exportId", QFieldCloudUtils::projectSetting( mCloudProjectId, QStringLiteral( "lastExportId" ) ).toString() },
-  { "clientId", QFieldCloudUtils::projectSetting( mCloudProjectId, QStringLiteral( "lastLocalExportId" ) ).toString() },
-  } );
+    {
+      { "localPk", oldFeature.attribute( localPkAttrName ).toString() },
+      { "localLayerId", localLayerId },
+      { "method", "delete" },
+      { "sourcePk", oldFeature.attribute( sourcePkAttrName ).toString() },
+      { "sourceLayerId", sourceLayerId },
+      { "uuid", QUuid::createUuid().toString( QUuid::WithoutBraces ) },
+      { "exportId", QFieldCloudUtils::projectSetting( mCloudProjectId, QStringLiteral( "lastExportId" ) ).toString() },
+      { "clientId", QFieldCloudUtils::projectSetting( mCloudProjectId, QStringLiteral( "lastLocalExportId" ) ).toString() },
+    } );
 
   QMap<QString, int> layerPkDeltaIdx = mLocalPkDeltaIdx.value( localLayerId );
   QString localPk = delta.value( QStringLiteral( "localPk" ) ).toString();
@@ -727,16 +727,16 @@ void DeltaFileWrapper::addDelete( const QString &localLayerId, const QString &so
 void DeltaFileWrapper::addCreate( const QString &localLayerId, const QString &sourceLayerId, const QString &localPkAttrName, const QString &sourcePkAttrName, const QgsFeature &newFeature )
 {
   QJsonObject delta(
-  {
-  { "localPk", newFeature.attribute( localPkAttrName ).toString() },
-  { "localLayerId", localLayerId },
-  { "method", "create" },
-  { "sourcePk", newFeature.attribute( sourcePkAttrName ).toString() },
-  { "sourceLayerId", sourceLayerId },
-  { "uuid", QUuid::createUuid().toString( QUuid::WithoutBraces ) },
-  { "exportId", QFieldCloudUtils::projectSetting( mCloudProjectId, QStringLiteral( "lastExportId" ) ).toString() },
-  { "clientId", QFieldCloudUtils::projectSetting( mCloudProjectId, QStringLiteral( "lastLocalExportId" ) ).toString() },
-  } );
+    {
+      { "localPk", newFeature.attribute( localPkAttrName ).toString() },
+      { "localLayerId", localLayerId },
+      { "method", "create" },
+      { "sourcePk", newFeature.attribute( sourcePkAttrName ).toString() },
+      { "sourceLayerId", sourceLayerId },
+      { "uuid", QUuid::createUuid().toString( QUuid::WithoutBraces ) },
+      { "exportId", QFieldCloudUtils::projectSetting( mCloudProjectId, QStringLiteral( "lastExportId" ) ).toString() },
+      { "clientId", QFieldCloudUtils::projectSetting( mCloudProjectId, QStringLiteral( "lastLocalExportId" ) ).toString() },
+    } );
   const QStringList attachmentFieldsList = attachmentFieldNames( mProject, localLayerId );
   const QgsAttributes newAttrs = newFeature.attributes();
   const QgsFields newFields = newFeature.fields();
