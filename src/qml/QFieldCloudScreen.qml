@@ -362,9 +362,6 @@ Page {
                                 var localChanges = ( LocalDeltasCount > 0 ) ? qsTr('Has changes. ') : ''
                                 var str = '%1 (%2%3)'.arg(Description).arg(localChanges).arg(status)
 
-
-                                console.log(Status, PackagingStatus, ErrorStatus, Checkout, localChanges, str)
-                                console.log(QFieldCloudProjectsModel.LocalCheckout, QFieldCloudProjectsModel.RemoteCheckout, QFieldCloudProjectsModel.LocalAndRemoteCheckout)
                                 return str.trim()
                               }
                             }
