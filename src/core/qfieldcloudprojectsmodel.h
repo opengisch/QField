@@ -329,103 +329,102 @@ class QFieldCloudProjectsModel : public QAbstractListModel
 
     struct Job
     {
-      Job(
-        const QString &id,
-        const QString &projectId,
-        const JobType type )
-        : id( id ), projectId( projectId ), type( type ) {};
+        Job(
+          const QString &id,
+          const QString &projectId,
+          const JobType type )
+          : id( id ), projectId( projectId ), type( type ) {};
 
-      Job() = default;
+        Job() = default;
 
-      QString id;
-      QString projectId;
-      JobType type;
-      QNetworkReply::NetworkError replyError;
-      QString errorString;
-      JobStatus status = JobPendingStatus;
+        QString id;
+        QString projectId;
+        JobType type;
+        QNetworkReply::NetworkError replyError;
+        QString errorString;
+        JobStatus status = JobPendingStatus;
     };
 
     struct CloudProject
     {
-      CloudProject(
-        const QString &id,
-        bool isPrivate,
-        const QString &owner,
-        const QString &name,
-        const QString &description,
-        const QString &userRole,
-        const QString &updatedAt,
-        const ProjectCheckouts &checkout,
-        const ProjectStatus &status,
-        bool canRepackage,
-        bool needsRepackaging
-      )
-        : id( id )
-        , isPrivate( isPrivate )
-        , owner( owner )
-        , name( name )
-        , description( description )
-        , userRole( userRole )
-        , updatedAt( updatedAt )
-        , checkout( checkout )
-        , status( status )
-        , canRepackage( canRepackage )
-        , needsRepackaging( needsRepackaging )
-      {}
+        CloudProject(
+          const QString &id,
+          bool isPrivate,
+          const QString &owner,
+          const QString &name,
+          const QString &description,
+          const QString &userRole,
+          const QString &updatedAt,
+          const ProjectCheckouts &checkout,
+          const ProjectStatus &status,
+          bool canRepackage,
+          bool needsRepackaging )
+          : id( id )
+          , isPrivate( isPrivate )
+          , owner( owner )
+          , name( name )
+          , description( description )
+          , userRole( userRole )
+          , updatedAt( updatedAt )
+          , checkout( checkout )
+          , status( status )
+          , canRepackage( canRepackage )
+          , needsRepackaging( needsRepackaging )
+        {}
 
-      CloudProject() = default;
-      ~CloudProject() { delete deltaListModel; }
+        CloudProject() = default;
+        ~CloudProject() { delete deltaListModel; }
 
-      QString id;
-      bool isPrivate = true;
-      QString owner;
-      QString name;
-      QString description;
-      QString userRole;
-      QString updatedAt;
-      ProjectStatus status;
-      ProjectErrorStatus errorStatus = ProjectErrorStatus::NoErrorStatus;
-      ProjectCheckouts checkout;
-      bool canRepackage = false;
-      bool needsRepackaging = false;
+        QString id;
+        bool isPrivate = true;
+        QString owner;
+        QString name;
+        QString description;
+        QString userRole;
+        QString updatedAt;
+        ProjectStatus status;
+        ProjectErrorStatus errorStatus = ProjectErrorStatus::NoErrorStatus;
+        ProjectCheckouts checkout;
+        bool canRepackage = false;
+        bool needsRepackaging = false;
 
-      ProjectModifications modification = ProjectModification::NoModification;
-      QString localPath;
+        ProjectModifications modification = ProjectModification::NoModification;
+        QString localPath;
 
-      QString deltaFileId;
-      DeltaFileStatus deltaFileUploadStatus = DeltaLocalStatus;
-      QString deltaFileUploadStatusString;
-      QStringList deltaLayersToDownload;
+        QString deltaFileId;
+        DeltaFileStatus deltaFileUploadStatus = DeltaLocalStatus;
+        QString deltaFileUploadStatusString;
+        QStringList deltaLayersToDownload;
 
-      bool isPackagingActive = false;
-      bool isPackagingAborted = false;
-      bool isPackagingFailed = false;
-      PackagingStatus packagingStatus = PackagingUnstartedStatus;
-      QString packagingStatusString;
-      QStringList packagedLayerErrors;
-      QMap<QString, FileTransfer> downloadFileTransfers;
-      int downloadFilesFinished = 0;
-      int downloadFilesFailed = 0;
-      int downloadBytesTotal = 0;
-      int downloadBytesReceived = 0;
-      double downloadProgress = 0.0; // range from 0.0 to 1.0
+        bool isPackagingActive = false;
+        bool isPackagingAborted = false;
+        bool isPackagingFailed = false;
+        PackagingStatus packagingStatus = PackagingUnstartedStatus;
+        QString packagingStatusString;
+        QStringList packagedLayerErrors;
+        QMap<QString, FileTransfer> downloadFileTransfers;
+        int downloadFilesFinished = 0;
+        int downloadFilesFailed = 0;
+        int downloadBytesTotal = 0;
+        int downloadBytesReceived = 0;
+        double downloadProgress = 0.0; // range from 0.0 to 1.0
 
-      UploadAttachmentsStatus uploadAttachmentsStatus = UploadAttachmentsStatus::UploadAttachmentsDone;
-      QMap<QString, FileTransfer> uploadAttachments;
-      int uploadAttachmentsFailed = 0;
+        UploadAttachmentsStatus uploadAttachmentsStatus = UploadAttachmentsStatus::UploadAttachmentsDone;
+        QMap<QString, FileTransfer> uploadAttachments;
+        int uploadAttachmentsFailed = 0;
 
-      double uploadDeltaProgress = 0.0; // range from 0.0 to 1.0
-      int deltasCount = 0;
-      DeltaListModel *deltaListModel = nullptr;
+        double uploadDeltaProgress = 0.0; // range from 0.0 to 1.0
+        int deltasCount = 0;
+        DeltaListModel *deltaListModel = nullptr;
 
-      QString lastExportedAt;
-      QString lastExportId;
-      QString lastLocalExportedAt;
-      QString lastLocalExportId;
-      QString lastLocalPushDeltas;
+        QString lastExportedAt;
+        QString lastExportId;
+        QString lastLocalExportedAt;
+        QString lastLocalExportId;
+        QString lastLocalPushDeltas;
 
-      QDateTime lastRefreshDt;
-      QMap<JobType, Job> jobs;
+        QDateTime lastRefreshDt;
+        QMap<JobType, Job> jobs;
     };
 
     inline QString layerFileName( const QgsMapLayer *layer ) const;
