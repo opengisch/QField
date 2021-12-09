@@ -332,6 +332,7 @@ QFieldCloudProjectsModel::JobStatus QFieldCloudProjectsModel::jobStatus( const Q
     return JobStoppedStatus;
   else if ( statusUpper == QStringLiteral( "finished" ) )
     return JobFinishedStatus;
+  //cppcheck-suppress duplicateBranch
   else if ( statusUpper == QStringLiteral( "failed" ) )
     return JobFailedStatus;
   else

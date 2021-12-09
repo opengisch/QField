@@ -382,9 +382,9 @@ class QFieldCloudProjectsModel : public QAbstractListModel
         QString description;
         QString userRole;
         QString updatedAt;
-        ProjectStatus status;
         ProjectErrorStatus errorStatus = ProjectErrorStatus::NoErrorStatus;
         ProjectCheckouts checkout;
+        ProjectStatus status;
         bool canRepackage = false;
         bool needsRepackaging = false;
 
