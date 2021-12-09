@@ -185,6 +185,12 @@ public class QFieldProjectActivity extends Activity {
                                file.getName().toLowerCase().endsWith(
                                    ".geojson") ||
                                file.getName().toLowerCase().endsWith(".json") ||
+                               file.getName().toLowerCase().endsWith(".gml") ||
+                               file.getName().toLowerCase().endsWith(".mif") ||
+                               file.getName().toLowerCase().endsWith(".fgb") ||
+                               file.getName().toLowerCase().endsWith(".db") ||
+                               file.getName().toLowerCase().endsWith(
+                                   ".sqlite") ||
                                file.getName().toLowerCase().endsWith(".tif") ||
                                file.getName().toLowerCase().endsWith(".jpg") ||
                                file.getName().toLowerCase().endsWith(".png") ||
@@ -192,6 +198,7 @@ public class QFieldProjectActivity extends Activity {
                                file.getName().toLowerCase().endsWith(".gpx") ||
                                file.getName().toLowerCase().endsWith(".jp2") ||
                                file.getName().toLowerCase().endsWith(".webp") ||
+                               file.getName().toLowerCase().endsWith(".vrt") ||
                                file.getName().toLowerCase().endsWith(".zip")) {
                         values.add(new QFieldProjectListItem(
                             file, file.getName(),
