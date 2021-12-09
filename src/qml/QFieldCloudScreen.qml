@@ -497,6 +497,8 @@ Page {
           text: qsTr( "Remove Stored Project" )
           onTriggered: {
             cloudProjectsModel.removeLocalProject(projectActions.projectId)
+            iface.removeRecentProject(projectActions.projectLocalPath);
+            welcomeScreen.model.reloadModel()
           }
         }
 
