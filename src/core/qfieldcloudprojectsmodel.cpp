@@ -873,7 +873,7 @@ void QFieldCloudProjectsModel::uploadProject( const QString &projectId, const bo
   NetworkReply *deltasCloudReply = mCloudConnection->post(
     QStringLiteral( "/api/v1/deltas/%1/" ).arg( projectId ),
     QVariantMap(),
-    QStringList() );
+    QStringList( { deltaFileToUpload } ) );
 
   Q_ASSERT( deltasCloudReply );
 
