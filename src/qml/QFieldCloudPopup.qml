@@ -281,6 +281,7 @@ Popup {
                   transferError.detailsText = errorString
                 }
 
+                const projectData = cloudProjectsModel.getProjectData(projectId)
                 if (projectData.PackagedLayerErrors.length !== 0)
                 {
                   cloudPackageLayersFeedback.packagedLayersListViewModel = projectData.PackagedLayerErrors;
