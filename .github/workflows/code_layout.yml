@@ -119,7 +119,7 @@ jobs:
 
       - name: Comment
         uses: thollander/actions-comment-pull-request@main
-        if: failure() && steps.run-fixes.outputs.triggered != 'true'
+        if: failure() && steps.run-fixes.outputs.triggered != 'true' && github.event.issue.pull_request
         with:
           message: |
             Code formatting issues have been detected.
@@ -128,7 +128,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - uses: EndBug/add-and-commit@v7.2.1
-        if: failure() && steps.run-fixes.outputs.triggered == 'true'
+        if: failure() && steps.run-fixes.outputs.triggered == 'true' && github.event.issue.pull_request
         with:
           author_name: Style Fairy
           author_email: fairy@qfield.org
