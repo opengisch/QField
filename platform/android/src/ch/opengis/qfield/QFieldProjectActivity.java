@@ -131,6 +131,8 @@ public class QFieldProjectActivity extends Activity {
                 }
             }
 
+            File demoProjects = new File(getFilesDir().toString() +
+                                         "/share/qfield/demo_projects");
             String favoriteDirs =
                 sharedPreferences.getString("FavoriteDirs", null);
 
@@ -138,8 +140,7 @@ public class QFieldProjectActivity extends Activity {
             boolean addDemoProjectsFavoriteDir = sharedPreferences.getBoolean(
                 "AddDemoProjectsFavoriteDir2", true);
             if (addDemoProjectsFavoriteDir) {
-                favoriteDirs =
-                    getFilesDir().toString() + "/share/qfield/demo_projects";
+                favoriteDirs = demoProjects.getAbsolutePath();
                 editor.putString("FavoriteDirs", favoriteDirs);
                 editor.putBoolean("AddDemoProjectsFavoriteDir2", false);
                 editor.commit();
@@ -154,7 +155,11 @@ public class QFieldProjectActivity extends Activity {
                     File f = new File(favoriteDirsArray[i]);
                     if (f.exists()) {
                         values.add(new QFieldProjectListItem(
-                            f, getString(R.string.favorites_demo_projects),
+                            f,
+                            f.getAbsolutePath().equals(
+                                demoProjects.getAbsolutePath())
+                                ? getString(R.string.favorites_demo_projects)
+                                : f.getName(),
                             R.drawable.directory,
                             QFieldProjectListItem.TYPE_ITEM));
                     }
