@@ -128,7 +128,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - uses: EndBug/add-and-commit@v7.2.1
-        if: steps.run-fixes.outputs.triggered == 'true'
+        if: failure() && steps.run-fixes.outputs.triggered == 'true'
         with:
           author_name: Style Fairy
           author_email: fairy@qfield.org
