@@ -123,7 +123,6 @@ jobs:
         with:
           message: |
             Code formatting issues have been detected.
-          
             Reply with `@qfield-fairy style please` to fix it up 🪄.
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
