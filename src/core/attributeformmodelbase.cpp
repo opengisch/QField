@@ -359,7 +359,7 @@ void AttributeFormModelBase::flatten( QgsAttributeEditorContainer *container, QS
 
         item->setData( currentTabIndex, AttributeFormModel::TabIndex );
         item->setData( mLayer->attributeDisplayName( fieldIndex ), AttributeFormModel::Name );
-        item->setData( !mLayer->editFormConfig().readOnly( fieldIndex ) && !( field.defaultValueDefinition().isValid() && field.defaultValueDefinition().applyOnUpdate() ), AttributeFormModel::AttributeEditable );
+        item->setData( !mLayer->editFormConfig().readOnly( fieldIndex ), AttributeFormModel::AttributeEditable );
         const QgsEditorWidgetSetup setup = findBest( fieldIndex );
         item->setData( setup.type(), AttributeFormModel::EditorWidget );
         item->setData( setup.config(), AttributeFormModel::EditorWidgetConfig );
