@@ -17,7 +17,9 @@
 
 #include "bookmarkmodel.h"
 
+#include <qgscoordinatetransform.h>
 #include <qgsgeometry.h>
+#include <qgsproject.h>
 
 BookmarkModel::BookmarkModel( QgsBookmarkManager *manager, QgsBookmarkManager *projectManager, QObject *parent )
   : QSortFilterProxyModel( parent )
@@ -42,14 +44,14 @@ QVariant BookmarkModel::data( const QModelIndex &index, int role ) const
 
     case BookmarkModel::BookmarkPoint:
     {
-      QgsReferencedRectangle rect = mModel->data( sourceIndex, QgsBookmarkManagerModel::RoleExtent ).value< QgsReferencedRectangle >();
+      QgsReferencedRectangle rect = mModel->data( sourceIndex, QgsBookmarkManagerModel::RoleExtent ).value<QgsReferencedRectangle>();
       QgsGeometry geom( new QgsPoint( rect.center() ) );
       return geom;
     }
 
     case BookmarkModel::BookmarkCrs:
     {
-      QgsReferencedRectangle rect = mModel->data( sourceIndex, QgsBookmarkManagerModel::RoleExtent ).value< QgsReferencedRectangle >();
+      QgsReferencedRectangle rect = mModel->data( sourceIndex, QgsBookmarkManagerModel::RoleExtent ).value<QgsReferencedRectangle>();
       return rect.crs();
     }
   }
@@ -83,6 +85,24 @@ void BookmarkModel::setExtentFromBookmark( const QModelIndex &index )
   if ( !sourceIndex.isValid() || !mMapSettings )
     return;
 
-  QgsReferencedRectangle rect = mModel->data( sourceIndex, QgsBookmarkManagerModel::RoleExtent ).value< QgsReferencedRectangle >();
-  mMapSettings->setExtent( rect );
+  QgsReferencedRectangle rect = mModel->data( sourceIndex, QgsBookmarkManagerModel::RoleExtent ).value<QgsReferencedRectangle>();
+
+  QgsCoordinateTransform transform( rect.crs(), mMapSettings->destinationCrs(), QgsProject::instance()->transformContext() );
+  QgsRectangle transformedRect;
+  try
+  {
+    transformedRect = transform.transform( rect );
+  }
+  catch ( const QgsException &e )
+  {
+    Q_UNUSED( e )
+    return;
+  }
+  catch ( ... )
+  {
+    // catch any other errors
+    return;
+  }
+
+  mMapSettings->setExtent( transformedRect );
 }

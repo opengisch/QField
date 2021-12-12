@@ -25,9 +25,9 @@
 
 class BookmarkModel : public QSortFilterProxyModel
 {
-  Q_OBJECT
+    Q_OBJECT
 
-  Q_PROPERTY( QgsQuickMapSettings *mapSettings READ setMapSettings READ mapSettings NOTIFY mapSettingsChanged )
+    Q_PROPERTY( QgsQuickMapSettings *mapSettings READ setMapSettings READ mapSettings NOTIFY mapSettingsChanged )
 
   public:
 
