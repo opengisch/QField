@@ -30,7 +30,6 @@ class BookmarkModel : public QSortFilterProxyModel
     Q_PROPERTY( QgsQuickMapSettings *mapSettings READ setMapSettings READ mapSettings NOTIFY mapSettingsChanged )
 
   public:
-
     enum Roles
     {
       BookmarkId = Qt::UserRole + 1,
@@ -53,14 +52,11 @@ class BookmarkModel : public QSortFilterProxyModel
     QgsQuickMapSettings *mapSettings() const { return mMapSettings; }
 
   signals:
-
     void mapSettingsChanged();
 
   private:
-
     std::unique_ptr<QgsBookmarkManagerModel> mModel = nullptr;
     QgsQuickMapSettings *mMapSettings = nullptr;
-
 };
 
 #endif // BOOKMARKMODEL_H
