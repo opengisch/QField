@@ -219,6 +219,10 @@ QgisMobileapp::QgisMobileapp( QgsApplication *app, QObject *parent )
   mLegendImageProvider = new LegendImageProvider( mFlatLayerTree->layerTreeModel() );
   mTrackingModel = new TrackingModel;
 
+  mBookmarkManager = std::make_unique<QgsBookmarkManager>( nullptr );
+  mBookmarkManager->initialize( QgsApplication::qgisSettingsDirPath() + "/bookmarks.xml" );
+  mBookmarkModel = std::make_unique<BookmarkModel>( mBookmarkManager.get(), mProject->bookmarkManager(), nullptr );
+
   // Transition from 1.8 to 1.8.1+
   const QString deviceAddress = settings.value( QStringLiteral( "positioningDevice" ), QString() ).toString();
   if ( deviceAddress == QStringLiteral( "internal" ) )
@@ -453,7 +457,6 @@ void QgisMobileapp::initDeclarative()
   REGISTER_SINGLETON( "org.qfield", UrlUtils, "UrlUtils" );
   REGISTER_SINGLETON( "org.qfield", QFieldCloudUtils, "QFieldCloudUtils" );
 
-
   qmlRegisterUncreatableType<AppInterface>( "org.qgis", 1, 0, "QgisInterface", "QgisInterface is only provided by the environment and cannot be created ad-hoc" );
   qmlRegisterUncreatableType<Settings>( "org.qgis", 1, 0, "Settings", "" );
   qmlRegisterUncreatableType<PlatformUtilities>( "org.qfield", 1, 0, "PlatformUtilities", "" );
@@ -462,6 +465,7 @@ void QgisMobileapp::initDeclarative()
   qmlRegisterUncreatableType<QgsGpkgFlusher>( "org.qfield", 1, 0, "QgsGpkgFlusher", "The gpkgFlusher is available as context property `gpkgFlusher`" );
   qmlRegisterUncreatableType<LayerObserver>( "org.qfield", 1, 0, "LayerObserver", "" );
   qmlRegisterUncreatableType<DeltaFileWrapper>( "org.qfield", 1, 0, "DeltaFileWrapper", "" );
+  qmlRegisterUncreatableType<BookmarkModel>( "org.qfield", 1, 0, "BookmarkModel", "The BookmarkModel is available as context property `bookmarkModel`" );
 
   qRegisterMetaType<SnappingResult>( "SnappingResult" );
 
@@ -473,6 +477,7 @@ void QgisMobileapp::initDeclarative()
   rootContext()->setContextProperty( "ppi", dpi );
   rootContext()->setContextProperty( "mouseDoubleClickInterval", QApplication::styleHints()->mouseDoubleClickInterval() );
   rootContext()->setContextProperty( "qgisProject", mProject );
+  rootContext()->setContextProperty( "bookmarkModel", mBookmarkModel.get() );
   rootContext()->setContextProperty( "iface", mIface );
   rootContext()->setContextProperty( "settings", &mSettings );
   rootContext()->setContextProperty( "appVersion", qfield::appVersion );

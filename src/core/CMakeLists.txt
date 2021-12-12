@@ -24,6 +24,7 @@ set(QFIELD_CORE_SRCS
     badlayerhandler.cpp
     bluetoothdevicemodel.cpp
     bluetoothreceiver.cpp
+    bookmarkmodel.cpp
     changelogcontents.cpp
     deltafilewrapper.cpp
     deltalistmodel.cpp
@@ -110,6 +111,7 @@ set(QFIELD_CORE_HDRS
     badlayerhandler.h
     bluetoothdevicemodel.h
     bluetoothreceiver.h
+    bookmarkmodel.h
     changelogcontents.h
     deltafilewrapper.h
     deltalistmodel.h
