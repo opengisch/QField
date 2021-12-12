@@ -15,6 +15,8 @@ Repeater {
     mapSettings: bookmarkHighlight.mapSettings
     geometryWrapper.qgsGeometry: model.BookmarkPoint
     geometryWrapper.crs: model.BookmarkCrs
+
+    bookmarkIndex: model.index
     bookmarkName: model.BookmarkName
     bookmarkId: model.BookmarkId
   }

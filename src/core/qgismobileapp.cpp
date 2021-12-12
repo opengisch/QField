@@ -296,6 +296,7 @@ QgisMobileapp::QgisMobileapp( QgsApplication *app, QObject *parent )
 
   mMapCanvas = rootObjects().first()->findChild<QgsQuickMapCanvasMap *>();
   mMapCanvas->mapSettings()->setProject( mProject );
+  mBookmarkModel->setMapSettings( mMapCanvas->mapSettings() );
 
   QFieldCloudProjectsModel *qFieldCloudProjectsModel = rootObjects().first()->findChild<QFieldCloudProjectsModel *>();
 

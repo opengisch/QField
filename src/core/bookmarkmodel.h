@@ -18,11 +18,16 @@
 #ifndef BOOKMARKMODEL_H
 #define BOOKMARKMODEL_H
 
+#include "qgsquickmapsettings.h"
+
 #include <qgsbookmarkmanager.h>
 #include <qgsbookmarkmodel.h>
 
 class BookmarkModel : public QSortFilterProxyModel
 {
+  Q_OBJECT
+
+  Q_PROPERTY( QgsQuickMapSettings *mapSettings READ setMapSettings READ mapSettings NOTIFY mapSettingsChanged )
 
   public:
 
@@ -41,9 +46,20 @@ class BookmarkModel : public QSortFilterProxyModel
 
     QHash<int, QByteArray> roleNames() const override;
 
+    Q_INVOKABLE void setExtentFromBookmark( const QModelIndex &index );
+
+    void setMapSettings( QgsQuickMapSettings *mapSettings );
+
+    QgsQuickMapSettings *mapSettings() const { return mMapSettings; }
+
+  signals:
+
+    void mapSettingsChanged();
+
   private:
 
     std::unique_ptr<QgsBookmarkManagerModel> mModel = nullptr;
+    QgsQuickMapSettings *mMapSettings = nullptr;
 
 };
 

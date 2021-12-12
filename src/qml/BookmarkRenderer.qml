@@ -9,6 +9,7 @@ import Theme 1.0
 Item {
     id: bookmarkRenderer
 
+    property var bookmarkIndex: undefined
     property string bookmarkName: ''
     property string bookmarkId: ''
 
@@ -73,6 +74,9 @@ Item {
                         anchors.fill: bookmark
                         onClicked: {
                             displayToast(qsTr('Bookmark: %1').arg(bookmarkRenderer.bookmarkName));
+                        }
+                        onDoubleClicked: {
+                            bookmarkModel.setExtentFromBookmark(bookmarkModel.index(bookmarkRenderer.bookmarkIndex, 0));
                         }
                     }
                 }

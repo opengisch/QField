@@ -66,3 +66,23 @@ QHash<int, QByteArray> BookmarkModel::roleNames() const
   roleNames[BookmarkModel::BookmarkCrs] = "BookmarkCrs";
   return roleNames;
 }
+
+void BookmarkModel::setMapSettings( QgsQuickMapSettings *mapSettings )
+{
+  if ( mMapSettings == mapSettings )
+    return;
+
+  mMapSettings = mapSettings;
+
+  emit mapSettingsChanged();
+}
+
+void BookmarkModel::setExtentFromBookmark( const QModelIndex &index )
+{
+  QModelIndex sourceIndex = mapToSource( index );
+  if ( !sourceIndex.isValid() || !mMapSettings )
+    return;
+
+  QgsReferencedRectangle rect = mModel->data( sourceIndex, QgsBookmarkManagerModel::RoleExtent ).value< QgsReferencedRectangle >();
+  mMapSettings->setExtent( rect );
+}
