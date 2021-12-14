@@ -156,7 +156,7 @@ jobs:
                 -DAPP_ICON="${APP_ICON}" \
                 -DAPP_NAME="${APP_NAME}" \
                 -DNUGET_USERNAME=opengisch \
-                -DNUGET_TOKEN=${{ secrets.GITHUB_TOKEN }} \
+                -DNUGET_TOKEN=${{ secrets.GITHUB_TOKEN }}t \
                 -DANDROID_ABI=${{ steps.vars.outputs.ABI }} \
                 -DANDROID_PLATFORM=${{ env.ANDROID_PLATFORM }} \
                 -DANDROID_TARGET_PLATFORM=${{ env.ANDROID_TARGET_PLATFORM}} \
