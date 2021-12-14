@@ -186,12 +186,6 @@ jobs:
           cmake --build  "${{ env.CMAKE_BUILD_DIR }}" --target bundle --config Release
           ${ANDROID_SDK_ROOT}/build-tools/29.0.2/apksigner sign --v2-signing-enabled true --ks ./keystore.p12 --ks-pass pass:"${{ secrets.STOREPASS }}" --ks-key-alias "qfield" --key-pass pass:"${{ secrets.KEYPASS }}" ${{ env.CMAKE_BUILD_DIR }}/android-build/build/outputs/apk/release/android-build-release-signed.apk
 
-      - name: Setup tmate session
-        if: always()
-        uses: mxschmitt/action-tmate@v3
-        with:
-          limit-access-to-actor: true
-
       - name: 📦 Upload artifacts
         uses: actions/upload-artifact@v2
         with:
