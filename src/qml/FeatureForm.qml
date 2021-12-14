@@ -647,7 +647,6 @@ Page {
         width: 48
         height: 48
         clip: true
-        bgcolor: Theme.darkGray
 
         iconSource: Theme.getThemeIcon( "ic_check_white_48dp" )
         opacity: typeof featureFormList !== "undefined" ? featureFormList.model.constraintsHardValid ? 1.0 : 0.3 : 1.0
@@ -698,7 +697,6 @@ Page {
         width: 49
         height: 48
         clip: true
-        bgcolor: form.state === 'Add' ? "#900000" : Theme.darkGray
         visible: !setupOnly
 
         iconSource: form.state === 'Add' ? Theme.getThemeIcon( 'ic_delete_forever_white_24dp' ) : Theme.getThemeIcon( 'ic_close_white_24dp' )
