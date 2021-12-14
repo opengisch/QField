@@ -1,9 +1,9 @@
 /***************************************************************************
-                            featuremodel.cpp
+                            bookmarkmodel.cpp
                               -------------------
-              begin                : 10.12.2014
-              copyright            : (C) 2014 by Matthias Kuhn
-              email                : matthias (at) opengis.ch
+              begin                : 12.12.2021
+              copyright            : (C) 2021 by Mathieu Pellerin
+              email                : mathieu (at) opengis.ch
  ***************************************************************************/
 
 /***************************************************************************
