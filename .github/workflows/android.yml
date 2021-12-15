@@ -81,7 +81,7 @@ jobs:
           key: ${{ runner.os }}-${{ hashFiles('.git/modules/vcpkg/HEAD') }}
 
       - name: Cache deps
-        uses: actions/cache@v2
+        uses: pat-s/always-upload-cache@v2
         with:
           path: |
             /home/runner/.cache/vcpkg/archives
