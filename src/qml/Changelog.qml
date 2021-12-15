@@ -137,7 +137,7 @@ Popup {
         }
 
         if ( settings.valueBool( "/QField/isCrashingSslDevice", false ) === true ) {
-            changelogBody.text = qsTr( "Change the latest QField changes on " )
+            changelogBody.text = qsTr( "Check the latest QField changes on " )
                     + ' <a href="https://github.com/opengisch/qfield/releases">' + qsTr( 'QField releases page' ) + '</a>.'
             return
         }
