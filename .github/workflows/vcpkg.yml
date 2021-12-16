@@ -222,6 +222,8 @@ jobs:
           name: build-logs-${{ matrix.triplet }}
           path: |
             ${{ env.CMAKE_BUILD_DIR }}/vcpkg-manifest-install.log
+            ${{ steps.vars.outputs.VCPKG_ROOT }}/**/*.log
+
 
       - name: 📑 Upload Dep Build Logs
         uses: actions/upload-artifact@v2
