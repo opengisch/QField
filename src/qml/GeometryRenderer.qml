@@ -87,5 +87,4 @@ Item {
     // but it needs to be ready on first used
     sourceComponent: geometryWrapper && geometryWrapper.qgsGeometry.type === QgsWkbTypes.PointGeometry ? pointHighlight : linePolygonHighlight
   }
-
 }

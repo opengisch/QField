@@ -2,6 +2,8 @@
     <qresource prefix="/qml">
         <file>About.qml</file>
         <file>BadLayerItem.qml</file>
+        <file>BookmarkHighlight.qml</file>
+        <file>BookmarkRenderer.qml</file>
         <file>BrowserPanel.qml</file>
         <file>ConfirmationToolbar.qml</file>
         <file>CoordinateLocator.qml</file>

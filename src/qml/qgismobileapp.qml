@@ -504,6 +504,11 @@ ApplicationWindow {
       }
     }
 
+    BookmarkHighlight {
+        id: bookmarkHighlight
+        mapSettings: mapCanvas.mapSettings
+    }
+
     /* Locator Highlight */
     GeometryHighlighter {
       id: locatorHighlightItem

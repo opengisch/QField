@@ -23,12 +23,14 @@
 
 // QGIS includes
 #include <qgsapplication.h>
+#include <qgsbookmarkmanager.h>
 #include <qgsconfig.h>
 #include <qgsexiftools.h>
 #include <qgsmaplayerproxymodel.h>
 
-// QGIS mobile includes
+// QField includes
 #include "appcoordinateoperationhandlers.h"
+#include "bookmarkmodel.h"
 #include "focusstack.h"
 #include "geometryeditorsmodel.h"
 #include "multifeaturelistmodel.h"
@@ -182,6 +184,9 @@ class QFIELD_CORE_EXPORT QgisMobileapp : public QQmlApplicationEngine
     std::unique_ptr<QgsGpkgFlusher> mGpkgFlusher;
     std::unique_ptr<LayerObserver> mLayerObserver;
     QFieldAppAuthRequestHandler *mAuthRequestHandler = nullptr;
+
+    std::unique_ptr<QgsBookmarkManager> mBookmarkManager;
+    std::unique_ptr<BookmarkModel> mBookmarkModel;
 
     // Dummy objects. We are not able to call static functions from QML, so we need something here.
     QgsCoordinateReferenceSystem mCrsFactory;
