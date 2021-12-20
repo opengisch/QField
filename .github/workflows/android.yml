@@ -164,6 +164,8 @@ jobs:
           path: |
             ${{ env.CMAKE_BUILD_DIR }}/vcpkg-manifest-install.log
 
+            ${{ github.workspace }}/vcpkg/base/buildtrees/**/*.log
+
       - name: 🌋 Build
         run: |
           cmake --build "${{ env.CMAKE_BUILD_DIR }}" --config ${{ steps.vars.outputs.BUILD_TYPE }} # --target qfield
