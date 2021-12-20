@@ -308,6 +308,7 @@ else()
             --with-teigha=no
             --with-tiledb=no
             --with-xerces=no
+            --with-lz4=no
             )
     endif()
 
