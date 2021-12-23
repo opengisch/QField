@@ -121,6 +121,16 @@ jobs:
             ./scripts/ci/pull_translations.sh
           fi
 
+      # The sentry-android dependency is added via gradle
+      # This downloads the pre-compiled sentry-android-ndk libraries
+      # But we are compiling this before gradle is executed, so it is not downloaded
+      # Therefore we download it manually to get include headers and libraries
+      # ... a better implementation of this much appreciated ...
+      - name: Download sentry libs
+        run: |
+          mkdir /tmp/sentry-android-ndk
+          wget -qO- https://repo1.maven.org/maven2/io/sentry/sentry-android-ndk/5.5.2/sentry-android-ndk-5.5.2.aar | bsdtar -xvf- -C /tmp/sentry-android-ndk
+
       - name: 🌱 Install dependencies and generate project files
         shell: bash
         env:
@@ -154,7 +164,7 @@ jobs:
                 -DANDROID_PLATFORM=${{ env.ANDROID_PLATFORM }} \
                 -DANDROID_TARGET_PLATFORM=${{ env.ANDROID_TARGET_PLATFORM}} \
                 -DSENTRY_DSN=${{ secrets.SENTRY_DSN }} \
-                ${EXTRA_CMAKE_ARGS}
+                -DSENTRY_IMPORT_PREFIX=/tmp/sentry-android-ndk/jni
 
       - name: Setup tmate session
         if: failure()
