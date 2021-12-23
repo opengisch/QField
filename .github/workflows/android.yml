@@ -129,7 +129,8 @@ jobs:
       - name: Download sentry libs
         run: |
           mkdir /tmp/sentry-android-ndk
-          wget -qO- https://repo1.maven.org/maven2/io/sentry/sentry-android-ndk/5.5.2/sentry-android-ndk-5.5.2.aar | bsdtar -xvf- -C /tmp/sentry-android-ndk
+          wget https://repo1.maven.org/maven2/io/sentry/sentry-android-ndk/5.5.2/sentry-android-ndk-5.5.2.aar -O /tmp/sentry.zip
+          unzip /tmp/sentry.zip -d /tmp/sentry-android-ndk
 
       - name: 🌱 Install dependencies and generate project files
         shell: bash
