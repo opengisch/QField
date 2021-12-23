@@ -44,12 +44,51 @@
 #endif
 
 #ifdef ANDROID
-
 #include <android/log.h>
+#endif
+
+static const char *
+  logLevelForMessageType( QtMsgType msgType )
+{
+  switch ( msgType )
+  {
+    case QtDebugMsg:
+      return "debug";
+    case QtWarningMsg:
+      return "warning";
+    case QtCriticalMsg:
+      return "error";
+    case QtFatalMsg:
+      return "fatal";
+    case QtInfoMsg:
+      Q_FALLTHROUGH();
+    default:
+      return "info";
+  }
+}
 
 const char *const applicationName = "QField";
 void qfMessageHandler( QtMsgType type, const QMessageLogContext &context, const QString &msg )
 {
+#if WITH_SENTRY
+  sentry_value_t crumb
+    = sentry_value_new_breadcrumb( "default", qUtf8Printable( msg ) );
+
+  sentry_value_set_by_key(
+    crumb, "category", sentry_value_new_string( context.category ) );
+  sentry_value_set_by_key(
+    crumb, "level", sentry_value_new_string( logLevelForMessageType( type ) ) );
+
+  sentry_value_t location = sentry_value_new_object();
+  sentry_value_set_by_key(
+    location, "file", sentry_value_new_string( context.file ) );
+  sentry_value_set_by_key(
+    location, "line", sentry_value_new_int32( context.line ) );
+  sentry_value_set_by_key( crumb, "data", location );
+
+  sentry_add_breadcrumb( crumb );
+#endif
+
   QString report = msg;
   if ( context.file && !QString( context.file ).isEmpty() )
   {
@@ -64,6 +103,8 @@ void qfMessageHandler( QtMsgType type, const QMessageLogContext &context, const 
     report += +" function ";
     report += QString( context.function );
   }
+
+#if ANDROID
   const char *const local = report.toLocal8Bit().constData();
   switch ( type )
   {
@@ -84,15 +125,18 @@ void qfMessageHandler( QtMsgType type, const QMessageLogContext &context, const 
       __android_log_write( ANDROID_LOG_FATAL, applicationName, local );
       abort();
   }
+#endif
 }
-#endif // ANDROID
 
 int main( int argc, char **argv )
 {
 #if WITH_SENTRY
+#ifndef ANDROID
   sentry_options_t *options = sentry_options_new();
   sentry_options_set_dsn( options, qfield::sentryDsn.toUtf8().constData() );
+  // sentry_options_set_debug( options, 1 );
   sentry_init( options );
+#endif
 
   // Make sure everything flushes
   auto sentryClose = qScopeGuard( [] { sentry_close(); } );
@@ -127,7 +171,6 @@ int main( int argc, char **argv )
   QString projPath = PlatformUtilities::instance()->systemGenericDataLocation() + QStringLiteral( "/proj" );
   qputenv( "PROJ_LIB", projPath.toUtf8() );
   QgsApplication app( argc, argv, true, PlatformUtilities::instance()->systemGenericDataLocation() + QStringLiteral( "/qgis/resources" ), QStringLiteral( "mobile" ) );
-  qInstallMessageHandler( qfMessageHandler );
 
   QSettings settings;
 
@@ -156,6 +199,7 @@ int main( int argc, char **argv )
 #endif
 #endif
 
+  qInstallMessageHandler( qfMessageHandler );
   app.initQgis();
 
   //set NativeFormat for settings
