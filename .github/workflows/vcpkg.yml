@@ -72,7 +72,7 @@ jobs:
           esac
 
           echo "::set-output name=VCPKG_ROOT::${BUILD_ROOT}/src"
-          echo "::set-output name=BUILD_TYPE::Release"
+          echo "::set-output name=BUILD_TYPE::RelWithDebInfo"
           echo "::set-output name=BUILD_ROOT::${BUILD_ROOT}"
 
           echo "CMAKE_BUILD_DIR=${BUILD_ROOT}/builddir" >> $GITHUB_ENV
@@ -301,3 +301,12 @@ jobs:
           asset_path: ${{ env.ARTIFACT_PATHNAME }}
           asset_name: ${{ env.ARTIFACT_NAME }}
           overwrite: true
+
+      - name: Upload debug symbols
+        # if: release or labeled PR
+        env:
+          SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
+        run: |
+          find ${{ env.CMAKE_BIULD_DIR }} -name '*.pdb'
+          curl -sL https://sentry.io/get-cli/ | bash
+          sentry-cli upload-dif -o opengisch-llc -p qfield ${{ env.CMAKE_BUILD_DIR }}/android-build/build/intermediates/merged_native_libs/release

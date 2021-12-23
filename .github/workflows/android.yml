@@ -227,7 +227,7 @@ jobs:
           repo-token: ${{ secrets.GITHUB_TOKEN }}
           release-tag: ${{ env.CI_TAG }}
 
-      - name: Upload debug binaries
+      - name: Upload debug symbols
         # if: release or labeled PR
         env:
           SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
