@@ -130,5 +130,16 @@ Item {
 
             onClicked: changelogPopup.open()
         }
+
+        QfButton {
+            id: submitLog
+            Layout.fillWidth: true
+            text: qsTr( 'Send Log' )
+
+            onClicked: {
+                iface.sendLog("Manual log submission")
+                displayToast(qsTr("Your log is sending..."))
+            }
+        }
     }
 }

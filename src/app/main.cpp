@@ -16,6 +16,7 @@
  *                                                                         *
  ***************************************************************************/
 
+#include "appinterface.h"
 #include "fileutils.h"
 #include "qgismobileapp.h"
 
@@ -134,17 +135,12 @@ int main( int argc, char **argv )
 #ifndef ANDROID
   sentry_options_t *options = sentry_options_new();
   sentry_options_set_dsn( options, qfield::sentryDsn.toUtf8().constData() );
-  // sentry_options_set_debug( options, 1 );
+  sentry_options_set_debug( options, 1 );
   sentry_init( options );
 #endif
 
   // Make sure everything flushes
   auto sentryClose = qScopeGuard( [] { sentry_close(); } );
-
-  sentry_capture_event( sentry_value_new_message_event(
-    /*   level */ SENTRY_LEVEL_INFO,
-    /*  logger */ "custom",
-    /* message */ "It works!" ) );
 #endif
 
   // A dummy app for reading settings that need to be used before constructing the real app
@@ -226,6 +222,16 @@ int main( int argc, char **argv )
   app.installTranslator( &qfieldTranslator );
 
   QgisMobileapp mApp( &app );
+
+#if WITH_SENTRY
+  QObject::connect( AppInterface::instance(), &AppInterface::submitLog, []( const QString &message ) {
+    qWarning() << "to sentry";
+    sentry_capture_event( sentry_value_new_message_event(
+      SENTRY_LEVEL_INFO,
+      "custom",
+      message.toUtf8().constData() ) );
+  } );
+#endif
 
 #ifdef WITH_SPIX
   spix::AnyRpcServer server;
