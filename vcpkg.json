@@ -15,7 +15,10 @@
     "qt5-charts",
     "qt5-multimedia",
     "spix",
-    "sentry-native",
+    {
+      "name": "sentry-native",
+      "platform": "!android"
+    },
     "catch2"
   ]
 }
