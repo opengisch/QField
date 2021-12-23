@@ -153,6 +153,7 @@ jobs:
                 -DANDROID_ABI=${{ steps.vars.outputs.ABI }} \
                 -DANDROID_PLATFORM=${{ env.ANDROID_PLATFORM }} \
                 -DANDROID_TARGET_PLATFORM=${{ env.ANDROID_TARGET_PLATFORM}} \
+                -DSENTRY_DSN=${{ secrets.SENTRY_DSN }} \
                 ${EXTRA_CMAKE_ARGS}
 
 
@@ -209,6 +210,14 @@ jobs:
           files: /tmp/qfield-*.apk
           repo-token: ${{ secrets.GITHUB_TOKEN }}
           release-tag: ${{ env.CI_TAG }}
+
+      - name: Upload debug binaries
+        # if: release or labeled PR
+        env:
+          SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
+        run: |
+          curl -sL https://sentry.io/get-cli/ | bash
+          sentry-cli upload-dif -o opengisch-llc -p qfield ${{ env.CMAKE_BUILD_DIR }}/android-build/build/intermediates/merged_native_libs/release
 
   deploy_to_playstore:
     runs-on: ubuntu-20.04

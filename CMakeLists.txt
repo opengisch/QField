@@ -65,11 +65,18 @@ set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${QFIELD_OUTPUT_DIRECTORY}/${QFIELD_LIB_SUBDI
 
 install(DIRECTORY ${CMAKE_SOURCE_DIR}/resources DESTINATION share/qfield)
 
-set(WITH_SPIX FALSE CACHE STRING "Compile with Spix for testing")
+set(WITH_SPIX FALSE CACHE BOOL "Compile with Spix for testing")
 
 if (WITH_SPIX)
   find_package(Spix)
 endif ()
+
+set(SENTRY_DSN "" CACHE STRING "The sentry dsn for logging purpose. If not set, sentry will be disabled")
+if(SENTRY_DSN)
+  set(WITH_SENTRY 1)
+else()
+  set(WITH_SENTRY 0)
+endif()
 
 if (ANDROID)
   # This is necessary in order for CMake to be able to detect libraries in OSGeo4A
