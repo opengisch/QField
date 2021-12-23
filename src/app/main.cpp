@@ -39,8 +39,14 @@
 #include <QTranslator>
 #include <QtWebView/QtWebView>
 
+#if WITH_SENTRY
+#include <sentry.h>
+#endif
+
 #ifdef ANDROID
+
 #include <android/log.h>
+
 const char *const applicationName = "QField";
 void qfMessageHandler( QtMsgType type, const QMessageLogContext &context, const QString &msg )
 {
@@ -79,10 +85,24 @@ void qfMessageHandler( QtMsgType type, const QMessageLogContext &context, const 
       abort();
   }
 }
-#endif
+#endif // ANDROID
 
 int main( int argc, char **argv )
 {
+#if WITH_SENTRY
+  sentry_options_t *options = sentry_options_new();
+  sentry_options_set_dsn( options, qfield::sentryDsn.toUtf8().constData() );
+  sentry_init( options );
+
+  // Make sure everything flushes
+  auto sentryClose = qScopeGuard( [] { sentry_close(); } );
+
+  sentry_capture_event( sentry_value_new_message_event(
+    /*   level */ SENTRY_LEVEL_INFO,
+    /*  logger */ "custom",
+    /* message */ "It works!" ) );
+#endif
+
   // A dummy app for reading settings that need to be used before constructing the real app
   QCoreApplication *dummyApp = new QCoreApplication( argc, argv );
   QCoreApplication::setOrganizationName( "OPENGIS.ch" );

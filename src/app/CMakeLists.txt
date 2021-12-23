@@ -77,6 +77,10 @@ function(create_executable TARGET)
   endif()
 
   target_link_libraries(${TARGET} PRIVATE qfield_core ${QGIS_CORE_LIBRARY})
+  if(WITH_SENTRY)
+    find_package(sentry REQUIRED)
+    target_link_libraries(${TARGET} PRIVATE qfield_core sentry::sentry)
+  endif()
   set_target_properties(${TARGET} PROPERTIES AUTORCC TRUE)
 endfunction()
 
