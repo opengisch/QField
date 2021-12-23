@@ -89,6 +89,7 @@ void qfMessageHandler( QtMsgType type, const QMessageLogContext &context, const 
   sentry_add_breadcrumb( crumb );
 #endif
 
+#if ANDROID
   QString report = msg;
   if ( context.file && !QString( context.file ).isEmpty() )
   {
@@ -104,7 +105,6 @@ void qfMessageHandler( QtMsgType type, const QMessageLogContext &context, const 
     report += QString( context.function );
   }
 
-#if ANDROID
   const char *const local = report.toLocal8Bit().constData();
   switch ( type )
   {
