@@ -150,6 +150,12 @@ if(MSVC)
   add_definitions(-D_USE_MATH_DEFINES)
   add_definitions(-DNOMINMAX)
   add_definitions(-D_CRT_NONSTDC_NO_DEPRECATE)
+
+  # Generate pdb files
+  add_compile_options("$<$<NOT:$<CONFIG:Debug>>:/Zi>")
+  add_link_options("$<$<NOT:$<CONFIG:Debug>>:/DEBUG>")
+  add_link_options("$<$<NOT:$<CONFIG:Debug>>:/OPT:REF>")
+  add_link_options("$<$<NOT:$<CONFIG:Debug>>:/OPT:ICF>")
 endif()
 
 add_subdirectory(src/core)
