@@ -629,7 +629,7 @@ Page {
       } else {
         var firstRun = !settings.value( "/QField/FirstRunFlag", false )
         if ( firstRun ) {
-          welcomeText.text = qsTr( "Welcome to QField. First time using this application? Try out a few demos listed in the recent projects below." )
+          welcomeText.text = qsTr( "Welcome to QField. First time using this application? Try out sample projects listed in the list below." )
         } else {
           welcomeText.text = qsTr( "Welcome back to QField." )
         }

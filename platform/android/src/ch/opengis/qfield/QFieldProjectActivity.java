@@ -131,18 +131,19 @@ public class QFieldProjectActivity extends Activity {
                 }
             }
 
-            File demoProjects = new File(getFilesDir().toString() +
-                                         "/share/qfield/demo_projects");
+            File sampleProjects = new File(getFilesDir().toString() +
+                                           "/share/qfield/sample_projects");
             String favoriteDirs =
                 sharedPreferences.getString("FavoriteDirs", null);
 
-            // The first time, add the demo projects directory to the favorites
-            boolean addDemoProjectsFavoriteDir = sharedPreferences.getBoolean(
-                "AddDemoProjectsFavoriteDir2", true);
-            if (addDemoProjectsFavoriteDir) {
-                favoriteDirs = demoProjects.getAbsolutePath();
+            // The first time, add the sample projects directory to the
+            // favorites
+            boolean addSampleProjectsFavoriteDir = sharedPreferences.getBoolean(
+                "AddSampleProjectsFavoriteDir", true);
+            if (addSampleProjectsFavoriteDir) {
+                favoriteDirs = sampleProjects.getAbsolutePath();
                 editor.putString("FavoriteDirs", favoriteDirs);
-                editor.putBoolean("AddDemoProjectsFavoriteDir2", false);
+                editor.putBoolean("AddSampleProjectsFavoriteDir", false);
                 editor.commit();
             }
             if (favoriteDirs != null) {
@@ -157,8 +158,8 @@ public class QFieldProjectActivity extends Activity {
                         values.add(new QFieldProjectListItem(
                             f,
                             f.getAbsolutePath().equals(
-                                demoProjects.getAbsolutePath())
-                                ? getString(R.string.favorites_demo_projects)
+                                sampleProjects.getAbsolutePath())
+                                ? getString(R.string.favorites_sample_projects)
                                 : f.getName(),
                             R.drawable.directory,
                             QFieldProjectListItem.TYPE_ITEM));
