@@ -252,7 +252,7 @@ jobs:
         shell: bash
         run: |
           export LD_LIBRARY_PATH="${{ env.CMAKE_BUILD_DIR }}/vcpkg_installed/${{ matrix.triplet }}/lib/":${LD_LIBRARY_PATH}
-          cmake --build  "${{ env.CMAKE_BUILD_DIR }}" --target bundle --config Release
+          cmake --build  "${{ env.CMAKE_BUILD_DIR }}" --target bundle --config ${{ steps.vars.outputs.BUILD_TYPE }}
           case ${{ matrix.triplet }} in
             x64-linux)
               echo "ARTIFACT_PATHNAME=${{ env.CMAKE_BUILD_DIR }}/QField-x86_64.AppImage" >> $GITHUB_ENV
@@ -307,9 +307,9 @@ jobs:
         env:
           SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
         run: |
-          find ${{ env.CMAKE_BIULD_DIR }} -name '*.pdb'
+          export INSTALL_DIR=$(pwd)
           curl -sL https://sentry.io/get-cli/ | bash
-          sentry-cli upload-dif -o opengisch-llc -p qfield ${{ env.CMAKE_BUILD_DIR }}/android-build/build/intermediates/merged_native_libs/release
+          ./sentry-cli upload-dif -o opengisch-llc -p qfield ${{ env.CMAKE_BUILD_DIR }}
 
       - name: Setup tmate session
         if: failure()
