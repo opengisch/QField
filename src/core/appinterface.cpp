@@ -117,6 +117,5 @@ bool AppInterface::isFileExtensionSupported( const QString &filename ) const
 
 void AppInterface::sendLog( const QString &message )
 {
-  qWarning() << "Submitting log";
   emit submitLog( message );
 }

@@ -225,7 +225,6 @@ int main( int argc, char **argv )
 
 #if WITH_SENTRY
   QObject::connect( AppInterface::instance(), &AppInterface::submitLog, []( const QString &message ) {
-    qWarning() << "to sentry";
     sentry_capture_event( sentry_value_new_message_event(
       SENTRY_LEVEL_INFO,
       "custom",
