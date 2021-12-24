@@ -310,3 +310,9 @@ jobs:
           find ${{ env.CMAKE_BIULD_DIR }} -name '*.pdb'
           curl -sL https://sentry.io/get-cli/ | bash
           sentry-cli upload-dif -o opengisch-llc -p qfield ${{ env.CMAKE_BUILD_DIR }}/android-build/build/intermediates/merged_native_libs/release
+
+      - name: Setup tmate session
+        if: failure()
+        uses: mxschmitt/action-tmate@v3
+        with:
+          limit-access-to-actor: true
