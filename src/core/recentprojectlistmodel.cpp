@@ -35,7 +35,7 @@ QHash<int, QByteArray> RecentProjectListModel::roleNames() const
   roles[ProjectTypeRole] = "ProjectType";
   roles[ProjectTitleRole] = "ProjectTitle";
   roles[ProjectPathRole] = "ProjectPath";
-  roles[ProjectDemoRole] = "ProjectDemo";
+  roles[ProjectSampleRole] = "ProjectSample";
 
   return roles;
 }
@@ -69,41 +69,41 @@ void RecentProjectListModel::reloadModel()
       mRecentProjects.append( RecentProject( projectType,
                                              settings.value( QStringLiteral( "title" ) ).toString(),
                                              path,
-                                             settings.value( QStringLiteral( "demo" ), false ).toBool() ) );
+                                             settings.value( QStringLiteral( "sample" ), false ).toBool() ) );
     }
 
     settings.endGroup();
   }
   settings.endGroup();
 
-  // update demo projects
-  const QList<RecentProject> demoProjects {
-    RecentProject( LocalProject, QStringLiteral( "Simple Bee Farming Demo" ), QStringLiteral( "/qfield/demo_projects/simple_bee_farming.qgs" ), true ),
-    RecentProject( LocalProject, QStringLiteral( "Advanced Bee Farming Demo" ), QStringLiteral( "/qfield/demo_projects/advanced_bee_farming.qgs" ), true ),
-    RecentProject( LocalProject, QStringLiteral( "Live QField Users Survey Demo" ), QStringLiteral( "/qfield/demo_projects/live_qfield_users_survey.qgs" ), true ) };
-  for ( const RecentProject &demoProject : demoProjects )
+  // update sample projects
+  const QList<RecentProject> sampleProjects {
+    RecentProject( LocalProject, QStringLiteral( "Simple Bee Farming Sample Project" ), QStringLiteral( "/qfield/sample_projects/simple_bee_farming.qgs" ), true ),
+    RecentProject( LocalProject, QStringLiteral( "Advanced Bee Farming Sample Project" ), QStringLiteral( "/qfield/sample_projects/advanced_bee_farming.qgs" ), true ),
+    RecentProject( LocalProject, QStringLiteral( "Live QField Users Survey Sample Project" ), QStringLiteral( "/qfield/sample_projects/live_qfield_users_survey.qgs" ), true ) };
+  for ( const RecentProject &sampleProject : sampleProjects )
   {
-    bool recentProjectsContainsDemoProject = false;
+    bool recentProjectsContainsSampleProject = false;
     QMutableListIterator<RecentProject> recentProject( mRecentProjects );
-    QString demoProjectPath( PlatformUtilities::instance()->systemGenericDataLocation() + demoProject.path );
+    QString sampleProjectPath( PlatformUtilities::instance()->systemGenericDataLocation() + sampleProject.path );
 
     while ( recentProject.hasNext() )
     {
       recentProject.next();
 
-      if ( recentProject.value().path.endsWith( demoProject.path ) )
+      if ( recentProject.value().path.endsWith( sampleProject.path ) )
       {
         // update path: on iOS the path seems to change at each run time
-        recentProject.value().path = demoProjectPath;
-        recentProject.value().demo = true;
-        recentProjectsContainsDemoProject = true;
+        recentProject.value().path = sampleProjectPath;
+        recentProject.value().sample = true;
+        recentProjectsContainsSampleProject = true;
         break;
       }
     }
-    if ( !recentProjectsContainsDemoProject )
+    if ( !recentProjectsContainsSampleProject )
     {
-      mRecentProjects << demoProject;
-      mRecentProjects.last().path = demoProjectPath;
+      mRecentProjects << sampleProject;
+      mRecentProjects.last().path = sampleProjectPath;
     }
   }
 
@@ -140,8 +140,8 @@ QVariant RecentProjectListModel::data( const QModelIndex &index, int role ) cons
       return mRecentProjects.at( index.row() ).title;
     case ProjectPathRole:
       return mRecentProjects.at( index.row() ).path;
-    case ProjectDemoRole:
-      return mRecentProjects.at( index.row() ).demo;
+    case ProjectSampleRole:
+      return mRecentProjects.at( index.row() ).sample;
   }
 
   return QVariant();
