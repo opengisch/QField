@@ -86,4 +86,7 @@ set(QT_MODULES
 foreach(MOD ${QT_MODULES})
   set(${MOD}_DIR $ENV{Qt5_DIR}/lib/cmake/${MOD})
 endforeach()
+
+set(Qt5Core_ROOT $ENV{Qt5_DIR}/lib)
+
 _find_package(${ARGS})
