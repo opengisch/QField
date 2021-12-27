@@ -267,7 +267,6 @@ class QFieldCloudProjectsModel : public QAbstractListModel
 
     NetworkReply *uploadAttachment( const QString &projectId, const QString &fileName );
 
-    int findProject( const QString &projectId ) const;
 
     void layerObserverLayerEdited( const QString &layerId );
 
@@ -361,7 +360,7 @@ class QFieldCloudProjectsModel : public QAbstractListModel
 
     inline QString layerFileName( const QgsMapLayer *layer ) const;
 
-    QList<CloudProject> mCloudProjects;
+    QList<CloudProject *> mProjects;
     QFieldCloudConnection *mCloudConnection = nullptr;
     QString mCurrentProjectId;
     LayerObserver *mLayerObserver = nullptr;
@@ -370,6 +369,8 @@ class QFieldCloudProjectsModel : public QAbstractListModel
     QString mUsername;
     QStringList mActiveProjectFilesToDownload;
 
+    QModelIndex findProjectIndex( const QString &projectId ) const;
+    CloudProject *findProject( const QString &projectId ) const;
     void projectCancelUpload( const QString &projectId );
     void projectCancelUploadAttachments( const QString &projectId );
     void projectUploadAttachments( const QString &projectId );
