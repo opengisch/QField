@@ -212,12 +212,6 @@ jobs:
           release-tag: ${{ env.CI_TAG }}
 
 
-      - name: Setup tmate session
-        uses: mxschmitt/action-tmate@v3
-        if: always()
-        with:
-          limit-access-to-actor: true
-
   deploy_to_playstore:
     runs-on: ubuntu-20.04
     needs: build
