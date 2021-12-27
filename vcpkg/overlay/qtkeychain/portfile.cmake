@@ -14,6 +14,8 @@ if("translations" IN_LIST FEATURES)
     set(BUILD_TRANSLATIONS ON)
 endif()
 
+message(WARNING "Qt5_DIR is set to $ENV{Qt5_DIR} (Passthrough env vars: $ENV{VCPKG_KEEP_ENV_VARS})")
+
 vcpkg_cmake_configure(
     DISABLE_PARALLEL_CONFIGURE
     SOURCE_PATH ${SOURCE_PATH}
