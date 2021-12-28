@@ -86,7 +86,13 @@ VisibilityFadingRow {
     bgcolor: Theme.darkRed
 
     onClicked: {
-      cancelDialog.open();
+      if (stateMachine.state !== "measure") {
+        cancelDialog.open();
+      } else {
+        digitizingLogger.clearCoordinates();
+        rubberbandModel.reset()
+        cancel();
+      }
     }
   }
 
