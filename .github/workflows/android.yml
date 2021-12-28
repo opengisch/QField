@@ -121,6 +121,17 @@ jobs:
             ./scripts/ci/pull_translations.sh
           fi
 
+      # The sentry-android dependency is added via gradle
+      # This downloads the pre-compiled sentry-android-ndk libraries
+      # But we are compiling this before gradle is executed, so it is not downloaded
+      # Therefore we download it manually to get include headers and libraries
+      # ... a better implementation of this much appreciated ...
+      - name: Download sentry libs
+        run: |
+          mkdir /tmp/sentry-android-ndk
+          wget https://repo1.maven.org/maven2/io/sentry/sentry-android-ndk/5.5.2/sentry-android-ndk-5.5.2.aar -O /tmp/sentry.zip
+          unzip /tmp/sentry.zip -d /tmp/sentry-android-ndk
+
       - name: 🌱 Install dependencies and generate project files
         shell: bash
         env:
@@ -152,8 +163,14 @@ jobs:
                 -DANDROID_ABI=${{ steps.vars.outputs.ABI }} \
                 -DANDROID_PLATFORM=${{ env.ANDROID_PLATFORM }} \
                 -DANDROID_TARGET_PLATFORM=${{ env.ANDROID_TARGET_PLATFORM}} \
-                ${EXTRA_CMAKE_ARGS}
+                -DSENTRY_DSN=${{ secrets.SENTRY_DSN }} \
+                -DSENTRY_IMPORT_PREFIX=/tmp/sentry-android-ndk/jni
 
+      - name: Setup tmate session
+        if: failure()
+        uses: mxschmitt/action-tmate@v3
+        with:
+          limit-access-to-actor: true
 
       - name: 📑 Upload Dep Build Logs
         uses: actions/upload-artifact@v2
@@ -185,7 +202,7 @@ jobs:
           mv ${{ env.CMAKE_BUILD_DIR }}/android_deployment_settings.json ${{ env.CMAKE_BUILD_DIR }}/android_deployment_settings.tmp
           cat <<< "$(jq ". += { \"sdkBuildToolsRevision\" : \"29.0.2\" }" < ${{ env.CMAKE_BUILD_DIR }}/android_deployment_settings.tmp)" > ${{ env.CMAKE_BUILD_DIR }}/android_deployment_settings.json
           cmake --build  "${{ env.CMAKE_BUILD_DIR }}" --target bundle --config Release
-          ${ANDROID_SDK_ROOT}/build-tools/29.0.2/apksigner sign --v2-signing-enabled true --ks ./keystore.p12 --ks-pass pass:"${{ secrets.STOREPASS }}" --ks-key-alias "qfield" --key-pass pass:"${{ secrets.KEYPASS }}" ${{ env.CMAKE_BUILD_DIR }}/android-build/build/outputs/apk/release/android-build-release-signed.apk
+          ${ANDROID_SDK_ROOT}/build-tools/29.0.2/apksigner sign --v2-signing-enabled true --ks ./keystore.p12 --ks-pass "pass:${{ secrets.STOREPASS }}" --ks-key-alias "qfield" --key-pass "pass:${{ secrets.KEYPASS }}" ${{ env.CMAKE_BUILD_DIR }}/android-build/build/outputs/apk/release/android-build-release-signed.apk
 
       - name: 📦 Upload artifacts
         uses: actions/upload-artifact@v2
@@ -211,6 +228,13 @@ jobs:
           repo-token: ${{ secrets.GITHUB_TOKEN }}
           release-tag: ${{ env.CI_TAG }}
 
+      - name: Upload debug symbols
+        # if: release or labeled PR
+        env:
+          SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
+        run: |
+          curl -sL https://sentry.io/get-cli/ | bash
+          sentry-cli upload-dif -o opengisch-llc -p qfield ${{ env.CMAKE_BUILD_DIR }}/android-build/build/intermediates/merged_native_libs/release
 
   deploy_to_playstore:
     runs-on: ubuntu-20.04

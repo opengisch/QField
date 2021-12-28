@@ -14,7 +14,6 @@ __pycache__
 /QField.pro.user.*
 /config.pri
 /build*
-/platform/android/gradle.properties
 /platform/android/local.properties
 /platform/android/res/values/generated.xml
 /platform/android/res/values-*_*/strings.xml

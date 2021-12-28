@@ -53,6 +53,8 @@ class AppInterface : public QObject
 
     Q_INVOKABLE bool isFileExtensionSupported( const QString &filename ) const;
 
+    Q_INVOKABLE void sendLog( const QString &message );
+
     static void setInstance( AppInterface *instance ) { sAppInterface = instance; }
     static AppInterface *instance() { return sAppInterface; }
 
@@ -67,6 +69,8 @@ class AppInterface : public QObject
     void loadProjectEnded( const QString &path, const QString &name );
 
     void setMapExtent( const QgsRectangle &extent );
+
+    void submitLog( const QString &message );
 
   private:
     static AppInterface *sAppInterface;

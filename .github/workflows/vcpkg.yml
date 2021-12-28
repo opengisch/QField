@@ -212,6 +212,7 @@ jobs:
                 -DVCPKG_ROOT="${VCPKG_ROOT}" \
                 -DNUGET_USERNAME=opengisch \
                 -DNUGET_TOKEN=${{ secrets.GITHUB_TOKEN }} \
+                -DSENTRY_DSN=${{ secrets.SENTRY_DSN }} \
                 ${EXTRA_CMAKE_ARGS}
 
 
@@ -251,7 +252,7 @@ jobs:
         shell: bash
         run: |
           export LD_LIBRARY_PATH="${{ env.CMAKE_BUILD_DIR }}/vcpkg_installed/${{ matrix.triplet }}/lib/":${LD_LIBRARY_PATH}
-          cmake --build  "${{ env.CMAKE_BUILD_DIR }}" --target bundle --config Release
+          cmake --build  "${{ env.CMAKE_BUILD_DIR }}" --target bundle --config ${{ steps.vars.outputs.BUILD_TYPE }}
           case ${{ matrix.triplet }} in
             x64-linux)
               echo "ARTIFACT_PATHNAME=${{ env.CMAKE_BUILD_DIR }}/QField-x86_64.AppImage" >> $GITHUB_ENV
@@ -300,3 +301,19 @@ jobs:
           asset_path: ${{ env.ARTIFACT_PATHNAME }}
           asset_name: ${{ env.ARTIFACT_NAME }}
           overwrite: true
+
+      - name: Upload debug symbols
+        shell: bash
+        # if: release or labeled PR
+        env:
+          SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
+        run: |
+          export INSTALL_DIR=$(pwd)
+          curl -sL https://sentry.io/get-cli/ | bash
+          ./sentry-cli upload-dif -o opengisch-llc -p qfield ${{ env.CMAKE_BUILD_DIR }}
+
+      - name: Setup tmate session
+        if: failure()
+        uses: mxschmitt/action-tmate@v3
+        with:
+          limit-access-to-actor: true

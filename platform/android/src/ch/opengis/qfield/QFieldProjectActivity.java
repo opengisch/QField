@@ -15,7 +15,6 @@ import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
-import android.support.v4.content.ContextCompat;
 import android.text.Html;
 import android.text.TextUtils;
 import android.util.Log;
@@ -28,6 +27,7 @@ import android.widget.AdapterView.OnItemLongClickListener;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
+import androidx.core.content.ContextCompat;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -131,18 +131,19 @@ public class QFieldProjectActivity extends Activity {
                 }
             }
 
-            File demoProjects = new File(getFilesDir().toString() +
-                                         "/share/qfield/demo_projects");
+            File sampleProjects = new File(getFilesDir().toString() +
+                                           "/share/qfield/sample_projects");
             String favoriteDirs =
                 sharedPreferences.getString("FavoriteDirs", null);
 
-            // The first time, add the demo projects directory to the favorites
-            boolean addDemoProjectsFavoriteDir = sharedPreferences.getBoolean(
-                "AddDemoProjectsFavoriteDir2", true);
-            if (addDemoProjectsFavoriteDir) {
-                favoriteDirs = demoProjects.getAbsolutePath();
+            // The first time, add the sample projects directory to the
+            // favorites
+            boolean addSampleProjectsFavoriteDir = sharedPreferences.getBoolean(
+                "AddSampleProjectsFavoriteDir", true);
+            if (addSampleProjectsFavoriteDir) {
+                favoriteDirs = sampleProjects.getAbsolutePath();
                 editor.putString("FavoriteDirs", favoriteDirs);
-                editor.putBoolean("AddDemoProjectsFavoriteDir2", false);
+                editor.putBoolean("AddSampleProjectsFavoriteDir", false);
                 editor.commit();
             }
             if (favoriteDirs != null) {
@@ -157,8 +158,8 @@ public class QFieldProjectActivity extends Activity {
                         values.add(new QFieldProjectListItem(
                             f,
                             f.getAbsolutePath().equals(
-                                demoProjects.getAbsolutePath())
-                                ? getString(R.string.favorites_demo_projects)
+                                sampleProjects.getAbsolutePath())
+                                ? getString(R.string.favorites_sample_projects)
                                 : f.getName(),
                             R.drawable.directory,
                             QFieldProjectListItem.TYPE_ITEM));

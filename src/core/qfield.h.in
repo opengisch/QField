@@ -56,6 +56,9 @@ namespace qfield
   static inline const QString appVersion{ QStringLiteral( "@APP_VERSION@" ) };
   static inline const QString appVersionStr{ QStringLiteral( "@APP_VERSION_STR@" ) };
   static inline const QString appName{ QStringLiteral( "@APP_NAME@" ) };
+  static inline const QString sentryDsn{ QStringLiteral( "@SENTRY_DSN@" ) };
 }; // namespace qfield
+
+#define WITH_SENTRY @WITH_SENTRY@
 
 #endif // QFIELD_H

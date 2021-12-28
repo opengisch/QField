@@ -67,6 +67,7 @@ def process():
     filenames = [
         "./output/bin/qfield_spix",
         "./output/bin/Release/qfield_spix.exe",
+        "./output/bin/RelWithDebInfo/qfield_spix.exe",
         "./output/bin/Debug/qfield_spix.exe",
         "./output/bin/qfield.app/qfield_spix.exe",
         "./output/bin/qfield.app/Contents/MacOS/qfield_spix",

@@ -6,19 +6,21 @@ import org.qfield 1.0
 import Theme 1.0
 
 Page {
+  id: messageLog
+
   property alias model: table.model
-  signal finished
   property bool unreadMessages: false
 
+  signal finished
 
   header: PageHeader {
       title: qsTr( 'Message Logs' )
 
-      showBackButton: false
+      showBackButton: true
       showApplyButton: false
-      showCancelButton: true
+      showCancelButton: false
 
-      onFinished: parent.finished()
+      onFinished: messageLog.finished()
     }
 
   ColumnLayout {
@@ -102,6 +104,18 @@ Page {
         onClicked: {
             table.model.clear()
             displayToast(qsTr("Message log cleared"))
+            messageLog.finished()
+        }
+    }
+
+    QfButton {
+        id: submitLog
+        Layout.fillWidth: true
+        text: qsTr( 'Send application log' )
+
+        onClicked: {
+            iface.sendLog("Manual log submission")
+            displayToast(qsTr("Your application log is being sent"))
         }
     }
   }

@@ -34,17 +34,17 @@ class RecentProjectListModel : public QAbstractListModel
     {
         RecentProject() = default;
 
-        RecentProject( ProjectType type, const QString &title, const QString &path, bool demo )
+        RecentProject( ProjectType type, const QString &title, const QString &path, bool sample )
           : type( type )
           , title( title )
           , path( path )
-          , demo( demo )
+          , sample( sample )
         {}
 
         ProjectType type = ProjectType::LocalProject;
         QString title;
         QString path;
-        bool demo = false;
+        bool sample = false;
     };
 
     /*!
@@ -55,7 +55,7 @@ class RecentProjectListModel : public QAbstractListModel
       ProjectTypeRole = Qt::UserRole, //! the project type (e.g., local, cloud, etc.)
       ProjectTitleRole,               //! the project title
       ProjectPathRole,                //! the project path
-      ProjectDemoRole,                //! if the project is a demo project
+      ProjectSampleRole,              //! if the project is a sample project
     };
     Q_ENUM( Role )
 

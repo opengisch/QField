@@ -114,3 +114,8 @@ bool AppInterface::isFileExtensionSupported( const QString &filename ) const
   const QString suffix = fi.suffix().toLower();
   return SUPPORTED_PROJECT_EXTENSIONS.contains( suffix ) || SUPPORTED_VECTOR_EXTENSIONS.contains( suffix ) || SUPPORTED_RASTER_EXTENSIONS.contains( suffix );
 }
+
+void AppInterface::sendLog( const QString &message )
+{
+  emit submitLog( message );
+}
