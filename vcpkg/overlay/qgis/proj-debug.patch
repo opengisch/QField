@@ -1,0 +1,25 @@
+From 9b8f8ebb565bca6aafbcbfdee7dde84152058b6a Mon Sep 17 00:00:00 2001
+From: Matthias Kuhn <matthias@opengis.ch>
+Date: Tue, 28 Dec 2021 17:14:04 +0100
+Subject: [PATCH] Add debug info
+
+---
+ src/core/proj/qgscoordinatereferencesystem.cpp | 2 ++
+ 1 file changed, 2 insertions(+)
+
+diff --git a/src/core/proj/qgscoordinatereferencesystem.cpp b/src/core/proj/qgscoordinatereferencesystem.cpp
+index 9e8ce557cad..beef38f1d11 100644
+--- a/src/core/proj/qgscoordinatereferencesystem.cpp
++++ b/src/core/proj/qgscoordinatereferencesystem.cpp
+@@ -1419,6 +1419,8 @@ void QgsCoordinateReferenceSystem::setProjString( const QString &proj4String )
+   PJ_CONTEXT *ctx = QgsProjContext::get();
+ 
+   {
++    qInfo() << "Proj string: " << proj4String;
++    qInfo() << "Trimmed: " << trimmed;
+     d->setPj( QgsProjUtils::proj_pj_unique_ptr( proj_create( ctx, trimmed.toLatin1().constData() ) ) );
+   }
+ 
+-- 
+2.31.1
+
