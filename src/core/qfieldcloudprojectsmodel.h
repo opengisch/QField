@@ -425,7 +425,7 @@ class QFieldCloudProjectsModel : public QAbstractListModel
         QString lastLocalExportId;
         QString lastLocalPushDeltas;
 
-        QDateTime lastRefreshDt;
+        QDateTime lastRefreshedAt;
         QMap<JobType, Job> jobs;
     };
 

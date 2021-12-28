@@ -434,7 +434,7 @@ void QFieldCloudProjectsModel::projectRefreshData( const QString &projectId, con
     project->isPrivate = projectData.value( "is_private" ).toBool();
     project->canRepackage = projectData.value( "can_repackage" ).toBool();
     project->needsRepackaging = projectData.value( "needs_repackaging" ).toBool();
-    project->lastRefreshDt = QDateTime::currentDateTimeUtc();
+    project->lastRefreshedAt = QDateTime::currentDateTimeUtc();
 
     const QString projectPrefix = QStringLiteral( "QFieldCloud/projects/%1" ).arg( project->id );
     QFieldCloudUtils::setProjectSetting( project->id, QStringLiteral( "name" ), project->name );
@@ -662,8 +662,8 @@ void QFieldCloudProjectsModel::projectPackageAndDownload( const QString &project
   };
 
   // Check and refresh project data if needed, because it might be outdated
-  if ( !project->lastRefreshDt.isValid()
-       || project->lastRefreshDt.secsTo( QDateTime::currentDateTimeUtc() ) > CACHE_PROJECT_DATA_SECS )
+  if ( !project->lastRefreshedAt.isValid()
+       || project->lastRefreshedAt.secsTo( QDateTime::currentDateTimeUtc() ) > CACHE_PROJECT_DATA_SECS )
   {
     projectRefreshData( projectId, ProjectRefreshReason::Package );
 
@@ -1864,7 +1864,7 @@ void QFieldCloudProjectsModel::reload( const QJsonArray &remoteProjects )
       }
     }
 
-    cloudProject->lastRefreshDt = QDateTime::currentDateTimeUtc();
+    cloudProject->lastRefreshedAt = QDateTime::currentDateTimeUtc();
 
     mProjects << cloudProject;
   }
