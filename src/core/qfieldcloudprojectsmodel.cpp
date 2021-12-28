@@ -321,19 +321,19 @@ QString QFieldCloudProjectsModel::layerFileName( const QgsMapLayer *layer ) cons
 
 QFieldCloudProjectsModel::JobStatus QFieldCloudProjectsModel::jobStatus( const QString &status ) const
 {
-  const QString statusUpper = status.toLower();
-  if ( statusUpper == QStringLiteral( "pending" ) )
+  const QString statusLower = status.toLower();
+  if ( statusLower == QStringLiteral( "pending" ) )
     return JobPendingStatus;
-  else if ( statusUpper == QStringLiteral( "queued" ) )
+  else if ( statusLower == QStringLiteral( "queued" ) )
     return JobQueuedStatus;
-  else if ( statusUpper == QStringLiteral( "started" ) )
+  else if ( statusLower == QStringLiteral( "started" ) )
     return JobStartedStatus;
-  else if ( statusUpper == QStringLiteral( "stopped" ) )
+  else if ( statusLower == QStringLiteral( "stopped" ) )
     return JobStoppedStatus;
-  else if ( statusUpper == QStringLiteral( "finished" ) )
+  else if ( statusLower == QStringLiteral( "finished" ) )
     return JobFinishedStatus;
   //cppcheck-suppress duplicateBranch
-  else if ( statusUpper == QStringLiteral( "failed" ) )
+  else if ( statusLower == QStringLiteral( "failed" ) )
     return JobFailedStatus;
   else
     // "STATUS_ERROR" or any unknown status is considered an error
