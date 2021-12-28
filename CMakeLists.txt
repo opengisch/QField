@@ -65,11 +65,18 @@ set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${QFIELD_OUTPUT_DIRECTORY}/${QFIELD_LIB_SUBDI
 
 install(DIRECTORY ${CMAKE_SOURCE_DIR}/resources DESTINATION share/qfield)
 
-set(WITH_SPIX FALSE CACHE STRING "Compile with Spix for testing")
+set(WITH_SPIX FALSE CACHE BOOL "Compile with Spix for testing")
 
 if (WITH_SPIX)
   find_package(Spix)
 endif ()
+
+set(SENTRY_DSN "" CACHE STRING "The sentry dsn for logging purpose. If not set, sentry will be disabled")
+if(SENTRY_DSN)
+  set(WITH_SENTRY 1)
+else()
+  set(WITH_SENTRY 0)
+endif()
 
 if (ANDROID)
   # This is necessary in order for CMake to be able to detect libraries in OSGeo4A
@@ -110,11 +117,11 @@ find_package(Qt5 COMPONENTS PrintSupport QUIET)
 
 find_package(QGIS REQUIRED)
 if(NOT ${CMAKE_SYSTEM_NAME} STREQUAL "iOS")
-if(WITH_VCPKG)
-  find_package(PROJ)
-else()
-  find_package(Proj)
-endif()
+  if(WITH_VCPKG)
+    find_package(PROJ)
+  else()
+    find_package(Proj)
+  endif()
   find_package(GDAL)
 endif()
 find_package(Qca REQUIRED)
@@ -143,6 +150,12 @@ if(MSVC)
   add_definitions(-D_USE_MATH_DEFINES)
   add_definitions(-DNOMINMAX)
   add_definitions(-D_CRT_NONSTDC_NO_DEPRECATE)
+
+  # Generate pdb files
+  add_compile_options("$<$<NOT:$<CONFIG:Debug>>:/Zi>")
+  add_link_options("$<$<NOT:$<CONFIG:Debug>>:/DEBUG>")
+  add_link_options("$<$<NOT:$<CONFIG:Debug>>:/OPT:REF>")
+  add_link_options("$<$<NOT:$<CONFIG:Debug>>:/OPT:ICF>")
 endif()
 
 add_subdirectory(src/core)
