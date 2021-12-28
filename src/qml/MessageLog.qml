@@ -107,6 +107,17 @@ Page {
             messageLog.finished()
         }
     }
+
+    QfButton {
+        id: submitLog
+        Layout.fillWidth: true
+        text: qsTr( 'Send application log' )
+
+        onClicked: {
+            iface.sendLog("Manual log submission")
+            displayToast(qsTr("Your application log is being sent"))
+        }
+    }
   }
 
   Connections {
