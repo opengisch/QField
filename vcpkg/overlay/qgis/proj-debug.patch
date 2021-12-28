@@ -1,17 +1,25 @@
-From 9b8f8ebb565bca6aafbcbfdee7dde84152058b6a Mon Sep 17 00:00:00 2001
+From a787fc5c9a90f1b349ee8bcc81032d09d4b0d84d Mon Sep 17 00:00:00 2001
 From: Matthias Kuhn <matthias@opengis.ch>
 Date: Tue, 28 Dec 2021 17:14:04 +0100
 Subject: [PATCH] Add debug info
 
 ---
- src/core/proj/qgscoordinatereferencesystem.cpp | 2 ++
- 1 file changed, 2 insertions(+)
+ src/core/proj/qgscoordinatereferencesystem.cpp | 3 +++
+ 1 file changed, 3 insertions(+)
 
 diff --git a/src/core/proj/qgscoordinatereferencesystem.cpp b/src/core/proj/qgscoordinatereferencesystem.cpp
-index 9e8ce557cad..beef38f1d11 100644
+index 9e8ce557cad..071acb5b457 100644
 --- a/src/core/proj/qgscoordinatereferencesystem.cpp
 +++ b/src/core/proj/qgscoordinatereferencesystem.cpp
-@@ -1419,6 +1419,8 @@ void QgsCoordinateReferenceSystem::setProjString( const QString &proj4String )
+@@ -31,6 +31,7 @@
+ #include <QRegularExpression>
+ #include <QTextStream>
+ #include <QFile>
++#include <QDebug>
+ 
+ #include "qgsapplication.h"
+ #include "qgslogger.h"
+@@ -1419,6 +1420,8 @@ void QgsCoordinateReferenceSystem::setProjString( const QString &proj4String )
    PJ_CONTEXT *ctx = QgsProjContext::get();
  
    {
