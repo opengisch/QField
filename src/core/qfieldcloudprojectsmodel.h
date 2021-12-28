@@ -327,6 +327,7 @@ class QFieldCloudProjectsModel : public QAbstractListModel
         QUrl lastRedirectUrl;
     };
 
+    //! Tracks the job status (status, error etc) for a particular project. For now 1 project can have only 1 job of a type.
     struct Job
     {
         Job(
@@ -345,6 +346,7 @@ class QFieldCloudProjectsModel : public QAbstractListModel
         JobStatus status = JobPendingStatus;
     };
 
+    //! Tracks the cloud project information. It means it is not required CloudProject data to be already downloaded on the device.
     struct CloudProject
     {
         CloudProject(
