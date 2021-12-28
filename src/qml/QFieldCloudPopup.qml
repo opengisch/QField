@@ -16,9 +16,9 @@ Popup {
     header: PageHeader {
       title: qsTr('QFieldCloud')
 
-      showBackButton: false
-      showCancelButton: cloudProjectsModel.currentProjectData.Status !== QFieldCloudProjectsModel.Uploading
+      showBackButton: cloudProjectsModel.currentProjectData.Status !== QFieldCloudProjectsModel.Uploading
                         || cloudProjectsModel.currentProjectData.Status !== QFieldCloudProjectsModel.Downloading
+      showCancelButton: false
       showApplyButton: false
       busyIndicatorState: cloudConnection.status === QFieldCloudConnection.Connecting
             || cloudProjectsModel.currentProjectData.Status === QFieldCloudProjectsModel.Uploading
