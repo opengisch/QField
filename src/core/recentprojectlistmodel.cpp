@@ -76,6 +76,7 @@ void RecentProjectListModel::reloadModel()
   }
   settings.endGroup();
 
+#ifndef Q_OS_IOS
   // update sample projects
   const QList<RecentProject> sampleProjects {
     RecentProject( LocalProject, QStringLiteral( "Simple Bee Farming Sample Project" ), QStringLiteral( "/qfield/sample_projects/simple_bee_farming.qgs" ), true ),
@@ -106,6 +107,7 @@ void RecentProjectListModel::reloadModel()
       mRecentProjects.last().path = sampleProjectPath;
     }
   }
+#endif
 
   QMutableListIterator<RecentProject> recentProject( mRecentProjects );
   while ( recentProject.hasNext() )
