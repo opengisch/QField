@@ -11,6 +11,7 @@ vcpkg_from_github(
         fix-win-output-name.patch
         fix-proj4-targets-cmake.patch
         tools-cmake.patch
+        remove-locale.patch
 )
 
 if(VCPKG_LIBRARY_LINKAGE STREQUAL "dynamic")

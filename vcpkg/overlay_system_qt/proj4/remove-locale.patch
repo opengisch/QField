@@ -1,0 +1,24 @@
+From 29fd08f01ea13b5d3788c8ca774bce80ada71ddd Mon Sep 17 00:00:00 2001
+From: Matthias Kuhn <matthias@opengis.ch>
+Date: Wed, 29 Dec 2021 13:02:59 +0100
+Subject: [PATCH] Remove locale
+
+---
+ src/iso19111/internal.cpp | 1 -
+ 1 file changed, 1 deletion(-)
+
+diff --git a/src/iso19111/internal.cpp b/src/iso19111/internal.cpp
+index 4810202d..e49e8602 100644
+--- a/src/iso19111/internal.cpp
++++ b/src/iso19111/internal.cpp
+@@ -273,7 +273,6 @@ double c_locale_stod(const std::string &s) {
+     }
+ 
+     std::istringstream iss(s);
+-    iss.imbue(std::locale::classic());
+     double d;
+     iss >> d;
+     if (!iss.eof() || iss.fail()) {
+-- 
+2.31.1
+
