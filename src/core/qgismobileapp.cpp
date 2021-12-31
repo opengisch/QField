@@ -179,28 +179,37 @@ QgisMobileapp::QgisMobileapp( QgsApplication *app, QObject *parent )
   handler.reset( mAuthRequestHandler );
   QgsNetworkAccessManager::instance()->setAuthHandler( std::move( handler ) );
 
-  if ( !PlatformUtilities::instance()->qfieldDataDir().isEmpty() )
-  {
-    //set localized data paths
-    QStringList localizedDataPaths;
-    localizedDataPaths << PlatformUtilities::instance()->qfieldDataDir() + QStringLiteral( "basemaps/" );
-    QgsApplication::instance()->localizedDataPathRegistry()->setPaths( localizedDataPaths );
+  QStringList dataDirs;
+  if ( PlatformUtilities::instance()->qfieldDataDir().isEmpty() )
+    dataDirs << PlatformUtilities::instance()->qfieldDataDir();
+  if ( !PlatformUtilities::instance()->qfieldAppDataDir().isEmpty() )
+    dataDirs << PlatformUtilities::instance()->qfieldAppDataDir();
 
-    // set fonts
-    const QString fontsPath = PlatformUtilities::instance()->qfieldDataDir() + QStringLiteral( "fonts/" );
-    QDir fontsDir( fontsPath );
-    if ( fontsDir.exists() )
+  if ( !dataDirs.isEmpty() )
+  {
+    //set localized data paths and register fonts
+    QStringList localizedDataPaths;
+    for ( const QString &dataDir : dataDirs )
     {
-      const QStringList fonts = fontsDir.entryList( QStringList() << "*.ttf"
-                                                                  << "*.TTF"
-                                                                  << "*.otf"
-                                                                  << "*.OTF",
-                                                    QDir::Files );
-      for ( auto font : fonts )
+      localizedDataPaths << dataDir + QStringLiteral( "basemaps/" );
+
+      // set fonts)
+      const QString fontsPath = dataDir + QStringLiteral( "fonts/" );
+      QDir fontsDir( fontsPath );
+      if ( fontsDir.exists() )
       {
-        QFontDatabase::addApplicationFont( fontsPath + font );
+        const QStringList fonts = fontsDir.entryList( QStringList() << "*.ttf"
+                                                                    << "*.TTF"
+                                                                    << "*.otf"
+                                                                    << "*.OTF",
+                                                      QDir::Files );
+        for ( auto font : fonts )
+        {
+          QFontDatabase::addApplicationFont( fontsPath + font );
+        }
       }
     }
+    QgsApplication::instance()->localizedDataPathRegistry()->setPaths( localizedDataPaths );
   }
 
   QFontDatabase::addApplicationFont( ":/fonts/Cadastra-Bold.ttf" );
@@ -233,7 +242,7 @@ QgisMobileapp::QgisMobileapp( QgsApplication *app, QObject *parent )
   // cppcheck-suppress leakReturnValNotUsed
   initDeclarative();
 
-  if ( !PlatformUtilities::instance()->qfieldDataDir().isEmpty() )
+  if ( !dataDirs.isEmpty() )
   {
     // add extra proj search path to allow copying of transformation grid files
     QString path( proj_info().searchpath );
@@ -257,7 +266,10 @@ QgisMobileapp::QgisMobileapp( QgsApplication *app, QObject *parent )
       searchPaths << p;
     }
 
-    searchPaths << QStringLiteral( "%1/proj/" ).arg( PlatformUtilities::instance()->qfieldDataDir() );
+    for ( const QString &dataDir : dataDirs )
+    {
+      searchPaths << QStringLiteral( "%1/proj/" ).arg( dataDir );
+    }
     char **newPaths = new char *[searchPaths.count()];
     for ( int i = 0; i < searchPaths.count(); ++i )
     {
@@ -271,19 +283,25 @@ QgisMobileapp::QgisMobileapp( QgsApplication *app, QObject *parent )
     delete[] newPaths;
 
 #ifdef Q_OS_ANDROID
-    setenv( "PGSYSCONFDIR", PlatformUtilities::instance()->qfieldDataDir().toUtf8(), true );
+    if ( QDir( PlatformUtilities::instance()->qfieldDataDir() ).exists() )
+      setenv( "PGSYSCONFDIR", PlatformUtilities::instance()->qfieldDataDir().toUtf8(), true );
+    else
+      setenv( "PGSYSCONFDIR", PlatformUtilities::instance()->qfieldAppDataDir().toUtf8(), true );
 #endif
 
     QgsApplication::instance()->authManager()->setPasswordHelperEnabled( false );
     QgsApplication::instance()->authManager()->setMasterPassword( QString( "qfield" ) );
     // import authentication method configurations
-    QDir configurationsDir( QStringLiteral( "%1/auth/" ).arg( PlatformUtilities::instance()->qfieldDataDir() ) );
-    if ( configurationsDir.exists() )
+    for ( const QString &dataDir : dataDirs )
     {
-      const QStringList configurations = configurationsDir.entryList( QStringList() << QStringLiteral( "*.xml" ) << QStringLiteral( "*.XML" ), QDir::Files );
-      for ( const QString &configuration : configurations )
+      QDir configurationsDir( QStringLiteral( "%1/auth/" ).arg( dataDir ) );
+      if ( configurationsDir.exists() )
       {
-        QgsApplication::instance()->authManager()->importAuthenticationConfigsFromXml( configurationsDir.absoluteFilePath( configuration ), QString(), true );
+        const QStringList configurations = configurationsDir.entryList( QStringList() << QStringLiteral( "*.xml" ) << QStringLiteral( "*.XML" ), QDir::Files );
+        for ( const QString &configuration : configurations )
+        {
+          QgsApplication::instance()->authManager()->importAuthenticationConfigsFromXml( configurationsDir.absoluteFilePath( configuration ), QString(), true );
+        }
       }
     }
   }

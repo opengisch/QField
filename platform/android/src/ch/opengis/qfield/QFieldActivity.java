@@ -141,7 +141,7 @@ public class QFieldActivity extends QtActivity {
             new File(qFieldAppDir + "fonts/").mkdir();
             new File(qFieldAppDir + "proj/").mkdir();
             new File(qFieldAppDir + "auth/").mkdir();
-       }
+        }
 
         Intent intent = new Intent();
         intent.setClass(QFieldActivity.this, QtActivity.class);
