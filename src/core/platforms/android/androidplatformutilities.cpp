@@ -138,6 +138,11 @@ QString AndroidPlatformUtilities::qfieldDataDir() const
   return getIntentExtra( "QFIELD_DATA_DIR" );
 }
 
+QString AndroidPlatformUtilities::qfieldAppDataDir() const
+{
+  return getIntentExtra( "QFIELD_APP_DATA_DIR" );
+}
+
 QString AndroidPlatformUtilities::getIntentExtra( const QString &extra, QAndroidJniObject extras ) const
 {
   if ( extras == nullptr )

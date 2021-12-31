@@ -62,6 +62,11 @@ QString PlatformUtilities::qfieldDataDir() const
   return QStandardPaths::standardLocations( QStandardPaths::DocumentsLocation ).first() + QStringLiteral( "/QField/" );
 }
 
+QString PlatformUtilities::qfieldAppDataDir() const
+{
+  return QStandardPaths::standardLocations( QStandardPaths::DocumentsLocation ).first() + QStringLiteral( "/QField/" );
+}
+
 QStringList PlatformUtilities::availableGrids() const
 {
   if ( !qfieldDataDir().isEmpty() )
