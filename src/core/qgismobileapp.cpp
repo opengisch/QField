@@ -180,7 +180,7 @@ QgisMobileapp::QgisMobileapp( QgsApplication *app, QObject *parent )
   QgsNetworkAccessManager::instance()->setAuthHandler( std::move( handler ) );
 
   QStringList dataDirs;
-  if ( PlatformUtilities::instance()->qfieldDataDir().isEmpty() )
+  if ( !PlatformUtilities::instance()->qfieldDataDir().isEmpty() )
     dataDirs << PlatformUtilities::instance()->qfieldDataDir();
   if ( !PlatformUtilities::instance()->qfieldAppDataDir().isEmpty() )
     dataDirs << PlatformUtilities::instance()->qfieldAppDataDir();
