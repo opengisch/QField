@@ -111,6 +111,25 @@ Item {
             }
         }
 
+        Label {
+            Layout.fillWidth: true
+            Layout.maximumWidth: parent.width
+            Layout.alignment: Qt.AlignCenter
+            horizontalAlignment: Text.AlignHCenter
+            font: Theme.tinyFont
+            color: Theme.light
+            opacity: 0.6
+
+            text: {
+                var dataFields = [];
+                if (platformUtilities.qfieldDataDir() !== '')
+                    dataFields.push('QField storage-wide directory:\n' + platformUtilities.qfieldDataDir());
+                if (platformUtilities.qfieldAppDataDir() !== ''
+                    && platformUtilities.qfieldAppDataDir() !== platformUtilities.qfieldDataDir())
+                    dataFields.push('QField app directory:\n' + platformUtilities.qfieldAppDataDir());
+                return dataFields.join('\n');
+            }
+        }
 
         QfButton {
             id: sponsorshipButton
