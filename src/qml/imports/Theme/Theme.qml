@@ -21,6 +21,10 @@ QtObject {
     defaultFont.pointSize: 16
     defaultFont.weight: Font.Normal
 
+    property font tinyFont
+    tinyFont.pointSize: 12
+    tinyFont.weight: Font.Normal
+
     property font tipFont
     tipFont.pointSize: 14
     tipFont.weight: Font.Normal
