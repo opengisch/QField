@@ -44,6 +44,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.ActivityInfo;
+import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.PackageManager.NameNotFoundException;
 import android.net.Uri;
@@ -68,6 +69,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.lang.Thread;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
@@ -211,6 +213,23 @@ public class QFieldActivity extends QtActivity {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R &&
             !Environment.isExternalStorageManager() &&
             !sharedPreferences.getBoolean("DontAskAllFilesPermission", false)) {
+            // if MANAGE_EXTERNAL_STORAGE permission isn't in the manifest, bail
+            // out
+            String[] requestedPermissions;
+            try {
+                PackageInfo pi = getPackageManager().getPackageInfo(
+                    this.getPackageName(), PackageManager.GET_PERMISSIONS);
+                requestedPermissions = pi.requestedPermissions;
+            } catch (NameNotFoundException e) {
+                e.printStackTrace();
+                finish();
+                return;
+            }
+            if (!Arrays.asList(requestedPermissions)
+                     .contains(Manifest.permission.MANAGE_EXTERNAL_STORAGE)) {
+                return;
+            }
+
             AlertDialog.Builder builder = new AlertDialog.Builder(this);
             builder.setTitle(getString(R.string.grant_permission));
             builder.setMessage(
