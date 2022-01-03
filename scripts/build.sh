@@ -9,7 +9,7 @@ triplet=${triplet:-arm64-android}
 
 docker build ${SRC_DIR}/.docker/android_dev -t qfield_and_dev
 
-docker run -it --rm \
+docker run --rm \
   -v "$SRC_DIR":/usr/src/qfield:Z \
   $(if [ -n "$CACHE_DIR" ]; then echo "-v $CACHE_DIR:/io/.cache:Z"; fi) \
   -e triplet=${triplet} \
