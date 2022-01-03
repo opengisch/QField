@@ -124,13 +124,17 @@ public class QFieldActivity extends QtActivity {
         String storagePath =
             Environment.getExternalStorageDirectory().getAbsolutePath();
         String qFieldDir = storagePath + "/QField/";
-        new File(qFieldDir).mkdir();
-
-        // create directories
-        new File(qFieldDir + "basemaps/").mkdir();
-        new File(qFieldDir + "fonts/").mkdir();
-        new File(qFieldDir + "proj/").mkdir();
-        new File(qFieldDir + "auth/").mkdir();
+        File storageFile = new File(qFieldDir);
+        storageFile.mkdir();
+        if (storageFile.canWrite()) {
+            // create directories
+            new File(qFieldDir + "basemaps/").mkdir();
+            new File(qFieldDir + "fonts/").mkdir();
+            new File(qFieldDir + "proj/").mkdir();
+            new File(qFieldDir + "auth/").mkdir();
+        } else {
+            qFieldDir = "";
+        }
 
         File[] externalFilesDirs = getExternalFilesDirs(null);
         String qFieldAppDir = "";
