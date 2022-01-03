@@ -36,7 +36,7 @@ endif()
 # Binarycache can only be used on Windows or if mono is available.
 find_program(_VCPKG_MONO mono)
 if(_HOST_IS_WINDOWS OR EXISTS "${_VCPKG_MONO}")
-  # Early bootstrap, copied from the vcpkg toolchain, we need this to fetch mono
+  # Early bootstrap, copied from the vcpkg toolchain, we need this to fetch nuget
   if(_HOST_IS_WINDOWS)
     set(_VCPKG_EXECUTABLE "${VCPKG_ROOT}/vcpkg.exe")
     set(_VCPKG_BOOTSTRAP_SCRIPT "${VCPKG_ROOT}/bootstrap-vcpkg.bat")

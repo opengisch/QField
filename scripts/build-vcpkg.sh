@@ -41,23 +41,23 @@ esac
 cmake -S "${SOURCE_DIR}" \
       -B "${CMAKE_BUILD_DIR}" \
       -G Ninja \
-      -DCMAKE_TOOLCHAIN_FILE=/usr/src/qfield/vcpkg/base/scripts/buildsystems/vcpkg.cmake \
-      -DVCPKG_OVERLAY_PORTS=/usr/src/qfield/vcpkg/overlay_system_qt\;/usr/src/qfield/vcpkg/overlay \
-      -DVCPKG_TARGET_TRIPLET="${triplet}" \
-      -DWITH_VCPKG=ON \
-      -DWITH_SPIX=OFF \
-      -DAPP_VERSION="v1.0.0" \
-      -DAPK_VERSION_CODE="${APK_VERSION_CODE}" \
-      -DAPP_VERSION_STR="${APP_VERSION_STR}" \
-      -DAPP_PACKAGE_NAME="${APP_PACKAGE_NAME}" \
-      -DAPP_ICON="${APP_ICON}" \
-      -DAPP_NAME="${APP_NAME}" \
-      -DVCPKG_CHAINLOAD_TOOLCHAIN_FILE=${ANDROID_NDK_HOME}/build/cmake/android.toolchain.cmake \
-      -DANDROID_ABI=${ABI} \
-      -DANDROID_PLATFORM=${ANDROID_PLATFORM} \
-      -DANDROID_TARGET_PLATFORM=${ANDROID_TARGET_PLATFORM} \
-      -DNUGET_TOKEN=${NUGET_TOKEN} \
-      -DNUGET_TOKEN=${NUGET_USERNAME}
+      -D CMAKE_TOOLCHAIN_FILE=/usr/src/qfield/vcpkg/base/scripts/buildsystems/vcpkg.cmake \
+      -D VCPKG_OVERLAY_PORTS=/usr/src/qfield/vcpkg/overlay_system_qt\;/usr/src/qfield/vcpkg/overlay \
+      -D VCPKG_TARGET_TRIPLET="${triplet}" \
+      -D WITH_VCPKG=ON \
+      -D WITH_SPIX=OFF \
+      -D APP_VERSION="v1.0.0" \
+      -D APK_VERSION_CODE="${APK_VERSION_CODE}" \
+      -D APP_VERSION_STR="${APP_VERSION_STR}" \
+      -D APP_PACKAGE_NAME="${APP_PACKAGE_NAME}" \
+      -D APP_ICON="${APP_ICON}" \
+      -D APP_NAME="${APP_NAME}" \
+      -D VCPKG_CHAINLOAD_TOOLCHAIN_FILE=${ANDROID_NDK_HOME}/build/cmake/android.toolchain.cmake \
+      -D ANDROID_ABI=${ABI} \
+      -D ANDROID_PLATFORM=${ANDROID_PLATFORM} \
+      -D ANDROID_TARGET_PLATFORM=${ANDROID_TARGET_PLATFORM} \
+      ${NUGET_TOKEN:+-D NUGET_TOKEN=${NUGET_TOKEN}} \
+      ${NUGET_USERNAME:+-D NUGET_USERNAME=${NUGET_USERNAME}}
 
 # Build app
 cmake --build "${CMAKE_BUILD_DIR}"
