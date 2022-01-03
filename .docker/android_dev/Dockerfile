@@ -20,6 +20,6 @@ RUN apt-get update && \
     && \
   rm -rf /var/lib/apt/lists/*
 WORKDIR /home/devel
-RUN pip3 install aqtinstall && \
+RUN pip3 install aqtinstall cmake && \
     /usr/local/bin/aqt install-qt linux android 5.14.2 -m qtcharts
-
+ENV PATH="/home/devel/.local/bin:${PATH}"
