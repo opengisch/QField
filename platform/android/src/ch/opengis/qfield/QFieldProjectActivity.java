@@ -1,5 +1,8 @@
 package ch.opengis.qfield;
 
+import static android.os.Build.VERSION.SDK_INT;
+import static android.os.Build.VERSION_CODES.Q;
+
 import android.Manifest;
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -52,6 +55,14 @@ public class QFieldProjectActivity extends Activity {
         getActionBar().setBackgroundDrawable(
             new ColorDrawable(Color.parseColor("#80CC28")));
         drawView();
+
+        if (!getIntent().hasExtra("path")) {
+            Intent intent = new Intent(Intent.ACTION_OPEN_DOCUMENT_TREE);
+            intent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION | Intent.FLAG_GRANT_WRITE_URI_PERMISSION);
+            intent.addFlags(Intent.FLAG_GRANT_PREFIX_URI_PERMISSION);
+            intent.addFlags(Intent.FLAG_GRANT_PERSISTABLE_URI_PERMISSION);
+            startActivityForResult(intent, 777);
+        }
     }
 
     private void drawView() {
@@ -395,6 +406,16 @@ public class QFieldProjectActivity extends Activity {
                                     Intent data) {
         Log.d(TAG, "onActivityResult ");
         Log.d(TAG, "resultCode: " + resultCode);
+
+        if (requestCode == 777) {
+            if (SDK_INT >= Q) {
+                Context context = getApplication().getApplicationContext();
+                context.getContentResolver()
+                       .takePersistableUriPermission(data.getData(),Intent.FLAG_GRANT_READ_URI_PERMISSION | Intent.FLAG_GRANT_WRITE_URI_PERMISSION );
+                String path = data.getDataString();
+            }
+            return;
+        }
 
         // Close recursively the activity stack
         if (resultCode == Activity.RESULT_OK) {

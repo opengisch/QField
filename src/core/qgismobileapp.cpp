@@ -179,6 +179,23 @@ QgisMobileapp::QgisMobileapp( QgsApplication *app, QObject *parent )
   handler.reset( mAuthRequestHandler );
   QgsNetworkAccessManager::instance()->setAuthHandler( std::move( handler ) );
 
+  QDir d( PlatformUtilities::instance()->qfieldDataDir() );
+  const QStringList fs = d.entryList( QStringList() << "*.*", QDir::Files );
+  for ( auto f : fs )
+  {
+    qDebug() << f;
+  }
+  QFile file( PlatformUtilities::instance()->qfieldDataDir() + "test.qgs" );
+  qDebug() << ( file.exists() ? "project file registered as existing" : "project file not registered as existing" );
+  if ( file.open( QIODevice::ReadWrite ) )
+  {
+    qDebug() << file.readLine();
+  }
+  else
+  {
+    qDebug() << "can't open direct file paths";
+  }
+
   if ( !PlatformUtilities::instance()->qfieldDataDir().isEmpty() )
   {
     //set localized data paths
