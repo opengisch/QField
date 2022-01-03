@@ -17,9 +17,22 @@ RUN apt-get update && \
     bison \
     ninja-build \
     jq \
+    dirmngr \
+    gnupg \
+    apt-transport-https \
+    ca-certificates \
+    software-properties-common \
+    && \
+  apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 3FA7E0328081BFF6A14DA29AA6A19B38D3D831EF \
+    && \
+  apt-add-repository 'deb https://download.mono-project.com/repo/ubuntu stable-focal main' \
+    && \
+  DEBIAN_FRONTEND=noninteractive apt-get -qq install \
+    mono-complete \
     && \
   rm -rf /var/lib/apt/lists/*
 WORKDIR /home/devel
 RUN pip3 install aqtinstall cmake && \
     /usr/local/bin/aqt install-qt linux android 5.14.2 -m qtcharts
+
 ENV PATH="/home/devel/.local/bin:${PATH}"
