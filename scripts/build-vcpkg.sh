@@ -6,7 +6,7 @@ cd /usr/src/qfield || exit
 
 CMAKE_BUILD_DIR=/usr/src/qfield/build-${triplet}
 
-export ANDROID_NDK_HOME=/home/devel/android/ndk/21.4.7075529/
+export ANDROID_NDK_HOME=${ANDROID_NDK_ROOT}
 export Qt5_DIR=/home/devel/5.14.2/android/
 export ANDROID_PLATFORM=21
 export ANDROID_TARGET_PLATFORM=30
