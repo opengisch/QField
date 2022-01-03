@@ -9,9 +9,9 @@ triplet=${triplet:-arm64-android}
 
 docker build ${SRC_DIR}/.docker/android_dev -t qfield_and_dev
 
-docker run --rm \
+docker run -it --rm \
   -v "$SRC_DIR":/usr/src/qfield:Z \
-  $(if [ -n "$CACHE_DIR" ]; then echo "-v $CACHE_DIR:/io/data"; fi) \
+  $(if [ -n "$CACHE_DIR" ]; then echo "-v $CACHE_DIR:/io/.cache:Z"; fi) \
   -e triplet=${triplet} \
   -e STOREPASS \
   -e KEYNAME \
@@ -26,5 +26,6 @@ docker run --rm \
   -e NUGET_USERNAME \
   -e USER_GID=$(stat -c "%g" .) \
   -e USER_UID=$(stat -c "%u" .) \
+  -e VCPKG_BINARY_SOURCES=clear\;files,/io/.cache,readwrite \
   qfield_and_dev \
   /usr/src/qfield/scripts/build-vcpkg.sh
