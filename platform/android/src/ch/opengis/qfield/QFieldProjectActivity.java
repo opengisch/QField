@@ -37,6 +37,8 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
+import ch.opengis.qfield.QFieldUtils;
+
 public class QFieldProjectActivity extends Activity {
 
     private static final String TAG = "QField Project Activity";
@@ -413,6 +415,9 @@ public class QFieldProjectActivity extends Activity {
                 context.getContentResolver()
                        .takePersistableUriPermission(data.getData(),Intent.FLAG_GRANT_READ_URI_PERMISSION | Intent.FLAG_GRANT_WRITE_URI_PERMISSION );
                 String path = data.getDataString();
+                Log.d("QField Testing", path);
+                String absolutePath = QFieldUtils.getPathFromUri(context, data.getData());
+                Log.d("QField Testing", absolutePath);
             }
             return;
         }
