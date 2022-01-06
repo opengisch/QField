@@ -167,12 +167,6 @@ jobs:
                 -DSENTRY_DSN=${{ secrets.SENTRY_DSN }} \
                 -DSENTRY_IMPORT_PREFIX=/tmp/sentry-android-ndk/jni
 
-      - name: Setup tmate session
-        if: failure()
-        uses: mxschmitt/action-tmate@v3
-        with:
-          limit-access-to-actor: true
-
       - name: 📑 Upload Dep Build Logs
         uses: actions/upload-artifact@v2
         if: failure()
@@ -180,6 +174,7 @@ jobs:
           name: build-logs-${{ matrix.triplet }}
           path: |
             ${{ env.CMAKE_BUILD_DIR }}/vcpkg-manifest-install.log
+            ${{ github.workspace }}/vcpkg/base/buildtrees/**/*.log
 
       - name: 🌋 Build
         run: |
