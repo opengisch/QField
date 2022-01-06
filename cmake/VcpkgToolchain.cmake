@@ -107,6 +107,10 @@ set(SYSTEM_QT OFF CACHE BOOL "Determines if system Qt libraries should be used o
 if(SYSTEM_QT)
   list(APPEND VCPKG_OVERLAY_PORTS "${CMAKE_SOURCE_DIR}/vcpkg/overlay_system_qt")
 endif()
+# Build a Qt / Android 4.4 compatible version of openssl
+# if(_BUILD_FOR_ANDROID)
+#   list(APPEND VCPKG_OVERLAY_PORTS "${CMAKE_SOURCE_DIR}/vcpkg/overlay_android")
+# endif()
 list(APPEND VCPKG_OVERLAY_PORTS "${CMAKE_SOURCE_DIR}/vcpkg/overlay")
 list(APPEND VCPKG_OVERLAY_TRIPLETS "${CMAKE_SOURCE_DIR}/vcpkg/triplets")
 
