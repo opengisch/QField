@@ -469,6 +469,8 @@ bool MultiFeatureListModelBase::duplicateFeature( QgsVectorLayer *layer, const Q
     mFeatures = duplicatedFeatures;
     mSelectedFeatures = duplicatedFeatures;
     endResetModel();
+
+    emit selectedCountChanged();
   }
 
   return feature.isValid();
