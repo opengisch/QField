@@ -422,7 +422,7 @@ Rectangle {
     }
 
     onMoveClicked: {
-        if (featureForm.selection.focusedItem != -1) {
+        if (featureForm.selection.focusedItem !== -1) {
             featureForm.state = "FeatureList"
             featureForm.multiSelection = true
             featureForm.selection.model.toggleSelectedItem(featureForm.selection.focusedItem)
