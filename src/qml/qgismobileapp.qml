@@ -1348,6 +1348,10 @@ ApplicationWindow {
         }
 
         function initializeMoveFeatures() {
+            if ( featureForm  && featureForm.selection.model.selectedCount === 1 ) {
+              featureForm.extentController.zoomToSelected()
+            }
+
             startPoint = mapCanvas.mapSettings.center
             moveFeaturesRequested = true
         }
