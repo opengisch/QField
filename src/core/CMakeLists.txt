@@ -87,23 +87,23 @@ set(QFIELD_CORE_SRCS
 
 set(QFIELD_CORE_HDRS
     platforms/platformutilities.h
-    utils/expressioncontextutils.cpp
-    utils/featureutils.cpp
-    utils/fileutils.cpp
-    utils/geometryutils.cpp
-    utils/layerutils.cpp
-    utils/qfieldcloudutils.cpp
-    utils/snappingutils.cpp
-    utils/stringutils.cpp
-    utils/urlutils.cpp
-    qgsquick/qgsquickcoordinatetransformer.cpp
-    qgsquick/qgsquickmapcanvasmap.cpp
-    qgsquick/qgsquickmapsettings.cpp
-    qgsquick/qgsquickmaptransform.cpp
-    locator/featureslocatorfilter.cpp
-    locator/finlandlocatorfilter.cpp
-    locator/gotolocatorfilter.cpp
-    locator/locatormodelsuperbridge.cpp
+    utils/expressioncontextutils.h
+    utils/featureutils.h
+    utils/fileutils.h
+    utils/geometryutils.h
+    utils/layerutils.h
+    utils/qfieldcloudutils.h
+    utils/snappingutils.h
+    utils/stringutils.h
+    utils/urlutils.h
+    qgsquick/qgsquickcoordinatetransformer.h
+    qgsquick/qgsquickmapcanvasmap.h
+    qgsquick/qgsquickmapsettings.h
+    qgsquick/qgsquickmaptransform.h
+    locator/featureslocatorfilter.h
+    locator/finlandlocatorfilter.h
+    locator/gotolocatorfilter.h
+    locator/locatormodelsuperbridge.h
     appcoordinateoperationhandlers.h
     appinterface.h
     attributeformmodel.h
