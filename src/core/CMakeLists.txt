@@ -13,6 +13,7 @@ set(QFIELD_CORE_SRCS
     qgsquick/qgsquickmapcanvasmap.cpp
     qgsquick/qgsquickmapsettings.cpp
     qgsquick/qgsquickmaptransform.cpp
+    locator/bookmarklocatorfilter.cpp
     locator/featureslocatorfilter.cpp
     locator/finlandlocatorfilter.cpp
     locator/gotolocatorfilter.cpp
@@ -100,6 +101,7 @@ set(QFIELD_CORE_HDRS
     qgsquick/qgsquickmapcanvasmap.h
     qgsquick/qgsquickmapsettings.h
     qgsquick/qgsquickmaptransform.h
+    locator/bookmarklocatorfilter.h
     locator/featureslocatorfilter.h
     locator/finlandlocatorfilter.h
     locator/gotolocatorfilter.h

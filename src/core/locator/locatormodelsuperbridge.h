@@ -17,6 +17,8 @@
 #ifndef LOCATORMODELSUPERBRIDGE_H
 #define LOCATORMODELSUPERBRIDGE_H
 
+#include "bookmarkmodel.h"
+
 #include <QStandardItemModel>
 #include <qgslocatorfilter.h>
 #include <qgslocatormodelbridge.h>
@@ -58,6 +60,7 @@ class LocatorModelSuperBridge : public QgsLocatorModelBridge
     Q_PROPERTY( QgsQuickMapSettings *mapSettings READ mapSettings WRITE setMapSettings NOTIFY mapSettingsChanged )
     Q_PROPERTY( QObject *locatorHighlightGeometry READ locatorHighlightGeometry WRITE setLocatorHighlightGeometry NOTIFY locatorHighlightGeometryChanged )
     Q_PROPERTY( FeatureListExtentController *featureListController READ featureListController WRITE setFeatureListController NOTIFY featureListControllerChanged )
+    Q_PROPERTY( BookmarkModel *bookmarks READ bookmarks WRITE setBookmarks NOTIFY bookmarksChanged )
     Q_PROPERTY( bool keepScale READ keepScale WRITE setKeepScale NOTIFY keepScaleChanged )
 
   public:
@@ -66,6 +69,9 @@ class LocatorModelSuperBridge : public QgsLocatorModelBridge
 
     QgsQuickMapSettings *mapSettings() const;
     void setMapSettings( QgsQuickMapSettings *mapSettings );
+
+    BookmarkModel *bookmarks() const;
+    void setBookmarks( BookmarkModel *bookmarks );
 
     QObject *locatorHighlightGeometry() const;
     void setLocatorHighlightGeometry( QObject *locatorHighlightGeometry );
@@ -82,6 +88,7 @@ class LocatorModelSuperBridge : public QgsLocatorModelBridge
 
   signals:
     void mapSettingsChanged();
+    void bookmarksChanged();
     void locatorHighlightGeometryChanged();
     void featureListControllerChanged();
     void messageEmitted( const QString &text );
@@ -97,6 +104,7 @@ class LocatorModelSuperBridge : public QgsLocatorModelBridge
     bool mKeepScale = false;
 
     PeliasGeocoder *mFinlandGeocoder = nullptr;
+    BookmarkModel *mBookmarks = nullptr;
 };
 
 class LocatorFiltersModel : public QAbstractListModel
