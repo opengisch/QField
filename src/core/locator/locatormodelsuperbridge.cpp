@@ -15,6 +15,7 @@
  ***************************************************************************/
 
 
+#include "bookmarklocatorfilter.h"
 #include "featurelistextentcontroller.h"
 #include "featureslocatorfilter.h"
 #include "finlandlocatorfilter.h"
@@ -35,10 +36,26 @@ LocatorModelSuperBridge::LocatorModelSuperBridge( QObject *parent )
 {
   locator()->registerFilter( new FeaturesLocatorFilter( this ) );
   locator()->registerFilter( new GotoLocatorFilter( this ) );
+  locator()->registerFilter( new BookmarkLocatorFilter( this ) );
 
   // Finnish's Digitransit geocoder
   mFinlandGeocoder = new PeliasGeocoder( QStringLiteral( "https://api.digitransit.fi/geocoding/v1/search" ) );
   locator()->registerFilter( new FinlandLocatorFilter( mFinlandGeocoder, this ) );
+}
+
+BookmarkModel *LocatorModelSuperBridge::bookmarks() const
+{
+  return mBookmarks;
+}
+
+void LocatorModelSuperBridge::setBookmarks( BookmarkModel *bookmarks )
+{
+  if ( bookmarks == mBookmarks )
+    return;
+
+  mBookmarks = bookmarks;
+
+  emit bookmarksChanged();
 }
 
 QgsQuickMapSettings *LocatorModelSuperBridge::mapSettings() const
@@ -194,6 +211,7 @@ QVariant LocatorFiltersModel::data( const QModelIndex &index, int role ) const
   const static QMap<QString, QString> sLocatorFilterDescriptions = {
     { QStringLiteral( "allfeatures" ), tr( "Returns a list of features accross all searchable layers with matching attributes" ) },
     { QStringLiteral( "goto" ), tr( "Returns a point from a pair of X and Y coordinates typed in the search bar" ) },
+    { QStringLiteral( "bookmarks" ), tr( "Returns a list of bookmark with matching names" ) },
     { QStringLiteral( "pelias-finland" ), tr( "Returns a list of locations and addresses within Finland with matching terms" ) } };
 
   if ( !mLocatorModelSuperBridge->locator() || !index.isValid() || index.parent().isValid() || index.row() < 0 || index.row() >= rowCount( QModelIndex() ) )

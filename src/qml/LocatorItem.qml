@@ -4,6 +4,7 @@ import QtGraphicalEffects 1.12
 
 import org.qgis 1.0
 import org.qfield 1.0
+
 import Theme 1.0
 
 Item {
@@ -59,11 +60,13 @@ Item {
 
   LocatorModelSuperBridge {
     id: locator
+
     mapSettings: mapCanvas.mapSettings
     locatorHighlightGeometry: locatorHighlightItem.geometryWrapper
     keepScale: qfieldSettings.locatorKeepScale
 
     featureListController: featureForm.extentController
+    bookmarks: bookmarkModel
 
     onMessageEmitted: {
       displayToast(text)
