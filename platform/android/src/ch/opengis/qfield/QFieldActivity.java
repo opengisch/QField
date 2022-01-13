@@ -94,40 +94,43 @@ public class QFieldActivity extends QtActivity {
     public void onNewIntent(Intent intent) {
         super.onNewIntent(intent);
         if (intent.getAction() == Intent.ACTION_VIEW) {
-            Uri uri = intent.getData();
-            String scheme = intent.getScheme();
-            String action = intent.getAction();
-            ContentResolver resolver = getContentResolver();
-
-            if (scheme.compareTo(ContentResolver.SCHEME_CONTENT) == 0) {
-                String name = QFieldUtils.getContentName(resolver, uri);
-
-                Log.v("QField" , "Content intent detected: " + action + " : " + intent.getDataString() + " : " + intent.getType() + " : " + name);
-
-                File[] externalFilesDirs = getExternalFilesDirs(null);
-                String importDatasetPath = "";
-                if (externalFilesDirs.length > 0) {
-                    importDatasetPath = externalFilesDirs[0].getAbsolutePath() +
-                                        "/Imported Datasets/";
-                    File importDatasetDir = new File(importDatasetPath);
-                    importDatasetDir.mkdir();
-                    String importFilePath = importDatasetPath + name;
-                    Log.v("QField" , "Imported file path: " + importFilePath);
-                    try {
-                        InputStream input = resolver.openInputStream(uri);
-                        QFieldUtils.inputStreamToFile(input, importFilePath);
-                    } catch (FileNotFoundException e) {
-                        e.printStackTrace();
-                        return;
-                    }
-                    openProject(importFilePath);
-                    return;
-                }
-            }
-
-            Context context = getApplication().getApplicationContext();
-            openProject(QFieldUtils.getPathFromUri(context, uri));
+            openProject(getPathFromIntent(intent));
         }
+    }
+
+    private String getPathFromIntent(Intent intent) {
+        Uri uri = intent.getData();
+        String scheme = intent.getScheme();
+        String action = intent.getAction();
+
+        ContentResolver resolver = getContentResolver();
+        if (scheme.compareTo(ContentResolver.SCHEME_CONTENT) == 0) {
+            String name = QFieldUtils.getContentName(resolver, uri);
+
+            Log.v("QField" , "Content intent detected: " + action + " : " + intent.getDataString() + " : " + intent.getType() + " : " + name);
+
+            File[] externalFilesDirs = getExternalFilesDirs(null);
+            String importDatasetPath = "";
+            if (externalFilesDirs.length > 0) {
+                importDatasetPath = externalFilesDirs[0].getAbsolutePath() +
+                                    "/Imported Datasets/";
+                File importDatasetDir = new File(importDatasetPath);
+                importDatasetDir.mkdir();
+                String importFilePath = importDatasetPath + name;
+                Log.v("QField" , "Imported file path: " + importFilePath);
+                try {
+                    InputStream input = resolver.openInputStream(uri);
+                    QFieldUtils.inputStreamToFile(input, importFilePath);
+                } catch (FileNotFoundException e) {
+                    e.printStackTrace();
+                    return "";
+                }
+                return importFilePath;
+            }
+        }
+
+        Context context = getApplication().getApplicationContext();
+        return QFieldUtils.getPathFromUri(context, uri);
     }
 
     private void dimBrightness() {
@@ -198,10 +201,8 @@ public class QFieldActivity extends QtActivity {
 
         Intent sourceIntent = getIntent();
         if (sourceIntent.getAction() == Intent.ACTION_VIEW) {
-            Uri uri = sourceIntent.getData();
-            Context context = getApplication().getApplicationContext();
             intent.putExtra("QGS_PROJECT",
-                            QFieldUtils.getPathFromUri(context, uri));
+                            getPathFromIntent(sourceIntent));
         }
         setIntent(intent);
     }
