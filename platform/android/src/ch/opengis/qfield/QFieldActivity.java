@@ -105,19 +105,22 @@ public class QFieldActivity extends QtActivity {
                 Log.v("QField" , "Content intent detected: " + action + " : " + intent.getDataString() + " : " + intent.getType() + " : " + name);
 
                 File[] externalFilesDirs = getExternalFilesDirs(null);
-                String importDatasetDir = "";
+                String importDatasetPath = "";
                 if (externalFilesDirs.length > 0) {
-                    importDatasetDir = externalFilesDirs[0].getAbsolutePath() +
-                                       "/Imported Datasets/";
+                    importDatasetPath = externalFilesDirs[0].getAbsolutePath() +
+                                        "/Imported Datasets/";
+                    File importDatasetDir = new File(importDatasetPath);
+                    importDatasetDir.mkdir();
+                    String importFilePath = importDatasetPath + name;
+                    Log.v("QField" , "Imported file path: " + importFilePath);
                     try {
                         InputStream input = resolver.openInputStream(uri);
-                        String importFilePath = importDatasetDir + name;
-                        if (QFieldUtils.inputStreamToFile(input, importFilePath)) {
-                            openProject(importFilePath);
-                        }
+                        QFieldUtils.inputStreamToFile(input, importFilePath);
                     } catch (FileNotFoundException e) {
                         e.printStackTrace();
+                        return;
                     }
+                    openProject(importFilePath);
                     return;
                 }
             }

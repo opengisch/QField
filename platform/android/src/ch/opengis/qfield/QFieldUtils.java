@@ -61,7 +61,7 @@ public class QFieldUtils {
 
             out.close();
         } catch (Exception e) {
-            Log.e("QField", "InputStreamToFile exception: " + e.getMessage());
+            Log.e("QField", "inputStreamToFile exception: " + e.getMessage());
             return false;
         }
         return true;
