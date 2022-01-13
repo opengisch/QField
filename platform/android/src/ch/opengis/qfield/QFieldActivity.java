@@ -39,6 +39,7 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Application;
 import android.app.Dialog;
+import android.content.ContentResolver;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -94,6 +95,33 @@ public class QFieldActivity extends QtActivity {
         super.onNewIntent(intent);
         if (intent.getAction() == Intent.ACTION_VIEW) {
             Uri uri = intent.getData();
+            String scheme = intent.getScheme();
+            String action = intent.getAction();
+            ContentResolver resolver = getContentResolver();
+
+            if (scheme.compareTo(ContentResolver.SCHEME_CONTENT) == 0) {
+                String name = QFieldUtils.getContentName(resolver, uri);
+
+                Log.v("QField" , "Content intent detected: " + action + " : " + intent.getDataString() + " : " + intent.getType() + " : " + name);
+
+                File[] externalFilesDirs = getExternalFilesDirs(null);
+                String importDatasetDir = "";
+                if (externalFilesDirs.length > 0) {
+                    importDatasetDir = externalFilesDirs[0].getAbsolutePath() +
+                                       "/Imported Datasets/";
+                    try {
+                        InputStream input = resolver.openInputStream(uri);
+                        String importFilePath = importDatasetDir + name;
+                        if (QFieldUtils.inputStreamToFile(input, importFilePath)) {
+                            openProject(importFilePath);
+                        }
+                    } catch (FileNotFoundException e) {
+                        e.printStackTrace();
+                    }
+                    return;
+                }
+            }
+
             Context context = getApplication().getApplicationContext();
             openProject(QFieldUtils.getPathFromUri(context, uri));
         }

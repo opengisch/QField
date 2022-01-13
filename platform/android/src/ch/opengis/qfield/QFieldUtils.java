@@ -26,8 +26,47 @@ import android.os.Build;
 import android.os.Environment;
 import android.provider.DocumentsContract;
 import android.provider.MediaStore;
+import android.util.Log;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
 
 public class QFieldUtils {
+
+    public static String getContentName(ContentResolver resolver, Uri uri) {
+        Cursor cursor = resolver.query(uri, null, null, null, null);
+        cursor.moveToFirst();
+        int nameIndex =
+            cursor.getColumnIndex(MediaStore.MediaColumns.DISPLAY_NAME);
+        if (nameIndex >= 0) {
+            return cursor.getString(nameIndex);
+        } else {
+            return null;
+        }
+    }
+
+    public static boolean inputStreamToFile(InputStream in, String file) {
+        try {
+            OutputStream out = new FileOutputStream(new File(file));
+
+            int size = 0;
+            byte[] buffer = new byte[1024];
+
+            while ((size = in.read(buffer)) != -1) {
+                out.write(buffer, 0, size);
+            }
+
+            out.close();
+        } catch (Exception e) {
+            Log.e("QField", "InputStreamToFile exception: " + e.getMessage());
+            return false;
+        }
+        return true;
+    }
+
     // original script by SANJAY GUPTA
     // (https://stackoverflow.com/questions/17546101/get-real-path-for-uri-android)
     public static String getPathFromUri(final Context context, final Uri uri) {
