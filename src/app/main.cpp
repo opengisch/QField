@@ -48,6 +48,8 @@
 #include <android/log.h>
 #endif
 
+static QtMessageHandler originalMessageHandler = nullptr;
+
 static const char *
   logLevelForMessageType( QtMsgType msgType )
 {
@@ -127,6 +129,9 @@ void qfMessageHandler( QtMsgType type, const QMessageLogContext &context, const 
       abort();
   }
 #endif
+
+  if ( originalMessageHandler )
+    originalMessageHandler( type, context, msg );
 }
 
 int main( int argc, char **argv )
@@ -195,7 +200,7 @@ int main( int argc, char **argv )
 #endif
 #endif
 
-  qInstallMessageHandler( qfMessageHandler );
+  originalMessageHandler = qInstallMessageHandler( qfMessageHandler );
   app.initQgis();
 
   //set NativeFormat for settings
