@@ -39,6 +39,13 @@ ApplicationWindow {
       property alias y: mainWindow.y
       property alias width: mainWindow.width
       property alias height: mainWindow.height
+
+      Component.onCompleted: {
+          width = Math.max(width, 500)
+          height = Math.max(height, 500)
+          x = Math.min(x, mainWindow.screen.width - width)
+          y = Math.min(y, mainWindow.screen.height - height)
+      }
   }
 
   FocusStack{
