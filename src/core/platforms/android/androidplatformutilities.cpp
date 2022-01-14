@@ -44,7 +44,7 @@
 const char *const applicationName = "QField";
 
 #define GLUE_HELPER( u, v, w, x, y, z ) u##v##w##x##y##z
-#define JNI_FUNCTION_NAME( class_name, function_name ) GLUE_HELPER( Java_ch_opengis_, APP_PACKAGE_NAME, _, class_name, _, function_name )
+#define JNI_FUNCTION_NAME( package_name, class_name, function_name ) GLUE_HELPER( Java_ch_opengis_, package_name, _, class_name, _, function_name )
 
 AndroidPlatformUtilities::AndroidPlatformUtilities()
   : mActivity( QtAndroid::androidActivity() )
@@ -427,7 +427,7 @@ void AndroidPlatformUtilities::showRateThisApp() const
 extern "C" {
 #endif
 
-JNIEXPORT void JNICALL JNI_FUNCTION_NAME( QFieldActivity, openProject )( JNIEnv *env, jobject obj, jstring path )
+JNIEXPORT void JNICALL JNI_FUNCTION_NAME( APP_PACKAGE_JNI_NAME, QFieldActivity, openProject )( JNIEnv *env, jobject obj, jstring path )
 {
   if ( AppInterface::instance() )
   {
