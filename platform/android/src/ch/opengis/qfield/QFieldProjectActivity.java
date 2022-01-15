@@ -131,19 +131,32 @@ public class QFieldProjectActivity extends Activity {
                 }
             }
 
-            File sampleProjects = new File(getFilesDir().toString() +
-                                           "/share/qfield/sample_projects");
+            String sampleProjects = new File(getFilesDir().toString() +
+                                             "/share/qfield/sample_projects/").getAbsolutePath();
+            String importDatasetsDir = "";
+            String importProjectsDir = "";
+            if (externalFilesDirs.length > 0) {
+                importDatasetsDir =
+                    new File(externalFilesDirs[0].getAbsolutePath()
+                             + "/Imported Datasets/").getAbsolutePath();
+                importProjectsDir =
+                    new File(externalFilesDirs[0].getAbsolutePath()
+                             + "/Imported Projects/").getAbsolutePath();
+            }
+
             String favoriteDirs =
                 sharedPreferences.getString("FavoriteDirs", null);
 
-            // The first time, add the sample projects directory to the
+            // The first time, add sample projects and import directories to the
             // favorites
-            boolean addSampleProjectsFavoriteDir = sharedPreferences.getBoolean(
-                "AddSampleProjectsFavoriteDir", true);
-            if (addSampleProjectsFavoriteDir) {
-                favoriteDirs = sampleProjects.getAbsolutePath();
+            boolean favoriteDirsAdded = sharedPreferences.getBoolean(
+                "FavoriteDirsAdded", false);
+            if (!favoriteDirsAdded) {
+                favoriteDirs = sampleProjects +
+                               + (importProjectsDir != "" ? "--;--" + importProjectsDir : "")
+                               + (importDatasetsDir != "" ? "--;--" + importDatasetsDir : "");
                 editor.putString("FavoriteDirs", favoriteDirs);
-                editor.putBoolean("AddSampleProjectsFavoriteDir", false);
+                editor.putBoolean("FavoriteDirsAdded", true);
                 editor.commit();
             }
             if (favoriteDirs != null) {
@@ -155,13 +168,20 @@ public class QFieldProjectActivity extends Activity {
                 for (int i = favoriteDirsArray.length - 1; i >= 0; i--) {
                     File f = new File(favoriteDirsArray[i]);
                     if (f.exists()) {
+                        String filePath = f.getAbsolutePath();
+                        String favoriteName = f.getName();
+                        if (filePath.equals(sampleProjects)) {
+                            favoriteName =
+                                getString(R.string.favorites_sample_projects);
+                        } else if (filePath.equals(importDatasetsDir)) {
+                                     favoriteName =
+                                         getString(R.string.favorites_imported_datasets);
+                        } else if (filePath.equals(importProjectsDir)) {
+                                     favoriteName =
+                                         getString(R.string.favorites_imported_projects);
+                        }
                         values.add(new QFieldProjectListItem(
-                            f,
-                            f.getAbsolutePath().equals(
-                                sampleProjects.getAbsolutePath())
-                                ? getString(R.string.favorites_sample_projects)
-                                : f.getName(),
-                            R.drawable.directory,
+                            f, name, R.drawable.directory,
                             QFieldProjectListItem.TYPE_ITEM));
                     }
                 }
