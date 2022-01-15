@@ -133,7 +133,7 @@ public class QFieldActivity extends QtActivity {
                     try {
                         InputStream input = resolver.openInputStream(uri);
                         QFieldUtils.inputStreamToFile(input, importFilePath);
-                    } catch (FileNotFoundException e) {
+                    } catch (Exception e) {
                         e.printStackTrace();
                         return "";
                     }
