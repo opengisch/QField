@@ -36,18 +36,6 @@ import java.io.OutputStream;
 
 public class QFieldUtils {
 
-    public static String getContentName(ContentResolver resolver, Uri uri) {
-        Cursor cursor = resolver.query(uri, null, null, null, null);
-        cursor.moveToFirst();
-        int nameIndex =
-            cursor.getColumnIndex(MediaStore.MediaColumns.DISPLAY_NAME);
-        if (nameIndex >= 0) {
-            return cursor.getString(nameIndex);
-        } else {
-            return null;
-        }
-    }
-
     public static boolean inputStreamToFile(InputStream in, String file) {
         try {
             OutputStream out = new FileOutputStream(new File(file));
@@ -74,10 +62,10 @@ public class QFieldUtils {
             Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT;
         String path = null;
 
-        // DocumentProvider
         if (isKitKat && DocumentsContract.isDocumentUri(context, uri)) {
-            // ExternalStorageProvider
+            // DocumentProvider
             if (isExternalStorageDocument(uri)) {
+                // ExternalStorageProvider
                 final String docId = DocumentsContract.getDocumentId(uri);
                 final String[] split = docId.split(":");
                 final String type = split[0];
@@ -87,18 +75,16 @@ public class QFieldUtils {
                         split[1];
                 }
                 // TODO handle non-primary volumes
-            }
-            // DownloadsProvider
-            else if (isDownloadsDocument(uri)) {
+            } else if (isDownloadsDocument(uri)) {
+                // DownloadsProvider
                 final String id = DocumentsContract.getDocumentId(uri);
                 final Uri contentUri = ContentUris.withAppendedId(
                     Uri.parse("content://downloads/public_downloads"),
                     Long.valueOf(id));
 
                 path = getDataColumn(context, contentUri, null, null);
-            }
-            // MediaProvider
-            else if (isMediaDocument(uri)) {
+            } else if (isMediaDocument(uri)) {
+                // MediaProvider
                 final String docId = DocumentsContract.getDocumentId(uri);
                 final String[] split = docId.split(":");
                 final String type = split[0];
@@ -119,20 +105,20 @@ public class QFieldUtils {
                                      selectionArgs);
             }
         }
-        // MediaStore (and general)
-        else if ("content".equalsIgnoreCase(uri.getScheme())) {
-            // Return the remote address
-            if (isGooglePhotosUri(uri))
-                return uri.getLastPathSegment();
 
-            path = getDataColumn(context, uri, null, null);
-        }
-
+        // Fallback
         if (path == null && ("content".equalsIgnoreCase(uri.getScheme()) ||
                              "file".equalsIgnoreCase(uri.getScheme()))) {
             path = uri.getPath();
-            if (path != null)
+            if (path != null) {
                 path = path.replaceFirst("^/storage_root", "");
+            }
+        }
+
+        if (path != null) {
+            if (new File(path).exists() == false) {
+                path = "";
+            }
         }
 
         return path;
@@ -175,11 +161,6 @@ public class QFieldUtils {
 
     public static boolean isMediaDocument(Uri uri) {
         return "com.android.providers.media.documents".equals(
-            uri.getAuthority());
-    }
-
-    public static boolean isGooglePhotosUri(Uri uri) {
-        return "com.google.android.apps.photos.content".equals(
             uri.getAuthority());
     }
 }
