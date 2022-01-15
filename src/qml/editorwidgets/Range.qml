@@ -140,20 +140,20 @@ EditorWidgetBase {
   }
 
   function decreaseValue() {
-      if ( textField.text != '' ) {
+      if ( textField.text ) {
           var newValue = textField.text * 1 - rangeItem.step;
           textField.text = Math.max( rangeItem.from, newValue );
       } else {
-          textField.text = rangeItem.from != -Infinity ? rangeItem.from : 0;
+          textField.text = Number.isFinite(rangeItem.from) ? rangeItem.from : 0;
       }
   }
 
   function increaseValue() {
-      if ( textField.text != '' ) {
+      if ( textField.text ) {
           var newValue = textField.text * 1 + rangeItem.step;
           textField.text = Math.min( rangeItem.to, newValue );
       } else {
-          textField.text = rangeItem.to != -Infinity ? rangeItem.to : 0;
+          textField.text = Number.isFinite(rangeItem.to) ? rangeItem.to : 0;
       }
   }
 
@@ -180,9 +180,9 @@ EditorWidgetBase {
       width: sliderRow.width - valueLabel.width
       height: fontMetrics.height + 20
       implicitWidth: width
-      from: rangeItem.from === -Infinity || rangeItem.from == null ? Number.MIN_VALUE : rangeItem.from
-      to: rangeItem.to === +Infinity || rangeItem.to == null ? Number.MAX_VALUE : rangeItem.to
-      stepSize: rangeItem.step === +Infinity || rangeItem.step == null ? 1 : rangeItem.step
+      from: !Number.isFinite(rangeItem.from) || rangeItem.from == null ? Number.MIN_VALUE : rangeItem.from
+      to: !Number.isFinite(rangeItem.to) || rangeItem.to == null ? Number.MAX_VALUE : rangeItem.to
+      stepSize: !Number.isFinite(rangeItem.step) || rangeItem.step == null ? 1 : rangeItem.step
 
       onValueChanged: {
         if (sliderRow.visible) {
