@@ -61,7 +61,6 @@
         <data android:mimeType="application/vnd.sqlite3" />
         <data android:mimeType="application/x-sqlite3" />
         <data android:mimeType="application/geopackage+sqlite3" />
-        <data android:mimeType="application/geopackage+sqlite3" />
         <data android:mimeType="application/vnd.geo+json" />
         <data android:mimeType="application/geo+json" />
         <data android:mimeType="application/gpx+xml" />

@@ -70,8 +70,10 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.lang.Thread;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Date;
 import java.util.List;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
@@ -103,6 +105,7 @@ public class QFieldActivity extends QtActivity {
         Uri uri = intent.getData();
         String scheme = intent.getScheme();
         String action = intent.getAction();
+        String type = intent.getType();
 
         Context context = getApplication().getApplicationContext();
         String filePath = QFieldUtils.getPathFromUri(context, uri);
@@ -115,9 +118,15 @@ public class QFieldActivity extends QtActivity {
             Boolean canWrite =
                 filePath != "" ? new File(filePath).canWrite() : false;
             if (!canWrite) {
+                if (fileName == null) {
+                    // File name not provided
+                    fileName = new SimpleDateFormat("yyyyMMdd_HHmm")
+                                   .format(new Date().getTime()) +
+                               "." + QFieldUtils.getExtensionFromMimeType(type);
+                }
                 Log.v("QField", "Content intent detected: " + action + " : " +
-                                    intent.getDataString() + " : " +
-                                    intent.getType() + " : " + fileName);
+                                    intent.getDataString() + " : " + type +
+                                    " : " + fileName);
 
                 File[] externalFilesDirs = getExternalFilesDirs(null);
                 String importDatasetPath = "";

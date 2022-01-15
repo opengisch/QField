@@ -55,6 +55,33 @@ public class QFieldUtils {
         return true;
     }
 
+    public static String getExtensionFromMimeType(String type) {
+        if (type.equals("application/pdf")) {
+            return "pdf";
+        } else if (type.equals("application/vnd.sqlite3") ||
+                   type.equals("application/x-sqlite3")) {
+            return "db";
+        } else if (type.equals("application/geopackage+sqlite3")) {
+            return "gpkg";
+        } else if (type.equals("application/vnd.geo+json") ||
+                   type.equals("application/geo+json")) {
+            return "geojson";
+        } else if (type.equals("application/gpx+xml")) {
+            return "gpx";
+        } else if (type.equals("application/vnd.google-earth.kml+xml")) {
+            return "kml";
+        } else if (type.equals("application/vnd.google-earth.kmz")) {
+            return "kmz";
+        } else if (type.equals("application/zip")) {
+            return "zip";
+        } else if (type.equals("image/tiff")) {
+            return "tif";
+        } else if (type.equals("image/x-jp2")) {
+            return "jp2";
+        }
+        return "";
+    }
+
     // original script by SANJAY GUPTA
     // (https://stackoverflow.com/questions/17546101/get-real-path-for-uri-android)
     public static String getPathFromUri(final Context context, final Uri uri) {
