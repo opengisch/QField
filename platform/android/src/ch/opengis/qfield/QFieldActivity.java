@@ -112,9 +112,8 @@ public class QFieldActivity extends QtActivity {
             DocumentFile documentFile =
                 DocumentFile.fromSingleUri(context, uri);
             String fileName = documentFile.getName();
-            Boolean canWrite = filePath != ""
-                               ? new File(filePath).canWrite()
-                               : false;
+            Boolean canWrite =
+                filePath != "" ? new File(filePath).canWrite() : false;
             if (!canWrite) {
                 Log.v("QField", "Content intent detected: " + action + " : " +
                                     intent.getDataString() + " : " +
@@ -128,7 +127,7 @@ public class QFieldActivity extends QtActivity {
                     File importDatasetDir = new File(importDatasetPath);
                     importDatasetDir.mkdir();
                     String importFilePath = importDatasetPath + fileName;
-                    Log.v("QField" ,
+                    Log.v("QField",
                           "Importing document to file path: " + importFilePath);
                     ContentResolver resolver = getContentResolver();
                     try {

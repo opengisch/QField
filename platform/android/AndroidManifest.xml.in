@@ -62,6 +62,15 @@
         <data android:mimeType="application/vnd.sqlite3" />
         <data android:mimeType="application/x-sqlite3" />
         <data android:mimeType="application/geopackage+sqlite3" />
+        <data android:mimeType="application/geopackage+sqlite3" />
+        <data android:mimeType="application/vnd.geo+json" />
+        <data android:mimeType="application/geo+json" />
+        <data android:mimeType="application/gpx+xml" />
+        <data android:mimeType="application/vnd.google-earth.kml+xml" />
+        <data android:mimeType="application/vnd.google-earth.kmz" />
+        <data android:mimeType="application/zip" />
+        <data android:mimeType="image/tiff" />
+        <data android:mimeType="image/x-jp2" />
       </intent-filter>
 
       <intent-filter>
