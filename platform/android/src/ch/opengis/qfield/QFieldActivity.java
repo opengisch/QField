@@ -135,7 +135,6 @@ public class QFieldActivity extends QtActivity {
                         QFieldUtils.inputStreamToFile(input, importFilePath);
                     } catch (Exception e) {
                         e.printStackTrace();
-                        return "";
                     }
                     return importFilePath;
                 } else {
