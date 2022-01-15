@@ -15,7 +15,6 @@
   <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"
       android:maxSdkVersion="28"
       />
-  <uses-permission android:name="android.permission.MANAGE_EXTERNAL_STORAGE" />
 
   <uses-feature android:required="false" android:name="android.hardware.camera" />
   <uses-feature android:required="false" android:name="android.hardware.camera.autofocus" />
@@ -37,11 +36,39 @@
       android:name="ch.opengis.@APP_PACKAGE_NAME@.QFieldActivity"
       android:label="@APP_NAME@"
       android:icon="@AT@drawable/@APP_ICON@"
-      android:launchMode="singleTop"
+      android:launchMode="singleTask"
       android:configChanges="orientation|uiMode|screenLayout|screenSize|smallestScreenSize|locale|fontScale|keyboard|keyboardHidden|navigation">
       <intent-filter>
         <action android:name="android.intent.action.MAIN"/>
         <category android:name="android.intent.category.LAUNCHER"/>
+      </intent-filter>
+
+      <intent-filter>
+        <action android:name="android.intent.action.VIEW" />
+        <category android:name="android.intent.category.DEFAULT" />
+        <data android:scheme="content" />
+        <data android:mimeType="application/octet-stream" />
+      </intent-filter>
+
+      <intent-filter>
+        <action android:name="android.intent.action.VIEW" />
+        <category android:name="android.intent.category.DEFAULT" />
+        <category android:name="android.intent.category.BROWSABLE"/>
+        <data android:scheme="file" />
+        <data android:scheme="content" />
+        <data android:host="*" />
+        <data android:mimeType="application/pdf" />
+        <data android:mimeType="application/vnd.sqlite3" />
+        <data android:mimeType="application/x-sqlite3" />
+        <data android:mimeType="application/geopackage+sqlite3" />
+        <data android:mimeType="application/vnd.geo+json" />
+        <data android:mimeType="application/geo+json" />
+        <data android:mimeType="application/gpx+xml" />
+        <data android:mimeType="application/vnd.google-earth.kml+xml" />
+        <data android:mimeType="application/vnd.google-earth.kmz" />
+        <data android:mimeType="application/zip" />
+        <data android:mimeType="image/tiff" />
+        <data android:mimeType="image/x-jp2" />
       </intent-filter>
 
       <intent-filter>

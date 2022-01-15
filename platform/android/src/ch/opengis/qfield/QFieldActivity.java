@@ -39,6 +39,7 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Application;
 import android.app.Dialog;
+import android.content.ContentResolver;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -59,6 +60,7 @@ import android.view.WindowManager;
 import android.view.WindowManager.LayoutParams;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
+import androidx.documentfile.provider.DocumentFile;
 import ch.opengis.qfield.QFieldUtils;
 import ch.opengis.qfield.R;
 import java.io.BufferedInputStream;
@@ -68,8 +70,10 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.lang.Thread;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Date;
 import java.util.List;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
@@ -93,10 +97,63 @@ public class QFieldActivity extends QtActivity {
     public void onNewIntent(Intent intent) {
         super.onNewIntent(intent);
         if (intent.getAction() == Intent.ACTION_VIEW) {
-            Uri uri = intent.getData();
-            Context context = getApplication().getApplicationContext();
-            openProject(QFieldUtils.getPathFromUri(context, uri));
+            openProject(getPathFromIntent(intent));
         }
+    }
+
+    private String getPathFromIntent(Intent intent) {
+        Uri uri = intent.getData();
+        String scheme = intent.getScheme();
+        String action = intent.getAction();
+        String type = intent.getType();
+
+        Context context = getApplication().getApplicationContext();
+        String filePath = QFieldUtils.getPathFromUri(context, uri);
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT &&
+            scheme.compareTo(ContentResolver.SCHEME_CONTENT) == 0) {
+            DocumentFile documentFile =
+                DocumentFile.fromSingleUri(context, uri);
+            String fileName = documentFile.getName();
+            Boolean canWrite =
+                filePath != "" ? new File(filePath).canWrite() : false;
+            if (!canWrite) {
+                if (fileName == null) {
+                    // File name not provided
+                    fileName = new SimpleDateFormat("yyyyMMdd_HHmm")
+                                   .format(new Date().getTime()) +
+                               "." + QFieldUtils.getExtensionFromMimeType(type);
+                }
+                Log.v("QField", "Content intent detected: " + action + " : " +
+                                    intent.getDataString() + " : " + type +
+                                    " : " + fileName);
+
+                File[] externalFilesDirs = getExternalFilesDirs(null);
+                String importDatasetPath = "";
+                if (externalFilesDirs.length > 0) {
+                    importDatasetPath = externalFilesDirs[0].getAbsolutePath() +
+                                        "/Imported Datasets/";
+                    File importDatasetDir = new File(importDatasetPath);
+                    importDatasetDir.mkdir();
+                    String importFilePath = importDatasetPath + fileName;
+                    Log.v("QField",
+                          "Importing document to file path: " + importFilePath);
+                    ContentResolver resolver = getContentResolver();
+                    try {
+                        InputStream input = resolver.openInputStream(uri);
+                        QFieldUtils.inputStreamToFile(input, importFilePath);
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                    return importFilePath;
+                } else {
+                    return "";
+                }
+            }
+        }
+
+        Log.v("QField", "Opening document file path: " + filePath);
+        return filePath;
     }
 
     private void dimBrightness() {
@@ -139,10 +196,14 @@ public class QFieldActivity extends QtActivity {
         File[] externalFilesDirs = getExternalFilesDirs(null);
         String qFieldAppDir = "";
         if (externalFilesDirs.length > 0) {
-            qFieldAppDir = externalFilesDirs[0].getAbsolutePath() + "/QField/";
-            new File(qFieldAppDir).mkdir();
+            qFieldAppDir = externalFilesDirs[0].getAbsolutePath() + "/";
+            // create import directories
+            new File(qFieldAppDir + "Imported Datasets/").mkdir();
+            new File(qFieldAppDir + "Imported Projects/").mkdir();
 
-            // create directories
+            qFieldAppDir = qFieldAppDir + "QField/";
+            // create QField directories
+            new File(qFieldAppDir).mkdir();
             new File(qFieldAppDir + "basemaps/").mkdir();
             new File(qFieldAppDir + "fonts/").mkdir();
             new File(qFieldAppDir + "proj/").mkdir();
@@ -167,10 +228,7 @@ public class QFieldActivity extends QtActivity {
 
         Intent sourceIntent = getIntent();
         if (sourceIntent.getAction() == Intent.ACTION_VIEW) {
-            Uri uri = sourceIntent.getData();
-            Context context = getApplication().getApplicationContext();
-            intent.putExtra("QGS_PROJECT",
-                            QFieldUtils.getPathFromUri(context, uri));
+            intent.putExtra("QGS_PROJECT", getPathFromIntent(sourceIntent));
         }
         setIntent(intent);
     }

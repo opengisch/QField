@@ -26,8 +26,62 @@ import android.os.Build;
 import android.os.Environment;
 import android.provider.DocumentsContract;
 import android.provider.MediaStore;
+import android.util.Log;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
 
 public class QFieldUtils {
+
+    public static boolean inputStreamToFile(InputStream in, String file) {
+        try {
+            OutputStream out = new FileOutputStream(new File(file));
+
+            int size = 0;
+            byte[] buffer = new byte[1024];
+
+            while ((size = in.read(buffer)) != -1) {
+                out.write(buffer, 0, size);
+            }
+
+            out.close();
+        } catch (Exception e) {
+            Log.e("QField", "inputStreamToFile exception: " + e.getMessage());
+            return false;
+        }
+        return true;
+    }
+
+    public static String getExtensionFromMimeType(String type) {
+        if (type.equals("application/pdf")) {
+            return "pdf";
+        } else if (type.equals("application/vnd.sqlite3") ||
+                   type.equals("application/x-sqlite3")) {
+            return "db";
+        } else if (type.equals("application/geopackage+sqlite3")) {
+            return "gpkg";
+        } else if (type.equals("application/vnd.geo+json") ||
+                   type.equals("application/geo+json")) {
+            return "geojson";
+        } else if (type.equals("application/gpx+xml")) {
+            return "gpx";
+        } else if (type.equals("application/vnd.google-earth.kml+xml")) {
+            return "kml";
+        } else if (type.equals("application/vnd.google-earth.kmz")) {
+            return "kmz";
+        } else if (type.equals("application/zip")) {
+            return "zip";
+        } else if (type.equals("image/tiff")) {
+            return "tif";
+        } else if (type.equals("image/x-jp2")) {
+            return "jp2";
+        }
+        return "";
+    }
+
     // original script by SANJAY GUPTA
     // (https://stackoverflow.com/questions/17546101/get-real-path-for-uri-android)
     public static String getPathFromUri(final Context context, final Uri uri) {
@@ -35,10 +89,10 @@ public class QFieldUtils {
             Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT;
         String path = null;
 
-        // DocumentProvider
         if (isKitKat && DocumentsContract.isDocumentUri(context, uri)) {
-            // ExternalStorageProvider
+            // DocumentProvider
             if (isExternalStorageDocument(uri)) {
+                // ExternalStorageProvider
                 final String docId = DocumentsContract.getDocumentId(uri);
                 final String[] split = docId.split(":");
                 final String type = split[0];
@@ -48,18 +102,16 @@ public class QFieldUtils {
                         split[1];
                 }
                 // TODO handle non-primary volumes
-            }
-            // DownloadsProvider
-            else if (isDownloadsDocument(uri)) {
+            } else if (isDownloadsDocument(uri)) {
+                // DownloadsProvider
                 final String id = DocumentsContract.getDocumentId(uri);
                 final Uri contentUri = ContentUris.withAppendedId(
                     Uri.parse("content://downloads/public_downloads"),
                     Long.valueOf(id));
 
                 path = getDataColumn(context, contentUri, null, null);
-            }
-            // MediaProvider
-            else if (isMediaDocument(uri)) {
+            } else if (isMediaDocument(uri)) {
+                // MediaProvider
                 final String docId = DocumentsContract.getDocumentId(uri);
                 final String[] split = docId.split(":");
                 final String type = split[0];
@@ -80,20 +132,20 @@ public class QFieldUtils {
                                      selectionArgs);
             }
         }
-        // MediaStore (and general)
-        else if ("content".equalsIgnoreCase(uri.getScheme())) {
-            // Return the remote address
-            if (isGooglePhotosUri(uri))
-                return uri.getLastPathSegment();
 
-            path = getDataColumn(context, uri, null, null);
-        }
-
+        // Fallback
         if (path == null && ("content".equalsIgnoreCase(uri.getScheme()) ||
                              "file".equalsIgnoreCase(uri.getScheme()))) {
             path = uri.getPath();
-            if (path != null)
+            if (path != null) {
                 path = path.replaceFirst("^/storage_root", "");
+            }
+        }
+
+        if (path != null) {
+            if (new File(path).exists() == false) {
+                path = "";
+            }
         }
 
         return path;
@@ -136,11 +188,6 @@ public class QFieldUtils {
 
     public static boolean isMediaDocument(Uri uri) {
         return "com.android.providers.media.documents".equals(
-            uri.getAuthority());
-    }
-
-    public static boolean isGooglePhotosUri(Uri uri) {
-        return "com.google.android.apps.photos.content".equals(
             uri.getAuthority());
     }
 }
