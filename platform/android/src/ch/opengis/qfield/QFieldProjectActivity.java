@@ -109,30 +109,6 @@ public class QFieldProjectActivity extends Activity {
             setTitle(getString(R.string.select_project));
             Collections.sort(values);
 
-            String lastUsedProjects =
-                sharedPreferences.getString("LastUsedProjects", null);
-            if (lastUsedProjects != null) {
-                String[] lastUsedProjectsArray =
-                    lastUsedProjects.split("--;--");
-                values.add(new QFieldProjectListItem(
-                    null, getString(R.string.recent_projects), 0,
-                    QFieldProjectListItem.TYPE_SEPARATOR));
-
-                for (int i = lastUsedProjectsArray.length - 1; i >= 0; i--) {
-                    File file = new File(lastUsedProjectsArray[i]);
-                    if (file.exists()) {
-                        values.add(new QFieldProjectListItem(
-                            file, file.getName(),
-                            file.getName().toLowerCase().endsWith(".qgs") ||
-                                    file.getName().toLowerCase().endsWith(
-                                        ".qgz")
-                                ? R.drawable.project
-                                : R.drawable.dataset,
-                            QFieldProjectListItem.TYPE_ITEM));
-                    }
-                }
-            }
-
             String sampleProjects = new File(getFilesDir().toString() +
                                              "/share/qfield/sample_projects/")
                                         .getAbsolutePath();
