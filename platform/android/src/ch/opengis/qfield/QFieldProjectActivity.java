@@ -86,8 +86,10 @@ public class QFieldProjectActivity extends Activity {
             for (File file : externalFilesDirs) {
                 if (file != null) {
                     // Don't add a external storage path if already included in
-                    // the primary one
-                    if (externalStorageDirectory != null) {
+                    // the primary one and isn't the first external files
+                    // directory
+                    if (externalStorageDirectory != null &&
+                        file != externalFilesDirs[0]) {
                         if (!file.getAbsolutePath().contains(
                                 externalStorageDirectory.getAbsolutePath())) {
                             values.add(new QFieldProjectListItem(
