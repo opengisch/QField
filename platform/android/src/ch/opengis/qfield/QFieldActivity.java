@@ -147,7 +147,7 @@ public class QFieldActivity extends QtActivity {
                         importProjectPath +
                         fileName.substring(0, fileName.lastIndexOf(".")) + "/";
                     int i = 1;
-                    while(new File(projectPath).exists()) {
+                    while (new File(projectPath).exists()) {
                         projectPath =
                             importProjectPath +
                             fileName.substring(0, fileName.lastIndexOf(".")) +
@@ -157,7 +157,7 @@ public class QFieldActivity extends QtActivity {
                     new File(projectPath).mkdir();
                     try {
                         InputStream input = resolver.openInputStream(uri);
-                        QFieldUtils.inputStreamToFolder(input, projectPath)
+                        QFieldUtils.inputStreamToFolder(input, projectPath);
                     } catch (Exception e) {
                         e.printStackTrace();
                     }
@@ -170,16 +170,16 @@ public class QFieldActivity extends QtActivity {
             Boolean canWrite =
                 filePath != "" ? new File(filePath).canWrite() : false;
             if (!canWrite) {
-                Log.v("QField", "Content intent detected: " + action +
-                                    " : " + intent.getDataString() + " : " +
-                                    type + " : " + fileNam
+                Log.v("QField", "Content intent detected: " + action + " : " +
+                                    intent.getDataString() + " : " + type +
+                                    " : " + fileName);
                 String importFilePath = importDatasetPath + fileName;
                 int i = 1;
-                while(new File(importFilePath).exists()) {
+                while (new File(importFilePath).exists()) {
                     importFilePath =
                         importDatasetPath +
-                        fileName.substring(0, fileName.lastIndexOf(".")) +
-                        "_" + i + fileName.substring(fileName.lastIndexOf("."));
+                        fileName.substring(0, fileName.lastIndexOf(".")) + "_" +
+                        i + fileName.substring(fileName.lastIndexOf("."));
                     i++;
                 }
                 Log.v("QField",

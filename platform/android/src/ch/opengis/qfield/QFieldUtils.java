@@ -44,12 +44,11 @@ public class QFieldUtils {
             ZipInputStream zin = new ZipInputStream(in);
             ZipEntry entry;
             while ((entry = zin.getNextEntry()) != null) {
-               String entryName = entry.getName().toLowerCase();
-               if (entryName.endsWith(".qgs") ||
-                   entryName.endsWith(".qgz")) {
-                   projectName = entry.getName();
-                   break;
-               }
+                String entryName = entry.getName().toLowerCase();
+                if (entryName.endsWith(".qgs") || entryName.endsWith(".qgz")) {
+                    projectName = entry.getName();
+                    break;
+                }
             }
             zin.close();
         } catch (Exception e) {
@@ -64,16 +63,17 @@ public class QFieldUtils {
             ZipEntry entry;
             while ((entry = zin.getNextEntry()) != null) {
                 if (entry.isDirectory()) {
-                    new File(projectPath + entry.getName()).mkdirs();
+                    new File(folder + entry.getName()).mkdirs();
                     continue;
                 }
-                   OutputStream out = new FileOutputStream(new File(projectPath + entry.getName()));
+                OutputStream out =
+                    new FileOutputStream(new File(folder + entry.getName()));
                 int size = 0;
                 byte[] buffer = new byte[1024];
                 while ((size = zin.read(buffer, 0, buffer.length)) != -1) {
                     out.write(buffer, 0, size);
                 }
-                   out.close();
+                out.close();
             }
             zin.close();
         } catch (Exception e) {
