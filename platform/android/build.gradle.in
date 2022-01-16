@@ -78,6 +78,12 @@ android {
         disable 'MissingTranslation'
     }
 
+    defaultConfig {
+      ndk {
+        abiFilters "@ANDROID_ABI@"
+      }
+    }
+
     buildTypes {
       release {
          ndk {
