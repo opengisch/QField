@@ -78,6 +78,19 @@ android {
         disable 'MissingTranslation'
     }
 
+    buildTypes {
+      release {
+         ndk {
+           abiFilters "@ANDROID_ABI@"
+         }
+       }
+      debug {
+         ndk {
+           abiFilters "@ANDROID_ABI@"
+         }
+       }
+    }
+
     /* For Sentry */
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_1_8
