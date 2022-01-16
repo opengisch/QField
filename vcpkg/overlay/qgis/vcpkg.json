@@ -46,7 +46,11 @@
         "name": "qt5-winextras",
         "platform": "windows"
       },
-      "qca",
+      {
+        "name": "qca",
+        "default-features": false,
+        "features": []
+      },
       "qtkeychain"
     ],
     "features":
