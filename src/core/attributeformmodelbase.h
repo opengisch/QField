@@ -58,6 +58,9 @@ class AttributeFormModelBase : public QStandardItemModel
 
     QVariant attribute( const QString &name );
 
+    //! Applies feature model data such as attribute values, constraints, visibility to the attribute form model
+    void applyFeatureModel();
+
   signals:
     void featureModelChanged();
     void hasTabsChanged();
@@ -95,9 +98,6 @@ class AttributeFormModelBase : public QStandardItemModel
 
     //! Resets the attribute form model
     void resetModel();
-
-    //! Applies feature model data such as attribute values, constraints, visibility to the attribute form model
-    void applyFeatureModel();
 
     //! Sets up a connection to listen to project map theme change
     void onMapThemeCollectionChanged();

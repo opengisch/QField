@@ -270,6 +270,8 @@ Rectangle {
             featureForm.state = "FeatureForm"
             featureForm.multiSelection = false;
           }
+
+          featureFormList.model.applyFeatureModel()
         }
 
         onPressAndHold:
@@ -462,6 +464,7 @@ Rectangle {
         featureForm.selection.focusedItem = -1;
         if ( featureForm.multiSelection ) {
             featureFormList.model.featureModel.modelMode = FeatureModel.SingleFeatureModel
+            featureFormList.model.applyFeatureModel()
             featureForm.selection.model.clearSelection();
         } else {
             featureFormList.model.featureModel.modelMode = FeatureModel.MultiFeatureModel
