@@ -146,6 +146,14 @@ public class QFieldActivity extends QtActivity {
                     String projectPath =
                         importProjectPath +
                         fileName.substring(0, fileName.lastIndexOf(".")) + "/";
+                    int i = 1;
+                    while(new File(projectPath).exists()) {
+                        projectPath =
+                            importProjectPath +
+                            fileName.substring(0, fileName.lastIndexOf(".")) +
+                            "_" + i + "/";
+                        i++;
+                    }
                     new File(projectPath).mkdir();
                     try {
                         InputStream input = resolver.openInputStream(uri);
@@ -166,6 +174,14 @@ public class QFieldActivity extends QtActivity {
                                     " : " + intent.getDataString() + " : " +
                                     type + " : " + fileNam
                 String importFilePath = importDatasetPath + fileName;
+                int i = 1;
+                while(new File(importFilePath).exists()) {
+                    importFilePath =
+                        importDatasetPath +
+                        fileName.substring(0, fileName.lastIndexOf(".")) +
+                        "_" + i + fileName.substring(fileName.lastIndexOf("."));
+                    i++;
+                }
                 Log.v("QField",
                       "Importing document to file path: " + importFilePath);
                 try {
