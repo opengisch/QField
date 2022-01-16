@@ -33,8 +33,55 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
+import java.util.zip.ZipEntry;
+import java.util.zip.ZipInputStream;
 
 public class QFieldUtils {
+
+    public static String getArchiveProjectName(InputStream in) {
+        String projectName = "";
+        try {
+            ZipInputStream zin = new ZipInputStream(in);
+            ZipEntry entry;
+            while ((entry = zin.getNextEntry()) != null) {
+               String entryName = entry.getName().toLowerCase();
+               if (entryName.endsWith(".qgs") ||
+                   entryName.endsWith(".qgz")) {
+                   projectName = entry.getName();
+                   break;
+               }
+            }
+            zin.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return projectName;
+    }
+
+    public static boolean inputStreamToFolder(InputStream in, String folder) {
+        try {
+            ZipInputStream zin = new ZipInputStream(in);
+            ZipEntry entry;
+            while ((entry = zin.getNextEntry()) != null) {
+                if (entry.isDirectory()) {
+                    new File(projectPath + entry.getName()).mkdirs();
+                    continue;
+                }
+                   OutputStream out = new FileOutputStream(new File(projectPath + entry.getName()));
+                int size = 0;
+                byte[] buffer = new byte[1024];
+                while ((size = zin.read(buffer, 0, buffer.length)) != -1) {
+                    out.write(buffer, 0, size);
+                }
+                   out.close();
+            }
+            zin.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        }
+        return true;
+    }
 
     public static boolean inputStreamToFile(InputStream in, String file) {
         try {
