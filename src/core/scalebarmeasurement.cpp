@@ -109,7 +109,6 @@ void ScaleBarMeasurement::measure()
     const double adjustedMagnitude = ( mapUnits == QgsUnitTypes::DistanceDegrees
                                          ? magnitude / ( 1 + ( magnitude / factor ) / mReferenceScreenLength )
                                          : magnitude / ( 1 + std::round( ( magnitude / factor ) / mReferenceScreenLength ) ) );
-    const double decimalsAdjustment = mapUnits == QgsUnitTypes::DistanceDegrees ? adjustedMagnitude < 0.01 ? 4 : 3 : 0;
 
     mScreenLength = adjustedMagnitude / factor;
 
@@ -119,7 +118,23 @@ void ScaleBarMeasurement::measure()
     }
     else
     {
-      mLabel = QStringLiteral( "%1 %2" ).arg( std::round( adjustedMagnitude * std::pow( 10, decimalsAdjustment ) ) / std::pow( 10, decimalsAdjustment ) ).arg( QgsUnitTypes::toAbbreviatedString( mapUnits ) );
+      // better show 0.1m than 0m. No way to force it to show 10cm.
+      QgsUnitTypes::DistanceValue scaledDistance = QgsUnitTypes::scaledDistance( adjustedMagnitude, mapUnits, 1 );
+
+      if ( std::isnan( scaledDistance.value ) )
+      {
+        mLabel = tr( "Unknown" );
+      }
+      else if ( scaledDistance.value >= 0.1 )
+      {
+        mLabel = QStringLiteral( "%1 %2" ).arg( scaledDistance.value ).arg( QgsUnitTypes::toAbbreviatedString( scaledDistance.unit ) );
+      }
+      else
+      {
+        // when going to mm scale, better show all the decimals
+        scaledDistance = QgsUnitTypes::scaledDistance( adjustedMagnitude, mapUnits, 10 );
+        mLabel = QStringLiteral( "%1 %2" ).arg( scaledDistance.value ).arg( QgsUnitTypes::toAbbreviatedString( scaledDistance.unit ) );
+      }
     }
     const bool impreciseUnits = mMapSettings->mapSettings().mapUnits() == QgsUnitTypes::DistanceDegrees;
     if ( impreciseUnits )
