@@ -180,15 +180,20 @@ Popup {
         icon.source: Theme.getThemeVectorIcon( 'list_24dp' )
 
         onClicked: {
-          var vl = layerTree.data( index, FlatLayerTreeModel.VectorLayerPointer )
-
-          if ( layerTree.data( index, FlatLayerTreeModel.Type ) === 'layer' ) {
-            featureForm.model.setFeatures( vl )
+          if ( parseInt(layerTree.data(index, FlatLayerTreeModel.FeatureCount)) === 0 ) {
+            displayToast( qsTr( "The layer has no features" ) )
           } else {
-            // one day, we should be able to show only the features that correspond to the given legend item
-            featureForm.model.setFeatures( vl )
+            var vl = layerTree.data( index, FlatLayerTreeModel.VectorLayerPointer )
+
+            if ( layerTree.data( index, FlatLayerTreeModel.Type ) === 'layer' ) {
+              featureForm.model.setFeatures( vl )
+            } else {
+              // one day, we should be able to show only the features that correspond to the given legend item
+              featureForm.model.setFeatures( vl )
+            }
+            mapCanvas.mapSettings.setCenterToLayer( layerTree.data( index, FlatLayerTreeModel.VectorLayerPointer ) )
           }
-          mapCanvas.mapSettings.setCenterToLayer( layerTree.data( index, FlatLayerTreeModel.VectorLayerPointer ) )
+
           close()
           dashBoard.visible = false
         }
