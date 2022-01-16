@@ -94,6 +94,9 @@ class AttributeFormModel : public QSortFilterProxyModel
      */
     Q_INVOKABLE QVariant attribute( const QString &name );
 
+    //! Forces the form to update the fields visibility and constraints
+    Q_INVOKABLE void applyFeatureModel();
+
   signals:
     void featureModelChanged();
     void hasTabsChanged();
