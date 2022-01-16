@@ -66,7 +66,6 @@ import ch.opengis.qfield.R;
 import java.io.BufferedInputStream;
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.lang.Thread;
@@ -75,8 +74,6 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
-import java.util.zip.ZipEntry;
-import java.util.zip.ZipInputStream;
 import org.qtproject.qt5.android.bindings.QtActivity;
 
 public class QFieldActivity extends QtActivity {
@@ -108,47 +105,92 @@ public class QFieldActivity extends QtActivity {
         String type = intent.getType();
 
         Context context = getApplication().getApplicationContext();
+
         String filePath = QFieldUtils.getPathFromUri(context, uri);
+        String importDatasetPath = "";
+        String importProjectPath = "";
+        File[] externalFilesDirs = getExternalFilesDirs(null);
+        if (externalFilesDirs.length > 0) {
+            importDatasetPath =
+                externalFilesDirs[0].getAbsolutePath() + "/Imported Datasets/";
+            new File(importDatasetPath).mkdir();
+            importProjectPath =
+                externalFilesDirs[0].getAbsolutePath() + "/Imported Projects/";
+            new File(importProjectPath).mkdir();
+        }
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT &&
-            scheme.compareTo(ContentResolver.SCHEME_CONTENT) == 0) {
+            scheme.compareTo(ContentResolver.SCHEME_CONTENT) == 0 &&
+            externalFilesDirs.length > 0) {
             DocumentFile documentFile =
                 DocumentFile.fromSingleUri(context, uri);
             String fileName = documentFile.getName();
-            Boolean canWrite =
-                filePath != "" ? new File(filePath).canWrite() : false;
-            if (!canWrite) {
-                if (fileName == null) {
-                    // File name not provided
-                    fileName = new SimpleDateFormat("yyyyMMdd_HHmm")
-                                   .format(new Date().getTime()) +
-                               "." + QFieldUtils.getExtensionFromMimeType(type);
-                }
-                Log.v("QField", "Content intent detected: " + action + " : " +
-                                    intent.getDataString() + " : " + type +
-                                    " : " + fileName);
+            if (fileName == null) {
+                // File name not provided
+                fileName = new SimpleDateFormat("yyyyMMdd_HHmmss")
+                               .format(new Date().getTime()) +
+                           "." + QFieldUtils.getExtensionFromMimeType(type);
+            }
 
-                File[] externalFilesDirs = getExternalFilesDirs(null);
-                String importDatasetPath = "";
-                if (externalFilesDirs.length > 0) {
-                    importDatasetPath = externalFilesDirs[0].getAbsolutePath() +
-                                        "/Imported Datasets/";
-                    File importDatasetDir = new File(importDatasetPath);
-                    importDatasetDir.mkdir();
-                    String importFilePath = importDatasetPath + fileName;
-                    Log.v("QField",
-                          "Importing document to file path: " + importFilePath);
-                    ContentResolver resolver = getContentResolver();
+            ContentResolver resolver = getContentResolver();
+            if (type.equals("application/zip")) {
+                String projectName = "";
+                try {
+                    InputStream input = resolver.openInputStream(uri);
+                    projectName = QFieldUtils.getArchiveProjectName(input);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+
+                if (projectName != "") {
+                    String projectPath =
+                        importProjectPath +
+                        fileName.substring(0, fileName.lastIndexOf(".")) + "/";
+                    int i = 1;
+                    while (new File(projectPath).exists()) {
+                        projectPath =
+                            importProjectPath +
+                            fileName.substring(0, fileName.lastIndexOf(".")) +
+                            "_" + i + "/";
+                        i++;
+                    }
+                    new File(projectPath).mkdir();
                     try {
                         InputStream input = resolver.openInputStream(uri);
-                        QFieldUtils.inputStreamToFile(input, importFilePath);
+                        QFieldUtils.inputStreamToFolder(input, projectPath);
                     } catch (Exception e) {
                         e.printStackTrace();
                     }
-                    return importFilePath;
-                } else {
-                    return "";
+                    Log.v("QField", "Opening decompressed project: " +
+                                        projectPath + projectName);
+                    return projectPath + projectName;
                 }
+            }
+
+            Boolean canWrite =
+                filePath != "" ? new File(filePath).canWrite() : false;
+            if (!canWrite) {
+                Log.v("QField", "Content intent detected: " + action + " : " +
+                                    intent.getDataString() + " : " + type +
+                                    " : " + fileName);
+                String importFilePath = importDatasetPath + fileName;
+                int i = 1;
+                while (new File(importFilePath).exists()) {
+                    importFilePath =
+                        importDatasetPath +
+                        fileName.substring(0, fileName.lastIndexOf(".")) + "_" +
+                        i + fileName.substring(fileName.lastIndexOf("."));
+                    i++;
+                }
+                Log.v("QField",
+                      "Importing document to file path: " + importFilePath);
+                try {
+                    InputStream input = resolver.openInputStream(uri);
+                    QFieldUtils.inputStreamToFile(input, importFilePath);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+                return importFilePath;
             }
         }
 
