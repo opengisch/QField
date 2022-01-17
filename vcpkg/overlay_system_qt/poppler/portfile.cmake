@@ -10,10 +10,6 @@ vcpkg_from_github(
         0004-disable-clang-format.patch
 )
 
-vcpkg_find_acquire_program(GPERF)
-get_filename_component(GPERF_PATH ${GPERF} DIRECTORY)
-vcpkg_add_to_path(${GPERF_PATH})
-
 vcpkg_check_features(OUT_FEATURE_OPTIONS FEATURE_OPTIONS
     curl ENABLE_CURL
     zlib ENABLE_ZLIB
@@ -36,6 +32,7 @@ vcpkg_configure_cmake(
         -DENABLE_UTILS=OFF
         -DENABLE_UNSTABLE_API_ABI_HEADERS=ON
         -DWITH_FONTCONFIGURATION_FONTCONFIG=OFF
+        -DRUN_GPERF_IF_PRESENT=OFF
         ${FEATURE_OPTIONS}
 )
 
