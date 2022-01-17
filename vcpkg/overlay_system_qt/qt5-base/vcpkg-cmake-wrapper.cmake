@@ -1,0 +1,92 @@
+set(QT_MODULES
+  Qt5
+  Qt53DAnimation
+  Qt53DCore
+  Qt53DExtras
+  Qt53DInput
+  Qt53DLogic
+  Qt53DQuick
+  Qt53DQuickAnimation
+  Qt53DQuickExtras
+  Qt53DQuickInput
+  Qt53DQuickRender
+  Qt53DQuickScene2D
+  Qt53DRender
+  Qt5AccessibilitySupport
+  Qt5AndroidExtras
+  Qt5AttributionsScannerTools
+  Qt5Bluetooth
+  Qt5Bootstrap
+  Qt5Charts
+  Qt5Concurrent
+  Qt5Core
+  Qt5DeviceDiscoverySupport
+  Qt5DocTools
+  Qt5EdidSupport
+  Qt5EglSupport
+  Qt5EventDispatcherSupport
+  Qt5FbSupport
+  Qt5FontDatabaseSupport
+  Qt5Gamepad
+  Qt5Gui
+  Qt5Help
+  Qt5InputSupport
+  Qt5LinguistTools
+  Qt5Location
+  Qt5MacExtras
+  Qt5Multimedia
+  Qt5MultimediaQuick
+  Qt5MultimediaWidgets
+  Qt5Network
+  Qt5Nfc
+  Qt5OpenGL
+  Qt5OpenGLExtensions
+  Qt5PacketProtocol
+  Qt5PlatformCompositorSupport
+  Qt5Positioning
+  Qt5PositioningQuick
+  Qt5PrintSupport
+  Qt5Qml
+  Qt5QmlDebug
+  Qt5QmlDevTools
+  Qt5QmlImportScanner
+  Qt5QmlModels
+  Qt5QmlWorkerScript
+  Qt5Quick
+  Qt5QuickCompiler
+  Qt5QuickControls2
+  Qt5QuickParticles
+  Qt5QuickShapes
+  Qt5QuickTemplates2
+  Qt5QuickTest
+  Qt5QuickWidgets
+  Qt5RemoteObjects
+  Qt5RepParser
+  Qt5Scxml
+  Qt5Sensors
+  Qt5SerialPort
+  Qt5ServiceSupport
+  Qt5Sql
+  Qt5Svg
+  Qt5Test
+  Qt5TextToSpeech
+  Qt5ThemeSupport
+  Qt5UiPlugin
+  Qt5UiTools
+  Qt5VulkanSupport
+  Qt5WebChannel
+  Qt5WebSockets
+  Qt5WebView
+  Qt5Widgets
+  Qt5Xml
+  Qt5XmlPatterns
+  Qt5Zlib
+)
+
+foreach(MOD ${QT_MODULES})
+  set(${MOD}_DIR $ENV{Qt5_DIR}/lib/cmake/${MOD})
+endforeach()
+
+set(Qt5Core_ROOT $ENV{Qt5_DIR}/lib)
+
+_find_package(${ARGS})

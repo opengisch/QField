@@ -1,9 +1,4 @@
 macro(find_dependency_win)
-  # Setup proj4 libraries + include path
-  set(PROJ_INCLUDE_DIR "${CURRENT_INSTALLED_DIR}/include")
-  set(PROJ_LIBRARY_REL "${CURRENT_INSTALLED_DIR}/lib/proj.lib")
-  set(PROJ_LIBRARY_DBG "${CURRENT_INSTALLED_DIR}/debug/lib/proj_d.lib")
-
   # Setup libpng libraries + include path
   set(PNG_INCLUDE_DIR "${CURRENT_INSTALLED_DIR}/include")
   set(PNG_LIBRARY_REL "${CURRENT_INSTALLED_DIR}/lib/libpng16.lib" )
@@ -212,8 +207,8 @@ macro(find_dependency_win)
     # Setup spatialite libraries + include path
     set(SPATIALITE_INCLUDE_DIR "${CURRENT_INSTALLED_DIR}/include/spatialite" )
     if(VCPKG_LIBRARY_LINKAGE STREQUAL "static")
-        set(SPATIALITE_LIBRARY_REL "${CURRENT_INSTALLED_DIR}/lib/librttopo.lib" "${CURRENT_INSTALLED_DIR}/lib/spatialite.lib")
-        set(SPATIALITE_LIBRARY_DBG "${CURRENT_INSTALLED_DIR}/debug/lib/librttopo.lib" "${CURRENT_INSTALLED_DIR}/debug/lib/spatialite.lib")
+        set(SPATIALITE_LIBRARY_REL "${CURRENT_INSTALLED_DIR}/lib/spatialite.lib")
+        set(SPATIALITE_LIBRARY_DBG "${CURRENT_INSTALLED_DIR}/debug/lib/spatialite.lib")
     else()
         set(SPATIALITE_LIBRARY_REL "${CURRENT_INSTALLED_DIR}/lib/spatialite.lib" )
         set(SPATIALITE_LIBRARY_DBG "${CURRENT_INSTALLED_DIR}/debug/lib/spatialite.lib" )

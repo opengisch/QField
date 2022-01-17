@@ -25,6 +25,10 @@
     "proj4",
     "sqlite3",
     "tiff",
+    {
+      "name": "vcpkg-pkgconfig-get-modules",
+      "host": true
+    },
     "zlib",
     "zstd"
   ],

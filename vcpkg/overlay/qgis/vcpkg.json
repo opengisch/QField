@@ -46,45 +46,48 @@
         "name": "qt5-winextras",
         "platform": "windows"
       },
-      "qca",
+      {
+        "name": "qca",
+        "default-features": false,
+        "features": []
+      },
       "qtkeychain"
     ],
     "features":
-    [
 	{
-            "name": "opencl",
-            "description": "Should OpenCL support be added",
-            "dependencies":
-            [
-                "opencl"
-            ]
-	},
+            "opencl" : {
+              "description": "Should OpenCL support be added",
+              "dependencies":
+              [
+                  "opencl"
+              ]
+    },
+            "server":
         {
-            "name": "server",
             "description": "Determines whether QGIS server should be built",
             "dependencies":
             [
                 "fastcgi"
             ]
         },
+            "process":
         {
-            "name": "process",
             "description": "Determines whether the command line QGIS process tool should be built"
         },
+            "3d":
         {
-            "name": "3d",
             "description": "Determines whether QGIS 3D library should be built",
             "dependencies":
             [
                 "qt5-3d"
             ]
         },
+            "bindings":
         {
-            "name": "bindings",
             "description": "Determines whether Python bindings should be built"
         },
+            "gui":
         {
-            "name": "gui",
             "description": "Determines whether the QGIS gui should be built",
             "dependencies":
             [
@@ -92,16 +95,16 @@
                 "qscintilla"
             ]
         },
+            "desktop":
         {
-            "name": "desktop",
             "description": "Determines whether the QGIS desktop (main app) should be built"
         },
+            "customwidgets":
         {
-            "name": "customwidgets",
             "description": "Determines whether the QGIS custom widgets for QtCreator should be built"
         },
+            "quick":
         {
-            "name": "quick",
             "description": "Build the QGIS quick components for mobile interfaces",
             "dependencies":
             [
@@ -109,5 +112,6 @@
                 "qt5-declarative"
             ]
         }
-    ]
+  }
+    
   }

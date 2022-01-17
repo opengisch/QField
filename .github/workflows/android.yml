@@ -136,7 +136,6 @@ jobs:
         shell: bash
         env:
           WORKSPACE: ${{ github.workspace }}
-          Qt5Core_ROOT: ${{ env.Qt5_DIR }}
           ARCH: ${{ matrix.triplet }}
         run: |
           # Convert paths to bash compatible ones. Thanks to whoever decided to use drive letters and backslashes.
@@ -174,6 +173,8 @@ jobs:
           name: build-logs-${{ matrix.triplet }}
           path: |
             ${{ env.CMAKE_BUILD_DIR }}/vcpkg-manifest-install.log
+            ${{ github.workspace }}/vcpkg/base/buildtrees/**/*.log
+
             ${{ github.workspace }}/vcpkg/base/buildtrees/**/*.log
 
       - name: 🌋 Build

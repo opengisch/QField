@@ -16,7 +16,6 @@ vcpkg_from_github(
     PATCHES
         0001-fix-path-for-vcpkg.patch
         0002-fix-build-error.patch
-        gcc-11.patch
 )
 
 if(VCPKG_LIBRARY_LINKAGE STREQUAL "dynamic")
@@ -55,7 +54,6 @@ vcpkg_cmake_configure(
         -DQCA_SUFFIX=OFF
         -DQCA_FEATURE_INSTALL_DIR=share/qca/mkspecs/features
         -DOSX_FRAMEWORK=OFF
-        -DCMAKE_FIND_ROOT_PATH=$ENV{Qt5_DIR}
     OPTIONS_DEBUG
         -DQCA_PLUGINS_INSTALL_DIR=${QCA_FEATURE_INSTALL_DIR_DEBUG}
     OPTIONS_RELEASE
@@ -71,13 +69,6 @@ string(REGEX REPLACE "PACKAGE_PREFIX_DIR \"(.*)\" ABSOLUTE"
        QCA_CONFIG_FILE "${QCA_CONFIG_FILE}"
 )
 file(WRITE "${CURRENT_PACKAGES_DIR}/share/${PORT}/QcaConfig.cmake" "${QCA_CONFIG_FILE}")
-
-file(READ "${CURRENT_PACKAGES_DIR}/share/${PORT}/QcaTargets.cmake" QCA_TARGETS_FILE)
-string(REGEX REPLACE "set\\(_IMPORT_PREFIX \"\\$\\{_IMPORT_PREFIX\\}\"\\)"
-                     [[set(_IMPORT_PREFIX "${CMAKE_CURRENT_LIST_DIR}/../../")]]
-       QCA_TARGETS_FILE "${QCA_TARGETS_FILE}"
-)
-file(WRITE "${CURRENT_PACKAGES_DIR}/share/${PORT}/QcaTargets.cmake" "${QCA_TARGETS_FILE}")
 
 # Remove unneeded dirs
 file(REMOVE_RECURSE 
