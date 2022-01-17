@@ -13,6 +13,7 @@ vcpkg_from_github(
 vcpkg_check_features(OUT_FEATURE_OPTIONS FEATURE_OPTIONS
     curl ENABLE_CURL
     zlib ENABLE_ZLIB
+    splash ENABLE_SPLASH
 )
 
 vcpkg_configure_cmake(
