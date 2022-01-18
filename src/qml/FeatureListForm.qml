@@ -499,7 +499,7 @@ Rectangle {
     CoordinateTransformer {
         id: moveFeaturesTransformer
         sourceCrs: mapCanvas.mapSettings.destinationCrs
-        destinationCrs: featureForm.selection.model.selectedLayer.crs
+        destinationCrs: featureForm.selection.model.selectedLayer ? featureForm.selection.model.selectedLayer.crs : mapCanvas.mapSettings.destinationCrs
     }
 
     Connections {
