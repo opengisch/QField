@@ -13,16 +13,7 @@
       "name": "devil",
       "platform": "(windows | linux) & !arm"
     },
-    {
-      "name": "freetype",
-      "default-features": false,
-      "features":
-        [
-          "bzip2",
-          "png",
-          "zlib"
-        ]
-    },
+    "freetype",
     "libiconv",
     "openjpeg"
   ],
