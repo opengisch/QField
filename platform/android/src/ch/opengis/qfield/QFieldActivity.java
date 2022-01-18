@@ -93,16 +93,24 @@ public class QFieldActivity extends QtActivity {
     @Override
     public void onNewIntent(Intent intent) {
         super.onNewIntent(intent);
-        if (intent.getAction() == Intent.ACTION_VIEW) {
+        if (intent.getAction() == Intent.ACTION_VIEW ||
+            intent.getAction() == Intent.ACTION_SEND) {
             openProject(getPathFromIntent(intent));
         }
     }
 
     private String getPathFromIntent(Intent intent) {
-        Uri uri = intent.getData();
         String scheme = intent.getScheme();
         String action = intent.getAction();
         String type = intent.getType();
+
+        Uri uri = null;
+        if (action.compareTo(Intent.ACTION_SEND) == 0) {
+            uri = (Uri)intent.getParcelableExtra(Intent.EXTRA_STREAM);
+            scheme = "";
+        } else {
+            uri = intent.getData();
+        }
 
         Context context = getApplication().getApplicationContext();
 
@@ -120,7 +128,8 @@ public class QFieldActivity extends QtActivity {
         }
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT &&
-            scheme.compareTo(ContentResolver.SCHEME_CONTENT) == 0 &&
+            (scheme.compareTo(ContentResolver.SCHEME_CONTENT) == 0 ||
+             action.compareTo(Intent.ACTION_SEND) == 0) &&
             externalFilesDirs.length > 0) {
             DocumentFile documentFile =
                 DocumentFile.fromSingleUri(context, uri);
@@ -269,7 +278,8 @@ public class QFieldActivity extends QtActivity {
         intent.putExtra("QFIELD_APP_DATA_DIR", qFieldAppDir);
 
         Intent sourceIntent = getIntent();
-        if (sourceIntent.getAction() == Intent.ACTION_VIEW) {
+        if (sourceIntent.getAction() == Intent.ACTION_VIEW ||
+            sourceIntent.getAction() == Intent.ACTION_SEND) {
             intent.putExtra("QGS_PROJECT", getPathFromIntent(sourceIntent));
         }
         setIntent(intent);
