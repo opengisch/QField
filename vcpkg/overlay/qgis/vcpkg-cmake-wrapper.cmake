@@ -184,7 +184,10 @@ if(QGIS_FOUND AND "@VCPKG_LIBRARY_LINKAGE@" STREQUAL "static")
     # QtKeychain
     target_link_libraries(qgis_core INTERFACE "-framework Foundation" "-framework Security")
   endif()
-  if(UNIX AND NOT APPLE AND NOT ANDROID) # QtKeychain
+  if(UNIX AND NOT APPLE AND NOT ANDROID)
+    _find_and_link_library(lcms qgis_core)
+
+    # QtKeychain
     find_package(Qt5 COMPONENTS DBus REQUIRED)
     target_link_libraries(qgis_core INTERFACE
       Qt5::DBus
