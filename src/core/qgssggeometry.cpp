@@ -74,6 +74,8 @@ QgsSGGeometry::QgsSGGeometry( const QgsGeometry &geom, const QColor &color, int 
         while ( it.hasNext() )
         {
           QgsPolygon *polygon = qgsgeometry_cast<QgsPolygon *>( it.next() );
+          if ( !polygon )
+            continue;
           QSGGeometryNode *geomNode = new QSGGeometryNode;
           geomNode->setGeometry( qgsPolygonToQSGGeometry( polygon, visibleExtent, scaleFactor ) );
           geomNode->setFlag( QSGNode::OwnsGeometry );
@@ -140,6 +142,7 @@ QSGGeometry *QgsSGGeometry::qgsPolylineToQSGGeometry( const QgsPolylineXY &line,
 
 QSGGeometry *QgsSGGeometry::qgsPolygonToQSGGeometry( const QgsPolygon *polygon, const QgsRectangle visibleExtent, double scaleFactor )
 {
+  Q_ASSERT( polygon );
   QgsTessellator t( visibleExtent.xMinimum(), visibleExtent.yMaximum(), false, false, false, true );
   t.addPolygon( *polygon, 0 );
 
