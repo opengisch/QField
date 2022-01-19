@@ -131,6 +131,10 @@ if(QGIS_FOUND AND "@VCPKG_LIBRARY_LINKAGE@" STREQUAL "static")
   _find_and_link_library(spatialindex qgis_core spatialindex spatialindex-64)
   _find_and_link_library(freexl qgis_core)
   _find_and_link_library(qt5keychain qgis_core)
+  _find_and_link_library(poppler qgis_core)
+  _find_and_link_library(freetype qgis_core)
+  _find_and_link_library(brotlidec-static qgis_core)
+  _find_and_link_library(brotlicommon-static qgis_core)
   find_package(Qt5 COMPONENTS Core Gui Network Xml Svg Concurrent Sql SerialPort)
   target_link_libraries(qgis_core INTERFACE
       Qt5::Core
@@ -180,7 +184,10 @@ if(QGIS_FOUND AND "@VCPKG_LIBRARY_LINKAGE@" STREQUAL "static")
     # QtKeychain
     target_link_libraries(qgis_core INTERFACE "-framework Foundation" "-framework Security")
   endif()
-  if(UNIX AND NOT APPLE AND NOT ANDROID) # QtKeychain
+  if(UNIX AND NOT APPLE AND NOT ANDROID)
+    _find_and_link_library(lcms2 qgis_core)
+
+    # QtKeychain
     find_package(Qt5 COMPONENTS DBus REQUIRED)
     target_link_libraries(qgis_core INTERFACE
       Qt5::DBus

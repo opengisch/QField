@@ -21,6 +21,7 @@
     "libpq",
     "libwebp",
     "libxml2",
+    "poppler",
     "openjpeg",
     "proj4",
     "sqlite3",
