@@ -311,9 +311,3 @@ jobs:
           export INSTALL_DIR=$(pwd)
           curl -sL https://sentry.io/get-cli/ | bash
           ./sentry-cli upload-dif -o opengisch-llc -p qfield ${{ env.CMAKE_BUILD_DIR }}
-
-      - name: Setup tmate session
-        if: failure()
-        uses: mxschmitt/action-tmate@v3
-        with:
-          limit-access-to-actor: true
