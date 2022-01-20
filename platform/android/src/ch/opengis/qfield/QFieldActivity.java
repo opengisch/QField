@@ -134,7 +134,7 @@ public class QFieldActivity extends QtActivity {
             DocumentFile documentFile =
                 DocumentFile.fromSingleUri(context, uri);
             String fileName = documentFile.getName();
-            if (fileName == null) {
+            if (fileName == null && type != null) {
                 // File name not provided
                 fileName = new SimpleDateFormat("yyyyMMdd_HHmmss")
                                .format(new Date().getTime()) +
@@ -142,7 +142,7 @@ public class QFieldActivity extends QtActivity {
             }
 
             ContentResolver resolver = getContentResolver();
-            if (type.equals("application/zip")) {
+            if (type != null && type.equals("application/zip")) {
                 String projectName = "";
                 try {
                     InputStream input = resolver.openInputStream(uri);
