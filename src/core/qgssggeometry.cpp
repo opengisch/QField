@@ -73,11 +73,14 @@ QgsSGGeometry::QgsSGGeometry( const QgsGeometry &geom, const QColor &color, int 
         QgsGeometryPartIterator it = gg.parts();
         while ( it.hasNext() )
         {
-          QgsPolygon *polygon = qgsgeometry_cast<QgsPolygon *>( it.next() );
+          QgsCurvePolygon *c = qgsgeometry_cast<QgsCurvePolygon *>( it.next() );
+          if ( !c )
+            continue;
+          std::unique_ptr<QgsPolygon> polygon( qgsgeometry_cast<QgsPolygon *>( c->segmentize() ) );
           if ( !polygon )
             continue;
           QSGGeometryNode *geomNode = new QSGGeometryNode;
-          geomNode->setGeometry( qgsPolygonToQSGGeometry( polygon, visibleExtent, scaleFactor ) );
+          geomNode->setGeometry( qgsPolygonToQSGGeometry( polygon.get(), visibleExtent, scaleFactor ) );
           geomNode->setFlag( QSGNode::OwnsGeometry );
           applyStyle( geomNode );
           on->appendChildNode( geomNode );
@@ -97,7 +100,13 @@ QgsSGGeometry::QgsSGGeometry( const QgsGeometry &geom, const QColor &color, int 
         QSGOpacityNode *on = new QSGOpacityNode;
         on->setOpacity( 0.5 );
         QSGGeometryNode *geomNode = new QSGGeometryNode;
-        geomNode->setGeometry( qgsPolygonToQSGGeometry( qgsgeometry_cast<QgsPolygon *>( gg.get() ), visibleExtent, scaleFactor ) );
+        QgsCurvePolygon *c = qgsgeometry_cast<QgsCurvePolygon *>( gg.get() );
+        if ( !c )
+          break;
+        std::unique_ptr<QgsPolygon> polygon( qgsgeometry_cast<QgsPolygon *>( c->segmentize() ) );
+        if ( !polygon )
+          break;
+        geomNode->setGeometry( qgsPolygonToQSGGeometry( qgsgeometry_cast<QgsPolygon *>( polygon.get() ), visibleExtent, scaleFactor ) );
         geomNode->setFlag( QSGNode::OwnsGeometry );
         applyStyle( geomNode );
         on->appendChildNode( geomNode );
