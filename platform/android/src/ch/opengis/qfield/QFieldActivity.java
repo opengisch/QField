@@ -104,6 +104,10 @@ public class QFieldActivity extends QtActivity {
         String action = intent.getAction();
         String type = intent.getType();
 
+        if (type == null) {
+            return "";
+        }
+
         Uri uri = null;
         if (action.compareTo(Intent.ACTION_SEND) == 0) {
             uri = (Uri)intent.getParcelableExtra(Intent.EXTRA_STREAM);
