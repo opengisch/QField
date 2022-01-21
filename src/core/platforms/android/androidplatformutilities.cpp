@@ -92,13 +92,13 @@ void AndroidPlatformUtilities::initSystem()
   if ( localGitRev != appGitRev )
 
   {
-    qDebug() << QStringLiteral( "Different build git revision detected (previous: %1, current: %2)" )
-                  .arg( localGitRev.size() > 0 ? localGitRev.mid( 0, 7 ) : QStringLiteral( "n/a" ) )
-                  .arg( appGitRev.size() > 0 ? appGitRev.mid( 0, 7 ) : QStringLiteral( "n/a" ) );
+    qInfo() << QStringLiteral( "Different build git revision detected (previous: %1, current: %2)" )
+                 .arg( localGitRev.size() > 0 ? localGitRev.mid( 0, 7 ) : QStringLiteral( "n/a" ) )
+                 .arg( appGitRev.size() > 0 ? appGitRev.mid( 0, 7 ) : QStringLiteral( "n/a" ) );
     int argc = 0;
+    Feedback feedback;
     QApplication app( argc, nullptr );
     QQmlApplicationEngine engine;
-    Feedback feedback;
     qmlRegisterType<Feedback>( "org.qfield", 1, 0, "Feedback" );
     engine.rootContext()->setContextProperty( "feedback", &feedback );
     engine.load( QUrl( QStringLiteral( "qrc:/qml/SystemLoader.qml" ) ) );
