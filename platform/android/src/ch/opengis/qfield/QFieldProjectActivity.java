@@ -89,14 +89,16 @@ public class QFieldProjectActivity extends Activity {
             }
 
             File[] externalFilesDirs = getExternalFilesDirs(null);
+            Log.d(TAG, "primaryExternalFilesDir: " +
+                           primaryExternalFilesDir.getAbsolutePath());
             Log.d(TAG,
                   "externalFilesDirs: " + Arrays.toString(externalFilesDirs));
             for (File file : externalFilesDirs) {
                 if (file != null) {
                     // Don't duplicate external files directory or storage path
                     // already added
-                    if (file.getAbsolutePath() ==
-                        primaryExternalFilesDir.getAbsolutePath()) {
+                    if (file.getAbsolutePath().equals(
+                            primaryExternalFilesDir.getAbsolutePath())) {
                         continue;
                     }
                     if (externalStorageDirectory != null) {
