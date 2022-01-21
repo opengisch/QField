@@ -80,26 +80,39 @@ public class QFieldProjectActivity extends Activity {
                 }
             }
 
+            File primaryExternalFilesDir = getExternalFilesDir(null);
+            if (primaryExternalFilesDir != null) {
+                values.add(new QFieldProjectListItem(
+                    primaryExternalFilesDir,
+                    getString(R.string.secondary_storage), R.drawable.tablet,
+                    QFieldProjectListItem.TYPE_EXTERNAL_FILES));
+            }
+
             File[] externalFilesDirs = getExternalFilesDirs(null);
+            Log.d(TAG, "primaryExternalFilesDir: " +
+                           primaryExternalFilesDir.getAbsolutePath());
             Log.d(TAG,
                   "externalFilesDirs: " + Arrays.toString(externalFilesDirs));
             for (File file : externalFilesDirs) {
                 if (file != null) {
-                    // Don't add a external storage path if already included in
-                    // the primary one and isn't the first external files
-                    // directory
-                    if (externalStorageDirectory != null &&
-                        file != externalFilesDirs[0]) {
+                    // Don't duplicate external files directory or storage path
+                    // already added
+                    if (file.getAbsolutePath().equals(
+                            primaryExternalFilesDir.getAbsolutePath())) {
+                        continue;
+                    }
+                    if (externalStorageDirectory != null) {
                         if (!file.getAbsolutePath().contains(
                                 externalStorageDirectory.getAbsolutePath())) {
                             values.add(new QFieldProjectListItem(
-                                file, getString(R.string.secondary_storage),
+                                file,
+                                getString(R.string.secondary_storage_extra),
                                 R.drawable.tablet,
                                 QFieldProjectListItem.TYPE_EXTERNAL_FILES));
                         }
                     } else {
                         values.add(new QFieldProjectListItem(
-                            file, getString(R.string.secondary_storage),
+                            file, getString(R.string.secondary_storage_extra),
                             R.drawable.tablet,
                             QFieldProjectListItem.TYPE_EXTERNAL_FILES));
                     }
@@ -277,8 +290,11 @@ public class QFieldProjectActivity extends Activity {
             AlertDialog alertDialog = new AlertDialog.Builder(this).create();
             alertDialog.setTitle(getString(R.string.external_files_title));
             alertDialog.setMessage(
-                Html.fromHtml(getString(R.string.external_files_message),
-                              Html.FROM_HTML_MODE_LEGACY));
+                Build.VERSION.SDK_INT >= Build.VERSION_CODES.N
+                    ? Html.fromHtml(getString(R.string.external_files_message),
+                                    Html.FROM_HTML_MODE_LEGACY)
+                    : Html.fromHtml(
+                          getString(R.string.external_files_message)));
             alertDialog.setButton(AlertDialog.BUTTON_POSITIVE,
                                   getString(R.string.external_files_ok),
                                   new DialogInterface.OnClickListener() {

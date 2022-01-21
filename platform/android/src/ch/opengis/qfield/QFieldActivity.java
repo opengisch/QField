@@ -117,20 +117,20 @@ public class QFieldActivity extends QtActivity {
         String filePath = QFieldUtils.getPathFromUri(context, uri);
         String importDatasetPath = "";
         String importProjectPath = "";
-        File[] externalFilesDirs = getExternalFilesDirs(null);
-        if (externalFilesDirs.length > 0) {
+        File externalFilesDir = getExternalFilesDir(null);
+        if (externalFilesDir != null) {
             importDatasetPath =
-                externalFilesDirs[0].getAbsolutePath() + "/Imported Datasets/";
+                externalFilesDir.getAbsolutePath() + "/Imported Datasets/";
             new File(importDatasetPath).mkdir();
             importProjectPath =
-                externalFilesDirs[0].getAbsolutePath() + "/Imported Projects/";
+                externalFilesDir.getAbsolutePath() + "/Imported Projects/";
             new File(importProjectPath).mkdir();
         }
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT &&
             (scheme.compareTo(ContentResolver.SCHEME_CONTENT) == 0 ||
              action.compareTo(Intent.ACTION_SEND) == 0) &&
-            externalFilesDirs.length > 0) {
+            importDatasetPath != "") {
             DocumentFile documentFile =
                 DocumentFile.fromSingleUri(context, uri);
             String fileName = documentFile.getName();
@@ -244,10 +244,10 @@ public class QFieldActivity extends QtActivity {
             qFieldDir = "";
         }
 
-        File[] externalFilesDirs = getExternalFilesDirs(null);
+        File externalFilesDir = getExternalFilesDir(null);
         String qFieldAppDir = "";
-        if (externalFilesDirs.length > 0) {
-            qFieldAppDir = externalFilesDirs[0].getAbsolutePath() + "/";
+        if (externalFilesDir != null) {
+            qFieldAppDir = externalFilesDir.getAbsolutePath() + "/";
             // create import directories
             new File(qFieldAppDir + "Imported Datasets/").mkdir();
             new File(qFieldAppDir + "Imported Projects/").mkdir();
@@ -347,8 +347,12 @@ public class QFieldActivity extends QtActivity {
             AlertDialog.Builder builder = new AlertDialog.Builder(this);
             builder.setTitle(getString(R.string.grant_permission));
             builder.setMessage(
-                Html.fromHtml(getString(R.string.grant_all_files_permission),
-                              Html.FROM_HTML_MODE_LEGACY));
+                Build.VERSION.SDK_INT >= Build.VERSION_CODES.N
+                    ? Html.fromHtml(
+                          getString(R.string.grant_all_files_permission),
+                          Html.FROM_HTML_MODE_LEGACY)
+                    : Html.fromHtml(
+                          getString(R.string.grant_all_files_permission)));
             builder.setPositiveButton(
                 getString(R.string.grant),
                 new DialogInterface.OnClickListener() {
