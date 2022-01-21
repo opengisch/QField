@@ -117,13 +117,13 @@ public class QFieldActivity extends QtActivity {
         String filePath = QFieldUtils.getPathFromUri(context, uri);
         String importDatasetPath = "";
         String importProjectPath = "";
-        File[] externalFilesDirs = getExternalFilesDirs(null);
-        if (externalFilesDirs.length > 0 && externalFilesDirs[0] != null) {
+        File externalFilesDir = getExternalFilesDir(null);
+        if (externalFilesDir != null) {
             importDatasetPath =
-                externalFilesDirs[0].getAbsolutePath() + "/Imported Datasets/";
+                externalFilesDir.getAbsolutePath() + "/Imported Datasets/";
             new File(importDatasetPath).mkdir();
             importProjectPath =
-                externalFilesDirs[0].getAbsolutePath() + "/Imported Projects/";
+                externalFilesDir.getAbsolutePath() + "/Imported Projects/";
             new File(importProjectPath).mkdir();
         }
 
@@ -244,10 +244,10 @@ public class QFieldActivity extends QtActivity {
             qFieldDir = "";
         }
 
-        File[] externalFilesDirs = getExternalFilesDirs(null);
+        File externalFilesDir = getExternalFilesDir(null);
         String qFieldAppDir = "";
-        if (externalFilesDirs.length > 0 && externalFilesDirs[0] != null) {
-            qFieldAppDir = externalFilesDirs[0].getAbsolutePath() + "/";
+        if (externalFilesDir != null) {
+            qFieldAppDir = externalFilesDir.getAbsolutePath() + "/";
             // create import directories
             new File(qFieldAppDir + "Imported Datasets/").mkdir();
             new File(qFieldAppDir + "Imported Projects/").mkdir();
