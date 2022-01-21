@@ -288,8 +288,11 @@ public class QFieldProjectActivity extends Activity {
             AlertDialog alertDialog = new AlertDialog.Builder(this).create();
             alertDialog.setTitle(getString(R.string.external_files_title));
             alertDialog.setMessage(
-                Html.fromHtml(getString(R.string.external_files_message),
-                              Html.FROM_HTML_MODE_LEGACY));
+                Build.VERSION.SDK_INT >= Build.VERSION_CODES.N
+                    ? Html.fromHtml(getString(R.string.external_files_message),
+                                    Html.FROM_HTML_MODE_LEGACY)
+                    : Html.fromHtml(
+                          getString(R.string.external_files_message)));
             alertDialog.setButton(AlertDialog.BUTTON_POSITIVE,
                                   getString(R.string.external_files_ok),
                                   new DialogInterface.OnClickListener() {

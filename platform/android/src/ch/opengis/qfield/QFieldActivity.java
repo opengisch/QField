@@ -347,8 +347,12 @@ public class QFieldActivity extends QtActivity {
             AlertDialog.Builder builder = new AlertDialog.Builder(this);
             builder.setTitle(getString(R.string.grant_permission));
             builder.setMessage(
-                Html.fromHtml(getString(R.string.grant_all_files_permission),
-                              Html.FROM_HTML_MODE_LEGACY));
+                Build.VERSION.SDK_INT >= Build.VERSION_CODES.N
+                    ? Html.fromHtml(
+                          getString(R.string.grant_all_files_permission),
+                          Html.FROM_HTML_MODE_LEGACY)
+                    : Html.fromHtml(
+                          getString(R.string.grant_all_files_permission)));
             builder.setPositiveButton(
                 getString(R.string.grant),
                 new DialogInterface.OnClickListener() {
