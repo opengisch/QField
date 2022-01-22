@@ -227,6 +227,7 @@ jobs:
         # if: release or labeled PR
         env:
           SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
+          SENTRY_LOG_LEVEL: debug
         run: |
           curl -sL https://sentry.io/get-cli/ | bash
           sentry-cli upload-dif -o opengisch-llc -p qfield ${{ env.CMAKE_BUILD_DIR }}/android-build/build/intermediates/merged_native_libs/release
