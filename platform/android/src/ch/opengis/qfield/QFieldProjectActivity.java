@@ -59,13 +59,15 @@ public class QFieldProjectActivity extends Activity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.project_menu, menu);
-        MenuCompat.setGroupDividerEnabled(menu, true);
-        return true;
+        if (!getIntent().hasExtra("path")) {
+            getMenuInflater().inflate(R.menu.project_menu, menu);
+            MenuCompat.setGroupDividerEnabled(menu, true);
+            return true;
+        }
+        return false;
     }
 
     private void drawView() {
-
         ArrayList<QFieldProjectListItem> values =
             new ArrayList<QFieldProjectListItem>();
 
@@ -283,6 +285,7 @@ public class QFieldProjectActivity extends Activity {
         }
         super.onRestart();
     }
+
     private void onItemClick(int position) {
         Log.d(TAG, "onListItemClick ");
 
