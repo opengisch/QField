@@ -18,6 +18,8 @@ import android.os.Environment;
 import android.text.Html;
 import android.text.TextUtils;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.Window;
@@ -28,6 +30,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
 import androidx.core.content.ContextCompat;
+import androidx.core.view.MenuCompat;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -52,6 +55,13 @@ public class QFieldProjectActivity extends Activity {
         getActionBar().setBackgroundDrawable(
             new ColorDrawable(Color.parseColor("#80CC28")));
         drawView();
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.project_menu, menu);
+        MenuCompat.setGroupDividerEnabled(menu, true);
+        return true;
     }
 
     private void drawView() {
