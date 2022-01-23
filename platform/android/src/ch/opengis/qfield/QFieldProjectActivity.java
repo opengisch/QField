@@ -499,6 +499,7 @@ public class QFieldProjectActivity extends Activity {
             Context context = getApplication().getApplicationContext();
             ContentResolver resolver = getContentResolver();
 
+            boolean imported = false;
             if (data.getClipData() != null) {
                 for (int i = 0; i < data.getClipData().getItemCount(); i++) {
                     Uri uri = data.getClipData().getItemAt(i).getUri();
@@ -508,9 +509,11 @@ public class QFieldProjectActivity extends Activity {
                         importDatasetPath + documentFile.getName();
                     try {
                         InputStream input = resolver.openInputStream(uri);
-                        QFieldUtils.inputStreamToFile(input, importFilePath);
+                        imported = QFieldUtils.inputStreamToFile(
+                            input, importFilePath);
                     } catch (Exception e) {
                         e.printStackTrace();
+                        break;
                     }
                 }
             } else {
@@ -521,17 +524,26 @@ public class QFieldProjectActivity extends Activity {
                     importDatasetPath + documentFile.getName();
                 try {
                     InputStream input = resolver.openInputStream(uri);
-                    QFieldUtils.inputStreamToFile(input, importFilePath);
+                    imported =
+                        QFieldUtils.inputStreamToFile(input, importFilePath);
                 } catch (Exception e) {
                     e.printStackTrace();
+                    AlertDialog alertDialog =
+                        new AlertDialog.Builder(this).create();
+                    alertDialog.setTitle(getString(R.string.import_error));
+                    alertDialog.setMessage(
+                        getString(R.string.import_dataset_error));
+                    alertDialog.show();
                 }
             }
 
-            Intent intent = new Intent(this, QFieldProjectActivity.class);
-            intent.putExtra("path", importDatasetPath);
-            intent.putExtra("label",
-                            getString(R.string.favorites_imported_datasets));
-            startActivityForResult(intent, 123);
+            if (imported) {
+                Intent intent = new Intent(this, QFieldProjectActivity.class);
+                intent.putExtra("path", importDatasetPath);
+                intent.putExtra(
+                    "label", getString(R.string.favorites_imported_datasets));
+                startActivityForResult(intent, 123);
+            }
         } else if (requestCode == R.id.import_project_folder &&
                    resultCode == Activity.RESULT_OK) {
             Log.d(TAG, "handling import project folder");
@@ -551,13 +563,23 @@ public class QFieldProjectActivity extends Activity {
             DocumentFile directory = DocumentFile.fromTreeUri(context, uri);
             String importPath = importProjectPath + directory.getName() + "/";
             new File(importPath).mkdir();
-            QFieldUtils.documentFileToFolder(directory, importPath, resolver);
+            boolean imported = QFieldUtils.documentFileToFolder(
+                directory, importPath, resolver);
 
-            Intent intent = new Intent(this, QFieldProjectActivity.class);
-            intent.putExtra("path", importProjectPath);
-            intent.putExtra("label",
-                            getString(R.string.favorites_imported_projects));
-            startActivityForResult(intent, 123);
+            if (imported) {
+                Intent intent = new Intent(this, QFieldProjectActivity.class);
+                intent.putExtra("path", importProjectPath);
+                intent.putExtra(
+                    "label", getString(R.string.favorites_imported_projects));
+                startActivityForResult(intent, 123);
+            } else {
+                AlertDialog alertDialog =
+                    new AlertDialog.Builder(this).create();
+                alertDialog.setTitle(getString(R.string.import_error));
+                alertDialog.setMessage(
+                    getString(R.string.import_project_folder_error));
+                alertDialog.show();
+            }
         } else if (requestCode == R.id.import_project_archive &&
                    resultCode == Activity.RESULT_OK) {
             Log.d(TAG, "handling import project archive");
@@ -592,18 +614,30 @@ public class QFieldProjectActivity extends Activity {
                         0, documentFile.getName().lastIndexOf(".")) +
                     "/";
                 new File(projectPath).mkdir();
+                boolean imported = false;
                 try {
                     InputStream input = resolver.openInputStream(uri);
-                    QFieldUtils.inputStreamToFolder(input, projectPath);
+                    imported =
+                        QFieldUtils.inputStreamToFolder(input, projectPath);
                 } catch (Exception e) {
                     e.printStackTrace();
+                    AlertDialog alertDialog =
+                        new AlertDialog.Builder(this).create();
+                    alertDialog.setTitle(getString(R.string.import_error));
+                    alertDialog.setMessage(
+                        getString(R.string.import_project_archive_error));
+                    alertDialog.show();
                 }
 
-                Intent intent = new Intent(this, QFieldProjectActivity.class);
-                intent.putExtra("path", importProjectPath);
-                intent.putExtra(
-                    "label", getString(R.string.favorites_imported_projects));
-                startActivityForResult(intent, 123);
+                if (imported) {
+                    Intent intent =
+                        new Intent(this, QFieldProjectActivity.class);
+                    intent.putExtra("path", importProjectPath);
+                    intent.putExtra(
+                        "label",
+                        getString(R.string.favorites_imported_projects));
+                    startActivityForResult(intent, 123);
+                }
             }
         } else if (resultCode == Activity.RESULT_OK) {
             // Close recursively the activity stack

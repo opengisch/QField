@@ -66,7 +66,11 @@ public class QFieldUtils {
             if (file.isDirectory()) {
                 String directoryPath = folder + file.getName() + "/";
                 new File(directoryPath).mkdir();
-                documentFileToFolder(file, directoryPath, resolver);
+                boolean success =
+                    documentFileToFolder(file, directoryPath, resolver);
+                if (!success) {
+                    return false;
+                }
             } else {
                 String filePath = folder + file.getName();
                 try {
@@ -74,6 +78,7 @@ public class QFieldUtils {
                     QFieldUtils.inputStreamToFile(input, filePath);
                 } catch (Exception e) {
                     e.printStackTrace();
+                    return false;
                 }
             }
         }
