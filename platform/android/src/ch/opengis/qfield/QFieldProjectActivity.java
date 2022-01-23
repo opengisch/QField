@@ -150,7 +150,8 @@ public class QFieldProjectActivity extends Activity {
             if (primaryExternalFilesDir != null) {
                 values.add(new QFieldProjectListItem(
                     primaryExternalFilesDir,
-                    getString(R.string.secondary_storage), R.drawable.directory_qfield,
+                    getString(R.string.secondary_storage),
+                    R.drawable.directory_qfield,
                     QFieldProjectListItem.TYPE_EXTERNAL_FILES));
             }
 
@@ -549,7 +550,7 @@ public class QFieldProjectActivity extends Activity {
 
             DocumentFile directory = DocumentFile.fromTreeUri(context, uri);
             String importPath = importProjectPath + directory.getName() + "/";
-            new File(importProjectPath).mkdir();
+            new File(importPath).mkdir();
             QFieldUtils.documentFileToFolder(directory, importPath, resolver);
 
             Intent intent = new Intent(this, QFieldProjectActivity.class);
@@ -573,8 +574,8 @@ public class QFieldProjectActivity extends Activity {
             Context context = getApplication().getApplicationContext();
             ContentResolver resolver = getContentResolver();
 
-            DocumentFile directory = DocumentFile.fromTreeUri(context, uri);
-            String importPath = importProjectPath + directory.getName() + "/";
+            DocumentFile documentFile =
+                DocumentFile.fromSingleUri(context, uri);
 
             String projectName = "";
             try {
@@ -584,12 +585,12 @@ public class QFieldProjectActivity extends Activity {
                 e.printStackTrace();
             }
 
-            if (projectName != "") {              
-                String projectPath = importProjectPath +
-                                     directory.getName().substring(
-                                         0,
-                                         directory.getName().lastIndexOf(".")) +
-                                     "/";
+            if (projectName != "") {
+                String projectPath =
+                    importProjectPath +
+                    documentFile.getName().substring(
+                        0, documentFile.getName().lastIndexOf(".")) +
+                    "/";
                 new File(projectPath).mkdir();
                 try {
                     InputStream input = resolver.openInputStream(uri);
