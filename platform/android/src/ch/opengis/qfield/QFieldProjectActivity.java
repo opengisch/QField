@@ -3,7 +3,9 @@ package ch.opengis.qfield;
 import android.Manifest;
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.app.Application;
 import android.app.ListActivity;
+import android.content.ContentResolver;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -32,7 +34,13 @@ import android.widget.ListView;
 import android.widget.Toast;
 import androidx.core.content.ContextCompat;
 import androidx.core.view.MenuCompat;
+import androidx.documentfile.provider.DocumentFile;
+import ch.opengis.qfield.QFieldUtils;
+import ch.opengis.qfield.R;
 import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
@@ -71,6 +79,17 @@ public class QFieldProjectActivity extends Activity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
+        case R.id.import_dataset: {
+            Intent intent = new Intent(Intent.ACTION_OPEN_DOCUMENT);
+            intent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION |
+                            Intent.FLAG_GRANT_WRITE_URI_PERMISSION);
+            intent.addFlags(Intent.FLAG_GRANT_PREFIX_URI_PERMISSION);
+            intent.addFlags(Intent.FLAG_GRANT_PERSISTABLE_URI_PERMISSION);
+            intent.putExtra(Intent.EXTRA_ALLOW_MULTIPLE, true);
+            intent.setType("*/*");
+            startActivityForResult(intent, R.id.import_dataset);
+            return true;
+        }
         case R.id.usb_cable_help: {
             String url = "https://qfield.org/docs/";
             Intent i = new Intent(Intent.ACTION_VIEW);
@@ -443,10 +462,58 @@ public class QFieldProjectActivity extends Activity {
     protected void onActivityResult(int requestCode, int resultCode,
                                     Intent data) {
         Log.d(TAG, "onActivityResult ");
+        Log.d(TAG, "requestCode: " + resultCode);
         Log.d(TAG, "resultCode: " + resultCode);
 
-        // Close recursively the activity stack
-        if (resultCode == Activity.RESULT_OK) {
+        if (requestCode == R.id.import_dataset &&
+            resultCode == Activity.RESULT_OK) {
+            Log.d(TAG, "handling ACTION_OPEN_DOCUMENT");
+            File externalFilesDir = getExternalFilesDir(null);
+            if (externalFilesDir == null || data == null) {
+                return;
+            }
+
+            String importDatasetPath =
+                externalFilesDir.getAbsolutePath() + "/Imported Datasets/";
+            new File(importDatasetPath).mkdir();
+            Context context = getApplication().getApplicationContext();
+            ContentResolver resolver = getContentResolver();
+
+            if (data.getClipData() != null) {
+                for (int i = 0; i < data.getClipData().getItemCount(); i++) {
+                    Uri uri = data.getClipData().getItemAt(i).getUri();
+                    DocumentFile documentFile =
+                        DocumentFile.fromSingleUri(context, uri);
+                    String importFilePath =
+                        importDatasetPath + documentFile.getName();
+                    try {
+                        InputStream input = resolver.openInputStream(uri);
+                        QFieldUtils.inputStreamToFile(input, importFilePath);
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                }
+            } else {
+                Uri uri = data.getData();
+                DocumentFile documentFile =
+                    DocumentFile.fromSingleUri(context, uri);
+                String importFilePath =
+                    importDatasetPath + documentFile.getName();
+                try {
+                    InputStream input = resolver.openInputStream(uri);
+                    QFieldUtils.inputStreamToFile(input, importFilePath);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+
+            Intent intent = new Intent(this, QFieldProjectActivity.class);
+            intent.putExtra("path", importDatasetPath);
+            intent.putExtra("label",
+                            getString(R.string.favorites_imported_datasets));
+            startActivityForResult(intent, 123);
+        } else if (resultCode == Activity.RESULT_OK) {
+            // Close recursively the activity stack
             if (getParent() == null) {
                 setResult(Activity.RESULT_OK, data);
             } else {
