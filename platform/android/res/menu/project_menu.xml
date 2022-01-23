@@ -1,0 +1,23 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <group android:id="@+id/import_group" >
+        <item
+            android:id="@+id/import_project_folder"
+            android:title="@string/import_project_folder"
+            app:showAsAction="never" />
+        <item android:id="@+id/import_project_archive"
+            android:title="@string/import_project_archive"
+            app:showAsAction="never"/>
+        <item android:id="@+id/import_dataset"
+            android:title="@string/import_dataset"
+            app:showAsAction="never"/>
+    </group>
+
+    <group android:id="@+id/help_group" >
+        <item android:id="@+id/usb_cable_help"
+            android:title="@string/usb_cable_help"
+            app:showAsAction="never"/>
+    </group>
+
+</menu>

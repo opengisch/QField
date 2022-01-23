@@ -36,4 +36,12 @@
     <string name="grant">Allow</string>
     <string name="deny_always">Deny Permanently</string>
     <string name="deny_once">Deny Once</string>
+    <string name="import_project_folder">Import Project from Folder</string>
+    <string name="import_project_archive">Import Project from ZIP</string>
+    <string name="import_dataset">Import Dataset(s)</string>
+    <string name="usb_cable_help">USB Cable Transfer Help</string>
+    <string name="import_error">Import Error</string>
+    <string name="import_dataset_error">The selected dataset(s) could not be imported properly.</string>
+    <string name="import_project_archive_error">The selected project archive not be imported properly.</string>
+    <string name="import_project_folder_error">The selected project folder not be imported properly.</string>
 </resources>
