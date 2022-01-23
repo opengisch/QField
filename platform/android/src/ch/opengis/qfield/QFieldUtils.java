@@ -27,6 +27,7 @@ import android.os.Environment;
 import android.provider.DocumentsContract;
 import android.provider.MediaStore;
 import android.util.Log;
+import androidx.documentfile.provider.DocumentFile;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
@@ -55,6 +56,28 @@ public class QFieldUtils {
             e.printStackTrace();
         }
         return projectName;
+    }
+
+    public static boolean documentFileToFolder(DocumentFile directory,
+                                               String folder,
+                                               ContentResolver resolver) {
+        DocumentFile[] files = directory.listFiles();
+        for (DocumentFile file : files) {
+            if (file.isDirectory()) {
+                String directoryPath = folder + file.getName() + "/";
+                new File(directoryPath).mkdir();
+                documentFileToFolder(file, directoryPath, resolver);
+            } else {
+                String filePath = folder + file.getName();
+                try {
+                    InputStream input = resolver.openInputStream(file.getUri());
+                    QFieldUtils.inputStreamToFile(input, filePath);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+        return true;
     }
 
     public static boolean inputStreamToFolder(InputStream in, String folder) {
