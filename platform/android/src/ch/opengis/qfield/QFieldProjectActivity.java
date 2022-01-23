@@ -482,7 +482,7 @@ public class QFieldProjectActivity extends Activity {
     protected void onActivityResult(int requestCode, int resultCode,
                                     Intent data) {
         Log.d(TAG, "onActivityResult ");
-        Log.d(TAG, "requestCode: " + resultCode);
+        Log.d(TAG, "requestCode: " + requestCode);
         Log.d(TAG, "resultCode: " + resultCode);
 
         if (requestCode == R.id.import_dataset &&
