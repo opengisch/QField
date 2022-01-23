@@ -99,6 +99,16 @@ public class QFieldProjectActivity extends Activity {
             startActivityForResult(intent, R.id.import_project_folder);
             return true;
         }
+        case R.id.import_project_archive: {
+            Intent intent = new Intent(Intent.ACTION_OPEN_DOCUMENT);
+            intent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION |
+                            Intent.FLAG_GRANT_WRITE_URI_PERMISSION);
+            intent.addFlags(Intent.FLAG_GRANT_PREFIX_URI_PERMISSION);
+            intent.addFlags(Intent.FLAG_GRANT_PERSISTABLE_URI_PERMISSION);
+            intent.setType("application/zip");
+            startActivityForResult(intent, R.id.import_project_archive);
+            return true;
+        }
         case R.id.usb_cable_help: {
             String url = "https://qfield.org/docs/";
             Intent i = new Intent(Intent.ACTION_VIEW);
@@ -476,7 +486,7 @@ public class QFieldProjectActivity extends Activity {
 
         if (requestCode == R.id.import_dataset &&
             resultCode == Activity.RESULT_OK) {
-            Log.d(TAG, "handling ACTION_OPEN_DOCUMENT");
+            Log.d(TAG, "handling import dataset(s)");
             File externalFilesDir = getExternalFilesDir(null);
             if (externalFilesDir == null || data == null) {
                 return;
@@ -523,7 +533,7 @@ public class QFieldProjectActivity extends Activity {
             startActivityForResult(intent, 123);
         } else if (requestCode == R.id.import_project_folder &&
                    resultCode == Activity.RESULT_OK) {
-            Log.d(TAG, "handling ACTION_OPEN_DOCUMENT_TREE");
+            Log.d(TAG, "handling import project folder");
             File externalFilesDir = getExternalFilesDir(null);
             if (externalFilesDir == null || data == null) {
                 return;
@@ -547,6 +557,53 @@ public class QFieldProjectActivity extends Activity {
             intent.putExtra("label",
                             getString(R.string.favorites_imported_projects));
             startActivityForResult(intent, 123);
+        } else if (requestCode == R.id.import_project_archive &&
+                   resultCode == Activity.RESULT_OK) {
+            Log.d(TAG, "handling import project archive");
+            File externalFilesDir = getExternalFilesDir(null);
+            if (externalFilesDir == null || data == null) {
+                return;
+            }
+
+            String importProjectPath =
+                externalFilesDir.getAbsolutePath() + "/Imported Projects/";
+            new File(importProjectPath).mkdir();
+
+            Uri uri = data.getData();
+            Context context = getApplication().getApplicationContext();
+            ContentResolver resolver = getContentResolver();
+
+            DocumentFile directory = DocumentFile.fromTreeUri(context, uri);
+            String importPath = importProjectPath + directory.getName() + "/";
+
+            String projectName = "";
+            try {
+                InputStream input = resolver.openInputStream(uri);
+                projectName = QFieldUtils.getArchiveProjectName(input);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+
+            if (projectName != "") {              
+                String projectPath = importProjectPath +
+                                     directory.getName().substring(
+                                         0,
+                                         directory.getName().lastIndexOf(".")) +
+                                     "/";
+                new File(projectPath).mkdir();
+                try {
+                    InputStream input = resolver.openInputStream(uri);
+                    QFieldUtils.inputStreamToFolder(input, projectPath);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+
+                Intent intent = new Intent(this, QFieldProjectActivity.class);
+                intent.putExtra("path", importProjectPath);
+                intent.putExtra(
+                    "label", getString(R.string.favorites_imported_projects));
+                startActivityForResult(intent, 123);
+            }
         } else if (resultCode == Activity.RESULT_OK) {
             // Close recursively the activity stack
             if (getParent() == null) {
