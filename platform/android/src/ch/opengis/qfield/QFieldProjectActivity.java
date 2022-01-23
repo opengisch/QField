@@ -31,6 +31,8 @@ import android.widget.AdapterView.OnItemClickListener;
 import android.widget.AdapterView.OnItemLongClickListener;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.PopupMenu;
+import android.widget.PopupMenu.OnMenuItemClickListener;
 import android.widget.Toast;
 import androidx.core.content.ContextCompat;
 import androidx.core.view.MenuCompat;
@@ -46,7 +48,8 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
-public class QFieldProjectActivity extends Activity {
+public class QFieldProjectActivity
+    extends Activity implements OnMenuItemClickListener {
 
     private static final String TAG = "QField Project Activity";
     private String path;
@@ -121,12 +124,16 @@ public class QFieldProjectActivity extends Activity {
         }
     }
 
+    public boolean onMenuItemClick(MenuItem item) {
+        return true;
+    }
+
     private void drawView() {
         ArrayList<QFieldProjectListItem> values =
             new ArrayList<QFieldProjectListItem>();
 
-        // Roots
-        if (!getIntent().hasExtra("path")) {
+        final boolean isRootView = !getIntent().hasExtra("path");
+        if (isRootView) {
             File externalStorageDirectory = null;
             if (ContextCompat.checkSelfPermission(
                     QFieldProjectActivity.this,
@@ -250,8 +257,7 @@ public class QFieldProjectActivity extends Activity {
                     }
                 }
             }
-
-        } else { // Over the roots
+        } else {
             Log.d(TAG, "extra path: " + getIntent().getStringExtra("path"));
             File dir = new File(getIntent().getStringExtra("path"));
             setTitle(getIntent().getStringExtra("label"));
@@ -310,14 +316,18 @@ public class QFieldProjectActivity extends Activity {
 
         // Put the data into the list
         list = (ListView)findViewById(R.id.list);
-        QFieldProjectListAdapter adapter =
-            new QFieldProjectListAdapter(this, values);
+        QFieldProjectListAdapter adapter = new QFieldProjectListAdapter(
+            this, values, new QFieldProjectListAdapter.MenuButtonListener() {
+                @Override
+                public void onClick(View view, int position) {
+                    QFieldProjectActivity.this.onItemMenuClick(view, position);
+                }
+            });
         list.setAdapter(adapter);
 
         list.setOnItemClickListener(new OnItemClickListener() {
             public void onItemClick(AdapterView<?> parent, View view,
                                     int position, long id) {
-                Log.d(TAG, "onItemClick ");
                 QFieldProjectActivity.this.onItemClick(position);
             }
         });
@@ -325,7 +335,6 @@ public class QFieldProjectActivity extends Activity {
         list.setOnItemLongClickListener(new OnItemLongClickListener() {
             public boolean onItemLongClick(AdapterView<?> parent, View view,
                                            int position, long id) {
-                Log.d(TAG, "onItemLongClick ");
                 return QFieldProjectActivity.this.onItemLongClick(position);
             }
         });
@@ -341,8 +350,26 @@ public class QFieldProjectActivity extends Activity {
         super.onRestart();
     }
 
+    private void onItemMenuClick(View view, int position) {
+        Log.d(TAG, "onItemMenuClick ");
+
+        final QFieldProjectListItem item =
+            (QFieldProjectListItem)list.getAdapter().getItem(position);
+        File file = item.getFile();
+        PopupMenu popupMenu = new PopupMenu(QFieldProjectActivity.this, view);
+        popupMenu.setOnMenuItemClickListener(QFieldProjectActivity.this);
+
+        if (!file.isDirectory()) {
+            popupMenu.inflate(R.menu.project_item_menu);
+        } else {
+            popupMenu.inflate(R.menu.project_folder_menu);
+        }
+
+        popupMenu.show();
+    }
+
     private void onItemClick(int position) {
-        Log.d(TAG, "onListItemClick ");
+        Log.d(TAG, "onItemClick ");
 
         final QFieldProjectListItem item =
             (QFieldProjectListItem)list.getAdapter().getItem(position);
@@ -421,7 +448,6 @@ public class QFieldProjectActivity extends Activity {
     }
 
     private boolean onItemLongClick(int position) {
-
         QFieldProjectListItem item =
             (QFieldProjectListItem)list.getAdapter().getItem(position);
         if (item.getType() != QFieldProjectListItem.TYPE_ITEM) {

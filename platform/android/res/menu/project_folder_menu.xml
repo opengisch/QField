@@ -1,0 +1,12 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/add_to_favorite"
+        android:title="@string/add_to_favorite"
+        app:showAsAction="never" />
+    <item android:id="@+id/remove_from_favorite"
+        android:title="@string/remove_from_favorite"
+        app:showAsAction="never"/>
+
+</menu>
