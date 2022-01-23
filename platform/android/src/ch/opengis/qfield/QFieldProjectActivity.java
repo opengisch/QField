@@ -150,7 +150,7 @@ public class QFieldProjectActivity extends Activity {
             if (primaryExternalFilesDir != null) {
                 values.add(new QFieldProjectListItem(
                     primaryExternalFilesDir,
-                    getString(R.string.secondary_storage), R.drawable.tablet,
+                    getString(R.string.secondary_storage), R.drawable.directory_qfield,
                     QFieldProjectListItem.TYPE_EXTERNAL_FILES));
             }
 
@@ -173,13 +173,13 @@ public class QFieldProjectActivity extends Activity {
                             values.add(new QFieldProjectListItem(
                                 file,
                                 getString(R.string.secondary_storage_extra),
-                                R.drawable.tablet,
+                                R.drawable.directory,
                                 QFieldProjectListItem.TYPE_EXTERNAL_FILES));
                         }
                     } else {
                         values.add(new QFieldProjectListItem(
                             file, getString(R.string.secondary_storage_extra),
-                            R.drawable.tablet,
+                            R.drawable.directory,
                             QFieldProjectListItem.TYPE_EXTERNAL_FILES));
                     }
                 }
