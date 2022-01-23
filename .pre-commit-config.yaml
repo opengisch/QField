@@ -43,3 +43,12 @@ repos:
   hooks:
   - id: clang-format
     types_or: [c++, c, c#, java]
+
+- repo: https://github.com/sirosen/check-jsonschema
+  rev: 0.8.2
+  hooks:
+  - id: check-jsonschema
+    name: "Check zenodo.json"
+    files: .zenodo.json
+    types: [json]
+    args: ["--schemafile", "https://raw.githubusercontent.com/rouault/zenodo_json_schema/master/zenodo-json-schema.json"]

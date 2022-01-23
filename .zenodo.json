@@ -1,0 +1,42 @@
+{
+    "creators": [
+      {
+        "affiliation": "OPENGIS.ch",
+        "name": "Kuhn, Matthias",
+        "orcid": "0000-0002-0572-306X"
+      },
+      {
+        "affiliation": "OPENGIS.ch",
+        "name": "Pellerin, Mathieu"
+      },
+      {
+        "affiliation": "OPENGIS.ch",
+        "name": "Signer, David"
+      },
+      {
+        "affiliation": "OPENGIS.ch",
+        "name": "Rouzaud, Denis"
+      },
+      {
+        "affiliation": "OPENGIS.ch",
+        "name": "Ivanov, Ivan"
+      },
+      {
+        "affiliation": "OPENGIS.ch",
+        "name": "Bernasocchi, Marco"
+      }
+    ],
+    "description": "QField is the leading GIS data collection app. It integrates perfectly with QGIS.",
+    "keywords": [
+        "QField",
+        "QGIS",
+        "cartography",
+        "coordinates",
+        "mobile",
+        "app"
+    ],
+    "license": {
+        "id": "GPL"
+    },
+    "title": "QField"
+}
