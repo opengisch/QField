@@ -84,82 +84,83 @@ public class QFieldProjectActivity
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
-        case R.id.import_dataset: {
-            Intent intent = new Intent(Intent.ACTION_OPEN_DOCUMENT);
-            intent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION |
-                            Intent.FLAG_GRANT_WRITE_URI_PERMISSION);
-            intent.addFlags(Intent.FLAG_GRANT_PREFIX_URI_PERMISSION);
-            intent.addFlags(Intent.FLAG_GRANT_PERSISTABLE_URI_PERMISSION);
-            intent.putExtra(Intent.EXTRA_ALLOW_MULTIPLE, true);
-            intent.setType("*/*");
-            startActivityForResult(intent, R.id.import_dataset);
-            return true;
-        }
-        case R.id.import_project_folder: {
-            Intent intent = new Intent(Intent.ACTION_OPEN_DOCUMENT_TREE);
-            intent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION |
-                            Intent.FLAG_GRANT_WRITE_URI_PERMISSION);
-            intent.addFlags(Intent.FLAG_GRANT_PREFIX_URI_PERMISSION);
-            intent.addFlags(Intent.FLAG_GRANT_PERSISTABLE_URI_PERMISSION);
-            startActivityForResult(intent, R.id.import_project_folder);
-            return true;
-        }
-        case R.id.import_project_archive: {
-            Intent intent = new Intent(Intent.ACTION_OPEN_DOCUMENT);
-            intent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION |
-                            Intent.FLAG_GRANT_WRITE_URI_PERMISSION);
-            intent.addFlags(Intent.FLAG_GRANT_PREFIX_URI_PERMISSION);
-            intent.addFlags(Intent.FLAG_GRANT_PERSISTABLE_URI_PERMISSION);
-            intent.setType("application/zip");
-            startActivityForResult(intent, R.id.import_project_archive);
-            return true;
-        }
-        case R.id.usb_cable_help: {
-            String url = "https://qfield.org/docs/";
-            Intent i = new Intent(Intent.ACTION_VIEW);
-            i.setData(Uri.parse(url));
-            startActivity(i);
-            return true;
-        }
-        default:
-            return super.onOptionsItemSelected(item);
+            case R.id.import_dataset: {
+                Intent intent = new Intent(Intent.ACTION_OPEN_DOCUMENT);
+                intent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION |
+                                Intent.FLAG_GRANT_WRITE_URI_PERMISSION);
+                intent.addFlags(Intent.FLAG_GRANT_PREFIX_URI_PERMISSION);
+                intent.addFlags(Intent.FLAG_GRANT_PERSISTABLE_URI_PERMISSION);
+                intent.putExtra(Intent.EXTRA_ALLOW_MULTIPLE, true);
+                intent.setType("*/*");
+                startActivityForResult(intent, R.id.import_dataset);
+                return true;
+            }
+            case R.id.import_project_folder: {
+                Intent intent = new Intent(Intent.ACTION_OPEN_DOCUMENT_TREE);
+                intent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION |
+                                Intent.FLAG_GRANT_WRITE_URI_PERMISSION);
+                intent.addFlags(Intent.FLAG_GRANT_PREFIX_URI_PERMISSION);
+                intent.addFlags(Intent.FLAG_GRANT_PERSISTABLE_URI_PERMISSION);
+                startActivityForResult(intent, R.id.import_project_folder);
+                return true;
+            }
+            case R.id.import_project_archive: {
+                Intent intent = new Intent(Intent.ACTION_OPEN_DOCUMENT);
+                intent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION |
+                                Intent.FLAG_GRANT_WRITE_URI_PERMISSION);
+                intent.addFlags(Intent.FLAG_GRANT_PREFIX_URI_PERMISSION);
+                intent.addFlags(Intent.FLAG_GRANT_PERSISTABLE_URI_PERMISSION);
+                intent.setType("application/zip");
+                startActivityForResult(intent, R.id.import_project_archive);
+                return true;
+            }
+            case R.id.usb_cable_help: {
+                String url = "https://qfield.org/docs/";
+                Intent i = new Intent(Intent.ACTION_VIEW);
+                i.setData(Uri.parse(url));
+                startActivity(i);
+                return true;
+            }
+            default:
+                return super.onOptionsItemSelected(item);
         }
     }
 
     public boolean onMenuItemClick(MenuItem item) {
         switch (item.getItemId()) {
-        case R.id.send_to: {
-            final QFieldProjectListItem listItem =
-                (QFieldProjectListItem)list.getAdapter().getItem(
-                    currentPosition);
-            File file = listItem.getFile();
-            DocumentFile documentFile = DocumentFile.fromFile(file);
-            Context context = getApplication().getApplicationContext();
-            Intent intent = new Intent(Intent.ACTION_SEND);
-            intent.putExtra(
-                Intent.EXTRA_STREAM,
-                FileProvider.getUriForFile(
-                    context, context.getPackageName() + ".fileprovider", file));
-            intent.setType(documentFile.getType());
-            startActivity(Intent.createChooser(intent, null));
-            return true;
-        }
-        case R.id.add_to_favorite: {
-            final QFieldProjectListItem listItem =
-                (QFieldProjectListItem)list.getAdapter().getItem(
-                    currentPosition);
-            addFileToFavoriteDirs(listItem.getFile());
-            return true;
-        }
-        case R.id.remove_from_favorite: {
-            final QFieldProjectListItem listItem =
-                (QFieldProjectListItem)list.getAdapter().getItem(
-                    currentPosition);
-            removeFileFromFavoriteDirs(listItem.getFile());
-            return true;
-        }
-        default:
-            return true;
+            case R.id.send_to: {
+                final QFieldProjectListItem listItem =
+                    (QFieldProjectListItem)list.getAdapter().getItem(
+                        currentPosition);
+                File file = listItem.getFile();
+                DocumentFile documentFile = DocumentFile.fromFile(file);
+                Context context = getApplication().getApplicationContext();
+                Intent intent = new Intent(Intent.ACTION_SEND);
+                intent.putExtra(Intent.EXTRA_STREAM,
+                                FileProvider.getUriForFile(
+                                    context,
+                                    context.getPackageName() + ".fileprovider",
+                                    file));
+                intent.setType(documentFile.getType());
+                startActivity(Intent.createChooser(intent, null));
+                return true;
+            }
+            case R.id.add_to_favorite: {
+                final QFieldProjectListItem listItem =
+                    (QFieldProjectListItem)list.getAdapter().getItem(
+                        currentPosition);
+                addFileToFavoriteDirs(listItem.getFile());
+                return true;
+            }
+            case R.id.remove_from_favorite: {
+                final QFieldProjectListItem listItem =
+                    (QFieldProjectListItem)list.getAdapter().getItem(
+                        currentPosition);
+                removeFileFromFavoriteDirs(listItem.getFile());
+                return true;
+            }
+            default:
+                return true;
         }
     }
 
