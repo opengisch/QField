@@ -129,9 +129,9 @@ public class QFieldProjectActivity
         switch (item.getItemId()) {
         case R.id.send_to: {
             final int position = (int)item.getActionView().getTag();
-            final QFieldProjectListItem item =
+            final QFieldProjectListItem listItem =
                 (QFieldProjectListItem)list.getAdapter().getItem(position);
-            File file = item.getFile();
+            File file = listItem.getFile();
             DocumentFile documentFile = DocumentFile.fromFile(file);
             Context context = getApplication().getApplicationContext();
             Intent intent = new Intent(Intent.ACTION_SEND);
@@ -141,6 +141,20 @@ public class QFieldProjectActivity
                     context, context.getPackageName() + ".fileprovider", file));
             intent.setType(documentFile.getType());
             startActivity(Intent.createChooser(intent, null));
+            return true;
+        }
+        case R.id.add_to_favorite: {
+            final int position = (int)item.getActionView().getTag();
+            final QFieldProjectListItem listItem =
+                (QFieldProjectListItem)list.getAdapter().getItem(position);
+            addFileToFavoriteDirs(listItem.getFile());
+            return true;
+        }
+        case R.id.remove_from_favorite: {
+            final int position = (int)item.getActionView().getTag();
+            final QFieldProjectListItem listItem =
+                (QFieldProjectListItem)list.getAdapter().getItem(position);
+            removeFileFromFavoriteDirs(listItem.getFile());
             return true;
         }
         default:
@@ -386,7 +400,39 @@ public class QFieldProjectActivity
                 .getActionView()
                 .setTag(position);
         } else {
+            String favoriteDirs =
+                sharedPreferences.getString("FavoriteDirs", null);
+            ArrayList<String> favoriteDirsArray = new ArrayList<String>();
+            if (favoriteDirs != null) {
+                favoriteDirsArray = new ArrayList<String>(
+                    Arrays.asList(favoriteDirs.split("--;--")));
+            }
+            boolean isFavorite = false;
+            for (String favoriteDir : favoriteDirsArray) {
+                if (favoriteDir.equals(file.getPath())) {
+                    isFavorite = true;
+                    break;
+                }
+            }
+
             popupMenu.inflate(R.menu.project_folder_menu);
+            if (!isFavorite) {
+                popupMenu.getMenu()
+                    .findItem(R.id.add_to_favorite)
+                    .getActionView()
+                    .setTag(position);
+                popupMenu.getMenu()
+                    .findItem(R.id.remove_from_favorite)
+                    .setVisible(false);
+            } else {
+                popupMenu.getMenu()
+                    .findItem(R.id.remove_from_favorite)
+                    .getActionView()
+                    .setTag(position);
+                popupMenu.getMenu()
+                    .findItem(R.id.add_to_favorite)
+                    .setVisible(false);
+            }
         }
 
         popupMenu.show();
@@ -482,6 +528,17 @@ public class QFieldProjectActivity
             return true;
         }
 
+        // First activity
+        if (!getIntent().hasExtra("path")) {
+            removeFileFromFavoriteDirs(file);
+        } else {
+            addFileToFavoriteDirs(file);
+        }
+
+        return true;
+    }
+
+    void addFileToFavoriteDirs(File file) {
         String favoriteDirs = sharedPreferences.getString("FavoriteDirs", null);
         ArrayList<String> favoriteDirsArray = new ArrayList<String>();
         if (favoriteDirs != null) {
@@ -493,40 +550,51 @@ public class QFieldProjectActivity
         // again in the last position
         favoriteDirsArray.remove(file.getPath());
 
-        // First activity
-        if (!getIntent().hasExtra("path")) {
-            // Remove the recent projects from shared preferences
-            favoriteDirs = TextUtils.join("--;--", favoriteDirsArray);
-            if (favoriteDirs == "") {
-                favoriteDirs = null;
-            }
+        // Write the recent projects into the shared preferences
+        favoriteDirsArray.add(file.getPath());
+        editor.putString("FavoriteDirs",
+                         TextUtils.join("--;--", favoriteDirsArray));
+        editor.commit();
 
-            editor.putString("FavoriteDirs", favoriteDirs);
-            editor.commit();
-            drawView();
+        Toast
+            .makeText(this,
+                      file.getName() + " " +
+                          getString(R.string.added_to_favorites),
+                      Toast.LENGTH_LONG)
+            .show();
+    }
 
-            Toast
-                .makeText(this,
-                          file.getName() + " " +
-                              getString(R.string.removed_from_favorites),
-                          Toast.LENGTH_LONG)
-                .show();
-        } else {
-            // Write the recent projects into the shared preferences
-            favoriteDirsArray.add(file.getPath());
-            editor.putString("FavoriteDirs",
-                             TextUtils.join("--;--", favoriteDirsArray));
-            editor.commit();
+    void removeFileFromFavoriteDirs(File file) {
 
-            Toast
-                .makeText(this,
-                          file.getName() + " " +
-                              getString(R.string.added_to_favorites),
-                          Toast.LENGTH_LONG)
-                .show();
+        String favoriteDirs = sharedPreferences.getString("FavoriteDirs", null);
+        ArrayList<String> favoriteDirsArray = new ArrayList<String>();
+        if (favoriteDirs != null) {
+            favoriteDirsArray = new ArrayList<String>(
+                Arrays.asList(favoriteDirs.split("--;--")));
         }
 
-        return true;
+        // If the element is already present, delete it. It will be added
+        // again in the last position
+        favoriteDirsArray.remove(file.getPath());
+
+        favoriteDirs = TextUtils.join("--;--", favoriteDirsArray);
+        if (favoriteDirs == "") {
+            favoriteDirs = null;
+        }
+
+        editor.putString("FavoriteDirs", favoriteDirs);
+        editor.commit();
+        if (!getIntent().hasExtra("path")) {
+            // Root view, redraw
+            drawView();
+        }
+
+        Toast
+            .makeText(this,
+                      file.getName() + " " +
+                          getString(R.string.removed_from_favorites),
+                      Toast.LENGTH_LONG)
+            .show();
     }
 
     protected void onActivityResult(int requestCode, int resultCode,
