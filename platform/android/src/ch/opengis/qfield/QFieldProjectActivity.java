@@ -57,6 +57,7 @@ public class QFieldProjectActivity
     private SharedPreferences sharedPreferences;
     SharedPreferences.Editor editor;
     private ListView list;
+    private int currentPosition;
 
     @Override
     public void onCreate(Bundle bundle) {
@@ -128,9 +129,9 @@ public class QFieldProjectActivity
     public boolean onMenuItemClick(MenuItem item) {
         switch (item.getItemId()) {
         case R.id.send_to: {
-            final int position = (int)item.getActionView().getTag();
             final QFieldProjectListItem listItem =
-                (QFieldProjectListItem)list.getAdapter().getItem(position);
+                (QFieldProjectListItem)list.getAdapter().getItem(
+                    currentPosition);
             File file = listItem.getFile();
             DocumentFile documentFile = DocumentFile.fromFile(file);
             Context context = getApplication().getApplicationContext();
@@ -144,16 +145,16 @@ public class QFieldProjectActivity
             return true;
         }
         case R.id.add_to_favorite: {
-            final int position = (int)item.getActionView().getTag();
             final QFieldProjectListItem listItem =
-                (QFieldProjectListItem)list.getAdapter().getItem(position);
+                (QFieldProjectListItem)list.getAdapter().getItem(
+                    currentPosition);
             addFileToFavoriteDirs(listItem.getFile());
             return true;
         }
         case R.id.remove_from_favorite: {
-            final int position = (int)item.getActionView().getTag();
             final QFieldProjectListItem listItem =
-                (QFieldProjectListItem)list.getAdapter().getItem(position);
+                (QFieldProjectListItem)list.getAdapter().getItem(
+                    currentPosition);
             removeFileFromFavoriteDirs(listItem.getFile());
             return true;
         }
@@ -395,10 +396,6 @@ public class QFieldProjectActivity
 
         if (!file.isDirectory()) {
             popupMenu.inflate(R.menu.project_item_menu);
-            popupMenu.getMenu()
-                .findItem(R.id.send_to)
-                .getActionView()
-                .setTag(position);
         } else {
             String favoriteDirs =
                 sharedPreferences.getString("FavoriteDirs", null);
@@ -418,23 +415,16 @@ public class QFieldProjectActivity
             popupMenu.inflate(R.menu.project_folder_menu);
             if (!isFavorite) {
                 popupMenu.getMenu()
-                    .findItem(R.id.add_to_favorite)
-                    .getActionView()
-                    .setTag(position);
-                popupMenu.getMenu()
                     .findItem(R.id.remove_from_favorite)
                     .setVisible(false);
             } else {
-                popupMenu.getMenu()
-                    .findItem(R.id.remove_from_favorite)
-                    .getActionView()
-                    .setTag(position);
                 popupMenu.getMenu()
                     .findItem(R.id.add_to_favorite)
                     .setVisible(false);
             }
         }
 
+        currentPosition = position;
         popupMenu.show();
     }
 
