@@ -27,7 +27,12 @@ Popup {
             : 'off'
 
       onFinished: {
-        popup.close()
+        if (connectionSettings.visible) {
+          connectionSettings.visible = false;
+          projects.visible = true;
+        } else {
+          popup.close()
+        }
       }
     }
 
@@ -241,7 +246,7 @@ Popup {
 
             property bool hasError: false
 
-            visible: hasError && cloudProjectsModel.currentProjectData.Status === QFieldCloudProjectsModel.Idle
+            visible: hasError && cloudProjectsModel.currentProjectData.Status === QFieldCloudProjectsModel.Idle && !connectionSettings.visible
 
             Layout.fillWidth: true
             Layout.leftMargin: 10
