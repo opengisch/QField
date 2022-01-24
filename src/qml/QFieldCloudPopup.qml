@@ -31,7 +31,7 @@ Popup {
           connectionSettings.visible = false;
           projects.visible = true;
         } else {
-            popup.close()
+          popup.close()
         }
       }
     }
