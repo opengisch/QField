@@ -35,6 +35,7 @@ import android.widget.PopupMenu;
 import android.widget.PopupMenu.OnMenuItemClickListener;
 import android.widget.Toast;
 import androidx.core.content.ContextCompat;
+import androidx.core.content.FileProvider;
 import androidx.core.view.MenuCompat;
 import androidx.documentfile.provider.DocumentFile;
 import ch.opengis.qfield.QFieldUtils;
@@ -125,7 +126,26 @@ public class QFieldProjectActivity
     }
 
     public boolean onMenuItemClick(MenuItem item) {
-        return true;
+        switch (item.getItemId()) {
+        case R.id.send_to: {
+            final int position = (int)item.getActionView().getTag();
+            final QFieldProjectListItem item =
+                (QFieldProjectListItem)list.getAdapter().getItem(position);
+            File file = item.getFile();
+            DocumentFile documentFile = DocumentFile.fromFile(file);
+            Context context = getApplication().getApplicationContext();
+            Intent intent = new Intent(Intent.ACTION_SEND);
+            intent.putExtra(
+                Intent.EXTRA_STREAM,
+                FileProvider.getUriForFile(
+                    context, context.getPackageName() + ".fileprovider", file));
+            intent.setType(documentFile.getType());
+            startActivity(Intent.createChooser(intent, null));
+            return true;
+        }
+        default:
+            return true;
+        }
     }
 
     private void drawView() {
@@ -169,8 +189,8 @@ public class QFieldProjectActivity
                   "externalFilesDirs: " + Arrays.toString(externalFilesDirs));
             for (File file : externalFilesDirs) {
                 if (file != null) {
-                    // Don't duplicate external files directory or storage path
-                    // already added
+                    // Don't duplicate external files directory or storage
+                    // path already added
                     if (file.getAbsolutePath().equals(
                             primaryExternalFilesDir.getAbsolutePath())) {
                         continue;
@@ -215,8 +235,8 @@ public class QFieldProjectActivity
             String favoriteDirs =
                 sharedPreferences.getString("FavoriteDirs", null);
 
-            // The first time, add sample projects and import directories to the
-            // favorites
+            // The first time, add sample projects and import directories to
+            // the favorites
             boolean favoriteDirsAdded =
                 sharedPreferences.getBoolean("FavoriteDirsAdded", false);
             if (!favoriteDirsAdded) {
@@ -361,6 +381,10 @@ public class QFieldProjectActivity
 
         if (!file.isDirectory()) {
             popupMenu.inflate(R.menu.project_item_menu);
+            popupMenu.getMenu()
+                .findItem(R.id.send_to)
+                .getActionView()
+                .setTag(position);
         } else {
             popupMenu.inflate(R.menu.project_folder_menu);
         }
@@ -376,8 +400,8 @@ public class QFieldProjectActivity
         if (item.getType() == QFieldProjectListItem.TYPE_SEPARATOR) {
             return;
         }
-        // Show an information notice if it's the first time the external files
-        // directory is used
+        // Show an information notice if it's the first time the external
+        // files directory is used
         boolean showExternalFilesNotice =
             sharedPreferences.getBoolean("ShowExternalFilesNotice", true);
         if (item.getType() == QFieldProjectListItem.TYPE_EXTERNAL_FILES &&
@@ -429,8 +453,8 @@ public class QFieldProjectActivity
                 lastUsedProjectsArray = new ArrayList<String>(
                     Arrays.asList(lastUsedProjects.split("--;--")));
             }
-            // If the element is already present, delete it. It will be added
-            // again in the last position
+            // If the element is already present, delete it. It will be
+            // added again in the last position
             lastUsedProjectsArray.remove(file.getPath());
             if (lastUsedProjectsArray.size() >= 5) {
                 lastUsedProjectsArray.remove(0);
@@ -465,8 +489,8 @@ public class QFieldProjectActivity
                 Arrays.asList(favoriteDirs.split("--;--")));
         }
 
-        // If the element is already present, delete it. It will be added again
-        // in the last position
+        // If the element is already present, delete it. It will be added
+        // again in the last position
         favoriteDirsArray.remove(file.getPath());
 
         // First activity
