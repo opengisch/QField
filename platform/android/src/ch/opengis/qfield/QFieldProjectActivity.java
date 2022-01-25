@@ -31,8 +31,11 @@ import android.widget.AdapterView.OnItemClickListener;
 import android.widget.AdapterView.OnItemLongClickListener;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.PopupMenu;
+import android.widget.PopupMenu.OnMenuItemClickListener;
 import android.widget.Toast;
 import androidx.core.content.ContextCompat;
+import androidx.core.content.FileProvider;
 import androidx.core.view.MenuCompat;
 import androidx.documentfile.provider.DocumentFile;
 import ch.opengis.qfield.QFieldUtils;
@@ -46,13 +49,15 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
-public class QFieldProjectActivity extends Activity {
+public class QFieldProjectActivity
+    extends Activity implements OnMenuItemClickListener {
 
     private static final String TAG = "QField Project Activity";
     private String path;
     private SharedPreferences sharedPreferences;
     SharedPreferences.Editor editor;
     private ListView list;
+    private int currentPosition;
 
     @Override
     public void onCreate(Bundle bundle) {
@@ -79,45 +84,76 @@ public class QFieldProjectActivity extends Activity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
-        case R.id.import_dataset: {
-            Intent intent = new Intent(Intent.ACTION_OPEN_DOCUMENT);
-            intent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION |
-                            Intent.FLAG_GRANT_WRITE_URI_PERMISSION);
-            intent.addFlags(Intent.FLAG_GRANT_PREFIX_URI_PERMISSION);
-            intent.addFlags(Intent.FLAG_GRANT_PERSISTABLE_URI_PERMISSION);
-            intent.putExtra(Intent.EXTRA_ALLOW_MULTIPLE, true);
-            intent.setType("*/*");
-            startActivityForResult(intent, R.id.import_dataset);
-            return true;
+            case R.id.import_dataset: {
+                Intent intent = new Intent(Intent.ACTION_OPEN_DOCUMENT);
+                intent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION |
+                                Intent.FLAG_GRANT_WRITE_URI_PERMISSION);
+                intent.addFlags(Intent.FLAG_GRANT_PREFIX_URI_PERMISSION);
+                intent.addFlags(Intent.FLAG_GRANT_PERSISTABLE_URI_PERMISSION);
+                intent.putExtra(Intent.EXTRA_ALLOW_MULTIPLE, true);
+                intent.setType("*/*");
+                startActivityForResult(intent, R.id.import_dataset);
+                return true;
+            }
+            case R.id.import_project_folder: {
+                Intent intent = new Intent(Intent.ACTION_OPEN_DOCUMENT_TREE);
+                intent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION |
+                                Intent.FLAG_GRANT_WRITE_URI_PERMISSION);
+                intent.addFlags(Intent.FLAG_GRANT_PREFIX_URI_PERMISSION);
+                intent.addFlags(Intent.FLAG_GRANT_PERSISTABLE_URI_PERMISSION);
+                startActivityForResult(intent, R.id.import_project_folder);
+                return true;
+            }
+            case R.id.import_project_archive: {
+                Intent intent = new Intent(Intent.ACTION_OPEN_DOCUMENT);
+                intent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION |
+                                Intent.FLAG_GRANT_WRITE_URI_PERMISSION);
+                intent.addFlags(Intent.FLAG_GRANT_PREFIX_URI_PERMISSION);
+                intent.addFlags(Intent.FLAG_GRANT_PERSISTABLE_URI_PERMISSION);
+                intent.setType("application/zip");
+                startActivityForResult(intent, R.id.import_project_archive);
+                return true;
+            }
+            case R.id.usb_cable_help: {
+                String url = "https://qfield.org/docs/";
+                Intent i = new Intent(Intent.ACTION_VIEW);
+                i.setData(Uri.parse(url));
+                startActivity(i);
+                return true;
+            }
+            default:
+                return super.onOptionsItemSelected(item);
         }
-        case R.id.import_project_folder: {
-            Intent intent = new Intent(Intent.ACTION_OPEN_DOCUMENT_TREE);
-            intent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION |
-                            Intent.FLAG_GRANT_WRITE_URI_PERMISSION);
-            intent.addFlags(Intent.FLAG_GRANT_PREFIX_URI_PERMISSION);
-            intent.addFlags(Intent.FLAG_GRANT_PERSISTABLE_URI_PERMISSION);
-            startActivityForResult(intent, R.id.import_project_folder);
-            return true;
-        }
-        case R.id.import_project_archive: {
-            Intent intent = new Intent(Intent.ACTION_OPEN_DOCUMENT);
-            intent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION |
-                            Intent.FLAG_GRANT_WRITE_URI_PERMISSION);
-            intent.addFlags(Intent.FLAG_GRANT_PREFIX_URI_PERMISSION);
-            intent.addFlags(Intent.FLAG_GRANT_PERSISTABLE_URI_PERMISSION);
-            intent.setType("application/zip");
-            startActivityForResult(intent, R.id.import_project_archive);
-            return true;
-        }
-        case R.id.usb_cable_help: {
-            String url = "https://qfield.org/docs/";
-            Intent i = new Intent(Intent.ACTION_VIEW);
-            i.setData(Uri.parse(url));
-            startActivity(i);
-            return true;
-        }
-        default:
-            return super.onOptionsItemSelected(item);
+    }
+
+    public boolean onMenuItemClick(MenuItem item) {
+        final QFieldProjectListItem listItem =
+            (QFieldProjectListItem)list.getAdapter().getItem(currentPosition);
+        File file = listItem.getFile();
+        switch (item.getItemId()) {
+            case R.id.send_to: {
+                DocumentFile documentFile = DocumentFile.fromFile(file);
+                Context context = getApplication().getApplicationContext();
+                Intent intent = new Intent(Intent.ACTION_SEND);
+                intent.putExtra(Intent.EXTRA_STREAM,
+                                FileProvider.getUriForFile(
+                                    context,
+                                    context.getPackageName() + ".fileprovider",
+                                    file));
+                intent.setType(documentFile.getType());
+                startActivity(Intent.createChooser(intent, null));
+                return true;
+            }
+            case R.id.add_to_favorite: {
+                addFileToFavoriteDirs(file);
+                return true;
+            }
+            case R.id.remove_from_favorite: {
+                removeFileFromFavoriteDirs(file);
+                return true;
+            }
+            default:
+                return true;
         }
     }
 
@@ -125,8 +161,8 @@ public class QFieldProjectActivity extends Activity {
         ArrayList<QFieldProjectListItem> values =
             new ArrayList<QFieldProjectListItem>();
 
-        // Roots
-        if (!getIntent().hasExtra("path")) {
+        final boolean isRootView = !getIntent().hasExtra("path");
+        if (isRootView) {
             File externalStorageDirectory = null;
             if (ContextCompat.checkSelfPermission(
                     QFieldProjectActivity.this,
@@ -162,8 +198,8 @@ public class QFieldProjectActivity extends Activity {
                   "externalFilesDirs: " + Arrays.toString(externalFilesDirs));
             for (File file : externalFilesDirs) {
                 if (file != null) {
-                    // Don't duplicate external files directory or storage path
-                    // already added
+                    // Don't duplicate external files directory or storage
+                    // path already added
                     if (file.getAbsolutePath().equals(
                             primaryExternalFilesDir.getAbsolutePath())) {
                         continue;
@@ -208,8 +244,8 @@ public class QFieldProjectActivity extends Activity {
             String favoriteDirs =
                 sharedPreferences.getString("FavoriteDirs", null);
 
-            // The first time, add sample projects and import directories to the
-            // favorites
+            // The first time, add sample projects and import directories to
+            // the favorites
             boolean favoriteDirsAdded =
                 sharedPreferences.getBoolean("FavoriteDirsAdded", false);
             if (!favoriteDirsAdded) {
@@ -250,8 +286,7 @@ public class QFieldProjectActivity extends Activity {
                     }
                 }
             }
-
-        } else { // Over the roots
+        } else {
             Log.d(TAG, "extra path: " + getIntent().getStringExtra("path"));
             File dir = new File(getIntent().getStringExtra("path"));
             setTitle(getIntent().getStringExtra("label"));
@@ -310,14 +345,18 @@ public class QFieldProjectActivity extends Activity {
 
         // Put the data into the list
         list = (ListView)findViewById(R.id.list);
-        QFieldProjectListAdapter adapter =
-            new QFieldProjectListAdapter(this, values);
+        QFieldProjectListAdapter adapter = new QFieldProjectListAdapter(
+            this, values, new QFieldProjectListAdapter.MenuButtonListener() {
+                @Override
+                public void onClick(View view, int position) {
+                    QFieldProjectActivity.this.onItemMenuClick(view, position);
+                }
+            });
         list.setAdapter(adapter);
 
         list.setOnItemClickListener(new OnItemClickListener() {
             public void onItemClick(AdapterView<?> parent, View view,
                                     int position, long id) {
-                Log.d(TAG, "onItemClick ");
                 QFieldProjectActivity.this.onItemClick(position);
             }
         });
@@ -325,15 +364,12 @@ public class QFieldProjectActivity extends Activity {
         list.setOnItemLongClickListener(new OnItemLongClickListener() {
             public boolean onItemLongClick(AdapterView<?> parent, View view,
                                            int position, long id) {
-                Log.d(TAG, "onItemLongClick ");
                 return QFieldProjectActivity.this.onItemLongClick(position);
             }
         });
     }
 
     public void onRestart() {
-        Log.d(TAG, "onRestart ");
-
         // The first opened activity
         if (!getIntent().hasExtra("path")) {
             drawView();
@@ -341,16 +377,55 @@ public class QFieldProjectActivity extends Activity {
         super.onRestart();
     }
 
-    private void onItemClick(int position) {
-        Log.d(TAG, "onListItemClick ");
+    private void onItemMenuClick(View view, int position) {
+        final QFieldProjectListItem item =
+            (QFieldProjectListItem)list.getAdapter().getItem(position);
+        File file = item.getFile();
+        PopupMenu popupMenu = new PopupMenu(QFieldProjectActivity.this, view);
+        popupMenu.setOnMenuItemClickListener(QFieldProjectActivity.this);
 
+        if (!file.isDirectory()) {
+            popupMenu.inflate(R.menu.project_item_menu);
+        } else {
+            String favoriteDirs =
+                sharedPreferences.getString("FavoriteDirs", null);
+            ArrayList<String> favoriteDirsArray = new ArrayList<String>();
+            if (favoriteDirs != null) {
+                favoriteDirsArray = new ArrayList<String>(
+                    Arrays.asList(favoriteDirs.split("--;--")));
+            }
+            boolean isFavorite = false;
+            for (String favoriteDir : favoriteDirsArray) {
+                if (favoriteDir.equals(file.getPath())) {
+                    isFavorite = true;
+                    break;
+                }
+            }
+
+            popupMenu.inflate(R.menu.project_folder_menu);
+            if (!isFavorite) {
+                popupMenu.getMenu()
+                    .findItem(R.id.remove_from_favorite)
+                    .setVisible(false);
+            } else {
+                popupMenu.getMenu()
+                    .findItem(R.id.add_to_favorite)
+                    .setVisible(false);
+            }
+        }
+
+        currentPosition = position;
+        popupMenu.show();
+    }
+
+    private void onItemClick(int position) {
         final QFieldProjectListItem item =
             (QFieldProjectListItem)list.getAdapter().getItem(position);
         if (item.getType() == QFieldProjectListItem.TYPE_SEPARATOR) {
             return;
         }
-        // Show an information notice if it's the first time the external files
-        // directory is used
+        // Show an information notice if it's the first time the external
+        // files directory is used
         boolean showExternalFilesNotice =
             sharedPreferences.getBoolean("ShowExternalFilesNotice", true);
         if (item.getType() == QFieldProjectListItem.TYPE_EXTERNAL_FILES &&
@@ -382,7 +457,6 @@ public class QFieldProjectActivity extends Activity {
 
     private void startItemClickActivity(QFieldProjectListItem item) {
         File file = item.getFile();
-        Log.d(TAG, "file: " + file.getPath());
         if (file.isDirectory()) {
             Intent intent = new Intent(this, QFieldProjectActivity.class);
             intent.putExtra("path", file.getPath());
@@ -402,8 +476,8 @@ public class QFieldProjectActivity extends Activity {
                 lastUsedProjectsArray = new ArrayList<String>(
                     Arrays.asList(lastUsedProjects.split("--;--")));
             }
-            // If the element is already present, delete it. It will be added
-            // again in the last position
+            // If the element is already present, delete it. It will be
+            // added again in the last position
             lastUsedProjectsArray.remove(file.getPath());
             if (lastUsedProjectsArray.size() >= 5) {
                 lastUsedProjectsArray.remove(0);
@@ -421,7 +495,6 @@ public class QFieldProjectActivity extends Activity {
     }
 
     private boolean onItemLongClick(int position) {
-
         QFieldProjectListItem item =
             (QFieldProjectListItem)list.getAdapter().getItem(position);
         if (item.getType() != QFieldProjectListItem.TYPE_ITEM) {
@@ -432,6 +505,17 @@ public class QFieldProjectActivity extends Activity {
             return true;
         }
 
+        // First activity
+        if (!getIntent().hasExtra("path")) {
+            removeFileFromFavoriteDirs(file);
+        } else {
+            addFileToFavoriteDirs(file);
+        }
+
+        return true;
+    }
+
+    void addFileToFavoriteDirs(File file) {
         String favoriteDirs = sharedPreferences.getString("FavoriteDirs", null);
         ArrayList<String> favoriteDirsArray = new ArrayList<String>();
         if (favoriteDirs != null) {
@@ -439,51 +523,61 @@ public class QFieldProjectActivity extends Activity {
                 Arrays.asList(favoriteDirs.split("--;--")));
         }
 
-        // If the element is already present, delete it. It will be added again
-        // in the last position
+        // If the element is already present, delete it. It will be added
+        // again in the last position
         favoriteDirsArray.remove(file.getPath());
 
-        // First activity
-        if (!getIntent().hasExtra("path")) {
-            // Remove the recent projects from shared preferences
-            favoriteDirs = TextUtils.join("--;--", favoriteDirsArray);
-            if (favoriteDirs == "") {
-                favoriteDirs = null;
-            }
+        // Write the recent projects into the shared preferences
+        favoriteDirsArray.add(file.getPath());
+        editor.putString("FavoriteDirs",
+                         TextUtils.join("--;--", favoriteDirsArray));
+        editor.commit();
 
-            editor.putString("FavoriteDirs", favoriteDirs);
-            editor.commit();
-            drawView();
+        Toast
+            .makeText(this,
+                      file.getName() + " " +
+                          getString(R.string.added_to_favorites),
+                      Toast.LENGTH_LONG)
+            .show();
+    }
 
-            Toast
-                .makeText(this,
-                          file.getName() + " " +
-                              getString(R.string.removed_from_favorites),
-                          Toast.LENGTH_LONG)
-                .show();
-        } else {
-            // Write the recent projects into the shared preferences
-            favoriteDirsArray.add(file.getPath());
-            editor.putString("FavoriteDirs",
-                             TextUtils.join("--;--", favoriteDirsArray));
-            editor.commit();
+    void removeFileFromFavoriteDirs(File file) {
 
-            Toast
-                .makeText(this,
-                          file.getName() + " " +
-                              getString(R.string.added_to_favorites),
-                          Toast.LENGTH_LONG)
-                .show();
+        String favoriteDirs = sharedPreferences.getString("FavoriteDirs", null);
+        ArrayList<String> favoriteDirsArray = new ArrayList<String>();
+        if (favoriteDirs != null) {
+            favoriteDirsArray = new ArrayList<String>(
+                Arrays.asList(favoriteDirs.split("--;--")));
         }
 
-        return true;
+        // If the element is already present, delete it. It will be added
+        // again in the last position
+        favoriteDirsArray.remove(file.getPath());
+
+        favoriteDirs = TextUtils.join("--;--", favoriteDirsArray);
+        if (favoriteDirs == "") {
+            favoriteDirs = null;
+        }
+
+        editor.putString("FavoriteDirs", favoriteDirs);
+        editor.commit();
+        if (!getIntent().hasExtra("path")) {
+            // Root view, redraw
+            drawView();
+        }
+
+        Toast
+            .makeText(this,
+                      file.getName() + " " +
+                          getString(R.string.removed_from_favorites),
+                      Toast.LENGTH_LONG)
+            .show();
     }
 
     protected void onActivityResult(int requestCode, int resultCode,
                                     Intent data) {
-        Log.d(TAG, "onActivityResult ");
-        Log.d(TAG, "requestCode: " + requestCode);
-        Log.d(TAG, "resultCode: " + resultCode);
+        Log.d(TAG, "activity result requestCode: " + requestCode);
+        Log.d(TAG, "activity result resultCode: " + resultCode);
 
         if (requestCode == R.id.import_dataset &&
             resultCode == Activity.RESULT_OK) {
