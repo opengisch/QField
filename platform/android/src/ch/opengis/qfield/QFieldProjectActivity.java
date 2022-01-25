@@ -127,12 +127,11 @@ public class QFieldProjectActivity
     }
 
     public boolean onMenuItemClick(MenuItem item) {
+        final QFieldProjectListItem listItem =
+            (QFieldProjectListItem)list.getAdapter().getItem(currentPosition);
+        File file = listItem.getFile();
         switch (item.getItemId()) {
             case R.id.send_to: {
-                final QFieldProjectListItem listItem =
-                    (QFieldProjectListItem)list.getAdapter().getItem(
-                        currentPosition);
-                File file = listItem.getFile();
                 DocumentFile documentFile = DocumentFile.fromFile(file);
                 Context context = getApplication().getApplicationContext();
                 Intent intent = new Intent(Intent.ACTION_SEND);
@@ -146,17 +145,11 @@ public class QFieldProjectActivity
                 return true;
             }
             case R.id.add_to_favorite: {
-                final QFieldProjectListItem listItem =
-                    (QFieldProjectListItem)list.getAdapter().getItem(
-                        currentPosition);
-                addFileToFavoriteDirs(listItem.getFile());
+                addFileToFavoriteDirs(file);
                 return true;
             }
             case R.id.remove_from_favorite: {
-                final QFieldProjectListItem listItem =
-                    (QFieldProjectListItem)list.getAdapter().getItem(
-                        currentPosition);
-                removeFileFromFavoriteDirs(listItem.getFile());
+                removeFileFromFavoriteDirs(file);
                 return true;
             }
             default:
@@ -377,8 +370,6 @@ public class QFieldProjectActivity
     }
 
     public void onRestart() {
-        Log.d(TAG, "onRestart ");
-
         // The first opened activity
         if (!getIntent().hasExtra("path")) {
             drawView();
@@ -387,8 +378,6 @@ public class QFieldProjectActivity
     }
 
     private void onItemMenuClick(View view, int position) {
-        Log.d(TAG, "onItemMenuClick ");
-
         final QFieldProjectListItem item =
             (QFieldProjectListItem)list.getAdapter().getItem(position);
         File file = item.getFile();
@@ -430,8 +419,6 @@ public class QFieldProjectActivity
     }
 
     private void onItemClick(int position) {
-        Log.d(TAG, "onItemClick ");
-
         final QFieldProjectListItem item =
             (QFieldProjectListItem)list.getAdapter().getItem(position);
         if (item.getType() == QFieldProjectListItem.TYPE_SEPARATOR) {
@@ -470,7 +457,6 @@ public class QFieldProjectActivity
 
     private void startItemClickActivity(QFieldProjectListItem item) {
         File file = item.getFile();
-        Log.d(TAG, "file: " + file.getPath());
         if (file.isDirectory()) {
             Intent intent = new Intent(this, QFieldProjectActivity.class);
             intent.putExtra("path", file.getPath());
@@ -590,9 +576,8 @@ public class QFieldProjectActivity
 
     protected void onActivityResult(int requestCode, int resultCode,
                                     Intent data) {
-        Log.d(TAG, "onActivityResult ");
-        Log.d(TAG, "requestCode: " + requestCode);
-        Log.d(TAG, "resultCode: " + resultCode);
+        Log.d(TAG, "activity result requestCode: " + requestCode);
+        Log.d(TAG, "activity result resultCode: " + resultCode);
 
         if (requestCode == R.id.import_dataset &&
             resultCode == Activity.RESULT_OK) {
