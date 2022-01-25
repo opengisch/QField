@@ -47,4 +47,10 @@
     <string name="send_to">Send to...</string>
     <string name="add_to_favorite">Add to Favorites</string>
     <string name="remove_from_favorite">Remove from Favorites</string>
+    <string name="remove_dataset">Remove Dataset</string>
+    <string name="delete_confirm_title">Removal Confirmation</string>
+    <string name="delete_confirm_dataset">The dataset will be permamently deleted, proceed with removal?</string>
+    <string name="delete_confirm_folder">The project folder will be permamently deleted, proceed with removal?</string>
+    <string name="delete_confirm">Remove</string>
+    <string name="delete_cancel">Cancel</string>
 </resources>
