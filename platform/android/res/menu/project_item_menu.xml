@@ -5,5 +5,9 @@
         android:id="@+id/send_to"
         android:title="@string/send_to"
         app:showAsAction="never" />
+    <item
+        android:id="@+id/remove_dataset"
+        android:title="@string/remove_dataset"
+        app:showAsAction="never" />
 
 </menu>
