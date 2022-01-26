@@ -130,6 +130,27 @@ public class QFieldUtils {
         return true;
     }
 
+    public static boolean deleteDirectory(File file, boolean recursive) {
+        if (!file.isDirectory()) {
+            return false;
+        }
+        File[] files = file.listFiles();
+        for (File f : files) {
+            boolean success = true;
+            if (f.isDirectory()) {
+                if (recursive) {
+                    success = deleteDirectory(f, true);
+                }
+            } else {
+                success = f.delete();
+            }
+            if (!success) {
+                return false;
+            }
+        }
+        return true;
+    }
+
     public static String getExtensionFromMimeType(String type) {
         if (type.equals("application/pdf")) {
             return "pdf";

@@ -181,6 +181,35 @@ public class QFieldProjectActivity
                 removeFileFromFavoriteDirs(file);
                 return true;
             }
+            case R.id.remove_folder: {
+                AlertDialog.Builder builder = new AlertDialog.Builder(this);
+                builder.setTitle(getString(R.string.delete_confirm_title));
+                builder.setMessage(getString(R.string.delete_confirm_folder));
+                builder.setPositiveButton(
+                    getString(R.string.delete_confirm),
+                    new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int id) {
+                            final QFieldProjectListItem listItem =
+                                (QFieldProjectListItem)list.getAdapter()
+                                    .getItem(currentPosition);
+                            QFieldUtils.deleteDirectory(listItem.getFile(),
+                                                        true);
+                            dialog.dismiss();
+                            drawView();
+                        }
+                    });
+                builder.setNegativeButton(
+                    getString(R.string.delete_cancel),
+                    new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int id) {
+                            dialog.dismiss();
+                        }
+                    });
+                AlertDialog dialog = builder.create();
+                dialog.setCancelable(false);
+                dialog.show();
+                return true;
+            }
             default:
                 return true;
         }
@@ -412,17 +441,20 @@ public class QFieldProjectActivity
         File file = item.getFile();
 
         boolean isImportedDataset = false;
-        boolean isImportedProject = false;
+        boolean isImportedProjectRoot = false;
         File primaryExternalFilesDir = getExternalFilesDir(null);
         if (primaryExternalFilesDir != null) {
             isImportedDataset = file.getAbsolutePath().startsWith(
                 new File(primaryExternalFilesDir.getAbsolutePath() +
                          "/Imported Datasets/")
                     .getAbsolutePath());
-            isImportedProject = file.getAbsolutePath().startsWith(
-                new File(primaryExternalFilesDir.getAbsolutePath() +
-                         "/Imported Projects/")
-                    .getAbsolutePath());
+            if (file.getParentFile() != null) {
+                isImportedProjectRoot =
+                    file.getParentFile().getAbsolutePath().equals(
+                        new File(primaryExternalFilesDir.getAbsolutePath() +
+                                 "/Imported Projects/")
+                            .getAbsolutePath());
+            }
         }
 
         PopupMenu popupMenu = new PopupMenu(QFieldProjectActivity.this, view);
@@ -459,6 +491,11 @@ public class QFieldProjectActivity
             } else {
                 popupMenu.getMenu()
                     .findItem(R.id.add_to_favorite)
+                    .setVisible(false);
+            }
+            if (!isImportedProjectRoot) {
+                popupMenu.getMenu()
+                    .findItem(R.id.remove_folder)
                     .setVisible(false);
             }
         }

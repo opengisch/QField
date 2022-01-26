@@ -8,5 +8,9 @@
     <item android:id="@+id/remove_from_favorite"
         android:title="@string/remove_from_favorite"
         app:showAsAction="never"/>
+    <item
+        android:id="@+id/remove_folder"
+        android:title="@string/remove_folder"
+        app:showAsAction="never" />
 
 </menu>
