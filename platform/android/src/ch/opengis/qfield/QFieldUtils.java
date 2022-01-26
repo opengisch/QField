@@ -148,7 +148,7 @@ public class QFieldUtils {
                 return false;
             }
         }
-        return true;
+        return file.delete();
     }
 
     public static String getExtensionFromMimeType(String type) {
