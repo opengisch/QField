@@ -164,6 +164,7 @@ jobs:
                 -DANDROID_PLATFORM=${{ env.ANDROID_PLATFORM }} \
                 -DANDROID_TARGET_PLATFORM=${{ env.ANDROID_TARGET_PLATFORM}} \
                 -DSENTRY_DSN=${{ secrets.SENTRY_DSN }} \
+                -DSENTRY_ENV="${APP_ENV}" \
                 -DSENTRY_IMPORT_PREFIX=/tmp/sentry-android-ndk/jni
 
       - name: 📑 Upload Dep Build Logs

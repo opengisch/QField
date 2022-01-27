@@ -140,6 +140,7 @@ int main( int argc, char **argv )
 #ifndef ANDROID
   sentry_options_t *options = sentry_options_new();
   sentry_options_set_dsn( options, qfield::sentryDsn.toUtf8().constData() );
+  sentry_options_set_environment( options, qfield::sentryEnv.toUtf8().constData() );
   sentry_options_set_debug( options, 1 );
   sentry_init( options );
 #endif

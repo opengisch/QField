@@ -24,6 +24,7 @@ if [[ -n ${CI_TAG} ]]; then
   export APP_VERSION="${CI_TAG}" # v1.2.3 or v1.2.3-rc4
   export APP_VERSION_STR
   export APK_VERSION_CODE
+  export APP_ENV="prod"
 elif [[ ${CI_PULL_REQUEST} = false ]]; then
   echo "Building dev (nightly)"
   ARCH_NUMBER=$(arch_to_build_number ${ARCH})
@@ -43,6 +44,7 @@ elif [[ ${CI_PULL_REQUEST} = false ]]; then
   else
     export APK_VERSION_CODE=0$((1950000+CI_RUN_NUMBER))${ARCH_NUMBER}
   fi
+  export APP_ENV="dev"
 
 else
   echo "Building pull request beta"
@@ -52,6 +54,7 @@ else
   export APP_VERSION=""
   export APP_VERSION_STR="PR${CI_PULL_REQUEST_NUMBER}"
   export APK_VERSION_CODE="1"
+  export APP_ENV="pr"
 fi
 
 echo "Arch number: ${ARCH_NUMBER}"
