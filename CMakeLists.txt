@@ -72,6 +72,8 @@ if (WITH_SPIX)
 endif ()
 
 set(SENTRY_DSN "" CACHE STRING "The sentry dsn for logging purpose. If not set, sentry will be disabled")
+set(SENTRY_ENV "" CACHE STRING "The sentry environment for logging purpose.")
+mark_as_advanced(SENTRY_DSN SENTRY_ENV)
 if(SENTRY_DSN)
   set(WITH_SENTRY 1)
 else()

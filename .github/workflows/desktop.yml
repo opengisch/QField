@@ -213,6 +213,7 @@ jobs:
                 -DNUGET_USERNAME=opengisch \
                 -DNUGET_TOKEN=${{ secrets.GITHUB_TOKEN }} \
                 -DSENTRY_DSN=${{ secrets.SENTRY_DSN }} \
+                -DSENTRY_ENV="${APP_ENV}" \
                 ${EXTRA_CMAKE_ARGS}
 
 
