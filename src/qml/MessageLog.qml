@@ -112,6 +112,7 @@ Page {
         id: submitLog
         Layout.fillWidth: true
         text: qsTr( 'Send application log' )
+        visible: platformUtilities.capabilities & PlatformUtilities.SentryFramework
 
         onClicked: {
             iface.sendLog("Manual log submission")

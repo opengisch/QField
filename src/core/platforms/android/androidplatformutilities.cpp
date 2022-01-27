@@ -76,6 +76,14 @@ class FileCopyThread : public QThread
     Feedback *mFeedback;
 };
 
+PlatformUtilities::Capabilities AndroidPlatformUtilities::capabilities() const
+{
+  PlatformUtilities::Capabilities capabilities = Capabilities() | NativeCamera | AdjustBrightness;
+#ifdef WITH_SENTRY
+  capabilities |= SentryFramework;
+#endif
+  return capabilities;
+}
 
 void AndroidPlatformUtilities::initSystem()
 {

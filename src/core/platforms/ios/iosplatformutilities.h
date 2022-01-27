@@ -27,7 +27,7 @@ class IosPlatformUtilities : public PlatformUtilities
 {
   public:
     IosPlatformUtilities();
-    PlatformUtilities::Capabilities capabilities() const override { return Capabilities() | NativeCamera | AdjustBrightness; }
+    PlatformUtilities::Capabilities capabilities() const override;
     QString systemGenericDataLocation() const override;
     bool checkPositioningPermissions() const override;
     bool checkCameraPermissions() const override;

@@ -33,6 +33,15 @@
 
 IosPlatformUtilities::IosPlatformUtilities() : PlatformUtilities() {}
 
+PlatformUtilities::Capabilities IosPlatformUtilities::capabilities() const {
+  PlatformUtilities::Capabilities capabilities =
+      Capabilities() | NativeCamera | AdjustBrightness;
+#ifdef WITH_SENTRY
+  capabilities |= SentryFramework;
+#endif
+  return capabilities;
+}
+
 QString IosPlatformUtilities::systemGenericDataLocation() const {
   NSBundle *main = [NSBundle mainBundle];
   NSString *bundlePath = [main bundlePath];
