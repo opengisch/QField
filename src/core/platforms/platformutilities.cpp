@@ -43,6 +43,15 @@ PlatformUtilities::~PlatformUtilities()
 {
 }
 
+PlatformUtilities::Capabilities PlatformUtilities::capabilities() const
+{
+  PlatformUtilities::Capabilities capabilities = NoCapabilities;
+#ifdef WITH_SENTRY
+  capabilities |= SentryFramework;
+#endif
+  return capabilities;
+}
+
 void PlatformUtilities::initSystem()
 {
 }

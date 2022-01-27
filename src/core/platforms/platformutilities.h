@@ -39,9 +39,10 @@ class QFIELD_CORE_EXPORT PlatformUtilities : public QObject
   public:
     enum Capability
     {
-      NoCapabilities = 0,   //!< No capabilities
-      NativeCamera = 1,     //!< Native camera handling support (returns true on Android where this is implemented through intents)
-      AdjustBrightness = 2, //!< Capable of adjusting screen brightness
+      NoCapabilities = 0,        //!< No capabilities
+      NativeCamera = 1,          //!< Native camera handling support
+      AdjustBrightness = 1 << 1, //!< Capable of adjusting screen brightness
+      SentryFramework = 1 << 2,  //!< Sentry framework support
     };
 
     Q_DECLARE_FLAGS( Capabilities, Capability )
@@ -52,7 +53,7 @@ class QFIELD_CORE_EXPORT PlatformUtilities : public QObject
     /**
      * Returns flags containing the supported capabilities of the platform.
      */
-    virtual PlatformUtilities::Capabilities capabilities() const { return Capabilities() | NoCapabilities; }
+    virtual PlatformUtilities::Capabilities capabilities() const;
 
     virtual void initSystem();
 
