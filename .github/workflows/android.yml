@@ -163,7 +163,7 @@ jobs:
                 -DANDROID_ABI=${{ steps.vars.outputs.ABI }} \
                 -DANDROID_PLATFORM=${{ env.ANDROID_PLATFORM }} \
                 -DANDROID_TARGET_PLATFORM=${{ env.ANDROID_TARGET_PLATFORM}} \
-                -DSENTRY_DSN=${{ fromJSON(format('{"false": "{0}", "true": ""}', secrets.SENTRY_DSN))[env.APP_ENV == 'prod'] }} \
+                -DSENTRY_DSN=${{ fromJSON(format('{{"false": "{0}", "true": ""}}', secrets.SENTRY_DSN))[env.APP_ENV == 'prod'] }} \
                 -DSENTRY_ENV="${APP_ENV}" \
                 -DSENTRY_IMPORT_PREFIX=/tmp/sentry-android-ndk/jni
 
