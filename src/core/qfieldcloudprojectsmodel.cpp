@@ -469,7 +469,7 @@ void QFieldCloudProjectsModel::projectRefreshData( const QString &projectId, con
 void QFieldCloudProjectsModel::projectStartJob( const QString &projectId, const JobType jobType )
 {
   const QModelIndex projectIndex = findProjectIndex( projectId );
-  if ( projectIndex.isValid() )
+  if ( !projectIndex.isValid() )
     return;
 
   CloudProject *project = mProjects[projectIndex.row()];
