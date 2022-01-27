@@ -1,5 +1,5 @@
 ---
-name: 📱 Package for Android
+name: 📱 Android
 on:
   push:
     branches:
