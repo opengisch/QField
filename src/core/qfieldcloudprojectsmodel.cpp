@@ -57,9 +57,7 @@ QFieldCloudProjectsModel::QFieldCloudProjectsModel()
   } );
 
   connect( this, &QFieldCloudProjectsModel::modelReset, this, [=]() {
-    CloudProject *project = findProject( mCurrentProjectId );
-
-    if ( !project )
+    if ( mCurrentProjectId.isEmpty() || !findProject( mCurrentProjectId ) )
       return;
 
     emit currentProjectDataChanged();
@@ -70,6 +68,9 @@ QFieldCloudProjectsModel::QFieldCloudProjectsModel()
   connect( this, &QFieldCloudProjectsModel::dataChanged, this, [=]( const QModelIndex &topLeft, const QModelIndex &bottomRight, const QVector<int> &roles ) {
     Q_UNUSED( bottomRight )
     Q_UNUSED( roles )
+
+    if ( mCurrentProjectId.isEmpty() )
+      return;
 
     const QModelIndex projectIndex = findProjectIndex( mCurrentProjectId );
 
@@ -157,6 +158,11 @@ void QFieldCloudProjectsModel::setCurrentProjectId( const QString &currentProjec
 
 QVariantMap QFieldCloudProjectsModel::currentProjectData() const
 {
+  if ( mCurrentProjectId.isEmpty() )
+  {
+    return QVariantMap();
+  }
+
   return getProjectData( mCurrentProjectId );
 }
 
@@ -203,6 +209,12 @@ void QFieldCloudProjectsModel::refreshProjectsList()
 
 QModelIndex QFieldCloudProjectsModel::findProjectIndex( const QString &projectId ) const
 {
+  if ( projectId.isEmpty() )
+  {
+    QgsLogger::debug( QStringLiteral( "No project found for an empty project id." ) );
+    return QModelIndex();
+  }
+
   for ( int i = 0; i < mProjects.count(); i++ )
   {
     if ( mProjects.at( i )->id == projectId )
@@ -210,6 +222,9 @@ QModelIndex QFieldCloudProjectsModel::findProjectIndex( const QString &projectId
       return createIndex( i, 0 );
     }
   }
+
+  QgsLogger::debug( QStringLiteral( "No project found with the provided id: `%1`" ).arg( projectId) );
+
   return QModelIndex();
 }
 
