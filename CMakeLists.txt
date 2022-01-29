@@ -172,6 +172,28 @@ if (ENABLE_TESTS)
 endif()
 
 if(WITH_VCPKG AND NOT ANDROID)
+  function(copy_resource source target)
+    add_custom_command(TARGET deploy
+      POST_BUILD
+      COMMAND ${CMAKE_COMMAND} -E make_directory "${CMAKE_BINARY_DIR}/output/bin/${target}"
+    )
+    add_custom_command(TARGET deploy
+                      POST_BUILD
+                      COMMAND ${CMAKE_COMMAND} -E copy_if_different "${source}" "${CMAKE_BINARY_DIR}/output/bin/${target}"
+    )
+    
+    if(APPLE AND NOT IOS)
+      add_custom_command(TARGET deploy
+        POST_BUILD
+        COMMAND ${CMAKE_COMMAND} -E make_directory "${CMAKE_BINARY_DIR}/output/bin/qfield.app/Contents/share/${target}"
+      )
+      add_custom_command(TARGET deploy
+                        POST_BUILD
+                        COMMAND ${CMAKE_COMMAND} -E copy_if_different "${source}" "${CMAKE_BINARY_DIR}/output/bin/qfield.app/Contents/share/${target}"
+      )
+    endif()
+  endfunction()
+
   SET(VCPKG_BASE_DIR "${_VCPKG_INSTALLED_DIR}/${VCPKG_TARGET_TRIPLET}")
   if(MSVC)
     SET(QGIS_PLUGIN_DIR "${VCPKG_BASE_DIR}/tools/qgis/plugins")
@@ -195,39 +217,21 @@ if(WITH_VCPKG AND NOT ANDROID)
     set(QGIS_PLUGIN_INSTALL_PREFIX "lib${LIB_SUFFIX}/qgis/plugins")
   endif()
   add_custom_target(deploy)
-  add_custom_command(TARGET deploy
-    POST_BUILD
-    COMMAND ${CMAKE_COMMAND} -E make_directory "${CMAKE_BINARY_DIR}/output/bin/qgis/plugins"
-  )
   foreach(LIB ${PROVIDER_LIBS})
-    add_custom_command(TARGET deploy
-                      POST_BUILD
-                      COMMAND ${CMAKE_COMMAND} -E copy_if_different "${LIB}" "${CMAKE_BINARY_DIR}/output/bin/qgis/plugins"
-    )
+    copy_resource("${LIB}" "qgis/plugins")
     install(FILES "${LIB}" DESTINATION "${QGIS_PLUGIN_INSTALL_PREFIX}")
   endforeach()
   foreach(LIB ${AUTHMETHODS_LIBS})
-    add_custom_command(TARGET deploy
-                      POST_BUILD
-                      COMMAND ${CMAKE_COMMAND} -E copy_if_different "${LIB}" "${CMAKE_BINARY_DIR}/output/bin/qgis/plugins"
-    )
+    copy_resource("${LIB}" "qgis/plugins")
   endforeach()
-  add_custom_command(TARGET deploy
-    POST_BUILD
-    COMMAND ${CMAKE_COMMAND} -E copy_directory "${VCPKG_BASE_DIR}/share/qgis/resources" "${CMAKE_BINARY_DIR}/output/bin/qgis/resources"
-  )
-  add_custom_command(TARGET deploy
-    POST_BUILD
-    COMMAND ${CMAKE_COMMAND} -E copy_directory "${VCPKG_BASE_DIR}/share/proj4" "${CMAKE_BINARY_DIR}/output/bin/proj"
-  )
-  add_custom_command(TARGET deploy
-    POST_BUILD
-    COMMAND ${CMAKE_COMMAND} -E copy_directory "${VCPKG_BASE_DIR}/share/gdal" "${CMAKE_BINARY_DIR}/output/bin/gdal"
-  )
+  copy_resource("${VCPKG_BASE_DIR}/share/qgis/resources" "qgis/resources")
+  copy_resource("${VCPKG_BASE_DIR}/share/proj4" "proj")
+  copy_resource("${VCPKG_BASE_DIR}/share/gdal" "gdal")
   install(DIRECTORY "${VCPKG_BASE_DIR}/share/qgis/resources/" DESTINATION "share/qgis/resources")
   install(DIRECTORY "${VCPKG_BASE_DIR}/share/proj4/" DESTINATION "share/proj")
   install(DIRECTORY "${VCPKG_BASE_DIR}/share/gdal/" DESTINATION "share/gdal")
 
+  # Windows only?
   if(EXISTS ${VCPKG_BASE_DIR}/plugins/mediaservice)
     add_custom_command(TARGET deploy
       POST_BUILD
