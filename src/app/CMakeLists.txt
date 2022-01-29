@@ -13,6 +13,13 @@ if(MSVC)
   set(ICON_SRC "${CMAKE_CURRENT_BINARY_DIR}/appicon.rc")
 endif()
 
+if(APPLE AND NOT IOS)
+  set(qfield_ICON ${CMAKE_SOURCE_DIR}/platform/macos/qfield_logo.icns)
+  set_source_files_properties(${qfield_ICON} PROPERTIES
+         MACOSX_PACKAGE_LOCATION "Resources")
+  list(APPEND RESOURCES ${qfield_ICON})
+endif()
+
 set(QML_IMPORT_PATH "${CMAKE_SOURCE_DIR}/src/qml/imports")
 
 file(GLOB_RECURSE QML_SOURCES "${CMAKE_SOURCE_DIR}/src/qml/*.qml")
@@ -82,7 +89,7 @@ function(create_executable)
       ${exe_TARGET}
       PROPERTIES MACOSX_BUNDLE_BUNDLE_NAME "${PROJECT_NAME}"
                  MACOSX_BUNDLE_INFO_STRING "${PROJECT_NAME} OPENGIS.ch"
-                 MACOSX_BUNDLE_ICON_FILE "${CMAKE_SOURCE_DIR}/platform/macos/qfield_logo.icns"
+                 MACOSX_BUNDLE_ICON_FILE "qfield_logo.icns"
                  MACOSX_BUNDLE_GUI_IDENTIFIER "${PROJECT_NAME}"
                  MACOSX_BUNDLE_LONG_VERSION_STRING "${PROJECT_VERSION}"
                  MACOSX_BUNDLE_SHORT_VERSION_STRING
