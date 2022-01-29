@@ -102,22 +102,22 @@ jobs:
         mkdir -p build
         cmake \
           -G "Xcode" \
-          -DAPK_VERSION_CODE=${APK_VERSION_CODE} \
-          -DAPP_VERSION=${APP_VERSION} \
+          -DAPK_VERSION_CODE="${APK_VERSION_CODE}" \
+          -DAPP_VERSION="${APP_VERSION}" \
           -DAPP_VERSION_STR="${APP_VERSION_STR}" \
-          -DAPP_PACKAGE_NAME=${APP_PACKAGE_NAME} \
-          -DCMAKE_PREFIX_PATH=${{ github.workspace }}/OSGeo4I/arm64 \
-          -DCMAKE_TOOLCHAIN_FILE=${{ github.workspace }}/OSGeo4I/cmake/ios.toolchain.cmake \
+          -DAPP_PACKAGE_NAME="${APP_PACKAGE_NAME}" \
+          -DCMAKE_PREFIX_PATH="${{ github.workspace }}/OSGeo4I/arm64" \
+          -DCMAKE_TOOLCHAIN_FILE="${{ github.workspace }}/OSGeo4I/cmake/ios.toolchain.cmake" \
           -DCMAKE_BUILD_TYPE="${{ env.BUILD_TYPE }}" \
-          -DDEPLOYMENT_TARGET=${{ env.DEPLOYMENT_TARGET }} \
+          -DDEPLOYMENT_TARGET="${{ env.DEPLOYMENT_TARGET }}" \
           -DFORCE_STATIC_LIBS=TRUE \
-          -DPLATFORM=${{ env.PLATFORM }} \
+          -DPLATFORM="${{ env.PLATFORM }}" \
           -DENABLE_VISIBILITY=FALSE \
-          -DENABLE_BITCODE=${{ env.BITCODE }} \
+          -DENABLE_BITCODE="${{ env.BITCODE }}" \
           -DENABLE_ARC=TRUE \
-          -DQT_IOS_TEAM_ID=${{ secrets.IOS_TEAM_ID }} \
-          -DQT_IOS_CODE_SIGN_IDENTITY=${{ secrets.IOS_CODE_SIGN_IDENTITY }} \
-          -DQT_IOS_PROVISIONING_PROFILE_SPECIFIER=${{ secrets.IOS_PROVISIONING_PROFILE_SPECIFIER }} \
+          -DQT_IOS_TEAM_ID="${{ secrets.IOS_TEAM_ID }}" \
+          -DQT_IOS_CODE_SIGN_IDENTITY="${{ secrets.IOS_CODE_SIGN_IDENTITY }}" \
+          -DQT_IOS_PROVISIONING_PROFILE_SPECIFIER="${{ secrets.IOS_PROVISIONING_PROFILE_SPECIFIER }}" \
           -DENABLE_TESTS=OFF \
           -B ./build/ -S .
 
