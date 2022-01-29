@@ -104,7 +104,7 @@ jobs:
           -G "Xcode" \
           -DAPK_VERSION_CODE=${APK_VERSION_CODE} \
           -DAPP_VERSION=${APP_VERSION} \
-          -DAPP_VERSION_STR=${APP_VERSION_STR} \
+          -DAPP_VERSION_STR="${APP_VERSION_STR}" \
           -DAPP_PACKAGE_NAME=${APP_PACKAGE_NAME} \
           -DCMAKE_PREFIX_PATH=${{ github.workspace }}/OSGeo4I/arm64 \
           -DCMAKE_TOOLCHAIN_FILE=${{ github.workspace }}/OSGeo4I/cmake/ios.toolchain.cmake \
