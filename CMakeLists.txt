@@ -181,7 +181,7 @@ if(WITH_VCPKG AND NOT ANDROID)
                       POST_BUILD
                       COMMAND ${CMAKE_COMMAND} -E copy_if_different "${source}" "${CMAKE_BINARY_DIR}/output/bin/${target}"
     )
-    
+
     if(APPLE AND NOT IOS)
       add_custom_command(TARGET deploy
         POST_BUILD

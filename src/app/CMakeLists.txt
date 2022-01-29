@@ -15,8 +15,8 @@ endif()
 
 if(APPLE AND NOT IOS)
   set(qfield_ICON ${CMAKE_SOURCE_DIR}/platform/macos/qfield_logo.icns)
-  set_source_files_properties(${qfield_ICON} PROPERTIES
-         MACOSX_PACKAGE_LOCATION "Resources")
+  set_source_files_properties(${qfield_ICON} PROPERTIES MACOSX_PACKAGE_LOCATION
+                                                        "Resources")
   list(APPEND RESOURCES ${qfield_ICON})
 endif()
 
