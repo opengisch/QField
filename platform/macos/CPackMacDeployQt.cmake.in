@@ -2,5 +2,5 @@
 execute_process(COMMAND "${MACDEPLOYQT_EXECUTABLE}" qfield.app -appstore-compliant -qmldir=${CMAKE_SOURCE_DIR}/src/qml -codesign=${MACOS_CODE_SIGN_IDENTITY}
                  WORKING_DIRECTORY ${CMAKE_BINARY_DIR}/output/bin
                 )
-execute_process(COMMAND create-dmg --volname "QField Installer" --hide-extension qfield.app --volicon "${CMAKE_SOURCE_DIR}/platform/macos/qfield_logo.icns" --background "${CMAKE_SOURCE_DIR}/platform/macos/installer_background.png" --window-pos 200 120 --window-size 800 400 --icon-size 100 --icon "qfield.app" 200 190 --app-drop-link 600 185 ${CMAKE_BINARY_DIR}/QField-Installer.dmg  ${CMAKE_BINARY_DIR}/output/bin/qfield.app
+execute_process(COMMAND create-dmg --volname "QField Installer" --hide-extension qfield.app --volicon "${CMAKE_SOURCE_DIR}/platform/macos/qfield_logo.icns" --background "${CMAKE_SOURCE_DIR}/platform/macos/installer_background.png" --window-pos 200 120 --window-size 512 320 --icon-size 100 --icon "qfield.app" 100 160 --app-drop-link 280 155 ${CMAKE_BINARY_DIR}/QField-Installer.dmg  ${CMAKE_BINARY_DIR}/output/bin/qfield.app
                 )
