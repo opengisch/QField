@@ -100,7 +100,7 @@ jobs:
         uses: actions/cache@v2.1.5
         with:
           path: ${{ github.workspace }}/Qt-android
-          key: Qt-5.14.2-android
+          key: Qt-5.14.2-android-all
 
       - name: 💐 Install Qt
         if: ${{ steps.vars.outputs.INSTALL_QT }}
@@ -108,6 +108,7 @@ jobs:
         with:
           version: 5.14.2
           modules: 'qtcharts'
+          dir: ${{ github.workspace }}/Qt-android
           target: ${{ steps.vars.outputs.QT_TARGET }}
           cached: ${{ steps.cache-qt.outputs.cache-hit }}
 
