@@ -121,6 +121,14 @@ jobs:
           sudo apt clean
           df -h
 
+      - name: Cache Qt
+        if: ${{ steps.vars.outputs.INSTALL_QT }}
+        id: cache-qt
+        uses: actions/cache@v2.1.5
+        with:
+          path: ${{ github.workspace }}/Qt-${{ matrix.triplet }}
+          key: Qt-5.14.2-${{ matrix.triplet }}-${{ steps.vars.outputs.QT_TARGET }}
+
       - name: 💐 Install Qt
         if: ${{ steps.vars.outputs.INSTALL_QT }}
         uses: jurplel/install-qt-action@v2
@@ -129,6 +137,8 @@ jobs:
           modules: 'qtcharts'
           target: ${{ steps.vars.outputs.QT_TARGET }}
           arch: ${{ steps.vars.outputs.QT_ARCH }}
+          dir: ${{ github.workspace }}/Qt-${{ matrix.triplet }}
+          cached: ${{ steps.cache-qt.outputs.cache-hit }}
 
       - name: 🐧 Prepare linux build env
         if: ${{ matrix.triplet == 'x64-linux' }}
