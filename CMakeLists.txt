@@ -171,26 +171,6 @@ if (ENABLE_TESTS)
   add_subdirectory(test)
 endif()
 
-#  add_custom_target(deploy)
-#  add_dependencies(qfield deploy)
-#
-#add_custom_command(TARGET deploy
-#  POST_BUILD
-#  COMMAND ${CMAKE_COMMAND} -E make_directory "/tmp/Contents/share/platform"
-#)
-#add_custom_command(TARGET deploy
-#                  POST_BUILD
-#                  COMMAND ${CMAKE_COMMAND} -E copy_directory "${CMAKE_SOURCE_DIR}/platform/macos" "/tmp/Contents/share/platform/macos"
-#)
-#add_custom_command(TARGET deploy
-#  POST_BUILD
-#  COMMAND ${CMAKE_COMMAND} -E make_directory "/tmp/Contents/share/platform"
-#)
-#add_custom_command(TARGET deploy
-#                  POST_BUILD
-#                  COMMAND ${CMAKE_COMMAND} -E copy_directory "${CMAKE_SOURCE_DIR}/platform/windows/appicon.rc.in" "/tmp/Contents/share/platform/windows"
-#)
-
 if(WITH_VCPKG AND NOT ANDROID)
   function(copy_resource source target)
     add_custom_command(TARGET deploy
