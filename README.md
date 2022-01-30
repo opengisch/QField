@@ -83,29 +83,3 @@ Supported triplets are:
   QField often requires QGIS nightly builds. You can also compile it on your own and install to a custom prefix path. See more about QGIS compilation [here](https://github.com/qgis/QGIS/blob/master/INSTALL.md).
 
 - If you have QGIS installed into a custom prefix path, provide this as `-DQGIS_PREFIX_PATH=[path]` to cmake
-
-### On OS X
-
-In addition to the steps above, in QtCreator's build environment (access via `Projects` > `Build`), add the following variables:
-
-  * `QGIS_INSTALL_PATH`: the same value than in the config.pri (could be /usr/local/opt/qgis3/ or the installation folder of a local build)
-  * `DYLD_FRAMEWORK_PATH` add `_QGIS_INSTALL_PATH_/QGIS.app/Contents/Frameworks` (replace `_QGIS_INSTALL_PATH_`)
-  * `DYLD_LIBRARY_PATH` add `:_QGIS_INSTALL_PATH_/QGIS.app/Contents/Frameworks/qgis_core.framework/Versions/Current` (replace `_QGIS_INSTALL_PATH_`)
-
-#### Invalid version number issue
-
-If you get the error `invalid version number in '-mmacosx-version-min='`, you need to hardcode the minimum deployment target by setting `version_min_flag = -m$${version_identifier}-version-min=10.10` in `/usr/local/opt/qt/mkspecs/features/mac/default_post.prf`.
-
-One line command:
-```
-gsed -i "s/version_min_flag = -m\$\${version_identifier}-version-min=\$\$deployment_target/version_min_flag = -m\$\${version_identifier}-version-min=10\.10/" /usr/local/opt/qt/mkspecs/features/mac/default_post.prf
-```
-
-#### In `Qt Creator` > `Projects` > `Run` >
-
-* Check `Use debug version of frameworks`
-* Add a custom deployment step: `_QField_SOURCE_DIR_/scripts/mac_deploy.sh` with `${QGIS_INSTALL_PATH}` as argument.
-* In Debugger settings, check `Enable QML`
-
-#### Other issues
-If you have any issue with qmake not finding the proper SDK, in `/usr/local/opt/qt/mkspecs/features/mac/default_post.prf`, replace `$$QMAKE_MAC_SDK_PATH` (3 occurences) by `/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk`
