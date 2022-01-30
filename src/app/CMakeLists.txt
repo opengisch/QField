@@ -13,6 +13,13 @@ if(MSVC)
   set(ICON_SRC "${CMAKE_CURRENT_BINARY_DIR}/appicon.rc")
 endif()
 
+if(APPLE AND NOT IOS)
+  set(qfield_ICON ${CMAKE_SOURCE_DIR}/platform/macos/qfield_logo.icns)
+  set_source_files_properties(${qfield_ICON} PROPERTIES MACOSX_PACKAGE_LOCATION
+                                                        "Resources")
+  list(APPEND RESOURCES ${qfield_ICON})
+endif()
+
 set(QML_IMPORT_PATH "${CMAKE_SOURCE_DIR}/src/qml/imports")
 
 file(GLOB_RECURSE QML_SOURCES "${CMAKE_SOURCE_DIR}/src/qml/*.qml")
@@ -43,7 +50,9 @@ file(APPEND ${TRANSLATIONS_QRC} "\n    </qresource>\n</RCC>")
 configure_file(${CMAKE_SOURCE_DIR}/images/logo.qrc.in
                ${CMAKE_BINARY_DIR}/images/logo.qrc @ONLY)
 
-function(create_executable TARGET)
+function(create_executable)
+  cmake_parse_arguments(exe "" "TARGET" "EXTRA_ARGS" "" ${ARGN})
+
   set(QFIELD_SOURCES
       main.cpp
       ${RESOURCES}
@@ -53,36 +62,54 @@ function(create_executable TARGET)
       ${ICON_SRC}
       ${TRANSLATIONS_QRC})
   if(ANDROID)
-    add_library(${TARGET} SHARED ${QFIELD_SOURCES})
+    add_library(${exe_TARGET} SHARED ${QFIELD_SOURCES})
 
-    target_link_libraries(${TARGET} PRIVATE android log)
+    target_link_libraries(${exe_TARGET} PRIVATE android log)
   else()
-    add_executable(${TARGET} ${QFIELD_SOURCES})
+    add_executable(${exe_TARGET} ${exe_EXTRA_ARGS} ${QFIELD_SOURCES})
   endif()
 
   target_compile_definitions(
-    ${TARGET}
+    ${exe_TARGET}
     PRIVATE $<$<OR:$<CONFIG:Debug>,$<CONFIG:RelWithDebInfo>>:QT_QML_DEBUG>)
 
-  if(${CMAKE_SYSTEM_NAME} STREQUAL "iOS")
+  if(IOS)
     # debug symbols https://stackoverflow.com/a/49714128/1548052
-    target_compile_options(${TARGET} PRIVATE $<$<CXX_COMPILER_ID:Clang>:-g>)
+    target_compile_options(${exe_TARGET} PRIVATE $<$<CXX_COMPILER_ID:Clang>:-g>)
   endif()
 
-  target_link_libraries(${TARGET} PRIVATE qfield_core ${QGIS_CORE_LIBRARY})
+  target_link_libraries(${exe_TARGET} PRIVATE qfield_core ${QGIS_CORE_LIBRARY})
   if(WITH_SENTRY)
     find_package(sentry REQUIRED)
-    target_link_libraries(${TARGET} PRIVATE qfield_core sentry::sentry)
+    target_link_libraries(${exe_TARGET} PRIVATE qfield_core sentry::sentry)
   endif()
-  set_target_properties(${TARGET} PROPERTIES AUTORCC TRUE)
+  set_target_properties(${exe_TARGET} PROPERTIES AUTORCC TRUE)
+  if(APPLE AND NOT IOS)
+    set_target_properties(
+      ${exe_TARGET}
+      PROPERTIES MACOSX_BUNDLE_BUNDLE_NAME "${PROJECT_NAME}"
+                 MACOSX_BUNDLE_INFO_STRING "${PROJECT_NAME} OPENGIS.ch"
+                 MACOSX_BUNDLE_ICON_FILE "qfield_logo.icns"
+                 MACOSX_BUNDLE_GUI_IDENTIFIER "${PROJECT_NAME}"
+                 MACOSX_BUNDLE_LONG_VERSION_STRING "${PROJECT_VERSION}"
+                 MACOSX_BUNDLE_SHORT_VERSION_STRING
+                 "${PROJECT_VERSION_MAJOR}.${PROJECT_VERSION_MINOR}"
+                 MACOSX_BUNDLE_BUNDLE_VERSION "${PROJECT_VERSION}"
+                 MACOSX_BUNDLE_COPYRIGHT "Copyright (c) OPENGIS.ch")
+  endif()
 endfunction()
 
-create_executable(qfield)
+if(APPLE AND NOT IOS)
+  set(EXTRA_ARGS MACOSX_BUNDLE)
+endif()
+create_executable(TARGET qfield EXTRA_ARGS ${EXTRA_ARGS})
+
 if(WITH_SPIX)
-  create_executable(qfield_spix)
+  create_executable(TARGET qfield_spix)
   target_link_libraries(qfield_spix PRIVATE Spix::Spix)
   target_compile_definitions(qfield_spix PUBLIC WITH_SPIX)
 endif()
+
 install(
   TARGETS qfield
   BUNDLE DESTINATION ${QFIELD_BIN_DIR}
@@ -92,8 +119,7 @@ install(
   FRAMEWORK DESTINATION ${QFIELD_FW_SUBDIR}
   PUBLIC_HEADER DESTINATION ${QFIELD_INCLUDE_DIR})
 
-if(${CMAKE_SYSTEM_NAME} STREQUAL "iOS")
-
+if(IOS)
   include("${CMAKE_SOURCE_DIR}/cmake/QtStaticCMake.cmake")
   qt_generate_plugin_import(qfield)
   qt_generate_qml_plugin_import(qfield QML_SRC "${CMAKE_SOURCE_DIR}/src/qml")
@@ -124,5 +150,4 @@ if(${CMAKE_SYSTEM_NAME} STREQUAL "iOS")
     IPA
     UPLOAD_SYMBOL
     VERBOSE)
-
 endif()

@@ -188,11 +188,25 @@ jobs:
       - name: Prepare osx build env
         if: ${{ matrix.os == 'macos-10.15' }}
         run: |
-          brew install automake bison flex
+          brew install automake bison flex gnu-sed create-dmg
           echo $(brew --prefix bison)/bin >> $GITHUB_PATH
           echo $(brew --prefix flex)/bin >> $GITHUB_PATH
           echo "EXTRA_CMAKE_ARGS=-GXcode -T buildsystem=1" >> $GITHUB_ENV
           sudo xcode-select -s /Applications/Xcode_12.app/Contents/Developer
+
+      - uses: Apple-Actions/import-codesign-certs@v1
+        if: ${{ matrix.os == 'macos-10.15' }}
+        with:
+          p12-file-base64: ${{ secrets.IOS_CERTIFICATES_FILE_BASE64 }}
+          p12-password: ${{ secrets.IOS_CERTIFICATES_PASSWORD }}
+
+      - uses: Apple-Actions/download-provisioning-profiles@v1
+        if: ${{ matrix.os == 'macos-10.15' }}
+        with:
+          bundle-id: ch.opengis.qfield
+          issuer-id: ${{ secrets.IOS_APPSTORE_ISSUER_ID }}
+          api-key-id: ${{ secrets.IOS_APPSTORE_KEY_ID }}
+          api-private-key: ${{ secrets.IOS_APPSTORE_PRIVATE_KEY }}
 
       - name: 🌱 Install dependencies and generate project files
         shell: bash
@@ -224,6 +238,7 @@ jobs:
                 -DNUGET_TOKEN=${{ secrets.GITHUB_TOKEN }} \
                 -DSENTRY_DSN=${{ secrets.SENTRY_DSN }} \
                 -DSENTRY_ENV="${APP_ENV}" \
+                -DMACOS_CODE_SIGN_IDENTITY="${{ secrets.IOS_CODE_SIGN_IDENTITY }}" \
                 ${EXTRA_CMAKE_ARGS}
 
 
@@ -276,7 +291,20 @@ jobs:
               echo "ARTIFACT_PATHNAME=${ARTIFACT_PATHNAME}" >> $GITHUB_ENV
               echo "ARTIFACT_NAME=${{ steps.vars.outputs.CI_PACKAGE_FILE_BASENAME }}-windows-x64.exe" >> $GITHUB_ENV
               ;;
+
+            x64-osx)
+              echo "ARTIFACT_PATHNAME=${{ env.CMAKE_BUILD_DIR }}/QField-Installer.dmg" >> $GITHUB_ENV
+              echo "ARTIFACT_NAME=${{ steps.vars.outputs.CI_PACKAGE_FILE_BASENAME }}-macos.dmg" >> $GITHUB_ENV
+              ;;
+
           esac
+
+#      - name: "Notarize Release Build"
+#        uses: devbotsxyz/xcode-notarize@v1
+#        with:
+#          product-path: ${{ env.ARTIFACT_PATHNAME }}
+#          appstore-connect-username: ${{ secrets.IOS_APPSTORE_KEY_ID }}
+#          appstore-connect-password: ${{ secrets.IOS_APPSTORE_PRIVATE_KEY }}
 
       - name: 📑 Upload Package Logs
         uses: actions/upload-artifact@v2
