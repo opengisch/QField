@@ -5,6 +5,7 @@ on:
     branches:
       - master
       - release-**
+      - cache-qt
   pull_request:
   release:
     types: ['published', 'released']
@@ -94,6 +95,13 @@ jobs:
           sudo apt clean
           df -h
 
+      - name: Cache Qt
+        id: cache-qt
+        uses: actions/cache@v2.1.5
+        with:
+          path: ${{ github.workspace }}/Qt-android
+          key: Qt-5.14.2-android
+
       - name: 💐 Install Qt
         if: ${{ steps.vars.outputs.INSTALL_QT }}
         uses: jurplel/install-qt-action@v2
@@ -101,6 +109,7 @@ jobs:
           version: 5.14.2
           modules: 'qtcharts'
           target: ${{ steps.vars.outputs.QT_TARGET }}
+          cached: ${{ steps.cache-qt.outputs.cache-hit }}
 
       # transifex-client is not compatible with py >= 3.10
       # temporary band aid
