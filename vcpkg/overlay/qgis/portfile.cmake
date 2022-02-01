@@ -16,7 +16,6 @@ vcpkg_from_github(
         exiv2.patch
         androidextras.patch
         findpg.patch
-        crssync.patch
 )
 
 file(REMOVE ${SOURCE_PATH}/cmake/FindQtKeychain.cmake)
@@ -216,6 +215,10 @@ else() # Build in UNIX
         list(APPEND QGIS_OPTIONS_DEBUG -DPoly2Tri_LIBRARY:PATH=${CURRENT_INSTALLED_DIR}/debug/lib/libqt_poly2tri_debug.a) # static qt only
         list(APPEND QGIS_OPTIONS_RELEASE -DPoly2Tri_LIBRARY:PATH=${CURRENT_INSTALLED_DIR}/lib/libqt_poly2tri.a) # static qt only
     endif()
+endif()
+
+if(VCPKG_CROSSCOMPILING)
+    list(APPEND QGIS_OPTIONS -DNATIVE_CRSSYNC_BIN=/bin/true)
 endif()
 
 list(APPEND QGIS_OPTIONS -DQGIS_MACAPP_FRAMEWORK=FALSE)
