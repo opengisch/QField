@@ -120,6 +120,7 @@ if (VCPKG_LIBRARY_LINKAGE STREQUAL "static")
   # QGIS likes to install auth and providers to different locations on each platform
   # let's keep things clean and tidy and put them at a predictable location
   list(APPEND QGIS_OPTIONS -DQGIS_PLUGIN_SUBDIR=lib)
+  list(APPEND QGIS_OPTIONS -DNATIVE_CRSSYNC_BIN=/bin/true)
 endif()
 
 # By default QGIS installs includes into "include" on Windows and into "include/qgis" everywhere else
@@ -215,10 +216,6 @@ else() # Build in UNIX
         list(APPEND QGIS_OPTIONS_DEBUG -DPoly2Tri_LIBRARY:PATH=${CURRENT_INSTALLED_DIR}/debug/lib/libqt_poly2tri_debug.a) # static qt only
         list(APPEND QGIS_OPTIONS_RELEASE -DPoly2Tri_LIBRARY:PATH=${CURRENT_INSTALLED_DIR}/lib/libqt_poly2tri.a) # static qt only
     endif()
-endif()
-
-if(VCPKG_CROSSCOMPILING)
-    list(APPEND QGIS_OPTIONS -DNATIVE_CRSSYNC_BIN=/bin/true)
 endif()
 
 list(APPEND QGIS_OPTIONS -DQGIS_MACAPP_FRAMEWORK=FALSE)
