@@ -160,8 +160,6 @@ if(MSVC)
   add_link_options("$<$<NOT:$<CONFIG:Debug>>:/OPT:ICF>")
 endif()
 
-set(CMAKE_CXX_VISIBILITY_PRESET hidden)
-
 add_subdirectory(src/core)
 add_subdirectory(src/app)
 
