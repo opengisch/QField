@@ -29,8 +29,15 @@ public class QFieldGalleryPictureActivity extends Activity {
         Log.d(TAG, "onCreate()");
         super.onCreate(savedInstanceState);
 
-        prefix = getIntent().getExtras().getString("prefix");
-        pictureFilePath = getIntent().getExtras().getString("pictureFilePath");
+        Intent intent = getIntent();
+        if (!intent.hasExtra("prefix") || !intent.hasExtra("pictureFilePath")) {
+            Log.d(TAG, "QFieldGalleryPictureActivity missing extras");
+            finish();
+            return;
+        }
+
+        prefix = intent.getExtras().getString("prefix");
+        pictureFilePath = intent.getExtras().getString("pictureFilePath");
         Log.d(TAG, "Received prefix: " + prefix +
                        " and pictureFilePath: " + pictureFilePath);
 
