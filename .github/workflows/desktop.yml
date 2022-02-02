@@ -291,7 +291,7 @@ jobs:
 
       - name: Notarize Release Build
         if: ${{ matrix.os == 'macos-10.15' }}
-        uses: devbotsxyz/xcode-notarize@v1
+        uses: m-kuhn/xcode-notarize@patch-1
         with:
           product-path: ${{ env.ARTIFACT_PATHNAME }}
           appstore-connect-api-issuer: ${{ secrets.APPSTORE_CONNECT_API_ISSUER }}
