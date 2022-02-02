@@ -562,7 +562,6 @@ void QFieldCloudProjectsModel::projectGetJobStatus( const QString &projectId, co
   if ( !project->jobs.contains( jobType ) )
   {
     QgsLogger::debug( QStringLiteral( "Project %1: getting job status, but no package job triggered yet." ).arg( projectId ) );
-    Q_ASSERT( 0 );
     return;
   }
 
@@ -682,7 +681,6 @@ void QFieldCloudProjectsModel::projectPackageAndDownload( const QString &project
         if ( jobProjectId != projectId )
         {
           QgsLogger::debug( QStringLiteral( "Project %1: packaging finished for unexpected project `%2`." ).arg( projectId, jobProjectId ) );
-          Q_ASSERT( 0 );
           return;
         }
 
