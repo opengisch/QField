@@ -690,7 +690,7 @@ public class QFieldProjectActivity
                     try {
                         InputStream input = resolver.openInputStream(uri);
                         imported = QFieldUtils.inputStreamToFile(
-                            input, importFilePath);
+                            input, importFilePath, documentFile.length());
                     } catch (Exception e) {
                         e.printStackTrace();
                         break;
@@ -704,8 +704,8 @@ public class QFieldProjectActivity
                     importDatasetPath + documentFile.getName();
                 try {
                     InputStream input = resolver.openInputStream(uri);
-                    imported =
-                        QFieldUtils.inputStreamToFile(input, importFilePath);
+                    imported = QFieldUtils.inputStreamToFile(
+                        input, importFilePath, documentFile.length());
                 } catch (Exception e) {
                     e.printStackTrace();
                     AlertDialog alertDialog =
