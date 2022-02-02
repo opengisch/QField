@@ -289,12 +289,20 @@ jobs:
 
           esac
 
-#      - name: "Notarize Release Build"
-#        uses: devbotsxyz/xcode-notarize@v1
-#        with:
-#          product-path: ${{ env.ARTIFACT_PATHNAME }}
-#          appstore-connect-username: ${{ secrets.IOS_APPSTORE_KEY_ID }}
-#          appstore-connect-password: ${{ secrets.IOS_APPSTORE_PRIVATE_KEY }}
+      - name: Notarize Release Build
+        if: ${{ matrix.os == 'macos-10.15' }}
+        uses: devbotsxyz/xcode-notarize@v1
+        with:
+          product-path: ${{ env.ARTIFACT_PATHNAME }}
+          appstore-connect-username: ${{ secrets.APPSTORE_USERNAME }}
+          appstore-connect-password: ${{ secrets.APPSTORE_PASSWORD }}
+
+
+      - name: Staple Release Build
+        if: ${{ matrix.os == 'macos-10.15' }}
+        uses: devbotsxyz/xcode-staple@v1
+        with:
+          product-path: ${{ env.ARTIFACT_PATHNAME }}
 
       - name: 📑 Upload Package Logs
         uses: actions/upload-artifact@v2
