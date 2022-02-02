@@ -30,9 +30,18 @@ public class QFieldCameraPictureActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         Log.d(TAG, "onCreate()");
         super.onCreate(savedInstanceState);
-        prefix = getIntent().getExtras().getString("prefix");
-        pictureFilePath = getIntent().getExtras().getString("pictureFilePath");
-        suffix = getIntent().getExtras().getString("suffix");
+
+        Intent intent = getIntent();
+        if (!intent.hasExtra("prefix") || !intent.hasExtra("suffix") ||
+            !intent.hasExtra("pictureFilePath")) {
+            Log.d(TAG, "QFieldCameraPictureActivity missing extras");
+            finish();
+            return;
+        }
+
+        prefix = intent.getExtras().getString("prefix");
+        pictureFilePath = intent.getExtras().getString("pictureFilePath");
+        suffix = intent.getExtras().getString("suffix");
         Log.d(TAG, "Received prefix: " + prefix + " and pictureFilePath: " +
                        pictureFilePath + "and suffix: " + suffix);
 
