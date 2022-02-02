@@ -75,7 +75,8 @@ public class QFieldUtils {
                 String filePath = folder + file.getName();
                 try {
                     InputStream input = resolver.openInputStream(file.getUri());
-                    QFieldUtils.inputStreamToFile(input, filePath);
+                    QFieldUtils.inputStreamToFile(input, filePath,
+                                                  file.length());
                 } catch (Exception e) {
                     e.printStackTrace();
                     return false;
@@ -111,15 +112,26 @@ public class QFieldUtils {
         return true;
     }
 
-    public static boolean inputStreamToFile(InputStream in, String file) {
+    public static boolean inputStreamToFile(InputStream in, String file,
+                                            long totalBytes) {
         try {
             OutputStream out = new FileOutputStream(new File(file));
 
             int size = 0;
-            byte[] buffer = new byte[1024];
+            int bufferSize = 1024;
+            long bufferRead = 0;
+            byte[] buffer = new byte[bufferSize];
 
-            while ((size = in.read(buffer)) != -1) {
+            if (totalBytes > 0 && bufferRead + bufferSize > totalBytes) {
+                bufferSize = (int)(totalBytes - bufferRead);
+            }
+            while (bufferSize > 0 &&
+                   (size = in.read(buffer, 0, bufferSize)) != -1) {
                 out.write(buffer, 0, size);
+                bufferRead += bufferSize;
+                if (totalBytes > 0 && bufferRead + bufferSize > totalBytes) {
+                    bufferSize = (int)(totalBytes - bufferRead);
+                }
             }
 
             out.close();

@@ -134,6 +134,7 @@ public class QFieldActivity extends QtActivity {
             DocumentFile documentFile =
                 DocumentFile.fromSingleUri(context, uri);
             String fileName = documentFile.getName();
+            long fileBytes = documentFile.length();
             if (fileName == null && type != null) {
                 // File name not provided
                 fileName = new SimpleDateFormat("yyyyMMdd_HHmmss")
@@ -195,7 +196,8 @@ public class QFieldActivity extends QtActivity {
                       "Importing document to file path: " + importFilePath);
                 try {
                     InputStream input = resolver.openInputStream(uri);
-                    QFieldUtils.inputStreamToFile(input, importFilePath);
+                    QFieldUtils.inputStreamToFile(input, importFilePath,
+                                                  fileBytes);
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
