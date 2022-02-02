@@ -418,19 +418,6 @@ void AndroidPlatformUtilities::restoreBrightness()
   }
 }
 
-void AndroidPlatformUtilities::showRateThisApp() const
-{
-  QAndroidJniObject activity = QAndroidJniObject::fromString( QStringLiteral( "ch.opengis." APP_PACKAGE_NAME ".QFieldAppRaterActivity" ) );
-  QAndroidJniObject intent = QAndroidJniObject( "android/content/Intent", "(Ljava/lang/String;)V", activity.object<jstring>() );
-
-  QAndroidJniObject packageName = QAndroidJniObject::fromString( QStringLiteral( "ch.opengis." APP_PACKAGE_NAME ) );
-  QAndroidJniObject className = QAndroidJniObject::fromString( QStringLiteral( "ch.opengis." APP_PACKAGE_NAME ".QFieldAppRaterActivity" ) );
-
-  intent.callObjectMethod( "setClassName", "(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;", packageName.object<jstring>(), className.object<jstring>() );
-
-  QtAndroid::startActivity( intent.object<jobject>(), 104 );
-}
-
 #ifdef __cplusplus
 extern "C" {
 #endif

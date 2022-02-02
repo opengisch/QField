@@ -369,8 +369,6 @@ ApplicationWindow {
           overlayFeatureFormDrawer.closePolicy = Popup.CloseOnEscape | Popup.CloseOnPressOutside
         }
       }
-
-      Component.onCompleted: platformUtilities.showRateThisApp()
     }
 
 
