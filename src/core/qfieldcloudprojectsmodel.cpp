@@ -446,7 +446,7 @@ void QFieldCloudProjectsModel::projectRefreshData( const QString &projectId, con
     project->owner = projectData.value( "owner" ).toString();
     project->description = projectData.value( "description" ).toString();
     project->userRole = projectData.value( "user_role" ).toString();
-    project->isPrivate = projectData.value( "is_private" ).toBool();
+    project->isPrivate = projectData.value( "is_public" ).isUndefined() ? projectData.value( "private" ).toBool() : !projectData.value( "is_public" ).toBool( false );
     project->canRepackage = projectData.value( "can_repackage" ).toBool();
     project->needsRepackaging = projectData.value( "needs_repackaging" ).toBool();
     project->lastRefreshedAt = QDateTime::currentDateTimeUtc();
