@@ -246,7 +246,7 @@ void QFieldCloudProjectsModel::removeLocalProject( const QString &projectId )
   {
     const QModelIndex projectIndex = findProjectIndex( projectId );
 
-    if ( !projectIndex.isValid() )
+    if ( projectIndex.isValid() )
     {
       CloudProject *project = mProjects[projectIndex.row()];
       if ( project->status == ProjectStatus::Idle && project->checkout & RemoteCheckout )
