@@ -1248,7 +1248,7 @@ void QFieldCloudProjectsModel::uploadProject( const QString &projectId, const bo
 
     if ( shouldDownloadUpdates )
     {
-      projectApplyDeltas( projectId );
+      projectGetDeltaStatus( projectId );
     }
     else
     {
@@ -1360,39 +1360,6 @@ void QFieldCloudProjectsModel::uploadProject( const QString &projectId, const bo
   //    emit dataChanged( projectIndex, projectIndex, QVector<int>() << StatusRole );
   //    emit syncFinished( projectId, false );
   //  } );
-}
-
-
-void QFieldCloudProjectsModel::projectApplyDeltas( const QString &projectId )
-{
-  const QModelIndex projectIndex = findProjectIndex( projectId );
-
-  if ( !projectIndex.isValid() )
-    return;
-
-  CloudProject *project = mProjects[projectIndex.row()];
-  NetworkReply *reply = mCloudConnection->post( QStringLiteral( "/api/v1/deltas/apply/%1/" ).arg( project->id ) );
-
-  connect( reply, &NetworkReply::finished, this, [=]() {
-    QNetworkReply *rawReply = reply->reply();
-    reply->deleteLater();
-
-    Q_ASSERT( reply->isFinished() );
-    Q_ASSERT( rawReply );
-
-    if ( rawReply->error() != QNetworkReply::NoError )
-    {
-      project->status = ProjectStatus::Idle;
-      project->deltaFileUploadStatus = DeltaErrorStatus;
-      project->deltaFileUploadStatusString = QFieldCloudConnection::errorString( rawReply );
-
-      emit dataChanged( projectIndex, projectIndex, QVector<int>() << UploadDeltaStatusRole << UploadDeltaStatusStringRole );
-      emit networkDeltaStatusChecked( projectId );
-      return;
-    }
-
-    projectGetDeltaStatus( projectId );
-  } );
 }
 
 void QFieldCloudProjectsModel::refreshProjectDeltaList( const QString &projectId )

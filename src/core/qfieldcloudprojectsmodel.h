@@ -445,7 +445,6 @@ class QFieldCloudProjectsModel : public QAbstractListModel
     void projectCancelUpload( const QString &projectId );
     void projectCancelUploadAttachments( const QString &projectId );
     void projectUploadAttachments( const QString &projectId );
-    void projectApplyDeltas( const QString &projectId );
     void projectGetDeltaStatus( const QString &projectId );
     bool projectMoveDownloadedFilesToPermanentStorage( const QString &projectId );
     void projectRefreshData( const QString &projectId, const ProjectRefreshReason &refreshReason );
