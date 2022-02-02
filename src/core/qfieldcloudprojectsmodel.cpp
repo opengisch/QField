@@ -451,7 +451,6 @@ void QFieldCloudProjectsModel::projectRefreshData( const QString &projectId, con
     project->needsRepackaging = projectData.value( "needs_repackaging" ).toBool();
     project->lastRefreshedAt = QDateTime::currentDateTimeUtc();
 
-    const QString projectPrefix = QStringLiteral( "QFieldCloud/projects/%1" ).arg( project->id );
     QFieldCloudUtils::setProjectSetting( project->id, QStringLiteral( "name" ), project->name );
     QFieldCloudUtils::setProjectSetting( project->id, QStringLiteral( "owner" ), project->owner );
     QFieldCloudUtils::setProjectSetting( project->id, QStringLiteral( "description" ), project->description );
