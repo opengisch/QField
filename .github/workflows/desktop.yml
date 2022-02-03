@@ -296,6 +296,7 @@ jobs:
           product-path: ${{ env.ARTIFACT_PATHNAME }}
           appstore-connect-api-issuer: ${{ secrets.APPSTORE_CONNECT_API_ISSUER }}
           appstore-connect-api-key: ${{ secrets.APPSTORE_CONNECT_API_KEY }}
+          verbose: true
 
       - name: Staple Release Build
         if: ${{ matrix.os == 'macos-10.15' }}
