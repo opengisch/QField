@@ -289,6 +289,13 @@ jobs:
 
           esac
 
+      - name: 📦 Upload package
+        if: ${{ env.ARTIFACT_NAME != null }}
+        uses: actions/upload-artifact@v2
+        with:
+          name: "QField-dev-${{ matrix.triplet }}-${{ steps.vars.outputs.BUILD_TYPE }}"
+          path: ${{ env.ARTIFACT_PATHNAME }}
+
       - name: Notarize Release Build
         if: ${{ matrix.os == 'macos-10.15' }}
         uses: m-kuhn/xcode-notarize@patch-1
