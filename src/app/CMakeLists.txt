@@ -90,7 +90,7 @@ function(create_executable)
       PROPERTIES MACOSX_BUNDLE_BUNDLE_NAME "${PROJECT_NAME}"
                  MACOSX_BUNDLE_INFO_STRING "${PROJECT_NAME} OPENGIS.ch"
                  MACOSX_BUNDLE_ICON_FILE "qfield_logo.icns"
-                 MACOSX_BUNDLE_GUI_IDENTIFIER "${PROJECT_NAME}"
+                 MACOSX_BUNDLE_GUI_IDENTIFIER "ch.opengis.qfield"
                  MACOSX_BUNDLE_LONG_VERSION_STRING "${PROJECT_VERSION}"
                  MACOSX_BUNDLE_SHORT_VERSION_STRING
                  "${PROJECT_VERSION_MAJOR}.${PROJECT_VERSION_MINOR}"
