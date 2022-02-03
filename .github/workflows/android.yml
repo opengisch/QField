@@ -98,7 +98,7 @@ jobs:
         id: cache-qt
         uses: actions/cache@v2.1.5
         with:
-          path: ${{ github.workspace }}/../Qt
+          path: /home/runner/work/QField/Qt
           key: Qt-5.14.2-android-all.1
 
       - name: 💐 Install Qt
@@ -107,7 +107,7 @@ jobs:
         with:
           version: 5.14.2
           modules: 'qtcharts'
-          dir: ${{ github.workspace }}/../Qt
+          dir: /home/runner/work/QField/Qt
           target: ${{ steps.vars.outputs.QT_TARGET }}
           cached: ${{ steps.cache-qt.outputs.cache-hit }}
 
