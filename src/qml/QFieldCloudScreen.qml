@@ -206,7 +206,7 @@ Page {
             clip: true
 
             onMovingChanged: {
-              if ( !moving && overshootRefresh ) {
+              if ( !moving && overshootRefresh && cloudConnection.state === QFieldCloudConnection.Idle ) {
                 refreshProjectsList();
               }
               overshootRefresh = false;
@@ -536,6 +536,7 @@ Page {
           Layout.fillWidth: true
           text: qsTr( "Refresh projects list" )
           enabled: cloudConnection.status === QFieldCloudConnection.LoggedIn
+                   && cloudConnection.state === QFieldCloudConnection.Idle
 
           onClicked: refreshProjectsList()
       }
@@ -552,6 +553,10 @@ Page {
   }
 
   function refreshProjectsList() {
+    if ( cloudConnection.state !== QFieldCloudConnection.Idle ) {
+      return;
+    }
+
     cloudProjectsModel.refreshProjectsList();
     displayToast( qsTr( "Refreshing projects list" ) );
   }
