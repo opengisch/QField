@@ -1160,6 +1160,9 @@ void QFieldCloudProjectsModel::uploadProject( const QString &projectId, const bo
   const QStringList attachmentFileNames = deltaFileWrapper->attachmentFileNames().keys();
   for ( const QString &fileName : attachmentFileNames )
   {
+    if ( fileName.isEmpty() )
+      continue;
+
     QString absoluteFilePath = fileName;
     QFileInfo fileInfo( fileName );
     if ( fileInfo.isRelative() )
