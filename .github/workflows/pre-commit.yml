@@ -1,4 +1,4 @@
-name: 🧹 Static Tests
+name: 🧽 Format checks
 
 on:
   push:
@@ -21,20 +21,23 @@ jobs:
         id: get-pr
         with:
           script: |
-            const request = {
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              pull_number: context.issue.number
-            }
-            console.log(context)
-            console.log(context.payload)
-            return context.payload.pull_request
+            const prUrl =  context.payload.issue.pull_request.url;
+            const octokit = github.getOctokit(token);
+
+            const prDetails = await octokit.request(`GET ${prUrl}`);
+            const headRef = prDetails.data.head.ref;
+            const headSha = prDetails.data.head.sha;
+            const headRepo = prDetails.data.head.repo.full_name;
+
+            core.setOutput('head_ref', headRef);
+            core.setOutput('head_sha', headSha);
+            core.setOutput('head_repo', headRepo);
 
       - uses: actions/checkout@v2
-        if: ${{ github.event.issue.pull_request }}
+        if: ${{ github.event.issue_comment.pull_request }}
         with:
-          repository: ${{ fromJSON(steps.get-pr.outputs.result).head.repo.full_name }}
-          ref: ${{ fromJSON(steps.get-pr.outputs.result).head.sha }} # or .head.ref for branch name
+          repository: ${{ steps.get-pr.outputs.head_repo }}
+          ref: ${{ steps.get-pr.outputs.head_sha }} # sha
 
       - uses: actions/checkout@v2
         if: ${{ !github.event.issue.pull_request }}
@@ -51,8 +54,7 @@ jobs:
       - name: Install Requirements
         run: |
             sudo apt install -y \
-              shellcheck \
-              astyle
+              shellcheck
 
       - name: Check pre-commit hooks
         uses: pre-commit/action@v2.0.3
@@ -71,7 +73,7 @@ jobs:
         with:
           author_name: Style Fairy
           author_email: fairy@qfield.org
-          message: 'Committing astyle changes'
-          branch: ${{ fromJSON(steps.get-pr.outputs.result).head.ref }}
+          message: 'Committing style changes'
+          branch: ${{ steps.get-pr.outputs.head_ref }} # branch name
         env:
           GITHUB_TOKEN: ${{ secrets.FAIRY_TOKEN }}
