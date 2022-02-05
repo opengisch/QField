@@ -21,10 +21,7 @@ jobs:
         id: get-pr
         with:
           script: |
-            const prUrl =  context.payload.issue.pull_request.url;
-            const octokit = github.getOctokit(token);
-
-            const prDetails = await octokit.request(`GET ${prUrl}`);
+            const prDetails = await github.request(context.payload.issue.pull_request.url);
             const headRef = prDetails.data.head.ref;
             const headSha = prDetails.data.head.sha;
             const headRepo = prDetails.data.head.repo.full_name;
