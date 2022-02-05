@@ -16,16 +16,16 @@ string(REGEX REPLACE "v" "" CLEAN_APP_VERSION "${APP_VERSION}")
 
 set(CMAKE_MODULE_PATH ${CMAKE_SOURCE_DIR}/cmake ${CMAKE_MODULE_PATH})
 
+# Platform specific fixes (android, macos, ...)
+include(Platform)
+# Obtain git revision
 include(GetGitRevisionDescription)
-
-set(USE_MAC_BUNDLING ON) # Will be overwritten by the VcpkgToolchain for vcpkg builds
+# The vcpkg toolchain to compile dependencies
 include(VcpkgToolchain)
-
 
 project(${APP_NAME}
   VERSION ${CLEAN_APP_VERSION}
 )
-
 
 GET_GIT_HEAD_REVISION(GIT_REFSPEC GIT_REV)
 
@@ -39,7 +39,6 @@ set(DEFAULT_INCLUDE_SUBDIR include/qfield)
 set(QFIELD_BIN_SUBDIR     ${DEFAULT_BIN_SUBDIR}     CACHE STRING "Subdirectory where executables will be installed")
 set(QFIELD_LIB_SUBDIR     ${DEFAULT_LIB_SUBDIR}     CACHE STRING "Subdirectory where libraries will be installed")
 set(QFIELD_INCLUDE_SUBDIR ${DEFAULT_INCLUDE_SUBDIR} CACHE STRING "Subdirectory where header files will be installed")
-
 
 set(RELATIVE_PREFIX_PATH ${WITH_VCPKG} CACHE BOOL "Use a prefix path relative to the application itself rather than hard coding the path while compiling")
 if(RELATIVE_PREFIX_PATH)
@@ -88,8 +87,6 @@ if (ANDROID)
   add_definitions(-DQGIS_INSTALL_DIR="") # TODO: do we need osgeo4a/[lib]/files here? see qgis.pri
 
   # Android SDK stuff
-  set(ANDROID_TARGET_PLATFORM CACHE INT "Target Android platform SDK version")
-  set(ANDROID_PLATFORM 21 CACHE INT "Minimum Android platform SDK version")
   set(ANDROID_PACKAGE_SOURCE_DIR ${CMAKE_BINARY_DIR}/android-template)
 
   include(platform/android/openssl/CMakeLists.txt)

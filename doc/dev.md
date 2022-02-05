@@ -92,7 +92,7 @@ You need to have the following tools available to build
 - cmake
 - Visual Studio
 
-# Configure
+### Configure
 
 QField on Windows will always be built using vcpkg.
 
@@ -100,7 +100,7 @@ QField on Windows will always be built using vcpkg.
 cmake -S QField -B build
 ```
 
-# Build
+### Build
 
 ```sh
 cmake --build build
@@ -148,12 +148,7 @@ aqt install-qt linux android 5.14.2 -m qtcharts
 export ANDROID_NDK_HOME=[path to your android ndk]
 cmake -S QField \
       -B build \
-      -D VCPKG_TARGET_TRIPLET=arm64-android \
-      -D WITH_VCPKG=ON \
-      -D VCPKG_CHAINLOAD_TOOLCHAIN_FILE=${ANDROID_NDK_HOME}/build/cmake/android.toolchain.cmake \
-      -D ANDROID_ABI=arm64-v8a \
-      -D ANDROID_PLATFORM=21 \
-      -D ANDROID_TARGET_PLATFORM=30
+      -D VCPKG_TARGET_TRIPLET=arm64-android
 ```
 
 #### Build
