@@ -11,7 +11,7 @@ ITEMS=""
 
 FRAMEWORKS_DIR="${APP_DIR}/Contents/Frameworks"
 if [ -d "$FRAMEWORKS_DIR" ] ; then
-    FRAMEWORKS=$(find "${FRAMEWORKS_DIR}" -depth -type d -name "*.framework" -or -name "*.dylib" -or -name "*.bundle" | sed -e "s/\(.*framework\)/\1\/Versions\/A\//")
+    FRAMEWORKS=$(find "${FRAMEWORKS_DIR}" -depth -type d -name "*.framework" -or -name "*.dylib" -or -name "*.bundle" | sed -e "s/\(.*framework\)/\1\/Versions\/5\//")
     RESULT=$?
     if [[ $RESULT != 0 ]] ; then
         exit 1
