@@ -30,15 +30,6 @@ jobs:
             core.setOutput('head_sha', headSha);
             core.setOutput('head_repo', headRepo);
 
-      - uses: actions/checkout@v2
-        if: ${{ github.event.issue_comment.pull_request }}
-        with:
-          repository: ${{ steps.get-pr.outputs.head_repo }}
-          ref: ${{ steps.get-pr.outputs.head_sha }} # sha
-
-      - uses: actions/checkout@v2
-        if: ${{ !github.event.issue.pull_request }}
-
       - uses: khan/pull-request-comment-trigger@master
         id: run-fixes
         if: ${{ github.event.issue.pull_request }}
@@ -48,17 +39,26 @@ jobs:
         env:
           GITHUB_TOKEN: '${{ secrets.FAIRY_TOKEN }}'
 
+      - uses: actions/checkout@v2
+        if: ${{ github.event.issue.pull_request }}
+        with:
+          repository: ${{ steps.get-pr.outputs.head_repo }}
+          ref: ${{ steps.get-pr.outputs.head_sha }} # sha
+
+      - uses: actions/checkout@v2
+        if: ${{ !github.event.issue.pull_request }}
+
       - name: Install Requirements
         run: |
             sudo apt install -y \
               shellcheck
 
-      - name: Check pre-commit hooks
+      - name: Run pre-commit hooks
         uses: pre-commit/action@v2.0.3
 
       - name: Comment
         uses: thollander/actions-comment-pull-request@main
-        if: failure() && steps.run-fixes.outputs.triggered != 'true' && github.event.issue.pull_request
+        if: failure() && steps.run-fixes.outputs.triggered != 'true' && github.event.issue.pull_request && !github.event.comment
         with:
           message: |
             Code formatting issues have been detected.
