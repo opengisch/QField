@@ -266,17 +266,16 @@
     <meta-data android:name="io.sentry.dsn" android:value="@SENTRY_DSN@" />
     <meta-data android:name="io.sentry.environment" android:value="@SENTRY_ENV@" />
 
+    <queries>
+      <!-- Camera -->
+      <intent>
+          <action android:name="android.media.action.IMAGE_CAPTURE" />
+      </intent>
+
+      <!-- Gallery -->
+      <intent>
+          <action android:name="android.intent.action.GET_CONTENT" />
+      </intent>
+    </queries>
   </application>
-
-  <queries>
-    <!-- Camera -->
-    <intent>
-        <action android:name="android.media.action.IMAGE_CAPTURE" />
-    </intent>
-
-    <!-- Gallery -->
-    <intent>
-        <action android:name="android.intent.action.GET_CONTENT" />
-    </intent>
-  </queries>
 </manifest>
