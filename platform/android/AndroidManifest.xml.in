@@ -267,4 +267,16 @@
     <meta-data android:name="io.sentry.environment" android:value="@SENTRY_ENV@" />
 
   </application>
+
+  <queries>
+    <!-- Camera -->
+    <intent>
+        <action android:name="android.media.action.IMAGE_CAPTURE" />
+    </intent>
+
+    <!-- Gallery -->
+    <intent>
+        <action android:name="android.intent.action.GET_CONTENT" />
+    </intent>
+  </queries>
 </manifest>
