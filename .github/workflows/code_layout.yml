@@ -9,8 +9,6 @@ on:
     branches:
       - master
       - release-**
-  issue_comment:
-    types: [created]
 
 jobs:
   license_check:
@@ -68,65 +66,3 @@ jobs:
       - name: Check sdk pattern
         run: |
           grep -E 'osgeo4a_version=2[0-9]{7}' sdk.conf
-
-  pre-commit:
-    runs-on: ubuntu-20.04
-    steps:
-      - uses: actions/github-script@v5
-        if: ${{ github.event.issue.pull_request }}
-        id: get-pr
-        with:
-          script: |
-            const request = {
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              pull_number: context.issue.number
-            }
-            core.info(`Getting PR #${request.pull_number} from ${request.owner}/${request.repo}`)
-            return github.context.payload.pull_request
-
-      - uses: actions/checkout@v2
-        if: ${{ github.event.issue.pull_request }}
-        with:
-          repository: ${{ fromJSON(steps.get-pr.outputs.result).head.repo.full_name }}
-          ref: ${{ fromJSON(steps.get-pr.outputs.result).head.sha }} # or .head.ref for branch name
-
-      - uses: actions/checkout@v2
-        if: ${{ !github.event.issue.pull_request }}
-
-      - uses: khan/pull-request-comment-trigger@master
-        id: run-fixes
-        if: ${{ github.event.issue.pull_request }}
-        with:
-          trigger: '@qfield-fairy style please'
-          reaction: rocket
-        env:
-          GITHUB_TOKEN: '${{ secrets.FAIRY_TOKEN }}'
-
-      - name: Install Requirements
-        run: |
-            sudo apt install -y \
-              shellcheck \
-              astyle
-
-      - name: Check pre-commit hooks
-        uses: pre-commit/action@v2.0.3
-
-      - name: Comment
-        uses: thollander/actions-comment-pull-request@main
-        if: failure() && steps.run-fixes.outputs.triggered != 'true' && github.event.issue.pull_request
-        with:
-          message: |
-            Code formatting issues have been detected.
-            Reply with `@qfield-fairy style please` to fix it up 🪄.
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-      - uses: EndBug/add-and-commit@v8.0.1
-        if: failure() && steps.run-fixes.outputs.triggered == 'true' && github.event.issue.pull_request
-        with:
-          author_name: Style Fairy
-          author_email: fairy@qfield.org
-          message: 'Committing astyle changes'
-          branch: ${{ fromJSON(steps.get-pr.outputs.result).head.ref }}
-        env:
-          GITHUB_TOKEN: ${{ secrets.FAIRY_TOKEN }}
