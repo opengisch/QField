@@ -108,12 +108,22 @@ cmake --build build
 
 ## Android
 
+Android runs on a number of different CPU architectures.
+The most common one is `arm64`. The platform to build for is specified via triplet.
+
+The following triplets are
+
+- `arm64-android`
+- `arm-android`
+- `x64-android`
+- `x86-android`
+
 ### Using a docker image
 
 There is a simple script that helps building everything by using a docker image.
 
 ```sh
-./scripts/build.sh
+triplet=arm-android ./scripts/build.sh
 ```
 
 ### Building locally
