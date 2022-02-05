@@ -135,7 +135,7 @@ jobs:
         uses: actions/cache@v2
         with:
           path: ${{ steps.vars.outputs.BUILD_ROOT }}/.ccache
-        key: ccache-${{ matrix.triplet }}
+          key: ccache-${{ matrix.triplet }}
 
       - name: 🐧 Prepare linux build env
         if: ${{ matrix.triplet == 'x64-linux' }}
