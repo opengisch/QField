@@ -130,6 +130,13 @@ jobs:
           target: ${{ steps.vars.outputs.QT_TARGET }}
           arch: ${{ steps.vars.outputs.QT_ARCH }}
 
+      - name: Ccache
+        if: ${{ matrix.triplet == 'x64-linux' || matrix.triplet == 'x64-osx' }}
+        uses: actions/cache@v2
+        with:
+          path: ${{ steps.vars.outputs.BUILD_ROOT }}/.ccache
+        key: ccache-${{ matrix.triplet }}
+
       - name: 🐧 Prepare linux build env
         if: ${{ matrix.triplet == 'x64-linux' }}
         run: |
@@ -139,7 +146,8 @@ jobs:
           # Required to run unit tests on linux
           echo "QT_QPA_PLATFORM=offscreen" >> $GITHUB_ENV
           echo "TESTWRAPPER=xvfb-run" >> $GITHUB_ENV
-          echo "EXTRA_CMAKE_ARGS=-GNinja -DCMAKE_INSTALL_PREFIX=/usr -DLINUXDEPLOY_EXECUTABLE=${{ steps.vars.outputs.BUILD_ROOT }}/linuxdeploy-x86_64.AppImage" >> $GITHUB_ENV
+          echo "EXTRA_CMAKE_ARGS=-GNinja -DCMAKE_INSTALL_PREFIX=/usr -DLINUXDEPLOY_EXECUTABLE=${{ steps.vars.outputs.BUILD_ROOT }}/linuxdeploy-x86_64.AppImage -DCMAKE_CXX_COMPILER_LAUNCHER=ccache" >> $GITHUB_ENV
+          echo "CCACHE_DIR=${{ steps.vars.outputs.BUILD_ROOT }}/.ccache" >> $GITHUB_ENV
 
       - name: Install linuxdeploy
         if: ${{ matrix.triplet == 'x64-linux' }}
@@ -181,7 +189,8 @@ jobs:
           brew install automake bison flex gnu-sed create-dmg
           echo $(brew --prefix bison)/bin >> $GITHUB_PATH
           echo $(brew --prefix flex)/bin >> $GITHUB_PATH
-          echo "EXTRA_CMAKE_ARGS=-GXcode -T buildsystem=1" >> $GITHUB_ENV
+          echo "EXTRA_CMAKE_ARGS=-GXcode -T buildsystem=1 -DCMAKE_CXX_COMPILER_LAUNCHER=ccache" >> $GITHUB_ENV
+          echo "CCACHE_DIR=${{ steps.vars.outputs.BUILD_ROOT }}/.ccache" >> $GITHUB_ENV
           sudo xcode-select -s /Applications/Xcode_12.app/Contents/Developer
 
       - uses: Apple-Actions/import-codesign-certs@v1
@@ -230,7 +239,6 @@ jobs:
                 -DSENTRY_ENV="${APP_ENV}" \
                 -DMACOS_CODE_SIGN_IDENTITY="${{ secrets.IOS_CODE_SIGN_IDENTITY }}" \
                 ${EXTRA_CMAKE_ARGS}
-
 
       - name: 📑 Upload Dep Build Logs
         uses: actions/upload-artifact@v2
