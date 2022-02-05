@@ -59,16 +59,21 @@ public class QFieldCameraPictureActivity extends Activity {
         Log.d(TAG, "callCameraIntent()");
         Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
         if (takePictureIntent.resolveActivity(getPackageManager()) != null) {
+            Log.d(TAG, "intent resolved");
             File pictureFile = new File(getCacheDir(), pictureTempFileName);
 
             if (pictureFile != null) {
+                Log.d(TAG, "picture file exists ");
 
                 Uri photoURI = FileProvider.getUriForFile(
                     this, "ch.opengis.qfield.fileprovider", pictureFile);
 
+                Log.d(TAG, "uri: " + photoURI.toString());
                 takePictureIntent.putExtra(MediaStore.EXTRA_OUTPUT, photoURI);
                 startActivityForResult(takePictureIntent, 172);
             }
+        } else {
+            Log.d(TAG, "Could not resolve intent... AAAAAAAAH ");
         }
     }
 
