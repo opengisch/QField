@@ -59,7 +59,7 @@ void RecentProjectListModel::reloadModel()
 
     QString path = settings.value( QStringLiteral( "path" ) ).toString();
     QFileInfo fi( path );
-    if ( fi.exists() )
+    if ( fi.exists() && fi.isReadable() )
     {
       ProjectType projectType = path.startsWith( QFieldCloudUtils::localCloudDirectory() )
                                   ? CloudProject
