@@ -157,24 +157,6 @@ jobs:
             echo "EXTRA_CMAKE_ARGS=-DCMAKE_WIN32_EXECUTABLE=ON" >> $GITHUB_ENV
           fi
 
-      # transifex-client is not compatible with py >= 3.10
-      # temporary band aid
-      - uses: actions/setup-python@v2
-        with:
-          python-version: '3.9'
-
-      - name: 🌍 Pull Translations
-        shell: bash
-        env:
-          TX_TOKEN: ${{ secrets.TX_TOKEN }}
-        run: |
-          if [[ -z "${TX_TOKEN}" ]]; then
-            echo "TX_TOKEN not set, skip tx pull"
-          else
-            pip install transifex-client
-            ./scripts/ci/pull_translations.sh
-          fi
-
       - name: Prepare osx build env
         if: ${{ matrix.os == 'macos-10.15' }}
         run: |
