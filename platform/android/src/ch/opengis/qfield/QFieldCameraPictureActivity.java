@@ -25,6 +25,7 @@ public class QFieldCameraPictureActivity extends Activity {
     private String pictureFilePath;
     private String suffix;
     private String pictureTempFileName;
+    private String pictureTempFilePath;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,7 +48,7 @@ public class QFieldCameraPictureActivity extends Activity {
 
         String timeStamp =
             new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
-        pictureTempFileName = "QFieldPicture" + timeStamp + '.' + suffix;
+        pictureTempFileName = "QFieldPicture" + timeStamp;
         Log.d(TAG, "Created pictureTempFileName: " + pictureTempFileName);
 
         callCameraIntent();
@@ -60,20 +61,33 @@ public class QFieldCameraPictureActivity extends Activity {
         Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
         if (takePictureIntent.resolveActivity(getPackageManager()) != null) {
             Log.d(TAG, "intent resolved");
-            File pictureFile = new File(getCacheDir(), pictureTempFileName);
+            File storageDir =
+                getExternalFilesDir(Environment.DIRECTORY_PICTURES);
+            try {
+                File pictureFile = File.createTempFile(pictureTempFileName,
+                                                       suffix, storageDir);
 
-            if (pictureFile != null) {
-                Log.d(TAG, "picture file exists ");
+                if (pictureFile != null) {
+                    Log.d(TAG, "picture file created");
+                    if (pictureFile.exists()) {
+                        Log.d(TAG, "picture file exists");
+                    }
 
-                Uri photoURI = FileProvider.getUriForFile(
-                    this, "ch.opengis.qfield.fileprovider", pictureFile);
+                    pictureTempFilePath = pictureFile.getAbsolutePath();
 
-                Log.d(TAG, "uri: " + photoURI.toString());
-                takePictureIntent.putExtra(MediaStore.EXTRA_OUTPUT, photoURI);
-                startActivityForResult(takePictureIntent, 172);
+                    Uri photoURI = FileProvider.getUriForFile(
+                        this, "ch.opengis.qfield.fileprovider", pictureFile);
+
+                    Log.d(TAG, "uri: " + photoURI.toString());
+                    takePictureIntent.putExtra(MediaStore.EXTRA_OUTPUT,
+                                               photoURI);
+                    startActivityForResult(takePictureIntent, 172);
+                }
+            } catch (IOException e) {
+                Log.d(TAG, e.getMessage());
             }
         } else {
-            Log.d(TAG, "Could not resolve intent... AAAAAAAAH ");
+            Log.d(TAG, "Could not resolve intent...");
         }
     }
 
@@ -97,7 +111,7 @@ public class QFieldCameraPictureActivity extends Activity {
 
         if (resultCode == RESULT_OK) {
 
-            File pictureFile = new File(getCacheDir(), pictureTempFileName);
+            File pictureFile = new File(pictureTempFilePath);
             Log.d(TAG, "Taken picture: " + pictureFile.getAbsolutePath());
             try {
                 copyFile(pictureFile, result);
