@@ -36,7 +36,7 @@ using your system package manager.
 This is much faster to build than the using vcpkg and often the preferred
 development method.
 
-**Configure**
+### Configure
 ```sh
 cmake -S QField -B build
 ```
