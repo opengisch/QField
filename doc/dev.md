@@ -31,7 +31,7 @@ will build all the packages from source.
 ### Using system packages
 
 This will use your system packages.
-Make soure you have installed the appropriate `-dev` or `-devel` packages
+Make sure you have installed the appropriate `-dev` or `-devel` packages
 using your system package manager.
 This is much faster to build than the using vcpkg and often the preferred
 development method.
