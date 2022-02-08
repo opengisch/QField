@@ -9,11 +9,11 @@ then
 
   if [[ "${CI_TAG}" ]];
   then
-    FILENAME_AAB="qfield-${CI_TAG}-${ARCH}.aab"
-    FILENAME_APK="qfield-${CI_TAG}-${ARCH}.apk"
+    FILENAME_AAB="qfield-${CI_TAG}-${TRIPLET}.aab"
+    FILENAME_APK="qfield-${CI_TAG}-${TRIPLET}.apk"
   else
-    FILENAME_AAB="qfield-dev-${CI_UPLOAD_ARTIFACT_ID}-${CI_COMMIT}-${ARCH}.aab"
-    FILENAME_APK="qfield-dev-${CI_UPLOAD_ARTIFACT_ID}-${CI_COMMIT}-${ARCH}.apk"
+    FILENAME_AAB="qfield-dev-${CI_UPLOAD_ARTIFACT_ID}-${CI_COMMIT}-${TRIPLET}.aab"
+    FILENAME_APK="qfield-dev-${CI_UPLOAD_ARTIFACT_ID}-${CI_COMMIT}-${TRIPLET}.apk"
   fi
 
   mv ${CMAKE_BUILD_DIR}/android-build/build/outputs/bundle/release/android-build-release.aab /tmp/${FILENAME_AAB}

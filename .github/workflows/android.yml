@@ -22,10 +22,6 @@ jobs:
           - triplet: 'x64-android'
           - triplet: 'x86-android'
 
-    env:
-      ANDROID_PLATFORM: 21
-      ANDROID_TARGET_PLATFORM: 30
-
     steps:
       - name: 🐣 Checkout
         uses: actions/checkout@v2
@@ -37,26 +33,6 @@ jobs:
         shell: bash
         run: |
           ./scripts/ci/env_gh.sh
-
-          case ${{ matrix.triplet }} in
-            arm64-android)
-              echo "::set-output name=ARCH::arm64_v8a"
-              echo "::set-output name=ABI::arm64-v8a"
-              ;;
-            arm-android)
-              echo "::set-output name=ARCH::armv7"
-              echo "::set-output name=ABI::armeabi-v7a"
-              ;;
-            x64-android)
-              echo "::set-output name=ARCH::x86_64"
-              echo "::set-output name=ABI::x86_64"
-              ;;
-            x86-android)
-              echo "::set-output name=ARCH::x86"
-              echo "::set-output name=ABI::x86"
-              ;;
-          esac
-
 
           BUILD_ROOT="/home/runner"
           echo "::set-output name=SYSTEM_QT::ON"
@@ -136,36 +112,32 @@ jobs:
         shell: bash
         env:
           WORKSPACE: ${{ github.workspace }}
-          ARCH: ${{ matrix.triplet }}
         run: |
           # Convert paths to bash compatible ones. Thanks to whoever decided to use drive letters and backslashes.
           CMAKE_BUILD_DIR=$( ${{ steps.vars.outputs.PATHCONVERT }} "${CMAKE_BUILD_DIR}" )
           SOURCE_DIR=$( ${{ steps.vars.outputs.PATHCONVERT }} "${WORKSPACE}" )
 
-          source ./scripts/version_number.sh
-          source ./scripts/ci/generate-version-details.sh
+          TRIPLET=${{ matrix.triplet }} source ./scripts/version_number.sh
+          TRIPLET=${{ matrix.triplet }} source ./scripts/ci/generate-version-details.sh
 
           cmake -S "${SOURCE_DIR}" \
                 -B "${CMAKE_BUILD_DIR}" \
                 -G Ninja \
-                -DCMAKE_BUILD_TYPE=${{ steps.vars.outputs.BUILD_TYPE }} \
-                -DSYSTEM_QT=ON \
-                -DVCPKG_TARGET_TRIPLET="${{ matrix.triplet }}" \
-                -DWITH_SPIX=OFF \
-                -DAPP_VERSION="${APP_VERSION}" \
-                -DAPK_VERSION_CODE="${APK_VERSION_CODE}" \
-                -DAPP_VERSION_STR="${APP_VERSION_STR}" \
-                -DAPP_PACKAGE_NAME="${APP_PACKAGE_NAME}" \
-                -DAPP_ICON="${APP_ICON}" \
-                -DAPP_NAME="${APP_NAME}" \
-                -DNUGET_USERNAME=opengisch \
-                -DNUGET_TOKEN=${{ secrets.GITHUB_TOKEN }} \
-                -DANDROID_ABI=${{ steps.vars.outputs.ABI }} \
-                -DANDROID_PLATFORM=${{ env.ANDROID_PLATFORM }} \
-                -DANDROID_TARGET_PLATFORM=${{ env.ANDROID_TARGET_PLATFORM}} \
-                -DSENTRY_DSN=${{ fromJSON(format('{{"false": "{0}", "true": ""}}', secrets.SENTRY_DSN))[env.APP_ENV == 'prod'] }} \
-                -DSENTRY_ENV="${APP_ENV}" \
-                -DSENTRY_IMPORT_PREFIX=/tmp/sentry-android-ndk/jni
+                -D CMAKE_BUILD_TYPE=${{ steps.vars.outputs.BUILD_TYPE }} \
+                -D SYSTEM_QT=ON \
+                -D VCPKG_TARGET_TRIPLET="${{ matrix.triplet }}" \
+                -D WITH_SPIX=OFF \
+                -D APP_VERSION="${APP_VERSION}" \
+                -D APK_VERSION_CODE="${APK_VERSION_CODE}" \
+                -D APP_VERSION_STR="${APP_VERSION_STR}" \
+                -D APP_PACKAGE_NAME="${APP_PACKAGE_NAME}" \
+                -D APP_ICON="${APP_ICON}" \
+                -D APP_NAME="${APP_NAME}" \
+                -D NUGET_USERNAME=opengisch \
+                -D NUGET_TOKEN=${{ secrets.GITHUB_TOKEN }} \
+                -D SENTRY_DSN=${{ fromJSON(format('{{"false": "{0}", "true": ""}}', secrets.SENTRY_DSN))[env.APP_ENV == 'prod'] }} \
+                -D SENTRY_ENV="${APP_ENV}" \
+                -D SENTRY_IMPORT_PREFIX=/tmp/sentry-android-ndk/jni
 
       - name: 📑 Upload Dep Build Logs
         uses: actions/upload-artifact@v2
@@ -211,10 +183,9 @@ jobs:
       - name: 🍺 Deploy
         run: |
           sudo apt install -y s3cmd
-          ./scripts/ci/upload_artifacts.sh
+          TRIPLET=${{ matrix.triplet }} ./scripts/ci/upload_artifacts.sh
         env:
           S3CFG: ${{ secrets.S3CFG }}
-          ARCH: ${{  steps.vars.outputs.ARCH }}
 
       - name: Upload release assets
         uses: AButler/upload-release-assets@v2.0
@@ -247,20 +218,20 @@ jobs:
 
       - name: Download apks
         run: |
-          wget https://sos-ch-dk-2.exo.io/qfieldapks/ci-builds/${{ steps.vars.outputs.CI_PACKAGE_FILE_BASENAME }}-arm64_v8a.apk
-          wget https://sos-ch-dk-2.exo.io/qfieldapks/ci-builds/${{ steps.vars.outputs.CI_PACKAGE_FILE_BASENAME }}-armv7.apk
-          wget https://sos-ch-dk-2.exo.io/qfieldapks/ci-builds/${{ steps.vars.outputs.CI_PACKAGE_FILE_BASENAME }}-x86_64.apk
-          wget https://sos-ch-dk-2.exo.io/qfieldapks/ci-builds/${{ steps.vars.outputs.CI_PACKAGE_FILE_BASENAME }}-x86.apk
+          wget https://sos-ch-dk-2.exo.io/qfieldapks/ci-builds/${{ steps.vars.outputs.CI_PACKAGE_FILE_BASENAME }}-arm64-android.apk
+          wget https://sos-ch-dk-2.exo.io/qfieldapks/ci-builds/${{ steps.vars.outputs.CI_PACKAGE_FILE_BASENAME }}-arm-android.apk
+          wget https://sos-ch-dk-2.exo.io/qfieldapks/ci-builds/${{ steps.vars.outputs.CI_PACKAGE_FILE_BASENAME }}-x64-android.apk
+          wget https://sos-ch-dk-2.exo.io/qfieldapks/ci-builds/${{ steps.vars.outputs.CI_PACKAGE_FILE_BASENAME }}-x86-android.apkg
 
       - name: Upload to Google Play Store
         run: |
           pip install google-api-python-client google-auth-httplib2 google-auth-oauthlib oauth2client
 
           ./scripts/basic_upload_apks_service_account.py ch.opengis.${{ steps.vars.outputs.APP_PACKAGE_NAME }} beta "Update from commit ${GITHUB_SHA}" \
-              ${{ steps.vars.outputs.CI_PACKAGE_FILE_BASENAME }}-arm64_v8a.apk \
-              ${{ steps.vars.outputs.CI_PACKAGE_FILE_BASENAME }}-armv7.apk \
-              ${{ steps.vars.outputs.CI_PACKAGE_FILE_BASENAME }}-x86_64.apk \
-              ${{ steps.vars.outputs.CI_PACKAGE_FILE_BASENAME }}-x86.apk
+              ${{ steps.vars.outputs.CI_PACKAGE_FILE_BASENAME }}-arm64-android.apk \
+              ${{ steps.vars.outputs.CI_PACKAGE_FILE_BASENAME }}-arm-android.apk \
+              ${{ steps.vars.outputs.CI_PACKAGE_FILE_BASENAME }}-x64-android.apk \
+              ${{ steps.vars.outputs.CI_PACKAGE_FILE_BASENAME }}-x86-android.apkg
         env:
           GOOGLE_SERVICE_ACCOUNT: ${{ secrets.GOOGLE_SERVICE_ACCOUNT }}
 
@@ -292,9 +263,9 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.FAIRY_TOKEN }}
           message: |
             🎉 Ta-daaa, freshly created APKs are available for ${{ github.event.pull_request.head.sha }}:
-              - [**arm64_v8a**](https://sos-ch-dk-2.exo.io/qfieldapks/ci-builds/${{ steps.vars.outputs.CI_PACKAGE_FILE_BASENAME }}-arm64_v8a.apk)
+              - [**arm64-android**](https://sos-ch-dk-2.exo.io/qfieldapks/ci-builds/${{ steps.vars.outputs.CI_PACKAGE_FILE_BASENAME }}-arm64-android.apk)
 
-            Other architectures: [armv7](https://sos-ch-dk-2.exo.io/qfieldapks/ci-builds/${{ steps.vars.outputs.CI_PACKAGE_FILE_BASENAME }}-armv7.apk), [x86_64](https://sos-ch-dk-2.exo.io/qfieldapks/ci-builds/${{ steps.vars.outputs.CI_PACKAGE_FILE_BASENAME }}-x86_64.apk), [x86](https://sos-ch-dk-2.exo.io/qfieldapks/ci-builds/${{ steps.vars.outputs.CI_PACKAGE_FILE_BASENAME }}-x86.apk)
+            Other architectures: [arm-android](https://sos-ch-dk-2.exo.io/qfieldapks/ci-builds/${{ steps.vars.outputs.CI_PACKAGE_FILE_BASENAME }}-arm-android.apk), [x64-android](https://sos-ch-dk-2.exo.io/qfieldapks/ci-builds/${{ steps.vars.outputs.CI_PACKAGE_FILE_BASENAME }}-x64-android.apk), [x86](https://sos-ch-dk-2.exo.io/qfieldapks/ci-builds/${{ steps.vars.outputs.CI_PACKAGE_FILE_BASENAME }}-x86-android.apkg)
 
   comment_commit:
     runs-on: ubuntu-20.04
@@ -313,7 +284,7 @@ jobs:
           token: ${{ secrets.FAIRY_TOKEN }}
           body: |
             🎉 Ta-daaa, freshly created APKs are available:
-              - [**arm64_v8a**](https://sos-ch-dk-2.exo.io/qfieldapks/ci-builds/${{ steps.vars.outputs.CI_PACKAGE_FILE_BASENAME }}-arm64_v8a.apk)
+              - [**arm64-android**](https://sos-ch-dk-2.exo.io/qfieldapks/ci-builds/${{ steps.vars.outputs.CI_PACKAGE_FILE_BASENAME }}-arm64-android.apk)
 
-            Other architectures: [armv7](https://sos-ch-dk-2.exo.io/qfieldapks/ci-builds/${{ steps.vars.outputs.CI_PACKAGE_FILE_BASENAME }}-armv7.apk), [x86_64](https://sos-ch-dk-2.exo.io/qfieldapks/ci-builds/${{ steps.vars.outputs.CI_PACKAGE_FILE_BASENAME }}-x86_64.apk), [x86](https://sos-ch-dk-2.exo.io/qfieldapks/ci-builds/${{ steps.vars.outputs.CI_PACKAGE_FILE_BASENAME }}-x86.apk)
+            Other architectures: [arm-android](https://sos-ch-dk-2.exo.io/qfieldapks/ci-builds/${{ steps.vars.outputs.CI_PACKAGE_FILE_BASENAME }}-arm-android.apk), [x64-android](https://sos-ch-dk-2.exo.io/qfieldapks/ci-builds/${{ steps.vars.outputs.CI_PACKAGE_FILE_BASENAME }}-x64-android.apk), [x86](https://sos-ch-dk-2.exo.io/qfieldapks/ci-builds/${{ steps.vars.outputs.CI_PACKAGE_FILE_BASENAME }}-x86-android.apkg)
 

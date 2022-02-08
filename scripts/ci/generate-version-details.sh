@@ -15,7 +15,7 @@ if [[ -n ${CI_TAG} ]]; then
   # v1.2.3-rc4 Release Name -> 1.2.3 RC4 Release Name
   APP_VERSION_STR="$(app_version_str ${CI_TAG}) - ${APP_VERSION_NAME}"
   # v1.2.3-rc4 arm7 -> 0102030400
-  APK_VERSION_CODE=$(apk_version_code "${CI_TAG}" "${ARCH}")
+  APK_VERSION_CODE=$(apk_version_code "${CI_TAG}" "${TRIPLET}")
   # ^-- SC2155: Declare and assign separately to avoid masking return values.
 
   export APP_NAME="QField"
@@ -27,7 +27,7 @@ if [[ -n ${CI_TAG} ]]; then
   export APP_ENV="prod"
 elif [[ ${CI_PULL_REQUEST} = false ]]; then
   echo "Building dev (nightly)"
-  ARCH_NUMBER=$(arch_to_build_number ${ARCH})
+  TRIPLET_NUMBER=$(arch_to_build_number ${TRIPLET})
   # get numbers of masters commits
   CUSTOM_APP_PACKAGE_NAME=$(echo ${NIGHTLY_PACKAGE_NAME} | awk '{print $NF}' FS=.)
 
@@ -40,9 +40,9 @@ elif [[ ${CI_PULL_REQUEST} = false ]]; then
   # max = 2100000000
   export APP_VERSION_STR="${CI_BRANCH}-dev"
   if [[ -n ${CUSTOM_APP_PACKAGE_NAME} ]]; then
-    export APK_VERSION_CODE="${CI_RUN_NUMBER}${ARCH_NUMBER}"
+    export APK_VERSION_CODE="${CI_RUN_NUMBER}${TRIPLET_NUMBER}"
   else
-    export APK_VERSION_CODE=0$((1950000+CI_RUN_NUMBER))${ARCH_NUMBER}
+    export APK_VERSION_CODE=0$((1950000+CI_RUN_NUMBER))${TRIPLET_NUMBER}
   fi
   export APP_ENV="dev"
 
@@ -57,7 +57,7 @@ else
   export APP_ENV="pr"
 fi
 
-echo "Arch number: ${ARCH_NUMBER}"
+echo "Arch number: ${TRIPLET_NUMBER}"
 echo "APP_NAME: ${APP_NAME}"
 echo "APP_PACKAGE_NAME: ${APP_PACKAGE_NAME}"
 echo "APP_ICON: ${APP_ICON}"
