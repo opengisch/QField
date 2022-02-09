@@ -221,7 +221,7 @@ jobs:
           wget https://sos-ch-dk-2.exo.io/qfieldapks/ci-builds/${{ steps.vars.outputs.CI_PACKAGE_FILE_BASENAME }}-arm64-android.apk
           wget https://sos-ch-dk-2.exo.io/qfieldapks/ci-builds/${{ steps.vars.outputs.CI_PACKAGE_FILE_BASENAME }}-arm-android.apk
           wget https://sos-ch-dk-2.exo.io/qfieldapks/ci-builds/${{ steps.vars.outputs.CI_PACKAGE_FILE_BASENAME }}-x64-android.apk
-          wget https://sos-ch-dk-2.exo.io/qfieldapks/ci-builds/${{ steps.vars.outputs.CI_PACKAGE_FILE_BASENAME }}-x86-android.apkg
+          wget https://sos-ch-dk-2.exo.io/qfieldapks/ci-builds/${{ steps.vars.outputs.CI_PACKAGE_FILE_BASENAME }}-x86-android.apk
 
       - name: Upload to Google Play Store
         run: |
@@ -231,7 +231,7 @@ jobs:
               ${{ steps.vars.outputs.CI_PACKAGE_FILE_BASENAME }}-arm64-android.apk \
               ${{ steps.vars.outputs.CI_PACKAGE_FILE_BASENAME }}-arm-android.apk \
               ${{ steps.vars.outputs.CI_PACKAGE_FILE_BASENAME }}-x64-android.apk \
-              ${{ steps.vars.outputs.CI_PACKAGE_FILE_BASENAME }}-x86-android.apkg
+              ${{ steps.vars.outputs.CI_PACKAGE_FILE_BASENAME }}-x86-android.apk
         env:
           GOOGLE_SERVICE_ACCOUNT: ${{ secrets.GOOGLE_SERVICE_ACCOUNT }}
 
