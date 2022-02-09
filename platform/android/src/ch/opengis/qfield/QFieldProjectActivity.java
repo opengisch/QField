@@ -713,7 +713,9 @@ public class QFieldProjectActivity
                     alertDialog.setTitle(getString(R.string.import_error));
                     alertDialog.setMessage(
                         getString(R.string.import_dataset_error));
-                    alertDialog.show();
+                    if (!isFinishing()) {
+                        alertDialog.show();
+                    }
                 }
             }
 
@@ -758,7 +760,9 @@ public class QFieldProjectActivity
                 alertDialog.setTitle(getString(R.string.import_error));
                 alertDialog.setMessage(
                     getString(R.string.import_project_folder_error));
-                alertDialog.show();
+                if (!isFinishing()) {
+                    alertDialog.show();
+                }
             }
         } else if (requestCode == R.id.import_project_archive &&
                    resultCode == Activity.RESULT_OK) {
@@ -806,7 +810,9 @@ public class QFieldProjectActivity
                     alertDialog.setTitle(getString(R.string.import_error));
                     alertDialog.setMessage(
                         getString(R.string.import_project_archive_error));
-                    alertDialog.show();
+                    if (!isFinishing()) {
+                        alertDialog.show();
+                    }
                 }
 
                 if (imported) {
