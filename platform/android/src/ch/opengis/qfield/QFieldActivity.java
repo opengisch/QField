@@ -141,6 +141,12 @@ public class QFieldActivity extends QtActivity {
                                .format(new Date().getTime()) +
                            "." + QFieldUtils.getExtensionFromMimeType(type);
             }
+            String fileBaseName = fileName;
+            String fileExtension = "";
+            if (fileName.lastIndexOf(".") > -1) {
+                fileBaseName = fileName.substring(0, fileName.lastIndexOf("."));
+                fileExtension = fileName.substring(fileName.lastIndexOf("."));
+            }
 
             ContentResolver resolver = getContentResolver();
             if (type != null && type.equals("application/zip")) {
@@ -153,15 +159,11 @@ public class QFieldActivity extends QtActivity {
                 }
 
                 if (projectName != "") {
-                    String projectPath =
-                        importProjectPath +
-                        fileName.substring(0, fileName.lastIndexOf(".")) + "/";
+                    String projectPath = importProjectPath + fileBaseName + "/";
                     int i = 1;
                     while (new File(projectPath).exists()) {
                         projectPath =
-                            importProjectPath +
-                            fileName.substring(0, fileName.lastIndexOf(".")) +
-                            "_" + i + "/";
+                            importProjectPath + fileBaseName + "_" + i + "/";
                         i++;
                     }
                     new File(projectPath).mkdir();
@@ -186,10 +188,8 @@ public class QFieldActivity extends QtActivity {
                 String importFilePath = importDatasetPath + fileName;
                 int i = 1;
                 while (new File(importFilePath).exists()) {
-                    importFilePath =
-                        importDatasetPath +
-                        fileName.substring(0, fileName.lastIndexOf(".")) + "_" +
-                        i + fileName.substring(fileName.lastIndexOf("."));
+                    importFilePath = importDatasetPath + fileBaseName + "_" +
+                                     i + fileExtension;
                     i++;
                 }
                 Log.v("QField",
