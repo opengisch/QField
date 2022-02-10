@@ -1,0 +1,30 @@
+name: 🌍 Sync Translations
+on:
+  schedule:
+    - cron: "5 1 * * *"
+
+jobs:
+  pre-commit:
+    runs-on: ubuntu-20.04
+    steps:
+      - uses: actions/checkout@v2
+
+      # transifex-client is not compatible with py >= 3.10
+      # temporary band aid
+      - uses: actions/setup-python@v2
+        with:
+          python-version: '3.9'
+
+      - name: 🌍 Pull Translations
+        shell: bash
+        env:
+          TX_TOKEN: ${{ secrets.TX_TOKEN }}
+        run: |
+          pip install transifex-client
+          ./scripts/ci/pull_translations.sh
+
+      - uses: EndBug/add-and-commit@v8
+        with:
+          message: Synchronize translations
+          author_name: Translation update 💬
+          author_email: info@opengis.ch
