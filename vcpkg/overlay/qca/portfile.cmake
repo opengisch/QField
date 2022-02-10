@@ -11,13 +11,11 @@ vcpkg_add_to_path("${PERL_EXE_PATH}")
 vcpkg_from_github(
     OUT_SOURCE_PATH SOURCE_PATH
     REPO KDE/qca
-    REF v2.3.4
-    SHA512 04583da17531538fc2a7ae18a1a4f89f1e8d303e2bb390520a8f55a20bab17f8407ab07aefef2a75587e2a0521f41b37a9fdd8430ec483daf5d02c05556b8ddb
+    REF e4750b1d4186af156a42e7eb8985109231a61375 # Replace with 2.3.5 whenever released -- contains ios and windows static patches
+    SHA512 c95c5e25a397516dbfd4c000d56e41b687d861322199a5b144de30f70ee6c2664b1dceff4369b2132ed4658d5d8d2d17ea7705a47cf4595681b3fe6843a8adfd
     PATCHES
         0001-fix-path-for-vcpkg.patch
         0002-fix-build-error.patch
-        0003-ios.patch
-        0004-Use-generate_export_headers-to-fix-static-windows-bu.patch
 )
 
 if(VCPKG_LIBRARY_LINKAGE STREQUAL "dynamic")
