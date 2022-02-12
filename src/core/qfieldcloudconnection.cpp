@@ -23,6 +23,7 @@
 #include <QNetworkCookie>
 #include <QNetworkCookieJar>
 #include <QSettings>
+#include <QTextDocument>
 #include <QTimer>
 #include <QUrlQuery>
 #include <qgsapplication.h>
@@ -123,6 +124,11 @@ QString QFieldCloudConnection::errorString( QNetworkReply *reply )
   {
     QgsMessageLog::logMessage( QStringLiteral( "%1\n%2\n%3\n%4" ).arg( errorMessage, httpErrorMessage, payload ).arg( reply->errorString() ) );
   }
+
+  // strip HTML tags
+  QTextDocument doc;
+  doc.setHtml( errorMessage );
+  errorMessage = doc.toPlainText();
 
   return errorMessage;
 }
