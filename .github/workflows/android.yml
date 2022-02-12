@@ -78,6 +78,12 @@ jobs:
           modules: 'qtcharts'
           target: ${{ steps.vars.outputs.QT_TARGET }}
 
+      - name: Setup ccache
+        uses: hendrikmuhs/ccache-action@v1
+        with:
+          key: ${{ matrix.triplet }}
+          max-size: 200M
+
       # The sentry-android dependency is added via gradle
       # This downloads the pre-compiled sentry-android-ndk libraries
       # But we are compiling this before gradle is executed, so it is not downloaded
@@ -105,6 +111,7 @@ jobs:
                 -B "${CMAKE_BUILD_DIR}" \
                 -G Ninja \
                 -D CMAKE_BUILD_TYPE=${{ steps.vars.outputs.BUILD_TYPE }} \
+                -D CMAKE_CXX_COMPILER_LAUNCHER=ccache \
                 -D SYSTEM_QT=ON \
                 -D VCPKG_TARGET_TRIPLET="${{ matrix.triplet }}" \
                 -D WITH_ALL_FILES_ACCESS=OFF \
