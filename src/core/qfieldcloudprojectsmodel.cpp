@@ -798,6 +798,12 @@ void QFieldCloudProjectsModel::projectPackageAndDownload( const QString &project
     if ( project->packagingStatus == PackagingAbortStatus )
       return;
 
+    const QStringList fileNames = project->downloadFileTransfers.keys();
+    for ( const QString &fileNameKey : fileNames )
+    {
+      project->downloadFileTransfers[fileNameKey].networkReply->deleteLater();
+    }
+
     mActiveProjectFilesToDownload.clear();
 
     const bool hasError = !errorString.isNull();
@@ -1041,9 +1047,9 @@ void QFieldCloudProjectsModel::projectDownloadFiles( const QString &projectId )
     if ( !file->open() )
     {
       project->downloadFilesFailed++;
-      projectDownloadFinished( projectId, tr( "Failed to open temporary file for `%1`, reason:\n%2" )
-                                            .arg( fileName )
-                                            .arg( file->errorString() ) );
+      emit projectDownloadFinished( projectId, tr( "Failed to open temporary file for `%1`, reason:\n%2" )
+                                                 .arg( fileName )
+                                                 .arg( file->errorString() ) );
       return;
     }
 
@@ -1629,6 +1635,12 @@ void QFieldCloudProjectsModel::downloadFileConnections( const QString &projectId
     return;
   CloudProject *project = findProject( projectId );
 
+  if ( !project )
+  {
+    QgsLogger::debug( QStringLiteral( "Project %1: adding download file connections, but the project is deleted." ).arg( projectId ) );
+    return;
+  }
+
   if ( !project->downloadFileTransfers.contains( fileName ) )
   {
     Q_ASSERT( false );
@@ -1643,11 +1655,17 @@ void QFieldCloudProjectsModel::downloadFileConnections( const QString &projectId
     return;
   }
 
-  QStringList fileNames = project->downloadFileTransfers.keys();
+  const QStringList fileNames = project->downloadFileTransfers.keys();
 
-  QgsLogger::debug( QStringLiteral( "Project %1, id `%2`: requested." ).arg( projectId, fileName ) );
+  QgsLogger::debug( QStringLiteral( "Project %1, file `%2`: requested." ).arg( projectId, fileName ) );
 
   connect( reply, &NetworkReply::redirected, reply, [=]( const QUrl &url ) {
+    if ( !findProject( projectId ) )
+    {
+      QgsLogger::debug( QStringLiteral( "Project %1, file `%2`: redirected file download, but the project is deleted." ).arg( projectId, fileName ) );
+      return;
+    }
+
     QUrl oldUrl = project->downloadFileTransfers[fileName].lastRedirectUrl;
 
     project->downloadFileTransfers[fileName].redirectsCount++;
@@ -1679,6 +1697,12 @@ void QFieldCloudProjectsModel::downloadFileConnections( const QString &projectId
   } );
 
   connect( reply, &NetworkReply::downloadProgress, reply, [=]( int bytesReceived, int bytesTotal ) {
+    if ( !findProject( projectId ) )
+    {
+      QgsLogger::debug( QStringLiteral( "Project %1, file `%2`: updating download progress, but the project is deleted." ).arg( projectId, fileName ) );
+      return;
+    }
+
     Q_UNUSED( bytesTotal )
 
     // it means the NetworkReply has failed and retried
@@ -1694,6 +1718,12 @@ void QFieldCloudProjectsModel::downloadFileConnections( const QString &projectId
     if ( project->packagingStatus == PackagingAbortStatus )
       return;
 
+    if ( !findProject( projectId ) )
+    {
+      QgsLogger::debug( QStringLiteral( "Project %1, file `%2`: file download finished, but the project is deleted." ).arg( projectId, fileName ) );
+      return;
+    }
+
     QVector<int> rolesChanged;
     QNetworkReply *rawReply = reply->reply();
 
@@ -1708,50 +1738,57 @@ void QFieldCloudProjectsModel::downloadFileConnections( const QString &projectId
 
     bool hasError = false;
     QString errorMessageDetail;
-    QString errorMessageTemplate;
+    QString errorMessage;
 
     if ( rawReply->error() != QNetworkReply::NoError )
     {
       hasError = true;
       errorMessageDetail = QFieldCloudConnection::errorString( rawReply );
-      errorMessageTemplate = tr( "Failed to download file `%1`, reason:" ).arg( fileName );
+      errorMessage = tr( "Network error. Failed to download file." ).arg( fileName );
     }
 
-    QFile file( project->downloadFileTransfers[fileName].tmpFile );
-
-    file.open( QIODevice::ReadWrite );
-
-    if ( !hasError && !file.write( rawReply->readAll() ) )
+    if ( !hasError )
     {
-      hasError = true;
-      errorMessageDetail = file.errorString();
-      errorMessageTemplate = tr( "Failed to write downloaded file stored at `%1`, fs reason:" ).arg( project->downloadFileTransfers[fileName].tmpFile );
+      QFile file( project->downloadFileTransfers[fileName].tmpFile );
+
+      file.open( QIODevice::ReadWrite );
+
+      if ( !file.write( rawReply->readAll() ) )
+      {
+        hasError = true;
+        errorMessageDetail = file.errorString();
+        errorMessage = tr( "File system error. Failed to write file to temporary location `%1`." ).arg( project->downloadFileTransfers[fileName].tmpFile );
+      }
     }
 
+    // check if the code above failed with error
     if ( hasError )
     {
-      QString trimmedErrorMessage = errorMessageDetail.size() > 100
-                                      ? ( errorMessageDetail.left( 100 ) + tr( " (see more in the QField error log)…" ) )
-                                      : errorMessageDetail;
       project->downloadFilesFailed++;
 
-      QString errorMessage = QStringLiteral( "%1: \n%2" ).arg( errorMessageTemplate, fileName ).arg( trimmedErrorMessage );
+      QgsLogger::debug( QStringLiteral( "Project %1, file `%2`: %3 %4" ).arg( errorMessage, fileName, errorMessage, errorMessageDetail ) );
 
-      QgsLogger::debug( QStringLiteral( "%1: \n%2" ).arg( errorMessageTemplate, fileName ).arg( errorMessageDetail ) );
-      QgsMessageLog::logMessage( QStringLiteral( "%1: \n%2" ).arg( errorMessageTemplate, fileName ).arg( errorMessageDetail ) );
+      // translate the user messages
+      const QString baseMessage = tr( "Project `%1`, file `%2`: %3" ).arg( project->name, fileName, errorMessage );
+      const QString trimmedMessage = baseMessage + QStringLiteral( " " ) + tr( "System message: " )
+                                     + ( ( errorMessageDetail.size() > 100 )
+                                           ? ( errorMessageDetail.left( 100 ) + tr( " (see more in the QField error log)…" ) )
+                                           : errorMessageDetail );
 
-      emit projectDownloadFinished( projectId, errorMessage );
+      QgsMessageLog::logMessage( QStringLiteral( "%1\n%2" ).arg( baseMessage, errorMessageDetail ) );
+
+      emit projectDownloadFinished( projectId, trimmedMessage );
 
       return;
     }
 
-    QgsLogger::debug( QStringLiteral( "File `%1` downloaded." ).arg( fileName ) );
+    QgsLogger::debug( QStringLiteral( "Package %1, file `%2`: downloaded" ).arg( projectId, fileName ) );
 
     updateActiveProjectFilesToDownload( projectId );
 
     if ( project->downloadFilesFinished == fileNames.count() )
     {
-      QgsLogger::debug( QStringLiteral( "All files downloaded." ) );
+      QgsLogger::debug( QStringLiteral( "Project %1: All files downloaded." ).arg( projectId ) );
 
       Q_ASSERT( mActiveProjectFilesToDownload.size() == 0 );
 
@@ -1789,24 +1826,16 @@ void QFieldCloudProjectsModel::downloadFileConnections( const QString &projectId
         QFieldCloudUtils::setProjectSetting( projectId, QStringLiteral( "lastLocalExportedAt" ), project->lastLocalExportedAt );
         QFieldCloudUtils::setProjectSetting( projectId, QStringLiteral( "lastLocalExportId" ), project->lastLocalExportId );
 
+        rolesChanged << StatusRole << LocalPathRole << CheckoutRole << LastLocalExportedAtRole;
+
+        emit dataChanged( projectIndex, projectIndex, rolesChanged );
         emit projectDownloadFinished( projectId );
       }
-
-      for ( const QString &fileNameKey : fileNames )
-      {
-        project->downloadFileTransfers[fileNameKey].networkReply->deleteLater();
-      }
-
-      project->status = ProjectStatus::Idle;
     }
     else
     {
       projectDownloadFiles( projectId );
     }
-
-    rolesChanged << StatusRole << LocalPathRole << CheckoutRole << LastLocalExportedAtRole;
-
-    emit dataChanged( projectIndex, projectIndex, rolesChanged );
   } );
 }
 
