@@ -27,6 +27,7 @@ if(WIN32)
     # set(CPACK_WIX_TEMPLATE "${CMAKE_SOURCE_DIR}/cmake/windows/template.wxs.in")
     # set(CPACK_WIX_EXTRA_SOURCES "${CMAKE_SOURCE_DIR}/cmake/windows/shortcuts.wxs")
     # set(CPACK_GENERATOR "WIX")
+    set(CPACK_NSIS_EXECUTABLES_DIRECTORY "usr\\bin")
 
     message(STATUS "   + NSIS                             YES ")
     list(APPEND CPACK_GENERATOR "NSIS")
