@@ -12,6 +12,13 @@ foreach(JAVA_FILE ${JAVA_FILES})
   file(WRITE ${JAVA_FILE} "${CONTENT}")
 endforeach()
 
+# Workaround for
+# https://bugreports.qt.io/browse/QTBUG-84302
+execute_process(
+  COMMAND
+  "bash"
+  -c "cat <<< \"$(jq '. += { \"sdkBuildToolsRevision\" : \"29.0.2\" }' < @CMAKE_BINARY_DIR@/android_deployment_settings.tmp)\" > @CMAKE_BINARY_DIR@/android_deployment_settings.json"
+)
 if(DEFINED ENV{KEYNAME}
    AND DEFINED ENV{KEYPASS}
    AND DEFINED ENV{STOREPASS})
