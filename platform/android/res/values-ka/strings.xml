@@ -1,0 +1,36 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="done_unpacking_msg">პაკეტის გახსნა დასრულა, ირთვება QGIS.</string>
+    <string name="unpacking_title">მზადდება QField</string>
+    <string name="unpacking_msg">ეს არის ერთჯერადი ოპერაცია და მალე დასრულდება</string>
+    <string name="unpacking_msg_following">ჰა და ჰა!</string>
+    <string name="use_internal_storage">შიდა მეხსიერების გამოყენება</string>
+    <string name="external_storage_unavailable">მიმდინარეობს საინსტალაციო პაკეტის გახსნა, რასაც გარკვეული დრო დასჭირდება.</string>
+    <string name="noexternalstorage_dialog">როგორც ჩანს თქვენი გარე მეხსიერება (/sdcard) არ არის ხელმისაწვდომი. ეს მოხდა მაშნ როცა თქვენ დაუკავშირეთ თქვენი მოწყობილობა კომპიუტერს USB-ს საშუალებით.\nQGIS შესაძლოა გაეშვას შიდა მეხსიერებიდან მაგრამ მისი მცირე ზომიდან გამომდინარე, ეს არ არის რეკომენდირებული.\nგირჩევთ დააჭიროთ შეწყვეტას, გამორთოთ USB კაბელი და გადატვირთოთ QGIS.</string>
+    <string name="primary_storage">შიდა მეხსიერება</string>
+    <string name="secondary_storage">QField ფაილების საქაღალდე</string>
+    <string name="secondary_storage_read_only">გარე მეხსიერება (მხოლოდ წაკითხვადი)</string>
+    <string name="inaccessible">მიუწვდომელი</string>
+    <string name="loading">იტვირთება</string>
+    <string name="select_project">აირჩიეთ QGIS პროექტი ან მონაცემთა ნაკრები</string>
+    <string name="recent_projects">ბოლო პროექტები და მონაცემთა ნაკრებები</string>
+    <string name="rate_title">შეაფასე QField</string>
+    <string name="rate_message">თუ კმაყოფილი ხართ QField, გთხოვთ შეაფასოთ იგი. მადლობა დახმარებისთვის!</string>
+    <string name="rate_now">შეფასება</string>
+    <string name="remind_later">შემახსენე მოგვიანებით</string>
+    <string name="no_thanks">არა გმადლობ!</string>
+    <string name="favorite_directories">ფავორიტი საქაღალდეები</string>
+    <string name="favorites_sample_projects">პროექტების ნიმუშები</string>
+    <string name="favorites_imported_projects">იმპორტირებული პროექტები</string>
+    <string name="favorites_imported_datasets">იმპორტირებული მონაცემთა ნაკრები</string>
+    <string name="added_to_favorites">ფავორიტებში დამატებულია</string>
+    <string name="removed_from_favorites">ფავორიტებიდან წაიშალა</string>
+    <string name="external_files_title">მნიშვნელოვანი ჩანაწერი</string>
+    <string name="external_files_message"><![CDATA[QField-ის ფაილების საქაღალდე გამოყენებული იქნება ფაილებისა და პროექტების USB კავშირით შესანახად. საქაღალდის სრული მისამართი შეგიძლიათ ნახოთ ზედა პანელზე.<br/><br/>ამ საქაღალდის ფაილებთან იყავით ყურადღებით რადგან იგი <i>წაიშლება</i> თუკი თქვენ წაშლით QField აპლიკაციას თქვენი მოწყობილობიდან.]]></string>
+    <string name="external_files_ok">OK</string>
+    <string name="grant_permission">ყველა ფაილთან წვდომა</string>
+    <string name="grant_all_files_permission"><![CDATA[QField-ს სჭირდება ყველა ფაილთან წვდომის უფლება რათა შეძლოს გახსნას ლოკალურად შენახული პროექტები და მონაცემთა ნაკრებები, ასევე ჰქონდეს მხარდაჭერა სხვადასხვა პროექციის ბადეებისა, ფონტებისა და საბაზო რუკებისა. მიუხედავად იმისა, რომ არ არის აუცილებელი, <i>ამ უფლების მინიჭება მაინც არის რეკომენდირებული</i>.<br/><br/>შემდეგ გვერდზე გთხოვთ აირჩიოთ <b>QField</b> და მონიშნოთ <b>\"Allow access to all files\"</b>.]]></string>
+    <string name="grant">დათანხმება</string>
+    <string name="deny_always">სამუდამოდ აკრძალვა</string>
+    <string name="deny_once">ერთჯერადად აკრძალვა</string>
+    </resources>

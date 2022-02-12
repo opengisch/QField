@@ -1,0 +1,33 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="done_unpacking_msg">完成解壓，啟動QGIS。</string>
+    <string name="unpacking_title">正在預備 QField</string>
+    <string name="unpacking_msg">請稍候此一次性操作完成</string>
+    <string name="unpacking_msg_following">請等等， 快要完成了！</string>
+    <string name="use_internal_storage">使用裝置內部儲存空間</string>
+    <string name="external_storage_unavailable">正在解壓縮後安裝資料，這可能需要一點時間。</string>
+    <string name="noexternalstorage_dialog">未能連上你的外部儲存空間 (/sdcard)。當你通過 USB 將你的裝置連接到 PC 時，就會發生這種情況。 QGIS 可以從裝置內部儲存空間運行，但因為容量較少，不建議你這樣做。建議選擇取消，斷開 USB 連接並重新啟動QGIS。</string>
+    <string name="primary_storage">內部儲存空間</string>
+    <string name="secondary_storage">QField 文件目錄</string>
+    <string name="secondary_storage_read_only">外部儲存空間 (只供讀取)</string>
+    <string name="inaccessible">無法進入</string>
+    <string name="loading">正在載入</string>
+    <string name="select_project">選擇 QGIS 項目或數據集</string>
+    <string name="recent_projects">最近的項目和數據集</string>
+    <string name="rate_title">評價 QField</string>
+    <string name="rate_message">如果你喜歡使用 QField，請花點時間來評價它。感謝你的支持！</string>
+    <string name="rate_now">評價</string>
+    <string name="remind_later">稍後提醒我</string>
+    <string name="no_thanks">不用了，謝謝！</string>
+    <string name="favorite_directories">最喜愛的目錄</string>
+    <string name="added_to_favorites">加入收藏</string>
+    <string name="removed_from_favorites">從收藏中移除</string>
+    <string name="external_files_title">重要提示</string>
+    <string name="external_files_message"><![CDATA[QField 文件目錄可用於通過 USB 線將文件和項目複製到您的設備上。您可以在標題欄中看到該目錄的絕對路徑。<br/><br/>請注意，如果您從您的設備上卸載 QField，此目錄的內容<i>將被刪除</i>。]]></string>
+    <string name="external_files_ok">確定</string>
+    <string name="grant_permission">訪問所有文件</string>
+    <string name="grant_all_files_permission"><![CDATA[QField 需要所有文件訪問權限才能打開本地項目和數據集以及支持自定義投影網格、字體和底圖。雖然不是必需的，<i>但強烈建議允許訪問 </i>。在下<br/><br/>一個屏幕上，請選擇 <b>QField </b>並選擇 <b>Allow access to all files</b> 選項。]]></string>
+    <string name="grant">允許</string>
+    <string name="deny_always">始终拒绝</string>
+    <string name="deny_once">拒絕一次</string>
+    </resources>

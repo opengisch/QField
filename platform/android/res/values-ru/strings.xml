@@ -1,0 +1,36 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="done_unpacking_msg">Распаковка закончена, запускаю QGIS</string>
+    <string name="unpacking_title">Запуск QField</string>
+    <string name="unpacking_msg">Эта однократная операция займет некоторое время </string>
+    <string name="unpacking_msg_following">Почти готово</string>
+    <string name="use_internal_storage">Использовать внутреннюю память </string>
+    <string name="external_storage_unavailable">Распаковываю послеустановочные данные. Понадобится немного времени.</string>
+    <string name="noexternalstorage_dialog">Похоже, что внешний накопитель (/sdcard) недоступен. Это происходит при подключении устройства к компьютеру через USB.\nQGIS запустится из внутренней памяти, что не рекомендуется, потому что ее объем может быть слишком мал. \nlt предлагает нажать ОТМЕНА, отсоединить все USB - кабели и перезапустить QGIS. </string>
+    <string name="primary_storage">Внутренняя память устройства</string>
+    <string name="secondary_storage">директория файлов QField</string>
+    <string name="secondary_storage_read_only">Внешний накопитель (только для чтения) </string>
+    <string name="inaccessible">недоступно</string>
+    <string name="loading">Загрузка</string>
+    <string name="select_project">Выберете проект QGIS или набор данных</string>
+    <string name="recent_projects">Недавние проекты и наборы данных</string>
+    <string name="rate_title">Оценить QField</string>
+    <string name="rate_message">Если вам нравится использовать QField, пожалуйста оцените приложение. Спасибо за поддержку! </string>
+    <string name="rate_now">Оценить</string>
+    <string name="remind_later">Напомнить позже</string>
+    <string name="no_thanks">Нет, спасибо!</string>
+    <string name="favorite_directories">Избранные папки </string>
+    <string name="favorites_sample_projects">Примеры проектов</string>
+    <string name="favorites_imported_projects">Импортированные проекты</string>
+    <string name="favorites_imported_datasets">Импортированные наборы данных</string>
+    <string name="added_to_favorites">Добавлено в избранное </string>
+    <string name="removed_from_favorites">Удалено из избранного </string>
+    <string name="external_files_title">Важное примечание</string>
+    <string name="external_files_message"><![CDATA[Директория файлов QField может использоваться для копирования файлов и проектов на ваше устройство через кабель USB. Полный путь к директории указан в плашке заголовка. You can see the directory\'s absolute path in the header bar.<br/><br/>Обратите внимание на то, что содержание этой директории <i>будет удалено </i> в случае удаления QField с устройства.]]></string>
+    <string name="external_files_ok">OK</string>
+    <string name="grant_permission">Доступ ко всем файлам</string>
+    <string name="grant_all_files_permission"><![CDATA[QField требуется разрешение доступа ко всем файлам на устройстве, чтобы открывать локальные проекты и наборы данных, а также поддерживать пользовательские проекции, шрифты и базовые карты. Разрешение доступа является хотя и не необходимым, <i>но предпочтительным вариантом </i>.<br/><br/>Перейдя на следующую страницу, выберите <b>QField</b> и опцию <b> Разрешить доступ ко всем файлам на устройстве </b> .]]></string>
+    <string name="grant">Разрешения</string>
+    <string name="deny_always">Запретить навсегда</string>
+    <string name="deny_once">Запретить однажды</string>
+    </resources>

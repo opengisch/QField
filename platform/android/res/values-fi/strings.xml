@@ -1,0 +1,35 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="done_unpacking_msg">Purku tehty, avaa QGIS.</string>
+    <string name="unpacking_title">QField lämpenee</string>
+    <string name="unpacking_msg">Tämä on kertaluontoinen toimenpide, joka vie vain hetken</string>
+    <string name="unpacking_msg_following">Melkein perillä, pitele kiinni!</string>
+    <string name="use_internal_storage">Käytä sisäistä tallennustilaa</string>
+    <string name="external_storage_unavailable">Puretaan asennuksen loppudataa. Tämä voi kestää jonkin aikaa.</string>
+    <string name="noexternalstorage_dialog">Vaikuttaa siltä, ettei ulkoinen muistisi (/sdcard) ole käytettävissä. Näin tapahtuu, kun yhdistät laitteesi PC:hen USB:n kautta.
+QGIS voi käyttää sisäistä muistia, mutta se ei ole suositeltavaa pienen muistikapasiteetin vuoksi.
+Suositeltavaa on, että valitset peruuta, katkaiset USB-kaapeliyhteydet ja käynnistät QGISin uudelleen.</string>
+    <string name="primary_storage">Sisäinen muisti</string>
+    <string name="secondary_storage">QField tiedostojen hakemisto</string>
+    <string name="secondary_storage_read_only">Ulkoinen muisti (vain-luku)</string>
+    <string name="inaccessible">ei käytettävissä</string>
+    <string name="loading">Lataa</string>
+    <string name="select_project">Valitse QGIS-projekti tai aineisto</string>
+    <string name="recent_projects">Viimeisimmät projektit ja aineistot</string>
+    <string name="rate_title">Arvostele QField</string>
+    <string name="rate_message">Jos sinusta on mukava käyttää QFieldiä, ole ystävällinen ja anna arviosi. Kiitos tuestasi!</string>
+    <string name="rate_now">Arvioi</string>
+    <string name="remind_later">Muistuta minua myöhemmin</string>
+    <string name="no_thanks">Ei kiitos!</string>
+    <string name="favorite_directories">Suosikkihakemistot</string>
+    <string name="favorites_sample_projects">Esimerkki projektit</string>
+    <string name="favorites_imported_projects">Tuodut projektit</string>
+    <string name="favorites_imported_datasets">Tuodut datajoukot</string>
+    <string name="added_to_favorites">Lisätty suosikkeihin</string>
+    <string name="removed_from_favorites">Poistettu suosikeista</string>
+    <string name="external_files_title">Tärkeä huomautus</string>
+    <string name="external_files_ok">OK</string>
+    <string name="grant">Salli</string>
+    <string name="deny_always">Kiellä pysyyvästi</string>
+    <string name="deny_once">Kiellä nyt</string>
+    </resources>
