@@ -14,7 +14,7 @@ endforeach()
 
 # Workaround for
 # https://bugreports.qt.io/browse/QTBUG-84302
-file(COPY @CMAKE_BINARY_DIR@/android_deployment_settings.json DESTINATION @CMAKE_BINARY_DIR@/android_deployment_settings.tmp)
+file(COPY_FILE @CMAKE_BINARY_DIR@/android_deployment_settings.json @CMAKE_BINARY_DIR@/android_deployment_settings.tmp)
 execute_process(
   COMMAND
   "bash"
