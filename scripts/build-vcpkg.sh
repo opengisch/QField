@@ -39,6 +39,5 @@ cmake --build "${CMAKE_BUILD_DIR}"
 
 # Package app
 mv ${CMAKE_BUILD_DIR}/android_deployment_settings.json ${CMAKE_BUILD_DIR}/android_deployment_settings.tmp
-cat <<< "$(jq ". += { \"sdkBuildToolsRevision\" : \"29.0.2\" }" < ${CMAKE_BUILD_DIR}/android_deployment_settings.tmp)" > ${CMAKE_BUILD_DIR}/android_deployment_settings.json
 cmake --build  "${CMAKE_BUILD_DIR}" --target bundle --config Release
 ${ANDROID_SDK_ROOT}/build-tools/29.0.2/apksigner sign --v2-signing-enabled true --ks ./keystore.p12 --ks-pass pass:"${STOREPASS}" --ks-key-alias "qfield" --key-pass pass:"${KEYPASS}" ${CMAKE_BUILD_DIR}/android-build/build/outputs/apk/release/android-build-release-signed.apk
