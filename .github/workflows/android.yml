@@ -107,6 +107,7 @@ jobs:
                 -D CMAKE_BUILD_TYPE=${{ steps.vars.outputs.BUILD_TYPE }} \
                 -D SYSTEM_QT=ON \
                 -D VCPKG_TARGET_TRIPLET="${{ matrix.triplet }}" \
+                -D WITH_ALL_FILES_ACCESS=OFF \
                 -D WITH_SPIX=OFF \
                 -D APP_VERSION="${APP_VERSION}" \
                 -D APK_VERSION_CODE="${APK_VERSION_CODE}" \
