@@ -68,7 +68,7 @@ if(ANDROIDDEPLOYQT_EXECUTABLE)
     message(STATUS "   + Android                              YES ")
     set(CPACK_GENERATOR "External;${CPACK_GENERATOR}")
     set(AT "@")
-    set(WITH_ALL_FILES_ACCESS OFF CACHE STRING "[ANDROID] Enable All Files Access and get a free chat with Google support if you upload to Play Store."
+    set(WITH_ALL_FILES_ACCESS OFF CACHE STRING "[ANDROID] Enable All Files Access to be able to work with data anywhere on your device. If this is enabled, publishing via Google Play requires a permissions declaration and a review approval by Google.")
     if(WITH_ALL_FILES_ACCESS)
       set(QFIELD_EXTRA_PERMISSIONS "<uses-permission android:name=\"android.permission.MANAGE_EXTERNAL_STORAGE\" />")
     endif()
