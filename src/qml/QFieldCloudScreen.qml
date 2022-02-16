@@ -21,7 +21,8 @@ Page {
       showApplyButton: false
       showCancelButton: true
       busyIndicatorState: cloudConnection.status === QFieldCloudConnection.Connecting ||
-                         cloudConnection.state === QFieldCloudConnection.Busy ? 'on' : 'off'
+                         cloudConnection.state === QFieldCloudConnection.Busy ? 'on' : 'off' ||
+                         cloudProjectsModel.busyProjectIds.length > 0
 
       onFinished: parent.finished()
     }
@@ -206,7 +207,7 @@ Page {
             clip: true
 
             onMovingChanged: {
-              if ( !moving && overshootRefresh && cloudConnection.state === QFieldCloudConnection.Idle ) {
+              if ( !moving && overshootRefresh && cloudConnection.state === QFieldCloudConnection.Idle && cloudProjectsModel.busyProjectIds.length === 0 ) {
                 refreshProjectsList();
               }
               overshootRefresh = false;
@@ -537,6 +538,7 @@ Page {
           text: qsTr( "Refresh projects list" )
           enabled: cloudConnection.status === QFieldCloudConnection.LoggedIn
                    && cloudConnection.state === QFieldCloudConnection.Idle
+                   && cloudProjectsModel.busyProjectIds.length === 0
 
           onClicked: refreshProjectsList()
       }
@@ -553,7 +555,7 @@ Page {
   }
 
   function refreshProjectsList() {
-    if ( cloudConnection.state !== QFieldCloudConnection.Idle ) {
+    if ( cloudConnection.state !== QFieldCloudConnection.Idle && cloudProjectsModel.busyProjectIds.length === 0 ) {
       return;
     }
 

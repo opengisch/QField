@@ -69,6 +69,11 @@ QFieldCloudProjectsModel::QFieldCloudProjectsModel()
     Q_UNUSED( bottomRight )
     Q_UNUSED( roles )
 
+    if ( roles.isEmpty() || roles.contains( StatusRole ) )
+    {
+      emit busyProjectIdsChanged();
+    }
+
     if ( mCurrentProjectId.isEmpty() )
       return;
 
@@ -164,6 +169,21 @@ QVariantMap QFieldCloudProjectsModel::currentProjectData() const
   }
 
   return getProjectData( mCurrentProjectId );
+}
+
+QSet<QString> QFieldCloudProjectsModel::busyProjectIds() const
+{
+  QSet<QString> result;
+
+  for ( const auto project : mProjects )
+  {
+    if ( project->status != ProjectStatus::Idle )
+    {
+      result.insert( project->id );
+    }
+  }
+
+  return result;
 }
 
 QVariantMap QFieldCloudProjectsModel::getProjectData( const QString &projectId ) const

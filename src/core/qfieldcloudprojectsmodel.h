@@ -220,6 +220,12 @@ class QFieldCloudProjectsModel : public QAbstractListModel
     //! Returns the cloud project data of the currently opened project.
     QVariantMap currentProjectData() const;
 
+    //! Stores a set of the currently busy project ids.
+    Q_PROPERTY( QSet<QString> busyProjectIds READ busyProjectIds NOTIFY busyProjectIdsChanged )
+
+    //! Returns a set containing the currently busy project ids.
+    QSet<QString> busyProjectIds() const;
+
     //! Returns the cloud project data for given \a projectId.
     Q_INVOKABLE QVariantMap getProjectData( const QString &projectId ) const;
 
@@ -273,6 +279,7 @@ class QFieldCloudProjectsModel : public QAbstractListModel
     void layerObserverChanged();
     void currentProjectIdChanged();
     void currentProjectDataChanged();
+    void busyProjectIdsChanged();
     void canSyncCurrentProjectChanged();
     void gpkgFlusherChanged();
     void warning( const QString &message );
