@@ -1751,13 +1751,22 @@ void QFieldCloudProjectsModel::downloadFileConnections( const QString &projectId
     {
       QFile file( project->downloadFileTransfers[fileName].tmpFile );
 
-      file.open( QIODevice::ReadWrite );
+      if ( file.open( QIODevice::ReadWrite ) )
+      {
+        file.write( rawReply->readAll() );
 
-      if ( !file.write( rawReply->readAll() ) )
+        if ( file.error() != QFile::NoError )
+        {
+          hasError = true;
+          errorMessageDetail = file.errorString();
+          errorMessage = tr( "File system error. Failed to write file to temporary location `%1`." ).arg( project->downloadFileTransfers[fileName].tmpFile );
+        }
+      }
+      else
       {
         hasError = true;
         errorMessageDetail = file.errorString();
-        errorMessage = tr( "File system error. Failed to write file to temporary location `%1`." ).arg( project->downloadFileTransfers[fileName].tmpFile );
+        errorMessage = tr( "File system error. Failed to open file for writing on temporary `%1`." ).arg( project->downloadFileTransfers[fileName].tmpFile );
       }
     }
 
