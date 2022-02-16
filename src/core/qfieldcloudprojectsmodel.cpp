@@ -1254,7 +1254,8 @@ void QFieldCloudProjectsModel::uploadProject( const QString &projectId, const bo
 
     project->uploadDeltaProgress = 1;
     project->deltaFileUploadStatus = DeltaPendingStatus;
-    project->deltaLayersToDownload = deltaFileWrapper->deltaLayerIds();
+
+    project->deltaLayersToDownload = mLayerObserver->deltaFileWrapper()->deltaLayerIds();
 
     emit dataChanged( projectIndex, projectIndex, QVector<int>() << UploadDeltaProgressRole << UploadDeltaStatusRole );
     emit networkDeltaUploaded( projectId );
@@ -1283,6 +1284,7 @@ void QFieldCloudProjectsModel::uploadProject( const QString &projectId, const bo
       project->status = ProjectStatus::Idle;
       project->modification ^= LocalModification;
 
+      DeltaFileWrapper *deltaFileWrapper = mLayerObserver->deltaFileWrapper();
       deltaFileWrapper->reset();
       deltaFileWrapper->resetId();
 
@@ -1301,6 +1303,8 @@ void QFieldCloudProjectsModel::uploadProject( const QString &projectId, const bo
   connect( this, &QFieldCloudProjectsModel::networkDeltaStatusChecked, networkDeltaStatusCheckedParent, [=]( const QString &uploadedProjectId ) {
     if ( projectId != uploadedProjectId )
       return;
+
+    DeltaFileWrapper *deltaFileWrapper = mLayerObserver->deltaFileWrapper();
 
     switch ( project->deltaFileUploadStatus )
     {
