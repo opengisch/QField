@@ -1623,7 +1623,7 @@ NetworkReply *QFieldCloudProjectsModel::downloadFile( const QString &projectId, 
   request.setAttribute( QNetworkRequest::RedirectPolicyAttribute, QNetworkRequest::RedirectPolicy::UserVerifiedRedirectPolicy );
   mCloudConnection->setAuthenticationToken( request );
 
-  return mCloudConnection->get( request, QStringLiteral( "/api/v1/packages/%1/latest/files/%2" ).arg( projectId, fileName ) );
+  return mCloudConnection->get( request, QStringLiteral( "/api/v1/packages/%1/latest/files/%2/" ).arg( projectId, fileName ) );
 }
 
 
