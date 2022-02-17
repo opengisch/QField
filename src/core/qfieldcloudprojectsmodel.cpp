@@ -938,19 +938,19 @@ void QFieldCloudProjectsModel::projectDownload( const QString &projectId )
     {
       QJsonObject layer = layers.value( layerKey ).toObject();
       QString layerName = layer.value( QStringLiteral( "name" ) ).toString();
-      QString layerStatus = layer.value( QStringLiteral( "status" ) ).toString();
+      QString layerStatus = layer.value( QStringLiteral( "error_code" ) ).toString();
 
       if (
         layerKey.isEmpty()
         || layerName.isEmpty()
         || layerStatus.isEmpty()
-        || !layer.value( QStringLiteral( "valid" ) ).isBool() )
+        || !layer.value( QStringLiteral( "is_valid" ) ).isBool() )
       {
         QgsLogger::debug( QStringLiteral( "JSON structure for `%1` package in \"files\" list does not contain the expected fields: name(string), status(string), valid(bool)" ).arg( projectId ) );
         return;
       }
 
-      if ( !layer.value( QStringLiteral( "valid" ) ).toBool() )
+      if ( !layer.value( QStringLiteral( "is_valid" ) ).toBool() )
       {
         project->packagedLayerErrors.append( tr( "Packaged layer '%1' is not valid: '%2'" ).arg( layerName, layerStatus ) );
         QgsMessageLog::logMessage( project->packagedLayerErrors.last() );
