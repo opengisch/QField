@@ -880,6 +880,8 @@ void QFieldCloudProjectsModel::projectDownload( const QString &projectId )
 
     if ( rawReply->error() != QNetworkReply::NoError )
     {
+      QgsLogger::debug( QStringLiteral( "Project %1: failed to get latest package data. %2" ).arg( projectId, QFieldCloudConnection::errorString( rawReply ) ) );
+      emit projectDownloadFinished( projectId, tr( "Failed to get latest package data." ) );
       return;
     }
 
@@ -892,7 +894,8 @@ void QFieldCloudProjectsModel::projectDownload( const QString &projectId )
       || packagedAt.isNull()
       || !payload.value( QStringLiteral( "files" ) ).isArray() )
     {
-      QgsLogger::debug( QStringLiteral( "JSON structure for `%1` package does not contain the expected fields: package_id(string), packaged_at(string), files(array), layers(object)" ).arg( projectId ) );
+      QgsLogger::debug( QStringLiteral( "Project %1: JSON for package does not contain the expected fields: package_id(string), packaged_at(string), files(array), layers(object)" ).arg( projectId ) );
+      emit projectDownloadFinished( projectId, tr( "Latest package data response error." ) );
       return;
     }
 
@@ -911,7 +914,8 @@ void QFieldCloudProjectsModel::projectDownload( const QString &projectId )
         || fileName.isEmpty()
         || cloudChecksum.isEmpty() )
       {
-        QgsLogger::debug( QStringLiteral( "JSON structure for `%1` package in \"files\" list does not contain the expected fields: size(int), name(string), sha256(string)" ).arg( projectId ) );
+        QgsLogger::debug( QStringLiteral( "Project %1: package in \"files\" list does not contain the expected fields: size(int), name(string), sha256(string)" ).arg( projectId ) );
+        emit projectDownloadFinished( projectId, tr( "Latest package data structure error." ) );
         return;
       }
 
