@@ -946,29 +946,33 @@ void QFieldCloudProjectsModel::projectDownload( const QString &projectId )
         || layerStatus.isEmpty()
         || !layer.value( QStringLiteral( "is_valid" ) ).isBool() )
       {
-        QgsLogger::debug( QStringLiteral( "JSON structure for `%1` package in \"files\" list does not contain the expected fields: name(string), status(string), valid(bool)" ).arg( projectId ) );
-        return;
+        QgsLogger::debug( QStringLiteral( "Project %1: JSON structure package in \"files\" list does not contain the expected fields: name(string), status(string), valid(bool)" ).arg( projectId ) );
       }
-
-      if ( !layer.value( QStringLiteral( "is_valid" ) ).toBool() )
+      else
       {
-        project->packagedLayerErrors.append( tr( "Packaged layer '%1' is not valid: '%2'" ).arg( layerName, layerStatus ) );
-        QgsMessageLog::logMessage( project->packagedLayerErrors.last() );
+        if ( !layer.value( QStringLiteral( "is_valid" ) ).toBool() )
+        {
+          QString errorSummary = layer.value( QStringLiteral( "error_summary" ) ).toString() + layer.value( QStringLiteral( "provider_error_summary" ) ).toString();
 
-        hasLayerExportErrror = true;
+          project->packagedLayerErrors.append( tr( "Project %1: Packaged layer `%2` is not valid. Error code %3, error message: %4" ).arg( projectId, layerName, layerStatus, errorSummary ) );
+          QgsMessageLog::logMessage( project->packagedLayerErrors.last() );
+
+          hasLayerExportErrror = true;
+        }
       }
     }
 
     if ( hasLayerExportErrror )
     {
-      QgsLogger::debug( QStringLiteral( "Packaged files list request finished for `%1` with some failed layers:\n%2" ).arg( projectId, project->packagedLayerErrors.join( QStringLiteral( "\n" ) ) ) );
+      QgsLogger::debug( QStringLiteral( "Project %1: packaged files list request finished with some failed layers:\n%2" ).arg( projectId, project->packagedLayerErrors.join( QStringLiteral( "\n" ) ) ) );
       emit dataChanged( projectIndex, projectIndex, QVector<int>() << PackagedLayerErrorsRole );
     }
 
     project->lastExportId = packageId;
     project->lastExportedAt = packagedAt;
 
-    QgsLogger::debug( QStringLiteral( "Packaged files to download - %1 files, namely: %2" )
+    QgsLogger::debug( QStringLiteral( "Project %1: packaged files to download - %2 files, namely: %3" )
+                        .arg( projectId )
                         .arg( project->downloadFileTransfers.count() )
                         .arg( project->downloadFileTransfers.keys().join( ", " ) ) );
 
