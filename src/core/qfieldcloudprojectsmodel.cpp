@@ -890,8 +890,7 @@ void QFieldCloudProjectsModel::projectDownload( const QString &projectId )
     if (
       packageId.isNull()
       || packagedAt.isNull()
-      || !payload.value( QStringLiteral( "files" ) ).isArray()
-      || !payload.value( QStringLiteral( "layers" ) ).isObject() )
+      || !payload.value( QStringLiteral( "files" ) ).isArray() )
     {
       QgsLogger::debug( QStringLiteral( "JSON structure for `%1` package does not contain the expected fields: package_id(string), packaged_at(string), files(array), layers(object)" ).arg( projectId ) );
       return;
