@@ -871,6 +871,12 @@ void QFieldCloudProjectsModel::projectDownload( const QString &projectId )
   emit dataChanged( projectIndex, projectIndex, QVector<int>() << PackagingStatusRole << StatusRole );
 
   connect( reply, &NetworkReply::finished, reply, [=]() {
+    if ( !findProject( projectId ) )
+    {
+      QgsLogger::debug( QStringLiteral( "Project %1: adding download file connections, but the project is deleted." ).arg( projectId ) );
+      return;
+    }
+
     if ( project->isPackagingAborted )
       return;
 
