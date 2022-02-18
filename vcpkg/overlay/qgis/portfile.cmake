@@ -17,6 +17,7 @@ vcpkg_from_github(
         androidextras.patch
         findpg.patch
         crssync.patch
+        auxiliary.patch
 )
 
 file(REMOVE ${SOURCE_PATH}/cmake/FindQtKeychain.cmake)
