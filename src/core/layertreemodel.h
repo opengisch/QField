@@ -73,11 +73,16 @@ class FlatLayerTreeModelBase : public QAbstractProxyModel
     //! Sets the information if the \a nodeLayer is currently in \a tracking state
     void setLayerInTracking( QgsLayerTreeLayer *nodeLayer, bool tracking );
 
+    //! Returns whether the current layer tree has temporal awareness
+    bool isTemporal() const { return mIsTemporal; }
+
   signals:
     void mapThemeChanged();
+    void isTemporalChanged();
 
   private:
     void featureCountChanged();
+    void updateTemporalState();
 
     QMap<QModelIndex, int> mRowMap;
     QMap<int, QModelIndex> mIndexMap;
@@ -89,6 +94,8 @@ class FlatLayerTreeModelBase : public QAbstractProxyModel
     QgsProject *mProject = nullptr;
     QList<QgsLayerTreeLayer *> mLayersInTracking;
 
+    bool mIsTemporal = false;
+
     bool mFrozen = false;
 };
 
@@ -97,6 +104,7 @@ class FlatLayerTreeModel : public QSortFilterProxyModel
     Q_OBJECT
 
     Q_PROPERTY( QString mapTheme READ mapTheme WRITE setMapTheme NOTIFY mapThemeChanged )
+    Q_PROPERTY( bool isTemporal READ isTemporal NOTIFY isTemporalChanged )
 
   public:
     enum Roles
@@ -132,6 +140,8 @@ class FlatLayerTreeModel : public QSortFilterProxyModel
     QString mapTheme() const;
     void setMapTheme( const QString &mapTheme );
 
+    bool isTemporal() const;
+
     //! Update map theme as currently used by the model
     //! This should be triggered after a project has been loaded
     Q_INVOKABLE void updateCurrentMapTheme();
@@ -152,6 +162,7 @@ class FlatLayerTreeModel : public QSortFilterProxyModel
 
   signals:
     void mapThemeChanged();
+    void isTemporalChanged();
 
   protected:
     virtual bool filterAcceptsRow( int source_row, const QModelIndex &source_parent ) const override;

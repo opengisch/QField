@@ -77,6 +77,8 @@ class ProjectInfo : public QObject
     QTimer mSaveExtentTimer;
 
     FlatLayerTreeModel *mLayerTree = nullptr;
+
+    bool mIsTemporal = false;
 };
 
 #endif // PROJECTINFO_H

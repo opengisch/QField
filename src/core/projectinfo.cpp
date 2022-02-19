@@ -17,6 +17,7 @@
 
 #include "projectinfo.h"
 
+#include <QDateTime>
 #include <QFileInfo>
 #include <QSettings>
 #include <QString>
