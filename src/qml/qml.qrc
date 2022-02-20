@@ -5,6 +5,7 @@
         <file>BookmarkHighlight.qml</file>
         <file>BookmarkRenderer.qml</file>
         <file>BrowserPanel.qml</file>
+        <file>CalendarPanel.qml</file>
         <file>ConfirmationToolbar.qml</file>
         <file>CoordinateLocator.qml</file>
         <file>DashBoard.qml</file>
