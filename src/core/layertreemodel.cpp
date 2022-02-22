@@ -969,7 +969,7 @@ void FlatLayerTreeModelBase::updateCurrentMapTheme()
 void FlatLayerTreeModelBase::updateTemporalState()
 {
   mIsTemporal = false;
-  QVector<QgsMapLayer *> mapLayers = QgsProject::instance()->layers<QgsMapLayer *>();
+  const QVector<QgsMapLayer *> mapLayers = mProject->layers<QgsMapLayer *>();
   for ( QgsMapLayer *mapLayer : mapLayers )
   {
     if ( mapLayer->temporalProperties() && mapLayer->temporalProperties()->isActive() )
