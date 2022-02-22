@@ -21,6 +21,7 @@
 #include <qgsproject.h>
 #include <qgsrenderer.h>
 #include <qgsvectorlayer.h>
+#include <qgsvectorlayertemporalproperties.h>
 
 IdentifyTool::IdentifyTool( QObject *parent )
   : QObject( parent )
@@ -83,6 +84,17 @@ QList<IdentifyTool::IdentifyResult> IdentifyTool::identifyVectorLayer( QgsVector
   if ( !layer->isInScaleRange( mMapSettings->mapSettings().scale() ) )
     return results;
 
+  QString temporalFilter;
+  if ( mMapSettings->isTemporal() )
+  {
+    if ( !layer->temporalProperties()->isVisibleInTemporalRange( mMapSettings->mapSettings().temporalRange() ) )
+      return results;
+
+    QgsVectorLayerTemporalContext temporalContext;
+    temporalContext.setLayer( layer );
+    temporalFilter = qobject_cast<const QgsVectorLayerTemporalProperties *>( layer->temporalProperties() )->createFilterString( temporalContext, mMapSettings->mapSettings().temporalRange() );
+  }
+
   QgsFeatureList featureList;
 
   // toLayerCoordinates will throw an exception for an 'invalid' point.
@@ -103,6 +115,8 @@ QList<IdentifyTool::IdentifyResult> IdentifyTool::identifyVectorLayer( QgsVector
 
     QgsFeatureRequest req;
     req.setFilterRect( r );
+    if ( !temporalFilter.isEmpty() )
+      req.setFilterExpression( temporalFilter );
     req.setLimit( QSettings().value( "/QField/identify/limit", 100 ).toInt() );
     req.setFlags( QgsFeatureRequest::ExactIntersect );
 
