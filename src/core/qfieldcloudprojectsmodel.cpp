@@ -1808,7 +1808,7 @@ void QFieldCloudProjectsModel::downloadFileConnections( const QString &projectId
     {
       hasError = true;
       errorMessageDetail = QFieldCloudConnection::errorString( rawReply );
-      errorMessage = tr( "Network error. Failed to download file." ).arg( fileName );
+      errorMessage = tr( "Network error. Failed to download file `%1`." ).arg( fileName );
     }
 
     if ( !hasError )
