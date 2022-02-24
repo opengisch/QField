@@ -523,6 +523,7 @@ void QFieldCloudProjectsModel::projectStartJob( const QString &projectId, const 
     if ( project->isPackagingAborted )
     {
       QgsLogger::debug( QStringLiteral( "Project %1: job creation finished, but project operations are aborted" ).arg( projectId ) );
+      emit projectJobFinished( projectId, jobType, tr( "Getting job status, but the project is aborted." ) );
       return;
     }
 
@@ -530,6 +531,7 @@ void QFieldCloudProjectsModel::projectStartJob( const QString &projectId, const 
     if ( !findProject( projectId ) )
     {
       QgsLogger::debug( QStringLiteral( "Project %1: job creation finished, but the project is deleted." ).arg( projectId ) );
+      emit projectJobFinished( projectId, jobType, tr( "Getting job status, but the project is deleted." ) );
       return;
     }
 
@@ -571,18 +573,22 @@ void QFieldCloudProjectsModel::projectGetJobStatus( const QString &projectId, co
   if ( !project )
   {
     QgsLogger::debug( QStringLiteral( "Project %1: getting job status, but the project is deleted." ).arg( projectId ) );
+    emit projectJobFinished( projectId, jobType, tr( "Getting job status, but the project is deleted." ) );
     return;
   }
 
   if ( project->isPackagingAborted )
   {
     QgsLogger::debug( QStringLiteral( "Project %1: getting job status, but project operations are aborted." ).arg( projectId ) );
+    emit projectJobFinished( projectId, jobType, tr( "Getting job status, but the project is aborted." ) );
     return;
   }
 
   if ( !project->jobs.contains( jobType ) )
   {
-    QgsLogger::debug( QStringLiteral( "Project %1: getting job status, but no package job triggered yet." ).arg( projectId ) );
+    const QString jobTypeName = getJobTypeAsString( jobType );
+    QgsLogger::debug( QStringLiteral( "Project %1: getting job status, but no `%2` job triggered yet." ).arg( projectId, jobTypeName ) );
+    emit projectJobFinished( projectId, jobType, tr( "Getting job status, but no `%2` job triggered yet." ).arg( jobTypeName ) );
     return;
   }
 
@@ -597,12 +603,14 @@ void QFieldCloudProjectsModel::projectGetJobStatus( const QString &projectId, co
     if ( !findProject( projectId ) )
     {
       QgsLogger::debug( QStringLiteral( "Project %1, job %2: getting job status finished, but the project is deleted." ).arg( projectId, jobId ) );
+      emit projectJobFinished( projectId, jobType, tr( "Getting job status finished, but the project is deleted." ) );
       return;
     }
 
     if ( project->isPackagingAborted )
     {
       QgsLogger::debug( QStringLiteral( "Project %1, job %2: getting job status finished, but project operations are aborted." ).arg( projectId, jobId ) );
+      emit projectJobFinished( projectId, jobType, tr( "Getting job status finished, but project operations are aborted." ) );
       return;
     }
 
@@ -947,7 +955,7 @@ void QFieldCloudProjectsModel::projectDownload( const QString &projectId )
         || layerStatus.isEmpty()
         || !layer.value( QStringLiteral( "is_valid" ) ).isBool() )
       {
-        QgsLogger::debug( QStringLiteral( "Project %1: JSON structure package in \"files\" list does not contain the expected fields: name(string), status(string), valid(bool)" ).arg( projectId ) );
+        QgsLogger::debug( QStringLiteral( "Project %1: JSON structure package in \"layers\" list does not contain the expected fields: name(string), error_code(string), is_valid(bool)" ).arg( projectId ) );
       }
       else
       {
