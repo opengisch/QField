@@ -375,6 +375,17 @@ QFieldCloudProjectsModel::JobStatus QFieldCloudProjectsModel::getJobStatusFromSt
     return JobFailedStatus;
 }
 
+QString QFieldCloudProjectsModel::getJobTypeAsString( JobType jobType ) const
+{
+  switch ( jobType )
+  {
+    case JobType::Package:
+      return QStringLiteral( "package" );
+  }
+
+  return QString();
+}
+
 void QFieldCloudProjectsModel::projectCancelDownload( const QString &projectId )
 {
   if ( !mCloudConnection )
@@ -496,17 +507,7 @@ void QFieldCloudProjectsModel::projectStartJob( const QString &projectId, const 
 
   emit dataChanged( projectIndex, projectIndex, QVector<int>::fromList( roleNames().keys() ) );
 
-  auto getStringJobType = []( JobType jobType ) {
-    switch ( jobType )
-    {
-      case JobType::Package:
-        return QStringLiteral( "package" );
-    }
-
-    return QString();
-  };
-
-  QString jobTypeName = getStringJobType( jobType );
+  QString jobTypeName = getJobTypeAsString( jobType );
   QgsLogger::debug( QStringLiteral( "Project %1: creating a new `%2` job..." ).arg( projectId, jobTypeName ) );
   NetworkReply *reply = mCloudConnection->post(
     QStringLiteral( "/api/v1/jobs/" ),
