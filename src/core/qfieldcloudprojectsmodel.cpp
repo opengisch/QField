@@ -663,20 +663,23 @@ void QFieldCloudProjectsModel::projectGetJobStatus( const QString &projectId, co
 
 void QFieldCloudProjectsModel::projectPackageAndDownload( const QString &projectId )
 {
-  QgsLogger::debug( QStringLiteral( "Project %1: package and download initiated" ).arg( projectId ) );
+  QgsLogger::debug( QStringLiteral( "Project %1: package and download initiated." ).arg( projectId ) );
 
   if ( !mCloudConnection )
     return;
 
   const QModelIndex projectIndex = findProjectIndex( projectId );
   if ( !projectIndex.isValid() )
+  {
+    QgsLogger::debug( QStringLiteral( "Project %1: package and download cancelled, the project is deleted." ).arg( projectId ) );
     return;
+  }
 
   CloudProject *project = mProjects[projectIndex.row()];
 
   if ( project->status != ProjectStatus::Idle )
   {
-    QgsLogger::debug( QStringLiteral( "Project %1: package and download cancelled, the project is currently busy" ).arg( projectId ) );
+    QgsLogger::debug( QStringLiteral( "Project %1: package and download cancelled, the project is currently busy." ).arg( projectId ) );
     emit warning( tr( "Project busy." ) );
     return;
   }
@@ -872,7 +875,10 @@ void QFieldCloudProjectsModel::projectDownload( const QString &projectId )
 
   const QModelIndex projectIndex = findProjectIndex( projectId );
   if ( !projectIndex.isValid() )
+  {
+    QgsLogger::debug( QStringLiteral( "Project %1: downloading project started, but the project is deleted." ).arg( projectId ) );
     return;
+  }
 
   CloudProject *project = mProjects[projectIndex.row()];
 
