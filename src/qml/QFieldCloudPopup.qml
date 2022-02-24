@@ -340,7 +340,7 @@ Popup {
             icon.source: Theme.getThemeIcon('ic_cloud_synchronize_24dp')
             icon.color: 'white'
 
-            onClicked: uploadProject(true)
+            onClicked: projectUpload(true)
           }
 
           Text {
@@ -366,7 +366,7 @@ Popup {
             icon.source: Theme.getThemeIcon('ic_cloud_upload_24dp')
             icon.color: 'white'
 
-            onClicked: uploadProject(false)
+            onClicked: projectUpload(false)
           }
 
           Text {
@@ -599,9 +599,9 @@ Popup {
       displayToast(qsTr('Connecting cloud'))
   }
 
-  function uploadProject(shouldDownloadUpdates) {
+  function projectUpload(shouldDownloadUpdates) {
     if (cloudProjectsModel.currentProjectData && cloudProjectsModel.currentProjectData.CanSync) {
-      cloudProjectsModel.uploadProject(cloudProjectsModel.currentProjectId, shouldDownloadUpdates)
+      cloudProjectsModel.projectUpload(cloudProjectsModel.currentProjectId, shouldDownloadUpdates)
       return
     }
   }

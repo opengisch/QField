@@ -1144,7 +1144,7 @@ bool QFieldCloudProjectsModel::projectMoveDownloadedFilesToPermanentStorage( con
 }
 
 
-void QFieldCloudProjectsModel::uploadProject( const QString &projectId, const bool shouldDownloadUpdates )
+void QFieldCloudProjectsModel::projectUpload( const QString &projectId, const bool shouldDownloadUpdates )
 {
   const QModelIndex projectIndex = findProjectIndex( projectId );
 

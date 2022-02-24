@@ -233,7 +233,7 @@ class QFieldCloudProjectsModel : public QAbstractListModel
     Q_INVOKABLE void refreshProjectsList();
 
     //! Pushes all local deltas for given \a projectId. If \a shouldDownloadUpdates is true, also calls `downloadProject`.
-    Q_INVOKABLE void uploadProject( const QString &projectId, const bool shouldDownloadUpdates );
+    Q_INVOKABLE void projectUpload( const QString &projectId, const bool shouldDownloadUpdates );
 
     //! Retreives the delta list for a given \a projectId.
     Q_INVOKABLE void refreshProjectDeltaList( const QString &projectId );
