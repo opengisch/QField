@@ -473,7 +473,7 @@ class QFieldCloudProjectsModel : public QAbstractListModel
     QStringList projectFileNames( const QString &projectPath, const QStringList &fileNames ) const;
     QStringList filterGpkgFileNames( const QStringList &fileNames ) const;
 
-    QFieldCloudProjectsModel::JobStatus jobStatus( const QString &status ) const;
+    QFieldCloudProjectsModel::JobStatus getJobStatusFromString( const QString &status ) const;
 
     void downloadFileConnections( const QString &projectId, const QString &fileName );
 };

@@ -354,7 +354,7 @@ QString QFieldCloudProjectsModel::layerFileName( const QgsMapLayer *layer ) cons
   return layer->dataProvider()->dataSourceUri().split( '|' )[0];
 }
 
-QFieldCloudProjectsModel::JobStatus QFieldCloudProjectsModel::jobStatus( const QString &status ) const
+QFieldCloudProjectsModel::JobStatus QFieldCloudProjectsModel::getJobStatusFromString( const QString &status ) const
 {
   const QString statusLower = status.toLower();
   if ( statusLower == QStringLiteral( "pending" ) )
@@ -628,7 +628,7 @@ void QFieldCloudProjectsModel::projectGetJobStatus( const QString &projectId, co
       return;
     }
 
-    project->jobs[jobType].status = jobStatus( jobStatusString );
+    project->jobs[jobType].status = getJobStatusFromString( jobStatusString );
 
     QgsLogger::debug( QStringLiteral( "Project %1, job %2: getting job status finished with `%3`" ).arg( projectId, jobId, jobStatusString ) );
 
