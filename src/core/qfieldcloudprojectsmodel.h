@@ -141,15 +141,43 @@ class QFieldCloudProjectsModel : public QAbstractListModel
     //! The status of the running server job for packaging a project.
     enum PackagingStatus
     {
-      PackagingErrorStatus,
       PackagingUnstartedStatus,
-      PackagingPendingStatus,
+      PackagingErrorStatus,
       PackagingBusyStatus,
       PackagingFinishedStatus,
       PackagingAbortStatus,
     };
 
     Q_ENUM( PackagingStatus )
+
+    //! The status of the running server job.
+    enum JobStatus
+    {
+      JobPendingStatus,
+      JobQueuedStatus,
+      JobStartedStatus,
+      JobFinishedStatus,
+      JobStoppedStatus,
+      JobFailedStatus,
+    };
+
+    Q_ENUM( JobStatus )
+
+    //! The status of the running server job.
+    enum class JobType
+    {
+      Package,
+    };
+
+    Q_ENUM( JobType )
+
+    //! The reason why projectRefreshData was called
+    enum class ProjectRefreshReason
+    {
+      Package,
+    };
+
+    Q_ENUM( ProjectRefreshReason )
 
     QFieldCloudProjectsModel();
 
@@ -192,20 +220,20 @@ class QFieldCloudProjectsModel : public QAbstractListModel
     //! Returns the cloud project data of the currently opened project.
     QVariantMap currentProjectData() const;
 
+    //! Stores a set of the currently busy project ids.
+    Q_PROPERTY( QSet<QString> busyProjectIds READ busyProjectIds NOTIFY busyProjectIdsChanged )
+
+    //! Returns a set containing the currently busy project ids.
+    QSet<QString> busyProjectIds() const;
+
     //! Returns the cloud project data for given \a projectId.
     Q_INVOKABLE QVariantMap getProjectData( const QString &projectId ) const;
 
     //! Requests the cloud projects list from the server.
     Q_INVOKABLE void refreshProjectsList();
 
-    //! Downloads a cloud project with given \a projectId and all of its files.
-    Q_INVOKABLE void downloadProject( const QString &projectId, bool overwriteProject = false ); //! Downloads a cloud project with given \a projectId and all of its files.
-
-    //! Cancels ongoing cloud project download with \a projectId.
-    Q_INVOKABLE void cancelDownloadProject( const QString &projectId );
-
     //! Pushes all local deltas for given \a projectId. If \a shouldDownloadUpdates is true, also calls `downloadProject`.
-    Q_INVOKABLE void uploadProject( const QString &projectId, const bool shouldDownloadUpdates );
+    Q_INVOKABLE void projectUpload( const QString &projectId, const bool shouldDownloadUpdates );
 
     //! Retreives the delta list for a given \a projectId.
     Q_INVOKABLE void refreshProjectDeltaList( const QString &projectId );
@@ -240,16 +268,26 @@ class QFieldCloudProjectsModel : public QAbstractListModel
     //! Reloads the list of cloud projects with the given list of \a remoteProjects.
     Q_INVOKABLE void reload( const QJsonArray &remoteProjects );
 
+    //! Downloads a cloud project with given \a projectId and all of its files.
+    Q_INVOKABLE void projectPackageAndDownload( const QString &projectId );
+
+    //! Cancels ongoing cloud project download with \a projectId.
+    Q_INVOKABLE void projectCancelDownload( const QString &projectId );
+
   signals:
     void cloudConnectionChanged();
     void layerObserverChanged();
     void currentProjectIdChanged();
     void currentProjectDataChanged();
+    void busyProjectIdsChanged();
     void canSyncCurrentProjectChanged();
     void gpkgFlusherChanged();
     void warning( const QString &message );
     void projectDownloaded( const QString &projectId, const QString &projectName, const bool hasError, const QString &errorString = QString() );
     void projectStatusChanged( const QString &projectId, const ProjectStatus &projectStatus );
+    void projectRefreshed( const QString &projectId, const ProjectRefreshReason &refreshReason, const QString &errorString = QString() );
+    void projectJobFinished( const QString &projectId, const JobType jobType, const QString &errorString = QString() );
+    void projectDownloadFinished( const QString &projectId, const QString &errorString = QString() );
     void deltaListModelChanged();
 
     //
@@ -296,9 +334,40 @@ class QFieldCloudProjectsModel : public QAbstractListModel
         QUrl lastRedirectUrl;
     };
 
+    //! Tracks the job status (status, error etc) for a particular project. For now 1 project can have only 1 job of a type.
+    struct Job
+    {
+        Job(
+          const QString &id,
+          const QString &projectId,
+          const JobType type )
+          : id( id ), projectId( projectId ), type( type ) {};
+
+        Job() = default;
+
+        QString id;
+        QString projectId;
+        JobType type;
+        QNetworkReply::NetworkError replyError;
+        QString errorString;
+        JobStatus status = JobPendingStatus;
+    };
+
+    //! Tracks the cloud project information. It means it is not required CloudProject data to be already downloaded on the device.
     struct CloudProject
     {
-        CloudProject( const QString &id, bool isPrivate, const QString &owner, const QString &name, const QString &description, const QString &userRole, const QString &updatedAt, const ProjectCheckouts &checkout, const ProjectStatus &status )
+        CloudProject(
+          const QString &id,
+          bool isPrivate,
+          const QString &owner,
+          const QString &name,
+          const QString &description,
+          const QString &userRole,
+          const QString &updatedAt,
+          const ProjectCheckouts &checkout,
+          const ProjectStatus &status,
+          bool canRepackage,
+          bool needsRepackaging )
           : id( id )
           , isPrivate( isPrivate )
           , owner( owner )
@@ -306,8 +375,10 @@ class QFieldCloudProjectsModel : public QAbstractListModel
           , description( description )
           , userRole( userRole )
           , updatedAt( updatedAt )
-          , status( status )
           , checkout( checkout )
+          , status( status )
+          , canRepackage( canRepackage )
+          , needsRepackaging( needsRepackaging )
         {}
 
         CloudProject() = default;
@@ -320,9 +391,11 @@ class QFieldCloudProjectsModel : public QAbstractListModel
         QString description;
         QString userRole;
         QString updatedAt;
-        ProjectStatus status;
         ProjectErrorStatus errorStatus = ProjectErrorStatus::NoErrorStatus;
         ProjectCheckouts checkout;
+        ProjectStatus status;
+        bool canRepackage = false;
+        bool needsRepackaging = false;
 
         ProjectModifications modification = ProjectModification::NoModification;
         QString localPath;
@@ -332,11 +405,12 @@ class QFieldCloudProjectsModel : public QAbstractListModel
         QString deltaFileUploadStatusString;
         QStringList deltaLayersToDownload;
 
+        bool isPackagingActive = false;
+        bool isPackagingFailed = false;
         PackagingStatus packagingStatus = PackagingUnstartedStatus;
         QString packagingStatusString;
         QStringList packagedLayerErrors;
         QMap<QString, FileTransfer> downloadFileTransfers;
-        NetworkReply *apiNetworkReply = nullptr;
         int downloadFilesFinished = 0;
         int downloadFilesFailed = 0;
         int downloadBytesTotal = 0;
@@ -356,6 +430,9 @@ class QFieldCloudProjectsModel : public QAbstractListModel
         QString lastLocalExportedAt;
         QString lastLocalExportId;
         QString lastLocalPushDeltas;
+
+        QDateTime lastRefreshedAt;
+        QMap<JobType, Job> jobs;
     };
 
     inline QString layerFileName( const QgsMapLayer *layer ) const;
@@ -374,17 +451,19 @@ class QFieldCloudProjectsModel : public QAbstractListModel
     void projectCancelUpload( const QString &projectId );
     void projectCancelUploadAttachments( const QString &projectId );
     void projectUploadAttachments( const QString &projectId );
-    void projectApplyDeltas( const QString &projectId );
     void projectGetDeltaStatus( const QString &projectId );
-    void projectGetPackagingStatus( const QString &projectId );
     bool projectMoveDownloadedFilesToPermanentStorage( const QString &projectId );
+    void projectRefreshData( const QString &projectId, const ProjectRefreshReason &refreshReason );
+    void projectStartJob( const QString &projectId, const JobType jobType );
+    void projectGetJobStatus( const QString &projectId, const JobType jobType );
+    void projectDownload( const QString &projectId );
+
     QString projectGetDir( const QString &projectId, const QString &setting );
     void projectSetSetting( const QString &projectId, const QString &setting, const QVariant &value );
     QVariant projectSetting( const QString &projectId, const QString &setting, const QVariant &defaultValue = QVariant() );
 
     NetworkReply *downloadFile( const QString &projectId, const QString &fileName );
     void projectDownloadFiles( const QString &projectId );
-    void projectDownloadFinishedWithError( const QString &projectId, const QString &errorString );
     void updateActiveProjectFilesToDownload( const QString &projectId );
 
     bool canSyncProject( const QString &projectId ) const;
@@ -393,7 +472,8 @@ class QFieldCloudProjectsModel : public QAbstractListModel
     QStringList projectFileNames( const QString &projectPath, const QStringList &fileNames ) const;
     QStringList filterGpkgFileNames( const QStringList &fileNames ) const;
 
-    QFieldCloudProjectsModel::PackagingStatus packagingStatus( const QString &status ) const;
+    QFieldCloudProjectsModel::JobStatus getJobStatusFromString( const QString &status ) const;
+    QString getJobTypeAsString( JobType jobType ) const;
 
     void downloadFileConnections( const QString &projectId, const QString &fileName );
 };

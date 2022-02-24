@@ -178,7 +178,7 @@ class NetworkReply : public QObject
     /**
      * Number of retries left. Once the value reaches zero, the status of the last reply is the final status.
      */
-    int mRetriesLeft = 5;
+    int mRetriesLeft = 0;
 
 
     /**

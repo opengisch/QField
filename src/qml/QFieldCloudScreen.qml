@@ -21,7 +21,8 @@ Page {
       showApplyButton: false
       showCancelButton: true
       busyIndicatorState: cloudConnection.status === QFieldCloudConnection.Connecting ||
-                         cloudConnection.state === QFieldCloudConnection.Busy ? 'on' : 'off'
+                         cloudConnection.state === QFieldCloudConnection.Busy ? 'on' : 'off' ||
+                         cloudProjectsModel.busyProjectIds.length > 0
 
       onFinished: parent.finished()
     }
@@ -206,7 +207,7 @@ Page {
             clip: true
 
             onMovingChanged: {
-              if ( !moving && overshootRefresh ) {
+              if ( !moving && overshootRefresh && cloudConnection.state === QFieldCloudConnection.Idle && cloudProjectsModel.busyProjectIds.length === 0 ) {
                 refreshProjectsList();
               }
               overshootRefresh = false;
@@ -219,11 +220,13 @@ Page {
 
             delegate: Rectangle {
                 id: rectangle
+
                 property string projectId: Id
                 property string projectOwner: Owner
                 property string projectName: Name
                 property string projectLocalPath: LocalPath
                 property int status: Status
+
                 width: parent ? parent.width : undefined
                 height: line.height
                 color: "transparent"
@@ -359,6 +362,7 @@ Page {
 
                                 var localChanges = ( LocalDeltasCount > 0 ) ? qsTr('Has changes. ') : ''
                                 var str = '%1 (%2%3)'.arg(Description).arg(localChanges).arg(status)
+
                                 return str.trim()
                               }
                             }
@@ -387,7 +391,7 @@ Page {
                   } else {
                     // fetch remote project
                     displayToast( qsTr( "Downloading project %1" ).arg( item.projectName ) )
-                    cloudProjectsModel.downloadProject( item.projectId )
+                    cloudProjectsModel.projectPackageAndDownload( item.projectId )
                   }
                 }
               }
@@ -465,7 +469,7 @@ Page {
 
           text: qsTr( "Download Project" )
           onTriggered: {
-            cloudProjectsModel.downloadProject(projectActions.projectId)
+            cloudProjectsModel.projectPackageAndDownload(projectActions.projectId)
           }
         }
 
@@ -512,7 +516,7 @@ Page {
 
           text: qsTr( "Cancel Project Download" )
           onTriggered: {
-            cloudProjectsModel.cancelDownloadProject(projectActions.projectId)
+            cloudProjectsModel.projectCancelDownload(projectActions.projectId)
           }
         }
       }
@@ -533,6 +537,8 @@ Page {
           Layout.fillWidth: true
           text: qsTr( "Refresh projects list" )
           enabled: cloudConnection.status === QFieldCloudConnection.LoggedIn
+                   && cloudConnection.state === QFieldCloudConnection.Idle
+                   && cloudProjectsModel.busyProjectIds.length === 0
 
           onClicked: refreshProjectsList()
       }
@@ -549,6 +555,10 @@ Page {
   }
 
   function refreshProjectsList() {
+    if ( cloudConnection.state !== QFieldCloudConnection.Idle && cloudProjectsModel.busyProjectIds.length === 0 ) {
+      return;
+    }
+
     cloudProjectsModel.refreshProjectsList();
     displayToast( qsTr( "Refreshing projects list" ) );
   }

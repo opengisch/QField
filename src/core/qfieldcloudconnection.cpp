@@ -435,6 +435,14 @@ NetworkReply *QFieldCloudConnection::get( QNetworkRequest &request, const QUrl &
     }
   } );
 
+  // assume all redirect will never emit "redirected"
+  connect( reply, &NetworkReply::redirected, this, [=]() {
+    if ( --mPendingRequests == 0 )
+    {
+      setState( ConnectionState::Idle );
+    }
+  } );
+
   return reply;
 }
 
