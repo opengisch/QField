@@ -406,7 +406,6 @@ class QFieldCloudProjectsModel : public QAbstractListModel
         QStringList deltaLayersToDownload;
 
         bool isPackagingActive = false;
-        bool isPackagingAborted = false;
         bool isPackagingFailed = false;
         PackagingStatus packagingStatus = PackagingUnstartedStatus;
         QString packagingStatusString;

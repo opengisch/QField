@@ -401,8 +401,6 @@ void QFieldCloudProjectsModel::projectCancelDownload( const QString &projectId )
   if ( project->status != ProjectStatus::Downloading )
     return;
 
-  project->packagingStatus = PackagingAbortStatus;
-
   const QStringList fileNames = project->downloadFileTransfers.keys();
   for ( const QString &fileName : fileNames )
   {
@@ -416,10 +414,10 @@ void QFieldCloudProjectsModel::projectCancelDownload( const QString &projectId )
 
   QgsMessageLog::logMessage( QStringLiteral( "Download of project id `%1` aborted" ).arg( projectId ) );
 
+  project->packagingStatus = PackagingAbortStatus;
   project->errorStatus = NoErrorStatus;
   project->isPackagingActive = false;
   project->isPackagingFailed = true;
-  project->isPackagingAborted = true;
   project->packagingStatusString = tr( "aborted" );
   project->status = ProjectStatus::Idle;
 
@@ -520,10 +518,10 @@ void QFieldCloudProjectsModel::projectStartJob( const QString &projectId, const 
   connect( reply, &NetworkReply::finished, reply, [=]() {
     reply->deleteLater();
 
-    if ( project->isPackagingAborted )
+    if ( project->packagingStatus == PackagingAbortStatus )
     {
-      QgsLogger::debug( QStringLiteral( "Project %1: job creation finished, but project operations are aborted" ).arg( projectId ) );
-      emit projectJobFinished( projectId, jobType, tr( "Getting job status, but the project is aborted." ) );
+      // no need to emit why we aborted packaging, it is callers responsibility to inform the user
+      QgsLogger::debug( QStringLiteral( "Project %1: job creation finished, but project operations are aborted." ).arg( projectId ) );
       return;
     }
 
@@ -577,10 +575,10 @@ void QFieldCloudProjectsModel::projectGetJobStatus( const QString &projectId, co
     return;
   }
 
-  if ( project->isPackagingAborted )
+  if ( project->packagingStatus == PackagingAbortStatus )
   {
+    // no need to emit why we aborted packaging, it is callers responsibility to inform the user
     QgsLogger::debug( QStringLiteral( "Project %1: getting job status, but project operations are aborted." ).arg( projectId ) );
-    emit projectJobFinished( projectId, jobType, tr( "Getting job status, but the project is aborted." ) );
     return;
   }
 
@@ -607,10 +605,10 @@ void QFieldCloudProjectsModel::projectGetJobStatus( const QString &projectId, co
       return;
     }
 
-    if ( project->isPackagingAborted )
+    if ( project->packagingStatus == PackagingAbortStatus )
     {
+      // no need to emit why we aborted packaging, it is callers responsibility to inform the user
       QgsLogger::debug( QStringLiteral( "Project %1, job %2: getting job status finished, but project operations are aborted." ).arg( projectId, jobId ) );
-      emit projectJobFinished( projectId, jobType, tr( "Getting job status finished, but project operations are aborted." ) );
       return;
     }
 
@@ -731,6 +729,7 @@ void QFieldCloudProjectsModel::projectPackageAndDownload( const QString &project
 
         if ( project->packagingStatus == PackagingAbortStatus )
         {
+          // no need to emit why we aborted packaging, whoever sets the packagingStatus is responsible to inform the user
           QgsLogger::debug( QStringLiteral( "Project %1: packaging finished, but project operations are aborted." ).arg( projectId ) );
           return;
         }
@@ -791,6 +790,7 @@ void QFieldCloudProjectsModel::projectPackageAndDownload( const QString &project
 
       if ( project->packagingStatus == PackagingAbortStatus )
       {
+        // no need to emit why we aborted packaging, whoever sets the packagingStatus is responsible to inform the user
         QgsLogger::debug( QStringLiteral( "Project %1: refreshing data finished, but project operations are aborted." ).arg( projectId ) );
         return;
       }
@@ -815,8 +815,12 @@ void QFieldCloudProjectsModel::projectPackageAndDownload( const QString &project
     if ( finishedProjectId != projectId )
       return;
 
-    if ( project->isPackagingAborted )
+    if ( project->packagingStatus == PackagingAbortStatus )
+    {
+      // no need to emit why we aborted packaging, it is callers responsibility to inform the user
+      QgsLogger::debug( QStringLiteral( "Project %1: downloading project finished, but project operations are aborted." ).arg( projectId ) );
       return;
+    }
 
     tempProjectDownloadFinishedParent->deleteLater();
 
@@ -872,8 +876,12 @@ void QFieldCloudProjectsModel::projectDownload( const QString &projectId )
 
   CloudProject *project = mProjects[projectIndex.row()];
 
-  if ( project->isPackagingAborted )
+  if ( project->packagingStatus == PackagingAbortStatus )
+  {
+    // no need to emit why we aborted packaging, it is callers responsibility to inform the user
+    QgsLogger::debug( QStringLiteral( "Project %1: downloading project started, but project operations are aborted." ).arg( projectId ) );
     return;
+  }
 
   NetworkReply *reply = mCloudConnection->get( QStringLiteral( "/api/v1/packages/%1/latest/" ).arg( projectId ) );
 
@@ -886,8 +894,12 @@ void QFieldCloudProjectsModel::projectDownload( const QString &projectId )
       return;
     }
 
-    if ( project->isPackagingAborted )
+    if ( project->packagingStatus == PackagingAbortStatus )
+    {
+      // no need to emit why we aborted packaging, it is callers responsibility to inform the user
+      QgsLogger::debug( QStringLiteral( "Project %1: adding download file connections, but the project is aborted." ).arg( projectId ) );
       return;
+    }
 
     QNetworkReply *rawReply = reply->reply();
 
