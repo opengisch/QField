@@ -50,6 +50,10 @@ Rectangle {
   signal showMessage(string message)
   signal editGeometry
 
+  function requestCancel() {
+    featureFormList.requestCancel();
+  }
+
   width: {
       if ( props.isVisible || featureForm.canvasOperationRequested )
       {
@@ -343,6 +347,13 @@ Rectangle {
     focus: true
 
     visible: !globalFeaturesList.shown
+
+    onCancelled: {
+      featureForm.selection.focusedItemChanged()
+      featureFormList.model.featureModel.reset()
+      featureForm.state = featureForm.selection.model.selectedCount > 0 ? "FeatureList" : "FeatureForm"
+      displayToast( qsTr( "Last changes discarded" ) )
+    }
   }
 
   NavigationBar {
@@ -418,9 +429,7 @@ Rectangle {
     }
 
     onCancel: {
-        featureFormList.model.featureModel.reset()
-        featureForm.state = featureForm.selection.model.selectedCount > 0 ? "FeatureList" : "FeatureForm"
-        displayToast( qsTr( "Last changes discarded" ) )
+        featureForm.requestCancel();
     }
 
     onMoveClicked: {

@@ -38,6 +38,10 @@ Page {
     master.reset()
   }
 
+  function requestCancel() {
+    cancelDialog.open();
+  }
+
   states: [
     State {
       name: 'ReadOnly'
@@ -706,6 +710,29 @@ Page {
           cancel()
         }
       }
+    }
+  }
+
+  Dialog {
+    id: cancelDialog
+    parent: mainWindow.contentItem
+
+    visible: false
+    modal: true
+
+    x: ( mainWindow.width - width ) / 2
+    y: ( mainWindow.height - height ) / 2
+
+    title: qsTr( "Cancel editing" )
+    Label {
+      width: parent.width
+      wrapMode: Text.WordWrap
+      text: qsTr( "You are about to leave editing state, any changes will be lost. Proceed?" )
+    }
+
+    standardButtons: Dialog.Ok | Dialog.Cancel
+    onAccepted: {
+      form.cancelled()
     }
   }
 }
