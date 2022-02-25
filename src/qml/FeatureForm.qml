@@ -707,7 +707,7 @@ Page {
 
         onClicked: {
           Qt.inputMethod.hide()
-          cancel()
+          form.requestCancel()
         }
       }
     }
@@ -727,12 +727,14 @@ Page {
     Label {
       width: parent.width
       wrapMode: Text.WordWrap
-      text: qsTr( "You are about to leave editing state, any changes will be lost. Proceed?" )
+      text: form.state === 'Add'
+            ? qsTr( "You are about to dismiss the new feature, proceed?" )
+            : qsTr( "You are about to leave editing state, any changes will be lost. Proceed?" )
     }
 
     standardButtons: Dialog.Ok | Dialog.Cancel
     onAccepted: {
-      form.cancelled()
+      form.cancel()
     }
   }
 }

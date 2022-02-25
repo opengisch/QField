@@ -14,6 +14,8 @@ Drawer {
   property bool isAdding: false
 
   edge: parent.width < parent.height ? Qt.BottomEdge : Qt.RightEdge
+  closePolicy: Popup.NoAutoClose // prevent accidental feature addition when clicking outside of the popup drawer
+
   width: {
       if (qfieldSettings.fullScreenIdentifyView || parent.width < parent.height || parent.width < 300) {
           parent.width
