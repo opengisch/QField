@@ -2192,10 +2192,22 @@ ApplicationWindow {
   QFieldCloudPopup {
     id: cloudPopup
     visible: false
+    focus: visible
     parent: ApplicationWindow.overlay
 
     width: parent.width
     height: parent.height
+
+    Keys.onReleased: {
+      if (event.key === Qt.Key_Back || event.key === Qt.Key_Escape) {
+        event.accepted = true
+        close()
+      }
+    }
+
+    Component.onCompleted: {
+      focusstack.addFocusTaker( this )
+    }
   }
 
   QFieldCloudPackageLayersFeedback {
