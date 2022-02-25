@@ -352,7 +352,9 @@ Rectangle {
       featureForm.selection.focusedItemChanged()
       featureFormList.model.featureModel.reset()
       featureForm.state = featureForm.selection.model.selectedCount > 0 ? "FeatureList" : "FeatureForm"
-      displayToast( qsTr( "Last changes discarded" ) )
+      if (!qfieldSettings.autoSave) {
+          displayToast( qsTr( "Changes discarded" ), 'warning' )
+      }
     }
   }
 

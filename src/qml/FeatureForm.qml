@@ -39,7 +39,11 @@ Page {
   }
 
   function requestCancel() {
-    cancelDialog.open();
+    if (!qfieldSettings.autoSave) {
+      cancelDialog.open();
+    } else {
+      cancel()
+    }
   }
 
   states: [
@@ -707,7 +711,7 @@ Page {
 
         onClicked: {
           Qt.inputMethod.hide()
-          if (form.state === 'Add' || form.state === 'Edit') {
+          if ((form.state === 'Add' || form.state === 'Edit')) {
             form.requestCancel()
           } else {
             cancel();
