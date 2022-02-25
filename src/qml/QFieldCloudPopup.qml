@@ -154,6 +154,21 @@ Popup {
           }
         }
 
+
+        Text {
+          id: wrongAccountText
+          visible: cloudProjectsModel.currentProjectId != cloudProjectsModel.currentProjectData.Id
+          font: Theme.tipFont
+          color: Theme.gray
+          text: qsTr('This QFieldCloud project was first downloaded with another cloud account. Please sign in with the original account for this project to use the QFieldCloud functionality.')
+
+          wrapMode: Text.WordWrap
+          horizontalAlignment: Text.AlignHCenter
+          Layout.fillWidth: true
+          Layout.margins: 10
+        }
+
+
         Text {
           id: statusText
           visible: cloudProjectsModel.currentProjectData.Status === QFieldCloudProjectsModel.Downloading ||
