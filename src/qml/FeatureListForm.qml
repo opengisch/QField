@@ -555,14 +555,7 @@ Rectangle {
 
           if (state != "FeatureList") {
               if (featureListToolBar.state === "Edit") {
-                  if (featureFormList.model.constraintsHardValid) {
-                      featureListToolBar.save();
-                  } else {
-                      displayToast( "Constraints not valid", 'warning' );
-                      if (qfieldSettings.autoSave) {
-                          featureListToolBar.cancel();
-                      }
-                  }
+                  featureFormList.requestCancel();
               } else {
                   state = "FeatureList";
               }
