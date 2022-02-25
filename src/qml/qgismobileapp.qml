@@ -1177,7 +1177,8 @@ ApplicationWindow {
                      // unfortunately there is no way to call QVariant::toBool in QML so the value is a string
                      && dashBoard.currentLayer.customProperty( 'QFieldSync/is_geometry_locked' ) !== 'true'
                      && !geometryEditorsToolbar.stateVisible
-                     && !moveFeaturesToolbar.stateVisible)
+                     && !moveFeaturesToolbar.stateVisible
+                     && cloudProjectsModel.currentProjectData.Status === QFieldCloudProjectsModel.Idle)
                     || stateMachine.state === 'measure'
                     || (stateMachine.state === "digitize" && digitizingToolbar.geometryRequested)
       rubberbandModel: currentRubberband ? currentRubberband.model : null
@@ -1869,22 +1870,22 @@ ApplicationWindow {
           switch(cloudProjectData.UserRole) {
             case 'reader':
               stateMachine.state = "browse"
-              projectInfo.insertRights = false
-              projectInfo.editRights = false
+              projectInfo.hasInsertRights = false
+              projectInfo.hasEditRights = false
               break;
             case 'reporter':
-              projectInfo.insertRights = true
-              projectInfo.editRights = false
+              projectInfo.hasInsertRights = true
+              projectInfo.hasEditRights = false
               break;
             case 'editor':
             case 'manager':
             case 'admin':
-              projectInfo.insertRights = true
-              projectInfo.editRights = true
+              projectInfo.hasInsertRights = true
+              projectInfo.hasEditRights = true
               break;
             default:
-              projectInfo.insertRights = true
-              projectInfo.editRights = true
+              projectInfo.hasInsertRights = true
+              projectInfo.hasEditRights = true
               break;
           }
 
@@ -1892,8 +1893,8 @@ ApplicationWindow {
             cloudPopup.show()
           }
         } else {
-          projectInfo.insertRights = true
-          projectInfo.editRights = true
+          projectInfo.hasInsertRights = true
+          projectInfo.hasEditRights = true
         }
       }
 
@@ -1909,8 +1910,11 @@ ApplicationWindow {
     mapSettings: mapCanvas.mapSettings
     layerTree: dashBoard.layerTree
 
-    property bool insertRights: true
-    property bool editRights: true
+    property bool hasInsertRights: true
+    property bool hasEditRights: true
+
+    property bool insertRights: hasInsertRights && cloudProjectsModel.currentProjectData.Status === QFieldCloudProjectsModel.Idle
+    property bool editRights: hasEditRights && cloudProjectsModel.currentProjectData.Status === QFieldCloudProjectsModel.Idle
   }
 
   BusyIndicator {
