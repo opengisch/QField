@@ -707,7 +707,11 @@ Page {
 
         onClicked: {
           Qt.inputMethod.hide()
-          form.requestCancel()
+          if (form.state === 'Add' || form.state === 'Edit') {
+            form.requestCancel()
+          } else {
+            cancel();
+          }
         }
       }
     }
@@ -720,6 +724,7 @@ Page {
     visible: false
     modal: true
 
+    z: 10000 // 1000s are embedded feature forms, user a higher value to insure the dialog will always show above embedded feature forms
     x: ( mainWindow.width - width ) / 2
     y: ( mainWindow.height - height ) / 2
 
