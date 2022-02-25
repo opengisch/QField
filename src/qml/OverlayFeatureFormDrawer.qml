@@ -104,7 +104,7 @@ Drawer {
     }
 
     onCancelled: {
-      displayToast( qsTr( "Last changes discarded" ) )
+      displayToast( qsTr( "Changes discarded" ) )
       //close drawer if still open
       if ( overlayFeatureFormDrawer.position > 0 ) {
         overlayFeatureForm.isSaved = true; //because never changed
