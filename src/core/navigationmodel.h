@@ -58,6 +58,9 @@ class NavigationModel : public QAbstractListModel
 
     void setCrs( QgsCoordinateReferenceSystem crs );
 
+    void save();
+    void restore();
+
   signals:
     void destinationChanged();
     void pointsChanged();

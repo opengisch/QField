@@ -23,12 +23,17 @@ Navigation::Navigation()
   : QObject()
 {
   mModel.reset( new NavigationModel() );
+  mModel->restore();
+
   connect( mModel.get(), &NavigationModel::destinationChanged, this, &Navigation::destinationChanged );
   connect( mModel.get(), &NavigationModel::pointsChanged, this, &Navigation::updatePath );
+  connect( mModel.get(), &NavigationModel::modelReset, this, &Navigation::destinationChanged );
+  connect( mModel.get(), &NavigationModel::modelReset, this, &Navigation::updatePath );
 }
 
 Navigation::~Navigation()
 {
+  mModel->save();
 }
 
 void Navigation::setMapSettings( QgsQuickMapSettings *mapSettings )
@@ -84,7 +89,10 @@ void Navigation::updatePath()
 {
   QgsPointSequence points = mModel->points();
   if ( points.isEmpty() )//|| !mLocation.isEmpty() )
+  {
+    mPath = QgsGeometry();
     return;
+  }
 
   points.prepend( QgsPoint( 1037250, 5907021 ) );
   mPath = QgsGeometry( new QgsLineString( points ) );

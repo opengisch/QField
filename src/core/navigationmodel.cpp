@@ -17,6 +17,8 @@
 #include "navigationmodel.h"
 #include "navigation.h"
 
+#include <QSettings>
+
 NavigationModel::NavigationModel()
   : QAbstractListModel()
 {
@@ -95,4 +97,47 @@ QHash<int, QByteArray> NavigationModel::roleNames() const
   roleNames[NavigationModel::Point] = "Point";
   roleNames[NavigationModel::PointType] = "PointType";
   return roleNames;
+}
+
+void NavigationModel::save()
+{
+  QSettings settings;
+  if ( !mPoints.isEmpty() )
+  {
+    QStringList pointWkts;
+    for( const QgsPoint &point : mPoints )
+    {
+      pointWkts << point.asWkt();
+    }
+
+    settings.beginGroup( QStringLiteral( "/QField/navigation" ) );
+    settings.setValue( QStringLiteral( "crs" ), mCrs.toWkt() );
+    settings.setValue( QStringLiteral( "points" ), pointWkts.join( QStringLiteral( "}||{" ) ) );
+    settings.endGroup();
+  }
+  else
+  {
+    settings.remove( QStringLiteral( "/QField/navigation" ) );
+  }
+}
+
+void NavigationModel::restore()
+{
+  QSettings settings;
+  if ( settings.contains( QStringLiteral( "/QField/navigation/points" ) ) )
+  {
+    beginResetModel();
+    settings.beginGroup( QStringLiteral( "/QField/navigation" ) );
+    mCrs.createFromWkt( settings.value( QStringLiteral( "crs" ), QString() ).toString() );
+    mPoints.clear();
+    const QStringList pointWkts( settings.value( QStringLiteral( "points" ), QString() ).toString().split( QStringLiteral( "}||{" ) ) );
+    for ( const QString &pointWkt : pointWkts )
+    {
+      QgsPoint point;
+      point.fromWkt( pointWkt );
+      mPoints << point;
+    }
+    settings.endGroup();
+    endResetModel();
+  }
 }
