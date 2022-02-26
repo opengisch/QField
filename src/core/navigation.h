@@ -60,6 +60,8 @@ class Navigation : public QObject
     QgsUnitTypes::DistanceUnit distanceUnits() const { return mDa.lengthUnits(); }
     double bearing() const { return mBearing; }
 
+    Q_INVOKABLE void clear();
+
   signals:
     void mapSettingsChanged();
     void modelChanged();

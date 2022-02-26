@@ -141,3 +141,10 @@ void NavigationModel::restore()
     endResetModel();
   }
 }
+
+void NavigationModel::clear()
+{
+  beginResetModel();
+  mPoints.clear();
+  endResetModel();
+}

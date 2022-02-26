@@ -60,6 +60,7 @@ class NavigationModel : public QAbstractListModel
 
     void save();
     void restore();
+    void clear();
 
   signals:
     void destinationChanged();

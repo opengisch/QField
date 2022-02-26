@@ -95,6 +95,9 @@ void Navigation::updateDetails()
   if ( points.isEmpty() || mLocation.isEmpty() )
   {
     mPath = QgsGeometry();
+    mDistance = 0.0;
+    mBearing = 0.0;
+    emit detailsChanged();
     return;
   }
   points.prepend( mLocation );
@@ -104,4 +107,10 @@ void Navigation::updateDetails()
   mBearing = mDa.bearing( mLocation, destination() ) * 180 / M_PI;
 
   emit detailsChanged();
+}
+
+void Navigation::clear()
+{
+  mModel->clear();
+  updateDetails();
 }

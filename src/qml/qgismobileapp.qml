@@ -1001,6 +1001,12 @@ ApplicationWindow {
 
       iconSource: Theme.getThemeIcon( "ic_navigation_flag_red_24dp" )
       bgcolor: Theme.darkGray
+
+      onClicked: mapCanvas.mapSettings.setCenter(navigation.destination)
+
+      onPressAndHold: {
+        navigationMenu.popup(locationToolbar.x + locationToolbar.width - navigationMenu.width, locationToolbar.y + locationToolbar.height - navigationMenu.height)
+      }
     }
 
     QfToolButton {
@@ -1641,6 +1647,34 @@ ApplicationWindow {
               positionSource.active = false
           }
       }
+  }
+
+  Menu {
+    id: navigationMenu
+    title: qsTr( "Navigation Options" )
+    font: Theme.defaultFont
+
+    width: {
+        var result = 0;
+        var padding = 0;
+        for (var i = 0; i < count; ++i) {
+            var item = itemAt(i);
+            result = Math.max(item.contentItem.implicitWidth, result);
+            padding = Math.max(item.padding, padding);
+        }
+        return Math.min( result + padding * 2,mainWindow.width - 20);
+    }
+
+    MenuItem {
+      id: cancelNavigationItem
+      text: qsTr( "Clear Destination" )
+      height: 48
+      font: Theme.defaultFont
+
+      onTriggered: {
+        navigation.clear();
+      }
+    }
   }
 
   Menu {
