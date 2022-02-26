@@ -60,18 +60,24 @@ Item {
 
   Rectangle {
     id: marker
-    property point location
-    width: 12
-    height: 12
 
-    x: location.x - width/2
-    y: location.y - height/2
+    property point location    
+    property bool isOnCanvas: location.x > 0
+                              && location.x < mapCanvas.width
+                              && location.y > 0
+                              && location.y < mapCanvas.height
+
+    width: isOnCanvas ? 12 : 10
+    height: isOnCanvas ? 12 : 10
+
+    x: Math.min(mapCanvas.width, Math.max(0, location.x)) - width/2
+    y: Math.min(mapCanvas.height, Math.max(0, location.y)) - height/2
 
     radius: width/2
 
     color: "#64b5f6"
     border.color: "#FFFFFF"
-    border.width: 3
+    border.width: isOnCanvas ? 3 : 2
 
     SequentialAnimation on color  {
       loops: Animation.Infinite
