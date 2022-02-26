@@ -39,10 +39,14 @@ class Navigation : public QObject
     Q_PROPERTY( QgsUnitTypes::DistanceUnit distanceUnits READ distanceUnits NOTIFY detailsChanged )
     Q_PROPERTY( double bearing READ bearing NOTIFY detailsChanged )
 
+    Q_PROPERTY( bool isActive READ isActive NOTIFY isActiveChanged )
+
   public:
     Navigation();
 
     ~Navigation();
+
+    bool isActive() const;
 
     void setMapSettings( QgsQuickMapSettings *mapSettings );
     QgsQuickMapSettings *mapSettings() const { return mMapSettings; }
@@ -63,6 +67,8 @@ class Navigation : public QObject
     Q_INVOKABLE void clear();
 
   signals:
+    void isActiveChanged();
+
     void mapSettingsChanged();
     void modelChanged();
 

@@ -64,7 +64,6 @@ class NavigationModel : public QAbstractListModel
 
   signals:
     void destinationChanged();
-    void pointsChanged();
 
   private:
     QgsPointSequence mPoints;

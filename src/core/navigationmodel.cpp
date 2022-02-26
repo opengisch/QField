@@ -77,7 +77,6 @@ void NavigationModel::setDestination( const QgsPoint &point )
   }
 
   emit destinationChanged();
-  emit pointsChanged();
 }
 
 void NavigationModel::setCrs( QgsCoordinateReferenceSystem crs )

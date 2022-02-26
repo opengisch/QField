@@ -578,14 +578,14 @@ ApplicationWindow {
     anchors.bottom: parent.bottom
     anchors.left: parent.left
     anchors.right: parent.right
-    visible: n.visible || p.visible
+    visible: navigation.isActive || positioningSettings.showPositionInformation
 
     height: childrenRect.height
     width: parent.width
 
     NavigationInformationView {
       id: n
-      visible: true
+      visible: navigation.isActive
       navigation: navigation
     }
 
@@ -996,7 +996,7 @@ ApplicationWindow {
 
     QfToolButton {
       id: navigationButton
-      visible: true
+      visible: navigation.isActive
       round: true
 
       iconSource: Theme.getThemeIcon( "ic_navigation_flag_red_24dp" )

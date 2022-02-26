@@ -26,8 +26,10 @@ Navigation::Navigation()
   mModel.reset( new NavigationModel() );
   mModel->restore();
 
+  connect( mModel.get(), &NavigationModel::destinationChanged, this, &Navigation::isActiveChanged );
   connect( mModel.get(), &NavigationModel::destinationChanged, this, &Navigation::destinationChanged );
-  connect( mModel.get(), &NavigationModel::pointsChanged, this, &Navigation::updateDetails );
+  connect( mModel.get(), &NavigationModel::destinationChanged, this, &Navigation::updateDetails );
+  connect( mModel.get(), &NavigationModel::modelReset, this, &Navigation::isActiveChanged );
   connect( mModel.get(), &NavigationModel::modelReset, this, &Navigation::destinationChanged );
   connect( mModel.get(), &NavigationModel::modelReset, this, &Navigation::updateDetails );
 }
@@ -35,6 +37,11 @@ Navigation::Navigation()
 Navigation::~Navigation()
 {
   mModel->save();
+}
+
+bool Navigation::isActive() const
+{
+  return !destination().isEmpty();
 }
 
 void Navigation::setMapSettings( QgsQuickMapSettings *mapSettings )
