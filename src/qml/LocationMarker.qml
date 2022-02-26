@@ -61,7 +61,7 @@ Item {
   Rectangle {
     id: marker
 
-    property point location    
+    property point location
     property bool isOnCanvas: location.x > 0
                               && location.x < mapCanvas.width
                               && location.y > 0

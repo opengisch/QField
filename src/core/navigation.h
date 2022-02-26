@@ -17,12 +17,11 @@
 #ifndef NAVIGATION_H
 #define NAVIGATION_H
 
-#include "qgsquickmapsettings.h"
 #include "navigationmodel.h"
-
-#include <qgsdistancearea.h>
+#include "qgsquickmapsettings.h"
 
 #include <QObject>
+#include <qgsdistancearea.h>
 
 class Navigation : public QObject
 {

@@ -76,7 +76,7 @@ class LocatorModelSuperBridge : public QgsLocatorModelBridge
     void setBookmarks( BookmarkModel *bookmarks );
 
     Navigation *navigation() const;
-    void setNavigation ( Navigation *navigation );
+    void setNavigation( Navigation *navigation );
 
     QObject *locatorHighlightGeometry() const;
     void setLocatorHighlightGeometry( QObject *locatorHighlightGeometry );

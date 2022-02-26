@@ -17,11 +17,10 @@
 #ifndef NAVIGATIONMODEL_H
 #define NAVIGATIONMODEL_H
 
-#include <qgsabstractgeometry.h>
-#include <qgscoordinatereferencesystem.h>
-
 #include <QAbstractListModel>
 #include <QObject>
+#include <qgsabstractgeometry.h>
+#include <qgscoordinatereferencesystem.h>
 
 class Navigation;
 
@@ -30,7 +29,6 @@ class NavigationModel : public QAbstractListModel
     Q_OBJECT
 
   public:
-
     enum Types
     {
       Destination,

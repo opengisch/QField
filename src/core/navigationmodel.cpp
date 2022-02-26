@@ -14,12 +14,11 @@
  *                                                                         *
  ***************************************************************************/
 
-#include "navigationmodel.h"
 #include "navigation.h"
-
-#include <qgsproject.h>
+#include "navigationmodel.h"
 
 #include <QSettings>
+#include <qgsproject.h>
 
 NavigationModel::NavigationModel()
   : QAbstractListModel()
@@ -47,7 +46,7 @@ QVariant NavigationModel::data( const QModelIndex &index, int role ) const
 
     case NavigationModel::PointType:
     {
-      return row == mPoints.size() -1 ? NavigationModel::Destination : NavigationModel::Intermediate;
+      return row == mPoints.size() - 1 ? NavigationModel::Destination : NavigationModel::Intermediate;
     }
   }
 
@@ -140,7 +139,7 @@ void NavigationModel::save()
   if ( !mPoints.isEmpty() )
   {
     QStringList pointWkts;
-    for( const QgsPoint &point : mPoints )
+    for ( const QgsPoint &point : mPoints )
     {
       pointWkts << point.asWkt();
     }
