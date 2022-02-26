@@ -17,6 +17,8 @@
 #include "navigationmodel.h"
 #include "navigation.h"
 
+#include <qgsproject.h>
+
 #include <QSettings>
 
 NavigationModel::NavigationModel()
@@ -84,10 +86,44 @@ void NavigationModel::setCrs( QgsCoordinateReferenceSystem crs )
   if ( mCrs == crs )
     return;
 
-  //TODO: transform points
-  mCrs = crs;
+  if ( !mPoints.isEmpty() )
+  {
+    beginResetModel();
+    QgsCoordinateTransform transform( mCrs, crs, QgsProject::instance()->transformContext() );
+    for ( int i = 0; i < mPoints.size(); i++ )
+    {
+      QgsPointXY transformedPoint;
+      bool transformed = true;
+      try
+      {
+        transformedPoint = transform.transform( mPoints.at( i ).x(), mPoints.at( i ).y() );
+      }
+      catch ( const QgsException &e )
+      {
+        Q_UNUSED( e )
+        transformed = false;
+      }
+      catch ( ... )
+      {
+        // catch any other errors
+        transformed = false;
+      }
 
-  emit destinationChanged();
+      if ( transformed )
+      {
+        mPoints.replace( i, QgsPoint( transformedPoint ) );
+      }
+      else
+      {
+        // One or more points can't be transformed, clear
+        mPoints.clear();
+      }
+    }
+    endResetModel();
+    emit destinationChanged();
+  }
+
+  mCrs = crs;
 }
 
 QHash<int, QByteArray> NavigationModel::roleNames() const

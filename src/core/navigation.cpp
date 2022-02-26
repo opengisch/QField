@@ -19,6 +19,7 @@
 
 #include <qgslinestring.h>
 #include <qgsproject.h>
+#include <qgsvectorlayer.h>
 
 Navigation::Navigation()
   : QObject()
@@ -105,7 +106,30 @@ void Navigation::setDestinationFeature( const QgsFeature &feature, QgsVectorLaye
   if ( pointOnSurface.isEmpty() )
     return;
 
-  setDestination( pointOnSurface.vertexAt( 0 ) );
+  if ( layer->crs() != mMapSettings->destinationCrs() )
+  {
+    QgsCoordinateTransform transform( layer->crs(), mMapSettings->destinationCrs(), QgsProject::instance()->transformContext() );
+    QgsPointXY transformedPoint;
+    try
+    {
+      transformedPoint = transform.transform( pointOnSurface.asPoint() );
+    }
+    catch ( const QgsException &e )
+    {
+      Q_UNUSED( e )
+      return;
+    }
+    catch ( ... )
+    {
+      // catch any other errors
+      return;
+    }
+    setDestination( QgsPoint( transformedPoint ) );
+  }
+  else
+  {
+    setDestination( pointOnSurface.vertexAt( 0 ) );
+  }
 }
 
 void Navigation::updateDetails()
