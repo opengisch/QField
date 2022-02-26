@@ -359,6 +359,9 @@ ApplicationWindow {
           if( !overlayFeatureFormDrawer.visible ) {
             identifyTool.identify(point)
           }
+        } else {
+          canvasMenu.point = mapCanvas.mapSettings.screenToCoordinate(point);
+          canvasMenu.popup(point.x, point.y )
         }
       }
 
@@ -1647,6 +1650,60 @@ ApplicationWindow {
               positionSource.active = false
           }
       }
+  }
+
+  Menu {
+    id: canvasMenu
+    title: qsTr( "Map Canvas Options" )
+    font: Theme.defaultFont
+
+    property var point
+    onPointChanged: {
+      xItem.text = ( mapCanvas.mapSettings.destinationCrs.isGeographic ? qsTr( 'Lon' ) : 'X' ) + ': ' +
+                   point.x.toFixed( coordinateLocator.mapSettings.destinationCrs.isGeographic ? 5 : 2 )
+      yItem.text = ( mapCanvas.mapSettings.destinationCrs.isGeographic ? qsTr( 'Lat' ) : 'Y' ) + ': ' +
+                   point.y.toFixed( coordinateLocator.mapSettings.destinationCrs.isGeographic ? 5 : 2 )
+    }
+
+    width: {
+        var result = 0;
+        var padding = 0;
+        for (var i = 0; i < count; ++i) {
+            var item = itemAt(i);
+            result = Math.max(item.contentItem.implicitWidth, result);
+            padding = Math.max(item.padding, padding);
+        }
+        return Math.min( result + padding * 2,mainWindow.width - 20);
+    }
+
+    MenuItem {
+        id: xItem
+        text: ""
+        height: 48
+        font: Theme.defaultFont
+        enabled:false
+    }
+
+    MenuItem {
+        id: yItem
+        text: ""
+        height: 48
+        font: Theme.defaultFont
+        enabled:false
+    }
+
+    MenuSeparator { width: parent.width }
+
+    MenuItem {
+      id: setDestinationItem
+      text: qsTr( "Set As Destination" )
+      height: 48
+      font: Theme.defaultFont
+
+      onTriggered: {
+        navigation.destination = canvasMenu.point
+      }
+    }
   }
 
   Menu {
