@@ -73,7 +73,10 @@ Rectangle {
         anchors.left: parent.left
         font: Theme.tipFont
         color: textColor
-        text: qsTr( "Dist." ) + ': ' + ( UnitTypes.formatDistance( navigation.distance, 3, navigation.distanceUnits ) )
+        text: qsTr( "Dist." ) + ': ' +
+              ( positionSource.active && positionSource.positionInfo && positionSource.positionInfo.latitudeValid
+              ? ( UnitTypes.formatDistance( navigation.distance, 3, navigation.distanceUnits ) )
+              : qsTr( "N/A" ) )
       }
     }
 
@@ -88,7 +91,10 @@ Rectangle {
         anchors.left: parent.left
         font: Theme.tipFont
         color: textColor
-        text: qsTr( "Bearing" ) + ': ' + ( Number( navigation.bearing ).toLocaleString( Qt.locale(), 'f', 1 ) ) + '°'
+        text: qsTr( "Bearing" ) + ': ' +
+              ( positionSource.active && positionSource.positionInfo && positionSource.positionInfo.latitudeValid
+              ? ( Number( navigation.bearing ).toLocaleString( Qt.locale(), 'f', 1 ) ) + '°'
+              : qsTr( "N/A" ) )
       }
     }
   }
