@@ -58,6 +58,7 @@ class Navigation : public QObject
 
     QgsPoint destination() const;
     void setDestination( const QgsPoint &point );
+    Q_INVOKABLE void setDestinationFeature( const QgsFeature &feature, QgsVectorLayer *layer );
 
     QgsGeometry path() const { return mPath; }
     double distance() const { return mDistance; }

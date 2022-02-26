@@ -96,6 +96,18 @@ void Navigation::setDestination( const QgsPoint &point )
   mModel->setDestination( point );
 }
 
+void Navigation::setDestinationFeature( const QgsFeature &feature, QgsVectorLayer *layer )
+{
+  if ( !layer || feature.geometry().isEmpty() )
+    return;
+
+  QgsGeometry pointOnSurface = feature.geometry().pointOnSurface();
+  if ( pointOnSurface.isEmpty() )
+    return;
+
+  setDestination( pointOnSurface.vertexAt( 0 ) );
+}
+
 void Navigation::updateDetails()
 {
   QgsPointSequence points = mModel->points();
