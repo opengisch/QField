@@ -88,14 +88,13 @@ void Navigation::setDestination( const QgsPoint &point )
 void Navigation::updatePath()
 {
   QgsPointSequence points = mModel->points();
-  if ( points.isEmpty() )//|| !mLocation.isEmpty() )
+  if ( points.isEmpty() || mLocation.isEmpty() )
   {
     mPath = QgsGeometry();
     return;
   }
 
-  points.prepend( QgsPoint( 1037250, 5907021 ) );
+  points.prepend( mLocation );
   mPath = QgsGeometry( new QgsLineString( points ) );
-  qDebug() << mPath.asWkt();
   emit pathChanged();
 }
