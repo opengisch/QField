@@ -65,7 +65,7 @@ Rectangle {
     Rectangle {
       height: rowHeight
       width: grid.cellWidth
-      color: alternateBackgroundColor
+      color: grid.rows == 2 ? backgroundColor : alternateBackgroundColor
 
       Text {
         anchors.margins:  10
@@ -80,7 +80,7 @@ Rectangle {
     Rectangle {
       height: rowHeight
       width: grid.cellWidth
-      color: backgroundColor
+      color: grid.rows == 2 ? alternateBackgroundColor : backgroundColor
 
       Text {
         anchors.margins:  10
