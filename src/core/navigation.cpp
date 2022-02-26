@@ -18,6 +18,7 @@
 #include "navigationmodel.h"
 
 #include <qgslinestring.h>
+#include <qgsproject.h>
 
 Navigation::Navigation()
   : QObject()
@@ -26,9 +27,9 @@ Navigation::Navigation()
   mModel->restore();
 
   connect( mModel.get(), &NavigationModel::destinationChanged, this, &Navigation::destinationChanged );
-  connect( mModel.get(), &NavigationModel::pointsChanged, this, &Navigation::updatePath );
+  connect( mModel.get(), &NavigationModel::pointsChanged, this, &Navigation::updateDetails );
   connect( mModel.get(), &NavigationModel::modelReset, this, &Navigation::destinationChanged );
-  connect( mModel.get(), &NavigationModel::modelReset, this, &Navigation::updatePath );
+  connect( mModel.get(), &NavigationModel::modelReset, this, &Navigation::updateDetails );
 }
 
 Navigation::~Navigation()
@@ -49,13 +50,16 @@ void Navigation::setMapSettings( QgsQuickMapSettings *mapSettings )
   mMapSettings = mapSettings;
 
   connect( mMapSettings, &QgsQuickMapSettings::destinationCrsChanged, this, &Navigation::crsChanged );
-  mModel->setCrs( mMapSettings->destinationCrs() );
+  crsChanged();
 
   emit mapSettingsChanged();
 }
 
 void Navigation::crsChanged()
 {
+  mDa = QgsDistanceArea();
+  mDa.setEllipsoid( QgsProject::instance()->ellipsoid() );
+  mDa.setSourceCrs( mMapSettings->destinationCrs(), QgsProject::instance()->transformContext() );
   mModel->setCrs( mMapSettings->destinationCrs() );
 }
 
@@ -72,7 +76,7 @@ void Navigation::setLocation( const QgsPoint &point )
   mLocation = point;
   emit locationChanged();
 
-  updatePath();
+  updateDetails();
 }
 
 QgsPoint Navigation::destination() const
@@ -85,7 +89,7 @@ void Navigation::setDestination( const QgsPoint &point )
   mModel->setDestination( point );
 }
 
-void Navigation::updatePath()
+void Navigation::updateDetails()
 {
   QgsPointSequence points = mModel->points();
   if ( points.isEmpty() || mLocation.isEmpty() )
@@ -93,8 +97,11 @@ void Navigation::updatePath()
     mPath = QgsGeometry();
     return;
   }
-
   points.prepend( mLocation );
+
   mPath = QgsGeometry( new QgsLineString( points ) );
-  emit pathChanged();
+  mDistance = mDa.measureLine( mLocation, destination() );
+  mBearing = mDa.bearing( mLocation, destination() ) * 180 / M_PI;
+
+  emit detailsChanged();
 }

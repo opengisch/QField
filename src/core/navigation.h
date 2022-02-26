@@ -20,6 +20,8 @@
 #include "qgsquickmapsettings.h"
 #include "navigationmodel.h"
 
+#include <qgsdistancearea.h>
+
 #include <QObject>
 
 class Navigation : public QObject
@@ -31,7 +33,11 @@ class Navigation : public QObject
 
     Q_PROPERTY( QgsPoint location READ location WRITE setLocation NOTIFY locationChanged )
     Q_PROPERTY( QgsPoint destination READ destination WRITE setDestination NOTIFY destinationChanged )
-    Q_PROPERTY( QgsGeometry path READ path NOTIFY pathChanged )
+
+    Q_PROPERTY( QgsGeometry path READ path NOTIFY detailsChanged )
+    Q_PROPERTY( double distance READ distance NOTIFY detailsChanged )
+    Q_PROPERTY( QgsUnitTypes::DistanceUnit distanceUnits READ distanceUnits NOTIFY detailsChanged )
+    Q_PROPERTY( double bearing READ bearing NOTIFY detailsChanged )
 
   public:
     Navigation();
@@ -50,6 +56,9 @@ class Navigation : public QObject
     void setDestination( const QgsPoint &point );
 
     QgsGeometry path() const { return mPath; }
+    double distance() const { return mDistance; }
+    QgsUnitTypes::DistanceUnit distanceUnits() const { return mDa.lengthUnits(); }
+    double bearing() const { return mBearing; }
 
   signals:
     void mapSettingsChanged();
@@ -58,18 +67,21 @@ class Navigation : public QObject
     void locationChanged();
     void destinationChanged();
 
-    void pathChanged();
+    void detailsChanged();
 
   private slots:
     void crsChanged();
 
   private:
-    void updatePath();
+    void updateDetails();
 
     std::unique_ptr<NavigationModel> mModel = nullptr;
     QgsQuickMapSettings *mMapSettings = nullptr;
     QgsPoint mLocation;
     QgsGeometry mPath;
+    QgsDistanceArea mDa;
+    double mDistance = 0.0;
+    double mBearing = 0.0;
 };
 
 #endif // NAVIGATION_H

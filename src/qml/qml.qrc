@@ -18,6 +18,7 @@
         <file>MessageLog.qml</file>
         <file>NavigationBar.qml</file>
         <file>NavigationHighlight.qml</file>
+        <file>NavigationInformationView.qml</file>
         <file>NavigationRenderer.qml</file>
         <file>PositionInformationView.qml</file>
         <file>QFieldSettings.qml</file>

@@ -281,7 +281,7 @@ ApplicationWindow {
     anchors.top: parent.top
     anchors.left: parent.left
     anchors.right: parent.right
-    anchors.bottom: positionInformationView.visible ? positionInformationView.top : parent.bottom
+    anchors.bottom: informationView.visible ? informationView.top : parent.bottom
 
     Rectangle {
       id: mapCanvasBackground
@@ -573,31 +573,38 @@ ApplicationWindow {
     }
   }
 
-  Item {
-    id: positionInformationView
+  Column {
+    id: informationView
     anchors.bottom: parent.bottom
     anchors.left: parent.left
     anchors.right: parent.right
-    visible: positioningSettings.showPositionInformation
+    visible: n.visible || p.visible
 
     height: childrenRect.height
     width: parent.width
 
+    NavigationInformationView {
+      id: n
+      visible: true
+      navigation: navigation
+    }
+
     PositionInformationView {
       id: p
+      visible: positioningSettings.showPositionInformation
       positionSource: positionSource
       antennaHeight: positioningSettings.antennaHeightActivated ? positioningSettings.antennaHeight : NaN
     }
   }
 
   DropShadow {
-    anchors.fill: positionInformationView
-    visible: positionInformationView.visible
+    anchors.fill: informationView
+    visible: informationView.visible
     verticalOffset: -2
     radius: 6.0
     samples: 17
     color: "#30000000"
-    source: positionInformationView
+    source: informationView
   }
 
   /**************************************************
@@ -986,6 +993,15 @@ ApplicationWindow {
     anchors.bottom: mapCanvas.bottom
     anchors.bottomMargin: 4
     spacing: 4
+
+    QfToolButton {
+      id: navigationButton
+      visible: true
+      round: true
+
+      iconSource: Theme.getThemeIcon( "ic_navigation_flag_red_24dp" )
+      bgcolor: Theme.darkGray
+    }
 
     QfToolButton {
       id: gpsLinkButton

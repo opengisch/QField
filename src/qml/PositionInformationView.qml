@@ -12,7 +12,6 @@ Rectangle {
   property TransformedPositionSource positionSource
   property double rowHeight: 30
   property double antennaHeight: NaN
-  color: "yellow"
   property color textColor: positionSource.currentness ? "black" : "gray"
 
   height: grid.rows * positionInformationView.rowHeight
