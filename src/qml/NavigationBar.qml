@@ -259,7 +259,6 @@ Rectangle {
     iconSource: Theme.getThemeIcon( "ic_clear_white_24dp" )
 
     onClicked: {
-      selection.focusedItemChanged()
       toolBar.cancel()
     }
 

@@ -42,6 +42,7 @@ Popup {
     signal featureCancelled
 
     parent: ApplicationWindow.overlay
+    closePolicy: Popup.NoAutoClose // prevent accidental feature addition and editing
 
     x: 24
     y: 24
@@ -50,7 +51,6 @@ Popup {
     width: parent.width - 48
     height: parent.height - 48
     modal: true
-    closePolicy: Popup.CloseOnEscape
 
     FeatureForm {
         id: form

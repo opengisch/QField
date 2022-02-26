@@ -675,7 +675,7 @@ bool FeatureModel::create()
 
 bool FeatureModel::deleteFeature()
 {
-  return LayerUtils::deleteFeature( mProject, mLayer, mFeature.id() );
+  return LayerUtils::deleteFeature( mProject, mLayer, mFeature.id(), false );
 }
 
 bool FeatureModel::commit()

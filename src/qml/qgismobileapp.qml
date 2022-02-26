@@ -299,7 +299,7 @@ ApplicationWindow {
 
       onClicked:  {
           if (featureForm.state == "FeatureFormEdit") {
-              // We are editing a feature form, don't accidentally close to prevent from accidental data loss
+              featureForm.requestCancel();
               return;
           }
 

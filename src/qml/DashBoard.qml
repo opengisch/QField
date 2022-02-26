@@ -94,7 +94,16 @@ Drawer {
                       }
           bgcolor: "transparent"
 
-          onClicked: showCloudMenu()
+          onClicked: {
+            if (featureForm.state == "FeatureFormEdit") {
+              featureForm.requestCancel();
+              return;
+            }
+            if (featureForm.visible) {
+              featureForm.hide();
+            }
+            showCloudMenu()
+          }
           bottomRightIndicatorText: cloudProjectsModel.layerObserver.deltaFileWrapper.count > 0
                                       ? cloudProjectsModel.layerObserver.deltaFileWrapper.count
                                       : cloudProjectsModel.layerObserver.deltaFileWrapper.count >= 10
