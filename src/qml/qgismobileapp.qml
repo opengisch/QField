@@ -1660,9 +1660,9 @@ ApplicationWindow {
     property var point
     onPointChanged: {
       xItem.text = ( mapCanvas.mapSettings.destinationCrs.isGeographic ? qsTr( 'Lon' ) : 'X' ) + ': ' +
-                   point.x.toFixed( coordinateLocator.mapSettings.destinationCrs.isGeographic ? 5 : 2 )
+                   Number( point.x ).toLocaleString( Qt.locale(), 'f', coordinateLocator.mapSettings.destinationCrs.isGeographic ? 7 : 3 )
       yItem.text = ( mapCanvas.mapSettings.destinationCrs.isGeographic ? qsTr( 'Lat' ) : 'Y' ) + ': ' +
-                   point.y.toFixed( coordinateLocator.mapSettings.destinationCrs.isGeographic ? 5 : 2 )
+                   Number( point.y ).toLocaleString( Qt.locale(), 'f', coordinateLocator.mapSettings.destinationCrs.isGeographic ? 7 : 3 )
     }
 
     width: {
