@@ -113,7 +113,8 @@ void FeaturesLocatorFilter::fetchResults( const QString &string, const QgsLocato
       result.userData = QVariantList() << f.id() << preparedLayer->layerId;
       result.icon = preparedLayer->layerIcon;
       result.score = static_cast<double>( string.length() ) / result.displayString.size();
-      result.actions << QgsLocatorResult::ResultAction( OpenForm, tr( "Open form" ), QStringLiteral( "ic_baseline-list_alt-24px" ) );
+      result.actions << QgsLocatorResult::ResultAction( OpenForm, tr( "Open form" ), QStringLiteral( "ic_baseline-list_alt-24px" ) )
+                     << QgsLocatorResult::ResultAction( Navigation, tr( "Set feature as navigation" ), QStringLiteral( "ic_navigation_flag_red_24dp" ) );
 
       emit resultFetched( result );
 
@@ -151,6 +152,15 @@ void FeaturesLocatorFilter::triggerResultFromAction( const QgsLocatorResult &res
     mLocatorBridge->featureListController()->model()->setFeatures( requests );
     mLocatorBridge->featureListController()->selection()->setFocusedItem( 0 );
     mLocatorBridge->featureListController()->requestFeatureFormState();
+  }
+  else if ( actionId == Navigation )
+  {
+    if ( !mLocatorBridge->navigation() )
+      return;
+
+    QgsFeatureIterator it = layer->getFeatures( featureRequest.setNoAttributes() );
+    it.nextFeature( feature );
+    mLocatorBridge->navigation()->setDestinationFeature( feature, layer );
   }
   else
   {
