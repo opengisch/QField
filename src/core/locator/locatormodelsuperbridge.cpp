@@ -43,6 +43,21 @@ LocatorModelSuperBridge::LocatorModelSuperBridge( QObject *parent )
   locator()->registerFilter( new FinlandLocatorFilter( mFinlandGeocoder, this ) );
 }
 
+Navigation *LocatorModelSuperBridge::navigation() const
+{
+  return mNavigation;
+}
+
+void LocatorModelSuperBridge::setNavigation( Navigation *navigation )
+{
+  if ( navigation == mNavigation )
+    return;
+
+  mNavigation = navigation;
+
+  emit navigationChanged();
+}
+
 BookmarkModel *LocatorModelSuperBridge::bookmarks() const
 {
   return mBookmarks;

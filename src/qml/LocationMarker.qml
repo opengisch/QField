@@ -7,7 +7,7 @@ import Theme 1.0
 Item {
   id: item
 
-  property variant location // QgsPointV2
+  property variant location // QgsPoint
   property real accuracy
   property real direction // A -1 value indicates absence of direction information
   property MapSettings mapSettings

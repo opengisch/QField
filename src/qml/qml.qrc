@@ -17,6 +17,8 @@
         <file>MapCanvas.qml</file>
         <file>MessageLog.qml</file>
         <file>NavigationBar.qml</file>
+        <file>NavigationHighlight.qml</file>
+        <file>NavigationRenderer.qml</file>
         <file>PositionInformationView.qml</file>
         <file>QFieldSettings.qml</file>
         <file>ScaleBar.qml</file>

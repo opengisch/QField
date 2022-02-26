@@ -466,6 +466,17 @@ ApplicationWindow {
       overrideLocation: gpsLinkButton.linkActive ? positionSource.projectedPosition : undefined
     }
 
+    Navigation {
+      id: navigation
+      mapSettings: mapCanvas.mapSettings
+      location: positionSource.projectedPosition
+    }
+
+    NavigationHighlight {
+      id: navigationHighlight
+      navigation: navigation
+    }
+
     /* GPS marker  */
     LocationMarker {
       id: locationMarker
@@ -739,6 +750,9 @@ ApplicationWindow {
 
   LocatorItem {
     id: locatorItem
+
+    locatorModelSuperBridge.navigation: navigation
+    locatorModelSuperBridge.bookmarks: bookmarkModel
 
     anchors.right: parent.right
     anchors.top: parent.top
