@@ -469,7 +469,7 @@ ApplicationWindow {
     Navigation {
       id: navigation
       mapSettings: mapCanvas.mapSettings
-      location: positionSource.projectedPosition
+      location: positionSource.active ? positionSource.projectedPosition : undefined
     }
 
     NavigationHighlight {

@@ -10,13 +10,14 @@ Item {
   property Navigation navigation
 
   LinePolygonHighlight {
+    visible: positionSource.active
     mapSettings: navigation.mapSettings
     geometry:   QgsGeometryWrapper {
       qgsGeometry: navigation.path
       crs: navigation.mapSettings.crs
     }
-    color: "#55FF0000"
-    width: 3
+    color: "#77FF0000"
+    width: positionSource.active && positionSource.positionInfo && positionSource.positionInfo.latitudeValid ? 3 : 1
   }
 
   Repeater {

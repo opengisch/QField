@@ -60,11 +60,11 @@ Item {
                     x: Math.min(mapCanvas.width, Math.max(0,mapToScreenPosition.screenPoint.x)) - width/2
                     y: Math.min(mapCanvas.height, Math.max(0,mapToScreenPosition.screenPoint.y)) - height/2
 
-                    width: isOnCanvas ? 20 : 10
-                    height: isOnCanvas ? 20 : 10
+                    width: isOnCanvas ? 16 : 10
+                    height: isOnCanvas ? 16 : 10
                     color: "#FF0000"
                     border.color: "#FFFFFF"
-                    border.width: isOnCanvas ? 3 : 1
+                    border.width: isOnCanvas ? 3 : 2
                     transform: Rotation { origin.x: point.width / 2; origin.y: point.width / 2; angle: 45}
                 }
             }
