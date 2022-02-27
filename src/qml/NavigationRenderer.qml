@@ -58,8 +58,8 @@ Item {
                                               && mapToScreenPosition.screenPoint.x < mapCanvas.width
                                               && mapToScreenPosition.screenPoint.y > 0
                                               && mapToScreenPosition.screenPoint.y < mapCanvas.height
-                    x: Math.min(mapCanvas.width, Math.max(0,mapToScreenPosition.screenPoint.x)) - width/2
-                    y: Math.min(mapCanvas.height, Math.max(0,mapToScreenPosition.screenPoint.y)) - height/2
+                    x: Math.min(mapCanvas.width, Math.max(0, mapToScreenPosition.screenPoint.x)) - width / 2
+                    y: Math.min(mapCanvas.height, Math.max(0, mapToScreenPosition.screenPoint.y)) - height / 2
 
                     width: isOnCanvas ? 16 : 10
                     height: isOnCanvas ? 16 : 10

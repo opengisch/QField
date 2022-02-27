@@ -1007,7 +1007,10 @@ ApplicationWindow {
       onClicked: mapCanvas.mapSettings.setCenter(navigation.destination)
 
       onPressAndHold: {
-        navigationMenu.popup(locationToolbar.x + locationToolbar.width - navigationMenu.width, locationToolbar.y + locationToolbar.height - navigationMenu.height)
+        navigationMenu.popup(
+          locationToolbar.x + locationToolbar.width - navigationMenu.width,
+          locationToolbar.y + locationToolbar.height - navigationMenu.height
+        )
       }
     }
 
@@ -1658,10 +1661,12 @@ ApplicationWindow {
 
     property var point
     onPointChanged: {
-      xItem.text = ( mapCanvas.mapSettings.destinationCrs.isGeographic ? qsTr( 'Lon' ) : 'X' ) + ': ' +
-                   Number( point.x ).toLocaleString( Qt.locale(), 'f', coordinateLocator.mapSettings.destinationCrs.isGeographic ? 7 : 3 )
-      yItem.text = ( mapCanvas.mapSettings.destinationCrs.isGeographic ? qsTr( 'Lat' ) : 'Y' ) + ': ' +
-                   Number( point.y ).toLocaleString( Qt.locale(), 'f', coordinateLocator.mapSettings.destinationCrs.isGeographic ? 7 : 3 )
+      var xLabel = mapCanvas.mapSettings.destinationCrs.isGeographic ? qsTr( 'Lon' ) : 'X';
+      var xValue = Number( point.x ).toLocaleString( Qt.locale(), 'f', coordinateLocator.mapSettings.destinationCrs.isGeographic ? 7 : 3 )
+      var yLabel = mapCanvas.mapSettings.destinationCrs.isGeographic ? qsTr( 'Lat' ) : 'Y'
+      var yValue = Number( point.y ).toLocaleString( Qt.locale(), 'f', coordinateLocator.mapSettings.destinationCrs.isGeographic ? 7 : 3 )
+      xItem.text = xLabel + ': ' + xValue
+      yItem.text = yLabel + ': ' + yValue
     }
 
     width: {

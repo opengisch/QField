@@ -70,8 +70,8 @@ Item {
     width: isOnCanvas ? 12 : 10
     height: isOnCanvas ? 12 : 10
 
-    x: Math.min(mapCanvas.width, Math.max(0, location.x)) - width/2
-    y: Math.min(mapCanvas.height, Math.max(0, location.y)) - height/2
+    x: Math.min(mapCanvas.width, Math.max(0, location.x)) - width / 2
+    y: Math.min(mapCanvas.height, Math.max(0, location.y)) - height / 2
 
     radius: width/2
 
