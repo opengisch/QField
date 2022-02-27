@@ -1,5 +1,6 @@
 import QtQuick 2.12
 import QtGraphicalEffects 1.12
+import QtSensors 5.12
 
 import org.qgis 1.0
 import Theme 1.0
@@ -12,16 +13,32 @@ Item {
   property real direction // A -1 value indicates absence of direction information
   property MapSettings mapSettings
 
+  Magnetometer {
+    id: magnetometer
+    active: true
+    returnGeoValues: false
+
+    property bool hasValue: true
+    property real x: 0
+    property real y: 0
+
+    onReadingChanged: {
+      magnetometer.x = reading.x
+      magnetometer.y = reading.y
+      magnetometer.hasValue = true
+    }
+  }
+
   Rectangle {
     id: accuracyMarker
-    property point location
+    property point screenLocation
     property real accuracy
     visible: accuracy > 0.0
     width: accuracy * 2
     height: accuracy * 2
 
-    x: location.x - width/2
-    y: location.y - height/2
+    x: screenLocation.x - width/2
+    y: screenLocation.y - height/2
 
     radius: width/2
 
@@ -31,15 +48,34 @@ Item {
   }
 
   Image {
+    id: compassDirectionMarker
+    property point screenLocation
+    property real direction
+    visible: magnetometer.hasValue
+    width: 48
+    height: 48
+    opacity: 0.6
+
+    x: screenLocation.x - width/2
+    y: screenLocation.y - height
+
+    source: Theme.getThemeVectorIcon( "ic_compass_direction" )
+    fillMode: Image.PreserveAspectFit
+    rotation: (Math.atan2(magnetometer.x, magnetometer.y) / Math.PI) * 180
+    transformOrigin: Item.Bottom
+    smooth: true
+  }
+
+  Image {
     id: movementDirectionMarker
-    property point location
+    property point screenLocation
     property real direction
     visible: direction >= 0
     width: 48
     height: 48
 
-    x: location.x - width/2
-    y: location.y - height
+    x: screenLocation.x - width/2
+    y: screenLocation.y - height
 
     source: Theme.getThemeVectorIcon( "ic_movement_direction" )
     fillMode: Image.PreserveAspectFit
@@ -59,19 +95,18 @@ Item {
   }
 
   Rectangle {
-    id: marker
-
-    property point location
-    property bool isOnCanvas: location.x > 0
-                              && location.x < mapCanvas.width
-                              && location.y > 0
-                              && location.y < mapCanvas.height
+    id: positionMarker
+    property point screenLocation
+    property bool isOnCanvas: screenLocation.x > 0
+                              && screenLocation.x < mapCanvas.width
+                              && screenLocation.y > 0
+                              && screenLocation.y < mapCanvas.height
 
     width: isOnCanvas ? 12 : 10
     height: isOnCanvas ? 12 : 10
 
-    x: Math.min(mapCanvas.width, Math.max(0, location.x)) - width / 2
-    y: Math.min(mapCanvas.height, Math.max(0, location.y)) - height / 2
+    x: Math.min(mapCanvas.width, Math.max(0, screenLocation.x)) - width / 2
+    y: Math.min(mapCanvas.height, Math.max(0, screenLocation.y)) - height / 2
 
     radius: width/2
 
@@ -113,10 +148,17 @@ Item {
   }
 
   function updateScreenLocation() {
-    marker.location = mapSettings.coordinateToScreen( location )
-    movementDirectionMarker.location = mapSettings.coordinateToScreen( location )
+    var point = mapSettings.coordinateToScreen( location )
+    positionMarker.screenLocation = point
+    compassDirectionMarker.screenLocation = point
+    movementDirectionMarker.screenLocation = point
+    accuracyMarker.screenLocation = point
+
     movementDirectionMarker.direction = direction
-    accuracyMarker.location = mapSettings.coordinateToScreen( location )
     accuracyMarker.accuracy = accuracy / mapSettings.mapUnitsPerPoint
+  }
+
+  Component.onCompleted: {
+    magnetometer.start()
   }
 }
