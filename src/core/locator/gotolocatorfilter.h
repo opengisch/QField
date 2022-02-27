@@ -38,7 +38,7 @@ class GotoLocatorFilter : public QgsLocatorFilter
     enum ActionOrigin
     {
       Normal,
-      AddFeature
+      Navigation,
     };
 
     explicit GotoLocatorFilter( LocatorModelSuperBridge *locatorBridge, QObject *parent = nullptr );

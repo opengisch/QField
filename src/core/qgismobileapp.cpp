@@ -80,6 +80,8 @@
 #include "maptoscreen.h"
 #include "messagelogmodel.h"
 #include "modelhelper.h"
+#include "navigation.h"
+#include "navigationmodel.h"
 #include "orderedrelationmodel.h"
 #include "picturesource.h"
 #include "printlayoutlistmodel.h"
@@ -465,6 +467,8 @@ void QgisMobileapp::initDeclarative()
   qmlRegisterType<QFieldCloudProjectsFilterModel>( "org.qfield", 1, 0, "QFieldCloudProjectsFilterModel" );
   qmlRegisterType<DeltaListModel>( "org.qfield", 1, 0, "DeltaListModel" );
   qmlRegisterType<ScaleBarMeasurement>( "org.qfield", 1, 0, "ScaleBarMeasurement" );
+  qmlRegisterType<Navigation>( "org.qfield", 1, 0, "Navigation" );
+  qmlRegisterType<NavigationModel>( "org.qfield", 1, 0, "NavigationModel" );
 
   qRegisterMetaType<GnssPositionInformation>( "GnssPositionInformation" );
 

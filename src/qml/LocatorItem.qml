@@ -66,7 +66,6 @@ Item {
     keepScale: qfieldSettings.locatorKeepScale
 
     featureListController: featureForm.extentController
-    bookmarks: bookmarkModel
 
     onMessageEmitted: {
       displayToast(text)

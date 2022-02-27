@@ -40,6 +40,7 @@ Rectangle {
   signal save
   signal cancel
 
+  signal destinationClicked
   signal moveClicked
   signal duplicateClicked
   signal deleteClicked
@@ -597,6 +598,17 @@ Rectangle {
       checked: extentController.autoZoom
 
       onTriggered: extentController.autoZoom = !extentController.autoZoom
+    }
+
+    MenuItem {
+      text: qsTr( 'Set Feature as Destination' )
+      icon.source: Theme.getThemeIcon( "ic_navigation_flag_purple_24dp" )
+
+      font: Theme.defaultFont
+      height: 48
+      leftPadding: 10
+
+      onTriggered: destinationClicked();
     }
 
     MenuSeparator {

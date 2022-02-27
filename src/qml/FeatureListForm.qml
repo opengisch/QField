@@ -434,6 +434,10 @@ Rectangle {
         featureForm.requestCancel();
     }
 
+    onDestinationClicked: {
+      navigation.setDestinationFeature(featureForm.selection.focusedFeature,featureForm.selection.focusedLayer)
+    }
+
     onMoveClicked: {
         if (featureForm.selection.focusedItem !== -1) {
             featureForm.state = "FeatureList"
