@@ -31,7 +31,7 @@ Item {
   }
 
   Image {
-    id: directionMarker
+    id: movementDirectionMarker
     property point location
     property real direction
     visible: direction >= 0
@@ -106,20 +106,16 @@ Item {
     function onOutputSizeChanged() {
       updateScreenLocation()
     }
-
-    function updateScreenLocation() {
-      marker.location = mapSettings.coordinateToScreen( location )
-      directionMarker.location = mapSettings.coordinateToScreen( location )
-      directionMarker.direction = direction
-      accuracyMarker.location = mapSettings.coordinateToScreen( location )
-      accuracyMarker.accuracy = accuracy / mapSettings.mapUnitsPerPoint
-    }
   }
 
   onLocationChanged: {
-    marker.location = mapSettings.coordinateToScreen( location );
-    directionMarker.location = mapSettings.coordinateToScreen( location )
-    directionMarker.direction = direction
+   updateScreenLocation()
+  }
+
+  function updateScreenLocation() {
+    marker.location = mapSettings.coordinateToScreen( location )
+    movementDirectionMarker.location = mapSettings.coordinateToScreen( location )
+    movementDirectionMarker.direction = direction
     accuracyMarker.location = mapSettings.coordinateToScreen( location )
     accuracyMarker.accuracy = accuracy / mapSettings.mapUnitsPerPoint
   }
