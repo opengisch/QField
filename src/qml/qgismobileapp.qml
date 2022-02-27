@@ -488,7 +488,12 @@ ApplicationWindow {
       visible: positionSource.active && positionSource.positionInfo && positionSource.positionInfo.latitudeValid
       location: positionSource.projectedPosition
       accuracy: positionSource.projectedHorizontalAccuracy
-      direction: positionSource.positionInfo && positionSource.positionInfo.directionValid ? positionSource.positionInfo.direction : -1
+      direction: positionSource.positionInfo
+                 && positionSource.positionInfo.directionValid
+                 && positionSource.positionInfo.speedValid
+                 && positionSource.positionInfo.speed > 0.0
+                 ? positionSource.positionInfo.direction
+                 : -1
 
       onLocationChanged: {
         if ( gpsButton.followActive ) {
