@@ -146,7 +146,7 @@ void NavigationModel::save()
 
     settings.beginGroup( QStringLiteral( "/QField/navigation" ) );
     settings.setValue( QStringLiteral( "crs" ), mCrs.toWkt() );
-    settings.setValue( QStringLiteral( "points" ), pointWkts.join( QStringLiteral( "}||{" ) ) );
+    settings.setValue( QStringLiteral( "points" ), pointWkts );
     settings.endGroup();
   }
   else
@@ -164,12 +164,13 @@ void NavigationModel::restore()
     settings.beginGroup( QStringLiteral( "/QField/navigation" ) );
     mCrs.createFromWkt( settings.value( QStringLiteral( "crs" ), QString() ).toString() );
     mPoints.clear();
-    const QStringList pointWkts( settings.value( QStringLiteral( "points" ), QString() ).toString().split( QStringLiteral( "}||{" ) ) );
+    const QStringList pointWkts( settings.value( QStringLiteral( "points" ), QString() ).toStringList() );
     for ( const QString &pointWkt : pointWkts )
     {
       QgsPoint point;
       point.fromWkt( pointWkt );
-      mPoints << point;
+      if ( !point.isEmpty() )
+        mPoints << point;
     }
     settings.endGroup();
     endResetModel();
