@@ -100,7 +100,7 @@ void GotoLocatorFilter::fetchResults( const QString &string, const QgsLocatorCon
       result.displayString = tr( "Go to %1 %2 (Map CRS)" ).arg( locale.toString( point.x(), 'g', 10 ), locale.toString( point.y(), 'g', 10 ) );
       result.userData = data;
       result.score = 0.9;
-      result.actions << QgsLocatorResult::ResultAction( Navigation, tr( "Set navigation point" ), QStringLiteral( "ic_navigation_flag_red_24dp" ) );
+      result.actions << QgsLocatorResult::ResultAction( Navigation, tr( "Set navigation point" ), QStringLiteral( "ic_navigation_flag_purple_24dp" ) );
       emit resultFetched( result );
     }
 
@@ -132,7 +132,7 @@ void GotoLocatorFilter::fetchResults( const QString &string, const QgsLocatorCon
       result.displayString = tr( "Go to %1° %2° (WGS84)" ).arg( locale.toString( point.x(), 'g', 10 ), locale.toString( point.y(), 'g', 10 ) );
       result.userData = data;
       result.score = 1.0;
-      result.actions << QgsLocatorResult::ResultAction( Navigation, tr( "Set navigation point" ), QStringLiteral( "ic_navigation_flag_red_24dp" ) );
+      result.actions << QgsLocatorResult::ResultAction( Navigation, tr( "Set navigation point" ), QStringLiteral( "ic_navigation_flag_purple_24dp" ) );
       emit resultFetched( result );
     }
   }

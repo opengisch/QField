@@ -602,7 +602,7 @@ Rectangle {
 
     MenuItem {
       text: qsTr( 'Set Feature as Destination' )
-      icon.source: Theme.getThemeIcon( "ic_navigation_flag_red_24dp" )
+      icon.source: Theme.getThemeIcon( "ic_navigation_flag_purple_24dp" )
 
       font: Theme.defaultFont
       height: 48

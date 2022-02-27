@@ -114,7 +114,7 @@ void FeaturesLocatorFilter::fetchResults( const QString &string, const QgsLocato
       result.icon = preparedLayer->layerIcon;
       result.score = static_cast<double>( string.length() ) / result.displayString.size();
       result.actions << QgsLocatorResult::ResultAction( OpenForm, tr( "Open form" ), QStringLiteral( "ic_baseline-list_alt-24px" ) )
-                     << QgsLocatorResult::ResultAction( Navigation, tr( "Set feature as navigation" ), QStringLiteral( "ic_navigation_flag_red_24dp" ) );
+                     << QgsLocatorResult::ResultAction( Navigation, tr( "Set feature as navigation" ), QStringLiteral( "ic_navigation_flag_purple_24dp" ) );
 
       emit resultFetched( result );
 

@@ -1001,7 +1001,7 @@ ApplicationWindow {
       visible: navigation.isActive
       round: true
 
-      iconSource: Theme.getThemeIcon( "ic_navigation_flag_red_24dp" )
+      iconSource: Theme.getThemeIcon( "ic_navigation_flag_purple_24dp" )
       bgcolor: Theme.darkGray
 
       onClicked: mapCanvas.mapSettings.setCenter(navigation.destination)

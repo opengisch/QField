@@ -21,9 +21,9 @@ QtObject {
     property color positionBackgroundColor: "#e6f2fd"
     property color darkPositionColor: "#2374b5"
     property color darkPositionColorSemiOpaque: "#882374b5"
-    property color navigationColor: "#ff0000"
-    property color navigationColorSemiOpaque: "#77FF0000"
-    property color navigationBackgroundColor: "#ffd3d3"
+    property color navigationColor: "#984ea3"
+    property color navigationColorSemiOpaque: "#77984ea3"
+    property color navigationBackgroundColor: "#e2d7e4"
 
     property font defaultFont
     defaultFont.pointSize: 16
