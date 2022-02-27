@@ -583,17 +583,16 @@ ApplicationWindow {
     anchors.right: parent.right
     visible: navigation.isActive || positioningSettings.showPositionInformation
 
-    height: childrenRect.height
     width: parent.width
 
     NavigationInformationView {
-      id: n
+      id: navigationInformationView
       visible: navigation.isActive
       navigation: navigation
     }
 
     PositionInformationView {
-      id: p
+      id: positionInformationView
       visible: positioningSettings.showPositionInformation
       positionSource: positionSource
       antennaHeight: positioningSettings.antennaHeightActivated ? positioningSettings.antennaHeight : NaN
