@@ -37,8 +37,8 @@ Item {
     width: accuracy * 2
     height: accuracy * 2
 
-    x: screenLocation.x - width/2
-    y: screenLocation.y - height/2
+    x: screenLocation.x - width / 2
+    y: screenLocation.y - height / 2
 
     radius: width/2
 
@@ -56,7 +56,7 @@ Item {
     height: 48
     opacity: 0.6
 
-    x: screenLocation.x - width/2
+    x: screenLocation.x - width / 2
     y: screenLocation.y - height
 
     source: Theme.getThemeVectorIcon( "ic_compass_direction" )
@@ -74,7 +74,7 @@ Item {
     width: 48
     height: 48
 
-    x: screenLocation.x - width/2
+    x: screenLocation.x - width / 2
     y: screenLocation.y - height
 
     source: Theme.getThemeVectorIcon( "ic_movement_direction" )
