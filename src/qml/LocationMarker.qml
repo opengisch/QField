@@ -41,7 +41,7 @@ Item {
     x: location.x - width/2
     y: location.y - height
 
-    source: Theme.getThemeVectorIcon( "ic_gps_direction" )
+    source: Theme.getThemeVectorIcon( "ic_movement_direction" )
     fillMode: Image.PreserveAspectFit
     rotation: direction
     transformOrigin: Item.Bottom
