@@ -91,7 +91,7 @@ Item {
       SequentialAnimation on fillColor  {
         loops: Animation.Infinite
         ColorAnimation  { from: Theme.positionColor; to: Theme.darkPositionColor; duration: 2000; easing.type: Easing.InOutQuad }
-        ColorAnimation  { from: "#2374b5"; to: Theme.positionColor; duration: 1000; easing.type: Easing.InOutQuad }
+        ColorAnimation  { from: Theme.darkPositionColor; to: Theme.positionColor; duration: 1000; easing.type: Easing.InOutQuad }
       }
     }
 
@@ -130,7 +130,7 @@ Item {
     SequentialAnimation on color  {
       loops: Animation.Infinite
       ColorAnimation  { from: Theme.positionColor; to: Theme.darkPositionColor; duration: 2000; easing.type: Easing.InOutQuad }
-      ColorAnimation  { from: "#2374b5"; to: Theme.positionColor; duration: 1000; easing.type: Easing.InOutQuad }
+      ColorAnimation  { from: Theme.darkPositionColor; to: Theme.positionColor; duration: 1000; easing.type: Easing.InOutQuad }
     }
 
     layer.enabled: true
