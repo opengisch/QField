@@ -61,7 +61,7 @@ Item {
 
     source: Theme.getThemeVectorIcon( "ic_compass_direction" )
     fillMode: Image.PreserveAspectFit
-    rotation: (Math.atan2(magnetometer.x, magnetometer.y) / Math.PI) * 180
+    rotation: -(Math.atan2(magnetometer.x, magnetometer.y) / Math.PI) * 180
     transformOrigin: Item.Bottom
     smooth: true
   }
