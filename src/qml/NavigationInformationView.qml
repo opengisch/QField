@@ -14,7 +14,7 @@ Rectangle {
   property int ceilsCount: 4
   property double rowHeight: 30
   property color backgroundColor: "white"
-  property color alternateBackgroundColor: "#ffd3d3"
+  property color alternateBackgroundColor: Theme.navigationBackgroundColor
   property color textColor: "black"
 
   height: grid.rows * navigationInformationView.rowHeight
