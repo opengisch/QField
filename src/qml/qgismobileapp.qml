@@ -1110,7 +1110,7 @@ ApplicationWindow {
           PropertyChanges {
             target: gpsButton
             iconSource: positionSource.positionInfo && positionSource.positionInfo.latitudeValid ? Theme.getThemeIcon( "ic_my_location_" + ( followActive ? "white" : "blue" ) + "_24dp" ) : Theme.getThemeIcon( "ic_gps_not_fixed_white_24dp" )
-            bgcolor: followActive ? "#64B5F6" : Theme.darkGray
+            bgcolor: followActive ? Theme.positionColor : Theme.darkGray
           }
         }
       ]

@@ -1,4 +1,5 @@
 import QtQuick 2.12
+import QtGraphicalEffects 1.12
 
 import org.qgis 1.0
 import org.qfield 1.0
@@ -62,10 +63,20 @@ Item {
 
                     width: isOnCanvas ? 16 : 10
                     height: isOnCanvas ? 16 : 10
-                    color: "#FF0000"
-                    border.color: "#FFFFFF"
+                    color: Theme.navigationColor
+                    border.color: "white"
                     border.width: isOnCanvas ? 3 : 2
                     transform: Rotation { origin.x: point.width / 2; origin.y: point.width / 2; angle: 45}
+
+                    layer.enabled: true
+                    layer.effect: DropShadow {
+                        transparentBorder: true
+                        radius: 8
+                        samples: 25
+                        color: "#99000000"
+                        horizontalOffset: 0
+                        verticalOffset: 0
+                    }
                 }
             }
         }

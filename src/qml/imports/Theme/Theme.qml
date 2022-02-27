@@ -16,6 +16,12 @@ QtObject {
     property color errorColor: "#c0392b"
     property color warningColor: "orange"
     property color cloudColor: "#4c6dac"
+    property color positionColor: "#64b5f6"
+    property color positionColorSemiOpaque: "#3364b5f6"
+    property color darkPositionColor: "#2374b5"
+    property color darkPositionColorSemiOpaque: "#882374b5"
+    property color navigationColor: "#ff0000"
+    property color navigationColorSemiOpaque: "#77FF0000"
 
     property font defaultFont
     defaultFont.pointSize: 16

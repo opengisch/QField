@@ -16,7 +16,7 @@ Item {
       qgsGeometry: navigation.path
       crs: navigation.mapSettings.crs
     }
-    color: "#77FF0000"
+    color: Theme.navigationColorSemiOpaque
     width: positionSource.active && positionSource.positionInfo && positionSource.positionInfo.latitudeValid ? 3 : 1
   }
 
