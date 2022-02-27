@@ -1,0 +1,38 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="done_unpacking_msg">Rozbalte a spusťte QGIS.</string>
+    <string name="unpacking_title">QField se připravuje</string>
+    <string name="unpacking_msg">Tato jednorázová operace bude chvíli trvat</string>
+    <string name="unpacking_msg_following">Téměř hotovo</string>
+    <string name="use_internal_storage">Použijte vnitřní úložiště</string>
+    <string name="external_storage_unavailable">Rozbalení dat po instalaci. To může chvíli trvat.</string>
+    <string name="noexternalstorage_dialog">Vypadá to, že externí úložiště (/sdcard) není k dispozici. K tomu dochází, když připojíte zařízení k počítači přes USB.\nQGIS může být spuštěn z interního úložiště, ale toto není doporučeno, protože by mohlo být příliš malé.\nProto doporučujeme zvolit ZRUŠIT, odpojit kabel USB a restartovat QGIS.</string>
+    <string name="primary_storage">Vnitřní úložiště</string>
+    <string name="secondary_storage">Adresář souborů QField</string>
+    <string name="secondary_storage_extra">Adresář s dalšími soubory</string>
+    <string name="secondary_storage_read_only">Externí úložiště (pouze pro čtení)</string>
+    <string name="inaccessible">nepřístupný</string>
+    <string name="loading">Nahrávání</string>
+    <string name="select_project">Vybrat projekt QGIS nebo datovou sadu</string>
+    <string name="recent_projects">Nedávné projekty nebo datové sady</string>
+    <string name="rate_title">Ohodnotit QField</string>
+    <string name="rate_message">Pokud si užíváte technologii QField, udělejte si chvilku, abyste ji ohodnotili. Děkuji za vaši podporu!</string>
+    <string name="rate_now">Hodnocení</string>
+    <string name="remind_later">Připomenout později</string>
+    <string name="no_thanks">Ne, děkuji!</string>
+    <string name="favorite_directories">Oblíbené adresáře</string>
+    <string name="favorites_sample_projects">Ukázkové projekty</string>
+    <string name="favorites_imported_projects">Importované projekty</string>
+    <string name="favorites_imported_datasets">Importované datové sady</string>
+    <string name="added_to_favorites">Přidáno do oblíbených</string>
+    <string name="removed_from_favorites">Odstraněno z oblíbených</string>
+    <string name="external_files_title">Důležité upozornění</string>
+    <string name="external_files_ok">OK</string>
+    <string name="grant_permission">Přístup ke všem souborům</string>
+    <string name="grant">Povolit</string>
+    <string name="deny_always">Trvale odmítnout</string>
+    <string name="deny_once">Odmítnout jednou</string>
+    <string name="import_project_folder">Import projektu ze složky</string>
+    <string name="import_project_archive">Import projektu ze souboru ZIP</string>
+    <string name="delete_cancel">Zrušit</string>
+</resources>

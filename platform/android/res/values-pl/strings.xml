@@ -43,6 +43,7 @@
     <string name="remove_dataset">Usuń zestaw danych</string>
     <string name="remove_folder">Usuń katalog projektu</string>
     <string name="delete_confirm_title">Potwierdzenie usunięcia</string>
+    <string name="delete_confirm_folder">Projekt zostanie trwale usunięty, czy kontynuować?</string>
     <string name="delete_confirm">Usuń</string>
     <string name="delete_cancel">Anuluj</string>
 </resources>

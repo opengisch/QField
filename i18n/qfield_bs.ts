@@ -188,6 +188,29 @@
     </message>
 </context>
 <context>
+    <name>CalendarPanel</name>
+    <message>
+        <location filename="../src/qml/CalendarPanel.qml" line="192"/>
+        <source>Hours</source>
+        <translation>Sati</translation>
+    </message>
+    <message>
+        <location filename="../src/qml/CalendarPanel.qml" line="210"/>
+        <source>Minutes</source>
+        <translation>Minute</translation>
+    </message>
+    <message>
+        <location filename="../src/qml/CalendarPanel.qml" line="228"/>
+        <source>Seconds</source>
+        <translation>Sekunde</translation>
+    </message>
+    <message>
+        <location filename="../src/qml/CalendarPanel.qml" line="247"/>
+        <source>OK</source>
+        <translation>OK</translation>
+    </message>
+</context>
+<context>
     <name>Changelog</name>
     <message>
         <location filename="../src/qml/Changelog.qml" line="29"/>
@@ -252,7 +275,7 @@
         <translation>Sloj %1 je samo za čitanje.</translation>
     </message>
     <message>
-        <location filename="../src/qml/DashBoard.qml" line="195"/>
+        <location filename="../src/qml/DashBoard.qml" line="204"/>
         <source>Map Theme</source>
         <translation>Tema karte</translation>
     </message>
@@ -384,108 +407,122 @@
 <context>
     <name>FeatureForm</name>
     <message>
-        <location filename="../src/qml/FeatureForm.qml" line="528"/>
+        <location filename="../src/qml/FeatureForm.qml" line="536"/>
         <source>Value applied</source>
         <translation>Vrijednost primijenjena</translation>
     </message>
     <message>
-        <location filename="../src/qml/FeatureForm.qml" line="528"/>
+        <location filename="../src/qml/FeatureForm.qml" line="536"/>
         <source>Value skipped</source>
         <translation>Vrijednost preskočena</translation>
     </message>
     <message>
-        <location filename="../src/qml/FeatureForm.qml" line="528"/>
+        <location filename="../src/qml/FeatureForm.qml" line="536"/>
         <source> (click to toggle)</source>
         <translation> (klikni za uklj./isklj.)</translation>
     </message>
     <message>
-        <location filename="../src/qml/FeatureForm.qml" line="552"/>
-        <location filename="../src/qml/FeatureForm.qml" line="661"/>
+        <location filename="../src/qml/FeatureForm.qml" line="560"/>
+        <location filename="../src/qml/FeatureForm.qml" line="669"/>
         <source>Constraints not valid</source>
         <translation>Ograničenja nisu validna</translation>
     </message>
     <message>
-        <location filename="../src/qml/FeatureForm.qml" line="558"/>
-        <location filename="../src/qml/FeatureForm.qml" line="657"/>
+        <location filename="../src/qml/FeatureForm.qml" line="566"/>
+        <location filename="../src/qml/FeatureForm.qml" line="665"/>
         <source>Note: soft constraints were not met</source>
         <translation>Napomena: ograničenja ne odgovaraju</translation>
     </message>
     <message>
-        <location filename="../src/qml/FeatureForm.qml" line="569"/>
+        <location filename="../src/qml/FeatureForm.qml" line="577"/>
         <source>Unable to save changes</source>
         <translation>Nije moguće snimiti promjene</translation>
     </message>
     <message>
-        <location filename="../src/qml/FeatureForm.qml" line="676"/>
+        <location filename="../src/qml/FeatureForm.qml" line="684"/>
         <source>Add feature on %1</source>
         <translation>Dodaj objekat na %1</translation>
     </message>
     <message>
-        <location filename="../src/qml/FeatureForm.qml" line="678"/>
+        <location filename="../src/qml/FeatureForm.qml" line="686"/>
         <source>Edit feature on %1</source>
         <translation>Edituj objekat na %1</translation>
     </message>
     <message>
-        <location filename="../src/qml/FeatureForm.qml" line="680"/>
+        <location filename="../src/qml/FeatureForm.qml" line="688"/>
         <source>View feature on %1</source>
         <translation>Vidi objekat na %1</translation>
+    </message>
+    <message>
+        <location filename="../src/qml/FeatureForm.qml" line="735"/>
+        <source>Cancel editing</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/qml/FeatureForm.qml" line="740"/>
+        <source>You are about to dismiss the new feature, proceed?</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/qml/FeatureForm.qml" line="741"/>
+        <source>You are about to leave editing state, any changes will be lost. Proceed?</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>FeatureListForm</name>
     <message>
-        <location filename="../src/qml/FeatureListForm.qml" line="395"/>
+        <location filename="../src/qml/FeatureListForm.qml" line="408"/>
         <source>Stop tracking this feature to edit attributes</source>
         <translation>Zaustavi snimanje ovog objekta za editovanje atributa</translation>
     </message>
     <message>
-        <location filename="../src/qml/FeatureListForm.qml" line="406"/>
+        <location filename="../src/qml/FeatureListForm.qml" line="419"/>
         <source>Stop tracking this feature to edit geometry</source>
         <translation>Zaustavi snimanje ovog objekta za editovanje geometrije</translation>
     </message>
     <message>
-        <location filename="../src/qml/FeatureListForm.qml" line="417"/>
+        <location filename="../src/qml/FeatureListForm.qml" line="430"/>
         <source>Changes saved</source>
         <translation>Promjene snimljene</translation>
     </message>
     <message>
-        <location filename="../src/qml/FeatureListForm.qml" line="423"/>
         <source>Last changes discarded</source>
-        <translation>Poništene zadnje promjene</translation>
+        <translation type="vanished">Poništene zadnje promjene</translation>
     </message>
     <message>
-        <location filename="../src/qml/FeatureListForm.qml" line="437"/>
+        <location filename="../src/qml/FeatureListForm.qml" line="448"/>
         <source>Successfully duplicated feature</source>
         <translation>Uspješno dupliciranje objekta</translation>
     </message>
     <message>
-        <location filename="../src/qml/FeatureListForm.qml" line="455"/>
-        <location filename="../src/qml/FeatureListForm.qml" line="530"/>
+        <location filename="../src/qml/FeatureListForm.qml" line="466"/>
+        <location filename="../src/qml/FeatureListForm.qml" line="541"/>
         <source>A number of features are being tracked, stop tracking to delete those</source>
         <translation>Brojni objekti se snimaju, zaustavite snimanje da ih izbrišete</translation>
     </message>
     <message>
-        <location filename="../src/qml/FeatureListForm.qml" line="487"/>
+        <location filename="../src/qml/FeatureListForm.qml" line="498"/>
         <source>A number of features are being tracked, stop tracking to merge those</source>
         <translation>Brojni objekti se snimaju, zaustavite snimanje da ih sastavite</translation>
     </message>
     <message>
-        <location filename="../src/qml/FeatureListForm.qml" line="522"/>
+        <location filename="../src/qml/FeatureListForm.qml" line="533"/>
         <source>Successfully duplicated selected features, list updated to show newly-created features</source>
         <translation>Uspješno duplicirani selektovani objekti, lista osvježena da prikaže upravo kreirane objekte.</translation>
     </message>
     <message>
-        <location filename="../src/qml/FeatureListForm.qml" line="634"/>
+        <location filename="../src/qml/FeatureListForm.qml" line="638"/>
         <source>No feature at this position</source>
         <translation>Nema objekata na ovoj lokaciji</translation>
     </message>
     <message>
-        <location filename="../src/qml/FeatureListForm.qml" line="693"/>
+        <location filename="../src/qml/FeatureListForm.qml" line="697"/>
         <source>Merge feature(s)</source>
         <translation>Spoji objekat(e)</translation>
     </message>
     <message numerus="yes">
-        <location filename="../src/qml/FeatureListForm.qml" line="697"/>
+        <location filename="../src/qml/FeatureListForm.qml" line="701"/>
         <source>Should the %n feature(s) selected really be merge?
 
 The features geometries will be combined into feature &apos;%1&apos;, which will keep its attributes.</source>
@@ -499,38 +536,39 @@ Geometrija objekata će se kombinovati u objekat &apos;%1&apos;, koji će zadrž
 Geometrija objekata će se kombinovati u objekat &apos;%1&apos;, koji će zadržati svoje atribute.</numerusform></translation>
     </message>
     <message numerus="yes">
-        <location filename="../src/qml/FeatureListForm.qml" line="709"/>
+        <location filename="../src/qml/FeatureListForm.qml" line="713"/>
         <source>Successfully merged %n feature(s)</source>
         <translation><numerusform>Uspješno spajanje %n objek(a)ta</numerusform><numerusform>Uspješno spajanje %n objek(a)ta</numerusform><numerusform>Uspješno spajanje %n objek(a)ta</numerusform></translation>
     </message>
     <message numerus="yes">
-        <location filename="../src/qml/FeatureListForm.qml" line="711"/>
+        <location filename="../src/qml/FeatureListForm.qml" line="715"/>
         <source>Failed to merge %n feature(s)</source>
         <translation><numerusform>Nije uspjelo spajanje %n objekta</numerusform><numerusform>Nije uspjelo spajanje %n objek(a)ta</numerusform><numerusform>Nije uspjelo spajanje %n objek(a)ta</numerusform></translation>
     </message>
     <message>
-        <location filename="../src/qml/FeatureListForm.qml" line="743"/>
+        <location filename="../src/qml/FeatureListForm.qml" line="747"/>
         <source>Delete feature(s)</source>
         <translation>Izbriši objekat(e)</translation>
     </message>
     <message numerus="yes">
-        <location filename="../src/qml/FeatureListForm.qml" line="747"/>
+        <location filename="../src/qml/FeatureListForm.qml" line="751"/>
         <source>Should the %n feature(s) selected really be deleted?</source>
         <comment>0</comment>
         <translation><numerusform>Jeste li sigurni da treba %n selektovanih objekat(a) izbrisati?</numerusform><numerusform>Jeste li sigurni da treba %n selektovanih objekat(a) izbrisati?</numerusform><numerusform>Jeste li sigurni da treba %n selektovanih objekat(a) izbrisati?</numerusform></translation>
     </message>
     <message numerus="yes">
-        <location filename="../src/qml/FeatureListForm.qml" line="763"/>
+        <location filename="../src/qml/FeatureListForm.qml" line="767"/>
         <source>Successfully deleted %n feature(s)</source>
         <translation><numerusform>Uspješno brisanje %n objek(a)ta</numerusform><numerusform>Uspješno brisanje %n objek(a)ta</numerusform><numerusform>Uspješno brisanje %n objek(a)ta</numerusform></translation>
     </message>
     <message numerus="yes">
-        <location filename="../src/qml/FeatureListForm.qml" line="771"/>
+        <location filename="../src/qml/FeatureListForm.qml" line="775"/>
         <source>Failed to delete %n feature(s)</source>
         <translation><numerusform>Nije uspjelo brisanje %n objek(a)ta</numerusform><numerusform>Nije uspjelo brisanje %n objek(a)ta</numerusform><numerusform>Nije uspjelo brisanje %n objek(a)ta</numerusform></translation>
     </message>
     <message>
-        <location filename="../src/qml/FeatureListForm.qml" line="798"/>
+        <location filename="../src/qml/FeatureListForm.qml" line="356"/>
+        <location filename="../src/qml/FeatureListForm.qml" line="802"/>
         <source>Changes discarded</source>
         <translation>Poništene promjene</translation>
     </message>
@@ -990,89 +1028,89 @@ Geometrija objekata će se kombinovati u objekat &apos;%1&apos;, koji će zadrž
         <translation>Objekti</translation>
     </message>
     <message>
-        <location filename="../src/qml/NavigationBar.qml" line="444"/>
+        <location filename="../src/qml/NavigationBar.qml" line="443"/>
         <source>Feature List Menu</source>
         <translation>Meni liste objekata</translation>
     </message>
     <message>
-        <location filename="../src/qml/NavigationBar.qml" line="458"/>
+        <location filename="../src/qml/NavigationBar.qml" line="457"/>
         <source>Toggle Feature Selection</source>
         <translation>Uklj./Isklj. selekciju objekata</translation>
     </message>
     <message>
-        <location filename="../src/qml/NavigationBar.qml" line="475"/>
-        <location filename="../src/qml/NavigationBar.qml" line="654"/>
+        <location filename="../src/qml/NavigationBar.qml" line="474"/>
+        <location filename="../src/qml/NavigationBar.qml" line="653"/>
         <source>Print Atlas Feature(s) to PDF</source>
         <translation>Štampaj objekte Atlasa u PDF</translation>
     </message>
     <message>
-        <location filename="../src/qml/NavigationBar.qml" line="495"/>
+        <location filename="../src/qml/NavigationBar.qml" line="494"/>
         <source>Merge Selected Features</source>
         <translation>Spoji selektovane objekte</translation>
     </message>
     <message>
-        <location filename="../src/qml/NavigationBar.qml" line="508"/>
+        <location filename="../src/qml/NavigationBar.qml" line="507"/>
         <source>Move Selected Feature(s)</source>
         <translation>Pomjeri selektovane objekt(e)</translation>
     </message>
     <message>
-        <location filename="../src/qml/NavigationBar.qml" line="521"/>
+        <location filename="../src/qml/NavigationBar.qml" line="520"/>
         <source>Duplicate Selected Feature(s)</source>
         <translation>Dupliciraj selektovane objekat(e)</translation>
     </message>
     <message>
-        <location filename="../src/qml/NavigationBar.qml" line="534"/>
+        <location filename="../src/qml/NavigationBar.qml" line="533"/>
         <source>Delete Selected Feature(s)</source>
         <translation>Izbriši selektovane objekte</translation>
     </message>
     <message>
-        <location filename="../src/qml/NavigationBar.qml" line="549"/>
+        <location filename="../src/qml/NavigationBar.qml" line="548"/>
         <source>Feature Menu</source>
         <translation>Meni objekata</translation>
     </message>
     <message>
-        <location filename="../src/qml/NavigationBar.qml" line="563"/>
+        <location filename="../src/qml/NavigationBar.qml" line="562"/>
         <source>Print Atlas Feature to PDF</source>
         <translation>Štampaj objekte Atlasa u PDF</translation>
     </message>
     <message>
-        <location filename="../src/qml/NavigationBar.qml" line="580"/>
+        <location filename="../src/qml/NavigationBar.qml" line="579"/>
         <source>Zoom to Feature</source>
         <translation>Zum na objekat</translation>
     </message>
     <message>
-        <location filename="../src/qml/NavigationBar.qml" line="591"/>
+        <location filename="../src/qml/NavigationBar.qml" line="590"/>
         <source>Auto-Zoom to Feature</source>
         <translation>Auto-zum na objekat</translation>
     </message>
     <message>
-        <location filename="../src/qml/NavigationBar.qml" line="609"/>
+        <location filename="../src/qml/NavigationBar.qml" line="608"/>
         <source>Move Feature</source>
         <translation>Pomjeri objekat</translation>
     </message>
     <message>
-        <location filename="../src/qml/NavigationBar.qml" line="622"/>
+        <location filename="../src/qml/NavigationBar.qml" line="621"/>
         <source>Duplicate Feature</source>
         <translation>Dupliciraj objekat</translation>
     </message>
     <message>
-        <location filename="../src/qml/NavigationBar.qml" line="635"/>
+        <location filename="../src/qml/NavigationBar.qml" line="634"/>
         <source>Delete Feature</source>
         <translation>Izbriši objekat</translation>
     </message>
     <message>
-        <location filename="../src/qml/NavigationBar.qml" line="670"/>
+        <location filename="../src/qml/NavigationBar.qml" line="669"/>
         <source>Select template below</source>
         <translation>Izaberite predložak</translation>
     </message>
     <message>
-        <location filename="../src/qml/NavigationBar.qml" line="694"/>
-        <location filename="../src/qml/NavigationBar.qml" line="733"/>
+        <location filename="../src/qml/NavigationBar.qml" line="693"/>
+        <location filename="../src/qml/NavigationBar.qml" line="732"/>
         <source>Printing atlas feature(s) to PDF</source>
         <translation>Štampj objekat(a) Atlasa u PDF</translation>
     </message>
     <message>
-        <location filename="../src/qml/NavigationBar.qml" line="720"/>
+        <location filename="../src/qml/NavigationBar.qml" line="719"/>
         <source>Atlas feature(s) successfully printed to PDF and placed in your documents</source>
         <translation>Atlas objekti su uspješno štampani u PDF i smješteni u dokument</translation>
     </message>
@@ -1105,17 +1143,21 @@ Geometrija objekata će se kombinovati u objekat &apos;%1&apos;, koji će zadrž
 <context>
     <name>OverlayFeatureFormDrawer</name>
     <message>
-        <location filename="../src/qml/OverlayFeatureFormDrawer.qml" line="93"/>
+        <location filename="../src/qml/OverlayFeatureFormDrawer.qml" line="95"/>
         <source>Changes saved</source>
         <translation>Promjene snimljene</translation>
     </message>
     <message>
-        <location filename="../src/qml/OverlayFeatureFormDrawer.qml" line="105"/>
-        <source>Last changes discarded</source>
-        <translation>Poništene zadnje promjene</translation>
+        <location filename="../src/qml/OverlayFeatureFormDrawer.qml" line="107"/>
+        <source>Changes discarded</source>
+        <translation>Poništene promjene</translation>
     </message>
     <message>
-        <location filename="../src/qml/OverlayFeatureFormDrawer.qml" line="122"/>
+        <source>Last changes discarded</source>
+        <translation type="vanished">Poništene zadnje promjene</translation>
+    </message>
+    <message>
+        <location filename="../src/qml/OverlayFeatureFormDrawer.qml" line="124"/>
         <source>Constraints not valid</source>
         <translation>Ograničenja nisu validna</translation>
     </message>
@@ -1369,14 +1411,22 @@ Geometrija objekata će se kombinovati u objekat &apos;%1&apos;, koji će zadrž
 <context>
     <name>QFieldCloudPackageLayersFeedback</name>
     <message>
-        <location filename="../src/qml/QFieldCloudPackageLayersFeedback.qml" line="22"/>
         <source>Problematic QFieldCloud layer packaging</source>
-        <translation>Problematično pakovanje QFieldCloud sloja</translation>
+        <translation type="vanished">Problematično pakovanje QFieldCloud sloja</translation>
+    </message>
+    <message>
+        <source>Some layers have not been packaged correctly on QFieldCloud. These layers might be misconfigured or their data source is not accessible from the QFieldCloud server.</source>
+        <translation type="vanished">Neki slojevi nisu korektno zapakovani na QFieldCloud.</translation>
+    </message>
+    <message>
+        <location filename="../src/qml/QFieldCloudPackageLayersFeedback.qml" line="22"/>
+        <source>QFieldCloud had troubles packaging your project</source>
+        <translation>QFieldCloud ima problem da zapakuje vaš projekat</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldCloudPackageLayersFeedback.qml" line="32"/>
-        <source>Some layers have not been packaged correctly on QFieldCloud. These layers might be misconfigured or their data source is not accessible from the QFieldCloud server.</source>
-        <translation>Neki slojevi nisu korektno zapakovani na QFieldCloud.</translation>
+        <source>Some layers have not been packaged correctly on QFieldCloud. These layers might be misconfigured or their data source is not accessible from the QFieldCloud server. Please check the logs of the latest packaging job on the qfield.cloud website.</source>
+        <translation>Neki slojevi nisu krektno zapakovani u QFieldCloud. Ovi slojevi nisu dobro konfigurisani ili njihov izvor nije dostupan sa QFieldCloud servera. Provjerite log zadnjeg posla pakovanja na qfield.cloud website.</translation>
     </message>
 </context>
 <context>
@@ -1387,118 +1437,123 @@ Geometrija objekata će se kombinovati u objekat &apos;%1&apos;, koji će zadrž
         <translation>QFieldCloud</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldCloudPopup.qml" line="50"/>
+        <location filename="../src/qml/QFieldCloudPopup.qml" line="49"/>
         <source>The current project is not stored on QFieldCloud.&lt;br&gt;&lt;br&gt;</source>
         <translation>Trenutni projekat nije pohranjen u QFieldCloud.&lt;br&gt;&lt;br&gt;</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldCloudPopup.qml" line="51"/>
+        <location filename="../src/qml/QFieldCloudPopup.qml" line="50"/>
         <source>Storing projects on QFieldCloud offers seamless synchornization, offline editing, and team management.&lt;br&gt;&lt;br&gt;</source>
         <translation>Pohranjivanje projekta na QFieldCloud omogućava sinhronizaciju, editovanje bez interneta i upravljanje timom.&lt;br&gt;&lt;br&gt;</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldCloudPopup.qml" line="52"/>
+        <location filename="../src/qml/QFieldCloudPopup.qml" line="51"/>
         <source>Learn more about QFieldCloud</source>
         <translation>Više o QFieldCloud</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldCloudPopup.qml" line="91"/>
+        <location filename="../src/qml/QFieldCloudPopup.qml" line="90"/>
         <source>Disconnected from the cloud.</source>
         <translation>Nema konekcije na oblak.</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldCloudPopup.qml" line="92"/>
+        <location filename="../src/qml/QFieldCloudPopup.qml" line="91"/>
         <source>Connecting to the cloud.</source>
         <translation>Povezivanje na oblak.</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldCloudPopup.qml" line="93"/>
+        <location filename="../src/qml/QFieldCloudPopup.qml" line="92"/>
         <source>Greetings &lt;strong&gt;%1&lt;/strong&gt;.</source>
         <translation>Pozdravi &lt;strong&gt;%1&lt;/strong&gt;.</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldCloudPopup.qml" line="167"/>
+        <location filename="../src/qml/QFieldCloudPopup.qml" line="162"/>
+        <source>This QFieldCloud project was first downloaded with another cloud account. Please sign in with the original account for this project to use the QFieldCloud functionality.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/qml/QFieldCloudPopup.qml" line="181"/>
         <source>Downloading %1%…</source>
         <translation>Skidanje %1%…</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldCloudPopup.qml" line="169"/>
+        <location filename="../src/qml/QFieldCloudPopup.qml" line="183"/>
         <source>QFieldCloud is preparing the latest data just for you. This might take some time, please hold tight…</source>
         <translation>QFieldCloud prirema posljednje podatke za vas. Ovo može potrajati…</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldCloudPopup.qml" line="174"/>
+        <location filename="../src/qml/QFieldCloudPopup.qml" line="188"/>
         <source>Uploading %1%…</source>
         <translation>Učitavanje %1%…</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldCloudPopup.qml" line="176"/>
+        <location filename="../src/qml/QFieldCloudPopup.qml" line="190"/>
         <source>QFieldCloud is applying the latest uploaded changes. This might take some time, please hold tight…</source>
         <translation>QFieldCloud primjenjuje posljednje promjene. Ovo može potrajati…</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldCloudPopup.qml" line="259"/>
+        <location filename="../src/qml/QFieldCloudPopup.qml" line="273"/>
         <source>A server error has occured, please try again.</source>
         <translation>Desila se greška na serveru, pokušajte ponovo.</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldCloudPopup.qml" line="260"/>
+        <location filename="../src/qml/QFieldCloudPopup.qml" line="274"/>
         <source>A network error has occured, please try again.</source>
         <translation>Desila se greška u mreži, pokušajte ponovo.</translation>
     </message>
     <message numerus="yes">
-        <location filename="../src/qml/QFieldCloudPopup.qml" line="320"/>
+        <location filename="../src/qml/QFieldCloudPopup.qml" line="334"/>
         <source>There is/are %n local change(s)</source>
         <translation><numerusform>Trenutno je %n lokalnih promjena</numerusform><numerusform>Trenutno je %n lokalnih promjena</numerusform><numerusform>Trenutno je %n lokalnih promjena</numerusform></translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldCloudPopup.qml" line="321"/>
+        <location filename="../src/qml/QFieldCloudPopup.qml" line="335"/>
         <source>There are no local changes</source>
         <translation>Nema lokalnih promjena</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldCloudPopup.qml" line="323"/>
+        <location filename="../src/qml/QFieldCloudPopup.qml" line="337"/>
         <source>The locally stored cloud project has been corrupted</source>
         <translation>Lokalno pohranjen projekat iz oblaka je korumpiran</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldCloudPopup.qml" line="336"/>
+        <location filename="../src/qml/QFieldCloudPopup.qml" line="350"/>
         <source>Synchronize</source>
         <translation>Sinhroniziraj</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldCloudPopup.qml" line="351"/>
+        <location filename="../src/qml/QFieldCloudPopup.qml" line="365"/>
         <source>Synchronize the whole project with all modified features and download the freshly updated project with all the applied changes from QFieldCloud.</source>
         <translation>Sinhronizacija cijelog projekta sa svim promijenjenim objektima i skidanje osvježenog projekta sa svim promjenama sa QFieldCloud.</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldCloudPopup.qml" line="362"/>
+        <location filename="../src/qml/QFieldCloudPopup.qml" line="376"/>
         <source>Push changes</source>
         <translation>Poguraj promjene</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldCloudPopup.qml" line="377"/>
+        <location filename="../src/qml/QFieldCloudPopup.qml" line="391"/>
         <source>Save internet bandwidth by only pushing the local features and pictures to the cloud, without updating the whole project.</source>
         <translation>Snimite internet promet guranjem lokalnih objekata i slika u obalk, bez osvježavanja cijelog projekta.</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldCloudPopup.qml" line="390"/>
-        <location filename="../src/qml/QFieldCloudPopup.qml" line="543"/>
+        <location filename="../src/qml/QFieldCloudPopup.qml" line="404"/>
+        <location filename="../src/qml/QFieldCloudPopup.qml" line="557"/>
         <source>Revert local changes</source>
         <translation>Vrati lokalne promjene</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldCloudPopup.qml" line="391"/>
+        <location filename="../src/qml/QFieldCloudPopup.qml" line="405"/>
         <source>Reset project</source>
         <translation>Resetuj projekat</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldCloudPopup.qml" line="410"/>
+        <location filename="../src/qml/QFieldCloudPopup.qml" line="424"/>
         <source>Revert all modified features in the local cloud layers. You cannot restore those changes.</source>
         <translation>Vraća sve promijenjene objekte u lokalnim slojevima. Ne možete vratiti ove promjene.</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldCloudPopup.qml" line="411"/>
+        <location filename="../src/qml/QFieldCloudPopup.qml" line="425"/>
         <source>The local copy of this cloud project has been corrupted. Resetting the project will re-download the cloud version and will remove any local changes, make sure those were copied first if needed.
 
 While you can still view and use the project, it is strongly recommended to reset to avoid any accidental data loss as none of the changes made will be pushed back to the cloud.</source>
@@ -1507,87 +1562,87 @@ While you can still view and use the project, it is strongly recommended to rese
 Iako i dalje možete pregledati i koristiti ovaj projekat, strogo je preporučivo da ga resetujete da izbjegnete slučajne gubitke podataka pošto nikakve promjene neće ići u oblak.</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldCloudPopup.qml" line="441"/>
+        <location filename="../src/qml/QFieldCloudPopup.qml" line="455"/>
         <source>Last synchronized just now</source>
         <translation>Zadnja sinhronizacija upravo sada</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldCloudPopup.qml" line="443"/>
+        <location filename="../src/qml/QFieldCloudPopup.qml" line="457"/>
         <source>Last synchronized %1 minutes ago</source>
         <translation>Zadnja sinhronizacija prije %1 minuta</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldCloudPopup.qml" line="445"/>
+        <location filename="../src/qml/QFieldCloudPopup.qml" line="459"/>
         <source>Last synchronized at %1</source>
         <translation>Zadnja sinhronizacija u %1</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldCloudPopup.qml" line="447"/>
+        <location filename="../src/qml/QFieldCloudPopup.qml" line="461"/>
         <source>Last synchronized on %1</source>
         <translation>Zadnja sinhronizacija u %1</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldCloudPopup.qml" line="458"/>
+        <location filename="../src/qml/QFieldCloudPopup.qml" line="472"/>
         <source>Last changes pushed just now</source>
         <translation>Zadnje promjene pogurane upravo sada</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldCloudPopup.qml" line="460"/>
+        <location filename="../src/qml/QFieldCloudPopup.qml" line="474"/>
         <source>Last changes pushed %1 minutes ago</source>
         <translation>Zadnje promjene pogurane prije %1 minuta</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldCloudPopup.qml" line="462"/>
+        <location filename="../src/qml/QFieldCloudPopup.qml" line="476"/>
         <source>Last changes pushed at %1</source>
         <translation>Zadnje promjene pogurane u %1</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldCloudPopup.qml" line="464"/>
+        <location filename="../src/qml/QFieldCloudPopup.qml" line="478"/>
         <source>Last changes pushed on %1</source>
         <translation>Zadnje promjene pogurane u %1</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldCloudPopup.qml" line="466"/>
+        <location filename="../src/qml/QFieldCloudPopup.qml" line="480"/>
         <source>No changes pushed yet</source>
         <translation>Nema poslanih promjena još</translation>
     </message>
     <message numerus="yes">
-        <location filename="../src/qml/QFieldCloudPopup.qml" line="487"/>
+        <location filename="../src/qml/QFieldCloudPopup.qml" line="501"/>
         <source>%n attachment(s) are currently being uploaded in the background.</source>
         <translation><numerusform>%n prilog(a) se trenutno šalje u pozadini.</numerusform><numerusform>%n prilog(a) se trenutno šalje u pozadini.</numerusform><numerusform>%n prilog(a) se trenutno šalje u pozadini.</numerusform></translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldCloudPopup.qml" line="547"/>
+        <location filename="../src/qml/QFieldCloudPopup.qml" line="561"/>
         <source>Should local changes be reverted?</source>
         <translation>Treba li vratiti lokalne promjene?</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldCloudPopup.qml" line="574"/>
+        <location filename="../src/qml/QFieldCloudPopup.qml" line="588"/>
         <source>Reset cloud project</source>
         <translation>Resetuj projekat u oblaku</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldCloudPopup.qml" line="578"/>
+        <location filename="../src/qml/QFieldCloudPopup.qml" line="592"/>
         <source>Last warning, resetting the cloud project will erase any local changes, are you sure you want to go ahead?</source>
         <translation>Posljednje upozorenje, resetovanje projekta u oblaku će obrisati sve lokalne promjene, jeste li sigurni da želite nastaviti?</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldCloudPopup.qml" line="599"/>
+        <location filename="../src/qml/QFieldCloudPopup.qml" line="613"/>
         <source>Connecting cloud</source>
         <translation>Povezivanje na oblak</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldCloudPopup.qml" line="612"/>
+        <location filename="../src/qml/QFieldCloudPopup.qml" line="626"/>
         <source>Local changes reverted</source>
         <translation>Lokalne promjene vraćene</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldCloudPopup.qml" line="614"/>
+        <location filename="../src/qml/QFieldCloudPopup.qml" line="628"/>
         <source>Failed to revert changes</source>
         <translation>Nije moguće vratiti promjene</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldCloudPopup.qml" line="619"/>
+        <location filename="../src/qml/QFieldCloudPopup.qml" line="633"/>
         <source>No changes to revert</source>
         <translation>Nema promjena za vraćanje</translation>
     </message>
@@ -1595,46 +1650,155 @@ Iako i dalje možete pregledati i koristiti ovaj projekat, strogo je preporučiv
 <context>
     <name>QFieldCloudProjectsModel</name>
     <message>
-        <location filename="../src/core/qfieldcloudprojectsmodel.cpp" line="512"/>
         <source>Export failed</source>
-        <translation>Eksport nije uspio</translation>
+        <translation type="vanished">Eksport nije uspio</translation>
     </message>
     <message>
-        <location filename="../src/core/qfieldcloudprojectsmodel.cpp" line="578"/>
         <source>Packaged layer &apos;%1&apos; is not valid: &apos;%2&apos;</source>
-        <translation>Pakovanje sloja &apos;%1&apos; nije validno: &apos;%2&apos;</translation>
+        <translation type="vanished">Pakovanje sloja &apos;%1&apos; nije validno: &apos;%2&apos;</translation>
     </message>
     <message>
-        <location filename="../src/core/qfieldcloudprojectsmodel.cpp" line="699"/>
         <source>Failed to open temporary file for &quot;%1&quot;, reason:
 %2</source>
-        <translation>Nije uspjelo otvaranje privremenog fajla za &quot;%1&quot;, razlog:
+        <translation type="vanished">Nije uspjelo otvaranje privremenog fajla za &quot;%1&quot;, razlog:
 %2</translation>
     </message>
     <message>
-        <location filename="../src/core/qfieldcloudprojectsmodel.cpp" line="1202"/>
         <source>Failed to upload attachment stored at &quot;%1&quot;, reason:
 %2</source>
-        <translation>Nije uspjelo prebacivanje priloga pohranjenog na &quot;%1&quot;, razlog:
+        <translation type="vanished">Nije uspjelo prebacivanje priloga pohranjenog na &quot;%1&quot;, razlog:
 %2</translation>
     </message>
     <message>
-        <location filename="../src/core/qfieldcloudprojectsmodel.cpp" line="1423"/>
         <source>Failed to download file &quot;%1&quot;, reason:</source>
-        <translation>Nije uspjelo skidanje fajla &quot;%1&quot;, razlog:</translation>
+        <translation type="vanished">Nije uspjelo skidanje fajla &quot;%1&quot;, razlog:</translation>
     </message>
     <message>
-        <location filename="../src/core/qfieldcloudprojectsmodel.cpp" line="1434"/>
         <source>Failed to write downloaded file stored at &quot;%1&quot;, fs reason:</source>
-        <translation>Nije uspjelo skidanje fajla pohranjenog na &quot;%1&quot;, razlog:</translation>
+        <translation type="vanished">Nije uspjelo skidanje fajla pohranjenog na &quot;%1&quot;, razlog:</translation>
     </message>
     <message>
-        <location filename="../src/core/qfieldcloudprojectsmodel.cpp" line="1440"/>
+        <location filename="../src/core/qfieldcloudprojectsmodel.cpp" line="421"/>
+        <source>aborted</source>
+        <translation>otkazano</translation>
+    </message>
+    <message>
+        <location filename="../src/core/qfieldcloudprojectsmodel.cpp" line="470"/>
+        <source>project(%1) trigger response refresh not contain all the expected keys: name(string), owner(string), description(string), user_role(string), is_public(bool), can_repackage(bool), needs_repackaging(bool)</source>
+        <translation>projekat(%1) okidač je dobio odgovor koji ne sadrži sve očekivane ključeve: name(string), owner(string), description(string), user_role(string), is_public(bool), can_repackage(bool), needs_repackaging(bool)</translation>
+    </message>
+    <message>
+        <location filename="../src/core/qfieldcloudprojectsmodel.cpp" line="532"/>
+        <location filename="../src/core/qfieldcloudprojectsmodel.cpp" line="574"/>
+        <source>Getting job status, but the project is deleted.</source>
+        <translation>Dobivanje statusa posla, ali je projekat izbrisan.</translation>
+    </message>
+    <message>
+        <location filename="../src/core/qfieldcloudprojectsmodel.cpp" line="552"/>
+        <source>Job creation finished, but the server response is missing required fields: id(string)</source>
+        <translation>Završeno kreiranje posla, ali odgovor servera nema zahtjevano polje: id(string)</translation>
+    </message>
+    <message>
+        <location filename="../src/core/qfieldcloudprojectsmodel.cpp" line="589"/>
+        <source>Getting job status, but no `%2` job triggered yet.</source>
+        <translation>Dobivanje statusa posla, ali posao `%2` još nije okinuo.</translation>
+    </message>
+    <message>
+        <location filename="../src/core/qfieldcloudprojectsmodel.cpp" line="604"/>
+        <source>Getting job status finished, but the project is deleted.</source>
+        <translation>Dobivanje statusa posla je završeno, ali je projekat izbrisan.</translation>
+    </message>
+    <message>
+        <location filename="../src/core/qfieldcloudprojectsmodel.cpp" line="634"/>
+        <source>job(%1) status response does not contain all the expected keys: status(string)</source>
+        <translation>odgovor na status posla(%1) ne sadrži sve očelivane ključeve: status(string)</translation>
+    </message>
+    <message>
+        <location filename="../src/core/qfieldcloudprojectsmodel.cpp" line="655"/>
+        <source>Job(%1) finished with a failed status.</source>
+        <translation>Posao(%1) završen sa neuspjelim statusom.</translation>
+    </message>
+    <message>
+        <location filename="../src/core/qfieldcloudprojectsmodel.cpp" line="683"/>
+        <source>Project busy.</source>
+        <translation>Projekat je zauzet.</translation>
+    </message>
+    <message>
+        <location filename="../src/core/qfieldcloudprojectsmodel.cpp" line="746"/>
+        <source>Packaging job finished unsuccessfully for `%1`. %2</source>
+        <translation>Pakovanje posla nije uspješno završeno za `%1`. %2</translation>
+    </message>
+    <message>
+        <location filename="../src/core/qfieldcloudprojectsmodel.cpp" line="804"/>
+        <source>Failed to refresh the latest info for `%1`: %2</source>
+        <translation>Nije uspjelo osvježavanje info za  `%1`: %2</translation>
+    </message>
+    <message>
+        <location filename="../src/core/qfieldcloudprojectsmodel.cpp" line="917"/>
+        <source>Failed to get latest package data.</source>
+        <translation>Nije uspjelo dobivanje novijih zapakovanih podataka.</translation>
+    </message>
+    <message>
+        <location filename="../src/core/qfieldcloudprojectsmodel.cpp" line="931"/>
+        <source>Latest package data response error.</source>
+        <translation>Greška u odgovoru na posljednje podatke.</translation>
+    </message>
+    <message>
+        <location filename="../src/core/qfieldcloudprojectsmodel.cpp" line="951"/>
+        <source>Latest package data structure error.</source>
+        <translation>Greška u strukturi novijih podataka.</translation>
+    </message>
+    <message>
+        <location filename="../src/core/qfieldcloudprojectsmodel.cpp" line="984"/>
+        <source>Project %1: Packaged layer `%2` is not valid. Error code %3, error message: %4</source>
+        <translation>Projekat %1: Zapakovan sloj `%2` nije validan. Broj greške %3, poruka greške: %4</translation>
+    </message>
+    <message>
+        <location filename="../src/core/qfieldcloudprojectsmodel.cpp" line="1110"/>
+        <source>Failed to open temporary file for `%1`, reason:
+%2</source>
+        <translation>Nije uspjelo otvaranje privremenog fajla za `%1`, razlog:
+%2</translation>
+    </message>
+    <message>
+        <location filename="../src/core/qfieldcloudprojectsmodel.cpp" line="1566"/>
+        <source>Failed to upload attachment stored at `%1`, reason:
+%2</source>
+        <translation>Nije uspjelo dodavanje priloga u `%1`, razlog:
+%2</translation>
+    </message>
+    <message>
+        <location filename="../src/core/qfieldcloudprojectsmodel.cpp" line="1811"/>
+        <source>Network error. Failed to download file `%1`.</source>
+        <translation>Greška u mreži. Nije uspjelo preuzimanje fajla `%1`.</translation>
+    </message>
+    <message>
+        <location filename="../src/core/qfieldcloudprojectsmodel.cpp" line="1826"/>
+        <source>File system error. Failed to write file to temporary location `%1`.</source>
+        <translation>Greška u sistemskom fajlu. Nije uspjelo pisanje fajla u privremenu lokaciju `%1`.</translation>
+    </message>
+    <message>
+        <location filename="../src/core/qfieldcloudprojectsmodel.cpp" line="1833"/>
+        <source>File system error. Failed to open file for writing on temporary `%1`.</source>
+        <translation>Greška u sistemskom fajlu. Nije uspjelo otvaranje fajla za pisanje na privremenoj lokaciji `%1`.</translation>
+    </message>
+    <message>
+        <location filename="../src/core/qfieldcloudprojectsmodel.cpp" line="1845"/>
+        <source>Project `%1`, file `%2`: %3</source>
+        <translation>Projekat `%1`, fajl `%2`: %3</translation>
+    </message>
+    <message>
+        <location filename="../src/core/qfieldcloudprojectsmodel.cpp" line="1846"/>
+        <source>System message: </source>
+        <translation>Sistemska poruka: </translation>
+    </message>
+    <message>
+        <location filename="../src/core/qfieldcloudprojectsmodel.cpp" line="1848"/>
         <source> (see more in the QField error log)…</source>
         <translation> (pogledajte više u QField log grešaka)…</translation>
     </message>
     <message>
-        <location filename="../src/core/qfieldcloudprojectsmodel.cpp" line="1479"/>
+        <location filename="../src/core/qfieldcloudprojectsmodel.cpp" line="1881"/>
         <source>Failed to copy some of the downloaded files on your device. Check your device storage.</source>
         <translation>Nije uspjelo kopiranje nekih od skinutih fajlova na vaš uređaj. Provjerite prostor na vašem uređaju.</translation>
     </message>
@@ -1647,117 +1811,117 @@ Iako i dalje možete pregledati i koristiti ovaj projekat, strogo je preporučiv
         <translation>QFieldCloud projekti</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldCloudScreen.qml" line="46"/>
+        <location filename="../src/qml/QFieldCloudScreen.qml" line="47"/>
         <source>Disconnected from the cloud.</source>
         <translation>Nema konekcije na oblak.</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldCloudScreen.qml" line="47"/>
+        <location filename="../src/qml/QFieldCloudScreen.qml" line="48"/>
         <source>Connecting to the cloud.</source>
         <translation>Povezivanje na oblak.</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldCloudScreen.qml" line="48"/>
+        <location filename="../src/qml/QFieldCloudScreen.qml" line="49"/>
         <source>Greetings &lt;strong&gt;%1&lt;/strong&gt;.</source>
         <translation>Pozdravi &lt;strong&gt;%1&lt;/strong&gt;.</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldCloudScreen.qml" line="154"/>
+        <location filename="../src/qml/QFieldCloudScreen.qml" line="155"/>
         <source>My Projects</source>
         <translation>Moji projekti</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldCloudScreen.qml" line="160"/>
+        <location filename="../src/qml/QFieldCloudScreen.qml" line="161"/>
         <source>Community</source>
         <translation>Zajednica</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldCloudScreen.qml" line="308"/>
+        <location filename="../src/qml/QFieldCloudScreen.qml" line="311"/>
         <source>(Available locally)</source>
         <translation>(Dostupno lokalno)</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldCloudScreen.qml" line="319"/>
+        <location filename="../src/qml/QFieldCloudScreen.qml" line="322"/>
         <source>Downloading, %1% fetched…</source>
         <translation>Skidanje %1% preuzeto…</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldCloudScreen.qml" line="322"/>
+        <location filename="../src/qml/QFieldCloudScreen.qml" line="325"/>
         <source>QFieldCloud is preparing the latest data just for you. This might take some time, please hold tight…</source>
         <translation>QFieldCloud priprema posljednje podatke za vas. Ovo može potrajati…</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldCloudScreen.qml" line="327"/>
+        <location filename="../src/qml/QFieldCloudScreen.qml" line="330"/>
         <source>Uploading…</source>
         <translation>Prebacivanje...</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldCloudScreen.qml" line="337"/>
+        <location filename="../src/qml/QFieldCloudScreen.qml" line="340"/>
         <source>Downloading error. </source>
         <translation>Greška pri skidanju.</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldCloudScreen.qml" line="340"/>
+        <location filename="../src/qml/QFieldCloudScreen.qml" line="343"/>
         <source>Uploading error. </source>
         <translation>Greška pri učitavanju.</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldCloudScreen.qml" line="347"/>
+        <location filename="../src/qml/QFieldCloudScreen.qml" line="350"/>
         <source>Available locally, missing on the cloud</source>
         <translation>Dostupno lokalno, nedostaje u oblaku</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldCloudScreen.qml" line="350"/>
+        <location filename="../src/qml/QFieldCloudScreen.qml" line="353"/>
         <source>Available on the cloud, missing locally</source>
         <translation>Dostupno u oblaku, nedostaje lokalno</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldCloudScreen.qml" line="353"/>
+        <location filename="../src/qml/QFieldCloudScreen.qml" line="356"/>
         <source>Available locally</source>
         <translation>Dostupno lokano</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldCloudScreen.qml" line="360"/>
+        <location filename="../src/qml/QFieldCloudScreen.qml" line="363"/>
         <source>Has changes. </source>
         <translation>Ima promjena.</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldCloudScreen.qml" line="389"/>
+        <location filename="../src/qml/QFieldCloudScreen.qml" line="393"/>
         <source>Downloading project %1</source>
         <translation>Skidanje projekta %1</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldCloudScreen.qml" line="466"/>
+        <location filename="../src/qml/QFieldCloudScreen.qml" line="470"/>
         <source>Download Project</source>
         <translation>Skini projekat</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldCloudScreen.qml" line="480"/>
+        <location filename="../src/qml/QFieldCloudScreen.qml" line="484"/>
         <source>Open Project</source>
         <translation>Otvori projekat</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldCloudScreen.qml" line="497"/>
+        <location filename="../src/qml/QFieldCloudScreen.qml" line="501"/>
         <source>Remove Stored Project</source>
         <translation>Ukloni pohranjen projekat</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldCloudScreen.qml" line="513"/>
+        <location filename="../src/qml/QFieldCloudScreen.qml" line="517"/>
         <source>Cancel Project Download</source>
         <translation>Otkaži skidanje projekta</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldCloudScreen.qml" line="526"/>
+        <location filename="../src/qml/QFieldCloudScreen.qml" line="530"/>
         <source>Press and hold over a cloud project for a menu of additional actions.</source>
         <translation>Pritisnite i držite naziv projekta u oblaku za meni sa dodatnim kacijama.</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldCloudScreen.qml" line="534"/>
+        <location filename="../src/qml/QFieldCloudScreen.qml" line="538"/>
         <source>Refresh projects list</source>
         <translation>Osvježi listu projekata</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldCloudScreen.qml" line="553"/>
+        <location filename="../src/qml/QFieldCloudScreen.qml" line="563"/>
         <source>Refreshing projects list</source>
         <translation>Osvježavanje liste projekata</translation>
     </message>
@@ -2117,23 +2281,23 @@ Cancel to make a minimal device scan instead.</source>
 <context>
     <name>QgisMobileapp</name>
     <message>
-        <location filename="../src/core/qgismobileapp.cpp" line="644"/>
-        <location filename="../src/core/qgismobileapp.cpp" line="670"/>
+        <location filename="../src/core/qgismobileapp.cpp" line="645"/>
+        <location filename="../src/core/qgismobileapp.cpp" line="671"/>
         <source>Project file &quot;%1&quot; does not exist</source>
         <translation>Projektni fajl &quot;%1&quot; ne postoji</translation>
     </message>
     <message>
-        <location filename="../src/core/qgismobileapp.cpp" line="661"/>
+        <location filename="../src/core/qgismobileapp.cpp" line="662"/>
         <source>No project file currently opened</source>
         <translation>Nijedan projektni fajl nije otvoren</translation>
     </message>
     <message>
-        <location filename="../src/core/qgismobileapp.cpp" line="714"/>
+        <location filename="../src/core/qgismobileapp.cpp" line="715"/>
         <source>Could not load font %1</source>
         <translation>Nije bilo moguće učitati font %1</translation>
     </message>
     <message>
-        <location filename="../src/core/qgismobileapp.cpp" line="716"/>
+        <location filename="../src/core/qgismobileapp.cpp" line="717"/>
         <source>Loading font %1</source>
         <translation>Učitavanje fonta %1</translation>
     </message>
@@ -2194,7 +2358,7 @@ Cancel to make a minimal device scan instead.</source>
 <context>
     <name>QgsQuickMapCanvasMap</name>
     <message>
-        <location filename="../src/core/qgsquick/qgsquickmapcanvasmap.cpp" line="181"/>
+        <location filename="../src/core/qgsquick/qgsquickmapcanvasmap.cpp" line="183"/>
         <source>Rendering</source>
         <translation>Renderiranje</translation>
     </message>
@@ -2202,8 +2366,8 @@ Cancel to make a minimal device scan instead.</source>
 <context>
     <name>QgsQuickMapSettings</name>
     <message>
-        <location filename="../src/core/qgsquick/qgsquickmapsettings.cpp" line="260"/>
-        <location filename="../src/core/qgsquick/qgsquickmapsettings.cpp" line="289"/>
+        <location filename="../src/core/qgsquick/qgsquickmapsettings.cpp" line="267"/>
+        <location filename="../src/core/qgsquick/qgsquickmapsettings.cpp" line="297"/>
         <source>Map Canvas rotation is not supported. Resetting from %1 to 0.</source>
         <translation>Rotacije kanvasa karte nije podržana. Resetovanje sa %1 na 0.</translation>
     </message>
@@ -2280,6 +2444,19 @@ Cancel to make a minimal device scan instead.</source>
         <location filename="../src/qml/SystemLoader.qml" line="59"/>
         <source>Preparing QField, this is a one time operation that might take some time</source>
         <translation>Prirema se QField, ova operacija se radi samo jednom i može potrajati</translation>
+    </message>
+</context>
+<context>
+    <name>TemporalProperties</name>
+    <message>
+        <location filename="../src/qml/TemporalProperties.qml" line="28"/>
+        <source>Temporal Properties</source>
+        <translation>Privremene postavke</translation>
+    </message>
+    <message>
+        <location filename="../src/qml/TemporalProperties.qml" line="43"/>
+        <source>Enable temporal filter</source>
+        <translation>Omogući privremene filtere</translation>
     </message>
 </context>
 <context>
@@ -2608,149 +2785,149 @@ Cancel to make a minimal device scan instead.</source>
         <translation>Kanvas je prestao pratiti lokaciju</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1308"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1309"/>
         <source>Failed to create feature!</source>
         <translation>Nije uspjelo kreiranje objekta!</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1312"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1313"/>
         <source>Failed to save feature!</source>
         <translation>Nije uspjelo snimanje objekta!</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1369"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1370"/>
         <source>Main Menu</source>
         <translation>Glavni meni</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1383"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1384"/>
         <source>Measure Tool</source>
         <translation>Alat za mjerenje</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1398"/>
-        <location filename="../src/qml/qgismobileapp.qml" line="1514"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1399"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1515"/>
         <source>Print to PDF</source>
         <translation>Štampa u PDF</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1412"/>
-        <location filename="../src/qml/qgismobileapp.qml" line="1554"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1413"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1555"/>
         <source>Printing to PDF</source>
         <translation>Štampa u PDF</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1429"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1430"/>
         <source>Open Project</source>
         <translation>Otvori projekat</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1441"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1442"/>
         <source>Settings</source>
         <translation>Postavke</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1455"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1456"/>
         <source>Message Log</source>
         <translation>Log poruka</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1469"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1470"/>
         <source>About QField</source>
         <translation>O aplikaciji QField</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1530"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1531"/>
         <source>Select template below</source>
         <translation>Izaberite predložak</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1599"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1600"/>
         <source>Activating positioning service</source>
         <translation>Aktiviranje usluge lociranja</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1604"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1605"/>
         <source>QField has no permissions to use positioning.</source>
         <translation>QField nema dozvolu da koristi lociranje.</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1617"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1618"/>
         <source>Positioning Options</source>
         <translation>Opcije lociranja</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1643"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1644"/>
         <source>Enable Positioning</source>
         <translation>Omogući lociranje</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1657"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1658"/>
         <source>Show Position Information</source>
         <translation>Prikaži informacije o lokaciji</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1671"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1672"/>
         <source>Positioning Settings</source>
         <translation>Postavke lociranja</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1684"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1685"/>
         <source>Center to Current Location</source>
         <translation>Centar na trenutnu lokaciju</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1727"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1728"/>
         <source>Current layer switched to the one holding the selected geometry.</source>
         <translation>Trenutni sloj promijenjen na onaj koji sadrži selektovanu geometriju.</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1736"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1737"/>
         <source>Editing of multi geometry layer is not supported yet.</source>
         <translation>Editovanje sloja sa višestrukom geometrijom još nije podržano</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1849"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1850"/>
         <source>Loading %1</source>
         <translation>Učitavanje %1</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2130"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2134"/>
         <source>Logged out</source>
         <translation>Odjavljen</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2132"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2136"/>
         <source>Connecting...</source>
         <translation>Povezivanje...</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2134"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2138"/>
         <source>Logged in</source>
         <translation>Prijavljen</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2149"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2153"/>
         <source>Project %1 failed to download</source>
         <translation>Projekat %1 nije skinut</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2150"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2154"/>
         <source>Project %1 successfully downloaded, it&apos;s now available to open</source>
         <translation>Projekat %1 je uspješno skinut, sada je dostupan za otvaranje</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2155"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2159"/>
         <source>Changes failed to reach QFieldCloud: %1</source>
         <translation>Promjene nisu došle do QFieldCloud: %1</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2159"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2163"/>
         <source>Changes successfully pushed to QFieldCloud</source>
         <translation>Promjene uspješno poslane na QFieldCloud</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2383"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2399"/>
         <source>Press back again to close project and app</source>
         <translation>Kliknite nazad da zatvorite projekat i aplikaciju</translation>
     </message>
