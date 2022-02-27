@@ -15,10 +15,10 @@ Item {
 
   Magnetometer {
     id: magnetometer
-    active: true
+    active: false
     returnGeoValues: false
 
-    property bool hasValue: true
+    property bool hasValue: false
     property real x: 0
     property real y: 0
 
@@ -158,7 +158,24 @@ Item {
     accuracyMarker.accuracy = accuracy / mapSettings.mapUnitsPerPoint
   }
 
+  Connections {
+    target: positionSource
+
+    function onActiveChanged() {
+      if (positionSource.active) {
+        magnetometer.active = true
+        magnetometer.start()
+      } else {
+        magnetometer.stop()
+        magnetometer.active = false
+        magnetometer.hasValue = false
+      }
+    }
+  }
+
   Component.onCompleted: {
-    magnetometer.start()
+    if (positionSource.active) {
+      magnetometer.start()
+    }
   }
 }
