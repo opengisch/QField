@@ -1,4 +1,5 @@
 import QtQuick 2.12
+import QtQuick.Shapes 1.12
 import QtGraphicalEffects 1.12
 import QtSensors 5.12
 
@@ -50,7 +51,6 @@ Item {
   Image {
     id: compassDirectionMarker
     property point screenLocation
-    property real direction
     visible: magnetometer.hasValue
     width: 48
     height: 48
@@ -66,22 +66,34 @@ Item {
     smooth: true
   }
 
-  Image {
-    id: movementDirectionMarker
+  Shape {
+    id: movementMarker
     property point screenLocation
-    property real direction
     visible: direction >= 0
-    width: 48
-    height: 48
+    width: 20
+    height: 20
 
     x: screenLocation.x - width / 2
-    y: screenLocation.y - height
+    y: screenLocation.y - height / 2
 
-    source: Theme.getThemeVectorIcon( "ic_movement_direction" )
-    fillMode: Image.PreserveAspectFit
-    rotation: direction
-    transformOrigin: Item.Bottom
-    smooth: true
+    ShapePath {
+      strokeWidth: 3
+      strokeColor: "white"
+      strokeStyle: ShapePath.SolidLine
+      fillColor: Theme.positionColor
+      startX: 10
+      startY: 0
+      PathLine { x: 18; y: 20 }
+      PathLine { x: 10; y: 14 }
+      PathLine { x: 2; y: 20 }
+      PathLine { x: 10; y: 0 }
+
+      SequentialAnimation on fillColor  {
+        loops: Animation.Infinite
+        ColorAnimation  { from: Theme.positionColor; to: Theme.darkPositionColor; duration: 2000; easing.type: Easing.InOutQuad }
+        ColorAnimation  { from: "#2374b5"; to: Theme.positionColor; duration: 1000; easing.type: Easing.InOutQuad }
+      }
+    }
 
     layer.enabled: true
     layer.effect: DropShadow {
@@ -101,6 +113,7 @@ Item {
                               && screenLocation.x < mapCanvas.width
                               && screenLocation.y > 0
                               && screenLocation.y < mapCanvas.height
+    visible: direction == -1
 
     width: isOnCanvas ? 12 : 10
     height: isOnCanvas ? 12 : 10
@@ -151,10 +164,9 @@ Item {
     var point = mapSettings.coordinateToScreen( location )
     positionMarker.screenLocation = point
     compassDirectionMarker.screenLocation = point
-    movementDirectionMarker.screenLocation = point
+    movementMarker.screenLocation = point
     accuracyMarker.screenLocation = point
 
-    movementDirectionMarker.direction = direction
     accuracyMarker.accuracy = accuracy / mapSettings.mapUnitsPerPoint
   }
 
