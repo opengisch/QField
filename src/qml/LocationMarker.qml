@@ -88,6 +88,9 @@ Item {
     x: props.screenLocation.x - width / 2
     y: props.screenLocation.y - height / 2
 
+    rotation: direction
+    transformOrigin: Item.Center
+
     ShapePath {
       strokeWidth: 3
       strokeColor: "white"
