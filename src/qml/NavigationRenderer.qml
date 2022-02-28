@@ -1,4 +1,5 @@
 import QtQuick 2.12
+import QtQuick.Shapes 1.12
 import QtGraphicalEffects 1.12
 
 import org.qgis 1.0
@@ -37,35 +38,35 @@ Item {
             model: geometryWrapper.pointList()
 
             Item {
+              property CoordinateTransformer ct: CoordinateTransformer {
+                  id: _ct
+                  sourceCrs: geometryWrapper.crs
+                  sourcePosition: modelData
+                  destinationCrs: mapCanvas.mapSettings.destinationCrs
+                  transformContext: qgisProject.transformContext
+              }
+
+              MapToScreen {
+                  id: mapToScreenPosition
+                  mapSettings: mapCanvas.mapSettings
+                  mapPoint: _ct.projectedPosition
+              }
+
+              property bool isOnMapCanvas: mapToScreenPosition.screenPoint.x > 0
+                                        && mapToScreenPosition.screenPoint.x < mapCanvas.width
+                                        && mapToScreenPosition.screenPoint.y > 0
+                                        && mapToScreenPosition.screenPoint.y < mapCanvas.height
                 Rectangle {
                     id: point
+                    visible: isOnMapCanvas
+                    x: mapToScreenPosition.screenPoint.x - width / 2
+                    y: mapToScreenPosition.screenPoint.y -  height / 2
 
-                    property CoordinateTransformer ct: CoordinateTransformer {
-                        id: _ct
-                        sourceCrs: geometryWrapper.crs
-                        sourcePosition: modelData
-                        destinationCrs: mapCanvas.mapSettings.destinationCrs
-                        transformContext: qgisProject.transformContext
-                    }
-
-                    MapToScreen {
-                        id: mapToScreenPosition
-                        mapSettings: mapCanvas.mapSettings
-                        mapPoint: _ct.projectedPosition
-                    }
-
-                    property bool isOnCanvas: mapToScreenPosition.screenPoint.x > 0
-                                              && mapToScreenPosition.screenPoint.x < mapCanvas.width
-                                              && mapToScreenPosition.screenPoint.y > 0
-                                              && mapToScreenPosition.screenPoint.y < mapCanvas.height
-                    x: Math.min(mapCanvas.width, Math.max(0, mapToScreenPosition.screenPoint.x)) - width / 2
-                    y: Math.min(mapCanvas.height, Math.max(0, mapToScreenPosition.screenPoint.y)) - height / 2
-
-                    width: isOnCanvas ? 16 : 10
-                    height: isOnCanvas ? 16 : 10
+                    width: 16
+                    height: 16
                     color: Theme.navigationColor
                     border.color: "white"
-                    border.width: isOnCanvas ? 3 : 2
+                    border.width: 3
                     transform: Rotation { origin.x: point.width / 2; origin.y: point.width / 2; angle: 45}
 
                     layer.enabled: true
@@ -77,6 +78,41 @@ Item {
                         horizontalOffset: 0
                         verticalOffset: 0
                     }
+                }
+
+                Shape {
+                  id: edgePoint
+                  visible: !isOnMapCanvas
+                  width: 20
+                  height: 20
+
+                  x: Math.min(mapCanvas.width, Math.max(0, mapToScreenPosition.screenPoint.x)) + width  * (mapToScreenPosition.screenPoint.x < 0 ? 0 : -1)
+                  y: Math.min(mapCanvas.height, Math.max(0, mapToScreenPosition.screenPoint.y)) + height * (mapToScreenPosition.screenPoint.y < 0 ? 0 : -1)
+
+                  rotation: -(Math.atan2(mapCanvas.width / 2 - mapToScreenPosition.screenPoint.x, mapCanvas.height / 2 - mapToScreenPosition.screenPoint.y) / Math.PI) * 180
+                  transformOrigin: Item.Center
+
+                  ShapePath {
+                    strokeWidth: 3
+                    strokeColor: "white"
+                    strokeStyle: ShapePath.SolidLine
+                    fillColor: Theme.navigationColor
+                    startX: 10
+                    startY: 0
+                    PathLine { x: 18; y: 20 }
+                    PathLine { x: 2; y: 20 }
+                    PathLine { x: 10; y: 0 }
+                  }
+
+                  layer.enabled: true
+                  layer.effect: DropShadow {
+                      transparentBorder: true
+                      radius: 8
+                      samples: 25
+                      color: "#99000000"
+                      horizontalOffset: 0
+                      verticalOffset: 0
+                  }
                 }
             }
         }
