@@ -19,7 +19,8 @@ Item {
 
     property point screenLocation
     property real screenAccuracy
-    property bool isOnCanvas: screenLocation.x > 0
+
+    property bool isOnMapCanvas: screenLocation.x > 0
                               && screenLocation.x < mapCanvas.width
                               && screenLocation.y > 0
                               && screenLocation.y < mapCanvas.height
@@ -80,7 +81,7 @@ Item {
 
   Shape {
     id: movementMarker
-    visible: direction >= 0
+    visible: direction >= 0 && props.isOnMapCanvas
     width: 20
     height: 20
 
@@ -119,24 +120,65 @@ Item {
 
   Rectangle {
     id: positionMarker
-    visible: direction == -1
+    visible: direction == -1 && props.isOnMapCanvas
 
-    width: props.isOnCanvas ? 12 : 10
-    height: props.isOnCanvas ? 12 : 10
+    width: 12
+    height: 12
 
-    x: Math.min(mapCanvas.width, Math.max(0, props.screenLocation.x)) - width / 2
-    y: Math.min(mapCanvas.height, Math.max(0, props.screenLocation.y)) - height / 2
+    x: props.screenLocation.x - width / 2
+    y: props.screenLocation.y - height / 2
 
-    radius: width/2
+    radius: width / 2
 
     color: Theme.positionColor
     border.color: "white"
-    border.width: props.isOnCanvas ? 3 : 2
+    border.width: 3
 
     SequentialAnimation on color  {
       loops: Animation.Infinite
       ColorAnimation  { from: Theme.positionColor; to: Theme.darkPositionColor; duration: 2000; easing.type: Easing.InOutQuad }
       ColorAnimation  { from: Theme.darkPositionColor; to: Theme.positionColor; duration: 1000; easing.type: Easing.InOutQuad }
+    }
+
+    layer.enabled: true
+    layer.effect: DropShadow {
+        transparentBorder: true
+        radius: 8
+        samples: 25
+        color: "#99000000"
+        horizontalOffset: 0
+        verticalOffset: 0
+    }
+  }
+
+  Shape {
+    id: edgeMarker
+    visible: !props.isOnMapCanvas
+    width: 20
+    height: 20
+
+    x: Math.min(mapCanvas.width, Math.max(0, props.screenLocation.x)) + width  * (props.screenLocation.x < 0 ? 0 : -1)
+    y: Math.min(mapCanvas.height, Math.max(0, props.screenLocation.y)) + height * (props.screenLocation.y < 0 ? 0 : -1)
+
+    rotation: -(Math.atan2(mapCanvas.width / 2 - props.screenLocation.x, mapCanvas.height / 2 - props.screenLocation.y) / Math.PI) * 180
+    transformOrigin: Item.Center
+
+    ShapePath {
+      strokeWidth: 3
+      strokeColor: "white"
+      strokeStyle: ShapePath.SolidLine
+      fillColor: Theme.positionColor
+      startX: 10
+      startY: 0
+      PathLine { x: 18; y: 20 }
+      PathLine { x: 2; y: 20 }
+      PathLine { x: 10; y: 0 }
+
+      SequentialAnimation on fillColor  {
+        loops: Animation.Infinite
+        ColorAnimation  { from: Theme.positionColor; to: Theme.darkPositionColor; duration: 2000; easing.type: Easing.InOutQuad }
+        ColorAnimation  { from: Theme.darkPositionColor; to: Theme.positionColor; duration: 1000; easing.type: Easing.InOutQuad }
+      }
     }
 
     layer.enabled: true
