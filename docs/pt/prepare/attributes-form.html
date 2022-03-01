@@ -5,7 +5,7 @@
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Attribute Form Configuration &#8212; QField Documentation 1.0 - M... documentation</title>
+    <title>Configuração do Formulário do Atributo &#8212; QField Documentation 1.0 - M... documentation</title>
     <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/style.css" />
@@ -20,16 +20,16 @@
     <link rel="shortcut icon" href="../_static/favicon.ico"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Authentication" href="authentication.html" />
+    <link rel="next" title="Autenticação" href="authentication.html" />
     <link rel="prev" title="Permitir ocultar nós de legenda" href="allow-hiding-legend-nodes.html" />
 <meta charset='utf-8'>
 <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
 <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
 <meta name="apple-mobile-web-app-capable" content="yes">
-<script type="text/javascript" src="../_static/js/jquery-1.12.4.min.js "></script>
-<script type="text/javascript" src="../_static/js/jquery-fix.js "></script>
-<script type="text/javascript" src="../_static/bootstrap-3.4.1/js/bootstrap.min.js "></script>
-<script type="text/javascript" src="../_static/bootstrap-sphinx.js "></script>
+<script type="text/javascript" src="../_static/js/jquery-1.12.4.min.js"></script>
+<script type="text/javascript" src="../_static/js/jquery-fix.js"></script>
+<script type="text/javascript" src="../_static/bootstrap-3.4.1/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="../_static/bootstrap-sphinx.js"></script>
 
   </head><body>
 
@@ -63,14 +63,14 @@
   <ul class="dropdown-menu localtoc"
       role="menu"
       aria-labelledby="dLabelLocalToc"><ul>
-<li><a class="reference internal" href="#">Attribute Form Configuration</a><ul>
-<li><a class="reference internal" href="#suppress-attribute-form">Suppress Attribute Form</a></li>
+<li><a class="reference internal" href="#">Configuração do Formulário do Atributo</a><ul>
+<li><a class="reference internal" href="#suppress-attribute-form">Suprimir Formulário do Atributo</a></li>
 <li><a class="reference internal" href="#field-widget">Widget de Campo</a></li>
 <li><a class="reference internal" href="#relation-widget">Widget de Relação</a><ul>
-<li><a class="reference internal" href="#attachment-photo-settings">Attachment (photo settings)</a></li>
+<li><a class="reference internal" href="#attachment-photo-settings">Anexar (configurações da foto)</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#value-relation">Value Relation</a></li>
+<li><a class="reference internal" href="#value-relation">Relação de Valor</a></li>
 <li><a class="reference internal" href="#drag-and-drop-designer-forms">Design de formulários arrastar e largar</a></li>
 <li><a class="reference internal" href="#conditional-visibility">Visibilidade condicionada</a></li>
 <li><a class="reference internal" href="#constraints">Restrições</a><ul>
@@ -84,7 +84,7 @@
 </li>
 <li><a class="reference internal" href="#editable">Editável</a></li>
 <li><a class="reference internal" href="#remember-last-values">Lembrar os últimos valores</a></li>
-<li><a class="reference internal" href="#auto-complete-value">Auto-complete value</a></li>
+<li><a class="reference internal" href="#auto-complete-value">Valor de auto-preenchimento</a></li>
 </ul>
 </li>
 </ul>
@@ -100,7 +100,7 @@
     </a>
   </li>
   <li>
-    <a href="authentication.html" title="Next Chapter: Authentication"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm hidden-tablet">Authentication &raquo;</span>
+    <a href="authentication.html" title="Next Chapter: Autenticação"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm hidden-tablet">Autenticação &raquo;</span>
     </a>
   </li>
             
@@ -131,11 +131,11 @@
     role="menu"
     aria-labelledby="dLabelGlobalToc"><ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../install/index.html">Instalação</a></li>
-<li class="toctree-l1 current"><a class="reference internal" href="index.html">Prepare for Work</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Preparar para Trabalhar</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../synchronise/index.html">Sincronização</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../fieldwork/index.html">Trabalho de campo</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../getting-started/index.html">Iniciando com Tutoriais</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../data-formats/index.html">Supported Data Formats</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../data-formats/index.html">Formato de Dados Suportados</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../case-studies/index.html">Casos de estudo</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../support/index.html">Suporte e Desenvolvimento</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../old-doc/index.html">Legacy Documentation</a></li>
@@ -144,14 +144,18 @@
 </ul>
         </div>
       </div>
-    <div class="col-md-9 content">
+      <div class="col-md-9 content">
+        <div class="admonition note alert alert-info">
+        <p class="first admonition-title">Outdated documentation</p>
+        <p class="">The latest documentation was moved to <a href="//docs.qfield.org">docs.qfield.org</a></p>
+      </div>
       
   <div class="section" id="attribute-form-configuration">
-<h1>Attribute Form Configuration<a class="headerlink" href="#attribute-form-configuration" title="Permalink to this headline">¶</a></h1>
-<p>QField cria formulários semelhantes, mas não igual ao QGIS.</p>
+<h1>Configuração do Formulário do Atributo<a class="headerlink" href="#attribute-form-configuration" title="Permalink to this headline">¶</a></h1>
+<p>QField cria formulários semelhantes, mas não é igual ao QGIS.</p>
 <div class="section" id="suppress-attribute-form">
-<h2>Suppress Attribute Form<a class="headerlink" href="#suppress-attribute-form" title="Permalink to this headline">¶</a></h2>
-<p>The setting «suppress attribute form» is directly applied to the QField form.</p>
+<h2>Suprimir Formulário do Atributo<a class="headerlink" href="#suppress-attribute-form" title="Permalink to this headline">¶</a></h2>
+<p>A configuração «suprimir formulário do atributo» é aplicada diretamente no formulário QField.</p>
 </div>
 <div class="section" id="field-widget">
 <span id="edit-field-widgets"></span><h2>Widget de Campo<a class="headerlink" href="#field-widget" title="Permalink to this headline">¶</a></h2>
@@ -189,12 +193,9 @@
 <td><span class="yay">✔</span></td>
 <td>&#160;</td>
 </tr>
-<tr class="row-even"><td>Attachment</td>
+<tr class="row-even"><td>Anexo</td>
 <td><span class="yay">✔</span></td>
-<td>This field is combined with camera integration.
-It is also able to open other files like pdf
-and doc (if the user has an appropriate viewer)
-<a class="reference internal" href="#attachment"><span class="std std-ref">Attachment (photo settings)</span></a></td>
+<td>Este campo é combinado com a integração da câmera. É também possível abrir outros ficheiros como pdf e doc (se o utilizador tiver o visualizador apropriado) <a class="reference internal" href="#attachment"><span class="std std-ref">Anexar (configurações da foto)</span></a></td>
 </tr>
 <tr class="row-odd"><td>Data Tempo</td>
 <td><span class="yay">✔</span></td>
@@ -208,7 +209,7 @@ and doc (if the user has an appropriate viewer)
 <td><span class="yay">✔</span></td>
 <td>&#160;</td>
 </tr>
-<tr class="row-even"><td>Value Relation</td>
+<tr class="row-even"><td>Relação de Valor</td>
 <td><span class="yay">✔</span></td>
 <td>&#160;</td>
 </tr>
@@ -227,13 +228,13 @@ and doc (if the user has an appropriate viewer)
 <a class="reference internal image-reference" href="../_images/relation_editor_widget_list.png"><img alt="../_images/relation_editor_widget_list.png" src="../_images/relation_editor_widget_list.png" style="width: 500px;" /></a>
 </div>
 </div>
-<p>The relation widget shows all the referencing child features in a list. It is possible to add, delete and open them.</p>
-<p>The visual identification of the list entries are done via the «Display Expression» of the child layer.</p>
-<p><strong>Manuseio de chaves</strong></p>
-<p>Como as chaves primárias dos pais são usadas como chaves estrangeiras nos elementos filhos de referência, essas chaves primárias devem ser salvas para uso mesmo após a sincronização com os dados originais. Portanto, recomendamos o uso de valores estáveis, como UUIDs, para chaves primárias.</p>
-<p>It is possible to already add children from a parent that is about to be added. This possibility will be blocked if there is no valid primary key on the parent or the constraints are violated. In case the adding of the parent feature is canceled after some children have been added already, the children are deleted as well.</p>
+<p>O widget de relação mostra todos os elementos fihos de referência numa lista. É possível adicionar, excluir e abri-las.</p>
+<p>A identificação visual das entradas da lista é feita com uma «Exibir Expressão» na camada filha.</p>
+<p><strong>Manuseamento de chaves</strong></p>
+<p>Como as chaves primárias dos pais são usadas como chaves estrangeiras nos elementos filhos de referência, essas chaves primárias devem ser guardadas para uso mesmo após a sincronização com os dados originais. Portanto, recomendamos o uso de valores estáveis, como UUIDs, para chaves primárias.</p>
+<p>É possível adicionar ligações filhas de uma referência pai que está prestes a ser adicionado. Essa possibilidade será bloqueada se não houver chave primária válida no pai ou as restrições forem violadas. Caso a adição do elemento pai seja cancelada depois de alguns elementos filhos já tiverem sido adicionados, os filhos também serão excluídos.</p>
 <p><strong>Relações muitos-para-muitos</strong></p>
-<p>Em relacionamentos muitos para muitos, de acordo com a configuração de cardinalidade nas Propriedades da camada vetorial QGIS, a adição, exclusão ou abertura de uma entrada na lista afeta diretamente a camada filho (na cardinalidade direta) ou a tabela de vinculação (em muitas para uma cardinalidade).</p>
+<p>Nas relações de muitos para muitos, de acordo com a configuração de cardinalidade nas Propriedades da camada vetorial QGIS, a adição, exclusão ou abertura de uma entrada na lista afeta diretamente a camada filho (na cardinalidade direta) ou a tabela de vinculação (em muitas para uma cardinalidade).</p>
 <p>O segundo caso é geralmente usado quando há informações adicionais de relação (por exemplo, porcentagem) na tabela de vinculação.</p>
 <div class="clearer text-center docutils container">
 <div class="figure">
@@ -242,27 +243,27 @@ and doc (if the user has an appropriate viewer)
 </div>
 <p>No caso da cardinalidade muitos-para-um nas relações muitos-para-muitos, a Expressão de exibição precisa ser definida na tabela de vinculação.</p>
 <div class="section" id="attachment-photo-settings">
-<span id="attachment"></span><h3>Attachment (photo settings)<a class="headerlink" href="#attachment-photo-settings" title="Permalink to this headline">¶</a></h3>
-<p>The widget type «Attachment» is used with fields that store the path to files.</p>
-<p>It can be used to:</p>
+<span id="attachment"></span><h3>Anexar (configurações da foto)<a class="headerlink" href="#attachment-photo-settings" title="Permalink to this headline">¶</a></h3>
+<p>O tipo de widget «Anexo» é usado com campos para armazenar o caminho dos ficheiros.</p>
+<p>Pode ser usado para:</p>
 <ul class="simple">
-<li>show and take photos</li>
-<li>show links to external files like pdfs or documents</li>
+<li>Mostrar e tirar fotos</li>
+<li>mostrar ligações para ficheiros externos como pdfs ou documentos</li>
 </ul>
 <div class="clearer text-center docutils container">
 <div class="figure">
 <a class="reference internal image-reference" href="../_images/attachement-setting.png"><img alt="Attachement field settings" src="../_images/attachement-setting.png" style="width: 600px;" /></a>
 </div>
 </div>
-<p>The path should be set to relative. The pictures, pdf and docs are stored then in a sub-directory of the project, where the link stored in the textfield is pointing to.</p>
+<p>O caminho deve ser definido como relativo. Significa que as imagens são armazenadas num subdiretório do projeto, para onde o link armazenado no campo de texto está a encaminhar.</p>
 <p>No QField, a imagem é exibida. Ao clicar no símbolo da câmera, a câmera é iniciada para atualizar a imagem com uma nova foto.</p>
 <div class="clearer text-center docutils container">
 <div class="figure">
 <a class="reference internal image-reference" href="../_images/qfield_picture.png"><img alt="Picture in QField" src="../_images/qfield_picture.png" style="width: 600px;" /></a>
 </div>
 </div>
-<p>On synchronization the sub-directory with the pictures, pdf and docs has to be copied as well.</p>
-<p>The option «hyperlink» on the attachment widget will disable the camera functionality and enable a hyperlink to open a document (pdf, doc, …).</p>
+<p>Na sincronização, o subdiretório com as imagens, pdf e documentos também deve ser copiado.</p>
+<p>A opção «hiperligação» no widget de Anexo será desativada na funcionalidade da câmera e ativa na hiperligação para abrir o documento (pdf, doc, …).</p>
 <div class="clearer text-center docutils container">
 <div class="figure">
 <a class="reference internal image-reference" href="../_images/hyperlink_option.png"><img alt="hyperlink_option" src="../_images/hyperlink_option.png" style="width: 600px;" /></a>
@@ -271,8 +272,8 @@ and doc (if the user has an appropriate viewer)
 </div>
 </div>
 <div class="section" id="value-relation">
-<h2>Value Relation<a class="headerlink" href="#value-relation" title="Permalink to this headline">¶</a></h2>
-<p>The widget «Value Relation» offers values from a related table in a combobox. You can select layer, key column and value column. Several options are available to change the standard behaviors: allow null value, order by value and allow multiple selections. The widget will display a drop-down or multiple-select list of the referenced features.</p>
+<h2>Relação de Valor<a class="headerlink" href="#value-relation" title="Permalink to this headline">¶</a></h2>
+<p>O widget «Relação de Valor» oferece valores de uma tabela relacionada de uma lista de opções. Pode selecionar a camada, chave da coluna e valor da coluna. Várias opções estão disponíveis para mudar os comportamentos padrão: permitir valores nulos, ordernar por valor, permitir múltipla escolha. O widget irá exibir uma lista simples ou ums lista de múltipla seleção com os elementos referenciados.</p>
 <div class="clearer text-center docutils container">
 <div class="figure">
 <a class="reference internal image-reference" href="../_images/value_relation_widget.gif"><img alt="value_relation_widget" src="../_images/value_relation_widget.gif" style="width: 600px;" /></a>
@@ -329,8 +330,7 @@ and doc (if the user has an appropriate viewer)
 </div>
 <div class="section" id="additional-variables">
 <h3>Variáveis adicionais<a class="headerlink" href="#additional-variables" title="Permalink to this headline">¶</a></h3>
-<p>For more information regarding storing information related to your position in object
-attributes, refer to the deticated <a class="reference internal" href="gnss.html#gnss-variables"><span class="std std-ref">GNSS documentation</span></a>.</p>
+<p>Para obter mais informações sobre o armazenamento de informações relacionadas à sua posição nos atributos do objeto, consulte a <a class="reference internal" href="gnss.html#gnss-variables"><span class="std std-ref">Documentação GNSS</span></a>.</p>
 </div>
 <div class="section" id="common-use-cases-expressions">
 <span id="id1"></span><h3>Casos de uso comuns<a class="headerlink" href="#common-use-cases-expressions" title="Permalink to this headline">¶</a></h3>
@@ -354,13 +354,12 @@ attributes, refer to the deticated <a class="reference internal" href="gnss.html
 <div class="highlight-sql notranslate"><div class="highlight"><pre><span></span>aggregate( layer:=&#39;regions&#39;, aggregate:=&#39;max&#39;, expression:=&quot;code&quot;, filter:=intersects( $geometry, geometry( @parent ) ) )
 </pre></div>
 </div>
-<p>To transform the coordinates received from &#64;position_coordinate to the coordinate system of your project:</p>
+<p>Para transformar as coordenadas recebidas da variável &#64;position_coordinate para o sistema de coordenadas do seu projeto:</p>
 <div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="n">x</span><span class="p">(</span><span class="k">transform</span><span class="p">(</span><span class="o">@</span><span class="n">position_coordinate</span><span class="p">,</span> <span class="s1">&#39;EPSG:4326&#39;</span><span class="p">,</span> <span class="o">@</span><span class="n">project_crs</span> <span class="p">))</span>
 <span class="n">y</span><span class="p">(</span><span class="k">transform</span><span class="p">(</span><span class="o">@</span><span class="n">position_coordinate</span><span class="p">,</span> <span class="s1">&#39;EPSG:4326&#39;</span><span class="p">,</span> <span class="o">@</span><span class="n">project_crs</span> <span class="p">))</span>
 </pre></div>
 </div>
-<p id="snapping-results">If you want to use the snapping results after drawing a line, you can use the <cite>&#64;snapping_results</cite> variable.
-The following code extracts the value of the attribute <cite>id</cite> of the snapping match of the first point of a line.</p>
+<p id="snapping-results">Se deseja usar os resultados de snapping após desenhar uma linha, pode usar a variável <cite>&#64;snapping_results</cite>. O seguinte código extrai o valor do atributo ìd` de snapping coincidente com o primeiro ponto da linha.</p>
 <div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="n">with_variable</span><span class="p">(</span>
   <span class="s1">&#39;first_snapped_point&#39;</span><span class="p">,</span>
   <span class="n">array_first</span><span class="p">(</span> <span class="o">@</span><span class="n">snapping_results</span> <span class="p">),</span>
@@ -385,10 +384,10 @@ The following code extracts the value of the attribute <cite>id</cite> of the sn
 <p>QField oferece um controlo muito mais minucioso sobre os últimos valores usados e ignora a definição do QGIS.</p>
 </div>
 <div class="section" id="auto-complete-value">
-<h2>Auto-complete value<a class="headerlink" href="#auto-complete-value" title="Permalink to this headline">¶</a></h2>
-<p id="autocomplete-value">The “Use completer” checkbox must be checked to be able to use the auto-complete in the value relation.</p>
+<h2>Valor de auto-preenchimento<a class="headerlink" href="#auto-complete-value" title="Permalink to this headline">¶</a></h2>
+<p id="autocomplete-value">Para «Usar auto-preenchimento», a caixa de verificação tem de estar ativa para ser possível o auto-preenchimento na relação de valor.</p>
 <img alt="../_images/autocomplet_form.png" src="../_images/autocomplet_form.png" />
-<p>Here a video showing how it works on QField <a class="reference internal" href="../fieldwork/search.html#search-value-list"><span class="std std-ref">Search in value list</span></a>.</p>
+<p>Aqui está um vídeo demonstrando como funciona no QField  <a class="reference internal" href="../fieldwork/search.html#search-value-list"><span class="std std-ref">Pesquisar na lista de valores</span></a>.</p>
 </div>
 </div>
 

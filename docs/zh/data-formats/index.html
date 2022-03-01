@@ -25,10 +25,10 @@
 <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
 <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
 <meta name="apple-mobile-web-app-capable" content="yes">
-<script type="text/javascript" src="../_static/js/jquery-1.12.4.min.js "></script>
-<script type="text/javascript" src="../_static/js/jquery-fix.js "></script>
-<script type="text/javascript" src="../_static/bootstrap-3.4.1/js/bootstrap.min.js "></script>
-<script type="text/javascript" src="../_static/bootstrap-sphinx.js "></script>
+<script type="text/javascript" src="../_static/js/jquery-1.12.4.min.js"></script>
+<script type="text/javascript" src="../_static/js/jquery-fix.js"></script>
+<script type="text/javascript" src="../_static/bootstrap-3.4.1/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="../_static/bootstrap-sphinx.js"></script>
 
   </head><body>
 
@@ -115,7 +115,7 @@
     aria-labelledby="dLabelGlobalToc"><ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../install/index.html">安装</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../prepare/index.html">Prepare for Work</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../synchronise/index.html">Synchronisation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../synchronise/index.html">同步</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../fieldwork/index.html">Fieldwork</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../getting-started/index.html">入门教程</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">支持的数据类型</a></li>
@@ -127,7 +127,11 @@
 </ul>
         </div>
       </div>
-    <div class="col-md-9 content">
+      <div class="col-md-9 content">
+        <div class="admonition note alert alert-info">
+        <p class="first admonition-title">Outdated documentation</p>
+        <p class="">The latest documentation was moved to <a href="//docs.qfield.org">docs.qfield.org</a></p>
+      </div>
       
   <div class="section" id="supported-data-formats">
 <h1>支持的数据类型<a class="headerlink" href="#supported-data-formats" title="Permalink to this headline">¶</a></h1>
@@ -214,7 +218,7 @@ happy to help you with the implementation.</p>
 </div>
 <div class="section" id="use-geopackage">
 <h2>使用 GeoPackage 文件<a class="headerlink" href="#use-geopackage" title="Permalink to this headline">¶</a></h2>
-<p>We recommend to us the geopackage format to deal with raster data. The following commands will convert a file called <code class="code docutils literal notranslate"><span class="pre">raster.tif</span></code> to a file <code class="code docutils literal notranslate"><span class="pre">raster.gpkg</span></code> with pyramids. Make sure you adjust <code class="docutils literal notranslate"><span class="pre">EPSG:21781</span></code> to your desired CRS.</p>
+<p>We recommend to use the geopackage format to deal with raster data. The following commands will convert a file called <code class="code docutils literal notranslate"><span class="pre">raster.tif</span></code> to a file <code class="code docutils literal notranslate"><span class="pre">raster.gpkg</span></code> with pyramids. Make sure you adjust <code class="docutils literal notranslate"><span class="pre">EPSG:21781</span></code> to your desired CRS.</p>
 <div class="code bash highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">gdal_translate</span> <span class="o">--</span><span class="n">config</span> <span class="n">OGR_SQLITE_SYNCHRONOUS</span> <span class="n">OFF</span> <span class="o">-</span><span class="n">co</span>  <span class="n">APPEND_SUBDATASET</span><span class="o">=</span><span class="n">YES</span> <span class="o">-</span><span class="n">co</span> <span class="n">TILE_FORMAT</span><span class="o">=</span><span class="n">WEBP</span> <span class="o">-</span><span class="n">a_srs</span> <span class="n">EPSG</span><span class="p">:</span><span class="mi">21781</span> <span class="o">-</span><span class="n">of</span> <span class="n">GPKG</span> <span class="n">raster</span><span class="o">.</span><span class="n">tif</span> <span class="n">raster</span><span class="o">.</span><span class="n">gpkg</span>
 <span class="n">gdaladdo</span> <span class="o">--</span><span class="n">config</span> <span class="n">OGR_SQLITE_SYNCHRONOUS</span> <span class="n">OFF</span> <span class="o">-</span><span class="n">r</span> <span class="n">AVERAGE</span> <span class="n">raster</span><span class="o">.</span><span class="n">gpkg</span> <span class="mi">2</span> <span class="mi">4</span> <span class="mi">8</span> <span class="mi">16</span> <span class="mi">32</span> <span class="mi">64</span> <span class="mi">128</span> <span class="mi">256</span>
 </pre></div>

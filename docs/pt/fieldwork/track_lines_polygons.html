@@ -26,10 +26,10 @@
 <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
 <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
 <meta name="apple-mobile-web-app-capable" content="yes">
-<script type="text/javascript" src="../_static/js/jquery-1.12.4.min.js "></script>
-<script type="text/javascript" src="../_static/js/jquery-fix.js "></script>
-<script type="text/javascript" src="../_static/bootstrap-3.4.1/js/bootstrap.min.js "></script>
-<script type="text/javascript" src="../_static/bootstrap-sphinx.js "></script>
+<script type="text/javascript" src="../_static/js/jquery-1.12.4.min.js"></script>
+<script type="text/javascript" src="../_static/js/jquery-fix.js"></script>
+<script type="text/javascript" src="../_static/bootstrap-3.4.1/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="../_static/bootstrap-sphinx.js"></script>
 
   </head><body>
 
@@ -108,11 +108,11 @@
     role="menu"
     aria-labelledby="dLabelGlobalToc"><ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../install/index.html">Instalação</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../prepare/index.html">Prepare for Work</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../prepare/index.html">Preparar para Trabalhar</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../synchronise/index.html">Sincronização</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">Trabalho de campo</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../getting-started/index.html">Iniciando com Tutoriais</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../data-formats/index.html">Supported Data Formats</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../data-formats/index.html">Formato de Dados Suportados</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../case-studies/index.html">Casos de estudo</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../support/index.html">Suporte e Desenvolvimento</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../old-doc/index.html">Legacy Documentation</a></li>
@@ -121,7 +121,11 @@
 </ul>
         </div>
       </div>
-    <div class="col-md-9 content">
+      <div class="col-md-9 content">
+        <div class="admonition note alert alert-info">
+        <p class="first admonition-title">Outdated documentation</p>
+        <p class="">The latest documentation was moved to <a href="//docs.qfield.org">docs.qfield.org</a></p>
+      </div>
       
   <div class="section" id="track-lines-and-polygons">
 <span id="track-linges-polygons"></span><h1>Rastrear linhas e polígonos<a class="headerlink" href="#track-lines-and-polygons" title="Permalink to this headline">¶</a></h1>
@@ -129,15 +133,13 @@
 <div class="docutils container">
 <iframe src="https://player.vimeo.com/video/499958163" style="border: 0; height: 345px; width: 560px">
 </iframe></div>
-<p>It’s available when GNSS is enabled.
-A tracking session can be started in the legend by long-pressing on the layer.
-The time interval and the minimum distance can be entered individually to define when a vertex needs to be set.</p>
+<p>Está disponível quando o GNSS está ativo. A sessão de rastreamento pode ser iniciada na legenda através de um longo toque na camada. O intervalo de tempo e a distância mínima pode ser introduzida de forma individual para definir quando o vértice necessita de ser configurado.</p>
 <p>Pode haver várias sessões de rastreamento ativas em várias camadas. Mas apenas uma sessão de rastreamento por camada pode estar ativa no momento.</p>
 <div class="clearer text-center docutils container">
 <a class="reference internal image-reference" href="../_images/track_lines_tracking_layers1.jpeg"><img alt="tracking_layers1" src="../_images/track_lines_tracking_layers1.jpeg" style="width: 300px;" /></a>
 <a class="reference internal image-reference" href="../_images/track_lines_tracking_layers2.jpeg"><img alt="tracking_layers2" src="../_images/track_lines_tracking_layers2.jpeg" style="width: 300px;" /></a>
 </div>
-<p>O recurso rastreado é salvo em todos os vértices. Enquanto a sessão de rastreamento está ativa, a camada ainda é editável, mas o recurso rastreado não pode ser editado ou excluído até que a sessão de rastreamento seja interrompida novamente sobre a legenda.</p>
+<p>O recurso rastreado é guardado em todos os vértices. Enquanto a sessão de rastreamento está ativa, a camada ainda é editável, mas o recurso rastreado não pode ser editado ou excluído até que a sessão de rastreamento seja interrompida novamente sobre a legenda.</p>
 <div class="clearer text-center docutils container">
 <a class="reference internal image-reference" href="../_images/track_lines_stop_tracking_delete.jpeg"><img alt="stop_tracking_delete" src="../_images/track_lines_stop_tracking_delete.jpeg" style="width: 640px;" /></a>
 </div>

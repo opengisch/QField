@@ -5,7 +5,7 @@
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Authentication &#8212; QField Documentation 1.0 - M... documentation</title>
+    <title>Autenticação &#8212; QField Documentation 1.0 - M... documentation</title>
     <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/style.css" />
@@ -20,16 +20,16 @@
     <link rel="shortcut icon" href="../_static/favicon.ico"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Using additional fonts" href="change-fonts.html" />
-    <link rel="prev" title="Attribute Form Configuration" href="attributes-form.html" />
+    <link rel="next" title="Usar tipos de fontes adicionais" href="change-fonts.html" />
+    <link rel="prev" title="Configuração do Formulário do Atributo" href="attributes-form.html" />
 <meta charset='utf-8'>
 <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
 <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
 <meta name="apple-mobile-web-app-capable" content="yes">
-<script type="text/javascript" src="../_static/js/jquery-1.12.4.min.js "></script>
-<script type="text/javascript" src="../_static/js/jquery-fix.js "></script>
-<script type="text/javascript" src="../_static/bootstrap-3.4.1/js/bootstrap.min.js "></script>
-<script type="text/javascript" src="../_static/bootstrap-sphinx.js "></script>
+<script type="text/javascript" src="../_static/js/jquery-1.12.4.min.js"></script>
+<script type="text/javascript" src="../_static/js/jquery-fix.js"></script>
+<script type="text/javascript" src="../_static/bootstrap-3.4.1/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="../_static/bootstrap-sphinx.js"></script>
 
   </head><body>
 
@@ -63,9 +63,9 @@
   <ul class="dropdown-menu localtoc"
       role="menu"
       aria-labelledby="dLabelLocalToc"><ul>
-<li><a class="reference internal" href="#">Authentication</a><ul>
-<li><a class="reference internal" href="#prepare-the-authentication-in-qgis">Prepare the authentication in QGIS</a></li>
-<li><a class="reference internal" href="#export-the-authentication-from-qgis">Export the authentication from QGIS</a></li>
+<li><a class="reference internal" href="#">Autenticação</a><ul>
+<li><a class="reference internal" href="#prepare-the-authentication-in-qgis">Prepare a autenticação no QGIS</a></li>
+<li><a class="reference internal" href="#export-the-authentication-from-qgis">Exportar autenticação do QGIS</a></li>
 </ul>
 </li>
 </ul>
@@ -77,11 +77,11 @@
             
               
   <li>
-    <a href="attributes-form.html" title="Previous Chapter: Attribute Form Configuration"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm hidden-tablet">&laquo; Attribute For...</span>
+    <a href="attributes-form.html" title="Previous Chapter: Configuração do Formulário do Atributo"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm hidden-tablet">&laquo; Configuração ...</span>
     </a>
   </li>
   <li>
-    <a href="change-fonts.html" title="Next Chapter: Using additional fonts"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm hidden-tablet">Using additio... &raquo;</span>
+    <a href="change-fonts.html" title="Next Chapter: Usar tipos de fontes adicionais"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm hidden-tablet">Usar tipos de... &raquo;</span>
     </a>
   </li>
             
@@ -112,11 +112,11 @@
     role="menu"
     aria-labelledby="dLabelGlobalToc"><ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../install/index.html">Instalação</a></li>
-<li class="toctree-l1 current"><a class="reference internal" href="index.html">Prepare for Work</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Preparar para Trabalhar</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../synchronise/index.html">Sincronização</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../fieldwork/index.html">Trabalho de campo</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../getting-started/index.html">Iniciando com Tutoriais</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../data-formats/index.html">Supported Data Formats</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../data-formats/index.html">Formato de Dados Suportados</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../case-studies/index.html">Casos de estudo</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../support/index.html">Suporte e Desenvolvimento</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../old-doc/index.html">Legacy Documentation</a></li>
@@ -125,64 +125,47 @@
 </ul>
         </div>
       </div>
-    <div class="col-md-9 content">
+      <div class="col-md-9 content">
+        <div class="admonition note alert alert-info">
+        <p class="first admonition-title">Outdated documentation</p>
+        <p class="">The latest documentation was moved to <a href="//docs.qfield.org">docs.qfield.org</a></p>
+      </div>
       
   <div class="section" id="authentication">
-<h1>Authentication<a class="headerlink" href="#authentication" title="Permalink to this headline">¶</a></h1>
-<p>QField supports connecting to OAuth2 protected web services.
-By using OAuth2, it is possible to protect layers and services with a wide
-variety of authentiaction schemes like for example two factor authentication.</p>
-<p>To successfully load OAuth2-protected layer(s) in QField, the QGIS project must be
-setup to use OAuth2.</p>
+<h1>Autenticação<a class="headerlink" href="#authentication" title="Permalink to this headline">¶</a></h1>
+<p>O Qfield suporta a ligação a serviços web protegidos por OAuth2. Ao usar OAuth2, é possível proteger de camadas e serviços com uma variedade enorme de esquemas de autenticação como por exemplo autenticação de duplo factor.</p>
+<p>Para carregar com sucesso as camada(s) protegidas pela OAuth2 no QField, o projeto QGIS tem de estar configurado para usar OAuth2.</p>
 <div class="section" id="prepare-the-authentication-in-qgis">
-<h2>Prepare the authentication in QGIS<a class="headerlink" href="#prepare-the-authentication-in-qgis" title="Permalink to this headline">¶</a></h2>
-<p>To setup a WFS with OAuth2 in QGIS follow these steps in the QGIS project configuration.</p>
-<p>In the WFS layer configuration:</p>
+<h2>Prepare a autenticação no QGIS<a class="headerlink" href="#prepare-the-authentication-in-qgis" title="Permalink to this headline">¶</a></h2>
+<p>Para definir o WFS com OAuth2 no QGIS siga estes passos na configuração do projeto QGIS.</p>
+<p>Na configuração da camada WFS:</p>
 <div class="clearer text-center docutils container">
 <a class="reference internal image-reference" href="../_images/oauth2_setup_wfs.png"><img alt="widgets" src="../_images/oauth2_setup_wfs.png" style="width: 600px;" /></a>
 </div>
-<p>Add a new authentication configuration. Parameters need to be adjusted to the oauth2 server
-setup:</p>
+<p>Adicione a nova configuração de autenticação. Os parâmetros necessitam de ser ajustados à configuração do servidor oauth2:</p>
 <div class="clearer text-center docutils container">
 <a class="reference internal image-reference" href="../_images/oauth2_setup_auth.png"><img alt="widgets" src="../_images/oauth2_setup_auth.png" style="width: 600px;" /></a>
 </div>
 </div>
 <div class="section" id="export-the-authentication-from-qgis">
-<h2>Export the authentication from QGIS<a class="headerlink" href="#export-the-authentication-from-qgis" title="Permalink to this headline">¶</a></h2>
+<h2>Exportar autenticação do QGIS<a class="headerlink" href="#export-the-authentication-from-qgis" title="Permalink to this headline">¶</a></h2>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
-<p class="last">Exporting an auth configuration requires at least QGIS 3.20.
-It is possible to only use QGIS 3.20 to prepare the auth config and configure the
-QGIS project itself with an earlier version of QGIS.</p>
+<p class="last">A exportação da configuração de autenticação requer pelo menos o QGIS 3.20. É possível apenas usar QGIS 3.20 para preparar a configuração de autenticação e configurar o projeto QGIS para uma versão mais antiga do QGIS.</p>
 </div>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
-<p class="last">It is important that the Configuration ID of the exported configuration
-and the configuration stored in the QGIS project match.</p>
+<p class="last">É importante  que o ID de Configuração da configuração exportada e configuração armazenada no projeto QGIS coincidam.</p>
 </div>
-<p>At this point, verify that you are able to properly connect to the service from QGIS.
-This authentication configuration must first be exported from QGIS itself.</p>
-<p>To do so, users open the QGIS options dialog and focus on the authentication panel.
-There, the user selects the OAuth2 configuration used by the project layer(s) by
-clicking on the appropriate row in the configurations table widget. Then, the user
-uses the lower-right utilities button to select the
-‘export selected authentication configurations to file’ action.</p>
+<p>Neste ponto, verifique se consegue ligar corretamente ao serviço do QGIS. Esta configuração de autenticação deve primeiro ser exportada do próprio QGIS.</p>
+<p>Para fazer isso, os utilizadores abrem a caixa de diálogo de opções do QGIS e dirigem-se ao painel de autenticação. No painel, o utilizador seleciona a configuração do OAuth2 usada pela(s) camada(s) do projeto clicando na linha apropriada no widget da tabela de configurações. Em seguida, o utilizador usa o botão de utilitários no canto inferior direito para selecionar a ação “exportar configurações de autenticação selecionadas para o ficheiro”.</p>
 <div class="clearer text-center docutils container">
 <a class="reference internal image-reference" href="../_images/oauth2_export_config.png"><img alt="widgets" src="../_images/oauth2_export_config.png" style="width: 600px;" /></a>
 </div>
-<p>When prompted for a password, leave it blank. The user will be warned that he/she might
-be leaking sensitive information. In the case of OAuth2 configurations, it is safe to do so.</p>
-<p>Once the user has exported the authentication configuration to an XML file, he/she copies
-that file onto the device(s) running QField.
-The file has to be copied to the device’s &lt;main storage&gt;/QField/auth/ directory.
-The <cite>/QField/auth/</cite> path is created when first launching QField, look for it if you are not
-sure which storage (external or internal) is the right one.</p>
-<p>Once the authentication configuration XML file is copied, users can copy the project file
-containing OAuth2-protected layer(s) onto the device(s) and open the project in QField.
-The user will be prompted for his/her user, password, and 2-step-verification authentication
-code within a browser panel that will pop up in QField itself.</p>
-<p>Once authenticated, content will be rendered without the need to re-enter user
-information for the duration of the session.</p>
+<p>Quando for solicitada uma palavra-chave, deixe-a em branco. O utilizador será avisado de que pode estar a expor informações confidenciais. No caso das configurações OAuth2, é seguro fazê-lo.</p>
+<p>Uma vez o utilizador exportar a configuração de autenticaçãopara um ficheiro XML, ele/ela copia o ficheiro para o dispositivo(s) que executam o QField. O ficheiro tem de ser copiado para os dispositivos na pasta &lt;main storage&gt;/QField/auth/ . O caminho <cite>/QField/auth/</cite> é criado quando é lançado pela primeira vez o QField, procure-o se não tiver certeza que armazenamento (externo ou interno) é o melhor.</p>
+<p>Depois do ficheiro XML de configuração de autenticação ser copiado, os utilizadores podem copiar o ficheiro de projeto que contém a(s) camada(s) protegida(s) por OAuth2 para o(s) dispositivo(s) e abrir o projeto no QField. Será solicitado ao utilizador a fornecer o seu nome de utilizador, palavra-chave e código de autenticação de verificação de duas etapas num painel do navegador que aparecerá no próprio QField.</p>
+<p>Uma vez autenticado, o conteúdo será renderizado sem necessitar de reintroduzir a informação do utilizador durante a sessão.</p>
 </div>
 </div>
 

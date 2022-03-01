@@ -26,10 +26,10 @@
 <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
 <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
 <meta name="apple-mobile-web-app-capable" content="yes">
-<script type="text/javascript" src="../_static/js/jquery-1.12.4.min.js "></script>
-<script type="text/javascript" src="../_static/js/jquery-fix.js "></script>
-<script type="text/javascript" src="../_static/bootstrap-3.4.1/js/bootstrap.min.js "></script>
-<script type="text/javascript" src="../_static/bootstrap-sphinx.js "></script>
+<script type="text/javascript" src="../_static/js/jquery-1.12.4.min.js"></script>
+<script type="text/javascript" src="../_static/js/jquery-fix.js"></script>
+<script type="text/javascript" src="../_static/bootstrap-3.4.1/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="../_static/bootstrap-sphinx.js"></script>
 
   </head><body>
 
@@ -64,10 +64,10 @@
       role="menu"
       aria-labelledby="dLabelLocalToc"><ul>
 <li><a class="reference internal" href="#">Pesquisar</a><ul>
-<li><a class="reference internal" href="#goto-coordinate">GoTo Coordinate</a></li>
+<li><a class="reference internal" href="#goto-coordinate">IrPara Coordenada</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#search-in-value-list">Search in value list</a></li>
+<li><a class="reference internal" href="#search-in-value-list">Pesquisa na lista de valores</a></li>
 <li><a class="reference internal" href="#search-in-layers">Pesquisa nas camadas</a><ul>
 <li><a class="reference internal" href="#configure-search-in-qgis">Configurar a pesquisa no QGIS</a></li>
 </ul>
@@ -116,11 +116,11 @@
     role="menu"
     aria-labelledby="dLabelGlobalToc"><ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../install/index.html">Instalação</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../prepare/index.html">Prepare for Work</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../prepare/index.html">Preparar para Trabalhar</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../synchronise/index.html">Sincronização</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">Trabalho de campo</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../getting-started/index.html">Iniciando com Tutoriais</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../data-formats/index.html">Supported Data Formats</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../data-formats/index.html">Formato de Dados Suportados</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../case-studies/index.html">Casos de estudo</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../support/index.html">Suporte e Desenvolvimento</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../old-doc/index.html">Legacy Documentation</a></li>
@@ -129,41 +129,44 @@
 </ul>
         </div>
       </div>
-    <div class="col-md-9 content">
+      <div class="col-md-9 content">
+        <div class="admonition note alert alert-info">
+        <p class="first admonition-title">Outdated documentation</p>
+        <p class="">The latest documentation was moved to <a href="//docs.qfield.org">docs.qfield.org</a></p>
+      </div>
       
   <div class="section" id="search">
 <h1>Pesquisar<a class="headerlink" href="#search" title="Permalink to this headline">¶</a></h1>
-<p>Tap on the <strong>Search button</strong> on the top-right corner of the screen to search for features in the current project.</p>
+<p>Toque no <strong>Botão de Pesquisa</strong> no canto superior direito do ecrã para pesquisar por elementos no projeto atual.</p>
 <ol class="arabic simple">
 <li>Toque no <strong>nome</strong> no resultado para exibir o mapa no recurso (o recurso será destacado em amarelo).</li>
 <li>Toque no <strong>botão atributos</strong> para abrir seus atributos.</li>
 </ol>
 <div class="section" id="goto-coordinate">
-<h2>GoTo Coordinate<a class="headerlink" href="#goto-coordinate" title="Permalink to this headline">¶</a></h2>
-<p>It is possible to go to coordinates with the search tool.</p>
-<p>Tap on the <strong>coordinates</strong> in the result to go to the coordinates.
-It is always possible to search WGS84 coordinates (<em>longitude, latitude</em>) or current map CRS (<em>x,y</em>).</p>
+<h2>IrPara Coordenada<a class="headerlink" href="#goto-coordinate" title="Permalink to this headline">¶</a></h2>
+<p>É possível ir para um par de coordenadas na ferramenta de pesquisa</p>
+<p>Toque nas <strong>coordenadas</strong> no resultado para ir para o local do par de coordenadas introduzido. É sempre possível pesquisar por par de coordenadas WGS84 (<em>longitude, latitude</em>) ou no SRC (<em>x,y</em>) do mapa atual.</p>
 <div class="docutils container">
 <iframe src="https://player.vimeo.com/video/499566922" style="border: 0; height: 345px; width: 560px">
 </iframe></div>
 </div>
 </div>
 <div class="section" id="search-in-value-list">
-<h1>Search in value list<a class="headerlink" href="#search-in-value-list" title="Permalink to this headline">¶</a></h1>
-<p id="search-value-list">It is possible to search value in a value list using the magnifying glass next to the field.</p>
+<h1>Pesquisa na lista de valores<a class="headerlink" href="#search-in-value-list" title="Permalink to this headline">¶</a></h1>
+<p id="search-value-list">É possível pesquisar por um valor na lista usando a lupa perto do campo.</p>
 <div class="docutils container">
 <iframe src="https://player.vimeo.com/video/604661919" style="border: 0; height: 345px; width: 560px">
 </iframe></div>
-<p>To be able to use the «completer» the widget has to be set up <a class="reference internal" href="../prepare/attributes-form.html#autocomplete-value"><span class="std std-ref">Autocomplet form set up</span></a>.</p>
+<p>Para ser possível usar o widget «auto-preenchimento» o widget tem de estar definido <span class="xref std std-ref">Configurar o auto-preenchimento no formulário&lt;autocomplete_value&gt;1</span>.</p>
 </div>
 <div class="section" id="search-in-layers">
 <h1>Pesquisa nas camadas<a class="headerlink" href="#search-in-layers" title="Permalink to this headline">¶</a></h1>
-<p>Você pode pesquisar por elementos em camadas vectoriais. A pesquisa está actualmente a efectuar o mesmo que <em>all layers locator filter</em> no QGIS (acessível na barra locator do QGIS usando o prefixo <em>af</em>).</p>
+<p>Pode pesquisar por elementos em camadas vectoriais. A pesquisa está atualmente a efetuar o mesmo que <em>all layers locator filter</em> no QGIS (acessível na barra locator do QGIS usando o prefixo <em>af</em>).</p>
 <div class="section" id="configure-search-in-qgis">
 <h2>Configurar a pesquisa no QGIS<a class="headerlink" href="#configure-search-in-qgis" title="Permalink to this headline">¶</a></h2>
 <ol class="arabic simple">
-<li>Escolher as camadas que são pesquisáveis em <span class="menuselection">Project ‣ Project Properties ‣ Identify Layers</span></li>
-<li>Definir a <em>display expression</em> para as camadas envolvidas, isto será usado para pesquisar elementos. Isto está configurado em <span class="menuselection">Vector Layer Properties ‣ Display</span> page</li>
+<li>Escolher as camadas que são pesquisáveis em <span class="menuselection">Projeto ‣ Propriedades do Projeto  ‣ Identificar Camadas</span></li>
+<li>Definir a <em>display expression</em> para as camadas envolvidas, isto será usado para pesquisar elementos. Isto está configurado no separador em <span class="menuselection">Vector Layer Properties ‣ Display</span></li>
 </ol>
 </div>
 </div>

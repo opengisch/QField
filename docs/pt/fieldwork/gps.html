@@ -20,16 +20,16 @@
     <link rel="shortcut icon" href="../_static/favicon.ico"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="“Live” default value updates when editing features" href="live_default_value.html" />
-    <link rel="prev" title="Collect features" href="digitize.html" />
+    <link rel="next" title="“Tempo Real” Atualização de valores padrão quando os elementos são editados" href="live_default_value.html" />
+    <link rel="prev" title="Recolher elementos" href="digitize.html" />
 <meta charset='utf-8'>
 <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
 <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
 <meta name="apple-mobile-web-app-capable" content="yes">
-<script type="text/javascript" src="../_static/js/jquery-1.12.4.min.js "></script>
-<script type="text/javascript" src="../_static/js/jquery-fix.js "></script>
-<script type="text/javascript" src="../_static/bootstrap-3.4.1/js/bootstrap.min.js "></script>
-<script type="text/javascript" src="../_static/bootstrap-sphinx.js "></script>
+<script type="text/javascript" src="../_static/js/jquery-1.12.4.min.js"></script>
+<script type="text/javascript" src="../_static/js/jquery-fix.js"></script>
+<script type="text/javascript" src="../_static/bootstrap-3.4.1/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="../_static/bootstrap-sphinx.js"></script>
 
   </head><body>
 
@@ -64,9 +64,9 @@
       role="menu"
       aria-labelledby="dLabelLocalToc"><ul>
 <li><a class="reference internal" href="#">GNSS</a><ul>
-<li><a class="reference internal" href="#using-an-external-gnss-receiver">Using an external GNSS-Receiver</a></li>
-<li><a class="reference internal" href="#mock-location">Mock location</a></li>
-<li><a class="reference internal" href="#high-precision-surveying-and-quality-metadata">High precision surveying and quality metadata</a></li>
+<li><a class="reference internal" href="#using-an-external-gnss-receiver">Usando um Receptor externo GNSS</a></li>
+<li><a class="reference internal" href="#mock-location">Localização simulada</a></li>
+<li><a class="reference internal" href="#high-precision-surveying-and-quality-metadata">Levantamento de alta precisão e metadados de qualidade</a></li>
 </ul>
 </li>
 </ul>
@@ -78,11 +78,11 @@
             
               
   <li>
-    <a href="digitize.html" title="Previous Chapter: Collect features"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm hidden-tablet">&laquo; Collect features</span>
+    <a href="digitize.html" title="Previous Chapter: Recolher elementos"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm hidden-tablet">&laquo; Recolher elementos</span>
     </a>
   </li>
   <li>
-    <a href="live_default_value.html" title="Next Chapter: “Live” default value updates when editing features"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm hidden-tablet">“Live” defaul... &raquo;</span>
+    <a href="live_default_value.html" title="Next Chapter: “Tempo Real” Atualização de valores padrão quando os elementos são editados"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm hidden-tablet">“Tempo Real” ... &raquo;</span>
     </a>
   </li>
             
@@ -113,11 +113,11 @@
     role="menu"
     aria-labelledby="dLabelGlobalToc"><ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../install/index.html">Instalação</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../prepare/index.html">Prepare for Work</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../prepare/index.html">Preparar para Trabalhar</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../synchronise/index.html">Sincronização</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">Trabalho de campo</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../getting-started/index.html">Iniciando com Tutoriais</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../data-formats/index.html">Supported Data Formats</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../data-formats/index.html">Formato de Dados Suportados</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../case-studies/index.html">Casos de estudo</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../support/index.html">Suporte e Desenvolvimento</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../old-doc/index.html">Legacy Documentation</a></li>
@@ -126,19 +126,23 @@
 </ul>
         </div>
       </div>
-    <div class="col-md-9 content">
+      <div class="col-md-9 content">
+        <div class="admonition note alert alert-info">
+        <p class="first admonition-title">Outdated documentation</p>
+        <p class="">The latest documentation was moved to <a href="//docs.qfield.org">docs.qfield.org</a></p>
+      </div>
       
   <div class="section" id="gnss">
 <h1>GNSS<a class="headerlink" href="#gnss" title="Permalink to this headline">¶</a></h1>
-<p>A short press on the GNSS button will turn on the GNSS and center to the current location once positioning information is available.</p>
-<p>Activate edit mode and press on the target button, the cross in the center means it is using GNSS positioning.</p>
+<p>Um toque breve no botão GNSS irá ligar o GNSS e centrar à sua localização atual assim que a informação de posicionamento estiver disponíveis.</p>
+<p>Ative o modo de edição e toque no botão de alvo, a cruz no centro indica que está usar posicionamento GNSS.</p>
 <div class="clearer text-left docutils container">
 <div class="figure">
 <a class="reference internal image-reference" href="../_images/gnss_use.webp"><img alt="gnss_use" src="../_images/gnss_use.webp" style="width: 300px;" /></a>
 </div>
 </div>
-<p>A long press on the GNSS button will show the positioning menu.</p>
-<p>Dentro do menu de posicionamento, você pode activar o ecrã de posicionamento, que mostrará as coordenadas actuais projectadas no SRC do projecto, juntamente com informações de precisão.</p>
+<p>Um toque longo no botão GNSS irá mostrar o menu de posicionamento.</p>
+<p>Dentro do menu de posicionamento, você pode ativar o ecrã de posicionamento, que mostrará as coordenadas actuais projectadas no SRC do projecto, juntamente com informações de precisão.</p>
 <div class="clearer text-left docutils container">
 <div class="figure">
 <a class="reference internal image-reference" href="../_images/user-guide_gps.jpg"><img alt="user-guide_gps" src="../_images/user-guide_gps.jpg" style="width: 600px;" /></a>
@@ -149,23 +153,22 @@
 <p class="last">Se você vir informações lat / lon do WGS84 em vez de informações no SRC do seu projecto, provavelmente ainda não tem sinal.</p>
 </div>
 <div class="section" id="using-an-external-gnss-receiver">
-<h2>Using an external GNSS-Receiver<a class="headerlink" href="#using-an-external-gnss-receiver" title="Permalink to this headline">¶</a></h2>
-<p>QField supports connecting external GNSS antennas via bluetooth.</p>
-<p>In settings -&gt; positioning, paired bluetooth devices can be scanned and chosen as position source.</p>
-<p>Make sure no other app like mock location providers are using the bluetooth antenna.</p>
+<h2>Usando um Receptor externo GNSS<a class="headerlink" href="#using-an-external-gnss-receiver" title="Permalink to this headline">¶</a></h2>
+<p>O QField suporta a ligação a antenas GNSS via bluetooth.</p>
+<p>Nas configurações -&gt; posicionamento, os dispositivos bluetooth emparelhados podem ser pesquisados e escolhidos como fonte de posicionamento.</p>
+<p>Garanta que não tem outra aplicação com fornecedores de localização simulada a usar a antena bluetooth.</p>
 <div class="docutils container">
 <iframe src="https://player.vimeo.com/video/604667820" style="border: 0; height: 345px; width: 560px">
 </iframe></div>
 </div>
 <div class="section" id="mock-location">
-<h2>Mock location<a class="headerlink" href="#mock-location" title="Permalink to this headline">¶</a></h2>
-<p>It is possible to provide a mock location via a separate android app to QField.
-There are several options for this, one of them is <a class="reference external" href="https://play.google.com/store/apps/details?id=com.lefebure.ntripclient">Android NTRIP Client</a>.</p>
+<h2>Localização simulada<a class="headerlink" href="#mock-location" title="Permalink to this headline">¶</a></h2>
+<p>É possível fornecer um local simulado numa aplicação Android separado para o QField. Existem várias opções para isso, uma delas é o <cite>Android NTRIP Client &lt;https://play.google.com/store/apps/details?id=com.lefebure.ntripclient&gt;</cite> _.</p>
 <p>Para usar isto tem de <a class="reference external" href="https://www.youtube.com/watch?v=v1eRHmMiRJQ">activar as localizações simuladas no seu dispositivo Android</a>.</p>
 </div>
 <div class="section" id="high-precision-surveying-and-quality-metadata">
-<h2>High precision surveying and quality metadata<a class="headerlink" href="#high-precision-surveying-and-quality-metadata" title="Permalink to this headline">¶</a></h2>
-<p>For more information how to setup high precision measurement and add quality indication metadata to collected features, see the corresponding <a class="reference internal" href="../prepare/gnss.html#gnss-variables"><span class="std std-ref">GNSS documentation</span></a>.</p>
+<h2>Levantamento de alta precisão e metadados de qualidade<a class="headerlink" href="#high-precision-surveying-and-quality-metadata" title="Permalink to this headline">¶</a></h2>
+<p>Para mais informação de como configurar medições de alta precisão e adicionar metadados indicativos de qualidade para recolher elementos, veja a documentação GNSS correspondente <a class="reference internal" href="../prepare/gnss.html#gnss-variables"><span class="std std-ref">GNSS documentation</span></a>.</p>
 </div>
 </div>
 

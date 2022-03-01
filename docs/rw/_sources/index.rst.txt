@@ -2,7 +2,7 @@ QField - your mobile [Q]GIS solution
 ====================================
 QField allows you to efficiently work on your GIS data outdoor.
 
-QField's optimized user interface for hides the full power of `QGIS <https://qgis.org>`_ under the hood.
+QField's optimized user interface hides the full power of `QGIS <https://qgis.org>`_ under the hood.
 
 
 .. container::

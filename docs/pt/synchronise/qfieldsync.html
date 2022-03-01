@@ -26,10 +26,10 @@
 <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
 <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
 <meta name="apple-mobile-web-app-capable" content="yes">
-<script type="text/javascript" src="../_static/js/jquery-1.12.4.min.js "></script>
-<script type="text/javascript" src="../_static/js/jquery-fix.js "></script>
-<script type="text/javascript" src="../_static/bootstrap-3.4.1/js/bootstrap.min.js "></script>
-<script type="text/javascript" src="../_static/bootstrap-sphinx.js "></script>
+<script type="text/javascript" src="../_static/js/jquery-1.12.4.min.js"></script>
+<script type="text/javascript" src="../_static/js/jquery-fix.js"></script>
+<script type="text/javascript" src="../_static/bootstrap-3.4.1/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="../_static/bootstrap-sphinx.js"></script>
 
   </head><body>
 
@@ -120,11 +120,11 @@
     role="menu"
     aria-labelledby="dLabelGlobalToc"><ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../install/index.html">Instalação</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../prepare/index.html">Prepare for Work</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../prepare/index.html">Preparar para Trabalhar</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">Sincronização</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../fieldwork/index.html">Trabalho de campo</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../getting-started/index.html">Iniciando com Tutoriais</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../data-formats/index.html">Supported Data Formats</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../data-formats/index.html">Formato de Dados Suportados</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../case-studies/index.html">Casos de estudo</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../support/index.html">Suporte e Desenvolvimento</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../old-doc/index.html">Legacy Documentation</a></li>
@@ -133,14 +133,18 @@
 </ul>
         </div>
       </div>
-    <div class="col-md-9 content">
+      <div class="col-md-9 content">
+        <div class="admonition note alert alert-info">
+        <p class="first admonition-title">Outdated documentation</p>
+        <p class="">The latest documentation was moved to <a href="//docs.qfield.org">docs.qfield.org</a></p>
+      </div>
       
   <div class="section" id="qfieldsync-plugin">
 <span id="qfieldsync"></span><h1>Plugin QFieldSync<a class="headerlink" href="#qfieldsync-plugin" title="Permalink to this headline">¶</a></h1>
 <p>O plugin QFieldSync ajuda a preparar e a comprimir projetos QGIS para o QField.</p>
 <p>O QFieldSync suporta a preparação do seu projeto automatizando o seguinte:</p>
 <ul class="simple">
-<li>Passos necessários para a configuração do projeto (por exemplo <a class="reference internal" href="movable-project.html#portable-project"><span class="std std-ref">Movable project</span></a>)</li>
+<li>Passos necessários para a configuração do projeto (por exemplo <a class="reference internal" href="movable-project.html#portable-project"><span class="std std-ref">Projecto Móvel</span></a>)</li>
 <li>Criando mapas base de uma única camada raster ou de um estilo definido num tema do mapa.</li>
 <li>Configurando a funcionalidade de edição offline e sincronizando as alterações de volta ao projeto desktop.</li>
 </ul>
@@ -209,7 +213,7 @@
 <p>Quando você deseja sincronizar o que você recolheu, reabra o projeto no QGIS (aquele que você guardou com um Guardar Como normal).</p>
 <p>Copie a pasta do projeto do seu dispositivo para o seu computador e use o menu <strong>Sincronizar do Qfield</strong> para sincronizar suas alterações do projeto portátil para o projeto principal.</p>
 <img alt="../_images/qfield-sync_sync1.png" src="../_images/qfield-sync_sync1.png" />
-<p>Make sure that you synchronize your data back only once. That means, if you go out again to collect more data, you should create a new QField package before to avoid sync problems later on (like e.g. duplicates).</p>
+<p>Certifique-se de sincronizar seus dados de volta apenas uma vez. Isso significa que, se você sair novamente para recolher mais dados, deverá criar antes um novo package QField para evitar problemas de sincronização mais tarde (como, por exemplo, duplicados).</p>
 </div>
 </div>
 

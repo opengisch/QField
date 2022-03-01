@@ -5,7 +5,7 @@
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Collect features &#8212; QField Documentation 1.0 - M... documentation</title>
+    <title>Recolher elementos &#8212; QField Documentation 1.0 - M... documentation</title>
     <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/style.css" />
@@ -26,10 +26,10 @@
 <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
 <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
 <meta name="apple-mobile-web-app-capable" content="yes">
-<script type="text/javascript" src="../_static/js/jquery-1.12.4.min.js "></script>
-<script type="text/javascript" src="../_static/js/jquery-fix.js "></script>
-<script type="text/javascript" src="../_static/bootstrap-3.4.1/js/bootstrap.min.js "></script>
-<script type="text/javascript" src="../_static/bootstrap-sphinx.js "></script>
+<script type="text/javascript" src="../_static/js/jquery-1.12.4.min.js"></script>
+<script type="text/javascript" src="../_static/js/jquery-fix.js"></script>
+<script type="text/javascript" src="../_static/bootstrap-3.4.1/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="../_static/bootstrap-sphinx.js"></script>
 
   </head><body>
 
@@ -63,23 +63,23 @@
   <ul class="dropdown-menu localtoc"
       role="menu"
       aria-labelledby="dLabelLocalToc"><ul>
-<li><a class="reference internal" href="#">Collect features</a><ul>
+<li><a class="reference internal" href="#">Recolher elementos</a><ul>
 <li><a class="reference internal" href="#points">Pontos</a></li>
 <li><a class="reference internal" href="#lines-and-polygons">Linhas e Polígonos</a></li>
 <li><a class="reference internal" href="#attribute-form">Formulário do atributo</a><ul>
-<li><a class="reference internal" href="#remember-attribute-values">Remember attribute values</a></li>
+<li><a class="reference internal" href="#remember-attribute-values">Lembrar os últimos valores</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a class="reference internal" href="#delete-features">Delete features</a></li>
+<li><a class="reference internal" href="#delete-features">Eliminar elementos</a></li>
 <li><a class="reference internal" href="#edit-features">Editar elementos</a><ul>
-<li><a class="reference internal" href="#split-tool">Split tool</a></li>
-<li><a class="reference internal" href="#vertex-tool">Vertex tool</a></li>
-<li><a class="reference internal" href="#demonstration-of-geometries-editing">Demonstration of geometries editing</a></li>
-<li><a class="reference internal" href="#freehand-digitizing">Freehand digitizing</a></li>
-<li><a class="reference internal" href="#topological-editing">Topological Editing</a></li>
-<li><a class="reference internal" href="#multi-editing">Multi editing</a></li>
+<li><a class="reference internal" href="#split-tool">Ferramenta de recorte</a></li>
+<li><a class="reference internal" href="#vertex-tool">Ferramenta de vértice</a></li>
+<li><a class="reference internal" href="#demonstration-of-geometries-editing">Demonstração da edição de geometrias</a></li>
+<li><a class="reference internal" href="#freehand-digitizing">Digitalização manual</a></li>
+<li><a class="reference internal" href="#topological-editing">Edição Topológica</a></li>
+<li><a class="reference internal" href="#multi-editing">Multi-edição</a></li>
 </ul>
 </li>
 </ul>
@@ -126,11 +126,11 @@
     role="menu"
     aria-labelledby="dLabelGlobalToc"><ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../install/index.html">Instalação</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../prepare/index.html">Prepare for Work</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../prepare/index.html">Preparar para Trabalhar</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../synchronise/index.html">Sincronização</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">Trabalho de campo</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../getting-started/index.html">Iniciando com Tutoriais</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../data-formats/index.html">Supported Data Formats</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../data-formats/index.html">Formato de Dados Suportados</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../case-studies/index.html">Casos de estudo</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../support/index.html">Suporte e Desenvolvimento</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../old-doc/index.html">Legacy Documentation</a></li>
@@ -139,11 +139,15 @@
 </ul>
         </div>
       </div>
-    <div class="col-md-9 content">
+      <div class="col-md-9 content">
+        <div class="admonition note alert alert-info">
+        <p class="first admonition-title">Outdated documentation</p>
+        <p class="">The latest documentation was moved to <a href="//docs.qfield.org">docs.qfield.org</a></p>
+      </div>
       
   <div class="section" id="collect-features">
-<h1>Collect features<a class="headerlink" href="#collect-features" title="Permalink to this headline">¶</a></h1>
-<p>To start digitizing new features, enable the <strong>Edit mode</strong> in the main menu (<em>pencil button</em>) and select the layer on which you want to add a new feature (the layer will be highlighted in green).</p>
+<h1>Recolher elementos<a class="headerlink" href="#collect-features" title="Permalink to this headline">¶</a></h1>
+<p>Para começar a digitalizar novos elementos, ative o <strong>Modo de edição</strong> no menu principal (<em>botão de lápis</em>) e selecione a camada na qual deseja adicionar um novo elemento (a camada será destacada a conzento).</p>
 <div class="clearer text-left docutils container">
 <div class="figure">
 <a class="reference internal image-reference" href="../_images/collect_features.webp"><img alt="collect_features" src="../_images/collect_features.webp" style="width: 300px;" /></a>
@@ -151,26 +155,23 @@
 </div>
 <div class="section" id="points">
 <h2>Pontos<a class="headerlink" href="#points" title="Permalink to this headline">¶</a></h2>
-<p>Navegue pela mira no centro da tela até o local desejado e clique no botão <strong>+</strong> no canto inferior direito da tela para confirmar a criação de um nova feição de ponto.</p>
-<p>Você pode usar o botão <strong>manter centralizado</strong> para forçar a mira a centralizar em sua localização, se você tiver ativado o GPS.</p>
+<p>Navegue pela mira no centro do ecrã até o local desejado e clique no botão <strong>+</strong> no canto inferior direito da tela para confirmar a criação de um novo elemento de ponto.</p>
+<p>Você pode usar o botão <strong>manter centralizado</strong> para forçar a mira a centralizar na sua localização, se você tiver ativado o GPS.</p>
 </div>
 <div class="section" id="lines-and-polygons">
 <h2>Linhas e Polígonos<a class="headerlink" href="#lines-and-polygons" title="Permalink to this headline">¶</a></h2>
-<p>Navegue pela mira no centro da tela até o início da linha ou polígono desejado e clique no botão <strong>Mais (+)</strong> no canto inferior direito da tela para adicionar o primeiro nó.</p>
+<p>Navegue pela mira no centro da tela até o início da linha ou polígono desejado e clique no botão <strong>Mais (+)</strong> no canto inferior direito do ecrã para adicionar o primeiro nó.</p>
 <p>Prossiga com a adição de pontos para formar sua linha ou polígono clicando no botão <strong>Mais (+)</strong> sempre que desejar adicionar um novo nó.</p>
 <p>Clique no botão <strong>Menos (-)</strong> para remover o último nó adicionado.</p>
-<p>Clique no botão <strong>Fechar (X)</strong> para cancelar completamente a criação da feição.</p>
-<p>Quando você adiciona pelo menos 2 nós para uma linha ou 3 nós para um polígono, um <strong>botão Salvar</strong> será exibido. Clique nele para finalizar seu esboço.</p>
+<p>Clique no botão <strong>Fechar (X)</strong> para cancelar completamente a criação do elemento.</p>
+<p>Quando adiciona pelo menos 2 nós para uma linha ou 3 nós para um polígono, um <strong>botão Salvar</strong> será exibido. Clique nele para finalizar seu esboço.</p>
 </div>
 <div class="section" id="attribute-form">
 <h2>Formulário do atributo<a class="headerlink" href="#attribute-form" title="Permalink to this headline">¶</a></h2>
-<p>After digitizing a geometry, the attribute form will be displayed if it is not suppressed
-and the user will be asked to enter the attributes for the new feature.
-The form which appears allows entering attribute values for the new feature.</p>
+<p>Após a digitalização de uma geometria, o formulário do atributo será exibido se não for suprimido e será solicitado ao utilizador a inserção dos atributos para o novo elemento. O formulário que aparece permite introduzir valores de atributo para o novo elemento.</p>
 <div class="section" id="remember-attribute-values">
-<h3>Remember attribute values<a class="headerlink" href="#remember-attribute-values" title="Permalink to this headline">¶</a></h3>
-<p>For quick collection of rather homogeneus datasets, it is crucial to not having to enter the same attribute values over an over.
-The checkboxes at the right of every attribute allow remembering each attribute individually so that the next time you will add a feature on the same layer, these attributes will be automatically pre-filled.</p>
+<h3>Lembrar os últimos valores<a class="headerlink" href="#remember-attribute-values" title="Permalink to this headline">¶</a></h3>
+<p>Para uma recolha rápida de conjuntos de dados bastante homogéneos, é crucial não ter que inserir os mesmos valores de atributo várias vezes. As caixas de seleção à direita de cada atributo permitem lembrar cada atributo individualmente para que na próxima vez que adicionar um elemento na mesma camada, esses atributos sejam preenchidos automaticamente.</p>
 <div class="docutils container">
 <iframe src="https://player.vimeo.com/video/526919606" style="border: 0; height: 345px; width: 560px">
 </iframe></div>
@@ -178,58 +179,52 @@ The checkboxes at the right of every attribute allow remembering each attribute 
 </div>
 </div>
 <div class="section" id="delete-features">
-<h1>Delete features<a class="headerlink" href="#delete-features" title="Permalink to this headline">¶</a></h1>
+<h1>Eliminar elementos<a class="headerlink" href="#delete-features" title="Permalink to this headline">¶</a></h1>
 <p>Só é possível apagar elementos no modo de digitalização.</p>
 <div class="clearer text-left docutils container">
 <div class="figure">
 <a class="reference internal image-reference" href="../_images/delete_features.webp"><img alt="delete_features" src="../_images/delete_features.webp" style="width: 300px;" /></a>
 </div>
 </div>
-<p>To delete a feature, identify it first by a short tap on it. Then select it with a long press
-in the identification list, select further features to delete if you want and click the
-trash button to confirm the deletion.</p>
+<p>Para eliminar um elemento, identifique primeiro clicando com um toque curto. De seguida selecione-o com um toque longo na lista de identificação, selecione mais elementos que querem eliminar e clique no ícone de botão de lixo para confirmar a eliminação.</p>
 </div>
 <div class="section" id="edit-features">
 <h1>Editar elementos<a class="headerlink" href="#edit-features" title="Permalink to this headline">¶</a></h1>
-<p>To edit, tap on <strong>Menu button -&gt; pencil.</strong></p>
-<p>You can edit an existing feature by moving, adding or deleting the vertex and also spliting.</p>
+<p>Para editar, toque no <strong>Botão Menu -&gt; lápis.</strong></p>
+<p>Pode editar um elemento existente, movendo, adicionando ou eliminando o vértice e também dividindo.</p>
 <div class="section" id="split-tool">
-<h2>Split tool<a class="headerlink" href="#split-tool" title="Permalink to this headline">¶</a></h2>
-<p>It is possible to split an existing geometry by drawing a line where it should be split.</p>
+<h2>Ferramenta de recorte<a class="headerlink" href="#split-tool" title="Permalink to this headline">¶</a></h2>
+<p>É possível recortar uma geometria existente através do desenho de uma linha onde pretendemos recortar.</p>
 </div>
 <div class="section" id="vertex-tool">
-<h2>Vertex tool<a class="headerlink" href="#vertex-tool" title="Permalink to this headline">¶</a></h2>
-<p>It is possible to move and delete vertices of geometries and add new ones.</p>
+<h2>Ferramenta de vértice<a class="headerlink" href="#vertex-tool" title="Permalink to this headline">¶</a></h2>
+<p>É possível mover e eliminar vértices das geometrias e adicionar novos.</p>
 </div>
 <div class="section" id="demonstration-of-geometries-editing">
-<h2>Demonstration of geometries editing<a class="headerlink" href="#demonstration-of-geometries-editing" title="Permalink to this headline">¶</a></h2>
-<p>A video demonstration of some editing possibilities:</p>
+<h2>Demonstração da edição de geometrias<a class="headerlink" href="#demonstration-of-geometries-editing" title="Permalink to this headline">¶</a></h2>
+<p>O seguinte vídeo demonstra algumas das possibilidades de edição:</p>
 <div class="docutils container">
 <iframe src="https://player.vimeo.com/video/499564854" style="border: 0; height: 345px; width: 560px">
 </iframe></div>
 </div>
 <div class="section" id="freehand-digitizing">
-<h2>Freehand digitizing<a class="headerlink" href="#freehand-digitizing" title="Permalink to this headline">¶</a></h2>
-<p>The freehand digitizing mode allows users to “draw” lines and polygons using their stylus/pen or mouse.
-The mode is available for line/polygon feature additions as well as the geometry editor’s rings tool.</p>
-<p>The freehand digitizing mode is activated through a new toolbar button which appears when QField is set
-to editing mode and a line or polygon vector is selected.</p>
+<h2>Digitalização manual<a class="headerlink" href="#freehand-digitizing" title="Permalink to this headline">¶</a></h2>
+<p>A digitalização manual permite aos utilizadores “desenhar” linhas e polígonos usando a sua pen/stylus ou o rato. O modo está disponível para adição de elementos do tipo linha/polígono assim como a ferramenta geometrias de editor de anéis.</p>
+<p>O modo de digitalização manual é ativado através de um novo botão que aparece no QField quando é definido no modo edição e a linha ou polígono vetorial é selecionado.</p>
 <div class="docutils container">
 <iframe src="https://player.vimeo.com/video/537673220" style="border: 0; height: 345px; width: 560px">
 </iframe></div>
 </div>
 <div class="section" id="topological-editing">
-<h2>Topological Editing<a class="headerlink" href="#topological-editing" title="Permalink to this headline">¶</a></h2>
-<p>If topological editing is activated on the project QGIS before exporting for QField, shared nodes of
-neighbouring geometries are modified together when moving / deleting vertices and additional vertices
-are added to segments when a new node is added from neightbouring geometries.</p>
+<h2>Edição Topológica<a class="headerlink" href="#topological-editing" title="Permalink to this headline">¶</a></h2>
+<p>Se a edição topológica estiver ativada no projeto do QGIS antes de exportar para o Qfield, os nós das geometrias vizinhas partilhadas são modificados simultaneamente quando são movidos /eliminados e os vértices adicionais são adicionados aos segmentos quando um novo nó é adicionado nas geometrias vizinhas.</p>
 <div class="docutils container">
 <iframe src="https://player.vimeo.com/video/499565314" style="border: 0; height: 345px; width: 560px">
 </iframe></div>
 </div>
 <div class="section" id="multi-editing">
-<h2>Multi editing<a class="headerlink" href="#multi-editing" title="Permalink to this headline">¶</a></h2>
-<p>You can make a multi-selection and edit all the features at the same time. In some cases, it can be very efficient.</p>
+<h2>Multi-edição<a class="headerlink" href="#multi-editing" title="Permalink to this headline">¶</a></h2>
+<p>Pode fazer multi-selção e editar todos os elementos ao mesmo tempo. Em alguns casos, pode ser muito eficiente.</p>
 <div class="docutils container">
 <iframe src="https://player.vimeo.com/video/499565955" style="border: 0; height: 345px; width: 560px">
 </iframe></div>

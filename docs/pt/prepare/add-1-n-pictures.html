@@ -21,15 +21,15 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Avançado" href="advanced.html" />
-    <link rel="prev" title="Prepare for Work" href="index.html" />
+    <link rel="prev" title="Preparar para Trabalhar" href="index.html" />
 <meta charset='utf-8'>
 <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
 <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
 <meta name="apple-mobile-web-app-capable" content="yes">
-<script type="text/javascript" src="../_static/js/jquery-1.12.4.min.js "></script>
-<script type="text/javascript" src="../_static/js/jquery-fix.js "></script>
-<script type="text/javascript" src="../_static/bootstrap-3.4.1/js/bootstrap.min.js "></script>
-<script type="text/javascript" src="../_static/bootstrap-sphinx.js "></script>
+<script type="text/javascript" src="../_static/js/jquery-1.12.4.min.js"></script>
+<script type="text/javascript" src="../_static/js/jquery-fix.js"></script>
+<script type="text/javascript" src="../_static/bootstrap-3.4.1/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="../_static/bootstrap-sphinx.js"></script>
 
   </head><body>
 
@@ -65,7 +65,7 @@
       aria-labelledby="dLabelLocalToc"><ul>
 <li><a class="reference internal" href="#">Adicione uma série de fotos a um elemento</a><ul>
 <li><a class="reference internal" href="#creating-two-tables">Criando duas tabelas</a><ul>
-<li><a class="reference internal" href="#apiary"><strong>Apiary</strong></a></li>
+<li><a class="reference internal" href="#apiary"><strong>Apiário</strong></a></li>
 <li><a class="reference internal" href="#apiary-pictures"><strong>Apiary_pictures</strong></a></li>
 </ul>
 </li>
@@ -73,7 +73,7 @@
 <li><a class="reference internal" href="#widgets">Widgets</a><ul>
 <li><a class="reference internal" href="#id1">apiary</a></li>
 <li><a class="reference internal" href="#picture">foto</a></li>
-<li><a class="reference internal" href="#geotagging">Geotagging</a></li>
+<li><a class="reference internal" href="#geotagging">Etiqueta de Geolocalização</a></li>
 </ul>
 </li>
 </ul>
@@ -87,7 +87,7 @@
             
               
   <li>
-    <a href="index.html" title="Previous Chapter: Prepare for Work"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm hidden-tablet">&laquo; Prepare for Work</span>
+    <a href="index.html" title="Previous Chapter: Preparar para Trabalhar"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm hidden-tablet">&laquo; Preparar para...</span>
     </a>
   </li>
   <li>
@@ -122,11 +122,11 @@
     role="menu"
     aria-labelledby="dLabelGlobalToc"><ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../install/index.html">Instalação</a></li>
-<li class="toctree-l1 current"><a class="reference internal" href="index.html">Prepare for Work</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Preparar para Trabalhar</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../synchronise/index.html">Sincronização</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../fieldwork/index.html">Trabalho de campo</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../getting-started/index.html">Iniciando com Tutoriais</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../data-formats/index.html">Supported Data Formats</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../data-formats/index.html">Formato de Dados Suportados</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../case-studies/index.html">Casos de estudo</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../support/index.html">Suporte e Desenvolvimento</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../old-doc/index.html">Legacy Documentation</a></li>
@@ -135,7 +135,11 @@
 </ul>
         </div>
       </div>
-    <div class="col-md-9 content">
+      <div class="col-md-9 content">
+        <div class="admonition note alert alert-info">
+        <p class="first admonition-title">Outdated documentation</p>
+        <p class="">The latest documentation was moved to <a href="//docs.qfield.org">docs.qfield.org</a></p>
+      </div>
       
   <div class="section" id="add-a-series-of-pictures-to-a-feature">
 <h1>Adicione uma série de fotos a um elemento<a class="headerlink" href="#add-a-series-of-pictures-to-a-feature" title="Permalink to this headline">¶</a></h1>
@@ -144,7 +148,7 @@
 <h2>Criando duas tabelas<a class="headerlink" href="#creating-two-tables" title="Permalink to this headline">¶</a></h2>
 <p>Vamos precisar de duas tabelas. Uma tabela onde os elementos estão armazenados e outra com uma lista de fotos.</p>
 <div class="section" id="apiary">
-<h3><strong>Apiary</strong><a class="headerlink" href="#apiary" title="Permalink to this headline">¶</a></h3>
+<h3><strong>Apiário</strong><a class="headerlink" href="#apiary" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><code class="docutils literal notranslate"><span class="pre">id</span></code> (UUID)</li>
 <li><code class="docutils literal notranslate"><span class="pre">geometry</span></code></li>
@@ -196,15 +200,15 @@
 </div>
 </div>
 <div class="section" id="geotagging">
-<h3>Geotagging<a class="headerlink" href="#geotagging" title="Permalink to this headline">¶</a></h3>
-<p>Some mobile devices will require Open Camera to be installed in order to enable geotagging.</p>
-<p>To enable geotagging perform the following steps:</p>
+<h3>Etiqueta de Geolocalização<a class="headerlink" href="#geotagging" title="Permalink to this headline">¶</a></h3>
+<p>Alguns dispositivos móveis irão necessitar da aplicação Open Camera instalada para que possa ativar as etiquetas de geolocalização.</p>
+<p>Para ativar a opção de adicionar etiqueta de geolocalização siga os seguintes passo:</p>
 <ol class="arabic simple">
-<li>In QField, go to the settings and make sure «Use native Camera» is activated</li>
+<li>No QField, vá às configurações e grante que a opção «Usar Camera» nativa está ativa</li>
 <li>Instale a <a class="reference external" href="https://play.google.com/store/apps/details?id=net.sourceforge.opencamera&amp;hl=en&amp;gl=US">App Open Camera</a> no seu dispositivo móvel</li>
-<li>Within the Open Camera settings, make sure geotagging is enabled</li>
-<li>Within you mobile device settings, set the default camera app to Open Camera</li>
-<li>Completed! Open Camera will now be utilized while taking pictures with QField</li>
+<li>Dentro das configurações da aplicaçã Open Camera, garante que a opção de etiqueta de geolocalização está ativa.</li>
+<li>Dentro das configurações do dispositivo móvel, defina como aplicação de câmera padrão para o Open Camera</li>
+<li>Completo| O Open Camera agora será utilizado para tirar fotos com o QField</li>
 </ol>
 </div>
 </div>
