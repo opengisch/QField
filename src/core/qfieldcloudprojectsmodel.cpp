@@ -1699,6 +1699,7 @@ void QFieldCloudProjectsModel::downloadFileConnections( const QString &projectId
 
   if ( !projectIndex.isValid() )
     return;
+
   CloudProject *project = findProject( projectId );
 
   if ( !project )
@@ -1755,6 +1756,7 @@ void QFieldCloudProjectsModel::downloadFileConnections( const QString &projectId
 
     QNetworkRequest request;
     project->downloadFileTransfers[fileName].networkReply = mCloudConnection->get( request, url );
+    project->downloadFileTransfers[fileName].networkReply->setParent( reply );
 
     // we need to somehow finish the request, otherwise it will remain unfinished for the QFieldCloudConnection
     reply->abort();
