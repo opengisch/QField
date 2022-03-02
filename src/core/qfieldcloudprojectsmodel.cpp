@@ -1036,7 +1036,7 @@ void QFieldCloudProjectsModel::updateActiveProjectFilesToDownload( const QString
       {
         if ( mActiveProjectFilesToDownload.removeOne( fileName ) )
         {
-          QgsLogger::debug( QStringLiteral( "Project %1, file `%2`: removed from the list of active download files" ).arg( projectId, fileName ) );
+          // QgsLogger::debug( QStringLiteral( "Project %1, file `%2`: removed from the list of active download files" ).arg( projectId, fileName ) );
         }
         continue;
       }
@@ -1052,7 +1052,7 @@ void QFieldCloudProjectsModel::updateActiveProjectFilesToDownload( const QString
       return;
     }
 
-    QgsLogger::debug( QStringLiteral( "Project %1, file `%2`: appended to the active download files list" ).arg( projectId, fileName ) );
+    // QgsLogger::debug( QStringLiteral( "Project %1, file `%2`: appended to the active download files list" ).arg( projectId, fileName ) );
 
     mActiveProjectFilesToDownload.append( fileName );
   }
