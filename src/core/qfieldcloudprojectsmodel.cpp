@@ -818,6 +818,8 @@ void QFieldCloudProjectsModel::projectPackageAndDownload( const QString &project
     if ( finishedProjectId != projectId )
       return;
 
+    tempProjectDownloadFinishedParent->deleteLater();
+
     if ( project->packagingStatus == PackagingAbortStatus )
     {
       // no need to emit why we aborted packaging, it is callers responsibility to inform the user
@@ -825,18 +827,18 @@ void QFieldCloudProjectsModel::projectPackageAndDownload( const QString &project
       return;
     }
 
-    tempProjectDownloadFinishedParent->deleteLater();
-
     // the project has been deleted
     if ( !findProject( projectId ) )
-      return;
-
-    if ( project->packagingStatus == PackagingAbortStatus )
       return;
 
     const QStringList fileNames = project->downloadFileTransfers.keys();
     for ( const QString &fileNameKey : fileNames )
     {
+      if ( project->downloadFileTransfers[fileNameKey].networkReply
+           && !project->downloadFileTransfers[fileNameKey].networkReply->isFinished() )
+      {
+        project->downloadFileTransfers[fileNameKey].networkReply->abort();
+      }
       project->downloadFileTransfers[fileNameKey].networkReply->deleteLater();
     }
 
