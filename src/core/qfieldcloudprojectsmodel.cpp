@@ -818,6 +818,8 @@ void QFieldCloudProjectsModel::projectPackageAndDownload( const QString &project
     if ( finishedProjectId != projectId )
       return;
 
+    tempProjectDownloadFinishedParent->deleteLater();
+
     if ( project->packagingStatus == PackagingAbortStatus )
     {
       // no need to emit why we aborted packaging, it is callers responsibility to inform the user
@@ -825,18 +827,18 @@ void QFieldCloudProjectsModel::projectPackageAndDownload( const QString &project
       return;
     }
 
-    tempProjectDownloadFinishedParent->deleteLater();
-
     // the project has been deleted
     if ( !findProject( projectId ) )
-      return;
-
-    if ( project->packagingStatus == PackagingAbortStatus )
       return;
 
     const QStringList fileNames = project->downloadFileTransfers.keys();
     for ( const QString &fileNameKey : fileNames )
     {
+      if ( project->downloadFileTransfers[fileNameKey].networkReply
+           && !project->downloadFileTransfers[fileNameKey].networkReply->isFinished() )
+      {
+        project->downloadFileTransfers[fileNameKey].networkReply->abort();
+      }
       project->downloadFileTransfers[fileNameKey].networkReply->deleteLater();
     }
 
@@ -1034,7 +1036,7 @@ void QFieldCloudProjectsModel::updateActiveProjectFilesToDownload( const QString
       {
         if ( mActiveProjectFilesToDownload.removeOne( fileName ) )
         {
-          QgsLogger::debug( QStringLiteral( "Project %1, file `%2`: removed from the list of active download files" ).arg( projectId, fileName ) );
+          // QgsLogger::debug( QStringLiteral( "Project %1, file `%2`: removed from the list of active download files" ).arg( projectId, fileName ) );
         }
         continue;
       }
@@ -1050,7 +1052,7 @@ void QFieldCloudProjectsModel::updateActiveProjectFilesToDownload( const QString
       return;
     }
 
-    QgsLogger::debug( QStringLiteral( "Project %1, file `%2`: appended to the active download files list" ).arg( projectId, fileName ) );
+    // QgsLogger::debug( QStringLiteral( "Project %1, file `%2`: appended to the active download files list" ).arg( projectId, fileName ) );
 
     mActiveProjectFilesToDownload.append( fileName );
   }
@@ -1697,6 +1699,7 @@ void QFieldCloudProjectsModel::downloadFileConnections( const QString &projectId
 
   if ( !projectIndex.isValid() )
     return;
+
   CloudProject *project = findProject( projectId );
 
   if ( !project )
@@ -1753,6 +1756,7 @@ void QFieldCloudProjectsModel::downloadFileConnections( const QString &projectId
 
     QNetworkRequest request;
     project->downloadFileTransfers[fileName].networkReply = mCloudConnection->get( request, url );
+    project->downloadFileTransfers[fileName].networkReply->setParent( reply );
 
     // we need to somehow finish the request, otherwise it will remain unfinished for the QFieldCloudConnection
     reply->abort();
