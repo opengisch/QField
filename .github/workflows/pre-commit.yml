@@ -39,13 +39,13 @@ jobs:
         env:
           GITHUB_TOKEN: '${{ secrets.FAIRY_TOKEN }}'
 
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
         if: ${{ github.event.issue.pull_request }}
         with:
           repository: ${{ steps.get-pr.outputs.head_repo }}
           ref: ${{ steps.get-pr.outputs.head_sha }} # sha
 
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
         if: ${{ !github.event.issue.pull_request }}
 
       - name: Install Requirements

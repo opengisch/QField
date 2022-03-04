@@ -11,7 +11,7 @@ jobs:
     runs-on: ubuntu-18.04
     name: Backport
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       - name: Backport
         uses: m-kuhn/backport@v1.2.7
         with:
