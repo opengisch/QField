@@ -16,7 +16,7 @@ jobs:
   pre-commit:
     runs-on: ubuntu-20.04
     steps:
-      - uses: actions/github-script@v5
+      - uses: actions/github-script@v6
         if: ${{ github.event.issue.pull_request }}
         id: get-pr
         with:
