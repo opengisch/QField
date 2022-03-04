@@ -1224,7 +1224,7 @@ ApplicationWindow {
                      && dashBoard.currentLayer.customProperty( 'QFieldSync/is_geometry_locked' ) !== 'true'
                      && !geometryEditorsToolbar.stateVisible
                      && !moveFeaturesToolbar.stateVisible
-                     && cloudProjectsModel.currentProjectData.Status === QFieldCloudProjectsModel.Idle)
+                     && (projectInfo.editRights || projectInfo.insertRights))
                     || stateMachine.state === 'measure'
                     || (stateMachine.state === "digitize" && digitizingToolbar.geometryRequested)
       rubberbandModel: currentRubberband ? currentRubberband.model : null
