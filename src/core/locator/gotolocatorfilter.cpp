@@ -100,7 +100,6 @@ void GotoLocatorFilter::fetchResults( const QString &string, const QgsLocatorCon
       result.displayString = tr( "Go to %1 %2 (Map CRS)" ).arg( locale.toString( point.x(), 'g', 10 ), locale.toString( point.y(), 'g', 10 ) );
       result.userData = data;
       result.score = 0.9;
-      result.actions << QgsLocatorResult::ResultAction( Navigation, tr( "Set navigation point" ), QStringLiteral( "ic_navigation_flag_purple_24dp" ) );
       emit resultFetched( result );
     }
 
@@ -132,7 +131,6 @@ void GotoLocatorFilter::fetchResults( const QString &string, const QgsLocatorCon
       result.displayString = tr( "Go to %1° %2° (WGS84)" ).arg( locale.toString( point.x(), 'g', 10 ), locale.toString( point.y(), 'g', 10 ) );
       result.userData = data;
       result.score = 1.0;
-      result.actions << QgsLocatorResult::ResultAction( Navigation, tr( "Set navigation point" ), QStringLiteral( "ic_navigation_flag_purple_24dp" ) );
       emit resultFetched( result );
     }
   }
@@ -144,23 +142,14 @@ void GotoLocatorFilter::triggerResult( const QgsLocatorResult &result )
   triggerResultFromAction( result, Normal );
 }
 
-void GotoLocatorFilter::triggerResultFromAction( const QgsLocatorResult &result, const int actionId )
+void GotoLocatorFilter::triggerResultFromAction( const QgsLocatorResult &result, const int )
 {
   QVariantMap data = result.userData.toMap();
+
   QgsGeometry geom( QgsGeometry::fromPointXY( data[QStringLiteral( "point" )].value<QgsPointXY>() ) );
 
-  if ( actionId == Navigation )
-  {
-    if ( mLocatorBridge->navigation() )
-    {
-      mLocatorBridge->navigation()->setDestination( geom.vertexAt( 0 ) );
-    }
-  }
-  else
-  {
-    mLocatorBridge->mapSettings()->setCenter( geom.vertexAt( 0 ) );
+  mLocatorBridge->mapSettings()->setCenter( geom.vertexAt( 0 ) );
 
-    mLocatorBridge->locatorHighlightGeometry()->setProperty( "qgsGeometry", geom );
-    mLocatorBridge->locatorHighlightGeometry()->setProperty( "crs", mLocatorBridge->mapSettings()->mapSettings().destinationCrs() );
-  }
+  mLocatorBridge->locatorHighlightGeometry()->setProperty( "qgsGeometry", geom );
+  mLocatorBridge->locatorHighlightGeometry()->setProperty( "crs", mLocatorBridge->mapSettings()->mapSettings().destinationCrs() );
 }

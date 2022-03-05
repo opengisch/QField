@@ -40,8 +40,7 @@ class FeaturesLocatorFilter : public QgsLocatorFilter
     enum ActionOrigin
     {
       Normal,
-      OpenForm,
-      Navigation,
+      OpenForm
     };
 
     struct PreparedLayer

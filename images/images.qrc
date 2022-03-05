@@ -445,16 +445,6 @@
         <file>themes/qfield/xhdpi/ic_lock_black_24dp.png</file>
         <file>themes/qfield/xxhdpi/ic_lock_black_24dp.png</file>
         <file>themes/qfield/xxxhdpi/ic_lock_black_24dp.png</file>
-        <file>themes/qfield/mdpi/ic_navigation_flag_red_24dp.png</file>
-        <file>themes/qfield/hdpi/ic_navigation_flag_red_24dp.png</file>
-        <file>themes/qfield/xhdpi/ic_navigation_flag_red_24dp.png</file>
-        <file>themes/qfield/xxhdpi/ic_navigation_flag_red_24dp.png</file>
-        <file>themes/qfield/xxxhdpi/ic_navigation_flag_red_24dp.png</file>
-        <file>themes/qfield/mdpi/ic_navigation_flag_purple_24dp.png</file>
-        <file>themes/qfield/hdpi/ic_navigation_flag_purple_24dp.png</file>
-        <file>themes/qfield/xhdpi/ic_navigation_flag_purple_24dp.png</file>
-        <file>themes/qfield/xxhdpi/ic_navigation_flag_purple_24dp.png</file>
-        <file>themes/qfield/xxxhdpi/ic_navigation_flag_purple_24dp.png</file>
         <file>themes/qfield/nodpi/ic_legend_collapsed_state_14dp.svg</file>
         <file>themes/qfield/nodpi/ic_legend_collapsed_state_white_14dp.svg</file>
         <file>themes/qfield/nodpi/ic_group_18dp.svg</file>

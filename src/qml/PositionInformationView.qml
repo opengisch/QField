@@ -10,10 +10,9 @@ import Theme 1.0
 Rectangle {
   id: positionInformationView
   property TransformedPositionSource positionSource
-  property double antennaHeight: NaN
   property double rowHeight: 30
-  property color backgroundColor: "white"
-  property color alternateBackgroundColor: Theme.positionBackgroundColor
+  property double antennaHeight: NaN
+  color: "yellow"
   property color textColor: positionSource.currentness ? "black" : "gray"
 
   height: grid.rows * positionInformationView.rowHeight
@@ -31,7 +30,7 @@ Rectangle {
       id: x
       height: rowHeight
       width: grid.cellWidth
-      color: alternateBackgroundColor
+      color: "#e6f2fd"
 
       Text {
         anchors.margins:  10
@@ -48,7 +47,7 @@ Rectangle {
     Rectangle {
       height: rowHeight
       width: grid.cellWidth
-      color: backgroundColor
+      color: "white"
 
       Text {
         anchors.margins:  10
@@ -66,7 +65,7 @@ Rectangle {
     Rectangle {
       height: rowHeight
       width: grid.cellWidth
-      color: grid.rows === 2 ? backgroundColor : alternateBackgroundColor
+      color: grid.rows === 2 ? "white" : "#e6f2fd"
       Text {
         anchors.margins:  10
         anchors.verticalCenter: parent.verticalCenter
@@ -93,7 +92,7 @@ Rectangle {
     Rectangle {
       height: rowHeight
       width: grid.cellWidth
-      color: grid.rows === 2 ? alternateBackgroundColor : backgroundColor
+      color: grid.rows === 2 ? "#e6f2fd" : "white"
 
       Text {
         anchors.margins:  10
@@ -108,7 +107,7 @@ Rectangle {
     Rectangle {
       height: rowHeight
       width: grid.cellWidth
-      color: grid.rows === 4 ? backgroundColor : alternateBackgroundColor
+      color: grid.rows === 4 ? "white" : "#e6f2fd"
 
       Text {
         anchors.margins:  10
@@ -123,7 +122,7 @@ Rectangle {
     Rectangle {
       height: rowHeight
       width: grid.cellWidth
-      color: grid.rows === 4 ? alternateBackgroundColor : backgroundColor
+      color: grid.rows === 4 ? "#e6f2fd" : "white"
 
       Text {
         anchors.margins:  10
@@ -138,7 +137,7 @@ Rectangle {
     Rectangle {
       height: rowHeight
       width: grid.cellWidth
-      color: grid.rows % 2 === 0 ? backgroundColor : alternateBackgroundColor
+      color: grid.rows % 2 === 0 ? "white" : "#e6f2fd"
       visible: positionSource.device !== ''
 
       Text {
@@ -154,7 +153,7 @@ Rectangle {
     Rectangle {
       height: rowHeight
       width: grid.cellWidth
-      color: grid.rows % 2 === 0 ? alternateBackgroundColor : backgroundColor
+      color: grid.rows % 2 === 0 ? "#e6f2fd" : "white"
       visible: positionSource.device !== ''
 
       Text {
@@ -170,7 +169,7 @@ Rectangle {
     Rectangle {
       height: rowHeight
       width: grid.cellWidth
-      color: grid.rows === 6 ? backgroundColor : alternateBackgroundColor
+      color: grid.rows === 6 ? "white" : "#e6f2fd"
       visible: positionSource.device !== ''
 
       Text {
@@ -186,7 +185,7 @@ Rectangle {
     Rectangle {
       height: rowHeight
       width: grid.cellWidth
-      color: grid.rows === 6 ? alternateBackgroundColor : backgroundColor
+      color: grid.rows === 6 ? "#e6f2fd" : "white"
       visible: positionSource.device !== ''
 
       Text {
@@ -202,7 +201,7 @@ Rectangle {
     Rectangle {
       height: rowHeight
       width: grid.cellWidth
-      color: grid.rows === 2 || grid.rows === 6 ? backgroundColor : alternateBackgroundColor
+      color: grid.rows === 2 || grid.rows === 6 ? "white" : "#e6f2fd"
       visible: positionSource.device !== ''
 
       Text {
@@ -218,7 +217,7 @@ Rectangle {
     Rectangle {
       height: rowHeight
       width: grid.cellWidth
-      color: grid.rows === 2 || grid.rows === 6 ? alternateBackgroundColor : backgroundColor
+      color: grid.rows === 2 || grid.rows === 6 ? "#e6f2fd" : "white"
       visible: positionSource.device !== ''
 
       Text {
@@ -230,5 +229,6 @@ Rectangle {
         text: qsTr( "Quality" ) + ': ' + ( positionSource.positionInfo ? positionSource.positionInfo.qualityDescription : '-' )
       }
     }
+
   }
 }

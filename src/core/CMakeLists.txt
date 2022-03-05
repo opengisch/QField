@@ -55,8 +55,6 @@ set(QFIELD_CORE_SRCS
     modelhelper.cpp
     multifeaturelistmodel.cpp
     multifeaturelistmodelbase.cpp
-    navigation.cpp
-    navigationmodel.cpp
     networkmanager.cpp
     networkreply.cpp
     orderedrelationmodel.cpp
@@ -146,8 +144,6 @@ set(QFIELD_CORE_HDRS
     modelhelper.h
     multifeaturelistmodel.h
     multifeaturelistmodelbase.h
-    navigation.h
-    navigationmodel.h
     networkmanager.h
     networkreply.h
     orderedrelationmodel.h

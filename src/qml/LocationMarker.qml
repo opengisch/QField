@@ -7,7 +7,7 @@ import Theme 1.0
 Item {
   id: item
 
-  property variant location // QgsPoint
+  property variant location // QgsPointV2
   property real accuracy
   property real direction // A -1 value indicates absence of direction information
   property MapSettings mapSettings
@@ -25,8 +25,8 @@ Item {
 
     radius: width/2
 
-    color: Theme.positionColorSemiOpaque
-    border.color: Theme.darkPositionColorSemiOpaque
+    color: "#3364b5f6"
+    border.color: "#992374b5"
     border.width: 0.7
   }
 
@@ -60,29 +60,23 @@ Item {
 
   Rectangle {
     id: marker
-
     property point location
-    property bool isOnCanvas: location.x > 0
-                              && location.x < mapCanvas.width
-                              && location.y > 0
-                              && location.y < mapCanvas.height
+    width: 12
+    height: 12
 
-    width: isOnCanvas ? 12 : 10
-    height: isOnCanvas ? 12 : 10
-
-    x: Math.min(mapCanvas.width, Math.max(0, location.x)) - width / 2
-    y: Math.min(mapCanvas.height, Math.max(0, location.y)) - height / 2
+    x: location.x - width/2
+    y: location.y - height/2
 
     radius: width/2
 
-    color: Theme.positionColor
-    border.color: "white"
-    border.width: isOnCanvas ? 3 : 2
+    color: "#64b5f6"
+    border.color: "#FFFFFF"
+    border.width: 3
 
     SequentialAnimation on color  {
       loops: Animation.Infinite
-      ColorAnimation  { from: Theme.positionColor; to: Theme.darkPositionColor; duration: 2000; easing.type: Easing.InOutQuad }
-      ColorAnimation  { from: "#2374b5"; to: Theme.positionColor; duration: 1000; easing.type: Easing.InOutQuad }
+      ColorAnimation  { from: "#64b5f6"; to: "#2374b5"; duration: 2000; easing.type: Easing.InOutQuad }
+      ColorAnimation  { from: "#2374b5"; to: "#64b5f6"; duration: 1000; easing.type: Easing.InOutQuad }
     }
 
     layer.enabled: true
@@ -99,15 +93,7 @@ Item {
   Connections {
     target: mapSettings
 
-
     function onExtentChanged() {
-      updateScreenLocation()
-    }
-    function onOutputSizeChanged() {
-      updateScreenLocation()
-    }
-
-    function updateScreenLocation() {
       marker.location = mapSettings.coordinateToScreen( location )
       directionMarker.location = mapSettings.coordinateToScreen( location )
       directionMarker.direction = direction

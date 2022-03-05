@@ -281,7 +281,7 @@ ApplicationWindow {
     anchors.top: parent.top
     anchors.left: parent.left
     anchors.right: parent.right
-    anchors.bottom: informationView.visible ? informationView.top : parent.bottom
+    anchors.bottom: positionInformationView.visible ? positionInformationView.top : parent.bottom
 
     Rectangle {
       id: mapCanvasBackground
@@ -359,9 +359,6 @@ ApplicationWindow {
           if( !overlayFeatureFormDrawer.visible ) {
             identifyTool.identify(point)
           }
-        } else {
-          canvasMenu.point = mapCanvas.mapSettings.screenToCoordinate(point);
-          canvasMenu.popup(point.x, point.y )
         }
       }
 
@@ -469,17 +466,6 @@ ApplicationWindow {
       overrideLocation: gpsLinkButton.linkActive ? positionSource.projectedPosition : undefined
     }
 
-    Navigation {
-      id: navigation
-      mapSettings: mapCanvas.mapSettings
-      location: positionSource.active ? positionSource.projectedPosition : undefined
-    }
-
-    NavigationHighlight {
-      id: navigationHighlight
-      navigation: navigation
-    }
-
     /* GPS marker  */
     LocationMarker {
       id: locationMarker
@@ -576,37 +562,31 @@ ApplicationWindow {
     }
   }
 
-  Column {
-    id: informationView
+  Item {
+    id: positionInformationView
     anchors.bottom: parent.bottom
     anchors.left: parent.left
     anchors.right: parent.right
-    visible: navigation.isActive || positioningSettings.showPositionInformation
+    visible: positioningSettings.showPositionInformation
 
+    height: childrenRect.height
     width: parent.width
 
-    NavigationInformationView {
-      id: navigationInformationView
-      visible: navigation.isActive
-      navigation: navigation
-    }
-
     PositionInformationView {
-      id: positionInformationView
-      visible: positioningSettings.showPositionInformation
+      id: p
       positionSource: positionSource
       antennaHeight: positioningSettings.antennaHeightActivated ? positioningSettings.antennaHeight : NaN
     }
   }
 
   DropShadow {
-    anchors.fill: informationView
-    visible: informationView.visible
+    anchors.fill: positionInformationView
+    visible: positionInformationView.visible
     verticalOffset: -2
     radius: 6.0
     samples: 17
     color: "#30000000"
-    source: informationView
+    source: positionInformationView
   }
 
   /**************************************************
@@ -759,9 +739,6 @@ ApplicationWindow {
 
   LocatorItem {
     id: locatorItem
-
-    locatorModelSuperBridge.navigation: navigation
-    locatorModelSuperBridge.bookmarks: bookmarkModel
 
     anchors.right: parent.right
     anchors.top: parent.top
@@ -997,24 +974,6 @@ ApplicationWindow {
     spacing: 4
 
     QfToolButton {
-      id: navigationButton
-      visible: navigation.isActive
-      round: true
-
-      iconSource: Theme.getThemeIcon( "ic_navigation_flag_purple_24dp" )
-      bgcolor: Theme.darkGray
-
-      onClicked: mapCanvas.mapSettings.setCenter(navigation.destination)
-
-      onPressAndHold: {
-        navigationMenu.popup(
-          locationToolbar.x + locationToolbar.width - navigationMenu.width,
-          locationToolbar.y + locationToolbar.height - navigationMenu.height
-        )
-      }
-    }
-
-    QfToolButton {
       id: gpsLinkButton
       state: linkActive ? "On" : "Off"
       visible: gpsButton.state === "On" && ( stateMachine.state === "digitize" || stateMachine.state === 'measure' )
@@ -1113,7 +1072,7 @@ ApplicationWindow {
           PropertyChanges {
             target: gpsButton
             iconSource: positionSource.positionInfo && positionSource.positionInfo.latitudeValid ? Theme.getThemeIcon( "ic_my_location_" + ( followActive ? "white" : "blue" ) + "_24dp" ) : Theme.getThemeIcon( "ic_gps_not_fixed_white_24dp" )
-            bgcolor: followActive ? Theme.positionColor : Theme.darkGray
+            bgcolor: followActive ? "#64B5F6" : Theme.darkGray
           }
         }
       ]
@@ -1652,90 +1611,6 @@ ApplicationWindow {
               positionSource.active = false
           }
       }
-  }
-
-  Menu {
-    id: canvasMenu
-    title: qsTr( "Map Canvas Options" )
-    font: Theme.defaultFont
-
-    property var point
-    onPointChanged: {
-      var xLabel = mapCanvas.mapSettings.destinationCrs.isGeographic ? qsTr( 'Lon' ) : 'X';
-      var xValue = Number( point.x ).toLocaleString( Qt.locale(), 'f', coordinateLocator.mapSettings.destinationCrs.isGeographic ? 7 : 3 )
-      var yLabel = mapCanvas.mapSettings.destinationCrs.isGeographic ? qsTr( 'Lat' ) : 'Y'
-      var yValue = Number( point.y ).toLocaleString( Qt.locale(), 'f', coordinateLocator.mapSettings.destinationCrs.isGeographic ? 7 : 3 )
-      xItem.text = xLabel + ': ' + xValue
-      yItem.text = yLabel + ': ' + yValue
-    }
-
-    width: {
-        var result = 0;
-        var padding = 0;
-        for (var i = 0; i < count; ++i) {
-            var item = itemAt(i);
-            result = Math.max(item.contentItem.implicitWidth, result);
-            padding = Math.max(item.padding, padding);
-        }
-        return Math.min( result + padding * 2,mainWindow.width - 20);
-    }
-
-    MenuItem {
-        id: xItem
-        text: ""
-        height: 48
-        font: Theme.defaultFont
-        enabled:false
-    }
-
-    MenuItem {
-        id: yItem
-        text: ""
-        height: 48
-        font: Theme.defaultFont
-        enabled:false
-    }
-
-    MenuSeparator { width: parent.width }
-
-    MenuItem {
-      id: setDestinationItem
-      text: qsTr( "Set As Destination" )
-      height: 48
-      font: Theme.defaultFont
-
-      onTriggered: {
-        navigation.destination = canvasMenu.point
-      }
-    }
-  }
-
-  Menu {
-    id: navigationMenu
-    title: qsTr( "Navigation Options" )
-    font: Theme.defaultFont
-
-    width: {
-        var result = 0;
-        var padding = 0;
-        for (var i = 0; i < count; ++i) {
-            var item = itemAt(i);
-            result = Math.max(item.contentItem.implicitWidth, result);
-            padding = Math.max(item.padding, padding);
-        }
-        return Math.min( result + padding * 2,mainWindow.width - 20);
-    }
-
-    MenuItem {
-      id: cancelNavigationItem
-      text: qsTr( "Clear Destination" )
-      height: 48
-      font: Theme.defaultFont
-
-      onTriggered: {
-        navigation.clear();
-      }
-    }
   }
 
   Menu {
