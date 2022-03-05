@@ -14,22 +14,6 @@ Item {
   property real direction // A -1 value indicates absence of direction information
   property MapSettings mapSettings
 
-  QtObject {
-    id: props
-
-    property point screenLocation
-    property real screenAccuracy
-
-    property bool isOnMapCanvas: screenLocation.x > 0
-                              && screenLocation.x < mapCanvas.width
-                              && screenLocation.y > 0
-                              && screenLocation.y < mapCanvas.height
-  }
-  function updateScreenLocation() {
-    props.screenLocation = mapSettings.coordinateToScreen( location )
-    props.screenAccuracy = accuracy / mapSettings.mapUnitsPerPoint
-  }
-
   Magnetometer {
     id: magnetometer
     active: false
@@ -48,12 +32,14 @@ Item {
 
   Rectangle {
     id: accuracyMarker
-    visible: props.screenAccuracy > 0.0
-    width: props.screenAccuracy * 2
-    height: props.screenAccuracy * 2
+    property point screenLocation
+    property real accuracy
+    visible: accuracy > 0.0
+    width: accuracy * 2
+    height: accuracy * 2
 
-    x: props.screenLocation.x - width / 2
-    y: props.screenLocation.y - height / 2
+    x: screenLocation.x - width / 2
+    y: screenLocation.y - height / 2
 
     radius: width/2
 
@@ -64,13 +50,14 @@ Item {
 
   Image {
     id: compassDirectionMarker
+    property point screenLocation
     visible: magnetometer.hasValue
     width: 48
     height: 48
     opacity: 0.6
 
-    x: props.screenLocation.x - width / 2
-    y: props.screenLocation.y - height
+    x: screenLocation.x - width / 2
+    y: screenLocation.y - height
 
     source: Theme.getThemeVectorIcon( "ic_compass_direction" )
     fillMode: Image.PreserveAspectFit
@@ -81,15 +68,13 @@ Item {
 
   Shape {
     id: movementMarker
-    visible: direction >= 0 && props.isOnMapCanvas
+    property point screenLocation
+    visible: direction >= 0
     width: 20
     height: 20
 
-    x: props.screenLocation.x - width / 2
-    y: props.screenLocation.y - height / 2
-
-    rotation: direction
-    transformOrigin: Item.Center
+    x: screenLocation.x - width / 2
+    y: screenLocation.y - height / 2
 
     ShapePath {
       strokeWidth: 3
@@ -123,65 +108,29 @@ Item {
 
   Rectangle {
     id: positionMarker
-    visible: direction == -1 && props.isOnMapCanvas
+    property point screenLocation
+    property bool isOnCanvas: screenLocation.x > 0
+                              && screenLocation.x < mapCanvas.width
+                              && screenLocation.y > 0
+                              && screenLocation.y < mapCanvas.height
+    visible: direction == -1
 
-    width: 12
-    height: 12
+    width: isOnCanvas ? 12 : 10
+    height: isOnCanvas ? 12 : 10
 
-    x: props.screenLocation.x - width / 2
-    y: props.screenLocation.y - height / 2
+    x: Math.min(mapCanvas.width, Math.max(0, screenLocation.x)) - width / 2
+    y: Math.min(mapCanvas.height, Math.max(0, screenLocation.y)) - height / 2
 
-    radius: width / 2
+    radius: width/2
 
     color: Theme.positionColor
     border.color: "white"
-    border.width: 3
+    border.width: isOnCanvas ? 3 : 2
 
     SequentialAnimation on color  {
       loops: Animation.Infinite
       ColorAnimation  { from: Theme.positionColor; to: Theme.darkPositionColor; duration: 2000; easing.type: Easing.InOutQuad }
       ColorAnimation  { from: Theme.darkPositionColor; to: Theme.positionColor; duration: 1000; easing.type: Easing.InOutQuad }
-    }
-
-    layer.enabled: true
-    layer.effect: DropShadow {
-        transparentBorder: true
-        radius: 8
-        samples: 25
-        color: "#99000000"
-        horizontalOffset: 0
-        verticalOffset: 0
-    }
-  }
-
-  Shape {
-    id: edgeMarker
-    visible: !props.isOnMapCanvas
-    width: 20
-    height: 20
-
-    x: Math.min(mapCanvas.width, Math.max(0, props.screenLocation.x)) + width  * (props.screenLocation.x < 0 ? 0 : -1)
-    y: Math.min(mapCanvas.height, Math.max(0, props.screenLocation.y)) + height * (props.screenLocation.y < 0 ? 0 : -1)
-
-    rotation: -(Math.atan2(mapCanvas.width / 2 - props.screenLocation.x, mapCanvas.height / 2 - props.screenLocation.y) / Math.PI) * 180
-    transformOrigin: Item.Center
-
-    ShapePath {
-      strokeWidth: 3
-      strokeColor: "white"
-      strokeStyle: ShapePath.SolidLine
-      fillColor: Theme.positionColor
-      startX: 10
-      startY: 0
-      PathLine { x: 18; y: 20 }
-      PathLine { x: 2; y: 20 }
-      PathLine { x: 10; y: 0 }
-
-      SequentialAnimation on fillColor  {
-        loops: Animation.Infinite
-        ColorAnimation  { from: Theme.positionColor; to: Theme.darkPositionColor; duration: 2000; easing.type: Easing.InOutQuad }
-        ColorAnimation  { from: Theme.darkPositionColor; to: Theme.positionColor; duration: 1000; easing.type: Easing.InOutQuad }
-      }
     }
 
     layer.enabled: true
@@ -209,6 +158,16 @@ Item {
 
   onLocationChanged: {
    updateScreenLocation()
+  }
+
+  function updateScreenLocation() {
+    var point = mapSettings.coordinateToScreen( location )
+    positionMarker.screenLocation = point
+    compassDirectionMarker.screenLocation = point
+    movementMarker.screenLocation = point
+    accuracyMarker.screenLocation = point
+
+    accuracyMarker.accuracy = accuracy / mapSettings.mapUnitsPerPoint
   }
 
   Connections {
