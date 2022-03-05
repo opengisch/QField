@@ -234,6 +234,20 @@ Item {
       }
 
       Text {
+        id: cloudRegisterLabel
+        Layout.fillWidth: true
+        Layout.topMargin:6
+        text: '<style>a, a:hover, a:visited { color:' + Theme.mainColor + '; }></style>' +
+              qsTr( 'New user?') + ' <a href="https://app.qfield.cloud/accounts/signup/">' + qsTr( 'Register an account' ) + '</a>.'
+        horizontalAlignment: Text.AlignHCenter
+        font: Theme.defaultFont
+        textFormat: Text.RichText
+        wrapMode: Text.WordWrap
+
+        onLinkActivated: Qt.openUrlExternally(link)
+      }
+
+      Text {
         id: cloudIntroLabel
         Layout.fillWidth: true
         text: '<style>a, a:hover, a:visited { color:' + Theme.mainColor + '; }></style>' +
