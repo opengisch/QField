@@ -68,23 +68,15 @@ class ProjectInfo : public QObject
 
     void extentChanged();
 
-    void temporalStateChanged();
-
     void mapThemeChanged();
 
   private:
-    void saveExtent();
-    void saveTemporalState();
-
     QString mFilePath;
 
     QgsQuickMapSettings *mMapSettings = nullptr;
     QTimer mSaveExtentTimer;
-    QTimer mSaveTemporalStateTimer;
 
     FlatLayerTreeModel *mLayerTree = nullptr;
-
-    bool mIsTemporal = false;
 };
 
 #endif // PROJECTINFO_H

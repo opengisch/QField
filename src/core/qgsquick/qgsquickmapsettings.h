@@ -116,21 +116,6 @@ class QFIELD_CORE_EXPORT QgsQuickMapSettings : public QObject
      */
     Q_PROPERTY( QList<QgsMapLayer *> layers READ layers WRITE setLayers NOTIFY layersChanged )
 
-    /**
-     * Returns TRUE if a temporal filtering is enabled
-     */
-    Q_PROPERTY( bool isTemporal READ isTemporal WRITE setIsTemporal NOTIFY temporalStateChanged )
-
-    /**
-     * The temporal range's begin (i.e. lower) value
-     */
-    Q_PROPERTY( QDateTime temporalBegin READ temporalBegin WRITE setTemporalBegin NOTIFY temporalStateChanged )
-
-    /**
-     * The temporal range's end (i.e. higher) value
-     */
-    Q_PROPERTY( QDateTime temporalEnd READ temporalEnd WRITE setTemporalEnd NOTIFY temporalStateChanged )
-
   public:
     //! Create new map settings
     explicit QgsQuickMapSettings( QObject *parent = nullptr );
@@ -255,24 +240,6 @@ class QFIELD_CORE_EXPORT QgsQuickMapSettings : public QObject
      */
     void setDevicePixelRatio( const qreal &devicePixelRatio );
 
-    //! \copydoc QgsQuickMapSettings::isTemporal
-    bool isTemporal() const;
-
-    //! \copydoc QgsQuickMapSettings::isTemporal
-    void setIsTemporal( bool temporal );
-
-    //! \copydoc QgsQuickMapSettings::temporalBegin
-    QDateTime temporalBegin() const;
-
-    //! \copydoc QgsQuickMapSettings::temporalBegin
-    void setTemporalBegin( QDateTime &begin );
-
-    //! \copydoc QgsQuickMapSettings::temporalEnd
-    QDateTime temporalEnd() const;
-
-    //! \copydoc QgsQuickMapSettings::temporalEnd
-    void setTemporalEnd( QDateTime &end );
-
   signals:
     //! \copydoc QgsQuickMapSettings::project
     void projectChanged();
@@ -303,8 +270,6 @@ class QFIELD_CORE_EXPORT QgsQuickMapSettings : public QObject
 
     //! \copydoc QgsQuickMapSettings::layers
     void layersChanged();
-
-    void temporalStateChanged();
 
   private slots:
 

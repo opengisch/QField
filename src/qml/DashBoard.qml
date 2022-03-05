@@ -226,91 +226,77 @@ Drawer {
           color: Theme.mainColor
       }
 
-      RowLayout {
-          width: parent.width
-          ComboBox {
-              id: mapThemeComboBox
-              Layout.fillWidth: true
+      ComboBox {
+        id: mapThemeComboBox
+        anchors { left: parent.left; right: parent.right }
 
-              Connections {
-                  target: iface
+        Connections {
+          target: iface
 
-                  function onLoadProjectTriggered() {
-                      mapThemeContainer.isLoading = true
-                  }
-
-                  function onLoadProjectEnded() {
-                      var themes = qgisProject.mapThemeCollection.mapThemes
-                      mapThemeComboBox.model = themes
-                      mapThemeComboBox.enabled = themes.length > 1
-                      mapThemeComboBox.opacity = themes.length > 1 ? 1 : 0.25
-                      mapThemeContainer.visible = themes.length > 1 || flatLayerTree.isTemporal
-                      flatLayerTree.updateCurrentMapTheme()
-                      mapThemeComboBox.currentIndex = flatLayerTree.mapTheme != '' ? mapThemeComboBox.find( flatLayerTree.mapTheme ) : -1
-                      mapThemeContainer.isLoading = false
-                  }
-              }
-
-              Connections {
-                  target: flatLayerTree
-
-                  function onMapThemeChanged() {
-                      if (!mapThemeContainer.isLoading && mapThemeComboBox.currentText != flatLayerTree.mapTheme) {
-                          mapThemeContainer.isLoading = true
-                          mapThemeComboBox.currentIndex = flatLayerTree.mapTheme != '' ? mapThemeComboBox.find( flatLayerTree.mapTheme ) : -1
-                          mapThemeContainer.isLoading = false
-                      }
-                  }
-              }
-
-              onCurrentTextChanged: {
-                  if ( !mapThemeContainer.isLoading && qgisProject.mapThemeCollection.mapThemes.length > 1 ) {
-                      flatLayerTree.mapTheme = mapThemeComboBox.currentText
-                  }
-              }
-
-              delegate: ItemDelegate {
-                  width: mapThemeComboBox.width
-                  height: 36
-                  text: modelData
-                  font.weight: mapThemeComboBox.currentIndex === index ? Font.DemiBold : Font.Normal
-                  font.pointSize: Theme.tipFont.pointSize
-                  highlighted: mapThemeComboBox.highlightedIndex == index
-              }
-
-              contentItem: Text {
-                  height: 36
-                  leftPadding: 8
-                  text: mapThemeComboBox.displayText
-                  font: Theme.tipFont
-                  horizontalAlignment: Text.AlignLeft
-                  verticalAlignment: Text.AlignVCenter
-                  elide: Text.ElideRight
-              }
-
-              background: Item {
-                  implicitWidth: 120
-                  implicitHeight: 36
-
-                  Rectangle {
-                      anchors.fill: parent
-                      id: backgroundRect
-                      border.color: mapThemeComboBox.pressed ? "#17a81a" : Theme.mainColor
-                      border.width: mapThemeComboBox.visualFocus ? 2 : 1
-                      color: "transparent"
-                      radius: 2
-                  }
-              }
+          function onLoadProjectTriggered() {
+              mapThemeContainer.isLoading = true
           }
 
-          QfToolButton {
-              id: temporalButton
-              Layout.alignment: Qt.AlignVCenter
-              visible: flatLayerTree.isTemporal
-              iconSource: mapSettings.isTemporal ? Theme.getThemeVectorIcon( 'ic_temporal_green_24dp' ) : Theme.getThemeVectorIcon( 'ic_temporal_black_24dp' )
-              bgcolor: "white"
-              onClicked: temporalProperties.open();
+          function onLoadProjectEnded() {
+            var themes = qgisProject.mapThemeCollection.mapThemes
+            mapThemeComboBox.model = themes
+            mapThemeContainer.visible = themes.length > 1
+            flatLayerTree.updateCurrentMapTheme()
+            mapThemeComboBox.currentIndex = flatLayerTree.mapTheme != '' ? mapThemeComboBox.find( flatLayerTree.mapTheme ) : -1
+            mapThemeContainer.isLoading = false
           }
+        }
+
+        Connections {
+            target: flatLayerTree
+
+            function onMapThemeChanged() {
+                if (!mapThemeContainer.isLoading && mapThemeComboBox.currentText != flatLayerTree.mapTheme) {
+                  mapThemeContainer.isLoading = true
+                  mapThemeComboBox.currentIndex = flatLayerTree.mapTheme != '' ? mapThemeComboBox.find( flatLayerTree.mapTheme ) : -1
+                  mapThemeContainer.isLoading = false
+                }
+            }
+        }
+
+        onCurrentTextChanged: {
+          if ( !mapThemeContainer.isLoading && qgisProject.mapThemeCollection.mapThemes.length > 1 ) {
+            flatLayerTree.mapTheme = mapThemeComboBox.currentText
+          }
+        }
+
+        delegate: ItemDelegate {
+          width: mapThemeComboBox.width
+          height: 36
+          text: modelData
+          font.weight: mapThemeComboBox.currentIndex === index ? Font.DemiBold : Font.Normal
+          font.pointSize: Theme.tipFont.pointSize
+          highlighted: mapThemeComboBox.highlightedIndex == index
+        }
+
+        contentItem: Text {
+          height: 36
+          leftPadding: 8
+          text: mapThemeComboBox.displayText
+          font: Theme.tipFont
+          horizontalAlignment: Text.AlignLeft
+          verticalAlignment: Text.AlignVCenter
+          elide: Text.ElideRight
+        }
+
+        background: Item {
+          implicitWidth: 120
+          implicitHeight: 36
+
+          Rectangle {
+            anchors.fill: parent
+            id: backgroundRect
+            border.color: mapThemeComboBox.pressed ? "#17a81a" : Theme.mainColor
+            border.width: mapThemeComboBox.visualFocus ? 2 : 1
+            //color: Theme.lightGray
+            radius: 2
+          }
+        }
       }
     }
 
@@ -320,13 +306,5 @@ Drawer {
       Layout.fillWidth: true
       Layout.fillHeight: true
     }
-  }
-
-  TemporalProperties {
-      id: temporalProperties
-      mapSettings: mapSettings;
-      modal: true
-      closePolicy: Popup.CloseOnEscape | Popup.CloseOnPressOutside
-      parent: ApplicationWindow.overlay
   }
 }

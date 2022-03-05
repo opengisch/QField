@@ -17,7 +17,6 @@
 
 #include "projectinfo.h"
 
-#include <QDateTime>
 #include <QFileInfo>
 #include <QSettings>
 #include <QString>
@@ -26,8 +25,7 @@ ProjectInfo::ProjectInfo( QObject *parent )
   : QObject( parent )
 {
   mSaveExtentTimer.setSingleShot( true );
-  connect( &mSaveExtentTimer, &QTimer::timeout, this, &ProjectInfo::saveExtent );
-  connect( &mSaveTemporalStateTimer, &QTimer::timeout, this, &ProjectInfo::saveTemporalState );
+  connect( &mSaveExtentTimer, &QTimer::timeout, this, &ProjectInfo::extentChanged );
 }
 
 void ProjectInfo::setFilePath( const QString &filePath )
@@ -53,12 +51,10 @@ void ProjectInfo::setMapSettings( QgsQuickMapSettings *mapSettings )
   if ( mMapSettings )
   {
     disconnect( mMapSettings, &QgsQuickMapSettings::extentChanged, this, &ProjectInfo::extentChanged );
-    disconnect( mMapSettings, &QgsQuickMapSettings::temporalStateChanged, this, &ProjectInfo::temporalStateChanged );
   }
 
   mMapSettings = mapSettings;
-  connect( mMapSettings, &QgsQuickMapSettings::extentChanged, this, &ProjectInfo::extentChanged );
-  connect( mMapSettings, &QgsQuickMapSettings::temporalStateChanged, this, &ProjectInfo::temporalStateChanged );
+  connect( mMapSettings, &QgsQuickMapSettings::extentChanged, this, [=] { mSaveExtentTimer.start( 750 ); } );
 
   emit mapSettingsChanged();
 }
@@ -91,11 +87,6 @@ FlatLayerTreeModel *ProjectInfo::layerTree() const
 
 void ProjectInfo::extentChanged()
 {
-  mSaveExtentTimer.start( 1000 );
-}
-
-void ProjectInfo::saveExtent()
-{
   if ( mFilePath.isEmpty() )
     return;
 
@@ -107,29 +98,6 @@ void ProjectInfo::saveExtent()
     settings.beginGroup( QStringLiteral( "/qgis/projectInfo/%1" ).arg( mFilePath ) );
     settings.setValue( QStringLiteral( "filesize" ), fi.size() );
     settings.setValue( QStringLiteral( "extent" ), QStringLiteral( "%1|%2|%3|%4" ).arg( qgsDoubleToString( extent.xMinimum() ), qgsDoubleToString( extent.xMaximum() ), qgsDoubleToString( extent.yMinimum() ), qgsDoubleToString( extent.yMaximum() ) ) );
-    settings.endGroup();
-  }
-}
-
-void ProjectInfo::temporalStateChanged()
-{
-  mSaveTemporalStateTimer.start( 1000 );
-}
-
-void ProjectInfo::saveTemporalState()
-{
-  if ( mFilePath.isEmpty() )
-    return;
-
-  QFileInfo fi( mFilePath );
-  if ( fi.exists() )
-  {
-    QSettings settings;
-    settings.beginGroup( QStringLiteral( "/qgis/projectInfo/%1" ).arg( mFilePath ) );
-    settings.setValue( QStringLiteral( "filesize" ), fi.size() );
-    settings.setValue( QStringLiteral( "isTemporal" ), mMapSettings->isTemporal() );
-    settings.setValue( QStringLiteral( "StartDateTime" ), mMapSettings->temporalBegin().toTimeSpec( Qt::OffsetFromUTC ).toString( Qt::ISODateWithMs ) );
-    settings.setValue( QStringLiteral( "EndDateTime" ), mMapSettings->temporalEnd().toTimeSpec( Qt::OffsetFromUTC ).toString( Qt::ISODateWithMs ) );
     settings.endGroup();
   }
 }

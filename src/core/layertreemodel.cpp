@@ -19,7 +19,6 @@
 #include <qgslayertreemodel.h>
 #include <qgslayertreemodellegendnode.h>
 #include <qgslayertreenode.h>
-#include <qgsmaplayertemporalproperties.h>
 #include <qgsmapthemecollection.h>
 #include <qgsrasterlayer.h>
 #include <qgsvectorlayer.h>
@@ -31,7 +30,6 @@ FlatLayerTreeModel::FlatLayerTreeModel( QgsLayerTree *layerTree, QgsProject *pro
 {
   setSourceModel( mSourceModel );
   connect( mSourceModel, &FlatLayerTreeModelBase::mapThemeChanged, this, &FlatLayerTreeModel::mapThemeChanged );
-  connect( mSourceModel, &FlatLayerTreeModelBase::isTemporalChanged, this, &FlatLayerTreeModel::isTemporalChanged );
 }
 
 QVariant FlatLayerTreeModel::data( const QModelIndex &index, int role ) const
@@ -52,11 +50,6 @@ QString FlatLayerTreeModel::mapTheme() const
 void FlatLayerTreeModel::setMapTheme( const QString &mapTheme )
 {
   mSourceModel->setMapTheme( mapTheme );
-}
-
-bool FlatLayerTreeModel::isTemporal() const
-{
-  return mSourceModel->isTemporal();
 }
 
 void FlatLayerTreeModel::updateCurrentMapTheme()
@@ -106,8 +99,8 @@ FlatLayerTreeModelBase::FlatLayerTreeModelBase( QgsLayerTree *layerTree, QgsProj
   mLayerTreeModel = new QgsLayerTreeModel( layerTree, this );
   mLayerTreeModel->setFlag( QgsLayerTreeModel::ShowLegendAsTree, true );
   setSourceModel( mLayerTreeModel );
-  connect( mProject, &QgsProject::cleared, this, [=] { updateTemporalState(); buildMap( nullptr ); } );
-  connect( mProject, &QgsProject::readProject, this, [=] { updateTemporalState(); buildMap( mLayerTreeModel ); } );
+  connect( mProject, &QgsProject::cleared, this, [=] { buildMap( nullptr ); } );
+  connect( mProject, &QgsProject::readProject, this, [=] { buildMap( mLayerTreeModel ); } );
   connect( mLayerTreeModel, &QAbstractItemModel::dataChanged, this, &FlatLayerTreeModelBase::updateMap );
   connect( mLayerTreeModel, &QAbstractItemModel::rowsRemoved, this, &FlatLayerTreeModelBase::removeFromMap );
   connect( mLayerTreeModel, &QAbstractItemModel::rowsInserted, this, &FlatLayerTreeModelBase::insertInMap );
@@ -964,21 +957,6 @@ void FlatLayerTreeModelBase::updateCurrentMapTheme()
       return;
     }
   }
-}
-
-void FlatLayerTreeModelBase::updateTemporalState()
-{
-  mIsTemporal = false;
-  const QVector<QgsMapLayer *> mapLayers = mProject->layers<QgsMapLayer *>();
-  for ( QgsMapLayer *mapLayer : mapLayers )
-  {
-    if ( mapLayer->temporalProperties() && mapLayer->temporalProperties()->isActive() )
-    {
-      mIsTemporal = true;
-      break;
-    }
-  }
-  emit isTemporalChanged();
 }
 
 void FlatLayerTreeModelBase::setLayerInTracking( QgsLayerTreeLayer *nodeLayer, bool tracking )

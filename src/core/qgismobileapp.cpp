@@ -29,7 +29,6 @@
 #include "cpl_string.h"
 #include "cpl_vsi.h"
 
-#include <QDateTime>
 #include <QFontDatabase>
 #include <QStandardItemModel>
 #include <QStandardPaths>
@@ -1041,22 +1040,11 @@ void QgisMobileapp::readProjectFile()
     extent.setYMinimum( parts[2].toDouble() );
     extent.setYMaximum( parts[3].toDouble() );
   }
+
   if ( !extent.isEmpty() && extent.width() != 0.0 )
   {
     // Add a bit of buffer so elements don't touch the map edges
     emit setMapExtent( extent.buffered( extent.width() * 0.02 ) );
-  }
-
-  const bool isTemporal = settings.value( QStringLiteral( "/qgis/projectInfo/%1/isTemporal" ).arg( mProjectFilePath ), false ).toBool();
-  const QString begin = settings.value( QStringLiteral( "/qgis/projectInfo/%1/StartDateTime" ).arg( mProjectFilePath ), QString() ).toString();
-  const QString end = settings.value( QStringLiteral( "/qgis/projectInfo/%1/EndDateTime" ).arg( mProjectFilePath ), QString() ).toString();
-  if ( !begin.isEmpty() && !end.isEmpty() )
-  {
-    QDateTime beginDt = QDateTime::fromString( begin, Qt::ISODateWithMs );
-    QDateTime endDt = QDateTime::fromString( end, Qt::ISODateWithMs );
-    mMapCanvas->mapSettings()->setTemporalBegin( beginDt );
-    mMapCanvas->mapSettings()->setTemporalEnd( endDt );
-    mMapCanvas->mapSettings()->setIsTemporal( isTemporal );
   }
 
   // Restored last map theme if present
