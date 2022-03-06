@@ -64,73 +64,7 @@ QMap<QString, QString> QFieldCloudConnection::sErrors = QMap<QString, QString>(
 
 QString QFieldCloudConnection::errorString( QNetworkReply *reply )
 {
-  if ( !reply )
-    return QString();
-
-  QString errorMessage;
-  QString payload;
-  switch ( reply->error() )
-  {
-    case QNetworkReply::NoError:
-      break;
-    case QNetworkReply::TimeoutError:
-      errorMessage += tr( "[timeout] The request took too long to finish, please retry." );
-      break;
-    case QNetworkReply::OperationCanceledError:
-      errorMessage += tr( "[aborted] The request has been aborted." );
-      break;
-    default:
-      payload = reply->readAll();
-      QJsonParseError jsonError;
-      const QJsonObject doc = QJsonDocument::fromJson( payload.toUtf8(), &jsonError ).object();
-
-      if ( jsonError.error == QJsonParseError::NoError )
-      {
-        if ( doc.contains( QStringLiteral( "code" ) ) )
-        {
-          QString code = doc.value( QStringLiteral( "code" ) ).toString();
-          errorMessage += QStringLiteral( "[QF/%1] " ).arg( code );
-
-          if ( sErrors.contains( code ) )
-            errorMessage += sErrors.value( code );
-          else
-            errorMessage += doc.value( QStringLiteral( "message" ) ).toString();
-        }
-        else
-          errorMessage += QStringLiteral( "<no server details>" );
-
-        if ( errorMessage.isEmpty() )
-          errorMessage += QStringLiteral( "<empty server details>" );
-      }
-      break;
-  }
-
-  const int httpCode = reply->attribute( QNetworkRequest::HttpStatusCodeAttribute ).toInt();
-  QString httpErrorMessage = QStringLiteral( "[HTTP/%1] %2 " ).arg( httpCode ).arg( reply->url().toString() );
-  httpErrorMessage += ( httpCode >= 400 )
-                        ? tr( "Server Error." )
-                        : tr( "Network Error." );
-  httpErrorMessage += payload.left( 200 );
-
-  if ( payload.size() > 200 )
-    errorMessage += QStringLiteral( "…" );
-
-  if ( errorMessage.isEmpty() )
-  {
-    errorMessage = httpErrorMessage;
-    QgsMessageLog::logMessage( QStringLiteral( "%1\n%2\n%3" ).arg( errorMessage, payload ).arg( reply->errorString() ) );
-  }
-  else
-  {
-    QgsMessageLog::logMessage( QStringLiteral( "%1\n%2\n%3\n%4" ).arg( errorMessage, httpErrorMessage, payload ).arg( reply->errorString() ) );
-  }
-
-  // strip HTML tags
-  QTextDocument doc;
-  doc.setHtml( errorMessage );
-  errorMessage = doc.toPlainText();
-
-  return errorMessage;
+  return CloudError( reply ).message();
 }
 
 QString QFieldCloudConnection::url() const
@@ -502,4 +436,80 @@ void QFieldCloudConnection::setClientHeaders( QNetworkRequest &request )
     // the standard requires locales with dash instead of underscore
     request.setRawHeader( acceptLanguageHeader, QLocale::system().name().replace( QStringLiteral( "_" ), QStringLiteral( "-" ) ).toUtf8() );
   }
+}
+
+QFieldCloudConnection::CloudError::CloudError( QNetworkReply *reply )
+{
+  if ( !reply )
+    return;
+
+  QString errorMessage;
+
+  mError = reply->error();
+  mHttpCode = reply->attribute( QNetworkRequest::HttpStatusCodeAttribute ).toInt();
+
+  switch ( mError )
+  {
+    case QNetworkReply::NoError:
+      break;
+    case QNetworkReply::TimeoutError:
+      errorMessage += tr( "[timeout] The request took too long to finish, please retry." );
+      break;
+    case QNetworkReply::OperationCanceledError:
+      errorMessage += tr( "[aborted] The request has been aborted." );
+      break;
+    default:
+      mPayload = reply->readAll();
+      QJsonParseError jsonError;
+      mJson = QJsonDocument::fromJson( mPayload.toUtf8(), &jsonError );
+      mJsonError = jsonError;
+
+      QJsonObject doc = mJson.object();
+
+      if ( jsonError.error == QJsonParseError::NoError )
+      {
+        if ( doc.contains( QStringLiteral( "code" ) ) )
+        {
+          mQfcCode = doc.value( QStringLiteral( "code" ) ).toString();
+          errorMessage += QStringLiteral( "[QF/%1] " ).arg( mQfcCode );
+
+          if ( sErrors.contains( mQfcCode ) )
+            errorMessage += sErrors.value( mQfcCode );
+          else
+            errorMessage += doc.value( QStringLiteral( "message" ) ).toString();
+        }
+        else
+          errorMessage += QStringLiteral( "<no server details>" );
+
+        if ( errorMessage.isEmpty() )
+          errorMessage += QStringLiteral( "<empty server details>" );
+      }
+      break;
+  }
+
+  QString httpErrorMessage = QStringLiteral( "[HTTP/%1] %2 " ).arg( mHttpCode ).arg( reply->url().toString() );
+  httpErrorMessage += ( mHttpCode >= 400 )
+                        ? tr( "Server Error." )
+                        : tr( "Network Error." );
+  httpErrorMessage += mPayload.left( 200 );
+
+  if ( mPayload.size() > 200 )
+    errorMessage += QStringLiteral( "…" );
+
+  if ( errorMessage.isEmpty() )
+  {
+    errorMessage = httpErrorMessage;
+    QgsMessageLog::logMessage( QStringLiteral( "%1\n%2\n%3" ).arg( errorMessage, mPayload ).arg( reply->errorString() ) );
+  }
+  else
+  {
+    QgsMessageLog::logMessage( QStringLiteral( "%1\n%2\n%3\n%4" ).arg( errorMessage, httpErrorMessage, mPayload ).arg( reply->errorString() ) );
+  }
+
+  // strip HTML tags
+  QTextDocument doc;
+  doc.setHtml( errorMessage );
+  errorMessage = doc.toPlainText();
+
+  mMessage = errorMessage;
 }
