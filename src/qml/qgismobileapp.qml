@@ -1705,12 +1705,31 @@ ApplicationWindow {
 
     MenuItem {
       id: setDestinationItem
-      text: qsTr( "Set As Destination" )
+      text: qsTr( "Set Coordinates as Destination" )
       height: 48
       font: Theme.defaultFont
 
       onTriggered: {
         navigation.destination = canvasMenu.point
+      }
+    }
+
+    MenuItem {
+      id: copyCoordinatesItem
+      text: qsTr( "Copy Coordinates" )
+      height: 48
+      font: Theme.defaultFont
+
+      onTriggered: {
+        var coordinates = ''
+        if (mapCanvas.mapSettings.destinationCrs.isGeographic) {
+          coordinates = qsTr( 'Lon' ) + ' ' +  canvasMenu.point.x.toFixed(5) + ', ' + qsTr( 'Lat' ) + ' ' + canvasMenu.point.y.toFixed(5)
+        } else {
+          coordinates = qsTr( 'X' ) + ' ' +  canvasMenu.point.x.toFixed(2) + ', ' + qsTr( 'Y' ) + ' ' + canvasMenu.point.y.toFixed(2)
+        }
+
+        platformUtilities.copyTextToClipboard(coordinates)
+        displayToast(qsTr('Coordinates copied to clipboard'));
       }
     }
   }
@@ -1818,6 +1837,34 @@ ApplicationWindow {
 
       onTriggered: {
         mapCanvas.mapSettings.setCenter(positionSource.projectedPosition)
+      }
+    }
+
+    MenuItem {
+      text: qsTr( "Copy Current Location" )
+      height: 48
+      font: Theme.defaultFont
+
+      onTriggered: {
+        if (!positioningSettings.positioningActivated || positionSource.positionInfo === undefined || !positionSource.positionInfo.latitudeValid) {
+          displayToast(qsTr('Current location unknown'));
+          return;
+        }
+
+        var coordinates = ''
+        var point = positionSource.projectedPosition
+        if (mapCanvas.mapSettings.destinationCrs.isGeographic) {
+          coordinates = qsTr( 'Lon' ) + ' ' +  point.x.toFixed(7) + ', ' + qsTr( 'Lat' ) + ' ' + point.y.toFixed(7)
+        } else {
+          coordinates = qsTr( 'X' ) + ' ' +  point.x.toFixed(3) + ', ' + qsTr( 'Y' ) + ' ' + point.y.toFixed(3)
+        }
+        coordinates += ' ('+ qsTr('Accuracy') + ' ' +
+                       ( positionSource.positionInfo && positionSource.positionInfo.haccValid
+                         ? positionSource.positionInfo.hacc.toLocaleString(Qt.locale(), 'f', 3) + " m"
+                         : qsTr( "N/A" ) ) + ')'
+
+        platformUtilities.copyTextToClipboard(coordinates)
+        displayToast(qsTr('Current location copied to clipboard'));
       }
     }
   }

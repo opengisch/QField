@@ -143,6 +143,11 @@ class QFIELD_CORE_EXPORT PlatformUtilities : public QObject
      */
     Q_INVOKABLE virtual void restoreBrightness() { return; };
 
+    /**
+     * Copies a text \a string to the system clipboard.
+     */
+    Q_INVOKABLE virtual void copyTextToClipboard( const QString &string ) const;
+
     static PlatformUtilities *instance();
 };
 #endif // PLATFORMUTILITIES_H

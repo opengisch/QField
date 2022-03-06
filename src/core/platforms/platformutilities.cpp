@@ -22,6 +22,7 @@
 #include "qgismobileapp.h"
 #include "qgsmessagelog.h"
 
+#include <QClipboard>
 #include <QDebug>
 #include <QDesktopServices>
 #include <QDir>
@@ -180,6 +181,12 @@ bool PlatformUtilities::checkCameraPermissions() const
 bool PlatformUtilities::checkWriteExternalStoragePermissions() const
 {
   return true;
+}
+
+void PlatformUtilities::copyTextToClipboard( const QString &string ) const
+{
+  QClipboard *clipboard = QGuiApplication::clipboard();
+  clipboard->setText( string );
 }
 
 PlatformUtilities *PlatformUtilities::instance()
