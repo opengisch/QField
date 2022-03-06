@@ -80,7 +80,7 @@ Item {
         id: loginFeedbackLabel
         Layout.fillWidth: true
         visible: false
-        text: qsTr( "Failed to login" )
+        text: qsTr( "Failed to sign in" )
         horizontalAlignment: Text.AlignHCenter
         font: Theme.defaultFont
         color: Theme.errorColor
@@ -227,7 +227,7 @@ Item {
 
       QfButton {
         Layout.fillWidth: true
-        text: cloudConnection.status == QFieldCloudConnection.LoggedIn ? qsTr( "Logout" ) : cloudConnection.status == QFieldCloudConnection.Connecting ? qsTr( "Logging in, please wait" ) : qsTr( "Login" )
+        text: cloudConnection.status == QFieldCloudConnection.LoggedIn ? qsTr( "Sign out" ) : cloudConnection.status == QFieldCloudConnection.Connecting ? qsTr( "Signing in, please wait" ) : qsTr( "Sign in" )
         enabled: cloudConnection.status != QFieldCloudConnection.Connecting
 
         onClicked: loginFormSumbitHandler()
