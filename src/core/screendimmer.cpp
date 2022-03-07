@@ -66,7 +66,8 @@ void ScreenDimmer::setSuspend( bool suspend )
 
 bool ScreenDimmer::eventFilter( QObject *obj, QEvent *event )
 {
-  if ( event->type() == QEvent::KeyPress || event->type() == QEvent::MouseButtonPress || event->type() == QEvent::TouchBegin || event->type() == QEvent::InputMethod )
+  const QEvent::Type type = event->type();
+  if ( type == QEvent::KeyPress || type == QEvent::MouseMove || type == QEvent::MouseButtonPress || type == QEvent::TabletMove || type == QEvent::TabletPress || type == QEvent::TouchBegin || type == QEvent::TouchUpdate || type == QEvent::InputMethod || type == QEvent::Wheel )
   {
     if ( mActive && !mSuspend )
       mTimer.start();
