@@ -348,8 +348,6 @@ class QFieldCloudProjectsModel : public QAbstractListModel
         QString id;
         QString projectId;
         JobType type;
-        QNetworkReply::NetworkError replyError;
-        QString errorString;
         JobStatus status = JobPendingStatus;
     };
 

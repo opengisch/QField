@@ -19,6 +19,7 @@
 #include "networkmanager.h"
 #include "networkreply.h"
 
+#include <QJsonDocument>
 #include <QObject>
 #include <QVariantMap>
 
@@ -60,6 +61,24 @@ class QFieldCloudConnection : public QObject
       Busy
     };
     Q_ENUM( ConnectionState )
+
+    class CloudError
+    {
+      public:
+        explicit CloudError( QNetworkReply *reply );
+
+        QString message() const { return mMessage; }
+        QString qfcCode() const { return mQfcCode; }
+
+      private:
+        int mHttpCode = 0;
+        QString mMessage;
+        QString mPayload;
+        QString mQfcCode;
+        QJsonDocument mJson;
+        QJsonParseError mJsonError;
+        QNetworkReply::NetworkError mError;
+    };
 
     QFieldCloudConnection();
 
