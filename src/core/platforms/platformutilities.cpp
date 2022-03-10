@@ -79,15 +79,22 @@ QString PlatformUtilities::qfieldAppDataDir() const
 
 QStringList PlatformUtilities::availableGrids() const
 {
+  QStringList dataDirs;
   if ( !qfieldDataDir().isEmpty() )
+    dataDirs << qfieldDataDir();
+  if ( !qfieldAppDataDir().isEmpty() )
+    dataDirs << qfieldAppDataDir();
+
+  QStringList grids;
+  for ( const QString &dataDir : dataDirs )
   {
-    QDir gridsDir( qfieldDataDir() + "proj/" );
+    QDir gridsDir( dataDir + "proj/" );
     if ( gridsDir.exists() )
     {
-      return gridsDir.entryList( QStringList() << QStringLiteral( "*.tif" ) << QStringLiteral( "*.gtx" ) << QStringLiteral( "*.gsb" ) << QStringLiteral( "*.byn" ) );
+      grids << gridsDir.entryList( QStringList() << QStringLiteral( "*.tif" ) << QStringLiteral( "*.gtx" ) << QStringLiteral( "*.gsb" ) << QStringLiteral( "*.byn" ) );
     }
   }
-  return QStringList();
+  return grids;
 }
 
 bool PlatformUtilities::createDir( const QString &path, const QString &dirname ) const
