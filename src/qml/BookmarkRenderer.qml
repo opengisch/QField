@@ -1,4 +1,5 @@
 import QtQuick 2.12
+import QtQuick.Shapes 1.12
 import QtGraphicalEffects 1.0
 
 import org.qgis 1.0
@@ -38,55 +39,84 @@ Item {
             model: geometryWrapper.pointList()
 
             Item {
-                Image {
+                property CoordinateTransformer ct: CoordinateTransformer {
+                    id: _ct
+                    sourceCrs: geometryWrapper.crs
+                    sourcePosition: modelData
+                    destinationCrs: mapCanvas.mapSettings.destinationCrs
+                    transformContext: qgisProject.transformContext
+                }
+
+                MapToScreen {
+                    id: mapToScreenPosition
+                    mapSettings: mapCanvas.mapSettings
+                    mapPoint: _ct.projectedPosition
+                }
+
+                Shape {
                     id: bookmark
-
-                    property CoordinateTransformer ct: CoordinateTransformer {
-                        id: _ct
-                        sourceCrs: geometryWrapper.crs
-                        sourcePosition: modelData
-                        destinationCrs: mapCanvas.mapSettings.destinationCrs
-                        transformContext: qgisProject.transformContext
-                    }
-
-                    MapToScreen {
-                        id: mapToScreenPosition
-                        mapSettings: mapCanvas.mapSettings
-                        mapPoint: _ct.projectedPosition
-                    }
 
                     x: mapToScreenPosition.screenPoint.x - width/2
                     y: mapToScreenPosition.screenPoint.y - height
 
                     width: 36
                     height: 36
-                    source: Theme.getThemeVectorIcon("ic_place_white_24dp")
-                    sourceSize.width: 36 * screen.devicePixelRatio
-                    sourceSize.height: 36 * screen.devicePixelRatio
 
-                    ColorOverlay {
-                        anchors.fill: bookmark
-                        source: bookmark
-                        color: Theme.mainColor
+                    ShapePath {
+                        strokeWidth: 3
+                        strokeColor: "white"
+                        strokeStyle: ShapePath.SolidLine
+                        fillColor: Theme.mainColor
+                        startX: 6
+                        startY: 16
+                        PathArc {
+                            x: 30
+                            y: 16
+                            radiusX: 12
+                            radiusY: 14
+                        }
+                        PathArc {
+                            x: 18
+                            y: 36
+                            radiusX: 36
+                            radiusY: 36
+                        }
+                        PathArc{
+                            x: 6
+                            y: 16
+                            radiusX: 36
+                            radiusY: 36
+                        }
                     }
 
-                    MouseArea {
-                        anchors.fill: bookmark
-                        onClicked: {
-                            displayToast(qsTr('Bookmark: %1').arg(bookmarkRenderer.bookmarkName));
-                        }
-                        onDoubleClicked: {
-                            bookmarkModel.setExtentFromBookmark(bookmarkModel.index(bookmarkRenderer.bookmarkIndex, 0));
-                        }
+                    Rectangle {
+                        x: 13
+                        y: 9
+                        width: 10
+                        height: 10
+                        color: "white"
+                        radius: 4
+                    }
+
+                    layer.enabled: true
+                    layer.effect: DropShadow {
+                        transparentBorder: true
+                        radius: 8
+                        samples: 25
+                        color: "#99000000"
+                        horizontalOffset: 0
+                        verticalOffset: 0
                     }
                 }
 
-                Glow {
+                MouseArea {
                     anchors.fill: bookmark
-                    source: bookmark
-                    radius: 7
-                    samples: 17
-                    color: "#44000000"
+                    onClicked: {
+                        displayToast(qsTr('Bookmark: %1').arg(bookmarkRenderer.bookmarkName));
+                    }
+                    onDoubleClicked: {
+                        bookmarkModel.setExtentFromBookmark(bookmarkModel.index(bookmarkRenderer.bookmarkIndex, 0));
+                    }
                 }
             }
         }
