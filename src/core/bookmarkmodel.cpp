@@ -23,7 +23,7 @@
 
 BookmarkModel::BookmarkModel( QgsBookmarkManager *manager, QgsBookmarkManager *projectManager, QObject *parent )
   : QSortFilterProxyModel( parent )
-  , mModel( std::make_unique<QgsBookmarkManagerModel>( manager, projectManager, this ) )
+  , mModel( new QgsBookmarkManagerModel( manager, projectManager, this ) )
   , mManager( manager )
 {
   setSourceModel( mModel.get() );

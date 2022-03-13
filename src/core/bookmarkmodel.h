@@ -22,6 +22,7 @@
 
 #include <qgsbookmarkmanager.h>
 #include <qgsbookmarkmodel.h>
+#include <qobjectuniqueptr.h>
 
 class BookmarkModel : public QSortFilterProxyModel
 {
@@ -63,7 +64,7 @@ class BookmarkModel : public QSortFilterProxyModel
     void mapSettingsChanged();
 
   private:
-    std::unique_ptr<QgsBookmarkManagerModel> mModel = nullptr;
+    QObjectUniquePtr<QgsBookmarkManagerModel> mModel;
     QgsBookmarkManager *mManager = nullptr;
     QgsQuickMapSettings *mMapSettings = nullptr;
 };
