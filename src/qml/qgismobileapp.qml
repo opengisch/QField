@@ -1714,10 +1714,12 @@ ApplicationWindow {
 
       onTriggered: {
         var name = qsTr('Untitled bookmark');
-        var id = bookmarkModel.addBookmarkAtPoint(canvasMenu.point);
+        var group = ''
+        var id = bookmarkModel.addBookmarkAtPoint(canvasMenu.point, group);
         if (id !== '') {
           bookmarkProperties.bookmarkId = id;
           bookmarkProperties.bookmarkName = qsTr('Untitled bookmark');
+          bookmarkProperties.bookmarkGroup = group;
           bookmarkProperties.open();
         }
       }
@@ -1872,10 +1874,12 @@ ApplicationWindow {
         }
 
         var name = qsTr('My location') + ' (' + new Date().toLocaleString() + ')';
-        var id = bookmarkModel.addBookmarkAtPoint(positionSource.projectedPosition, name)
+        var group = 'blue';
+        var id = bookmarkModel.addBookmarkAtPoint(positionSource.projectedPosition, name, group)
         if (id !== '') {
           bookmarkProperties.bookmarkId = id;
           bookmarkProperties.bookmarkName = name;
+          bookmarkProperties.bookmarkGroup = group;
           bookmarkProperties.open();
         }
       }

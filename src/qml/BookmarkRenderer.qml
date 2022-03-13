@@ -13,6 +13,7 @@ Item {
     property var bookmarkIndex: undefined
     property string bookmarkId: ''
     property string bookmarkName: ''
+    property string bookmarkGroup: ''
     property bool bookmarkUser: false
 
     property MapSettings mapSettings
@@ -67,7 +68,19 @@ Item {
                         strokeWidth: 3
                         strokeColor: "white"
                         strokeStyle: ShapePath.SolidLine
-                        fillColor: Theme.mainColor
+                        fillColor: {
+                            switch (bookmarkRenderer.bookmarkGroup) {
+                                case 'red':
+                                    return Theme.bookmarkRed;
+                                case 'orange':
+                                    return Theme.bookmarkOrange;
+                                case 'blue':
+                                    return Theme.bookmarkBlue;
+                                default:
+                                    return Theme.bookmarkDefault;
+                            }
+                        }
+
                         startX: 6
                         startY: 16
                         PathArc {
@@ -122,6 +135,7 @@ Item {
                         if (bookmarkRenderer.bookmarkUser) {
                             bookmarkProperties.bookmarkId = bookmarkRenderer.bookmarkId;
                             bookmarkProperties.bookmarkName = bookmarkRenderer.bookmarkName;
+                            bookmarkProperties.bookmarkGroup = bookmarkRenderer.bookmarkGroup;
                             bookmarkProperties.open();
                         } else {
                             displayToast(qsTr('Project bookmarks cannot be edited'))

@@ -12,6 +12,8 @@ Popup {
 
     property string bookmarkId: ''
     property string bookmarkName: ''
+    property string bookmarkGroup: ''
+
 
     width: Math.min(350, mainWindow.width - 20 )
     x: (parent.width - width) / 2
@@ -20,6 +22,7 @@ Popup {
 
     onAboutToShow: {
         nameField.text = bookmarkName;
+        groupField.value = bookmarkGroup;
     }
 
     Page {
@@ -61,20 +64,99 @@ Popup {
                 }
             }
 
+            Label {
+                Layout.fillWidth: true
+                text: qsTr('Color')
+                font: Theme.defaultFont
+            }
+
+            RowLayout {
+                id: groupField
+                spacing: 8
+                Layout.fillWidth: true
+
+                property int iconSize: 24
+                property string value: ''
+
+                Rectangle {
+                    id: defaultColor
+                    Layout.alignment: Qt.AlignVCenter
+                    width: groupField.iconSize
+                    height: groupField.iconSize
+                    color: Theme.bookmarkDefault
+                    border.width: 4
+                    border.color: groupField.value != 'orange' &&
+                                  groupField.value != 'red' &&
+                                  groupField.value != 'blue' ? "black" : "transparent"
+                    radius: 2
+
+                    MouseArea {
+                        anchors.fill: parent
+                        onClicked: groupField.value = '';
+                    }
+                }
+                Rectangle {
+                    id: orangeColor
+                    width: groupField.iconSize
+                    height: groupField.iconSize
+                    color: Theme.bookmarkOrange
+                    border.width: 4
+                    border.color: groupField.value === 'orange' ? "black" : "transparent"
+                    radius: 2
+
+                    MouseArea {
+                        anchors.fill: parent
+                        onClicked: groupField.value = 'orange';
+                    }
+                }
+                Rectangle {
+                    id: redColor
+                    width: groupField.iconSize
+                    height: groupField.iconSize
+                    color: Theme.bookmarkRed
+                    border.width: 4
+                    border.color: groupField.value === 'red' ? "black" : "transparent"
+                    radius: 2
+
+                    MouseArea {
+                        anchors.fill: parent
+                        onClicked: groupField.value = 'red';
+                    }
+                }
+                Rectangle {
+                    id: blueColor
+                    width: groupField.iconSize
+                    height: groupField.iconSize
+                    color: Theme.bookmarkBlue
+                    border.width: 4
+                    border.color: groupField.value === 'blue' ? "black" : "transparent"
+                    radius: 2
+
+                    MouseArea {
+                        anchors.fill: parent
+                        onClicked: groupField.value = 'blue';
+                    }
+                }
+                Item {
+                    Layout.fillWidth: true
+                }
+            }
+
             QfButton {
                 id: updateBookmarkButton
-                Layout.fillWidth: true;
+                Layout.fillWidth: true
+                Layout.topMargin: 10
                 text: 'Update bookmark details'
 
                 onClicked: {
-                    bookmarkModel.updateBookmarkDetails(bookmarkProperties.bookmarkId, nameField.text)
+                    bookmarkModel.updateBookmarkDetails(bookmarkProperties.bookmarkId, nameField.text, groupField.value)
                     bookmarkProperties.close();
                 }
             }
 
             QfButton {
                 id: deleteBookmarkButton
-                Layout.fillWidth: true;
+                Layout.fillWidth: true
                 text: 'Remove bookmark'
 
                 onClicked: {

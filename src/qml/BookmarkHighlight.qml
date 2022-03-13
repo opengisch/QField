@@ -19,6 +19,7 @@ Repeater {
     bookmarkIndex: model.index
     bookmarkId: model.BookmarkId
     bookmarkName: model.BookmarkName
+    bookmarkGroup: model.BookmarkGroup
     bookmarkUser: model.BookmarkUser
   }
 }

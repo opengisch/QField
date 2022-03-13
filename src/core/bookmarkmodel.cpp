@@ -43,6 +43,9 @@ QVariant BookmarkModel::data( const QModelIndex &index, int role ) const
     case BookmarkModel::BookmarkName:
       return mModel->data( sourceIndex, QgsBookmarkManagerModel::RoleName );
 
+    case BookmarkModel::BookmarkGroup:
+      return mModel->data( sourceIndex, QgsBookmarkManagerModel::RoleGroup );
+
     case BookmarkModel::BookmarkPoint:
     {
       QgsReferencedRectangle rect = mModel->data( sourceIndex, QgsBookmarkManagerModel::RoleExtent ).value<QgsReferencedRectangle>();
@@ -70,6 +73,7 @@ QHash<int, QByteArray> BookmarkModel::roleNames() const
   QHash<int, QByteArray> roleNames = QAbstractProxyModel::roleNames();
   roleNames[BookmarkModel::BookmarkId] = "BookmarkId";
   roleNames[BookmarkModel::BookmarkName] = "BookmarkName";
+  roleNames[BookmarkModel::BookmarkGroup] = "BookmarkGroup";
   roleNames[BookmarkModel::BookmarkPoint] = "BookmarkPoint";
   roleNames[BookmarkModel::BookmarkCrs] = "BookmarkCrs";
   roleNames[BookmarkModel::BookmarkUser] = "BookmarkUser";
@@ -114,7 +118,7 @@ void BookmarkModel::setExtentFromBookmark( const QModelIndex &index )
   mMapSettings->setExtent( transformedRect );
 }
 
-QString BookmarkModel::addBookmarkAtPoint( QgsPoint point, QString name )
+QString BookmarkModel::addBookmarkAtPoint( QgsPoint point, QString name, QString group )
 {
   if ( !mMapSettings )
     return QString();
@@ -133,13 +137,15 @@ QString BookmarkModel::addBookmarkAtPoint( QgsPoint point, QString name )
   QgsBookmark bookmark;
   bookmark.setExtent( QgsReferencedRectangle( extent, mMapSettings->destinationCrs() ) );
   bookmark.setName( name );
+  bookmark.setGroup( group );
   return mManager->addBookmark( bookmark );
 }
 
-void BookmarkModel::updateBookmarkDetails( QString id, QString name )
+void BookmarkModel::updateBookmarkDetails( QString id, QString name, QString group )
 {
   QgsBookmark bookmark = mManager->bookmarkById( id );
   bookmark.setName( name );
+  bookmark.setGroup( group );
   mManager->updateBookmark( bookmark );
 }
 

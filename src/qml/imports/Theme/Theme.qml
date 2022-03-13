@@ -25,6 +25,11 @@ QtObject {
     property color navigationColorSemiOpaque: "#77984ea3"
     property color navigationBackgroundColor: "#e2d7e4"
 
+    property color bookmarkDefault: "#80cc28"
+    property color bookmarkOrange: "orange"
+    property color bookmarkRed: "#c0392b"
+    property color bookmarkBlue: "#64b5f6"
+
     property font defaultFont
     defaultFont.pointSize: 16
     defaultFont.weight: Font.Normal

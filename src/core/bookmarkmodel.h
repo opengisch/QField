@@ -34,6 +34,7 @@ class BookmarkModel : public QSortFilterProxyModel
     {
       BookmarkId = Qt::UserRole + 1,
       BookmarkName,
+      BookmarkGroup,
       BookmarkPoint,
       BookmarkCrs,
       BookmarkUser,
@@ -48,9 +49,9 @@ class BookmarkModel : public QSortFilterProxyModel
 
     Q_INVOKABLE void setExtentFromBookmark( const QModelIndex &index );
 
-    Q_INVOKABLE QString addBookmarkAtPoint( QgsPoint point, QString name = QString() );
+    Q_INVOKABLE QString addBookmarkAtPoint( QgsPoint point, QString name = QString(), QString group = QString() );
 
-    Q_INVOKABLE void updateBookmarkDetails( QString id, QString name );
+    Q_INVOKABLE void updateBookmarkDetails( QString id, QString name, QString group );
 
     Q_INVOKABLE void removeBookmark( QString id );
 
