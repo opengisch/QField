@@ -23,7 +23,6 @@
 
 // QGIS includes
 #include <qgsapplication.h>
-#include <qgsbookmarkmanager.h>
 #include <qgsconfig.h>
 #include <qgsexiftools.h>
 #include <qgsmaplayerproxymodel.h>
@@ -185,7 +184,6 @@ class QFIELD_CORE_EXPORT QgisMobileapp : public QQmlApplicationEngine
     std::unique_ptr<LayerObserver> mLayerObserver;
     QFieldAppAuthRequestHandler *mAuthRequestHandler = nullptr;
 
-    std::unique_ptr<QgsBookmarkManager> mBookmarkManager;
     std::unique_ptr<BookmarkModel> mBookmarkModel;
 
     // Dummy objects. We are not able to call static functions from QML, so we need something here.
