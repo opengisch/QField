@@ -37,6 +37,32 @@ Popup {
         }
     }
 
+    Timer {
+        id: changeCalendarTimer
+        interval: 700
+        repeat: true
+
+        property string action: ''
+
+        onTriggered: {
+          switch(action) {
+              case 'decreaseYear':
+                  calendar.decreaseYear();
+                  break;
+              case 'decreaseMonth':
+                  calendar.decreaseMonth();
+                  break;
+              case 'increaseYear':
+                  calendar.increaseYear();
+                  break;
+              case 'increaseMonth':
+                  calendar.increaseMonth();
+                  break;
+          }
+          if ( interval > 100 ) interval = interval * 0.8;
+        }
+    }
+
     ColumnLayout {
         Rectangle {
             id: calendarOverlay
@@ -66,8 +92,17 @@ Popup {
                         bgcolor: "transparent"
                         roundborder: true
 
-                        onClicked: {
-                            calendar.year -= 1;
+                        onPressed: {
+                            calendar.decreaseYear();
+                            changeCalendarTimer.action = 'decreaseYear';
+                            changeCalendarTimer.interval = 700;
+                            changeCalendarTimer.restart();
+                        }
+                        onReleased: {
+                            changeCalendarTimer.stop()
+                        }
+                        onCanceled: {
+                            changeCalendarTimer.stop()
                         }
                     }
 
@@ -77,13 +112,17 @@ Popup {
                         bgcolor: "transparent"
                         roundborder: true
 
-                        onClicked: {
-                            if (calendar.month !== Calendar.January) {
-                                calendar.month -= 1;
-                            } else {
-                                calendar.year -= 1;
-                                calendar.month = Calendar.December;
-                            }
+                        onPressed: {
+                            calendar.decreaseMonth();
+                            changeCalendarTimer.action = 'decreaseMonth';
+                            changeCalendarTimer.interval = 700;
+                            changeCalendarTimer.restart();
+                        }
+                        onReleased: {
+                            changeCalendarTimer.stop()
+                        }
+                        onCanceled: {
+                            changeCalendarTimer.stop()
                         }
                     }
                 }
@@ -107,13 +146,17 @@ Popup {
                         bgcolor: "transparent"
                         roundborder: true
 
-                        onClicked: {
-                            if (calendar.month != Calendar.December) {
-                                calendar.month += 1;
-                            } else {
-                                calendar.month = Calendar.January
-                                calendar.year += 1;
-                            }
+                        onPressed: {
+                            calendar.increaseMonth();
+                            changeCalendarTimer.action = 'increaseMonth';
+                            changeCalendarTimer.interval = 700;
+                            changeCalendarTimer.restart();
+                        }
+                        onReleased: {
+                            changeCalendarTimer.stop()
+                        }
+                        onCanceled: {
+                            changeCalendarTimer.stop()
                         }
                     }
                     QfToolButton {
@@ -122,8 +165,17 @@ Popup {
                         bgcolor: "transparent"
                         roundborder: true
 
-                        onClicked: {
-                            calendar.year += 1;
+                        onPressed: {
+                            calendar.increaseYear();
+                            changeCalendarTimer.action = 'increaseYear';
+                            changeCalendarTimer.interval = 700;
+                            changeCalendarTimer.restart();
+                        }
+                        onReleased: {
+                            changeCalendarTimer.stop()
+                        }
+                        onCanceled: {
+                            changeCalendarTimer.stop()
                         }
                     }
                 }
@@ -139,6 +191,29 @@ Popup {
 
                 MonthGrid {
                     id: calendar
+
+                    function decreaseYear() {
+                        year -= 1;
+                    }
+                    function increaseYear() {
+                        year += 1;
+                    }
+                    function decreaseMonth() {
+                        if (month !== Calendar.January) {
+                            month -= 1;
+                        } else {
+                            year -= 1;
+                            month = Calendar.December;
+                        }
+                    }
+                    function increaseMonth() {
+                        if (month != Calendar.December) {
+                            month += 1;
+                        } else {
+                            month = Calendar.January
+                            year += 1;
+                        }
+                    }
 
                     month: Calendar.January
                     year: 2020
