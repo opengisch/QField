@@ -231,9 +231,7 @@ QgisMobileapp::QgisMobileapp( QgsApplication *app, QObject *parent )
   mLegendImageProvider = new LegendImageProvider( mFlatLayerTree->layerTreeModel() );
   mTrackingModel = new TrackingModel;
 
-  mBookmarkManager = std::make_unique<QgsBookmarkManager>( nullptr );
-  mBookmarkManager->initialize( QgsApplication::qgisSettingsDirPath() + "/bookmarks.xml" );
-  mBookmarkModel = std::make_unique<BookmarkModel>( mBookmarkManager.get(), mProject->bookmarkManager(), nullptr );
+  mBookmarkModel = std::make_unique<BookmarkModel>( QgsApplication::bookmarkManager(), mProject->bookmarkManager(), nullptr );
 
   // Transition from 1.8 to 1.8.1+
   const QString deviceAddress = settings.value( QStringLiteral( "positioningDevice" ), QString() ).toString();
