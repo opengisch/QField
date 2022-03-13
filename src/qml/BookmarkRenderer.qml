@@ -58,16 +58,17 @@ Item {
                 Shape {
                     id: bookmark
 
-                    x: mapToScreenPosition.screenPoint.x - width/2
-                    y: mapToScreenPosition.screenPoint.y - height
+                    x: mapToScreenPosition.screenPoint.x - width / 2
+                    y: mapToScreenPosition.screenPoint.y - height + 4
 
                     width: 36
-                    height: 36
+                    height: 40
 
                     ShapePath {
                         strokeWidth: 3
                         strokeColor: "white"
                         strokeStyle: ShapePath.SolidLine
+                        joinStyle: ShapePath.MiterJoin
                         fillColor: {
                             switch (bookmarkRenderer.bookmarkGroup) {
                                 case 'red':
@@ -113,6 +114,7 @@ Item {
                     }
 
                     layer.enabled: true
+                    layer.samples: 4
                     layer.effect: DropShadow {
                         transparentBorder: true
                         radius: 8
