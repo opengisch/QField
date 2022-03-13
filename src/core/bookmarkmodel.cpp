@@ -118,7 +118,7 @@ void BookmarkModel::setExtentFromBookmark( const QModelIndex &index )
   mMapSettings->setExtent( transformedRect );
 }
 
-QString BookmarkModel::addBookmarkAtPoint( QgsPoint point, QString name, QString group )
+QString BookmarkModel::addBookmarkAtPoint( QgsPoint point, const QString &name, const QString &group )
 {
   if ( !mMapSettings )
     return QString();
@@ -141,7 +141,7 @@ QString BookmarkModel::addBookmarkAtPoint( QgsPoint point, QString name, QString
   return mManager->addBookmark( bookmark );
 }
 
-void BookmarkModel::updateBookmarkDetails( QString id, QString name, QString group )
+void BookmarkModel::updateBookmarkDetails( const QString &id, const QString &name, const QString &group )
 {
   QgsBookmark bookmark = mManager->bookmarkById( id );
   bookmark.setName( name );
@@ -149,7 +149,7 @@ void BookmarkModel::updateBookmarkDetails( QString id, QString name, QString gro
   mManager->updateBookmark( bookmark );
 }
 
-void BookmarkModel::removeBookmark( QString id )
+void BookmarkModel::removeBookmark( const QString &id )
 {
   mManager->removeBookmark( id );
 }

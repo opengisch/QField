@@ -50,11 +50,11 @@ class BookmarkModel : public QSortFilterProxyModel
 
     Q_INVOKABLE void setExtentFromBookmark( const QModelIndex &index );
 
-    Q_INVOKABLE QString addBookmarkAtPoint( QgsPoint point, QString name = QString(), QString group = QString() );
+    Q_INVOKABLE QString addBookmarkAtPoint( QgsPoint point, const QString &name = QString(), const QString &group = QString() );
 
-    Q_INVOKABLE void updateBookmarkDetails( QString id, QString name, QString group );
+    Q_INVOKABLE void updateBookmarkDetails( const QString &id, const QString &name, const QString &group );
 
-    Q_INVOKABLE void removeBookmark( QString id );
+    Q_INVOKABLE void removeBookmark( const QString &id );
 
     void setMapSettings( QgsQuickMapSettings *mapSettings );
 
