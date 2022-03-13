@@ -11,8 +11,9 @@ Item {
     id: bookmarkRenderer
 
     property var bookmarkIndex: undefined
-    property string bookmarkName: ''
     property string bookmarkId: ''
+    property string bookmarkName: ''
+    property bool bookmarkUser: false
 
     property MapSettings mapSettings
     property alias geometryWrapper: geometryWrapper
@@ -118,9 +119,13 @@ Item {
                         bookmarkModel.setExtentFromBookmark(bookmarkModel.index(bookmarkRenderer.bookmarkIndex, 0));
                     }
                     onPressAndHold: {
-                        bookmarkProperties.bookmarkId = bookmarkRenderer.bookmarkId;
-                        bookmarkProperties.bookmarkName = bookmarkRenderer.bookmarkName;
-                        bookmarkProperties.open();
+                        if (bookmarkRenderer.bookmarkUser) {
+                            bookmarkProperties.bookmarkId = bookmarkRenderer.bookmarkId;
+                            bookmarkProperties.bookmarkName = bookmarkRenderer.bookmarkName;
+                            bookmarkProperties.open();
+                        } else {
+                            displayToast(qsTr('Project bookmarks cannot be edited'))
+                        }
                     }
                 }
             }

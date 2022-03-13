@@ -17,7 +17,8 @@ Repeater {
     geometryWrapper.crs: model.BookmarkCrs
 
     bookmarkIndex: model.index
-    bookmarkName: model.BookmarkName
     bookmarkId: model.BookmarkId
+    bookmarkName: model.BookmarkName
+    bookmarkUser: model.BookmarkUser
   }
 }

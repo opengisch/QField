@@ -36,6 +36,7 @@ class BookmarkModel : public QSortFilterProxyModel
       BookmarkName,
       BookmarkPoint,
       BookmarkCrs,
+      BookmarkUser,
     };
     Q_ENUM( Roles )
 

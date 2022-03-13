@@ -55,6 +55,11 @@ QVariant BookmarkModel::data( const QModelIndex &index, int role ) const
       QgsReferencedRectangle rect = mModel->data( sourceIndex, QgsBookmarkManagerModel::RoleExtent ).value<QgsReferencedRectangle>();
       return rect.crs();
     }
+
+    case BookmarkModel::BookmarkUser:
+    {
+      return mModel->data( mModel->index( sourceIndex.row(), QgsBookmarkManagerModel::ColumnStore ), Qt::CheckStateRole ).value<Qt::CheckState>() != Qt::Checked;
+    }
   }
 
   return QVariant();
@@ -67,6 +72,7 @@ QHash<int, QByteArray> BookmarkModel::roleNames() const
   roleNames[BookmarkModel::BookmarkName] = "BookmarkName";
   roleNames[BookmarkModel::BookmarkPoint] = "BookmarkPoint";
   roleNames[BookmarkModel::BookmarkCrs] = "BookmarkCrs";
+  roleNames[BookmarkModel::BookmarkUser] = "BookmarkUser";
   return roleNames;
 }
 
