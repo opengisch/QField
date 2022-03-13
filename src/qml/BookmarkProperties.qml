@@ -1,0 +1,111 @@
+import QtQuick 2.12
+import QtQuick.Controls 2.12
+import QtQuick.Layouts 1.12
+
+import org.qgis 1.0
+import org.qfield 1.0
+
+import Theme 1.0
+
+Popup {
+    id: bookmarkProperties
+
+    property string bookmarkId: ''
+    property string bookmarkName: ''
+
+    width: Math.min(350, mainWindow.width - 20 )
+    x: (parent.width - width) / 2
+    y: (parent.height - height) / 2
+    padding: 0
+
+    onAboutToShow: {
+        nameField.text = bookmarkName;
+    }
+
+    Page {
+        width: parent.width
+        padding: 10
+        header: Label {
+            padding: 10
+            topPadding: 15
+            bottomPadding: 0
+            width: parent.width - 20
+            text: qsTr('Bookmark Properties')
+            font: Theme.strongFont
+            horizontalAlignment: Text.AlignHCenter
+            wrapMode: Text.WordWrap
+        }
+
+        ColumnLayout {
+            spacing: 4
+            width: parent.width
+
+            Label {
+                Layout.fillWidth: true
+                text: qsTr('Name')
+                font: Theme.defaultFont
+            }
+
+            TextField {
+                id: nameField
+                Layout.fillWidth: true
+                font: Theme.defaultFont
+                horizontalAlignment: TextInput.AlignHCenter
+                text: ''
+
+                background: Rectangle {
+                    y: nameField.height - height * 2 - nameField.bottomPadding / 2
+                    implicitWidth: 120
+                    height: nameField.activeFocus ? 2 : 1
+                    color: nameField.activeFocus ? "#4CAF50" : "#C8E6C9"
+                }
+            }
+
+            QfButton {
+                id: updateBookmarkButton
+                Layout.fillWidth: true;
+                text: 'Update bookmark details'
+
+                onClicked: {
+                    bookmarkModel.updateBookmarkDetails(bookmarkProperties.bookmarkId, nameField.text)
+                    bookmarkProperties.close();
+                }
+            }
+
+            QfButton {
+                id: deleteBookmarkButton
+                Layout.fillWidth: true;
+                text: 'Remove bookmark'
+
+                onClicked: {
+                    removeBookmarkDialog.open();
+                }
+            }
+        }
+    }
+
+    Dialog {
+        id: removeBookmarkDialog
+        parent: mainWindow.contentItem
+
+        visible: false
+        modal: true
+
+        z: 10000 // 1000s are embedded feature forms, user a higher value to insure the dialog will always show above embedded feature forms
+        x: ( mainWindow.width - width ) / 2
+        y: ( mainWindow.height - height ) / 2
+
+        title: qsTr( "Remove bookmark" )
+        Label {
+            width: parent.width
+            wrapMode: Text.WordWrap
+            text: qsTr( "You are about to remove a bookmark, proceed?" )
+        }
+
+        standardButtons: Dialog.Ok | Dialog.Cancel
+        onAccepted: {
+            bookmarkModel.removeBookmark(bookmarkProperties.bookmarkId);
+            bookmarkProperties.close();
+        }
+    }
+}

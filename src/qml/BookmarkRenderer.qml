@@ -117,6 +117,11 @@ Item {
                     onDoubleClicked: {
                         bookmarkModel.setExtentFromBookmark(bookmarkModel.index(bookmarkRenderer.bookmarkIndex, 0));
                     }
+                    onPressAndHold: {
+                        bookmarkProperties.bookmarkId = bookmarkRenderer.bookmarkId;
+                        bookmarkProperties.bookmarkName = bookmarkRenderer.bookmarkName;
+                        bookmarkProperties.open();
+                    }
                 }
             }
         }

@@ -47,6 +47,12 @@ class BookmarkModel : public QSortFilterProxyModel
 
     Q_INVOKABLE void setExtentFromBookmark( const QModelIndex &index );
 
+    Q_INVOKABLE QString addBookmarkAtPoint( QgsPoint point, QString name = QString() );
+
+    Q_INVOKABLE void updateBookmarkDetails( QString id, QString name );
+
+    Q_INVOKABLE void removeBookmark( QString id );
+
     void setMapSettings( QgsQuickMapSettings *mapSettings );
 
     QgsQuickMapSettings *mapSettings() const { return mMapSettings; }
@@ -56,6 +62,7 @@ class BookmarkModel : public QSortFilterProxyModel
 
   private:
     std::unique_ptr<QgsBookmarkManagerModel> mModel = nullptr;
+    QgsBookmarkManager *mManager = nullptr;
     QgsQuickMapSettings *mMapSettings = nullptr;
 };
 

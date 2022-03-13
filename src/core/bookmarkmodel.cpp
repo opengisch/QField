@@ -23,8 +23,9 @@
 
 BookmarkModel::BookmarkModel( QgsBookmarkManager *manager, QgsBookmarkManager *projectManager, QObject *parent )
   : QSortFilterProxyModel( parent )
+  , mModel( std::make_unique<QgsBookmarkManagerModel>( manager, projectManager, this ) )
+  , mManager( manager )
 {
-  mModel = std::make_unique<QgsBookmarkManagerModel>( manager, projectManager, this );
   setSourceModel( mModel.get() );
 }
 
@@ -105,4 +106,38 @@ void BookmarkModel::setExtentFromBookmark( const QModelIndex &index )
   }
 
   mMapSettings->setExtent( transformedRect );
+}
+
+QString BookmarkModel::addBookmarkAtPoint( QgsPoint point, QString name )
+{
+  if ( !mMapSettings )
+    return QString();
+
+  QgsRectangle extent = mMapSettings->extent();
+  const QgsPointXY center = extent.center();
+
+  const double xDiff = point.x() - center.x();
+  const double yDiff = point.y() - center.y();
+
+  extent.setXMinimum( extent.xMinimum() + xDiff );
+  extent.setXMaximum( extent.xMaximum() + xDiff );
+  extent.setYMinimum( extent.yMinimum() + yDiff );
+  extent.setYMaximum( extent.yMaximum() + yDiff );
+
+  QgsBookmark bookmark;
+  bookmark.setExtent( QgsReferencedRectangle( extent, mMapSettings->destinationCrs() ) );
+  bookmark.setName( name );
+  return mManager->addBookmark( bookmark );
+}
+
+void BookmarkModel::updateBookmarkDetails( QString id, QString name )
+{
+  QgsBookmark bookmark = mManager->bookmarkById( id );
+  bookmark.setName( name );
+  mManager->updateBookmark( bookmark );
+}
+
+void BookmarkModel::removeBookmark( QString id )
+{
+  mManager->removeBookmark( id );
 }
