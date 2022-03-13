@@ -53,7 +53,7 @@ Popup {
                 id: nameField
                 Layout.fillWidth: true
                 font: Theme.defaultFont
-                horizontalAlignment: TextInput.AlignHCenter
+                horizontalAlignment: TextInput.AlignHLeft
                 text: ''
 
                 background: Rectangle {
