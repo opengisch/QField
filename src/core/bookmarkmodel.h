@@ -22,6 +22,7 @@
 
 #include <qgsbookmarkmanager.h>
 #include <qgsbookmarkmodel.h>
+#include <qobjectuniqueptr.h>
 
 class BookmarkModel : public QSortFilterProxyModel
 {
@@ -34,8 +35,10 @@ class BookmarkModel : public QSortFilterProxyModel
     {
       BookmarkId = Qt::UserRole + 1,
       BookmarkName,
+      BookmarkGroup,
       BookmarkPoint,
       BookmarkCrs,
+      BookmarkUser,
     };
     Q_ENUM( Roles )
 
@@ -47,6 +50,12 @@ class BookmarkModel : public QSortFilterProxyModel
 
     Q_INVOKABLE void setExtentFromBookmark( const QModelIndex &index );
 
+    Q_INVOKABLE QString addBookmarkAtPoint( QgsPoint point, const QString &name = QString(), const QString &group = QString() );
+
+    Q_INVOKABLE void updateBookmarkDetails( const QString &id, const QString &name, const QString &group );
+
+    Q_INVOKABLE void removeBookmark( const QString &id );
+
     void setMapSettings( QgsQuickMapSettings *mapSettings );
 
     QgsQuickMapSettings *mapSettings() const { return mMapSettings; }
@@ -55,7 +64,8 @@ class BookmarkModel : public QSortFilterProxyModel
     void mapSettingsChanged();
 
   private:
-    std::unique_ptr<QgsBookmarkManagerModel> mModel = nullptr;
+    QObjectUniquePtr<QgsBookmarkManagerModel> mModel;
+    QgsBookmarkManager *mManager = nullptr;
     QgsQuickMapSettings *mMapSettings = nullptr;
 };
 

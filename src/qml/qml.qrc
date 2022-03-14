@@ -3,6 +3,7 @@
         <file>About.qml</file>
         <file>BadLayerItem.qml</file>
         <file>BookmarkHighlight.qml</file>
+        <file>BookmarkProperties.qml</file>
         <file>BookmarkRenderer.qml</file>
         <file>BrowserPanel.qml</file>
         <file>CalendarPanel.qml</file>

@@ -11,8 +11,10 @@ Item {
     id: bookmarkRenderer
 
     property var bookmarkIndex: undefined
-    property string bookmarkName: ''
     property string bookmarkId: ''
+    property string bookmarkName: ''
+    property string bookmarkGroup: ''
+    property bool bookmarkUser: false
 
     property MapSettings mapSettings
     property alias geometryWrapper: geometryWrapper
@@ -56,17 +58,30 @@ Item {
                 Shape {
                     id: bookmark
 
-                    x: mapToScreenPosition.screenPoint.x - width/2
-                    y: mapToScreenPosition.screenPoint.y - height
+                    x: mapToScreenPosition.screenPoint.x - width / 2
+                    y: mapToScreenPosition.screenPoint.y - height + 4
 
                     width: 36
-                    height: 36
+                    height: 40
 
                     ShapePath {
                         strokeWidth: 3
                         strokeColor: "white"
                         strokeStyle: ShapePath.SolidLine
-                        fillColor: Theme.mainColor
+                        joinStyle: ShapePath.MiterJoin
+                        fillColor: {
+                            switch (bookmarkRenderer.bookmarkGroup) {
+                                case 'red':
+                                    return Theme.bookmarkRed;
+                                case 'orange':
+                                    return Theme.bookmarkOrange;
+                                case 'blue':
+                                    return Theme.bookmarkBlue;
+                                default:
+                                    return Theme.bookmarkDefault;
+                            }
+                        }
+
                         startX: 6
                         startY: 16
                         PathArc {
@@ -99,6 +114,7 @@ Item {
                     }
 
                     layer.enabled: true
+                    layer.samples: 4
                     layer.effect: DropShadow {
                         transparentBorder: true
                         radius: 8
@@ -116,6 +132,16 @@ Item {
                     }
                     onDoubleClicked: {
                         bookmarkModel.setExtentFromBookmark(bookmarkModel.index(bookmarkRenderer.bookmarkIndex, 0));
+                    }
+                    onPressAndHold: {
+                        if (bookmarkRenderer.bookmarkUser) {
+                            bookmarkProperties.bookmarkId = bookmarkRenderer.bookmarkId;
+                            bookmarkProperties.bookmarkName = bookmarkRenderer.bookmarkName;
+                            bookmarkProperties.bookmarkGroup = bookmarkRenderer.bookmarkGroup;
+                            bookmarkProperties.open();
+                        } else {
+                            displayToast(qsTr('Project bookmarks cannot be edited'))
+                        }
                     }
                 }
             }

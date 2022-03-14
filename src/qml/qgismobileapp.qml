@@ -1410,6 +1410,9 @@ ApplicationWindow {
     }
   }
 
+  BookmarkProperties {
+    id: bookmarkProperties
+  }
 
   Menu {
     id: mainMenu
@@ -1704,6 +1707,25 @@ ApplicationWindow {
     MenuSeparator { width: parent.width }
 
     MenuItem {
+      id: addBookmarkItem
+      text: qsTr( "Add Bookmark at Coordinates" )
+      height: 48
+      font: Theme.defaultFont
+
+      onTriggered: {
+        var name = qsTr('Untitled bookmark');
+        var group = ''
+        var id = bookmarkModel.addBookmarkAtPoint(canvasMenu.point, name, group);
+        if (id !== '') {
+          bookmarkProperties.bookmarkId = id;
+          bookmarkProperties.bookmarkName = name;
+          bookmarkProperties.bookmarkGroup = group;
+          bookmarkProperties.open();
+        }
+      }
+    }
+
+    MenuItem {
       id: setDestinationItem
       text: qsTr( "Set Coordinates as Destination" )
       height: 48
@@ -1837,6 +1859,29 @@ ApplicationWindow {
 
       onTriggered: {
         mapCanvas.mapSettings.setCenter(positionSource.projectedPosition)
+      }
+    }
+
+    MenuItem {
+      text: qsTr( "Add Bookmark at Current Location" )
+      height: 48
+      font: Theme.defaultFont
+
+      onTriggered: {
+        if (!positioningSettings.positioningActivated || positionSource.positionInfo === undefined || !positionSource.positionInfo.latitudeValid) {
+          displayToast(qsTr('Current location unknown'));
+          return;
+        }
+
+        var name = qsTr('My location') + ' (' + new Date().toLocaleString() + ')';
+        var group = 'blue';
+        var id = bookmarkModel.addBookmarkAtPoint(positionSource.projectedPosition, name, group)
+        if (id !== '') {
+          bookmarkProperties.bookmarkId = id;
+          bookmarkProperties.bookmarkName = name;
+          bookmarkProperties.bookmarkGroup = group;
+          bookmarkProperties.open();
+        }
       }
     }
 
