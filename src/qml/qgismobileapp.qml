@@ -1715,10 +1715,10 @@ ApplicationWindow {
       onTriggered: {
         var name = qsTr('Untitled bookmark');
         var group = ''
-        var id = bookmarkModel.addBookmarkAtPoint(canvasMenu.point, group);
+        var id = bookmarkModel.addBookmarkAtPoint(canvasMenu.point, name, group);
         if (id !== '') {
           bookmarkProperties.bookmarkId = id;
-          bookmarkProperties.bookmarkName = qsTr('Untitled bookmark');
+          bookmarkProperties.bookmarkName = name;
           bookmarkProperties.bookmarkGroup = group;
           bookmarkProperties.open();
         }

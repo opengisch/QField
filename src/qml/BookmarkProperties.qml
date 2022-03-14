@@ -49,19 +49,11 @@ Popup {
                 font: Theme.defaultFont
             }
 
-            TextField {
+            QfTextField {
                 id: nameField
                 Layout.fillWidth: true
                 font: Theme.defaultFont
-                horizontalAlignment: TextInput.AlignHLeft
                 text: ''
-
-                background: Rectangle {
-                    y: nameField.height - height * 2 - nameField.bottomPadding / 2
-                    implicitWidth: 120
-                    height: nameField.activeFocus ? 2 : 1
-                    color: nameField.activeFocus ? "#4CAF50" : "#C8E6C9"
-                }
             }
 
             Label {
