@@ -75,6 +75,7 @@ EditorWidgetBase {
       anchors.top: referencingFeatureListView.bottom
       height: itemHeight
       width: parent.width
+      visible: isButtonEnabled('AddChildFeature')
 
       focus: true
 
