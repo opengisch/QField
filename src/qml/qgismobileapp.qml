@@ -33,6 +33,7 @@ ApplicationWindow {
   id: mainWindow
   objectName: 'mainWindow'
   visible: true
+  visibility: Window.FullScreen
 
   LabSettings.Settings {
       property alias x: mainWindow.x

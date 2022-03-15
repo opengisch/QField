@@ -32,7 +32,8 @@
     android:label="@APP_NAME@"
     android:icon="@AT@drawable/@APP_ICON@"
     android:usesCleartextTraffic="true"
-    android:requestLegacyExternalStorage="true" >
+    android:requestLegacyExternalStorage="true"
+    android:theme="@android:style/Theme.NoTitleBar.Fullscreen" >
     <activity
       android:name="ch.opengis.@APP_PACKAGE_NAME@.QFieldActivity"
       android:label="@APP_NAME@"
