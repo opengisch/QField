@@ -75,6 +75,7 @@ EditorWidgetBase {
       anchors.top: referencingFeatureListView.bottom
       height: itemHeight
       width: parent.width
+      visible: isButtonEnabled('AddChildFeature')
 
       focus: true
 
@@ -187,7 +188,7 @@ EditorWidgetBase {
                 id: deleteButton
                 width: parent.height
                 height: parent.height
-                visible: isEnabled
+                visible: isEnabled && isButtonEnabled('DeleteChildFeature')
 
                 contentItem: Rectangle {
                     anchors.fill: parent
@@ -301,6 +302,22 @@ EditorWidgetBase {
             relationEditorModel.featureFocus = id
             relationEditorModel.reload()
         }
+    }
+
+    function isButtonEnabled(buttonType) {
+      const buttons = relationEditorWidgetConfig.buttons
+
+      if (!buttons)
+        return false
+
+      if (buttons === 'AllButtons')
+        return true
+
+      if (buttons.split('|').indexOf(buttonType) >= 0) {
+        return true
+      }
+
+      return false
     }
 
     function requestedGeometry(geometry) {
