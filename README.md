@@ -10,7 +10,7 @@ Perfect for field work on portable touch devices.
 
 ## Get it
 
-Check the [documentation](http://qfield.org/docs)
+Check the [documentation](https://docs.qfield.org/)
 
 ### Android
 
