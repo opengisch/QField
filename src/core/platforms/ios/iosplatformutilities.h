@@ -31,6 +31,7 @@ class IosPlatformUtilities : public PlatformUtilities
     QString systemGenericDataLocation() const override;
     bool checkPositioningPermissions() const override;
     bool checkCameraPermissions() const override;
+    // apparently we could remove this iOS specific implementation by setting the standard image location on Qt: https://doc.qt.io/qt-5/qfiledialog.html#setDirectoryUrl
     virtual PictureSource *getCameraPicture( QQuickItem *parent, const QString &prefix, const QString &pictureFilePath, const QString &suffix ) override;
     virtual PictureSource *getGalleryPicture( QQuickItem *parent, const QString &prefix, const QString &pictureFilePath ) override;
 };
