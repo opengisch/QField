@@ -293,7 +293,7 @@ ViewStatus *AndroidPlatformUtilities::open( const QString &uri, bool editing )
   return viewStatus;
 }
 
-ProjectSource *AndroidPlatformUtilities::openProject()
+ProjectSource *AndroidPlatformUtilities::openProject( QQuickItem *parent )
 {
   checkWriteExternalStoragePermissions();
 
@@ -309,7 +309,7 @@ ProjectSource *AndroidPlatformUtilities::openProject()
 
   if ( intent.isValid() )
   {
-    projectSource = new AndroidProjectSource();
+    projectSource = new AndroidProjectSource( parent );
     QtAndroid::startActivity( intent.object<jobject>(), 103, projectSource );
   }
   else

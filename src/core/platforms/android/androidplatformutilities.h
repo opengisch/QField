@@ -37,7 +37,7 @@ class AndroidPlatformUtilities : public PlatformUtilities
     PictureSource *getCameraPicture( QQuickItem *parent, const QString &prefix, const QString &pictureFilePath, const QString &suffix ) override;
     PictureSource *getGalleryPicture( QQuickItem *parent, const QString &prefix, const QString &pictureFilePath ) override;
     ViewStatus *open( const QString &uri, bool editing ) override;
-    ProjectSource *openProject() override;
+    ProjectSource *openProject( QQuickItem *parent = nullptr ) override;
 
     bool checkPositioningPermissions() const override;
 

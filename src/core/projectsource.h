@@ -42,7 +42,7 @@ class ProjectSource : public QObject
 
   signals:
     /**
-     * This signal communitcates, when a project has been opened.
+     * This signal communicates, when a project has been opened.
      */
     void projectOpened( const QString &path );
 };

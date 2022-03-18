@@ -33,6 +33,7 @@ class IosPlatformUtilities : public PlatformUtilities
     bool checkCameraPermissions() const override;
     virtual PictureSource *getCameraPicture( QQuickItem *parent, const QString &prefix, const QString &pictureFilePath, const QString &suffix ) override;
     virtual PictureSource *getGalleryPicture( QQuickItem *parent, const QString &prefix, const QString &pictureFilePath ) override;
+    virtual ProjectSource *openProject( QQuickItem *parent = nullptr) override;
 };
 
 #endif

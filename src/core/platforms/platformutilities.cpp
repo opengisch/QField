@@ -159,8 +159,9 @@ ViewStatus *PlatformUtilities::open( const QString &uri, bool )
   return nullptr;
 }
 
-ProjectSource *PlatformUtilities::openProject()
+ProjectSource *PlatformUtilities::openProject( QQuickItem *parent )
 {
+  Q_UNUSED( parent );
   QSettings settings;
   ProjectSource *source = new ProjectSource();
   QString fileName { QFileDialog::getOpenFileName( nullptr,

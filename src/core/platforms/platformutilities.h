@@ -102,7 +102,7 @@ class QFIELD_CORE_EXPORT PlatformUtilities : public QObject
      * The call returns immediately and the returned ProjectSource will notify
      * when the project has actually been chosen.
      */
-    Q_INVOKABLE virtual ProjectSource *openProject();
+    Q_INVOKABLE virtual ProjectSource *openProject( QQuickItem *parent = nullptr );
 
     /**
      * Checks for positioning (GPS etc) permissions on the device.
