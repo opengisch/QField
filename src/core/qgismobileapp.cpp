@@ -310,7 +310,6 @@ QgisMobileapp::QgisMobileapp( QgsApplication *app, QObject *parent )
   PlatformUtilities::instance()->setScreenLockPermission( false );
 
   load( QUrl( "qrc:/qml/qgismobileapp.qml" ) );
-  return;
   connect( this, &QQmlApplicationEngine::quit, app, &QgsApplication::quit );
 
   mMapCanvas = rootObjects().first()->findChild<QgsQuickMapCanvasMap *>();
@@ -330,6 +329,8 @@ QgisMobileapp::QgisMobileapp( QgsApplication *app, QObject *parent )
       }
     }
   } );
+
+  return;
 
   mFlatLayerTree->layerTreeModel()->setLegendMapViewData( mMapCanvas->mapSettings()->mapSettings().mapUnitsPerPixel(),
                                                           static_cast<int>( std::round( mMapCanvas->mapSettings()->outputDpi() ) ), mMapCanvas->mapSettings()->mapSettings().scale() );
