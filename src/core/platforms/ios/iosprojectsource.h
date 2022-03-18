@@ -25,8 +25,7 @@ class IosProjectSource : public ProjectSource
   public:
     explicit IosProjectSource( QObject *parent = nullptr );
 
-  signals:
-    void projectReceived( const QString &path );
+    QString projectFromFolder(const QString &folder ) const;
 
   public slots:
     void pickProject();

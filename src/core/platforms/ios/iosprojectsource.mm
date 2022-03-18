@@ -13,47 +13,61 @@
  *                                                                         *
  ***************************************************************************/
 
-#include <UIKit/UIKit.h>
 
 #include <QGuiApplication>
 #include <QQuickItem>
 #include <QQuickWindow>
+#include <QDir>
+
+#include <UIKit/UIKit.h>
 #include <qpa/qplatformnativeinterface.h>
-//#include <UniformTypeIdentifiers/UniformTypeIdentifiers.h>
 #include <MobileCoreServices/MobileCoreServices.h>
 
 #include "iosprojectsource.h"
 
 @interface ProjectDelegate : NSObject <UIDocumentPickerDelegate,
                                       UINavigationControllerDelegate> {
-  IosProjectSource *mIosProject;
+  IosProjectSource *mIosProjectSource;
 }
 @end
 
 @implementation ProjectDelegate
 
-- (id)initWithIosProjectSource:(IosProjectSource *)iosProject {
+- (id)initWithIosProjectSource:(IosProjectSource *)iosProjectSource {
   self = [super init];
   if (self) {
-    mIosProject = iosProject;
+    mIosProjectSource = iosProjectSource;
   }
   return self;
 }
 
-- (void)documentPickerController:(UIDocumentPickerViewController *)picker
-    didPickDocumentAt:(NSURL *)url {
+
+- (void)documentPicker:(UIDocumentPickerViewController *)picker
+  didPickDocumentsAtURLs:(NSArray<NSURL *> *)urls {
   Q_UNUSED(picker);
+      qDebug() << "hey";
 
-  NSString *urlStr = url.absoluteString;
+  for (id url in urls) {
 
-  // Update imagePath property to trigger QML code:
-  QString filePath = /*StringLiteral("file:") +*/ QString::fromNSString(urlStr);
-  emit mIosProject->projectReceived(filePath);
+      NSString *urlString = [url absoluteString];
 
-  // Bring back Qt's view controller:
-  UIViewController *rvc =
-      [[[UIApplication sharedApplication] keyWindow] rootViewController];
-  [rvc dismissViewControllerAnimated:YES completion:nil];
+      BOOL success = [url startAccessingSecurityScopedResource];
+
+      const QString folderPath = QString::fromNSString( urlString );
+
+      qDebug() << folderPath;
+
+      const QString project = mIosProjectSource->projectFromFolder( folderPath );
+
+      emit mIosProjectSource->projectOpened( project );
+
+      // Bring back Qt's view controller:
+      UIViewController *rvc =
+          [[[UIApplication sharedApplication] keyWindow] rootViewController];
+      [rvc dismissViewControllerAnimated:YES completion:nil];
+
+      break;
+  }
 }
 @end
 
@@ -77,25 +91,32 @@ void IosProjectSource::pickProject() {
                                              "uiview", mParent->window()));
   UIViewController *qtController = [[view window] rootViewController];
 
-  //UTType *folderType = [UTType .folder];
-
-   // NSArray *documentTypes = @[ folder ];
-
-  UIDocumentPickerViewController *picker=[[UIDocumentPickerViewController alloc]
+  UIDocumentPickerViewController *controller=[[UIDocumentPickerViewController alloc]
         initWithDocumentTypes:@[(__bridge NSString*)kUTTypeFolder]
         inMode:UIDocumentPickerModeOpen];
 
-   //   forOpeningContentTypes: @[@".folder"]];
-
-  //          initWithDocumentTypes:@[@"public.data"]
-  //    inMode:UIDocumentPickerModeImport];
-
-  //  NSArray *types = @[(NSString*)kUTTypeImage,(NSString*)kUTTypeSpreadsheet,(NSString*)kUTTypePresentation,(NSString*)kUTTypeDatabase,(NSString*)kUTTypeFolder,(NSString*)kUTTypeZipArchive,(NSString*)kUTTypeVideo];
-  
-  [picker setDelegate:id(mDelegate->_projectDelegate)];
+  [controller setDelegate:id(mDelegate->_projectDelegate)];
 
   // Tell the imagecontroller to animate on top:
-  [qtController presentViewController:picker
+  [qtController presentViewController:controller
                              animated:YES
                            completion:nil];
 }
+
+QString IosProjectSource::projectFromFolder(const QString &folder ) const
+{
+  qDebug() << "hoho";
+
+  QDir directory(folder);
+  if (!directory.exists())
+  {
+   qDebug() << "lol dir doesn't exists " << folder;
+    return QString();
+  }
+  const QStringList projects = directory.entryList(QStringList() << "*.qgs" << "*.QGS", QDir::Files );
+  for (const QString &project : projects)
+    qDebug() << project;
+
+  return projects.at(0);
+}
+
