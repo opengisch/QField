@@ -332,17 +332,17 @@ QgisMobileapp::QgisMobileapp( QgsApplication *app, QObject *parent )
 
 //  return;
 
-  mFlatLayerTree->layerTreeModel()->setLegendMapViewData( mMapCanvas->mapSettings()->mapSettings().mapUnitsPerPixel(),
-                                                          static_cast<int>( std::round( mMapCanvas->mapSettings()->outputDpi() ) ), mMapCanvas->mapSettings()->mapSettings().scale() );
+  qDebug() << "########################## before setLegendMapViewData";
 
-  return;
+  //mFlatLayerTree->layerTreeModel()->setLegendMapViewData( mMapCanvas->mapSettings()->mapSettings().mapUnitsPerPixel(),
+  //                                                        static_cast<int>( std::round( mMapCanvas->mapSettings()->outputDpi() ) ),
+  //                                                        mMapCanvas->mapSettings()->mapSettings().scale() );
+
   Q_ASSERT_X( mMapCanvas, "QML Init", "QgsQuickMapCanvasMap not found. It is likely that we failed to load the QML files. Check debug output for related messages." );
 
-//  return;
 
   connect( mProject, &QgsProject::readProject, this, &QgisMobileapp::onReadProject );
 
-//  return;
 
   mLayerTreeCanvasBridge = new LayerTreeMapCanvasBridge( mFlatLayerTree, mMapCanvas->mapSettings(), mTrackingModel, this );
 
