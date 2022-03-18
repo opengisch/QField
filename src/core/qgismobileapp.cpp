@@ -311,6 +311,8 @@ QgisMobileapp::QgisMobileapp( QgsApplication *app, QObject *parent )
 
   load( QUrl( "qrc:/qml/qgismobileapp.qml" ) );
 
+  return;
+
   connect( this, &QQmlApplicationEngine::quit, app, &QgsApplication::quit );
 
   mMapCanvas = rootObjects().first()->findChild<QgsQuickMapCanvasMap *>();
@@ -617,7 +619,6 @@ void QgisMobileapp::onAfterFirstRendering()
 {
   // This should get triggered exactly once, so we disconnect it right away
   // disconnect( this, &QgisMobileapp::afterRendering, this, &QgisMobileapp::onAfterFirstRendering );
-
   if ( mFirstRenderingFlag )
   {
     if ( qApp->arguments().count() > 1 )
