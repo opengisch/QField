@@ -49,8 +49,8 @@ LayerTreeMapCanvasBridge::LayerTreeMapCanvasBridge( FlatLayerTreeModel *model, Q
 void LayerTreeMapCanvasBridge::extentChanged()
 {
   // allow symbols in the legend update their preview if they use map units
-  mModel->layerTreeModel()->setLegendMapViewData( mMapSettings->mapSettings().mapUnitsPerPixel(),
-                                                  static_cast<int>( std::round( mMapSettings->outputDpi() ) ), mMapSettings->mapSettings().scale() );
+//  mModel->layerTreeModel()->setLegendMapViewData( mMapSettings->mapSettings().mapUnitsPerPixel(),
+//                                                  static_cast<int>( std::round( mMapSettings->outputDpi() ) ), mMapSettings->mapSettings().scale() );
 }
 
 void LayerTreeMapCanvasBridge::setCanvasLayers()
