@@ -1070,11 +1070,7 @@ bool QgisMobileapp::print( const QString &layoutName )
     layoutToPrint->referenceMap()->zoomToExtent( mMapCanvas->mapSettings()->visibleExtent() );
   layoutToPrint->refresh();
 
-  QString documentsLocation = QStringLiteral( "%1/QField" ).arg( QStandardPaths::writableLocation( QStandardPaths::DocumentsLocation ) );
-  QDir documentsDir( documentsLocation );
-  if ( !documentsDir.exists() )
-    documentsDir.mkpath( "." );
-  const QString destination = documentsLocation + '/' + layoutToPrint->name() + QStringLiteral( ".pdf" );
+  const QString destination = mProject->homePath() + '/' + layoutToPrint->name() + '-' + QDateTime::currentDateTime().toString( QStringLiteral( "yyyyMMdd_hhmmss" ) ) + QStringLiteral( ".pdf" );
 
   QgsLayoutExporter::PdfExportSettings pdfSettings;
   pdfSettings.rasterizeWholeImage = layoutToPrint->customProperty( QStringLiteral( "rasterize" ), false ).toBool();
@@ -1123,11 +1119,7 @@ bool QgisMobileapp::printAtlasFeatures( const QString &layoutName, const QList<l
   layoutToPrint->atlas()->setFilterExpression( QStringLiteral( "$id IN (%1)" ).arg( ids.join( ',' ) ), error );
   layoutToPrint->atlas()->setFilterFeatures( true );
 
-  const QString documentsLocation = QStringLiteral( "%1/QField" ).arg( QStandardPaths::writableLocation( QStandardPaths::DocumentsLocation ) );
-  QDir documentsDir( documentsLocation );
-  if ( !documentsDir.exists() )
-    documentsDir.mkpath( "." );
-  const QString destination = documentsLocation + '/' + layoutToPrint->name() + QStringLiteral( ".pdf" );
+  const QString destination = mProject->homePath() + '/' + layoutToPrint->name() + QStringLiteral( ".pdf" );
 
   QgsLayoutExporter::PdfExportSettings pdfSettings;
   pdfSettings.rasterizeWholeImage = layoutToPrint->customProperty( QStringLiteral( "rasterize" ), false ).toBool();
@@ -1168,7 +1160,7 @@ bool QgisMobileapp::printAtlasFeatures( const QString &layoutName, const QList<l
       result = exporter.exportToPdfs( layoutToPrint->atlas(), destination, pdfSettings, error );
 #ifndef Q_OS_ANDROID
       if ( result == QgsLayoutExporter::Success )
-        PlatformUtilities::instance()->open( documentsLocation );
+        PlatformUtilities::instance()->open( mProject->homePath() );
 #endif
     }
     return result == QgsLayoutExporter::Success ? true : false;
