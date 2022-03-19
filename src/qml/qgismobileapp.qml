@@ -601,7 +601,7 @@ ApplicationWindow {
 
       property VectorLayer currentLayer: dashBoard.currentLayer
 
-      rubberbandModel: measuringRubberband.model
+      rubberbandModel: currentRubberband.model
       project: qgisProject
       crs: qgisProject.crs
     }
