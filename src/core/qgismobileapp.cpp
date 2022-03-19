@@ -1086,7 +1086,7 @@ bool QgisMobileapp::print( const QString &layoutName )
     layoutToPrint->referenceMap()->zoomToExtent( mMapCanvas->mapSettings()->visibleExtent() );
   layoutToPrint->refresh();
 
-  const QString destination = QStandardPaths::writableLocation( QStandardPaths::DocumentsLocation ) + '/' + layoutToPrint->name() + QStringLiteral( ".pdf" );
+  const QString destination = mProject->homePath() + '/' + layoutToPrint->name() + '-' + QDateTime::currentDateTime().toString( QStringLiteral( "yyyyMMdd_hhmmss" ) ) + QStringLiteral( ".pdf" );
 
   QgsLayoutExporter::PdfExportSettings pdfSettings;
   pdfSettings.rasterizeWholeImage = layoutToPrint->customProperty( QStringLiteral( "rasterize" ), false ).toBool();
