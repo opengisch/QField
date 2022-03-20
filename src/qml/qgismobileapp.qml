@@ -1005,6 +1005,7 @@ ApplicationWindow {
       id: navigationButton
       visible: navigation.isActive
       round: true
+      anchors.right: parent.right
 
       iconSource: Theme.getThemeIcon( "ic_navigation_flag_purple_24dp" )
       bgcolor: Theme.darkGray
