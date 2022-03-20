@@ -146,7 +146,7 @@ int main( int argc, char **argv )
   {
     QSettings settings;
     customLanguage = settings.value( "/customLanguage", QString() ).toString();
-    enableSentry = settings.value( "/enableInfoCollection", QString() ).toBool();
+    enableSentry = settings.value( "/enableInfoCollection", true ).toBool();
   }
   delete dummyApp;
 
@@ -157,6 +157,8 @@ int main( int argc, char **argv )
     // Make sure everything flushes when exiting the app
   }
   auto sentryClose = qScopeGuard( [] { sentry_close(); } );
+#else
+  ( void ) enableSentry;
 #endif
 
   if ( !customLanguage.isEmpty() )
