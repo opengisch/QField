@@ -226,13 +226,20 @@ public class QFieldActivity extends QtActivity {
 
     private void initiateSentry() {
         Context context = getApplication().getApplicationContext();
-        ApplicationInfo app = context.getPackageManager().getApplicationInfo(
-            context.getPackageName(), PackageManager.GET_META_DATA);
-        Bundle bundle = app.metaData;
-        SentryAndroid.init(this, options -> {
-            options.setDsn(bundle.getString("io.sentry.dsn"));
-            options.setEnvironment(bundle.getString("io.sentry.environment"));
-        });
+
+        try {
+            ApplicationInfo app =
+                context.getPackageManager().getApplicationInfo(
+                    context.getPackageName(), PackageManager.GET_META_DATA);
+            Bundle bundle = app.metaData;
+            SentryAndroid.init(this, options -> {
+                options.setDsn(bundle.getString("io.sentry.dsn"));
+                options.setEnvironment(
+                    bundle.getString("io.sentry.environment"));
+            });
+        } catch (NameNotFoundException e) {
+            return;
+        }
     }
 
     private void prepareQtActivity() {
