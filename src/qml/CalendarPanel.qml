@@ -247,7 +247,13 @@ Popup {
                     }
 
                     onClicked: {
-                        calendarPopup.selectedDate = date;
+                        if (calendarPopup.selectedDate.getFullYear() !== date.getFullYear() ||
+                            calendarPopup.selectedDate.getMonth() !== date.getMonth() ||
+                            calendarPopup.selectedDate.getDate() !== date.getDate()) {
+                          calendarPopup.selectedDate = date;
+                        } else {
+                          calendarPopup.selectDate();
+                        }
                     }
 
                     function resetDate() {
@@ -325,22 +331,25 @@ Popup {
 
         RowLayout {
             QfButton {
+                id: okButton
                 text: qsTr( "OK" )
                 font: Theme.tipFont
                 Layout.fillWidth: true
 
-                onClicked: {
-                    var newDate = calendarPopup.selectedDate
-                    if (calendarPanel.isDateTime) {
-                        newDate.setHours(hoursSpinBox.value);
-                        newDate.setMinutes(minutesSpinBox.value);
-                        newDate.setSeconds(secondsSpinBox.value);
-                    }
-                    dateTimePicked(newDate);
-                    calendarPanel.close()
-                }
+                onClicked: selectDate();
             }
         }
+    }
+
+    function selectDate() {
+        var newDate = calendarPopup.selectedDate
+        if (calendarPanel.isDateTime) {
+            newDate.setHours(hoursSpinBox.value);
+            newDate.setMinutes(minutesSpinBox.value);
+            newDate.setSeconds(secondsSpinBox.value);
+        }
+        dateTimePicked(newDate);
+        calendarPanel.close()
     }
 }
 
