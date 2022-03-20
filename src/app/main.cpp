@@ -136,23 +136,28 @@ void qfMessageHandler( QtMsgType type, const QMessageLogContext &context, const 
 
 int main( int argc, char **argv )
 {
-#if WITH_SENTRY
-  PlatformUtilities::instance()->initiateSentry();
-  // Make sure everything flushes when exiting the app
-  auto sentryClose = qScopeGuard( [] { sentry_close(); } );
-#endif
-
   // A dummy app for reading settings that need to be used before constructing the real app
   QCoreApplication *dummyApp = new QCoreApplication( argc, argv );
   QCoreApplication::setOrganizationName( "OPENGIS.ch" );
   QCoreApplication::setOrganizationDomain( "opengis.ch" );
   QCoreApplication::setApplicationName( qfield::appName );
   QString customLanguage;
+  bool enableSentry = false;
   {
     QSettings settings;
     customLanguage = settings.value( "/customLanguage", QString() ).toString();
+    enableSentry = settings.value( "/enableInfoCollection", QString() ).toBool();
   }
   delete dummyApp;
+
+#if WITH_SENTRY
+  if ( enableSentry )
+  {
+    PlatformUtilities::instance()->initiateSentry();
+    // Make sure everything flushes when exiting the app
+  }
+  auto sentryClose = qScopeGuard( [] { sentry_close(); } );
+#endif
 
   if ( !customLanguage.isEmpty() )
     QgsApplication::setTranslation( customLanguage );
