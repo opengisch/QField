@@ -124,7 +124,7 @@ jobs:
                 -D APP_NAME="${APP_NAME}" \
                 -D NUGET_USERNAME=opengisch \
                 -D NUGET_TOKEN=${{ secrets.GITHUB_TOKEN }} \
-                -D SENTRY_DSN=${{ fromJSON(format('{{"false": "{0}", "true": ""}}', secrets.SENTRY_DSN))[env.APP_ENV == 'prod'] }} \
+                -D SENTRY_DSN=${{ secrets.SENTRY_DSN }} \
                 -D SENTRY_ENV="${APP_ENV}" \
                 -D SENTRY_IMPORT_PREFIX=/tmp/sentry-android-ndk/jni
 
