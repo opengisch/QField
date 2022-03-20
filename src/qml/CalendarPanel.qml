@@ -67,7 +67,7 @@ Popup {
         Rectangle {
             id: calendarOverlay
             width: 350
-            height: 240
+            height: childrenRect.height
             color: "transparent"
 
             MouseArea {
@@ -192,6 +192,8 @@ Popup {
                 MonthGrid {
                     id: calendar
 
+                    property date today: new Date()
+
                     function decreaseYear() {
                         year -= 1;
                     }
@@ -221,13 +223,15 @@ Popup {
                     Layout.column: 0
                     Layout.columnSpan: 3
                     Layout.fillWidth: true
-                    Layout.fillHeight: true
+                    Layout.preferredHeight: 40 * 6
 
                     delegate: Rectangle {
-                        property bool isDate: calendarPopup.selectedDate.getFullYear() === model.date.getFullYear() && calendarPopup.selectedDate.getMonth() === model.date.getMonth() && calendarPopup.selectedDate.getDate() === model.date.getDate()
-                        color:  isDate ? Theme.mainColor : "transparent"
+                        property bool isSelectedDate: calendarPopup.selectedDate.getFullYear() === model.date.getFullYear() && calendarPopup.selectedDate.getMonth() === model.date.getMonth() && calendarPopup.selectedDate.getDate() === model.date.getDate()
+                        property bool isNow: calendar.today.getFullYear() === model.date.getFullYear() && calendar.today.getMonth() === model.date.getMonth() && calendar.today.getDate() === model.date.getDate()
+                        color:  isSelectedDate ? Theme.mainColor : "transparent"
                         width: 18
                         height: 18
+                        radius: 10
 
                         Text {
                             anchors.centerIn: parent
@@ -235,8 +239,10 @@ Popup {
                             verticalAlignment: Text.AlignVCenter
                             opacity: model.month !== calendar.month ? 0.5 : 1
                             text: model.day
-                            font: parent.isDate ? Theme.strongTipFont : Theme.tipFont
-                            color: parent.isDate ? "white" : "black"
+                            font.pointSize: Theme.tipFont.pointSize
+                            font.bold: parent.isSelectedDate ? true : false
+                            font.underline: parent.isNow ? true : false
+                            color: parent.isSelectedDate ? "white" : "black"
                         }
                     }
 
