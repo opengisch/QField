@@ -6,8 +6,13 @@ Item {
 
   property alias font: textField.font
   property alias text: textField.text
+  property alias horizontalAlignment: textField.horizontalAlignment
+  property alias inputMethodHints: textField.inputMethodHints
+  property alias inputMask: textField.inputMask
+
   property var echoMode: TextInput.Normal
-  property var inputMethodHints: Qt.ImhNone
+
+  signal textEdited
 
   width: textField.width
   height: textField.height
@@ -19,7 +24,7 @@ Item {
     width: textFieldWrapper.width
     font: Theme.defaultFont
     rightPadding: showPasswordButton.visible ? 2 * showPasswordButton.width : 0
-    inputMethodHints: textFieldWrapper.inputMethodHints
+    inputMethodHints: Qt.ImhNone
 
     background: Rectangle {
       y: textField.height - height - textField.bottomPadding / 2
@@ -32,6 +37,10 @@ Item {
       if ( !activeFocus ) {
         echoMode = textFieldWrapper.echoMode
       }
+    }
+
+    onTextEdited: {
+        textFieldWrapper.textEdited()
     }
   }
 
@@ -60,6 +69,4 @@ Item {
       }
     }
   }
-
-
 }
