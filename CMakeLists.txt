@@ -79,6 +79,10 @@ else()
   set(WITH_SENTRY 0)
 endif()
 
+if(WITH_SENTRY)
+  find_package(sentry REQUIRED)
+endif()
+
 if (ANDROID)
   # This is necessary in order for CMake to be able to detect libraries in OSGeo4A
   list(APPEND CMAKE_FIND_ROOT_PATH /)

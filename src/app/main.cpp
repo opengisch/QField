@@ -137,15 +137,8 @@ void qfMessageHandler( QtMsgType type, const QMessageLogContext &context, const 
 int main( int argc, char **argv )
 {
 #if WITH_SENTRY
-#ifndef ANDROID
-  sentry_options_t *options = sentry_options_new();
-  sentry_options_set_dsn( options, qfield::sentryDsn.toUtf8().constData() );
-  sentry_options_set_environment( options, qfield::sentryEnv.toUtf8().constData() );
-  sentry_options_set_debug( options, 1 );
-  sentry_init( options );
-#endif
-
-  // Make sure everything flushes
+  PlatformUtilities::instance()->initiateSentry();
+  // Make sure everything flushes when exiting the app
   auto sentryClose = qScopeGuard( [] { sentry_close(); } );
 #endif
 

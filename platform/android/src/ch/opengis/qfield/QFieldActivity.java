@@ -45,6 +45,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.ActivityInfo;
+import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.PackageManager.NameNotFoundException;
@@ -63,6 +64,7 @@ import androidx.core.content.ContextCompat;
 import androidx.documentfile.provider.DocumentFile;
 import ch.opengis.qfield.QFieldUtils;
 import ch.opengis.qfield.R;
+import io.sentry.android.core.SentryAndroid;
 import java.io.BufferedInputStream;
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -220,6 +222,17 @@ public class QFieldActivity extends QtActivity {
         WindowManager.LayoutParams lp = getWindow().getAttributes();
         lp.screenBrightness = originalBrightness;
         getWindow().setAttributes(lp);
+    }
+
+    private void initiateSentry() {
+        Context context = getApplication().getApplicationContext();
+        ApplicationInfo app = context.getPackageManager().getApplicationInfo(
+            context.getPackageName(), PackageManager.GET_META_DATA);
+        Bundle bundle = app.metaData;
+        SentryAndroid.init(this, options -> {
+            options.setDsn(bundle.getString("io.sentry.dsn"));
+            options.setEnvironment(bundle.getString("io.sentry.environment"));
+        });
     }
 
     private void prepareQtActivity() {

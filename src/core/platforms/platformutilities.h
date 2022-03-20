@@ -144,6 +144,11 @@ class QFIELD_CORE_EXPORT PlatformUtilities : public QObject
     Q_INVOKABLE virtual void restoreBrightness() { return; };
 
     /**
+     * Initalizes sentry.
+     */
+    Q_INVOKABLE virtual void initiateSentry() const;
+
+    /**
      * Copies a text \a string to the system clipboard.
      */
     Q_INVOKABLE virtual void copyTextToClipboard( const QString &string ) const;

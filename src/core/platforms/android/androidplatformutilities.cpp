@@ -91,7 +91,7 @@ void AndroidPlatformUtilities::initSystem()
   const QString appDataLocation = QStandardPaths::writableLocation( QStandardPaths::AppDataLocation );
   mSystemGenericDataLocation = appDataLocation + QStringLiteral( "/share" );
 
-  QFile gitRevFile( appDataLocation + QStringLiteral( "/gitRev" ) );
+  QFile gitRevFile( appDataLocation + QStringLiteral( "/gitRe    v" ) );
   gitRevFile.open( QIODevice::ReadOnly );
 
   QByteArray localGitRev = gitRevFile.readAll();
@@ -413,6 +413,20 @@ void AndroidPlatformUtilities::restoreBrightness()
       if ( activity.isValid() )
       {
         activity.callMethod<void>( "restoreBrightness" );
+      }
+    } );
+  }
+}
+
+void AndroidPlatformUtilities::initiateSentry() const
+{
+  if ( mActivity.isValid() )
+  {
+    QtAndroid::runOnAndroidThread( [] {
+      QAndroidJniObject activity = QtAndroid::androidActivity();
+      if ( activity.isValid() )
+      {
+        activity.callMethod<void>( "initiateSentry" );
       }
     } );
   }

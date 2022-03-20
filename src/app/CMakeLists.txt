@@ -80,7 +80,6 @@ function(create_executable)
 
   target_link_libraries(${exe_TARGET} PRIVATE qfield_core ${QGIS_CORE_LIBRARY})
   if(WITH_SENTRY)
-    find_package(sentry REQUIRED)
     target_link_libraries(${exe_TARGET} PRIVATE qfield_core sentry::sentry)
   endif()
   set_target_properties(${exe_TARGET} PROPERTIES AUTORCC TRUE)
