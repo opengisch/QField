@@ -132,6 +132,9 @@ Page {
 
   onVisibleChanged: {
     if ( visible )
+      if (platformUtilities.capabilities & PlatformUtilities.SentryFramework) {
+        submitLog.visible = qfieldSettings.enableInfoCollection
+      }
       unreadMessages = false
   }
 }
