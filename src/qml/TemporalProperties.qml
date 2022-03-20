@@ -59,7 +59,7 @@ Popup {
                 Layout.leftMargin: 20
                 Layout.rightMargin: 20
 
-                TextField {
+                QfTextField {
                     id: beginField
                     Layout.fillWidth: true
                     Layout.leftMargin: 20
@@ -74,13 +74,6 @@ Popup {
 
                     text: Qt.formatDateTime(mapCanvas.mapSettings.temporalBegin, "yyyy-MM-dd HH:mm:ss")
 
-                    background: Rectangle {
-                        y: beginField.height - height * 2 - beginField.bottomPadding / 2
-                        implicitWidth: 120
-                        height: beginField.activeFocus ? 2 : 1
-                        color: beginField.activeFocus ? "#4CAF50" : "#C8E6C9"
-                    }
-
                     onTextEdited: {
                         var newDate = Date.fromLocaleString(Qt.locale(), beginField.text, "yyyy-MM-dd HH:mm:ss")
                         if ( newDate.toLocaleString() !== "" )
@@ -89,7 +82,7 @@ Popup {
                         }
                         else
                         {
-                            mapCanvas.mapSettings.temporalBegin = undefined
+                            mapCanvas.mapSettings.temporalBegin = Date.fromLocaleString('')
                         }
                     }
                 }
@@ -120,7 +113,7 @@ Popup {
                 Layout.rightMargin: 20
 
 
-                TextField {
+                QfTextField {
                     id: endField
                     Layout.fillWidth: true
 
@@ -133,13 +126,6 @@ Popup {
 
                     text: Qt.formatDateTime(mapCanvas.mapSettings.temporalEnd, "yyyy-MM-dd HH:mm:ss")
 
-                    background: Rectangle {
-                        y: endField.height - height * 2 - endField.bottomPadding / 2
-                        implicitWidth: 120
-                        height: endField.activeFocus ? 2 : 1
-                        color: endField.activeFocus ? "#4CAF50" : "#C8E6C9"
-                    }
-
                     onTextEdited: {
                         var newDate = Date.fromLocaleString(Qt.locale(), endField.text, "yyyy-MM-dd HH:mm:ss")
                         if ( newDate.toLocaleString() !== "" )
@@ -148,7 +134,7 @@ Popup {
                         }
                         else
                         {
-                            mapCanvas.mapSettings.temporalEnd = undefined
+                            mapCanvas.mapSettings.temporalEnd = Date.fromLocaleString('')
                         }
                     }
                 }
