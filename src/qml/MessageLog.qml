@@ -112,7 +112,7 @@ Page {
         id: submitLog
         Layout.fillWidth: true
         text: qsTr( 'Send application log' )
-        visible: platformUtilities.capabilities & PlatformUtilities.SentryFramework
+        visible: qfieldSettings.enableInfoCollection && platformUtilities.capabilities & PlatformUtilities.SentryFramework
 
         onClicked: {
             iface.sendLog("Manual log submission")
@@ -132,9 +132,6 @@ Page {
 
   onVisibleChanged: {
     if ( visible )
-      if (platformUtilities.capabilities & PlatformUtilities.SentryFramework) {
-        submitLog.visible = qfieldSettings.enableInfoCollection
-      }
       unreadMessages = false
   }
 }

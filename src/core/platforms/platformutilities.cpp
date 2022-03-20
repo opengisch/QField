@@ -195,7 +195,7 @@ bool PlatformUtilities::checkWriteExternalStoragePermissions() const
   return true;
 }
 
-void PlatformUtilities::initiateSentry() const
+void PlatformUtilities::initiateSentry()
 {
 #if WITH_SENTRY
   sentry_options_t *options = sentry_options_new();
@@ -203,6 +203,13 @@ void PlatformUtilities::initiateSentry() const
   sentry_options_set_environment( options, qfield::sentryEnv.toUtf8().constData() );
   sentry_options_set_debug( options, 1 );
   sentry_init( options );
+#endif
+}
+
+void PlatformUtilities::closeSentry()
+{
+#if WITH_SENTRY
+  sentry_close();
 #endif
 }
 

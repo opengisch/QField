@@ -418,7 +418,7 @@ void AndroidPlatformUtilities::restoreBrightness()
   }
 }
 
-void AndroidPlatformUtilities::initiateSentry() const
+void AndroidPlatformUtilities::initiateSentry()
 {
   if ( mActivity.isValid() )
   {

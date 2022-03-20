@@ -21,6 +21,7 @@ Page {
   property alias autoSave: registry.autoSave
   property alias mouseAsTouchScreen: registry.mouseAsTouchScreen
   property alias dimBrightness: registry.dimBrightness
+  property alias enableInfoCollection: registry.enableInfoCollection
 
   Settings {
     id: registry
@@ -33,6 +34,14 @@ Page {
     property bool mouseAsTouchScreen: false
     property bool dimBrightness: platformUtilities.capabilities & PlatformUtilities.AdjustBrightness
     property bool enableInfoCollection: true
+
+    onEnableInfoCollectionChanged: {
+      if (enableInfoCollection) {
+        platformUtilities.initiateSentry();
+      } else {
+        platformUtilities.closeSentry();
+      }
+    }
   }
 
   ListModel {
@@ -78,7 +87,7 @@ Page {
       }
       ListElement {
           title: qsTr( "Send anonymized metrics" )
-          description: qsTr( "If enabled, information will be collected, anonymized, and sent to help improve QField for everyone. To apply the setting, QField needs to completely shutdown and restart" )
+          description: qsTr( "If enabled, information will be collected, anonymized, and sent to help improve QField for everyone." )
           settingAlias: "enableInfoCollection"
       }
       Component.onCompleted: {

@@ -50,7 +50,7 @@ class AndroidPlatformUtilities : public PlatformUtilities
     void dimBrightness() override;
     void restoreBrightness() override;
 
-    void initiateSentry() const override;
+    void initiateSentry() override;
 
   private:
     bool checkAndAcquirePermissions( const QString &permissionString ) const;
