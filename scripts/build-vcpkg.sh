@@ -7,7 +7,8 @@ cd /usr/src/qfield || exit
 CMAKE_BUILD_DIR=/usr/src/qfield/build-${triplet}
 
 export ANDROID_NDK_HOME=${ANDROID_NDK_ROOT}
-export Qt5_DIR=/home/devel/5.14.2/android/
+export Qt5_Dir=/home/devel/5.14.2/android/
+export Qt5_DIR=${Qt5_Dir}
 export ANDROID_PLATFORM=21
 export ANDROID_TARGET_PLATFORM=30
 
@@ -21,9 +22,12 @@ echo "Package name ${APP_PACKAGE_NAME}"
 cmake -S "${SOURCE_DIR}" \
       -B "${CMAKE_BUILD_DIR}" \
       -G Ninja \
+      -D CMAKE_PREFIX_PATH=${Qt5_Dir} \
       -D CMAKE_TOOLCHAIN_FILE=/usr/src/qfield/vcpkg/base/scripts/buildsystems/vcpkg.cmake \
       -D VCPKG_OVERLAY_PORTS=/usr/src/qfield/vcpkg/overlay_system_qt\;/usr/src/qfield/vcpkg/overlay \
       -D VCPKG_TARGET_TRIPLET="${triplet}" \
+      -D SYSTEM_QT=ON \
+      -D ANDROID_SDK=/home/devel/android/ \
       -D WITH_SPIX=OFF \
       -D APP_VERSION="v1.0.0" \
       -D APK_VERSION_CODE="${APK_VERSION_CODE}" \
@@ -39,4 +43,6 @@ cmake --build "${CMAKE_BUILD_DIR}"
 
 # Package app
 cmake --build  "${CMAKE_BUILD_DIR}" --target bundle --config Release
-${ANDROID_SDK_ROOT}/build-tools/29.0.2/apksigner sign --v2-signing-enabled true --ks ./keystore.p12 --ks-pass pass:"${STOREPASS}" --ks-key-alias "qfield" --key-pass pass:"${KEYPASS}" ${CMAKE_BUILD_DIR}/android-build/build/outputs/apk/release/android-build-release-signed.apk
+
+# Sign app (uncomment if you have signature details)
+#${ANDROID_SDK_ROOT}/build-tools/29.0.2/apksigner sign --v2-signing-enabled true --ks ./keystore.p12 --ks-pass pass:"${STOREPASS}" --ks-key-alias "qfield" --key-pass pass:"${KEYPASS}" ${CMAKE_BUILD_DIR}/android-build/build/outputs/apk/release/android-build-release-signed.apk

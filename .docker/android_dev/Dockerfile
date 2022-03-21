@@ -36,3 +36,6 @@ RUN pip3 install aqtinstall cmake && \
     /usr/local/bin/aqt install-qt linux android 5.14.2 -m qtcharts
 
 ENV PATH="/home/devel/.local/bin:${PATH}"
+
+# Needs to be in sync with cmake/Platform.cmake's ANDROID_TARGET_PLATFORM value
+RUN /home/devel/android/tools/bin/sdkmanager --verbose "platforms;android-30"
