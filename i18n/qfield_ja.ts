@@ -172,11 +172,44 @@
     </message>
 </context>
 <context>
+    <name>BookmarkProperties</name>
+    <message>
+        <location filename="../src/qml/BookmarkProperties.qml" line="36"/>
+        <source>Bookmark Properties</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/qml/BookmarkProperties.qml" line="48"/>
+        <source>Name</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/qml/BookmarkProperties.qml" line="61"/>
+        <source>Color</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/qml/BookmarkProperties.qml" line="172"/>
+        <source>Remove bookmark</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/qml/BookmarkProperties.qml" line="176"/>
+        <source>You are about to remove a bookmark, proceed?</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
     <name>BookmarkRenderer</name>
     <message>
-        <location filename="../src/qml/BookmarkRenderer.qml" line="76"/>
+        <location filename="../src/qml/BookmarkRenderer.qml" line="131"/>
         <source>Bookmark: %1</source>
         <translation>ブックマーク: %1</translation>
+    </message>
+    <message>
+        <location filename="../src/qml/BookmarkRenderer.qml" line="143"/>
+        <source>Project bookmarks cannot be edited</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -190,22 +223,22 @@
 <context>
     <name>CalendarPanel</name>
     <message>
-        <location filename="../src/qml/CalendarPanel.qml" line="192"/>
+        <location filename="../src/qml/CalendarPanel.qml" line="279"/>
         <source>Hours</source>
         <translation>時間</translation>
     </message>
     <message>
-        <location filename="../src/qml/CalendarPanel.qml" line="210"/>
+        <location filename="../src/qml/CalendarPanel.qml" line="297"/>
         <source>Minutes</source>
         <translation>分</translation>
     </message>
     <message>
-        <location filename="../src/qml/CalendarPanel.qml" line="228"/>
+        <location filename="../src/qml/CalendarPanel.qml" line="315"/>
         <source>Seconds</source>
         <translation>秒</translation>
     </message>
     <message>
-        <location filename="../src/qml/CalendarPanel.qml" line="247"/>
+        <location filename="../src/qml/CalendarPanel.qml" line="335"/>
         <source>OK</source>
         <translation>OK</translation>
     </message>
@@ -283,35 +316,31 @@
 <context>
     <name>DateTime</name>
     <message>
-        <location filename="../src/qml/editorwidgets/DateTime.qml" line="72"/>
-        <location filename="../src/qml/editorwidgets/DateTime.qml" line="177"/>
+        <location filename="../src/qml/editorwidgets/DateTime.qml" line="73"/>
+        <location filename="../src/qml/editorwidgets/DateTime.qml" line="170"/>
         <source>(no date)</source>
         <translation>(日付がありません)</translation>
     </message>
     <message>
-        <location filename="../src/qml/editorwidgets/DateTime.qml" line="210"/>
+        <location filename="../src/qml/editorwidgets/DateTime.qml" line="203"/>
         <source>Date value set to today.</source>
         <translation>日付は本日の値が設定されます。</translation>
     </message>
     <message>
-        <location filename="../src/qml/editorwidgets/DateTime.qml" line="406"/>
         <source>Hours</source>
-        <translation>時間</translation>
+        <translation type="vanished">時間</translation>
     </message>
     <message>
-        <location filename="../src/qml/editorwidgets/DateTime.qml" line="424"/>
         <source>Minutes</source>
-        <translation>分</translation>
+        <translation type="vanished">分</translation>
     </message>
     <message>
-        <location filename="../src/qml/editorwidgets/DateTime.qml" line="442"/>
         <source>Seconds</source>
-        <translation>秒</translation>
+        <translation type="vanished">秒</translation>
     </message>
     <message>
-        <location filename="../src/qml/editorwidgets/DateTime.qml" line="461"/>
         <source>OK</source>
-        <translation>OK</translation>
+        <translation type="vanished">OK</translation>
     </message>
 </context>
 <context>
@@ -456,17 +485,17 @@
     <message>
         <location filename="../src/qml/FeatureForm.qml" line="735"/>
         <source>Cancel editing</source>
-        <translation type="unfinished"/>
+        <translation>編集をキャンセルする</translation>
     </message>
     <message>
         <location filename="../src/qml/FeatureForm.qml" line="740"/>
         <source>You are about to dismiss the new feature, proceed?</source>
-        <translation type="unfinished"/>
+        <translation>新しい機能をオフにしますか？</translation>
     </message>
     <message>
         <location filename="../src/qml/FeatureForm.qml" line="741"/>
         <source>You are about to leave editing state, any changes will be lost. Proceed?</source>
-        <translation type="unfinished"/>
+        <translation>編集モードから抜けると、全ての変更内容が失われます。よろしいですか？</translation>
     </message>
 </context>
 <context>
@@ -640,7 +669,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <message>
         <location filename="../src/core/locator/featureslocatorfilter.cpp" line="117"/>
         <source>Set feature as navigation</source>
-        <translation type="unfinished"/>
+        <translation>地物をナビゲーションに設定</translation>
     </message>
     <message>
         <location filename="../src/core/locator/featureslocatorfilter.cpp" line="172"/>
@@ -733,7 +762,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
         <location filename="../src/core/locator/gotolocatorfilter.cpp" line="103"/>
         <location filename="../src/core/locator/gotolocatorfilter.cpp" line="135"/>
         <source>Set navigation point</source>
-        <translation type="unfinished"/>
+        <translation>ナビゲーションポイントを設定</translation>
     </message>
     <message>
         <location filename="../src/core/locator/gotolocatorfilter.cpp" line="132"/>
@@ -1093,7 +1122,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <message>
         <location filename="../src/qml/NavigationBar.qml" line="604"/>
         <source>Set Feature as Destination</source>
-        <translation type="unfinished"/>
+        <translation>目的地として地物を設定</translation>
     </message>
     <message>
         <location filename="../src/qml/NavigationBar.qml" line="620"/>
@@ -1152,7 +1181,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <message>
         <location filename="../src/qml/NavigationInformationView.qml" line="76"/>
         <source>Dist.</source>
-        <translation type="unfinished"/>
+        <translation>目的地</translation>
     </message>
     <message>
         <location filename="../src/qml/NavigationInformationView.qml" line="79"/>
@@ -1163,7 +1192,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <message>
         <location filename="../src/qml/NavigationInformationView.qml" line="94"/>
         <source>Bearing</source>
-        <translation type="unfinished"/>
+        <translation>方位</translation>
     </message>
 </context>
 <context>
@@ -1216,42 +1245,42 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
 <context>
     <name>PlatformUtilities</name>
     <message>
-        <location filename="../src/core/platforms/platformutilities.cpp" line="122"/>
+        <location filename="../src/core/platforms/platformutilities.cpp" line="130"/>
         <source>Select Media File</source>
         <translation>メディアファイルを選択</translation>
     </message>
     <message>
-        <location filename="../src/core/platforms/platformutilities.cpp" line="122"/>
+        <location filename="../src/core/platforms/platformutilities.cpp" line="130"/>
         <source>JPEG images (*.jpg *.jpeg)</source>
         <translation>JPEG 画像 (*.jpg *.jpeg)</translation>
     </message>
     <message>
-        <location filename="../src/core/platforms/platformutilities.cpp" line="142"/>
+        <location filename="../src/core/platforms/platformutilities.cpp" line="150"/>
         <source>Failed to save gallery picture</source>
         <translation>ギャラリー画像を保存できませんでした</translation>
     </message>
     <message>
-        <location filename="../src/core/platforms/platformutilities.cpp" line="159"/>
+        <location filename="../src/core/platforms/platformutilities.cpp" line="167"/>
         <source>Open File</source>
         <translation>ファイルを開く</translation>
     </message>
     <message>
-        <location filename="../src/core/platforms/platformutilities.cpp" line="161"/>
+        <location filename="../src/core/platforms/platformutilities.cpp" line="169"/>
         <source>All Supported Files</source>
         <translation>全てのサポートされるファイル</translation>
     </message>
     <message>
-        <location filename="../src/core/platforms/platformutilities.cpp" line="161"/>
+        <location filename="../src/core/platforms/platformutilities.cpp" line="169"/>
         <source>QGIS Project Files</source>
         <translation>QGISプロジェクトファイル</translation>
     </message>
     <message>
-        <location filename="../src/core/platforms/platformutilities.cpp" line="161"/>
+        <location filename="../src/core/platforms/platformutilities.cpp" line="169"/>
         <source>Vector Datasets</source>
         <translation>ベクターデータセット</translation>
     </message>
     <message>
-        <location filename="../src/core/platforms/platformutilities.cpp" line="161"/>
+        <location filename="../src/core/platforms/platformutilities.cpp" line="169"/>
         <source>Raster Datasets</source>
         <translation>ラスターデータセット</translation>
     </message>
@@ -1351,47 +1380,47 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
 <context>
     <name>QFieldCloudConnection</name>
     <message>
-        <location filename="../src/core/qfieldcloudconnection.cpp" line="77"/>
+        <location filename="../src/core/qfieldcloudconnection.cpp" line="456"/>
         <source>[timeout] The request took too long to finish, please retry.</source>
         <translation>[timeout] リクエストの終了に時間がかかりすぎたので、再試行してください。</translation>
     </message>
     <message>
-        <location filename="../src/core/qfieldcloudconnection.cpp" line="80"/>
+        <location filename="../src/core/qfieldcloudconnection.cpp" line="459"/>
         <source>[aborted] The request has been aborted.</source>
         <translation>[aborted] リクエストが中止されました。</translation>
     </message>
     <message>
-        <location filename="../src/core/qfieldcloudconnection.cpp" line="111"/>
+        <location filename="../src/core/qfieldcloudconnection.cpp" line="492"/>
         <source>Server Error.</source>
         <translation>サーバーエラー。</translation>
     </message>
     <message>
-        <location filename="../src/core/qfieldcloudconnection.cpp" line="112"/>
+        <location filename="../src/core/qfieldcloudconnection.cpp" line="493"/>
         <source>Network Error.</source>
         <translation>ネットワークエラー。</translation>
     </message>
     <message>
-        <location filename="../src/core/qfieldcloudconnection.cpp" line="225"/>
+        <location filename="../src/core/qfieldcloudconnection.cpp" line="159"/>
         <source>Server not found, please check the server URL</source>
         <translation>サーバーが見つかりません、サーバーのURLを確認してください</translation>
     </message>
     <message>
-        <location filename="../src/core/qfieldcloudconnection.cpp" line="229"/>
+        <location filename="../src/core/qfieldcloudconnection.cpp" line="163"/>
         <source>Timeout error, please retry</source>
         <translation>タイムアウトエラー、再試行してください</translation>
     </message>
     <message>
-        <location filename="../src/core/qfieldcloudconnection.cpp" line="233"/>
+        <location filename="../src/core/qfieldcloudconnection.cpp" line="167"/>
         <source>Wrong username or password</source>
         <translation>ユーザー名またはパスワードが間違っています</translation>
     </message>
     <message>
-        <location filename="../src/core/qfieldcloudconnection.cpp" line="237"/>
+        <location filename="../src/core/qfieldcloudconnection.cpp" line="171"/>
         <source>Session expired</source>
         <translation>セッションが切れました</translation>
     </message>
     <message>
-        <location filename="../src/core/qfieldcloudconnection.cpp" line="254"/>
+        <location filename="../src/core/qfieldcloudconnection.cpp" line="188"/>
         <source>Login temporary unavailable</source>
         <translation>ログインは一時的に利用できません</translation>
     </message>
@@ -1412,9 +1441,13 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
 <context>
     <name>QFieldCloudLogin</name>
     <message>
-        <location filename="../src/qml/QFieldCloudLogin.qml" line="84"/>
         <source>Failed to login</source>
-        <translation>ログインできませんでした</translation>
+        <translation type="vanished">ログインできませんでした</translation>
+    </message>
+    <message>
+        <location filename="../src/qml/QFieldCloudLogin.qml" line="84"/>
+        <source>Failed to sign in</source>
+        <translation>サインインできませんでした</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldCloudLogin.qml" line="117"/>
@@ -1435,26 +1468,48 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <location filename="../src/qml/QFieldCloudLogin.qml" line="231"/>
+        <source>Sign out</source>
+        <translation>サインアウト</translation>
+    </message>
+    <message>
+        <location filename="../src/qml/QFieldCloudLogin.qml" line="231"/>
+        <source>Signing in, please wait</source>
+        <translation>サインインしています、お待ちください</translation>
+    </message>
+    <message>
+        <location filename="../src/qml/QFieldCloudLogin.qml" line="231"/>
+        <source>Sign in</source>
+        <translation>サインイン</translation>
+    </message>
+    <message>
+        <location filename="../src/qml/QFieldCloudLogin.qml" line="242"/>
+        <source>New user?</source>
+        <translation>新しいユーザーですか？</translation>
+    </message>
+    <message>
+        <location filename="../src/qml/QFieldCloudLogin.qml" line="242"/>
+        <source>Register an account</source>
+        <translation>アカウントを登録する</translation>
+    </message>
+    <message>
         <source>Logout</source>
-        <translation>ログアウト</translation>
+        <translation type="vanished">ログアウト</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldCloudLogin.qml" line="231"/>
         <source>Logging in, please wait</source>
-        <translation>ログインしています、お待ちください</translation>
+        <translation type="vanished">ログインしています、お待ちください</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldCloudLogin.qml" line="231"/>
         <source>Login</source>
-        <translation>ログイン</translation>
+        <translation type="vanished">ログイン</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldCloudLogin.qml" line="241"/>
+        <location filename="../src/qml/QFieldCloudLogin.qml" line="255"/>
         <source>The easiest way to transfer you project from QGIS to your devices!</source>
         <translation>QGISからデバイスにプロジェクトを転送する最も簡単な方法です！</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldCloudLogin.qml" line="242"/>
+        <location filename="../src/qml/QFieldCloudLogin.qml" line="256"/>
         <source>Learn more about QFieldCloud</source>
         <translation>QFieldCloudについてもっと知る</translation>
     </message>
@@ -1472,12 +1527,12 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <message>
         <location filename="../src/qml/QFieldCloudPackageLayersFeedback.qml" line="22"/>
         <source>QFieldCloud had troubles packaging your project</source>
-        <translation type="unfinished"/>
+        <translation>QFieldCloudでプロジェクトのパッケージングに問題が発生しました</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldCloudPackageLayersFeedback.qml" line="32"/>
         <source>Some layers have not been packaged correctly on QFieldCloud. These layers might be misconfigured or their data source is not accessible from the QFieldCloud server. Please check the logs of the latest packaging job on the qfield.cloud website.</source>
-        <translation type="unfinished"/>
+        <translation>一部のレイヤーはQFieldCloud上で正しくパッケージ化されていません。これらのレイヤーは、設定が間違っているか、データソースがQFieldCloudサーバーからアクセスできない可能性があります。qfield.cloudのサイトで、最新のパッケージングジョブのログを確認してください。</translation>
     </message>
 </context>
 <context>
@@ -1520,7 +1575,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <message>
         <location filename="../src/qml/QFieldCloudPopup.qml" line="162"/>
         <source>This QFieldCloud project was first downloaded with another cloud account. Please sign in with the original account for this project to use the QFieldCloud functionality.</source>
-        <translation type="unfinished"/>
+        <translation>このQFieldCloudプロジェクトは、最初に別のクラウドアカウントでダウンロードされたものです。QFieldCloudの機能を使用するには、このプロジェクトの元のアカウントでサインインしてください。</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldCloudPopup.qml" line="181"/>
@@ -1731,123 +1786,125 @@ While you can still view and use the project, it is strongly recommended to rese
     <message>
         <location filename="../src/core/qfieldcloudprojectsmodel.cpp" line="421"/>
         <source>aborted</source>
-        <translation type="unfinished"/>
+        <translation>中止されました</translation>
     </message>
     <message>
         <location filename="../src/core/qfieldcloudprojectsmodel.cpp" line="470"/>
         <source>project(%1) trigger response refresh not contain all the expected keys: name(string), owner(string), description(string), user_role(string), is_public(bool), can_repackage(bool), needs_repackaging(bool)</source>
-        <translation type="unfinished"/>
+        <translation>プロジェクト(%1) トリガーのレスポンスは、指定されたすべてのキーを含んでいません: name(string), owner(string), description(string), user_role(string), is_public(bool), can_repackage(bool), needs_repackaging(bool)</translation>
     </message>
     <message>
         <location filename="../src/core/qfieldcloudprojectsmodel.cpp" line="532"/>
         <location filename="../src/core/qfieldcloudprojectsmodel.cpp" line="574"/>
         <source>Getting job status, but the project is deleted.</source>
-        <translation type="unfinished"/>
+        <translation>ジョブのステータスを取得していますが、プロジェクトが削除されています。</translation>
     </message>
     <message>
         <location filename="../src/core/qfieldcloudprojectsmodel.cpp" line="552"/>
         <source>Job creation finished, but the server response is missing required fields: id(string)</source>
-        <translation type="unfinished"/>
+        <translation>ジョブの作成は完了しましたが、サーバーの応答に必須のフィールド: id(string) がありません</translation>
     </message>
     <message>
         <location filename="../src/core/qfieldcloudprojectsmodel.cpp" line="589"/>
         <source>Getting job status, but no `%2` job triggered yet.</source>
-        <translation type="unfinished"/>
+        <translation>ジョブのステータスを取得していますが、 `%2` のジョブはまだ起動していません。</translation>
     </message>
     <message>
         <location filename="../src/core/qfieldcloudprojectsmodel.cpp" line="604"/>
         <source>Getting job status finished, but the project is deleted.</source>
-        <translation type="unfinished"/>
+        <translation>ジョブのステータスを取得していますが、プロジェクトが削除されています。</translation>
     </message>
     <message>
         <location filename="../src/core/qfieldcloudprojectsmodel.cpp" line="634"/>
         <source>job(%1) status response does not contain all the expected keys: status(string)</source>
-        <translation type="unfinished"/>
+        <translation>ジョブ(%1) ステータスのレスポンスが必要なキー: status(string)をすべて含んでいません</translation>
     </message>
     <message>
         <location filename="../src/core/qfieldcloudprojectsmodel.cpp" line="655"/>
         <source>Job(%1) finished with a failed status.</source>
-        <translation type="unfinished"/>
+        <translation>ジョブ (%1) は失敗した状態で終了しました。</translation>
     </message>
     <message>
         <location filename="../src/core/qfieldcloudprojectsmodel.cpp" line="683"/>
         <source>Project busy.</source>
-        <translation type="unfinished"/>
+        <translation>プロジェクトがスタックしています。</translation>
     </message>
     <message>
         <location filename="../src/core/qfieldcloudprojectsmodel.cpp" line="746"/>
         <source>Packaging job finished unsuccessfully for `%1`. %2</source>
-        <translation type="unfinished"/>
+        <translation>パッケージングジョブは `%1` のために失敗して終了しました。%2</translation>
     </message>
     <message>
         <location filename="../src/core/qfieldcloudprojectsmodel.cpp" line="804"/>
         <source>Failed to refresh the latest info for `%1`: %2</source>
-        <translation type="unfinished"/>
+        <translation>`%1` の最新情報の更新に失敗しました: %2</translation>
     </message>
     <message>
-        <location filename="../src/core/qfieldcloudprojectsmodel.cpp" line="917"/>
+        <location filename="../src/core/qfieldcloudprojectsmodel.cpp" line="919"/>
         <source>Failed to get latest package data.</source>
-        <translation type="unfinished"/>
+        <translation>最新のパッケージデータの取得に失敗しました。</translation>
     </message>
     <message>
-        <location filename="../src/core/qfieldcloudprojectsmodel.cpp" line="931"/>
+        <location filename="../src/core/qfieldcloudprojectsmodel.cpp" line="933"/>
         <source>Latest package data response error.</source>
-        <translation type="unfinished"/>
+        <translation>最新のパッケージデータのレスポンスにエラーがあります。</translation>
     </message>
     <message>
-        <location filename="../src/core/qfieldcloudprojectsmodel.cpp" line="951"/>
+        <location filename="../src/core/qfieldcloudprojectsmodel.cpp" line="953"/>
         <source>Latest package data structure error.</source>
-        <translation type="unfinished"/>
+        <translation>最新のパッケージデータの構造にエラーがあります。</translation>
     </message>
     <message>
-        <location filename="../src/core/qfieldcloudprojectsmodel.cpp" line="984"/>
+        <location filename="../src/core/qfieldcloudprojectsmodel.cpp" line="986"/>
         <source>Project %1: Packaged layer `%2` is not valid. Error code %3, error message: %4</source>
-        <translation type="unfinished"/>
+        <translation>プロジェクト %1: パッケージ化されたレイヤ `%2` は有効ではありません。エラー・コード %3、エラー・メッセージ: %4</translation>
     </message>
     <message>
-        <location filename="../src/core/qfieldcloudprojectsmodel.cpp" line="1110"/>
+        <location filename="../src/core/qfieldcloudprojectsmodel.cpp" line="1112"/>
         <source>Failed to open temporary file for `%1`, reason:
 %2</source>
-        <translation type="unfinished"/>
+        <translation>%1` の一時ファイルを開けませんでした。理由:
+%2</translation>
     </message>
     <message>
-        <location filename="../src/core/qfieldcloudprojectsmodel.cpp" line="1566"/>
+        <location filename="../src/core/qfieldcloudprojectsmodel.cpp" line="1568"/>
         <source>Failed to upload attachment stored at `%1`, reason:
 %2</source>
-        <translation type="unfinished"/>
+        <translation>%1` に保存されている添付ファイルのアップロードに失敗しました。理由:
+%2</translation>
     </message>
     <message>
-        <location filename="../src/core/qfieldcloudprojectsmodel.cpp" line="1811"/>
+        <location filename="../src/core/qfieldcloudprojectsmodel.cpp" line="1815"/>
         <source>Network error. Failed to download file `%1`.</source>
-        <translation type="unfinished"/>
+        <translation>ネットワークエラーです。ファイル`%1`のダウンロードに失敗しました。</translation>
     </message>
     <message>
-        <location filename="../src/core/qfieldcloudprojectsmodel.cpp" line="1826"/>
+        <location filename="../src/core/qfieldcloudprojectsmodel.cpp" line="1830"/>
         <source>File system error. Failed to write file to temporary location `%1`.</source>
-        <translation type="unfinished"/>
+        <translation>ファイルシステムエラーです。一時フォルダの `%1` へのファイルの書き込みに失敗しました。</translation>
     </message>
     <message>
-        <location filename="../src/core/qfieldcloudprojectsmodel.cpp" line="1833"/>
+        <location filename="../src/core/qfieldcloudprojectsmodel.cpp" line="1837"/>
         <source>File system error. Failed to open file for writing on temporary `%1`.</source>
-        <translation type="unfinished"/>
+        <translation>ファイルシステムエラーです。一時フォルダの `%1` で書き込みのためのファイルを開くのに失敗しました。</translation>
     </message>
     <message>
-        <location filename="../src/core/qfieldcloudprojectsmodel.cpp" line="1845"/>
+        <location filename="../src/core/qfieldcloudprojectsmodel.cpp" line="1849"/>
         <source>Project `%1`, file `%2`: %3</source>
-        <translation type="unfinished"/>
+        <translation>プロジェクト `%1`、 ファイル `%2`: %3</translation>
     </message>
     <message>
-        <location filename="../src/core/qfieldcloudprojectsmodel.cpp" line="1846"/>
+        <location filename="../src/core/qfieldcloudprojectsmodel.cpp" line="1850"/>
         <source>System message: </source>
-        <translation type="unfinished"/>
+        <translation>システムメッセージ: </translation>
     </message>
     <message>
-        <location filename="../src/core/qfieldcloudprojectsmodel.cpp" line="1848"/>
+        <location filename="../src/core/qfieldcloudprojectsmodel.cpp" line="1852"/>
         <source> (see more in the QField error log)…</source>
         <translation> (QFieldのエラーログを見てください)…</translation>
     </message>
     <message>
-        <location filename="../src/core/qfieldcloudprojectsmodel.cpp" line="1881"/>
+        <location filename="../src/core/qfieldcloudprojectsmodel.cpp" line="1885"/>
         <source>Failed to copy some of the downloaded files on your device. Check your device storage.</source>
         <translation>ダウンロードしたファイルの一部をデバイスにコピーするのに失敗しました。端末のストレージを確認してください。</translation>
     </message>
@@ -2331,23 +2388,23 @@ Cancel to make a minimal device scan instead.</source>
 <context>
     <name>QgisMobileapp</name>
     <message>
-        <location filename="../src/core/qgismobileapp.cpp" line="649"/>
-        <location filename="../src/core/qgismobileapp.cpp" line="675"/>
+        <location filename="../src/core/qgismobileapp.cpp" line="647"/>
+        <location filename="../src/core/qgismobileapp.cpp" line="673"/>
         <source>Project file &quot;%1&quot; does not exist</source>
         <translation>プロジェクトファイル 「%1」は存在しません</translation>
     </message>
     <message>
-        <location filename="../src/core/qgismobileapp.cpp" line="666"/>
+        <location filename="../src/core/qgismobileapp.cpp" line="664"/>
         <source>No project file currently opened</source>
         <translation>最近開かれたプロジェクトファイルはありません</translation>
     </message>
     <message>
-        <location filename="../src/core/qgismobileapp.cpp" line="719"/>
+        <location filename="../src/core/qgismobileapp.cpp" line="717"/>
         <source>Could not load font %1</source>
         <translation>フォント %1 をロードできませんでした</translation>
     </message>
     <message>
-        <location filename="../src/core/qgismobileapp.cpp" line="721"/>
+        <location filename="../src/core/qgismobileapp.cpp" line="719"/>
         <source>Loading font %1</source>
         <translation>フォント %1 をロードしています</translation>
     </message>
@@ -2501,12 +2558,12 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <location filename="../src/qml/TemporalProperties.qml" line="28"/>
         <source>Temporal Properties</source>
-        <translation type="unfinished"/>
+        <translation>時間プロパティ</translation>
     </message>
     <message>
         <location filename="../src/qml/TemporalProperties.qml" line="43"/>
         <source>Enable temporal filter</source>
-        <translation type="unfinished"/>
+        <translation>時間フィルターを有効にする</translation>
     </message>
 </context>
 <context>
@@ -2729,14 +2786,18 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <location filename="../src/qml/qgismobileapp.qml" line="651"/>
         <location filename="../src/qml/qgismobileapp.qml" line="669"/>
-        <location filename="../src/qml/qgismobileapp.qml" line="1669"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1673"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1749"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1903"/>
         <source>Lon</source>
         <translation>経度</translation>
     </message>
     <message>
         <location filename="../src/qml/qgismobileapp.qml" line="653"/>
         <location filename="../src/qml/qgismobileapp.qml" line="671"/>
-        <location filename="../src/qml/qgismobileapp.qml" line="1671"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1675"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1749"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1903"/>
         <source>Lat</source>
         <translation>緯度</translation>
     </message>
@@ -2792,214 +2853,286 @@ Cancel to make a minimal device scan instead.</source>
         <translation>フリーハンドでの編集をオフにしました</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1059"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1060"/>
         <source>Coordinate cursor now locked to position</source>
         <translation>座標カーソルが現在位置にロックされるようになりました</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1071"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1072"/>
         <source>Coordinate cursor unlocked</source>
         <translation>座標カーソルのロックが解除されました</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1088"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1089"/>
         <source>Received position</source>
         <translation>現在地を受信しました</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1090"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1091"/>
         <source>Searching for position</source>
         <translation>現在地を探しています</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1138"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1139"/>
         <source>Canvas follows location</source>
         <translation>地図上で現在の位置情報を追尾します</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1147"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1148"/>
         <source>Waiting for location</source>
         <translation>位置情報を受信しています</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1166"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1167"/>
         <source>Positioning activated</source>
         <translation>現在位置表示機能が有効になりました</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1171"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1172"/>
         <source>Positioning turned off</source>
         <translation>現在位置表示機能が無効になりました</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1211"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1212"/>
         <source>Canvas stopped following location</source>
         <translation>地図上で現在の位置情報を追尾するのを停止しました</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1355"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1356"/>
         <source>Failed to create feature!</source>
         <translation>地物を作成できませんでした!</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1359"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1360"/>
         <source>Failed to save feature!</source>
         <translation>地物を保存できませんでした!</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1416"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1420"/>
         <source>Main Menu</source>
         <translation>メインメニュー</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1430"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1434"/>
         <source>Measure Tool</source>
         <translation>計測ツール</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1445"/>
-        <location filename="../src/qml/qgismobileapp.qml" line="1561"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1449"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1565"/>
         <source>Print to PDF</source>
         <translation>PDFを印刷する</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1459"/>
-        <location filename="../src/qml/qgismobileapp.qml" line="1601"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1463"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1605"/>
         <source>Printing to PDF</source>
         <translation>PDFに印刷しています</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1476"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1480"/>
         <source>Open Project</source>
         <translation>プロジェクトを開く</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1488"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1492"/>
         <source>Settings</source>
         <translation>設定</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1502"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1506"/>
         <source>Message Log</source>
         <translation>メッセージログ</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1516"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1520"/>
         <source>About QField</source>
         <translation>QFieldについて</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1577"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1581"/>
         <source>Select template below</source>
         <translation>下のテンプレートを選択</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1646"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1650"/>
         <source>Activating positioning service</source>
         <translation>位置情報取得機能を有効にしています</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1651"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1655"/>
         <source>QField has no permissions to use positioning.</source>
         <translation>QFieldは位置情報表示機能を使用する許可を与えられていません。</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1664"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1668"/>
         <source>Map Canvas Options</source>
+        <translation>地図キャンバスオプション</translation>
+    </message>
+    <message>
+        <location filename="../src/qml/qgismobileapp.qml" line="1712"/>
+        <source>Add Bookmark at Coordinates</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1708"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1717"/>
+        <source>Untitled bookmark</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/qml/qgismobileapp.qml" line="1731"/>
+        <source>Set Coordinates as Destination</source>
+        <translation>目的地として座標を設定</translation>
+    </message>
+    <message>
+        <location filename="../src/qml/qgismobileapp.qml" line="1742"/>
+        <source>Copy Coordinates</source>
+        <translation>座標をコピー</translation>
+    </message>
+    <message>
+        <location filename="../src/qml/qgismobileapp.qml" line="1751"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1905"/>
+        <source>X</source>
+        <translation>X</translation>
+    </message>
+    <message>
+        <location filename="../src/qml/qgismobileapp.qml" line="1751"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1905"/>
+        <source>Y</source>
+        <translation>Y</translation>
+    </message>
+    <message>
+        <location filename="../src/qml/qgismobileapp.qml" line="1755"/>
+        <source>Coordinates copied to clipboard</source>
+        <translation>座標をクリップボードにコピー</translation>
+    </message>
+    <message>
         <source>Set As Destination</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">目的地として設定</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1720"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1762"/>
         <source>Navigation Options</source>
-        <translation type="unfinished"/>
+        <translation>ナビゲーションオプション</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1736"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1778"/>
         <source>Clear Destination</source>
-        <translation type="unfinished"/>
+        <translation>目的地をクリア</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1748"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1790"/>
         <source>Positioning Options</source>
         <translation>位置情報表示オプション</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1774"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1816"/>
         <source>Enable Positioning</source>
         <translation>位置情報表示を有効にする</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1788"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1830"/>
         <source>Show Position Information</source>
         <translation>座標情報を表示する</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1802"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1844"/>
         <source>Positioning Settings</source>
         <translation>現在位置表示設定</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1815"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1857"/>
         <source>Center to Current Location</source>
         <translation>現在位置を中央に表示</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1858"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1867"/>
+        <source>Add Bookmark at Current Location</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/qml/qgismobileapp.qml" line="1873"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1896"/>
+        <source>Current location unknown</source>
+        <translation>不明な現在位置</translation>
+    </message>
+    <message>
+        <location filename="../src/qml/qgismobileapp.qml" line="1877"/>
+        <source>My location</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/qml/qgismobileapp.qml" line="1890"/>
+        <source>Copy Current Location</source>
+        <translation>現在位置をコピー</translation>
+    </message>
+    <message>
+        <location filename="../src/qml/qgismobileapp.qml" line="1907"/>
+        <source>Accuracy</source>
+        <translation>精度</translation>
+    </message>
+    <message>
+        <location filename="../src/qml/qgismobileapp.qml" line="1910"/>
+        <source>N/A</source>
+        <translation>N/A</translation>
+    </message>
+    <message>
+        <location filename="../src/qml/qgismobileapp.qml" line="1913"/>
+        <source>Current location copied to clipboard</source>
+        <translation>現在位置をクリップボードにコピー</translation>
+    </message>
+    <message>
+        <location filename="../src/qml/qgismobileapp.qml" line="1951"/>
         <source>Current layer switched to the one holding the selected geometry.</source>
         <translation>選択されたジオメトリが属するレイヤに切り替わりました</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1867"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1960"/>
         <source>Editing of multi geometry layer is not supported yet.</source>
         <translation>マルチジオメトリレイヤーの編集は現在サポートされていません。</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1980"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2073"/>
         <source>Loading %1</source>
         <translation>%1 を読み込んでいます</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2264"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2357"/>
         <source>Logged out</source>
         <translation>ログアウトしました</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2266"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2359"/>
         <source>Connecting...</source>
         <translation>接続しています...</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2268"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2361"/>
         <source>Logged in</source>
         <translation>ログインしました</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2283"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2376"/>
         <source>Project %1 failed to download</source>
         <translation>プロジェクト %1 のダウンロードに失敗しました</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2284"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2377"/>
         <source>Project %1 successfully downloaded, it&apos;s now available to open</source>
         <translation>プロジェクト %1 が正常にダウンロードされて開けるようになりました</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2289"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2382"/>
         <source>Changes failed to reach QFieldCloud: %1</source>
         <translation>変更内容がQFieldCloudにプッシュされませんでした: %1</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2293"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2386"/>
         <source>Changes successfully pushed to QFieldCloud</source>
         <translation>変更内容がQFieldCloudに正常にプッシュされました</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2529"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2622"/>
         <source>Press back again to close project and app</source>
         <translation>もう一度戻るボタンを押してプロジェクトとアプリを閉じてください。</translation>
     </message>
@@ -3007,42 +3140,42 @@ Cancel to make a minimal device scan instead.</source>
 <context>
     <name>relation_editor</name>
     <message>
-        <location filename="../src/qml/editorwidgets/relationeditors/relation_editor.qml" line="89"/>
+        <location filename="../src/qml/editorwidgets/relationeditors/relation_editor.qml" line="90"/>
         <source>Ensure contraints</source>
         <translation>制約を確認する</translation>
     </message>
     <message>
-        <location filename="../src/qml/editorwidgets/relationeditors/relation_editor.qml" line="128"/>
+        <location filename="../src/qml/editorwidgets/relationeditors/relation_editor.qml" line="129"/>
         <source>Adding child feature in layer %1</source>
         <translation>レイヤー %1 に子地物を追加します</translation>
     </message>
     <message>
-        <location filename="../src/qml/editorwidgets/relationeditors/relation_editor.qml" line="138"/>
+        <location filename="../src/qml/editorwidgets/relationeditors/relation_editor.qml" line="139"/>
         <source>Cannot add child feature: parent primary keys are not available</source>
         <translation>子地物を追加できません。親の主キーが有効ではありません。</translation>
     </message>
     <message>
-        <location filename="../src/qml/editorwidgets/relationeditors/relation_editor.qml" line="244"/>
+        <location filename="../src/qml/editorwidgets/relationeditors/relation_editor.qml" line="245"/>
         <source>Unlink feature %1 (%2) of %3</source>
         <translation>％3の地物 ％1（％2）のリンクを解除します</translation>
     </message>
     <message>
-        <location filename="../src/qml/editorwidgets/relationeditors/relation_editor.qml" line="248"/>
+        <location filename="../src/qml/editorwidgets/relationeditors/relation_editor.qml" line="249"/>
         <source>Delete feature %1 (%2) on %3</source>
         <translation>％3の地物 ％1（％2）を削除します</translation>
     </message>
     <message>
-        <location filename="../src/qml/editorwidgets/relationeditors/relation_editor.qml" line="256"/>
+        <location filename="../src/qml/editorwidgets/relationeditors/relation_editor.qml" line="257"/>
         <source>Should the feature &lt;b&gt;%1 (%2)&lt;/b&gt; of layer &lt;b&gt;%3&lt;/b&gt; be unlinked?&lt;br&gt;&lt;i&gt;(The connection will be deleted on layer &lt;b&gt;%4&lt;/b&gt;)&lt;/i&gt;</source>
         <translation>レイヤー &lt;b&gt;%3&lt;/b&gt; の地物 &lt;b&gt;%1 (%2)&lt;/b&gt;のリンクを解除しますか?&lt;br&gt;&lt;i&gt;(レイヤー &lt;b&gt;%4&lt;/b&gt;のコネクションは削除されます)&lt;/i&gt;</translation>
     </message>
     <message>
-        <location filename="../src/qml/editorwidgets/relationeditors/relation_editor.qml" line="261"/>
+        <location filename="../src/qml/editorwidgets/relationeditors/relation_editor.qml" line="262"/>
         <source>Should the feature &lt;b&gt;%1 (%2)&lt;/b&gt; on layer &lt;b&gt;%3&lt;/b&gt; be deleted?</source>
         <translation>レイヤー &lt;b&gt;%3&lt;/b&gt; の地物&lt;b&gt;%1 (%2)&lt;/b&gt;を削除しますか？</translation>
     </message>
     <message>
-        <location filename="../src/qml/editorwidgets/relationeditors/relation_editor.qml" line="270"/>
+        <location filename="../src/qml/editorwidgets/relationeditors/relation_editor.qml" line="271"/>
         <source>Failed to delete referencing feature</source>
         <translation>参照している地物を削除できませんでした</translation>
     </message>
