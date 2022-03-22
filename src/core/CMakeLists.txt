@@ -272,6 +272,10 @@ target_link_libraries(
          ${PROJ_LIBRARY}
          ${GDAL_LIBRARIES})
 
+if(WITH_SENTRY)
+  target_link_libraries(qfield_core PRIVATE sentry::sentry)
+endif()
+
 if(ANDROID)
   target_link_libraries(qfield_core PUBLIC Qt5::AndroidExtras)
 endif()
