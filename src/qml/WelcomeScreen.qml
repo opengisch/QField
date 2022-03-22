@@ -249,6 +249,109 @@ Page {
       }
     }
 
+    SwipeView {
+      id: collectionView
+      visible: false
+
+      Layout.margins: 6
+      Layout.topMargin: 10
+      Layout.bottomMargin: 10
+      Layout.alignment: Qt.AlignVCenter | Qt.AlignHCenter
+      Layout.preferredWidth: Math.min( 410, mainWindow.width - 30 )
+      Layout.preferredHeight: Math.max(collectionOhno.childrenRect.height, collectionIntro.childrenRect.height)
+      clip: true
+
+      Behavior on Layout.preferredHeight {
+          NumberAnimation { duration: 100; easing.type: Easing.InQuad; }
+      }
+
+      interactive: false
+      currentIndex: 1
+      Item {
+        id: collectionOhno
+
+        Rectangle {
+          anchors.fill: parent
+          gradient: Gradient  {
+            GradientStop  {
+              position: 0.0
+              color: "#4480cc28"
+            }
+            GradientStop  {
+              position: 0.88
+              color: "#0580cc28"
+            }
+          }
+
+          radius: 6
+        }
+
+        ColumnLayout {
+          spacing: 0
+          anchors.centerIn: parent
+
+          Text {
+            Layout.margins: 6
+            Layout.maximumWidth: collectionView.width - 12
+            text: qsTr("Anonymized metrics collection has been disabled. You can re-enable through the settings panel.")
+            font: Theme.defaultFont
+            horizontalAlignment: Text.AlignHCenter
+            wrapMode: Text.WordWrap
+          }
+        }
+      }
+
+      Item {
+        id: collectionIntro
+
+        Rectangle {
+          anchors.fill: parent
+          gradient: Gradient  {
+            GradientStop  {
+              position: 0.0
+              color: "#4480cc28"
+            }
+            GradientStop  {
+              position: 0.88
+              color: "#0580cc28"
+            }
+          }
+
+          radius: 6
+        }
+
+        ColumnLayout {
+          spacing: 0
+          anchors.centerIn: parent
+
+          Text {
+            Layout.margins: 6
+            Layout.maximumWidth: collectionView.width - 12
+            text: qsTr("To improve stability for everyone, QField collects and sends anonymized metrics. To disable, click on the button below.")
+            font: Theme.defaultFont
+            horizontalAlignment: Text.AlignHCenter
+            wrapMode: Text.WordWrap
+          }
+
+          RowLayout {
+            spacing: 6
+            Layout.alignment: Qt.AlignVCenter | Qt.AlignHCenter
+            Layout.bottomMargin: 10
+            QfToolButton {
+              iconSource: Theme.getThemeIcon('ic_close_white_24dp')
+              bgcolor: Theme.mainColor
+              round: true
+
+              onClicked: {
+                qfieldSettings.enableInfoCollection = false
+                collectionView.currentIndex = 0
+              }
+            }
+          }
+        }
+      }
+    }
+
     Text {
       id: welcomeText
       visible: !feedbackView.visible
@@ -659,6 +762,15 @@ Page {
         settings.setValue("/QField/FirstRunDate", now.toISOString())
       }
     }
+
+    if (platformUtilities.capabilities & PlatformUtilities.SentryFramework) {
+      var collectionFormShown = settings.value("/QField/CollectionFormShown",false)
+      if (!collectionFormShown) {
+        collectionView.visible = true
+        settings.setValue("/QField/CollectionFormShown",true)
+      }
+    }
+
     settings.setValue("/QField/RunCount",runCount + 1)
   }
 
@@ -666,6 +778,7 @@ Page {
     adjustWelcomeScreen()
     if (!visible) {
       feedbackView.visible = false
+      collectionView.visible = false
       firstShown = true
     }
   }

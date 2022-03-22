@@ -19,6 +19,7 @@
 #include "picturesource.h"
 #include "platformutilities.h"
 #include "projectsource.h"
+#include "qfield.h"
 #include "qgismobileapp.h"
 #include "qgsmessagelog.h"
 
@@ -28,6 +29,10 @@
 #include <QFileDialog>
 #include <QTimer>
 #include <QUrl>
+
+#if WITH_SENTRY
+#include <sentry.h>
+#endif
 
 #if defined( Q_OS_ANDROID )
 #include "androidplatformutilities.h"
@@ -46,7 +51,7 @@ PlatformUtilities::~PlatformUtilities()
 PlatformUtilities::Capabilities PlatformUtilities::capabilities() const
 {
   PlatformUtilities::Capabilities capabilities = NoCapabilities;
-#ifdef WITH_SENTRY
+#if WITH_SENTRY
   capabilities |= SentryFramework;
 #endif
   return capabilities;
@@ -187,6 +192,30 @@ bool PlatformUtilities::checkCameraPermissions() const
 bool PlatformUtilities::checkWriteExternalStoragePermissions() const
 {
   return true;
+}
+
+void PlatformUtilities::initiateSentry()
+{
+#if WITH_SENTRY
+  sentry_options_t *options = sentry_options_new();
+  sentry_options_set_dsn( options, qfield::sentryDsn.toUtf8().constData() );
+  sentry_options_set_environment( options, qfield::sentryEnv.toUtf8().constData() );
+  sentry_options_set_debug( options, 1 );
+  sentry_init( options );
+#endif
+}
+
+void PlatformUtilities::closeSentry()
+{
+#if WITH_SENTRY
+  sentry_close();
+#endif
+}
+
+void PlatformUtilities::copyTextToClipboard( const QString &string ) const
+{
+  QClipboard *clipboard = QGuiApplication::clipboard();
+  clipboard->setText( string );
 }
 
 PlatformUtilities *PlatformUtilities::instance()
