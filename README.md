@@ -22,7 +22,7 @@ Check the [documentation](https://docs.qfield.org/)
 
 ### iOS (Alpha)
 
-An iOS version is in alpha state, [subscribe as iOS tester](https://forms.clickup.com/f/22wqj-2878/D6IEV7K3PKVONXPX8P) to be among the first to try
+MacOS support is currently in beta status. [Download the latest development builds](https://nightly.link/opengisch/QField/workflows/desktop/master/QField-dev-x64-osx-Release.zip) and leave us a note how it works.
 
 ## Contribute
 
