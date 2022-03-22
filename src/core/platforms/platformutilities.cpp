@@ -212,12 +212,6 @@ void PlatformUtilities::closeSentry()
 #endif
 }
 
-void PlatformUtilities::copyTextToClipboard( const QString &string ) const
-{
-  QClipboard *clipboard = QGuiApplication::clipboard();
-  clipboard->setText( string );
-}
-
 PlatformUtilities *PlatformUtilities::instance()
 {
   return sPlatformUtils;
