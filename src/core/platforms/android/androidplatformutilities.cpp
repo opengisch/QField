@@ -418,6 +418,20 @@ void AndroidPlatformUtilities::restoreBrightness()
   }
 }
 
+void AndroidPlatformUtilities::initiateSentry()
+{
+  if ( mActivity.isValid() )
+  {
+    QtAndroid::runOnAndroidThread( [] {
+      QAndroidJniObject activity = QtAndroid::androidActivity();
+      if ( activity.isValid() )
+      {
+        activity.callMethod<void>( "initiateSentry" );
+      }
+    } );
+  }
+}
+
 #ifdef __cplusplus
 extern "C" {
 #endif

@@ -21,6 +21,7 @@ Page {
   property alias autoSave: registry.autoSave
   property alias mouseAsTouchScreen: registry.mouseAsTouchScreen
   property alias dimBrightness: registry.dimBrightness
+  property alias enableInfoCollection: registry.enableInfoCollection
 
   Settings {
     id: registry
@@ -32,6 +33,15 @@ Page {
     property bool autoSave: false
     property bool mouseAsTouchScreen: false
     property bool dimBrightness: platformUtilities.capabilities & PlatformUtilities.AdjustBrightness
+    property bool enableInfoCollection: true
+
+    onEnableInfoCollectionChanged: {
+      if (enableInfoCollection) {
+        platformUtilities.initiateSentry();
+      } else {
+        platformUtilities.closeSentry();
+      }
+    }
   }
 
   ListModel {
@@ -75,12 +85,19 @@ Page {
           description: qsTr( "If disabled, the mouse will act as a stylus pen." )
           settingAlias: "mouseAsTouchScreen"
       }
+      ListElement {
+          title: qsTr( "Send anonymized metrics" )
+          description: qsTr( "If enabled, anonymized metrics will be collected and sent to help improve QField for everyone." )
+          settingAlias: "enableInfoCollection"
+      }
       Component.onCompleted: {
           for (var i = 0; i < settingsModel.count; i++) {
               if (settingsModel.get(i).settingAlias === 'nativeCamera') {
                   settingsModel.setProperty(i, 'isVisible', platformUtilities.capabilities & PlatformUtilities.NativeCamera)
               } else if (settingsModel.get(i).settingAlias === 'dimBrightness') {
                   settingsModel.setProperty(i, 'isVisible', platformUtilities.capabilities & PlatformUtilities.AdjustBrightness)
+              } else if (settingsModel.get(i).settingAlias === 'enableInfoCollection') {
+                  settingsModel.setProperty(i, 'isVisible', platformUtilities.capabilities & PlatformUtilities.SentryFramework)
               } else {
                   settingsModel.setProperty(i, 'isVisible', true)
               }

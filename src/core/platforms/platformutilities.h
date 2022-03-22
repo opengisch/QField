@@ -143,6 +143,16 @@ class QFIELD_CORE_EXPORT PlatformUtilities : public QObject
      */
     Q_INVOKABLE virtual void restoreBrightness() { return; };
 
+    /**
+     * Initalizes sentry connection.
+     */
+    Q_INVOKABLE virtual void initiateSentry();
+
+    /**
+     * Closes active sentry connection.
+     */
+    Q_INVOKABLE virtual void closeSentry();
+
     static PlatformUtilities *instance();
 };
 #endif // PLATFORMUTILITIES_H
