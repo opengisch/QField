@@ -22,6 +22,11 @@ Check the [documentation](https://docs.qfield.org/)
 
 ### iOS (Alpha)
 
+An iOS version is in the making. You can [sign up for beta testing in testflight](https://testflight.apple.com/join/TbG1kJVI) to get access earlier than everyone else.
+
+
+### MacOS (Beta)
+
 MacOS support is currently in beta status. [Download the latest development builds](https://nightly.link/opengisch/QField/workflows/desktop/master/QField-dev-x64-osx-Release.zip) and leave us a note how it works.
 
 ## Contribute
