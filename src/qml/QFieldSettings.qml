@@ -87,7 +87,7 @@ Page {
       }
       ListElement {
           title: qsTr( "Send anonymized metrics" )
-          description: qsTr( "If enabled, information will be collected, anonymized, and sent to help improve QField for everyone." )
+          description: qsTr( "If enabled, anonymized metrics will be collected and sent to help improve QField for everyone." )
           settingAlias: "enableInfoCollection"
       }
       Component.onCompleted: {

@@ -293,7 +293,7 @@ Page {
           Text {
             Layout.margins: 6
             Layout.maximumWidth: collectionView.width - 12
-            text: qsTr("Anonimized metrics collection has been disabled. You can re-enable through the settings panel.")
+            text: qsTr("Anonymized metrics collection has been disabled. You can re-enable through the settings panel.")
             font: Theme.defaultFont
             horizontalAlignment: Text.AlignHCenter
             wrapMode: Text.WordWrap
@@ -327,7 +327,7 @@ Page {
           Text {
             Layout.margins: 6
             Layout.maximumWidth: collectionView.width - 12
-            text: qsTr("To improve stability for everyone, QField collects and sends anonimized data. To disable, click on the button below.")
+            text: qsTr("To improve stability for everyone, QField collects and sends anonymized metrics. To disable, click on the button below.")
             font: Theme.defaultFont
             horizontalAlignment: Text.AlignHCenter
             wrapMode: Text.WordWrap
@@ -767,7 +767,7 @@ Page {
       var collectionFormShown = settings.value("/QField/CollectionFormShown",false)
       if (!collectionFormShown) {
         collectionView.visible = true
-        //settings.setValue("/QField/CollectionFormShown",true)
+        settings.setValue("/QField/CollectionFormShown",true)
       }
     }
 
