@@ -11,6 +11,7 @@ export Qt5_Dir=/home/devel/5.14.2/android/
 export Qt5_DIR=${Qt5_Dir}
 export ANDROID_PLATFORM=21
 export ANDROID_TARGET_PLATFORM=30
+export ANDROID_BUILD_TOOLS_VERSION=29.0.2
 
 [[ -z ${APP_NAME} ]] && APP_NAME="QField"
 [[ -z ${APP_PACKAGE_NAME} ]] && APP_PACKAGE_NAME="qfield"
@@ -43,6 +44,3 @@ cmake --build "${CMAKE_BUILD_DIR}"
 
 # Package app
 cmake --build  "${CMAKE_BUILD_DIR}" --target bundle --config Release
-
-# Sign app (uncomment if you have signature details)
-#${ANDROID_SDK_ROOT}/build-tools/29.0.2/apksigner sign --v2-signing-enabled true --ks ./keystore.p12 --ks-pass pass:"${STOREPASS}" --ks-key-alias "qfield" --key-pass pass:"${KEYPASS}" ${CMAKE_BUILD_DIR}/android-build/build/outputs/apk/release/android-build-release-signed.apk

@@ -18,7 +18,7 @@ file(COPY_FILE @CMAKE_BINARY_DIR@/android_deployment_settings.json @CMAKE_BINARY
 execute_process(
   COMMAND
   "bash"
-  -c "cat <<< \"$(jq '. += { \"sdkBuildToolsRevision\" : \"29.0.2\" }' < @CMAKE_BINARY_DIR@/android_deployment_settings.tmp)\" > @CMAKE_BINARY_DIR@/android_deployment_settings.json"
+  -c "cat <<< \"$(jq '. += { \"sdkBuildToolsRevision\" : \"@ANDROID_BUILD_TOOLS_VERSION@\" }' < @CMAKE_BINARY_DIR@/android_deployment_settings.tmp)\" > @CMAKE_BINARY_DIR@/android_deployment_settings.json"
 )
 if(DEFINED ENV{KEYNAME}
    AND DEFINED ENV{KEYPASS}
@@ -35,6 +35,15 @@ if(DEFINED ENV{KEYNAME}
       --android-platform android-@ANDROID_TARGET_PLATFORM@
       --gradle
       --aab
+    WORKING_DIRECTORY @CMAKE_BINARY_DIR@ COMMAND_ECHO STDERR)
+  execute_process(
+    COMMAND
+      "@ANDROID_SDK@/build-tools/@ANDROID_BUILD_TOOLS_VERSION@/apksigner" sign
+      --v2-signing-enabled true
+      --ks @CMAKE_SOURCE_DIR@/keystore.p12 --ks-key-alias "$ENV{KEYNAME}"
+      --ks-pass "pass:$ENV{STOREPASS}"
+      --key-pass "pass:$ENV{KEYPASS}"
+        @CMAKE_BINARY_DIR@/android-build/build/outputs/apk/release/android-build-release-signed.apk
     WORKING_DIRECTORY @CMAKE_BINARY_DIR@ COMMAND_ECHO STDERR)
 else()
   execute_process(
