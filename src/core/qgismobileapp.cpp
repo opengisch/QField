@@ -284,10 +284,15 @@ QgisMobileapp::QgisMobileapp( QgsApplication *app, QObject *parent )
     delete[] newPaths;
 
 #ifdef Q_OS_ANDROID
-    if ( QDir( PlatformUtilities::instance()->qfieldDataDir() ).exists() )
+    QFileInfo appDir( PlatformUtilities::instance()->qfieldDataDir() );
+    if ( appDir.exists() && appDir.isReadable() )
+    {
       setenv( "PGSYSCONFDIR", PlatformUtilities::instance()->qfieldDataDir().toUtf8(), true );
+    }
     else
+    {
       setenv( "PGSYSCONFDIR", PlatformUtilities::instance()->qfieldAppDataDir().toUtf8(), true );
+    }
 #endif
 
     QgsApplication::instance()->authManager()->setPasswordHelperEnabled( false );
