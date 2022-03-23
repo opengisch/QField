@@ -1009,7 +1009,7 @@ ApplicationWindow {
       / When set to true, when the map follows the device's current position, the extent
       / will always include the destination marker.
       */
-      property bool followIncludeDestination: false
+      property bool followIncludeDestination: true
 
       onClicked: {
         if (positionSource.active && gpsButton.followActive) {
@@ -1030,7 +1030,7 @@ ApplicationWindow {
       }
 
       Component.onCompleted: {
-        followIncludeDestination = settings.valueBool("/QField/Navigation/FollowIncludeDestination", false)
+        followIncludeDestination = settings.valueBool("/QField/Navigation/FollowIncludeDestination", true)
       }
     }
 
