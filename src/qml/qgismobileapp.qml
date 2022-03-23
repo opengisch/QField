@@ -1176,10 +1176,12 @@ ApplicationWindow {
         var screenLocation = mapCanvas.mapSettings.coordinateToScreen(positionSource.projectedPosition);
         if (navigation.isActive && navigationButton.followIncludeDestination) {
           if (mapCanvas.mapSettings.scale > 10) {
-            var screenDestination = mapCanvas.mapSettings.coordinateToScreen( navigation.destination );
-            if (forceRecenter || screenDestination.x < 40 || screenLocation.x < 40 ||
-                screenDestination.y > mainWindow.height - 40 || screenLocation.y > mainWindow.height - 40 ||
-                Math.abs(screenDestination.x - screenLocation.x) < mainWindow.width / 2 || Math.abs(screenDestination.y - screenLocation.y) < mainWindow.height / 2) {
+            var screenDestination = mapCanvas.mapSettings.coordinateToScreen(navigation.destination);
+            if (forceRecenter || screenDestination.x < 40 || screenDestination.x > (mainWindow.width - 40) ||
+                screenDestination.y < 40 || screenDestination.y > (mainWindow.height - 40) ||
+                screenLocation.x < 40 || screenLocation > (mainWindow.width - 40) ||
+                screenLocation.y < 40 || screenLocation.y > (mainWindow.height - 40) ||
+                (Math.abs(screenDestination.x - screenLocation.x) < mainWindow.width / 3 && Math.abs(screenDestination.y - screenLocation.y) < mainWindow.height / 3)) {
               gpsButton.followActiveSkipExtentChanged = true;
               var points = [positionSource.projectedPosition, navigation.destination];
               mapCanvas.mapSettings.setExtentFromPoints(points)
