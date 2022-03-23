@@ -122,6 +122,47 @@ void QgsQuickMapSettings::setCenterToLayer( QgsMapLayer *layer, bool shouldZoom 
   }
 }
 
+void QgsQuickMapSettings::setExtentFromPoints( const QVariantList &points )
+{
+  if ( points.isEmpty() )
+  {
+    return;
+  }
+
+  if ( points.size() == 1 )
+  {
+    QgsPoint p = points.at( 0 ).value<QgsPoint>();
+    if ( !p.isEmpty() )
+      setCenter( p );
+    return;
+  }
+
+  QgsRectangle extent;
+  for ( auto &point : points )
+  {
+    QgsPoint p = point.value<QgsPoint>();
+    if ( p.isEmpty() )
+      continue;
+    extent.combineExtentWith( p.x(), p.y() );
+  }
+
+  QSize size = outputSize();
+  size /= devicePixelRatio();
+  double unitPerPoint = 0.0;
+  double buffer = 0.0;
+  if ( extent.width() > extent.height() )
+  {
+    unitPerPoint = extent.width() / size.width();
+  }
+  else
+  {
+    unitPerPoint = extent.height() / size.height();
+  }
+  buffer = 80 * unitPerPoint;
+
+  setExtent( extent.buffered( buffer ) );
+}
+
 double QgsQuickMapSettings::mapUnitsPerPoint() const
 {
   return mMapSettings.mapUnitsPerPixel() * devicePixelRatio();
@@ -130,6 +171,11 @@ double QgsQuickMapSettings::mapUnitsPerPoint() const
 QgsRectangle QgsQuickMapSettings::visibleExtent() const
 {
   return mMapSettings.visibleExtent();
+}
+
+double QgsQuickMapSettings::scale() const
+{
+  return mMapSettings.scale();
 }
 
 QPointF QgsQuickMapSettings::coordinateToScreen( const QgsPoint &point ) const
