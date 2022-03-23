@@ -10,8 +10,10 @@ Item {
   id: item
 
   property variant location // QgsPoint
+  property string device // Empty string means internal device is used
   property real accuracy
-  property real direction // A -1 value indicates absence of direction information
+  property real direction // A -1 value indicates absence of direction information (note: when an external GNSS device is connected, direction is actually a compass)
+  property real speed // A -1 value indicates absence of speed information
   property MapSettings mapSettings
 
   QtObject {
@@ -64,7 +66,7 @@ Item {
 
   Image {
     id: compassDirectionMarker
-    visible: magnetometer.hasValue
+    visible: (device != '' && direction >= 0) || magnetometer.hasValue
     width: 48
     height: 48
     opacity: 0.6
@@ -74,14 +76,14 @@ Item {
 
     source: Theme.getThemeVectorIcon( "ic_compass_direction" )
     fillMode: Image.PreserveAspectFit
-    rotation: -(Math.atan2(magnetometer.x, magnetometer.y) / Math.PI) * 180
+    rotation: device != '' ? direction : -(Math.atan2(magnetometer.x, magnetometer.y) / Math.PI) * 180
     transformOrigin: Item.Bottom
     smooth: true
   }
 
   Shape {
     id: movementMarker
-    visible: direction >= 0 && props.isOnMapCanvas
+    visible: device == '' && speed > 0 && props.isOnMapCanvas
     width: 26
     height: 26
 
@@ -125,7 +127,7 @@ Item {
 
   Rectangle {
     id: positionMarker
-    visible: direction == -1 && props.isOnMapCanvas
+    visible: !movementMarker.visible && props.isOnMapCanvas
 
     width: 12
     height: 12

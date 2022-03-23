@@ -487,13 +487,16 @@ ApplicationWindow {
       anchors.fill: parent
       visible: positionSource.active && positionSource.positionInfo && positionSource.positionInfo.latitudeValid
       location: positionSource.projectedPosition
+      device: positionSource.device
       accuracy: positionSource.projectedHorizontalAccuracy
       direction: positionSource.positionInfo
                  && positionSource.positionInfo.directionValid
-                 && positionSource.positionInfo.speedValid
-                 && positionSource.positionInfo.speed > 0.0
                  ? positionSource.positionInfo.direction
                  : -1
+      speed: positionSource.positionInfo
+             && positionSource.positionInfo.speedValid
+             ? positionSource.positionInfo.speed
+             : -1
 
       onLocationChanged: {
         if ( gpsButton.followActive ) {
