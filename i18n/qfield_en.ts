@@ -1247,42 +1247,42 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
 <context>
     <name>PlatformUtilities</name>
     <message>
-        <location filename="../src/core/platforms/platformutilities.cpp" line="130"/>
+        <location filename="../src/core/platforms/platformutilities.cpp" line="135"/>
         <source>Select Media File</source>
         <translation>Select Media File</translation>
     </message>
     <message>
-        <location filename="../src/core/platforms/platformutilities.cpp" line="130"/>
+        <location filename="../src/core/platforms/platformutilities.cpp" line="135"/>
         <source>JPEG images (*.jpg *.jpeg)</source>
         <translation>JPEG images (*.jpg *.jpeg)</translation>
     </message>
     <message>
-        <location filename="../src/core/platforms/platformutilities.cpp" line="150"/>
+        <location filename="../src/core/platforms/platformutilities.cpp" line="155"/>
         <source>Failed to save gallery picture</source>
         <translation>Failed to save gallery picture</translation>
     </message>
     <message>
-        <location filename="../src/core/platforms/platformutilities.cpp" line="167"/>
+        <location filename="../src/core/platforms/platformutilities.cpp" line="172"/>
         <source>Open File</source>
         <translation>Open File</translation>
     </message>
     <message>
-        <location filename="../src/core/platforms/platformutilities.cpp" line="169"/>
+        <location filename="../src/core/platforms/platformutilities.cpp" line="174"/>
         <source>All Supported Files</source>
         <translation>All Supported Files</translation>
     </message>
     <message>
-        <location filename="../src/core/platforms/platformutilities.cpp" line="169"/>
+        <location filename="../src/core/platforms/platformutilities.cpp" line="174"/>
         <source>QGIS Project Files</source>
         <translation>QGIS Project Files</translation>
     </message>
     <message>
-        <location filename="../src/core/platforms/platformutilities.cpp" line="169"/>
+        <location filename="../src/core/platforms/platformutilities.cpp" line="174"/>
         <source>Vector Datasets</source>
         <translation>Vector Datasets</translation>
     </message>
     <message>
-        <location filename="../src/core/platforms/platformutilities.cpp" line="169"/>
+        <location filename="../src/core/platforms/platformutilities.cpp" line="174"/>
         <source>Raster Datasets</source>
         <translation>Raster Datasets</translation>
     </message>
@@ -2037,254 +2037,264 @@ While you can still view and use the project, it is strongly recommended to rese
 <context>
     <name>QFieldSettings</name>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="40"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="50"/>
         <source>Show scale bar</source>
         <translation>Show scale bar</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="44"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="54"/>
         <source>Maximized attribute form</source>
         <translation>Maximized attribute form</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="48"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="58"/>
         <source>Fixed scale navigation</source>
         <translation>Fixed scale navigation</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="49"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="59"/>
         <source>When fixed scale navigation is active, focusing on a search result will pan to the feature. With fixed scale navigation disabled it will pan and zoom to the feature.</source>
         <translation>When fixed scale navigation is active, focusing on a search result will pan to the feature. With fixed scale navigation disabled it will pan and zoom to the feature.</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="53"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="63"/>
         <source>Show digitizing information</source>
         <translation>Show digitizing information</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="54"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="64"/>
         <source>When switched on, coordinate information, such as latitude and longitude, is overlayed onto the map while digitizing new features or using the measure tool.</source>
         <translation>When switched on, coordinate information, such as latitude and longitude, is overlayed onto the map while digitizing new features or using the measure tool.</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="58"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="68"/>
         <source>Use native camera</source>
         <translation>Use native camera</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="59"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="69"/>
         <source>If disabled, QField will use a minimalist internal camera instead of the camera app on the device.&lt;br&gt;Tip: Enable this option and install the open camera app to create geo tagged photos.</source>
         <translation>If disabled, QField will use a minimalist internal camera instead of the camera app on the device.&lt;br&gt;Tip: Enable this option and install the open camera app to create geo tagged photos.</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="64"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="74"/>
         <source>Fast editing mode</source>
         <translation>Fast editing mode</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="65"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="75"/>
         <source>If enabled, the feature is stored after having a valid geometry and the constraints are fulfilled and atributes are commited immediately.</source>
         <translation>If enabled, the feature is stored after having a valid geometry and the constraints are fulfilled and atributes are commited immediately.</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="69"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="79"/>
         <source>Dim screen when idling</source>
         <translation>Dim screen when idling</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="70"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="80"/>
         <source>If enabled, the screen brightness will be dimmed after 20 seconds of inactivity to preserve battery.</source>
         <translation>If enabled, the screen brightness will be dimmed after 20 seconds of inactivity to preserve battery.</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="74"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="84"/>
         <source>Consider mouse as a touchscreen device</source>
         <translation>Consider mouse as a touchscreen device</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="75"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="85"/>
         <source>If disabled, the mouse will act as a stylus pen.</source>
         <translation>If disabled, the mouse will act as a stylus pen.</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="113"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="89"/>
+        <source>Send anonymized metrics</source>
+        <translation>Send anonymized metrics</translation>
+    </message>
+    <message>
+        <location filename="../src/qml/QFieldSettings.qml" line="90"/>
+        <source>If enabled, anonymized metrics will be collected and sent to help improve QField for everyone.</source>
+        <translation>If enabled, anonymized metrics will be collected and sent to help improve QField for everyone.</translation>
+    </message>
+    <message>
+        <location filename="../src/qml/QFieldSettings.qml" line="130"/>
         <source>General</source>
         <translation>General</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="119"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="136"/>
         <source>Positioning</source>
         <translation>Positioning</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="125"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="142"/>
         <source>Variables</source>
         <translation>Variables</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="167"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="184"/>
         <source>Customize search bar</source>
         <translation>Customize search bar</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="258"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="275"/>
         <source>User interface language:</source>
         <translation>User interface language:</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="269"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="286"/>
         <source>To apply the selected user interface language, QField needs to completely shutdown and restart.</source>
         <translation>To apply the selected user interface language, QField needs to completely shutdown and restart.</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="298"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="315"/>
         <source>system</source>
         <translation>system</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="311"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="328"/>
         <source>Found a missing or incomplete language? %1Join the translator community.%2</source>
         <translation>Found a missing or incomplete language? %1Join the translator community.%2</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="354"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="371"/>
         <source>Positioning device in use:</source>
         <translation>Positioning device in use:</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="402"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="419"/>
         <source>Scanning for paired devices</source>
         <translation>Scanning for paired devices</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="406"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="423"/>
         <source>Scanning failed: %1</source>
         <translation>Scanning failed: %1</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="410"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="427"/>
         <source>Scanning done</source>
         <translation>Scanning done</translation>
     </message>
     <message numerus="yes">
-        <location filename="../src/qml/QFieldSettings.qml" line="413"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="430"/>
         <source>%n device(s) found</source>
         <translation><numerusform>%n device(s) found</numerusform><numerusform>%n device(s) found</numerusform></translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="419"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="436"/>
         <source>Scanning canceled</source>
         <translation>Scanning canceled</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="436"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="453"/>
         <source>Scan</source>
         <translation>Scan</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="469"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="486"/>
         <source>Make a full service discovery</source>
         <translation>Make a full service discovery</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="473"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="490"/>
         <source>A full device scan can take longer. You really want to do it?
 Cancel to make a minimal device scan instead.</source>
         <translation>A full device scan can take longer. You really want to do it?
 Cancel to make a minimal device scan instead.</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="498"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="515"/>
         <source>Connected to %1</source>
         <translation>Connected to %1</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="500"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="517"/>
         <source>Connect  to %1</source>
         <translation>Connect  to %1</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="502"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="519"/>
         <source>Connecting to %1</source>
         <translation>Connecting to %1</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="519"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="536"/>
         <source>Use orthometric altitude from device</source>
         <translation>Use orthometric altitude from device</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="551"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="568"/>
         <source>Show position information</source>
         <translation>Show position information</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="573"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="590"/>
         <source>Activate accuracy indicator</source>
         <translation>Activate accuracy indicator</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="595"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="612"/>
         <source>Bad accuracy below [m]</source>
         <translation>Bad accuracy below [m]</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="636"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="653"/>
         <source>Excellent accuracy above [m]</source>
         <translation>Excellent accuracy above [m]</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="677"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="694"/>
         <source>Enable accuracy requirement</source>
         <translation>Enable accuracy requirement</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="704"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="721"/>
         <source>When the accuracy indicator is enabled, a badge is attached to the location button and colored &lt;span %1&gt;red&lt;/span&gt; if the accuracy value is below bad, &lt;span %2&gt;yellow&lt;/span&gt; if it falls short of excellent, or &lt;span %3&gt;green&lt;/span&gt;.&lt;br&gt;&lt;br&gt;In addition, an accuracy restriction mode can be toggled on, which restricts vertex addition when locked to coordinate cursor to positions with an accuracy value above the bad threshold.</source>
         <translation>When the accuracy indicator is enabled, a badge is attached to the location button and colored &lt;span %1&gt;red&lt;/span&gt; if the accuracy value is below bad, &lt;span %2&gt;yellow&lt;/span&gt; if it falls short of excellent, or &lt;span %3&gt;green&lt;/span&gt;.&lt;br&gt;&lt;br&gt;In addition, an accuracy restriction mode can be toggled on, which restricts vertex addition when locked to coordinate cursor to positions with an accuracy value above the bad threshold.</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="721"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="738"/>
         <source>Antenna height compensation</source>
         <translation>Antenna height compensation</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="743"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="760"/>
         <source>Antenna height [m]</source>
         <translation>Antenna height [m]</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="785"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="802"/>
         <source>Z values which are recorded from the positioning device will be corrected by this value. If a value of 1.6 is entered, this will result in a correction of -1.6 for each recorded value.</source>
         <translation>Z values which are recorded from the positioning device will be corrected by this value. If a value of 1.6 is entered, this will result in a correction of -1.6 for each recorded value.</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="799"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="816"/>
         <source>Skip altitude correction</source>
         <translation>Skip altitude correction</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="822"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="839"/>
         <source>Use the altitude as reported by the positioning device. Skip any altitude correction that may be implied by the coordinate system transformation.</source>
         <translation>Use the altitude as reported by the positioning device. Skip any altitude correction that may be implied by the coordinate system transformation.</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="836"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="853"/>
         <source>Vertical grid shift in use:</source>
         <translation>Vertical grid shift in use:</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="845"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="862"/>
         <source>None</source>
         <translation>None</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="859"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="876"/>
         <source>Vertical grid shift is used to increase the altitude accuracy.</source>
         <translation>Vertical grid shift is used to increase the altitude accuracy.</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="888"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="905"/>
         <source>QField Settings</source>
         <translation>QField Settings</translation>
     </message>
@@ -2675,47 +2685,57 @@ Cancel to make a minimal device scan instead.</translation>
         <translation>Rate us</translation>
     </message>
     <message>
-        <location filename="../src/qml/WelcomeScreen.qml" line="286"/>
+        <location filename="../src/qml/WelcomeScreen.qml" line="296"/>
+        <source>Anonymized metrics collection has been disabled. You can re-enable through the settings panel.</source>
+        <translation>Anonymized metrics collection has been disabled. You can re-enable through the settings panel.</translation>
+    </message>
+    <message>
+        <location filename="../src/qml/WelcomeScreen.qml" line="330"/>
+        <source>To improve stability for everyone, QField collects and sends anonymized metrics. To disable, click on the button below.</source>
+        <translation>To improve stability for everyone, QField collects and sends anonymized metrics. To disable, click on the button below.</translation>
+    </message>
+    <message>
+        <location filename="../src/qml/WelcomeScreen.qml" line="389"/>
         <source>QFieldCloud projects</source>
         <translation>QFieldCloud projects</translation>
     </message>
     <message>
-        <location filename="../src/qml/WelcomeScreen.qml" line="294"/>
+        <location filename="../src/qml/WelcomeScreen.qml" line="397"/>
         <source>Open local file</source>
         <translation>Open local file</translation>
     </message>
     <message>
-        <location filename="../src/qml/WelcomeScreen.qml" line="302"/>
+        <location filename="../src/qml/WelcomeScreen.qml" line="405"/>
         <source>Recent Projects</source>
         <translation>Recent Projects</translation>
     </message>
     <message>
-        <location filename="../src/qml/WelcomeScreen.qml" line="380"/>
+        <location filename="../src/qml/WelcomeScreen.qml" line="483"/>
         <source>Last session</source>
         <translation>Last session</translation>
     </message>
     <message>
-        <location filename="../src/qml/WelcomeScreen.qml" line="384"/>
+        <location filename="../src/qml/WelcomeScreen.qml" line="487"/>
         <source>Base map project</source>
         <translation>Base map project</translation>
     </message>
     <message>
-        <location filename="../src/qml/WelcomeScreen.qml" line="472"/>
+        <location filename="../src/qml/WelcomeScreen.qml" line="575"/>
         <source>Base Map Project</source>
         <translation>Base Map Project</translation>
     </message>
     <message>
-        <location filename="../src/qml/WelcomeScreen.qml" line="492"/>
+        <location filename="../src/qml/WelcomeScreen.qml" line="595"/>
         <source>Remove from Recent Projects</source>
         <translation>Remove from Recent Projects</translation>
     </message>
     <message>
-        <location filename="../src/qml/WelcomeScreen.qml" line="632"/>
+        <location filename="../src/qml/WelcomeScreen.qml" line="735"/>
         <source>Welcome to QField. First time using this application? Try out sample projects listed in the list below.</source>
         <translation>Welcome to QField. First time using this application? Try out sample projects listed in the list below.</translation>
     </message>
     <message>
-        <location filename="../src/qml/WelcomeScreen.qml" line="634"/>
+        <location filename="../src/qml/WelcomeScreen.qml" line="737"/>
         <source>Welcome back to QField.</source>
         <translation>Welcome back to QField.</translation>
     </message>
