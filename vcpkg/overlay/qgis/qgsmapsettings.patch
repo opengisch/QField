@@ -1,0 +1,25 @@
+From 078704c0fdbd7ca3daaf10c545048214b7a074a1 Mon Sep 17 00:00:00 2001
+From: Mathieu Pellerin <nirvn.asia@gmail.com>
+Date: Thu, 24 Mar 2022 17:52:11 +0700
+Subject: [PATCH] Add destructor to QgsMapSettings
+
+---
+ src/core/qgsmapsettings.h                        | 2 ++
+ 1 file changed, 2 insertions(+)
+
+diff --git a/src/core/qgsmapsettings.h b/src/core/qgsmapsettings.h
+index 90e141043b..a64eafdc92 100644
+--- a/src/core/qgsmapsettings.h
++++ b/src/core/qgsmapsettings.h
+@@ -90,6 +90,8 @@ class CORE_EXPORT QgsMapSettings : public QgsTemporalRangeObject
+   public:
+     QgsMapSettings();
+ 
++    virtual ~QgsMapSettings() {};
++
+     /**
+      * Returns geographical coordinates of the rectangle that should be rendered.
+      *
+-- 
+2.34.1
+

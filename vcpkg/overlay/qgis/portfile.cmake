@@ -18,6 +18,7 @@ vcpkg_from_github(
         findpg.patch
         crssync.patch
         auxiliary.patch
+        qgsmapsettings.patch
 )
 
 file(REMOVE ${SOURCE_PATH}/cmake/FindQtKeychain.cmake)
