@@ -164,7 +164,9 @@ public class QFieldUtils {
     }
 
     public static String getExtensionFromMimeType(String type) {
-        if (type.equals("application/pdf")) {
+        if (type == null) {
+            return "";
+        } else if (type.equals("application/pdf")) {
             return "pdf";
         } else if (type.equals("application/vnd.sqlite3") ||
                    type.equals("application/x-sqlite3")) {
