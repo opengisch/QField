@@ -129,6 +129,7 @@ jobs:
           modules: 'qtcharts'
           target: ${{ steps.vars.outputs.QT_TARGET }}
           arch: ${{ steps.vars.outputs.QT_ARCH }}
+          py7zrversion: '==0.18.1'
 
       - name: 🐧 Prepare linux build env
         if: ${{ matrix.triplet == 'x64-linux' }}
