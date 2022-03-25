@@ -137,7 +137,10 @@ public class QFieldActivity extends QtActivity {
                 DocumentFile.fromSingleUri(context, uri);
             String fileName = documentFile.getName();
             long fileBytes = documentFile.length();
-            if (fileName == null && type != null) {
+            if (fileName == null) {
+                if (type == null) {
+                    return filePath;
+                }
                 // File name not provided
                 fileName = new SimpleDateFormat("yyyyMMdd_HHmmss")
                                .format(new Date().getTime()) +
