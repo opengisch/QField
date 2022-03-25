@@ -47,6 +47,10 @@ jobs:
 #        path: ${{ github.workspace }}/Qt-${{ runner.os }}-${{ env.QT_VERSION }}
 #        key: ${{ runner.os }}-QtCache-${{ env.QT_VERSION }}-ios
 
+    - uses: actions/setup-python@v3
+      with:
+        python-version: '3.9' # Version range or exact version of a Python version to use, using SemVer's version range syntax
+
     - name: ⬆️ Install Qt
       uses: jurplel/install-qt-action@v2
       with:
@@ -54,6 +58,8 @@ jobs:
         target: ios
         dir: ${{ github.workspace }}/Qt-${{ runner.os }}-${{ env.QT_VERSION }}
         modules: 'qtcharts'
+        setup-python: false
+        py7zrversion: '==0.18.1'
         cached: ${{ steps.cache-qt.outputs.cache-hit }}
 
     - name: 🔥 Delete Qt built-in styles (QField use Material)
