@@ -121,6 +121,10 @@ jobs:
           sudo apt clean
           df -h
 
+      - uses: actions/setup-python@v3
+        with:
+          python-version: '3.9' # Version range or exact version of a Python version to use, using SemVer's version range syntax
+
       - name: 💐 Install Qt
         if: ${{ steps.vars.outputs.INSTALL_QT }}
         uses: jurplel/install-qt-action@v2
