@@ -319,6 +319,8 @@ QgisMobileapp::QgisMobileapp( QgsApplication *app, QObject *parent )
   connect( this, &QQmlApplicationEngine::quit, app, &QgsApplication::quit );
 
   mMapCanvas = rootObjects().first()->findChild<QgsQuickMapCanvasMap *>();
+  Q_ASSERT_X( mMapCanvas, "QML Init", "QgsQuickMapCanvasMap not found. It is likely that we failed to load the QML files. Check debug output for related messages." );
+
   mMapCanvas->mapSettings()->setProject( mProject );
   mBookmarkModel->setMapSettings( mMapCanvas->mapSettings() );
 
@@ -338,8 +340,6 @@ QgisMobileapp::QgisMobileapp( QgsApplication *app, QObject *parent )
 
   mFlatLayerTree->layerTreeModel()->setLegendMapViewData( mMapCanvas->mapSettings()->mapSettings().mapUnitsPerPixel(),
                                                           static_cast<int>( std::round( mMapCanvas->mapSettings()->outputDpi() ) ), mMapCanvas->mapSettings()->mapSettings().scale() );
-
-  Q_ASSERT_X( mMapCanvas, "QML Init", "QgsQuickMapCanvasMap not found. It is likely that we failed to load the QML files. Check debug output for related messages." );
 
   connect( mProject, &QgsProject::readProject, this, &QgisMobileapp::onReadProject );
 
