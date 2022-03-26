@@ -17,7 +17,7 @@ Item {
       crs: navigation.mapSettings.crs
     }
     color: Theme.navigationColorSemiOpaque
-    width: positionSource.active && positionSource.positionInfo && positionSource.positionInfo.latitudeValid ? 5 : 2
+    width: positionSource.active && positionSource.positionInfo && positionSource.positionInfo.latitudeValid ? 8 : 3
   }
 
   Repeater {
