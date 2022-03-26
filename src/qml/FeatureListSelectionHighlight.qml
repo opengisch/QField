@@ -11,7 +11,7 @@ Repeater {
   property double translateY: 0.0
   property color color: "yellow"
   property color focusedColor: "red"
-  property color selectedColor: "green"
+  property color selectedColor: Theme.mainColor
   property bool showSelectedOnly: false
 
   model: selectionModel.model
