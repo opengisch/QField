@@ -33,6 +33,7 @@
 #include <QFontDatabase>
 #include <QStandardItemModel>
 #include <QStandardPaths>
+#include <QSurfaceFormat>
 #include <QtQml/QQmlApplicationEngine>
 #include <QtQml/QQmlContext>
 #include <QtQml/QQmlEngine>
@@ -160,12 +161,10 @@ QgisMobileapp::QgisMobileapp( QgsApplication *app, QObject *parent )
   , mIface( new AppInterface( this ) )
   , mFirstRenderingFlag( true )
 {
-#if 0
+  // Enables antialiasing in QML scenes
   QSurfaceFormat format;
-  format.setSamples( 8 );
-  setFormat( format );
-  create();
-#endif
+  format.setSamples( 4 );
+  QSurfaceFormat::setDefaultFormat( format );
 
   QSettings settings;
   if ( PlatformUtilities::instance()->capabilities() & PlatformUtilities::AdjustBrightness )
