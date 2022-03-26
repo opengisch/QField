@@ -26,7 +26,7 @@ QgsSGGeometry::QgsSGGeometry()
 {
 }
 
-QgsSGGeometry::QgsSGGeometry( const QgsGeometry &geom, const QColor &color, int width, const QgsRectangle visibleExtent, double scaleFactor )
+QgsSGGeometry::QgsSGGeometry( const QgsGeometry &geom, const QColor &color, float width, const QgsRectangle visibleExtent, double scaleFactor )
 {
   //TODO: Fix const-correcteness upstream
   QgsGeometry &gg = const_cast<QgsGeometry &>( geom );
@@ -130,7 +130,7 @@ void QgsSGGeometry::applyStyle( QSGGeometryNode *geomNode )
   geomNode->setMaterial( &mMaterial );
 }
 
-QSGGeometry *QgsSGGeometry::qgsPolylineToQSGGeometry( const QgsPolylineXY &line, int width, const QgsRectangle visibleExtent, double scaleFactor )
+QSGGeometry *QgsSGGeometry::qgsPolylineToQSGGeometry( const QgsPolylineXY &line, float width, const QgsRectangle visibleExtent, double scaleFactor )
 {
   QSGGeometry *sgGeom = new QSGGeometry( QSGGeometry::defaultAttributes_Point2D(), line.count() );
   QSGGeometry::Point2D *vertices = sgGeom->vertexDataAsPoint2D();
