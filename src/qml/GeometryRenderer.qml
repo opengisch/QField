@@ -1,4 +1,5 @@
 import QtQuick 2.12
+import QtQuick.Window 2.2
 
 import org.qgis 1.0
 import org.qfield 1.0
@@ -8,7 +9,7 @@ Item {
   id: geometryRenderer
   property MapSettings mapSettings
   property alias geometryWrapper: geometryWrapper
-  property double lineWidth: 8
+  property double lineWidth: 3.5
   property color color: "yellow"
   property double pointSize: 20
   property color borderColor: "blue"
@@ -42,7 +43,7 @@ Item {
 
       geometry: geometryRenderer.geometryWrapper
       color: geometryRenderer.color
-      width: geometryRenderer.lineWidth
+      width: geometryRenderer.lineWidth * Screen.devicePixelRatio
     }
   }
 
