@@ -78,6 +78,7 @@ VisibilityFadingRow {
           displayToast( qsTr( 'Unknown error when creating the ring' ), 'error' );
 
         featureModel.currentLayer.rollBack()
+        drawPolygonToolbar.rubberbandModel.reset()
       }
       else
       {
