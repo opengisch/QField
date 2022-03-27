@@ -82,8 +82,8 @@ Item {
   Shape {
     id: movementMarker
     visible: direction >= 0 && props.isOnMapCanvas
-    width: 20
-    height: 20
+    width: 26
+    height: 26
 
     x: props.screenLocation.x - width / 2
     y: props.screenLocation.y - height / 2
@@ -96,12 +96,13 @@ Item {
       strokeColor: "white"
       strokeStyle: ShapePath.SolidLine
       fillColor: Theme.positionColor
+      joinStyle: ShapePath.MiterJoin
       startX: 10
-      startY: 0
-      PathLine { x: 18; y: 20 }
-      PathLine { x: 10; y: 14 }
-      PathLine { x: 2; y: 20 }
-      PathLine { x: 10; y: 0 }
+      startY: 2
+      PathLine { x: 18; y: 22 }
+      PathLine { x: 10; y: 16 }
+      PathLine { x: 2; y: 22 }
+      PathLine { x: 10; y: 2 }
 
       SequentialAnimation on fillColor  {
         loops: Animation.Infinite
@@ -111,6 +112,7 @@ Item {
     }
 
     layer.enabled: true
+    layer.samples: 4
     layer.effect: DropShadow {
         transparentBorder: true
         radius: 8
@@ -144,6 +146,7 @@ Item {
     }
 
     layer.enabled: true
+    layer.samples: 4
     layer.effect: DropShadow {
         transparentBorder: true
         radius: 8
@@ -158,19 +161,23 @@ Item {
     id: edgeMarker
     visible: !props.isOnMapCanvas
     width: 20
-    height: 20
+    height: 24
 
     x: Math.min(mapCanvas.width, Math.max(0, props.screenLocation.x)) + width  * (props.screenLocation.x < 0 ? 0 : -1)
     y: Math.min(mapCanvas.height, Math.max(0, props.screenLocation.y)) + height * (props.screenLocation.y < 0 ? 0 : -1)
 
-    rotation: -(Math.atan2(mapCanvas.width / 2 - props.screenLocation.x, mapCanvas.height / 2 - props.screenLocation.y) / Math.PI) * 180
-    transformOrigin: Item.Center
+    transform: Rotation {
+        origin.x: edgeMarker.width / 2;
+        origin.y: edgeMarker.width / 2;
+        angle:-(Math.atan2(mapCanvas.width / 2 - props.screenLocation.x, mapCanvas.height / 2 - props.screenLocation.y) / Math.PI) * 180
+    }
 
     ShapePath {
       strokeWidth: 3
       strokeColor: "white"
       strokeStyle: ShapePath.SolidLine
       fillColor: Theme.positionColor
+      joinStyle: ShapePath.MiterJoin
       startX: 10
       startY: 0
       PathLine { x: 18; y: 20 }
@@ -185,6 +192,7 @@ Item {
     }
 
     layer.enabled: true
+    layer.samples: 4
     layer.effect: DropShadow {
         transparentBorder: true
         radius: 8

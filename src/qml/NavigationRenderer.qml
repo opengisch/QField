@@ -70,6 +70,7 @@ Item {
                     transform: Rotation { origin.x: point.width / 2; origin.y: point.width / 2; angle: 45}
 
                     layer.enabled: true
+                    layer.samples: 4
                     layer.effect: DropShadow {
                         transparentBorder: true
                         radius: 8
@@ -84,19 +85,23 @@ Item {
                   id: edgePoint
                   visible: !isOnMapCanvas
                   width: 20
-                  height: 20
+                  height: 24
 
-                  x: Math.min(mapCanvas.width, Math.max(0, mapToScreenPosition.screenPoint.x)) + width  * (mapToScreenPosition.screenPoint.x < 0 ? 0 : -1)
-                  y: Math.min(mapCanvas.height, Math.max(0, mapToScreenPosition.screenPoint.y)) + height * (mapToScreenPosition.screenPoint.y < 0 ? 0 : -1)
+                  x: Math.min(mapCanvas.width, Math.max(0, mapToScreenPosition.screenPoint.x)) + width * (mapToScreenPosition.screenPoint.x < 0 ? 0 : -1)
+                  y: Math.min(mapCanvas.height, Math.max(0, mapToScreenPosition.screenPoint.y)) + width * (mapToScreenPosition.screenPoint.y < 0 ? 0 : -1)
 
-                  rotation: -(Math.atan2(mapCanvas.width / 2 - mapToScreenPosition.screenPoint.x, mapCanvas.height / 2 - mapToScreenPosition.screenPoint.y) / Math.PI) * 180
-                  transformOrigin: Item.Center
+                  transform: Rotation {
+                      origin.x: edgePoint.width / 2;
+                      origin.y: edgePoint.width / 2;
+                      angle: -(Math.atan2(mapCanvas.width / 2 - mapToScreenPosition.screenPoint.x, mapCanvas.height / 2 - mapToScreenPosition.screenPoint.y) / Math.PI) * 180
+                  }
 
                   ShapePath {
                     strokeWidth: 3
                     strokeColor: "white"
                     strokeStyle: ShapePath.SolidLine
                     fillColor: Theme.navigationColor
+                    joinStyle: ShapePath.MiterJoin
                     startX: 10
                     startY: 0
                     PathLine { x: 18; y: 20 }
@@ -105,6 +110,7 @@ Item {
                   }
 
                   layer.enabled: true
+                  layer.samples: 4
                   layer.effect: DropShadow {
                       transparentBorder: true
                       radius: 8
