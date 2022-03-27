@@ -26,33 +26,34 @@ EditorWidgetBase {
       project: qgisProject
   }
 
+
+  FeatureCheckListModel {
+    id: listModel
+    attributeField: field
+    //passing "" instead of undefined, so the model is cleared on adding new features
+    attributeValue: value !== undefined ? value : ""
+    currentLayer: layerResolver.currentLayer
+    currentFormFeature: currentFeature
+    keyField: config['Key']
+    displayValueField: config['Value']
+    addNull: config['AllowNull']
+    orderByValue: config['OrderByValue']
+    filterExpression: config['FilterExpression']
+    allowMulti: Number(config['AllowMulti']) === 1
+    onListUpdated: {
+      valueChangeRequested( attributeValue, false )
+    }
+  }
+
   RelationCombobox {
     id: valueRelationCombobox
+    featureListModel: listModel
 
     property var _relation: undefined
 
     useCompleter: !!config['UseCompleter']
     enabled: isEnabled
     visible: Number(config['AllowMulti']) !== 1
-
-    FeatureCheckListModel {
-      id: featureListModel
-
-      attributeField: field
-      //passing "" instead of undefined, so the model is cleared on adding new features
-      attributeValue: value !== undefined ? value : ""
-      currentLayer: layerResolver.currentLayer
-      currentFormFeature: currentFeature
-      keyField: config['Key']
-      displayValueField: config['Value']
-      addNull: config['AllowNull']
-      orderByValue: config['OrderByValue']
-      filterExpression: config['FilterExpression']
-      allowMulti: Number(config['AllowMulti']) === 1
-      onListUpdated: {
-        valueChangeRequested( attributeValue, false )
-      }
-    }
   }
 
   Rectangle {
@@ -68,24 +69,6 @@ EditorWidgetBase {
 
     border.color: 'lightgray'
     border.width: 1
-
-    FeatureCheckListModel {
-        id: listModel
-        attributeField: field
-        //passing "" instead of undefined, so the model is cleared on adding new features
-        attributeValue: value !== undefined ? value : ""
-        currentLayer: layerResolver.currentLayer
-        currentFormFeature: currentFeature
-        keyField: config['Key']
-        displayValueField: config['Value']
-        addNull: config['AllowNull']
-        orderByValue: config['OrderByValue']
-        filterExpression: config['FilterExpression']
-        allowMulti: true
-        onListUpdated: {
-            valueChangeRequested( attributeValue, false )
-        }
-    }
 
     //the list
     ListView {
@@ -181,7 +164,7 @@ EditorWidgetBase {
   }
 
   function siblingValueChanged(field, feature) {
-    featureListModel.currentFormFeature = feature
+    listModel.currentFormFeature = feature
   }
 }
 
