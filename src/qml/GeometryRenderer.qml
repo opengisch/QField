@@ -1,5 +1,4 @@
 import QtQuick 2.12
-import QtQuick.Window 2.2
 
 import org.qgis 1.0
 import org.qfield 1.0
@@ -43,7 +42,7 @@ Item {
 
       geometry: geometryRenderer.geometryWrapper
       color: geometryRenderer.color
-      width: geometryRenderer.lineWidth * Screen.devicePixelRatio
+      width: geometryRenderer.lineWidth
     }
   }
 

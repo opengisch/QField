@@ -1,5 +1,4 @@
 import QtQuick 2.12
-import QtQuick.Window 2.2
 
 import org.qgis 1.0
 import org.qfield 1.0
@@ -18,7 +17,7 @@ Item {
       crs: navigation.mapSettings.crs
     }
     color: Theme.navigationColorSemiOpaque
-    width: positionSource.active && positionSource.positionInfo && positionSource.positionInfo.latitudeValid ? 5 * Screen.devicePixelRatio : 1 * Screen.devicePixelRatio
+    width: positionSource.active && positionSource.positionInfo && positionSource.positionInfo.latitudeValid ? 5 : 1
   }
 
   Repeater {
