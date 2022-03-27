@@ -32,7 +32,7 @@ ListView {
 
     id: rectangle
     width: parent ? parent.width : undefined
-    height: line.height + 1
+    height: line.height + 7
     state: "default"
 
     states: [
@@ -48,6 +48,7 @@ ListView {
 
     Row {
       id: line
+      anchors.verticalCenter: parent.verticalCenter
       leftPadding: itemPadding
       spacing: 5
 
