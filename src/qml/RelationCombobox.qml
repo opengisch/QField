@@ -10,6 +10,8 @@ import Theme 1.0
 Item {
     id: relationCombobox
 
+    property FeatureCheckListModel featureListModel
+
     property bool useCompleter: false
     property bool useSearch: false
     property bool allowAddFeature: false
