@@ -66,7 +66,7 @@ Item {
 
   Image {
     id: compassDirectionMarker
-    visible: (device != '' && direction >= 0) || magnetometer.hasValue
+    visible: device == '' && magnetometer.hasValue
     width: 48
     height: 48
     opacity: 0.6
@@ -76,14 +76,14 @@ Item {
 
     source: Theme.getThemeVectorIcon( "ic_compass_direction" )
     fillMode: Image.PreserveAspectFit
-    rotation: device != '' ? direction : -(Math.atan2(magnetometer.x, magnetometer.y) / Math.PI) * 180
+    rotation:  -(Math.atan2(magnetometer.x, magnetometer.y) / Math.PI) * 180
     transformOrigin: Item.Bottom
     smooth: true
   }
 
   Shape {
     id: movementMarker
-    visible: device == '' && speed > 0 && props.isOnMapCanvas
+    visible: speed > 0 && props.isOnMapCanvas
     width: 26
     height: 26
 
