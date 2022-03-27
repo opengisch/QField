@@ -273,7 +273,9 @@ Item {
 
             onCurrentIndexChanged: {
                 var newValue = featureListModel.dataFromRowIndex(currentIndex, FeatureListModel.KeyFieldRole)
-                valueChangeRequested(newValue, false)
+                if (newValue !== currentKeyValue) {
+                    valueChangeRequested(newValue, false)
+                }
             }
 
             Connections {
