@@ -46,7 +46,7 @@ QSGNode *LinePolygonHighlight::updatePaintNode( QSGNode *n, QQuickItem::UpdatePa
       geometry.transform( ct );
     }
 
-    QgsSGGeometry *gn = new QgsSGGeometry( geometry, mColor, mWidth, mMapSettings->visibleExtent(), 1.0 / mMapSettings->mapUnitsPerPoint() );
+    QgsSGGeometry *gn = new QgsSGGeometry( geometry, mColor, mWidth * mMapSettings->devicePixelRatio(), mMapSettings->visibleExtent(), 1.0 / mMapSettings->mapUnitsPerPoint() );
     gn->setFlag( QSGNode::OwnedByParent );
     n->appendChildNode( gn );
 
