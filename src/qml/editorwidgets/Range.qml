@@ -73,6 +73,8 @@ EditorWidgetBase {
 
           onPressed: {
               decreaseValue();
+          }
+          onPressAndHold: {
               changeValueTimer.increase = false
               changeValueTimer.interval = 700
               changeValueTimer.restart()
@@ -99,6 +101,8 @@ EditorWidgetBase {
 
           onPressed: {
               increaseValue();
+          }
+          onPressAndHold: {
               changeValueTimer.increase = true
               changeValueTimer.interval = 700
               changeValueTimer.restart()
