@@ -16,34 +16,35 @@ EditorWidgetBase {
 
   property bool showOpenFormButton: config['ShowOpenFormButton'] === undefined || config['ShowOpenFormButton'] === true
 
+  FeatureCheckListModel {
+    id: listModel
+
+    currentLayer: qgisProject.relationManager.relation(config['Relation']).referencedLayer
+    keyField: qgisProject.relationManager.relation(config['Relation']).resolveReferencedField(field.name)
+    // no, it is not a misspelled version of config['AllowNull']
+    addNull: config['AllowNULL']
+    orderByValue: config['OrderByValue']
+
+    attributeField: field
+    //passing "" instead of undefined, so the model is cleared on adding new features
+    attributeValue: value !== undefined ? value : ''
+    currentFormFeature: currentFeature
+    filterExpression: ""
+    allowMulti: false
+    onListUpdated: {
+      valueChangeRequested( attributeValue, false )
+    }
+  }
+
   RelationCombobox {
     id: relationReference
+    featureListModel: listModel
     anchors { left: parent.left; right: parent.right; rightMargin: showOpenFormButton ? viewButton.width : 0 }
     enabled: isEnabled
     useSearch: true
     allowAddFeature: config['AllowAddFeatures'] !== undefined && config['AllowAddFeatures'] === true
 
     property var _relation: qgisProject.relationManager.relation(config['Relation'])
-
-    FeatureCheckListModel {
-      id: featureListModel
-
-      currentLayer: qgisProject.relationManager.relation(config['Relation']).referencedLayer
-      keyField: qgisProject.relationManager.relation(config['Relation']).resolveReferencedField(field.name)
-      // no, it is not a misspelled version of config['AllowNull']
-      addNull: config['AllowNULL']
-      orderByValue: config['OrderByValue']
-
-      attributeField: field
-      //passing "" instead of undefined, so the model is cleared on adding new features
-      attributeValue: value !== undefined ? value : ''
-      currentFormFeature: currentFeature
-      filterExpression: ""
-      allowMulti: false
-      onListUpdated: {
-        valueChangeRequested( attributeValue, false )
-      }
-    }
   }
 
   QfToolButton  {
