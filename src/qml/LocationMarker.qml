@@ -66,7 +66,7 @@ Item {
 
   Image {
     id: compassDirectionMarker
-    visible: device == '' && magnetometer.hasValue
+    visible: device === '' && magnetometer.hasValue
     width: 48
     height: 48
     opacity: 0.6
