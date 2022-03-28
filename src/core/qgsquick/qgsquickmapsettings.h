@@ -162,6 +162,7 @@ class QFIELD_CORE_EXPORT QgsQuickMapSettings : public QObject
     //! Move current map extent to have center point defined by \a layer. Optionally only pan to the layer if \a shouldZoom is false.
     Q_INVOKABLE void setCenterToLayer( QgsMapLayer *layer, bool shouldZoom = true );
 
+    //! Move current map extent to center around the list of \a points provided
     Q_INVOKABLE void setExtentFromPoints( const QVariantList &points );
 
     //! \copydoc QgsQuickMapSettings::mapUnitsPerPoint
