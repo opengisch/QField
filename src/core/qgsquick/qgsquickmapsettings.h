@@ -69,6 +69,8 @@ class QFIELD_CORE_EXPORT QgsQuickMapSettings : public QObject
     Q_PROPERTY( QgsRectangle extent READ extent WRITE setExtent NOTIFY extentChanged )
     //! \copydoc QgsMapSettings::visibleExtent()
     Q_PROPERTY( QgsRectangle visibleExtent READ visibleExtent NOTIFY visibleExtentChanged )
+    //! \copydoc QgsMapSettings::scale()
+    Q_PROPERTY( double scale READ scale NOTIFY extentChanged )
     //! Returns the distance in geographical coordinates that equals to one point unit in the map
     Q_PROPERTY( double mapUnitsPerPoint READ mapUnitsPerPoint NOTIFY mapUnitsPerPointChanged )
 
@@ -160,11 +162,17 @@ class QFIELD_CORE_EXPORT QgsQuickMapSettings : public QObject
     //! Move current map extent to have center point defined by \a layer. Optionally only pan to the layer if \a shouldZoom is false.
     Q_INVOKABLE void setCenterToLayer( QgsMapLayer *layer, bool shouldZoom = true );
 
+    //! Move current map extent to center around the list of \a points provided
+    Q_INVOKABLE void setExtentFromPoints( const QVariantList &points );
+
     //! \copydoc QgsQuickMapSettings::mapUnitsPerPoint
     double mapUnitsPerPoint() const;
 
     //! \copydoc QgsMapSettings::visibleExtent()
     QgsRectangle visibleExtent() const;
+
+    //! \copydoc QgsMapSettings::scale()
+    double scale() const;
 
     //! \copydoc QgsMapSettings::transformContext()
     Q_INVOKABLE QgsCoordinateTransformContext transformContext() const;

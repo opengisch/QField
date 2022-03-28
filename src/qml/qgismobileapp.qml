@@ -500,15 +500,7 @@ ApplicationWindow {
 
       onLocationChanged: {
         if ( gpsButton.followActive ) {
-          var screenLocation = mapSettings.coordinateToScreen( location );
-          var screenFraction = settings.value( "/QField/Positioning/FollowScreenFraction", 5 );
-          var threshold = Math.min( mainWindow.width, mainWindow.height ) / screenFraction;
-          if ( screenLocation.x < threshold || screenLocation.x > mainWindow.width - threshold ||
-               screenLocation.y < threshold || screenLocation.y > mainWindow.height - threshold )
-          {
-              gpsButton.followActiveSkipExtentChanged = true;
-              mapCanvas.mapSettings.setCenter(positionSource.projectedPosition);
-          }
+          gpsButton.followLocation(false);
         }
       }
     }
@@ -1010,16 +1002,40 @@ ApplicationWindow {
       round: true
       anchors.right: parent.right
 
-      iconSource: Theme.getThemeIcon( "ic_navigation_flag_purple_24dp" )
-      bgcolor: Theme.darkGray
+      property bool isFollowLocationActive: positionSource.active && gpsButton.followActive && followIncludeDestination
+      iconSource: isFollowLocationActive
+                  ? Theme.getThemeIcon( "ic_navigation_flag_white_24dp" )
+                  : Theme.getThemeIcon( "ic_navigation_flag_purple_24dp" )
+      bgcolor: isFollowLocationActive
+               ? Theme.navigationColor
+               : Theme.darkGray
 
-      onClicked: mapCanvas.mapSettings.setCenter(navigation.destination)
+      /*
+      / When set to true, when the map follows the device's current position, the extent
+      / will always include the destination marker.
+      */
+      property bool followIncludeDestination: true
+
+      onClicked: {
+        if (positionSource.active && gpsButton.followActive) {
+          followIncludeDestination = !followIncludeDestination
+          settings.setValue("/QField/Navigation/FollowIncludeDestination", followIncludeDestination);
+
+          gpsButton.followLocation(true)
+        } else {
+          mapCanvas.mapSettings.setCenter(navigation.destination)
+        }
+      }
 
       onPressAndHold: {
         navigationMenu.popup(
           locationToolbar.x + locationToolbar.width - navigationMenu.width,
           locationToolbar.y + locationToolbar.height - navigationMenu.height
         )
+      }
+
+      Component.onCompleted: {
+        followIncludeDestination = settings.valueBool("/QField/Navigation/FollowIncludeDestination", true)
       }
     }
 
@@ -1137,8 +1153,7 @@ ApplicationWindow {
           }
           else
           {
-              gpsButton.followActiveSkipExtentChanged = true;
-              mapCanvas.mapSettings.setCenter(positionSource.projectedPosition)
+              followLocation(true);
               displayToast( qsTr( "Canvas follows location" ) )
           }
         }
@@ -1160,6 +1175,44 @@ ApplicationWindow {
 
       onPressAndHold: {
         gpsMenu.popup(locationToolbar.x + locationToolbar.width - gpsMenu.width, locationToolbar.y + locationToolbar.height - gpsMenu.height)
+      }
+
+      property int followLocationMaxScale: 10
+      property int followLocationMinMargin: 40
+      property int followLocationScreenFraction: settings.value( "/QField/Positioning/FollowScreenFraction", 5 )
+      function followLocation(forceRecenter) {
+        var screenLocation = mapCanvas.mapSettings.coordinateToScreen(positionSource.projectedPosition);
+        if (navigation.isActive && navigationButton.followIncludeDestination) {
+          if (mapCanvas.mapSettings.scale > followLocationMaxScale) {
+            var screenDestination = mapCanvas.mapSettings.coordinateToScreen(navigation.destination);
+            if (forceRecenter
+                || screenDestination.x < followLocationMinMargin
+                || screenDestination.x > (mainWindow.width - followLocationMinMargin)
+                || screenDestination.y < followLocationMinMargin
+                || screenDestination.y > (mainWindow.height - followLocationMinMargin)
+                || screenLocation.x < followLocationMinMargin
+                || screenLocation > (mainWindow.width - followLocationMinMargin)
+                || screenLocation.y < followLocationMinMargin
+                || screenLocation.y > (mainWindow.height - followLocationMinMargin)
+                || (Math.abs(screenDestination.x - screenLocation.x) < mainWindow.width / 3
+                    && Math.abs(screenDestination.y - screenLocation.y) < mainWindow.height / 3)) {
+              gpsButton.followActiveSkipExtentChanged = true;
+              var points = [positionSource.projectedPosition, navigation.destination];
+              mapCanvas.mapSettings.setExtentFromPoints(points)
+            }
+          }
+        } else {
+          var threshold = Math.min( mainWindow.width, mainWindow.height ) / followLocationScreenFraction;
+          if ( forceRecenter
+               || screenLocation.x < threshold
+               || screenLocation.x > mainWindow.width - threshold
+               || screenLocation.y < threshold
+               || screenLocation.y > mainWindow.height - threshold )
+          {
+            gpsButton.followActiveSkipExtentChanged = true;
+            mapCanvas.mapSettings.setCenter(positionSource.projectedPosition);
+          }
+        }
       }
 
       function toggleGps() {
