@@ -87,8 +87,8 @@ Item {
                   width: 20
                   height: 24
 
-                  x: Math.min(mapCanvas.width, Math.max(0, mapToScreenPosition.screenPoint.x)) + width * (mapToScreenPosition.screenPoint.x < 0 ? 0 : -1)
-                  y: Math.min(mapCanvas.height, Math.max(0, mapToScreenPosition.screenPoint.y)) + width * (mapToScreenPosition.screenPoint.y < 0 ? 0 : -1)
+                  x: Math.min(mapCanvas.width - width, Math.max(0, mapToScreenPosition.screenPoint.x))
+                  y: Math.min(mapCanvas.height - width, Math.max(0, mapToScreenPosition.screenPoint.y))
 
                   transform: Rotation {
                       origin.x: edgePoint.width / 2;
