@@ -17,10 +17,10 @@ jobs:
       fail-fast: true
       matrix:
         include:
-          - triplet: 'arm64-android'
+#          - triplet: 'arm64-android'
           - triplet: 'arm-android'
-          - triplet: 'x64-android'
-          - triplet: 'x86-android'
+#          - triplet: 'x64-android'
+#          - triplet: 'x86-android'
 
     steps:
       - name: 🐣 Checkout
