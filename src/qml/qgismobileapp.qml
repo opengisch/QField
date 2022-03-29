@@ -1191,7 +1191,7 @@ ApplicationWindow {
                 || screenDestination.y < followLocationMinMargin
                 || screenDestination.y > (mainWindow.height - followLocationMinMargin)
                 || screenLocation.x < followLocationMinMargin
-                || screenLocation > (mainWindow.width - followLocationMinMargin)
+                || screenLocation.x > (mainWindow.width - followLocationMinMargin)
                 || screenLocation.y < followLocationMinMargin
                 || screenLocation.y > (mainWindow.height - followLocationMinMargin)
                 || (Math.abs(screenDestination.x - screenLocation.x) < mainWindow.width / 3
