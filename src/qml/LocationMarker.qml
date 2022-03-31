@@ -165,8 +165,8 @@ Item {
     width: 20
     height: 24
 
-    x: Math.min(mapCanvas.width - width, Math.max(0, props.screenLocation.x))
-    y: Math.min(mapCanvas.height - width, Math.max(0, props.screenLocation.y))
+    x: Math.min(mapCanvas.width - width, Math.max(0, props.screenLocation.x - width / 2))
+    y: Math.min(mapCanvas.height - width, Math.max(0, props.screenLocation.y - width / 2))
 
     transform: Rotation {
         origin.x: edgeMarker.width / 2;
