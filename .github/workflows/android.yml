@@ -80,9 +80,6 @@ jobs:
           modules: 'qtcharts'
           target: ${{ steps.vars.outputs.QT_TARGET }}
 
-      - name: Setup Android SDK
-        uses: android-actions/setup-android@v2
-
       - name: Setup ccache
         uses: hendrikmuhs/ccache-action@v1
         with:
