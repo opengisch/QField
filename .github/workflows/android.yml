@@ -32,6 +32,8 @@ jobs:
         id: vars
         shell: bash
         run: |
+          echo "ANDROID_NDK_HOME=$ANDROID_NDK_LATEST_HOME" >> $GITHUB_ENV
+
           ./scripts/ci/env_gh.sh
 
           BUILD_ROOT="/home/runner"
