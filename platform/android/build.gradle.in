@@ -46,6 +46,8 @@ android {
      * Changing them manually might break the compilation!
      *******************************************************/
 
+    ndkVersion '22.1.7171670'
+
     compileSdkVersion androidCompileSdkVersion.toInteger()
 
 
