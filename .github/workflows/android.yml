@@ -33,6 +33,7 @@ jobs:
         shell: bash
         run: |
           echo "ANDROID_NDK_HOME=/usr/local/lib/android/sdk/ndk/22.1.7171670" >> $GITHUB_ENV
+          echo "yes" | sudo /usr/local/lib/android/sdk/tools/bin/sdkmanager --licenses
 
           ./scripts/ci/env_gh.sh
 
