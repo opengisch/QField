@@ -120,7 +120,7 @@ Item {
         wrapMode: Text.WordWrap
       }
 
-      TextField {
+      QfTextField {
         id: serverUrlField
         Layout.preferredWidth: parent.width / 1.3
         Layout.alignment: Qt.AlignHCenter
@@ -128,23 +128,13 @@ Item {
                  && ( prefixUrlWithProtocol(cloudConnection.url) !== cloudConnection.defaultUrl || isServerUrlEditingActive )
         enabled: visible
         height: Math.max(fontMetrics.height, fontMetrics.boundingRect(text).height) + 34
-        topPadding: 10
-        bottomPadding: 10
         font: Theme.defaultFont
         horizontalAlignment: Text.AlignHCenter
         text: prefixUrlWithProtocol(cloudConnection.url )=== cloudConnection.defaultUrl ? '' : cloudConnection.url
-        background: Rectangle {
-          y: serverUrlField.height - height * 2 - serverUrlField.bottomPadding / 2
-          implicitWidth: 120
-          height: serverUrlField.activeFocus ? 2 : 1
-          color: serverUrlField.activeFocus ? "#4CAF50" : "#C8E6C9"
-        }
 
         onTextChanged: text = text.replace(/\s+/g, '')
-        Keys.onReturnPressed: loginFormSumbitHandler()
-        onEditingFinished: {
-          cloudConnection.url = text ? prefixUrlWithProtocol(text) : cloudConnection.defaultUrl
-        }
+        onEditingFinished: cloudConnection.url = text ? prefixUrlWithProtocol(text) : cloudConnection.defaultUrl
+        onReturnPressed: loginFormSumbitHandler()
 
         function prefixUrlWithProtocol(url) {
           if (!url || url.startsWith('http://')  || url.startsWith('https://') )
@@ -164,27 +154,18 @@ Item {
         color: 'gray'
       }
 
-      TextField {
+      QfTextField {
         id: usernameField
         Layout.preferredWidth: parent.width / 1.3
         Layout.alignment: Qt.AlignHCenter
         visible: cloudConnection.status === QFieldCloudConnection.Disconnected
         enabled: visible
         height: Math.max(fontMetrics.height, fontMetrics.boundingRect(text).height) + 34
-        topPadding: 10
-        bottomPadding: 10
         font: Theme.defaultFont
         horizontalAlignment: Text.AlignHCenter
 
-        background: Rectangle {
-          y: usernameField.height - height * 2 - usernameField.bottomPadding / 2
-          implicitWidth: 120
-          height: usernameField.activeFocus ? 2 : 1
-          color: usernameField.activeFocus ? "#4CAF50" : "#C8E6C9"
-        }
-
         onTextChanged: text = text.replace(/\s+/g, '')
-        Keys.onReturnPressed: loginFormSumbitHandler()
+        onReturnPressed: loginFormSumbitHandler();
       }
 
       Text {
@@ -197,7 +178,7 @@ Item {
         color: 'gray'
       }
 
-      TextField {
+      QfTextField {
         id: passwordField
         echoMode: TextInput.Password
         Layout.preferredWidth: parent.width / 1.3
@@ -205,19 +186,10 @@ Item {
         visible: cloudConnection.status === QFieldCloudConnection.Disconnected
         enabled: visible
         height: Math.max(fontMetrics.height, fontMetrics.boundingRect(text).height) + 34
-        topPadding: 10
-        bottomPadding: 10
         font: Theme.defaultFont
         horizontalAlignment: Text.AlignHCenter
 
-        background: Rectangle {
-          y: passwordField.height - height * 2 - passwordField.bottomPadding / 2
-          implicitWidth: 120
-          height: passwordField.activeFocus ? 2 : 1
-          color: passwordField.activeFocus ? "#4CAF50" : "#C8E6C9"
-        }
-
-        Keys.onReturnPressed: loginFormSumbitHandler()
+        onReturnPressed: loginFormSumbitHandler()
       }
 
       FontMetrics {

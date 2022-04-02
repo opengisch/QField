@@ -13,6 +13,8 @@ Item {
   property var echoMode: TextInput.Normal
 
   signal textEdited
+  signal editingFinished
+  signal returnPressed
 
   width: textField.width
   height: textField.height
@@ -41,6 +43,20 @@ Item {
 
     onTextEdited: {
         textFieldWrapper.textEdited()
+    }
+
+    onEditingFinished: {
+        textFieldWrapper.editingFinished();
+    }
+
+    onFocusChanged: {
+        if (focus) {
+            Qt.inputMethod.show()
+        }
+    }
+
+    Keys.onReturnPressed: {
+        textFieldWrapper.returnPressed()
     }
   }
 
