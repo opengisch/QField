@@ -168,6 +168,11 @@ Item {
     onClicked: {
       locatorItem.state = locatorItem.state =="off" ? "on" : "off"
     }
+
+    onPressAndHold: {
+      locatorSettings.open();
+      locatorSettings.focus = true;
+    }
   }
 
   Rectangle {
