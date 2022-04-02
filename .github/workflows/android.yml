@@ -32,9 +32,6 @@ jobs:
         id: vars
         shell: bash
         run: |
-          echo "ANDROID_NDK_HOME=/usr/local/lib/android/sdk/ndk/22.1.7171670" >> $GITHUB_ENV
-          echo "yes" | sudo /usr/local/lib/android/sdk/tools/bin/sdkmanager --licenses && /usr/local/lib/android/sdk/tools/bin/sdkmanager --verbose "platforms;android-30" "build-tools;29.0.2" "ndk;22.1.7171670" tools platform-tools
-
           ./scripts/ci/env_gh.sh
 
           BUILD_ROOT="/home/runner"
@@ -109,6 +106,9 @@ jobs:
 
           TRIPLET=${{ matrix.triplet }} source ./scripts/version_number.sh
           TRIPLET=${{ matrix.triplet }} source ./scripts/ci/generate-version-details.sh
+
+          echo "ANDROID_NDK_HOME=/usr/local/lib/android/sdk/ndk/22.1.7171670" >> $GITHUB_ENV
+          echo "yes" | sudo /usr/local/lib/android/sdk/tools/bin/sdkmanager --licenses && /usr/local/lib/android/sdk/tools/bin/sdkmanager --verbose "platforms;android-30" "build-tools;29.0.2" "ndk;22.1.7171670" tools platform-tools
 
           cmake -S "${SOURCE_DIR}" \
                 -B "${CMAKE_BUILD_DIR}" \
