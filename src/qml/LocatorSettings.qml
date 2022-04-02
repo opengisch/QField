@@ -50,7 +50,7 @@ Popup {
               right: parent.right
             }
             iconSource: Theme.getThemeIcon( 'ic_close_black_24dp' )
-            bgcolor: "white"
+            bgcolor: "transparent"
 
             onClicked: {
               popup.close();
