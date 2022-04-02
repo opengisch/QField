@@ -867,8 +867,13 @@ ApplicationWindow {
       id: menuButton
       round: true
       iconSource: Theme.getThemeIcon( "ic_menu_white_24dp" )
-      onClicked: dashBoard.opened ? dashBoard.close() : dashBoard.open()
       bgcolor: dashBoard.opened ? Theme.mainColor : Theme.darkGray
+
+      onClicked: dashBoard.opened ? dashBoard.close() : dashBoard.open()
+
+      onPressAndHold: {
+        mainMenu.popup(menuButton.x, menuButton.y)
+      }
     }
 
     CloseTool {
