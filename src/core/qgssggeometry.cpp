@@ -65,12 +65,19 @@ QgsSGGeometry::QgsSGGeometry( const QgsGeometry &geom, const QColor &color, floa
       break;
 
     case QgsWkbTypes::PolygonGeometry:
-      if ( gg.isMultipart() )
+    {
+      QgsGeometry pg( gg );
+      if ( !pg.isGeosValid() )
+      {
+        pg = pg.makeValid();
+      }
+
+      if ( pg.isMultipart() )
       {
         QSGOpacityNode *on = new QSGOpacityNode;
         on->setOpacity( 0.5 );
 
-        QgsGeometryPartIterator it = gg.parts();
+        QgsGeometryPartIterator it = pg.parts();
         while ( it.hasNext() )
         {
           QgsCurvePolygon *c = qgsgeometry_cast<QgsCurvePolygon *>( it.next() );
@@ -100,7 +107,7 @@ QgsSGGeometry::QgsSGGeometry( const QgsGeometry &geom, const QColor &color, floa
         QSGOpacityNode *on = new QSGOpacityNode;
         on->setOpacity( 0.5 );
         QSGGeometryNode *geomNode = new QSGGeometryNode;
-        QgsCurvePolygon *c = qgsgeometry_cast<QgsCurvePolygon *>( gg.get() );
+        QgsCurvePolygon *c = qgsgeometry_cast<QgsCurvePolygon *>( pg.get() );
         if ( !c )
           break;
         std::unique_ptr<QgsPolygon> polygon( qgsgeometry_cast<QgsPolygon *>( c->segmentize() ) );
@@ -112,12 +119,13 @@ QgsSGGeometry::QgsSGGeometry( const QgsGeometry &geom, const QColor &color, floa
         on->appendChildNode( geomNode );
         appendChildNode( on );
         geomNode = new QSGGeometryNode;
-        geomNode->setGeometry( qgsPolylineToQSGGeometry( gg.asPolygon().first(), width, visibleExtent, scaleFactor ) );
+        geomNode->setGeometry( qgsPolylineToQSGGeometry( pg.asPolygon().first(), width, visibleExtent, scaleFactor ) );
         geomNode->setFlag( QSGNode::OwnsGeometry );
         applyStyle( geomNode );
         appendChildNode( geomNode );
       }
       break;
+    }
 
     default:
       // Nothing to do
