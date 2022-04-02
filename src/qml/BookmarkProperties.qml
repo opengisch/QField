@@ -27,19 +27,45 @@ Popup {
 
     Page {
         width: parent.width
+        height: propertiesLayout.childrenRect.height + 68
         padding: 10
-        header: Label {
-            padding: 10
-            topPadding: 15
-            bottomPadding: 0
-            width: parent.width - 20
-            text: qsTr('Bookmark Properties')
-            font: Theme.strongFont
-            horizontalAlignment: Text.AlignHCenter
-            wrapMode: Text.WordWrap
+        header: ToolBar {
+            id: toolBar
+            height: 48
+
+            background: Rectangle {
+                color: "transparent"
+            }
+
+            Label {
+              anchors.centerIn: parent
+              leftPadding: 48
+              rightPadding: 48
+              width: parent.width - 20
+              text: qsTr('Bookmark Properties')
+              font: Theme.strongFont
+              color: Theme.mainColor
+              horizontalAlignment: Text.AlignHCenter
+              wrapMode: Text.WordWrap
+            }
+
+            QfToolButton {
+                id: closeButton
+                anchors {
+                    top: parent.top
+                    right: parent.right
+                }
+                iconSource: Theme.getThemeIcon( 'ic_close_black_24dp' )
+                bgcolor: "transparent"
+
+                onClicked: {
+                    bookmarkProperties.close();
+                }
+            }
         }
 
         ColumnLayout {
+            id: propertiesLayout
             spacing: 4
             width: parent.width
 
