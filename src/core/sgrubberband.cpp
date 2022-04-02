@@ -17,6 +17,7 @@
 
 #include <qgscurvepolygon.h>
 #include <qgsgeometry.h>
+#include <qgsgeos.h>
 #include <qgslinestring.h>
 #include <qgspolygon.h>
 #include <qgssurface.h>
@@ -45,7 +46,36 @@ SGRubberband::SGRubberband( const QVector<QgsPoint> &points, QgsWkbTypes::Geomet
     case QgsWkbTypes::PolygonGeometry:
     {
       appendChildNode( createLineGeometry( points, width ) );
-      appendChildNode( createPolygonGeometry( points ) );
+
+      if ( points.size() > 2 )
+      {
+        QString error;
+        QgsPolygon polygon = QgsPolygon( new QgsLineString( points ) );
+        if ( !polygon.isValid( error ) )
+        {
+          QgsGeos geos( &polygon );
+          std::unique_ptr<QgsAbstractGeometry> validPolygon = geos.makeValid();
+          QgsGeometryPartIterator parts = validPolygon->parts();
+          while ( parts.hasNext() )
+          {
+            QgsPolygon *p = qgsgeometry_cast<QgsPolygon *>( parts.next() );
+            if ( p )
+            {
+              QgsCurve *l = p->exteriorRing();
+              if ( l )
+              {
+                QgsPointSequence pts;
+                l->points( pts );
+                appendChildNode( createPolygonGeometry( pts ) );
+              }
+            }
+          }
+        }
+        else
+        {
+          appendChildNode( createPolygonGeometry( points ) );
+        }
+      }
       break;
     }
 
@@ -81,11 +111,12 @@ QSGGeometryNode *SGRubberband::createPolygonGeometry( const QVector<QgsPoint> &p
   QgsPolygon polygon = QgsPolygon( new QgsLineString( points ) );
   QgsTessellator t( 0, 0, false, false, false, true );
   if ( points.size() > 2 )
+  {
     t.addPolygon( polygon, 0 );
+  }
 
   QSGGeometryNode *node = new QSGGeometryNode;
   QSGGeometry *sgGeom = new QSGGeometry( QSGGeometry::defaultAttributes_Point2D(), t.dataVerticesCount() );
-
   QSGGeometry::Point2D *vertices = sgGeom->vertexDataAsPoint2D();
 
   const QVector<float> triangleData = t.data();
