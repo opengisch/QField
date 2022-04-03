@@ -63,6 +63,8 @@ Item {
   Image {
     id: showPasswordButton
     z: 1
+    width: 20
+    height: 20
     visible: !!textFieldWrapper.echoMode && textFieldWrapper.echoMode !== TextInput.Normal
     source: textField.echoMode === TextInput.Normal
             ? Theme.getThemeVectorIcon('ic_hide_green_48dp')
