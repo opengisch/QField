@@ -265,7 +265,7 @@ jobs:
         run: |
           ./scripts/ci/env_gh.sh
       - name: Comment commit
-        uses: peter-evans/commit-comment@v1
+        uses: peter-evans/commit-comment@v2
         with:
           token: ${{ secrets.FAIRY_TOKEN }}
           body: |
