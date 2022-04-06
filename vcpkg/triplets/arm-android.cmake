@@ -6,5 +6,7 @@ set(VCPKG_BUILD_TYPE release)
 
 set(ENV{VCPKG_ANDROID_NATIVE_API_LEVEL} "detect")
 
-set(VCPKG_CXX_FLAGS "-fstack-protector-strong")
-set(VCPKG_C_FLAGS "-fstack-protector-strong")
+set(ENV{CXXFLAGS} "-fstack-protector-strong -fsanitize=address -fno-omit-frame-pointer")
+set(ENV{CFLAGS} "-fstack-protector-strong -fsanitize=address -fno-omit-frame-pointer")
+set(ENV{LFLAGS} "-fsanitize=address")
+
