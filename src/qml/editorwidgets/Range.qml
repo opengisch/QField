@@ -57,7 +57,9 @@ EditorWidgetBase {
           }
 
           onTextChanged: {
-              valueChangeRequested( text, text == '' )
+              if (text == '' || !isNaN(parseFloat(text))) {
+                  valueChangeRequested( text, text == '' )
+              }
           }
       }
 
