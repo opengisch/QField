@@ -136,6 +136,10 @@ void qfMessageHandler( QtMsgType type, const QMessageLogContext &context, const 
 
 int main( int argc, char **argv )
 {
+  qputenv( "QSG_RENDER_LOOP", "basic" ); // this will force one thread, and we should get a different stack
+  qputenv( "QT_DEBUG_PLUGINS", "1" );    // to trace the qt plugins
+  qputenv( "QML_IMPORT_TRACE", "1" );    // to trace the qml plugins
+
   // A dummy app for reading settings that need to be used before constructing the real app
   QCoreApplication *dummyApp = new QCoreApplication( argc, argv );
   QCoreApplication::setOrganizationName( "OPENGIS.ch" );
