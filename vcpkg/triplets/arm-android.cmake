@@ -10,3 +10,5 @@ set(ENV{CXXFLAGS} "-fstack-protector-strong -fsanitize=address -fno-omit-frame-p
 set(ENV{CFLAGS} "-fstack-protector-strong -fsanitize=address -fno-omit-frame-pointer")
 set(ENV{LFLAGS} "-fsanitize=address")
 
+set(ENV{VCPKG_ANDROID_NATIVE_API_LEVEL} "27")
+
