@@ -15,7 +15,6 @@ vcpkg_from_github(
         libxml2.patch
         exiv2.patch
         androidextras.patch
-        findpg.patch
         crssync.patch
 )
 
