@@ -20,7 +20,7 @@ index f7f32a998f..6338b1e539 100644
 +  add_subdirectory(crssync)
 +endif()
  
- if(WIN32 AND NOT MINGW)
+ if (WITH_CRASH_HANDLER)
    add_subdirectory(crashhandler)
 -- 
 2.31.1
