@@ -4,7 +4,6 @@ buildscript {
         minSdkVersion = 21
         compileSdkVersion = 30
         targetSdkVersion = 30
-        ndkVersion = '23.1.7779620'
     }
 
     repositories {
@@ -54,7 +53,6 @@ android {
      * Changing them manually might break the compilation!
      *******************************************************/
 
-    ndkVersion '23.1.7779620'
 
     compileSdkVersion androidCompileSdkVersion.toInteger()
 
