@@ -32,8 +32,8 @@ jobs:
         id: vars
         shell: bash
         run: |
-          echo "ANDROID_NDK_HOME=$ANDROID_NDK_LATEST_HOME" >> $GITHUB_ENV
-          echo "ndk.dir=$ANDROID_NDK_LATEST_HOME" >> local.properties
+          echo "ANDROID_NDK_HOME=/usr/local/lib/android/sdk/ndk/22.1.7171670" >> $GITHUB_ENV
+          echo "ndk.dir=$ANDROID_NDK_HOME" >> local.properties
           echo "yes" | sudo /usr/local/lib/android/sdk/tools/bin/sdkmanager --uninstall "ndk-bundle"
           echo "yes" | sudo /usr/local/lib/android/sdk/tools/bin/sdkmanager --licenses && /usr/local/lib/android/sdk/tools/bin/sdkmanager --verbose "platforms;android-30" "build-tools;29.0.2" "ndk;23.1.7779620" tools platform-tools
           ./scripts/ci/env_gh.sh
