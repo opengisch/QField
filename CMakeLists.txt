@@ -208,6 +208,8 @@ get_architecture(${ANDROID_ABI} ARCH)
             TARGET deploy PRE_BUILD
             COMMAND ${CMAKE_COMMAND} -E copy ${ASAN_SRC} ${ASAN_DEST}
     )
+
+    message(STATUS "Copying ${ASAN_SRC} to ${ASAN_DEST}")
 endif()
 
 if(WITH_VCPKG AND NOT ANDROID)
