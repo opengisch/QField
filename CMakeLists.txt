@@ -132,14 +132,7 @@ if (ANDROID)
 
 
 
-    get_architecture(${ANDROID_ABI} ARCH)
-    file(GLOB_RECURSE ASAN_SRC ${ANDROID_TOOLCHAIN_ROOT}/*.asan*${ARCH}*-android.so)
-    set(ASAN_DEST ${CMAKE_LIBRARY_OUTPUT_DIRECTORY})
-
-    add_custom_command(
-            TARGET deploy PRE_BUILD
-            COMMAND ${CMAKE_COMMAND} -E copy ${ASAN_SRC} ${ASAN_DEST}
-    )
+    
 
 endif()
 
@@ -200,6 +193,17 @@ if (ENABLE_TESTS)
   find_package(Qt5 COMPONENTS Test QuickTest)
   enable_testing()
   add_subdirectory(test)
+endif()
+
+if(ANDROID)
+get_architecture(${ANDROID_ABI} ARCH)
+    file(GLOB_RECURSE ASAN_SRC ${ANDROID_TOOLCHAIN_ROOT}/*.asan*${ARCH}*-android.so)
+    set(ASAN_DEST ${CMAKE_LIBRARY_OUTPUT_DIRECTORY})
+
+    add_custom_command(
+            TARGET deploy PRE_BUILD
+            COMMAND ${CMAKE_COMMAND} -E copy ${ASAN_SRC} ${ASAN_DEST}
+    )
 endif()
 
 if(WITH_VCPKG AND NOT ANDROID)
