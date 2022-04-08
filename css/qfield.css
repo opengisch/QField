@@ -126,6 +126,10 @@ footer.footer {
 text-align: justify;
 }
 
+#main-points {
+    margin-bottom:70px;
+}
+
 .point { 
   background: white;
   height: auto;  
