@@ -130,7 +130,8 @@ if (ANDROID)
   # Don't do tests when building for Android
   set(ENABLE_TESTS FALSE)
 
-
+  add_compile_options(-fsanitize=address)
+  add_link_options(-fsanitize=address)
 
     
 
