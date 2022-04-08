@@ -142,7 +142,7 @@ text-align: justify;
 #about { 
   background-color: #212121;
   height: auto;
-  margin: 40px auto 0px auto; 
+  margin: 0 auto 0px auto;
   width: 100%; 
   position: relative; 
   padding: 100px 0;
