@@ -27,6 +27,24 @@ project(${APP_NAME}
   VERSION ${CLEAN_APP_VERSION}
 )
 
+function(get_architecture ABI ARCH)
+    if (ABI STREQUAL armeabi-v7a)
+        set(${ARCH} arm PARENT_SCOPE)
+    elseif(ABI STREQUAL arm64-v8a)
+        set(${ARCH} aarch64 PARENT_SCOPE)
+    elseif(ABI STREQUAL x86)
+        set(${ARCH} i686 PARENT_SCOPE)
+    elseif(ABI STREQUAL x86_64)
+        set(${ARCH} x86_64 PARENT_SCOPE)
+    else()
+        message(FATAL_ERROR "Unsupported ABI")
+    endif()
+endfunction()
+
+
+
+
+
 GET_GIT_HEAD_REVISION(GIT_REFSPEC GIT_REV)
 
 message(STATUS "Building for git rev ${GIT_REV}")
@@ -111,6 +129,18 @@ if (ANDROID)
 
   # Don't do tests when building for Android
   set(ENABLE_TESTS FALSE)
+
+
+
+    get_architecture(${ANDROID_ABI} ARCH)
+    file(GLOB_RECURSE ASAN_SRC ${ANDROID_TOOLCHAIN_ROOT}/*.asan*${ARCH}*-android.so)
+    set(ASAN_DEST ${CMAKE_LIBRARY_OUTPUT_DIRECTORY})
+
+    add_custom_command(
+            TARGET deploy PRE_BUILD
+            COMMAND ${CMAKE_COMMAND} -E copy ${ASAN_SRC} ${ASAN_DEST}
+    )
+
 endif()
 
 set(QT_MIN_VERSION 5.14.0)
