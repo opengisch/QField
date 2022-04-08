@@ -327,7 +327,7 @@ Page {
           Text {
             Layout.margins: 6
             Layout.maximumWidth: collectionView.width - 12
-            text: qsTr("To improve stability for everyone, QField collects and sends anonymized metrics. To disable, click on the button below.")
+            text: qsTr("To improve stability for everyone, QField collects and sends anonymized metrics.")
             font: Theme.defaultFont
             horizontalAlignment: Text.AlignHCenter
             wrapMode: Text.WordWrap
@@ -335,16 +335,28 @@ Page {
 
           RowLayout {
             spacing: 6
-            Layout.alignment: Qt.AlignVCenter | Qt.AlignHCenter
+            Layout.alignment: Qt.AlignVCenter
             Layout.bottomMargin: 10
             QfToolButton {
-              iconSource: Theme.getThemeIcon('ic_close_white_24dp')
+              text: qsTr('Thank you!')
               bgcolor: Theme.mainColor
-              round: true
 
               onClicked: {
                 qfieldSettings.enableInfoCollection = false
                 collectionView.currentIndex = 0
+                collectionView.visible = false
+              }
+            }
+
+            QfToolButton {
+              text: qsTr('I prefer not')
+              bgcolor: 'white'
+              color: Theme.mainColor
+
+              onClicked: {
+                qfieldSettings.enableInfoCollection = true
+                collectionView.currentIndex = 0
+                collectionView.visible = false
               }
             }
           }
