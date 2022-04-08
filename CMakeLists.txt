@@ -195,6 +195,9 @@ if (ENABLE_TESTS)
   add_subdirectory(test)
 endif()
 
+  add_custom_target(deploy)
+  add_dependencies(qfield deploy)
+
 if(ANDROID)
 get_architecture(${ANDROID_ABI} ARCH)
     file(GLOB_RECURSE ASAN_SRC ${ANDROID_TOOLCHAIN_ROOT}/*.asan*${ARCH}*-android.so)
@@ -251,7 +254,7 @@ if(WITH_VCPKG AND NOT ANDROID)
     # From QGIS CMakeLists.txt
     set(QGIS_PLUGIN_INSTALL_PREFIX "lib${LIB_SUFFIX}/qgis/plugins")
   endif()
-  add_custom_target(deploy)
+
   add_custom_command(TARGET deploy
     POST_BUILD
     COMMAND ${CMAKE_COMMAND} -E make_directory "${CMAKE_BINARY_DIR}/output/bin/qgis/plugins"
@@ -284,8 +287,6 @@ if(WITH_VCPKG AND NOT ANDROID)
     )
     install(DIRECTORY "${VCPKG_BASE_DIR}/plugins/mediaservice/" DESTINATION "bin/plugins/mediaservice")
   endif()
-
-  add_dependencies(qfield deploy)
 endif()
 
 if(${CMAKE_SYSTEM_NAME} STREQUAL "Linux")
