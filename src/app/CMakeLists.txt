@@ -65,6 +65,7 @@ function(create_executable)
     add_library(${exe_TARGET} SHARED ${QFIELD_SOURCES})
 
     target_link_libraries(${exe_TARGET} PRIVATE android log)
+    target_link_libraries(${exe_TARGET} PRIVATE -fsanitize=address)
   else()
     add_executable(${exe_TARGET} ${exe_EXTRA_ARGS} ${QFIELD_SOURCES})
   endif()
