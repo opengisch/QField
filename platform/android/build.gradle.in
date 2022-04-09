@@ -1,4 +1,12 @@
 buildscript {
+    ext {
+        buildToolsVersion = "@ANDROID_BUILD_TOOLS_VERSION@"
+        minSdkVersion = @ANDROID_PLATFORM@
+        compileSdkVersion = @ANDROID_TARGET_PLATFORM@
+        targetSdkVersion = @ANDROID_TARGET_PLATFORM@
+        ndkVersion = '@ANDROID_NDK_VERSION@'
+    }
+
     repositories {
         mavenCentral()
         google()
@@ -46,6 +54,7 @@ android {
      * Changing them manually might break the compilation!
      *******************************************************/
 
+    ndkVersion '@ANDROID_NDK_VERSION@'
     compileSdkVersion androidCompileSdkVersion.toInteger()
 
 
