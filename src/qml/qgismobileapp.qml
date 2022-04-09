@@ -621,7 +621,7 @@ ApplicationWindow {
 
       property VectorLayer currentLayer: dashBoard.currentLayer
 
-      rubberbandModel: currentRubberband.model
+      rubberbandModel: currentRubberband ? currentRubberband.model : null
       project: qgisProject
       crs: qgisProject.crs
     }
@@ -2485,17 +2485,6 @@ ApplicationWindow {
 
     width: parent.width
     height: parent.height
-
-    Keys.onReleased: {
-      if (event.key === Qt.Key_Back || event.key === Qt.Key_Escape) {
-        event.accepted = true
-        close()
-      }
-    }
-
-    Component.onCompleted: {
-      focusstack.addFocusTaker( this )
-    }
   }
 
   QFieldCloudPackageLayersFeedback {
