@@ -253,11 +253,11 @@ Page {
       id: collectionView
       visible: false
 
-      Layout.margins: 6
+      Layout.margins: 0
       Layout.topMargin: 10
       Layout.bottomMargin: 10
       Layout.alignment: Qt.AlignVCenter | Qt.AlignHCenter
-      Layout.preferredWidth: Math.min( 410, mainWindow.width - 30 )
+      Layout.preferredWidth: Math.min( 410, mainWindow.width - 20 )
       Layout.preferredHeight: Math.max(collectionOhno.childrenRect.height, collectionIntro.childrenRect.height)
       clip: true
 
@@ -335,27 +335,24 @@ Page {
 
           RowLayout {
             spacing: 6
-            Layout.alignment: Qt.AlignVCenter
+            Layout.alignment: Qt.AlignHCenter | Qt.AlignVCenter
             Layout.bottomMargin: 10
-            QfToolButton {
+            QfButton {
               text: qsTr('Thank you!')
-              bgcolor: Theme.mainColor
 
               onClicked: {
-                qfieldSettings.enableInfoCollection = false
-                collectionView.currentIndex = 0
+                qfieldSettings.enableInfoCollection = true
                 collectionView.visible = false
               }
             }
 
-            QfToolButton {
+            QfButton {
               text: qsTr('I prefer not')
-              bgcolor: 'white'
+              bgcolor: "transparent"
               color: Theme.mainColor
 
               onClicked: {
-                qfieldSettings.enableInfoCollection = true
-                collectionView.currentIndex = 0
+                qfieldSettings.enableInfoCollection = false
                 collectionView.visible = false
               }
             }
@@ -776,10 +773,10 @@ Page {
     }
 
     if (platformUtilities.capabilities & PlatformUtilities.SentryFramework) {
-      var collectionFormShown = settings.value("/QField/CollectionFormShown",false)
+      var collectionFormShown = settings.value("/QField/CollectionFormShownV2",false)
       if (!collectionFormShown) {
         collectionView.visible = true
-        settings.setValue("/QField/CollectionFormShown",true)
+        settings.setValue("/QField/CollectionFormShownV2",true)
       }
     }
 
