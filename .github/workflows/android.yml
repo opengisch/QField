@@ -19,8 +19,6 @@ jobs:
         include:
           - triplet: 'arm64-android'
           - triplet: 'arm-android'
-          - triplet: 'x64-android'
-          - triplet: 'x86-android'
 
     steps:
       - name: 🐣 Checkout
