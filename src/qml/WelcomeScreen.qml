@@ -39,6 +39,7 @@ Page {
 
   ScrollView {
     padding: 0
+    topPadding: Math.max(0, Math.min(80, (mainWindow.height - welcomeGrid.height) / 2 - 45))
     ScrollBar.horizontal.policy: ScrollBar.AlwaysOff
     ScrollBar.vertical.policy: ScrollBar.AsNeeded
     contentItem: welcomeGrid
@@ -383,7 +384,7 @@ Page {
       Layout.bottomMargin: 2
       Layout.fillWidth: true
       Layout.maximumWidth: 410
-      Layout.minimumHeight: welcomeActions.height
+      Layout.preferredHeight: welcomeActions.height
       Layout.alignment: Qt.AlignVCenter | Qt.AlignHCenter
       color: "transparent"
 
