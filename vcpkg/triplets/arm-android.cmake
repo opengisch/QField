@@ -6,12 +6,10 @@ set(VCPKG_BUILD_TYPE release)
 
 set(ENV{VCPKG_ANDROID_NATIVE_API_LEVEL} "detect")
 
-#if(PORT STREQUAL "proj4" OR PORT STREQUAL "proj")
 set(ENV{CXXFLAGS} "-fstack-protector-strong -fsanitize=address -fno-omit-frame-pointer")
-set(ENV{CXXFLAGS_RELEASE} "-fstack-protector-strong -fsanitize=address -fno-omit-frame-pointer")
 set(ENV{CFLAGS} "-fstack-protector-strong -fsanitize=address -fno-omit-frame-pointer")
-set(ENV{CFLAGS_RELEASE} "-fstack-protector-strong -fsanitize=address -fno-omit-frame-pointer")
 set(ENV{LDFLAGS} "-fsanitize=address")
-set(ENV{LDFLAGS_RELEASE} "-fsanitize=address")
 
-set(ENV{VCPKG_ANDROID_NATIVE_API_LEVEL} "27")
+set(VCPKG_CXX_FLAGS "-fstack-protector-strong -fsanitize=address -fno-omit-frame-pointer")
+set(VCPKG_C_FLAGS "-fstack-protector-strong -fsanitize=address -fno-omit-frame-pointer")
+set(VCPKG_LINKER_FLAGS "-fsanitize=address")
