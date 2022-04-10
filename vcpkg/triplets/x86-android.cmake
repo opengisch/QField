@@ -5,6 +5,7 @@ set(VCPKG_CMAKE_SYSTEM_NAME Android)
 set(VCPKG_BUILD_TYPE release)
 
 set(ENV{VCPKG_ANDROID_NATIVE_API_LEVEL} "detect")
-set(ENV{CXXFLAGS} "-fstack-protector-strong")
-set(ENV{CFLAGS} "-fstack-protector-strong")
+
+set(VCPKG_CXX_FLAGS "-fstack-protector-strong")
+set(VCPKG_C_FLAGS "-fstack-protector-strong")
 
