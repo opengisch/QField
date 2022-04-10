@@ -107,8 +107,6 @@ void AndroidPlatformUtilities::initSystem()
     Feedback feedback;
     QApplication app( argc, nullptr );
     QQmlApplicationEngine engine;
-    qmlRegisterType<Feedback>( "org.qfield", 1, 0, "Feedback" );
-    engine.rootContext()->setContextProperty( "feedback", &feedback );
     engine.load( QUrl( QStringLiteral( "qrc:/qml/SystemLoader.qml" ) ) );
 
     QMetaObject::invokeMethod( &app, [this, &app, &feedback] {
