@@ -38,8 +38,8 @@ ApplicationWindow
             opacity: 0
             from: 0
             to: 100
-            indeterminate: feedback.progress == -1
-            value: feedback.progress
+            indeterminate: true
+            value: -1
             width: parent.width * 0.6
 
             Layout.alignment: Qt.AlignCenter
