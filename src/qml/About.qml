@@ -6,16 +6,12 @@ import Theme 1.0
 import org.qfield 1.0
 
 Item {
+    id: aboutPanel
+
     Rectangle {
         color: "black"
         opacity: 0.8
         anchors.fill: parent
-        MouseArea {
-            anchors.fill: parent
-            onClicked: {
-                parent.parent.visible = false
-            }
-        }
     }
 
     ColumnLayout {
@@ -33,10 +29,18 @@ Item {
             contentHeight: information.height
             clip: true
 
+            MouseArea {
+                anchors.fill: parent
+                onClicked: {
+                    aboutPanel.visible = false
+                }
+            }
+
             ColumnLayout {
                 id: information
                 width: aboutContainer.width
-                height: Math.max(mainWindow.height - changelogButton.height * 2 - 60, childrenRect.height)
+                height: Math.max(mainWindow.height - changelogButton.height * 2 - 60,
+                                 opengisLogo.height + qfieldLogo.height + 100)
 
                 ColumnLayout {
                     Layout.fillHeight: true

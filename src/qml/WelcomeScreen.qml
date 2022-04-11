@@ -39,6 +39,7 @@ Page {
 
   ScrollView {
     padding: 0
+    topPadding: Math.max(0, Math.min(80, (mainWindow.height - welcomeGrid.height) / 2 - 45))
     ScrollBar.horizontal.policy: ScrollBar.AlwaysOff
     ScrollBar.vertical.policy: ScrollBar.AsNeeded
     contentItem: welcomeGrid
@@ -253,11 +254,11 @@ Page {
       id: collectionView
       visible: false
 
-      Layout.margins: 6
+      Layout.margins: 0
       Layout.topMargin: 10
       Layout.bottomMargin: 10
       Layout.alignment: Qt.AlignVCenter | Qt.AlignHCenter
-      Layout.preferredWidth: Math.min( 410, mainWindow.width - 30 )
+      Layout.preferredWidth: Math.min( 410, mainWindow.width - 20 )
       Layout.preferredHeight: Math.max(collectionOhno.childrenRect.height, collectionIntro.childrenRect.height)
       clip: true
 
@@ -327,7 +328,7 @@ Page {
           Text {
             Layout.margins: 6
             Layout.maximumWidth: collectionView.width - 12
-            text: qsTr("To improve stability for everyone, QField collects and sends anonymized metrics. To disable, click on the button below.")
+            text: qsTr("To improve stability for everyone, QField collects and sends anonymized metrics.")
             font: Theme.defaultFont
             horizontalAlignment: Text.AlignHCenter
             wrapMode: Text.WordWrap
@@ -335,16 +336,25 @@ Page {
 
           RowLayout {
             spacing: 6
-            Layout.alignment: Qt.AlignVCenter | Qt.AlignHCenter
+            Layout.alignment: Qt.AlignHCenter | Qt.AlignVCenter
             Layout.bottomMargin: 10
-            QfToolButton {
-              iconSource: Theme.getThemeIcon('ic_close_white_24dp')
-              bgcolor: Theme.mainColor
-              round: true
+            QfButton {
+              text: qsTr('OK')
+
+              onClicked: {
+                qfieldSettings.enableInfoCollection = true
+                collectionView.visible = false
+              }
+            }
+
+            QfButton {
+              text: qsTr('I prefer not')
+              bgcolor: "transparent"
+              color: Theme.mainColor
 
               onClicked: {
                 qfieldSettings.enableInfoCollection = false
-                collectionView.currentIndex = 0
+                collectionView.visible = false
               }
             }
           }
@@ -374,7 +384,7 @@ Page {
       Layout.bottomMargin: 2
       Layout.fillWidth: true
       Layout.maximumWidth: 410
-      Layout.minimumHeight: welcomeActions.height
+      Layout.preferredHeight: welcomeActions.height
       Layout.alignment: Qt.AlignVCenter | Qt.AlignHCenter
       color: "transparent"
 
@@ -764,10 +774,10 @@ Page {
     }
 
     if (platformUtilities.capabilities & PlatformUtilities.SentryFramework) {
-      var collectionFormShown = settings.value("/QField/CollectionFormShown",false)
+      var collectionFormShown = settings.value("/QField/CollectionFormShownV2",false)
       if (!collectionFormShown) {
         collectionView.visible = true
-        settings.setValue("/QField/CollectionFormShown",true)
+        settings.setValue("/QField/CollectionFormShownV2",true)
       }
     }
 
