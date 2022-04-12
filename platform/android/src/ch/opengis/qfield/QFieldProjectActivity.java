@@ -49,6 +49,8 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 import java.util.UUID;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 public class QFieldProjectActivity
     extends Activity implements OnMenuItemClickListener {
@@ -59,6 +61,8 @@ public class QFieldProjectActivity
     SharedPreferences.Editor editor;
     private ListView list;
     private int currentPosition;
+
+    ExecutorService executorService = Executors.newFixedThreadPool(4);
 
     @Override
     public void onCreate(Bundle bundle) {
@@ -865,28 +869,35 @@ public class QFieldProjectActivity
                     currentPosition);
             File file = listItem.getFile();
             String exportPath = file.getPath();
-
             Uri uri = data.getData();
             Context context = getApplication().getApplicationContext();
             ContentResolver resolver = getContentResolver();
-            resolver.takePersistableUriPermission(
-                uri, Intent.FLAG_GRANT_READ_URI_PERMISSION |
-                         Intent.FLAG_GRANT_WRITE_URI_PERMISSION);
-            DocumentFile directory = DocumentFile.fromTreeUri(context, uri);
 
-            boolean exported = QFieldUtils.folderToDocumentFile(
-                exportPath, directory, resolver);
+            executorService.execute(new Runnable() {
+                @Override
+                public void run() {
+                    resolver.takePersistableUriPermission(
+                        uri, Intent.FLAG_GRANT_READ_URI_PERMISSION |
+                                 Intent.FLAG_GRANT_WRITE_URI_PERMISSION);
+                    DocumentFile directory =
+                        DocumentFile.fromTreeUri(context, uri);
 
-            if (!exported) {
-                AlertDialog alertDialog =
-                    new AlertDialog.Builder(this).create();
-                alertDialog.setTitle(getString(R.string.export_error));
-                alertDialog.setMessage(
-                    getString(R.string.export_to_folder_error));
-                if (!isFinishing()) {
-                    alertDialog.show();
+                    boolean exported = QFieldUtils.folderToDocumentFile(
+                        exportPath, directory, resolver);
+
+                    if (!exported) {
+                        AlertDialog alertDialog =
+                            new AlertDialog.Builder(QFieldProjectActivity.this)
+                                .create();
+                        alertDialog.setTitle(getString(R.string.export_error));
+                        alertDialog.setMessage(
+                            getString(R.string.export_to_folder_error));
+                        if (!isFinishing()) {
+                            alertDialog.show();
+                        }
+                    }
                 }
-            }
+            });
         } else if (resultCode == Activity.RESULT_OK) {
             // Close recursively the activity stack
             if (getParent() == null) {
