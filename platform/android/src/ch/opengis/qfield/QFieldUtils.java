@@ -27,6 +27,7 @@ import android.os.Environment;
 import android.provider.DocumentsContract;
 import android.provider.MediaStore;
 import android.util.Log;
+import android.webkit.MimeTypeMap;
 import androidx.documentfile.provider.DocumentFile;
 import java.io.File;
 import java.io.FileInputStream;
@@ -86,6 +87,49 @@ public class QFieldUtils {
         return true;
     }
 
+    public static boolean folderToDocumentFile(String folder,
+                                               DocumentFile directory,
+                                               ContentResolver resolver) {
+        File dir = new File(folder);
+
+        File[] files = dir.listFiles();
+        for (File file : files) {
+            String filePath = file.getPath();
+            String fileName = filePath.substring(filePath.lastIndexOf("/") + 1);
+            if (file.isDirectory()) {
+                DocumentFile newDirectory = directory.createDirectory(fileName);
+                boolean success = folderToDocumentFile(file.getPath(),
+                                                       newDirectory, resolver);
+                if (!success) {
+                    return false;
+                }
+            } else {
+                String extension = "";
+                String mimeType = "";
+                if (fileName.lastIndexOf(".") > -1) {
+                    extension =
+                        fileName.substring(fileName.lastIndexOf(".") + 1);
+                    mimeType =
+                        MimeTypeMap.getSingleton().getMimeTypeFromExtension(
+                            extension);
+                }
+                DocumentFile documentFile =
+                    directory.createFile(mimeType, fileName);
+                try {
+                    InputStream input = new FileInputStream(file);
+                    OutputStream output =
+                        resolver.openOutputStream(documentFile.getUri());
+                    QFieldUtils.inputStreamToOutputStream(input, output,
+                                                          file.length());
+                } catch (Exception e) {
+                    e.printStackTrace();
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
+
     public static boolean inputStreamToFolder(InputStream in, String folder) {
         try {
             ZipInputStream zin = new ZipInputStream(in);
@@ -107,6 +151,36 @@ public class QFieldUtils {
             zin.close();
         } catch (Exception e) {
             e.printStackTrace();
+            return false;
+        }
+        return true;
+    }
+
+    public static boolean inputStreamToOutputStream(InputStream in,
+                                                    OutputStream out,
+                                                    long totalBytes) {
+        try {
+            int size = 0;
+            int bufferSize = 1024;
+            long bufferRead = 0;
+            byte[] buffer = new byte[bufferSize];
+
+            if (totalBytes > 0 && bufferRead + bufferSize > totalBytes) {
+                bufferSize = (int)(totalBytes - bufferRead);
+            }
+            while (bufferSize > 0 &&
+                   (size = in.read(buffer, 0, bufferSize)) != -1) {
+                out.write(buffer, 0, size);
+                bufferRead += bufferSize;
+                if (totalBytes > 0 && bufferRead + bufferSize > totalBytes) {
+                    bufferSize = (int)(totalBytes - bufferRead);
+                }
+            }
+
+            out.close();
+        } catch (Exception e) {
+            Log.e("QField",
+                  "inputStreamToOutputStream exception: " + e.getMessage());
             return false;
         }
         return true;

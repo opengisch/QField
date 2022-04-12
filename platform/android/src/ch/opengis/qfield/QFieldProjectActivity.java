@@ -131,6 +131,7 @@ public class QFieldProjectActivity
             (QFieldProjectListItem)list.getAdapter().getItem(currentPosition);
         File file = listItem.getFile();
         switch (item.getItemId()) {
+            // dataset-related actions
             case R.id.send_to: {
                 DocumentFile documentFile = DocumentFile.fromFile(file);
                 Context context = getApplication().getApplicationContext();
@@ -173,12 +174,23 @@ public class QFieldProjectActivity
                 dialog.show();
                 return true;
             }
+
+            // folder-related actions
             case R.id.add_to_favorite: {
                 addFileToFavoriteDirs(file);
                 return true;
             }
             case R.id.remove_from_favorite: {
                 removeFileFromFavoriteDirs(file);
+                return true;
+            }
+            case R.id.export_to_folder: {
+                Intent intent = new Intent(Intent.ACTION_OPEN_DOCUMENT_TREE);
+                intent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION |
+                                Intent.FLAG_GRANT_WRITE_URI_PERMISSION);
+                intent.addFlags(Intent.FLAG_GRANT_PREFIX_URI_PERMISSION);
+                intent.addFlags(Intent.FLAG_GRANT_PERSISTABLE_URI_PERMISSION);
+                startActivityForResult(intent, R.id.export_to_folder);
                 return true;
             }
             case R.id.remove_folder: {
@@ -823,6 +835,34 @@ public class QFieldProjectActivity
                         "label",
                         getString(R.string.favorites_imported_projects));
                     startActivityForResult(intent, 123);
+                }
+            }
+        } else if (requestCode == R.id.export_to_folder &&
+                   resultCode == Activity.RESULT_OK) {
+            Log.d(TAG, "handling export to folder");
+
+            final QFieldProjectListItem listItem =
+                (QFieldProjectListItem)list.getAdapter().getItem(
+                    currentPosition);
+            File file = listItem.getFile();
+            String exportPath = file.getPath();
+
+            Uri uri = data.getData();
+            Context context = getApplication().getApplicationContext();
+            ContentResolver resolver = getContentResolver();
+            DocumentFile directory = DocumentFile.fromTreeUri(context, uri);
+
+            boolean exported = QFieldUtils.folderToDocumentFile(
+                exportPath, directory, resolver);
+
+            if (!exported) {
+                AlertDialog alertDialog =
+                    new AlertDialog.Builder(this).create();
+                alertDialog.setTitle(getString(R.string.export_error));
+                alertDialog.setMessage(
+                    getString(R.string.export_to_folder_error));
+                if (!isFinishing()) {
+                    alertDialog.show();
                 }
             }
         } else if (resultCode == Activity.RESULT_OK) {

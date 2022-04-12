@@ -44,7 +44,10 @@
     <string name="import_dataset_error">The selected dataset(s) could not be imported properly.</string>
     <string name="import_project_archive_error">The selected project archive not be imported properly.</string>
     <string name="import_project_folder_error">The selected project folder not be imported properly.</string>
+    <string name="export_error">Export Error</string>
+    <string name="export_to_folder_error">The selected project folder not be exported properly.</string>
     <string name="send_to">Send to...</string>
+    <string name="export_to_folder">Export to folder...</string>
     <string name="add_to_favorite">Add to Favorites</string>
     <string name="remove_from_favorite">Remove from Favorites</string>
     <string name="remove_dataset">Remove Dataset</string>
