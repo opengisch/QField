@@ -42,10 +42,10 @@
     <string name="usb_cable_help">USB Cable Transfer Help</string>
     <string name="import_error">Import Error</string>
     <string name="import_dataset_error">The selected dataset(s) could not be imported properly.</string>
-    <string name="import_project_archive_error">The selected project archive not be imported properly.</string>
-    <string name="import_project_folder_error">The selected project folder not be imported properly.</string>
+    <string name="import_project_archive_error">The selected project archive was not imported properly.</string>
+    <string name="import_project_folder_error">The selected project folder was not imported properly.</string>
     <string name="export_error">Export Error</string>
-    <string name="export_to_folder_error">The selected project folder not be exported properly.</string>
+    <string name="export_to_folder_error">The selected project folder was not exported properly.</string>
     <string name="send_to">Send to...</string>
     <string name="send_compressed_to">Send Compressed Folder to...</string>
     <string name="export_to_folder">Export to Folder...</string>
