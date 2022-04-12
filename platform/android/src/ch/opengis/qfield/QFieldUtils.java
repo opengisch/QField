@@ -37,6 +37,7 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
+import java.util.zip.ZipOutputStream;
 
 public class QFieldUtils {
 
@@ -95,7 +96,7 @@ public class QFieldUtils {
         File[] files = dir.listFiles();
         for (File file : files) {
             String filePath = file.getPath();
-            String fileName = filePath.substring(filePath.lastIndexOf("/") + 1);
+            String fileName = file.getName();
             if (file.isDirectory()) {
                 DocumentFile newDirectory = directory.createDirectory(fileName);
                 boolean success = folderToDocumentFile(file.getPath(),
@@ -121,6 +122,7 @@ public class QFieldUtils {
                         resolver.openOutputStream(documentFile.getUri());
                     QFieldUtils.inputStreamToOutputStream(input, output,
                                                           file.length());
+                    output.close();
                 } catch (Exception e) {
                     e.printStackTrace();
                     return false;
@@ -156,6 +158,57 @@ public class QFieldUtils {
         return true;
     }
 
+    public static boolean zipFolder(String folder, String archivePath) {
+        try {
+            FileOutputStream out = new FileOutputStream(archivePath);
+            ZipOutputStream zip = new ZipOutputStream(out);
+
+            boolean success = addFolderToZip(zip, folder, folder);
+
+            zip.flush();
+            zip.close();
+            return success;
+        } catch (Exception e) {
+            Log.e("QField",
+                  "inputStreamToOutputStream exception: " + e.getMessage());
+        }
+        return false;
+    }
+
+    private static boolean addFolderToZip(ZipOutputStream zip, String folder,
+                                          String rootFolder) {
+        File dir = new File(folder);
+        File[] files = dir.listFiles();
+        String pathPrefix = folder.substring(rootFolder.length());
+        for (File file : files) {
+            String filePath = file.getPath();
+            String fileName = file.getName();
+
+            if (file.isDirectory()) {
+                boolean success =
+                    addFolderToZip(zip, file.getPath(), rootFolder);
+                if (!success) {
+                    return false;
+                }
+            } else {
+                try {
+                    ZipEntry zipFile =
+                        new ZipEntry(pathPrefix + "/" + fileName);
+                    zip.putNextEntry(zipFile);
+
+                    InputStream input = new FileInputStream(file);
+                    inputStreamToOutputStream(input, zip, file.length());
+                    zip.closeEntry();
+                } catch (Exception e) {
+                    Log.e("QField", "inputStreamToOutputStream exception: " +
+                                        e.getMessage());
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
+
     public static boolean inputStreamToOutputStream(InputStream in,
                                                     OutputStream out,
                                                     long totalBytes) {
@@ -176,8 +229,6 @@ public class QFieldUtils {
                     bufferSize = (int)(totalBytes - bufferRead);
                 }
             }
-
-            out.close();
         } catch (Exception e) {
             Log.e("QField",
                   "inputStreamToOutputStream exception: " + e.getMessage());

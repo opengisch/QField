@@ -48,6 +48,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
+import java.util.UUID;
 
 public class QFieldProjectActivity
     extends Activity implements OnMenuItemClickListener {
@@ -182,6 +183,24 @@ public class QFieldProjectActivity
             }
             case R.id.remove_from_favorite: {
                 removeFileFromFavoriteDirs(file);
+                return true;
+            }
+            case R.id.send_compressed_to: {
+                File temporaryFile =
+                    new File(getCacheDir(), file.getName() + ".zip");
+                QFieldUtils.zipFolder(file.getPath(), temporaryFile.getPath());
+
+                DocumentFile documentFile =
+                    DocumentFile.fromFile(temporaryFile);
+                Context context = getApplication().getApplicationContext();
+                Intent intent = new Intent(Intent.ACTION_SEND);
+                intent.putExtra(Intent.EXTRA_STREAM,
+                                FileProvider.getUriForFile(
+                                    context,
+                                    context.getPackageName() + ".fileprovider",
+                                    temporaryFile));
+                intent.setType(documentFile.getType());
+                startActivity(Intent.createChooser(intent, null));
                 return true;
             }
             case R.id.export_to_folder: {
