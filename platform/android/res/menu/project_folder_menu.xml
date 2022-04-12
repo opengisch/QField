@@ -9,6 +9,10 @@
         android:title="@string/remove_from_favorite"
         app:showAsAction="never"/>
     <item
+        android:id="@+id/send_compressed_to"
+        android:title="@string/send_compressed_to"
+        app:showAsAction="never" />
+    <item
         android:id="@+id/export_to_folder"
         android:title="@string/export_to_folder"
         app:showAsAction="never" />
