@@ -47,8 +47,8 @@
     <string name="export_error">Export Error</string>
     <string name="export_to_folder_error">The selected project folder not be exported properly.</string>
     <string name="send_to">Send to...</string>
-    <string name="send_compressed_to">Send compressed folder to...</string>
-    <string name="export_to_folder">Export to folder...</string>
+    <string name="send_compressed_to">Send Compressed Folder to...</string>
+    <string name="export_to_folder">Export to Folder...</string>
     <string name="add_to_favorite">Add to Favorites</string>
     <string name="remove_from_favorite">Remove from Favorites</string>
     <string name="remove_dataset">Remove Dataset</string>
