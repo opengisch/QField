@@ -187,6 +187,9 @@ public class QFieldUtils {
         File dir = new File(folder);
         File[] files = dir.listFiles();
         String pathPrefix = folder.substring(rootFolder.length());
+        if (!pathPrefix.isEmpty()) {
+            pathPrefix = pathPrefix + "/";
+        }
         for (File file : files) {
             String filePath = file.getPath();
             String fileName = file.getName();
@@ -199,8 +202,7 @@ public class QFieldUtils {
                 }
             } else {
                 try {
-                    ZipEntry zipFile =
-                        new ZipEntry(pathPrefix + "/" + fileName);
+                    ZipEntry zipFile = new ZipEntry(pathPrefix + fileName);
                     zip.putNextEntry(zipFile);
 
                     InputStream input = new FileInputStream(file);
