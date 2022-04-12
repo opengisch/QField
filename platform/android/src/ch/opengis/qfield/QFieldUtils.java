@@ -98,7 +98,11 @@ public class QFieldUtils {
             String filePath = file.getPath();
             String fileName = file.getName();
             if (file.isDirectory()) {
-                DocumentFile newDirectory = directory.createDirectory(fileName);
+                // Use pre-existing directory if present
+                DocumentFile newDirectory = directory.findFile(fileName);
+                if (newDirectory == null) {
+                    newDirectory = directory.createDirectory(fileName);
+                }
                 boolean success = folderToDocumentFile(file.getPath(),
                                                        newDirectory, resolver);
                 if (!success) {
@@ -114,8 +118,11 @@ public class QFieldUtils {
                         MimeTypeMap.getSingleton().getMimeTypeFromExtension(
                             extension);
                 }
-                DocumentFile documentFile =
-                    directory.createFile(mimeType, fileName);
+                // Use pre-existing file if present
+                DocumentFile documentFile = directory.findFile(fileName);
+                if (documentFile == null) {
+                    documentFile = directory.createFile(mimeType, fileName);
+                }
                 try {
                     InputStream input = new FileInputStream(file);
                     OutputStream output =
