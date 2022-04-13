@@ -341,7 +341,7 @@ EditorWidgetBase {
             var filepath = getPictureFilePath()
             platformUtilities.renameFile( path, prefixToRelativePath + filepath)
 
-            var maximumWidhtHeight = iface.readProjectNumEntry("qfieldsync", "maximumWidthHeight", 0)
+            var maximumWidhtHeight = iface.readProjectNumEntry("qfieldsync", "maximumImageWidthHeight", 0)
             if(maximumWidhtHeight > 0) {
                 iface.restrictImageSize(prefixToRelativePath + filepath, maximumWidhtHeight)
             }
@@ -362,7 +362,7 @@ EditorWidgetBase {
     function onPictureReceived(path) {
       if( path )
       {
-          var maximumWidhtHeight = iface.readProjectNumEntry("qfieldsync", "maximumWidthHeight", 0)
+          var maximumWidhtHeight = iface.readProjectNumEntry("qfieldsync", "maximumImageWidthHeight", 0)
           if(maximumWidhtHeight > 0) {
               iface.restrictImageSize(prefixToRelativePath + path, maximumWidhtHeight)
           }
