@@ -696,6 +696,71 @@ public class QFieldProjectActivity
             .show();
     }
 
+    void importDatasets(Uri[] datasetUris) {
+        File externalFilesDir = getExternalFilesDir(null);
+        if (externalFilesDir == null || datasetUris.length == 0) {
+            return;
+        }
+
+        ProgressDialog progressDialog = ProgressDialog.show(
+            this, "", "Please wait while QField is importing the project",
+            true);
+        progressDialog.setCancelable(false);
+
+        String importDatasetPath =
+            externalFilesDir.getAbsolutePath() + "/Imported Datasets/";
+        new File(importDatasetPath).mkdir();
+
+        Context context = getApplication().getApplicationContext();
+        ContentResolver resolver = getContentResolver();
+
+        executorService.execute(new Runnable() {
+            @Override
+            public void run() {
+                boolean imported = false;
+                for (Uri datasetUri : datasetUris) {
+                    DocumentFile documentFile =
+                        DocumentFile.fromSingleUri(context, datasetUri);
+                    String importFilePath =
+                        importDatasetPath + documentFile.getName();
+                    try {
+                        InputStream input =
+                            resolver.openInputStream(datasetUri);
+                        imported = QFieldUtils.inputStreamToFile(
+                            input, importFilePath, documentFile.length());
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                        imported = false;
+                    }
+                    if (!imported) {
+                        break;
+                    }
+                }
+
+                progressDialog.dismiss();
+                if (!imported) {
+                    AlertDialog alertDialog =
+                        new AlertDialog.Builder(QFieldProjectActivity.this)
+                            .create();
+                    alertDialog.setTitle(getString(R.string.import_error));
+                    alertDialog.setMessage(
+                        getString(R.string.import_dataset_error));
+                    if (!isFinishing()) {
+                        alertDialog.show();
+                    }
+                } else {
+                    Intent intent = new Intent(QFieldProjectActivity.this,
+                                               QFieldProjectActivity.class);
+                    intent.putExtra("path", importDatasetPath);
+                    intent.putExtra(
+                        "label",
+                        getString(R.string.favorites_imported_datasets));
+                    startActivityForResult(intent, 123);
+                }
+            }
+        });
+    }
+
     void importProjectFolder(Uri folderUri) {
         File externalFilesDir = getExternalFilesDir(null);
         if (externalFilesDir == null) {
@@ -839,56 +904,60 @@ public class QFieldProjectActivity
 
             String importDatasetPath =
                 externalFilesDir.getAbsolutePath() + "/Imported Datasets/";
-            new File(importDatasetPath).mkdir();
+
             Context context = getApplication().getApplicationContext();
             ContentResolver resolver = getContentResolver();
 
-            boolean imported = false;
+            Uri[] datasetUris;
             if (data.getClipData() != null) {
+                datasetUris = new Uri[data.getClipData().getItemCount()];
                 for (int i = 0; i < data.getClipData().getItemCount(); i++) {
-                    Uri uri = data.getClipData().getItemAt(i).getUri();
-                    DocumentFile documentFile =
-                        DocumentFile.fromSingleUri(context, uri);
-                    String importFilePath =
-                        importDatasetPath + documentFile.getName();
-                    try {
-                        InputStream input = resolver.openInputStream(uri);
-                        imported = QFieldUtils.inputStreamToFile(
-                            input, importFilePath, documentFile.length());
-                    } catch (Exception e) {
-                        e.printStackTrace();
-                        break;
-                    }
+                    datasetUris[i] = data.getClipData().getItemAt(i).getUri();
                 }
             } else {
-                Uri uri = data.getData();
+                datasetUris = new Uri[1];
+                datasetUris[0] = data.getData();
+            }
+
+            boolean hasExists = false;
+            for (Uri datasetUri : datasetUris) {
                 DocumentFile documentFile =
-                    DocumentFile.fromSingleUri(context, uri);
-                String importFilePath =
-                    importDatasetPath + documentFile.getName();
-                try {
-                    InputStream input = resolver.openInputStream(uri);
-                    imported = QFieldUtils.inputStreamToFile(
-                        input, importFilePath, documentFile.length());
-                } catch (Exception e) {
-                    e.printStackTrace();
-                    AlertDialog alertDialog =
-                        new AlertDialog.Builder(this).create();
-                    alertDialog.setTitle(getString(R.string.import_error));
-                    alertDialog.setMessage(
-                        getString(R.string.import_dataset_error));
-                    if (!isFinishing()) {
-                        alertDialog.show();
-                    }
+                    DocumentFile.fromSingleUri(context, datasetUri);
+                File importFilePath =
+                    new File(importDatasetPath + documentFile.getName());
+                if (importFilePath.exists()) {
+                    hasExists = true;
+                    break;
                 }
             }
 
-            if (imported) {
-                Intent intent = new Intent(this, QFieldProjectActivity.class);
-                intent.putExtra("path", importDatasetPath);
-                intent.putExtra(
-                    "label", getString(R.string.favorites_imported_datasets));
-                startActivityForResult(intent, 123);
+            if (hasExists) {
+                AlertDialog.Builder builder = new AlertDialog.Builder(this);
+                builder.setTitle(getString(R.string.import_overwrite_title));
+                builder.setMessage(
+                    datasetUris.length > 1
+                        ? getString(R.string.import_overwrite_dataset_multiple)
+                        : getString(R.string.import_overwrite_dataset_single));
+                builder.setPositiveButton(
+                    getString(R.string.import_overwrite_confirm),
+                    new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int id) {
+                            importDatasets(datasetUris);
+                            dialog.dismiss();
+                        }
+                    });
+                builder.setNegativeButton(
+                    getString(R.string.import_overwrite_cancel),
+                    new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int id) {
+                            dialog.dismiss();
+                        }
+                    });
+                AlertDialog dialog = builder.create();
+                dialog.setCancelable(false);
+                dialog.show();
+            } else {
+                importDatasets(datasetUris);
             }
         } else if (requestCode == R.id.import_project_folder &&
                    resultCode == Activity.RESULT_OK) {

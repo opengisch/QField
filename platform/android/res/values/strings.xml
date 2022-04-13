@@ -46,6 +46,8 @@
     <string name="import_project_folder_error">The selected project folder was not imported properly.</string>
     <string name="import_overwrite_title">Import Warning</string>
     <string name="import_overwrite_folder">This project folder already exists. This operation will overwrite its data, proceed with import?</string>
+    <string name="import_overwrite_dataset_single">This dataset already exists. This operation will overwrite it, proceed with import?</string>
+    <string name="import_overwrite_dataset_multiple">One or more datasets already exists. This operation will overwrite these, proceed with import?</string>
     <string name="import_overwrite_confirm">Import and Overwrite</string>
     <string name="import_overwrite_cancel">Cancel</string>
     <string name="export_error">Export Error</string>
