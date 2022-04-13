@@ -214,12 +214,17 @@ public class QFieldUtils {
                 // TODO handle non-primary volumes
             } else if (isDownloadsDocument(uri)) {
                 // DownloadsProvider
-                final String id = DocumentsContract.getDocumentId(uri);
-                final Uri contentUri = ContentUris.withAppendedId(
-                    Uri.parse("content://downloads/public_downloads"),
-                    Long.valueOf(id));
+                try {
+                    final String id = DocumentsContract.getDocumentId(uri);
+                    final Uri contentUri = ContentUris.withAppendedId(
+                        Uri.parse("content://downloads/public_downloads"),
+                        Long.valueOf(id));
 
-                path = getDataColumn(context, contentUri, null, null);
+                    path = getDataColumn(context, contentUri, null, null);
+                } catch (NumberFormatException e) {
+                    // Not numerical IDs, skipping
+                    path = null;
+                }
             } else if (isMediaDocument(uri)) {
                 // MediaProvider
                 final String docId = DocumentsContract.getDocumentId(uri);
