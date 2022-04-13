@@ -339,7 +339,13 @@ EditorWidgetBase {
 
         onFinished: {
             var filepath = getPictureFilePath()
-            platformUtilities.renameFile( path, qgisProject.homePath +'/' + filepath)
+            platformUtilities.renameFile( path, prefixToRelativePath + filepath)
+
+            var maximumWidhtHeight = iface.readProjectNumEntry("qfieldsync", "maximumWidthHeight", 0)
+            if(maximumWidhtHeight > 0) {
+                iface.restrictImageSize(prefixToRelativePath + filepath, maximumWidhtHeight)
+            }
+
             valueChangeRequested(filepath, false)
             campopup.close()
         }
@@ -360,6 +366,7 @@ EditorWidgetBase {
           if(maximumWidhtHeight > 0) {
               iface.restrictImageSize(prefixToRelativePath + path, maximumWidhtHeight)
           }
+
           valueChangeRequested(path, false)
       }
     }
