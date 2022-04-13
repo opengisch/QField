@@ -109,14 +109,47 @@ class QFIELD_CORE_EXPORT QgisMobileapp : public QQmlApplicationEngine
     void readProjectFile();
 
     /**
-     * Prints a given layout to a PDF file
+     * Reads a string from the specified \a scope and \a key from the currently opened project
+     *
+     * \param scope entry scope (group) name
+     * \param key entry key name. Keys are '/'-delimited entries, implying a hierarchy of keys and corresponding values
+     * \param def default value to return if the specified \a key does not exist within the \a scope
+     *
+     * \returns entry value as string from \a scope given its \a key
+     */
+    QString readProjectEntry( const QString &scope, const QString &key, const QString &def = QString() ) const;
+
+    /**
+     * Reads an integer from the specified \a scope and \a key from the currently opened project
+     *
+     * \param scope entry scope (group) name
+     * \param key entry key name. Keys are '/'-delimited entries, implying a hierarchy of keys and corresponding values
+     * \param def default value to return if the specified \a key does not exist within the \a scope
+     *
+     * \returns entry value as integer from \a scope given its \a key
+     */
+    int readProjectNumEntry( const QString &scope, const QString &key, int def = 0 ) const;
+
+    /**
+     * Reads a double from the specified \a scope and \a key from the currently opened project
+     *
+     * \param scope entry scope (group) name
+     * \param key entry key name. Keys are '/'-delimited entries, implying a hierarchy of keys and corresponding values
+     * \param def default value to return if the specified \a key does not exist within the \a scope
+     *
+     * \returns entry value as double from \a scope given its \a key
+     */
+    double readProjectDoubleEntry( const QString &scope, const QString &key, double def = 0.0 ) const;
+
+    /**
+     * Prints a given layout from the currently opened project to a PDF file
      * \param layoutName the layout name that will be printed
      * \return TRUE if the layout was successfully printed
      */
     bool print( const QString &layoutName );
 
     /**
-     * Prints a given atlas-driven layout to one or more PDF files
+     * Prints a given atlas-driven layout from the currently opened project to one or more PDF files
      * \param layoutName the layout name that will be printed
      * \param featureIds the features from the atlas coverage vector layer that will be used to print the layout
      * \return TRUE if the layout was successfully printed
