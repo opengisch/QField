@@ -356,6 +356,10 @@ EditorWidgetBase {
     function onPictureReceived(path) {
       if( path )
       {
+          var maximumWidhtHeight = iface.readProjectNumEntry("qfieldsync", "maximumWidthHeight", 0)
+          if(maximumWidhtHeight > 0) {
+              iface.restrictImageSize(prefixToRelativePath + path, maximumWidhtHeight)
+          }
           valueChangeRequested(path, false)
       }
     }

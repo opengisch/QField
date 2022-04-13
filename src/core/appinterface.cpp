@@ -134,3 +134,15 @@ void AppInterface::sendLog( const QString &message )
 {
   emit submitLog( message );
 }
+
+void AppInterface::restrictImageSize( const QString &imagePath, int maximumWidthHeight )
+{
+  QImage img( imagePath );
+  if ( !img.isNull() && ( img.width() > maximumWidthHeight || img.height() > maximumWidthHeight ) )
+  {
+    QImage scaledImage = img.width() > img.height()
+                           ? img.scaledToWidth( maximumWidthHeight, Qt::SmoothTransformation )
+                           : img.scaledToHeight( maximumWidthHeight, Qt::SmoothTransformation );
+    scaledImage.save( imagePath );
+  }
+}
