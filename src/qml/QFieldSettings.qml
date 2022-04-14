@@ -17,6 +17,7 @@ Page {
   property alias fullScreenIdentifyView: registry.fullScreenIdentifyView
   property alias locatorKeepScale: registry.locatorKeepScale
   property alias numericalDigitizingInformation: registry.numericalDigitizingInformation
+  property alias showBookmarks: registry.showBookmarks
   property alias nativeCamera: registry.nativeCamera
   property alias autoSave: registry.autoSave
   property alias mouseAsTouchScreen: registry.mouseAsTouchScreen
@@ -29,6 +30,7 @@ Page {
     property bool fullScreenIdentifyView: false
     property bool locatorKeepScale: false
     property bool numericalDigitizingInformation: false
+    property bool showBookmarks: true
     property bool nativeCamera: platformUtilities.capabilities & PlatformUtilities.NativeCamera
     property bool autoSave: false
     property bool mouseAsTouchScreen: false
@@ -63,6 +65,11 @@ Page {
           title: qsTr( "Show digitizing information" )
           description: qsTr( "When switched on, coordinate information, such as latitude and longitude, is overlayed onto the map while digitizing new features or using the measure tool." )
           settingAlias: "numericalDigitizingInformation"
+      }
+      ListElement {
+          title: qsTr( "Show bookmarks" )
+          description: qsTr( "When switched on, user's saved and currently opened project bookmarks will be displayed on the map." )
+          settingAlias: "showBookmarks"
       }
       ListElement {
           title: qsTr( "Use native camera" )
