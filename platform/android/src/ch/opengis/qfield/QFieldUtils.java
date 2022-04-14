@@ -88,23 +88,20 @@ public class QFieldUtils {
         return true;
     }
 
-    public static boolean folderToDocumentFile(String folder,
-                                               DocumentFile directory,
-                                               ContentResolver resolver) {
-        File dir = new File(folder);
-
-        File[] files = dir.listFiles();
-        for (File file : files) {
-            String filePath = file.getPath();
-            String fileName = file.getName();
-            if (file.isDirectory()) {
+    public static boolean fileToDocumentFile(File file, DocumentFile directory,
+                                             ContentResolver resolver) {
+        File[] files =
+            file.isDirectory() ? file.listFiles() : new File[] {file};
+        for (File f : files) {
+            String filePath = f.getPath();
+            String fileName = f.getName();
+            if (f.isDirectory()) {
                 // Use pre-existing directory if present
                 DocumentFile newDirectory = directory.findFile(fileName);
                 if (newDirectory == null) {
                     newDirectory = directory.createDirectory(fileName);
                 }
-                boolean success = folderToDocumentFile(file.getPath(),
-                                                       newDirectory, resolver);
+                boolean success = fileToDocumentFile(f, newDirectory, resolver);
                 if (!success) {
                     return false;
                 }
@@ -124,11 +121,11 @@ public class QFieldUtils {
                     documentFile = directory.createFile(mimeType, fileName);
                 }
                 try {
-                    InputStream input = new FileInputStream(file);
+                    InputStream input = new FileInputStream(f);
                     OutputStream output =
                         resolver.openOutputStream(documentFile.getUri());
                     QFieldUtils.inputStreamToOutputStream(input, output,
-                                                          file.length());
+                                                          f.length());
                     output.close();
                 } catch (Exception e) {
                     e.printStackTrace();
