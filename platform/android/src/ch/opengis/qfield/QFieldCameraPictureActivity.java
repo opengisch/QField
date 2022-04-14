@@ -10,6 +10,7 @@ import android.os.Environment;
 import android.provider.MediaStore;
 import android.util.Log;
 import androidx.core.content.FileProvider;
+import ch.opengis.qfield.QFieldUtils;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
@@ -21,6 +22,8 @@ import java.util.Date;
 
 public class QFieldCameraPictureActivity extends Activity {
     private static final String TAG = "QField Camera Picture Activity";
+    private static final int CAMERA_ACTIVITY = 172;
+
     private String prefix;
     private String pictureFilePath;
     private String suffix;
@@ -81,7 +84,7 @@ public class QFieldCameraPictureActivity extends Activity {
                     Log.d(TAG, "uri: " + photoURI.toString());
                     takePictureIntent.putExtra(MediaStore.EXTRA_OUTPUT,
                                                photoURI);
-                    startActivityForResult(takePictureIntent, 172);
+                    startActivityForResult(takePictureIntent, CAMERA_ACTIVITY);
                 }
             } catch (IOException e) {
                 Log.d(TAG, e.getMessage());
@@ -97,60 +100,42 @@ public class QFieldCameraPictureActivity extends Activity {
         Log.d(TAG, "onActivityResult()");
         Log.d(TAG, "resultCode: " + resultCode);
 
-        File result = new File(prefix + pictureFilePath);
-        File path = result.getParentFile();
-        path.mkdirs();
+        if (requestCode == CAMERA_ACTIVITY) {
+            if (resultCode == RESULT_OK) {
+                File result = new File(prefix + pictureFilePath);
+                File path = result.getParentFile();
+                path.mkdirs();
+                path.setExecutable(true);
+                path.setReadable(true);
+                path.setWritable(true);
 
-        // Let the android scan new media folders/files to make them visible
-        // through MTP
-        path.setExecutable(true);
-        path.setReadable(true);
-        path.setWritable(true);
-        MediaScannerConnection.scanFile(this, new String[] {path.toString()},
-                                        null, null);
-
-        if (resultCode == RESULT_OK) {
-
-            File pictureFile = new File(pictureTempFilePath);
-            Log.d(TAG, "Taken picture: " + pictureFile.getAbsolutePath());
-            try {
-                copyFile(pictureFile, result);
-            } catch (IOException e) {
-                Log.d(TAG, e.getMessage());
-            }
-
-            Intent intent = this.getIntent();
-            intent.putExtra("PICTURE_IMAGE_FILENAME", prefix + pictureFilePath);
-            setResult(RESULT_OK, intent);
-        } else {
-            Intent intent = this.getIntent();
-            intent.putExtra("PICTURE_IMAGE_FILENAME", "");
-            setResult(RESULT_CANCELED, intent);
-        }
-
-        // Let the android scan new media folders/files to make them visible
-        // through MTP
-        result.setReadable(true);
-        result.setWritable(true);
-        MediaScannerConnection.scanFile(this, new String[] {result.toString()},
-                                        null, null);
-
-        finish();
-    }
-
-    private void copyFile(File src, File dst) throws IOException {
-        Log.d(TAG, "Copy file: " + src.getAbsolutePath() +
-                       " to file: " + dst.getAbsolutePath());
-        try (InputStream in = new FileInputStream(src)) {
-            try (OutputStream out = new FileOutputStream(dst)) {
-                // Transfer bytes from in to out
-                byte[] buf = new byte[1024];
-                int len;
-                while ((len = in.read(buf)) > 0) {
-                    out.write(buf, 0, len);
+                File pictureFile = new File(pictureTempFilePath);
+                Log.d(TAG, "Taken picture: " + pictureFile.getAbsolutePath());
+                try {
+                    InputStream in = new FileInputStream(pictureFile);
+                    QFieldUtils.inputStreamToFile(in, result.getPath(),
+                                                  pictureFile.length());
+                } catch (Exception e) {
+                    e.printStackTrace();
                 }
-                out.close();
+
+                // Let the android scan new media folders/files to make them
+                // visible through MTP
+                result.setReadable(true);
+                result.setWritable(true);
+                MediaScannerConnection.scanFile(
+                    this, new String[] {path.toString()}, null, null);
+
+                Intent intent = this.getIntent();
+                intent.putExtra("PICTURE_IMAGE_FILENAME",
+                                prefix + pictureFilePath);
+                setResult(RESULT_OK, intent);
+            } else {
+                Intent intent = this.getIntent();
+                intent.putExtra("PICTURE_IMAGE_FILENAME", "");
+                setResult(RESULT_CANCELED, intent);
             }
+            finish();
         }
     }
 }
