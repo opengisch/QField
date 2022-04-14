@@ -6,6 +6,10 @@
         android:title="@string/send_to"
         app:showAsAction="never" />
     <item
+        android:id="@+id/export_to_folder"
+        android:title="@string/export_to_folder"
+        app:showAsAction="never" />
+    <item
         android:id="@+id/remove_dataset"
         android:title="@string/remove_dataset"
         app:showAsAction="never" />

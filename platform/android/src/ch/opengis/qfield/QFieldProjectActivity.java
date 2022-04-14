@@ -1054,7 +1054,6 @@ public class QFieldProjectActivity
                 (QFieldProjectListItem)list.getAdapter().getItem(
                     currentPosition);
             File file = listItem.getFile();
-            String exportPath = file.getPath();
             Uri uri = data.getData();
             Context context = getApplication().getApplicationContext();
             ContentResolver resolver = getContentResolver();
@@ -1068,8 +1067,9 @@ public class QFieldProjectActivity
                     DocumentFile directory =
                         DocumentFile.fromTreeUri(context, uri);
 
-                    boolean exported = QFieldUtils.folderToDocumentFile(
-                        exportPath, directory, resolver);
+                    boolean exported = exported =
+                        QFieldUtils.fileToDocumentFile(file, directory,
+                                                       resolver);
 
                     if (!exported) {
                         AlertDialog alertDialog =
