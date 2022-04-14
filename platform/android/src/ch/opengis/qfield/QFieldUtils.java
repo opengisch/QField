@@ -186,9 +186,12 @@ public class QFieldUtils {
                                           String rootFolder) {
         File dir = new File(folder);
         File[] files = dir.listFiles();
-        String pathPrefix = folder.substring(rootFolder.length());
-        if (!pathPrefix.isEmpty()) {
-            pathPrefix = pathPrefix + "/";
+        String pathPrefix = "";
+        if (folder.length() > rootFolder.length()) {
+            pathPrefix = folder.substring(rootFolder.length() + 1);
+            if (!pathPrefix.substring(pathPrefix.length() - 1).equals("/")) {
+                pathPrefix = pathPrefix + "/";
+            }
         }
         for (File file : files) {
             String filePath = file.getPath();
