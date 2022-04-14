@@ -9,7 +9,7 @@ Repeater {
   id: bookmarkHighlight
   property MapSettings mapSettings
 
-  model: bookmarkModel
+  model: qfieldSettings.showBookmarks ? bookmarkModel : undefined
 
   delegate: BookmarkRenderer {
     mapSettings: bookmarkHighlight.mapSettings
