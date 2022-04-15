@@ -35,6 +35,7 @@ import android.widget.ListView;
 import android.widget.PopupMenu;
 import android.widget.PopupMenu.OnMenuItemClickListener;
 import android.widget.Toast;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 import androidx.core.content.FileProvider;
 import androidx.core.view.MenuCompat;
@@ -54,7 +55,7 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
 public class QFieldProjectActivity
-    extends Activity implements OnMenuItemClickListener {
+    extends AppCompatActivity implements OnMenuItemClickListener {
 
     private static final String TAG = "QField Project Activity";
     private String path;
@@ -72,9 +73,9 @@ public class QFieldProjectActivity
         sharedPreferences = getPreferences(Context.MODE_PRIVATE);
         editor = sharedPreferences.edit();
         setContentView(R.layout.list_projects);
-        getActionBar().setBackgroundDrawable(
+        getSupportActionBar().setBackgroundDrawable(
             new ColorDrawable(Color.parseColor("#80CC28")));
-        getActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         drawView();
     }
 
@@ -391,7 +392,7 @@ public class QFieldProjectActivity
             Log.d(TAG, "extra path: " + getIntent().getStringExtra("path"));
             File dir = new File(getIntent().getStringExtra("path"));
             setTitle(getIntent().getStringExtra("label"));
-            getActionBar().setSubtitle(dir.getPath());
+            getSupportActionBar().setSubtitle(dir.getPath());
 
             if (!dir.canRead()) {
                 setTitle(getTitle() + " (" + getString(R.string.inaccessible) +
