@@ -74,7 +74,14 @@ public class QFieldProjectActivity
         setContentView(R.layout.list_projects);
         getActionBar().setBackgroundDrawable(
             new ColorDrawable(Color.parseColor("#80CC28")));
+        getActionBar().setDisplayHomeAsUpEnabled(true);
         drawView();
+    }
+
+    @Override
+    public boolean onNavigateUp() {
+        finish();
+        return true;
     }
 
     @Override
