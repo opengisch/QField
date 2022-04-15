@@ -1069,6 +1069,30 @@ void QgisMobileapp::readProjectFile()
   emit loadProjectEnded( mProjectFilePath, mProjectFileName );
 }
 
+QString QgisMobileapp::readProjectEntry( const QString &scope, const QString &key, const QString &def ) const
+{
+  if ( !mProject )
+    return def;
+
+  return mProject->readEntry( scope, key, def );
+}
+
+int QgisMobileapp::readProjectNumEntry( const QString &scope, const QString &key, int def ) const
+{
+  if ( !mProject )
+    return def;
+
+  return mProject->readNumEntry( scope, key, def );
+}
+
+double QgisMobileapp::readProjectDoubleEntry( const QString &scope, const QString &key, double def ) const
+{
+  if ( !mProject )
+    return def;
+
+  return mProject->readDoubleEntry( scope, key, def );
+}
+
 bool QgisMobileapp::print( const QString &layoutName )
 {
 #ifndef QT_NO_PRINTER

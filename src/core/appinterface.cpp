@@ -54,6 +54,21 @@ void AppInterface::readProject()
   return mApp->readProjectFile();
 }
 
+QString AppInterface::readProjectEntry( const QString &scope, const QString &key, const QString &def ) const
+{
+  return mApp->readProjectEntry( scope, key, def );
+}
+
+int AppInterface::readProjectNumEntry( const QString &scope, const QString &key, int def ) const
+{
+  return mApp->readProjectNumEntry( scope, key, def );
+}
+
+double AppInterface::readProjectDoubleEntry( const QString &scope, const QString &key, double def ) const
+{
+  return mApp->readProjectDoubleEntry( scope, key, def );
+}
+
 bool AppInterface::print( const QString &layoutName )
 {
   return mApp->print( layoutName );
@@ -118,4 +133,16 @@ bool AppInterface::isFileExtensionSupported( const QString &filename ) const
 void AppInterface::sendLog( const QString &message )
 {
   emit submitLog( message );
+}
+
+void AppInterface::restrictImageSize( const QString &imagePath, int maximumWidthHeight )
+{
+  QImage img( imagePath );
+  if ( !img.isNull() && ( img.width() > maximumWidthHeight || img.height() > maximumWidthHeight ) )
+  {
+    QImage scaledImage = img.width() > img.height()
+                           ? img.scaledToWidth( maximumWidthHeight, Qt::SmoothTransformation )
+                           : img.scaledToHeight( maximumWidthHeight, Qt::SmoothTransformation );
+    scaledImage.save( imagePath );
+  }
 }
