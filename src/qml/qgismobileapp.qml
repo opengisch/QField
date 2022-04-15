@@ -395,7 +395,7 @@ ApplicationWindow {
     /** A rubberband for measuring **/
     Rubberband {
       id: measuringRubberband
-      width: 2
+      width: 2.5
       color: '#80000000'
 
       mapSettings: mapCanvas.mapSettings
@@ -423,7 +423,7 @@ ApplicationWindow {
     /** A rubberband for ditizing **/
     Rubberband {
       id: digitizingRubberband
-      width: 2
+      width: 2.5
 
       mapSettings: mapCanvas.mapSettings
 
@@ -442,7 +442,7 @@ ApplicationWindow {
     /** A rubberband for the different geometry editors **/
     Rubberband {
       id: geometryEditorsRubberband
-      width: 2
+      width: 2.5
       color: '#80000000'
 
       mapSettings: mapCanvas.mapSettings
