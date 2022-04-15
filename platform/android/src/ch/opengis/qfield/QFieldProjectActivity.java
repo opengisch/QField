@@ -5,6 +5,7 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Application;
 import android.app.ListActivity;
+import android.app.ProgressDialog;
 import android.content.ContentResolver;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -48,6 +49,9 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
+import java.util.UUID;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 public class QFieldProjectActivity
     extends Activity implements OnMenuItemClickListener {
@@ -58,6 +62,8 @@ public class QFieldProjectActivity
     SharedPreferences.Editor editor;
     private ListView list;
     private int currentPosition;
+
+    ExecutorService executorService = Executors.newFixedThreadPool(4);
 
     @Override
     public void onCreate(Bundle bundle) {
@@ -131,6 +137,7 @@ public class QFieldProjectActivity
             (QFieldProjectListItem)list.getAdapter().getItem(currentPosition);
         File file = listItem.getFile();
         switch (item.getItemId()) {
+            // dataset-related actions
             case R.id.send_to: {
                 DocumentFile documentFile = DocumentFile.fromFile(file);
                 Context context = getApplication().getApplicationContext();
@@ -173,12 +180,41 @@ public class QFieldProjectActivity
                 dialog.show();
                 return true;
             }
+
+            // folder-related actions
             case R.id.add_to_favorite: {
                 addFileToFavoriteDirs(file);
                 return true;
             }
             case R.id.remove_from_favorite: {
                 removeFileFromFavoriteDirs(file);
+                return true;
+            }
+            case R.id.send_compressed_to: {
+                File temporaryFile =
+                    new File(getCacheDir(), file.getName() + ".zip");
+                QFieldUtils.zipFolder(file.getPath(), temporaryFile.getPath());
+
+                DocumentFile documentFile =
+                    DocumentFile.fromFile(temporaryFile);
+                Context context = getApplication().getApplicationContext();
+                Intent intent = new Intent(Intent.ACTION_SEND);
+                intent.putExtra(Intent.EXTRA_STREAM,
+                                FileProvider.getUriForFile(
+                                    context,
+                                    context.getPackageName() + ".fileprovider",
+                                    temporaryFile));
+                intent.setType(documentFile.getType());
+                startActivity(Intent.createChooser(intent, null));
+                return true;
+            }
+            case R.id.export_to_folder: {
+                Intent intent = new Intent(Intent.ACTION_OPEN_DOCUMENT_TREE);
+                intent.addCategory(Intent.CATEGORY_DEFAULT);
+                intent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
+                intent.addFlags(Intent.FLAG_GRANT_WRITE_URI_PERMISSION);
+                intent.addFlags(Intent.FLAG_GRANT_PERSISTABLE_URI_PERMISSION);
+                startActivityForResult(intent, R.id.export_to_folder);
                 return true;
             }
             case R.id.remove_folder: {
@@ -660,6 +696,199 @@ public class QFieldProjectActivity
             .show();
     }
 
+    void importDatasets(Uri[] datasetUris) {
+        File externalFilesDir = getExternalFilesDir(null);
+        if (externalFilesDir == null || datasetUris.length == 0) {
+            return;
+        }
+
+        ProgressDialog progressDialog = ProgressDialog.show(
+            this, "", "Please wait while QField is importing the project",
+            true);
+        progressDialog.setCancelable(false);
+
+        String importDatasetPath =
+            externalFilesDir.getAbsolutePath() + "/Imported Datasets/";
+        new File(importDatasetPath).mkdir();
+
+        Context context = getApplication().getApplicationContext();
+        ContentResolver resolver = getContentResolver();
+
+        executorService.execute(new Runnable() {
+            @Override
+            public void run() {
+                boolean imported = false;
+                for (Uri datasetUri : datasetUris) {
+                    DocumentFile documentFile =
+                        DocumentFile.fromSingleUri(context, datasetUri);
+                    String importFilePath =
+                        importDatasetPath + documentFile.getName();
+                    try {
+                        InputStream input =
+                            resolver.openInputStream(datasetUri);
+                        imported = QFieldUtils.inputStreamToFile(
+                            input, importFilePath, documentFile.length());
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                        imported = false;
+                    }
+                    if (!imported) {
+                        break;
+                    }
+                }
+
+                progressDialog.dismiss();
+                if (!imported) {
+                    AlertDialog alertDialog =
+                        new AlertDialog.Builder(QFieldProjectActivity.this)
+                            .create();
+                    alertDialog.setTitle(getString(R.string.import_error));
+                    alertDialog.setMessage(
+                        getString(R.string.import_dataset_error));
+                    if (!isFinishing()) {
+                        alertDialog.show();
+                    }
+                } else {
+                    Intent intent = new Intent(QFieldProjectActivity.this,
+                                               QFieldProjectActivity.class);
+                    intent.putExtra("path", importDatasetPath);
+                    intent.putExtra(
+                        "label",
+                        getString(R.string.favorites_imported_datasets));
+                    startActivityForResult(intent, 123);
+                }
+            }
+        });
+    }
+
+    void importProjectFolder(Uri folderUri) {
+        File externalFilesDir = getExternalFilesDir(null);
+        if (externalFilesDir == null) {
+            return;
+        }
+
+        ProgressDialog progressDialog = ProgressDialog.show(
+            this, "", "Please wait while QField is importing the project",
+            true);
+        progressDialog.setCancelable(false);
+
+        String importProjectPath =
+            externalFilesDir.getAbsolutePath() + "/Imported Projects/";
+        new File(importProjectPath).mkdir();
+
+        Context context = getApplication().getApplicationContext();
+        ContentResolver resolver = getContentResolver();
+
+        executorService.execute(new Runnable() {
+            @Override
+            public void run() {
+                DocumentFile directory =
+                    DocumentFile.fromTreeUri(context, folderUri);
+                String importPath =
+                    importProjectPath + directory.getName() + "/";
+                new File(importPath).mkdir();
+                boolean imported = QFieldUtils.documentFileToFolder(
+                    directory, importPath, resolver);
+
+                progressDialog.dismiss();
+                if (imported) {
+                    Intent intent = new Intent(QFieldProjectActivity.this,
+                                               QFieldProjectActivity.class);
+                    intent.putExtra("path", importProjectPath);
+                    intent.putExtra(
+                        "label",
+                        getString(R.string.favorites_imported_projects));
+                    startActivityForResult(intent, 123);
+                } else {
+                    AlertDialog alertDialog =
+                        new AlertDialog.Builder(QFieldProjectActivity.this)
+                            .create();
+                    alertDialog.setTitle(getString(R.string.import_error));
+                    alertDialog.setMessage(
+                        getString(R.string.import_project_folder_error));
+                    if (!isFinishing()) {
+                        alertDialog.show();
+                    }
+                }
+            }
+        });
+    }
+
+    void importProjectArchive(Uri archiveUri) {
+        File externalFilesDir = getExternalFilesDir(null);
+        if (externalFilesDir == null) {
+            return;
+        }
+
+        ProgressDialog progressDialog = ProgressDialog.show(
+            this, "", "Please wait while QField is importing the project",
+            true);
+        progressDialog.setCancelable(false);
+
+        String importProjectPath =
+            externalFilesDir.getAbsolutePath() + "/Imported Projects/";
+        new File(importProjectPath).mkdir();
+
+        Context context = getApplication().getApplicationContext();
+        ContentResolver resolver = getContentResolver();
+
+        executorService.execute(new Runnable() {
+            @Override
+            public void run() {
+                DocumentFile documentFile =
+                    DocumentFile.fromSingleUri(context, archiveUri);
+
+                String projectName = "";
+                try {
+                    InputStream input = resolver.openInputStream(archiveUri);
+                    projectName = QFieldUtils.getArchiveProjectName(input);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+
+                if (projectName != "") {
+                    String importPath =
+                        importProjectPath +
+                        documentFile.getName().substring(
+                            0, documentFile.getName().lastIndexOf(".")) +
+                        "/";
+                    new File(importPath).mkdir();
+                    boolean imported = false;
+                    try {
+                        InputStream input =
+                            resolver.openInputStream(archiveUri);
+                        imported =
+                            QFieldUtils.inputStreamToFolder(input, importPath);
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                        AlertDialog alertDialog =
+                            new AlertDialog.Builder(QFieldProjectActivity.this)
+                                .create();
+                        alertDialog.setTitle(getString(R.string.import_error));
+                        alertDialog.setMessage(
+                            getString(R.string.import_project_archive_error));
+                        if (!isFinishing()) {
+                            alertDialog.show();
+                        }
+                    }
+
+                    progressDialog.dismiss();
+                    if (imported) {
+                        Intent intent = new Intent(QFieldProjectActivity.this,
+                                                   QFieldProjectActivity.class);
+                        intent.putExtra("path", importProjectPath);
+                        intent.putExtra(
+                            "label",
+                            getString(R.string.favorites_imported_projects));
+                        startActivityForResult(intent, 123);
+                    }
+                } else {
+                    progressDialog.dismiss();
+                }
+            }
+        });
+    }
+
     protected void onActivityResult(int requestCode, int resultCode,
                                     Intent data) {
         Log.d(TAG, "activity result requestCode: " + requestCode);
@@ -675,56 +904,60 @@ public class QFieldProjectActivity
 
             String importDatasetPath =
                 externalFilesDir.getAbsolutePath() + "/Imported Datasets/";
-            new File(importDatasetPath).mkdir();
+
             Context context = getApplication().getApplicationContext();
             ContentResolver resolver = getContentResolver();
 
-            boolean imported = false;
+            Uri[] datasetUris;
             if (data.getClipData() != null) {
+                datasetUris = new Uri[data.getClipData().getItemCount()];
                 for (int i = 0; i < data.getClipData().getItemCount(); i++) {
-                    Uri uri = data.getClipData().getItemAt(i).getUri();
-                    DocumentFile documentFile =
-                        DocumentFile.fromSingleUri(context, uri);
-                    String importFilePath =
-                        importDatasetPath + documentFile.getName();
-                    try {
-                        InputStream input = resolver.openInputStream(uri);
-                        imported = QFieldUtils.inputStreamToFile(
-                            input, importFilePath, documentFile.length());
-                    } catch (Exception e) {
-                        e.printStackTrace();
-                        break;
-                    }
+                    datasetUris[i] = data.getClipData().getItemAt(i).getUri();
                 }
             } else {
-                Uri uri = data.getData();
+                datasetUris = new Uri[1];
+                datasetUris[0] = data.getData();
+            }
+
+            boolean hasExists = false;
+            for (Uri datasetUri : datasetUris) {
                 DocumentFile documentFile =
-                    DocumentFile.fromSingleUri(context, uri);
-                String importFilePath =
-                    importDatasetPath + documentFile.getName();
-                try {
-                    InputStream input = resolver.openInputStream(uri);
-                    imported = QFieldUtils.inputStreamToFile(
-                        input, importFilePath, documentFile.length());
-                } catch (Exception e) {
-                    e.printStackTrace();
-                    AlertDialog alertDialog =
-                        new AlertDialog.Builder(this).create();
-                    alertDialog.setTitle(getString(R.string.import_error));
-                    alertDialog.setMessage(
-                        getString(R.string.import_dataset_error));
-                    if (!isFinishing()) {
-                        alertDialog.show();
-                    }
+                    DocumentFile.fromSingleUri(context, datasetUri);
+                File importFilePath =
+                    new File(importDatasetPath + documentFile.getName());
+                if (importFilePath.exists()) {
+                    hasExists = true;
+                    break;
                 }
             }
 
-            if (imported) {
-                Intent intent = new Intent(this, QFieldProjectActivity.class);
-                intent.putExtra("path", importDatasetPath);
-                intent.putExtra(
-                    "label", getString(R.string.favorites_imported_datasets));
-                startActivityForResult(intent, 123);
+            if (hasExists) {
+                AlertDialog.Builder builder = new AlertDialog.Builder(this);
+                builder.setTitle(getString(R.string.import_overwrite_title));
+                builder.setMessage(
+                    datasetUris.length > 1
+                        ? getString(R.string.import_overwrite_dataset_multiple)
+                        : getString(R.string.import_overwrite_dataset_single));
+                builder.setPositiveButton(
+                    getString(R.string.import_overwrite_confirm),
+                    new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int id) {
+                            importDatasets(datasetUris);
+                            dialog.dismiss();
+                        }
+                    });
+                builder.setNegativeButton(
+                    getString(R.string.import_overwrite_cancel),
+                    new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int id) {
+                            dialog.dismiss();
+                        }
+                    });
+                AlertDialog dialog = builder.create();
+                dialog.setCancelable(false);
+                dialog.show();
+            } else {
+                importDatasets(datasetUris);
             }
         } else if (requestCode == R.id.import_project_folder &&
                    resultCode == Activity.RESULT_OK) {
@@ -734,35 +967,36 @@ public class QFieldProjectActivity
                 return;
             }
 
-            String importProjectPath =
-                externalFilesDir.getAbsolutePath() + "/Imported Projects/";
-            new File(importProjectPath).mkdir();
-
             Uri uri = data.getData();
             Context context = getApplication().getApplicationContext();
-            ContentResolver resolver = getContentResolver();
-
             DocumentFile directory = DocumentFile.fromTreeUri(context, uri);
-            String importPath = importProjectPath + directory.getName() + "/";
-            new File(importPath).mkdir();
-            boolean imported = QFieldUtils.documentFileToFolder(
-                directory, importPath, resolver);
-
-            if (imported) {
-                Intent intent = new Intent(this, QFieldProjectActivity.class);
-                intent.putExtra("path", importProjectPath);
-                intent.putExtra(
-                    "label", getString(R.string.favorites_imported_projects));
-                startActivityForResult(intent, 123);
+            File importPath =
+                new File(externalFilesDir.getAbsolutePath() +
+                         "/Imported Projects/" + directory.getName() + "/");
+            if (importPath.exists()) {
+                AlertDialog.Builder builder = new AlertDialog.Builder(this);
+                builder.setTitle(getString(R.string.import_overwrite_title));
+                builder.setMessage(getString(R.string.import_overwrite_folder));
+                builder.setPositiveButton(
+                    getString(R.string.import_overwrite_confirm),
+                    new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int id) {
+                            importProjectFolder(uri);
+                            dialog.dismiss();
+                        }
+                    });
+                builder.setNegativeButton(
+                    getString(R.string.import_overwrite_cancel),
+                    new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int id) {
+                            dialog.dismiss();
+                        }
+                    });
+                AlertDialog dialog = builder.create();
+                dialog.setCancelable(false);
+                dialog.show();
             } else {
-                AlertDialog alertDialog =
-                    new AlertDialog.Builder(this).create();
-                alertDialog.setTitle(getString(R.string.import_error));
-                alertDialog.setMessage(
-                    getString(R.string.import_project_folder_error));
-                if (!isFinishing()) {
-                    alertDialog.show();
-                }
+                importProjectFolder(uri);
             }
         } else if (requestCode == R.id.import_project_archive &&
                    resultCode == Activity.RESULT_OK) {
@@ -782,49 +1016,74 @@ public class QFieldProjectActivity
 
             DocumentFile documentFile =
                 DocumentFile.fromSingleUri(context, uri);
-
-            String projectName = "";
-            try {
-                InputStream input = resolver.openInputStream(uri);
-                projectName = QFieldUtils.getArchiveProjectName(input);
-            } catch (Exception e) {
-                e.printStackTrace();
+            File importPath = new File(
+                externalFilesDir.getAbsolutePath() + "/Imported Projects/" +
+                documentFile.getName().substring(
+                    0, documentFile.getName().lastIndexOf(".")) +
+                "/");
+            if (importPath.exists()) {
+                AlertDialog.Builder builder = new AlertDialog.Builder(this);
+                builder.setTitle(getString(R.string.import_overwrite_title));
+                builder.setMessage(getString(R.string.import_overwrite_folder));
+                builder.setPositiveButton(
+                    getString(R.string.import_overwrite_confirm),
+                    new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int id) {
+                            importProjectArchive(uri);
+                            dialog.dismiss();
+                        }
+                    });
+                builder.setNegativeButton(
+                    getString(R.string.import_overwrite_cancel),
+                    new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int id) {
+                            dialog.dismiss();
+                        }
+                    });
+                AlertDialog dialog = builder.create();
+                dialog.setCancelable(false);
+                dialog.show();
+            } else {
+                importProjectArchive(uri);
             }
+        } else if (requestCode == R.id.export_to_folder &&
+                   resultCode == Activity.RESULT_OK) {
+            Log.d(TAG, "handling export to folder");
 
-            if (projectName != "") {
-                String projectPath =
-                    importProjectPath +
-                    documentFile.getName().substring(
-                        0, documentFile.getName().lastIndexOf(".")) +
-                    "/";
-                new File(projectPath).mkdir();
-                boolean imported = false;
-                try {
-                    InputStream input = resolver.openInputStream(uri);
-                    imported =
-                        QFieldUtils.inputStreamToFolder(input, projectPath);
-                } catch (Exception e) {
-                    e.printStackTrace();
-                    AlertDialog alertDialog =
-                        new AlertDialog.Builder(this).create();
-                    alertDialog.setTitle(getString(R.string.import_error));
-                    alertDialog.setMessage(
-                        getString(R.string.import_project_archive_error));
-                    if (!isFinishing()) {
-                        alertDialog.show();
+            final QFieldProjectListItem listItem =
+                (QFieldProjectListItem)list.getAdapter().getItem(
+                    currentPosition);
+            File file = listItem.getFile();
+            Uri uri = data.getData();
+            Context context = getApplication().getApplicationContext();
+            ContentResolver resolver = getContentResolver();
+
+            executorService.execute(new Runnable() {
+                @Override
+                public void run() {
+                    resolver.takePersistableUriPermission(
+                        uri, Intent.FLAG_GRANT_READ_URI_PERMISSION |
+                                 Intent.FLAG_GRANT_WRITE_URI_PERMISSION);
+                    DocumentFile directory =
+                        DocumentFile.fromTreeUri(context, uri);
+
+                    boolean exported = exported =
+                        QFieldUtils.fileToDocumentFile(file, directory,
+                                                       resolver);
+
+                    if (!exported) {
+                        AlertDialog alertDialog =
+                            new AlertDialog.Builder(QFieldProjectActivity.this)
+                                .create();
+                        alertDialog.setTitle(getString(R.string.export_error));
+                        alertDialog.setMessage(
+                            getString(R.string.export_to_folder_error));
+                        if (!isFinishing()) {
+                            alertDialog.show();
+                        }
                     }
                 }
-
-                if (imported) {
-                    Intent intent =
-                        new Intent(this, QFieldProjectActivity.class);
-                    intent.putExtra("path", importProjectPath);
-                    intent.putExtra(
-                        "label",
-                        getString(R.string.favorites_imported_projects));
-                    startActivityForResult(intent, 123);
-                }
-            }
+            });
         } else if (resultCode == Activity.RESULT_OK) {
             // Close recursively the activity stack
             if (getParent() == null) {
