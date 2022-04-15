@@ -172,7 +172,7 @@ QSGNode *Rubberband::updatePaintNode( QSGNode *n, QQuickItem::UpdatePaintNodeDat
     {
       transformPoints( allVertices );
 
-      SGRubberband *rb = new SGRubberband( allVertices, geomType, mColor, mWidth );
+      SGRubberband *rb = new SGRubberband( allVertices, geomType, mColor, mWidth * mMapSettings->devicePixelRatio() );
       rb->setFlag( QSGNode::OwnedByParent );
       n->appendChildNode( rb );
 
@@ -181,7 +181,7 @@ QSGNode *Rubberband::updatePaintNode( QSGNode *n, QQuickItem::UpdatePaintNodeDat
         QVector<QgsPoint> allButCurrentVertices = mRubberbandModel->flatVertices( true );
         transformPoints( allButCurrentVertices );
 
-        SGRubberband *rbCurrentPoint = new SGRubberband( allButCurrentVertices, geomType, mColorCurrentPoint, mWidthCurrentPoint );
+        SGRubberband *rbCurrentPoint = new SGRubberband( allButCurrentVertices, geomType, mColorCurrentPoint, mWidthCurrentPoint * mMapSettings->devicePixelRatio() );
         rbCurrentPoint->setFlag( QSGNode::OwnedByParent );
         n->appendChildNode( rbCurrentPoint );
       }
@@ -192,12 +192,12 @@ QSGNode *Rubberband::updatePaintNode( QSGNode *n, QQuickItem::UpdatePaintNodeDat
   return n;
 }
 
-qreal Rubberband::width() const
+float Rubberband::width() const
 {
   return mWidth;
 }
 
-void Rubberband::setWidth( qreal width )
+void Rubberband::setWidth( float width )
 {
   if ( mWidth == width )
     return;
@@ -222,12 +222,12 @@ void Rubberband::setColor( const QColor &color )
   emit colorChanged();
 }
 
-qreal Rubberband::widthCurrentPoint() const
+float Rubberband::widthCurrentPoint() const
 {
   return mWidthCurrentPoint;
 }
 
-void Rubberband::setWidthCurrentPoint( qreal width )
+void Rubberband::setWidthCurrentPoint( float width )
 {
   if ( mWidthCurrentPoint == width )
     return;

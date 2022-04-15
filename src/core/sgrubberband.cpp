@@ -23,7 +23,7 @@
 #include <qgssurface.h>
 #include <qgstessellator.h>
 
-SGRubberband::SGRubberband( const QVector<QgsPoint> &points, QgsWkbTypes::GeometryType type, const QColor &color, qreal width )
+SGRubberband::SGRubberband( const QVector<QgsPoint> &points, QgsWkbTypes::GeometryType type, const QColor &color, float width )
   : QSGNode()
 {
   mMaterial.setColor( color );
@@ -85,7 +85,7 @@ SGRubberband::SGRubberband( const QVector<QgsPoint> &points, QgsWkbTypes::Geomet
   }
 }
 
-QSGGeometryNode *SGRubberband::createLineGeometry( const QVector<QgsPoint> &points, qreal width )
+QSGGeometryNode *SGRubberband::createLineGeometry( const QVector<QgsPoint> &points, float width )
 {
   QSGGeometryNode *node = new QSGGeometryNode;
   QSGGeometry *sgGeom = new QSGGeometry( QSGGeometry::defaultAttributes_Point2D(), points.count() );
