@@ -64,4 +64,8 @@
     <string name="delete_confirm_folder">The project folder will be permamently deleted, proceed with removal?</string>
     <string name="delete_confirm">Remove</string>
     <string name="delete_cancel">Cancel</string>
+    <string name="storage_information_title">Storage Information</string>
+    <string name="storage_information_message">Whether you are a pre-existing QField 1.x user wondering why your projects and datasets have gone missing or new to QField, we suggest you take a minute to read the storage handling documentation. A shortcut to this documentation will remain accessible in the title bar\'s actions menu.</string>
+    <string name="storage_information_view">Yes, show me the documentation</string>
+    <string name="storage_information_dismiss">No, I\'ll read later</string>
 </resources>
