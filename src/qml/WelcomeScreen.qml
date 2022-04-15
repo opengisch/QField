@@ -339,7 +339,7 @@ Page {
             Layout.alignment: Qt.AlignHCenter | Qt.AlignVCenter
             Layout.bottomMargin: 10
             QfButton {
-              text: qsTr('Agreed')
+              text: qsTr('I agree')
 
               onClicked: {
                 qfieldSettings.enableInfoCollection = true
