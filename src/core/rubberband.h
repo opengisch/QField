@@ -61,9 +61,9 @@ class Rubberband : public QQuickItem
     void setColor( const QColor &color );
 
     //! \copydoc width
-    qreal width() const;
+    float width() const;
     //! \copydoc width
-    void setWidth( qreal width );
+    void setWidth( float width );
 
     //! \copydoc colorCurrentPoint
     QColor colorCurrentPoint() const;
@@ -71,9 +71,9 @@ class Rubberband : public QQuickItem
     void setColorCurrentPoint( const QColor &color );
 
     //! \copydoc widthCurrentPoint
-    qreal widthCurrentPoint() const;
+    float widthCurrentPoint() const;
     //! \copydoc widthCurrentPoint
-    void setWidthCurrentPoint( qreal width );
+    void setWidthCurrentPoint( float width );
 
   signals:
     void modelChanged();
@@ -103,9 +103,9 @@ class Rubberband : public QQuickItem
     QgsQuickMapSettings *mMapSettings = nullptr;
     bool mDirty = false;
     QColor mColor = QColor( 192, 57, 43, 80 );
-    qreal mWidth = 1.8;
+    float mWidth = 1.8;
     QColor mColorCurrentPoint = QColor( 192, 57, 43, 150 );
-    qreal mWidthCurrentPoint = 1.2;
+    float mWidthCurrentPoint = 1.2;
 };
 
 
