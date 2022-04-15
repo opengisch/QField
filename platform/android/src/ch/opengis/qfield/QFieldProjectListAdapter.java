@@ -72,6 +72,7 @@ public class QFieldProjectListAdapter
                 menuButtonListener != null) {
                 h.button.setTag(position);
                 h.button.setVisibility(View.VISIBLE);
+                h.button.setImageAlpha(172);
                 h.button.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {

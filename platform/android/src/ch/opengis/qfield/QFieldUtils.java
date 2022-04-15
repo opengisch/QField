@@ -27,6 +27,7 @@ import android.os.Environment;
 import android.provider.DocumentsContract;
 import android.provider.MediaStore;
 import android.util.Log;
+import android.webkit.MimeTypeMap;
 import androidx.documentfile.provider.DocumentFile;
 import java.io.File;
 import java.io.FileInputStream;
@@ -36,6 +37,7 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
+import java.util.zip.ZipOutputStream;
 
 public class QFieldUtils {
 
@@ -86,6 +88,54 @@ public class QFieldUtils {
         return true;
     }
 
+    public static boolean fileToDocumentFile(File file, DocumentFile directory,
+                                             ContentResolver resolver) {
+        File[] files =
+            file.isDirectory() ? file.listFiles() : new File[] {file};
+        for (File f : files) {
+            String filePath = f.getPath();
+            String fileName = f.getName();
+            if (f.isDirectory()) {
+                // Use pre-existing directory if present
+                DocumentFile newDirectory = directory.findFile(fileName);
+                if (newDirectory == null) {
+                    newDirectory = directory.createDirectory(fileName);
+                }
+                boolean success = fileToDocumentFile(f, newDirectory, resolver);
+                if (!success) {
+                    return false;
+                }
+            } else {
+                String extension = "";
+                String mimeType = "";
+                if (fileName.lastIndexOf(".") > -1) {
+                    extension =
+                        fileName.substring(fileName.lastIndexOf(".") + 1);
+                    mimeType =
+                        MimeTypeMap.getSingleton().getMimeTypeFromExtension(
+                            extension);
+                }
+                // Use pre-existing file if present
+                DocumentFile documentFile = directory.findFile(fileName);
+                if (documentFile == null) {
+                    documentFile = directory.createFile(mimeType, fileName);
+                }
+                try {
+                    InputStream input = new FileInputStream(f);
+                    OutputStream output =
+                        resolver.openOutputStream(documentFile.getUri());
+                    QFieldUtils.inputStreamToOutputStream(input, output,
+                                                          f.length());
+                    output.close();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
+
     public static boolean inputStreamToFolder(InputStream in, String folder) {
         try {
             ZipInputStream zin = new ZipInputStream(in);
@@ -107,6 +157,90 @@ public class QFieldUtils {
             zin.close();
         } catch (Exception e) {
             e.printStackTrace();
+            return false;
+        }
+        return true;
+    }
+
+    public static boolean zipFolder(String folder, String archivePath) {
+        try {
+            FileOutputStream out = new FileOutputStream(archivePath);
+            ZipOutputStream zip = new ZipOutputStream(out);
+
+            boolean success = addFolderToZip(zip, folder, folder);
+
+            zip.flush();
+            zip.close();
+            return success;
+        } catch (Exception e) {
+            Log.e("QField",
+                  "inputStreamToOutputStream exception: " + e.getMessage());
+        }
+        return false;
+    }
+
+    private static boolean addFolderToZip(ZipOutputStream zip, String folder,
+                                          String rootFolder) {
+        File dir = new File(folder);
+        File[] files = dir.listFiles();
+        String pathPrefix = "";
+        if (folder.length() > rootFolder.length()) {
+            pathPrefix = folder.substring(rootFolder.length() + 1);
+            if (!pathPrefix.substring(pathPrefix.length() - 1).equals("/")) {
+                pathPrefix = pathPrefix + "/";
+            }
+        }
+        for (File file : files) {
+            String filePath = file.getPath();
+            String fileName = file.getName();
+
+            if (file.isDirectory()) {
+                boolean success =
+                    addFolderToZip(zip, file.getPath(), rootFolder);
+                if (!success) {
+                    return false;
+                }
+            } else {
+                try {
+                    ZipEntry zipFile = new ZipEntry(pathPrefix + fileName);
+                    zip.putNextEntry(zipFile);
+
+                    InputStream input = new FileInputStream(file);
+                    inputStreamToOutputStream(input, zip, file.length());
+                    zip.closeEntry();
+                } catch (Exception e) {
+                    Log.e("QField", "inputStreamToOutputStream exception: " +
+                                        e.getMessage());
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
+
+    public static boolean inputStreamToOutputStream(InputStream in,
+                                                    OutputStream out,
+                                                    long totalBytes) {
+        try {
+            int size = 0;
+            int bufferSize = 1024;
+            long bufferRead = 0;
+            byte[] buffer = new byte[bufferSize];
+
+            if (totalBytes > 0 && bufferRead + bufferSize > totalBytes) {
+                bufferSize = (int)(totalBytes - bufferRead);
+            }
+            while (bufferSize > 0 &&
+                   (size = in.read(buffer, 0, bufferSize)) != -1) {
+                out.write(buffer, 0, size);
+                bufferRead += bufferSize;
+                if (totalBytes > 0 && bufferRead + bufferSize > totalBytes) {
+                    bufferSize = (int)(totalBytes - bufferRead);
+                }
+            }
+        } catch (Exception e) {
+            Log.e("QField",
+                  "inputStreamToOutputStream exception: " + e.getMessage());
             return false;
         }
         return true;
