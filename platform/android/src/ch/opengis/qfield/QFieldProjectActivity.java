@@ -35,6 +35,7 @@ import android.widget.ListView;
 import android.widget.PopupMenu;
 import android.widget.PopupMenu.OnMenuItemClickListener;
 import android.widget.Toast;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 import androidx.core.content.FileProvider;
 import androidx.core.view.MenuCompat;
@@ -54,9 +55,12 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
 public class QFieldProjectActivity
-    extends Activity implements OnMenuItemClickListener {
+    extends AppCompatActivity implements OnMenuItemClickListener {
 
     private static final String TAG = "QField Project Activity";
+    private static String STORAGE_HELP_URL =
+        "https://docs.qfield.org/get-started/storage";
+
     private String path;
     private SharedPreferences sharedPreferences;
     SharedPreferences.Editor editor;
@@ -69,12 +73,44 @@ public class QFieldProjectActivity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
 
+        setContentView(R.layout.list_projects);
+        getSupportActionBar().setBackgroundDrawable(
+            new ColorDrawable(Color.parseColor("#80CC28")));
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
         sharedPreferences = getPreferences(Context.MODE_PRIVATE);
         editor = sharedPreferences.edit();
-        setContentView(R.layout.list_projects);
-        getActionBar().setBackgroundDrawable(
-            new ColorDrawable(Color.parseColor("#80CC28")));
-        getActionBar().setDisplayHomeAsUpEnabled(true);
+
+        boolean storageDialogShown =
+            sharedPreferences.getBoolean("StorageDialogShown", false);
+        if (!storageDialogShown) {
+            AlertDialog.Builder builder = new AlertDialog.Builder(this);
+            builder.setTitle(getString(R.string.storage_information_title));
+            builder.setMessage(getString(R.string.storage_information_message));
+            builder.setPositiveButton(
+                getString(R.string.storage_information_view),
+                new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        dialog.dismiss();
+                        Intent i = new Intent(Intent.ACTION_VIEW);
+                        i.setData(Uri.parse(STORAGE_HELP_URL));
+                        startActivity(i);
+                    }
+                });
+            builder.setNegativeButton(
+                getString(R.string.storage_information_dismiss),
+                new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        dialog.dismiss();
+                    }
+                });
+            AlertDialog dialog = builder.create();
+            dialog.setCancelable(true);
+            dialog.show();
+
+            editor.putBoolean("StorageDialogShown", true);
+        }
+
         drawView();
     }
 
@@ -128,9 +164,8 @@ public class QFieldProjectActivity
                 return true;
             }
             case R.id.usb_cable_help: {
-                String url = "https://qfield.org/docs/";
                 Intent i = new Intent(Intent.ACTION_VIEW);
-                i.setData(Uri.parse(url));
+                i.setData(Uri.parse(STORAGE_HELP_URL));
                 startActivity(i);
                 return true;
             }
@@ -391,7 +426,7 @@ public class QFieldProjectActivity
             Log.d(TAG, "extra path: " + getIntent().getStringExtra("path"));
             File dir = new File(getIntent().getStringExtra("path"));
             setTitle(getIntent().getStringExtra("label"));
-            getActionBar().setSubtitle(dir.getPath());
+            getSupportActionBar().setSubtitle(dir.getPath());
 
             if (!dir.canRead()) {
                 setTitle(getTitle() + " (" + getString(R.string.inaccessible) +
