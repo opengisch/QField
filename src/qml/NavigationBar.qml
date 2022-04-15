@@ -182,6 +182,7 @@ Rectangle {
       if ( toolBar.model && ( selection.focusedItem + 1 ) < toolBar.model.count ) {
         selection.focusedItem = selection.focusedItem + 1;
       } else {
+        selection.focusedItem = -1;
         backClicked();
       }
     }
@@ -212,6 +213,7 @@ Rectangle {
         if ( toolBar.model && ( selection.focusedItem > 0 ) ) {
           selection.focusedItem = selection.focusedItem - 1;
         } else {
+          selection.focusedItem = -1;
           backClicked();
         }
     }
