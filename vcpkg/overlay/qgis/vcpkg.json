@@ -13,7 +13,6 @@
       "libspatialite",
       {
         "name": "gdal",
-        "default-features": false,
         "features":
         [
           "libspatialite",
