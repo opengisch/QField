@@ -227,7 +227,7 @@ jobs:
           name: build-logs-${{ matrix.triplet }}
           path: |
             ${{ env.CMAKE_BUILD_DIR }}/vcpkg-manifest-install.log
-            ${{ env.CMAKE_BUILD_DIR }}/../src/buildtrees/**/*.log
+            /Users/runner/src/buildtrees/**/*.log
 
             ${{ github.workspace }}/vcpkg/base/buildtrees/**/*.log
 
