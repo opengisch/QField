@@ -100,7 +100,7 @@ if (ANDROID)
   find_package(Qt5 COMPONENTS AndroidExtras REQUIRED)
 
   set(SHARE_PATH "${CMAKE_CURRENT_BINARY_DIR}/android-build/assets/share")
-  file(COPY "${VCPKG_BASE_DIR}/share/proj4/" DESTINATION "${SHARE_PATH}/proj/")
+  file(COPY "${VCPKG_BASE_DIR}/share/proj/data/" DESTINATION "${SHARE_PATH}/proj/")
   file(MAKE_DIRECTORY "${SHARE_PATH}/qgis/")
   file(COPY "${VCPKG_BASE_DIR}/files/share/svg/" DESTINATION "${SHARE_PATH}/qgis/svg/")
   file(COPY "${VCPKG_BASE_DIR}/files/share/resources/" DESTINATION "${SHARE_PATH}/qgis/resources/")
@@ -239,7 +239,7 @@ if(WITH_VCPKG AND NOT ANDROID)
   copy_resource("${VCPKG_BASE_DIR}/share/proj4" "proj")
   copy_resource("${VCPKG_BASE_DIR}/share/gdal" "gdal")
   install(DIRECTORY "${VCPKG_BASE_DIR}/share/qgis/resources/" DESTINATION "share/qgis/resources")
-  install(DIRECTORY "${VCPKG_BASE_DIR}/share/proj4/" DESTINATION "share/proj")
+  install(DIRECTORY "${VCPKG_BASE_DIR}/share/proj/data/" DESTINATION "share/proj")
   install(DIRECTORY "${VCPKG_BASE_DIR}/share/gdal/" DESTINATION "share/gdal")
 
   # Windows only?
