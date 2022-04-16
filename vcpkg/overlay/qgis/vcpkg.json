@@ -13,9 +13,12 @@
       "libspatialite",
       {
         "name": "gdal",
+        "default-features": false,
         "features":
         [
-          "libspatialite"
+          "libspatialite",
+          "poppler",
+          "postgresql"
         ]
       },
       {
@@ -28,7 +31,7 @@
       "gsl",
       "libpq",
       "protobuf",
-      "proj4",
+      "proj",
       "geos",
       {
         "name": "libtasn1",
@@ -54,7 +57,7 @@
       "qtkeychain"
     ],
     "features":
-	{
+    {
             "opencl" : {
               "description": "Should OpenCL support be added",
               "dependencies":
@@ -113,5 +116,4 @@
             ]
         }
   }
-    
-  }
+}
