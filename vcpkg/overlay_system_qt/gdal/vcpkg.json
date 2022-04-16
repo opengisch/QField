@@ -100,7 +100,8 @@
           "name": "gdal",
           "default-features": false,
           "features": [
-            "postgresql"
+            "postgresql",
+            "poppler"
           ],
           "platform": "!uwp"
         }

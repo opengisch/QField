@@ -16,7 +16,6 @@
         "features":
         [
           "libspatialite",
-          "poppler",
           "postgresql"
         ]
       },
