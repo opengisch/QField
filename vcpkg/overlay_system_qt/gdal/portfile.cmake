@@ -299,6 +299,7 @@ else()
             --with-pcidsk=no
             --with-pcraster=no
             --with-pcre=no
+            --with-pcre2=no
             --with-pdfium=no
             --with-podofo=no
             --with-qhull=no
