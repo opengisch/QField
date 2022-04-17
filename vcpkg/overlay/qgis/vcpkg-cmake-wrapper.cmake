@@ -183,7 +183,7 @@ if(QGIS_FOUND AND "@VCPKG_LIBRARY_LINKAGE@" STREQUAL "static")
     )
 
     # QtKeychain
-    target_link_libraries(qgis_core INTERFACE "-framework Foundation" "-framework Security")
+    target_link_libraries(qgis_core INTERFACE "-framework Foundation" "-framework Security" "-framework SystemConfiguration")
   endif()
   if(UNIX AND NOT APPLE AND NOT ANDROID)
     # poppler fixup for linux
