@@ -53,6 +53,13 @@ configure_file(${CMAKE_SOURCE_DIR}/images/logo.qrc.in
 function(create_executable)
   cmake_parse_arguments(exe "" "TARGET" "EXTRA_ARGS" "" ${ARGN})
 
+  if(APPLE AND NOT IOS)
+    find_library(SYSTEMCONFIGURATION SystemConfiguration)
+    if(NOT SYSTEMCONFIGURATION)
+      message(FATAL_ERROR "SystemConfiguration not found")
+    endif()
+  endif()
+
   set(QFIELD_SOURCES
       main.cpp
       ${RESOURCES}
@@ -67,6 +74,10 @@ function(create_executable)
     target_link_libraries(${exe_TARGET} PRIVATE android log)
   else()
     add_executable(${exe_TARGET} ${exe_EXTRA_ARGS} ${QFIELD_SOURCES})
+  endif()
+
+  if(APPLE AND NOT IOS)
+    target_link_libraries(${exe_TARGET} PRIVATE ${SYSTEMCONFIGURATION})
   endif()
 
   target_compile_definitions(
