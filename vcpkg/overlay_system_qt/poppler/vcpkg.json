@@ -25,6 +25,7 @@
     }
   ],
   "default-features": [
+    "font-configuration",
     "zlib"
   ],
   "features": {
