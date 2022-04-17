@@ -99,6 +99,10 @@ if (ANDROID)
 
   find_package(Qt5 COMPONENTS AndroidExtras REQUIRED)
 
+  if(NOT EXISTS "${VCPKG_BASE_DIR}/share/proj/data/proj.db")
+    message(FATAL_ERROR "proj.db not found, aborting")
+  endif()
+
   set(SHARE_PATH "${CMAKE_CURRENT_BINARY_DIR}/android-build/assets/share")
   file(COPY "${VCPKG_BASE_DIR}/share/proj/data/" DESTINATION "${SHARE_PATH}/proj/")
   file(MAKE_DIRECTORY "${SHARE_PATH}/qgis/")
