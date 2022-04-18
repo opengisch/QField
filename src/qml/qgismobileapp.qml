@@ -17,6 +17,7 @@
 
 import QtQuick 2.12
 import QtQuick.Controls 2.12
+import QtQuick.Window 2.12
 import QtGraphicalEffects 1.0
 import Qt.labs.settings 1.0 as LabSettings
 import QtQml 2.12
@@ -65,6 +66,8 @@ ApplicationWindow {
     visible: true
     focus: true
 
+    property int previousVisibilityState: Window.Windowed
+
     Keys.onReleased: {
       if ( event.key === Qt.Key_Back || event.key === Qt.Key_Escape ) {
         if ( featureForm.visible ) {
@@ -75,6 +78,18 @@ ApplicationWindow {
           mainWindow.close();
         }
         event.accepted = true
+      } else if ( event.key === Qt.Key_F11 ) {
+        if (Qt.platform.os !== "android" && Qt.platform.os !== "ios") {
+          if (mainWindow.visibility !== Window.FullScreen) {
+            previousVisibilityState = mainWindow.visibility;
+            mainWindow.visibility = Window.FullScreen;
+          } else {
+            mainWindow.visibility = Window.Windowed;
+            if (previousVisibilityState === Window.Maximized) {
+              mainWindow.showMaximized();
+            }
+          }
+        }
       }
     }
 
