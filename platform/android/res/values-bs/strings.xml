@@ -37,11 +37,9 @@
     <string name="import_project_folder">Importuj projekat iz direktorija</string>
     <string name="import_project_archive">Importuj projekat iz ZIP arhive</string>
     <string name="import_dataset">Importuj bazu podataka</string>
-    <string name="usb_cable_help">Pomoć za USB prenos kablom</string>
     <string name="import_error">Greška u importu</string>
     <string name="import_dataset_error">Odabrana baza podataka se ne može propisno importovati.</string>
-    <string name="import_project_archive_error">Odabrana projektna arhiva se ne može propisno importovati.</string>
-    <string name="import_project_folder_error">Odabrani projektni direktorij se ne može propisno importovati.</string>
+    <string name="import_overwrite_cancel">Otkaži</string>
     <string name="send_to">Pošalji u...</string>
     <string name="add_to_favorite">Dodaj u omiljene</string>
     <string name="remove_from_favorite">Ukloni iz omiljenih</string>
@@ -52,4 +50,4 @@
     <string name="delete_confirm_folder">Projektni direktorij će biti trajno izbrisan, nastaviti sa uklanjanjem?</string>
     <string name="delete_confirm">Ukloni</string>
     <string name="delete_cancel">Otkaži</string>
-</resources>
+    </resources>
