@@ -2,17 +2,17 @@
 <context>
     <name>About</name>
     <message>
-        <location filename="../src/qml/About.qml" line="107"/>
+        <location filename="../src/qml/About.qml" line="111"/>
         <source>Developed by</source>
         <translation>Kehittänyt</translation>
     </message>
     <message>
-        <location filename="../src/qml/About.qml" line="139"/>
+        <location filename="../src/qml/About.qml" line="143"/>
         <source>Support QField</source>
         <translation>QFieldin tukeminen</translation>
     </message>
     <message>
-        <location filename="../src/qml/About.qml" line="148"/>
+        <location filename="../src/qml/About.qml" line="152"/>
         <source>Changelog</source>
         <translation>Muutosloki</translation>
     </message>
@@ -174,27 +174,27 @@
 <context>
     <name>BookmarkProperties</name>
     <message>
-        <location filename="../src/qml/BookmarkProperties.qml" line="36"/>
+        <location filename="../src/qml/BookmarkProperties.qml" line="45"/>
         <source>Bookmark Properties</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/qml/BookmarkProperties.qml" line="48"/>
+        <location filename="../src/qml/BookmarkProperties.qml" line="74"/>
         <source>Name</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/qml/BookmarkProperties.qml" line="61"/>
+        <location filename="../src/qml/BookmarkProperties.qml" line="87"/>
         <source>Color</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/qml/BookmarkProperties.qml" line="172"/>
+        <location filename="../src/qml/BookmarkProperties.qml" line="198"/>
         <source>Remove bookmark</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/qml/BookmarkProperties.qml" line="176"/>
+        <location filename="../src/qml/BookmarkProperties.qml" line="202"/>
         <source>You are about to remove a bookmark, proceed?</source>
         <translation type="unfinished"/>
     </message>
@@ -428,7 +428,7 @@
         <translation>Ei arvoa</translation>
     </message>
     <message>
-        <location filename="../src/qml/editorwidgets/ExternalResource.qml" line="380"/>
+        <location filename="../src/qml/editorwidgets/ExternalResource.qml" line="391"/>
         <source>Cannot handle this file type</source>
         <translation>Tiedostotyyppiä ei tueta</translation>
     </message>
@@ -712,12 +712,12 @@ Kohteen geometriat yhdistetään kohteeseen &apos;%1&apos;, johon sisällytetä�
         <translation>Tuntematon virhe piiriä luodessa</translation>
     </message>
     <message>
-        <location filename="../src/qml/geometry_editors/FillRingToolBar.qml" line="99"/>
+        <location filename="../src/qml/geometry_editors/FillRingToolBar.qml" line="100"/>
         <source>Fill ring</source>
         <translation>Täytä piiri</translation>
     </message>
     <message>
-        <location filename="../src/qml/geometry_editors/FillRingToolBar.qml" line="103"/>
+        <location filename="../src/qml/geometry_editors/FillRingToolBar.qml" line="104"/>
         <source>Would you like to fill the ring with a new polygon?</source>
         <translation>Haluatko täyttää piirin uudella polygonilla?</translation>
     </message>
@@ -1065,94 +1065,94 @@ Kohteen geometriat yhdistetään kohteeseen &apos;%1&apos;, johon sisällytetä�
         <translation>Kohteet</translation>
     </message>
     <message>
-        <location filename="../src/qml/NavigationBar.qml" line="444"/>
+        <location filename="../src/qml/NavigationBar.qml" line="446"/>
         <source>Feature List Menu</source>
         <translation>Kohdelistavalikko</translation>
     </message>
     <message>
-        <location filename="../src/qml/NavigationBar.qml" line="458"/>
+        <location filename="../src/qml/NavigationBar.qml" line="460"/>
         <source>Toggle Feature Selection</source>
         <translation>Vaihda kohdevalinta</translation>
     </message>
     <message>
-        <location filename="../src/qml/NavigationBar.qml" line="475"/>
-        <location filename="../src/qml/NavigationBar.qml" line="665"/>
+        <location filename="../src/qml/NavigationBar.qml" line="477"/>
+        <location filename="../src/qml/NavigationBar.qml" line="667"/>
         <source>Print Atlas Feature(s) to PDF</source>
         <translation>Tulosta Atlaksen kohde/kohteet PDF:ksi</translation>
     </message>
     <message>
-        <location filename="../src/qml/NavigationBar.qml" line="495"/>
+        <location filename="../src/qml/NavigationBar.qml" line="497"/>
         <source>Merge Selected Features</source>
         <translation>Yhdistä valitut kohteet</translation>
     </message>
     <message>
-        <location filename="../src/qml/NavigationBar.qml" line="508"/>
+        <location filename="../src/qml/NavigationBar.qml" line="510"/>
         <source>Move Selected Feature(s)</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/qml/NavigationBar.qml" line="521"/>
+        <location filename="../src/qml/NavigationBar.qml" line="523"/>
         <source>Duplicate Selected Feature(s)</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/qml/NavigationBar.qml" line="534"/>
+        <location filename="../src/qml/NavigationBar.qml" line="536"/>
         <source>Delete Selected Feature(s)</source>
         <translation>Poista valittu kohde/kohteet</translation>
     </message>
     <message>
-        <location filename="../src/qml/NavigationBar.qml" line="549"/>
+        <location filename="../src/qml/NavigationBar.qml" line="551"/>
         <source>Feature Menu</source>
         <translation>Kohdevalikko</translation>
     </message>
     <message>
-        <location filename="../src/qml/NavigationBar.qml" line="563"/>
+        <location filename="../src/qml/NavigationBar.qml" line="565"/>
         <source>Print Atlas Feature to PDF</source>
         <translation>Tulosta Atlaksen kohde/kohteet PDF:ksi</translation>
     </message>
     <message>
-        <location filename="../src/qml/NavigationBar.qml" line="580"/>
+        <location filename="../src/qml/NavigationBar.qml" line="582"/>
         <source>Zoom to Feature</source>
         <translation>Zoomaa kohteeseen</translation>
     </message>
     <message>
-        <location filename="../src/qml/NavigationBar.qml" line="591"/>
+        <location filename="../src/qml/NavigationBar.qml" line="593"/>
         <source>Auto-Zoom to Feature</source>
         <translation>Zoomaa kohteeseen automaattisesti</translation>
     </message>
     <message>
-        <location filename="../src/qml/NavigationBar.qml" line="604"/>
+        <location filename="../src/qml/NavigationBar.qml" line="606"/>
         <source>Set Feature as Destination</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/qml/NavigationBar.qml" line="620"/>
+        <location filename="../src/qml/NavigationBar.qml" line="622"/>
         <source>Move Feature</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/qml/NavigationBar.qml" line="633"/>
+        <location filename="../src/qml/NavigationBar.qml" line="635"/>
         <source>Duplicate Feature</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/qml/NavigationBar.qml" line="646"/>
+        <location filename="../src/qml/NavigationBar.qml" line="648"/>
         <source>Delete Feature</source>
         <translation>Poista kohde</translation>
     </message>
     <message>
-        <location filename="../src/qml/NavigationBar.qml" line="681"/>
+        <location filename="../src/qml/NavigationBar.qml" line="683"/>
         <source>Select template below</source>
         <translation>Valitse malli alta</translation>
     </message>
     <message>
-        <location filename="../src/qml/NavigationBar.qml" line="705"/>
-        <location filename="../src/qml/NavigationBar.qml" line="744"/>
+        <location filename="../src/qml/NavigationBar.qml" line="707"/>
+        <location filename="../src/qml/NavigationBar.qml" line="746"/>
         <source>Printing atlas feature(s) to PDF</source>
         <translation>Tulostetaan Atlaksen kohde/kohteet PDF:ksi</translation>
     </message>
     <message>
-        <location filename="../src/qml/NavigationBar.qml" line="731"/>
+        <location filename="../src/qml/NavigationBar.qml" line="733"/>
         <source>Atlas feature(s) successfully printed to PDF and placed in your documents</source>
         <translation>Atlaksen kohde/kohteet tulostettu PDF:ksi onnistuneesti ja sijoitettu dokumentteihisi</translation>
     </message>
@@ -1458,37 +1458,37 @@ Kohteen geometriat yhdistetään kohteeseen &apos;%1&apos;, johon sisällytetä�
 (Jätä tyhjäksi, jos haluat käyttää oletuspalvelinta)</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldCloudLogin.qml" line="162"/>
+        <location filename="../src/qml/QFieldCloudLogin.qml" line="152"/>
         <source>Username or email</source>
         <translation>Käyttäjätunnus tai sähköpostiosoite</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldCloudLogin.qml" line="195"/>
+        <location filename="../src/qml/QFieldCloudLogin.qml" line="176"/>
         <source>Password</source>
         <translation>Salasana</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldCloudLogin.qml" line="231"/>
+        <location filename="../src/qml/QFieldCloudLogin.qml" line="203"/>
         <source>Sign out</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/qml/QFieldCloudLogin.qml" line="231"/>
+        <location filename="../src/qml/QFieldCloudLogin.qml" line="203"/>
         <source>Signing in, please wait</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/qml/QFieldCloudLogin.qml" line="231"/>
+        <location filename="../src/qml/QFieldCloudLogin.qml" line="203"/>
         <source>Sign in</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/qml/QFieldCloudLogin.qml" line="242"/>
+        <location filename="../src/qml/QFieldCloudLogin.qml" line="214"/>
         <source>New user?</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/qml/QFieldCloudLogin.qml" line="242"/>
+        <location filename="../src/qml/QFieldCloudLogin.qml" line="214"/>
         <source>Register an account</source>
         <translation type="unfinished"/>
     </message>
@@ -1505,12 +1505,12 @@ Kohteen geometriat yhdistetään kohteeseen &apos;%1&apos;, johon sisällytetä�
         <translation type="vanished">Kirjaudu sisään</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldCloudLogin.qml" line="255"/>
+        <location filename="../src/qml/QFieldCloudLogin.qml" line="227"/>
         <source>The easiest way to transfer you project from QGIS to your devices!</source>
         <translation>Nopein tapa siirtää QGIS-projektisi mobiililaitteisiisi!</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldCloudLogin.qml" line="256"/>
+        <location filename="../src/qml/QFieldCloudLogin.qml" line="228"/>
         <source>Learn more about QFieldCloud</source>
         <translation>Lue lisää QFieldCloudista</translation>
     </message>
@@ -2036,264 +2036,274 @@ Tämä voi viedä jonkin aikaa, ole hyvä ja odota...</translation>
 <context>
     <name>QFieldSettings</name>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="50"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="52"/>
         <source>Show scale bar</source>
         <translation>Näytä mittakaavajana</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="54"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="56"/>
         <source>Maximized attribute form</source>
         <translation>Laajin attribuuttilomake</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="58"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="60"/>
         <source>Fixed scale navigation</source>
         <translation>Kiinteän mittakaavan navigointi</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="59"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="61"/>
         <source>When fixed scale navigation is active, focusing on a search result will pan to the feature. With fixed scale navigation disabled it will pan and zoom to the feature.</source>
         <translation>Kun kiinteän mittakaavan navigointi on aktiivinen, hakutulokset panoroivat kohteeseen. Kiinteän mittakaavan navigoinnin ollessa pois käytöstä se panoroi ja zoomaa kohteeseen.</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="63"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="65"/>
         <source>Show digitizing information</source>
         <translation>Näytä digitointitiedot</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="64"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="66"/>
         <source>When switched on, coordinate information, such as latitude and longitude, is overlayed onto the map while digitizing new features or using the measure tool.</source>
         <translation>Kun päällä, koordinaattitiedot, kuten leveys- ja pituusaste, näkyvät karttapohjalla kun digitoidaan uusia kohteita tai käytetään mittatyökalua.</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="68"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="70"/>
+        <source>Show bookmarks</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/qml/QFieldSettings.qml" line="71"/>
+        <source>When switched on, user&apos;s saved and currently opened project bookmarks will be displayed on the map.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/qml/QFieldSettings.qml" line="75"/>
         <source>Use native camera</source>
         <translation>Käytä laitteen kameraa</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="69"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="76"/>
         <source>If disabled, QField will use a minimalist internal camera instead of the camera app on the device.&lt;br&gt;Tip: Enable this option and install the open camera app to create geo tagged photos.</source>
         <translation>Jos pois käytöstä, QField käyttää minimaalista sisäistä kameraa laitteen kamerasovelluksen sijaan. &lt;br&gt;Vinkki: ota tämä vaihtoehto käyttöön ja asenna avoin kamerasovellus luodaksesi sijaintimerkittyjä kuvia.</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="74"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="81"/>
         <source>Fast editing mode</source>
         <translation>Nopea muokkaustila</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="75"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="82"/>
         <source>If enabled, the feature is stored after having a valid geometry and the constraints are fulfilled and atributes are commited immediately.</source>
         <translation>Jos käytössä, kohde tallennetaan välittömästi, kun sillä on kelvolliset geometriat, ehdot täyttyvät sekä attribuutit on kommitoitu.</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="79"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="86"/>
         <source>Dim screen when idling</source>
         <translation>Käyttämättömänä himmennä ruutua </translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="80"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="87"/>
         <source>If enabled, the screen brightness will be dimmed after 20 seconds of inactivity to preserve battery.</source>
         <translation>Jos sallittuna, näytön kirkkaus himmennetään 20 sekunnin käyttämättömyyden jälkeen akun säästämiseksi.</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="84"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="91"/>
         <source>Consider mouse as a touchscreen device</source>
         <translation>Harkitse hiirtä kosketusnäytön laitteena</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="85"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="92"/>
         <source>If disabled, the mouse will act as a stylus pen.</source>
         <translation>Jos pois käytöstä, hiiri toimii kuin kynä</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="89"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="96"/>
         <source>Send anonymized metrics</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="90"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="97"/>
         <source>If enabled, anonymized metrics will be collected and sent to help improve QField for everyone.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="130"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="137"/>
         <source>General</source>
         <translation>Yleistä</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="136"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="143"/>
         <source>Positioning</source>
         <translation>Paikannus</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="142"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="149"/>
         <source>Variables</source>
         <translation>Muuttujat</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="184"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="191"/>
         <source>Customize search bar</source>
         <translation>Muokkaa hakupalkkia</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="275"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="282"/>
         <source>User interface language:</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="286"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="293"/>
         <source>To apply the selected user interface language, QField needs to completely shutdown and restart.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="315"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="322"/>
         <source>system</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="328"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="335"/>
         <source>Found a missing or incomplete language? %1Join the translator community.%2</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="371"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="378"/>
         <source>Positioning device in use:</source>
         <translation>Käytettävä paikannuslaite:</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="419"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="426"/>
         <source>Scanning for paired devices</source>
         <translation>Skannataan paritettuja laitteita</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="423"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="430"/>
         <source>Scanning failed: %1</source>
         <translation>Skannaus epäonnistui: %1</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="427"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="434"/>
         <source>Scanning done</source>
         <translation>Skannaus suoritettu</translation>
     </message>
     <message numerus="yes">
-        <location filename="../src/qml/QFieldSettings.qml" line="430"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="437"/>
         <source>%n device(s) found</source>
         <translation><numerusform>%n laite löydetty</numerusform><numerusform>%n laitetta löydetty</numerusform></translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="436"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="443"/>
         <source>Scanning canceled</source>
         <translation>Skannaus peruutettu</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="453"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="460"/>
         <source>Scan</source>
         <translation>Skannaa</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="486"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="493"/>
         <source>Make a full service discovery</source>
         <translation>Tee täydellinen palveluhaku</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="490"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="497"/>
         <source>A full device scan can take longer. You really want to do it?
 Cancel to make a minimal device scan instead.</source>
         <translation>Täydellinen laiteskannaus voi viedä enemmän aikaa. Haluatko jatkaa?
 Peruuta tehdäksesi suppeampi laiteskannaus.</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="515"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="522"/>
         <source>Connected to %1</source>
         <translation>Yhdistetty laitteeseen %1</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="517"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="524"/>
         <source>Connect  to %1</source>
         <translation>Yhdistä laitteeseen %1</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="519"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="526"/>
         <source>Connecting to %1</source>
         <translation>Yhdistetään laitteeseen %1</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="536"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="543"/>
         <source>Use orthometric altitude from device</source>
         <translation>Käytä laitteen ortometristä korkeutta</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="568"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="575"/>
         <source>Show position information</source>
         <translation>Näytä sijainnin tiedot</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="590"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="597"/>
         <source>Activate accuracy indicator</source>
         <translation>Aktivoi tarkkuusindikaattori</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="612"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="619"/>
         <source>Bad accuracy below [m]</source>
         <translation>Huono tarkkuus alla [m]</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="653"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="660"/>
         <source>Excellent accuracy above [m]</source>
         <translation>Erinomainen tarkkuus yllä [m]</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="694"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="701"/>
         <source>Enable accuracy requirement</source>
         <translation>Ota käyttöön tarkkuusvaatimus</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="721"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="728"/>
         <source>When the accuracy indicator is enabled, a badge is attached to the location button and colored &lt;span %1&gt;red&lt;/span&gt; if the accuracy value is below bad, &lt;span %2&gt;yellow&lt;/span&gt; if it falls short of excellent, or &lt;span %3&gt;green&lt;/span&gt;.&lt;br&gt;&lt;br&gt;In addition, an accuracy restriction mode can be toggled on, which restricts vertex addition when locked to coordinate cursor to positions with an accuracy value above the bad threshold.</source>
         <translation>Kun tarkkuusvaatimus otetaan käyttöön, sijaintipainikkeeseen liitetään värillinen tunnus. Jos tarkkuusarvo on alle huonon, tunnus näkyy &lt;span %1&gt;punaisena&lt;/span&gt;. Jos tarkkuusarvo on alle erinomaisen, tunnus näkyy &lt;span %2&gt;keltaisena&lt;/span&gt;. Jos tarkkuusarvo on erinomainen, tunnus näkyy &lt;span %3&gt;vihreänä&lt;/span&gt;. &lt;br&gt;&lt;br&gt;Lisäksi voidaan ottaa käyttöön tarkkuusrajoitustila, joka rajoittaa taitepisteiden lisäystä huonon tarkkuusarvon omaaviin sijainteihin.</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="738"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="745"/>
         <source>Antenna height compensation</source>
         <translation>Antennin korkeuden kompensaatio</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="760"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="767"/>
         <source>Antenna height [m]</source>
         <translation>Antennin korkeus [m]</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="802"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="809"/>
         <source>Z values which are recorded from the positioning device will be corrected by this value. If a value of 1.6 is entered, this will result in a correction of -1.6 for each recorded value.</source>
         <translation>Paikannuslaitteella tallennetut Z-arvot korjataan tällä arvolla. Jos annetaan arvo 1.6, sitä korjataan -1.6 jokaisen tallennetun arvon kohdalla.</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="816"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="823"/>
         <source>Skip altitude correction</source>
         <translation>Ohita korkeuden korjaus</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="839"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="846"/>
         <source>Use the altitude as reported by the positioning device. Skip any altitude correction that may be implied by the coordinate system transformation.</source>
         <translation>Käytä paikannuslaitteen ilmoittamaa korkeutta. Ohita korkeuden korjaukset, joita koordinaattijärjestelmän muutos voi aiheuttaa.</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="853"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="860"/>
         <source>Vertical grid shift in use:</source>
         <translation>Käytössä oleva vertikaalinen ruudukon siirto:</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="862"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="869"/>
         <source>None</source>
         <translation>Ei yhtään</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="876"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="883"/>
         <source>Vertical grid shift is used to increase the altitude accuracy.</source>
         <translation>Käytetään vertikaalista ruudukon siirtoa korkeusarvojen tarkkuuden parantamiseksi.</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="905"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="912"/>
         <source>QField Settings</source>
         <translation>QField asetukset</translation>
     </message>
@@ -2399,23 +2409,23 @@ Peruuta tehdäksesi suppeampi laiteskannaus.</translation>
 <context>
     <name>QgisMobileapp</name>
     <message>
-        <location filename="../src/core/qgismobileapp.cpp" line="647"/>
-        <location filename="../src/core/qgismobileapp.cpp" line="673"/>
+        <location filename="../src/core/qgismobileapp.cpp" line="651"/>
+        <location filename="../src/core/qgismobileapp.cpp" line="677"/>
         <source>Project file &quot;%1&quot; does not exist</source>
         <translation>Projektitiedostoa &quot;%1&quot; ei ole olemassa</translation>
     </message>
     <message>
-        <location filename="../src/core/qgismobileapp.cpp" line="664"/>
+        <location filename="../src/core/qgismobileapp.cpp" line="668"/>
         <source>No project file currently opened</source>
         <translation>Yhtään projektitiedostoa ei ole auki</translation>
     </message>
     <message>
-        <location filename="../src/core/qgismobileapp.cpp" line="717"/>
+        <location filename="../src/core/qgismobileapp.cpp" line="721"/>
         <source>Could not load font %1</source>
         <translation>Ei voitu ladata kirjasinta %1</translation>
     </message>
     <message>
-        <location filename="../src/core/qgismobileapp.cpp" line="719"/>
+        <location filename="../src/core/qgismobileapp.cpp" line="723"/>
         <source>Loading font %1</source>
         <translation>Ladataan kirjasinta %1</translation>
     </message>
@@ -2476,7 +2486,7 @@ Peruuta tehdäksesi suppeampi laiteskannaus.</translation>
 <context>
     <name>QgsQuickMapCanvasMap</name>
     <message>
-        <location filename="../src/core/qgsquick/qgsquickmapcanvasmap.cpp" line="183"/>
+        <location filename="../src/core/qgsquick/qgsquickmapcanvasmap.cpp" line="190"/>
         <source>Rendering</source>
         <translation>Piirtäminen</translation>
     </message>
@@ -2484,8 +2494,8 @@ Peruuta tehdäksesi suppeampi laiteskannaus.</translation>
 <context>
     <name>QgsQuickMapSettings</name>
     <message>
-        <location filename="../src/core/qgsquick/qgsquickmapsettings.cpp" line="267"/>
-        <location filename="../src/core/qgsquick/qgsquickmapsettings.cpp" line="297"/>
+        <location filename="../src/core/qgsquick/qgsquickmapsettings.cpp" line="313"/>
+        <location filename="../src/core/qgsquick/qgsquickmapsettings.cpp" line="343"/>
         <source>Map Canvas rotation is not supported. Resetting from %1 to 0.</source>
         <translation>Karttapohjan kiertoa ei tueta. Palautetaan arvosta %1 arvoon 0.</translation>
     </message>
@@ -2522,12 +2532,12 @@ Peruuta tehdäksesi suppeampi laiteskannaus.</translation>
 <context>
     <name>RelationCombobox</name>
     <message>
-        <location filename="../src/qml/RelationCombobox.qml" line="99"/>
+        <location filename="../src/qml/RelationCombobox.qml" line="101"/>
         <source>Search…</source>
         <translation>Etsi...</translation>
     </message>
     <message>
-        <location filename="../src/qml/RelationCombobox.qml" line="552"/>
+        <location filename="../src/qml/RelationCombobox.qml" line="556"/>
         <source>Invalid relation</source>
         <translation>Virheellinen relaatio</translation>
     </message>
@@ -2659,82 +2669,92 @@ Peruuta tehdäksesi suppeampi laiteskannaus.</translation>
 <context>
     <name>WelcomeScreen</name>
     <message>
-        <location filename="../src/qml/WelcomeScreen.qml" line="115"/>
+        <location filename="../src/qml/WelcomeScreen.qml" line="116"/>
         <source>We&apos;re sorry to hear that. Click on the button below to comment or seek support.</source>
         <translation>Ikävä kuulla. Klikkaa alla olevaa nappia ja kommentoi tai etsi tukea.</translation>
     </message>
     <message>
-        <location filename="../src/qml/WelcomeScreen.qml" line="129"/>
+        <location filename="../src/qml/WelcomeScreen.qml" line="130"/>
         <source>Reach out</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/qml/WelcomeScreen.qml" line="167"/>
+        <location filename="../src/qml/WelcomeScreen.qml" line="168"/>
         <source>Hey there, how do you like your experience with QField so far?</source>
         <translation>Hei, mitä pidät kokemuksestasi QFieldin parissa toistaiseksi?</translation>
     </message>
     <message>
-        <location filename="../src/qml/WelcomeScreen.qml" line="224"/>
+        <location filename="../src/qml/WelcomeScreen.qml" line="225"/>
         <source>That&apos;s great! We&apos;d love for you to click on the button below and leave a comment on the store.</source>
         <translation>Hienoa! Meistä olisi mukavaa jos klikkaisit alla olevaa nappia ja jättäisit kommentin sovelluskauppaan.</translation>
     </message>
     <message>
-        <location filename="../src/qml/WelcomeScreen.qml" line="239"/>
+        <location filename="../src/qml/WelcomeScreen.qml" line="240"/>
         <source>Rate us</source>
         <translation>Arvioi meidät</translation>
     </message>
     <message>
-        <location filename="../src/qml/WelcomeScreen.qml" line="296"/>
+        <location filename="../src/qml/WelcomeScreen.qml" line="297"/>
         <source>Anonymized metrics collection has been disabled. You can re-enable through the settings panel.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/qml/WelcomeScreen.qml" line="330"/>
-        <source>To improve stability for everyone, QField collects and sends anonymized metrics. To disable, click on the button below.</source>
+        <location filename="../src/qml/WelcomeScreen.qml" line="331"/>
+        <source>To improve stability for everyone, QField collects and sends anonymized metrics.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/qml/WelcomeScreen.qml" line="389"/>
+        <location filename="../src/qml/WelcomeScreen.qml" line="342"/>
+        <source>I agree</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/qml/WelcomeScreen.qml" line="351"/>
+        <source>I prefer not</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/qml/WelcomeScreen.qml" line="399"/>
         <source>QFieldCloud projects</source>
         <translation>QFieldCloud-projektit</translation>
     </message>
     <message>
-        <location filename="../src/qml/WelcomeScreen.qml" line="397"/>
+        <location filename="../src/qml/WelcomeScreen.qml" line="407"/>
         <source>Open local file</source>
         <translation>Avaa paikallinen tiedosto</translation>
     </message>
     <message>
-        <location filename="../src/qml/WelcomeScreen.qml" line="405"/>
+        <location filename="../src/qml/WelcomeScreen.qml" line="415"/>
         <source>Recent Projects</source>
         <translation>Viimeisimmät projektit</translation>
     </message>
     <message>
-        <location filename="../src/qml/WelcomeScreen.qml" line="483"/>
+        <location filename="../src/qml/WelcomeScreen.qml" line="493"/>
         <source>Last session</source>
         <translation>Edellinen istunto</translation>
     </message>
     <message>
-        <location filename="../src/qml/WelcomeScreen.qml" line="487"/>
+        <location filename="../src/qml/WelcomeScreen.qml" line="497"/>
         <source>Base map project</source>
         <translation>Taustakarttaprojekti</translation>
     </message>
     <message>
-        <location filename="../src/qml/WelcomeScreen.qml" line="575"/>
+        <location filename="../src/qml/WelcomeScreen.qml" line="585"/>
         <source>Base Map Project</source>
         <translation>Taustakarttaprojekti</translation>
     </message>
     <message>
-        <location filename="../src/qml/WelcomeScreen.qml" line="595"/>
+        <location filename="../src/qml/WelcomeScreen.qml" line="605"/>
         <source>Remove from Recent Projects</source>
         <translation>Poista viimeisimmistä projekteista</translation>
     </message>
     <message>
-        <location filename="../src/qml/WelcomeScreen.qml" line="735"/>
+        <location filename="../src/qml/WelcomeScreen.qml" line="745"/>
         <source>Welcome to QField. First time using this application? Try out sample projects listed in the list below.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/qml/WelcomeScreen.qml" line="737"/>
+        <location filename="../src/qml/WelcomeScreen.qml" line="747"/>
         <source>Welcome back to QField.</source>
         <translation>Tervetuloa takaisin QFieldiin.</translation>
     </message>
@@ -2785,245 +2805,245 @@ Peruuta tehdäksesi suppeampi laiteskannaus.</translation>
 <context>
     <name>qgismobileapp</name>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="128"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="143"/>
         <source>You are now in browse mode</source>
         <translation>Olet selaustilassa</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="134"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="149"/>
         <source>You are now in digitize mode on layer %1</source>
         <translation>Olet nyt digitointitilassa tasolla %1</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="138"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="153"/>
         <source>You are now in digitize mode</source>
         <translation>Olet digitointitilassa</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="142"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="157"/>
         <source>You are now in measure mode</source>
         <translation>Olet mittaustilassa</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="651"/>
-        <location filename="../src/qml/qgismobileapp.qml" line="669"/>
-        <location filename="../src/qml/qgismobileapp.qml" line="1673"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="661"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="679"/>
         <location filename="../src/qml/qgismobileapp.qml" line="1749"/>
-        <location filename="../src/qml/qgismobileapp.qml" line="1903"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1825"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1979"/>
         <source>Lon</source>
         <translation>Lon</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="653"/>
-        <location filename="../src/qml/qgismobileapp.qml" line="671"/>
-        <location filename="../src/qml/qgismobileapp.qml" line="1675"/>
-        <location filename="../src/qml/qgismobileapp.qml" line="1749"/>
-        <location filename="../src/qml/qgismobileapp.qml" line="1903"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="663"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="681"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1751"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1825"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1979"/>
         <source>Lat</source>
         <translation>Lat</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="658"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="668"/>
         <source>Segment</source>
         <translation>Segmentti</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="658"/>
-        <location filename="../src/qml/qgismobileapp.qml" line="660"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="668"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="670"/>
         <source>Length</source>
         <translation>Pituus</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="664"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="674"/>
         <source>Area</source>
         <translation>Alue</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="882"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="897"/>
         <source>Close measure tool</source>
         <translation>Sulje mittaustyökalu</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="889"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="904"/>
         <source>Stop editing</source>
         <translation>Keskeytä muokkaus</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="896"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="911"/>
         <source>Cancel addition</source>
         <translation>Peruuta lisäys</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="943"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="958"/>
         <source>Topological editing turned on</source>
         <translation>Topologinen muokkaus päällä</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="943"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="958"/>
         <source>Topological editing turned off</source>
         <translation>Topologinen muokkaus pois päältä</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="986"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1001"/>
         <source>Freehand digitizing turned on</source>
         <translation>Vapaalla kädellä digitointi päällä</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="986"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1001"/>
         <source>Freehand digitizing turned off</source>
         <translation>Vapaalla kädellä digitointi pois päältä</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1060"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1099"/>
         <source>Coordinate cursor now locked to position</source>
         <translation>Koordinaattikursori lukittu sijaintiin</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1072"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1111"/>
         <source>Coordinate cursor unlocked</source>
         <translation>Koordinaattikursori vapautettu</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1089"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1128"/>
         <source>Received position</source>
         <translation>Saatiin sijainti</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1091"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1130"/>
         <source>Searching for position</source>
         <translation>Haetaan sijaintia</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1139"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1177"/>
         <source>Canvas follows location</source>
         <translation>Karttapohja seuraa sijaintia</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1148"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1186"/>
         <source>Waiting for location</source>
         <translation>Odotetaan sijaintitietoa</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1167"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1243"/>
         <source>Positioning activated</source>
         <translation>Paikannus päällä</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1172"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1248"/>
         <source>Positioning turned off</source>
         <translation>Paikannus pois päältä</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1212"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1288"/>
         <source>Canvas stopped following location</source>
         <translation>Karttapohja ei seuraa sijaintia</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1356"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1432"/>
         <source>Failed to create feature!</source>
         <translation>Kohteen luonti epäonnistui!</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1360"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1436"/>
         <source>Failed to save feature!</source>
         <translation>Kohteen tallennus epäonnistui!</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1420"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1496"/>
         <source>Main Menu</source>
         <translation>Päävalikko</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1434"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1510"/>
         <source>Measure Tool</source>
         <translation>Mittaustyökalu</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1449"/>
-        <location filename="../src/qml/qgismobileapp.qml" line="1565"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1525"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1641"/>
         <source>Print to PDF</source>
         <translation>Tulosta PDF:ksi</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1463"/>
-        <location filename="../src/qml/qgismobileapp.qml" line="1605"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1539"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1681"/>
         <source>Printing to PDF</source>
         <translation>Tulostetaan PDF:ksi</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1480"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1556"/>
         <source>Open Project</source>
         <translation>Avaa projekti</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1492"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1568"/>
         <source>Settings</source>
         <translation>Asetukset</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1506"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1582"/>
         <source>Message Log</source>
         <translation>Viestiloki</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1520"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1596"/>
         <source>About QField</source>
         <translation>Lisätietoja QFieldistä</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1581"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1657"/>
         <source>Select template below</source>
         <translation>Valitse malli alta</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1650"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1726"/>
         <source>Activating positioning service</source>
         <translation>Aktivoidaan paikannuspalvelu</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1655"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1731"/>
         <source>QField has no permissions to use positioning.</source>
         <translation>QFieldillä ei ole oikeutta käyttää paikannusta.</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1668"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1744"/>
         <source>Map Canvas Options</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1712"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1788"/>
         <source>Add Bookmark at Coordinates</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1717"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1793"/>
         <source>Untitled bookmark</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1731"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1807"/>
         <source>Set Coordinates as Destination</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1742"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1818"/>
         <source>Copy Coordinates</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1751"/>
-        <location filename="../src/qml/qgismobileapp.qml" line="1905"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1827"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1981"/>
         <source>X</source>
         <translation>X</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1751"/>
-        <location filename="../src/qml/qgismobileapp.qml" line="1905"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1827"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1981"/>
         <source>Y</source>
         <translation>Y</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1755"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1831"/>
         <source>Coordinates copied to clipboard</source>
         <translation type="unfinished"/>
     </message>
@@ -3032,128 +3052,128 @@ Peruuta tehdäksesi suppeampi laiteskannaus.</translation>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1762"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1838"/>
         <source>Navigation Options</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1778"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1854"/>
         <source>Clear Destination</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1790"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1866"/>
         <source>Positioning Options</source>
         <translation>Paikannuksen asetukset</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1816"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1892"/>
         <source>Enable Positioning</source>
         <translation>Ota paikannus käyttöön</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1830"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1906"/>
         <source>Show Position Information</source>
         <translation>Näytä sijainnin tiedot</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1844"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1920"/>
         <source>Positioning Settings</source>
         <translation>Paikannusasetukset</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1857"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1933"/>
         <source>Center to Current Location</source>
         <translation>Keskitä nykyiseen sijaintiin</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1867"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1943"/>
         <source>Add Bookmark at Current Location</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1873"/>
-        <location filename="../src/qml/qgismobileapp.qml" line="1896"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1949"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1972"/>
         <source>Current location unknown</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1877"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1953"/>
         <source>My location</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1890"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1966"/>
         <source>Copy Current Location</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1907"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1983"/>
         <source>Accuracy</source>
         <translation>Tarkkuus</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1910"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1986"/>
         <source>N/A</source>
         <translation>N/A</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1913"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1989"/>
         <source>Current location copied to clipboard</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1951"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2027"/>
         <source>Current layer switched to the one holding the selected geometry.</source>
         <translation>Nykyinen taso vaihdettiin siihen jossa valitut geometriat.</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1960"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2036"/>
         <source>Editing of multi geometry layer is not supported yet.</source>
         <translation>Monigeometrisen tason muokkausta ei vielä tueta.</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2073"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2149"/>
         <source>Loading %1</source>
         <translation>Ladataan %1</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2357"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2433"/>
         <source>Logged out</source>
         <translation>Olet kirjautunut ulos</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2359"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2435"/>
         <source>Connecting...</source>
         <translation>Yhdistetään...</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2361"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2437"/>
         <source>Logged in</source>
         <translation>Olet kirjautunut sisään</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2376"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2452"/>
         <source>Project %1 failed to download</source>
         <translation>Projektin %1 lataus epäonnistui</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2377"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2453"/>
         <source>Project %1 successfully downloaded, it&apos;s now available to open</source>
         <translation>Projektin %1 lataus onnistui, sen voi nyt avata</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2382"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2458"/>
         <source>Changes failed to reach QFieldCloud: %1</source>
         <translation>Muutosten vienti QFieldCloudiin epäonnistui: %1</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2386"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2462"/>
         <source>Changes successfully pushed to QFieldCloud</source>
         <translation>Muutokset ajettu onnistuneesti QFieldCloudiin</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2622"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2687"/>
         <source>Press back again to close project and app</source>
         <translation>Paina uudestaan takaisin sulkeaksesi projektin ja sovelluksen</translation>
     </message>

@@ -35,8 +35,8 @@
     <string name="import_project_folder">Importuj projekt z katalogu</string>
     <string name="import_project_archive">Importuj projekt z pliku ZIP</string>
     <string name="import_dataset">Importuj zestaw(y) danych</string>
-    <string name="usb_cable_help">Pomoc dla transferu kablem USB</string>
     <string name="import_error">Błąd importu</string>
+    <string name="import_overwrite_cancel">Anuluj</string>
     <string name="send_to">Wyślij do...</string>
     <string name="add_to_favorite">Dodaj do ulubionych</string>
     <string name="remove_from_favorite">Usuń z ulubionych</string>
@@ -46,4 +46,4 @@
     <string name="delete_confirm_folder">Projekt zostanie trwale usunięty, czy kontynuować?</string>
     <string name="delete_confirm">Usuń</string>
     <string name="delete_cancel">Anuluj</string>
-</resources>
+    </resources>

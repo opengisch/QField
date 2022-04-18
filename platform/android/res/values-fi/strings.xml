@@ -36,8 +36,8 @@ Suositeltavaa on, että valitset peruuta, katkaiset USB-kaapeliyhteydet ja käyn
     <string name="import_project_folder">Tuo projekti hakemistosta</string>
     <string name="import_project_archive">Tuo projekti zip-tiedostosta</string>
     <string name="import_dataset">Tuo datasetti(tit)</string>
-    <string name="usb_cable_help">USB kaapelisiirron tuki</string>
     <string name="import_error">Tuontivirhe</string>
+    <string name="import_overwrite_cancel">Peruuta</string>
     <string name="send_to">Lähetä ...</string>
     <string name="add_to_favorite">Lisää suosikkeihin</string>
     <string name="remove_from_favorite">Poista suosikeista</string>
@@ -46,4 +46,4 @@ Suositeltavaa on, että valitset peruuta, katkaiset USB-kaapeliyhteydet ja käyn
     <string name="delete_confirm_title">Poiston vahvistus</string>
     <string name="delete_confirm">Poista</string>
     <string name="delete_cancel">Peruuta</string>
-</resources>
+    </resources>

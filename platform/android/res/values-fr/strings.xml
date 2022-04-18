@@ -38,11 +38,9 @@ Merci pour votre soutien !</string>
     <string name="import_project_folder">Importer un projet à partir du répertoire</string>
     <string name="import_project_archive">Importer un projet à partir du Zip</string>
     <string name="import_dataset">Importer jeu(x) de données</string>
-    <string name="usb_cable_help">Aide sur transfert câble USB</string>
     <string name="import_error">Erreur d\'import</string>
     <string name="import_dataset_error">Le(s) jeu(x) de données sélectionné(s) pourrai(en)t ne pas être importé(s) correctement.</string>
-    <string name="import_project_archive_error">L\'archive du projet sélectionné n\'a pas été importée correctement.</string>
-    <string name="import_project_folder_error">Le répertoire du projet sélectionné n\'a pas été importé correctement.</string>
+    <string name="import_overwrite_cancel">Annuler</string>
     <string name="send_to">Envoyer vers...</string>
     <string name="add_to_favorite">Ajouter aux favoris</string>
     <string name="remove_from_favorite">Retirer des favoris</string>
@@ -53,4 +51,4 @@ Merci pour votre soutien !</string>
     <string name="delete_confirm_folder">Le répertoire de projet va être effacé définitivement, procéder à la suppression ?</string>
     <string name="delete_confirm">Enlever</string>
     <string name="delete_cancel">Annuler</string>
-</resources>
+    </resources>

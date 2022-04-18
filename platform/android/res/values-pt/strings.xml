@@ -37,11 +37,9 @@
     <string name="import_project_folder">Importar Projeto da Pasta</string>
     <string name="import_project_archive">Importar Projeto de ficheiro ZIP</string>
     <string name="import_dataset">Importar Conjunto de dado(s)</string>
-    <string name="usb_cable_help">Ajuda na Transferência por Cabo USB</string>
     <string name="import_error">Erro de Importação</string>
     <string name="import_dataset_error">Os conjuntos de dado(s) selecionados não foram importados de forma correta.</string>
-    <string name="import_project_archive_error">O arquivo de projeto selecionado não foi importado de forma correta.</string>
-    <string name="import_project_folder_error">A pasta do projeto selecionado não foi importado de forma correta.</string>
+    <string name="import_overwrite_cancel">Cancelar</string>
     <string name="send_to">Enviar para...</string>
     <string name="add_to_favorite">Adicionar aos Favoritos</string>
     <string name="remove_from_favorite">Remover dos Favoritos</string>
@@ -52,4 +50,4 @@
     <string name="delete_confirm_folder">A pasta do projeto será permanentemente eliminado, proceder com a remoção?</string>
     <string name="delete_confirm">Remover</string>
     <string name="delete_cancel">Cancelar</string>
-</resources>
+    </resources>

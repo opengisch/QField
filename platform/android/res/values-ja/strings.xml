@@ -37,11 +37,9 @@
     <string name="import_project_folder">プロジェクトをフォルダからインポート</string>
     <string name="import_project_archive">プロジェクトをZIPファイルからインポート</string>
     <string name="import_dataset">データセットをインポート</string>
-    <string name="usb_cable_help">USBケーブルの転送に関するヘルプ</string>
     <string name="import_error">インポートエラー</string>
     <string name="import_dataset_error">択したデータセットが正しくインポートされませんでした。</string>
-    <string name="import_project_archive_error">選択したプロジェクトアーカイブが正しくインポートされませんでした。</string>
-    <string name="import_project_folder_error">選択したプロジェクトフォルダが正しくインポートされませんでした。</string>
+    <string name="import_overwrite_cancel">キャンセル</string>
     <string name="send_to">送信...</string>
     <string name="add_to_favorite">お気に入りに追加</string>
     <string name="remove_from_favorite">お気に入りから削除</string>
@@ -52,4 +50,4 @@
     <string name="delete_confirm_folder">プロジェクトフォルダは完全に削除されます、削除しますか？</string>
     <string name="delete_confirm">削除</string>
     <string name="delete_cancel">キャンセル</string>
-</resources>
+    </resources>

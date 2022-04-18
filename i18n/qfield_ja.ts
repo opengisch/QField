@@ -2,17 +2,17 @@
 <context>
     <name>About</name>
     <message>
-        <location filename="../src/qml/About.qml" line="107"/>
+        <location filename="../src/qml/About.qml" line="111"/>
         <source>Developed by</source>
         <translation>デベロッパー</translation>
     </message>
     <message>
-        <location filename="../src/qml/About.qml" line="139"/>
+        <location filename="../src/qml/About.qml" line="143"/>
         <source>Support QField</source>
         <translation>QFieldをサポート</translation>
     </message>
     <message>
-        <location filename="../src/qml/About.qml" line="148"/>
+        <location filename="../src/qml/About.qml" line="152"/>
         <source>Changelog</source>
         <translation>変更履歴</translation>
     </message>
@@ -174,27 +174,27 @@
 <context>
     <name>BookmarkProperties</name>
     <message>
-        <location filename="../src/qml/BookmarkProperties.qml" line="36"/>
+        <location filename="../src/qml/BookmarkProperties.qml" line="45"/>
         <source>Bookmark Properties</source>
         <translation>ブックマークプロパティ</translation>
     </message>
     <message>
-        <location filename="../src/qml/BookmarkProperties.qml" line="48"/>
+        <location filename="../src/qml/BookmarkProperties.qml" line="74"/>
         <source>Name</source>
         <translation>名前</translation>
     </message>
     <message>
-        <location filename="../src/qml/BookmarkProperties.qml" line="61"/>
+        <location filename="../src/qml/BookmarkProperties.qml" line="87"/>
         <source>Color</source>
         <translation>色</translation>
     </message>
     <message>
-        <location filename="../src/qml/BookmarkProperties.qml" line="172"/>
+        <location filename="../src/qml/BookmarkProperties.qml" line="198"/>
         <source>Remove bookmark</source>
         <translation>ブックマークを削除</translation>
     </message>
     <message>
-        <location filename="../src/qml/BookmarkProperties.qml" line="176"/>
+        <location filename="../src/qml/BookmarkProperties.qml" line="202"/>
         <source>You are about to remove a bookmark, proceed?</source>
         <translation>ブックマークを削除しますか？</translation>
     </message>
@@ -428,7 +428,7 @@
         <translation>値がありません</translation>
     </message>
     <message>
-        <location filename="../src/qml/editorwidgets/ExternalResource.qml" line="380"/>
+        <location filename="../src/qml/editorwidgets/ExternalResource.qml" line="391"/>
         <source>Cannot handle this file type</source>
         <translation>このファイル種別は利用できません</translation>
     </message>
@@ -710,12 +710,12 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
         <translation>リングを作成する際に不明なエラーが起きました</translation>
     </message>
     <message>
-        <location filename="../src/qml/geometry_editors/FillRingToolBar.qml" line="99"/>
+        <location filename="../src/qml/geometry_editors/FillRingToolBar.qml" line="100"/>
         <source>Fill ring</source>
         <translation>リングの充填</translation>
     </message>
     <message>
-        <location filename="../src/qml/geometry_editors/FillRingToolBar.qml" line="103"/>
+        <location filename="../src/qml/geometry_editors/FillRingToolBar.qml" line="104"/>
         <source>Would you like to fill the ring with a new polygon?</source>
         <translation>新しいポリゴンでリングを充填しますか？</translation>
     </message>
@@ -1064,94 +1064,94 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
         <translation>地物</translation>
     </message>
     <message>
-        <location filename="../src/qml/NavigationBar.qml" line="444"/>
+        <location filename="../src/qml/NavigationBar.qml" line="446"/>
         <source>Feature List Menu</source>
         <translation>地物リストメニュー</translation>
     </message>
     <message>
-        <location filename="../src/qml/NavigationBar.qml" line="458"/>
+        <location filename="../src/qml/NavigationBar.qml" line="460"/>
         <source>Toggle Feature Selection</source>
         <translation>地物選択の切り替え</translation>
     </message>
     <message>
-        <location filename="../src/qml/NavigationBar.qml" line="475"/>
-        <location filename="../src/qml/NavigationBar.qml" line="665"/>
+        <location filename="../src/qml/NavigationBar.qml" line="477"/>
+        <location filename="../src/qml/NavigationBar.qml" line="667"/>
         <source>Print Atlas Feature(s) to PDF</source>
         <translation>地図帳の地物をPDFに印刷</translation>
     </message>
     <message>
-        <location filename="../src/qml/NavigationBar.qml" line="495"/>
+        <location filename="../src/qml/NavigationBar.qml" line="497"/>
         <source>Merge Selected Features</source>
         <translation>選択された地物をマージ</translation>
     </message>
     <message>
-        <location filename="../src/qml/NavigationBar.qml" line="508"/>
+        <location filename="../src/qml/NavigationBar.qml" line="510"/>
         <source>Move Selected Feature(s)</source>
         <translation>選択された地物を移動</translation>
     </message>
     <message>
-        <location filename="../src/qml/NavigationBar.qml" line="521"/>
+        <location filename="../src/qml/NavigationBar.qml" line="523"/>
         <source>Duplicate Selected Feature(s)</source>
         <translation>選択された地物をコピー</translation>
     </message>
     <message>
-        <location filename="../src/qml/NavigationBar.qml" line="534"/>
+        <location filename="../src/qml/NavigationBar.qml" line="536"/>
         <source>Delete Selected Feature(s)</source>
         <translation>選択された地物を削除</translation>
     </message>
     <message>
-        <location filename="../src/qml/NavigationBar.qml" line="549"/>
+        <location filename="../src/qml/NavigationBar.qml" line="551"/>
         <source>Feature Menu</source>
         <translation>地物メニュー</translation>
     </message>
     <message>
-        <location filename="../src/qml/NavigationBar.qml" line="563"/>
+        <location filename="../src/qml/NavigationBar.qml" line="565"/>
         <source>Print Atlas Feature to PDF</source>
         <translation>地図帳の地物をPDFに印刷</translation>
     </message>
     <message>
-        <location filename="../src/qml/NavigationBar.qml" line="580"/>
+        <location filename="../src/qml/NavigationBar.qml" line="582"/>
         <source>Zoom to Feature</source>
         <translation>地物にズーム</translation>
     </message>
     <message>
-        <location filename="../src/qml/NavigationBar.qml" line="591"/>
+        <location filename="../src/qml/NavigationBar.qml" line="593"/>
         <source>Auto-Zoom to Feature</source>
         <translation>地物に自動でズーム</translation>
     </message>
     <message>
-        <location filename="../src/qml/NavigationBar.qml" line="604"/>
+        <location filename="../src/qml/NavigationBar.qml" line="606"/>
         <source>Set Feature as Destination</source>
         <translation>目的地として地物を設定</translation>
     </message>
     <message>
-        <location filename="../src/qml/NavigationBar.qml" line="620"/>
+        <location filename="../src/qml/NavigationBar.qml" line="622"/>
         <source>Move Feature</source>
         <translation>地物を移動</translation>
     </message>
     <message>
-        <location filename="../src/qml/NavigationBar.qml" line="633"/>
+        <location filename="../src/qml/NavigationBar.qml" line="635"/>
         <source>Duplicate Feature</source>
         <translation>地物をコピー</translation>
     </message>
     <message>
-        <location filename="../src/qml/NavigationBar.qml" line="646"/>
+        <location filename="../src/qml/NavigationBar.qml" line="648"/>
         <source>Delete Feature</source>
         <translation>地物を削除</translation>
     </message>
     <message>
-        <location filename="../src/qml/NavigationBar.qml" line="681"/>
+        <location filename="../src/qml/NavigationBar.qml" line="683"/>
         <source>Select template below</source>
         <translation>下のテンプレートを選択</translation>
     </message>
     <message>
-        <location filename="../src/qml/NavigationBar.qml" line="705"/>
-        <location filename="../src/qml/NavigationBar.qml" line="744"/>
+        <location filename="../src/qml/NavigationBar.qml" line="707"/>
+        <location filename="../src/qml/NavigationBar.qml" line="746"/>
         <source>Printing atlas feature(s) to PDF</source>
         <translation>地図帳の地物をPDFに印刷</translation>
     </message>
     <message>
-        <location filename="../src/qml/NavigationBar.qml" line="731"/>
+        <location filename="../src/qml/NavigationBar.qml" line="733"/>
         <source>Atlas feature(s) successfully printed to PDF and placed in your documents</source>
         <translation>地図帳の地物がPDFに印刷され、ドキュメントに保存されました。</translation>
     </message>
@@ -1457,37 +1457,37 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
 （デフォルトのサーバーを使用する場合は空欄にしてください）</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldCloudLogin.qml" line="162"/>
+        <location filename="../src/qml/QFieldCloudLogin.qml" line="152"/>
         <source>Username or email</source>
         <translation>ユーザー名またはEメールアドレス</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldCloudLogin.qml" line="195"/>
+        <location filename="../src/qml/QFieldCloudLogin.qml" line="176"/>
         <source>Password</source>
         <translation>パスワード</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldCloudLogin.qml" line="231"/>
+        <location filename="../src/qml/QFieldCloudLogin.qml" line="203"/>
         <source>Sign out</source>
         <translation>サインアウト</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldCloudLogin.qml" line="231"/>
+        <location filename="../src/qml/QFieldCloudLogin.qml" line="203"/>
         <source>Signing in, please wait</source>
         <translation>サインインしています、お待ちください</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldCloudLogin.qml" line="231"/>
+        <location filename="../src/qml/QFieldCloudLogin.qml" line="203"/>
         <source>Sign in</source>
         <translation>サインイン</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldCloudLogin.qml" line="242"/>
+        <location filename="../src/qml/QFieldCloudLogin.qml" line="214"/>
         <source>New user?</source>
         <translation>新しいユーザーですか？</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldCloudLogin.qml" line="242"/>
+        <location filename="../src/qml/QFieldCloudLogin.qml" line="214"/>
         <source>Register an account</source>
         <translation>アカウントを登録する</translation>
     </message>
@@ -1504,12 +1504,12 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
         <translation type="vanished">ログイン</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldCloudLogin.qml" line="255"/>
+        <location filename="../src/qml/QFieldCloudLogin.qml" line="227"/>
         <source>The easiest way to transfer you project from QGIS to your devices!</source>
         <translation>QGISからデバイスにプロジェクトを転送する最も簡単な方法です！</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldCloudLogin.qml" line="256"/>
+        <location filename="../src/qml/QFieldCloudLogin.qml" line="228"/>
         <source>Learn more about QFieldCloud</source>
         <translation>QFieldCloudについてもっと知る</translation>
     </message>
@@ -2035,264 +2035,274 @@ While you can still view and use the project, it is strongly recommended to rese
 <context>
     <name>QFieldSettings</name>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="50"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="52"/>
         <source>Show scale bar</source>
         <translation>縮尺を表示する</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="54"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="56"/>
         <source>Maximized attribute form</source>
         <translation>属性フォームを最大表示する</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="58"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="60"/>
         <source>Fixed scale navigation</source>
         <translation>同じ縮尺での検索結果表示</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="59"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="61"/>
         <source>When fixed scale navigation is active, focusing on a search result will pan to the feature. With fixed scale navigation disabled it will pan and zoom to the feature.</source>
         <translation>同じ縮尺での検索結果表示を有効にすると、検索結果の地物に同じ縮尺のままで表示します。同機能を無効にすると縮尺を拡大し地物を表示します。</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="63"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="65"/>
         <source>Show digitizing information</source>
         <translation>デジタイジング情報を表示する</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="64"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="66"/>
         <source>When switched on, coordinate information, such as latitude and longitude, is overlayed onto the map while digitizing new features or using the measure tool.</source>
         <translation>この機能を有効にすると、新しい地物を追加するときや計測ツールを使用しているときに、緯度・経度のような座標情報が地図キャンバス上にオーバーレイされます。</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="68"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="70"/>
+        <source>Show bookmarks</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/qml/QFieldSettings.qml" line="71"/>
+        <source>When switched on, user&apos;s saved and currently opened project bookmarks will be displayed on the map.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/qml/QFieldSettings.qml" line="75"/>
         <source>Use native camera</source>
         <translation>ネイティブカメラを使用する</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="69"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="76"/>
         <source>If disabled, QField will use a minimalist internal camera instead of the camera app on the device.&lt;br&gt;Tip: Enable this option and install the open camera app to create geo tagged photos.</source>
         <translation>オフの場合, QFieldはデバイスのカメラアプリではなく、内部に搭載のカメラ機能を使用します。&lt;br&gt;参考: このオプションをオンにするとカメラアプリを起動してジオタグ写真を撮影するようになります。</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="74"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="81"/>
         <source>Fast editing mode</source>
         <translation>高速編集モード</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="75"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="82"/>
         <source>If enabled, the feature is stored after having a valid geometry and the constraints are fulfilled and atributes are commited immediately.</source>
         <translation>この機能を有効にすると、地物に有効なジオメトリが入力され、必要な制約が全て満たされると、属性情報がすぐに反映されるようになります。</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="79"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="86"/>
         <source>Dim screen when idling</source>
         <translation>アイドリング時に画面を暗くする</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="80"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="87"/>
         <source>If enabled, the screen brightness will be dimmed after 20 seconds of inactivity to preserve battery.</source>
         <translation>この機能を有効にすると、バッテリーを節約するために、20秒間操作しないと画面の明るさが低下します。</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="84"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="91"/>
         <source>Consider mouse as a touchscreen device</source>
         <translation>マウスをタッチスクリーンデバイスとして認識する</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="85"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="92"/>
         <source>If disabled, the mouse will act as a stylus pen.</source>
         <translation>無効した場合、マウスはスタイラスペンとして機能します。</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="89"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="96"/>
         <source>Send anonymized metrics</source>
-        <translation type="unfinished"/>
+        <translation>匿名化されたメトリクスの送信</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="90"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="97"/>
         <source>If enabled, anonymized metrics will be collected and sent to help improve QField for everyone.</source>
-        <translation type="unfinished"/>
+        <translation>有効にすると、匿名化されたメトリクスが収集され、送信され、他の利用者のためにQFieldを改善するのに役立ちます。</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="130"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="137"/>
         <source>General</source>
         <translation>一般情報</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="136"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="143"/>
         <source>Positioning</source>
         <translation>測位</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="142"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="149"/>
         <source>Variables</source>
         <translation>変数</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="184"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="191"/>
         <source>Customize search bar</source>
         <translation>検索バーのカスタマイズ</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="275"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="282"/>
         <source>User interface language:</source>
         <translation>ユーザーインターフェース言語:</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="286"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="293"/>
         <source>To apply the selected user interface language, QField needs to completely shutdown and restart.</source>
         <translation>選択した表示言語を適用するには、QFieldを完全にシャットダウンして再起動する必要があります。</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="315"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="322"/>
         <source>system</source>
         <translation>システム</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="328"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="335"/>
         <source>Found a missing or incomplete language? %1Join the translator community.%2</source>
         <translation>あなたの言語がありませんか、それとも翻訳が不完全ですか？ %1翻訳コミュニティに参加しましょう。%2</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="371"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="378"/>
         <source>Positioning device in use:</source>
         <translation>使用中の測位デバイス:</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="419"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="426"/>
         <source>Scanning for paired devices</source>
         <translation>ペアリングされたデバイスをスキャンしています</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="423"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="430"/>
         <source>Scanning failed: %1</source>
         <translation>スキャンに失敗しました: %1</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="427"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="434"/>
         <source>Scanning done</source>
         <translation>スキャン完了</translation>
     </message>
     <message numerus="yes">
-        <location filename="../src/qml/QFieldSettings.qml" line="430"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="437"/>
         <source>%n device(s) found</source>
         <translation><numerusform>%n つのデバイスが見つかりました</numerusform></translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="436"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="443"/>
         <source>Scanning canceled</source>
         <translation>スキャンがキャンセルされました。</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="453"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="460"/>
         <source>Scan</source>
         <translation>スキャン</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="486"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="493"/>
         <source>Make a full service discovery</source>
         <translation>フルサービス検出をする</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="490"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="497"/>
         <source>A full device scan can take longer. You really want to do it?
 Cancel to make a minimal device scan instead.</source>
         <translation>デバイスのフルスキャンには時間がかかる場合があります。本当に実行しますか？
 キャンセルして代わりにミニマムなデバイススキャンを行います。</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="515"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="522"/>
         <source>Connected to %1</source>
         <translation>%1 に接続しました</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="517"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="524"/>
         <source>Connect  to %1</source>
         <translation>%1 に接続する</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="519"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="526"/>
         <source>Connecting to %1</source>
         <translation>%1 に接続しています</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="536"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="543"/>
         <source>Use orthometric altitude from device</source>
         <translation>デバイスから取得したオルソメトリック高度を使う</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="568"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="575"/>
         <source>Show position information</source>
         <translation>位置情報を表示する</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="590"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="597"/>
         <source>Activate accuracy indicator</source>
         <translation>精度の閾値を設定する</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="612"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="619"/>
         <source>Bad accuracy below [m]</source>
         <translation>低精度としての許容範囲 [m]</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="653"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="660"/>
         <source>Excellent accuracy above [m]</source>
         <translation>高精度としての許容範囲 [m]</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="694"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="701"/>
         <source>Enable accuracy requirement</source>
         <translation>精度の条件を有効にする</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="721"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="728"/>
         <source>When the accuracy indicator is enabled, a badge is attached to the location button and colored &lt;span %1&gt;red&lt;/span&gt; if the accuracy value is below bad, &lt;span %2&gt;yellow&lt;/span&gt; if it falls short of excellent, or &lt;span %3&gt;green&lt;/span&gt;.&lt;br&gt;&lt;br&gt;In addition, an accuracy restriction mode can be toggled on, which restricts vertex addition when locked to coordinate cursor to positions with an accuracy value above the bad threshold.</source>
         <translation>精度の閾値を有効にすると、ロケーションボタンにバッジが追加され、低精度の場合は &lt;span %1&gt;赤色&lt;/span&gt; に、どちらでもない場合は &lt;span %2&gt;黄色&lt;/span&gt; に、高精度の場合は &lt;span %3&gt;緑色&lt;/span&gt;に変わります。&lt;br&gt;&lt;br&gt;また、低精度の閾値の範囲内で座標カーソルをロックし、頂点の追加制限する精度制限モードを有効にすることもできます。</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="738"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="745"/>
         <source>Antenna height compensation</source>
         <translation>アンテナの高さ補正</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="760"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="767"/>
         <source>Antenna height [m]</source>
         <translation>アンテナの高さ [m]</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="802"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="809"/>
         <source>Z values which are recorded from the positioning device will be corrected by this value. If a value of 1.6 is entered, this will result in a correction of -1.6 for each recorded value.</source>
         <translation>GNSS受信機から取得したZ値はこの数値によって補正されます。もし1.6という数値が入力された場合、各レコードの値から-1.6m補正されたものが保持されます。</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="816"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="823"/>
         <source>Skip altitude correction</source>
         <translation>高度の補正をスキップする</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="839"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="846"/>
         <source>Use the altitude as reported by the positioning device. Skip any altitude correction that may be implied by the coordinate system transformation.</source>
         <translation>GNSS受信機によって計算された高度を使用します。 座標系変換によって示唆される可能性のある高度補正は行いません。</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="853"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="860"/>
         <source>Vertical grid shift in use:</source>
         <translation>使用中の垂直方向のグリッドシフト:</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="862"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="869"/>
         <source>None</source>
         <translation>なし</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="876"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="883"/>
         <source>Vertical grid shift is used to increase the altitude accuracy.</source>
         <translation>垂直方向のグリッドシフトは高度の精度を向上させるために使われます。</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="905"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="912"/>
         <source>QField Settings</source>
         <translation>QField設定</translation>
     </message>
@@ -2398,23 +2408,23 @@ Cancel to make a minimal device scan instead.</source>
 <context>
     <name>QgisMobileapp</name>
     <message>
-        <location filename="../src/core/qgismobileapp.cpp" line="647"/>
-        <location filename="../src/core/qgismobileapp.cpp" line="673"/>
+        <location filename="../src/core/qgismobileapp.cpp" line="651"/>
+        <location filename="../src/core/qgismobileapp.cpp" line="677"/>
         <source>Project file &quot;%1&quot; does not exist</source>
         <translation>プロジェクトファイル 「%1」は存在しません</translation>
     </message>
     <message>
-        <location filename="../src/core/qgismobileapp.cpp" line="664"/>
+        <location filename="../src/core/qgismobileapp.cpp" line="668"/>
         <source>No project file currently opened</source>
         <translation>最近開かれたプロジェクトファイルはありません</translation>
     </message>
     <message>
-        <location filename="../src/core/qgismobileapp.cpp" line="717"/>
+        <location filename="../src/core/qgismobileapp.cpp" line="721"/>
         <source>Could not load font %1</source>
         <translation>フォント %1 をロードできませんでした</translation>
     </message>
     <message>
-        <location filename="../src/core/qgismobileapp.cpp" line="719"/>
+        <location filename="../src/core/qgismobileapp.cpp" line="723"/>
         <source>Loading font %1</source>
         <translation>フォント %1 をロードしています</translation>
     </message>
@@ -2475,7 +2485,7 @@ Cancel to make a minimal device scan instead.</source>
 <context>
     <name>QgsQuickMapCanvasMap</name>
     <message>
-        <location filename="../src/core/qgsquick/qgsquickmapcanvasmap.cpp" line="183"/>
+        <location filename="../src/core/qgsquick/qgsquickmapcanvasmap.cpp" line="190"/>
         <source>Rendering</source>
         <translation>描画中</translation>
     </message>
@@ -2483,8 +2493,8 @@ Cancel to make a minimal device scan instead.</source>
 <context>
     <name>QgsQuickMapSettings</name>
     <message>
-        <location filename="../src/core/qgsquick/qgsquickmapsettings.cpp" line="267"/>
-        <location filename="../src/core/qgsquick/qgsquickmapsettings.cpp" line="297"/>
+        <location filename="../src/core/qgsquick/qgsquickmapsettings.cpp" line="313"/>
+        <location filename="../src/core/qgsquick/qgsquickmapsettings.cpp" line="343"/>
         <source>Map Canvas rotation is not supported. Resetting from %1 to 0.</source>
         <translation>マップキャンバスの回転はサポートされていません。 ％1から0にリセットします。</translation>
     </message>
@@ -2521,12 +2531,12 @@ Cancel to make a minimal device scan instead.</source>
 <context>
     <name>RelationCombobox</name>
     <message>
-        <location filename="../src/qml/RelationCombobox.qml" line="99"/>
+        <location filename="../src/qml/RelationCombobox.qml" line="101"/>
         <source>Search…</source>
         <translation>検索しています…</translation>
     </message>
     <message>
-        <location filename="../src/qml/RelationCombobox.qml" line="552"/>
+        <location filename="../src/qml/RelationCombobox.qml" line="556"/>
         <source>Invalid relation</source>
         <translation>無効な関係</translation>
     </message>
@@ -2658,82 +2668,92 @@ Cancel to make a minimal device scan instead.</source>
 <context>
     <name>WelcomeScreen</name>
     <message>
-        <location filename="../src/qml/WelcomeScreen.qml" line="115"/>
+        <location filename="../src/qml/WelcomeScreen.qml" line="116"/>
         <source>We&apos;re sorry to hear that. Click on the button below to comment or seek support.</source>
         <translation>大変申し訳ございません。下のボタンからコメント、もしくはサポートの依頼をしていただければと思います。</translation>
     </message>
     <message>
-        <location filename="../src/qml/WelcomeScreen.qml" line="129"/>
+        <location filename="../src/qml/WelcomeScreen.qml" line="130"/>
         <source>Reach out</source>
         <translation>連絡する</translation>
     </message>
     <message>
-        <location filename="../src/qml/WelcomeScreen.qml" line="167"/>
+        <location filename="../src/qml/WelcomeScreen.qml" line="168"/>
         <source>Hey there, how do you like your experience with QField so far?</source>
         <translation>QFieldを使ってみて気に入っていただけましたか？</translation>
     </message>
     <message>
-        <location filename="../src/qml/WelcomeScreen.qml" line="224"/>
+        <location filename="../src/qml/WelcomeScreen.qml" line="225"/>
         <source>That&apos;s great! We&apos;d love for you to click on the button below and leave a comment on the store.</source>
         <translation>ありがとうございます！下のボタンからストアにコメントを残していただけると嬉しいです。</translation>
     </message>
     <message>
-        <location filename="../src/qml/WelcomeScreen.qml" line="239"/>
+        <location filename="../src/qml/WelcomeScreen.qml" line="240"/>
         <source>Rate us</source>
         <translation>アプリを評価する</translation>
     </message>
     <message>
-        <location filename="../src/qml/WelcomeScreen.qml" line="296"/>
+        <location filename="../src/qml/WelcomeScreen.qml" line="297"/>
         <source>Anonymized metrics collection has been disabled. You can re-enable through the settings panel.</source>
+        <translation>匿名化されたメトリクスの収集は無効化されました。設定パネルから再有効化することができます。</translation>
+    </message>
+    <message>
+        <location filename="../src/qml/WelcomeScreen.qml" line="331"/>
+        <source>To improve stability for everyone, QField collects and sends anonymized metrics.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/qml/WelcomeScreen.qml" line="330"/>
-        <source>To improve stability for everyone, QField collects and sends anonymized metrics. To disable, click on the button below.</source>
+        <location filename="../src/qml/WelcomeScreen.qml" line="342"/>
+        <source>I agree</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/qml/WelcomeScreen.qml" line="389"/>
+        <location filename="../src/qml/WelcomeScreen.qml" line="351"/>
+        <source>I prefer not</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/qml/WelcomeScreen.qml" line="399"/>
         <source>QFieldCloud projects</source>
         <translation>QFieldCloudプロジェクト</translation>
     </message>
     <message>
-        <location filename="../src/qml/WelcomeScreen.qml" line="397"/>
+        <location filename="../src/qml/WelcomeScreen.qml" line="407"/>
         <source>Open local file</source>
         <translation>ローカルファイルを開く</translation>
     </message>
     <message>
-        <location filename="../src/qml/WelcomeScreen.qml" line="405"/>
+        <location filename="../src/qml/WelcomeScreen.qml" line="415"/>
         <source>Recent Projects</source>
         <translation>最近使用したプロジェクト</translation>
     </message>
     <message>
-        <location filename="../src/qml/WelcomeScreen.qml" line="483"/>
+        <location filename="../src/qml/WelcomeScreen.qml" line="493"/>
         <source>Last session</source>
         <translation>最後のセッション</translation>
     </message>
     <message>
-        <location filename="../src/qml/WelcomeScreen.qml" line="487"/>
+        <location filename="../src/qml/WelcomeScreen.qml" line="497"/>
         <source>Base map project</source>
         <translation>ベースマッププロジェクト</translation>
     </message>
     <message>
-        <location filename="../src/qml/WelcomeScreen.qml" line="575"/>
+        <location filename="../src/qml/WelcomeScreen.qml" line="585"/>
         <source>Base Map Project</source>
         <translation>ベースマッププロジェクト</translation>
     </message>
     <message>
-        <location filename="../src/qml/WelcomeScreen.qml" line="595"/>
+        <location filename="../src/qml/WelcomeScreen.qml" line="605"/>
         <source>Remove from Recent Projects</source>
         <translation>最近のプロジェクトから削除する</translation>
     </message>
     <message>
-        <location filename="../src/qml/WelcomeScreen.qml" line="735"/>
+        <location filename="../src/qml/WelcomeScreen.qml" line="745"/>
         <source>Welcome to QField. First time using this application? Try out sample projects listed in the list below.</source>
         <translation>QFieldにようこそ。初めてこのアプリをご使用になりますか？どうぞ下のリストにあるサンプルプロジェクトをお試しください。</translation>
     </message>
     <message>
-        <location filename="../src/qml/WelcomeScreen.qml" line="737"/>
+        <location filename="../src/qml/WelcomeScreen.qml" line="747"/>
         <source>Welcome back to QField.</source>
         <translation>QFieldへようこそ。</translation>
     </message>
@@ -2784,245 +2804,245 @@ Cancel to make a minimal device scan instead.</source>
 <context>
     <name>qgismobileapp</name>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="128"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="143"/>
         <source>You are now in browse mode</source>
         <translation>閲覧モード</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="134"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="149"/>
         <source>You are now in digitize mode on layer %1</source>
         <translation>レイヤ %1 は編集モードになりました</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="138"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="153"/>
         <source>You are now in digitize mode</source>
         <translation>編集モード</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="142"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="157"/>
         <source>You are now in measure mode</source>
         <translation>計測モード</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="651"/>
-        <location filename="../src/qml/qgismobileapp.qml" line="669"/>
-        <location filename="../src/qml/qgismobileapp.qml" line="1673"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="661"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="679"/>
         <location filename="../src/qml/qgismobileapp.qml" line="1749"/>
-        <location filename="../src/qml/qgismobileapp.qml" line="1903"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1825"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1979"/>
         <source>Lon</source>
         <translation>経度</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="653"/>
-        <location filename="../src/qml/qgismobileapp.qml" line="671"/>
-        <location filename="../src/qml/qgismobileapp.qml" line="1675"/>
-        <location filename="../src/qml/qgismobileapp.qml" line="1749"/>
-        <location filename="../src/qml/qgismobileapp.qml" line="1903"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="663"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="681"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1751"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1825"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1979"/>
         <source>Lat</source>
         <translation>緯度</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="658"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="668"/>
         <source>Segment</source>
         <translation>セグメント</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="658"/>
-        <location filename="../src/qml/qgismobileapp.qml" line="660"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="668"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="670"/>
         <source>Length</source>
         <translation>長さ</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="664"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="674"/>
         <source>Area</source>
         <translation>面積</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="882"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="897"/>
         <source>Close measure tool</source>
         <translation>計測ツールを非表示にする</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="889"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="904"/>
         <source>Stop editing</source>
         <translation>編集をやめる</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="896"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="911"/>
         <source>Cancel addition</source>
         <translation>追加をキャンセルする</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="943"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="958"/>
         <source>Topological editing turned on</source>
         <translation>トポロジー編集をオンにする</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="943"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="958"/>
         <source>Topological editing turned off</source>
         <translation>トポロジー編集をオフにする</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="986"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1001"/>
         <source>Freehand digitizing turned on</source>
         <translation>フリーハンドでの編集をオンにしました</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="986"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1001"/>
         <source>Freehand digitizing turned off</source>
         <translation>フリーハンドでの編集をオフにしました</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1060"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1099"/>
         <source>Coordinate cursor now locked to position</source>
         <translation>座標カーソルが現在位置にロックされるようになりました</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1072"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1111"/>
         <source>Coordinate cursor unlocked</source>
         <translation>座標カーソルのロックが解除されました</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1089"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1128"/>
         <source>Received position</source>
         <translation>現在地を受信しました</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1091"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1130"/>
         <source>Searching for position</source>
         <translation>現在地を探しています</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1139"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1177"/>
         <source>Canvas follows location</source>
         <translation>地図上で現在の位置情報を追尾します</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1148"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1186"/>
         <source>Waiting for location</source>
         <translation>位置情報を受信しています</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1167"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1243"/>
         <source>Positioning activated</source>
         <translation>現在位置表示機能が有効になりました</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1172"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1248"/>
         <source>Positioning turned off</source>
         <translation>現在位置表示機能が無効になりました</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1212"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1288"/>
         <source>Canvas stopped following location</source>
         <translation>地図上で現在の位置情報を追尾するのを停止しました</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1356"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1432"/>
         <source>Failed to create feature!</source>
         <translation>地物を作成できませんでした!</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1360"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1436"/>
         <source>Failed to save feature!</source>
         <translation>地物を保存できませんでした!</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1420"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1496"/>
         <source>Main Menu</source>
         <translation>メインメニュー</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1434"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1510"/>
         <source>Measure Tool</source>
         <translation>計測ツール</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1449"/>
-        <location filename="../src/qml/qgismobileapp.qml" line="1565"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1525"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1641"/>
         <source>Print to PDF</source>
         <translation>PDFを印刷する</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1463"/>
-        <location filename="../src/qml/qgismobileapp.qml" line="1605"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1539"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1681"/>
         <source>Printing to PDF</source>
         <translation>PDFに印刷しています</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1480"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1556"/>
         <source>Open Project</source>
         <translation>プロジェクトを開く</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1492"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1568"/>
         <source>Settings</source>
         <translation>設定</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1506"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1582"/>
         <source>Message Log</source>
         <translation>メッセージログ</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1520"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1596"/>
         <source>About QField</source>
         <translation>QFieldについて</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1581"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1657"/>
         <source>Select template below</source>
         <translation>下のテンプレートを選択</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1650"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1726"/>
         <source>Activating positioning service</source>
         <translation>位置情報取得機能を有効にしています</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1655"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1731"/>
         <source>QField has no permissions to use positioning.</source>
         <translation>QFieldは位置情報表示機能を使用する許可を与えられていません。</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1668"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1744"/>
         <source>Map Canvas Options</source>
         <translation>地図キャンバスオプション</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1712"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1788"/>
         <source>Add Bookmark at Coordinates</source>
         <translation>座標でブックマークを追加</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1717"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1793"/>
         <source>Untitled bookmark</source>
         <translation>無題のブックマーク</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1731"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1807"/>
         <source>Set Coordinates as Destination</source>
         <translation>目的地として座標を設定</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1742"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1818"/>
         <source>Copy Coordinates</source>
         <translation>座標をコピー</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1751"/>
-        <location filename="../src/qml/qgismobileapp.qml" line="1905"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1827"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1981"/>
         <source>X</source>
         <translation>X</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1751"/>
-        <location filename="../src/qml/qgismobileapp.qml" line="1905"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1827"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1981"/>
         <source>Y</source>
         <translation>Y</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1755"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1831"/>
         <source>Coordinates copied to clipboard</source>
         <translation>座標をクリップボードにコピー</translation>
     </message>
@@ -3031,128 +3051,128 @@ Cancel to make a minimal device scan instead.</source>
         <translation type="vanished">目的地として設定</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1762"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1838"/>
         <source>Navigation Options</source>
         <translation>ナビゲーションオプション</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1778"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1854"/>
         <source>Clear Destination</source>
         <translation>目的地をクリア</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1790"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1866"/>
         <source>Positioning Options</source>
         <translation>位置情報表示オプション</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1816"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1892"/>
         <source>Enable Positioning</source>
         <translation>位置情報表示を有効にする</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1830"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1906"/>
         <source>Show Position Information</source>
         <translation>座標情報を表示する</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1844"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1920"/>
         <source>Positioning Settings</source>
         <translation>現在位置表示設定</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1857"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1933"/>
         <source>Center to Current Location</source>
         <translation>現在位置を中央に表示</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1867"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1943"/>
         <source>Add Bookmark at Current Location</source>
         <translation>現在位置でブックマークを追加</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1873"/>
-        <location filename="../src/qml/qgismobileapp.qml" line="1896"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1949"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1972"/>
         <source>Current location unknown</source>
         <translation>不明な現在位置</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1877"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1953"/>
         <source>My location</source>
         <translation>マイ・ロケーション</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1890"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1966"/>
         <source>Copy Current Location</source>
         <translation>現在位置をコピー</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1907"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1983"/>
         <source>Accuracy</source>
         <translation>精度</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1910"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1986"/>
         <source>N/A</source>
         <translation>N/A</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1913"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1989"/>
         <source>Current location copied to clipboard</source>
         <translation>現在位置をクリップボードにコピー</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1951"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2027"/>
         <source>Current layer switched to the one holding the selected geometry.</source>
         <translation>選択されたジオメトリが属するレイヤに切り替わりました</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1960"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2036"/>
         <source>Editing of multi geometry layer is not supported yet.</source>
         <translation>マルチジオメトリレイヤーの編集は現在サポートされていません。</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2073"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2149"/>
         <source>Loading %1</source>
         <translation>%1 を読み込んでいます</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2357"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2433"/>
         <source>Logged out</source>
         <translation>ログアウトしました</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2359"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2435"/>
         <source>Connecting...</source>
         <translation>接続しています...</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2361"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2437"/>
         <source>Logged in</source>
         <translation>ログインしました</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2376"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2452"/>
         <source>Project %1 failed to download</source>
         <translation>プロジェクト %1 のダウンロードに失敗しました</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2377"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2453"/>
         <source>Project %1 successfully downloaded, it&apos;s now available to open</source>
         <translation>プロジェクト %1 が正常にダウンロードされて開けるようになりました</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2382"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2458"/>
         <source>Changes failed to reach QFieldCloud: %1</source>
         <translation>変更内容がQFieldCloudにプッシュされませんでした: %1</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2386"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2462"/>
         <source>Changes successfully pushed to QFieldCloud</source>
         <translation>変更内容がQFieldCloudに正常にプッシュされました</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2622"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2687"/>
         <source>Press back again to close project and app</source>
         <translation>もう一度戻るボタンを押してプロジェクトとアプリを閉じてください。</translation>
     </message>
