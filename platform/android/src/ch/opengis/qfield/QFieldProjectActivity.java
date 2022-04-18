@@ -81,34 +81,37 @@ public class QFieldProjectActivity
         sharedPreferences = getPreferences(Context.MODE_PRIVATE);
         editor = sharedPreferences.edit();
 
-        boolean storageDialogShown =
-            sharedPreferences.getBoolean("StorageDialogShown", false);
-        if (!storageDialogShown) {
-            AlertDialog.Builder builder = new AlertDialog.Builder(this);
-            builder.setTitle(getString(R.string.storage_information_title));
-            builder.setMessage(getString(R.string.storage_information_message));
-            builder.setPositiveButton(
-                getString(R.string.storage_information_view),
-                new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int id) {
-                        dialog.dismiss();
-                        Intent i = new Intent(Intent.ACTION_VIEW);
-                        i.setData(Uri.parse(STORAGE_HELP_URL));
-                        startActivity(i);
-                    }
-                });
-            builder.setNegativeButton(
-                getString(R.string.storage_information_dismiss),
-                new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int id) {
-                        dialog.dismiss();
-                    }
-                });
-            AlertDialog dialog = builder.create();
-            dialog.setCancelable(true);
-            dialog.show();
+        if (!getIntent().hasExtra("path")) {
+            boolean storageDialogShown =
+                sharedPreferences.getBoolean("StorageDialogShown", false);
+            if (!storageDialogShown) {
+                AlertDialog.Builder builder = new AlertDialog.Builder(this);
+                builder.setTitle(getString(R.string.storage_information_title));
+                builder.setMessage(
+                    getString(R.string.storage_information_message));
+                builder.setPositiveButton(
+                    getString(R.string.storage_information_view),
+                    new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int id) {
+                            dialog.dismiss();
+                            Intent i = new Intent(Intent.ACTION_VIEW);
+                            i.setData(Uri.parse(STORAGE_HELP_URL));
+                            startActivity(i);
+                        }
+                    });
+                builder.setNegativeButton(
+                    getString(R.string.storage_information_dismiss),
+                    new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int id) {
+                            dialog.dismiss();
+                        }
+                    });
+                AlertDialog dialog = builder.create();
+                dialog.setCancelable(true);
+                dialog.show();
 
-            editor.putBoolean("StorageDialogShown", true);
+                editor.putBoolean("StorageDialogShown", true);
+            }
         }
 
         drawView();
