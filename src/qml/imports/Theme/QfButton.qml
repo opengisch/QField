@@ -25,7 +25,9 @@ Button {
       color: !parent.enabled ? Theme.lightGray : button.bgcolor
       radius: 12
       border.width: 1
-      border.color: button.bgcolor != "#00000000" ? button.bgcolor : button.color
+      border.color: !parent.enabled
+                    ? Theme.lightGray
+                    : button.bgcolor != "#00000000" ? button.bgcolor : button.color
 
       Ripple {
           clip: true
