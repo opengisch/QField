@@ -11,7 +11,10 @@ tx pull --resource qfield-for-qgis.qfield_android --all --minimum-perc=50 --forc
 echo "::endgroup::"
 
 echo "::group::android specific translations"
-for x in platform/android/res/values-*_*;do mv $x $(echo $x | sed -e 's/_/-r/') ;done
+for x in platform/android/res/values-*_*; do
+    rm -rf $(echo $x | sed -e 's/_/-r/')
+    mv $x $(echo $x | sed -e 's/_/-r/')
+done
 find platform/android/res/values-* -name strings.xml -type f -print0 | while read -d $'\0' file; do
     # .bak is a workaround GNU & BSD/macOS compatibility
     sed -i.bak 's/<!\[CDATA \[/<!\[CDATA\[/g' $file
