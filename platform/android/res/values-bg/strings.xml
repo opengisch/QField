@@ -1,0 +1,29 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="done_unpacking_msg">Приключи разархивирането, стартиране на QGIS.</string>
+    <string name="unpacking_title">QField се зарежда</string>
+    <string name="unpacking_msg">Това е еднократна операция, която ще отнеме малко време</string>
+    <string name="unpacking_msg_following">Почти е готово, моля, изчакайте.</string>
+    <string name="use_internal_storage">Използване на вътрешната памет</string>
+    <string name="external_storage_unavailable">Разархивиране след инсталацията. Ще отнеме малко време.</string>
+    <string name="noexternalstorage_dialog">Изглежда не притежавате външна карта памет (/sdcard). Това се случва, когато свържете вашето устройство с компютъра чрез USB кабел.\nQGIS успешно работи и от вътрешната памет, но това е непрепоръчително, тъй като паметта може да се окаже недостатъчна.\nПрепоръчително е да натиснете \"Откажи\", откачите USB кабела и рестарирате QGIS.</string>
+    <string name="primary_storage">Вътрешна памет</string>
+    <string name="secondary_storage_read_only">Външна памет (само за четене)</string>
+    <string name="inaccessible">недостъпно</string>
+    <string name="loading">Зареждане</string>
+    <string name="select_project">Избор на QGIS проект или файл</string>
+    <string name="recent_projects">Скорошни проекти и файлове</string>
+    <string name="rate_title">Оценете QField</string>
+    <string name="rate_message">Ако ви допада работата с QField, отделете време, за да му дадете оценка. Благодарим за подкрепата!</string>
+    <string name="rate_now">Оценка</string>
+    <string name="remind_later">Напомни по-късно</string>
+    <string name="no_thanks">Не, благодаря!</string>
+    <string name="favorite_directories">Любими директории</string>
+    <string name="favorites_sample_projects">Примерни проекти</string>
+    <string name="favorites_imported_projects">Импортирани проекти</string>
+    <string name="favorites_imported_datasets">Импортирани набори от данни</string>
+    <string name="added_to_favorites">Добави в любими</string>
+    <string name="removed_from_favorites">Премахнато от любими</string>
+    <string name="external_files_ok">ОК</string>
+    <string name="delete_cancel">Откажи</string>
+</resources>

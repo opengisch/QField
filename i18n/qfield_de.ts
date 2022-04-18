@@ -2,17 +2,17 @@
 <context>
     <name>About</name>
     <message>
-        <location filename="../src/qml/About.qml" line="107"/>
+        <location filename="../src/qml/About.qml" line="111"/>
         <source>Developed by</source>
         <translation>Entwickelt von</translation>
     </message>
     <message>
-        <location filename="../src/qml/About.qml" line="139"/>
+        <location filename="../src/qml/About.qml" line="143"/>
         <source>Support QField</source>
         <translation>Support QField</translation>
     </message>
     <message>
-        <location filename="../src/qml/About.qml" line="148"/>
+        <location filename="../src/qml/About.qml" line="152"/>
         <source>Changelog</source>
         <translation>Changelog</translation>
     </message>
@@ -168,14 +168,47 @@
     <message>
         <location filename="../src/core/locator/bookmarklocatorfilter.h" line="45"/>
         <source>Spatial bookmarks</source>
+        <translation>Räumliches Lesezeichen</translation>
+    </message>
+</context>
+<context>
+    <name>BookmarkProperties</name>
+    <message>
+        <location filename="../src/qml/BookmarkProperties.qml" line="45"/>
+        <source>Bookmark Properties</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/qml/BookmarkProperties.qml" line="74"/>
+        <source>Name</source>
+        <translation>Name</translation>
+    </message>
+    <message>
+        <location filename="../src/qml/BookmarkProperties.qml" line="87"/>
+        <source>Color</source>
+        <translation>Farbe</translation>
+    </message>
+    <message>
+        <location filename="../src/qml/BookmarkProperties.qml" line="198"/>
+        <source>Remove bookmark</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/qml/BookmarkProperties.qml" line="202"/>
+        <source>You are about to remove a bookmark, proceed?</source>
         <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>BookmarkRenderer</name>
     <message>
-        <location filename="../src/qml/BookmarkRenderer.qml" line="76"/>
+        <location filename="../src/qml/BookmarkRenderer.qml" line="131"/>
         <source>Bookmark: %1</source>
+        <translation>Lesezeichen: %1</translation>
+    </message>
+    <message>
+        <location filename="../src/qml/BookmarkRenderer.qml" line="143"/>
+        <source>Project bookmarks cannot be edited</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -190,22 +223,22 @@
 <context>
     <name>CalendarPanel</name>
     <message>
-        <location filename="../src/qml/CalendarPanel.qml" line="192"/>
+        <location filename="../src/qml/CalendarPanel.qml" line="279"/>
         <source>Hours</source>
         <translation>Stunden</translation>
     </message>
     <message>
-        <location filename="../src/qml/CalendarPanel.qml" line="210"/>
+        <location filename="../src/qml/CalendarPanel.qml" line="297"/>
         <source>Minutes</source>
         <translation>Minuten</translation>
     </message>
     <message>
-        <location filename="../src/qml/CalendarPanel.qml" line="228"/>
+        <location filename="../src/qml/CalendarPanel.qml" line="315"/>
         <source>Seconds</source>
         <translation>Sekunden</translation>
     </message>
     <message>
-        <location filename="../src/qml/CalendarPanel.qml" line="247"/>
+        <location filename="../src/qml/CalendarPanel.qml" line="335"/>
         <source>OK</source>
         <translation>Ok</translation>
     </message>
@@ -283,35 +316,31 @@
 <context>
     <name>DateTime</name>
     <message>
-        <location filename="../src/qml/editorwidgets/DateTime.qml" line="72"/>
-        <location filename="../src/qml/editorwidgets/DateTime.qml" line="177"/>
+        <location filename="../src/qml/editorwidgets/DateTime.qml" line="73"/>
+        <location filename="../src/qml/editorwidgets/DateTime.qml" line="170"/>
         <source>(no date)</source>
         <translation>(Kein Datum)</translation>
     </message>
     <message>
-        <location filename="../src/qml/editorwidgets/DateTime.qml" line="210"/>
+        <location filename="../src/qml/editorwidgets/DateTime.qml" line="203"/>
         <source>Date value set to today.</source>
         <translation>Datumswert auf heute gesetzt.</translation>
     </message>
     <message>
-        <location filename="../src/qml/editorwidgets/DateTime.qml" line="406"/>
         <source>Hours</source>
-        <translation>Stunden</translation>
+        <translation type="vanished">Stunden</translation>
     </message>
     <message>
-        <location filename="../src/qml/editorwidgets/DateTime.qml" line="424"/>
         <source>Minutes</source>
-        <translation>Minuten</translation>
+        <translation type="vanished">Minuten</translation>
     </message>
     <message>
-        <location filename="../src/qml/editorwidgets/DateTime.qml" line="442"/>
         <source>Seconds</source>
-        <translation>Sekunden</translation>
+        <translation type="vanished">Sekunden</translation>
     </message>
     <message>
-        <location filename="../src/qml/editorwidgets/DateTime.qml" line="461"/>
         <source>OK</source>
-        <translation>Ok</translation>
+        <translation type="vanished">Ok</translation>
     </message>
 </context>
 <context>
@@ -399,7 +428,7 @@
         <translation>Kein Wert</translation>
     </message>
     <message>
-        <location filename="../src/qml/editorwidgets/ExternalResource.qml" line="380"/>
+        <location filename="../src/qml/editorwidgets/ExternalResource.qml" line="391"/>
         <source>Cannot handle this file type</source>
         <translation>Dateityp nicht unterstützt</translation>
     </message>
@@ -456,7 +485,7 @@
     <message>
         <location filename="../src/qml/FeatureForm.qml" line="735"/>
         <source>Cancel editing</source>
-        <translation type="unfinished"/>
+        <translation>Bearbeiten abbrechen</translation>
     </message>
     <message>
         <location filename="../src/qml/FeatureForm.qml" line="740"/>
@@ -491,38 +520,38 @@
         <translation type="vanished">Letzte Änderungen verworfen</translation>
     </message>
     <message>
-        <location filename="../src/qml/FeatureListForm.qml" line="448"/>
+        <location filename="../src/qml/FeatureListForm.qml" line="452"/>
         <source>Successfully duplicated feature</source>
-        <translation type="unfinished"/>
+        <translation>Feature dupliziert</translation>
     </message>
     <message>
-        <location filename="../src/qml/FeatureListForm.qml" line="466"/>
-        <location filename="../src/qml/FeatureListForm.qml" line="541"/>
+        <location filename="../src/qml/FeatureListForm.qml" line="470"/>
+        <location filename="../src/qml/FeatureListForm.qml" line="545"/>
         <source>A number of features are being tracked, stop tracking to delete those</source>
         <translation>Eine Anzahl an Features wird aufgenommen, beende das Aufzeichnen um diese zu Löschen</translation>
     </message>
     <message>
-        <location filename="../src/qml/FeatureListForm.qml" line="498"/>
+        <location filename="../src/qml/FeatureListForm.qml" line="502"/>
         <source>A number of features are being tracked, stop tracking to merge those</source>
         <translation>Eine Anzahl an Features wird aufgenommen, beende das Aufzeichnen um diese Zusammenzuführen</translation>
     </message>
     <message>
-        <location filename="../src/qml/FeatureListForm.qml" line="533"/>
+        <location filename="../src/qml/FeatureListForm.qml" line="537"/>
         <source>Successfully duplicated selected features, list updated to show newly-created features</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/qml/FeatureListForm.qml" line="638"/>
+        <location filename="../src/qml/FeatureListForm.qml" line="642"/>
         <source>No feature at this position</source>
         <translation>Kein Objekt an dieser Position</translation>
     </message>
     <message>
-        <location filename="../src/qml/FeatureListForm.qml" line="697"/>
+        <location filename="../src/qml/FeatureListForm.qml" line="701"/>
         <source>Merge feature(s)</source>
         <translation>Feature(s) zusammenführen</translation>
     </message>
     <message numerus="yes">
-        <location filename="../src/qml/FeatureListForm.qml" line="701"/>
+        <location filename="../src/qml/FeatureListForm.qml" line="705"/>
         <source>Should the %n feature(s) selected really be merge?
 
 The features geometries will be combined into feature &apos;%1&apos;, which will keep its attributes.</source>
@@ -530,39 +559,39 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
         <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
     </message>
     <message numerus="yes">
-        <location filename="../src/qml/FeatureListForm.qml" line="713"/>
+        <location filename="../src/qml/FeatureListForm.qml" line="717"/>
         <source>Successfully merged %n feature(s)</source>
         <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
     </message>
     <message numerus="yes">
-        <location filename="../src/qml/FeatureListForm.qml" line="715"/>
+        <location filename="../src/qml/FeatureListForm.qml" line="719"/>
         <source>Failed to merge %n feature(s)</source>
         <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
     </message>
     <message>
-        <location filename="../src/qml/FeatureListForm.qml" line="747"/>
+        <location filename="../src/qml/FeatureListForm.qml" line="751"/>
         <source>Delete feature(s)</source>
         <translation>Objekt(e) löschen</translation>
     </message>
     <message numerus="yes">
-        <location filename="../src/qml/FeatureListForm.qml" line="751"/>
+        <location filename="../src/qml/FeatureListForm.qml" line="755"/>
         <source>Should the %n feature(s) selected really be deleted?</source>
         <comment>0</comment>
         <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
     </message>
     <message numerus="yes">
-        <location filename="../src/qml/FeatureListForm.qml" line="767"/>
+        <location filename="../src/qml/FeatureListForm.qml" line="771"/>
         <source>Successfully deleted %n feature(s)</source>
         <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
     </message>
     <message numerus="yes">
-        <location filename="../src/qml/FeatureListForm.qml" line="775"/>
+        <location filename="../src/qml/FeatureListForm.qml" line="779"/>
         <source>Failed to delete %n feature(s)</source>
         <translation><numerusform>Löschen von %n Objekt fehlgeschlagen</numerusform><numerusform>Löschen von %n Objekten fehlgeschlagen</numerusform></translation>
     </message>
     <message>
         <location filename="../src/qml/FeatureListForm.qml" line="356"/>
-        <location filename="../src/qml/FeatureListForm.qml" line="802"/>
+        <location filename="../src/qml/FeatureListForm.qml" line="806"/>
         <source>Changes discarded</source>
         <translation>Änderungen verworfen</translation>
     </message>
@@ -636,12 +665,17 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
         <translation>Formular öffnen</translation>
     </message>
     <message>
-        <location filename="../src/core/locator/featureslocatorfilter.cpp" line="162"/>
+        <location filename="../src/core/locator/featureslocatorfilter.cpp" line="117"/>
+        <source>Set feature as navigation</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/core/locator/featureslocatorfilter.cpp" line="172"/>
         <source>Feature has no geometry</source>
         <translation>Objekt kat keine Geometrie</translation>
     </message>
     <message>
-        <location filename="../src/core/locator/featureslocatorfilter.h" line="61"/>
+        <location filename="../src/core/locator/featureslocatorfilter.h" line="62"/>
         <source>Features in all layers</source>
         <translation>Objekte in allen Layern</translation>
     </message>
@@ -674,12 +708,12 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
         <translation>Unbekannter Fehler beim erstellen des Rings</translation>
     </message>
     <message>
-        <location filename="../src/qml/geometry_editors/FillRingToolBar.qml" line="99"/>
+        <location filename="../src/qml/geometry_editors/FillRingToolBar.qml" line="100"/>
         <source>Fill ring</source>
         <translation>Fülle Ring</translation>
     </message>
     <message>
-        <location filename="../src/qml/geometry_editors/FillRingToolBar.qml" line="103"/>
+        <location filename="../src/qml/geometry_editors/FillRingToolBar.qml" line="104"/>
         <source>Would you like to fill the ring with a new polygon?</source>
         <translation>Möchtest du den Ring mit einem neuen Polygon füllen?</translation>
     </message>
@@ -723,7 +757,13 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/core/locator/gotolocatorfilter.cpp" line="131"/>
+        <location filename="../src/core/locator/gotolocatorfilter.cpp" line="103"/>
+        <location filename="../src/core/locator/gotolocatorfilter.cpp" line="135"/>
+        <source>Set navigation point</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/core/locator/gotolocatorfilter.cpp" line="132"/>
         <source>Go to %1° %2° (WGS84)</source>
         <translation type="unfinished"/>
     </message>
@@ -910,27 +950,27 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
 <context>
     <name>LocatorFiltersModel</name>
     <message>
-        <location filename="../src/core/locator/locatormodelsuperbridge.cpp" line="212"/>
+        <location filename="../src/core/locator/locatormodelsuperbridge.cpp" line="227"/>
         <source>Returns a list of features accross all searchable layers with matching attributes</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/core/locator/locatormodelsuperbridge.cpp" line="213"/>
+        <location filename="../src/core/locator/locatormodelsuperbridge.cpp" line="228"/>
         <source>Returns a point from a pair of X and Y coordinates typed in the search bar</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/core/locator/locatormodelsuperbridge.cpp" line="214"/>
+        <location filename="../src/core/locator/locatormodelsuperbridge.cpp" line="229"/>
         <source>Returns a list of bookmark with matching names</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/core/locator/locatormodelsuperbridge.cpp" line="215"/>
+        <location filename="../src/core/locator/locatormodelsuperbridge.cpp" line="230"/>
         <source>Returns a list of locations and addresses within Finland with matching terms</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/core/locator/locatormodelsuperbridge.cpp" line="311"/>
+        <location filename="../src/core/locator/locatormodelsuperbridge.cpp" line="326"/>
         <source>Search filters for your locations have been activated, customize results in the settings panel</source>
         <translation type="unfinished"/>
     </message>
@@ -938,7 +978,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
 <context>
     <name>LocatorItem</name>
     <message>
-        <location filename="../src/qml/LocatorItem.qml" line="90"/>
+        <location filename="../src/qml/LocatorItem.qml" line="89"/>
         <source>Search…</source>
         <translation>Suchen…</translation>
     </message>
@@ -1014,95 +1054,139 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
 <context>
     <name>NavigationBar</name>
     <message>
-        <location filename="../src/qml/NavigationBar.qml" line="113"/>
+        <location filename="../src/qml/NavigationBar.qml" line="114"/>
         <source>Features</source>
         <translation>Objekte</translation>
     </message>
     <message>
-        <location filename="../src/qml/NavigationBar.qml" line="443"/>
+        <location filename="../src/qml/NavigationBar.qml" line="446"/>
         <source>Feature List Menu</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/qml/NavigationBar.qml" line="457"/>
+        <location filename="../src/qml/NavigationBar.qml" line="460"/>
         <source>Toggle Feature Selection</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/qml/NavigationBar.qml" line="474"/>
-        <location filename="../src/qml/NavigationBar.qml" line="653"/>
+        <location filename="../src/qml/NavigationBar.qml" line="477"/>
+        <location filename="../src/qml/NavigationBar.qml" line="667"/>
         <source>Print Atlas Feature(s) to PDF</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/qml/NavigationBar.qml" line="494"/>
+        <location filename="../src/qml/NavigationBar.qml" line="497"/>
         <source>Merge Selected Features</source>
         <translation>Führe ausgewählte Objekte zusammen</translation>
     </message>
     <message>
-        <location filename="../src/qml/NavigationBar.qml" line="507"/>
+        <location filename="../src/qml/NavigationBar.qml" line="510"/>
         <source>Move Selected Feature(s)</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/qml/NavigationBar.qml" line="520"/>
+        <location filename="../src/qml/NavigationBar.qml" line="523"/>
         <source>Duplicate Selected Feature(s)</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/qml/NavigationBar.qml" line="533"/>
+        <location filename="../src/qml/NavigationBar.qml" line="536"/>
         <source>Delete Selected Feature(s)</source>
         <translation>Lösche ausgewählte Objekte</translation>
     </message>
     <message>
-        <location filename="../src/qml/NavigationBar.qml" line="548"/>
+        <location filename="../src/qml/NavigationBar.qml" line="551"/>
         <source>Feature Menu</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/qml/NavigationBar.qml" line="562"/>
+        <location filename="../src/qml/NavigationBar.qml" line="565"/>
         <source>Print Atlas Feature to PDF</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/qml/NavigationBar.qml" line="579"/>
+        <location filename="../src/qml/NavigationBar.qml" line="582"/>
         <source>Zoom to Feature</source>
         <translation>Auf das Objekt zoomen</translation>
     </message>
     <message>
-        <location filename="../src/qml/NavigationBar.qml" line="590"/>
+        <location filename="../src/qml/NavigationBar.qml" line="593"/>
         <source>Auto-Zoom to Feature</source>
         <translation>Auto-Zoom auf das Objekt</translation>
     </message>
     <message>
-        <location filename="../src/qml/NavigationBar.qml" line="608"/>
+        <location filename="../src/qml/NavigationBar.qml" line="606"/>
+        <source>Set Feature as Destination</source>
+        <translation>Zu Objekt navigieren</translation>
+    </message>
+    <message>
+        <location filename="../src/qml/NavigationBar.qml" line="622"/>
         <source>Move Feature</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/qml/NavigationBar.qml" line="621"/>
+        <location filename="../src/qml/NavigationBar.qml" line="635"/>
         <source>Duplicate Feature</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/qml/NavigationBar.qml" line="634"/>
+        <location filename="../src/qml/NavigationBar.qml" line="648"/>
         <source>Delete Feature</source>
         <translation>Objekt löschen</translation>
     </message>
     <message>
-        <location filename="../src/qml/NavigationBar.qml" line="669"/>
+        <location filename="../src/qml/NavigationBar.qml" line="683"/>
         <source>Select template below</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/qml/NavigationBar.qml" line="693"/>
-        <location filename="../src/qml/NavigationBar.qml" line="732"/>
+        <location filename="../src/qml/NavigationBar.qml" line="707"/>
+        <location filename="../src/qml/NavigationBar.qml" line="746"/>
         <source>Printing atlas feature(s) to PDF</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/qml/NavigationBar.qml" line="719"/>
+        <location filename="../src/qml/NavigationBar.qml" line="733"/>
         <source>Atlas feature(s) successfully printed to PDF and placed in your documents</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>NavigationInformationView</name>
+    <message>
+        <location filename="../src/qml/NavigationInformationView.qml" line="43"/>
+        <source>Lat.</source>
+        <translation>Lat</translation>
+    </message>
+    <message>
+        <location filename="../src/qml/NavigationInformationView.qml" line="44"/>
+        <source>X</source>
+        <translation>X</translation>
+    </message>
+    <message>
+        <location filename="../src/qml/NavigationInformationView.qml" line="60"/>
+        <source>Lon.</source>
+        <translation>Lon</translation>
+    </message>
+    <message>
+        <location filename="../src/qml/NavigationInformationView.qml" line="61"/>
+        <source>Y</source>
+        <translation>Y</translation>
+    </message>
+    <message>
+        <location filename="../src/qml/NavigationInformationView.qml" line="76"/>
+        <source>Dist.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/qml/NavigationInformationView.qml" line="79"/>
+        <location filename="../src/qml/NavigationInformationView.qml" line="97"/>
+        <source>N/A</source>
+        <translation>N. a.</translation>
+    </message>
+    <message>
+        <location filename="../src/qml/NavigationInformationView.qml" line="94"/>
+        <source>Bearing</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -1156,42 +1240,42 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
 <context>
     <name>PlatformUtilities</name>
     <message>
-        <location filename="../src/core/platforms/platformutilities.cpp" line="122"/>
+        <location filename="../src/core/platforms/platformutilities.cpp" line="135"/>
         <source>Select Media File</source>
         <translation>Mediendatei auswählen</translation>
     </message>
     <message>
-        <location filename="../src/core/platforms/platformutilities.cpp" line="122"/>
+        <location filename="../src/core/platforms/platformutilities.cpp" line="135"/>
         <source>JPEG images (*.jpg *.jpeg)</source>
         <translation>JPEG-Bilder (*.jpg *.jpeg)</translation>
     </message>
     <message>
-        <location filename="../src/core/platforms/platformutilities.cpp" line="142"/>
+        <location filename="../src/core/platforms/platformutilities.cpp" line="155"/>
         <source>Failed to save gallery picture</source>
         <translation>Galleriebild konnte nicht gespeichert werden</translation>
     </message>
     <message>
-        <location filename="../src/core/platforms/platformutilities.cpp" line="159"/>
+        <location filename="../src/core/platforms/platformutilities.cpp" line="172"/>
         <source>Open File</source>
         <translation>Datei öffnen</translation>
     </message>
     <message>
-        <location filename="../src/core/platforms/platformutilities.cpp" line="161"/>
+        <location filename="../src/core/platforms/platformutilities.cpp" line="174"/>
         <source>All Supported Files</source>
         <translation>Alle Unterstützen Dateien</translation>
     </message>
     <message>
-        <location filename="../src/core/platforms/platformutilities.cpp" line="161"/>
+        <location filename="../src/core/platforms/platformutilities.cpp" line="174"/>
         <source>QGIS Project Files</source>
         <translation>QGIS Projektdateien</translation>
     </message>
     <message>
-        <location filename="../src/core/platforms/platformutilities.cpp" line="161"/>
+        <location filename="../src/core/platforms/platformutilities.cpp" line="174"/>
         <source>Vector Datasets</source>
         <translation>Vektordaten</translation>
     </message>
     <message>
-        <location filename="../src/core/platforms/platformutilities.cpp" line="161"/>
+        <location filename="../src/core/platforms/platformutilities.cpp" line="174"/>
         <source>Raster Datasets</source>
         <translation>Rasterdaten</translation>
     </message>
@@ -1199,83 +1283,83 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
 <context>
     <name>PositionInformationView</name>
     <message>
-        <location filename="../src/qml/PositionInformationView.qml" line="42"/>
+        <location filename="../src/qml/PositionInformationView.qml" line="43"/>
         <source>Lat.</source>
         <translation>Lat</translation>
     </message>
     <message>
-        <location filename="../src/qml/PositionInformationView.qml" line="42"/>
         <location filename="../src/qml/PositionInformationView.qml" line="43"/>
-        <location filename="../src/qml/PositionInformationView.qml" line="59"/>
+        <location filename="../src/qml/PositionInformationView.qml" line="44"/>
         <location filename="../src/qml/PositionInformationView.qml" line="60"/>
-        <location filename="../src/qml/PositionInformationView.qml" line="103"/>
-        <location filename="../src/qml/PositionInformationView.qml" line="118"/>
-        <location filename="../src/qml/PositionInformationView.qml" line="133"/>
+        <location filename="../src/qml/PositionInformationView.qml" line="61"/>
+        <location filename="../src/qml/PositionInformationView.qml" line="104"/>
+        <location filename="../src/qml/PositionInformationView.qml" line="119"/>
+        <location filename="../src/qml/PositionInformationView.qml" line="134"/>
         <source>N/A</source>
         <translation>N. a.</translation>
     </message>
     <message>
-        <location filename="../src/qml/PositionInformationView.qml" line="43"/>
+        <location filename="../src/qml/PositionInformationView.qml" line="44"/>
         <source>X</source>
         <translation>X</translation>
     </message>
     <message>
-        <location filename="../src/qml/PositionInformationView.qml" line="59"/>
+        <location filename="../src/qml/PositionInformationView.qml" line="60"/>
         <source>Lon.</source>
         <translation>Lon</translation>
     </message>
     <message>
-        <location filename="../src/qml/PositionInformationView.qml" line="60"/>
+        <location filename="../src/qml/PositionInformationView.qml" line="61"/>
         <source>Y</source>
         <translation>Y</translation>
     </message>
     <message>
-        <location filename="../src/qml/PositionInformationView.qml" line="76"/>
+        <location filename="../src/qml/PositionInformationView.qml" line="77"/>
         <source>Altitude</source>
         <translation>Höhe</translation>
     </message>
     <message>
-        <location filename="../src/qml/PositionInformationView.qml" line="103"/>
+        <location filename="../src/qml/PositionInformationView.qml" line="104"/>
         <source>Speed</source>
         <translation>Geschw.</translation>
     </message>
     <message>
-        <location filename="../src/qml/PositionInformationView.qml" line="118"/>
+        <location filename="../src/qml/PositionInformationView.qml" line="119"/>
         <source>H. Accuracy</source>
         <translation>Horizontale Genauigkeit</translation>
     </message>
     <message>
-        <location filename="../src/qml/PositionInformationView.qml" line="133"/>
+        <location filename="../src/qml/PositionInformationView.qml" line="134"/>
         <source>V. Accuracy</source>
         <translation>Vertikale Genauigkeit</translation>
     </message>
     <message>
-        <location filename="../src/qml/PositionInformationView.qml" line="149"/>
+        <location filename="../src/qml/PositionInformationView.qml" line="150"/>
         <source>PDOP</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/qml/PositionInformationView.qml" line="165"/>
+        <location filename="../src/qml/PositionInformationView.qml" line="166"/>
         <source>HDOP</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/qml/PositionInformationView.qml" line="181"/>
+        <location filename="../src/qml/PositionInformationView.qml" line="182"/>
         <source>VDOP</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/qml/PositionInformationView.qml" line="197"/>
+        <location filename="../src/qml/PositionInformationView.qml" line="198"/>
         <source>Valid</source>
         <translation>Gültig</translation>
     </message>
     <message>
-        <location filename="../src/qml/PositionInformationView.qml" line="213"/>
+        <location filename="../src/qml/PositionInformationView.qml" line="214"/>
         <source>Fix</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/qml/PositionInformationView.qml" line="229"/>
+        <location filename="../src/qml/PositionInformationView.qml" line="230"/>
         <source>Quality</source>
         <translation>Qualität</translation>
     </message>
@@ -1291,47 +1375,47 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
 <context>
     <name>QFieldCloudConnection</name>
     <message>
-        <location filename="../src/core/qfieldcloudconnection.cpp" line="77"/>
+        <location filename="../src/core/qfieldcloudconnection.cpp" line="456"/>
         <source>[timeout] The request took too long to finish, please retry.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/core/qfieldcloudconnection.cpp" line="80"/>
+        <location filename="../src/core/qfieldcloudconnection.cpp" line="459"/>
         <source>[aborted] The request has been aborted.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/core/qfieldcloudconnection.cpp" line="111"/>
+        <location filename="../src/core/qfieldcloudconnection.cpp" line="492"/>
         <source>Server Error.</source>
         <translation>Serverfehler</translation>
     </message>
     <message>
-        <location filename="../src/core/qfieldcloudconnection.cpp" line="112"/>
+        <location filename="../src/core/qfieldcloudconnection.cpp" line="493"/>
         <source>Network Error.</source>
         <translation>Netzwerkfehler</translation>
     </message>
     <message>
-        <location filename="../src/core/qfieldcloudconnection.cpp" line="225"/>
+        <location filename="../src/core/qfieldcloudconnection.cpp" line="159"/>
         <source>Server not found, please check the server URL</source>
         <translation>Server nicht gefunden, bitte überprüfe die Server URL</translation>
     </message>
     <message>
-        <location filename="../src/core/qfieldcloudconnection.cpp" line="229"/>
+        <location filename="../src/core/qfieldcloudconnection.cpp" line="163"/>
         <source>Timeout error, please retry</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/core/qfieldcloudconnection.cpp" line="233"/>
+        <location filename="../src/core/qfieldcloudconnection.cpp" line="167"/>
         <source>Wrong username or password</source>
         <translation>Falscher Nutzername oder Passwort</translation>
     </message>
     <message>
-        <location filename="../src/core/qfieldcloudconnection.cpp" line="237"/>
+        <location filename="../src/core/qfieldcloudconnection.cpp" line="171"/>
         <source>Session expired</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/core/qfieldcloudconnection.cpp" line="254"/>
+        <location filename="../src/core/qfieldcloudconnection.cpp" line="188"/>
         <source>Login temporary unavailable</source>
         <translation type="unfinished"/>
     </message>
@@ -1352,9 +1436,13 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
 <context>
     <name>QFieldCloudLogin</name>
     <message>
-        <location filename="../src/qml/QFieldCloudLogin.qml" line="84"/>
         <source>Failed to login</source>
-        <translation>Anmeldung fehlgeschlagen</translation>
+        <translation type="vanished">Anmeldung fehlgeschlagen</translation>
+    </message>
+    <message>
+        <location filename="../src/qml/QFieldCloudLogin.qml" line="84"/>
+        <source>Failed to sign in</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/qml/QFieldCloudLogin.qml" line="117"/>
@@ -1363,37 +1451,59 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/qml/QFieldCloudLogin.qml" line="162"/>
+        <location filename="../src/qml/QFieldCloudLogin.qml" line="152"/>
         <source>Username or email</source>
         <translation>Benutzername oder E-Mail</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldCloudLogin.qml" line="195"/>
+        <location filename="../src/qml/QFieldCloudLogin.qml" line="176"/>
         <source>Password</source>
         <translation>Passwort</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldCloudLogin.qml" line="231"/>
+        <location filename="../src/qml/QFieldCloudLogin.qml" line="203"/>
+        <source>Sign out</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/qml/QFieldCloudLogin.qml" line="203"/>
+        <source>Signing in, please wait</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/qml/QFieldCloudLogin.qml" line="203"/>
+        <source>Sign in</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/qml/QFieldCloudLogin.qml" line="214"/>
+        <source>New user?</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/qml/QFieldCloudLogin.qml" line="214"/>
+        <source>Register an account</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
         <source>Logout</source>
-        <translation>Abmelden</translation>
+        <translation type="vanished">Abmelden</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldCloudLogin.qml" line="231"/>
         <source>Logging in, please wait</source>
-        <translation>Anmeldung läuft, bitte warten</translation>
+        <translation type="vanished">Anmeldung läuft, bitte warten</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldCloudLogin.qml" line="231"/>
         <source>Login</source>
-        <translation>Anmelden</translation>
+        <translation type="vanished">Anmelden</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldCloudLogin.qml" line="241"/>
+        <location filename="../src/qml/QFieldCloudLogin.qml" line="227"/>
         <source>The easiest way to transfer you project from QGIS to your devices!</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/qml/QFieldCloudLogin.qml" line="242"/>
+        <location filename="../src/qml/QFieldCloudLogin.qml" line="228"/>
         <source>Learn more about QFieldCloud</source>
         <translation>Erfahre mehr über QFieldCloud</translation>
     </message>
@@ -1639,7 +1749,7 @@ While you can still view and use the project, it is strongly recommended to rese
     <name>QFieldCloudProjectsModel</name>
     <message>
         <source>Export failed</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Export fehlgeschlagen</translation>
     </message>
     <message>
         <source>Packaged layer &apos;%1&apos; is not valid: &apos;%2&apos;</source>
@@ -1720,69 +1830,69 @@ While you can still view and use the project, it is strongly recommended to rese
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/core/qfieldcloudprojectsmodel.cpp" line="917"/>
+        <location filename="../src/core/qfieldcloudprojectsmodel.cpp" line="919"/>
         <source>Failed to get latest package data.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/core/qfieldcloudprojectsmodel.cpp" line="931"/>
+        <location filename="../src/core/qfieldcloudprojectsmodel.cpp" line="933"/>
         <source>Latest package data response error.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/core/qfieldcloudprojectsmodel.cpp" line="951"/>
+        <location filename="../src/core/qfieldcloudprojectsmodel.cpp" line="953"/>
         <source>Latest package data structure error.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/core/qfieldcloudprojectsmodel.cpp" line="984"/>
+        <location filename="../src/core/qfieldcloudprojectsmodel.cpp" line="986"/>
         <source>Project %1: Packaged layer `%2` is not valid. Error code %3, error message: %4</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/core/qfieldcloudprojectsmodel.cpp" line="1110"/>
+        <location filename="../src/core/qfieldcloudprojectsmodel.cpp" line="1112"/>
         <source>Failed to open temporary file for `%1`, reason:
 %2</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/core/qfieldcloudprojectsmodel.cpp" line="1566"/>
+        <location filename="../src/core/qfieldcloudprojectsmodel.cpp" line="1568"/>
         <source>Failed to upload attachment stored at `%1`, reason:
 %2</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/core/qfieldcloudprojectsmodel.cpp" line="1811"/>
+        <location filename="../src/core/qfieldcloudprojectsmodel.cpp" line="1815"/>
         <source>Network error. Failed to download file `%1`.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/core/qfieldcloudprojectsmodel.cpp" line="1826"/>
+        <location filename="../src/core/qfieldcloudprojectsmodel.cpp" line="1830"/>
         <source>File system error. Failed to write file to temporary location `%1`.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/core/qfieldcloudprojectsmodel.cpp" line="1833"/>
+        <location filename="../src/core/qfieldcloudprojectsmodel.cpp" line="1837"/>
         <source>File system error. Failed to open file for writing on temporary `%1`.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/core/qfieldcloudprojectsmodel.cpp" line="1845"/>
+        <location filename="../src/core/qfieldcloudprojectsmodel.cpp" line="1849"/>
         <source>Project `%1`, file `%2`: %3</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/core/qfieldcloudprojectsmodel.cpp" line="1846"/>
+        <location filename="../src/core/qfieldcloudprojectsmodel.cpp" line="1850"/>
         <source>System message: </source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/core/qfieldcloudprojectsmodel.cpp" line="1848"/>
+        <location filename="../src/core/qfieldcloudprojectsmodel.cpp" line="1852"/>
         <source> (see more in the QField error log)…</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/core/qfieldcloudprojectsmodel.cpp" line="1881"/>
+        <location filename="../src/core/qfieldcloudprojectsmodel.cpp" line="1885"/>
         <source>Failed to copy some of the downloaded files on your device. Check your device storage.</source>
         <translation type="unfinished"/>
     </message>
@@ -1913,253 +2023,273 @@ While you can still view and use the project, it is strongly recommended to rese
 <context>
     <name>QFieldSettings</name>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="40"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="52"/>
         <source>Show scale bar</source>
         <translation>Massstab anzeigen</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="44"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="56"/>
         <source>Maximized attribute form</source>
         <translation>Attributformular im Vollbild</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="48"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="60"/>
         <source>Fixed scale navigation</source>
         <translation>Navigation mit feststehendem Massstab</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="49"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="61"/>
         <source>When fixed scale navigation is active, focusing on a search result will pan to the feature. With fixed scale navigation disabled it will pan and zoom to the feature.</source>
         <translation>Wenn Navigation mit feststehendem Massstab aktiviert ist, wird beim Fokussieren zu einem Suchresultat der Massstab nicht verändert. Wenn Navigation mit feststehendem Massstab deaktiviert ist, wird zum entsprechenden Objekt gezoomt.</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="53"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="65"/>
         <source>Show digitizing information</source>
         <translation>Digitalisierungsinformationen anzeigen</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="54"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="66"/>
         <source>When switched on, coordinate information, such as latitude and longitude, is overlayed onto the map while digitizing new features or using the measure tool.</source>
         <translation>Wenn diese Funktion eingeschaltet ist, werden Koordinateninformationen, wie z. B. Breiten- und Längengrad, beim Digitalisieren neuer Elemente oder bei der Verwendung des Messwerkzeugs in der Karte eingeblendet.</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="58"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="70"/>
+        <source>Show bookmarks</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/qml/QFieldSettings.qml" line="71"/>
+        <source>When switched on, user&apos;s saved and currently opened project bookmarks will be displayed on the map.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/qml/QFieldSettings.qml" line="75"/>
         <source>Use native camera</source>
         <translation>Native Kamera benutzen</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="59"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="76"/>
         <source>If disabled, QField will use a minimalist internal camera instead of the camera app on the device.&lt;br&gt;Tip: Enable this option and install the open camera app to create geo tagged photos.</source>
         <translation>Falls die Option deaktiviert wird, wird QField eine minimalistische, interne Kamera-App anstatt der standart Kamera verwenden &lt;br&gt; Hinweis: Aktiviere diese Option und installiere die &quot;Open Camera&quot;-App, um Fotos mit Standortdaten aufzunehmen.</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="64"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="81"/>
         <source>Fast editing mode</source>
         <translation>Schneller Bearbeitungsmodus</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="65"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="82"/>
         <source>If enabled, the feature is stored after having a valid geometry and the constraints are fulfilled and atributes are commited immediately.</source>
         <translation>Wenn diese Option aktiviert ist, wird das Feature gespeichert, nachdem eine gültige Geometrie vorliegt, die Bedingungen erfüllt sind und die Attribute sofort festgelegt werden.</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="69"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="86"/>
         <source>Dim screen when idling</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="70"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="87"/>
         <source>If enabled, the screen brightness will be dimmed after 20 seconds of inactivity to preserve battery.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="74"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="91"/>
         <source>Consider mouse as a touchscreen device</source>
         <translation>Verwende Maus als Touchscreen-Eingabe</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="75"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="92"/>
         <source>If disabled, the mouse will act as a stylus pen.</source>
         <translation>Wenn deaktiviert, fungiert die Maus als Stylus-Stift.</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="113"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="96"/>
+        <source>Send anonymized metrics</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/qml/QFieldSettings.qml" line="97"/>
+        <source>If enabled, anonymized metrics will be collected and sent to help improve QField for everyone.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/qml/QFieldSettings.qml" line="137"/>
         <source>General</source>
         <translation>Allgemein</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="119"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="143"/>
         <source>Positioning</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="125"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="149"/>
         <source>Variables</source>
         <translation>Variablen</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="167"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="191"/>
         <source>Customize search bar</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="258"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="282"/>
         <source>User interface language:</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="269"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="293"/>
         <source>To apply the selected user interface language, QField needs to completely shutdown and restart.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="298"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="322"/>
         <source>system</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="311"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="335"/>
         <source>Found a missing or incomplete language? %1Join the translator community.%2</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="354"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="378"/>
         <source>Positioning device in use:</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="402"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="426"/>
         <source>Scanning for paired devices</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="406"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="430"/>
         <source>Scanning failed: %1</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="410"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="434"/>
         <source>Scanning done</source>
         <translation type="unfinished"/>
     </message>
     <message numerus="yes">
-        <location filename="../src/qml/QFieldSettings.qml" line="413"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="437"/>
         <source>%n device(s) found</source>
         <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="419"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="443"/>
         <source>Scanning canceled</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="436"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="460"/>
         <source>Scan</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="469"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="493"/>
         <source>Make a full service discovery</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="473"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="497"/>
         <source>A full device scan can take longer. You really want to do it?
 Cancel to make a minimal device scan instead.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="498"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="522"/>
         <source>Connected to %1</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="500"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="524"/>
         <source>Connect  to %1</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="502"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="526"/>
         <source>Connecting to %1</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="519"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="543"/>
         <source>Use orthometric altitude from device</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="551"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="575"/>
         <source>Show position information</source>
         <translation>Positionsinformationen anzeigen</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="573"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="597"/>
         <source>Activate accuracy indicator</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="595"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="619"/>
         <source>Bad accuracy below [m]</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="636"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="660"/>
         <source>Excellent accuracy above [m]</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="677"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="701"/>
         <source>Enable accuracy requirement</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="704"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="728"/>
         <source>When the accuracy indicator is enabled, a badge is attached to the location button and colored &lt;span %1&gt;red&lt;/span&gt; if the accuracy value is below bad, &lt;span %2&gt;yellow&lt;/span&gt; if it falls short of excellent, or &lt;span %3&gt;green&lt;/span&gt;.&lt;br&gt;&lt;br&gt;In addition, an accuracy restriction mode can be toggled on, which restricts vertex addition when locked to coordinate cursor to positions with an accuracy value above the bad threshold.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="721"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="745"/>
         <source>Antenna height compensation</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="743"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="767"/>
         <source>Antenna height [m]</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="785"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="809"/>
         <source>Z values which are recorded from the positioning device will be corrected by this value. If a value of 1.6 is entered, this will result in a correction of -1.6 for each recorded value.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="799"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="823"/>
         <source>Skip altitude correction</source>
         <translation>Überspringe Höhenkorrektur</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="822"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="846"/>
         <source>Use the altitude as reported by the positioning device. Skip any altitude correction that may be implied by the coordinate system transformation.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="836"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="860"/>
         <source>Vertical grid shift in use:</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="845"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="869"/>
         <source>None</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="859"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="883"/>
         <source>Vertical grid shift is used to increase the altitude accuracy.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="888"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="912"/>
         <source>QField Settings</source>
         <translation>QField Einstellungen</translation>
     </message>
@@ -2265,23 +2395,23 @@ Cancel to make a minimal device scan instead.</source>
 <context>
     <name>QgisMobileapp</name>
     <message>
-        <location filename="../src/core/qgismobileapp.cpp" line="645"/>
-        <location filename="../src/core/qgismobileapp.cpp" line="671"/>
+        <location filename="../src/core/qgismobileapp.cpp" line="651"/>
+        <location filename="../src/core/qgismobileapp.cpp" line="677"/>
         <source>Project file &quot;%1&quot; does not exist</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/core/qgismobileapp.cpp" line="662"/>
+        <location filename="../src/core/qgismobileapp.cpp" line="668"/>
         <source>No project file currently opened</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/core/qgismobileapp.cpp" line="715"/>
+        <location filename="../src/core/qgismobileapp.cpp" line="721"/>
         <source>Could not load font %1</source>
         <translation>Konnte die Schriftart %1 nicht laden</translation>
     </message>
     <message>
-        <location filename="../src/core/qgismobileapp.cpp" line="717"/>
+        <location filename="../src/core/qgismobileapp.cpp" line="723"/>
         <source>Loading font %1</source>
         <translation>Lade Schriftart %1</translation>
     </message>
@@ -2342,7 +2472,7 @@ Cancel to make a minimal device scan instead.</source>
 <context>
     <name>QgsQuickMapCanvasMap</name>
     <message>
-        <location filename="../src/core/qgsquick/qgsquickmapcanvasmap.cpp" line="183"/>
+        <location filename="../src/core/qgsquick/qgsquickmapcanvasmap.cpp" line="190"/>
         <source>Rendering</source>
         <translation>Rendern</translation>
     </message>
@@ -2350,8 +2480,8 @@ Cancel to make a minimal device scan instead.</source>
 <context>
     <name>QgsQuickMapSettings</name>
     <message>
-        <location filename="../src/core/qgsquick/qgsquickmapsettings.cpp" line="267"/>
-        <location filename="../src/core/qgsquick/qgsquickmapsettings.cpp" line="297"/>
+        <location filename="../src/core/qgsquick/qgsquickmapsettings.cpp" line="313"/>
+        <location filename="../src/core/qgsquick/qgsquickmapsettings.cpp" line="343"/>
         <source>Map Canvas rotation is not supported. Resetting from %1 to 0.</source>
         <translation>Rotieren der Karte wird nicht unterstützt. Reset von %1 zu 0.</translation>
     </message>
@@ -2388,12 +2518,12 @@ Cancel to make a minimal device scan instead.</source>
 <context>
     <name>RelationCombobox</name>
     <message>
-        <location filename="../src/qml/RelationCombobox.qml" line="99"/>
+        <location filename="../src/qml/RelationCombobox.qml" line="101"/>
         <source>Search…</source>
         <translation>Suchen…</translation>
     </message>
     <message>
-        <location filename="../src/qml/RelationCombobox.qml" line="552"/>
+        <location filename="../src/qml/RelationCombobox.qml" line="556"/>
         <source>Invalid relation</source>
         <translation>Ungültige Beziehung</translation>
     </message>
@@ -2525,72 +2655,92 @@ Cancel to make a minimal device scan instead.</source>
 <context>
     <name>WelcomeScreen</name>
     <message>
-        <location filename="../src/qml/WelcomeScreen.qml" line="115"/>
+        <location filename="../src/qml/WelcomeScreen.qml" line="116"/>
         <source>We&apos;re sorry to hear that. Click on the button below to comment or seek support.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/qml/WelcomeScreen.qml" line="129"/>
+        <location filename="../src/qml/WelcomeScreen.qml" line="130"/>
         <source>Reach out</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/qml/WelcomeScreen.qml" line="167"/>
+        <location filename="../src/qml/WelcomeScreen.qml" line="168"/>
         <source>Hey there, how do you like your experience with QField so far?</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/qml/WelcomeScreen.qml" line="224"/>
+        <location filename="../src/qml/WelcomeScreen.qml" line="225"/>
         <source>That&apos;s great! We&apos;d love for you to click on the button below and leave a comment on the store.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/qml/WelcomeScreen.qml" line="239"/>
+        <location filename="../src/qml/WelcomeScreen.qml" line="240"/>
         <source>Rate us</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/qml/WelcomeScreen.qml" line="286"/>
+        <location filename="../src/qml/WelcomeScreen.qml" line="297"/>
+        <source>Anonymized metrics collection has been disabled. You can re-enable through the settings panel.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/qml/WelcomeScreen.qml" line="331"/>
+        <source>To improve stability for everyone, QField collects and sends anonymized metrics.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/qml/WelcomeScreen.qml" line="342"/>
+        <source>I agree</source>
+        <translation>Einverstanden</translation>
+    </message>
+    <message>
+        <location filename="../src/qml/WelcomeScreen.qml" line="351"/>
+        <source>I prefer not</source>
+        <translation>Lieber nicht</translation>
+    </message>
+    <message>
+        <location filename="../src/qml/WelcomeScreen.qml" line="399"/>
         <source>QFieldCloud projects</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/qml/WelcomeScreen.qml" line="294"/>
+        <location filename="../src/qml/WelcomeScreen.qml" line="407"/>
         <source>Open local file</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/qml/WelcomeScreen.qml" line="302"/>
+        <location filename="../src/qml/WelcomeScreen.qml" line="415"/>
         <source>Recent Projects</source>
         <translation>Zuletzt geöffnete Projekte</translation>
     </message>
     <message>
-        <location filename="../src/qml/WelcomeScreen.qml" line="380"/>
+        <location filename="../src/qml/WelcomeScreen.qml" line="493"/>
         <source>Last session</source>
         <translation>Zuletzt verwendet...</translation>
     </message>
     <message>
-        <location filename="../src/qml/WelcomeScreen.qml" line="384"/>
+        <location filename="../src/qml/WelcomeScreen.qml" line="497"/>
         <source>Base map project</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/qml/WelcomeScreen.qml" line="472"/>
+        <location filename="../src/qml/WelcomeScreen.qml" line="585"/>
         <source>Base Map Project</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/qml/WelcomeScreen.qml" line="492"/>
+        <location filename="../src/qml/WelcomeScreen.qml" line="605"/>
         <source>Remove from Recent Projects</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/qml/WelcomeScreen.qml" line="632"/>
+        <location filename="../src/qml/WelcomeScreen.qml" line="745"/>
         <source>Welcome to QField. First time using this application? Try out sample projects listed in the list below.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/qml/WelcomeScreen.qml" line="634"/>
+        <location filename="../src/qml/WelcomeScreen.qml" line="747"/>
         <source>Welcome back to QField.</source>
         <translation>Willkommen zurück in QField.</translation>
     </message>
@@ -2641,277 +2791,375 @@ Cancel to make a minimal device scan instead.</source>
 <context>
     <name>qgismobileapp</name>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="128"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="143"/>
         <source>You are now in browse mode</source>
         <translation>Navigationsmodus aktiv</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="134"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="149"/>
         <source>You are now in digitize mode on layer %1</source>
         <translation>Digitalisierungsmodus für Layer %1 aktiv</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="138"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="153"/>
         <source>You are now in digitize mode</source>
         <translation>Digitalisierungs - Modus aktiviert</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="142"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="157"/>
         <source>You are now in measure mode</source>
         <translation>Bemaßungs - Modus aktiviert</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="626"/>
-        <location filename="../src/qml/qgismobileapp.qml" line="644"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="661"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="679"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1749"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1825"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1979"/>
         <source>Lon</source>
         <translation>Länge</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="628"/>
-        <location filename="../src/qml/qgismobileapp.qml" line="646"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="663"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="681"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1751"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1825"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1979"/>
         <source>Lat</source>
         <translation>Breite</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="633"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="668"/>
         <source>Segment</source>
         <translation>Segment</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="633"/>
-        <location filename="../src/qml/qgismobileapp.qml" line="635"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="668"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="670"/>
         <source>Length</source>
         <translation>Länge</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="639"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="674"/>
         <source>Area</source>
         <translation>Fläche</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="854"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="897"/>
         <source>Close measure tool</source>
         <translation>Messwerkzeug schliessen</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="861"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="904"/>
         <source>Stop editing</source>
         <translation>Bearbeitung beenden</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="868"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="911"/>
         <source>Cancel addition</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="915"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="958"/>
         <source>Topological editing turned on</source>
         <translation>Topologische Bearbeitung eingeschaltet</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="915"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="958"/>
         <source>Topological editing turned off</source>
         <translation>Topologische Bearbeitung ausgeschaltet</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="958"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1001"/>
         <source>Freehand digitizing turned on</source>
         <translation>Freihand-Digitalisierung angeschaltet</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="958"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1001"/>
         <source>Freehand digitizing turned off</source>
         <translation>Freihand Digitalisierung abgeschaltet</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1013"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1099"/>
         <source>Coordinate cursor now locked to position</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1025"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1111"/>
         <source>Coordinate cursor unlocked</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1042"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1128"/>
         <source>Received position</source>
         <translation>Position empfangen</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1044"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1130"/>
         <source>Searching for position</source>
         <translation>Suche Position...</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1092"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1177"/>
         <source>Canvas follows location</source>
         <translation>Kartenausschnitt folgt dem Standort</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1101"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1186"/>
         <source>Waiting for location</source>
         <translation>Warten auf Standort</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1120"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1243"/>
         <source>Positioning activated</source>
         <translation>Positionierung aktiviert</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1125"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1248"/>
         <source>Positioning turned off</source>
         <translation>Positionierung deaktiviert</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1165"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1288"/>
         <source>Canvas stopped following location</source>
         <translation>Kartenausschnitt folgt nicht mehr dem Standort</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1309"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1432"/>
         <source>Failed to create feature!</source>
         <translation>Feature konnte nicht erstellt werden!</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1313"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1436"/>
         <source>Failed to save feature!</source>
         <translation>Feature konnte nicht gespeichert werden!</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1370"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1496"/>
         <source>Main Menu</source>
         <translation>Hauptmenü</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1384"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1510"/>
         <source>Measure Tool</source>
         <translation>Messwerkzeug</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1399"/>
-        <location filename="../src/qml/qgismobileapp.qml" line="1515"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1525"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1641"/>
         <source>Print to PDF</source>
         <translation>Als PDF drucken</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1413"/>
-        <location filename="../src/qml/qgismobileapp.qml" line="1555"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1539"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1681"/>
         <source>Printing to PDF</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1430"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1556"/>
         <source>Open Project</source>
         <translation>Projekt öffnen</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1442"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1568"/>
         <source>Settings</source>
         <translation>Einstellungen</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1456"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1582"/>
         <source>Message Log</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1470"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1596"/>
         <source>About QField</source>
         <translation>Über QField</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1531"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1657"/>
         <source>Select template below</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1600"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1726"/>
         <source>Activating positioning service</source>
         <translation>Positionierung wird gestartet...</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1605"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1731"/>
         <source>QField has no permissions to use positioning.</source>
         <translation>QField hat keine Berechtigung die Positionierung zu verwenden</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1618"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1744"/>
+        <source>Map Canvas Options</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/qml/qgismobileapp.qml" line="1788"/>
+        <source>Add Bookmark at Coordinates</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/qml/qgismobileapp.qml" line="1793"/>
+        <source>Untitled bookmark</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/qml/qgismobileapp.qml" line="1807"/>
+        <source>Set Coordinates as Destination</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/qml/qgismobileapp.qml" line="1818"/>
+        <source>Copy Coordinates</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/qml/qgismobileapp.qml" line="1827"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1981"/>
+        <source>X</source>
+        <translation>X</translation>
+    </message>
+    <message>
+        <location filename="../src/qml/qgismobileapp.qml" line="1827"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1981"/>
+        <source>Y</source>
+        <translation>Y</translation>
+    </message>
+    <message>
+        <location filename="../src/qml/qgismobileapp.qml" line="1831"/>
+        <source>Coordinates copied to clipboard</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Set As Destination</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/qml/qgismobileapp.qml" line="1838"/>
+        <source>Navigation Options</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/qml/qgismobileapp.qml" line="1854"/>
+        <source>Clear Destination</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/qml/qgismobileapp.qml" line="1866"/>
         <source>Positioning Options</source>
         <translation>Positionierungsoptionen</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1644"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1892"/>
         <source>Enable Positioning</source>
         <translation>Positionierung einschalten</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1658"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1906"/>
         <source>Show Position Information</source>
         <translation>Postionsinformation anzeigen</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1672"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1920"/>
         <source>Positioning Settings</source>
         <translation>Positionierungs-Einstellungen</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1685"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1933"/>
         <source>Center to Current Location</source>
         <translation>Auf aktuelle Position zentrieren</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1728"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1943"/>
+        <source>Add Bookmark at Current Location</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/qml/qgismobileapp.qml" line="1949"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1972"/>
+        <source>Current location unknown</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/qml/qgismobileapp.qml" line="1953"/>
+        <source>My location</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/qml/qgismobileapp.qml" line="1966"/>
+        <source>Copy Current Location</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/qml/qgismobileapp.qml" line="1983"/>
+        <source>Accuracy</source>
+        <translation>Genauigkeit</translation>
+    </message>
+    <message>
+        <location filename="../src/qml/qgismobileapp.qml" line="1986"/>
+        <source>N/A</source>
+        <translation>N. a.</translation>
+    </message>
+    <message>
+        <location filename="../src/qml/qgismobileapp.qml" line="1989"/>
+        <source>Current location copied to clipboard</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/qml/qgismobileapp.qml" line="2027"/>
         <source>Current layer switched to the one holding the selected geometry.</source>
         <translation>Der aktuelle Layer wechselte zu dem Layer, der die ausgewählte Geometrie enthält.</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1737"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2036"/>
         <source>Editing of multi geometry layer is not supported yet.</source>
         <translation>Das Editieren von mehrteiligen Geometrien wird noch nicht unterstützt.</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1850"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2149"/>
         <source>Loading %1</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2134"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2433"/>
         <source>Logged out</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2136"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2435"/>
         <source>Connecting...</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2138"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2437"/>
         <source>Logged in</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2153"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2452"/>
         <source>Project %1 failed to download</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2154"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2453"/>
         <source>Project %1 successfully downloaded, it&apos;s now available to open</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2159"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2458"/>
         <source>Changes failed to reach QFieldCloud: %1</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2163"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2462"/>
         <source>Changes successfully pushed to QFieldCloud</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2399"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2687"/>
         <source>Press back again to close project and app</source>
         <translation>Zurück erneut drücken, um QField zu beenden</translation>
     </message>
@@ -2919,42 +3167,42 @@ Cancel to make a minimal device scan instead.</source>
 <context>
     <name>relation_editor</name>
     <message>
-        <location filename="../src/qml/editorwidgets/relationeditors/relation_editor.qml" line="89"/>
+        <location filename="../src/qml/editorwidgets/relationeditors/relation_editor.qml" line="90"/>
         <source>Ensure contraints</source>
         <translation>Bedingung sicherstellen</translation>
     </message>
     <message>
-        <location filename="../src/qml/editorwidgets/relationeditors/relation_editor.qml" line="128"/>
+        <location filename="../src/qml/editorwidgets/relationeditors/relation_editor.qml" line="129"/>
         <source>Adding child feature in layer %1</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/qml/editorwidgets/relationeditors/relation_editor.qml" line="138"/>
+        <location filename="../src/qml/editorwidgets/relationeditors/relation_editor.qml" line="139"/>
         <source>Cannot add child feature: parent primary keys are not available</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/qml/editorwidgets/relationeditors/relation_editor.qml" line="244"/>
+        <location filename="../src/qml/editorwidgets/relationeditors/relation_editor.qml" line="245"/>
         <source>Unlink feature %1 (%2) of %3</source>
         <translation>Verknüpfung lösen %1 (%2) von %3</translation>
     </message>
     <message>
-        <location filename="../src/qml/editorwidgets/relationeditors/relation_editor.qml" line="248"/>
+        <location filename="../src/qml/editorwidgets/relationeditors/relation_editor.qml" line="249"/>
         <source>Delete feature %1 (%2) on %3</source>
         <translation>Objekt Löschen %1 (%2) von %3</translation>
     </message>
     <message>
-        <location filename="../src/qml/editorwidgets/relationeditors/relation_editor.qml" line="256"/>
+        <location filename="../src/qml/editorwidgets/relationeditors/relation_editor.qml" line="257"/>
         <source>Should the feature &lt;b&gt;%1 (%2)&lt;/b&gt; of layer &lt;b&gt;%3&lt;/b&gt; be unlinked?&lt;br&gt;&lt;i&gt;(The connection will be deleted on layer &lt;b&gt;%4&lt;/b&gt;)&lt;/i&gt;</source>
         <translation>Soll das Objekt &lt;b&gt;%1 (%2)&lt;/b&gt; von Layer &lt;b&gt;%3&lt;/b&gt; gelöst werden?&lt;br&gt;&lt;i&gt;(Die Verknüpfung wird gelöscht auf dem Layer &lt;b&gt;%4&lt;/b&gt;)&lt;/i&gt;</translation>
     </message>
     <message>
-        <location filename="../src/qml/editorwidgets/relationeditors/relation_editor.qml" line="261"/>
+        <location filename="../src/qml/editorwidgets/relationeditors/relation_editor.qml" line="262"/>
         <source>Should the feature &lt;b&gt;%1 (%2)&lt;/b&gt; on layer &lt;b&gt;%3&lt;/b&gt; be deleted?</source>
         <translation>Soll das Objekt &lt;b&gt;%1 (%2)&lt;/b&gt; auf dem Layer &lt;b&gt;%3&lt;/b&gt; gelöscht werden?</translation>
     </message>
     <message>
-        <location filename="../src/qml/editorwidgets/relationeditors/relation_editor.qml" line="270"/>
+        <location filename="../src/qml/editorwidgets/relationeditors/relation_editor.qml" line="271"/>
         <source>Failed to delete referencing feature</source>
         <translation>Referenziertes Feature konnte nicht gelöscht werden</translation>
     </message>
