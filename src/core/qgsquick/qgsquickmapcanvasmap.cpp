@@ -218,7 +218,7 @@ void QgsQuickMapCanvasMap::renderJobFinished()
   {
     mDeferredRefreshPending = false;
     mSilentRefresh = true;
-    refreshMap();
+    refresh();
   }
 }
 
