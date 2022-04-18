@@ -37,11 +37,9 @@
     <string name="import_project_folder">Importar Proyecto desde Carpeta</string>
     <string name="import_project_archive">Importar Proyecto desde ZIP</string>
     <string name="import_dataset">Importar Conjunto(s) de datos</string>
-    <string name="usb_cable_help">Ayuda con el cable USB de transferencia</string>
     <string name="import_error">Error de importación</string>
     <string name="import_dataset_error">El conjunto(s) de datos seleccionado no puede ser importado correctamente.</string>
-    <string name="import_project_archive_error">El proyecto seleccionado no puede ser importado correctamente.</string>
-    <string name="import_project_folder_error">La carpeta de proyecto seleccionadas no puede ser importada correctamente.</string>
+    <string name="import_overwrite_cancel">Cancelar</string>
     <string name="send_to">Enviar a...</string>
     <string name="add_to_favorite">Añadir a Favoritos</string>
     <string name="remove_from_favorite">Eliminar de Favoritos</string>
@@ -52,4 +50,4 @@
     <string name="delete_confirm_folder">La carpeta del proyecto será eliminada permanentemente, ¿continuar con la eliminación?</string>
     <string name="delete_confirm">Eliminar</string>
     <string name="delete_cancel">Cancelar</string>
-</resources>
+    </resources>

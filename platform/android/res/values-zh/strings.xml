@@ -37,12 +37,21 @@
     <string name="import_project_folder">从文件夹导入工程</string>
     <string name="import_project_archive">从ZIP导入工程</string>
     <string name="import_dataset">导入数据集</string>
-    <string name="usb_cable_help">USB数据线帮助</string>
     <string name="import_error">导入错误</string>
     <string name="import_dataset_error">无法正确导入所选数据集。</string>
-    <string name="import_project_archive_error">无法正确导入所选工程文件。</string>
-    <string name="import_project_folder_error">无法正确导入所选工程文件夹。</string>
+    <string name="import_project_archive_error">所选工程存档未正确导入。</string>
+    <string name="import_project_folder_error">所选工程文件夹未正确导入。</string>
+    <string name="import_overwrite_title">导入警告</string>
+    <string name="import_overwrite_folder">此工程文件夹已存在。该操作将替换其数据，是否继续导入？</string>
+    <string name="import_overwrite_dataset_single">此数据集已存在。该操作将其替换，是否继续导入？</string>
+    <string name="import_overwrite_dataset_multiple">一个或多个数据集已存在。该操作将其替换，是否继续导入？</string>
+    <string name="import_overwrite_confirm">导入和替换</string>
+    <string name="import_overwrite_cancel">取消</string>
+    <string name="export_error">导出错误</string>
+    <string name="export_to_folder_error">所选工程文件夹未正确导出。</string>
     <string name="send_to">发送到...</string>
+    <string name="send_compressed_to">将压缩文件夹发送到...</string>
+    <string name="export_to_folder">导出到文件夹...</string>
     <string name="add_to_favorite">添加到收藏夹</string>
     <string name="remove_from_favorite">从收藏夹中移除</string>
     <string name="remove_dataset">移除数据集</string>
@@ -52,4 +61,7 @@
     <string name="delete_confirm_folder">工程文件夹将被永久删除，是否继续删除？</string>
     <string name="delete_confirm">移除</string>
     <string name="delete_cancel">取消</string>
+    <string name="storage_information_title">存储信息</string>
+    <string name="storage_information_view">给我看看文档</string>
+    <string name="storage_information_dismiss">我稍后阅读</string>
 </resources>

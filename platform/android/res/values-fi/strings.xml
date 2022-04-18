@@ -11,6 +11,7 @@ QGIS voi käyttää sisäistä muistia, mutta se ei ole suositeltavaa pienen mui
 Suositeltavaa on, että valitset peruuta, katkaiset USB-kaapeliyhteydet ja käynnistät QGISin uudelleen.</string>
     <string name="primary_storage">Sisäinen muisti</string>
     <string name="secondary_storage">QField tiedostojen hakemisto</string>
+    <string name="secondary_storage_extra">Lisätiedostojen hakemisto</string>
     <string name="secondary_storage_read_only">Ulkoinen muisti (vain-luku)</string>
     <string name="inaccessible">ei käytettävissä</string>
     <string name="loading">Lataa</string>
@@ -32,4 +33,17 @@ Suositeltavaa on, että valitset peruuta, katkaiset USB-kaapeliyhteydet ja käyn
     <string name="grant">Salli</string>
     <string name="deny_always">Kiellä pysyyvästi</string>
     <string name="deny_once">Kiellä nyt</string>
+    <string name="import_project_folder">Tuo projekti hakemistosta</string>
+    <string name="import_project_archive">Tuo projekti zip-tiedostosta</string>
+    <string name="import_dataset">Tuo datasetti(tit)</string>
+    <string name="import_error">Tuontivirhe</string>
+    <string name="import_overwrite_cancel">Peruuta</string>
+    <string name="send_to">Lähetä ...</string>
+    <string name="add_to_favorite">Lisää suosikkeihin</string>
+    <string name="remove_from_favorite">Poista suosikeista</string>
+    <string name="remove_dataset">Poista datasetti</string>
+    <string name="remove_folder">Poista projektin hakemisto</string>
+    <string name="delete_confirm_title">Poiston vahvistus</string>
+    <string name="delete_confirm">Poista</string>
+    <string name="delete_cancel">Peruuta</string>
     </resources>
