@@ -522,7 +522,7 @@
     <message>
         <location filename="../src/qml/FeatureListForm.qml" line="452"/>
         <source>Successfully duplicated feature</source>
-        <translation>Успешно дублиран обект</translation>
+        <translation>Успешно копиран обект</translation>
     </message>
     <message>
         <location filename="../src/qml/FeatureListForm.qml" line="470"/>
@@ -959,22 +959,22 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <message>
         <location filename="../src/core/locator/locatormodelsuperbridge.cpp" line="227"/>
         <source>Returns a list of features accross all searchable layers with matching attributes</source>
-        <translation>Връща списък с обекти във всички слоеве за търсене, чиито атрибути съвпадат</translation>
+        <translation>Връща списък с обекти във всички слоеве за търсене, чиито атрибути съвпадат.</translation>
     </message>
     <message>
         <location filename="../src/core/locator/locatormodelsuperbridge.cpp" line="228"/>
         <source>Returns a point from a pair of X and Y coordinates typed in the search bar</source>
-        <translation>Връща точка от двойка X и Y координати написани в лентата за търсене</translation>
+        <translation>Връща точка от двойка X и Y координати написани в лентата за търсене.</translation>
     </message>
     <message>
         <location filename="../src/core/locator/locatormodelsuperbridge.cpp" line="229"/>
         <source>Returns a list of bookmark with matching names</source>
-        <translation>Връща списък от отметки, чиито имена съвпадат</translation>
+        <translation>Връща списък от отметки, чиито имена съвпадат.</translation>
     </message>
     <message>
         <location filename="../src/core/locator/locatormodelsuperbridge.cpp" line="230"/>
         <source>Returns a list of locations and addresses within Finland with matching terms</source>
-        <translation>Връща списък с локации и адреси във Финландия, чиито имена съвпадат</translation>
+        <translation>Връща списък с локации и адреси във Финландия, чиито имена съвпадат.</translation>
     </message>
     <message>
         <location filename="../src/core/locator/locatormodelsuperbridge.cpp" line="326"/>
@@ -995,12 +995,12 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <message>
         <location filename="../src/qml/LocatorSettings.qml" line="39"/>
         <source>Search Settings</source>
-        <translation>Настройки на търсене</translation>
+        <translation>Настройки за търсене</translation>
     </message>
     <message>
         <location filename="../src/qml/LocatorSettings.qml" line="98"/>
         <source>Trigger without its prefix</source>
-        <translation>Предизвикай без префикс</translation>
+        <translation>Търси без префикс</translation>
     </message>
 </context>
 <context>
@@ -1018,7 +1018,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <message>
         <location filename="../src/qml/MessageLog.qml" line="101"/>
         <source>Clear message log</source>
-        <translation>Изчисти съобщението</translation>
+        <translation>Изчисти логовете</translation>
     </message>
     <message>
         <location filename="../src/qml/MessageLog.qml" line="106"/>
@@ -1089,17 +1089,17 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <message>
         <location filename="../src/qml/NavigationBar.qml" line="510"/>
         <source>Move Selected Feature(s)</source>
-        <translation>Премести изобран(ите) обект(и)</translation>
+        <translation>Премести изобраните обекти</translation>
     </message>
     <message>
         <location filename="../src/qml/NavigationBar.qml" line="523"/>
         <source>Duplicate Selected Feature(s)</source>
-        <translation>Изтрий повтарящите се обекти</translation>
+        <translation>Копирай избраните обекти</translation>
     </message>
     <message>
         <location filename="../src/qml/NavigationBar.qml" line="536"/>
         <source>Delete Selected Feature(s)</source>
-        <translation>Изтрий избран(и)те обект(и)</translation>
+        <translation>Изтрий избраните обекти</translation>
     </message>
     <message>
         <location filename="../src/qml/NavigationBar.qml" line="551"/>
@@ -1134,7 +1134,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <message>
         <location filename="../src/qml/NavigationBar.qml" line="635"/>
         <source>Duplicate Feature</source>
-        <translation>Дублирай обект</translation>
+        <translation>Копирай обекта</translation>
     </message>
     <message>
         <location filename="../src/qml/NavigationBar.qml" line="648"/>
@@ -1602,12 +1602,12 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <message>
         <location filename="../src/qml/QFieldCloudPopup.qml" line="273"/>
         <source>A server error has occured, please try again.</source>
-        <translation>Появи се сървърна грешка, моля опитайте отново.</translation>
+        <translation>Сървърна грешка, моля опитайте отново.</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldCloudPopup.qml" line="274"/>
         <source>A network error has occured, please try again.</source>
-        <translation>Появи се мрежова грешка, моля опитайте отново.</translation>
+        <translation>Мрежова грешка, моля опитайте отново.</translation>
     </message>
     <message numerus="yes">
         <location filename="../src/qml/QFieldCloudPopup.qml" line="334"/>
@@ -1632,7 +1632,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <message>
         <location filename="../src/qml/QFieldCloudPopup.qml" line="365"/>
         <source>Synchronize the whole project with all modified features and download the freshly updated project with all the applied changes from QFieldCloud.</source>
-        <translation>Синхронизиране на целия проект с всички променени обекти и изтегляне на пресен обновен проект с всички приложени промени от QFieldCloud.</translation>
+        <translation>Синхронизиране на целия проект с всички променени обекти и изтегляне на обновен проект с всички приложени промени от QFieldCloud.</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldCloudPopup.qml" line="376"/>
@@ -1658,7 +1658,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <message>
         <location filename="../src/qml/QFieldCloudPopup.qml" line="424"/>
         <source>Revert all modified features in the local cloud layers. You cannot restore those changes.</source>
-        <translation>Премахване на промените на всички обекти на слоевете в облака. Тези промени не могат да бъдат възстановени!</translation>
+        <translation>Отказване на промените за всички обекти на слоевете в облака. Тези промени не могат да бъдат възстановени!</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldCloudPopup.qml" line="425"/>
@@ -2066,7 +2066,7 @@ While you can still view and use the project, it is strongly recommended to rese
     <message>
         <location filename="../src/qml/QFieldSettings.qml" line="66"/>
         <source>When switched on, coordinate information, such as latitude and longitude, is overlayed onto the map while digitizing new features or using the measure tool.</source>
-        <translation>Когато е включено, информация за координатите (ширина и дължина) ще се показват върху екрана докато се цифроват нови обекти или се използва инструментът за измерване.</translation>
+        <translation>При активиране, информация за координатите (ширина и дължина) ще се показват върху екрана докато се цифроват нови обекти или се използва инструментът за измерване.</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldSettings.qml" line="70"/>
@@ -2086,7 +2086,7 @@ While you can still view and use the project, it is strongly recommended to rese
     <message>
         <location filename="../src/qml/QFieldSettings.qml" line="76"/>
         <source>If disabled, QField will use a minimalist internal camera instead of the camera app on the device.&lt;br&gt;Tip: Enable this option and install the open camera app to create geo tagged photos.</source>
-        <translation>Ако е изключено, QField ще използва минималистично вътрешно приложение, вместо системната камера.&lt;br&gt;Съвет: включете тази опция и инсталирайте приложението Open Camera, за да бъдат снимките геолокирани.</translation>
+        <translation>При деактивиране, QField ще използва минималистично вътрешно приложение, вместо системната камера.&lt;br&gt;Съвет: включете тази опция и инсталирайте приложението Open Camera, за да бъдат снимките геолокирани.</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldSettings.qml" line="81"/>
@@ -2106,22 +2106,22 @@ While you can still view and use the project, it is strongly recommended to rese
     <message>
         <location filename="../src/qml/QFieldSettings.qml" line="87"/>
         <source>If enabled, the screen brightness will be dimmed after 20 seconds of inactivity to preserve battery.</source>
-        <translation>При активиране, яркостта на екрана ще бъде затъмнена след 20 секунди на неактивност, за да се съхрани батерия.</translation>
+        <translation>При активиране, яркостта на екрана ще бъде намалена след 20 секунди на неактивност, за да се пести енергия.</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldSettings.qml" line="91"/>
         <source>Consider mouse as a touchscreen device</source>
-        <translation>Курскорът на мишката като тачскрийн устройство</translation>
+        <translation>Курсорът на мишката като тачскрийн устройство</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldSettings.qml" line="92"/>
         <source>If disabled, the mouse will act as a stylus pen.</source>
-        <translation>Ако е изключено, курсорът на мишката се държи като електронна писалка.</translation>
+        <translation>При деактивиране, курсорът на мишката се държи като електронна писалка.</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldSettings.qml" line="96"/>
         <source>Send anonymized metrics</source>
-        <translation>Изпращай анонимизирани данни</translation>
+        <translation>Изпращане на анонимизирани данни</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldSettings.qml" line="97"/>
@@ -2630,7 +2630,7 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <location filename="../src/qml/Tracking.qml" line="372"/>
         <source>When enabled, vertices with only be recorded when both active constraints are met. If the setting is disabled, individual constraints met will trigger a vertex addition.</source>
-        <translation>При активиране, възлите ще бъдат записани само когато всички активни ограничения са изпълнени. Когато е изключено, всяко отделно ограничение ще предизвика добавяне на възел.</translation>
+        <translation>При активиране, възлите ще бъдат записани само когато всички активни ограничения са изпълнени. При деактивиране, всяко отделно ограничение ще предизвика добавяне на възел.</translation>
     </message>
     <message>
         <location filename="../src/qml/Tracking.qml" line="392"/>
