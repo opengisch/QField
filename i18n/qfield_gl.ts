@@ -9,7 +9,7 @@
     <message>
         <location filename="../src/qml/About.qml" line="143"/>
         <source>Support QField</source>
-        <translation type="unfinished"/>
+        <translation>Apoia a QField</translation>
     </message>
     <message>
         <location filename="../src/qml/About.qml" line="152"/>
@@ -258,12 +258,12 @@
     <message>
         <location filename="../src/qml/Changelog.qml" line="108"/>
         <source>Support QField</source>
-        <translation type="unfinished"/>
+        <translation>Apoia a QField</translation>
     </message>
     <message>
         <location filename="../src/qml/Changelog.qml" line="140"/>
         <source>Check the latest QField changes on </source>
-        <translation type="unfinished"/>
+        <translation>Comproba os último cambios de QField en</translation>
     </message>
     <message>
         <location filename="../src/qml/Changelog.qml" line="141"/>
@@ -490,12 +490,12 @@
     <message>
         <location filename="../src/qml/FeatureForm.qml" line="740"/>
         <source>You are about to dismiss the new feature, proceed?</source>
-        <translation type="unfinished"/>
+        <translation>Estás a piques de descartar esta nova entidade, continuar?</translation>
     </message>
     <message>
         <location filename="../src/qml/FeatureForm.qml" line="741"/>
         <source>You are about to leave editing state, any changes will be lost. Proceed?</source>
-        <translation type="unfinished"/>
+        <translation>Estás a piques de deixar o estado de edición, perderase calquera cambio. Continuar?</translation>
     </message>
 </context>
 <context>
@@ -522,7 +522,7 @@
     <message>
         <location filename="../src/qml/FeatureListForm.qml" line="452"/>
         <source>Successfully duplicated feature</source>
-        <translation type="unfinished"/>
+        <translation>Entidade duplicada con éxito</translation>
     </message>
     <message>
         <location filename="../src/qml/FeatureListForm.qml" line="470"/>
@@ -538,7 +538,7 @@
     <message>
         <location filename="../src/qml/FeatureListForm.qml" line="537"/>
         <source>Successfully duplicated selected features, list updated to show newly-created features</source>
-        <translation type="unfinished"/>
+        <translation>Duplicadas con éxito as entidades seleccionadas, lista actualizada para amosar as entidades creadas recentemente</translation>
     </message>
     <message>
         <location filename="../src/qml/FeatureListForm.qml" line="642"/>
@@ -671,7 +671,7 @@ As xeometrías das entidades combinaranse na entidade &apos;%1&apos;, a cal cons
     <message>
         <location filename="../src/core/locator/featureslocatorfilter.cpp" line="117"/>
         <source>Set feature as navigation</source>
-        <translation type="unfinished"/>
+        <translation>Establecer entidade como navegación</translation>
     </message>
     <message>
         <location filename="../src/core/locator/featureslocatorfilter.cpp" line="172"/>
@@ -951,7 +951,7 @@ As xeometrías das entidades combinaranse na entidade &apos;%1&apos;, a cal cons
     <message>
         <location filename="../src/core/utils/layerutils.cpp" line="325"/>
         <source>Cannot add new feature in layer &quot;%1&quot;.</source>
-        <translation type="unfinished"/>
+        <translation>Non se pode engadir unha nova entidade na capa &quot;%1&quot;.</translation>
     </message>
 </context>
 <context>
@@ -1028,12 +1028,12 @@ As xeometrías das entidades combinaranse na entidade &apos;%1&apos;, a cal cons
     <message>
         <location filename="../src/qml/MessageLog.qml" line="114"/>
         <source>Send application log</source>
-        <translation type="unfinished"/>
+        <translation>Enviar o rexistra da aplicación</translation>
     </message>
     <message>
         <location filename="../src/qml/MessageLog.qml" line="119"/>
         <source>Your application log is being sent</source>
-        <translation type="unfinished"/>
+        <translation>O rexistro da aplicación está sendo enviado</translation>
     </message>
 </context>
 <context>
@@ -1183,7 +1183,7 @@ As xeometrías das entidades combinaranse na entidade &apos;%1&apos;, a cal cons
     <message>
         <location filename="../src/qml/NavigationInformationView.qml" line="76"/>
         <source>Dist.</source>
-        <translation type="unfinished"/>
+        <translation>Dist.</translation>
     </message>
     <message>
         <location filename="../src/qml/NavigationInformationView.qml" line="79"/>
@@ -1486,12 +1486,12 @@ As xeometrías das entidades combinaranse na entidade &apos;%1&apos;, a cal cons
     <message>
         <location filename="../src/qml/QFieldCloudLogin.qml" line="214"/>
         <source>New user?</source>
-        <translation type="unfinished"/>
+        <translation>Usuario Novo?</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldCloudLogin.qml" line="214"/>
         <source>Register an account</source>
-        <translation type="unfinished"/>
+        <translation>Rexistrar unha conta</translation>
     </message>
     <message>
         <source>Logout</source>
@@ -1844,7 +1844,7 @@ Aínda que podes seguir vendo e utilizando este proxecto, recoméndase fortement
     <message>
         <location filename="../src/core/qfieldcloudprojectsmodel.cpp" line="919"/>
         <source>Failed to get latest package data.</source>
-        <translation type="unfinished"/>
+        <translation>Produciuse un erro ó obter os últimos datos do paquete.</translation>
     </message>
     <message>
         <location filename="../src/core/qfieldcloudprojectsmodel.cpp" line="933"/>
@@ -2067,7 +2067,7 @@ Aínda que podes seguir vendo e utilizando este proxecto, recoméndase fortement
     <message>
         <location filename="../src/qml/QFieldSettings.qml" line="70"/>
         <source>Show bookmarks</source>
-        <translation type="unfinished"/>
+        <translation>Amosar marcadores</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldSettings.qml" line="71"/>
@@ -2705,7 +2705,7 @@ Cancela para facer, porén, unha exploración mínima do dispositivo.</translati
     <message>
         <location filename="../src/qml/WelcomeScreen.qml" line="342"/>
         <source>I agree</source>
-        <translation type="unfinished"/>
+        <translation>Estou de acordo</translation>
     </message>
     <message>
         <location filename="../src/qml/WelcomeScreen.qml" line="351"/>

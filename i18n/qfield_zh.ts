@@ -2117,12 +2117,12 @@ While you can still view and use the project, it is strongly recommended to rese
     <message>
         <location filename="../src/qml/QFieldSettings.qml" line="96"/>
         <source>Send anonymized metrics</source>
-        <translation>发送匿名度量</translation>
+        <translation>发送匿名测评数据</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldSettings.qml" line="97"/>
         <source>If enabled, anonymized metrics will be collected and sent to help improve QField for everyone.</source>
-        <translation>如果启用，将收集并发送匿名度量 (Metrics)，以帮助改善每个人的QField使用体验。</translation>
+        <translation>如果启用，将收集并发送匿名测评数据，以帮助改善QField的个人使用体验。</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldSettings.qml" line="137"/>
@@ -2695,12 +2695,12 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <location filename="../src/qml/WelcomeScreen.qml" line="297"/>
         <source>Anonymized metrics collection has been disabled. You can re-enable through the settings panel.</source>
-        <translation>收集匿名度量已禁用，您可以通过设置面板重新启用。</translation>
+        <translation>收集匿名测评数据已禁用，您可以通过设置面板重新启用。</translation>
     </message>
     <message>
         <location filename="../src/qml/WelcomeScreen.qml" line="331"/>
         <source>To improve stability for everyone, QField collects and sends anonymized metrics.</source>
-        <translation>为了提高稳定性，QField收集并发送匿名度量 (Metrics)。</translation>
+        <translation>为了提高稳定性，QField将收集并发送匿名测评数据。</translation>
     </message>
     <message>
         <location filename="../src/qml/WelcomeScreen.qml" line="342"/>
