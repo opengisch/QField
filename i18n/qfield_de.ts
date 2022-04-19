@@ -754,13 +754,13 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <message>
         <location filename="../src/core/locator/gotolocatorfilter.cpp" line="100"/>
         <source>Go to %1 %2 (Map CRS)</source>
-        <translation type="unfinished"/>
+        <translation>Gehe zu %1 %2 (Karten-KBS)</translation>
     </message>
     <message>
         <location filename="../src/core/locator/gotolocatorfilter.cpp" line="103"/>
         <location filename="../src/core/locator/gotolocatorfilter.cpp" line="135"/>
         <source>Set navigation point</source>
-        <translation type="unfinished"/>
+        <translation>Navigationspunkt setzen</translation>
     </message>
     <message>
         <location filename="../src/core/locator/gotolocatorfilter.cpp" line="132"/>
@@ -860,7 +860,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <message>
         <location filename="../src/qml/LayerTreeItemProperties.qml" line="178"/>
         <source>Show features list</source>
-        <translation type="unfinished"/>
+        <translation>Featureliste anzeigen</translation>
     </message>
     <message>
         <location filename="../src/qml/LayerTreeItemProperties.qml" line="184"/>

@@ -101,7 +101,7 @@
     <message>
         <location filename="../src/core/attributeformmodelbase.cpp" line="384"/>
         <source>Expression constraint</source>
-        <translation type="unfinished"/>
+        <translation>Ограничение чрез израз</translation>
     </message>
     <message>
         <location filename="../src/core/attributeformmodelbase.cpp" line="388"/>
@@ -168,7 +168,7 @@
     <message>
         <location filename="../src/core/locator/bookmarklocatorfilter.h" line="45"/>
         <source>Spatial bookmarks</source>
-        <translation type="unfinished"/>
+        <translation>Пространствени отметки</translation>
     </message>
 </context>
 <context>
@@ -176,27 +176,27 @@
     <message>
         <location filename="../src/qml/BookmarkProperties.qml" line="45"/>
         <source>Bookmark Properties</source>
-        <translation type="unfinished"/>
+        <translation>Свойства на отметките</translation>
     </message>
     <message>
         <location filename="../src/qml/BookmarkProperties.qml" line="74"/>
         <source>Name</source>
-        <translation type="unfinished"/>
+        <translation>Име</translation>
     </message>
     <message>
         <location filename="../src/qml/BookmarkProperties.qml" line="87"/>
         <source>Color</source>
-        <translation type="unfinished"/>
+        <translation>Цвят</translation>
     </message>
     <message>
         <location filename="../src/qml/BookmarkProperties.qml" line="198"/>
         <source>Remove bookmark</source>
-        <translation type="unfinished"/>
+        <translation>Изтриване на отметка</translation>
     </message>
     <message>
         <location filename="../src/qml/BookmarkProperties.qml" line="202"/>
         <source>You are about to remove a bookmark, proceed?</source>
-        <translation type="unfinished"/>
+        <translation>Отметката ще бъде изтрита. Искаш ли да продължиш?</translation>
     </message>
 </context>
 <context>
@@ -204,12 +204,12 @@
     <message>
         <location filename="../src/qml/BookmarkRenderer.qml" line="131"/>
         <source>Bookmark: %1</source>
-        <translation type="unfinished"/>
+        <translation>Отметка: %1</translation>
     </message>
     <message>
         <location filename="../src/qml/BookmarkRenderer.qml" line="143"/>
         <source>Project bookmarks cannot be edited</source>
-        <translation type="unfinished"/>
+        <translation>Отметките в проекта не могат да бъдат редактирани.</translation>
     </message>
 </context>
 <context>
@@ -217,7 +217,7 @@
     <message>
         <location filename="../src/qml/BrowserPanel.qml" line="17"/>
         <source>Browser</source>
-        <translation type="unfinished"/>
+        <translation>Браузър</translation>
     </message>
 </context>
 <context>
@@ -263,7 +263,7 @@
     <message>
         <location filename="../src/qml/Changelog.qml" line="140"/>
         <source>Check the latest QField changes on </source>
-        <translation type="unfinished"/>
+        <translation>Виж последните промени в QField на </translation>
     </message>
     <message>
         <location filename="../src/qml/Changelog.qml" line="141"/>
@@ -348,22 +348,22 @@
     <message>
         <location filename="../src/core/deltalistmodel.cpp" line="28"/>
         <source>Expected the json document to be an array of delta status</source>
-        <translation type="unfinished"/>
+        <translation>Очакваният JSON документ трябва да бъде масив от статуси.</translation>
     </message>
     <message>
         <location filename="../src/core/deltalistmodel.cpp" line="40"/>
         <source>Expected all array elements to be an object, but the element at #%1 is not</source>
-        <translation type="unfinished"/>
+        <translation>Очакваният масив трябва да съдържа само елементи от тип обект, но елементът на индекс #%1 не е.</translation>
     </message>
     <message>
         <location filename="../src/core/deltalistmodel.cpp" line="51"/>
         <source>Expected all array elements to be an object containing a key &quot;%1&quot;, but the element at #%2 is not</source>
-        <translation type="unfinished"/>
+        <translation>Очакваният масив трябва да съдържа само елементи от тип обект с ключ &quot;%1&quot;, но елементът на индекс #%2 не е.</translation>
     </message>
     <message>
         <location filename="../src/core/deltalistmodel.cpp" line="79"/>
         <source>Unrecognized status &quot;%1&quot; for $%2</source>
-        <translation type="unfinished"/>
+        <translation>Неразпознат статус &quot;%1&quot; за $%2</translation>
     </message>
 </context>
 <context>
@@ -371,27 +371,27 @@
     <message>
         <location filename="../src/core/digitizinglogger.cpp" line="186"/>
         <source>Default value expression for the digitizing logger&apos;s %2 field has a parser error: %3</source>
-        <translation type="unfinished"/>
+        <translation>Изразът в полето %2 на слоя логовете за цифроване има грешка при анализиране: %3</translation>
     </message>
     <message>
         <location filename="../src/core/digitizinglogger.cpp" line="190"/>
         <source>Default value expression for the digitizing logger&apos;s %2 field has an evaluation error: %3</source>
-        <translation type="unfinished"/>
+        <translation>Изразът в полето %2 на  слоя с логовете за цифроване има грешка при изчисляване: %3</translation>
     </message>
     <message>
         <location filename="../src/core/digitizinglogger.cpp" line="221"/>
         <source>Digitizing logs layer feature addition failed</source>
-        <translation type="unfinished"/>
+        <translation>Неуспешно добавяне на обект в слоя с логовете за цифроване</translation>
     </message>
     <message>
         <location filename="../src/core/digitizinglogger.cpp" line="227"/>
         <source>Digitizing logs layer change commits failed</source>
-        <translation type="unfinished"/>
+        <translation>Неуспешно записване на слоя с логовете за цифроване</translation>
     </message>
     <message>
         <location filename="../src/core/digitizinglogger.cpp" line="236"/>
         <source>Digitizing logs layer editing failed</source>
-        <translation type="unfinished"/>
+        <translation>Неуспешна редакция на слоя с логовете за цифроване</translation>
     </message>
 </context>
 <context>
@@ -409,7 +409,7 @@
     <message>
         <location filename="../src/qml/DigitizingToolbar.qml" line="218"/>
         <source>Should the digitized geometry be discarded?</source>
-        <translation>Сигурни ли сте, че се отказвате от изчертаната геометрия?</translation>
+        <translation>Сигурен ли си, че се отказваш от изчертаната геометрия?</translation>
     </message>
 </context>
 <context>
@@ -490,12 +490,12 @@
     <message>
         <location filename="../src/qml/FeatureForm.qml" line="740"/>
         <source>You are about to dismiss the new feature, proceed?</source>
-        <translation type="unfinished"/>
+        <translation>Създаването на нов обект ще бъде отказано. Сигурен ли си?</translation>
     </message>
     <message>
         <location filename="../src/qml/FeatureForm.qml" line="741"/>
         <source>You are about to leave editing state, any changes will be lost. Proceed?</source>
-        <translation type="unfinished"/>
+        <translation>Редакцията ще бъде отказана. Сигурен ли си?</translation>
     </message>
 </context>
 <context>
@@ -522,7 +522,7 @@
     <message>
         <location filename="../src/qml/FeatureListForm.qml" line="452"/>
         <source>Successfully duplicated feature</source>
-        <translation>Успешно дублиран обект</translation>
+        <translation>Успешно копиран обект</translation>
     </message>
     <message>
         <location filename="../src/qml/FeatureListForm.qml" line="470"/>
@@ -538,7 +538,7 @@
     <message>
         <location filename="../src/qml/FeatureListForm.qml" line="537"/>
         <source>Successfully duplicated selected features, list updated to show newly-created features</source>
-        <translation type="unfinished"/>
+        <translation>Успешно копиране на избраните обекти, списъкът е обновен с нопосъздадените обекти.</translation>
     </message>
     <message>
         <location filename="../src/qml/FeatureListForm.qml" line="642"/>
@@ -556,9 +556,9 @@
 
 The features geometries will be combined into feature &apos;%1&apos;, which will keep its attributes.</source>
         <comment>0</comment>
-        <translation><numerusform>Сигурни ли сте, че желаете да слеете %n обект?
+        <translation><numerusform>Сигурен ли си, че желаеш да слееш %n обект?
 
-Геометриите на обектите ще се слеят в обект &apos;%1&apos;, който ще запази стойностите на атрибутите си.</numerusform><numerusform>Сигурни ли сте, че желаете да слеете %n обекта?
+Геометриите на обектите ще се слеят в обект &apos;%1&apos;, който ще запази стойностите на атрибутите си.</numerusform><numerusform>Сигурен ли си, че желаеш да слееш %n обекта?
 
 Геометриите на обектите ще се слеят в обект &apos;%1&apos;, който ще запази стойностите на атрибутите си.</numerusform></translation>
     </message>
@@ -581,7 +581,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
         <location filename="../src/qml/FeatureListForm.qml" line="755"/>
         <source>Should the %n feature(s) selected really be deleted?</source>
         <comment>0</comment>
-        <translation><numerusform>Сигурни ли сте, че желаете да изтриете избраният %n обект?</numerusform><numerusform>Сигурни ли сте, че желаете да изтриете избраните %n обекта?</numerusform></translation>
+        <translation><numerusform>Сигурен ли си, че желаеш да изтриеш избраният %n обект?</numerusform><numerusform>Сигурен ли си, че желаеш да изтриеш избраните %n обекта?</numerusform></translation>
     </message>
     <message numerus="yes">
         <location filename="../src/qml/FeatureListForm.qml" line="771"/>
@@ -671,7 +671,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <message>
         <location filename="../src/core/locator/featureslocatorfilter.cpp" line="117"/>
         <source>Set feature as navigation</source>
-        <translation type="unfinished"/>
+        <translation>Използвай обекта като навигация</translation>
     </message>
     <message>
         <location filename="../src/core/locator/featureslocatorfilter.cpp" line="172"/>
@@ -704,7 +704,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <message>
         <location filename="../src/qml/geometry_editors/FillRingToolBar.qml" line="76"/>
         <source>The ring doesn&apos;t have any existing ring to fit into</source>
-        <translation type="unfinished"/>
+        <translation>Рингът не открива други рингове, в които да бъде вместен.</translation>
     </message>
     <message>
         <location filename="../src/qml/geometry_editors/FillRingToolBar.qml" line="78"/>
@@ -727,7 +727,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <message>
         <location filename="../src/core/locator/finlandlocatorfilter.cpp" line="27"/>
         <source>Finnish address search</source>
-        <translation type="unfinished"/>
+        <translation>Търсене на адреси във Финландия</translation>
     </message>
 </context>
 <context>
@@ -764,7 +764,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
         <location filename="../src/core/locator/gotolocatorfilter.cpp" line="103"/>
         <location filename="../src/core/locator/gotolocatorfilter.cpp" line="135"/>
         <source>Set navigation point</source>
-        <translation type="unfinished"/>
+        <translation>Настрой точка за навигация</translation>
     </message>
     <message>
         <location filename="../src/core/locator/gotolocatorfilter.cpp" line="132"/>
@@ -800,12 +800,12 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <message>
         <location filename="../src/core/layerobserver.cpp" line="266"/>
         <source>Failed to find a local primary key column in layer &quot;%1&quot;</source>
-        <translation type="unfinished"/>
+        <translation>Не е открита колона за основен ключ на локалния слой &quot;%1&quot;</translation>
     </message>
     <message>
         <location filename="../src/core/layerobserver.cpp" line="272"/>
         <source>Failed to find a source primary key column in layer &quot;%1&quot;</source>
-        <translation type="unfinished"/>
+        <translation>Не е открита колона за основен ключ на изходния слой &quot;%1&quot;</translation>
     </message>
 </context>
 <context>
@@ -829,7 +829,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <message>
         <location filename="../src/qml/LayerTreeItemProperties.qml" line="45"/>
         <source>Setup tracking</source>
-        <translation type="unfinished"/>
+        <translation>Започни проследяването</translation>
     </message>
     <message>
         <location filename="../src/qml/LayerTreeItemProperties.qml" line="82"/>
@@ -869,7 +869,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <message>
         <location filename="../src/qml/LayerTreeItemProperties.qml" line="184"/>
         <source>The layer has no features</source>
-        <translation type="unfinished"/>
+        <translation>Слоят няма нито един обект</translation>
     </message>
     <message>
         <location filename="../src/qml/LayerTreeItemProperties.qml" line="215"/>
@@ -922,7 +922,8 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
         <location filename="../src/core/utils/layerutils.cpp" line="254"/>
         <source>Cannot commit deletion in layer &quot;%1&quot;. Reason:
 %3</source>
-        <translation type="unfinished"/>
+        <translation>Неуспешно изтриване на обект в слой &quot;%1&quot;. Причина:
+%3</translation>
     </message>
     <message>
         <location filename="../src/core/utils/layerutils.cpp" line="263"/>
@@ -958,27 +959,27 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <message>
         <location filename="../src/core/locator/locatormodelsuperbridge.cpp" line="227"/>
         <source>Returns a list of features accross all searchable layers with matching attributes</source>
-        <translation type="unfinished"/>
+        <translation>Връща списък с обекти във всички слоеве за търсене, чиито атрибути съвпадат.</translation>
     </message>
     <message>
         <location filename="../src/core/locator/locatormodelsuperbridge.cpp" line="228"/>
         <source>Returns a point from a pair of X and Y coordinates typed in the search bar</source>
-        <translation type="unfinished"/>
+        <translation>Връща точка от двойка X и Y координати написани в лентата за търсене.</translation>
     </message>
     <message>
         <location filename="../src/core/locator/locatormodelsuperbridge.cpp" line="229"/>
         <source>Returns a list of bookmark with matching names</source>
-        <translation type="unfinished"/>
+        <translation>Връща списък от отметки, чиито имена съвпадат.</translation>
     </message>
     <message>
         <location filename="../src/core/locator/locatormodelsuperbridge.cpp" line="230"/>
         <source>Returns a list of locations and addresses within Finland with matching terms</source>
-        <translation type="unfinished"/>
+        <translation>Връща списък с локации и адреси във Финландия, чиито имена съвпадат.</translation>
     </message>
     <message>
         <location filename="../src/core/locator/locatormodelsuperbridge.cpp" line="326"/>
         <source>Search filters for your locations have been activated, customize results in the settings panel</source>
-        <translation type="unfinished"/>
+        <translation>Активиране на филтрите за търсене. Виж екрана с настройки.</translation>
     </message>
 </context>
 <context>
@@ -994,12 +995,12 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <message>
         <location filename="../src/qml/LocatorSettings.qml" line="39"/>
         <source>Search Settings</source>
-        <translation>Настройки на търсене</translation>
+        <translation>Настройки за търсене</translation>
     </message>
     <message>
         <location filename="../src/qml/LocatorSettings.qml" line="98"/>
         <source>Trigger without its prefix</source>
-        <translation type="unfinished"/>
+        <translation>Търси без префикс</translation>
     </message>
 </context>
 <context>
@@ -1007,7 +1008,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <message>
         <location filename="../src/qml/MessageLog.qml" line="17"/>
         <source>Message Logs</source>
-        <translation>Съобщения</translation>
+        <translation>Логове</translation>
     </message>
     <message>
         <location filename="../src/qml/MessageLog.qml" line="86"/>
@@ -1017,22 +1018,22 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <message>
         <location filename="../src/qml/MessageLog.qml" line="101"/>
         <source>Clear message log</source>
-        <translation>Изчисти съобщението</translation>
+        <translation>Изчисти логовете</translation>
     </message>
     <message>
         <location filename="../src/qml/MessageLog.qml" line="106"/>
         <source>Message log cleared</source>
-        <translation>Съобщението е изчистено</translation>
+        <translation>Логовете са изчистени</translation>
     </message>
     <message>
         <location filename="../src/qml/MessageLog.qml" line="114"/>
         <source>Send application log</source>
-        <translation type="unfinished"/>
+        <translation>Изпрати логовете</translation>
     </message>
     <message>
         <location filename="../src/qml/MessageLog.qml" line="119"/>
         <source>Your application log is being sent</source>
-        <translation type="unfinished"/>
+        <translation>Логовете са изпратени</translation>
     </message>
 </context>
 <context>
@@ -1054,7 +1055,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <message>
         <location filename="../src/core/multifeaturelistmodelbase.cpp" line="532"/>
         <source>Cannot change geometry of feature %1 in %2</source>
-        <translation type="unfinished"/>
+        <translation>Неуспешна промяна на геометрията на обект %1 в %2</translation>
     </message>
 </context>
 <context>
@@ -1072,13 +1073,13 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <message>
         <location filename="../src/qml/NavigationBar.qml" line="460"/>
         <source>Toggle Feature Selection</source>
-        <translation type="unfinished"/>
+        <translation>Превключване на избор на обекти</translation>
     </message>
     <message>
         <location filename="../src/qml/NavigationBar.qml" line="477"/>
         <location filename="../src/qml/NavigationBar.qml" line="667"/>
         <source>Print Atlas Feature(s) to PDF</source>
-        <translation type="unfinished"/>
+        <translation>Принтиране на обектите на атласа в PDF</translation>
     </message>
     <message>
         <location filename="../src/qml/NavigationBar.qml" line="497"/>
@@ -1088,52 +1089,52 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <message>
         <location filename="../src/qml/NavigationBar.qml" line="510"/>
         <source>Move Selected Feature(s)</source>
-        <translation>Премести изобран(ите) обект(и)</translation>
+        <translation>Премести изобраните обекти</translation>
     </message>
     <message>
         <location filename="../src/qml/NavigationBar.qml" line="523"/>
         <source>Duplicate Selected Feature(s)</source>
-        <translation type="unfinished"/>
+        <translation>Копирай избраните обекти</translation>
     </message>
     <message>
         <location filename="../src/qml/NavigationBar.qml" line="536"/>
         <source>Delete Selected Feature(s)</source>
-        <translation>Изтрий избран(и)те обект(и)</translation>
+        <translation>Изтрий избраните обекти</translation>
     </message>
     <message>
         <location filename="../src/qml/NavigationBar.qml" line="551"/>
         <source>Feature Menu</source>
-        <translation type="unfinished"/>
+        <translation>Меню на обектите</translation>
     </message>
     <message>
         <location filename="../src/qml/NavigationBar.qml" line="565"/>
         <source>Print Atlas Feature to PDF</source>
-        <translation type="unfinished"/>
+        <translation>Принтиране на обекта на атласа в PDF</translation>
     </message>
     <message>
         <location filename="../src/qml/NavigationBar.qml" line="582"/>
         <source>Zoom to Feature</source>
-        <translation type="unfinished"/>
+        <translation>Покажи обекта</translation>
     </message>
     <message>
         <location filename="../src/qml/NavigationBar.qml" line="593"/>
         <source>Auto-Zoom to Feature</source>
-        <translation type="unfinished"/>
+        <translation>Автоматично показване на обекта</translation>
     </message>
     <message>
         <location filename="../src/qml/NavigationBar.qml" line="606"/>
         <source>Set Feature as Destination</source>
-        <translation type="unfinished"/>
+        <translation>Използвай обекта като дестинация</translation>
     </message>
     <message>
         <location filename="../src/qml/NavigationBar.qml" line="622"/>
         <source>Move Feature</source>
-        <translation type="unfinished"/>
+        <translation>Измести обекта</translation>
     </message>
     <message>
         <location filename="../src/qml/NavigationBar.qml" line="635"/>
         <source>Duplicate Feature</source>
-        <translation>Дублирай обект</translation>
+        <translation>Копирай обекта</translation>
     </message>
     <message>
         <location filename="../src/qml/NavigationBar.qml" line="648"/>
@@ -1149,12 +1150,12 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
         <location filename="../src/qml/NavigationBar.qml" line="707"/>
         <location filename="../src/qml/NavigationBar.qml" line="746"/>
         <source>Printing atlas feature(s) to PDF</source>
-        <translation type="unfinished"/>
+        <translation>Принтиране на обектите на атласа в PDF</translation>
     </message>
     <message>
         <location filename="../src/qml/NavigationBar.qml" line="733"/>
         <source>Atlas feature(s) successfully printed to PDF and placed in your documents</source>
-        <translation type="unfinished"/>
+        <translation>Обектите на атласа са успешно принтирани в PDF и съхранени в твоите документи</translation>
     </message>
 </context>
 <context>
@@ -1182,7 +1183,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <message>
         <location filename="../src/qml/NavigationInformationView.qml" line="76"/>
         <source>Dist.</source>
-        <translation type="unfinished"/>
+        <translation>Разст.</translation>
     </message>
     <message>
         <location filename="../src/qml/NavigationInformationView.qml" line="79"/>
@@ -1193,7 +1194,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <message>
         <location filename="../src/qml/NavigationInformationView.qml" line="94"/>
         <source>Bearing</source>
-        <translation type="unfinished"/>
+        <translation>Посока (bearing)</translation>
     </message>
 </context>
 <context>
@@ -1218,7 +1219,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <message>
         <location filename="../src/core/orderedrelationmodel.cpp" line="217"/>
         <source>Cannot update features ordering</source>
-        <translation type="unfinished"/>
+        <translation>Неуспешна промяна на подредбата на обектите</translation>
     </message>
 </context>
 <context>
@@ -1383,12 +1384,12 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <message>
         <location filename="../src/core/qfieldcloudconnection.cpp" line="456"/>
         <source>[timeout] The request took too long to finish, please retry.</source>
-        <translation type="unfinished"/>
+        <translation>[timeout] Заявката отне прекалено много време да приключи, опитай отново.</translation>
     </message>
     <message>
         <location filename="../src/core/qfieldcloudconnection.cpp" line="459"/>
         <source>[aborted] The request has been aborted.</source>
-        <translation type="unfinished"/>
+        <translation>[aborted] Заявката беше прекратена.</translation>
     </message>
     <message>
         <location filename="../src/core/qfieldcloudconnection.cpp" line="492"/>
@@ -1398,17 +1399,17 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <message>
         <location filename="../src/core/qfieldcloudconnection.cpp" line="493"/>
         <source>Network Error.</source>
-        <translation type="unfinished"/>
+        <translation>Мрежова грешка.</translation>
     </message>
     <message>
         <location filename="../src/core/qfieldcloudconnection.cpp" line="159"/>
         <source>Server not found, please check the server URL</source>
-        <translation type="unfinished"/>
+        <translation>Сървърът не е открит, моля провери URL на сърввъра.</translation>
     </message>
     <message>
         <location filename="../src/core/qfieldcloudconnection.cpp" line="163"/>
         <source>Timeout error, please retry</source>
-        <translation type="unfinished"/>
+        <translation>Изтекло време за отговор, опитай отново</translation>
     </message>
     <message>
         <location filename="../src/core/qfieldcloudconnection.cpp" line="167"/>
@@ -1431,7 +1432,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <message>
         <location filename="../src/qml/QFieldCloudDeltaHistory.qml" line="50"/>
         <source>Push History</source>
-        <translation type="unfinished"/>
+        <translation>Изтория на проекта</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldCloudDeltaHistory.qml" line="50"/>
@@ -1448,13 +1449,14 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <message>
         <location filename="../src/qml/QFieldCloudLogin.qml" line="84"/>
         <source>Failed to sign in</source>
-        <translation type="unfinished"/>
+        <translation>Неуспешен вход</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldCloudLogin.qml" line="117"/>
         <source>Server URL
 (Leave empty to use the default server)</source>
-        <translation type="unfinished"/>
+        <translation>Сървърен URL
+(Остави непопълнено, за да се използва сървърът по подразбиране)</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldCloudLogin.qml" line="152"/>
@@ -1469,27 +1471,27 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <message>
         <location filename="../src/qml/QFieldCloudLogin.qml" line="203"/>
         <source>Sign out</source>
-        <translation type="unfinished"/>
+        <translation>Изход</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldCloudLogin.qml" line="203"/>
         <source>Signing in, please wait</source>
-        <translation type="unfinished"/>
+        <translation>Влизане, моля изчакайте</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldCloudLogin.qml" line="203"/>
         <source>Sign in</source>
-        <translation type="unfinished"/>
+        <translation>Вход</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldCloudLogin.qml" line="214"/>
         <source>New user?</source>
-        <translation type="unfinished"/>
+        <translation>Нов потребител?</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldCloudLogin.qml" line="214"/>
         <source>Register an account</source>
-        <translation type="unfinished"/>
+        <translation>Регистрация</translation>
     </message>
     <message>
         <source>Logout</source>
@@ -1518,21 +1520,21 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <name>QFieldCloudPackageLayersFeedback</name>
     <message>
         <source>Problematic QFieldCloud layer packaging</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Проблеми при пакетирането на QFieldCloud слой.</translation>
     </message>
     <message>
         <source>Some layers have not been packaged correctly on QFieldCloud. These layers might be misconfigured or their data source is not accessible from the QFieldCloud server.</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Някои слоеве не са пакетирани успешно в QFieldCloud. Тези слоеве може да не са настроени правилно или техните данни да не са достъпни от сървъра на QFieldCloud.</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldCloudPackageLayersFeedback.qml" line="22"/>
         <source>QFieldCloud had troubles packaging your project</source>
-        <translation type="unfinished"/>
+        <translation>Проблеми при пакетирането на проекта в QFieldCloud .</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldCloudPackageLayersFeedback.qml" line="32"/>
         <source>Some layers have not been packaged correctly on QFieldCloud. These layers might be misconfigured or their data source is not accessible from the QFieldCloud server. Please check the logs of the latest packaging job on the qfield.cloud website.</source>
-        <translation type="unfinished"/>
+        <translation>Някои слоеве не са пакетирани успешно в QFieldCloud. Тези слоеве може да не са настроени правилно или техните данни да не са достъпни от сървъра на QFieldCloud. Моля виж логовете на последната задача за пакетиране на сайта на qfield.cloud.</translation>
     </message>
 </context>
 <context>
@@ -1550,7 +1552,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <message>
         <location filename="../src/qml/QFieldCloudPopup.qml" line="50"/>
         <source>Storing projects on QFieldCloud offers seamless synchornization, offline editing, and team management.&lt;br&gt;&lt;br&gt;</source>
-        <translation type="unfinished"/>
+        <translation>Съхранението на проекти в QFieldCloud осигурява безпрепятствена синхронизация, офлайн редация и управление на екипи. </translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldCloudPopup.qml" line="51"/>
@@ -1570,12 +1572,12 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <message>
         <location filename="../src/qml/QFieldCloudPopup.qml" line="92"/>
         <source>Greetings &lt;strong&gt;%1&lt;/strong&gt;.</source>
-        <translation type="unfinished"/>
+        <translation>Здравей, &lt;strong&gt;%1&lt;/strong&gt;.</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldCloudPopup.qml" line="162"/>
         <source>This QFieldCloud project was first downloaded with another cloud account. Please sign in with the original account for this project to use the QFieldCloud functionality.</source>
-        <translation type="unfinished"/>
+        <translation>Този QFieldCloud проект е бил изтеглен от друг потребител на облака. Моля, влез с другия потребител, за да можеш да използваш проекта.</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldCloudPopup.qml" line="181"/>
@@ -1585,7 +1587,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <message>
         <location filename="../src/qml/QFieldCloudPopup.qml" line="183"/>
         <source>QFieldCloud is preparing the latest data just for you. This might take some time, please hold tight…</source>
-        <translation type="unfinished"/>
+        <translation>QFieldCloud подготвя последните данни от проекта за теб. Може да отнеме известно време, имай търпение... </translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldCloudPopup.qml" line="188"/>
@@ -1595,22 +1597,22 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <message>
         <location filename="../src/qml/QFieldCloudPopup.qml" line="190"/>
         <source>QFieldCloud is applying the latest uploaded changes. This might take some time, please hold tight…</source>
-        <translation type="unfinished"/>
+        <translation>QFieldCloud прилага последните промени по проекта. Може да отнеме известно време, имай търпение... </translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldCloudPopup.qml" line="273"/>
         <source>A server error has occured, please try again.</source>
-        <translation>Появи се сървърна грешка, моля опитайте отново.</translation>
+        <translation>Сървърна грешка, моля опитайте отново.</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldCloudPopup.qml" line="274"/>
         <source>A network error has occured, please try again.</source>
-        <translation>Появи се мрежова грешка, моля опитайте отново.</translation>
+        <translation>Мрежова грешка, моля опитайте отново.</translation>
     </message>
     <message numerus="yes">
         <location filename="../src/qml/QFieldCloudPopup.qml" line="334"/>
         <source>There is/are %n local change(s)</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>%1 локална промяна</numerusform><numerusform>%n локални промени</numerusform></translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldCloudPopup.qml" line="335"/>
@@ -1620,7 +1622,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <message>
         <location filename="../src/qml/QFieldCloudPopup.qml" line="337"/>
         <source>The locally stored cloud project has been corrupted</source>
-        <translation type="unfinished"/>
+        <translation>Изтегленият проект от облака е повреден</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldCloudPopup.qml" line="350"/>
@@ -1630,17 +1632,17 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <message>
         <location filename="../src/qml/QFieldCloudPopup.qml" line="365"/>
         <source>Synchronize the whole project with all modified features and download the freshly updated project with all the applied changes from QFieldCloud.</source>
-        <translation type="unfinished"/>
+        <translation>Синхронизиране на целия проект с всички променени обекти и изтегляне на обновен проект с всички приложени промени от QFieldCloud.</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldCloudPopup.qml" line="376"/>
         <source>Push changes</source>
-        <translation type="unfinished"/>
+        <translation>Качи промените</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldCloudPopup.qml" line="391"/>
         <source>Save internet bandwidth by only pushing the local features and pictures to the cloud, without updating the whole project.</source>
-        <translation type="unfinished"/>
+        <translation>Спести интернет трафик като само качиш промените на обекитте и снимките в облака, без да изтегляш целия проект отново.</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldCloudPopup.qml" line="404"/>
@@ -1656,14 +1658,16 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <message>
         <location filename="../src/qml/QFieldCloudPopup.qml" line="424"/>
         <source>Revert all modified features in the local cloud layers. You cannot restore those changes.</source>
-        <translation type="unfinished"/>
+        <translation>Отказване на промените за всички обекти на слоевете в облака. Тези промени не могат да бъдат възстановени!</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldCloudPopup.qml" line="425"/>
         <source>The local copy of this cloud project has been corrupted. Resetting the project will re-download the cloud version and will remove any local changes, make sure those were copied first if needed.
 
 While you can still view and use the project, it is strongly recommended to reset to avoid any accidental data loss as none of the changes made will be pushed back to the cloud.</source>
-        <translation type="unfinished"/>
+        <translation>Копието на проекта е повредено. Рестартирането на проекта ще предизвика изтегляне на проекта наново и ще изтрие всички промени. Копирай файловете някъде предварително, ако е необходимо.
+
+Въпреки че проектът все още е достъпен, строго препоръчително е да  се предприемат стъпките по-горе, за да се избегне загуба на данни по невнимание. Нито една промяна в този проект не е синхронизирана с облака.</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldCloudPopup.qml" line="455"/>
@@ -1688,37 +1692,37 @@ While you can still view and use the project, it is strongly recommended to rese
     <message>
         <location filename="../src/qml/QFieldCloudPopup.qml" line="472"/>
         <source>Last changes pushed just now</source>
-        <translation type="unfinished"/>
+        <translation>Последно синхронизиране току-що</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldCloudPopup.qml" line="474"/>
         <source>Last changes pushed %1 minutes ago</source>
-        <translation type="unfinished"/>
+        <translation>Последно синхронизиране преди %1 минута/и</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldCloudPopup.qml" line="476"/>
         <source>Last changes pushed at %1</source>
-        <translation type="unfinished"/>
+        <translation>Последно синхронизиране на %1</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldCloudPopup.qml" line="478"/>
         <source>Last changes pushed on %1</source>
-        <translation type="unfinished"/>
+        <translation>Последно синхронизиране на %1</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldCloudPopup.qml" line="480"/>
         <source>No changes pushed yet</source>
-        <translation type="unfinished"/>
+        <translation>Все още не е извършвана синхронизация</translation>
     </message>
     <message numerus="yes">
         <location filename="../src/qml/QFieldCloudPopup.qml" line="501"/>
         <source>%n attachment(s) are currently being uploaded in the background.</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>%n прикачени файл се качва на фонов режим.</numerusform><numerusform>%n прикачени файла се качват на фонов режим.</numerusform></translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldCloudPopup.qml" line="561"/>
         <source>Should local changes be reverted?</source>
-        <translation type="unfinished"/>
+        <translation>Да се отменят ли локалните промени?</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldCloudPopup.qml" line="588"/>
@@ -1728,7 +1732,7 @@ While you can still view and use the project, it is strongly recommended to rese
     <message>
         <location filename="../src/qml/QFieldCloudPopup.qml" line="592"/>
         <source>Last warning, resetting the cloud project will erase any local changes, are you sure you want to go ahead?</source>
-        <translation type="unfinished"/>
+        <translation>Последно предупреждение, рестартирането на проект от облака ще изтрие всички локални промени. Сигурен ли си, че искаш да продължиш?</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldCloudPopup.qml" line="613"/>
@@ -1759,25 +1763,29 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Packaged layer &apos;%1&apos; is not valid: &apos;%2&apos;</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Пакетираният слой &apos;%1&apos; е невалиден: &apos;%2&apos;</translation>
     </message>
     <message>
         <source>Failed to open temporary file for &quot;%1&quot;, reason:
 %2</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Неуспешно отваряне на временен файл за &quot;%1&quot;, причина:
+%2</translation>
     </message>
     <message>
         <source>Failed to upload attachment stored at &quot;%1&quot;, reason:
 %2</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Неуспешно качване на прикачен файл &quot;%1&quot;, причина:
+%2</translation>
     </message>
     <message>
         <source>Failed to download file &quot;%1&quot;, reason:</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Неуспешно изтегляне на файл &quot;%1&quot;, причина:
+%2</translation>
     </message>
     <message>
         <source>Failed to write downloaded file stored at &quot;%1&quot;, fs reason:</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Неуспешно записване на изтегления файл &quot;%1&quot;, причина от файловата система:
+%2</translation>
     </message>
     <message>
         <location filename="../src/core/qfieldcloudprojectsmodel.cpp" line="421"/>
@@ -1787,120 +1795,122 @@ While you can still view and use the project, it is strongly recommended to rese
     <message>
         <location filename="../src/core/qfieldcloudprojectsmodel.cpp" line="470"/>
         <source>project(%1) trigger response refresh not contain all the expected keys: name(string), owner(string), description(string), user_role(string), is_public(bool), can_repackage(bool), needs_repackaging(bool)</source>
-        <translation type="unfinished"/>
+        <translation>проект(%1), но отговорът не съдържа всички задължителни полета: name(string), owner(string), description(string), user_role(string), is_public(bool), can_repackage(bool), needs_repackaging(bool)</translation>
     </message>
     <message>
         <location filename="../src/core/qfieldcloudprojectsmodel.cpp" line="532"/>
         <location filename="../src/core/qfieldcloudprojectsmodel.cpp" line="574"/>
         <source>Getting job status, but the project is deleted.</source>
-        <translation type="unfinished"/>
+        <translation>Проверката на статуса на задачата, но проектът вече не съществува. </translation>
     </message>
     <message>
         <location filename="../src/core/qfieldcloudprojectsmodel.cpp" line="552"/>
         <source>Job creation finished, but the server response is missing required fields: id(string)</source>
-        <translation type="unfinished"/>
+        <translation>Създаването на нова задача е успешно, но отговорът от сървъра липсва задължителни полета: id(string)</translation>
     </message>
     <message>
         <location filename="../src/core/qfieldcloudprojectsmodel.cpp" line="589"/>
         <source>Getting job status, but no `%2` job triggered yet.</source>
-        <translation type="unfinished"/>
+        <translation>Проверка на статуса на задачата, но задача за `%2` не е стартирана все още.</translation>
     </message>
     <message>
         <location filename="../src/core/qfieldcloudprojectsmodel.cpp" line="604"/>
         <source>Getting job status finished, but the project is deleted.</source>
-        <translation type="unfinished"/>
+        <translation>Проверката на статуса на задачата приключи, но проектът вече не съществува. </translation>
     </message>
     <message>
         <location filename="../src/core/qfieldcloudprojectsmodel.cpp" line="634"/>
         <source>job(%1) status response does not contain all the expected keys: status(string)</source>
-        <translation type="unfinished"/>
+        <translation>Отговорът на запитването за статуса на задача(%1) има липсващи задължителни полета: status(string)</translation>
     </message>
     <message>
         <location filename="../src/core/qfieldcloudprojectsmodel.cpp" line="655"/>
         <source>Job(%1) finished with a failed status.</source>
-        <translation type="unfinished"/>
+        <translation>Задачата(%1) приключи с неуспешен (failed) статус.</translation>
     </message>
     <message>
         <location filename="../src/core/qfieldcloudprojectsmodel.cpp" line="683"/>
         <source>Project busy.</source>
-        <translation type="unfinished"/>
+        <translation>Проектът е зает.</translation>
     </message>
     <message>
         <location filename="../src/core/qfieldcloudprojectsmodel.cpp" line="746"/>
         <source>Packaging job finished unsuccessfully for `%1`. %2</source>
-        <translation type="unfinished"/>
+        <translation>Неуспешно завършила задача по пакетиране за `%1`: %2</translation>
     </message>
     <message>
         <location filename="../src/core/qfieldcloudprojectsmodel.cpp" line="804"/>
         <source>Failed to refresh the latest info for `%1`: %2</source>
-        <translation type="unfinished"/>
+        <translation>Неуспешно обновяване на последната информация за `%1`: %2</translation>
     </message>
     <message>
         <location filename="../src/core/qfieldcloudprojectsmodel.cpp" line="919"/>
         <source>Failed to get latest package data.</source>
-        <translation type="unfinished"/>
+        <translation>Неуспешно обновяване на информацията за последния пакет.</translation>
     </message>
     <message>
         <location filename="../src/core/qfieldcloudprojectsmodel.cpp" line="933"/>
         <source>Latest package data response error.</source>
-        <translation type="unfinished"/>
+        <translation>Последния пакет отговори с грешка.</translation>
     </message>
     <message>
         <location filename="../src/core/qfieldcloudprojectsmodel.cpp" line="953"/>
         <source>Latest package data structure error.</source>
-        <translation type="unfinished"/>
+        <translation>Последния пакет отговори с грешка в протокола.</translation>
     </message>
     <message>
         <location filename="../src/core/qfieldcloudprojectsmodel.cpp" line="986"/>
         <source>Project %1: Packaged layer `%2` is not valid. Error code %3, error message: %4</source>
-        <translation type="unfinished"/>
+        <translation>Проект %1: Слоят `%2` от пакета е невалиден. Код на грешката %3, съобщение на грешката: %4</translation>
     </message>
     <message>
         <location filename="../src/core/qfieldcloudprojectsmodel.cpp" line="1112"/>
         <source>Failed to open temporary file for `%1`, reason:
 %2</source>
-        <translation type="unfinished"/>
+        <translation>Неуспешно отваряне на временен файл за &quot;%1&quot;, причина:
+%2</translation>
     </message>
     <message>
         <location filename="../src/core/qfieldcloudprojectsmodel.cpp" line="1568"/>
         <source>Failed to upload attachment stored at `%1`, reason:
 %2</source>
-        <translation type="unfinished"/>
+        <translation>Неуспешно качване на прикачен файл &quot;%1&quot;, причина:
+%2</translation>
     </message>
     <message>
         <location filename="../src/core/qfieldcloudprojectsmodel.cpp" line="1815"/>
         <source>Network error. Failed to download file `%1`.</source>
-        <translation type="unfinished"/>
+        <translation>Мрежова грешка. Неуспешно изтегляне на файл `%1`.</translation>
     </message>
     <message>
         <location filename="../src/core/qfieldcloudprojectsmodel.cpp" line="1830"/>
         <source>File system error. Failed to write file to temporary location `%1`.</source>
-        <translation type="unfinished"/>
+        <translation>Грешка във файловата система. Неуспешно съхранение на файла на временна локация `%1`.</translation>
     </message>
     <message>
         <location filename="../src/core/qfieldcloudprojectsmodel.cpp" line="1837"/>
         <source>File system error. Failed to open file for writing on temporary `%1`.</source>
-        <translation type="unfinished"/>
+        <translation>Грешка във файловата система. Неуспешно прочитане на файла от временна локация `%1`.</translation>
     </message>
     <message>
         <location filename="../src/core/qfieldcloudprojectsmodel.cpp" line="1849"/>
         <source>Project `%1`, file `%2`: %3</source>
-        <translation type="unfinished"/>
+        <translation>Проект `%1`, файл `%2`: %3</translation>
     </message>
     <message>
         <location filename="../src/core/qfieldcloudprojectsmodel.cpp" line="1850"/>
         <source>System message: </source>
-        <translation type="unfinished"/>
+        <translation>Системно съобщение</translation>
     </message>
     <message>
         <location filename="../src/core/qfieldcloudprojectsmodel.cpp" line="1852"/>
         <source> (see more in the QField error log)…</source>
-        <translation type="unfinished"/>
+        <translation>(виж повече в QField логовете)</translation>
     </message>
     <message>
         <location filename="../src/core/qfieldcloudprojectsmodel.cpp" line="1885"/>
         <source>Failed to copy some of the downloaded files on your device. Check your device storage.</source>
-        <translation type="unfinished"/>
+        <translation>Неуспешно копиране на някои от изтеглените файлове. Провери съхранението на данни.</translation>
     </message>
 </context>
 <context>
@@ -1923,7 +1933,7 @@ While you can still view and use the project, it is strongly recommended to rese
     <message>
         <location filename="../src/qml/QFieldCloudScreen.qml" line="49"/>
         <source>Greetings &lt;strong&gt;%1&lt;/strong&gt;.</source>
-        <translation type="unfinished"/>
+        <translation>Здравей, &lt;strong&gt;%1&lt;/strong&gt;.</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldCloudScreen.qml" line="155"/>
@@ -1943,12 +1953,12 @@ While you can still view and use the project, it is strongly recommended to rese
     <message>
         <location filename="../src/qml/QFieldCloudScreen.qml" line="322"/>
         <source>Downloading, %1% fetched…</source>
-        <translation type="unfinished"/>
+        <translation>Изтегляне, %1% получени…</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldCloudScreen.qml" line="325"/>
         <source>QFieldCloud is preparing the latest data just for you. This might take some time, please hold tight…</source>
-        <translation type="unfinished"/>
+        <translation>QFieldCloud подготвя последните данни от проекта за теб. Може да отнеме известно време, имай търпение... </translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldCloudScreen.qml" line="330"/>
@@ -2003,7 +2013,7 @@ While you can still view and use the project, it is strongly recommended to rese
     <message>
         <location filename="../src/qml/QFieldCloudScreen.qml" line="501"/>
         <source>Remove Stored Project</source>
-        <translation type="unfinished"/>
+        <translation>Премахни съхранения проект</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldCloudScreen.qml" line="517"/>
@@ -2013,7 +2023,7 @@ While you can still view and use the project, it is strongly recommended to rese
     <message>
         <location filename="../src/qml/QFieldCloudScreen.qml" line="530"/>
         <source>Press and hold over a cloud project for a menu of additional actions.</source>
-        <translation type="unfinished"/>
+        <translation>Натисни и задръж върху проект от облака, за да видиш допълнителното меню.</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldCloudScreen.qml" line="538"/>
@@ -2056,17 +2066,17 @@ While you can still view and use the project, it is strongly recommended to rese
     <message>
         <location filename="../src/qml/QFieldSettings.qml" line="66"/>
         <source>When switched on, coordinate information, such as latitude and longitude, is overlayed onto the map while digitizing new features or using the measure tool.</source>
-        <translation>Когато е включено, информация за координатите (ширина и дължина) ще се показват върху екрана докато се цифроват нови обекти или се използва инструментът за измерване.</translation>
+        <translation>При активиране, информация за координатите (ширина и дължина) ще се показват върху екрана докато се цифроват нови обекти или се използва инструментът за измерване.</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldSettings.qml" line="70"/>
         <source>Show bookmarks</source>
-        <translation type="unfinished"/>
+        <translation>Покажи отметките</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldSettings.qml" line="71"/>
         <source>When switched on, user&apos;s saved and currently opened project bookmarks will be displayed on the map.</source>
-        <translation type="unfinished"/>
+        <translation>При активиране, записаните от потребителя и записаните в проекта отметки ще бъдат визуализирани на картата.</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldSettings.qml" line="75"/>
@@ -2076,7 +2086,7 @@ While you can still view and use the project, it is strongly recommended to rese
     <message>
         <location filename="../src/qml/QFieldSettings.qml" line="76"/>
         <source>If disabled, QField will use a minimalist internal camera instead of the camera app on the device.&lt;br&gt;Tip: Enable this option and install the open camera app to create geo tagged photos.</source>
-        <translation>Ако е изключено, QField ще използва минималистично вътрешно приложение, вместо системната камера.&lt;br&gt;Съвет: включете тази опция и инсталирайте приложението Open Camera, за да бъдат снимките геолокирани.</translation>
+        <translation>При деактивиране, QField ще използва минималистично вътрешно приложение, вместо системната камера.&lt;br&gt;Съвет: включете тази опция и инсталирайте приложението Open Camera, за да бъдат снимките геолокирани.</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldSettings.qml" line="81"/>
@@ -2086,37 +2096,37 @@ While you can still view and use the project, it is strongly recommended to rese
     <message>
         <location filename="../src/qml/QFieldSettings.qml" line="82"/>
         <source>If enabled, the feature is stored after having a valid geometry and the constraints are fulfilled and atributes are commited immediately.</source>
-        <translation>Ако е разрешено, обектът се записва перманентно веднага, ако има валидна геометрия и ограниченията са спазени.</translation>
+        <translation>При активиране, обектът се записва перманентно веднага, ако има валидна геометрия и ограниченията са спазени.</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldSettings.qml" line="86"/>
         <source>Dim screen when idling</source>
-        <translation type="unfinished"/>
+        <translation>Затъмни екрана при неактивност</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldSettings.qml" line="87"/>
         <source>If enabled, the screen brightness will be dimmed after 20 seconds of inactivity to preserve battery.</source>
-        <translation type="unfinished"/>
+        <translation>При активиране, яркостта на екрана ще бъде намалена след 20 секунди на неактивност, за да се пести енергия.</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldSettings.qml" line="91"/>
         <source>Consider mouse as a touchscreen device</source>
-        <translation>Курскорът на мишката като тачскрийн устройство</translation>
+        <translation>Курсорът на мишката като тачскрийн устройство</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldSettings.qml" line="92"/>
         <source>If disabled, the mouse will act as a stylus pen.</source>
-        <translation>Ако е изключено, курсорът на мишката се държи като електронна писалка.</translation>
+        <translation>При деактивиране, курсорът на мишката се държи като електронна писалка.</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldSettings.qml" line="96"/>
         <source>Send anonymized metrics</source>
-        <translation type="unfinished"/>
+        <translation>Изпращане на анонимизирани данни</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldSettings.qml" line="97"/>
         <source>If enabled, anonymized metrics will be collected and sent to help improve QField for everyone.</source>
-        <translation type="unfinished"/>
+        <translation>При активиране, анонимизирани данни за използването на QField ще се събират и изпращат с цел да се подобри QField.</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldSettings.qml" line="137"/>
@@ -2136,7 +2146,7 @@ While you can still view and use the project, it is strongly recommended to rese
     <message>
         <location filename="../src/qml/QFieldSettings.qml" line="191"/>
         <source>Customize search bar</source>
-        <translation type="unfinished"/>
+        <translation>Настройки на лентата за търсене</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldSettings.qml" line="282"/>
@@ -2146,17 +2156,17 @@ While you can still view and use the project, it is strongly recommended to rese
     <message>
         <location filename="../src/qml/QFieldSettings.qml" line="293"/>
         <source>To apply the selected user interface language, QField needs to completely shutdown and restart.</source>
-        <translation type="unfinished"/>
+        <translation>За да се приложи избраният език, QField трябва да бъде напълно спрян и рестартиран.</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldSettings.qml" line="322"/>
         <source>system</source>
-        <translation type="unfinished"/>
+        <translation>системен</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldSettings.qml" line="335"/>
         <source>Found a missing or incomplete language? %1Join the translator community.%2</source>
-        <translation type="unfinished"/>
+        <translation>Липсващ или непълен езиков превод? %1Присъедини се към общността на преводачите.%2</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldSettings.qml" line="378"/>
@@ -2306,7 +2316,7 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <location filename="../src/core/digitizinglogger.cpp" line="169"/>
         <source>Digitizing Logger</source>
-        <translation type="unfinished"/>
+        <translation>Логове на цифроването</translation>
     </message>
     <message>
         <location filename="../src/core/qfieldappauthrequesthandler.cpp" line="134"/>
@@ -2321,7 +2331,7 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <location filename="../src/core/qfieldcloudconnection.cpp" line="52"/>
         <source>Status not ok</source>
-        <translation type="unfinished"/>
+        <translation>Статусът не е ок</translation>
     </message>
     <message>
         <location filename="../src/core/qfieldcloudconnection.cpp" line="53"/>
@@ -2336,32 +2346,32 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <location filename="../src/core/qfieldcloudconnection.cpp" line="55"/>
         <source>API Error</source>
-        <translation type="unfinished"/>
+        <translation>Грешка с API-то</translation>
     </message>
     <message>
         <location filename="../src/core/qfieldcloudconnection.cpp" line="56"/>
         <source>Validation Error</source>
-        <translation type="unfinished"/>
+        <translation>Грешка при валидация</translation>
     </message>
     <message>
         <location filename="../src/core/qfieldcloudconnection.cpp" line="57"/>
         <source>Multiple Projects</source>
-        <translation type="unfinished"/>
+        <translation>Няколко проекта</translation>
     </message>
     <message>
         <location filename="../src/core/qfieldcloudconnection.cpp" line="58"/>
         <source>Invalid delta file</source>
-        <translation type="unfinished"/>
+        <translation>Грешен делта файл</translation>
     </message>
     <message>
         <location filename="../src/core/qfieldcloudconnection.cpp" line="59"/>
         <source>The project does not contain a valid QGIS project file</source>
-        <translation type="unfinished"/>
+        <translation>Проектът е съдържа валиден QGIS файл</translation>
     </message>
     <message>
         <location filename="../src/core/qfieldcloudconnection.cpp" line="60"/>
         <source>Invalid job</source>
-        <translation type="unfinished"/>
+        <translation>Невалидна задача</translation>
     </message>
     <message>
         <location filename="../src/core/qfieldcloudconnection.cpp" line="61"/>
@@ -2396,7 +2406,7 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <location filename="../src/core/utils/expressioncontextutils.cpp" line="106"/>
         <source>Cloud User Info</source>
-        <translation type="unfinished"/>
+        <translation>Информация за потребителя на облака</translation>
     </message>
 </context>
 <context>
@@ -2498,7 +2508,7 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <location filename="../src/core/referencingfeaturelistmodel.cpp" line="222"/>
         <source>Invalid referencing layer</source>
-        <translation type="unfinished"/>
+        <translation>Невалиден привързан слой</translation>
     </message>
     <message>
         <location filename="../src/core/referencingfeaturelistmodel.cpp" line="228"/>
@@ -2548,7 +2558,7 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <location filename="../src/core/scalebarmeasurement.cpp" line="126"/>
         <source>Unknown</source>
-        <translation type="unfinished"/>
+        <translation>Неизвестно</translation>
     </message>
 </context>
 <context>
@@ -2572,12 +2582,12 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <location filename="../src/qml/TemporalProperties.qml" line="28"/>
         <source>Temporal Properties</source>
-        <translation type="unfinished"/>
+        <translation>Времеви свойства</translation>
     </message>
     <message>
         <location filename="../src/qml/TemporalProperties.qml" line="43"/>
         <source>Enable temporal filter</source>
-        <translation type="unfinished"/>
+        <translation>Разреши на времеви филтър</translation>
     </message>
 </context>
 <context>
@@ -2605,7 +2615,7 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <location filename="../src/qml/Tracking.qml" line="273"/>
         <source>Activate distance constraint</source>
-        <translation type="unfinished"/>
+        <translation>Активирай ограничението по разстояние</translation>
     </message>
     <message>
         <location filename="../src/qml/Tracking.qml" line="302"/>
@@ -2615,12 +2625,12 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <location filename="../src/qml/Tracking.qml" line="345"/>
         <source>Record when both active constraints are met</source>
-        <translation type="unfinished"/>
+        <translation>Запиши, когато всички активни ограничения са изпълнени</translation>
     </message>
     <message>
         <location filename="../src/qml/Tracking.qml" line="372"/>
         <source>When enabled, vertices with only be recorded when both active constraints are met. If the setting is disabled, individual constraints met will trigger a vertex addition.</source>
-        <translation type="unfinished"/>
+        <translation>При активиране, възлите ще бъдат записани само когато всички активни ограничения са изпълнени. При деактивиране, всяко отделно ограничение ще предизвика добавяне на възел.</translation>
     </message>
     <message>
         <location filename="../src/qml/Tracking.qml" line="392"/>
@@ -2664,22 +2674,22 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <location filename="../src/qml/WelcomeScreen.qml" line="116"/>
         <source>We&apos;re sorry to hear that. Click on the button below to comment or seek support.</source>
-        <translation type="unfinished"/>
+        <translation>Жалко. Натисни на бутона по-долу, за да коментирате или потърсите помощ.</translation>
     </message>
     <message>
         <location filename="../src/qml/WelcomeScreen.qml" line="130"/>
         <source>Reach out</source>
-        <translation type="unfinished"/>
+        <translation>Свържи се</translation>
     </message>
     <message>
         <location filename="../src/qml/WelcomeScreen.qml" line="168"/>
         <source>Hey there, how do you like your experience with QField so far?</source>
-        <translation type="unfinished"/>
+        <translation>Хей, кефи ли те QField?</translation>
     </message>
     <message>
         <location filename="../src/qml/WelcomeScreen.qml" line="225"/>
         <source>That&apos;s great! We&apos;d love for you to click on the button below and leave a comment on the store.</source>
-        <translation type="unfinished"/>
+        <translation>Чудесно! Ще се радваме да натиснеш бутона по-долу и напишеш коментар в магазина.</translation>
     </message>
     <message>
         <location filename="../src/qml/WelcomeScreen.qml" line="240"/>
@@ -2689,22 +2699,22 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <location filename="../src/qml/WelcomeScreen.qml" line="297"/>
         <source>Anonymized metrics collection has been disabled. You can re-enable through the settings panel.</source>
-        <translation type="unfinished"/>
+        <translation>Събирането на анонимизирани данни е изключено. Можеш да го включиш отново през панела за настройки.</translation>
     </message>
     <message>
         <location filename="../src/qml/WelcomeScreen.qml" line="331"/>
         <source>To improve stability for everyone, QField collects and sends anonymized metrics.</source>
-        <translation type="unfinished"/>
+        <translation>С цел подобряване на стабилността за всички потребители, QField събира и изпраща анонимизирани данни. </translation>
     </message>
     <message>
         <location filename="../src/qml/WelcomeScreen.qml" line="342"/>
         <source>I agree</source>
-        <translation type="unfinished"/>
+        <translation>Съгласявам се </translation>
     </message>
     <message>
         <location filename="../src/qml/WelcomeScreen.qml" line="351"/>
         <source>I prefer not</source>
-        <translation type="unfinished"/>
+        <translation>Отказвам</translation>
     </message>
     <message>
         <location filename="../src/qml/WelcomeScreen.qml" line="399"/>
@@ -2729,12 +2739,12 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <location filename="../src/qml/WelcomeScreen.qml" line="497"/>
         <source>Base map project</source>
-        <translation type="unfinished"/>
+        <translation>Проект картна-основа</translation>
     </message>
     <message>
         <location filename="../src/qml/WelcomeScreen.qml" line="585"/>
         <source>Base Map Project</source>
-        <translation type="unfinished"/>
+        <translation>Проект картна-основа</translation>
     </message>
     <message>
         <location filename="../src/qml/WelcomeScreen.qml" line="605"/>
@@ -2744,7 +2754,7 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <location filename="../src/qml/WelcomeScreen.qml" line="745"/>
         <source>Welcome to QField. First time using this application? Try out sample projects listed in the list below.</source>
-        <translation type="unfinished"/>
+        <translation>Добре дошли в QField! Използвате приложението за пръв път? Опитайте някой от примерните проекти в списъка по-долу.</translation>
     </message>
     <message>
         <location filename="../src/qml/WelcomeScreen.qml" line="747"/>
@@ -2782,12 +2792,12 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <location filename="../src/qml/editorwidgets/relationeditors/ordered_relation_editor.qml" line="395"/>
         <source>Should the feature &lt;b&gt;%1 (%2)&lt;/b&gt; of layer &lt;b&gt;%3&lt;/b&gt; be unlinked?&lt;br&gt;&lt;i&gt;(The connection will be deleted on layer &lt;b&gt;%4&lt;/b&gt;)&lt;/i&gt;</source>
-        <translation>Сигурни ли сте, че желаете да премахнете връзката на обекта &lt;b&gt;%1 (%2)&lt;/b&gt; в слоя &lt;b&gt;%3&lt;/b&gt;? &lt;br&gt;&lt;i&gt;(връзката ще бъде изтрива в слоя &lt;b&gt;%4&lt;/b&gt;)?&lt;/i&gt;</translation>
+        <translation>Сигурен ли си, че желаеш да премахнеш връзката на обекта &lt;b&gt;%1 (%2)&lt;/b&gt; в слоя &lt;b&gt;%3&lt;/b&gt;? &lt;br&gt;&lt;i&gt;(връзката ще бъде изтрива в слоя &lt;b&gt;%4&lt;/b&gt;)?&lt;/i&gt;</translation>
     </message>
     <message>
         <location filename="../src/qml/editorwidgets/relationeditors/ordered_relation_editor.qml" line="400"/>
         <source>Should the feature &lt;b&gt;%1 (%2)&lt;/b&gt; on layer &lt;b&gt;%3&lt;/b&gt; be deleted?</source>
-        <translation>Сигурни ли сте, че желаете да изтриете обекта &lt;b&gt;%1 (%2)&lt;/b&gt; в слоя &lt;b&gt;%3&lt;/b&gt;?</translation>
+        <translation>Сигурен ли си, че желаеш да изтриеш обекта &lt;b&gt;%1 (%2)&lt;/b&gt; в слоя &lt;b&gt;%3&lt;/b&gt;?</translation>
     </message>
     <message>
         <location filename="../src/qml/editorwidgets/relationeditors/ordered_relation_editor.qml" line="409"/>
@@ -3001,27 +3011,27 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <location filename="../src/qml/qgismobileapp.qml" line="1744"/>
         <source>Map Canvas Options</source>
-        <translation type="unfinished"/>
+        <translation>Настройки на картния обзор</translation>
     </message>
     <message>
         <location filename="../src/qml/qgismobileapp.qml" line="1788"/>
         <source>Add Bookmark at Coordinates</source>
-        <translation type="unfinished"/>
+        <translation>Добави отметка на координати</translation>
     </message>
     <message>
         <location filename="../src/qml/qgismobileapp.qml" line="1793"/>
         <source>Untitled bookmark</source>
-        <translation type="unfinished"/>
+        <translation>Неозаглавена отметка</translation>
     </message>
     <message>
         <location filename="../src/qml/qgismobileapp.qml" line="1807"/>
         <source>Set Coordinates as Destination</source>
-        <translation type="unfinished"/>
+        <translation>Използвай координатите като дестинация</translation>
     </message>
     <message>
         <location filename="../src/qml/qgismobileapp.qml" line="1818"/>
         <source>Copy Coordinates</source>
-        <translation type="unfinished"/>
+        <translation>Копирай координатите</translation>
     </message>
     <message>
         <location filename="../src/qml/qgismobileapp.qml" line="1827"/>
@@ -3038,21 +3048,21 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <location filename="../src/qml/qgismobileapp.qml" line="1831"/>
         <source>Coordinates copied to clipboard</source>
-        <translation type="unfinished"/>
+        <translation>Координаните са копирани</translation>
     </message>
     <message>
         <source>Set As Destination</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Използвай като дестинация</translation>
     </message>
     <message>
         <location filename="../src/qml/qgismobileapp.qml" line="1838"/>
         <source>Navigation Options</source>
-        <translation type="unfinished"/>
+        <translation>Настройки на навигацията</translation>
     </message>
     <message>
         <location filename="../src/qml/qgismobileapp.qml" line="1854"/>
         <source>Clear Destination</source>
-        <translation type="unfinished"/>
+        <translation>Изчисти дестинацията</translation>
     </message>
     <message>
         <location filename="../src/qml/qgismobileapp.qml" line="1866"/>
@@ -3082,23 +3092,23 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <location filename="../src/qml/qgismobileapp.qml" line="1943"/>
         <source>Add Bookmark at Current Location</source>
-        <translation type="unfinished"/>
+        <translation>Добави отметка на текущата локация</translation>
     </message>
     <message>
         <location filename="../src/qml/qgismobileapp.qml" line="1949"/>
         <location filename="../src/qml/qgismobileapp.qml" line="1972"/>
         <source>Current location unknown</source>
-        <translation type="unfinished"/>
+        <translation>Текущата локация е неизвестна</translation>
     </message>
     <message>
         <location filename="../src/qml/qgismobileapp.qml" line="1953"/>
         <source>My location</source>
-        <translation type="unfinished"/>
+        <translation>Моята локация</translation>
     </message>
     <message>
         <location filename="../src/qml/qgismobileapp.qml" line="1966"/>
         <source>Copy Current Location</source>
-        <translation type="unfinished"/>
+        <translation>Копирай текущата локация</translation>
     </message>
     <message>
         <location filename="../src/qml/qgismobileapp.qml" line="1983"/>
@@ -3113,7 +3123,7 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <location filename="../src/qml/qgismobileapp.qml" line="1989"/>
         <source>Current location copied to clipboard</source>
-        <translation type="unfinished"/>
+        <translation>Текущата локация е копирана</translation>
     </message>
     <message>
         <location filename="../src/qml/qgismobileapp.qml" line="2027"/>
@@ -3158,12 +3168,12 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <location filename="../src/qml/qgismobileapp.qml" line="2458"/>
         <source>Changes failed to reach QFieldCloud: %1</source>
-        <translation type="unfinished"/>
+        <translation>Промените не са качени в QFieldCloud: %1</translation>
     </message>
     <message>
         <location filename="../src/qml/qgismobileapp.qml" line="2462"/>
         <source>Changes successfully pushed to QFieldCloud</source>
-        <translation type="unfinished"/>
+        <translation>Промениса са успешно качени в QFieldCloud</translation>
     </message>
     <message>
         <location filename="../src/qml/qgismobileapp.qml" line="2687"/>
@@ -3201,12 +3211,12 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <location filename="../src/qml/editorwidgets/relationeditors/relation_editor.qml" line="257"/>
         <source>Should the feature &lt;b&gt;%1 (%2)&lt;/b&gt; of layer &lt;b&gt;%3&lt;/b&gt; be unlinked?&lt;br&gt;&lt;i&gt;(The connection will be deleted on layer &lt;b&gt;%4&lt;/b&gt;)&lt;/i&gt;</source>
-        <translation>Сигурни ли сте, че желаете да премахнете връзката на обекта &lt;b&gt;%1 (%2)&lt;/b&gt; в слоя &lt;b&gt;%3&lt;/b&gt;? &lt;br&gt;&lt;i&gt;(връзката ще бъде изтрива в слоя &lt;b&gt;%4&lt;/b&gt;)?&lt;/i&gt;</translation>
+        <translation>Сигурен ли си, че желаеш да премахнеш връзката на обекта &lt;b&gt;%1 (%2)&lt;/b&gt; в слоя &lt;b&gt;%3&lt;/b&gt;? &lt;br&gt;&lt;i&gt;(връзката ще бъде изтрива в слоя &lt;b&gt;%4&lt;/b&gt;)?&lt;/i&gt;</translation>
     </message>
     <message>
         <location filename="../src/qml/editorwidgets/relationeditors/relation_editor.qml" line="262"/>
         <source>Should the feature &lt;b&gt;%1 (%2)&lt;/b&gt; on layer &lt;b&gt;%3&lt;/b&gt; be deleted?</source>
-        <translation>Сигурни ли сте, че желаете да изтриете обекта &lt;b&gt;%1 (%2)&lt;/b&gt; в слоя &lt;b&gt;%3&lt;/b&gt;?</translation>
+        <translation>Сигурен ли си, че желаеш да изтриеш обекта &lt;b&gt;%1 (%2)&lt;/b&gt; в слоя &lt;b&gt;%3&lt;/b&gt;?</translation>
     </message>
     <message>
         <location filename="../src/qml/editorwidgets/relationeditors/relation_editor.qml" line="271"/>
