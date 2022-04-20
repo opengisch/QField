@@ -136,9 +136,9 @@ jobs:
                 -D APP_NAME="${APP_NAME}" \
                 -D NUGET_USERNAME=opengisch \
                 -D NUGET_TOKEN=${{ secrets.GITHUB_TOKEN }} \
-                -D SENTRY_DSN=${{ secrets.SENTRY_DSN }} \
-                -D SENTRY_ENV="${APP_ENV}" \
-                -D SENTRY_IMPORT_PREFIX=/tmp/sentry-android-ndk/jni
+                #-D SENTRY_DSN=${{ secrets.SENTRY_DSN }} \
+                #-D SENTRY_ENV="${APP_ENV}" \
+                #-D SENTRY_IMPORT_PREFIX=/tmp/sentry-android-ndk/jni
 
       - name: 📑 Upload Dep Build Logs
         uses: actions/upload-artifact@v2
@@ -193,13 +193,13 @@ jobs:
           repo-token: ${{ secrets.GITHUB_TOKEN }}
           release-tag: ${{ env.CI_TAG }}
 
-      - name: Upload debug symbols
+      #- name: Upload debug symbols
         # if: release or labeled PR
-        env:
-          SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
-        run: |
-          curl -sL https://sentry.io/get-cli/ | bash
-          sentry-cli upload-dif -o opengisch -p qfield ${{ env.CMAKE_BUILD_DIR }}/android-build/build/intermediates/merged_native_libs/release
+       # env:
+        #  SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
+        #run: |
+         # curl -sL https://sentry.io/get-cli/ | bash
+          #sentry-cli upload-dif -o opengisch -p qfield ${{ env.CMAKE_BUILD_DIR }}/android-build/build/intermediates/merged_native_libs/release
 
   deploy_to_playstore:
     runs-on: ubuntu-20.04
