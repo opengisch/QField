@@ -37,6 +37,7 @@
     <string name="import_project_folder">Importa il Progetto dalla Cartella</string>
     <string name="import_project_archive">Importa il Progetto da ZIP</string>
     <string name="import_dataset">Importa Dataset(s)</string>
+    <string name="usb_cable_help">Guida alla Gestione dell\'Archiviazione</string>
     <string name="import_error">Errore di Importazione</string>
     <string name="import_dataset_error">Non è stato possibile importare correttamente i dataset selezionati. </string>
     <string name="import_project_archive_error">L\'archivio del progetto selezionato non è stato importato correttamente.</string>

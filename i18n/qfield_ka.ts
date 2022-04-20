@@ -1002,7 +1002,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <message>
         <location filename="../src/qml/MessageLog.qml" line="17"/>
         <source>Message Logs</source>
-        <translation type="unfinished"/>
+        <translation>შეტყობინებების ჟურნალი</translation>
     </message>
     <message>
         <location filename="../src/qml/MessageLog.qml" line="86"/>
@@ -1626,7 +1626,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <message>
         <location filename="../src/qml/QFieldCloudPopup.qml" line="365"/>
         <source>Synchronize the whole project with all modified features and download the freshly updated project with all the applied changes from QFieldCloud.</source>
-        <translation type="unfinished"/>
+        <translation>სრული პროექტის ყველა ტოპოგრაფიული ელემენტის ცვლილების სინქრონიზაცია და QFieldCloud-დან სრულად განახლებული პროექტის ჩამოტვირთვა.</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldCloudPopup.qml" line="376"/>
@@ -2488,7 +2488,7 @@ Cancel to make a minimal device scan instead.</source>
         <location filename="../src/core/qgsquick/qgsquickmapsettings.cpp" line="313"/>
         <location filename="../src/core/qgsquick/qgsquickmapsettings.cpp" line="343"/>
         <source>Map Canvas rotation is not supported. Resetting from %1 to 0.</source>
-        <translation>რუკის &quot;კანვასის&quot; შებრუნება შეუძლებელია.</translation>
+        <translation>რუკის ფენის შებრუნება შეუძლებელია. %1-დან 0-ზე დაბრუნება.</translation>
     </message>
 </context>
 <context>
@@ -2907,7 +2907,7 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <location filename="../src/qml/qgismobileapp.qml" line="1177"/>
         <source>Canvas follows location</source>
-        <translation>&quot;კანვასი&quot; თვალს ადევნებს ადგილმდებარეობას</translation>
+        <translation>რუკის ფენა თვალს ადევნებს ადგილმდებარეობას</translation>
     </message>
     <message>
         <location filename="../src/qml/qgismobileapp.qml" line="1186"/>
@@ -2927,7 +2927,7 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <location filename="../src/qml/qgismobileapp.qml" line="1288"/>
         <source>Canvas stopped following location</source>
-        <translation>&quot;კანვასმა&quot; შეწყვიტა ადგილმდებარეობის თვალის დევნა</translation>
+        <translation>რუკის ფენამ შეწყვიტა ადგილმდებარეობის თვალის დევნა</translation>
     </message>
     <message>
         <location filename="../src/qml/qgismobileapp.qml" line="1432"/>
@@ -2974,7 +2974,7 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <location filename="../src/qml/qgismobileapp.qml" line="1582"/>
         <source>Message Log</source>
-        <translation type="unfinished"/>
+        <translation>შეტყობინება ჟურნალიდან</translation>
     </message>
     <message>
         <location filename="../src/qml/qgismobileapp.qml" line="1596"/>
@@ -2999,7 +2999,7 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <location filename="../src/qml/qgismobileapp.qml" line="1744"/>
         <source>Map Canvas Options</source>
-        <translation type="unfinished"/>
+        <translation>რუკის ფენის პარამეტრები</translation>
     </message>
     <message>
         <location filename="../src/qml/qgismobileapp.qml" line="1788"/>

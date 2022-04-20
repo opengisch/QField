@@ -51,7 +51,7 @@
     <string name="export_error">导出错误</string>
     <string name="export_to_folder_error">所选工程文件夹未正确导出。</string>
     <string name="send_to">发送到...</string>
-    <string name="send_compressed_to">将压缩文件夹发送到...</string>
+    <string name="send_compressed_to">将文件夹压缩并发送到...</string>
     <string name="export_to_folder">导出到文件夹...</string>
     <string name="add_to_favorite">添加到收藏夹</string>
     <string name="remove_from_favorite">从收藏夹中移除</string>

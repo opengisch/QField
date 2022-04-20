@@ -677,7 +677,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <message>
         <location filename="../src/core/locator/featureslocatorfilter.h" line="62"/>
         <source>Features in all layers</source>
-        <translation type="unfinished"/>
+        <translation>Elementi in tutti i layer</translation>
     </message>
 </context>
 <context>
@@ -1501,7 +1501,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <message>
         <location filename="../src/qml/QFieldCloudLogin.qml" line="227"/>
         <source>The easiest way to transfer you project from QGIS to your devices!</source>
-        <translation type="unfinished"/>
+        <translation>Il modo più semplice per trasferire il tuo progetto da QGIS ai tuoi dispositivi!</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldCloudLogin.qml" line="228"/>
@@ -1555,7 +1555,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <message>
         <location filename="../src/qml/QFieldCloudPopup.qml" line="90"/>
         <source>Disconnected from the cloud.</source>
-        <translation type="unfinished"/>
+        <translation>Disconnesso dal cloud.</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldCloudPopup.qml" line="91"/>
@@ -1908,7 +1908,7 @@ While you can still view and use the project, it is strongly recommended to rese
     <message>
         <location filename="../src/qml/QFieldCloudScreen.qml" line="47"/>
         <source>Disconnected from the cloud.</source>
-        <translation type="unfinished"/>
+        <translation>Disconnesso dal cloud.</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldCloudScreen.qml" line="48"/>
@@ -2141,17 +2141,17 @@ While you can still view and use the project, it is strongly recommended to rese
     <message>
         <location filename="../src/qml/QFieldSettings.qml" line="293"/>
         <source>To apply the selected user interface language, QField needs to completely shutdown and restart.</source>
-        <translation type="unfinished"/>
+        <translation>Per applicare la lingua dell&apos;interfaccia utente selezionata, QField deve essere completamente arrestato e riavviato.</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldSettings.qml" line="322"/>
         <source>system</source>
-        <translation type="unfinished"/>
+        <translation>sistema</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldSettings.qml" line="335"/>
         <source>Found a missing or incomplete language? %1Join the translator community.%2</source>
-        <translation type="unfinished"/>
+        <translation>Hai trovato una lingua mancante o incompleta? %1Unisciti alla comunità dei traduttori.%2</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldSettings.qml" line="378"/>
@@ -2212,7 +2212,7 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <location filename="../src/qml/QFieldSettings.qml" line="526"/>
         <source>Connecting to %1</source>
-        <translation type="unfinished"/>
+        <translation>Connessione a %1</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldSettings.qml" line="543"/>
@@ -2883,12 +2883,12 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <location filename="../src/qml/qgismobileapp.qml" line="1099"/>
         <source>Coordinate cursor now locked to position</source>
-        <translation type="unfinished"/>
+        <translation>Cursore delle coordinate ora bloccato sulla posizione</translation>
     </message>
     <message>
         <location filename="../src/qml/qgismobileapp.qml" line="1111"/>
         <source>Coordinate cursor unlocked</source>
-        <translation type="unfinished"/>
+        <translation>Cursore delle coordinate sbloccato</translation>
     </message>
     <message>
         <location filename="../src/qml/qgismobileapp.qml" line="1128"/>
