@@ -118,7 +118,7 @@ public class QFieldProjectActivity
     }
 
     @Override
-    public boolean onNavigateUp() {
+    public boolean onSupportNavigateUp() {
         finish();
         return true;
     }
