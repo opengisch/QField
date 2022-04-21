@@ -238,7 +238,8 @@ public class QFieldProjectActivity
             case R.id.send_compressed_to: {
                 File temporaryFile =
                     new File(getCacheDir(), file.getName() + ".zip");
-                QFieldUtils.zipFolder(file.getPath(), temporaryFile.getPath());
+                QFieldUtils.folderToZip(file.getPath(),
+                                        temporaryFile.getPath());
 
                 DocumentFile documentFile =
                     DocumentFile.fromFile(temporaryFile);
@@ -902,8 +903,7 @@ public class QFieldProjectActivity
                     try {
                         InputStream input =
                             resolver.openInputStream(archiveUri);
-                        imported =
-                            QFieldUtils.inputStreamToFolder(input, importPath);
+                        imported = QFieldUtils.zipToFolder(input, importPath);
                     } catch (Exception e) {
                         e.printStackTrace();
                         AlertDialog alertDialog =
