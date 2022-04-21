@@ -136,7 +136,7 @@ public class QFieldUtils {
         return true;
     }
 
-    public static boolean inputStreamToFolder(InputStream in, String folder) {
+    public static boolean zipToFolder(InputStream in, String folder) {
         try {
             ZipInputStream zin = new ZipInputStream(in);
             ZipEntry entry;
@@ -144,6 +144,12 @@ public class QFieldUtils {
                 if (entry.isDirectory()) {
                     new File(folder + entry.getName()).mkdirs();
                     continue;
+                } else {
+                    // some ZIP files don't include directory items, we
+                    // therefore have to make sure parent directories are always
+                    // created
+                    new File(new File(folder + entry.getName()).getParent())
+                        .mkdirs();
                 }
                 OutputStream out =
                     new FileOutputStream(new File(folder + entry.getName()));
@@ -162,7 +168,7 @@ public class QFieldUtils {
         return true;
     }
 
-    public static boolean zipFolder(String folder, String archivePath) {
+    public static boolean folderToZip(String folder, String archivePath) {
         try {
             FileOutputStream out = new FileOutputStream(archivePath);
             ZipOutputStream zip = new ZipOutputStream(out);
