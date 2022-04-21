@@ -174,7 +174,7 @@ public class QFieldActivity extends QtActivity {
                     new File(projectPath).mkdir();
                     try {
                         InputStream input = resolver.openInputStream(uri);
-                        QFieldUtils.inputStreamToFolder(input, projectPath);
+                        QFieldUtils.zipToFolder(input, projectPath);
                     } catch (Exception e) {
                         e.printStackTrace();
                     }
