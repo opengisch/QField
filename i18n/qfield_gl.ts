@@ -829,7 +829,7 @@ As xeometrías das entidades combinaranse na entidade &apos;%1&apos;, a cal cons
     <message>
         <location filename="../src/qml/LayerTreeItemProperties.qml" line="45"/>
         <source>Setup tracking</source>
-        <translation type="unfinished"/>
+        <translation>Configurar o trazado</translation>
     </message>
     <message>
         <location filename="../src/qml/LayerTreeItemProperties.qml" line="82"/>
@@ -1194,7 +1194,7 @@ As xeometrías das entidades combinaranse na entidade &apos;%1&apos;, a cal cons
     <message>
         <location filename="../src/qml/NavigationInformationView.qml" line="94"/>
         <source>Bearing</source>
-        <translation type="unfinished"/>
+        <translation>Rumbo</translation>
     </message>
 </context>
 <context>
@@ -1449,7 +1449,7 @@ As xeometrías das entidades combinaranse na entidade &apos;%1&apos;, a cal cons
     <message>
         <location filename="../src/qml/QFieldCloudLogin.qml" line="84"/>
         <source>Failed to sign in</source>
-        <translation type="unfinished"/>
+        <translation>Non se puido iniciar sesión</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldCloudLogin.qml" line="117"/>
@@ -1471,17 +1471,17 @@ As xeometrías das entidades combinaranse na entidade &apos;%1&apos;, a cal cons
     <message>
         <location filename="../src/qml/QFieldCloudLogin.qml" line="203"/>
         <source>Sign out</source>
-        <translation type="unfinished"/>
+        <translation>Saír da sesión</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldCloudLogin.qml" line="203"/>
         <source>Signing in, please wait</source>
-        <translation type="unfinished"/>
+        <translation>Iniciando sesión, agarde por favor</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldCloudLogin.qml" line="203"/>
         <source>Sign in</source>
-        <translation type="unfinished"/>
+        <translation>Iniciar sesión</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldCloudLogin.qml" line="214"/>
@@ -1520,21 +1520,21 @@ As xeometrías das entidades combinaranse na entidade &apos;%1&apos;, a cal cons
     <name>QFieldCloudPackageLayersFeedback</name>
     <message>
         <source>Problematic QFieldCloud layer packaging</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Empaquetado problemático da capa de QFieldCloud</translation>
     </message>
     <message>
         <source>Some layers have not been packaged correctly on QFieldCloud. These layers might be misconfigured or their data source is not accessible from the QFieldCloud server.</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Algunhas capas non se empaquetaron correctamente en QFieldCloud. Estas capas poden estar mal configuradas ou non ter accesible a súa fonte de datos do servidor de QFieldCloud.</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldCloudPackageLayersFeedback.qml" line="22"/>
         <source>QFieldCloud had troubles packaging your project</source>
-        <translation type="unfinished"/>
+        <translation>Houbo problemas en QFieldCloud empaquetando o proxecto</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldCloudPackageLayersFeedback.qml" line="32"/>
         <source>Some layers have not been packaged correctly on QFieldCloud. These layers might be misconfigured or their data source is not accessible from the QFieldCloud server. Please check the logs of the latest packaging job on the qfield.cloud website.</source>
-        <translation type="unfinished"/>
+        <translation>Algunhas capas non se empaquetaron correctamente en QFieldCloud. Estas capas poden estar mal configuradas ou non ter accesible a súa fonte de datos do servidor de QFieldCloud. Comprobe os rexistros do último traballo de empaquetado na web de qfield.cloud.</translation>
     </message>
 </context>
 <context>
@@ -1876,22 +1876,22 @@ Aínda que podes seguir vendo e utilizando este proxecto, recoméndase fortement
     <message>
         <location filename="../src/core/qfieldcloudprojectsmodel.cpp" line="1815"/>
         <source>Network error. Failed to download file `%1`.</source>
-        <translation type="unfinished"/>
+        <translation>Erro de rede. Non se puido descargar o ficheiro `%1`.</translation>
     </message>
     <message>
         <location filename="../src/core/qfieldcloudprojectsmodel.cpp" line="1830"/>
         <source>File system error. Failed to write file to temporary location `%1`.</source>
-        <translation type="unfinished"/>
+        <translation>Erro do sistema de ficheiros. Non se puido escribir o ficheiro nunha localización temporal `%1`.</translation>
     </message>
     <message>
         <location filename="../src/core/qfieldcloudprojectsmodel.cpp" line="1837"/>
         <source>File system error. Failed to open file for writing on temporary `%1`.</source>
-        <translation type="unfinished"/>
+        <translation>Erro no sistema de ficheiros. Non se puido abrir o ficheiro para escritura no temporal `%1`.</translation>
     </message>
     <message>
         <location filename="../src/core/qfieldcloudprojectsmodel.cpp" line="1849"/>
         <source>Project `%1`, file `%2`: %3</source>
-        <translation type="unfinished"/>
+        <translation>Proxecto `%1`, ficheiro `%2`: %3</translation>
     </message>
     <message>
         <location filename="../src/core/qfieldcloudprojectsmodel.cpp" line="1850"/>
@@ -2072,7 +2072,7 @@ Aínda que podes seguir vendo e utilizando este proxecto, recoméndase fortement
     <message>
         <location filename="../src/qml/QFieldSettings.qml" line="71"/>
         <source>When switched on, user&apos;s saved and currently opened project bookmarks will be displayed on the map.</source>
-        <translation type="unfinished"/>
+        <translation>Cando se activa, os marcadores do proxecto gardados polo usuario e os abertos actualmente amosaranse no mapa.</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldSettings.qml" line="75"/>
@@ -2122,7 +2122,7 @@ Aínda que podes seguir vendo e utilizando este proxecto, recoméndase fortement
     <message>
         <location filename="../src/qml/QFieldSettings.qml" line="97"/>
         <source>If enabled, anonymized metrics will be collected and sent to help improve QField for everyone.</source>
-        <translation type="unfinished"/>
+        <translation>De activarse, capturaranse métricas de forma anónima e enviaranse para axudar a mellorar QField para todo o mundo.</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldSettings.qml" line="137"/>
@@ -2700,7 +2700,7 @@ Cancela para facer, porén, unha exploración mínima do dispositivo.</translati
     <message>
         <location filename="../src/qml/WelcomeScreen.qml" line="331"/>
         <source>To improve stability for everyone, QField collects and sends anonymized metrics.</source>
-        <translation type="unfinished"/>
+        <translation>Para mellorar a estabilidade para todo o mundo, QField recolle e envía métricas de forma anónima.</translation>
     </message>
     <message>
         <location filename="../src/qml/WelcomeScreen.qml" line="342"/>
@@ -2710,7 +2710,7 @@ Cancela para facer, porén, unha exploración mínima do dispositivo.</translati
     <message>
         <location filename="../src/qml/WelcomeScreen.qml" line="351"/>
         <source>I prefer not</source>
-        <translation type="unfinished"/>
+        <translation>Prefiro que non</translation>
     </message>
     <message>
         <location filename="../src/qml/WelcomeScreen.qml" line="399"/>
@@ -2750,7 +2750,7 @@ Cancela para facer, porén, unha exploración mínima do dispositivo.</translati
     <message>
         <location filename="../src/qml/WelcomeScreen.qml" line="745"/>
         <source>Welcome to QField. First time using this application? Try out sample projects listed in the list below.</source>
-        <translation type="unfinished"/>
+        <translation>Benvido a QField. É a primeira vez utilizando a aplicación? Proba os proxectos de exemplo amosados na lista de abaixo.</translation>
     </message>
     <message>
         <location filename="../src/qml/WelcomeScreen.qml" line="747"/>
@@ -3007,7 +3007,7 @@ Cancela para facer, porén, unha exploración mínima do dispositivo.</translati
     <message>
         <location filename="../src/qml/qgismobileapp.qml" line="1744"/>
         <source>Map Canvas Options</source>
-        <translation type="unfinished"/>
+        <translation>Opcións da Vista do Mapa</translation>
     </message>
     <message>
         <location filename="../src/qml/qgismobileapp.qml" line="1788"/>

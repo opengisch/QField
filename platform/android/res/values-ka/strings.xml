@@ -37,6 +37,7 @@
     <string name="import_project_folder">პროექტის იმპორტი საქაღალდიდან</string>
     <string name="import_project_archive">პროექტის იმპორტი ZIP არქივიდან</string>
     <string name="import_dataset">მონაცემთა ნაკრებ(ებ)ის იმპორტი</string>
+    <string name="usb_cable_help">დახმარება მეხსიერების მენეჯმენტის შესახებ</string>
     <string name="import_error">იმპორტის შეცდომა</string>
     <string name="import_dataset_error">მონაცემთა ნაკრებ(ებ)ის იმპორტი სათანადოდ ვერ შესრულდა.</string>
     <string name="import_project_archive_error">არჩეული პროექტის არქივის იმპორტის პრობლემა.</string>
