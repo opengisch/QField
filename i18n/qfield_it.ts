@@ -35,14 +35,14 @@
     <message>
         <location filename="../src/core/appcoordinateoperationhandlers.cpp" line="83"/>
         <source>This grid is part of the “&lt;i&gt;%1&lt;/i&gt;” package, available for download from &lt;a href=&quot;%2&quot;&gt;%2&lt;/a&gt;.</source>
-        <translation type="unfinished"/>
+        <translation>Questa griglia fa parte del pacchetto &quot;&lt;i&gt;%1&lt;/i&gt;&quot;, scaricabile da &lt;a href=&quot;%2&quot;&gt;%2&lt;/a&gt;.</translation>
     </message>
     <message>
         <location filename="../src/core/appcoordinateoperationhandlers.cpp" line="87"/>
         <location filename="../src/core/appcoordinateoperationhandlers.cpp" line="113"/>
         <location filename="../src/core/appcoordinateoperationhandlers.cpp" line="168"/>
         <source>This grid is available for download from &lt;a href=&quot;%1&quot;&gt;%1&lt;/a&gt;.</source>
-        <translation type="unfinished"/>
+        <translation>Questa griglia è scaricabile da &lt;a href=&quot;%1&quot;&gt;%1&lt;/a&gt;.</translation>
     </message>
     <message>
         <location filename="../src/core/appcoordinateoperationhandlers.cpp" line="90"/>
@@ -57,13 +57,13 @@
         <location filename="../src/core/appcoordinateoperationhandlers.cpp" line="104"/>
         <location filename="../src/core/appcoordinateoperationhandlers.cpp" line="159"/>
         <source>This transformation requires the grid file “%1”, which is not available for use on the system.</source>
-        <translation type="unfinished"/>
+        <translation>Questa trasformazione richiede il file griglia “%1”, che non è disponibile per l&apos;utilizzo nel sistema.</translation>
     </message>
     <message>
         <location filename="../src/core/appcoordinateoperationhandlers.cpp" line="109"/>
         <location filename="../src/core/appcoordinateoperationhandlers.cpp" line="164"/>
         <source>This grid is part of the &lt;i&gt;%1&lt;/i&gt; package, available for download from &lt;a href=&quot;%2&quot;&gt;%2&lt;/a&gt;.</source>
-        <translation type="unfinished"/>
+        <translation>Questa griglia fa parte del pacchetto &lt;i&gt;%1&lt;/i&gt;, scaricabile da &lt;a href=&quot;%2&quot;&gt;%2&lt;/a&gt;.</translation>
     </message>
     <message>
         <location filename="../src/core/appcoordinateoperationhandlers.cpp" line="126"/>
@@ -78,12 +78,12 @@
     <message>
         <location filename="../src/core/appcoordinateoperationhandlers.cpp" line="130"/>
         <source>&lt;p&gt;The preferred transform between &lt;i&gt;%1&lt;/i&gt; and &lt;i&gt;%2&lt;/i&gt; is not available for use on the system.&lt;/p&gt;</source>
-        <translation type="unfinished"/>
+        <translation>&lt;p&gt;La trasformazione preferita tra &lt;i&gt;%1&lt;/i&gt; e &lt;i&gt;%2&lt;/i&gt; non è disponibile per l&apos;utilizzo nel sistema.&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../src/core/appcoordinateoperationhandlers.cpp" line="141"/>
         <source>No transform is available between &lt;i&gt;%1&lt;/i&gt; and &lt;i&gt;%2&lt;/i&gt;.&lt;p style=&quot;color: red&quot;&gt;%3&lt;/p&gt;</source>
-        <translation type="unfinished"/>
+        <translation>Non è disponibile alcuna trasformazione tra &lt;i&gt;%1&lt;/i&gt; e &lt;i&gt;%2&lt;/i&gt;.&lt;p style=&quot;color: red&quot;&gt;%3&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../src/core/appcoordinateoperationhandlers.cpp" line="151"/>
@@ -363,7 +363,7 @@
     <message>
         <location filename="../src/core/deltalistmodel.cpp" line="79"/>
         <source>Unrecognized status &quot;%1&quot; for $%2</source>
-        <translation type="unfinished"/>
+        <translation>Stato non riconosciuto &quot;%1&quot; per $%2</translation>
     </message>
 </context>
 <context>
@@ -503,12 +503,12 @@
     <message>
         <location filename="../src/qml/FeatureListForm.qml" line="408"/>
         <source>Stop tracking this feature to edit attributes</source>
-        <translation>Interrompi il tracking di questo elemento per modificare gli attributi</translation>
+        <translation>Interrompi il tracciamento di questo elemento per modificare gli attributi</translation>
     </message>
     <message>
         <location filename="../src/qml/FeatureListForm.qml" line="419"/>
         <source>Stop tracking this feature to edit geometry</source>
-        <translation>Interrompi il tracking di questo elemento per modificarlo</translation>
+        <translation>Interrompi il tracciamento di questo elemento per modificarlo</translation>
     </message>
     <message>
         <location filename="../src/qml/FeatureListForm.qml" line="430"/>
@@ -528,12 +528,12 @@
         <location filename="../src/qml/FeatureListForm.qml" line="470"/>
         <location filename="../src/qml/FeatureListForm.qml" line="545"/>
         <source>A number of features are being tracked, stop tracking to delete those</source>
-        <translation type="unfinished"/>
+        <translation>È in corso il tracciamento di una serie di elementi, interrompere il tracciamento per eliminarli</translation>
     </message>
     <message>
         <location filename="../src/qml/FeatureListForm.qml" line="502"/>
         <source>A number of features are being tracked, stop tracking to merge those</source>
-        <translation type="unfinished"/>
+        <translation>È in corso il tracciamento di una serie di elementi, interrompere il tracciamento per unirli</translation>
     </message>
     <message>
         <location filename="../src/qml/FeatureListForm.qml" line="537"/>
@@ -677,7 +677,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <message>
         <location filename="../src/core/locator/featureslocatorfilter.h" line="62"/>
         <source>Features in all layers</source>
-        <translation type="unfinished"/>
+        <translation>Elementi in tutti i layer</translation>
     </message>
 </context>
 <context>
@@ -820,12 +820,12 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <message>
         <location filename="../src/qml/LayerTreeItemProperties.qml" line="44"/>
         <source>Stop tracking</source>
-        <translation>Interrompi il tracking</translation>
+        <translation>Interrompi il tracciamento</translation>
     </message>
     <message>
         <location filename="../src/qml/LayerTreeItemProperties.qml" line="45"/>
         <source>Setup tracking</source>
-        <translation type="unfinished"/>
+        <translation>Configura tracciamento</translation>
     </message>
     <message>
         <location filename="../src/qml/LayerTreeItemProperties.qml" line="82"/>
@@ -911,13 +911,15 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
         <location filename="../src/core/utils/layerutils.cpp" line="234"/>
         <source>Cannot commit deletion of feature %2 in layer &quot;%1&quot;. Reason:
 %3</source>
-        <translation type="unfinished"/>
+        <translation>Impossibile eseguire l&apos;eliminazione dell&apos;elemento %2 nel livello &quot;%1&quot;. Motivo:
+%3</translation>
     </message>
     <message>
         <location filename="../src/core/utils/layerutils.cpp" line="254"/>
         <source>Cannot commit deletion in layer &quot;%1&quot;. Reason:
 %3</source>
-        <translation type="unfinished"/>
+        <translation>Impossibile eseguire l&apos;eliminazione nel livello &quot;%1&quot;. Motivo:
+%3</translation>
     </message>
     <message>
         <location filename="../src/core/utils/layerutils.cpp" line="263"/>
@@ -928,7 +930,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
         <location filename="../src/core/utils/layerutils.cpp" line="276"/>
         <location filename="../src/core/utils/layerutils.cpp" line="279"/>
         <source>Cannot rollback layer changes in layer %1</source>
-        <translation type="unfinished"/>
+        <translation>Impossibile ripristinare le modifiche nel layer %1</translation>
     </message>
     <message>
         <location filename="../src/core/utils/layerutils.cpp" line="296"/>
@@ -968,7 +970,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <message>
         <location filename="../src/core/locator/locatormodelsuperbridge.cpp" line="230"/>
         <source>Returns a list of locations and addresses within Finland with matching terms</source>
-        <translation type="unfinished"/>
+        <translation>Restituisce un elenco di località e indirizzi in Finlandia con termini corrispondenti</translation>
     </message>
     <message>
         <location filename="../src/core/locator/locatormodelsuperbridge.cpp" line="326"/>
@@ -1044,7 +1046,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
         <location filename="../src/core/multifeaturelistmodelbase.cpp" line="454"/>
         <location filename="../src/core/multifeaturelistmodelbase.cpp" line="546"/>
         <source>Cannot rollback layer changes in layer %1</source>
-        <translation type="unfinished"/>
+        <translation>Impossibile ripristinare le modifiche nel layer %1</translation>
     </message>
     <message>
         <location filename="../src/core/multifeaturelistmodelbase.cpp" line="532"/>
@@ -1203,12 +1205,12 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
         <location filename="../src/core/orderedrelationmodel.cpp" line="177"/>
         <location filename="../src/core/orderedrelationmodel.cpp" line="220"/>
         <source>Cannot rollback layer changes in layer %1</source>
-        <translation type="unfinished"/>
+        <translation>Impossibile ripristinare le modifiche nel layer %1</translation>
     </message>
     <message>
         <location filename="../src/core/orderedrelationmodel.cpp" line="174"/>
         <source>Cannot commit layer changes in layer %1.</source>
-        <translation type="unfinished"/>
+        <translation>Impossibile eseguire le modifiche nel layer %1.</translation>
     </message>
     <message>
         <location filename="../src/core/orderedrelationmodel.cpp" line="217"/>
@@ -1378,12 +1380,12 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <message>
         <location filename="../src/core/qfieldcloudconnection.cpp" line="456"/>
         <source>[timeout] The request took too long to finish, please retry.</source>
-        <translation type="unfinished"/>
+        <translation>[timeout] La richiesta ha impiegato troppo tempo per il completamento. Riprovare.</translation>
     </message>
     <message>
         <location filename="../src/core/qfieldcloudconnection.cpp" line="459"/>
         <source>[aborted] The request has been aborted.</source>
-        <translation type="unfinished"/>
+        <translation>[aborted] La richiesta è stata annullata.</translation>
     </message>
     <message>
         <location filename="../src/core/qfieldcloudconnection.cpp" line="492"/>
@@ -1449,7 +1451,8 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
         <location filename="../src/qml/QFieldCloudLogin.qml" line="117"/>
         <source>Server URL
 (Leave empty to use the default server)</source>
-        <translation type="unfinished"/>
+        <translation>URL del server
+(Lasciare vuoto per utilizzare il server predefinito)</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldCloudLogin.qml" line="152"/>
@@ -1501,7 +1504,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <message>
         <location filename="../src/qml/QFieldCloudLogin.qml" line="227"/>
         <source>The easiest way to transfer you project from QGIS to your devices!</source>
-        <translation type="unfinished"/>
+        <translation>Il modo più semplice per trasferire il tuo progetto da QGIS ai tuoi dispositivi!</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldCloudLogin.qml" line="228"/>
@@ -1513,7 +1516,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <name>QFieldCloudPackageLayersFeedback</name>
     <message>
         <source>Problematic QFieldCloud layer packaging</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Problema di impacchettamento del layer di QFieldCloud</translation>
     </message>
     <message>
         <source>Some layers have not been packaged correctly on QFieldCloud. These layers might be misconfigured or their data source is not accessible from the QFieldCloud server.</source>
@@ -1522,7 +1525,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <message>
         <location filename="../src/qml/QFieldCloudPackageLayersFeedback.qml" line="22"/>
         <source>QFieldCloud had troubles packaging your project</source>
-        <translation type="unfinished"/>
+        <translation>QFieldCloud ha riscontrato problemi nella preparazione del tuo progetto</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldCloudPackageLayersFeedback.qml" line="32"/>
@@ -1555,12 +1558,12 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <message>
         <location filename="../src/qml/QFieldCloudPopup.qml" line="90"/>
         <source>Disconnected from the cloud.</source>
-        <translation type="unfinished"/>
+        <translation>Disconnesso dal cloud.</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldCloudPopup.qml" line="91"/>
         <source>Connecting to the cloud.</source>
-        <translation type="unfinished"/>
+        <translation>Connessione al cloud.</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldCloudPopup.qml" line="92"/>
@@ -1663,47 +1666,47 @@ While you can still view and use the project, it is strongly recommended to rese
     <message>
         <location filename="../src/qml/QFieldCloudPopup.qml" line="455"/>
         <source>Last synchronized just now</source>
-        <translation type="unfinished"/>
+        <translation>Ultima sincronizzazione proprio ora</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldCloudPopup.qml" line="457"/>
         <source>Last synchronized %1 minutes ago</source>
-        <translation type="unfinished"/>
+        <translation>Ultima sincronizzazione %1 minuti fa</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldCloudPopup.qml" line="459"/>
         <source>Last synchronized at %1</source>
-        <translation type="unfinished"/>
+        <translation>Ultima sincronizzazione alle %1</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldCloudPopup.qml" line="461"/>
         <source>Last synchronized on %1</source>
-        <translation type="unfinished"/>
+        <translation>Ultima sincronizzazione il %1</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldCloudPopup.qml" line="472"/>
         <source>Last changes pushed just now</source>
-        <translation type="unfinished"/>
+        <translation>Ultime modifiche appena inviate</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldCloudPopup.qml" line="474"/>
         <source>Last changes pushed %1 minutes ago</source>
-        <translation type="unfinished"/>
+        <translation>Ultime modifiche inviate %1 minuti fa</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldCloudPopup.qml" line="476"/>
         <source>Last changes pushed at %1</source>
-        <translation>Ultime modifiche apportate a %1</translation>
+        <translation>Ultime modifiche inviate alle %1</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldCloudPopup.qml" line="478"/>
         <source>Last changes pushed on %1</source>
-        <translation type="unfinished"/>
+        <translation>Ultime modifiche inviate il %1</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldCloudPopup.qml" line="480"/>
         <source>No changes pushed yet</source>
-        <translation type="unfinished"/>
+        <translation>Nessuna modifica ancora inviata</translation>
     </message>
     <message numerus="yes">
         <location filename="../src/qml/QFieldCloudPopup.qml" line="501"/>
@@ -1713,12 +1716,12 @@ While you can still view and use the project, it is strongly recommended to rese
     <message>
         <location filename="../src/qml/QFieldCloudPopup.qml" line="561"/>
         <source>Should local changes be reverted?</source>
-        <translation type="unfinished"/>
+        <translation>Devono essere ripristinate le modifiche locali?</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldCloudPopup.qml" line="588"/>
         <source>Reset cloud project</source>
-        <translation type="unfinished"/>
+        <translation>Ripristina il progetto cloud</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldCloudPopup.qml" line="592"/>
@@ -1728,7 +1731,7 @@ While you can still view and use the project, it is strongly recommended to rese
     <message>
         <location filename="../src/qml/QFieldCloudPopup.qml" line="613"/>
         <source>Connecting cloud</source>
-        <translation type="unfinished"/>
+        <translation>Collegamento al cloud</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldCloudPopup.qml" line="626"/>
@@ -1777,7 +1780,7 @@ While you can still view and use the project, it is strongly recommended to rese
     <message>
         <location filename="../src/core/qfieldcloudprojectsmodel.cpp" line="421"/>
         <source>aborted</source>
-        <translation type="unfinished"/>
+        <translation>interrotto</translation>
     </message>
     <message>
         <location filename="../src/core/qfieldcloudprojectsmodel.cpp" line="470"/>
@@ -1865,7 +1868,7 @@ While you can still view and use the project, it is strongly recommended to rese
     <message>
         <location filename="../src/core/qfieldcloudprojectsmodel.cpp" line="1815"/>
         <source>Network error. Failed to download file `%1`.</source>
-        <translation type="unfinished"/>
+        <translation>Errore di rete. Impossibile scaricare il file `%1`.</translation>
     </message>
     <message>
         <location filename="../src/core/qfieldcloudprojectsmodel.cpp" line="1830"/>
@@ -1908,12 +1911,12 @@ While you can still view and use the project, it is strongly recommended to rese
     <message>
         <location filename="../src/qml/QFieldCloudScreen.qml" line="47"/>
         <source>Disconnected from the cloud.</source>
-        <translation type="unfinished"/>
+        <translation>Disconnesso dal cloud.</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldCloudScreen.qml" line="48"/>
         <source>Connecting to the cloud.</source>
-        <translation type="unfinished"/>
+        <translation>Connessione al cloud.</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldCloudScreen.qml" line="49"/>
@@ -1928,7 +1931,7 @@ While you can still view and use the project, it is strongly recommended to rese
     <message>
         <location filename="../src/qml/QFieldCloudScreen.qml" line="161"/>
         <source>Community</source>
-        <translation type="unfinished"/>
+        <translation>Comunità</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldCloudScreen.qml" line="311"/>
@@ -1953,7 +1956,7 @@ While you can still view and use the project, it is strongly recommended to rese
     <message>
         <location filename="../src/qml/QFieldCloudScreen.qml" line="340"/>
         <source>Downloading error. </source>
-        <translation type="unfinished"/>
+        <translation>Errore di scaricamento.</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldCloudScreen.qml" line="343"/>
@@ -2003,7 +2006,7 @@ While you can still view and use the project, it is strongly recommended to rese
     <message>
         <location filename="../src/qml/QFieldCloudScreen.qml" line="517"/>
         <source>Cancel Project Download</source>
-        <translation type="unfinished"/>
+        <translation>Annulla lo Scaricamento del Progetto</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldCloudScreen.qml" line="530"/>
@@ -2121,7 +2124,7 @@ While you can still view and use the project, it is strongly recommended to rese
     <message>
         <location filename="../src/qml/QFieldSettings.qml" line="143"/>
         <source>Positioning</source>
-        <translation type="unfinished"/>
+        <translation>Posizionamento</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldSettings.qml" line="149"/>
@@ -2141,17 +2144,17 @@ While you can still view and use the project, it is strongly recommended to rese
     <message>
         <location filename="../src/qml/QFieldSettings.qml" line="293"/>
         <source>To apply the selected user interface language, QField needs to completely shutdown and restart.</source>
-        <translation type="unfinished"/>
+        <translation>Per applicare la lingua dell&apos;interfaccia utente selezionata, QField deve essere completamente arrestato e riavviato.</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldSettings.qml" line="322"/>
         <source>system</source>
-        <translation type="unfinished"/>
+        <translation>sistema</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldSettings.qml" line="335"/>
         <source>Found a missing or incomplete language? %1Join the translator community.%2</source>
-        <translation type="unfinished"/>
+        <translation>Hai trovato una lingua mancante o incompleta? %1Unisciti alla comunità dei traduttori.%2</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldSettings.qml" line="378"/>
@@ -2212,7 +2215,7 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <location filename="../src/qml/QFieldSettings.qml" line="526"/>
         <source>Connecting to %1</source>
-        <translation type="unfinished"/>
+        <translation>Connessione a %1</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldSettings.qml" line="543"/>
@@ -2320,7 +2323,7 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <location filename="../src/core/qfieldcloudconnection.cpp" line="53"/>
         <source>Empty content</source>
-        <translation type="unfinished"/>
+        <translation>Contenuto vuoto</translation>
     </message>
     <message>
         <location filename="../src/core/qfieldcloudconnection.cpp" line="54"/>
@@ -2335,17 +2338,17 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <location filename="../src/core/qfieldcloudconnection.cpp" line="56"/>
         <source>Validation Error</source>
-        <translation type="unfinished"/>
+        <translation>Errore di Validazione</translation>
     </message>
     <message>
         <location filename="../src/core/qfieldcloudconnection.cpp" line="57"/>
         <source>Multiple Projects</source>
-        <translation type="unfinished"/>
+        <translation>Progetti Multipli</translation>
     </message>
     <message>
         <location filename="../src/core/qfieldcloudconnection.cpp" line="58"/>
         <source>Invalid delta file</source>
-        <translation type="unfinished"/>
+        <translation>Delta file non valido</translation>
     </message>
     <message>
         <location filename="../src/core/qfieldcloudconnection.cpp" line="59"/>
@@ -2360,7 +2363,7 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <location filename="../src/core/qfieldcloudconnection.cpp" line="61"/>
         <source>QGIS export failed</source>
-        <translation type="unfinished"/>
+        <translation>Esportazione di QGIS fallita</translation>
     </message>
     <message>
         <location filename="../src/core/qfieldcloudconnection.cpp" line="62"/>
@@ -2390,7 +2393,7 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <location filename="../src/core/utils/expressioncontextutils.cpp" line="106"/>
         <source>Cloud User Info</source>
-        <translation type="unfinished"/>
+        <translation>Info Utente Cloud</translation>
     </message>
 </context>
 <context>
@@ -2462,7 +2465,7 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <location filename="../src/core/gnsspositioninformation.cpp" line="126"/>
         <source>Invalid</source>
-        <translation type="unfinished"/>
+        <translation>Non valido</translation>
     </message>
     <message>
         <location filename="../src/core/gnsspositioninformation.cpp" line="129"/>
@@ -2508,12 +2511,12 @@ Cancel to make a minimal device scan instead.</source>
         <location filename="../src/core/referencingfeaturelistmodel.cpp" line="240"/>
         <location filename="../src/core/referencingfeaturelistmodel.cpp" line="250"/>
         <source>Cannot rollback layer changes in layer %1</source>
-        <translation type="unfinished"/>
+        <translation>Impossibile ripristinare le modifiche nel layer %1</translation>
     </message>
     <message>
         <location filename="../src/core/referencingfeaturelistmodel.cpp" line="247"/>
         <source>Cannot commit layer changes in layer %1.</source>
-        <translation type="unfinished"/>
+        <translation>Impossibile eseguire le modifiche nel layer %1.</translation>
     </message>
 </context>
 <context>
@@ -2534,7 +2537,7 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <location filename="../src/qml/geometry_editors/ReshapeToolBar.qml" line="62"/>
         <source>The geometry could not be reshaped</source>
-        <translation type="unfinished"/>
+        <translation>La geometria non può essere rimodellata</translation>
     </message>
 </context>
 <context>
@@ -2558,7 +2561,7 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <location filename="../src/qml/SystemLoader.qml" line="59"/>
         <source>Preparing QField, this is a one time operation that might take some time</source>
-        <translation type="unfinished"/>
+        <translation>Preparazione di QField, questa è un&apos;operazione una tantum che potrebbe richiedere del tempo</translation>
     </message>
 </context>
 <context>
@@ -2566,12 +2569,12 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <location filename="../src/qml/TemporalProperties.qml" line="28"/>
         <source>Temporal Properties</source>
-        <translation type="unfinished"/>
+        <translation>Proprietà Temporali</translation>
     </message>
     <message>
         <location filename="../src/qml/TemporalProperties.qml" line="43"/>
         <source>Enable temporal filter</source>
-        <translation type="unfinished"/>
+        <translation>Abilita filtro temporale</translation>
     </message>
 </context>
 <context>
@@ -2589,37 +2592,37 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <location filename="../src/qml/Tracking.qml" line="208"/>
         <source>Activate time constraint</source>
-        <translation type="unfinished"/>
+        <translation>Attiva vincolo di tempo</translation>
     </message>
     <message>
         <location filename="../src/qml/Tracking.qml" line="230"/>
         <source>Minimum time [sec]</source>
-        <translation type="unfinished"/>
+        <translation>Tempo minimo [sec]</translation>
     </message>
     <message>
         <location filename="../src/qml/Tracking.qml" line="273"/>
         <source>Activate distance constraint</source>
-        <translation type="unfinished"/>
+        <translation>Attiva vincolo di distanza</translation>
     </message>
     <message>
         <location filename="../src/qml/Tracking.qml" line="302"/>
         <source>Minimum distance [%1]</source>
-        <translation type="unfinished"/>
+        <translation>Distanza minima [%1]</translation>
     </message>
     <message>
         <location filename="../src/qml/Tracking.qml" line="345"/>
         <source>Record when both active constraints are met</source>
-        <translation type="unfinished"/>
+        <translation>Registra quando entrambi i vincoli attivi sono soddisfatti</translation>
     </message>
     <message>
         <location filename="../src/qml/Tracking.qml" line="372"/>
         <source>When enabled, vertices with only be recorded when both active constraints are met. If the setting is disabled, individual constraints met will trigger a vertex addition.</source>
-        <translation type="unfinished"/>
+        <translation>Se abilitato, i vertici saranno registrati solo quando vengono soddisfatti entrambi i vincoli attivi. Se l&apos;impostazione è disabilitata, i singoli vincoli soddisfatti attiveranno un&apos;aggiunta di vertice.</translation>
     </message>
     <message>
         <location filename="../src/qml/Tracking.qml" line="392"/>
         <source>Start tracking</source>
-        <translation>Inizia il tracking</translation>
+        <translation>Inizia il tracciamento</translation>
     </message>
     <message>
         <location filename="../src/qml/Tracking.qml" line="401"/>
@@ -2658,7 +2661,7 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <location filename="../src/qml/WelcomeScreen.qml" line="116"/>
         <source>We&apos;re sorry to hear that. Click on the button below to comment or seek support.</source>
-        <translation type="unfinished"/>
+        <translation>Siamo spiacenti di sentirlo. Premi il pulsante sottostante per commentare o chiedere supporto.</translation>
     </message>
     <message>
         <location filename="../src/qml/WelcomeScreen.qml" line="130"/>
@@ -2693,12 +2696,12 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <location filename="../src/qml/WelcomeScreen.qml" line="342"/>
         <source>I agree</source>
-        <translation type="unfinished"/>
+        <translation>Concordo</translation>
     </message>
     <message>
         <location filename="../src/qml/WelcomeScreen.qml" line="351"/>
         <source>I prefer not</source>
-        <translation type="unfinished"/>
+        <translation>Preferisco di no</translation>
     </message>
     <message>
         <location filename="../src/qml/WelcomeScreen.qml" line="399"/>
@@ -2853,7 +2856,7 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <location filename="../src/qml/qgismobileapp.qml" line="904"/>
         <source>Stop editing</source>
-        <translation>Stop editing</translation>
+        <translation>Interrompi modifica</translation>
     </message>
     <message>
         <location filename="../src/qml/qgismobileapp.qml" line="911"/>
@@ -2883,12 +2886,12 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <location filename="../src/qml/qgismobileapp.qml" line="1099"/>
         <source>Coordinate cursor now locked to position</source>
-        <translation type="unfinished"/>
+        <translation>Cursore delle coordinate ora bloccato sulla posizione</translation>
     </message>
     <message>
         <location filename="../src/qml/qgismobileapp.qml" line="1111"/>
         <source>Coordinate cursor unlocked</source>
-        <translation type="unfinished"/>
+        <translation>Cursore delle coordinate sbloccato</translation>
     </message>
     <message>
         <location filename="../src/qml/qgismobileapp.qml" line="1128"/>
@@ -3112,7 +3115,7 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <location filename="../src/qml/qgismobileapp.qml" line="2027"/>
         <source>Current layer switched to the one holding the selected geometry.</source>
-        <translation type="unfinished"/>
+        <translation>Layer corrente passato a quello contenente la geometria selezionata.</translation>
     </message>
     <message>
         <location filename="../src/qml/qgismobileapp.qml" line="2036"/>
