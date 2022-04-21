@@ -18,6 +18,8 @@ arch_to_build_number() {
     echo 3
   elif [[ ${TRIPLET} == x64-android ]]; then
     echo 4
+  elif [[ ${TRIPLET} == arm-neon-android ]]; then
+    echo 5
   else
     echo 0
   fi
