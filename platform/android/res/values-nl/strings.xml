@@ -37,6 +37,7 @@
     <string name="import_project_folder">Project importeren uit map</string>
     <string name="import_project_archive">Project Importeren uit ZIP</string>
     <string name="import_dataset">Importeer Dataset(s)</string>
+    <string name="usb_cable_help">Hulp bij opslagbeheer</string>
     <string name="import_error">Importfout</string>
     <string name="import_dataset_error">De geselecteerde dataset(s) konden niet correct worden geïmporteerd.</string>
     <string name="import_project_archive_error">Het geselecteerde projectarchief is niet goed geïmporteerd.</string>
