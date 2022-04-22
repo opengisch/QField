@@ -21,6 +21,7 @@
 #include <QJsonDocument>
 #include <QJsonObject>
 #include <QRegularExpression>
+#include <QSettings>
 #include <qgsnetworkaccessmanager.h>
 
 
@@ -53,9 +54,12 @@ void ChangelogContents::request()
       return;
     }
 
+    bool shouldFilterPrereleaseOnly = false;
+    bool shouldReverseOrder = false;
     QString changelog;
     QString versionNumbersOnly;
     QList<int> qfieldVersion = parseVersion( qfield::appVersion );
+    QList<int> oldVersion = parseVersion( QSettings().value( QStringLiteral( "/QField/ChangelogVersion" ) ).toString() );
     const QJsonArray releases = json.array();
 
     for ( const QJsonValue &releaseValue : releases )
@@ -73,13 +77,30 @@ void ChangelogContents::request()
       if ( qfieldVersion[0] != releaseVersion[0] || qfieldVersion[1] != releaseVersion[1] )
         continue;
 
+      // first loop
+      if ( changelog.isEmpty() )
+      {
+        shouldFilterPrereleaseOnly = release.value( QStringLiteral( "prerelease" ) ).toBool();
+
+        if ( !oldVersion.isEmpty() )
+        {
+          shouldReverseOrder = oldVersion[0] == qfieldVersion[0] && oldVersion[1] == qfieldVersion[1];
+        }
+      }
+
+      if ( release.value( QStringLiteral( "prerelease" ) ).toBool() != shouldFilterPrereleaseOnly )
+        continue;
+
       if ( versionNumbersOnly.isEmpty() )
       {
         versionNumbersOnly = QStringLiteral( "%1.%2.%3" ).arg( releaseVersion[0] ).arg( releaseVersion[1] ).arg( releaseVersion[2] );
       }
 
       const QString releaseChangelog = QStringLiteral( "\n#\n# " ) + release["name"].toString() + QStringLiteral( "\n\n" ) + release["body"].toString() + QStringLiteral( "\n" );
-      changelog = releaseChangelog + changelog;
+
+      changelog = shouldReverseOrder
+                    ? ( changelog + releaseChangelog )
+                    : ( releaseChangelog + changelog );
     }
 
     changelog += QStringLiteral( "\n" ) + QStringLiteral( "[" ) + tr( "Previous releases on GitHub" ) + QStringLiteral( "](https://github.com/opengisch/qfield/releases)" );
