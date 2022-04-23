@@ -36,7 +36,6 @@
 #include <QQmlContext>
 #include <QStandardPaths>
 #include <QString>
-#include <QThread>
 #include <QtAndroid>
 
 #include <android/log.h>
@@ -50,31 +49,6 @@ AndroidPlatformUtilities::AndroidPlatformUtilities()
   : mActivity( QtAndroid::androidActivity() )
 {
 }
-
-class FileCopyThread : public QThread
-{
-    Q_OBJECT
-
-  public:
-    FileCopyThread( const QString &source, const QString &destination, Feedback *feedback )
-      : QThread()
-      , mSource( source )
-      , mDestination( destination )
-      , mFeedback( feedback )
-    {
-    }
-
-  private:
-    void run() override
-    {
-      const bool success = FileUtils::copyRecursively( mSource, mDestination, mFeedback );
-      mFeedback->setSuccess( success );
-    }
-
-    QString mSource;
-    QString mDestination;
-    Feedback *mFeedback;
-};
 
 PlatformUtilities::Capabilities AndroidPlatformUtilities::capabilities() const
 {
@@ -100,26 +74,36 @@ void AndroidPlatformUtilities::initSystem()
   if ( localGitRev != appGitRev )
 
   {
+    if ( mActivity.isValid() )
+    {
+      QtAndroid::runOnAndroidThread( [] {
+        QAndroidJniObject activity = QtAndroid::androidActivity();
+        if ( activity.isValid() )
+        {
+          QAndroidJniObject messageJni = QAndroidJniObject::fromString( QObject::tr( "Please wait while QField installation finalizes." ) );
+          activity.callMethod<void>( "showBlockingProgressDialog", "(Ljava/lang/String;)V", messageJni.object<jstring>() );
+        }
+      } );
+    }
+
     qInfo() << QStringLiteral( "Different build git revision detected (previous: %1, current: %2)" )
                  .arg( localGitRev.size() > 0 ? localGitRev.mid( 0, 7 ) : QStringLiteral( "n/a" ) )
                  .arg( appGitRev.size() > 0 ? appGitRev.mid( 0, 7 ) : QStringLiteral( "n/a" ) );
-    int argc = 0;
-    Feedback feedback;
-    QApplication app( argc, nullptr );
-    QQmlApplicationEngine engine;
-    engine.load( QUrl( QStringLiteral( "qrc:/qml/SystemLoader.qml" ) ) );
 
-    QMetaObject::invokeMethod( &app, [this, &app, &feedback] {
-      FileCopyThread *thread = new FileCopyThread( QStringLiteral( "assets:/share" ), mSystemGenericDataLocation, &feedback );
-      app.connect( thread, &QThread::finished, &app, QApplication::quit );
-      app.connect( thread, &QThread::finished, thread, &QThread::deleteLater );
-      feedback.moveToThread( thread );
-      thread->start();
-    } );
-    app.exec();
+    const bool success = FileUtils::copyRecursively( QStringLiteral( "assets:/share" ), mSystemGenericDataLocation );
 
+    if ( mActivity.isValid() )
+    {
+      QtAndroid::runOnAndroidThread( [] {
+        QAndroidJniObject activity = QtAndroid::androidActivity();
+        if ( activity.isValid() )
+        {
+          activity.callMethod<void>( "dismissBlockingProgressDialog" );
+        }
+      } );
+    }
 
-    if ( feedback.success() )
+    if ( success )
     {
       qDebug() << "Successfully copied share assets content";
       gitRevFile.open( QIODevice::WriteOnly | QIODevice::Truncate );
