@@ -176,27 +176,27 @@
     <message>
         <location filename="../src/qml/BookmarkProperties.qml" line="45"/>
         <source>Bookmark Properties</source>
-        <translation type="unfinished"/>
+        <translation>Könyvjelző tulajdonságok</translation>
     </message>
     <message>
         <location filename="../src/qml/BookmarkProperties.qml" line="74"/>
         <source>Name</source>
-        <translation type="unfinished"/>
+        <translation>Név</translation>
     </message>
     <message>
         <location filename="../src/qml/BookmarkProperties.qml" line="87"/>
         <source>Color</source>
-        <translation type="unfinished"/>
+        <translation>Szín</translation>
     </message>
     <message>
         <location filename="../src/qml/BookmarkProperties.qml" line="198"/>
         <source>Remove bookmark</source>
-        <translation type="unfinished"/>
+        <translation>Könyvjelző eltávolítása</translation>
     </message>
     <message>
         <location filename="../src/qml/BookmarkProperties.qml" line="202"/>
         <source>You are about to remove a bookmark, proceed?</source>
-        <translation type="unfinished"/>
+        <translation>Éppen törlöd a könyvjelzőt, folytatod?</translation>
     </message>
 </context>
 <context>
@@ -209,7 +209,7 @@
     <message>
         <location filename="../src/qml/BookmarkRenderer.qml" line="143"/>
         <source>Project bookmarks cannot be edited</source>
-        <translation type="unfinished"/>
+        <translation>Projekt könyvjelzőket nem lehet módosítani</translation>
     </message>
 </context>
 <context>
@@ -274,7 +274,7 @@
 <context>
     <name>ChangelogContents</name>
     <message>
-        <location filename="../src/core/changelogcontents.cpp" line="85"/>
+        <location filename="../src/core/changelogcontents.cpp" line="106"/>
         <source>Previous releases on GitHub</source>
         <translation>Előző kiadások a GitHun-on</translation>
     </message>
