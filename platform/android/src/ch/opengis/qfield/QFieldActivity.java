@@ -39,6 +39,7 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Application;
 import android.app.Dialog;
+import android.app.ProgressDialog;
 import android.content.ContentResolver;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -82,6 +83,7 @@ public class QFieldActivity extends QtActivity {
 
     private SharedPreferences sharedPreferences;
     private SharedPreferences.Editor sharedPreferenceEditor;
+    private ProgressDialog progressDialog;
 
     public static native void openProject(String url);
     private float originalBrightness;
@@ -225,6 +227,18 @@ public class QFieldActivity extends QtActivity {
         WindowManager.LayoutParams lp = getWindow().getAttributes();
         lp.screenBrightness = originalBrightness;
         getWindow().setAttributes(lp);
+    }
+
+    private void showBlockingProgressDialog(String message) {
+        progressDialog = ProgressDialog.show(this, "", message, true);
+        progressDialog.setCancelable(false);
+    }
+
+    private void dismissBlockingProgressDialog() {
+        if (progressDialog != null) {
+            progressDialog.dismiss();
+            progressDialog = null;
+        }
     }
 
     private void initiateSentry() {
