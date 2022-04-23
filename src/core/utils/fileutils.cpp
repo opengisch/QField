@@ -100,7 +100,8 @@ bool FileUtils::copyRecursively( const QString &sourceFolder, const QString &des
 
     QFile( destName ).setPermissions( QFileDevice::ReadOwner | QFileDevice::WriteOwner );
 
-    feedback->setProgress( 100 * current / fileCount );
+    if ( feedback )
+      feedback->setProgress( 100 * current / fileCount );
 
     ++current;
   }
