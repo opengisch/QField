@@ -209,8 +209,7 @@ Item {
         id: cloudRegisterLabel
         Layout.fillWidth: true
         Layout.topMargin:6
-        text: '<style>a, a:hover, a:visited { color:' + Theme.mainColor + '; }></style>' +
-              qsTr( 'New user?') + ' <a href="https://app.qfield.cloud/accounts/signup/">' + qsTr( 'Register an account' ) + '</a>.'
+        text: qsTr( 'New user?') + ' <a href="https://app.qfield.cloud/accounts/signup/">' + qsTr( 'Register an account' ) + '</a>.'
         horizontalAlignment: Text.AlignHCenter
         font: Theme.defaultFont
         textFormat: Text.RichText
@@ -222,8 +221,7 @@ Item {
       Text {
         id: cloudIntroLabel
         Layout.fillWidth: true
-        text: '<style>a, a:hover, a:visited { color:' + Theme.mainColor + '; }></style>' +
-              qsTr( 'The easiest way to transfer you project from QGIS to your devices!' ) +
+        text: qsTr( 'The easiest way to transfer you project from QGIS to your devices!' ) +
               ' <a href="https://qfield.cloud/">' + qsTr( 'Learn more about QFieldCloud' ) + '</a>.'
         horizontalAlignment: Text.AlignHCenter
         font: Theme.defaultFont
