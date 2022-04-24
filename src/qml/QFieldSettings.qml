@@ -331,8 +331,7 @@ Page {
                       }
 
                       Label {
-                          text: '<style>a, a:hover, a:visited { color:' + Theme.mainColor + '; }></style>' +
-                                qsTr( "Found a missing or incomplete language? %1Join the translator community.%2" )
+                          text: qsTr( "Found a missing or incomplete language? %1Join the translator community.%2" )
                                   .arg( '<a href="https://www.transifex.com/opengisch/qfield-for-qgis/">' )
                                   .arg( '</a>' );
                           font: Theme.tipFont

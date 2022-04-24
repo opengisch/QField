@@ -75,7 +75,7 @@ Item {
                             if (appVersion && appVersion !== '1.0.0')
                                 links += ' <a href="https://github.com/opengisch/QField/releases/tag/' + appVersion + '">' + appVersion + '</a>'
 
-                            return "<style>a, a:hover, a:visited { color:" + Theme.mainColor + "; }></style>QField<br>" + appVersionStr + " (" + links + ")"
+                            return "QField<br>" + appVersionStr + " (" + links + ")"
                         }
                         onLinkActivated: Qt.openUrlExternally(link)
                     }
@@ -108,7 +108,7 @@ Item {
                         font: Theme.strongFont
                         color: Theme.light
                         textFormat: Text.RichText
-                        text: '<style>a, a:hover, a:visited { color:' + Theme.mainColor + '; }></style>' +qsTr( "Developed by" ) + '<br><a href="https://opengis.ch">OPENGIS.ch</a>'
+                        text: qsTr( "Developed by" ) + '<br><a href="https://opengis.ch">OPENGIS.ch</a>'
                         onLinkActivated: Qt.openUrlExternally(link)
                     }
                 }

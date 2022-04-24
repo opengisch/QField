@@ -166,6 +166,12 @@ QgisMobileapp::QgisMobileapp( QgsApplication *app, QObject *parent )
   format.setSamples( 4 );
   QSurfaceFormat::setDefaultFormat( format );
 
+  // Set a nicer default hyperlink color to be used in QML Text items
+  QPalette palette = app->palette();
+  palette.setColor( QPalette::Link, QColor( 128, 204, 40 ) );
+  palette.setColor( QPalette::LinkVisited, QColor( 128, 204, 40 ) );
+  app->setPalette( palette );
+
   QSettings settings;
   if ( PlatformUtilities::instance()->capabilities() & PlatformUtilities::AdjustBrightness )
   {
