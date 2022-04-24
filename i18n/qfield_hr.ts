@@ -2067,12 +2067,12 @@ While you can still view and use the project, it is strongly recommended to rese
     <message>
         <location filename="../src/qml/QFieldSettings.qml" line="70"/>
         <source>Show bookmarks</source>
-        <translation type="unfinished"/>
+        <translation>Prikaži oznake</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldSettings.qml" line="71"/>
         <source>When switched on, user&apos;s saved and currently opened project bookmarks will be displayed on the map.</source>
-        <translation type="unfinished"/>
+        <translation>Kada je uključeno, korisnikove spremljene i trenutno otvorene projektne oznake će se prikazati na karti.</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldSettings.qml" line="75"/>
@@ -2404,6 +2404,11 @@ Otkažite da pokrenete minimalno skeniranje uređaja.</translation>
         <source>Cloud User Info</source>
         <translation>Info Korisnika Oblaka</translation>
     </message>
+    <message>
+        <location filename="../src/core/platforms/android/androidplatformutilities.cpp" line="83"/>
+        <source>Please wait while QField installation finalizes.</source>
+        <translation>Molimo pričekajte dok se instalacija QField-a završi. </translation>
+    </message>
 </context>
 <context>
     <name>QgisMobileapp</name>
@@ -2705,7 +2710,7 @@ Otkažite da pokrenete minimalno skeniranje uređaja.</translation>
     <message>
         <location filename="../src/qml/WelcomeScreen.qml" line="342"/>
         <source>I agree</source>
-        <translation type="unfinished"/>
+        <translation>Slažem se</translation>
     </message>
     <message>
         <location filename="../src/qml/WelcomeScreen.qml" line="351"/>

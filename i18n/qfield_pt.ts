@@ -2406,6 +2406,11 @@ Cancele para fazer uma verificação mínima.</translation>
         <source>Cloud User Info</source>
         <translation>Informação do Utilizador Cloud</translation>
     </message>
+    <message>
+        <location filename="../src/core/platforms/android/androidplatformutilities.cpp" line="83"/>
+        <source>Please wait while QField installation finalizes.</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>QgisMobileapp</name>

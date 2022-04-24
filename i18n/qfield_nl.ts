@@ -528,17 +528,17 @@
         <location filename="../src/qml/FeatureListForm.qml" line="470"/>
         <location filename="../src/qml/FeatureListForm.qml" line="545"/>
         <source>A number of features are being tracked, stop tracking to delete those</source>
-        <translation type="unfinished"/>
+        <translation>Een aantal objecten worden gevolgd, stop met volgen om deze te verwijderen</translation>
     </message>
     <message>
         <location filename="../src/qml/FeatureListForm.qml" line="502"/>
         <source>A number of features are being tracked, stop tracking to merge those</source>
-        <translation type="unfinished"/>
+        <translation>Een aantal objecten worden gevolgd, stop met volgen om deze samen te voegen</translation>
     </message>
     <message>
         <location filename="../src/qml/FeatureListForm.qml" line="537"/>
         <source>Successfully duplicated selected features, list updated to show newly-created features</source>
-        <translation type="unfinished"/>
+        <translation>Geselecteerde objecten gedupliceerd, lijst bijgewerkt om nieuw gemaakte objecten weer te geven</translation>
     </message>
     <message>
         <location filename="../src/qml/FeatureListForm.qml" line="642"/>
@@ -556,7 +556,11 @@
 
 The features geometries will be combined into feature &apos;%1&apos;, which will keep its attributes.</source>
         <comment>0</comment>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>Moeten de geselecteerde %n-functie(s) echt worden samengevoegd?
+
+De geometrieën van objecten zullen worden gecombineerd tot object &apos;%1&apos;, dat zijn kenmerken behoudt.</numerusform><numerusform>Moeten de geselecteerde %n-objecten echt worden samengevoegd?
+
+De geometrieën van objecten zullen worden gecombineerd tot object &apos;%1&apos;, dat zijn kenmerken behoudt.</numerusform></translation>
     </message>
     <message numerus="yes">
         <location filename="../src/qml/FeatureListForm.qml" line="717"/>
@@ -566,7 +570,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <message numerus="yes">
         <location filename="../src/qml/FeatureListForm.qml" line="719"/>
         <source>Failed to merge %n feature(s)</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>Kan %n objecten(en) niet samenvoegen</numerusform><numerusform>Kan %n objecten(en) niet samenvoegen</numerusform></translation>
     </message>
     <message>
         <location filename="../src/qml/FeatureListForm.qml" line="751"/>
@@ -601,7 +605,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <message>
         <location filename="../src/core/featuremodel.cpp" line="321"/>
         <source>Value &quot;%1&quot; %4 could not be converted to a compatible value for field %2(%3).</source>
-        <translation type="unfinished"/>
+        <translation>Waarde &quot;%1&quot; %4 kan niet worden geconverteerd naar een compatibele waarde voor veld %2(%3).</translation>
     </message>
     <message>
         <location filename="../src/core/featuremodel.cpp" line="375"/>
@@ -617,7 +621,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <message>
         <location filename="../src/core/featuremodel.cpp" line="503"/>
         <source>Default value expression for %1:%2 has parser error: %3</source>
-        <translation type="unfinished"/>
+        <translation>Standaardwaarde-expressie voor %1:%2 heeft parserfout: %3</translation>
     </message>
     <message>
         <location filename="../src/core/featuremodel.cpp" line="508"/>
@@ -627,7 +631,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <message>
         <location filename="../src/core/featuremodel.cpp" line="626"/>
         <source>Cannot start editing on layer &quot;%1&quot; to create feature %2</source>
-        <translation type="unfinished"/>
+        <translation>Kan niet beginnen met bewerken op laag &quot;%1&quot; om object %2 te maken</translation>
     </message>
     <message>
         <location filename="../src/core/featuremodel.cpp" line="649"/>
@@ -854,7 +858,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <message>
         <location filename="../src/qml/LayerTreeItemProperties.qml" line="170"/>
         <source>Reload of layer %1 triggered</source>
-        <translation type="unfinished"/>
+        <translation>Herladen van laag %1 geactiveerd</translation>
     </message>
     <message>
         <location filename="../src/qml/LayerTreeItemProperties.qml" line="178"/>
@@ -1544,7 +1548,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <message>
         <location filename="../src/qml/QFieldCloudPopup.qml" line="50"/>
         <source>Storing projects on QFieldCloud offers seamless synchornization, offline editing, and team management.&lt;br&gt;&lt;br&gt;</source>
-        <translation type="unfinished"/>
+        <translation>Het opslaan van projecten op QFieldCloud biedt naadloze synchronisatie, offline bewerking en teambeheer.&lt;br&gt;&lt;br&gt;</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldCloudPopup.qml" line="51"/>
@@ -1787,7 +1791,7 @@ While you can still view and use the project, it is strongly recommended to rese
         <location filename="../src/core/qfieldcloudprojectsmodel.cpp" line="532"/>
         <location filename="../src/core/qfieldcloudprojectsmodel.cpp" line="574"/>
         <source>Getting job status, but the project is deleted.</source>
-        <translation type="unfinished"/>
+        <translation>Taakstatus ophalen, maar het project is verwijderd.</translation>
     </message>
     <message>
         <location filename="../src/core/qfieldcloudprojectsmodel.cpp" line="552"/>
@@ -1807,12 +1811,12 @@ While you can still view and use the project, it is strongly recommended to rese
     <message>
         <location filename="../src/core/qfieldcloudprojectsmodel.cpp" line="634"/>
         <source>job(%1) status response does not contain all the expected keys: status(string)</source>
-        <translation type="unfinished"/>
+        <translation>job(%1) statusreactie bevat niet alle verwachte sleutels: status(string)</translation>
     </message>
     <message>
         <location filename="../src/core/qfieldcloudprojectsmodel.cpp" line="655"/>
         <source>Job(%1) finished with a failed status.</source>
-        <translation type="unfinished"/>
+        <translation>Taak(%1) is voltooid met een mislukte status.</translation>
     </message>
     <message>
         <location filename="../src/core/qfieldcloudprojectsmodel.cpp" line="683"/>
@@ -1937,7 +1941,7 @@ While you can still view and use the project, it is strongly recommended to rese
     <message>
         <location filename="../src/qml/QFieldCloudScreen.qml" line="322"/>
         <source>Downloading, %1% fetched…</source>
-        <translation type="unfinished"/>
+        <translation>Bezig met downloaden, %1% opgehaald...</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldCloudScreen.qml" line="325"/>
@@ -1947,17 +1951,17 @@ While you can still view and use the project, it is strongly recommended to rese
     <message>
         <location filename="../src/qml/QFieldCloudScreen.qml" line="330"/>
         <source>Uploading…</source>
-        <translation type="unfinished"/>
+        <translation>Uploading…</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldCloudScreen.qml" line="340"/>
         <source>Downloading error. </source>
-        <translation type="unfinished"/>
+        <translation>Download-fout.</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldCloudScreen.qml" line="343"/>
         <source>Uploading error. </source>
-        <translation type="unfinished"/>
+        <translation>Fout bij uploaden.</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldCloudScreen.qml" line="350"/>
@@ -1967,12 +1971,12 @@ While you can still view and use the project, it is strongly recommended to rese
     <message>
         <location filename="../src/qml/QFieldCloudScreen.qml" line="353"/>
         <source>Available on the cloud, missing locally</source>
-        <translation type="unfinished"/>
+        <translation>Beschikbaar in de cloud, ontbreekt lokaal</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldCloudScreen.qml" line="356"/>
         <source>Available locally</source>
-        <translation type="unfinished"/>
+        <translation>Lokaal beschikbaarbaar</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldCloudScreen.qml" line="363"/>
@@ -1982,12 +1986,12 @@ While you can still view and use the project, it is strongly recommended to rese
     <message>
         <location filename="../src/qml/QFieldCloudScreen.qml" line="393"/>
         <source>Downloading project %1</source>
-        <translation type="unfinished"/>
+        <translation>Project %1 downloaden</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldCloudScreen.qml" line="470"/>
         <source>Download Project</source>
-        <translation type="unfinished"/>
+        <translation>Download Project</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldCloudScreen.qml" line="484"/>
@@ -1997,17 +2001,17 @@ While you can still view and use the project, it is strongly recommended to rese
     <message>
         <location filename="../src/qml/QFieldCloudScreen.qml" line="501"/>
         <source>Remove Stored Project</source>
-        <translation type="unfinished"/>
+        <translation>Opgeslagen project verwijderen</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldCloudScreen.qml" line="517"/>
         <source>Cancel Project Download</source>
-        <translation type="unfinished"/>
+        <translation>Projectdownload annuleren</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldCloudScreen.qml" line="530"/>
         <source>Press and hold over a cloud project for a menu of additional actions.</source>
-        <translation type="unfinished"/>
+        <translation>Houd een cloudproject ingedrukt voor een menu met aanvullende acties.</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldCloudScreen.qml" line="538"/>
@@ -2017,7 +2021,7 @@ While you can still view and use the project, it is strongly recommended to rese
     <message>
         <location filename="../src/qml/QFieldCloudScreen.qml" line="563"/>
         <source>Refreshing projects list</source>
-        <translation type="unfinished"/>
+        <translation>Refreshing projects list</translation>
     </message>
 </context>
 <context>
@@ -2030,7 +2034,7 @@ While you can still view and use the project, it is strongly recommended to rese
     <message>
         <location filename="../src/qml/QFieldSettings.qml" line="56"/>
         <source>Maximized attribute form</source>
-        <translation type="unfinished"/>
+        <translation>Gemaximaliseerde eigenschappen-formulier</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldSettings.qml" line="60"/>
@@ -2055,7 +2059,7 @@ While you can still view and use the project, it is strongly recommended to rese
     <message>
         <location filename="../src/qml/QFieldSettings.qml" line="70"/>
         <source>Show bookmarks</source>
-        <translation type="unfinished"/>
+        <translation>Toon bladwijzers</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldSettings.qml" line="71"/>
@@ -2085,32 +2089,32 @@ While you can still view and use the project, it is strongly recommended to rese
     <message>
         <location filename="../src/qml/QFieldSettings.qml" line="86"/>
         <source>Dim screen when idling</source>
-        <translation type="unfinished"/>
+        <translation>Dim scherm bij inactiviteit</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldSettings.qml" line="87"/>
         <source>If enabled, the screen brightness will be dimmed after 20 seconds of inactivity to preserve battery.</source>
-        <translation type="unfinished"/>
+        <translation>Indien ingeschakeld, wordt de helderheid van het scherm gedimd na 20 seconden inactiviteit om de batterij te sparen.</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldSettings.qml" line="91"/>
         <source>Consider mouse as a touchscreen device</source>
-        <translation type="unfinished"/>
+        <translation>Beschouw de muis als een touchscreen-apparaat</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldSettings.qml" line="92"/>
         <source>If disabled, the mouse will act as a stylus pen.</source>
-        <translation type="unfinished"/>
+        <translation>Indien uitgeschakeld, werkt de muis als een styluspen.</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldSettings.qml" line="96"/>
         <source>Send anonymized metrics</source>
-        <translation type="unfinished"/>
+        <translation>Geanonimiseerde statistieken verzenden</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldSettings.qml" line="97"/>
         <source>If enabled, anonymized metrics will be collected and sent to help improve QField for everyone.</source>
-        <translation type="unfinished"/>
+        <translation>Indien ingeschakeld, worden geanonimiseerde statistieken verzameld en verzonden om QField voor iedereen te helpen verbeteren.</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldSettings.qml" line="137"/>
@@ -2135,7 +2139,7 @@ While you can still view and use the project, it is strongly recommended to rese
     <message>
         <location filename="../src/qml/QFieldSettings.qml" line="282"/>
         <source>User interface language:</source>
-        <translation type="unfinished"/>
+        <translation>Taal gebruikersinterface:</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldSettings.qml" line="293"/>
@@ -2145,32 +2149,32 @@ While you can still view and use the project, it is strongly recommended to rese
     <message>
         <location filename="../src/qml/QFieldSettings.qml" line="322"/>
         <source>system</source>
-        <translation type="unfinished"/>
+        <translation>systeem</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldSettings.qml" line="335"/>
         <source>Found a missing or incomplete language? %1Join the translator community.%2</source>
-        <translation type="unfinished"/>
+        <translation>Een ontbrekende of onvolledige taal gevonden? %1Word lid van de vertalersgemeenschap.%2</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldSettings.qml" line="378"/>
         <source>Positioning device in use:</source>
-        <translation type="unfinished"/>
+        <translation>Positionerings apparaat in gebruik:</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldSettings.qml" line="426"/>
         <source>Scanning for paired devices</source>
-        <translation type="unfinished"/>
+        <translation>Scannen naar gekoppelde apparaten</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldSettings.qml" line="430"/>
         <source>Scanning failed: %1</source>
-        <translation type="unfinished"/>
+        <translation>Scannen mislukt: %1</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldSettings.qml" line="434"/>
         <source>Scanning done</source>
-        <translation type="unfinished"/>
+        <translation>Scannen gereed</translation>
     </message>
     <message numerus="yes">
         <location filename="../src/qml/QFieldSettings.qml" line="437"/>
@@ -2180,7 +2184,7 @@ While you can still view and use the project, it is strongly recommended to rese
     <message>
         <location filename="../src/qml/QFieldSettings.qml" line="443"/>
         <source>Scanning canceled</source>
-        <translation type="unfinished"/>
+        <translation>Scannen geannuleerd</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldSettings.qml" line="460"/>
@@ -2190,7 +2194,7 @@ While you can still view and use the project, it is strongly recommended to rese
     <message>
         <location filename="../src/qml/QFieldSettings.qml" line="493"/>
         <source>Make a full service discovery</source>
-        <translation type="unfinished"/>
+        <translation>Maak een full-service ontdekking</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldSettings.qml" line="497"/>
@@ -2241,7 +2245,7 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <location filename="../src/qml/QFieldSettings.qml" line="701"/>
         <source>Enable accuracy requirement</source>
-        <translation type="unfinished"/>
+        <translation>Nauwkeurigheidsvereiste inschakelen</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldSettings.qml" line="728"/>
@@ -2314,7 +2318,7 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <location filename="../src/core/qfieldcloudconnection.cpp" line="52"/>
         <source>Status not ok</source>
-        <translation type="unfinished"/>
+        <translation>Status niet ok</translation>
     </message>
     <message>
         <location filename="../src/core/qfieldcloudconnection.cpp" line="53"/>
@@ -2334,27 +2338,27 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <location filename="../src/core/qfieldcloudconnection.cpp" line="56"/>
         <source>Validation Error</source>
-        <translation type="unfinished"/>
+        <translation>Validatiefout</translation>
     </message>
     <message>
         <location filename="../src/core/qfieldcloudconnection.cpp" line="57"/>
         <source>Multiple Projects</source>
-        <translation type="unfinished"/>
+        <translation>Meerdere projecten</translation>
     </message>
     <message>
         <location filename="../src/core/qfieldcloudconnection.cpp" line="58"/>
         <source>Invalid delta file</source>
-        <translation type="unfinished"/>
+        <translation>Ongeldig delta-bestand</translation>
     </message>
     <message>
         <location filename="../src/core/qfieldcloudconnection.cpp" line="59"/>
         <source>The project does not contain a valid QGIS project file</source>
-        <translation type="unfinished"/>
+        <translation>Het project bevat geen geldig QGIS projectbestand</translation>
     </message>
     <message>
         <location filename="../src/core/qfieldcloudconnection.cpp" line="60"/>
         <source>Invalid job</source>
-        <translation type="unfinished"/>
+        <translation>Ongeldige taak</translation>
     </message>
     <message>
         <location filename="../src/core/qfieldcloudconnection.cpp" line="61"/>
@@ -2369,12 +2373,12 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <location filename="../src/core/qgsgpkgflusher.cpp" line="165"/>
         <source>There was an error opening the database &lt;b&gt;%1&lt;/b&gt;: %2</source>
-        <translation type="unfinished"/>
+        <translation>Er is een fout opgetreden bij het openen van de database &lt;b&gt;%1&lt;/b&gt;: %2</translation>
     </message>
     <message>
         <location filename="../src/core/qgsgpkgflusher.cpp" line="178"/>
         <source>Could not flush database %1 (%3) </source>
-        <translation type="unfinished"/>
+        <translation>Kan database %1 (%3) niet leegmaken</translation>
     </message>
     <message>
         <location filename="../src/core/utils/expressioncontextutils.cpp" line="37"/>
@@ -2391,6 +2395,11 @@ Cancel to make a minimal device scan instead.</source>
         <source>Cloud User Info</source>
         <translation type="unfinished"/>
     </message>
+    <message>
+        <location filename="../src/core/platforms/android/androidplatformutilities.cpp" line="83"/>
+        <source>Please wait while QField installation finalizes.</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>QgisMobileapp</name>
@@ -2398,22 +2407,22 @@ Cancel to make a minimal device scan instead.</source>
         <location filename="../src/core/qgismobileapp.cpp" line="651"/>
         <location filename="../src/core/qgismobileapp.cpp" line="677"/>
         <source>Project file &quot;%1&quot; does not exist</source>
-        <translation type="unfinished"/>
+        <translation>Projectbestand &quot;%1&quot; bestaat niet</translation>
     </message>
     <message>
         <location filename="../src/core/qgismobileapp.cpp" line="668"/>
         <source>No project file currently opened</source>
-        <translation type="unfinished"/>
+        <translation>Momenteel geen projectbestand geopend</translation>
     </message>
     <message>
         <location filename="../src/core/qgismobileapp.cpp" line="721"/>
         <source>Could not load font %1</source>
-        <translation type="unfinished"/>
+        <translation>Kon lettertype %1 niet laden</translation>
     </message>
     <message>
         <location filename="../src/core/qgismobileapp.cpp" line="723"/>
         <source>Loading font %1</source>
-        <translation type="unfinished"/>
+        <translation>Lettertype %1 laden</translation>
     </message>
 </context>
 <context>
@@ -2421,12 +2430,12 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <location filename="../src/core/gnsspositioninformation.cpp" line="102"/>
         <source>Simulation mode</source>
-        <translation type="unfinished"/>
+        <translation>Simulatiemodus</translation>
     </message>
     <message>
         <location filename="../src/core/gnsspositioninformation.cpp" line="105"/>
         <source>Manual input mode</source>
-        <translation type="unfinished"/>
+        <translation>Handmatige invoermodus</translation>
     </message>
     <message>
         <location filename="../src/core/gnsspositioninformation.cpp" line="108"/>
@@ -2441,7 +2450,7 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <location filename="../src/core/gnsspositioninformation.cpp" line="114"/>
         <source>Fixed RTK</source>
-        <translation type="unfinished"/>
+        <translation>Vaste RTK</translation>
     </message>
     <message>
         <location filename="../src/core/gnsspositioninformation.cpp" line="117"/>
@@ -2466,7 +2475,7 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <location filename="../src/core/gnsspositioninformation.cpp" line="129"/>
         <source>Unknown (%1)</source>
-        <translation type="unfinished"/>
+        <translation>Onbekend (%1)</translation>
     </message>
 </context>
 <context>
@@ -2491,7 +2500,7 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <location filename="../src/core/referencingfeaturelistmodel.cpp" line="222"/>
         <source>Invalid referencing layer</source>
-        <translation type="unfinished"/>
+        <translation>Ongeldige referentielaag</translation>
     </message>
     <message>
         <location filename="../src/core/referencingfeaturelistmodel.cpp" line="228"/>
@@ -2501,7 +2510,7 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <location filename="../src/core/referencingfeaturelistmodel.cpp" line="237"/>
         <source>Cannot delete feature</source>
-        <translation type="unfinished"/>
+        <translation>Kan object niet verwijderen</translation>
     </message>
     <message>
         <location filename="../src/core/referencingfeaturelistmodel.cpp" line="240"/>
@@ -2549,7 +2558,7 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <location filename="../src/qml/geometry_editors/SplitFeatureToolbar.qml" line="53"/>
         <source>Feature could not be split</source>
-        <translation type="unfinished"/>
+        <translation>Object kan niet worden gesplitst</translation>
     </message>
 </context>
 <context>
@@ -2565,12 +2574,12 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <location filename="../src/qml/TemporalProperties.qml" line="28"/>
         <source>Temporal Properties</source>
-        <translation type="unfinished"/>
+        <translation>Tijdelijke eigenschappen</translation>
     </message>
     <message>
         <location filename="../src/qml/TemporalProperties.qml" line="43"/>
         <source>Enable temporal filter</source>
-        <translation type="unfinished"/>
+        <translation>Tijdelijk filter inschakelen</translation>
     </message>
 </context>
 <context>
@@ -2583,12 +2592,12 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <location filename="../src/qml/Tracking.qml" line="176"/>
         <source>Tracker Settings</source>
-        <translation type="unfinished"/>
+        <translation>Volger-instellingen</translation>
     </message>
     <message>
         <location filename="../src/qml/Tracking.qml" line="208"/>
         <source>Activate time constraint</source>
-        <translation type="unfinished"/>
+        <translation>Tijdsbeperking activeren</translation>
     </message>
     <message>
         <location filename="../src/qml/Tracking.qml" line="230"/>
@@ -2598,7 +2607,7 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <location filename="../src/qml/Tracking.qml" line="273"/>
         <source>Activate distance constraint</source>
-        <translation type="unfinished"/>
+        <translation>Afstandsbeperking activeren</translation>
     </message>
     <message>
         <location filename="../src/qml/Tracking.qml" line="302"/>
@@ -2608,7 +2617,7 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <location filename="../src/qml/Tracking.qml" line="345"/>
         <source>Record when both active constraints are met</source>
-        <translation type="unfinished"/>
+        <translation>Opnemen wanneer aan beide actieve beperkingen is voldaan</translation>
     </message>
     <message>
         <location filename="../src/qml/Tracking.qml" line="372"/>
@@ -2631,17 +2640,17 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <location filename="../src/qml/VariableEditor.qml" line="66"/>
         <source>Enter name</source>
-        <translation type="unfinished"/>
+        <translation>Voer naam in</translation>
     </message>
     <message>
         <location filename="../src/qml/VariableEditor.qml" line="91"/>
         <source>Enter value</source>
-        <translation type="unfinished"/>
+        <translation>Voer waarde in</translation>
     </message>
     <message>
         <location filename="../src/qml/VariableEditor.qml" line="136"/>
         <source>Add a new variable</source>
-        <translation type="unfinished"/>
+        <translation>Een nieuwe variabele toevoegen</translation>
     </message>
 </context>
 <context>

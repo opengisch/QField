@@ -2404,6 +2404,11 @@ Cancel to make a minimal device scan instead.</source>
         <source>Cloud User Info</source>
         <translation>云用户信息</translation>
     </message>
+    <message>
+        <location filename="../src/core/platforms/android/androidplatformutilities.cpp" line="83"/>
+        <source>Please wait while QField installation finalizes.</source>
+        <translation>QField正在完成安装，请稍候。</translation>
+    </message>
 </context>
 <context>
     <name>QgisMobileapp</name>
