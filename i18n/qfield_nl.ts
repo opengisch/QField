@@ -799,12 +799,12 @@ De geometrieën van objecten zullen worden gecombineerd tot object &apos;%1&apos
     <message>
         <location filename="../src/core/layerobserver.cpp" line="266"/>
         <source>Failed to find a local primary key column in layer &quot;%1&quot;</source>
-        <translation type="unfinished"/>
+        <translation>Kan geen lokale primaire sleutelkolom vinden in laag &quot;%1&quot;</translation>
     </message>
     <message>
         <location filename="../src/core/layerobserver.cpp" line="272"/>
         <source>Failed to find a source primary key column in layer &quot;%1&quot;</source>
-        <translation type="unfinished"/>
+        <translation>Kan geen kolom met primaire bronsleutel vinden in laag &quot;%1&quot;</translation>
     </message>
 </context>
 <context>
@@ -833,7 +833,7 @@ De geometrieën van objecten zullen worden gecombineerd tot object &apos;%1&apos
     <message>
         <location filename="../src/qml/LayerTreeItemProperties.qml" line="82"/>
         <source>This layer is invalid. This might be due to a network issue, a missing file or a misconfiguration of the project.</source>
-        <translation type="unfinished"/>
+        <translation>Deze laag is ongeldig. Dit kan te wijten zijn aan een netwerkprobleem, een ontbrekend bestand of een verkeerde configuratie van het project.</translation>
     </message>
     <message>
         <location filename="../src/qml/LayerTreeItemProperties.qml" line="91"/>
@@ -873,7 +873,7 @@ De geometrieën van objecten zullen worden gecombineerd tot object &apos;%1&apos
     <message>
         <location filename="../src/qml/LayerTreeItemProperties.qml" line="215"/>
         <source>Track on layer %1 stopped</source>
-        <translation type="unfinished"/>
+        <translation>Volgen op laag %1 gestopt</translation>
     </message>
     <message>
         <location filename="../src/qml/LayerTreeItemProperties.qml" line="237"/>
@@ -883,7 +883,7 @@ De geometrieën van objecten zullen worden gecombineerd tot object &apos;%1&apos
     <message>
         <location filename="../src/qml/LayerTreeItemProperties.qml" line="237"/>
         <source>Geometry Locked Layer</source>
-        <translation type="unfinished"/>
+        <translation>Geometrie vergrendelde laag</translation>
     </message>
     <message>
         <location filename="../src/qml/LayerTreeItemProperties.qml" line="244"/>
@@ -893,7 +893,7 @@ De geometrieën van objecten zullen worden gecombineerd tot object &apos;%1&apos
     <message>
         <location filename="../src/qml/LayerTreeItemProperties.qml" line="246"/>
         <source>This layer is configured as &quot;Lock Geometries&quot; which disables adding and deleting features, as well as modifying the geometries of existing features.</source>
-        <translation type="unfinished"/>
+        <translation>Deze laag is geconfigureerd als &quot;Geometrieën vergrendelen&quot;, wat het toevoegen en verwijderen van objecten uitschakelt, evenals het wijzigen van de geometrieën van bestaande objecten.</translation>
     </message>
 </context>
 <context>
@@ -914,13 +914,15 @@ De geometrieën van objecten zullen worden gecombineerd tot object &apos;%1&apos
         <location filename="../src/core/utils/layerutils.cpp" line="234"/>
         <source>Cannot commit deletion of feature %2 in layer &quot;%1&quot;. Reason:
 %3</source>
-        <translation type="unfinished"/>
+        <translation>Kan verwijdering van object %2 in laag &quot;%1&quot; niet vastleggen. Reden:
+%3</translation>
     </message>
     <message>
         <location filename="../src/core/utils/layerutils.cpp" line="254"/>
         <source>Cannot commit deletion in layer &quot;%1&quot;. Reason:
 %3</source>
-        <translation type="unfinished"/>
+        <translation>Kan verwijdering in laag &quot;%1&quot; niet uitvoeren. Reden:
+%3</translation>
     </message>
     <message>
         <location filename="../src/core/utils/layerutils.cpp" line="263"/>
@@ -931,7 +933,7 @@ De geometrieën van objecten zullen worden gecombineerd tot object &apos;%1&apos
         <location filename="../src/core/utils/layerutils.cpp" line="276"/>
         <location filename="../src/core/utils/layerutils.cpp" line="279"/>
         <source>Cannot rollback layer changes in layer %1</source>
-        <translation type="unfinished"/>
+        <translation>Kan laagwijzigingen in laag %1 . niet terugdraaien</translation>
     </message>
     <message>
         <location filename="../src/core/utils/layerutils.cpp" line="296"/>
@@ -942,7 +944,8 @@ De geometrieën van objecten zullen worden gecombineerd tot object &apos;%1&apos
         <location filename="../src/core/utils/layerutils.cpp" line="319"/>
         <source>Cannot add new feature in layer &quot;%1&quot;. Reason:
 %2</source>
-        <translation type="unfinished"/>
+        <translation>Kan geen nieuw object toevoegen in laag &quot;%1&quot;. Reden:
+%2</translation>
     </message>
     <message>
         <location filename="../src/core/utils/layerutils.cpp" line="325"/>
@@ -955,27 +958,27 @@ De geometrieën van objecten zullen worden gecombineerd tot object &apos;%1&apos
     <message>
         <location filename="../src/core/locator/locatormodelsuperbridge.cpp" line="227"/>
         <source>Returns a list of features accross all searchable layers with matching attributes</source>
-        <translation type="unfinished"/>
+        <translation>Retourneert een lijst met objecten over alle doorzoekbare lagen met overeenkomende eigenschappen</translation>
     </message>
     <message>
         <location filename="../src/core/locator/locatormodelsuperbridge.cpp" line="228"/>
         <source>Returns a point from a pair of X and Y coordinates typed in the search bar</source>
-        <translation type="unfinished"/>
+        <translation>Retourneert een punt van een paar X- en Y-coördinaten die in de zoekbalk zijn getypt</translation>
     </message>
     <message>
         <location filename="../src/core/locator/locatormodelsuperbridge.cpp" line="229"/>
         <source>Returns a list of bookmark with matching names</source>
-        <translation type="unfinished"/>
+        <translation>Retourneert een lijst met bladwijzers met overeenkomende namen</translation>
     </message>
     <message>
         <location filename="../src/core/locator/locatormodelsuperbridge.cpp" line="230"/>
         <source>Returns a list of locations and addresses within Finland with matching terms</source>
-        <translation type="unfinished"/>
+        <translation>Retourneert een lijst met locaties en adressen binnen Finland met overeenkomende termen</translation>
     </message>
     <message>
         <location filename="../src/core/locator/locatormodelsuperbridge.cpp" line="326"/>
         <source>Search filters for your locations have been activated, customize results in the settings panel</source>
-        <translation type="unfinished"/>
+        <translation>Zoekfilters voor uw locaties zijn geactiveerd, pas de resultaten aan in het instellingenpaneel</translation>
     </message>
 </context>
 <context>
@@ -1046,7 +1049,7 @@ De geometrieën van objecten zullen worden gecombineerd tot object &apos;%1&apos
         <location filename="../src/core/multifeaturelistmodelbase.cpp" line="454"/>
         <location filename="../src/core/multifeaturelistmodelbase.cpp" line="546"/>
         <source>Cannot rollback layer changes in layer %1</source>
-        <translation type="unfinished"/>
+        <translation>Kan laagwijzigingen in laag %1 . niet terugdraaien</translation>
     </message>
     <message>
         <location filename="../src/core/multifeaturelistmodelbase.cpp" line="532"/>
@@ -1090,12 +1093,12 @@ De geometrieën van objecten zullen worden gecombineerd tot object &apos;%1&apos
     <message>
         <location filename="../src/qml/NavigationBar.qml" line="523"/>
         <source>Duplicate Selected Feature(s)</source>
-        <translation type="unfinished"/>
+        <translation>Geselecteerde objecten(en) dupliceren</translation>
     </message>
     <message>
         <location filename="../src/qml/NavigationBar.qml" line="536"/>
         <source>Delete Selected Feature(s)</source>
-        <translation type="unfinished"/>
+        <translation>Geselecteerde object(en) verwijderen</translation>
     </message>
     <message>
         <location filename="../src/qml/NavigationBar.qml" line="551"/>
@@ -1205,7 +1208,7 @@ De geometrieën van objecten zullen worden gecombineerd tot object &apos;%1&apos
         <location filename="../src/core/orderedrelationmodel.cpp" line="177"/>
         <location filename="../src/core/orderedrelationmodel.cpp" line="220"/>
         <source>Cannot rollback layer changes in layer %1</source>
-        <translation type="unfinished"/>
+        <translation>Kan laagwijzigingen in laag %1 . niet terugdraaien</translation>
     </message>
     <message>
         <location filename="../src/core/orderedrelationmodel.cpp" line="174"/>
@@ -1245,7 +1248,7 @@ De geometrieën van objecten zullen worden gecombineerd tot object &apos;%1&apos
     <message>
         <location filename="../src/core/platforms/platformutilities.cpp" line="135"/>
         <source>Select Media File</source>
-        <translation type="unfinished"/>
+        <translation>Selecteer mediabestand</translation>
     </message>
     <message>
         <location filename="../src/core/platforms/platformutilities.cpp" line="135"/>
@@ -1255,7 +1258,7 @@ De geometrieën van objecten zullen worden gecombineerd tot object &apos;%1&apos
     <message>
         <location filename="../src/core/platforms/platformutilities.cpp" line="155"/>
         <source>Failed to save gallery picture</source>
-        <translation type="unfinished"/>
+        <translation>Kan galerijafbeelding niet opslaan</translation>
     </message>
     <message>
         <location filename="../src/core/platforms/platformutilities.cpp" line="172"/>
@@ -1275,12 +1278,12 @@ De geometrieën van objecten zullen worden gecombineerd tot object &apos;%1&apos
     <message>
         <location filename="../src/core/platforms/platformutilities.cpp" line="174"/>
         <source>Vector Datasets</source>
-        <translation type="unfinished"/>
+        <translation>Vectorgegevenssets</translation>
     </message>
     <message>
         <location filename="../src/core/platforms/platformutilities.cpp" line="174"/>
         <source>Raster Datasets</source>
-        <translation type="unfinished"/>
+        <translation>Rastergegevenssets</translation>
     </message>
 </context>
 <context>
@@ -1359,7 +1362,7 @@ De geometrieën van objecten zullen worden gecombineerd tot object &apos;%1&apos
     <message>
         <location filename="../src/qml/PositionInformationView.qml" line="214"/>
         <source>Fix</source>
-        <translation type="unfinished"/>
+        <translation>Vast</translation>
     </message>
     <message>
         <location filename="../src/qml/PositionInformationView.qml" line="230"/>
@@ -1428,7 +1431,7 @@ De geometrieën van objecten zullen worden gecombineerd tot object &apos;%1&apos
     <message>
         <location filename="../src/qml/QFieldCloudDeltaHistory.qml" line="50"/>
         <source>Push History</source>
-        <translation type="unfinished"/>
+        <translation>Push-geschiedenis</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldCloudDeltaHistory.qml" line="50"/>
@@ -1480,12 +1483,12 @@ De geometrieën van objecten zullen worden gecombineerd tot object &apos;%1&apos
         <translation>Inloggen</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldCloudLogin.qml" line="214"/>
+        <location filename="../src/qml/QFieldCloudLogin.qml" line="213"/>
         <source>New user?</source>
         <translation>Nieuwe gebruiker?</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldCloudLogin.qml" line="214"/>
+        <location filename="../src/qml/QFieldCloudLogin.qml" line="213"/>
         <source>Register an account</source>
         <translation>Registreer een account</translation>
     </message>
@@ -1502,12 +1505,12 @@ De geometrieën van objecten zullen worden gecombineerd tot object &apos;%1&apos
         <translation type="vanished">Log in</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldCloudLogin.qml" line="227"/>
+        <location filename="../src/qml/QFieldCloudLogin.qml" line="225"/>
         <source>The easiest way to transfer you project from QGIS to your devices!</source>
         <translation>De eenvoudigste manier om je project over te zetten van QGIS naar je apparaten!</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldCloudLogin.qml" line="228"/>
+        <location filename="../src/qml/QFieldCloudLogin.qml" line="226"/>
         <source>Learn more about QFieldCloud</source>
         <translation>Leer meer over QFieldCloud</translation>
     </message>
@@ -1516,16 +1519,16 @@ De geometrieën van objecten zullen worden gecombineerd tot object &apos;%1&apos
     <name>QFieldCloudPackageLayersFeedback</name>
     <message>
         <source>Problematic QFieldCloud layer packaging</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Problematische inpakken van QFieldCloud-laag</translation>
     </message>
     <message>
         <source>Some layers have not been packaged correctly on QFieldCloud. These layers might be misconfigured or their data source is not accessible from the QFieldCloud server.</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Sommige lagen zijn niet correct ingepakt op QFieldCloud. Deze lagen kunnen verkeerd zijn geconfigureerd of hun gegevensbron is niet toegankelijk vanaf de QFieldCloud-server.</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldCloudPackageLayersFeedback.qml" line="22"/>
         <source>QFieldCloud had troubles packaging your project</source>
-        <translation type="unfinished"/>
+        <translation>QFieldCloud had problemen met het inpakken van uw project</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldCloudPackageLayersFeedback.qml" line="32"/>
@@ -1541,210 +1544,214 @@ De geometrieën van objecten zullen worden gecombineerd tot object &apos;%1&apos
         <translation>QFieldCloud</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldCloudPopup.qml" line="49"/>
+        <location filename="../src/qml/QFieldCloudPopup.qml" line="48"/>
         <source>The current project is not stored on QFieldCloud.&lt;br&gt;&lt;br&gt;</source>
         <translation>Het huidige project wordt niet opgeslagen op QFieldCloud.&lt;br&gt;&lt;br&gt;</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldCloudPopup.qml" line="50"/>
+        <location filename="../src/qml/QFieldCloudPopup.qml" line="49"/>
         <source>Storing projects on QFieldCloud offers seamless synchornization, offline editing, and team management.&lt;br&gt;&lt;br&gt;</source>
         <translation>Het opslaan van projecten op QFieldCloud biedt naadloze synchronisatie, offline bewerking en teambeheer.&lt;br&gt;&lt;br&gt;</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldCloudPopup.qml" line="51"/>
+        <location filename="../src/qml/QFieldCloudPopup.qml" line="50"/>
         <source>Learn more about QFieldCloud</source>
         <translation>Leer meer over QFieldCloud</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldCloudPopup.qml" line="90"/>
+        <location filename="../src/qml/QFieldCloudPopup.qml" line="89"/>
         <source>Disconnected from the cloud.</source>
         <translation>Losgekoppeld van de cloud.</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldCloudPopup.qml" line="91"/>
+        <location filename="../src/qml/QFieldCloudPopup.qml" line="90"/>
         <source>Connecting to the cloud.</source>
         <translation>Aan het verbinden met de cloud.</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldCloudPopup.qml" line="92"/>
+        <location filename="../src/qml/QFieldCloudPopup.qml" line="91"/>
         <source>Greetings &lt;strong&gt;%1&lt;/strong&gt;.</source>
         <translation>Groeten &lt;strong&gt;%1&lt;/strong&gt;.</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldCloudPopup.qml" line="162"/>
+        <location filename="../src/qml/QFieldCloudPopup.qml" line="161"/>
         <source>This QFieldCloud project was first downloaded with another cloud account. Please sign in with the original account for this project to use the QFieldCloud functionality.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/qml/QFieldCloudPopup.qml" line="181"/>
+        <location filename="../src/qml/QFieldCloudPopup.qml" line="180"/>
         <source>Downloading %1%…</source>
         <translation>Downloaden %1%…</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldCloudPopup.qml" line="183"/>
+        <location filename="../src/qml/QFieldCloudPopup.qml" line="182"/>
         <source>QFieldCloud is preparing the latest data just for you. This might take some time, please hold tight…</source>
         <translation>QFieldCloud bereidt de nieuwste gegevens speciaal voor u voor. Dit kan even duren, houdt u alstublieft goed vast...</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldCloudPopup.qml" line="188"/>
+        <location filename="../src/qml/QFieldCloudPopup.qml" line="187"/>
         <source>Uploading %1%…</source>
-        <translation type="unfinished"/>
+        <translation>%1% uploaden…</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldCloudPopup.qml" line="190"/>
+        <location filename="../src/qml/QFieldCloudPopup.qml" line="189"/>
         <source>QFieldCloud is applying the latest uploaded changes. This might take some time, please hold tight…</source>
         <translation>QFieldCloud past de laatste geüploade wijzigingen toe. Dit kan even duren, houdt u alstublieft goed vast...</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldCloudPopup.qml" line="273"/>
+        <location filename="../src/qml/QFieldCloudPopup.qml" line="272"/>
         <source>A server error has occured, please try again.</source>
         <translation>Er is een serverfout opgetreden, probeer het opnieuw.</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldCloudPopup.qml" line="274"/>
+        <location filename="../src/qml/QFieldCloudPopup.qml" line="273"/>
         <source>A network error has occured, please try again.</source>
         <translation>Er is een netwerkfout opgetreden, probeer het opnieuw.</translation>
     </message>
     <message numerus="yes">
-        <location filename="../src/qml/QFieldCloudPopup.qml" line="334"/>
+        <location filename="../src/qml/QFieldCloudPopup.qml" line="333"/>
         <source>There is/are %n local change(s)</source>
         <translation><numerusform>Er is/zijn %n lokale wijziging(en)</numerusform><numerusform>Er is/zijn %n lokale wijziging(en)</numerusform></translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldCloudPopup.qml" line="335"/>
+        <location filename="../src/qml/QFieldCloudPopup.qml" line="334"/>
         <source>There are no local changes</source>
         <translation>Er zijn geen lokale wijzigingen</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldCloudPopup.qml" line="337"/>
+        <location filename="../src/qml/QFieldCloudPopup.qml" line="336"/>
         <source>The locally stored cloud project has been corrupted</source>
         <translation>Het lokaal opgeslagen cloudproject is beschadigd</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldCloudPopup.qml" line="350"/>
+        <location filename="../src/qml/QFieldCloudPopup.qml" line="349"/>
         <source>Synchronize</source>
         <translation>Synchroniseren</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldCloudPopup.qml" line="365"/>
+        <location filename="../src/qml/QFieldCloudPopup.qml" line="364"/>
         <source>Synchronize the whole project with all modified features and download the freshly updated project with all the applied changes from QFieldCloud.</source>
         <translation>Synchroniseer het hele project met alle gewijzigde objecten en download het vers bijgewerkte project met alle aangebrachte wijzigingen van QFieldCloud.</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldCloudPopup.qml" line="376"/>
+        <location filename="../src/qml/QFieldCloudPopup.qml" line="375"/>
         <source>Push changes</source>
         <translation>Push wijzigingen</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldCloudPopup.qml" line="391"/>
+        <location filename="../src/qml/QFieldCloudPopup.qml" line="390"/>
         <source>Save internet bandwidth by only pushing the local features and pictures to the cloud, without updating the whole project.</source>
         <translation>Bespaar internetbandbreedte door alleen de lokale objecten en afbeeldingen naar de cloud te pushen, zonder het hele project bij te werken.</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldCloudPopup.qml" line="404"/>
-        <location filename="../src/qml/QFieldCloudPopup.qml" line="557"/>
+        <location filename="../src/qml/QFieldCloudPopup.qml" line="403"/>
+        <location filename="../src/qml/QFieldCloudPopup.qml" line="556"/>
         <source>Revert local changes</source>
         <translation>Lokale wijzigingen ongedaan maken</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldCloudPopup.qml" line="405"/>
+        <location filename="../src/qml/QFieldCloudPopup.qml" line="404"/>
         <source>Reset project</source>
         <translation>Reset project</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldCloudPopup.qml" line="424"/>
+        <location filename="../src/qml/QFieldCloudPopup.qml" line="423"/>
+        <source>Revert all modified features in the local layers. You cannot restore those changes.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
         <source>Revert all modified features in the local cloud layers. You cannot restore those changes.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/qml/QFieldCloudPopup.qml" line="425"/>
+        <location filename="../src/qml/QFieldCloudPopup.qml" line="424"/>
         <source>The local copy of this cloud project has been corrupted. Resetting the project will re-download the cloud version and will remove any local changes, make sure those were copied first if needed.
 
 While you can still view and use the project, it is strongly recommended to reset to avoid any accidental data loss as none of the changes made will be pushed back to the cloud.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/qml/QFieldCloudPopup.qml" line="455"/>
+        <location filename="../src/qml/QFieldCloudPopup.qml" line="454"/>
         <source>Last synchronized just now</source>
         <translation>Zojuist voor het laatst gesynchroniseerd</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldCloudPopup.qml" line="457"/>
+        <location filename="../src/qml/QFieldCloudPopup.qml" line="456"/>
         <source>Last synchronized %1 minutes ago</source>
         <translation>%1 minuten geleden voor het laatst gesynchroniseerd</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldCloudPopup.qml" line="459"/>
+        <location filename="../src/qml/QFieldCloudPopup.qml" line="458"/>
         <source>Last synchronized at %1</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/qml/QFieldCloudPopup.qml" line="461"/>
+        <location filename="../src/qml/QFieldCloudPopup.qml" line="460"/>
         <source>Last synchronized on %1</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/qml/QFieldCloudPopup.qml" line="472"/>
+        <location filename="../src/qml/QFieldCloudPopup.qml" line="471"/>
         <source>Last changes pushed just now</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/qml/QFieldCloudPopup.qml" line="474"/>
+        <location filename="../src/qml/QFieldCloudPopup.qml" line="473"/>
         <source>Last changes pushed %1 minutes ago</source>
-        <translation type="unfinished"/>
+        <translation>Laatste wijzigingen %1 minuten geleden gepusht</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldCloudPopup.qml" line="476"/>
+        <location filename="../src/qml/QFieldCloudPopup.qml" line="475"/>
         <source>Last changes pushed at %1</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/qml/QFieldCloudPopup.qml" line="478"/>
+        <location filename="../src/qml/QFieldCloudPopup.qml" line="477"/>
         <source>Last changes pushed on %1</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/qml/QFieldCloudPopup.qml" line="480"/>
+        <location filename="../src/qml/QFieldCloudPopup.qml" line="479"/>
         <source>No changes pushed yet</source>
         <translation>Nog geen wijzigingen doorgevoerd</translation>
     </message>
     <message numerus="yes">
-        <location filename="../src/qml/QFieldCloudPopup.qml" line="501"/>
+        <location filename="../src/qml/QFieldCloudPopup.qml" line="500"/>
         <source>%n attachment(s) are currently being uploaded in the background.</source>
         <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldCloudPopup.qml" line="561"/>
+        <location filename="../src/qml/QFieldCloudPopup.qml" line="560"/>
         <source>Should local changes be reverted?</source>
         <translation>Moeten lokale wijzigingen ongedaan worden gemaakt?</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldCloudPopup.qml" line="588"/>
+        <location filename="../src/qml/QFieldCloudPopup.qml" line="587"/>
         <source>Reset cloud project</source>
         <translation>Reset Cloudproject</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldCloudPopup.qml" line="592"/>
+        <location filename="../src/qml/QFieldCloudPopup.qml" line="591"/>
         <source>Last warning, resetting the cloud project will erase any local changes, are you sure you want to go ahead?</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/qml/QFieldCloudPopup.qml" line="613"/>
+        <location filename="../src/qml/QFieldCloudPopup.qml" line="612"/>
         <source>Connecting cloud</source>
         <translation>Verbinden cloud</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldCloudPopup.qml" line="626"/>
+        <location filename="../src/qml/QFieldCloudPopup.qml" line="625"/>
         <source>Local changes reverted</source>
         <translation>Lokale wijzigingen teruggedraaid</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldCloudPopup.qml" line="628"/>
+        <location filename="../src/qml/QFieldCloudPopup.qml" line="627"/>
         <source>Failed to revert changes</source>
         <translation>Kan wijzigingen niet ongedaan maken</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldCloudPopup.qml" line="633"/>
+        <location filename="../src/qml/QFieldCloudPopup.qml" line="632"/>
         <source>No changes to revert</source>
         <translation>Geen wijzigingen om terug te zetten</translation>
     </message>
@@ -1796,12 +1803,12 @@ While you can still view and use the project, it is strongly recommended to rese
     <message>
         <location filename="../src/core/qfieldcloudprojectsmodel.cpp" line="552"/>
         <source>Job creation finished, but the server response is missing required fields: id(string)</source>
-        <translation type="unfinished"/>
+        <translation>Het maken van de taak is voltooid, maar de serverreactie mist verplichte velden: id(string)</translation>
     </message>
     <message>
         <location filename="../src/core/qfieldcloudprojectsmodel.cpp" line="589"/>
         <source>Getting job status, but no `%2` job triggered yet.</source>
-        <translation type="unfinished"/>
+        <translation>Taakstatus ophalen, maar nog geen `%2`-taak geactiveerd.</translation>
     </message>
     <message>
         <location filename="../src/core/qfieldcloudprojectsmodel.cpp" line="604"/>
@@ -1836,17 +1843,17 @@ While you can still view and use the project, it is strongly recommended to rese
     <message>
         <location filename="../src/core/qfieldcloudprojectsmodel.cpp" line="919"/>
         <source>Failed to get latest package data.</source>
-        <translation type="unfinished"/>
+        <translation>Kan de laatste package-gegevens niet ophalen.</translation>
     </message>
     <message>
         <location filename="../src/core/qfieldcloudprojectsmodel.cpp" line="933"/>
         <source>Latest package data response error.</source>
-        <translation type="unfinished"/>
+        <translation>Fout in reactie op laatste package-gegevens.</translation>
     </message>
     <message>
         <location filename="../src/core/qfieldcloudprojectsmodel.cpp" line="953"/>
         <source>Latest package data structure error.</source>
-        <translation type="unfinished"/>
+        <translation>Fout in laatste package-gegevensstructuur.</translation>
     </message>
     <message>
         <location filename="../src/core/qfieldcloudprojectsmodel.cpp" line="986"/>
@@ -2049,7 +2056,7 @@ While you can still view and use the project, it is strongly recommended to rese
     <message>
         <location filename="../src/qml/QFieldSettings.qml" line="65"/>
         <source>Show digitizing information</source>
-        <translation type="unfinished"/>
+        <translation>Toon Digitaliseringsinformatie</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldSettings.qml" line="66"/>
@@ -2069,7 +2076,7 @@ While you can still view and use the project, it is strongly recommended to rese
     <message>
         <location filename="../src/qml/QFieldSettings.qml" line="75"/>
         <source>Use native camera</source>
-        <translation type="unfinished"/>
+        <translation>Gebruik ingebouwde camera</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldSettings.qml" line="76"/>
@@ -2079,7 +2086,7 @@ While you can still view and use the project, it is strongly recommended to rese
     <message>
         <location filename="../src/qml/QFieldSettings.qml" line="81"/>
         <source>Fast editing mode</source>
-        <translation type="unfinished"/>
+        <translation>Snelle bewerkingsmodus</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldSettings.qml" line="82"/>
@@ -2152,148 +2159,148 @@ While you can still view and use the project, it is strongly recommended to rese
         <translation>systeem</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="335"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="334"/>
         <source>Found a missing or incomplete language? %1Join the translator community.%2</source>
         <translation>Een ontbrekende of onvolledige taal gevonden? %1Word lid van de vertalersgemeenschap.%2</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="378"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="377"/>
         <source>Positioning device in use:</source>
         <translation>Positionerings apparaat in gebruik:</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="426"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="425"/>
         <source>Scanning for paired devices</source>
         <translation>Scannen naar gekoppelde apparaten</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="430"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="429"/>
         <source>Scanning failed: %1</source>
         <translation>Scannen mislukt: %1</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="434"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="433"/>
         <source>Scanning done</source>
         <translation>Scannen gereed</translation>
     </message>
     <message numerus="yes">
-        <location filename="../src/qml/QFieldSettings.qml" line="437"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="436"/>
         <source>%n device(s) found</source>
         <translation><numerusform>%n apparaat(en) gevonden</numerusform><numerusform>%n apparaat(en) gevonden</numerusform></translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="443"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="442"/>
         <source>Scanning canceled</source>
         <translation>Scannen geannuleerd</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="460"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="459"/>
         <source>Scan</source>
         <translation>Scan</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="493"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="492"/>
         <source>Make a full service discovery</source>
         <translation>Maak een full-service ontdekking</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="497"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="496"/>
         <source>A full device scan can take longer. You really want to do it?
 Cancel to make a minimal device scan instead.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="522"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="521"/>
         <source>Connected to %1</source>
         <translation>Verbonden met %1</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="524"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="523"/>
         <source>Connect  to %1</source>
         <translation>Verbinden met %1</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="526"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="525"/>
         <source>Connecting to %1</source>
         <translation>Aan het verbinden met %1</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="543"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="542"/>
         <source>Use orthometric altitude from device</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="575"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="574"/>
         <source>Show position information</source>
         <translation>Toon positie informatie</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="597"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="596"/>
         <source>Activate accuracy indicator</source>
         <translation>Activeer nauwkeurigheidsindicator</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="619"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="618"/>
         <source>Bad accuracy below [m]</source>
         <translation>Slechte nauwkeurigheid onder [m]</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="660"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="659"/>
         <source>Excellent accuracy above [m]</source>
         <translation>Uitstekende nauwkeurigheid boven [m]</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="701"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="700"/>
         <source>Enable accuracy requirement</source>
         <translation>Nauwkeurigheidsvereiste inschakelen</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="728"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="727"/>
         <source>When the accuracy indicator is enabled, a badge is attached to the location button and colored &lt;span %1&gt;red&lt;/span&gt; if the accuracy value is below bad, &lt;span %2&gt;yellow&lt;/span&gt; if it falls short of excellent, or &lt;span %3&gt;green&lt;/span&gt;.&lt;br&gt;&lt;br&gt;In addition, an accuracy restriction mode can be toggled on, which restricts vertex addition when locked to coordinate cursor to positions with an accuracy value above the bad threshold.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="745"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="744"/>
         <source>Antenna height compensation</source>
         <translation>Antenne-hoogtecompensatie</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="767"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="766"/>
         <source>Antenna height [m]</source>
         <translation>Antennehoogte [m]</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="809"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="808"/>
         <source>Z values which are recorded from the positioning device will be corrected by this value. If a value of 1.6 is entered, this will result in a correction of -1.6 for each recorded value.</source>
         <translation>Z-waarden die vanaf het GPS-apparaat worden geregistreerd, worden met deze waarde gecorrigeerd. Als een waarde van 1,6 wordt ingevoerd, resulteert dit in een correctie van -1,6 voor elke geregistreerde waarde.</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="823"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="822"/>
         <source>Skip altitude correction</source>
         <translation>Sla hoogtecorrectie over</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="846"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="845"/>
         <source>Use the altitude as reported by the positioning device. Skip any altitude correction that may be implied by the coordinate system transformation.</source>
         <translation>Gebruik de hoogte zoals aangegeven door het GPS-apparaat. Sla elke hoogtecorrectie over die kan worden geïmpliceerd door transformaties van het coördinatensysteem.</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="860"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="859"/>
         <source>Vertical grid shift in use:</source>
         <translation>Verticale rasterverplaatsing in gebruik:</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="869"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="868"/>
         <source>None</source>
         <translation>Geen</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="883"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="882"/>
         <source>Vertical grid shift is used to increase the altitude accuracy.</source>
         <translation>Verticale rasterverschuiving wordt gebruikt om de nauwkeurigheid van de hoogte te vergroten.</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="912"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="911"/>
         <source>QField Settings</source>
         <translation>QField instellingen</translation>
     </message>
@@ -2404,23 +2411,23 @@ Cancel to make a minimal device scan instead.</source>
 <context>
     <name>QgisMobileapp</name>
     <message>
-        <location filename="../src/core/qgismobileapp.cpp" line="651"/>
-        <location filename="../src/core/qgismobileapp.cpp" line="677"/>
+        <location filename="../src/core/qgismobileapp.cpp" line="657"/>
+        <location filename="../src/core/qgismobileapp.cpp" line="683"/>
         <source>Project file &quot;%1&quot; does not exist</source>
         <translation>Projectbestand &quot;%1&quot; bestaat niet</translation>
     </message>
     <message>
-        <location filename="../src/core/qgismobileapp.cpp" line="668"/>
+        <location filename="../src/core/qgismobileapp.cpp" line="674"/>
         <source>No project file currently opened</source>
         <translation>Momenteel geen projectbestand geopend</translation>
     </message>
     <message>
-        <location filename="../src/core/qgismobileapp.cpp" line="721"/>
+        <location filename="../src/core/qgismobileapp.cpp" line="727"/>
         <source>Could not load font %1</source>
         <translation>Kon lettertype %1 niet laden</translation>
     </message>
     <message>
-        <location filename="../src/core/qgismobileapp.cpp" line="723"/>
+        <location filename="../src/core/qgismobileapp.cpp" line="729"/>
         <source>Loading font %1</source>
         <translation>Lettertype %1 laden</translation>
     </message>
@@ -2516,7 +2523,7 @@ Cancel to make a minimal device scan instead.</source>
         <location filename="../src/core/referencingfeaturelistmodel.cpp" line="240"/>
         <location filename="../src/core/referencingfeaturelistmodel.cpp" line="250"/>
         <source>Cannot rollback layer changes in layer %1</source>
-        <translation type="unfinished"/>
+        <translation>Kan laagwijzigingen in laag %1 . niet terugdraaien</translation>
     </message>
     <message>
         <location filename="../src/core/referencingfeaturelistmodel.cpp" line="247"/>
