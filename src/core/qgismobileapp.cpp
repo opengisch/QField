@@ -289,14 +289,18 @@ QgisMobileapp::QgisMobileapp( QgsApplication *app, QObject *parent )
     delete[] newPaths;
 
 #ifdef Q_OS_ANDROID
-    QFileInfo appDir( PlatformUtilities::instance()->qfieldDataDir() );
-    if ( appDir.exists() && appDir.isReadable() )
+    QFileInfo pgServiceFile( QStringLiteral( "%1/.pg_service.conf" ).arg( PlatformUtilities::instance()->qfieldAppDataDir() ) );
+    if ( pgServiceFile.exists() && pgServiceFile.isReadable() )
     {
-      setenv( "PGSYSCONFDIR", PlatformUtilities::instance()->qfieldDataDir().toUtf8(), true );
+      setenv( "PGSYSCONFDIR", PlatformUtilities::instance()->qfieldAppDataDir().toUtf8(), true );
     }
     else
     {
-      setenv( "PGSYSCONFDIR", PlatformUtilities::instance()->qfieldAppDataDir().toUtf8(), true );
+      pgServiceFile.setFile( QStringLiteral( "%1/.pg_service.conf" ).arg( PlatformUtilities::instance()->qfieldDataDir() ) );
+      if ( pgServiceFile.exists() && pgServiceFile.isReadable() )
+      {
+        setenv( "PGSYSCONFDIR", PlatformUtilities::instance()->qfieldDataDir().toUtf8(), true );
+      }
     }
 #endif
 
