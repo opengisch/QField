@@ -457,6 +457,7 @@ public class QFieldProjectActivity
                                file.getName().toLowerCase().endsWith(
                                    ".sqlite") ||
                                file.getName().toLowerCase().endsWith(".tif") ||
+                               file.getName().toLowerCase().endsWith(".tiff") ||
                                file.getName().toLowerCase().endsWith(".jpg") ||
                                file.getName().toLowerCase().endsWith(".png") ||
                                file.getName().toLowerCase().endsWith(".pdf") ||
