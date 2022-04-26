@@ -179,6 +179,14 @@
         <data android:pathPattern=".*\\..*\\..*\\..*\\..*\\..*\\.tif" />
         <data android:pathPattern=".*\\..*\\..*\\..*\\..*\\..*\\..*\\.tif" />
         <data android:pathPattern=".*\\..*\\..*\\..*\\..*\\..*\\..*\\..*\\.tif" />
+        <data android:pathPattern=".*\\.tiff" />
+        <data android:pathPattern=".*\\..*\\.tiff" />
+        <data android:pathPattern=".*\\..*\\..*\\.tiff" />
+        <data android:pathPattern=".*\\..*\\..*\\..*\\.tiff" />
+        <data android:pathPattern=".*\\..*\\..*\\..*\\..*\\.tiff" />
+        <data android:pathPattern=".*\\..*\\..*\\..*\\..*\\..*\\.tiff" />
+        <data android:pathPattern=".*\\..*\\..*\\..*\\..*\\..*\\..*\\.tiff" />
+        <data android:pathPattern=".*\\..*\\..*\\..*\\..*\\..*\\..*\\..*\\.tiff" />
         <data android:pathPattern=".*\\.jp2" />
         <data android:pathPattern=".*\\..*\\.jp2" />
         <data android:pathPattern=".*\\..*\\..*\\.jp2" />
