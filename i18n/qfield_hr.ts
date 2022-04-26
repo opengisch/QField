@@ -1660,7 +1660,7 @@ Geometrija značajki će se spojiti u značajku &apos;%1&apos;, koja će zadrža
     <message>
         <location filename="../src/qml/QFieldCloudPopup.qml" line="423"/>
         <source>Revert all modified features in the local layers. You cannot restore those changes.</source>
-        <translation type="unfinished"/>
+        <translation>Vratite sve promijenjene elemente u lokalnim slojevima. Ne možete vratiti ove promjene.</translation>
     </message>
     <message>
         <source>Revert all modified features in the local cloud layers. You cannot restore those changes.</source>
@@ -2417,23 +2417,23 @@ Otkažite da pokrenete minimalno skeniranje uređaja.</translation>
 <context>
     <name>QgisMobileapp</name>
     <message>
-        <location filename="../src/core/qgismobileapp.cpp" line="657"/>
-        <location filename="../src/core/qgismobileapp.cpp" line="683"/>
+        <location filename="../src/core/qgismobileapp.cpp" line="661"/>
+        <location filename="../src/core/qgismobileapp.cpp" line="687"/>
         <source>Project file &quot;%1&quot; does not exist</source>
         <translation>Datoteka projekta &quot;%1&quot; ne postoji</translation>
     </message>
     <message>
-        <location filename="../src/core/qgismobileapp.cpp" line="674"/>
+        <location filename="../src/core/qgismobileapp.cpp" line="678"/>
         <source>No project file currently opened</source>
         <translation>Nijedna datoteka projekta trenutno nije otvorena</translation>
     </message>
     <message>
-        <location filename="../src/core/qgismobileapp.cpp" line="727"/>
+        <location filename="../src/core/qgismobileapp.cpp" line="731"/>
         <source>Could not load font %1</source>
         <translation>Ne mogu učitati font %1</translation>
     </message>
     <message>
-        <location filename="../src/core/qgismobileapp.cpp" line="729"/>
+        <location filename="../src/core/qgismobileapp.cpp" line="733"/>
         <source>Loading font %1</source>
         <translation>Učitavanja fonta %1</translation>
     </message>

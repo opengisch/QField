@@ -2405,23 +2405,23 @@ Bunun yerine minimum cihaz taraması yapmak için iptal edin.</translation>
 <context>
     <name>QgisMobileapp</name>
     <message>
-        <location filename="../src/core/qgismobileapp.cpp" line="657"/>
-        <location filename="../src/core/qgismobileapp.cpp" line="683"/>
+        <location filename="../src/core/qgismobileapp.cpp" line="661"/>
+        <location filename="../src/core/qgismobileapp.cpp" line="687"/>
         <source>Project file &quot;%1&quot; does not exist</source>
         <translation>&quot;%1&quot; proje dosyası mevcut değil</translation>
     </message>
     <message>
-        <location filename="../src/core/qgismobileapp.cpp" line="674"/>
+        <location filename="../src/core/qgismobileapp.cpp" line="678"/>
         <source>No project file currently opened</source>
         <translation>Şu anda açık proje dosyası yok</translation>
     </message>
     <message>
-        <location filename="../src/core/qgismobileapp.cpp" line="727"/>
+        <location filename="../src/core/qgismobileapp.cpp" line="731"/>
         <source>Could not load font %1</source>
         <translation>Font yüklenemedi %1</translation>
     </message>
     <message>
-        <location filename="../src/core/qgismobileapp.cpp" line="729"/>
+        <location filename="../src/core/qgismobileapp.cpp" line="733"/>
         <source>Loading font %1</source>
         <translation>Font yükleniyor %1</translation>
     </message>

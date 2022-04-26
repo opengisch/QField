@@ -2413,23 +2413,23 @@ Cancel to make a minimal device scan instead.</source>
 <context>
     <name>QgisMobileapp</name>
     <message>
-        <location filename="../src/core/qgismobileapp.cpp" line="657"/>
-        <location filename="../src/core/qgismobileapp.cpp" line="683"/>
+        <location filename="../src/core/qgismobileapp.cpp" line="661"/>
+        <location filename="../src/core/qgismobileapp.cpp" line="687"/>
         <source>Project file &quot;%1&quot; does not exist</source>
         <translation>&quot;%1&quot; projekt fájl nem létezik</translation>
     </message>
     <message>
-        <location filename="../src/core/qgismobileapp.cpp" line="674"/>
+        <location filename="../src/core/qgismobileapp.cpp" line="678"/>
         <source>No project file currently opened</source>
         <translation>Nincs aktuálisan megnyitott projekt fájl</translation>
     </message>
     <message>
-        <location filename="../src/core/qgismobileapp.cpp" line="727"/>
+        <location filename="../src/core/qgismobileapp.cpp" line="731"/>
         <source>Could not load font %1</source>
         <translation>Em tudom a %1 betűkészletet betölteni</translation>
     </message>
     <message>
-        <location filename="../src/core/qgismobileapp.cpp" line="729"/>
+        <location filename="../src/core/qgismobileapp.cpp" line="733"/>
         <source>Loading font %1</source>
         <translation>%1 betűkészlet betöltése</translation>
     </message>

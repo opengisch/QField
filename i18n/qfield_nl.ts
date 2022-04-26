@@ -1027,12 +1027,12 @@ De geometrieën van objecten zullen worden gecombineerd tot object &apos;%1&apos
     <message>
         <location filename="../src/qml/MessageLog.qml" line="114"/>
         <source>Send application log</source>
-        <translation type="unfinished"/>
+        <translation>Applicatielog verzenden</translation>
     </message>
     <message>
         <location filename="../src/qml/MessageLog.qml" line="119"/>
         <source>Your application log is being sent</source>
-        <translation type="unfinished"/>
+        <translation>Uw applicatielog wordt verzonden</translation>
     </message>
 </context>
 <context>
@@ -1054,7 +1054,7 @@ De geometrieën van objecten zullen worden gecombineerd tot object &apos;%1&apos
     <message>
         <location filename="../src/core/multifeaturelistmodelbase.cpp" line="532"/>
         <source>Cannot change geometry of feature %1 in %2</source>
-        <translation type="unfinished"/>
+        <translation>Kan de geometrie van object %1 in %2 niet wijzigen</translation>
     </message>
 </context>
 <context>
@@ -1108,7 +1108,7 @@ De geometrieën van objecten zullen worden gecombineerd tot object &apos;%1&apos
     <message>
         <location filename="../src/qml/NavigationBar.qml" line="565"/>
         <source>Print Atlas Feature to PDF</source>
-        <translation type="unfinished"/>
+        <translation>Atlas object naar PDF printen</translation>
     </message>
     <message>
         <location filename="../src/qml/NavigationBar.qml" line="582"/>
@@ -1123,7 +1123,7 @@ De geometrieën van objecten zullen worden gecombineerd tot object &apos;%1&apos
     <message>
         <location filename="../src/qml/NavigationBar.qml" line="606"/>
         <source>Set Feature as Destination</source>
-        <translation type="unfinished"/>
+        <translation>Object instellen als bestemming</translation>
     </message>
     <message>
         <location filename="../src/qml/NavigationBar.qml" line="622"/>
@@ -1154,7 +1154,7 @@ De geometrieën van objecten zullen worden gecombineerd tot object &apos;%1&apos
     <message>
         <location filename="../src/qml/NavigationBar.qml" line="733"/>
         <source>Atlas feature(s) successfully printed to PDF and placed in your documents</source>
-        <translation type="unfinished"/>
+        <translation>Atlas-object(en) succesvol geprint naar PDF en in uw documenten geplaatst</translation>
     </message>
 </context>
 <context>
@@ -1218,7 +1218,7 @@ De geometrieën van objecten zullen worden gecombineerd tot object &apos;%1&apos
     <message>
         <location filename="../src/core/orderedrelationmodel.cpp" line="217"/>
         <source>Cannot update features ordering</source>
-        <translation type="unfinished"/>
+        <translation>Kan volgorde van objecten niet bijwerken</translation>
     </message>
 </context>
 <context>
@@ -1533,7 +1533,7 @@ De geometrieën van objecten zullen worden gecombineerd tot object &apos;%1&apos
     <message>
         <location filename="../src/qml/QFieldCloudPackageLayersFeedback.qml" line="32"/>
         <source>Some layers have not been packaged correctly on QFieldCloud. These layers might be misconfigured or their data source is not accessible from the QFieldCloud server. Please check the logs of the latest packaging job on the qfield.cloud website.</source>
-        <translation type="unfinished"/>
+        <translation>Sommige lagen zijn niet correct verpakt op QFieldCloud. Deze lagen kunnen verkeerd zijn geconfigureerd of hun gegevensbron is niet toegankelijk vanaf de QFieldCloud-server. Controleer de logboeken van de laatste verpakkingsopdracht op de qfield.cloud-website.</translation>
     </message>
 </context>
 <context>
@@ -1576,7 +1576,7 @@ De geometrieën van objecten zullen worden gecombineerd tot object &apos;%1&apos
     <message>
         <location filename="../src/qml/QFieldCloudPopup.qml" line="161"/>
         <source>This QFieldCloud project was first downloaded with another cloud account. Please sign in with the original account for this project to use the QFieldCloud functionality.</source>
-        <translation type="unfinished"/>
+        <translation>Dit QFieldCloud-project is eerst gedownload met een ander cloudaccount. Meld u aan met het oorspronkelijke account voor dit project om de QFieldCloud-functionaliteit te gebruiken.</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldCloudPopup.qml" line="180"/>
@@ -1657,11 +1657,11 @@ De geometrieën van objecten zullen worden gecombineerd tot object &apos;%1&apos
     <message>
         <location filename="../src/qml/QFieldCloudPopup.qml" line="423"/>
         <source>Revert all modified features in the local layers. You cannot restore those changes.</source>
-        <translation type="unfinished"/>
+        <translation>Zet alle gewijzigde objecten in de lokale lagen terug. U kunt die wijzigingen niet herstellen.</translation>
     </message>
     <message>
         <source>Revert all modified features in the local cloud layers. You cannot restore those changes.</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Zet alle gewijzigde objecten in de lokale cloudlagen terug. U kunt die wijzigingen niet herstellen.</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldCloudPopup.qml" line="424"/>
@@ -2411,23 +2411,23 @@ Cancel to make a minimal device scan instead.</source>
 <context>
     <name>QgisMobileapp</name>
     <message>
-        <location filename="../src/core/qgismobileapp.cpp" line="657"/>
-        <location filename="../src/core/qgismobileapp.cpp" line="683"/>
+        <location filename="../src/core/qgismobileapp.cpp" line="661"/>
+        <location filename="../src/core/qgismobileapp.cpp" line="687"/>
         <source>Project file &quot;%1&quot; does not exist</source>
         <translation>Projectbestand &quot;%1&quot; bestaat niet</translation>
     </message>
     <message>
-        <location filename="../src/core/qgismobileapp.cpp" line="674"/>
+        <location filename="../src/core/qgismobileapp.cpp" line="678"/>
         <source>No project file currently opened</source>
         <translation>Momenteel geen projectbestand geopend</translation>
     </message>
     <message>
-        <location filename="../src/core/qgismobileapp.cpp" line="727"/>
+        <location filename="../src/core/qgismobileapp.cpp" line="731"/>
         <source>Could not load font %1</source>
         <translation>Kon lettertype %1 niet laden</translation>
     </message>
     <message>
-        <location filename="../src/core/qgismobileapp.cpp" line="729"/>
+        <location filename="../src/core/qgismobileapp.cpp" line="733"/>
         <source>Loading font %1</source>
         <translation>Lettertype %1 laden</translation>
     </message>
@@ -3015,22 +3015,22 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <location filename="../src/qml/qgismobileapp.qml" line="1788"/>
         <source>Add Bookmark at Coordinates</source>
-        <translation type="unfinished"/>
+        <translation>Bladwijzer toevoegen bij Coördinaten</translation>
     </message>
     <message>
         <location filename="../src/qml/qgismobileapp.qml" line="1793"/>
         <source>Untitled bookmark</source>
-        <translation type="unfinished"/>
+        <translation>Naamloze bladwijzer</translation>
     </message>
     <message>
         <location filename="../src/qml/qgismobileapp.qml" line="1807"/>
         <source>Set Coordinates as Destination</source>
-        <translation type="unfinished"/>
+        <translation>Coördinaten instellen als bestemming</translation>
     </message>
     <message>
         <location filename="../src/qml/qgismobileapp.qml" line="1818"/>
         <source>Copy Coordinates</source>
-        <translation type="unfinished"/>
+        <translation>Kopieer Coördinaten</translation>
     </message>
     <message>
         <location filename="../src/qml/qgismobileapp.qml" line="1827"/>
@@ -3047,16 +3047,16 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <location filename="../src/qml/qgismobileapp.qml" line="1831"/>
         <source>Coordinates copied to clipboard</source>
-        <translation type="unfinished"/>
+        <translation>Coördinaten gekopieerd naar klembord</translation>
     </message>
     <message>
         <source>Set As Destination</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Instellen als bestemming</translation>
     </message>
     <message>
         <location filename="../src/qml/qgismobileapp.qml" line="1838"/>
         <source>Navigation Options</source>
-        <translation type="unfinished"/>
+        <translation>Navigatie-opties</translation>
     </message>
     <message>
         <location filename="../src/qml/qgismobileapp.qml" line="1854"/>
@@ -3162,7 +3162,7 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <location filename="../src/qml/qgismobileapp.qml" line="2453"/>
         <source>Project %1 successfully downloaded, it&apos;s now available to open</source>
-        <translation type="unfinished"/>
+        <translation>Project %1 is gedownload, het is nu beschikbaar om te openen</translation>
     </message>
     <message>
         <location filename="../src/qml/qgismobileapp.qml" line="2458"/>

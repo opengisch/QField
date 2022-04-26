@@ -2420,23 +2420,23 @@ Cancel to make a minimal device scan instead.</source>
 <context>
     <name>QgisMobileapp</name>
     <message>
-        <location filename="../src/core/qgismobileapp.cpp" line="657"/>
-        <location filename="../src/core/qgismobileapp.cpp" line="683"/>
+        <location filename="../src/core/qgismobileapp.cpp" line="661"/>
+        <location filename="../src/core/qgismobileapp.cpp" line="687"/>
         <source>Project file &quot;%1&quot; does not exist</source>
         <translation>Projektni fajl &quot;%1&quot; ne postoji</translation>
     </message>
     <message>
-        <location filename="../src/core/qgismobileapp.cpp" line="674"/>
+        <location filename="../src/core/qgismobileapp.cpp" line="678"/>
         <source>No project file currently opened</source>
         <translation>Nijedan projektni fajl nije otvoren</translation>
     </message>
     <message>
-        <location filename="../src/core/qgismobileapp.cpp" line="727"/>
+        <location filename="../src/core/qgismobileapp.cpp" line="731"/>
         <source>Could not load font %1</source>
         <translation>Nije bilo moguće učitati font %1</translation>
     </message>
     <message>
-        <location filename="../src/core/qgismobileapp.cpp" line="729"/>
+        <location filename="../src/core/qgismobileapp.cpp" line="733"/>
         <source>Loading font %1</source>
         <translation>Učitavanje fonta %1</translation>
     </message>
