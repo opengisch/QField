@@ -1363,7 +1363,7 @@ Les géométries des objets vont être combinées dans l&apos;objet &apos;%1&apo
     <message>
         <location filename="../src/qml/PositionInformationView.qml" line="214"/>
         <source>Fix</source>
-        <translation>Réparer</translation>
+        <translation>Fix</translation>
     </message>
     <message>
         <location filename="../src/qml/PositionInformationView.qml" line="230"/>
@@ -1657,7 +1657,7 @@ Les géométries des objets vont être combinées dans l&apos;objet &apos;%1&apo
     <message>
         <location filename="../src/qml/QFieldCloudPopup.qml" line="423"/>
         <source>Revert all modified features in the local layers. You cannot restore those changes.</source>
-        <translation type="unfinished"/>
+        <translation>Annulez toutes les entités modifiées dans les couches locales. Vous ne pouvez pas restaurer ces modifications.</translation>
     </message>
     <message>
         <source>Revert all modified features in the local cloud layers. You cannot restore those changes.</source>
@@ -2070,12 +2070,12 @@ Même si vous pouvez toujours voir et utiliser ce projet, il est fortement recom
     <message>
         <location filename="../src/qml/QFieldSettings.qml" line="70"/>
         <source>Show bookmarks</source>
-        <translation type="unfinished"/>
+        <translation>Afficher les signets</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldSettings.qml" line="71"/>
         <source>When switched on, user&apos;s saved and currently opened project bookmarks will be displayed on the map.</source>
-        <translation type="unfinished"/>
+        <translation>Lorsqu&apos;il est activé, les signets de projet enregistrés et actuellement ouverts par l&apos;utilisateur seront affichés sur la carte.</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldSettings.qml" line="75"/>
@@ -2409,7 +2409,7 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <location filename="../src/core/platforms/android/androidplatformutilities.cpp" line="83"/>
         <source>Please wait while QField installation finalizes.</source>
-        <translation type="unfinished"/>
+        <translation>Veuillez patienter pendant que l&apos;installation de QField se termine.</translation>
     </message>
 </context>
 <context>
@@ -2712,7 +2712,7 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <location filename="../src/qml/WelcomeScreen.qml" line="342"/>
         <source>I agree</source>
-        <translation type="unfinished"/>
+        <translation>Je suis d&apos;accord</translation>
     </message>
     <message>
         <location filename="../src/qml/WelcomeScreen.qml" line="351"/>

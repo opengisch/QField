@@ -698,7 +698,7 @@ De geometrieën van objecten zullen worden gecombineerd tot object &apos;%1&apos
     <message>
         <location filename="../src/qml/geometry_editors/FillRingToolBar.qml" line="74"/>
         <source>The ring crosses existing rings (it is not disjoint)</source>
-        <translation type="unfinished"/>
+        <translation>De ring kruist bestaande ringen (hij is niet disjunct)</translation>
     </message>
     <message>
         <location filename="../src/qml/geometry_editors/FillRingToolBar.qml" line="76"/>
@@ -1213,7 +1213,7 @@ De geometrieën van objecten zullen worden gecombineerd tot object &apos;%1&apos
     <message>
         <location filename="../src/core/orderedrelationmodel.cpp" line="174"/>
         <source>Cannot commit layer changes in layer %1.</source>
-        <translation type="unfinished"/>
+        <translation>Kan geen laagwijzigingen vastleggen in laag %1.</translation>
     </message>
     <message>
         <location filename="../src/core/orderedrelationmodel.cpp" line="217"/>
@@ -1668,7 +1668,9 @@ De geometrieën van objecten zullen worden gecombineerd tot object &apos;%1&apos
         <source>The local copy of this cloud project has been corrupted. Resetting the project will re-download the cloud version and will remove any local changes, make sure those were copied first if needed.
 
 While you can still view and use the project, it is strongly recommended to reset to avoid any accidental data loss as none of the changes made will be pushed back to the cloud.</source>
-        <translation type="unfinished"/>
+        <translation>De lokale kopie van dit cloudproject is beschadigd. Als u het project opnieuw instelt, wordt de cloudversie opnieuw gedownload en worden eventuele lokale wijzigingen verwijderd. Zorg ervoor dat deze indien nodig eerst zijn gekopieerd.
+
+Hoewel u het project nog steeds kunt bekijken en gebruiken, wordt het ten zeerste aanbevolen om te resetten om onbedoeld gegevensverlies te voorkomen, aangezien geen van de aangebrachte wijzigingen naar de cloud wordt teruggestuurd.</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldCloudPopup.qml" line="454"/>
@@ -1683,17 +1685,17 @@ While you can still view and use the project, it is strongly recommended to rese
     <message>
         <location filename="../src/qml/QFieldCloudPopup.qml" line="458"/>
         <source>Last synchronized at %1</source>
-        <translation type="unfinished"/>
+        <translation>Laatst gesynchroniseerd om %1</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldCloudPopup.qml" line="460"/>
         <source>Last synchronized on %1</source>
-        <translation type="unfinished"/>
+        <translation>Laatst gesynchroniseerd op %1</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldCloudPopup.qml" line="471"/>
         <source>Last changes pushed just now</source>
-        <translation type="unfinished"/>
+        <translation>Laatste wijzigingen zojuist gepusht</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldCloudPopup.qml" line="473"/>
@@ -1703,12 +1705,12 @@ While you can still view and use the project, it is strongly recommended to rese
     <message>
         <location filename="../src/qml/QFieldCloudPopup.qml" line="475"/>
         <source>Last changes pushed at %1</source>
-        <translation type="unfinished"/>
+        <translation>Laatste wijzigingen doorgevoerd op %1</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldCloudPopup.qml" line="477"/>
         <source>Last changes pushed on %1</source>
-        <translation type="unfinished"/>
+        <translation>Laatste wijzigingen doorgevoerd op %1</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldCloudPopup.qml" line="479"/>
@@ -1718,7 +1720,7 @@ While you can still view and use the project, it is strongly recommended to rese
     <message numerus="yes">
         <location filename="../src/qml/QFieldCloudPopup.qml" line="500"/>
         <source>%n attachment(s) are currently being uploaded in the background.</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>%n bijlage(n) worden momenteel op de achtergrond geüpload.</numerusform><numerusform>%n bijlage(n) worden momenteel op de achtergrond geüpload.</numerusform></translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldCloudPopup.qml" line="560"/>
@@ -1733,7 +1735,7 @@ While you can still view and use the project, it is strongly recommended to rese
     <message>
         <location filename="../src/qml/QFieldCloudPopup.qml" line="591"/>
         <source>Last warning, resetting the cloud project will erase any local changes, are you sure you want to go ahead?</source>
-        <translation type="unfinished"/>
+        <translation>Laatste waarschuwing: als u het cloudproject opnieuw instelt, worden alle lokale wijzigingen gewist. Weet u zeker dat u door wilt gaan?</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldCloudPopup.qml" line="612"/>
@@ -1838,7 +1840,7 @@ While you can still view and use the project, it is strongly recommended to rese
     <message>
         <location filename="../src/core/qfieldcloudprojectsmodel.cpp" line="804"/>
         <source>Failed to refresh the latest info for `%1`: %2</source>
-        <translation type="unfinished"/>
+        <translation>Kan de laatste informatie voor `%1` niet vernieuwen: %2</translation>
     </message>
     <message>
         <location filename="../src/core/qfieldcloudprojectsmodel.cpp" line="919"/>
@@ -2046,12 +2048,12 @@ While you can still view and use the project, it is strongly recommended to rese
     <message>
         <location filename="../src/qml/QFieldSettings.qml" line="60"/>
         <source>Fixed scale navigation</source>
-        <translation type="unfinished"/>
+        <translation>Vaste schaal navigatie</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldSettings.qml" line="61"/>
         <source>When fixed scale navigation is active, focusing on a search result will pan to the feature. With fixed scale navigation disabled it will pan and zoom to the feature.</source>
-        <translation type="unfinished"/>
+        <translation>Wanneer navigatie op vaste schaal actief is, wordt bij de focus op een zoekresultaat naar het object geschoven. Als navigatie op vaste schaal is uitgeschakeld, wordt naar het object geschoven en gezoomd.</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldSettings.qml" line="65"/>
@@ -2071,7 +2073,7 @@ While you can still view and use the project, it is strongly recommended to rese
     <message>
         <location filename="../src/qml/QFieldSettings.qml" line="71"/>
         <source>When switched on, user&apos;s saved and currently opened project bookmarks will be displayed on the map.</source>
-        <translation type="unfinished"/>
+        <translation>Indien ingeschakeld, worden de door de gebruiker opgeslagen en momenteel geopende projectbladwijzers op de kaart weergegeven.</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldSettings.qml" line="75"/>
@@ -2151,7 +2153,7 @@ While you can still view and use the project, it is strongly recommended to rese
     <message>
         <location filename="../src/qml/QFieldSettings.qml" line="293"/>
         <source>To apply the selected user interface language, QField needs to completely shutdown and restart.</source>
-        <translation type="unfinished"/>
+        <translation>Om de geselecteerde taal voor de gebruikersinterface toe te passen, moet QField volledig worden afgesloten en herstart.</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldSettings.qml" line="322"/>
@@ -2490,7 +2492,7 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <location filename="../src/core/qgsquick/qgsquickmapcanvasmap.cpp" line="190"/>
         <source>Rendering</source>
-        <translation type="unfinished"/>
+        <translation>Weergeven</translation>
     </message>
 </context>
 <context>
@@ -2528,7 +2530,7 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <location filename="../src/core/referencingfeaturelistmodel.cpp" line="247"/>
         <source>Cannot commit layer changes in layer %1.</source>
-        <translation type="unfinished"/>
+        <translation>Kan geen laagwijzigingen vastleggen in laag %1.</translation>
     </message>
 </context>
 <context>
@@ -2549,7 +2551,7 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <location filename="../src/qml/geometry_editors/ReshapeToolBar.qml" line="62"/>
         <source>The geometry could not be reshaped</source>
-        <translation type="unfinished"/>
+        <translation>De geometrie kan niet worden omgevormd</translation>
     </message>
 </context>
 <context>
@@ -2573,7 +2575,7 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <location filename="../src/qml/SystemLoader.qml" line="59"/>
         <source>Preparing QField, this is a one time operation that might take some time</source>
-        <translation type="unfinished"/>
+        <translation>QField voorbereiden, dit is een eenmalige operatie die enige tijd kan duren</translation>
     </message>
 </context>
 <context>
@@ -2665,7 +2667,7 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <location filename="../src/qml/geometry_editors/VertexEditorToolbar.qml" line="43"/>
         <source>Failed to save feature!</source>
-        <translation type="unfinished"/>
+        <translation>Kan object niet opslaan!</translation>
     </message>
 </context>
 <context>
@@ -2683,12 +2685,12 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <location filename="../src/qml/WelcomeScreen.qml" line="168"/>
         <source>Hey there, how do you like your experience with QField so far?</source>
-        <translation type="unfinished"/>
+        <translation>Hallo, wat vind je van je ervaring met QField tot nu toe?</translation>
     </message>
     <message>
         <location filename="../src/qml/WelcomeScreen.qml" line="225"/>
         <source>That&apos;s great! We&apos;d love for you to click on the button below and leave a comment on the store.</source>
-        <translation type="unfinished"/>
+        <translation>Dat is geweldig! We zouden het leuk vinden als je op de onderstaande knop klikt en een opmerking in de store achterlaat.</translation>
     </message>
     <message>
         <location filename="../src/qml/WelcomeScreen.qml" line="240"/>
@@ -2703,7 +2705,7 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <location filename="../src/qml/WelcomeScreen.qml" line="331"/>
         <source>To improve stability for everyone, QField collects and sends anonymized metrics.</source>
-        <translation type="unfinished"/>
+        <translation>Om de stabiliteit voor iedereen te verbeteren, verzamelt en verzendt QField geanonimiseerde statistieken.</translation>
     </message>
     <message>
         <location filename="../src/qml/WelcomeScreen.qml" line="342"/>
@@ -2753,7 +2755,7 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <location filename="../src/qml/WelcomeScreen.qml" line="745"/>
         <source>Welcome to QField. First time using this application? Try out sample projects listed in the list below.</source>
-        <translation type="unfinished"/>
+        <translation>Welkom bij QField. Gebruik je deze applicatie voor het eerst? Probeer voorbeeldprojecten uit die in de onderstaande lijst staan.</translation>
     </message>
     <message>
         <location filename="../src/qml/WelcomeScreen.qml" line="747"/>
@@ -2776,7 +2778,7 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <location filename="../src/qml/editorwidgets/relationeditors/ordered_relation_editor.qml" line="130"/>
         <source>Cannot add child feature: parent primary keys are not available</source>
-        <translation type="unfinished"/>
+        <translation>Kan onderliggende object niet toevoegen: primaire sleutels van ouders zijn niet beschikbaar</translation>
     </message>
     <message>
         <location filename="../src/qml/editorwidgets/relationeditors/ordered_relation_editor.qml" line="383"/>
@@ -2809,17 +2811,17 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <location filename="../src/qml/qgismobileapp.qml" line="143"/>
         <source>You are now in browse mode</source>
-        <translation type="unfinished"/>
+        <translation>U bevindt zich nu in de bladermodus</translation>
     </message>
     <message>
         <location filename="../src/qml/qgismobileapp.qml" line="149"/>
         <source>You are now in digitize mode on layer %1</source>
-        <translation type="unfinished"/>
+        <translation>U bevindt zich nu in de digitaliseringsmodus op laag %1</translation>
     </message>
     <message>
         <location filename="../src/qml/qgismobileapp.qml" line="153"/>
         <source>You are now in digitize mode</source>
-        <translation type="unfinished"/>
+        <translation>U bevindt zich nu in de digitaliseringsmodus</translation>
     </message>
     <message>
         <location filename="../src/qml/qgismobileapp.qml" line="157"/>
@@ -2868,12 +2870,12 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <location filename="../src/qml/qgismobileapp.qml" line="904"/>
         <source>Stop editing</source>
-        <translation type="unfinished"/>
+        <translation>Stop met bewerken</translation>
     </message>
     <message>
         <location filename="../src/qml/qgismobileapp.qml" line="911"/>
         <source>Cancel addition</source>
-        <translation type="unfinished"/>
+        <translation>Toevoeging annuleren</translation>
     </message>
     <message>
         <location filename="../src/qml/qgismobileapp.qml" line="958"/>
@@ -2888,7 +2890,7 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <location filename="../src/qml/qgismobileapp.qml" line="1001"/>
         <source>Freehand digitizing turned on</source>
-        <translation type="unfinished"/>
+        <translation>Digitaliseren uit de vrije hand ingeschakeld</translation>
     </message>
     <message>
         <location filename="../src/qml/qgismobileapp.qml" line="1001"/>
@@ -2908,12 +2910,12 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <location filename="../src/qml/qgismobileapp.qml" line="1128"/>
         <source>Received position</source>
-        <translation type="unfinished"/>
+        <translation>Positie ontvangen</translation>
     </message>
     <message>
         <location filename="../src/qml/qgismobileapp.qml" line="1130"/>
         <source>Searching for position</source>
-        <translation type="unfinished"/>
+        <translation>Zoeken naar positie</translation>
     </message>
     <message>
         <location filename="../src/qml/qgismobileapp.qml" line="1177"/>
@@ -2923,7 +2925,7 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <location filename="../src/qml/qgismobileapp.qml" line="1186"/>
         <source>Waiting for location</source>
-        <translation type="unfinished"/>
+        <translation>Wachten op locatie</translation>
     </message>
     <message>
         <location filename="../src/qml/qgismobileapp.qml" line="1243"/>
@@ -2943,12 +2945,12 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <location filename="../src/qml/qgismobileapp.qml" line="1432"/>
         <source>Failed to create feature!</source>
-        <translation type="unfinished"/>
+        <translation>Kan object niet creëren!</translation>
     </message>
     <message>
         <location filename="../src/qml/qgismobileapp.qml" line="1436"/>
         <source>Failed to save feature!</source>
-        <translation type="unfinished"/>
+        <translation>Kan object niet opslaan!</translation>
     </message>
     <message>
         <location filename="../src/qml/qgismobileapp.qml" line="1496"/>
@@ -3195,7 +3197,7 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <location filename="../src/qml/editorwidgets/relationeditors/relation_editor.qml" line="139"/>
         <source>Cannot add child feature: parent primary keys are not available</source>
-        <translation type="unfinished"/>
+        <translation>Kan onderliggende object niet toevoegen: primaire sleutels van ouders zijn niet beschikbaar</translation>
     </message>
     <message>
         <location filename="../src/qml/editorwidgets/relationeditors/relation_editor.qml" line="245"/>
