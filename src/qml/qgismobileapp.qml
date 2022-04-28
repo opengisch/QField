@@ -2430,11 +2430,11 @@ ApplicationWindow {
 
     onStatusChanged: {
       if (cloudConnection.status === QFieldCloudConnection.Disconnected && previousStatus === QFieldCloudConnection.LoggedIn) {
-        displayToast(qsTr('Logged out'))
+        displayToast(qsTr('Signed out'))
       } else if (cloudConnection.status === QFieldCloudConnection.Connecting) {
         displayToast(qsTr('Connecting...'))
       } else if (cloudConnection.status === QFieldCloudConnection.LoggedIn) {
-        displayToast(qsTr('Logged in'))
+        displayToast(qsTr('Signed in'))
       }
       previousStatus = cloudConnection.status
     }
