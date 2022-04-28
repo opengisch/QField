@@ -341,7 +341,10 @@ Rectangle {
         editButton.supportsEditing = selection.focusedLayer && selection.focusedLayer.supportsEditing
       }
       function onFocusedFeatureChanged() {
-        editButton.isCreatedCloudFeature = cloudProjectsModel.layerObserver.deltaFileWrapper.isCreatedFeature(selection.focusedLayer,selection.focusedFeature)
+        editButton.isCreatedCloudFeature = cloudProjectsModel.layerObserver.deltaFileWrapper.isCreatedFeature(
+          selection.focusedLayer,
+          selection.focusedFeature
+        )
       }
     }
   }
@@ -489,15 +492,16 @@ Rectangle {
     }
 
     MenuSeparator {
-      visible: projectInfo.editRights
+      visible: mergeSelectedFeaturesBtn.visible || moveSelectedFeaturesBtn.visible || duplicateSelectedFeaturesBtn.visible || deleteSelectedFeaturesBtn.visible
       width: parent.width
     }
 
     MenuItem {
+      id: mergeSelectedFeaturesBtn
       text: qsTr( 'Merge Selected Features' )
       icon.source: Theme.getThemeIcon( "ic_merge_features_white_24dp" )
       enabled: toolBar.model && toolBar.model.canMergeSelection && toolBar.model.selectedCount > 1 && projectInfo.editRights
-      visible: projectInfo.editRights
+      visible: enabled
 
       font: Theme.defaultFont
       height: visible ? 48 : 0
@@ -507,10 +511,11 @@ Rectangle {
     }
 
     MenuItem {
+      id: moveSelectedFeaturesBtn
       text: qsTr( 'Move Selected Feature(s)' )
       icon.source: Theme.getThemeVectorIcon( "ic_move_white_24dp" )
       enabled: toolBar.model && toolBar.model.canMoveSelection && projectInfo.editRights
-      visible: projectInfo.editRights
+      visible: enabled
 
       font: Theme.defaultFont
       height: visible ? 48 : 0
@@ -520,10 +525,11 @@ Rectangle {
     }
 
     MenuItem {
+      id: duplicateSelectedFeaturesBtn
       text: qsTr( 'Duplicate Selected Feature(s)' )
       icon.source: Theme.getThemeVectorIcon( "ic_duplicate_black_24dp" )
       enabled: toolBar.model && toolBar.model.canDuplicateSelection && projectInfo.insertRights
-      visible: projectInfo.insertRights
+      visible: enabled
 
       font: Theme.defaultFont
       height: visible ? 48 : 0
@@ -533,10 +539,11 @@ Rectangle {
     }
 
     MenuItem {
+      id: deleteSelectedFeaturesBtn
       text: qsTr( 'Delete Selected Feature(s)' )
       icon.source: Theme.getThemeIcon( "ic_delete_forever_white_24dp" )
       enabled: toolBar.model && toolBar.model.canDeleteSelection && projectInfo.editRights
-      visible: projectInfo.editRights
+      visible: enabled
 
       font: Theme.defaultFont
       height: visible ? 48 : 0
@@ -614,15 +621,19 @@ Rectangle {
     }
 
     MenuSeparator {
-      visible: projectInfo.editRights
+      visible: moveFeatureBtn.visible || duplicateFeatureBtn.visible || deleteFeatureBtn.visible
       width: parent.width
     }
 
     MenuItem {
+      id: moveFeatureBtn
       text: qsTr( 'Move Feature' )
       icon.source: Theme.getThemeVectorIcon( "ic_move_white_24dp" )
-      enabled: projectInfo.editRights || editButton.isCreatedCloudFeature
-      visible: projectInfo.editRights || editButton.isCreatedCloudFeature
+      enabled: (
+                 (projectInfo.editRights || editButton.isCreatedCloudFeature)
+                 && !selection.focusedLayer.customProperty( "QFieldSync/is_geometry_locked", false )
+      )
+      visible: enabled
 
       font: Theme.defaultFont
       height: visible ? 48 : 0
@@ -632,10 +643,14 @@ Rectangle {
     }
 
     MenuItem {
+      id: duplicateFeatureBtn
       text: qsTr( 'Duplicate Feature' )
       icon.source: Theme.getThemeVectorIcon( "ic_duplicate_black_24dp" )
-      enabled: projectInfo.insertRights
-      visible: projectInfo.insertRights
+      enabled: (
+                 projectInfo.insertRights
+                 && !selection.focusedLayer.customProperty( "QFieldSync/is_geometry_locked", false )
+      )
+      visible: enabled
 
       font: Theme.defaultFont
       height: visible ? 48 : 0
@@ -645,10 +660,14 @@ Rectangle {
     }
 
     MenuItem {
+      id: deleteFeatureBtn
       text: qsTr( 'Delete Feature' )
       icon.source: Theme.getThemeIcon( "ic_delete_forever_white_24dp" )
-      enabled: projectInfo.editRights || editButton.isCreatedCloudFeature
-      visible: projectInfo.editRights || editButton.isCreatedCloudFeature
+      enabled: (
+                 (projectInfo.editRights || editButton.isCreatedCloudFeature)
+                 && !selection.focusedLayer.customProperty( "QFieldSync/is_geometry_locked", false )
+      )
+      visible: enabled
 
       font: Theme.defaultFont
       height: visible ? 48 : 0
