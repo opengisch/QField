@@ -220,6 +220,15 @@ ListView {
       anchors.fill: parent
       onClicked: {
           var item = legend.itemAt(legend.contentX + mouse.x, legend.contentY + mouse.y)
+          var index = legend.model.index(item.itemRow, 0)
+
+          if (
+              legend.model.data(index, FlatLayerTreeModel.ReadOnly)
+              || legend.model.data(index, FlatLayerTreeModel.GeometryLocked)
+          ) {
+            return
+          }
+
           if (item) {
               if (item.vectorLayer && item.vectorLayer.isValid) {
                 currentLayer = item.vectorLayer

@@ -841,17 +841,23 @@ ApplicationWindow {
       var currentLayerLocked = false;
       for (var i = 0; i < layerTree.rowCount(); i++)
       {
-        var index = layerTree.index(i,0)
+        var index = layerTree.index(i, 0)
         if (firstEditableLayer === null)
         {
-          if (layerTree.data(index,FlatLayerTreeModel.Type) === 'layer' && layerTree.data(index, FlatLayerTreeModel.ReadOnly) === false && layerTree.data(index, FlatLayerTreeModel.GeometryLocked) === false)
+          if (
+              layerTree.data(index,FlatLayerTreeModel.Type) === 'layer'
+              && layerTree.data(index, FlatLayerTreeModel.ReadOnly) === false
+              && layerTree.data(index, FlatLayerTreeModel.GeometryLocked) === false)
           {
              firstEditableLayer = layerTree.data(index, FlatLayerTreeModel.VectorLayerPointer);
           }
         }
         if (currentLayer != null && currentLayer === layerTree.data(index, FlatLayerTreeModel.VectorLayerPointer))
         {
-           if (layerTree.data(index, FlatLayerTreeModel.ReadOnly) === true || layerTree.data(index, FlatLayerTreeModel.GeometryLocked) === true)
+           if (
+               layerTree.data(index, FlatLayerTreeModel.ReadOnly) === true
+               || layerTree.data(index, FlatLayerTreeModel.GeometryLocked) === true
+           )
            {
              currentLayerLocked = true;
            }
@@ -860,7 +866,10 @@ ApplicationWindow {
              break;
            }
         }
-        if (firstEditableLayer !== null && (currentLayer === null || currentLayerLocked === true))
+        if (
+            firstEditableLayer !== null
+            && (currentLayer == null || currentLayerLocked === true)
+        )
         {
           currentLayer = firstEditableLayer;
           break;
