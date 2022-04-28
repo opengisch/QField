@@ -116,7 +116,7 @@ EditorWidgetBase {
       y: Math.max( textField.height, textArea.height ) - height - textField.bottomPadding / 2
       implicitWidth: 120
       height: textField.activeFocus || textArea.activeFocus ? 2: 1
-      color: textField.activeFocus || textArea.activeFocus ? "#4CAF50" : "#C8E6C9"
+      color: textField.activeFocus || textArea.activeFocus ? Theme.accentColor : Theme.accentLightColor
   }
 
   FontMetrics {
