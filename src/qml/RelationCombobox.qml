@@ -329,13 +329,13 @@ Item {
                     y: comboBox.height - 12
                     width: comboBox.width
                     height: comboBox.activeFocus ? 2 : 1
-                    color: comboBox.activeFocus ? "#4CAF50" : "#C8E6C9"
+                    color: comboBox.activeFocus ? Theme.accentColor : Theme.accentLightColor
                 }
 
                 Rectangle {
                     visible: enabled
                     anchors.fill: parent
-                    border.color: comboBox.pressed ? "#4CAF50" : "#C8E6C9"
+                    border.color: comboBox.pressed ? Theme.accentColor : Theme.accentLightColor
                     border.width: comboBox.visualFocus ? 2 : 1
                     color: Theme.lightGray
                     radius: 2
@@ -500,7 +500,7 @@ Item {
                 onEnabledChanged: requestPaint()
             }
 
-            border.color: comboBox.pressed ? "#4CAF50" : "#C8E6C9"
+            border.color: comboBox.pressed ? Theme.accentColor : Theme.accentLightColor
             border.width: comboBox.visualFocus ? 2 : 1
             color: Theme.lightGray
             radius: 2

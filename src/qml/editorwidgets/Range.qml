@@ -53,7 +53,7 @@ EditorWidgetBase {
               y: textField.height - height - textField.bottomPadding / 2
               implicitWidth: 120
               height: textField.activeFocus ? 2: 1
-              color: textField.activeFocus ? "#4CAF50" : "#C8E6C9"
+              color: textField.activeFocus ? Theme.accentColor : Theme.accentLightColor
           }
 
           onTextChanged: {
@@ -225,7 +225,7 @@ EditorWidgetBase {
     width: sliderRow.width
     implicitWidth: 120
     height: slider.activeFocus ? 2: 1
-    color: slider.activeFocus ? "#4CAF50" : "#C8E6C9"
+    color: slider.activeFocus ? Theme.accentColor : Theme.accentLightColor
   }
 
   FontMetrics {

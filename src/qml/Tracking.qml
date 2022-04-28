@@ -253,7 +253,7 @@ Item{
                       y: parent.height - height - parent.bottomPadding / 2
                       implicitWidth: 120
                       height: parent.activeFocus ? 2: 1
-                      color: parent.activeFocus ? '#4CAF50' : '#C8E6C9'
+                      color: parent.activeFocus ? Theme.accentColor : Theme.accentLightColor
                     }
 
                     Component.onCompleted: {
@@ -325,7 +325,7 @@ Item{
                       y: parent.height - height - parent.bottomPadding / 2
                       implicitWidth: 120
                       height: parent.activeFocus ? 2: 1
-                      color: parent.activeFocus ? '#4CAF50' : '#C8E6C9'
+                      color: parent.activeFocus ? Theme.accentColor : Theme.accentLightColor
                     }
 
                     Component.onCompleted: {

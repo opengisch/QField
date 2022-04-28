@@ -43,7 +43,7 @@ EditorWidgetBase {
       y: uuidLabel.height - height - uuidLabel.bottomPadding / 2
       implicitWidth: 120
       height: 1
-      color: "#C8E6C9"
+      color: Theme.accentLightColor
   }
 
   FontMetrics {

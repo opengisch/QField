@@ -69,7 +69,7 @@ ColumnLayout {
                             y: variableNameText.height - height - variableNameText.bottomPadding / 2
                             implicitWidth: 120
                             height: variableNameText.activeFocus ? 2: variableNameText.enabled ? 1: 0
-                            color: variableNameText.activeFocus ? "#4CAF50" : "#C8E6C9"
+                            color: variableNameText.activeFocus ? Theme.accentColor : Theme.accentLightColor
                         }
 
                         onTextChanged: {
@@ -94,7 +94,7 @@ ColumnLayout {
                             y: variableValueText.height - height - variableValueText.bottomPadding / 2
                             implicitWidth: 120
                             height: variableValueText.activeFocus ? 2: variableNameText.enabled ? 1: 0
-                            color: variableValueText.activeFocus ? "#4CAF50" : "#C8E6C9"
+                            color: variableValueText.activeFocus ? Theme.accentColor : Theme.accentLightColor
                         }
 
                         onTextChanged: {
