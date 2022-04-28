@@ -214,6 +214,7 @@ Item {
         font: Theme.defaultFont
         textFormat: Text.RichText
         wrapMode: Text.WordWrap
+        visible: cloudConnection.status === QFieldCloudConnection.Disconnected
 
         onLinkActivated: Qt.openUrlExternally(link)
       }
