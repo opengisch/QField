@@ -122,10 +122,7 @@ Popup {
     }
 
     onClosed: {
-        if ( changelogContents.status === ChangelogContents.SuccessStatus ) {
-            settings.setValue( "/QField/ChangelogVersion", appVersion )
-        }
-
+        settings.setValue( "/QField/ChangelogVersion", appVersion )
         changelogFlickable.contentY = 0
     }
 
