@@ -470,17 +470,17 @@
     <message>
         <location filename="../src/qml/FeatureForm.qml" line="684"/>
         <source>Add feature on %1</source>
-        <translation>Dodaj značajku na %1</translation>
+        <translation>Dodaj element na %1</translation>
     </message>
     <message>
         <location filename="../src/qml/FeatureForm.qml" line="686"/>
         <source>Edit feature on %1</source>
-        <translation>Uredi značajku %1</translation>
+        <translation>Uredi element na %1</translation>
     </message>
     <message>
         <location filename="../src/qml/FeatureForm.qml" line="688"/>
         <source>View feature on %1</source>
-        <translation>Pogledaj značajku na %1</translation>
+        <translation>Pogledaj element na %1</translation>
     </message>
     <message>
         <location filename="../src/qml/FeatureForm.qml" line="735"/>
@@ -490,7 +490,7 @@
     <message>
         <location filename="../src/qml/FeatureForm.qml" line="740"/>
         <source>You are about to dismiss the new feature, proceed?</source>
-        <translation>Odbaciti će te novu značajku, nastaviti?</translation>
+        <translation>Odbaciti ćete novi element, nastaviti?</translation>
     </message>
     <message>
         <location filename="../src/qml/FeatureForm.qml" line="741"/>
@@ -503,12 +503,12 @@
     <message>
         <location filename="../src/qml/FeatureListForm.qml" line="408"/>
         <source>Stop tracking this feature to edit attributes</source>
-        <translation>Prestani pratiti ovu značajku da bi uredili atribute</translation>
+        <translation>Prekini bilježenje ovog elementa za uređivanje atributa</translation>
     </message>
     <message>
         <location filename="../src/qml/FeatureListForm.qml" line="419"/>
         <source>Stop tracking this feature to edit geometry</source>
-        <translation>Prestani pratiti ovu značajku da bi uredili geometriju</translation>
+        <translation>Prekini bilježenje ovog elementa za uređivanje geometrije</translation>
     </message>
     <message>
         <location filename="../src/qml/FeatureListForm.qml" line="430"/>
@@ -522,33 +522,33 @@
     <message>
         <location filename="../src/qml/FeatureListForm.qml" line="452"/>
         <source>Successfully duplicated feature</source>
-        <translation>Značajka uspješno duplicirana</translation>
+        <translation>Element uspješno dupliciran</translation>
     </message>
     <message>
         <location filename="../src/qml/FeatureListForm.qml" line="470"/>
         <location filename="../src/qml/FeatureListForm.qml" line="545"/>
         <source>A number of features are being tracked, stop tracking to delete those</source>
-        <translation>Trenutno se prati više značajki, prestanite ih pratiti da bi ih izbrisali</translation>
+        <translation>Trenutno se bilježi više elemenata, zaustavite bilježenje da bi ih izbrisali</translation>
     </message>
     <message>
         <location filename="../src/qml/FeatureListForm.qml" line="502"/>
         <source>A number of features are being tracked, stop tracking to merge those</source>
-        <translation>Trenutno se prati više značajki, prestanite ih pratiti da bi ih spojili</translation>
+        <translation>Trenutno se bilježi više elemenata, zaustavite bilježenje da bi ih spojili</translation>
     </message>
     <message>
         <location filename="../src/qml/FeatureListForm.qml" line="537"/>
         <source>Successfully duplicated selected features, list updated to show newly-created features</source>
-        <translation>Uspješno duplicirane odabrane značajke, popis ažuriran da bi prikazao novo stvorene značajke</translation>
+        <translation>Uspješno su duplicirani odabrani elementi, popis je ažuriran da bi prikazao novo stvorene elemente</translation>
     </message>
     <message>
         <location filename="../src/qml/FeatureListForm.qml" line="642"/>
         <source>No feature at this position</source>
-        <translation>Nema značajki na ovoj poziciji</translation>
+        <translation>Nema elemenata na ovoj poziciji</translation>
     </message>
     <message>
         <location filename="../src/qml/FeatureListForm.qml" line="701"/>
         <source>Merge feature(s)</source>
-        <translation>Spoji značajku(e)</translation>
+        <translation>Spoji element(e)</translation>
     </message>
     <message numerus="yes">
         <location filename="../src/qml/FeatureListForm.qml" line="705"/>
@@ -560,40 +560,40 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
 
 Geometrija značajki će se spojiti u značajku &apos;%1&apos;, koja će zadržati svoje atribute.</numerusform><numerusform>Jeste li sigurni da treba %n selektovanih značajk(i) spojiti?
 
-Geometrija značajki će se spojiti u značajku &apos;%1&apos;, koja će zadržati svoje atribute.</numerusform><numerusform>Jeste li sigurni da treba %n selektovanih značajke(i) spojiti?
+Geometrija značajki će se spojiti u značajku &apos;%1&apos;, koja će zadržati svoje atribute.</numerusform><numerusform>Jeste li sigurni da treba spojiti %n odabrani(a/h) element(a/ata)?
 
-Geometrija značajki će se spojiti u značajku &apos;%1&apos;, koja će zadržati svoje atribute.</numerusform></translation>
+Geometrija elemenata će se spojiti u element &apos;%1&apos;, koji će zadržati svoje atribute.</numerusform></translation>
     </message>
     <message numerus="yes">
         <location filename="../src/qml/FeatureListForm.qml" line="717"/>
         <source>Successfully merged %n feature(s)</source>
-        <translation><numerusform>Uspješno spajanje %n značajk(e)</numerusform><numerusform>Uspješno spajanje %n značajk(i)</numerusform><numerusform>Uspješno spajanje %n značajke(i)</numerusform></translation>
+        <translation><numerusform>Uspješno spajanje %n značajk(e)</numerusform><numerusform>Uspješno spajanje %n značajk(i)</numerusform><numerusform>Uspješno spajanje %n elementa(ata)</numerusform></translation>
     </message>
     <message numerus="yes">
         <location filename="../src/qml/FeatureListForm.qml" line="719"/>
         <source>Failed to merge %n feature(s)</source>
-        <translation><numerusform>Nije uspjelo spajanje %n značajk(e)</numerusform><numerusform>Nije uspjelo spajanje %n značajk(i)</numerusform><numerusform>Nije uspjelo spajanje %n značajke(i)</numerusform></translation>
+        <translation><numerusform>Nije uspjelo spajanje %n značajk(e)</numerusform><numerusform>Nije uspjelo spajanje %n značajk(i)</numerusform><numerusform>Nije uspjelo spajanje %n elementa(ata)</numerusform></translation>
     </message>
     <message>
         <location filename="../src/qml/FeatureListForm.qml" line="751"/>
         <source>Delete feature(s)</source>
-        <translation>Izbriši značajku(e)</translation>
+        <translation>Izbriši element(e)</translation>
     </message>
     <message numerus="yes">
         <location filename="../src/qml/FeatureListForm.qml" line="755"/>
         <source>Should the %n feature(s) selected really be deleted?</source>
         <comment>0</comment>
-        <translation><numerusform>Treba li %n odabranih značajk(e) izbrisati?</numerusform><numerusform>Treba li %n odabranih značajk(i) izbrisati?</numerusform><numerusform>Treba li %n odabranih značajke(i) izbrisati?</numerusform></translation>
+        <translation><numerusform>Treba li %n odabranih značajk(e) izbrisati?</numerusform><numerusform>Treba li %n odabranih značajk(i) izbrisati?</numerusform><numerusform>Treba li %n odabrani(a/ih) element(a/ata) izbrisati?</numerusform></translation>
     </message>
     <message numerus="yes">
         <location filename="../src/qml/FeatureListForm.qml" line="771"/>
         <source>Successfully deleted %n feature(s)</source>
-        <translation><numerusform>Uspješno brisanje %n značajk(e)</numerusform><numerusform>Uspješno brisanje %n značajk(i)</numerusform><numerusform>Uspješno brisanje %n značajk(i)</numerusform></translation>
+        <translation><numerusform>Uspješno brisanje %n značajk(e)</numerusform><numerusform>Uspješno brisanje %n značajk(i)</numerusform><numerusform>Uspješno brisanje %n element(a/ata)</numerusform></translation>
     </message>
     <message numerus="yes">
         <location filename="../src/qml/FeatureListForm.qml" line="779"/>
         <source>Failed to delete %n feature(s)</source>
-        <translation><numerusform>Neuspješno brisanje značajk(e)</numerusform><numerusform>Neuspješno brisanje značajk(i)</numerusform><numerusform>Neuspješno brisanje značajk(i)</numerusform></translation>
+        <translation><numerusform>Neuspješno brisanje značajk(e)</numerusform><numerusform>Neuspješno brisanje značajk(i)</numerusform><numerusform>Neuspješno brisanje %n elementa(ata)</numerusform></translation>
     </message>
     <message>
         <location filename="../src/qml/FeatureListForm.qml" line="356"/>
@@ -613,12 +613,12 @@ Geometrija značajki će se spojiti u značajku &apos;%1&apos;, koja će zadrža
         <location filename="../src/core/featuremodel.cpp" line="375"/>
         <location filename="../src/core/featuremodel.cpp" line="420"/>
         <source>Cannot update feature</source>
-        <translation>Nije moguće ažurirati značajku</translation>
+        <translation>Nije moguće ažurirati element</translation>
     </message>
     <message>
         <location filename="../src/core/featuremodel.cpp" line="400"/>
         <source>Feature %1 could not be fetched after commit</source>
-        <translation>Značajka %1 nije dobavljiva poslje snimanja</translation>
+        <translation>Element %1 nije dobavljiv poslje snimanja</translation>
     </message>
     <message>
         <location filename="../src/core/featuremodel.cpp" line="503"/>
@@ -633,24 +633,24 @@ Geometrija značajki će se spojiti u značajku &apos;%1&apos;, koja će zadrža
     <message>
         <location filename="../src/core/featuremodel.cpp" line="626"/>
         <source>Cannot start editing on layer &quot;%1&quot; to create feature %2</source>
-        <translation>Nije moguće uređivanje sloja &quot;%1&quot; za stvaranje značajke %2</translation>
+        <translation>Nije moguće uređivanje sloja &quot;%1&quot; za stvaranje elementa %2</translation>
     </message>
     <message>
         <location filename="../src/core/featuremodel.cpp" line="649"/>
         <source>Layer &quot;%1&quot; has been commited but the newly created feature %2 could not be fetched</source>
-        <translation>Sloj &quot;%1&quot; je snimljen ali novo stvorena značajka %2 ne može se dohvatiti</translation>
+        <translation>Sloj &quot;%1&quot; je snimljen ali novo stvoreni element %2 ne može se dohvatiti</translation>
     </message>
     <message>
         <location filename="../src/core/featuremodel.cpp" line="656"/>
         <source>Layer &quot;%1&quot; cannot be commited with the newly created feature %2. Reason:
 %3</source>
-        <translation>Sloj &quot;%1&quot; ne može biti spremljen sa novo stvorenom značajkom %2. Razlog:
+        <translation>Sloj &quot;%1&quot; ne može biti spremljen sa novo stvorenim elementom %2. Razlog:
 %3</translation>
     </message>
     <message>
         <location filename="../src/core/featuremodel.cpp" line="662"/>
         <source>Feature %2 could not be added in layer &quot;%1&quot;</source>
-        <translation>Značajka %2 ne može se dodati sloju &quot;%1&quot;</translation>
+        <translation>Element %2 se ne može dodati sloju &quot;%1&quot;</translation>
     </message>
     <message>
         <location filename="../src/core/featuremodel.cpp" line="685"/>
@@ -673,17 +673,17 @@ Geometrija značajki će se spojiti u značajku &apos;%1&apos;, koja će zadrža
     <message>
         <location filename="../src/core/locator/featureslocatorfilter.cpp" line="117"/>
         <source>Set feature as navigation</source>
-        <translation>Postavi značajku kao navigaciju</translation>
+        <translation>Postavi element kao navigaciju</translation>
     </message>
     <message>
         <location filename="../src/core/locator/featureslocatorfilter.cpp" line="172"/>
         <source>Feature has no geometry</source>
-        <translation>Značajke nemaju geometriju</translation>
+        <translation>Element nema geometriju</translation>
     </message>
     <message>
         <location filename="../src/core/locator/featureslocatorfilter.h" line="62"/>
         <source>Features in all layers</source>
-        <translation>Značajke svih slojeva</translation>
+        <translation>Elementi u svim slojevima</translation>
     </message>
 </context>
 <context>
@@ -866,12 +866,12 @@ Geometrija značajki će se spojiti u značajku &apos;%1&apos;, koja će zadrža
     <message>
         <location filename="../src/qml/LayerTreeItemProperties.qml" line="178"/>
         <source>Show features list</source>
-        <translation>Pokaži listu značajki</translation>
+        <translation>Pokaži popis elemenata</translation>
     </message>
     <message>
         <location filename="../src/qml/LayerTreeItemProperties.qml" line="184"/>
         <source>The layer has no features</source>
-        <translation>Sloj nema značajki</translation>
+        <translation>Sloj nema elemenata</translation>
     </message>
     <message>
         <location filename="../src/qml/LayerTreeItemProperties.qml" line="215"/>
@@ -891,12 +891,12 @@ Geometrija značajki će se spojiti u značajku &apos;%1&apos;, koja će zadrža
     <message>
         <location filename="../src/qml/LayerTreeItemProperties.qml" line="244"/>
         <source>This layer is configured as &quot;Read-Only&quot; which disables adding, deleting and editing features.</source>
-        <translation>Sloj je konfiguriran &apos;&apos;Samo za čitanje&apos;&apos; što onemogućava dodavanje, brisanje i uređivanje značajki.</translation>
+        <translation>Sloj je konfiguriran &apos;&apos;Samo za čitanje&apos;&apos; što onemogućava dodavanje, brisanje i uređivanje elemenata.</translation>
     </message>
     <message>
         <location filename="../src/qml/LayerTreeItemProperties.qml" line="246"/>
         <source>This layer is configured as &quot;Lock Geometries&quot; which disables adding and deleting features, as well as modifying the geometries of existing features.</source>
-        <translation>Sloj je konfiguriran kao &quot;Zaključana Geometrija&quot; što onemogućava dodavanje i brisanje značajki, kao i mijenjanje geometrije postojećih značajki.</translation>
+        <translation>Sloj je konfiguriran kao &quot;Zaključana Geometrija&quot; što onemogućava dodavanje i brisanje elemenata, kao i mijenjanje geometrije postojećih elemenata.</translation>
     </message>
 </context>
 <context>
@@ -917,7 +917,7 @@ Geometrija značajki će se spojiti u značajku &apos;%1&apos;, koja će zadrža
         <location filename="../src/core/utils/layerutils.cpp" line="234"/>
         <source>Cannot commit deletion of feature %2 in layer &quot;%1&quot;. Reason:
 %3</source>
-        <translation>Nije moguće brisanje značajke %2 u sloju &quot;%1&quot;. Razlog:
+        <translation>Nije moguće brisanje elementa %2 u sloju &quot;%1&quot;. Razlog:
 %3</translation>
     </message>
     <message>
@@ -930,7 +930,7 @@ Geometrija značajki će se spojiti u značajku &apos;%1&apos;, koja će zadrža
     <message>
         <location filename="../src/core/utils/layerutils.cpp" line="263"/>
         <source>Cannot delete feature %1</source>
-        <translation>Nije moguće izbrisati značajku %1</translation>
+        <translation>Nije moguće izbrisati element %1</translation>
     </message>
     <message>
         <location filename="../src/core/utils/layerutils.cpp" line="276"/>
@@ -941,19 +941,19 @@ Geometrija značajki će se spojiti u značajku &apos;%1&apos;, koja će zadrža
     <message>
         <location filename="../src/core/utils/layerutils.cpp" line="296"/>
         <source>Cannot copy invalid feature</source>
-        <translation>Nije moguće kopirati nevažeću značajku</translation>
+        <translation>Nije moguće kopirati neispravni element</translation>
     </message>
     <message>
         <location filename="../src/core/utils/layerutils.cpp" line="319"/>
         <source>Cannot add new feature in layer &quot;%1&quot;. Reason:
 %2</source>
-        <translation>Nije moguće dodati novu značajku u sloj &quot;%1&quot;. Razlog:
+        <translation>Nije moguće dodati novu element u sloj &quot;%1&quot;. Razlog:
 %2</translation>
     </message>
     <message>
         <location filename="../src/core/utils/layerutils.cpp" line="325"/>
         <source>Cannot add new feature in layer &quot;%1&quot;.</source>
-        <translation>Nije moguće dodati novu značajku u sloj &quot;%1&quot;.</translation>
+        <translation>Nije moguće dodati novi element u sloj &quot;%1&quot;.</translation>
     </message>
 </context>
 <context>
@@ -961,7 +961,7 @@ Geometrija značajki će se spojiti u značajku &apos;%1&apos;, koja će zadrža
     <message>
         <location filename="../src/core/locator/locatormodelsuperbridge.cpp" line="227"/>
         <source>Returns a list of features accross all searchable layers with matching attributes</source>
-        <translation>Vraća listu značajki svih pretraživih slojeva sa odgovarajućim atributima.</translation>
+        <translation>Vraća popis elemenata svih pretraživih slojeva s odgovarajućim atributima.</translation>
     </message>
     <message>
         <location filename="../src/core/locator/locatormodelsuperbridge.cpp" line="228"/>
@@ -1057,7 +1057,7 @@ Geometrija značajki će se spojiti u značajku &apos;%1&apos;, koja će zadrža
     <message>
         <location filename="../src/core/multifeaturelistmodelbase.cpp" line="532"/>
         <source>Cannot change geometry of feature %1 in %2</source>
-        <translation>Nije moguće promijeniti geometriju značajke %1 u %2</translation>
+        <translation>Nije moguće promijeniti geometriju elementa %1 u %2</translation>
     </message>
 </context>
 <context>
@@ -1065,83 +1065,83 @@ Geometrija značajki će se spojiti u značajku &apos;%1&apos;, koja će zadrža
     <message>
         <location filename="../src/qml/NavigationBar.qml" line="114"/>
         <source>Features</source>
-        <translation>Značajke</translation>
+        <translation>Elementi</translation>
     </message>
     <message>
         <location filename="../src/qml/NavigationBar.qml" line="446"/>
         <source>Feature List Menu</source>
-        <translation>Izbornik liste značajki</translation>
+        <translation>Izbornik popisa elemenata</translation>
     </message>
     <message>
         <location filename="../src/qml/NavigationBar.qml" line="460"/>
         <source>Toggle Feature Selection</source>
-        <translation>Uklj./Isklj. Odabir Značajke</translation>
+        <translation>Uklj./Isklj. Odabir Elemenata</translation>
     </message>
     <message>
         <location filename="../src/qml/NavigationBar.qml" line="477"/>
         <location filename="../src/qml/NavigationBar.qml" line="667"/>
         <source>Print Atlas Feature(s) to PDF</source>
-        <translation>Ispiši Značajku(e) Atlasa u PDF</translation>
+        <translation>Ispiši Element(e) Atlasa u PDF</translation>
     </message>
     <message>
         <location filename="../src/qml/NavigationBar.qml" line="497"/>
         <source>Merge Selected Features</source>
-        <translation>Spoji Odabrane Značajke</translation>
+        <translation>Spoji Odabrane Elemente</translation>
     </message>
     <message>
         <location filename="../src/qml/NavigationBar.qml" line="510"/>
         <source>Move Selected Feature(s)</source>
-        <translation>Pomakni odabrane značajku(e)</translation>
+        <translation>Pomakni odabrane element(e)</translation>
     </message>
     <message>
         <location filename="../src/qml/NavigationBar.qml" line="523"/>
         <source>Duplicate Selected Feature(s)</source>
-        <translation>Dupliciraj odabrane značajku(e)</translation>
+        <translation>Dupliciraj odabran(e) element(e)</translation>
     </message>
     <message>
         <location filename="../src/qml/NavigationBar.qml" line="536"/>
         <source>Delete Selected Feature(s)</source>
-        <translation>Izbriši odabrane značajku(e)</translation>
+        <translation>Izbriši odabrani(e) element(e)</translation>
     </message>
     <message>
         <location filename="../src/qml/NavigationBar.qml" line="551"/>
         <source>Feature Menu</source>
-        <translation>Izbornik Značajke</translation>
+        <translation>Izbornik Elementi</translation>
     </message>
     <message>
         <location filename="../src/qml/NavigationBar.qml" line="565"/>
         <source>Print Atlas Feature to PDF</source>
-        <translation>Ispiši Značajku Atlasa u PDF</translation>
+        <translation>Ispiši Element Atlasa u PDF</translation>
     </message>
     <message>
         <location filename="../src/qml/NavigationBar.qml" line="582"/>
         <source>Zoom to Feature</source>
-        <translation>Zoom na Značajku</translation>
+        <translation>Zumiraj na Element</translation>
     </message>
     <message>
         <location filename="../src/qml/NavigationBar.qml" line="593"/>
         <source>Auto-Zoom to Feature</source>
-        <translation>Auto-Zoom na Značajku</translation>
+        <translation>Auto-Zoom na Element</translation>
     </message>
     <message>
         <location filename="../src/qml/NavigationBar.qml" line="606"/>
         <source>Set Feature as Destination</source>
-        <translation>Postavi Značajku kao Odredište</translation>
+        <translation>Postavi Element kao Odredište</translation>
     </message>
     <message>
         <location filename="../src/qml/NavigationBar.qml" line="622"/>
         <source>Move Feature</source>
-        <translation>Pomakni Značajku</translation>
+        <translation>Pomakni Element</translation>
     </message>
     <message>
         <location filename="../src/qml/NavigationBar.qml" line="635"/>
         <source>Duplicate Feature</source>
-        <translation>Dupliciraj Značajku</translation>
+        <translation>Dupliciraj Element</translation>
     </message>
     <message>
         <location filename="../src/qml/NavigationBar.qml" line="648"/>
         <source>Delete Feature</source>
-        <translation>Izbriši Značajku</translation>
+        <translation>Izbriši Element</translation>
     </message>
     <message>
         <location filename="../src/qml/NavigationBar.qml" line="683"/>
@@ -1152,12 +1152,12 @@ Geometrija značajki će se spojiti u značajku &apos;%1&apos;, koja će zadrža
         <location filename="../src/qml/NavigationBar.qml" line="707"/>
         <location filename="../src/qml/NavigationBar.qml" line="746"/>
         <source>Printing atlas feature(s) to PDF</source>
-        <translation>Ispis značajke(i) atlasa u PDF</translation>
+        <translation>Ispisujem element(e) atlasa u PDF</translation>
     </message>
     <message>
         <location filename="../src/qml/NavigationBar.qml" line="733"/>
         <source>Atlas feature(s) successfully printed to PDF and placed in your documents</source>
-        <translation>Značajka(e) Atlasa uspješno ispisane u PDF i smješteni u vaše dokumente.</translation>
+        <translation>Element(i) Atlasa uspješno su ispisani u PDF i smješteni u vaše dokumente.</translation>
     </message>
 </context>
 <context>
@@ -1221,7 +1221,7 @@ Geometrija značajki će se spojiti u značajku &apos;%1&apos;, koja će zadrža
     <message>
         <location filename="../src/core/orderedrelationmodel.cpp" line="217"/>
         <source>Cannot update features ordering</source>
-        <translation>Nije moguće osvježiti redoslijed značajki</translation>
+        <translation>Nije moguće osvježiti redoslijed elemenata</translation>
     </message>
 </context>
 <context>
@@ -1634,7 +1634,7 @@ Geometrija značajki će se spojiti u značajku &apos;%1&apos;, koja će zadrža
     <message>
         <location filename="../src/qml/QFieldCloudPopup.qml" line="364"/>
         <source>Synchronize the whole project with all modified features and download the freshly updated project with all the applied changes from QFieldCloud.</source>
-        <translation>Sinhroniziraj cijeli projekt sa svim promijenjenim objektima i preuzmi osvježeni projekt sa svim promjenama sa QFieldCloud.</translation>
+        <translation>Sinkroniziraj cijeli projekt sa svim promijenjenim elementima i preuzmi osvježeni projekt sa svim promjenama sa QFieldCloud.</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldCloudPopup.qml" line="375"/>
@@ -1644,7 +1644,7 @@ Geometrija značajki će se spojiti u značajku &apos;%1&apos;, koja će zadrža
     <message>
         <location filename="../src/qml/QFieldCloudPopup.qml" line="390"/>
         <source>Save internet bandwidth by only pushing the local features and pictures to the cloud, without updating the whole project.</source>
-        <translation>Uštedite internet promet guranjem samo lokalnih značajki i slika u oblak, bez nadogradnje cijelog projekta.</translation>
+        <translation>Uštedite internet promet guranjem samo lokalnih elemenata i slika u oblak, bez nadogradnje cijelog projekta.</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldCloudPopup.qml" line="403"/>
@@ -1664,7 +1664,7 @@ Geometrija značajki će se spojiti u značajku &apos;%1&apos;, koja će zadrža
     </message>
     <message>
         <source>Revert all modified features in the local cloud layers. You cannot restore those changes.</source>
-        <translation type="vanished">Vratite sve promijenjene značajke u lokalnim slojevima oblaka. Ne možete vratiti ove promjene.</translation>
+        <translation type="vanished">Vratite sve promijenjene elemente u lokalnoj verziji sloja iz oblaka. Ne možete vratiti ove promjene.</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldCloudPopup.qml" line="424"/>
@@ -2056,7 +2056,7 @@ While you can still view and use the project, it is strongly recommended to rese
     <message>
         <location filename="../src/qml/QFieldSettings.qml" line="61"/>
         <source>When fixed scale navigation is active, focusing on a search result will pan to the feature. With fixed scale navigation disabled it will pan and zoom to the feature.</source>
-        <translation>Kada je aktivna fiksna skala navigacije fokusiranje na rezultate pretrage će se pomaknuti na značajku. Sa onemogućenom opcijom doći će do pomicanja i zumiranja na značajku.</translation>
+        <translation>Kada je aktivna navigacija s fiksnim mjerilom, fokusiranje na rezultat pretrage će se pomaknuti na element. S onemogućenom opcijom doći će do pomicanja i zumiranja na element.</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldSettings.qml" line="65"/>
@@ -2066,7 +2066,7 @@ While you can still view and use the project, it is strongly recommended to rese
     <message>
         <location filename="../src/qml/QFieldSettings.qml" line="66"/>
         <source>When switched on, coordinate information, such as latitude and longitude, is overlayed onto the map while digitizing new features or using the measure tool.</source>
-        <translation>Kada je uključeno informacije o koordinatama, dužina i širina se prikazuju na karti dok se digitaliziraju nove značajke ili rade mjerenja.</translation>
+        <translation>Kada je uključeno - informacije o koordinatama, kao npr. geog. dužina i širina se prikazuju na karti prilikom digitaliziranja novih elemenata ili dok se rade mjerenja.</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldSettings.qml" line="70"/>
@@ -2096,7 +2096,7 @@ While you can still view and use the project, it is strongly recommended to rese
     <message>
         <location filename="../src/qml/QFieldSettings.qml" line="82"/>
         <source>If enabled, the feature is stored after having a valid geometry and the constraints are fulfilled and atributes are commited immediately.</source>
-        <translation>Ako je omogućeno značajka se pohranjuje odmah nakon validacije geometrije i ispunjenja uvjeta.</translation>
+        <translation>Ako je omogućeno, element se pohranjuje odmah nakon validacije geometrije i ispunjenja uvjeta.</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldSettings.qml" line="86"/>
@@ -2523,7 +2523,7 @@ Otkažite da pokrenete minimalno skeniranje uređaja.</translation>
     <message>
         <location filename="../src/core/referencingfeaturelistmodel.cpp" line="237"/>
         <source>Cannot delete feature</source>
-        <translation>Nije moguće izbrisati značajku</translation>
+        <translation>Nije moguće izbrisati element</translation>
     </message>
     <message>
         <location filename="../src/core/referencingfeaturelistmodel.cpp" line="240"/>
@@ -2571,7 +2571,7 @@ Otkažite da pokrenete minimalno skeniranje uređaja.</translation>
     <message>
         <location filename="../src/qml/geometry_editors/SplitFeatureToolbar.qml" line="53"/>
         <source>Feature could not be split</source>
-        <translation>Značajka se ne može razdvojiti</translation>
+        <translation>Element se ne može razdvojiti</translation>
     </message>
 </context>
 <context>
@@ -2671,7 +2671,7 @@ Otkažite da pokrenete minimalno skeniranje uređaja.</translation>
     <message>
         <location filename="../src/qml/geometry_editors/VertexEditorToolbar.qml" line="43"/>
         <source>Failed to save feature!</source>
-        <translation>Neuspjelo spremanje značajke</translation>
+        <translation>Neuspjelo spremanje elementa</translation>
     </message>
 </context>
 <context>
@@ -2777,37 +2777,37 @@ Otkažite da pokrenete minimalno skeniranje uređaja.</translation>
     <message>
         <location filename="../src/qml/editorwidgets/relationeditors/ordered_relation_editor.qml" line="123"/>
         <source>Adding child feature in layer %1</source>
-        <translation>Dodavanje podznačajke u sloj %1</translation>
+        <translation>Dodavanje podelementa u sloj %1</translation>
     </message>
     <message>
         <location filename="../src/qml/editorwidgets/relationeditors/ordered_relation_editor.qml" line="130"/>
         <source>Cannot add child feature: parent primary keys are not available</source>
-        <translation>Ne mogu dodati podznačajku: ključevi primarne značajke nisu dostupni</translation>
+        <translation>Ne mogu dodati podelement: primarni ključevi roditeljskog elementa nisu dostupni</translation>
     </message>
     <message>
         <location filename="../src/qml/editorwidgets/relationeditors/ordered_relation_editor.qml" line="383"/>
         <source>Unlink feature %1 (%2) of %3</source>
-        <translation>Odspoji značajku %1 (%2) of %3</translation>
+        <translation>Odspoji element %1 (%2) of %3</translation>
     </message>
     <message>
         <location filename="../src/qml/editorwidgets/relationeditors/ordered_relation_editor.qml" line="387"/>
         <source>Delete feature %1 (%2) on %3</source>
-        <translation>Izbriši značajku %1 (%2) on %3</translation>
+        <translation>Izbriši element %1 (%2) na %3</translation>
     </message>
     <message>
         <location filename="../src/qml/editorwidgets/relationeditors/ordered_relation_editor.qml" line="395"/>
         <source>Should the feature &lt;b&gt;%1 (%2)&lt;/b&gt; of layer &lt;b&gt;%3&lt;/b&gt; be unlinked?&lt;br&gt;&lt;i&gt;(The connection will be deleted on layer &lt;b&gt;%4&lt;/b&gt;)&lt;/i&gt;</source>
-        <translation>Treba li značajka &lt;b&gt;%1 (%2)&lt;/b&gt;na sloju  &lt;b&gt;%3&lt;/b&gt; biti odspojena?&lt;br&gt;&lt;i&gt;(Veza ce biti izbrisana na sloju &lt;b&gt;%4&lt;/b&gt;)&lt;/i&gt;</translation>
+        <translation>Treba li element &lt;b&gt;%1 (%2)&lt;/b&gt;na sloju  &lt;b&gt;%3&lt;/b&gt; biti odspojena?&lt;br&gt;&lt;i&gt;(Veza ce biti izbrisana na sloju &lt;b&gt;%4&lt;/b&gt;)&lt;/i&gt;</translation>
     </message>
     <message>
         <location filename="../src/qml/editorwidgets/relationeditors/ordered_relation_editor.qml" line="400"/>
         <source>Should the feature &lt;b&gt;%1 (%2)&lt;/b&gt; on layer &lt;b&gt;%3&lt;/b&gt; be deleted?</source>
-        <translation>Treba li objekt &lt;b&gt;%1 (%2)&lt;/b&gt; na sloju &lt;b&gt;%3&lt;/b&gt; biti izbrisan?</translation>
+        <translation>Treba li element &lt;b&gt;%1 (%2)&lt;/b&gt; na sloju &lt;b&gt;%3&lt;/b&gt; biti izbrisan?</translation>
     </message>
     <message>
         <location filename="../src/qml/editorwidgets/relationeditors/ordered_relation_editor.qml" line="409"/>
         <source>Failed to delete referencing feature</source>
-        <translation>Neuspješno brisanje referentne značajke</translation>
+        <translation>Neuspješno brisanje referenciranog elementa</translation>
     </message>
 </context>
 <context>
@@ -2949,12 +2949,12 @@ Otkažite da pokrenete minimalno skeniranje uređaja.</translation>
     <message>
         <location filename="../src/qml/qgismobileapp.qml" line="1432"/>
         <source>Failed to create feature!</source>
-        <translation>Neuspješno stvaranje značajke!</translation>
+        <translation>Neuspješno stvaranje elementa!</translation>
     </message>
     <message>
         <location filename="../src/qml/qgismobileapp.qml" line="1436"/>
         <source>Failed to save feature!</source>
-        <translation>Neuspjelo spremanje značajke!</translation>
+        <translation>Neuspjelo spremanje elementa!</translation>
     </message>
     <message>
         <location filename="../src/qml/qgismobileapp.qml" line="1496"/>
@@ -3196,37 +3196,37 @@ Otkažite da pokrenete minimalno skeniranje uređaja.</translation>
     <message>
         <location filename="../src/qml/editorwidgets/relationeditors/relation_editor.qml" line="129"/>
         <source>Adding child feature in layer %1</source>
-        <translation>Dodavanje podznačajke u sloj %1</translation>
+        <translation>Dodavanje podelementa u sloj %1</translation>
     </message>
     <message>
         <location filename="../src/qml/editorwidgets/relationeditors/relation_editor.qml" line="139"/>
         <source>Cannot add child feature: parent primary keys are not available</source>
-        <translation>Ne mogu dodati podznačajku: ključevi primarne značajke nisu dostupni</translation>
+        <translation>Ne mogu dodati podznačajku: primarni ključevi roditeljskog elementa nisu dostupni </translation>
     </message>
     <message>
         <location filename="../src/qml/editorwidgets/relationeditors/relation_editor.qml" line="245"/>
         <source>Unlink feature %1 (%2) of %3</source>
-        <translation>Prekini vezu značajke %1 (%2) sa %3</translation>
+        <translation>Prekini vezu elementa %1 (%2) sa %3</translation>
     </message>
     <message>
         <location filename="../src/qml/editorwidgets/relationeditors/relation_editor.qml" line="249"/>
         <source>Delete feature %1 (%2) on %3</source>
-        <translation>Izbriši značajku %1 (%2) na %3</translation>
+        <translation>Izbriši element %1 (%2) na %3</translation>
     </message>
     <message>
         <location filename="../src/qml/editorwidgets/relationeditors/relation_editor.qml" line="257"/>
         <source>Should the feature &lt;b&gt;%1 (%2)&lt;/b&gt; of layer &lt;b&gt;%3&lt;/b&gt; be unlinked?&lt;br&gt;&lt;i&gt;(The connection will be deleted on layer &lt;b&gt;%4&lt;/b&gt;)&lt;/i&gt;</source>
-        <translation>Treba li &lt;b&gt;%1 (%2)&lt;/b&gt; sloja &lt;b&gt;%3&lt;/b&gt; biti odspojena?&lt;br&gt;&lt;i&gt;(Veza na sloju će biti izbrisana &lt;b&gt;%4&lt;/b&gt;)&lt;/i&gt;</translation>
+        <translation>Treba li element &lt;b&gt;%1 (%2)&lt;/b&gt; sloja &lt;b&gt;%3&lt;/b&gt; biti odspojen?&lt;br&gt;&lt;i&gt;(Veza na sloju će biti izbrisana &lt;b&gt;%4&lt;/b&gt;)&lt;/i&gt;</translation>
     </message>
     <message>
         <location filename="../src/qml/editorwidgets/relationeditors/relation_editor.qml" line="262"/>
         <source>Should the feature &lt;b&gt;%1 (%2)&lt;/b&gt; on layer &lt;b&gt;%3&lt;/b&gt; be deleted?</source>
-        <translation>Treba li značajka &lt;b&gt;%1 (%2)&lt;/b&gt; na sloju &lt;b&gt;%3&lt;/b&gt; biti izbrisana?</translation>
+        <translation>Treba li element &lt;b&gt;%1 (%2)&lt;/b&gt; na sloju &lt;b&gt;%3&lt;/b&gt; biti izbrisan?</translation>
     </message>
     <message>
         <location filename="../src/qml/editorwidgets/relationeditors/relation_editor.qml" line="271"/>
         <source>Failed to delete referencing feature</source>
-        <translation>Neuspješno brisanje referentne značajke</translation>
+        <translation>Neuspješno brisanje referenciranog elementa</translation>
     </message>
 </context>
 </TS>

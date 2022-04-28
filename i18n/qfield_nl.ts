@@ -1776,7 +1776,8 @@ Hoewel u het project nog steeds kunt bekijken en gebruiken, wordt het ten zeerst
     <message>
         <source>Failed to upload attachment stored at &quot;%1&quot;, reason:
 %2</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Kan bijlage niet uploaden die is opgeslagen op &quot;%1&quot;, reden:
+%2</translation>
     </message>
     <message>
         <source>Failed to download file &quot;%1&quot;, reason:</source>
@@ -1784,7 +1785,7 @@ Hoewel u het project nog steeds kunt bekijken en gebruiken, wordt het ten zeerst
     </message>
     <message>
         <source>Failed to write downloaded file stored at &quot;%1&quot;, fs reason:</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Kan gedownloade bestand opgeslagen op &quot;%1&quot; niet schrijven, fs reden:</translation>
     </message>
     <message>
         <location filename="../src/core/qfieldcloudprojectsmodel.cpp" line="421"/>
@@ -1815,7 +1816,7 @@ Hoewel u het project nog steeds kunt bekijken en gebruiken, wordt het ten zeerst
     <message>
         <location filename="../src/core/qfieldcloudprojectsmodel.cpp" line="604"/>
         <source>Getting job status finished, but the project is deleted.</source>
-        <translation type="unfinished"/>
+        <translation>Krijg taakstatus &apos;voltooid&apos;, maar het project is verwijderd.</translation>
     </message>
     <message>
         <location filename="../src/core/qfieldcloudprojectsmodel.cpp" line="634"/>
@@ -1866,13 +1867,15 @@ Hoewel u het project nog steeds kunt bekijken en gebruiken, wordt het ten zeerst
         <location filename="../src/core/qfieldcloudprojectsmodel.cpp" line="1112"/>
         <source>Failed to open temporary file for `%1`, reason:
 %2</source>
-        <translation type="unfinished"/>
+        <translation>Kan tijdelijk bestand niet openen voor `%1`, reden:
+%2</translation>
     </message>
     <message>
         <location filename="../src/core/qfieldcloudprojectsmodel.cpp" line="1568"/>
         <source>Failed to upload attachment stored at `%1`, reason:
 %2</source>
-        <translation type="unfinished"/>
+        <translation>Kan bijlage niet uploaden die is opgeslagen op &apos;%1&apos;, reden:
+%2</translation>
     </message>
     <message>
         <location filename="../src/core/qfieldcloudprojectsmodel.cpp" line="1815"/>
@@ -1882,7 +1885,7 @@ Hoewel u het project nog steeds kunt bekijken en gebruiken, wordt het ten zeerst
     <message>
         <location filename="../src/core/qfieldcloudprojectsmodel.cpp" line="1830"/>
         <source>File system error. Failed to write file to temporary location `%1`.</source>
-        <translation type="unfinished"/>
+        <translation>Bestandssysteemfout. Kan bestand niet schrijven naar tijdelijke locatie `%1`.</translation>
     </message>
     <message>
         <location filename="../src/core/qfieldcloudprojectsmodel.cpp" line="1837"/>
@@ -2093,7 +2096,7 @@ Hoewel u het project nog steeds kunt bekijken en gebruiken, wordt het ten zeerst
     <message>
         <location filename="../src/qml/QFieldSettings.qml" line="82"/>
         <source>If enabled, the feature is stored after having a valid geometry and the constraints are fulfilled and atributes are commited immediately.</source>
-        <translation type="unfinished"/>
+        <translation>Indien ingeschakeld, wordt het object opgeslagen nadat het een geldige geometrie heeft en aan de beperkingen is voldaan en worden attributen onmiddellijk vastgelegd.</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldSettings.qml" line="86"/>
@@ -2402,12 +2405,12 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <location filename="../src/core/utils/expressioncontextutils.cpp" line="106"/>
         <source>Cloud User Info</source>
-        <translation type="unfinished"/>
+        <translation>Cloud-gebruikersinformatie</translation>
     </message>
     <message>
         <location filename="../src/core/platforms/android/androidplatformutilities.cpp" line="83"/>
         <source>Please wait while QField installation finalizes.</source>
-        <translation type="unfinished"/>
+        <translation>Wacht tot de installatie van QField wordt voltooid.</translation>
     </message>
 </context>
 <context>
@@ -2501,7 +2504,7 @@ Cancel to make a minimal device scan instead.</source>
         <location filename="../src/core/qgsquick/qgsquickmapsettings.cpp" line="313"/>
         <location filename="../src/core/qgsquick/qgsquickmapsettings.cpp" line="343"/>
         <source>Map Canvas rotation is not supported. Resetting from %1 to 0.</source>
-        <translation type="unfinished"/>
+        <translation>Rotatie van kaartcanvas wordt niet ondersteund. Resetten van %1 naar 0.</translation>
     </message>
 </context>
 <context>
@@ -2675,12 +2678,12 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <location filename="../src/qml/WelcomeScreen.qml" line="116"/>
         <source>We&apos;re sorry to hear that. Click on the button below to comment or seek support.</source>
-        <translation type="unfinished"/>
+        <translation>Het spijt ons dat te horen. Klik op de onderstaande knop om commentaar te geven of ondersteuning te zoeken.</translation>
     </message>
     <message>
         <location filename="../src/qml/WelcomeScreen.qml" line="130"/>
         <source>Reach out</source>
-        <translation type="unfinished"/>
+        <translation>Uitreiken</translation>
     </message>
     <message>
         <location filename="../src/qml/WelcomeScreen.qml" line="168"/>
@@ -2700,7 +2703,7 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <location filename="../src/qml/WelcomeScreen.qml" line="297"/>
         <source>Anonymized metrics collection has been disabled. You can re-enable through the settings panel.</source>
-        <translation type="unfinished"/>
+        <translation>Geanonimiseerde verzameling van statistieken is uitgeschakeld. U kunt opnieuw inschakelen via het instellingenpaneel.</translation>
     </message>
     <message>
         <location filename="../src/qml/WelcomeScreen.qml" line="331"/>
@@ -2740,17 +2743,17 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <location filename="../src/qml/WelcomeScreen.qml" line="497"/>
         <source>Base map project</source>
-        <translation type="unfinished"/>
+        <translation>Basiskaart project</translation>
     </message>
     <message>
         <location filename="../src/qml/WelcomeScreen.qml" line="585"/>
         <source>Base Map Project</source>
-        <translation type="unfinished"/>
+        <translation>Basiskaart project</translation>
     </message>
     <message>
         <location filename="../src/qml/WelcomeScreen.qml" line="605"/>
         <source>Remove from Recent Projects</source>
-        <translation type="unfinished"/>
+        <translation>Verwijderen uit recente projecten</translation>
     </message>
     <message>
         <location filename="../src/qml/WelcomeScreen.qml" line="745"/>
@@ -2768,7 +2771,7 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <location filename="../src/qml/editorwidgets/relationeditors/ordered_relation_editor.qml" line="84"/>
         <source>Ensure contraints</source>
-        <translation type="unfinished"/>
+        <translation>Zorg voor beperkingen</translation>
     </message>
     <message>
         <location filename="../src/qml/editorwidgets/relationeditors/ordered_relation_editor.qml" line="123"/>
@@ -2880,12 +2883,12 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <location filename="../src/qml/qgismobileapp.qml" line="958"/>
         <source>Topological editing turned on</source>
-        <translation type="unfinished"/>
+        <translation>Topologische bewerking ingeschakeld</translation>
     </message>
     <message>
         <location filename="../src/qml/qgismobileapp.qml" line="958"/>
         <source>Topological editing turned off</source>
-        <translation type="unfinished"/>
+        <translation>Topologische bewerking uitgeschakeld</translation>
     </message>
     <message>
         <location filename="../src/qml/qgismobileapp.qml" line="1001"/>
@@ -2895,17 +2898,17 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <location filename="../src/qml/qgismobileapp.qml" line="1001"/>
         <source>Freehand digitizing turned off</source>
-        <translation type="unfinished"/>
+        <translation>Digitaliseren uit de vrije hand uitgeschakeld</translation>
     </message>
     <message>
         <location filename="../src/qml/qgismobileapp.qml" line="1099"/>
         <source>Coordinate cursor now locked to position</source>
-        <translation type="unfinished"/>
+        <translation>Coördinaatcursor nu vergrendeld op positie</translation>
     </message>
     <message>
         <location filename="../src/qml/qgismobileapp.qml" line="1111"/>
         <source>Coordinate cursor unlocked</source>
-        <translation type="unfinished"/>
+        <translation>Coördinaatcursor ontgrendeld</translation>
     </message>
     <message>
         <location filename="../src/qml/qgismobileapp.qml" line="1128"/>
@@ -2920,7 +2923,7 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <location filename="../src/qml/qgismobileapp.qml" line="1177"/>
         <source>Canvas follows location</source>
-        <translation type="unfinished"/>
+        <translation>Canvas volgt locatie</translation>
     </message>
     <message>
         <location filename="../src/qml/qgismobileapp.qml" line="1186"/>
@@ -2940,7 +2943,7 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <location filename="../src/qml/qgismobileapp.qml" line="1288"/>
         <source>Canvas stopped following location</source>
-        <translation type="unfinished"/>
+        <translation>Canvas is gestopt met het volgen van de locatie</translation>
     </message>
     <message>
         <location filename="../src/qml/qgismobileapp.qml" line="1432"/>
@@ -3002,7 +3005,7 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <location filename="../src/qml/qgismobileapp.qml" line="1726"/>
         <source>Activating positioning service</source>
-        <translation type="unfinished"/>
+        <translation>Positioneringsservice activeren</translation>
     </message>
     <message>
         <location filename="../src/qml/qgismobileapp.qml" line="1731"/>
@@ -3012,7 +3015,7 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <location filename="../src/qml/qgismobileapp.qml" line="1744"/>
         <source>Map Canvas Options</source>
-        <translation type="unfinished"/>
+        <translation>Kaartcanvas opties</translation>
     </message>
     <message>
         <location filename="../src/qml/qgismobileapp.qml" line="1788"/>
@@ -3187,7 +3190,7 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <location filename="../src/qml/editorwidgets/relationeditors/relation_editor.qml" line="90"/>
         <source>Ensure contraints</source>
-        <translation type="unfinished"/>
+        <translation>Zorg voor beperkingen</translation>
     </message>
     <message>
         <location filename="../src/qml/editorwidgets/relationeditors/relation_editor.qml" line="129"/>

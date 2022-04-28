@@ -2058,7 +2058,7 @@ While you can still view and use the project, it is strongly recommended to rese
     <message>
         <location filename="../src/qml/QFieldSettings.qml" line="66"/>
         <source>When switched on, coordinate information, such as latitude and longitude, is overlayed onto the map while digitizing new features or using the measure tool.</source>
-        <translation type="unfinished"/>
+        <translation>Quando attivata, l&apos;informazione sulle coordinate, come latitudine e longitudine, è sovrapposta alla mappa durante la digitalizzazione di nuovi elementi o con l&apos;utilizzo dello strumento di misura.</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldSettings.qml" line="70"/>
@@ -2098,17 +2098,17 @@ While you can still view and use the project, it is strongly recommended to rese
     <message>
         <location filename="../src/qml/QFieldSettings.qml" line="87"/>
         <source>If enabled, the screen brightness will be dimmed after 20 seconds of inactivity to preserve battery.</source>
-        <translation type="unfinished"/>
+        <translation>Se abilitato, la luminosità dello schermo sarà attenuata dopo 20 secondi di inattività per preservare la batteria.</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldSettings.qml" line="91"/>
         <source>Consider mouse as a touchscreen device</source>
-        <translation type="unfinished"/>
+        <translation>Considera il mouse come un dispositivo touchscreen</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldSettings.qml" line="92"/>
         <source>If disabled, the mouse will act as a stylus pen.</source>
-        <translation type="unfinished"/>
+        <translation>Se disabilitato, il mouse fungerà da penna stilo.</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldSettings.qml" line="96"/>
@@ -2128,7 +2128,7 @@ While you can still view and use the project, it is strongly recommended to rese
     <message>
         <location filename="../src/qml/QFieldSettings.qml" line="143"/>
         <source>Positioning</source>
-        <translation>Posizionamento</translation>
+        <translation>Posizione</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldSettings.qml" line="149"/>
@@ -2188,7 +2188,7 @@ While you can still view and use the project, it is strongly recommended to rese
     <message>
         <location filename="../src/qml/QFieldSettings.qml" line="442"/>
         <source>Scanning canceled</source>
-        <translation type="unfinished"/>
+        <translation>Scansione annullata</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldSettings.qml" line="459"/>
@@ -2402,7 +2402,7 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <location filename="../src/core/platforms/android/androidplatformutilities.cpp" line="83"/>
         <source>Please wait while QField installation finalizes.</source>
-        <translation type="unfinished"/>
+        <translation>Attendere il completamento dell&apos;installazione di QField.</translation>
     </message>
 </context>
 <context>
