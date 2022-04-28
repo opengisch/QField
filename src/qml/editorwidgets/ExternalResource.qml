@@ -253,7 +253,7 @@ EditorWidgetBase {
           height: isEnabled ? parent.height : 1
           y: isEnabled ? 0 : parent.height - 1
           border.width: 1
-          border.color: Theme.mainColor
+          border.color: Theme.accentLightColor
           radius: 2
       }
   }
