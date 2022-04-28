@@ -46,7 +46,7 @@ EditorWidgetBase {
         implicitWidth: 120
         width: label.width
         height: 1
-        color: "#C8E6C9"
+        color: Theme.accentLightColor
     }
 
     TextField {
@@ -112,7 +112,7 @@ EditorWidgetBase {
                 anchors.fill: parent
                 anchors.topMargin: label.topPadding / 2
                 anchors.bottomMargin: label.bottomPadding / 2
-                border.color: label.activeFocus ? "#4CAF50" : "#C8E6C9"
+                border.color: label.activeFocus ? Theme.accentColor : Theme.accentLightColor
                 border.width: label.activeFocus ? 2 : 1
                 color: enabled ? Theme.lightGray : "transparent"
                 radius: 2
