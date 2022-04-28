@@ -157,7 +157,7 @@ EditorWidgetBase {
       y: linkField.height - height - linkField.bottomPadding / 2
       implicitWidth: 120
       height: 1
-      color: "#C8E6C9"
+      color: Theme.accentLightColor
     }
 
     MouseArea {
