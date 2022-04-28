@@ -30,6 +30,9 @@ QtObject {
     property color bookmarkRed: "#c0392b"
     property color bookmarkBlue: "#64b5f6"
 
+    property color accentColor: '#4CAF50'
+    property color accentLightColor: '#C8E6C9'
+
     property font defaultFont
     defaultFont.pointSize: 16
     defaultFont.weight: Font.Normal
