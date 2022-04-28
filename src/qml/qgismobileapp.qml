@@ -1826,6 +1826,7 @@ ApplicationWindow {
         } else {
           coordinates = qsTr( 'X' ) + ' ' +  canvasMenu.point.x.toFixed(2) + ', ' + qsTr( 'Y' ) + ' ' + canvasMenu.point.y.toFixed(2)
         }
+        coordinates += ' (' + mapCanvas.mapSettings.destinationCrs.authid + ' ' + mapCanvas.mapSettings.destinationCrs.description + ')'
 
         platformUtilities.copyTextToClipboard(coordinates)
         displayToast(qsTr('Coordinates copied to clipboard'));
@@ -1983,7 +1984,8 @@ ApplicationWindow {
         coordinates += ' ('+ qsTr('Accuracy') + ' ' +
                        ( positionSource.positionInfo && positionSource.positionInfo.haccValid
                          ? positionSource.positionInfo.hacc.toLocaleString(Qt.locale(), 'f', 3) + " m"
-                         : qsTr( "N/A" ) ) + ')'
+                         : qsTr( "N/A" ) );
+        coordinates += '; ' + mapCanvas.mapSettings.destinationCrs.authid + ' ' + mapCanvas.mapSettings.destinationCrs.description + ')'
 
         platformUtilities.copyTextToClipboard(coordinates)
         displayToast(qsTr('Current location copied to clipboard'));
