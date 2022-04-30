@@ -36,8 +36,13 @@
     <string name="import_project_archive">Importuj projekt z pliku ZIP</string>
     <string name="import_dataset">Importuj zestaw(y) danych</string>
     <string name="import_error">Błąd importu</string>
+    <string name="import_overwrite_title">Ostrzeżenie przy imporcie</string>
+    <string name="import_overwrite_confirm">Importuj i nadpisz</string>
     <string name="import_overwrite_cancel">Anuluj</string>
+    <string name="export_error">Błąd eksportu</string>
     <string name="send_to">Wyślij do...</string>
+    <string name="send_compressed_to">Wyślij skompresowany katalog do...</string>
+    <string name="export_to_folder">Eksportuj do katalogu...</string>
     <string name="add_to_favorite">Dodaj do ulubionych</string>
     <string name="remove_from_favorite">Usuń z ulubionych</string>
     <string name="remove_dataset">Usuń zestaw danych</string>
@@ -46,4 +51,6 @@
     <string name="delete_confirm_folder">Projekt zostanie trwale usunięty, czy kontynuować?</string>
     <string name="delete_confirm">Usuń</string>
     <string name="delete_cancel">Anuluj</string>
-    </resources>
+    <string name="storage_information_view">Wyświetl dokumentację</string>
+    <string name="storage_information_dismiss">Poczytam później</string>
+</resources>
