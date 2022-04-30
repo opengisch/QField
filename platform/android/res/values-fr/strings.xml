@@ -38,10 +38,22 @@ Merci pour votre soutien !</string>
     <string name="import_project_folder">Importer un projet à partir du répertoire</string>
     <string name="import_project_archive">Importer un projet à partir du Zip</string>
     <string name="import_dataset">Importer jeu(x) de données</string>
+    <string name="usb_cable_help">Aide sur la gestion du stockage</string>
     <string name="import_error">Erreur d\'import</string>
     <string name="import_dataset_error">Le(s) jeu(x) de données sélectionné(s) pourrai(en)t ne pas être importé(s) correctement.</string>
+    <string name="import_project_archive_error">L\'archive de projet sélectionnée n\'a pas été importée correctement.</string>
+    <string name="import_project_folder_error">Le dossier de projet sélectionné n\'a pas été importé correctement.</string>
+    <string name="import_overwrite_title">Avertissement à l\'importation</string>
+    <string name="import_overwrite_folder">Ce dossier de projet existe déjà. Cette opération va écraser ses données, poursuivre l\'importation ?</string>
+    <string name="import_overwrite_dataset_single">Ce jeu de données existe déjà. Cette opération va l\'écraser, poursuivre l\'importation ?</string>
+    <string name="import_overwrite_dataset_multiple">Ce jeu de données existe déjà. Cette opération va l\'écraser, poursuivre l\'importation ?</string>
+    <string name="import_overwrite_confirm">Importer et écraser</string>
     <string name="import_overwrite_cancel">Annuler</string>
+    <string name="export_error">Erreur d\'exportation</string>
+    <string name="export_to_folder_error">Le dossier de projet sélectionné n\'a pas été exporté correctement.</string>
     <string name="send_to">Envoyer vers...</string>
+    <string name="send_compressed_to">Envoyer le dossier compressé à...</string>
+    <string name="export_to_folder">Exporter vers un dossier...</string>
     <string name="add_to_favorite">Ajouter aux favoris</string>
     <string name="remove_from_favorite">Retirer des favoris</string>
     <string name="remove_dataset">Retirer le jeu de données</string>
@@ -51,4 +63,8 @@ Merci pour votre soutien !</string>
     <string name="delete_confirm_folder">Le répertoire de projet va être effacé définitivement, procéder à la suppression ?</string>
     <string name="delete_confirm">Enlever</string>
     <string name="delete_cancel">Annuler</string>
-    </resources>
+    <string name="storage_information_title">Informations de stockage</string>
+    <string name="storage_information_message">Que vous soyez un utilisateur préexistant de QField 1.x et que vous vous demandiez pourquoi vos projets et ensembles de données ont disparu ou que vous soyez nouveau dans QField, nous vous suggérons de prendre une minute pour lire la documentation sur la gestion du stockage. Un raccourci vers cette documentation restera accessible dans le menu actions de la barre de titre.</string>
+    <string name="storage_information_view">Montrez-moi la documentation</string>
+    <string name="storage_information_dismiss">Je lirai plus tard</string>
+</resources>

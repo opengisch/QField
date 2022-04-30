@@ -261,12 +261,12 @@
         <translation>支持QField</translation>
     </message>
     <message>
-        <location filename="../src/qml/Changelog.qml" line="140"/>
+        <location filename="../src/qml/Changelog.qml" line="137"/>
         <source>Check the latest QField changes on </source>
         <translation>查看QField最新版更新内容</translation>
     </message>
     <message>
-        <location filename="../src/qml/Changelog.qml" line="141"/>
+        <location filename="../src/qml/Changelog.qml" line="138"/>
         <source>QField releases page</source>
         <translation>QField发布页面</translation>
     </message>
@@ -274,7 +274,7 @@
 <context>
     <name>ChangelogContents</name>
     <message>
-        <location filename="../src/core/changelogcontents.cpp" line="85"/>
+        <location filename="../src/core/changelogcontents.cpp" line="106"/>
         <source>Previous releases on GitHub</source>
         <translation>GitHub存档版本</translation>
     </message>
@@ -1064,94 +1064,94 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
         <translation>要素</translation>
     </message>
     <message>
-        <location filename="../src/qml/NavigationBar.qml" line="446"/>
+        <location filename="../src/qml/NavigationBar.qml" line="449"/>
         <source>Feature List Menu</source>
         <translation>要素列表菜单</translation>
     </message>
     <message>
-        <location filename="../src/qml/NavigationBar.qml" line="460"/>
+        <location filename="../src/qml/NavigationBar.qml" line="463"/>
         <source>Toggle Feature Selection</source>
         <translation>切换要素选择模式</translation>
     </message>
     <message>
-        <location filename="../src/qml/NavigationBar.qml" line="477"/>
-        <location filename="../src/qml/NavigationBar.qml" line="667"/>
+        <location filename="../src/qml/NavigationBar.qml" line="480"/>
+        <location filename="../src/qml/NavigationBar.qml" line="686"/>
         <source>Print Atlas Feature(s) to PDF</source>
         <translation>地图集要素输出为PDF文件</translation>
     </message>
     <message>
-        <location filename="../src/qml/NavigationBar.qml" line="497"/>
+        <location filename="../src/qml/NavigationBar.qml" line="501"/>
         <source>Merge Selected Features</source>
         <translation>合并所选要素</translation>
     </message>
     <message>
-        <location filename="../src/qml/NavigationBar.qml" line="510"/>
+        <location filename="../src/qml/NavigationBar.qml" line="515"/>
         <source>Move Selected Feature(s)</source>
         <translation>移动所选要素</translation>
     </message>
     <message>
-        <location filename="../src/qml/NavigationBar.qml" line="523"/>
+        <location filename="../src/qml/NavigationBar.qml" line="529"/>
         <source>Duplicate Selected Feature(s)</source>
         <translation>复制所选要素</translation>
     </message>
     <message>
-        <location filename="../src/qml/NavigationBar.qml" line="536"/>
+        <location filename="../src/qml/NavigationBar.qml" line="543"/>
         <source>Delete Selected Feature(s)</source>
         <translation>删除所选要素</translation>
     </message>
     <message>
-        <location filename="../src/qml/NavigationBar.qml" line="551"/>
+        <location filename="../src/qml/NavigationBar.qml" line="558"/>
         <source>Feature Menu</source>
         <translation>要素菜单</translation>
     </message>
     <message>
-        <location filename="../src/qml/NavigationBar.qml" line="565"/>
+        <location filename="../src/qml/NavigationBar.qml" line="572"/>
         <source>Print Atlas Feature to PDF</source>
         <translation>地图集要素输出为PDF文件</translation>
     </message>
     <message>
-        <location filename="../src/qml/NavigationBar.qml" line="582"/>
+        <location filename="../src/qml/NavigationBar.qml" line="589"/>
         <source>Zoom to Feature</source>
         <translation>缩放至要素</translation>
     </message>
     <message>
-        <location filename="../src/qml/NavigationBar.qml" line="593"/>
+        <location filename="../src/qml/NavigationBar.qml" line="600"/>
         <source>Auto-Zoom to Feature</source>
         <translation>自动缩放至要素</translation>
     </message>
     <message>
-        <location filename="../src/qml/NavigationBar.qml" line="606"/>
+        <location filename="../src/qml/NavigationBar.qml" line="613"/>
         <source>Set Feature as Destination</source>
         <translation>将要素设为目标</translation>
     </message>
     <message>
-        <location filename="../src/qml/NavigationBar.qml" line="622"/>
+        <location filename="../src/qml/NavigationBar.qml" line="630"/>
         <source>Move Feature</source>
         <translation>移动要素</translation>
     </message>
     <message>
-        <location filename="../src/qml/NavigationBar.qml" line="635"/>
+        <location filename="../src/qml/NavigationBar.qml" line="647"/>
         <source>Duplicate Feature</source>
         <translation>复制要素</translation>
     </message>
     <message>
-        <location filename="../src/qml/NavigationBar.qml" line="648"/>
+        <location filename="../src/qml/NavigationBar.qml" line="664"/>
         <source>Delete Feature</source>
         <translation>删除要素</translation>
     </message>
     <message>
-        <location filename="../src/qml/NavigationBar.qml" line="683"/>
+        <location filename="../src/qml/NavigationBar.qml" line="702"/>
         <source>Select template below</source>
         <translation>请选择以下模板</translation>
     </message>
     <message>
-        <location filename="../src/qml/NavigationBar.qml" line="707"/>
-        <location filename="../src/qml/NavigationBar.qml" line="746"/>
+        <location filename="../src/qml/NavigationBar.qml" line="726"/>
+        <location filename="../src/qml/NavigationBar.qml" line="765"/>
         <source>Printing atlas feature(s) to PDF</source>
         <translation>地图集要素正在输出为PDF文件</translation>
     </message>
     <message>
-        <location filename="../src/qml/NavigationBar.qml" line="733"/>
+        <location filename="../src/qml/NavigationBar.qml" line="752"/>
         <source>Atlas feature(s) successfully printed to PDF and placed in your documents</source>
         <translation>地图集要素已成功输出为PDF文件并保存在您的文档文件夹中</translation>
     </message>
@@ -1482,12 +1482,12 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
         <translation>登录</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldCloudLogin.qml" line="214"/>
+        <location filename="../src/qml/QFieldCloudLogin.qml" line="213"/>
         <source>New user?</source>
         <translation>是否为新用户？</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldCloudLogin.qml" line="214"/>
+        <location filename="../src/qml/QFieldCloudLogin.qml" line="213"/>
         <source>Register an account</source>
         <translation>注册帐户</translation>
     </message>
@@ -1504,12 +1504,12 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
         <translation type="vanished">登录</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldCloudLogin.qml" line="227"/>
+        <location filename="../src/qml/QFieldCloudLogin.qml" line="226"/>
         <source>The easiest way to transfer you project from QGIS to your devices!</source>
         <translation>将工程从QGIS传输到设备的最简单方法！</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldCloudLogin.qml" line="228"/>
+        <location filename="../src/qml/QFieldCloudLogin.qml" line="227"/>
         <source>Learn more about QFieldCloud</source>
         <translation>了解有关QField云的更多信息</translation>
     </message>
@@ -1543,123 +1543,127 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
         <translation>QField云</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldCloudPopup.qml" line="49"/>
+        <location filename="../src/qml/QFieldCloudPopup.qml" line="48"/>
         <source>The current project is not stored on QFieldCloud.&lt;br&gt;&lt;br&gt;</source>
         <translation>当前工程未存储在QField云端。&lt;br&gt;&lt;br&gt;</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldCloudPopup.qml" line="50"/>
+        <location filename="../src/qml/QFieldCloudPopup.qml" line="49"/>
         <source>Storing projects on QFieldCloud offers seamless synchornization, offline editing, and team management.&lt;br&gt;&lt;br&gt;</source>
         <translation>将工程存储在QField云可提供无缝同步、离线编辑和团队管理。&lt;br&gt;&lt;br&gt;</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldCloudPopup.qml" line="51"/>
+        <location filename="../src/qml/QFieldCloudPopup.qml" line="50"/>
         <source>Learn more about QFieldCloud</source>
         <translation>了解有关QField云的更多信息</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldCloudPopup.qml" line="90"/>
+        <location filename="../src/qml/QFieldCloudPopup.qml" line="89"/>
         <source>Disconnected from the cloud.</source>
         <translation>与云断开连接。</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldCloudPopup.qml" line="91"/>
+        <location filename="../src/qml/QFieldCloudPopup.qml" line="90"/>
         <source>Connecting to the cloud.</source>
         <translation>连接到云。</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldCloudPopup.qml" line="92"/>
+        <location filename="../src/qml/QFieldCloudPopup.qml" line="91"/>
         <source>Greetings &lt;strong&gt;%1&lt;/strong&gt;.</source>
         <translation>您好 &lt;strong&gt;%1&lt;/strong&gt;</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldCloudPopup.qml" line="162"/>
+        <location filename="../src/qml/QFieldCloudPopup.qml" line="161"/>
         <source>This QFieldCloud project was first downloaded with another cloud account. Please sign in with the original account for this project to use the QFieldCloud functionality.</source>
         <translation>该QField云工程最初是通过另一个云帐户下载的，请使用此工程的原始帐户登录以使用QField云功能。</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldCloudPopup.qml" line="181"/>
+        <location filename="../src/qml/QFieldCloudPopup.qml" line="180"/>
         <source>Downloading %1%…</source>
         <translation>正在下载 %1%…</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldCloudPopup.qml" line="183"/>
+        <location filename="../src/qml/QFieldCloudPopup.qml" line="182"/>
         <source>QFieldCloud is preparing the latest data just for you. This might take some time, please hold tight…</source>
         <translation>QField云正在为您准备最新数据。这可能需要一些时间，请稍等...</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldCloudPopup.qml" line="188"/>
+        <location filename="../src/qml/QFieldCloudPopup.qml" line="187"/>
         <source>Uploading %1%…</source>
         <translation>正在上传 %1%…</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldCloudPopup.qml" line="190"/>
+        <location filename="../src/qml/QFieldCloudPopup.qml" line="189"/>
         <source>QFieldCloud is applying the latest uploaded changes. This might take some time, please hold tight…</source>
         <translation>QField云正在请求最新上传的修改。这可能需要一些时间，请稍等...</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldCloudPopup.qml" line="273"/>
+        <location filename="../src/qml/QFieldCloudPopup.qml" line="272"/>
         <source>A server error has occured, please try again.</source>
         <translation>服务器出现错误，请重试。</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldCloudPopup.qml" line="274"/>
+        <location filename="../src/qml/QFieldCloudPopup.qml" line="273"/>
         <source>A network error has occured, please try again.</source>
         <translation>网络出现错误，请重试。</translation>
     </message>
     <message numerus="yes">
-        <location filename="../src/qml/QFieldCloudPopup.qml" line="334"/>
+        <location filename="../src/qml/QFieldCloudPopup.qml" line="333"/>
         <source>There is/are %n local change(s)</source>
         <translation><numerusform>有%n个本地修改</numerusform></translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldCloudPopup.qml" line="335"/>
+        <location filename="../src/qml/QFieldCloudPopup.qml" line="334"/>
         <source>There are no local changes</source>
         <translation>本地没有修改</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldCloudPopup.qml" line="337"/>
+        <location filename="../src/qml/QFieldCloudPopup.qml" line="336"/>
         <source>The locally stored cloud project has been corrupted</source>
         <translation>本地存储的云工程已损坏</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldCloudPopup.qml" line="350"/>
+        <location filename="../src/qml/QFieldCloudPopup.qml" line="349"/>
         <source>Synchronize</source>
         <translation>同步</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldCloudPopup.qml" line="365"/>
+        <location filename="../src/qml/QFieldCloudPopup.qml" line="364"/>
         <source>Synchronize the whole project with all modified features and download the freshly updated project with all the applied changes from QFieldCloud.</source>
         <translation>将整个工程与所有已修改的要素进行同步，并从QField云下载最新更新的工程和所有已使用的修改。</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldCloudPopup.qml" line="376"/>
+        <location filename="../src/qml/QFieldCloudPopup.qml" line="375"/>
         <source>Push changes</source>
         <translation>推送修改</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldCloudPopup.qml" line="391"/>
+        <location filename="../src/qml/QFieldCloudPopup.qml" line="390"/>
         <source>Save internet bandwidth by only pushing the local features and pictures to the cloud, without updating the whole project.</source>
         <translation>仅将本地要素和图片推送到云端可节省互联网带宽流量，而不必更新整个工程。</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldCloudPopup.qml" line="404"/>
-        <location filename="../src/qml/QFieldCloudPopup.qml" line="557"/>
+        <location filename="../src/qml/QFieldCloudPopup.qml" line="403"/>
+        <location filename="../src/qml/QFieldCloudPopup.qml" line="556"/>
         <source>Revert local changes</source>
         <translation>恢复本地修改</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldCloudPopup.qml" line="405"/>
+        <location filename="../src/qml/QFieldCloudPopup.qml" line="404"/>
         <source>Reset project</source>
         <translation>重置工程</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldCloudPopup.qml" line="424"/>
-        <source>Revert all modified features in the local cloud layers. You cannot restore those changes.</source>
-        <translation>还原本地云图层中所有已修改的要素。您无法恢复这些修改。</translation>
+        <location filename="../src/qml/QFieldCloudPopup.qml" line="423"/>
+        <source>Revert all modified features in the local layers. You cannot restore those changes.</source>
+        <translation>恢复本地图层中所有修改的要素。您无法恢复这些更改。</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldCloudPopup.qml" line="425"/>
+        <source>Revert all modified features in the local cloud layers. You cannot restore those changes.</source>
+        <translation type="vanished">还原本地云图层中所有已修改的要素。您无法恢复这些修改。</translation>
+    </message>
+    <message>
+        <location filename="../src/qml/QFieldCloudPopup.qml" line="424"/>
         <source>The local copy of this cloud project has been corrupted. Resetting the project will re-download the cloud version and will remove any local changes, make sure those were copied first if needed.
 
 While you can still view and use the project, it is strongly recommended to reset to avoid any accidental data loss as none of the changes made will be pushed back to the cloud.</source>
@@ -1668,87 +1672,87 @@ While you can still view and use the project, it is strongly recommended to rese
 虽然您仍然可以查看和使用工程，但强烈建议进行重置以避免任何意外的数据丢失，因为所做的任何修改都不会被推回云端。</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldCloudPopup.qml" line="455"/>
+        <location filename="../src/qml/QFieldCloudPopup.qml" line="454"/>
         <source>Last synchronized just now</source>
         <translation>刚刚完成同步</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldCloudPopup.qml" line="457"/>
+        <location filename="../src/qml/QFieldCloudPopup.qml" line="456"/>
         <source>Last synchronized %1 minutes ago</source>
         <translation>上次同步于 %1 分之前</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldCloudPopup.qml" line="459"/>
+        <location filename="../src/qml/QFieldCloudPopup.qml" line="458"/>
         <source>Last synchronized at %1</source>
         <translation>上次同步在 %1</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldCloudPopup.qml" line="461"/>
+        <location filename="../src/qml/QFieldCloudPopup.qml" line="460"/>
         <source>Last synchronized on %1</source>
         <translation>上次同步于 %1</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldCloudPopup.qml" line="472"/>
+        <location filename="../src/qml/QFieldCloudPopup.qml" line="471"/>
         <source>Last changes pushed just now</source>
         <translation>刚刚推送的最后修改</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldCloudPopup.qml" line="474"/>
+        <location filename="../src/qml/QFieldCloudPopup.qml" line="473"/>
         <source>Last changes pushed %1 minutes ago</source>
         <translation>上次修改推送于 %1 分之前</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldCloudPopup.qml" line="476"/>
+        <location filename="../src/qml/QFieldCloudPopup.qml" line="475"/>
         <source>Last changes pushed at %1</source>
         <translation>上次修改推送于 %1</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldCloudPopup.qml" line="478"/>
+        <location filename="../src/qml/QFieldCloudPopup.qml" line="477"/>
         <source>Last changes pushed on %1</source>
         <translation>上次修改推送在 %1</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldCloudPopup.qml" line="480"/>
+        <location filename="../src/qml/QFieldCloudPopup.qml" line="479"/>
         <source>No changes pushed yet</source>
         <translation>尚未推送任何修改</translation>
     </message>
     <message numerus="yes">
-        <location filename="../src/qml/QFieldCloudPopup.qml" line="501"/>
+        <location filename="../src/qml/QFieldCloudPopup.qml" line="500"/>
         <source>%n attachment(s) are currently being uploaded in the background.</source>
         <translation><numerusform>当前正在后台上传%n个附件。</numerusform></translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldCloudPopup.qml" line="561"/>
+        <location filename="../src/qml/QFieldCloudPopup.qml" line="560"/>
         <source>Should local changes be reverted?</source>
         <translation>是否恢复本地修改？</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldCloudPopup.qml" line="588"/>
+        <location filename="../src/qml/QFieldCloudPopup.qml" line="587"/>
         <source>Reset cloud project</source>
         <translation>重置云工程</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldCloudPopup.qml" line="592"/>
+        <location filename="../src/qml/QFieldCloudPopup.qml" line="591"/>
         <source>Last warning, resetting the cloud project will erase any local changes, are you sure you want to go ahead?</source>
         <translation>最后警告，重置云工程将删除所有本地修改，您确定要继续吗？</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldCloudPopup.qml" line="613"/>
+        <location filename="../src/qml/QFieldCloudPopup.qml" line="612"/>
         <source>Connecting cloud</source>
         <translation>连接云</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldCloudPopup.qml" line="626"/>
+        <location filename="../src/qml/QFieldCloudPopup.qml" line="625"/>
         <source>Local changes reverted</source>
         <translation>本地修改已恢复</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldCloudPopup.qml" line="628"/>
+        <location filename="../src/qml/QFieldCloudPopup.qml" line="627"/>
         <source>Failed to revert changes</source>
         <translation>无法恢复修改</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldCloudPopup.qml" line="633"/>
+        <location filename="../src/qml/QFieldCloudPopup.qml" line="632"/>
         <source>No changes to revert</source>
         <translation>没有要恢复的修改</translation>
     </message>
@@ -2160,149 +2164,149 @@ While you can still view and use the project, it is strongly recommended to rese
         <translation>设备系统语言</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="335"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="334"/>
         <source>Found a missing or incomplete language? %1Join the translator community.%2</source>
         <translation>是否为缺少或不完整的翻译语言？%1请加入翻译社区。%2</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="378"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="377"/>
         <source>Positioning device in use:</source>
         <translation>使用中的定位设备：</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="426"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="425"/>
         <source>Scanning for paired devices</source>
         <translation>正在扫描配对设备</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="430"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="429"/>
         <source>Scanning failed: %1</source>
         <translation>扫描失败：%1</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="434"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="433"/>
         <source>Scanning done</source>
         <translation>完成扫描</translation>
     </message>
     <message numerus="yes">
-        <location filename="../src/qml/QFieldSettings.qml" line="437"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="436"/>
         <source>%n device(s) found</source>
         <translation><numerusform>找到%n个设备</numerusform></translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="443"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="442"/>
         <source>Scanning canceled</source>
         <translation>扫描已取消</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="460"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="459"/>
         <source>Scan</source>
         <translation>扫描</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="493"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="492"/>
         <source>Make a full service discovery</source>
         <translation>进行全方位服务探索</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="497"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="496"/>
         <source>A full device scan can take longer. You really want to do it?
 Cancel to make a minimal device scan instead.</source>
         <translation>全方位设备扫描可能需要更长时间，您真的想这样做吗？
 取消，进行最少设备扫描。</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="522"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="521"/>
         <source>Connected to %1</source>
         <translation>已连接%1</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="524"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="523"/>
         <source>Connect  to %1</source>
         <translation>连接%1</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="526"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="525"/>
         <source>Connecting to %1</source>
         <translation>正在连接%1</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="543"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="542"/>
         <source>Use orthometric altitude from device</source>
         <translation>使用设备的垂直高程</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="575"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="574"/>
         <source>Show position information</source>
         <translation>显示定位信息</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="597"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="596"/>
         <source>Activate accuracy indicator</source>
         <translation>激活精度指示器</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="619"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="618"/>
         <source>Bad accuracy below [m]</source>
         <translation>差精度低于 [米]</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="660"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="659"/>
         <source>Excellent accuracy above [m]</source>
         <translation>优精度高于 [米]</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="701"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="700"/>
         <source>Enable accuracy requirement</source>
         <translation>启用精度限制模式</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="728"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="727"/>
         <source>When the accuracy indicator is enabled, a badge is attached to the location button and colored &lt;span %1&gt;red&lt;/span&gt; if the accuracy value is below bad, &lt;span %2&gt;yellow&lt;/span&gt; if it falls short of excellent, or &lt;span %3&gt;green&lt;/span&gt;.&lt;br&gt;&lt;br&gt;In addition, an accuracy restriction mode can be toggled on, which restricts vertex addition when locked to coordinate cursor to positions with an accuracy value above the bad threshold.</source>
         <translation>启用精度指示器后，定位按钮上会附加一个标识：如果精度值较差，将其标记为&lt;span %1&gt;红色&lt;/span&gt;；如果精度值低于优，将其标记为&lt;span %2&gt;黄色&lt;/span&gt;；反之将其标记为&lt;span %3&gt;绿色&lt;/span&gt;。&lt;br&gt;差-&gt;红；良-&gt;黄；优-&gt;绿&lt;br&gt;此外，可以打开精度限制模式。当锁定坐标光标的定位精度值低于较差阈值时，将限制添加顶点。</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="745"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="744"/>
         <source>Antenna height compensation</source>
         <translation>天线高度修正</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="767"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="766"/>
         <source>Antenna height [m]</source>
         <translation>天线高度 [米]</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="809"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="808"/>
         <source>Z values which are recorded from the positioning device will be corrected by this value. If a value of 1.6 is entered, this will result in a correction of -1.6 for each recorded value.</source>
         <translation>通过定位设备记录的Z值进行校正。如果输入的值为1.6，则每个记录值修正为-1.6。</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="823"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="822"/>
         <source>Skip altitude correction</source>
         <translation>跳过高程修正</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="846"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="845"/>
         <source>Use the altitude as reported by the positioning device. Skip any altitude correction that may be implied by the coordinate system transformation.</source>
         <translation>使用定位设备报告的高程，跳过坐标系转换可能隐含的任何高程修正。</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="860"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="859"/>
         <source>Vertical grid shift in use:</source>
         <translation>使用中的垂直网格移位：</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="869"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="868"/>
         <source>None</source>
         <translation>无</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="883"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="882"/>
         <source>Vertical grid shift is used to increase the altitude accuracy.</source>
         <translation>垂直网格移位用于提高高程精度。</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="912"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="911"/>
         <source>QField Settings</source>
         <translation>QField 设置</translation>
     </message>
@@ -2404,27 +2408,32 @@ Cancel to make a minimal device scan instead.</source>
         <source>Cloud User Info</source>
         <translation>云用户信息</translation>
     </message>
+    <message>
+        <location filename="../src/core/platforms/android/androidplatformutilities.cpp" line="83"/>
+        <source>Please wait while QField installation finalizes.</source>
+        <translation>QField正在完成安装，请稍候。</translation>
+    </message>
 </context>
 <context>
     <name>QgisMobileapp</name>
     <message>
-        <location filename="../src/core/qgismobileapp.cpp" line="651"/>
-        <location filename="../src/core/qgismobileapp.cpp" line="677"/>
+        <location filename="../src/core/qgismobileapp.cpp" line="661"/>
+        <location filename="../src/core/qgismobileapp.cpp" line="687"/>
         <source>Project file &quot;%1&quot; does not exist</source>
         <translation>工程文件 &quot;%1&quot; 不存在</translation>
     </message>
     <message>
-        <location filename="../src/core/qgismobileapp.cpp" line="668"/>
+        <location filename="../src/core/qgismobileapp.cpp" line="678"/>
         <source>No project file currently opened</source>
         <translation>当前未打开任何工程文件</translation>
     </message>
     <message>
-        <location filename="../src/core/qgismobileapp.cpp" line="721"/>
+        <location filename="../src/core/qgismobileapp.cpp" line="731"/>
         <source>Could not load font %1</source>
         <translation>无法加载字体 %1</translation>
     </message>
     <message>
-        <location filename="../src/core/qgismobileapp.cpp" line="723"/>
+        <location filename="../src/core/qgismobileapp.cpp" line="733"/>
         <source>Loading font %1</source>
         <translation>加载字体 %1</translation>
     </message>
@@ -2826,18 +2835,18 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <location filename="../src/qml/qgismobileapp.qml" line="661"/>
         <location filename="../src/qml/qgismobileapp.qml" line="679"/>
-        <location filename="../src/qml/qgismobileapp.qml" line="1749"/>
-        <location filename="../src/qml/qgismobileapp.qml" line="1825"/>
-        <location filename="../src/qml/qgismobileapp.qml" line="1979"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1758"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1834"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1989"/>
         <source>Lon</source>
         <translation>经度</translation>
     </message>
     <message>
         <location filename="../src/qml/qgismobileapp.qml" line="663"/>
         <location filename="../src/qml/qgismobileapp.qml" line="681"/>
-        <location filename="../src/qml/qgismobileapp.qml" line="1751"/>
-        <location filename="../src/qml/qgismobileapp.qml" line="1825"/>
-        <location filename="../src/qml/qgismobileapp.qml" line="1979"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1760"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1834"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1989"/>
         <source>Lat</source>
         <translation>纬度</translation>
     </message>
@@ -2858,321 +2867,329 @@ Cancel to make a minimal device scan instead.</source>
         <translation>面积</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="897"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="906"/>
         <source>Close measure tool</source>
         <translation>关闭测量工具</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="904"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="913"/>
         <source>Stop editing</source>
         <translation>停止编辑</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="911"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="920"/>
         <source>Cancel addition</source>
         <translation>取消添加</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="958"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="967"/>
         <source>Topological editing turned on</source>
         <translation>拓扑编辑已打开</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="958"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="967"/>
         <source>Topological editing turned off</source>
         <translation>拓扑编辑已关闭</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1001"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1010"/>
         <source>Freehand digitizing turned on</source>
         <translation>手绘数字化已打开</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1001"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1010"/>
         <source>Freehand digitizing turned off</source>
         <translation>手绘数字化已关闭</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1099"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1108"/>
         <source>Coordinate cursor now locked to position</source>
         <translation>坐标光标现已锁定定位</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1111"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1120"/>
         <source>Coordinate cursor unlocked</source>
         <translation>坐标光标已解锁</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1128"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1137"/>
         <source>Received position</source>
         <translation>获取定位信息</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1130"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1139"/>
         <source>Searching for position</source>
         <translation>搜索定位</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1177"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1186"/>
         <source>Canvas follows location</source>
         <translation>地图跟随位置</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1186"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1195"/>
         <source>Waiting for location</source>
         <translation>等待位置信息</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1243"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1252"/>
         <source>Positioning activated</source>
         <translation>定位功能已激活</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1248"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1257"/>
         <source>Positioning turned off</source>
         <translation>关闭定位功能</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1288"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1297"/>
         <source>Canvas stopped following location</source>
         <translation>地图停止跟随位置</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1432"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1441"/>
         <source>Failed to create feature!</source>
         <translation>创建要素失败！</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1436"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1445"/>
         <source>Failed to save feature!</source>
         <translation>保存要素失败！</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1496"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1505"/>
         <source>Main Menu</source>
         <translation>菜单</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1510"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1519"/>
         <source>Measure Tool</source>
         <translation>测量工具</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1525"/>
-        <location filename="../src/qml/qgismobileapp.qml" line="1641"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1534"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1650"/>
         <source>Print to PDF</source>
         <translation>输出为PDF</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1539"/>
-        <location filename="../src/qml/qgismobileapp.qml" line="1681"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1548"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1690"/>
         <source>Printing to PDF</source>
         <translation>输出为PDF文件</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1556"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1565"/>
         <source>Open Project</source>
         <translation>打开工程</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1568"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1577"/>
         <source>Settings</source>
         <translation>设置</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1582"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1591"/>
         <source>Message Log</source>
         <translation>信息日志</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1596"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1605"/>
         <source>About QField</source>
         <translation>关于QField</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1657"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1666"/>
         <source>Select template below</source>
         <translation>请选择以下模板</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1726"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1735"/>
         <source>Activating positioning service</source>
         <translation>激活定位设备</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1731"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1740"/>
         <source>QField has no permissions to use positioning.</source>
         <translation>QField没有使用定位的权限。</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1744"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1753"/>
         <source>Map Canvas Options</source>
         <translation>地图画布选项</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1788"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1797"/>
         <source>Add Bookmark at Coordinates</source>
         <translation>在坐标处添加书签</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1793"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1802"/>
         <source>Untitled bookmark</source>
         <translation>无标题书签</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1807"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1816"/>
         <source>Set Coordinates as Destination</source>
         <translation>将坐标设为目标</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1818"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1827"/>
         <source>Copy Coordinates</source>
         <translation>复制坐标</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1827"/>
-        <location filename="../src/qml/qgismobileapp.qml" line="1981"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1836"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1991"/>
         <source>X</source>
         <translation>X坐标</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1827"/>
-        <location filename="../src/qml/qgismobileapp.qml" line="1981"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1836"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1991"/>
         <source>Y</source>
         <translation>Y坐标</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1831"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1841"/>
         <source>Coordinates copied to clipboard</source>
         <translation>坐标已复制到剪贴板</translation>
+    </message>
+    <message>
+        <location filename="../src/qml/qgismobileapp.qml" line="2444"/>
+        <source>Signed out</source>
+        <translation>已注销</translation>
+    </message>
+    <message>
+        <location filename="../src/qml/qgismobileapp.qml" line="2448"/>
+        <source>Signed in</source>
+        <translation>已登录</translation>
     </message>
     <message>
         <source>Set As Destination</source>
         <translation type="vanished">设为目标</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1838"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1848"/>
         <source>Navigation Options</source>
         <translation>导航选项</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1854"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1864"/>
         <source>Clear Destination</source>
         <translation>清除目标</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1866"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1876"/>
         <source>Positioning Options</source>
         <translation>定位选项</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1892"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1902"/>
         <source>Enable Positioning</source>
         <translation>启用定位</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1906"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1916"/>
         <source>Show Position Information</source>
         <translation>显示定位信息</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1920"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1930"/>
         <source>Positioning Settings</source>
         <translation>定位设置</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1933"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1943"/>
         <source>Center to Current Location</source>
         <translation>居中当前位置</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1943"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1953"/>
         <source>Add Bookmark at Current Location</source>
         <translation>在当前位置添加书签</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1949"/>
-        <location filename="../src/qml/qgismobileapp.qml" line="1972"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1959"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1982"/>
         <source>Current location unknown</source>
         <translation>当前位置未知</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1953"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1963"/>
         <source>My location</source>
         <translation>我的位置</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1966"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1976"/>
         <source>Copy Current Location</source>
         <translation>复制当前位置</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1983"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1993"/>
         <source>Accuracy</source>
         <translation>精度</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1986"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1996"/>
         <source>N/A</source>
         <translation>不可用</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1989"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2000"/>
         <source>Current location copied to clipboard</source>
         <translation>当前位置已复制到剪贴板</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2027"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2038"/>
         <source>Current layer switched to the one holding the selected geometry.</source>
         <translation>当前图层切换至包含被选中几何对象的图层</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2036"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2047"/>
         <source>Editing of multi geometry layer is not supported yet.</source>
         <translation>尚不支持编辑几何图形集图层。</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2149"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2160"/>
         <source>Loading %1</source>
         <translation>正在加载 %1</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2433"/>
         <source>Logged out</source>
-        <translation>已注销</translation>
+        <translation type="vanished">已注销</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2435"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2446"/>
         <source>Connecting...</source>
         <translation>正在连接…</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2437"/>
         <source>Logged in</source>
-        <translation>已登录</translation>
+        <translation type="vanished">已登录</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2452"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2463"/>
         <source>Project %1 failed to download</source>
         <translation>工程 %1 下载失败</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2453"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2464"/>
         <source>Project %1 successfully downloaded, it&apos;s now available to open</source>
         <translation>工程 %1 已成功下载，现在可以打开</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2458"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2469"/>
         <source>Changes failed to reach QFieldCloud: %1</source>
         <translation>修改无法上传至QField云端：%1</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2462"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2473"/>
         <source>Changes successfully pushed to QFieldCloud</source>
         <translation>修改已成功上传至QField云端</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2687"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2698"/>
         <source>Press back again to close project and app</source>
         <translation>再次点击返回键将关闭工程和应用</translation>
     </message>
