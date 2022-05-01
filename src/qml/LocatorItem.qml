@@ -210,7 +210,7 @@ Item {
 
         anchors.margins: 10
         height: isFilterName || isGroup ? 30 : 40
-        width: parent.width
+        width: resultsList.width
         color: isFilterName ? Theme.mainColor : isGroup ? Theme.lightGray : "white"
         opacity: 0.95
 
