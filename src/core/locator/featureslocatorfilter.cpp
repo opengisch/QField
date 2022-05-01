@@ -117,7 +117,7 @@ void FeaturesLocatorFilter::fetchResults( const QString &string, const QgsLocato
       result.actions << QgsLocatorResult::ResultAction( OpenForm, tr( "Open form" ), QStringLiteral( "ic_baseline-list_alt-24px" ) );
       if ( preparedLayer->layerGeometryType != QgsWkbTypes::NullGeometry && preparedLayer->layerGeometryType != QgsWkbTypes::UnknownGeometry )
       {
-        result.actions << QgsLocatorResult::ResultAction( Navigation, tr( "Set feature as navigation" ), QStringLiteral( "ic_navigation_flag_purple_24dp" ) );
+        result.actions << QgsLocatorResult::ResultAction( Navigation, tr( "Set feature as destination" ), QStringLiteral( "ic_navigation_flag_purple_24dp" ) );
       }
 
       emit resultFetched( result );
