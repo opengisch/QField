@@ -221,7 +221,7 @@ jobs:
 
 
       - name: 📑 Upload Dep Build Logs
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         if: failure()
         with:
           name: build-logs-${{ matrix.triplet }}
@@ -278,7 +278,7 @@ jobs:
 #          appstore-connect-password: ${{ secrets.IOS_APPSTORE_PRIVATE_KEY }}
 
       - name: 📑 Upload Package Logs
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         if: failure()
         with:
           name: package-logs-${{ matrix.triplet }}
@@ -286,13 +286,13 @@ jobs:
 
       - name: 📦 Upload package
         if: ${{ env.ARTIFACT_NAME != null }}
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         with:
           name: "QField-dev-${{ matrix.triplet }}-${{ steps.vars.outputs.BUILD_TYPE }}"
           path: ${{ env.ARTIFACT_PATHNAME }}
 
       - name: 📊 Upload test report
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         with:
           name: "test-report-${{ matrix.triplet }}-${{ steps.vars.outputs.BUILD_TYPE }}"
           path: "${{ env.CMAKE_BUILD_DIR }}/report"

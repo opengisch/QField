@@ -142,7 +142,7 @@ jobs:
                 -D SENTRY_IMPORT_PREFIX=/tmp/sentry-android-ndk/jni
 
       - name: 📑 Upload Dep Build Logs
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         if: failure()
         with:
           name: build-logs-${{ matrix.triplet }}
@@ -172,7 +172,7 @@ jobs:
           cmake --build  "${{ env.CMAKE_BUILD_DIR }}" --target bundle --config Release
 
       - name: 📦 Upload artifacts
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         with:
           name: android-${{ matrix.triplet }}
           path: |

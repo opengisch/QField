@@ -124,13 +124,13 @@ jobs:
         cmake --build build --target qfieldIpa --config "${{ env.BUILD_TYPE }}"
 
     - name: 📦 Upload qfield App
-      uses: actions/upload-artifact@v2
+      uses: actions/upload-artifact@v3
       with:
         name: qfield-${{ env.PLATFORM }}-${{ env.DEPLOYMENT_TARGET }}.app
         path: build/output/bin/${{ env.BUILD_TYPE }}/qfield.app
 
     - name: 📦 Upload qfield Ipa
-      uses: actions/upload-artifact@v2
+      uses: actions/upload-artifact@v3
       with:
         name: qfield-i${{ env.PLATFORM }}-${{ env.DEPLOYMENT_TARGET }}.ipa
         path: build/src/app/qfieldIpa/qfield.ipa
