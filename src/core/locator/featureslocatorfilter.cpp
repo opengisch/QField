@@ -81,6 +81,7 @@ QStringList FeaturesLocatorFilter::prepare( const QString &string, const QgsLoca
     preparedLayer->featureSource.reset( new QgsVectorLayerFeatureSource( layer ) );
     preparedLayer->request = req;
     preparedLayer->layerIcon = QgsMapLayerModel::iconForLayer( layer );
+    preparedLayer->layerGeometryType = layer->geometryType();
 
     mPreparedLayers.append( preparedLayer );
   }
@@ -113,8 +114,11 @@ void FeaturesLocatorFilter::fetchResults( const QString &string, const QgsLocato
       result.userData = QVariantList() << f.id() << preparedLayer->layerId;
       result.icon = preparedLayer->layerIcon;
       result.score = static_cast<double>( string.length() ) / result.displayString.size();
-      result.actions << QgsLocatorResult::ResultAction( OpenForm, tr( "Open form" ), QStringLiteral( "ic_baseline-list_alt-24px" ) )
-                     << QgsLocatorResult::ResultAction( Navigation, tr( "Set feature as navigation" ), QStringLiteral( "ic_navigation_flag_purple_24dp" ) );
+      result.actions << QgsLocatorResult::ResultAction( OpenForm, tr( "Open form" ), QStringLiteral( "ic_baseline-list_alt-24px" ) );
+      if ( preparedLayer->layerGeometryType != QgsWkbTypes::NullGeometry && preparedLayer->layerGeometryType != QgsWkbTypes::UnknownGeometry )
+      {
+        result.actions << QgsLocatorResult::ResultAction( Navigation, tr( "Set feature as navigation" ), QStringLiteral( "ic_navigation_flag_purple_24dp" ) );
+      }
 
       emit resultFetched( result );
 
@@ -160,7 +164,14 @@ void FeaturesLocatorFilter::triggerResultFromAction( const QgsLocatorResult &res
 
     QgsFeatureIterator it = layer->getFeatures( featureRequest.setNoAttributes() );
     it.nextFeature( feature );
-    mLocatorBridge->navigation()->setDestinationFeature( feature, layer );
+    if ( feature.hasGeometry() )
+    {
+      mLocatorBridge->navigation()->setDestinationFeature( feature, layer );
+    }
+    else
+    {
+      mLocatorBridge->emitMessage( tr( "Feature has no geometry" ) );
+    }
   }
   else
   {
