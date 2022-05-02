@@ -31,6 +31,7 @@ class IosPlatformUtilities : public PlatformUtilities
     QString systemGenericDataLocation() const override;
     bool checkPositioningPermissions() const override;
     bool checkCameraPermissions() const override;
+    void setScreenLockPermission( const bool allowLock ) override;
     virtual PictureSource *getCameraPicture( QQuickItem *parent, const QString &prefix, const QString &pictureFilePath, const QString &suffix ) override;
     virtual PictureSource *getGalleryPicture( QQuickItem *parent, const QString &prefix, const QString &pictureFilePath ) override;
     virtual ProjectSource *openProject( QObject *parent = nullptr ) override;

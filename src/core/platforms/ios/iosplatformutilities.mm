@@ -57,6 +57,14 @@ bool IosPlatformUtilities::checkCameraPermissions() const {
   return true;
 }
 
+void IosPlatformUtilities::setScreenLockPermission(const bool allowLock) {
+  if (allowLock) {
+    [UIApplication sharedApplication].idleTimerDisabled = NO;
+  } else {
+    [UIApplication sharedApplication].idleTimerDisabled = YES;
+  }
+}
+
 PictureSource *IosPlatformUtilities::getCameraPicture(
     QQuickItem *parent, const QString &prefix, const QString &pictureFilePath,
     const QString &suffix) {
