@@ -62,8 +62,8 @@ EditorWidgetBase {
     onClicked: {
         if ( relationReference.currentKeyValue !== undefined && relationReference.currentKeyValue !== '' ) {
           relationReference.embeddedFeatureForm.state = isEnabled ? 'Edit' : 'ReadOnly'
-          relationReference.embeddedFeatureForm.currentLayer = featureListModel.currentLayer
-          relationReference.embeddedFeatureForm.feature = featureListModel.getFeatureFromKeyValue( relationReference.currentKeyValue )
+          relationReference.embeddedFeatureForm.currentLayer = listModel.currentLayer
+          relationReference.embeddedFeatureForm.feature = listModel.getFeatureFromKeyValue( relationReference.currentKeyValue )
           relationReference.embeddedFeatureForm.open()
         }
     }
