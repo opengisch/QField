@@ -1,5 +1,6 @@
 [![Read the documentation](https://img.shields.io/badge/Read-the%20docs-green.svg)](https://docs.qfield.org/)
-[![Join the chat at https://gitter.im/opengisch/QField](https://badges.gitter.im/opengisch/QField.svg)](https://gitter.im/opengisch/QField?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+[![GitHub Discussions](https://img.shields.io/github/discussions/opengisch/qfield)](https://github.com/opengisch/QField/discussions)
+[![](https://img.shields.io/static/v1?label=Sponsor&message=%E2%9D%A4&color=%23fe8e86)](https://github.com/sponsors/opengisch)
 [![Release](https://img.shields.io/github/release/opengisch/QField.svg)](https://github.com/opengisch/QField/releases)
 
 # QField for QGIS
