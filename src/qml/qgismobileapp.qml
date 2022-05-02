@@ -1794,8 +1794,10 @@ ApplicationWindow {
 
     MenuItem {
       id: addBookmarkItem
-      text: qsTr( "Add Bookmark at Coordinates" )
+      text: qsTr( "Add Bookmark" )
+      icon.source: Theme.getThemeIcon( "ic_bookmark_black_24dp" )
       height: 48
+      leftPadding: 10
       font: Theme.defaultFont
 
       onTriggered: {
@@ -1813,8 +1815,10 @@ ApplicationWindow {
 
     MenuItem {
       id: setDestinationItem
-      text: qsTr( "Set Coordinates as Destination" )
+      text: qsTr( "Set as Destination" )
+      icon.source: Theme.getThemeIcon( "ic_navigation_flag_purple_24dp" )
       height: 48
+      leftPadding: 10
       font: Theme.defaultFont
 
       onTriggered: {
@@ -1826,6 +1830,7 @@ ApplicationWindow {
       id: copyCoordinatesItem
       text: qsTr( "Copy Coordinates" )
       height: 48
+      leftPadding: 50
       font: Theme.defaultFont
 
       onTriggered: {
@@ -1901,6 +1906,7 @@ ApplicationWindow {
       id: positioningItem
       text: qsTr( "Enable Positioning" )
       height: 48
+      leftPadding: 15
       font: Theme.defaultFont
 
       checkable: true
@@ -1915,6 +1921,7 @@ ApplicationWindow {
     MenuItem {
       text: qsTr( "Show Position Information" )
       height: 48
+      leftPadding: 15
       font: Theme.defaultFont
 
       checkable: true
@@ -1929,6 +1936,7 @@ ApplicationWindow {
     MenuItem {
       text: qsTr( "Positioning Settings" )
       height: 48
+      leftPadding: 50
       font: Theme.defaultFont
 
       onTriggered: {
@@ -1940,8 +1948,9 @@ ApplicationWindow {
     MenuSeparator { width: parent.width }
 
     MenuItem {
-      text: qsTr( "Center to Current Location" )
+      text: qsTr( "Center to Location" )
       height: 48
+      leftPadding: 50
       font: Theme.defaultFont
 
       onTriggered: {
@@ -1950,8 +1959,10 @@ ApplicationWindow {
     }
 
     MenuItem {
-      text: qsTr( "Add Bookmark at Current Location" )
+      text: qsTr( "Add Bookmark at Location" )
+      icon.source: Theme.getThemeIcon( "ic_bookmark_black_24dp" )
       height: 48
+      leftPadding: 10
       font: Theme.defaultFont
 
       onTriggered: {
@@ -1973,8 +1984,9 @@ ApplicationWindow {
     }
 
     MenuItem {
-      text: qsTr( "Copy Current Location" )
+      text: qsTr( "Copy Location Coordinates" )
       height: 48
+      leftPadding: 50
       font: Theme.defaultFont
 
       onTriggered: {
