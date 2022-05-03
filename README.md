@@ -20,7 +20,7 @@ Check the [documentation](https://docs.qfield.org/)
 
 [![Download the latest windows beta version](https://qgis.org/en/_static/images/app_download_windows.png)](https://nightly.link/opengisch/QField/workflows/vcpkg/master/QField-dev-x64-windows-Release.zip)
 
-### iOS (Alpha)
+### iOS (Beta)
 
 An iOS version is in the making. You can [sign up for beta testing in testflight](https://testflight.apple.com/join/TbG1kJVI) to get access earlier than everyone else.
 
