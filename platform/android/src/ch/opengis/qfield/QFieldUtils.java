@@ -35,6 +35,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
+import java.lang.SecurityException;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
 import java.util.zip.ZipOutputStream;
@@ -141,15 +142,20 @@ public class QFieldUtils {
             ZipInputStream zin = new ZipInputStream(in);
             ZipEntry entry;
             while ((entry = zin.getNextEntry()) != null) {
+                File f = new File(folder + entry.getName());
+                if (!f.getCanonicalPath().startsWith(folder)) {
+                    // ZIP path traversal protection
+                    throw new SecurityException(
+                        "ZIP path traversal attack detected, aborting.");
+                }
                 if (entry.isDirectory()) {
-                    new File(folder + entry.getName()).mkdirs();
+                    f.mkdirs();
                     continue;
                 } else {
                     // some ZIP files don't include directory items, we
                     // therefore have to make sure parent directories are always
                     // created
-                    new File(new File(folder + entry.getName()).getParent())
-                        .mkdirs();
+                    new File(f.getParent()).mkdirs();
                 }
                 OutputStream out =
                     new FileOutputStream(new File(folder + entry.getName()));
