@@ -82,9 +82,11 @@ jobs:
         api-key-id: ${{ secrets.IOS_APPSTORE_KEY_ID }}
         api-private-key: ${{ secrets.IOS_APPSTORE_PRIVATE_KEY }}
 
-    - name: Prepare env
-      run: |
-        ./scripts/ci/env_gh.sh
+    - name: 🌾 Prepare vars
+        id: vars
+        shell: bash
+        run: |
+          ./scripts/ci/env_gh.sh
 
     - name: 🔧 Configure
       run: |
@@ -152,5 +154,5 @@ jobs:
       with:
         upload_url: ${{ github.event.release.upload_url }}
         asset_path: build/src/app/qfieldIpa/qfield.ipa
-        asset_name: qfield-i${{ env.PLATFORM }}-${{ env.DEPLOYMENT_TARGET }}.ipa
+        asset_name: ${{ steps.vars.outputs.CI_PACKAGE_FILE_BASENAME }}-i${{ env.PLATFORM }}-${{ env.DEPLOYMENT_TARGET }}.ipa
         asset_content_type: application/zip
