@@ -83,10 +83,10 @@ jobs:
         api-private-key: ${{ secrets.IOS_APPSTORE_PRIVATE_KEY }}
 
     - name: 🌾 Prepare vars
-        id: vars
-        shell: bash
-        run: |
-          ./scripts/ci/env_gh.sh
+      id: vars
+      shell: bash
+      run: |
+        ./scripts/ci/env_gh.sh
 
     - name: 🔧 Configure
       run: |
