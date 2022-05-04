@@ -91,6 +91,9 @@ if (ANDROID)
     set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -fPIC -fstack-protector-strong")
     set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fPIC -fstack-protector-strong")
   endif()
+
+  link_libraries("-ljnigraphics")
+
   # This is necessary in order for CMake to be able to detect libraries in OSGeo4A
   list(APPEND CMAKE_FIND_ROOT_PATH /)
   SET(VCPKG_BASE_DIR "${_VCPKG_INSTALLED_DIR}/${VCPKG_TARGET_TRIPLET}")
@@ -167,7 +170,7 @@ if(MSVC)
 
   # Generate pdb files
   add_compile_options("$<$<NOT:$<CONFIG:Debug>>:/Zi>")
-  add_link_options("$<$<NOT:$<CONFIG:Debug>>:/DEBUG>")
+  add__options("$<$<NOT:$<CONFIG:Debug>>:/DEBUG>")
   add_link_options("$<$<NOT:$<CONFIG:Debug>>:/OPT:REF>")
   add_link_options("$<$<NOT:$<CONFIG:Debug>>:/OPT:ICF>")
 endif()

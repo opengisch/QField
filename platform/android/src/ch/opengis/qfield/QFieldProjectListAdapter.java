@@ -29,8 +29,11 @@ public class QFieldProjectListAdapter
     private final Context context;
     private final ArrayList<QFieldProjectListItem> values;
 
+    public static native Bitmap createImageBitmap(String path);
+
     private Map<ImageView, String> imageViews =
         Collections.synchronizedMap(new WeakHashMap<ImageView, String>());
+
     ExecutorService executorService = Executors.newFixedThreadPool(2);
 
     static class ViewHolder {
@@ -92,7 +95,8 @@ public class QFieldProjectListAdapter
                         fileName.substring(fileName.lastIndexOf("."))
                             .toLowerCase();
                     if (extension.equals(".png") || extension.equals(".jpg") ||
-                        extension.equals(".jpeg") ||
+                        extension.equals(".jpeg") || extension.equals(".tif") ||
+                        extension.equals(".tiff") ||
                         extension.equals(".webp") || extension.equals(".pdf")) {
                         String imagePath = item.getFile().getAbsolutePath();
                         imageViews.put(h.image, imagePath);
@@ -154,7 +158,8 @@ public class QFieldProjectListAdapter
                     page.close();
                     renderer.close();
                 } else {
-                    bmp = BitmapFactory.decodeFile(imagePath);
+                    bmp = (Bitmap)QFieldProjectListAdapter.createImageBitmap(
+                        imagePath);
                 }
             } catch (Exception e) {
                 e.printStackTrace();
