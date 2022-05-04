@@ -170,7 +170,7 @@ if(MSVC)
 
   # Generate pdb files
   add_compile_options("$<$<NOT:$<CONFIG:Debug>>:/Zi>")
-  add__options("$<$<NOT:$<CONFIG:Debug>>:/DEBUG>")
+  add_link_options("$<$<NOT:$<CONFIG:Debug>>:/DEBUG>")
   add_link_options("$<$<NOT:$<CONFIG:Debug>>:/OPT:REF>")
   add_link_options("$<$<NOT:$<CONFIG:Debug>>:/OPT:ICF>")
 endif()
