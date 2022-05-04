@@ -441,7 +441,6 @@ JNIEXPORT jobject JNICALL JNI_FUNCTION_NAME( APP_PACKAGE_JNI_NAME, QFieldProject
     image = image.convertToFormat( QImage::Format_RGBA8888 );
   }
 
-  qDebug() << "1111";
   QAndroidJniObject config = QAndroidJniObject::getStaticObjectField( "android/graphics/Bitmap$Config",
                                                                       "ARGB_8888",
                                                                       "Landroid/graphics/Bitmap$Config;" );
@@ -478,12 +477,9 @@ JNIEXPORT jobject JNICALL JNI_FUNCTION_NAME( APP_PACKAGE_JNI_NAME, QFieldProject
   if ( AndroidBitmap_unlockPixels( env, bitmap.object() ) != ANDROID_BITMAP_RESULT_SUCCESS )
     return QAndroidJniObject().object();
 
-  qDebug() << "22222";
   return env->NewLocalRef( bitmap.object() );
 }
 
 #ifdef __cplusplus
 }
 #endif
-
-#include "androidplatformutilities.moc"
