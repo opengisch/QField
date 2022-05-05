@@ -91,6 +91,9 @@ if (ANDROID)
     set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -fPIC -fstack-protector-strong")
     set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fPIC -fstack-protector-strong")
   endif()
+
+  link_libraries("-ljnigraphics")
+
   # This is necessary in order for CMake to be able to detect libraries in OSGeo4A
   list(APPEND CMAKE_FIND_ROOT_PATH /)
   SET(VCPKG_BASE_DIR "${_VCPKG_INSTALLED_DIR}/${VCPKG_TARGET_TRIPLET}")
