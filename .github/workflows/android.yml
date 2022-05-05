@@ -54,7 +54,7 @@ jobs:
 
       - name: 📫 Cache vcpkg
         id: cache-vcpkg-tool
-        uses: pat-s/always-upload-cache@v2.1.5
+        uses: pat-s/always-upload-cache@v3.0.1
         with:
           path: |
             ${{ github.workspace }}/vcpkg/base/vcpkg
