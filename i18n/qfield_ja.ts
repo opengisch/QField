@@ -662,22 +662,27 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
 <context>
     <name>FeaturesLocatorFilter</name>
     <message>
-        <location filename="../src/core/locator/featureslocatorfilter.cpp" line="116"/>
+        <location filename="../src/core/locator/featureslocatorfilter.cpp" line="117"/>
         <source>Open form</source>
         <translation>フォームを開く</translation>
     </message>
     <message>
-        <location filename="../src/core/locator/featureslocatorfilter.cpp" line="117"/>
-        <source>Set feature as navigation</source>
-        <translation>地物をナビゲーションに設定</translation>
+        <location filename="../src/core/locator/featureslocatorfilter.cpp" line="120"/>
+        <source>Set feature as destination</source>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/core/locator/featureslocatorfilter.cpp" line="172"/>
+        <source>Set feature as navigation</source>
+        <translation type="vanished">地物をナビゲーションに設定</translation>
+    </message>
+    <message>
+        <location filename="../src/core/locator/featureslocatorfilter.cpp" line="173"/>
+        <location filename="../src/core/locator/featureslocatorfilter.cpp" line="183"/>
         <source>Feature has no geometry</source>
         <translation>地物にジオメトリがありません</translation>
     </message>
     <message>
-        <location filename="../src/core/locator/featureslocatorfilter.h" line="62"/>
+        <location filename="../src/core/locator/featureslocatorfilter.h" line="63"/>
         <source>Features in all layers</source>
         <translation>全てのレイヤーの地物</translation>
     </message>
@@ -2409,7 +2414,7 @@ Cancel to make a minimal device scan instead.</source>
         <translation>クラウドユーザ情報</translation>
     </message>
     <message>
-        <location filename="../src/core/platforms/android/androidplatformutilities.cpp" line="83"/>
+        <location filename="../src/core/platforms/android/androidplatformutilities.cpp" line="86"/>
         <source>Please wait while QField installation finalizes.</source>
         <translation type="unfinished"/>
     </message>
@@ -2836,8 +2841,8 @@ Cancel to make a minimal device scan instead.</source>
         <location filename="../src/qml/qgismobileapp.qml" line="661"/>
         <location filename="../src/qml/qgismobileapp.qml" line="679"/>
         <location filename="../src/qml/qgismobileapp.qml" line="1758"/>
-        <location filename="../src/qml/qgismobileapp.qml" line="1834"/>
-        <location filename="../src/qml/qgismobileapp.qml" line="1989"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1839"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2001"/>
         <source>Lon</source>
         <translation>経度</translation>
     </message>
@@ -2845,8 +2850,8 @@ Cancel to make a minimal device scan instead.</source>
         <location filename="../src/qml/qgismobileapp.qml" line="663"/>
         <location filename="../src/qml/qgismobileapp.qml" line="681"/>
         <location filename="../src/qml/qgismobileapp.qml" line="1760"/>
-        <location filename="../src/qml/qgismobileapp.qml" line="1834"/>
-        <location filename="../src/qml/qgismobileapp.qml" line="1989"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1839"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2001"/>
         <source>Lat</source>
         <translation>緯度</translation>
     </message>
@@ -3020,48 +3025,71 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <location filename="../src/qml/qgismobileapp.qml" line="1797"/>
-        <source>Add Bookmark at Coordinates</source>
-        <translation>座標でブックマークを追加</translation>
+        <source>Add Bookmark</source>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1802"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1818"/>
+        <source>Set as Destination</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Add Bookmark at Coordinates</source>
+        <translation type="vanished">座標でブックマークを追加</translation>
+    </message>
+    <message>
+        <location filename="../src/qml/qgismobileapp.qml" line="1804"/>
         <source>Untitled bookmark</source>
         <translation>無題のブックマーク</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1816"/>
         <source>Set Coordinates as Destination</source>
-        <translation>目的地として座標を設定</translation>
+        <translation type="vanished">目的地として座標を設定</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1827"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1831"/>
         <source>Copy Coordinates</source>
         <translation>座標をコピー</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1836"/>
-        <location filename="../src/qml/qgismobileapp.qml" line="1991"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1841"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2003"/>
         <source>X</source>
         <translation>X</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1836"/>
-        <location filename="../src/qml/qgismobileapp.qml" line="1991"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1841"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2003"/>
         <source>Y</source>
         <translation>Y</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1841"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1846"/>
         <source>Coordinates copied to clipboard</source>
         <translation>座標をクリップボードにコピー</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2444"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1951"/>
+        <source>Center to Location</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/qml/qgismobileapp.qml" line="1962"/>
+        <source>Add Bookmark at Location</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/qml/qgismobileapp.qml" line="1987"/>
+        <source>Copy Location Coordinates</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/qml/qgismobileapp.qml" line="2456"/>
         <source>Signed out</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2448"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2460"/>
         <source>Signed in</source>
         <translation type="unfinished"/>
     </message>
@@ -3070,88 +3098,85 @@ Cancel to make a minimal device scan instead.</source>
         <translation type="vanished">目的地として設定</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1848"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1853"/>
         <source>Navigation Options</source>
         <translation>ナビゲーションオプション</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1864"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1869"/>
         <source>Clear Destination</source>
         <translation>目的地をクリア</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1876"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1881"/>
         <source>Positioning Options</source>
         <translation>位置情報表示オプション</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1902"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1907"/>
         <source>Enable Positioning</source>
         <translation>位置情報表示を有効にする</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1916"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1922"/>
         <source>Show Position Information</source>
         <translation>座標情報を表示する</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1930"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1937"/>
         <source>Positioning Settings</source>
         <translation>現在位置表示設定</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1943"/>
         <source>Center to Current Location</source>
-        <translation>現在位置を中央に表示</translation>
+        <translation type="vanished">現在位置を中央に表示</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1953"/>
         <source>Add Bookmark at Current Location</source>
-        <translation>現在位置でブックマークを追加</translation>
+        <translation type="vanished">現在位置でブックマークを追加</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1959"/>
-        <location filename="../src/qml/qgismobileapp.qml" line="1982"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1970"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1994"/>
         <source>Current location unknown</source>
         <translation>不明な現在位置</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1963"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1974"/>
         <source>My location</source>
         <translation>マイ・ロケーション</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1976"/>
         <source>Copy Current Location</source>
-        <translation>現在位置をコピー</translation>
+        <translation type="vanished">現在位置をコピー</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1993"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2005"/>
         <source>Accuracy</source>
         <translation>精度</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1996"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2008"/>
         <source>N/A</source>
         <translation>N/A</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2000"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2012"/>
         <source>Current location copied to clipboard</source>
         <translation>現在位置をクリップボードにコピー</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2038"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2050"/>
         <source>Current layer switched to the one holding the selected geometry.</source>
         <translation>選択されたジオメトリが属するレイヤに切り替わりました</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2047"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2059"/>
         <source>Editing of multi geometry layer is not supported yet.</source>
         <translation>マルチジオメトリレイヤーの編集は現在サポートされていません。</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2160"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2172"/>
         <source>Loading %1</source>
         <translation>%1 を読み込んでいます</translation>
     </message>
@@ -3160,7 +3185,7 @@ Cancel to make a minimal device scan instead.</source>
         <translation type="vanished">ログアウトしました</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2446"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2458"/>
         <source>Connecting...</source>
         <translation>接続しています...</translation>
     </message>
@@ -3169,27 +3194,27 @@ Cancel to make a minimal device scan instead.</source>
         <translation type="vanished">ログインしました</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2463"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2475"/>
         <source>Project %1 failed to download</source>
         <translation>プロジェクト %1 のダウンロードに失敗しました</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2464"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2476"/>
         <source>Project %1 successfully downloaded, it&apos;s now available to open</source>
         <translation>プロジェクト %1 が正常にダウンロードされて開けるようになりました</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2469"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2481"/>
         <source>Changes failed to reach QFieldCloud: %1</source>
         <translation>変更内容がQFieldCloudにプッシュされませんでした: %1</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2473"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2485"/>
         <source>Changes successfully pushed to QFieldCloud</source>
         <translation>変更内容がQFieldCloudに正常にプッシュされました</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2698"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2710"/>
         <source>Press back again to close project and app</source>
         <translation>もう一度戻るボタンを押してプロジェクトとアプリを閉じてください。</translation>
     </message>

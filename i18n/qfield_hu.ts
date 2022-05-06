@@ -371,27 +371,27 @@
     <message>
         <location filename="../src/core/digitizinglogger.cpp" line="186"/>
         <source>Default value expression for the digitizing logger&apos;s %2 field has a parser error: %3</source>
-        <translation type="unfinished"/>
+        <translation>A %2-mező tartalma nem digitalizálható.</translation>
     </message>
     <message>
         <location filename="../src/core/digitizinglogger.cpp" line="190"/>
         <source>Default value expression for the digitizing logger&apos;s %2 field has an evaluation error: %3</source>
-        <translation type="unfinished"/>
+        <translation>A %2-mező tartalma nem kiértékelhető.</translation>
     </message>
     <message>
         <location filename="../src/core/digitizinglogger.cpp" line="221"/>
         <source>Digitizing logs layer feature addition failed</source>
-        <translation type="unfinished"/>
+        <translation>Hiba a digitalizáló-naplózásnál a réteg hozzáadása közben.</translation>
     </message>
     <message>
         <location filename="../src/core/digitizinglogger.cpp" line="227"/>
         <source>Digitizing logs layer change commits failed</source>
-        <translation type="unfinished"/>
+        <translation>Hiba a digitalizáló-naplózásnál a réteg változtatása közben.</translation>
     </message>
     <message>
         <location filename="../src/core/digitizinglogger.cpp" line="236"/>
         <source>Digitizing logs layer editing failed</source>
-        <translation type="unfinished"/>
+        <translation>Hiba a digitalizâlô-naplôzâs rêteg-szolgâltatâs (layer-feature) szerkesztêse közben.</translation>
     </message>
 </context>
 <context>
@@ -485,17 +485,17 @@
     <message>
         <location filename="../src/qml/FeatureForm.qml" line="735"/>
         <source>Cancel editing</source>
-        <translation type="unfinished"/>
+        <translation>Szerkesztés megszakítása</translation>
     </message>
     <message>
         <location filename="../src/qml/FeatureForm.qml" line="740"/>
         <source>You are about to dismiss the new feature, proceed?</source>
-        <translation type="unfinished"/>
+        <translation>Valóban elveti az új funkciót?</translation>
     </message>
     <message>
         <location filename="../src/qml/FeatureForm.qml" line="741"/>
         <source>You are about to leave editing state, any changes will be lost. Proceed?</source>
-        <translation type="unfinished"/>
+        <translation>Ha kilép a szerkesztésből, a módosítások elvesznek. Folytatja?</translation>
     </message>
 </context>
 <context>
@@ -636,13 +636,13 @@ Az elem geometriákat összevonjuk a &apos;%1&apos; elembe, mely megőrzi az att
     <message>
         <location filename="../src/core/featuremodel.cpp" line="649"/>
         <source>Layer &quot;%1&quot; has been commited but the newly created feature %2 could not be fetched</source>
-        <translation type="unfinished"/>
+        <translation>A &quot;%1&quot; réteg véglegesítve, de az újonnan létrehozott funkció %2 nem tölthető le.</translation>
     </message>
     <message>
         <location filename="../src/core/featuremodel.cpp" line="656"/>
         <source>Layer &quot;%1&quot; cannot be commited with the newly created feature %2. Reason:
 %3</source>
-        <translation type="unfinished"/>
+        <translation>A &quot;%1&quot; réteg nem véglegesíthető az újonnan létrehozott %2 funkcióval. Magyarázat:%3</translation>
     </message>
     <message>
         <location filename="../src/core/featuremodel.cpp" line="662"/>
@@ -663,22 +663,27 @@ Az elem geometriákat összevonjuk a &apos;%1&apos; elembe, mely megőrzi az att
 <context>
     <name>FeaturesLocatorFilter</name>
     <message>
-        <location filename="../src/core/locator/featureslocatorfilter.cpp" line="116"/>
+        <location filename="../src/core/locator/featureslocatorfilter.cpp" line="117"/>
         <source>Open form</source>
         <translation>Úrlap nyitás</translation>
     </message>
     <message>
-        <location filename="../src/core/locator/featureslocatorfilter.cpp" line="117"/>
-        <source>Set feature as navigation</source>
-        <translation type="unfinished"/>
+        <location filename="../src/core/locator/featureslocatorfilter.cpp" line="120"/>
+        <source>Set feature as destination</source>
+        <translation>Funkció beállítása célként.</translation>
     </message>
     <message>
-        <location filename="../src/core/locator/featureslocatorfilter.cpp" line="172"/>
+        <source>Set feature as navigation</source>
+        <translation type="vanished">Funkció beállítása navigációként.</translation>
+    </message>
+    <message>
+        <location filename="../src/core/locator/featureslocatorfilter.cpp" line="173"/>
+        <location filename="../src/core/locator/featureslocatorfilter.cpp" line="183"/>
         <source>Feature has no geometry</source>
         <translation>Az elemhez nem tartozik geometria</translation>
     </message>
     <message>
-        <location filename="../src/core/locator/featureslocatorfilter.h" line="62"/>
+        <location filename="../src/core/locator/featureslocatorfilter.h" line="63"/>
         <source>Features in all layers</source>
         <translation>Elemek az összes rétegen</translation>
     </message>
@@ -763,7 +768,7 @@ Az elem geometriákat összevonjuk a &apos;%1&apos; elembe, mely megőrzi az att
         <location filename="../src/core/locator/gotolocatorfilter.cpp" line="103"/>
         <location filename="../src/core/locator/gotolocatorfilter.cpp" line="135"/>
         <source>Set navigation point</source>
-        <translation type="unfinished"/>
+        <translation>Állítsa be a navigációs pontot.</translation>
     </message>
     <message>
         <location filename="../src/core/locator/gotolocatorfilter.cpp" line="132"/>
@@ -978,7 +983,7 @@ Az elem geometriákat összevonjuk a &apos;%1&apos; elembe, mely megőrzi az att
     <message>
         <location filename="../src/core/locator/locatormodelsuperbridge.cpp" line="326"/>
         <source>Search filters for your locations have been activated, customize results in the settings panel</source>
-        <translation type="unfinished"/>
+        <translation>A helyzetére vonatkozó keresési szűrők aktiválva vannak. A beállítások panelen testreszabhatja az eredményeket.</translation>
     </message>
 </context>
 <context>
@@ -999,7 +1004,7 @@ Az elem geometriákat összevonjuk a &apos;%1&apos; elembe, mely megőrzi az att
     <message>
         <location filename="../src/qml/LocatorSettings.qml" line="98"/>
         <source>Trigger without its prefix</source>
-        <translation type="unfinished"/>
+        <translation>Trigger prefix nélkül.</translation>
     </message>
 </context>
 <context>
@@ -1027,12 +1032,12 @@ Az elem geometriákat összevonjuk a &apos;%1&apos; elembe, mely megőrzi az att
     <message>
         <location filename="../src/qml/MessageLog.qml" line="114"/>
         <source>Send application log</source>
-        <translation type="unfinished"/>
+        <translation>Naplófájl küldése.</translation>
     </message>
     <message>
         <location filename="../src/qml/MessageLog.qml" line="119"/>
         <source>Your application log is being sent</source>
-        <translation type="unfinished"/>
+        <translation>Naplófájl küldése folyamatban van.</translation>
     </message>
 </context>
 <context>
@@ -1123,7 +1128,7 @@ Az elem geometriákat összevonjuk a &apos;%1&apos; elembe, mely megőrzi az att
     <message>
         <location filename="../src/qml/NavigationBar.qml" line="613"/>
         <source>Set Feature as Destination</source>
-        <translation type="unfinished"/>
+        <translation>Állítsa be a funkciót célként.</translation>
     </message>
     <message>
         <location filename="../src/qml/NavigationBar.qml" line="630"/>
@@ -1193,7 +1198,7 @@ Az elem geometriákat összevonjuk a &apos;%1&apos; elembe, mely megőrzi az att
     <message>
         <location filename="../src/qml/NavigationInformationView.qml" line="94"/>
         <source>Bearing</source>
-        <translation type="unfinished"/>
+        <translation>Raktár</translation>
     </message>
 </context>
 <context>
@@ -1431,7 +1436,7 @@ Az elem geometriákat összevonjuk a &apos;%1&apos; elembe, mely megőrzi az att
     <message>
         <location filename="../src/qml/QFieldCloudDeltaHistory.qml" line="50"/>
         <source>Push History</source>
-        <translation type="unfinished"/>
+        <translation>Előzmények</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldCloudDeltaHistory.qml" line="50"/>
@@ -1448,7 +1453,7 @@ Az elem geometriákat összevonjuk a &apos;%1&apos; elembe, mely megőrzi az att
     <message>
         <location filename="../src/qml/QFieldCloudLogin.qml" line="84"/>
         <source>Failed to sign in</source>
-        <translation type="unfinished"/>
+        <translation>Sikertelen bejelentkezés</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldCloudLogin.qml" line="117"/>
@@ -1470,27 +1475,27 @@ Az elem geometriákat összevonjuk a &apos;%1&apos; elembe, mely megőrzi az att
     <message>
         <location filename="../src/qml/QFieldCloudLogin.qml" line="203"/>
         <source>Sign out</source>
-        <translation type="unfinished"/>
+        <translation>Kijelentkezés</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldCloudLogin.qml" line="203"/>
         <source>Signing in, please wait</source>
-        <translation type="unfinished"/>
+        <translation>Bejelentkezés, kérem várjon!</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldCloudLogin.qml" line="203"/>
         <source>Sign in</source>
-        <translation type="unfinished"/>
+        <translation>Bejelentkezés</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldCloudLogin.qml" line="213"/>
         <source>New user?</source>
-        <translation type="unfinished"/>
+        <translation>Új felhasználó?</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldCloudLogin.qml" line="213"/>
         <source>Register an account</source>
-        <translation type="unfinished"/>
+        <translation>Regisztráljon egy fiókot!</translation>
     </message>
     <message>
         <source>Logout</source>
@@ -1528,12 +1533,12 @@ Az elem geometriákat összevonjuk a &apos;%1&apos; elembe, mely megőrzi az att
     <message>
         <location filename="../src/qml/QFieldCloudPackageLayersFeedback.qml" line="22"/>
         <source>QFieldCloud had troubles packaging your project</source>
-        <translation type="unfinished"/>
+        <translation>A QFieldCloud probléma a projekt csomagolása közben.</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldCloudPackageLayersFeedback.qml" line="32"/>
         <source>Some layers have not been packaged correctly on QFieldCloud. These layers might be misconfigured or their data source is not accessible from the QFieldCloud server. Please check the logs of the latest packaging job on the qfield.cloud website.</source>
-        <translation type="unfinished"/>
+        <translation>Néhány réteg nincs megfelelően csomagolva a QFieldCloudban. Lehetséges, hogy ezek a rétegek rosszul vannak konfigurálva, vagy adatforrásuk nem érhető el a QFieldCloud szerverről. Kérjük, ellenőrizze a naplófájlokat a qfield.cloud webhelyen.</translation>
     </message>
 </context>
 <context>
@@ -1576,7 +1581,7 @@ Az elem geometriákat összevonjuk a &apos;%1&apos; elembe, mely megőrzi az att
     <message>
         <location filename="../src/qml/QFieldCloudPopup.qml" line="161"/>
         <source>This QFieldCloud project was first downloaded with another cloud account. Please sign in with the original account for this project to use the QFieldCloud functionality.</source>
-        <translation type="unfinished"/>
+        <translation>Néhány réteg nincs megfelelően csomagolva a QFieldCloudban. Lehetséges, hogy ezek a rétegek rosszul vannak konfigurálva, vagy adatforrásuk nem érhető el a QFieldCloud szerverről. Kérjük, ellenőrizze a csomagolás naplófájljait a qfield.cloud webhelyen.</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldCloudPopup.qml" line="180"/>
@@ -1636,7 +1641,7 @@ Az elem geometriákat összevonjuk a &apos;%1&apos; elembe, mely megőrzi az att
     <message>
         <location filename="../src/qml/QFieldCloudPopup.qml" line="375"/>
         <source>Push changes</source>
-        <translation type="unfinished"/>
+        <translation>Változtatások eltolása</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldCloudPopup.qml" line="390"/>
@@ -1657,7 +1662,7 @@ Az elem geometriákat összevonjuk a &apos;%1&apos; elembe, mely megőrzi az att
     <message>
         <location filename="../src/qml/QFieldCloudPopup.qml" line="423"/>
         <source>Revert all modified features in the local layers. You cannot restore those changes.</source>
-        <translation type="unfinished"/>
+        <translation>A helyi rétegek összes módosított funkciójának visszaállítása. (Ezeket a változtatásokat nem lehet újra visszaállítani.)</translation>
     </message>
     <message>
         <source>Revert all modified features in the local cloud layers. You cannot restore those changes.</source>
@@ -1668,7 +1673,7 @@ Az elem geometriákat összevonjuk a &apos;%1&apos; elembe, mely megőrzi az att
         <source>The local copy of this cloud project has been corrupted. Resetting the project will re-download the cloud version and will remove any local changes, make sure those were copied first if needed.
 
 While you can still view and use the project, it is strongly recommended to reset to avoid any accidental data loss as none of the changes made will be pushed back to the cloud.</source>
-        <translation type="unfinished"/>
+        <translation>Ennek a felhőprojektnek a helyi példánya megsérült. A projekt alaphelyzetbe állításával újra letölti a felhőverziót, és eltávolítja az összes helyi módosítást. Szükség esetén  először készítsen másolatot. A projektet továbbra is megtekintheti és használhatja, a véletlen adatvesztés elkerülése érdekében erősen ajánlott a visszaállítás, mivel a végrehajtott módosítások egyike sem kerül vissza a felhőbe.</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldCloudPopup.qml" line="454"/>
@@ -1688,37 +1693,37 @@ While you can still view and use the project, it is strongly recommended to rese
     <message>
         <location filename="../src/qml/QFieldCloudPopup.qml" line="460"/>
         <source>Last synchronized on %1</source>
-        <translation type="unfinished"/>
+        <translation>Utolsó szinkronizálás: %1</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldCloudPopup.qml" line="471"/>
         <source>Last changes pushed just now</source>
-        <translation type="unfinished"/>
+        <translation>A legutóbbi módosítások most lettek közzétéve.</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldCloudPopup.qml" line="473"/>
         <source>Last changes pushed %1 minutes ago</source>
-        <translation type="unfinished"/>
+        <translation>Az utolsó módosítások %1 perce lettek beküldve.</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldCloudPopup.qml" line="475"/>
         <source>Last changes pushed at %1</source>
-        <translation type="unfinished"/>
+        <translation>Az utolsó módosítás beküldve: %1</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldCloudPopup.qml" line="477"/>
         <source>Last changes pushed on %1</source>
-        <translation type="unfinished"/>
+        <translation>Az utolsó módosítás beküldve: %1</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldCloudPopup.qml" line="479"/>
         <source>No changes pushed yet</source>
-        <translation type="unfinished"/>
+        <translation>Nem történt változtatás</translation>
     </message>
     <message numerus="yes">
         <location filename="../src/qml/QFieldCloudPopup.qml" line="500"/>
         <source>%n attachment(s) are currently being uploaded in the background.</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>%n melléklet(ek) feltöltése folyamatban van a háttérben.</numerusform><numerusform>%n melléklet(ek) feltöltése folyamatban van a háttérben.</numerusform></translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldCloudPopup.qml" line="560"/>
@@ -1733,7 +1738,7 @@ While you can still view and use the project, it is strongly recommended to rese
     <message>
         <location filename="../src/qml/QFieldCloudPopup.qml" line="591"/>
         <source>Last warning, resetting the cloud project will erase any local changes, are you sure you want to go ahead?</source>
-        <translation type="unfinished"/>
+        <translation>Utolsó figyelmeztetés: a felhőprojekt alaphelyzetbe állítása törli a helyi módosításokat. Biztosan folytatja?</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldCloudPopup.qml" line="612"/>
@@ -1775,7 +1780,7 @@ While you can still view and use the project, it is strongly recommended to rese
     <message>
         <source>Failed to upload attachment stored at &quot;%1&quot;, reason:
 %2</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Nem sikerült feltölteni a &quot;%1&quot; címen tárolt mellékletet, oka:%2</translation>
     </message>
     <message>
         <source>Failed to download file &quot;%1&quot;, reason:</source>
@@ -1783,120 +1788,121 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Failed to write downloaded file stored at &quot;%1&quot;, fs reason:</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Nem sikerült az írás a letöltött fájlba, amely a következő helyen található: &quot;%1&quot;, fs oka:</translation>
     </message>
     <message>
         <location filename="../src/core/qfieldcloudprojectsmodel.cpp" line="421"/>
         <source>aborted</source>
-        <translation type="unfinished"/>
+        <translation>Megszakítva</translation>
     </message>
     <message>
         <location filename="../src/core/qfieldcloudprojectsmodel.cpp" line="470"/>
         <source>project(%1) trigger response refresh not contain all the expected keys: name(string), owner(string), description(string), user_role(string), is_public(bool), can_repackage(bool), needs_repackaging(bool)</source>
-        <translation type="unfinished"/>
+        <translation>A project(%1) frissített trigger-válasza nem tartalmazza az összes várt kulcsot:
+name(string), owner(string), description(string), user_role(string), is_public(bool), can_repackage(bool), needs_repackaging(bool)</translation>
     </message>
     <message>
         <location filename="../src/core/qfieldcloudprojectsmodel.cpp" line="532"/>
         <location filename="../src/core/qfieldcloudprojectsmodel.cpp" line="574"/>
         <source>Getting job status, but the project is deleted.</source>
-        <translation type="unfinished"/>
+        <translation>A munka állapotának lekérése folyamatban van, de a projekt törölve lett.</translation>
     </message>
     <message>
         <location filename="../src/core/qfieldcloudprojectsmodel.cpp" line="552"/>
         <source>Job creation finished, but the server response is missing required fields: id(string)</source>
-        <translation type="unfinished"/>
+        <translation>A feladat létrehozása befejeződött, de a szerver válaszából hiányoznak a kötelező mezők: id(string)</translation>
     </message>
     <message>
         <location filename="../src/core/qfieldcloudprojectsmodel.cpp" line="589"/>
         <source>Getting job status, but no `%2` job triggered yet.</source>
-        <translation type="unfinished"/>
+        <translation>Munkaállapot lekérése folyamatban, de még nincs aktiválva a `%2` feladat.</translation>
     </message>
     <message>
         <location filename="../src/core/qfieldcloudprojectsmodel.cpp" line="604"/>
         <source>Getting job status finished, but the project is deleted.</source>
-        <translation type="unfinished"/>
+        <translation>A feladat állapotának lekérdezése befejeződött, de a projekt törölve van.</translation>
     </message>
     <message>
         <location filename="../src/core/qfieldcloudprojectsmodel.cpp" line="634"/>
         <source>job(%1) status response does not contain all the expected keys: status(string)</source>
-        <translation type="unfinished"/>
+        <translation>Munka: (%1) állapot-lekérdezése nem tartalmazza az összes várt kulcsot: status(string)</translation>
     </message>
     <message>
         <location filename="../src/core/qfieldcloudprojectsmodel.cpp" line="655"/>
         <source>Job(%1) finished with a failed status.</source>
-        <translation type="unfinished"/>
+        <translation>A feladat(%1) sikertelen állapottal fejeződött be.</translation>
     </message>
     <message>
         <location filename="../src/core/qfieldcloudprojectsmodel.cpp" line="683"/>
         <source>Project busy.</source>
-        <translation type="unfinished"/>
+        <translation>A projekt foglalt.</translation>
     </message>
     <message>
         <location filename="../src/core/qfieldcloudprojectsmodel.cpp" line="746"/>
         <source>Packaging job finished unsuccessfully for `%1`. %2</source>
-        <translation type="unfinished"/>
+        <translation>A(z) „%1” csomagolása sikertelenül fejeződött be. %2</translation>
     </message>
     <message>
         <location filename="../src/core/qfieldcloudprojectsmodel.cpp" line="804"/>
         <source>Failed to refresh the latest info for `%1`: %2</source>
-        <translation type="unfinished"/>
+        <translation>Nem sikerült frissíteni a `%1` legfrissebb adatait: %2</translation>
     </message>
     <message>
         <location filename="../src/core/qfieldcloudprojectsmodel.cpp" line="919"/>
         <source>Failed to get latest package data.</source>
-        <translation type="unfinished"/>
+        <translation>Nem sikerült lekérni a legújabb csomagadatokat.</translation>
     </message>
     <message>
         <location filename="../src/core/qfieldcloudprojectsmodel.cpp" line="933"/>
         <source>Latest package data response error.</source>
-        <translation type="unfinished"/>
+        <translation>Hiba a legutóbbi csomagadat megválaszolása közben.</translation>
     </message>
     <message>
         <location filename="../src/core/qfieldcloudprojectsmodel.cpp" line="953"/>
         <source>Latest package data structure error.</source>
-        <translation type="unfinished"/>
+        <translation>Hiba a legújabb adat-csomag szerkezetében.</translation>
     </message>
     <message>
         <location filename="../src/core/qfieldcloudprojectsmodel.cpp" line="986"/>
         <source>Project %1: Packaged layer `%2` is not valid. Error code %3, error message: %4</source>
-        <translation type="unfinished"/>
+        <translation>Projekt %1: A `%2&apos; csomagolt réteg érvénytelen. Hibakód %3, hibaüzenet: %4</translation>
     </message>
     <message>
         <location filename="../src/core/qfieldcloudprojectsmodel.cpp" line="1112"/>
         <source>Failed to open temporary file for `%1`, reason:
 %2</source>
-        <translation type="unfinished"/>
+        <translation>Nem sikerült megnyitni a(z) `%1` ideiglenes fájlját, oka:%2 </translation>
     </message>
     <message>
         <location filename="../src/core/qfieldcloudprojectsmodel.cpp" line="1568"/>
         <source>Failed to upload attachment stored at `%1`, reason:
 %2</source>
-        <translation type="unfinished"/>
+        <translation>Nem sikerült feltölteni a `%1` címen tárolt mellékletet, oka:%2</translation>
     </message>
     <message>
         <location filename="../src/core/qfieldcloudprojectsmodel.cpp" line="1815"/>
         <source>Network error. Failed to download file `%1`.</source>
-        <translation type="unfinished"/>
+        <translation>Hálózati hiba. Nem sikerült letölteni a(z) `%1` fájlt.</translation>
     </message>
     <message>
         <location filename="../src/core/qfieldcloudprojectsmodel.cpp" line="1830"/>
         <source>File system error. Failed to write file to temporary location `%1`.</source>
-        <translation type="unfinished"/>
+        <translation>Fájlrendszer hiba. Nem sikerült a fájlt a `%1` ideiglenes helyre írni.</translation>
     </message>
     <message>
         <location filename="../src/core/qfieldcloudprojectsmodel.cpp" line="1837"/>
         <source>File system error. Failed to open file for writing on temporary `%1`.</source>
-        <translation type="unfinished"/>
+        <translation>Fájlrendszer hiba. Nem sikerült megnyitni a fájlt íráshoz az ideiglenes `%1`.</translation>
     </message>
     <message>
         <location filename="../src/core/qfieldcloudprojectsmodel.cpp" line="1849"/>
         <source>Project `%1`, file `%2`: %3</source>
-        <translation type="unfinished"/>
+        <translation>Projekt `%1`, fájl `%2`: %3</translation>
     </message>
     <message>
         <location filename="../src/core/qfieldcloudprojectsmodel.cpp" line="1850"/>
         <source>System message: </source>
-        <translation type="unfinished"/>
+        <translation>Rendszerüzenet:</translation>
     </message>
     <message>
         <location filename="../src/core/qfieldcloudprojectsmodel.cpp" line="1852"/>
@@ -1906,7 +1912,7 @@ While you can still view and use the project, it is strongly recommended to rese
     <message>
         <location filename="../src/core/qfieldcloudprojectsmodel.cpp" line="1885"/>
         <source>Failed to copy some of the downloaded files on your device. Check your device storage.</source>
-        <translation type="unfinished"/>
+        <translation>Nem sikerült átmásolni néhány letöltött fájlt az eszközre. Ellenőrizze az eszköz tárhelyét.</translation>
     </message>
 </context>
 <context>
@@ -1949,7 +1955,7 @@ While you can still view and use the project, it is strongly recommended to rese
     <message>
         <location filename="../src/qml/QFieldCloudScreen.qml" line="322"/>
         <source>Downloading, %1% fetched…</source>
-        <translation type="unfinished"/>
+        <translation>Letöltés folyamatban, %1% letöltve...</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldCloudScreen.qml" line="325"/>
@@ -2019,7 +2025,7 @@ While you can still view and use the project, it is strongly recommended to rese
     <message>
         <location filename="../src/qml/QFieldCloudScreen.qml" line="530"/>
         <source>Press and hold over a cloud project for a menu of additional actions.</source>
-        <translation type="unfinished"/>
+        <translation>Tartsa lenyomva a felhőprojektet a további műveletek menüjének megjelenítéséhez.</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldCloudScreen.qml" line="538"/>
@@ -2062,17 +2068,17 @@ While you can still view and use the project, it is strongly recommended to rese
     <message>
         <location filename="../src/qml/QFieldSettings.qml" line="66"/>
         <source>When switched on, coordinate information, such as latitude and longitude, is overlayed onto the map while digitizing new features or using the measure tool.</source>
-        <translation type="unfinished"/>
+        <translation>Ha be van kapcsolva, a koordinátaadatok, például a szélességi és hosszúsági fokok rákerülnek a térképre az új elemek digitalizálása vagy a mérőeszköz használata közben.</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldSettings.qml" line="70"/>
         <source>Show bookmarks</source>
-        <translation type="unfinished"/>
+        <translation>Könyvjelzők megjelenítése</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldSettings.qml" line="71"/>
         <source>When switched on, user&apos;s saved and currently opened project bookmarks will be displayed on the map.</source>
-        <translation type="unfinished"/>
+        <translation>Bekapcsoláskor a felhasználó mentett és jelenleg megnyitott projektkönyvjelzői megjelennek a térképen.</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldSettings.qml" line="75"/>
@@ -2092,22 +2098,22 @@ While you can still view and use the project, it is strongly recommended to rese
     <message>
         <location filename="../src/qml/QFieldSettings.qml" line="82"/>
         <source>If enabled, the feature is stored after having a valid geometry and the constraints are fulfilled and atributes are commited immediately.</source>
-        <translation type="unfinished"/>
+        <translation>Ha engedélyezve van, akkor a funkció mentve lesz, amint érvényes geometriája van és a  beállítások is teljesülnek. Az attribútumok azonnal véglegesítésre kerülnek.</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldSettings.qml" line="86"/>
         <source>Dim screen when idling</source>
-        <translation type="unfinished"/>
+        <translation>Alapjáraton elsötétül a képernyő</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldSettings.qml" line="87"/>
         <source>If enabled, the screen brightness will be dimmed after 20 seconds of inactivity to preserve battery.</source>
-        <translation type="unfinished"/>
+        <translation>Ha engedélyezve van, a képernyő fényereje 20 másodperces inaktivitás után halványodik az akkumulátor kímélése érdekében.</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldSettings.qml" line="91"/>
         <source>Consider mouse as a touchscreen device</source>
-        <translation type="unfinished"/>
+        <translation>Tekintsük az egeret érintőképernyős eszköznek</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldSettings.qml" line="92"/>
@@ -2117,12 +2123,12 @@ While you can still view and use the project, it is strongly recommended to rese
     <message>
         <location filename="../src/qml/QFieldSettings.qml" line="96"/>
         <source>Send anonymized metrics</source>
-        <translation type="unfinished"/>
+        <translation>Névtelen mérőszámok küldése</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldSettings.qml" line="97"/>
         <source>If enabled, anonymized metrics will be collected and sent to help improve QField for everyone.</source>
-        <translation type="unfinished"/>
+        <translation>Ha engedélyezve van, a rendszer anonimizált mérőszámokat gyűjt és küld el, hogy  javítsa a QField szolgáltatást.</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldSettings.qml" line="137"/>
@@ -2152,7 +2158,7 @@ While you can still view and use the project, it is strongly recommended to rese
     <message>
         <location filename="../src/qml/QFieldSettings.qml" line="293"/>
         <source>To apply the selected user interface language, QField needs to completely shutdown and restart.</source>
-        <translation type="unfinished"/>
+        <translation>A kiválasztott felhasználói felület nyelvének alkalmazásához a QField-t teljesen le kell állítani, majd újra kell indítani.</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldSettings.qml" line="322"/>
@@ -2162,7 +2168,7 @@ While you can still view and use the project, it is strongly recommended to rese
     <message>
         <location filename="../src/qml/QFieldSettings.qml" line="334"/>
         <source>Found a missing or incomplete language? %1Join the translator community.%2</source>
-        <translation type="unfinished"/>
+        <translation>Hiányzó vagy hiányos nyelvet talált? %1Csatlakozzon a fordítói közösséghez.%2</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldSettings.qml" line="377"/>
@@ -2254,12 +2260,12 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <location filename="../src/qml/QFieldSettings.qml" line="700"/>
         <source>Enable accuracy requirement</source>
-        <translation type="unfinished"/>
+        <translation>Pontossági követelmény engedélyezése</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldSettings.qml" line="727"/>
         <source>When the accuracy indicator is enabled, a badge is attached to the location button and colored &lt;span %1&gt;red&lt;/span&gt; if the accuracy value is below bad, &lt;span %2&gt;yellow&lt;/span&gt; if it falls short of excellent, or &lt;span %3&gt;green&lt;/span&gt;.&lt;br&gt;&lt;br&gt;In addition, an accuracy restriction mode can be toggled on, which restricts vertex addition when locked to coordinate cursor to positions with an accuracy value above the bad threshold.</source>
-        <translation type="unfinished"/>
+        <translation>Ha a pontosságjelző be van kapcsolva, a helymeghatározó gombhoz egy jelvény kapcsolódik, ami piros színű, ha a pontossági érték rossz, sárga, ha megközelíti a kiválót, illetve zöld. Ezen kívül be lehet kapcsolni egy pontosságkorlátozó módot, amely korlátozza a csúcsok összeadását, ha zárolva van, hogy a kurzort a rossz, küszöb feletti pontossági értékkel rendelkező pozíciókra koordinálja.</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldSettings.qml" line="744"/>
@@ -2274,7 +2280,7 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <location filename="../src/qml/QFieldSettings.qml" line="808"/>
         <source>Z values which are recorded from the positioning device will be corrected by this value. If a value of 1.6 is entered, this will result in a correction of -1.6 for each recorded value.</source>
-        <translation type="unfinished"/>
+        <translation>A pozicionáló eszköz által rögzített Z értékek ezzel az értékkel korrigálásra kerülnek. Ha 1,6-os értéket adunk meg, akkor minden rögzített értéknél -1,6-os korrekciót eredményez.</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldSettings.qml" line="822"/>
@@ -2284,7 +2290,7 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <location filename="../src/qml/QFieldSettings.qml" line="845"/>
         <source>Use the altitude as reported by the positioning device. Skip any altitude correction that may be implied by the coordinate system transformation.</source>
-        <translation type="unfinished"/>
+        <translation>Használja a helymeghatározó eszköz által jelentett magasságot. Hagyjon ki minden olyan magassági korrekciót, amelyet a koordináta-rendszer transzformációja feltételezhet.</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldSettings.qml" line="859"/>
@@ -2312,7 +2318,7 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <location filename="../src/core/digitizinglogger.cpp" line="169"/>
         <source>Digitizing Logger</source>
-        <translation type="unfinished"/>
+        <translation>Adatgyűjtők digitalizálása</translation>
     </message>
     <message>
         <location filename="../src/core/qfieldappauthrequesthandler.cpp" line="134"/>
@@ -2327,7 +2333,7 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <location filename="../src/core/qfieldcloudconnection.cpp" line="52"/>
         <source>Status not ok</source>
-        <translation type="unfinished"/>
+        <translation>Hibás állapot</translation>
     </message>
     <message>
         <location filename="../src/core/qfieldcloudconnection.cpp" line="53"/>
@@ -2347,12 +2353,12 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <location filename="../src/core/qfieldcloudconnection.cpp" line="56"/>
         <source>Validation Error</source>
-        <translation type="unfinished"/>
+        <translation>Érvényesítési hiba</translation>
     </message>
     <message>
         <location filename="../src/core/qfieldcloudconnection.cpp" line="57"/>
         <source>Multiple Projects</source>
-        <translation type="unfinished"/>
+        <translation>Többszörös projekt</translation>
     </message>
     <message>
         <location filename="../src/core/qfieldcloudconnection.cpp" line="58"/>
@@ -2367,7 +2373,7 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <location filename="../src/core/qfieldcloudconnection.cpp" line="60"/>
         <source>Invalid job</source>
-        <translation type="unfinished"/>
+        <translation>Érvénytelen munka</translation>
     </message>
     <message>
         <location filename="../src/core/qfieldcloudconnection.cpp" line="61"/>
@@ -2397,7 +2403,7 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <location filename="../src/core/utils/expressioncontextutils.cpp" line="85"/>
         <source>Map Tool Capture</source>
-        <translation type="unfinished"/>
+        <translation>Map Tool Capture</translation>
     </message>
     <message>
         <location filename="../src/core/utils/expressioncontextutils.cpp" line="106"/>
@@ -2405,9 +2411,9 @@ Cancel to make a minimal device scan instead.</source>
         <translation>Felhő felhasználó info</translation>
     </message>
     <message>
-        <location filename="../src/core/platforms/android/androidplatformutilities.cpp" line="83"/>
+        <location filename="../src/core/platforms/android/androidplatformutilities.cpp" line="86"/>
         <source>Please wait while QField installation finalizes.</source>
-        <translation type="unfinished"/>
+        <translation>Kérjük, várja meg, amíg a QField telepítése befejeződik.</translation>
     </message>
 </context>
 <context>
@@ -2551,7 +2557,7 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <location filename="../src/qml/geometry_editors/ReshapeToolBar.qml" line="62"/>
         <source>The geometry could not be reshaped</source>
-        <translation type="unfinished"/>
+        <translation>A geometriát nem lehetett átformálni</translation>
     </message>
 </context>
 <context>
@@ -2559,7 +2565,7 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <location filename="../src/core/scalebarmeasurement.cpp" line="126"/>
         <source>Unknown</source>
-        <translation type="unfinished"/>
+        <translation>Ismeretlen</translation>
     </message>
 </context>
 <context>
@@ -2583,12 +2589,12 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <location filename="../src/qml/TemporalProperties.qml" line="28"/>
         <source>Temporal Properties</source>
-        <translation type="unfinished"/>
+        <translation>Időbeli tulajdonságok</translation>
     </message>
     <message>
         <location filename="../src/qml/TemporalProperties.qml" line="43"/>
         <source>Enable temporal filter</source>
-        <translation type="unfinished"/>
+        <translation>Időbeli szűrő engedélyezése</translation>
     </message>
 </context>
 <context>
@@ -2606,7 +2612,7 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <location filename="../src/qml/Tracking.qml" line="208"/>
         <source>Activate time constraint</source>
-        <translation type="unfinished"/>
+        <translation>Aktiválja az időkorlátot</translation>
     </message>
     <message>
         <location filename="../src/qml/Tracking.qml" line="230"/>
@@ -2616,7 +2622,7 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <location filename="../src/qml/Tracking.qml" line="273"/>
         <source>Activate distance constraint</source>
-        <translation type="unfinished"/>
+        <translation>Aktiválja a távolságkorlátozást</translation>
     </message>
     <message>
         <location filename="../src/qml/Tracking.qml" line="302"/>
@@ -2626,12 +2632,12 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <location filename="../src/qml/Tracking.qml" line="345"/>
         <source>Record when both active constraints are met</source>
-        <translation type="unfinished"/>
+        <translation>Rögzítse, ha mindkét aktív korlátozás teljesül</translation>
     </message>
     <message>
         <location filename="../src/qml/Tracking.qml" line="372"/>
         <source>When enabled, vertices with only be recorded when both active constraints are met. If the setting is disabled, individual constraints met will trigger a vertex addition.</source>
-        <translation type="unfinished"/>
+        <translation>Ha engedélyezve van, a csúcsok csak akkor rögzíthetők, ha mindkét aktív korlátozás teljesül. Ha nincs engedélyezve, már egy korlátozás teljesítése csúcsösszeadást vált ki.</translation>
     </message>
     <message>
         <location filename="../src/qml/Tracking.qml" line="392"/>
@@ -2675,7 +2681,7 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <location filename="../src/qml/WelcomeScreen.qml" line="116"/>
         <source>We&apos;re sorry to hear that. Click on the button below to comment or seek support.</source>
-        <translation type="unfinished"/>
+        <translation>Sajnálattal halljuk. Az alábbi gombra kattintva tud hozzászólni vagy segítséget kérni.</translation>
     </message>
     <message>
         <location filename="../src/qml/WelcomeScreen.qml" line="130"/>
@@ -2685,12 +2691,12 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <location filename="../src/qml/WelcomeScreen.qml" line="168"/>
         <source>Hey there, how do you like your experience with QField so far?</source>
-        <translation type="unfinished"/>
+        <translation>Üdvözöllek, hogy tetszettek a QFielddel kapcsolatos eddigi tapasztalataid?</translation>
     </message>
     <message>
         <location filename="../src/qml/WelcomeScreen.qml" line="225"/>
         <source>That&apos;s great! We&apos;d love for you to click on the button below and leave a comment on the store.</source>
-        <translation type="unfinished"/>
+        <translation>Nagyszerű! Kérünk, az alábbi gombra kattintva oszd meg velünk az észrevételeidet.</translation>
     </message>
     <message>
         <location filename="../src/qml/WelcomeScreen.qml" line="240"/>
@@ -2700,22 +2706,22 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <location filename="../src/qml/WelcomeScreen.qml" line="297"/>
         <source>Anonymized metrics collection has been disabled. You can re-enable through the settings panel.</source>
-        <translation type="unfinished"/>
+        <translation>Az anonimizált mutatók gyűjtése le van tiltva. A beállítások panelen keresztül újra engedélyezheti.</translation>
     </message>
     <message>
         <location filename="../src/qml/WelcomeScreen.qml" line="331"/>
         <source>To improve stability for everyone, QField collects and sends anonymized metrics.</source>
-        <translation type="unfinished"/>
+        <translation>A stabilitás növelése érdekében a QField névtelen mérőszámokat gyűjt és küld.</translation>
     </message>
     <message>
         <location filename="../src/qml/WelcomeScreen.qml" line="342"/>
         <source>I agree</source>
-        <translation type="unfinished"/>
+        <translation>Egyetértek</translation>
     </message>
     <message>
         <location filename="../src/qml/WelcomeScreen.qml" line="351"/>
         <source>I prefer not</source>
-        <translation type="unfinished"/>
+        <translation>Inkább nem</translation>
     </message>
     <message>
         <location filename="../src/qml/WelcomeScreen.qml" line="399"/>
@@ -2750,12 +2756,12 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <location filename="../src/qml/WelcomeScreen.qml" line="605"/>
         <source>Remove from Recent Projects</source>
-        <translation type="unfinished"/>
+        <translation>Eltávolítás a legutóbbi projektekből</translation>
     </message>
     <message>
         <location filename="../src/qml/WelcomeScreen.qml" line="745"/>
         <source>Welcome to QField. First time using this application? Try out sample projects listed in the list below.</source>
-        <translation type="unfinished"/>
+        <translation>Üdvözli a QField. Először használja ezt az alkalmazást? Próbálja ki az alábbi listában  szreplő mintaprojekteket.</translation>
     </message>
     <message>
         <location filename="../src/qml/WelcomeScreen.qml" line="747"/>
@@ -2773,12 +2779,12 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <location filename="../src/qml/editorwidgets/relationeditors/ordered_relation_editor.qml" line="123"/>
         <source>Adding child feature in layer %1</source>
-        <translation type="unfinished"/>
+        <translation>Utód-funkció hozzáadása a %1 réteghez</translation>
     </message>
     <message>
         <location filename="../src/qml/editorwidgets/relationeditors/ordered_relation_editor.qml" line="130"/>
         <source>Cannot add child feature: parent primary keys are not available</source>
-        <translation type="unfinished"/>
+        <translation>Nem adható hozzá utód-funkció: a szülői elsődleges kulcsok nem állnak rendelkezésre</translation>
     </message>
     <message>
         <location filename="../src/qml/editorwidgets/relationeditors/ordered_relation_editor.qml" line="383"/>
@@ -2793,7 +2799,7 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <location filename="../src/qml/editorwidgets/relationeditors/ordered_relation_editor.qml" line="395"/>
         <source>Should the feature &lt;b&gt;%1 (%2)&lt;/b&gt; of layer &lt;b&gt;%3&lt;/b&gt; be unlinked?&lt;br&gt;&lt;i&gt;(The connection will be deleted on layer &lt;b&gt;%4&lt;/b&gt;)&lt;/i&gt;</source>
-        <translation type="unfinished"/>
+        <translation>Meg kell szüntetni a(z) %3 réteg %1 (%2) szolgáltatását? (A kapcsolat a(z) %4 rétegen törlődik.)</translation>
     </message>
     <message>
         <location filename="../src/qml/editorwidgets/relationeditors/ordered_relation_editor.qml" line="400"/>
@@ -2832,8 +2838,8 @@ Cancel to make a minimal device scan instead.</source>
         <location filename="../src/qml/qgismobileapp.qml" line="661"/>
         <location filename="../src/qml/qgismobileapp.qml" line="679"/>
         <location filename="../src/qml/qgismobileapp.qml" line="1758"/>
-        <location filename="../src/qml/qgismobileapp.qml" line="1834"/>
-        <location filename="../src/qml/qgismobileapp.qml" line="1989"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1839"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2001"/>
         <source>Lon</source>
         <translation>Lon</translation>
     </message>
@@ -2841,8 +2847,8 @@ Cancel to make a minimal device scan instead.</source>
         <location filename="../src/qml/qgismobileapp.qml" line="663"/>
         <location filename="../src/qml/qgismobileapp.qml" line="681"/>
         <location filename="../src/qml/qgismobileapp.qml" line="1760"/>
-        <location filename="../src/qml/qgismobileapp.qml" line="1834"/>
-        <location filename="../src/qml/qgismobileapp.qml" line="1989"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1839"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2001"/>
         <source>Lat</source>
         <translation>Lat</translation>
     </message>
@@ -2875,7 +2881,7 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <location filename="../src/qml/qgismobileapp.qml" line="920"/>
         <source>Cancel addition</source>
-        <translation type="unfinished"/>
+        <translation>Hozzáadás törlése</translation>
     </message>
     <message>
         <location filename="../src/qml/qgismobileapp.qml" line="967"/>
@@ -2900,12 +2906,12 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <location filename="../src/qml/qgismobileapp.qml" line="1108"/>
         <source>Coordinate cursor now locked to position</source>
-        <translation type="unfinished"/>
+        <translation>A koordinátához tartozó kurzor zárolt a pozíciónál</translation>
     </message>
     <message>
         <location filename="../src/qml/qgismobileapp.qml" line="1120"/>
         <source>Coordinate cursor unlocked</source>
-        <translation type="unfinished"/>
+        <translation>A koordináta kurzor zárolása feloldva</translation>
     </message>
     <message>
         <location filename="../src/qml/qgismobileapp.qml" line="1137"/>
@@ -3016,138 +3022,158 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <location filename="../src/qml/qgismobileapp.qml" line="1797"/>
+        <source>Add Bookmark</source>
+        <translation>Könyvjelző hozzáadása</translation>
+    </message>
+    <message>
+        <location filename="../src/qml/qgismobileapp.qml" line="1818"/>
+        <source>Set as Destination</source>
+        <translation>Beállítás célként</translation>
+    </message>
+    <message>
         <source>Add Bookmark at Coordinates</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Könyvjelző hozzáadása a Koordinátákhoz</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1802"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1804"/>
         <source>Untitled bookmark</source>
-        <translation type="unfinished"/>
+        <translation>Névtelen könyvjelző</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1816"/>
         <source>Set Coordinates as Destination</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Állítsa be a koordinátákat célként</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1827"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1831"/>
         <source>Copy Coordinates</source>
-        <translation type="unfinished"/>
+        <translation>Koordináták másolása</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1836"/>
-        <location filename="../src/qml/qgismobileapp.qml" line="1991"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1841"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2003"/>
         <source>X</source>
         <translation>X</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1836"/>
-        <location filename="../src/qml/qgismobileapp.qml" line="1991"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1841"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2003"/>
         <source>Y</source>
         <translation>Y</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1841"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1846"/>
         <source>Coordinates copied to clipboard</source>
+        <translation>A koordináták a vágólapra másolva</translation>
+    </message>
+    <message>
+        <location filename="../src/qml/qgismobileapp.qml" line="1951"/>
+        <source>Center to Location</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2444"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1962"/>
+        <source>Add Bookmark at Location</source>
+        <translation>Könyvjelző hozzáadása a helyhez</translation>
+    </message>
+    <message>
+        <location filename="../src/qml/qgismobileapp.qml" line="1987"/>
+        <source>Copy Location Coordinates</source>
+        <translation>Helykoordináták másolása</translation>
+    </message>
+    <message>
+        <location filename="../src/qml/qgismobileapp.qml" line="2456"/>
         <source>Signed out</source>
-        <translation type="unfinished"/>
+        <translation>Kijelentkezve</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2448"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2460"/>
         <source>Signed in</source>
-        <translation type="unfinished"/>
+        <translation>Bejelentkezve</translation>
     </message>
     <message>
         <source>Set As Destination</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Beállítás célként</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1848"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1853"/>
         <source>Navigation Options</source>
-        <translation type="unfinished"/>
+        <translation>Navigációs beállítások</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1864"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1869"/>
         <source>Clear Destination</source>
-        <translation type="unfinished"/>
+        <translation>Cél törlése</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1876"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1881"/>
         <source>Positioning Options</source>
         <translation>Pozicionálási beállítások</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1902"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1907"/>
         <source>Enable Positioning</source>
         <translation>Pozicionálás engedélyezése</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1916"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1922"/>
         <source>Show Position Information</source>
         <translation>Pozíció megjelenítés</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1930"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1937"/>
         <source>Positioning Settings</source>
         <translation>Helymeghatározás beállítások</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1943"/>
         <source>Center to Current Location</source>
-        <translation>Aktuális pozíció középre</translation>
+        <translation type="vanished">Aktuális pozíció középre</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1953"/>
         <source>Add Bookmark at Current Location</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Könyvjelző hozzáadása az aktuális helyhez</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1959"/>
-        <location filename="../src/qml/qgismobileapp.qml" line="1982"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1970"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1994"/>
         <source>Current location unknown</source>
-        <translation type="unfinished"/>
+        <translation>Jelenlegi helye ismeretlen</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1963"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1974"/>
         <source>My location</source>
-        <translation type="unfinished"/>
+        <translation>Tartózkodási helyem</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1976"/>
         <source>Copy Current Location</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Jelenlegi hely másolása</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1993"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2005"/>
         <source>Accuracy</source>
         <translation>Pontosság</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1996"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2008"/>
         <source>N/A</source>
         <translation>N/A</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2000"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2012"/>
         <source>Current location copied to clipboard</source>
-        <translation type="unfinished"/>
+        <translation>Az aktuális hely a vágólapra másolva</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2038"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2050"/>
         <source>Current layer switched to the one holding the selected geometry.</source>
         <translation>Az aktuális réteget átváltottuk a szelektált geometriát tartalmazó rétegre.</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2047"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2059"/>
         <source>Editing of multi geometry layer is not supported yet.</source>
         <translation>Multi geometria szerkesztése még nem támogatott.</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2160"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2172"/>
         <source>Loading %1</source>
         <translation>%1 betöltése</translation>
     </message>
@@ -3156,7 +3182,7 @@ Cancel to make a minimal device scan instead.</source>
         <translation type="vanished">Kijelentkezett</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2446"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2458"/>
         <source>Connecting...</source>
         <translation>Kapcsolódás...</translation>
     </message>
@@ -3165,27 +3191,27 @@ Cancel to make a minimal device scan instead.</source>
         <translation type="vanished">Bejelentkezett</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2463"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2475"/>
         <source>Project %1 failed to download</source>
         <translation>%1 projekt sikertelen letöltés</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2464"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2476"/>
         <source>Project %1 successfully downloaded, it&apos;s now available to open</source>
         <translation>%1 projektet sikeresen letöltöttem, most megnyitható</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2469"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2481"/>
         <source>Changes failed to reach QFieldCloud: %1</source>
-        <translation type="unfinished"/>
+        <translation>A módosítások nem fértek hozzá a QFieldCloudhoz: %1</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2473"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2485"/>
         <source>Changes successfully pushed to QFieldCloud</source>
-        <translation type="unfinished"/>
+        <translation>A módosítások sikeresen átküldve a QFieldCloudba</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2698"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2710"/>
         <source>Press back again to close project and app</source>
         <translation>Nyomj visszát a projekt és az alkalmazás lezárásához</translation>
     </message>
@@ -3200,12 +3226,12 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <location filename="../src/qml/editorwidgets/relationeditors/relation_editor.qml" line="129"/>
         <source>Adding child feature in layer %1</source>
-        <translation type="unfinished"/>
+        <translation>Utód funkció hozzáadása a %1 réteghez</translation>
     </message>
     <message>
         <location filename="../src/qml/editorwidgets/relationeditors/relation_editor.qml" line="139"/>
         <source>Cannot add child feature: parent primary keys are not available</source>
-        <translation type="unfinished"/>
+        <translation>Nem adható hozzá utód-funkció: a szülői elsődleges kulcsok nem állnak rendelkezésre</translation>
     </message>
     <message>
         <location filename="../src/qml/editorwidgets/relationeditors/relation_editor.qml" line="245"/>
@@ -3220,7 +3246,7 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <location filename="../src/qml/editorwidgets/relationeditors/relation_editor.qml" line="257"/>
         <source>Should the feature &lt;b&gt;%1 (%2)&lt;/b&gt; of layer &lt;b&gt;%3&lt;/b&gt; be unlinked?&lt;br&gt;&lt;i&gt;(The connection will be deleted on layer &lt;b&gt;%4&lt;/b&gt;)&lt;/i&gt;</source>
-        <translation type="unfinished"/>
+        <translation>Meg kell szüntetni a(z) %3 réteg %1 (%2) szolgáltatását? (A kapcsolat a(z) %4 rétegen törlődik.)</translation>
     </message>
     <message>
         <location filename="../src/qml/editorwidgets/relationeditors/relation_editor.qml" line="262"/>
