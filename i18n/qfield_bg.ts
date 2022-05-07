@@ -671,7 +671,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <message>
         <location filename="../src/core/locator/featureslocatorfilter.cpp" line="120"/>
         <source>Set feature as destination</source>
-        <translation type="unfinished"/>
+        <translation>Използвай обекта като дестинация</translation>
     </message>
     <message>
         <source>Set feature as navigation</source>
@@ -3030,12 +3030,12 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <location filename="../src/qml/qgismobileapp.qml" line="1797"/>
         <source>Add Bookmark</source>
-        <translation type="unfinished"/>
+        <translation>Добави отметка</translation>
     </message>
     <message>
         <location filename="../src/qml/qgismobileapp.qml" line="1818"/>
         <source>Set as Destination</source>
-        <translation type="unfinished"/>
+        <translation>Използвай като дестинация</translation>
     </message>
     <message>
         <source>Add Bookmark at Coordinates</source>
@@ -3075,27 +3075,27 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <location filename="../src/qml/qgismobileapp.qml" line="1951"/>
         <source>Center to Location</source>
-        <translation type="unfinished"/>
+        <translation>Центрирай до локацията</translation>
     </message>
     <message>
         <location filename="../src/qml/qgismobileapp.qml" line="1962"/>
         <source>Add Bookmark at Location</source>
-        <translation type="unfinished"/>
+        <translation>Добави отметка на локацията</translation>
     </message>
     <message>
         <location filename="../src/qml/qgismobileapp.qml" line="1987"/>
         <source>Copy Location Coordinates</source>
-        <translation type="unfinished"/>
+        <translation>Копирай координатите на локацията</translation>
     </message>
     <message>
         <location filename="../src/qml/qgismobileapp.qml" line="2456"/>
         <source>Signed out</source>
-        <translation type="unfinished"/>
+        <translation>Невписан</translation>
     </message>
     <message>
         <location filename="../src/qml/qgismobileapp.qml" line="2460"/>
         <source>Signed in</source>
-        <translation type="unfinished"/>
+        <translation>Вписан</translation>
     </message>
     <message>
         <source>Set As Destination</source>
