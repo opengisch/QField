@@ -671,7 +671,7 @@ Las geometrías de los objetos se combinarán en el objeto &apos;%1&apos;, que c
     <message>
         <location filename="../src/core/locator/featureslocatorfilter.cpp" line="120"/>
         <source>Set feature as destination</source>
-        <translation type="unfinished"/>
+        <translation>Establecer entidad como destino</translation>
     </message>
     <message>
         <source>Set feature as navigation</source>
@@ -3026,12 +3026,12 @@ Cancelar para hacer una búsqueda mínima de dispositivos en su lugar.</translat
     <message>
         <location filename="../src/qml/qgismobileapp.qml" line="1797"/>
         <source>Add Bookmark</source>
-        <translation type="unfinished"/>
+        <translation>Añadir marcador</translation>
     </message>
     <message>
         <location filename="../src/qml/qgismobileapp.qml" line="1818"/>
         <source>Set as Destination</source>
-        <translation type="unfinished"/>
+        <translation>Establecer como destino</translation>
     </message>
     <message>
         <source>Add Bookmark at Coordinates</source>
@@ -3071,17 +3071,17 @@ Cancelar para hacer una búsqueda mínima de dispositivos en su lugar.</translat
     <message>
         <location filename="../src/qml/qgismobileapp.qml" line="1951"/>
         <source>Center to Location</source>
-        <translation type="unfinished"/>
+        <translation>Centrar a localización</translation>
     </message>
     <message>
         <location filename="../src/qml/qgismobileapp.qml" line="1962"/>
         <source>Add Bookmark at Location</source>
-        <translation type="unfinished"/>
+        <translation>Añadir marcador en la localización</translation>
     </message>
     <message>
         <location filename="../src/qml/qgismobileapp.qml" line="1987"/>
         <source>Copy Location Coordinates</source>
-        <translation type="unfinished"/>
+        <translation>Copiar coordenadas de la localización</translation>
     </message>
     <message>
         <location filename="../src/qml/qgismobileapp.qml" line="2456"/>
