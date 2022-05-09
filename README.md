@@ -1,8 +1,8 @@
 [![Read the documentation](https://img.shields.io/badge/Read-the%20docs-green.svg)](https://docs.qfield.org/)
-[![GitHub Discussions](https://img.shields.io/github/discussions/opengisch/qfield)](https://github.com/opengisch/QField/discussions)
-[![](https://img.shields.io/static/v1?label=Support%20QField&message=%E2%9D%A4&color=%23fedeff)](https://github.com/sponsors/opengisch)
-[![](https://img.shields.io/static/v1?label=Contribute%20QField&message=💪&color=%23fe55aa)](#contribute)
-[![Release](https://img.shields.io/github/release/opengisch/QField.svg)](https://github.com/opengisch/QField/releases)
+[![Discussions](https://img.shields.io/github/discussions/opengisch/qfield)](https://github.com/opengisch/QField/discussions)
+[![Sponsor](https://img.shields.io/static/v1?label=sponsor&message=%E2%9D%A4&color=%23fedeff)](https://github.com/sponsors/opengisch)
+[![Contribute](https://img.shields.io/static/v1?label=contribute&message=💪&color=%23fe55aa)](#contribute)
+[![Release]s(https://img.shields.io/github/release/opengisch/QField.svg)](https://github.com/opengisch/QField/releases)
 
 # QField for QGIS
 
