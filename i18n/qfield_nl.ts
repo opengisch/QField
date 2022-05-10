@@ -9,7 +9,7 @@
     <message>
         <location filename="../src/qml/About.qml" line="143"/>
         <source>Support QField</source>
-        <translation>Ondersteun QFiled</translation>
+        <translation>Ondersteun QField</translation>
     </message>
     <message>
         <location filename="../src/qml/About.qml" line="152"/>
@@ -258,7 +258,7 @@
     <message>
         <location filename="../src/qml/Changelog.qml" line="108"/>
         <source>Support QField</source>
-        <translation>Ondersteun QFiled</translation>
+        <translation>Ondersteun QField</translation>
     </message>
     <message>
         <location filename="../src/qml/Changelog.qml" line="137"/>
