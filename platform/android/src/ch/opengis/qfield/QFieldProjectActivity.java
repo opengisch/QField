@@ -303,6 +303,8 @@ public class QFieldProjectActivity
 
         final boolean isRootView = !getIntent().hasExtra("path");
         if (isRootView) {
+            setTitle(getString(R.string.select_project));
+
             File externalStorageDirectory = null;
             if (ContextCompat.checkSelfPermission(
                     QFieldProjectActivity.this,
@@ -344,26 +346,27 @@ public class QFieldProjectActivity
                             primaryExternalFilesDir.getAbsolutePath())) {
                         continue;
                     }
+                    Boolean isRemovable =
+                        Environment.isExternalStorageRemovable(file);
                     if (externalStorageDirectory != null) {
                         if (!file.getAbsolutePath().contains(
                                 externalStorageDirectory.getAbsolutePath())) {
                             values.add(new QFieldProjectListItem(
                                 file,
                                 getString(R.string.secondary_storage_extra),
-                                R.drawable.directory,
+                                isRemovable ? R.drawable.card
+                                            : R.drawable.directory,
                                 QFieldProjectListItem.TYPE_EXTERNAL_FILES));
                         }
                     } else {
                         values.add(new QFieldProjectListItem(
                             file, getString(R.string.secondary_storage_extra),
-                            R.drawable.directory,
+                            isRemovable ? R.drawable.card
+                                        : R.drawable.directory,
                             QFieldProjectListItem.TYPE_EXTERNAL_FILES));
                     }
                 }
             }
-
-            setTitle(getString(R.string.select_project));
-            Collections.sort(values);
 
             String sampleProjects = new File(getFilesDir().toString() +
                                              "/share/qfield/sample_projects/")
