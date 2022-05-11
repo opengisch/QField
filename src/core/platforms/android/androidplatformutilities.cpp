@@ -123,14 +123,10 @@ QString AndroidPlatformUtilities::qgsProject() const
   return getIntentExtra( "QGS_PROJECT" );
 }
 
-QString AndroidPlatformUtilities::qfieldDataDir() const
+QStringList AndroidPlatformUtilities::qfieldAppDataDirs() const
 {
-  return getIntentExtra( "QFIELD_DATA_DIR" );
-}
-
-QString AndroidPlatformUtilities::qfieldAppDataDir() const
-{
-  return getIntentExtra( "QFIELD_APP_DATA_DIR" );
+  const QString dataDirs = getIntentExtra( "QFIELD_APP_DATA_DIRS" );
+  return ( !dataDirs.isEmpty() ? dataDirs.split( "--;--" ) : QStringList() );
 }
 
 QString AndroidPlatformUtilities::getIntentExtra( const QString &extra, QAndroidJniObject extras ) const
