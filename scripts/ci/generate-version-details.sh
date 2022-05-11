@@ -18,8 +18,13 @@ if [[ -n ${CI_TAG} ]]; then
   APK_VERSION_CODE=$(apk_version_code "${CI_TAG}" "${TRIPLET}")
   # ^-- SC2155: Declare and assign separately to avoid masking return values.
 
-  export APP_NAME="QField"
-  export APP_PACKAGE_NAME="qfield"
+  if [[ ${ALL_FILES_ACCESS} == "ON" ]]; then
+    export APP_NAME="QField+"
+    export APP_PACKAGE_NAME="qfield_plus"
+  else
+    export APP_NAME="QField"
+    export APP_PACKAGE_NAME="qfield"
+  fi
   export APP_ICON="qfield_logo"
   export APP_VERSION="${CI_TAG}" # v1.2.3 or v1.2.3-rc4
   export APP_VERSION_STR
@@ -31,8 +36,13 @@ elif [[ ${CI_PULL_REQUEST} = false ]]; then
   # get numbers of masters commits
   CUSTOM_APP_PACKAGE_NAME=$(echo ${NIGHTLY_PACKAGE_NAME} | awk '{print $NF}' FS=.)
 
-  export APP_NAME="${CUSTOM_APP_NAME:-QField Dev}"
-  export APP_PACKAGE_NAME="${CUSTOM_APP_PACKAGE_NAME:-qfield_dev}"
+  if [[ ${ALL_FILES_ACCESS} == "ON" ]]; then
+    export APP_NAME="${CUSTOM_APP_NAME:-QField Dev}"
+    export APP_PACKAGE_NAME="${CUSTOM_APP_PACKAGE_NAME:-qfield_dev}"
+  else
+    export APP_NAME="${CUSTOM_APP_NAME:-QField+ Dev}"
+    export APP_PACKAGE_NAME="${CUSTOM_APP_PACKAGE_NAME:-qfield_plus_dev}"
+  fi
   export APP_ICON="qfield_logo_beta"
   export APP_VERSION=""
   # take 0 + (1940000 + number of CI runs) + arch
@@ -48,8 +58,13 @@ elif [[ ${CI_PULL_REQUEST} = false ]]; then
 
 else
   echo "Building pull request beta"
-  export APP_NAME="QField Beta ${CI_PULL_REQUEST_NUMBER}"
-  export APP_PACKAGE_NAME="qfield_beta"
+  if [[ ${ALL_FILES_ACCESS} == "ON" ]]; then
+    export APP_NAME="QField+ Beta ${CI_PULL_REQUEST_NUMBER}"
+    export APP_PACKAGE_NAME="qfield_plus_beta"
+  else
+    export APP_NAME="QField Beta ${CI_PULL_REQUEST_NUMBER}"
+    export APP_PACKAGE_NAME="qfield_beta"
+  fi
   export APP_ICON="qfield_logo_pr"
   export APP_VERSION=""
   export APP_VERSION_STR="PR${CI_PULL_REQUEST_NUMBER}"

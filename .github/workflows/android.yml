@@ -18,10 +18,25 @@ jobs:
       matrix:
         include:
           - triplet: 'arm64-android'
+            all_files_access: 'ON'
+          - triplet: 'arm64-android'
+            all_files_access: 'OFF'
           - triplet: 'arm-android'
+            all_files_access: 'ON'
+          - triplet: 'arm-android'
+            all_files_access: 'OFF'
           - triplet: 'arm-neon-android'
+            all_files_access: 'ON'
+          - triplet: 'arm-neon-android'
+            all_files_access: 'OFF'
           - triplet: 'x64-android'
+            all_files_access: 'ON'
+          - triplet: 'x64-android'
+            all_files_access: 'OFF'
           - triplet: 'x86-android'
+            all_files_access: 'ON'
+          - triplet: 'x86-android'
+            all_files_access: 'OFF'
 
     steps:
       - name: 🐣 Checkout
@@ -37,7 +52,7 @@ jobs:
           echo "ANDROID_BUILD_TOOLS_VERSION=29.0.2" >> $GITHUB_ENV
           echo "ANDROID_NDK_HOME=/usr/local/lib/android/sdk/ndk/22.1.7171670" >> $GITHUB_ENV
           echo "ndk.dir=$ANDROID_NDK_HOME" >> local.properties
-          ./scripts/ci/env_gh.sh
+          ALL_FILES_ACCESS=${{ matrix.all_files_access }} ./scripts/ci/env_gh.sh
 
           BUILD_ROOT="/home/runner"
           echo "::set-output name=SYSTEM_QT::ON"
@@ -114,8 +129,8 @@ jobs:
           echo "yes" | sudo /usr/local/lib/android/sdk/tools/bin/sdkmanager --verbose "platforms;android-30" "build-tools;$ANDROID_BUILD_TOOLS_VERSION" "ndk;$ANDROID_NDK_VERSION" tools platform-tools
           echo "yes" | sudo /usr/local/lib/android/sdk/tools/bin/sdkmanager --licenses
 
-          TRIPLET=${{ matrix.triplet }} source ./scripts/version_number.sh
-          TRIPLET=${{ matrix.triplet }} source ./scripts/ci/generate-version-details.sh
+          TRIPLET=${{ matrix.triplet }} ALL_FILES_ACCESS=${{ matrix.all_files_access }} source ./scripts/version_number.sh
+          TRIPLET=${{ matrix.triplet }} ALL_FILES_ACCESS=${{ matrix.all_files_access }} source ./scripts/ci/generate-version-details.sh
 
           cmake -S "${SOURCE_DIR}" \
                 -B "${CMAKE_BUILD_DIR}" \
@@ -127,7 +142,7 @@ jobs:
                 -D ANDROID_NDK_VERSION="${ANDROID_NDK_VERSION}" \
                 -D ANDROID_BUILD_TOOLS_VERSION="${ANDROID_BUILD_TOOLS_VERSION}" \
                 -D VCPKG_TARGET_TRIPLET="${{ matrix.triplet }}" \
-                -D WITH_ALL_FILES_ACCESS=OFF \
+                -D WITH_ALL_FILES_ACCESS="${{ matrix.all_files_access }}" \
                 -D WITH_SPIX=OFF \
                 -D APP_VERSION="${APP_VERSION}" \
                 -D APK_VERSION_CODE="${APK_VERSION_CODE}" \

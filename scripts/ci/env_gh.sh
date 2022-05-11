@@ -41,10 +41,19 @@ export CI_RUN_NUMBER=${GITHUB_RUN_NUMBER}
 if [[ "${CI_TAG}" ]];
 then
   export CI_PACKAGE_FILE_BASENAME="qfield-${CI_TAG}"
-  export APP_PACKAGE_NAME="qfield"
+
+  if [[ ${ALL_FILES_ACCESS} == "ON" ]]; then
+    export APP_PACKAGE_NAME="qfield_plus"
+  else
+    export APP_PACKAGE_NAME="qfield"
+  fi
 else
   export CI_PACKAGE_FILE_BASENAME="qfield-dev-${CI_UPLOAD_ARTIFACT_ID}-${CI_COMMIT}"
-  export APP_PACKAGE_NAME="qfield_dev"
+  if [[ ${ALL_FILES_ACCESS} == "ON" ]]; then
+    export APP_PACKAGE_NAME="qfield_plus_dev"
+  else
+    export APP_PACKAGE_NAME="qfield_dev"
+  fi
 fi
 export CI_PACKAGE_FILENAME="${CI_PACKAGE_FILE_BASENAME}-${ARCH}.apk"
 
