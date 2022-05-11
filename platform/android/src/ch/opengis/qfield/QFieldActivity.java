@@ -268,36 +268,59 @@ public class QFieldActivity extends QtActivity {
         checkAllFileAccess(); // Storage access permission handling for Android
                               // 11+
 
+        List<String> dataDirs = new ArrayList<String>();
+
+        File primaryExternalFilesDir = getExternalFilesDir(null);
+        if (primaryExternalFilesDir != null) {
+            String dataDir = primaryExternalFilesDir.getAbsolutePath() + "/";
+            // create import directories
+            new File(dataDir + "Imported Datasets/").mkdir();
+            new File(dataDir + "Imported Projects/").mkdir();
+
+            dataDir = dataDir + "QField/";
+            // create QField directories
+            new File(dataDir).mkdir();
+            new File(dataDir + "basemaps/").mkdir();
+            new File(dataDir + "fonts/").mkdir();
+            new File(dataDir + "proj/").mkdir();
+            new File(dataDir + "auth/").mkdir();
+
+            dataDirs.add(dataDir);
+        }
+
         String storagePath =
             Environment.getExternalStorageDirectory().getAbsolutePath();
-        String qFieldDir = storagePath + "/QField/";
-        File storageFile = new File(qFieldDir);
+        String rootDataDir = storagePath + "/QField/";
+        File storageFile = new File(rootDataDir);
         storageFile.mkdir();
         if (storageFile.canWrite()) {
             // create directories
-            new File(qFieldDir + "basemaps/").mkdir();
-            new File(qFieldDir + "fonts/").mkdir();
-            new File(qFieldDir + "proj/").mkdir();
-            new File(qFieldDir + "auth/").mkdir();
-        } else {
-            qFieldDir = "";
+            new File(rootDataDir + "basemaps/").mkdir();
+            new File(rootDataDir + "fonts/").mkdir();
+            new File(rootDataDir + "proj/").mkdir();
+            new File(rootDataDir + "auth/").mkdir();
+
+            dataDirs.add(rootDataDir);
         }
 
-        File externalFilesDir = getExternalFilesDir(null);
-        String qFieldAppDir = "";
-        if (externalFilesDir != null) {
-            qFieldAppDir = externalFilesDir.getAbsolutePath() + "/";
-            // create import directories
-            new File(qFieldAppDir + "Imported Datasets/").mkdir();
-            new File(qFieldAppDir + "Imported Projects/").mkdir();
+        File[] externalFilesDirs = getExternalFilesDirs(null);
+        for (File file : externalFilesDirs) {
+            if (file != null) {
+                // Don't duplicate primary external files directory
+                if (file.getAbsolutePath().equals(
+                        primaryExternalFilesDir.getAbsolutePath())) {
+                    continue;
+                }
 
-            qFieldAppDir = qFieldAppDir + "QField/";
-            // create QField directories
-            new File(qFieldAppDir).mkdir();
-            new File(qFieldAppDir + "basemaps/").mkdir();
-            new File(qFieldAppDir + "fonts/").mkdir();
-            new File(qFieldAppDir + "proj/").mkdir();
-            new File(qFieldAppDir + "auth/").mkdir();
+                // create QField directories
+                String dataDir = file.getAbsolutePath() + "/QField/";
+                new File(dataDir + "basemaps/").mkdirs();
+                new File(dataDir + "fonts/").mkdirs();
+                new File(dataDir + "proj/").mkdirs();
+                new File(dataDir + "auth/").mkdirs();
+
+                dataDirs.add(dataDir);
+            }
         }
 
         Intent intent = new Intent();
@@ -313,8 +336,12 @@ public class QFieldActivity extends QtActivity {
             return;
         }
 
-        intent.putExtra("QFIELD_DATA_DIR", qFieldDir);
-        intent.putExtra("QFIELD_APP_DATA_DIR", qFieldAppDir);
+        StringBuilder qfieldAppDataDirs = new StringBuilder();
+        for (String dataDir : dataDirs) {
+            qfieldAppDataDirs.append(dataDir);
+            qfieldAppDataDirs.append("--;--");
+        }
+        intent.putExtra("QFIELD_APP_DATA_DIRS", qfieldAppDataDirs.toString());
 
         Intent sourceIntent = getIntent();
         if (sourceIntent.getAction() == Intent.ACTION_VIEW ||

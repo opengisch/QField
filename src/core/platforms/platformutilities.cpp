@@ -72,24 +72,14 @@ QString PlatformUtilities::qgsProject() const
   return QString();
 }
 
-QString PlatformUtilities::qfieldDataDir() const
+QStringList PlatformUtilities::qfieldAppDataDirs() const
 {
-  return QStandardPaths::standardLocations( QStandardPaths::DocumentsLocation ).first() + QStringLiteral( "/QField/" );
-}
-
-QString PlatformUtilities::qfieldAppDataDir() const
-{
-  return QStandardPaths::standardLocations( QStandardPaths::DocumentsLocation ).first() + QStringLiteral( "/QField/" );
+  return QStringList() << QStandardPaths::standardLocations( QStandardPaths::DocumentsLocation ).first() + QStringLiteral( "/QField/" );
 }
 
 QStringList PlatformUtilities::availableGrids() const
 {
-  QStringList dataDirs;
-  if ( !qfieldDataDir().isEmpty() )
-    dataDirs << qfieldDataDir();
-  if ( !qfieldAppDataDir().isEmpty() )
-    dataDirs << qfieldAppDataDir();
-
+  QStringList dataDirs = qfieldAppDataDirs();
   QStringList grids;
   for ( const QString &dataDir : dataDirs )
   {
