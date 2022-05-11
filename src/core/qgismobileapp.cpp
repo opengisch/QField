@@ -187,12 +187,7 @@ QgisMobileapp::QgisMobileapp( QgsApplication *app, QObject *parent )
   handler.reset( mAuthRequestHandler );
   QgsNetworkAccessManager::instance()->setAuthHandler( std::move( handler ) );
 
-  QStringList dataDirs;
-  if ( !PlatformUtilities::instance()->qfieldDataDir().isEmpty() )
-    dataDirs << PlatformUtilities::instance()->qfieldDataDir();
-  if ( !PlatformUtilities::instance()->qfieldAppDataDir().isEmpty() )
-    dataDirs << PlatformUtilities::instance()->qfieldAppDataDir();
-
+  QStringList dataDirs = PlatformUtilities::instance()->qfieldAppDataDirs();
   if ( !dataDirs.isEmpty() )
   {
     //set localized data paths and register fonts
@@ -289,17 +284,13 @@ QgisMobileapp::QgisMobileapp( QgsApplication *app, QObject *parent )
     delete[] newPaths;
 
 #ifdef Q_OS_ANDROID
-    QFileInfo pgServiceFile( QStringLiteral( "%1/pg_service.conf" ).arg( PlatformUtilities::instance()->qfieldAppDataDir() ) );
-    if ( pgServiceFile.exists() && pgServiceFile.isReadable() )
+    for ( const QString &dataDir : dataDirs )
     {
-      setenv( "PGSYSCONFDIR", PlatformUtilities::instance()->qfieldAppDataDir().toUtf8(), true );
-    }
-    else
-    {
-      pgServiceFile.setFile( QStringLiteral( "%1/pg_service.conf" ).arg( PlatformUtilities::instance()->qfieldDataDir() ) );
+      QFileInfo pgServiceFile( QStringLiteral( "%1/pg_service.conf" ).arg( dataDir ) );
       if ( pgServiceFile.exists() && pgServiceFile.isReadable() )
       {
-        setenv( "PGSYSCONFDIR", PlatformUtilities::instance()->qfieldDataDir().toUtf8(), true );
+        setenv( "PGSYSCONFDIR", dataDir.toUtf8(), true );
+        break;
       }
     }
 #endif
@@ -1003,21 +994,33 @@ void QgisMobileapp::readProjectFile()
       {
         mProject->read( fileAssociationProject );
       }
-      else if ( QFile::exists( PlatformUtilities::instance()->qfieldDataDir() + QStringLiteral( "basemap.qgs" ) ) )
-      {
-        mProject->read( PlatformUtilities::instance()->qfieldDataDir() + QStringLiteral( "basemap.qgs" ) );
-      }
-      else if ( QFile::exists( PlatformUtilities::instance()->qfieldDataDir() + QStringLiteral( "basemap.qgz" ) ) )
-      {
-        mProject->read( PlatformUtilities::instance()->qfieldDataDir() + QStringLiteral( "basemap.qgz" ) );
-      }
       else
       {
-        mProject->clear();
+        const QStringList dataDirs = PlatformUtilities::instance()->qfieldAppDataDirs();
+        bool projectFound = false;
+        for ( const QString &dataDir : dataDirs )
+        {
+          if ( QFile::exists( dataDir + QStringLiteral( "basemap.qgs" ) ) )
+          {
+            projectFound = true;
+            mProject->read( dataDir + QStringLiteral( "basemap.qgs" ) );
+            break;
+          }
+          else if ( QFile::exists( dataDir + QStringLiteral( "basemap.qgz" ) ) )
+          {
+            projectFound = true;
+            mProject->read( dataDir + QStringLiteral( "basemap.qgs" ) );
+            break;
+          }
+        }
+        if ( !projectFound )
+        {
+          mProject->clear();
 
-        // Add a default basemap
-        QgsRasterLayer *layer = new QgsRasterLayer( QStringLiteral( "type=xyz&url=https://a.tile.openstreetmap.org/%7Bz%7D/%7Bx%7D/%7By%7D.png&zmax=19&zmin=0&crs=EPSG3857" ), QStringLiteral( "OpenStreetMap" ), QLatin1String( "wms" ) );
-        mProject->addMapLayers( QList<QgsMapLayer *>() << layer );
+          // Add a default basemap
+          QgsRasterLayer *layer = new QgsRasterLayer( QStringLiteral( "type=xyz&url=https://a.tile.openstreetmap.org/%7Bz%7D/%7Bx%7D/%7By%7D.png&zmax=19&zmin=0&crs=EPSG3857" ), QStringLiteral( "OpenStreetMap" ), QLatin1String( "wms" ) );
+          mProject->addMapLayers( QList<QgsMapLayer *>() << layer );
+        }
       }
     }
     else

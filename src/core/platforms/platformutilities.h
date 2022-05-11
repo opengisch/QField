@@ -64,8 +64,7 @@ class QFIELD_CORE_EXPORT PlatformUtilities : public QObject
      */
     virtual QString systemGenericDataLocation() const;
     virtual QString qgsProject() const;
-    Q_INVOKABLE virtual QString qfieldDataDir() const;
-    Q_INVOKABLE virtual QString qfieldAppDataDir() const;
+    Q_INVOKABLE virtual QStringList qfieldAppDataDirs() const;
     Q_INVOKABLE QStringList availableGrids() const;
     Q_INVOKABLE bool createDir( const QString &path, const QString &dirname ) const;
     Q_INVOKABLE bool rmFile( const QString &filename ) const;
