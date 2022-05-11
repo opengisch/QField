@@ -201,7 +201,7 @@ jobs:
       - name: 🍺 Deploy
         run: |
           sudo apt install -y s3cmd
-          TRIPLET=${{ matrix.triplet }} ./scripts/ci/upload_artifacts.sh
+          TRIPLET=${{ matrix.triplet }} ALL_FILES_ACCESS=${{ matrix.all_files_access }} ./scripts/ci/upload_artifacts.sh
         env:
           S3CFG: ${{ secrets.S3CFG }}
 
