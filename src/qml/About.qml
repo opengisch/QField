@@ -125,13 +125,15 @@ Item {
             opacity: 0.6
 
             text: {
-                var dataFields = [];
-                if (platformUtilities.qfieldDataDir() !== '')
-                    dataFields.push('QField storage-wide directory:\n' + platformUtilities.qfieldDataDir());
-                if (platformUtilities.qfieldAppDataDir() !== ''
-                    && platformUtilities.qfieldAppDataDir() !== platformUtilities.qfieldDataDir())
-                    dataFields.push('QField app directory:\n' + platformUtilities.qfieldAppDataDir());
-                return dataFields.join('\n');
+                var dataDirs = platformUtilities.qfieldAppDataDirs();
+                console.log(dataDirs)
+                if (dataDirs.length > 0) {
+                  return (dataDirs.length > 1
+                          ? 'QField app directories'
+                          : 'QField app directory')
+                         + '\n' + dataDirs.join('\n');
+                }
+                return '';
             }
         }
 
