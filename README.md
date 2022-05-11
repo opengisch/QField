@@ -1,8 +1,8 @@
-[![Read the documentation](https://img.shields.io/badge/Read-the%20docs-green.svg)](https://docs.qfield.org/)
-[![Discussions](https://img.shields.io/github/discussions/opengisch/qfield)](https://github.com/opengisch/QField/discussions)
-[![Sponsor](https://img.shields.io/static/v1?label=sponsor&message=%E2%9D%A4&color=%23fedeff)](https://github.com/sponsors/opengisch)
-[![Contribute](https://img.shields.io/static/v1?label=contribute&message=💪&color=%23fe55aa)](#contribute)
-[![Release]s(https://img.shields.io/github/release/opengisch/QField.svg)](https://github.com/opengisch/QField/releases)
+[![Read the Docs](https://img.shields.io/badge/Read-the%20Docs-green.svg)](https://docs.qfield.org/)
+[![Discussions](https://img.shields.io/github/discussions/opengisch/qfield?label=Discussions)](https://github.com/opengisch/QField/discussions)
+[![Sponsor](https://img.shields.io/static/v1?label=Support&message=%E2%9D%A4&color=%23fedeff)](https://github.com/sponsors/opengisch)
+[![Contribute](https://img.shields.io/static/v1?label=Contribute&message=💪&color=%23fe55aa)](#contribute)
+[![Release](https://img.shields.io/github/release/opengisch/QField.svg?label=Release)](https://github.com/opengisch/QField/releases)
 
 # QField for QGIS
 
