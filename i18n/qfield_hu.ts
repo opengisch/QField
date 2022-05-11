@@ -1187,7 +1187,7 @@ Az elem geometriákat összevonjuk a &apos;%1&apos; elembe, mely megőrzi az att
     <message>
         <location filename="../src/qml/NavigationInformationView.qml" line="76"/>
         <source>Dist.</source>
-        <translation type="unfinished"/>
+        <translation>távolság</translation>
     </message>
     <message>
         <location filename="../src/qml/NavigationInformationView.qml" line="79"/>
@@ -2300,7 +2300,7 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <location filename="../src/qml/QFieldSettings.qml" line="868"/>
         <source>None</source>
-        <translation type="unfinished"/>
+        <translation>egyik sem</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldSettings.qml" line="882"/>
@@ -2686,7 +2686,7 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <location filename="../src/qml/WelcomeScreen.qml" line="130"/>
         <source>Reach out</source>
-        <translation type="unfinished"/>
+        <translation>elérni</translation>
     </message>
     <message>
         <location filename="../src/qml/WelcomeScreen.qml" line="168"/>
@@ -3018,7 +3018,7 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <location filename="../src/qml/qgismobileapp.qml" line="1753"/>
         <source>Map Canvas Options</source>
-        <translation type="unfinished"/>
+        <translation>Canvas térkép lehetőségek</translation>
     </message>
     <message>
         <location filename="../src/qml/qgismobileapp.qml" line="1797"/>
@@ -3068,7 +3068,7 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <location filename="../src/qml/qgismobileapp.qml" line="1951"/>
         <source>Center to Location</source>
-        <translation type="unfinished"/>
+        <translation>köpontosítás az elhelyeszkedésre</translation>
     </message>
     <message>
         <location filename="../src/qml/qgismobileapp.qml" line="1962"/>

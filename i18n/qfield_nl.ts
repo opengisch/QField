@@ -642,7 +642,8 @@ De geometrieën van objecten zullen worden gecombineerd tot object &apos;%1&apos
         <location filename="../src/core/featuremodel.cpp" line="656"/>
         <source>Layer &quot;%1&quot; cannot be commited with the newly created feature %2. Reason:
 %3</source>
-        <translation type="unfinished"/>
+        <translation>Laag &quot;%1&quot; kan niet worden vastgelegd met het nieuw gemaakte object %2. Reden:
+%3</translation>
     </message>
     <message>
         <location filename="../src/core/featuremodel.cpp" line="662"/>

@@ -438,7 +438,7 @@
     <message>
         <location filename="../src/qml/FeatureForm.qml" line="536"/>
         <source>Value applied</source>
-        <translation>批量修改该值</translation>
+        <translation>值已应用</translation>
     </message>
     <message>
         <location filename="../src/qml/FeatureForm.qml" line="536"/>
@@ -3071,12 +3071,12 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <location filename="../src/qml/qgismobileapp.qml" line="1951"/>
         <source>Center to Location</source>
-        <translation>位置居中</translation>
+        <translation>定位居中</translation>
     </message>
     <message>
         <location filename="../src/qml/qgismobileapp.qml" line="1962"/>
         <source>Add Bookmark at Location</source>
-        <translation>在位置处添加书签</translation>
+        <translation>在定位处添加书签</translation>
     </message>
     <message>
         <location filename="../src/qml/qgismobileapp.qml" line="1987"/>
