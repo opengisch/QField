@@ -30,39 +30,39 @@ Popup {
 
     Page {
         width: parent.width
-        height: propertiesLayout.childrenRect.height + 68
         padding: 10
         header: ToolBar {
             id: toolBar
-            height: 48
 
             background: Rectangle {
                 color: "transparent"
+                height: 48
             }
 
-            Label {
-              anchors.centerIn: parent
-              leftPadding: 48
-              rightPadding: 48
-              width: parent.width - 20
-              text: qsTr('Bookmark Properties')
-              font: Theme.strongFont
-              color: Theme.mainColor
-              horizontalAlignment: Text.AlignHCenter
-              wrapMode: Text.WordWrap
-            }
+            RowLayout {
+                width: parent.width
+                height: 48
 
-            QfToolButton {
-                id: closeButton
-                anchors {
-                    top: parent.top
-                    right: parent.right
+                Label {
+                    Layout.leftMargin: 48
+                    Layout.fillWidth: true
+                    Layout.alignment: Qt.AlignVCenter
+                    text: qsTr('Bookmark Properties')
+                    font: Theme.strongFont
+                    color: Theme.mainColor
+                    horizontalAlignment: Text.AlignHCenter
+                    wrapMode: Text.WordWrap
                 }
-                iconSource: Theme.getThemeIcon( 'ic_close_black_24dp' )
-                bgcolor: "transparent"
 
-                onClicked: {
-                    bookmarkProperties.close();
+                QfToolButton {
+                    id: closeButton
+                    Layout.alignment: Qt.AlignVCenter
+                    iconSource: Theme.getThemeIcon( 'ic_close_black_24dp' )
+                    bgcolor: "transparent"
+
+                    onClicked: {
+                        bookmarkProperties.close();
+                    }
                 }
             }
         }
