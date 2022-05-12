@@ -189,6 +189,7 @@ Popup {
                     coordinates += ' (' + crs.authid + ' ' + crs.description + ')'
 
                     platformUtilities.copyTextToClipboard(nameField.text + '\n' + coordinates)
+                    displayToast(qsTr('Bookmark details copied to clipboard'));
                 }
             }
 
