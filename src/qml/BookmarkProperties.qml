@@ -175,7 +175,7 @@ Popup {
                 id: updateBookmarkButton
                 Layout.fillWidth: true
                 Layout.topMargin: 10
-                text: 'Copy bookmark details'
+                text: qsTr('Copy bookmark details')
 
                 onClicked: {
                     var point = bookmarkModel.getBookmarkPoint(bookmarkProperties.bookmarkId)
@@ -197,7 +197,7 @@ Popup {
                 Layout.fillWidth: true
                 bgcolor: 'transparent'
                 color: Theme.darkRed
-                text: 'Remove bookmark'
+                text: qsTr('Remove bookmark')
 
                 onClicked: {
                     removeBookmarkDialog.open();
