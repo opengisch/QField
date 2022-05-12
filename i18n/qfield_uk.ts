@@ -7,12 +7,12 @@
         <translation>Розроблено</translation>
     </message>
     <message>
-        <location filename="../src/qml/About.qml" line="143"/>
+        <location filename="../src/qml/About.qml" line="145"/>
         <source>Support QField</source>
         <translation>Підтримка QField</translation>
     </message>
     <message>
-        <location filename="../src/qml/About.qml" line="152"/>
+        <location filename="../src/qml/About.qml" line="154"/>
         <source>Changelog</source>
         <translation>Журнал змін</translation>
     </message>
@@ -1256,42 +1256,42 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
 <context>
     <name>PlatformUtilities</name>
     <message>
-        <location filename="../src/core/platforms/platformutilities.cpp" line="135"/>
+        <location filename="../src/core/platforms/platformutilities.cpp" line="125"/>
         <source>Select Media File</source>
         <translation>Виберіть Медіафайл</translation>
     </message>
     <message>
-        <location filename="../src/core/platforms/platformutilities.cpp" line="135"/>
+        <location filename="../src/core/platforms/platformutilities.cpp" line="125"/>
         <source>JPEG images (*.jpg *.jpeg)</source>
         <translation>JPEG зображення (*.jpg *.jpeg)</translation>
     </message>
     <message>
-        <location filename="../src/core/platforms/platformutilities.cpp" line="155"/>
+        <location filename="../src/core/platforms/platformutilities.cpp" line="145"/>
         <source>Failed to save gallery picture</source>
         <translation>Не вдалося зберегти зображення галереї</translation>
     </message>
     <message>
-        <location filename="../src/core/platforms/platformutilities.cpp" line="172"/>
+        <location filename="../src/core/platforms/platformutilities.cpp" line="162"/>
         <source>Open File</source>
         <translation>Відкрити файл</translation>
     </message>
     <message>
-        <location filename="../src/core/platforms/platformutilities.cpp" line="174"/>
+        <location filename="../src/core/platforms/platformutilities.cpp" line="164"/>
         <source>All Supported Files</source>
         <translation>Усі підтримувані файли</translation>
     </message>
     <message>
-        <location filename="../src/core/platforms/platformutilities.cpp" line="174"/>
+        <location filename="../src/core/platforms/platformutilities.cpp" line="164"/>
         <source>QGIS Project Files</source>
         <translation>Файли проєкту QGIS</translation>
     </message>
     <message>
-        <location filename="../src/core/platforms/platformutilities.cpp" line="174"/>
+        <location filename="../src/core/platforms/platformutilities.cpp" line="164"/>
         <source>Vector Datasets</source>
         <translation>Векторні набори даних</translation>
     </message>
     <message>
-        <location filename="../src/core/platforms/platformutilities.cpp" line="174"/>
+        <location filename="../src/core/platforms/platformutilities.cpp" line="164"/>
         <source>Raster Datasets</source>
         <translation>Растрові набори даних</translation>
     </message>
@@ -2426,23 +2426,23 @@ Cancel to make a minimal device scan instead.</source>
 <context>
     <name>QgisMobileapp</name>
     <message>
-        <location filename="../src/core/qgismobileapp.cpp" line="661"/>
-        <location filename="../src/core/qgismobileapp.cpp" line="687"/>
+        <location filename="../src/core/qgismobileapp.cpp" line="652"/>
+        <location filename="../src/core/qgismobileapp.cpp" line="678"/>
         <source>Project file &quot;%1&quot; does not exist</source>
         <translation>Файлу проєкта &quot;%1&quot; не існує</translation>
     </message>
     <message>
-        <location filename="../src/core/qgismobileapp.cpp" line="678"/>
+        <location filename="../src/core/qgismobileapp.cpp" line="669"/>
         <source>No project file currently opened</source>
         <translation>Наразі файл проєкту не відкрито</translation>
     </message>
     <message>
-        <location filename="../src/core/qgismobileapp.cpp" line="731"/>
+        <location filename="../src/core/qgismobileapp.cpp" line="722"/>
         <source>Could not load font %1</source>
         <translation>Не вдалося завантажити шрифт %1</translation>
     </message>
     <message>
-        <location filename="../src/core/qgismobileapp.cpp" line="733"/>
+        <location filename="../src/core/qgismobileapp.cpp" line="724"/>
         <source>Loading font %1</source>
         <translation>Завантаження шрифту %1</translation>
     </message>

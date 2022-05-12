@@ -7,12 +7,12 @@
         <translation>Fejlesztő</translation>
     </message>
     <message>
-        <location filename="../src/qml/About.qml" line="143"/>
+        <location filename="../src/qml/About.qml" line="145"/>
         <source>Support QField</source>
         <translation>Támogasd a QField fejlesztését</translation>
     </message>
     <message>
-        <location filename="../src/qml/About.qml" line="152"/>
+        <location filename="../src/qml/About.qml" line="154"/>
         <source>Changelog</source>
         <translation>Változásnapló</translation>
     </message>
@@ -1251,42 +1251,42 @@ Az elem geometriákat összevonjuk a &apos;%1&apos; elembe, mely megőrzi az att
 <context>
     <name>PlatformUtilities</name>
     <message>
-        <location filename="../src/core/platforms/platformutilities.cpp" line="135"/>
+        <location filename="../src/core/platforms/platformutilities.cpp" line="125"/>
         <source>Select Media File</source>
         <translation>Válasszon média fájlt</translation>
     </message>
     <message>
-        <location filename="../src/core/platforms/platformutilities.cpp" line="135"/>
+        <location filename="../src/core/platforms/platformutilities.cpp" line="125"/>
         <source>JPEG images (*.jpg *.jpeg)</source>
         <translation>JPEG képek (*.jpg *.jpeg)</translation>
     </message>
     <message>
-        <location filename="../src/core/platforms/platformutilities.cpp" line="155"/>
+        <location filename="../src/core/platforms/platformutilities.cpp" line="145"/>
         <source>Failed to save gallery picture</source>
         <translation>Nem sikerült a képet a galériába menteni</translation>
     </message>
     <message>
-        <location filename="../src/core/platforms/platformutilities.cpp" line="172"/>
+        <location filename="../src/core/platforms/platformutilities.cpp" line="162"/>
         <source>Open File</source>
         <translation>Fájl nyitás</translation>
     </message>
     <message>
-        <location filename="../src/core/platforms/platformutilities.cpp" line="174"/>
+        <location filename="../src/core/platforms/platformutilities.cpp" line="164"/>
         <source>All Supported Files</source>
         <translation>Minden támogatott fájl</translation>
     </message>
     <message>
-        <location filename="../src/core/platforms/platformutilities.cpp" line="174"/>
+        <location filename="../src/core/platforms/platformutilities.cpp" line="164"/>
         <source>QGIS Project Files</source>
         <translation>QGIS projekt fájlok</translation>
     </message>
     <message>
-        <location filename="../src/core/platforms/platformutilities.cpp" line="174"/>
+        <location filename="../src/core/platforms/platformutilities.cpp" line="164"/>
         <source>Vector Datasets</source>
         <translation>Vektor adatállományok</translation>
     </message>
     <message>
-        <location filename="../src/core/platforms/platformutilities.cpp" line="174"/>
+        <location filename="../src/core/platforms/platformutilities.cpp" line="164"/>
         <source>Raster Datasets</source>
         <translation>Raszter adatállományok</translation>
     </message>
@@ -2419,23 +2419,23 @@ Cancel to make a minimal device scan instead.</source>
 <context>
     <name>QgisMobileapp</name>
     <message>
-        <location filename="../src/core/qgismobileapp.cpp" line="661"/>
-        <location filename="../src/core/qgismobileapp.cpp" line="687"/>
+        <location filename="../src/core/qgismobileapp.cpp" line="652"/>
+        <location filename="../src/core/qgismobileapp.cpp" line="678"/>
         <source>Project file &quot;%1&quot; does not exist</source>
         <translation>&quot;%1&quot; projekt fájl nem létezik</translation>
     </message>
     <message>
-        <location filename="../src/core/qgismobileapp.cpp" line="678"/>
+        <location filename="../src/core/qgismobileapp.cpp" line="669"/>
         <source>No project file currently opened</source>
         <translation>Nincs aktuálisan megnyitott projekt fájl</translation>
     </message>
     <message>
-        <location filename="../src/core/qgismobileapp.cpp" line="731"/>
+        <location filename="../src/core/qgismobileapp.cpp" line="722"/>
         <source>Could not load font %1</source>
         <translation>Em tudom a %1 betűkészletet betölteni</translation>
     </message>
     <message>
-        <location filename="../src/core/qgismobileapp.cpp" line="733"/>
+        <location filename="../src/core/qgismobileapp.cpp" line="724"/>
         <source>Loading font %1</source>
         <translation>%1 betűkészlet betöltése</translation>
     </message>

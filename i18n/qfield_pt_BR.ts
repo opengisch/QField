@@ -7,12 +7,12 @@
         <translation>Desenvolvido por</translation>
     </message>
     <message>
-        <location filename="../src/qml/About.qml" line="143"/>
+        <location filename="../src/qml/About.qml" line="145"/>
         <source>Support QField</source>
         <translation>Apoie o QField</translation>
     </message>
     <message>
-        <location filename="../src/qml/About.qml" line="152"/>
+        <location filename="../src/qml/About.qml" line="154"/>
         <source>Changelog</source>
         <translation>Registro de Mudanças</translation>
     </message>
@@ -1248,42 +1248,42 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
 <context>
     <name>PlatformUtilities</name>
     <message>
-        <location filename="../src/core/platforms/platformutilities.cpp" line="135"/>
+        <location filename="../src/core/platforms/platformutilities.cpp" line="125"/>
         <source>Select Media File</source>
         <translation>Selecionar arquivo de mídia</translation>
     </message>
     <message>
-        <location filename="../src/core/platforms/platformutilities.cpp" line="135"/>
+        <location filename="../src/core/platforms/platformutilities.cpp" line="125"/>
         <source>JPEG images (*.jpg *.jpeg)</source>
         <translation>Imagens JPEG (*.jpg *.jpeg)</translation>
     </message>
     <message>
-        <location filename="../src/core/platforms/platformutilities.cpp" line="155"/>
+        <location filename="../src/core/platforms/platformutilities.cpp" line="145"/>
         <source>Failed to save gallery picture</source>
         <translation>Falha ao salvar a foto da galeria</translation>
     </message>
     <message>
-        <location filename="../src/core/platforms/platformutilities.cpp" line="172"/>
+        <location filename="../src/core/platforms/platformutilities.cpp" line="162"/>
         <source>Open File</source>
         <translation>Abrir arquivo</translation>
     </message>
     <message>
-        <location filename="../src/core/platforms/platformutilities.cpp" line="174"/>
+        <location filename="../src/core/platforms/platformutilities.cpp" line="164"/>
         <source>All Supported Files</source>
         <translation>Todos Arquivos Compatíveis</translation>
     </message>
     <message>
-        <location filename="../src/core/platforms/platformutilities.cpp" line="174"/>
+        <location filename="../src/core/platforms/platformutilities.cpp" line="164"/>
         <source>QGIS Project Files</source>
         <translation>Arquivos de Projeto QGIS</translation>
     </message>
     <message>
-        <location filename="../src/core/platforms/platformutilities.cpp" line="174"/>
+        <location filename="../src/core/platforms/platformutilities.cpp" line="164"/>
         <source>Vector Datasets</source>
         <translation>Conjunto de Dados Vetoriais</translation>
     </message>
     <message>
-        <location filename="../src/core/platforms/platformutilities.cpp" line="174"/>
+        <location filename="../src/core/platforms/platformutilities.cpp" line="164"/>
         <source>Raster Datasets</source>
         <translation>Conjunto de Dados Raster</translation>
     </message>
@@ -2416,23 +2416,23 @@ Cancele para fazer uma verificação mínima.</translation>
 <context>
     <name>QgisMobileapp</name>
     <message>
-        <location filename="../src/core/qgismobileapp.cpp" line="661"/>
-        <location filename="../src/core/qgismobileapp.cpp" line="687"/>
+        <location filename="../src/core/qgismobileapp.cpp" line="652"/>
+        <location filename="../src/core/qgismobileapp.cpp" line="678"/>
         <source>Project file &quot;%1&quot; does not exist</source>
         <translation>O arquivo do projeto &quot;%1&quot; não existe</translation>
     </message>
     <message>
-        <location filename="../src/core/qgismobileapp.cpp" line="678"/>
+        <location filename="../src/core/qgismobileapp.cpp" line="669"/>
         <source>No project file currently opened</source>
         <translation>Nenhum arquivo de projeto aberto atualmente</translation>
     </message>
     <message>
-        <location filename="../src/core/qgismobileapp.cpp" line="731"/>
+        <location filename="../src/core/qgismobileapp.cpp" line="722"/>
         <source>Could not load font %1</source>
         <translation>Não foi possível carregar a fonte %1</translation>
     </message>
     <message>
-        <location filename="../src/core/qgismobileapp.cpp" line="733"/>
+        <location filename="../src/core/qgismobileapp.cpp" line="724"/>
         <source>Loading font %1</source>
         <translation>Carregando a fonte %1</translation>
     </message>

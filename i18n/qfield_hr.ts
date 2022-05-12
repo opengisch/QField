@@ -7,12 +7,12 @@
         <translation>Razvijeno od</translation>
     </message>
     <message>
-        <location filename="../src/qml/About.qml" line="143"/>
+        <location filename="../src/qml/About.qml" line="145"/>
         <source>Support QField</source>
         <translation>Podržite Qfield</translation>
     </message>
     <message>
-        <location filename="../src/qml/About.qml" line="152"/>
+        <location filename="../src/qml/About.qml" line="154"/>
         <source>Changelog</source>
         <translation>Dnevnik promjena</translation>
     </message>
@@ -1254,42 +1254,42 @@ Geometrija elemenata će se spojiti u element &apos;%1&apos;, koji će zadržati
 <context>
     <name>PlatformUtilities</name>
     <message>
-        <location filename="../src/core/platforms/platformutilities.cpp" line="135"/>
+        <location filename="../src/core/platforms/platformutilities.cpp" line="125"/>
         <source>Select Media File</source>
         <translation>Izaberi Multimedijsku Datoteku</translation>
     </message>
     <message>
-        <location filename="../src/core/platforms/platformutilities.cpp" line="135"/>
+        <location filename="../src/core/platforms/platformutilities.cpp" line="125"/>
         <source>JPEG images (*.jpg *.jpeg)</source>
         <translation>JPEG fotografije (*.jpg *.jpeg)</translation>
     </message>
     <message>
-        <location filename="../src/core/platforms/platformutilities.cpp" line="155"/>
+        <location filename="../src/core/platforms/platformutilities.cpp" line="145"/>
         <source>Failed to save gallery picture</source>
         <translation>Nije uspjelo spremanje fotografije iz galerije</translation>
     </message>
     <message>
-        <location filename="../src/core/platforms/platformutilities.cpp" line="172"/>
+        <location filename="../src/core/platforms/platformutilities.cpp" line="162"/>
         <source>Open File</source>
         <translation>Otvori Datoteku</translation>
     </message>
     <message>
-        <location filename="../src/core/platforms/platformutilities.cpp" line="174"/>
+        <location filename="../src/core/platforms/platformutilities.cpp" line="164"/>
         <source>All Supported Files</source>
         <translation>Sve Podržane Datoteke</translation>
     </message>
     <message>
-        <location filename="../src/core/platforms/platformutilities.cpp" line="174"/>
+        <location filename="../src/core/platforms/platformutilities.cpp" line="164"/>
         <source>QGIS Project Files</source>
         <translation>QGIS Datoteke Projekta</translation>
     </message>
     <message>
-        <location filename="../src/core/platforms/platformutilities.cpp" line="174"/>
+        <location filename="../src/core/platforms/platformutilities.cpp" line="164"/>
         <source>Vector Datasets</source>
         <translation>Vektorski Skup Podataka</translation>
     </message>
     <message>
-        <location filename="../src/core/platforms/platformutilities.cpp" line="174"/>
+        <location filename="../src/core/platforms/platformutilities.cpp" line="164"/>
         <source>Raster Datasets</source>
         <translation>Rasterski Skup Podataka</translation>
     </message>
@@ -2422,23 +2422,23 @@ Otkažite da pokrenete minimalno skeniranje uređaja.</translation>
 <context>
     <name>QgisMobileapp</name>
     <message>
-        <location filename="../src/core/qgismobileapp.cpp" line="661"/>
-        <location filename="../src/core/qgismobileapp.cpp" line="687"/>
+        <location filename="../src/core/qgismobileapp.cpp" line="652"/>
+        <location filename="../src/core/qgismobileapp.cpp" line="678"/>
         <source>Project file &quot;%1&quot; does not exist</source>
         <translation>Datoteka projekta &quot;%1&quot; ne postoji</translation>
     </message>
     <message>
-        <location filename="../src/core/qgismobileapp.cpp" line="678"/>
+        <location filename="../src/core/qgismobileapp.cpp" line="669"/>
         <source>No project file currently opened</source>
         <translation>Nijedna datoteka projekta trenutno nije otvorena</translation>
     </message>
     <message>
-        <location filename="../src/core/qgismobileapp.cpp" line="731"/>
+        <location filename="../src/core/qgismobileapp.cpp" line="722"/>
         <source>Could not load font %1</source>
         <translation>Ne mogu učitati font %1</translation>
     </message>
     <message>
-        <location filename="../src/core/qgismobileapp.cpp" line="733"/>
+        <location filename="../src/core/qgismobileapp.cpp" line="724"/>
         <source>Loading font %1</source>
         <translation>Učitavanja fonta %1</translation>
     </message>
