@@ -13,7 +13,7 @@ Popup {
   property var layerTree
   property var index
 
-  property bool zoomToLayerButtonVisible: false
+  property bool zoomToButtonVisible: false
   property bool showFeaturesListButtonVisible: false
   property bool showAllFeaturesButtonVisible: false
   property bool reloadDataButtonVisible: false
@@ -36,7 +36,7 @@ Popup {
     expandCheckBox.checked = !layerTree.data(index, FlatLayerTreeModel.IsCollapsed)
 
     reloadDataButtonVisible = layerTree.data(index, FlatLayerTreeModel.CanReloadData)
-    zoomToLayerButtonVisible = isSpatialLayer()
+    zoomToButtonVisible = layerTree.data(index, FlatLayerTreeModel.HasSpatialExtent)
     showFeaturesListButtonVisible = isShowFeaturesListButtonVisible();
 
     trackingButtonVisible = isTrackingButtonVisible()
@@ -90,8 +90,8 @@ Popup {
         bottomPadding: 5
         text: qsTr('Show on map')
         font: Theme.defaultFont
-        // visible for all layer tree items but nonspatial vector LayerSelector
-        visible: index && (layerTree.data(index, FlatLayerTreeModel.LayerType) !== 'vectorlayer' || isSpatialLayer()) ? true : false
+        // visible for all layer tree items but nonspatial layers
+        visible: index && layerTree.data(index, FlatLayerTreeModel.HasSpatialExtent) ? true : false
         indicator.height: 16
         indicator.width: 16
         indicator.implicitHeight: 24
@@ -139,16 +139,18 @@ Popup {
       }
 
       QfButton {
-        id: zoomToLayerButton
+        id: zoomToButton
         Layout.fillWidth: true
         Layout.topMargin: 5
         font: Theme.defaultFont
-        text: qsTr('Zoom to layer')
-        visible: zoomToLayerButtonVisible
+        text: layerTree.data( index, FlatLayerTreeModel.Type ) === 'group'
+            ? qsTr('Zoom to group')
+            : qsTr('Zoom to layer')
+        visible: zoomToButtonVisible
         icon.source: Theme.getThemeVectorIcon( 'zoom_out_map_24dp' )
 
         onClicked: {
-          mapCanvas.mapSettings.setCenterToLayer( layerTree.data( index, FlatLayerTreeModel.MapLayerPointer ) )
+          mapCanvas.mapSettings.extent = layerTree.nodeExtent(index, mapCanvas.mapSettings);
           close()
           dashBoard.visible = false
         }
@@ -191,7 +193,7 @@ Popup {
               // one day, we should be able to show only the features that correspond to the given legend item
               featureForm.model.setFeatures( vl )
             }
-            mapCanvas.mapSettings.setCenterToLayer( layerTree.data( index, FlatLayerTreeModel.VectorLayerPointer ) )
+            mapCanvas.mapSettings.extent = layerTree.nodeExtent( index, mapCanvas.mapSettings )
           }
 
           close()
@@ -285,27 +287,6 @@ Popup {
     return layerTree.data( index, FlatLayerTreeModel.Type ) === 'layer'
         && layerTree.data( index, FlatLayerTreeModel.Trackable )
         && positionSource.active
-  }
-
-  function isSpatialLayer() {
-    if ( !index )
-      return false
-
-    if (! layerTree.data( index, FlatLayerTreeModel.IsValid )
-      || (
-          layerTree.data( index, FlatLayerTreeModel.Type ) !== 'layer'
-          && layerTree.data( index, FlatLayerTreeModel.Type ) !== 'legend'
-          ))
-      return false
-
-    var vl = layerTree.data( index, FlatLayerTreeModel.VectorLayerPointer )
-    if (!vl)
-      return true
-
-    if ( vl.geometryType() === QgsWkbTypes.NullGeometry || vl.geometryType() === QgsWkbTypes.UnknownGeometry)
-      return false
-
-    return true
   }
 
   function isShowFeaturesListButtonVisible() {
