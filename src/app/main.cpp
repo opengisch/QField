@@ -172,7 +172,11 @@ int main( int argc, char **argv )
 #if defined( Q_OS_ANDROID )
   QString projPath = PlatformUtilities::instance()->systemGenericDataLocation() + QStringLiteral( "/proj" );
   qputenv( "PROJ_LIB", projPath.toUtf8() );
-  QgsApplication app( argc, argv, true, PlatformUtilities::instance()->systemGenericDataLocation() + QStringLiteral( "/qgis/resources" ), QStringLiteral( "mobile" ) );
+
+  const QDir rootPath = QStandardPaths::writableLocation( QStandardPaths::AppDataLocation );
+  rootPath.mkdir( QStringLiteral( "qgis_profile" ) );
+  const QString profilePath = QStandardPaths::writableLocation( QStandardPaths::AppDataLocation ) + QStringLiteral( "/qgis_profile" );
+  QgsApplication app( argc, argv, true, profilePath, QStringLiteral( "mobile" ) );
 
   QSettings settings;
 
@@ -180,11 +184,18 @@ int main( int argc, char **argv )
   app.setPrefixPath( "" QGIS_INSTALL_DIR, true );
   app.setPluginPath( PlatformUtilities::instance()->systemGenericDataLocation() + QStringLiteral( "/plugins" ) );
   app.setPkgDataPath( PlatformUtilities::instance()->systemGenericDataLocation() + QStringLiteral( "/qgis" ) );
+
+  app.createDatabase();
 #elif defined( Q_OS_IOS )
   QString projPath = PlatformUtilities::instance()->systemGenericDataLocation() + QStringLiteral( "/proj" );
   qputenv( "PROJ_LIB", projPath.toUtf8() );
-  QgsApplication app( argc, argv, true, PlatformUtilities::instance()->systemGenericDataLocation() + QStringLiteral( "/qgis/resources" ), QStringLiteral( "mobile" ) );
+
+  const QDir rootPath = QStandardPaths::writableLocation( QStandardPaths::AppDataLocation );
+  rootPath.mkdir( QStringLiteral( "qgis_profile" ) );
+  const QString profilePath = QStandardPaths::writableLocation( QStandardPaths::AppDataLocation ) + QStringLiteral( "/qgis_profile" );
+  QgsApplication app( argc, argv, true, profilePath, QStringLiteral( "mobile" ) );
   app.setPkgDataPath( PlatformUtilities::instance()->systemGenericDataLocation() + QStringLiteral( "/qgis" ) );
+  app.createDatabase();
 #else
   QgsApplication app( argc, argv, true );
   QSettings settings;
