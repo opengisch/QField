@@ -2083,7 +2083,7 @@ Enquanto pode ver e usar o projeto, recomendamos fortemente a limpá-lo para evi
     <message>
         <location filename="../src/qml/QFieldSettings.qml" line="71"/>
         <source>When switched on, user&apos;s saved and currently opened project bookmarks will be displayed on the map.</source>
-        <translation type="unfinished"/>
+        <translation>Quando ativado, os utilizadores guardam e os marcadores do projetos atualmente abertos no projeto serão exibidos no mapa.</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldSettings.qml" line="75"/>
@@ -2716,7 +2716,7 @@ Cancele para fazer uma verificação mínima.</translation>
     <message>
         <location filename="../src/qml/WelcomeScreen.qml" line="331"/>
         <source>To improve stability for everyone, QField collects and sends anonymized metrics.</source>
-        <translation>Para melhorar a estabilidade para todos, o QField recolhe e envia métricas anônimas.</translation>
+        <translation>Para melhorar a estabilidade para todos, o QField recolhe e envia métricas anónimas.</translation>
     </message>
     <message>
         <location filename="../src/qml/WelcomeScreen.qml" line="342"/>
@@ -3073,17 +3073,17 @@ Cancele para fazer uma verificação mínima.</translation>
     <message>
         <location filename="../src/qml/qgismobileapp.qml" line="1951"/>
         <source>Center to Location</source>
-        <translation>Centrar para a localização</translation>
+        <translation>Centrar para a Localização</translation>
     </message>
     <message>
         <location filename="../src/qml/qgismobileapp.qml" line="1962"/>
         <source>Add Bookmark at Location</source>
-        <translation>Adicionar o marcador na localização</translation>
+        <translation>Adicionar o Marcador na Localização</translation>
     </message>
     <message>
         <location filename="../src/qml/qgismobileapp.qml" line="1987"/>
         <source>Copy Location Coordinates</source>
-        <translation>Copiar coordenadas de localização</translation>
+        <translation>Copiar Coordenadas de Localização</translation>
     </message>
     <message>
         <location filename="../src/qml/qgismobileapp.qml" line="2456"/>

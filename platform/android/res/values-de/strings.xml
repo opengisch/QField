@@ -27,10 +27,23 @@
     <string name="removed_from_favorites">Von Favoriten entfernt</string>
     <string name="external_files_title">Wichtiger Hinweis</string>
     <string name="external_files_ok">Ok</string>
+    <string name="grant_permission">Zugang zu allen Dateien</string>
     <string name="grant">Zulassen</string>
     <string name="deny_always">Dauerhaft verweigern</string>
     <string name="deny_once">Einmalig verweigern</string>
+    <string name="import_project_folder">Importiere Projekt aus Ordner</string>
     <string name="import_project_archive">Projekt von ZIP importieren</string>
+    <string name="import_dataset">Importiere Daten</string>
+    <string name="usb_cable_help">Hilfe zum Dateimanagement</string>
+    <string name="import_error">Import Fehler!</string>
+    <string name="import_dataset_error">Die ausgewählten Datensätze konnten nicht importiert werden.</string>
+    <string name="import_project_archive_error">Das ausgewählte Projektarchiv konnte nicht importiert werden.</string>
+    <string name="import_project_folder_error">Der ausgewählte Projektordner wurde nicht importiert.</string>
+    <string name="import_overwrite_title">Import Warnung</string>
+    <string name="import_overwrite_folder">Der Projektordner besteht bereits. Der Vorgang wird diese Daten überschreiben. Mit dem Import fortfahren?</string>
+    <string name="import_overwrite_dataset_single">Der Datensatz besteht bereits. Der Vorgang wird diese Daten überschreiben. Mit dem Import fortfahren?</string>
+    <string name="import_overwrite_dataset_multiple">Einer oder mehrere Datensätze bestehen bereits. Der Vorgang wird diese Daten überschreiben. Mit dem Import fortfahren?</string>
+    <string name="import_overwrite_confirm">Importiere und Überschreibe</string>
     <string name="import_overwrite_cancel">Abbrechen</string>
     <string name="export_error">Error beim Exportieren</string>
     <string name="export_to_folder_error">Der gewählte Projektordner wurde nicht korrekt exportiert.</string>
@@ -46,5 +59,8 @@
     <string name="delete_confirm_folder">Der Projektordner wird dauerhaft entfernt. Dieser Vorgang kann nicht rückgängig gemacht werden.</string>
     <string name="delete_confirm">Entfernen</string>
     <string name="delete_cancel">Abbrechen</string>
+    <string name="storage_information_title">Speicherinformation</string>
+    <string name="storage_information_message">Wenn du ein:e QField 1.x Nutzer:in bist und dich wunderst, wo deine Projekte und Datensätze hin verschwunden sind oder generell neu bei QField bist, dann empfehlen wir dir eine ruhige Minute zu nehmen und die Dokumentation zur Speicher-Handhabung zu lesen. Ein Link zur Dokumentation wird in der Titelleiste des Einstellungsmenüs verfügbar bleiben.</string>
     <string name="storage_information_view">Dokumentation anzeigen</string>
-    </resources>
+    <string name="storage_information_dismiss">Später lesen</string>
+</resources>

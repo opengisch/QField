@@ -37,10 +37,22 @@
     <string name="import_project_folder">Importar Projeto da Pasta</string>
     <string name="import_project_archive">Importar Projeto de ficheiro ZIP</string>
     <string name="import_dataset">Importar Conjunto de dado(s)</string>
+    <string name="usb_cable_help">Ajuda na Gestão de Armazenamento</string>
     <string name="import_error">Erro de Importação</string>
     <string name="import_dataset_error">Os conjuntos de dado(s) selecionados não foram importados de forma correta.</string>
+    <string name="import_project_archive_error">O arquivo de projeto selecionado não foi importado corretamente.</string>
+    <string name="import_project_folder_error">A pasta do projeto selecionado não foi importada de forma correta.</string>
+    <string name="import_overwrite_title">Aviso de Importação</string>
+    <string name="import_overwrite_folder">Esta pasta do projeto já existe. Esta operação irá substituir os dados, proceder com a importação?</string>
+    <string name="import_overwrite_dataset_single">Este conjunto de dados já existe. Esta operação irá substituí-los, proceder com a importação?</string>
+    <string name="import_overwrite_dataset_multiple">Um ou mais conjunto de dados existe(m). Esta operação irão substituí-los, proceder com a importação?</string>
+    <string name="import_overwrite_confirm">Importação e Substituição</string>
     <string name="import_overwrite_cancel">Cancelar</string>
+    <string name="export_error">Erro de Exportação</string>
+    <string name="export_to_folder_error">A pasta do projeto selecionado não foi exportada de forma correta.</string>
     <string name="send_to">Enviar para...</string>
+    <string name="send_compressed_to">Enviar Pasta Comprimida para...</string>
+    <string name="export_to_folder">Exportar para a Pasta...</string>
     <string name="add_to_favorite">Adicionar aos Favoritos</string>
     <string name="remove_from_favorite">Remover dos Favoritos</string>
     <string name="remove_dataset">Remover Conjunto de dados</string>
@@ -50,4 +62,8 @@
     <string name="delete_confirm_folder">A pasta do projeto será permanentemente eliminado, proceder com a remoção?</string>
     <string name="delete_confirm">Remover</string>
     <string name="delete_cancel">Cancelar</string>
-    </resources>
+    <string name="storage_information_title">Informação de Armazenamento</string>
+    <string name="storage_information_message">Se é um utilizador que tem acompanhado o QField 1.x e está a questionar o porquê dos seus projetos e conjuntos de dados terem desaparecido ou são novos no QField, sugerimos que reserve um minuto para ler a documentação relativamente à gestão do armazenamento. Está disponível um atalho para esta documentação e permanecerá acessível no menu de ações da barra de título.</string>
+    <string name="storage_information_view">Mostrar-me a documentação</string>
+    <string name="storage_information_dismiss">Irei ler mais tarde</string>
+</resources>
