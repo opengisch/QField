@@ -21,6 +21,7 @@
 #include <qgslayertreenode.h>
 #include <qgsmaplayertemporalproperties.h>
 #include <qgsmapthemecollection.h>
+#include <qgsquickmapsettings.h>
 #include <qgsrasterlayer.h>
 #include <qgsvectorlayer.h>
 #include <qgsvectorlayerfeaturecounter.h>
@@ -97,6 +98,11 @@ QgsLayerTree *FlatLayerTreeModel::layerTree() const
 bool FlatLayerTreeModel::filterAcceptsRow( int source_row, const QModelIndex &source_parent ) const
 {
   return !mSourceModel->data( mSourceModel->index( source_row, 0, source_parent ), FlatLayerTreeModel::IsParentCollapsed ).toBool();
+}
+
+QgsRectangle FlatLayerTreeModel::nodeExtent( const QModelIndex &index, QgsQuickMapSettings *mapSettings, const float buffer )
+{
+  return mSourceModel->nodeExtent( index, mapSettings, buffer );
 }
 
 FlatLayerTreeModelBase::FlatLayerTreeModelBase( QgsLayerTree *layerTree, QgsProject *project, QObject *parent )
@@ -461,6 +467,42 @@ QVariant FlatLayerTreeModelBase::data( const QModelIndex &index, int role ) cons
       {
         return QVariant();
       }
+    }
+
+    case FlatLayerTreeModel::HasSpatialExtent:
+    {
+      QgsLayerTreeNode *node = mLayerTreeModel->index2node( mapToSource( index ) );
+      if ( QgsLayerTree::isLayer( node ) )
+      {
+        const QgsLayerTreeLayer *nodeLayer = QgsLayerTree::toLayer( node );
+        const QgsMapLayer *layer = qobject_cast<QgsMapLayer *>( nodeLayer->layer() );
+
+        return layer->isSpatial();
+      }
+      else if ( QgsLayerTree::isGroup( node ) )
+      {
+        const QgsLayerTreeGroup *groupNode = QgsLayerTree::toGroup( node );
+        QList<QgsMapLayer *> layers;
+
+        const QStringList findLayerIds = groupNode->findLayerIds();
+
+        if ( findLayerIds.empty() )
+          return false;
+
+        for ( const QString &layerId : findLayerIds )
+          layers << QgsProject::instance()->mapLayer( layerId );
+
+        for ( int i = 0; i < layers.size(); ++i )
+        {
+          const QgsRectangle extent = layers[i]->extent();
+          if ( layers[i]->isValid() && layers[i]->isSpatial() && !extent.isEmpty() && extent.isFinite() )
+          {
+            return true;
+          }
+        }
+      }
+
+      return false;
     }
 
     case FlatLayerTreeModel::LegendImage:
@@ -897,6 +939,7 @@ QHash<int, QByteArray> FlatLayerTreeModelBase::roleNames() const
   QHash<int, QByteArray> roleNames = QAbstractProxyModel::roleNames();
   roleNames[FlatLayerTreeModel::VectorLayerPointer] = "VectorLayerPointer";
   roleNames[FlatLayerTreeModel::MapLayerPointer] = "MapLayerPointer";
+  roleNames[FlatLayerTreeModel::HasSpatialExtent] = "HasSpatialExtent";
   roleNames[FlatLayerTreeModel::LegendImage] = "LegendImage";
   roleNames[FlatLayerTreeModel::Visible] = "Visible";
   roleNames[FlatLayerTreeModel::Type] = "Type";
@@ -998,4 +1041,65 @@ void FlatLayerTreeModelBase::setLayerInTracking( QgsLayerTreeLayer *nodeLayer, b
   QModelIndex index = mapFromSource( sourceIndex );
 
   emit dataChanged( index, index, QVector<int>() << FlatLayerTreeModel::InTracking );
+}
+
+QgsRectangle FlatLayerTreeModelBase::nodeExtent( const QModelIndex &index, QgsQuickMapSettings *mapSettings, const float buffer )
+{
+  QgsRectangle extent;
+  extent.setMinimal();
+
+  QgsLayerTreeNode *node = mLayerTreeModel->index2node( mapToSource( index ) );
+  if ( QgsLayerTree::isGroup( node ) )
+  {
+    QgsLayerTreeGroup *groupNode = QgsLayerTree::toGroup( node );
+    QList<QgsMapLayer *> layers;
+
+    const QStringList findLayerIds = groupNode->findLayerIds();
+
+    if ( findLayerIds.empty() )
+      return extent;
+
+    for ( const QString &layerId : findLayerIds )
+      layers << QgsProject::instance()->mapLayer( layerId );
+
+    QgsMapSettings ms = mapSettings->mapSettings();
+    for ( int i = 0; i < layers.size(); ++i )
+    {
+      QgsMapLayer *layer = layers.at( i );
+      QgsRectangle layerExtent = ms.layerToMapCoordinates( layer, layer->extent() );
+
+      QgsVectorLayer *vLayer = qobject_cast<QgsVectorLayer *>( layer );
+      if ( vLayer )
+      {
+        if ( vLayer->geometryType() == QgsWkbTypes::NullGeometry )
+          continue;
+
+        if ( layerExtent.isEmpty() )
+        {
+          vLayer->updateExtents();
+          layerExtent = ms.layerToMapCoordinates( layer, layer->extent() );
+        }
+      }
+
+      if ( layerExtent.isNull() )
+        continue;
+
+      //transform extent
+      extent.combineExtentWith( layerExtent );
+    }
+  }
+  else if ( QgsLayerTree::isLayer( node ) )
+  {
+    QgsMapLayer *layer = QgsLayerTree::toLayer( node )->layer();
+
+    if ( layer )
+      extent = mapSettings->mapSettings().layerToMapCoordinates( layer, layer->extent() );
+  }
+
+  if ( buffer )
+  {
+    extent = extent.buffered( extent.width() * buffer );
+  }
+
+  return extent;
 }

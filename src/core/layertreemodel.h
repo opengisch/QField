@@ -23,6 +23,7 @@
 class QgsLayerTree;
 class QgsLayerTreeModel;
 class QgsProject;
+class QgsQuickMapSettings;
 
 class FlatLayerTreeModelBase : public QAbstractProxyModel
 {
@@ -76,6 +77,9 @@ class FlatLayerTreeModelBase : public QAbstractProxyModel
     //! Returns whether the current layer tree has temporal awareness
     bool isTemporal() const { return mIsTemporal; }
 
+    //! Calculate layer tree node extent and add optional buffer
+    Q_INVOKABLE QgsRectangle nodeExtent( const QModelIndex &index, QgsQuickMapSettings *mapSettings, const float buffer );
+
   signals:
     void mapThemeChanged();
     void isTemporalChanged();
@@ -111,6 +115,7 @@ class FlatLayerTreeModel : public QSortFilterProxyModel
     {
       VectorLayerPointer = Qt::UserRole + 1,
       MapLayerPointer,
+      HasSpatialExtent,
       LegendImage,
       Type,
       Name,
@@ -128,7 +133,7 @@ class FlatLayerTreeModel : public QSortFilterProxyModel
       HasChildren,
       CanReloadData,
       HasLabels,
-      LabelsVisible
+      LabelsVisible,
     };
     Q_ENUM( Roles )
 
@@ -159,6 +164,9 @@ class FlatLayerTreeModel : public QSortFilterProxyModel
     QgsLayerTreeModel *layerTreeModel() const;
 
     QgsLayerTree *layerTree() const;
+
+    //! Calculate layer tree node extent
+    Q_INVOKABLE QgsRectangle nodeExtent( const QModelIndex &index, QgsQuickMapSettings *mapSettings, const float buffer = 0.02 );
 
   signals:
     void mapThemeChanged();
