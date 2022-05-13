@@ -14,7 +14,6 @@ Popup {
     property string bookmarkName: ''
     property string bookmarkGroup: ''
 
-
     width: Math.min(350, mainWindow.width - 20 )
     x: (parent.width - width) / 2
     y: (parent.height - height) / 2
@@ -25,41 +24,45 @@ Popup {
         groupField.value = bookmarkGroup;
     }
 
+    function saveBookmark() {
+        bookmarkModel.updateBookmarkDetails(bookmarkProperties.bookmarkId, nameField.text, groupField.value)
+    }
+
     Page {
         width: parent.width
-        height: propertiesLayout.childrenRect.height + 68
         padding: 10
         header: ToolBar {
             id: toolBar
-            height: 48
 
             background: Rectangle {
                 color: "transparent"
+                height: 48
             }
 
-            Label {
-              anchors.centerIn: parent
-              leftPadding: 48
-              rightPadding: 48
-              width: parent.width - 20
-              text: qsTr('Bookmark Properties')
-              font: Theme.strongFont
-              color: Theme.mainColor
-              horizontalAlignment: Text.AlignHCenter
-              wrapMode: Text.WordWrap
-            }
+            RowLayout {
+                width: parent.width
+                height: 48
 
-            QfToolButton {
-                id: closeButton
-                anchors {
-                    top: parent.top
-                    right: parent.right
+                Label {
+                    Layout.leftMargin: 48
+                    Layout.fillWidth: true
+                    Layout.alignment: Qt.AlignVCenter
+                    text: qsTr('Bookmark Properties')
+                    font: Theme.strongFont
+                    color: Theme.mainColor
+                    horizontalAlignment: Text.AlignHCenter
+                    wrapMode: Text.WordWrap
                 }
-                iconSource: Theme.getThemeIcon( 'ic_close_black_24dp' )
-                bgcolor: "transparent"
 
-                onClicked: {
-                    bookmarkProperties.close();
+                QfToolButton {
+                    id: closeButton
+                    Layout.alignment: Qt.AlignVCenter
+                    iconSource: Theme.getThemeIcon( 'ic_close_black_24dp' )
+                    bgcolor: "transparent"
+
+                    onClicked: {
+                        bookmarkProperties.close();
+                    }
                 }
             }
         }
@@ -80,6 +83,10 @@ Popup {
                 Layout.fillWidth: true
                 font: Theme.defaultFont
                 text: ''
+
+                onTextChanged: {
+                    saveBookmark();
+                }
             }
 
             Label {
@@ -93,8 +100,12 @@ Popup {
                 spacing: 8
                 Layout.fillWidth: true
 
-                property int iconSize: 24
+                property int iconSize: 32
                 property string value: ''
+
+                onValueChanged: {
+                    saveBookmark();
+                }
 
                 Rectangle {
                     id: defaultColor
@@ -164,18 +175,30 @@ Popup {
                 id: updateBookmarkButton
                 Layout.fillWidth: true
                 Layout.topMargin: 10
-                text: 'Update bookmark details'
+                text: qsTr('Copy bookmark details')
 
                 onClicked: {
-                    bookmarkModel.updateBookmarkDetails(bookmarkProperties.bookmarkId, nameField.text, groupField.value)
-                    bookmarkProperties.close();
+                    var point = bookmarkModel.getBookmarkPoint(bookmarkProperties.bookmarkId)
+                    var crs = bookmarkModel.getBookmarkCrs(bookmarkProperties.bookmarkId)
+                    var coordinates = ''
+                    if (crs.isGeographic) {
+                      coordinates = qsTr( 'Lon' ) + ' ' +  point.x.toFixed(5) + ', ' + qsTr( 'Lat' ) + ' ' + point.y.toFixed(5)
+                    } else {
+                      coordinates = qsTr( 'X' ) + ' ' +  point.x.toFixed(2) + ', ' + qsTr( 'Y' ) + ' ' + point.y.toFixed(2)
+                    }
+                    coordinates += ' (' + crs.authid + ' ' + crs.description + ')'
+
+                    platformUtilities.copyTextToClipboard(nameField.text + '\n' + coordinates)
+                    displayToast(qsTr('Bookmark details copied to clipboard'));
                 }
             }
 
             QfButton {
                 id: deleteBookmarkButton
                 Layout.fillWidth: true
-                text: 'Remove bookmark'
+                bgcolor: 'transparent'
+                color: Theme.darkRed
+                text: qsTr('Remove bookmark')
 
                 onClicked: {
                     removeBookmarkDialog.open();

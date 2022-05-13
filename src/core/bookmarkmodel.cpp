@@ -153,3 +153,15 @@ void BookmarkModel::removeBookmark( const QString &id )
 {
   mManager->removeBookmark( id );
 }
+
+QgsPointXY BookmarkModel::getBookmarkPoint( const QString &id )
+{
+  const QgsBookmark bookmark = mManager->bookmarkById( id );
+  return bookmark.extent().center();
+}
+
+QgsCoordinateReferenceSystem BookmarkModel::getBookmarkCrs( const QString &id )
+{
+  const QgsBookmark bookmark = mManager->bookmarkById( id );
+  return bookmark.extent().crs();
+}
