@@ -3,7 +3,7 @@ pragma Singleton
 import QtQuick 2.12
 
 QtObject {
-    readonly property color darkRed: "#900000"
+    readonly property color darkRed: "#c0392b"
     readonly property color darkGray: "#212121"
     readonly property color darkGraySemiOpaque: "#88212121"
     readonly property color gray: "#888888"
