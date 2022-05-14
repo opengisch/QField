@@ -1,5 +1,6 @@
 import QtQuick 2.12
 import QtQuick.Shapes 1.12
+import QtQuick.Window 2.12
 import QtGraphicalEffects 1.12
 import QtSensors 5.12
 
@@ -36,6 +37,22 @@ Item {
     id: magnetometer
     active: false
     returnGeoValues: false
+
+    Screen.orientationUpdateMask: Qt.PortraitOrientation | Qt.InvertedPortraitOrientation | Qt.LandscapeOrientation | Qt.InvertedLandscapeOrientation
+    Screen.onOrientationChanged: {
+        switch (Screen.orientation) {
+          case Qt.LandscapeOrientation:
+            magnetometer.userOrientation = 90;
+            break;
+          case Qt.InvertedLandscapeOrientation:
+            magnetometer.userOrientation = 270;
+            break;
+          case Qt.PortraitOrientation:
+          default:
+            magnetometer.userOrientation = 0;
+            break;
+        }
+    }
 
     property bool hasValue: false
     property real x: 0
@@ -76,7 +93,7 @@ Item {
 
     source: Theme.getThemeVectorIcon( "ic_compass_direction" )
     fillMode: Image.PreserveAspectFit
-    rotation:  -(Math.atan2(magnetometer.x, magnetometer.y) / Math.PI) * 180
+    rotation: magnetometer.userOrientation + (-(Math.atan2(magnetometer.x, magnetometer.y) / Math.PI) * 180)
     transformOrigin: Item.Bottom
     smooth: true
   }
