@@ -174,27 +174,58 @@
 <context>
     <name>BookmarkProperties</name>
     <message>
-        <location filename="../src/qml/BookmarkProperties.qml" line="45"/>
+        <location filename="../src/qml/BookmarkProperties.qml" line="50"/>
         <source>Bookmark Properties</source>
         <translation>ブックマークプロパティ</translation>
     </message>
     <message>
-        <location filename="../src/qml/BookmarkProperties.qml" line="74"/>
+        <location filename="../src/qml/BookmarkProperties.qml" line="77"/>
         <source>Name</source>
         <translation>名前</translation>
     </message>
     <message>
-        <location filename="../src/qml/BookmarkProperties.qml" line="87"/>
+        <location filename="../src/qml/BookmarkProperties.qml" line="94"/>
         <source>Color</source>
         <translation>色</translation>
     </message>
     <message>
-        <location filename="../src/qml/BookmarkProperties.qml" line="198"/>
+        <location filename="../src/qml/BookmarkProperties.qml" line="178"/>
+        <source>Copy bookmark details</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/qml/BookmarkProperties.qml" line="185"/>
+        <source>Lon</source>
+        <translation>経度</translation>
+    </message>
+    <message>
+        <location filename="../src/qml/BookmarkProperties.qml" line="185"/>
+        <source>Lat</source>
+        <translation>緯度</translation>
+    </message>
+    <message>
+        <location filename="../src/qml/BookmarkProperties.qml" line="187"/>
+        <source>X</source>
+        <translation>X</translation>
+    </message>
+    <message>
+        <location filename="../src/qml/BookmarkProperties.qml" line="187"/>
+        <source>Y</source>
+        <translation>Y</translation>
+    </message>
+    <message>
+        <location filename="../src/qml/BookmarkProperties.qml" line="192"/>
+        <source>Bookmark details copied to clipboard</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/qml/BookmarkProperties.qml" line="201"/>
+        <location filename="../src/qml/BookmarkProperties.qml" line="221"/>
         <source>Remove bookmark</source>
         <translation>ブックマークを削除</translation>
     </message>
     <message>
-        <location filename="../src/qml/BookmarkProperties.qml" line="202"/>
+        <location filename="../src/qml/BookmarkProperties.qml" line="225"/>
         <source>You are about to remove a bookmark, proceed?</source>
         <translation>ブックマークを削除しますか？</translation>
     </message>
@@ -850,52 +881,57 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
         <translation>ラベルを表示</translation>
     </message>
     <message>
-        <location filename="../src/qml/LayerTreeItemProperties.qml" line="146"/>
+        <location filename="../src/qml/LayerTreeItemProperties.qml" line="147"/>
+        <source>Zoom to group</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/qml/LayerTreeItemProperties.qml" line="148"/>
         <source>Zoom to layer</source>
         <translation>レイヤーにズーム</translation>
     </message>
     <message>
-        <location filename="../src/qml/LayerTreeItemProperties.qml" line="162"/>
+        <location filename="../src/qml/LayerTreeItemProperties.qml" line="164"/>
         <source>Reload data</source>
         <translation>データを再読み込み</translation>
     </message>
     <message>
-        <location filename="../src/qml/LayerTreeItemProperties.qml" line="170"/>
+        <location filename="../src/qml/LayerTreeItemProperties.qml" line="172"/>
         <source>Reload of layer %1 triggered</source>
         <translation>レイヤ %1 の再読み込みがトリガーされました</translation>
     </message>
     <message>
-        <location filename="../src/qml/LayerTreeItemProperties.qml" line="178"/>
+        <location filename="../src/qml/LayerTreeItemProperties.qml" line="180"/>
         <source>Show features list</source>
         <translation>地物の一覧を表示</translation>
     </message>
     <message>
-        <location filename="../src/qml/LayerTreeItemProperties.qml" line="184"/>
+        <location filename="../src/qml/LayerTreeItemProperties.qml" line="186"/>
         <source>The layer has no features</source>
         <translation>レイヤに地物がありません</translation>
     </message>
     <message>
-        <location filename="../src/qml/LayerTreeItemProperties.qml" line="215"/>
+        <location filename="../src/qml/LayerTreeItemProperties.qml" line="217"/>
         <source>Track on layer %1 stopped</source>
         <translation>レイヤ %1 の追跡を停止しました</translation>
     </message>
     <message>
-        <location filename="../src/qml/LayerTreeItemProperties.qml" line="237"/>
+        <location filename="../src/qml/LayerTreeItemProperties.qml" line="239"/>
         <source>Read-Only Layer</source>
         <translation>読み取り専用レイヤ</translation>
     </message>
     <message>
-        <location filename="../src/qml/LayerTreeItemProperties.qml" line="237"/>
+        <location filename="../src/qml/LayerTreeItemProperties.qml" line="239"/>
         <source>Geometry Locked Layer</source>
         <translation>ジオメトリロックされたレイヤ</translation>
     </message>
     <message>
-        <location filename="../src/qml/LayerTreeItemProperties.qml" line="244"/>
+        <location filename="../src/qml/LayerTreeItemProperties.qml" line="246"/>
         <source>This layer is configured as &quot;Read-Only&quot; which disables adding, deleting and editing features.</source>
         <translation>このレイヤは「読取専用」と設定されているため、地物の追加、削除、編集は行えません。</translation>
     </message>
     <message>
-        <location filename="../src/qml/LayerTreeItemProperties.qml" line="246"/>
+        <location filename="../src/qml/LayerTreeItemProperties.qml" line="248"/>
         <source>This layer is configured as &quot;Lock Geometries&quot; which disables adding and deleting features, as well as modifying the geometries of existing features.</source>
         <translation>このレイヤーは、地物の追加と削除、および既存のフィーチャのジオメトリの変更を無効にする「ジオメトリのロック」が設定されています。</translation>
     </message>

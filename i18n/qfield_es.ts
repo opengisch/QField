@@ -174,27 +174,58 @@
 <context>
     <name>BookmarkProperties</name>
     <message>
-        <location filename="../src/qml/BookmarkProperties.qml" line="45"/>
+        <location filename="../src/qml/BookmarkProperties.qml" line="50"/>
         <source>Bookmark Properties</source>
         <translation>Propiedades del marcador</translation>
     </message>
     <message>
-        <location filename="../src/qml/BookmarkProperties.qml" line="74"/>
+        <location filename="../src/qml/BookmarkProperties.qml" line="77"/>
         <source>Name</source>
         <translation>Nombre</translation>
     </message>
     <message>
-        <location filename="../src/qml/BookmarkProperties.qml" line="87"/>
+        <location filename="../src/qml/BookmarkProperties.qml" line="94"/>
         <source>Color</source>
         <translation>Color</translation>
     </message>
     <message>
-        <location filename="../src/qml/BookmarkProperties.qml" line="198"/>
+        <location filename="../src/qml/BookmarkProperties.qml" line="178"/>
+        <source>Copy bookmark details</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/qml/BookmarkProperties.qml" line="185"/>
+        <source>Lon</source>
+        <translation>Lon</translation>
+    </message>
+    <message>
+        <location filename="../src/qml/BookmarkProperties.qml" line="185"/>
+        <source>Lat</source>
+        <translation>Lat</translation>
+    </message>
+    <message>
+        <location filename="../src/qml/BookmarkProperties.qml" line="187"/>
+        <source>X</source>
+        <translation>X</translation>
+    </message>
+    <message>
+        <location filename="../src/qml/BookmarkProperties.qml" line="187"/>
+        <source>Y</source>
+        <translation>Y</translation>
+    </message>
+    <message>
+        <location filename="../src/qml/BookmarkProperties.qml" line="192"/>
+        <source>Bookmark details copied to clipboard</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/qml/BookmarkProperties.qml" line="201"/>
+        <location filename="../src/qml/BookmarkProperties.qml" line="221"/>
         <source>Remove bookmark</source>
         <translation>Eliminar marcador</translation>
     </message>
     <message>
-        <location filename="../src/qml/BookmarkProperties.qml" line="202"/>
+        <location filename="../src/qml/BookmarkProperties.qml" line="225"/>
         <source>You are about to remove a bookmark, proceed?</source>
         <translation>Va a eliminar un marcador, ¿continuar?</translation>
     </message>
@@ -852,52 +883,57 @@ Las geometrías de los objetos se combinarán en el objeto &apos;%1&apos;, que c
         <translation>Mostrar etiquetas</translation>
     </message>
     <message>
-        <location filename="../src/qml/LayerTreeItemProperties.qml" line="146"/>
+        <location filename="../src/qml/LayerTreeItemProperties.qml" line="147"/>
+        <source>Zoom to group</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/qml/LayerTreeItemProperties.qml" line="148"/>
         <source>Zoom to layer</source>
         <translation>Zoom a la capa</translation>
     </message>
     <message>
-        <location filename="../src/qml/LayerTreeItemProperties.qml" line="162"/>
+        <location filename="../src/qml/LayerTreeItemProperties.qml" line="164"/>
         <source>Reload data</source>
         <translation>Recargar datos</translation>
     </message>
     <message>
-        <location filename="../src/qml/LayerTreeItemProperties.qml" line="170"/>
+        <location filename="../src/qml/LayerTreeItemProperties.qml" line="172"/>
         <source>Reload of layer %1 triggered</source>
         <translation>Recarga de la capa %1 activada</translation>
     </message>
     <message>
-        <location filename="../src/qml/LayerTreeItemProperties.qml" line="178"/>
+        <location filename="../src/qml/LayerTreeItemProperties.qml" line="180"/>
         <source>Show features list</source>
         <translation>Mostrar lista de objetos</translation>
     </message>
     <message>
-        <location filename="../src/qml/LayerTreeItemProperties.qml" line="184"/>
+        <location filename="../src/qml/LayerTreeItemProperties.qml" line="186"/>
         <source>The layer has no features</source>
         <translation>La capa no tiene entidades</translation>
     </message>
     <message>
-        <location filename="../src/qml/LayerTreeItemProperties.qml" line="215"/>
+        <location filename="../src/qml/LayerTreeItemProperties.qml" line="217"/>
         <source>Track on layer %1 stopped</source>
         <translation>Seguimiento de la capa %1 detenido</translation>
     </message>
     <message>
-        <location filename="../src/qml/LayerTreeItemProperties.qml" line="237"/>
+        <location filename="../src/qml/LayerTreeItemProperties.qml" line="239"/>
         <source>Read-Only Layer</source>
         <translation>Capa de solo lectura</translation>
     </message>
     <message>
-        <location filename="../src/qml/LayerTreeItemProperties.qml" line="237"/>
+        <location filename="../src/qml/LayerTreeItemProperties.qml" line="239"/>
         <source>Geometry Locked Layer</source>
         <translation>Capa de geometría bloqueada</translation>
     </message>
     <message>
-        <location filename="../src/qml/LayerTreeItemProperties.qml" line="244"/>
+        <location filename="../src/qml/LayerTreeItemProperties.qml" line="246"/>
         <source>This layer is configured as &quot;Read-Only&quot; which disables adding, deleting and editing features.</source>
         <translation>Esta capa está configurada como &quot;solo lectura&quot;, lo que deshabilita añadir, borrar y editar objetos.</translation>
     </message>
     <message>
-        <location filename="../src/qml/LayerTreeItemProperties.qml" line="246"/>
+        <location filename="../src/qml/LayerTreeItemProperties.qml" line="248"/>
         <source>This layer is configured as &quot;Lock Geometries&quot; which disables adding and deleting features, as well as modifying the geometries of existing features.</source>
         <translation>Esta capa está configurada como &quot;bloquear geometrías&quot;, lo que deshabilita añadir y borrar objetos, así como modificar las geometrías de los objetos existentes.</translation>
     </message>
