@@ -247,6 +247,7 @@ Item {
 
               onClicked: {
                 locator.triggerResultAtRow(delegateRect.resultIndex, model.id)
+                locatorItem.state = "off"
               }
             }
           }
