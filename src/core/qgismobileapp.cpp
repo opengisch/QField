@@ -684,6 +684,23 @@ void QgisMobileapp::readProjectFile()
 
   mTrackingModel->reset();
 
+  // load project file fonts if present
+  QDir fontDir = QDir::cleanPath( QFileInfo( mProjectFilePath ).absoluteDir().path() + QDir::separator() + ".fonts" );
+  QStringList fontExts = QStringList() << "*.ttf"
+                                       << "*.TTF"
+                                       << "*.otf"
+                                       << "*.OTF";
+  const QStringList fontFiles = fontDir.entryList( fontExts, QDir::Files );
+  for ( const QString &fontFile : fontFiles )
+  {
+    int id = QFontDatabase::addApplicationFont( QDir::cleanPath( fontDir.path() + QDir::separator() + fontFile ) );
+    qDebug() << QDir::cleanPath( fontDir.path() + QDir::separator() + fontFile );
+    if ( id == -1 )
+    {
+      QgsMessageLog::logMessage( tr( "Could not load font %1" ).arg( fontFile ) );
+    }
+  }
+
   // Load project file
   bool projectLoaded = false;
   if ( SUPPORTED_PROJECT_EXTENSIONS.contains( suffix ) )
@@ -703,25 +720,6 @@ void QgisMobileapp::readProjectFile()
         mProject->read( QgsGeoPackageProjectStorage::encodeUri( projectUri ) );
         projectLoaded = true;
       }
-    }
-  }
-
-  if ( projectLoaded )
-  {
-    // load fonts in same directory
-    QDir fontDir = QDir::cleanPath( QFileInfo( mProjectFilePath ).absoluteDir().path() + QDir::separator() + ".fonts" );
-    QStringList fontExts = QStringList() << "*.ttf"
-                                         << "*.TTF"
-                                         << "*.otf"
-                                         << "*.OTF";
-    const QStringList fontFiles = fontDir.entryList( fontExts, QDir::Files );
-    for ( const QString &fontFile : fontFiles )
-    {
-      int id = QFontDatabase::addApplicationFont( QDir::cleanPath( fontDir.path() + QDir::separator() + fontFile ) );
-      if ( id < 0 )
-        QgsMessageLog::logMessage( tr( "Could not load font %1" ).arg( fontFile ) );
-      else
-        QgsMessageLog::logMessage( tr( "Loading font %1" ).arg( fontFile ) );
     }
   }
 
