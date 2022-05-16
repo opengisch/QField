@@ -2471,14 +2471,13 @@ Cancele para fazer uma verificação mínima.</translation>
         <translation>Nenhum ficheiro de projeto aberto atualmente</translation>
     </message>
     <message>
-        <location filename="../src/core/qgismobileapp.cpp" line="722"/>
+        <location filename="../src/core/qgismobileapp.cpp" line="700"/>
         <source>Could not load font %1</source>
         <translation>Não foi possível carregar a fonte % 1</translation>
     </message>
     <message>
-        <location filename="../src/core/qgismobileapp.cpp" line="724"/>
         <source>Loading font %1</source>
-        <translation>A Carregar a fonte %1</translation>
+        <translation type="vanished">A Carregar a fonte %1</translation>
     </message>
 </context>
 <context>

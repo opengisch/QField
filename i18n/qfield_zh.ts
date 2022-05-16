@@ -2469,14 +2469,13 @@ Cancel to make a minimal device scan instead.</source>
         <translation>当前未打开任何工程文件</translation>
     </message>
     <message>
-        <location filename="../src/core/qgismobileapp.cpp" line="722"/>
+        <location filename="../src/core/qgismobileapp.cpp" line="700"/>
         <source>Could not load font %1</source>
         <translation>无法加载字体 %1</translation>
     </message>
     <message>
-        <location filename="../src/core/qgismobileapp.cpp" line="724"/>
         <source>Loading font %1</source>
-        <translation>加载字体 %1</translation>
+        <translation type="vanished">加载字体 %1</translation>
     </message>
 </context>
 <context>

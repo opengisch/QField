@@ -2473,14 +2473,13 @@ Cancel to make a minimal device scan instead.</source>
         <translation>Няма отворен проект в момента</translation>
     </message>
     <message>
-        <location filename="../src/core/qgismobileapp.cpp" line="722"/>
+        <location filename="../src/core/qgismobileapp.cpp" line="700"/>
         <source>Could not load font %1</source>
         <translation>Шрифтът %1 не може да бъде зареден</translation>
     </message>
     <message>
-        <location filename="../src/core/qgismobileapp.cpp" line="724"/>
         <source>Loading font %1</source>
-        <translation>Зареждане на локалния шрифт %1</translation>
+        <translation type="vanished">Зареждане на локалния шрифт %1</translation>
     </message>
 </context>
 <context>

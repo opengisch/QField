@@ -2471,14 +2471,13 @@ Cancel to make a minimal device scan instead.</source>
         <translation>В данный момент нет открытого файла проекта</translation>
     </message>
     <message>
-        <location filename="../src/core/qgismobileapp.cpp" line="722"/>
+        <location filename="../src/core/qgismobileapp.cpp" line="700"/>
         <source>Could not load font %1</source>
         <translation>Невозможно загрузить шрифт %1</translation>
     </message>
     <message>
-        <location filename="../src/core/qgismobileapp.cpp" line="724"/>
         <source>Loading font %1</source>
-        <translation>Загрузка шрифта %1</translation>
+        <translation type="vanished">Загрузка шрифта %1</translation>
     </message>
 </context>
 <context>

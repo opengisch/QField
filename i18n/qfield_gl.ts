@@ -191,7 +191,7 @@
     <message>
         <location filename="../src/qml/BookmarkProperties.qml" line="178"/>
         <source>Copy bookmark details</source>
-        <translation type="unfinished"/>
+        <translation>Copiar detalles do marcador</translation>
     </message>
     <message>
         <location filename="../src/qml/BookmarkProperties.qml" line="185"/>
@@ -216,7 +216,7 @@
     <message>
         <location filename="../src/qml/BookmarkProperties.qml" line="192"/>
         <source>Bookmark details copied to clipboard</source>
-        <translation type="unfinished"/>
+        <translation>Detalles do marcador copiados ó portapapeis</translation>
     </message>
     <message>
         <location filename="../src/qml/BookmarkProperties.qml" line="201"/>
@@ -885,7 +885,7 @@ As xeometrías das entidades combinaranse na entidade &apos;%1&apos;, a cal cons
     <message>
         <location filename="../src/qml/LayerTreeItemProperties.qml" line="147"/>
         <source>Zoom to group</source>
-        <translation type="unfinished"/>
+        <translation>Zoom ó grupo</translation>
     </message>
     <message>
         <location filename="../src/qml/LayerTreeItemProperties.qml" line="148"/>
@@ -2471,14 +2471,13 @@ Cancela para facer, porén, unha exploración mínima do dispositivo.</translati
         <translation>Non hai aberto ningún ficheiro de proxecto actualmente</translation>
     </message>
     <message>
-        <location filename="../src/core/qgismobileapp.cpp" line="722"/>
+        <location filename="../src/core/qgismobileapp.cpp" line="700"/>
         <source>Could not load font %1</source>
         <translation>Non se puido cargar a fonte %1</translation>
     </message>
     <message>
-        <location filename="../src/core/qgismobileapp.cpp" line="724"/>
         <source>Loading font %1</source>
-        <translation>Cargando a fonte %1</translation>
+        <translation type="vanished">Cargando a fonte %1</translation>
     </message>
 </context>
 <context>

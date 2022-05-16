@@ -2457,14 +2457,13 @@ Bunun yerine minimum cihaz taraması yapmak için iptal edin.</translation>
         <translation>Şu anda açık proje dosyası yok</translation>
     </message>
     <message>
-        <location filename="../src/core/qgismobileapp.cpp" line="722"/>
+        <location filename="../src/core/qgismobileapp.cpp" line="700"/>
         <source>Could not load font %1</source>
         <translation>Font yüklenemedi %1</translation>
     </message>
     <message>
-        <location filename="../src/core/qgismobileapp.cpp" line="724"/>
         <source>Loading font %1</source>
-        <translation>Font yükleniyor %1</translation>
+        <translation type="vanished">Font yükleniyor %1</translation>
     </message>
 </context>
 <context>

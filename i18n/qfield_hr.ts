@@ -2469,14 +2469,13 @@ Otkažite da pokrenete minimalno skeniranje uređaja.</translation>
         <translation>Nijedna datoteka projekta trenutno nije otvorena</translation>
     </message>
     <message>
-        <location filename="../src/core/qgismobileapp.cpp" line="722"/>
+        <location filename="../src/core/qgismobileapp.cpp" line="700"/>
         <source>Could not load font %1</source>
         <translation>Ne mogu učitati font %1</translation>
     </message>
     <message>
-        <location filename="../src/core/qgismobileapp.cpp" line="724"/>
         <source>Loading font %1</source>
-        <translation>Učitavanja fonta %1</translation>
+        <translation type="vanished">Učitavanja fonta %1</translation>
     </message>
 </context>
 <context>

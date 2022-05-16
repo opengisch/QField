@@ -2466,14 +2466,13 @@ Cancel to make a minimal device scan instead.</source>
         <translation>Nincs aktuálisan megnyitott projekt fájl</translation>
     </message>
     <message>
-        <location filename="../src/core/qgismobileapp.cpp" line="722"/>
+        <location filename="../src/core/qgismobileapp.cpp" line="700"/>
         <source>Could not load font %1</source>
         <translation>Em tudom a %1 betűkészletet betölteni</translation>
     </message>
     <message>
-        <location filename="../src/core/qgismobileapp.cpp" line="724"/>
         <source>Loading font %1</source>
-        <translation>%1 betűkészlet betöltése</translation>
+        <translation type="vanished">%1 betűkészlet betöltése</translation>
     </message>
 </context>
 <context>

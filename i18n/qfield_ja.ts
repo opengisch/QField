@@ -2469,14 +2469,13 @@ Cancel to make a minimal device scan instead.</source>
         <translation>最近開かれたプロジェクトファイルはありません</translation>
     </message>
     <message>
-        <location filename="../src/core/qgismobileapp.cpp" line="722"/>
+        <location filename="../src/core/qgismobileapp.cpp" line="700"/>
         <source>Could not load font %1</source>
         <translation>フォント %1 をロードできませんでした</translation>
     </message>
     <message>
-        <location filename="../src/core/qgismobileapp.cpp" line="724"/>
         <source>Loading font %1</source>
-        <translation>フォント %1 をロードしています</translation>
+        <translation type="vanished">フォント %1 をロードしています</translation>
     </message>
 </context>
 <context>

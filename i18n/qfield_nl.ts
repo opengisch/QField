@@ -2471,14 +2471,13 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
         <translation>Momenteel geen projectbestand geopend</translation>
     </message>
     <message>
-        <location filename="../src/core/qgismobileapp.cpp" line="722"/>
+        <location filename="../src/core/qgismobileapp.cpp" line="700"/>
         <source>Could not load font %1</source>
         <translation>Kon lettertype %1 niet laden</translation>
     </message>
     <message>
-        <location filename="../src/core/qgismobileapp.cpp" line="724"/>
         <source>Loading font %1</source>
-        <translation>Lettertype %1 laden</translation>
+        <translation type="vanished">Lettertype %1 laden</translation>
     </message>
 </context>
 <context>
