@@ -72,6 +72,18 @@ Item {
     }
   }
 
+  Connections {
+    target: iface
+
+    function onLoadProjectEnded(path,name) {
+      if (searchField.text.length > 0) {
+        // Any pre-existing results would most likely be invalid in a new project context, clear
+        searchField.text = '';
+        locatorItem.state = "off"
+      }
+    }
+  }
+
   Rectangle {
     id: searchFieldRect
     z: 10
