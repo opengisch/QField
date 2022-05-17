@@ -33,19 +33,22 @@ class LocalFilesModel : public QAbstractListModel
       VectorDataset,
       RasterDataset,
     };
+    Q_ENUM( ItemType )
 
     struct Item
     {
         Item() = default;
 
-        Item( ItemType type, const QString &title, const QString &path )
+        Item( ItemType type, const QString &title, const QString &format, const QString &path )
           : type( type )
           , title( title )
+          , format( format )
           , path( path )
         {}
 
         ItemType type = ItemType::Folder;
         QString title;
+        QString format;
         QString path;
     };
 
@@ -53,6 +56,7 @@ class LocalFilesModel : public QAbstractListModel
     {
       ItemTypeRole = Qt::UserRole,
       ItemTitleRole,
+      ItemFormatRole,
       ItemPathRole,
     };
     Q_ENUM( Role )

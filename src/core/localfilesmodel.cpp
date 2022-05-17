@@ -32,6 +32,7 @@ QHash<int, QByteArray> LocalFilesModel::roleNames() const
   QHash<int, QByteArray> roles = QAbstractListModel::roleNames();
   roles[ItemTypeRole] = "ItemType";
   roles[ItemTitleRole] = "ItemTitle";
+  roles[ItemFormatRole] = "ItemFormat";
   roles[ItemPathRole] = "ItemPath";
   return roles;
 }
@@ -82,7 +83,7 @@ void LocalFilesModel::reloadModel()
   mItems.clear();
 
   const QString path = currentPath();
-  if ( path.compare( QStringLiteral( "root" ) ) )
+  if ( path == QStringLiteral( "root" ) )
   {
     const QStringList rootDirectories = PlatformUtilities::instance()->rootDirectories();
     for ( const QString &item : rootDirectories )
@@ -90,7 +91,7 @@ void LocalFilesModel::reloadModel()
       QFileInfo fi( item );
       if ( fi.exists() )
       {
-        mItems << Item( ItemType::Folder, fi.baseName(), fi.absolutePath() );
+        mItems << Item( ItemType::Folder, fi.fileName(), QString(), fi.absoluteFilePath() );
       }
     }
   }
@@ -99,31 +100,36 @@ void LocalFilesModel::reloadModel()
     QDir dir( path );
     if ( dir.exists() )
     {
-      const QStringList items = dir.entryList( QDir::NoDotAndDotDot, QDir::DirsFirst | QDir::IgnoreCase );
+      const QStringList items = dir.entryList( QDir::Dirs | QDir::Files | QDir::NoDotAndDotDot, QDir::DirsFirst | QDir::IgnoreCase );
+      QList<Item> folders;
+      QList<Item> projects;
+      QList<Item> vectorDatasets;
+      QList<Item> rasterDatasets;
       for ( const QString &item : items )
       {
         QFileInfo fi( path + QDir::separator() + item );
         if ( fi.isDir() )
         {
-          mItems << Item( ItemType::Folder, fi.baseName(), fi.absolutePath() );
+          folders << Item( ItemType::Folder, fi.fileName(), QString(), fi.absoluteFilePath() );
         }
         else
         {
           const QString suffix = fi.completeSuffix().toLower();
           if ( SUPPORTED_PROJECT_EXTENSIONS.contains( suffix ) )
           {
-            mItems << Item( ItemType::Project, fi.baseName(), fi.absolutePath() );
+            projects << Item( ItemType::Project, fi.baseName(), suffix, fi.absoluteFilePath() );
           }
           else if ( SUPPORTED_VECTOR_EXTENSIONS.contains( suffix ) )
           {
-            mItems << Item( ItemType::VectorDataset, fi.baseName(), fi.absolutePath() );
+            vectorDatasets << Item( ItemType::VectorDataset, fi.baseName(), suffix, fi.absoluteFilePath() );
           }
           else if ( SUPPORTED_RASTER_EXTENSIONS.contains( suffix ) )
           {
-            mItems << Item( ItemType::RasterDataset, fi.baseName(), fi.absolutePath() );
+            rasterDatasets << Item( ItemType::RasterDataset, fi.baseName(), suffix, fi.absoluteFilePath() );
           }
         }
       }
+      mItems << folders << projects << vectorDatasets << rasterDatasets;
     }
   }
 
@@ -150,6 +156,9 @@ QVariant LocalFilesModel::data( const QModelIndex &index, int role ) const
 
     case ItemTitleRole:
       return mItems[index.row()].title;
+
+    case ItemFormatRole:
+      return mItems[index.row()].format;
 
     case ItemPathRole:
       return mItems[index.row()].path;
