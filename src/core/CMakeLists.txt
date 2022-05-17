@@ -50,6 +50,7 @@ set(QFIELD_CORE_SRCS
     layertreemodel.cpp
     legendimageprovider.cpp
     linepolygonhighlight.cpp
+    localfilesmodel.cpp
     maptoscreen.cpp
     messagelogmodel.cpp
     modelhelper.cpp
@@ -141,6 +142,7 @@ set(QFIELD_CORE_HDRS
     layertreemodel.h
     legendimageprovider.h
     linepolygonhighlight.h
+    localfilesmodel.h
     maptoscreen.h
     messagelogmodel.h
     modelhelper.h

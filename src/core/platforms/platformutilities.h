@@ -71,6 +71,11 @@ class QFIELD_CORE_EXPORT PlatformUtilities : public QObject
     Q_INVOKABLE bool renameFile( const QString &filename, const QString &newname ) const;
 
     /**
+     * A list of root directories to be used with the project/dataset picker.
+     */
+    QStringList rootDirectories() const;
+
+    /**
      * Get a picture from camera and copy it to the requested prefix
      * @param prefix The project folder
      * @param pictureFilePath The path (including subfolders and name) of the file
