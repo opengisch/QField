@@ -25,8 +25,8 @@ class IosPictureSource : public PictureSource
   public:
     explicit IosPictureSource( QObject *parent = nullptr, const QString &prefix = QString(), const QString &pictureFilePath = QString() );
 
-    QString pictureFilePath() { return mPictureFilePath; }
-    QString prefixPath() { return mPrefixPath; }
+    QString pictureFilePath() const { return mPictureFilePath; }
+    QString prefixPath() const { return mPrefixPath; }
 
   signals:
     void pictureReceived( const QString &path );

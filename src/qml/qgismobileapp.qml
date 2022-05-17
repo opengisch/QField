@@ -2548,7 +2548,7 @@ ApplicationWindow {
     visible: true
 
     onShowOpenProjectDialog: {
-      __projectSource = platformUtilities.openProject()
+      __projectSource = platformUtilities.openProject(this)
     }
     onShowQFieldCloudScreen: {
       welcomeScreen.visible = false

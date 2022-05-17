@@ -1,10 +1,9 @@
 /***************************************************************************
-  projectsource.cpp - ProjectSource
+  iosprojectsource.h - IosProjectSource
 
- ---------------------
- begin                : 19.3.2018
- copyright            : (C) 2018 by Matthias Kuhn
- email                : matthias@opengis.ch
+  begin                : September 2021
+  copyright            : (C) 2020 by Denis Rouzaud
+  email                : denis@opengis.ch
  ***************************************************************************
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
@@ -13,12 +12,29 @@
  *   (at your option) any later version.                                   *
  *                                                                         *
  ***************************************************************************/
+#ifndef IOSPROJECTSOURCE_H
+#define IOSPROJECTSOURCE_H
 
 #include "projectsource.h"
 
-#include <QQuickItem>
 
-ProjectSource::ProjectSource( QObject *parent )
-  : QObject( parent )
+class IosProjectSource : public ProjectSource
 {
-}
+    Q_OBJECT
+
+  public:
+    explicit IosProjectSource( QObject *parent = nullptr );
+
+    QString projectFromFolder( const QString &folder ) const;
+
+  public slots:
+    void pickProject();
+
+  private:
+    QQuickItem *mParent = nullptr;
+    class ProjectDelegateContainer;
+    ProjectDelegateContainer *mDelegate = nullptr;
+};
+
+
+#endif // IOSPROJECTSOURCE_H
