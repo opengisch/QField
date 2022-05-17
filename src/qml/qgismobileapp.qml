@@ -2534,6 +2534,21 @@ ApplicationWindow {
     height: parent.height
   }
 
+  QFieldLocalScreen {
+    id: qfieldLocalScreen
+
+    anchors.fill: parent
+    visible: false
+    focus: visible
+
+    onFinished: {
+      visible = false
+      welcomeScreen.visible = loading ? false : true
+    }
+
+    Component.onCompleted: focusstack.addFocusTaker( this )
+  }
+
   WelcomeScreen {
     id: welcomeScreen
     objectName: 'welcomeScreen'
@@ -2547,8 +2562,10 @@ ApplicationWindow {
 
     visible: true
 
-    onShowOpenProjectDialog: {
-      __projectSource = platformUtilities.openProject(this)
+    onShowQFieldLocalScreen: {
+      //__projectSource = platformUtilities.openProject(this)
+      welcomeScreen.visible = false
+      qfieldLocalScreen.visible = true
     }
     onShowQFieldCloudScreen: {
       welcomeScreen.visible = false
