@@ -91,8 +91,8 @@ Page {
                     Layout.fillWidth: true
                     leftPadding: 6
                     rightPadding: 10
-                    topPadding: 4
-                    bottomPadding: 8
+                    topPadding: 10
+                    bottomPadding: 6
                     spacing: 0
 
                     Image {
@@ -126,7 +126,7 @@ Page {
                             topPadding: 5
                             leftPadding: 3
                             text: ItemTitle
-                            font.pointSize: Theme.tipFont.pointSize
+                            font.pointSize: Theme.defaultFont.pointSize
                             font.underline: true
                             color: Theme.mainColor
                             wrapMode: Text.WordWrap
