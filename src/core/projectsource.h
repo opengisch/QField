@@ -36,7 +36,7 @@ class ProjectSource : public QObject
 {
     Q_OBJECT
   public:
-    explicit ProjectSource( QQuickItem *parent = nullptr );
+    explicit ProjectSource( QObject *parent = nullptr );
 
     virtual ~ProjectSource() = default;
 

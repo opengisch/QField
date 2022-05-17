@@ -18,7 +18,7 @@
 
 #include <QQuickItem>
 
-ProjectSource::ProjectSource( QQuickItem *parent )
+ProjectSource::ProjectSource( QObject *parent )
   : QObject( parent )
 {
 }
