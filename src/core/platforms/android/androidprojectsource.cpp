@@ -20,7 +20,7 @@
 #include <QFile>
 #include <QtAndroid>
 
-AndroidProjectSource::AndroidProjectSource( QObject *parent )
+AndroidProjectSource::AndroidProjectSource( QQuickItem *parent )
   : ProjectSource( parent )
   , QAndroidActivityResultReceiver()
 {

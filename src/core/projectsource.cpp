@@ -16,9 +16,9 @@
 
 #include "projectsource.h"
 
-#include <QDebug>
+#include <QQuickItem>
 
-ProjectSource::ProjectSource( QObject *parent )
+ProjectSource::ProjectSource( QQuickItem *parent )
   : QObject( parent )
 {
 }

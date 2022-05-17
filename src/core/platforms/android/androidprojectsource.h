@@ -27,7 +27,7 @@ class AndroidProjectSource : public ProjectSource, public QAndroidActivityResult
     Q_OBJECT
 
   public:
-    explicit AndroidProjectSource( QObject *parent = nullptr );
+    explicit AndroidProjectSource( QQuickItem *parent = nullptr );
 
     void handleActivityResult( int receiverRequestCode, int resultCode, const QAndroidJniObject &data ) override;
 };
