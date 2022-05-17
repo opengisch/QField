@@ -1028,7 +1028,7 @@ Geometrija elemenata će se spojiti u element &apos;%1&apos;, koji će zadržati
 <context>
     <name>LocatorItem</name>
     <message>
-        <location filename="../src/qml/LocatorItem.qml" line="89"/>
+        <location filename="../src/qml/LocatorItem.qml" line="101"/>
         <source>Search…</source>
         <translation>Pretraži...</translation>
     </message>

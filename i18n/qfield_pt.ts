@@ -1026,7 +1026,7 @@ As geometrias dos recursos serão combinadas no recurso &apos;% &apos;, que mant
 <context>
     <name>LocatorItem</name>
     <message>
-        <location filename="../src/qml/LocatorItem.qml" line="89"/>
+        <location filename="../src/qml/LocatorItem.qml" line="101"/>
         <source>Search…</source>
         <translation>Pesquisar...</translation>
     </message>

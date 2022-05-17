@@ -1026,7 +1026,7 @@ As xeometrías das entidades combinaranse na entidade &apos;%1&apos;, a cal cons
 <context>
     <name>LocatorItem</name>
     <message>
-        <location filename="../src/qml/LocatorItem.qml" line="89"/>
+        <location filename="../src/qml/LocatorItem.qml" line="101"/>
         <source>Search…</source>
         <translation>Buscar...</translation>
     </message>

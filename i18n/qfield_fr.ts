@@ -1026,7 +1026,7 @@ Les géométries des objets vont être combinées dans l&apos;objet &apos;%1&apo
 <context>
     <name>LocatorItem</name>
     <message>
-        <location filename="../src/qml/LocatorItem.qml" line="89"/>
+        <location filename="../src/qml/LocatorItem.qml" line="101"/>
         <source>Search…</source>
         <translation>Recherche...</translation>
     </message>

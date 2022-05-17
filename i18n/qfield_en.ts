@@ -1026,7 +1026,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
 <context>
     <name>LocatorItem</name>
     <message>
-        <location filename="../src/qml/LocatorItem.qml" line="89"/>
+        <location filename="../src/qml/LocatorItem.qml" line="101"/>
         <source>Search…</source>
         <translation>Search…</translation>
     </message>

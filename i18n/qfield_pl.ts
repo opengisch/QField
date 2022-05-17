@@ -129,7 +129,7 @@
     <message>
         <location filename="../src/qml/BadLayerItem.qml" line="87"/>
         <source>You may check the Portable Project section in the QField documentation for more help.</source>
-        <translation type="unfinished"/>
+        <translation>Sprawdź sekcję Portable Project w dokumentacji QField, aby uzyskać więcej pomocy.</translation>
     </message>
 </context>
 <context>
@@ -191,7 +191,7 @@
     <message>
         <location filename="../src/qml/BookmarkProperties.qml" line="178"/>
         <source>Copy bookmark details</source>
-        <translation type="unfinished"/>
+        <translation>Skopiuj szczegóły zakładki</translation>
     </message>
     <message>
         <location filename="../src/qml/BookmarkProperties.qml" line="185"/>
@@ -216,7 +216,7 @@
     <message>
         <location filename="../src/qml/BookmarkProperties.qml" line="192"/>
         <source>Bookmark details copied to clipboard</source>
-        <translation type="unfinished"/>
+        <translation>Szczegóły zakładki skopiowano do schowka</translation>
     </message>
     <message>
         <location filename="../src/qml/BookmarkProperties.qml" line="201"/>
@@ -491,7 +491,7 @@
         <location filename="../src/qml/FeatureForm.qml" line="566"/>
         <location filename="../src/qml/FeatureForm.qml" line="665"/>
         <source>Note: soft constraints were not met</source>
-        <translation type="unfinished"/>
+        <translation>Uwaga: wymagania oprogramowania nie zostały spełnione</translation>
     </message>
     <message>
         <location filename="../src/qml/FeatureForm.qml" line="577"/>
@@ -880,7 +880,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <message>
         <location filename="../src/qml/LayerTreeItemProperties.qml" line="147"/>
         <source>Zoom to group</source>
-        <translation type="unfinished"/>
+        <translation>Powiększ do grupy</translation>
     </message>
     <message>
         <location filename="../src/qml/LayerTreeItemProperties.qml" line="148"/>
@@ -1019,7 +1019,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
 <context>
     <name>LocatorItem</name>
     <message>
-        <location filename="../src/qml/LocatorItem.qml" line="89"/>
+        <location filename="../src/qml/LocatorItem.qml" line="101"/>
         <source>Search…</source>
         <translation>Szukaj...</translation>
     </message>
@@ -1708,22 +1708,22 @@ While you can still view and use the project, it is strongly recommended to rese
     <message>
         <location filename="../src/qml/QFieldCloudPopup.qml" line="454"/>
         <source>Last synchronized just now</source>
-        <translation type="unfinished"/>
+        <translation>Ostatnio zsynchronizowano przed chwilą.</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldCloudPopup.qml" line="456"/>
         <source>Last synchronized %1 minutes ago</source>
-        <translation type="unfinished"/>
+        <translation>Ostatnio zsynchronizowano %1 minut temu</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldCloudPopup.qml" line="458"/>
         <source>Last synchronized at %1</source>
-        <translation type="unfinished"/>
+        <translation>Ostatnio zsynchronizowano o %1</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldCloudPopup.qml" line="460"/>
         <source>Last synchronized on %1</source>
-        <translation type="unfinished"/>
+        <translation>Ostatnio zsynchronizowano %1</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldCloudPopup.qml" line="471"/>
@@ -2411,7 +2411,7 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
     <message>
         <location filename="../src/core/qfieldcloudconnection.cpp" line="62"/>
         <source>QGIS is unable to open the QGIS project</source>
-        <translation type="unfinished"/>
+        <translation>QGIS nie może otworzyć projektu QGIS.</translation>
     </message>
     <message>
         <location filename="../src/core/qgsgpkgflusher.cpp" line="165"/>
@@ -2482,7 +2482,7 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
     <message>
         <location filename="../src/core/gnsspositioninformation.cpp" line="108"/>
         <source>Estimated</source>
-        <translation type="unfinished"/>
+        <translation>Szacowany</translation>
     </message>
     <message>
         <location filename="../src/core/gnsspositioninformation.cpp" line="111"/>
@@ -2507,7 +2507,7 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
     <message>
         <location filename="../src/core/gnsspositioninformation.cpp" line="123"/>
         <source>Autonomous</source>
-        <translation type="unfinished"/>
+        <translation>Autonomiczny</translation>
     </message>
     <message>
         <location filename="../src/core/gnsspositioninformation.cpp" line="126"/>
@@ -2708,7 +2708,7 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
     <message>
         <location filename="../src/qml/WelcomeScreen.qml" line="116"/>
         <source>We&apos;re sorry to hear that. Click on the button below to comment or seek support.</source>
-        <translation type="unfinished"/>
+        <translation>Przykro nam. Kliknij przycisk poniżej, aby dodać komentarz lub poszukać wsparcia.</translation>
     </message>
     <message>
         <location filename="../src/qml/WelcomeScreen.qml" line="130"/>

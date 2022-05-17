@@ -1026,7 +1026,7 @@ Le geometrie degli elementi verranno combinati in un elemento &apos;%1&apos; che
 <context>
     <name>LocatorItem</name>
     <message>
-        <location filename="../src/qml/LocatorItem.qml" line="89"/>
+        <location filename="../src/qml/LocatorItem.qml" line="101"/>
         <source>Search…</source>
         <translation>Cerca...</translation>
     </message>
