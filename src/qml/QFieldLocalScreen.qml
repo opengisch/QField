@@ -47,7 +47,7 @@ Page {
 
             clip: true
 
-            section.property: "ItemType"
+            section.property: "ItemMetaType"
             section.labelPositioning: ViewSection.CurrentLabelAtStart | ViewSection.InlineLabels
             section.delegate: Component {
               /* section header: layer name */
@@ -65,10 +65,8 @@ Page {
                             return qsTr('Folders');
                         case LocalFilesModel.Project:
                             return qsTr('Projects');
-                        case LocalFilesModel.VectorDataset:
-                            return qsTr('Vector Datasets');
-                        case LocalFilesModel.RasterDataset:
-                            return qsTr('Raster Datasets');
+                        case LocalFilesModel.Dataset:
+                            return qsTr('Datasets');
                         }
                       return '';
                   }
@@ -79,6 +77,7 @@ Page {
             delegate: Rectangle {
                 id: rectangle
 
+                property int itemMetaType: ItemMetaType
                 property int itemType: ItemType
                 property string itemTitle: ItemTitle
                 property string itemPath: ItemPath
@@ -101,9 +100,13 @@ Page {
                         anchors.verticalCenter: inner.verticalCenter
                         source: {
                             switch(ItemType) {
-                              case LocalFilesModel.Folder:
+                              case LocalFilesModel.ApplicationFolder:
+                                  return Theme.getThemeIcon('ic_folder_qfield_gray_48dp');
+                              case LocalFilesModel.ExternalStorage:
+                                  return Theme.getThemeIcon('ic_sd_card_gray_48dp');
+                              case LocalFilesModel.SimpleFolder:
                                   return Theme.getThemeIcon('ic_folder_gray_48dp');
-                              case LocalFilesModel.Project:
+                              case LocalFilesModel.ProjectFile:
                                   return Theme.getThemeIcon('ic_map_green_48dp');
                               case LocalFilesModel.VectorDataset:
                               case LocalFilesModel.RasterDataset:
@@ -135,7 +138,7 @@ Page {
                             text: {
                                 var info = '';
                                 switch(ItemType) {
-                                  case LocalFilesModel.Project:
+                                  case LocalFilesModel.ProjectFile:
                                       info = qsTr('Project file');
                                       break;
                                   case LocalFilesModel.VectorDataset:
@@ -167,11 +170,10 @@ Page {
                   table.contentY + mouse.y
                 )
                 if (item) {
-                  if (item.itemType === LocalFilesModel.Folder) {
+                  if (item.itemMetaType === LocalFilesModel.Folder) {
                       table.model.currentPath = item.itemPath;
-                  } else if (item.itemType === LocalFilesModel.Project
-                             || item.itemType === LocalFilesModel.VectorDataset
-                             || item.itemType === LocalFilesModel.RasterDataset) {
+                  } else if (item.itemMetaType === LocalFilesModel.Project
+                             || item.itemMetaType === LocalFilesModel.Dataset) {
                       iface.loadFile(item.itemPath, item.itemTitle);
                       finished(true);
                   }

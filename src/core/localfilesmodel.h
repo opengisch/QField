@@ -26,10 +26,20 @@ class LocalFilesModel : public QAbstractListModel
     Q_PROPERTY( int currentDepth READ currentDepth NOTIFY currentPathChanged )
 
   public:
-    enum ItemType
+    enum ItemMetaType
     {
       Folder,
       Project,
+      Dataset,
+    };
+    Q_ENUM( ItemMetaType )
+
+    enum ItemType
+    {
+      ApplicationFolder,
+      ExternalStorage,
+      SimpleFolder,
+      ProjectFile,
       VectorDataset,
       RasterDataset,
     };
@@ -39,14 +49,16 @@ class LocalFilesModel : public QAbstractListModel
     {
         Item() = default;
 
-        Item( ItemType type, const QString &title, const QString &format, const QString &path )
-          : type( type )
+        Item( ItemMetaType metaType, ItemType type, const QString &title, const QString &format, const QString &path )
+          : metaType( metaType )
+          , type( type )
           , title( title )
           , format( format )
           , path( path )
         {}
 
-        ItemType type = ItemType::Folder;
+        ItemMetaType metaType = ItemMetaType::Folder;
+        ItemType type = ItemType::SimpleFolder;
         QString title;
         QString format;
         QString path;
@@ -54,7 +66,8 @@ class LocalFilesModel : public QAbstractListModel
 
     enum Role
     {
-      ItemTypeRole = Qt::UserRole,
+      ItemMetaTypeRole = Qt::UserRole,
+      ItemTypeRole,
       ItemTitleRole,
       ItemFormatRole,
       ItemPathRole,

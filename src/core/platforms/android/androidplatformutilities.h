@@ -33,6 +33,9 @@ class AndroidPlatformUtilities : public PlatformUtilities
     QString systemGenericDataLocation() const override;
     QString qgsProject() const override;
     QStringList qfieldAppDataDirs() const override;
+    QString applicationDirectory() const override;
+    QStringList additionalApplicationDirectories() const override;
+    QStringList rootDirectories() const override;
     PictureSource *getCameraPicture( QQuickItem *parent, const QString &prefix, const QString &pictureFilePath, const QString &suffix ) override;
     PictureSource *getGalleryPicture( QQuickItem *parent, const QString &prefix, const QString &pictureFilePath ) override;
     ViewStatus *open( const QString &uri, bool editing ) override;

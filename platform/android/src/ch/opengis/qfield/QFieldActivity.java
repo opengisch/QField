@@ -351,6 +351,83 @@ public class QFieldActivity extends QtActivity {
         setIntent(intent);
     }
 
+    private String getApplicationDirectory() {
+        File primaryExternalFilesDir = getExternalFilesDir(null);
+        if (primaryExternalFilesDir != null) {
+            return primaryExternalFilesDir.getAbsolutePath();
+        }
+        return "";
+    }
+
+    private String getAdditionalApplicationDirectories() {
+        List<String> dirs = new ArrayList<String>();
+
+        File externalStorageDirectory = null;
+        if (ContextCompat.checkSelfPermission(
+                QFieldActivity.this,
+                Manifest.permission.WRITE_EXTERNAL_STORAGE) ==
+                PackageManager.PERMISSION_GRANTED ||
+            (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R &&
+             Environment.isExternalStorageManager())) {
+            externalStorageDirectory =
+                Environment.getExternalStorageDirectory();
+        }
+
+        File primaryExternalFilesDir = getExternalFilesDir(null);
+
+        File[] externalFilesDirs = getExternalFilesDirs(null);
+        for (File file : externalFilesDirs) {
+            if (file != null) {
+                // Don't duplicate external files directory or storage
+                // path already added
+                if (file.getAbsolutePath().equals(
+                        primaryExternalFilesDir.getAbsolutePath())) {
+                    continue;
+                }
+                if (externalStorageDirectory != null) {
+                    if (!file.getAbsolutePath().contains(
+                            externalStorageDirectory.getAbsolutePath())) {
+                        dirs.add(file.getAbsolutePath());
+                    }
+                } else {
+                    dirs.add(file.getAbsolutePath());
+                }
+            }
+        }
+
+        StringBuilder rootDirs = new StringBuilder();
+        for (String dir : dirs) {
+            rootDirs.append(dir);
+            rootDirs.append("--;--");
+        }
+        return rootDirs.toString();
+    }
+
+    private String getRootDirectories() {
+        List<String> dirs = new ArrayList<String>();
+
+        File externalStorageDirectory = null;
+        if (ContextCompat.checkSelfPermission(
+                QFieldActivity.this,
+                Manifest.permission.WRITE_EXTERNAL_STORAGE) ==
+                PackageManager.PERMISSION_GRANTED ||
+            (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R &&
+             Environment.isExternalStorageManager())) {
+            externalStorageDirectory =
+                Environment.getExternalStorageDirectory();
+            if (externalStorageDirectory != null) {
+                dirs.add(externalStorageDirectory.getAbsolutePath());
+            }
+        }
+
+        StringBuilder rootDirs = new StringBuilder();
+        for (String dir : dirs) {
+            rootDirs.append(dir);
+            rootDirs.append("--;--");
+        }
+        return rootDirs.toString();
+    }
+
     private void checkPermissions() {
         List<String> permissionsList = new ArrayList<String>();
         if (ContextCompat.checkSelfPermission(

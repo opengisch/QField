@@ -132,6 +132,48 @@ QStringList AndroidPlatformUtilities::qfieldAppDataDirs() const
   return ( !dataDirs.isEmpty() ? dataDirs.split( "--;--" ) : QStringList() );
 }
 
+QString AndroidPlatformUtilities::applicationDirectory() const
+{
+  if ( mActivity.isValid() )
+  {
+    QAndroidJniObject rootDirs = mActivity.callObjectMethod<jstring>( "getApplicationDirectory" );
+    if ( rootDirs.isValid() )
+    {
+      return rootDirs.toString();
+    }
+  }
+
+  return QString();
+}
+
+QStringList AndroidPlatformUtilities::additionalApplicationDirectories() const
+{
+  if ( mActivity.isValid() )
+  {
+    QAndroidJniObject rootDirs = mActivity.callObjectMethod<jstring>( "getAdditionalApplicationDirectories" );
+    if ( rootDirs.isValid() )
+    {
+      return rootDirs.toString().split( "--;--" );
+    }
+  }
+
+  return QStringList();
+}
+
+QStringList AndroidPlatformUtilities::rootDirectories() const
+{
+  if ( mActivity.isValid() )
+  {
+    QAndroidJniObject rootDirs = mActivity.callObjectMethod<jstring>( "getRootDirectories" );
+    if ( rootDirs.isValid() )
+    {
+      return rootDirs.toString().split( "--;--" );
+    }
+  }
+
+  return QStringList();
+}
+
 QString AndroidPlatformUtilities::getIntentExtra( const QString &extra, QAndroidJniObject extras ) const
 {
   if ( extras == nullptr )

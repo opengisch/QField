@@ -30,6 +30,7 @@ LocalFilesModel::LocalFilesModel( QObject *parent )
 QHash<int, QByteArray> LocalFilesModel::roleNames() const
 {
   QHash<int, QByteArray> roles = QAbstractListModel::roleNames();
+  roles[ItemMetaTypeRole] = "ItemMetaType";
   roles[ItemTypeRole] = "ItemType";
   roles[ItemTitleRole] = "ItemTitle";
   roles[ItemFormatRole] = "ItemFormat";
@@ -85,13 +86,35 @@ void LocalFilesModel::reloadModel()
   const QString path = currentPath();
   if ( path == QStringLiteral( "root" ) )
   {
-    const QStringList rootDirectories = PlatformUtilities::instance()->rootDirectories();
-    for ( const QString &item : rootDirectories )
+    const QString applicationDirectory = PlatformUtilities::instance()->applicationDirectory();
+    if ( !applicationDirectory.isEmpty() )
     {
-      QFileInfo fi( item );
-      if ( fi.exists() )
+      mItems << Item( ItemMetaType::Folder, ItemType::ApplicationFolder, tr( "QField files directory" ), QString(), applicationDirectory );
+    }
+
+    if ( !PlatformUtilities::instance()->additionalApplicationDirectories().isEmpty() )
+    {
+      const QStringList items = PlatformUtilities::instance()->additionalApplicationDirectories();
+      for ( const QString &item : items )
       {
-        mItems << Item( ItemType::Folder, fi.fileName(), QString(), fi.absoluteFilePath() );
+        QFileInfo fi( item );
+        if ( fi.exists() )
+        {
+          mItems << Item( ItemMetaType::Folder, ItemType::ExternalStorage, tr( "Additional files directory" ), QString(), fi.absoluteFilePath() );
+        }
+      }
+    }
+
+    if ( !PlatformUtilities::instance()->rootDirectories().isEmpty() )
+    {
+      const QStringList items = PlatformUtilities::instance()->rootDirectories();
+      for ( const QString &item : items )
+      {
+        QFileInfo fi( item );
+        if ( fi.exists() )
+        {
+          mItems << Item( ItemMetaType::Folder, ItemType::SimpleFolder, fi.fileName(), QString(), fi.absoluteFilePath() );
+        }
       }
     }
   }
@@ -103,33 +126,32 @@ void LocalFilesModel::reloadModel()
       const QStringList items = dir.entryList( QDir::Dirs | QDir::Files | QDir::NoDotAndDotDot, QDir::DirsFirst | QDir::IgnoreCase );
       QList<Item> folders;
       QList<Item> projects;
-      QList<Item> vectorDatasets;
-      QList<Item> rasterDatasets;
+      QList<Item> datasets;
       for ( const QString &item : items )
       {
         QFileInfo fi( path + QDir::separator() + item );
         if ( fi.isDir() )
         {
-          folders << Item( ItemType::Folder, fi.fileName(), QString(), fi.absoluteFilePath() );
+          folders << Item( ItemMetaType::Folder, ItemType::SimpleFolder, fi.fileName(), QString(), fi.absoluteFilePath() );
         }
         else
         {
           const QString suffix = fi.completeSuffix().toLower();
           if ( SUPPORTED_PROJECT_EXTENSIONS.contains( suffix ) )
           {
-            projects << Item( ItemType::Project, fi.baseName(), suffix, fi.absoluteFilePath() );
+            projects << Item( ItemMetaType::Project, ItemType::ProjectFile, fi.baseName(), suffix, fi.absoluteFilePath() );
           }
           else if ( SUPPORTED_VECTOR_EXTENSIONS.contains( suffix ) )
           {
-            vectorDatasets << Item( ItemType::VectorDataset, fi.baseName(), suffix, fi.absoluteFilePath() );
+            datasets << Item( ItemMetaType::Dataset, ItemType::VectorDataset, fi.baseName(), suffix, fi.absoluteFilePath() );
           }
           else if ( SUPPORTED_RASTER_EXTENSIONS.contains( suffix ) )
           {
-            rasterDatasets << Item( ItemType::RasterDataset, fi.baseName(), suffix, fi.absoluteFilePath() );
+            datasets << Item( ItemMetaType::Dataset, ItemType::RasterDataset, fi.baseName(), suffix, fi.absoluteFilePath() );
           }
         }
       }
-      mItems << folders << projects << vectorDatasets << rasterDatasets;
+      mItems << folders << projects << datasets;
     }
   }
 
@@ -151,6 +173,9 @@ QVariant LocalFilesModel::data( const QModelIndex &index, int role ) const
 
   switch ( static_cast<Role>( role ) )
   {
+    case ItemMetaTypeRole:
+      return mItems[index.row()].metaType;
+
     case ItemTypeRole:
       return mItems[index.row()].type;
 

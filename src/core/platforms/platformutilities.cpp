@@ -110,9 +110,19 @@ bool PlatformUtilities::renameFile( const QString &filename, const QString &newn
   return file.rename( newname );
 }
 
+QString PlatformUtilities::applicationDirectory() const
+{
+  return QString( "/home/webmaster/Desktop" );
+}
+
+QStringList PlatformUtilities::additionalApplicationDirectories() const
+{
+  return QStringList() << QString( "/home/webmaster/Desktop" );
+}
+
 QStringList PlatformUtilities::rootDirectories() const
 {
-  return QStringList();
+  return QStringList() << QString( "/home/webmaster/Desktop" );
 }
 
 PictureSource *PlatformUtilities::getCameraPicture( QQuickItem *parent, const QString &prefix, const QString &pictureFilePath, const QString &suffix )

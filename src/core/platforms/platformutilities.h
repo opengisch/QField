@@ -70,8 +70,19 @@ class QFIELD_CORE_EXPORT PlatformUtilities : public QObject
     Q_INVOKABLE bool rmFile( const QString &filename ) const;
     Q_INVOKABLE bool renameFile( const QString &filename, const QString &newname ) const;
 
+
     /**
-     * A list of root directories to be used with the project/dataset picker.
+     * The main application directory within which projects and datasets can be imported.
+     */
+    virtual QString applicationDirectory() const;
+
+    /**
+     * Secondary application directories which can be used by individual platforms.
+     */
+    virtual QStringList additionalApplicationDirectories() const;
+
+    /**
+     * A list of root directories.
      */
     virtual QStringList rootDirectories() const;
 
