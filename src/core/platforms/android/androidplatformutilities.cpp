@@ -274,7 +274,7 @@ ViewStatus *AndroidPlatformUtilities::open( const QString &uri, bool editing )
   return viewStatus;
 }
 
-ProjectSource *AndroidPlatformUtilities::openProject( QQuickItem *parent )
+ProjectSource *AndroidPlatformUtilities::openProject( QObject *parent )
 {
   checkWriteExternalStoragePermissions();
 
