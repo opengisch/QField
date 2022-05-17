@@ -86,6 +86,10 @@ class QFIELD_CORE_EXPORT PlatformUtilities : public QObject
      */
     virtual QStringList rootDirectories() const;
 
+    Q_INVOKABLE virtual void importProjectFolder() const {};
+    Q_INVOKABLE virtual void importProjectArchive() const {};
+    Q_INVOKABLE virtual void importDatasets() const {};
+
     /**
      * Get a picture from camera and copy it to the requested prefix
      * @param prefix The project folder

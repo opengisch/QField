@@ -174,6 +174,48 @@ QStringList AndroidPlatformUtilities::rootDirectories() const
   return QStringList();
 }
 
+void AndroidPlatformUtilities::importProjectFolder() const
+{
+  if ( mActivity.isValid() )
+  {
+    QtAndroid::runOnAndroidThread( [] {
+      QAndroidJniObject activity = QtAndroid::androidActivity();
+      if ( activity.isValid() )
+      {
+        activity.callMethod<void>( "triggerImportProjectFolder" );
+      }
+    } );
+  }
+}
+
+void AndroidPlatformUtilities::importProjectArchive() const
+{
+  if ( mActivity.isValid() )
+  {
+    QtAndroid::runOnAndroidThread( [] {
+      QAndroidJniObject activity = QtAndroid::androidActivity();
+      if ( activity.isValid() )
+      {
+        activity.callMethod<void>( "triggerImportProjectArchive" );
+      }
+    } );
+  }
+}
+
+void AndroidPlatformUtilities::importDatasets() const
+{
+  if ( mActivity.isValid() )
+  {
+    QtAndroid::runOnAndroidThread( [] {
+      QAndroidJniObject activity = QtAndroid::androidActivity();
+      if ( activity.isValid() )
+      {
+        activity.callMethod<void>( "triggerImportDatasets" );
+      }
+    } );
+  }
+}
+
 QString AndroidPlatformUtilities::getIntentExtra( const QString &extra, QAndroidJniObject extras ) const
 {
   if ( extras == nullptr )

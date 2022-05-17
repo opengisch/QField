@@ -258,6 +258,7 @@ Page {
           leftPadding: 10
 
           text: qsTr( "Import project from folder" )
+          onTriggered: { platformUtilities.importProjectFolder(); }
         }
 
         MenuItem {
@@ -269,6 +270,7 @@ Page {
           leftPadding: 10
 
           text: qsTr( "Import project from ZIP" )
+          onTriggered: { platformUtilities.importProjectArchive(); }
         }
 
         MenuItem {
@@ -280,6 +282,7 @@ Page {
           leftPadding: 10
 
           text: qsTr( "Import dataset(s)" )
+          onTriggered: { platformUtilities.importDatasets(); }
         }
 
         MenuSeparator { width: parent.width }
