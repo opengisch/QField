@@ -69,10 +69,8 @@ static NSString *const FIELD_NAME = @"name";
   for (id url in urls) {
     NSError *error;
     NSMutableDictionary *result = [self getMetadataForUrl:url error:&error];
-    qDebug() << result;
     const QString projectPath = mIosProjectSource->projectFromFolder(
         QString::fromNSString(result[FIELD_FILE_COPY_URI]));
-    qDebug() << "yo" << projectPath;
     emit mIosProjectSource->projectOpened(projectPath);
     break;
   }
@@ -219,7 +217,6 @@ QString IosProjectSource::projectFromFolder(const QString &folder) const {
   folderPath.remove(QStringLiteral("file://"));
   QDir directory(folderPath);
   if (!directory.exists()) {
-    qDebug() << "directory not found " << folderPath;
     return;
   }
   const QStringList projects = directory.entryList(QStringList() << "*.qgs"
@@ -230,11 +227,8 @@ QString IosProjectSource::projectFromFolder(const QString &folder) const {
   if (projects.count() > 0) {
     const QString projectPath =
         QStringLiteral("%1/%2").arg(folderPath, projects.at(0));
-    qDebug() << "project found " << projectPath;
-    qDebug() << "file exists: " << QFileInfo(projectPath).exists();
     return projectPath;
   } else {
-    qDebug() << "no project found in folder " << folderPath;
   }
   return QString();
 }
