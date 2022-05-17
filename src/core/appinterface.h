@@ -78,6 +78,8 @@ class AppInterface : public QObject
 
     void submitLog( const QString &message );
 
+    void openPath( const QString &path );
+
   private:
     static AppInterface *sAppInterface;
 

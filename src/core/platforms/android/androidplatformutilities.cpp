@@ -512,6 +512,17 @@ JNIEXPORT void JNICALL JNI_FUNCTION_NAME( APP_PACKAGE_JNI_NAME, QFieldActivity, 
   return;
 }
 
+JNIEXPORT void JNICALL JNI_FUNCTION_NAME( APP_PACKAGE_JNI_NAME, QFieldActivity, openPath )( JNIEnv *env, jobject obj, jstring path )
+{
+  if ( AppInterface::instance() )
+  {
+    const char *pathStr = env->GetStringUTFChars( path, NULL );
+    emit AppInterface::instance()->openPath( QString( pathStr ) );
+    env->ReleaseStringUTFChars( path, pathStr );
+  }
+  return;
+}
+
 JNIEXPORT jobject JNICALL JNI_FUNCTION_NAME( APP_PACKAGE_JNI_NAME, QFieldProjectListAdapter, createImageBitmap )( JNIEnv *env, jobject obj, jstring path )
 {
   QImage image( QString( env->GetStringUTFChars( path, NULL ) ) );

@@ -89,6 +89,8 @@ public class QFieldActivity extends QtActivity {
     ExecutorService executorService = Executors.newFixedThreadPool(4);
 
     public static native void openProject(String url);
+    public static native void openPath(String path);
+
     private float originalBrightness;
 
     @Override

@@ -95,29 +95,23 @@ void LocalFilesModel::reloadModel()
       mItems << Item( ItemMetaType::Folder, ItemType::ApplicationFolder, tr( "QField files directory" ), QString(), applicationDirectory );
     }
 
-    if ( !PlatformUtilities::instance()->additionalApplicationDirectories().isEmpty() )
+    QStringList items = PlatformUtilities::instance()->additionalApplicationDirectories();
+    for ( const QString &item : items )
     {
-      const QStringList items = PlatformUtilities::instance()->additionalApplicationDirectories();
-      for ( const QString &item : items )
+      QFileInfo fi( item );
+      if ( fi.exists() )
       {
-        QFileInfo fi( item );
-        if ( fi.exists() )
-        {
-          mItems << Item( ItemMetaType::Folder, ItemType::ExternalStorage, tr( "Additional files directory" ), QString(), fi.absoluteFilePath() );
-        }
+        mItems << Item( ItemMetaType::Folder, ItemType::ExternalStorage, tr( "Additional files directory" ), QString(), fi.absoluteFilePath() );
       }
     }
 
-    if ( !PlatformUtilities::instance()->rootDirectories().isEmpty() )
+    items = PlatformUtilities::instance()->rootDirectories();
+    for ( const QString &item : items )
     {
-      const QStringList items = PlatformUtilities::instance()->rootDirectories();
-      for ( const QString &item : items )
+      QFileInfo fi( item );
+      if ( fi.exists() )
       {
-        QFileInfo fi( item );
-        if ( fi.exists() )
-        {
-          mItems << Item( ItemMetaType::Folder, ItemType::SimpleFolder, fi.fileName(), QString(), fi.absoluteFilePath() );
-        }
+        mItems << Item( ItemMetaType::Folder, ItemType::SimpleFolder, fi.fileName(), QString(), fi.absoluteFilePath() );
       }
     }
   }
