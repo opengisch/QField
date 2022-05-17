@@ -74,7 +74,7 @@ PictureSource *IosPlatformUtilities::getGalleryPicture(
   return pictureSource;
 }
 
-ProjectSource *IosPlatformUtilities::openProject(QQuickItem *parent) {
+ProjectSource *IosPlatformUtilities::openProject(QObject *parent) {
   QSettings settings;
   IosProjectSource *projectSource = new IosProjectSource(parent);
   projectSource->pickProject();
