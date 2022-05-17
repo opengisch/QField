@@ -154,7 +154,7 @@ ViewStatus *PlatformUtilities::open( const QString &uri, bool )
   return nullptr;
 }
 
-ProjectSource *PlatformUtilities::openProject( QParent *parent )
+ProjectSource *PlatformUtilities::openProject( QObject *parent )
 {
   Q_UNUSED( parent );
   QSettings settings;
