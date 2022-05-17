@@ -75,6 +75,9 @@ QString LocalFilesModel::currentPath() const
 void LocalFilesModel::moveUp()
 {
   mHistory.removeLast();
+
+  emit currentPathChanged();
+
   reloadModel();
 }
 

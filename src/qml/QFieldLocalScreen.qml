@@ -213,12 +213,31 @@ Page {
               }
             }
         }
+
+        QfToolButton {
+            id: importButton
+            round: true
+            visible: table.model.currentPath === 'root'
+
+            anchors.bottom: parent.bottom
+            anchors.right: parent.right
+            anchors.bottomMargin: 10
+            anchors.rightMargin: 10
+
+            bgcolor: Theme.mainColor
+            iconSource: Theme.getThemeIcon( "ic_add_white_24dp" )
+
+            onClicked: {
+                importMenu.popup(mainWindow.width - importMenu.width - 10,
+                                 mainWindow.height - importMenu.height - 58)
+            }
+        }
       }
 
       Menu {
-        id: itemActions
+        id: importMenu
 
-        title: 'Item Actions'
+        title: 'Import Actions'
         width: {
             var result = 0;
             var padding = 0;
@@ -228,6 +247,52 @@ Page {
                 padding = Math.max(item.padding, padding);
             }
             return Math.min( result + padding * 2,mainWindow.width - 20);
+        }
+
+        MenuItem {
+          id: importProjectFromFolder
+
+          font: Theme.defaultFont
+          width: parent.width
+          height: visible ? 48 : 0
+          leftPadding: 10
+
+          text: qsTr( "Import project from folder" )
+        }
+
+        MenuItem {
+          id: importProjectFromZIP
+
+          font: Theme.defaultFont
+          width: parent.width
+          height: visible ? 48 : 0
+          leftPadding: 10
+
+          text: qsTr( "Import project from ZIP" )
+        }
+
+        MenuItem {
+          id: importDataset
+
+          font: Theme.defaultFont
+          width: parent.width
+          height: visible ? 48 : 0
+          leftPadding: 10
+
+          text: qsTr( "Import dataset(s)" )
+        }
+
+        MenuSeparator { width: parent.width }
+
+        MenuItem {
+          id: storageHelp
+
+          font: Theme.defaultFont
+          width: parent.width
+          height: visible ? 48 : 0
+          leftPadding: 10
+
+          text: qsTr( "Storage management help" )
         }
       }
   }
