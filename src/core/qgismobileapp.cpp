@@ -77,6 +77,7 @@
 #include "layerutils.h"
 #include "legendimageprovider.h"
 #include "linepolygonhighlight.h"
+#include "localfilesmodel.h"
 #include "locatormodelsuperbridge.h"
 #include "maptoscreen.h"
 #include "messagelogmodel.h"
@@ -453,10 +454,11 @@ void QgisMobileapp::initDeclarative()
   qmlRegisterType<LocatorActionsModel>( "org.qfield", 1, 0, "LocatorActionsModel" );
   qmlRegisterType<LocatorFiltersModel>( "org.qfield", 1, 0, "LocatorFiltersModel" );
   qmlRegisterType<LinePolygonHighlight>( "org.qfield", 1, 0, "LinePolygonHighlight" );
+  qmlRegisterType<LocalFilesModel>( "org.qfield", 1, 0, "LocalFilesModel" );
   qmlRegisterType<QgsGeometryWrapper>( "org.qfield", 1, 0, "QgsGeometryWrapper" );
   qmlRegisterType<ValueMapModel>( "org.qfield", 1, 0, "ValueMapModel" );
-  qmlRegisterType<RecentProjectListModel>( "org.qgis", 1, 0, "RecentProjectListModel" );
-  qmlRegisterType<ReferencingFeatureListModel>( "org.qgis", 1, 0, "ReferencingFeatureListModel" );
+  qmlRegisterType<RecentProjectListModel>( "org.qfield", 1, 0, "RecentProjectListModel" );
+  qmlRegisterType<ReferencingFeatureListModel>( "org.qfield", 1, 0, "ReferencingFeatureListModel" );
   qmlRegisterType<OrderedRelationModel>( "org.qfield", 1, 0, "OrderedRelationModel" );
   qmlRegisterType<FeatureCheckListModel>( "org.qgis", 1, 0, "FeatureCheckListModel" );
   qmlRegisterType<GeometryEditorsModel>( "org.qfield", 1, 0, "GeometryEditorsModel" );
