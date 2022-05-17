@@ -150,7 +150,6 @@ Popup {
         icon.source: Theme.getThemeVectorIcon( 'zoom_out_map_24dp' )
 
         onClicked: {
-          console.log(index);
           mapCanvas.mapSettings.extent = layerTree.nodeExtent(index, mapCanvas.mapSettings);
           close()
           dashBoard.visible = false

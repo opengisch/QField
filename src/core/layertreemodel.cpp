@@ -390,9 +390,6 @@ void FlatLayerTreeModelBase::setSourceModel( QgsLayerTreeModel *sourceModel )
 
 QModelIndex FlatLayerTreeModelBase::mapToSource( const QModelIndex &proxyIndex ) const
 {
-  qDebug() << "XXXX";
-  qDebug() << proxyIndex.row();
-
   if ( !proxyIndex.isValid() || !mIndexMap.contains( proxyIndex.row() ) )
     return QModelIndex();
   return mIndexMap[proxyIndex.row()];
