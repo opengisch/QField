@@ -103,6 +103,11 @@
         <file>themes/qfield/xhdpi/ic_folder_gray_48dp.png</file>
         <file>themes/qfield/xxhdpi/ic_folder_gray_48dp.png</file>
         <file>themes/qfield/xxxhdpi/ic_folder_gray_48dp.png</file>
+        <file>themes/qfield/hdpi/ic_folder_qfield_gray_48dp.png</file>
+        <file>themes/qfield/mdpi/ic_folder_qfield_gray_48dp.png</file>
+        <file>themes/qfield/xhdpi/ic_folder_qfield_gray_48dp.png</file>
+        <file>themes/qfield/xxhdpi/ic_folder_qfield_gray_48dp.png</file>
+        <file>themes/qfield/xxxhdpi/ic_folder_qfield_gray_48dp.png</file>
         <file>themes/qfield/hdpi/ic_merge_features_white_24dp.png</file>
         <file>themes/qfield/mdpi/ic_merge_features_white_24dp.png</file>
         <file>themes/qfield/xhdpi/ic_merge_features_white_24dp.png</file>
