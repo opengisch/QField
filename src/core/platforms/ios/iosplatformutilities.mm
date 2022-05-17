@@ -18,6 +18,7 @@
 
 #include "iosplatformutilities.h"
 #include "iospicturesource.h"
+#include "iosprojectsource.h"
 
 #import <AVFoundation/AVFoundation.h>
 #import <CoreLocation/CoreLocation.h>
@@ -71,4 +72,11 @@ PictureSource *IosPlatformUtilities::getGalleryPicture(
       new IosPictureSource(parent, prefix, pictureFilePath);
   pictureSource->pickGalleryPicture();
   return pictureSource;
+}
+
+ProjectSource *IosPlatformUtilities::openProject(QQuickItem *parent) {
+  QSettings settings;
+  IosProjectSource *projectSource = new IosProjectSource(parent);
+  projectSource->pickProject();
+  return projectSource;
 }

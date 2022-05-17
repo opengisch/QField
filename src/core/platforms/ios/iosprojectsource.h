@@ -1,5 +1,5 @@
 /***************************************************************************
-  iospicturesource.h - IosPictureSource
+  iosprojectsource.h - IosProjectSource
 
   begin                : September 2021
   copyright            : (C) 2020 by Denis Rouzaud
@@ -12,36 +12,29 @@
  *   (at your option) any later version.                                   *
  *                                                                         *
  ***************************************************************************/
-#ifndef IOSPICTURESOURCE_H
-#define IOSPICTURESOURCE_H
+#ifndef IOSPROJECTSOURCE_H
+#define IOSPROJECTSOURCE_H
 
-#include "picturesource.h"
+#include "projectsource.h"
 
 
-class IosPictureSource : public PictureSource
+class IosProjectSource : public ProjectSource
 {
     Q_OBJECT
 
   public:
-    explicit IosPictureSource( QObject *parent = nullptr, const QString &prefix = QString(), const QString &pictureFilePath = QString() );
+    explicit IosProjectSource( QObject *parent = nullptr );
 
-    QString pictureFilePath() const { return mPictureFilePath; }
-    QString prefixPath() const { return mPrefixPath; }
-
-  signals:
-    void pictureReceived( const QString &path );
+    QString projectFromFolder( const QString &folder ) const;
 
   public slots:
-    void takePicture();
-    void pickGalleryPicture();
+    void pickProject();
 
   private:
     QQuickItem *mParent = nullptr;
-    QString mPrefixPath;
-    QString mPictureFilePath;
-    class CameraDelegateContainer;
-    CameraDelegateContainer *mDelegate = nullptr;
+    class ProjectDelegateContainer;
+    ProjectDelegateContainer *mDelegate = nullptr;
 };
 
 
-#endif // IOSPICTURESOURCE_H
+#endif // IOSPROJECTSOURCE_H
