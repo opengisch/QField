@@ -2563,9 +2563,12 @@ ApplicationWindow {
     visible: true
 
     onShowQFieldLocalScreen: {
-      //__projectSource = platformUtilities.openProject(this)
-      welcomeScreen.visible = false
-      qfieldLocalScreen.visible = true
+      if (Qt.platform.os === "android" || Qt.platform.os === "ios") {
+        welcomeScreen.visible = false
+        qfieldLocalScreen.visible = true
+      } else {
+        __projectSource = platformUtilities.openProject(this)
+      }
     }
     onShowQFieldCloudScreen: {
       welcomeScreen.visible = false

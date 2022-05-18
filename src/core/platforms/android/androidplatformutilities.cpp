@@ -448,33 +448,6 @@ ViewStatus *AndroidPlatformUtilities::open( const QString &uri, bool editing )
   return viewStatus;
 }
 
-ProjectSource *AndroidPlatformUtilities::openProject( QObject *parent )
-{
-  checkWriteExternalStoragePermissions();
-
-  QAndroidJniObject activity = QAndroidJniObject::fromString( QStringLiteral( "ch.opengis." APP_PACKAGE_NAME ".QFieldProjectActivity" ) );
-  QAndroidJniObject intent = QAndroidJniObject( "android/content/Intent", "(Ljava/lang/String;)V", activity.object<jstring>() );
-
-  QAndroidJniObject packageName = QAndroidJniObject::fromString( QStringLiteral( "ch.opengis." APP_PACKAGE_NAME ) );
-  QAndroidJniObject className = QAndroidJniObject::fromString( QStringLiteral( "ch.opengis." APP_PACKAGE_NAME ".QFieldProjectActivity" ) );
-
-  intent.callObjectMethod( "setClassName", "(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;", packageName.object<jstring>(), className.object<jstring>() );
-
-  AndroidProjectSource *projectSource = nullptr;
-
-  if ( intent.isValid() )
-  {
-    projectSource = new AndroidProjectSource( parent );
-    QtAndroid::startActivity( intent.object<jobject>(), 103, projectSource );
-  }
-  else
-  {
-    qDebug() << "Something went wrong creating the project intent";
-  }
-
-  return projectSource;
-}
-
 bool AndroidPlatformUtilities::checkPositioningPermissions() const
 {
   // First check for coarse permissions. If the user configured QField to only get coarse permissions
@@ -611,54 +584,6 @@ JNIEXPORT void JNICALL JNI_FUNCTION_NAME( APP_PACKAGE_JNI_NAME, QFieldActivity, 
     env->ReleaseStringUTFChars( path, pathStr );
   }
   return;
-}
-
-JNIEXPORT jobject JNICALL JNI_FUNCTION_NAME( APP_PACKAGE_JNI_NAME, QFieldProjectListAdapter, createImageBitmap )( JNIEnv *env, jobject obj, jstring path )
-{
-  QImage image( QString( env->GetStringUTFChars( path, NULL ) ) );
-  image = image.scaledToWidth( 255 );
-  if ( image.format() != QImage::Format_RGBA8888 )
-  {
-    image = image.convertToFormat( QImage::Format_RGBA8888 );
-  }
-
-  QAndroidJniObject config = QAndroidJniObject::getStaticObjectField( "android/graphics/Bitmap$Config",
-                                                                      "ARGB_8888",
-                                                                      "Landroid/graphics/Bitmap$Config;" );
-  QAndroidJniObject bitmap = QAndroidJniObject::callStaticObjectMethod( "android/graphics/Bitmap",
-                                                                        "createBitmap",
-                                                                        "(IILandroid/graphics/Bitmap$Config;)Landroid/graphics/Bitmap;",
-                                                                        image.width(), image.height(), config.object() );
-  AndroidBitmapInfo info;
-  if ( AndroidBitmap_getInfo( env, bitmap.object(), &info ) != ANDROID_BITMAP_RESULT_SUCCESS )
-    return QAndroidJniObject().object();
-
-  if ( info.format != ANDROID_BITMAP_FORMAT_RGBA_8888 )
-    return QAndroidJniObject().object();
-
-  void *pixels;
-  if ( AndroidBitmap_lockPixels( env, bitmap.object(), &pixels ) != ANDROID_BITMAP_RESULT_SUCCESS )
-    return QAndroidJniObject().object();
-
-  if ( info.stride == uint32_t( image.bytesPerLine() ) )
-  {
-    memcpy( pixels, image.constBits(), info.stride * info.height );
-  }
-  else
-  {
-    uchar *bmpPtr = static_cast<uchar *>( pixels );
-    const unsigned width = std::min( info.width, ( uint ) image.width() );
-    const unsigned height = std::min( info.height, ( uint ) image.height() );
-    for ( unsigned y = 0; y < height; y++, bmpPtr += info.stride )
-    {
-      memcpy( bmpPtr, image.constScanLine( y ), width );
-    }
-  }
-
-  if ( AndroidBitmap_unlockPixels( env, bitmap.object() ) != ANDROID_BITMAP_RESULT_SUCCESS )
-    return QAndroidJniObject().object();
-
-  return env->NewLocalRef( bitmap.object() );
 }
 
 #ifdef __cplusplus
