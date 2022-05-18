@@ -1562,12 +1562,27 @@ ApplicationWindow {
       height: 48
       leftPadding: 10
 
-      text: qsTr( "Open Project" )
+      text: qsTr( "Go to Home Screen" )
       onTriggered: {
         dashBoard.close()
         welcomeScreen.visible = true
         welcomeScreen.focus = true
         highlighted = false
+      }
+    }
+
+    MenuItem {
+      id: openProjectFolderMenuItem
+
+      font: Theme.defaultFont
+      height: 48
+      leftPadding: 10
+
+      text: qsTr( "Open Project Folder" )
+      onTriggered: {
+        dashBoard.close()
+        qfieldLocalScreen.model.resetToPath(projectInfo.filePath)
+        qfieldLocalScreen.visible = true
       }
     }
 
@@ -2543,7 +2558,9 @@ ApplicationWindow {
 
     onFinished: {
       visible = false
-      welcomeScreen.visible = loading ? false : true
+      if (model.currentPath === 'root') {
+        welcomeScreen.visible = loading ? false : true
+      }
     }
 
     Component.onCompleted: focusstack.addFocusTaker( this )
@@ -2565,6 +2582,7 @@ ApplicationWindow {
     onShowQFieldLocalScreen: {
       //if (Qt.platform.os === "android" || Qt.platform.os === "ios") {
         welcomeScreen.visible = false
+        qfieldLocalScreen.model.resetToRoot()
         qfieldLocalScreen.visible = true
       /*} else {
         __projectSource = platformUtilities.openProject(this)

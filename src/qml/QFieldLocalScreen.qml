@@ -10,6 +10,8 @@ import Theme 1.0
 Page {
   id: qfieldLocalScreen
 
+  property alias model: table.model
+
   signal finished(var loading)
 
   header: PageHeader {

@@ -66,11 +66,12 @@ void LocalFilesModel::resetToRoot()
 void LocalFilesModel::resetToPath( const QString &path )
 {
   mHistory.clear();
-  mHistory << path;
+  setCurrentPath( path );
 
-  emit currentPathChanged();
-
-  reloadModel();
+  if ( mHistory.isEmpty() )
+  {
+    resetToRoot();
+  }
 }
 
 QString LocalFilesModel::currentTitle() const
@@ -110,11 +111,15 @@ const QString LocalFilesModel::getCurrentTitleFromPath( const QString &path ) co
 
 void LocalFilesModel::setCurrentPath( const QString &path )
 {
-  mHistory << path;
+  QFileInfo fi( path );
+  if ( fi.exists() )
+  {
+    mHistory << ( fi.isDir() ? path : fi.absolutePath() );
 
-  emit currentPathChanged();
+    emit currentPathChanged();
 
-  reloadModel();
+    reloadModel();
+  }
 }
 
 QString LocalFilesModel::currentPath() const
