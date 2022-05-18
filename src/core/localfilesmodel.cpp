@@ -24,6 +24,21 @@
 LocalFilesModel::LocalFilesModel( QObject *parent )
   : QAbstractListModel( parent )
 {
+  QSettings settings;
+  const bool favoritesInitialized = settings.value( QStringLiteral( "qfieldFavoritesInitialized" ), false ).toBool();
+  if ( !favoritesInitialized )
+  {
+    QStringList favorites;
+    const QString applicationDirectory = PlatformUtilities::instance()->applicationDirectory();
+    //if ( !applicationDirectory.isEmpty() )
+    {
+      favorites << QStringLiteral( "%1/Imported Projects" ).arg( applicationDirectory )
+                << QStringLiteral( "%1/Imported Datasets" ).arg( applicationDirectory );
+    }
+    const QString sampleProjectPath = PlatformUtilities::instance()->systemGenericDataLocation() + QStringLiteral( "/qfield/sample_projects" );
+    favorites << sampleProjectPath;
+    settings.setValue( QStringLiteral( "qfieldFavorites" ), favorites );
+  }
   resetToRoot();
 }
 
@@ -60,7 +75,11 @@ void LocalFilesModel::resetToPath( const QString &path )
 
 QString LocalFilesModel::currentTitle() const
 {
-  const QString path = currentPath();
+  return getCurrentTitleFromPath( currentPath() );
+}
+
+const QString LocalFilesModel::getCurrentTitleFromPath( const QString &path ) const
+{
   if ( path == QStringLiteral( "root" ) )
   {
     return QStringLiteral( "Home" );
@@ -69,14 +88,24 @@ QString LocalFilesModel::currentTitle() const
   {
     return tr( "QField files directory" );
   }
+  else if ( path == PlatformUtilities::instance()->applicationDirectory() + QStringLiteral( "/Imported Projects" ) )
+  {
+    return tr( "Imported projects" );
+  }
+  else if ( path == PlatformUtilities::instance()->applicationDirectory() + QStringLiteral( "/Imported Datasets" ) )
+  {
+    return tr( "Imported datasets" );
+  }
   else if ( PlatformUtilities::instance()->additionalApplicationDirectories().contains( path ) )
   {
     return tr( "Additional files directory" );
   }
-  else
+  else if ( path == PlatformUtilities::instance()->systemGenericDataLocation() + QStringLiteral( "/qfield/sample_projects" ) )
   {
-    return QFileInfo( path ).fileName();
+    return tr( "Sample projects" );
   }
+
+  return QFileInfo( path ).fileName();
 }
 
 void LocalFilesModel::setCurrentPath( const QString &path )
@@ -134,6 +163,12 @@ void LocalFilesModel::reloadModel()
       {
         mItems << Item( ItemMetaType::Folder, ItemType::SimpleFolder, fi.fileName(), QString(), fi.absoluteFilePath() );
       }
+    }
+
+    items = QSettings().value( QStringLiteral( "qfieldFavorites" ), QStringList() ).toStringList();
+    for ( const QString &item : items )
+    {
+      mItems << Item( ItemMetaType::Favorite, ItemType::SimpleFolder, getCurrentTitleFromPath( item ), QString(), item );
     }
   }
   else

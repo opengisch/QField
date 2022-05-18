@@ -32,6 +32,7 @@ class LocalFilesModel : public QAbstractListModel
       Folder,
       Project,
       Dataset,
+      Favorite,
     };
     Q_ENUM( ItemMetaType )
 
@@ -102,6 +103,7 @@ class LocalFilesModel : public QAbstractListModel
 
   private:
     void reloadModel();
+    const QString getCurrentTitleFromPath( const QString &path ) const;
 
     QStringList mHistory;
     QList<Item> mItems;

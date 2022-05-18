@@ -109,6 +109,8 @@ Page {
                   return qsTr('Projects');
                 case LocalFilesModel.Dataset:
                   return qsTr('Datasets');
+                case LocalFilesModel.Favorite:
+                  return qsTr('Favorites');
                 }
                 return '';
               }
