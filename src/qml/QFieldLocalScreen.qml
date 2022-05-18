@@ -247,7 +247,8 @@ Page {
                     table.contentY + mouse.y
                     )
               if (item) {
-                if (item.itemMetaType === LocalFilesModel.Folder) {
+                if (item.itemMetaType === LocalFilesModel.Folder ||
+                    item.itemMetaType === LocalFilesModel.Favorite) {
                   table.model.currentPath = item.itemPath;
                 } else if (!qfieldLocalScreen.projectFolderView &&
                            (item.itemMetaType === LocalFilesModel.Project
