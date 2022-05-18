@@ -77,6 +77,7 @@
 #include "layerutils.h"
 #include "legendimageprovider.h"
 #include "linepolygonhighlight.h"
+#include "localfilesimageprovider.h"
 #include "localfilesmodel.h"
 #include "locatormodelsuperbridge.h"
 #include "maptoscreen.h"
@@ -230,6 +231,7 @@ QgisMobileapp::QgisMobileapp( QgsApplication *app, QObject *parent )
   mLayerObserver = std::make_unique<LayerObserver>( mProject );
   mFlatLayerTree = new FlatLayerTreeModel( mProject->layerTreeRoot(), mProject, this );
   mLegendImageProvider = new LegendImageProvider( mFlatLayerTree->layerTreeModel() );
+  mLocalFilesImageProvider = new LocalFilesImageProvider();
   mTrackingModel = new TrackingModel;
 
   mBookmarkModel = std::make_unique<BookmarkModel>( QgsApplication::bookmarkManager(), mProject->bookmarkManager(), nullptr );
@@ -526,6 +528,7 @@ void QgisMobileapp::initDeclarative()
   rootContext()->setContextProperty( "trackingModel", mTrackingModel );
 
   addImageProvider( QLatin1String( "legend" ), mLegendImageProvider );
+  addImageProvider( QLatin1String( "localfiles" ), mLocalFilesImageProvider );
 }
 
 void QgisMobileapp::loadProjectQuirks()

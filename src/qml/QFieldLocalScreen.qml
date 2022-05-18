@@ -158,12 +158,14 @@ Page {
                 case LocalFilesModel.ProjectFile:
                   return Theme.getThemeIcon('ic_map_green_48dp');
                 case LocalFilesModel.VectorDataset:
-                case LocalFilesModel.RasterDataset:
                   return Theme.getThemeIcon('ic_file_green_48dp');
+                case LocalFilesModel.RasterDataset:
+                  return "image://localfiles/" + ItemPath;
                 }
               }
               sourceSize.width: 92
               sourceSize.height: 92
+              fillMode: Image.PreserveAspectFit
               width: 48
               height: 48
             }
