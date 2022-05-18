@@ -10,6 +10,7 @@ import Theme 1.0
 Page {
   id: qfieldLocalScreen
 
+  property bool allowLoading: true
   property alias model: table.model
 
   signal finished(var loading)
@@ -246,8 +247,9 @@ Page {
               if (item) {
                 if (item.itemMetaType === LocalFilesModel.Folder) {
                   table.model.currentPath = item.itemPath;
-                } else if (item.itemMetaType === LocalFilesModel.Project
-                           || item.itemMetaType === LocalFilesModel.Dataset) {
+                } else if (qfieldLocalScreen.allowLoading &&
+                           (item.itemMetaType === LocalFilesModel.Project
+                           || item.itemMetaType === LocalFilesModel.Dataset)) {
                   iface.loadFile(item.itemPath, item.itemTitle);
                   finished(true);
                 }
