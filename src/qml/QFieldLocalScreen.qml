@@ -10,13 +10,15 @@ import Theme 1.0
 Page {
   id: qfieldLocalScreen
 
-  property bool allowLoading: true
+  property bool projectFolderView: false
   property alias model: table.model
 
   signal finished(var loading)
 
   header: PageHeader {
-    title: qsTr("Local Projects & Datasets")
+    title: projectFolderView
+           ? qsTr("Project Folder")
+           : qsTr("Local Projects & Datasets")
 
     showBackButton: false
     showApplyButton: false
@@ -247,7 +249,7 @@ Page {
               if (item) {
                 if (item.itemMetaType === LocalFilesModel.Folder) {
                   table.model.currentPath = item.itemPath;
-                } else if (qfieldLocalScreen.allowLoading &&
+                } else if (!qfieldLocalScreen.projectFolderView &&
                            (item.itemMetaType === LocalFilesModel.Project
                            || item.itemMetaType === LocalFilesModel.Dataset)) {
                   iface.loadFile(item.itemPath, item.itemTitle);
@@ -368,7 +370,9 @@ Page {
 
       MenuItem {
         id: removeDataset
-        visible: itemMenu.itemMetaType == LocalFilesModel.Dataset && table.model.isDeletedAllowedInCurrentPath
+        visible: itemMenu.itemMetaType == LocalFilesModel.Dataset
+                 && !qfieldLocalScreen.projectFolderView
+                 && table.model.isDeletedAllowedInCurrentPath
 
         font: Theme.defaultFont
         width: parent.width
@@ -407,7 +411,9 @@ Page {
 
       MenuItem {
         id: removeProjectFolder
-        visible: itemMenu.itemMetaType == LocalFilesModel.Folder && table.model.isDeletedAllowedInCurrentPath
+        visible: itemMenu.itemMetaType == LocalFilesModel.Folder
+                 && !qfieldLocalScreen.projectFolderView
+                 && table.model.isDeletedAllowedInCurrentPath
 
         font: Theme.defaultFont
         width: parent.width

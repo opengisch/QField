@@ -1581,7 +1581,7 @@ ApplicationWindow {
       text: qsTr( "Open Project Folder" )
       onTriggered: {
         dashBoard.close()
-        qfieldLocalScreen.allowLoading = false
+        qfieldLocalScreen.projectFolderView = true
         qfieldLocalScreen.model.resetToPath(projectInfo.filePath)
         qfieldLocalScreen.visible = true
       }
@@ -2583,7 +2583,7 @@ ApplicationWindow {
     onShowQFieldLocalScreen: {
       if (Qt.platform.os === "android" || Qt.platform.os === "ios") {
         welcomeScreen.visible = false
-        qfieldLocalScreen.allowLoading = true
+        qfieldLocalScreen.projectFolderView = false
         qfieldLocalScreen.model.resetToRoot()
         qfieldLocalScreen.visible = true
       } else {
