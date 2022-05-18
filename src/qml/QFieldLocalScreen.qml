@@ -82,7 +82,7 @@ Page {
           property string itemPath: ItemPath
 
           width: parent ? parent.width : undefined
-          height: line.height + 10
+          height: line.height + 4
           color: "transparent"
 
           RowLayout {
@@ -95,8 +95,8 @@ Page {
               id: type
               Layout.alignment: Qt.AlignVCenter
               Layout.leftMargin: 4
-              Layout.preferredWidth: 40
-              Layout.preferredHeight: 40
+              Layout.preferredWidth: 48
+              Layout.preferredHeight: 48
               source: {
                 switch(ItemType) {
                 case LocalFilesModel.ApplicationFolder:
@@ -112,10 +112,10 @@ Page {
                   return Theme.getThemeIcon('ic_file_green_48dp');
                 }
               }
-              sourceSize.width: 80
-              sourceSize.height: 80
-              width: 40
-              height: 40
+              sourceSize.width: 92
+              sourceSize.height: 92
+              width: 48
+              height: 48
             }
             ColumnLayout {
               id: inner
@@ -158,28 +158,57 @@ Page {
                 Layout.fillWidth: true
               }
             }
+            QfToolButton {
+              visible: ItemMetaType === LocalFilesModel.Dataset
+                       || (ItemType === LocalFilesModel.SimpleFolder && table.model.currentDepth > 1)
+              round: true
+              opacity: 0.5
+
+              bgcolor: "transparent"
+              iconSource: Theme.getThemeIcon( "ic_dot_menu_gray_24dp" )
+
+              onClicked: {
+                var gc = mapToItem(qfieldLocalScreen, 0, 0)
+
+                itemMenu.itemMetaType = ItemMetaType
+                itemMenu.itemType = ItemType
+                itemMenu.itemPath = ItemPath
+                itemMenu.popup(gc.x + width - itemMenu.width,
+                               gc.y - height)
+              }
+            }
           }
         }
 
         MouseArea {
           property Item pressedItem
           anchors.fill: parent
+          anchors.rightMargin: 48
           onClicked: {
-            var item = table.itemAt(
-                  table.contentX + mouse.x,
-                  table.contentY + mouse.y
-                  )
-            if (item) {
-              if (item.itemMetaType === LocalFilesModel.Folder) {
-                table.model.currentPath = item.itemPath;
-              } else if (item.itemMetaType === LocalFilesModel.Project
-                         || item.itemMetaType === LocalFilesModel.Dataset) {
-                iface.loadFile(item.itemPath, item.itemTitle);
-                finished(true);
+            if (itemMenu.visible) {
+              itemMenu.close();
+            } else if (importMenu.visible) {
+              importMenu.close();
+            } else {
+              var item = table.itemAt(
+                    table.contentX + mouse.x,
+                    table.contentY + mouse.y
+                    )
+              if (item) {
+                if (item.itemMetaType === LocalFilesModel.Folder) {
+                  table.model.currentPath = item.itemPath;
+                } else if (item.itemMetaType === LocalFilesModel.Project
+                           || item.itemMetaType === LocalFilesModel.Dataset) {
+                  iface.loadFile(item.itemPath, item.itemTitle);
+                  finished(true);
+                }
               }
             }
           }
           onPressed: {
+            if (itemMenu.visible || importMenu.visible)
+              return;
+
             var item = table.itemAt(
                   table.contentX + mouse.x,
                   table.contentY + mouse.y
@@ -208,7 +237,14 @@ Page {
                   table.contentY + mouse.y
                   )
             if (item) {
-              //itemActions.popup(mouse.x, mouse.y)
+
+              if (item.itemMetaType === LocalFilesModel.Dataset
+                  || item.itemType === LocalFilesModel.SimpleFolder && table.model.currentDepth > 1) {
+                itemMenu.itemMetaType = item.itemMetaType
+                itemMenu.itemType = item.itemType
+                itemMenu.itemPath = item.itemPath
+                itemMenu.popup(mouse.x, mouse.y)
+              }
             }
           }
         }
@@ -231,6 +267,104 @@ Page {
           importMenu.popup(mainWindow.width - importMenu.width - 10,
                            mainWindow.height - importMenu.height - 58)
         }
+      }
+    }
+
+    Menu {
+      id: itemMenu
+
+      property int itemMetaType: 0
+      property int itemType: 0
+      property string itemPath: ''
+
+      title: 'Item Actions'
+      width: {
+        var result = 0;
+        var padding = 0;
+        for (var i = 0; i < count; ++i) {
+          var item = itemAt(i);
+          result = Math.max(item.contentItem.implicitWidth, result);
+          padding = Math.max(item.padding, padding);
+        }
+        return Math.min( result + padding * 2,mainWindow.width - 20);
+      }
+
+      MenuItem {
+        id: sendDatasetTo
+        visible: itemMenu.itemMetaType == LocalFilesModel.Dataset
+
+        font: Theme.defaultFont
+        width: parent.width
+        height: visible ? 48 : 0
+        leftPadding: 10
+
+        text: qsTr( "Send to..." )
+        onTriggered: { platformUtilities.sendDatasetTo(); }
+      }
+
+      MenuItem {
+        id: exportDatasetTo
+        visible: itemMenu.itemMetaType == LocalFilesModel.Dataset
+
+        font: Theme.defaultFont
+        width: parent.width
+        height: visible ? 48 : 0
+        leftPadding: 10
+
+        text: qsTr( "Export to folder..." )
+        onTriggered: { platformUtilities.exportDatasetTo(); }
+      }
+
+      MenuItem {
+        id: removeDataset
+        visible: itemMenu.itemMetaType == LocalFilesModel.Dataset
+
+        font: Theme.defaultFont
+        width: parent.width
+        height: visible ? 48 : 0
+        leftPadding: 10
+
+        text: qsTr( "Remove dataset" )
+        onTriggered: { platformUtilities.removeDataset(); }
+      }
+
+      MenuItem {
+        id: exportFolderTo
+        visible: itemMenu.itemMetaType == LocalFilesModel.Folder
+
+        font: Theme.defaultFont
+        width: parent.width
+        height: visible ? 48 : 0
+        leftPadding: 10
+
+        text: qsTr( "Export to folder..." )
+        onTriggered: { platformUtilities.exportFolderTo(); }
+      }
+
+      MenuItem {
+        id: sendCompressedFolderTo
+        visible: itemMenu.itemMetaType == LocalFilesModel.Folder
+
+        font: Theme.defaultFont
+        width: parent.width
+        height: visible ? 48 : 0
+        leftPadding: 10
+
+        text: qsTr( "Send compressed folder to..." )
+        onTriggered: { platformUtilities.sendCompressedFolderTo(); }
+      }
+
+      MenuItem {
+        id: removeProjectFolder
+        visible: itemMenu.itemMetaType == LocalFilesModel.Folder
+
+        font: Theme.defaultFont
+        width: parent.width
+        height: visible ? 48 : 0
+        leftPadding: 10
+
+        text: qsTr( "Remove project folder" )
+        onTriggered: { platformUtilities.removeProjectFolder(); }
       }
     }
 
