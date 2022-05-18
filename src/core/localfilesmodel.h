@@ -22,6 +22,7 @@ class LocalFilesModel : public QAbstractListModel
 {
     Q_OBJECT
 
+    Q_PROPERTY( QString currentTitle READ currentTitle NOTIFY currentPathChanged )
     Q_PROPERTY( QString currentPath READ currentPath WRITE setCurrentPath NOTIFY currentPathChanged )
     Q_PROPERTY( int currentDepth READ currentDepth NOTIFY currentPathChanged )
 
@@ -84,6 +85,8 @@ class LocalFilesModel : public QAbstractListModel
 
     Q_INVOKABLE void resetToRoot();
     Q_INVOKABLE void resetToPath( const QString &path );
+
+    QString currentTitle() const;
 
     void setCurrentPath( const QString &path );
 

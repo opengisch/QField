@@ -15,9 +15,9 @@ Page {
   header: PageHeader {
     title: qsTr("Local Projects & Datasets")
 
-    showBackButton: true
+    showBackButton: false
     showApplyButton: false
-    showCancelButton: false
+    showCancelButton: true
 
     onFinished: parent.finished(false)
   }
@@ -29,10 +29,50 @@ Page {
     Layout.fillHeight: true
     spacing: 2
 
+    RowLayout {
+      Layout.margins: 10
+      spacing: 2
+
+      QfToolButton {
+        visible: table.model.currentDepth > 1
+
+        round: true
+        bgcolor: "transparent"
+
+        iconSource: Theme.getThemeIcon( 'ic_chevron_left_black_24dp' )
+
+        onClicked: { table.model.moveUp(); }
+      }
+
+      ColumnLayout {
+        Layout.fillWidth: true
+        spacing: 2
+
+        Text {
+          Layout.fillWidth: true
+          text: table.model.currentTitle
+          font.pointSize: Theme.defaultFont.pointSize
+          font.bold: true
+          wrapMode: Text.NoWrap
+          elide: Text.ElideMiddle
+        }
+        Text {
+          Layout.fillWidth: true
+          text: table.model.currentPath !== 'root'
+                ? table.model.currentPath
+                : ''
+          font: Theme.tipFont
+          wrapMode: Text.NoWrap
+          elide: Text.ElideMiddle
+        }
+      }
+    }
+
     Rectangle {
       Layout.fillWidth: true
       Layout.fillHeight: true
       Layout.margins: 10
+      Layout.topMargin: 0
       color: "white"
       border.color: "lightgray"
       border.width: 1

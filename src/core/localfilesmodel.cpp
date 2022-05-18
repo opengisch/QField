@@ -58,6 +58,27 @@ void LocalFilesModel::resetToPath( const QString &path )
   reloadModel();
 }
 
+QString LocalFilesModel::currentTitle() const
+{
+  const QString path = currentPath();
+  if ( path == QStringLiteral( "root" ) )
+  {
+    return QStringLiteral( "Home" );
+  }
+  else if ( path == PlatformUtilities::instance()->applicationDirectory() )
+  {
+    return tr( "QField files directory" );
+  }
+  else if ( PlatformUtilities::instance()->additionalApplicationDirectories().contains( path ) )
+  {
+    return tr( "Additional files directory" );
+  }
+  else
+  {
+    return QFileInfo( path ).fileName();
+  }
+}
+
 void LocalFilesModel::setCurrentPath( const QString &path )
 {
   mHistory << path;
