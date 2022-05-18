@@ -34,6 +34,7 @@ Page {
       spacing: 2
 
       QfToolButton {
+        Layout.alignment: Qt.AlignVCenter
         visible: table.model.currentDepth > 1
 
         round: true
@@ -46,6 +47,7 @@ Page {
 
       ColumnLayout {
         Layout.fillWidth: true
+        Layout.alignment: Qt.AlignVCenter
         spacing: 2
 
         Text {
@@ -58,6 +60,7 @@ Page {
         }
         Text {
           Layout.fillWidth: true
+          visible: text !== ''
           text: table.model.currentPath !== 'root'
                 ? table.model.currentPath
                 : ''
@@ -161,11 +164,13 @@ Page {
               id: inner
               Layout.alignment: Qt.AlignVCenter
               Layout.fillWidth: true
+              Layout.preferredHeight: childrenRect.height
               Layout.leftMargin: 2
               Layout.rightMargin: 4
               Text {
                 id: itemTitle
                 Layout.fillWidth: true
+                Layout.preferredHeight: contentHeight
                 text: ItemTitle
                 font.pointSize: Theme.defaultFont.pointSize
                 font.underline: true
@@ -174,7 +179,8 @@ Page {
               }
               Text {
                 id: itemInfo
-                leftPadding: 3
+                Layout.fillWidth: true
+                Layout.preferredHeight: contentHeight
                 text: {
                   var info = '';
                   switch(ItemType) {
@@ -195,7 +201,6 @@ Page {
                 font.pointSize: Theme.tipFont.pointSize - 2
                 font.italic: true
                 wrapMode: Text.WordWrap
-                Layout.fillWidth: true
               }
             }
             QfToolButton {
