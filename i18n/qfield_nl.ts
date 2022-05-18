@@ -1303,27 +1303,27 @@ De geometrieën van objecten zullen worden gecombineerd tot object &apos;%1&apos
         <translation>Kan galerijafbeelding niet opslaan</translation>
     </message>
     <message>
-        <location filename="../src/core/platforms/platformutilities.cpp" line="162"/>
+        <location filename="../src/core/platforms/platformutilities.cpp" line="163"/>
         <source>Open File</source>
         <translation>Open Bestand</translation>
     </message>
     <message>
-        <location filename="../src/core/platforms/platformutilities.cpp" line="164"/>
+        <location filename="../src/core/platforms/platformutilities.cpp" line="165"/>
         <source>All Supported Files</source>
         <translation>Alle ondersteunde bestanden</translation>
     </message>
     <message>
-        <location filename="../src/core/platforms/platformutilities.cpp" line="164"/>
+        <location filename="../src/core/platforms/platformutilities.cpp" line="165"/>
         <source>QGIS Project Files</source>
         <translation>QGIS project bestanden</translation>
     </message>
     <message>
-        <location filename="../src/core/platforms/platformutilities.cpp" line="164"/>
+        <location filename="../src/core/platforms/platformutilities.cpp" line="165"/>
         <source>Vector Datasets</source>
         <translation>Vectorgegevenssets</translation>
     </message>
     <message>
-        <location filename="../src/core/platforms/platformutilities.cpp" line="164"/>
+        <location filename="../src/core/platforms/platformutilities.cpp" line="165"/>
         <source>Raster Datasets</source>
         <translation>Rastergegevenssets</translation>
     </message>

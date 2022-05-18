@@ -1303,27 +1303,27 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
         <translation>Неуспешен запис на изображение от галерията</translation>
     </message>
     <message>
-        <location filename="../src/core/platforms/platformutilities.cpp" line="162"/>
+        <location filename="../src/core/platforms/platformutilities.cpp" line="163"/>
         <source>Open File</source>
         <translation>Отвори файл</translation>
     </message>
     <message>
-        <location filename="../src/core/platforms/platformutilities.cpp" line="164"/>
+        <location filename="../src/core/platforms/platformutilities.cpp" line="165"/>
         <source>All Supported Files</source>
         <translation>Всички поддържани файлове</translation>
     </message>
     <message>
-        <location filename="../src/core/platforms/platformutilities.cpp" line="164"/>
+        <location filename="../src/core/platforms/platformutilities.cpp" line="165"/>
         <source>QGIS Project Files</source>
         <translation>QGIS проекти</translation>
     </message>
     <message>
-        <location filename="../src/core/platforms/platformutilities.cpp" line="164"/>
+        <location filename="../src/core/platforms/platformutilities.cpp" line="165"/>
         <source>Vector Datasets</source>
         <translation>Векторни данни</translation>
     </message>
     <message>
-        <location filename="../src/core/platforms/platformutilities.cpp" line="164"/>
+        <location filename="../src/core/platforms/platformutilities.cpp" line="165"/>
         <source>Raster Datasets</source>
         <translation>Растерни данни</translation>
     </message>

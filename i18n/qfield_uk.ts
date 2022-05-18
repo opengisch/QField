@@ -1307,27 +1307,27 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
         <translation>Не вдалося зберегти зображення галереї</translation>
     </message>
     <message>
-        <location filename="../src/core/platforms/platformutilities.cpp" line="162"/>
+        <location filename="../src/core/platforms/platformutilities.cpp" line="163"/>
         <source>Open File</source>
         <translation>Відкрити файл</translation>
     </message>
     <message>
-        <location filename="../src/core/platforms/platformutilities.cpp" line="164"/>
+        <location filename="../src/core/platforms/platformutilities.cpp" line="165"/>
         <source>All Supported Files</source>
         <translation>Усі підтримувані файли</translation>
     </message>
     <message>
-        <location filename="../src/core/platforms/platformutilities.cpp" line="164"/>
+        <location filename="../src/core/platforms/platformutilities.cpp" line="165"/>
         <source>QGIS Project Files</source>
         <translation>Файли проєкту QGIS</translation>
     </message>
     <message>
-        <location filename="../src/core/platforms/platformutilities.cpp" line="164"/>
+        <location filename="../src/core/platforms/platformutilities.cpp" line="165"/>
         <source>Vector Datasets</source>
         <translation>Векторні набори даних</translation>
     </message>
     <message>
-        <location filename="../src/core/platforms/platformutilities.cpp" line="164"/>
+        <location filename="../src/core/platforms/platformutilities.cpp" line="165"/>
         <source>Raster Datasets</source>
         <translation>Растрові набори даних</translation>
     </message>

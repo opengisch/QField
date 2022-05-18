@@ -1296,27 +1296,27 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
         <translation>Galleriebild konnte nicht gespeichert werden</translation>
     </message>
     <message>
-        <location filename="../src/core/platforms/platformutilities.cpp" line="162"/>
+        <location filename="../src/core/platforms/platformutilities.cpp" line="163"/>
         <source>Open File</source>
         <translation>Datei öffnen</translation>
     </message>
     <message>
-        <location filename="../src/core/platforms/platformutilities.cpp" line="164"/>
+        <location filename="../src/core/platforms/platformutilities.cpp" line="165"/>
         <source>All Supported Files</source>
         <translation>Alle Unterstützen Dateien</translation>
     </message>
     <message>
-        <location filename="../src/core/platforms/platformutilities.cpp" line="164"/>
+        <location filename="../src/core/platforms/platformutilities.cpp" line="165"/>
         <source>QGIS Project Files</source>
         <translation>QGIS Projektdateien</translation>
     </message>
     <message>
-        <location filename="../src/core/platforms/platformutilities.cpp" line="164"/>
+        <location filename="../src/core/platforms/platformutilities.cpp" line="165"/>
         <source>Vector Datasets</source>
         <translation>Vektordaten</translation>
     </message>
     <message>
-        <location filename="../src/core/platforms/platformutilities.cpp" line="164"/>
+        <location filename="../src/core/platforms/platformutilities.cpp" line="165"/>
         <source>Raster Datasets</source>
         <translation>Rasterdaten</translation>
     </message>

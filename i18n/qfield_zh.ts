@@ -1301,27 +1301,27 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
         <translation>无法将图片保存到图库</translation>
     </message>
     <message>
-        <location filename="../src/core/platforms/platformutilities.cpp" line="162"/>
+        <location filename="../src/core/platforms/platformutilities.cpp" line="163"/>
         <source>Open File</source>
         <translation>打开文件</translation>
     </message>
     <message>
-        <location filename="../src/core/platforms/platformutilities.cpp" line="164"/>
+        <location filename="../src/core/platforms/platformutilities.cpp" line="165"/>
         <source>All Supported Files</source>
         <translation>所有支持的文件</translation>
     </message>
     <message>
-        <location filename="../src/core/platforms/platformutilities.cpp" line="164"/>
+        <location filename="../src/core/platforms/platformutilities.cpp" line="165"/>
         <source>QGIS Project Files</source>
         <translation>QGIS工程文件</translation>
     </message>
     <message>
-        <location filename="../src/core/platforms/platformutilities.cpp" line="164"/>
+        <location filename="../src/core/platforms/platformutilities.cpp" line="165"/>
         <source>Vector Datasets</source>
         <translation>矢量数据集</translation>
     </message>
     <message>
-        <location filename="../src/core/platforms/platformutilities.cpp" line="164"/>
+        <location filename="../src/core/platforms/platformutilities.cpp" line="165"/>
         <source>Raster Datasets</source>
         <translation>栅格数据集</translation>
     </message>
