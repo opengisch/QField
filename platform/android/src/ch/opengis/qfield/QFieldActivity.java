@@ -518,7 +518,7 @@ public class QFieldActivity extends QtActivity {
                         alertDialog.show();
                     }
                 } else {
-                    // do something
+                    openPath(importDatasetPath);
                 }
             }
         });
@@ -555,7 +555,7 @@ public class QFieldActivity extends QtActivity {
 
                 progressDialog.dismiss();
                 if (imported) {
-                    // do something
+                    openPath(importPath);
                 } else {
                     AlertDialog alertDialog =
                         new AlertDialog.Builder(QFieldActivity.this).create();
@@ -629,7 +629,7 @@ public class QFieldActivity extends QtActivity {
 
                     progressDialog.dismiss();
                     if (imported) {
-                        // do something
+                        openPath(importPath);
                     }
                 } else {
                     progressDialog.dismiss();
