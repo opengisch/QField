@@ -209,7 +209,7 @@ Page {
             }
             QfToolButton {
               visible: ItemMetaType === LocalFilesModel.Dataset
-                       || (ItemType === LocalFilesModel.SimpleFolder && table.model.currentDepth > 1)
+                       || (ItemType === LocalFilesModel.SimpleFolder && table.model.currentPath !== 'root')
               round: true
               opacity: 0.5
 
@@ -288,7 +288,7 @@ Page {
             if (item) {
 
               if (item.itemMetaType === LocalFilesModel.Dataset
-                  || item.itemType === LocalFilesModel.SimpleFolder && table.model.currentDepth > 1) {
+                  || item.itemType === LocalFilesModel.SimpleFolder && table.model.currentPath !== 'root') {
                 itemMenu.itemMetaType = item.itemMetaType
                 itemMenu.itemType = item.itemType
                 itemMenu.itemPath = item.itemPath
@@ -366,7 +366,7 @@ Page {
 
       MenuItem {
         id: removeDataset
-        visible: itemMenu.itemMetaType == LocalFilesModel.Dataset
+        visible: itemMenu.itemMetaType == LocalFilesModel.Dataset && table.model.isDeletedAllowedInCurrentPath
 
         font: Theme.defaultFont
         width: parent.width
@@ -405,7 +405,7 @@ Page {
 
       MenuItem {
         id: removeProjectFolder
-        visible: itemMenu.itemMetaType == LocalFilesModel.Folder
+        visible: itemMenu.itemMetaType == LocalFilesModel.Folder && table.model.isDeletedAllowedInCurrentPath
 
         font: Theme.defaultFont
         width: parent.width

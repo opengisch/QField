@@ -25,6 +25,7 @@ class LocalFilesModel : public QAbstractListModel
     Q_PROPERTY( QString currentTitle READ currentTitle NOTIFY currentPathChanged )
     Q_PROPERTY( QString currentPath READ currentPath WRITE setCurrentPath NOTIFY currentPathChanged )
     Q_PROPERTY( int currentDepth READ currentDepth NOTIFY currentPathChanged )
+    Q_PROPERTY( bool isDeletedAllowedInCurrentPath READ isDeletedAllowedInCurrentPath NOTIFY currentPathChanged )
 
   public:
     enum ItemMetaType
@@ -94,6 +95,8 @@ class LocalFilesModel : public QAbstractListModel
     QString currentPath() const;
 
     int currentDepth() const { return mHistory.size(); }
+
+    bool isDeletedAllowedInCurrentPath() const;
 
     Q_INVOKABLE void moveUp();
 

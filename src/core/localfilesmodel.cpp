@@ -127,6 +127,29 @@ QString LocalFilesModel::currentPath() const
   return ( !mHistory.isEmpty() ? mHistory.last() : QString() );
 }
 
+bool LocalFilesModel::isDeletedAllowedInCurrentPath() const
+{
+  const QString path = currentPath();
+  const QString applicationDirectory = PlatformUtilities::instance()->applicationDirectory();
+  if ( !applicationDirectory.isEmpty() && path.startsWith( applicationDirectory + QDir::separator() ) )
+  {
+    return true;
+  }
+  else
+  {
+    const QStringList additionalApplicationDirectories = PlatformUtilities::instance()->additionalApplicationDirectories();
+    for ( const QString &directory : additionalApplicationDirectories )
+    {
+      if ( !directory.isEmpty() && path.startsWith( directory + QDir::separator() ) )
+      {
+        return true;
+      }
+    }
+  }
+
+  return false;
+}
+
 void LocalFilesModel::moveUp()
 {
   mHistory.removeLast();
