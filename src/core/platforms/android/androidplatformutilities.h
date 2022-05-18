@@ -42,6 +42,14 @@ class AndroidPlatformUtilities : public PlatformUtilities
     void importProjectArchive() const override;
     void importDatasets() const override;
 
+    void sendDatasetTo( const QString &path ) const override;
+    void exportDatasetTo( const QString &path ) const override;
+    void removeDataset( const QString &path ) const override;
+
+    void exportFolderTo( const QString &path ) const override;
+    void sendCompressedFolderTo( const QString &path ) const override;
+    void removeProjectFolder( const QString &path ) const override;
+
     PictureSource *getCameraPicture( QQuickItem *parent, const QString &prefix, const QString &pictureFilePath, const QString &suffix ) override;
     PictureSource *getGalleryPicture( QQuickItem *parent, const QString &prefix, const QString &pictureFilePath ) override;
     ViewStatus *open( const QString &uri, bool editing ) override;

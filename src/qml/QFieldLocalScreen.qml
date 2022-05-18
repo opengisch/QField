@@ -299,7 +299,7 @@ Page {
         leftPadding: 10
 
         text: qsTr( "Send to..." )
-        onTriggered: { platformUtilities.sendDatasetTo(); }
+        onTriggered: { platformUtilities.sendDatasetTo(itemMenu.itemPath); }
       }
 
       MenuItem {
@@ -312,7 +312,7 @@ Page {
         leftPadding: 10
 
         text: qsTr( "Export to folder..." )
-        onTriggered: { platformUtilities.exportDatasetTo(); }
+        onTriggered: { platformUtilities.exportDatasetTo(itemMenu.itemPath); }
       }
 
       MenuItem {
@@ -325,7 +325,7 @@ Page {
         leftPadding: 10
 
         text: qsTr( "Remove dataset" )
-        onTriggered: { platformUtilities.removeDataset(); }
+        onTriggered: { platformUtilities.removeDataset(itemMenu.itemPath); }
       }
 
       MenuItem {
@@ -338,7 +338,7 @@ Page {
         leftPadding: 10
 
         text: qsTr( "Export to folder..." )
-        onTriggered: { platformUtilities.exportFolderTo(); }
+        onTriggered: { platformUtilities.exportFolderTo(itemMenu.itemPath); }
       }
 
       MenuItem {
@@ -351,7 +351,7 @@ Page {
         leftPadding: 10
 
         text: qsTr( "Send compressed folder to..." )
-        onTriggered: { platformUtilities.sendCompressedFolderTo(); }
+        onTriggered: { platformUtilities.sendCompressedFolderTo(itemMenu.itemPath); }
       }
 
       MenuItem {
@@ -364,7 +364,7 @@ Page {
         leftPadding: 10
 
         text: qsTr( "Remove project folder" )
-        onTriggered: { platformUtilities.removeProjectFolder(); }
+        onTriggered: { platformUtilities.removeProjectFolder(itemMenu.itemPath); }
       }
     }
 
@@ -430,6 +430,7 @@ Page {
         leftPadding: 10
 
         text: qsTr( "Storage management help" )
+        onTriggered: { Qt.openUrlExternally("https://docs.qfield.org/get-started/storage/") }
       }
     }
   }

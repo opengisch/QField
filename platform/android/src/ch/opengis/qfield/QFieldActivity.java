@@ -62,6 +62,7 @@ import android.view.WindowManager;
 import android.view.WindowManager.LayoutParams;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
+import androidx.core.content.FileProvider;
 import androidx.documentfile.provider.DocumentFile;
 import ch.opengis.qfield.QFieldUtils;
 import ch.opengis.qfield.R;
@@ -92,6 +93,7 @@ public class QFieldActivity extends QtActivity {
     public static native void openPath(String path);
 
     private float originalBrightness;
+    private String pathToExport;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -463,6 +465,101 @@ public class QFieldActivity extends QtActivity {
         intent.addFlags(Intent.FLAG_GRANT_PERSISTABLE_URI_PERMISSION);
         intent.setType("application/zip");
         startActivityForResult(intent, R.id.import_project_archive);
+        return;
+    }
+
+    private void sendDatasetTo(String path) {
+        File file = new File(path);
+        DocumentFile documentFile = DocumentFile.fromFile(file);
+        Context context = getApplication().getApplicationContext();
+        Intent intent = new Intent(Intent.ACTION_SEND);
+        intent.putExtra(
+            Intent.EXTRA_STREAM,
+            FileProvider.getUriForFile(
+                context, context.getPackageName() + ".fileprovider", file));
+        intent.setType(documentFile.getType());
+        startActivity(Intent.createChooser(intent, null));
+        return;
+    }
+
+    private void exportToFolder(String path) {
+        pathToExport = path;
+
+        Intent intent = new Intent(Intent.ACTION_OPEN_DOCUMENT_TREE);
+        intent.addCategory(Intent.CATEGORY_DEFAULT);
+        intent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
+        intent.addFlags(Intent.FLAG_GRANT_WRITE_URI_PERMISSION);
+        intent.addFlags(Intent.FLAG_GRANT_PERSISTABLE_URI_PERMISSION);
+        startActivityForResult(intent, R.id.export_to_folder);
+        return;
+    }
+
+    private void removeDataset(String path) {
+        File file = new File(path);
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle(getString(R.string.delete_confirm_title));
+        builder.setMessage(getString(R.string.delete_confirm_dataset));
+        builder.setPositiveButton(getString(R.string.delete_confirm),
+                                  new DialogInterface.OnClickListener() {
+                                      public void onClick(
+                                          DialogInterface dialog, int id) {
+                                          file.delete();
+                                          dialog.dismiss();
+                                      }
+                                  });
+        builder.setNegativeButton(getString(R.string.delete_cancel),
+                                  new DialogInterface.OnClickListener() {
+                                      public void onClick(
+                                          DialogInterface dialog, int id) {
+                                          dialog.dismiss();
+                                      }
+                                  });
+        AlertDialog dialog = builder.create();
+        dialog.setCancelable(false);
+        dialog.show();
+        return;
+    }
+
+    private void sendCompressedFolderTo(String path) {
+        File file = new File(path);
+        File temporaryFile = new File(getCacheDir(), file.getName() + ".zip");
+        QFieldUtils.folderToZip(file.getPath(), temporaryFile.getPath());
+
+        DocumentFile documentFile = DocumentFile.fromFile(temporaryFile);
+        Context context = getApplication().getApplicationContext();
+        Intent intent = new Intent(Intent.ACTION_SEND);
+        intent.putExtra(Intent.EXTRA_STREAM,
+                        FileProvider.getUriForFile(
+                            context, context.getPackageName() + ".fileprovider",
+                            temporaryFile));
+        intent.setType(documentFile.getType());
+        startActivity(Intent.createChooser(intent, null));
+        return;
+    }
+
+    private void removeProjectFolder(String path) {
+        File file = new File(path);
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle(getString(R.string.delete_confirm_title));
+        builder.setMessage(getString(R.string.delete_confirm_folder));
+        builder.setPositiveButton(
+            getString(R.string.delete_confirm),
+            new DialogInterface.OnClickListener() {
+                public void onClick(DialogInterface dialog, int id) {
+                    QFieldUtils.deleteDirectory(file, true);
+                    dialog.dismiss();
+                }
+            });
+        builder.setNegativeButton(getString(R.string.delete_cancel),
+                                  new DialogInterface.OnClickListener() {
+                                      public void onClick(
+                                          DialogInterface dialog, int id) {
+                                          dialog.dismiss();
+                                      }
+                                  });
+        AlertDialog dialog = builder.create();
+        dialog.setCancelable(false);
+        dialog.show();
         return;
     }
 
@@ -906,6 +1003,40 @@ public class QFieldActivity extends QtActivity {
             } else {
                 importProjectArchive(uri);
             }
+        } else if (requestCode == R.id.export_to_folder &&
+                   resultCode == Activity.RESULT_OK) {
+            Log.d("QField", "handling export to folder");
+
+            File file = new File(pathToExport);
+            Uri uri = data.getData();
+            Context context = getApplication().getApplicationContext();
+            ContentResolver resolver = getContentResolver();
+
+            executorService.execute(new Runnable() {
+                @Override
+                public void run() {
+                    resolver.takePersistableUriPermission(
+                        uri, Intent.FLAG_GRANT_READ_URI_PERMISSION |
+                                 Intent.FLAG_GRANT_WRITE_URI_PERMISSION);
+                    DocumentFile directory =
+                        DocumentFile.fromTreeUri(context, uri);
+
+                    boolean exported = QFieldUtils.fileToDocumentFile(
+                        file, directory, resolver);
+
+                    if (!exported) {
+                        AlertDialog alertDialog =
+                            new AlertDialog.Builder(QFieldActivity.this)
+                                .create();
+                        alertDialog.setTitle(getString(R.string.export_error));
+                        alertDialog.setMessage(
+                            getString(R.string.export_to_folder_error));
+                        if (!isFinishing()) {
+                            alertDialog.show();
+                        }
+                    }
+                }
+            });
         } else {
             super.onActivityResult(requestCode, resultCode, data);
         }

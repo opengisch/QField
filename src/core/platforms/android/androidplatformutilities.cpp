@@ -216,6 +216,96 @@ void AndroidPlatformUtilities::importDatasets() const
   }
 }
 
+void AndroidPlatformUtilities::sendDatasetTo( const QString &path ) const
+{
+  if ( mActivity.isValid() )
+  {
+    QtAndroid::runOnAndroidThread( [path] {
+      QAndroidJniObject activity = QtAndroid::androidActivity();
+      if ( activity.isValid() )
+      {
+        QAndroidJniObject pathJni = QAndroidJniObject::fromString( path );
+        activity.callMethod<void>( "sendDatasetTo", "(Ljava/lang/String;)V", pathJni.object<jstring>() );
+      }
+    } );
+  }
+}
+
+void AndroidPlatformUtilities::exportDatasetTo( const QString &path ) const
+{
+  if ( mActivity.isValid() )
+  {
+    QtAndroid::runOnAndroidThread( [path] {
+      QAndroidJniObject activity = QtAndroid::androidActivity();
+      if ( activity.isValid() )
+      {
+        QAndroidJniObject pathJni = QAndroidJniObject::fromString( path );
+        activity.callMethod<void>( "exportToFolder", "(Ljava/lang/String;)V", pathJni.object<jstring>() );
+      }
+    } );
+  }
+}
+
+void AndroidPlatformUtilities::removeDataset( const QString &path ) const
+{
+  if ( mActivity.isValid() )
+  {
+    QtAndroid::runOnAndroidThread( [path] {
+      QAndroidJniObject activity = QtAndroid::androidActivity();
+      if ( activity.isValid() )
+      {
+        QAndroidJniObject pathJni = QAndroidJniObject::fromString( path );
+        activity.callMethod<void>( "removeDataset", "(Ljava/lang/String;)V", pathJni.object<jstring>() );
+      }
+    } );
+  }
+}
+
+void AndroidPlatformUtilities::exportFolderTo( const QString &path ) const
+{
+  if ( mActivity.isValid() )
+  {
+    QtAndroid::runOnAndroidThread( [path] {
+      QAndroidJniObject activity = QtAndroid::androidActivity();
+      if ( activity.isValid() )
+      {
+        QAndroidJniObject pathJni = QAndroidJniObject::fromString( path );
+        activity.callMethod<void>( "exportToFolder", "(Ljava/lang/String;)V", pathJni.object<jstring>() );
+      }
+    } );
+  }
+}
+
+void AndroidPlatformUtilities::sendCompressedFolderTo( const QString &path ) const
+{
+  if ( mActivity.isValid() )
+  {
+    QtAndroid::runOnAndroidThread( [path] {
+      QAndroidJniObject activity = QtAndroid::androidActivity();
+      if ( activity.isValid() )
+      {
+        QAndroidJniObject pathJni = QAndroidJniObject::fromString( path );
+        activity.callMethod<void>( "sendCompressedFolderTo", "(Ljava/lang/String;)V", pathJni.object<jstring>() );
+      }
+    } );
+  }
+}
+
+void AndroidPlatformUtilities::removeProjectFolder( const QString &path ) const
+{
+  if ( mActivity.isValid() )
+  {
+    QtAndroid::runOnAndroidThread( [path] {
+      QAndroidJniObject activity = QtAndroid::androidActivity();
+      if ( activity.isValid() )
+      {
+        QAndroidJniObject pathJni = QAndroidJniObject::fromString( path );
+        activity.callMethod<void>( "removeProjectFolder", "(Ljava/lang/String;)V", pathJni.object<jstring>() );
+      }
+    } );
+  }
+}
+
 QString AndroidPlatformUtilities::getIntentExtra( const QString &extra, QAndroidJniObject extras ) const
 {
   if ( extras == nullptr )
