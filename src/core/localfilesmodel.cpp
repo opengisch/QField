@@ -20,6 +20,7 @@
 
 #include <QDir>
 #include <QFile>
+#include <QImageReader>
 
 LocalFilesModel::LocalFilesModel( QObject *parent )
   : QAbstractListModel( parent )
@@ -50,6 +51,8 @@ QHash<int, QByteArray> LocalFilesModel::roleNames() const
   roles[ItemTitleRole] = "ItemTitle";
   roles[ItemFormatRole] = "ItemFormat";
   roles[ItemPathRole] = "ItemPath";
+  roles[ItemSizeRole] = "ItemSize";
+  roles[ItemHasThumbnailRole] = "ItemHasThumbnail";
   return roles;
 }
 
@@ -217,15 +220,15 @@ void LocalFilesModel::reloadModel()
           const QString suffix = fi.completeSuffix().toLower();
           if ( SUPPORTED_PROJECT_EXTENSIONS.contains( suffix ) )
           {
-            projects << Item( ItemMetaType::Project, ItemType::ProjectFile, fi.baseName(), suffix, fi.absoluteFilePath() );
+            projects << Item( ItemMetaType::Project, ItemType::ProjectFile, fi.baseName(), suffix, fi.absoluteFilePath(), fi.size() );
           }
           else if ( SUPPORTED_VECTOR_EXTENSIONS.contains( suffix ) )
           {
-            datasets << Item( ItemMetaType::Dataset, ItemType::VectorDataset, fi.baseName(), suffix, fi.absoluteFilePath() );
+            datasets << Item( ItemMetaType::Dataset, ItemType::VectorDataset, fi.baseName(), suffix, fi.absoluteFilePath(), fi.size() );
           }
           else if ( SUPPORTED_RASTER_EXTENSIONS.contains( suffix ) )
           {
-            datasets << Item( ItemMetaType::Dataset, ItemType::RasterDataset, fi.baseName(), suffix, fi.absoluteFilePath() );
+            datasets << Item( ItemMetaType::Dataset, ItemType::RasterDataset, fi.baseName(), suffix, fi.absoluteFilePath(), fi.size() );
           }
         }
       }
@@ -265,6 +268,12 @@ QVariant LocalFilesModel::data( const QModelIndex &index, int role ) const
 
     case ItemPathRole:
       return mItems[index.row()].path;
+
+    case ItemSizeRole:
+      return mItems[index.row()].size;
+
+    case ItemHasThumbnailRole:
+      return QImageReader::supportedImageFormats().contains( mItems[index.row()].format.toLatin1() ) && RasterDataset && mItems[index.row()].size < 10000000;
   }
 
   return QVariant();

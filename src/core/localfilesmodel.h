@@ -52,12 +52,13 @@ class LocalFilesModel : public QAbstractListModel
     {
         Item() = default;
 
-        Item( ItemMetaType metaType, ItemType type, const QString &title, const QString &format, const QString &path )
+        Item( ItemMetaType metaType, ItemType type, const QString &title, const QString &format, const QString &path, qint64 size = 0 )
           : metaType( metaType )
           , type( type )
           , title( title )
           , format( format )
           , path( path )
+          , size( size )
         {}
 
         ItemMetaType metaType = ItemMetaType::Folder;
@@ -65,6 +66,7 @@ class LocalFilesModel : public QAbstractListModel
         QString title;
         QString format;
         QString path;
+        qint64 size = 0;
     };
 
     enum Role
@@ -74,6 +76,8 @@ class LocalFilesModel : public QAbstractListModel
       ItemTitleRole,
       ItemFormatRole,
       ItemPathRole,
+      ItemSizeRole,
+      ItemHasThumbnailRole,
     };
     Q_ENUM( Role )
 
