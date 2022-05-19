@@ -102,7 +102,7 @@ bool FlatLayerTreeModel::filterAcceptsRow( int source_row, const QModelIndex &so
 
 QgsRectangle FlatLayerTreeModel::nodeExtent( const QModelIndex &index, QgsQuickMapSettings *mapSettings, const float buffer )
 {
-  return mSourceModel->nodeExtent( index, mapSettings, buffer );
+  return mSourceModel->nodeExtent( mapToSource( index ), mapSettings, buffer );
 }
 
 FlatLayerTreeModelBase::FlatLayerTreeModelBase( QgsLayerTree *layerTree, QgsProject *project, QObject *parent )
@@ -499,6 +499,14 @@ QVariant FlatLayerTreeModelBase::data( const QModelIndex &index, int role ) cons
           {
             return true;
           }
+        }
+      }
+      else if ( QgsLayerTreeModelLegendNode *sym = mLayerTreeModel->index2legendNode( mapToSource( index ) ) )
+      {
+        QgsMapLayer *layer = qobject_cast<QgsMapLayer *>( sym->layerNode()->layer() );
+        if ( layer )
+        {
+          return layer->isSpatial();
         }
       }
 
@@ -1091,9 +1099,18 @@ QgsRectangle FlatLayerTreeModelBase::nodeExtent( const QModelIndex &index, QgsQu
   else if ( QgsLayerTree::isLayer( node ) )
   {
     QgsMapLayer *layer = QgsLayerTree::toLayer( node )->layer();
-
     if ( layer )
+    {
       extent = mapSettings->mapSettings().layerToMapCoordinates( layer, layer->extent() );
+    }
+  }
+  else if ( QgsLayerTreeModelLegendNode *sym = mLayerTreeModel->index2legendNode( mapToSource( index ) ) )
+  {
+    QgsMapLayer *layer = sym->layerNode()->layer();
+    if ( layer )
+    {
+      extent = mapSettings->mapSettings().layerToMapCoordinates( layer, layer->extent() );
+    }
   }
 
   if ( buffer )
