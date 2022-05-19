@@ -425,7 +425,7 @@ Page {
         leftPadding: 10
 
         text: qsTr( "Remove project folder" )
-        onTriggered: { platformUtilities.removeProjectFolder(itemMenu.itemPath); }
+        onTriggered: { platformUtilities.removeFolder(itemMenu.itemPath); }
       }
     }
 

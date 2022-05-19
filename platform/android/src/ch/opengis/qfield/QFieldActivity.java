@@ -499,14 +499,15 @@ public class QFieldActivity extends QtActivity {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle(getString(R.string.delete_confirm_title));
         builder.setMessage(getString(R.string.delete_confirm_dataset));
-        builder.setPositiveButton(getString(R.string.delete_confirm),
-                                  new DialogInterface.OnClickListener() {
-                                      public void onClick(
-                                          DialogInterface dialog, int id) {
-                                          file.delete();
-                                          dialog.dismiss();
-                                      }
-                                  });
+        builder.setPositiveButton(
+            getString(R.string.delete_confirm),
+            new DialogInterface.OnClickListener() {
+                public void onClick(DialogInterface dialog, int id) {
+                    file.delete();
+                    dialog.dismiss();
+                    openPath(file.getParentFile().getAbsolutePath());
+                }
+            });
         builder.setNegativeButton(getString(R.string.delete_cancel),
                                   new DialogInterface.OnClickListener() {
                                       public void onClick(
@@ -548,6 +549,7 @@ public class QFieldActivity extends QtActivity {
                 public void onClick(DialogInterface dialog, int id) {
                     QFieldUtils.deleteDirectory(file, true);
                     dialog.dismiss();
+                    openPath(file.getParentFile().getAbsolutePath());
                 }
             });
         builder.setNegativeButton(getString(R.string.delete_cancel),

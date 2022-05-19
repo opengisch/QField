@@ -117,9 +117,13 @@ void LocalFilesModel::setCurrentPath( const QString &path )
   QFileInfo fi( path );
   if ( fi.exists() )
   {
-    mHistory << ( fi.isDir() ? path : fi.absolutePath() );
+    const QString newPath = fi.isDir() ? path : fi.absolutePath();
+    if ( newPath != currentPath() )
+    {
+      mHistory << ( fi.isDir() ? path : fi.absolutePath() );
 
-    emit currentPathChanged();
+      emit currentPathChanged();
+    }
 
     reloadModel();
   }
