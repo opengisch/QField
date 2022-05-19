@@ -569,7 +569,7 @@
     <message>
         <location filename="../src/qml/FeatureListForm.qml" line="537"/>
         <source>Successfully duplicated selected features, list updated to show newly-created features</source>
-        <translation type="unfinished"/>
+        <translation>Pomyślnie zduplikowano wybrane obiekty, zaktualizowano listę, aby pokazać nowo utworzone obiekty</translation>
     </message>
     <message>
         <location filename="../src/qml/FeatureListForm.qml" line="642"/>
@@ -831,12 +831,12 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <message>
         <location filename="../src/core/layerobserver.cpp" line="266"/>
         <source>Failed to find a local primary key column in layer &quot;%1&quot;</source>
-        <translation type="unfinished"/>
+        <translation>Nie udało się znaleźć lokalnej kolumny klucza podstawowego na warstwie &quot;%1&quot;</translation>
     </message>
     <message>
         <location filename="../src/core/layerobserver.cpp" line="272"/>
         <source>Failed to find a source primary key column in layer &quot;%1&quot;</source>
-        <translation type="unfinished"/>
+        <translation>Nie udało się znaleźć źródłowej kolumny klucza podstawowego na warstwie &quot;%1&quot;</translation>
     </message>
 </context>
 <context>
@@ -930,7 +930,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <message>
         <location filename="../src/qml/LayerTreeItemProperties.qml" line="248"/>
         <source>This layer is configured as &quot;Lock Geometries&quot; which disables adding and deleting features, as well as modifying the geometries of existing features.</source>
-        <translation type="unfinished"/>
+        <translation>Ta warstwa jest skonfigurowana jako „Zablokuj geometrie”, co uniemożliwia dodawanie i usuwanie obiektów, a także modyfikowanie geometrii istniejących obiektów.</translation>
     </message>
 </context>
 <context>
@@ -951,13 +951,15 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
         <location filename="../src/core/utils/layerutils.cpp" line="234"/>
         <source>Cannot commit deletion of feature %2 in layer &quot;%1&quot;. Reason:
 %3</source>
-        <translation type="unfinished"/>
+        <translation>Nie można zatwierdzić usunięcia obiektu %2 w warstwie „%1”. Powód:
+%3</translation>
     </message>
     <message>
         <location filename="../src/core/utils/layerutils.cpp" line="254"/>
         <source>Cannot commit deletion in layer &quot;%1&quot;. Reason:
 %3</source>
-        <translation type="unfinished"/>
+        <translation>Nie można zatwierdzić usunięcia w warstwie „%1”. Powód:
+%3</translation>
     </message>
     <message>
         <location filename="../src/core/utils/layerutils.cpp" line="263"/>
@@ -968,7 +970,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
         <location filename="../src/core/utils/layerutils.cpp" line="276"/>
         <location filename="../src/core/utils/layerutils.cpp" line="279"/>
         <source>Cannot rollback layer changes in layer %1</source>
-        <translation type="unfinished"/>
+        <translation>Nie można cofnąć zmian w warstwie % 1</translation>
     </message>
     <message>
         <location filename="../src/core/utils/layerutils.cpp" line="296"/>
@@ -1084,12 +1086,12 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
         <location filename="../src/core/multifeaturelistmodelbase.cpp" line="454"/>
         <location filename="../src/core/multifeaturelistmodelbase.cpp" line="546"/>
         <source>Cannot rollback layer changes in layer %1</source>
-        <translation type="unfinished"/>
+        <translation>Nie można cofnąć zmian w warstwie % 1</translation>
     </message>
     <message>
         <location filename="../src/core/multifeaturelistmodelbase.cpp" line="532"/>
         <source>Cannot change geometry of feature %1 in %2</source>
-        <translation type="unfinished"/>
+        <translation>Nie można zmienić geometrii obiektu %1 na %2</translation>
     </message>
 </context>
 <context>
@@ -1107,7 +1109,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <message>
         <location filename="../src/qml/NavigationBar.qml" line="463"/>
         <source>Toggle Feature Selection</source>
-        <translation type="unfinished"/>
+        <translation>Przełącz wybór obiektów</translation>
     </message>
     <message>
         <location filename="../src/qml/NavigationBar.qml" line="480"/>
@@ -1243,7 +1245,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
         <location filename="../src/core/orderedrelationmodel.cpp" line="177"/>
         <location filename="../src/core/orderedrelationmodel.cpp" line="220"/>
         <source>Cannot rollback layer changes in layer %1</source>
-        <translation type="unfinished"/>
+        <translation>Nie można cofnąć zmian w warstwie % 1</translation>
     </message>
     <message>
         <location filename="../src/core/orderedrelationmodel.cpp" line="174"/>
@@ -1611,7 +1613,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <message>
         <location filename="../src/qml/QFieldCloudPopup.qml" line="161"/>
         <source>This QFieldCloud project was first downloaded with another cloud account. Please sign in with the original account for this project to use the QFieldCloud functionality.</source>
-        <translation type="unfinished"/>
+        <translation>Ten projekt QFieldCloud został wcześniej pobrany z innego konta w chmurze. Zaloguj się na oryginalne konto tego projektu, aby korzystać z funkcji QFieldCloud.</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldCloudPopup.qml" line="180"/>
@@ -1631,7 +1633,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <message>
         <location filename="../src/qml/QFieldCloudPopup.qml" line="189"/>
         <source>QFieldCloud is applying the latest uploaded changes. This might take some time, please hold tight…</source>
-        <translation type="unfinished"/>
+        <translation>QFieldCloud stosuje najnowsze przesłane zmiany. To może trochę potrwać, prosimy o cierpliwość…</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldCloudPopup.qml" line="272"/>
@@ -1703,7 +1705,9 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
         <source>The local copy of this cloud project has been corrupted. Resetting the project will re-download the cloud version and will remove any local changes, make sure those were copied first if needed.
 
 While you can still view and use the project, it is strongly recommended to reset to avoid any accidental data loss as none of the changes made will be pushed back to the cloud.</source>
-        <translation type="unfinished"/>
+        <translation>Kopia lokalna tego projektu w chmurze została uszkodzona. Zresetowanie projektu spowoduje ponowne pobranie wersji w chmurze i usunie wszelkie lokalne zmiany. Upewnij się, że zostały one najpierw skopiowane, jeśli zajdzie taka potrzeba.
+
+Chociaż nadal możesz wyświetlać i używać projektu, zdecydowanie zaleca się zresetowanie, aby uniknąć przypadkowej utraty danych, ponieważ żadna z wprowadzonych zmian nie zostanie z powrotem przeniesiona do chmury.</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldCloudPopup.qml" line="454"/>
@@ -1833,7 +1837,7 @@ While you can still view and use the project, it is strongly recommended to rese
         <location filename="../src/core/qfieldcloudprojectsmodel.cpp" line="532"/>
         <location filename="../src/core/qfieldcloudprojectsmodel.cpp" line="574"/>
         <source>Getting job status, but the project is deleted.</source>
-        <translation type="unfinished"/>
+        <translation>Pobieram status zadania, ale projekt został usunięty.</translation>
     </message>
     <message>
         <location filename="../src/core/qfieldcloudprojectsmodel.cpp" line="552"/>
@@ -1848,7 +1852,7 @@ While you can still view and use the project, it is strongly recommended to rese
     <message>
         <location filename="../src/core/qfieldcloudprojectsmodel.cpp" line="604"/>
         <source>Getting job status finished, but the project is deleted.</source>
-        <translation type="unfinished"/>
+        <translation>Zakończono pobieranie statusu zadania, ale projekt został usunięty.</translation>
     </message>
     <message>
         <location filename="../src/core/qfieldcloudprojectsmodel.cpp" line="634"/>
@@ -1858,7 +1862,7 @@ While you can still view and use the project, it is strongly recommended to rese
     <message>
         <location filename="../src/core/qfieldcloudprojectsmodel.cpp" line="655"/>
         <source>Job(%1) finished with a failed status.</source>
-        <translation type="unfinished"/>
+        <translation>Zadanie (%1) zakończyło się niepowodzeniem.</translation>
     </message>
     <message>
         <location filename="../src/core/qfieldcloudprojectsmodel.cpp" line="683"/>
@@ -1878,17 +1882,17 @@ While you can still view and use the project, it is strongly recommended to rese
     <message>
         <location filename="../src/core/qfieldcloudprojectsmodel.cpp" line="919"/>
         <source>Failed to get latest package data.</source>
-        <translation type="unfinished"/>
+        <translation>Nie udało się pobrać najnowszych danych pakietu.</translation>
     </message>
     <message>
         <location filename="../src/core/qfieldcloudprojectsmodel.cpp" line="933"/>
         <source>Latest package data response error.</source>
-        <translation type="unfinished"/>
+        <translation>Błąd odpowiedzi na najnowsze dane pakietu.</translation>
     </message>
     <message>
         <location filename="../src/core/qfieldcloudprojectsmodel.cpp" line="953"/>
         <source>Latest package data structure error.</source>
-        <translation type="unfinished"/>
+        <translation>Błąd struktury danych najnowszego pakietu.</translation>
     </message>
     <message>
         <location filename="../src/core/qfieldcloudprojectsmodel.cpp" line="986"/>
@@ -2053,7 +2057,7 @@ While you can still view and use the project, it is strongly recommended to rese
     <message>
         <location filename="../src/qml/QFieldCloudScreen.qml" line="530"/>
         <source>Press and hold over a cloud project for a menu of additional actions.</source>
-        <translation type="unfinished"/>
+        <translation>Naciśnij i przytrzymaj projekt w chmurze, aby wyświetlić menu dodatkowych działań.</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldCloudScreen.qml" line="538"/>
@@ -2081,12 +2085,12 @@ While you can still view and use the project, it is strongly recommended to rese
     <message>
         <location filename="../src/qml/QFieldSettings.qml" line="60"/>
         <source>Fixed scale navigation</source>
-        <translation type="unfinished"/>
+        <translation>Nawigacja o ustalonej skali</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldSettings.qml" line="61"/>
         <source>When fixed scale navigation is active, focusing on a search result will pan to the feature. With fixed scale navigation disabled it will pan and zoom to the feature.</source>
-        <translation type="unfinished"/>
+        <translation>Gdy nawigacja o ustalonej skali jest aktywna, podświetlenie wyniku wyszukiwania spowoduje przejście do obiektu. Gdy nawigacja o ustalonej skali jest wyłączona, będzie aktywne przesuwanie i powiększanie do obiektu.</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldSettings.qml" line="65"/>
@@ -2126,7 +2130,7 @@ While you can still view and use the project, it is strongly recommended to rese
     <message>
         <location filename="../src/qml/QFieldSettings.qml" line="82"/>
         <source>If enabled, the feature is stored after having a valid geometry and the constraints are fulfilled and atributes are commited immediately.</source>
-        <translation type="unfinished"/>
+        <translation>Jeśli ta opcja jest włączona, obiekt jest zachowywany po uzyskaniu prawidłowej geometrii, po spełnieniu ograniczeń i natychmiastowym zatwierdzeniu atrybutów.</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldSettings.qml" line="86"/>
@@ -2308,7 +2312,7 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
     <message>
         <location filename="../src/qml/QFieldSettings.qml" line="808"/>
         <source>Z values which are recorded from the positioning device will be corrected by this value. If a value of 1.6 is entered, this will result in a correction of -1.6 for each recorded value.</source>
-        <translation type="unfinished"/>
+        <translation>Wartości Z, które są rejestrowane z urządzenia pozycjonującego, będą korygowane o tę wartość. Wprowadzenie wartości 1,6 spowoduje korektę -1,6 dla każdej zarejestrowanej wartości.</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldSettings.qml" line="822"/>
@@ -2558,7 +2562,7 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
         <location filename="../src/core/referencingfeaturelistmodel.cpp" line="240"/>
         <location filename="../src/core/referencingfeaturelistmodel.cpp" line="250"/>
         <source>Cannot rollback layer changes in layer %1</source>
-        <translation type="unfinished"/>
+        <translation>Nie można cofnąć zmian w warstwie % 1</translation>
     </message>
     <message>
         <location filename="../src/core/referencingfeaturelistmodel.cpp" line="247"/>
@@ -2616,12 +2620,12 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
     <message>
         <location filename="../src/qml/TemporalProperties.qml" line="28"/>
         <source>Temporal Properties</source>
-        <translation type="unfinished"/>
+        <translation>Ustawienia czasowe</translation>
     </message>
     <message>
         <location filename="../src/qml/TemporalProperties.qml" line="43"/>
         <source>Enable temporal filter</source>
-        <translation type="unfinished"/>
+        <translation>Włącz filtr czasowy</translation>
     </message>
 </context>
 <context>
@@ -2639,7 +2643,7 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
     <message>
         <location filename="../src/qml/Tracking.qml" line="208"/>
         <source>Activate time constraint</source>
-        <translation type="unfinished"/>
+        <translation>Aktywuj ograniczenie czasowe</translation>
     </message>
     <message>
         <location filename="../src/qml/Tracking.qml" line="230"/>
@@ -2649,7 +2653,7 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
     <message>
         <location filename="../src/qml/Tracking.qml" line="273"/>
         <source>Activate distance constraint</source>
-        <translation type="unfinished"/>
+        <translation>Aktywuj ograniczenie odległości</translation>
     </message>
     <message>
         <location filename="../src/qml/Tracking.qml" line="302"/>
@@ -2659,12 +2663,12 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
     <message>
         <location filename="../src/qml/Tracking.qml" line="345"/>
         <source>Record when both active constraints are met</source>
-        <translation type="unfinished"/>
+        <translation>Rejestruj, gdy oba aktywne ograniczenia są spełnione</translation>
     </message>
     <message>
         <location filename="../src/qml/Tracking.qml" line="372"/>
         <source>When enabled, vertices with only be recorded when both active constraints are met. If the setting is disabled, individual constraints met will trigger a vertex addition.</source>
-        <translation type="unfinished"/>
+        <translation>Gdy ta opcja jest włączona, wierzchołki są rejestrowane tylko wtedy, gdy spełnione są oba aktywne ograniczenia. Jeśli to ustawienie jest wyłączone, spełnienie poszczególnego ograniczenia wywoła dodawanie wierzchołków.</translation>
     </message>
     <message>
         <location filename="../src/qml/Tracking.qml" line="392"/>
@@ -2801,7 +2805,7 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
     <message>
         <location filename="../src/qml/editorwidgets/relationeditors/ordered_relation_editor.qml" line="84"/>
         <source>Ensure contraints</source>
-        <translation type="unfinished"/>
+        <translation>Zapewnij ograniczenia</translation>
     </message>
     <message>
         <location filename="../src/qml/editorwidgets/relationeditors/ordered_relation_editor.qml" line="123"/>
@@ -3192,12 +3196,12 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
     <message>
         <location filename="../src/qml/qgismobileapp.qml" line="2050"/>
         <source>Current layer switched to the one holding the selected geometry.</source>
-        <translation type="unfinished"/>
+        <translation>Aktualna warstwa została przełączona na warstwę zawierającą wybraną geometrię.</translation>
     </message>
     <message>
         <location filename="../src/qml/qgismobileapp.qml" line="2059"/>
         <source>Editing of multi geometry layer is not supported yet.</source>
-        <translation type="unfinished"/>
+        <translation>Edycja warstw z wieloma geometriami nie jest jeszcze obsługiwana.</translation>
     </message>
     <message>
         <location filename="../src/qml/qgismobileapp.qml" line="2172"/>
@@ -3248,7 +3252,7 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
     <message>
         <location filename="../src/qml/editorwidgets/relationeditors/relation_editor.qml" line="90"/>
         <source>Ensure contraints</source>
-        <translation type="unfinished"/>
+        <translation>Zapewnij ograniczenia</translation>
     </message>
     <message>
         <location filename="../src/qml/editorwidgets/relationeditors/relation_editor.qml" line="129"/>

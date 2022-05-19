@@ -38,6 +38,7 @@
     <string name="usb_cable_help">Pomoc zarządzania pamięcią</string>
     <string name="import_error">Błąd importu</string>
     <string name="import_dataset_error">Nie można poprawnie zaimportować wybranych zestawów danych.</string>
+    <string name="import_project_archive_error">Wybrane archiwum projektów nie zostało poprawnie zaimportowane.</string>
     <string name="import_project_folder_error">Wybrany folder projektu nie został poprawnie zaimportowany.</string>
     <string name="import_overwrite_title">Ostrzeżenie przy imporcie</string>
     <string name="import_overwrite_folder">Ten folder projektu już istnieje. Ta operacja nadpisze jego dane, czy na pewno kontynuować import?</string>
@@ -60,6 +61,7 @@
     <string name="delete_confirm">Usuń</string>
     <string name="delete_cancel">Anuluj</string>
     <string name="storage_information_title">Informacja o pamięci</string>
+    <string name="storage_information_message">Niezależnie od tego, czy jesteś wcześniejszym użytkownikiem QField 1.x i zastanawiasz się, dlaczego Twoje projekty i zestawy danych zaginęły lub też jesteś nowym użytkownikiem QField, sugerujemy Ci poświęcenie chwili na zapoznanie się z dokumentacją dotyczącą obsługi pamięci masowej. Skrót do tej dokumentacji pozostanie dostępny w menu czynności na pasku tytułu. </string>
     <string name="storage_information_view">Wyświetl dokumentację</string>
     <string name="storage_information_dismiss">Poczytam później</string>
 </resources>

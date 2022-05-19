@@ -34,6 +34,8 @@
     <string name="deny_once">Odmítnout jednou</string>
     <string name="import_project_folder">Import projektu ze složky</string>
     <string name="import_project_archive">Import projektu ze souboru ZIP</string>
+    <string name="import_dataset">Import datových sad</string>
+    <string name="usb_cable_help">Nápověda ke správě úložiště</string>
     <string name="import_overwrite_cancel">Zrušit</string>
     <string name="delete_cancel">Zrušit</string>
     </resources>
