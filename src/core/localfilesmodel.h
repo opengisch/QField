@@ -92,13 +92,13 @@ class LocalFilesModel : public QAbstractListModel
     //! Resets the model and sets the first navigation history item to root
     Q_INVOKABLE void resetToRoot();
 
-    //! Resets the model and sets the first navigation history item to the provied \path
+    //! Resets the model and sets the first navigation history item to the provided \a path
     Q_INVOKABLE void resetToPath( const QString &path );
 
     //! Returns the current title derived from the current path
     QString currentTitle() const;
 
-    //! Appends the provided \path to the navigation history
+    //! Appends the provided \a path to the navigation history
     void setCurrentPath( const QString &path );
 
     //! Returns the current path
