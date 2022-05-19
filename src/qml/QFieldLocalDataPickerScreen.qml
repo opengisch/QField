@@ -8,7 +8,7 @@ import org.qfield 1.0
 import Theme 1.0
 
 Page {
-  id: qfieldLocalScreen
+  id: qfieldLocalDataPickerScreen
 
   property bool projectFolderView: false
   property alias model: table.model
@@ -130,6 +130,10 @@ Page {
           property int itemType: ItemType
           property string itemTitle: ItemTitle
           property string itemPath: ItemPath
+          property bool itemMenuVisible: (platformUtilities.capabilities & PlatformUtilities.CustomExport ||
+                                          platformUtilities.capabilities & PlatformUtilities.CustomSend) &&
+                                         (ItemMetaType === LocalFilesModel.Dataset
+                                          || (ItemType === LocalFilesModel.SimpleFolder && table.model.currentPath !== 'root'))
 
           width: parent ? parent.width : undefined
           height: line.height + 4
@@ -216,8 +220,7 @@ Page {
               }
             }
             QfToolButton {
-              visible: ItemMetaType === LocalFilesModel.Dataset
-                       || (ItemType === LocalFilesModel.SimpleFolder && table.model.currentPath !== 'root')
+              visible: itemMenuVisible
               round: true
               opacity: 0.5
 
@@ -225,7 +228,7 @@ Page {
               iconSource: Theme.getThemeIcon( "ic_dot_menu_gray_24dp" )
 
               onClicked: {
-                var gc = mapToItem(qfieldLocalScreen, 0, 0)
+                var gc = mapToItem(qfieldLocalDataPickerScreen, 0, 0)
 
                 itemMenu.itemMetaType = ItemMetaType
                 itemMenu.itemType = ItemType
@@ -255,7 +258,7 @@ Page {
                 if (item.itemMetaType === LocalFilesModel.Folder ||
                     item.itemMetaType === LocalFilesModel.Favorite) {
                   table.model.currentPath = item.itemPath;
-                } else if (!qfieldLocalScreen.projectFolderView &&
+                } else if (!qfieldLocalDataPickerScreen.projectFolderView &&
                            (item.itemMetaType === LocalFilesModel.Project
                            || item.itemMetaType === LocalFilesModel.Dataset)) {
                   iface.loadFile(item.itemPath, item.itemTitle);
@@ -295,15 +298,11 @@ Page {
                   table.contentX + mouse.x,
                   table.contentY + mouse.y
                   )
-            if (item) {
-
-              if (item.itemMetaType === LocalFilesModel.Dataset
-                  || item.itemType === LocalFilesModel.SimpleFolder && table.model.currentPath !== 'root') {
-                itemMenu.itemMetaType = item.itemMetaType
-                itemMenu.itemType = item.itemType
-                itemMenu.itemPath = item.itemPath
-                itemMenu.popup(mouse.x, mouse.y)
-              }
+            if (item && item.itemMenuVisible) {
+              itemMenu.itemMetaType = item.itemMetaType
+              itemMenu.itemType = item.itemType
+              itemMenu.itemPath = item.itemPath
+              itemMenu.popup(mouse.x, mouse.y)
             }
           }
         }
@@ -312,7 +311,8 @@ Page {
       QfToolButton {
         id: importButton
         round: true
-        visible: table.model.currentPath === 'root'
+        visible: platformUtilities.capabilities & PlatformUtilities.CustomImport
+                 && table.model.currentPath === 'root'
 
         anchors.bottom: parent.bottom
         anchors.right: parent.right
@@ -350,7 +350,8 @@ Page {
 
       MenuItem {
         id: sendDatasetTo
-        visible: itemMenu.itemMetaType == LocalFilesModel.Dataset
+        visible: platformUtilities.capabilities & PlatformUtilities.CustomSend
+                 && itemMenu.itemMetaType == LocalFilesModel.Dataset
 
         font: Theme.defaultFont
         width: parent.width
@@ -363,7 +364,8 @@ Page {
 
       MenuItem {
         id: exportDatasetTo
-        visible: itemMenu.itemMetaType == LocalFilesModel.Dataset
+        visible: platformUtilities.capabilities & PlatformUtilities.CustomExport
+                 && itemMenu.itemMetaType == LocalFilesModel.Dataset
 
         font: Theme.defaultFont
         width: parent.width
@@ -377,7 +379,7 @@ Page {
       MenuItem {
         id: removeDataset
         visible: itemMenu.itemMetaType == LocalFilesModel.Dataset
-                 && !qfieldLocalScreen.projectFolderView
+                 && !qfieldLocalDataPickerScreen.projectFolderView
                  && table.model.isDeletedAllowedInCurrentPath
 
         font: Theme.defaultFont
@@ -391,7 +393,8 @@ Page {
 
       MenuItem {
         id: exportFolderTo
-        visible: itemMenu.itemMetaType == LocalFilesModel.Folder
+        visible: platformUtilities.capabilities & PlatformUtilities.CustomExport &&
+                 itemMenu.itemMetaType == LocalFilesModel.Folder
 
         font: Theme.defaultFont
         width: parent.width
@@ -404,7 +407,8 @@ Page {
 
       MenuItem {
         id: sendCompressedFolderTo
-        visible: itemMenu.itemMetaType == LocalFilesModel.Folder
+        visible: platformUtilities.capabilities & PlatformUtilities.CustomSend
+                 && itemMenu.itemMetaType == LocalFilesModel.Folder
 
         font: Theme.defaultFont
         width: parent.width
@@ -418,7 +422,7 @@ Page {
       MenuItem {
         id: removeProjectFolder
         visible: itemMenu.itemMetaType == LocalFilesModel.Folder
-                 && !qfieldLocalScreen.projectFolderView
+                 && !qfieldLocalDataPickerScreen.projectFolderView
                  && table.model.isDeletedAllowedInCurrentPath
 
         font: Theme.defaultFont

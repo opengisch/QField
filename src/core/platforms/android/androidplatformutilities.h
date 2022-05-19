@@ -48,7 +48,7 @@ class AndroidPlatformUtilities : public PlatformUtilities
 
     void exportFolderTo( const QString &path ) const override;
     void sendCompressedFolderTo( const QString &path ) const override;
-    void removeProjectFolder( const QString &path ) const override;
+    void removeFolder( const QString &path ) const override;
 
     PictureSource *getCameraPicture( QQuickItem *parent, const QString &prefix, const QString &pictureFilePath, const QString &suffix ) override;
     PictureSource *getGalleryPicture( QQuickItem *parent, const QString &prefix, const QString &pictureFilePath ) override;

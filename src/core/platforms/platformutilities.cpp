@@ -112,7 +112,7 @@ bool PlatformUtilities::renameFile( const QString &filename, const QString &newn
 
 QString PlatformUtilities::applicationDirectory() const
 {
-  return QString( "/home/webmaster" );
+  return QString();
 }
 
 QStringList PlatformUtilities::additionalApplicationDirectories() const

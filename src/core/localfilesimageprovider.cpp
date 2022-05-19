@@ -22,12 +22,12 @@ LocalFilesImageProvider::LocalFilesImageProvider()
 
 QPixmap LocalFilesImageProvider::requestPixmap( const QString &id, QSize *size, const QSize &requestedSize )
 {
-  Q_UNUSED( size )
-
   // the id is passed on as an encoded URL string which needs decoding
   const QString path = QUrl::fromPercentEncoding( id.toUtf8() );
   QImage image( path );
-  image = image.scaledToWidth( 255 );
+  image = image.scaledToWidth( requestedSize.width() );
+  size->setWidth( image.width() );
+  size->setHeight( image.height() );
 
   return QPixmap::fromImage( image );
 }

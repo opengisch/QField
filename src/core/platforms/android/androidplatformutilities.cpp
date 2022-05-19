@@ -55,7 +55,7 @@ AndroidPlatformUtilities::AndroidPlatformUtilities()
 
 PlatformUtilities::Capabilities AndroidPlatformUtilities::capabilities() const
 {
-  PlatformUtilities::Capabilities capabilities = Capabilities() | NativeCamera | AdjustBrightness;
+  PlatformUtilities::Capabilities capabilities = Capabilities() | NativeCamera | AdjustBrightness | CustomLocalDataPicker | CustomImport | CustomExport | CustomSend;
 #ifdef WITH_SENTRY
   capabilities |= SentryFramework;
 #endif
@@ -291,7 +291,7 @@ void AndroidPlatformUtilities::sendCompressedFolderTo( const QString &path ) con
   }
 }
 
-void AndroidPlatformUtilities::removeProjectFolder( const QString &path ) const
+void AndroidPlatformUtilities::removeFolder( const QString &path ) const
 {
   if ( mActivity.isValid() )
   {

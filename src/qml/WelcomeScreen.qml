@@ -13,7 +13,7 @@ Page {
   property bool firstShown: false
 
   property alias model: table.model
-  signal showQFieldLocalScreen
+  signal openLocalDataPicker
   signal showQFieldCloudScreen
 
   Settings {
@@ -406,7 +406,7 @@ Page {
           Layout.fillWidth: true
           text: qsTr( "Open local file" )
           onClicked: {
-            showQFieldLocalScreen()
+            openLocalDataPicker()
           }
         }
 

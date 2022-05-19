@@ -89,19 +89,31 @@ class LocalFilesModel : public QAbstractListModel
     int rowCount( const QModelIndex &parent ) const override;
     QVariant data( const QModelIndex &index, int role ) const override;
 
+    //! Resets the model and sets the first navigation history item to root
     Q_INVOKABLE void resetToRoot();
+
+    //! Resets the model and sets the first navigation history item to the provied \path
     Q_INVOKABLE void resetToPath( const QString &path );
 
+    //! Returns the current title derived from the current path
     QString currentTitle() const;
 
+    //! Appends the provided \path to the navigation history
     void setCurrentPath( const QString &path );
 
+    //! Returns the current path
     QString currentPath() const;
 
+    //! Returns the current navigation history depth
     int currentDepth() const { return mHistory.size(); }
 
+    /**
+     * Returns TRUE if deletation of files and folders is allow in the current path
+     * \note Currently, deletion is only allowed when the path is a sub-child of an application directory
+     */
     bool isDeletedAllowedInCurrentPath() const;
 
+    //! Walks the navigation history back up on step
     Q_INVOKABLE void moveUp();
 
   signals:

@@ -31,7 +31,7 @@ LocalFilesModel::LocalFilesModel( QObject *parent )
   {
     QStringList favorites;
     const QString applicationDirectory = PlatformUtilities::instance()->applicationDirectory();
-    //if ( !applicationDirectory.isEmpty() )
+    if ( !applicationDirectory.isEmpty() )
     {
       favorites << QStringLiteral( "%1/Imported Projects" ).arg( applicationDirectory )
                 << QStringLiteral( "%1/Imported Datasets" ).arg( applicationDirectory );
@@ -59,7 +59,7 @@ QHash<int, QByteArray> LocalFilesModel::roleNames() const
 void LocalFilesModel::resetToRoot()
 {
   mHistory.clear();
-  mHistory << QStringLiteral( "root" );
+  mHistory << QLatin1String( "root" );
 
   emit currentPathChanged();
 
@@ -84,7 +84,7 @@ QString LocalFilesModel::currentTitle() const
 
 const QString LocalFilesModel::getCurrentTitleFromPath( const QString &path ) const
 {
-  if ( path == QStringLiteral( "root" ) )
+  if ( path == QLatin1String( "root" ) )
   {
     return QStringLiteral( "Home" );
   }
@@ -165,7 +165,7 @@ void LocalFilesModel::reloadModel()
   mItems.clear();
 
   const QString path = currentPath();
-  if ( path == QStringLiteral( "root" ) )
+  if ( path == QLatin1String( "root" ) )
   {
     const QString applicationDirectory = PlatformUtilities::instance()->applicationDirectory();
     if ( !applicationDirectory.isEmpty() )
@@ -173,8 +173,8 @@ void LocalFilesModel::reloadModel()
       mItems << Item( ItemMetaType::Folder, ItemType::ApplicationFolder, tr( "QField files directory" ), QString(), applicationDirectory );
     }
 
-    QStringList items = PlatformUtilities::instance()->additionalApplicationDirectories();
-    for ( const QString &item : items )
+    const QStringList additionalApplicationDirectories = PlatformUtilities::instance()->additionalApplicationDirectories();
+    for ( const QString &item : additionalApplicationDirectories )
     {
       QFileInfo fi( item );
       if ( fi.exists() )
@@ -183,8 +183,8 @@ void LocalFilesModel::reloadModel()
       }
     }
 
-    items = PlatformUtilities::instance()->rootDirectories();
-    for ( const QString &item : items )
+    const QStringList rootDirectories = PlatformUtilities::instance()->rootDirectories();
+    for ( const QString &item : rootDirectories )
     {
       QFileInfo fi( item );
       if ( fi.exists() )
@@ -193,8 +193,8 @@ void LocalFilesModel::reloadModel()
       }
     }
 
-    items = QSettings().value( QStringLiteral( "qfieldFavorites" ), QStringList() ).toStringList();
-    for ( const QString &item : items )
+    const QStringList favorites = QSettings().value( QStringLiteral( "qfieldFavorites" ), QStringList() ).toStringList();
+    for ( const QString &item : favorites )
     {
       mItems << Item( ItemMetaType::Favorite, ItemType::SimpleFolder, getCurrentTitleFromPath( item ), QString(), item );
     }
@@ -273,7 +273,7 @@ QVariant LocalFilesModel::data( const QModelIndex &index, int role ) const
       return mItems[index.row()].size;
 
     case ItemHasThumbnailRole:
-      return QImageReader::supportedImageFormats().contains( mItems[index.row()].format.toLatin1() ) && RasterDataset && mItems[index.row()].size < 10000000;
+      return QImageReader::supportedImageFormats().contains( mItems[index.row()].format.toLatin1() ) && RasterDataset && mItems[index.row()].size < 20000000;
   }
 
   return QVariant();

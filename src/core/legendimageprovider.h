@@ -26,7 +26,7 @@ class LegendImageProvider : public QQuickImageProvider
   public:
     explicit LegendImageProvider( QgsLayerTreeModel *layerTreeModel );
 
-    QPixmap requestPixmap( const QString &id, QSize *size, const QSize &requestedSize );
+    QPixmap requestPixmap( const QString &id, QSize *size, const QSize &requestedSize ) override;
 
   private:
     QgsLayerTreeModel *mLayerTreeModel = nullptr;

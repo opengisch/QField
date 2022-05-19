@@ -1581,9 +1581,9 @@ ApplicationWindow {
       text: qsTr( "Open Project Folder" )
       onTriggered: {
         dashBoard.close()
-        qfieldLocalScreen.projectFolderView = true
-        qfieldLocalScreen.model.resetToPath(projectInfo.filePath)
-        qfieldLocalScreen.visible = true
+        qfieldLocalDataPickerScreen.projectFolderView = true
+        qfieldLocalDataPickerScreen.model.resetToPath(projectInfo.filePath)
+        qfieldLocalDataPickerScreen.visible = true
       }
     }
 
@@ -2550,8 +2550,8 @@ ApplicationWindow {
     height: parent.height
   }
 
-  QFieldLocalScreen {
-    id: qfieldLocalScreen
+  QFieldLocalDataPickerScreen {
+    id: qfieldLocalDataPickerScreen
 
     anchors.fill: parent
     visible: false
@@ -2580,16 +2580,17 @@ ApplicationWindow {
 
     visible: true
 
-    onShowQFieldLocalScreen: {
-      //if (Qt.platform.os === "android" || Qt.platform.os === "ios") {
+    onOpenLocalDataPicker: {
+      if (platformUtilities.capabilities & PlatformUtilities.CustomLocalDataPicker) {
         welcomeScreen.visible = false
-        qfieldLocalScreen.projectFolderView = false
-        qfieldLocalScreen.model.resetToRoot()
-        qfieldLocalScreen.visible = true
-      /*} else {
+        qfieldLocalDataPickerScreen.projectFolderView = false
+        qfieldLocalDataPickerScreen.model.resetToRoot()
+        qfieldLocalDataPickerScreen.visible = true
+      } else {
         __projectSource = platformUtilities.openProject(this)
-      }*/
+      }
     }
+
     onShowQFieldCloudScreen: {
       welcomeScreen.visible = false
       qfieldCloudScreen.visible = true
