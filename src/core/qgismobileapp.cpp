@@ -139,6 +139,7 @@
 #include <qgslocalizeddatapathregistry.h>
 #include <qgslocator.h>
 #include <qgslocatormodel.h>
+#include <qgslogger.h>
 #include <qgsmaplayer.h>
 #include <qgsmapthemecollection.h>
 #include <qgsnetworkaccessmanager.h>
@@ -308,12 +309,13 @@ QgisMobileapp::QgisMobileapp( QgsApplication *app, QObject *parent )
     // import authentication method configurations
     for ( const QString &dataDir : dataDirs )
     {
-      QDir configurationsDir( QStringLiteral( "%1/auth/" ).arg( dataDir ) );
+      QDir configurationsDir( QStringLiteral( "%1/auth" ).arg( dataDir ) );
       if ( configurationsDir.exists() )
       {
         const QStringList configurations = configurationsDir.entryList( QStringList() << QStringLiteral( "*.xml" ) << QStringLiteral( "*.XML" ), QDir::Files );
         for ( const QString &configuration : configurations )
         {
+          qDebug() << QStringLiteral( "Importing authentication configuration file %1" ).arg( configurationsDir.absoluteFilePath( configuration ) );
           QgsApplication::instance()->authManager()->importAuthenticationConfigsFromXml( configurationsDir.absoluteFilePath( configuration ), QString(), true );
         }
       }
