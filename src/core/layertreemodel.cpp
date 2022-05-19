@@ -1106,7 +1106,7 @@ QgsRectangle FlatLayerTreeModelBase::nodeExtent( const QModelIndex &index, QgsQu
   }
   else if ( QgsLayerTreeModelLegendNode *sym = mLayerTreeModel->index2legendNode( mapToSource( index ) ) )
   {
-    QgsMapLayer *layer = qobject_cast<QgsMapLayer *>( sym->layerNode()->layer() );
+    QgsMapLayer *layer = sym->layerNode()->layer();
     if ( layer )
     {
       extent = mapSettings->mapSettings().layerToMapCoordinates( layer, layer->extent() );
