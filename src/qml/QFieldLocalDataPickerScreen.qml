@@ -20,11 +20,17 @@ Page {
            ? qsTr("Project Folder")
            : qsTr("Local Projects & Datasets")
 
-    showBackButton: false
+    showBackButton: true
     showApplyButton: false
-    showCancelButton: true
+    showCancelButton: false
 
-    onFinished: parent.finished(false)
+    onBack: {
+      if (table.model.currentDepth > 1) {
+        table.model.moveUp();
+      } else {
+        parent.finished(false)
+      }
+    }
   }
 
   ColumnLayout {
@@ -37,18 +43,6 @@ Page {
     RowLayout {
       Layout.margins: 10
       spacing: 2
-
-      QfToolButton {
-        Layout.alignment: Qt.AlignVCenter
-        visible: table.model.currentDepth > 1
-
-        round: true
-        bgcolor: "transparent"
-
-        iconSource: Theme.getThemeIcon( 'ic_chevron_left_black_24dp' )
-
-        onClicked: { table.model.moveUp(); }
-      }
 
       ColumnLayout {
         Layout.fillWidth: true

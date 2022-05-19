@@ -7,9 +7,11 @@ import Theme 1.0
 
 ToolBar {
   property alias title: titleLabel.text
+
   property alias showBackButton: backButton.visible
   property alias showApplyButton: applyButton.visible
   property alias showCancelButton: cancelButton.visible
+
   property alias busyIndicatorState: busyIndicator.state
 
   height: 48
