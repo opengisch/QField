@@ -1,10 +1,10 @@
 /***************************************************************************
-  legendimageprovider.h - LegendImageProvider
+  localfilesimageprovider.h - LocalFilesImageProvider
 
  ---------------------
- begin                : 7.12.2016
- copyright            : (C) 2016 by Matthias Kuhn
- email                : matthias@opengis.ch
+ begin                : 18.05.2022
+ copyright            : (C) 2022 by Mathieu Pellerin
+ email                : mathieu at opengis dot ch
  ***************************************************************************
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
@@ -13,24 +13,17 @@
  *   (at your option) any later version.                                   *
  *                                                                         *
  ***************************************************************************/
-#ifndef LEGENDIMAGEPROVIDER_H
-#define LEGENDIMAGEPROVIDER_H
+#ifndef LOCALFILESIMAGEPROVIDER_H
+#define LOCALFILESIMAGEPROVIDER_H
 
 #include <QQuickImageProvider>
 
-class QgsLayerTreeModel;
-class QgsLayerTree;
-
-class LegendImageProvider : public QQuickImageProvider
+class LocalFilesImageProvider : public QQuickImageProvider
 {
   public:
-    explicit LegendImageProvider( QgsLayerTreeModel *layerTreeModel );
+    explicit LocalFilesImageProvider();
 
     QPixmap requestPixmap( const QString &id, QSize *size, const QSize &requestedSize ) override;
-
-  private:
-    QgsLayerTreeModel *mLayerTreeModel = nullptr;
-    QgsLayerTree *mRootNode = nullptr;
 };
 
-#endif // LEGENDIMAGEPROVIDER_H
+#endif // LOCALFILESIMAGEPROVIDER_H

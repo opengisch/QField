@@ -80,5 +80,6 @@
         <file>QFieldCloudPopup.qml</file>
         <file>QFieldCloudDeltaHistory.qml</file>
         <file>QFieldCloudPackageLayersFeedback.qml</file>
+        <file>QFieldLocalDataPickerScreen.qml</file>
     </qresource>
 </RCC>

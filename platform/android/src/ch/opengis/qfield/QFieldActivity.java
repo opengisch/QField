@@ -62,6 +62,7 @@ import android.view.WindowManager;
 import android.view.WindowManager.LayoutParams;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
+import androidx.core.content.FileProvider;
 import androidx.documentfile.provider.DocumentFile;
 import ch.opengis.qfield.QFieldUtils;
 import ch.opengis.qfield.R;
@@ -77,6 +78,8 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 import org.qtproject.qt5.android.bindings.QtActivity;
 
 public class QFieldActivity extends QtActivity {
@@ -84,9 +87,13 @@ public class QFieldActivity extends QtActivity {
     private SharedPreferences sharedPreferences;
     private SharedPreferences.Editor sharedPreferenceEditor;
     private ProgressDialog progressDialog;
+    ExecutorService executorService = Executors.newFixedThreadPool(4);
 
     public static native void openProject(String url);
+    public static native void openPath(String path);
+
     private float originalBrightness;
+    private String pathToExport;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -351,6 +358,385 @@ public class QFieldActivity extends QtActivity {
         setIntent(intent);
     }
 
+    private String getApplicationDirectory() {
+        File primaryExternalFilesDir = getExternalFilesDir(null);
+        if (primaryExternalFilesDir != null) {
+            return primaryExternalFilesDir.getAbsolutePath();
+        }
+        return "";
+    }
+
+    private String getAdditionalApplicationDirectories() {
+        List<String> dirs = new ArrayList<String>();
+
+        File externalStorageDirectory = null;
+        if (ContextCompat.checkSelfPermission(
+                QFieldActivity.this,
+                Manifest.permission.WRITE_EXTERNAL_STORAGE) ==
+                PackageManager.PERMISSION_GRANTED ||
+            (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R &&
+             Environment.isExternalStorageManager())) {
+            externalStorageDirectory =
+                Environment.getExternalStorageDirectory();
+        }
+
+        File primaryExternalFilesDir = getExternalFilesDir(null);
+
+        File[] externalFilesDirs = getExternalFilesDirs(null);
+        for (File file : externalFilesDirs) {
+            if (file != null) {
+                // Don't duplicate external files directory or storage
+                // path already added
+                if (file.getAbsolutePath().equals(
+                        primaryExternalFilesDir.getAbsolutePath())) {
+                    continue;
+                }
+                if (externalStorageDirectory != null) {
+                    if (!file.getAbsolutePath().contains(
+                            externalStorageDirectory.getAbsolutePath())) {
+                        dirs.add(file.getAbsolutePath());
+                    }
+                } else {
+                    dirs.add(file.getAbsolutePath());
+                }
+            }
+        }
+
+        StringBuilder rootDirs = new StringBuilder();
+        for (String dir : dirs) {
+            rootDirs.append(dir);
+            rootDirs.append("--;--");
+        }
+        return rootDirs.toString();
+    }
+
+    private String getRootDirectories() {
+        List<String> dirs = new ArrayList<String>();
+
+        File externalStorageDirectory = null;
+        if (ContextCompat.checkSelfPermission(
+                QFieldActivity.this,
+                Manifest.permission.WRITE_EXTERNAL_STORAGE) ==
+                PackageManager.PERMISSION_GRANTED ||
+            (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R &&
+             Environment.isExternalStorageManager())) {
+            externalStorageDirectory =
+                Environment.getExternalStorageDirectory();
+            if (externalStorageDirectory != null) {
+                dirs.add(externalStorageDirectory.getAbsolutePath());
+            }
+        }
+
+        StringBuilder rootDirs = new StringBuilder();
+        for (String dir : dirs) {
+            rootDirs.append(dir);
+            rootDirs.append("--;--");
+        }
+        return rootDirs.toString();
+    }
+
+    private void triggerImportDatasets() {
+        Intent intent = new Intent(Intent.ACTION_OPEN_DOCUMENT);
+        intent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION |
+                        Intent.FLAG_GRANT_WRITE_URI_PERMISSION);
+        intent.addFlags(Intent.FLAG_GRANT_PREFIX_URI_PERMISSION);
+        intent.addFlags(Intent.FLAG_GRANT_PERSISTABLE_URI_PERMISSION);
+        intent.putExtra(Intent.EXTRA_ALLOW_MULTIPLE, true);
+        intent.setType("*/*");
+        startActivityForResult(intent, R.id.import_dataset);
+        return;
+    }
+
+    private void triggerImportProjectFolder() {
+        Intent intent = new Intent(Intent.ACTION_OPEN_DOCUMENT_TREE);
+        intent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION |
+                        Intent.FLAG_GRANT_WRITE_URI_PERMISSION);
+        intent.addFlags(Intent.FLAG_GRANT_PREFIX_URI_PERMISSION);
+        intent.addFlags(Intent.FLAG_GRANT_PERSISTABLE_URI_PERMISSION);
+        startActivityForResult(intent, R.id.import_project_folder);
+        return;
+    }
+
+    private void triggerImportProjectArchive() {
+        Intent intent = new Intent(Intent.ACTION_OPEN_DOCUMENT);
+        intent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION |
+                        Intent.FLAG_GRANT_WRITE_URI_PERMISSION);
+        intent.addFlags(Intent.FLAG_GRANT_PREFIX_URI_PERMISSION);
+        intent.addFlags(Intent.FLAG_GRANT_PERSISTABLE_URI_PERMISSION);
+        intent.setType("application/zip");
+        startActivityForResult(intent, R.id.import_project_archive);
+        return;
+    }
+
+    private void sendDatasetTo(String path) {
+        File file = new File(path);
+        DocumentFile documentFile = DocumentFile.fromFile(file);
+        Context context = getApplication().getApplicationContext();
+        Intent intent = new Intent(Intent.ACTION_SEND);
+        intent.putExtra(
+            Intent.EXTRA_STREAM,
+            FileProvider.getUriForFile(
+                context, context.getPackageName() + ".fileprovider", file));
+        intent.setType(documentFile.getType());
+        startActivity(Intent.createChooser(intent, null));
+        return;
+    }
+
+    private void exportToFolder(String path) {
+        pathToExport = path;
+
+        Intent intent = new Intent(Intent.ACTION_OPEN_DOCUMENT_TREE);
+        intent.addCategory(Intent.CATEGORY_DEFAULT);
+        intent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
+        intent.addFlags(Intent.FLAG_GRANT_WRITE_URI_PERMISSION);
+        intent.addFlags(Intent.FLAG_GRANT_PERSISTABLE_URI_PERMISSION);
+        startActivityForResult(intent, R.id.export_to_folder);
+        return;
+    }
+
+    private void removeDataset(String path) {
+        File file = new File(path);
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle(getString(R.string.delete_confirm_title));
+        builder.setMessage(getString(R.string.delete_confirm_dataset));
+        builder.setPositiveButton(
+            getString(R.string.delete_confirm),
+            new DialogInterface.OnClickListener() {
+                public void onClick(DialogInterface dialog, int id) {
+                    file.delete();
+                    dialog.dismiss();
+                    openPath(file.getParentFile().getAbsolutePath());
+                }
+            });
+        builder.setNegativeButton(getString(R.string.delete_cancel),
+                                  new DialogInterface.OnClickListener() {
+                                      public void onClick(
+                                          DialogInterface dialog, int id) {
+                                          dialog.dismiss();
+                                      }
+                                  });
+        AlertDialog dialog = builder.create();
+        dialog.setCancelable(false);
+        dialog.show();
+        return;
+    }
+
+    private void sendCompressedFolderTo(String path) {
+        File file = new File(path);
+        File temporaryFile = new File(getCacheDir(), file.getName() + ".zip");
+        QFieldUtils.folderToZip(file.getPath(), temporaryFile.getPath());
+
+        DocumentFile documentFile = DocumentFile.fromFile(temporaryFile);
+        Context context = getApplication().getApplicationContext();
+        Intent intent = new Intent(Intent.ACTION_SEND);
+        intent.putExtra(Intent.EXTRA_STREAM,
+                        FileProvider.getUriForFile(
+                            context, context.getPackageName() + ".fileprovider",
+                            temporaryFile));
+        intent.setType(documentFile.getType());
+        startActivity(Intent.createChooser(intent, null));
+        return;
+    }
+
+    private void removeProjectFolder(String path) {
+        File file = new File(path);
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle(getString(R.string.delete_confirm_title));
+        builder.setMessage(getString(R.string.delete_confirm_folder));
+        builder.setPositiveButton(
+            getString(R.string.delete_confirm),
+            new DialogInterface.OnClickListener() {
+                public void onClick(DialogInterface dialog, int id) {
+                    QFieldUtils.deleteDirectory(file, true);
+                    dialog.dismiss();
+                    openPath(file.getParentFile().getAbsolutePath());
+                }
+            });
+        builder.setNegativeButton(getString(R.string.delete_cancel),
+                                  new DialogInterface.OnClickListener() {
+                                      public void onClick(
+                                          DialogInterface dialog, int id) {
+                                          dialog.dismiss();
+                                      }
+                                  });
+        AlertDialog dialog = builder.create();
+        dialog.setCancelable(false);
+        dialog.show();
+        return;
+    }
+
+    void importDatasets(Uri[] datasetUris) {
+        File externalFilesDir = getExternalFilesDir(null);
+        if (externalFilesDir == null || datasetUris.length == 0) {
+            return;
+        }
+
+        ProgressDialog progressDialog = ProgressDialog.show(
+            this, "", "Please wait while QField is importing the project",
+            true);
+        progressDialog.setCancelable(false);
+
+        String importDatasetPath =
+            externalFilesDir.getAbsolutePath() + "/Imported Datasets/";
+        new File(importDatasetPath).mkdir();
+
+        Context context = getApplication().getApplicationContext();
+        ContentResolver resolver = getContentResolver();
+
+        executorService.execute(new Runnable() {
+            @Override
+            public void run() {
+                boolean imported = false;
+                for (Uri datasetUri : datasetUris) {
+                    DocumentFile documentFile =
+                        DocumentFile.fromSingleUri(context, datasetUri);
+                    String importFilePath =
+                        importDatasetPath + documentFile.getName();
+                    try {
+                        InputStream input =
+                            resolver.openInputStream(datasetUri);
+                        imported = QFieldUtils.inputStreamToFile(
+                            input, importFilePath, documentFile.length());
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                        imported = false;
+                    }
+                    if (!imported) {
+                        break;
+                    }
+                }
+
+                progressDialog.dismiss();
+                if (!imported) {
+                    AlertDialog alertDialog =
+                        new AlertDialog.Builder(QFieldActivity.this).create();
+                    alertDialog.setTitle(getString(R.string.import_error));
+                    alertDialog.setMessage(
+                        getString(R.string.import_dataset_error));
+                    if (!isFinishing()) {
+                        alertDialog.show();
+                    }
+                } else {
+                    openPath(importDatasetPath);
+                }
+            }
+        });
+    }
+
+    void importProjectFolder(Uri folderUri) {
+        File externalFilesDir = getExternalFilesDir(null);
+        if (externalFilesDir == null) {
+            return;
+        }
+
+        ProgressDialog progressDialog = ProgressDialog.show(
+            this, "", "Please wait while QField is importing the project",
+            true);
+        progressDialog.setCancelable(false);
+
+        String importProjectPath =
+            externalFilesDir.getAbsolutePath() + "/Imported Projects/";
+        new File(importProjectPath).mkdir();
+
+        Context context = getApplication().getApplicationContext();
+        ContentResolver resolver = getContentResolver();
+
+        executorService.execute(new Runnable() {
+            @Override
+            public void run() {
+                DocumentFile directory =
+                    DocumentFile.fromTreeUri(context, folderUri);
+                String importPath =
+                    importProjectPath + directory.getName() + "/";
+                new File(importPath).mkdir();
+                boolean imported = QFieldUtils.documentFileToFolder(
+                    directory, importPath, resolver);
+
+                progressDialog.dismiss();
+                if (imported) {
+                    openPath(importPath);
+                } else {
+                    AlertDialog alertDialog =
+                        new AlertDialog.Builder(QFieldActivity.this).create();
+                    alertDialog.setTitle(getString(R.string.import_error));
+                    alertDialog.setMessage(
+                        getString(R.string.import_project_folder_error));
+                    if (!isFinishing()) {
+                        alertDialog.show();
+                    }
+                }
+            }
+        });
+    }
+
+    void importProjectArchive(Uri archiveUri) {
+        File externalFilesDir = getExternalFilesDir(null);
+        if (externalFilesDir == null) {
+            return;
+        }
+
+        ProgressDialog progressDialog = ProgressDialog.show(
+            this, "", "Please wait while QField is importing the project",
+            true);
+        progressDialog.setCancelable(false);
+
+        String importProjectPath =
+            externalFilesDir.getAbsolutePath() + "/Imported Projects/";
+        new File(importProjectPath).mkdir();
+
+        Context context = getApplication().getApplicationContext();
+        ContentResolver resolver = getContentResolver();
+
+        executorService.execute(new Runnable() {
+            @Override
+            public void run() {
+                DocumentFile documentFile =
+                    DocumentFile.fromSingleUri(context, archiveUri);
+
+                String projectName = "";
+                try {
+                    InputStream input = resolver.openInputStream(archiveUri);
+                    projectName = QFieldUtils.getArchiveProjectName(input);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+
+                if (projectName != "") {
+                    String importPath =
+                        importProjectPath +
+                        documentFile.getName().substring(
+                            0, documentFile.getName().lastIndexOf(".")) +
+                        "/";
+                    new File(importPath).mkdir();
+                    boolean imported = false;
+                    try {
+                        InputStream input =
+                            resolver.openInputStream(archiveUri);
+                        imported = QFieldUtils.zipToFolder(input, importPath);
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                        AlertDialog alertDialog =
+                            new AlertDialog.Builder(QFieldActivity.this)
+                                .create();
+                        alertDialog.setTitle(getString(R.string.import_error));
+                        alertDialog.setMessage(
+                            getString(R.string.import_project_archive_error));
+                        if (!isFinishing()) {
+                            alertDialog.show();
+                        }
+                    }
+
+                    progressDialog.dismiss();
+                    if (imported) {
+                        openPath(importPath);
+                    }
+                } else {
+                    progressDialog.dismiss();
+                }
+            }
+        });
+    }
+
     private void checkPermissions() {
         List<String> permissionsList = new ArrayList<String>();
         if (ContextCompat.checkSelfPermission(
@@ -462,6 +848,199 @@ public class QFieldActivity extends QtActivity {
             AlertDialog dialog = builder.create();
             dialog.setCancelable(false);
             dialog.show();
+        }
+    }
+
+    protected void onActivityResult(int requestCode, int resultCode,
+                                    Intent data) {
+        if (requestCode == R.id.import_dataset &&
+            resultCode == Activity.RESULT_OK) {
+            Log.d("QField", "handling import dataset(s)");
+            File externalFilesDir = getExternalFilesDir(null);
+            if (externalFilesDir == null || data == null) {
+                return;
+            }
+
+            String importDatasetPath =
+                externalFilesDir.getAbsolutePath() + "/Imported Datasets/";
+
+            Context context = getApplication().getApplicationContext();
+            ContentResolver resolver = getContentResolver();
+
+            Uri[] datasetUris;
+            if (data.getClipData() != null) {
+                datasetUris = new Uri[data.getClipData().getItemCount()];
+                for (int i = 0; i < data.getClipData().getItemCount(); i++) {
+                    datasetUris[i] = data.getClipData().getItemAt(i).getUri();
+                }
+            } else {
+                datasetUris = new Uri[1];
+                datasetUris[0] = data.getData();
+            }
+
+            boolean hasExists = false;
+            for (Uri datasetUri : datasetUris) {
+                DocumentFile documentFile =
+                    DocumentFile.fromSingleUri(context, datasetUri);
+                File importFilePath =
+                    new File(importDatasetPath + documentFile.getName());
+                if (importFilePath.exists()) {
+                    hasExists = true;
+                    break;
+                }
+            }
+
+            if (hasExists) {
+                AlertDialog.Builder builder = new AlertDialog.Builder(this);
+                builder.setTitle(getString(R.string.import_overwrite_title));
+                builder.setMessage(
+                    datasetUris.length > 1
+                        ? getString(R.string.import_overwrite_dataset_multiple)
+                        : getString(R.string.import_overwrite_dataset_single));
+                builder.setPositiveButton(
+                    getString(R.string.import_overwrite_confirm),
+                    new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int id) {
+                            importDatasets(datasetUris);
+                            dialog.dismiss();
+                        }
+                    });
+                builder.setNegativeButton(
+                    getString(R.string.import_overwrite_cancel),
+                    new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int id) {
+                            dialog.dismiss();
+                        }
+                    });
+                AlertDialog dialog = builder.create();
+                dialog.setCancelable(false);
+                dialog.show();
+            } else {
+                importDatasets(datasetUris);
+            }
+        } else if (requestCode == R.id.import_project_folder &&
+                   resultCode == Activity.RESULT_OK) {
+            Log.d("QField", "handling import project folder");
+            File externalFilesDir = getExternalFilesDir(null);
+            if (externalFilesDir == null || data == null) {
+                return;
+            }
+
+            Uri uri = data.getData();
+            Context context = getApplication().getApplicationContext();
+            DocumentFile directory = DocumentFile.fromTreeUri(context, uri);
+            File importPath =
+                new File(externalFilesDir.getAbsolutePath() +
+                         "/Imported Projects/" + directory.getName() + "/");
+            if (importPath.exists()) {
+                AlertDialog.Builder builder = new AlertDialog.Builder(this);
+                builder.setTitle(getString(R.string.import_overwrite_title));
+                builder.setMessage(getString(R.string.import_overwrite_folder));
+                builder.setPositiveButton(
+                    getString(R.string.import_overwrite_confirm),
+                    new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int id) {
+                            importProjectFolder(uri);
+                            dialog.dismiss();
+                        }
+                    });
+                builder.setNegativeButton(
+                    getString(R.string.import_overwrite_cancel),
+                    new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int id) {
+                            dialog.dismiss();
+                        }
+                    });
+                AlertDialog dialog = builder.create();
+                dialog.setCancelable(false);
+                dialog.show();
+            } else {
+                importProjectFolder(uri);
+            }
+        } else if (requestCode == R.id.import_project_archive &&
+                   resultCode == Activity.RESULT_OK) {
+            Log.d("QField", "handling import project archive");
+            File externalFilesDir = getExternalFilesDir(null);
+            if (externalFilesDir == null || data == null) {
+                return;
+            }
+
+            String importProjectPath =
+                externalFilesDir.getAbsolutePath() + "/Imported Projects/";
+            new File(importProjectPath).mkdir();
+
+            Uri uri = data.getData();
+            Context context = getApplication().getApplicationContext();
+            ContentResolver resolver = getContentResolver();
+
+            DocumentFile documentFile =
+                DocumentFile.fromSingleUri(context, uri);
+            File importPath = new File(
+                externalFilesDir.getAbsolutePath() + "/Imported Projects/" +
+                documentFile.getName().substring(
+                    0, documentFile.getName().lastIndexOf(".")) +
+                "/");
+            if (importPath.exists()) {
+                AlertDialog.Builder builder = new AlertDialog.Builder(this);
+                builder.setTitle(getString(R.string.import_overwrite_title));
+                builder.setMessage(getString(R.string.import_overwrite_folder));
+                builder.setPositiveButton(
+                    getString(R.string.import_overwrite_confirm),
+                    new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int id) {
+                            importProjectArchive(uri);
+                            dialog.dismiss();
+                        }
+                    });
+                builder.setNegativeButton(
+                    getString(R.string.import_overwrite_cancel),
+                    new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int id) {
+                            dialog.dismiss();
+                        }
+                    });
+                AlertDialog dialog = builder.create();
+                dialog.setCancelable(false);
+                dialog.show();
+            } else {
+                importProjectArchive(uri);
+            }
+        } else if (requestCode == R.id.export_to_folder &&
+                   resultCode == Activity.RESULT_OK) {
+            Log.d("QField", "handling export to folder");
+
+            File file = new File(pathToExport);
+            Uri uri = data.getData();
+            Context context = getApplication().getApplicationContext();
+            ContentResolver resolver = getContentResolver();
+
+            executorService.execute(new Runnable() {
+                @Override
+                public void run() {
+                    resolver.takePersistableUriPermission(
+                        uri, Intent.FLAG_GRANT_READ_URI_PERMISSION |
+                                 Intent.FLAG_GRANT_WRITE_URI_PERMISSION);
+                    DocumentFile directory =
+                        DocumentFile.fromTreeUri(context, uri);
+
+                    boolean exported = QFieldUtils.fileToDocumentFile(
+                        file, directory, resolver);
+
+                    if (!exported) {
+                        AlertDialog alertDialog =
+                            new AlertDialog.Builder(QFieldActivity.this)
+                                .create();
+                        alertDialog.setTitle(getString(R.string.export_error));
+                        alertDialog.setMessage(
+                            getString(R.string.export_to_folder_error));
+                        if (!isFinishing()) {
+                            alertDialog.show();
+                        }
+                    }
+                }
+            });
+        } else {
+            super.onActivityResult(requestCode, resultCode, data);
         }
     }
 }

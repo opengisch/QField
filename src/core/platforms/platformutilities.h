@@ -39,12 +39,15 @@ class QFIELD_CORE_EXPORT PlatformUtilities : public QObject
   public:
     enum Capability
     {
-      NoCapabilities = 0,        //!< No capabilities
-      NativeCamera = 1,          //!< Native camera handling support
-      AdjustBrightness = 1 << 1, //!< Capable of adjusting screen brightness
-      SentryFramework = 1 << 2,  //!< Sentry framework support
+      NoCapabilities = 0,             //!< No capabilities
+      NativeCamera = 1,               //!< Native camera handling support
+      AdjustBrightness = 1 << 1,      //!< Capable of adjusting screen brightness
+      SentryFramework = 1 << 2,       //!< Sentry framework support
+      CustomLocalDataPicker = 1 << 3, //!< Custom QML local data picker support
+      CustomImport = 1 << 4,          //!< Import project and dataset support
+      CustomExport = 1 << 5,          //!< Export project and dataset support
+      CustomSend = 1 << 6,            //!< Native send/share files support
     };
-
     Q_DECLARE_FLAGS( Capabilities, Capability )
     Q_FLAGS( Capabilities )
 
@@ -69,6 +72,45 @@ class QFIELD_CORE_EXPORT PlatformUtilities : public QObject
     Q_INVOKABLE bool createDir( const QString &path, const QString &dirname ) const;
     Q_INVOKABLE bool rmFile( const QString &filename ) const;
     Q_INVOKABLE bool renameFile( const QString &filename, const QString &newname ) const;
+
+
+    /**
+     * The main application directory within which projects and datasets can be imported.
+     */
+    virtual QString applicationDirectory() const;
+
+    /**
+     * Secondary application directories which can be used by individual platforms.
+     */
+    virtual QStringList additionalApplicationDirectories() const;
+
+    /**
+     * A list of root directories (e.g. root of an external storage) when system-wide access is available.
+     */
+    virtual QStringList rootDirectories() const;
+
+    //! Requests and imports a project folder into QField's application directory action
+    Q_INVOKABLE virtual void importProjectFolder() const {};
+    //! Requests and imports a project archive into QField's application directory action
+    Q_INVOKABLE virtual void importProjectArchive() const {};
+    //! Requests and imports one or more datasets into QField's application directory action
+    Q_INVOKABLE virtual void importDatasets() const {};
+
+    //! Exports a folder \a path to a user-specified location
+    Q_INVOKABLE virtual void exportFolderTo( const QString &path ) const {};
+    //! Exports a dataset \a path to a user-specified location
+    Q_INVOKABLE virtual void exportDatasetTo( const QString &path ) const {};
+
+    //! Sends a dataset \a path via the platform native API
+    Q_INVOKABLE virtual void sendDatasetTo( const QString &path ) const {};
+    //! Compresses a folder \a path and sends it via the platform native API
+    Q_INVOKABLE virtual void sendCompressedFolderTo( const QString &path ) const {};
+
+    //! Removes a given dataset \a path
+    Q_INVOKABLE virtual void removeDataset( const QString &path ) const {};
+
+    //! Removes a given folder \a path
+    Q_INVOKABLE virtual void removeFolder( const QString &path ) const {};
 
     /**
      * Get a picture from camera and copy it to the requested prefix

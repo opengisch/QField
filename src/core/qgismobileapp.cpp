@@ -77,6 +77,8 @@
 #include "layerutils.h"
 #include "legendimageprovider.h"
 #include "linepolygonhighlight.h"
+#include "localfilesimageprovider.h"
+#include "localfilesmodel.h"
 #include "locatormodelsuperbridge.h"
 #include "maptoscreen.h"
 #include "messagelogmodel.h"
@@ -229,6 +231,7 @@ QgisMobileapp::QgisMobileapp( QgsApplication *app, QObject *parent )
   mLayerObserver = std::make_unique<LayerObserver>( mProject );
   mFlatLayerTree = new FlatLayerTreeModel( mProject->layerTreeRoot(), mProject, this );
   mLegendImageProvider = new LegendImageProvider( mFlatLayerTree->layerTreeModel() );
+  mLocalFilesImageProvider = new LocalFilesImageProvider();
   mTrackingModel = new TrackingModel;
 
   mBookmarkModel = std::make_unique<BookmarkModel>( QgsApplication::bookmarkManager(), mProject->bookmarkManager(), nullptr );
@@ -453,10 +456,11 @@ void QgisMobileapp::initDeclarative()
   qmlRegisterType<LocatorActionsModel>( "org.qfield", 1, 0, "LocatorActionsModel" );
   qmlRegisterType<LocatorFiltersModel>( "org.qfield", 1, 0, "LocatorFiltersModel" );
   qmlRegisterType<LinePolygonHighlight>( "org.qfield", 1, 0, "LinePolygonHighlight" );
+  qmlRegisterType<LocalFilesModel>( "org.qfield", 1, 0, "LocalFilesModel" );
   qmlRegisterType<QgsGeometryWrapper>( "org.qfield", 1, 0, "QgsGeometryWrapper" );
   qmlRegisterType<ValueMapModel>( "org.qfield", 1, 0, "ValueMapModel" );
-  qmlRegisterType<RecentProjectListModel>( "org.qgis", 1, 0, "RecentProjectListModel" );
-  qmlRegisterType<ReferencingFeatureListModel>( "org.qgis", 1, 0, "ReferencingFeatureListModel" );
+  qmlRegisterType<RecentProjectListModel>( "org.qfield", 1, 0, "RecentProjectListModel" );
+  qmlRegisterType<ReferencingFeatureListModel>( "org.qfield", 1, 0, "ReferencingFeatureListModel" );
   qmlRegisterType<OrderedRelationModel>( "org.qfield", 1, 0, "OrderedRelationModel" );
   qmlRegisterType<FeatureCheckListModel>( "org.qgis", 1, 0, "FeatureCheckListModel" );
   qmlRegisterType<GeometryEditorsModel>( "org.qfield", 1, 0, "GeometryEditorsModel" );
@@ -524,6 +528,7 @@ void QgisMobileapp::initDeclarative()
   rootContext()->setContextProperty( "trackingModel", mTrackingModel );
 
   addImageProvider( QLatin1String( "legend" ), mLegendImageProvider );
+  addImageProvider( QLatin1String( "localfiles" ), mLocalFilesImageProvider );
 }
 
 void QgisMobileapp::loadProjectQuirks()

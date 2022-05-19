@@ -110,6 +110,21 @@ bool PlatformUtilities::renameFile( const QString &filename, const QString &newn
   return file.rename( newname );
 }
 
+QString PlatformUtilities::applicationDirectory() const
+{
+  return QString();
+}
+
+QStringList PlatformUtilities::additionalApplicationDirectories() const
+{
+  return QStringList() << QString();
+}
+
+QStringList PlatformUtilities::rootDirectories() const
+{
+  return QStringList() << QString();
+}
+
 PictureSource *PlatformUtilities::getCameraPicture( QQuickItem *parent, const QString &prefix, const QString &pictureFilePath, const QString &suffix )
 {
   Q_UNUSED( parent )

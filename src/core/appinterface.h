@@ -78,6 +78,9 @@ class AppInterface : public QObject
 
     void submitLog( const QString &message );
 
+    //! Signal emitted requesting QField to open its local data picker screen to show the \a path content
+    void openPath( const QString &path );
+
   private:
     static AppInterface *sAppInterface;
 

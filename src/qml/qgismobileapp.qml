@@ -1562,12 +1562,28 @@ ApplicationWindow {
       height: 48
       leftPadding: 10
 
-      text: qsTr( "Open Project" )
+      text: qsTr( "Go to Home Screen" )
       onTriggered: {
         dashBoard.close()
         welcomeScreen.visible = true
         welcomeScreen.focus = true
         highlighted = false
+      }
+    }
+
+    MenuItem {
+      id: openProjectFolderMenuItem
+
+      font: Theme.defaultFont
+      height: 48
+      leftPadding: 10
+
+      text: qsTr( "Open Project Folder" )
+      onTriggered: {
+        dashBoard.close()
+        qfieldLocalDataPickerScreen.projectFolderView = true
+        qfieldLocalDataPickerScreen.model.resetToPath(projectInfo.filePath)
+        qfieldLocalDataPickerScreen.visible = true
       }
     }
 
@@ -2534,6 +2550,23 @@ ApplicationWindow {
     height: parent.height
   }
 
+  QFieldLocalDataPickerScreen {
+    id: qfieldLocalDataPickerScreen
+
+    anchors.fill: parent
+    visible: false
+    focus: visible
+
+    onFinished: {
+      visible = false
+      if (model.currentPath === 'root') {
+        welcomeScreen.visible = loading ? false : true
+      }
+    }
+
+    Component.onCompleted: focusstack.addFocusTaker( this )
+  }
+
   WelcomeScreen {
     id: welcomeScreen
     objectName: 'welcomeScreen'
@@ -2547,9 +2580,17 @@ ApplicationWindow {
 
     visible: true
 
-    onShowOpenProjectDialog: {
-      __projectSource = platformUtilities.openProject(this)
+    onOpenLocalDataPicker: {
+      if (platformUtilities.capabilities & PlatformUtilities.CustomLocalDataPicker) {
+        welcomeScreen.visible = false
+        qfieldLocalDataPickerScreen.projectFolderView = false
+        qfieldLocalDataPickerScreen.model.resetToRoot()
+        qfieldLocalDataPickerScreen.visible = true
+      } else {
+        __projectSource = platformUtilities.openProject(this)
+      }
     }
+
     onShowQFieldCloudScreen: {
       welcomeScreen.visible = false
       qfieldCloudScreen.visible = true

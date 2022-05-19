@@ -55,7 +55,7 @@ AndroidPlatformUtilities::AndroidPlatformUtilities()
 
 PlatformUtilities::Capabilities AndroidPlatformUtilities::capabilities() const
 {
-  PlatformUtilities::Capabilities capabilities = Capabilities() | NativeCamera | AdjustBrightness;
+  PlatformUtilities::Capabilities capabilities = Capabilities() | NativeCamera | AdjustBrightness | CustomLocalDataPicker | CustomImport | CustomExport | CustomSend;
 #ifdef WITH_SENTRY
   capabilities |= SentryFramework;
 #endif
@@ -130,6 +130,180 @@ QStringList AndroidPlatformUtilities::qfieldAppDataDirs() const
 {
   const QString dataDirs = getIntentExtra( "QFIELD_APP_DATA_DIRS" );
   return ( !dataDirs.isEmpty() ? dataDirs.split( "--;--" ) : QStringList() );
+}
+
+QString AndroidPlatformUtilities::applicationDirectory() const
+{
+  if ( mActivity.isValid() )
+  {
+    QAndroidJniObject rootDirs = mActivity.callObjectMethod<jstring>( "getApplicationDirectory" );
+    if ( rootDirs.isValid() )
+    {
+      return rootDirs.toString();
+    }
+  }
+
+  return QString();
+}
+
+QStringList AndroidPlatformUtilities::additionalApplicationDirectories() const
+{
+  if ( mActivity.isValid() )
+  {
+    QAndroidJniObject rootDirs = mActivity.callObjectMethod<jstring>( "getAdditionalApplicationDirectories" );
+    if ( rootDirs.isValid() )
+    {
+      return rootDirs.toString().split( "--;--" );
+    }
+  }
+
+  return QStringList();
+}
+
+QStringList AndroidPlatformUtilities::rootDirectories() const
+{
+  if ( mActivity.isValid() )
+  {
+    QAndroidJniObject rootDirs = mActivity.callObjectMethod<jstring>( "getRootDirectories" );
+    if ( rootDirs.isValid() )
+    {
+      return rootDirs.toString().split( "--;--" );
+    }
+  }
+
+  return QStringList();
+}
+
+void AndroidPlatformUtilities::importProjectFolder() const
+{
+  if ( mActivity.isValid() )
+  {
+    QtAndroid::runOnAndroidThread( [] {
+      QAndroidJniObject activity = QtAndroid::androidActivity();
+      if ( activity.isValid() )
+      {
+        activity.callMethod<void>( "triggerImportProjectFolder" );
+      }
+    } );
+  }
+}
+
+void AndroidPlatformUtilities::importProjectArchive() const
+{
+  if ( mActivity.isValid() )
+  {
+    QtAndroid::runOnAndroidThread( [] {
+      QAndroidJniObject activity = QtAndroid::androidActivity();
+      if ( activity.isValid() )
+      {
+        activity.callMethod<void>( "triggerImportProjectArchive" );
+      }
+    } );
+  }
+}
+
+void AndroidPlatformUtilities::importDatasets() const
+{
+  if ( mActivity.isValid() )
+  {
+    QtAndroid::runOnAndroidThread( [] {
+      QAndroidJniObject activity = QtAndroid::androidActivity();
+      if ( activity.isValid() )
+      {
+        activity.callMethod<void>( "triggerImportDatasets" );
+      }
+    } );
+  }
+}
+
+void AndroidPlatformUtilities::sendDatasetTo( const QString &path ) const
+{
+  if ( mActivity.isValid() )
+  {
+    QtAndroid::runOnAndroidThread( [path] {
+      QAndroidJniObject activity = QtAndroid::androidActivity();
+      if ( activity.isValid() )
+      {
+        QAndroidJniObject pathJni = QAndroidJniObject::fromString( path );
+        activity.callMethod<void>( "sendDatasetTo", "(Ljava/lang/String;)V", pathJni.object<jstring>() );
+      }
+    } );
+  }
+}
+
+void AndroidPlatformUtilities::exportDatasetTo( const QString &path ) const
+{
+  if ( mActivity.isValid() )
+  {
+    QtAndroid::runOnAndroidThread( [path] {
+      QAndroidJniObject activity = QtAndroid::androidActivity();
+      if ( activity.isValid() )
+      {
+        QAndroidJniObject pathJni = QAndroidJniObject::fromString( path );
+        activity.callMethod<void>( "exportToFolder", "(Ljava/lang/String;)V", pathJni.object<jstring>() );
+      }
+    } );
+  }
+}
+
+void AndroidPlatformUtilities::removeDataset( const QString &path ) const
+{
+  if ( mActivity.isValid() )
+  {
+    QtAndroid::runOnAndroidThread( [path] {
+      QAndroidJniObject activity = QtAndroid::androidActivity();
+      if ( activity.isValid() )
+      {
+        QAndroidJniObject pathJni = QAndroidJniObject::fromString( path );
+        activity.callMethod<void>( "removeDataset", "(Ljava/lang/String;)V", pathJni.object<jstring>() );
+      }
+    } );
+  }
+}
+
+void AndroidPlatformUtilities::exportFolderTo( const QString &path ) const
+{
+  if ( mActivity.isValid() )
+  {
+    QtAndroid::runOnAndroidThread( [path] {
+      QAndroidJniObject activity = QtAndroid::androidActivity();
+      if ( activity.isValid() )
+      {
+        QAndroidJniObject pathJni = QAndroidJniObject::fromString( path );
+        activity.callMethod<void>( "exportToFolder", "(Ljava/lang/String;)V", pathJni.object<jstring>() );
+      }
+    } );
+  }
+}
+
+void AndroidPlatformUtilities::sendCompressedFolderTo( const QString &path ) const
+{
+  if ( mActivity.isValid() )
+  {
+    QtAndroid::runOnAndroidThread( [path] {
+      QAndroidJniObject activity = QtAndroid::androidActivity();
+      if ( activity.isValid() )
+      {
+        QAndroidJniObject pathJni = QAndroidJniObject::fromString( path );
+        activity.callMethod<void>( "sendCompressedFolderTo", "(Ljava/lang/String;)V", pathJni.object<jstring>() );
+      }
+    } );
+  }
+}
+
+void AndroidPlatformUtilities::removeFolder( const QString &path ) const
+{
+  if ( mActivity.isValid() )
+  {
+    QtAndroid::runOnAndroidThread( [path] {
+      QAndroidJniObject activity = QtAndroid::androidActivity();
+      if ( activity.isValid() )
+      {
+        QAndroidJniObject pathJni = QAndroidJniObject::fromString( path );
+        activity.callMethod<void>( "removeProjectFolder", "(Ljava/lang/String;)V", pathJni.object<jstring>() );
+      }
+    } );
+  }
 }
 
 QString AndroidPlatformUtilities::getIntentExtra( const QString &extra, QAndroidJniObject extras ) const
@@ -274,33 +448,6 @@ ViewStatus *AndroidPlatformUtilities::open( const QString &uri, bool editing )
   return viewStatus;
 }
 
-ProjectSource *AndroidPlatformUtilities::openProject( QObject *parent )
-{
-  checkWriteExternalStoragePermissions();
-
-  QAndroidJniObject activity = QAndroidJniObject::fromString( QStringLiteral( "ch.opengis." APP_PACKAGE_NAME ".QFieldProjectActivity" ) );
-  QAndroidJniObject intent = QAndroidJniObject( "android/content/Intent", "(Ljava/lang/String;)V", activity.object<jstring>() );
-
-  QAndroidJniObject packageName = QAndroidJniObject::fromString( QStringLiteral( "ch.opengis." APP_PACKAGE_NAME ) );
-  QAndroidJniObject className = QAndroidJniObject::fromString( QStringLiteral( "ch.opengis." APP_PACKAGE_NAME ".QFieldProjectActivity" ) );
-
-  intent.callObjectMethod( "setClassName", "(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;", packageName.object<jstring>(), className.object<jstring>() );
-
-  AndroidProjectSource *projectSource = nullptr;
-
-  if ( intent.isValid() )
-  {
-    projectSource = new AndroidProjectSource( parent );
-    QtAndroid::startActivity( intent.object<jobject>(), 103, projectSource );
-  }
-  else
-  {
-    qDebug() << "Something went wrong creating the project intent";
-  }
-
-  return projectSource;
-}
-
 bool AndroidPlatformUtilities::checkPositioningPermissions() const
 {
   // First check for coarse permissions. If the user configured QField to only get coarse permissions
@@ -428,52 +575,15 @@ JNIEXPORT void JNICALL JNI_FUNCTION_NAME( APP_PACKAGE_JNI_NAME, QFieldActivity, 
   return;
 }
 
-JNIEXPORT jobject JNICALL JNI_FUNCTION_NAME( APP_PACKAGE_JNI_NAME, QFieldProjectListAdapter, createImageBitmap )( JNIEnv *env, jobject obj, jstring path )
+JNIEXPORT void JNICALL JNI_FUNCTION_NAME( APP_PACKAGE_JNI_NAME, QFieldActivity, openPath )( JNIEnv *env, jobject obj, jstring path )
 {
-  QImage image( QString( env->GetStringUTFChars( path, NULL ) ) );
-  image = image.scaledToWidth( 255 );
-  if ( image.format() != QImage::Format_RGBA8888 )
+  if ( AppInterface::instance() )
   {
-    image = image.convertToFormat( QImage::Format_RGBA8888 );
+    const char *pathStr = env->GetStringUTFChars( path, NULL );
+    emit AppInterface::instance()->openPath( QString( pathStr ) );
+    env->ReleaseStringUTFChars( path, pathStr );
   }
-
-  QAndroidJniObject config = QAndroidJniObject::getStaticObjectField( "android/graphics/Bitmap$Config",
-                                                                      "ARGB_8888",
-                                                                      "Landroid/graphics/Bitmap$Config;" );
-  QAndroidJniObject bitmap = QAndroidJniObject::callStaticObjectMethod( "android/graphics/Bitmap",
-                                                                        "createBitmap",
-                                                                        "(IILandroid/graphics/Bitmap$Config;)Landroid/graphics/Bitmap;",
-                                                                        image.width(), image.height(), config.object() );
-  AndroidBitmapInfo info;
-  if ( AndroidBitmap_getInfo( env, bitmap.object(), &info ) != ANDROID_BITMAP_RESULT_SUCCESS )
-    return QAndroidJniObject().object();
-
-  if ( info.format != ANDROID_BITMAP_FORMAT_RGBA_8888 )
-    return QAndroidJniObject().object();
-
-  void *pixels;
-  if ( AndroidBitmap_lockPixels( env, bitmap.object(), &pixels ) != ANDROID_BITMAP_RESULT_SUCCESS )
-    return QAndroidJniObject().object();
-
-  if ( info.stride == uint32_t( image.bytesPerLine() ) )
-  {
-    memcpy( pixels, image.constBits(), info.stride * info.height );
-  }
-  else
-  {
-    uchar *bmpPtr = static_cast<uchar *>( pixels );
-    const unsigned width = std::min( info.width, ( uint ) image.width() );
-    const unsigned height = std::min( info.height, ( uint ) image.height() );
-    for ( unsigned y = 0; y < height; y++, bmpPtr += info.stride )
-    {
-      memcpy( bmpPtr, image.constScanLine( y ), width );
-    }
-  }
-
-  if ( AndroidBitmap_unlockPixels( env, bitmap.object() ) != ANDROID_BITMAP_RESULT_SUCCESS )
-    return QAndroidJniObject().object();
-
-  return env->NewLocalRef( bitmap.object() );
+  return;
 }
 
 #ifdef __cplusplus
