@@ -3,6 +3,7 @@ import QtPositioning 5.3
 
 import org.qgis 1.0
 import org.qfield 1.0
+import Theme 1.0
 
 Item {
   id: locator
@@ -16,9 +17,12 @@ Item {
   property alias currentLayer: snappingUtils.currentLayer
 
   /**
-   * GNSS position information
+   * Position-related information
    */
   property var positionInformation: undefined
+  property bool positionLocked: false
+  property bool positionAveraged: false
+  property int positionAveragedCount: 0
 
   /**
    * Overrides any possibility for the user to modify the coordinate.
@@ -67,6 +71,26 @@ Item {
         snappedPoint = inputCoordinate
         snappedCoordinate = mapSettings.screenToCoordinate( snappedPoint )
       }
+    }
+  }
+
+  Rectangle {
+    id: averagedInfoShield
+    visible: positionLocked && positionAveraged
+    anchors.left: crosshairCircle.left
+    anchors.bottom: crosshairCircle.top
+    anchors.bottomMargin: 2
+    width: crosshairCircle.width
+    height: childrenRect.height
+    color: "#99000000"
+    radius: 4
+
+    Text {
+      id: averagedInfo
+      anchors.centerIn: parent
+      text: positionAveragedCount
+      color: "#FFFFFF"
+      font: Theme.tinyFont
     }
   }
 

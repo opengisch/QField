@@ -179,6 +179,18 @@ VisibilityFadingRow {
     ]
     transitions: [ Transition { NumberAnimation { property: "opacity"; duration: 200 } } ]
 
+    onPressed: {
+      if (coordinateLocator.positionLocked) {
+        positionSource.positionAveraged = true;
+      }
+    }
+
+    onReleased: {
+      if (coordinateLocator.positionLocked) {
+        positionSource.positionAveraged = false;
+      }
+    }
+
     onClicked: {
         if ( coordinateLocator && coordinateLocator.overrideLocation !== undefined &&
              positioningSettings.accuracyIndicator && positioningSettings.accuracyRequirement ) {

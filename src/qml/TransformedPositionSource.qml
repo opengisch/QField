@@ -13,7 +13,7 @@ Item{
     property var positionInfos: []
 
     property bool positionAveraged: false
-    property int positionAveragedCount: 0
+    property int positionAveragedCount: positionInfos.length
 
     onPositionAveragedChanged: {
       positionInfos = [];
@@ -25,7 +25,6 @@ Item{
     function collectPositionInformation(posInfo) {
       if (posInfo.latitudeValid && posInfo.longitudeValid) {
         positionInfos.push(posInfo)
-        positionAveragedCount = positionInfos.length
         positionInfo = PositioningUtils.averagedPositionInformation(positionInfos)
       }
     }

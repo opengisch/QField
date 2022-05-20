@@ -481,7 +481,10 @@ ApplicationWindow {
       mapSettings: mapCanvas.mapSettings
       currentLayer: dashBoard.currentLayer
       positionInformation: positionSource.positionInfo
-      overrideLocation: gpsLinkButton.linkActive ? positionSource.projectedPosition : undefined
+      positionLocked: gpsLinkButton.linkActive
+      positionAveraged: positionSource.positionAveraged
+      positionAveragedCount: positionSource.positionAveragedCount
+      overrideLocation: positionLocked ? positionSource.projectedPosition : undefined
     }
 
     Navigation {
