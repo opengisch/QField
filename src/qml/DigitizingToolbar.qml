@@ -191,6 +191,12 @@ VisibilityFadingRow {
       }
     }
 
+    onCanceled: {
+      if (coordinateLocator.positionLocked) {
+        positionSource.positionAveraged = false;
+      }
+    }
+
     onClicked: {
         if (coordinateLocator && coordinateLocator.overrideLocation !== undefined &&
              positioningSettings.accuracyIndicator && positioningSettings.accuracyRequirement) {
