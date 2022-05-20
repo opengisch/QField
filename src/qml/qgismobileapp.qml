@@ -827,6 +827,9 @@ ApplicationWindow {
     allowLayerChange: !digitizingToolbar.isDigitizing
     mapSettings: mapCanvas.mapSettings
     interactive: !welcomeScreen.visible
+                 && !qfieldSettings.visible
+                 && !qfieldCloudScreen.visible
+                 && !qfieldLocalDataPickerScreen.visible
 
     onOpenedChanged: {
       if ( !opened ) {
