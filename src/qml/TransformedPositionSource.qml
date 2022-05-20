@@ -8,8 +8,27 @@ import org.qgis 1.0
 Item{
     id: positionSource
 
-    // GnssPositionInformation object
+    // GnssPositionInformation objects
     property var positionInfo
+    property var positionInfos: []
+
+    property bool positionAveraged: false
+    property int positionAveragedCount: 0
+
+    onPositionAveragedChanged: {
+      positionInfos = [];
+      if (positionAveraged && positionInfo !== undefined) {
+        positionInfos = [positionInfo];
+      }
+    }
+
+    function collectPositionInformation(posInfo) {
+      if (posInfo.latitudeValid && posInfo.longitudeValid) {
+        positionInfos.push(posInfo)
+        positionAveragedCount = positionInfos.length
+        positionInfo = PositioningUtils.averagedPositionInformation(positionInfos)
+      }
+    }
 
     property alias destinationCrs: _ct.destinationCrs
     property alias projectedPosition: _ct.projectedPosition
@@ -94,18 +113,23 @@ Item{
 
         onPositionChanged: {
             if (!bluetoothPositionSource.valid) {
-              positionSource.positionInfo = bluetoothPositionSource.createGnssPositionInformation(
-                    qtPositionSource.position.coordinate.latitude,
-                    qtPositionSource.position.coordinate.longitude,
-                    qtPositionSource.position.coordinate.altitude,
-                    qtPositionSource.position.speed,
-                    qtPositionSource.position.direction,
-                    qtPositionSource.position.horizontalAccuracy,
-                    qtPositionSource.position.verticalAccuracy,
-                    qtPositionSource.position.verticalSpeed,
-                    qtPositionSource.position.magneticVariation,
-                    qtPositionSource.position.timestamp,
-                    qtPositionSource.name)
+                var posInfo = bluetoothPositionSource.createGnssPositionInformation(
+                  qtPositionSource.position.coordinate.latitude,
+                  qtPositionSource.position.coordinate.longitude,
+                  qtPositionSource.position.coordinate.altitude,
+                  qtPositionSource.position.speed,
+                  qtPositionSource.position.direction,
+                  qtPositionSource.position.horizontalAccuracy,
+                  qtPositionSource.position.verticalAccuracy,
+                  qtPositionSource.position.verticalSpeed,
+                  qtPositionSource.position.magneticVariation,
+                  qtPositionSource.position.timestamp,
+                  qtPositionSource.name)
+                if (positionAveraged) {
+                    collectPositionInformation(posInfo)
+                } else {
+                    positionSource.positionInfo = posInfo
+                }
             }
         }
     }
@@ -130,7 +154,11 @@ Item{
 
         onLastGnssPositionInformationChanged: {
             if (valid) {
-               positionSource.positionInfo = lastGnssPositionInformation
+                if (positionAveraged) {
+                     collectPositionInformation(lastGnssPositionInformation)
+                 } else {
+                     positionSource.positionInfo = lastGnssPositionInformation
+                }
             }
         }
     }
