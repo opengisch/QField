@@ -29,17 +29,19 @@ class QFIELD_CORE_EXPORT FileUtils : public QObject
 
   public:
     explicit FileUtils( QObject *parent = nullptr );
-    //! Destructor
     ~FileUtils() = default;
 
-    //! returns the mimetype of a filepath as string
+    //! Returns the mimetype of a filepath as string
     Q_INVOKABLE static QString mimeTypeName( const QString &filePath );
-    //! returns the filename of a filepath - if no file name exists it's empty
+    //! Returns the filename of a filepath - if no file name exists it's empty
     Q_INVOKABLE static QString fileName( const QString &filePath );
-    //! returns true if the file exists (false if it's a directory)
+    //! Returns true if the file exists (false if it's a directory)
     Q_INVOKABLE static bool fileExists( const QString &filePath );
-    //! returns the suffix (extension)
+    //! Returns the suffix (extension)
     Q_INVOKABLE static QString fileSuffix( const QString &filePath );
+    //! Returns a human-friendly size from bytes
+    Q_INVOKABLE static QString representFileSize( qint64 bytes );
+
     static bool copyRecursively( const QString &sourceFolder, const QString &destFolder, QgsFeedback *feedback = nullptr, bool wipeDestFolder = true );
     /**
      * Creates checksum of a file. Returns null QByteArray if cannot be calculated.

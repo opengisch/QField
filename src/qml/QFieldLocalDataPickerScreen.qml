@@ -200,10 +200,10 @@ Page {
                     info = qsTr('Project file');
                     break;
                   case LocalFilesModel.VectorDataset:
-                    info = qsTr('Vector dataset') + ' (' + ItemFormat + ')';
+                    info = qsTr('Vector dataset') + ' (' + FileUtils.representFileSize(ItemSize) + ', ' + ItemFormat + ')';
                     break;
                   case LocalFilesModel.RasterDataset:
-                    info = qsTr('Raster dataset') + ' (' + ItemFormat + ')';
+                    info = qsTr('Raster dataset') + ' (' + FileUtils.representFileSize(ItemSize) + ', ' + ItemFormat + ')';
                     break;
                   }
                   return info;
