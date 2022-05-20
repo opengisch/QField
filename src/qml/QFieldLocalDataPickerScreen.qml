@@ -124,6 +124,8 @@ Page {
           property int itemType: ItemType
           property string itemTitle: ItemTitle
           property string itemPath: ItemPath
+          property bool itemMenuLoadable: !projectFolderView &&
+                                          (ItemMetaType === LocalFilesModel.Project || ItemMetaType === LocalFilesModel.Dataset)
           property bool itemMenuVisible: (platformUtilities.capabilities & PlatformUtilities.CustomExport ||
                                           platformUtilities.capabilities & PlatformUtilities.CustomSend) &&
                                          (ItemMetaType === LocalFilesModel.Dataset
@@ -183,8 +185,8 @@ Page {
                 Layout.preferredHeight: contentHeight
                 text: ItemTitle
                 font.pointSize: Theme.defaultFont.pointSize
-                font.underline: true
-                color: Theme.mainColor
+                font.underline: itemMenuLoadable
+                color: itemMenuLoadable ? Theme.mainColor : "black"
                 wrapMode: Text.WordWrap
               }
               Text {
@@ -269,7 +271,7 @@ Page {
                   table.contentX + mouse.x,
                   table.contentY + mouse.y
                   )
-            if (item) {
+            if (item && item.itemMenuLoadable) {
               pressedItem = item.children[0].children[1].children[0]
               pressedItem.color = "#5a8725"
             }
