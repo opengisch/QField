@@ -888,52 +888,57 @@ De geometrieën van objecten zullen worden gecombineerd tot object &apos;%1&apos
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/qml/LayerTreeItemProperties.qml" line="148"/>
+        <location filename="../src/qml/LayerTreeItemProperties.qml" line="149"/>
+        <source>Zoom to parent layer</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/qml/LayerTreeItemProperties.qml" line="150"/>
         <source>Zoom to layer</source>
         <translation>Zoom naar laag</translation>
     </message>
     <message>
-        <location filename="../src/qml/LayerTreeItemProperties.qml" line="164"/>
+        <location filename="../src/qml/LayerTreeItemProperties.qml" line="166"/>
         <source>Reload data</source>
         <translation>Herladen data</translation>
     </message>
     <message>
-        <location filename="../src/qml/LayerTreeItemProperties.qml" line="172"/>
+        <location filename="../src/qml/LayerTreeItemProperties.qml" line="174"/>
         <source>Reload of layer %1 triggered</source>
         <translation>Herladen van laag %1 geactiveerd</translation>
     </message>
     <message>
-        <location filename="../src/qml/LayerTreeItemProperties.qml" line="180"/>
+        <location filename="../src/qml/LayerTreeItemProperties.qml" line="182"/>
         <source>Show features list</source>
         <translation>Toon objectenlijst</translation>
     </message>
     <message>
-        <location filename="../src/qml/LayerTreeItemProperties.qml" line="186"/>
+        <location filename="../src/qml/LayerTreeItemProperties.qml" line="188"/>
         <source>The layer has no features</source>
         <translation>De laag heeft geen objecten</translation>
     </message>
     <message>
-        <location filename="../src/qml/LayerTreeItemProperties.qml" line="217"/>
+        <location filename="../src/qml/LayerTreeItemProperties.qml" line="219"/>
         <source>Track on layer %1 stopped</source>
         <translation>Volgen op laag %1 gestopt</translation>
     </message>
     <message>
-        <location filename="../src/qml/LayerTreeItemProperties.qml" line="239"/>
+        <location filename="../src/qml/LayerTreeItemProperties.qml" line="241"/>
         <source>Read-Only Layer</source>
         <translation>Alleen lezen Laag</translation>
     </message>
     <message>
-        <location filename="../src/qml/LayerTreeItemProperties.qml" line="239"/>
+        <location filename="../src/qml/LayerTreeItemProperties.qml" line="241"/>
         <source>Geometry Locked Layer</source>
         <translation>Geometrie vergrendelde laag</translation>
     </message>
     <message>
-        <location filename="../src/qml/LayerTreeItemProperties.qml" line="246"/>
+        <location filename="../src/qml/LayerTreeItemProperties.qml" line="248"/>
         <source>This layer is configured as &quot;Read-Only&quot; which disables adding, deleting and editing features.</source>
         <translation>Deze laag is geconfigureerd als &quot;Alleen-lezen&quot;, wat het toevoegen, verwijderen en bewerken van objecten uitschakelt.</translation>
     </message>
     <message>
-        <location filename="../src/qml/LayerTreeItemProperties.qml" line="248"/>
+        <location filename="../src/qml/LayerTreeItemProperties.qml" line="250"/>
         <source>This layer is configured as &quot;Lock Geometries&quot; which disables adding and deleting features, as well as modifying the geometries of existing features.</source>
         <translation>Deze laag is geconfigureerd als &quot;Geometrieën vergrendelen&quot;, wat het toevoegen en verwijderen van objecten uitschakelt, evenals het wijzigen van de geometrieën van bestaande objecten.</translation>
     </message>
@@ -993,6 +998,36 @@ De geometrieën van objecten zullen worden gecombineerd tot object &apos;%1&apos
         <location filename="../src/core/utils/layerutils.cpp" line="325"/>
         <source>Cannot add new feature in layer &quot;%1&quot;.</source>
         <translation>Kan geen nieuw object toevoegen aan laag &quot;%1&quot;.</translation>
+    </message>
+</context>
+<context>
+    <name>LocalFilesModel</name>
+    <message>
+        <location filename="../src/core/localfilesmodel.cpp" line="93"/>
+        <location filename="../src/core/localfilesmodel.cpp" line="177"/>
+        <source>QField files directory</source>
+        <translation>QField bestanden map</translation>
+    </message>
+    <message>
+        <location filename="../src/core/localfilesmodel.cpp" line="97"/>
+        <source>Imported projects</source>
+        <translation>Geïmporteerde projecten</translation>
+    </message>
+    <message>
+        <location filename="../src/core/localfilesmodel.cpp" line="101"/>
+        <source>Imported datasets</source>
+        <translation>Geïmporteerde datasets</translation>
+    </message>
+    <message>
+        <location filename="../src/core/localfilesmodel.cpp" line="105"/>
+        <location filename="../src/core/localfilesmodel.cpp" line="186"/>
+        <source>Additional files directory</source>
+        <translation>Extra bestanden map</translation>
+    </message>
+    <message>
+        <location filename="../src/core/localfilesmodel.cpp" line="109"/>
+        <source>Sample projects</source>
+        <translation>Voorbeeldprojecten</translation>
     </message>
 </context>
 <context>
@@ -1288,42 +1323,42 @@ De geometrieën van objecten zullen worden gecombineerd tot object &apos;%1&apos
 <context>
     <name>PlatformUtilities</name>
     <message>
-        <location filename="../src/core/platforms/platformutilities.cpp" line="125"/>
+        <location filename="../src/core/platforms/platformutilities.cpp" line="140"/>
         <source>Select Media File</source>
         <translation>Selecteer mediabestand</translation>
     </message>
     <message>
-        <location filename="../src/core/platforms/platformutilities.cpp" line="125"/>
+        <location filename="../src/core/platforms/platformutilities.cpp" line="140"/>
         <source>JPEG images (*.jpg *.jpeg)</source>
         <translation>JPEG afbeeldingen (*.jpg *.jpeg)</translation>
     </message>
     <message>
-        <location filename="../src/core/platforms/platformutilities.cpp" line="145"/>
+        <location filename="../src/core/platforms/platformutilities.cpp" line="160"/>
         <source>Failed to save gallery picture</source>
         <translation>Kan galerijafbeelding niet opslaan</translation>
     </message>
     <message>
-        <location filename="../src/core/platforms/platformutilities.cpp" line="163"/>
+        <location filename="../src/core/platforms/platformutilities.cpp" line="178"/>
         <source>Open File</source>
         <translation>Open Bestand</translation>
     </message>
     <message>
-        <location filename="../src/core/platforms/platformutilities.cpp" line="165"/>
+        <location filename="../src/core/platforms/platformutilities.cpp" line="180"/>
         <source>All Supported Files</source>
         <translation>Alle ondersteunde bestanden</translation>
     </message>
     <message>
-        <location filename="../src/core/platforms/platformutilities.cpp" line="165"/>
+        <location filename="../src/core/platforms/platformutilities.cpp" line="180"/>
         <source>QGIS Project Files</source>
         <translation>QGIS project bestanden</translation>
     </message>
     <message>
-        <location filename="../src/core/platforms/platformutilities.cpp" line="165"/>
+        <location filename="../src/core/platforms/platformutilities.cpp" line="180"/>
         <source>Vector Datasets</source>
         <translation>Vectorgegevenssets</translation>
     </message>
     <message>
-        <location filename="../src/core/platforms/platformutilities.cpp" line="165"/>
+        <location filename="../src/core/platforms/platformutilities.cpp" line="180"/>
         <source>Raster Datasets</source>
         <translation>Rastergegevenssets</translation>
     </message>
@@ -2080,6 +2115,100 @@ Hoewel u het project nog steeds kunt bekijken en gebruiken, wordt het ten zeerst
     </message>
 </context>
 <context>
+    <name>QFieldLocalDataPickerScreen</name>
+    <message>
+        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="20"/>
+        <source>Project Folder</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="21"/>
+        <source>Local Projects &amp; Datasets</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="106"/>
+        <source>Folders</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="108"/>
+        <source>Projects</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="110"/>
+        <source>Datasets</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="112"/>
+        <source>Favorites</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="198"/>
+        <source>Project file</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="201"/>
+        <source>Vector dataset</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="204"/>
+        <source>Raster dataset</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="355"/>
+        <source>Send to...</source>
+        <translation>Versturen naar...</translation>
+    </message>
+    <message>
+        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="369"/>
+        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="398"/>
+        <source>Export to folder...</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="384"/>
+        <source>Remove dataset</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="412"/>
+        <source>Send compressed folder to...</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="427"/>
+        <source>Remove project folder</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="455"/>
+        <source>Import project from folder</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="467"/>
+        <source>Import project from ZIP</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="479"/>
+        <source>Import dataset(s)</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="493"/>
+        <source>Storage management help</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
     <name>QFieldSettings</name>
     <message>
         <location filename="../src/qml/QFieldSettings.qml" line="52"/>
@@ -2460,18 +2589,18 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
 <context>
     <name>QgisMobileapp</name>
     <message>
-        <location filename="../src/core/qgismobileapp.cpp" line="652"/>
-        <location filename="../src/core/qgismobileapp.cpp" line="678"/>
+        <location filename="../src/core/qgismobileapp.cpp" line="657"/>
+        <location filename="../src/core/qgismobileapp.cpp" line="683"/>
         <source>Project file &quot;%1&quot; does not exist</source>
         <translation>Projectbestand &quot;%1&quot; bestaat niet</translation>
     </message>
     <message>
-        <location filename="../src/core/qgismobileapp.cpp" line="669"/>
+        <location filename="../src/core/qgismobileapp.cpp" line="674"/>
         <source>No project file currently opened</source>
         <translation>Momenteel geen projectbestand geopend</translation>
     </message>
     <message>
-        <location filename="../src/core/qgismobileapp.cpp" line="700"/>
+        <location filename="../src/core/qgismobileapp.cpp" line="705"/>
         <source>Could not load font %1</source>
         <translation>Kon lettertype %1 niet laden</translation>
     </message>
@@ -2877,18 +3006,18 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
     <message>
         <location filename="../src/qml/qgismobileapp.qml" line="661"/>
         <location filename="../src/qml/qgismobileapp.qml" line="679"/>
-        <location filename="../src/qml/qgismobileapp.qml" line="1758"/>
-        <location filename="../src/qml/qgismobileapp.qml" line="1839"/>
-        <location filename="../src/qml/qgismobileapp.qml" line="2001"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1774"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1855"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2017"/>
         <source>Lon</source>
         <translation>Lon</translation>
     </message>
     <message>
         <location filename="../src/qml/qgismobileapp.qml" line="663"/>
         <location filename="../src/qml/qgismobileapp.qml" line="681"/>
-        <location filename="../src/qml/qgismobileapp.qml" line="1760"/>
-        <location filename="../src/qml/qgismobileapp.qml" line="1839"/>
-        <location filename="../src/qml/qgismobileapp.qml" line="2001"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1776"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1855"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2017"/>
         <source>Lat</source>
         <translation>Lat</translation>
     </message>
@@ -3010,63 +3139,72 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
     </message>
     <message>
         <location filename="../src/qml/qgismobileapp.qml" line="1534"/>
-        <location filename="../src/qml/qgismobileapp.qml" line="1650"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1666"/>
         <source>Print to PDF</source>
         <translation>Afdrukken naar PDF</translation>
     </message>
     <message>
         <location filename="../src/qml/qgismobileapp.qml" line="1548"/>
-        <location filename="../src/qml/qgismobileapp.qml" line="1690"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1706"/>
         <source>Printing to PDF</source>
         <translation>Afdrukken naar PDF</translation>
     </message>
     <message>
         <location filename="../src/qml/qgismobileapp.qml" line="1565"/>
-        <source>Open Project</source>
-        <translation>Open project</translation>
+        <source>Go to Home Screen</source>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1577"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1581"/>
+        <source>Open Project Folder</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Open Project</source>
+        <translation type="vanished">Open project</translation>
+    </message>
+    <message>
+        <location filename="../src/qml/qgismobileapp.qml" line="1593"/>
         <source>Settings</source>
         <translation>Instellingen</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1591"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1607"/>
         <source>Message Log</source>
         <translation>Logboekmeldingen</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1605"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1621"/>
         <source>About QField</source>
         <translation>Over QField</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1666"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1682"/>
         <source>Select template below</source>
         <translation>Selecteer hieronder een sjabloon</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1735"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1751"/>
         <source>Activating positioning service</source>
         <translation>Positioneringsservice activeren</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1740"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1756"/>
         <source>QField has no permissions to use positioning.</source>
         <translation>QField heeft onvoldoende rechten voor localisering.</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1753"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1769"/>
         <source>Map Canvas Options</source>
         <translation>Kaartcanvas opties</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1797"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1813"/>
         <source>Add Bookmark</source>
         <translation>Voeg bladwijzer toe</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1818"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1834"/>
         <source>Set as Destination</source>
         <translation>Instellen als bestemming</translation>
     </message>
@@ -3075,7 +3213,7 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
         <translation type="vanished">Bladwijzer toevoegen bij Coördinaten</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1804"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1820"/>
         <source>Untitled bookmark</source>
         <translation>Naamloze bladwijzer</translation>
     </message>
@@ -3084,49 +3222,49 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
         <translation type="vanished">Coördinaten instellen als bestemming</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1831"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1847"/>
         <source>Copy Coordinates</source>
         <translation>Kopieer Coördinaten</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1841"/>
-        <location filename="../src/qml/qgismobileapp.qml" line="2003"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1857"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2019"/>
         <source>X</source>
         <translation>X</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1841"/>
-        <location filename="../src/qml/qgismobileapp.qml" line="2003"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1857"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2019"/>
         <source>Y</source>
         <translation>Y</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1846"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1862"/>
         <source>Coordinates copied to clipboard</source>
         <translation>Coördinaten gekopieerd naar klembord</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1951"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1967"/>
         <source>Center to Location</source>
         <translation>Centreren op locatie</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1962"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1978"/>
         <source>Add Bookmark at Location</source>
         <translation>Bladwijzer toevoegen aan locatie</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1987"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2003"/>
         <source>Copy Location Coordinates</source>
         <translation>Coördinaten van locatie kopiëren</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2456"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2472"/>
         <source>Signed out</source>
         <translation>Uitgelogd</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2460"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2476"/>
         <source>Signed in</source>
         <translation>Ingelogd</translation>
     </message>
@@ -3135,32 +3273,32 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
         <translation type="vanished">Instellen als bestemming</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1853"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1869"/>
         <source>Navigation Options</source>
         <translation>Navigatie-opties</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1869"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1885"/>
         <source>Clear Destination</source>
         <translation>Bestemming wissen</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1881"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1897"/>
         <source>Positioning Options</source>
         <translation>Positioneringsopties</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1907"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1923"/>
         <source>Enable Positioning</source>
         <translation>Schakel positionering in</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1922"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1938"/>
         <source>Show Position Information</source>
         <translation>Toon Positie Informatie</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1937"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1953"/>
         <source>Positioning Settings</source>
         <translation>Positionerings-instellingen</translation>
     </message>
@@ -3173,13 +3311,13 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
         <translation type="vanished">Bladwijzer toevoegen op huidige locatie</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1970"/>
-        <location filename="../src/qml/qgismobileapp.qml" line="1994"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1986"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2010"/>
         <source>Current location unknown</source>
         <translation>Huidige locatie onbekend</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1974"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1990"/>
         <source>My location</source>
         <translation>Mijn locatie</translation>
     </message>
@@ -3188,32 +3326,32 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
         <translation type="vanished">Kopieer huidige locatie</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2005"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2021"/>
         <source>Accuracy</source>
         <translation>Nauwkeurigheid</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2008"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2024"/>
         <source>N/A</source>
         <translation>N/B</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2012"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2028"/>
         <source>Current location copied to clipboard</source>
         <translation>Huidige locatie gekopieerd naar klembord</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2050"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2066"/>
         <source>Current layer switched to the one holding the selected geometry.</source>
         <translation>De huidige laag is overgeschakeld naar de laag die de geselecteerde geometrie bevat.</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2059"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2075"/>
         <source>Editing of multi geometry layer is not supported yet.</source>
         <translation>Het bewerken van een laag met meerdere geometrieën wordt nog niet ondersteund.</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2172"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2188"/>
         <source>Loading %1</source>
         <translation>Laden %1</translation>
     </message>
@@ -3222,7 +3360,7 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
         <translation type="vanished">Uitgelogd</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2458"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2474"/>
         <source>Connecting...</source>
         <translation>Verbinden...</translation>
     </message>
@@ -3231,27 +3369,27 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
         <translation type="vanished">Ingelogd</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2475"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2491"/>
         <source>Project %1 failed to download</source>
         <translation>Kan project %1 niet downloaden</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2476"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2492"/>
         <source>Project %1 successfully downloaded, it&apos;s now available to open</source>
         <translation>Project %1 is gedownload, het is nu beschikbaar om te openen</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2481"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2497"/>
         <source>Changes failed to reach QFieldCloud: %1</source>
         <translation>Wijzigingen bereikten QFieldCloud niet: %1</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2485"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2501"/>
         <source>Changes successfully pushed to QFieldCloud</source>
         <translation>Wijzigingen zijn met succes naar QFieldCloud gepusht</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2710"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2751"/>
         <source>Press back again to close project and app</source>
         <translation>Druk nogmaals op terug om het project en app te sluiten</translation>
     </message>
