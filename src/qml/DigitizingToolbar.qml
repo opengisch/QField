@@ -41,16 +41,16 @@ VisibilityFadingRow {
 
       function onVertexCountChanged() {
           // set geometry valid
-          if ( Number( rubberbandModel ? rubberbandModel.geometryType : 0 ) === 0 )
+          if (Number( rubberbandModel ? rubberbandModel.geometryType : 0 ) === 0)
           {
             geometryValid = false
           }
-          else if  ( Number( rubberbandModel.geometryType ) === 1 )
+          else if (Number( rubberbandModel.geometryType ) === 1)
           {
             // Line: at least 2 points
             geometryValid = rubberbandModel.vertexCount > 1
           }
-          else if  ( Number( rubberbandModel.geometryType ) === 2 )
+          else if (Number( rubberbandModel.geometryType ) === 2)
           {
             // Polygon: at least 3 points
             geometryValid = rubberbandModel.vertexCount > 2
@@ -102,7 +102,7 @@ VisibilityFadingRow {
       Theme.getThemeIcon( "ic_check_white_48dp" )
     }
     visible: {
-      if ( !showConfirmButton )
+      if (!showConfirmButton)
       {
         false
       }
@@ -126,11 +126,11 @@ VisibilityFadingRow {
     repeat: true
 
     onTriggered: {
-      if ( !rubberbandModel || rubberbandModel.vertexCount == 0)
+      if (!rubberbandModel || rubberbandModel.vertexCount == 0)
         stop();
 
       removeVertex()
-      if ( interval > 100 ) interval = interval * 0.8;
+      if (interval > 100) interval = interval * 0.8;
     }
   }
 
@@ -192,20 +192,20 @@ VisibilityFadingRow {
     }
 
     onClicked: {
-        if ( coordinateLocator && coordinateLocator.overrideLocation !== undefined &&
-             positioningSettings.accuracyIndicator && positioningSettings.accuracyRequirement ) {
-          if ( positioningSettings.accuracyBad > 0 &&
-               ( !coordinateLocator.positionInformation ||
+        if (coordinateLocator && coordinateLocator.overrideLocation !== undefined &&
+             positioningSettings.accuracyIndicator && positioningSettings.accuracyRequirement) {
+          if (positioningSettings.accuracyBad > 0 &&
+               (!coordinateLocator.positionInformation ||
                  !coordinateLocator.positionInformation.haccValid ||
-                  coordinateLocator.positionInformation.hacc >= positioningSettings.accuracyBad ) )
+                  coordinateLocator.positionInformation.hacc >= positioningSettings.accuracyBad))
           {
             displayToast( qsTr( "Position accuracy doesn't meet the minimum requirement, vertex not added" ), 'warning' )
             return;
           }
         }
 
-        if ( Number( rubberbandModel.geometryType ) === QgsWkbTypes.PointGeometry ||
-             Number( rubberbandModel.geometryType ) === QgsWkbTypes.NullGeometry ) {
+        if (Number(rubberbandModel.geometryType) === QgsWkbTypes.PointGeometry ||
+            Number(rubberbandModel.geometryType) === QgsWkbTypes.NullGeometry) {
             confirm()
         } else {
             addVertex()
