@@ -16,6 +16,7 @@
 
 #include "localfilesmodel.h"
 #include "platformutilities.h"
+#include "qfieldcloudutils.h"
 #include "qgismobileapp.h"
 
 #include <QDir>
@@ -107,6 +108,14 @@ const QString LocalFilesModel::getCurrentTitleFromPath( const QString &path ) co
   else if ( path == PlatformUtilities::instance()->systemGenericDataLocation() + QStringLiteral( "/qfield/sample_projects" ) )
   {
     return tr( "Sample projects" );
+  }
+  else
+  {
+    const QString cloudProjectId = QFieldCloudUtils::getProjectId( path );
+    if ( !cloudProjectId.isEmpty() )
+    {
+      return QFieldCloudUtils::projectSetting( cloudProjectId, QStringLiteral( "name" ), QString() ).toString();
+    }
   }
 
   return QFileInfo( path ).fileName();
