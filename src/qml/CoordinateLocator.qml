@@ -81,7 +81,7 @@ Item {
     anchors.bottom: crosshairCircle.top
     anchors.bottomMargin: 2
     width: crosshairCircle.width
-    height: childrenRect.height
+    height: averagedInfo.contentHeight
     color: "#99000000"
     radius: 4
 

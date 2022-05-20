@@ -631,7 +631,7 @@ Rectangle {
       icon.source: Theme.getThemeVectorIcon( "ic_move_white_24dp" )
       enabled: (
                  (projectInfo.editRights || editButton.isCreatedCloudFeature)
-                 && !selection.focusedLayer.customProperty( "QFieldSync/is_geometry_locked", false )
+                 && (!selection.focusedLayer || !selection.focusedLayer.customProperty( "QFieldSync/is_geometry_locked", false ))
       )
       visible: enabled
 
@@ -648,7 +648,7 @@ Rectangle {
       icon.source: Theme.getThemeVectorIcon( "ic_duplicate_black_24dp" )
       enabled: (
                  projectInfo.insertRights
-                 && !selection.focusedLayer.customProperty( "QFieldSync/is_geometry_locked", false )
+                 && (!selection.focusedLayer || !selection.focusedLayer.customProperty( "QFieldSync/is_geometry_locked", false ))
       )
       visible: enabled
 
@@ -665,7 +665,7 @@ Rectangle {
       icon.source: Theme.getThemeIcon( "ic_delete_forever_white_24dp" )
       enabled: (
                  (projectInfo.editRights || editButton.isCreatedCloudFeature)
-                 && !selection.focusedLayer.customProperty( "QFieldSync/is_geometry_locked", false )
+                 && (!selection.focusedLayer || !selection.focusedLayer.customProperty( "QFieldSync/is_geometry_locked", false ))
       )
       visible: enabled
 
