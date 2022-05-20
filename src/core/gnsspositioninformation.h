@@ -244,7 +244,7 @@ class GnssPositionInformation
     FixStatus fixStatus() const;
 
     /**
-     * Returns a descriptive string for the signal quality.
+     * Returns a descriptive string for the signal quality
      */
     QString qualityDescription() const;
 

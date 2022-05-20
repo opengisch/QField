@@ -5,6 +5,7 @@ set(QFIELD_CORE_SRCS
     utils/fileutils.cpp
     utils/geometryutils.cpp
     utils/layerutils.cpp
+    utils/positioningutils.cpp
     utils/qfieldcloudutils.cpp
     utils/snappingutils.cpp
     utils/stringutils.cpp
@@ -97,6 +98,7 @@ set(QFIELD_CORE_HDRS
     utils/fileutils.h
     utils/geometryutils.h
     utils/layerutils.h
+    utils/positioningutils.cpp
     utils/qfieldcloudutils.h
     utils/snappingutils.h
     utils/stringutils.h
