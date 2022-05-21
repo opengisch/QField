@@ -8,7 +8,7 @@ import Theme 1.0
 Item {
   id: locator
   property MapSettings mapSettings
-  property color color: "#263238"
+  property color mainColor: "#263238"
   property color highlightColor: "#CFD8DC"
 
   /**
@@ -75,22 +75,57 @@ Item {
   }
 
   Rectangle {
+    id: averagedInfoShieldOutline
+    visible: averagedInfoShield.visible
+    anchors.centerIn: averagedInfoShield
+    width: averagedInfoShield.width + 2.4
+    height: averagedInfoShield.height + 2.4
+    color: "transparent"
+    radius: 4
+    border.color: highlightColor
+    border.width: 1.2
+  }
+
+  Rectangle {
     id: averagedInfoShield
     visible: positionLocked && positionAveraged
     anchors.left: crosshairCircle.left
+    anchors.leftMargin: 4
     anchors.bottom: crosshairCircle.top
-    anchors.bottomMargin: 2
-    width: crosshairCircle.width
+    anchors.bottomMargin: 3
+    width: crosshairCircle.width - 8
     height: averagedInfo.contentHeight
-    color: "#99000000"
+    color: "#44263238"
     radius: 4
+    border.color: mainColor
+    border.width: 1.2
+    clip: true
+
+    Rectangle {
+      anchors.top: parent.top
+      anchors.topMargin: 1.2
+      anchors.left: parent.left
+      anchors.leftMargin: 1.2
+      height: parent.height - 2.4
+      width: parent.width / 2 - 2.4
+      radius: 4
+      color: Theme.positionColor
+
+      SequentialAnimation on color  {
+        loops: Animation.Infinite
+        ColorAnimation  { from: Theme.positionColor; to: Theme.darkPositionColor; duration: 2000; easing.type: Easing.InOutQuad }
+        ColorAnimation  { from: Theme.darkPositionColor; to: Theme.positionColor; duration: 1000; easing.type: Easing.InOutQuad }
+      }
+    }
 
     Text {
       id: averagedInfo
       anchors.centerIn: parent
       text: positionAveragedCount
-      color: "#FFFFFF"
-      font: Theme.tinyFont
+      color: mainColor
+      font.pointSize: Theme.tinyFont.pointSize - 2
+      style: Text.Outline
+      styleColor: highlightColor
     }
   }
 
@@ -131,7 +166,7 @@ Item {
       NumberAnimation { duration: 100 }
     }
 
-    border.color: parent.color
+    border.color: mainColor
 
     Behavior on border.color {
       ColorAnimation {
@@ -147,7 +182,7 @@ Item {
       target: snappingUtils
 
       function onSnappingResultChanged() {
-        crosshairCircle.border.color = overrideLocation == undefined ? ( snappingUtils.snappingResult.isValid ? "#9b59b6" : locator.color ) : "#AD1457"
+        crosshairCircle.border.color = overrideLocation == undefined ? ( snappingUtils.snappingResult.isValid ? "#9b59b6" : locator.mainColor ) : "#AD1457"
         crosshairCircle.width = snappingUtils.snappingResult.isValid ? 32: 48
       }
     }

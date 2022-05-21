@@ -5,7 +5,7 @@ import QtBluetooth 5.14
 import org.qfield 1.0
 import org.qgis 1.0
 
-Item{
+Item {
     id: positionSource
 
     // GnssPositionInformation objects
