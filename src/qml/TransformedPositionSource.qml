@@ -114,7 +114,7 @@ Item {
 
         onPositionChanged: {
             if (!bluetoothPositionSource.valid) {
-                var posInfo = bluetoothPositionSource.createGnssPositionInformation(
+                var posInfo = PositioningUtils.createGnssPositionInformation(
                   qtPositionSource.position.coordinate.latitude,
                   qtPositionSource.position.coordinate.longitude,
                   qtPositionSource.position.coordinate.altitude,

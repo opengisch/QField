@@ -47,12 +47,6 @@ class BluetoothReceiver : public QObject
     QString socketStateString() const { return mSocketStateString; }
 
     /**
-     * Creates a GnssPositionInformation with values.
-     * The status will be set to "A"ctive by default.
-     */
-    static Q_INVOKABLE GnssPositionInformation createGnssPositionInformation( double latitude, double longitude, double altitude, double speed, double direction, double horizontalAccuracy, double verticalAcurracy, double verticalSpeed, double magneticVariation, const QDateTime &timestamp, const QString &sourceName );
-
-    /**
      * Sets whether the elevation value provided will be ellipsoidal or, if not, orthometric
      */
     void setEllipsoidalElevation( const bool ellipsoidalElevation );

@@ -30,6 +30,12 @@ class QFIELD_CORE_EXPORT PositioningUtils : public QObject
     explicit PositioningUtils( QObject *parent = nullptr );
 
     /**
+     * Creates a GnssPositionInformation with values.
+     * The status will be set to "A"ctive by default.
+     */
+    static Q_INVOKABLE GnssPositionInformation createGnssPositionInformation( double latitude, double longitude, double altitude, double speed, double direction, double horizontalAccuracy, double verticalAcurracy, double verticalSpeed, double magneticVariation, const QDateTime &timestamp, const QString &sourceName );
+
+    /**
      * Returns an average GnssPositionInformation from a list of position information
      */
     static GnssPositionInformation averagedPositionInformation( const QList<GnssPositionInformation> &positionsInformation );

@@ -126,11 +126,6 @@ void BluetoothReceiver::setSocketState( const QBluetoothSocket::SocketState sock
   emit socketStateStringChanged( mSocketStateString );
 }
 
-GnssPositionInformation BluetoothReceiver::createGnssPositionInformation( double latitude, double longitude, double altitude, double speed, double direction, double horizontalAccuracy, double verticalAcurracy, double verticalSpeed, double magneticVariation, const QDateTime &timestamp, const QString &sourceName )
-{
-  return GnssPositionInformation( latitude, longitude, altitude, speed, direction, QList<QgsSatelliteInfo>(), 0, 0, 0, horizontalAccuracy, verticalAcurracy, timestamp, QChar(), 0, -1, 0, QChar( 'A' ), QList<int>(), false, verticalSpeed, magneticVariation, sourceName );
-}
-
 void BluetoothReceiver::setEllipsoidalElevation( const bool ellipsoidalElevation )
 {
   if ( mEllipsoidalElevation == ellipsoidalElevation )
