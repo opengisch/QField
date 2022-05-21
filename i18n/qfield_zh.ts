@@ -888,7 +888,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <message>
         <location filename="../src/qml/LayerTreeItemProperties.qml" line="149"/>
         <source>Zoom to parent layer</source>
-        <translation type="unfinished"/>
+        <translation>缩放至父图层</translation>
     </message>
     <message>
         <location filename="../src/qml/LayerTreeItemProperties.qml" line="150"/>
@@ -2117,47 +2117,47 @@ While you can still view and use the project, it is strongly recommended to rese
     <message>
         <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="20"/>
         <source>Project Folder</source>
-        <translation type="unfinished"/>
+        <translation>工程文件夹</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="21"/>
         <source>Local Projects &amp; Datasets</source>
-        <translation type="unfinished"/>
+        <translation>本地工程和数据集</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="106"/>
         <source>Folders</source>
-        <translation type="unfinished"/>
+        <translation>文件夹</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="108"/>
         <source>Projects</source>
-        <translation type="unfinished"/>
+        <translation>工程</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="110"/>
         <source>Datasets</source>
-        <translation type="unfinished"/>
+        <translation>数据集</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="112"/>
         <source>Favorites</source>
-        <translation type="unfinished"/>
+        <translation>收藏夹</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="198"/>
         <source>Project file</source>
-        <translation type="unfinished"/>
+        <translation>工程文件</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="201"/>
         <source>Vector dataset</source>
-        <translation type="unfinished"/>
+        <translation>矢量数据集</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="204"/>
         <source>Raster dataset</source>
-        <translation type="unfinished"/>
+        <translation>栅格数据集</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="355"/>
@@ -2168,42 +2168,42 @@ While you can still view and use the project, it is strongly recommended to rese
         <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="369"/>
         <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="398"/>
         <source>Export to folder...</source>
-        <translation type="unfinished"/>
+        <translation>导出到文件夹...</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="384"/>
         <source>Remove dataset</source>
-        <translation type="unfinished"/>
+        <translation>移除数据集</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="412"/>
         <source>Send compressed folder to...</source>
-        <translation type="unfinished"/>
+        <translation>将文件夹压缩并发送到...</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="427"/>
         <source>Remove project folder</source>
-        <translation type="unfinished"/>
+        <translation>移除工程文件夹</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="455"/>
         <source>Import project from folder</source>
-        <translation type="unfinished"/>
+        <translation>从文件夹导入工程</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="467"/>
         <source>Import project from ZIP</source>
-        <translation type="unfinished"/>
+        <translation>从ZIP导入工程</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="479"/>
         <source>Import dataset(s)</source>
-        <translation type="unfinished"/>
+        <translation>导入数据集</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="493"/>
         <source>Storage management help</source>
-        <translation type="unfinished"/>
+        <translation>存储管理帮助</translation>
     </message>
 </context>
 <context>
@@ -3150,12 +3150,12 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <location filename="../src/qml/qgismobileapp.qml" line="1565"/>
         <source>Go to Home Screen</source>
-        <translation type="unfinished"/>
+        <translation>转到主页</translation>
     </message>
     <message>
         <location filename="../src/qml/qgismobileapp.qml" line="1581"/>
         <source>Open Project Folder</source>
-        <translation type="unfinished"/>
+        <translation>打开工程文件夹</translation>
     </message>
     <message>
         <source>Open Project</source>
