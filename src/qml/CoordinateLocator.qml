@@ -107,7 +107,7 @@ Item {
       anchors.left: parent.left
       anchors.leftMargin: 1.2
       height: parent.height - 2.4
-      width: parent.width / 2 - 2.4
+      width: Math.min(parent.width,(parent.width * (positionAveragedCount / positioningSettings.averagedPositioningMinimumCount))) - 2.4
       radius: 4
       color: Theme.positionColor
 
