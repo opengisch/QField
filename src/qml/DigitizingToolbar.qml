@@ -181,6 +181,9 @@ VisibilityFadingRow {
 
     onPressAndHold: {
       if (coordinateLocator && coordinateLocator.positionLocked) {
+        if (!checkAccuracyRequirement()) {
+          return;
+        }
         positionSource.positionAveraged = true;
       }
     }
