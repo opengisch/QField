@@ -741,6 +741,83 @@ Page {
                   }
 
                   Label {
+                      text: qsTr("Enable averaged positioning requirement")
+                      font: Theme.defaultFont
+                      wrapMode: Text.WordWrap
+                      Layout.fillWidth: true
+
+                      MouseArea {
+                          anchors.fill: parent
+                          onClicked: averagedPositioning.toggle()
+                      }
+                  }
+
+                  QfSwitch {
+                      id: averagedPositioning
+                      Layout.preferredWidth: implicitContentWidth
+                      Layout.alignment: Qt.AlignTop
+                      checked: positioningSettings.averagedPositioning
+                      onCheckedChanged: {
+                          positioningSettings.averagedPositioning = checked
+                      }
+                  }
+
+                  Label {
+                      text: qsTr("Minimum number of positions collected")
+                      font: Theme.defaultFont
+                      enabled: averagedPositioning.checked
+                      visible: averagedPositioning.checked
+                      Layout.leftMargin: 8
+                  }
+
+                  TextField {
+                      id: averagedPositioningMinimumCount
+                      width: averagedPositioning.width
+                      font: Theme.defaultFont
+                      enabled: averagedPositioning.checked
+                      visible: averagedPositioning.checked
+                      horizontalAlignment: TextInput.AlignHCenter
+                      Layout.preferredWidth: 60
+                      Layout.preferredHeight: font.height + 20
+
+                      inputMethodHints: Qt.ImhFormattedNumbersOnly
+                      validator: IntValidator { locale: 'C' }
+
+                      background: Rectangle {
+                        y: parent.height - height - parent.bottomPadding / 2
+                        implicitWidth: 120
+                        height: parent.activeFocus ? 2: 1
+                        color: parent.activeFocus ? Theme.accentColor : Theme.accentLightColor
+                      }
+
+                      Component.onCompleted: {
+                          text = isNaN( positioningSettings.averagedPositioningMinimumCount ) ? '' : positioningSettings.averagedPositioningMinimumCount
+                      }
+
+                      onTextChanged: {
+                          if( text.length === 0 || isNaN(text) ) {
+                              positioningSettings.averagedPositioningMinimumCount = NaN
+                          } else {
+                              positioningSettings.averagedPositioningMinimumCount = parseInt( text )
+                          }
+                      }
+                  }
+
+                  Label {
+                      text: qsTr("When enabled, digitizing vertices with a cursor locked to position will only accepted an averaged position from a minimum number of collected positions. Digitizing using averaged positions is done by pressing and holding the add vertex button, which will collect positions until the press is released. Accuracy requirement settings are respected when enabled.")
+                      font: Theme.tipFont
+                      color: Theme.gray
+                      textFormat: Qt.RichText
+                      wrapMode: Text.WordWrap
+                      Layout.fillWidth: true
+                  }
+
+                  Item {
+                      // empty cell in grid layout
+                      width: 1
+                  }
+
+                  Label {
                       text: qsTr("Antenna height compensation")
                       font: Theme.defaultFont
                       wrapMode: Text.WordWrap

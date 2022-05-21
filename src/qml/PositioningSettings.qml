@@ -15,6 +15,9 @@ LabSettings.Settings {
     property real accuracyExcellent: 1.0
     property bool accuracyRequirement: false
 
+    property bool averagedPositioning: false
+    property int  averagedPositioningMinimumCount: 1
+
     property real antennaHeight: 0.0
     property bool antennaHeightActivated: false
     property bool skipAltitudeCorrection: false
