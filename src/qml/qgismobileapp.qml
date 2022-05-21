@@ -472,6 +472,22 @@ ApplicationWindow {
       anchors.fill: parent
     }
 
+    BookmarkHighlight {
+        id: bookmarkHighlight
+        mapSettings: mapCanvas.mapSettings
+    }
+
+    Navigation {
+      id: navigation
+      mapSettings: mapCanvas.mapSettings
+      location: positionSource.active ? positionSource.projectedPosition : undefined
+    }
+
+    NavigationHighlight {
+      id: navigationHighlight
+      navigation: navigation
+    }
+
     /** A coordinate locator for digitizing **/
     CoordinateLocator {
       id: coordinateLocator
@@ -485,17 +501,6 @@ ApplicationWindow {
       positionAveraged: positionSource.positionAveraged
       positionAveragedCount: positionSource.positionAveragedCount
       overrideLocation: positionLocked ? positionSource.projectedPosition : undefined
-    }
-
-    Navigation {
-      id: navigation
-      mapSettings: mapCanvas.mapSettings
-      location: positionSource.active ? positionSource.projectedPosition : undefined
-    }
-
-    NavigationHighlight {
-      id: navigationHighlight
-      navigation: navigation
     }
 
     /* GPS marker  */
@@ -539,11 +544,6 @@ ApplicationWindow {
         mapSettings: mapCanvas.mapSettings
         width: 4
       }
-    }
-
-    BookmarkHighlight {
-        id: bookmarkHighlight
-        mapSettings: mapCanvas.mapSettings
     }
 
     /* Locator Highlight */
