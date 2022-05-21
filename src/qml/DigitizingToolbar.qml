@@ -179,14 +179,31 @@ VisibilityFadingRow {
     ]
     transitions: [ Transition { NumberAnimation { property: "opacity"; duration: 200 } } ]
 
-    onPressed: {
-      if (coordinateLocator.positionLocked) {
+    onPressAndHold: {
+      if (coordinateLocator && coordinateLocator.positionLocked) {
         positionSource.positionAveraged = true;
       }
     }
 
     onReleased: {
-      if (coordinateLocator.positionLocked) {
+      if (coordinateLocator && coordinateLocator.positionLocked) {
+        if (positioningSettings.averagedPositioning &&
+            positioningSettings.averagedPositioningMinimumCount > coordinateLocator.positionAveragedCount) {
+          displayToast( qsTr( "The collected positions count does not meet the requirement" ), 'warning' )
+          positionSource.positionAveraged = false;
+          return;
+        }
+
+        if (!checkAccuracyRequirement()) {
+          positionSource.positionAveraged = false;
+          return;
+        }
+        if (Number(rubberbandModel.geometryType) === QgsWkbTypes.PointGeometry ||
+            Number(rubberbandModel.geometryType) === QgsWkbTypes.NullGeometry) {
+            confirm()
+        } else {
+            addVertex()
+        }
         positionSource.positionAveraged = false;
       }
     }
@@ -198,16 +215,15 @@ VisibilityFadingRow {
     }
 
     onClicked: {
-        if (coordinateLocator && coordinateLocator.overrideLocation !== undefined &&
-             positioningSettings.accuracyIndicator && positioningSettings.accuracyRequirement) {
-          if (positioningSettings.accuracyBad > 0 &&
-               (!coordinateLocator.positionInformation ||
-                 !coordinateLocator.positionInformation.haccValid ||
-                  coordinateLocator.positionInformation.hacc >= positioningSettings.accuracyBad))
-          {
-            displayToast( qsTr( "Position accuracy doesn't meet the minimum requirement, vertex not added" ), 'warning' )
-            return;
-          }
+        if (coordinateLocator && coordinateLocator.positionLocked &&
+            positioningSettings.averagedPositioning &&
+            positioningSettings.averagedPositioningMinimumCount > 1) {
+          displayToast( qsTr( "Averaged position requirement active, press and hold the button to meet the minimum requirement" ), 'warning' )
+          return;
+        }
+
+        if (!checkAccuracyRequirement()) {
+          return;
         }
 
         if (Number(rubberbandModel.geometryType) === QgsWkbTypes.PointGeometry ||
@@ -248,23 +264,34 @@ VisibilityFadingRow {
     }
   }
 
-  function addVertex()
-  {
+  function checkAccuracyRequirement() {
+    if (coordinateLocator && coordinateLocator.positionLocked &&
+         positioningSettings.accuracyIndicator && positioningSettings.accuracyRequirement) {
+      if (positioningSettings.accuracyBad > 0 &&
+           (!coordinateLocator.positionInformation ||
+             !coordinateLocator.positionInformation.haccValid ||
+              coordinateLocator.positionInformation.hacc >= positioningSettings.accuracyBad)) {
+        displayToast( qsTr( "Position accuracy doesn't meet the minimum requirement, vertex not added" ), 'warning' )
+        return false;
+      }
+    }
+    return true;
+  }
+
+  function addVertex() {
     digitizingLogger.addCoordinate( coordinateLocator.currentCoordinate )
     coordinateLocator.flash()
 
     rubberbandModel.addVertex()
   }
 
-  function removeVertex()
-  {
+  function removeVertex() {
     digitizingLogger.removeLastCoordinate();
     rubberbandModel.removeVertex()
     mapSettings.setCenter( rubberbandModel.currentCoordinate )
   }
 
-  function confirm()
-  {
+  function confirm() {
       digitizingLogger.addCoordinate( coordinateLocator.currentCoordinate )
       confirmed()
   }
