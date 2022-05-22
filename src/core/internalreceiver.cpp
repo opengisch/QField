@@ -48,19 +48,30 @@ void InternalReceiver::handlePositionUpdated( const QGeoPositionInfo &positionIn
     return;
   }
 
-  qDebug() << positionInfo.attribute( QGeoPositionInfo::GroundSpeed );
   GnssPositionInformation positionInformation( positionInfo.coordinate().latitude(),
                                                positionInfo.coordinate().longitude(),
                                                positionInfo.coordinate().altitude(),
-                                               positionInfo.attribute( QGeoPositionInfo::GroundSpeed ),
-                                               positionInfo.attribute( QGeoPositionInfo::Direction ),
+                                               positionInfo.hasAttribute( QGeoPositionInfo::GroundSpeed )
+                                                 ? positionInfo.attribute( QGeoPositionInfo::GroundSpeed )
+                                                 : std::numeric_limits<double>::quiet_NaN(),
+                                               positionInfo.hasAttribute( QGeoPositionInfo::Direction )
+                                                 ? positionInfo.attribute( QGeoPositionInfo::Direction )
+                                                 : std::numeric_limits<double>::quiet_NaN(),
                                                QList<QgsSatelliteInfo>(), 0, 0, 0,
-                                               positionInfo.attribute( QGeoPositionInfo::HorizontalAccuracy ),
-                                               positionInfo.attribute( QGeoPositionInfo::VerticalAccuracy ),
+                                               positionInfo.hasAttribute( QGeoPositionInfo::HorizontalAccuracy )
+                                                 ? positionInfo.attribute( QGeoPositionInfo::HorizontalAccuracy )
+                                                 : std::numeric_limits<double>::quiet_NaN(),
+                                               positionInfo.hasAttribute( QGeoPositionInfo::VerticalAccuracy )
+                                                 ? positionInfo.attribute( QGeoPositionInfo::VerticalAccuracy )
+                                                 : std::numeric_limits<double>::quiet_NaN(),
                                                positionInfo.timestamp(),
                                                QChar(), 0, -1, 0, QChar( 'A' ), QList<int>(), false,
-                                               positionInfo.attribute( QGeoPositionInfo::VerticalSpeed ),
-                                               positionInfo.attribute( QGeoPositionInfo::MagneticVariation ),
+                                               positionInfo.hasAttribute( QGeoPositionInfo::VerticalSpeed )
+                                                 ? positionInfo.attribute( QGeoPositionInfo::VerticalSpeed )
+                                                 : std::numeric_limits<double>::quiet_NaN(),
+                                               positionInfo.hasAttribute( QGeoPositionInfo::MagneticVariation )
+                                                 ? positionInfo.attribute( QGeoPositionInfo::MagneticVariation )
+                                                 : std::numeric_limits<double>::quiet_NaN(),
                                                0, mGeoPositionSource->sourceName() );
   if ( mLastGnssPositionInformation != positionInformation )
   {

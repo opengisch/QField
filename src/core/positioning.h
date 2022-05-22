@@ -83,7 +83,7 @@ class Positioning : public QObject
 
   private slots:
 
-    void lastGnssPositionInformationChanged( GnssPositionInformation &lastGnssPositionInformation );
+    void lastGnssPositionInformationChanged( const GnssPositionInformation &lastGnssPositionInformation );
     void projectedPositionTransformed();
 
   private:

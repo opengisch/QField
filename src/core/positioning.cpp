@@ -125,7 +125,7 @@ void Positioning::setupDevice()
   return;
 }
 
-void Positioning::lastGnssPositionInformationChanged( GnssPositionInformation &lastGnssPositionInformation )
+void Positioning::lastGnssPositionInformationChanged( const GnssPositionInformation &lastGnssPositionInformation )
 {
   if ( mPositionInformation == lastGnssPositionInformation )
     return;
