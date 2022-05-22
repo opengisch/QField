@@ -75,18 +75,6 @@ Item {
   }
 
   Rectangle {
-    id: averagedInfoShieldOutline
-    visible: averagedInfoShield.visible
-    anchors.centerIn: averagedInfoShield
-    width: averagedInfoShield.width + 2.4
-    height: averagedInfoShield.height + 2.4
-    color: "transparent"
-    radius: 4
-    border.color: highlightColor
-    border.width: 1.2
-  }
-
-  Rectangle {
     id: averagedInfoShield
     visible: positionLocked && positionAveraged
     anchors.left: crosshairCircle.left
@@ -97,7 +85,7 @@ Item {
     height: averagedInfo.contentHeight
     color: "#44263238"
     radius: 3
-    border.color: mainColor
+    border.color: highlightColor
     border.width: 1.2
     clip: true
 
