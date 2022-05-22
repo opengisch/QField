@@ -29,7 +29,7 @@ class InternalReceiver : public AbstractGnssReceiver
 
   public:
     explicit InternalReceiver( QObject *parent = nullptr );
-    ~InternalReceiver() override {}
+    ~InternalReceiver() override = default;
 
     void disconnectDevice() override;
     void connectDevice() override;
