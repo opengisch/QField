@@ -111,7 +111,13 @@ Item {
       width: (positioningSettings.averagedPositioning
               ? Math.min(parent.width,(parent.width * (positionAveragedCount / positioningSettings.averagedPositioningMinimumCount)))
               : parent.width) - 2.4
-      color: Theme.positionColor
+      color: positioningSettings.accuracyIndicator
+             ? !positionSource.positionInfo
+               || !positionSource.positionInfo.haccValid
+               || positionSource.positionInfo.hacc > positioningSettings.accuracyExcellent
+               ? Theme.accuracyTolerated
+               : Theme.accuracyExcellent
+              : Theme.positionColor
 
       transitions: [ Transition { NumberAnimation { property: "width"; duration: 200 } } ]
     }
