@@ -3,6 +3,7 @@ import Qt.labs.settings 1.0 as LabSettings
 
 LabSettings.Settings {
     property bool positioningActivated: false
+    property bool positioningCoordinateLock: false
 
     property string positioningDevice: ""
     property string positioningDeviceName: qsTr( "Internal device" );

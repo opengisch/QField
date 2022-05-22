@@ -497,7 +497,7 @@ ApplicationWindow {
       mapSettings: mapCanvas.mapSettings
       currentLayer: dashBoard.currentLayer
       positionInformation: positionSource.positionInfo
-      positionLocked: gpsLinkButton.linkActive
+      positionLocked: positionSource.active && positioningSettings.positioningCoordinateLock
       positionAveraged: positionSource.positionAveraged
       positionAveragedCount: positionSource.positionAveragedCount
       overrideLocation: positionLocked ? positionSource.projectedPosition : undefined
@@ -1076,13 +1076,11 @@ ApplicationWindow {
 
     QfToolButton {
       id: gpsLinkButton
-      state: linkActive ? "On" : "Off"
+      state: positionSource.active && positioningSettings.positioningCoordinateLock ? "On" : "Off"
       visible: gpsButton.state === "On" && ( stateMachine.state === "digitize" || stateMachine.state === 'measure' )
       round: true
       checkable: true
       anchors.right: parent.right
-
-      readonly property bool linkActive: gpsButton.state === "On" && checked
 
       states: [
         State {
@@ -1106,25 +1104,24 @@ ApplicationWindow {
 
       onCheckedChanged: {
         if (gpsButton.state === "On") {
-            if (checked) {
-                if (freehandButton.freehandDigitizing) {
-                    // deactivate freehand digitizing when cursor locked is on
-                    freehandButton.clicked();
+          if (checked) {
+              if (freehandButton.freehandDigitizing) {
+                  // deactivate freehand digitizing when cursor locked is on
+                  freehandButton.clicked();
+              }
+              displayToast( qsTr( "Coordinate cursor now locked to position" ) )
+              if (positionSource.positionInfo.latitudeValid) {
+                var screenLocation = mapCanvas.mapSettings.coordinateToScreen(locationMarker.location);
+                if ( screenLocation.x < 0 || screenLocation.x > mainWindow.width ||
+                     screenLocation.y < 0 || screenLocation.y > mainWindow.height ) {
+                  mapCanvas.mapSettings.setCenter(positionSource.projectedPosition);
                 }
-                displayToast( qsTr( "Coordinate cursor now locked to position" ) )
-                if (positionSource.positionInfo.latitudeValid) {
-                  var screenLocation = mapCanvas.mapSettings.coordinateToScreen(locationMarker.location);
-                  if ( screenLocation.x < 0 || screenLocation.x > mainWindow.width ||
-                       screenLocation.y < 0 || screenLocation.y > mainWindow.height )
-                  {
-                    mapCanvas.mapSettings.setCenter(positionSource.projectedPosition);
-                  }
-                }
-            }
-            else
-            {
-                displayToast( qsTr( "Coordinate cursor unlocked" ) )
-            }
+              }
+              positioningSettings.positioningCoordinateLock = true;
+          } else {
+            displayToast( qsTr( "Coordinate cursor unlocked" ) )
+            positioningSettings.positioningCoordinateLock = false;
+          }
         }
       }
     }
@@ -1332,7 +1329,7 @@ ApplicationWindow {
         currentLayer: digitizingToolbar.geometryRequested ? digitizingToolbar.geometryRequestedLayer : dashBoard.currentLayer
         positionInformation: positionSource.positionInfo
         topSnappingResult: coordinateLocator.topSnappingResult
-        positionLocked: gpsLinkButton.checked
+        positionLocked: positionSource.active && positioningSettings.positioningCoordinateLock
         cloudUserInformation: cloudConnection.userInformation
         geometry: Geometry {
           id: digitizingGeometry
@@ -1747,27 +1744,21 @@ ApplicationWindow {
   }
 
   PositioningSettings {
-      id: positioningSettings
+    id: positioningSettings
 
-      onPositioningActivatedChanged: {
-          if ( positioningActivated )
-          {
-            if ( platformUtilities.checkPositioningPermissions() )
-            {
-              displayToast( qsTr( "Activating positioning service" ) )
-              positionSource.active = true
-            }
-            else
-            {
-              displayToast( qsTr( "QField has no permissions to use positioning." ), 'warning' )
-              positioningSettings.positioningActivated = false
-            }
-          }
-          else
-          {
-              positionSource.active = false
-          }
+    onPositioningActivatedChanged: {
+      if ( positioningActivated ) {
+        if ( platformUtilities.checkPositioningPermissions() ) {
+          displayToast( qsTr( "Activating positioning service" ) )
+          positionSource.active = true
+        } else {
+          displayToast( qsTr( "QField has no permissions to use positioning." ), 'warning' )
+          positioningSettings.positioningActivated = false
+        }
+      } else {
+          positionSource.active = false
       }
+    }
   }
 
   Menu {
@@ -2785,7 +2776,7 @@ ApplicationWindow {
     project: qgisProject
     currentLayer: null
     positionInformation: positionSource.positionInfo
-    positionLocked: gpsLinkButton.checked
+    positionLocked: positionSource.active && positioningSettings.positioningCoordinateLock
     vertexModel: vertexModel
     cloudUserInformation: cloudConnection.userInformation
   }
