@@ -19,8 +19,12 @@
 #include <QDebug>
 #include <QSettings>
 
-BluetoothReceiver::BluetoothReceiver( QObject *parent )
-  : QObject( parent ), mLocalDevice( std::make_unique<QBluetoothLocalDevice>() ), mSocket( new QBluetoothSocket( QBluetoothServiceInfo::RfcommProtocol ) ), mGpsConnection( std::make_unique<QgsNmeaConnection>( mSocket ) )
+BluetoothReceiver::BluetoothReceiver( const QString &address, QObject *parent )
+  : AbstractReceiver( parent )
+  , mAddress( address )
+  , mLocalDevice( std::make_unique<QBluetoothLocalDevice>() )
+  , mSocket( new QBluetoothSocket( QBluetoothServiceInfo::RfcommProtocol ) )
+  , mGpsConnection( std::make_unique<QgsNmeaConnection>( mSocket ) )
 {
   //socket state changed
   connect( mSocket, &QBluetoothSocket::stateChanged, this, &BluetoothReceiver::setSocketState );
@@ -39,36 +43,34 @@ void BluetoothReceiver::disconnectDevice()
   }
 }
 
-void BluetoothReceiver::connectDevice( const QString &address )
+void BluetoothReceiver::connectDevice()
 {
-  if ( address.isEmpty() )
+  if ( mAddress.isEmpty() )
   {
-    disconnectDevice();
     return;
   }
-
-  qDebug() << "BluetoothReceiver: Connect device: " << address;
+  qDebug() << "BluetoothReceiver: Initiating connection to device: " << mAddress;
 
   if ( mSocket->state() != QBluetoothSocket::UnconnectedState )
   {
-    mAddressToConnect = address;
+    mConnectOnDisconnect = true;
     disconnectDevice();
   }
   else
   {
-    doConnectDevice( address );
+    doConnectDevice();
   }
 }
 
-void BluetoothReceiver::doConnectDevice( const QString &address )
+void BluetoothReceiver::doConnectDevice()
 {
-  mAddressToConnect.clear();
+  mConnectOnDisconnect = false;
 
   //repairing only needed in the linux (not android) environment
 #ifdef Q_OS_LINUX
-  repairDevice( QBluetoothAddress( address ) );
+  repairDevice( QBluetoothAddress( mAddress ) );
 #else
-  mSocket->connectToService( QBluetoothAddress( address ), QBluetoothUuid( QBluetoothUuid::SerialPort ), QBluetoothSocket::ReadOnly );
+  mSocket->connectToService( QBluetoothAddress( mAddress ), QBluetoothUuid( QBluetoothUuid::SerialPort ), QBluetoothSocket::ReadOnly );
 #endif
 }
 
@@ -92,7 +94,7 @@ void BluetoothReceiver::stateChanged( const QgsGpsInformation &info )
 
 void BluetoothReceiver::setSocketState( const QBluetoothSocket::SocketState socketState )
 {
-  if ( mSocketState == socketState )
+  if ( mSocketState == static_cast<QAbstractSocket::SocketState>( socketState ) )
     return;
 
   switch ( socketState )
@@ -113,8 +115,8 @@ void BluetoothReceiver::setSocketState( const QBluetoothSocket::SocketState sock
       if ( !mDisconnecting && mSocket->error() != QBluetoothSocket::NoSocketError )
         mSocketStateString.append( QStringLiteral( ": %1" ).arg( mSocket->errorString() ) );
 
-      if ( !mAddressToConnect.isEmpty() )
-        doConnectDevice( mAddressToConnect );
+      if ( mConnectOnDisconnect )
+        doConnectDevice();
       break;
     }
     default:
@@ -123,7 +125,7 @@ void BluetoothReceiver::setSocketState( const QBluetoothSocket::SocketState sock
     }
   }
 
-  mSocketState = socketState;
+  mSocketState = static_cast<QAbstractSocket::SocketState>( socketState );
   emit socketStateChanged( mSocketState );
   emit socketStateStringChanged( mSocketStateString );
 }
@@ -134,7 +136,6 @@ void BluetoothReceiver::setEllipsoidalElevation( const bool ellipsoidalElevation
     return;
 
   mEllipsoidalElevation = ellipsoidalElevation;
-  emit ellipsoidalElevationChanged();
 }
 
 #ifdef Q_OS_LINUX

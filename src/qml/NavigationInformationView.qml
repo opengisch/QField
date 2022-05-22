@@ -74,7 +74,7 @@ Rectangle {
         font: Theme.tipFont
         color: textColor
         text: qsTr( "Dist." ) + ': ' +
-              ( positionSource.active && positionSource.positionInfo && positionSource.positionInfo.latitudeValid
+              ( positionSource.active && positionSource.positionInformation && positionSource.positionInformation.latitudeValid
               ? ( UnitTypes.formatDistance( navigation.distance, 3, navigation.distanceUnits ) )
               : qsTr( "N/A" ) )
       }
@@ -92,7 +92,7 @@ Rectangle {
         font: Theme.tipFont
         color: textColor
         text: qsTr( "Bearing" ) + ': ' +
-              ( positionSource.active && positionSource.positionInfo && positionSource.positionInfo.latitudeValid
+              ( positionSource.active && positionSource.positionInformation && positionSource.positionInformation.latitudeValid
               ? ( Number( navigation.bearing ).toLocaleString( Qt.locale(), 'f', 1 ) ) + '°'
               : qsTr( "N/A" ) )
       }

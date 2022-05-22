@@ -25,8 +25,8 @@ Item{
         frozen: false
         vectorLayer: mainModel.vectorLayer
         currentCoordinate: positionSource.projectedPosition
-        measureValue: ( positionSource.positionInfo.utcDateTime - mainModel.startPositionTimestamp ) / 1000
-        currentPositionTimestamp: positionSource.positionInfo.utcDateTime
+        measureValue: ( positionSource.positionInformation.utcDateTime - mainModel.startPositionTimestamp ) / 1000
+        currentPositionTimestamp: positionSource.positionInformation.utcDateTime
         crs: mapCanvas.mapSettings.destinationCrs
 
         onVertexCountChanged: {

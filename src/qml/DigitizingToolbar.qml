@@ -72,7 +72,7 @@ VisibilityFadingRow {
     mapSettings: digitizingToolbar.mapSettings
     digitizingLayer: rubberbandModel ? rubberbandModel.vectorLayer : null
 
-    positionInformation: positionSource.positionInfo
+    positionInformation: positionSource.positionInformation
     positionLocked: gpsLinkButton.checked
     topSnappingResult: coordinateLocator.topSnappingResult
     cloudUserInformation: cloudConnection.userInformation
@@ -184,21 +184,21 @@ VisibilityFadingRow {
         if (!checkAccuracyRequirement()) {
           return;
         }
-        positionSource.positionAveraged = true;
+        positionSource.averagedPosition = true;
       }
     }
 
     onReleased: {
       if (coordinateLocator && coordinateLocator.positionLocked) {
         if (positioningSettings.averagedPositioning &&
-            positioningSettings.averagedPositioningMinimumCount > coordinateLocator.positionAveragedCount) {
+            positioningSettings.averagedPositioningMinimumCount > coordinateLocator.averagedPositionCount) {
           displayToast( qsTr( "The collected positions count does not meet the requirement" ), 'warning' )
-          positionSource.positionAveraged = false;
+          positionSource.averagedPosition = false;
           return;
         }
 
         if (!checkAccuracyRequirement()) {
-          positionSource.positionAveraged = false;
+          positionSource.averagedPosition = false;
           return;
         }
         if (Number(rubberbandModel.geometryType) === QgsWkbTypes.PointGeometry ||
@@ -207,13 +207,13 @@ VisibilityFadingRow {
         } else {
             addVertex()
         }
-        positionSource.positionAveraged = false;
+        positionSource.averagedPosition = false;
       }
     }
 
     onCanceled: {
       if (coordinateLocator.positionLocked) {
-        positionSource.positionAveraged = false;
+        positionSource.averagedPosition = false;
       }
     }
 

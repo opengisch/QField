@@ -45,6 +45,7 @@ set(QFIELD_CORE_SRCS
     geometryeditorsmodel.cpp
     gnsspositioninformation.cpp
     identifytool.cpp
+    internalreceiver.cpp
     layerobserver.cpp
     layerresolver.cpp
     layertreemapcanvasbridge.cpp
@@ -65,6 +66,7 @@ set(QFIELD_CORE_SRCS
     orderedrelationmodel.cpp
     peliasgeocoder.cpp
     picturesource.cpp
+    positioning.cpp
     printlayoutlistmodel.cpp
     projectinfo.cpp
     projectsource.cpp
@@ -112,6 +114,7 @@ set(QFIELD_CORE_HDRS
     locator/finlandlocatorfilter.h
     locator/gotolocatorfilter.h
     locator/locatormodelsuperbridge.h
+    abstractreceiver.h
     appcoordinateoperationhandlers.h
     appinterface.h
     attributeformmodel.h
@@ -139,6 +142,7 @@ set(QFIELD_CORE_HDRS
     geometryeditorsmodel.h
     gnsspositioninformation.h
     identifytool.h
+    internalreceiver.h
     layerobserver.h
     layerresolver.h
     layertreemapcanvasbridge.h
@@ -159,6 +163,7 @@ set(QFIELD_CORE_HDRS
     orderedrelationmodel.h
     peliasgeocoder.h
     picturesource.h
+    positioning.h
     printlayoutlistmodel.h
     projectinfo.h
     projectsource.h

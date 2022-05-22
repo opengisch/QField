@@ -68,6 +68,7 @@ class BluetoothDeviceModel : public QAbstractListModel
     QString lastError() const { return mLastError; };
 
   signals:
+
     void scanningStatusChanged( ScanningStatus scanningStatus );
     void lastErrorChanged( QString lastError );
 

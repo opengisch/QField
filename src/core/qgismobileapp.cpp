@@ -87,6 +87,7 @@
 #include "navigationmodel.h"
 #include "orderedrelationmodel.h"
 #include "picturesource.h"
+#include "positioning.h"
 #include "positioningutils.h"
 #include "printlayoutlistmodel.h"
 #include "projectinfo.h"
@@ -477,6 +478,7 @@ void QgisMobileapp::initDeclarative()
   qmlRegisterType<ScaleBarMeasurement>( "org.qfield", 1, 0, "ScaleBarMeasurement" );
   qmlRegisterType<Navigation>( "org.qfield", 1, 0, "Navigation" );
   qmlRegisterType<NavigationModel>( "org.qfield", 1, 0, "NavigationModel" );
+  qmlRegisterType<Positioning>( "org.qfield", 1, 0, "Positioning" );
 
   qRegisterMetaType<GnssPositionInformation>( "GnssPositionInformation" );
 

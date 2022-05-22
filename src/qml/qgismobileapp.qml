@@ -167,12 +167,39 @@ ApplicationWindow {
   /**
    * The position source to access the GPS
    */
-  TransformedPositionSource {
+  Positioning {
     id: positionSource
-    destinationCrs: mapCanvas.mapSettings.destinationCrs
-    deltaZ: positioningSettings.antennaHeightActivated ? positioningSettings.antennaHeight * -1 : 0
-    skipAltitudeTransformation: positioningSettings.skipAltitudeCorrection
     device: positioningSettings.positioningDevice
+
+    property bool currentness: false;
+    property alias destinationCrs: positionSource.coordinateTransformer.destinationCrs
+
+    coordinateTransformer: CoordinateTransformer {
+      destinationCrs: mapCanvas.mapSettings.destinationCrs
+      transformContext: qgisProject.transformContext
+      deltaZ: positioningSettings.antennaHeightActivated ? positioningSettings.antennaHeight * -1 : 0
+      skipAltitudeTransformation: positioningSettings.skipAltitudeCorrection
+    }
+  }
+
+  Timer {
+    id: positionTimer
+
+    property bool geocoderLocatorFiltersChecked: false;
+
+    interval: 1000
+    repeat: true
+    running: true
+    triggeredOnStart: true
+    onTriggered: {
+      if ( positionSource.positionInformation ) {
+        positionSource.currentness = ( ( new Date() - positionSource.positionInformation.utcDateTime ) / 1000 ) < 30;
+        if ( !geocoderLocatorFiltersChecked && positionSource.valid ) {
+          locatorSettings.model.setGeocoderLocatorFiltersDefaulByPosition( positionSource.positionInformation );
+          geocoderLocatorFiltersChecked = true;
+        }
+      }
+    }
   }
 
   Item {
@@ -498,8 +525,8 @@ ApplicationWindow {
       currentLayer: dashBoard.currentLayer
       positionInformation: positionSource.positionInfo
       positionLocked: positionSource.active && positioningSettings.positioningCoordinateLock
-      positionAveraged: positionSource.positionAveraged
-      positionAveragedCount: positionSource.positionAveragedCount
+      positionAveraged: positionSource.averagedPosition
+      positionAveragedCount: positionSource.averagedPositionCount
       overrideLocation: positionLocked ? positionSource.projectedPosition : undefined
     }
 
@@ -508,17 +535,17 @@ ApplicationWindow {
       id: locationMarker
       mapSettings: mapCanvas.mapSettings
       anchors.fill: parent
-      visible: positionSource.active && positionSource.positionInfo && positionSource.positionInfo.latitudeValid
+      visible: positionSource.active && positionSource.positionInformation && positionSource.positionInformation.latitudeValid
       location: positionSource.projectedPosition
       device: positionSource.device
       accuracy: positionSource.projectedHorizontalAccuracy
       direction: positionSource.positionInfo
-                 && positionSource.positionInfo.directionValid
-                 ? positionSource.positionInfo.direction
+                 && positionSource.positionInformation.directionValid
+                 ? positionSource.positionInformation.direction
                  : -1
       speed: positionSource.positionInfo
-             && positionSource.positionInfo.speedValid
-             ? positionSource.positionInfo.speed
+             && positionSource.positionInformation.speedValid
+             ? positionSource.positionInformation.speed
              : -1
 
       onLocationChanged: {
@@ -1115,7 +1142,7 @@ ApplicationWindow {
                   freehandButton.clicked();
               }
               displayToast( qsTr( "Coordinate cursor now locked to position" ) )
-              if (positionSource.positionInfo.latitudeValid) {
+              if (positionSource.positionInformation.latitudeValid) {
                 var screenLocation = mapCanvas.mapSettings.coordinateToScreen(locationMarker.location);
                 if ( screenLocation.x < 0 || screenLocation.x > mainWindow.width ||
                      screenLocation.y < 0 || screenLocation.y > mainWindow.height ) {
@@ -1141,7 +1168,7 @@ ApplicationWindow {
 
       onIconSourceChanged: {
         if( state === "On" ){
-          if( positionSource.positionInfo && positionSource.positionInfo.latitudeValid ) {
+          if( positionSource.positionInformation && positionSource.positionInformation.latitudeValid ) {
             displayToast( qsTr( "Received position" ) )
           } else {
             displayToast( qsTr( "Searching for position" ) )
@@ -1174,7 +1201,7 @@ ApplicationWindow {
           name: "On"
           PropertyChanges {
             target: gpsButton
-            iconSource: positionSource.positionInfo && positionSource.positionInfo.latitudeValid ? Theme.getThemeIcon( "ic_my_location_" + ( followActive ? "white" : "blue" ) + "_24dp" ) : Theme.getThemeIcon( "ic_gps_not_fixed_white_24dp" )
+            iconSource: positionSource.positionInformation && positionSource.positionInformation.latitudeValid ? Theme.getThemeIcon( "ic_my_location_" + ( followActive ? "white" : "blue" ) + "_24dp" ) : Theme.getThemeIcon( "ic_gps_not_fixed_white_24dp" )
             bgcolor: followActive ? Theme.positionColor : Theme.darkGray
           }
         }
@@ -1284,10 +1311,10 @@ ApplicationWindow {
 
           visible: positioningSettings.accuracyIndicator && gpsButton.state === "On"
           color: !positionSource.positionInfo
-                 || !positionSource.positionInfo.haccValid
-                 || positionSource.positionInfo.hacc > positioningSettings.accuracyBad
+                 || !positionSource.positionInformation.haccValid
+                 || positionSource.positionInformation.hacc > positioningSettings.accuracyBad
                      ? Theme.accuracyBad
-                     : positionSource.positionInfo.hacc > positioningSettings.accuracyExcellent
+                     : positionSource.positionInformation.hacc > positioningSettings.accuracyExcellent
                        ? Theme.accuracyTolerated
                        : Theme.accuracyExcellent
       }
@@ -1332,7 +1359,7 @@ ApplicationWindow {
         id: digitizingFeature
         project: qgisProject
         currentLayer: digitizingToolbar.geometryRequested ? digitizingToolbar.geometryRequestedLayer : dashBoard.currentLayer
-        positionInformation: positionSource.positionInfo
+        positionInformation: positionSource.positionInformation
         topSnappingResult: coordinateLocator.topSnappingResult
         positionLocked: positionSource.active && positioningSettings.positioningCoordinateLock
         cloudUserInformation: cloudConnection.userInformation
@@ -1984,7 +2011,7 @@ ApplicationWindow {
       font: Theme.defaultFont
 
       onTriggered: {
-        if (!positioningSettings.positioningActivated || positionSource.positionInfo === undefined || !positionSource.positionInfo.latitudeValid) {
+        if (!positioningSettings.positioningActivated || positionSource.positionInformation === undefined || !positionSource.positionInformation.latitudeValid) {
           displayToast(qsTr('Current location unknown'));
           return;
         }
@@ -2008,7 +2035,7 @@ ApplicationWindow {
       font: Theme.defaultFont
 
       onTriggered: {
-        if (!positioningSettings.positioningActivated || positionSource.positionInfo === undefined || !positionSource.positionInfo.latitudeValid) {
+        if (!positioningSettings.positioningActivated || positionSource.positionInformation === undefined || !positionSource.positionInformation.latitudeValid) {
           displayToast(qsTr('Current location unknown'));
           return;
         }
@@ -2021,8 +2048,8 @@ ApplicationWindow {
           coordinates = qsTr( 'X' ) + ' ' +  point.x.toFixed(3) + ', ' + qsTr( 'Y' ) + ' ' + point.y.toFixed(3)
         }
         coordinates += ' ('+ qsTr('Accuracy') + ' ' +
-                       ( positionSource.positionInfo && positionSource.positionInfo.haccValid
-                         ? positionSource.positionInfo.hacc.toLocaleString(Qt.locale(), 'f', 3) + " m"
+                       ( positionSource.positionInformation && positionSource.positionInformation.haccValid
+                         ? positionSource.positionInformation.hacc.toLocaleString(Qt.locale(), 'f', 3) + " m"
                          : qsTr( "N/A" ) );
         coordinates += '; ' + mapCanvas.mapSettings.destinationCrs.authid + ' ' + mapCanvas.mapSettings.destinationCrs.description + ')'
 
@@ -2780,7 +2807,7 @@ ApplicationWindow {
     id: geometryEditingFeature
     project: qgisProject
     currentLayer: null
-    positionInformation: positionSource.positionInfo
+    positionInformation: positionSource.positionInformation
     positionLocked: positionSource.active && positioningSettings.positioningCoordinateLock
     vertexModel: vertexModel
     cloudUserInformation: cloudConnection.userInformation

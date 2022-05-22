@@ -101,8 +101,8 @@ Item {
               : parent.width) - 2.4
       color: positioningSettings.accuracyIndicator
              ? !positionSource.positionInfo
-               || !positionSource.positionInfo.haccValid
-               || positionSource.positionInfo.hacc > positioningSettings.accuracyExcellent
+               || !positionSource.positionInformation.haccValid
+               || positionSource.positionInformation.hacc > positioningSettings.accuracyExcellent
                ? Theme.accuracyTolerated
                : Theme.accuracyExcellent
               : Theme.positionColor
