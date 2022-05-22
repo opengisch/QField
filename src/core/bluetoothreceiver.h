@@ -36,9 +36,6 @@ class BluetoothReceiver : public AbstractGnssReceiver
     explicit BluetoothReceiver( const QString &address = QString(), QObject *parent = nullptr );
     ~BluetoothReceiver() override {}
 
-    void disconnectDevice() override;
-    void connectDevice() override;
-
     /**
      * Sets whether the elevation value provided will be ellipsoidal or, if not, orthometric
      */
@@ -63,6 +60,9 @@ class BluetoothReceiver : public AbstractGnssReceiver
     void setSocketState( const QBluetoothSocket::SocketState socketState );
 
   private:
+    void handleConnectDevice() override;
+    void handleDisconnectDevice() override;
+
 #ifdef Q_OS_LINUX
     void connectService( const QBluetoothAddress &address );
     void repairDevice( const QBluetoothAddress &address );

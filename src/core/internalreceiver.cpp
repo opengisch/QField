@@ -33,12 +33,13 @@ InternalReceiver::InternalReceiver( QObject *parent )
   }
 }
 
-void InternalReceiver::disconnectDevice()
+void InternalReceiver::handleDisconnectDevice()
 {
   mGeoPositionSource->stopUpdates();
+  mLastGnssPositionValid = false;
 }
 
-void InternalReceiver::connectDevice()
+void InternalReceiver::handleConnectDevice()
 {
   mGeoPositionSource->startUpdates();
 }

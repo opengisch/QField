@@ -31,15 +31,15 @@ class InternalReceiver : public AbstractGnssReceiver
     explicit InternalReceiver( QObject *parent = nullptr );
     ~InternalReceiver() override = default;
 
-    void disconnectDevice() override;
-    void connectDevice() override;
-
   private slots:
 
     void handlePositionUpdated( const QGeoPositionInfo &positionInfo );
     void handleError( QGeoPositionInfoSource::Error positioningError );
 
   private:
+    void handleConnectDevice() override;
+    void handleDisconnectDevice() override;
+
     std::unique_ptr<QGeoPositionInfoSource> mGeoPositionSource;
 
     GnssPositionInformation mLastGnssPositionInformation;

@@ -34,15 +34,14 @@ class AbstractGnssReceiver : public QObject
       : QObject( parent ) {}
     virtual ~AbstractGnssReceiver() = default;
 
-    virtual void disconnectDevice() = 0;
-    virtual void connectDevice() = 0;
+    void connectDevice() { handleConnectDevice(); }
+    void disconnectDevice() { handleDisconnectDevice(); }
 
     GnssPositionInformation lastGnssPositionInformation() const { return mLastGnssPositionInformation; }
     QAbstractSocket::SocketState socketState() const { return mSocketState; }
     QString socketStateString() const { return mSocketStateString; }
 
   signals:
-
     void lastGnssPositionInformationChanged( GnssPositionInformation &lastGnssPositionInformation );
     void socketStateChanged( QAbstractSocket::SocketState socketState );
     void socketStateStringChanged( QString socketStateString );
@@ -50,6 +49,9 @@ class AbstractGnssReceiver : public QObject
   private:
     friend class BluetoothReceiver;
     friend class InternalReceiver;
+
+    virtual void handleConnectDevice() {}
+    virtual void handleDisconnectDevice() {}
 
     GnssPositionInformation mLastGnssPositionInformation;
     QAbstractSocket::SocketState mSocketState;

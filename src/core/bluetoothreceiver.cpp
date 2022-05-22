@@ -33,7 +33,7 @@ BluetoothReceiver::BluetoothReceiver( const QString &address, QObject *parent )
   connect( mGpsConnection.get(), &QgsGpsConnection::stateChanged, this, &BluetoothReceiver::stateChanged );
 }
 
-void BluetoothReceiver::disconnectDevice()
+void BluetoothReceiver::handleDisconnectDevice()
 {
   if ( mSocket->state() != QBluetoothSocket::UnconnectedState )
   {
@@ -43,7 +43,7 @@ void BluetoothReceiver::disconnectDevice()
   }
 }
 
-void BluetoothReceiver::connectDevice()
+void BluetoothReceiver::handleConnectDevice()
 {
   if ( mAddress.isEmpty() )
   {
