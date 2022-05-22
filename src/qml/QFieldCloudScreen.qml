@@ -88,6 +88,13 @@ Page {
             layer.effect: OpacityMask {
                 maskSource: cloudAvatarMask
             }
+
+            onStatusChanged: {
+              // In case the avatar URL fails to load or the image is corrupted, revert to our lovely Nyuki
+              if (status == Image.Error) {
+                source = 'qrc:/images/qfieldcloud_logo.svg';
+              }
+            }
           }
 
           MouseArea {
