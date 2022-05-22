@@ -66,6 +66,7 @@ Page {
           font: Theme.tipFont
           wrapMode: Text.NoWrap
           elide: Text.ElideMiddle
+          opacity: 0.35
         }
       }
     }
@@ -183,7 +184,7 @@ Page {
                 id: itemTitle
                 Layout.fillWidth: true
                 Layout.preferredHeight: contentHeight
-                text: ItemTitle
+                text: ItemTitle + (ItemType !== LocalFilesModel.ProjectFile && ItemFormat !== '' ? '.' + ItemFormat : '')
                 font.pointSize: Theme.defaultFont.pointSize
                 font.underline: itemMenuLoadable
                 color: itemMenuLoadable ? Theme.mainColor : "black"
@@ -200,10 +201,10 @@ Page {
                     info = qsTr('Project file');
                     break;
                   case LocalFilesModel.VectorDataset:
-                    info = qsTr('Vector dataset') + ' (' + FileUtils.representFileSize(ItemSize) + ', ' + ItemFormat + ')';
+                    info = qsTr('Vector dataset') + ' (' + FileUtils.representFileSize(ItemSize) + ')';
                     break;
                   case LocalFilesModel.RasterDataset:
-                    info = qsTr('Raster dataset') + ' (' + FileUtils.representFileSize(ItemSize) + ', ' + ItemFormat + ')';
+                    info = qsTr('Raster dataset') + ' (' + FileUtils.representFileSize(ItemSize) + ')';
                     break;
                   }
                   return info;
@@ -213,6 +214,7 @@ Page {
                 font.pointSize: Theme.tipFont.pointSize - 2
                 font.italic: true
                 wrapMode: Text.WordWrap
+                opacity: 0.35
               }
             }
             QfToolButton {
