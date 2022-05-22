@@ -22,6 +22,7 @@
 #include <QFileInfo>
 #include <QMimeDatabase>
 #include <qgis.h>
+#include <qgsfileutils.h>
 
 FileUtils::FileUtils( QObject *parent )
   : QObject( parent )
@@ -51,6 +52,11 @@ bool FileUtils::fileExists( const QString &filePath )
 {
   QFileInfo fileInfo( filePath );
   return ( fileInfo.exists() && fileInfo.isFile() );
+}
+
+QString FileUtils::representFileSize( qint64 bytes )
+{
+  return QgsFileUtils::representFileSize( bytes );
 }
 
 bool FileUtils::copyRecursively( const QString &sourceFolder, const QString &destFolder, QgsFeedback *feedback, bool wipeDestFolder )

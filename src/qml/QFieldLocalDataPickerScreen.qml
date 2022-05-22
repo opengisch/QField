@@ -66,6 +66,7 @@ Page {
           font: Theme.tipFont
           wrapMode: Text.NoWrap
           elide: Text.ElideMiddle
+          opacity: 0.35
         }
       }
     }
@@ -124,6 +125,8 @@ Page {
           property int itemType: ItemType
           property string itemTitle: ItemTitle
           property string itemPath: ItemPath
+          property bool itemMenuLoadable: !projectFolderView &&
+                                          (ItemMetaType === LocalFilesModel.Project || ItemMetaType === LocalFilesModel.Dataset)
           property bool itemMenuVisible: (platformUtilities.capabilities & PlatformUtilities.CustomExport ||
                                           platformUtilities.capabilities & PlatformUtilities.CustomSend) &&
                                          (ItemMetaType === LocalFilesModel.Dataset
@@ -181,10 +184,10 @@ Page {
                 id: itemTitle
                 Layout.fillWidth: true
                 Layout.preferredHeight: contentHeight
-                text: ItemTitle
+                text: ItemTitle + (ItemType !== LocalFilesModel.ProjectFile && ItemFormat !== '' ? '.' + ItemFormat : '')
                 font.pointSize: Theme.defaultFont.pointSize
-                font.underline: true
-                color: Theme.mainColor
+                font.underline: itemMenuLoadable
+                color: itemMenuLoadable ? Theme.mainColor : "black"
                 wrapMode: Text.WordWrap
               }
               Text {
@@ -198,10 +201,10 @@ Page {
                     info = qsTr('Project file');
                     break;
                   case LocalFilesModel.VectorDataset:
-                    info = qsTr('Vector dataset') + ' (' + ItemFormat + ')';
+                    info = qsTr('Vector dataset') + ' (' + FileUtils.representFileSize(ItemSize) + ')';
                     break;
                   case LocalFilesModel.RasterDataset:
-                    info = qsTr('Raster dataset') + ' (' + ItemFormat + ')';
+                    info = qsTr('Raster dataset') + ' (' + FileUtils.representFileSize(ItemSize) + ')';
                     break;
                   }
                   return info;
@@ -211,6 +214,7 @@ Page {
                 font.pointSize: Theme.tipFont.pointSize - 2
                 font.italic: true
                 wrapMode: Text.WordWrap
+                opacity: 0.35
               }
             }
             QfToolButton {
@@ -269,7 +273,7 @@ Page {
                   table.contentX + mouse.x,
                   table.contentY + mouse.y
                   )
-            if (item) {
+            if (item && item.itemMenuLoadable) {
               pressedItem = item.children[0].children[1].children[0]
               pressedItem.color = "#5a8725"
             }

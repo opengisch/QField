@@ -61,7 +61,8 @@ bool QFieldCloudUtils::isCloudAction( const QgsMapLayer *layer )
 
 const QString QFieldCloudUtils::getProjectId( const QString &fileName )
 {
-  QDir baseDir = QFileInfo( fileName ).dir();
+  QFileInfo fi( fileName );
+  QDir baseDir = fi.isDir() ? fi.canonicalFilePath() : fi.canonicalPath();
   QString basePath = QFileInfo( baseDir.path() ).canonicalFilePath();
   QString cloudPath = QFileInfo( localCloudDirectory() ).canonicalFilePath();
 
