@@ -283,8 +283,8 @@ class GnssPositionInformation
     bool mSatInfoComplete = false;
     double mVerticalSpeed = std::numeric_limits<double>::quiet_NaN();
     double mMagneticVariation = std::numeric_limits<double>::quiet_NaN();
-    QString mSourceName;
     int mAveragedCount = 0;
+    QString mSourceName;
 };
 
 Q_DECLARE_METATYPE( GnssPositionInformation )
