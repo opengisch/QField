@@ -108,14 +108,12 @@ Item {
       anchors.left: parent.left
       anchors.leftMargin: 1.2
       height: parent.height - 2.4
-      width: Math.min(parent.width,(parent.width * (positionAveragedCount / positioningSettings.averagedPositioningMinimumCount))) - 2.4
+      width: (positioningSettings.averagedPositioning
+              ? Math.min(parent.width,(parent.width * (positionAveragedCount / positioningSettings.averagedPositioningMinimumCount)))
+              : parent.width) - 2.4
       color: Theme.positionColor
 
-      SequentialAnimation on color  {
-        loops: Animation.Infinite
-        ColorAnimation  { from: Theme.positionColor; to: Theme.darkPositionColor; duration: 2000; easing.type: Easing.InOutQuad }
-        ColorAnimation  { from: Theme.darkPositionColor; to: Theme.positionColor; duration: 1000; easing.type: Easing.InOutQuad }
-      }
+      transitions: [ Transition { NumberAnimation { property: "width"; duration: 200 } } ]
     }
 
     Text {
