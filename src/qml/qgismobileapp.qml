@@ -21,7 +21,6 @@ import QtQuick.Window 2.12
 import QtGraphicalEffects 1.0
 import Qt.labs.settings 1.0 as LabSettings
 import QtQml 2.12
-import QtPositioning 5.12
 
 import org.qgis 1.0
 import org.qfield 1.0
