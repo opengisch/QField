@@ -53,6 +53,7 @@ QgsExpressionContextScope *ExpressionContextUtils::positionScope( const GnssPosi
   const QString qualityDescription = positionInformation.qualityDescription();
   const QString fixStatusDescription = positionInformation.fixStatusDescription();
   const QString fixMode = positionInformation.fixMode();
+  const int averagedCount = positionInformation.averagedCount();
   const QString sourceName = positionInformation.sourceName();
 
   addPositionVariable( scope, QStringLiteral( "coordinate" ), QVariant::fromValue<QgsGeometry>( point ), positionLocked );
@@ -76,6 +77,7 @@ QgsExpressionContextScope *ExpressionContextUtils::positionScope( const GnssPosi
   addPositionVariable( scope, QStringLiteral( "quality_description" ), qualityDescription, positionLocked );
   addPositionVariable( scope, QStringLiteral( "fix_status_description" ), fixStatusDescription, positionLocked );
   addPositionVariable( scope, QStringLiteral( "fix_mode" ), fixMode, positionLocked );
+  addPositionVariable( scope, QStringLiteral( "averaged_count" ), averagedCount, positionLocked );
 
   return scope;
 }

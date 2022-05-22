@@ -28,7 +28,7 @@ GnssPositionInformation PositioningUtils::createGnssPositionInformation( double 
                                   speed, direction, QList<QgsSatelliteInfo>(), 0, 0, 0,
                                   horizontalAccuracy, verticalAcurracy, timestamp,
                                   QChar(), 0, -1, 0, QChar( 'A' ), QList<int>(), false,
-                                  verticalSpeed, magneticVariation, sourceName );
+                                  verticalSpeed, magneticVariation, 0, sourceName );
 }
 
 GnssPositionInformation PositioningUtils::averagedPositionInformation( const QList<QVariant> &positionsInformation )
@@ -75,7 +75,7 @@ GnssPositionInformation PositioningUtils::averagedPositionInformation( const QLi
   QChar fixMode = positionsInformation.at( 0 ).fixMode();
   int fixType = positionsInformation.at( 0 ).fixType();
   int quality = positionsInformation.at( 0 ).quality();
-  QString sourceName = positionsInformation.at( 0 ).sourceName();
+  QString sourceName = QStringLiteral( "%1 (%2)" ).arg( positionsInformation.at( 0 ).sourceName(), QObject::tr( "averaged" ) );
 
   for ( const GnssPositionInformation &pi : positionsInformation )
   {
@@ -109,5 +109,5 @@ GnssPositionInformation PositioningUtils::averagedPositionInformation( const QLi
                                   pdop / positionsInformationCount, hdop / positionsInformationCount, vdop / positionsInformationCount,
                                   hacc / positionsInformationCount, vacc / positionsInformationCount, utcDateTime,
                                   fixMode, fixType, quality, satellitesUsed, status, satPrn, satInfoComplete,
-                                  verticalSpeed / positionsInformationCount, magneticVariation / positionsInformationCount, sourceName );
+                                  verticalSpeed / positionsInformationCount, magneticVariation / positionsInformationCount, positionsInformationCount, sourceName );
 }

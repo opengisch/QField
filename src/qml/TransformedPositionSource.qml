@@ -19,6 +19,7 @@ Item {
       positionInfos = []
       if (positionAveraged && positionInfo !== undefined) {
         positionInfos = [positionInfo]
+        positionInfo = PositioningUtils.averagedPositionInformation(positionInfos)
       }
       positionAveragedCount = positionInfos.length
     }
