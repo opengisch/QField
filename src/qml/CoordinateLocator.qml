@@ -21,8 +21,8 @@ Item {
    */
   property var positionInformation: undefined
   property bool positionLocked: false
-  property bool positionAveraged: false
-  property int positionAveragedCount: 0
+  property bool averagedPosition: false
+  property int averagedPositionCount: 0
 
   /**
    * Overrides any possibility for the user to modify the coordinate.
@@ -76,7 +76,7 @@ Item {
 
   Rectangle {
     id: averagedInfoShield
-    visible: positionLocked && positionAveraged
+    visible: positionLocked && averagedPosition
     anchors.left: crosshairCircle.left
     anchors.leftMargin: 4
     anchors.bottom: crosshairCircle.top
@@ -97,7 +97,7 @@ Item {
       anchors.leftMargin: 1.2
       height: parent.height - 2.4
       width: (positioningSettings.averagedPositioning
-              ? Math.min(parent.width,(parent.width * (positionAveragedCount / positioningSettings.averagedPositioningMinimumCount)))
+              ? Math.min(parent.width,(parent.width * (averagedPositionCount / positioningSettings.averagedPositioningMinimumCount)))
               : parent.width) - 2.4
       color: positioningSettings.accuracyIndicator
              ? !positionSource.positionInfo
@@ -113,7 +113,7 @@ Item {
     Text {
       id: averagedInfo
       anchors.centerIn: parent
-      text: positionAveragedCount
+      text: averagedPositionCount
       color: mainColor
       font.pointSize: Theme.tinyFont.pointSize - 2
       style: Text.Outline

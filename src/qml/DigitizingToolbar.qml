@@ -191,7 +191,7 @@ VisibilityFadingRow {
     onReleased: {
       if (coordinateLocator && coordinateLocator.positionLocked) {
         if (positioningSettings.averagedPositioning &&
-            positioningSettings.averagedPositioningMinimumCount > coordinateLocator.averagedPositionCount) {
+            positioningSettings.averagedPositioningMinimumCount > positionSource.averagedPositionCount) {
           displayToast( qsTr( "The collected positions count does not meet the requirement" ), 'warning' )
           positionSource.averagedPosition = false;
           return;

@@ -525,8 +525,8 @@ ApplicationWindow {
       currentLayer: dashBoard.currentLayer
       positionInformation: positionSource.positionInfo
       positionLocked: positionSource.active && positioningSettings.positioningCoordinateLock
-      positionAveraged: positionSource.averagedPosition
-      positionAveragedCount: positionSource.averagedPositionCount
+      averagedPosition: positionSource.averagedPosition
+      averagedPositionCount: positionSource.averagedPositionCount
       overrideLocation: positionLocked ? positionSource.projectedPosition : undefined
     }
 
