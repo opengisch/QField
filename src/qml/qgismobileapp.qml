@@ -1284,10 +1284,10 @@ ApplicationWindow {
           color: !positionSource.positionInfo
                  || !positionSource.positionInfo.haccValid
                  || positionSource.positionInfo.hacc > positioningSettings.accuracyBad
-                     ? Theme.errorColor
+                     ? Theme.accuracyBad
                      : positionSource.positionInfo.hacc > positioningSettings.accuracyExcellent
-                       ? Theme.warningColor
-                       : Theme.mainColor
+                       ? Theme.accuracyTolerated
+                       : Theme.accuracyExcellent
       }
     }
 
