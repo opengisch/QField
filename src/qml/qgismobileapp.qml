@@ -1013,12 +1013,17 @@ ApplicationWindow {
 
       onClicked: {
         freehandDigitizing = !freehandDigitizing
+
+        if (freehandDigitizing && positioningSettings.positioningCoordinateLock) {
+          positioningSettings.positioningCoordinateLock = false;
+        }
+
         displayToast( freehandDigitizing ? qsTr( "Freehand digitizing turned on" ) : qsTr( "Freehand digitizing turned off" ) );
         settings.setValue( "/QField/Digitizing/FreehandActive", freehandDigitizing );
       }
 
       Component.onCompleted: {
-          freehandDigitizing = settings.valueBool( "/QField/Digitizing/FreehandActive", false )
+        freehandDigitizing = settings.valueBool( "/QField/Digitizing/FreehandActive", false )
       }
     }
   }
