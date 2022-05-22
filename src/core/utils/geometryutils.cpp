@@ -57,13 +57,25 @@ GeometryUtils::GeometryOperationResult GeometryUtils::reshapeFromRubberband( Qgs
       QList<QgsVectorLayer *> avoidIntersectionsLayers;
       switch ( QgsProject::instance()->avoidIntersectionsMode() )
       {
+#if _QGIS_VERSION_INT >= 32500
+        case Qgis::AvoidIntersectionsMode::AvoidIntersectionsCurrentLayer:
+#else
         case QgsProject::AvoidIntersectionsMode::AvoidIntersectionsCurrentLayer:
+#endif
           avoidIntersectionsLayers.append( layer );
           break;
+#if _QGIS_VERSION_INT >= 32500
+        case Qgis::AvoidIntersectionsMode::AvoidIntersectionsLayers:
+#else
         case QgsProject::AvoidIntersectionsMode::AvoidIntersectionsLayers:
+#endif
           avoidIntersectionsLayers = QgsProject::instance()->avoidIntersectionsLayers();
           break;
+#if _QGIS_VERSION_INT >= 32500
+        case Qgis::AvoidIntersectionsMode::AllowIntersections:
+#else
         case QgsProject::AvoidIntersectionsMode::AllowIntersections:
+#endif
           break;
       }
       if ( !avoidIntersectionsLayers.isEmpty() )
