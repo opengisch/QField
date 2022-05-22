@@ -16,6 +16,8 @@
 
 #include "internalreceiver.h"
 
+#include <QDebug>
+
 InternalReceiver::InternalReceiver( QObject *parent )
   : AbstractGnssReceiver( parent )
   , mGeoPositionSource( std::unique_ptr<QGeoPositionInfoSource>( QGeoPositionInfoSource::createDefaultSource( nullptr ) ) )
@@ -83,6 +85,6 @@ void InternalReceiver::handlePositionUpdated( const QGeoPositionInfo &positionIn
 
 void InternalReceiver::handleError( QGeoPositionInfoSource::Error positioningError )
 {
-  Q_UNUSED( positioningError )
+  qDebug() << positioningError;
   return;
 }
