@@ -16,14 +16,14 @@
 #ifndef INTERNALRECEIVER_H
 #define INTERNALRECEIVER_H
 
-#include "abstractreceiver.h"
+#include "abstractgnssreceiver.h"
 #include "gnsspositioninformation.h"
 
 #include <QGeoPositionInfoSource>
 #include <QGeoSatelliteInfoSource>
 #include <QObject>
 
-class InternalReceiver : public AbstractReceiver
+class InternalReceiver : public AbstractGnssReceiver
 {
     Q_OBJECT
 

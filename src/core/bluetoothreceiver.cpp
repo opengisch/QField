@@ -20,7 +20,7 @@
 #include <QSettings>
 
 BluetoothReceiver::BluetoothReceiver( const QString &address, QObject *parent )
-  : AbstractReceiver( parent )
+  : AbstractGnssReceiver( parent )
   , mAddress( address )
   , mLocalDevice( std::make_unique<QBluetoothLocalDevice>() )
   , mSocket( new QBluetoothSocket( QBluetoothServiceInfo::RfcommProtocol ) )

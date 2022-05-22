@@ -1,5 +1,5 @@
 /***************************************************************************
- abstractreceiver.h - AbstractReceiver
+ abstractgnssreceiver.h - AbstractGnssReceiver
 
  ---------------------
  begin                : 22.05.2022
@@ -13,15 +13,15 @@
  *   (at your option) any later version.                                   *
  *                                                                         *
  ***************************************************************************/
-#ifndef ABSTRACTRECEIVER_H
-#define ABSTRACTRECEIVER_H
+#ifndef ABSTRACTGNSSRECEIVER_H
+#define ABSTRACTGNSSRECEIVER_H
 
 #include "gnsspositioninformation.h"
 
 #include <QAbstractSocket>
 #include <QObject>
 
-class AbstractReceiver : public QObject
+class AbstractGnssReceiver : public QObject
 {
     Q_OBJECT
 
@@ -30,9 +30,9 @@ class AbstractReceiver : public QObject
     Q_PROPERTY( QString socketStateString READ socketStateString NOTIFY socketStateStringChanged )
 
   public:
-    explicit AbstractReceiver( QObject *parent = nullptr )
+    explicit AbstractGnssReceiver( QObject *parent = nullptr )
       : QObject( parent ) {}
-    virtual ~AbstractReceiver() = default;
+    virtual ~AbstractGnssReceiver() = default;
 
     virtual void disconnectDevice() = 0;
     virtual void connectDevice() = 0;
@@ -56,4 +56,4 @@ class AbstractReceiver : public QObject
     QString mSocketStateString;
 };
 
-#endif // ABSTRACTRECEIVER_H
+#endif // ABSTRACTGNSSRECEIVER_H

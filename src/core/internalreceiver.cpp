@@ -17,7 +17,7 @@
 #include "internalreceiver.h"
 
 InternalReceiver::InternalReceiver( QObject *parent )
-  : AbstractReceiver( parent )
+  : AbstractGnssReceiver( parent )
   , mGeoPositionSource( std::unique_ptr<QGeoPositionInfoSource>( QGeoPositionInfoSource::createDefaultSource( nullptr ) ) )
 {
   ;

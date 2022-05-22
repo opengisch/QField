@@ -17,7 +17,7 @@
 #ifndef POSITIONING_H
 #define POSITIONING_H
 
-#include "abstractreceiver.h"
+#include "abstractgnssreceiver.h"
 #include "gnsspositioninformation.h"
 #include "qgsquickcoordinatetransformer.h"
 
@@ -106,7 +106,7 @@ class Positioning : public QObject
 
     bool mAveragedPosition = false;
 
-    std::unique_ptr<AbstractReceiver> mReceiver;
+    std::unique_ptr<AbstractGnssReceiver> mReceiver;
 };
 
 #endif // POSITIONING_H

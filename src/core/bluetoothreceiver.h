@@ -16,7 +16,7 @@
 #ifndef BLUETOOTHRECEIVER_H
 #define BLUETOOTHRECEIVER_H
 
-#include "abstractreceiver.h"
+#include "abstractgnssreceiver.h"
 #include "gnsspositioninformation.h"
 #include "qgsnmeaconnection.h"
 
@@ -28,7 +28,7 @@
  * The bluetoothreceiver connects to a device and feeds the QgsNmeaConnection over QBluetoothSocket.
  * It receives QgsGpsInformation and converts it to GnssPositionInformation
  */
-class BluetoothReceiver : public AbstractReceiver
+class BluetoothReceiver : public AbstractGnssReceiver
 {
     Q_OBJECT
 

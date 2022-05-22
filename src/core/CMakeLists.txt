@@ -114,7 +114,7 @@ set(QFIELD_CORE_HDRS
     locator/finlandlocatorfilter.h
     locator/gotolocatorfilter.h
     locator/locatormodelsuperbridge.h
-    abstractreceiver.h
+    abstractgnssreceiver.h
     appcoordinateoperationhandlers.h
     appinterface.h
     attributeformmodel.h

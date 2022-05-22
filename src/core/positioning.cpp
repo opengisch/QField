@@ -101,7 +101,7 @@ void Positioning::setupDevice()
   if ( mReceiver )
   {
     mReceiver->disconnectDevice();
-    disconnect( mReceiver.get(), &AbstractReceiver::lastGnssPositionInformationChanged, this, &Positioning::lastGnssPositionInformationChanged );
+    disconnect( mReceiver.get(), &AbstractGnssReceiver::lastGnssPositionInformationChanged, this, &Positioning::lastGnssPositionInformationChanged );
   }
 
   if ( mDevice.isEmpty() )
@@ -115,7 +115,7 @@ void Positioning::setupDevice()
     mReceiver = std::make_unique<BluetoothReceiver>( mDevice, this );
   }
 
-  connect( mReceiver.get(), &AbstractReceiver::lastGnssPositionInformationChanged, this, &Positioning::lastGnssPositionInformationChanged );
+  connect( mReceiver.get(), &AbstractGnssReceiver::lastGnssPositionInformationChanged, this, &Positioning::lastGnssPositionInformationChanged );
 
   if ( mActive )
   {
