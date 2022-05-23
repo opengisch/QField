@@ -40,7 +40,7 @@ class Positioning : public QObject
     Q_PROPERTY( QgsQuickCoordinateTransformer *coordinateTransformer READ coordinateTransformer WRITE setCoordinateTransformer NOTIFY coordinateTransformerChanged )
 
     Q_PROPERTY( GnssPositionInformation positionInformation READ positionInformation NOTIFY positionInformationChanged )
-    Q_PROPERTY( bool valid READ valid NOTIFY positionInformationChanged )
+    Q_PROPERTY( bool valid READ valid NOTIFY validChanged )
 
     Q_PROPERTY( QgsPoint sourcePosition READ sourcePosition NOTIFY positionInformationChanged )
     Q_PROPERTY( QgsPoint projectedPosition READ projectedPosition NOTIFY projectedPositionChanged )
@@ -96,9 +96,14 @@ class Positioning : public QObject
     GnssPositionInformation positionInformation() const { return mPositionInformation; };
 
     /**
-     * Returns TRUE when the positioning device's status is valid.
+     * Returns TRUE when the positioning device is valid.
      */
-    bool valid() const { return true; }
+    bool valid() const { return mValid; }
+
+    /**
+     * Sets whether the positioning device is valid.
+     */
+    void setValid( bool valid );
 
     /**
      * Returns the position point in its original WGS84 projection.
@@ -135,6 +140,7 @@ class Positioning : public QObject
 
     void activeChanged();
     void deviceChanged();
+    void validChanged();
     void coordinateTransformerChanged();
     void positionInformationChanged();
     void averagedPositionChanged();
@@ -150,7 +156,9 @@ class Positioning : public QObject
     void setupDevice();
 
     bool mActive = false;
+
     QString mDevice;
+    bool mValid = false;
 
     QgsCoordinateReferenceSystem mSourceCrs;
     QgsCoordinateReferenceSystem mDestinationCrs;

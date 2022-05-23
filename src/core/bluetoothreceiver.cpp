@@ -26,11 +26,12 @@ BluetoothReceiver::BluetoothReceiver( const QString &address, QObject *parent )
   , mSocket( new QBluetoothSocket( QBluetoothServiceInfo::RfcommProtocol ) )
   , mGpsConnection( std::make_unique<QgsNmeaConnection>( mSocket ) )
 {
-  //socket state changed
   connect( mSocket, &QBluetoothSocket::stateChanged, this, &BluetoothReceiver::setSocketState );
 
   //QgsGpsConnection state changed (received location string)
   connect( mGpsConnection.get(), &QgsGpsConnection::stateChanged, this, &BluetoothReceiver::stateChanged );
+
+  setValid( !mAddress.isEmpty() );
 }
 
 void BluetoothReceiver::handleDisconnectDevice()

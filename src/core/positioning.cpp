@@ -61,6 +61,16 @@ void Positioning::setDevice( const QString &device )
   emit deviceChanged();
 }
 
+void Positioning::setValid( bool valid )
+{
+  if ( mValid == valid )
+    return;
+
+  mValid = valid;
+
+  emit validChanged();
+}
+
 void Positioning::setAveragedPosition( bool averaged )
 {
   if ( mAveragedPosition == averaged )
@@ -106,16 +116,15 @@ void Positioning::setupDevice()
 
   if ( mDevice.isEmpty() )
   {
-    qDebug() << "INTERNAL";
     mReceiver = std::make_unique<InternalReceiver>( this );
   }
   else
   {
-    qDebug() << "BLUETOOTH";
     mReceiver = std::make_unique<BluetoothReceiver>( mDevice, this );
   }
-
   connect( mReceiver.get(), &AbstractGnssReceiver::lastGnssPositionInformationChanged, this, &Positioning::lastGnssPositionInformationChanged );
+
+  setValid( mReceiver->valid() );
 
   if ( mActive )
   {
