@@ -19,13 +19,16 @@ set(QFIELD_CORE_SRCS
     locator/finlandlocatorfilter.cpp
     locator/gotolocatorfilter.cpp
     locator/locatormodelsuperbridge.cpp
+    positioning/bluetoothdevicemodel.cpp
+    positioning/bluetoothreceiver.cpp
+    positioning/gnsspositioninformation.cpp
+    positioning/internalgnssreceiver.cpp
+    positioning/positioning.cpp
     appcoordinateoperationhandlers.cpp
     appinterface.cpp
     attributeformmodel.cpp
     attributeformmodelbase.cpp
     badlayerhandler.cpp
-    bluetoothdevicemodel.cpp
-    bluetoothreceiver.cpp
     bookmarkmodel.cpp
     changelogcontents.cpp
     deltafilewrapper.cpp
@@ -43,9 +46,7 @@ set(QFIELD_CORE_SRCS
     focusstack.cpp
     geometry.cpp
     geometryeditorsmodel.cpp
-    gnsspositioninformation.cpp
     identifytool.cpp
-    internalgnssreceiver.cpp
     layerobserver.cpp
     layerresolver.cpp
     layertreemapcanvasbridge.cpp
@@ -66,7 +67,6 @@ set(QFIELD_CORE_SRCS
     orderedrelationmodel.cpp
     peliasgeocoder.cpp
     picturesource.cpp
-    positioning.cpp
     printlayoutlistmodel.cpp
     projectinfo.cpp
     projectsource.cpp
@@ -100,7 +100,7 @@ set(QFIELD_CORE_HDRS
     utils/fileutils.h
     utils/geometryutils.h
     utils/layerutils.h
-    utils/positioningutils.cpp
+    utils/positioningutils.h
     utils/qfieldcloudutils.h
     utils/snappingutils.h
     utils/stringutils.h
@@ -114,14 +114,17 @@ set(QFIELD_CORE_HDRS
     locator/finlandlocatorfilter.h
     locator/gotolocatorfilter.h
     locator/locatormodelsuperbridge.h
-    abstractgnssreceiver.h
+    positioning/abstractgnssreceiver.h
+    positioning/bluetoothdevicemodel.h
+    positioning/bluetoothreceiver.h
+    positioning/gnsspositioninformation.h
+    positioning/positioning.h
+    positioning/internalgnssreceiver.h
     appcoordinateoperationhandlers.h
     appinterface.h
     attributeformmodel.h
     attributeformmodelbase.h
     badlayerhandler.h
-    bluetoothdevicemodel.h
-    bluetoothreceiver.h
     bookmarkmodel.h
     changelogcontents.h
     deltafilewrapper.h
@@ -140,9 +143,7 @@ set(QFIELD_CORE_HDRS
     focusstack.h
     geometry.h
     geometryeditorsmodel.h
-    gnsspositioninformation.h
     identifytool.h
-    internalgnssreceiver.h
     layerobserver.h
     layerresolver.h
     layertreemapcanvasbridge.h
@@ -163,7 +164,6 @@ set(QFIELD_CORE_HDRS
     orderedrelationmodel.h
     peliasgeocoder.h
     picturesource.h
-    positioning.h
     printlayoutlistmodel.h
     projectinfo.h
     projectsource.h
@@ -242,7 +242,8 @@ target_include_directories(
          ${CMAKE_SOURCE_DIR}/src/core/locator
          ${CMAKE_SOURCE_DIR}/src/core/platforms
          ${CMAKE_SOURCE_DIR}/src/core/qgsquick
-         ${CMAKE_SOURCE_DIR}/src/core/utils)
+         ${CMAKE_SOURCE_DIR}/src/core/utils
+         ${CMAKE_SOURCE_DIR}/src/core/positioning)
 if(ANDROID)
   string(REPLACE "_" "_1" APP_PACKAGE_JNI_NAME "${APP_PACKAGE_NAME}")
   configure_file(platforms/android/qfield_android.h.in
