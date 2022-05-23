@@ -179,16 +179,23 @@ VisibilityFadingRow {
     ]
     transitions: [ Transition { NumberAnimation { property: "opacity"; duration: 200 } } ]
 
+    property bool pressAndHeld: false
     onPressAndHold: {
       if (coordinateLocator && coordinateLocator.positionLocked) {
         if (!checkAccuracyRequirement()) {
           return;
         }
+        pressAndHeld = true;
         positionSource.averagedPosition = true;
       }
     }
 
     onReleased: {
+      if (!pressAndHeld) {
+        return;
+      }
+      pressAndHeld = false;
+
       if (coordinateLocator && coordinateLocator.positionLocked) {
         if (positioningSettings.averagedPositioning &&
             positioningSettings.averagedPositioningMinimumCount > positionSource.averagedPositionCount) {
@@ -218,14 +225,19 @@ VisibilityFadingRow {
     }
 
     onClicked: {
-        if (coordinateLocator && coordinateLocator.positionLocked &&
-            positioningSettings.averagedPositioning &&
-            positioningSettings.averagedPositioningMinimumCount > 1) {
-          displayToast( qsTr( "Averaged position requirement active, press and hold the button to meet the minimum requirement" ), 'warning' )
+        if (!checkAccuracyRequirement()) {
           return;
         }
 
-        if (!checkAccuracyRequirement()) {
+        if (coordinateLocator && coordinateLocator.positionLocked &&
+            positioningSettings.averagedPositioning &&
+            positioningSettings.averagedPositioningMinimumCount > 1) {
+          if (!positionSource.averagedPosition) {
+            positionSource.averagedPosition = true;
+          } else {
+            pressAndHeld = true;
+            released();
+          }
           return;
         }
 
