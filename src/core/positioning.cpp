@@ -134,6 +134,7 @@ void Positioning::lastGnssPositionInformationChanged( const GnssPositionInformat
   {
     mCollectedPositionInformations << lastGnssPositionInformation;
     mPositionInformation = PositioningUtils::averagedPositionInformation( mCollectedPositionInformations );
+    emit averagedPositionCountChanged();
   }
   else
   {
