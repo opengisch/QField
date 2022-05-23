@@ -52,7 +52,7 @@ class AbstractGnssReceiver : public QObject
 
   private:
     friend class BluetoothReceiver;
-    friend class InternalReceiver;
+    friend class InternalGnssReceiver;
 
     virtual void handleConnectDevice() {}
     virtual void handleDisconnectDevice() {}

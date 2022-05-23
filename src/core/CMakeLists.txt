@@ -45,7 +45,7 @@ set(QFIELD_CORE_SRCS
     geometryeditorsmodel.cpp
     gnsspositioninformation.cpp
     identifytool.cpp
-    internalreceiver.cpp
+    internalgnssreceiver.cpp
     layerobserver.cpp
     layerresolver.cpp
     layertreemapcanvasbridge.cpp
@@ -142,7 +142,7 @@ set(QFIELD_CORE_HDRS
     geometryeditorsmodel.h
     gnsspositioninformation.h
     identifytool.h
-    internalreceiver.h
+    internalgnssreceiver.h
     layerobserver.h
     layerresolver.h
     layertreemapcanvasbridge.h

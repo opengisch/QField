@@ -1,5 +1,5 @@
 /***************************************************************************
- internalreceiver.h - InternalReceiver
+ internalgnssreceiver.h - InternalGnssReceiver
 
  ---------------------
  begin                : 22.05.2022
@@ -13,8 +13,8 @@
  *   (at your option) any later version.                                   *
  *                                                                         *
  ***************************************************************************/
-#ifndef INTERNALRECEIVER_H
-#define INTERNALRECEIVER_H
+#ifndef INTERNALGNSSRECEIVER_H
+#define INTERNALGNSSRECEIVER_H
 
 #include "abstractgnssreceiver.h"
 #include "gnsspositioninformation.h"
@@ -23,13 +23,13 @@
 #include <QGeoSatelliteInfoSource>
 #include <QObject>
 
-class InternalReceiver : public AbstractGnssReceiver
+class InternalGnssReceiver : public AbstractGnssReceiver
 {
     Q_OBJECT
 
   public:
-    explicit InternalReceiver( QObject *parent = nullptr );
-    ~InternalReceiver() override = default;
+    explicit InternalGnssReceiver( QObject *parent = nullptr );
+    ~InternalGnssReceiver() override = default;
 
   private slots:
 
@@ -46,4 +46,4 @@ class InternalReceiver : public AbstractGnssReceiver
     bool mLastGnssPositionValid = false;
 };
 
-#endif // INTERNALRECEIVER_H
+#endif // INTERNALGNSSRECEIVER_H

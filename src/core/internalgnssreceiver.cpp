@@ -1,5 +1,5 @@
 /***************************************************************************
- internalreceiver.cpp - InternalReceiver
+ internalgnssreceiver.cpp - InternalGnssReceiver
 
  ---------------------
  begin                : 22.05.2022
@@ -14,11 +14,11 @@
  *                                                                         *
  ***************************************************************************/
 
-#include "internalreceiver.h"
+#include "internalgnssreceiver.h"
 
 #include <QDebug>
 
-InternalReceiver::InternalReceiver( QObject *parent )
+InternalGnssReceiver::InternalGnssReceiver( QObject *parent )
   : AbstractGnssReceiver( parent )
   , mGeoPositionSource( std::unique_ptr<QGeoPositionInfoSource>( QGeoPositionInfoSource::createDefaultSource( nullptr ) ) )
 {
@@ -27,25 +27,25 @@ InternalReceiver::InternalReceiver( QObject *parent )
     mGeoPositionSource->setPreferredPositioningMethods( QGeoPositionInfoSource::AllPositioningMethods );
     mGeoPositionSource->setUpdateInterval( 1000 );
 
-    connect( mGeoPositionSource.get(), &QGeoPositionInfoSource::positionUpdated, this, &InternalReceiver::handlePositionUpdated );
-    connect( mGeoPositionSource.get(), qOverload<QGeoPositionInfoSource::Error>( &QGeoPositionInfoSource::error ), this, &InternalReceiver::handleError );
+    connect( mGeoPositionSource.get(), &QGeoPositionInfoSource::positionUpdated, this, &InternalGnssReceiver::handlePositionUpdated );
+    connect( mGeoPositionSource.get(), qOverload<QGeoPositionInfoSource::Error>( &QGeoPositionInfoSource::error ), this, &InternalGnssReceiver::handleError );
 
     setValid( true );
   }
 }
 
-void InternalReceiver::handleDisconnectDevice()
+void InternalGnssReceiver::handleDisconnectDevice()
 {
   mGeoPositionSource->stopUpdates();
   mLastGnssPositionValid = false;
 }
 
-void InternalReceiver::handleConnectDevice()
+void InternalGnssReceiver::handleConnectDevice()
 {
   mGeoPositionSource->startUpdates();
 }
 
-void InternalReceiver::handlePositionUpdated( const QGeoPositionInfo &positionInfo )
+void InternalGnssReceiver::handlePositionUpdated( const QGeoPositionInfo &positionInfo )
 {
   if ( mLastGnssPositionValid && !positionInfo.coordinate().isValid() )
   {
@@ -113,7 +113,7 @@ void InternalReceiver::handlePositionUpdated( const QGeoPositionInfo &positionIn
   }
 }
 
-void InternalReceiver::handleError( QGeoPositionInfoSource::Error positioningError )
+void InternalGnssReceiver::handleError( QGeoPositionInfoSource::Error positioningError )
 {
   qDebug() << positioningError;
   return;

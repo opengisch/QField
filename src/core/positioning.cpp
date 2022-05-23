@@ -15,7 +15,7 @@
  ***************************************************************************/
 
 #include "bluetoothreceiver.h"
-#include "internalreceiver.h"
+#include "internalgnssreceiver.h"
 #include "positioning.h"
 #include "positioningutils.h"
 
@@ -116,7 +116,7 @@ void Positioning::setupDevice()
 
   if ( mDevice.isEmpty() )
   {
-    mReceiver = std::make_unique<InternalReceiver>( this );
+    mReceiver = std::make_unique<InternalGnssReceiver>( this );
   }
   else
   {
