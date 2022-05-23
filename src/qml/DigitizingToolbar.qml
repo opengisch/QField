@@ -73,7 +73,7 @@ VisibilityFadingRow {
     digitizingLayer: rubberbandModel ? rubberbandModel.vectorLayer : null
 
     positionInformation: positionSource.positionInformation
-    positionLocked: gpsLinkButton.checked
+    positionLocked: gnssLockButton.checked
     topSnappingResult: coordinateLocator.topSnappingResult
     cloudUserInformation: cloudConnection.userInformation
   }
