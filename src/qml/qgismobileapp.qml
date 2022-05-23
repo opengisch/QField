@@ -522,7 +522,7 @@ ApplicationWindow {
       highlightColor: digitizingToolbar.isDigitizing ? currentRubberband.color : "#CFD8DC"
       mapSettings: mapCanvas.mapSettings
       currentLayer: dashBoard.currentLayer
-      positionInformation: positionSource.positionInfo
+      positionInformation: positionSource.positionInformation
       positionLocked: positionSource.active && positioningSettings.positioningCoordinateLock
       averagedPosition: positionSource.averagedPosition
       averagedPositionCount: positionSource.averagedPositionCount
@@ -538,11 +538,11 @@ ApplicationWindow {
       location: positionSource.projectedPosition
       device: positionSource.device
       accuracy: positionSource.projectedHorizontalAccuracy
-      direction: positionSource.positionInfo
+      direction: positionSource.positionInformation
                  && positionSource.positionInformation.directionValid
                  ? positionSource.positionInformation.direction
                  : -1
-      speed: positionSource.positionInfo
+      speed: positionSource.positionInformation
              && positionSource.positionInformation.speedValid
              ? positionSource.positionInformation.speed
              : -1
@@ -1309,7 +1309,7 @@ ApplicationWindow {
           border.color: 'white'
 
           visible: positioningSettings.accuracyIndicator && gpsButton.state === "On"
-          color: !positionSource.positionInfo
+          color: !positionSource.positionInformation
                  || !positionSource.positionInformation.haccValid
                  || positionSource.positionInformation.hacc > positioningSettings.accuracyBad
                      ? Theme.accuracyBad

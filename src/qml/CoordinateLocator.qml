@@ -99,7 +99,7 @@ Item {
               ? Math.min(parent.width,(parent.width * (averagedPositionCount / positioningSettings.averagedPositioningMinimumCount)))
               : parent.width) - 2.4
       color: positioningSettings.accuracyIndicator
-             ? !positionSource.positionInfo
+             ? !positionSource.positionInformation
                || !positionSource.positionInformation.haccValid
                || positionSource.positionInformation.hacc > positioningSettings.accuracyExcellent
                ? Theme.accuracyTolerated
