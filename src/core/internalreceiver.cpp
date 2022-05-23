@@ -73,47 +73,27 @@ void InternalReceiver::handlePositionUpdated( const QGeoPositionInfo &positionIn
     updatePositionInformation = true;
   }
 
-  /* Per Qt header documentation, the only details that are _always_ provided in an update are
+  /**
+   * Per Qt header documentation, the only details that are _always_ provided in an update are
    * the latitude, longitude, and elevation. Other attributes are not always served, we therefore
    * have to skip updating those until the next time they are present in an update.
    */
-  double speed = mLastGnssPositionInformation.speed();
-  if ( positionInfo.hasAttribute( QGeoPositionInfo::GroundSpeed ) && !qgsDoubleNear( positionInfo.attribute( QGeoPositionInfo::GroundSpeed ), speed ) )
-  {
-    speed = positionInfo.attribute( QGeoPositionInfo::GroundSpeed );
-    updatePositionInformation = true;
-  }
-  double direction = mLastGnssPositionInformation.direction();
-  if ( positionInfo.hasAttribute( QGeoPositionInfo::Direction ) && !qgsDoubleNear( positionInfo.attribute( QGeoPositionInfo::Direction ), direction ) )
-  {
-    direction = positionInfo.attribute( QGeoPositionInfo::Direction );
-    updatePositionInformation = true;
-  }
-  double hacc = mLastGnssPositionInformation.hacc();
-  if ( positionInfo.hasAttribute( QGeoPositionInfo::HorizontalAccuracy ) && !qgsDoubleNear( positionInfo.attribute( QGeoPositionInfo::HorizontalAccuracy ), hacc ) )
-  {
-    hacc = positionInfo.attribute( QGeoPositionInfo::HorizontalAccuracy );
-    updatePositionInformation = true;
-  }
-  double vacc = mLastGnssPositionInformation.vacc();
-  if ( positionInfo.hasAttribute( QGeoPositionInfo::VerticalAccuracy ) && !qgsDoubleNear( positionInfo.attribute( QGeoPositionInfo::VerticalAccuracy ), vacc ) )
-  {
-    vacc = positionInfo.attribute( QGeoPositionInfo::VerticalAccuracy );
-    updatePositionInformation = true;
-  }
-  double verticalSpeed = mLastGnssPositionInformation.verticalSpeed();
-  if ( positionInfo.hasAttribute( QGeoPositionInfo::VerticalSpeed ) && !qgsDoubleNear( positionInfo.attribute( QGeoPositionInfo::VerticalSpeed ), verticalSpeed ) )
-  {
-    verticalSpeed = positionInfo.attribute( QGeoPositionInfo::VerticalSpeed );
-    updatePositionInformation = true;
-  }
-  double magneticVariation = mLastGnssPositionInformation.magneticVariation();
-  if ( positionInfo.hasAttribute( QGeoPositionInfo::VerticalSpeed ) && !qgsDoubleNear( positionInfo.attribute( QGeoPositionInfo::MagneticVariation ), magneticVariation ) )
-  {
-    magneticVariation = positionInfo.attribute( QGeoPositionInfo::MagneticVariation );
-    updatePositionInformation = true;
-  }
+  std::function<double( QGeoPositionInfo::Attribute, double )> updateAttribute =
+    [&positionInfo, &updatePositionInformation]( QGeoPositionInfo::Attribute attribute, double value ) -> double {
+    if ( positionInfo.hasAttribute( attribute ) && !qgsDoubleNear( positionInfo.attribute( attribute ), value ) )
+    {
+      updatePositionInformation = true;
+      return positionInfo.attribute( attribute );
+    }
+    return value;
+  };
 
+  const double speed = updateAttribute( QGeoPositionInfo::GroundSpeed, mLastGnssPositionInformation.speed() );
+  const double direction = updateAttribute( QGeoPositionInfo::Direction, mLastGnssPositionInformation.direction() );
+  const double hacc = updateAttribute( QGeoPositionInfo::HorizontalAccuracy, mLastGnssPositionInformation.hacc() );
+  const double vacc = updateAttribute( QGeoPositionInfo::VerticalAccuracy, mLastGnssPositionInformation.vacc() );
+  const double verticalSpeed = updateAttribute( QGeoPositionInfo::VerticalSpeed, mLastGnssPositionInformation.verticalSpeed() );
+  const double magneticVariation = updateAttribute( QGeoPositionInfo::VerticalSpeed, mLastGnssPositionInformation.magneticVariation() );
   if ( updatePositionInformation )
   {
     mLastGnssPositionInformation = GnssPositionInformation( latitude,
