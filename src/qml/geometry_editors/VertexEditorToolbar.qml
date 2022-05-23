@@ -167,8 +167,8 @@ VisibilityFadingRow {
     mapSettings: mapSettings
     digitizingLayer: featureModel.currentLayer
 
-    positionInformation: positionSource.positionInfo
-    positionLocked: gpsLinkButton.checked
+    positionInformation: positionSource.positionInformation
+    positionLocked: gnssLockButton.checked
     topSnappingResult: coordinateLocator.topSnappingResult
     cloudUserInformation: cloudConnection.userInformation
   }

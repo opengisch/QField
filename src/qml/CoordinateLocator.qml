@@ -1,13 +1,13 @@
 import QtQuick 2.12
-import QtPositioning 5.3
 
 import org.qgis 1.0
 import org.qfield 1.0
+import Theme 1.0
 
 Item {
   id: locator
   property MapSettings mapSettings
-  property color color: "#263238"
+  property color mainColor: "#263238"
   property color highlightColor: "#CFD8DC"
 
   /**
@@ -16,9 +16,12 @@ Item {
   property alias currentLayer: snappingUtils.currentLayer
 
   /**
-   * GNSS position information
+   * Position-related information
    */
   property var positionInformation: undefined
+  property bool positionLocked: false
+  property bool averagedPosition: false
+  property int averagedPositionCount: 0
 
   /**
    * Overrides any possibility for the user to modify the coordinate.
@@ -71,6 +74,53 @@ Item {
   }
 
   Rectangle {
+    id: averagedInfoShield
+    visible: positionLocked && averagedPosition
+    anchors.left: crosshairCircle.left
+    anchors.leftMargin: 4
+    anchors.bottom: crosshairCircle.top
+    anchors.bottomMargin: 3
+    width: crosshairCircle.width - 8
+    height: averagedInfo.contentHeight
+    color: "#44263238"
+    radius: 3
+    border.color: highlightColor
+    border.width: 1.2
+    clip: true
+
+    Rectangle {
+      id: averagedProgress
+      anchors.top: parent.top
+      anchors.topMargin: 1.2
+      anchors.left: parent.left
+      anchors.leftMargin: 1.2
+      height: parent.height - 2.4
+      width: (positioningSettings.averagedPositioning
+              ? Math.min(parent.width,(parent.width * (averagedPositionCount / positioningSettings.averagedPositioningMinimumCount)))
+              : parent.width) - 2.4
+      color: positioningSettings.accuracyIndicator
+             ? !positionSource.positionInformation
+               || !positionSource.positionInformation.haccValid
+               || positionSource.positionInformation.hacc > positioningSettings.accuracyExcellent
+               ? Theme.accuracyTolerated
+               : Theme.accuracyExcellent
+              : Theme.positionColor
+
+      transitions: [ Transition { NumberAnimation { property: "width"; duration: 200 } } ]
+    }
+
+    Text {
+      id: averagedInfo
+      anchors.centerIn: parent
+      text: averagedPositionCount
+      color: mainColor
+      font.pointSize: Theme.tinyFont.pointSize - 2
+      style: Text.Outline
+      styleColor: highlightColor
+    }
+  }
+
+  Rectangle {
     id: crosshairCircleInnerBuffer
     anchors.centerIn: crosshairCircle
 
@@ -107,7 +157,7 @@ Item {
       NumberAnimation { duration: 100 }
     }
 
-    border.color: parent.color
+    border.color: mainColor
 
     Behavior on border.color {
       ColorAnimation {
@@ -123,7 +173,7 @@ Item {
       target: snappingUtils
 
       function onSnappingResultChanged() {
-        crosshairCircle.border.color = overrideLocation == undefined ? ( snappingUtils.snappingResult.isValid ? "#9b59b6" : locator.color ) : "#AD1457"
+        crosshairCircle.border.color = overrideLocation == undefined ? ( snappingUtils.snappingResult.isValid ? "#9b59b6" : locator.mainColor ) : "#AD1457"
         crosshairCircle.width = snappingUtils.snappingResult.isValid ? 32: 48
       }
     }

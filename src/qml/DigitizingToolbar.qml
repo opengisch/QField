@@ -41,16 +41,16 @@ VisibilityFadingRow {
 
       function onVertexCountChanged() {
           // set geometry valid
-          if ( Number( rubberbandModel ? rubberbandModel.geometryType : 0 ) === 0 )
+          if (Number( rubberbandModel ? rubberbandModel.geometryType : 0 ) === 0)
           {
             geometryValid = false
           }
-          else if  ( Number( rubberbandModel.geometryType ) === 1 )
+          else if (Number( rubberbandModel.geometryType ) === 1)
           {
             // Line: at least 2 points
             geometryValid = rubberbandModel.vertexCount > 1
           }
-          else if  ( Number( rubberbandModel.geometryType ) === 2 )
+          else if (Number( rubberbandModel.geometryType ) === 2)
           {
             // Polygon: at least 3 points
             geometryValid = rubberbandModel.vertexCount > 2
@@ -72,8 +72,8 @@ VisibilityFadingRow {
     mapSettings: digitizingToolbar.mapSettings
     digitizingLayer: rubberbandModel ? rubberbandModel.vectorLayer : null
 
-    positionInformation: positionSource.positionInfo
-    positionLocked: gpsLinkButton.checked
+    positionInformation: positionSource.positionInformation
+    positionLocked: gnssLockButton.checked
     topSnappingResult: coordinateLocator.topSnappingResult
     cloudUserInformation: cloudConnection.userInformation
   }
@@ -102,7 +102,7 @@ VisibilityFadingRow {
       Theme.getThemeIcon( "ic_check_white_48dp" )
     }
     visible: {
-      if ( !showConfirmButton )
+      if (!showConfirmButton)
       {
         false
       }
@@ -126,11 +126,11 @@ VisibilityFadingRow {
     repeat: true
 
     onTriggered: {
-      if ( !rubberbandModel || rubberbandModel.vertexCount == 0)
+      if (!rubberbandModel || rubberbandModel.vertexCount == 0)
         stop();
 
       removeVertex()
-      if ( interval > 100 ) interval = interval * 0.8;
+      if (interval > 100) interval = interval * 0.8;
     }
   }
 
@@ -179,21 +179,70 @@ VisibilityFadingRow {
     ]
     transitions: [ Transition { NumberAnimation { property: "opacity"; duration: 200 } } ]
 
-    onClicked: {
-        if ( coordinateLocator && coordinateLocator.overrideLocation !== undefined &&
-             positioningSettings.accuracyIndicator && positioningSettings.accuracyRequirement ) {
-          if ( positioningSettings.accuracyBad > 0 &&
-               ( !coordinateLocator.positionInformation ||
-                 !coordinateLocator.positionInformation.haccValid ||
-                  coordinateLocator.positionInformation.hacc >= positioningSettings.accuracyBad ) )
-          {
-            displayToast( qsTr( "Position accuracy doesn't meet the minimum requirement, vertex not added" ), 'warning' )
-            return;
-          }
+    property bool pressAndHeld: false
+    onPressAndHold: {
+      if (coordinateLocator && coordinateLocator.positionLocked) {
+        if (!checkAccuracyRequirement()) {
+          return;
+        }
+        pressAndHeld = true;
+        positionSource.averagedPosition = true;
+      }
+    }
+
+    onReleased: {
+      if (!pressAndHeld) {
+        return;
+      }
+      pressAndHeld = false;
+
+      if (coordinateLocator && coordinateLocator.positionLocked) {
+        if (positioningSettings.averagedPositioning &&
+            positioningSettings.averagedPositioningMinimumCount > positionSource.averagedPositionCount) {
+          displayToast( qsTr( "The collected positions count does not meet the requirement" ), 'warning' )
+          positionSource.averagedPosition = false;
+          return;
         }
 
-        if ( Number( rubberbandModel.geometryType ) === QgsWkbTypes.PointGeometry ||
-             Number( rubberbandModel.geometryType ) === QgsWkbTypes.NullGeometry ) {
+        if (!checkAccuracyRequirement()) {
+          positionSource.averagedPosition = false;
+          return;
+        }
+        if (Number(rubberbandModel.geometryType) === QgsWkbTypes.PointGeometry ||
+            Number(rubberbandModel.geometryType) === QgsWkbTypes.NullGeometry) {
+            confirm()
+        } else {
+            addVertex()
+        }
+        positionSource.averagedPosition = false;
+      }
+    }
+
+    onCanceled: {
+      if (coordinateLocator.positionLocked) {
+        positionSource.averagedPosition = false;
+      }
+    }
+
+    onClicked: {
+        if (!checkAccuracyRequirement()) {
+          return;
+        }
+
+        if (coordinateLocator && coordinateLocator.positionLocked &&
+            positioningSettings.averagedPositioning &&
+            positioningSettings.averagedPositioningMinimumCount > 1) {
+          if (!positionSource.averagedPosition) {
+            positionSource.averagedPosition = true;
+          } else {
+            pressAndHeld = true;
+            released();
+          }
+          return;
+        }
+
+        if (Number(rubberbandModel.geometryType) === QgsWkbTypes.PointGeometry ||
+            Number(rubberbandModel.geometryType) === QgsWkbTypes.NullGeometry) {
             confirm()
         } else {
             addVertex()
@@ -230,23 +279,34 @@ VisibilityFadingRow {
     }
   }
 
-  function addVertex()
-  {
+  function checkAccuracyRequirement() {
+    if (coordinateLocator && coordinateLocator.positionLocked &&
+         positioningSettings.accuracyIndicator && positioningSettings.accuracyRequirement) {
+      if (positioningSettings.accuracyBad > 0 &&
+           (!coordinateLocator.positionInformation ||
+             !coordinateLocator.positionInformation.haccValid ||
+              coordinateLocator.positionInformation.hacc >= positioningSettings.accuracyBad)) {
+        displayToast( qsTr( "Position accuracy doesn't meet the minimum requirement, vertex not added" ), 'warning' )
+        return false;
+      }
+    }
+    return true;
+  }
+
+  function addVertex() {
     digitizingLogger.addCoordinate( coordinateLocator.currentCoordinate )
     coordinateLocator.flash()
 
     rubberbandModel.addVertex()
   }
 
-  function removeVertex()
-  {
+  function removeVertex() {
     digitizingLogger.removeLastCoordinate();
     rubberbandModel.removeVertex()
     mapSettings.setCenter( rubberbandModel.currentCoordinate )
   }
 
-  function confirm()
-  {
+  function confirm() {
       digitizingLogger.addCoordinate( coordinateLocator.currentCoordinate )
       confirmed()
   }

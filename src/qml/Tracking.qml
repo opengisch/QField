@@ -1,7 +1,6 @@
 import QtQuick 2.12
 import QtQuick.Controls 2.12
 import QtQuick.Layouts 1.12
-import QtPositioning 5.3
 
 import org.qgis 1.0
 import org.qfield 1.0
@@ -25,8 +24,8 @@ Item{
         frozen: false
         vectorLayer: mainModel.vectorLayer
         currentCoordinate: positionSource.projectedPosition
-        measureValue: ( positionSource.positionInfo.utcDateTime - mainModel.startPositionTimestamp ) / 1000
-        currentPositionTimestamp: positionSource.positionInfo.utcDateTime
+        measureValue: ( positionSource.positionInformation.utcDateTime - mainModel.startPositionTimestamp ) / 1000
+        currentPositionTimestamp: positionSource.positionInformation.utcDateTime
         crs: mapCanvas.mapSettings.destinationCrs
 
         onVertexCountChanged: {

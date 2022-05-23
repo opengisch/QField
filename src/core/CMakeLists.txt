@@ -5,6 +5,7 @@ set(QFIELD_CORE_SRCS
     utils/fileutils.cpp
     utils/geometryutils.cpp
     utils/layerutils.cpp
+    utils/positioningutils.cpp
     utils/qfieldcloudutils.cpp
     utils/snappingutils.cpp
     utils/stringutils.cpp
@@ -18,13 +19,16 @@ set(QFIELD_CORE_SRCS
     locator/finlandlocatorfilter.cpp
     locator/gotolocatorfilter.cpp
     locator/locatormodelsuperbridge.cpp
+    positioning/bluetoothdevicemodel.cpp
+    positioning/bluetoothreceiver.cpp
+    positioning/gnsspositioninformation.cpp
+    positioning/internalgnssreceiver.cpp
+    positioning/positioning.cpp
     appcoordinateoperationhandlers.cpp
     appinterface.cpp
     attributeformmodel.cpp
     attributeformmodelbase.cpp
     badlayerhandler.cpp
-    bluetoothdevicemodel.cpp
-    bluetoothreceiver.cpp
     bookmarkmodel.cpp
     changelogcontents.cpp
     deltafilewrapper.cpp
@@ -42,7 +46,6 @@ set(QFIELD_CORE_SRCS
     focusstack.cpp
     geometry.cpp
     geometryeditorsmodel.cpp
-    gnsspositioninformation.cpp
     identifytool.cpp
     layerobserver.cpp
     layerresolver.cpp
@@ -97,6 +100,7 @@ set(QFIELD_CORE_HDRS
     utils/fileutils.h
     utils/geometryutils.h
     utils/layerutils.h
+    utils/positioningutils.h
     utils/qfieldcloudutils.h
     utils/snappingutils.h
     utils/stringutils.h
@@ -110,13 +114,17 @@ set(QFIELD_CORE_HDRS
     locator/finlandlocatorfilter.h
     locator/gotolocatorfilter.h
     locator/locatormodelsuperbridge.h
+    positioning/abstractgnssreceiver.h
+    positioning/bluetoothdevicemodel.h
+    positioning/bluetoothreceiver.h
+    positioning/gnsspositioninformation.h
+    positioning/positioning.h
+    positioning/internalgnssreceiver.h
     appcoordinateoperationhandlers.h
     appinterface.h
     attributeformmodel.h
     attributeformmodelbase.h
     badlayerhandler.h
-    bluetoothdevicemodel.h
-    bluetoothreceiver.h
     bookmarkmodel.h
     changelogcontents.h
     deltafilewrapper.h
@@ -135,7 +143,6 @@ set(QFIELD_CORE_HDRS
     focusstack.h
     geometry.h
     geometryeditorsmodel.h
-    gnsspositioninformation.h
     identifytool.h
     layerobserver.h
     layerresolver.h
@@ -235,7 +242,8 @@ target_include_directories(
          ${CMAKE_SOURCE_DIR}/src/core/locator
          ${CMAKE_SOURCE_DIR}/src/core/platforms
          ${CMAKE_SOURCE_DIR}/src/core/qgsquick
-         ${CMAKE_SOURCE_DIR}/src/core/utils)
+         ${CMAKE_SOURCE_DIR}/src/core/utils
+         ${CMAKE_SOURCE_DIR}/src/core/positioning)
 if(ANDROID)
   string(REPLACE "_" "_1" APP_PACKAGE_JNI_NAME "${APP_PACKAGE_NAME}")
   configure_file(platforms/android/qfield_android.h.in

@@ -16,11 +16,17 @@ QtObject {
     property color errorColor: "#c0392b"
     property color warningColor: "orange"
     property color cloudColor: "#4c6dac"
+
     property color positionColor: "#64b5f6"
     property color positionColorSemiOpaque: "#3364b5f6"
     property color positionBackgroundColor: "#e6f2fd"
     property color darkPositionColor: "#2374b5"
     property color darkPositionColorSemiOpaque: "#882374b5"
+
+    property color accuracyBad: "#c0392b"
+    property color accuracyTolerated: "orange"
+    property color accuracyExcellent: "#80cc28"
+
     property color navigationColor: "#984ea3"
     property color navigationColorSemiOpaque: "#77984ea3"
     property color navigationBackgroundColor: "#e2d7e4"

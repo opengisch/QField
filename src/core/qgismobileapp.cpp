@@ -87,6 +87,8 @@
 #include "navigationmodel.h"
 #include "orderedrelationmodel.h"
 #include "picturesource.h"
+#include "positioning.h"
+#include "positioningutils.h"
 #include "printlayoutlistmodel.h"
 #include "projectinfo.h"
 #include "projectsource.h"
@@ -476,6 +478,7 @@ void QgisMobileapp::initDeclarative()
   qmlRegisterType<ScaleBarMeasurement>( "org.qfield", 1, 0, "ScaleBarMeasurement" );
   qmlRegisterType<Navigation>( "org.qfield", 1, 0, "Navigation" );
   qmlRegisterType<NavigationModel>( "org.qfield", 1, 0, "NavigationModel" );
+  qmlRegisterType<Positioning>( "org.qfield", 1, 0, "Positioning" );
 
   qRegisterMetaType<GnssPositionInformation>( "GnssPositionInformation" );
 
@@ -487,6 +490,7 @@ void QgisMobileapp::initDeclarative()
   REGISTER_SINGLETON( "org.qfield", StringUtils, "StringUtils" );
   REGISTER_SINGLETON( "org.qfield", UrlUtils, "UrlUtils" );
   REGISTER_SINGLETON( "org.qfield", QFieldCloudUtils, "QFieldCloudUtils" );
+  REGISTER_SINGLETON( "org.qfield", PositioningUtils, "PositioningUtils" );
 
   qmlRegisterUncreatableType<AppInterface>( "org.qgis", 1, 0, "QgisInterface", "QgisInterface is only provided by the environment and cannot be created ad-hoc" );
   qmlRegisterUncreatableType<Settings>( "org.qgis", 1, 0, "Settings", "" );

@@ -21,7 +21,6 @@ import QtQuick.Window 2.12
 import QtGraphicalEffects 1.0
 import Qt.labs.settings 1.0 as LabSettings
 import QtQml 2.12
-import QtPositioning 5.12
 
 import org.qgis 1.0
 import org.qfield 1.0
@@ -165,21 +164,44 @@ ApplicationWindow {
   }
 
   /**
-   * The position source to access the GPS
+   * The position source to access GNSS devices
    */
-  TransformedPositionSource {
+  Positioning {
     id: positionSource
-    destinationCrs: mapCanvas.mapSettings.destinationCrs
-    deltaZ: positioningSettings.antennaHeightActivated ? positioningSettings.antennaHeight * -1 : 0
-    skipAltitudeTransformation: positioningSettings.skipAltitudeCorrection
     device: positioningSettings.positioningDevice
+
+    property bool currentness: false;
+    property alias destinationCrs: positionSource.coordinateTransformer.destinationCrs
+
+    coordinateTransformer: CoordinateTransformer {
+      destinationCrs: mapCanvas.mapSettings.destinationCrs
+      transformContext: qgisProject.transformContext
+      deltaZ: positioningSettings.antennaHeightActivated ? positioningSettings.antennaHeight * -1 : 0
+      skipAltitudeTransformation: positioningSettings.skipAltitudeCorrection
+    }
+  }
+
+  Timer {
+    id: positionTimer
+
+    property bool geocoderLocatorFiltersChecked: false;
+
+    interval: 1000
+    repeat: true
+    running: true
+    triggeredOnStart: true
+    onTriggered: {
+      if ( positionSource.positionInformation ) {
+        positionSource.currentness = ( ( new Date() - positionSource.positionInformation.utcDateTime ) / 1000 ) < 30;
+        if ( !geocoderLocatorFiltersChecked && positionSource.valid ) {
+          locatorSettings.model.setGeocoderLocatorFiltersDefaulByPosition( positionSource.positionInformation );
+          geocoderLocatorFiltersChecked = true;
+        }
+      }
+    }
   }
 
   Item {
-    /*
-     * This is the map canvas
-     * On top of it are the base map and other items like GPS icon...
-     */
     id: mapCanvas
     clip: true
     property bool isBeingTouched: false
@@ -218,7 +240,7 @@ ApplicationWindow {
     HoverHandler {
         id: hoverHandler
         enabled: !qfieldSettings.mouseAsTouchScreen
-                 && !gpsLinkButton.linkActive
+                 && !gnssLockButton.linkActive
                  && !parent.isBeingTouched
                  && (!digitizingToolbar.rubberbandModel || !digitizingToolbar.rubberbandModel.frozen)
         acceptedDevices: PointerDevice.Stylus | PointerDevice.Mouse
@@ -325,10 +347,10 @@ ApplicationWindow {
 
           if ( type === "stylus" ) {
               // Check if geometry editor is taking over
-              if ( !gpsLinkButton.linkActive && geometryEditorsToolbar.canvasClicked(point) )
+              if ( !gnssLockButton.linkActive && geometryEditorsToolbar.canvasClicked(point) )
                   return;
 
-              if ( !gpsLinkButton.linkActive && (!featureForm.visible || digitizingToolbar.geometryRequested ) &&
+              if ( !gnssLockButton.linkActive && (!featureForm.visible || digitizingToolbar.geometryRequested ) &&
                    ( ( stateMachine.state === "digitize" && digitizingFeature.currentLayer ) || stateMachine.state === 'measure' ) ) {
                   if ( Number( currentRubberband.model.geometryType ) === QgsWkbTypes.PointGeometry ||
                           Number( currentRubberband.model.geometryType ) === QgsWkbTypes.NullGeometry ) {
@@ -391,9 +413,9 @@ ApplicationWindow {
 
 
   /**************************************************
-   * Position markers
+   * Overlays, including:
    * - Coordinate Locator
-   * - GPS Marker
+   * - Location Marker
    * - Identify Highlight
    * - Digitizing Rubberband
    **************************************************/
@@ -472,16 +494,9 @@ ApplicationWindow {
       anchors.fill: parent
     }
 
-    /** A coordinate locator for digitizing **/
-    CoordinateLocator {
-      id: coordinateLocator
-      anchors.fill: parent
-      visible: stateMachine.state === "digitize" || stateMachine.state === 'measure'
-      highlightColor: digitizingToolbar.isDigitizing ? currentRubberband.color : "#CFD8DC"
-      mapSettings: mapCanvas.mapSettings
-      currentLayer: dashBoard.currentLayer
-      positionInformation: positionSource.positionInfo
-      overrideLocation: gpsLinkButton.linkActive ? positionSource.projectedPosition : undefined
+    BookmarkHighlight {
+        id: bookmarkHighlight
+        mapSettings: mapCanvas.mapSettings
     }
 
     Navigation {
@@ -495,27 +510,42 @@ ApplicationWindow {
       navigation: navigation
     }
 
-    /* GPS marker  */
+    /** A coordinate locator for digitizing **/
+    CoordinateLocator {
+      id: coordinateLocator
+      anchors.fill: parent
+      visible: stateMachine.state === "digitize" || stateMachine.state === 'measure'
+      highlightColor: digitizingToolbar.isDigitizing ? currentRubberband.color : "#CFD8DC"
+      mapSettings: mapCanvas.mapSettings
+      currentLayer: dashBoard.currentLayer
+      positionInformation: positionSource.positionInformation
+      positionLocked: positionSource.active && positioningSettings.positioningCoordinateLock
+      averagedPosition: positionSource.averagedPosition
+      averagedPositionCount: positionSource.averagedPositionCount
+      overrideLocation: positionLocked ? positionSource.projectedPosition : undefined
+    }
+
+    /* Location marker reflecting the current GNSS position */
     LocationMarker {
       id: locationMarker
       mapSettings: mapCanvas.mapSettings
       anchors.fill: parent
-      visible: positionSource.active && positionSource.positionInfo && positionSource.positionInfo.latitudeValid
+      visible: positionSource.active && positionSource.positionInformation && positionSource.positionInformation.latitudeValid
       location: positionSource.projectedPosition
       device: positionSource.device
       accuracy: positionSource.projectedHorizontalAccuracy
-      direction: positionSource.positionInfo
-                 && positionSource.positionInfo.directionValid
-                 ? positionSource.positionInfo.direction
+      direction: positionSource.positionInformation
+                 && positionSource.positionInformation.directionValid
+                 ? positionSource.positionInformation.direction
                  : -1
-      speed: positionSource.positionInfo
-             && positionSource.positionInfo.speedValid
-             ? positionSource.positionInfo.speed
+      speed: positionSource.positionInformation
+             && positionSource.positionInformation.speedValid
+             ? positionSource.positionInformation.speed
              : -1
 
       onLocationChanged: {
-        if ( gpsButton.followActive ) {
-          gpsButton.followLocation(false);
+        if ( gnssButton.followActive ) {
+          gnssButton.followLocation(false);
         }
       }
     }
@@ -536,11 +566,6 @@ ApplicationWindow {
         mapSettings: mapCanvas.mapSettings
         width: 4
       }
-    }
-
-    BookmarkHighlight {
-        id: bookmarkHighlight
-        mapSettings: mapCanvas.mapSettings
     }
 
     /* Locator Highlight */
@@ -746,7 +771,7 @@ ApplicationWindow {
       }
 
       onClicked: {
-          if ( gpsButton.followActive ) gpsButton.followActiveSkipExtentChanged = true;
+          if ( gnssButton.followActive ) gnssButton.followActiveSkipExtentChanged = true;
           mapCanvasMap.zoomIn(Qt.point(mapCanvas.x + mapCanvas.width / 2,mapCanvas.y + mapCanvas.height / 2));
       }
     }
@@ -766,7 +791,7 @@ ApplicationWindow {
       }
 
       onClicked: {
-          if ( gpsButton.followActive ) gpsButton.followActiveSkipExtentChanged = true;
+          if ( gnssButton.followActive ) gnssButton.followActiveSkipExtentChanged = true;
           mapCanvasMap.zoomOut(Qt.point(mapCanvas.x + mapCanvas.width / 2,mapCanvas.y + mapCanvas.height / 2));
       }
     }
@@ -974,7 +999,7 @@ ApplicationWindow {
     QfToolButton {
       id: freehandButton
       round: true
-      visible: hoverHandler.hovered && !gpsLinkButton.linkActive && stateMachine.state === "digitize"
+      visible: hoverHandler.hovered && !gnssLockButton.linkActive && stateMachine.state === "digitize"
                && ((digitizingToolbar.geometryRequested && digitizingToolbar.geometryRequestedLayer && digitizingToolbar.geometryRequestedLayer.isValid &&
                    (digitizingToolbar.geometryRequestedLayer.geometryType() === QgsWkbTypes.PolygonGeometry
                     || digitizingToolbar.geometryRequestedLayer.geometryType() === QgsWkbTypes.LineGeometry))
@@ -1010,12 +1035,17 @@ ApplicationWindow {
 
       onClicked: {
         freehandDigitizing = !freehandDigitizing
+
+        if (freehandDigitizing && positioningSettings.positioningCoordinateLock) {
+          positioningSettings.positioningCoordinateLock = false;
+        }
+
         displayToast( freehandDigitizing ? qsTr( "Freehand digitizing turned on" ) : qsTr( "Freehand digitizing turned off" ) );
         settings.setValue( "/QField/Digitizing/FreehandActive", freehandDigitizing );
       }
 
       Component.onCompleted: {
-          freehandDigitizing = settings.valueBool( "/QField/Digitizing/FreehandActive", false )
+        freehandDigitizing = settings.valueBool( "/QField/Digitizing/FreehandActive", false )
       }
     }
   }
@@ -1034,7 +1064,7 @@ ApplicationWindow {
       round: true
       anchors.right: parent.right
 
-      property bool isFollowLocationActive: positionSource.active && gpsButton.followActive && followIncludeDestination
+      property bool isFollowLocationActive: positionSource.active && gnssButton.followActive && followIncludeDestination
       iconSource: isFollowLocationActive
                   ? Theme.getThemeIcon( "ic_navigation_flag_white_24dp" )
                   : Theme.getThemeIcon( "ic_navigation_flag_purple_24dp" )
@@ -1049,11 +1079,11 @@ ApplicationWindow {
       property bool followIncludeDestination: true
 
       onClicked: {
-        if (positionSource.active && gpsButton.followActive) {
+        if (positionSource.active && gnssButton.followActive) {
           followIncludeDestination = !followIncludeDestination
           settings.setValue("/QField/Navigation/FollowIncludeDestination", followIncludeDestination);
 
-          gpsButton.followLocation(true)
+          gnssButton.followLocation(true)
         } else {
           mapCanvas.mapSettings.setCenter(navigation.destination)
         }
@@ -1072,20 +1102,18 @@ ApplicationWindow {
     }
 
     QfToolButton {
-      id: gpsLinkButton
-      state: linkActive ? "On" : "Off"
-      visible: gpsButton.state === "On" && ( stateMachine.state === "digitize" || stateMachine.state === 'measure' )
+      id: gnssLockButton
+      state: positionSource.active && positioningSettings.positioningCoordinateLock ? "On" : "Off"
+      visible: gnssButton.state === "On" && ( stateMachine.state === "digitize" || stateMachine.state === 'measure' )
       round: true
       checkable: true
       anchors.right: parent.right
-
-      readonly property bool linkActive: gpsButton.state === "On" && checked
 
       states: [
         State {
           name: "Off"
           PropertyChanges {
-            target: gpsLinkButton
+            target: gnssLockButton
             iconSource: Theme.getThemeIcon( "ic_gps_link_white_24dp" )
             bgcolor: Theme.darkGraySemiOpaque
           }
@@ -1094,7 +1122,7 @@ ApplicationWindow {
         State {
           name: "On"
           PropertyChanges {
-            target: gpsLinkButton
+            target: gnssLockButton
             iconSource: Theme.getThemeIcon( "ic_gps_link_activated_white_24dp" )
             bgcolor: Theme.darkGray
           }
@@ -1102,32 +1130,31 @@ ApplicationWindow {
       ]
 
       onCheckedChanged: {
-        if (gpsButton.state === "On") {
-            if (checked) {
-                if (freehandButton.freehandDigitizing) {
-                    // deactivate freehand digitizing when cursor locked is on
-                    freehandButton.clicked();
+        if (gnssButton.state === "On") {
+          if (checked) {
+              if (freehandButton.freehandDigitizing) {
+                  // deactivate freehand digitizing when cursor locked is on
+                  freehandButton.clicked();
+              }
+              displayToast( qsTr( "Coordinate cursor now locked to position" ) )
+              if (positionSource.positionInformation.latitudeValid) {
+                var screenLocation = mapCanvas.mapSettings.coordinateToScreen(locationMarker.location);
+                if ( screenLocation.x < 0 || screenLocation.x > mainWindow.width ||
+                     screenLocation.y < 0 || screenLocation.y > mainWindow.height ) {
+                  mapCanvas.mapSettings.setCenter(positionSource.projectedPosition);
                 }
-                displayToast( qsTr( "Coordinate cursor now locked to position" ) )
-                if (positionSource.positionInfo.latitudeValid) {
-                  var screenLocation = mapCanvas.mapSettings.coordinateToScreen(locationMarker.location);
-                  if ( screenLocation.x < 0 || screenLocation.x > mainWindow.width ||
-                       screenLocation.y < 0 || screenLocation.y > mainWindow.height )
-                  {
-                    mapCanvas.mapSettings.setCenter(positionSource.projectedPosition);
-                  }
-                }
-            }
-            else
-            {
-                displayToast( qsTr( "Coordinate cursor unlocked" ) )
-            }
+              }
+              positioningSettings.positioningCoordinateLock = true;
+          } else {
+            displayToast( qsTr( "Coordinate cursor unlocked" ) )
+            positioningSettings.positioningCoordinateLock = false;
+          }
         }
       }
     }
 
     QfToolButton {
-      id: gpsButton
+      id: gnssButton
       state: positionSource.active ? "On" : "Off"
       visible: positionSource.valid
       round: true
@@ -1136,7 +1163,7 @@ ApplicationWindow {
 
       onIconSourceChanged: {
         if( state === "On" ){
-          if( positionSource.positionInfo && positionSource.positionInfo.latitudeValid ) {
+          if( positionSource.positionInformation && positionSource.positionInformation.latitudeValid ) {
             displayToast( qsTr( "Received position" ) )
           } else {
             displayToast( qsTr( "Searching for position" ) )
@@ -1159,7 +1186,7 @@ ApplicationWindow {
         State {
           name: "Off"
           PropertyChanges {
-            target: gpsButton
+            target: gnssButton
             iconSource: Theme.getThemeIcon( "ic_location_disabled_white_24dp" )
             bgcolor: Theme.darkGraySemiOpaque
           }
@@ -1168,8 +1195,8 @@ ApplicationWindow {
         State {
           name: "On"
           PropertyChanges {
-            target: gpsButton
-            iconSource: positionSource.positionInfo && positionSource.positionInfo.latitudeValid ? Theme.getThemeIcon( "ic_my_location_" + ( followActive ? "white" : "blue" ) + "_24dp" ) : Theme.getThemeIcon( "ic_gps_not_fixed_white_24dp" )
+            target: gnssButton
+            iconSource: positionSource.positionInformation && positionSource.positionInformation.latitudeValid ? Theme.getThemeIcon( "ic_my_location_" + ( followActive ? "white" : "blue" ) + "_24dp" ) : Theme.getThemeIcon( "ic_gps_not_fixed_white_24dp" )
             bgcolor: followActive ? Theme.positionColor : Theme.darkGray
           }
         }
@@ -1206,7 +1233,7 @@ ApplicationWindow {
       }
 
       onPressAndHold: {
-        gpsMenu.popup(locationToolbar.x + locationToolbar.width - gpsMenu.width, locationToolbar.y + locationToolbar.height - gpsMenu.height)
+        gnssMenu.popup(locationToolbar.x + locationToolbar.width - gnssMenu.width, locationToolbar.y + locationToolbar.height - gnssMenu.height)
       }
 
       property int followLocationMaxScale: 10
@@ -1228,7 +1255,7 @@ ApplicationWindow {
                 || screenLocation.y > (mainWindow.height - followLocationMinMargin)
                 || (Math.abs(screenDestination.x - screenLocation.x) < mainWindow.width / 3
                     && Math.abs(screenDestination.y - screenLocation.y) < mainWindow.height / 3)) {
-              gpsButton.followActiveSkipExtentChanged = true;
+              gnssButton.followActiveSkipExtentChanged = true;
               var points = [positionSource.projectedPosition, navigation.destination];
               mapCanvas.mapSettings.setExtentFromPoints(points)
             }
@@ -1241,24 +1268,9 @@ ApplicationWindow {
                || screenLocation.y < threshold
                || screenLocation.y > mainWindow.height - threshold )
           {
-            gpsButton.followActiveSkipExtentChanged = true;
+            gnssButton.followActiveSkipExtentChanged = true;
             mapCanvas.mapSettings.setCenter(positionSource.projectedPosition);
           }
-        }
-      }
-
-      function toggleGps() {
-        switch ( gpsButton.state )
-        {
-          case "Off":
-            gpsButton.state = "On"
-            displayToast( qsTr( "Positioning activated" ) )
-            break;
-
-          case "On":
-            gpsButton.state = "Off"
-            displayToast( qsTr( "Positioning turned off" ) )
-            break;
         }
       }
 
@@ -1277,14 +1289,14 @@ ApplicationWindow {
           border.width: 1.5
           border.color: 'white'
 
-          visible: positioningSettings.accuracyIndicator && gpsButton.state === "On"
-          color: !positionSource.positionInfo
-                 || !positionSource.positionInfo.haccValid
-                 || positionSource.positionInfo.hacc > positioningSettings.accuracyBad
-                     ? Theme.errorColor
-                     : positionSource.positionInfo.hacc > positioningSettings.accuracyExcellent
-                       ? Theme.warningColor
-                       : Theme.mainColor
+          visible: positioningSettings.accuracyIndicator && gnssButton.state === "On"
+          color: !positionSource.positionInformation
+                 || !positionSource.positionInformation.haccValid
+                 || positionSource.positionInformation.hacc > positioningSettings.accuracyBad
+                     ? Theme.accuracyBad
+                     : positionSource.positionInformation.hacc > positioningSettings.accuracyExcellent
+                       ? Theme.accuracyTolerated
+                       : Theme.accuracyExcellent
       }
     }
 
@@ -1292,11 +1304,11 @@ ApplicationWindow {
         target: mapCanvas.mapSettings
 
         function onExtentChanged() {
-            if ( gpsButton.followActive ) {
-                if ( gpsButton.followActiveSkipExtentChanged ) {
-                    gpsButton.followActiveSkipExtentChanged = false;
+            if ( gnssButton.followActive ) {
+                if ( gnssButton.followActiveSkipExtentChanged ) {
+                    gnssButton.followActiveSkipExtentChanged = false;
                 } else {
-                    gpsButton.followActive = false
+                    gnssButton.followActive = false
                     displayToast( qsTr( "Canvas stopped following location" ) )
                 }
             }
@@ -1327,9 +1339,9 @@ ApplicationWindow {
         id: digitizingFeature
         project: qgisProject
         currentLayer: digitizingToolbar.geometryRequested ? digitizingToolbar.geometryRequestedLayer : dashBoard.currentLayer
-        positionInformation: positionSource.positionInfo
+        positionInformation: positionSource.positionInformation
         topSnappingResult: coordinateLocator.topSnappingResult
-        positionLocked: gpsLinkButton.checked
+        positionLocked: positionSource.active && positioningSettings.positioningCoordinateLock
         cloudUserInformation: cloudConnection.userInformation
         geometry: Geometry {
           id: digitizingGeometry
@@ -1744,27 +1756,21 @@ ApplicationWindow {
   }
 
   PositioningSettings {
-      id: positioningSettings
+    id: positioningSettings
 
-      onPositioningActivatedChanged: {
-          if ( positioningActivated )
-          {
-            if ( platformUtilities.checkPositioningPermissions() )
-            {
-              displayToast( qsTr( "Activating positioning service" ) )
-              positionSource.active = true
-            }
-            else
-            {
-              displayToast( qsTr( "QField has no permissions to use positioning." ), 'warning' )
-              positioningSettings.positioningActivated = false
-            }
-          }
-          else
-          {
-              positionSource.active = false
-          }
+    onPositioningActivatedChanged: {
+      if ( positioningActivated ) {
+        if ( platformUtilities.checkPositioningPermissions() ) {
+          displayToast( qsTr( "Activating positioning service" ) )
+          positionSource.active = true
+        } else {
+          displayToast( qsTr( "QField has no permissions to use positioning." ), 'warning' )
+          positioningSettings.positioningActivated = false
+        }
+      } else {
+          positionSource.active = false
       }
+    }
   }
 
   Menu {
@@ -1896,7 +1902,7 @@ ApplicationWindow {
   }
 
   Menu {
-    id: gpsMenu
+    id: gnssMenu
     title: qsTr( "Positioning Options" )
     font: Theme.defaultFont
 
@@ -1985,7 +1991,7 @@ ApplicationWindow {
       font: Theme.defaultFont
 
       onTriggered: {
-        if (!positioningSettings.positioningActivated || positionSource.positionInfo === undefined || !positionSource.positionInfo.latitudeValid) {
+        if (!positioningSettings.positioningActivated || positionSource.positionInformation === undefined || !positionSource.positionInformation.latitudeValid) {
           displayToast(qsTr('Current location unknown'));
           return;
         }
@@ -2009,7 +2015,7 @@ ApplicationWindow {
       font: Theme.defaultFont
 
       onTriggered: {
-        if (!positioningSettings.positioningActivated || positionSource.positionInfo === undefined || !positionSource.positionInfo.latitudeValid) {
+        if (!positioningSettings.positioningActivated || positionSource.positionInformation === undefined || !positionSource.positionInformation.latitudeValid) {
           displayToast(qsTr('Current location unknown'));
           return;
         }
@@ -2022,8 +2028,8 @@ ApplicationWindow {
           coordinates = qsTr( 'X' ) + ' ' +  point.x.toFixed(3) + ', ' + qsTr( 'Y' ) + ' ' + point.y.toFixed(3)
         }
         coordinates += ' ('+ qsTr('Accuracy') + ' ' +
-                       ( positionSource.positionInfo && positionSource.positionInfo.haccValid
-                         ? positionSource.positionInfo.hacc.toLocaleString(Qt.locale(), 'f', 3) + " m"
+                       ( positionSource.positionInformation && positionSource.positionInformation.haccValid
+                         ? positionSource.positionInformation.hacc.toLocaleString(Qt.locale(), 'f', 3) + " m"
                          : qsTr( "N/A" ) );
         coordinates += '; ' + mapCanvas.mapSettings.destinationCrs.authid + ' ' + mapCanvas.mapSettings.destinationCrs.description + ')'
 
@@ -2781,8 +2787,8 @@ ApplicationWindow {
     id: geometryEditingFeature
     project: qgisProject
     currentLayer: null
-    positionInformation: positionSource.positionInfo
-    positionLocked: gpsLinkButton.checked
+    positionInformation: positionSource.positionInformation
+    positionLocked: positionSource.active && positioningSettings.positioningCoordinateLock
     vertexModel: vertexModel
     cloudUserInformation: cloudConnection.userInformation
   }

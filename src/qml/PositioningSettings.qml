@@ -3,6 +3,7 @@ import Qt.labs.settings 1.0 as LabSettings
 
 LabSettings.Settings {
     property bool positioningActivated: false
+    property bool positioningCoordinateLock: false
 
     property string positioningDevice: ""
     property string positioningDeviceName: qsTr( "Internal device" );
@@ -14,6 +15,9 @@ LabSettings.Settings {
     property real accuracyBad: 5.0
     property real accuracyExcellent: 1.0
     property bool accuracyRequirement: false
+
+    property bool averagedPositioning: false
+    property int  averagedPositioningMinimumCount: 1
 
     property real antennaHeight: 0.0
     property bool antennaHeightActivated: false

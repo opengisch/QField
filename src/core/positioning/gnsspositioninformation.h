@@ -79,6 +79,7 @@ class GnssPositionInformation
     Q_PROPERTY( QString fixStatusDescription READ fixStatusDescription )
     Q_PROPERTY( double verticalSpeed READ verticalSpeed )
     Q_PROPERTY( double magneticVariation READ magneticVariation )
+    Q_PROPERTY( int averagedCount READ averagedCount )
     Q_PROPERTY( QString sourceName READ sourceName )
 
   public:
@@ -99,7 +100,7 @@ class GnssPositionInformation
                              double speed = std::numeric_limits<double>::quiet_NaN(), double direction = std::numeric_limits<double>::quiet_NaN(), const QList<QgsSatelliteInfo> &satellitesInView = QList<QgsSatelliteInfo>(),
                              double pdop = 0, double hdop = 0, double vdop = 0, double hacc = std::numeric_limits<double>::quiet_NaN(), double vacc = std::numeric_limits<double>::quiet_NaN(), QDateTime utcDateTime = QDateTime(),
                              QChar fixMode = QChar(), int fixType = 0, int quality = -1, int satellitesUsed = 0, QChar status = QChar(), const QList<int> &satPrn = QList<int>(), bool satInfoComplete = false,
-                             double verticalSpeed = std::numeric_limits<double>::quiet_NaN(), double magneticVariation = std::numeric_limits<double>::quiet_NaN(), const QString &sourceName = QString() );
+                             double verticalSpeed = std::numeric_limits<double>::quiet_NaN(), double magneticVariation = std::numeric_limits<double>::quiet_NaN(), int averagedCount = 0, const QString &sourceName = QString() );
 
     bool operator==( const GnssPositionInformation &other ) const;
     bool operator!=( const GnssPositionInformation &other ) const { return !operator==( other ); }
@@ -234,6 +235,12 @@ class GnssPositionInformation
     QString sourceName() const { return mSourceName; }
 
     /**
+     * Returns the number of collected position from which the averaged positioning details were computed
+     * \note A value of zero means the position information isn't averaged
+     */
+    int averagedCount() const { return mAveragedCount; }
+
+    /**
      * Returns whether the connection information is valid
      */
     bool isValid() const;
@@ -244,7 +251,7 @@ class GnssPositionInformation
     FixStatus fixStatus() const;
 
     /**
-     * Returns a descriptive string for the signal quality.
+     * Returns a descriptive string for the signal quality
      */
     QString qualityDescription() const;
 
@@ -276,6 +283,7 @@ class GnssPositionInformation
     bool mSatInfoComplete = false;
     double mVerticalSpeed = std::numeric_limits<double>::quiet_NaN();
     double mMagneticVariation = std::numeric_limits<double>::quiet_NaN();
+    int mAveragedCount = 0;
     QString mSourceName;
 };
 
