@@ -22,6 +22,8 @@
 Positioning::Positioning( QObject *parent )
   : QObject( parent )
 {
+  // Setup internal gnss receiver by default
+  setupDevice();
 }
 
 void Positioning::setActive( bool active )
