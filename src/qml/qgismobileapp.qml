@@ -186,9 +186,9 @@ ApplicationWindow {
 
     property bool geocoderLocatorFiltersChecked: false;
 
-    interval: 1000
+    interval: 2500
     repeat: true
-    running: true
+    running: positionSource.active
     triggeredOnStart: true
     onTriggered: {
       if ( positionSource.positionInformation ) {
