@@ -20,7 +20,7 @@ Check the [documentation](https://docs.qfield.org/)
 
 ### Windows (Beta)
 
-[![Download the latest windows beta version](https://qgis.org/en/_static/images/app_download_windows.png)](https://nightly.link/opengisch/QField/workflows/vcpkg/master/QField-dev-x64-windows-Release.zip)
+[![Download the latest windows beta version](https://qgis.org/en/_static/images/app_download_windows.png)](https://github.com/opengisch/QField/releases/download/v2.0.14/qfield-v2.0.14-windows-x64.exe)
 
 ### iOS (Alpha)
 
