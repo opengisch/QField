@@ -200,6 +200,14 @@ QgsPoint RubberbandModel::currentCoordinate() const
   return mPointList.value( mCurrentCoordinateIndex );
 }
 
+QgsPoint RubberbandModel::firstCoordinate() const
+{
+  if ( mPointList.isEmpty() )
+    return QgsPoint();
+
+  return mPointList.at( 0 );
+}
+
 QgsPoint RubberbandModel::lastCoordinate() const
 {
   if ( mPointList.isEmpty() )
