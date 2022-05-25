@@ -685,7 +685,13 @@ ApplicationWindow {
                        .arg(UnitTypes.formatDistance( digitizingGeometryMeasure.segmentLength, 3, digitizingGeometryMeasure.lengthUnits ) )
                      : '' )
 
-                .arg(digitizingGeometryMeasure.lengthValid
+                .arg(currentRubberband.model.geometryType === QgsWkbTypes.PolygonGeometry
+                     ? digitizingGeometryMeasure.perimeterValid
+                       ? '<p>%1: %2</p>'
+                         .arg( qsTr( 'Perimeter') )
+                         .arg(UnitTypes.formatDistance( digitizingGeometryMeasure.perimeter, 3, digitizingGeometryMeasure.lengthUnits ) )
+                       : ''
+                     : digitizingGeometryMeasure.lengthValid
                      ? '<p>%1: %2</p>'
                        .arg( qsTr( 'Length') )
                        .arg(UnitTypes.formatDistance( digitizingGeometryMeasure.length, 3, digitizingGeometryMeasure.lengthUnits ) )
