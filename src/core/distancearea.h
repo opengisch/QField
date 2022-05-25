@@ -32,9 +32,11 @@ class DistanceArea : public QObject
     Q_PROPERTY( QgsProject *project READ project WRITE setProject NOTIFY projectChanged )
 
     Q_PROPERTY( qreal length READ length NOTIFY lengthChanged )
-    Q_PROPERTY( bool lengthValid READ lengthValid NOTIFY lengthValidChanged )
+    Q_PROPERTY( bool lengthValid READ lengthValid NOTIFY lengthChanged )
+    Q_PROPERTY( qreal perimeter READ perimeter NOTIFY perimeterChanged )
+    Q_PROPERTY( bool perimeterValid READ perimeterValid NOTIFY perimeterChanged )
     Q_PROPERTY( qreal area READ area NOTIFY areaChanged )
-    Q_PROPERTY( bool areaValid READ areaValid NOTIFY areaValidChanged )
+    Q_PROPERTY( bool areaValid READ areaValid NOTIFY areaChanged )
     Q_PROPERTY( QgsUnitTypes::DistanceUnit lengthUnits READ lengthUnits NOTIFY lengthUnitsChanged )
     Q_PROPERTY( QgsUnitTypes::AreaUnit areaUnits READ areaUnits NOTIFY areaUnitsChanged )
 
@@ -48,6 +50,8 @@ class DistanceArea : public QObject
 
     qreal length() const;
     bool lengthValid() const;
+    qreal perimeter() const;
+    bool perimeterValid() const;
     qreal area() const;
     bool areaValid() const;
     qreal segmentLength() const;
@@ -70,9 +74,8 @@ class DistanceArea : public QObject
     void projectChanged();
 
     void lengthChanged();
-    void lengthValidChanged();
+    void perimeterChanged();
     void areaChanged();
-    void areaValidChanged();
     void segmentLengthChanged();
     void lengthUnitsChanged();
     void areaUnitsChanged();

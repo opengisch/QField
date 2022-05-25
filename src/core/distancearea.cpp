@@ -13,11 +13,15 @@
  *   (at your option) any later version.                                   *
  *                                                                         *
  ***************************************************************************/
+
 #include "distancearea.h"
 #include "geometry.h"
-#include "qgsproject.h"
-#include "qgsvectorlayer.h"
 #include "rubberband.h"
+
+#include <qgslinestring.h>
+#include <qgspolygon.h>
+#include <qgsproject.h>
+#include <qgsvectorlayer.h>
 
 DistanceArea::DistanceArea( QObject *parent )
   : QObject( parent )
@@ -78,10 +82,9 @@ void DistanceArea::setRubberbandModel( RubberbandModel *rubberbandModel )
   if ( mRubberbandModel )
   {
     disconnect( mRubberbandModel, &RubberbandModel::vertexChanged, this, &DistanceArea::lengthChanged );
+    disconnect( mRubberbandModel, &RubberbandModel::vertexChanged, this, &DistanceArea::perimeterChanged );
     disconnect( mRubberbandModel, &RubberbandModel::vertexChanged, this, &DistanceArea::areaChanged );
     disconnect( mRubberbandModel, &RubberbandModel::vertexChanged, this, &DistanceArea::segmentLengthChanged );
-    disconnect( mRubberbandModel, &RubberbandModel::vertexCountChanged, this, &DistanceArea::areaValidChanged );
-    disconnect( mRubberbandModel, &RubberbandModel::vertexCountChanged, this, &DistanceArea::lengthValidChanged );
   }
 
   mRubberbandModel = rubberbandModel;
@@ -89,10 +92,9 @@ void DistanceArea::setRubberbandModel( RubberbandModel *rubberbandModel )
   if ( mRubberbandModel )
   {
     connect( mRubberbandModel, &RubberbandModel::vertexChanged, this, &DistanceArea::lengthChanged );
+    connect( mRubberbandModel, &RubberbandModel::vertexChanged, this, &DistanceArea::perimeterChanged );
     connect( mRubberbandModel, &RubberbandModel::vertexChanged, this, &DistanceArea::areaChanged );
     connect( mRubberbandModel, &RubberbandModel::vertexChanged, this, &DistanceArea::segmentLengthChanged );
-    connect( mRubberbandModel, &RubberbandModel::vertexCountChanged, this, &DistanceArea::areaValidChanged );
-    connect( mRubberbandModel, &RubberbandModel::vertexCountChanged, this, &DistanceArea::lengthValidChanged );
   }
 
   emit rubberbandModelChanged();
@@ -155,6 +157,37 @@ bool DistanceArea::lengthValid() const
       FALLTHROUGH
     case QgsWkbTypes::PolygonGeometry:
       return mRubberbandModel->vertexCount() >= 2;
+
+    default:
+      return false;
+  }
+}
+
+qreal DistanceArea::perimeter() const
+{
+  if ( mRubberbandModel )
+  {
+    QgsGeometry geom( new QgsPolygon( new QgsLineString( mRubberbandModel->flatPointSequence( mCrs ) ) ) );
+    return mDistanceArea.measurePerimeter( geom );
+  }
+
+  return qQNaN();
+}
+
+bool DistanceArea::perimeterValid() const
+{
+  if ( !mRubberbandModel )
+    return false;
+
+  switch ( mRubberbandModel->geometryType() )
+  {
+    case QgsWkbTypes::PointGeometry:
+      FALLTHROUGH
+    case QgsWkbTypes::LineGeometry:
+      return false;
+
+    case QgsWkbTypes::PolygonGeometry:
+      return mRubberbandModel->vertexCount() >= 3;
 
     default:
       return false;
