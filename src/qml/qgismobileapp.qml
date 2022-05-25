@@ -123,7 +123,7 @@ ApplicationWindow {
       State {
         name: 'measure'
         PropertyChanges { target: identifyTool; deactivated: true }
-        PropertyChanges { target: mainWindow; currentRubberband: measuringRubberband }
+        PropertyChanges { target: mainWindow; currentRubberband: measuringTool.measuringRubberband }
         PropertyChanges { target: featureForm; state: "Hidden" }
       }
     ]
@@ -430,81 +430,13 @@ ApplicationWindow {
     }
 
     /** A rubberband for measuring **/
-    Item {
+    MeasuringTool {
       id: measuringTool
-
-      anchors.fill: parent
       visible: stateMachine.state === 'measure'
+      anchors.fill: parent
 
-      property bool isClosingArea: measuringRubberband.model.vertexCount > 2
-                                   && measuringVertexFirstLastDistance.screenDistance < 10
-      property bool isArea: false
-
-      MapToScreen {
-        id: measuringVertexFirstLastDistance
-        mapSettings: mapCanvas.mapSettings
-        mapDistance: GeometryUtils.distanceBetweenPoints(measuringRubberband.model.firstCoordinate,
-                                                         measuringRubberband.model.currentCoordinate)
-      }
-
-      Repeater {
-        id: measuringVertices
-        model: measuringRubberband.model.vertices
-        delegate: Rectangle {
-          MapToScreen {
-            id: measuringVertexToScreen
-            mapSettings: mapCanvas.mapSettings
-            mapPoint: modelData
-          }
-
-          visible: measuringRubberband.model.vertexCount > 1
-
-          x: measuringVertexToScreen.screenPoint.x - width/2
-          y: measuringVertexToScreen.screenPoint.y - width/2
-
-          width: measuringTool.isClosingArea
-                 && (index === 0 || index === measuringRubberband.model.vertexCount - 1)
-                 ? 20
-                 : 10
-          height: width
-          radius: width / 2
-          color: "#20000000"
-          border.color: '#80000000'
-          border.width: 2
-        }
-      }
-
-      Rubberband {
-        id: measuringRubberband
-        width: 2.5
-        color: '#80000000'
-
-        mapSettings: mapCanvas.mapSettings
-
-        model: RubberbandModel {
-          frozen: false
-          currentCoordinate: coordinateLocator.currentCoordinate
-          geometryType: measuringTool.isClosingArea || measuringTool.isArea
-                        ? QgsWkbTypes.PolygonGeometry
-                        : QgsWkbTypes.LineGeometry
-          crs: mapCanvas.mapSettings.destinationCrs
-        }
-
-        anchors.fill: parent
-      }
-
-      Connections {
-        target: measuringRubberband.model
-
-        function onVertexCountChanged() {
-          if (measuringRubberband.model.vertexCount > 2
-              && measuringVertexFirstLastDistance.screenDistance < 10) {
-            measuringTool.isArea = true;
-          } else if (measuringRubberband.model.vertexCount <= 1) {
-            measuringTool.isArea = false;
-          }
-        }
-      }
+      measuringRubberband.model.currentCoordinate: coordinateLocator.currentCoordinate
+      measuringRubberband.mapSettings: mapCanvas.mapSettings
     }
 
     /** Tracking sessions **/

@@ -16,6 +16,7 @@
         <file>LayerSelector.qml</file>
         <file>LocationMarker.qml</file>
         <file>MapCanvas.qml</file>
+        <file>MeasuringTool.qml</file>
         <file>MessageLog.qml</file>
         <file>NavigationBar.qml</file>
         <file>NavigationHighlight.qml</file>
