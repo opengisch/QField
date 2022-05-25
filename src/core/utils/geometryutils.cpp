@@ -128,3 +128,8 @@ QgsPoint GeometryUtils::coordinateToPoint( const QGeoCoordinate &coor )
 {
   return QgsPoint( coor.longitude(), coor.latitude(), coor.altitude() );
 }
+
+double GeometryUtils::distanceBetweenPoints( const QgsPoint &start, const QgsPoint &end )
+{
+  return start.distance( end );
+}

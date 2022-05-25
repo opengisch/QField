@@ -123,7 +123,7 @@ ApplicationWindow {
       State {
         name: 'measure'
         PropertyChanges { target: identifyTool; deactivated: true }
-        PropertyChanges { target: mainWindow; currentRubberband: measuringRubberband }
+        PropertyChanges { target: mainWindow; currentRubberband: measuringTool.measuringRubberband }
         PropertyChanges { target: featureForm; state: "Hidden" }
       }
     ]
@@ -430,23 +430,13 @@ ApplicationWindow {
     }
 
     /** A rubberband for measuring **/
-    Rubberband {
-      id: measuringRubberband
-      width: 2.5
-      color: '#80000000'
-
-      mapSettings: mapCanvas.mapSettings
-
-      model: RubberbandModel {
-        frozen: false
-        currentCoordinate: coordinateLocator.currentCoordinate
-        geometryType: QgsWkbTypes.PolygonGeometry
-        crs: mapCanvas.mapSettings.destinationCrs
-      }
-
+    MeasuringTool {
+      id: measuringTool
+      visible: stateMachine.state === 'measure'
       anchors.fill: parent
 
-      visible: stateMachine.state === 'measure'
+      measuringRubberband.model.currentCoordinate: coordinateLocator.currentCoordinate
+      measuringRubberband.mapSettings: mapCanvas.mapSettings
     }
 
     /** Tracking sessions **/
@@ -472,7 +462,6 @@ ApplicationWindow {
       }
 
       anchors.fill: parent
-
       visible: stateMachine.state === "digitize"
     }
 
@@ -681,7 +670,7 @@ ApplicationWindow {
     }
 
     text: ( qfieldSettings.numericalDigitizingInformation && stateMachine.state === "digitize" ) || stateMachine.state === 'measure' ?
-              '%1%2%3%4'
+              '%1%2%3%4%5'
                 .arg(stateMachine.state === 'digitize' || !digitizingToolbar.isDigitizing ? '<p>%1: %2<br>%3: %4</p>'
                   .arg(coordinateLocator.mapSettings.destinationCrs.isGeographic ? qsTr( 'Lon' ) : 'X')
                   .arg(coordinateLocator.currentCoordinate.x.toLocaleString( Qt.locale(), 'f', coordinateLocator.mapSettings.destinationCrs.isGeographic ? 5 : 2 ))
@@ -689,11 +678,24 @@ ApplicationWindow {
                   .arg(coordinateLocator.currentCoordinate.y.toLocaleString( Qt.locale(), 'f', coordinateLocator.mapSettings.destinationCrs.isGeographic ? 5 : 2 ))
                   : '' )
 
-                .arg(digitizingGeometryMeasure.lengthValid ? '<p>%1: %2%3</p>'
-                  .arg( digitizingGeometryMeasure.segmentLength != digitizingGeometryMeasure.length ? qsTr( 'Segment') : qsTr( 'Length') )
-                  .arg(UnitTypes.formatDistance( digitizingGeometryMeasure.segmentLength, 3, digitizingGeometryMeasure.lengthUnits ) )
-                  .arg(digitizingGeometryMeasure.length !== -1 && digitizingGeometryMeasure.segmentLength != digitizingGeometryMeasure.length ? '<br>%1: %2'.arg( qsTr( 'Length') ).arg(UnitTypes.formatDistance( digitizingGeometryMeasure.length, 3, digitizingGeometryMeasure.lengthUnits ) ) : '' )
-                  : '' )
+                .arg(digitizingGeometryMeasure.lengthValid && digitizingGeometryMeasure.segmentLength != 0.0
+                     && digitizingGeometryMeasure.segmentLength != digitizingGeometryMeasure.length
+                     ? '<p>%1: %2</p>'
+                       .arg( qsTr( 'Segment') )
+                       .arg(UnitTypes.formatDistance( digitizingGeometryMeasure.segmentLength, 3, digitizingGeometryMeasure.lengthUnits ) )
+                     : '' )
+
+                .arg(currentRubberband.model.geometryType === QgsWkbTypes.PolygonGeometry
+                     ? digitizingGeometryMeasure.perimeterValid
+                       ? '<p>%1: %2</p>'
+                         .arg( qsTr( 'Perimeter') )
+                         .arg(UnitTypes.formatDistance( digitizingGeometryMeasure.perimeter, 3, digitizingGeometryMeasure.lengthUnits ) )
+                       : ''
+                     : digitizingGeometryMeasure.lengthValid
+                     ? '<p>%1: %2</p>'
+                       .arg( qsTr( 'Length') )
+                       .arg(UnitTypes.formatDistance( digitizingGeometryMeasure.length, 3, digitizingGeometryMeasure.lengthUnits ) )
+                     : '' )
 
                 .arg(digitizingGeometryMeasure.areaValid ? '<p>%1: %2</p>'
                   .arg( qsTr( 'Area') )

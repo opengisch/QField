@@ -72,6 +72,9 @@ class QFIELD_CORE_EXPORT GeometryUtils : public QObject
 
     //! Converts QGeoCoordinate to QgsPoint
     static Q_INVOKABLE QgsPoint coordinateToPoint( const QGeoCoordinate &coor );
+
+    //! Returns the distance between a pair of \a start and \a end points.
+    static Q_INVOKABLE double distanceBetweenPoints( const QgsPoint &start, const QgsPoint &end );
 };
 
 #endif // GEOMETRYUTILS_H

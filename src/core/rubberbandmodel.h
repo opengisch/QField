@@ -40,12 +40,14 @@ class QFIELD_CORE_EXPORT RubberbandModel : public QObject
 {
     Q_OBJECT
 
+    Q_PROPERTY( QgsPoint firstCoordinate READ firstCoordinate NOTIFY currentCoordinateChanged )
     Q_PROPERTY( QgsPoint lastCoordinate READ lastCoordinate NOTIFY currentCoordinateChanged )
     Q_PROPERTY( QgsPoint currentCoordinate READ currentCoordinate WRITE setCurrentCoordinate NOTIFY currentCoordinateChanged )
     Q_PROPERTY( int currentCoordinateIndex READ currentCoordinateIndex WRITE setCurrentCoordinateIndex NOTIFY currentCoordinateIndexChanged )
     Q_PROPERTY( QgsWkbTypes::GeometryType geometryType READ geometryType WRITE setGeometryType NOTIFY geometryTypeChanged )
     Q_PROPERTY( QgsVectorLayer *vectorLayer READ vectorLayer WRITE setVectorLayer NOTIFY vectorLayerChanged )
     Q_PROPERTY( int vertexCount READ vertexCount NOTIFY vertexCountChanged )
+    Q_PROPERTY( QVector<QgsPoint> vertices READ vertices NOTIFY currentCoordinateChanged )
     Q_PROPERTY( QgsCoordinateReferenceSystem crs READ crs WRITE setCrs NOTIFY crsChanged )
     //! freeze the rubberband so it doesn't get modified while panning map
     Q_PROPERTY( bool frozen READ frozen WRITE setFrozen NOTIFY frozenChanged )
@@ -86,6 +88,7 @@ class QFIELD_CORE_EXPORT RubberbandModel : public QObject
 
     QgsPoint currentPoint( const QgsCoordinateReferenceSystem &crs = QgsCoordinateReferenceSystem(), QgsWkbTypes::Type wkbType = QgsWkbTypes::PointZ ) const;
 
+    QgsPoint firstCoordinate() const;
     QgsPoint lastCoordinate() const;
     QgsPoint currentCoordinate() const;
     void setCurrentCoordinate( const QgsPoint &currentCoordinate );
