@@ -592,21 +592,23 @@
 
 The features geometries will be combined into feature &apos;%1&apos;, which will keep its attributes.</source>
         <comment>0</comment>
-        <translation type="unfinished"><numerusform>¿Realmente se debe combinar el objeto seleccionado?
+        <translation><numerusform>¿Realmente se debe combinar el objeto seleccionado?
 
-Las geometrías de los objetos se combinarán en el objeto &apos;%1&apos;, que conservará sus atributos.</numerusform><numerusform></numerusform><numerusform>¿Realmente se deben combinar los %n objetos seleccionados?
+Las geometrías de los objetos se combinarán en el objeto &apos;%1&apos;, que conservará sus atributos.</numerusform><numerusform>¿Realmente se deben combinar los %n objetos seleccionados?
+
+Las geometrías de los objetos se combinarán en el objeto &apos;%1&apos;, que conservará sus atributos.</numerusform><numerusform>¿Realmente se deben combinar los %n objetos seleccionados?
 
 Las geometrías de los objetos se combinarán en el objeto &apos;%1&apos;, que conservará sus atributos.</numerusform></translation>
     </message>
     <message numerus="yes">
         <location filename="../src/qml/FeatureListForm.qml" line="717"/>
         <source>Successfully merged %n feature(s)</source>
-        <translation type="unfinished"><numerusform>Un objeto combinado con éxito</numerusform><numerusform></numerusform><numerusform>%n objetos combinados con éxito</numerusform></translation>
+        <translation><numerusform>Un objeto combinado con éxito</numerusform><numerusform>%n objetos combinados con éxito</numerusform><numerusform>%n objetos combinados con éxito</numerusform></translation>
     </message>
     <message numerus="yes">
         <location filename="../src/qml/FeatureListForm.qml" line="719"/>
         <source>Failed to merge %n feature(s)</source>
-        <translation type="unfinished"><numerusform>No se pudo combinar un objetos</numerusform><numerusform></numerusform><numerusform>No se pudieron combinar %n objetos</numerusform></translation>
+        <translation><numerusform>No se pudo combinar un objetos</numerusform><numerusform>No se pudieron combinar %n objetos</numerusform><numerusform>No se pudieron combinar %n objetos</numerusform></translation>
     </message>
     <message>
         <location filename="../src/qml/FeatureListForm.qml" line="751"/>
@@ -617,17 +619,17 @@ Las geometrías de los objetos se combinarán en el objeto &apos;%1&apos;, que c
         <location filename="../src/qml/FeatureListForm.qml" line="755"/>
         <source>Should the %n feature(s) selected really be deleted?</source>
         <comment>0</comment>
-        <translation type="unfinished"><numerusform>¿Se deben borrar realmente el objeto seleccionado?</numerusform><numerusform></numerusform><numerusform>¿Se deben borrar realmente los %n objetos seleccionados?</numerusform></translation>
+        <translation><numerusform>¿Se deben borrar realmente el objeto seleccionado?</numerusform><numerusform>¿Se deben borrar realmente los %n objetos seleccionados?</numerusform><numerusform>¿Se deben borrar realmente los %n objetos seleccionados?</numerusform></translation>
     </message>
     <message numerus="yes">
         <location filename="../src/qml/FeatureListForm.qml" line="771"/>
         <source>Successfully deleted %n feature(s)</source>
-        <translation type="unfinished"><numerusform>Un objeto borrado con éxito</numerusform><numerusform></numerusform><numerusform>%n objetos borrados con éxito</numerusform></translation>
+        <translation><numerusform>Un objeto borrado con éxito</numerusform><numerusform>%n objetos borrados con éxito</numerusform><numerusform>%n objetos borrados con éxito</numerusform></translation>
     </message>
     <message numerus="yes">
         <location filename="../src/qml/FeatureListForm.qml" line="779"/>
         <source>Failed to delete %n feature(s)</source>
-        <translation type="unfinished"><numerusform>No se pudo borrar un objeto</numerusform><numerusform></numerusform><numerusform>No se pudieron borrar %n objetos</numerusform></translation>
+        <translation><numerusform>No se pudo borrar un objeto</numerusform><numerusform>No se pudieron borrar %n objetos</numerusform><numerusform>No se pudieron borrar %n objetos</numerusform></translation>
     </message>
     <message>
         <location filename="../src/qml/FeatureListForm.qml" line="356"/>
@@ -1693,7 +1695,7 @@ Las geometrías de los objetos se combinarán en el objeto &apos;%1&apos;, que c
     <message numerus="yes">
         <location filename="../src/qml/QFieldCloudPopup.qml" line="333"/>
         <source>There is/are %n local change(s)</source>
-        <translation type="unfinished"><numerusform>Hay un cambio local</numerusform><numerusform></numerusform><numerusform>Hay %n cambios locales</numerusform></translation>
+        <translation><numerusform>Hay un cambio local</numerusform><numerusform>Hay %n cambios locales</numerusform><numerusform>Hay %n cambios locales</numerusform></translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldCloudPopup.qml" line="334"/>
@@ -1800,7 +1802,7 @@ While you can still view and use the project, it is strongly recommended to rese
     <message numerus="yes">
         <location filename="../src/qml/QFieldCloudPopup.qml" line="500"/>
         <source>%n attachment(s) are currently being uploaded in the background.</source>
-        <translation type="unfinished"><numerusform>Actualmente se está subiendo un adjunto en segundo plano.</numerusform><numerusform></numerusform><numerusform>Actualmente se están subiendo %n adjuntos en segundo plano.</numerusform></translation>
+        <translation><numerusform>Actualmente se está subiendo un adjunto en segundo plano.</numerusform><numerusform>Actualmente se están subiendo %n adjuntos en segundo plano.</numerusform><numerusform>Actualmente se están subiendo %n adjuntos en segundo plano.</numerusform></translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldCloudPopup.qml" line="560"/>
@@ -2366,7 +2368,7 @@ While you can still view and use the project, it is strongly recommended to rese
     <message numerus="yes">
         <location filename="../src/qml/QFieldSettings.qml" line="436"/>
         <source>%n device(s) found</source>
-        <translation type="unfinished"><numerusform>Un dispositivo encontrado</numerusform><numerusform></numerusform><numerusform>%n dispositivos encontrados</numerusform></translation>
+        <translation><numerusform>Un dispositivo encontrado</numerusform><numerusform>%n dispositivos encontrados</numerusform><numerusform>%n dispositivos encontrados</numerusform></translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldSettings.qml" line="442"/>

@@ -440,7 +440,7 @@
     <message>
         <location filename="../src/qml/DigitizingToolbar.qml" line="202"/>
         <source>The collected positions count does not meet the requirement</source>
-        <translation type="unfinished"/>
+        <translation>收集的定位数量未符合需求</translation>
     </message>
     <message>
         <location filename="../src/qml/DigitizingToolbar.qml" line="267"/>
@@ -2443,17 +2443,17 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <location filename="../src/qml/QFieldSettings.qml" line="744"/>
         <source>Enable averaged positioning requirement</source>
-        <translation type="unfinished"/>
+        <translation>启用平均定位需求</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldSettings.qml" line="766"/>
         <source>Minimum number of positions collected</source>
-        <translation type="unfinished"/>
+        <translation>收集的最少定位数</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldSettings.qml" line="807"/>
         <source>When enabled, digitizing vertices with a cursor locked to position will only accepted an averaged position from a minimum number of collected positions. Digitizing using averaged positions is done by pressing and holding the add vertex button, which will collect positions until the press is released. Accuracy requirement settings are respected when enabled.</source>
-        <translation type="unfinished"/>
+        <translation>启用后，将光标锁定到定位的数字化顶点仅接受最少收集定位数的平均定位。通过按住添加顶点按钮，可以使用平均定位进行数字化，该按钮将收集定位，直到释放才结束。启用后，将遵守精度需求设置。</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldSettings.qml" line="821"/>
@@ -2606,7 +2606,7 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <location filename="../src/core/utils/positioningutils.cpp" line="78"/>
         <source>averaged</source>
-        <translation type="unfinished"/>
+        <translation>平均</translation>
     </message>
 </context>
 <context>
