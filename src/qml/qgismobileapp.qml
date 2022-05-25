@@ -738,7 +738,7 @@ ApplicationWindow {
     }
 
     text: ( qfieldSettings.numericalDigitizingInformation && stateMachine.state === "digitize" ) || stateMachine.state === 'measure' ?
-              '%1%2%3%4'
+              '%1%2%3%4%5'
                 .arg(stateMachine.state === 'digitize' || !digitizingToolbar.isDigitizing ? '<p>%1: %2<br>%3: %4</p>'
                   .arg(coordinateLocator.mapSettings.destinationCrs.isGeographic ? qsTr( 'Lon' ) : 'X')
                   .arg(coordinateLocator.currentCoordinate.x.toLocaleString( Qt.locale(), 'f', coordinateLocator.mapSettings.destinationCrs.isGeographic ? 5 : 2 ))
@@ -746,11 +746,18 @@ ApplicationWindow {
                   .arg(coordinateLocator.currentCoordinate.y.toLocaleString( Qt.locale(), 'f', coordinateLocator.mapSettings.destinationCrs.isGeographic ? 5 : 2 ))
                   : '' )
 
-                .arg(digitizingGeometryMeasure.lengthValid ? '<p>%1: %2%3</p>'
-                  .arg( digitizingGeometryMeasure.segmentLength != digitizingGeometryMeasure.length ? qsTr( 'Segment') : qsTr( 'Length') )
-                  .arg(UnitTypes.formatDistance( digitizingGeometryMeasure.segmentLength, 3, digitizingGeometryMeasure.lengthUnits ) )
-                  .arg(digitizingGeometryMeasure.length !== -1 && digitizingGeometryMeasure.segmentLength != digitizingGeometryMeasure.length ? '<br>%1: %2'.arg( qsTr( 'Length') ).arg(UnitTypes.formatDistance( digitizingGeometryMeasure.length, 3, digitizingGeometryMeasure.lengthUnits ) ) : '' )
-                  : '' )
+                .arg(digitizingGeometryMeasure.lengthValid && digitizingGeometryMeasure.segmentLength != 0.0
+                     && digitizingGeometryMeasure.segmentLength != digitizingGeometryMeasure.length
+                     ? '<p>%1: %2</p>'
+                       .arg( qsTr( 'Segment') )
+                       .arg(UnitTypes.formatDistance( digitizingGeometryMeasure.segmentLength, 3, digitizingGeometryMeasure.lengthUnits ) )
+                     : '' )
+
+                .arg(digitizingGeometryMeasure.lengthValid
+                     ? '<p>%1: %2</p>'
+                       .arg( qsTr( 'Length') )
+                       .arg(UnitTypes.formatDistance( digitizingGeometryMeasure.length, 3, digitizingGeometryMeasure.lengthUnits ) )
+                     : '' )
 
                 .arg(digitizingGeometryMeasure.areaValid ? '<p>%1: %2</p>'
                   .arg( qsTr( 'Area') )
