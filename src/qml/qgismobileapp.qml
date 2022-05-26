@@ -1151,6 +1151,8 @@ ApplicationWindow {
           } else {
             displayToast( qsTr( "Coordinate cursor unlocked" ) )
             positioningSettings.positioningCoordinateLock = false;
+            // deactivate any active averaged position collection
+            positionSource.averagedPosition = false;
           }
         }
       }
