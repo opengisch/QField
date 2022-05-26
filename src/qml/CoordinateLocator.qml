@@ -101,9 +101,11 @@ Item {
       color: positioningSettings.accuracyIndicator
              ? !positionSource.positionInformation
                || !positionSource.positionInformation.haccValid
-               || positionSource.positionInformation.hacc > positioningSettings.accuracyExcellent
-               ? Theme.accuracyTolerated
-               : Theme.accuracyExcellent
+               || positionSource.positionInformation.hacc > positioningSettings.accuracyBad
+               ? Theme.accuracyBad
+               : positionSource.positionInformation.hacc > positioningSettings.accuracyExcellent
+                 ? Theme.accuracyTolerated
+                 : Theme.accuracyExcellent
               : Theme.positionColor
 
       transitions: [ Transition { NumberAnimation { property: "width"; duration: 200 } } ]
