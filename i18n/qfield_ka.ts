@@ -3019,101 +3019,105 @@ Cancel to make a minimal device scan instead.</source>
         <translation>გაზომვების რეჟიმი გააქტიურებულია</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="686"/>
-        <location filename="../src/qml/qgismobileapp.qml" line="704"/>
-        <location filename="../src/qml/qgismobileapp.qml" line="1783"/>
-        <location filename="../src/qml/qgismobileapp.qml" line="1864"/>
-        <location filename="../src/qml/qgismobileapp.qml" line="2026"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="675"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="706"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1785"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1866"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2028"/>
         <source>Lon</source>
         <translation>გრძედი</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="688"/>
-        <location filename="../src/qml/qgismobileapp.qml" line="706"/>
-        <location filename="../src/qml/qgismobileapp.qml" line="1785"/>
-        <location filename="../src/qml/qgismobileapp.qml" line="1864"/>
-        <location filename="../src/qml/qgismobileapp.qml" line="2026"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="677"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="708"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1787"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1866"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2028"/>
         <source>Lat</source>
         <translation>განედი</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="693"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="684"/>
         <source>Segment</source>
         <translation>სეგმენტი</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="693"/>
-        <location filename="../src/qml/qgismobileapp.qml" line="695"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="691"/>
+        <source>Perimeter</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/qml/qgismobileapp.qml" line="696"/>
         <source>Length</source>
         <translation>სიგრძე</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="699"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="701"/>
         <source>Area</source>
         <translation>არეალი</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="934"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="936"/>
         <source>Close measure tool</source>
         <translation>საზომი ხელსაწყოს დახურვა</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="941"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="943"/>
         <source>Stop editing</source>
         <translation>რედაქტორების დასრულება</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="948"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="950"/>
         <source>Cancel addition</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="995"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="997"/>
         <source>Topological editing turned on</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="995"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="997"/>
         <source>Topological editing turned off</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1043"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1045"/>
         <source>Freehand digitizing turned on</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1043"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1045"/>
         <source>Freehand digitizing turned off</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1139"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1141"/>
         <source>Coordinate cursor now locked to position</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1149"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1151"/>
         <source>Coordinate cursor unlocked</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1167"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1169"/>
         <source>Received position</source>
         <translation>პოზიცია მიღებულია</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1169"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1171"/>
         <source>Searching for position</source>
         <translation>პოზიციის ძებნა</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1216"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1218"/>
         <source>Canvas follows location</source>
         <translation>რუკის ფენა თვალს ადევნებს ადგილმდებარეობას</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1225"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1227"/>
         <source>Waiting for location</source>
         <translation>ველოდებით ადგილმდებარეობას</translation>
     </message>
@@ -3126,49 +3130,49 @@ Cancel to make a minimal device scan instead.</source>
         <translation type="vanished">პოზიციონირება გამორთულია</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1312"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1314"/>
         <source>Canvas stopped following location</source>
         <translation>რუკის ფენამ შეწყვიტა ადგილმდებარეობის თვალის დევნა</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1456"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1458"/>
         <source>Failed to create feature!</source>
         <translation>ტოპოგრაფიული ელემენტის შექმნის პრობლემა!</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1460"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1462"/>
         <source>Failed to save feature!</source>
         <translation>ტოპოგრაფიული ელემენტის შენახვია ვერ მოხდა!</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1520"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1522"/>
         <source>Main Menu</source>
         <translation>ძირითადი მენიუ</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1534"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1536"/>
         <source>Measure Tool</source>
         <translation>საზომი ხელსაწყოები</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1549"/>
-        <location filename="../src/qml/qgismobileapp.qml" line="1681"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1551"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1683"/>
         <source>Print to PDF</source>
         <translation>PDF-ში ბეჭდვა</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1563"/>
-        <location filename="../src/qml/qgismobileapp.qml" line="1721"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1565"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1723"/>
         <source>Printing to PDF</source>
         <translation>იბეჭდება PDF-ში</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1580"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1582"/>
         <source>Go to Home Screen</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1596"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1598"/>
         <source>Open Project Folder</source>
         <translation type="unfinished"/>
     </message>
@@ -3177,47 +3181,47 @@ Cancel to make a minimal device scan instead.</source>
         <translation type="vanished">პროექტის გახსნა</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1608"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1610"/>
         <source>Settings</source>
         <translation>პარამეტრები</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1622"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1624"/>
         <source>Message Log</source>
         <translation>შეტყობინება ჟურნალიდან</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1636"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1638"/>
         <source>About QField</source>
         <translation>QField-ის შესახებ</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1697"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1699"/>
         <source>Select template below</source>
         <translation>აირჩიეთ შაბლონი</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1764"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1766"/>
         <source>Activating positioning service</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1767"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1769"/>
         <source>QField has no permissions to use positioning.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1778"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1780"/>
         <source>Map Canvas Options</source>
         <translation>რუკის ფენის პარამეტრები</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1822"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1824"/>
         <source>Add Bookmark</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1843"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1845"/>
         <source>Set as Destination</source>
         <translation type="unfinished"/>
     </message>
@@ -3226,7 +3230,7 @@ Cancel to make a minimal device scan instead.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1829"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1831"/>
         <source>Untitled bookmark</source>
         <translation type="unfinished"/>
     </message>
@@ -3235,49 +3239,49 @@ Cancel to make a minimal device scan instead.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1856"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1858"/>
         <source>Copy Coordinates</source>
         <translation>კოორდინატების კოპირება</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1866"/>
-        <location filename="../src/qml/qgismobileapp.qml" line="2028"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1868"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2030"/>
         <source>X</source>
         <translation>X</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1866"/>
-        <location filename="../src/qml/qgismobileapp.qml" line="2028"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1868"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2030"/>
         <source>Y</source>
         <translation>Y</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1871"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1873"/>
         <source>Coordinates copied to clipboard</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1976"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1978"/>
         <source>Center to Location</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1987"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1989"/>
         <source>Add Bookmark at Location</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2012"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2014"/>
         <source>Copy Location Coordinates</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2481"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2483"/>
         <source>Signed out</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2485"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2487"/>
         <source>Signed in</source>
         <translation type="unfinished"/>
     </message>
@@ -3286,32 +3290,32 @@ Cancel to make a minimal device scan instead.</source>
         <translation type="vanished">მიმართულებად მონიშვნა</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1878"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1880"/>
         <source>Navigation Options</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1894"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1896"/>
         <source>Clear Destination</source>
         <translation>მიმართულების გაწმენდა</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1906"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1908"/>
         <source>Positioning Options</source>
         <translation>პოზიციონირების პარამეტრები</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1932"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1934"/>
         <source>Enable Positioning</source>
         <translation>პოზიციონირების გააქტიურება</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1947"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1949"/>
         <source>Show Position Information</source>
         <translation>პოზიციის ინფორმაციის ჩვენება</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1962"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1964"/>
         <source>Positioning Settings</source>
         <translation>პოზიციონირების პარამეტრები</translation>
     </message>
@@ -3324,13 +3328,13 @@ Cancel to make a minimal device scan instead.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1995"/>
-        <location filename="../src/qml/qgismobileapp.qml" line="2019"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1997"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2021"/>
         <source>Current location unknown</source>
         <translation>მიმდინარე ადგილმდებარეობა უცნობია</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1999"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2001"/>
         <source>My location</source>
         <translation>ჩემი ადგილმდებარეობა</translation>
     </message>
@@ -3339,32 +3343,32 @@ Cancel to make a minimal device scan instead.</source>
         <translation type="vanished">მიმდინარე ადგილმდებარეობის კოპირება</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2030"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2032"/>
         <source>Accuracy</source>
         <translation>სიზუსტე</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2033"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2035"/>
         <source>N/A</source>
         <translation>N/A</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2037"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2039"/>
         <source>Current location copied to clipboard</source>
         <translation>მიმდინარე ლოკაცია დაკოპირდა</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2075"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2077"/>
         <source>Current layer switched to the one holding the selected geometry.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2084"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2086"/>
         <source>Editing of multi geometry layer is not supported yet.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2197"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2199"/>
         <source>Loading %1</source>
         <translation type="unfinished"/>
     </message>
@@ -3373,7 +3377,7 @@ Cancel to make a minimal device scan instead.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2483"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2485"/>
         <source>Connecting...</source>
         <translation>დაკავშირება...</translation>
     </message>
@@ -3382,27 +3386,27 @@ Cancel to make a minimal device scan instead.</source>
         <translation type="vanished">შესული ბრძანდებით</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2500"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2502"/>
         <source>Project %1 failed to download</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2501"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2503"/>
         <source>Project %1 successfully downloaded, it&apos;s now available to open</source>
         <translation>პროექტი %1 წარმატებით ჩამოიტვირთა და ხელმისაწვდომია გამოსაყენებლად</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2506"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2508"/>
         <source>Changes failed to reach QFieldCloud: %1</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2510"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2512"/>
         <source>Changes successfully pushed to QFieldCloud</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2760"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2762"/>
         <source>Press back again to close project and app</source>
         <translation>პროექტისა და აპლიკაციის დასახურად დააჭირეთ უკან გასვლა კვლავ</translation>
     </message>
