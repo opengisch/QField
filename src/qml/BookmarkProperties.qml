@@ -56,6 +56,8 @@ Popup {
 
                 QfToolButton {
                     id: closeButton
+                    Layout.preferredWidth: width
+                    Layout.preferredHeight: height
                     Layout.alignment: Qt.AlignVCenter
                     iconSource: Theme.getThemeIcon( 'ic_close_black_24dp' )
                     bgcolor: "transparent"
