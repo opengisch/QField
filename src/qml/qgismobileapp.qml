@@ -1105,11 +1105,12 @@ ApplicationWindow {
 
     QfToolButton {
       id: gnssLockButton
+      anchors.right: parent.right
       state: positionSource.active && positioningSettings.positioningCoordinateLock ? "On" : "Off"
       visible: gnssButton.state === "On" && ( stateMachine.state === "digitize" || stateMachine.state === 'measure' )
       round: true
       checkable: true
-      anchors.right: parent.right
+      checked: positioningSettings.positioningCoordinateLock
 
       states: [
         State {
