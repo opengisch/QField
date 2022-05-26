@@ -79,6 +79,8 @@ ToolBar {
     QfToolButton {
       id: backButton
 
+      Layout.preferredWidth: width
+      Layout.preferredHeight: height
       Layout.alignment: Qt.AlignTop | Qt.AlignLeft
 
       width: 48
@@ -97,10 +99,10 @@ ToolBar {
     QfToolButton {
       id: applyButton
 
+      Layout.preferredWidth: width
+      Layout.preferredHeight: height
       Layout.alignment: Qt.AlignTop | Qt.AlignLeft
 
-      width: 48
-      height: 48
       clip: true
 
       iconSource: Theme.getThemeIcon( 'ic_check_white_48dp' )
@@ -127,6 +129,8 @@ ToolBar {
     QfToolButton {
       id: cancelButton
 
+      Layout.preferredWidth: width
+      Layout.preferredHeight: height
       Layout.alignment: Qt.AlignTop | Qt.AlignRight
 
       width: 48
