@@ -1,0 +1,12 @@
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 9d48e77a31..e360e29e42 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -694,6 +694,7 @@ if(MSVC)
+   set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG}")
+   # disable macros that offend std::numeric_limits<T>::min()/max()
+   add_definitions(-DNOMINMAX)
++  add_definitions(/bigobj)
+ endif()
+ 
+ # Prevent build when Qt api deprecated before this Qt version is used:
