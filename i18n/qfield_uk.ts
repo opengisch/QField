@@ -3033,18 +3033,18 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <location filename="../src/qml/qgismobileapp.qml" line="675"/>
         <location filename="../src/qml/qgismobileapp.qml" line="706"/>
-        <location filename="../src/qml/qgismobileapp.qml" line="1785"/>
-        <location filename="../src/qml/qgismobileapp.qml" line="1866"/>
-        <location filename="../src/qml/qgismobileapp.qml" line="2028"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1786"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1867"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2029"/>
         <source>Lon</source>
         <translation>Довгота</translation>
     </message>
     <message>
         <location filename="../src/qml/qgismobileapp.qml" line="677"/>
         <location filename="../src/qml/qgismobileapp.qml" line="708"/>
-        <location filename="../src/qml/qgismobileapp.qml" line="1787"/>
-        <location filename="../src/qml/qgismobileapp.qml" line="1866"/>
-        <location filename="../src/qml/qgismobileapp.qml" line="2028"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1788"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1867"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2029"/>
         <source>Lat</source>
         <translation>Широта</translation>
     </message>
@@ -3104,32 +3104,32 @@ Cancel to make a minimal device scan instead.</source>
         <translation>Вимкнути ручне оцифрування</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1141"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1142"/>
         <source>Coordinate cursor now locked to position</source>
         <translation>Курсор координат тепер зафіксовано в положенні</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1151"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1152"/>
         <source>Coordinate cursor unlocked</source>
         <translation>Курсор координат розблоковано</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1169"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1170"/>
         <source>Received position</source>
         <translation>Отримано місцезнаходження</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1171"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1172"/>
         <source>Searching for position</source>
         <translation>Пошук позиції</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1218"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1219"/>
         <source>Canvas follows location</source>
         <translation>Карта рухається за місцеположенням</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1227"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1228"/>
         <source>Waiting for location</source>
         <translation>В очікуванні місцезнаходження</translation>
     </message>
@@ -3142,49 +3142,49 @@ Cancel to make a minimal device scan instead.</source>
         <translation type="vanished">Позиціонування вимкнено</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1314"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1315"/>
         <source>Canvas stopped following location</source>
         <translation>Карта перестала рухатись за місцеположенням</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1458"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1459"/>
         <source>Failed to create feature!</source>
         <translation>Не вдалось створити об&apos;єкт!</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1462"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1463"/>
         <source>Failed to save feature!</source>
         <translation>Не вдалося зберегти об&apos;єкт!</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1522"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1523"/>
         <source>Main Menu</source>
         <translation>Головне меню</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1536"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1537"/>
         <source>Measure Tool</source>
         <translation>Інструмент промірів</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1551"/>
-        <location filename="../src/qml/qgismobileapp.qml" line="1683"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1552"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1684"/>
         <source>Print to PDF</source>
         <translation>Друк в PDF</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1565"/>
-        <location filename="../src/qml/qgismobileapp.qml" line="1723"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1566"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1724"/>
         <source>Printing to PDF</source>
         <translation>Друкувати в PDF</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1582"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1583"/>
         <source>Go to Home Screen</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1598"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1599"/>
         <source>Open Project Folder</source>
         <translation type="unfinished"/>
     </message>
@@ -3193,47 +3193,47 @@ Cancel to make a minimal device scan instead.</source>
         <translation type="vanished">Відкрити проект</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1610"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1611"/>
         <source>Settings</source>
         <translation>Налаштування</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1624"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1625"/>
         <source>Message Log</source>
         <translation>Журнал сповіщень</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1638"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1639"/>
         <source>About QField</source>
         <translation>Про QField</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1699"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1700"/>
         <source>Select template below</source>
         <translation>Виберіть шаблон нижче</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1766"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1767"/>
         <source>Activating positioning service</source>
         <translation>Активувати послугу позиціювання</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1769"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1770"/>
         <source>QField has no permissions to use positioning.</source>
         <translation>На жаль, QField немає дозволу для використання позиціонування.</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1780"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1781"/>
         <source>Map Canvas Options</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1824"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1825"/>
         <source>Add Bookmark</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1845"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1846"/>
         <source>Set as Destination</source>
         <translation type="unfinished"/>
     </message>
@@ -3242,7 +3242,7 @@ Cancel to make a minimal device scan instead.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1831"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1832"/>
         <source>Untitled bookmark</source>
         <translation type="unfinished"/>
     </message>
@@ -3251,49 +3251,49 @@ Cancel to make a minimal device scan instead.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1858"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1859"/>
         <source>Copy Coordinates</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1868"/>
-        <location filename="../src/qml/qgismobileapp.qml" line="2030"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1869"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2031"/>
         <source>X</source>
         <translation>X</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1868"/>
-        <location filename="../src/qml/qgismobileapp.qml" line="2030"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1869"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2031"/>
         <source>Y</source>
         <translation>Y</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1873"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1874"/>
         <source>Coordinates copied to clipboard</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1978"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1979"/>
         <source>Center to Location</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1989"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1990"/>
         <source>Add Bookmark at Location</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2014"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2015"/>
         <source>Copy Location Coordinates</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2483"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2484"/>
         <source>Signed out</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2487"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2488"/>
         <source>Signed in</source>
         <translation type="unfinished"/>
     </message>
@@ -3302,32 +3302,32 @@ Cancel to make a minimal device scan instead.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1880"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1881"/>
         <source>Navigation Options</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1896"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1897"/>
         <source>Clear Destination</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1908"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1909"/>
         <source>Positioning Options</source>
         <translation>Налаштування позиціонування</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1934"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1935"/>
         <source>Enable Positioning</source>
         <translation>Дозволити позиціювання</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1949"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1950"/>
         <source>Show Position Information</source>
         <translation>Показати інформацію про позицію</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1964"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1965"/>
         <source>Positioning Settings</source>
         <translation>Налаштування позиціювання</translation>
     </message>
@@ -3340,13 +3340,13 @@ Cancel to make a minimal device scan instead.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1997"/>
-        <location filename="../src/qml/qgismobileapp.qml" line="2021"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1998"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2022"/>
         <source>Current location unknown</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2001"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2002"/>
         <source>My location</source>
         <translation type="unfinished"/>
     </message>
@@ -3355,32 +3355,32 @@ Cancel to make a minimal device scan instead.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2032"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2033"/>
         <source>Accuracy</source>
         <translation>Точність</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2035"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2036"/>
         <source>N/A</source>
         <translation>N/A</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2039"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2040"/>
         <source>Current location copied to clipboard</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2077"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2078"/>
         <source>Current layer switched to the one holding the selected geometry.</source>
         <translation>Поточний шар перемикнувся на шар, що містить вибрану геометрію.</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2086"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2087"/>
         <source>Editing of multi geometry layer is not supported yet.</source>
         <translation>Редагування шару з кількома геометріями поки що не підтримується.</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2199"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2200"/>
         <source>Loading %1</source>
         <translation>Завантаження %1</translation>
     </message>
@@ -3389,7 +3389,7 @@ Cancel to make a minimal device scan instead.</source>
         <translation type="vanished">Вийшов із системи</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2485"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2486"/>
         <source>Connecting...</source>
         <translation>З&apos;єднання...</translation>
     </message>
@@ -3398,27 +3398,27 @@ Cancel to make a minimal device scan instead.</source>
         <translation type="vanished">Авторизован</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2502"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2503"/>
         <source>Project %1 failed to download</source>
         <translation>Не вдалось завантажити проєкт %1</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2503"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2504"/>
         <source>Project %1 successfully downloaded, it&apos;s now available to open</source>
         <translation>Проект %1 успішно завантажено, тепер його можна відкрити</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2508"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2509"/>
         <source>Changes failed to reach QFieldCloud: %1</source>
         <translation>Зміни не вдалося досягти QFieldCloud: %1</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2512"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2513"/>
         <source>Changes successfully pushed to QFieldCloud</source>
         <translation>Зміни успішно переміщено в QFieldCloud</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2762"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2763"/>
         <source>Press back again to close project and app</source>
         <translation>Натисніть назад ще раз, щоб закрити проект та додаток</translation>
     </message>
