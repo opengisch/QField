@@ -126,7 +126,6 @@ Item {
 
             text: {
                 var dataDirs = platformUtilities.qfieldAppDataDirs();
-                console.log(dataDirs)
                 if (dataDirs.length > 0) {
                   return (dataDirs.length > 1
                           ? 'QField app directories'
