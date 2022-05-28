@@ -154,16 +154,16 @@ Page {
                 } else {
                   switch(ItemType) {
                   case LocalFilesModel.ApplicationFolder:
-                    return Theme.getThemeIcon('ic_folder_qfield_gray_48dp');
+                    return Theme.getThemeVectorIcon('ic_folder_qfield_gray_48dp');
                   case LocalFilesModel.ExternalStorage:
-                    return Theme.getThemeIcon('ic_sd_card_gray_48dp');
+                    return Theme.getThemeVectorIcon('ic_sd_card_gray_48dp');
                   case LocalFilesModel.SimpleFolder:
-                    return Theme.getThemeIcon('ic_folder_gray_48dp');
+                    return Theme.getThemeVectorIcon('ic_folder_gray_48dp');
                   case LocalFilesModel.ProjectFile:
-                    return Theme.getThemeIcon('ic_map_green_48dp');
+                    return Theme.getThemeVectorIcon('ic_map_green_48dp');
                   case LocalFilesModel.VectorDataset:
                   case LocalFilesModel.RasterDataset:
-                    return Theme.getThemeIcon('ic_file_green_48dp');
+                    return Theme.getThemeVectorIcon('ic_file_green_48dp');
                   }
                 }
               }

@@ -458,9 +458,9 @@ Page {
                 id: type
                 anchors.verticalCenter: inner.verticalCenter
                 source: switch(ProjectType) {
-                        case 0: return Theme.getThemeIcon('ic_map_green_48dp'); // local project
-                        case 1: return Theme.getThemeIcon('ic_cloud_project_48dp'); // cloud project
-                        case 2: return Theme.getThemeIcon('ic_file_green_48dp'); // local dataset
+                        case 0: return Theme.getThemeVectorIcon('ic_map_green_48dp');     // local project
+                        case 1: return Theme.getThemeVectorIcon('ic_cloud_project_48dp'); // cloud project
+                        case 2: return Theme.getThemeVectorIcon('ic_file_green_48dp');    // local dataset
                         default: return '';
                         }
                 sourceSize.width: 80
