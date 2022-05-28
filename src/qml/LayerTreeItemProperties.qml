@@ -143,11 +143,11 @@ Popup {
         Layout.fillWidth: true
         Layout.topMargin: 5
         font: Theme.defaultFont
-        text: layerTree.data( index, FlatLayerTreeModel.Type ) === 'group'
-            ? qsTr('Zoom to group')
-            : layerTree.data( index, FlatLayerTreeModel.Type ) === 'legend'
-              ? qsTr('Zoom to parent layer')
-              : qsTr('Zoom to layer')
+        text: index ? layerTree.data( index, FlatLayerTreeModel.Type ) === 'group'
+                      ? qsTr('Zoom to group')
+                      : layerTree.data( index, FlatLayerTreeModel.Type ) === 'legend'
+                        ? qsTr('Zoom to parent layer')
+                        : qsTr('Zoom to layer') : ''
         visible: zoomToButtonVisible
         icon.source: Theme.getThemeVectorIcon( 'zoom_out_map_24dp' )
 
