@@ -20,6 +20,7 @@
 
 #include <QAction>
 #include <QRegularExpression>
+#include <qgscoordinatereferencesystemutils.h>
 #include <qgscoordinateutils.h>
 #include <qgsexpressioncontextutils.h>
 #include <qgsfeedback.h>
@@ -42,73 +43,109 @@ GotoLocatorFilter *GotoLocatorFilter::clone() const
 void GotoLocatorFilter::fetchResults( const QString &string, const QgsLocatorContext &, QgsFeedback *feedback )
 {
   Q_UNUSED( feedback )
-  const QgsCoordinateReferenceSystem currentCrs = mLocatorBridge->mapSettings()->mapSettings().destinationCrs();
-  const QgsCoordinateReferenceSystem wgs84Crs( QStringLiteral( "EPSG:4326" ) );
 
-  bool okX = false;
-  bool okY = false;
-  double posX = 0.0;
-  double posY = 0.0;
-  bool posIsDms = false;
-  QLocale locale;
+  bool firstOk = false;
+  bool secondOk = false;
+  double firstNumber = 0.0;
+  double secondNumber = 0.0;
+  bool posIsWgs84 = false;
+  const QLocale locale;
 
   // Coordinates such as 106.8468,-6.3804
   QRegularExpression separatorRx( QStringLiteral( "^([0-9\\-\\%1\\%2]*)[\\s%3]*([0-9\\-\\%1\\%2]*)$" ).arg( locale.decimalPoint(), locale.groupSeparator(), locale.decimalPoint() != ',' && locale.groupSeparator() != ',' ? QStringLiteral( "\\," ) : QString() ) );
   QRegularExpressionMatch match = separatorRx.match( string.trimmed() );
   if ( match.hasMatch() )
   {
-    posX = locale.toDouble( match.captured( 1 ), &okX );
-    posY = locale.toDouble( match.captured( 2 ), &okY );
+    firstNumber = locale.toDouble( match.captured( 1 ), &firstOk );
+    secondNumber = locale.toDouble( match.captured( 2 ), &secondOk );
   }
 
-  if ( !match.hasMatch() || !okX || !okY )
+  if ( !match.hasMatch() || !firstOk || !secondOk )
   {
     // Digit detection using user locale failed, use default C decimal separators
     separatorRx = QRegularExpression( QStringLiteral( "^([0-9\\-\\.]*)[\\s\\,]*([0-9\\-\\.]*)$" ) );
     match = separatorRx.match( string.trimmed() );
     if ( match.hasMatch() )
     {
-      posX = match.captured( 1 ).toDouble( &okX );
-      posY = match.captured( 2 ).toDouble( &okY );
+      firstNumber = match.captured( 1 ).toDouble( &firstOk );
+      secondNumber = match.captured( 2 ).toDouble( &secondOk );
+    }
+  }
+
+  if ( !match.hasMatch() )
+  {
+    // Check if the string is a pair of decimal degrees with [N,S,E,W] suffixes
+    separatorRx = QRegularExpression( QStringLiteral( "^\\s*([-]?\\d{1,3}(?:[\\.\\%1]\\d+)?\\s*[NSEWnsew])[\\s\\,]*([-]?\\d{1,3}(?:[\\.\\%1]\\d+)?\\s*[NSEWnsew])\\s*$" )
+                                        .arg( locale.decimalPoint() ) );
+    match = separatorRx.match( string.trimmed() );
+    if ( match.hasMatch() )
+    {
+      posIsWgs84 = true;
+      bool isEasting = false;
+      firstNumber = QgsCoordinateUtils::degreeToDecimal( match.captured( 1 ), &firstOk, &isEasting );
+      secondNumber = QgsCoordinateUtils::degreeToDecimal( match.captured( 2 ), &secondOk );
+      // normalize to northing (i.e. Y) first
+      if ( isEasting )
+        std::swap( firstNumber, secondNumber );
     }
   }
 
   if ( !match.hasMatch() )
   {
     // Check if the string is a pair of degree minute second
-    separatorRx = QRegularExpression( QStringLiteral( "^((?:([-+nsew])\\s*)?\\d{1,3}(?:[^0-9.]+[0-5]?\\d)?[^0-9.]+[0-5]?\\d(?:\\.\\d+)?[^0-9.]*[-+nsew]?)\\s+((?:([-+nsew])\\s*)?\\d{1,3}(?:[^0-9.]+[0-5]?\\d)?[^0-9.]+[0-5]?\\d(?:\\.\\d+)?[^0-9.]*[-+nsew]?)$" ) );
+    separatorRx = QRegularExpression( QStringLiteral( "^((?:([-+nsew])\\s*)?\\d{1,3}(?:[^0-9.]+[0-5]?\\d)?[^0-9.]+[0-5]?\\d(?:[\\.\\%1]\\d+)?[^0-9.,]*[-+nsew]?)[,\\s]+((?:([-+nsew])\\s*)?\\d{1,3}(?:[^0-9.]+[0-5]?\\d)?[^0-9.]+[0-5]?\\d(?:[\\.\\%1]\\d+)?[^0-9.,]*[-+nsew]?)$" )
+                                        .arg( locale.decimalPoint() ) );
     match = separatorRx.match( string.trimmed() );
     if ( match.hasMatch() )
     {
-      posIsDms = true;
-      posX = QgsCoordinateUtils::dmsToDecimal( match.captured( 1 ), &okX );
-      posY = QgsCoordinateUtils::dmsToDecimal( match.captured( 3 ), &okY );
+      posIsWgs84 = true;
+      bool isEasting = false;
+      firstNumber = QgsCoordinateUtils::dmsToDecimal( match.captured( 1 ), &firstOk, &isEasting );
+      secondNumber = QgsCoordinateUtils::dmsToDecimal( match.captured( 3 ), &secondOk );
+      // normalize to northing (i.e. Y) first
+      if ( isEasting )
+        std::swap( firstNumber, secondNumber );
     }
   }
 
-  if ( okX && okY )
+  const QgsCoordinateReferenceSystem currentCrs = mLocatorBridge->mapSettings()->mapSettings().destinationCrs();
+  const QgsCoordinateReferenceSystem wgs84Crs( QStringLiteral( "EPSG:4326" ) );
+
+  if ( firstOk && secondOk )
   {
     QVariantMap data;
-    QgsPointXY point( posX, posY );
-    data.insert( QStringLiteral( "point" ), point );
+    const bool currentCrsIsXY = QgsCoordinateReferenceSystemUtils::defaultCoordinateOrderForCrs( currentCrs ) == Qgis::CoordinateOrder::XY;
+    const bool withinWgs84 = wgs84Crs.bounds().contains( secondNumber, firstNumber );
 
-    bool withinWgs84 = wgs84Crs.bounds().contains( point );
-    if ( !posIsDms && currentCrs != wgs84Crs )
+    if ( !posIsWgs84 && currentCrs != wgs84Crs )
     {
+      const QgsPointXY point( currentCrsIsXY ? firstNumber : secondNumber,
+                              currentCrsIsXY ? secondNumber : firstNumber );
+      data.insert( QStringLiteral( "point" ), point );
+
+      const QList<Qgis::CrsAxisDirection> axisList = currentCrs.axisOrdering();
+      QString firstSuffix;
+      QString secondSuffix;
+      if ( axisList.size() >= 2 )
+      {
+        firstSuffix = QgsCoordinateReferenceSystemUtils::axisDirectionToAbbreviatedString( axisList.at( 0 ) );
+        secondSuffix = QgsCoordinateReferenceSystemUtils::axisDirectionToAbbreviatedString( axisList.at( 1 ) );
+      }
+
       QgsLocatorResult result;
       result.filter = this;
-      result.displayString = tr( "Go to %1 %2 (Map CRS)" ).arg( locale.toString( point.x(), 'g', 10 ), locale.toString( point.y(), 'g', 10 ) );
+      result.displayString = tr( "Go to %1%2 %3%4 (Map CRS, %5)" ).arg( locale.toString( firstNumber, 'g', 10 ), firstSuffix, locale.toString( secondNumber, 'g', 10 ), secondSuffix, currentCrs.userFriendlyIdentifier() );
       result.userData = data;
       result.score = 0.9;
-      result.actions << QgsLocatorResult::ResultAction( Navigation, tr( "Set navigation point" ), QStringLiteral( "ic_navigation_flag_purple_24dp" ) );
       emit resultFetched( result );
     }
 
     if ( withinWgs84 )
     {
+      const QgsPointXY point( secondNumber, firstNumber );
       if ( currentCrs != wgs84Crs )
       {
-        QgsCoordinateTransform transform( wgs84Crs, currentCrs, QgsProject::instance()->transformContext() );
+        const QgsCoordinateTransform transform( wgs84Crs, currentCrs, QgsProject::instance()->transformContext() );
         QgsPointXY transformedPoint;
         try
         {
@@ -119,20 +156,18 @@ void GotoLocatorFilter::fetchResults( const QString &string, const QgsLocatorCon
           Q_UNUSED( e )
           return;
         }
-        catch ( ... )
-        {
-          // catch any other errors
-          return;
-        }
         data[QStringLiteral( "point" )] = transformedPoint;
+      }
+      else
+      {
+        data[QStringLiteral( "point" )] = point;
       }
 
       QgsLocatorResult result;
       result.filter = this;
-      result.displayString = tr( "Go to %1° %2° (WGS84)" ).arg( locale.toString( point.x(), 'g', 10 ), locale.toString( point.y(), 'g', 10 ) );
+      result.displayString = tr( "Go to %1°N %2°E (%3)" ).arg( locale.toString( point.y(), 'g', 10 ), locale.toString( point.x(), 'g', 10 ), wgs84Crs.userFriendlyIdentifier() );
       result.userData = data;
       result.score = 1.0;
-      result.actions << QgsLocatorResult::ResultAction( Navigation, tr( "Set navigation point" ), QStringLiteral( "ic_navigation_flag_purple_24dp" ) );
       emit resultFetched( result );
     }
   }
