@@ -149,19 +149,25 @@ Drawer {
           border.color: "#44FFFFFF"
           anchors.verticalCenter: parent.verticalCenter
           Image {
-            height: parent.height
-            width: parent.width / 2
+            width: 28
+            height: 28
             anchors.left: parent.left
+            anchors.leftMargin: 4
             anchors.verticalCenter: parent.verticalCenter
-            source: Theme.getThemeIcon( 'ic_map_white_48dp' )
+            source: Theme.getThemeVectorIcon( 'ic_map_white_24dp' )
+            sourceSize.width: parent.height * screen.devicePixelRatio
+            sourceSize.height: parent.width * screen.devicePixelRatio
             opacity: 0.4
           }
           Image {
-            height: parent.height
-            width: parent.width / 2
+            width: 28
+            height: 28
             anchors.right: parent.right
+            anchors.rightMargin: 4
             anchors.verticalCenter: parent.verticalCenter
-            source: Theme.getThemeIcon( 'ic_create_white_24dp' )
+            source: Theme.getThemeVectorIcon( 'ic_create_white_24dp' )
+            sourceSize.width: parent.height * screen.devicePixelRatio
+            sourceSize.height: parent.width * screen.devicePixelRatio
             opacity: 0.4
           }
           Rectangle {
@@ -172,12 +178,12 @@ Drawer {
             color:  Theme.mainColor
             border.color: "white"
             Image {
-              height: parent.height
-              width: parent.height
-              anchors.right:  modeswitch.checked ? parent.right : undefined
-              anchors.left:  modeswitch.checked ? undefined : parent.left
-              anchors.verticalCenter: parent.verticalCenter
-              source:  modeswitch.checked ? Theme.getThemeIcon( 'ic_create_white_24dp' ) : Theme.getThemeIcon( 'ic_map_white_24dp' )
+              width: 28
+              height: 28
+              anchors.centerIn: parent
+              source:  modeswitch.checked ? Theme.getThemeVectorIcon( 'ic_create_white_24dp' ) : Theme.getThemeVectorIcon( 'ic_map_white_24dp' )
+              sourceSize.width: parent.height * screen.devicePixelRatio
+              sourceSize.height: parent.width * screen.devicePixelRatio
             }
             Behavior on x {
               PropertyAnimation {
