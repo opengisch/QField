@@ -669,23 +669,36 @@ ApplicationWindow {
         return newY;
     }
 
-    text: ( qfieldSettings.numericalDigitizingInformation && stateMachine.state === "digitize" ) || stateMachine.state === 'measure' ?
-              '%1%2%3%4%5'
-                .arg(stateMachine.state === 'digitize' || !digitizingToolbar.isDigitizing ? '<p>%1: %2<br>%3: %4</p>'
-                  .arg(coordinateLocator.mapSettings.destinationCrs.isGeographic ? qsTr( 'Lon' ) : 'X')
-                  .arg(coordinateLocator.currentCoordinate.x.toLocaleString( Qt.locale(), 'f', coordinateLocator.mapSettings.destinationCrs.isGeographic ? 5 : 2 ))
-                  .arg(coordinateLocator.mapSettings.destinationCrs.isGeographic ? qsTr( 'Lat' ) : 'Y')
-                  .arg(coordinateLocator.currentCoordinate.y.toLocaleString( Qt.locale(), 'f', coordinateLocator.mapSettings.destinationCrs.isGeographic ? 5 : 2 ))
-                  : '' )
+    text: {
+      if ((qfieldSettings.numericalDigitizingInformation && stateMachine.state === "digitize" ) || stateMachine.state === 'measure') {
+        var coordinates;
+        if (CoordinateReferenceSystemUtils.defaultCoordinateOrderForCrsIsXY(coordinateLocator.mapSettings.destinationCrs)) {
+          coordinates = '<p>%1: %2<br>%3: %4</p>'
+                        .arg(coordinateLocator.mapSettings.destinationCrs.isGeographic ? qsTr( 'Lon' ) : 'X')
+                        .arg(coordinateLocator.currentCoordinate.x.toLocaleString( Qt.locale(), 'f', coordinateLocator.mapSettings.destinationCrs.isGeographic ? 5 : 2 ))
+                        .arg(coordinateLocator.mapSettings.destinationCrs.isGeographic ? qsTr( 'Lat' ) : 'Y')
+                        .arg(coordinateLocator.currentCoordinate.y.toLocaleString( Qt.locale(), 'f', coordinateLocator.mapSettings.destinationCrs.isGeographic ? 5 : 2 ));
+        } else {
+          coordinates = '<p>%1: %2<br>%3: %4</p>'
+                        .arg(coordinateLocator.mapSettings.destinationCrs.isGeographic ? qsTr( 'Lat' ) : 'Y')
+                        .arg(coordinateLocator.currentCoordinate.x.toLocaleString( Qt.locale(), 'f', coordinateLocator.mapSettings.destinationCrs.isGeographic ? 5 : 2 ))
+                        .arg(coordinateLocator.mapSettings.destinationCrs.isGeographic ? qsTr( 'Lon' ) : 'X')
+                        .arg(coordinateLocator.currentCoordinate.y.toLocaleString( Qt.locale(), 'f', coordinateLocator.mapSettings.destinationCrs.isGeographic ? 5 : 2 ));
+        }
+
+        return '%1%2%3%4%5'
+                .arg(stateMachine.state === 'digitize' || !digitizingToolbar.isDigitizing
+                     ? coordinates
+                     : '')
 
                 .arg(digitizingGeometryMeasure.lengthValid && digitizingGeometryMeasure.segmentLength != 0.0
                      && digitizingGeometryMeasure.segmentLength != digitizingGeometryMeasure.length
                      ? '<p>%1: %2</p>'
                        .arg( qsTr( 'Segment') )
                        .arg(UnitTypes.formatDistance( digitizingGeometryMeasure.segmentLength, 3, digitizingGeometryMeasure.lengthUnits ) )
-                     : '' )
+                     : '')
 
-                .arg(currentRubberband.model.geometryType === QgsWkbTypes.PolygonGeometry
+                .arg(currentRubberband.model && currentRubberband.model.geometryType === QgsWkbTypes.PolygonGeometry
                      ? digitizingGeometryMeasure.perimeterValid
                        ? '<p>%1: %2</p>'
                          .arg( qsTr( 'Perimeter') )
@@ -695,20 +708,21 @@ ApplicationWindow {
                      ? '<p>%1: %2</p>'
                        .arg( qsTr( 'Length') )
                        .arg(UnitTypes.formatDistance( digitizingGeometryMeasure.length, 3, digitizingGeometryMeasure.lengthUnits ) )
-                     : '' )
+                     : '')
 
-                .arg(digitizingGeometryMeasure.areaValid ? '<p>%1: %2</p>'
-                  .arg( qsTr( 'Area') )
-                  .arg(UnitTypes.formatArea( digitizingGeometryMeasure.area, 3, digitizingGeometryMeasure.areaUnits ) )
-                  : '' )
+                .arg(digitizingGeometryMeasure.areaValid
+                     ? '<p>%1: %2</p>'
+                     .arg( qsTr( 'Area') )
+                     .arg(UnitTypes.formatArea( digitizingGeometryMeasure.area, 3, digitizingGeometryMeasure.areaUnits ) )
+                     : '')
 
-                .arg(stateMachine.state === 'measure' && digitizingToolbar.isDigitizing? '<p>%1: %2<br>%3: %4</p>'
-                  .arg(coordinateLocator.mapSettings.destinationCrs.isGeographic ? qsTr( 'Lon' ) : 'X')
-                  .arg(coordinateLocator.currentCoordinate.x.toFixed( coordinateLocator.mapSettings.destinationCrs.isGeographic ? 5 : 2 ))
-                  .arg(coordinateLocator.mapSettings.destinationCrs.isGeographic ? qsTr( 'Lat' ) : 'Y')
-                  .arg(coordinateLocator.currentCoordinate.y.toFixed( coordinateLocator.mapSettings.destinationCrs.isGeographic ? 5 : 2 ))
-                  : '' )
-              : ''
+                .arg(stateMachine.state === 'measure' && digitizingToolbar.isDigitizing
+                     ? coordinates
+                     : '')
+      } else {
+        return '';
+      }
+    }
 
     font: Theme.strongTipFont
     style: Text.Outline
@@ -1783,12 +1797,17 @@ ApplicationWindow {
 
     property var point
     onPointChanged: {
+      var isXY = CoordinateReferenceSystemUtils.defaultCoordinateOrderForCrsIsXY(mapCanvas.mapSettings.destinationCrs);
       var xLabel = mapCanvas.mapSettings.destinationCrs.isGeographic ? qsTr( 'Lon' ) : 'X';
       var xValue = Number( point.x ).toLocaleString( Qt.locale(), 'f', coordinateLocator.mapSettings.destinationCrs.isGeographic ? 7 : 3 )
       var yLabel = mapCanvas.mapSettings.destinationCrs.isGeographic ? qsTr( 'Lat' ) : 'Y'
       var yValue = Number( point.y ).toLocaleString( Qt.locale(), 'f', coordinateLocator.mapSettings.destinationCrs.isGeographic ? 7 : 3 )
-      xItem.text = xLabel + ': ' + xValue
-      yItem.text = yLabel + ': ' + yValue
+      xItem.text = isXY
+                   ? xLabel + ': ' + xValue
+                   : yLabel + ': ' + yValue
+      yItem.text = isXY
+                   ? yLabel + ': ' + yValue
+                   : xLabel + ': ' + xValue
     }
 
     width: {

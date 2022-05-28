@@ -16,7 +16,20 @@
 
 #include "coordinatereferencesystemutils.h"
 
+#if _QGIS_VERSION_INT >= 32500
+#include <qgscoordinatereferencesystemutils.h>
+#endif
+
 CoordinateReferenceSystemUtils::CoordinateReferenceSystemUtils( QObject *parent )
   : QObject( parent )
 {
+}
+
+bool CoordinateReferenceSystemUtils::defaultCoordinateOrderForCrsIsXY( QgsCoordinateReferenceSystem crs )
+{
+#if _QGIS_VERSION_INT >= 32500
+  return QgsCoordinateReferenceSystemUtils::defaultCoordinateOrderForCrs( crs ) == Qgis::CoordinateOrder::XY;
+#else
+  return true;
+#endif
 }
