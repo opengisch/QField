@@ -54,7 +54,7 @@ Item {
 
     mapSettings: locator.mapSettings
     inputCoordinate: sourceLocation === undefined ? Qt.point( locator.width / 2, locator.height / 2 ) : sourceLocation // In screen coordinates
-    config: qgisProject.snappingConfig
+    config: qgisProject ? qgisProject.snappingConfig : snappingUtils.emptySnappingConfig()
 
     property variant snappedCoordinate
     property point snappedPoint

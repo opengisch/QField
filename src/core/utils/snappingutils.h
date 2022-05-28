@@ -48,6 +48,8 @@ class SnappingUtils : public QgsSnappingUtils
 
     static QgsPoint newPoint( const QgsPoint &snappedPoint, const QgsWkbTypes::Type wkbType );
 
+    static Q_INVOKABLE QgsSnappingConfig emptySnappingConfig() { return QgsSnappingConfig(); }
+
   signals:
     void mapSettingsChanged();
     void currentLayerChanged();
