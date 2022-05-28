@@ -1862,15 +1862,7 @@ ApplicationWindow {
       font: Theme.defaultFont
 
       onTriggered: {
-        var coordinates = ''
-        if (mapCanvas.mapSettings.destinationCrs.isGeographic) {
-          coordinates = qsTr( 'Lon' ) + ' ' +  canvasMenu.point.x.toFixed(5) + ', ' + qsTr( 'Lat' ) + ' ' + canvasMenu.point.y.toFixed(5)
-        } else {
-          coordinates = qsTr( 'X' ) + ' ' +  canvasMenu.point.x.toFixed(2) + ', ' + qsTr( 'Y' ) + ' ' + canvasMenu.point.y.toFixed(2)
-        }
-        coordinates += ' (' + mapCanvas.mapSettings.destinationCrs.authid + ' ' + mapCanvas.mapSettings.destinationCrs.description + ')'
-
-        platformUtilities.copyTextToClipboard(coordinates)
+        platformUtilities.copyTextToClipboard(StringUtils.pointInformation(canvasMenu.point, mapCanvas.mapSettings.destinationCrs))
         displayToast(qsTr('Coordinates copied to clipboard'));
       }
     }
@@ -2023,18 +2015,11 @@ ApplicationWindow {
           return;
         }
 
-        var coordinates = ''
-        var point = positionSource.projectedPosition
-        if (mapCanvas.mapSettings.destinationCrs.isGeographic) {
-          coordinates = qsTr( 'Lon' ) + ' ' +  point.x.toFixed(7) + ', ' + qsTr( 'Lat' ) + ' ' + point.y.toFixed(7)
-        } else {
-          coordinates = qsTr( 'X' ) + ' ' +  point.x.toFixed(3) + ', ' + qsTr( 'Y' ) + ' ' + point.y.toFixed(3)
-        }
+        var coordinates = StringUtils.pointInformation(positionSource.projectedPosition, mapCanvas.mapSettings.destinationCrs)
         coordinates += ' ('+ qsTr('Accuracy') + ' ' +
                        ( positionSource.positionInformation && positionSource.positionInformation.haccValid
                          ? positionSource.positionInformation.hacc.toLocaleString(Qt.locale(), 'f', 3) + " m"
-                         : qsTr( "N/A" ) );
-        coordinates += '; ' + mapCanvas.mapSettings.destinationCrs.authid + ' ' + mapCanvas.mapSettings.destinationCrs.description + ')'
+                         : qsTr( "N/A" ) ) + ')';
 
         platformUtilities.copyTextToClipboard(coordinates)
         displayToast(qsTr('Current location copied to clipboard'));

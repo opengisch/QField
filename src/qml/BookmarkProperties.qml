@@ -180,13 +180,7 @@ Popup {
                 onClicked: {
                     var point = bookmarkModel.getBookmarkPoint(bookmarkProperties.bookmarkId)
                     var crs = bookmarkModel.getBookmarkCrs(bookmarkProperties.bookmarkId)
-                    var coordinates = ''
-                    if (crs.isGeographic) {
-                      coordinates = qsTr( 'Lon' ) + ' ' +  point.x.toFixed(5) + ', ' + qsTr( 'Lat' ) + ' ' + point.y.toFixed(5)
-                    } else {
-                      coordinates = qsTr( 'X' ) + ' ' +  point.x.toFixed(2) + ', ' + qsTr( 'Y' ) + ' ' + point.y.toFixed(2)
-                    }
-                    coordinates += ' (' + crs.authid + ' ' + crs.description + ')'
+                    var coordinates = StringUtils.pointInformation(point, crs)
 
                     platformUtilities.copyTextToClipboard(nameField.text + '\n' + coordinates)
                     displayToast(qsTr('Bookmark details copied to clipboard'));
