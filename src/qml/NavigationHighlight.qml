@@ -14,7 +14,7 @@ Item {
     mapSettings: navigation.mapSettings
     geometry:   QgsGeometryWrapper {
       qgsGeometry: navigation.path
-      crs: navigation.mapSettings.crs
+      crs: navigation.mapSettings.crs ? navigation.mapSettings.crs : CoordinateReferenceSystemUtils.invalidCrs()
     }
     color: Theme.navigationColorSemiOpaque
     width: positionSource.active && positionSource.positionInformation && positionSource.positionInformation.latitudeValid ? 5 : 1
