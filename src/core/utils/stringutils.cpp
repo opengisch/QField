@@ -70,7 +70,7 @@ bool StringUtils::fuzzyMatch( const QString &source, const QString &term )
            : false;
 }
 
-QString StringUtils::pointInformation( QgsPoint point, QgsCoordinateReferenceSystem crs )
+QString StringUtils::pointInformation( const QgsPoint &point, const QgsCoordinateReferenceSystem &crs )
 {
   QString firstSuffix;
   QString secondSuffix;

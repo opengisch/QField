@@ -45,7 +45,7 @@ class QFIELD_CORE_EXPORT StringUtils : public QObject
     //! Checks whether the string \a term is part of \a source
     static bool fuzzyMatch( const QString &source, const QString &term );
 
-    static Q_INVOKABLE QString pointInformation( QgsPoint point, QgsCoordinateReferenceSystem crs );
+    static Q_INVOKABLE QString pointInformation( const QgsPoint &point, const QgsCoordinateReferenceSystem &crs );
 };
 
 #endif // STRINGUTILS_H

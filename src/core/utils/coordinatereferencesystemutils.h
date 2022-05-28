@@ -36,7 +36,7 @@ class QFIELD_CORE_EXPORT CoordinateReferenceSystemUtils : public QObject
     static Q_INVOKABLE QgsCoordinateTransformContext emptyTransformContext() { return QgsCoordinateTransformContext(); }
 
     //! Returns whether the default coordinate order of a given \a crs is XY
-    static Q_INVOKABLE bool defaultCoordinateOrderForCrsIsXY( QgsCoordinateReferenceSystem crs );
+    static Q_INVOKABLE bool defaultCoordinateOrderForCrsIsXY( const QgsCoordinateReferenceSystem &crs );
 };
 
 #endif // COORDINATEREFERENCESYSTEMUTILS_H
