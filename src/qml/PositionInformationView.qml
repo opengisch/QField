@@ -38,9 +38,15 @@ Rectangle {
         anchors.left: parent.left
         font: Theme.tipFont
         color: textColor
-        text: positionSource.destinationCrs.isGeographic ?
-                  qsTr( "Lat." ) + ': ' + ( positionSource.positionInformation && positionSource.positionInformation.latitudeValid  ? Number( positionSource.projectedPosition.y ).toLocaleString( Qt.locale(), 'f', 7 ) : qsTr( "N/A" ) )
-                : qsTr( "X" )    + ': ' + ( positionSource.positionInformation && positionSource.positionInformation.longitudeValid ? Number( positionSource.projectedPosition.x ).toLocaleString( Qt.locale(), 'f', 3 ) : qsTr( "N/A" ) )
+        text: CoordinateReferenceSystemUtils.defaultCoordinateOrderForCrsIsXY(mapCanvas.mapSettings.destinationCrs)
+              ? (positionSource.destinationCrs.isGeographic ? qsTr( "Lon" ) : qsTr( "X" )) + ': '
+                + ( positionSource.positionInformation && positionSource.positionInformation.longitudeValid
+                   ? Number( positionSource.projectedPosition.x ).toLocaleString( Qt.locale(), 'f', positionSource.destinationCrs.isGeographic ? 7 : 3 )
+                   : qsTr( "N/A" ) )
+              : (positionSource.destinationCrs.isGeographic ? qsTr( "Lat" ) : qsTr( "Y" )) + ': '
+                + ( positionSource.positionInformation && positionSource.positionInformation.latitudeValid
+                   ? Number( positionSource.projectedPosition.y ).toLocaleString( Qt.locale(), 'f', positionSource.destinationCrs.isGeographic ? 7 : 3 )
+                   : qsTr( "N/A" ) )
       }
     }
 
@@ -55,9 +61,15 @@ Rectangle {
         anchors.left: parent.left
         font: Theme.tipFont
         color: textColor
-        text: positionSource.destinationCrs.isGeographic ?
-                  qsTr( "Lon." ) + ': ' + ( positionSource.positionInformation && positionSource.positionInformation.longitudeValid ? Number( positionSource.projectedPosition.x ).toLocaleString( Qt.locale(), 'f', 7 ) : qsTr( "N/A" ) )
-                : qsTr( "Y" )    + ': ' + ( positionSource.positionInformation && positionSource.positionInformation.latitudeValid  ? Number( positionSource.projectedPosition.y ).toLocaleString( Qt.locale(), 'f', 3 ) : qsTr( "N/A" ) )
+        text: CoordinateReferenceSystemUtils.defaultCoordinateOrderForCrsIsXY(mapCanvas.mapSettings.destinationCrs)
+              ? (positionSource.destinationCrs.isGeographic ? qsTr( "Lat" ) : qsTr( "Y" )) + ': '
+                + ( positionSource.positionInformation && positionSource.positionInformation.longitudeValid
+                   ? Number( positionSource.projectedPosition.y ).toLocaleString( Qt.locale(), 'f', positionSource.destinationCrs.isGeographic ? 7 : 3 )
+                   : qsTr( "N/A" ) )
+              : (positionSource.destinationCrs.isGeographic ? qsTr( "Lon" ) : qsTr( "X" )) + ': '
+                + ( positionSource.positionInformation && positionSource.positionInformation.latitudeValid
+                   ? Number( positionSource.projectedPosition.x ).toLocaleString( Qt.locale(), 'f', positionSource.destinationCrs.isGeographic ? 7 : 3 )
+                   : qsTr( "N/A" ) )
 
       }
     }
