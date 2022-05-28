@@ -175,7 +175,7 @@ ApplicationWindow {
 
     coordinateTransformer: CoordinateTransformer {
       destinationCrs: mapCanvas.mapSettings.destinationCrs
-      transformContext: qgisProject.transformContext
+      transformContext: qgisProject ? qgisProject.transformContext : CoordinateReferenceSystemUtils.emptyTransformContext()
       deltaZ: positioningSettings.antennaHeightActivated ? positioningSettings.antennaHeight * -1 : 0
       skipAltitudeTransformation: positioningSettings.skipAltitudeCorrection
     }
@@ -652,7 +652,7 @@ ApplicationWindow {
 
       rubberbandModel: currentRubberband ? currentRubberband.model : null
       project: qgisProject
-      crs: qgisProject.crs
+      crs: qgisProject ? qgisProject.crs : CoordinateReferenceSystemUtils.invalidCrs()
     }
 
     // The position is dynamically calculated to follow the coordinate locator
@@ -1243,7 +1243,7 @@ ApplicationWindow {
 
       property int followLocationMaxScale: 10
       property int followLocationMinMargin: 40
-      property int followLocationScreenFraction: settings.value( "/QField/Positioning/FollowScreenFraction", 5 )
+      property int followLocationScreenFraction: settings ? settings.value( "/QField/Positioning/FollowScreenFraction", 5 ) : 5
       function followLocation(forceRecenter) {
         var screenLocation = mapCanvas.mapSettings.coordinateToScreen(positionSource.projectedPosition);
         if (navigation.isActive && navigationButton.followIncludeDestination) {

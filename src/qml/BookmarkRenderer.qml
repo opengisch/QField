@@ -46,7 +46,7 @@ Item {
                     sourceCrs: geometryWrapper.crs
                     sourcePosition: modelData
                     destinationCrs: mapCanvas.mapSettings.destinationCrs
-                    transformContext: qgisProject.transformContext
+                    transformContext: qgisProject ? qgisProject.transformContext : CoordinateReferenceSystemUtils.emptyTransformContext()
                 }
 
                 MapToScreen {

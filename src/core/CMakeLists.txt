@@ -1,5 +1,6 @@
 set(QFIELD_CORE_SRCS
     platforms/platformutilities.cpp
+    utils/coordinatereferencesystemutils.cpp
     utils/expressioncontextutils.cpp
     utils/featureutils.cpp
     utils/fileutils.cpp
@@ -95,6 +96,7 @@ set(QFIELD_CORE_SRCS
 
 set(QFIELD_CORE_HDRS
     platforms/platformutilities.h
+    utils/coordinatereferencesystemutils.h
     utils/expressioncontextutils.h
     utils/featureutils.h
     utils/fileutils.h
