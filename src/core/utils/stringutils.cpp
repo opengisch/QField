@@ -19,7 +19,9 @@
 
 #include <QRegularExpression>
 #include <QUuid>
+#if _QGIS_VERSION_INT >= 32500
 #include <qgscoordinatereferencesystemutils.h>
+#endif
 #include <qgsstringutils.h>
 
 StringUtils::StringUtils( QObject *parent )
@@ -70,18 +72,25 @@ bool StringUtils::fuzzyMatch( const QString &source, const QString &term )
 
 QString StringUtils::pointInformation( QgsPoint point, QgsCoordinateReferenceSystem crs )
 {
-  const bool currentCrsIsXY = QgsCoordinateReferenceSystemUtils::defaultCoordinateOrderForCrs( crs ) == Qgis::CoordinateOrder::XY;
-  const QList<Qgis::CrsAxisDirection> axisList = crs.axisOrdering();
   QString firstSuffix;
   QString secondSuffix;
+#if _QGIS_VERSION_INT >= 32500
+  const bool currentCrsIsXY = QgsCoordinateReferenceSystemUtils::defaultCoordinateOrderForCrs( crs ) == Qgis::CoordinateOrder::XY;
+  const QList<Qgis::CrsAxisDirection> axisList = crs.axisOrdering();
   if ( axisList.size() >= 2 && crs.isGeographic() )
   {
     firstSuffix = QgsCoordinateReferenceSystemUtils::axisDirectionToAbbreviatedString( axisList.at( 0 ) );
     secondSuffix = QgsCoordinateReferenceSystemUtils::axisDirectionToAbbreviatedString( axisList.at( 1 ) );
   }
-
+#else
+  const bool currentCrsIsXY = true;
+  firstSuffix = crs.isGeographic() ? QStringLiteral( "E" ) : QString();
+  secondSuffix = crs.isGeographic() ? QStringLiteral( "N" ) : QString();
+#endif
+  // cppcheck-suppress knownConditionTrueFalse
   const QString firstNumber = QString::number( currentCrsIsXY ? point.x() : point.y(),
                                                'f', crs.isGeographic() ? 5 : 2 );
+  // cppcheck-suppress knownConditionTrueFalse
   const QString secondNumber = QString::number( currentCrsIsXY ? point.y() : point.x(),
                                                 'f', crs.isGeographic() ? 5 : 2 );
   return QStringLiteral( "%1%2, %3%4 — %5: %6" ).arg( firstNumber, firstSuffix, secondNumber, secondSuffix, crs.authid(), crs.description() );

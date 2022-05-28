@@ -20,7 +20,9 @@
 
 #include <QAction>
 #include <QRegularExpression>
+#if _QGIS_VERSION_INT >= 32500
 #include <qgscoordinatereferencesystemutils.h>
+#endif
 #include <qgscoordinateutils.h>
 #include <qgsexpressioncontextutils.h>
 #include <qgsfeedback.h>
@@ -72,6 +74,7 @@ void GotoLocatorFilter::fetchResults( const QString &string, const QgsLocatorCon
     }
   }
 
+#if _QGIS_VERSION_INT >= 32500
   if ( !match.hasMatch() )
   {
     // Check if the string is a pair of decimal degrees with [N,S,E,W] suffixes
@@ -89,6 +92,7 @@ void GotoLocatorFilter::fetchResults( const QString &string, const QgsLocatorCon
         std::swap( firstNumber, secondNumber );
     }
   }
+#endif
 
   if ( !match.hasMatch() )
   {
@@ -114,24 +118,30 @@ void GotoLocatorFilter::fetchResults( const QString &string, const QgsLocatorCon
   if ( firstOk && secondOk )
   {
     QVariantMap data;
+#if _QGIS_VERSION_INT >= 32500
     const bool currentCrsIsXY = QgsCoordinateReferenceSystemUtils::defaultCoordinateOrderForCrs( currentCrs ) == Qgis::CoordinateOrder::XY;
     const bool withinWgs84 = wgs84Crs.bounds().contains( secondNumber, firstNumber );
-
+#else
+    const bool currentCrsIsXY = true;
+    const bool withinWgs84 = wgs84Crs.bounds().contains( firstNumber, secondNumber );
+#endif
     if ( !posIsWgs84 && currentCrs != wgs84Crs )
     {
-      const QgsPointXY point( currentCrsIsXY ? firstNumber : secondNumber,
+      // cppcheck-suppress knownConditionTrueFalse
+      const QgsPointXY point( currentCrsIsXY ? firstNumber : secondNumber, // cppcheck-suppress knownConditionTrueFalse
                               currentCrsIsXY ? secondNumber : firstNumber );
       data.insert( QStringLiteral( "point" ), point );
 
-      const QList<Qgis::CrsAxisDirection> axisList = currentCrs.axisOrdering();
       QString firstSuffix;
       QString secondSuffix;
+#if _QGIS_VERSION_INT >= 32500
+      const QList<Qgis::CrsAxisDirection> axisList = currentCrs.axisOrdering();
       if ( axisList.size() >= 2 )
       {
         firstSuffix = QgsCoordinateReferenceSystemUtils::axisDirectionToAbbreviatedString( axisList.at( 0 ) );
         secondSuffix = QgsCoordinateReferenceSystemUtils::axisDirectionToAbbreviatedString( axisList.at( 1 ) );
       }
-
+#endif
       QgsLocatorResult result;
       result.filter = this;
       result.displayString = tr( "Go to %1%2 %3%4 (Map CRS, %5)" ).arg( locale.toString( firstNumber, 'g', 10 ), firstSuffix, locale.toString( secondNumber, 'g', 10 ), secondSuffix, currentCrs.userFriendlyIdentifier() );
@@ -142,7 +152,11 @@ void GotoLocatorFilter::fetchResults( const QString &string, const QgsLocatorCon
 
     if ( withinWgs84 )
     {
+#if _QGIS_VERSION_INT >= 32500
       const QgsPointXY point( secondNumber, firstNumber );
+#else
+      const QgsPointXY point( firstNumber, secondNumber );
+#endif
       if ( currentCrs != wgs84Crs )
       {
         const QgsCoordinateTransform transform( wgs84Crs, currentCrs, QgsProject::instance()->transformContext() );
