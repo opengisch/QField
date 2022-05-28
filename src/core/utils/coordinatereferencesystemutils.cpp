@@ -25,7 +25,7 @@ CoordinateReferenceSystemUtils::CoordinateReferenceSystemUtils( QObject *parent 
 {
 }
 
-bool CoordinateReferenceSystemUtils::defaultCoordinateOrderForCrsIsXY( QgsCoordinateReferenceSystem crs )
+bool CoordinateReferenceSystemUtils::defaultCoordinateOrderForCrsIsXY( const QgsCoordinateReferenceSystem &crs )
 {
 #if _QGIS_VERSION_INT >= 32500
   return QgsCoordinateReferenceSystemUtils::defaultCoordinateOrderForCrs( crs ) == Qgis::CoordinateOrder::XY;
