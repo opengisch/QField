@@ -15,11 +15,12 @@
  *                                                                         *
  ***************************************************************************/
 
-#include "qgsstringutils.h"
 #include "stringutils.h"
 
 #include <QRegularExpression>
 #include <QUuid>
+#include <qgscoordinatereferencesystemutils.h>
+#include <qgsstringutils.h>
 
 StringUtils::StringUtils( QObject *parent )
   : QObject( parent )
@@ -65,4 +66,23 @@ bool StringUtils::fuzzyMatch( const QString &source, const QString &term )
   return lastMatchedTermPartIdx >= 0 && matchedTermItems == termPartsCount
            ? true
            : false;
+}
+
+QString StringUtils::pointInformation( QgsPoint point, QgsCoordinateReferenceSystem crs )
+{
+  const bool currentCrsIsXY = QgsCoordinateReferenceSystemUtils::defaultCoordinateOrderForCrs( crs ) == Qgis::CoordinateOrder::XY;
+  const QList<Qgis::CrsAxisDirection> axisList = crs.axisOrdering();
+  QString firstSuffix;
+  QString secondSuffix;
+  if ( axisList.size() >= 2 && crs.isGeographic() )
+  {
+    firstSuffix = QgsCoordinateReferenceSystemUtils::axisDirectionToAbbreviatedString( axisList.at( 0 ) );
+    secondSuffix = QgsCoordinateReferenceSystemUtils::axisDirectionToAbbreviatedString( axisList.at( 1 ) );
+  }
+
+  const QString firstNumber = QString::number( currentCrsIsXY ? point.x() : point.y(),
+                                               'f', crs.isGeographic() ? 5 : 2 );
+  const QString secondNumber = QString::number( currentCrsIsXY ? point.y() : point.x(),
+                                                'f', crs.isGeographic() ? 5 : 2 );
+  return QStringLiteral( "%1%2, %3%4 — %5: %6" ).arg( firstNumber, firstSuffix, secondNumber, secondSuffix, crs.authid(), crs.description() );
 }

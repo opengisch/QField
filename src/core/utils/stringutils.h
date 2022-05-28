@@ -21,6 +21,8 @@
 #include "qfield_core_export.h"
 
 #include <QObject>
+#include <qgscoordinatereferencesystem.h>
+#include <qgspoint.h>
 
 class QFIELD_CORE_EXPORT StringUtils : public QObject
 {
@@ -42,6 +44,8 @@ class QFIELD_CORE_EXPORT StringUtils : public QObject
 
     //! Checks whether the string \a term is part of \a source
     static bool fuzzyMatch( const QString &source, const QString &term );
+
+    static Q_INVOKABLE QString pointInformation( QgsPoint point, QgsCoordinateReferenceSystem crs );
 };
 
 #endif // STRINGUTILS_H
