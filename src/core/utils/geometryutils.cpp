@@ -17,6 +17,7 @@
 #include "geometryutils.h"
 #include "rubberbandmodel.h"
 
+#include <qgscoordinatetransform.h>
 #include <qgslinestring.h>
 #include <qgspolygon.h>
 #include <qgsproject.h>
@@ -132,4 +133,21 @@ QgsPoint GeometryUtils::coordinateToPoint( const QGeoCoordinate &coor )
 double GeometryUtils::distanceBetweenPoints( const QgsPoint &start, const QgsPoint &end )
 {
   return start.distance( end );
+}
+
+QgsPoint GeometryUtils::reprojectPointToWgs84( const QgsPoint &point, const QgsCoordinateReferenceSystem &crs )
+{
+  QgsCoordinateReferenceSystem wgs84Crs = QgsCoordinateReferenceSystem( QStringLiteral( "EPSG:4326" ) );
+  const QgsCoordinateTransform ct( crs, wgs84Crs, QgsProject::instance() );
+  QgsPointXY reprojectedPoint;
+  try
+  {
+    ct.transform( point.x(), point.y() );
+    reprojectedPoint = ct.transform( point );
+  }
+  catch ( QgsCsException & )
+  {
+    return QgsPoint();
+  }
+  return QgsPoint( reprojectedPoint );
 }
