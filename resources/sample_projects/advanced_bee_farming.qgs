@@ -6521,7 +6521,7 @@ def my_form_open(dialog, layer, feature):
     <PositionPrecision>
       <Automatic type="bool">true</Automatic>
       <DecimalPlaces type="int">2</DecimalPlaces>
-      <DegreeFormat type="QString">MU</DegreeFormat>
+      <DegreeFormat type="QString">D</DegreeFormat>
     </PositionPrecision>
     <RequiredLayers>
       <Layers type="QStringList"></Layers>
