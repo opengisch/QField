@@ -32,10 +32,16 @@ class QFIELD_CORE_EXPORT CoordinateReferenceSystemUtils : public QObject
     //! Returns an EPGS:4326 WGS84 CRS
     static Q_INVOKABLE QgsCoordinateReferenceSystem wgs84Crs() { return QgsCoordinateReferenceSystem( QStringLiteral( "EPSG:4326" ) ); }
 
-    //! Returns an invalid CRS
+    /**
+     * Returns an invalid CRS
+     * \note This can be used in QML to avoid errors when a parent object pointer goes undefined
+     */
     static Q_INVOKABLE QgsCoordinateReferenceSystem invalidCrs() { return QgsCoordinateReferenceSystem(); }
 
-    //! Returns an empty transform context
+    /**
+     * Returns an empty transform context
+     * \note This can be used in QML to avoid errors when a parent object pointer goes undefined
+     */
     static Q_INVOKABLE QgsCoordinateTransformContext emptyTransformContext() { return QgsCoordinateTransformContext(); }
 
     //! Returns whether the default coordinate order of a given \a crs is XY

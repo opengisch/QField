@@ -48,6 +48,10 @@ class SnappingUtils : public QgsSnappingUtils
 
     static QgsPoint newPoint( const QgsPoint &snappedPoint, const QgsWkbTypes::Type wkbType );
 
+    /**
+     * Returns an empty snapping configuration object
+     * \note This can be used in QML to avoid errors when a parent object pointer goes undefined
+     */
     static Q_INVOKABLE QgsSnappingConfig emptySnappingConfig() { return QgsSnappingConfig(); }
 
   signals:

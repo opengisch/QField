@@ -137,7 +137,7 @@ double GeometryUtils::distanceBetweenPoints( const QgsPoint &start, const QgsPoi
 
 QgsPoint GeometryUtils::reprojectPointToWgs84( const QgsPoint &point, const QgsCoordinateReferenceSystem &crs )
 {
-  QgsCoordinateReferenceSystem wgs84Crs = QgsCoordinateReferenceSystem( QStringLiteral( "EPSG:4326" ) );
+  const QgsCoordinateReferenceSystem wgs84Crs = QgsCoordinateReferenceSystem( QStringLiteral( "EPSG:4326" ) );
   const QgsCoordinateTransform ct( crs, wgs84Crs, QgsProject::instance() );
   QgsPointXY reprojectedPoint;
   try
@@ -149,5 +149,9 @@ QgsPoint GeometryUtils::reprojectPointToWgs84( const QgsPoint &point, const QgsC
   {
     return QgsPoint();
   }
-  return QgsPoint( reprojectedPoint );
+
+  return QgsPoint( reprojectedPoint.x(),
+                   reprojectedPoint.y(),
+                   point.is3D() ? point.z() : std::numeric_limits<double>::quiet_NaN(),
+                   point.isMeasure() ? point.m() : std::numeric_limits<double>::quiet_NaN() );
 }
