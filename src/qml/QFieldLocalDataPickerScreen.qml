@@ -184,7 +184,10 @@ Page {
                 id: itemTitle
                 Layout.fillWidth: true
                 Layout.preferredHeight: contentHeight
+                clip: true
+
                 text: ItemTitle + (ItemType !== LocalFilesModel.ProjectFile && ItemFormat !== '' ? '.' + ItemFormat : '')
+
                 font.pointSize: Theme.defaultFont.pointSize
                 font.underline: itemMenuLoadable
                 color: itemMenuLoadable ? Theme.mainColor : "black"
@@ -194,6 +197,7 @@ Page {
                 id: itemInfo
                 Layout.fillWidth: true
                 Layout.preferredHeight: contentHeight
+
                 text: {
                   var info = '';
                   switch(ItemType) {
@@ -218,9 +222,14 @@ Page {
               }
             }
             QfToolButton {
-              visible: itemMenuVisible
+              visible: true//itemMenuVisible
               round: true
               opacity: 0.5
+
+              Layout.preferredWidth: width
+              Layout.preferredHeight: height
+              width: 48
+              height: 48
 
               bgcolor: "transparent"
               iconSource: Theme.getThemeIcon( "ic_dot_menu_gray_24dp" )
