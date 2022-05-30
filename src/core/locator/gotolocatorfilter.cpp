@@ -127,8 +127,7 @@ void GotoLocatorFilter::fetchResults( const QString &string, const QgsLocatorCon
 #endif
     if ( !posIsWgs84 && currentCrs != wgs84Crs )
     {
-      // cppcheck-suppress knownConditionTrueFalse
-      const QgsPointXY point( currentCrsIsXY ? firstNumber : secondNumber, // cppcheck-suppress knownConditionTrueFalse
+      const QgsPointXY point( currentCrsIsXY ? firstNumber : secondNumber,
                               currentCrsIsXY ? secondNumber : firstNumber );
       data.insert( QStringLiteral( "point" ), point );
 

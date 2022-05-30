@@ -87,10 +87,8 @@ QString StringUtils::pointInformation( const QgsPoint &point, const QgsCoordinat
   firstSuffix = crs.isGeographic() ? QStringLiteral( "E" ) : QString();
   secondSuffix = crs.isGeographic() ? QStringLiteral( "N" ) : QString();
 #endif
-  // cppcheck-suppress knownConditionTrueFalse
   const QString firstNumber = QString::number( currentCrsIsXY ? point.x() : point.y(),
                                                'f', crs.isGeographic() ? 5 : 2 );
-  // cppcheck-suppress knownConditionTrueFalse
   const QString secondNumber = QString::number( currentCrsIsXY ? point.y() : point.x(),
                                                 'f', crs.isGeographic() ? 5 : 2 );
   return QStringLiteral( "%1%2, %3%4 — %5: %6" ).arg( firstNumber, firstSuffix, secondNumber, secondSuffix, crs.authid(), crs.description() );
