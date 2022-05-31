@@ -67,6 +67,7 @@
         <data android:mimeType="application/vnd.google-earth.kmz" />
         <data android:mimeType="application/zip" />
         <data android:mimeType="image/tiff" />
+        <data android:mimeType="image/jp2" />
         <data android:mimeType="image/x-jp2" />
       </intent-filter>
 
@@ -88,6 +89,7 @@
         <data android:mimeType="application/vnd.google-earth.kmz" />
         <data android:mimeType="application/zip" />
         <data android:mimeType="image/tiff" />
+        <data android:mimeType="image/jp2" />
         <data android:mimeType="image/x-jp2" />
       </intent-filter>
 
