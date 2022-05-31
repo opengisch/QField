@@ -21,6 +21,8 @@
 #include "qfield_core_export.h"
 
 #include <QObject>
+#include <qgscoordinatereferencesystem.h>
+#include <qgspoint.h>
 
 class QFIELD_CORE_EXPORT StringUtils : public QObject
 {
@@ -30,18 +32,17 @@ class QFIELD_CORE_EXPORT StringUtils : public QObject
     explicit StringUtils( QObject *parent = nullptr );
 
 
-    /**
-     * Returns a string with any URL (e.g., http(s)/ftp) and mailto: text converted to valid HTML <a …> links.
-     */
+    //! Returns a string with any URL (e.g., http(s)/ftp) and mailto: text converted to valid HTML <a …> links
     static Q_INVOKABLE QString insertLinks( const QString &string );
 
-    /**
-     * Returns a new UUID string.
-     */
+    //! Returns a new UUID string
     static Q_INVOKABLE QString createUuid();
 
     //! Checks whether the string \a term is part of \a source
     static bool fuzzyMatch( const QString &source, const QString &term );
+
+    //! Returns a string containing the \a point location and details of the \a crs
+    static Q_INVOKABLE QString pointInformation( const QgsPoint &point, const QgsCoordinateReferenceSystem &crs );
 };
 
 #endif // STRINGUTILS_H

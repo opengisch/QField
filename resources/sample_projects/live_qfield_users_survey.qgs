@@ -782,7 +782,7 @@ def my_form_open(dialog, layer, feature):
     <WMSAccessConstraints type="QString">None</WMSAccessConstraints>
     <PositionPrecision>
       <DecimalPlaces type="int">2</DecimalPlaces>
-      <DegreeFormat type="QString">MU</DegreeFormat>
+      <DegreeFormat type="QString">D</DegreeFormat>
       <Automatic type="bool">true</Automatic>
     </PositionPrecision>
     <Macros>

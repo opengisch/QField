@@ -9,6 +9,14 @@ import Theme 1.0
 Rectangle {
   id: navigationInformationView
 
+  property var coordinates: projectInfo.reprojectDisplayCoordinatesToWGS84
+                                    ? GeometryUtils.reprojectPointToWgs84(navigation.destination, navigation.mapSettings.destinationCrs)
+                                    : navigation.destination
+  property bool coordinatesIsXY: !projectInfo.reprojectDisplayCoordinatesToWGS84
+                                && CoordinateReferenceSystemUtils.defaultCoordinateOrderForCrsIsXY(navigation.mapSettings.destinationCrs)
+  property bool coordinatesIsGeographic: projectInfo.reprojectDisplayCoordinatesToWGS84
+                                        || navigation.mapSettings.destinationCrs.isGeographic
+
   property Navigation navigation
   property int ceilsCount: 4
   property double rowHeight: 30
@@ -38,9 +46,11 @@ Rectangle {
         anchors.left: parent.left
         font: Theme.tipFont
         color: textColor
-        text: navigation.mapSettings.destinationCrs.isGeographic ?
-                qsTr( "Lat." ) + ': ' + ( Number( navigation.destination.x ).toLocaleString( Qt.locale(), 'f', 7 ) )
-              : qsTr( "X" )    + ': ' + ( Number( navigation.destination.x ).toLocaleString( Qt.locale(), 'f', 3 ) )
+        text: coordinatesIsXY
+              ? (coordinatesIsGeographic ? qsTr( "Lon" ) : qsTr( "X" )) + ': '
+                + Number( coordinates.x ).toLocaleString( Qt.locale(), 'f', coordinatesIsGeographic ? 7 : 3 )
+              : (coordinatesIsGeographic ? qsTr( "Lat" ) : qsTr( "Y" )) + ': '
+                + Number( coordinates.y ).toLocaleString( Qt.locale(), 'f', coordinatesIsGeographic ? 7 : 3 )
       }
     }
 
@@ -55,9 +65,11 @@ Rectangle {
         anchors.left: parent.left
         font: Theme.tipFont
         color: textColor
-        text: positionSource.destinationCrs.isGeographic ?
-                qsTr( "Lon." ) + ': ' + ( Number( navigation.destination.x ).toLocaleString( Qt.locale(), 'f', 7 ) )
-              : qsTr( "Y" )    + ': ' + ( Number( navigation.destination.y ).toLocaleString( Qt.locale(), 'f', 3 ) )
+        text: coordinatesIsXY
+              ? (coordinatesIsGeographic ? qsTr( "Lat" ) : qsTr( "Y" )) + ': '
+                + Number( coordinates.y ).toLocaleString( Qt.locale(), 'f', coordinatesIsGeographic ? 7 : 3 )
+              : (coordinatesIsGeographic ? qsTr( "Lon" ) : qsTr( "X" )) + ': '
+                + Number( coordinates.x ).toLocaleString( Qt.locale(), 'f', coordinatesIsGeographic ? 7 : 3 )
       }
     }
 

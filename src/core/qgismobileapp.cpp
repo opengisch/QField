@@ -52,6 +52,7 @@
 #include "bluetoothdevicemodel.h"
 #include "bluetoothreceiver.h"
 #include "changelogcontents.h"
+#include "coordinatereferencesystemutils.h"
 #include "deltafilewrapper.h"
 #include "deltalistmodel.h"
 #include "digitizinglogger.h"
@@ -491,6 +492,7 @@ void QgisMobileapp::initDeclarative()
   REGISTER_SINGLETON( "org.qfield", UrlUtils, "UrlUtils" );
   REGISTER_SINGLETON( "org.qfield", QFieldCloudUtils, "QFieldCloudUtils" );
   REGISTER_SINGLETON( "org.qfield", PositioningUtils, "PositioningUtils" );
+  REGISTER_SINGLETON( "org.qfield", CoordinateReferenceSystemUtils, "CoordinateReferenceSystemUtils" );
 
   qmlRegisterUncreatableType<AppInterface>( "org.qgis", 1, 0, "QgisInterface", "QgisInterface is only provided by the environment and cannot be created ad-hoc" );
   qmlRegisterUncreatableType<Settings>( "org.qgis", 1, 0, "Settings", "" );

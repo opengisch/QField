@@ -100,11 +100,11 @@ Page {
       Component.onCompleted: {
           for (var i = 0; i < settingsModel.count; i++) {
               if (settingsModel.get(i).settingAlias === 'nativeCamera') {
-                  settingsModel.setProperty(i, 'isVisible', platformUtilities.capabilities & PlatformUtilities.NativeCamera)
+                  settingsModel.setProperty(i, 'isVisible', platformUtilities.capabilities & PlatformUtilities.NativeCamera ? true : false)
               } else if (settingsModel.get(i).settingAlias === 'dimBrightness') {
-                  settingsModel.setProperty(i, 'isVisible', platformUtilities.capabilities & PlatformUtilities.AdjustBrightness)
+                  settingsModel.setProperty(i, 'isVisible', platformUtilities.capabilities & PlatformUtilities.AdjustBrightness ? true : false)
               } else if (settingsModel.get(i).settingAlias === 'enableInfoCollection') {
-                  settingsModel.setProperty(i, 'isVisible', platformUtilities.capabilities & PlatformUtilities.SentryFramework)
+                  settingsModel.setProperty(i, 'isVisible', platformUtilities.capabilities & PlatformUtilities.SentryFramework ? true : false)
               } else {
                   settingsModel.setProperty(i, 'isVisible', true)
               }

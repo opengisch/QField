@@ -70,11 +70,14 @@ class QFIELD_CORE_EXPORT GeometryUtils : public QObject
     //! This will perform a split using the line in the rubberband model. It works with the layer selection if some features are selected.
     static Q_INVOKABLE GeometryOperationResult splitFeatureFromRubberband( QgsVectorLayer *layer, RubberbandModel *rubberBandModel );
 
-    //! Converts QGeoCoordinate to QgsPoint
+    //! Converts QGeoCoordinate to QgsPoint.
     static Q_INVOKABLE QgsPoint coordinateToPoint( const QGeoCoordinate &coor );
 
     //! Returns the distance between a pair of \a start and \a end points.
     static Q_INVOKABLE double distanceBetweenPoints( const QgsPoint &start, const QgsPoint &end );
+
+    //! Returns a reprojected \a point from the stated \a crs to WGS84.
+    static Q_INVOKABLE QgsPoint reprojectPointToWgs84( const QgsPoint &point, const QgsCoordinateReferenceSystem &crs );
 };
 
 #endif // GEOMETRYUTILS_H

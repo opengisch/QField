@@ -8,7 +8,16 @@ import Theme 1.0
 
 Rectangle {
   id: positionInformationView
+
   property Positioning positionSource
+  property var coordinates: projectInfo.reprojectDisplayCoordinatesToWGS84
+                                    ? positionSource.sourcePosition
+                                    : positionSource.projectedPosition
+  property bool coordinatesIsXY: !projectInfo.reprojectDisplayCoordinatesToWGS84
+                                && CoordinateReferenceSystemUtils.defaultCoordinateOrderForCrsIsXY(mapCanvas.mapSettings.destinationCrs)
+  property bool coordinatesIsGeographic: projectInfo.reprojectDisplayCoordinatesToWGS84
+                                        || positionSource.destinationCrs.isGeographic
+
   property double antennaHeight: NaN
   property double rowHeight: 30
   property color backgroundColor: "white"
@@ -38,9 +47,15 @@ Rectangle {
         anchors.left: parent.left
         font: Theme.tipFont
         color: textColor
-        text: positionSource.destinationCrs.isGeographic ?
-                  qsTr( "Lat." ) + ': ' + ( positionSource.positionInformation && positionSource.positionInformation.latitudeValid  ? Number( positionSource.projectedPosition.y ).toLocaleString( Qt.locale(), 'f', 7 ) : qsTr( "N/A" ) )
-                : qsTr( "X" )    + ': ' + ( positionSource.positionInformation && positionSource.positionInformation.longitudeValid ? Number( positionSource.projectedPosition.x ).toLocaleString( Qt.locale(), 'f', 3 ) : qsTr( "N/A" ) )
+        text: coordinatesIsXY
+              ? (coordinatesIsGeographic ? qsTr( "Lon" ) : qsTr( "X" )) + ': '
+                + ( positionSource.positionInformation && positionSource.positionInformation.longitudeValid
+                   ? Number( coordinates.x ).toLocaleString( Qt.locale(), 'f', coordinatesIsGeographic ? 7 : 3 )
+                   : qsTr( "N/A" ) )
+              : (coordinatesIsGeographic ? qsTr( "Lat" ) : qsTr( "Y" )) + ': '
+                + ( positionSource.positionInformation && positionSource.positionInformation.latitudeValid
+                   ? Number( coordinates.y ).toLocaleString( Qt.locale(), 'f', coordinatesIsGeographic ? 7 : 3 )
+                   : qsTr( "N/A" ) )
       }
     }
 
@@ -55,9 +70,15 @@ Rectangle {
         anchors.left: parent.left
         font: Theme.tipFont
         color: textColor
-        text: positionSource.destinationCrs.isGeographic ?
-                  qsTr( "Lon." ) + ': ' + ( positionSource.positionInformation && positionSource.positionInformation.longitudeValid ? Number( positionSource.projectedPosition.x ).toLocaleString( Qt.locale(), 'f', 7 ) : qsTr( "N/A" ) )
-                : qsTr( "Y" )    + ': ' + ( positionSource.positionInformation && positionSource.positionInformation.latitudeValid  ? Number( positionSource.projectedPosition.y ).toLocaleString( Qt.locale(), 'f', 3 ) : qsTr( "N/A" ) )
+        text: coordinatesIsXY
+              ? (coordinatesIsGeographic ? qsTr( "Lat" ) : qsTr( "Y" )) + ': '
+                + ( positionSource.positionInformation && positionSource.positionInformation.longitudeValid
+                   ? Number( coordinates.y ).toLocaleString( Qt.locale(), 'f', coordinatesIsGeographic ? 7 : 3 )
+                   : qsTr( "N/A" ) )
+              : (coordinatesIsGeographic ? qsTr( "Lon" ) : qsTr( "X" )) + ': '
+                + ( positionSource.positionInformation && positionSource.positionInformation.latitudeValid
+                   ? Number( coordinates.x ).toLocaleString( Qt.locale(), 'f', coordinatesIsGeographic ? 7 : 3 )
+                   : qsTr( "N/A" ) )
 
       }
     }

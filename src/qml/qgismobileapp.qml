@@ -175,7 +175,7 @@ ApplicationWindow {
 
     coordinateTransformer: CoordinateTransformer {
       destinationCrs: mapCanvas.mapSettings.destinationCrs
-      transformContext: qgisProject.transformContext
+      transformContext: qgisProject ? qgisProject.transformContext : CoordinateReferenceSystemUtils.emptyTransformContext()
       deltaZ: positioningSettings.antennaHeightActivated ? positioningSettings.antennaHeight * -1 : 0
       skipAltitudeTransformation: positioningSettings.skipAltitudeCorrection
     }
@@ -397,8 +397,8 @@ ApplicationWindow {
             identifyTool.identify(point)
           }
         } else {
-          canvasMenu.point = mapCanvas.mapSettings.screenToCoordinate(point);
-          canvasMenu.popup(point.x, point.y )
+          canvasMenu.point = mapCanvas.mapSettings.screenToCoordinate(point)
+          canvasMenu.popup(point.x, point.y)
         }
       }
 
@@ -645,6 +645,13 @@ ApplicationWindow {
    **************************************************/
 
   Text {
+    id: coordinateLocatorInformationOverlay
+
+    property bool coordinatesIsXY: !projectInfo.reprojectDisplayCoordinatesToWGS84
+                                   && CoordinateReferenceSystemUtils.defaultCoordinateOrderForCrsIsXY(coordinateLocator.mapSettings.destinationCrs)
+    property bool coordinatesIsGeographic: projectInfo.reprojectDisplayCoordinatesToWGS84
+                                           || coordinateLocator.mapSettings.destinationCrs.isGeographic
+
     DistanceArea {
       id: digitizingGeometryMeasure
 
@@ -652,7 +659,7 @@ ApplicationWindow {
 
       rubberbandModel: currentRubberband ? currentRubberband.model : null
       project: qgisProject
-      crs: qgisProject.crs
+      crs: qgisProject ? qgisProject.crs : CoordinateReferenceSystemUtils.invalidCrs()
     }
 
     // The position is dynamically calculated to follow the coordinate locator
@@ -669,23 +676,39 @@ ApplicationWindow {
         return newY;
     }
 
-    text: ( qfieldSettings.numericalDigitizingInformation && stateMachine.state === "digitize" ) || stateMachine.state === 'measure' ?
-              '%1%2%3%4%5'
-                .arg(stateMachine.state === 'digitize' || !digitizingToolbar.isDigitizing ? '<p>%1: %2<br>%3: %4</p>'
-                  .arg(coordinateLocator.mapSettings.destinationCrs.isGeographic ? qsTr( 'Lon' ) : 'X')
-                  .arg(coordinateLocator.currentCoordinate.x.toLocaleString( Qt.locale(), 'f', coordinateLocator.mapSettings.destinationCrs.isGeographic ? 5 : 2 ))
-                  .arg(coordinateLocator.mapSettings.destinationCrs.isGeographic ? qsTr( 'Lat' ) : 'Y')
-                  .arg(coordinateLocator.currentCoordinate.y.toLocaleString( Qt.locale(), 'f', coordinateLocator.mapSettings.destinationCrs.isGeographic ? 5 : 2 ))
-                  : '' )
+    text: {
+      if ((qfieldSettings.numericalDigitizingInformation && stateMachine.state === "digitize" ) || stateMachine.state === 'measure') {
+        var point = projectInfo.reprojectDisplayCoordinatesToWGS84
+                    ? GeometryUtils.reprojectPointToWgs84(coordinateLocator.currentCoordinate, coordinateLocator.mapSettings.destinationCrs)
+                    : coordinateLocator.currentCoordinate
+        var coordinates;
+        if (coordinatesIsXY) {
+          coordinates = '<p>%1: %2<br>%3: %4</p>'
+                        .arg(coordinatesIsGeographic ? qsTr( 'Lon' ) : 'X')
+                        .arg(point.x.toLocaleString( Qt.locale(), 'f', coordinatesIsGeographic ? 5 : 2 ))
+                        .arg(coordinatesIsGeographic ? qsTr( 'Lat' ) : 'Y')
+                        .arg(point.y.toLocaleString( Qt.locale(), 'f', coordinatesIsGeographic ? 5 : 2 ));
+        } else {
+          coordinates = '<p>%1: %2<br>%3: %4</p>'
+                        .arg(coordinatesIsGeographic ? qsTr( 'Lat' ) : 'Y')
+                        .arg(point.y.toLocaleString( Qt.locale(), 'f', coordinatesIsGeographic ? 5 : 2 ))
+                        .arg(coordinatesIsGeographic ? qsTr( 'Lon' ) : 'X')
+                        .arg(point.x.toLocaleString( Qt.locale(), 'f', coordinatesIsGeographic ? 5 : 2 ));
+        }
+
+        return '%1%2%3%4%5'
+                .arg(stateMachine.state === 'digitize' || !digitizingToolbar.isDigitizing
+                     ? coordinates
+                     : '')
 
                 .arg(digitizingGeometryMeasure.lengthValid && digitizingGeometryMeasure.segmentLength != 0.0
                      && digitizingGeometryMeasure.segmentLength != digitizingGeometryMeasure.length
                      ? '<p>%1: %2</p>'
                        .arg( qsTr( 'Segment') )
                        .arg(UnitTypes.formatDistance( digitizingGeometryMeasure.segmentLength, 3, digitizingGeometryMeasure.lengthUnits ) )
-                     : '' )
+                     : '')
 
-                .arg(currentRubberband.model.geometryType === QgsWkbTypes.PolygonGeometry
+                .arg(currentRubberband.model && currentRubberband.model.geometryType === QgsWkbTypes.PolygonGeometry
                      ? digitizingGeometryMeasure.perimeterValid
                        ? '<p>%1: %2</p>'
                          .arg( qsTr( 'Perimeter') )
@@ -695,20 +718,21 @@ ApplicationWindow {
                      ? '<p>%1: %2</p>'
                        .arg( qsTr( 'Length') )
                        .arg(UnitTypes.formatDistance( digitizingGeometryMeasure.length, 3, digitizingGeometryMeasure.lengthUnits ) )
-                     : '' )
+                     : '')
 
-                .arg(digitizingGeometryMeasure.areaValid ? '<p>%1: %2</p>'
-                  .arg( qsTr( 'Area') )
-                  .arg(UnitTypes.formatArea( digitizingGeometryMeasure.area, 3, digitizingGeometryMeasure.areaUnits ) )
-                  : '' )
+                .arg(digitizingGeometryMeasure.areaValid
+                     ? '<p>%1: %2</p>'
+                     .arg( qsTr( 'Area') )
+                     .arg(UnitTypes.formatArea( digitizingGeometryMeasure.area, 3, digitizingGeometryMeasure.areaUnits ) )
+                     : '')
 
-                .arg(stateMachine.state === 'measure' && digitizingToolbar.isDigitizing? '<p>%1: %2<br>%3: %4</p>'
-                  .arg(coordinateLocator.mapSettings.destinationCrs.isGeographic ? qsTr( 'Lon' ) : 'X')
-                  .arg(coordinateLocator.currentCoordinate.x.toFixed( coordinateLocator.mapSettings.destinationCrs.isGeographic ? 5 : 2 ))
-                  .arg(coordinateLocator.mapSettings.destinationCrs.isGeographic ? qsTr( 'Lat' ) : 'Y')
-                  .arg(coordinateLocator.currentCoordinate.y.toFixed( coordinateLocator.mapSettings.destinationCrs.isGeographic ? 5 : 2 ))
-                  : '' )
-              : ''
+                .arg(stateMachine.state === 'measure' && digitizingToolbar.isDigitizing
+                     ? coordinates
+                     : '')
+      } else {
+        return '';
+      }
+    }
 
     font: Theme.strongTipFont
     style: Text.Outline
@@ -1243,7 +1267,7 @@ ApplicationWindow {
 
       property int followLocationMaxScale: 10
       property int followLocationMinMargin: 40
-      property int followLocationScreenFraction: settings.value( "/QField/Positioning/FollowScreenFraction", 5 )
+      property int followLocationScreenFraction: settings ? settings.value( "/QField/Positioning/FollowScreenFraction", 5 ) : 5
       function followLocation(forceRecenter) {
         var screenLocation = mapCanvas.mapSettings.coordinateToScreen(positionSource.projectedPosition);
         if (navigation.isActive && navigationButton.followIncludeDestination) {
@@ -1736,12 +1760,17 @@ ApplicationWindow {
       target: iface
 
       function onLoadProjectEnded() {
+        projectInfo.reprojectDisplayCoordinatesToWGS84 = !mapCanvas.mapSettings.destinationCrs.isGeographic
+                                                         && iface.readProjectEntry("PositionPrecision", "/DegreeFormat", "MU") !== "MU"
+
         layoutListInstantiator.model.project = qgisProject
         layoutListInstantiator.model.reloadModel()
         printMenu.enablePrintItem(layoutListInstantiator.model.rowCount())
+
         welcomeScreen.visible = false
         welcomeScreen.focus = false
         recentProjectListModel.reloadModel()
+
         settings.setValue( "/QField/FirstRunFlag", false )
         if (stateMachine.state === "digitize") {
             dashBoard.ensureEditableLayerSelected();
@@ -1785,12 +1814,24 @@ ApplicationWindow {
 
     property var point
     onPointChanged: {
-      var xLabel = mapCanvas.mapSettings.destinationCrs.isGeographic ? qsTr( 'Lon' ) : 'X';
-      var xValue = Number( point.x ).toLocaleString( Qt.locale(), 'f', coordinateLocator.mapSettings.destinationCrs.isGeographic ? 7 : 3 )
-      var yLabel = mapCanvas.mapSettings.destinationCrs.isGeographic ? qsTr( 'Lat' ) : 'Y'
-      var yValue = Number( point.y ).toLocaleString( Qt.locale(), 'f', coordinateLocator.mapSettings.destinationCrs.isGeographic ? 7 : 3 )
-      xItem.text = xLabel + ': ' + xValue
-      yItem.text = yLabel + ': ' + yValue
+      var displayPoint = projectInfo.reprojectDisplayCoordinatesToWGS84
+                         ? GeometryUtils.reprojectPointToWgs84(canvasMenu.point, mapCanvas.mapSettings.destinationCrs)
+                         : canvasMenu.point
+      var isXY = !projectInfo.reprojectDisplayCoordinatesToWGS84
+                 && CoordinateReferenceSystemUtils.defaultCoordinateOrderForCrsIsXY(mapCanvas.mapSettings.destinationCrs);
+      var isGeographic = projectInfo.reprojectDisplayCoordinatesToWGS84
+                         || mapCanvas.mapSettings.destinationCrs.isGeographic
+
+      var xLabel = isGeographic ? qsTr( 'Lon' ) : 'X';
+      var xValue = Number( displayPoint.x ).toLocaleString( Qt.locale(), 'f', isGeographic ? 7 : 3 )
+      var yLabel = isGeographic ? qsTr( 'Lat' ) : 'Y'
+      var yValue = Number( displayPoint.y ).toLocaleString( Qt.locale(), 'f', isGeographic ? 7 : 3 )
+      xItem.text = isXY
+                   ? xLabel + ': ' + xValue
+                   : yLabel + ': ' + yValue
+      yItem.text = isXY
+                   ? yLabel + ': ' + yValue
+                   : xLabel + ': ' + xValue
     }
 
     width: {
@@ -1864,15 +1905,13 @@ ApplicationWindow {
       font: Theme.defaultFont
 
       onTriggered: {
-        var coordinates = ''
-        if (mapCanvas.mapSettings.destinationCrs.isGeographic) {
-          coordinates = qsTr( 'Lon' ) + ' ' +  canvasMenu.point.x.toFixed(5) + ', ' + qsTr( 'Lat' ) + ' ' + canvasMenu.point.y.toFixed(5)
-        } else {
-          coordinates = qsTr( 'X' ) + ' ' +  canvasMenu.point.x.toFixed(2) + ', ' + qsTr( 'Y' ) + ' ' + canvasMenu.point.y.toFixed(2)
-        }
-        coordinates += ' (' + mapCanvas.mapSettings.destinationCrs.authid + ' ' + mapCanvas.mapSettings.destinationCrs.description + ')'
-
-        platformUtilities.copyTextToClipboard(coordinates)
+        var displayPoint = projectInfo.reprojectDisplayCoordinatesToWGS84
+                           ? GeometryUtils.reprojectPointToWgs84(canvasMenu.point, mapCanvas.mapSettings.destinationCrs)
+                           : canvasMenu.point
+        platformUtilities.copyTextToClipboard(StringUtils.pointInformation(displayPoint,
+                                                                           projectInfo.reprojectDisplayCoordinatesToWGS84
+                                                                           ? CoordinateReferenceSystemUtils.wgs84Crs()
+                                                                           : mapCanvas.mapSettings.destinationCrs))
         displayToast(qsTr('Coordinates copied to clipboard'));
       }
     }
@@ -2025,18 +2064,13 @@ ApplicationWindow {
           return;
         }
 
-        var coordinates = ''
-        var point = positionSource.projectedPosition
-        if (mapCanvas.mapSettings.destinationCrs.isGeographic) {
-          coordinates = qsTr( 'Lon' ) + ' ' +  point.x.toFixed(7) + ', ' + qsTr( 'Lat' ) + ' ' + point.y.toFixed(7)
-        } else {
-          coordinates = qsTr( 'X' ) + ' ' +  point.x.toFixed(3) + ', ' + qsTr( 'Y' ) + ' ' + point.y.toFixed(3)
-        }
+        var coordinates = projectInfo.reprojectDisplayCoordinatesToWGS84
+                          ? StringUtils.pointInformation(positionSource.sourcePosition, CoordinateReferenceSystemUtils.wgs84Crs())
+                          : StringUtils.pointInformation(positionSource.projectedPosition, mapCanvas.mapSettings.destinationCrs)
         coordinates += ' ('+ qsTr('Accuracy') + ' ' +
                        ( positionSource.positionInformation && positionSource.positionInformation.haccValid
                          ? positionSource.positionInformation.hacc.toLocaleString(Qt.locale(), 'f', 3) + " m"
-                         : qsTr( "N/A" ) );
-        coordinates += '; ' + mapCanvas.mapSettings.destinationCrs.authid + ' ' + mapCanvas.mapSettings.destinationCrs.description + ')'
+                         : qsTr( "N/A" ) ) + ')';
 
         platformUtilities.copyTextToClipboard(coordinates)
         displayToast(qsTr('Current location copied to clipboard'));
@@ -2261,6 +2295,8 @@ ApplicationWindow {
 
     mapSettings: mapCanvas.mapSettings
     layerTree: dashBoard.layerTree
+
+    property bool reprojectDisplayCoordinatesToWGS84: false
 
     property bool hasInsertRights: true
     property bool hasEditRights: true
