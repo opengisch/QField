@@ -18,6 +18,8 @@
 
 #include <QAbstractListModel>
 
+#define SUPPORTED_RASTER_THUMBNAIL QStringList( { QStringLiteral( "tif" ), QStringLiteral( "tiff" ), QStringLiteral( "pdf" ), QStringLiteral( "jpg" ), QStringLiteral( "jpeg" ), QStringLiteral( "png" ), QStringLiteral( "jp2" ), QStringLiteral( "webp" ) } )
+
 class LocalFilesModel : public QAbstractListModel
 {
     Q_OBJECT
