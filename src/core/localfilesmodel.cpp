@@ -235,7 +235,7 @@ void LocalFilesModel::reloadModel()
           {
             projects << Item( ItemMetaType::Project, ItemType::ProjectFile, fi.baseName(), suffix, fi.absoluteFilePath(), fi.size() );
           }
-          else if ( SUPPORTED_VECTOR_EXTENSIONS.contains( suffix ) )
+          else if ( SUPPORTED_VECTOR_EXTENSIONS.contains( suffix ) && suffix != QStringLiteral( "pdf" ) )
           {
             datasets << Item( ItemMetaType::Dataset, ItemType::VectorDataset, fi.baseName(), suffix, fi.absoluteFilePath(), fi.size() );
           }
@@ -286,7 +286,9 @@ QVariant LocalFilesModel::data( const QModelIndex &index, int role ) const
       return mItems[index.row()].size;
 
     case ItemHasThumbnailRole:
-      return QImageReader::supportedImageFormats().contains( mItems[index.row()].format.toLatin1() ) && RasterDataset && mItems[index.row()].size < 20000000;
+      return mItems[index.row()].type == RasterDataset
+             && mItems[index.row()].size < 25000000
+             && SUPPORTED_RASTER_THUMBNAIL.contains( mItems[index.row()].format );
   }
 
   return QVariant();
