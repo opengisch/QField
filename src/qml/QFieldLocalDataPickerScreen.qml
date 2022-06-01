@@ -148,6 +148,7 @@ Page {
               Layout.leftMargin: 4
               Layout.preferredWidth: 48
               Layout.preferredHeight: 48
+              asynchronous: true
               source: {
                 if (ItemHasThumbnail) {
                   return "image://localfiles/" + ItemPath;

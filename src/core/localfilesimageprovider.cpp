@@ -16,6 +16,8 @@
 
 #include "localfilesimageprovider.h"
 
+#include <qgsgdalutils.h>
+
 #include <gdal.h>
 
 LocalFilesImageProvider::LocalFilesImageProvider()
@@ -23,49 +25,40 @@ LocalFilesImageProvider::LocalFilesImageProvider()
 {
 }
 
-QPixmap LocalFilesImageProvider::requestPixmap( const QString &id, QSize *size, const QSize &requestedSize )
+QImage LocalFilesImageProvider::requestImage( const QString &id, QSize *size, const QSize &requestedSize )
 {
   // the id is passed on as an encoded URL string which needs decoding
   const QString path = QUrl::fromPercentEncoding( id.toUtf8() );
 
-  GDALDatasetH dataset = GDALOpen( path.toLocal8Bit().data(), GA_ReadOnly );
-  const int rows = GDALGetRasterYSize( dataset );
-  const int cols = GDALGetRasterXSize( dataset );
-  const int outputCols = requestedSize.width();
-  const int outputRows = rows * requestedSize.width() / cols;
+  const gdal::dataset_unique_ptr dataset( GDALOpen( path.toLocal8Bit().data(), GA_ReadOnly ) );
 
-  int bands = std::min( 4, GDALGetRasterCount( dataset ) );
+  const int cols = GDALGetRasterXSize( dataset.get() );
+  const int rows = GDALGetRasterYSize( dataset.get() );
+  int bands = std::min( 4, GDALGetRasterCount( dataset.get() ) );
   if ( bands == 2 )
   {
     // For 2-band raster, go for a 1-band grayscale representation
     bands = 1;
   }
 
-  std::vector<std::vector<uchar>> bandData( bands );
-  for ( auto &data : bandData )
-  {
-    data.resize( size_t( outputRows * outputCols ) );
-  }
+  const QSize outputSize( requestedSize.width(), rows * requestedSize.width() / cols );
+  QImage image( outputSize, bands == 4 ? QImage::Format_RGBA8888 : bands == 3 ? QImage::Format_RGB888
+                                                                              : QImage::Format_Grayscale8 );
+  if ( image.isNull() )
+    return QImage();
 
-  for ( int i = 1; i <= bands; ++i )
+  GByte *firstPixel = reinterpret_cast<GByte *>( image.bits() );
+  for ( int i = 0; i < bands; i++ )
   {
-    ( void ) GDALRasterIO( GDALGetRasterBand( dataset, i ),
-                           GF_Read, 0, 0, cols, rows,
-                           bandData[size_t( i - 1 )].data(),
-                           outputCols, outputRows, GDT_Byte, 0, 0 );
-  }
-  GDALClose( dataset );
-
-  std::vector<uchar> outputImage( size_t( bands * outputRows * outputCols ) );
-  for ( size_t i = 0, j = 0; i < outputImage.size(); i += bands, j += 1 )
-  {
-    for ( int k = 0; k < bands; k++ )
+    CPLErr err = GDALRasterIOEx( GDALGetRasterBand( dataset.get(), i + 1 ),
+                                 GF_Read, 0, 0, cols, rows,
+                                 firstPixel + ( i ),
+                                 outputSize.width(), outputSize.height(),
+                                 GDT_Byte, bands, image.bytesPerLine(), nullptr );
+    if ( err != CE_None )
     {
-      outputImage[i + k] = bandData[k][j];
+      return QImage();
     }
   }
-
-  QImage image( outputImage.data(), outputCols, outputRows, bands == 4 ? QImage::Format_RGBA8888 : bands == 3 ? QImage::Format_RGB888
-                                                                                                              : QImage::Format_Grayscale8 );
-  return QPixmap::fromImage( image );
+  return image;
 }
