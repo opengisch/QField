@@ -133,7 +133,7 @@ Page {
                                           || (ItemType === LocalFilesModel.SimpleFolder && table.model.currentPath !== 'root'))
 
           width: parent ? parent.width : undefined
-          height: line.height + 4
+          height: line.height
           color: "transparent"
 
           RowLayout {
@@ -145,6 +145,8 @@ Page {
             Image {
               id: type
               Layout.alignment: Qt.AlignVCenter
+              Layout.topMargin: 5
+              Layout.bottomMargin: 5
               Layout.leftMargin: 4
               Layout.preferredWidth: 48
               Layout.preferredHeight: 48
@@ -179,8 +181,11 @@ Page {
               Layout.alignment: Qt.AlignVCenter
               Layout.fillWidth: true
               Layout.preferredHeight: childrenRect.height
+              Layout.topMargin: 5
+              Layout.bottomMargin: 5
               Layout.leftMargin: 2
               Layout.rightMargin: 4
+              spacing: 1
               Text {
                 id: itemTitle
                 Layout.fillWidth: true
@@ -223,10 +228,12 @@ Page {
               }
             }
             QfToolButton {
-              visible: true//itemMenuVisible
+              visible: itemMenuVisible
               round: true
               opacity: 0.5
 
+              Layout.topMargin: 5
+              Layout.bottomMargin: 5
               Layout.preferredWidth: width
               Layout.preferredHeight: height
               width: 48
