@@ -7,12 +7,12 @@
         <translation>Разработено от</translation>
     </message>
     <message>
-        <location filename="../src/qml/About.qml" line="145"/>
+        <location filename="../src/qml/About.qml" line="144"/>
         <source>Support QField</source>
         <translation>Подкпепи QField</translation>
     </message>
     <message>
-        <location filename="../src/qml/About.qml" line="154"/>
+        <location filename="../src/qml/About.qml" line="153"/>
         <source>Changelog</source>
         <translation>Списък с промени (EN)</translation>
     </message>
@@ -194,38 +194,34 @@
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/qml/BookmarkProperties.qml" line="187"/>
         <source>Lon</source>
-        <translation>Дълж.</translation>
+        <translation type="vanished">Дълж.</translation>
     </message>
     <message>
-        <location filename="../src/qml/BookmarkProperties.qml" line="187"/>
         <source>Lat</source>
-        <translation>Шир.</translation>
+        <translation type="vanished">Шир.</translation>
     </message>
     <message>
-        <location filename="../src/qml/BookmarkProperties.qml" line="189"/>
         <source>X</source>
-        <translation>X</translation>
+        <translation type="vanished">X</translation>
     </message>
     <message>
-        <location filename="../src/qml/BookmarkProperties.qml" line="189"/>
         <source>Y</source>
-        <translation>Y</translation>
+        <translation type="vanished">Y</translation>
     </message>
     <message>
-        <location filename="../src/qml/BookmarkProperties.qml" line="194"/>
+        <location filename="../src/qml/BookmarkProperties.qml" line="188"/>
         <source>Bookmark details copied to clipboard</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/qml/BookmarkProperties.qml" line="203"/>
-        <location filename="../src/qml/BookmarkProperties.qml" line="223"/>
+        <location filename="../src/qml/BookmarkProperties.qml" line="197"/>
+        <location filename="../src/qml/BookmarkProperties.qml" line="217"/>
         <source>Remove bookmark</source>
         <translation>Изтриване на отметка</translation>
     </message>
     <message>
-        <location filename="../src/qml/BookmarkProperties.qml" line="227"/>
+        <location filename="../src/qml/BookmarkProperties.qml" line="221"/>
         <source>You are about to remove a bookmark, proceed?</source>
         <translation>Отметката ще бъде изтрита. Искаш ли да продължиш?</translation>
     </message>
@@ -797,25 +793,31 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
 <context>
     <name>GotoLocatorFilter</name>
     <message>
-        <location filename="../src/core/locator/gotolocatorfilter.cpp" line="100"/>
         <source>Go to %1 %2 (Map CRS)</source>
-        <translation>Върви на %1 %2 (CRS на картата)</translation>
+        <translation type="vanished">Върви на %1 %2 (CRS на картата)</translation>
     </message>
     <message>
-        <location filename="../src/core/locator/gotolocatorfilter.cpp" line="103"/>
-        <location filename="../src/core/locator/gotolocatorfilter.cpp" line="135"/>
         <source>Set navigation point</source>
-        <translation>Настрой точка за навигация</translation>
+        <translation type="vanished">Настрой точка за навигация</translation>
     </message>
     <message>
-        <location filename="../src/core/locator/gotolocatorfilter.cpp" line="132"/>
         <source>Go to %1° %2° (WGS84)</source>
-        <translation>Върви на %1 %2° (WGS84)</translation>
+        <translation type="vanished">Върви на %1 %2° (WGS84)</translation>
     </message>
     <message>
         <location filename="../src/core/locator/gotolocatorfilter.h" line="47"/>
         <source>Go to coordinate</source>
         <translation>Върви на координата</translation>
+    </message>
+    <message>
+        <location filename="../src/core/locator/gotolocatorfilter.cpp" line="146"/>
+        <source>Go to %1%2 %3%4 (Map CRS, %5)</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/core/locator/gotolocatorfilter.cpp" line="181"/>
+        <source>Go to %1°N %2°E (%3)</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -1242,38 +1244,50 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
 <context>
     <name>NavigationInformationView</name>
     <message>
-        <location filename="../src/qml/NavigationInformationView.qml" line="42"/>
         <source>Lat.</source>
-        <translation>Шир.</translation>
+        <translation type="vanished">Шир.</translation>
     </message>
     <message>
-        <location filename="../src/qml/NavigationInformationView.qml" line="43"/>
+        <location filename="../src/qml/NavigationInformationView.qml" line="50"/>
+        <location filename="../src/qml/NavigationInformationView.qml" line="71"/>
         <source>X</source>
         <translation>X</translation>
     </message>
     <message>
-        <location filename="../src/qml/NavigationInformationView.qml" line="59"/>
         <source>Lon.</source>
+        <translation type="vanished">Дълж.</translation>
+    </message>
+    <message>
+        <location filename="../src/qml/NavigationInformationView.qml" line="50"/>
+        <location filename="../src/qml/NavigationInformationView.qml" line="71"/>
+        <source>Lon</source>
         <translation>Дълж.</translation>
     </message>
     <message>
-        <location filename="../src/qml/NavigationInformationView.qml" line="60"/>
+        <location filename="../src/qml/NavigationInformationView.qml" line="52"/>
+        <location filename="../src/qml/NavigationInformationView.qml" line="69"/>
         <source>Y</source>
         <translation>Y</translation>
     </message>
     <message>
-        <location filename="../src/qml/NavigationInformationView.qml" line="75"/>
+        <location filename="../src/qml/NavigationInformationView.qml" line="52"/>
+        <location filename="../src/qml/NavigationInformationView.qml" line="69"/>
+        <source>Lat</source>
+        <translation>Шир.</translation>
+    </message>
+    <message>
+        <location filename="../src/qml/NavigationInformationView.qml" line="87"/>
         <source>Dist.</source>
         <translation>Разст.</translation>
     </message>
     <message>
-        <location filename="../src/qml/NavigationInformationView.qml" line="78"/>
-        <location filename="../src/qml/NavigationInformationView.qml" line="96"/>
+        <location filename="../src/qml/NavigationInformationView.qml" line="90"/>
+        <location filename="../src/qml/NavigationInformationView.qml" line="108"/>
         <source>N/A</source>
         <translation>N/A</translation>
     </message>
     <message>
-        <location filename="../src/qml/NavigationInformationView.qml" line="93"/>
+        <location filename="../src/qml/NavigationInformationView.qml" line="105"/>
         <source>Bearing</source>
         <translation>Посока (bearing)</translation>
     </message>
@@ -1371,83 +1385,95 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
 <context>
     <name>PositionInformationView</name>
     <message>
-        <location filename="../src/qml/PositionInformationView.qml" line="42"/>
         <source>Lat.</source>
-        <translation>Шир.</translation>
+        <translation type="vanished">Шир.</translation>
     </message>
     <message>
-        <location filename="../src/qml/PositionInformationView.qml" line="42"/>
-        <location filename="../src/qml/PositionInformationView.qml" line="43"/>
-        <location filename="../src/qml/PositionInformationView.qml" line="59"/>
-        <location filename="../src/qml/PositionInformationView.qml" line="60"/>
-        <location filename="../src/qml/PositionInformationView.qml" line="103"/>
-        <location filename="../src/qml/PositionInformationView.qml" line="118"/>
-        <location filename="../src/qml/PositionInformationView.qml" line="133"/>
+        <location filename="../src/qml/PositionInformationView.qml" line="54"/>
+        <location filename="../src/qml/PositionInformationView.qml" line="58"/>
+        <location filename="../src/qml/PositionInformationView.qml" line="77"/>
+        <location filename="../src/qml/PositionInformationView.qml" line="81"/>
+        <location filename="../src/qml/PositionInformationView.qml" line="124"/>
+        <location filename="../src/qml/PositionInformationView.qml" line="139"/>
+        <location filename="../src/qml/PositionInformationView.qml" line="154"/>
         <source>N/A</source>
         <translation>N/A</translation>
     </message>
     <message>
-        <location filename="../src/qml/PositionInformationView.qml" line="43"/>
+        <location filename="../src/qml/PositionInformationView.qml" line="51"/>
+        <location filename="../src/qml/PositionInformationView.qml" line="78"/>
         <source>X</source>
         <translation>X</translation>
     </message>
     <message>
-        <location filename="../src/qml/PositionInformationView.qml" line="59"/>
         <source>Lon.</source>
+        <translation type="vanished">Дълж.</translation>
+    </message>
+    <message>
+        <location filename="../src/qml/PositionInformationView.qml" line="51"/>
+        <location filename="../src/qml/PositionInformationView.qml" line="78"/>
+        <source>Lon</source>
         <translation>Дълж.</translation>
     </message>
     <message>
-        <location filename="../src/qml/PositionInformationView.qml" line="60"/>
+        <location filename="../src/qml/PositionInformationView.qml" line="55"/>
+        <location filename="../src/qml/PositionInformationView.qml" line="74"/>
         <source>Y</source>
         <translation>Y</translation>
     </message>
     <message>
-        <location filename="../src/qml/PositionInformationView.qml" line="76"/>
+        <location filename="../src/qml/PositionInformationView.qml" line="55"/>
+        <location filename="../src/qml/PositionInformationView.qml" line="74"/>
+        <source>Lat</source>
+        <translation>Шир.</translation>
+    </message>
+    <message>
+        <location filename="../src/qml/PositionInformationView.qml" line="97"/>
         <source>Altitude</source>
         <translation>Височина</translation>
     </message>
     <message>
-        <location filename="../src/qml/PositionInformationView.qml" line="103"/>
+        <location filename="../src/qml/PositionInformationView.qml" line="124"/>
         <source>Speed</source>
         <translation>Скорост</translation>
     </message>
     <message>
-        <location filename="../src/qml/PositionInformationView.qml" line="118"/>
+        <location filename="../src/qml/PositionInformationView.qml" line="139"/>
         <source>H. Accuracy</source>
         <translation>Хор. точност</translation>
     </message>
     <message>
-        <location filename="../src/qml/PositionInformationView.qml" line="133"/>
+        <location filename="../src/qml/PositionInformationView.qml" line="154"/>
         <source>V. Accuracy</source>
         <translation>Верт. точност</translation>
     </message>
     <message>
-        <location filename="../src/qml/PositionInformationView.qml" line="149"/>
+        <location filename="../src/qml/PositionInformationView.qml" line="170"/>
         <source>PDOP</source>
         <translation>PDOP</translation>
     </message>
     <message>
-        <location filename="../src/qml/PositionInformationView.qml" line="165"/>
+        <location filename="../src/qml/PositionInformationView.qml" line="186"/>
         <source>HDOP</source>
         <translation>HDOP</translation>
     </message>
     <message>
-        <location filename="../src/qml/PositionInformationView.qml" line="181"/>
+        <location filename="../src/qml/PositionInformationView.qml" line="202"/>
         <source>VDOP</source>
         <translation>VDOP</translation>
     </message>
     <message>
-        <location filename="../src/qml/PositionInformationView.qml" line="197"/>
+        <location filename="../src/qml/PositionInformationView.qml" line="218"/>
         <source>Valid</source>
         <translation>Валидност</translation>
     </message>
     <message>
-        <location filename="../src/qml/PositionInformationView.qml" line="213"/>
+        <location filename="../src/qml/PositionInformationView.qml" line="234"/>
         <source>Fix</source>
         <translation>Поправка</translation>
     </message>
     <message>
-        <location filename="../src/qml/PositionInformationView.qml" line="229"/>
+        <location filename="../src/qml/PositionInformationView.qml" line="250"/>
         <source>Quality</source>
         <translation>Качество</translation>
     </message>
@@ -2616,18 +2642,18 @@ Cancel to make a minimal device scan instead.</source>
 <context>
     <name>QgisMobileapp</name>
     <message>
-        <location filename="../src/core/qgismobileapp.cpp" line="661"/>
-        <location filename="../src/core/qgismobileapp.cpp" line="687"/>
+        <location filename="../src/core/qgismobileapp.cpp" line="663"/>
+        <location filename="../src/core/qgismobileapp.cpp" line="689"/>
         <source>Project file &quot;%1&quot; does not exist</source>
         <translation>Файлът на проект &quot;%1&quot; не съществува</translation>
     </message>
     <message>
-        <location filename="../src/core/qgismobileapp.cpp" line="678"/>
+        <location filename="../src/core/qgismobileapp.cpp" line="680"/>
         <source>No project file currently opened</source>
         <translation>Няма отворен проект в момента</translation>
     </message>
     <message>
-        <location filename="../src/core/qgismobileapp.cpp" line="709"/>
+        <location filename="../src/core/qgismobileapp.cpp" line="711"/>
         <source>Could not load font %1</source>
         <translation>Шрифтът %1 не може да бъде зареден</translation>
     </message>
@@ -3031,105 +3057,101 @@ Cancel to make a minimal device scan instead.</source>
         <translation>Активиран е режим измерване</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="675"/>
-        <location filename="../src/qml/qgismobileapp.qml" line="706"/>
-        <location filename="../src/qml/qgismobileapp.qml" line="1788"/>
-        <location filename="../src/qml/qgismobileapp.qml" line="1869"/>
-        <location filename="../src/qml/qgismobileapp.qml" line="2031"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="687"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="695"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1825"/>
         <source>Lon</source>
         <translation>Дълж.</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="677"/>
-        <location filename="../src/qml/qgismobileapp.qml" line="708"/>
-        <location filename="../src/qml/qgismobileapp.qml" line="1790"/>
-        <location filename="../src/qml/qgismobileapp.qml" line="1869"/>
-        <location filename="../src/qml/qgismobileapp.qml" line="2031"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="689"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="693"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1827"/>
         <source>Lat</source>
         <translation>Шир.</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="684"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="707"/>
         <source>Segment</source>
         <translation>Сегмент</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="691"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="714"/>
         <source>Perimeter</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="696"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="719"/>
         <source>Length</source>
         <translation>Дължина</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="701"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="725"/>
         <source>Area</source>
         <translation>Площ</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="936"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="960"/>
         <source>Close measure tool</source>
         <translation>Прекратяване на измерването</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="943"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="967"/>
         <source>Stop editing</source>
         <translation>Приключване на редакцията</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="950"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="974"/>
         <source>Cancel addition</source>
         <translation>Откажи добавянето</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="997"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1021"/>
         <source>Topological editing turned on</source>
         <translation>Включено топологично редактиране</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="997"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1021"/>
         <source>Topological editing turned off</source>
         <translation>Изключено топологично редактиране</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1045"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1069"/>
         <source>Freehand digitizing turned on</source>
         <translation>Включено свободно изчертаване</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1045"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1069"/>
         <source>Freehand digitizing turned off</source>
         <translation>Изключено свободно изчертаване</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1142"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1166"/>
         <source>Coordinate cursor now locked to position</source>
         <translation>Индикатора за локация е заключен</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1152"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1176"/>
         <source>Coordinate cursor unlocked</source>
         <translation>Индикатора за локация е отзаключен</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1172"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1196"/>
         <source>Received position</source>
         <translation>Получена позиция</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1174"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1198"/>
         <source>Searching for position</source>
         <translation>Търсене на позиция</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1221"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1245"/>
         <source>Canvas follows location</source>
         <translation>Картата следва локацията</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1230"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1254"/>
         <source>Waiting for location</source>
         <translation>Очакване на локация</translation>
     </message>
@@ -3142,49 +3164,49 @@ Cancel to make a minimal device scan instead.</source>
         <translation type="vanished">Позиционирането е изключено</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1317"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1341"/>
         <source>Canvas stopped following location</source>
         <translation>Картата не следва локацията</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1461"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1485"/>
         <source>Failed to create feature!</source>
         <translation>Неуспешно създаване на обект!</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1465"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1489"/>
         <source>Failed to save feature!</source>
         <translation>Неуспешен запис на обект!</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1525"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1549"/>
         <source>Main Menu</source>
         <translation>Главно меню</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1539"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1563"/>
         <source>Measure Tool</source>
         <translation>Измерване</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1554"/>
-        <location filename="../src/qml/qgismobileapp.qml" line="1686"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1578"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1710"/>
         <source>Print to PDF</source>
         <translation>Създай PDF</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1568"/>
-        <location filename="../src/qml/qgismobileapp.qml" line="1726"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1592"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1750"/>
         <source>Printing to PDF</source>
         <translation>Създай PDF</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1585"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1609"/>
         <source>Go to Home Screen</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1601"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1625"/>
         <source>Open Project Folder</source>
         <translation type="unfinished"/>
     </message>
@@ -3193,47 +3215,47 @@ Cancel to make a minimal device scan instead.</source>
         <translation type="vanished">Отвори проект</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1613"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1637"/>
         <source>Settings</source>
         <translation>Настройки</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1627"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1651"/>
         <source>Message Log</source>
         <translation>Съобщение</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1641"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1665"/>
         <source>About QField</source>
         <translation>Относно QField</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1702"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1726"/>
         <source>Select template below</source>
         <translation>Избери някой от шаблоните</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1769"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1798"/>
         <source>Activating positioning service</source>
         <translation>Активиране на услугата за позициониране</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1772"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1801"/>
         <source>QField has no permissions to use positioning.</source>
         <translation>QField няма права за използване на услугата за позициониране на устройството.</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1783"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1812"/>
         <source>Map Canvas Options</source>
         <translation>Настройки на картния обзор</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1827"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1868"/>
         <source>Add Bookmark</source>
         <translation>Добави отметка</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1848"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1889"/>
         <source>Set as Destination</source>
         <translation>Използвай като дестинация</translation>
     </message>
@@ -3242,7 +3264,7 @@ Cancel to make a minimal device scan instead.</source>
         <translation type="vanished">Добави отметка на координати</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1834"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1875"/>
         <source>Untitled bookmark</source>
         <translation>Неозаглавена отметка</translation>
     </message>
@@ -3251,49 +3273,45 @@ Cancel to make a minimal device scan instead.</source>
         <translation type="vanished">Използвай координатите като дестинация</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1861"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1902"/>
         <source>Copy Coordinates</source>
         <translation>Копирай координатите</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1871"/>
-        <location filename="../src/qml/qgismobileapp.qml" line="2033"/>
         <source>X</source>
-        <translation>X</translation>
+        <translation type="vanished">X</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1871"/>
-        <location filename="../src/qml/qgismobileapp.qml" line="2033"/>
         <source>Y</source>
-        <translation>Y</translation>
+        <translation type="vanished">Y</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1876"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1915"/>
         <source>Coordinates copied to clipboard</source>
         <translation>Координаните са копирани</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1981"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2020"/>
         <source>Center to Location</source>
         <translation>Центрирай до локацията</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1992"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2031"/>
         <source>Add Bookmark at Location</source>
         <translation>Добави отметка на локацията</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2017"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2056"/>
         <source>Copy Location Coordinates</source>
         <translation>Копирай координатите на локацията</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2486"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2522"/>
         <source>Signed out</source>
         <translation>Невписан</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2490"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2526"/>
         <source>Signed in</source>
         <translation>Вписан</translation>
     </message>
@@ -3302,32 +3320,32 @@ Cancel to make a minimal device scan instead.</source>
         <translation type="vanished">Използвай като дестинация</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1883"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1922"/>
         <source>Navigation Options</source>
         <translation>Настройки на навигацията</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1899"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1938"/>
         <source>Clear Destination</source>
         <translation>Изчисти дестинацията</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1911"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1950"/>
         <source>Positioning Options</source>
         <translation>Настройки на позиционирането</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1937"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1976"/>
         <source>Enable Positioning</source>
         <translation>Включи позициониране</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1952"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1991"/>
         <source>Show Position Information</source>
         <translation>Показвай информация за позицията</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1967"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2006"/>
         <source>Positioning Settings</source>
         <translation>Настройки на позиционирането</translation>
     </message>
@@ -3340,13 +3358,13 @@ Cancel to make a minimal device scan instead.</source>
         <translation type="vanished">Добави отметка на текущата локация</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2000"/>
-        <location filename="../src/qml/qgismobileapp.qml" line="2024"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2039"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2063"/>
         <source>Current location unknown</source>
         <translation>Текущата локация е неизвестна</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2004"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2043"/>
         <source>My location</source>
         <translation>Моята локация</translation>
     </message>
@@ -3355,32 +3373,32 @@ Cancel to make a minimal device scan instead.</source>
         <translation type="vanished">Копирай текущата локация</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2035"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2070"/>
         <source>Accuracy</source>
         <translation>Точност</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2038"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2073"/>
         <source>N/A</source>
         <translation>N/A</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2042"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2076"/>
         <source>Current location copied to clipboard</source>
         <translation>Текущата локация е копирана</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2080"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2114"/>
         <source>Current layer switched to the one holding the selected geometry.</source>
         <translation>Текущият слой е превключен към слоя, който съдържа избрания обект.</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2089"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2123"/>
         <source>Editing of multi geometry layer is not supported yet.</source>
         <translation>Промяна на слоеве със сложна (мулти) геометрия все още не се поддържа.</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2202"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2236"/>
         <source>Loading %1</source>
         <translation>Зареждане на %1</translation>
     </message>
@@ -3389,7 +3407,7 @@ Cancel to make a minimal device scan instead.</source>
         <translation type="vanished">Невписан</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2488"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2524"/>
         <source>Connecting...</source>
         <translation>Свързване...</translation>
     </message>
@@ -3398,27 +3416,27 @@ Cancel to make a minimal device scan instead.</source>
         <translation type="vanished">Вписан</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2505"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2541"/>
         <source>Project %1 failed to download</source>
         <translation>Неуспешно изтегляне на проект %1</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2506"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2542"/>
         <source>Project %1 successfully downloaded, it&apos;s now available to open</source>
         <translation>Проект %1 е успешно изтеглен и вече е наличен за отваряне</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2511"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2547"/>
         <source>Changes failed to reach QFieldCloud: %1</source>
         <translation>Промените не са качени в QFieldCloud: %1</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2515"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2551"/>
         <source>Changes successfully pushed to QFieldCloud</source>
         <translation>Промениса са успешно качени в QFieldCloud</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2765"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2801"/>
         <source>Press back again to close project and app</source>
         <translation>Натисни назад отново за затваряне на проекта и приложението</translation>
     </message>
