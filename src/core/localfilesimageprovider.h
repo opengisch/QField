@@ -23,7 +23,8 @@ class LocalFilesImageProvider : public QQuickImageProvider
   public:
     explicit LocalFilesImageProvider();
 
-    QPixmap requestPixmap( const QString &id, QSize *size, const QSize &requestedSize ) override;
+    QQmlImageProviderBase::ImageType imageType() const override { return QQmlImageProviderBase::Image; }
+    QImage requestImage( const QString &id, QSize *size, const QSize &requestedSize ) override;
 };
 
 #endif // LOCALFILESIMAGEPROVIDER_H
