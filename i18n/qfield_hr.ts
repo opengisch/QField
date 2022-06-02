@@ -2176,63 +2176,63 @@ While you can still view and use the project, it is strongly recommended to rese
         <translation>Favoriti</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="205"/>
+        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="211"/>
         <source>Project file</source>
         <translation>Datoteka projekta</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="208"/>
+        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="214"/>
         <source>Vector dataset</source>
         <translation>Vektorski skup podataka</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="211"/>
+        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="217"/>
         <source>Raster dataset</source>
         <translation>Rasterski skup podataka</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="368"/>
+        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="376"/>
         <source>Send to...</source>
         <translation>Pošalji na...</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="382"/>
-        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="411"/>
+        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="390"/>
+        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="419"/>
         <source>Export to folder...</source>
         <translation>Izvezi u mapu...</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="397"/>
+        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="405"/>
         <source>Remove dataset</source>
         <translation>Ukloni skup podataka</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="425"/>
+        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="433"/>
         <source>Send compressed folder to...</source>
         <translation>Pošalji kompresiranu mapu na...</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="440"/>
+        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="448"/>
         <source>Remove project folder</source>
         <translation>Ukloni mapu projekta</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="468"/>
+        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="476"/>
         <source>Import project from folder</source>
         <translation>Uvezi projekt iz direktorija</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="480"/>
+        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="488"/>
         <source>Import project from ZIP</source>
         <translation>Uvezi projekt iz ZIP datoteke</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="492"/>
+        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="500"/>
         <source>Import dataset(s)</source>
         <translation>Uvezi skup(ove) podataka</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="506"/>
+        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="514"/>
         <source>Storage management help</source>
         <translation>Pomoć oko upravljanja pohranom</translation>
     </message>

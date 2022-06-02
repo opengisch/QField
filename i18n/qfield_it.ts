@@ -2183,63 +2183,63 @@ Messaggio dell&apos;errore: %4</translation>
         <translation>Preferiti</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="205"/>
+        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="211"/>
         <source>Project file</source>
         <translation>File di progetto</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="208"/>
+        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="214"/>
         <source>Vector dataset</source>
         <translation>Dataset vettoriale</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="211"/>
+        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="217"/>
         <source>Raster dataset</source>
         <translation>Dataset raster</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="368"/>
+        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="376"/>
         <source>Send to...</source>
         <translation>Invia a...</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="382"/>
-        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="411"/>
+        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="390"/>
+        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="419"/>
         <source>Export to folder...</source>
         <translation>Esporta nella cartella...</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="397"/>
+        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="405"/>
         <source>Remove dataset</source>
         <translation>Rimuovi dataset</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="425"/>
+        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="433"/>
         <source>Send compressed folder to...</source>
         <translation>Invia cartella compressa a...</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="440"/>
+        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="448"/>
         <source>Remove project folder</source>
         <translation>Rimuovi cartella del progetto</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="468"/>
+        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="476"/>
         <source>Import project from folder</source>
         <translation>Importa progetto da cartella</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="480"/>
+        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="488"/>
         <source>Import project from ZIP</source>
         <translation>Importa progetto da ZIP</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="492"/>
+        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="500"/>
         <source>Import dataset(s)</source>
         <translation>Importa dataset</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="506"/>
+        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="514"/>
         <source>Storage management help</source>
         <translation>Aiuto per la gestione dell&apos;archiviazione</translation>
     </message>

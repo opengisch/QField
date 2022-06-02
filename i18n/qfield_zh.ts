@@ -2176,63 +2176,63 @@ While you can still view and use the project, it is strongly recommended to rese
         <translation>收藏夹</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="205"/>
+        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="211"/>
         <source>Project file</source>
         <translation>工程文件</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="208"/>
+        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="214"/>
         <source>Vector dataset</source>
         <translation>矢量数据集</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="211"/>
+        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="217"/>
         <source>Raster dataset</source>
         <translation>栅格数据集</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="368"/>
+        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="376"/>
         <source>Send to...</source>
         <translation>发送到...</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="382"/>
-        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="411"/>
+        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="390"/>
+        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="419"/>
         <source>Export to folder...</source>
         <translation>导出到文件夹...</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="397"/>
+        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="405"/>
         <source>Remove dataset</source>
         <translation>移除数据集</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="425"/>
+        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="433"/>
         <source>Send compressed folder to...</source>
         <translation>将文件夹压缩并发送到...</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="440"/>
+        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="448"/>
         <source>Remove project folder</source>
         <translation>移除工程文件夹</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="468"/>
+        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="476"/>
         <source>Import project from folder</source>
         <translation>从文件夹导入工程</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="480"/>
+        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="488"/>
         <source>Import project from ZIP</source>
         <translation>从ZIP导入工程</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="492"/>
+        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="500"/>
         <source>Import dataset(s)</source>
         <translation>导入数据集</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="506"/>
+        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="514"/>
         <source>Storage management help</source>
         <translation>存储管理帮助</translation>
     </message>

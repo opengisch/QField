@@ -2177,63 +2177,63 @@ Même si vous pouvez toujours voir et utiliser ce projet, il est fortement recom
         <translation>Favoris</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="205"/>
+        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="211"/>
         <source>Project file</source>
         <translation>Dossier de projet</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="208"/>
+        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="214"/>
         <source>Vector dataset</source>
         <translation>Jeux de données vectorielles</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="211"/>
+        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="217"/>
         <source>Raster dataset</source>
         <translation>Jeu de données raster</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="368"/>
+        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="376"/>
         <source>Send to...</source>
         <translation>Envoyer vers...</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="382"/>
-        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="411"/>
+        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="390"/>
+        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="419"/>
         <source>Export to folder...</source>
         <translation>Exporter vers le dossier...</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="397"/>
+        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="405"/>
         <source>Remove dataset</source>
         <translation>Supprimer le jeu de données</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="425"/>
+        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="433"/>
         <source>Send compressed folder to...</source>
         <translation>Envoyer le dossier compressé à...</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="440"/>
+        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="448"/>
         <source>Remove project folder</source>
         <translation>Supprimer le dossier du projet</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="468"/>
+        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="476"/>
         <source>Import project from folder</source>
         <translation>Importer un projet à partir d&apos;un dossier</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="480"/>
+        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="488"/>
         <source>Import project from ZIP</source>
         <translation>Importer un projet depuis le ZIP</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="492"/>
+        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="500"/>
         <source>Import dataset(s)</source>
         <translation>Importer un(des) jeu(x) de donnée(s)</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="506"/>
+        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="514"/>
         <source>Storage management help</source>
         <translation>Aide à la gestion du stockage</translation>
     </message>
