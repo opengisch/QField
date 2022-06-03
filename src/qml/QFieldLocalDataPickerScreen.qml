@@ -234,10 +234,6 @@ Page {
 
               Layout.topMargin: 5
               Layout.bottomMargin: 5
-              Layout.preferredWidth: width
-              Layout.preferredHeight: height
-              width: 48
-              height: 48
 
               bgcolor: "transparent"
               iconSource: Theme.getThemeIcon( "ic_dot_menu_gray_24dp" )
