@@ -18,7 +18,7 @@
 
 #include <QAbstractListModel>
 
-#define SUPPORTED_RASTER_THUMBNAIL QStringList( { QStringLiteral( "tif" ), QStringLiteral( "tiff" ), QStringLiteral( "pdf" ), QStringLiteral( "jpg" ), QStringLiteral( "jpeg" ), QStringLiteral( "png" ), QStringLiteral( "jp2" ), QStringLiteral( "webp" ) } )
+#define SUPPORTED_DATASET_THUMBNAIL QStringList( { QStringLiteral( "zip" ), QStringLiteral( "tif" ), QStringLiteral( "tiff" ), QStringLiteral( "pdf" ), QStringLiteral( "jpg" ), QStringLiteral( "jpeg" ), QStringLiteral( "png" ), QStringLiteral( "jp2" ), QStringLiteral( "webp" ) } )
 
 class LocalFilesModel : public QAbstractListModel
 {

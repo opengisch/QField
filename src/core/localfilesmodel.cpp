@@ -286,9 +286,8 @@ QVariant LocalFilesModel::data( const QModelIndex &index, int role ) const
       return mItems[index.row()].size;
 
     case ItemHasThumbnailRole:
-      return mItems[index.row()].type == RasterDataset
-             && mItems[index.row()].size < 25000000
-             && SUPPORTED_RASTER_THUMBNAIL.contains( mItems[index.row()].format );
+      return mItems[index.row()].size < 25000000
+             && SUPPORTED_DATASET_THUMBNAIL.contains( mItems[index.row()].format );
   }
 
   return QVariant();

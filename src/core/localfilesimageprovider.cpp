@@ -16,6 +16,7 @@
 
 #include "localfilesimageprovider.h"
 
+#include <QIcon>
 #include <qgsgdalutils.h>
 
 #include <gdal.h>
@@ -27,10 +28,16 @@ LocalFilesImageProvider::LocalFilesImageProvider()
 
 QImage LocalFilesImageProvider::requestImage( const QString &id, QSize *size, const QSize &requestedSize )
 {
+  static const QIcon defaultIcon( QStringLiteral( ":/themes/qfield/nodpi/ic_file_green_48dp.svg" ) );
+
   // the id is passed on as an encoded URL string which needs decoding
-  const QString path = QUrl::fromPercentEncoding( id.toUtf8() );
+  QString path = QUrl::fromPercentEncoding( id.toUtf8() );
+  if ( path.toLower().endsWith( QStringLiteral( ".zip" ) ) )
+    path = QStringLiteral( "/vsizip/%1" ).arg( path );
 
   const gdal::dataset_unique_ptr dataset( GDALOpen( path.toLocal8Bit().data(), GA_ReadOnly ) );
+  if ( !dataset )
+    return defaultIcon.pixmap( QSize( requestedSize ) ).toImage();
 
   const int cols = GDALGetRasterXSize( dataset.get() );
   const int rows = GDALGetRasterYSize( dataset.get() );
@@ -45,7 +52,7 @@ QImage LocalFilesImageProvider::requestImage( const QString &id, QSize *size, co
   QImage image( outputSize, bands == 4 ? QImage::Format_RGBA8888 : bands == 3 ? QImage::Format_RGB888
                                                                               : QImage::Format_Grayscale8 );
   if ( image.isNull() )
-    return QImage();
+    return defaultIcon.pixmap( QSize( requestedSize ) ).toImage();
 
   GByte *firstPixel = reinterpret_cast<GByte *>( image.bits() );
   for ( int i = 0; i < bands; i++ )
@@ -57,7 +64,7 @@ QImage LocalFilesImageProvider::requestImage( const QString &id, QSize *size, co
                                  GDT_Byte, bands, image.bytesPerLine(), nullptr );
     if ( err != CE_None )
     {
-      return QImage();
+      return defaultIcon.pixmap( QSize( requestedSize ) ).toImage();
     }
   }
   return image;
