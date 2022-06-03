@@ -79,14 +79,8 @@ ToolBar {
     QfToolButton {
       id: backButton
 
-      Layout.preferredWidth: width
-      Layout.preferredHeight: height
       Layout.alignment: Qt.AlignTop | Qt.AlignLeft
-
-      width: 48
-      height: 48
       clip: true
-
       iconSource: Theme.getThemeVectorIcon( 'ic_arrow_left_white_24dp' )
 
       onClicked:
@@ -99,12 +93,8 @@ ToolBar {
     QfToolButton {
       id: applyButton
 
-      Layout.preferredWidth: width
-      Layout.preferredHeight: height
       Layout.alignment: Qt.AlignTop | Qt.AlignLeft
-
       clip: true
-
       iconSource: Theme.getThemeIcon( 'ic_check_white_48dp' )
 
       onClicked:
@@ -129,14 +119,8 @@ ToolBar {
     QfToolButton {
       id: cancelButton
 
-      Layout.preferredWidth: width
-      Layout.preferredHeight: height
       Layout.alignment: Qt.AlignTop | Qt.AlignRight
-
-      width: 48
-      height: 48
       clip: true
-
       iconSource: Theme.getThemeIcon( 'ic_close_white_24dp' )
 
       onClicked: {

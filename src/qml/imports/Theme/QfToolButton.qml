@@ -19,8 +19,10 @@ RoundButton {
   property color bgcolor: 'transparent'
   property color borderColor: bgcolor
 
-  height: 48
   width: 48
+  height: 48
+  implicitWidth: 48
+  implicitHeight: 48
 
   focusPolicy: Qt.NoFocus
   topInset:0
