@@ -179,17 +179,17 @@
         <translation>Propiedades del marcador</translation>
     </message>
     <message>
-        <location filename="../src/qml/BookmarkProperties.qml" line="79"/>
+        <location filename="../src/qml/BookmarkProperties.qml" line="77"/>
         <source>Name</source>
         <translation>Nombre</translation>
     </message>
     <message>
-        <location filename="../src/qml/BookmarkProperties.qml" line="96"/>
+        <location filename="../src/qml/BookmarkProperties.qml" line="94"/>
         <source>Color</source>
         <translation>Color</translation>
     </message>
     <message>
-        <location filename="../src/qml/BookmarkProperties.qml" line="180"/>
+        <location filename="../src/qml/BookmarkProperties.qml" line="178"/>
         <source>Copy bookmark details</source>
         <translation>Copiar detalles del marcador</translation>
     </message>
@@ -210,18 +210,18 @@
         <translation type="vanished">Y</translation>
     </message>
     <message>
-        <location filename="../src/qml/BookmarkProperties.qml" line="188"/>
+        <location filename="../src/qml/BookmarkProperties.qml" line="186"/>
         <source>Bookmark details copied to clipboard</source>
         <translation>Detalles del marcador copiados al portapapeles</translation>
     </message>
     <message>
-        <location filename="../src/qml/BookmarkProperties.qml" line="197"/>
-        <location filename="../src/qml/BookmarkProperties.qml" line="217"/>
+        <location filename="../src/qml/BookmarkProperties.qml" line="195"/>
+        <location filename="../src/qml/BookmarkProperties.qml" line="215"/>
         <source>Remove bookmark</source>
         <translation>Eliminar marcador</translation>
     </message>
     <message>
-        <location filename="../src/qml/BookmarkProperties.qml" line="221"/>
+        <location filename="../src/qml/BookmarkProperties.qml" line="219"/>
         <source>You are about to remove a bookmark, proceed?</source>
         <translation>Va a eliminar un marcador, ¿continuar?</translation>
     </message>
@@ -2193,48 +2193,48 @@ While you can still view and use the project, it is strongly recommended to rese
         <translation>Conjunto de datos ráster</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="376"/>
+        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="372"/>
         <source>Send to...</source>
         <translation>Enviar a...</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="390"/>
-        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="419"/>
+        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="386"/>
+        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="415"/>
         <source>Export to folder...</source>
         <translation>Exportar a carpeta...</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="405"/>
+        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="401"/>
         <source>Remove dataset</source>
         <translation>Eliminar conjunto de datos</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="433"/>
+        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="429"/>
         <source>Send compressed folder to...</source>
         <translation>Enviar carpeta comprimida a...</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="448"/>
+        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="444"/>
         <source>Remove project folder</source>
         <translation>Eliminar carpeta de proyecto</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="476"/>
+        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="472"/>
         <source>Import project from folder</source>
         <translation>Importar proyecto desde carpeta</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="488"/>
+        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="484"/>
         <source>Import project from ZIP</source>
         <translation>Importar proyecto desde ZIP</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="500"/>
+        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="496"/>
         <source>Import dataset(s)</source>
         <translation>Importar conjunto(s) de datos</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="514"/>
+        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="510"/>
         <source>Storage management help</source>
         <translation>Ayuda sobre gestión de almacenamiento</translation>
     </message>
