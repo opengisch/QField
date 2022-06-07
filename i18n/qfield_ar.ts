@@ -30,19 +30,19 @@
     <message>
         <location filename="../src/core/appcoordinateoperationhandlers.cpp" line="76"/>
         <source>No transform available between %1 and %2</source>
-        <translation type="unfinished"/>
+        <translation>لا يوجد انتقال متاح من %1 إلى %2</translation>
     </message>
     <message>
         <location filename="../src/core/appcoordinateoperationhandlers.cpp" line="83"/>
         <source>This grid is part of the “&lt;i&gt;%1&lt;/i&gt;” package, available for download from &lt;a href=&quot;%2&quot;&gt;%2&lt;/a&gt;.</source>
-        <translation type="unfinished"/>
+        <translation>الشبكة هي جزء من حزمة &lt;i&gt;% 1&lt;/i&gt;، وهي متاحة لتحميل من&lt;a href=&quot;%2&quot;&gt;%2&lt;/a&gt;.</translation>
     </message>
     <message>
         <location filename="../src/core/appcoordinateoperationhandlers.cpp" line="87"/>
         <location filename="../src/core/appcoordinateoperationhandlers.cpp" line="113"/>
         <location filename="../src/core/appcoordinateoperationhandlers.cpp" line="168"/>
         <source>This grid is available for download from &lt;a href=&quot;%1&quot;&gt;%1&lt;/a&gt;.</source>
-        <translation type="unfinished"/>
+        <translation>الشبكة متاحة للتحميل من &lt;a href=&quot;%1&quot;&gt;%1 &lt;/a&gt;.</translation>
     </message>
     <message>
         <location filename="../src/core/appcoordinateoperationhandlers.cpp" line="90"/>
@@ -57,43 +57,43 @@
         <location filename="../src/core/appcoordinateoperationhandlers.cpp" line="104"/>
         <location filename="../src/core/appcoordinateoperationhandlers.cpp" line="159"/>
         <source>This transformation requires the grid file “%1”, which is not available for use on the system.</source>
-        <translation type="unfinished"/>
+        <translation>يحتاج الانتقال لملف الشبكة “%1”, وهو غير متاح للاستخدام على هذا النظام.</translation>
     </message>
     <message>
         <location filename="../src/core/appcoordinateoperationhandlers.cpp" line="109"/>
         <location filename="../src/core/appcoordinateoperationhandlers.cpp" line="164"/>
         <source>This grid is part of the &lt;i&gt;%1&lt;/i&gt; package, available for download from &lt;a href=&quot;%2&quot;&gt;%2&lt;/a&gt;.</source>
-        <translation type="unfinished"/>
+        <translation>الشبكة هي جزء من حزمة &lt;i&gt;1%&lt;/i&gt; ، وهي متاحة لتحميل من &lt;a href=&quot;%2&quot;&gt;2%&lt;/a&gt;.</translation>
     </message>
     <message>
         <location filename="../src/core/appcoordinateoperationhandlers.cpp" line="126"/>
         <source>&lt;p&gt;Current transform “&lt;i&gt;%1&lt;/i&gt;” has an accuracy of %2 meters, while the preferred transformation “&lt;i&gt;%3&lt;/i&gt;” has accuracy %4 meters.&lt;/p&gt;</source>
-        <translation type="unfinished"/>
+        <translation>&lt;p&gt;دقة الانتقال الحالي&quot;&lt;i&gt;%1&lt;/i&gt;&quot; هي %2 متر، بيمنا الدقة المرغوبة&quot;&lt;i&gt;%3&lt;/i&gt;&quot; هي متر %4.&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../src/core/appcoordinateoperationhandlers.cpp" line="128"/>
         <source>&lt;p&gt;Current transform “&lt;i&gt;%1&lt;/i&gt;” has an unknown accuracy, while the preferred transformation “&lt;i&gt;%2&lt;/i&gt;” has accuracy %3 meters.&lt;/p&gt;</source>
-        <translation type="unfinished"/>
+        <translation>&lt;p&gt;دقة التحويل الحالي&quot;&lt;i&gt;%1&lt;/i&gt;&quot; غير معروفة، بينما دقة التحويل المرغوبة &quot;&lt;i&gt;%2&lt;/i&gt;&quot;هي %3 متر.&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../src/core/appcoordinateoperationhandlers.cpp" line="130"/>
         <source>&lt;p&gt;The preferred transform between &lt;i&gt;%1&lt;/i&gt; and &lt;i&gt;%2&lt;/i&gt; is not available for use on the system.&lt;/p&gt;</source>
-        <translation type="unfinished"/>
+        <translation>&lt;p&gt;التحويل المرغوب بين&lt;i&gt;%1&lt;/i&gt; و &lt;i&gt;%2&lt;/i&gt;غير متاح للعمل على هذا النظام.&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../src/core/appcoordinateoperationhandlers.cpp" line="141"/>
         <source>No transform is available between &lt;i&gt;%1&lt;/i&gt; and &lt;i&gt;%2&lt;/i&gt;.&lt;p style=&quot;color: red&quot;&gt;%3&lt;/p&gt;</source>
-        <translation type="unfinished"/>
+        <translation>لا يوجد تحويل متاح بين &lt;i&gt;%1&lt;/i&gt; و &lt;i&gt;%2&lt;/i&gt;. &lt;p style=&quot;color: red&quot;&gt;%3</translation>
     </message>
     <message>
         <location filename="../src/core/appcoordinateoperationhandlers.cpp" line="151"/>
         <source>Cannot use project transform between %1 and %2</source>
-        <translation type="unfinished"/>
+        <translation>لا يمكن استخدام نقل المشروع من %1 إلى %2</translation>
     </message>
     <message>
         <location filename="../src/core/appcoordinateoperationhandlers.cpp" line="184"/>
         <source>Used a ballpark transform from %1 to %2</source>
-        <translation type="unfinished"/>
+        <translation>استخدام الانتقال الكروي من %1 إلى %2</translation>
     </message>
 </context>
 <context>
@@ -101,7 +101,7 @@
     <message>
         <location filename="../src/core/attributeformmodelbase.cpp" line="384"/>
         <source>Expression constraint</source>
-        <translation type="unfinished"/>
+        <translation>مظهر الحدود</translation>
     </message>
     <message>
         <location filename="../src/core/attributeformmodelbase.cpp" line="388"/>
@@ -129,7 +129,7 @@
     <message>
         <location filename="../src/qml/BadLayerItem.qml" line="87"/>
         <source>You may check the Portable Project section in the QField documentation for more help.</source>
-        <translation type="unfinished"/>
+        <translation>لمزيد من المعلومات، يمكنك الرجوع إلى فقرة المشورع المحمول في وثائق QField.</translation>
     </message>
 </context>
 <context>
@@ -375,22 +375,22 @@
     <message>
         <location filename="../src/core/deltalistmodel.cpp" line="28"/>
         <source>Expected the json document to be an array of delta status</source>
-        <translation type="unfinished"/>
+        <translation>نتوقع وجود ملف وثائق json من أجل ترتيب حالة الانحراف دلتا</translation>
     </message>
     <message>
         <location filename="../src/core/deltalistmodel.cpp" line="40"/>
         <source>Expected all array elements to be an object, but the element at #%1 is not</source>
-        <translation type="unfinished"/>
+        <translation>تم تخمين جميع عناصر المصفوفة لتكوين الغرض، باستثناء العنصر #%1 </translation>
     </message>
     <message>
         <location filename="../src/core/deltalistmodel.cpp" line="51"/>
         <source>Expected all array elements to be an object containing a key &quot;%1&quot;, but the element at #%2 is not</source>
-        <translation type="unfinished"/>
+        <translation>تم تخمين جميع عناصر المصفوفة لتكوين الغرض، يحوي مفاتح &quot;%1&quot;، باستثناء العنصر #%2</translation>
     </message>
     <message>
         <location filename="../src/core/deltalistmodel.cpp" line="79"/>
         <source>Unrecognized status &quot;%1&quot; for $%2</source>
-        <translation type="unfinished"/>
+        <translation>حالة غير منظمة &quot;%1&quot; لـ $%2</translation>
     </message>
 </context>
 <context>
@@ -426,7 +426,7 @@
     <message>
         <location filename="../src/qml/DigitizingToolbar.qml" line="304"/>
         <source>Position accuracy doesn&apos;t meet the minimum requirement, vertex not added</source>
-        <translation type="unfinished"/>
+        <translation>لا تلبي دقة تحديد الموقع الدقة المطلوبة، لذلك لم يتم إضافة الذروة</translation>
     </message>
     <message>
         <location filename="../src/qml/DigitizingToolbar.qml" line="278"/>
@@ -527,7 +527,7 @@
     <message>
         <location filename="../src/qml/FeatureForm.qml" line="741"/>
         <source>You are about to leave editing state, any changes will be lost. Proceed?</source>
-        <translation type="unfinished"/>
+        <translation>أنت على وشك مغادرة تحرير الحالة، سيتم فقد جميع التغيرات، أمتأكدٌ من ذلك؟</translation>
     </message>
 </context>
 <context>
@@ -535,12 +535,12 @@
     <message>
         <location filename="../src/qml/FeatureListForm.qml" line="408"/>
         <source>Stop tracking this feature to edit attributes</source>
-        <translation type="unfinished"/>
+        <translation>إيقاف تعقب هذه الميزة لتحرير صفاتها</translation>
     </message>
     <message>
         <location filename="../src/qml/FeatureListForm.qml" line="419"/>
         <source>Stop tracking this feature to edit geometry</source>
-        <translation type="unfinished"/>
+        <translation>إيقاف تعقب هذه الميزة لتحرير الرسم</translation>
     </message>
     <message>
         <location filename="../src/qml/FeatureListForm.qml" line="430"/>
@@ -560,17 +560,17 @@
         <location filename="../src/qml/FeatureListForm.qml" line="470"/>
         <location filename="../src/qml/FeatureListForm.qml" line="545"/>
         <source>A number of features are being tracked, stop tracking to delete those</source>
-        <translation type="unfinished"/>
+        <translation>يوجد عدد من الميزات يجري تعقبها، أوقف التعقب من أجل حذفهن.</translation>
     </message>
     <message>
         <location filename="../src/qml/FeatureListForm.qml" line="502"/>
         <source>A number of features are being tracked, stop tracking to merge those</source>
-        <translation type="unfinished"/>
+        <translation>يوجد عدد من الميزات يجري تعقبها، أوقف التعقب من أجل دمجهن.</translation>
     </message>
     <message>
         <location filename="../src/qml/FeatureListForm.qml" line="537"/>
         <source>Successfully duplicated selected features, list updated to show newly-created features</source>
-        <translation type="unfinished"/>
+        <translation>تم بنجاح تكرار الميزات المحددة، حدث القائمة لإظهار الميزات المُنشأة حديثاً</translation>
     </message>
     <message>
         <location filename="../src/qml/FeatureListForm.qml" line="642"/>
@@ -633,7 +633,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <message>
         <location filename="../src/core/featuremodel.cpp" line="321"/>
         <source>Value &quot;%1&quot; %4 could not be converted to a compatible value for field %2(%3).</source>
-        <translation type="unfinished"/>
+        <translation>لا يمكن تحويل القيمة &quot;%1&quot; %4 إلى قيمة متوافقة مع الحقل %2(%3).</translation>
     </message>
     <message>
         <location filename="../src/core/featuremodel.cpp" line="375"/>
@@ -644,38 +644,39 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <message>
         <location filename="../src/core/featuremodel.cpp" line="400"/>
         <source>Feature %1 could not be fetched after commit</source>
-        <translation type="unfinished"/>
+        <translation>لا يمكن احضار الميزة %1 بعد التعليق</translation>
     </message>
     <message>
         <location filename="../src/core/featuremodel.cpp" line="503"/>
         <source>Default value expression for %1:%2 has parser error: %3</source>
-        <translation type="unfinished"/>
+        <translation>يوجد خطأ  %3 في تحويل قيم %1:%2.</translation>
     </message>
     <message>
         <location filename="../src/core/featuremodel.cpp" line="508"/>
         <source>Default value expression for %1:%2 has evaluation error: %3</source>
-        <translation type="unfinished"/>
+        <translation>يوجد خطأ %3 في تقدير قيم %1:%2.</translation>
     </message>
     <message>
         <location filename="../src/core/featuremodel.cpp" line="638"/>
         <source>Cannot start editing on layer &quot;%1&quot; to create feature %2</source>
-        <translation type="unfinished"/>
+        <translation>لا يمكن البدأ بتحرير الطبقة &quot;%1&quot; لإنشاء الميزة %2</translation>
     </message>
     <message>
         <location filename="../src/core/featuremodel.cpp" line="661"/>
         <source>Layer &quot;%1&quot; has been commited but the newly created feature %2 could not be fetched</source>
-        <translation type="unfinished"/>
+        <translation>تم تعليق الطبقة &quot;%1&quot; لكن لا يمكن احضار الميزة المُنشأة مؤخراً %2.</translation>
     </message>
     <message>
         <location filename="../src/core/featuremodel.cpp" line="668"/>
         <source>Layer &quot;%1&quot; cannot be commited with the newly created feature %2. Reason:
 %3</source>
-        <translation type="unfinished"/>
+        <translation>لا يمكن تعليق الطبقة &quot;%1&quot; التي تم فيها إنشاء الميزة %2 مؤخراً. السبب:
+%3</translation>
     </message>
     <message>
         <location filename="../src/core/featuremodel.cpp" line="674"/>
         <source>Feature %2 could not be added in layer &quot;%1&quot;</source>
-        <translation type="unfinished"/>
+        <translation>لا يمكن إضافة الميزة %2 في الطبقة &quot;%1&quot;</translation>
     </message>
     <message>
         <location filename="../src/core/featuremodel.cpp" line="697"/>
@@ -708,7 +709,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
         <location filename="../src/core/locator/featureslocatorfilter.cpp" line="173"/>
         <location filename="../src/core/locator/featureslocatorfilter.cpp" line="183"/>
         <source>Feature has no geometry</source>
-        <translation type="unfinished"/>
+        <translation>لا يوجد رسومات في الميزة</translation>
     </message>
     <message>
         <location filename="../src/core/locator/featureslocatorfilter.h" line="63"/>
@@ -731,17 +732,17 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <message>
         <location filename="../src/qml/geometry_editors/FillRingToolBar.qml" line="74"/>
         <source>The ring crosses existing rings (it is not disjoint)</source>
-        <translation type="unfinished"/>
+        <translation>الحلقة متقاطعة مع حلقات موجودة مُسبقاً، (غير منفصلة)</translation>
     </message>
     <message>
         <location filename="../src/qml/geometry_editors/FillRingToolBar.qml" line="76"/>
         <source>The ring doesn&apos;t have any existing ring to fit into</source>
-        <translation type="unfinished"/>
+        <translation>لا تحوي الحلقة أي حلقات ضمنها لتتناسب معها</translation>
     </message>
     <message>
         <location filename="../src/qml/geometry_editors/FillRingToolBar.qml" line="78"/>
         <source>Unknown error when creating the ring</source>
-        <translation type="unfinished"/>
+        <translation>حدث خطأ غير معروف أثناء إنشاء الحلقة</translation>
     </message>
     <message>
         <location filename="../src/qml/geometry_editors/FillRingToolBar.qml" line="100"/>
@@ -751,7 +752,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <message>
         <location filename="../src/qml/geometry_editors/FillRingToolBar.qml" line="104"/>
         <source>Would you like to fill the ring with a new polygon?</source>
-        <translation type="unfinished"/>
+        <translation>هل ترغب بملء الحلقة بمضلع جديد؟</translation>
     </message>
 </context>
 <context>
@@ -759,7 +760,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <message>
         <location filename="../src/core/locator/finlandlocatorfilter.cpp" line="27"/>
         <source>Finnish address search</source>
-        <translation type="unfinished"/>
+        <translation>انتهاء البحث عن العنوان</translation>
     </message>
 </context>
 <context>
@@ -789,7 +790,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <name>GotoLocatorFilter</name>
     <message>
         <source>Go to %1 %2 (Map CRS)</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">إذهب إلي %1 %2  (خريطة CRS)</translation>
     </message>
     <message>
         <source>Set navigation point</source>
@@ -797,7 +798,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Go to %1° %2° (WGS84)</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">إذهب إلي %1 %2 (WGS84)</translation>
     </message>
     <message>
         <location filename="../src/core/locator/gotolocatorfilter.h" line="47"/>
@@ -807,7 +808,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <message>
         <location filename="../src/core/locator/gotolocatorfilter.cpp" line="146"/>
         <source>Go to %1%2 %3%4 (Map CRS, %5)</source>
-        <translation type="unfinished"/>
+        <translation>إذهب إلي%1%2 %3%4 (خريطة  CRS, %5)</translation>
     </message>
     <message>
         <location filename="../src/core/locator/gotolocatorfilter.cpp" line="181"/>
@@ -838,12 +839,12 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <message>
         <location filename="../src/core/layerobserver.cpp" line="266"/>
         <source>Failed to find a local primary key column in layer &quot;%1&quot;</source>
-        <translation type="unfinished"/>
+        <translation>خطأ في العثور على مفتاح العمود الرئيسي المحلي في الطبقة &quot;%1&quot;</translation>
     </message>
     <message>
         <location filename="../src/core/layerobserver.cpp" line="272"/>
         <source>Failed to find a source primary key column in layer &quot;%1&quot;</source>
-        <translation type="unfinished"/>
+        <translation>خطأ في العثور على مفاتح العمود الرئيسي المصدري في الطبقة &quot;%1&quot;</translation>
     </message>
 </context>
 <context>
@@ -857,7 +858,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
         <location filename="../src/qml/LayerTreeItemProperties.qml" line="35"/>
         <location filename="../src/qml/LayerTreeItemProperties.qml" line="131"/>
         <source>Expand legend item</source>
-        <translation type="unfinished"/>
+        <translation>توسيع العناصر المرتبة</translation>
     </message>
     <message>
         <location filename="../src/qml/LayerTreeItemProperties.qml" line="44"/>
@@ -872,7 +873,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <message>
         <location filename="../src/qml/LayerTreeItemProperties.qml" line="82"/>
         <source>This layer is invalid. This might be due to a network issue, a missing file or a misconfiguration of the project.</source>
-        <translation type="unfinished"/>
+        <translation>هذه الطبقة غير متاحة، قد يكون ذلك بسبب مشكلة في الشبكة، يوجد ملفات ناقصة أو أخطاء في ضبط المشورع.</translation>
     </message>
     <message>
         <location filename="../src/qml/LayerTreeItemProperties.qml" line="91"/>
@@ -907,7 +908,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <message>
         <location filename="../src/qml/LayerTreeItemProperties.qml" line="174"/>
         <source>Reload of layer %1 triggered</source>
-        <translation type="unfinished"/>
+        <translation>إعادة تحميل طبقة %1 المطلوبة</translation>
     </message>
     <message>
         <location filename="../src/qml/LayerTreeItemProperties.qml" line="182"/>
@@ -932,7 +933,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <message>
         <location filename="../src/qml/LayerTreeItemProperties.qml" line="241"/>
         <source>Geometry Locked Layer</source>
-        <translation type="unfinished"/>
+        <translation>طبقة مقفولة الرسم</translation>
     </message>
     <message>
         <location filename="../src/qml/LayerTreeItemProperties.qml" line="248"/>
@@ -951,7 +952,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
         <location filename="../src/core/utils/layerutils.cpp" line="202"/>
         <location filename="../src/core/utils/layerutils.cpp" line="290"/>
         <source>Cannot start editing, no layer</source>
-        <translation type="unfinished"/>
+        <translation>لا يمكن بدء التحرير في الطبقة</translation>
     </message>
     <message>
         <location filename="../src/core/utils/layerutils.cpp" line="210"/>
@@ -1130,7 +1131,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <message>
         <location filename="../src/core/multifeaturelistmodelbase.cpp" line="532"/>
         <source>Cannot change geometry of feature %1 in %2</source>
-        <translation type="unfinished"/>
+        <translation>لا يمكن تغير الرسومات الميزة %1 في %2</translation>
     </message>
 </context>
 <context>
@@ -1154,7 +1155,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
         <location filename="../src/qml/NavigationBar.qml" line="480"/>
         <location filename="../src/qml/NavigationBar.qml" line="686"/>
         <source>Print Atlas Feature(s) to PDF</source>
-        <translation type="unfinished"/>
+        <translation>طباعة أطلس الميزة (ات) على كملف PDF</translation>
     </message>
     <message>
         <location filename="../src/qml/NavigationBar.qml" line="501"/>
@@ -1184,7 +1185,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <message>
         <location filename="../src/qml/NavigationBar.qml" line="572"/>
         <source>Print Atlas Feature to PDF</source>
-        <translation type="unfinished"/>
+        <translation>طباعة أطلس الميزات كملف PDF</translation>
     </message>
     <message>
         <location filename="../src/qml/NavigationBar.qml" line="589"/>
@@ -1225,12 +1226,12 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
         <location filename="../src/qml/NavigationBar.qml" line="726"/>
         <location filename="../src/qml/NavigationBar.qml" line="765"/>
         <source>Printing atlas feature(s) to PDF</source>
-        <translation type="unfinished"/>
+        <translation>جار طباعة أطلس الميزة (ات) على كملف PDF</translation>
     </message>
     <message>
         <location filename="../src/qml/NavigationBar.qml" line="752"/>
         <source>Atlas feature(s) successfully printed to PDF and placed in your documents</source>
-        <translation type="unfinished"/>
+        <translation>تم طباعة أطلس الميزاة (ات) بنجاح إلى ملف PDF وتم وحفظه في مستنداتك</translation>
     </message>
 </context>
 <context>
@@ -1513,7 +1514,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <message>
         <location filename="../src/core/qfieldcloudconnection.cpp" line="167"/>
         <source>Wrong username or password</source>
-        <translation type="unfinished"/>
+        <translation>خطأ في اسم المستخدم أو كلمة المرور</translation>
     </message>
     <message>
         <location filename="../src/core/qfieldcloudconnection.cpp" line="171"/>
@@ -1607,19 +1608,19 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <message>
         <location filename="../src/qml/QFieldCloudLogin.qml" line="226"/>
         <source>The easiest way to transfer you project from QGIS to your devices!</source>
-        <translation type="unfinished"/>
+        <translation>الطريقة الأسهل لنقل مشورعك من QGIS إلى جهازك</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldCloudLogin.qml" line="227"/>
         <source>Learn more about QFieldCloud</source>
-        <translation type="unfinished"/>
+        <translation>تعلم المزيد عن QFieldCloud</translation>
     </message>
 </context>
 <context>
     <name>QFieldCloudPackageLayersFeedback</name>
     <message>
         <source>Problematic QFieldCloud layer packaging</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">جار حزم طبقة QFieldCloud  المتعطلة</translation>
     </message>
     <message>
         <source>Some layers have not been packaged correctly on QFieldCloud. These layers might be misconfigured or their data source is not accessible from the QFieldCloud server.</source>
@@ -1628,7 +1629,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <message>
         <location filename="../src/qml/QFieldCloudPackageLayersFeedback.qml" line="22"/>
         <source>QFieldCloud had troubles packaging your project</source>
-        <translation type="unfinished"/>
+        <translation>واجه QFieldCloud مشاكل أثناء تحزيم مشورعك</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldCloudPackageLayersFeedback.qml" line="32"/>
@@ -1641,22 +1642,22 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <message>
         <location filename="../src/qml/QFieldCloudPopup.qml" line="17"/>
         <source>QFieldCloud</source>
-        <translation type="unfinished"/>
+        <translation>QFieldCloud</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldCloudPopup.qml" line="48"/>
         <source>The current project is not stored on QFieldCloud.&lt;br&gt;&lt;br&gt;</source>
-        <translation type="unfinished"/>
+        <translation>لم يتم حفظ المشروع الحالي في QFieldCloud.&lt;br&gt;&lt;br&gt;</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldCloudPopup.qml" line="49"/>
         <source>Storing projects on QFieldCloud offers seamless synchornization, offline editing, and team management.&lt;br&gt;&lt;br&gt;</source>
-        <translation type="unfinished"/>
+        <translation>يوفر تخزين المشاريع على QFieldCloud المزامة المرنة والتحرير بدون اتصال وإدارة الفريق. &lt;br&gt;&lt;br&gt;</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldCloudPopup.qml" line="50"/>
         <source>Learn more about QFieldCloud</source>
-        <translation type="unfinished"/>
+        <translation>تعلم المزيد عن QFieldCloud</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldCloudPopup.qml" line="89"/>
@@ -1716,7 +1717,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <message>
         <location filename="../src/qml/QFieldCloudPopup.qml" line="334"/>
         <source>There are no local changes</source>
-        <translation type="unfinished"/>
+        <translation>لا يوجد تغيرات محلية</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldCloudPopup.qml" line="336"/>
@@ -2285,7 +2286,7 @@ While you can still view and use the project, it is strongly recommended to rese
     <message>
         <location filename="../src/qml/QFieldSettings.qml" line="82"/>
         <source>If enabled, the feature is stored after having a valid geometry and the constraints are fulfilled and atributes are commited immediately.</source>
-        <translation type="unfinished"/>
+        <translation>إذا تم تمكينه، ستيم حفظ الميزة بعد إضافة الرسومات السليمة، وسيتم ملء الحدود وتعليق الصفات لشكل فوري.</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldSettings.qml" line="86"/>
@@ -2989,17 +2990,17 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <location filename="../src/qml/editorwidgets/relationeditors/ordered_relation_editor.qml" line="130"/>
         <source>Cannot add child feature: parent primary keys are not available</source>
-        <translation type="unfinished"/>
+        <translation>لا يمكن إضافة ميزة فرعية: المفتاح الرئيسي للميزة الأساسية غير متاح.</translation>
     </message>
     <message>
         <location filename="../src/qml/editorwidgets/relationeditors/ordered_relation_editor.qml" line="383"/>
         <source>Unlink feature %1 (%2) of %3</source>
-        <translation type="unfinished"/>
+        <translation>فصل الميزة %1 (%2) من %3</translation>
     </message>
     <message>
         <location filename="../src/qml/editorwidgets/relationeditors/ordered_relation_editor.qml" line="387"/>
         <source>Delete feature %1 (%2) on %3</source>
-        <translation type="unfinished"/>
+        <translation>حذف الميزة %1 (%2) من %3</translation>
     </message>
     <message>
         <location filename="../src/qml/editorwidgets/relationeditors/ordered_relation_editor.qml" line="395"/>
@@ -3096,7 +3097,7 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <location filename="../src/qml/qgismobileapp.qml" line="1021"/>
         <source>Topological editing turned off</source>
-        <translation type="unfinished"/>
+        <translation>تم إيقاف التحرير الطبقي</translation>
     </message>
     <message>
         <location filename="../src/qml/qgismobileapp.qml" line="1069"/>
@@ -3111,27 +3112,27 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <location filename="../src/qml/qgismobileapp.qml" line="1166"/>
         <source>Coordinate cursor now locked to position</source>
-        <translation type="unfinished"/>
+        <translation>تم قفل مؤشر الإحداثيات على الموقع</translation>
     </message>
     <message>
         <location filename="../src/qml/qgismobileapp.qml" line="1176"/>
         <source>Coordinate cursor unlocked</source>
-        <translation type="unfinished"/>
+        <translation>تم إلغاء قفل مؤشر الإحداثيات</translation>
     </message>
     <message>
         <location filename="../src/qml/qgismobileapp.qml" line="1196"/>
         <source>Received position</source>
-        <translation type="unfinished"/>
+        <translation>الموقع المُستقبل</translation>
     </message>
     <message>
         <location filename="../src/qml/qgismobileapp.qml" line="1198"/>
         <source>Searching for position</source>
-        <translation type="unfinished"/>
+        <translation>البحث عن موقع</translation>
     </message>
     <message>
         <location filename="../src/qml/qgismobileapp.qml" line="1245"/>
         <source>Canvas follows location</source>
-        <translation type="unfinished"/>
+        <translation>يجري تتبع الموقع</translation>
     </message>
     <message>
         <location filename="../src/qml/qgismobileapp.qml" line="1254"/>
@@ -3140,16 +3141,16 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Positioning activated</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">تم تفعيل التموضع</translation>
     </message>
     <message>
         <source>Positioning turned off</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">تم إطفاء التموضع</translation>
     </message>
     <message>
         <location filename="../src/qml/qgismobileapp.qml" line="1341"/>
         <source>Canvas stopped following location</source>
-        <translation type="unfinished"/>
+        <translation>تم إيقاف تتبع الموقع</translation>
     </message>
     <message>
         <location filename="../src/qml/qgismobileapp.qml" line="1485"/>
@@ -3220,12 +3221,12 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <location filename="../src/qml/qgismobileapp.qml" line="1798"/>
         <source>Activating positioning service</source>
-        <translation type="unfinished"/>
+        <translation>جار تفعيل خدمة التموضع</translation>
     </message>
     <message>
         <location filename="../src/qml/qgismobileapp.qml" line="1801"/>
         <source>QField has no permissions to use positioning.</source>
-        <translation type="unfinished"/>
+        <translation>لا يمتلك QField صلاحيات للوصول إلى التموضع.</translation>
     </message>
     <message>
         <location filename="../src/qml/qgismobileapp.qml" line="1812"/>
@@ -3266,7 +3267,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Y</source>
-        <translation type="vanished">X</translation>
+        <translation type="vanished">Y</translation>
     </message>
     <message>
         <location filename="../src/qml/qgismobileapp.qml" line="1915"/>
@@ -3291,12 +3292,12 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <location filename="../src/qml/qgismobileapp.qml" line="2522"/>
         <source>Signed out</source>
-        <translation type="unfinished"/>
+        <translation>تم تسجيل الخروج</translation>
     </message>
     <message>
         <location filename="../src/qml/qgismobileapp.qml" line="2526"/>
         <source>Signed in</source>
-        <translation type="unfinished"/>
+        <translation>تم تسجيل الدخول</translation>
     </message>
     <message>
         <source>Set As Destination</source>
@@ -3368,45 +3369,45 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <location filename="../src/qml/qgismobileapp.qml" line="2076"/>
         <source>Current location copied to clipboard</source>
-        <translation type="unfinished"/>
+        <translation>تم نسخ الموقع الحالي إلى الحافظة</translation>
     </message>
     <message>
         <location filename="../src/qml/qgismobileapp.qml" line="2114"/>
         <source>Current layer switched to the one holding the selected geometry.</source>
-        <translation type="unfinished"/>
+        <translation>تحولت الطبقة الحالية إلى الطبقة أحادية الرسم المحدد.</translation>
     </message>
     <message>
         <location filename="../src/qml/qgismobileapp.qml" line="2123"/>
         <source>Editing of multi geometry layer is not supported yet.</source>
-        <translation type="unfinished"/>
+        <translation>تحرير الطبقة متعددة الرسومات غير مدعوم حالياً.</translation>
     </message>
     <message>
         <location filename="../src/qml/qgismobileapp.qml" line="2236"/>
         <source>Loading %1</source>
-        <translation type="unfinished"/>
+        <translation>تحميل %1</translation>
     </message>
     <message>
         <source>Logged out</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">تم تسجيل الخروج</translation>
     </message>
     <message>
         <location filename="../src/qml/qgismobileapp.qml" line="2524"/>
         <source>Connecting...</source>
-        <translation type="unfinished"/>
+        <translation>جار الاتصال ...</translation>
     </message>
     <message>
         <source>Logged in</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">تم تسجيل الدخول</translation>
     </message>
     <message>
         <location filename="../src/qml/qgismobileapp.qml" line="2541"/>
         <source>Project %1 failed to download</source>
-        <translation type="unfinished"/>
+        <translation>فشل تحميل مشروع %1</translation>
     </message>
     <message>
         <location filename="../src/qml/qgismobileapp.qml" line="2542"/>
         <source>Project %1 successfully downloaded, it&apos;s now available to open</source>
-        <translation type="unfinished"/>
+        <translation>تم تحميل مشروع %1 بنجاح، وهو جاهز للفتح الآن</translation>
     </message>
     <message>
         <location filename="../src/qml/qgismobileapp.qml" line="2547"/>
@@ -3439,17 +3440,17 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <location filename="../src/qml/editorwidgets/relationeditors/relation_editor.qml" line="139"/>
         <source>Cannot add child feature: parent primary keys are not available</source>
-        <translation type="unfinished"/>
+        <translation>لا يمكن إضافة ميزة فرعية: المفتاح الرئيسي للميزة الأساسية غير متاح.</translation>
     </message>
     <message>
         <location filename="../src/qml/editorwidgets/relationeditors/relation_editor.qml" line="245"/>
         <source>Unlink feature %1 (%2) of %3</source>
-        <translation type="unfinished"/>
+        <translation>فصل الميزة %1 (%2) من %3</translation>
     </message>
     <message>
         <location filename="../src/qml/editorwidgets/relationeditors/relation_editor.qml" line="249"/>
         <source>Delete feature %1 (%2) on %3</source>
-        <translation type="unfinished"/>
+        <translation>حذف الميزة %1 (%2) من %3</translation>
     </message>
     <message>
         <location filename="../src/qml/editorwidgets/relationeditors/relation_editor.qml" line="257"/>
