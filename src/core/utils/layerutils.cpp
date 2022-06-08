@@ -114,20 +114,33 @@ QgsAbstractVectorLayerLabeling *LayerUtils::defaultLabeling( QgsVectorLayer *lay
   {
     case QgsWkbTypes::PointGeometry:
     {
+#if _QGIS_VERSION_INT >= 32500
+      settings.placement = Qgis::LabelPlacement::OrderedPositionsAroundPoint;
+      settings.offsetType = Qgis::LabelOffsetType::FromSymbolBounds;
+#else
       settings.placement = QgsPalLayerSettings::OrderedPositionsAroundPoint;
       settings.offsetType = QgsPalLayerSettings::FromSymbolBounds;
+#endif
       break;
     }
 
     case QgsWkbTypes::LineGeometry:
     {
+#if _QGIS_VERSION_INT >= 32500
+      settings.placement = Qgis::LabelPlacement::Curved;
+#else
       settings.placement = QgsPalLayerSettings::Curved;
+#endif
       break;
     }
 
     case QgsWkbTypes::PolygonGeometry:
     {
+#if _QGIS_VERSION_INT >= 32500
+      settings.placement = Qgis::LabelPlacement::AroundPoint;
+#else
       settings.placement = QgsPalLayerSettings::AroundPoint;
+#endif
       settings.obstacleSettings().setType( QgsLabelObstacleSettings::PolygonBoundary );
       break;
     }
