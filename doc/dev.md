@@ -54,10 +54,6 @@ cmake -S QField -B build -DSYSTEM_QT=ON
 Since this is now building a lot, grab yourself a cold or hot drink
 and take a good break. It could well take several hours.
 
-```sh
-cmake -S QField -B build -DSYSTEM_QT=ON
-```
-
 ### Build
 
 Now build the application.
