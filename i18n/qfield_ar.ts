@@ -35,14 +35,14 @@
     <message>
         <location filename="../src/core/appcoordinateoperationhandlers.cpp" line="83"/>
         <source>This grid is part of the “&lt;i&gt;%1&lt;/i&gt;” package, available for download from &lt;a href=&quot;%2&quot;&gt;%2&lt;/a&gt;.</source>
-        <translation>الشبكة هي جزء من حزمة &lt;i&gt;% 1&lt;/i&gt;، وهي متاحة لتحميل من&lt;a href=&quot;%2&quot;&gt;%2&lt;/a&gt;.</translation>
+        <translation>هذه الشبكة هي جزء من حزمة &lt;i&gt;% 1&lt;/i&gt;، وهي متاحة لتحميل من &lt;a href=&quot;%2&quot;&gt;%2&lt;/a&gt;.</translation>
     </message>
     <message>
         <location filename="../src/core/appcoordinateoperationhandlers.cpp" line="87"/>
         <location filename="../src/core/appcoordinateoperationhandlers.cpp" line="113"/>
         <location filename="../src/core/appcoordinateoperationhandlers.cpp" line="168"/>
         <source>This grid is available for download from &lt;a href=&quot;%1&quot;&gt;%1&lt;/a&gt;.</source>
-        <translation>الشبكة متاحة للتحميل من &lt;a href=&quot;%1&quot;&gt;%1 &lt;/a&gt;.</translation>
+        <translation>هذه الشبكة متاحة للتحميل من &lt;a href=&quot;%1&quot;&gt;%1 &lt;/a&gt;.</translation>
     </message>
     <message>
         <location filename="../src/core/appcoordinateoperationhandlers.cpp" line="90"/>
@@ -88,12 +88,12 @@
     <message>
         <location filename="../src/core/appcoordinateoperationhandlers.cpp" line="151"/>
         <source>Cannot use project transform between %1 and %2</source>
-        <translation>لا يمكن استخدام نقل المشروع من %1 إلى %2</translation>
+        <translation>لا يمكن استخدام تحويل المشروع من %1 إلى %2</translation>
     </message>
     <message>
         <location filename="../src/core/appcoordinateoperationhandlers.cpp" line="184"/>
         <source>Used a ballpark transform from %1 to %2</source>
-        <translation>استخدام الانتقال الكروي من %1 إلى %2</translation>
+        <translation>استخدام التحويل الكروي من %1 إلى %2</translation>
     </message>
 </context>
 <context>
@@ -119,7 +119,7 @@
     <message>
         <location filename="../src/qml/BadLayerItem.qml" line="14"/>
         <source>Unable to load some layers</source>
-        <translation>غير قادر على تحميل بعض الطبقات</translation>
+        <translation>لا يمكن تحميل بعض الطبقات</translation>
     </message>
     <message>
         <location filename="../src/qml/BadLayerItem.qml" line="30"/>
@@ -137,7 +137,7 @@
     <message>
         <location filename="../src/core/positioning/bluetoothdevicemodel.cpp" line="40"/>
         <source>Internal device</source>
-        <translation>جهاز داخلي</translation>
+        <translation>الجهاز الداخلي</translation>
     </message>
 </context>
 <context>
@@ -176,7 +176,7 @@
     <message>
         <location filename="../src/qml/BookmarkProperties.qml" line="50"/>
         <source>Bookmark Properties</source>
-        <translation>خصائص العلامات المرجعية</translation>
+        <translation>خصائص العلامة المرجعية</translation>
     </message>
     <message>
         <location filename="../src/qml/BookmarkProperties.qml" line="77"/>
@@ -236,7 +236,7 @@
     <message>
         <location filename="../src/qml/BookmarkRenderer.qml" line="143"/>
         <source>Project bookmarks cannot be edited</source>
-        <translation>لا يمكن تحرير العلامات المرجية للمشروع</translation>
+        <translation>لا يمكن تحرير العلامات المرجعية لهذا المشروع</translation>
     </message>
 </context>
 <context>
@@ -244,7 +244,7 @@
     <message>
         <location filename="../src/qml/BrowserPanel.qml" line="17"/>
         <source>Browser</source>
-        <translation>المستعرض</translation>
+        <translation>المُستعرض</translation>
     </message>
 </context>
 <context>
@@ -280,7 +280,7 @@
     <message>
         <location filename="../src/qml/Changelog.qml" line="87"/>
         <source>Error while fetching changelog, try again later.</source>
-        <translation>حدث خطأ في تحميل ملخص التحديثات، يرجى المحاولة لاحقاً.</translation>
+        <translation>حدث خطأ في احضار ملخص التغيرات، يرجى المحاولة لاحقاً.</translation>
     </message>
     <message>
         <location filename="../src/qml/Changelog.qml" line="108"/>
@@ -290,7 +290,7 @@
     <message>
         <location filename="../src/qml/Changelog.qml" line="137"/>
         <source>Check the latest QField changes on </source>
-        <translation>فحص آخر تغير في QField</translation>
+        <translation>فحص آخر المستجدات في QField</translation>
     </message>
     <message>
         <location filename="../src/qml/Changelog.qml" line="138"/>
@@ -332,7 +332,7 @@
     <message>
         <location filename="../src/qml/DashBoard.qml" line="41"/>
         <source>The layer %1 is read only.</source>
-        <translation>الطبقة %1 هي للقراءة فقط</translation>
+        <translation>الطبقة %1 هي للقراءة فقط.</translation>
     </message>
     <message>
         <location filename="../src/qml/DashBoard.qml" line="210"/>
@@ -380,12 +380,12 @@
     <message>
         <location filename="../src/core/deltalistmodel.cpp" line="40"/>
         <source>Expected all array elements to be an object, but the element at #%1 is not</source>
-        <translation>تم تخمين جميع عناصر المصفوفة لتكوين الغرض، باستثناء العنصر #%1 </translation>
+        <translation>من المتوقع أن تكون جميع عناصر المصفوفة كائناً واحداً، باستثناء العنصر #%1 </translation>
     </message>
     <message>
         <location filename="../src/core/deltalistmodel.cpp" line="51"/>
         <source>Expected all array elements to be an object containing a key &quot;%1&quot;, but the element at #%2 is not</source>
-        <translation>تم تخمين جميع عناصر المصفوفة لتكوين الغرض، يحوي مفاتح &quot;%1&quot;، باستثناء العنصر #%2</translation>
+        <translation>من المتوقع أن تكون جميع عناصر المصفوفة كائناً واحداً، يحوي مفاتح &quot;%1&quot;، باستثناء العنصر #%2</translation>
     </message>
     <message>
         <location filename="../src/core/deltalistmodel.cpp" line="79"/>
@@ -398,27 +398,27 @@
     <message>
         <location filename="../src/core/digitizinglogger.cpp" line="186"/>
         <source>Default value expression for the digitizing logger&apos;s %2 field has a parser error: %3</source>
-        <translation type="unfinished"/>
+        <translation>يحوي تعبير القيمة الافتراضية لحقل مسجل التحرير %2 على خطأ منطقي: %3</translation>
     </message>
     <message>
         <location filename="../src/core/digitizinglogger.cpp" line="190"/>
         <source>Default value expression for the digitizing logger&apos;s %2 field has an evaluation error: %3</source>
-        <translation type="unfinished"/>
+        <translation>يحوي تعبير القيمة الافتراضية لحقل مسجل التحرير %2 على خطأ في القيمة: %3</translation>
     </message>
     <message>
         <location filename="../src/core/digitizinglogger.cpp" line="221"/>
         <source>Digitizing logs layer feature addition failed</source>
-        <translation type="unfinished"/>
+        <translation>فشل إضافة ميزة لتحرير الطبقة</translation>
     </message>
     <message>
         <location filename="../src/core/digitizinglogger.cpp" line="227"/>
         <source>Digitizing logs layer change commits failed</source>
-        <translation type="unfinished"/>
+        <translation>فشل تنفيذ تغييرات طبقة</translation>
     </message>
     <message>
         <location filename="../src/core/digitizinglogger.cpp" line="236"/>
         <source>Digitizing logs layer editing failed</source>
-        <translation type="unfinished"/>
+        <translation>خطأ في ملخص تحرير الطبقة</translation>
     </message>
 </context>
 <context>
@@ -426,12 +426,12 @@
     <message>
         <location filename="../src/qml/DigitizingToolbar.qml" line="304"/>
         <source>Position accuracy doesn&apos;t meet the minimum requirement, vertex not added</source>
-        <translation>لا تلبي دقة تحديد الموقع الدقة المطلوبة، لذلك لم يتم إضافة الذروة</translation>
+        <translation>لا تلبي دقة تحديد الموقع الدقة المطلوبة، لذلك لم يتم إضافة القمة</translation>
     </message>
     <message>
         <location filename="../src/qml/DigitizingToolbar.qml" line="278"/>
         <source>Cancel digitizing</source>
-        <translation type="unfinished"/>
+        <translation>إلغاء التحرير</translation>
     </message>
     <message>
         <location filename="../src/qml/DigitizingToolbar.qml" line="216"/>
@@ -441,7 +441,7 @@
     <message>
         <location filename="../src/qml/DigitizingToolbar.qml" line="282"/>
         <source>Should the digitized geometry be discarded?</source>
-        <translation type="unfinished"/>
+        <translation>هل ترغب بإهمال الأشكال المُضافة؟</translation>
     </message>
 </context>
 <context>
@@ -644,7 +644,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <message>
         <location filename="../src/core/featuremodel.cpp" line="400"/>
         <source>Feature %1 could not be fetched after commit</source>
-        <translation>لا يمكن احضار الميزة %1 بعد التعليق</translation>
+        <translation>لا يمكن احضار الميزة %1 بعد التنفيذ</translation>
     </message>
     <message>
         <location filename="../src/core/featuremodel.cpp" line="503"/>
@@ -664,13 +664,13 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <message>
         <location filename="../src/core/featuremodel.cpp" line="661"/>
         <source>Layer &quot;%1&quot; has been commited but the newly created feature %2 could not be fetched</source>
-        <translation>تم تعليق الطبقة &quot;%1&quot; لكن لا يمكن احضار الميزة المُنشأة مؤخراً %2.</translation>
+        <translation>تم تنفيذ الطبقة &quot;%1&quot; لكن لا يمكن احضار الميزة المُنشأة مؤخراً %2.</translation>
     </message>
     <message>
         <location filename="../src/core/featuremodel.cpp" line="668"/>
         <source>Layer &quot;%1&quot; cannot be commited with the newly created feature %2. Reason:
 %3</source>
-        <translation>لا يمكن تعليق الطبقة &quot;%1&quot; التي تم فيها إنشاء الميزة %2 مؤخراً. السبب:
+        <translation>لا يمكن ارفاق الطبقة &quot;%1&quot; بالميزة المُنشأة مؤخراً %2. والسبب:
 %3</translation>
     </message>
     <message>
@@ -858,17 +858,17 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
         <location filename="../src/qml/LayerTreeItemProperties.qml" line="35"/>
         <location filename="../src/qml/LayerTreeItemProperties.qml" line="131"/>
         <source>Expand legend item</source>
-        <translation>توسيع العناصر المرتبة</translation>
+        <translation>توسيع عناصر الإيضاح</translation>
     </message>
     <message>
         <location filename="../src/qml/LayerTreeItemProperties.qml" line="44"/>
         <source>Stop tracking</source>
-        <translation>إيقاف التتبع</translation>
+        <translation>إيقاف التعقب</translation>
     </message>
     <message>
         <location filename="../src/qml/LayerTreeItemProperties.qml" line="45"/>
         <source>Setup tracking</source>
-        <translation>إعداد التتبع</translation>
+        <translation>إعداد التعقب</translation>
     </message>
     <message>
         <location filename="../src/qml/LayerTreeItemProperties.qml" line="82"/>
@@ -938,12 +938,12 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <message>
         <location filename="../src/qml/LayerTreeItemProperties.qml" line="248"/>
         <source>This layer is configured as &quot;Read-Only&quot; which disables adding, deleting and editing features.</source>
-        <translation type="unfinished"/>
+        <translation>هذه الطبقة مضبوطة &quot;للقراءة فقط&quot;، حيث لا يمكن إضافة أو حذف أو تحرير أي ميزة فيها. </translation>
     </message>
     <message>
         <location filename="../src/qml/LayerTreeItemProperties.qml" line="250"/>
         <source>This layer is configured as &quot;Lock Geometries&quot; which disables adding and deleting features, as well as modifying the geometries of existing features.</source>
-        <translation type="unfinished"/>
+        <translation>هذه الطبقة مضبوطة مقفولة الأشكال، حيث لا يمكن إضافة أو حذف الميزات، بينما يمكن تحرير أشكال الميزات الموجودة فقط.</translation>
     </message>
 </context>
 <context>
@@ -964,13 +964,15 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
         <location filename="../src/core/utils/layerutils.cpp" line="234"/>
         <source>Cannot commit deletion of feature %2 in layer &quot;%1&quot;. Reason:
 %3</source>
-        <translation type="unfinished"/>
+        <translation>لا يمكن تنفيذ حذف الميزة %2 في الطبقة&quot;%1&quot;. والسبب:
+%3</translation>
     </message>
     <message>
         <location filename="../src/core/utils/layerutils.cpp" line="254"/>
         <source>Cannot commit deletion in layer &quot;%1&quot;. Reason:
 %3</source>
-        <translation type="unfinished"/>
+        <translation>لا يمكن تنفيذ الحذف على الطبقة&quot;%1&quot;. والسبب:
+%3</translation>
     </message>
     <message>
         <location filename="../src/core/utils/layerutils.cpp" line="263"/>
@@ -992,7 +994,8 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
         <location filename="../src/core/utils/layerutils.cpp" line="319"/>
         <source>Cannot add new feature in layer &quot;%1&quot;. Reason:
 %2</source>
-        <translation type="unfinished"/>
+        <translation>لا يمكن إضافة ميزة جديدة في الطبقة%1&quot;. والسبب:
+%2</translation>
     </message>
     <message>
         <location filename="../src/core/utils/layerutils.cpp" line="325"/>
@@ -1035,27 +1038,27 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <message>
         <location filename="../src/core/locator/locatormodelsuperbridge.cpp" line="227"/>
         <source>Returns a list of features accross all searchable layers with matching attributes</source>
-        <translation type="unfinished"/>
+        <translation>إرجاع قائمة بالميزيات المطلوبة عبر كل الطبقات القابلة للبحث عن الصفات المطابقة.</translation>
     </message>
     <message>
         <location filename="../src/core/locator/locatormodelsuperbridge.cpp" line="228"/>
         <source>Returns a point from a pair of X and Y coordinates typed in the search bar</source>
-        <translation type="unfinished"/>
+        <translation>إرجاع نقطة كزوج X ,Y للاحداثيات المكتوبة في شريط البحث</translation>
     </message>
     <message>
         <location filename="../src/core/locator/locatormodelsuperbridge.cpp" line="229"/>
         <source>Returns a list of bookmark with matching names</source>
-        <translation type="unfinished"/>
+        <translation>إرجاع قائمة بالعلامات المرجعية بالأسماء المطابقة</translation>
     </message>
     <message>
         <location filename="../src/core/locator/locatormodelsuperbridge.cpp" line="230"/>
         <source>Returns a list of locations and addresses within Finland with matching terms</source>
-        <translation type="unfinished"/>
+        <translation>إرجاع قائمة من المواقع والعناوين التي تم العثور عليها بالعناصر المطابقة</translation>
     </message>
     <message>
         <location filename="../src/core/locator/locatormodelsuperbridge.cpp" line="326"/>
         <source>Search filters for your locations have been activated, customize results in the settings panel</source>
-        <translation type="unfinished"/>
+        <translation>تم تفعيل مرشحات البحث، قم بتخصيص النتائج في لوحة الإعدادات </translation>
     </message>
 </context>
 <context>
@@ -1076,7 +1079,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <message>
         <location filename="../src/qml/LocatorSettings.qml" line="98"/>
         <source>Trigger without its prefix</source>
-        <translation type="unfinished"/>
+        <translation>التشغيل بدون بادئة</translation>
     </message>
 </context>
 <context>
@@ -1149,7 +1152,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <message>
         <location filename="../src/qml/NavigationBar.qml" line="463"/>
         <source>Toggle Feature Selection</source>
-        <translation type="unfinished"/>
+        <translation>عكس تحديد الميزة</translation>
     </message>
     <message>
         <location filename="../src/qml/NavigationBar.qml" line="480"/>
@@ -1282,7 +1285,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <message>
         <location filename="../src/qml/NavigationInformationView.qml" line="105"/>
         <source>Bearing</source>
-        <translation type="unfinished"/>
+        <translation>جار التوجيه</translation>
     </message>
 </context>
 <context>
@@ -1302,7 +1305,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <message>
         <location filename="../src/core/orderedrelationmodel.cpp" line="174"/>
         <source>Cannot commit layer changes in layer %1.</source>
-        <translation>لا يمكن تعليق تغيرات الطبقة في %1.</translation>
+        <translation>لا يمكن تنفيذ التغيرات في الطبقة %1.</translation>
     </message>
     <message>
         <location filename="../src/core/orderedrelationmodel.cpp" line="217"/>
@@ -1624,7 +1627,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Some layers have not been packaged correctly on QFieldCloud. These layers might be misconfigured or their data source is not accessible from the QFieldCloud server.</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">لم يتم تحزيم بعض الطبقات بنجاح على QFieldCloud. ربما تحوي إعدادات خاطئة أو لا يمكن الوصول إلى مصدر البيانات من خلال QFieldCloud. </translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldCloudPackageLayersFeedback.qml" line="22"/>
@@ -1634,7 +1637,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <message>
         <location filename="../src/qml/QFieldCloudPackageLayersFeedback.qml" line="32"/>
         <source>Some layers have not been packaged correctly on QFieldCloud. These layers might be misconfigured or their data source is not accessible from the QFieldCloud server. Please check the logs of the latest packaging job on the qfield.cloud website.</source>
-        <translation type="unfinished"/>
+        <translation>لم يتم تحزيم بعض الطبقات بنجاح على QFieldCloud. ربما تحوي إعدادات خاطئة أو لا يمكن الوصول إلى مصدر البيانات من خلال QFieldCloud.  يرجى تدقيق ملخص المهام الأخيرة على موقع QFieldCloud.</translation>
     </message>
 </context>
 <context>
@@ -1672,12 +1675,12 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <message>
         <location filename="../src/qml/QFieldCloudPopup.qml" line="91"/>
         <source>Greetings &lt;strong&gt;%1&lt;/strong&gt;.</source>
-        <translation type="unfinished"/>
+        <translation>تحياتنا &lt;strong&gt;%1&lt;/strong&gt;.</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldCloudPopup.qml" line="161"/>
         <source>This QFieldCloud project was first downloaded with another cloud account. Please sign in with the original account for this project to use the QFieldCloud functionality.</source>
-        <translation type="unfinished"/>
+        <translation>تم تحميل مشورع QFieldCloud بدائيةً عبر حساب آخر. يرجى تسجيل الدخول بالحساب الأصلي الخاص بهذا المشورع لاستخدام وظائف QFieldCloud.</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldCloudPopup.qml" line="180"/>
@@ -1687,7 +1690,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <message>
         <location filename="../src/qml/QFieldCloudPopup.qml" line="182"/>
         <source>QFieldCloud is preparing the latest data just for you. This might take some time, please hold tight…</source>
-        <translation type="unfinished"/>
+        <translation>يقوم QFieldCloud بتجميع البيانات لأجلك, ربما يستغرق ذلك بعض الوقت...</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldCloudPopup.qml" line="187"/>
@@ -1697,7 +1700,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <message>
         <location filename="../src/qml/QFieldCloudPopup.qml" line="189"/>
         <source>QFieldCloud is applying the latest uploaded changes. This might take some time, please hold tight…</source>
-        <translation type="unfinished"/>
+        <translation>يقوم QFieldCloud بتطبيق التغيرات المفوعة مؤخراً. ربما يستغرق ذلد بعض الوقت ...</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldCloudPopup.qml" line="272"/>
@@ -1707,7 +1710,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <message>
         <location filename="../src/qml/QFieldCloudPopup.qml" line="273"/>
         <source>A network error has occured, please try again.</source>
-        <translation type="unfinished"/>
+        <translation>حصل خطأ في الشبكة، يرجى المحاولة مرة آخرى.</translation>
     </message>
     <message numerus="yes">
         <location filename="../src/qml/QFieldCloudPopup.qml" line="333"/>
@@ -1722,7 +1725,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <message>
         <location filename="../src/qml/QFieldCloudPopup.qml" line="336"/>
         <source>The locally stored cloud project has been corrupted</source>
-        <translation type="unfinished"/>
+        <translation>المشورع السحابي الذي تم تخزينه محلياً تالف</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldCloudPopup.qml" line="349"/>
@@ -1732,7 +1735,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <message>
         <location filename="../src/qml/QFieldCloudPopup.qml" line="364"/>
         <source>Synchronize the whole project with all modified features and download the freshly updated project with all the applied changes from QFieldCloud.</source>
-        <translation type="unfinished"/>
+        <translation>قم بمزامنة المشروع بأكمله مع جميع الميزات المُعدلة وتنزيل المشروع المُحدث حديثًا مع جميع التغييرات المطبقة من QFieldCloud.</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldCloudPopup.qml" line="375"/>
@@ -1742,13 +1745,13 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <message>
         <location filename="../src/qml/QFieldCloudPopup.qml" line="390"/>
         <source>Save internet bandwidth by only pushing the local features and pictures to the cloud, without updating the whole project.</source>
-        <translation type="unfinished"/>
+        <translation>توفير بيانات الإنترنت عن طريق رفع الميزات والصور المحلية فقط إلى السحابة ، دون تحديث المشروع بأكمله.</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldCloudPopup.qml" line="403"/>
         <location filename="../src/qml/QFieldCloudPopup.qml" line="556"/>
         <source>Revert local changes</source>
-        <translation type="unfinished"/>
+        <translation>استرجاع التغيرات المحلية</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldCloudPopup.qml" line="404"/>
@@ -1758,63 +1761,65 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <message>
         <location filename="../src/qml/QFieldCloudPopup.qml" line="423"/>
         <source>Revert all modified features in the local layers. You cannot restore those changes.</source>
-        <translation type="unfinished"/>
+        <translation>استرجاع كل الميزات المُعدلة في الطبقات المحلية. لن تستطيع التراجع عن هذه التغيرات.</translation>
     </message>
     <message>
         <source>Revert all modified features in the local cloud layers. You cannot restore those changes.</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">استرجاع كل الميزات المُعدلة في الطبقات المحلية. لن تستطيع التراجع عن هذه التغيرات.</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldCloudPopup.qml" line="424"/>
         <source>The local copy of this cloud project has been corrupted. Resetting the project will re-download the cloud version and will remove any local changes, make sure those were copied first if needed.
 
 While you can still view and use the project, it is strongly recommended to reset to avoid any accidental data loss as none of the changes made will be pushed back to the cloud.</source>
-        <translation type="unfinished"/>
+        <translation>تم إتلاف النسخة المحلية من مشروع السحابي هذا. ستؤدي إعادة تعيين المشروع إلى إعادة تنزيل الإصدار السحابي وستزيل أي تغييرات محلية. تأكد من نسخها أولاً إذا لزم الأمر.
+
+ بينما لا يزال بإمكانك عرض المشروع واستخدامه، يوصى بشدة بإعادة الضبط لتجنب أي فقدان عرضي للبيانات حيث لن يتم إرجاع أي من التغييرات التي تم إجراؤها إلى السحابة.</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldCloudPopup.qml" line="454"/>
         <source>Last synchronized just now</source>
-        <translation type="unfinished"/>
+        <translation>تمت آخر مزامة الآن</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldCloudPopup.qml" line="456"/>
         <source>Last synchronized %1 minutes ago</source>
-        <translation type="unfinished"/>
+        <translation>تمت آخر مزامة منذ %1 دقيقة</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldCloudPopup.qml" line="458"/>
         <source>Last synchronized at %1</source>
-        <translation type="unfinished"/>
+        <translation>تمت آخر مزامنة عند %1</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldCloudPopup.qml" line="460"/>
         <source>Last synchronized on %1</source>
-        <translation type="unfinished"/>
+        <translation>تمت آخر مزامنة عند %1</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldCloudPopup.qml" line="471"/>
         <source>Last changes pushed just now</source>
-        <translation type="unfinished"/>
+        <translation>تم رفع آخر التغيرات الآن</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldCloudPopup.qml" line="473"/>
         <source>Last changes pushed %1 minutes ago</source>
-        <translation type="unfinished"/>
+        <translation>تم رفع آخر التغيرات منذ %1 دقيقة</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldCloudPopup.qml" line="475"/>
         <source>Last changes pushed at %1</source>
-        <translation type="unfinished"/>
+        <translation>تم رفع آخر التغيرات عند %1</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldCloudPopup.qml" line="477"/>
         <source>Last changes pushed on %1</source>
-        <translation type="unfinished"/>
+        <translation>تم رفع آخر التغيرات عند %1</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldCloudPopup.qml" line="479"/>
         <source>No changes pushed yet</source>
-        <translation type="unfinished"/>
+        <translation>لم يتم رفع أي تحديثات بعد</translation>
     </message>
     <message numerus="yes">
         <location filename="../src/qml/QFieldCloudPopup.qml" line="500"/>
@@ -1824,7 +1829,7 @@ While you can still view and use the project, it is strongly recommended to rese
     <message>
         <location filename="../src/qml/QFieldCloudPopup.qml" line="560"/>
         <source>Should local changes be reverted?</source>
-        <translation type="unfinished"/>
+        <translation>هل ترغب باستجراع التغيرات المحلية</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldCloudPopup.qml" line="587"/>
@@ -1834,27 +1839,27 @@ While you can still view and use the project, it is strongly recommended to rese
     <message>
         <location filename="../src/qml/QFieldCloudPopup.qml" line="591"/>
         <source>Last warning, resetting the cloud project will erase any local changes, are you sure you want to go ahead?</source>
-        <translation type="unfinished"/>
+        <translation>تحذير أخير، إعادة ضبط المشورع السحابي ستؤدي إلى مسح كل التغيرات المحلية، هل تريد الاستمرار بذلك؟</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldCloudPopup.qml" line="612"/>
         <source>Connecting cloud</source>
-        <translation type="unfinished"/>
+        <translation>الاتصال إلى السحابة</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldCloudPopup.qml" line="625"/>
         <source>Local changes reverted</source>
-        <translation type="unfinished"/>
+        <translation>تم استرجاع التغيرات المحلية</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldCloudPopup.qml" line="627"/>
         <source>Failed to revert changes</source>
-        <translation type="unfinished"/>
+        <translation>فشل استرجاع التغيرات المحلية</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldCloudPopup.qml" line="632"/>
         <source>No changes to revert</source>
-        <translation type="unfinished"/>
+        <translation>لا يوجد تغيرات لاسترجاعها</translation>
     </message>
 </context>
 <context>
@@ -1865,25 +1870,27 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Packaged layer &apos;%1&apos; is not valid: &apos;%2&apos;</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">الطبقة المحزومة %1&apos; غير متاحة: &apos;%2&apos;</translation>
     </message>
     <message>
         <source>Failed to open temporary file for &quot;%1&quot;, reason:
 %2</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">فشل في فتح الملف المؤقت عند &quot;%1&quot;، والسبب:
+%2</translation>
     </message>
     <message>
         <source>Failed to upload attachment stored at &quot;%1&quot;, reason:
 %2</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">فشل في رفع الملحقات المُخزنة في  &quot;%1&quot;,  والسبب:
+%2</translation>
     </message>
     <message>
         <source>Failed to download file &quot;%1&quot;, reason:</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">فشل في تحميل الملف &quot;%1&quot;, والسبب:</translation>
     </message>
     <message>
         <source>Failed to write downloaded file stored at &quot;%1&quot;, fs reason:</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">فشل في كاتبة الملف المُحمل المُخزن في &quot;%1&quot;، والسبب:</translation>
     </message>
     <message>
         <location filename="../src/core/qfieldcloudprojectsmodel.cpp" line="421"/>
@@ -1893,38 +1900,38 @@ While you can still view and use the project, it is strongly recommended to rese
     <message>
         <location filename="../src/core/qfieldcloudprojectsmodel.cpp" line="470"/>
         <source>project(%1) trigger response refresh not contain all the expected keys: name(string), owner(string), description(string), user_role(string), is_public(bool), can_repackage(bool), needs_repackaging(bool)</source>
-        <translation type="unfinished"/>
+        <translation>لا يحوي تحديث الاستجابة الخاص بالمشورع (%1) على جميع المفاتيح المتوقعة: name(string), owner(string), description(string), user_role(string), is_public(bool), can_repackage(bool), needs_repackaging(bool)</translation>
     </message>
     <message>
         <location filename="../src/core/qfieldcloudprojectsmodel.cpp" line="532"/>
         <location filename="../src/core/qfieldcloudprojectsmodel.cpp" line="574"/>
         <source>Getting job status, but the project is deleted.</source>
-        <translation type="unfinished"/>
+        <translation>جار الحصول على حالة المهمة، لكن المشروع محذوف</translation>
     </message>
     <message>
         <location filename="../src/core/qfieldcloudprojectsmodel.cpp" line="552"/>
         <source>Job creation finished, but the server response is missing required fields: id(string)</source>
-        <translation type="unfinished"/>
+        <translation>انتهى إنشاء المهمة، لكن تشير استجابة الخادم إلى فقدان بعض الحقول: رقم (string)</translation>
     </message>
     <message>
         <location filename="../src/core/qfieldcloudprojectsmodel.cpp" line="589"/>
         <source>Getting job status, but no `%2` job triggered yet.</source>
-        <translation type="unfinished"/>
+        <translation>جار الحصول على حالة المهمة، لكن لم يتم الحصول على `%2` </translation>
     </message>
     <message>
         <location filename="../src/core/qfieldcloudprojectsmodel.cpp" line="604"/>
         <source>Getting job status finished, but the project is deleted.</source>
-        <translation type="unfinished"/>
+        <translation>انتهى الحصول على حالة المهمة، لكن المشروع محذوف</translation>
     </message>
     <message>
         <location filename="../src/core/qfieldcloudprojectsmodel.cpp" line="634"/>
         <source>job(%1) status response does not contain all the expected keys: status(string)</source>
-        <translation type="unfinished"/>
+        <translation>لا تحوي حالة استجابة (1%) كل المفاتيح المتوفعة: الحال (string)</translation>
     </message>
     <message>
         <location filename="../src/core/qfieldcloudprojectsmodel.cpp" line="655"/>
         <source>Job(%1) finished with a failed status.</source>
-        <translation type="unfinished"/>
+        <translation>انتهى (1%) بوجود خطأ في الحالة</translation>
     </message>
     <message>
         <location filename="../src/core/qfieldcloudprojectsmodel.cpp" line="683"/>
@@ -1934,44 +1941,46 @@ While you can still view and use the project, it is strongly recommended to rese
     <message>
         <location filename="../src/core/qfieldcloudprojectsmodel.cpp" line="746"/>
         <source>Packaging job finished unsuccessfully for `%1`. %2</source>
-        <translation type="unfinished"/>
+        <translation>تم التحزيم بشكل غير ناجح عند `%1`. %2</translation>
     </message>
     <message>
         <location filename="../src/core/qfieldcloudprojectsmodel.cpp" line="804"/>
         <source>Failed to refresh the latest info for `%1`: %2</source>
-        <translation type="unfinished"/>
+        <translation>خطأ في تحديث أخر معلومات %1`: %2</translation>
     </message>
     <message>
         <location filename="../src/core/qfieldcloudprojectsmodel.cpp" line="919"/>
         <source>Failed to get latest package data.</source>
-        <translation type="unfinished"/>
+        <translation>خطأ في الحصول على آخر حزمة بيانات</translation>
     </message>
     <message>
         <location filename="../src/core/qfieldcloudprojectsmodel.cpp" line="933"/>
         <source>Latest package data response error.</source>
-        <translation type="unfinished"/>
+        <translation>خطأ في استجابة آخر حزمة بيانات</translation>
     </message>
     <message>
         <location filename="../src/core/qfieldcloudprojectsmodel.cpp" line="953"/>
         <source>Latest package data structure error.</source>
-        <translation type="unfinished"/>
+        <translation>خطأ في بنية آخر حزمة بيانات</translation>
     </message>
     <message>
         <location filename="../src/core/qfieldcloudprojectsmodel.cpp" line="986"/>
         <source>Project %1: Packaged layer `%2` is not valid. Error code %3, error message: %4</source>
-        <translation type="unfinished"/>
+        <translation>المشورع %1: تحزيم الطبقة `%2` غير صالح. رمز الخطأ %3,، رسالة الخطأ: %4</translation>
     </message>
     <message>
         <location filename="../src/core/qfieldcloudprojectsmodel.cpp" line="1112"/>
         <source>Failed to open temporary file for `%1`, reason:
 %2</source>
-        <translation type="unfinished"/>
+        <translation>فشل فتح الملف المؤقت لـ `%1`، والسبب:
+%2</translation>
     </message>
     <message>
         <location filename="../src/core/qfieldcloudprojectsmodel.cpp" line="1568"/>
         <source>Failed to upload attachment stored at `%1`, reason:
 %2</source>
-        <translation type="unfinished"/>
+        <translation>فشل رفع الملقحات المخزنة في `%1`، والسبب:
+%2</translation>
     </message>
     <message>
         <location filename="../src/core/qfieldcloudprojectsmodel.cpp" line="1815"/>
@@ -1981,12 +1990,12 @@ While you can still view and use the project, it is strongly recommended to rese
     <message>
         <location filename="../src/core/qfieldcloudprojectsmodel.cpp" line="1830"/>
         <source>File system error. Failed to write file to temporary location `%1`.</source>
-        <translation type="unfinished"/>
+        <translation>خطأ في ملفات النظام. فشل كتابة الملف إلى الموقع المؤقت `%1`.</translation>
     </message>
     <message>
         <location filename="../src/core/qfieldcloudprojectsmodel.cpp" line="1837"/>
         <source>File system error. Failed to open file for writing on temporary `%1`.</source>
-        <translation type="unfinished"/>
+        <translation>خطأ في ملفات النظام. فشل فتح الملف المؤقت في `%1`.</translation>
     </message>
     <message>
         <location filename="../src/core/qfieldcloudprojectsmodel.cpp" line="1849"/>
@@ -2006,7 +2015,7 @@ While you can still view and use the project, it is strongly recommended to rese
     <message>
         <location filename="../src/core/qfieldcloudprojectsmodel.cpp" line="1885"/>
         <source>Failed to copy some of the downloaded files on your device. Check your device storage.</source>
-        <translation type="unfinished"/>
+        <translation>فشل نسخ بعض الملفات المحملة على جهازك. تفقد ذاكرة الجهاز.</translation>
     </message>
 </context>
 <context>
@@ -2029,7 +2038,7 @@ While you can still view and use the project, it is strongly recommended to rese
     <message>
         <location filename="../src/qml/QFieldCloudScreen.qml" line="49"/>
         <source>Greetings &lt;strong&gt;%1&lt;/strong&gt;.</source>
-        <translation type="unfinished"/>
+        <translation>تحياتنا &lt;strong&gt;%1&lt;/strong&gt;.</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldCloudScreen.qml" line="162"/>
@@ -2054,7 +2063,7 @@ While you can still view and use the project, it is strongly recommended to rese
     <message>
         <location filename="../src/qml/QFieldCloudScreen.qml" line="332"/>
         <source>QFieldCloud is preparing the latest data just for you. This might take some time, please hold tight…</source>
-        <translation type="unfinished"/>
+        <translation>يقوم QFieldCloud بتجميع البيانات لأجلك, ربما يستغرق ذلك بعض الوقت...</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldCloudScreen.qml" line="337"/>
@@ -2074,12 +2083,12 @@ While you can still view and use the project, it is strongly recommended to rese
     <message>
         <location filename="../src/qml/QFieldCloudScreen.qml" line="357"/>
         <source>Available locally, missing on the cloud</source>
-        <translation type="unfinished"/>
+        <translation>متوفر محلياً، وغير متاح على السحابة.</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldCloudScreen.qml" line="360"/>
         <source>Available on the cloud, missing locally</source>
-        <translation type="unfinished"/>
+        <translation>متاح على السحابة، وغير متوفر محلياً.</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldCloudScreen.qml" line="363"/>
@@ -2119,7 +2128,7 @@ While you can still view and use the project, it is strongly recommended to rese
     <message>
         <location filename="../src/qml/QFieldCloudScreen.qml" line="537"/>
         <source>Press and hold over a cloud project for a menu of additional actions.</source>
-        <translation type="unfinished"/>
+        <translation>اضغط مطولاً على المشروع السحابي من أجل إظهار قائمة الخيارات الإضافية.</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldCloudScreen.qml" line="545"/>
@@ -2223,7 +2232,7 @@ While you can still view and use the project, it is strongly recommended to rese
     <message>
         <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="510"/>
         <source>Storage management help</source>
-        <translation type="unfinished"/>
+        <translation>تعليمات إدارة التخزين</translation>
     </message>
 </context>
 <context>
@@ -2236,27 +2245,27 @@ While you can still view and use the project, it is strongly recommended to rese
     <message>
         <location filename="../src/qml/QFieldSettings.qml" line="56"/>
         <source>Maximized attribute form</source>
-        <translation type="unfinished"/>
+        <translation>نمط الصفات المُكبرة</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldSettings.qml" line="60"/>
         <source>Fixed scale navigation</source>
-        <translation type="unfinished"/>
+        <translation>الملاحة ثابتة التدريج</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldSettings.qml" line="61"/>
         <source>When fixed scale navigation is active, focusing on a search result will pan to the feature. With fixed scale navigation disabled it will pan and zoom to the feature.</source>
-        <translation type="unfinished"/>
+        <translation>عند تفعيل الملاحة ثابتة التدريج، سؤدي التركيز على نتيجة البحث إلى الانتقال إلى الميزة. بينما في حال التعطيل، سيتم الانتقال والتكبيرعلى الميزة.</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldSettings.qml" line="65"/>
         <source>Show digitizing information</source>
-        <translation>إظهار معلومات الترقيم</translation>
+        <translation>إظهار معلومات التحرير</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldSettings.qml" line="66"/>
         <source>When switched on, coordinate information, such as latitude and longitude, is overlayed onto the map while digitizing new features or using the measure tool.</source>
-        <translation type="unfinished"/>
+        <translation>عند التشغيل، سيتم رسم معلوامات الاحداثيات -كخطوط الطول والعرض- على الخريطة بينما يجري إنشاء ميزة جديدة أو استخدام أداة قياس المسافة. </translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldSettings.qml" line="70"/>
@@ -2266,17 +2275,17 @@ While you can still view and use the project, it is strongly recommended to rese
     <message>
         <location filename="../src/qml/QFieldSettings.qml" line="71"/>
         <source>When switched on, user&apos;s saved and currently opened project bookmarks will be displayed on the map.</source>
-        <translation type="unfinished"/>
+        <translation>عن الشتغيل، سيتم إظهار العلامات المرجعية للمشاريع المفتوحة مؤخراً والمحفوظة.</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldSettings.qml" line="75"/>
         <source>Use native camera</source>
-        <translation type="unfinished"/>
+        <translation>استخدام الكاميرة الأساسية</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldSettings.qml" line="76"/>
         <source>If disabled, QField will use a minimalist internal camera instead of the camera app on the device.&lt;br&gt;Tip: Enable this option and install the open camera app to create geo tagged photos.</source>
-        <translation type="unfinished"/>
+        <translation>في حال التعطيل ، سيستخدم QField تطبيق الكاميرا البسيط بدلاً من تطبيق الكاميرا على الجهاز. &lt;br&gt; نفضل تمكين هذا الخيار وتنصيب تطبيق كاميرة مفتوح المصدر لإنشاء صور ذات بيانات جغرافية.</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldSettings.qml" line="81"/>
@@ -2286,7 +2295,7 @@ While you can still view and use the project, it is strongly recommended to rese
     <message>
         <location filename="../src/qml/QFieldSettings.qml" line="82"/>
         <source>If enabled, the feature is stored after having a valid geometry and the constraints are fulfilled and atributes are commited immediately.</source>
-        <translation>إذا تم تمكينه، ستيم حفظ الميزة بعد إضافة الرسومات السليمة، وسيتم ملء الحدود وتعليق الصفات لشكل فوري.</translation>
+        <translation>إذا تم تمكينه، ستيم حفظ الميزة بعد إضافة الرسومات السليمة، وسيتم ملء الحدود وتنفيذ الصفات بشكل فوري.</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldSettings.qml" line="86"/>
@@ -2296,17 +2305,17 @@ While you can still view and use the project, it is strongly recommended to rese
     <message>
         <location filename="../src/qml/QFieldSettings.qml" line="87"/>
         <source>If enabled, the screen brightness will be dimmed after 20 seconds of inactivity to preserve battery.</source>
-        <translation type="unfinished"/>
+        <translation>في حال التفعيل، سيتم تخميد إضاءة الشاشة بعد 20 ثانية عند عدم استخدام التطبيق من أجل توفير الطاقة.</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldSettings.qml" line="91"/>
         <source>Consider mouse as a touchscreen device</source>
-        <translation type="unfinished"/>
+        <translation>اعتبار مؤشر الفأرة كشاشة لمس</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldSettings.qml" line="92"/>
         <source>If disabled, the mouse will act as a stylus pen.</source>
-        <translation type="unfinished"/>
+        <translation>في حالة التعطيل، سيتم اعتبار الفأرة كقلم تحديد.</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldSettings.qml" line="96"/>
@@ -2316,7 +2325,7 @@ While you can still view and use the project, it is strongly recommended to rese
     <message>
         <location filename="../src/qml/QFieldSettings.qml" line="97"/>
         <source>If enabled, anonymized metrics will be collected and sent to help improve QField for everyone.</source>
-        <translation type="unfinished"/>
+        <translation>في حال التفعيل، سنتوم بجمع معلومات مجهولة المصدر وإرسالها إلينا من أجل مساعدتنا في تطوير QField للجميع.</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldSettings.qml" line="137"/>
@@ -2346,7 +2355,7 @@ While you can still view and use the project, it is strongly recommended to rese
     <message>
         <location filename="../src/qml/QFieldSettings.qml" line="293"/>
         <source>To apply the selected user interface language, QField needs to completely shutdown and restart.</source>
-        <translation type="unfinished"/>
+        <translation>يجب إعادة تشغيل QField بشكل كامل من اجل تطبيق اللغة الطلوبة.</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldSettings.qml" line="322"/>
@@ -2356,17 +2365,17 @@ While you can still view and use the project, it is strongly recommended to rese
     <message>
         <location filename="../src/qml/QFieldSettings.qml" line="334"/>
         <source>Found a missing or incomplete language? %1Join the translator community.%2</source>
-        <translation type="unfinished"/>
+        <translation>هل وجدت الترجمة غير مكتملة؟ %1 انضم إلنا لتشاركنا في الترجمة. %2</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldSettings.qml" line="377"/>
         <source>Positioning device in use:</source>
-        <translation type="unfinished"/>
+        <translation>جهاز التموضع مشغول:</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldSettings.qml" line="425"/>
         <source>Scanning for paired devices</source>
-        <translation type="unfinished"/>
+        <translation>اليحث عن أجهزة مقترنة</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldSettings.qml" line="429"/>
@@ -2396,13 +2405,14 @@ While you can still view and use the project, it is strongly recommended to rese
     <message>
         <location filename="../src/qml/QFieldSettings.qml" line="492"/>
         <source>Make a full service discovery</source>
-        <translation type="unfinished"/>
+        <translation>الضبط لاكتشاف كل الخدمات</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldSettings.qml" line="496"/>
         <source>A full device scan can take longer. You really want to do it?
 Cancel to make a minimal device scan instead.</source>
-        <translation type="unfinished"/>
+        <translation>يحتاج البحت عن كل الأجهزة زمناً طوبلاً، هل أنت متأكد من ذلك؟
+قم بإلغاء الأمر من أجل البحث عن أقل.</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldSettings.qml" line="521"/>
@@ -2422,52 +2432,52 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <location filename="../src/qml/QFieldSettings.qml" line="542"/>
         <source>Use orthometric altitude from device</source>
-        <translation type="unfinished"/>
+        <translation>استخدام الارتفاع التقديري من الجهاز</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldSettings.qml" line="574"/>
         <source>Show position information</source>
-        <translation type="unfinished"/>
+        <translation>إظهار معلومات الموقع</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldSettings.qml" line="596"/>
         <source>Activate accuracy indicator</source>
-        <translation type="unfinished"/>
+        <translation>تفعيل مؤشر الدقة</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldSettings.qml" line="618"/>
         <source>Bad accuracy below [m]</source>
-        <translation type="unfinished"/>
+        <translation>الدقة المنخفضة أقل من [م]</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldSettings.qml" line="659"/>
         <source>Excellent accuracy above [m]</source>
-        <translation type="unfinished"/>
+        <translation>الدقة الممتازة أكثر من [م]</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldSettings.qml" line="700"/>
         <source>Enable accuracy requirement</source>
-        <translation type="unfinished"/>
+        <translation>تفعيل متطلبات الدقة</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldSettings.qml" line="727"/>
         <source>When the accuracy indicator is enabled, a badge is attached to the location button and colored &lt;span %1&gt;red&lt;/span&gt; if the accuracy value is below bad, &lt;span %2&gt;yellow&lt;/span&gt; if it falls short of excellent, or &lt;span %3&gt;green&lt;/span&gt;.&lt;br&gt;&lt;br&gt;In addition, an accuracy restriction mode can be toggled on, which restricts vertex addition when locked to coordinate cursor to positions with an accuracy value above the bad threshold.</source>
-        <translation type="unfinished"/>
+        <translation>عند تمكين مؤشر الدقة ، يتم إرفاق شارة بزر الموقع ولون &lt;span %1&gt;أحمر&lt;/span&gt; إذا كانت قيمة الدقة أقل من المنخفضة ، أو &lt;span %2&gt;صفراء&lt;/span&gt; إذا كانت أقل من ممتازة ، أو &lt;span %3&gt;خضراء&lt;/span&gt;.&lt;br&gt;&lt;br&gt; بالإضافة إلى ذلك ، يمكن تبديل وضع تقييد الدقة ، والذي يقيد إضافة الرأس عند قفله لتنسيق المؤشر إلى المواضع بقيمة دقة أعلى من الحد المنخفض.</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldSettings.qml" line="744"/>
         <source>Enable averaged positioning requirement</source>
-        <translation type="unfinished"/>
+        <translation>تفعيل متطلبات الدقة المتوسطة</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldSettings.qml" line="766"/>
         <source>Minimum number of positions collected</source>
-        <translation type="unfinished"/>
+        <translation>أصغر عدد من المواقع المُلتقطة</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldSettings.qml" line="807"/>
         <source>When enabled, digitizing vertices with a cursor locked to position will only accepted an averaged position from a minimum number of collected positions. Digitizing using averaged positions is done by pressing and holding the add vertex button, which will collect positions until the press is released. Accuracy requirement settings are respected when enabled.</source>
-        <translation type="unfinished"/>
+        <translation>عند التمكين ، فإن تحرير القمم ذات المؤشر مغلق على الموضع لن تقبل إلا مركزًا متوسطًا من الحد الأدنى لعدد المراكز المجمعة. تتم عملية التحويل الرقمي باستخدام المواضع المتوسطة عن طريق الضغط مع الاستمرار على زر إضافة قمة الرأس ، والذي سيجمع المراكز حتى يتم تحرير الضغط. يتم احترام إعدادات متطلبات الدقة عند التمكين.</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldSettings.qml" line="821"/>
@@ -2482,22 +2492,22 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <location filename="../src/qml/QFieldSettings.qml" line="885"/>
         <source>Z values which are recorded from the positioning device will be corrected by this value. If a value of 1.6 is entered, this will result in a correction of -1.6 for each recorded value.</source>
-        <translation type="unfinished"/>
+        <translation>سيتم تصحيح قيم Z التي تم تسجيلها من جهاز تحديد المواقع بهذه القيمة. إذا تم إدخال قيمة 1.6 ، فسيؤدي ذلك إلى تصحيح -1.6 لكل قيمة مسجلة.</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldSettings.qml" line="899"/>
         <source>Skip altitude correction</source>
-        <translation type="unfinished"/>
+        <translation>تخطِ تصحيح الارتفاع</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldSettings.qml" line="922"/>
         <source>Use the altitude as reported by the positioning device. Skip any altitude correction that may be implied by the coordinate system transformation.</source>
-        <translation type="unfinished"/>
+        <translation>استخدم الارتفاع كما هو مذكور بواسطة جهاز تحديد المواقع. تخطي أي تصحيح للارتفاع قد ينطوي عليه تحويل نظام الإحداثيات.</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldSettings.qml" line="936"/>
         <source>Vertical grid shift in use:</source>
-        <translation type="unfinished"/>
+        <translation>إزاحة الشبكة العمودية قيد الاستخدام:</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldSettings.qml" line="945"/>
@@ -2507,7 +2517,7 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <location filename="../src/qml/QFieldSettings.qml" line="959"/>
         <source>Vertical grid shift is used to increase the altitude accuracy.</source>
-        <translation type="unfinished"/>
+        <translation>يستخدم الإزاحة الرأسي للشبكة لزيادة دقة الارتفاع.</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldSettings.qml" line="988"/>
@@ -2520,17 +2530,17 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <location filename="../src/core/digitizinglogger.cpp" line="169"/>
         <source>Digitizing Logger</source>
-        <translation type="unfinished"/>
+        <translation>ملخص التحرير</translation>
     </message>
     <message>
         <location filename="../src/core/qfieldappauthrequesthandler.cpp" line="134"/>
         <source>Authentication required</source>
-        <translation type="unfinished"/>
+        <translation>التوثيق مطلوب</translation>
     </message>
     <message>
         <location filename="../src/core/qfieldcloudconnection.cpp" line="51"/>
         <source>QFieldCloud Unknown Error</source>
-        <translation type="unfinished"/>
+        <translation>خطأ غير معروف في QFieldCloud</translation>
     </message>
     <message>
         <location filename="../src/core/qfieldcloudconnection.cpp" line="52"/>
@@ -2550,52 +2560,52 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <location filename="../src/core/qfieldcloudconnection.cpp" line="55"/>
         <source>API Error</source>
-        <translation type="unfinished"/>
+        <translation>خطأ في API</translation>
     </message>
     <message>
         <location filename="../src/core/qfieldcloudconnection.cpp" line="56"/>
         <source>Validation Error</source>
-        <translation type="unfinished"/>
+        <translation>خطأ في المصادقة</translation>
     </message>
     <message>
         <location filename="../src/core/qfieldcloudconnection.cpp" line="57"/>
         <source>Multiple Projects</source>
-        <translation type="unfinished"/>
+        <translation>تعدد المشاريع</translation>
     </message>
     <message>
         <location filename="../src/core/qfieldcloudconnection.cpp" line="58"/>
         <source>Invalid delta file</source>
-        <translation type="unfinished"/>
+        <translation>ملف الدلتا غير صالح</translation>
     </message>
     <message>
         <location filename="../src/core/qfieldcloudconnection.cpp" line="59"/>
         <source>The project does not contain a valid QGIS project file</source>
-        <translation type="unfinished"/>
+        <translation>لا يحوي المشورع على ملف مشورع QGIS صالح</translation>
     </message>
     <message>
         <location filename="../src/core/qfieldcloudconnection.cpp" line="60"/>
         <source>Invalid job</source>
-        <translation type="unfinished"/>
+        <translation>مهمة غير صالحة</translation>
     </message>
     <message>
         <location filename="../src/core/qfieldcloudconnection.cpp" line="61"/>
         <source>QGIS export failed</source>
-        <translation type="unfinished"/>
+        <translation>خطأ في تصدير QGIS</translation>
     </message>
     <message>
         <location filename="../src/core/qfieldcloudconnection.cpp" line="62"/>
         <source>QGIS is unable to open the QGIS project</source>
-        <translation type="unfinished"/>
+        <translation>لا يستطيع QGIS فتح المشورع</translation>
     </message>
     <message>
         <location filename="../src/core/qgsgpkgflusher.cpp" line="165"/>
         <source>There was an error opening the database &lt;b&gt;%1&lt;/b&gt;: %2</source>
-        <translation type="unfinished"/>
+        <translation>يوجد خطأ  في فتح قاعدة البيانات &lt;b&gt;%1&lt;/b&gt;: %2</translation>
     </message>
     <message>
         <location filename="../src/core/qgsgpkgflusher.cpp" line="178"/>
         <source>Could not flush database %1 (%3) </source>
-        <translation type="unfinished"/>
+        <translation>لا يمكن توريد قاعدة البيانات %1 (%3) </translation>
     </message>
     <message>
         <location filename="../src/core/utils/expressioncontextutils.cpp" line="37"/>
@@ -2605,22 +2615,22 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <location filename="../src/core/utils/expressioncontextutils.cpp" line="87"/>
         <source>Map Tool Capture</source>
-        <translation type="unfinished"/>
+        <translation>التقاط إداة الخريطة</translation>
     </message>
     <message>
         <location filename="../src/core/utils/expressioncontextutils.cpp" line="108"/>
         <source>Cloud User Info</source>
-        <translation type="unfinished"/>
+        <translation>معلومات المستخدم السحابية</translation>
     </message>
     <message>
         <location filename="../src/core/platforms/android/androidplatformutilities.cpp" line="86"/>
         <source>Please wait while QField installation finalizes.</source>
-        <translation type="unfinished"/>
+        <translation>يرجى الانتظار بينما ينتهي تنصيب QField</translation>
     </message>
     <message>
         <location filename="../src/core/utils/positioningutils.cpp" line="78"/>
         <source>averaged</source>
-        <translation type="unfinished"/>
+        <translation>متوسط</translation>
     </message>
 </context>
 <context>
@@ -2629,21 +2639,21 @@ Cancel to make a minimal device scan instead.</source>
         <location filename="../src/core/qgismobileapp.cpp" line="663"/>
         <location filename="../src/core/qgismobileapp.cpp" line="689"/>
         <source>Project file &quot;%1&quot; does not exist</source>
-        <translation type="unfinished"/>
+        <translation>لم يتم العثور على ملف المشورع &quot;%1&quot;</translation>
     </message>
     <message>
         <location filename="../src/core/qgismobileapp.cpp" line="680"/>
         <source>No project file currently opened</source>
-        <translation type="unfinished"/>
+        <translation>لم يتم فتح أي ملف مشورع لحد الآن</translation>
     </message>
     <message>
         <location filename="../src/core/qgismobileapp.cpp" line="711"/>
         <source>Could not load font %1</source>
-        <translation type="unfinished"/>
+        <translation>لا يمكن تحميل الخط %1</translation>
     </message>
     <message>
         <source>Loading font %1</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">تحميل الخط %1</translation>
     </message>
 </context>
 <context>
@@ -2661,32 +2671,32 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <location filename="../src/core/positioning/gnsspositioninformation.cpp" line="133"/>
         <source>Estimated</source>
-        <translation type="unfinished"/>
+        <translation>مُقدّر</translation>
     </message>
     <message>
         <location filename="../src/core/positioning/gnsspositioninformation.cpp" line="136"/>
         <source>Float RTK</source>
-        <translation type="unfinished"/>
+        <translation>RTK عائم</translation>
     </message>
     <message>
         <location filename="../src/core/positioning/gnsspositioninformation.cpp" line="139"/>
         <source>Fixed RTK</source>
-        <translation type="unfinished"/>
+        <translation>RTK ثابت</translation>
     </message>
     <message>
         <location filename="../src/core/positioning/gnsspositioninformation.cpp" line="142"/>
         <source>PPS</source>
-        <translation type="unfinished"/>
+        <translation>PPS</translation>
     </message>
     <message>
         <location filename="../src/core/positioning/gnsspositioninformation.cpp" line="145"/>
         <source>DGPS</source>
-        <translation type="unfinished"/>
+        <translation>DGPS</translation>
     </message>
     <message>
         <location filename="../src/core/positioning/gnsspositioninformation.cpp" line="148"/>
         <source>Autonomous</source>
-        <translation type="unfinished"/>
+        <translation>مستقل</translation>
     </message>
     <message>
         <location filename="../src/core/positioning/gnsspositioninformation.cpp" line="151"/>
@@ -2704,7 +2714,7 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <location filename="../src/core/qgsquick/qgsquickmapcanvasmap.cpp" line="190"/>
         <source>Rendering</source>
-        <translation type="unfinished"/>
+        <translation>جار التصدير</translation>
     </message>
 </context>
 <context>
@@ -2713,7 +2723,7 @@ Cancel to make a minimal device scan instead.</source>
         <location filename="../src/core/qgsquick/qgsquickmapsettings.cpp" line="313"/>
         <location filename="../src/core/qgsquick/qgsquickmapsettings.cpp" line="343"/>
         <source>Map Canvas rotation is not supported. Resetting from %1 to 0.</source>
-        <translation type="unfinished"/>
+        <translation>تدوير لوحة الخريطة غير مدعوم. إعادة التعيين من %1 إلى 0.</translation>
     </message>
 </context>
 <context>
@@ -2742,7 +2752,7 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <location filename="../src/core/referencingfeaturelistmodel.cpp" line="247"/>
         <source>Cannot commit layer changes in layer %1.</source>
-        <translation>لا يمكن تعليق تغيرات الطبقة في %1.</translation>
+        <translation>لا يمكن تنفيذ التغيرات في الطبقة %1.</translation>
     </message>
 </context>
 <context>
@@ -2763,7 +2773,7 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <location filename="../src/qml/geometry_editors/ReshapeToolBar.qml" line="62"/>
         <source>The geometry could not be reshaped</source>
-        <translation type="unfinished"/>
+        <translation>لا يمكن إعادة رسم الأشكال الهندسية</translation>
     </message>
 </context>
 <context>
@@ -2787,7 +2797,7 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <location filename="../src/qml/SystemLoader.qml" line="59"/>
         <source>Preparing QField, this is a one time operation that might take some time</source>
-        <translation type="unfinished"/>
+        <translation>جار تحضير QField ، هذه عملية لمرة واحدة وقد تستغرق بعض الوقت</translation>
     </message>
 </context>
 <context>
@@ -2795,12 +2805,12 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <location filename="../src/qml/TemporalProperties.qml" line="28"/>
         <source>Temporal Properties</source>
-        <translation type="unfinished"/>
+        <translation>الخصائص الزمنية</translation>
     </message>
     <message>
         <location filename="../src/qml/TemporalProperties.qml" line="43"/>
         <source>Enable temporal filter</source>
-        <translation type="unfinished"/>
+        <translation>تمكين المرشح الزمني</translation>
     </message>
 </context>
 <context>
@@ -2818,32 +2828,32 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <location filename="../src/qml/Tracking.qml" line="207"/>
         <source>Activate time constraint</source>
-        <translation type="unfinished"/>
+        <translation>تغعيل الحد الزمني</translation>
     </message>
     <message>
         <location filename="../src/qml/Tracking.qml" line="229"/>
         <source>Minimum time [sec]</source>
-        <translation type="unfinished"/>
+        <translation>الزمن الأدنى [ث]</translation>
     </message>
     <message>
         <location filename="../src/qml/Tracking.qml" line="272"/>
         <source>Activate distance constraint</source>
-        <translation type="unfinished"/>
+        <translation>تفعيل الحد المكاني</translation>
     </message>
     <message>
         <location filename="../src/qml/Tracking.qml" line="301"/>
         <source>Minimum distance [%1]</source>
-        <translation type="unfinished"/>
+        <translation>المسافة الدنيا [%1]</translation>
     </message>
     <message>
         <location filename="../src/qml/Tracking.qml" line="344"/>
         <source>Record when both active constraints are met</source>
-        <translation type="unfinished"/>
+        <translation>التسجيل عند وقوع ضمن الحدود الفعّالة</translation>
     </message>
     <message>
         <location filename="../src/qml/Tracking.qml" line="371"/>
         <source>When enabled, vertices with only be recorded when both active constraints are met. If the setting is disabled, individual constraints met will trigger a vertex addition.</source>
-        <translation type="unfinished"/>
+        <translation>عند التمكين ، يتم تسجيل الرؤوس فقط عند استيفاء القيود النشطة. إذا تم تعطيل الإعداد ، ستؤدي القيود الفردية التي تم الوفاء بها إلى تشغيل إضافة قمة.</translation>
     </message>
     <message>
         <location filename="../src/qml/Tracking.qml" line="391"/>
@@ -2853,7 +2863,7 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <location filename="../src/qml/Tracking.qml" line="400"/>
         <source>Cannot start track with empty values</source>
-        <translation type="unfinished"/>
+        <translation>لا يمكن بدء التعقب بقيمة فارغة</translation>
     </message>
 </context>
 <context>
@@ -2887,22 +2897,22 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <location filename="../src/qml/WelcomeScreen.qml" line="116"/>
         <source>We&apos;re sorry to hear that. Click on the button below to comment or seek support.</source>
-        <translation type="unfinished"/>
+        <translation>نحن آسفون لسماع ذلك. انقر فوق الزر أدناه للتعليق أو طلب الدعم.</translation>
     </message>
     <message>
         <location filename="../src/qml/WelcomeScreen.qml" line="130"/>
         <source>Reach out</source>
-        <translation type="unfinished"/>
+        <translation>وصل إلى</translation>
     </message>
     <message>
         <location filename="../src/qml/WelcomeScreen.qml" line="168"/>
         <source>Hey there, how do you like your experience with QField so far?</source>
-        <translation type="unfinished"/>
+        <translation>مرحباً، كيف كانت تجربتك مع تطبيق QField لحد الآن؟</translation>
     </message>
     <message>
         <location filename="../src/qml/WelcomeScreen.qml" line="225"/>
         <source>That&apos;s great! We&apos;d love for you to click on the button below and leave a comment on the store.</source>
-        <translation type="unfinished"/>
+        <translation>ذلك رائع! نود أن تنقر على الزر أدناه وتترك تعليقًا في المتجر.</translation>
     </message>
     <message>
         <location filename="../src/qml/WelcomeScreen.qml" line="240"/>
@@ -2912,12 +2922,12 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <location filename="../src/qml/WelcomeScreen.qml" line="297"/>
         <source>Anonymized metrics collection has been disabled. You can re-enable through the settings panel.</source>
-        <translation type="unfinished"/>
+        <translation>تم تعطيل تجميع معلومات الأداء مجهولة المصدر. يمكنك إعادة التمكين من خلال لوحة الإعدادات.</translation>
     </message>
     <message>
         <location filename="../src/qml/WelcomeScreen.qml" line="331"/>
         <source>To improve stability for everyone, QField collects and sends anonymized metrics.</source>
-        <translation type="unfinished"/>
+        <translation>لتحسين الاستقرار للجميع ، يجمع QField ويرسل معلومات الأداء مجهولة المصدر.</translation>
     </message>
     <message>
         <location filename="../src/qml/WelcomeScreen.qml" line="342"/>
@@ -2967,7 +2977,7 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <location filename="../src/qml/WelcomeScreen.qml" line="745"/>
         <source>Welcome to QField. First time using this application? Try out sample projects listed in the list below.</source>
-        <translation type="unfinished"/>
+        <translation>مرحبًا بك في QField. هل هذه أول مرة تستخدم هذا التطبيق؟ جرب عينة من المشاريع المُدرجة في القائمة أدناه.</translation>
     </message>
     <message>
         <location filename="../src/qml/WelcomeScreen.qml" line="747"/>
@@ -3005,12 +3015,12 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <location filename="../src/qml/editorwidgets/relationeditors/ordered_relation_editor.qml" line="395"/>
         <source>Should the feature &lt;b&gt;%1 (%2)&lt;/b&gt; of layer &lt;b&gt;%3&lt;/b&gt; be unlinked?&lt;br&gt;&lt;i&gt;(The connection will be deleted on layer &lt;b&gt;%4&lt;/b&gt;)&lt;/i&gt;</source>
-        <translation type="unfinished"/>
+        <translation>هل يجب إلغاء ارتباط الميزة&lt;b&gt; %1 (%2)&lt;/b&gt; للطبقة&lt;b&gt; %3&lt;/b&gt;؟ &lt;br&gt;&lt;i&gt; (سيتم حذف الاتصال في الطبقة &lt;b&gt; %4 &lt;/b&gt;)&lt;/i&gt;</translation>
     </message>
     <message>
         <location filename="../src/qml/editorwidgets/relationeditors/ordered_relation_editor.qml" line="400"/>
         <source>Should the feature &lt;b&gt;%1 (%2)&lt;/b&gt; on layer &lt;b&gt;%3&lt;/b&gt; be deleted?</source>
-        <translation type="unfinished"/>
+        <translation>هل يجب حذف الميزة &lt;b&gt;%1 (%2) &lt;/b&gt; للطبقة&lt;b&gt; %3&lt;/b&gt;؟</translation>
     </message>
     <message>
         <location filename="../src/qml/editorwidgets/relationeditors/ordered_relation_editor.qml" line="409"/>
@@ -3092,7 +3102,7 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <location filename="../src/qml/qgismobileapp.qml" line="1021"/>
         <source>Topological editing turned on</source>
-        <translation type="unfinished"/>
+        <translation>تم تشغيل التحرير الطبقي</translation>
     </message>
     <message>
         <location filename="../src/qml/qgismobileapp.qml" line="1021"/>
@@ -3102,12 +3112,12 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <location filename="../src/qml/qgismobileapp.qml" line="1069"/>
         <source>Freehand digitizing turned on</source>
-        <translation type="unfinished"/>
+        <translation>تشغيل وضع التحرير باليد الحرة</translation>
     </message>
     <message>
         <location filename="../src/qml/qgismobileapp.qml" line="1069"/>
         <source>Freehand digitizing turned off</source>
-        <translation type="unfinished"/>
+        <translation>إطفاء وضع التحرير باليد الحرة</translation>
     </message>
     <message>
         <location filename="../src/qml/qgismobileapp.qml" line="1166"/>
@@ -3384,7 +3394,7 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <location filename="../src/qml/qgismobileapp.qml" line="2236"/>
         <source>Loading %1</source>
-        <translation>تحميل %1</translation>
+        <translation>جار تحميل %1</translation>
     </message>
     <message>
         <source>Logged out</source>
@@ -3455,12 +3465,12 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <location filename="../src/qml/editorwidgets/relationeditors/relation_editor.qml" line="257"/>
         <source>Should the feature &lt;b&gt;%1 (%2)&lt;/b&gt; of layer &lt;b&gt;%3&lt;/b&gt; be unlinked?&lt;br&gt;&lt;i&gt;(The connection will be deleted on layer &lt;b&gt;%4&lt;/b&gt;)&lt;/i&gt;</source>
-        <translation type="unfinished"/>
+        <translation>هل يجب إلغاء ارتباط الميزة&lt;b&gt; %1 (%2)&lt;/b&gt; للطبقة&lt;b&gt; %3&lt;/b&gt;؟ &lt;br&gt;&lt;i&gt; (سيتم حذف الاتصال في الطبقة &lt;b&gt; %4 &lt;/b&gt;)&lt;/i&gt;</translation>
     </message>
     <message>
         <location filename="../src/qml/editorwidgets/relationeditors/relation_editor.qml" line="262"/>
         <source>Should the feature &lt;b&gt;%1 (%2)&lt;/b&gt; on layer &lt;b&gt;%3&lt;/b&gt; be deleted?</source>
-        <translation type="unfinished"/>
+        <translation>هل يجب حذف الميزة &lt;b&gt;%1 (%2) &lt;/b&gt; للطبقة&lt;b&gt; %3&lt;/b&gt;؟</translation>
     </message>
     <message>
         <location filename="../src/qml/editorwidgets/relationeditors/relation_editor.qml" line="271"/>
