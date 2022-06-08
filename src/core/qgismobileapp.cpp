@@ -1064,10 +1064,11 @@ void QgisMobileapp::readProjectFile()
     extent.setXMaximum( parts[1].toDouble() );
     extent.setYMinimum( parts[2].toDouble() );
     extent.setYMaximum( parts[3].toDouble() );
+    emit setMapExtent( extent );
   }
-  if ( !extent.isEmpty() && extent.width() != 0.0 )
+  else if ( !extent.isEmpty() && extent.width() != 0.0 )
   {
-    // Add a bit of buffer so elements don't touch the map edges
+    // Add a bit of buffer so datasets don't touch the very edge of the map on the screen
     emit setMapExtent( extent.buffered( extent.width() * 0.02 ) );
   }
 
