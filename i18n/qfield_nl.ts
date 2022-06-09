@@ -953,56 +953,56 @@ De geometrieën van objecten zullen worden gecombineerd tot object &apos;%1&apos
 <context>
     <name>LayerUtils</name>
     <message>
-        <location filename="../src/core/utils/layerutils.cpp" line="202"/>
-        <location filename="../src/core/utils/layerutils.cpp" line="290"/>
+        <location filename="../src/core/utils/layerutils.cpp" line="215"/>
+        <location filename="../src/core/utils/layerutils.cpp" line="303"/>
         <source>Cannot start editing, no layer</source>
         <translation>Kan niet beginnen met bewerken, geen laag</translation>
     </message>
     <message>
-        <location filename="../src/core/utils/layerutils.cpp" line="210"/>
-        <location filename="../src/core/utils/layerutils.cpp" line="302"/>
+        <location filename="../src/core/utils/layerutils.cpp" line="223"/>
+        <location filename="../src/core/utils/layerutils.cpp" line="315"/>
         <source>Cannot start editing</source>
         <translation>Kan niet beginnen met bewerken</translation>
     </message>
     <message>
-        <location filename="../src/core/utils/layerutils.cpp" line="234"/>
+        <location filename="../src/core/utils/layerutils.cpp" line="247"/>
         <source>Cannot commit deletion of feature %2 in layer &quot;%1&quot;. Reason:
 %3</source>
         <translation>Kan verwijdering van object %2 in laag &quot;%1&quot; niet vastleggen. Reden:
 %3</translation>
     </message>
     <message>
-        <location filename="../src/core/utils/layerutils.cpp" line="254"/>
+        <location filename="../src/core/utils/layerutils.cpp" line="267"/>
         <source>Cannot commit deletion in layer &quot;%1&quot;. Reason:
 %3</source>
         <translation>Kan verwijdering in laag &quot;%1&quot; niet uitvoeren. Reden:
 %3</translation>
     </message>
     <message>
-        <location filename="../src/core/utils/layerutils.cpp" line="263"/>
+        <location filename="../src/core/utils/layerutils.cpp" line="276"/>
         <source>Cannot delete feature %1</source>
         <translation>Kan object %1 niet verwijderen</translation>
     </message>
     <message>
-        <location filename="../src/core/utils/layerutils.cpp" line="276"/>
-        <location filename="../src/core/utils/layerutils.cpp" line="279"/>
+        <location filename="../src/core/utils/layerutils.cpp" line="289"/>
+        <location filename="../src/core/utils/layerutils.cpp" line="292"/>
         <source>Cannot rollback layer changes in layer %1</source>
         <translation>Kan laagwijzigingen in laag %1 . niet terugdraaien</translation>
     </message>
     <message>
-        <location filename="../src/core/utils/layerutils.cpp" line="296"/>
+        <location filename="../src/core/utils/layerutils.cpp" line="309"/>
         <source>Cannot copy invalid feature</source>
         <translation>Kan ongeldig object niet kopiëren</translation>
     </message>
     <message>
-        <location filename="../src/core/utils/layerutils.cpp" line="319"/>
+        <location filename="../src/core/utils/layerutils.cpp" line="332"/>
         <source>Cannot add new feature in layer &quot;%1&quot;. Reason:
 %2</source>
         <translation>Kan geen nieuw object toevoegen in laag &quot;%1&quot;. Reden:
 %2</translation>
     </message>
     <message>
-        <location filename="../src/core/utils/layerutils.cpp" line="325"/>
+        <location filename="../src/core/utils/layerutils.cpp" line="338"/>
         <source>Cannot add new feature in layer &quot;%1&quot;.</source>
         <translation>Kan geen nieuw object toevoegen aan laag &quot;%1&quot;.</translation>
     </message>

@@ -951,56 +951,56 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
 <context>
     <name>LayerUtils</name>
     <message>
-        <location filename="../src/core/utils/layerutils.cpp" line="202"/>
-        <location filename="../src/core/utils/layerutils.cpp" line="290"/>
+        <location filename="../src/core/utils/layerutils.cpp" line="215"/>
+        <location filename="../src/core/utils/layerutils.cpp" line="303"/>
         <source>Cannot start editing, no layer</source>
         <translation>无法编辑，没有图层</translation>
     </message>
     <message>
-        <location filename="../src/core/utils/layerutils.cpp" line="210"/>
-        <location filename="../src/core/utils/layerutils.cpp" line="302"/>
+        <location filename="../src/core/utils/layerutils.cpp" line="223"/>
+        <location filename="../src/core/utils/layerutils.cpp" line="315"/>
         <source>Cannot start editing</source>
         <translation>无法开始编辑</translation>
     </message>
     <message>
-        <location filename="../src/core/utils/layerutils.cpp" line="234"/>
+        <location filename="../src/core/utils/layerutils.cpp" line="247"/>
         <source>Cannot commit deletion of feature %2 in layer &quot;%1&quot;. Reason:
 %3</source>
         <translation>无法从图层 &quot;%1&quot; 删除要素 %2 ，原因：
 %3</translation>
     </message>
     <message>
-        <location filename="../src/core/utils/layerutils.cpp" line="254"/>
+        <location filename="../src/core/utils/layerutils.cpp" line="267"/>
         <source>Cannot commit deletion in layer &quot;%1&quot;. Reason:
 %3</source>
         <translation>无法在图层&quot;%1&quot;中提交删除。原因：
 %3</translation>
     </message>
     <message>
-        <location filename="../src/core/utils/layerutils.cpp" line="263"/>
+        <location filename="../src/core/utils/layerutils.cpp" line="276"/>
         <source>Cannot delete feature %1</source>
         <translation>无法删除要素 %1</translation>
     </message>
     <message>
-        <location filename="../src/core/utils/layerutils.cpp" line="276"/>
-        <location filename="../src/core/utils/layerutils.cpp" line="279"/>
+        <location filename="../src/core/utils/layerutils.cpp" line="289"/>
+        <location filename="../src/core/utils/layerutils.cpp" line="292"/>
         <source>Cannot rollback layer changes in layer %1</source>
         <translation>无法取消图层 %1 中的图层更改</translation>
     </message>
     <message>
-        <location filename="../src/core/utils/layerutils.cpp" line="296"/>
+        <location filename="../src/core/utils/layerutils.cpp" line="309"/>
         <source>Cannot copy invalid feature</source>
         <translation>无法复制无效的要素</translation>
     </message>
     <message>
-        <location filename="../src/core/utils/layerutils.cpp" line="319"/>
+        <location filename="../src/core/utils/layerutils.cpp" line="332"/>
         <source>Cannot add new feature in layer &quot;%1&quot;. Reason:
 %2</source>
         <translation>无法在图层 &quot;%1&quot; 中添加新要素。原因：
 %2</translation>
     </message>
     <message>
-        <location filename="../src/core/utils/layerutils.cpp" line="325"/>
+        <location filename="../src/core/utils/layerutils.cpp" line="338"/>
         <source>Cannot add new feature in layer &quot;%1&quot;.</source>
         <translation>无法在图层 &quot;%1&quot; 中添加新要素。</translation>
     </message>

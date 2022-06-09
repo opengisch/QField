@@ -955,56 +955,56 @@ Les géométries des objets vont être combinées dans l&apos;objet &apos;%1&apo
 <context>
     <name>LayerUtils</name>
     <message>
-        <location filename="../src/core/utils/layerutils.cpp" line="202"/>
-        <location filename="../src/core/utils/layerutils.cpp" line="290"/>
+        <location filename="../src/core/utils/layerutils.cpp" line="215"/>
+        <location filename="../src/core/utils/layerutils.cpp" line="303"/>
         <source>Cannot start editing, no layer</source>
         <translation>Édition impossible, pas de couche</translation>
     </message>
     <message>
-        <location filename="../src/core/utils/layerutils.cpp" line="210"/>
-        <location filename="../src/core/utils/layerutils.cpp" line="302"/>
+        <location filename="../src/core/utils/layerutils.cpp" line="223"/>
+        <location filename="../src/core/utils/layerutils.cpp" line="315"/>
         <source>Cannot start editing</source>
         <translation>Édition impossible</translation>
     </message>
     <message>
-        <location filename="../src/core/utils/layerutils.cpp" line="234"/>
+        <location filename="../src/core/utils/layerutils.cpp" line="247"/>
         <source>Cannot commit deletion of feature %2 in layer &quot;%1&quot;. Reason:
 %3</source>
         <translation>Impossible de supprimer l&apos;entité %2 de la couche &quot;%1&quot;. Raison:
 %3</translation>
     </message>
     <message>
-        <location filename="../src/core/utils/layerutils.cpp" line="254"/>
+        <location filename="../src/core/utils/layerutils.cpp" line="267"/>
         <source>Cannot commit deletion in layer &quot;%1&quot;. Reason:
 %3</source>
         <translation>Impossible de réaliser la suppression dans la couche &quot;%1&quot;. Raison :
 %3</translation>
     </message>
     <message>
-        <location filename="../src/core/utils/layerutils.cpp" line="263"/>
+        <location filename="../src/core/utils/layerutils.cpp" line="276"/>
         <source>Cannot delete feature %1</source>
         <translation>Impossible de supprimer l&apos;entité %1</translation>
     </message>
     <message>
-        <location filename="../src/core/utils/layerutils.cpp" line="276"/>
-        <location filename="../src/core/utils/layerutils.cpp" line="279"/>
+        <location filename="../src/core/utils/layerutils.cpp" line="289"/>
+        <location filename="../src/core/utils/layerutils.cpp" line="292"/>
         <source>Cannot rollback layer changes in layer %1</source>
         <translation>Impossible d&apos;annuler les modifications dans la couche %1</translation>
     </message>
     <message>
-        <location filename="../src/core/utils/layerutils.cpp" line="296"/>
+        <location filename="../src/core/utils/layerutils.cpp" line="309"/>
         <source>Cannot copy invalid feature</source>
         <translation>Impossible de copier une entité invalide</translation>
     </message>
     <message>
-        <location filename="../src/core/utils/layerutils.cpp" line="319"/>
+        <location filename="../src/core/utils/layerutils.cpp" line="332"/>
         <source>Cannot add new feature in layer &quot;%1&quot;. Reason:
 %2</source>
         <translation>Impossible d&apos;ajouter une nouvelle entité dans la couche &quot;%1&quot;. Raison :
 %2</translation>
     </message>
     <message>
-        <location filename="../src/core/utils/layerutils.cpp" line="325"/>
+        <location filename="../src/core/utils/layerutils.cpp" line="338"/>
         <source>Cannot add new feature in layer &quot;%1&quot;.</source>
         <translation>Impossible d&apos;ajouter une nouvelle entité dans la couche &quot;%1&quot;.</translation>
     </message>
