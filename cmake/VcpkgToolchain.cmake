@@ -33,9 +33,10 @@ if(_BUILD_FOR_ANDROID)
   set(VCPKG_CHAINLOAD_TOOLCHAIN_FILE "$ENV{ANDROID_NDK_HOME}/build/cmake/android.toolchain.cmake")
 endif()
 
+set(WITH_NUGET OFF CACHE BOOL "Enable NuGet binary caching.")
 # Binarycache can only be used on Windows or if mono is available.
 find_program(_VCPKG_MONO mono)
-if(_HOST_IS_WINDOWS OR EXISTS "${_VCPKG_MONO}")
+if(WITH_MONO AND (_HOST_IS_WINDOWS OR EXISTS "${_VCPKG_MONO}"))
   # Early bootstrap, copied from the vcpkg toolchain, we need this to fetch nuget
   if(_HOST_IS_WINDOWS)
     set(_VCPKG_EXECUTABLE "${VCPKG_ROOT}/vcpkg.exe")
