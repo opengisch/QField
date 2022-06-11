@@ -2,11 +2,13 @@ set(NUGET_SOURCE "https://nuget.pkg.github.com/opengisch/index.json")
 set(NUGET_USERNAME "qfield-fairy" CACHE STRING "Nuget user")
 # Obfuscate a (read only) github token, if it's here clear text it will be invalidated
 # Python: print(*(ord(i) for i in token), sep=";")
-set(NUGET_TOKEN_ASCII
-    103;104;112;95;116;76;65;120;74;80;120;70;84;109;122;112;85;103;68;114;106;90;52;74;55;85;117;111;107;74;48;113;70;112;51;100;52;77;113;102
-)
-string(ASCII ${NUGET_TOKEN_ASCII} NUGET_TOKEN_DEFAULT)
-set(NUGET_TOKEN ${NUGET_TOKEN_DEFAULT} CACHE STRING "Nuget token")
+
+# Disable nuget token by default
+# set(NUGET_TOKEN_ASCII
+#     103;104;112;95;116;76;65;120;74;80;120;70;84;109;122;112;85;103;68;114;106;90;52;74;55;85;117;111;107;74;48;113;70;112;51;100;52;77;113;102
+# )
+# string(ASCII ${NUGET_TOKEN_ASCII} NUGET_TOKEN_DEFAULT)
+set(NUGET_TOKEN "" CACHE STRING "Nuget token")
 
 string(COMPARE EQUAL "${CMAKE_HOST_SYSTEM_NAME}" "Windows" _HOST_IS_WINDOWS)
 set(_WITH_VCPKG_DEFAULT ${_HOST_IS_WINDOWS})
@@ -33,10 +35,9 @@ if(_BUILD_FOR_ANDROID)
   set(VCPKG_CHAINLOAD_TOOLCHAIN_FILE "$ENV{ANDROID_NDK_HOME}/build/cmake/android.toolchain.cmake")
 endif()
 
-set(WITH_NUGET OFF CACHE BOOL "Enable NuGet binary caching.")
 # Binarycache can only be used on Windows or if mono is available.
 find_program(_VCPKG_MONO mono)
-if(WITH_MONO AND (_HOST_IS_WINDOWS OR EXISTS "${_VCPKG_MONO}"))
+if(NOT "${NUGET_TOKEN}" STREQUAL "" AND (_HOST_IS_WINDOWS OR EXISTS "${_VCPKG_MONO}"))
   # Early bootstrap, copied from the vcpkg toolchain, we need this to fetch nuget
   if(_HOST_IS_WINDOWS)
     set(_VCPKG_EXECUTABLE "${VCPKG_ROOT}/vcpkg.exe")
