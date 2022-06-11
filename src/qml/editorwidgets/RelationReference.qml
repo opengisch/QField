@@ -21,16 +21,17 @@ EditorWidgetBase {
 
     currentLayer: qgisProject.relationManager.relation(config['Relation']).referencedLayer
     keyField: qgisProject.relationManager.relation(config['Relation']).resolveReferencedField(field.name)
-    // no, it is not a misspelled version of config['AllowNull']
-    addNull: config['AllowNULL']
+    addNull: config['AllowNULL'] // no, it is not a misspelled version of config['AllowNull']
     orderByValue: config['OrderByValue']
-
     attributeField: field
-    //passing "" instead of undefined, so the model is cleared on adding new features
-    attributeValue: value !== undefined ? value : ''
     currentFormFeature: currentFeature
     filterExpression: ""
     allowMulti: false
+
+    // passing "" instead of undefined, so the model is cleared on adding new features
+    // attributeValue has to be the last one set to make sure the property’s value is handled properly (e.g. allow multiple)
+    attributeValue: value !== undefined ? value : ''
+
     onListUpdated: {
       valueChangeRequested( attributeValue, false )
     }
