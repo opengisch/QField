@@ -40,7 +40,7 @@ EditorWidgetBase {
     filterExpression: config['FilterExpression']
 
     // passing "" instead of undefined, so the model is cleared on adding new features
-    // attributeValue property has to be the last one set to make sure value handled properly (e.g. allow multiple)
+    // attributeValue has to be the last property set to make sure its given value is handled properly (e.g. allow multiple)
     attributeValue: value !== undefined ? value : ""
 
     onListUpdated: {
