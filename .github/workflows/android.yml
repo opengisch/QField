@@ -114,7 +114,7 @@ jobs:
 
           echo "ndk.dir=$ANDROID_NDK_HOME" >> local.properties
           echo "yes" | sudo /usr/local/lib/android/sdk/tools/bin/sdkmanager --uninstall "ndk-bundle"
-          echo "yes" | sudo /usr/local/lib/android/sdk/tools/bin/sdkmanager --verbose "platforms;android-30" "build-tools;$ANDROID_BUILD_TOOLS_VERSION" "ndk;$ANDROID_NDK_VERSION" tools platform-tools
+          echo "yes" | sudo /usr/local/lib/android/sdk/tools/bin/sdkmanager "platforms;android-30" "build-tools;$ANDROID_BUILD_TOOLS_VERSION" "ndk;$ANDROID_NDK_VERSION" tools platform-tools
           echo "yes" | sudo /usr/local/lib/android/sdk/tools/bin/sdkmanager --licenses
 
           TRIPLET=${{ matrix.triplet }} ALL_FILES_ACCESS=${{ matrix.all_files_access }} source ./scripts/version_number.sh
