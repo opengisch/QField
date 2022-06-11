@@ -195,7 +195,9 @@ Popup {
               // one day, we should be able to show only the features that correspond to the given legend item
               featureForm.model.setFeatures( vl )
             }
-            mapCanvas.mapSettings.extent = layerTree.nodeExtent( index, mapCanvas.mapSettings )
+            if (layerTree.data(index, FlatLayerTreeModel.HasSpatialExtent)) {
+              mapCanvas.mapSettings.extent = layerTree.nodeExtent( index, mapCanvas.mapSettings )
+            }
           }
 
           close()
