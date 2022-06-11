@@ -29,9 +29,8 @@ EditorWidgetBase {
 
   FeatureCheckListModel {
     id: listModel
+    allowMulti: Number(config['AllowMulti']) === 1
     attributeField: field
-    //passing "" instead of undefined, so the model is cleared on adding new features
-    attributeValue: value !== undefined ? value : ""
     currentLayer: layerResolver.currentLayer
     currentFormFeature: currentFeature
     keyField: config['Key']
@@ -39,7 +38,11 @@ EditorWidgetBase {
     addNull: config['AllowNull']
     orderByValue: config['OrderByValue']
     filterExpression: config['FilterExpression']
-    allowMulti: Number(config['AllowMulti']) === 1
+
+    // passing "" instead of undefined, so the model is cleared on adding new features
+    // attributeValue property has to be the last one set to make sure value handled properly (e.g. allow multiple)
+    attributeValue: value !== undefined ? value : ""
+
     onListUpdated: {
       valueChangeRequested( attributeValue, false )
     }
@@ -137,7 +140,7 @@ EditorWidgetBase {
             bottomPadding: 4
             font: Theme.defaultFont
             color: !isEnabled ? 'grey' : 'black'
-            text: { text: model.displayString }
+            text: model.displayString
             wrapMode: Text.WordWrap
           }
         }
