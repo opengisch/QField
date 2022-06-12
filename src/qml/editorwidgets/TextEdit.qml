@@ -105,7 +105,7 @@ EditorWidgetBase {
         color: "white";
     }
 
-    onEditingFinished: {
+    onTextChanged: {
       valueChangeRequested( text, text == '' )
     }
   }
