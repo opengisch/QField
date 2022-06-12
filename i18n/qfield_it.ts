@@ -927,27 +927,27 @@ Le geometrie degli elementi verranno combinati in un elemento &apos;%1&apos; che
         <translation>Il layer non ha elementi</translation>
     </message>
     <message>
-        <location filename="../src/qml/LayerTreeItemProperties.qml" line="219"/>
+        <location filename="../src/qml/LayerTreeItemProperties.qml" line="221"/>
         <source>Track on layer %1 stopped</source>
         <translation>Tracking sul layer %1 interrotto</translation>
     </message>
     <message>
-        <location filename="../src/qml/LayerTreeItemProperties.qml" line="241"/>
+        <location filename="../src/qml/LayerTreeItemProperties.qml" line="243"/>
         <source>Read-Only Layer</source>
         <translation>Layer in sola lettura</translation>
     </message>
     <message>
-        <location filename="../src/qml/LayerTreeItemProperties.qml" line="241"/>
+        <location filename="../src/qml/LayerTreeItemProperties.qml" line="243"/>
         <source>Geometry Locked Layer</source>
         <translation>Layer a Geometria Bloccata</translation>
     </message>
     <message>
-        <location filename="../src/qml/LayerTreeItemProperties.qml" line="248"/>
+        <location filename="../src/qml/LayerTreeItemProperties.qml" line="250"/>
         <source>This layer is configured as &quot;Read-Only&quot; which disables adding, deleting and editing features.</source>
         <translation>Questo layer è configurato come &quot;Sola-Lettura&quot; che disabilita l&apos;aggiunta, l&apos;eliminazione e la modifica degli elementi.</translation>
     </message>
     <message>
-        <location filename="../src/qml/LayerTreeItemProperties.qml" line="250"/>
+        <location filename="../src/qml/LayerTreeItemProperties.qml" line="252"/>
         <source>This layer is configured as &quot;Lock Geometries&quot; which disables adding and deleting features, as well as modifying the geometries of existing features.</source>
         <translation>Questo layer è configurato come &quot;Geometrie Bloccate&quot; che disabilita l&apos;aggiunta e l&apos;eliminazione degli elementi, nonché la modifica delle geometrie degli elementi esistenti.</translation>
     </message>

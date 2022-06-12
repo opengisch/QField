@@ -921,27 +921,27 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
         <translation>Der Layer beinhaltet keine Objekte</translation>
     </message>
     <message>
-        <location filename="../src/qml/LayerTreeItemProperties.qml" line="219"/>
+        <location filename="../src/qml/LayerTreeItemProperties.qml" line="221"/>
         <source>Track on layer %1 stopped</source>
         <translation>Tracking in Layer %1 deaktiviert</translation>
     </message>
     <message>
-        <location filename="../src/qml/LayerTreeItemProperties.qml" line="241"/>
+        <location filename="../src/qml/LayerTreeItemProperties.qml" line="243"/>
         <source>Read-Only Layer</source>
         <translation>Nur Lesezugriff auf Layer</translation>
     </message>
     <message>
-        <location filename="../src/qml/LayerTreeItemProperties.qml" line="241"/>
+        <location filename="../src/qml/LayerTreeItemProperties.qml" line="243"/>
         <source>Geometry Locked Layer</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/qml/LayerTreeItemProperties.qml" line="248"/>
+        <location filename="../src/qml/LayerTreeItemProperties.qml" line="250"/>
         <source>This layer is configured as &quot;Read-Only&quot; which disables adding, deleting and editing features.</source>
         <translation>Dieser Layer ist als &quot;nicht bearbeitbar&quot; konfiguriert, was das Hinzufügen, Löschen und Editieren von Objekten verhindert</translation>
     </message>
     <message>
-        <location filename="../src/qml/LayerTreeItemProperties.qml" line="250"/>
+        <location filename="../src/qml/LayerTreeItemProperties.qml" line="252"/>
         <source>This layer is configured as &quot;Lock Geometries&quot; which disables adding and deleting features, as well as modifying the geometries of existing features.</source>
         <translation>Bei diesem Layer ist das Bearbeiten von Geometrien gesperrt. Dies verhindert sowohl das Hinzufügen und Löschen von Objekten, als auch das Bearbeiten der Geometrien von bestehenden Objekten</translation>
     </message>

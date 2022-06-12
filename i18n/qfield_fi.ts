@@ -925,27 +925,27 @@ Kohteen geometriat yhdistetään kohteeseen &apos;%1&apos;, johon sisällytetä�
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/qml/LayerTreeItemProperties.qml" line="219"/>
+        <location filename="../src/qml/LayerTreeItemProperties.qml" line="221"/>
         <source>Track on layer %1 stopped</source>
         <translation>Jäljitys %1 tasolla keskeytetty</translation>
     </message>
     <message>
-        <location filename="../src/qml/LayerTreeItemProperties.qml" line="241"/>
+        <location filename="../src/qml/LayerTreeItemProperties.qml" line="243"/>
         <source>Read-Only Layer</source>
         <translation>Vain-luku-taso</translation>
     </message>
     <message>
-        <location filename="../src/qml/LayerTreeItemProperties.qml" line="241"/>
+        <location filename="../src/qml/LayerTreeItemProperties.qml" line="243"/>
         <source>Geometry Locked Layer</source>
         <translation>Lukittu-geometria-taso</translation>
     </message>
     <message>
-        <location filename="../src/qml/LayerTreeItemProperties.qml" line="248"/>
+        <location filename="../src/qml/LayerTreeItemProperties.qml" line="250"/>
         <source>This layer is configured as &quot;Read-Only&quot; which disables adding, deleting and editing features.</source>
         <translation>Taso on konfiguroitu &quot;vain-luku&quot;-muotoon, mikä estää kohteiden lisäyksen, poistamisen ja muokkauksen.</translation>
     </message>
     <message>
-        <location filename="../src/qml/LayerTreeItemProperties.qml" line="250"/>
+        <location filename="../src/qml/LayerTreeItemProperties.qml" line="252"/>
         <source>This layer is configured as &quot;Lock Geometries&quot; which disables adding and deleting features, as well as modifying the geometries of existing features.</source>
         <translation>Tämä taso on konfiguroitu &quot;lukittu-geometria&quot;-muotoon, mikä estää kohteiden lisäyksen, poistamisen ja olemassa olevien kohteiden geometrioiden muokkauksen.</translation>
     </message>

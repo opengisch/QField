@@ -927,27 +927,27 @@ As geometrias dos recursos serão combinadas no recurso &apos;% &apos;, que mant
         <translation>A camada não tem elementos</translation>
     </message>
     <message>
-        <location filename="../src/qml/LayerTreeItemProperties.qml" line="219"/>
+        <location filename="../src/qml/LayerTreeItemProperties.qml" line="221"/>
         <source>Track on layer %1 stopped</source>
         <translation>Rastreamento na camada % 1 parada</translation>
     </message>
     <message>
-        <location filename="../src/qml/LayerTreeItemProperties.qml" line="241"/>
+        <location filename="../src/qml/LayerTreeItemProperties.qml" line="243"/>
         <source>Read-Only Layer</source>
         <translation>Camada apenas de leitura</translation>
     </message>
     <message>
-        <location filename="../src/qml/LayerTreeItemProperties.qml" line="241"/>
+        <location filename="../src/qml/LayerTreeItemProperties.qml" line="243"/>
         <source>Geometry Locked Layer</source>
         <translation>Bloquear geometria da camada</translation>
     </message>
     <message>
-        <location filename="../src/qml/LayerTreeItemProperties.qml" line="248"/>
+        <location filename="../src/qml/LayerTreeItemProperties.qml" line="250"/>
         <source>This layer is configured as &quot;Read-Only&quot; which disables adding, deleting and editing features.</source>
         <translation>Esta camada é configurada como &quot;Apenas leitura&quot; o que desativa a adição, exclusão e edição de elementos.</translation>
     </message>
     <message>
-        <location filename="../src/qml/LayerTreeItemProperties.qml" line="250"/>
+        <location filename="../src/qml/LayerTreeItemProperties.qml" line="252"/>
         <source>This layer is configured as &quot;Lock Geometries&quot; which disables adding and deleting features, as well as modifying the geometries of existing features.</source>
         <translation>Esta camada está configurada como &quot;Bloquear Geometrias&quot; o que desativa a opção de adicionar e apagar elementos, bem como modificar as geometrias de elementos existentes.</translation>
     </message>

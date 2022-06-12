@@ -921,27 +921,27 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
         <translation>لا تحوي الطبقة أي ميزات</translation>
     </message>
     <message>
-        <location filename="../src/qml/LayerTreeItemProperties.qml" line="219"/>
+        <location filename="../src/qml/LayerTreeItemProperties.qml" line="221"/>
         <source>Track on layer %1 stopped</source>
         <translation>تم إيقاف التتبع على الطبقة %1</translation>
     </message>
     <message>
-        <location filename="../src/qml/LayerTreeItemProperties.qml" line="241"/>
+        <location filename="../src/qml/LayerTreeItemProperties.qml" line="243"/>
         <source>Read-Only Layer</source>
         <translation>طبقات القراءة فقط</translation>
     </message>
     <message>
-        <location filename="../src/qml/LayerTreeItemProperties.qml" line="241"/>
+        <location filename="../src/qml/LayerTreeItemProperties.qml" line="243"/>
         <source>Geometry Locked Layer</source>
         <translation>طبقة مقفولة الرسم</translation>
     </message>
     <message>
-        <location filename="../src/qml/LayerTreeItemProperties.qml" line="248"/>
+        <location filename="../src/qml/LayerTreeItemProperties.qml" line="250"/>
         <source>This layer is configured as &quot;Read-Only&quot; which disables adding, deleting and editing features.</source>
         <translation>هذه الطبقة مضبوطة &quot;للقراءة فقط&quot;، حيث لا يمكن إضافة أو حذف أو تحرير أي ميزة فيها. </translation>
     </message>
     <message>
-        <location filename="../src/qml/LayerTreeItemProperties.qml" line="250"/>
+        <location filename="../src/qml/LayerTreeItemProperties.qml" line="252"/>
         <source>This layer is configured as &quot;Lock Geometries&quot; which disables adding and deleting features, as well as modifying the geometries of existing features.</source>
         <translation>هذه الطبقة مضبوطة مقفولة الأشكال، حيث لا يمكن إضافة أو حذف الميزات، بينما يمكن تحرير أشكال الميزات الموجودة فقط.</translation>
     </message>
