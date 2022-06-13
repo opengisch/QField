@@ -191,7 +191,7 @@
     <message>
         <location filename="../src/qml/BookmarkProperties.qml" line="178"/>
         <source>Copy bookmark details</source>
-        <translation type="unfinished"/>
+        <translation>Копирай детайлите на отметката</translation>
     </message>
     <message>
         <source>Lon</source>
@@ -212,7 +212,7 @@
     <message>
         <location filename="../src/qml/BookmarkProperties.qml" line="186"/>
         <source>Bookmark details copied to clipboard</source>
-        <translation type="unfinished"/>
+        <translation>Детайлите на отметката са копирани</translation>
     </message>
     <message>
         <location filename="../src/qml/BookmarkProperties.qml" line="195"/>
@@ -436,7 +436,7 @@
     <message>
         <location filename="../src/qml/DigitizingToolbar.qml" line="216"/>
         <source>The collected positions count does not meet the requirement</source>
-        <translation type="unfinished"/>
+        <translation>Броят събрани позиции не удовлетворява изикванията</translation>
     </message>
     <message>
         <location filename="../src/qml/DigitizingToolbar.qml" line="282"/>
@@ -812,12 +812,12 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <message>
         <location filename="../src/core/locator/gotolocatorfilter.cpp" line="146"/>
         <source>Go to %1%2 %3%4 (Map CRS, %5)</source>
-        <translation type="unfinished"/>
+        <translation>Върви на %1%2 %3%4(CRS на картата, %5)</translation>
     </message>
     <message>
         <location filename="../src/core/locator/gotolocatorfilter.cpp" line="181"/>
         <source>Go to %1°N %2°E (%3)</source>
-        <translation type="unfinished"/>
+        <translation>Върви на %1°N %2°E (%3)</translation>
     </message>
 </context>
 <context>
@@ -892,12 +892,12 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <message>
         <location filename="../src/qml/LayerTreeItemProperties.qml" line="147"/>
         <source>Zoom to group</source>
-        <translation type="unfinished"/>
+        <translation>Покажи групата</translation>
     </message>
     <message>
         <location filename="../src/qml/LayerTreeItemProperties.qml" line="149"/>
         <source>Zoom to parent layer</source>
-        <translation type="unfinished"/>
+        <translation>Покажи бащиния слой</translation>
     </message>
     <message>
         <location filename="../src/qml/LayerTreeItemProperties.qml" line="150"/>
@@ -2152,47 +2152,47 @@ While you can still view and use the project, it is strongly recommended to rese
     <message>
         <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="20"/>
         <source>Project Folder</source>
-        <translation type="unfinished"/>
+        <translation>Директория на проекта</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="21"/>
         <source>Local Projects &amp; Datasets</source>
-        <translation type="unfinished"/>
+        <translation>Проекти и файлове на устройството</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="107"/>
         <source>Folders</source>
-        <translation type="unfinished"/>
+        <translation>Директории</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="109"/>
         <source>Projects</source>
-        <translation type="unfinished"/>
+        <translation>Проекти</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="111"/>
         <source>Datasets</source>
-        <translation type="unfinished"/>
+        <translation>Данни</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="113"/>
         <source>Favorites</source>
-        <translation type="unfinished"/>
+        <translation>Любими</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="211"/>
         <source>Project file</source>
-        <translation type="unfinished"/>
+        <translation>Файл на проекта</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="214"/>
         <source>Vector dataset</source>
-        <translation type="unfinished"/>
+        <translation>Векторни данни</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="217"/>
         <source>Raster dataset</source>
-        <translation type="unfinished"/>
+        <translation>Растерни данни</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="372"/>
@@ -2203,42 +2203,42 @@ While you can still view and use the project, it is strongly recommended to rese
         <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="386"/>
         <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="415"/>
         <source>Export to folder...</source>
-        <translation type="unfinished"/>
+        <translation>Експортирай в директория...</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="401"/>
         <source>Remove dataset</source>
-        <translation type="unfinished"/>
+        <translation>Премахни данните</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="429"/>
         <source>Send compressed folder to...</source>
-        <translation type="unfinished"/>
+        <translation>Сподели компресираната директория...</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="444"/>
         <source>Remove project folder</source>
-        <translation type="unfinished"/>
+        <translation>Изтрий директорията на проекта</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="472"/>
         <source>Import project from folder</source>
-        <translation type="unfinished"/>
+        <translation>Импортирай проект от директория</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="484"/>
         <source>Import project from ZIP</source>
-        <translation type="unfinished"/>
+        <translation>Импортирай проект от ZIP</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="496"/>
         <source>Import dataset(s)</source>
-        <translation type="unfinished"/>
+        <translation>Импортирай данните</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="510"/>
         <source>Storage management help</source>
-        <translation type="unfinished"/>
+        <translation>Помощ с управление на паметта</translation>
     </message>
 </context>
 <context>
@@ -2473,17 +2473,17 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <location filename="../src/qml/QFieldSettings.qml" line="744"/>
         <source>Enable averaged positioning requirement</source>
-        <translation type="unfinished"/>
+        <translation>Разреши осреднено позициониране</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldSettings.qml" line="766"/>
         <source>Minimum number of positions collected</source>
-        <translation type="unfinished"/>
+        <translation>Минимален брой събрани позиции</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldSettings.qml" line="807"/>
         <source>When enabled, digitizing vertices with a cursor locked to position will only accepted an averaged position from a minimum number of collected positions. Digitizing using averaged positions is done by pressing and holding the add vertex button, which will collect positions until the press is released. Accuracy requirement settings are respected when enabled.</source>
-        <translation type="unfinished"/>
+        <translation>При активиране, добавянето на нови възли със заключен индикатор за локация ще записва само осреднено позициониране от минимален брой събрани позиции. Цифроването чрез осреднено позициониране се случва чрез натискане и задържане на бутона за добавяне на възли, който ще извършва нови позиционирания докато бутонът не се отпусне. Настройките за точност се вземат в предвид.</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldSettings.qml" line="821"/>
@@ -2636,7 +2636,7 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <location filename="../src/core/utils/positioningutils.cpp" line="78"/>
         <source>averaged</source>
-        <translation type="unfinished"/>
+        <translation>осреднено</translation>
     </message>
 </context>
 <context>
@@ -3078,7 +3078,7 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <location filename="../src/qml/qgismobileapp.qml" line="714"/>
         <source>Perimeter</source>
-        <translation type="unfinished"/>
+        <translation>Периметър</translation>
     </message>
     <message>
         <location filename="../src/qml/qgismobileapp.qml" line="719"/>
@@ -3128,12 +3128,12 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <location filename="../src/qml/qgismobileapp.qml" line="1166"/>
         <source>Coordinate cursor now locked to position</source>
-        <translation>Индикатора за локация е заключен</translation>
+        <translation>Индикаторът за локация е заключен</translation>
     </message>
     <message>
         <location filename="../src/qml/qgismobileapp.qml" line="1176"/>
         <source>Coordinate cursor unlocked</source>
-        <translation>Индикатора за локация е отзаключен</translation>
+        <translation>Индикаторът за локация е отзаключен</translation>
     </message>
     <message>
         <location filename="../src/qml/qgismobileapp.qml" line="1196"/>
@@ -3203,12 +3203,12 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <location filename="../src/qml/qgismobileapp.qml" line="1609"/>
         <source>Go to Home Screen</source>
-        <translation type="unfinished"/>
+        <translation>Обратно на начален екран</translation>
     </message>
     <message>
         <location filename="../src/qml/qgismobileapp.qml" line="1625"/>
         <source>Open Project Folder</source>
-        <translation type="unfinished"/>
+        <translation>Отвори проектна директория</translation>
     </message>
     <message>
         <source>Open Project</source>
