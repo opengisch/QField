@@ -7,16 +7,17 @@ import org.qfield 1.0
 import "."
 
 EditorWidgetBase {
-  height: childrenRect.height
+  id: rangeItem
   enabled: isEnabled
 
-  id: rangeItem
   property string widgetStyle: config["Style"] ? config["Style"] : "TextField"
   property int precision: config["Precision"] ? config["Precision"] : 1
-  property real from: config["Min"] ? config["Min"] : -Infinity
-  property real to: config["Max"] ? config["Max"] : Infinity
-  property real step: config["Step"] ? config["Step"] : 1
+  property real min: config["Min"] !== undefined ? config["Min"] : -Infinity
+  property real max: config["Max"] !== undefined ? config["Max"] : Infinity
+  property real step: config["Step"] !== undefined ? config["Step"] : 1
   property string suffix: config["Suffix"] ? config["Suffix"] : ""
+
+  height: childrenRect.height
 
   Row {
       anchors.left: parent.left
@@ -131,10 +132,10 @@ EditorWidgetBase {
           var hitBoundary = false;
           if ( increase ) {
               increaseValue();
-              hitBoundary = textField.text == rangeItem.to
+              hitBoundary = textField.text == rangeItem.max
           } else {
               decreaseValue();
-              hitBoundary = textField.text == rangeItem.from;
+              hitBoundary = textField.text == rangeItem.min;
           }
 
           if ( !hitBoundary ) {
@@ -146,20 +147,26 @@ EditorWidgetBase {
   }
 
   function decreaseValue() {
-      if ( textField.text ) {
-          var newValue = textField.text * 1 - rangeItem.step;
-          textField.text = Math.max( rangeItem.from, newValue );
+      var currentValue = Number.parseFloat(textField.text)
+      var newValue
+      if (!isNaN(currentValue)) {
+          newValue = currentValue - rangeItem.step;
+          valueChangeRequested(Math.max(rangeItem.min, newValue), false)
       } else {
-          textField.text = Number.isFinite(rangeItem.from) ? rangeItem.from : 0;
+          newValue = Number.isFinite(rangeItem.min) ? rangeItem.min : 0;
+          valueChangeRequested(newValue, false)
       }
   }
 
   function increaseValue() {
-      if ( textField.text ) {
-          var newValue = textField.text * 1 + rangeItem.step;
-          textField.text = Math.min( rangeItem.to, newValue );
+    var currentValue = Number.parseFloat(textField.text)
+    var newValue
+    if (!isNaN(currentValue)) {
+          newValue = currentValue + rangeItem.step;
+          valueChangeRequested(Math.min(rangeItem.max, newValue ), false)
       } else {
-          textField.text = Number.isFinite(rangeItem.to) ? rangeItem.to : 0;
+          newValue = Number.isFinite(rangeItem.max) ? rangeItem.max : 0;
+          valueChangeRequested(newValue, false)
       }
   }
 
@@ -186,9 +193,9 @@ EditorWidgetBase {
       width: sliderRow.width - valueLabel.width
       height: fontMetrics.height + 20
       implicitWidth: width
-      from: !Number.isFinite(rangeItem.from) || rangeItem.from == null ? Number.MIN_VALUE : rangeItem.from
-      to: !Number.isFinite(rangeItem.to) || rangeItem.to == null ? Number.MAX_VALUE : rangeItem.to
-      stepSize: !Number.isFinite(rangeItem.step) || rangeItem.step == null ? 1 : rangeItem.step
+      from: !Number.isFinite(rangeItem.min) ? Number.MIN_VALUE : rangeItem.min
+      to: !Number.isFinite(rangeItem.max) ? Number.MAX_VALUE : rangeItem.max
+      stepSize: !Number.isFinite(rangeItem.step) ? 1 : rangeItem.step
 
       onValueChanged: {
         if (sliderRow.visible) {
@@ -236,8 +243,8 @@ EditorWidgetBase {
   IntValidator {
     id: intValidator
 
-    bottom: from
-    top: to
+    bottom: rangeItem.min
+    top: rangeItem.max
   }
 
   DoubleValidator {
@@ -245,7 +252,7 @@ EditorWidgetBase {
 
     locale: 'C'
 
-    bottom: from
-    top: to
+    bottom: rangeItem.min
+    top: rangeItem.max
   }
 }
