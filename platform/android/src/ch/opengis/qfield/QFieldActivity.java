@@ -237,8 +237,11 @@ public class QFieldActivity extends QtActivity {
     }
 
     private void showBlockingProgressDialog(String message) {
-        progressDialog = ProgressDialog.show(this, "", message, true);
+        progressDialog = new ProgressDialog(this, R.style.DialogTheme);
+        progressDialog.setMessage(message);
+        progressDialog.setIndeterminate(true);
         progressDialog.setCancelable(false);
+        progressDialog.show();
     }
 
     private void dismissBlockingProgressDialog() {
@@ -496,7 +499,8 @@ public class QFieldActivity extends QtActivity {
 
     private void removeDataset(String path) {
         File file = new File(path);
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        AlertDialog.Builder builder =
+            new AlertDialog.Builder(this, R.style.DialogTheme);
         builder.setTitle(getString(R.string.delete_confirm_title));
         builder.setMessage(getString(R.string.delete_confirm_dataset));
         builder.setPositiveButton(
@@ -571,10 +575,13 @@ public class QFieldActivity extends QtActivity {
             return;
         }
 
-        ProgressDialog progressDialog = ProgressDialog.show(
-            this, "", "Please wait while QField is importing the project",
-            true);
+        ProgressDialog progressDialog =
+            new ProgressDialog(this, R.style.DialogTheme);
+        progressDialog.setMessage(
+            "Please wait while QField is importing the dataset(s)");
+        progressDialog.setIndeterminate(true);
         progressDialog.setCancelable(false);
+        progressDialog.show();
 
         String importDatasetPath =
             externalFilesDir.getAbsolutePath() + "/Imported Datasets/";
@@ -609,7 +616,9 @@ public class QFieldActivity extends QtActivity {
                 progressDialog.dismiss();
                 if (!imported) {
                     AlertDialog alertDialog =
-                        new AlertDialog.Builder(QFieldActivity.this).create();
+                        new AlertDialog
+                            .Builder(QFieldActivity.this, R.style.DialogTheme)
+                            .create();
                     alertDialog.setTitle(getString(R.string.import_error));
                     alertDialog.setMessage(
                         getString(R.string.import_dataset_error));
@@ -629,10 +638,13 @@ public class QFieldActivity extends QtActivity {
             return;
         }
 
-        ProgressDialog progressDialog = ProgressDialog.show(
-            this, "", "Please wait while QField is importing the project",
-            true);
+        ProgressDialog progressDialog =
+            new ProgressDialog(this, R.style.DialogTheme);
+        progressDialog.setMessage(
+            "Please wait while QField is importing the project");
+        progressDialog.setIndeterminate(true);
         progressDialog.setCancelable(false);
+        progressDialog.show();
 
         String importProjectPath =
             externalFilesDir.getAbsolutePath() + "/Imported Projects/";
@@ -657,7 +669,9 @@ public class QFieldActivity extends QtActivity {
                     openPath(importPath);
                 } else {
                     AlertDialog alertDialog =
-                        new AlertDialog.Builder(QFieldActivity.this).create();
+                        new AlertDialog
+                            .Builder(QFieldActivity.this, R.style.DialogTheme)
+                            .create();
                     alertDialog.setTitle(getString(R.string.import_error));
                     alertDialog.setMessage(
                         getString(R.string.import_project_folder_error));
@@ -675,10 +689,13 @@ public class QFieldActivity extends QtActivity {
             return;
         }
 
-        ProgressDialog progressDialog = ProgressDialog.show(
-            this, "", "Please wait while QField is importing the project",
-            true);
+        ProgressDialog progressDialog =
+            new ProgressDialog(this, R.style.DialogTheme);
+        progressDialog.setMessage(
+            "Please wait while QField is importing the project");
+        progressDialog.setIndeterminate(true);
         progressDialog.setCancelable(false);
+        progressDialog.show();
 
         String importProjectPath =
             externalFilesDir.getAbsolutePath() + "/Imported Projects/";
@@ -716,7 +733,9 @@ public class QFieldActivity extends QtActivity {
                     } catch (Exception e) {
                         e.printStackTrace();
                         AlertDialog alertDialog =
-                            new AlertDialog.Builder(QFieldActivity.this)
+                            new AlertDialog
+                                .Builder(QFieldActivity.this,
+                                         R.style.DialogTheme)
                                 .create();
                         alertDialog.setTitle(getString(R.string.import_error));
                         alertDialog.setMessage(
@@ -796,7 +815,8 @@ public class QFieldActivity extends QtActivity {
                 return;
             }
 
-            AlertDialog.Builder builder = new AlertDialog.Builder(this);
+            AlertDialog.Builder builder =
+                new AlertDialog.Builder(this, R.style.DialogTheme);
             builder.setTitle(getString(R.string.grant_permission));
             builder.setMessage(
                 Build.VERSION.SDK_INT >= Build.VERSION_CODES.N
@@ -891,7 +911,8 @@ public class QFieldActivity extends QtActivity {
             }
 
             if (hasExists) {
-                AlertDialog.Builder builder = new AlertDialog.Builder(this);
+                AlertDialog.Builder builder =
+                    new AlertDialog.Builder(this, R.style.DialogTheme);
                 builder.setTitle(getString(R.string.import_overwrite_title));
                 builder.setMessage(
                     datasetUris.length > 1
@@ -933,7 +954,8 @@ public class QFieldActivity extends QtActivity {
                 new File(externalFilesDir.getAbsolutePath() +
                          "/Imported Projects/" + directory.getName() + "/");
             if (importPath.exists()) {
-                AlertDialog.Builder builder = new AlertDialog.Builder(this);
+                AlertDialog.Builder builder =
+                    new AlertDialog.Builder(this, R.style.DialogTheme);
                 builder.setTitle(getString(R.string.import_overwrite_title));
                 builder.setMessage(getString(R.string.import_overwrite_folder));
                 builder.setPositiveButton(
@@ -981,7 +1003,8 @@ public class QFieldActivity extends QtActivity {
                     0, documentFile.getName().lastIndexOf(".")) +
                 "/");
             if (importPath.exists()) {
-                AlertDialog.Builder builder = new AlertDialog.Builder(this);
+                AlertDialog.Builder builder =
+                    new AlertDialog.Builder(this, R.style.DialogTheme);
                 builder.setTitle(getString(R.string.import_overwrite_title));
                 builder.setMessage(getString(R.string.import_overwrite_folder));
                 builder.setPositiveButton(
@@ -1028,7 +1051,9 @@ public class QFieldActivity extends QtActivity {
 
                     if (!exported) {
                         AlertDialog alertDialog =
-                            new AlertDialog.Builder(QFieldActivity.this)
+                            new AlertDialog
+                                .Builder(QFieldActivity.this,
+                                         R.style.DialogTheme)
                                 .create();
                         alertDialog.setTitle(getString(R.string.export_error));
                         alertDialog.setMessage(
