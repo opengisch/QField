@@ -147,26 +147,26 @@ EditorWidgetBase {
   }
 
   function decreaseValue() {
-      var currentValue = textField.text
+      var currentValue = Number.parseFloat(textField.text)
       var newValue
-      if ( currentValue ) {
-          newValue = currentValue * 1 - rangeItem.step;
-          valueChangeRequested( Math.max( rangeItem.min, newValue ), false )
+      if (!isNaN(currentValue)) {
+          newValue = currentValue - rangeItem.step;
+          valueChangeRequested(Math.max(rangeItem.min, newValue), false)
       } else {
           newValue = Number.isFinite(rangeItem.min) ? rangeItem.min : 0;
-          valueChangeRequested( newValue, false )
+          valueChangeRequested(newValue, false)
       }
   }
 
   function increaseValue() {
-    var currentValue = textField.text
+    var currentValue = Number.parseFloat(textField.text)
     var newValue
-      if ( currentValue ) {
-          newValue = textField.text * 1 + rangeItem.step;
-          valueChangeRequested( Math.min( rangeItem.max, newValue ), false )
+    if (!isNaN(currentValue)) {
+          newValue = currentValue + rangeItem.step;
+          valueChangeRequested(Math.min(rangeItem.max, newValue ), false)
       } else {
           newValue = Number.isFinite(rangeItem.max) ? rangeItem.max : 0;
-          valueChangeRequested( newValue, false )
+          valueChangeRequested(newValue, false)
       }
   }
 
