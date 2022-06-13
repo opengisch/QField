@@ -577,8 +577,7 @@ public class QFieldActivity extends QtActivity {
 
         ProgressDialog progressDialog =
             new ProgressDialog(this, R.style.DialogTheme);
-        progressDialog.setMessage(
-            "Please wait while QField is importing the dataset(s)");
+        progressDialog.setMessage(getString(R.string.import_dataset_wait));
         progressDialog.setIndeterminate(true);
         progressDialog.setCancelable(false);
         progressDialog.show();
@@ -640,8 +639,7 @@ public class QFieldActivity extends QtActivity {
 
         ProgressDialog progressDialog =
             new ProgressDialog(this, R.style.DialogTheme);
-        progressDialog.setMessage(
-            "Please wait while QField is importing the project");
+        progressDialog.setMessage(getString(R.string.import_project_wait));
         progressDialog.setIndeterminate(true);
         progressDialog.setCancelable(false);
         progressDialog.show();
@@ -691,8 +689,7 @@ public class QFieldActivity extends QtActivity {
 
         ProgressDialog progressDialog =
             new ProgressDialog(this, R.style.DialogTheme);
-        progressDialog.setMessage(
-            "Please wait while QField is importing the project");
+        progressDialog.setMessage(getString(R.string.import_project_wait));
         progressDialog.setIndeterminate(true);
         progressDialog.setCancelable(false);
         progressDialog.show();
