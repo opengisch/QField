@@ -814,12 +814,12 @@ Les géométries des objets vont être combinées dans l&apos;objet &apos;%1&apo
     <message>
         <location filename="../src/core/locator/gotolocatorfilter.cpp" line="146"/>
         <source>Go to %1%2 %3%4 (Map CRS, %5)</source>
-        <translation type="unfinished"/>
+        <translation>Aller à %1%2 %3%4 (CRS carte, %5)</translation>
     </message>
     <message>
         <location filename="../src/core/locator/gotolocatorfilter.cpp" line="181"/>
         <source>Go to %1°N %2°E (%3)</source>
-        <translation type="unfinished"/>
+        <translation>Aller à %1N %2E (%3)</translation>
     </message>
 </context>
 <context>

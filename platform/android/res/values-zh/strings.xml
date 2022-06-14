@@ -66,4 +66,6 @@
     <string name="storage_information_message">无论您是原来使用过 QField 1.x 的用户，想了解为什么您的工程和数据集丢失了，还是刚接触QField，我们都建议您花一点时间阅读存储处理文档。此文档的快捷方式仍可在标题栏的操作菜单中访问。</string>
     <string name="storage_information_view">给我看看文档</string>
     <string name="storage_information_dismiss">我稍后阅读</string>
+    <string name="import_project_wait">QField正在导入工程，请稍候</string>
+    <string name="import_dataset_wait">QField正在导入数据集，请稍候</string>
 </resources>

@@ -67,4 +67,6 @@ Merci pour votre soutien !</string>
     <string name="storage_information_message">Que vous soyez un utilisateur préexistant de QField 1.x et que vous vous demandiez pourquoi vos projets et ensembles de données ont disparu ou que vous soyez nouveau dans QField, nous vous suggérons de prendre une minute pour lire la documentation sur la gestion du stockage. Un raccourci vers cette documentation restera accessible dans le menu actions de la barre de titre.</string>
     <string name="storage_information_view">Montrez-moi la documentation</string>
     <string name="storage_information_dismiss">Je lirai plus tard</string>
+    <string name="import_project_wait">Veuillez patienter, QField importe le projet</string>
+    <string name="import_dataset_wait">Veuillez patienter, QField importe le(s) jeu(x) de données</string>
 </resources>

@@ -64,4 +64,4 @@
     <string name="storage_information_message">Niezależnie od tego, czy jesteś wcześniejszym użytkownikiem QField 1.x i zastanawiasz się, dlaczego Twoje projekty i zestawy danych zaginęły lub też jesteś nowym użytkownikiem QField, sugerujemy Ci poświęcenie chwili na zapoznanie się z dokumentacją dotyczącą obsługi pamięci masowej. Skrót do tej dokumentacji pozostanie dostępny w menu czynności na pasku tytułu. </string>
     <string name="storage_information_view">Wyświetl dokumentację</string>
     <string name="storage_information_dismiss">Poczytam później</string>
-</resources>
+    </resources>

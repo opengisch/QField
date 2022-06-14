@@ -68,4 +68,4 @@
     <string name="storage_information_message">في حال كنت مستخدم لتطبيق QField 1.x، فقد تفقد بعض قواعد البيانات والمشاريع، نقترح عليك تفريغ بعض الوقت لقراءة وثائق التعامل مع الذاكرة. سيبقى اختصار لهذه الوثائق متاح في شريط التسمية في القائمة.</string>
     <string name="storage_information_view">إظهار الوثائق</string>
     <string name="storage_information_dismiss">ساقرأها لاحقاً</string>
-</resources>
+    </resources>

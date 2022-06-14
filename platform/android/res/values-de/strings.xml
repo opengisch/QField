@@ -63,4 +63,4 @@
     <string name="storage_information_message">Wenn du ein:e QField 1.x Nutzer:in bist und dich wunderst, wo deine Projekte und Datensätze hin verschwunden sind oder generell neu bei QField bist, dann empfehlen wir dir eine ruhige Minute zu nehmen und die Dokumentation zur Speicher-Handhabung zu lesen. Ein Link zur Dokumentation wird in der Titelleiste des Einstellungsmenüs verfügbar bleiben.</string>
     <string name="storage_information_view">Dokumentation anzeigen</string>
     <string name="storage_information_dismiss">Später lesen</string>
-</resources>
+    </resources>
