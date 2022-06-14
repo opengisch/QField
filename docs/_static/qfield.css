@@ -1,3 +1,7 @@
+div.admonition.note.alert.alert-info{
+    position:fixed
+}
+
 .navbar-brand img {
     width: auto;
     height: 2em;
