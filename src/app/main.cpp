@@ -136,6 +136,11 @@ void qfMessageHandler( QtMsgType type, const QMessageLogContext &context, const 
 
 int main( int argc, char **argv )
 {
+  // Enables antialiasing in QML scenes
+  QSurfaceFormat format;
+  format.setSamples( 4 );
+  QSurfaceFormat::setDefaultFormat( format );
+
   // A dummy app for reading settings that need to be used before constructing the real app
   QCoreApplication *dummyApp = new QCoreApplication( argc, argv );
   QCoreApplication::setOrganizationName( "OPENGIS.ch" );
