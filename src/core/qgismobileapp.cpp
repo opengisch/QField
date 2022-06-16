@@ -307,11 +307,14 @@ QgisMobileapp::QgisMobileapp( QgsApplication *app, QObject *parent )
     QgsApplication::instance()->authManager()->setPasswordHelperEnabled( false );
     QgsApplication::instance()->authManager()->setMasterPassword( QString( "qfield" ) );
     // import authentication method configurations
+    qDebug() << dataDirs;
     for ( const QString &dataDir : dataDirs )
     {
       QDir configurationsDir( QStringLiteral( "%1/auth" ).arg( dataDir ) );
+      qDebug() << QStringLiteral( "%1/auth" ).arg( dataDir );
       if ( configurationsDir.exists() )
       {
+        qDebug() << "Checking...";
         const QStringList configurations = configurationsDir.entryList( QStringList() << QStringLiteral( "*.xml" ) << QStringLiteral( "*.XML" ), QDir::Files );
         for ( const QString &configuration : configurations )
         {
