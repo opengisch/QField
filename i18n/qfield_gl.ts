@@ -436,7 +436,7 @@
     <message>
         <location filename="../src/qml/DigitizingToolbar.qml" line="216"/>
         <source>The collected positions count does not meet the requirement</source>
-        <translation type="unfinished"/>
+        <translation>A conta das posicions recollidas non cumpre os requisitos</translation>
     </message>
     <message>
         <location filename="../src/qml/DigitizingToolbar.qml" line="282"/>
@@ -812,12 +812,12 @@ As xeometrías das entidades combinaranse na entidade &apos;%1&apos;, a cal cons
     <message>
         <location filename="../src/core/locator/gotolocatorfilter.cpp" line="146"/>
         <source>Go to %1%2 %3%4 (Map CRS, %5)</source>
-        <translation type="unfinished"/>
+        <translation>Ir a %1%2 %3%4 (Mapa CRS, %5)</translation>
     </message>
     <message>
         <location filename="../src/core/locator/gotolocatorfilter.cpp" line="181"/>
         <source>Go to %1°N %2°E (%3)</source>
-        <translation type="unfinished"/>
+        <translation>Ir a %1°N %2°E (%3)</translation>
     </message>
 </context>
 <context>
@@ -2150,47 +2150,47 @@ Aínda que podes seguir vendo e utilizando este proxecto, recoméndase fortement
     <message>
         <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="20"/>
         <source>Project Folder</source>
-        <translation type="unfinished"/>
+        <translation>Cartafol de proxecto </translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="21"/>
         <source>Local Projects &amp; Datasets</source>
-        <translation type="unfinished"/>
+        <translation>Proxectos e conxuntos de datos locais</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="107"/>
         <source>Folders</source>
-        <translation type="unfinished"/>
+        <translation>Cartafoles </translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="109"/>
         <source>Projects</source>
-        <translation type="unfinished"/>
+        <translation>Proxectos</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="111"/>
         <source>Datasets</source>
-        <translation type="unfinished"/>
+        <translation>Conxunto de datos</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="113"/>
         <source>Favorites</source>
-        <translation type="unfinished"/>
+        <translation>Favoritos</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="211"/>
         <source>Project file</source>
-        <translation type="unfinished"/>
+        <translation>Arquivo de proxecto</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="214"/>
         <source>Vector dataset</source>
-        <translation type="unfinished"/>
+        <translation>Datos vectoriais</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="217"/>
         <source>Raster dataset</source>
-        <translation type="unfinished"/>
+        <translation>Datos raster</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="372"/>
@@ -2201,37 +2201,37 @@ Aínda que podes seguir vendo e utilizando este proxecto, recoméndase fortement
         <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="386"/>
         <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="415"/>
         <source>Export to folder...</source>
-        <translation type="unfinished"/>
+        <translation>Exportar ao cartafol...</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="401"/>
         <source>Remove dataset</source>
-        <translation type="unfinished"/>
+        <translation>Eliminar datos</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="429"/>
         <source>Send compressed folder to...</source>
-        <translation type="unfinished"/>
+        <translation>Enviar o cartafol comprimido a...</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="444"/>
         <source>Remove project folder</source>
-        <translation type="unfinished"/>
+        <translation>Eliminar o cartafol do proxecto</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="472"/>
         <source>Import project from folder</source>
-        <translation type="unfinished"/>
+        <translation>Importar o proxecto dende cartafol</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="484"/>
         <source>Import project from ZIP</source>
-        <translation type="unfinished"/>
+        <translation>Importar proxecto dende ZIP</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="496"/>
         <source>Import dataset(s)</source>
-        <translation type="unfinished"/>
+        <translation>Importar datos</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="510"/>
@@ -2476,7 +2476,7 @@ Cancela para facer, porén, unha exploración mínima do dispositivo.</translati
     <message>
         <location filename="../src/qml/QFieldSettings.qml" line="766"/>
         <source>Minimum number of positions collected</source>
-        <translation type="unfinished"/>
+        <translation>Numero mínimo de posicións recollidas</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldSettings.qml" line="807"/>
@@ -2634,7 +2634,7 @@ Cancela para facer, porén, unha exploración mínima do dispositivo.</translati
     <message>
         <location filename="../src/core/utils/positioningutils.cpp" line="78"/>
         <source>averaged</source>
-        <translation type="unfinished"/>
+        <translation>media</translation>
     </message>
 </context>
 <context>
@@ -3076,7 +3076,7 @@ Cancela para facer, porén, unha exploración mínima do dispositivo.</translati
     <message>
         <location filename="../src/qml/qgismobileapp.qml" line="714"/>
         <source>Perimeter</source>
-        <translation type="unfinished"/>
+        <translation>Perímetro</translation>
     </message>
     <message>
         <location filename="../src/qml/qgismobileapp.qml" line="719"/>
@@ -3201,12 +3201,12 @@ Cancela para facer, porén, unha exploración mínima do dispositivo.</translati
     <message>
         <location filename="../src/qml/qgismobileapp.qml" line="1609"/>
         <source>Go to Home Screen</source>
-        <translation type="unfinished"/>
+        <translation>Ir á pantalla de inicio</translation>
     </message>
     <message>
         <location filename="../src/qml/qgismobileapp.qml" line="1625"/>
         <source>Open Project Folder</source>
-        <translation type="unfinished"/>
+        <translation>Abrir cartafol de proxecto</translation>
     </message>
     <message>
         <source>Open Project</source>
