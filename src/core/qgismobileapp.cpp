@@ -166,11 +166,6 @@ QgisMobileapp::QgisMobileapp( QgsApplication *app, QObject *parent )
   , mIface( new AppInterface( this ) )
   , mFirstRenderingFlag( true )
 {
-  // Enables antialiasing in QML scenes
-  QSurfaceFormat format;
-  format.setSamples( 4 );
-  QSurfaceFormat::setDefaultFormat( format );
-
   // Set a nicer default hyperlink color to be used in QML Text items
   QPalette palette = app->palette();
   palette.setColor( QPalette::Link, QColor( 128, 204, 40 ) );
