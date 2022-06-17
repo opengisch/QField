@@ -21,6 +21,8 @@ Popup {
   property bool trackingButtonVisible: false
   property var trackingButtonText
 
+  property bool opacitySliderVisible: false
+
   width: Math.min( childrenRect.width, mainWindow.width - 20 )
   x: (parent.width - width) / 2
   y: (parent.height - height) / 2
@@ -43,6 +45,8 @@ Popup {
     trackingButtonText = trackingModel.layerInTracking( layerTree.data(index, FlatLayerTreeModel.VectorLayerPointer) )
         ? qsTr('Stop tracking')
         : qsTr('Setup tracking')
+
+    opacitySliderVisible = layerTree.data(index, FlatLayerTreeModel.HasSpatialExtent)
   }
 
   Page {
@@ -224,6 +228,15 @@ Popup {
             }
             close()
         }
+      }
+
+      Slider {
+          id: opacitySlider
+          Layout.fillWidth: True
+          Layout.topMargin: 5
+          visible: opacitySliderVisible
+          value: layerTree.data(index, FlatLayerTreeModel.Opacity)
+          onMoved: layerTree.setData(index, value, FlatLayerTreeModel.Opacity)
       }
 
       Text {
