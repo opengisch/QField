@@ -191,7 +191,7 @@
     <message>
         <location filename="../src/qml/BookmarkProperties.qml" line="178"/>
         <source>Copy bookmark details</source>
-        <translation type="unfinished"/>
+        <translation>Copiar detalhes do marcador</translation>
     </message>
     <message>
         <source>Lon</source>
@@ -212,7 +212,7 @@
     <message>
         <location filename="../src/qml/BookmarkProperties.qml" line="186"/>
         <source>Bookmark details copied to clipboard</source>
-        <translation type="unfinished"/>
+        <translation>Detalhes do marcador copiados para área de transferência</translation>
     </message>
     <message>
         <location filename="../src/qml/BookmarkProperties.qml" line="195"/>
@@ -436,7 +436,7 @@
     <message>
         <location filename="../src/qml/DigitizingToolbar.qml" line="216"/>
         <source>The collected positions count does not meet the requirement</source>
-        <translation type="unfinished"/>
+        <translation>A contagem de posições recolhidas não atende ao necessário</translation>
     </message>
     <message>
         <location filename="../src/qml/DigitizingToolbar.qml" line="282"/>
@@ -814,12 +814,12 @@ As geometrias dos recursos serão combinadas no recurso &apos;% &apos;, que mant
     <message>
         <location filename="../src/core/locator/gotolocatorfilter.cpp" line="146"/>
         <source>Go to %1%2 %3%4 (Map CRS, %5)</source>
-        <translation type="unfinished"/>
+        <translation>Ir para %1%2 %3%4 (SRC do Mapa, %5)</translation>
     </message>
     <message>
         <location filename="../src/core/locator/gotolocatorfilter.cpp" line="181"/>
         <source>Go to %1°N %2°E (%3)</source>
-        <translation type="unfinished"/>
+        <translation>Ir para %1°N %2°E (%3)</translation>
     </message>
 </context>
 <context>
@@ -894,12 +894,12 @@ As geometrias dos recursos serão combinadas no recurso &apos;% &apos;, que mant
     <message>
         <location filename="../src/qml/LayerTreeItemProperties.qml" line="147"/>
         <source>Zoom to group</source>
-        <translation type="unfinished"/>
+        <translation>Aproximar ao grupo</translation>
     </message>
     <message>
         <location filename="../src/qml/LayerTreeItemProperties.qml" line="149"/>
         <source>Zoom to parent layer</source>
-        <translation type="unfinished"/>
+        <translation>Aproximar à camada pai</translation>
     </message>
     <message>
         <location filename="../src/qml/LayerTreeItemProperties.qml" line="150"/>
@@ -2152,47 +2152,47 @@ Enquanto pode ver e usar o projeto, recomendamos fortemente a limpá-lo para evi
     <message>
         <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="20"/>
         <source>Project Folder</source>
-        <translation type="unfinished"/>
+        <translation>Pasta do projeto</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="21"/>
         <source>Local Projects &amp; Datasets</source>
-        <translation type="unfinished"/>
+        <translation>Projetos e conjuntos de dados locais </translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="107"/>
         <source>Folders</source>
-        <translation type="unfinished"/>
+        <translation>Pastas</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="109"/>
         <source>Projects</source>
-        <translation type="unfinished"/>
+        <translation>Projetos</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="111"/>
         <source>Datasets</source>
-        <translation type="unfinished"/>
+        <translation>Conjuntos de dados</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="113"/>
         <source>Favorites</source>
-        <translation type="unfinished"/>
+        <translation>Favoritos</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="211"/>
         <source>Project file</source>
-        <translation type="unfinished"/>
+        <translation>Ficheiro de projeto</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="214"/>
         <source>Vector dataset</source>
-        <translation type="unfinished"/>
+        <translation>Conjunto de dados vectoriais</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="217"/>
         <source>Raster dataset</source>
-        <translation type="unfinished"/>
+        <translation>Conjunto de dados raster</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="372"/>
@@ -2203,42 +2203,42 @@ Enquanto pode ver e usar o projeto, recomendamos fortemente a limpá-lo para evi
         <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="386"/>
         <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="415"/>
         <source>Export to folder...</source>
-        <translation type="unfinished"/>
+        <translation>Exportar para pasta...</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="401"/>
         <source>Remove dataset</source>
-        <translation type="unfinished"/>
+        <translation>Remover conjunto de dados</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="429"/>
         <source>Send compressed folder to...</source>
-        <translation type="unfinished"/>
+        <translation>Enviar pasta compatada para...</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="444"/>
         <source>Remove project folder</source>
-        <translation type="unfinished"/>
+        <translation>Remover pasta do projeto</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="472"/>
         <source>Import project from folder</source>
-        <translation type="unfinished"/>
+        <translation>Importar projeto da pasta</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="484"/>
         <source>Import project from ZIP</source>
-        <translation type="unfinished"/>
+        <translation>Importar projeto do ZIP</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="496"/>
         <source>Import dataset(s)</source>
-        <translation type="unfinished"/>
+        <translation>Importar conjunto de dado(s)</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="510"/>
         <source>Storage management help</source>
-        <translation type="unfinished"/>
+        <translation>Ajuda na gestão de armazenamento</translation>
     </message>
 </context>
 <context>
@@ -2473,17 +2473,17 @@ Cancele para fazer uma verificação mínima.</translation>
     <message>
         <location filename="../src/qml/QFieldSettings.qml" line="744"/>
         <source>Enable averaged positioning requirement</source>
-        <translation type="unfinished"/>
+        <translation>Ativar o requisito de posicionamento médio</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldSettings.qml" line="766"/>
         <source>Minimum number of positions collected</source>
-        <translation type="unfinished"/>
+        <translation>Número mínimo de posições recolhidas</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldSettings.qml" line="807"/>
         <source>When enabled, digitizing vertices with a cursor locked to position will only accepted an averaged position from a minimum number of collected positions. Digitizing using averaged positions is done by pressing and holding the add vertex button, which will collect positions until the press is released. Accuracy requirement settings are respected when enabled.</source>
-        <translation type="unfinished"/>
+        <translation>Quando ativo, a digitalização de vértices com o cursor bloqueado à posição não irá aceitar uma posição média a partir de um número de posições recolhidas. A digitalização usando pontos médios é feita pressionando e segurando o botão de adicionar vértice, e que permitirá recolher posições até libertar o botão. As configurações de requisitos de precisão são respeitados quando ativos.</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldSettings.qml" line="821"/>
@@ -2636,24 +2636,24 @@ Cancele para fazer uma verificação mínima.</translation>
     <message>
         <location filename="../src/core/utils/positioningutils.cpp" line="78"/>
         <source>averaged</source>
-        <translation type="unfinished"/>
+        <translation>média</translation>
     </message>
 </context>
 <context>
     <name>QgisMobileapp</name>
     <message>
-        <location filename="../src/core/qgismobileapp.cpp" line="663"/>
-        <location filename="../src/core/qgismobileapp.cpp" line="689"/>
+        <location filename="../src/core/qgismobileapp.cpp" line="658"/>
+        <location filename="../src/core/qgismobileapp.cpp" line="684"/>
         <source>Project file &quot;%1&quot; does not exist</source>
         <translation>Ficheiro de projeto &quot;%1&quot; não existe</translation>
     </message>
     <message>
-        <location filename="../src/core/qgismobileapp.cpp" line="680"/>
+        <location filename="../src/core/qgismobileapp.cpp" line="675"/>
         <source>No project file currently opened</source>
         <translation>Nenhum ficheiro de projeto aberto atualmente</translation>
     </message>
     <message>
-        <location filename="../src/core/qgismobileapp.cpp" line="711"/>
+        <location filename="../src/core/qgismobileapp.cpp" line="706"/>
         <source>Could not load font %1</source>
         <translation>Não foi possível carregar a fonte % 1</translation>
     </message>
@@ -3078,7 +3078,7 @@ Cancele para fazer uma verificação mínima.</translation>
     <message>
         <location filename="../src/qml/qgismobileapp.qml" line="714"/>
         <source>Perimeter</source>
-        <translation type="unfinished"/>
+        <translation>Perímetro</translation>
     </message>
     <message>
         <location filename="../src/qml/qgismobileapp.qml" line="719"/>
@@ -3203,12 +3203,12 @@ Cancele para fazer uma verificação mínima.</translation>
     <message>
         <location filename="../src/qml/qgismobileapp.qml" line="1609"/>
         <source>Go to Home Screen</source>
-        <translation type="unfinished"/>
+        <translation>Ir para a Janela Inicial</translation>
     </message>
     <message>
         <location filename="../src/qml/qgismobileapp.qml" line="1625"/>
         <source>Open Project Folder</source>
-        <translation type="unfinished"/>
+        <translation>Abrir Pasta do Projeto</translation>
     </message>
     <message>
         <source>Open Project</source>

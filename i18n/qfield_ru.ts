@@ -2640,18 +2640,18 @@ Cancel to make a minimal device scan instead.</source>
 <context>
     <name>QgisMobileapp</name>
     <message>
-        <location filename="../src/core/qgismobileapp.cpp" line="663"/>
-        <location filename="../src/core/qgismobileapp.cpp" line="689"/>
+        <location filename="../src/core/qgismobileapp.cpp" line="658"/>
+        <location filename="../src/core/qgismobileapp.cpp" line="684"/>
         <source>Project file &quot;%1&quot; does not exist</source>
         <translation>Файл проекта &quot;%1&quot; не существует</translation>
     </message>
     <message>
-        <location filename="../src/core/qgismobileapp.cpp" line="680"/>
+        <location filename="../src/core/qgismobileapp.cpp" line="675"/>
         <source>No project file currently opened</source>
         <translation>В данный момент нет открытого файла проекта</translation>
     </message>
     <message>
-        <location filename="../src/core/qgismobileapp.cpp" line="711"/>
+        <location filename="../src/core/qgismobileapp.cpp" line="706"/>
         <source>Could not load font %1</source>
         <translation>Невозможно загрузить шрифт %1</translation>
     </message>
