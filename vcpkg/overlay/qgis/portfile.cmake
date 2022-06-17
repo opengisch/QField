@@ -23,6 +23,7 @@ file(REMOVE ${SOURCE_PATH}/cmake/FindQtKeychain.cmake)
 file(REMOVE ${SOURCE_PATH}/cmake/FindGDAL.cmake)
 file(REMOVE ${SOURCE_PATH}/cmake/FindGEOS.cmake)
 file(REMOVE ${SOURCE_PATH}/cmake/FindEXIV2.cmake)
+file(REMOVE ${SOURCE_PATH}/cmake/FindExpat.cmake)
 file(REMOVE ${SOURCE_PATH}/cmake/FindIconv.cmake)
 
 vcpkg_find_acquire_program(FLEX)
