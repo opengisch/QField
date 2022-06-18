@@ -544,7 +544,8 @@ public class QFieldActivity extends QtActivity {
 
     private void removeProjectFolder(String path) {
         File file = new File(path);
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        AlertDialog.Builder builder =
+            new AlertDialog.Builder(this, R.style.DialogTheme);
         builder.setTitle(getString(R.string.delete_confirm_title));
         builder.setMessage(getString(R.string.delete_confirm_folder));
         builder.setPositiveButton(
