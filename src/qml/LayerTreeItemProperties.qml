@@ -230,13 +230,25 @@ Popup {
         }
       }
 
-      Slider {
+      RowLayout {
+
           id: opacitySlider
           Layout.fillWidth: True
           Layout.topMargin: 5
           visible: opacitySliderVisible
-          value: layerTree.data(index, FlatLayerTreeModel.Opacity)
-          onMoved: layerTree.setData(index, value, FlatLayerTreeModel.Opacity)
+
+          height: slider.height
+
+
+          Slider {
+              id: slider
+              value: layerTree.data(index, FlatLayerTreeModel.Opacity)
+              onMoved: layerTree.setData(index, value, FlatLayerTreeModel.Opacity)
+          }
+          Text {
+              text: qsTr("Opacity")
+              font: Theme.defaultFont
+          }
       }
 
       Text {
