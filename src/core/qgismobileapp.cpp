@@ -147,6 +147,9 @@
 #include <qgsproject.h>
 #include <qgsprojectstorage.h>
 #include <qgsprojectstorageregistry.h>
+#if _QGIS_VERSION_INT >= 32500
+#include <qgsprojectstylesettings.h>
+#endif
 #include <qgsprojectviewsettings.h>
 #include <qgsrasterlayer.h>
 #include <qgsrasterresamplefilter.h>
@@ -856,31 +859,6 @@ void QgisMobileapp::readProjectFile()
           vectorLayers << layer;
         }
 
-        for ( QgsMapLayer *l : std::as_const( vectorLayers ) )
-        {
-          QgsVectorLayer *vlayer = qobject_cast<QgsVectorLayer *>( l );
-          bool ok;
-          vlayer->loadDefaultStyle( ok );
-          if ( !ok )
-          {
-            QgsSymbol *symbol = LayerUtils::defaultSymbol( vlayer );
-            if ( symbol )
-            {
-              QgsSingleSymbolRenderer *renderer = new QgsSingleSymbolRenderer( symbol );
-              vlayer->setRenderer( renderer );
-            }
-          }
-          if ( !vlayer->labeling() )
-          {
-            QgsAbstractVectorLayerLabeling *labeling = LayerUtils::defaultLabeling( vlayer );
-            if ( labeling )
-            {
-              vlayer->setLabeling( labeling );
-              vlayer->setLabelsEnabled( vlayer->geometryType() == QgsWkbTypes::PointGeometry );
-            }
-          }
-        }
-
         if ( vectorLayers.size() > 1 )
         {
           std::sort( vectorLayers.begin(), vectorLayers.end(), []( QgsMapLayer *a, QgsMapLayer *b ) {
@@ -970,20 +948,6 @@ void QgisMobileapp::readProjectFile()
           extent = layer->extent();
           rasterLayers << layer;
         }
-
-        for ( QgsMapLayer *l : std::as_const( rasterLayers ) )
-        {
-          QgsRasterLayer *rlayer = qobject_cast<QgsRasterLayer *>( l );
-          bool ok;
-          rlayer->loadDefaultStyle( ok );
-          if ( !ok && fi.size() < 50000000 )
-          {
-            // If the raster size is reasonably small, apply nicer resampling settings
-            rlayer->resampleFilter()->setZoomedInResampler( new QgsBilinearRasterResampler() );
-            rlayer->resampleFilter()->setZoomedOutResampler( new QgsBilinearRasterResampler() );
-            rlayer->resampleFilter()->setMaxOversampling( 2.0 );
-          }
-        }
       }
     }
   }
@@ -1036,8 +1000,80 @@ void QgisMobileapp::readProjectFile()
     mProject->setEllipsoid( crs.ellipsoidAcronym() );
     mProject->setTitle( mProjectFileName );
 
+
+    for ( QgsMapLayer *l : std::as_const( rasterLayers ) )
+    {
+      QgsRasterLayer *rlayer = qobject_cast<QgsRasterLayer *>( l );
+      bool ok;
+      rlayer->loadDefaultStyle( ok );
+      if ( !ok && fi.size() < 50000000 )
+      {
+        // If the raster size is reasonably small, apply nicer resampling settings
+        rlayer->resampleFilter()->setZoomedInResampler( new QgsBilinearRasterResampler() );
+        rlayer->resampleFilter()->setZoomedOutResampler( new QgsBilinearRasterResampler() );
+        rlayer->resampleFilter()->setMaxOversampling( 2.0 );
+      }
+    }
     mProject->addMapLayers( rasterLayers );
+
+    for ( QgsMapLayer *l : std::as_const( vectorLayers ) )
+    {
+      QgsVectorLayer *vlayer = qobject_cast<QgsVectorLayer *>( l );
+      bool ok;
+      vlayer->loadDefaultStyle( ok );
+      if ( !ok )
+      {
+        bool hasSymbol = true;
+        Qgis::SymbolType symbolType;
+        switch ( vlayer->geometryType() )
+        {
+          case QgsWkbTypes::PointGeometry:
+            symbolType = Qgis::SymbolType::Marker;
+            break;
+          case QgsWkbTypes::LineGeometry:
+            symbolType = Qgis::SymbolType::Line;
+            break;
+          case QgsWkbTypes::PolygonGeometry:
+            symbolType = Qgis::SymbolType::Fill;
+            break;
+          case QgsWkbTypes::UnknownGeometry:
+            hasSymbol = false;
+            break;
+          case QgsWkbTypes::NullGeometry:
+            hasSymbol = false;
+            break;
+        }
+
+        if ( hasSymbol )
+        {
+#if _QGIS_VERSION_INT >= 32500
+          QgsSymbol *symbol = mProject->styleSettings()->defaultSymbol( symbolType );
+          if ( !symbol )
+            symbol = LayerUtils::defaultSymbol( vlayer );
+#else
+          QgsSymbol *symbol = LayerUtils::defaultSymbol( vlayer );
+#endif
+          QgsSingleSymbolRenderer *renderer = new QgsSingleSymbolRenderer( symbol );
+          vlayer->setRenderer( renderer );
+        }
+      }
+      if ( !vlayer->labeling() )
+      {
+#if _QGIS_VERSION_INT >= 32500
+        QgsTextFormat textFormat = mProject->styleSettings()->defaultTextFormat();
+#else
+        QgsTextFormat textFormat;
+#endif
+        QgsAbstractVectorLayerLabeling *labeling = LayerUtils::defaultLabeling( vlayer, textFormat );
+        if ( labeling )
+        {
+          vlayer->setLabeling( labeling );
+          vlayer->setLabelsEnabled( vlayer->geometryType() == QgsWkbTypes::PointGeometry );
+        }
+      }
+    }
     mProject->addMapLayers( vectorLayers );
+
     if ( suffix.compare( QLatin1String( "pdf" ) ) == 0 )
     {
       // GeoPDFs should have vector layers hidden by default

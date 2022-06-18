@@ -34,7 +34,6 @@
 #include <qgssymbol.h>
 #include <qgssymbollayer.h>
 #include <qgstextbuffersettings.h>
-#include <qgstextformat.h>
 #include <qgsvectorlayer.h>
 #include <qgsvectorlayerlabeling.h>
 #include <qgsvectorlayerutils.h>
@@ -91,7 +90,7 @@ QgsSymbol *LayerUtils::defaultSymbol( QgsVectorLayer *layer )
   return symbol;
 }
 
-QgsAbstractVectorLayerLabeling *LayerUtils::defaultLabeling( QgsVectorLayer *layer )
+QgsAbstractVectorLayerLabeling *LayerUtils::defaultLabeling( QgsVectorLayer *layer, QgsTextFormat textFormat )
 {
   QgsAbstractVectorLayerLabeling *labeling = nullptr;
 
@@ -150,17 +149,19 @@ QgsAbstractVectorLayerLabeling *LayerUtils::defaultLabeling( QgsVectorLayer *lay
       break;
   }
 
-  QgsTextFormat textFormat;
-  textFormat.setSize( 9 );
-  textFormat.setSizeUnit( QgsUnitTypes::RenderPoints );
-  textFormat.setColor( QColor( 0, 0, 0 ) );
+  if ( !textFormat.isValid() )
+  {
+    textFormat.setSize( 9 );
+    textFormat.setSizeUnit( QgsUnitTypes::RenderPoints );
+    textFormat.setColor( QColor( 0, 0, 0 ) );
 
-  QgsTextBufferSettings bufferSettings;
-  bufferSettings.setEnabled( true );
-  bufferSettings.setColor( QColor( 255, 255, 255 ) );
-  bufferSettings.setSize( 1 );
-  bufferSettings.setSizeUnit( QgsUnitTypes::RenderMillimeters );
-  textFormat.setBuffer( bufferSettings );
+    QgsTextBufferSettings bufferSettings;
+    bufferSettings.setEnabled( true );
+    bufferSettings.setColor( QColor( 255, 255, 255 ) );
+    bufferSettings.setSize( 1 );
+    bufferSettings.setSizeUnit( QgsUnitTypes::RenderMillimeters );
+    textFormat.setBuffer( bufferSettings );
+  }
   settings.setFormat( textFormat );
 
   labeling = new QgsVectorLayerSimpleLabeling( settings );
