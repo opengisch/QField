@@ -273,13 +273,13 @@ class QFIELD_CORE_EXPORT QgsQuickMapSettings : public QObject
     QDateTime temporalBegin() const;
 
     //! \copydoc QgsQuickMapSettings::temporalBegin
-    void setTemporalBegin( QDateTime &begin );
+    void setTemporalBegin( const QDateTime &begin );
 
     //! \copydoc QgsQuickMapSettings::temporalEnd
     QDateTime temporalEnd() const;
 
     //! \copydoc QgsQuickMapSettings::temporalEnd
-    void setTemporalEnd( QDateTime &end );
+    void setTemporalEnd( const QDateTime &end );
 
   signals:
     //! \copydoc QgsQuickMapSettings::project

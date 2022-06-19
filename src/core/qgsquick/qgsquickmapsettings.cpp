@@ -383,7 +383,7 @@ QDateTime QgsQuickMapSettings::temporalBegin() const
   return mMapSettings.temporalRange().begin();
 }
 
-void QgsQuickMapSettings::setTemporalBegin( QDateTime &begin )
+void QgsQuickMapSettings::setTemporalBegin( const QDateTime &begin )
 {
   const QgsDateTimeRange range = mMapSettings.temporalRange();
   mMapSettings.setTemporalRange( QgsDateTimeRange( begin, range.end() ) );
@@ -395,7 +395,7 @@ QDateTime QgsQuickMapSettings::temporalEnd() const
   return mMapSettings.temporalRange().end();
 }
 
-void QgsQuickMapSettings::setTemporalEnd( QDateTime &end )
+void QgsQuickMapSettings::setTemporalEnd( const QDateTime &end )
 {
   const QgsDateTimeRange range = mMapSettings.temporalRange();
   mMapSettings.setTemporalRange( QgsDateTimeRange( range.begin(), end ) );
