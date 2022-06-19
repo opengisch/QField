@@ -955,56 +955,56 @@ Les géométries des objets vont être combinées dans l&apos;objet &apos;%1&apo
 <context>
     <name>LayerUtils</name>
     <message>
-        <location filename="../src/core/utils/layerutils.cpp" line="215"/>
-        <location filename="../src/core/utils/layerutils.cpp" line="303"/>
+        <location filename="../src/core/utils/layerutils.cpp" line="216"/>
+        <location filename="../src/core/utils/layerutils.cpp" line="304"/>
         <source>Cannot start editing, no layer</source>
         <translation>Édition impossible, pas de couche</translation>
     </message>
     <message>
-        <location filename="../src/core/utils/layerutils.cpp" line="223"/>
-        <location filename="../src/core/utils/layerutils.cpp" line="315"/>
+        <location filename="../src/core/utils/layerutils.cpp" line="224"/>
+        <location filename="../src/core/utils/layerutils.cpp" line="316"/>
         <source>Cannot start editing</source>
         <translation>Édition impossible</translation>
     </message>
     <message>
-        <location filename="../src/core/utils/layerutils.cpp" line="247"/>
+        <location filename="../src/core/utils/layerutils.cpp" line="248"/>
         <source>Cannot commit deletion of feature %2 in layer &quot;%1&quot;. Reason:
 %3</source>
         <translation>Impossible de supprimer l&apos;entité %2 de la couche &quot;%1&quot;. Raison:
 %3</translation>
     </message>
     <message>
-        <location filename="../src/core/utils/layerutils.cpp" line="267"/>
+        <location filename="../src/core/utils/layerutils.cpp" line="268"/>
         <source>Cannot commit deletion in layer &quot;%1&quot;. Reason:
 %3</source>
         <translation>Impossible de réaliser la suppression dans la couche &quot;%1&quot;. Raison :
 %3</translation>
     </message>
     <message>
-        <location filename="../src/core/utils/layerutils.cpp" line="276"/>
+        <location filename="../src/core/utils/layerutils.cpp" line="277"/>
         <source>Cannot delete feature %1</source>
         <translation>Impossible de supprimer l&apos;entité %1</translation>
     </message>
     <message>
-        <location filename="../src/core/utils/layerutils.cpp" line="289"/>
-        <location filename="../src/core/utils/layerutils.cpp" line="292"/>
+        <location filename="../src/core/utils/layerutils.cpp" line="290"/>
+        <location filename="../src/core/utils/layerutils.cpp" line="293"/>
         <source>Cannot rollback layer changes in layer %1</source>
         <translation>Impossible d&apos;annuler les modifications dans la couche %1</translation>
     </message>
     <message>
-        <location filename="../src/core/utils/layerutils.cpp" line="309"/>
+        <location filename="../src/core/utils/layerutils.cpp" line="310"/>
         <source>Cannot copy invalid feature</source>
         <translation>Impossible de copier une entité invalide</translation>
     </message>
     <message>
-        <location filename="../src/core/utils/layerutils.cpp" line="332"/>
+        <location filename="../src/core/utils/layerutils.cpp" line="333"/>
         <source>Cannot add new feature in layer &quot;%1&quot;. Reason:
 %2</source>
         <translation>Impossible d&apos;ajouter une nouvelle entité dans la couche &quot;%1&quot;. Raison :
 %2</translation>
     </message>
     <message>
-        <location filename="../src/core/utils/layerutils.cpp" line="338"/>
+        <location filename="../src/core/utils/layerutils.cpp" line="339"/>
         <source>Cannot add new feature in layer &quot;%1&quot;.</source>
         <translation>Impossible d&apos;ajouter une nouvelle entité dans la couche &quot;%1&quot;.</translation>
     </message>
@@ -2638,18 +2638,18 @@ Cancel to make a minimal device scan instead.</source>
 <context>
     <name>QgisMobileapp</name>
     <message>
-        <location filename="../src/core/qgismobileapp.cpp" line="658"/>
-        <location filename="../src/core/qgismobileapp.cpp" line="684"/>
+        <location filename="../src/core/qgismobileapp.cpp" line="661"/>
+        <location filename="../src/core/qgismobileapp.cpp" line="687"/>
         <source>Project file &quot;%1&quot; does not exist</source>
         <translation>Le fichier de projet &quot;%1&quot; n&apos;existe pas</translation>
     </message>
     <message>
-        <location filename="../src/core/qgismobileapp.cpp" line="675"/>
+        <location filename="../src/core/qgismobileapp.cpp" line="678"/>
         <source>No project file currently opened</source>
         <translation>Aucun fichier de projet actuellement ouvert</translation>
     </message>
     <message>
-        <location filename="../src/core/qgismobileapp.cpp" line="706"/>
+        <location filename="../src/core/qgismobileapp.cpp" line="709"/>
         <source>Could not load font %1</source>
         <translation>Impossible de charger la police %1</translation>
     </message>

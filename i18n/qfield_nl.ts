@@ -953,56 +953,56 @@ De geometrieën van objecten zullen worden gecombineerd tot object &apos;%1&apos
 <context>
     <name>LayerUtils</name>
     <message>
-        <location filename="../src/core/utils/layerutils.cpp" line="215"/>
-        <location filename="../src/core/utils/layerutils.cpp" line="303"/>
+        <location filename="../src/core/utils/layerutils.cpp" line="216"/>
+        <location filename="../src/core/utils/layerutils.cpp" line="304"/>
         <source>Cannot start editing, no layer</source>
         <translation>Kan niet beginnen met bewerken, geen laag</translation>
     </message>
     <message>
-        <location filename="../src/core/utils/layerutils.cpp" line="223"/>
-        <location filename="../src/core/utils/layerutils.cpp" line="315"/>
+        <location filename="../src/core/utils/layerutils.cpp" line="224"/>
+        <location filename="../src/core/utils/layerutils.cpp" line="316"/>
         <source>Cannot start editing</source>
         <translation>Kan niet beginnen met bewerken</translation>
     </message>
     <message>
-        <location filename="../src/core/utils/layerutils.cpp" line="247"/>
+        <location filename="../src/core/utils/layerutils.cpp" line="248"/>
         <source>Cannot commit deletion of feature %2 in layer &quot;%1&quot;. Reason:
 %3</source>
         <translation>Kan verwijdering van object %2 in laag &quot;%1&quot; niet vastleggen. Reden:
 %3</translation>
     </message>
     <message>
-        <location filename="../src/core/utils/layerutils.cpp" line="267"/>
+        <location filename="../src/core/utils/layerutils.cpp" line="268"/>
         <source>Cannot commit deletion in layer &quot;%1&quot;. Reason:
 %3</source>
         <translation>Kan verwijdering in laag &quot;%1&quot; niet uitvoeren. Reden:
 %3</translation>
     </message>
     <message>
-        <location filename="../src/core/utils/layerutils.cpp" line="276"/>
+        <location filename="../src/core/utils/layerutils.cpp" line="277"/>
         <source>Cannot delete feature %1</source>
         <translation>Kan object %1 niet verwijderen</translation>
     </message>
     <message>
-        <location filename="../src/core/utils/layerutils.cpp" line="289"/>
-        <location filename="../src/core/utils/layerutils.cpp" line="292"/>
+        <location filename="../src/core/utils/layerutils.cpp" line="290"/>
+        <location filename="../src/core/utils/layerutils.cpp" line="293"/>
         <source>Cannot rollback layer changes in layer %1</source>
         <translation>Kan laagwijzigingen in laag %1 . niet terugdraaien</translation>
     </message>
     <message>
-        <location filename="../src/core/utils/layerutils.cpp" line="309"/>
+        <location filename="../src/core/utils/layerutils.cpp" line="310"/>
         <source>Cannot copy invalid feature</source>
         <translation>Kan ongeldig object niet kopiëren</translation>
     </message>
     <message>
-        <location filename="../src/core/utils/layerutils.cpp" line="332"/>
+        <location filename="../src/core/utils/layerutils.cpp" line="333"/>
         <source>Cannot add new feature in layer &quot;%1&quot;. Reason:
 %2</source>
         <translation>Kan geen nieuw object toevoegen in laag &quot;%1&quot;. Reden:
 %2</translation>
     </message>
     <message>
-        <location filename="../src/core/utils/layerutils.cpp" line="338"/>
+        <location filename="../src/core/utils/layerutils.cpp" line="339"/>
         <source>Cannot add new feature in layer &quot;%1&quot;.</source>
         <translation>Kan geen nieuw object toevoegen aan laag &quot;%1&quot;.</translation>
     </message>
@@ -2640,18 +2640,18 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
 <context>
     <name>QgisMobileapp</name>
     <message>
-        <location filename="../src/core/qgismobileapp.cpp" line="658"/>
-        <location filename="../src/core/qgismobileapp.cpp" line="684"/>
+        <location filename="../src/core/qgismobileapp.cpp" line="661"/>
+        <location filename="../src/core/qgismobileapp.cpp" line="687"/>
         <source>Project file &quot;%1&quot; does not exist</source>
         <translation>Projectbestand &quot;%1&quot; bestaat niet</translation>
     </message>
     <message>
-        <location filename="../src/core/qgismobileapp.cpp" line="675"/>
+        <location filename="../src/core/qgismobileapp.cpp" line="678"/>
         <source>No project file currently opened</source>
         <translation>Momenteel geen projectbestand geopend</translation>
     </message>
     <message>
-        <location filename="../src/core/qgismobileapp.cpp" line="706"/>
+        <location filename="../src/core/qgismobileapp.cpp" line="709"/>
         <source>Could not load font %1</source>
         <translation>Kon lettertype %1 niet laden</translation>
     </message>

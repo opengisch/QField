@@ -953,55 +953,55 @@ Kohteen geometriat yhdistet채채n kohteeseen &apos;%1&apos;, johon sis채llytet채�
 <context>
     <name>LayerUtils</name>
     <message>
-        <location filename="../src/core/utils/layerutils.cpp" line="215"/>
-        <location filename="../src/core/utils/layerutils.cpp" line="303"/>
+        <location filename="../src/core/utils/layerutils.cpp" line="216"/>
+        <location filename="../src/core/utils/layerutils.cpp" line="304"/>
         <source>Cannot start editing, no layer</source>
         <translation>Ei voida aloittaa muokkausta, ei  tasoa</translation>
     </message>
     <message>
-        <location filename="../src/core/utils/layerutils.cpp" line="223"/>
-        <location filename="../src/core/utils/layerutils.cpp" line="315"/>
+        <location filename="../src/core/utils/layerutils.cpp" line="224"/>
+        <location filename="../src/core/utils/layerutils.cpp" line="316"/>
         <source>Cannot start editing</source>
         <translation>Ei voida aloittaa muokkausta</translation>
     </message>
     <message>
-        <location filename="../src/core/utils/layerutils.cpp" line="247"/>
+        <location filename="../src/core/utils/layerutils.cpp" line="248"/>
         <source>Cannot commit deletion of feature %2 in layer &quot;%1&quot;. Reason:
 %3</source>
         <translation>Ei voida vahvistaa kohteen %2 poistoa tasolla &quot;%1&quot;. Syy:
 %3</translation>
     </message>
     <message>
-        <location filename="../src/core/utils/layerutils.cpp" line="267"/>
+        <location filename="../src/core/utils/layerutils.cpp" line="268"/>
         <source>Cannot commit deletion in layer &quot;%1&quot;. Reason:
 %3</source>
         <translation>Tason &quot;%1&quot; deletointien kommitointi ei onnistu. Syy: 
 %3</translation>
     </message>
     <message>
-        <location filename="../src/core/utils/layerutils.cpp" line="276"/>
+        <location filename="../src/core/utils/layerutils.cpp" line="277"/>
         <source>Cannot delete feature %1</source>
         <translation>Ei voida poistaa kohdetta %1</translation>
     </message>
     <message>
-        <location filename="../src/core/utils/layerutils.cpp" line="289"/>
-        <location filename="../src/core/utils/layerutils.cpp" line="292"/>
+        <location filename="../src/core/utils/layerutils.cpp" line="290"/>
+        <location filename="../src/core/utils/layerutils.cpp" line="293"/>
         <source>Cannot rollback layer changes in layer %1</source>
         <translation>Ei voida palauttaa tason muutoksia tasolla %1. </translation>
     </message>
     <message>
-        <location filename="../src/core/utils/layerutils.cpp" line="309"/>
+        <location filename="../src/core/utils/layerutils.cpp" line="310"/>
         <source>Cannot copy invalid feature</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/core/utils/layerutils.cpp" line="332"/>
+        <location filename="../src/core/utils/layerutils.cpp" line="333"/>
         <source>Cannot add new feature in layer &quot;%1&quot;. Reason:
 %2</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/core/utils/layerutils.cpp" line="338"/>
+        <location filename="../src/core/utils/layerutils.cpp" line="339"/>
         <source>Cannot add new feature in layer &quot;%1&quot;.</source>
         <translation type="unfinished"/>
     </message>
@@ -2639,18 +2639,18 @@ Peruuta tehd채ksesi suppeampi laiteskannaus.</translation>
 <context>
     <name>QgisMobileapp</name>
     <message>
-        <location filename="../src/core/qgismobileapp.cpp" line="658"/>
-        <location filename="../src/core/qgismobileapp.cpp" line="684"/>
+        <location filename="../src/core/qgismobileapp.cpp" line="661"/>
+        <location filename="../src/core/qgismobileapp.cpp" line="687"/>
         <source>Project file &quot;%1&quot; does not exist</source>
         <translation>Projektitiedostoa &quot;%1&quot; ei ole olemassa</translation>
     </message>
     <message>
-        <location filename="../src/core/qgismobileapp.cpp" line="675"/>
+        <location filename="../src/core/qgismobileapp.cpp" line="678"/>
         <source>No project file currently opened</source>
         <translation>Yht채채n projektitiedostoa ei ole auki</translation>
     </message>
     <message>
-        <location filename="../src/core/qgismobileapp.cpp" line="706"/>
+        <location filename="../src/core/qgismobileapp.cpp" line="709"/>
         <source>Could not load font %1</source>
         <translation>Ei voitu ladata kirjasinta %1</translation>
     </message>
