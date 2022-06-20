@@ -172,20 +172,6 @@ jobs:
           echo "EXTRA_CMAKE_ARGS=-GXcode -T buildsystem=1" >> $GITHUB_ENV
           sudo xcode-select -s /Applications/Xcode_12.app/Contents/Developer
 
-      - uses: Apple-Actions/import-codesign-certs@v1
-        if: ${{ matrix.os == 'macos-10.15' }}
-        with:
-          p12-file-base64: ${{ secrets.IOS_CERTIFICATES_FILE_BASE64 }}
-          p12-password: ${{ secrets.IOS_CERTIFICATES_PASSWORD }}
-
-      - uses: Apple-Actions/download-provisioning-profiles@v1
-        if: ${{ matrix.os == 'macos-10.15' }}
-        with:
-          bundle-id: ch.opengis.qfield
-          issuer-id: ${{ secrets.IOS_APPSTORE_ISSUER_ID }}
-          api-key-id: ${{ secrets.IOS_APPSTORE_KEY_ID }}
-          api-private-key: ${{ secrets.IOS_APPSTORE_PRIVATE_KEY }}
-
       - name: 🌱 Install dependencies and generate project files
         shell: bash
         env:
