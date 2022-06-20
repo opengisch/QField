@@ -32,11 +32,15 @@ class Navigation : public QObject
 
     Q_PROPERTY( QgsPoint location READ location WRITE setLocation NOTIFY locationChanged )
     Q_PROPERTY( QgsPoint destination READ destination WRITE setDestination NOTIFY destinationChanged )
+    Q_PROPERTY( QString destinationName READ destinationName NOTIFY destinationNameChanged )
 
     Q_PROPERTY( QgsGeometry path READ path NOTIFY detailsChanged )
     Q_PROPERTY( double distance READ distance NOTIFY detailsChanged )
     Q_PROPERTY( QgsUnitTypes::DistanceUnit distanceUnits READ distanceUnits NOTIFY detailsChanged )
     Q_PROPERTY( double bearing READ bearing NOTIFY detailsChanged )
+
+    Q_PROPERTY( int destinationFeatureCurrentVertex READ destinationFeatureCurrentVertex NOTIFY destinationFeatureCurrentVertexChanged )
+    Q_PROPERTY( int destinationFeatureVertices READ destinationFeatureVertices NOTIFY destinationFeatureVerticesChanged )
 
     Q_PROPERTY( bool isActive READ isActive NOTIFY isActiveChanged )
 
@@ -57,7 +61,13 @@ class Navigation : public QObject
 
     QgsPoint destination() const;
     void setDestination( const QgsPoint &point );
+    QString destinationName() const;
+
     Q_INVOKABLE void setDestinationFeature( const QgsFeature &feature, QgsVectorLayer *layer );
+    Q_INVOKABLE void nextDestinationVertex();
+    Q_INVOKABLE void previousDestinationVertex();
+    int destinationFeatureCurrentVertex() const;
+    int destinationFeatureVertices() const;
 
     QgsGeometry path() const { return mPath; }
     double distance() const { return mDistance; }
@@ -74,6 +84,10 @@ class Navigation : public QObject
 
     void locationChanged();
     void destinationChanged();
+    void destinationNameChanged();
+
+    void destinationFeatureCurrentVertexChanged();
+    void destinationFeatureVerticesChanged();
 
     void detailsChanged();
 
@@ -90,6 +104,11 @@ class Navigation : public QObject
     QgsDistanceArea mDa;
     double mDistance = 0.0;
     double mBearing = 0.0;
+    QString mDestinationName;
+
+    QgsGeometry mGeometry;
+    int mCurrentVertex = -1;
+    int mVertices = 0;
 };
 
 #endif // NAVIGATION_H
