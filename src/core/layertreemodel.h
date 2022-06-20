@@ -87,6 +87,7 @@ class FlatLayerTreeModelBase : public QAbstractProxyModel
   private:
     void featureCountChanged();
     void updateTemporalState();
+    void adjustTemporalStateFromAddedLayers( const QList<QgsMapLayer *> &layers );
 
     QMap<QModelIndex, int> mRowMap;
     QMap<int, QModelIndex> mIndexMap;

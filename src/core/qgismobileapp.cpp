@@ -156,9 +156,11 @@
 #include <qgsrelationmanager.h>
 #include <qgssinglesymbolrenderer.h>
 #include <qgssnappingutils.h>
+#include <qgstemporalutils.h>
 #include <qgsunittypes.h>
 #include <qgsvectorlayer.h>
 #include <qgsvectorlayereditbuffer.h>
+#include <qgsvectorlayertemporalproperties.h>
 
 #define QUOTE( string ) _QUOTE( string )
 #define _QUOTE( string ) #string
@@ -1016,6 +1018,7 @@ void QgisMobileapp::readProjectFile()
     }
     mProject->addMapLayers( rasterLayers );
 
+    bool hasTemporalLayers = false;
     for ( QgsMapLayer *l : std::as_const( vectorLayers ) )
     {
       QgsVectorLayer *vlayer = qobject_cast<QgsVectorLayer *>( l );
@@ -1057,6 +1060,7 @@ void QgisMobileapp::readProjectFile()
           vlayer->setRenderer( renderer );
         }
       }
+
       if ( !vlayer->labeling() )
       {
 #if _QGIS_VERSION_INT >= 32500
@@ -1071,8 +1075,45 @@ void QgisMobileapp::readProjectFile()
           vlayer->setLabelsEnabled( vlayer->geometryType() == QgsWkbTypes::PointGeometry );
         }
       }
+
+      const QgsFields fields = vlayer->fields();
+      int temporalFieldIndex = -1;
+      for ( int i = 0; i < fields.size(); i++ )
+      {
+        if ( fields[i].type() == QVariant::DateTime || fields[i].type() == QVariant::Date )
+        {
+          if ( temporalFieldIndex == -1 )
+          {
+            temporalFieldIndex = i;
+          }
+          else
+          {
+            // Be super conservative, if more than one temporal field is present, don't auto setup
+            temporalFieldIndex = -1;
+            break;
+          }
+        }
+      }
+      if ( temporalFieldIndex > 0 )
+      {
+        hasTemporalLayers = true;
+        QgsVectorLayerTemporalProperties *temporalProperties = static_cast<QgsVectorLayerTemporalProperties *>( vlayer->temporalProperties() );
+        temporalProperties->setStartField( fields[temporalFieldIndex].name() );
+        temporalProperties->setMode( Qgis::VectorTemporalMode::FeatureDateTimeInstantFromField );
+        temporalProperties->setLimitMode( Qgis::VectorTemporalLimitMode::IncludeBeginIncludeEnd );
+        temporalProperties->setAccumulateFeatures( false );
+        temporalProperties->setIsActive( true );
+      }
     }
     mProject->addMapLayers( vectorLayers );
+
+    if ( hasTemporalLayers )
+    {
+      const QgsDateTimeRange range = QgsTemporalUtils::calculateTemporalRangeForProject( mProject );
+      mMapCanvas->mapSettings()->setTemporalBegin( range.begin() );
+      mMapCanvas->mapSettings()->setTemporalEnd( range.end() );
+      mMapCanvas->mapSettings()->setIsTemporal( false );
+    }
 
     if ( suffix.compare( QLatin1String( "pdf" ) ) == 0 )
     {
@@ -1108,10 +1149,8 @@ void QgisMobileapp::readProjectFile()
   const QString end = settings.value( QStringLiteral( "/qgis/projectInfo/%1/EndDateTime" ).arg( mProjectFilePath ), QString() ).toString();
   if ( !begin.isEmpty() && !end.isEmpty() )
   {
-    QDateTime beginDt = QDateTime::fromString( begin, Qt::ISODateWithMs );
-    QDateTime endDt = QDateTime::fromString( end, Qt::ISODateWithMs );
-    mMapCanvas->mapSettings()->setTemporalBegin( beginDt );
-    mMapCanvas->mapSettings()->setTemporalEnd( endDt );
+    mMapCanvas->mapSettings()->setTemporalBegin( QDateTime::fromString( begin, Qt::ISODateWithMs ) );
+    mMapCanvas->mapSettings()->setTemporalEnd( QDateTime::fromString( end, Qt::ISODateWithMs ) );
     mMapCanvas->mapSettings()->setIsTemporal( isTemporal );
   }
 

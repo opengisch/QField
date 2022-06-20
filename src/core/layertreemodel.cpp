@@ -113,7 +113,8 @@ FlatLayerTreeModelBase::FlatLayerTreeModelBase( QgsLayerTree *layerTree, QgsProj
   mLayerTreeModel->setFlag( QgsLayerTreeModel::ShowLegendAsTree, true );
   setSourceModel( mLayerTreeModel );
   connect( mProject, &QgsProject::cleared, this, [=] { updateTemporalState(); buildMap( nullptr ); } );
-  connect( mProject, &QgsProject::readProject, this, [=] { updateTemporalState(); buildMap( mLayerTreeModel ); } );
+  connect( mProject, &QgsProject::readProject, this, [=] { buildMap( mLayerTreeModel ); } );
+  connect( mProject, &QgsProject::layersAdded, this, &FlatLayerTreeModelBase::adjustTemporalStateFromAddedLayers );
   connect( mLayerTreeModel, &QAbstractItemModel::dataChanged, this, &FlatLayerTreeModelBase::updateMap );
   connect( mLayerTreeModel, &QAbstractItemModel::rowsRemoved, this, &FlatLayerTreeModelBase::removeFromMap );
   connect( mLayerTreeModel, &QAbstractItemModel::rowsInserted, this, &FlatLayerTreeModelBase::insertInMap );
@@ -1030,6 +1031,22 @@ void FlatLayerTreeModelBase::updateTemporalState()
     }
   }
   emit isTemporalChanged();
+}
+
+void FlatLayerTreeModelBase::adjustTemporalStateFromAddedLayers( const QList<QgsMapLayer *> &layers )
+{
+  if ( !mIsTemporal )
+  {
+    for ( QgsMapLayer *layer : layers )
+    {
+      if ( layer->temporalProperties() && layer->temporalProperties()->isActive() )
+      {
+        mIsTemporal = true;
+        emit isTemporalChanged();
+        break;
+      }
+    }
+  }
 }
 
 void FlatLayerTreeModelBase::setLayerInTracking( QgsLayerTreeLayer *nodeLayer, bool tracking )
