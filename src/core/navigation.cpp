@@ -95,17 +95,7 @@ QgsPoint Navigation::destination() const
 
 void Navigation::setDestination( const QgsPoint &point )
 {
-  if ( !mGeometry.isNull() )
-  {
-    mGeometry = QgsGeometry();
-    mDestinationName.clear();
-    emit destinationNameChanged();
-    mVertices = 0;
-    emit destinationFeatureVerticesChanged();
-    mCurrentVertex = -1;
-    emit destinationFeatureCurrentVertexChanged();
-  }
-
+  clearDestinationFeature();
   mModel->setDestination( point );
 }
 
@@ -147,6 +137,20 @@ void Navigation::setDestinationFeature( const QgsFeature &feature, QgsVectorLaye
     mCurrentVertex = -1;
     emit destinationFeatureCurrentVertexChanged();
     mModel->setDestination( QgsPoint() );
+  }
+}
+
+void Navigation::clearDestinationFeature()
+{
+  if ( !mGeometry.isNull() )
+  {
+    mGeometry = QgsGeometry();
+    mDestinationName.clear();
+    emit destinationNameChanged();
+    mVertices = 0;
+    emit destinationFeatureVerticesChanged();
+    mCurrentVertex = -1;
+    emit destinationFeatureCurrentVertexChanged();
   }
 }
 

@@ -2219,6 +2219,8 @@ ApplicationWindow {
         busyMessageText.text = qsTr( "Loading %1" ).arg( name !== '' ? name : path )
         busyMessage.state = "visible"
 
+        navigation.clearDestinationFeature();
+
         projectInfo.filePath = '';
         readProjectTimer.start()
       }

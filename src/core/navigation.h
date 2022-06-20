@@ -64,8 +64,10 @@ class Navigation : public QObject
     QString destinationName() const;
 
     Q_INVOKABLE void setDestinationFeature( const QgsFeature &feature, QgsVectorLayer *layer );
+    Q_INVOKABLE void clearDestinationFeature();
     Q_INVOKABLE void nextDestinationVertex();
     Q_INVOKABLE void previousDestinationVertex();
+
     int destinationFeatureCurrentVertex() const;
     int destinationFeatureVertices() const;
 
