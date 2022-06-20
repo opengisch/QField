@@ -1756,28 +1756,6 @@ ApplicationWindow {
       onObjectRemoved: printMenu.removeItem(object)
     }
 
-    Connections {
-      target: iface
-
-      function onLoadProjectEnded() {
-        projectInfo.reprojectDisplayCoordinatesToWGS84 = !mapCanvas.mapSettings.destinationCrs.isGeographic
-                                                         && iface.readProjectEntry("PositionPrecision", "/DegreeFormat", "MU") !== "MU"
-
-        layoutListInstantiator.model.project = qgisProject
-        layoutListInstantiator.model.reloadModel()
-        printMenu.enablePrintItem(layoutListInstantiator.model.rowCount())
-
-        welcomeScreen.visible = false
-        welcomeScreen.focus = false
-        recentProjectListModel.reloadModel()
-
-        settings.setValue( "/QField/FirstRunFlag", false )
-        if (stateMachine.state === "digitize") {
-            dashBoard.ensureEditableLayerSelected();
-        }
-      }
-    }
-
     Timer {
       id: timer
 
@@ -2228,7 +2206,10 @@ ApplicationWindow {
       target: iface
 
       function onLoadProjectTriggered(path,name) {
+        qfieldLocalDataPickerScreen.visible = false
+        qfieldLocalDataPickerScreen.focus = false
         welcomeScreen.visible = false
+        welcomeScreen.focus = false
 
         dashBoard.layerTree.freeze()
         mapCanvasMap.freeze('projectload')
@@ -2247,6 +2228,8 @@ ApplicationWindow {
         projectInfo.filePath = path;
 
         mapCanvasBackground.color = mapCanvas.mapSettings.backgroundColor
+
+        recentProjectListModel.reloadModel()
 
         var cloudProjectId = QFieldCloudUtils.getProjectId(qgisProject.fileName)
         cloudProjectsModel.currentProjectId = cloudProjectId
@@ -2282,6 +2265,19 @@ ApplicationWindow {
           projectInfo.hasInsertRights = true
           projectInfo.hasEditRights = true
         }
+
+        if (stateMachine.state === "digitize") {
+            dashBoard.ensureEditableLayerSelected();
+        }
+
+        projectInfo.reprojectDisplayCoordinatesToWGS84 = !mapCanvas.mapSettings.destinationCrs.isGeographic
+                                                         && iface.readProjectEntry("PositionPrecision", "/DegreeFormat", "MU") !== "MU"
+
+        layoutListInstantiator.model.project = qgisProject
+        layoutListInstantiator.model.reloadModel()
+        printMenu.enablePrintItem(layoutListInstantiator.model.rowCount())
+
+        settings.setValue( "/QField/FirstRunFlag", false )
       }
 
       function onSetMapExtent(extent) {
