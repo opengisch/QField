@@ -105,21 +105,21 @@ jobs:
             ${{ steps.vars.outputs.VCPKG_ROOT }}/vcpkg/base/vcpkg.exe
           key: ${{ runner.os }}-${{ hashFiles('.git/modules/vcpkg/HEAD') }}
 
-      - name: 🔥 Free additional space
-        if: ${{ matrix.triplet == 'x64-linux' }}
-        run: |
-          df -h
-          sudo rm -rf /usr/share/dotnet/sdk
-          sudo rm -rf /usr/share/rust
-          sudo rm -rf /usr/share/swift
-          sudo rm -rf /usr/local/lib/android
-          sudo apt remove llvm-* ghc-* google-chrome-* dotnet-sdk-* azure-cli google-cloud-sdk google-chrome-stable firefox
-          dpkg-query -Wf '${Installed-Size}\t${Package}\n' | sort -n | tail -n 100
-          du -a /usr/share | sort -n -r | head -n 10
-          du -a /usr/local/share | sort -n -r | head -n 10
-          df -h
-          sudo apt clean
-          df -h
+#      - name: 🔥 Free additional space
+#        if: ${{ matrix.triplet == 'x64-linux' }}
+#        run: |
+#          df -h
+#          sudo rm -rf /usr/share/dotnet/sdk
+#          sudo rm -rf /usr/share/rust
+#          sudo rm -rf /usr/share/swift
+#          sudo rm -rf /usr/local/lib/android
+#          sudo apt remove llvm-* ghc-* google-chrome-* dotnet-sdk-* azure-cli google-cloud-sdk google-chrome-stable firefox
+#          dpkg-query -Wf '${Installed-Size}\t${Package}\n' | sort -n | tail -n 100
+#          du -a /usr/share | sort -n -r | head -n 10
+#          du -a /usr/local/share | sort -n -r | head -n 10
+#          df -h
+#          sudo apt clean
+#          df -h
 
       - uses: actions/setup-python@v3
         with:
