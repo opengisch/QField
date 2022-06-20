@@ -781,6 +781,8 @@ ApplicationWindow {
     anchors.bottomMargin: ( mapCanvas.height - zoomToolbar.height / 2 ) / 2
     spacing: 4
 
+    visible: locationToolbar.height / mapCanvas.height < 0.41
+
     QfToolButton {
       id: zoomInButton
       round: true
