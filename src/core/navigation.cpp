@@ -126,6 +126,7 @@ void Navigation::setDestinationFeature( const QgsFeature &feature, QgsVectorLaye
     emit destinationNameChanged();
     mVertices = mGeometry.get()->nCoordinates() - ( mGeometry.type() == QgsWkbTypes::PolygonGeometry ? 1 : 0 );
     emit destinationFeatureVerticesChanged();
+    mCurrentVertex = -1;
     nextDestinationVertex();
   }
   else

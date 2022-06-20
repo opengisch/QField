@@ -61,16 +61,12 @@ Rectangle {
         QfToolButton {
           id: previousFeatureVertex
           visible: navigation.destinationFeatureVertices > 1
-          Layout.alignment: Qt.AlignTop
+          Layout.alignment: Qt.AlignVCenter
+          width: 36
+          height: 36
           round: true
           bgcolor: "transparent"
           iconSource: Theme.getThemeIcon("ic_chevron_left_white_24dp")
-          transform: Scale {
-              origin.x: previousFeatureVertex.width * 0.5
-              origin.y: previousFeatureVertex.height * 0.5
-              xScale: 0.75
-              yScale: 0.75
-          }
 
           onPressed: {
             navigation.previousDestinationVertex()
@@ -105,15 +101,12 @@ Rectangle {
         QfToolButton {
           id: nextFeatureVertex
           visible: navigation.destinationFeatureVertices > 1
+          Layout.alignment: Qt.AlignVCenter
+          width: 36
+          height: 36
           round: true
           bgcolor: "transparent"
           iconSource: Theme.getThemeIcon("ic_chevron_right_white_24dp")
-          transform: Scale {
-            origin.x: nextFeatureVertex.width * 0.5
-            origin.y: nextFeatureVertex.height * 0.5
-              xScale: 0.75
-              yScale: 0.75
-          }
 
           onPressed: {
             navigation.nextDestinationVertex()
