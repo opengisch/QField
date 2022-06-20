@@ -93,8 +93,8 @@ Rectangle {
           color: "#FFFFFF"
           text: navigation.destinationName +
                 (navigation.destinationFeatureVertices > 1
-                ? ' (' + (1 + navigation.destinationFeatureCurrentVertex) + '/'
-                      + navigation.destinationFeatureVertices + ')'
+                ? ': ' + (1 + navigation.destinationFeatureCurrentVertex) + '/'
+                      + navigation.destinationFeatureVertices
                 : '')
         }
 
