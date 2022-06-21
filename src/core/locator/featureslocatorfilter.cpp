@@ -162,7 +162,7 @@ void FeaturesLocatorFilter::triggerResultFromAction( const QgsLocatorResult &res
     if ( !mLocatorBridge->navigation() )
       return;
 
-    QgsFeatureIterator it = layer->getFeatures( featureRequest.setNoAttributes() );
+    QgsFeatureIterator it = layer->getFeatures( featureRequest );
     it.nextFeature( feature );
     if ( feature.hasGeometry() )
     {
