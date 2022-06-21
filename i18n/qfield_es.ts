@@ -2640,18 +2640,18 @@ Cancelar para hacer una búsqueda mínima de dispositivos en su lugar.</translat
 <context>
     <name>QgisMobileapp</name>
     <message>
-        <location filename="../src/core/qgismobileapp.cpp" line="661"/>
-        <location filename="../src/core/qgismobileapp.cpp" line="687"/>
+        <location filename="../src/core/qgismobileapp.cpp" line="663"/>
+        <location filename="../src/core/qgismobileapp.cpp" line="689"/>
         <source>Project file &quot;%1&quot; does not exist</source>
         <translation>El archivo de proyecto &quot;%1&quot; no existe</translation>
     </message>
     <message>
-        <location filename="../src/core/qgismobileapp.cpp" line="678"/>
+        <location filename="../src/core/qgismobileapp.cpp" line="680"/>
         <source>No project file currently opened</source>
         <translation>Ningún archivo de proyecto abierto actualmente</translation>
     </message>
     <message>
-        <location filename="../src/core/qgismobileapp.cpp" line="709"/>
+        <location filename="../src/core/qgismobileapp.cpp" line="711"/>
         <source>Could not load font %1</source>
         <translation>No se pudo cargar el tipo de letra %1</translation>
     </message>
@@ -3057,14 +3057,14 @@ Cancelar para hacer una búsqueda mínima de dispositivos en su lugar.</translat
     <message>
         <location filename="../src/qml/qgismobileapp.qml" line="687"/>
         <location filename="../src/qml/qgismobileapp.qml" line="695"/>
-        <location filename="../src/qml/qgismobileapp.qml" line="1825"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1803"/>
         <source>Lon</source>
         <translation>Lon</translation>
     </message>
     <message>
         <location filename="../src/qml/qgismobileapp.qml" line="689"/>
         <location filename="../src/qml/qgismobileapp.qml" line="693"/>
-        <location filename="../src/qml/qgismobileapp.qml" line="1827"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1805"/>
         <source>Lat</source>
         <translation>Lat</translation>
     </message>
@@ -3233,27 +3233,27 @@ Cancelar para hacer una búsqueda mínima de dispositivos en su lugar.</translat
         <translation>Seleccionar plantilla abajo</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1798"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1776"/>
         <source>Activating positioning service</source>
         <translation>Activando el servicio de posicionamiento</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1801"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1779"/>
         <source>QField has no permissions to use positioning.</source>
         <translation>QField no tiene permiso para usar el posicionamiento.</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1812"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1790"/>
         <source>Map Canvas Options</source>
         <translation>Opciones de lienzo de mapa</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1868"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1846"/>
         <source>Add Bookmark</source>
         <translation>Añadir marcador</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1889"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1867"/>
         <source>Set as Destination</source>
         <translation>Establecer como destino</translation>
     </message>
@@ -3262,7 +3262,7 @@ Cancelar para hacer una búsqueda mínima de dispositivos en su lugar.</translat
         <translation type="vanished">Añadir marcador en coordenadas</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1875"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1853"/>
         <source>Untitled bookmark</source>
         <translation>Marcador sin título</translation>
     </message>
@@ -3271,7 +3271,7 @@ Cancelar para hacer una búsqueda mínima de dispositivos en su lugar.</translat
         <translation type="vanished">Establecer coordenadas como destino</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1902"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1880"/>
         <source>Copy Coordinates</source>
         <translation>Copiar coordenadas</translation>
     </message>
@@ -3284,32 +3284,32 @@ Cancelar para hacer una búsqueda mínima de dispositivos en su lugar.</translat
         <translation type="vanished">Y</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1915"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1893"/>
         <source>Coordinates copied to clipboard</source>
         <translation>Coordenadas copiadas al portapapeles</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2020"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1998"/>
         <source>Center to Location</source>
         <translation>Centrar a localización</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2031"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2009"/>
         <source>Add Bookmark at Location</source>
         <translation>Añadir marcador en la localización</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2056"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2034"/>
         <source>Copy Location Coordinates</source>
         <translation>Copiar coordenadas de la localización</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2522"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2518"/>
         <source>Signed out</source>
         <translation>Cerrar sesión</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2526"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2522"/>
         <source>Signed in</source>
         <translation>Iniciar sesión</translation>
     </message>
@@ -3318,32 +3318,32 @@ Cancelar para hacer una búsqueda mínima de dispositivos en su lugar.</translat
         <translation type="vanished">Establecer como destino</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1922"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1900"/>
         <source>Navigation Options</source>
         <translation>Opciones de navegación</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1938"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1916"/>
         <source>Clear Destination</source>
         <translation>Borrar destino</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1950"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1928"/>
         <source>Positioning Options</source>
         <translation>Opciones de posicionamiento</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1976"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1954"/>
         <source>Enable Positioning</source>
         <translation>Habilitar posicionamiento</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1991"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1969"/>
         <source>Show Position Information</source>
         <translation>Mostrar información de la posición</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2006"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1984"/>
         <source>Positioning Settings</source>
         <translation>Configuración de posicionamiento</translation>
     </message>
@@ -3356,13 +3356,13 @@ Cancelar para hacer una búsqueda mínima de dispositivos en su lugar.</translat
         <translation type="vanished">Añadir marcador en la posición actual</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2039"/>
-        <location filename="../src/qml/qgismobileapp.qml" line="2063"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2017"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2041"/>
         <source>Current location unknown</source>
         <translation>Ubicación actual desconocida</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2043"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2021"/>
         <source>My location</source>
         <translation>Mi localización</translation>
     </message>
@@ -3371,32 +3371,32 @@ Cancelar para hacer una búsqueda mínima de dispositivos en su lugar.</translat
         <translation type="vanished">Copiar ubicación actual</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2070"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2048"/>
         <source>Accuracy</source>
         <translation>Precisión</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2073"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2051"/>
         <source>N/A</source>
         <translation>N/A</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2076"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2054"/>
         <source>Current location copied to clipboard</source>
         <translation>Ubicación actual copiada al portapapeles</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2114"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2092"/>
         <source>Current layer switched to the one holding the selected geometry.</source>
         <translation>La capa actual se cambió a la que tiene la geometría seleccionada.</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2123"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2101"/>
         <source>Editing of multi geometry layer is not supported yet.</source>
         <translation>La edición de capas de geometría múltiples aún no está soportada.</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2236"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2217"/>
         <source>Loading %1</source>
         <translation>Cargando %1</translation>
     </message>
@@ -3405,7 +3405,7 @@ Cancelar para hacer una búsqueda mínima de dispositivos en su lugar.</translat
         <translation type="vanished">Desconectado</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2524"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2520"/>
         <source>Connecting...</source>
         <translation>Conectando…</translation>
     </message>
@@ -3414,27 +3414,27 @@ Cancelar para hacer una búsqueda mínima de dispositivos en su lugar.</translat
         <translation type="vanished">Conectado</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2541"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2537"/>
         <source>Project %1 failed to download</source>
         <translation>El proyecto %1 no se pudo descargar</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2542"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2538"/>
         <source>Project %1 successfully downloaded, it&apos;s now available to open</source>
         <translation>Proyecto %1 descargado correctamente, ahora está disponible para abrirlo</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2547"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2543"/>
         <source>Changes failed to reach QFieldCloud: %1</source>
         <translation>Los cambios no se pudieron subir a QFieldCloud: %1</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2551"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2547"/>
         <source>Changes successfully pushed to QFieldCloud</source>
         <translation>Cambios subidos correctamente a QFieldCloud</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2801"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2797"/>
         <source>Press back again to close project and app</source>
         <translation>Pulsar atrás otra vez para cerrar el proyecto y la aplicación</translation>
     </message>

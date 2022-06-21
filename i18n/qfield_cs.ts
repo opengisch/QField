@@ -2626,18 +2626,18 @@ Cancel to make a minimal device scan instead.</source>
 <context>
     <name>QgisMobileapp</name>
     <message>
-        <location filename="../src/core/qgismobileapp.cpp" line="661"/>
-        <location filename="../src/core/qgismobileapp.cpp" line="687"/>
+        <location filename="../src/core/qgismobileapp.cpp" line="663"/>
+        <location filename="../src/core/qgismobileapp.cpp" line="689"/>
         <source>Project file &quot;%1&quot; does not exist</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/core/qgismobileapp.cpp" line="678"/>
+        <location filename="../src/core/qgismobileapp.cpp" line="680"/>
         <source>No project file currently opened</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/core/qgismobileapp.cpp" line="709"/>
+        <location filename="../src/core/qgismobileapp.cpp" line="711"/>
         <source>Could not load font %1</source>
         <translation>Nelze načíst písmo %1</translation>
     </message>
@@ -3043,14 +3043,14 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <location filename="../src/qml/qgismobileapp.qml" line="687"/>
         <location filename="../src/qml/qgismobileapp.qml" line="695"/>
-        <location filename="../src/qml/qgismobileapp.qml" line="1825"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1803"/>
         <source>Lon</source>
         <translation>Zem. dél.</translation>
     </message>
     <message>
         <location filename="../src/qml/qgismobileapp.qml" line="689"/>
         <location filename="../src/qml/qgismobileapp.qml" line="693"/>
-        <location filename="../src/qml/qgismobileapp.qml" line="1827"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1805"/>
         <source>Lat</source>
         <translation>Zem. šíř.</translation>
     </message>
@@ -3219,27 +3219,27 @@ Cancel to make a minimal device scan instead.</source>
         <translation>Vyberte níže uvedenou šablonu</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1798"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1776"/>
         <source>Activating positioning service</source>
         <translation>Aktivace služby určování polohy</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1801"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1779"/>
         <source>QField has no permissions to use positioning.</source>
         <translation>QField nemá oprávnění k použití polohy.</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1812"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1790"/>
         <source>Map Canvas Options</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1868"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1846"/>
         <source>Add Bookmark</source>
         <translation>Přidat záložku</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1889"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1867"/>
         <source>Set as Destination</source>
         <translation>Nastavit jako cíl</translation>
     </message>
@@ -3248,7 +3248,7 @@ Cancel to make a minimal device scan instead.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1875"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1853"/>
         <source>Untitled bookmark</source>
         <translation>Bezejmenná záložka</translation>
     </message>
@@ -3257,7 +3257,7 @@ Cancel to make a minimal device scan instead.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1902"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1880"/>
         <source>Copy Coordinates</source>
         <translation>Kopírovat souřadnice</translation>
     </message>
@@ -3270,32 +3270,32 @@ Cancel to make a minimal device scan instead.</source>
         <translation type="vanished">Y</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1915"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1893"/>
         <source>Coordinates copied to clipboard</source>
         <translation>Souřadnice byly zkopírovány do schránky</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2020"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1998"/>
         <source>Center to Location</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2031"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2009"/>
         <source>Add Bookmark at Location</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2056"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2034"/>
         <source>Copy Location Coordinates</source>
         <translation>Kopírovat souřadnice polohy</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2522"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2518"/>
         <source>Signed out</source>
         <translation>Odhlášeno</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2526"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2522"/>
         <source>Signed in</source>
         <translation>Přihlášeno</translation>
     </message>
@@ -3304,32 +3304,32 @@ Cancel to make a minimal device scan instead.</source>
         <translation type="vanished">Nastavit jako cíl</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1922"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1900"/>
         <source>Navigation Options</source>
         <translation>Volby pro navigaci</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1938"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1916"/>
         <source>Clear Destination</source>
         <translation>Vymazat cíl</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1950"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1928"/>
         <source>Positioning Options</source>
         <translation>Volby pro určování polohy</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1976"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1954"/>
         <source>Enable Positioning</source>
         <translation>Povolit polohu</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1991"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1969"/>
         <source>Show Position Information</source>
         <translation>Zobrazit informaci o poloze</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2006"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1984"/>
         <source>Positioning Settings</source>
         <translation>Nastavení polohy</translation>
     </message>
@@ -3342,13 +3342,13 @@ Cancel to make a minimal device scan instead.</source>
         <translation type="vanished">Přidat záložku pro aktuální polohu</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2039"/>
-        <location filename="../src/qml/qgismobileapp.qml" line="2063"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2017"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2041"/>
         <source>Current location unknown</source>
         <translation>Aktuální poloha není známa</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2043"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2021"/>
         <source>My location</source>
         <translation>Moje poloha</translation>
     </message>
@@ -3357,32 +3357,32 @@ Cancel to make a minimal device scan instead.</source>
         <translation type="vanished">Kopírovat aktuální polohu</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2070"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2048"/>
         <source>Accuracy</source>
         <translation>Přesnost</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2073"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2051"/>
         <source>N/A</source>
         <translation>N/A</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2076"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2054"/>
         <source>Current location copied to clipboard</source>
         <translation>Aktuální poloha zkopírována do schránky</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2114"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2092"/>
         <source>Current layer switched to the one holding the selected geometry.</source>
         <translation>Aktuální vrstva byla přepnuta na vrstvu, která má vybranou geometrii.</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2123"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2101"/>
         <source>Editing of multi geometry layer is not supported yet.</source>
         <translation>Úpravy vrstvy s multi-geometrií zatím nejsou podporovány.</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2236"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2217"/>
         <source>Loading %1</source>
         <translation>Nahrávám %1</translation>
     </message>
@@ -3391,7 +3391,7 @@ Cancel to make a minimal device scan instead.</source>
         <translation type="vanished">Odhlášeno</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2524"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2520"/>
         <source>Connecting...</source>
         <translation>Připojuji se...</translation>
     </message>
@@ -3400,27 +3400,27 @@ Cancel to make a minimal device scan instead.</source>
         <translation type="vanished">Přihlášeno</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2541"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2537"/>
         <source>Project %1 failed to download</source>
         <translation>Projekt %1 se nepodařilo stáhnout</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2542"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2538"/>
         <source>Project %1 successfully downloaded, it&apos;s now available to open</source>
         <translation>Projekt %1 byl úspěšně stáhnut, nyní je možné ho otevřít</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2547"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2543"/>
         <source>Changes failed to reach QFieldCloud: %1</source>
         <translation>Nepodařilo se přenést změny na QFieldCloud: %1</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2551"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2547"/>
         <source>Changes successfully pushed to QFieldCloud</source>
         <translation>Změny byly úspěšně přeneseny na QFieldCloud</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2801"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2797"/>
         <source>Press back again to close project and app</source>
         <translation>Opětovným stisknutím tlačítka zavřete projekt a aplikaci</translation>
     </message>
