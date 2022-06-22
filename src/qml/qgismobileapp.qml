@@ -2316,12 +2316,9 @@ ApplicationWindow {
     id: messageLog
     anchors.fill: parent
     focus: visible
-
-    model: MessageLogModel {
-      id: messageLogModel
-    }
-
     visible: false
+
+    model: messageLogModel
 
     onFinished: {
       visible = false
@@ -2334,7 +2331,10 @@ ApplicationWindow {
       }
     }
 
-    Component.onCompleted: focusstack.addFocusTaker( this )
+    Component.onCompleted: {
+      focusstack.addFocusTaker( this )
+      unreadMessages = messageLogModel.rowCount !== 0
+    }
   }
 
   BadLayerItem {

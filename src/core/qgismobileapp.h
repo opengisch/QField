@@ -53,6 +53,7 @@ class TrackingModel;
 class LocatorFiltersModel;
 class QgsProject;
 class LayerObserver;
+class MessageLogModel;
 
 #define REGISTER_SINGLETON( uri, _class, name ) qmlRegisterSingletonType<_class>( uri, 1, 0, name, []( QQmlEngine *engine, QJSEngine *scriptEngine ) -> QObject * { Q_UNUSED(engine); Q_UNUSED(scriptEngine); return new _class(); } )
 
@@ -220,6 +221,7 @@ class QFIELD_CORE_EXPORT QgisMobileapp : public QQmlApplicationEngine
     QFieldAppAuthRequestHandler *mAuthRequestHandler = nullptr;
 
     std::unique_ptr<BookmarkModel> mBookmarkModel;
+    std::unique_ptr<MessageLogModel> mMessageLogModel;
 
     // Dummy objects. We are not able to call static functions from QML, so we need something here.
     QgsCoordinateReferenceSystem mCrsFactory;
