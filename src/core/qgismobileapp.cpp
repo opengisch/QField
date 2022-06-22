@@ -177,6 +177,8 @@ QgisMobileapp::QgisMobileapp( QgsApplication *app, QObject *parent )
   palette.setColor( QPalette::LinkVisited, QColor( 128, 204, 40 ) );
   app->setPalette( palette );
 
+  mMessageLogModel = std::make_unique<MessageLogModel>( this );
+
   QSettings settings;
   if ( PlatformUtilities::instance()->capabilities() & PlatformUtilities::AdjustBrightness )
   {
@@ -440,7 +442,6 @@ void QgisMobileapp::initDeclarative()
   qmlRegisterType<ProjectInfo>( "org.qgis", 1, 0, "ProjectInfo" );
   qmlRegisterType<ProjectSource>( "org.qgis", 1, 0, "ProjectSource" );
   qmlRegisterType<ViewStatus>( "org.qgis", 1, 0, "ViewStatus" );
-  qmlRegisterType<MessageLogModel>( "org.qgis", 1, 0, "MessageLogModel" );
 
   qmlRegisterType<DigitizingLogger>( "org.qfield", 1, 0, "DigitizingLogger" );
   qmlRegisterType<AttributeFormModel>( "org.qfield", 1, 0, "AttributeFormModel" );
@@ -503,6 +504,7 @@ void QgisMobileapp::initDeclarative()
   qmlRegisterUncreatableType<LayerObserver>( "org.qfield", 1, 0, "LayerObserver", "" );
   qmlRegisterUncreatableType<DeltaFileWrapper>( "org.qfield", 1, 0, "DeltaFileWrapper", "" );
   qmlRegisterUncreatableType<BookmarkModel>( "org.qfield", 1, 0, "BookmarkModel", "The BookmarkModel is available as context property `bookmarkModel`" );
+  qmlRegisterUncreatableType<MessageLogModel>( "org.qfield", 1, 0, "MessageLogModel", "The MessageLogModel is available as context property `messageLogModel`." );
 
   qRegisterMetaType<SnappingResult>( "SnappingResult" );
 
@@ -528,6 +530,7 @@ void QgisMobileapp::initDeclarative()
   rootContext()->setContextProperty( "LocatorModelNoGroup", QgsLocatorModel::NoGroup );
   rootContext()->setContextProperty( "gpkgFlusher", mGpkgFlusher.get() );
   rootContext()->setContextProperty( "layerObserver", mLayerObserver.get() );
+  rootContext()->setContextProperty( "messageLogModel", mMessageLogModel.get() );
 
   rootContext()->setContextProperty( "qfieldAuthRequestHandler", mAuthRequestHandler );
 
