@@ -620,8 +620,8 @@ ApplicationWindow {
       navigation: navigation
     }
 
-    PositionInformationView {
-      id: positionInformationView
+    PositioningInformationView {
+      id: positioningInformationView
       visible: positioningSettings.showPositionInformation
       positionSource: positionSource
       antennaHeight: positioningSettings.antennaHeightActivated ? positioningSettings.antennaHeight : NaN

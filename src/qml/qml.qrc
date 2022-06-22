@@ -22,7 +22,9 @@
         <file>NavigationHighlight.qml</file>
         <file>NavigationInformationView.qml</file>
         <file>NavigationRenderer.qml</file>
-        <file>PositionInformationView.qml</file>
+        <file>PositioningSettings.qml</file>
+        <file>PositioningInformationView.qml</file>
+        <file>PositioningPreciseView.qml</file>
         <file>QFieldSettings.qml</file>
         <file>ScaleBar.qml</file>
         <file>VariableEditor.qml</file>
@@ -71,7 +73,6 @@
         <file>PageHeader.qml</file>
         <file>Tracking.qml</file>
         <file>EmbeddedFeatureForm.qml</file>
-        <file>PositioningSettings.qml</file>
         <file>QuestionDialog.qml</file>
         <file>ImageDial.qml</file>
         <file>SystemLoader.qml</file>
