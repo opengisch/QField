@@ -121,7 +121,7 @@ EditorWidgetBase {
         }
 
         MouseArea {
-            enabled: config['calendar_popup']
+            enabled: config['calendar_popup'] === undefined || config['calendar_popup']
             anchors.fill: parent
             onClicked: {
                 var usedDate = new Date();
@@ -217,7 +217,8 @@ EditorWidgetBase {
             anchors.rightMargin: 4
             anchors.verticalCenter: parent.verticalCenter
             anchors.verticalCenterOffset: -2
-            visible: ( value !== undefined ) && config['allow_null'] && enabled
+            visible: (value !== undefined) && enabled
+                     && (config['allow_null'] === undefined || config['allow_null'])
 
             MouseArea {
                 anchors.fill: parent
