@@ -98,6 +98,7 @@ class Navigation : public QObject
 
   private:
     void updateDetails();
+    void setDestinationFromCurrentVertex();
 
     std::unique_ptr<NavigationModel> mModel = nullptr;
     QgsQuickMapSettings *mMapSettings = nullptr;

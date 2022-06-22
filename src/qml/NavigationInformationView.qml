@@ -93,8 +93,11 @@ Rectangle {
           color: "#FFFFFF"
           text: navigation.destinationName +
                 (navigation.destinationFeatureVertices > 1
-                ? ': ' + (1 + navigation.destinationFeatureCurrentVertex) + '/'
+                ? ': ' +
+                  (navigation.destinationFeatureCurrentVertex > 0
+                  ? (navigation.destinationFeatureCurrentVertex) + '/'
                       + navigation.destinationFeatureVertices
+                  : qsTr('centroid'))
                 : '')
         }
 

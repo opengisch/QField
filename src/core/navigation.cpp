@@ -160,7 +160,7 @@ void Navigation::nextDestinationVertex()
   if ( mGeometry.isNull() )
     return;
 
-  if ( mCurrentVertex >= mVertices - 1 )
+  if ( mCurrentVertex >= mVertices )
   {
     mCurrentVertex = 0;
   }
@@ -170,7 +170,7 @@ void Navigation::nextDestinationVertex()
   }
   emit destinationFeatureCurrentVertexChanged();
 
-  mModel->setDestination( mGeometry.vertexAt( mCurrentVertex ) );
+  setDestinationFromCurrentVertex();
 }
 
 void Navigation::previousDestinationVertex()
@@ -180,7 +180,7 @@ void Navigation::previousDestinationVertex()
 
   if ( mCurrentVertex <= 0 )
   {
-    mCurrentVertex = mVertices - 1;
+    mCurrentVertex = mVertices;
   }
   else
   {
@@ -188,7 +188,28 @@ void Navigation::previousDestinationVertex()
   }
   emit destinationFeatureCurrentVertexChanged();
 
-  mModel->setDestination( mGeometry.vertexAt( mCurrentVertex ) );
+  setDestinationFromCurrentVertex();
+}
+
+void Navigation::setDestinationFromCurrentVertex()
+{
+  if ( mCurrentVertex == 0 )
+  {
+    const QgsGeometry pointOnSurface = mGeometry.pointOnSurface();
+    if ( !pointOnSurface.isNull() )
+    {
+      mModel->setDestination( pointOnSurface.vertexAt( 0 ) );
+    }
+    else
+    {
+      mCurrentVertex++;
+      mModel->setDestination( mGeometry.vertexAt( mCurrentVertex - 1 ) );
+    }
+  }
+  else
+  {
+    mModel->setDestination( mGeometry.vertexAt( mCurrentVertex - 1 ) );
+  }
 }
 
 int Navigation::destinationFeatureCurrentVertex() const
