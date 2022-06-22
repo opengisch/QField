@@ -307,18 +307,18 @@ QgisMobileapp::QgisMobileapp( QgsApplication *app, QObject *parent )
     QgsApplication::instance()->authManager()->setPasswordHelperEnabled( false );
     QgsApplication::instance()->authManager()->setMasterPassword( QString( "qfield" ) );
     // import authentication method configurations
-    qDebug() << dataDirs;
+    QgsMessageLog::logMessage( dataDirs.join( ',' ), QStringLiteral( "QField" ) );
     for ( const QString &dataDir : dataDirs )
     {
       QDir configurationsDir( QStringLiteral( "%1/auth" ).arg( dataDir ) );
-      qDebug() << QStringLiteral( "%1/auth" ).arg( dataDir );
+      QgsMessageLog::logMessage( QStringLiteral( "%1/auth" ).arg( dataDir ), QStringLiteral( "QField" ) );
       if ( configurationsDir.exists() )
       {
-        qDebug() << "Checking...";
+        QgsMessageLog::logMessage( QStringLiteral( "Checking..." ), QStringLiteral( "QField" ) );
         const QStringList configurations = configurationsDir.entryList( QStringList() << QStringLiteral( "*.xml" ) << QStringLiteral( "*.XML" ), QDir::Files );
         for ( const QString &configuration : configurations )
         {
-          qDebug() << QStringLiteral( "Importing authentication configuration file %1" ).arg( configurationsDir.absoluteFilePath( configuration ) );
+          QgsMessageLog::logMessage( QStringLiteral( "Importing authentication configuration file %1" ).arg( configurationsDir.absoluteFilePath( configuration ) ), QStringLiteral( "QField" ) );
           QgsApplication::instance()->authManager()->importAuthenticationConfigsFromXml( configurationsDir.absoluteFilePath( configuration ), QString(), true );
         }
       }
