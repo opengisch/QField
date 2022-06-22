@@ -306,16 +306,15 @@ EditorWidgetBase {
 
     function isButtonEnabled(buttonType) {
       const buttons = relationEditorWidgetConfig.buttons
+      if (buttons === undefined)
+        return true
 
-      if (!buttons)
-        return false
-
+      if (buttons === 'NoButton')
+        return false;
       if (buttons === 'AllButtons')
         return true
-
-      if (buttons.split('|').indexOf(buttonType) >= 0) {
+      if (buttons.split('|').indexOf(buttonType) >= 0)
         return true
-      }
 
       return false
     }
