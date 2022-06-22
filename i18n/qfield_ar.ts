@@ -3053,14 +3053,14 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <location filename="../src/qml/qgismobileapp.qml" line="687"/>
         <location filename="../src/qml/qgismobileapp.qml" line="695"/>
-        <location filename="../src/qml/qgismobileapp.qml" line="1803"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1805"/>
         <source>Lon</source>
         <translation>عرض</translation>
     </message>
     <message>
         <location filename="../src/qml/qgismobileapp.qml" line="689"/>
         <location filename="../src/qml/qgismobileapp.qml" line="693"/>
-        <location filename="../src/qml/qgismobileapp.qml" line="1805"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1807"/>
         <source>Lat</source>
         <translation>طول</translation>
     </message>
@@ -3085,67 +3085,67 @@ Cancel to make a minimal device scan instead.</source>
         <translation>المساحة</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="960"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="962"/>
         <source>Close measure tool</source>
         <translation>إغلاق أداة القياس</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="967"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="969"/>
         <source>Stop editing</source>
         <translation>إيقاف التحرير</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="974"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="976"/>
         <source>Cancel addition</source>
         <translation>إلغاء الإضافة</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1021"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1023"/>
         <source>Topological editing turned on</source>
         <translation>تم تشغيل التحرير الطبقي</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1021"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1023"/>
         <source>Topological editing turned off</source>
         <translation>تم إيقاف التحرير الطبقي</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1069"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1071"/>
         <source>Freehand digitizing turned on</source>
         <translation>تشغيل وضع التحرير باليد الحرة</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1069"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1071"/>
         <source>Freehand digitizing turned off</source>
         <translation>إطفاء وضع التحرير باليد الحرة</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1166"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1168"/>
         <source>Coordinate cursor now locked to position</source>
         <translation>تم قفل مؤشر الإحداثيات على الموقع</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1176"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1178"/>
         <source>Coordinate cursor unlocked</source>
         <translation>تم إلغاء قفل مؤشر الإحداثيات</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1196"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1198"/>
         <source>Received position</source>
         <translation>الموقع المُستقبل</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1198"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1200"/>
         <source>Searching for position</source>
         <translation>البحث عن موقع</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1245"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1247"/>
         <source>Canvas follows location</source>
         <translation>يجري تتبع الموقع</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1254"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1256"/>
         <source>Waiting for location</source>
         <translation>جار انتظار تحديد الموقع</translation>
     </message>
@@ -3158,49 +3158,49 @@ Cancel to make a minimal device scan instead.</source>
         <translation type="vanished">تم إطفاء التموضع</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1341"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1343"/>
         <source>Canvas stopped following location</source>
         <translation>تم إيقاف تتبع الموقع</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1485"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1487"/>
         <source>Failed to create feature!</source>
         <translation>فشل إنشاء الميزة</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1489"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1491"/>
         <source>Failed to save feature!</source>
         <translation>فشل حفظ الميزة</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1549"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1551"/>
         <source>Main Menu</source>
         <translation>القائمة الرئيسية</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1563"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1565"/>
         <source>Measure Tool</source>
         <translation>أداة القياس</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1578"/>
-        <location filename="../src/qml/qgismobileapp.qml" line="1710"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1580"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1712"/>
         <source>Print to PDF</source>
         <translation>طباعة إلى ملف PDF</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1592"/>
-        <location filename="../src/qml/qgismobileapp.qml" line="1750"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1594"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1752"/>
         <source>Printing to PDF</source>
         <translation>جار الطباعة إلى ملف PDF</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1609"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1611"/>
         <source>Go to Home Screen</source>
         <translation>الذهاب إلى الشاشة الرئيسية</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1625"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1627"/>
         <source>Open Project Folder</source>
         <translation>فتح مجلد المشروع</translation>
     </message>
@@ -3209,47 +3209,47 @@ Cancel to make a minimal device scan instead.</source>
         <translation type="vanished">فتح مشورع</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1637"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1639"/>
         <source>Settings</source>
         <translation>الإعدادات</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1651"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1653"/>
         <source>Message Log</source>
         <translation>ملخص الرسائل</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1665"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1667"/>
         <source>About QField</source>
         <translation>حول QFeild</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1726"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1728"/>
         <source>Select template below</source>
         <translation>تحديد القالب من الأسفل</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1776"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1778"/>
         <source>Activating positioning service</source>
         <translation>جار تفعيل خدمة التموضع</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1779"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1781"/>
         <source>QField has no permissions to use positioning.</source>
         <translation>لا يمتلك QField صلاحيات للوصول إلى التموضع.</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1790"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1792"/>
         <source>Map Canvas Options</source>
         <translation>خيارات سياج الخريطة</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1846"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1848"/>
         <source>Add Bookmark</source>
         <translation>إضافة علامة مرجعية</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1867"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1869"/>
         <source>Set as Destination</source>
         <translation>ضبط كوجهة</translation>
     </message>
@@ -3258,7 +3258,7 @@ Cancel to make a minimal device scan instead.</source>
         <translation type="vanished">إضافة علامة مرجعية عند الإحداثيات</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1853"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1855"/>
         <source>Untitled bookmark</source>
         <translation>علامة مرجعية بدون تسمية</translation>
     </message>
@@ -3267,7 +3267,7 @@ Cancel to make a minimal device scan instead.</source>
         <translation type="vanished">ضبط الإحداثيات كوجهة</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1880"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1882"/>
         <source>Copy Coordinates</source>
         <translation>نسخ الإحداثيات</translation>
     </message>
@@ -3280,32 +3280,32 @@ Cancel to make a minimal device scan instead.</source>
         <translation type="vanished">Y</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1893"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1895"/>
         <source>Coordinates copied to clipboard</source>
         <translation>تم نسخ الإحداثيات إلى الحافظة</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1998"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2000"/>
         <source>Center to Location</source>
         <translation>التوسيط إلى الموقع</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2009"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2011"/>
         <source>Add Bookmark at Location</source>
         <translation>إضافة لاعمة مرجعية عند الموقع</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2034"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2036"/>
         <source>Copy Location Coordinates</source>
         <translation>نسخ إحداثيات الموقع</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2518"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2520"/>
         <source>Signed out</source>
         <translation>تم تسجيل الخروج</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2522"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2524"/>
         <source>Signed in</source>
         <translation>تم تسجيل الدخول</translation>
     </message>
@@ -3314,32 +3314,32 @@ Cancel to make a minimal device scan instead.</source>
         <translation type="vanished">ضبط كوجهة</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1900"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1902"/>
         <source>Navigation Options</source>
         <translation>خيارات الملاحة</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1916"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1918"/>
         <source>Clear Destination</source>
         <translation>تصفير المسافة</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1928"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1930"/>
         <source>Positioning Options</source>
         <translation>خيارات التموضع</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1954"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1956"/>
         <source>Enable Positioning</source>
         <translation>تمكين التموضع</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1969"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1971"/>
         <source>Show Position Information</source>
         <translation>إظهار معلومات التموضع</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1984"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1986"/>
         <source>Positioning Settings</source>
         <translation>إعدادات التموضع</translation>
     </message>
@@ -3352,13 +3352,13 @@ Cancel to make a minimal device scan instead.</source>
         <translation type="vanished">إضافة علامة مرجيعة عند الموقع الحالي</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2017"/>
-        <location filename="../src/qml/qgismobileapp.qml" line="2041"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2019"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2043"/>
         <source>Current location unknown</source>
         <translation>الموقع الحالي غير معروف</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2021"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2023"/>
         <source>My location</source>
         <translation>موقعي</translation>
     </message>
@@ -3367,32 +3367,32 @@ Cancel to make a minimal device scan instead.</source>
         <translation type="vanished">نسخ الموقع الحالي</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2048"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2050"/>
         <source>Accuracy</source>
         <translation>الدقة</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2051"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2053"/>
         <source>N/A</source>
         <translation>غير محدد</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2054"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2056"/>
         <source>Current location copied to clipboard</source>
         <translation>تم نسخ الموقع الحالي إلى الحافظة</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2092"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2094"/>
         <source>Current layer switched to the one holding the selected geometry.</source>
         <translation>تحولت الطبقة الحالية إلى الطبقة أحادية الرسم المحدد.</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2101"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2103"/>
         <source>Editing of multi geometry layer is not supported yet.</source>
         <translation>تحرير الطبقة متعددة الرسومات غير مدعوم حالياً.</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2217"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2219"/>
         <source>Loading %1</source>
         <translation>جار تحميل %1</translation>
     </message>
@@ -3401,7 +3401,7 @@ Cancel to make a minimal device scan instead.</source>
         <translation type="vanished">تم تسجيل الخروج</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2520"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2522"/>
         <source>Connecting...</source>
         <translation>جار الاتصال ...</translation>
     </message>
@@ -3410,27 +3410,27 @@ Cancel to make a minimal device scan instead.</source>
         <translation type="vanished">تم تسجيل الدخول</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2537"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2539"/>
         <source>Project %1 failed to download</source>
         <translation>فشل تحميل مشروع %1</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2538"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2540"/>
         <source>Project %1 successfully downloaded, it&apos;s now available to open</source>
         <translation>تم تحميل مشروع %1 بنجاح، وهو جاهز للفتح الآن</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2543"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2545"/>
         <source>Changes failed to reach QFieldCloud: %1</source>
         <translation>فشل وصول التغيرات إلى  : %1QFieldCloud</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2547"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2549"/>
         <source>Changes successfully pushed to QFieldCloud</source>
         <translation>تم نشر التغيرات بنجاح إلى QFieldCloud</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2797"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2799"/>
         <source>Press back again to close project and app</source>
         <translation>اضغط زر الرجوع مرة أخرى للخروج من التطبيق</translation>
     </message>

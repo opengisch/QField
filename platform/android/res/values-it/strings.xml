@@ -66,4 +66,6 @@
     <string name="storage_information_message">Che tu sia un utente di vecchia data da QField 1.x che si sta domandando perché i suoi progetti e dataset sono scomparsi o una nuova recluta, ti suggeriamo di dedicare un minuto alla lettura della documentazione sulla gestione dell\'archiviazione. Un collegamento a questa documentazione rimarrà accessibile nel menù delle azioni della barra del titolo.</string>
     <string name="storage_information_view">Mostrami la documentazione</string>
     <string name="storage_information_dismiss">Leggerò più tardi</string>
-    </resources>
+    <string name="import_project_wait">Attendere mentre QField importa il progetto</string>
+    <string name="import_dataset_wait">Attendere mentre QField importa i set di dati.</string>
+</resources>
