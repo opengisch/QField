@@ -40,7 +40,7 @@ class Navigation : public QObject
     Q_PROPERTY( double bearing READ bearing NOTIFY detailsChanged )
 
     Q_PROPERTY( int destinationFeatureCurrentVertex READ destinationFeatureCurrentVertex NOTIFY destinationFeatureCurrentVertexChanged )
-    Q_PROPERTY( int destinationFeatureVertices READ destinationFeatureVertices NOTIFY destinationFeatureVerticesChanged )
+    Q_PROPERTY( int destinationFeatureVertexCount READ destinationFeatureVertexCount NOTIFY destinationFeatureVertexCountChanged )
 
     Q_PROPERTY( bool isActive READ isActive NOTIFY isActiveChanged )
 
@@ -63,13 +63,33 @@ class Navigation : public QObject
     void setDestination( const QgsPoint &point );
     QString destinationName() const;
 
+    /**
+     * Sets a provided feature as navigation destination, which allows for users to cycle through the
+     * feature centroid and its individual vertices as destination point.
+     * \param feature the feature used as destination
+     * \param layer the vector layer associated to the feature
+     */
     Q_INVOKABLE void setDestinationFeature( const QgsFeature &feature, QgsVectorLayer *layer );
+
+    /**
+     * Clears the current destination feature, as well as the current destination point.
+     */
     Q_INVOKABLE void clearDestinationFeature();
+
+    /**
+     * Sets the destination point to the next vertex or centroid of the current destination feature.
+     * \note if a destination feature has not been provided, calling this function does nothing
+     */
     Q_INVOKABLE void nextDestinationVertex();
+
+    /**
+     * Sets the destination point to the previous vertex or centroid of the current destination feature.
+     * \note if a destination feature has not been provided, calling this function does nothing
+     */
     Q_INVOKABLE void previousDestinationVertex();
 
     int destinationFeatureCurrentVertex() const;
-    int destinationFeatureVertices() const;
+    int destinationFeatureVertexCount() const;
 
     QgsGeometry path() const { return mPath; }
     double distance() const { return mDistance; }
@@ -89,7 +109,7 @@ class Navigation : public QObject
     void destinationNameChanged();
 
     void destinationFeatureCurrentVertexChanged();
-    void destinationFeatureVerticesChanged();
+    void destinationFeatureVertexCountChanged();
 
     void detailsChanged();
 
@@ -111,7 +131,7 @@ class Navigation : public QObject
 
     QgsGeometry mGeometry;
     int mCurrentVertex = -1;
-    int mVertices = 0;
+    int mVertexCount = 0;
 };
 
 #endif // NAVIGATION_H

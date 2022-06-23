@@ -124,8 +124,8 @@ void Navigation::setDestinationFeature( const QgsFeature &feature, QgsVectorLaye
   {
     mDestinationName = FeatureUtils::displayName( layer, feature );
     emit destinationNameChanged();
-    mVertices = mGeometry.get()->nCoordinates() - ( mGeometry.type() == QgsWkbTypes::PolygonGeometry ? 1 : 0 );
-    emit destinationFeatureVerticesChanged();
+    mVertexCount = mGeometry.get()->nCoordinates() - ( mGeometry.type() == QgsWkbTypes::PolygonGeometry ? 1 : 0 );
+    emit destinationFeatureVertexCountChanged();
     mCurrentVertex = -1;
     nextDestinationVertex();
   }
@@ -133,8 +133,8 @@ void Navigation::setDestinationFeature( const QgsFeature &feature, QgsVectorLaye
   {
     mDestinationName = FeatureUtils::displayName( layer, feature );
     emit destinationNameChanged();
-    mVertices = 0;
-    emit destinationFeatureVerticesChanged();
+    mVertexCount = 0;
+    emit destinationFeatureVertexCountChanged();
     mCurrentVertex = -1;
     emit destinationFeatureCurrentVertexChanged();
     mModel->setDestination( QgsPoint() );
@@ -148,8 +148,8 @@ void Navigation::clearDestinationFeature()
     mGeometry = QgsGeometry();
     mDestinationName.clear();
     emit destinationNameChanged();
-    mVertices = 0;
-    emit destinationFeatureVerticesChanged();
+    mVertexCount = 0;
+    emit destinationFeatureVertexCountChanged();
     mCurrentVertex = -1;
     emit destinationFeatureCurrentVertexChanged();
   }
@@ -160,7 +160,7 @@ void Navigation::nextDestinationVertex()
   if ( mGeometry.isNull() )
     return;
 
-  if ( mCurrentVertex >= mVertices )
+  if ( mCurrentVertex >= mVertexCount )
   {
     mCurrentVertex = 0;
   }
@@ -180,7 +180,7 @@ void Navigation::previousDestinationVertex()
 
   if ( mCurrentVertex <= 0 )
   {
-    mCurrentVertex = mVertices;
+    mCurrentVertex = mVertexCount;
   }
   else
   {
@@ -217,9 +217,9 @@ int Navigation::destinationFeatureCurrentVertex() const
   return mCurrentVertex;
 }
 
-int Navigation::destinationFeatureVertices() const
+int Navigation::destinationFeatureVertexCount() const
 {
-  return mVertices;
+  return mVertexCount;
 }
 
 void Navigation::updateDetails()

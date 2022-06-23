@@ -60,7 +60,7 @@ Rectangle {
 
         QfToolButton {
           id: previousFeatureVertex
-          visible: navigation.destinationFeatureVertices > 1
+          visible: navigation.destinationFeatureVertexCount > 1
           Layout.alignment: Qt.AlignVCenter
           width: 36
           height: 36
@@ -92,18 +92,18 @@ Rectangle {
           wrapMode: Text.NoWrap
           color: "#FFFFFF"
           text: navigation.destinationName +
-                (navigation.destinationFeatureVertices > 1
+                (navigation.destinationFeatureVertexCount > 1
                 ? ': ' +
                   (navigation.destinationFeatureCurrentVertex > 0
                   ? (navigation.destinationFeatureCurrentVertex) + '/'
-                      + navigation.destinationFeatureVertices
+                      + navigation.destinationFeatureVertexCount
                   : qsTr('centroid'))
                 : '')
         }
 
         QfToolButton {
           id: nextFeatureVertex
-          visible: navigation.destinationFeatureVertices > 1
+          visible: navigation.destinationFeatureVertexCount > 1
           Layout.alignment: Qt.AlignVCenter
           width: 36
           height: 36
