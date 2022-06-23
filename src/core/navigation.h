@@ -36,6 +36,7 @@ class Navigation : public QObject
 
     Q_PROPERTY( QgsGeometry path READ path NOTIFY detailsChanged )
     Q_PROPERTY( double distance READ distance NOTIFY detailsChanged )
+    Q_PROPERTY( double verticalDistance READ verticalDistance NOTIFY detailsChanged )
     Q_PROPERTY( QgsUnitTypes::DistanceUnit distanceUnits READ distanceUnits NOTIFY detailsChanged )
     Q_PROPERTY( double bearing READ bearing NOTIFY detailsChanged )
 
@@ -93,6 +94,7 @@ class Navigation : public QObject
 
     QgsGeometry path() const { return mPath; }
     double distance() const { return mDistance; }
+    double verticalDistance() const { return mVerticalDistance; }
     QgsUnitTypes::DistanceUnit distanceUnits() const { return mDa.lengthUnits(); }
     double bearing() const { return mBearing; }
 
@@ -125,8 +127,9 @@ class Navigation : public QObject
     QgsPoint mLocation;
     QgsGeometry mPath;
     QgsDistanceArea mDa;
-    double mDistance = 0.0;
-    double mBearing = 0.0;
+    double mDistance = std::numeric_limits<double>::quiet_NaN();
+    double mVerticalDistance = std::numeric_limits<double>::quiet_NaN();
+    double mBearing = std::numeric_limits<double>::quiet_NaN();
     QString mDestinationName;
 
     QgsGeometry mGeometry;

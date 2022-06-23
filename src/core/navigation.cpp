@@ -228,16 +228,26 @@ void Navigation::updateDetails()
   if ( points.isEmpty() || mLocation.isEmpty() )
   {
     mPath = QgsGeometry();
-    mDistance = 0.0;
-    mBearing = 0.0;
+    mDistance = std::numeric_limits<double>::quiet_NaN();
+    mVerticalDistance = std::numeric_limits<double>::quiet_NaN();
+    mBearing = std::numeric_limits<double>::quiet_NaN();
     emit detailsChanged();
     return;
   }
   points.prepend( mLocation );
-
   mPath = QgsGeometry( new QgsLineString( points ) );
-  mDistance = mDa.measureLine( mLocation, destination() );
-  mBearing = mDa.bearing( mLocation, destination() ) * 180 / M_PI;
+
+  const QgsPoint destinationPoint = destination();
+  mDistance = mDa.measureLine( mLocation, destinationPoint );
+  if ( QgsWkbTypes::hasZ( mLocation.wkbType() ) && QgsWkbTypes::hasZ( destinationPoint.wkbType() ) )
+  {
+    mVerticalDistance = mLocation.z() - destinationPoint.z();
+  }
+  else
+  {
+    mVerticalDistance = std::numeric_limits<double>::quiet_NaN();
+  }
+  mBearing = mDa.bearing( mLocation, destinationPoint ) * 180 / M_PI;
 
   emit detailsChanged();
 }
