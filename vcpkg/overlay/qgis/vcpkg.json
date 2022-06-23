@@ -28,7 +28,7 @@
       "gsl",
       "libpq",
       "protobuf",
-      "proj4",
+      "proj",
       "geos",
       {
         "name": "libtasn1",

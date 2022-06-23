@@ -105,21 +105,21 @@ jobs:
             ${{ steps.vars.outputs.VCPKG_ROOT }}/vcpkg/base/vcpkg.exe
           key: ${{ runner.os }}-${{ hashFiles('.git/modules/vcpkg/HEAD') }}
 
-      - name: 🔥 Free additional space
-        if: ${{ matrix.triplet == 'x64-linux' }}
-        run: |
-          df -h
-          sudo rm -rf /usr/share/dotnet/sdk
-          sudo rm -rf /usr/share/rust
-          sudo rm -rf /usr/share/swift
-          sudo rm -rf /usr/local/lib/android
-          sudo apt remove llvm-* ghc-* google-chrome-* dotnet-sdk-* azure-cli google-cloud-sdk google-chrome-stable firefox
-          dpkg-query -Wf '${Installed-Size}\t${Package}\n' | sort -n | tail -n 100
-          du -a /usr/share | sort -n -r | head -n 10
-          du -a /usr/local/share | sort -n -r | head -n 10
-          df -h
-          sudo apt clean
-          df -h
+#      - name: 🔥 Free additional space
+#        if: ${{ matrix.triplet == 'x64-linux' }}
+#        run: |
+#          df -h
+#          sudo rm -rf /usr/share/dotnet/sdk
+#          sudo rm -rf /usr/share/rust
+#          sudo rm -rf /usr/share/swift
+#          sudo rm -rf /usr/local/lib/android
+#          sudo apt remove llvm-* ghc-* google-chrome-* dotnet-sdk-* azure-cli google-cloud-sdk google-chrome-stable firefox
+#          dpkg-query -Wf '${Installed-Size}\t${Package}\n' | sort -n | tail -n 100
+#          du -a /usr/share | sort -n -r | head -n 10
+#          du -a /usr/local/share | sort -n -r | head -n 10
+#          df -h
+#          sudo apt clean
+#          df -h
 
       - uses: actions/setup-python@v3
         with:
@@ -171,20 +171,6 @@ jobs:
           echo $(brew --prefix flex)/bin >> $GITHUB_PATH
           echo "EXTRA_CMAKE_ARGS=-GXcode -T buildsystem=1" >> $GITHUB_ENV
           sudo xcode-select -s /Applications/Xcode_12.app/Contents/Developer
-
-      - uses: Apple-Actions/import-codesign-certs@v1
-        if: ${{ matrix.os == 'macos-10.15' }}
-        with:
-          p12-file-base64: ${{ secrets.IOS_CERTIFICATES_FILE_BASE64 }}
-          p12-password: ${{ secrets.IOS_CERTIFICATES_PASSWORD }}
-
-      - uses: Apple-Actions/download-provisioning-profiles@v1
-        if: ${{ matrix.os == 'macos-10.15' }}
-        with:
-          bundle-id: ch.opengis.qfield
-          issuer-id: ${{ secrets.IOS_APPSTORE_ISSUER_ID }}
-          api-key-id: ${{ secrets.IOS_APPSTORE_KEY_ID }}
-          api-private-key: ${{ secrets.IOS_APPSTORE_PRIVATE_KEY }}
 
       - name: 🌱 Install dependencies and generate project files
         shell: bash

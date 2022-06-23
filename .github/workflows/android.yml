@@ -103,19 +103,20 @@ jobs:
           wget https://repo1.maven.org/maven2/io/sentry/sentry-android-ndk/5.5.2/sentry-android-ndk-5.5.2.aar -O /tmp/sentry.zip
           unzip /tmp/sentry.zip -d /tmp/sentry-android-ndk
 
+      - name: 🌱 Update ndk
+        run: |
+          echo "ndk.dir=$ANDROID_NDK_HOME" >> local.properties
+          echo "yes" | sudo /usr/local/lib/android/sdk/tools/bin/sdkmanager --uninstall "ndk-bundle"
+          echo "yes" | sudo /usr/local/lib/android/sdk/tools/bin/sdkmanager "platforms;android-30" "build-tools;$ANDROID_BUILD_TOOLS_VERSION" "ndk;$ANDROID_NDK_VERSION" tools platform-tools
+          echo "yes" | sudo /usr/local/lib/android/sdk/tools/bin/sdkmanager --licenses
+
       - name: 🌱 Install dependencies and generate project files
-        shell: bash
         env:
           WORKSPACE: ${{ github.workspace }}
         run: |
           # Convert paths to bash compatible ones. Thanks to whoever decided to use drive letters and backslashes.
           CMAKE_BUILD_DIR=$( ${{ steps.vars.outputs.PATHCONVERT }} "${CMAKE_BUILD_DIR}" )
           SOURCE_DIR=$( ${{ steps.vars.outputs.PATHCONVERT }} "${WORKSPACE}" )
-
-          echo "ndk.dir=$ANDROID_NDK_HOME" >> local.properties
-          echo "yes" | sudo /usr/local/lib/android/sdk/tools/bin/sdkmanager --uninstall "ndk-bundle"
-          echo "yes" | sudo /usr/local/lib/android/sdk/tools/bin/sdkmanager "platforms;android-30" "build-tools;$ANDROID_BUILD_TOOLS_VERSION" "ndk;$ANDROID_NDK_VERSION" tools platform-tools
-          echo "yes" | sudo /usr/local/lib/android/sdk/tools/bin/sdkmanager --licenses
 
           TRIPLET=${{ matrix.triplet }} ALL_FILES_ACCESS=${{ matrix.all_files_access }} source ./scripts/version_number.sh
           TRIPLET=${{ matrix.triplet }} ALL_FILES_ACCESS=${{ matrix.all_files_access }} source ./scripts/ci/generate-version-details.sh
