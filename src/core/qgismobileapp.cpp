@@ -315,6 +315,7 @@ QgisMobileapp::QgisMobileapp( QgsApplication *app, QObject *parent )
       if ( configurationsDir.exists() )
       {
         QgsMessageLog::logMessage( QStringLiteral( "Checking..." ), QStringLiteral( "QField" ) );
+        QgsMessageLog::logMessage( configurationsDir.entryList( QStringList() << QStringLiteral( "*" ), QDir::NoFilter ).join( '|' ) );
         const QStringList configurations = configurationsDir.entryList( QStringList() << QStringLiteral( "*.xml" ) << QStringLiteral( "*.XML" ), QDir::Files );
         for ( const QString &configuration : configurations )
         {
