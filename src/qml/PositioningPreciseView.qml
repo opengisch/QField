@@ -41,21 +41,21 @@ Item {
     spacing: 5
 
     Rectangle {
-      width: labelLeft.contentWidth
+      width: labelTarget.contentWidth
       height: preciseElevation.height
       Text {
-        id: labelLeft
+        id: labelTarget
         anchors.centerIn: parent
         font: Theme.tinyFont
         color: Theme.navigationColor
-        text: negativeLabel
+        text: positiveLabel
       }
     }
 
     Shape {
       id: preciseTarget
       width: Math.min(positioningPreciseView.height - 10,
-                      positioningPreciseView.width - preciseElevation.width - labelLeft.contentWidth - labelRight.contentWidth - 20)
+                      positioningPreciseView.width - preciseElevation.width - labelTarget.contentWidth - labelElevation.width - 20)
       height: width
 
       ShapePath {
@@ -159,14 +159,27 @@ Item {
     }
 
     Rectangle {
-      width: labelRight.contentWidth
+      id: labelElevation
+      width: Math.max(labelElevationTop.contentWidth, labelElevationBottom.contentWidth)
       height: preciseElevation.height
+      opacity: hasZ ? 1 : 0.25
+      color: "transparent"
+
       Text {
-        id: labelRight
-        anchors.centerIn: parent
+        id: labelElevationTop
+        anchors.top: parent.top
+        anchors.right: parent.right
         font: Theme.tinyFont
-        color: Theme.navigationColor
+        color: hasZ ? Theme.navigationColor : "#000000"
         text: positiveLabel
+      }
+      Text {
+        id: labelElevationBottom
+        anchors.bottom: parent.bottom
+        anchors.right: parent.right
+        font: Theme.tinyFont
+        color: hasZ ? Theme.navigationColor : "#000000"
+        text: negativeLabel
       }
     }
 
@@ -197,31 +210,6 @@ Item {
         radius: width / 2
         opacity: hasZ ? 1 : 0
         color: hasZ ? positionColor : Theme.gray
-      }
-
-      Rectangle {
-        x: -5 - width
-        y: 0
-        width: Math.max(labelTop.contentWidth, labelBottom.contentWidth)
-        height: preciseElevation.height
-        color: "transparent"
-
-        Text {
-          id: labelTop
-          anchors.top: parent.top
-          anchors.right: parent.right
-          font: Theme.tinyFont
-          color: hasZ ? Theme.navigationColor : "#000000"
-          text: positiveLabel
-        }
-        Text {
-          id: labelBottom
-          anchors.bottom: parent.bottom
-          anchors.right: parent.right
-          font: Theme.tinyFont
-          color: hasZ ? Theme.navigationColor : "#000000"
-          text: negativeLabel
-        }
       }
     }
   }
