@@ -185,7 +185,7 @@ Item {
         y: parent.height / 2
         width: parent.width - 2
         height: 1
-        color: hasZ ? Theme.navigationColorSemiOpaque : Theme.gray
+        color: hasZ ? Theme.navigationColorSemiOpaque : "#000000"
       }
 
       Rectangle {
@@ -211,7 +211,7 @@ Item {
           anchors.top: parent.top
           anchors.right: parent.right
           font: Theme.tinyFont
-          color: hasZ ? Theme.navigationColor : Theme.gray
+          color: hasZ ? Theme.navigationColor : "#000000"
           text: positiveLabel
         }
         Text {
@@ -219,7 +219,7 @@ Item {
           anchors.bottom: parent.bottom
           anchors.right: parent.right
           font: Theme.tinyFont
-          color: hasZ ? Theme.navigationColor : Theme.gray
+          color: hasZ ? Theme.navigationColor : "#000000"
           text: negativeLabel
         }
       }
