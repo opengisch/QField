@@ -631,7 +631,7 @@ ApplicationWindow {
     PositioningPreciseView {
       id: positioningPreciseView
 
-      precision: 1
+      precision: 5
 
       visible: !isNaN(navigation.distance) && navigation.distance < precision
       width: parent.width
