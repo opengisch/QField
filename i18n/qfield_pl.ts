@@ -2631,18 +2631,18 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
 <context>
     <name>QgisMobileapp</name>
     <message>
-        <location filename="../src/core/qgismobileapp.cpp" line="663"/>
-        <location filename="../src/core/qgismobileapp.cpp" line="689"/>
+        <location filename="../src/core/qgismobileapp.cpp" line="666"/>
+        <location filename="../src/core/qgismobileapp.cpp" line="692"/>
         <source>Project file &quot;%1&quot; does not exist</source>
         <translation>Plik projektu &quot;%1&quot; nie istnieje</translation>
     </message>
     <message>
-        <location filename="../src/core/qgismobileapp.cpp" line="680"/>
+        <location filename="../src/core/qgismobileapp.cpp" line="683"/>
         <source>No project file currently opened</source>
         <translation>Brak otwartego pliku projektu.</translation>
     </message>
     <message>
-        <location filename="../src/core/qgismobileapp.cpp" line="711"/>
+        <location filename="../src/core/qgismobileapp.cpp" line="714"/>
         <source>Could not load font %1</source>
         <translation>Nie można pobrać czcionki %1</translation>
     </message>
