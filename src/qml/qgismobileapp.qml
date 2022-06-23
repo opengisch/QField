@@ -610,7 +610,7 @@ ApplicationWindow {
     anchors.bottom: parent.bottom
     anchors.left: parent.left
     anchors.right: parent.right
-    visible: navigation.isActive || positioningSettings.showPositionInformation
+    visible: navigation.isActive || positioningSettings.showPositionInformation || positioningPreciseView.visible
 
     width: parent.width
 
@@ -620,9 +620,27 @@ ApplicationWindow {
       navigation: navigation
     }
 
+    Rectangle {
+      visible: navigationInformationView.visible
+               && (positioningPreciseView.visible || positioningInformationView.visible)
+      width: parent.width
+      height: 1
+      color: Theme.navigationBackgroundColor
+    }
+
+    PositioningPreciseView {
+      id: positioningPreciseView
+
+      precision: 1
+
+      visible: !isNaN(navigation.distance) && navigation.distance < precision
+      width: parent.width
+      height: Math.min(mainWindow.height / 2.5, 400)
+    }
+
     PositioningInformationView {
       id: positioningInformationView
-      visible: positioningSettings.showPositionInformation
+      visible: positioningSettings.showPositionInformation && !positioningPreciseView.visible
       positionSource: positionSource
       antennaHeight: positioningSettings.antennaHeightActivated ? positioningSettings.antennaHeight : NaN
     }
