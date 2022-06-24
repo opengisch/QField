@@ -32,11 +32,15 @@ class Navigation : public QObject
 
     Q_PROPERTY( QgsPoint location READ location WRITE setLocation NOTIFY locationChanged )
     Q_PROPERTY( QgsPoint destination READ destination WRITE setDestination NOTIFY destinationChanged )
+    Q_PROPERTY( QString destinationName READ destinationName NOTIFY destinationNameChanged )
 
     Q_PROPERTY( QgsGeometry path READ path NOTIFY detailsChanged )
     Q_PROPERTY( double distance READ distance NOTIFY detailsChanged )
     Q_PROPERTY( QgsUnitTypes::DistanceUnit distanceUnits READ distanceUnits NOTIFY detailsChanged )
     Q_PROPERTY( double bearing READ bearing NOTIFY detailsChanged )
+
+    Q_PROPERTY( int destinationFeatureCurrentVertex READ destinationFeatureCurrentVertex NOTIFY destinationFeatureCurrentVertexChanged )
+    Q_PROPERTY( int destinationFeatureVertexCount READ destinationFeatureVertexCount NOTIFY destinationFeatureVertexCountChanged )
 
     Q_PROPERTY( bool isActive READ isActive NOTIFY isActiveChanged )
 
@@ -57,7 +61,35 @@ class Navigation : public QObject
 
     QgsPoint destination() const;
     void setDestination( const QgsPoint &point );
+    QString destinationName() const;
+
+    /**
+     * Sets a provided feature as navigation destination, which allows for users to cycle through the
+     * feature centroid and its individual vertices as destination point.
+     * \param feature the feature used as destination
+     * \param layer the vector layer associated to the feature
+     */
     Q_INVOKABLE void setDestinationFeature( const QgsFeature &feature, QgsVectorLayer *layer );
+
+    /**
+     * Clears the current destination feature, as well as the current destination point.
+     */
+    Q_INVOKABLE void clearDestinationFeature();
+
+    /**
+     * Sets the destination point to the next vertex or centroid of the current destination feature.
+     * \note if a destination feature has not been provided, calling this function does nothing
+     */
+    Q_INVOKABLE void nextDestinationVertex();
+
+    /**
+     * Sets the destination point to the previous vertex or centroid of the current destination feature.
+     * \note if a destination feature has not been provided, calling this function does nothing
+     */
+    Q_INVOKABLE void previousDestinationVertex();
+
+    int destinationFeatureCurrentVertex() const;
+    int destinationFeatureVertexCount() const;
 
     QgsGeometry path() const { return mPath; }
     double distance() const { return mDistance; }
@@ -74,6 +106,10 @@ class Navigation : public QObject
 
     void locationChanged();
     void destinationChanged();
+    void destinationNameChanged();
+
+    void destinationFeatureCurrentVertexChanged();
+    void destinationFeatureVertexCountChanged();
 
     void detailsChanged();
 
@@ -82,6 +118,7 @@ class Navigation : public QObject
 
   private:
     void updateDetails();
+    void setDestinationFromCurrentVertex();
 
     std::unique_ptr<NavigationModel> mModel = nullptr;
     QgsQuickMapSettings *mMapSettings = nullptr;
@@ -90,6 +127,11 @@ class Navigation : public QObject
     QgsDistanceArea mDa;
     double mDistance = 0.0;
     double mBearing = 0.0;
+    QString mDestinationName;
+
+    QgsGeometry mGeometry;
+    int mCurrentVertex = -1;
+    int mVertexCount = 0;
 };
 
 #endif // NAVIGATION_H

@@ -14,6 +14,7 @@
  *                                                                         *
  ***************************************************************************/
 
+#include "featureutils.h"
 #include "navigation.h"
 #include "navigationmodel.h"
 
@@ -94,7 +95,13 @@ QgsPoint Navigation::destination() const
 
 void Navigation::setDestination( const QgsPoint &point )
 {
+  clearDestinationFeature();
   mModel->setDestination( point );
+}
+
+QString Navigation::destinationName() const
+{
+  return mDestinationName;
 }
 
 void Navigation::setDestinationFeature( const QgsFeature &feature, QgsVectorLayer *layer )
@@ -102,34 +109,117 @@ void Navigation::setDestinationFeature( const QgsFeature &feature, QgsVectorLaye
   if ( !layer || feature.geometry().isEmpty() )
     return;
 
-  QgsGeometry pointOnSurface = feature.geometry().pointOnSurface();
-  if ( pointOnSurface.isEmpty() )
-    return;
-
+  mGeometry = feature.geometry();
   if ( layer->crs() != mMapSettings->destinationCrs() )
   {
     QgsCoordinateTransform transform( layer->crs(), mMapSettings->destinationCrs(), QgsProject::instance()->transformContext() );
-    QgsPointXY transformedPoint;
-    try
+    Qgis::GeometryOperationResult result = mGeometry.transform( transform );
+    if ( result != Qgis::GeometryOperationResult::Success )
     {
-      transformedPoint = transform.transform( pointOnSurface.asPoint() );
+      mGeometry = QgsGeometry();
     }
-    catch ( const QgsException &e )
-    {
-      Q_UNUSED( e )
-      return;
-    }
-    catch ( ... )
-    {
-      // catch any other errors
-      return;
-    }
-    setDestination( QgsPoint( transformedPoint ) );
+  }
+
+  if ( !mGeometry.isNull() )
+  {
+    mDestinationName = FeatureUtils::displayName( layer, feature );
+    emit destinationNameChanged();
+    mVertexCount = mGeometry.get()->nCoordinates() - ( mGeometry.type() == QgsWkbTypes::PolygonGeometry ? 1 : 0 );
+    emit destinationFeatureVertexCountChanged();
+    mCurrentVertex = -1;
+    nextDestinationVertex();
   }
   else
   {
-    setDestination( pointOnSurface.vertexAt( 0 ) );
+    mDestinationName = FeatureUtils::displayName( layer, feature );
+    emit destinationNameChanged();
+    mVertexCount = 0;
+    emit destinationFeatureVertexCountChanged();
+    mCurrentVertex = -1;
+    emit destinationFeatureCurrentVertexChanged();
+    mModel->setDestination( QgsPoint() );
   }
+}
+
+void Navigation::clearDestinationFeature()
+{
+  if ( !mGeometry.isNull() )
+  {
+    mGeometry = QgsGeometry();
+    mDestinationName.clear();
+    emit destinationNameChanged();
+    mVertexCount = 0;
+    emit destinationFeatureVertexCountChanged();
+    mCurrentVertex = -1;
+    emit destinationFeatureCurrentVertexChanged();
+  }
+}
+
+void Navigation::nextDestinationVertex()
+{
+  if ( mGeometry.isNull() )
+    return;
+
+  if ( mCurrentVertex >= mVertexCount )
+  {
+    mCurrentVertex = 0;
+  }
+  else
+  {
+    mCurrentVertex++;
+  }
+  emit destinationFeatureCurrentVertexChanged();
+
+  setDestinationFromCurrentVertex();
+}
+
+void Navigation::previousDestinationVertex()
+{
+  if ( mGeometry.isNull() )
+    return;
+
+  if ( mCurrentVertex <= 0 )
+  {
+    mCurrentVertex = mVertexCount;
+  }
+  else
+  {
+    mCurrentVertex--;
+  }
+  emit destinationFeatureCurrentVertexChanged();
+
+  setDestinationFromCurrentVertex();
+}
+
+void Navigation::setDestinationFromCurrentVertex()
+{
+  if ( mCurrentVertex == 0 )
+  {
+    const QgsGeometry pointOnSurface = mGeometry.pointOnSurface();
+    if ( !pointOnSurface.isNull() )
+    {
+      mModel->setDestination( pointOnSurface.vertexAt( 0 ) );
+    }
+    else
+    {
+      mCurrentVertex++;
+      mModel->setDestination( mGeometry.vertexAt( mCurrentVertex - 1 ) );
+    }
+  }
+  else
+  {
+    mModel->setDestination( mGeometry.vertexAt( mCurrentVertex - 1 ) );
+  }
+}
+
+int Navigation::destinationFeatureCurrentVertex() const
+{
+  return mCurrentVertex;
+}
+
+int Navigation::destinationFeatureVertexCount() const
+{
+  return mVertexCount;
 }
 
 void Navigation::updateDetails()
