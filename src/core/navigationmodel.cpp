@@ -110,7 +110,9 @@ void NavigationModel::setCrs( QgsCoordinateReferenceSystem crs )
 
       if ( transformed )
       {
-        mPoints.replace( i, QgsPoint( transformedPoint ) );
+        mPoints.replace( i, QgsWkbTypes::hasZ( mPoints.at( i ).wkbType() )
+                              ? QgsPoint( transformedPoint.x(), transformedPoint.y(), mPoints.at( i ).z() )
+                              : QgsPoint( transformedPoint ) );
       }
       else
       {

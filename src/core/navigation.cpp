@@ -122,8 +122,7 @@ void Navigation::setDestinationFeature( const QgsFeature &feature, QgsVectorLaye
 
   if ( !mGeometry.isNull() )
   {
-    mDestinationName = FeatureUtils::displayName( layer, feature );
-    emit destinationNameChanged();
+    mFeatureName = FeatureUtils::displayName( layer, feature );
     mVertexCount = mGeometry.get()->nCoordinates() - ( mGeometry.type() == QgsWkbTypes::PolygonGeometry ? 1 : 0 );
     emit destinationFeatureVertexCountChanged();
     mCurrentVertex = -1;
@@ -131,7 +130,8 @@ void Navigation::setDestinationFeature( const QgsFeature &feature, QgsVectorLaye
   }
   else
   {
-    mDestinationName = FeatureUtils::displayName( layer, feature );
+    mFeatureName.clear();
+    mDestinationName.clear();
     emit destinationNameChanged();
     mVertexCount = 0;
     emit destinationFeatureVertexCountChanged();
@@ -146,6 +146,7 @@ void Navigation::clearDestinationFeature()
   if ( !mGeometry.isNull() )
   {
     mGeometry = QgsGeometry();
+    mFeatureName.clear();
     mDestinationName.clear();
     emit destinationNameChanged();
     mVertexCount = 0;
@@ -160,7 +161,9 @@ void Navigation::nextDestinationVertex()
   if ( mGeometry.isNull() )
     return;
 
-  if ( mCurrentVertex >= mVertexCount )
+  if ( mCurrentVertex >= ( mGeometry.type() == QgsWkbTypes::PointGeometry
+                             ? mVertexCount - 1
+                             : mVertexCount ) )
   {
     mCurrentVertex = 0;
   }
@@ -180,7 +183,9 @@ void Navigation::previousDestinationVertex()
 
   if ( mCurrentVertex <= 0 )
   {
-    mCurrentVertex = mVertexCount;
+    mCurrentVertex = mGeometry.type() == QgsWkbTypes::PointGeometry
+                       ? mVertexCount - 1
+                       : mVertexCount;
   }
   else
   {
@@ -193,22 +198,40 @@ void Navigation::previousDestinationVertex()
 
 void Navigation::setDestinationFromCurrentVertex()
 {
-  if ( mCurrentVertex == 0 )
+  switch ( mGeometry.type() )
   {
-    const QgsGeometry pointOnSurface = mGeometry.pointOnSurface();
-    if ( !pointOnSurface.isNull() )
-    {
-      mModel->setDestination( pointOnSurface.vertexAt( 0 ) );
-    }
-    else
-    {
-      mCurrentVertex++;
-      mModel->setDestination( mGeometry.vertexAt( mCurrentVertex - 1 ) );
-    }
-  }
-  else
-  {
-    mModel->setDestination( mGeometry.vertexAt( mCurrentVertex - 1 ) );
+    case QgsWkbTypes::PointGeometry:
+      mDestinationName = mFeatureName + ( mVertexCount > 1 ? QStringLiteral( ": %1/%2" ).arg( mCurrentVertex + 1 ).arg( mVertexCount ) : QString() );
+      emit destinationNameChanged();
+      mModel->setDestination( mGeometry.vertexAt( mCurrentVertex ) );
+      break;
+
+    case QgsWkbTypes::LineGeometry:
+    case QgsWkbTypes::PolygonGeometry:
+      mDestinationName = mFeatureName + ( mCurrentVertex == 0 ? QStringLiteral( " (%1)" ).arg( QObject::tr( "centroid" ) ) : QStringLiteral( ": %1/%2" ).arg( mCurrentVertex ).arg( mVertexCount ) );
+      emit destinationNameChanged();
+      if ( mCurrentVertex == 0 )
+      {
+        const QgsGeometry pointOnSurface = mGeometry.pointOnSurface();
+        if ( !pointOnSurface.isNull() )
+        {
+          mModel->setDestination( pointOnSurface.vertexAt( 0 ) );
+        }
+        else
+        {
+          mCurrentVertex++;
+          mModel->setDestination( mGeometry.vertexAt( mCurrentVertex - 1 ) );
+        }
+      }
+      else
+      {
+        mModel->setDestination( mGeometry.vertexAt( mCurrentVertex - 1 ) );
+      }
+      break;
+
+    case QgsWkbTypes::UnknownGeometry:
+    case QgsWkbTypes::NullGeometry:
+      break;
   }
 }
 

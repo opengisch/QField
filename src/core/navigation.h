@@ -132,6 +132,7 @@ class Navigation : public QObject
     double mBearing = std::numeric_limits<double>::quiet_NaN();
     QString mDestinationName;
 
+    QString mFeatureName;
     QgsGeometry mGeometry;
     int mCurrentVertex = -1;
     int mVertexCount = 0;
