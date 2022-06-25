@@ -491,7 +491,7 @@ ApplicationWindow {
     Navigation {
       id: navigation
       mapSettings: mapCanvas.mapSettings
-      location: positionSource.active ? positionSource.projectedPosition : undefined
+      location: positionSource.active ? positionSource.projectedPosition : GeometryUtils.emptyPoint()
 
       proximityAlarm: positioningPreciseView.visible
       proximityAlarmThreshold: positioningSettings.preciseViewPrecision / 5
