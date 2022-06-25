@@ -57,6 +57,7 @@ Item {
       width: Math.min(positioningPreciseView.height - 10,
                       positioningPreciseView.width - preciseElevation.width - labelTarget.contentWidth - labelElevation.width - 20)
       height: width
+      rotation: locationMarker.compassHasValue ? -locationMarker.compassOrientation : 0
 
       ShapePath {
         strokeWidth: 1
