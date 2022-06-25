@@ -1246,8 +1246,8 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
         <translation type="vanished">緯度</translation>
     </message>
     <message>
-        <location filename="../src/qml/NavigationInformationView.qml" line="50"/>
-        <location filename="../src/qml/NavigationInformationView.qml" line="71"/>
+        <location filename="../src/qml/NavigationInformationView.qml" line="152"/>
+        <location filename="../src/qml/NavigationInformationView.qml" line="173"/>
         <source>X</source>
         <translation>X</translation>
     </message>
@@ -1256,36 +1256,41 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
         <translation type="vanished">経度</translation>
     </message>
     <message>
-        <location filename="../src/qml/NavigationInformationView.qml" line="50"/>
-        <location filename="../src/qml/NavigationInformationView.qml" line="71"/>
+        <location filename="../src/qml/NavigationInformationView.qml" line="100"/>
+        <source>centroid</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/qml/NavigationInformationView.qml" line="152"/>
+        <location filename="../src/qml/NavigationInformationView.qml" line="173"/>
         <source>Lon</source>
         <translation>経度</translation>
     </message>
     <message>
-        <location filename="../src/qml/NavigationInformationView.qml" line="52"/>
-        <location filename="../src/qml/NavigationInformationView.qml" line="69"/>
+        <location filename="../src/qml/NavigationInformationView.qml" line="154"/>
+        <location filename="../src/qml/NavigationInformationView.qml" line="171"/>
         <source>Y</source>
         <translation>Y</translation>
     </message>
     <message>
-        <location filename="../src/qml/NavigationInformationView.qml" line="52"/>
-        <location filename="../src/qml/NavigationInformationView.qml" line="69"/>
+        <location filename="../src/qml/NavigationInformationView.qml" line="154"/>
+        <location filename="../src/qml/NavigationInformationView.qml" line="171"/>
         <source>Lat</source>
         <translation>緯度</translation>
     </message>
     <message>
-        <location filename="../src/qml/NavigationInformationView.qml" line="87"/>
+        <location filename="../src/qml/NavigationInformationView.qml" line="189"/>
         <source>Dist.</source>
         <translation>目的地</translation>
     </message>
     <message>
-        <location filename="../src/qml/NavigationInformationView.qml" line="90"/>
-        <location filename="../src/qml/NavigationInformationView.qml" line="108"/>
+        <location filename="../src/qml/NavigationInformationView.qml" line="192"/>
+        <location filename="../src/qml/NavigationInformationView.qml" line="210"/>
         <source>N/A</source>
         <translation>N/A</translation>
     </message>
     <message>
-        <location filename="../src/qml/NavigationInformationView.qml" line="105"/>
+        <location filename="../src/qml/NavigationInformationView.qml" line="207"/>
         <source>Bearing</source>
         <translation>方位</translation>
     </message>
@@ -3302,12 +3307,12 @@ Cancel to make a minimal device scan instead.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2520"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2522"/>
         <source>Signed out</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2524"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2526"/>
         <source>Signed in</source>
         <translation type="unfinished"/>
     </message>
@@ -3403,7 +3408,7 @@ Cancel to make a minimal device scan instead.</source>
         <translation type="vanished">ログアウトしました</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2522"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2524"/>
         <source>Connecting...</source>
         <translation>接続しています...</translation>
     </message>
@@ -3412,27 +3417,27 @@ Cancel to make a minimal device scan instead.</source>
         <translation type="vanished">ログインしました</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2539"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2541"/>
         <source>Project %1 failed to download</source>
         <translation>プロジェクト %1 のダウンロードに失敗しました</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2540"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2542"/>
         <source>Project %1 successfully downloaded, it&apos;s now available to open</source>
         <translation>プロジェクト %1 が正常にダウンロードされて開けるようになりました</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2545"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2547"/>
         <source>Changes failed to reach QFieldCloud: %1</source>
         <translation>変更内容がQFieldCloudにプッシュされませんでした: %1</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2549"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2551"/>
         <source>Changes successfully pushed to QFieldCloud</source>
         <translation>変更内容がQFieldCloudに正常にプッシュされました</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2799"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2801"/>
         <source>Press back again to close project and app</source>
         <translation>もう一度戻るボタンを押してプロジェクトとアプリを閉じてください。</translation>
     </message>

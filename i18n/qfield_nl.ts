@@ -1248,8 +1248,8 @@ De geometrieën van objecten zullen worden gecombineerd tot object &apos;%1&apos
         <translation type="vanished">Lat.</translation>
     </message>
     <message>
-        <location filename="../src/qml/NavigationInformationView.qml" line="50"/>
-        <location filename="../src/qml/NavigationInformationView.qml" line="71"/>
+        <location filename="../src/qml/NavigationInformationView.qml" line="152"/>
+        <location filename="../src/qml/NavigationInformationView.qml" line="173"/>
         <source>X</source>
         <translation>X</translation>
     </message>
@@ -1258,36 +1258,41 @@ De geometrieën van objecten zullen worden gecombineerd tot object &apos;%1&apos
         <translation type="vanished">Lon.</translation>
     </message>
     <message>
-        <location filename="../src/qml/NavigationInformationView.qml" line="50"/>
-        <location filename="../src/qml/NavigationInformationView.qml" line="71"/>
+        <location filename="../src/qml/NavigationInformationView.qml" line="100"/>
+        <source>centroid</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/qml/NavigationInformationView.qml" line="152"/>
+        <location filename="../src/qml/NavigationInformationView.qml" line="173"/>
         <source>Lon</source>
         <translation>Lon</translation>
     </message>
     <message>
-        <location filename="../src/qml/NavigationInformationView.qml" line="52"/>
-        <location filename="../src/qml/NavigationInformationView.qml" line="69"/>
+        <location filename="../src/qml/NavigationInformationView.qml" line="154"/>
+        <location filename="../src/qml/NavigationInformationView.qml" line="171"/>
         <source>Y</source>
         <translation>Y</translation>
     </message>
     <message>
-        <location filename="../src/qml/NavigationInformationView.qml" line="52"/>
-        <location filename="../src/qml/NavigationInformationView.qml" line="69"/>
+        <location filename="../src/qml/NavigationInformationView.qml" line="154"/>
+        <location filename="../src/qml/NavigationInformationView.qml" line="171"/>
         <source>Lat</source>
         <translation>Lat</translation>
     </message>
     <message>
-        <location filename="../src/qml/NavigationInformationView.qml" line="87"/>
+        <location filename="../src/qml/NavigationInformationView.qml" line="189"/>
         <source>Dist.</source>
         <translation>Afst.</translation>
     </message>
     <message>
-        <location filename="../src/qml/NavigationInformationView.qml" line="90"/>
-        <location filename="../src/qml/NavigationInformationView.qml" line="108"/>
+        <location filename="../src/qml/NavigationInformationView.qml" line="192"/>
+        <location filename="../src/qml/NavigationInformationView.qml" line="210"/>
         <source>N/A</source>
         <translation>N/B</translation>
     </message>
     <message>
-        <location filename="../src/qml/NavigationInformationView.qml" line="105"/>
+        <location filename="../src/qml/NavigationInformationView.qml" line="207"/>
         <source>Bearing</source>
         <translation>Koers</translation>
     </message>
@@ -3304,12 +3309,12 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
         <translation>Coördinaten van locatie kopiëren</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2520"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2522"/>
         <source>Signed out</source>
         <translation>Uitgelogd</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2524"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2526"/>
         <source>Signed in</source>
         <translation>Ingelogd</translation>
     </message>
@@ -3405,7 +3410,7 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
         <translation type="vanished">Uitgelogd</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2522"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2524"/>
         <source>Connecting...</source>
         <translation>Verbinden...</translation>
     </message>
@@ -3414,27 +3419,27 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
         <translation type="vanished">Ingelogd</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2539"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2541"/>
         <source>Project %1 failed to download</source>
         <translation>Kan project %1 niet downloaden</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2540"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2542"/>
         <source>Project %1 successfully downloaded, it&apos;s now available to open</source>
         <translation>Project %1 is gedownload, het is nu beschikbaar om te openen</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2545"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2547"/>
         <source>Changes failed to reach QFieldCloud: %1</source>
         <translation>Wijzigingen bereikten QFieldCloud niet: %1</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2549"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2551"/>
         <source>Changes successfully pushed to QFieldCloud</source>
         <translation>Wijzigingen zijn met succes naar QFieldCloud gepusht</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2799"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2801"/>
         <source>Press back again to close project and app</source>
         <translation>Druk nogmaals op terug om het project en app te sluiten</translation>
     </message>

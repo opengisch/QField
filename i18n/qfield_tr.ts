@@ -1241,8 +1241,8 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
         <translation type="vanished">Enlem</translation>
     </message>
     <message>
-        <location filename="../src/qml/NavigationInformationView.qml" line="50"/>
-        <location filename="../src/qml/NavigationInformationView.qml" line="71"/>
+        <location filename="../src/qml/NavigationInformationView.qml" line="152"/>
+        <location filename="../src/qml/NavigationInformationView.qml" line="173"/>
         <source>X</source>
         <translation>X</translation>
     </message>
@@ -1251,36 +1251,41 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
         <translation type="vanished">Boylam</translation>
     </message>
     <message>
-        <location filename="../src/qml/NavigationInformationView.qml" line="50"/>
-        <location filename="../src/qml/NavigationInformationView.qml" line="71"/>
+        <location filename="../src/qml/NavigationInformationView.qml" line="100"/>
+        <source>centroid</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/qml/NavigationInformationView.qml" line="152"/>
+        <location filename="../src/qml/NavigationInformationView.qml" line="173"/>
         <source>Lon</source>
         <translation>Boylam</translation>
     </message>
     <message>
-        <location filename="../src/qml/NavigationInformationView.qml" line="52"/>
-        <location filename="../src/qml/NavigationInformationView.qml" line="69"/>
+        <location filename="../src/qml/NavigationInformationView.qml" line="154"/>
+        <location filename="../src/qml/NavigationInformationView.qml" line="171"/>
         <source>Y</source>
         <translation>Y</translation>
     </message>
     <message>
-        <location filename="../src/qml/NavigationInformationView.qml" line="52"/>
-        <location filename="../src/qml/NavigationInformationView.qml" line="69"/>
+        <location filename="../src/qml/NavigationInformationView.qml" line="154"/>
+        <location filename="../src/qml/NavigationInformationView.qml" line="171"/>
         <source>Lat</source>
         <translation>Enlem</translation>
     </message>
     <message>
-        <location filename="../src/qml/NavigationInformationView.qml" line="87"/>
+        <location filename="../src/qml/NavigationInformationView.qml" line="189"/>
         <source>Dist.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/qml/NavigationInformationView.qml" line="90"/>
-        <location filename="../src/qml/NavigationInformationView.qml" line="108"/>
+        <location filename="../src/qml/NavigationInformationView.qml" line="192"/>
+        <location filename="../src/qml/NavigationInformationView.qml" line="210"/>
         <source>N/A</source>
         <translation>Geçerli değil</translation>
     </message>
     <message>
-        <location filename="../src/qml/NavigationInformationView.qml" line="105"/>
+        <location filename="../src/qml/NavigationInformationView.qml" line="207"/>
         <source>Bearing</source>
         <translation type="unfinished"/>
     </message>
@@ -3290,12 +3295,12 @@ Bunun yerine minimum cihaz taraması yapmak için iptal edin.</translation>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2520"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2522"/>
         <source>Signed out</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2524"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2526"/>
         <source>Signed in</source>
         <translation type="unfinished"/>
     </message>
@@ -3391,7 +3396,7 @@ Bunun yerine minimum cihaz taraması yapmak için iptal edin.</translation>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2522"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2524"/>
         <source>Connecting...</source>
         <translation type="unfinished"/>
     </message>
@@ -3400,27 +3405,27 @@ Bunun yerine minimum cihaz taraması yapmak için iptal edin.</translation>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2539"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2541"/>
         <source>Project %1 failed to download</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2540"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2542"/>
         <source>Project %1 successfully downloaded, it&apos;s now available to open</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2545"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2547"/>
         <source>Changes failed to reach QFieldCloud: %1</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2549"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2551"/>
         <source>Changes successfully pushed to QFieldCloud</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2799"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2801"/>
         <source>Press back again to close project and app</source>
         <translation>Proje ve uygulamayı kapatmak için geri tuşuna birkez daha basın</translation>
     </message>

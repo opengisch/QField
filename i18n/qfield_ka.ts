@@ -1242,8 +1242,8 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/qml/NavigationInformationView.qml" line="50"/>
-        <location filename="../src/qml/NavigationInformationView.qml" line="71"/>
+        <location filename="../src/qml/NavigationInformationView.qml" line="152"/>
+        <location filename="../src/qml/NavigationInformationView.qml" line="173"/>
         <source>X</source>
         <translation>X</translation>
     </message>
@@ -1252,36 +1252,41 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/qml/NavigationInformationView.qml" line="50"/>
-        <location filename="../src/qml/NavigationInformationView.qml" line="71"/>
+        <location filename="../src/qml/NavigationInformationView.qml" line="100"/>
+        <source>centroid</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/qml/NavigationInformationView.qml" line="152"/>
+        <location filename="../src/qml/NavigationInformationView.qml" line="173"/>
         <source>Lon</source>
         <translation>გრძედი</translation>
     </message>
     <message>
-        <location filename="../src/qml/NavigationInformationView.qml" line="52"/>
-        <location filename="../src/qml/NavigationInformationView.qml" line="69"/>
+        <location filename="../src/qml/NavigationInformationView.qml" line="154"/>
+        <location filename="../src/qml/NavigationInformationView.qml" line="171"/>
         <source>Y</source>
         <translation>Y</translation>
     </message>
     <message>
-        <location filename="../src/qml/NavigationInformationView.qml" line="52"/>
-        <location filename="../src/qml/NavigationInformationView.qml" line="69"/>
+        <location filename="../src/qml/NavigationInformationView.qml" line="154"/>
+        <location filename="../src/qml/NavigationInformationView.qml" line="171"/>
         <source>Lat</source>
         <translation>განედი</translation>
     </message>
     <message>
-        <location filename="../src/qml/NavigationInformationView.qml" line="87"/>
+        <location filename="../src/qml/NavigationInformationView.qml" line="189"/>
         <source>Dist.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/qml/NavigationInformationView.qml" line="90"/>
-        <location filename="../src/qml/NavigationInformationView.qml" line="108"/>
+        <location filename="../src/qml/NavigationInformationView.qml" line="192"/>
+        <location filename="../src/qml/NavigationInformationView.qml" line="210"/>
         <source>N/A</source>
         <translation>N/A</translation>
     </message>
     <message>
-        <location filename="../src/qml/NavigationInformationView.qml" line="105"/>
+        <location filename="../src/qml/NavigationInformationView.qml" line="207"/>
         <source>Bearing</source>
         <translation type="unfinished"/>
     </message>
@@ -3294,12 +3299,12 @@ Cancel to make a minimal device scan instead.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2520"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2522"/>
         <source>Signed out</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2524"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2526"/>
         <source>Signed in</source>
         <translation type="unfinished"/>
     </message>
@@ -3395,7 +3400,7 @@ Cancel to make a minimal device scan instead.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2522"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2524"/>
         <source>Connecting...</source>
         <translation>დაკავშირება...</translation>
     </message>
@@ -3404,27 +3409,27 @@ Cancel to make a minimal device scan instead.</source>
         <translation type="vanished">შესული ბრძანდებით</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2539"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2541"/>
         <source>Project %1 failed to download</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2540"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2542"/>
         <source>Project %1 successfully downloaded, it&apos;s now available to open</source>
         <translation>პროექტი %1 წარმატებით ჩამოიტვირთა და ხელმისაწვდომია გამოსაყენებლად</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2545"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2547"/>
         <source>Changes failed to reach QFieldCloud: %1</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2549"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2551"/>
         <source>Changes successfully pushed to QFieldCloud</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2799"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2801"/>
         <source>Press back again to close project and app</source>
         <translation>პროექტისა და აპლიკაციის დასახურად დააჭირეთ უკან გასვლა კვლავ</translation>
     </message>

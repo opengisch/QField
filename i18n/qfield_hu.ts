@@ -1247,8 +1247,8 @@ Az elem geometriákat összevonjuk a &apos;%1&apos; elembe, mely megőrzi az att
         <translation type="vanished">Lat.</translation>
     </message>
     <message>
-        <location filename="../src/qml/NavigationInformationView.qml" line="50"/>
-        <location filename="../src/qml/NavigationInformationView.qml" line="71"/>
+        <location filename="../src/qml/NavigationInformationView.qml" line="152"/>
+        <location filename="../src/qml/NavigationInformationView.qml" line="173"/>
         <source>X</source>
         <translation>X</translation>
     </message>
@@ -1257,36 +1257,41 @@ Az elem geometriákat összevonjuk a &apos;%1&apos; elembe, mely megőrzi az att
         <translation type="vanished">Lon.</translation>
     </message>
     <message>
-        <location filename="../src/qml/NavigationInformationView.qml" line="50"/>
-        <location filename="../src/qml/NavigationInformationView.qml" line="71"/>
+        <location filename="../src/qml/NavigationInformationView.qml" line="100"/>
+        <source>centroid</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/qml/NavigationInformationView.qml" line="152"/>
+        <location filename="../src/qml/NavigationInformationView.qml" line="173"/>
         <source>Lon</source>
         <translation>Lon</translation>
     </message>
     <message>
-        <location filename="../src/qml/NavigationInformationView.qml" line="52"/>
-        <location filename="../src/qml/NavigationInformationView.qml" line="69"/>
+        <location filename="../src/qml/NavigationInformationView.qml" line="154"/>
+        <location filename="../src/qml/NavigationInformationView.qml" line="171"/>
         <source>Y</source>
         <translation>Y</translation>
     </message>
     <message>
-        <location filename="../src/qml/NavigationInformationView.qml" line="52"/>
-        <location filename="../src/qml/NavigationInformationView.qml" line="69"/>
+        <location filename="../src/qml/NavigationInformationView.qml" line="154"/>
+        <location filename="../src/qml/NavigationInformationView.qml" line="171"/>
         <source>Lat</source>
         <translation>Lat</translation>
     </message>
     <message>
-        <location filename="../src/qml/NavigationInformationView.qml" line="87"/>
+        <location filename="../src/qml/NavigationInformationView.qml" line="189"/>
         <source>Dist.</source>
         <translation>távolság</translation>
     </message>
     <message>
-        <location filename="../src/qml/NavigationInformationView.qml" line="90"/>
-        <location filename="../src/qml/NavigationInformationView.qml" line="108"/>
+        <location filename="../src/qml/NavigationInformationView.qml" line="192"/>
+        <location filename="../src/qml/NavigationInformationView.qml" line="210"/>
         <source>N/A</source>
         <translation>N/A</translation>
     </message>
     <message>
-        <location filename="../src/qml/NavigationInformationView.qml" line="105"/>
+        <location filename="../src/qml/NavigationInformationView.qml" line="207"/>
         <source>Bearing</source>
         <translation>Raktár</translation>
     </message>
@@ -3299,12 +3304,12 @@ Cancel to make a minimal device scan instead.</source>
         <translation>Helykoordináták másolása</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2520"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2522"/>
         <source>Signed out</source>
         <translation>Kijelentkezve</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2524"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2526"/>
         <source>Signed in</source>
         <translation>Bejelentkezve</translation>
     </message>
@@ -3400,7 +3405,7 @@ Cancel to make a minimal device scan instead.</source>
         <translation type="vanished">Kijelentkezett</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2522"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2524"/>
         <source>Connecting...</source>
         <translation>Kapcsolódás...</translation>
     </message>
@@ -3409,27 +3414,27 @@ Cancel to make a minimal device scan instead.</source>
         <translation type="vanished">Bejelentkezett</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2539"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2541"/>
         <source>Project %1 failed to download</source>
         <translation>%1 projekt sikertelen letöltés</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2540"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2542"/>
         <source>Project %1 successfully downloaded, it&apos;s now available to open</source>
         <translation>%1 projektet sikeresen letöltöttem, most megnyitható</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2545"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2547"/>
         <source>Changes failed to reach QFieldCloud: %1</source>
         <translation>A módosítások nem fértek hozzá a QFieldCloudhoz: %1</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2549"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2551"/>
         <source>Changes successfully pushed to QFieldCloud</source>
         <translation>A módosítások sikeresen átküldve a QFieldCloudba</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2799"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2801"/>
         <source>Press back again to close project and app</source>
         <translation>Nyomj visszát a projekt és az alkalmazás lezárásához</translation>
     </message>
