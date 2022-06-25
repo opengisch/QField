@@ -59,7 +59,7 @@ Item {
 
     onReadingChanged: {
       compassOrientation = userOrientation + (-(Math.atan2(reading.x, reading.y) / Math.PI) * 180)
-      compasshasValue = true
+      compassHasValue = true
     }
   }
 
