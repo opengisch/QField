@@ -264,8 +264,10 @@ void Navigation::updateDetails()
   mPath = QgsGeometry( new QgsLineString( points ) );
 
   const QgsPoint destinationPoint = destination();
+  const bool handleZ = QgsWkbTypes::hasZ( mLocation.wkbType() )
+                       && QgsWkbTypes::hasZ( destinationPoint.wkbType() );
   mDistance = mDa.measureLine( mLocation, destinationPoint );
-  if ( QgsWkbTypes::hasZ( mLocation.wkbType() ) && QgsWkbTypes::hasZ( destinationPoint.wkbType() ) )
+  if ( handleZ )
   {
     mVerticalDistance = destinationPoint.z() - mLocation.z();
   }
@@ -279,7 +281,7 @@ void Navigation::updateDetails()
 
   if ( mDa.lengthUnits() != QgsUnitTypes::DistanceUnknownUnit )
   {
-    if ( mDistance <= 2.5 )
+    if ( mDistance <= 2.5 && ( !handleZ || std::abs( mVerticalDistance ) <= 2.5 ) )
     {
       if ( !mAlarmPlaying )
       {
