@@ -633,7 +633,7 @@ ApplicationWindow {
 
       precision: 5
 
-      visible: !isNaN(navigation.distance) && navigation.distance < precision
+      visible: !isNaN(navigation.distance)// && navigation.distance < precision
       width: parent.width
       height: Math.min(mainWindow.height / 2.5, 400)
     }

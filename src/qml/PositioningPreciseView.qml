@@ -16,9 +16,11 @@ Item {
   property double precision: 1
   property bool hasZ: !isNaN(navigation.verticalDistance)
 
-  property double positionX: Math.min(precision, navigation.distance) * Math.cos((navigation.bearing - 90) * Math.PI / 180) * (preciseTarget.width / 2) / precision
-  property double positionY: Math.min(precision, navigation.distance) * Math.sin((navigation.bearing - 90) * Math.PI / 180) * (preciseTarget.width / 2) / precision
+  property double positionX: Math.min(precision, navigation.distance) * Math.cos((navigation.bearing - locationMarker.compassOrientation - 90) * Math.PI / 180) * (preciseTarget.width / 2) / precision
+  property double positionY: Math.min(precision, navigation.distance) * Math.sin((navigation.bearing - locationMarker.compassOrientation - 90) * Math.PI / 180) * (preciseTarget.width / 2) / precision
   property double positionZ: hasZ ? Math.min(precision, Math.max(-precision, -navigation.verticalDistance)) * ((preciseElevation.height - 15) / 2) / precision : 0.0
+  property point positionCenter: Qt.point(preciseTarget.width / 2 + preciseTarget.x + preciseTarget.parent.x,
+                                          preciseTarget.height / 2 + preciseTarget.y + preciseTarget.parent.y)
 
   property string negativeLabel: UnitTypes.formatDistance(-precision, 1, navigation.distanceUnits)
   property string positiveLabel: UnitTypes.formatDistance(precision, 1, navigation.distanceUnits)
@@ -213,33 +215,6 @@ Item {
         text: '270'
       }
 
-      Rectangle {
-        id: preciseHorizontalPosition
-        x: (preciseTarget.width - width) / 2 + positionX
-        y: (preciseTarget.width - width)  / 2 + positionY
-        width: 28
-        height: width
-        radius: width / 2
-        color: positionColor
-
-        Text {
-          id: preciseHorizontalPositionInfo
-
-          property bool leftOfPoint: (!locationMarker.compassHasValue && positionX >= 0) ||
-                                     (locationMarker.compassHasValue && ((positionX >= 0 && locationMarker.compassOrientation > 180) ||
-                                     (positionX < 0 && locationMarker.compassOrientation < 180)))
-          x: leftOfPoint ? -contentWidth - 10 : preciseHorizontalPosition.width + 10
-          y: 0
-          color: "black"
-          font: Theme.strongTipFont
-          style: Text.Outline
-          styleColor: Theme.light
-
-          text: qsTr('Dist.') + ': ' + UnitTypes.formatDistance( navigation.distance, 3, navigation.distanceUnits )
-
-          transform: Rotation { origin.x: preciseHorizontalPositionInfo.leftOfPoint ? preciseHorizontalPositionInfo.contentWidth + 10 : -10; origin.y: preciseHorizontalPositionInfo.contentHeight / 2; angle: locationMarker.compassHasValue ? locationMarker.compassOrientation : 0}
-        }
-      }
     }
 
     Rectangle {
@@ -285,28 +260,112 @@ Item {
         color: hasZ ? Theme.navigationColorSemiOpaque : "#000000"
       }
 
-      Rectangle {
+      Shape {
         id: preciseVerticalPosition
         x: -1
         y: (preciseElevation.height - height) / 2 + positionZ
         width: preciseElevation.width + 2
         height: width
-        radius: width / 2
-        opacity: hasZ ? 1 : 0
-        color: hasZ ? positionColor : Theme.gray
+        visible: hasZ
+        rotation: navigation.verticalDistance < 0 ? 180 : 0
 
-        Text {
-          id: preciseVerticalPositionInfo
-          x: -contentWidth - 10
-          y: (preciseVerticalPosition.height - contentHeight) / 2
-          color: "black"
-          font: Theme.strongTipFont
-          style: Text.Outline
-          styleColor: Theme.light
+        ShapePath {
+          strokeWidth: 0
+          strokeColor: "transparent"
+          strokeStyle: ShapePath.SolidLine
+          fillColor: Math.abs(navigation.verticalDistance) <= precision ? positionColor : "transparent"
+          startY: startX
+          PathAngleArc {
+            centerX: preciseVerticalPosition.width / 2
+            centerY: centerX
+            radiusX: preciseVerticalPosition.width / 2
+            radiusY: radiusX
+            startAngle: 0
+            sweepAngle: 360
+          }
+        }
 
-          text: navigation.verticalDistance != 0.0 ? UnitTypes.formatDistance( navigation.verticalDistance, 3, navigation.distanceUnits ) : 0
+        ShapePath {
+          strokeWidth: 0
+          strokeColor: "transparent"
+          strokeStyle: ShapePath.SolidLine
+          fillColor: Math.abs(navigation.verticalDistance) > precision ? positionColor : "transparent"
+          joinStyle: ShapePath.MiterJoin
+          startX: preciseVerticalPosition.width / 2
+          startY: 0
+          PathLine { x: preciseVerticalPosition.width - 2; y: preciseVerticalPosition.width }
+          PathLine { x: 2; y: preciseVerticalPosition.width }
+          PathLine { x: preciseVerticalPosition.width / 2; y: 0 }
         }
       }
+
+      Text {
+        id: preciseVerticalPositionInfo
+        x: -contentWidth - 10
+        y: (preciseElevation.height - height) / 2 + positionZ
+        visible: hasZ
+        color: "black"
+        font: Theme.strongTipFont
+        style: Text.Outline
+        styleColor: Theme.light
+
+        text: navigation.verticalDistance != 0.0 ? UnitTypes.formatDistance( navigation.verticalDistance, 3, navigation.distanceUnits ) : 0
+      }
     }
+  }
+
+  Shape {
+    id: preciseHorizontalPosition
+
+    x: positionCenter.x + positionX - width / 2
+    y: positionCenter.y + positionY - width / 2
+    width: 28
+    height: width
+    rotation: navigation.bearing - locationMarker.compassOrientation
+
+    ShapePath {
+      strokeWidth: 0
+      strokeColor: "transparent"
+      strokeStyle: ShapePath.SolidLine
+      fillColor: navigation.distance < precision ? positionColor : "transparent"
+      startX: preciseHorizontalPosition.width / 2
+      startY: startX
+      PathAngleArc {
+        centerX: preciseHorizontalPosition.width / 2
+        centerY: centerX
+        radiusX: preciseHorizontalPosition.width / 2
+        radiusY: radiusX
+        startAngle: 0
+        sweepAngle: 360
+      }
+    }
+
+    ShapePath {
+      strokeWidth: 0
+      strokeColor: "transparent"
+      strokeStyle: ShapePath.SolidLine
+      fillColor: navigation.distance >= precision ? positionColor : "transparent"
+      joinStyle: ShapePath.MiterJoin
+      startX: preciseHorizontalPosition.width / 2
+      startY: 0
+      PathLine { x: preciseHorizontalPosition.width - 2; y: preciseHorizontalPosition.width }
+      PathLine { x: 2; y: preciseHorizontalPosition.width }
+      PathLine { x: preciseHorizontalPosition.width / 2; y: 0 }
+    }
+  }
+
+  Text {
+    id: preciseHorizontalPositionInfo
+
+    property bool leftOfPoint: locationMarker.compassHasValue && positionX >= 0
+    x: positionCenter.x + positionX + (positionX >= 0 ? -contentWidth - 10 : preciseHorizontalPosition.width / 2)
+    y: positionCenter.y + positionY + (positionY >= 0 ? -preciseHorizontalPosition.height : preciseHorizontalPosition.height / 2)
+
+    color: "black"
+    font: Theme.strongTipFont
+    style: Text.Outline
+    styleColor: Theme.light
+
+    text: qsTr('Dist.') + ': ' + UnitTypes.formatDistance( navigation.distance, 3, navigation.distanceUnits )
   }
 }
