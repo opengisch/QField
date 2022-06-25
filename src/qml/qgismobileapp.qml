@@ -492,6 +492,9 @@ ApplicationWindow {
       id: navigation
       mapSettings: mapCanvas.mapSettings
       location: positionSource.active ? positionSource.projectedPosition : undefined
+
+      proximityAlarm: positioningPreciseView.visible
+      proximityAlarmThreshold: positioningSettings.preciseViewPrecision / 5
     }
 
     NavigationHighlight {

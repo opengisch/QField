@@ -44,6 +44,9 @@ class Navigation : public QObject
     Q_PROPERTY( int destinationFeatureCurrentVertex READ destinationFeatureCurrentVertex NOTIFY destinationFeatureCurrentVertexChanged )
     Q_PROPERTY( int destinationFeatureVertexCount READ destinationFeatureVertexCount NOTIFY destinationFeatureVertexCountChanged )
 
+    Q_PROPERTY( bool proximityAlarm READ proximityAlarm WRITE setProximityAlarm NOTIFY proximityAlarmChanged )
+    Q_PROPERTY( double proximityAlarmThreshold READ proximityAlarmThreshold WRITE setProximityAlarmThreshold NOTIFY proximityAlarmThresholdChanged )
+
     Q_PROPERTY( bool isActive READ isActive NOTIFY isActiveChanged )
 
   public:
@@ -99,6 +102,12 @@ class Navigation : public QObject
     QgsUnitTypes::DistanceUnit distanceUnits() const { return mDa.lengthUnits(); }
     double bearing() const { return mBearing; }
 
+    bool proximityAlarm() const { return mProximityAlarm; }
+    void setProximityAlarm( const bool enabled );
+
+    double proximityAlarmThreshold() const { return mProximityAlarmThreshold; }
+    void setProximityAlarmThreshold( const double &threshold );
+
     Q_INVOKABLE void clear();
 
   signals:
@@ -116,12 +125,16 @@ class Navigation : public QObject
 
     void detailsChanged();
 
+    void proximityAlarmChanged();
+    void proximityAlarmThresholdChanged();
+
   private slots:
     void crsChanged();
 
   private:
     void updateDetails();
     void setDestinationFromCurrentVertex();
+    void updateProximityAlarmState();
 
     std::unique_ptr<NavigationModel> mModel = nullptr;
     QgsQuickMapSettings *mMapSettings = nullptr;
@@ -138,8 +151,10 @@ class Navigation : public QObject
     int mCurrentVertex = -1;
     int mVertexCount = 0;
 
-    std::unique_ptr<QSound> mAlarm = nullptr;
-    bool mAlarmPlaying = false;
+    bool mProximityAlarm = false;
+    double mProximityAlarmThreshold = 0.0;
+    bool mProximityAlarmPlaying = false;
+    std::unique_ptr<QSound> mProximityAlarmSound = nullptr;
 };
 
 #endif // NAVIGATION_H

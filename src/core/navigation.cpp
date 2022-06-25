@@ -35,8 +35,8 @@ Navigation::Navigation()
   connect( mModel.get(), &NavigationModel::modelReset, this, &Navigation::destinationChanged );
   connect( mModel.get(), &NavigationModel::modelReset, this, &Navigation::updateDetails );
 
-  mAlarm = std::make_unique<QSound>( ":/sounds/proximity_alarm.wav" );
-  mAlarm->setLoops( QSound::Infinite );
+  mProximityAlarmSound = std::make_unique<QSound>( ":/sounds/proximity_alarm.wav" );
+  mProximityAlarmSound->setLoops( QSound::Infinite );
 }
 
 Navigation::~Navigation()
@@ -279,25 +279,67 @@ void Navigation::updateDetails()
 
   emit detailsChanged();
 
-  if ( mDa.lengthUnits() != QgsUnitTypes::DistanceUnknownUnit )
+  updateProximityAlarmState();
+}
+
+void Navigation::updateProximityAlarmState()
+{
+  const QgsPoint destinationPoint = destination();
+  const bool handleZ = QgsWkbTypes::hasZ( mLocation.wkbType() )
+                       && QgsWkbTypes::hasZ( destinationPoint.wkbType() );
+  if ( mProximityAlarm && mDa.lengthUnits() != QgsUnitTypes::DistanceUnknownUnit )
   {
-    if ( mDistance <= 2.5 && ( !handleZ || std::abs( mVerticalDistance ) <= 2.5 ) )
+    if ( mDistance <= mProximityAlarmThreshold && ( !handleZ || std::abs( mVerticalDistance ) <= mProximityAlarmThreshold ) )
     {
-      if ( !mAlarmPlaying )
+      if ( !mProximityAlarmPlaying )
       {
-        mAlarm->play();
-        mAlarmPlaying = true;
+        mProximityAlarmSound->play();
+        mProximityAlarmPlaying = true;
       }
     }
     else
     {
-      if ( mAlarmPlaying )
+      if ( mProximityAlarmPlaying )
       {
-        mAlarm->stop();
-        mAlarmPlaying = false;
+        mProximityAlarmSound->stop();
+        mProximityAlarmPlaying = false;
       }
     }
   }
+  else
+  {
+    if ( mProximityAlarmPlaying )
+    {
+      mProximityAlarmSound->stop();
+      mProximityAlarmPlaying = false;
+    }
+  }
+}
+
+void Navigation::setProximityAlarm( const bool enabled )
+{
+  if ( mProximityAlarm == enabled )
+  {
+    return;
+  }
+
+  mProximityAlarm = enabled;
+  emit proximityAlarmChanged();
+
+  updateProximityAlarmState();
+}
+
+void Navigation::setProximityAlarmThreshold( const double &threshold )
+{
+  if ( mProximityAlarmThreshold == threshold )
+  {
+    return;
+  }
+
+  mProximityAlarmThreshold = threshold;
+  emit proximityAlarmThresholdChanged();
+
+  updateProximityAlarmState();
 }
 
 void Navigation::clear()

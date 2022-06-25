@@ -246,7 +246,7 @@ Item {
       } else {
         magnetometer.stop()
         magnetometer.active = false
-        magnetometer.hasValue = false
+        compassHasValue = false
       }
     }
   }
