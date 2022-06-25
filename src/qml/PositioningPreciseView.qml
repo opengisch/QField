@@ -22,8 +22,8 @@ Item {
   property point positionCenter: Qt.point(preciseTarget.width / 2 + preciseTarget.x + preciseTarget.parent.x,
                                           preciseTarget.height / 2 + preciseTarget.y + preciseTarget.parent.y)
 
-  property string negativeLabel: UnitTypes.formatDistance(-precision, 1, navigation.distanceUnits)
-  property string positiveLabel: UnitTypes.formatDistance(precision, 1, navigation.distanceUnits)
+  property string negativeLabel: UnitTypes.formatDistance(-precision, 2, navigation.distanceUnits)
+  property string positiveLabel: UnitTypes.formatDistance(precision, 2, navigation.distanceUnits)
 
   property color positionColor: Theme.positionColor
   SequentialAnimation on positionColor  {
