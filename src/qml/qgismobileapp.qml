@@ -621,8 +621,7 @@ ApplicationWindow {
     }
 
     Rectangle {
-      visible: navigationInformationView.visible
-               && (positioningPreciseView.visible || positioningInformationView.visible)
+      visible: navigationInformationView.visible && positioningPreciseView.visible
       width: parent.width
       height: 1
       color: Theme.navigationBackgroundColor
@@ -633,14 +632,23 @@ ApplicationWindow {
 
       precision: 5
 
-      visible: !isNaN(navigation.distance)// && navigation.distance < precision
+      visible: !isNaN(navigation.distance)
+               && (positioningSettings.alwaysShowPreciseView || navigation.distance < precision)
       width: parent.width
       height: Math.min(mainWindow.height / 2.5, 400)
     }
 
+    Rectangle {
+      visible: positioningInformationView.visible
+               && (positioningPreciseView.visible || navigationInformationView.visible)
+      width: parent.width
+      height: 1
+      color: Theme.navigationBackgroundColor
+    }
+
     PositioningInformationView {
       id: positioningInformationView
-      visible: positioningSettings.showPositionInformation && !positioningPreciseView.visible
+      visible: positioningSettings.showPositionInformation
       positionSource: positionSource
       antennaHeight: positioningSettings.antennaHeightActivated ? positioningSettings.antennaHeight : NaN
     }
@@ -1935,11 +1943,29 @@ ApplicationWindow {
       id: cancelNavigationItem
       text: qsTr( "Clear Destination" )
       height: 48
+      leftPadding: 50
       font: Theme.defaultFont
 
       onTriggered: {
         navigation.clear();
       }
+    }
+
+    MenuSeparator { width: parent.width }
+
+    MenuItem {
+      text: qsTr( "Always Show Precise View" )
+      height: 48
+      leftPadding: 15
+      font: Theme.defaultFont
+
+      checkable: true
+      checked: positioningSettings.alwaysShowPreciseView
+      indicator.height: 20
+      indicator.width: 20
+      indicator.implicitHeight: 24
+      indicator.implicitWidth: 24
+      onCheckedChanged: positioningSettings.alwaysShowPreciseView = checked
     }
   }
 

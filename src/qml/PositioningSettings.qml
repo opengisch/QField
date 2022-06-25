@@ -10,6 +10,7 @@ LabSettings.Settings {
     property bool ellipsoidalElevation: true
 
     property bool showPositionInformation: false
+    property bool alwaysShowPreciseView: false
 
     property bool accuracyIndicator: false
     property real accuracyBad: 5.0
