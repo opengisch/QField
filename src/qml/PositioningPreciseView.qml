@@ -64,6 +64,30 @@ Item {
         strokeColor: Theme.navigationColorSemiOpaque
         strokeStyle: ShapePath.SolidLine
         fillColor: "transparent"
+        startX: (preciseTarget.width / 2) + (preciseTarget.width / 2) * Math.cos(5.49779)
+        startY: (preciseTarget.width / 2) + (preciseTarget.width / 2) * Math.sin(5.49779)
+        PathLine {
+          x: (preciseTarget.width / 2) + (preciseTarget.width / 2) * Math.cos(2.35619)
+          y: (preciseTarget.width / 2) + (preciseTarget.width / 2) * Math.sin(2.35619)
+        }
+      }
+      ShapePath {
+        strokeWidth: 1
+        strokeColor: Theme.navigationColorSemiOpaque
+        strokeStyle: ShapePath.SolidLine
+        fillColor: "transparent"
+        startX: (preciseTarget.width / 2) + (preciseTarget.width / 2) * Math.cos(0.78539)
+        startY: (preciseTarget.width / 2) + (preciseTarget.width / 2) * Math.sin(0.78539)
+        PathLine {
+          x: (preciseTarget.width / 2) + (preciseTarget.width / 2) * Math.cos(3.92699)
+          y: (preciseTarget.width / 2) + (preciseTarget.width / 2) * Math.sin(3.92699)
+        }
+      }
+      ShapePath {
+        strokeWidth: 1
+        strokeColor: Theme.navigationColorSemiOpaque
+        strokeStyle: ShapePath.SolidLine
+        fillColor: "transparent"
         startX: preciseTarget.width / 2
         startY: 0
         PathLine {
@@ -148,6 +172,47 @@ Item {
         }
       }
 
+      Text {
+        anchors.top: parent.top
+        anchors.topMargin: 2
+        anchors.horizontalCenter: parent.horizontalCenter
+        color: Theme.navigationColor
+        font: Theme.tinyFont
+        style: Text.Outline
+        styleColor: "white"
+        text: '0'
+      }
+      Text {
+        anchors.right: parent.right
+        anchors.rightMargin: 2
+        anchors.verticalCenter: parent.verticalCenter
+        color: Theme.navigationColor
+        font: Theme.tinyFont
+        style: Text.Outline
+        styleColor: "white"
+        text: '90'
+      }
+      Text {
+        anchors.bottom: parent.bottom
+        anchors.bottomMargin: 2
+        anchors.horizontalCenter: parent.horizontalCenter
+        color: Theme.navigationColor
+        font: Theme.tinyFont
+        style: Text.Outline
+        styleColor: "white"
+        text: '180'
+      }
+      Text {
+        anchors.left: parent.left
+        anchors.leftMargin: 2
+        anchors.verticalCenter: parent.verticalCenter
+        color: Theme.navigationColor
+        font: Theme.tinyFont
+        style: Text.Outline
+        styleColor: "white"
+        text: '270'
+      }
+
       Rectangle {
         id: preciseHorizontalPosition
         x: (preciseTarget.width - width) / 2 + positionX
@@ -156,6 +221,24 @@ Item {
         height: width
         radius: width / 2
         color: positionColor
+
+        Text {
+          id: preciseHorizontalPositionInfo
+
+          property bool leftOfPoint: (!locationMarker.compassHasValue && positionX >= 0) ||
+                                     (locationMarker.compassHasValue && ((positionX >= 0 && locationMarker.compassOrientation > 180) ||
+                                     (positionX < 0 && locationMarker.compassOrientation < 180)))
+          x: leftOfPoint ? -contentWidth - 10 : preciseHorizontalPosition.width + 10
+          y: 0
+          color: "black"
+          font: Theme.strongTipFont
+          style: Text.Outline
+          styleColor: Theme.light
+
+          text: qsTr('Dist.') + ': ' + UnitTypes.formatDistance( navigation.distance, 3, navigation.distanceUnits )
+
+          transform: Rotation { origin.x: preciseHorizontalPositionInfo.leftOfPoint ? preciseHorizontalPositionInfo.contentWidth + 10 : -10; origin.y: preciseHorizontalPositionInfo.contentHeight / 2; angle: locationMarker.compassHasValue ? locationMarker.compassOrientation : 0}
+        }
       }
     }
 
@@ -211,6 +294,18 @@ Item {
         radius: width / 2
         opacity: hasZ ? 1 : 0
         color: hasZ ? positionColor : Theme.gray
+
+        Text {
+          id: preciseVerticalPositionInfo
+          x: -contentWidth - 10
+          y: (preciseVerticalPosition.height - contentHeight) / 2
+          color: "black"
+          font: Theme.strongTipFont
+          style: Text.Outline
+          styleColor: Theme.light
+
+          text: navigation.verticalDistance > 0.0 ? UnitTypes.formatDistance( navigation.verticalDistance, 3, navigation.distanceUnits ) : 0
+        }
       }
     }
   }
