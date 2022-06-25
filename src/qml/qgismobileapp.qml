@@ -1608,6 +1608,25 @@ ApplicationWindow {
       font: Theme.defaultFont
       height: 48
       leftPadding: 10
+      rightPadding: 40
+
+      arrow: Canvas {
+          x: parent.width - width
+          y: (parent.height - height) / 2
+          implicitWidth: 40
+          implicitHeight: 40
+          visible: true
+          opacity: printItem.enabled ? 1 : 0.25
+          onPaint: {
+              var ctx = getContext("2d")
+              ctx.fillStyle = printItem.color
+              ctx.moveTo(15, 15)
+              ctx.lineTo(width - 15, height / 2)
+              ctx.lineTo(15, height - 15)
+              ctx.closePath()
+              ctx.fill()
+          }
+      }
 
       onTriggered: {
         if (layoutListInstantiator.model.rowCount() > 1)
@@ -1967,7 +1986,7 @@ ApplicationWindow {
           y: (parent.height - height) / 2
           implicitWidth: 40
           implicitHeight: 40
-          visible: menuItem.subMenu
+          visible: true
           onPaint: {
               var ctx = getContext("2d")
               ctx.fillStyle = preciseViewItem.color
