@@ -1619,12 +1619,12 @@ ApplicationWindow {
           opacity: printItem.enabled ? 1 : 0.25
           onPaint: {
               var ctx = getContext("2d")
-              ctx.fillStyle = printItem.color
+              ctx.strokeStyle = Theme.mainColor
+              ctx.lineWidth = 1
               ctx.moveTo(15, 15)
               ctx.lineTo(width - 15, height / 2)
               ctx.lineTo(15, height - 15)
-              ctx.closePath()
-              ctx.fill()
+              ctx.stroke();
           }
       }
 
@@ -1989,12 +1989,12 @@ ApplicationWindow {
           visible: true
           onPaint: {
               var ctx = getContext("2d")
-              ctx.fillStyle = preciseViewItem.color
+              ctx.strokeStyle = Theme.mainColor
+              ctx.lineWidth = 1
               ctx.moveTo(15, 15)
               ctx.lineTo(width - 15, height / 2)
               ctx.lineTo(15, height - 15)
-              ctx.closePath()
-              ctx.fill()
+              ctx.stroke();
           }
       }
 
