@@ -34,6 +34,9 @@ Navigation::Navigation()
   connect( mModel.get(), &NavigationModel::modelReset, this, &Navigation::isActiveChanged );
   connect( mModel.get(), &NavigationModel::modelReset, this, &Navigation::destinationChanged );
   connect( mModel.get(), &NavigationModel::modelReset, this, &Navigation::updateDetails );
+
+  mAlarm = std::make_unique<QSound>( ":/sounds/proximity_alarm.wav" );
+  mAlarm->setLoops( QSound::Infinite );
 }
 
 Navigation::~Navigation()
@@ -273,6 +276,26 @@ void Navigation::updateDetails()
   mBearing = mDa.bearing( mLocation, destinationPoint ) * 180 / M_PI;
 
   emit detailsChanged();
+
+  if ( mDa.lengthUnits() != QgsUnitTypes::DistanceUnknownUnit )
+  {
+    if ( mDistance <= 2.5 )
+    {
+      if ( !mAlarmPlaying )
+      {
+        mAlarm->play();
+        mAlarmPlaying = true;
+      }
+    }
+    else
+    {
+      if ( mAlarmPlaying )
+      {
+        mAlarm->stop();
+        mAlarmPlaying = false;
+      }
+    }
+  }
 }
 
 void Navigation::clear()

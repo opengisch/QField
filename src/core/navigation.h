@@ -21,6 +21,7 @@
 #include "qgsquickmapsettings.h"
 
 #include <QObject>
+#include <QSound>
 #include <qgsdistancearea.h>
 
 class Navigation : public QObject
@@ -136,6 +137,9 @@ class Navigation : public QObject
     QgsGeometry mGeometry;
     int mCurrentVertex = -1;
     int mVertexCount = 0;
+
+    std::unique_ptr<QSound> mAlarm = nullptr;
+    bool mAlarmPlaying = false;
 };
 
 #endif // NAVIGATION_H
