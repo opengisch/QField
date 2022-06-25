@@ -247,6 +247,7 @@ Item {
         magnetometer.stop()
         magnetometer.active = false
         compassHasValue = false
+        compassOrientation = 0.0
       }
     }
   }

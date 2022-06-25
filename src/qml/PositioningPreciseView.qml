@@ -1,7 +1,7 @@
 import QtQuick 2.12
 import QtQuick.Controls 2.12
 import QtQuick.Layouts 1.12
-import QtQuick.Shapes 1.12
+import QtQuick.Shapes 1.14
 import QtGraphicalEffects 1.12
 import Qt.labs.calendar 1.0
 
@@ -24,13 +24,6 @@ Item {
 
   property string negativeLabel: UnitTypes.formatDistance(-precision, 2, navigation.distanceUnits)
   property string positiveLabel: UnitTypes.formatDistance(precision, 2, navigation.distanceUnits)
-
-  property color positionColor: Theme.positionColor
-  SequentialAnimation on positionColor  {
-    loops: Animation.Infinite
-    ColorAnimation  { from: Theme.positionColor; to: Theme.darkPositionColor; duration: 2000; easing.type: Easing.InOutQuad }
-    ColorAnimation  { from: Theme.darkPositionColor; to: Theme.positionColor; duration: 1000; easing.type: Easing.InOutQuad }
-  }
 
   Rectangle {
     anchors.fill: parent
@@ -273,8 +266,12 @@ Item {
           strokeWidth: 0
           strokeColor: "transparent"
           strokeStyle: ShapePath.SolidLine
-          fillColor: Math.abs(navigation.verticalDistance) <= precision ? positionColor : "transparent"
+          fillColor: Theme.positionColor
+          fillRule: ShapePath.WindingFill
+          joinStyle: ShapePath.MiterJoin
+          startX: preciseVerticalPosition.width / 2
           startY: startX
+          scale: Math.abs(navigation.verticalDistance) <= precision ? Qt.size(1,1) : Qt.size(0,0);
           PathAngleArc {
             centerX: preciseVerticalPosition.width / 2
             centerY: centerX
@@ -289,10 +286,12 @@ Item {
           strokeWidth: 0
           strokeColor: "transparent"
           strokeStyle: ShapePath.SolidLine
-          fillColor: Math.abs(navigation.verticalDistance) > precision ? positionColor : "transparent"
+          fillColor: Theme.positionColor
+          fillRule: ShapePath.WindingFill
           joinStyle: ShapePath.MiterJoin
           startX: preciseVerticalPosition.width / 2
           startY: 0
+          scale: Math.abs(navigation.verticalDistance) > precision ? Qt.size(1,1) : Qt.size(0,0);
           PathLine { x: preciseVerticalPosition.width - 2; y: preciseVerticalPosition.width }
           PathLine { x: 2; y: preciseVerticalPosition.width }
           PathLine { x: preciseVerticalPosition.width / 2; y: 0 }
@@ -324,12 +323,14 @@ Item {
     rotation: navigation.bearing - locationMarker.compassOrientation
 
     ShapePath {
-      strokeWidth: 0
+      strokeWidth: 1
       strokeColor: "transparent"
       strokeStyle: ShapePath.SolidLine
-      fillColor: navigation.distance < precision ? positionColor : "transparent"
+      fillColor: Theme.positionColor
+      fillRule: ShapePath.WindingFill
       startX: preciseHorizontalPosition.width / 2
       startY: startX
+      scale: navigation.distance <= precision ? Qt.size(1,1) : Qt.size(0,0);
       PathAngleArc {
         centerX: preciseHorizontalPosition.width / 2
         centerY: centerX
@@ -341,13 +342,15 @@ Item {
     }
 
     ShapePath {
-      strokeWidth: 0
+      strokeWidth: 1
       strokeColor: "transparent"
       strokeStyle: ShapePath.SolidLine
-      fillColor: navigation.distance >= precision ? positionColor : "transparent"
+      fillColor: Theme.positionColor
+      fillRule: ShapePath.WindingFill
       joinStyle: ShapePath.MiterJoin
       startX: preciseHorizontalPosition.width / 2
       startY: 0
+      scale: navigation.distance > precision ? Qt.size(1,1) : Qt.size(0,0);
       PathLine { x: preciseHorizontalPosition.width - 2; y: preciseHorizontalPosition.width }
       PathLine { x: 2; y: preciseHorizontalPosition.width }
       PathLine { x: preciseHorizontalPosition.width / 2; y: 0 }
