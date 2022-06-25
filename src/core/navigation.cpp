@@ -267,7 +267,7 @@ void Navigation::updateDetails()
   mDistance = mDa.measureLine( mLocation, destinationPoint );
   if ( QgsWkbTypes::hasZ( mLocation.wkbType() ) && QgsWkbTypes::hasZ( destinationPoint.wkbType() ) )
   {
-    mVerticalDistance = mLocation.z() - destinationPoint.z();
+    mVerticalDistance = destinationPoint.z() - mLocation.z();
   }
   else
   {

@@ -18,7 +18,7 @@ Item {
 
   property double positionX: Math.min(precision, navigation.distance) * Math.cos((navigation.bearing - 90) * Math.PI / 180) * (preciseTarget.width / 2) / precision
   property double positionY: Math.min(precision, navigation.distance) * Math.sin((navigation.bearing - 90) * Math.PI / 180) * (preciseTarget.width / 2) / precision
-  property double positionZ: hasZ ? Math.min(precision, Math.max(-precision, navigation.verticalDistance)) * ((preciseElevation.height - 15) / 2) / precision : 0.0
+  property double positionZ: hasZ ? Math.min(precision, Math.max(-precision, -navigation.verticalDistance)) * ((preciseElevation.height - 15) / 2) / precision : 0.0
 
   property string negativeLabel: UnitTypes.formatDistance(-precision, 1, navigation.distanceUnits)
   property string positiveLabel: UnitTypes.formatDistance(precision, 1, navigation.distanceUnits)
