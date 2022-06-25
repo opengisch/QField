@@ -81,7 +81,7 @@ Item {
 
   Image {
     id: compassDirectionMarker
-    visible: deviceId === '' && compassHasValue
+    visible: compassHasValue
     width: 48
     height: 48
     opacity: 0.6
