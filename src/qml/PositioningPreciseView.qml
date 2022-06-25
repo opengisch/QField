@@ -16,9 +16,9 @@ Item {
   property double precision: 1
   property bool hasZ: !isNaN(navigation.verticalDistance)
 
-  property double positionX: navigation.distance * Math.cos((navigation.bearing - 90) * Math.PI / 180) * (preciseTarget.width / 2) / precision
-  property double positionY: navigation.distance * Math.sin((navigation.bearing - 90) * Math.PI / 180) * (preciseTarget.width / 2) / precision
-  property double positionZ: hasZ ? navigation.verticalDistance * (preciseElevation.height / 2) / precision : 0.0
+  property double positionX: Math.min(precision, navigation.distance) * Math.cos((navigation.bearing - 90) * Math.PI / 180) * (preciseTarget.width / 2) / precision
+  property double positionY: Math.min(precision, navigation.distance) * Math.sin((navigation.bearing - 90) * Math.PI / 180) * (preciseTarget.width / 2) / precision
+  property double positionZ: hasZ ? Math.min(precision, Math.max(-precision, navigation.verticalDistance)) * ((preciseElevation.height - 15) / 2) / precision : 0.0
 
   property string negativeLabel: UnitTypes.formatDistance(-precision, 1, navigation.distanceUnits)
   property string positiveLabel: UnitTypes.formatDistance(precision, 1, navigation.distanceUnits)
@@ -288,7 +288,7 @@ Item {
       Rectangle {
         id: preciseVerticalPosition
         x: -1
-        y: (preciseElevation.height - width) / 2 + positionZ
+        y: (preciseElevation.height - height) / 2 + positionZ
         width: preciseElevation.width + 2
         height: width
         radius: width / 2
@@ -304,7 +304,7 @@ Item {
           style: Text.Outline
           styleColor: Theme.light
 
-          text: navigation.verticalDistance > 0.0 ? UnitTypes.formatDistance( navigation.verticalDistance, 3, navigation.distanceUnits ) : 0
+          text: navigation.verticalDistance != 0.0 ? UnitTypes.formatDistance( navigation.verticalDistance, 3, navigation.distanceUnits ) : 0
         }
       }
     }
