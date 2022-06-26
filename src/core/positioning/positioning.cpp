@@ -52,15 +52,15 @@ void Positioning::setActive( bool active )
   emit activeChanged();
 }
 
-void Positioning::setDevice( const QString &device )
+void Positioning::setDeviceId( const QString &id )
 {
-  if ( mDevice == device )
+  if ( mDeviceId == id )
     return;
 
-  mDevice = device;
+  mDeviceId = id;
   setupDevice();
 
-  emit deviceChanged();
+  emit deviceIdChanged();
 }
 
 void Positioning::setValid( bool valid )
@@ -116,17 +116,18 @@ void Positioning::setupDevice()
     disconnect( mReceiver.get(), &AbstractGnssReceiver::lastGnssPositionInformationChanged, this, &Positioning::lastGnssPositionInformationChanged );
   }
 
-  if ( mDevice.isEmpty() )
+  if ( mDeviceId.isEmpty() )
   {
     mReceiver = std::make_unique<InternalGnssReceiver>( this );
   }
   else
   {
-    mReceiver = std::make_unique<BluetoothReceiver>( mDevice, this );
+    mReceiver = std::make_unique<BluetoothReceiver>( mDeviceId, this );
   }
   connect( mReceiver.get(), &AbstractGnssReceiver::lastGnssPositionInformationChanged, this, &Positioning::lastGnssPositionInformationChanged );
-
   setValid( mReceiver->valid() );
+
+  emit deviceChanged();
 
   if ( mActive )
   {

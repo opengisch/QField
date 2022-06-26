@@ -481,6 +481,7 @@ void QgisMobileapp::initDeclarative()
   qmlRegisterType<Navigation>( "org.qfield", 1, 0, "Navigation" );
   qmlRegisterType<NavigationModel>( "org.qfield", 1, 0, "NavigationModel" );
   qmlRegisterType<Positioning>( "org.qfield", 1, 0, "Positioning" );
+  qmlRegisterUncreatableType<AbstractGnssReceiver>( "org.qfield", 1, 0, "AbstractGnssReceiver", "" );
 
   qRegisterMetaType<GnssPositionInformation>( "GnssPositionInformation" );
 

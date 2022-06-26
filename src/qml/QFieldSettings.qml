@@ -515,25 +515,24 @@ Page {
                       Layout.topMargin: 5
                       font: Theme.defaultFont
                       text: {
-                          switch (positionSource.bluetoothSocketState)
-                          {
-                          case BluetoothSocket.Connected:
-                              return qsTr('Connected to %1').arg(positioningSettings.positioningDeviceName)
-                          case BluetoothSocket.Unconnected:
-                              return qsTr('Connect  to %1').arg(positioningSettings.positioningDeviceName)
-                          default:
-                              return qsTr('Connecting to %1').arg(positioningSettings.positioningDeviceName)
+                          switch (positionSource.device.socketState) {
+                              case BluetoothSocket.Connected:
+                                  return qsTr('Connected to %1').arg(positioningSettings.positioningDeviceName)
+                              case BluetoothSocket.Unconnected:
+                                  return qsTr('Connect  to %1').arg(positioningSettings.positioningDeviceName)
+                              default:
+                                  return qsTr('Connecting to %1').arg(positioningSettings.positioningDeviceName)
                           }
                       }
-                      enabled: positionSource.bluetoothSocketState === BluetoothSocket.Unconnected
-                      visible: positioningSettings.positioningDevice !== ''
+                      enabled: positionSource.device.socketState === BluetoothSocket.Unconnected
+                      visible: positionSource.deviceId !== ''
 
                       onClicked: {
                           // make sure positioning is active when connecting to the bluetooth device
                           if (!positioningSettings.positioningActivated) {
                               positioningSettings.positioningActivated = true
                           } else {
-                              positionSource.connectBluetoothSource()
+                              positionSource.device.connectDevice()
                           }
                       }
                   }

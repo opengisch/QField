@@ -11,7 +11,7 @@ Item {
   id: item
 
   property variant location // QgsPoint
-  property string device // Empty string means internal device is used
+  property string deviceId // Empty string means internal device is used
   property real accuracy
   property real direction // A -1 value indicates absence of direction information (note: when an external GNSS device is connected, direction is actually a compass)
   property real speed // A -1 value indicates absence of speed information
@@ -83,7 +83,7 @@ Item {
 
   Image {
     id: compassDirectionMarker
-    visible: device === '' && magnetometer.hasValue
+    visible: deviceId === '' && magnetometer.hasValue
     width: 48
     height: 48
     opacity: 0.6

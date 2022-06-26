@@ -168,7 +168,7 @@ ApplicationWindow {
    */
   Positioning {
     id: positionSource
-    device: positioningSettings.positioningDevice
+    deviceId: positioningSettings.positioningDevice
 
     property bool currentness: false;
     property alias destinationCrs: positionSource.coordinateTransformer.destinationCrs
@@ -521,7 +521,7 @@ ApplicationWindow {
       anchors.fill: parent
       visible: positionSource.active && positionSource.positionInformation && positionSource.positionInformation.latitudeValid
       location: positionSource.projectedPosition
-      device: positionSource.device
+      deviceId: positionSource.deviceId
       accuracy: positionSource.projectedHorizontalAccuracy
       direction: positionSource.positionInformation
                  && positionSource.positionInformation.directionValid

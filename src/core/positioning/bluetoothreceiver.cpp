@@ -96,7 +96,9 @@ void BluetoothReceiver::stateChanged( const QgsGpsInformation &info )
 void BluetoothReceiver::setSocketState( const QBluetoothSocket::SocketState socketState )
 {
   if ( mSocketState == static_cast<QAbstractSocket::SocketState>( socketState ) )
+  {
     return;
+  }
 
   switch ( socketState )
   {
