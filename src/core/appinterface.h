@@ -57,6 +57,8 @@ class AppInterface : public QObject
 
     Q_INVOKABLE bool isFileExtensionSupported( const QString &filename ) const;
 
+    Q_INVOKABLE void logMessage( const QString &message );
+
     Q_INVOKABLE void sendLog( const QString &message );
 
     Q_INVOKABLE void restrictImageSize( const QString &imagePath, int maximumWidthHeight );

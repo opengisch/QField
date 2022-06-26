@@ -20,6 +20,7 @@
 
 #include <QDirIterator>
 #include <QFileInfo>
+#include <qgsmessagelog.h>
 
 AppInterface *AppInterface::sAppInterface = nullptr;
 
@@ -128,6 +129,11 @@ bool AppInterface::isFileExtensionSupported( const QString &filename ) const
   const QFileInfo fi( filename );
   const QString suffix = fi.suffix().toLower();
   return SUPPORTED_PROJECT_EXTENSIONS.contains( suffix ) || SUPPORTED_VECTOR_EXTENSIONS.contains( suffix ) || SUPPORTED_RASTER_EXTENSIONS.contains( suffix );
+}
+
+void AppInterface::logMessage( const QString &message )
+{
+  QgsMessageLog::logMessage( message, QStringLiteral( "QField" ) );
 }
 
 void AppInterface::sendLog( const QString &message )
