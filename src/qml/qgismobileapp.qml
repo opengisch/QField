@@ -2335,7 +2335,7 @@ ApplicationWindow {
 
     Component.onCompleted: {
       focusstack.addFocusTaker( this )
-      unreadMessages = messageLogModel.rowCount !== 0
+      unreadMessages = messageLogModel.rowCount() !== 0
     }
   }
 
