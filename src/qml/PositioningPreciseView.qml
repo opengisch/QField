@@ -16,7 +16,7 @@ Item {
   property double precision: 1
   property bool hasZ: !isNaN(navigation.verticalDistance)
   property bool hasAcceptableAccuracy: positionSource.positionInformation.haccValid && positionSource.positionInformation.hacc < precision / 2.5
-  property bool hasReachedTarget: navigation.distance - (precision / 5) <= 0//- positionSource.positionInformation.hacc <= 0
+  property bool hasReachedTarget: hasAcceptableAccuracy && navigation.distance - positionSource.positionInformation.hacc - (precision / 10) <= 0
 
   property double positionX: Math.min(precision, navigation.distance) * Math.cos((navigation.bearing - locationMarker.compassOrientation - 90) * Math.PI / 180) * (preciseTarget.width / 2) / precision
   property double positionY: Math.min(precision, navigation.distance) * Math.sin((navigation.bearing - locationMarker.compassOrientation - 90) * Math.PI / 180) * (preciseTarget.width / 2) / precision
@@ -381,6 +381,7 @@ Item {
     anchors.bottom: parent.bottom
     anchors.bottomMargin: 20
 
+    visible: !hasAcceptableAccuracy
     width: parent.width - 20
     height: accuracyWarningLabel.contentHeight + 4
     color: "#22000000"
