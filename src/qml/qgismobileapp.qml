@@ -2104,6 +2104,22 @@ ApplicationWindow {
       onCheckedChanged: if (checked) positioningSettings.preciseViewPrecision = 5
     }
 
+    MenuItem {
+      text: qsTr( "10m Precision" )
+      height: 48
+      leftPadding: 15
+      font: Theme.defaultFont
+
+      enabled: !checked
+      checkable: true
+      checked: positioningSettings.preciseViewPrecision == 10
+      indicator.height: 20
+      indicator.width: 20
+      indicator.implicitHeight: 24
+      indicator.implicitWidth: 24
+      onCheckedChanged: if (checked) positioningSettings.preciseViewPrecision = 10
+    }
+
     MenuSeparator { width: parent.width }
 
     MenuItem {

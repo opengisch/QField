@@ -15,6 +15,8 @@ Item {
 
   property double precision: 1
   property bool hasZ: !isNaN(navigation.verticalDistance)
+  property bool hasAcceptableAccuracy: positionSource.positionInformation.haccValid && positionSource.positionInformation.hacc < precision / 5
+  property bool hasReachedTarget: navigation.distance - (precision / 5) <= 0//- positionSource.positionInformation.hacc <= 0
 
   property double positionX: Math.min(precision, navigation.distance) * Math.cos((navigation.bearing - locationMarker.compassOrientation - 90) * Math.PI / 180) * (preciseTarget.width / 2) / precision
   property double positionY: Math.min(precision, navigation.distance) * Math.sin((navigation.bearing - locationMarker.compassOrientation - 90) * Math.PI / 180) * (preciseTarget.width / 2) / precision
@@ -151,8 +153,8 @@ Item {
         }
       }
       ShapePath {
-        strokeWidth: 1
-        strokeColor: "#000000"
+        strokeWidth: hasReachedTarget ? 3 : 1
+        strokeColor: hasReachedTarget ? Theme.mainColor : "#000000"
         strokeStyle: ShapePath.SolidLine
         fillColor: "transparent"
         startX: 0
@@ -326,7 +328,7 @@ Item {
       strokeWidth: 1
       strokeColor: "transparent"
       strokeStyle: ShapePath.SolidLine
-      fillColor: Theme.positionColor
+      fillColor: hasReachedTarget ? Theme.mainColor : Theme.positionColor
       fillRule: ShapePath.WindingFill
       startX: preciseHorizontalPosition.width / 2
       startY: startX
