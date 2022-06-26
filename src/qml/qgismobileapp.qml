@@ -494,7 +494,7 @@ ApplicationWindow {
       location: positionSource.active ? positionSource.projectedPosition : GeometryUtils.emptyPoint()
 
       proximityAlarm: positioningPreciseView.visible
-      proximityAlarmThreshold: positioningSettings.preciseViewPrecision / 5
+      proximityAlarmThreshold: positioningSettings.preciseViewPrecision
     }
 
     NavigationHighlight {

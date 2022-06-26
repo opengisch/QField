@@ -21,7 +21,7 @@
 #include "qgsquickmapsettings.h"
 
 #include <QObject>
-#include <QSound>
+#include <QTimer>
 #include <qgsdistancearea.h>
 
 class Navigation : public QObject
@@ -153,8 +153,9 @@ class Navigation : public QObject
 
     bool mProximityAlarm = false;
     double mProximityAlarmThreshold = 0.0;
-    bool mProximityAlarmPlaying = false;
-    std::unique_ptr<QSound> mProximityAlarmSound = nullptr;
+    QTimer mProximityAlarmTimer;
+    int mProximityAlarmInterval;
+    qint64 mLastProximityAlarm;
 };
 
 #endif // NAVIGATION_H

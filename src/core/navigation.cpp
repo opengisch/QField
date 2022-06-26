@@ -18,6 +18,7 @@
 #include "navigation.h"
 #include "navigationmodel.h"
 
+#include <QSound>
 #include <qgslinestring.h>
 #include <qgsproject.h>
 #include <qgsvectorlayer.h>
@@ -35,8 +36,15 @@ Navigation::Navigation()
   connect( mModel.get(), &NavigationModel::modelReset, this, &Navigation::destinationChanged );
   connect( mModel.get(), &NavigationModel::modelReset, this, &Navigation::updateDetails );
 
-  mProximityAlarmSound = std::make_unique<QSound>( ":/sounds/proximity_alarm.wav" );
-  mProximityAlarmSound->setLoops( QSound::Infinite );
+  mProximityAlarmTimer.setInterval( 250 );
+  mProximityAlarmTimer.setSingleShot( false );
+  connect( &mProximityAlarmTimer, &QTimer::timeout, this, [=] {
+    if ( QDateTime::currentMSecsSinceEpoch() > mLastProximityAlarm + mProximityAlarmInterval )
+    {
+      QSound::play( ":/sounds/proximity_alarm.wav" );
+      mLastProximityAlarm = QDateTime::currentMSecsSinceEpoch();
+    }
+  } );
 }
 
 Navigation::~Navigation()
@@ -284,34 +292,31 @@ void Navigation::updateDetails()
 
 void Navigation::updateProximityAlarmState()
 {
-  const QgsPoint destinationPoint = destination();
-  const bool handleZ = QgsWkbTypes::hasZ( mLocation.wkbType() )
-                       && QgsWkbTypes::hasZ( destinationPoint.wkbType() );
   if ( mProximityAlarm && mDa.lengthUnits() != QgsUnitTypes::DistanceUnknownUnit )
   {
-    if ( mDistance <= mProximityAlarmThreshold && ( !handleZ || std::abs( mVerticalDistance ) <= mProximityAlarmThreshold ) )
+    if ( mDistance <= mProximityAlarmThreshold )
     {
-      if ( !mProximityAlarmPlaying )
+      mProximityAlarmInterval = 200 + ( 2000 * mDistance / mProximityAlarmThreshold );
+      if ( !mProximityAlarmTimer.isActive() )
       {
-        mProximityAlarmSound->play();
-        mProximityAlarmPlaying = true;
+        QSound::play( ":/sounds/proximity_alarm.wav" );
+        mLastProximityAlarm = QDateTime::currentMSecsSinceEpoch();
+        mProximityAlarmTimer.start();
       }
     }
     else
     {
-      if ( mProximityAlarmPlaying )
+      if ( mProximityAlarmTimer.isActive() )
       {
-        mProximityAlarmSound->stop();
-        mProximityAlarmPlaying = false;
+        mProximityAlarmTimer.stop();
       }
     }
   }
   else
   {
-    if ( mProximityAlarmPlaying )
+    if ( mProximityAlarmTimer.isActive() )
     {
-      mProximityAlarmSound->stop();
-      mProximityAlarmPlaying = false;
+      mProximityAlarmTimer.stop();
     }
   }
 }
