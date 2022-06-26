@@ -533,4 +533,8 @@ Page {
       }
     }
   }
+
+  onVisibleChanged: {
+    focus = visible
+  }
 }

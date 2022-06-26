@@ -2626,9 +2626,8 @@ ApplicationWindow {
     property ProjectSource __projectSource
 
     anchors.fill: parent
-    focus: true
-
     visible: true
+    focus: visible
 
     onOpenLocalDataPicker: {
       if (platformUtilities.capabilities & PlatformUtilities.CustomLocalDataPicker) {
