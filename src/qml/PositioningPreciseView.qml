@@ -15,7 +15,7 @@ Item {
 
   property double precision: 1
   property bool hasZ: !isNaN(navigation.verticalDistance)
-  property bool hasAcceptableAccuracy: positionSource.positionInformation.haccValid && positionSource.positionInformation.hacc < precision / 5
+  property bool hasAcceptableAccuracy: positionSource.positionInformation.haccValid && positionSource.positionInformation.hacc < precision / 2.5
   property bool hasReachedTarget: navigation.distance - (precision / 5) <= 0//- positionSource.positionInformation.hacc <= 0
 
   property double positionX: Math.min(precision, navigation.distance) * Math.cos((navigation.bearing - locationMarker.compassOrientation - 90) * Math.PI / 180) * (preciseTarget.width / 2) / precision
@@ -372,5 +372,31 @@ Item {
     styleColor: Theme.light
 
     text: qsTr('Dist.') + ': ' + UnitTypes.formatDistance( navigation.distance, 3, navigation.distanceUnits )
+  }
+
+  Rectangle {
+    id: accuracyWarning
+
+    anchors.horizontalCenter: parent.horizontalCenter
+    anchors.bottom: parent.bottom
+    anchors.bottomMargin: 20
+
+    width: parent.width - 20
+    height: accuracyWarningLabel.contentHeight + 4
+    color: "#22000000"
+    radius: 3
+
+    Text {
+      id: accuracyWarningLabel
+      anchors.centerIn: parent
+      width: parent.width
+      color: Theme.warningColor
+      font: Theme.tinyFont
+      horizontalAlignment: Text.AlignHCenter
+      wrapMode: Text.WordWrap
+      text: qsTr('Positioning accuracy too low for this precision level')
+      style: Text.Outline
+      styleColor: "white"
+    }
   }
 }

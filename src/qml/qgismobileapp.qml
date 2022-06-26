@@ -636,7 +636,8 @@ ApplicationWindow {
       precision: positioningSettings.preciseViewPrecision
 
       visible: !isNaN(navigation.distance)
-               && (positioningSettings.alwaysShowPreciseView || navigation.distance < precision)
+               && (positioningSettings.alwaysShowPreciseView
+                   || (hasAcceptableAccuracy && navigation.distance < precision))
       width: parent.width
       height: Math.min(mainWindow.height / 2.5, 400)
     }
