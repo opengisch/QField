@@ -37,10 +37,11 @@ class AbstractGnssReceiver : public QObject
     bool valid() const { return mValid; }
     void setValid( bool valid ) { mValid = valid; }
 
-    void connectDevice() { handleConnectDevice(); }
-    void disconnectDevice() { handleDisconnectDevice(); }
+    Q_INVOKABLE void connectDevice() { handleConnectDevice(); }
+    Q_INVOKABLE void disconnectDevice() { handleDisconnectDevice(); }
 
     GnssPositionInformation lastGnssPositionInformation() const { return mLastGnssPositionInformation; }
+
     QAbstractSocket::SocketState socketState() const { return mSocketState; }
     QString socketStateString() const { return mSocketStateString; }
 
@@ -59,7 +60,7 @@ class AbstractGnssReceiver : public QObject
 
     bool mValid = false;
     GnssPositionInformation mLastGnssPositionInformation;
-    QAbstractSocket::SocketState mSocketState;
+    QAbstractSocket::SocketState mSocketState = QAbstractSocket::UnconnectedState;
     QString mSocketStateString;
 };
 

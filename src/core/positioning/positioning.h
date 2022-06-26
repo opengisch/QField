@@ -35,7 +35,8 @@ class Positioning : public QObject
     Q_OBJECT
 
     Q_PROPERTY( bool active READ active WRITE setActive NOTIFY activeChanged )
-    Q_PROPERTY( QString device READ device WRITE setDevice NOTIFY deviceChanged )
+    Q_PROPERTY( QString deviceId READ deviceId WRITE setDeviceId NOTIFY deviceIdChanged )
+    Q_PROPERTY( AbstractGnssReceiver *device READ device NOTIFY deviceChanged )
 
     Q_PROPERTY( QgsQuickCoordinateTransformer *coordinateTransformer READ coordinateTransformer WRITE setCoordinateTransformer NOTIFY coordinateTransformerChanged )
 
@@ -67,17 +68,19 @@ class Positioning : public QObject
     void setActive( bool active );
 
     /**
-     * Returns the current positioning device name used to fetch position information.
+     * Returns the current positioning device \a id used to fetch position information.
      * \see setDevice
      */
-    QString device() const { return mDevice; }
+    QString deviceId() const { return mDeviceId; }
 
     /**
-     * Sets the positioning device name used to fetch position information.
+     * Sets the positioning device \a id used to fetch position information.
      * \note A blank string will connect the internal positioning device;
      * bluetooth addresses will trigger an NMEA connection to external devices.
      */
-    void setDevice( const QString &device );
+    void setDeviceId( const QString &id );
+
+    AbstractGnssReceiver *device() const { return mReceiver.get(); }
 
     /**
      * Returns the coordinate transformer object used to reproject the position location.
@@ -139,6 +142,7 @@ class Positioning : public QObject
   signals:
 
     void activeChanged();
+    void deviceIdChanged();
     void deviceChanged();
     void validChanged();
     void coordinateTransformerChanged();
@@ -157,7 +161,7 @@ class Positioning : public QObject
 
     bool mActive = false;
 
-    QString mDevice;
+    QString mDeviceId;
     bool mValid = false;
 
     QgsCoordinateReferenceSystem mSourceCrs;
