@@ -436,6 +436,7 @@ Rectangle {
 
     onDestinationClicked: {
       navigation.setDestinationFeature(featureForm.selection.focusedFeature,featureForm.selection.focusedLayer)
+      featureForm.state = "Hidden";
     }
 
     onMoveClicked: {
