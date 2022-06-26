@@ -83,19 +83,6 @@ RoundButton {
       sourceSize.height: 24 * screen.devicePixelRatio
     }
   }
-  transform: Rotation {
-    id: rotation
-
-    origin.x: width / 2
-    origin.y: height / 2
-
-    Behavior on angle {
-      NumberAnimation {
-        duration: 200
-      }
-
-    }
-  }
 
   Rectangle {
     id: bottomRightIndicator
