@@ -142,6 +142,29 @@ Popup {
         }
       }
 
+      ColumnLayout {
+
+          id: opacitySlider
+
+          Layout.fillWidth: true
+          Layout.topMargin: 5
+          spacing: 0
+          visible: opacitySliderVisible
+
+          Text {
+              Layout.fillWidth: true
+              text: qsTr("Opacity")
+              font: Theme.defaultFont
+              horizontalAlignment: Text.AlignHCenter
+          }
+          Slider {
+              Layout.fillWidth: true
+              id: slider
+              value: layerTree.data(index, FlatLayerTreeModel.Opacity)
+              onMoved: layerTree.setData(index, value, FlatLayerTreeModel.Opacity)
+          }
+      }
+
       QfButton {
         id: zoomToButton
         Layout.fillWidth: true
@@ -228,27 +251,6 @@ Popup {
             }
             close()
         }
-      }
-
-      RowLayout {
-
-          id: opacitySlider
-          Layout.fillWidth: True
-          Layout.topMargin: 5
-          visible: opacitySliderVisible
-
-          height: slider.height
-
-
-          Slider {
-              id: slider
-              value: layerTree.data(index, FlatLayerTreeModel.Opacity)
-              onMoved: layerTree.setData(index, value, FlatLayerTreeModel.Opacity)
-          }
-          Text {
-              text: qsTr("Opacity")
-              font: Theme.defaultFont
-          }
       }
 
       Text {

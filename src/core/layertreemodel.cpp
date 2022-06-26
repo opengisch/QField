@@ -858,12 +858,12 @@ QVariant FlatLayerTreeModelBase::data( const QModelIndex &index, int role ) cons
         return -1.0;
 
       QgsLayerTreeNode *node = mLayerTreeModel->index2node( sourceIndex );
-      QgsVectorLayer *layer = nullptr;
+      QgsMapLayer *layer = nullptr;
       if ( !QgsLayerTree::isLayer( node ) )
         return -1.0;
 
       QgsLayerTreeLayer *nodeLayer = QgsLayerTree::toLayer( node );
-      layer = qobject_cast<QgsVectorLayer *>( nodeLayer->layer() );
+      layer = nodeLayer->layer();
 
       if ( !layer )
         return -1.0;
@@ -963,11 +963,11 @@ bool FlatLayerTreeModelBase::setData( const QModelIndex &index, const QVariant &
         return false;
 
       QgsLayerTreeNode *node = mLayerTreeModel->index2node( sourceIndex );
-      QgsVectorLayer *layer = nullptr;
+      QgsMapLayer *layer = nullptr;
       if ( QgsLayerTree::isLayer( node ) )
       {
         QgsLayerTreeLayer *nodeLayer = QgsLayerTree::toLayer( node );
-        layer = qobject_cast<QgsVectorLayer *>( nodeLayer->layer() );
+        layer = nodeLayer->layer();
       }
 
       if ( !layer || !layer->isSpatial() )
