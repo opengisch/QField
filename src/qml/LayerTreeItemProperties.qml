@@ -142,26 +142,39 @@ Popup {
         }
       }
 
-      ColumnLayout {
+      RowLayout {
 
           id: opacitySlider
 
           Layout.fillWidth: true
           Layout.topMargin: 5
-          spacing: 0
+          spacing: 8
           visible: opacitySliderVisible
+
+          Image {
+
+              source: "qrc:/images/icons/opacity.svg"
+              Layout.preferredHeight: Theme.defaultFont.pointSize
+              Layout.preferredWidth: Theme.defaultFont.pointSize
+
+              fillMode: Image.PreserveAspectFit
+              smooth: true
+          }
+
+          ColumnLayout {
+
 
           Text {
               Layout.fillWidth: true
               text: qsTr("Opacity")
               font: Theme.defaultFont
-              horizontalAlignment: Text.AlignHCenter
           }
           Slider {
               Layout.fillWidth: true
               id: slider
               value: layerTree.data(index, FlatLayerTreeModel.Opacity)
               onMoved: layerTree.setData(index, value, FlatLayerTreeModel.Opacity)
+          }
           }
       }
 
