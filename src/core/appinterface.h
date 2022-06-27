@@ -57,8 +57,16 @@ class AppInterface : public QObject
 
     Q_INVOKABLE bool isFileExtensionSupported( const QString &filename ) const;
 
+    /**
+     * Adds a log \a message that will be visible to the user through the
+     * message log panel, as well as added into the device's system logs
+     * which will be captured by the sentry's reporting framework when enabled.
+     */
     Q_INVOKABLE void logMessage( const QString &message );
 
+    /**
+     * Sends a logs reporting through to sentry when enabled.
+     */
     Q_INVOKABLE void sendLog( const QString &message );
 
     Q_INVOKABLE void restrictImageSize( const QString &imagePath, int maximumWidthHeight );
