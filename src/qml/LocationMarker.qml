@@ -1,8 +1,8 @@
-import QtQuick 2.12
-import QtQuick.Shapes 1.12
-import QtQuick.Window 2.12
-import QtGraphicalEffects 1.12
-import QtSensors 5.12
+import QtQuick 2.14
+import QtQuick.Shapes 1.14
+import QtQuick.Window 2.14
+import QtGraphicalEffects 1.14
+import QtSensors 5.14
 
 import org.qgis 1.0
 import Theme 1.0

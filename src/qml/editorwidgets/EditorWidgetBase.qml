@@ -1,4 +1,4 @@
-import QtQuick 2.12
+import QtQuick 2.14
 
 Item {
     /* This property indicates whether the editor widget has been fully loaded by its Loader.
