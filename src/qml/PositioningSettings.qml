@@ -11,6 +11,9 @@ LabSettings.Settings {
 
     property bool showPositionInformation: false
 
+    property bool alwaysShowPreciseView: false
+    property real preciseViewPrecision: 2.5
+
     property bool accuracyIndicator: false
     property real accuracyBad: 5.0
     property real accuracyExcellent: 1.0

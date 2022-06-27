@@ -78,6 +78,9 @@ class QFIELD_CORE_EXPORT GeometryUtils : public QObject
 
     //! Returns a reprojected \a point from the stated \a crs to WGS84.
     static Q_INVOKABLE QgsPoint reprojectPointToWgs84( const QgsPoint &point, const QgsCoordinateReferenceSystem &crs );
+
+    //! Returns an empty (i.e. null) point
+    static Q_INVOKABLE QgsPoint emptyPoint() { return QgsPoint(); }
 };
 
 #endif // GEOMETRYUTILS_H

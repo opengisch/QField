@@ -9,4 +9,7 @@
     <file alias="CadastraSymbol-Mask.ttf">fonts/ch.cadastra/CadastraSymbol-Mask.ttf</file>
     <file alias="CadastraSymbol-Regular.ttf">fonts/ch.cadastra/CadastraSymbol-Regular.ttf</file>
 </qresource>
+<qresource prefix="/sounds">
+    <file alias="proximity_alarm.wav">sounds/proximity_alarm.wav</file>
+</qresource>
 </RCC>

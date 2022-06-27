@@ -91,14 +91,7 @@ Rectangle {
           elide: Text.ElideMiddle
           wrapMode: Text.NoWrap
           color: "#FFFFFF"
-          text: navigation.destinationName +
-                (navigation.destinationFeatureVertexCount > 1
-                ? ': ' +
-                  (navigation.destinationFeatureCurrentVertex > 0
-                  ? (navigation.destinationFeatureCurrentVertex) + '/'
-                      + navigation.destinationFeatureVertexCount
-                  : qsTr('centroid'))
-                : '')
+          text: navigation.destinationName
         }
 
         QfToolButton {

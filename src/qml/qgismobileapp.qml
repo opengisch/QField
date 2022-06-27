@@ -18,7 +18,7 @@
 import QtQuick 2.12
 import QtQuick.Controls 2.12
 import QtQuick.Window 2.12
-import QtGraphicalEffects 1.0
+import QtGraphicalEffects 1.12
 import Qt.labs.settings 1.0 as LabSettings
 import QtQml 2.12
 
@@ -491,7 +491,10 @@ ApplicationWindow {
     Navigation {
       id: navigation
       mapSettings: mapCanvas.mapSettings
-      location: positionSource.active ? positionSource.projectedPosition : undefined
+      location: positionSource.active ? positionSource.projectedPosition : GeometryUtils.emptyPoint()
+
+      proximityAlarm: positioningPreciseView.visible && positioningPreciseView.hasAcceptableAccuracy
+      proximityAlarmThreshold: positioningSettings.preciseViewPrecision
     }
 
     NavigationHighlight {
@@ -610,7 +613,7 @@ ApplicationWindow {
     anchors.bottom: parent.bottom
     anchors.left: parent.left
     anchors.right: parent.right
-    visible: navigation.isActive || positioningSettings.showPositionInformation
+    visible: navigation.isActive || positioningSettings.showPositionInformation || positioningPreciseView.visible
 
     width: parent.width
 
@@ -620,8 +623,35 @@ ApplicationWindow {
       navigation: navigation
     }
 
-    PositionInformationView {
-      id: positionInformationView
+    Rectangle {
+      visible: navigationInformationView.visible && positioningPreciseView.visible
+      width: parent.width
+      height: 1
+      color: Theme.navigationBackgroundColor
+    }
+
+    PositioningPreciseView {
+      id: positioningPreciseView
+
+      precision: positioningSettings.preciseViewPrecision
+
+      visible: !isNaN(navigation.distance)
+               && (positioningSettings.alwaysShowPreciseView
+                   || (hasAcceptableAccuracy && navigation.distance < precision))
+      width: parent.width
+      height: Math.min(mainWindow.height / 2.5, 400)
+    }
+
+    Rectangle {
+      visible: positioningInformationView.visible
+               && (positioningPreciseView.visible || navigationInformationView.visible)
+      width: parent.width
+      height: 1
+      color: Theme.navigationBackgroundColor
+    }
+
+    PositioningInformationView {
+      id: positioningInformationView
       visible: positioningSettings.showPositionInformation
       positionSource: positionSource
       antennaHeight: positioningSettings.antennaHeightActivated ? positioningSettings.antennaHeight : NaN
@@ -1582,6 +1612,25 @@ ApplicationWindow {
       font: Theme.defaultFont
       height: 48
       leftPadding: 10
+      rightPadding: 40
+
+      arrow: Canvas {
+          x: parent.width - width
+          y: (parent.height - height) / 2
+          implicitWidth: 40
+          implicitHeight: 40
+          visible: true
+          opacity: printItem.enabled ? 1 : 0.25
+          onPaint: {
+              var ctx = getContext("2d")
+              ctx.strokeStyle = Theme.mainColor
+              ctx.lineWidth = 1
+              ctx.moveTo(15, 15)
+              ctx.lineTo(width - 15, height / 2)
+              ctx.lineTo(15, height - 15)
+              ctx.stroke();
+          }
+      }
 
       onTriggered: {
         if (layoutListInstantiator.model.rowCount() > 1)
@@ -1908,20 +1957,185 @@ ApplicationWindow {
         for (var i = 0; i < count; ++i) {
             var item = itemAt(i);
             result = Math.max(item.contentItem.implicitWidth, result);
-            padding = Math.max(item.padding, padding);
+            padding = Math.max(item.leftPadding + item.rightPadding, padding);
         }
-        return Math.min( result + padding * 2,mainWindow.width - 20);
+        return Math.min(result + padding, mainWindow.width - 20);
     }
 
     MenuItem {
       id: cancelNavigationItem
       text: qsTr( "Clear Destination" )
       height: 48
+      leftPadding: 50
       font: Theme.defaultFont
 
       onTriggered: {
         navigation.clear();
       }
+    }
+
+    MenuSeparator { width: parent.width }
+
+    MenuItem {
+      id: preciseViewItem
+      text: qsTr( "Precise View Settings" )
+
+      font: Theme.defaultFont
+      height: 48
+      leftPadding: 50
+      rightPadding: 40
+
+      arrow: Canvas {
+          x: parent.width - width
+          y: (parent.height - height) / 2
+          implicitWidth: 40
+          implicitHeight: 40
+          visible: true
+          onPaint: {
+              var ctx = getContext("2d")
+              ctx.strokeStyle = Theme.mainColor
+              ctx.lineWidth = 1
+              ctx.moveTo(15, 15)
+              ctx.lineTo(width - 15, height / 2)
+              ctx.lineTo(15, height - 15)
+              ctx.stroke();
+          }
+      }
+
+      onTriggered: {
+        preciseViewMenu.popup( navigationMenu.x, navigationMenu.y - preciseViewItem.y )
+        highlighted = false
+      }
+    }
+  }
+
+  Menu {
+    id: preciseViewMenu
+    title: qsTr( "Precise View Settings" )
+    font: Theme.defaultFont
+
+    width: {
+        var result = 0;
+        var padding = 0;
+        for (var i = 0; i < count; ++i) {
+            var item = itemAt(i);
+            result = Math.max(item.contentItem.implicitWidth, result);
+            padding = Math.max(item.padding, padding);
+        }
+        return Math.min( result + padding * 2,mainWindow.width - 20);
+    }
+
+    MenuItem {
+      text: qsTr( "0.25m Precision" )
+      height: 48
+      leftPadding: 15
+      font: Theme.defaultFont
+
+      enabled: !checked
+      checkable: true
+      checked: positioningSettings.preciseViewPrecision == 0.25
+      indicator.height: 20
+      indicator.width: 20
+      indicator.implicitHeight: 24
+      indicator.implicitWidth: 24
+      onCheckedChanged: if (checked) positioningSettings.preciseViewPrecision = 0.25
+    }
+
+    MenuItem {
+      text: qsTr( "0.5m Precision" )
+      height: 48
+      leftPadding: 15
+      font: Theme.defaultFont
+
+      enabled: !checked
+      checkable: true
+      checked: positioningSettings.preciseViewPrecision == 0.5
+      indicator.height: 20
+      indicator.width: 20
+      indicator.implicitHeight: 24
+      indicator.implicitWidth: 24
+      onCheckedChanged: if (checked) positioningSettings.preciseViewPrecision = 0.5
+    }
+
+    MenuItem {
+      text: qsTr( "1m Precision" )
+      height: 48
+      leftPadding: 15
+      font: Theme.defaultFont
+
+      enabled: !checked
+      checkable: true
+      checked: positioningSettings.preciseViewPrecision == 1
+      indicator.height: 20
+      indicator.width: 20
+      indicator.implicitHeight: 24
+      indicator.implicitWidth: 24
+      onCheckedChanged: if (checked) positioningSettings.preciseViewPrecision = 1
+    }
+
+    MenuItem {
+      text: qsTr( "2.5m Precision" )
+      height: 48
+      leftPadding: 15
+      font: Theme.defaultFont
+
+      enabled: !checked
+      checkable: true
+      checked: positioningSettings.preciseViewPrecision == 2.5
+      indicator.height: 20
+      indicator.width: 20
+      indicator.implicitHeight: 24
+      indicator.implicitWidth: 24
+      onCheckedChanged: if (checked) positioningSettings.preciseViewPrecision = 2.5
+    }
+
+    MenuItem {
+      text: qsTr( "5m Precision" )
+      height: 48
+      leftPadding: 15
+      font: Theme.defaultFont
+
+      enabled: !checked
+      checkable: true
+      checked: positioningSettings.preciseViewPrecision == 5
+      indicator.height: 20
+      indicator.width: 20
+      indicator.implicitHeight: 24
+      indicator.implicitWidth: 24
+      onCheckedChanged: if (checked) positioningSettings.preciseViewPrecision = 5
+    }
+
+    MenuItem {
+      text: qsTr( "10m Precision" )
+      height: 48
+      leftPadding: 15
+      font: Theme.defaultFont
+
+      enabled: !checked
+      checkable: true
+      checked: positioningSettings.preciseViewPrecision == 10
+      indicator.height: 20
+      indicator.width: 20
+      indicator.implicitHeight: 24
+      indicator.implicitWidth: 24
+      onCheckedChanged: if (checked) positioningSettings.preciseViewPrecision = 10
+    }
+
+    MenuSeparator { width: parent.width }
+
+    MenuItem {
+      text: qsTr( "Always Show Precise View" )
+      height: 48
+      leftPadding: 15
+      font: Theme.defaultFont
+
+      checkable: true
+      checked: positioningSettings.alwaysShowPreciseView
+      indicator.height: 20
+      indicator.width: 20
+      indicator.implicitHeight: 24
+      indicator.implicitWidth: 24
+      onCheckedChanged: positioningSettings.alwaysShowPreciseView = checked
     }
   }
 

@@ -7,7 +7,7 @@ import org.qfield 1.0
 import Theme 1.0
 
 Rectangle {
-  id: positionInformationView
+  id: positioningInformationView
 
   property Positioning positionSource
   property var coordinates: projectInfo.reprojectDisplayCoordinatesToWGS84
@@ -24,7 +24,7 @@ Rectangle {
   property color alternateBackgroundColor: Theme.positionBackgroundColor
   property color textColor: positionSource.currentness ? "black" : "gray"
 
-  height: grid.rows * positionInformationView.rowHeight
+  height: grid.rows * positioningInformationView.rowHeight
   width: parent.width
   anchors.margins: 20
 

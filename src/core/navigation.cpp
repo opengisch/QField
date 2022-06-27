@@ -18,6 +18,7 @@
 #include "navigation.h"
 #include "navigationmodel.h"
 
+#include <QSound>
 #include <qgslinestring.h>
 #include <qgsproject.h>
 #include <qgsvectorlayer.h>
@@ -34,6 +35,16 @@ Navigation::Navigation()
   connect( mModel.get(), &NavigationModel::modelReset, this, &Navigation::isActiveChanged );
   connect( mModel.get(), &NavigationModel::modelReset, this, &Navigation::destinationChanged );
   connect( mModel.get(), &NavigationModel::modelReset, this, &Navigation::updateDetails );
+
+  mProximityAlarmTimer.setInterval( 250 );
+  mProximityAlarmTimer.setSingleShot( false );
+  connect( &mProximityAlarmTimer, &QTimer::timeout, this, [=] {
+    if ( QDateTime::currentMSecsSinceEpoch() > mLastProximityAlarm + mProximityAlarmInterval )
+    {
+      QSound::play( ":/sounds/proximity_alarm.wav" );
+      mLastProximityAlarm = QDateTime::currentMSecsSinceEpoch();
+    }
+  } );
 }
 
 Navigation::~Navigation()
@@ -122,8 +133,7 @@ void Navigation::setDestinationFeature( const QgsFeature &feature, QgsVectorLaye
 
   if ( !mGeometry.isNull() )
   {
-    mDestinationName = FeatureUtils::displayName( layer, feature );
-    emit destinationNameChanged();
+    mFeatureName = FeatureUtils::displayName( layer, feature );
     mVertexCount = mGeometry.get()->nCoordinates() - ( mGeometry.type() == QgsWkbTypes::PolygonGeometry ? 1 : 0 );
     emit destinationFeatureVertexCountChanged();
     mCurrentVertex = -1;
@@ -131,7 +141,8 @@ void Navigation::setDestinationFeature( const QgsFeature &feature, QgsVectorLaye
   }
   else
   {
-    mDestinationName = FeatureUtils::displayName( layer, feature );
+    mFeatureName.clear();
+    mDestinationName.clear();
     emit destinationNameChanged();
     mVertexCount = 0;
     emit destinationFeatureVertexCountChanged();
@@ -146,6 +157,7 @@ void Navigation::clearDestinationFeature()
   if ( !mGeometry.isNull() )
   {
     mGeometry = QgsGeometry();
+    mFeatureName.clear();
     mDestinationName.clear();
     emit destinationNameChanged();
     mVertexCount = 0;
@@ -160,7 +172,9 @@ void Navigation::nextDestinationVertex()
   if ( mGeometry.isNull() )
     return;
 
-  if ( mCurrentVertex >= mVertexCount )
+  if ( mCurrentVertex >= ( mGeometry.type() == QgsWkbTypes::PointGeometry
+                             ? mVertexCount - 1
+                             : mVertexCount ) )
   {
     mCurrentVertex = 0;
   }
@@ -180,7 +194,9 @@ void Navigation::previousDestinationVertex()
 
   if ( mCurrentVertex <= 0 )
   {
-    mCurrentVertex = mVertexCount;
+    mCurrentVertex = mGeometry.type() == QgsWkbTypes::PointGeometry
+                       ? mVertexCount - 1
+                       : mVertexCount;
   }
   else
   {
@@ -193,22 +209,40 @@ void Navigation::previousDestinationVertex()
 
 void Navigation::setDestinationFromCurrentVertex()
 {
-  if ( mCurrentVertex == 0 )
+  switch ( mGeometry.type() )
   {
-    const QgsGeometry pointOnSurface = mGeometry.pointOnSurface();
-    if ( !pointOnSurface.isNull() )
-    {
-      mModel->setDestination( pointOnSurface.vertexAt( 0 ) );
-    }
-    else
-    {
-      mCurrentVertex++;
-      mModel->setDestination( mGeometry.vertexAt( mCurrentVertex - 1 ) );
-    }
-  }
-  else
-  {
-    mModel->setDestination( mGeometry.vertexAt( mCurrentVertex - 1 ) );
+    case QgsWkbTypes::PointGeometry:
+      mDestinationName = mFeatureName + ( mVertexCount > 1 ? QStringLiteral( ": %1/%2" ).arg( mCurrentVertex + 1 ).arg( mVertexCount ) : QString() );
+      emit destinationNameChanged();
+      mModel->setDestination( mGeometry.vertexAt( mCurrentVertex ) );
+      break;
+
+    case QgsWkbTypes::LineGeometry:
+    case QgsWkbTypes::PolygonGeometry:
+      mDestinationName = mFeatureName + ( mCurrentVertex == 0 ? QStringLiteral( " (%1)" ).arg( QObject::tr( "centroid" ) ) : QStringLiteral( ": %1/%2" ).arg( mCurrentVertex ).arg( mVertexCount ) );
+      emit destinationNameChanged();
+      if ( mCurrentVertex == 0 )
+      {
+        const QgsGeometry pointOnSurface = mGeometry.pointOnSurface();
+        if ( !pointOnSurface.isNull() )
+        {
+          mModel->setDestination( pointOnSurface.vertexAt( 0 ) );
+        }
+        else
+        {
+          mCurrentVertex++;
+          mModel->setDestination( mGeometry.vertexAt( mCurrentVertex - 1 ) );
+        }
+      }
+      else
+      {
+        mModel->setDestination( mGeometry.vertexAt( mCurrentVertex - 1 ) );
+      }
+      break;
+
+    case QgsWkbTypes::UnknownGeometry:
+    case QgsWkbTypes::NullGeometry:
+      break;
   }
 }
 
@@ -228,18 +262,89 @@ void Navigation::updateDetails()
   if ( points.isEmpty() || mLocation.isEmpty() )
   {
     mPath = QgsGeometry();
-    mDistance = 0.0;
-    mBearing = 0.0;
+    mDistance = std::numeric_limits<double>::quiet_NaN();
+    mVerticalDistance = std::numeric_limits<double>::quiet_NaN();
+    mBearing = std::numeric_limits<double>::quiet_NaN();
     emit detailsChanged();
     return;
   }
   points.prepend( mLocation );
-
   mPath = QgsGeometry( new QgsLineString( points ) );
-  mDistance = mDa.measureLine( mLocation, destination() );
-  mBearing = mDa.bearing( mLocation, destination() ) * 180 / M_PI;
+
+  const QgsPoint destinationPoint = destination();
+  const bool handleZ = QgsWkbTypes::hasZ( mLocation.wkbType() )
+                       && QgsWkbTypes::hasZ( destinationPoint.wkbType() );
+  mDistance = mDa.measureLine( mLocation, destinationPoint );
+  if ( handleZ )
+  {
+    mVerticalDistance = destinationPoint.z() - mLocation.z();
+  }
+  else
+  {
+    mVerticalDistance = std::numeric_limits<double>::quiet_NaN();
+  }
+  mBearing = mDa.bearing( mLocation, destinationPoint ) * 180 / M_PI;
 
   emit detailsChanged();
+
+  updateProximityAlarmState();
+}
+
+void Navigation::updateProximityAlarmState()
+{
+  if ( mProximityAlarm && mDa.lengthUnits() != QgsUnitTypes::DistanceUnknownUnit )
+  {
+    if ( mDistance <= mProximityAlarmThreshold )
+    {
+      mProximityAlarmInterval = 200 + ( 2000 * mDistance / mProximityAlarmThreshold );
+      if ( !mProximityAlarmTimer.isActive() )
+      {
+        QSound::play( ":/sounds/proximity_alarm.wav" );
+        mLastProximityAlarm = QDateTime::currentMSecsSinceEpoch();
+        mProximityAlarmTimer.start();
+      }
+    }
+    else
+    {
+      if ( mProximityAlarmTimer.isActive() )
+      {
+        mProximityAlarmTimer.stop();
+      }
+    }
+  }
+  else
+  {
+    if ( mProximityAlarmTimer.isActive() )
+    {
+      mProximityAlarmTimer.stop();
+    }
+  }
+}
+
+void Navigation::setProximityAlarm( const bool enabled )
+{
+  if ( mProximityAlarm == enabled )
+  {
+    return;
+  }
+
+  mProximityAlarm = enabled;
+  emit proximityAlarmChanged();
+
+  updateProximityAlarmState();
+}
+
+void Navigation::setProximityAlarmThreshold( const double &threshold )
+{
+  if ( mProximityAlarmThreshold == threshold )
+  {
+    return;
+  }
+
+  mProximityAlarmThreshold = threshold;
+  emit proximityAlarmThresholdChanged();
+
+  updateProximityAlarmState();
 }
 
 void Navigation::clear()

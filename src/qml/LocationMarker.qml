@@ -13,9 +13,12 @@ Item {
   property variant location // QgsPoint
   property string deviceId // Empty string means internal device is used
   property real accuracy
-  property real direction // A -1 value indicates absence of direction information (note: when an external GNSS device is connected, direction is actually a compass)
+  property real direction // A -1 value indicates absence of movement direction information
   property real speed // A -1 value indicates absence of speed information
   property MapSettings mapSettings
+
+  property bool compassHasValue: false
+  property real compassOrientation: 0
 
   QtObject {
     id: props
@@ -54,14 +57,9 @@ Item {
         }
     }
 
-    property bool hasValue: false
-    property real x: 0
-    property real y: 0
-
     onReadingChanged: {
-      magnetometer.x = reading.x
-      magnetometer.y = reading.y
-      magnetometer.hasValue = true
+      compassOrientation = userOrientation + (-(Math.atan2(reading.x, reading.y) / Math.PI) * 180)
+      compassHasValue = true
     }
   }
 
@@ -83,7 +81,7 @@ Item {
 
   Image {
     id: compassDirectionMarker
-    visible: deviceId === '' && magnetometer.hasValue
+    visible: compassHasValue
     width: 48
     height: 48
     opacity: 0.6
@@ -93,7 +91,7 @@ Item {
 
     source: Theme.getThemeVectorIcon( "ic_compass_direction" )
     fillMode: Image.PreserveAspectFit
-    rotation: magnetometer.userOrientation + (-(Math.atan2(magnetometer.x, magnetometer.y) / Math.PI) * 180)
+    rotation: compassOrientation
     transformOrigin: Item.Bottom
     smooth: true
   }
@@ -248,7 +246,8 @@ Item {
       } else {
         magnetometer.stop()
         magnetometer.active = false
-        magnetometer.hasValue = false
+        compassHasValue = false
+        compassOrientation = 0.0
       }
     }
   }

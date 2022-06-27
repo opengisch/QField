@@ -282,6 +282,7 @@ target_link_libraries(
          Qt5::Concurrent
          Qt5::WebView
          Qt5::Bluetooth
+         Qt5::Multimedia
          QGIS::Core
          QGIS::Analysis
          ${PROJ_LIBRARY}
