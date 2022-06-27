@@ -152,10 +152,10 @@ Popup {
         visible: opacitySliderVisible
 
         Image {
-          source: "qrc:/images/icons/opacity.svg"
-          Layout.preferredWidth: 20
-          Layout.preferredHeight: 20
-          Layout.leftMargin: 8
+          source: Theme.getThemeVectorIcon("ic_opacity_black_24dp")
+          Layout.preferredWidth: 22
+          Layout.preferredHeight: 22
+          Layout.leftMargin: 6
           Layout.rightMargin: 2
           Layout.bottomMargin: 8
           Layout.alignment: Qt.AlignVCenter | Qt.alignHCenter
