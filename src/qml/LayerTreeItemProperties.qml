@@ -143,39 +143,44 @@ Popup {
       }
 
       RowLayout {
+        id: opacitySlider
 
-          id: opacitySlider
+        Layout.fillWidth: true
+        Layout.topMargin: 4
+        Layout.bottomMargin:4
+        spacing: 4
+        visible: opacitySliderVisible
 
-          Layout.fillWidth: true
-          Layout.topMargin: 5
-          spacing: 8
-          visible: opacitySliderVisible
+        Image {
+          source: "qrc:/images/icons/opacity.svg"
+          Layout.preferredWidth: 20
+          Layout.preferredHeight: 20
+          Layout.leftMargin: 8
+          Layout.rightMargin: 2
+          Layout.bottomMargin: 8
+          Layout.alignment: Qt.AlignVCenter | Qt.alignHCenter
 
-          Image {
+          fillMode: Image.PreserveAspectFit
+          smooth: true
+        }
 
-              source: "qrc:/images/icons/opacity.svg"
-              Layout.preferredHeight: Theme.defaultFont.pointSize
-              Layout.preferredWidth: Theme.defaultFont.pointSize
-
-              fillMode: Image.PreserveAspectFit
-              smooth: true
-          }
-
-          ColumnLayout {
-
+        ColumnLayout {
+          Layout.alignment: Layout.Center
+          Layout.rightMargin: 6
+          spacing: 0
 
           Text {
-              Layout.fillWidth: true
-              text: qsTr("Opacity")
-              font: Theme.defaultFont
+            Layout.fillWidth: true
+            text: qsTr("Opacity")
+            font: Theme.defaultFont
           }
           Slider {
-              Layout.fillWidth: true
-              id: slider
-              value: layerTree.data(index, FlatLayerTreeModel.Opacity)
-              onMoved: layerTree.setData(index, value, FlatLayerTreeModel.Opacity)
+            Layout.fillWidth: true
+            id: slider
+            value: index !== undefined ? layerTree.data(index, FlatLayerTreeModel.Opacity) : 0
+            onMoved: layerTree.setData(index, value, FlatLayerTreeModel.Opacity)
           }
-          }
+        }
       }
 
       QfButton {
