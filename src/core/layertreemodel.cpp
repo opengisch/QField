@@ -851,6 +851,29 @@ QVariant FlatLayerTreeModelBase::data( const QModelIndex &index, int role ) cons
       return layer && layer->isSpatial() && layer->labeling() && layer->labelsEnabled();
     }
 
+    case FlatLayerTreeModel::Opacity:
+    {
+      QModelIndex sourceIndex = mapToSource( index );
+      if ( !sourceIndex.isValid() )
+        return -1.0;
+
+      QgsLayerTreeNode *node = mLayerTreeModel->index2node( sourceIndex );
+      QgsMapLayer *layer = nullptr;
+      if ( !QgsLayerTree::isLayer( node ) )
+        return -1.0;
+
+      QgsLayerTreeLayer *nodeLayer = QgsLayerTree::toLayer( node );
+      layer = nodeLayer->layer();
+
+      if ( !layer )
+        return -1.0;
+
+      if ( !layer->isSpatial() )
+        return -1.0;
+
+      return layer->opacity();
+    }
+
     default:
       return QAbstractProxyModel::data( index, role );
   }
@@ -933,6 +956,31 @@ bool FlatLayerTreeModelBase::setData( const QModelIndex &index, const QVariant &
       return true;
     }
 
+    case FlatLayerTreeModel::Opacity:
+    {
+      QModelIndex sourceIndex = mapToSource( index );
+      if ( !sourceIndex.isValid() )
+        return false;
+
+      QgsLayerTreeNode *node = mLayerTreeModel->index2node( sourceIndex );
+      QgsMapLayer *layer = nullptr;
+      if ( QgsLayerTree::isLayer( node ) )
+      {
+        QgsLayerTreeLayer *nodeLayer = QgsLayerTree::toLayer( node );
+        layer = nodeLayer->layer();
+      }
+
+      if ( !layer || !layer->isSpatial() )
+        return false;
+
+      layer->setOpacity( value.toDouble() );
+      layer->emitStyleChanged();
+      layer->triggerRepaint();
+
+      emit dataChanged( index, index, QVector<int>() << FlatLayerTreeModel::Opacity );
+      return true;
+    }
+
     default:
       return false;
   }
@@ -966,6 +1014,7 @@ QHash<int, QByteArray> FlatLayerTreeModelBase::roleNames() const
   roleNames[FlatLayerTreeModel::CanReloadData] = "CanReloadData";
   roleNames[FlatLayerTreeModel::HasLabels] = "HasLabels";
   roleNames[FlatLayerTreeModel::LabelsVisible] = "LabelsVisible";
+  roleNames[FlatLayerTreeModel::Opacity] = "Opacity";
   return roleNames;
 }
 

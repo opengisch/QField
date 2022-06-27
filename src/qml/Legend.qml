@@ -220,6 +220,8 @@ ListView {
       anchors.fill: parent
       onClicked: {
           var item = legend.itemAt(legend.contentX + mouse.x, legend.contentY + mouse.y)
+          if (!item) return;
+
           var index = legend.model.index(item.itemRow, 0)
 
           if (

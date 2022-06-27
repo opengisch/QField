@@ -21,6 +21,8 @@ Popup {
   property bool trackingButtonVisible: false
   property var trackingButtonText
 
+  property bool opacitySliderVisible: false
+
   width: Math.min( childrenRect.width, mainWindow.width - 20 )
   x: (parent.width - width) / 2
   y: (parent.height - height) / 2
@@ -43,6 +45,8 @@ Popup {
     trackingButtonText = trackingModel.layerInTracking( layerTree.data(index, FlatLayerTreeModel.VectorLayerPointer) )
         ? qsTr('Stop tracking')
         : qsTr('Setup tracking')
+
+    opacitySliderVisible = layerTree.data(index, FlatLayerTreeModel.HasSpatialExtent)
   }
 
   Page {
@@ -135,6 +139,47 @@ Popup {
         onClicked: {
           layerTree.setData(index, checkState === Qt.Unchecked, FlatLayerTreeModel.IsCollapsed);
           close()
+        }
+      }
+
+      RowLayout {
+        id: opacitySlider
+
+        Layout.fillWidth: true
+        Layout.topMargin: 4
+        Layout.bottomMargin:4
+        spacing: 4
+        visible: opacitySliderVisible
+
+        Image {
+          source: Theme.getThemeVectorIcon("ic_opacity_black_24dp")
+          Layout.preferredWidth: 22
+          Layout.preferredHeight: 22
+          Layout.leftMargin: 6
+          Layout.rightMargin: 2
+          Layout.bottomMargin: 8
+          Layout.alignment: Qt.AlignVCenter | Qt.alignHCenter
+
+          fillMode: Image.PreserveAspectFit
+          smooth: true
+        }
+
+        ColumnLayout {
+          Layout.alignment: Layout.Center
+          Layout.rightMargin: 6
+          spacing: 0
+
+          Text {
+            Layout.fillWidth: true
+            text: qsTr("Opacity")
+            font: Theme.defaultFont
+          }
+          Slider {
+            Layout.fillWidth: true
+            id: slider
+            value: index !== undefined ? layerTree.data(index, FlatLayerTreeModel.Opacity) : 0
+            onMoved: layerTree.setData(index, value, FlatLayerTreeModel.Opacity)
+          }
         }
       }
 
