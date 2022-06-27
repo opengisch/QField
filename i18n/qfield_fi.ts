@@ -143,22 +143,22 @@
 <context>
     <name>BluetoothReceiver</name>
     <message>
-        <location filename="../src/core/positioning/bluetoothreceiver.cpp" line="105"/>
+        <location filename="../src/core/positioning/bluetoothreceiver.cpp" line="107"/>
         <source>Connecting…</source>
         <translation>Muodostetaan yhteyttä...</translation>
     </message>
     <message>
-        <location filename="../src/core/positioning/bluetoothreceiver.cpp" line="110"/>
+        <location filename="../src/core/positioning/bluetoothreceiver.cpp" line="112"/>
         <source>Successfully connected</source>
         <translation>Yhdistetty onnistuneesti</translation>
     </message>
     <message>
-        <location filename="../src/core/positioning/bluetoothreceiver.cpp" line="115"/>
+        <location filename="../src/core/positioning/bluetoothreceiver.cpp" line="117"/>
         <source>Disconnected</source>
         <translation>Yhteys katkaistu</translation>
     </message>
     <message>
-        <location filename="../src/core/positioning/bluetoothreceiver.cpp" line="125"/>
+        <location filename="../src/core/positioning/bluetoothreceiver.cpp" line="127"/>
         <source>Socket state %1</source>
         <translation>Liittimen tila %1</translation>
     </message>
@@ -552,38 +552,38 @@
         <translation type="vanished">Viimeisimmät muutokset hylätty</translation>
     </message>
     <message>
-        <location filename="../src/qml/FeatureListForm.qml" line="452"/>
+        <location filename="../src/qml/FeatureListForm.qml" line="453"/>
         <source>Successfully duplicated feature</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/qml/FeatureListForm.qml" line="470"/>
-        <location filename="../src/qml/FeatureListForm.qml" line="545"/>
+        <location filename="../src/qml/FeatureListForm.qml" line="471"/>
+        <location filename="../src/qml/FeatureListForm.qml" line="546"/>
         <source>A number of features are being tracked, stop tracking to delete those</source>
         <translation>Joukkoa kohteita jäljitetään, lopeta jäljitys poistaaksesi ne</translation>
     </message>
     <message>
-        <location filename="../src/qml/FeatureListForm.qml" line="502"/>
+        <location filename="../src/qml/FeatureListForm.qml" line="503"/>
         <source>A number of features are being tracked, stop tracking to merge those</source>
         <translation>Joukkoa kohteita jäljitetään, lopeta jäljitys yhdistääksesi ne</translation>
     </message>
     <message>
-        <location filename="../src/qml/FeatureListForm.qml" line="537"/>
+        <location filename="../src/qml/FeatureListForm.qml" line="538"/>
         <source>Successfully duplicated selected features, list updated to show newly-created features</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/qml/FeatureListForm.qml" line="642"/>
+        <location filename="../src/qml/FeatureListForm.qml" line="643"/>
         <source>No feature at this position</source>
         <translation>Tässä sijainnissa ei kohdetta</translation>
     </message>
     <message>
-        <location filename="../src/qml/FeatureListForm.qml" line="701"/>
+        <location filename="../src/qml/FeatureListForm.qml" line="702"/>
         <source>Merge feature(s)</source>
         <translation>Yhdistä kohde/kohteet</translation>
     </message>
     <message numerus="yes">
-        <location filename="../src/qml/FeatureListForm.qml" line="705"/>
+        <location filename="../src/qml/FeatureListForm.qml" line="706"/>
         <source>Should the %n feature(s) selected really be merge?
 
 The features geometries will be combined into feature &apos;%1&apos;, which will keep its attributes.</source>
@@ -595,39 +595,39 @@ Kohteen geometriat yhdistetään kohteeseen &apos;%1&apos;, johon sisällytetä�
 Kohteen geometriat yhdistetään kohteeseen &apos;%1&apos;, johon sisällytetään sen attribuuttitiedot.</numerusform></translation>
     </message>
     <message numerus="yes">
-        <location filename="../src/qml/FeatureListForm.qml" line="717"/>
+        <location filename="../src/qml/FeatureListForm.qml" line="718"/>
         <source>Successfully merged %n feature(s)</source>
         <translation><numerusform>%n kohteen yhdistäminen onnistui</numerusform><numerusform>%n kohteen yhdistäminen onnistui</numerusform></translation>
     </message>
     <message numerus="yes">
-        <location filename="../src/qml/FeatureListForm.qml" line="719"/>
+        <location filename="../src/qml/FeatureListForm.qml" line="720"/>
         <source>Failed to merge %n feature(s)</source>
         <translation><numerusform>%n kohteen yhdistäminen epäonnistui</numerusform><numerusform>%n kohteen yhdistäminen epäonnistui</numerusform></translation>
     </message>
     <message>
-        <location filename="../src/qml/FeatureListForm.qml" line="751"/>
+        <location filename="../src/qml/FeatureListForm.qml" line="752"/>
         <source>Delete feature(s)</source>
         <translation>Poista kohde/kohteet</translation>
     </message>
     <message numerus="yes">
-        <location filename="../src/qml/FeatureListForm.qml" line="755"/>
+        <location filename="../src/qml/FeatureListForm.qml" line="756"/>
         <source>Should the %n feature(s) selected really be deleted?</source>
         <comment>0</comment>
         <translation><numerusform>Haluatko poistaa %n valittua kohdetta?</numerusform><numerusform>Haluatko poistaa %n valittua kohdetta?</numerusform></translation>
     </message>
     <message numerus="yes">
-        <location filename="../src/qml/FeatureListForm.qml" line="771"/>
+        <location filename="../src/qml/FeatureListForm.qml" line="772"/>
         <source>Successfully deleted %n feature(s)</source>
         <translation><numerusform>%n kohteen poistaminen onnistui</numerusform><numerusform>%n kohteen poistaminen onnistui</numerusform></translation>
     </message>
     <message numerus="yes">
-        <location filename="../src/qml/FeatureListForm.qml" line="779"/>
+        <location filename="../src/qml/FeatureListForm.qml" line="780"/>
         <source>Failed to delete %n feature(s)</source>
         <translation><numerusform>%n kohteen poistaminen epäonnistui</numerusform><numerusform>%n kohteen poistaminen epäonnistui</numerusform></translation>
     </message>
     <message>
         <location filename="../src/qml/FeatureListForm.qml" line="356"/>
-        <location filename="../src/qml/FeatureListForm.qml" line="806"/>
+        <location filename="../src/qml/FeatureListForm.qml" line="807"/>
         <source>Changes discarded</source>
         <translation>Muutokset hylätty</translation>
     </message>
@@ -2423,112 +2423,112 @@ Cancel to make a minimal device scan instead.</source>
 Peruuta tehdäksesi suppeampi laiteskannaus.</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="521"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="520"/>
         <source>Connected to %1</source>
         <translation>Yhdistetty laitteeseen %1</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="523"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="522"/>
         <source>Connect  to %1</source>
         <translation>Yhdistä laitteeseen %1</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="525"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="524"/>
         <source>Connecting to %1</source>
         <translation>Yhdistetään laitteeseen %1</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="542"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="541"/>
         <source>Use orthometric altitude from device</source>
         <translation>Käytä laitteen ortometristä korkeutta</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="574"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="573"/>
         <source>Show position information</source>
         <translation>Näytä sijainnin tiedot</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="596"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="595"/>
         <source>Activate accuracy indicator</source>
         <translation>Aktivoi tarkkuusindikaattori</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="618"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="617"/>
         <source>Bad accuracy below [m]</source>
         <translation>Huono tarkkuus alla [m]</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="659"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="658"/>
         <source>Excellent accuracy above [m]</source>
         <translation>Erinomainen tarkkuus yllä [m]</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="700"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="699"/>
         <source>Enable accuracy requirement</source>
         <translation>Ota käyttöön tarkkuusvaatimus</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="727"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="726"/>
         <source>When the accuracy indicator is enabled, a badge is attached to the location button and colored &lt;span %1&gt;red&lt;/span&gt; if the accuracy value is below bad, &lt;span %2&gt;yellow&lt;/span&gt; if it falls short of excellent, or &lt;span %3&gt;green&lt;/span&gt;.&lt;br&gt;&lt;br&gt;In addition, an accuracy restriction mode can be toggled on, which restricts vertex addition when locked to coordinate cursor to positions with an accuracy value above the bad threshold.</source>
         <translation>Kun tarkkuusvaatimus otetaan käyttöön, sijaintipainikkeeseen liitetään värillinen tunnus. Jos tarkkuusarvo on alle huonon, tunnus näkyy &lt;span %1&gt;punaisena&lt;/span&gt;. Jos tarkkuusarvo on alle erinomaisen, tunnus näkyy &lt;span %2&gt;keltaisena&lt;/span&gt;. Jos tarkkuusarvo on erinomainen, tunnus näkyy &lt;span %3&gt;vihreänä&lt;/span&gt;. &lt;br&gt;&lt;br&gt;Lisäksi voidaan ottaa käyttöön tarkkuusrajoitustila, joka rajoittaa taitepisteiden lisäystä huonon tarkkuusarvon omaaviin sijainteihin.</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="744"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="743"/>
         <source>Enable averaged positioning requirement</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="766"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="765"/>
         <source>Minimum number of positions collected</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="807"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="806"/>
         <source>When enabled, digitizing vertices with a cursor locked to position will only accepted an averaged position from a minimum number of collected positions. Digitizing using averaged positions is done by pressing and holding the add vertex button, which will collect positions until the press is released. Accuracy requirement settings are respected when enabled.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="821"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="820"/>
         <source>Antenna height compensation</source>
         <translation>Antennin korkeuden kompensaatio</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="843"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="842"/>
         <source>Antenna height [m]</source>
         <translation>Antennin korkeus [m]</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="885"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="884"/>
         <source>Z values which are recorded from the positioning device will be corrected by this value. If a value of 1.6 is entered, this will result in a correction of -1.6 for each recorded value.</source>
         <translation>Paikannuslaitteella tallennetut Z-arvot korjataan tällä arvolla. Jos annetaan arvo 1.6, sitä korjataan -1.6 jokaisen tallennetun arvon kohdalla.</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="899"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="898"/>
         <source>Skip altitude correction</source>
         <translation>Ohita korkeuden korjaus</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="922"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="921"/>
         <source>Use the altitude as reported by the positioning device. Skip any altitude correction that may be implied by the coordinate system transformation.</source>
         <translation>Käytä paikannuslaitteen ilmoittamaa korkeutta. Ohita korkeuden korjaukset, joita koordinaattijärjestelmän muutos voi aiheuttaa.</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="936"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="935"/>
         <source>Vertical grid shift in use:</source>
         <translation>Käytössä oleva vertikaalinen ruudukon siirto:</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="945"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="944"/>
         <source>None</source>
         <translation>Ei yhtään</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="959"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="958"/>
         <source>Vertical grid shift is used to increase the altitude accuracy.</source>
         <translation>Käytetään vertikaalista ruudukon siirtoa korkeusarvojen tarkkuuden parantamiseksi.</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="988"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="987"/>
         <source>QField Settings</source>
         <translation>QField asetukset</translation>
     </message>
@@ -2644,18 +2644,18 @@ Peruuta tehdäksesi suppeampi laiteskannaus.</translation>
 <context>
     <name>QgisMobileapp</name>
     <message>
-        <location filename="../src/core/qgismobileapp.cpp" line="666"/>
-        <location filename="../src/core/qgismobileapp.cpp" line="692"/>
+        <location filename="../src/core/qgismobileapp.cpp" line="667"/>
+        <location filename="../src/core/qgismobileapp.cpp" line="693"/>
         <source>Project file &quot;%1&quot; does not exist</source>
         <translation>Projektitiedostoa &quot;%1&quot; ei ole olemassa</translation>
     </message>
     <message>
-        <location filename="../src/core/qgismobileapp.cpp" line="683"/>
+        <location filename="../src/core/qgismobileapp.cpp" line="684"/>
         <source>No project file currently opened</source>
         <translation>Yhtään projektitiedostoa ei ole auki</translation>
     </message>
     <message>
-        <location filename="../src/core/qgismobileapp.cpp" line="714"/>
+        <location filename="../src/core/qgismobileapp.cpp" line="715"/>
         <source>Could not load font %1</source>
         <translation>Ei voitu ladata kirjasinta %1</translation>
     </message>
@@ -3438,7 +3438,7 @@ Peruuta tehdäksesi suppeampi laiteskannaus.</translation>
         <translation>Muutokset ajettu onnistuneesti QFieldCloudiin</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2801"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2800"/>
         <source>Press back again to close project and app</source>
         <translation>Paina uudestaan takaisin sulkeaksesi projektin ja sovelluksen</translation>
     </message>

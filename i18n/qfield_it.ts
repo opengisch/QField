@@ -143,22 +143,22 @@
 <context>
     <name>BluetoothReceiver</name>
     <message>
-        <location filename="../src/core/positioning/bluetoothreceiver.cpp" line="105"/>
+        <location filename="../src/core/positioning/bluetoothreceiver.cpp" line="107"/>
         <source>Connecting…</source>
         <translation>Connessione...</translation>
     </message>
     <message>
-        <location filename="../src/core/positioning/bluetoothreceiver.cpp" line="110"/>
+        <location filename="../src/core/positioning/bluetoothreceiver.cpp" line="112"/>
         <source>Successfully connected</source>
         <translation>Connesso con successo</translation>
     </message>
     <message>
-        <location filename="../src/core/positioning/bluetoothreceiver.cpp" line="115"/>
+        <location filename="../src/core/positioning/bluetoothreceiver.cpp" line="117"/>
         <source>Disconnected</source>
         <translation>Disconnesso</translation>
     </message>
     <message>
-        <location filename="../src/core/positioning/bluetoothreceiver.cpp" line="125"/>
+        <location filename="../src/core/positioning/bluetoothreceiver.cpp" line="127"/>
         <source>Socket state %1</source>
         <translation>Stato del socket %1</translation>
     </message>
@@ -552,38 +552,38 @@
         <translation type="vanished">Ultimi cambiamenti scartati</translation>
     </message>
     <message>
-        <location filename="../src/qml/FeatureListForm.qml" line="452"/>
+        <location filename="../src/qml/FeatureListForm.qml" line="453"/>
         <source>Successfully duplicated feature</source>
         <translation>Elemento duplicato con successo</translation>
     </message>
     <message>
-        <location filename="../src/qml/FeatureListForm.qml" line="470"/>
-        <location filename="../src/qml/FeatureListForm.qml" line="545"/>
+        <location filename="../src/qml/FeatureListForm.qml" line="471"/>
+        <location filename="../src/qml/FeatureListForm.qml" line="546"/>
         <source>A number of features are being tracked, stop tracking to delete those</source>
         <translation>È in corso il tracciamento di una serie di elementi, interrompere il tracciamento per eliminarli</translation>
     </message>
     <message>
-        <location filename="../src/qml/FeatureListForm.qml" line="502"/>
+        <location filename="../src/qml/FeatureListForm.qml" line="503"/>
         <source>A number of features are being tracked, stop tracking to merge those</source>
         <translation>È in corso il tracciamento di una serie di elementi, interrompere il tracciamento per unirli</translation>
     </message>
     <message>
-        <location filename="../src/qml/FeatureListForm.qml" line="537"/>
+        <location filename="../src/qml/FeatureListForm.qml" line="538"/>
         <source>Successfully duplicated selected features, list updated to show newly-created features</source>
         <translation>Attributi selezionati duplicati con successo. La lista è stata aggiornata per mostrare i nuovi elementi</translation>
     </message>
     <message>
-        <location filename="../src/qml/FeatureListForm.qml" line="642"/>
+        <location filename="../src/qml/FeatureListForm.qml" line="643"/>
         <source>No feature at this position</source>
         <translation>Nessun elemento in questa posizione</translation>
     </message>
     <message>
-        <location filename="../src/qml/FeatureListForm.qml" line="701"/>
+        <location filename="../src/qml/FeatureListForm.qml" line="702"/>
         <source>Merge feature(s)</source>
         <translation>Fondi elementi</translation>
     </message>
     <message numerus="yes">
-        <location filename="../src/qml/FeatureListForm.qml" line="705"/>
+        <location filename="../src/qml/FeatureListForm.qml" line="706"/>
         <source>Should the %n feature(s) selected really be merge?
 
 The features geometries will be combined into feature &apos;%1&apos;, which will keep its attributes.</source>
@@ -597,39 +597,39 @@ Le geometrie degli elementi verranno combinati in un elemento &apos;%1&apos; che
 Le geometrie degli elementi verranno combinati in un elemento &apos;%1&apos; che manterrà i propri attributi.</numerusform></translation>
     </message>
     <message numerus="yes">
-        <location filename="../src/qml/FeatureListForm.qml" line="717"/>
+        <location filename="../src/qml/FeatureListForm.qml" line="718"/>
         <source>Successfully merged %n feature(s)</source>
         <translation><numerusform>Fusione di %n elementi eseguita con successo</numerusform><numerusform>Fusione di %n elementi eseguita con successo</numerusform><numerusform>Fusione di %n elementi eseguita con successo</numerusform></translation>
     </message>
     <message numerus="yes">
-        <location filename="../src/qml/FeatureListForm.qml" line="719"/>
+        <location filename="../src/qml/FeatureListForm.qml" line="720"/>
         <source>Failed to merge %n feature(s)</source>
         <translation><numerusform>Fallita la fusione (merge) di %n elemento(i)</numerusform><numerusform>Impossibile fondere %n elemento(i)</numerusform><numerusform>Impossibile fondere %n elemento(i)</numerusform></translation>
     </message>
     <message>
-        <location filename="../src/qml/FeatureListForm.qml" line="751"/>
+        <location filename="../src/qml/FeatureListForm.qml" line="752"/>
         <source>Delete feature(s)</source>
         <translation>Cancella elemento(i)</translation>
     </message>
     <message numerus="yes">
-        <location filename="../src/qml/FeatureListForm.qml" line="755"/>
+        <location filename="../src/qml/FeatureListForm.qml" line="756"/>
         <source>Should the %n feature(s) selected really be deleted?</source>
         <comment>0</comment>
         <translation><numerusform>Vuoi davvero eliminare questi %n elementi?</numerusform><numerusform>Vuoi davvero eliminare questi %n elementi?</numerusform><numerusform>Vuoi davvero eliminare questi %n elementi?</numerusform></translation>
     </message>
     <message numerus="yes">
-        <location filename="../src/qml/FeatureListForm.qml" line="771"/>
+        <location filename="../src/qml/FeatureListForm.qml" line="772"/>
         <source>Successfully deleted %n feature(s)</source>
         <translation><numerusform>%n elementi eliminati con successo</numerusform><numerusform>%n elementi eliminati con successo</numerusform><numerusform>%n elementi eliminati con successo</numerusform></translation>
     </message>
     <message numerus="yes">
-        <location filename="../src/qml/FeatureListForm.qml" line="779"/>
+        <location filename="../src/qml/FeatureListForm.qml" line="780"/>
         <source>Failed to delete %n feature(s)</source>
         <translation><numerusform>Impossibile eliminare %n elemento(i)</numerusform><numerusform>Impossibile eliminare %n elemento(i)</numerusform><numerusform>Impossibile eliminare %n elemento(i)</numerusform></translation>
     </message>
     <message>
         <location filename="../src/qml/FeatureListForm.qml" line="356"/>
-        <location filename="../src/qml/FeatureListForm.qml" line="806"/>
+        <location filename="../src/qml/FeatureListForm.qml" line="807"/>
         <source>Changes discarded</source>
         <translation>Modifiche rimosse</translation>
     </message>
@@ -2429,112 +2429,112 @@ Cancel to make a minimal device scan instead.</source>
 Annullare per eseguire una scansione veloce del dispositivo.</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="521"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="520"/>
         <source>Connected to %1</source>
         <translation>Connesso a %1</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="523"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="522"/>
         <source>Connect  to %1</source>
         <translation>Connetti a %1</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="525"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="524"/>
         <source>Connecting to %1</source>
         <translation>Connessione a %1</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="542"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="541"/>
         <source>Use orthometric altitude from device</source>
         <translation>Usare l&apos;altezza ortometrica dal dispositivo</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="574"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="573"/>
         <source>Show position information</source>
         <translation>Mostra informazioni sulla posizione</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="596"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="595"/>
         <source>Activate accuracy indicator</source>
         <translation>Attiva indicatore di precisione</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="618"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="617"/>
         <source>Bad accuracy below [m]</source>
         <translation>Scarsa precisione al di sotto di [m]</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="659"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="658"/>
         <source>Excellent accuracy above [m]</source>
         <translation>Eccellente precisione sopra [m]</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="700"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="699"/>
         <source>Enable accuracy requirement</source>
         <translation>Abilita requisito di precisione</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="727"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="726"/>
         <source>When the accuracy indicator is enabled, a badge is attached to the location button and colored &lt;span %1&gt;red&lt;/span&gt; if the accuracy value is below bad, &lt;span %2&gt;yellow&lt;/span&gt; if it falls short of excellent, or &lt;span %3&gt;green&lt;/span&gt;.&lt;br&gt;&lt;br&gt;In addition, an accuracy restriction mode can be toggled on, which restricts vertex addition when locked to coordinate cursor to positions with an accuracy value above the bad threshold.</source>
         <translation>Quando l&apos;indicatore di precisione è abilitato, un badge è attaccato al pulsante della posizione e colorato di &lt;span %1&gt;rosso&lt;/span&gt; se il valore di precisione è inferiore a scarso, di &lt;span %2&gt;giallo&lt;/span&gt; se è inferiore all&apos;eccellente, o di &lt;span %3&gt;verde&lt;/span&gt;.&lt;br&gt;&lt;br&gt;Inoltre, può essere attivata una modalità di restrizione della precisione, che limita l&apos;aggiunta di un vertice bloccato alle coordinare del cursore a posizioni con un valore di precisione al di sopra della soglia scarsa.</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="744"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="743"/>
         <source>Enable averaged positioning requirement</source>
         <translation>Abilita requisito di posizionamento medio</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="766"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="765"/>
         <source>Minimum number of positions collected</source>
         <translation>Numero minimo di posizioni raccolto</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="807"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="806"/>
         <source>When enabled, digitizing vertices with a cursor locked to position will only accepted an averaged position from a minimum number of collected positions. Digitizing using averaged positions is done by pressing and holding the add vertex button, which will collect positions until the press is released. Accuracy requirement settings are respected when enabled.</source>
         <translation>Se abilitato, la digitalizzazione dei vertici con un cursore bloccato alla posizione accetterà solo una posizione media da un numero minimo di posizioni raccolte. La digitalizzazione tramite posizioni medie viene eseguita tenendo premuto il pulsante aggiungi vertice, che raccoglierà le posizioni fino al rilascio del pulsante. Le impostazioni dei requisiti di precisione vengono rispettate quando abilitate.</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="821"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="820"/>
         <source>Antenna height compensation</source>
         <translation>Compensazione altezza dell&apos;antenna</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="843"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="842"/>
         <source>Antenna height [m]</source>
         <translation>Altezza dell&apos;antenna [m]</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="885"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="884"/>
         <source>Z values which are recorded from the positioning device will be corrected by this value. If a value of 1.6 is entered, this will result in a correction of -1.6 for each recorded value.</source>
         <translation>I valori Z registrati dal dispositivo di posizionamento verranno corretti di questo valore. Se viene inserito un valore di 1.6, ciò risulterà in una correzione di -1.6 per ogni valore registrato.</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="899"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="898"/>
         <source>Skip altitude correction</source>
         <translation>Evita la correzione dell&apos;altitudine</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="922"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="921"/>
         <source>Use the altitude as reported by the positioning device. Skip any altitude correction that may be implied by the coordinate system transformation.</source>
         <translation>Usa l&apos;altitudine riportata dal dispositivo di posizionamento. Salta qualsiasi correzione d&apos;altitudine che potrebbe essere implicita nella trasformazione del sistema di coordinate.</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="936"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="935"/>
         <source>Vertical grid shift in use:</source>
         <translation>Spostamento griglia verticale in uso:</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="945"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="944"/>
         <source>None</source>
         <translation>Nessuno</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="959"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="958"/>
         <source>Vertical grid shift is used to increase the altitude accuracy.</source>
         <translation>Lo spostamento della griglia verticale è usato per aumentare la precisione dell&apos;altitudine.</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="988"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="987"/>
         <source>QField Settings</source>
         <translation>Impostazioni QField</translation>
     </message>
@@ -2650,18 +2650,18 @@ Annullare per eseguire una scansione veloce del dispositivo.</translation>
 <context>
     <name>QgisMobileapp</name>
     <message>
-        <location filename="../src/core/qgismobileapp.cpp" line="666"/>
-        <location filename="../src/core/qgismobileapp.cpp" line="692"/>
+        <location filename="../src/core/qgismobileapp.cpp" line="667"/>
+        <location filename="../src/core/qgismobileapp.cpp" line="693"/>
         <source>Project file &quot;%1&quot; does not exist</source>
         <translation>Il file di progetto &quot;%1&quot; non esiste</translation>
     </message>
     <message>
-        <location filename="../src/core/qgismobileapp.cpp" line="683"/>
+        <location filename="../src/core/qgismobileapp.cpp" line="684"/>
         <source>No project file currently opened</source>
         <translation>Nessun file di progetto attualmente aperto</translation>
     </message>
     <message>
-        <location filename="../src/core/qgismobileapp.cpp" line="714"/>
+        <location filename="../src/core/qgismobileapp.cpp" line="715"/>
         <source>Could not load font %1</source>
         <translation>Impossibile caricare il font %1</translation>
     </message>
@@ -3444,7 +3444,7 @@ Annullare per eseguire una scansione veloce del dispositivo.</translation>
         <translation>Modifiche inviate con successo a QFieldCloud</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2801"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2800"/>
         <source>Press back again to close project and app</source>
         <translation>Premi indietro di nuovo per chiudere il progetto e l&apos;app</translation>
     </message>
