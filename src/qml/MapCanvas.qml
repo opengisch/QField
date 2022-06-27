@@ -17,7 +17,7 @@
 
 import QtQuick 2.14
 import QtQuick.Controls 2.14
-import QtQml 2.2
+import QtQml 2.14
 
 import org.qgis 1.0
 

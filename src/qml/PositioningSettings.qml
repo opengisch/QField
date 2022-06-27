@@ -1,4 +1,4 @@
-import QtQuick 2.12
+import QtQuick 2.14
 import Qt.labs.settings 1.0 as LabSettings
 
 LabSettings.Settings {

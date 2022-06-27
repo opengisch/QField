@@ -1,6 +1,6 @@
-import QtQuick 2.12
-import QtQuick.Shapes 1.12
-import QtGraphicalEffects 1.12
+import QtQuick 2.14
+import QtQuick.Shapes 1.14
+import QtGraphicalEffects 1.14
 
 import org.qgis 1.0
 import org.qfield 1.0

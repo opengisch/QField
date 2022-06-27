@@ -1,6 +1,6 @@
 pragma Singleton
 
-import QtQuick 2.12
+import QtQuick 2.14
 
 QtObject {
     readonly property color darkRed: "#c0392b"
