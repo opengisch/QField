@@ -54,18 +54,51 @@ class Navigation : public QObject
 
     ~Navigation();
 
+    /**
+     * Returns TRUE when navigation is active.
+     */
     bool isActive() const;
 
-    void setMapSettings( QgsQuickMapSettings *mapSettings );
+    /**
+     * Returns the map settings object used to project points and calculate navigation details.
+     */
     QgsQuickMapSettings *mapSettings() const { return mMapSettings; }
+    /**
+     * Sets the map settings object used to project points and calculate navigation details.
+     */
+    void setMapSettings( QgsQuickMapSettings *mapSettings );
 
+    /**
+     * Returns the navigation model containing the destination point.
+     * \note In the future, the model could contain intermediary stops
+     */
     NavigationModel *model() const { return mModel.get(); }
 
+    /**
+     * Returns the current location point.
+     */
     QgsPoint location() const;
+
+    /**
+     * Sets the current location \a point.
+     * \note A null/empty geometry will be threated as a lack of available location information
+     */
     void setLocation( const QgsPoint &point );
 
+    /**
+     * Returns the current destination point.
+     */
     QgsPoint destination() const;
+
+    /**
+     * Sets the current destination \a point.
+     */
     void setDestination( const QgsPoint &point );
+
+    /**
+     * Returns the current destination name.
+     * \see setDestinationFeature
+     */
     QString destinationName() const;
 
     /**
@@ -93,21 +126,71 @@ class Navigation : public QObject
      */
     Q_INVOKABLE void previousDestinationVertex();
 
+    /**
+     * Returns the current focused vertex serving as destination point when a feature is used as destination.
+     * \note for line and polygon geometries, vertex '0' represents the centroid of the geometry
+     * while it presents the first (or only) vertex in point geometries
+     */
     int destinationFeatureCurrentVertex() const;
+    /**
+     * Returns the vertex count available to cycle through as destination points when a feature
+     * is used as destination.
+     */
     int destinationFeatureVertexCount() const;
 
+    /**
+     * Returns the path between the current location and the destination points
+     */
     QgsGeometry path() const { return mPath; }
+
+    /**
+     * Returns the 2D distance between the current location and the destination points
+     */
     double distance() const { return mDistance; }
+
+    /**
+     * Retuens the vertical distance between the current location and the destination points
+     * \note if either points miss a Z value, the returned vertical distance value will be NaN
+     */
     double verticalDistance() const { return mVerticalDistance; }
+
+    /**
+     * Returns the distance unit used
+     */
     QgsUnitTypes::DistanceUnit distanceUnits() const { return mDa.lengthUnits(); }
+
+    /**
+     * Returns the bearing between the current location and the destination points
+     */
     double bearing() const { return mBearing; }
 
+    /**
+     * Returns TRUE if the proximity alarm is enabled.
+     */
     bool proximityAlarm() const { return mProximityAlarm; }
+
+    /**
+     * Sets whether the proximity alarm is \a enabled.
+     */
     void setProximityAlarm( const bool enabled );
 
+    /**
+     * Returns the current distance threshold below which the proximity alarm will
+     * turn on when enabled.
+     */
     double proximityAlarmThreshold() const { return mProximityAlarmThreshold; }
+
+    /**
+     * Sets the distance \a threshold below which the proximity alarm will
+     * turn on when enabled. Once the distance threshold is met, the alarm sound will loop at
+     * a varying interval based on the distance between the device's current location and
+     * the destination. The closer to the destination, the shorter the interval.
+     */
     void setProximityAlarmThreshold( const double &threshold );
 
+    /**
+     * Clears any existing destination point and feature.
+     */
     Q_INVOKABLE void clear();
 
   signals:
