@@ -2027,7 +2027,7 @@ ApplicationWindow {
     }
 
     MenuItem {
-      text: qsTr( "0.25m Precision" )
+      text: qsTr( "%1 Precision" ).arg(UnitTypes.formatDistance(0.25, 2, navigation.distanceUnits))
       height: 48
       leftPadding: 15
       font: Theme.defaultFont
@@ -2043,7 +2043,7 @@ ApplicationWindow {
     }
 
     MenuItem {
-      text: qsTr( "0.5m Precision" )
+      text: qsTr( "%1 Precision" ).arg(UnitTypes.formatDistance(0.5, 2, navigation.distanceUnits))
       height: 48
       leftPadding: 15
       font: Theme.defaultFont
@@ -2059,7 +2059,7 @@ ApplicationWindow {
     }
 
     MenuItem {
-      text: qsTr( "1m Precision" )
+      text: qsTr( "%1 Precision" ).arg(UnitTypes.formatDistance(1, 2, navigation.distanceUnits))
       height: 48
       leftPadding: 15
       font: Theme.defaultFont
@@ -2075,7 +2075,7 @@ ApplicationWindow {
     }
 
     MenuItem {
-      text: qsTr( "2.5m Precision" )
+      text: qsTr( "%1 Precision" ).arg(UnitTypes.formatDistance(2.5, 2, navigation.distanceUnits))
       height: 48
       leftPadding: 15
       font: Theme.defaultFont
@@ -2091,7 +2091,7 @@ ApplicationWindow {
     }
 
     MenuItem {
-      text: qsTr( "5m Precision" )
+      text: qsTr( "%1 Precision" ).arg(UnitTypes.formatDistance(5, 2, navigation.distanceUnits))
       height: 48
       leftPadding: 15
       font: Theme.defaultFont
@@ -2107,7 +2107,7 @@ ApplicationWindow {
     }
 
     MenuItem {
-      text: qsTr( "10m Precision" )
+      text: qsTr( "%1 Precision" ).arg(UnitTypes.formatDistance(10, 2, navigation.distanceUnits))
       height: 48
       leftPadding: 15
       font: Theme.defaultFont
