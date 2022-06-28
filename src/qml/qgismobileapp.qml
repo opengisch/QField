@@ -1964,26 +1964,12 @@ ApplicationWindow {
     }
 
     MenuItem {
-      id: cancelNavigationItem
-      text: qsTr( "Clear Destination" )
-      height: 48
-      leftPadding: 50
-      font: Theme.defaultFont
-
-      onTriggered: {
-        navigation.clear();
-      }
-    }
-
-    MenuSeparator { width: parent.width }
-
-    MenuItem {
       id: preciseViewItem
       text: qsTr( "Precise View Settings" )
 
       font: Theme.defaultFont
       height: 48
-      leftPadding: 50
+      leftPadding: 10
       rightPadding: 40
 
       arrow: Canvas {
@@ -2006,6 +1992,20 @@ ApplicationWindow {
       onTriggered: {
         preciseViewMenu.popup( navigationMenu.x, navigationMenu.y - preciseViewItem.y )
         highlighted = false
+      }
+    }
+
+    MenuSeparator { width: parent.width }
+
+    MenuItem {
+      id: cancelNavigationItem
+      text: qsTr( "Clear Destination" )
+      height: 48
+      leftPadding: 10
+      font: Theme.defaultFont
+
+      onTriggered: {
+        navigation.clear();
       }
     }
   }
