@@ -343,13 +343,13 @@
 <context>
     <name>DateTime</name>
     <message>
-        <location filename="../src/qml/editorwidgets/DateTime.qml" line="73"/>
-        <location filename="../src/qml/editorwidgets/DateTime.qml" line="170"/>
+        <location filename="../src/qml/editorwidgets/DateTime.qml" line="72"/>
+        <location filename="../src/qml/editorwidgets/DateTime.qml" line="169"/>
         <source>(no date)</source>
         <translation>(nema datuma)</translation>
     </message>
     <message>
-        <location filename="../src/qml/editorwidgets/DateTime.qml" line="203"/>
+        <location filename="../src/qml/editorwidgets/DateTime.qml" line="202"/>
         <source>Date value set to today.</source>
         <translation>Datum postavljen na danas.</translation>
     </message>
@@ -856,98 +856,103 @@ Geometrija elemenata će se spojiti u element &apos;%1&apos;, koji će zadržati
 <context>
     <name>LayerTreeItemProperties</name>
     <message>
-        <location filename="../src/qml/LayerTreeItemProperties.qml" line="35"/>
+        <location filename="../src/qml/LayerTreeItemProperties.qml" line="37"/>
         <source>Expand group</source>
         <translation>Proširi grupu</translation>
     </message>
     <message>
-        <location filename="../src/qml/LayerTreeItemProperties.qml" line="35"/>
-        <location filename="../src/qml/LayerTreeItemProperties.qml" line="131"/>
+        <location filename="../src/qml/LayerTreeItemProperties.qml" line="37"/>
+        <location filename="../src/qml/LayerTreeItemProperties.qml" line="135"/>
         <source>Expand legend item</source>
         <translation>Proširi stavku legende</translation>
     </message>
     <message>
-        <location filename="../src/qml/LayerTreeItemProperties.qml" line="44"/>
+        <location filename="../src/qml/LayerTreeItemProperties.qml" line="46"/>
         <source>Stop tracking</source>
         <translation>Zaustavi praćenje</translation>
     </message>
     <message>
-        <location filename="../src/qml/LayerTreeItemProperties.qml" line="45"/>
+        <location filename="../src/qml/LayerTreeItemProperties.qml" line="47"/>
         <source>Setup tracking</source>
         <translation>Postavi praćenje</translation>
     </message>
     <message>
-        <location filename="../src/qml/LayerTreeItemProperties.qml" line="82"/>
+        <location filename="../src/qml/LayerTreeItemProperties.qml" line="86"/>
         <source>This layer is invalid. This might be due to a network issue, a missing file or a misconfiguration of the project.</source>
         <translation>Ovaj sloj je nevažeći. Ovo se može događati zbog problema s mrežom, datoteke koja nedostaje ili projekta koji nije dobro konfiguriran.</translation>
     </message>
     <message>
-        <location filename="../src/qml/LayerTreeItemProperties.qml" line="91"/>
+        <location filename="../src/qml/LayerTreeItemProperties.qml" line="95"/>
         <source>Show on map</source>
         <translation>Prikaži na mapi</translation>
     </message>
     <message>
-        <location filename="../src/qml/LayerTreeItemProperties.qml" line="112"/>
+        <location filename="../src/qml/LayerTreeItemProperties.qml" line="116"/>
         <source>Show labels</source>
         <translation>Prikaži oznake</translation>
     </message>
     <message>
-        <location filename="../src/qml/LayerTreeItemProperties.qml" line="147"/>
+        <location filename="../src/qml/LayerTreeItemProperties.qml" line="174"/>
+        <source>Opacity</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/qml/LayerTreeItemProperties.qml" line="192"/>
         <source>Zoom to group</source>
         <translation>Zumiraj na grupu</translation>
     </message>
     <message>
-        <location filename="../src/qml/LayerTreeItemProperties.qml" line="149"/>
+        <location filename="../src/qml/LayerTreeItemProperties.qml" line="194"/>
         <source>Zoom to parent layer</source>
         <translation>Zumiraj na roditeljski sloj</translation>
     </message>
     <message>
-        <location filename="../src/qml/LayerTreeItemProperties.qml" line="150"/>
+        <location filename="../src/qml/LayerTreeItemProperties.qml" line="195"/>
         <source>Zoom to layer</source>
         <translation>Zoom na sloj</translation>
     </message>
     <message>
-        <location filename="../src/qml/LayerTreeItemProperties.qml" line="166"/>
+        <location filename="../src/qml/LayerTreeItemProperties.qml" line="211"/>
         <source>Reload data</source>
         <translation>Ponovo učitaj podatke</translation>
     </message>
     <message>
-        <location filename="../src/qml/LayerTreeItemProperties.qml" line="174"/>
+        <location filename="../src/qml/LayerTreeItemProperties.qml" line="219"/>
         <source>Reload of layer %1 triggered</source>
         <translation>Ponovno učitanje sloja %1 pokrenuto</translation>
     </message>
     <message>
-        <location filename="../src/qml/LayerTreeItemProperties.qml" line="182"/>
+        <location filename="../src/qml/LayerTreeItemProperties.qml" line="227"/>
         <source>Show features list</source>
         <translation>Pokaži popis elemenata</translation>
     </message>
     <message>
-        <location filename="../src/qml/LayerTreeItemProperties.qml" line="188"/>
+        <location filename="../src/qml/LayerTreeItemProperties.qml" line="233"/>
         <source>The layer has no features</source>
         <translation>Sloj nema elemenata</translation>
     </message>
     <message>
-        <location filename="../src/qml/LayerTreeItemProperties.qml" line="221"/>
+        <location filename="../src/qml/LayerTreeItemProperties.qml" line="266"/>
         <source>Track on layer %1 stopped</source>
         <translation>Praćenje na sloju %1 zaustavljeno</translation>
     </message>
     <message>
-        <location filename="../src/qml/LayerTreeItemProperties.qml" line="243"/>
+        <location filename="../src/qml/LayerTreeItemProperties.qml" line="288"/>
         <source>Read-Only Layer</source>
         <translation>Sloj Samo za Čitanje</translation>
     </message>
     <message>
-        <location filename="../src/qml/LayerTreeItemProperties.qml" line="243"/>
+        <location filename="../src/qml/LayerTreeItemProperties.qml" line="288"/>
         <source>Geometry Locked Layer</source>
         <translation>Sloj sa Zaključanom Geometrijom</translation>
     </message>
     <message>
-        <location filename="../src/qml/LayerTreeItemProperties.qml" line="250"/>
+        <location filename="../src/qml/LayerTreeItemProperties.qml" line="295"/>
         <source>This layer is configured as &quot;Read-Only&quot; which disables adding, deleting and editing features.</source>
         <translation>Sloj je konfiguriran &apos;&apos;Samo za čitanje&apos;&apos; što onemogućava dodavanje, brisanje i uređivanje elemenata.</translation>
     </message>
     <message>
-        <location filename="../src/qml/LayerTreeItemProperties.qml" line="252"/>
+        <location filename="../src/qml/LayerTreeItemProperties.qml" line="297"/>
         <source>This layer is configured as &quot;Lock Geometries&quot; which disables adding and deleting features, as well as modifying the geometries of existing features.</source>
         <translation>Sloj je konfiguriran kao &quot;Zaključana Geometrija&quot; što onemogućava dodavanje i brisanje elemenata, kao i mijenjanje geometrije postojećih elemenata.</translation>
     </message>
@@ -1250,8 +1255,8 @@ Geometrija elemenata će se spojiti u element &apos;%1&apos;, koji će zadržati
         <translation type="vanished">Lat.</translation>
     </message>
     <message>
-        <location filename="../src/qml/NavigationInformationView.qml" line="152"/>
-        <location filename="../src/qml/NavigationInformationView.qml" line="173"/>
+        <location filename="../src/qml/NavigationInformationView.qml" line="145"/>
+        <location filename="../src/qml/NavigationInformationView.qml" line="166"/>
         <source>X</source>
         <translation>X</translation>
     </message>
@@ -1260,41 +1265,40 @@ Geometrija elemenata će se spojiti u element &apos;%1&apos;, koji će zadržati
         <translation type="vanished">Lon.</translation>
     </message>
     <message>
-        <location filename="../src/qml/NavigationInformationView.qml" line="100"/>
         <source>centroid</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/qml/NavigationInformationView.qml" line="152"/>
-        <location filename="../src/qml/NavigationInformationView.qml" line="173"/>
+        <location filename="../src/qml/NavigationInformationView.qml" line="145"/>
+        <location filename="../src/qml/NavigationInformationView.qml" line="166"/>
         <source>Lon</source>
         <translation>Lon</translation>
     </message>
     <message>
-        <location filename="../src/qml/NavigationInformationView.qml" line="154"/>
-        <location filename="../src/qml/NavigationInformationView.qml" line="171"/>
+        <location filename="../src/qml/NavigationInformationView.qml" line="147"/>
+        <location filename="../src/qml/NavigationInformationView.qml" line="164"/>
         <source>Y</source>
         <translation>Y</translation>
     </message>
     <message>
-        <location filename="../src/qml/NavigationInformationView.qml" line="154"/>
-        <location filename="../src/qml/NavigationInformationView.qml" line="171"/>
+        <location filename="../src/qml/NavigationInformationView.qml" line="147"/>
+        <location filename="../src/qml/NavigationInformationView.qml" line="164"/>
         <source>Lat</source>
         <translation>Lat</translation>
     </message>
     <message>
-        <location filename="../src/qml/NavigationInformationView.qml" line="189"/>
+        <location filename="../src/qml/NavigationInformationView.qml" line="182"/>
         <source>Dist.</source>
         <translation>Udaljenost.</translation>
     </message>
     <message>
-        <location filename="../src/qml/NavigationInformationView.qml" line="192"/>
-        <location filename="../src/qml/NavigationInformationView.qml" line="210"/>
+        <location filename="../src/qml/NavigationInformationView.qml" line="185"/>
+        <location filename="../src/qml/NavigationInformationView.qml" line="203"/>
         <source>N/A</source>
         <translation>N/A</translation>
     </message>
     <message>
-        <location filename="../src/qml/NavigationInformationView.qml" line="207"/>
+        <location filename="../src/qml/NavigationInformationView.qml" line="200"/>
         <source>Bearing</source>
         <translation>Azimut</translation>
     </message>
@@ -1396,93 +1400,169 @@ Geometrija elemenata će se spojiti u element &apos;%1&apos;, koji će zadržati
         <translation type="vanished">Lat.</translation>
     </message>
     <message>
-        <location filename="../src/qml/PositionInformationView.qml" line="54"/>
-        <location filename="../src/qml/PositionInformationView.qml" line="58"/>
-        <location filename="../src/qml/PositionInformationView.qml" line="77"/>
-        <location filename="../src/qml/PositionInformationView.qml" line="81"/>
-        <location filename="../src/qml/PositionInformationView.qml" line="124"/>
-        <location filename="../src/qml/PositionInformationView.qml" line="139"/>
-        <location filename="../src/qml/PositionInformationView.qml" line="154"/>
         <source>N/A</source>
-        <translation>N/A</translation>
+        <translation type="vanished">N/A</translation>
     </message>
     <message>
-        <location filename="../src/qml/PositionInformationView.qml" line="51"/>
-        <location filename="../src/qml/PositionInformationView.qml" line="78"/>
         <source>X</source>
-        <translation>X</translation>
+        <translation type="vanished">X</translation>
     </message>
     <message>
         <source>Lon.</source>
         <translation type="vanished">Lon.</translation>
     </message>
     <message>
-        <location filename="../src/qml/PositionInformationView.qml" line="51"/>
-        <location filename="../src/qml/PositionInformationView.qml" line="78"/>
+        <source>Lon</source>
+        <translation type="vanished">Lon</translation>
+    </message>
+    <message>
+        <source>Y</source>
+        <translation type="vanished">Y</translation>
+    </message>
+    <message>
+        <source>Lat</source>
+        <translation type="vanished">Lat</translation>
+    </message>
+    <message>
+        <source>Altitude</source>
+        <translation type="vanished">Visina</translation>
+    </message>
+    <message>
+        <source>Speed</source>
+        <translation type="vanished">Brzina</translation>
+    </message>
+    <message>
+        <source>H. Accuracy</source>
+        <translation type="vanished">H. Točnost</translation>
+    </message>
+    <message>
+        <source>V. Accuracy</source>
+        <translation type="vanished">V. Točnost</translation>
+    </message>
+    <message>
+        <source>PDOP</source>
+        <translation type="vanished">PDOP</translation>
+    </message>
+    <message>
+        <source>HDOP</source>
+        <translation type="vanished">HDOP</translation>
+    </message>
+    <message>
+        <source>VDOP</source>
+        <translation type="vanished">VDOP</translation>
+    </message>
+    <message>
+        <source>Valid</source>
+        <translation type="vanished">Valjano</translation>
+    </message>
+    <message>
+        <source>Fix</source>
+        <translation type="vanished">Fiksirano</translation>
+    </message>
+    <message>
+        <source>Quality</source>
+        <translation type="vanished">Kvaliteta</translation>
+    </message>
+</context>
+<context>
+    <name>PositioningInformationView</name>
+    <message>
+        <location filename="../src/qml/PositioningInformationView.qml" line="51"/>
+        <location filename="../src/qml/PositioningInformationView.qml" line="78"/>
         <source>Lon</source>
         <translation>Lon</translation>
     </message>
     <message>
-        <location filename="../src/qml/PositionInformationView.qml" line="55"/>
-        <location filename="../src/qml/PositionInformationView.qml" line="74"/>
-        <source>Y</source>
-        <translation>Y</translation>
+        <location filename="../src/qml/PositioningInformationView.qml" line="51"/>
+        <location filename="../src/qml/PositioningInformationView.qml" line="78"/>
+        <source>X</source>
+        <translation>X</translation>
     </message>
     <message>
-        <location filename="../src/qml/PositionInformationView.qml" line="55"/>
-        <location filename="../src/qml/PositionInformationView.qml" line="74"/>
+        <location filename="../src/qml/PositioningInformationView.qml" line="54"/>
+        <location filename="../src/qml/PositioningInformationView.qml" line="58"/>
+        <location filename="../src/qml/PositioningInformationView.qml" line="77"/>
+        <location filename="../src/qml/PositioningInformationView.qml" line="81"/>
+        <location filename="../src/qml/PositioningInformationView.qml" line="124"/>
+        <location filename="../src/qml/PositioningInformationView.qml" line="139"/>
+        <location filename="../src/qml/PositioningInformationView.qml" line="154"/>
+        <source>N/A</source>
+        <translation>N/A</translation>
+    </message>
+    <message>
+        <location filename="../src/qml/PositioningInformationView.qml" line="55"/>
+        <location filename="../src/qml/PositioningInformationView.qml" line="74"/>
         <source>Lat</source>
         <translation>Lat</translation>
     </message>
     <message>
-        <location filename="../src/qml/PositionInformationView.qml" line="97"/>
+        <location filename="../src/qml/PositioningInformationView.qml" line="55"/>
+        <location filename="../src/qml/PositioningInformationView.qml" line="74"/>
+        <source>Y</source>
+        <translation>Y</translation>
+    </message>
+    <message>
+        <location filename="../src/qml/PositioningInformationView.qml" line="97"/>
         <source>Altitude</source>
         <translation>Visina</translation>
     </message>
     <message>
-        <location filename="../src/qml/PositionInformationView.qml" line="124"/>
+        <location filename="../src/qml/PositioningInformationView.qml" line="124"/>
         <source>Speed</source>
         <translation>Brzina</translation>
     </message>
     <message>
-        <location filename="../src/qml/PositionInformationView.qml" line="139"/>
+        <location filename="../src/qml/PositioningInformationView.qml" line="139"/>
         <source>H. Accuracy</source>
         <translation>H. Točnost</translation>
     </message>
     <message>
-        <location filename="../src/qml/PositionInformationView.qml" line="154"/>
+        <location filename="../src/qml/PositioningInformationView.qml" line="154"/>
         <source>V. Accuracy</source>
         <translation>V. Točnost</translation>
     </message>
     <message>
-        <location filename="../src/qml/PositionInformationView.qml" line="170"/>
+        <location filename="../src/qml/PositioningInformationView.qml" line="170"/>
         <source>PDOP</source>
         <translation>PDOP</translation>
     </message>
     <message>
-        <location filename="../src/qml/PositionInformationView.qml" line="186"/>
+        <location filename="../src/qml/PositioningInformationView.qml" line="186"/>
         <source>HDOP</source>
         <translation>HDOP</translation>
     </message>
     <message>
-        <location filename="../src/qml/PositionInformationView.qml" line="202"/>
+        <location filename="../src/qml/PositioningInformationView.qml" line="202"/>
         <source>VDOP</source>
         <translation>VDOP</translation>
     </message>
     <message>
-        <location filename="../src/qml/PositionInformationView.qml" line="218"/>
+        <location filename="../src/qml/PositioningInformationView.qml" line="218"/>
         <source>Valid</source>
         <translation>Valjano</translation>
     </message>
     <message>
-        <location filename="../src/qml/PositionInformationView.qml" line="234"/>
+        <location filename="../src/qml/PositioningInformationView.qml" line="234"/>
         <source>Fix</source>
         <translation>Fiksirano</translation>
     </message>
     <message>
-        <location filename="../src/qml/PositionInformationView.qml" line="250"/>
+        <location filename="../src/qml/PositioningInformationView.qml" line="250"/>
         <source>Quality</source>
         <translation>Kvaliteta</translation>
+    </message>
+</context>
+<context>
+    <name>PositioningPreciseView</name>
+    <message>
+        <location filename="../src/qml/PositioningPreciseView.qml" line="374"/>
+        <source>Dist.</source>
+        <translation>Udaljenost.</translation>
+    </message>
+    <message>
+        <location filename="../src/qml/PositioningPreciseView.qml" line="398"/>
+        <source>Positioning accuracy too low for this precision level</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -2639,6 +2719,11 @@ Otkažite da pokrenete minimalno skeniranje uređaja.</translation>
         <source>averaged</source>
         <translation>usrednjeno</translation>
     </message>
+    <message>
+        <location filename="../src/core/navigation.cpp" line="222"/>
+        <source>centroid</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>QgisMobileapp</name>
@@ -3038,121 +3123,121 @@ Otkažite da pokrenete minimalno skeniranje uređaja.</translation>
 <context>
     <name>qgismobileapp</name>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="142"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="143"/>
         <source>You are now in browse mode</source>
         <translation>Sada ste u načinu pregledavanja</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="148"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="149"/>
         <source>You are now in digitize mode on layer %1</source>
         <translation>Sada ste u načinu digitalizacije na sloju %1</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="152"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="153"/>
         <source>You are now in digitize mode</source>
         <translation>Sada ste u načinu digitalizacije</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="156"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="157"/>
         <source>You are now in measure mode</source>
         <translation>Sada ste u načinu mjerenja</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="687"/>
-        <location filename="../src/qml/qgismobileapp.qml" line="695"/>
-        <location filename="../src/qml/qgismobileapp.qml" line="1805"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="718"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="726"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1855"/>
         <source>Lon</source>
         <translation>Lon</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="689"/>
-        <location filename="../src/qml/qgismobileapp.qml" line="693"/>
-        <location filename="../src/qml/qgismobileapp.qml" line="1807"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="720"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="724"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1857"/>
         <source>Lat</source>
         <translation>Lat</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="707"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="738"/>
         <source>Segment</source>
         <translation>Segment</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="714"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="745"/>
         <source>Perimeter</source>
         <translation>Opseg</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="719"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="750"/>
         <source>Length</source>
         <translation>Dužina</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="725"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="756"/>
         <source>Area</source>
         <translation>Površina</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="962"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="993"/>
         <source>Close measure tool</source>
         <translation>Zatvori alat za mjerenje</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="969"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1000"/>
         <source>Stop editing</source>
         <translation>Zaustavi uređivanje</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="976"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1007"/>
         <source>Cancel addition</source>
         <translation>Otkaži dodavanje</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1023"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1054"/>
         <source>Topological editing turned on</source>
         <translation>Topološko uređivanje uključeno</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1023"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1054"/>
         <source>Topological editing turned off</source>
         <translation>Topološko uređivanje isključeno</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1071"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1102"/>
         <source>Freehand digitizing turned on</source>
         <translation>Uključena prostoručna digitalizacija</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1071"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1102"/>
         <source>Freehand digitizing turned off</source>
         <translation>Isključena prostoručna digitalizacija</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1168"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1199"/>
         <source>Coordinate cursor now locked to position</source>
         <translation>Koordinate pokazivača zaključane na poziciju</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1178"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1209"/>
         <source>Coordinate cursor unlocked</source>
         <translation>Koordinate pokazivača otključane</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1198"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1229"/>
         <source>Received position</source>
         <translation>Pozicija primljena</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1200"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1231"/>
         <source>Searching for position</source>
         <translation>Traženje lokacije</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1247"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1278"/>
         <source>Canvas follows location</source>
         <translation>Okvir prati lokaciju</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1256"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1287"/>
         <source>Waiting for location</source>
         <translation>Čekanje lokacije</translation>
     </message>
@@ -3165,49 +3250,49 @@ Otkažite da pokrenete minimalno skeniranje uređaja.</translation>
         <translation type="vanished">Pozicioniranje isključeno</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1343"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1374"/>
         <source>Canvas stopped following location</source>
         <translation>Okvir je prestao pratiti lokaciju</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1487"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1518"/>
         <source>Failed to create feature!</source>
         <translation>Neuspješno stvaranje elementa!</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1491"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1522"/>
         <source>Failed to save feature!</source>
         <translation>Neuspjelo spremanje elementa!</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1551"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1582"/>
         <source>Main Menu</source>
         <translation>Glavni Izbornik</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1565"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1596"/>
         <source>Measure Tool</source>
         <translation>Alat za mjerenje</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1580"/>
-        <location filename="../src/qml/qgismobileapp.qml" line="1712"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1611"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1762"/>
         <source>Print to PDF</source>
         <translation>Isprintaj u PDFu</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1594"/>
-        <location filename="../src/qml/qgismobileapp.qml" line="1752"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1644"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1802"/>
         <source>Printing to PDF</source>
         <translation>Printanje u PDFu</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1611"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1661"/>
         <source>Go to Home Screen</source>
         <translation>Idi na početni zaslon</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1627"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1677"/>
         <source>Open Project Folder</source>
         <translation>Otvori mapu projekta</translation>
     </message>
@@ -3216,47 +3301,47 @@ Otkažite da pokrenete minimalno skeniranje uređaja.</translation>
         <translation type="vanished">Otvori Projekt</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1639"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1689"/>
         <source>Settings</source>
         <translation>Postavke</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1653"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1703"/>
         <source>Message Log</source>
         <translation>Zapisnik Poruka</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1667"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1717"/>
         <source>About QField</source>
         <translation>O aplikaciji QField</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1728"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1778"/>
         <source>Select template below</source>
         <translation>Izaberite predložak</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1778"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1828"/>
         <source>Activating positioning service</source>
         <translation>Aktiviranje usluge lociranja</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1781"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1831"/>
         <source>QField has no permissions to use positioning.</source>
         <translation>QField nema dozvolu korištenja pozicioniranja.</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1792"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1842"/>
         <source>Map Canvas Options</source>
         <translation>Opcije okvira karte</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1848"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1898"/>
         <source>Add Bookmark</source>
         <translation>Dodaj oznaku</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1869"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1919"/>
         <source>Set as Destination</source>
         <translation>Postavi kao odredište</translation>
     </message>
@@ -3265,7 +3350,7 @@ Otkažite da pokrenete minimalno skeniranje uređaja.</translation>
         <translation type="vanished">Dodaj zabilješku na koordinatama</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1855"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1905"/>
         <source>Untitled bookmark</source>
         <translation>Neimenovana zabilješka</translation>
     </message>
@@ -3274,7 +3359,7 @@ Otkažite da pokrenete minimalno skeniranje uređaja.</translation>
         <translation type="vanished">Postavi Koordinate kao Odredište</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1882"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1932"/>
         <source>Copy Coordinates</source>
         <translation>Kopiraj Koordinate</translation>
     </message>
@@ -3287,32 +3372,73 @@ Otkažite da pokrenete minimalno skeniranje uređaja.</translation>
         <translation type="vanished">Y</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1895"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1945"/>
         <source>Coordinates copied to clipboard</source>
         <translation>Koordinate kopirane u međuspremnik</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2000"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1982"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2015"/>
+        <source>Precise View Settings</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/qml/qgismobileapp.qml" line="2030"/>
+        <source>0.25m Precision</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/qml/qgismobileapp.qml" line="2046"/>
+        <source>0.5m Precision</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/qml/qgismobileapp.qml" line="2062"/>
+        <source>1m Precision</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/qml/qgismobileapp.qml" line="2078"/>
+        <source>2.5m Precision</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/qml/qgismobileapp.qml" line="2094"/>
+        <source>5m Precision</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/qml/qgismobileapp.qml" line="2110"/>
+        <source>10m Precision</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/qml/qgismobileapp.qml" line="2128"/>
+        <source>Always Show Precise View</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/qml/qgismobileapp.qml" line="2215"/>
         <source>Center to Location</source>
         <translation>Centriraj na lokaciju</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2011"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2226"/>
         <source>Add Bookmark at Location</source>
         <translation>Dodaj oznaku na lokaciji</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2036"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2251"/>
         <source>Copy Location Coordinates</source>
         <translation>Kopiraj koordinate lokacije</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2522"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2737"/>
         <source>Signed out</source>
         <translation>Odjavljen/a</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2526"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2741"/>
         <source>Signed in</source>
         <translation>Prijavljen/a</translation>
     </message>
@@ -3321,32 +3447,32 @@ Otkažite da pokrenete minimalno skeniranje uređaja.</translation>
         <translation type="vanished">Postavi kao Odredište</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1902"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1952"/>
         <source>Navigation Options</source>
         <translation>Opcije Navigacije</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1918"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1968"/>
         <source>Clear Destination</source>
         <translation>Očisti Odredište</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1930"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2145"/>
         <source>Positioning Options</source>
         <translation>Opcije Pozicioniranja</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1956"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2171"/>
         <source>Enable Positioning</source>
         <translation>Omoguči Pozicioniranje</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1971"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2186"/>
         <source>Show Position Information</source>
         <translation>Prikaži informacije o poziciji</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1986"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2201"/>
         <source>Positioning Settings</source>
         <translation>Postavke Pozicioniranja</translation>
     </message>
@@ -3359,13 +3485,13 @@ Otkažite da pokrenete minimalno skeniranje uređaja.</translation>
         <translation type="vanished">Dodaj zabilješku na trenutnoj lokaciji</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2019"/>
-        <location filename="../src/qml/qgismobileapp.qml" line="2043"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2234"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2258"/>
         <source>Current location unknown</source>
         <translation>Trenutna lokacija nepoznata</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2023"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2238"/>
         <source>My location</source>
         <translation>Moja lokacija</translation>
     </message>
@@ -3374,32 +3500,32 @@ Otkažite da pokrenete minimalno skeniranje uređaja.</translation>
         <translation type="vanished">Kopiraj trenutnu lokaciju</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2050"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2265"/>
         <source>Accuracy</source>
         <translation>Točnost</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2053"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2268"/>
         <source>N/A</source>
         <translation>N/A</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2056"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2271"/>
         <source>Current location copied to clipboard</source>
         <translation>Trenutna lokacija kopirana u meduspremnik</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2094"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2309"/>
         <source>Current layer switched to the one holding the selected geometry.</source>
         <translation>Trenutni sloj promijenjen na onaj koji sadrži odabranu geometriju.</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2103"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2318"/>
         <source>Editing of multi geometry layer is not supported yet.</source>
         <translation>Uređivanje sloja sa višestrukom geometrijom još nije podržano.</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2219"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2434"/>
         <source>Loading %1</source>
         <translation>Učitavanje %1</translation>
     </message>
@@ -3408,7 +3534,7 @@ Otkažite da pokrenete minimalno skeniranje uređaja.</translation>
         <translation type="vanished">Odjavljen</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2524"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2739"/>
         <source>Connecting...</source>
         <translation>Povezivanje...</translation>
     </message>
@@ -3417,27 +3543,27 @@ Otkažite da pokrenete minimalno skeniranje uređaja.</translation>
         <translation type="vanished">Prijavljen</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2541"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2756"/>
         <source>Project %1 failed to download</source>
         <translation>Projekt %1 neuspješno preuzimanje</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2542"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2757"/>
         <source>Project %1 successfully downloaded, it&apos;s now available to open</source>
         <translation>Projekt %1 je uspješno preuzet, od sada je dostupan za otvaranje</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2547"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2762"/>
         <source>Changes failed to reach QFieldCloud: %1</source>
         <translation>Promjene nisu stigle do QFieldCloud: %1</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2551"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2766"/>
         <source>Changes successfully pushed to QFieldCloud</source>
         <translation>Promjene uspješno poslane na QFieldCloud</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2800"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="3015"/>
         <source>Press back again to close project and app</source>
         <translation>Pritisnite opet natrag za zatvaranje projekta i aplikacije</translation>
     </message>

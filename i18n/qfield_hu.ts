@@ -343,13 +343,13 @@
 <context>
     <name>DateTime</name>
     <message>
-        <location filename="../src/qml/editorwidgets/DateTime.qml" line="73"/>
-        <location filename="../src/qml/editorwidgets/DateTime.qml" line="170"/>
+        <location filename="../src/qml/editorwidgets/DateTime.qml" line="72"/>
+        <location filename="../src/qml/editorwidgets/DateTime.qml" line="169"/>
         <source>(no date)</source>
         <translation>(nincs dátum)</translation>
     </message>
     <message>
-        <location filename="../src/qml/editorwidgets/DateTime.qml" line="203"/>
+        <location filename="../src/qml/editorwidgets/DateTime.qml" line="202"/>
         <source>Date value set to today.</source>
         <translation>Dátum beállítás a mai napra.</translation>
     </message>
@@ -853,98 +853,103 @@ Az elem geometriákat összevonjuk a &apos;%1&apos; elembe, mely megőrzi az att
 <context>
     <name>LayerTreeItemProperties</name>
     <message>
-        <location filename="../src/qml/LayerTreeItemProperties.qml" line="35"/>
+        <location filename="../src/qml/LayerTreeItemProperties.qml" line="37"/>
         <source>Expand group</source>
         <translation>Csoport kiterjesztés</translation>
     </message>
     <message>
-        <location filename="../src/qml/LayerTreeItemProperties.qml" line="35"/>
-        <location filename="../src/qml/LayerTreeItemProperties.qml" line="131"/>
+        <location filename="../src/qml/LayerTreeItemProperties.qml" line="37"/>
+        <location filename="../src/qml/LayerTreeItemProperties.qml" line="135"/>
         <source>Expand legend item</source>
         <translation>Jelkulcs elem kiterjesztése</translation>
     </message>
     <message>
-        <location filename="../src/qml/LayerTreeItemProperties.qml" line="44"/>
+        <location filename="../src/qml/LayerTreeItemProperties.qml" line="46"/>
         <source>Stop tracking</source>
         <translation>Követés leállítása</translation>
     </message>
     <message>
-        <location filename="../src/qml/LayerTreeItemProperties.qml" line="45"/>
+        <location filename="../src/qml/LayerTreeItemProperties.qml" line="47"/>
         <source>Setup tracking</source>
         <translation>Követés beállítása</translation>
     </message>
     <message>
-        <location filename="../src/qml/LayerTreeItemProperties.qml" line="82"/>
+        <location filename="../src/qml/LayerTreeItemProperties.qml" line="86"/>
         <source>This layer is invalid. This might be due to a network issue, a missing file or a misconfiguration of the project.</source>
         <translation>Ez a réteg hibás. Ezt okozhatja hálózati hiba, hiányzó fájl vagy tévesen konfigurált projekt.</translation>
     </message>
     <message>
-        <location filename="../src/qml/LayerTreeItemProperties.qml" line="91"/>
+        <location filename="../src/qml/LayerTreeItemProperties.qml" line="95"/>
         <source>Show on map</source>
         <translation>Megjelenítés a térképen</translation>
     </message>
     <message>
-        <location filename="../src/qml/LayerTreeItemProperties.qml" line="112"/>
+        <location filename="../src/qml/LayerTreeItemProperties.qml" line="116"/>
         <source>Show labels</source>
         <translation>Címkék megjelenítése</translation>
     </message>
     <message>
-        <location filename="../src/qml/LayerTreeItemProperties.qml" line="147"/>
+        <location filename="../src/qml/LayerTreeItemProperties.qml" line="174"/>
+        <source>Opacity</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/qml/LayerTreeItemProperties.qml" line="192"/>
         <source>Zoom to group</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/qml/LayerTreeItemProperties.qml" line="149"/>
+        <location filename="../src/qml/LayerTreeItemProperties.qml" line="194"/>
         <source>Zoom to parent layer</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/qml/LayerTreeItemProperties.qml" line="150"/>
+        <location filename="../src/qml/LayerTreeItemProperties.qml" line="195"/>
         <source>Zoom to layer</source>
         <translation>Nagyítás a rétegre</translation>
     </message>
     <message>
-        <location filename="../src/qml/LayerTreeItemProperties.qml" line="166"/>
+        <location filename="../src/qml/LayerTreeItemProperties.qml" line="211"/>
         <source>Reload data</source>
         <translation>Adatok újra betöltése</translation>
     </message>
     <message>
-        <location filename="../src/qml/LayerTreeItemProperties.qml" line="174"/>
+        <location filename="../src/qml/LayerTreeItemProperties.qml" line="219"/>
         <source>Reload of layer %1 triggered</source>
         <translation>%1 réteg újratöltése bekövetkezett</translation>
     </message>
     <message>
-        <location filename="../src/qml/LayerTreeItemProperties.qml" line="182"/>
+        <location filename="../src/qml/LayerTreeItemProperties.qml" line="227"/>
         <source>Show features list</source>
         <translation>Elemlista megjelenítés</translation>
     </message>
     <message>
-        <location filename="../src/qml/LayerTreeItemProperties.qml" line="188"/>
+        <location filename="../src/qml/LayerTreeItemProperties.qml" line="233"/>
         <source>The layer has no features</source>
         <translation>Nincsenek elemek a rétegben</translation>
     </message>
     <message>
-        <location filename="../src/qml/LayerTreeItemProperties.qml" line="221"/>
+        <location filename="../src/qml/LayerTreeItemProperties.qml" line="266"/>
         <source>Track on layer %1 stopped</source>
         <translation>%1 rétegen a követés leállt</translation>
     </message>
     <message>
-        <location filename="../src/qml/LayerTreeItemProperties.qml" line="243"/>
+        <location filename="../src/qml/LayerTreeItemProperties.qml" line="288"/>
         <source>Read-Only Layer</source>
         <translation>Csak olvasható réteg</translation>
     </message>
     <message>
-        <location filename="../src/qml/LayerTreeItemProperties.qml" line="243"/>
+        <location filename="../src/qml/LayerTreeItemProperties.qml" line="288"/>
         <source>Geometry Locked Layer</source>
         <translation>Zárolt geometriájú réteg</translation>
     </message>
     <message>
-        <location filename="../src/qml/LayerTreeItemProperties.qml" line="250"/>
+        <location filename="../src/qml/LayerTreeItemProperties.qml" line="295"/>
         <source>This layer is configured as &quot;Read-Only&quot; which disables adding, deleting and editing features.</source>
         <translation>Ezt a réteget csak olvashatónak konfigurálták, mely tiltja az elemek hozzáadását, törlését és szerkesztését.</translation>
     </message>
     <message>
-        <location filename="../src/qml/LayerTreeItemProperties.qml" line="252"/>
+        <location filename="../src/qml/LayerTreeItemProperties.qml" line="297"/>
         <source>This layer is configured as &quot;Lock Geometries&quot; which disables adding and deleting features, as well as modifying the geometries of existing features.</source>
         <translation>Ezt  réteget zárolt geometriával konfigurálták, mely tiltja az elemek hozzáadását, törlését és szerkesztését valamint a létező elemek geometriájának módosítását.</translation>
     </message>
@@ -1247,8 +1252,8 @@ Az elem geometriákat összevonjuk a &apos;%1&apos; elembe, mely megőrzi az att
         <translation type="vanished">Lat.</translation>
     </message>
     <message>
-        <location filename="../src/qml/NavigationInformationView.qml" line="152"/>
-        <location filename="../src/qml/NavigationInformationView.qml" line="173"/>
+        <location filename="../src/qml/NavigationInformationView.qml" line="145"/>
+        <location filename="../src/qml/NavigationInformationView.qml" line="166"/>
         <source>X</source>
         <translation>X</translation>
     </message>
@@ -1257,41 +1262,40 @@ Az elem geometriákat összevonjuk a &apos;%1&apos; elembe, mely megőrzi az att
         <translation type="vanished">Lon.</translation>
     </message>
     <message>
-        <location filename="../src/qml/NavigationInformationView.qml" line="100"/>
         <source>centroid</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/qml/NavigationInformationView.qml" line="152"/>
-        <location filename="../src/qml/NavigationInformationView.qml" line="173"/>
+        <location filename="../src/qml/NavigationInformationView.qml" line="145"/>
+        <location filename="../src/qml/NavigationInformationView.qml" line="166"/>
         <source>Lon</source>
         <translation>Lon</translation>
     </message>
     <message>
-        <location filename="../src/qml/NavigationInformationView.qml" line="154"/>
-        <location filename="../src/qml/NavigationInformationView.qml" line="171"/>
+        <location filename="../src/qml/NavigationInformationView.qml" line="147"/>
+        <location filename="../src/qml/NavigationInformationView.qml" line="164"/>
         <source>Y</source>
         <translation>Y</translation>
     </message>
     <message>
-        <location filename="../src/qml/NavigationInformationView.qml" line="154"/>
-        <location filename="../src/qml/NavigationInformationView.qml" line="171"/>
+        <location filename="../src/qml/NavigationInformationView.qml" line="147"/>
+        <location filename="../src/qml/NavigationInformationView.qml" line="164"/>
         <source>Lat</source>
         <translation>Lat</translation>
     </message>
     <message>
-        <location filename="../src/qml/NavigationInformationView.qml" line="189"/>
+        <location filename="../src/qml/NavigationInformationView.qml" line="182"/>
         <source>Dist.</source>
         <translation>távolság</translation>
     </message>
     <message>
-        <location filename="../src/qml/NavigationInformationView.qml" line="192"/>
-        <location filename="../src/qml/NavigationInformationView.qml" line="210"/>
+        <location filename="../src/qml/NavigationInformationView.qml" line="185"/>
+        <location filename="../src/qml/NavigationInformationView.qml" line="203"/>
         <source>N/A</source>
         <translation>N/A</translation>
     </message>
     <message>
-        <location filename="../src/qml/NavigationInformationView.qml" line="207"/>
+        <location filename="../src/qml/NavigationInformationView.qml" line="200"/>
         <source>Bearing</source>
         <translation>Raktár</translation>
     </message>
@@ -1393,93 +1397,169 @@ Az elem geometriákat összevonjuk a &apos;%1&apos; elembe, mely megőrzi az att
         <translation type="vanished">Lat.</translation>
     </message>
     <message>
-        <location filename="../src/qml/PositionInformationView.qml" line="54"/>
-        <location filename="../src/qml/PositionInformationView.qml" line="58"/>
-        <location filename="../src/qml/PositionInformationView.qml" line="77"/>
-        <location filename="../src/qml/PositionInformationView.qml" line="81"/>
-        <location filename="../src/qml/PositionInformationView.qml" line="124"/>
-        <location filename="../src/qml/PositionInformationView.qml" line="139"/>
-        <location filename="../src/qml/PositionInformationView.qml" line="154"/>
         <source>N/A</source>
-        <translation>N/A</translation>
+        <translation type="vanished">N/A</translation>
     </message>
     <message>
-        <location filename="../src/qml/PositionInformationView.qml" line="51"/>
-        <location filename="../src/qml/PositionInformationView.qml" line="78"/>
         <source>X</source>
-        <translation>X</translation>
+        <translation type="vanished">X</translation>
     </message>
     <message>
         <source>Lon.</source>
         <translation type="vanished">Lon.</translation>
     </message>
     <message>
-        <location filename="../src/qml/PositionInformationView.qml" line="51"/>
-        <location filename="../src/qml/PositionInformationView.qml" line="78"/>
+        <source>Lon</source>
+        <translation type="vanished">Lon</translation>
+    </message>
+    <message>
+        <source>Y</source>
+        <translation type="vanished">Y</translation>
+    </message>
+    <message>
+        <source>Lat</source>
+        <translation type="vanished">Lat</translation>
+    </message>
+    <message>
+        <source>Altitude</source>
+        <translation type="vanished">Magasság</translation>
+    </message>
+    <message>
+        <source>Speed</source>
+        <translation type="vanished">Sebesség</translation>
+    </message>
+    <message>
+        <source>H. Accuracy</source>
+        <translation type="vanished">Hz. pontosság</translation>
+    </message>
+    <message>
+        <source>V. Accuracy</source>
+        <translation type="vanished">V. pontosság</translation>
+    </message>
+    <message>
+        <source>PDOP</source>
+        <translation type="vanished">PDOP</translation>
+    </message>
+    <message>
+        <source>HDOP</source>
+        <translation type="vanished">HDOP</translation>
+    </message>
+    <message>
+        <source>VDOP</source>
+        <translation type="vanished">VDOP</translation>
+    </message>
+    <message>
+        <source>Valid</source>
+        <translation type="vanished">Hibátlan</translation>
+    </message>
+    <message>
+        <source>Fix</source>
+        <translation type="vanished">Fix</translation>
+    </message>
+    <message>
+        <source>Quality</source>
+        <translation type="vanished">Minőség</translation>
+    </message>
+</context>
+<context>
+    <name>PositioningInformationView</name>
+    <message>
+        <location filename="../src/qml/PositioningInformationView.qml" line="51"/>
+        <location filename="../src/qml/PositioningInformationView.qml" line="78"/>
         <source>Lon</source>
         <translation>Lon</translation>
     </message>
     <message>
-        <location filename="../src/qml/PositionInformationView.qml" line="55"/>
-        <location filename="../src/qml/PositionInformationView.qml" line="74"/>
-        <source>Y</source>
-        <translation>Y</translation>
+        <location filename="../src/qml/PositioningInformationView.qml" line="51"/>
+        <location filename="../src/qml/PositioningInformationView.qml" line="78"/>
+        <source>X</source>
+        <translation>X</translation>
     </message>
     <message>
-        <location filename="../src/qml/PositionInformationView.qml" line="55"/>
-        <location filename="../src/qml/PositionInformationView.qml" line="74"/>
+        <location filename="../src/qml/PositioningInformationView.qml" line="54"/>
+        <location filename="../src/qml/PositioningInformationView.qml" line="58"/>
+        <location filename="../src/qml/PositioningInformationView.qml" line="77"/>
+        <location filename="../src/qml/PositioningInformationView.qml" line="81"/>
+        <location filename="../src/qml/PositioningInformationView.qml" line="124"/>
+        <location filename="../src/qml/PositioningInformationView.qml" line="139"/>
+        <location filename="../src/qml/PositioningInformationView.qml" line="154"/>
+        <source>N/A</source>
+        <translation>N/A</translation>
+    </message>
+    <message>
+        <location filename="../src/qml/PositioningInformationView.qml" line="55"/>
+        <location filename="../src/qml/PositioningInformationView.qml" line="74"/>
         <source>Lat</source>
         <translation>Lat</translation>
     </message>
     <message>
-        <location filename="../src/qml/PositionInformationView.qml" line="97"/>
+        <location filename="../src/qml/PositioningInformationView.qml" line="55"/>
+        <location filename="../src/qml/PositioningInformationView.qml" line="74"/>
+        <source>Y</source>
+        <translation>Y</translation>
+    </message>
+    <message>
+        <location filename="../src/qml/PositioningInformationView.qml" line="97"/>
         <source>Altitude</source>
         <translation>Magasság</translation>
     </message>
     <message>
-        <location filename="../src/qml/PositionInformationView.qml" line="124"/>
+        <location filename="../src/qml/PositioningInformationView.qml" line="124"/>
         <source>Speed</source>
         <translation>Sebesség</translation>
     </message>
     <message>
-        <location filename="../src/qml/PositionInformationView.qml" line="139"/>
+        <location filename="../src/qml/PositioningInformationView.qml" line="139"/>
         <source>H. Accuracy</source>
         <translation>Hz. pontosság</translation>
     </message>
     <message>
-        <location filename="../src/qml/PositionInformationView.qml" line="154"/>
+        <location filename="../src/qml/PositioningInformationView.qml" line="154"/>
         <source>V. Accuracy</source>
         <translation>V. pontosság</translation>
     </message>
     <message>
-        <location filename="../src/qml/PositionInformationView.qml" line="170"/>
+        <location filename="../src/qml/PositioningInformationView.qml" line="170"/>
         <source>PDOP</source>
         <translation>PDOP</translation>
     </message>
     <message>
-        <location filename="../src/qml/PositionInformationView.qml" line="186"/>
+        <location filename="../src/qml/PositioningInformationView.qml" line="186"/>
         <source>HDOP</source>
         <translation>HDOP</translation>
     </message>
     <message>
-        <location filename="../src/qml/PositionInformationView.qml" line="202"/>
+        <location filename="../src/qml/PositioningInformationView.qml" line="202"/>
         <source>VDOP</source>
         <translation>VDOP</translation>
     </message>
     <message>
-        <location filename="../src/qml/PositionInformationView.qml" line="218"/>
+        <location filename="../src/qml/PositioningInformationView.qml" line="218"/>
         <source>Valid</source>
         <translation>Hibátlan</translation>
     </message>
     <message>
-        <location filename="../src/qml/PositionInformationView.qml" line="234"/>
+        <location filename="../src/qml/PositioningInformationView.qml" line="234"/>
         <source>Fix</source>
         <translation>Fix</translation>
     </message>
     <message>
-        <location filename="../src/qml/PositionInformationView.qml" line="250"/>
+        <location filename="../src/qml/PositioningInformationView.qml" line="250"/>
         <source>Quality</source>
         <translation>Minőség</translation>
+    </message>
+</context>
+<context>
+    <name>PositioningPreciseView</name>
+    <message>
+        <location filename="../src/qml/PositioningPreciseView.qml" line="374"/>
+        <source>Dist.</source>
+        <translation>távolság</translation>
+    </message>
+    <message>
+        <location filename="../src/qml/PositioningPreciseView.qml" line="398"/>
+        <source>Positioning accuracy too low for this precision level</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -2636,6 +2716,11 @@ Cancel to make a minimal device scan instead.</source>
         <source>averaged</source>
         <translation type="unfinished"/>
     </message>
+    <message>
+        <location filename="../src/core/navigation.cpp" line="222"/>
+        <source>centroid</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>QgisMobileapp</name>
@@ -3035,121 +3120,121 @@ Cancel to make a minimal device scan instead.</source>
 <context>
     <name>qgismobileapp</name>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="142"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="143"/>
         <source>You are now in browse mode</source>
         <translation>Tallózó módban van</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="148"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="149"/>
         <source>You are now in digitize mode on layer %1</source>
         <translation>Digitalizáló módban van a %1 rétegen</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="152"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="153"/>
         <source>You are now in digitize mode</source>
         <translation>Digitalizáló módban van</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="156"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="157"/>
         <source>You are now in measure mode</source>
         <translation>Mérés módban van</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="687"/>
-        <location filename="../src/qml/qgismobileapp.qml" line="695"/>
-        <location filename="../src/qml/qgismobileapp.qml" line="1805"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="718"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="726"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1855"/>
         <source>Lon</source>
         <translation>Lon</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="689"/>
-        <location filename="../src/qml/qgismobileapp.qml" line="693"/>
-        <location filename="../src/qml/qgismobileapp.qml" line="1807"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="720"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="724"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1857"/>
         <source>Lat</source>
         <translation>Lat</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="707"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="738"/>
         <source>Segment</source>
         <translation>Szegmens</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="714"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="745"/>
         <source>Perimeter</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="719"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="750"/>
         <source>Length</source>
         <translation>Hossz</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="725"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="756"/>
         <source>Area</source>
         <translation>Terület</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="962"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="993"/>
         <source>Close measure tool</source>
         <translation>Mérőeszköz bezárása</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="969"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1000"/>
         <source>Stop editing</source>
         <translation>Szerkesztés befejezése</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="976"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1007"/>
         <source>Cancel addition</source>
         <translation>Hozzáadás törlése</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1023"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1054"/>
         <source>Topological editing turned on</source>
         <translation>Topologikus szerkesztést bekapcsoltuk</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1023"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1054"/>
         <source>Topological editing turned off</source>
         <translation>Topologikus szerkesztést kikapcsoltuk</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1071"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1102"/>
         <source>Freehand digitizing turned on</source>
         <translation>Szabadkézi digitalizálás bekapcsolva</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1071"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1102"/>
         <source>Freehand digitizing turned off</source>
         <translation>Szabadkézi digitalizálás kikapcsolva</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1168"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1199"/>
         <source>Coordinate cursor now locked to position</source>
         <translation>A koordinátához tartozó kurzor zárolt a pozíciónál</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1178"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1209"/>
         <source>Coordinate cursor unlocked</source>
         <translation>A koordináta kurzor zárolása feloldva</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1198"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1229"/>
         <source>Received position</source>
         <translation>Kapott pozíció</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1200"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1231"/>
         <source>Searching for position</source>
         <translation>Pozíció keresés</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1247"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1278"/>
         <source>Canvas follows location</source>
         <translation>A térkép követi a pozíciót</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1256"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1287"/>
         <source>Waiting for location</source>
         <translation>Várok a pozícióra</translation>
     </message>
@@ -3162,49 +3247,49 @@ Cancel to make a minimal device scan instead.</source>
         <translation type="vanished">A helymeghatározás kikapcsolva</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1343"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1374"/>
         <source>Canvas stopped following location</source>
         <translation>A térkép befejezte a pozíció követést</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1487"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1518"/>
         <source>Failed to create feature!</source>
         <translation>Nem sikerült az elemet létrehozni!</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1491"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1522"/>
         <source>Failed to save feature!</source>
         <translation>Nem sikerült az elemet menteni!</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1551"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1582"/>
         <source>Main Menu</source>
         <translation>Főmenü</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1565"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1596"/>
         <source>Measure Tool</source>
         <translation>Mérőeszköz</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1580"/>
-        <location filename="../src/qml/qgismobileapp.qml" line="1712"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1611"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1762"/>
         <source>Print to PDF</source>
         <translation>Nyomtatás PDF-be</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1594"/>
-        <location filename="../src/qml/qgismobileapp.qml" line="1752"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1644"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1802"/>
         <source>Printing to PDF</source>
         <translation>Nyomtatás PDF-be</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1611"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1661"/>
         <source>Go to Home Screen</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1627"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1677"/>
         <source>Open Project Folder</source>
         <translation type="unfinished"/>
     </message>
@@ -3213,47 +3298,47 @@ Cancel to make a minimal device scan instead.</source>
         <translation type="vanished">Projekt megnyitása</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1639"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1689"/>
         <source>Settings</source>
         <translation>Beállítások</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1653"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1703"/>
         <source>Message Log</source>
         <translation>Üzenet napló</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1667"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1717"/>
         <source>About QField</source>
         <translation>QField névjegy</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1728"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1778"/>
         <source>Select template below</source>
         <translation>Válasszon sablont lent</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1778"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1828"/>
         <source>Activating positioning service</source>
         <translation>A pozíciós szolgáltatás aktiválása</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1781"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1831"/>
         <source>QField has no permissions to use positioning.</source>
         <translation>A QFieldnek nincs joga a pozicionálás használatára.</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1792"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1842"/>
         <source>Map Canvas Options</source>
         <translation>Canvas térkép lehetőségek</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1848"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1898"/>
         <source>Add Bookmark</source>
         <translation>Könyvjelző hozzáadása</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1869"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1919"/>
         <source>Set as Destination</source>
         <translation>Beállítás célként</translation>
     </message>
@@ -3262,7 +3347,7 @@ Cancel to make a minimal device scan instead.</source>
         <translation type="vanished">Könyvjelző hozzáadása a Koordinátákhoz</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1855"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1905"/>
         <source>Untitled bookmark</source>
         <translation>Névtelen könyvjelző</translation>
     </message>
@@ -3271,7 +3356,7 @@ Cancel to make a minimal device scan instead.</source>
         <translation type="vanished">Állítsa be a koordinátákat célként</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1882"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1932"/>
         <source>Copy Coordinates</source>
         <translation>Koordináták másolása</translation>
     </message>
@@ -3284,32 +3369,73 @@ Cancel to make a minimal device scan instead.</source>
         <translation type="vanished">Y</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1895"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1945"/>
         <source>Coordinates copied to clipboard</source>
         <translation>A koordináták a vágólapra másolva</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2000"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1982"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2015"/>
+        <source>Precise View Settings</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/qml/qgismobileapp.qml" line="2030"/>
+        <source>0.25m Precision</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/qml/qgismobileapp.qml" line="2046"/>
+        <source>0.5m Precision</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/qml/qgismobileapp.qml" line="2062"/>
+        <source>1m Precision</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/qml/qgismobileapp.qml" line="2078"/>
+        <source>2.5m Precision</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/qml/qgismobileapp.qml" line="2094"/>
+        <source>5m Precision</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/qml/qgismobileapp.qml" line="2110"/>
+        <source>10m Precision</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/qml/qgismobileapp.qml" line="2128"/>
+        <source>Always Show Precise View</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/qml/qgismobileapp.qml" line="2215"/>
         <source>Center to Location</source>
         <translation>köpontosítás az elhelyeszkedésre</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2011"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2226"/>
         <source>Add Bookmark at Location</source>
         <translation>Könyvjelző hozzáadása a helyhez</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2036"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2251"/>
         <source>Copy Location Coordinates</source>
         <translation>Helykoordináták másolása</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2522"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2737"/>
         <source>Signed out</source>
         <translation>Kijelentkezve</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2526"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2741"/>
         <source>Signed in</source>
         <translation>Bejelentkezve</translation>
     </message>
@@ -3318,32 +3444,32 @@ Cancel to make a minimal device scan instead.</source>
         <translation type="vanished">Beállítás célként</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1902"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1952"/>
         <source>Navigation Options</source>
         <translation>Navigációs beállítások</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1918"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1968"/>
         <source>Clear Destination</source>
         <translation>Cél törlése</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1930"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2145"/>
         <source>Positioning Options</source>
         <translation>Pozicionálási beállítások</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1956"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2171"/>
         <source>Enable Positioning</source>
         <translation>Pozicionálás engedélyezése</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1971"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2186"/>
         <source>Show Position Information</source>
         <translation>Pozíció megjelenítés</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1986"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2201"/>
         <source>Positioning Settings</source>
         <translation>Helymeghatározás beállítások</translation>
     </message>
@@ -3356,13 +3482,13 @@ Cancel to make a minimal device scan instead.</source>
         <translation type="vanished">Könyvjelző hozzáadása az aktuális helyhez</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2019"/>
-        <location filename="../src/qml/qgismobileapp.qml" line="2043"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2234"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2258"/>
         <source>Current location unknown</source>
         <translation>Jelenlegi helye ismeretlen</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2023"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2238"/>
         <source>My location</source>
         <translation>Tartózkodási helyem</translation>
     </message>
@@ -3371,32 +3497,32 @@ Cancel to make a minimal device scan instead.</source>
         <translation type="vanished">Jelenlegi hely másolása</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2050"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2265"/>
         <source>Accuracy</source>
         <translation>Pontosság</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2053"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2268"/>
         <source>N/A</source>
         <translation>N/A</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2056"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2271"/>
         <source>Current location copied to clipboard</source>
         <translation>Az aktuális hely a vágólapra másolva</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2094"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2309"/>
         <source>Current layer switched to the one holding the selected geometry.</source>
         <translation>Az aktuális réteget átváltottuk a szelektált geometriát tartalmazó rétegre.</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2103"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2318"/>
         <source>Editing of multi geometry layer is not supported yet.</source>
         <translation>Multi geometria szerkesztése még nem támogatott.</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2219"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2434"/>
         <source>Loading %1</source>
         <translation>%1 betöltése</translation>
     </message>
@@ -3405,7 +3531,7 @@ Cancel to make a minimal device scan instead.</source>
         <translation type="vanished">Kijelentkezett</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2524"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2739"/>
         <source>Connecting...</source>
         <translation>Kapcsolódás...</translation>
     </message>
@@ -3414,27 +3540,27 @@ Cancel to make a minimal device scan instead.</source>
         <translation type="vanished">Bejelentkezett</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2541"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2756"/>
         <source>Project %1 failed to download</source>
         <translation>%1 projekt sikertelen letöltés</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2542"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2757"/>
         <source>Project %1 successfully downloaded, it&apos;s now available to open</source>
         <translation>%1 projektet sikeresen letöltöttem, most megnyitható</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2547"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2762"/>
         <source>Changes failed to reach QFieldCloud: %1</source>
         <translation>A módosítások nem fértek hozzá a QFieldCloudhoz: %1</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2551"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2766"/>
         <source>Changes successfully pushed to QFieldCloud</source>
         <translation>A módosítások sikeresen átküldve a QFieldCloudba</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2800"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="3015"/>
         <source>Press back again to close project and app</source>
         <translation>Nyomj visszát a projekt és az alkalmazás lezárásához</translation>
     </message>
