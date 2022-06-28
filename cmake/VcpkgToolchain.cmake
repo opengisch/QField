@@ -119,4 +119,4 @@ endif()
 
 # Copies DLLs built by vcpkg when an install() command is run. Probably only
 # works on Windows.
-set(X_VCPKG_APPLOCAL_DEPS_INSTALL ON)
+set(X_VCPKG_APPLOCAL_DEPS_INSTALL ON CACHE BOOL "Copy dependency DLLs on install")
