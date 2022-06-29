@@ -894,7 +894,7 @@ Geometrija elemenata će se spojiti u element &apos;%1&apos;, koji će zadržati
     <message>
         <location filename="../src/qml/LayerTreeItemProperties.qml" line="174"/>
         <source>Opacity</source>
-        <translation type="unfinished"/>
+        <translation>Neprozirnost</translation>
     </message>
     <message>
         <location filename="../src/qml/LayerTreeItemProperties.qml" line="192"/>
@@ -1266,7 +1266,7 @@ Geometrija elemenata će se spojiti u element &apos;%1&apos;, koji će zadržati
     </message>
     <message>
         <source>centroid</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">centroid</translation>
     </message>
     <message>
         <location filename="../src/qml/NavigationInformationView.qml" line="145"/>
@@ -1562,7 +1562,7 @@ Geometrija elemenata će se spojiti u element &apos;%1&apos;, koji će zadržati
     <message>
         <location filename="../src/qml/PositioningPreciseView.qml" line="398"/>
         <source>Positioning accuracy too low for this precision level</source>
-        <translation type="unfinished"/>
+        <translation>Točnost pozicioniranja je preniska za ovu razinu preciznosti</translation>
     </message>
 </context>
 <context>
@@ -2722,7 +2722,7 @@ Otkažite da pokrenete minimalno skeniranje uređaja.</translation>
     <message>
         <location filename="../src/core/navigation.cpp" line="222"/>
         <source>centroid</source>
-        <translation type="unfinished"/>
+        <translation>centroid</translation>
     </message>
 </context>
 <context>
@@ -3377,45 +3377,39 @@ Otkažite da pokrenete minimalno skeniranje uređaja.</translation>
         <translation>Koordinate kopirane u međuspremnik</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1982"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1968"/>
         <location filename="../src/qml/qgismobileapp.qml" line="2015"/>
         <source>Precise View Settings</source>
-        <translation type="unfinished"/>
+        <translation>Postavke vidljivosti preciznosti</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2030"/>
         <source>0.25m Precision</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">0.25 m preciznost</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2046"/>
         <source>0.5m Precision</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">0.5 m preciznost</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2062"/>
         <source>1m Precision</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">1 m preciznost</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2078"/>
         <source>2.5m Precision</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">2.5 m preciznost</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2094"/>
         <source>5m Precision</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">5 m preciznost</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2110"/>
         <source>10m Precision</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">10 m preciznost</translation>
     </message>
     <message>
         <location filename="../src/qml/qgismobileapp.qml" line="2128"/>
         <source>Always Show Precise View</source>
-        <translation type="unfinished"/>
+        <translation>Uvijek pokaži prikaz preciznosti</translation>
     </message>
     <message>
         <location filename="../src/qml/qgismobileapp.qml" line="2215"/>
@@ -3452,9 +3446,19 @@ Otkažite da pokrenete minimalno skeniranje uređaja.</translation>
         <translation>Opcije Navigacije</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1968"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2002"/>
         <source>Clear Destination</source>
         <translation>Očisti Odredište</translation>
+    </message>
+    <message>
+        <location filename="../src/qml/qgismobileapp.qml" line="2030"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2046"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2062"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2078"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2094"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2110"/>
+        <source>%1 Precision</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/qml/qgismobileapp.qml" line="2145"/>

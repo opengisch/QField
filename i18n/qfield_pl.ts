@@ -3371,40 +3371,34 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
         <translation>Skopiowano współrzędne do schowka</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1982"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1968"/>
         <location filename="../src/qml/qgismobileapp.qml" line="2015"/>
         <source>Precise View Settings</source>
         <translation>Ustawienia Widoku precyzyjnego</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2030"/>
         <source>0.25m Precision</source>
-        <translation>Dokładność 0,25 m</translation>
+        <translation type="vanished">Dokładność 0,25 m</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2046"/>
         <source>0.5m Precision</source>
-        <translation>Dokładność 0,5 m</translation>
+        <translation type="vanished">Dokładność 0,5 m</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2062"/>
         <source>1m Precision</source>
-        <translation>Dokładność 1 m</translation>
+        <translation type="vanished">Dokładność 1 m</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2078"/>
         <source>2.5m Precision</source>
-        <translation>Dokładność 2,5 m</translation>
+        <translation type="vanished">Dokładność 2,5 m</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2094"/>
         <source>5m Precision</source>
-        <translation>Dokładność 5 m</translation>
+        <translation type="vanished">Dokładność 5 m</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2110"/>
         <source>10m Precision</source>
-        <translation>Dokładność 10 m</translation>
+        <translation type="vanished">Dokładność 10 m</translation>
     </message>
     <message>
         <location filename="../src/qml/qgismobileapp.qml" line="2128"/>
@@ -3446,9 +3440,19 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
         <translation>Opcje nawigacji</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1968"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2002"/>
         <source>Clear Destination</source>
         <translation>Wyczyść cel</translation>
+    </message>
+    <message>
+        <location filename="../src/qml/qgismobileapp.qml" line="2030"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2046"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2062"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2078"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2094"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2110"/>
+        <source>%1 Precision</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/qml/qgismobileapp.qml" line="2145"/>

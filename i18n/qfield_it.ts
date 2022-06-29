@@ -3384,38 +3384,32 @@ Annullare per eseguire una scansione veloce del dispositivo.</translation>
         <translation>Coordinate copiate negli appunti</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1982"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1968"/>
         <location filename="../src/qml/qgismobileapp.qml" line="2015"/>
         <source>Precise View Settings</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2030"/>
         <source>0.25m Precision</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2046"/>
         <source>0.5m Precision</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2062"/>
         <source>1m Precision</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2078"/>
         <source>2.5m Precision</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2094"/>
         <source>5m Precision</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2110"/>
         <source>10m Precision</source>
         <translation type="unfinished"/>
     </message>
@@ -3459,9 +3453,19 @@ Annullare per eseguire una scansione veloce del dispositivo.</translation>
         <translation>Opzioni di Navigazione</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1968"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2002"/>
         <source>Clear Destination</source>
         <translation>Cancella destinazione</translation>
+    </message>
+    <message>
+        <location filename="../src/qml/qgismobileapp.qml" line="2030"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2046"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2062"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2078"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2094"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2110"/>
+        <source>%1 Precision</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/qml/qgismobileapp.qml" line="2145"/>
