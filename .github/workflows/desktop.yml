@@ -161,6 +161,8 @@ jobs:
           # Hide terminal for release builds
           if [ -z "${{ env.CI_TAG }}" ]; then
             echo "EXTRA_CMAKE_ARGS=-DCMAKE_WIN32_EXECUTABLE=OFF" >> $GITHUB_ENV
+          else
+            echo "EXTRA_CMAKE_ARGS=-DCMAKE_WIN32_EXECUTABLE=ON" >> $GITHUB_ENV
           fi
 
       - name: Prepare osx build env
