@@ -122,7 +122,7 @@ void QgsQuickMapSettings::setCenterToLayer( QgsMapLayer *layer, bool shouldZoom 
   }
 }
 
-void QgsQuickMapSettings::setExtentFromPoints( const QVariantList &points )
+void QgsQuickMapSettings::setExtentFromPoints( const QVariantList &points, const double &minimumScale )
 {
   if ( points.isEmpty() )
   {
@@ -159,6 +159,18 @@ void QgsQuickMapSettings::setExtentFromPoints( const QVariantList &points )
     unitPerPoint = extent.height() / size.height();
   }
   buffer = 80 * unitPerPoint;
+
+  if ( minimumScale > 0.0 )
+  {
+    QgsScaleCalculator calc;
+    calc.setMapUnits( mMapSettings.destinationCrs().mapUnits() );
+    calc.setDpi( outputDpi() );
+    double scale = calc.calculate( extent, outputSize().width() );
+    if ( scale < minimumScale )
+    {
+      extent.scale( minimumScale / scale );
+    }
+  }
 
   setExtent( extent.buffered( buffer ) );
 }

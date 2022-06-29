@@ -163,7 +163,7 @@ class QFIELD_CORE_EXPORT QgsQuickMapSettings : public QObject
     Q_INVOKABLE void setCenterToLayer( QgsMapLayer *layer, bool shouldZoom = true );
 
     //! Move current map extent to center around the list of \a points provided
-    Q_INVOKABLE void setExtentFromPoints( const QVariantList &points );
+    Q_INVOKABLE void setExtentFromPoints( const QVariantList &points, const double &minimumScale = 0 );
 
     //! \copydoc QgsQuickMapSettings::mapUnitsPerPoint
     double mapUnitsPerPoint() const;
