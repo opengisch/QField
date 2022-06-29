@@ -82,7 +82,7 @@ QgsRectangle QgsQuickMapSettings::extent() const
 
 void QgsQuickMapSettings::setExtent( const QgsRectangle &extent )
 {
-  if ( mMapSettings.extent() == extent )
+  if ( mMapSettings.extent() == extent || extent.isNull() )
     return;
 
   mMapSettings.setExtent( extent );
@@ -96,6 +96,9 @@ QgsPoint QgsQuickMapSettings::center() const
 
 void QgsQuickMapSettings::setCenter( const QgsPoint &center )
 {
+  if ( center.isEmpty() )
+    return;
+
   QgsVector delta = QgsPointXY( center ) - mMapSettings.extent().center();
 
   QgsRectangle e = mMapSettings.extent();
@@ -125,9 +128,7 @@ void QgsQuickMapSettings::setCenterToLayer( QgsMapLayer *layer, bool shouldZoom 
 void QgsQuickMapSettings::setExtentFromPoints( const QVariantList &points, const double &minimumScale )
 {
   if ( points.isEmpty() )
-  {
     return;
-  }
 
   if ( points.size() == 1 )
   {
