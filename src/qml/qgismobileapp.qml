@@ -1298,13 +1298,13 @@ ApplicationWindow {
         gnssMenu.popup(locationToolbar.x + locationToolbar.width - gnssMenu.width, locationToolbar.y + locationToolbar.height - gnssMenu.height)
       }
 
-      property int followLocationMaxScale: 10
+      property int followLocationMinScale: 125
       property int followLocationMinMargin: 40
       property int followLocationScreenFraction: settings ? settings.value( "/QField/Positioning/FollowScreenFraction", 5 ) : 5
       function followLocation(forceRecenter) {
         var screenLocation = mapCanvas.mapSettings.coordinateToScreen(positionSource.projectedPosition);
         if (navigation.isActive && navigationButton.followIncludeDestination) {
-          if (mapCanvas.mapSettings.scale > followLocationMaxScale) {
+          if (mapCanvas.mapSettings.scale > followLocationMinScale) {
             var screenDestination = mapCanvas.mapSettings.coordinateToScreen(navigation.destination);
             if (forceRecenter
                 || screenDestination.x < followLocationMinMargin
@@ -1319,7 +1319,7 @@ ApplicationWindow {
                     && Math.abs(screenDestination.y - screenLocation.y) < mainWindow.height / 3)) {
               gnssButton.followActiveSkipExtentChanged = true;
               var points = [positionSource.projectedPosition, navigation.destination];
-              mapCanvas.mapSettings.setExtentFromPoints(points)
+              mapCanvas.mapSettings.setExtentFromPoints(points, followLocationMinScale)
             }
           }
         } else {
