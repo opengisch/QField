@@ -262,6 +262,13 @@ if(WITH_VCPKG AND NOT ANDROID)
     )
     install(DIRECTORY "${VCPKG_BASE_DIR}/plugins/mediaservice/" DESTINATION "bin/plugins/mediaservice")
   endif()
+  if(EXISTS ${VCPKG_BASE_DIR}/qml/QtCharts)
+    add_custom_command(TARGET deploy
+      POST_BUILD
+      COMMAND ${CMAKE_COMMAND} -E copy_directory "${VCPKG_BASE_DIR}/qml/QtCharts" "${CMAKE_BINARY_DIR}/output/bin/qml/QtCharts"
+    )
+    install(DIRECTORY "${VCPKG_BASE_DIR}/qml/QtCharts/" DESTINATION "bin/qml/QtCharts")
+  endif()
 
   add_dependencies(qfield deploy)
 endif()
