@@ -96,7 +96,7 @@ Item {
       onSingleTapped: {
         if (eventPoint.event.button == Qt.RightButton)
         {
-          mapArea.rightClicked(point.position, "style")
+          mapArea.rightClicked(point.position, "stylus")
         } else {
           mapArea.clicked(point.position, "stylus")
         }
