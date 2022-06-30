@@ -241,8 +241,8 @@ ApplicationWindow {
     HoverHandler {
         id: hoverHandler
         enabled: !qfieldSettings.mouseAsTouchScreen
-                 && !gnssLockButton.linkActive
                  && !parent.isBeingTouched
+                 && !(positionSource.active && positioningSettings.positioningCoordinateLock)
                  && (!digitizingToolbar.rubberbandModel || !digitizingToolbar.rubberbandModel.frozen)
         acceptedDevices: PointerDevice.Stylus | PointerDevice.Mouse
         grabPermissions: PointerHandler.TakeOverForbidden
@@ -292,6 +292,7 @@ ApplicationWindow {
     HoverHandler {
         id: dummyHoverHandler
         enabled: !qfieldSettings.mouseAsTouchScreen
+                 && !(positionSource.active && positioningSettings.positioningCoordinateLock)
         acceptedDevices: PointerDevice.TouchScreen
         grabPermissions: PointerHandler.TakeOverForbidden
 
@@ -348,10 +349,10 @@ ApplicationWindow {
 
           if ( type === "stylus" ) {
               // Check if geometry editor is taking over
-              if ( !gnssLockButton.linkActive && geometryEditorsToolbar.canvasClicked(point) )
+              if ( !(positionSource.active && positioningSettings.positioningCoordinateLock) && geometryEditorsToolbar.canvasClicked(point) )
                   return;
 
-              if ( !gnssLockButton.linkActive && (!featureForm.visible || digitizingToolbar.geometryRequested ) &&
+              if ( !(positionSource.active && positioningSettings.positioningCoordinateLock) && (!featureForm.visible || digitizingToolbar.geometryRequested ) &&
                    ( ( stateMachine.state === "digitize" && digitizingFeature.currentLayer ) || stateMachine.state === 'measure' ) ) {
                   if ( Number( currentRubberband.model.geometryType ) === QgsWkbTypes.PointGeometry ||
                           Number( currentRubberband.model.geometryType ) === QgsWkbTypes.NullGeometry ) {
@@ -1058,7 +1059,7 @@ ApplicationWindow {
     QfToolButton {
       id: freehandButton
       round: true
-      visible: hoverHandler.hovered && !gnssLockButton.linkActive && stateMachine.state === "digitize"
+      visible: hoverHandler.hovered && !(positionSource.active && positioningSettings.positioningCoordinateLock) && stateMachine.state === "digitize"
                && ((digitizingToolbar.geometryRequested && digitizingToolbar.geometryRequestedLayer && digitizingToolbar.geometryRequestedLayer.isValid &&
                    (digitizingToolbar.geometryRequestedLayer.geometryType() === QgsWkbTypes.PolygonGeometry
                     || digitizingToolbar.geometryRequestedLayer.geometryType() === QgsWkbTypes.LineGeometry))
