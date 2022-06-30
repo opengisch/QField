@@ -35,6 +35,9 @@ Item {
   //! This signal is emitted independently of double tap / click
   signal clicked(var point, var type)
 
+  //! This signal is emitted when a right mouse/stylus click occurs
+  signal rightClicked(var point, var type)
+
   //! This signal is only emitted if there is no double tap/click coming after a short delay
   signal confirmedClicked(var point)
 
@@ -87,10 +90,16 @@ Item {
     TapHandler {
       enabled: !mouseAsTouchScreen
       acceptedDevices: PointerDevice.AllDevices & ~PointerDevice.TouchScreen
+      acceptedButtons: Qt.LeftButton | Qt.RightButton
       property bool longPressActive: false
 
       onSingleTapped: {
-        mapArea.clicked(point.position, "stylus")
+        if (eventPoint.event.button == Qt.RightButton)
+        {
+          mapArea.rightClicked(point.position, "style")
+        } else {
+          mapArea.clicked(point.position, "stylus")
+        }
       }
 
       onLongPressed: {
@@ -109,6 +118,7 @@ Item {
     TapHandler {
         id: tapHandler
         acceptedDevices: mouseAsTouchScreen ? PointerDevice.AllDevices : PointerDevice.TouchScreen
+        acceptedButtons: Qt.LeftButton | Qt.RightButton
         property bool longPressActive: false
         property bool doublePressed: false
         property var timer: Timer {
@@ -122,9 +132,9 @@ Item {
         }
 
         onSingleTapped: {
-            if( point.modifiers === Qt.RightButton)
+            if( eventPoint.event.button === Qt.RightButton)
             {
-              mapCanvasWrapper.zoom(point.position, 1.25)
+              mapArea.rightClicked(point.position, "touch")
             }
             else
             {
@@ -249,7 +259,7 @@ Item {
         id: pinch
         target: null
         acceptedDevices: PointerDevice.TouchScreen | PointerDevice.TouchPad
-        grabPermissions: PointerHandler.TakeOverForbidden
+        grabPermissions: PointerHandler.ApprovesTakeOverByHandlersOfDifferentType
 
         property var oldPos
         property real oldScale: 1.0
