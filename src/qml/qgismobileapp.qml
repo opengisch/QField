@@ -404,6 +404,11 @@ ApplicationWindow {
         }
       }
 
+      onRightClicked: {
+        canvasMenu.point = mapCanvas.mapSettings.screenToCoordinate(point)
+        canvasMenu.popup(point.x, point.y)
+      }
+
       onLongPressReleased: {
         if ( type === "stylus" ) {
           // The user has released the long press. We can re-enable the default close behavior for the feature form.
