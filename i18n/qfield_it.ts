@@ -2819,8 +2819,8 @@ Annullare per eseguire una scansione veloce del dispositivo.</translation>
 <context>
     <name>QgsQuickMapSettings</name>
     <message>
-        <location filename="../src/core/qgsquick/qgsquickmapsettings.cpp" line="313"/>
-        <location filename="../src/core/qgsquick/qgsquickmapsettings.cpp" line="343"/>
+        <location filename="../src/core/qgsquick/qgsquickmapsettings.cpp" line="325"/>
+        <location filename="../src/core/qgsquick/qgsquickmapsettings.cpp" line="355"/>
         <source>Map Canvas rotation is not supported. Resetting from %1 to 0.</source>
         <translation>La rotazione dalla mappa non é supportata. Reset da %1 a 0.</translation>
     </message>

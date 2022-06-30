@@ -2812,8 +2812,8 @@ Otkažite da pokrenete minimalno skeniranje uređaja.</translation>
 <context>
     <name>QgsQuickMapSettings</name>
     <message>
-        <location filename="../src/core/qgsquick/qgsquickmapsettings.cpp" line="313"/>
-        <location filename="../src/core/qgsquick/qgsquickmapsettings.cpp" line="343"/>
+        <location filename="../src/core/qgsquick/qgsquickmapsettings.cpp" line="325"/>
+        <location filename="../src/core/qgsquick/qgsquickmapsettings.cpp" line="355"/>
         <source>Map Canvas rotation is not supported. Resetting from %1 to 0.</source>
         <translation>Rotiranje okvira mape nije podržano. Ponovno postavljane sa %1 na 0.</translation>
     </message>
@@ -3458,7 +3458,7 @@ Otkažite da pokrenete minimalno skeniranje uređaja.</translation>
         <location filename="../src/qml/qgismobileapp.qml" line="2094"/>
         <location filename="../src/qml/qgismobileapp.qml" line="2110"/>
         <source>%1 Precision</source>
-        <translation type="unfinished"/>
+        <translation>%1 preciznost</translation>
     </message>
     <message>
         <location filename="../src/qml/qgismobileapp.qml" line="2145"/>

@@ -2814,8 +2814,8 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
 <context>
     <name>QgsQuickMapSettings</name>
     <message>
-        <location filename="../src/core/qgsquick/qgsquickmapsettings.cpp" line="313"/>
-        <location filename="../src/core/qgsquick/qgsquickmapsettings.cpp" line="343"/>
+        <location filename="../src/core/qgsquick/qgsquickmapsettings.cpp" line="325"/>
+        <location filename="../src/core/qgsquick/qgsquickmapsettings.cpp" line="355"/>
         <source>Map Canvas rotation is not supported. Resetting from %1 to 0.</source>
         <translation>Rotatie van kaartcanvas wordt niet ondersteund. Resetten van %1 naar 0.</translation>
     </message>

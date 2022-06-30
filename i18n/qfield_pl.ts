@@ -1555,7 +1555,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <message>
         <location filename="../src/qml/PositioningPreciseView.qml" line="398"/>
         <source>Positioning accuracy too low for this precision level</source>
-        <translation type="unfinished"/>
+        <translation>Zbyt niska dokładność lokalizacji dla tego poziomu precyzji.</translation>
     </message>
 </context>
 <context>
@@ -2806,8 +2806,8 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
 <context>
     <name>QgsQuickMapSettings</name>
     <message>
-        <location filename="../src/core/qgsquick/qgsquickmapsettings.cpp" line="313"/>
-        <location filename="../src/core/qgsquick/qgsquickmapsettings.cpp" line="343"/>
+        <location filename="../src/core/qgsquick/qgsquickmapsettings.cpp" line="325"/>
+        <location filename="../src/core/qgsquick/qgsquickmapsettings.cpp" line="355"/>
         <source>Map Canvas rotation is not supported. Resetting from %1 to 0.</source>
         <translation type="unfinished"/>
     </message>
@@ -3452,7 +3452,7 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
         <location filename="../src/qml/qgismobileapp.qml" line="2094"/>
         <location filename="../src/qml/qgismobileapp.qml" line="2110"/>
         <source>%1 Precision</source>
-        <translation type="unfinished"/>
+        <translation>Dokładność %1</translation>
     </message>
     <message>
         <location filename="../src/qml/qgismobileapp.qml" line="2145"/>
