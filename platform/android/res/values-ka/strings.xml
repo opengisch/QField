@@ -66,4 +66,6 @@
     <string name="storage_information_message">მიუხედავად იმისა ხართ თუ არა უკვე არსებული QField 1.x მომხმარებელი და გაინტერესებთ, რატომ გაქრა თქვენი პროექტები და მონაცემთა ნაკრები QField-ში, თუ რა არის ახალი, ჩვენ გირჩევთ, ერთი წუთი დაუთმოთ მეხსიერების მართვის დოკუმენტაციის წაკითხვას. ამ დოკუმენტაციის ბმული ხელმისაწვდომი დარჩება სათაურის ზოლში ქმედებების მენიუში.</string>
     <string name="storage_information_view">დოკუმენტაციის ნახვა</string>
     <string name="storage_information_dismiss">მოგვიანებით წავიკითხავ</string>
-    </resources>
+    <string name="import_project_wait">გთხოვთ მოითმინოთ, QField ასრულებს პროექტის იმპორტს</string>
+    <string name="import_dataset_wait">გთხოვთ მოითმინოთ, QField ასრულებს მონაცემთა ნაკრების იმპორტს</string>
+</resources>
