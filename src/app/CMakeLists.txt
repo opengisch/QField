@@ -69,6 +69,13 @@ function(create_executable)
     add_executable(${exe_TARGET} ${exe_EXTRA_ARGS} ${QFIELD_SOURCES})
   endif()
 
+  get_target_property(QT_TARGET_TYPE Qt5::Core TYPE)
+  if(${QT_TARGET_TYPE} STREQUAL "STATIC_LIBRARY")
+    find_package(Qt5 COMPONENTS QmlImportScanner)
+    qt5_import_qml_plugins(${exe_TARGET} PATH_TO_SCAN
+                           ${CMAKE_SOURCE_DIR}/src/qml)
+  endif()
+
   target_compile_definitions(
     ${exe_TARGET}
     PRIVATE $<$<OR:$<CONFIG:Debug>,$<CONFIG:RelWithDebInfo>>:QT_QML_DEBUG>)
@@ -119,10 +126,6 @@ install(
   PUBLIC_HEADER DESTINATION ${QFIELD_INCLUDE_DIR})
 
 if(IOS)
-  include("${CMAKE_SOURCE_DIR}/cmake/QtStaticCMake.cmake")
-  qt_generate_plugin_import(qfield)
-  qt_generate_qml_plugin_import(qfield QML_SRC "${CMAKE_SOURCE_DIR}/src/qml")
-
   # QFIELD_APP_ICON_SUFFIX should be set from command line to either _pr or
   # _beta
 
