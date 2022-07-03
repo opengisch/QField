@@ -3,7 +3,8 @@ find_package(Catch2 REQUIRED)
 include(CTest)
 include(Catch)
 
-macro (ADD_CATCH2_TEST TESTNAME TESTSRC)
+# Set WITH_CATCH2_MAIN to TRUE when qgis or qfield specific initialization is NOT needed
+function(ADD_CATCH2_TEST TESTNAME TESTSRC WITH_CATCH2_MAIN)
   add_executable(${TESTNAME} ${TESTSRC})
   set_target_properties(${TESTNAME} PROPERTIES AUTOMOC TRUE)
   target_link_libraries(${TESTNAME} PRIVATE
@@ -15,10 +16,18 @@ macro (ADD_CATCH2_TEST TESTNAME TESTSRC)
     Qt5::Gui
     Qt5::Widgets
     Qt5::Xml
-    Catch2::Catch2
   )
+  if(WITH_CATCH2_MAIN)
+    target_link_libraries(${TESTNAME} PRIVATE
+      Catch2::Catch2WithMain
+    )
+  else()
+    target_link_libraries(${TESTNAME} PRIVATE
+      Catch2::Catch2
+    )
+  endif()
   catch_discover_tests(${TESTNAME})
-endmacro ()
+endfunction()
 
 macro (ADD_QFIELD_TEST TESTNAME TESTSRC)
   add_executable(${TESTNAME} ${TESTSRC})
@@ -59,16 +68,16 @@ endif ()
 ADD_QFIELD_TEST(referencingfeaturelistmodeltest test_referencingfeaturelistmodel.cpp)
 ADD_QFIELD_TEST(orderedrelationmodeltest test_orderedrelationmodel.cpp)
 
-ADD_CATCH2_TEST(layerobservertest test_layerobserver.cpp)
-ADD_CATCH2_TEST(featureutilstest test_featureutils.cpp)
-ADD_CATCH2_TEST(vertexmodeltest test_vertexmodel.cpp)
-ADD_CATCH2_TEST(deltafilewrappertest test_deltafilewrapper.cpp)
-ADD_CATCH2_TEST(fileutilstest test_fileutils.cpp)
-ADD_CATCH2_TEST(geometryutilstest test_geometryutils.cpp)
-ADD_CATCH2_TEST(sggeometry test_sggeometry.cpp)
-ADD_CATCH2_TEST(stringutilstest test_stringutils.cpp)
-ADD_CATCH2_TEST(urlutilstest test_urlutils.cpp)
-ADD_CATCH2_TEST(digitizingloggertest test_digitizinglogger.cpp)
-ADD_CATCH2_TEST(attributeformmodeltest test_attributeformmodel.cpp)
+ADD_CATCH2_TEST(layerobservertest test_layerobserver.cpp FALSE)
+ADD_CATCH2_TEST(featureutilstest test_featureutils.cpp TRUE)
+ADD_CATCH2_TEST(vertexmodeltest test_vertexmodel.cpp TRUE)
+ADD_CATCH2_TEST(deltafilewrappertest test_deltafilewrapper.cpp FALSE)
+ADD_CATCH2_TEST(fileutilstest test_fileutils.cpp TRUE)
+ADD_CATCH2_TEST(geometryutilstest test_geometryutils.cpp TRUE)
+ADD_CATCH2_TEST(sggeometry test_sggeometry.cpp TRUE)
+ADD_CATCH2_TEST(stringutilstest test_stringutils.cpp TRUE)
+ADD_CATCH2_TEST(urlutilstest test_urlutils.cpp TRUE)
+ADD_CATCH2_TEST(digitizingloggertest test_digitizinglogger.cpp FALSE)
+ADD_CATCH2_TEST(attributeformmodeltest test_attributeformmodel.cpp FALSE)
 
 ADD_QFIELD_QML_TEST(qmltest test_qml_editorwidgets.cpp)

@@ -15,7 +15,6 @@
  *                                                                         *
  ***************************************************************************/
 
-#define CATCH_CONFIG_MAIN
 #include "catch2.h"
 #include "qgsgeometry.h"
 #include "qgsquickmapsettings.h"
@@ -27,6 +26,8 @@
 #include <qgsmessagelog.h>
 #include <qgspoint.h>
 #include <qgspointxy.h>
+
+using Catch::Approx;
 
 class VertexModelTest
 {
