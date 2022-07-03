@@ -116,6 +116,8 @@ if(QGIS_FOUND AND "@VCPKG_LIBRARY_LINKAGE@" STREQUAL "static")
   _find_and_link_library(provider_virtuallayer_a qgis_core)
 
   _find_and_link_library(pq qgis_core)
+  _find_and_link_library(pgcommon qgis_core)
+  _find_and_link_library(pgport qgis_core)
   # Relink qgis_core in the end, to make all the qgis plugins happy that need symbols from it
   _find_and_link_library(qgis_core qgis_core)
 
@@ -124,6 +126,23 @@ if(QGIS_FOUND AND "@VCPKG_LIBRARY_LINKAGE@" STREQUAL "static")
   _qgis_core_add_dependency(qca Qca CONFIG)
   _qgis_core_add_dependency(Protobuf Protobuf)
   _qgis_core_add_dependency(GDAL::GDAL GDAL)
+
+  # Terrible hack ahead
+  # 1. For "reasons" geos and proj add libc++.so to their pkgconfig linker instruction.
+  # 2. This is propagated through spatialite and GDAL
+  # 3. android-arm64 with dynamic crt finds a linux lib for this i(instead of libc++_shared.so)
+  # 4. We should try to remove this in the future. If it compiles and links, that's fine
+  if(VCPKG_TARGET_TRIPLET STREQUAL arm64-android)
+    get_target_property(OUT PkgConfig::SPATIALITE INTERFACE_LINK_LIBRARIES)
+    foreach(LIB ${OUT})
+            if(NOT LIB MATCHES "libc\\+\\+\\.so$")
+                    LIST(APPEND CLEAN_LIST ${LIB})
+      endif()
+    endforeach()
+    set_target_properties(PkgConfig::SPATIALITE PROPERTIES INTERFACE_LINK_LIBRARIES "${CLEAN_LIST}")
+  endif()
+  # End Terrible hack
+
   _qgis_core_add_dependency(exiv2lib exiv2)
   _qgis_core_add_dependency(exiv2-xmp exiv2)
   _qgis_core_add_dependency(libzip::zip libzip)
@@ -131,10 +150,10 @@ if(QGIS_FOUND AND "@VCPKG_LIBRARY_LINKAGE@" STREQUAL "static")
   _find_and_link_library(spatialindex qgis_core spatialindex spatialindex-64)
   _find_and_link_library(freexl qgis_core)
   _find_and_link_library(qt5keychain qgis_core)
-  _find_and_link_library(poppler qgis_core)
-  _find_and_link_library(freetype qgis_core)
-  _find_and_link_library(brotlidec-static qgis_core)
-  _find_and_link_library(brotlicommon-static qgis_core)
+  #  _find_and_link_library(poppler qgis_core)
+  # _find_and_link_library(freetype qgis_core)
+  # _find_and_link_library(brotlidec-static qgis_core)
+  # _find_and_link_library(brotlicommon-static qgis_core)
   find_package(Qt5 COMPONENTS Core Gui Network Xml Svg Concurrent Sql SerialPort)
   target_link_libraries(qgis_core INTERFACE
       Qt5::Core
