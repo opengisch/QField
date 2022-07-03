@@ -120,7 +120,7 @@ void InternalGnssReceiver::handlePositionUpdated( const QGeoPositionInfo &positi
                                                             hacc,
                                                             vacc,
                                                             positionInfo.timestamp(),
-                                                            QChar(), 0, -1, mSatellitesUsed, QChar( 'A' ), mSatellitesID, mSatelliteInformationValid,
+                                                            QChar(), 0, -1, mSatellitesID.size(), QChar( 'A' ), mSatellitesID, mSatelliteInformationValid,
                                                             verticalSpeed,
                                                             magneticVariation,
                                                             0, mGeoPositionSource->sourceName() );
@@ -130,20 +130,20 @@ void InternalGnssReceiver::handlePositionUpdated( const QGeoPositionInfo &positi
 
 void InternalGnssReceiver::handleSatellitesInUseUpdated( const QList<QGeoSatelliteInfo> &satellites )
 {
-  const int satellitesUsed = satellites.size();
+  if ( satellites.isEmpty() )
+    return;
+
   QList<int> satellitesID;
   for ( const QGeoSatelliteInfo &satellite : satellites )
   {
     satellitesID << satellite.satelliteIdentifier();
   }
-  if ( mSatellitesUsed != satellitesUsed
-       || mSatellitesID != satellitesID )
+  if ( mSatellitesID != satellitesID )
   {
     mSatelliteInformationValid = true;
-    mSatellitesUsed = satellitesUsed;
     mSatellitesID = satellitesID;
 
-    for ( QgsSatelliteInfo &satelliteInfo : mSatellitesInfo )
+    for ( QgsSatelliteInfo &satelliteInfo : mSatellitesInfo ) // Not const as items modified in loop
     {
       satelliteInfo.inUse = mSatellitesID.contains( satelliteInfo.id );
     }
@@ -157,7 +157,7 @@ void InternalGnssReceiver::handleSatellitesInUseUpdated( const QList<QGeoSatelli
                                                             mLastGnssPositionInformation.hacc(),
                                                             mLastGnssPositionInformation.vacc(),
                                                             mLastGnssPositionInformation.utcDateTime(),
-                                                            QChar(), 0, -1, mSatellitesUsed, QChar( 'A' ), mSatellitesID, mSatelliteInformationValid,
+                                                            QChar(), 0, -1, mSatellitesID.size(), QChar( 'A' ), mSatellitesID, mSatelliteInformationValid,
                                                             mLastGnssPositionInformation.verticalSpeed(),
                                                             mLastGnssPositionInformation.magneticVariation(),
                                                             0, mGeoPositionSource->sourceName() );
@@ -167,6 +167,9 @@ void InternalGnssReceiver::handleSatellitesInUseUpdated( const QList<QGeoSatelli
 
 void InternalGnssReceiver::handleSatellitesInViewUpdated( const QList<QGeoSatelliteInfo> &satellites )
 {
+  if ( satellites.isEmpty() )
+    return;
+
   QList<QgsSatelliteInfo> satellitesInfo;
   for ( const QGeoSatelliteInfo satellite : satellites )
   {
@@ -192,5 +195,11 @@ void InternalGnssReceiver::handleError( QGeoPositionInfoSource::Error positionin
 void InternalGnssReceiver::handleSatelliteError( QGeoSatelliteInfoSource::Error satelliteError )
 {
   qDebug() << satelliteError;
+  if ( satelliteError == QGeoSatelliteInfoSource::ClosedError )
+  {
+    mSatelliteInformationValid = false;
+    mSatellitesID.clear();
+    mSatellitesInfo.clear();
+  }
   return;
 }
