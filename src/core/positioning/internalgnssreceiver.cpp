@@ -33,18 +33,31 @@ InternalGnssReceiver::InternalGnssReceiver( QObject *parent )
     mSocketState = QAbstractSocket::ConnectedState;
 
     setValid( true );
+
+    mGeoSatelliteSource = std::unique_ptr<QGeoSatelliteInfoSource>( QGeoSatelliteInfoSource::createDefaultSource( nullptr ) );
+    if ( mGeoSatelliteSource.get() && mGeoSatelliteSource->error() == QGeoSatelliteInfoSource::NoError )
+    {
+      mGeoSatelliteSource->setUpdateInterval( 1000 );
+
+      connect( mGeoSatelliteSource.get(), &QGeoSatelliteInfoSource::satellitesInUseUpdated, this, &InternalGnssReceiver::handleSatellitesInUseUpdated );
+      connect( mGeoSatelliteSource.get(), &QGeoSatelliteInfoSource::satellitesInViewUpdated, this, &InternalGnssReceiver::handleSatellitesInViewUpdated );
+      connect( mGeoSatelliteSource.get(), qOverload<QGeoSatelliteInfoSource::Error>( &QGeoSatelliteInfoSource::error ), this, &InternalGnssReceiver::handleSatelliteError );
+    }
   }
 }
 
 void InternalGnssReceiver::handleDisconnectDevice()
 {
   mGeoPositionSource->stopUpdates();
+  mGeoSatelliteSource->stopUpdates();
   mLastGnssPositionValid = false;
+  mSatelliteInformationValid = false;
 }
 
 void InternalGnssReceiver::handleConnectDevice()
 {
   mGeoPositionSource->startUpdates();
+  mGeoSatelliteSource->startUpdates();
 }
 
 void InternalGnssReceiver::handlePositionUpdated( const QGeoPositionInfo &positionInfo )
@@ -103,11 +116,11 @@ void InternalGnssReceiver::handlePositionUpdated( const QGeoPositionInfo &positi
                                                             elevation,
                                                             speed,
                                                             direction,
-                                                            QList<QgsSatelliteInfo>(), 0, 0, 0,
+                                                            mSatellitesInfo, 0, 0, 0,
                                                             hacc,
                                                             vacc,
                                                             positionInfo.timestamp(),
-                                                            QChar(), 0, -1, 0, QChar( 'A' ), QList<int>(), false,
+                                                            QChar(), 0, -1, mSatellitesID.size(), QChar( 'A' ), mSatellitesID, mSatelliteInformationValid,
                                                             verticalSpeed,
                                                             magneticVariation,
                                                             0, mGeoPositionSource->sourceName() );
@@ -115,8 +128,78 @@ void InternalGnssReceiver::handlePositionUpdated( const QGeoPositionInfo &positi
   }
 }
 
+void InternalGnssReceiver::handleSatellitesInUseUpdated( const QList<QGeoSatelliteInfo> &satellites )
+{
+  if ( satellites.isEmpty() )
+    return;
+
+  QList<int> satellitesID;
+  for ( const QGeoSatelliteInfo &satellite : satellites )
+  {
+    satellitesID << satellite.satelliteIdentifier();
+  }
+  if ( mSatellitesID != satellitesID )
+  {
+    mSatelliteInformationValid = true;
+    mSatellitesID = satellitesID;
+
+    for ( QgsSatelliteInfo &satelliteInfo : mSatellitesInfo ) // Not const as items modified in loop
+    {
+      satelliteInfo.inUse = mSatellitesID.contains( satelliteInfo.id );
+    }
+
+    mLastGnssPositionInformation = GnssPositionInformation( mLastGnssPositionInformation.latitude(),
+                                                            mLastGnssPositionInformation.longitude(),
+                                                            mLastGnssPositionInformation.elevation(),
+                                                            mLastGnssPositionInformation.speed(),
+                                                            mLastGnssPositionInformation.direction(),
+                                                            mSatellitesInfo, 0, 0, 0,
+                                                            mLastGnssPositionInformation.hacc(),
+                                                            mLastGnssPositionInformation.vacc(),
+                                                            mLastGnssPositionInformation.utcDateTime(),
+                                                            QChar(), 0, -1, mSatellitesID.size(), QChar( 'A' ), mSatellitesID, mSatelliteInformationValid,
+                                                            mLastGnssPositionInformation.verticalSpeed(),
+                                                            mLastGnssPositionInformation.magneticVariation(),
+                                                            0, mGeoPositionSource->sourceName() );
+    emit lastGnssPositionInformationChanged( mLastGnssPositionInformation );
+  }
+}
+
+void InternalGnssReceiver::handleSatellitesInViewUpdated( const QList<QGeoSatelliteInfo> &satellites )
+{
+  if ( satellites.isEmpty() )
+    return;
+
+  QList<QgsSatelliteInfo> satellitesInfo;
+  for ( const QGeoSatelliteInfo satellite : satellites )
+  {
+    QgsSatelliteInfo satelliteInfo;
+    satelliteInfo.elevation = satellite.hasAttribute( QGeoSatelliteInfo::Elevation )
+                                ? satellite.attribute( QGeoSatelliteInfo::Elevation )
+                                : std::numeric_limits<double>::quiet_NaN();
+    satelliteInfo.azimuth = satellite.hasAttribute( QGeoSatelliteInfo::Azimuth )
+                              ? satellite.attribute( QGeoSatelliteInfo::Azimuth )
+                              : std::numeric_limits<double>::quiet_NaN();
+    satelliteInfo.id = satellite.satelliteIdentifier();
+    satelliteInfo.signal = satellite.signalStrength();
+    satelliteInfo.inUse = mSatellitesID.contains( satellite.satelliteIdentifier() );
+  }
+}
+
 void InternalGnssReceiver::handleError( QGeoPositionInfoSource::Error positioningError )
 {
   qDebug() << positioningError;
+  return;
+}
+
+void InternalGnssReceiver::handleSatelliteError( QGeoSatelliteInfoSource::Error satelliteError )
+{
+  qDebug() << satelliteError;
+  if ( satelliteError == QGeoSatelliteInfoSource::ClosedError )
+  {
+    mSatelliteInformationValid = false;
+    mSatellitesID.clear();
+    mSatellitesInfo.clear();
+  }
   return;
 }
