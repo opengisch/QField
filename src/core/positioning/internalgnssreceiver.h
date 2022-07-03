@@ -37,6 +37,7 @@ class InternalGnssReceiver : public AbstractGnssReceiver
     void handleError( QGeoPositionInfoSource::Error positioningError );
 
     void handleSatellitesInUseUpdated( const QList<QGeoSatelliteInfo> &satellites );
+    void handleSatellitesInViewUpdated( const QList<QGeoSatelliteInfo> &satellites );
     void handleSatelliteError( QGeoSatelliteInfoSource::Error satelliteError );
 
   private:
@@ -50,7 +51,8 @@ class InternalGnssReceiver : public AbstractGnssReceiver
     bool mLastGnssPositionValid = false;
 
     int mSatellitesUsed = 0;
-    QList<int> mSatelliteIDs;
+    QList<int> mSatellitesID;
+    QList<QgsSatelliteInfo> mSatellitesInfo;
     bool mSatelliteInformationValid = true;
 };
 
