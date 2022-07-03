@@ -25,7 +25,6 @@ file(REMOVE ${SOURCE_PATH}/cmake/FindGEOS.cmake)
 file(REMOVE ${SOURCE_PATH}/cmake/FindEXIV2.cmake)
 file(REMOVE ${SOURCE_PATH}/cmake/FindExpat.cmake)
 file(REMOVE ${SOURCE_PATH}/cmake/FindIconv.cmake)
-file(REMOVE ${SOURCE_PATH}/cmake/FindSqlite3.cmake)
 
 vcpkg_find_acquire_program(FLEX)
 vcpkg_find_acquire_program(BISON)
