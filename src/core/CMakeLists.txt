@@ -216,7 +216,7 @@ elseif(${CMAKE_SYSTEM_NAME} STREQUAL "iOS")
       platforms/ios/iospicturesource.mm platforms/ios/iosprojectsource.mm)
 endif()
 
-find_package(Sqlite3)
+find_package(SQlite3)
 
 add_library(qfield_core STATIC ${QFIELD_CORE_SRCS} ${QFIELD_CORE_HDRS})
 
@@ -231,7 +231,7 @@ target_include_directories(qfield_core SYSTEM
 target_include_directories(
   qfield_core SYSTEM
   PRIVATE ${PROJ_INCLUDE_DIR} ${GDAL_INCLUDE_DIR} ${Qca_INCLUDE_DIR}
-          ${QTKEYCHAIN_INCLUDE_DIR} ${SQLITE3_INCLUDE_DIR})
+          ${QTKEYCHAIN_INCLUDE_DIR})
 if(IOS)
   # to include <qpa/qplatformnativeinterface.h>
   target_include_directories(qfield_core SYSTEM
@@ -285,6 +285,7 @@ target_link_libraries(
          Qt5::Multimedia
          QGIS::Core
          QGIS::Analysis
+         SQLite::SQLite3
          ${PROJ_LIBRARY}
          ${GDAL_LIBRARIES})
 
