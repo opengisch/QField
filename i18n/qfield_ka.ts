@@ -160,7 +160,7 @@
     <message>
         <location filename="../src/core/positioning/bluetoothreceiver.cpp" line="127"/>
         <source>Socket state %1</source>
-        <translation type="unfinished"/>
+        <translation>სოკეტის მდგომარეობა %1</translation>
     </message>
 </context>
 <context>
@@ -176,7 +176,7 @@
     <message>
         <location filename="../src/qml/BookmarkProperties.qml" line="50"/>
         <source>Bookmark Properties</source>
-        <translation type="unfinished"/>
+        <translation>სანიშნის პარამეტრები</translation>
     </message>
     <message>
         <location filename="../src/qml/BookmarkProperties.qml" line="77"/>
@@ -191,7 +191,7 @@
     <message>
         <location filename="../src/qml/BookmarkProperties.qml" line="178"/>
         <source>Copy bookmark details</source>
-        <translation type="unfinished"/>
+        <translation>სანიშნის დეტალების კოპირება</translation>
     </message>
     <message>
         <source>Lon</source>
@@ -212,7 +212,7 @@
     <message>
         <location filename="../src/qml/BookmarkProperties.qml" line="186"/>
         <source>Bookmark details copied to clipboard</source>
-        <translation type="unfinished"/>
+        <translation>სანიშნის დეტალები დაკოპირდა</translation>
     </message>
     <message>
         <location filename="../src/qml/BookmarkProperties.qml" line="195"/>
@@ -236,7 +236,7 @@
     <message>
         <location filename="../src/qml/BookmarkRenderer.qml" line="143"/>
         <source>Project bookmarks cannot be edited</source>
-        <translation type="unfinished"/>
+        <translation>პროექტის სანიშნეები რედაქტირებები არ არის</translation>
     </message>
 </context>
 <context>
@@ -337,7 +337,7 @@
     <message>
         <location filename="../src/qml/DashBoard.qml" line="210"/>
         <source>Map Theme</source>
-        <translation type="unfinished"/>
+        <translation>რუკის თემა</translation>
     </message>
 </context>
 <context>
@@ -475,7 +475,7 @@
     <message>
         <location filename="../src/qml/FeatureForm.qml" line="536"/>
         <source>Value skipped</source>
-        <translation type="unfinished"/>
+        <translation>მნიშვნელობა უარყოფილია</translation>
     </message>
     <message>
         <location filename="../src/qml/FeatureForm.qml" line="536"/>
