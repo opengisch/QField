@@ -36,14 +36,22 @@ class InternalGnssReceiver : public AbstractGnssReceiver
     void handlePositionUpdated( const QGeoPositionInfo &positionInfo );
     void handleError( QGeoPositionInfoSource::Error positioningError );
 
+    void handleSatellitesInUseUpdated( const QList<QGeoSatelliteInfo> &satellites );
+    void handleSatelliteError( QGeoSatelliteInfoSource::Error satelliteError );
+
   private:
     void handleConnectDevice() override;
     void handleDisconnectDevice() override;
 
     std::unique_ptr<QGeoPositionInfoSource> mGeoPositionSource;
+    std::unique_ptr<QGeoSatelliteInfoSource> mGeoSatelliteSource;
 
     GnssPositionInformation mLastGnssPositionInformation;
     bool mLastGnssPositionValid = false;
+
+    int mSatellitesUsed = 0;
+    QList<int> mSatelliteIDs;
+    bool mSatelliteInformationValid = true;
 };
 
 #endif // INTERNALGNSSRECEIVER_H
