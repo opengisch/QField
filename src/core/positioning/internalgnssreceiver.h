@@ -50,7 +50,6 @@ class InternalGnssReceiver : public AbstractGnssReceiver
     GnssPositionInformation mLastGnssPositionInformation;
     bool mLastGnssPositionValid = false;
 
-    int mSatellitesUsed = 0;
     QList<int> mSatellitesID;
     QList<QgsSatelliteInfo> mSatellitesInfo;
     bool mSatelliteInformationValid = true;
