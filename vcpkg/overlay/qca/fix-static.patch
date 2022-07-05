@@ -1,0 +1,94 @@
+From 0a322930e927128fbea62204047c124dfe4732c0 Mon Sep 17 00:00:00 2001
+From: Matthias Kuhn <matthias@opengis.ch>
+Date: Tue, 16 Nov 2021 12:53:09 +0100
+Subject: [PATCH] Use generate_export_headers to fix static windows build
+
+---
+ CMakeLists.txt                |  7 ++++-
+ include/QtCrypto/qca_export.h | 52 -----------------------------------
+ 2 files changed, 6 insertions(+), 53 deletions(-)
+ delete mode 100644 include/QtCrypto/qca_export.h
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index bb11898e..f069a676 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -337,7 +337,6 @@ set( public_HEADERS
+   ${qca_INCLUDEDIR}/QtCrypto/qca.h
+   ${qca_INCLUDEDIR}/QtCrypto/qcaprovider.h
+   ${qca_INCLUDEDIR}/QtCrypto/QtCrypto
+-  ${qca_INCLUDEDIR}/QtCrypto/qca_export.h
+   ${qca_INCLUDEDIR}/QtCrypto/qca_support.h
+   ${qca_INCLUDEDIR}/QtCrypto/qca_tools.h
+   ${qca_INCLUDEDIR}/QtCrypto/qca_core.h
+@@ -373,6 +372,12 @@ set(QCA_CRYPTO_INSTALL_DIR "${QCA_PLUGINS_INSTALL_DIR}/crypto")
+ add_subdirectory(src)
+ add_subdirectory(plugins)
+ 
++include(GenerateExportHeader)
++generate_export_header(${QCA_LIB_NAME} BASE_NAME qca)
++install(FILES
++  ${CMAKE_CURRENT_BINARY_DIR}/qca_export.h DESTINATION ${QCA_FULL_INCLUDE_INSTALL_DIR}
++)
++
+ if(STATIC_PLUGINS)
+   # Generate header with static plugins list
+   file(WRITE "${CMAKE_BINARY_DIR}/import_plugins.h" "#include <QtPlugin>\n")
+diff --git a/include/QtCrypto/qca_export.h b/include/QtCrypto/qca_export.h
+deleted file mode 100644
+index 068fed64..00000000
+--- a/include/QtCrypto/qca_export.h
++++ /dev/null
+@@ -1,52 +0,0 @@
+-/*
+- * qca_export.h - Qt Cryptographic Architecture
+- * Copyright (C) 2003-2005  Justin Karneges <justin@affinix.com>
+- *
+- * This library is free software; you can redistribute it and/or
+- * modify it under the terms of the GNU Lesser General Public
+- * License as published by the Free Software Foundation; either
+- * version 2.1 of the License, or (at your option) any later version.
+- *
+- * This library is distributed in the hope that it will be useful,
+- * but WITHOUT ANY WARRANTY; without even the implied warranty of
+- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+- * Lesser General Public License for more details.
+- *
+- * You should have received a copy of the GNU Lesser General Public
+- * License along with this library; if not, write to the Free Software
+- * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA
+- * 02110-1301  USA
+- *
+- */
+-
+-/**
+-   \file qca_export.h
+-
+-   Preprocessor magic to allow export of library symbols.
+-
+-   This is strictly internal.
+-
+-   \note You should not include this header directly from an
+-   application. You should just use <tt> \#include \<QtCrypto>
+-   </tt> instead.
+-*/
+-
+-#ifndef QCA_EXPORT_H
+-#define QCA_EXPORT_H
+-
+-#include <QtGlobal>
+-
+-#ifdef Q_OS_WIN
+-#ifndef QCA_STATIC
+-#ifdef QCA_MAKEDLL
+-#define QCA_EXPORT Q_DECL_EXPORT
+-#else
+-#define QCA_EXPORT Q_DECL_IMPORT
+-#endif
+-#endif
+-#endif
+-#ifndef QCA_EXPORT
+-#define QCA_EXPORT
+-#endif
+-
+-#endif
