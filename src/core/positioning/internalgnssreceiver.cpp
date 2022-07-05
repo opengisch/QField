@@ -33,16 +33,16 @@ InternalGnssReceiver::InternalGnssReceiver( QObject *parent )
     mSocketState = QAbstractSocket::ConnectedState;
 
     setValid( true );
+  }
 
-    mGeoSatelliteSource = std::unique_ptr<QGeoSatelliteInfoSource>( QGeoSatelliteInfoSource::createDefaultSource( nullptr ) );
-    if ( mGeoSatelliteSource.get() && mGeoSatelliteSource->error() == QGeoSatelliteInfoSource::NoError )
-    {
-      mGeoSatelliteSource->setUpdateInterval( 1000 );
+  mGeoSatelliteSource = std::unique_ptr<QGeoSatelliteInfoSource>( QGeoSatelliteInfoSource::createDefaultSource( nullptr ) );
+  if ( mGeoSatelliteSource.get() && mGeoSatelliteSource->error() == QGeoSatelliteInfoSource::NoError )
+  {
+    mGeoSatelliteSource->setUpdateInterval( 1000 );
 
-      connect( mGeoSatelliteSource.get(), &QGeoSatelliteInfoSource::satellitesInUseUpdated, this, &InternalGnssReceiver::handleSatellitesInUseUpdated );
-      connect( mGeoSatelliteSource.get(), &QGeoSatelliteInfoSource::satellitesInViewUpdated, this, &InternalGnssReceiver::handleSatellitesInViewUpdated );
-      connect( mGeoSatelliteSource.get(), qOverload<QGeoSatelliteInfoSource::Error>( &QGeoSatelliteInfoSource::error ), this, &InternalGnssReceiver::handleSatelliteError );
-    }
+    connect( mGeoSatelliteSource.get(), &QGeoSatelliteInfoSource::satellitesInUseUpdated, this, &InternalGnssReceiver::handleSatellitesInUseUpdated );
+    connect( mGeoSatelliteSource.get(), &QGeoSatelliteInfoSource::satellitesInViewUpdated, this, &InternalGnssReceiver::handleSatellitesInViewUpdated );
+    connect( mGeoSatelliteSource.get(), qOverload<QGeoSatelliteInfoSource::Error>( &QGeoSatelliteInfoSource::error ), this, &InternalGnssReceiver::handleSatelliteError );
   }
 }
 
@@ -148,20 +148,23 @@ void InternalGnssReceiver::handleSatellitesInUseUpdated( const QList<QGeoSatelli
       satelliteInfo.inUse = mSatellitesID.contains( satelliteInfo.id );
     }
 
-    mLastGnssPositionInformation = GnssPositionInformation( mLastGnssPositionInformation.latitude(),
-                                                            mLastGnssPositionInformation.longitude(),
-                                                            mLastGnssPositionInformation.elevation(),
-                                                            mLastGnssPositionInformation.speed(),
-                                                            mLastGnssPositionInformation.direction(),
-                                                            mSatellitesInfo, 0, 0, 0,
-                                                            mLastGnssPositionInformation.hacc(),
-                                                            mLastGnssPositionInformation.vacc(),
-                                                            mLastGnssPositionInformation.utcDateTime(),
-                                                            QChar(), 0, -1, mSatellitesID.size(), QChar( 'A' ), mSatellitesID, mSatelliteInformationValid,
-                                                            mLastGnssPositionInformation.verticalSpeed(),
-                                                            mLastGnssPositionInformation.magneticVariation(),
-                                                            0, mGeoPositionSource->sourceName() );
-    emit lastGnssPositionInformationChanged( mLastGnssPositionInformation );
+    if ( mLastGnssPositionValid )
+    {
+      mLastGnssPositionInformation = GnssPositionInformation( mLastGnssPositionInformation.latitude(),
+                                                              mLastGnssPositionInformation.longitude(),
+                                                              mLastGnssPositionInformation.elevation(),
+                                                              mLastGnssPositionInformation.speed(),
+                                                              mLastGnssPositionInformation.direction(),
+                                                              mSatellitesInfo, 0, 0, 0,
+                                                              mLastGnssPositionInformation.hacc(),
+                                                              mLastGnssPositionInformation.vacc(),
+                                                              mLastGnssPositionInformation.utcDateTime(),
+                                                              QChar(), 0, -1, mSatellitesID.size(), QChar( 'A' ), mSatellitesID, mSatelliteInformationValid,
+                                                              mLastGnssPositionInformation.verticalSpeed(),
+                                                              mLastGnssPositionInformation.magneticVariation(),
+                                                              0, mGeoPositionSource->sourceName() );
+      emit lastGnssPositionInformationChanged( mLastGnssPositionInformation );
+    }
   }
 }
 
