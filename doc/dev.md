@@ -93,7 +93,10 @@ You need to have the following tools available to build
 QField on Windows will always be built using vcpkg.
 
 ```sh
-cmake -S QField -B build
+cmake -S QField -B build \
+  -D VCPKG_TARGET_TRIPLET=x64-windows-static \
+  -D CMAKE_MSVC_RUNTIME_LIBRARY=MultiThreaded\$<\$<CONFIG:Debug>:Debug> \
+  -D PKG_CONFIG_EXECUTABLE=build/vcpkg_installed/x64-windows/tools/pkgconf/pkgconf.exe
 ```
 
 ### Build
