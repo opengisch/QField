@@ -176,6 +176,7 @@ if(MSVC)
 endif()
 
 add_subdirectory(src/core)
+add_subdirectory(src/qml)
 add_subdirectory(src/app)
 
 if (ENABLE_TESTS)

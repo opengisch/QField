@@ -37,9 +37,25 @@ endmacro (ADD_QFIELD_TEST)
 
 macro (ADD_QFIELD_QML_TEST TESTNAME TESTSRC)
   add_executable(${TESTNAME} ${TESTSRC})
+  # This should be in src/qml/CMakeLists.txt but that's not possible with Qt5. Retry with Qt6
+  # Same is in src/app/CMakeLists.txt
+  # https://bugreports.qt.io/browse/QTBUG-80847
+  get_target_property(QT_TARGET_TYPE Qt5::Core TYPE)
+  if(${QT_TARGET_TYPE} STREQUAL "STATIC_LIBRARY")
+    find_package(Qt5 COMPONENTS QmlImportScanner)
+    file(GLOB test_qmlfiles "${CMAKE_CURRENT_SOURCE_DIR}/qml/*.qml")
+    file(GLOB qfield_qmlfiles "${CMAKE_SOURCE_DIR}/src/qml/*.qml")
+    # scan entire source (we have qml files in src/qml and in tests/qml)
+    # if there is a problem with this approach, we can also GLOB and specify a list of qml files
+    file(COPY ${test_qmlfiles} DESTINATION "${CMAKE_CURRENT_BINARY_DIR}/qmldrop/test")
+    file(COPY ${qfield_qmlfiles} DESTINATION "${CMAKE_CURRENT_BINARY_DIR}/qmldrop/app")
+    qt5_import_qml_plugins(${TESTNAME} PATH_TO_SCAN "${CMAKE_CURRENT_BINARY_DIR}/qmldrop")
+  endif()
+
   set_target_properties(${TESTNAME} PROPERTIES AUTOMOC TRUE)
   target_link_libraries(${TESTNAME} PRIVATE
     qfield_core
+    qfield_qml
     ${QGIS_CORE_LIBRARY}
     ${QGIS_ANALYSIS_LIBRARY}
     Qt5::Test
