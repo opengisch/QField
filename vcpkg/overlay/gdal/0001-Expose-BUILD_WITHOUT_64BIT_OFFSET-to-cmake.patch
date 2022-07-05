@@ -1,0 +1,27 @@
+From 437e260f2f28d439614532aa2658b25abf8a8fe3 Mon Sep 17 00:00:00 2001
+From: Matthias Kuhn <matthias@opengis.ch>
+Date: Mon, 20 Jun 2022 06:47:22 +0200
+Subject: [PATCH] Expose BUILD_WITHOUT_64BIT_OFFSET to cmake
+
+---
+ port/CMakeLists.txt | 4 ++++
+ 1 file changed, 4 insertions(+)
+
+diff --git a/port/CMakeLists.txt b/port/CMakeLists.txt
+index 2ac2f3fd87..968445367d 100644
+--- a/port/CMakeLists.txt
++++ b/port/CMakeLists.txt
+@@ -135,6 +135,10 @@ if (WIN32)
+   target_sources(cpl PRIVATE cpl_vsil_win32.cpp)
+ else ()
+   target_sources(cpl PRIVATE cpl_vsil_unix_stdio_64.cpp)
++  set(BUILD_WITHOUT_64BIT_OFFSET OFF CACHE BOOL "Build GDAL without > 4GB file support. If file API does not seem to support 64-bit offset.")
++  if(BUILD_WITHOUT_64BIT_OFFSET)
++      target_compile_definitions(cpl PRIVATE -DBUILD_WITHOUT_64BIT_OFFSET)
++  endif()
+ endif ()
+ 
+ if (HAVE_SSSE3_AT_COMPILE_TIME)
+-- 
+2.22.0
+
