@@ -28,8 +28,9 @@ class Setup : public QObject
     Q_OBJECT
 
   public:
-    Setup() {
-      Q_INIT_RESOURCE(qml);
+    Setup()
+    {
+      Q_INIT_RESOURCE( qml );
     }
 
   public slots:

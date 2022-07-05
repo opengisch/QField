@@ -62,14 +62,16 @@ function(create_executable)
     target_compile_options(${exe_TARGET} PRIVATE $<$<CXX_COMPILER_ID:Clang>:-g>)
   endif()
 
-  target_link_libraries(${exe_TARGET} PRIVATE qfield_core qfield_qml ${QGIS_CORE_LIBRARY})
+  target_link_libraries(${exe_TARGET} PRIVATE qfield_core qfield_qml
+                                              ${QGIS_CORE_LIBRARY})
   get_target_property(QT_TARGET_TYPE Qt5::Core TYPE)
-  # This should be in src/qml/CMakeLists.txt but that's not possible with Qt5. Retry with Qt6
-  # Same is in tests/CMakeLists.txt
+  # This should be in src/qml/CMakeLists.txt but that's not possible with Qt5.
+  # Retry with Qt6 Same is in tests/CMakeLists.txt
   # https://bugreports.qt.io/browse/QTBUG-80847
   if(${QT_TARGET_TYPE} STREQUAL "STATIC_LIBRARY")
     find_package(Qt5 COMPONENTS QmlImportScanner)
-    qt5_import_qml_plugins(${exe_TARGET} PATH_TO_SCAN ${CMAKE_SOURCE_DIR}/src/qml)
+    qt5_import_qml_plugins(${exe_TARGET} PATH_TO_SCAN
+                           ${CMAKE_SOURCE_DIR}/src/qml)
   endif()
   if(WITH_SENTRY)
     target_link_libraries(${exe_TARGET} PRIVATE qfield_core sentry::sentry)

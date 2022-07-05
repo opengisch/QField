@@ -154,7 +154,7 @@ int main( int argc, char **argv )
     enableSentry = settings.value( "/enableInfoCollection", true ).toBool();
   }
   delete dummyApp;
-  Q_INIT_RESOURCE(qml);
+  Q_INIT_RESOURCE( qml );
 
 #if WITH_SENTRY
   if ( enableSentry )
