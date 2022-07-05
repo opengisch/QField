@@ -118,7 +118,6 @@ endmacro()
 
 if (VCPKG_LIBRARY_LINKAGE STREQUAL "static")
   list(APPEND QGIS_OPTIONS -DFORCE_STATIC_LIBS=TRUE)
-  list(APPEND QGIS_OPTIONS -DFORCE_STATIC_PROVIDERS=TRUE)
   # QGIS likes to install auth and providers to different locations on each platform
   # let's keep things clean and tidy and put them at a predictable location
   list(APPEND QGIS_OPTIONS -DQGIS_PLUGIN_SUBDIR=lib)
@@ -204,9 +203,6 @@ if(VCPKG_TARGET_IS_WINDOWS)
     endif()
 else() # Build in UNIX
     list(APPEND QGIS_OPTIONS -DCMAKE_FIND_ROOT_PATH=$ENV{Qt5_DIR}) # for building with system Qt. Should find a nicer solution.
-    list(APPEND QGIS_OPTIONS -DWITH_QTMOBILITY=OFF)
-    list(APPEND QGIS_OPTIONS_DEBUG -DQT_INSTALL_LIBS:PATH=${CURRENT_INSTALLED_DIR}/debug/lib)
-    list(APPEND QGIS_OPTIONS_RELEASE -DQT_INSTALL_LIBS:PATH=${CURRENT_INSTALLED_DIR}/lib)
     list(APPEND QGIS_OPTIONS -DGSL_CONFIG=" ")
     list(APPEND QGIS_OPTIONS -DGSL_INCLUDE_DIR:PATH=${CURRENT_INSTALLED_DIR}/include)
     list(APPEND QGIS_OPTIONS -DPROJ_INCLUDE_DIR:PATH=${CURRENT_INSTALLED_DIR}/include)
