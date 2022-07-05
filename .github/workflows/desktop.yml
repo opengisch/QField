@@ -17,11 +17,11 @@ jobs:
       fail-fast: false
       matrix:
         include:
-          - triplet: 'x64-windows'
+          - triplet: 'x64-windows-static'
             os: 'windows-2019'
 
           - triplet: 'x64-linux'
-            os: 'ubuntu-20.04'
+            os: 'ubuntu-18.04'
 
           - triplet: 'x64-osx'
             os: 'macos-10.15'
@@ -158,12 +158,13 @@ jobs:
         shell: bash
         if: ${{ matrix.os == 'windows-2019' }}
         run: |
+          EXTRA_CMAKE_ARGS="-DCMAKE_MSVC_RUNTIME_LIBRARY=MultiThreaded\$<\$<CONFIG:Debug>:Debug>"
+          EXTRA_CMAKE_ARGS="${EXTRA_CMAKE_ARGS} -DPKG_CONFIG_EXECUTABLE=${CMAKE_BUILD_DIR}/vcpkg_installed/x64-windows/tools/pkgconf/pkgconf.exe"
           # Hide terminal for release builds
           if [ -z "${{ env.CI_TAG }}" ]; then
-            echo "EXTRA_CMAKE_ARGS=-DCMAKE_WIN32_EXECUTABLE=OFF" >> $GITHUB_ENV
-          else
-            echo "EXTRA_CMAKE_ARGS=-DCMAKE_WIN32_EXECUTABLE=ON" >> $GITHUB_ENV
+            EXTRA_CMAKE_ARGS="${EXTRA_CMAKE_ARGS} -DCMAKE_WIN32_EXECUTABLE=ON"
           fi
+          echo "EXTRA_CMAKE_ARGS=${EXTRA_CMAKE_ARGS}" >> $GITHUB_ENV
 
       - name: Prepare osx build env
         if: ${{ matrix.os == 'macos-10.15' }}
