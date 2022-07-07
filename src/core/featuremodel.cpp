@@ -564,7 +564,7 @@ void FeatureModel::applyGeometry()
     {
       sanitizedGeometry = geometry.buffer( 0, 5 );
     }
-    if ( sanitizedGeometry.constGet()->isValid( error ) )
+    if ( !sanitizedGeometry.isNull() && sanitizedGeometry.constGet()->isValid( error ) )
       geometry = sanitizedGeometry;
 
     if ( mProject )
