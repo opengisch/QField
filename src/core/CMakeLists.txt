@@ -1,3 +1,7 @@
+set(WITH_BLUETOOTH
+    ON
+    CACHE BOOL "Enable bluetooth support")
+
 set(QFIELD_CORE_SRCS
     platforms/platformutilities.cpp
     utils/coordinatereferencesystemutils.cpp
@@ -20,8 +24,6 @@ set(QFIELD_CORE_SRCS
     locator/finlandlocatorfilter.cpp
     locator/gotolocatorfilter.cpp
     locator/locatormodelsuperbridge.cpp
-    positioning/bluetoothdevicemodel.cpp
-    positioning/bluetoothreceiver.cpp
     positioning/gnsspositioninformation.cpp
     positioning/internalgnssreceiver.cpp
     positioning/positioning.cpp
@@ -117,8 +119,6 @@ set(QFIELD_CORE_HDRS
     locator/gotolocatorfilter.h
     locator/locatormodelsuperbridge.h
     positioning/abstractgnssreceiver.h
-    positioning/bluetoothdevicemodel.h
-    positioning/bluetoothreceiver.h
     positioning/gnsspositioninformation.h
     positioning/positioning.h
     positioning/internalgnssreceiver.h
@@ -193,6 +193,12 @@ set(QFIELD_CORE_HDRS
     viewstatus.h
     ${CMAKE_CURRENT_BINARY_DIR}/qfield.h)
 
+if(WITH_BLUETOOTH)
+  list(APPEND QFIELD_CORE_SRCS positioning/bluetoothdevicemodel.cpp
+       positioning/bluetoothreceiver.cpp)
+  list(APPEND QFIELD_CORE_HDRS positioning/bluetoothdevicemodel.h
+       positioning/bluetoothreceiver.h)
+endif()
 if(ANDROID)
   set(QFIELD_CORE_HDRS
       ${QFIELD_CORE_HDRS}
@@ -219,6 +225,10 @@ endif()
 find_package(Sqlite3)
 
 add_library(qfield_core STATIC ${QFIELD_CORE_SRCS} ${QFIELD_CORE_HDRS})
+
+if(WITH_BLUETOOTH)
+  target_compile_definitions(qfield_core PRIVATE WITH_BLUETOOTH)
+endif()
 
 include(GenerateExportHeader)
 generate_export_header(qfield_core)
@@ -281,12 +291,19 @@ target_link_libraries(
          Qt5::Sql
          Qt5::Concurrent
          Qt5::WebView
-         Qt5::Bluetooth
          Qt5::Multimedia
          QGIS::Core
          QGIS::Analysis
          ${PROJ_LIBRARY}
          ${GDAL_LIBRARIES})
+
+if(WITH_BLUETOOTH)
+  find_package(
+    Qt5
+    COMPONENTS Bluetooth
+    REQUIRED)
+  target_link_libraries(qfield_core PUBLIC Qt5::Bluetooth)
+endif()
 
 if(WITH_SENTRY)
   target_link_libraries(qfield_core PRIVATE sentry::sentry)

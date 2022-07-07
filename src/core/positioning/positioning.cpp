@@ -14,7 +14,9 @@
  *                                                                         *
  ***************************************************************************/
 
+#ifdef WITH_BLUETOOTH
 #include "bluetoothreceiver.h"
+#endif
 #include "internalgnssreceiver.h"
 #include "positioning.h"
 #include "positioningutils.h"
@@ -122,7 +124,9 @@ void Positioning::setupDevice()
   }
   else
   {
+#ifdef WITH_BLUETOOTH
     mReceiver = std::make_unique<BluetoothReceiver>( mDeviceId, this );
+#endif
   }
   connect( mReceiver.get(), &AbstractGnssReceiver::lastGnssPositionInformationChanged, this, &Positioning::lastGnssPositionInformationChanged );
   setValid( mReceiver->valid() );

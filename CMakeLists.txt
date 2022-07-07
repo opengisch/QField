@@ -126,7 +126,7 @@ if (ANDROID)
 endif()
 
 set(QT_MIN_VERSION 5.14.0)
-find_package(Qt5 COMPONENTS Concurrent Core Qml Gui Xml Positioning Widgets Network Quick Svg OpenGL Sql Sensors WebView Bluetooth MultimediaQuick REQUIRED)
+find_package(Qt5 COMPONENTS Concurrent Core Qml Gui Xml Positioning Widgets Network Quick Svg OpenGL Sql Sensors WebView MultimediaQuick REQUIRED)
 
 # PrintSupport isn't required, because it doesn't exist for ios
 # qgis will deal with it an define a public 'QT_NO_PRINTER'

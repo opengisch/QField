@@ -364,6 +364,7 @@ Page {
               spacing: 10
 
             Loader {
+                active: withBluetooth
                 source: "qrc:/qml/BluetoothDeviceChooser.qml"
             }
 
