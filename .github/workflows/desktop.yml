@@ -160,6 +160,7 @@ jobs:
         run: |
           EXTRA_CMAKE_ARGS="-DCMAKE_MSVC_RUNTIME_LIBRARY=MultiThreaded\$<\$<CONFIG:Debug>:Debug>"
           EXTRA_CMAKE_ARGS="${EXTRA_CMAKE_ARGS} -DPKG_CONFIG_EXECUTABLE=${CMAKE_BUILD_DIR}/vcpkg_installed/x64-windows/tools/pkgconf/pkgconf.exe"
+          EXTRA_CMAKE_ARGS="${EXTRA_CMAKE_ARGS} -D WITH_BLUETOOTH=OFF" # Not yet properly tested/supported and we have a conflict of double defined symbol in QtBluetooth/QtMultimedia
           # Hide terminal for release builds
           if [ -z "${{ env.CI_TAG }}" ]; then
             EXTRA_CMAKE_ARGS="${EXTRA_CMAKE_ARGS} -DCMAKE_WIN32_EXECUTABLE=ON"
