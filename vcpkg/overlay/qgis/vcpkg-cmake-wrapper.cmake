@@ -122,31 +122,29 @@ if(QGIS_FOUND AND "@VCPKG_LIBRARY_LINKAGE@" STREQUAL "static")
   # Relink qgis_core in the end, to make all the qgis plugins happy that need symbols from it
   _find_and_link_library(qgis_core qgis_core)
 
-  if(PKG_CONFIG_FOUND)
-    pkg_check_modules(spatialite REQUIRED IMPORTED_TARGET spatialite)
-    target_link_libraries(qgis_core INTERFACE PkgConfig::spatialite)
-  endif()
+  # Disabled because pkgconfig finds libc++ for the wrong architecture
+  #  and we already link to it through gdal
+  #
+  #  if(PKG_CONFIG_FOUND)
+  #    pkg_check_modules(spatialite REQUIRED IMPORTED_TARGET spatialite)
+  #    target_link_libraries(qgis_core INTERFACE PkgConfig::spatialite)
+  #  endif()
 
   _qgis_core_add_dependency(qca Qca CONFIG)
   _qgis_core_add_dependency(Protobuf Protobuf)
-  _qgis_core_add_dependency(GDAL::GDAL GDAL)
-
   # Terrible hack ahead
-  # 1. For "reasons" geos and proj add libc++.so to their pkgconfig linker instruction.
+  # 1. geos and proj add libc++.so to their pkgconfig linker instruction
   # 2. This is propagated through spatialite and GDAL
-  # 3. android-arm64 with dynamic crt finds a linux lib for this i(instead of libc++_shared.so)
-  # 4. We should try to remove this in the future. If it compiles and links, that's fine
-  # The target PkgConfig::PC_SPATIALITE is created by vcpkg_installed/[triplet]/share/gdal/packages/FindSPATIALITE.cmake
-  if(VCPKG_TARGET_TRIPLET STREQUAL arm64-android)
-    get_target_property(OUT PkgConfig::PC_SPATIALITE INTERFACE_LINK_LIBRARIES)
-    foreach(LIB ${OUT})
-            if(NOT LIB MATCHES "libc\\+\\+\\.so$")
-                    LIST(APPEND CLEAN_LIST ${LIB})
-      endif()
-    endforeach()
-    set_target_properties(PkgConfig::PC_SPATIALITE PROPERTIES INTERFACE_LINK_LIBRARIES "${CLEAN_LIST}")
+  # 3. pkgconfig finds the build system instead of target system lib
+  # The variable pkgcfg_lib_PC_SPATIALITE_c++ is introduced by GDAL's FindSPATIALITE, patched in the gdal portfile
+  if(ANDROID)
+    find_library(libdl dl)
+    get_filename_component(arch_path ${libdl} DIRECTORY)
+    set(pkgcfg_lib_PC_SPATIALITE_c++ "${arch_path}/${ANDROID_PLATFORM_LEVEL}/libc++.so")
   endif()
   # End Terrible hack
+  _qgis_core_add_dependency(GDAL::GDAL GDAL)
+
 
   _qgis_core_add_dependency(exiv2lib exiv2)
   _qgis_core_add_dependency(exiv2-xmp exiv2)
