@@ -64,7 +64,7 @@ else()
     message(STATUS "   + AppImage                              NO ")
 endif()
 
-if(ANDROIDDEPLOYQT_EXECUTABLE)
+if(ANDROID AND ANDROIDDEPLOYQT_EXECUTABLE)
     message(STATUS "   + Android                              YES ")
     set(CPACK_GENERATOR "External;${CPACK_GENERATOR}")
     set(AT "@")

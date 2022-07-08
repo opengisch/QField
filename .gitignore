@@ -19,6 +19,7 @@ __pycache__
 /platform/android/res/values-*_*/strings.xml
 /platform/android/.idea
 /platform/android/.build
-/platform/android/.gradle
+/platform/android/*.gradle
+/platform/android/*.xml
 /.vscode
 *~
