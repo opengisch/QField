@@ -78,7 +78,7 @@ function(create_executable)
            "${CMAKE_CURRENT_BINARY_DIR}/qmldrop/app/BluetoothDeviceChooser.qml")
     endif()
     qt5_import_qml_plugins(${exe_TARGET} PATH_TO_SCAN
-                           "${CMAKE_CURRENT_BINARY_DIR}/src/qml")
+                           "${CMAKE_CURRENT_BINARY_DIR}/qmldrop")
   endif()
   if(WITH_SENTRY)
     target_link_libraries(${exe_TARGET} PRIVATE qfield_core sentry::sentry)

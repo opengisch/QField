@@ -63,7 +63,7 @@ macro (ADD_QFIELD_QML_TEST TESTNAME TESTSRC)
            "${CMAKE_CURRENT_BINARY_DIR}/qmldrop/app/BluetoothDeviceChooser.qml")
     endif()
     qt5_import_qml_plugins(${TESTNAME}
-                           PATH_TO_SCAN "${CMAKE_CURRENT_BINARY_DIR}/src/qml")
+                           PATH_TO_SCAN "${CMAKE_CURRENT_BINARY_DIR}/qmldrop")
   endif()
 
   set_target_properties(${TESTNAME} PROPERTIES AUTOMOC TRUE)
