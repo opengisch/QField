@@ -206,16 +206,15 @@ int main( int argc, char **argv )
   QSettings settings;
   app.setThemeName( settings.value( "/Themes", "default" ).toString() );
 
-#if defined( Q_OS_WIN )
   qputenv( "GDAL_DATA", QDir::toNativeSeparators( app.applicationDirPath() + "/../share/gdal" ).toLocal8Bit() );
   qputenv( "PROJ_LIB", QDir::toNativeSeparators( app.applicationDirPath() + "/../share/proj" ).toLocal8Bit() );
-#endif
 #ifdef RELATIVE_PREFIX_PATH
   app.setPrefixPath( app.applicationDirPath() + "/..", true );
 #else
   app.setPrefixPath( CMAKE_INSTALL_PREFIX, true );
 #endif
 #endif
+  qInfo() << "Proj path: " << qgetenv( "PROJ_LIB" );
 
   originalMessageHandler = qInstallMessageHandler( qfMessageHandler );
   app.initQgis();
