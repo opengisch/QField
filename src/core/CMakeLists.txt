@@ -1,7 +1,3 @@
-set(WITH_BLUETOOTH
-    ON
-    CACHE BOOL "Enable bluetooth support")
-
 set(QFIELD_CORE_SRCS
     platforms/platformutilities.cpp
     utils/coordinatereferencesystemutils.cpp

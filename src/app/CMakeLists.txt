@@ -70,8 +70,15 @@ function(create_executable)
   # https://bugreports.qt.io/browse/QTBUG-80847
   if(${QT_TARGET_TYPE} STREQUAL "STATIC_LIBRARY")
     find_package(Qt5 COMPONENTS QmlImportScanner)
+    file(GLOB qfield_qmlfiles "${CMAKE_SOURCE_DIR}/src/qml/*.qml")
+    file(COPY ${qfield_qmlfiles}
+         DESTINATION "${CMAKE_CURRENT_BINARY_DIR}/qmldrop/app")
+    if(NOT WITH_BLUETOOTH)
+      file(REMOVE
+           "${CMAKE_CURRENT_BINARY_DIR}/qmldrop/app/BluetoothDeviceChooser.qml")
+    endif()
     qt5_import_qml_plugins(${exe_TARGET} PATH_TO_SCAN
-                           ${CMAKE_SOURCE_DIR}/src/qml)
+                           "${CMAKE_CURRENT_BINARY_DIR}/src/qml")
   endif()
   if(WITH_SENTRY)
     target_link_libraries(${exe_TARGET} PRIVATE qfield_core sentry::sentry)

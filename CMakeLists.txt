@@ -64,6 +64,10 @@ set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${QFIELD_OUTPUT_DIRECTORY}/${QFIELD_LIB_SUBDI
 
 install(DIRECTORY ${CMAKE_SOURCE_DIR}/resources DESTINATION share/qfield)
 
+set(WITH_BLUETOOTH
+    ON
+    CACHE BOOL "Enable bluetooth support")
+
 set(WITH_SPIX FALSE CACHE BOOL "Compile with Spix for testing")
 
 if (WITH_SPIX)

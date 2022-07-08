@@ -54,11 +54,16 @@ macro (ADD_QFIELD_QML_TEST TESTNAME TESTSRC)
     find_package(Qt5 COMPONENTS QmlImportScanner)
     file(GLOB test_qmlfiles "${CMAKE_CURRENT_SOURCE_DIR}/qml/*.qml")
     file(GLOB qfield_qmlfiles "${CMAKE_SOURCE_DIR}/src/qml/*.qml")
-    # scan entire source (we have qml files in src/qml and in tests/qml)
-    # if there is a problem with this approach, we can also GLOB and specify a list of qml files
-    file(COPY ${test_qmlfiles} DESTINATION "${CMAKE_CURRENT_BINARY_DIR}/qmldrop/test")
-    file(COPY ${qfield_qmlfiles} DESTINATION "${CMAKE_CURRENT_BINARY_DIR}/qmldrop/app")
-    qt5_import_qml_plugins(${TESTNAME} PATH_TO_SCAN "${CMAKE_CURRENT_BINARY_DIR}/qmldrop")
+    file(COPY ${test_qmlfiles}
+         DESTINATION "${CMAKE_CURRENT_BINARY_DIR}/qmldrop/test")
+    file(COPY ${qfield_qmlfiles}
+         DESTINATION "${CMAKE_CURRENT_BINARY_DIR}/qmldrop/app")
+    if(NOT WITH_BLUETOOTH)
+      file(REMOVE
+           "${CMAKE_CURRENT_BINARY_DIR}/qmldrop/app/BluetoothDeviceChooser.qml")
+    endif()
+    qt5_import_qml_plugins(${TESTNAME}
+                           PATH_TO_SCAN "${CMAKE_CURRENT_BINARY_DIR}/src/qml")
   endif()
 
   set_target_properties(${TESTNAME} PROPERTIES AUTOMOC TRUE)
