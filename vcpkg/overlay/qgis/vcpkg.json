@@ -13,10 +13,7 @@
       "libspatialite",
       {
         "name": "gdal",
-        "features":
-        [
-          "libspatialite"
-        ]
+        "features":["poppler"]
       },
       {
         "name": "exiv2",
@@ -48,8 +45,7 @@
       },
       {
         "name": "qca",
-        "default-features": false,
-        "features": []
+        "default-features": false
       },
       "qtkeychain"
     ],

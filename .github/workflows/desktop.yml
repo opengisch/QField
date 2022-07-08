@@ -17,11 +17,11 @@ jobs:
       fail-fast: false
       matrix:
         include:
-          - triplet: 'x64-windows'
+          - triplet: 'x64-windows-static'
             os: 'windows-2019'
 
           - triplet: 'x64-linux'
-            os: 'ubuntu-20.04'
+            os: 'ubuntu-18.04'
 
           - triplet: 'x64-osx'
             os: 'macos-10.15'
@@ -140,7 +140,7 @@ jobs:
         if: ${{ matrix.triplet == 'x64-linux' }}
         run: |
           sudo apt-get update
-          sudo apt-get install -y gperf autopoint '^libxcb.*-dev' libx11-xcb-dev libglu1-mesa-dev libxrender-dev libxi-dev libxkbcommon-dev libxkbcommon-x11-dev libgstreamer-plugins-base1.0-0
+          sudo apt-get install -y gperf autopoint '^libxcb.*-dev' libx11-xcb-dev libglu1-mesa-dev libxrender-dev libxi-dev libxkbcommon-dev libxkbcommon-x11-dev libgstreamer-plugins-base1.0-0 gstreamer1.0-plugins-bad
           sudo apt-get remove -y libopenexr-dev # Avoid gdal picking this system lib up
           # Required to run unit tests on linux
           echo "QT_QPA_PLATFORM=offscreen" >> $GITHUB_ENV
@@ -158,12 +158,14 @@ jobs:
         shell: bash
         if: ${{ matrix.os == 'windows-2019' }}
         run: |
+          EXTRA_CMAKE_ARGS="-DCMAKE_MSVC_RUNTIME_LIBRARY=MultiThreaded\$<\$<CONFIG:Debug>:Debug>"
+          EXTRA_CMAKE_ARGS="${EXTRA_CMAKE_ARGS} -DPKG_CONFIG_EXECUTABLE=${CMAKE_BUILD_DIR}/vcpkg_installed/x64-windows/tools/pkgconf/pkgconf.exe"
+          EXTRA_CMAKE_ARGS="${EXTRA_CMAKE_ARGS} -D WITH_BLUETOOTH=OFF" # Not yet properly tested/supported and we have a conflict of double defined symbol in QtBluetooth/QtMultimedia
           # Hide terminal for release builds
           if [ -z "${{ env.CI_TAG }}" ]; then
-            echo "EXTRA_CMAKE_ARGS=-DCMAKE_WIN32_EXECUTABLE=OFF" >> $GITHUB_ENV
-          else
-            echo "EXTRA_CMAKE_ARGS=-DCMAKE_WIN32_EXECUTABLE=ON" >> $GITHUB_ENV
+            EXTRA_CMAKE_ARGS="${EXTRA_CMAKE_ARGS} -DCMAKE_WIN32_EXECUTABLE=ON"
           fi
+          echo "EXTRA_CMAKE_ARGS=${EXTRA_CMAKE_ARGS}" >> $GITHUB_ENV
 
       - name: Prepare osx build env
         if: ${{ matrix.os == 'macos-10.15' }}

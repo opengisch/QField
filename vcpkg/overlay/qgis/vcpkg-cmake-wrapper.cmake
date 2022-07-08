@@ -98,6 +98,8 @@ function(_find_and_link_library library target)
 endfunction()
 
 if(QGIS_FOUND AND "@VCPKG_LIBRARY_LINKAGE@" STREQUAL "static")
+  find_package(PkgConfig QUIET)
+
   _find_and_link_library(authmethod_basic_a qgis_core)
   _find_and_link_library(authmethod_esritoken_a qgis_core)
   _find_and_link_library(authmethod_identcert_a qgis_core)
@@ -115,26 +117,51 @@ if(QGIS_FOUND AND "@VCPKG_LIBRARY_LINKAGE@" STREQUAL "static")
   _find_and_link_library(provider_wcs_a qgis_core)
   _find_and_link_library(provider_virtuallayer_a qgis_core)
 
-  _find_and_link_library(pq qgis_core)
+  _qgis_core_add_dependency(PostgreSQL::PostgreSQL PostgreSQL)
+
   # Relink qgis_core in the end, to make all the qgis plugins happy that need symbols from it
   _find_and_link_library(qgis_core qgis_core)
 
-  _find_and_link_library(spatialite qgis_core)
-  #  _find_and_link_library(z qgis_core) # transient dependency for spatialite ... disabled because of windows ... required or conditional?
+  # Disabled because pkgconfig finds libc++ for the wrong architecture
+  #  and we already link to it through gdal
+  #
+  #  if(PKG_CONFIG_FOUND)
+  #    pkg_check_modules(spatialite REQUIRED IMPORTED_TARGET spatialite)
+  #    target_link_libraries(qgis_core INTERFACE PkgConfig::spatialite)
+  #  endif()
+
   _qgis_core_add_dependency(qca Qca CONFIG)
   _qgis_core_add_dependency(Protobuf Protobuf)
+  # Terrible hack ahead
+  # 1. geos and proj add libc++.so to their pkgconfig linker instruction
+  # 2. This is propagated through spatialite and GDAL
+  # 3. pkgconfig finds the build system instead of target system lib
+  # The variable pkgcfg_lib_PC_SPATIALITE_c++ is introduced by GDAL's FindSPATIALITE, patched in the gdal portfile
+  if(ANDROID)
+    find_library(libdl dl)
+    get_filename_component(arch_path ${libdl} DIRECTORY)
+    set(pkgcfg_lib_PC_SPATIALITE_c++ "${arch_path}/${ANDROID_PLATFORM_LEVEL}/libc++.so")
+  endif()
+  # End Terrible hack
   _qgis_core_add_dependency(GDAL::GDAL GDAL)
+
+
   _qgis_core_add_dependency(exiv2lib exiv2)
   _qgis_core_add_dependency(exiv2-xmp exiv2)
   _qgis_core_add_dependency(libzip::zip libzip)
   _qgis_core_add_dependency(ZLIB::ZLIB ZLIB)
-  _find_and_link_library(spatialindex qgis_core spatialindex spatialindex-64)
-  _find_and_link_library(freexl qgis_core)
+  if(MSVC)
+    _find_and_link_library(spatialindex-64 qgis_core)
+  else()
+    _find_and_link_library(spatialindex qgis_core)
+  endif()
+
+  if(PKG_CONFIG_FOUND)
+    pkg_check_modules(freexl REQUIRED IMPORTED_TARGET freexl)
+    target_link_libraries(qgis_core INTERFACE PkgConfig::freexl)
+  endif()
   _find_and_link_library(qt5keychain qgis_core)
-  _find_and_link_library(poppler qgis_core)
-  _find_and_link_library(freetype qgis_core)
-  _find_and_link_library(brotlidec-static qgis_core)
-  _find_and_link_library(brotlicommon-static qgis_core)
+
   find_package(Qt5 COMPONENTS Core Gui Network Xml Svg Concurrent Sql SerialPort)
   target_link_libraries(qgis_core INTERFACE
       Qt5::Core
@@ -186,16 +213,17 @@ if(QGIS_FOUND AND "@VCPKG_LIBRARY_LINKAGE@" STREQUAL "static")
   endif()
   if(UNIX AND NOT ANDROID)
      # poppler fixup for linux and macos
-    _find_and_link_library(lcms2 qgis_core)
+     # _find_and_link_library(lcms2 qgis_core)
 
     # QtKeychain
     find_package(Qt5 COMPONENTS DBus REQUIRED)
     target_link_libraries(qgis_core INTERFACE
       Qt5::DBus
     )
-    find_package(PkgConfig REQUIRED)
-    pkg_check_modules(deps REQUIRED IMPORTED_TARGET glib-2.0)
-    target_link_libraries(qgis_core INTERFACE PkgConfig::deps)
+    if(PKG_CONFIG_FOUND)
+      pkg_check_modules(glib2 REQUIRED IMPORTED_TARGET glib-2.0)
+      target_link_libraries(qgis_core INTERFACE PkgConfig::glib2)
+    endif()
   endif()
   target_link_libraries(qgis_analysis INTERFACE qgis_core)
 endif()

@@ -1,11 +1,4 @@
 find_package(Qt5QuickCompiler QUIET)
-if(Qt5QuickCompiler_FOUND
-   AND NOT CMAKE_BUILD_TYPE MATCHES Debug
-   AND NOT CMAKE_BUILD_TYPE MATCHES RelWithDebInfo)
-  qtquick_compiler_add_resources(RESOURCES ${CMAKE_SOURCE_DIR}/src/qml/qml.qrc)
-else()
-  set(RESOURCES ${CMAKE_SOURCE_DIR}/src/qml/qml.qrc)
-endif()
 
 if(MSVC)
   configure_file("${CMAKE_SOURCE_DIR}/platform/windows/appicon.rc.in"
@@ -19,11 +12,6 @@ if(APPLE AND NOT IOS)
                                                         "Resources")
   list(APPEND RESOURCES ${qfield_ICON})
 endif()
-
-set(QML_IMPORT_PATH "${CMAKE_SOURCE_DIR}/src/qml/imports")
-
-file(GLOB_RECURSE QML_SOURCES "${CMAKE_SOURCE_DIR}/src/qml/*.qml")
-add_custom_target(qfield_qml SOURCES ${QML_SOURCES})
 
 # lrelease .ts files
 find_package(Qt5 COMPONENTS LinguistTools)
@@ -69,23 +57,29 @@ function(create_executable)
     add_executable(${exe_TARGET} ${exe_EXTRA_ARGS} ${QFIELD_SOURCES})
   endif()
 
-  get_target_property(QT_TARGET_TYPE Qt5::Core TYPE)
-  if(${QT_TARGET_TYPE} STREQUAL "STATIC_LIBRARY")
-    find_package(Qt5 COMPONENTS QmlImportScanner)
-    qt5_import_qml_plugins(${exe_TARGET} PATH_TO_SCAN
-                           ${CMAKE_SOURCE_DIR}/src/qml)
-  endif()
-
-  target_compile_definitions(
-    ${exe_TARGET}
-    PRIVATE $<$<OR:$<CONFIG:Debug>,$<CONFIG:RelWithDebInfo>>:QT_QML_DEBUG>)
-
   if(IOS)
     # debug symbols https://stackoverflow.com/a/49714128/1548052
     target_compile_options(${exe_TARGET} PRIVATE $<$<CXX_COMPILER_ID:Clang>:-g>)
   endif()
 
-  target_link_libraries(${exe_TARGET} PRIVATE qfield_core ${QGIS_CORE_LIBRARY})
+  target_link_libraries(${exe_TARGET} PRIVATE qfield_core qfield_qml
+                                              ${QGIS_CORE_LIBRARY})
+  get_target_property(QT_TARGET_TYPE Qt5::Core TYPE)
+  # This should be in src/qml/CMakeLists.txt but that's not possible with Qt5.
+  # Retry with Qt6 Same is in tests/CMakeLists.txt
+  # https://bugreports.qt.io/browse/QTBUG-80847
+  if(${QT_TARGET_TYPE} STREQUAL "STATIC_LIBRARY")
+    find_package(Qt5 COMPONENTS QmlImportScanner)
+    file(GLOB qfield_qmlfiles "${CMAKE_SOURCE_DIR}/src/qml/*.qml")
+    file(COPY ${qfield_qmlfiles}
+         DESTINATION "${CMAKE_CURRENT_BINARY_DIR}/qmldrop/app")
+    if(NOT WITH_BLUETOOTH)
+      file(REMOVE
+           "${CMAKE_CURRENT_BINARY_DIR}/qmldrop/app/BluetoothDeviceChooser.qml")
+    endif()
+    qt5_import_qml_plugins(${exe_TARGET} PATH_TO_SCAN
+                           "${CMAKE_CURRENT_BINARY_DIR}/qmldrop")
+  endif()
   if(WITH_SENTRY)
     target_link_libraries(${exe_TARGET} PRIVATE qfield_core sentry::sentry)
   endif()

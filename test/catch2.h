@@ -22,7 +22,7 @@
 #include <QString>
 #include <QtGlobal>
 
-#include <catch2/catch.hpp>
+#include <catch2/catch_all.hpp>
 
 #ifdef QFIELDTEST_MAIN
 #include <qgsapplication.h>

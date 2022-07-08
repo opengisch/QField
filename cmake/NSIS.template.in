@@ -655,14 +655,14 @@ FunctionEnd
 
 ; ----------------
 ; Install vcredist
-; TODO: x86 and msvc number (14.29.30133) configurable from the env
+; Only required for dynamic CRT
 ; ----------------
-Section "Visual Studio Runtime"
-  SetOutPath "$INSTDIR"
-  File "C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\VC\Redist\MSVC\14.29.30133\vcredist_x64.exe"
-  ExecWait "$INSTDIR\vcredist_x64.exe"
-  Delete "$INSTDIR\vcredist_x64.exe"
-SectionEnd
+; Section "Visual Studio Runtime"
+;   SetOutPath "$INSTDIR"
+;   File "C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\VC\Redist\MSVC\14.29.30133\vcredist_x64.exe"
+;   ExecWait "$INSTDIR\vcredist_x64.exe"
+;   Delete "$INSTDIR\vcredist_x64.exe"
+; SectionEnd
 
 Section "-Core installation"
   ;Use the entire tree produced by the INSTALL target.  Keep the

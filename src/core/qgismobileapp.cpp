@@ -49,8 +49,10 @@
 #include "appinterface.h"
 #include "attributeformmodel.h"
 #include "badlayerhandler.h"
+#ifdef WITH_BLUETOOTH
 #include "bluetoothdevicemodel.h"
 #include "bluetoothreceiver.h"
+#endif
 #include "changelogcontents.h"
 #include "coordinatereferencesystemutils.h"
 #include "deltafilewrapper.h"
@@ -469,8 +471,13 @@ void QgisMobileapp::initDeclarative()
   qmlRegisterType<FeatureCheckListModel>( "org.qgis", 1, 0, "FeatureCheckListModel" );
   qmlRegisterType<GeometryEditorsModel>( "org.qfield", 1, 0, "GeometryEditorsModel" );
   qmlRegisterType<ExpressionEvaluator>( "org.qfield", 1, 0, "ExpressionEvaluator" );
+#ifdef WITH_BLUETOOTH
   qmlRegisterType<BluetoothDeviceModel>( "org.qfield", 1, 0, "BluetoothDeviceModel" );
   qmlRegisterType<BluetoothReceiver>( "org.qfield", 1, 0, "BluetoothReceiver" );
+  rootContext()->setContextProperty( "withBluetooth", true );
+#else
+  rootContext()->setContextProperty( "withBluetooth", false );
+#endif
   qmlRegisterType<ChangelogContents>( "org.qfield", 1, 0, "ChangelogContents" );
   qmlRegisterType<LayerResolver>( "org.qfield", 1, 0, "LayerResolver" );
   qmlRegisterType<QFieldCloudConnection>( "org.qfield", 1, 0, "QFieldCloudConnection" );
