@@ -133,6 +133,76 @@
     </message>
 </context>
 <context>
+    <name>BluetoothDeviceChooser</name>
+    <message>
+        <location filename="../src/qml/BluetoothDeviceChooser.qml" line="21"/>
+        <source>Positioning device in use:</source>
+        <translation>使用中の測位デバイス:</translation>
+    </message>
+    <message>
+        <location filename="../src/qml/BluetoothDeviceChooser.qml" line="69"/>
+        <source>Scanning for paired devices</source>
+        <translation>ペアリングされたデバイスをスキャンしています</translation>
+    </message>
+    <message>
+        <location filename="../src/qml/BluetoothDeviceChooser.qml" line="73"/>
+        <source>Scanning failed: %1</source>
+        <translation>スキャンに失敗しました: %1</translation>
+    </message>
+    <message>
+        <location filename="../src/qml/BluetoothDeviceChooser.qml" line="77"/>
+        <source>Scanning done</source>
+        <translation>スキャン完了</translation>
+    </message>
+    <message numerus="yes">
+        <location filename="../src/qml/BluetoothDeviceChooser.qml" line="80"/>
+        <source>%n device(s) found</source>
+        <translation type="unfinished"><numerusform></numerusform></translation>
+    </message>
+    <message>
+        <location filename="../src/qml/BluetoothDeviceChooser.qml" line="86"/>
+        <source>Scanning canceled</source>
+        <translation>スキャンがキャンセルされました。</translation>
+    </message>
+    <message>
+        <location filename="../src/qml/BluetoothDeviceChooser.qml" line="103"/>
+        <source>Scan</source>
+        <translation>スキャン</translation>
+    </message>
+    <message>
+        <location filename="../src/qml/BluetoothDeviceChooser.qml" line="136"/>
+        <source>Make a full service discovery</source>
+        <translation>フルサービス検出をする</translation>
+    </message>
+    <message>
+        <location filename="../src/qml/BluetoothDeviceChooser.qml" line="140"/>
+        <source>A full device scan can take longer. You really want to do it?
+Cancel to make a minimal device scan instead.</source>
+        <translation>デバイスのフルスキャンには時間がかかる場合があります。本当に実行しますか？
+キャンセルして代わりにミニマムなデバイススキャンを行います。</translation>
+    </message>
+    <message>
+        <location filename="../src/qml/BluetoothDeviceChooser.qml" line="164"/>
+        <source>Connected to %1</source>
+        <translation>%1 に接続しました</translation>
+    </message>
+    <message>
+        <location filename="../src/qml/BluetoothDeviceChooser.qml" line="166"/>
+        <source>Connect  to %1</source>
+        <translation>%1 に接続する</translation>
+    </message>
+    <message>
+        <location filename="../src/qml/BluetoothDeviceChooser.qml" line="168"/>
+        <source>Connecting to %1</source>
+        <translation>%1 に接続しています</translation>
+    </message>
+    <message>
+        <location filename="../src/qml/BluetoothDeviceChooser.qml" line="185"/>
+        <source>Use orthometric altitude from device</source>
+        <translation>デバイスから取得したオルソメトリック高度を使う</translation>
+    </message>
+</context>
+<context>
     <name>BluetoothDeviceModel</name>
     <message>
         <location filename="../src/core/positioning/bluetoothdevicemodel.cpp" line="40"/>
@@ -2325,289 +2395,276 @@ While you can still view and use the project, it is strongly recommended to rese
 <context>
     <name>QFieldSettings</name>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="52"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="51"/>
         <source>Show scale bar</source>
         <translation>縮尺を表示する</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="56"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="55"/>
         <source>Maximized attribute form</source>
         <translation>属性フォームを最大表示する</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="60"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="59"/>
         <source>Fixed scale navigation</source>
         <translation>同じ縮尺での検索結果表示</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="61"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="60"/>
         <source>When fixed scale navigation is active, focusing on a search result will pan to the feature. With fixed scale navigation disabled it will pan and zoom to the feature.</source>
         <translation>同じ縮尺での検索結果表示を有効にすると、検索結果の地物に同じ縮尺のままで表示します。同機能を無効にすると縮尺を拡大し地物を表示します。</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="65"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="64"/>
         <source>Show digitizing information</source>
         <translation>デジタイジング情報を表示する</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="66"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="65"/>
         <source>When switched on, coordinate information, such as latitude and longitude, is overlayed onto the map while digitizing new features or using the measure tool.</source>
         <translation>この機能を有効にすると、新しい地物を追加するときや計測ツールを使用しているときに、緯度・経度のような座標情報が地図キャンバス上にオーバーレイされます。</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="70"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="69"/>
         <source>Show bookmarks</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="71"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="70"/>
         <source>When switched on, user&apos;s saved and currently opened project bookmarks will be displayed on the map.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="75"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="74"/>
         <source>Use native camera</source>
         <translation>ネイティブカメラを使用する</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="76"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="75"/>
         <source>If disabled, QField will use a minimalist internal camera instead of the camera app on the device.&lt;br&gt;Tip: Enable this option and install the open camera app to create geo tagged photos.</source>
         <translation>オフの場合, QFieldはデバイスのカメラアプリではなく、内部に搭載のカメラ機能を使用します。&lt;br&gt;参考: このオプションをオンにするとカメラアプリを起動してジオタグ写真を撮影するようになります。</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="81"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="80"/>
         <source>Fast editing mode</source>
         <translation>高速編集モード</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="82"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="81"/>
         <source>If enabled, the feature is stored after having a valid geometry and the constraints are fulfilled and atributes are commited immediately.</source>
         <translation>この機能を有効にすると、地物に有効なジオメトリが入力され、必要な制約が全て満たされると、属性情報がすぐに反映されるようになります。</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="86"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="85"/>
         <source>Dim screen when idling</source>
         <translation>アイドリング時に画面を暗くする</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="87"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="86"/>
         <source>If enabled, the screen brightness will be dimmed after 20 seconds of inactivity to preserve battery.</source>
         <translation>この機能を有効にすると、バッテリーを節約するために、20秒間操作しないと画面の明るさが低下します。</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="91"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="90"/>
         <source>Consider mouse as a touchscreen device</source>
         <translation>マウスをタッチスクリーンデバイスとして認識する</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="92"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="91"/>
         <source>If disabled, the mouse will act as a stylus pen.</source>
         <translation>無効した場合、マウスはスタイラスペンとして機能します。</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="96"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="95"/>
         <source>Send anonymized metrics</source>
         <translation>匿名化されたメトリクスの送信</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="97"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="96"/>
         <source>If enabled, anonymized metrics will be collected and sent to help improve QField for everyone.</source>
         <translation>有効にすると、匿名化されたメトリクスが収集され、送信され、他の利用者のためにQFieldを改善するのに役立ちます。</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="137"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="136"/>
         <source>General</source>
         <translation>一般情報</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="143"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="142"/>
         <source>Positioning</source>
         <translation>測位</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="149"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="148"/>
         <source>Variables</source>
         <translation>変数</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="191"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="190"/>
         <source>Customize search bar</source>
         <translation>検索バーのカスタマイズ</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="282"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="281"/>
         <source>User interface language:</source>
         <translation>ユーザーインターフェース言語:</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="293"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="292"/>
         <source>To apply the selected user interface language, QField needs to completely shutdown and restart.</source>
         <translation>選択した表示言語を適用するには、QFieldを完全にシャットダウンして再起動する必要があります。</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="322"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="321"/>
         <source>system</source>
         <translation>システム</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="334"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="333"/>
         <source>Found a missing or incomplete language? %1Join the translator community.%2</source>
         <translation>あなたの言語がありませんか、それとも翻訳が不完全ですか？ %1翻訳コミュニティに参加しましょう。%2</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="377"/>
         <source>Positioning device in use:</source>
-        <translation>使用中の測位デバイス:</translation>
+        <translation type="vanished">使用中の測位デバイス:</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="425"/>
         <source>Scanning for paired devices</source>
-        <translation>ペアリングされたデバイスをスキャンしています</translation>
+        <translation type="vanished">ペアリングされたデバイスをスキャンしています</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="429"/>
         <source>Scanning failed: %1</source>
-        <translation>スキャンに失敗しました: %1</translation>
+        <translation type="vanished">スキャンに失敗しました: %1</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="433"/>
         <source>Scanning done</source>
-        <translation>スキャン完了</translation>
+        <translation type="vanished">スキャン完了</translation>
     </message>
     <message numerus="yes">
-        <location filename="../src/qml/QFieldSettings.qml" line="436"/>
         <source>%n device(s) found</source>
-        <translation><numerusform>%n つのデバイスが見つかりました</numerusform></translation>
+        <translation type="vanished"><numerusform>%n つのデバイスが見つかりました</numerusform></translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="442"/>
         <source>Scanning canceled</source>
-        <translation>スキャンがキャンセルされました。</translation>
+        <translation type="vanished">スキャンがキャンセルされました。</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="459"/>
         <source>Scan</source>
-        <translation>スキャン</translation>
+        <translation type="vanished">スキャン</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="492"/>
         <source>Make a full service discovery</source>
-        <translation>フルサービス検出をする</translation>
+        <translation type="vanished">フルサービス検出をする</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="496"/>
         <source>A full device scan can take longer. You really want to do it?
 Cancel to make a minimal device scan instead.</source>
-        <translation>デバイスのフルスキャンには時間がかかる場合があります。本当に実行しますか？
+        <translation type="vanished">デバイスのフルスキャンには時間がかかる場合があります。本当に実行しますか？
 キャンセルして代わりにミニマムなデバイススキャンを行います。</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="520"/>
         <source>Connected to %1</source>
-        <translation>%1 に接続しました</translation>
+        <translation type="vanished">%1 に接続しました</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="522"/>
         <source>Connect  to %1</source>
-        <translation>%1 に接続する</translation>
+        <translation type="vanished">%1 に接続する</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="524"/>
         <source>Connecting to %1</source>
-        <translation>%1 に接続しています</translation>
+        <translation type="vanished">%1 に接続しています</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="541"/>
         <source>Use orthometric altitude from device</source>
-        <translation>デバイスから取得したオルソメトリック高度を使う</translation>
+        <translation type="vanished">デバイスから取得したオルソメトリック高度を使う</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="573"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="380"/>
         <source>Show position information</source>
         <translation>位置情報を表示する</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="595"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="402"/>
         <source>Activate accuracy indicator</source>
         <translation>精度の閾値を設定する</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="617"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="424"/>
         <source>Bad accuracy below [m]</source>
         <translation>低精度としての許容範囲 [m]</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="658"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="465"/>
         <source>Excellent accuracy above [m]</source>
         <translation>高精度としての許容範囲 [m]</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="699"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="506"/>
         <source>Enable accuracy requirement</source>
         <translation>精度の条件を有効にする</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="726"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="533"/>
         <source>When the accuracy indicator is enabled, a badge is attached to the location button and colored &lt;span %1&gt;red&lt;/span&gt; if the accuracy value is below bad, &lt;span %2&gt;yellow&lt;/span&gt; if it falls short of excellent, or &lt;span %3&gt;green&lt;/span&gt;.&lt;br&gt;&lt;br&gt;In addition, an accuracy restriction mode can be toggled on, which restricts vertex addition when locked to coordinate cursor to positions with an accuracy value above the bad threshold.</source>
         <translation>精度の閾値を有効にすると、ロケーションボタンにバッジが追加され、低精度の場合は &lt;span %1&gt;赤色&lt;/span&gt; に、どちらでもない場合は &lt;span %2&gt;黄色&lt;/span&gt; に、高精度の場合は &lt;span %3&gt;緑色&lt;/span&gt;に変わります。&lt;br&gt;&lt;br&gt;また、低精度の閾値の範囲内で座標カーソルをロックし、頂点の追加制限する精度制限モードを有効にすることもできます。</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="743"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="550"/>
         <source>Enable averaged positioning requirement</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="765"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="572"/>
         <source>Minimum number of positions collected</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="806"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="613"/>
         <source>When enabled, digitizing vertices with a cursor locked to position will only accepted an averaged position from a minimum number of collected positions. Digitizing using averaged positions is done by pressing and holding the add vertex button, which will collect positions until the press is released. Accuracy requirement settings are respected when enabled.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="820"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="627"/>
         <source>Antenna height compensation</source>
         <translation>アンテナの高さ補正</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="842"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="649"/>
         <source>Antenna height [m]</source>
         <translation>アンテナの高さ [m]</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="884"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="691"/>
         <source>Z values which are recorded from the positioning device will be corrected by this value. If a value of 1.6 is entered, this will result in a correction of -1.6 for each recorded value.</source>
         <translation>GNSS受信機から取得したZ値はこの数値によって補正されます。もし1.6という数値が入力された場合、各レコードの値から-1.6m補正されたものが保持されます。</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="898"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="705"/>
         <source>Skip altitude correction</source>
         <translation>高度の補正をスキップする</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="921"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="728"/>
         <source>Use the altitude as reported by the positioning device. Skip any altitude correction that may be implied by the coordinate system transformation.</source>
         <translation>GNSS受信機によって計算された高度を使用します。 座標系変換によって示唆される可能性のある高度補正は行いません。</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="935"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="742"/>
         <source>Vertical grid shift in use:</source>
         <translation>使用中の垂直方向のグリッドシフト:</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="944"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="751"/>
         <source>None</source>
         <translation>なし</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="958"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="765"/>
         <source>Vertical grid shift is used to increase the altitude accuracy.</source>
         <translation>垂直方向のグリッドシフトは高度の精度を向上させるために使われます。</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="987"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="794"/>
         <source>QField Settings</source>
         <translation>QField設定</translation>
     </message>
@@ -2728,18 +2785,18 @@ Cancel to make a minimal device scan instead.</source>
 <context>
     <name>QgisMobileapp</name>
     <message>
-        <location filename="../src/core/qgismobileapp.cpp" line="667"/>
-        <location filename="../src/core/qgismobileapp.cpp" line="693"/>
+        <location filename="../src/core/qgismobileapp.cpp" line="674"/>
+        <location filename="../src/core/qgismobileapp.cpp" line="700"/>
         <source>Project file &quot;%1&quot; does not exist</source>
         <translation>プロジェクトファイル 「%1」は存在しません</translation>
     </message>
     <message>
-        <location filename="../src/core/qgismobileapp.cpp" line="684"/>
+        <location filename="../src/core/qgismobileapp.cpp" line="691"/>
         <source>No project file currently opened</source>
         <translation>最近開かれたプロジェクトファイルはありません</translation>
     </message>
     <message>
-        <location filename="../src/core/qgismobileapp.cpp" line="715"/>
+        <location filename="../src/core/qgismobileapp.cpp" line="722"/>
         <source>Could not load font %1</source>
         <translation>フォント %1 をロードできませんでした</translation>
     </message>

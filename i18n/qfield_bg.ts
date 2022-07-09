@@ -133,6 +133,76 @@
     </message>
 </context>
 <context>
+    <name>BluetoothDeviceChooser</name>
+    <message>
+        <location filename="../src/qml/BluetoothDeviceChooser.qml" line="21"/>
+        <source>Positioning device in use:</source>
+        <translation>Използвано позициониращо устройство:</translation>
+    </message>
+    <message>
+        <location filename="../src/qml/BluetoothDeviceChooser.qml" line="69"/>
+        <source>Scanning for paired devices</source>
+        <translation>Търсене на свързани устройства</translation>
+    </message>
+    <message>
+        <location filename="../src/qml/BluetoothDeviceChooser.qml" line="73"/>
+        <source>Scanning failed: %1</source>
+        <translation>Търсенето неуспешно: %1</translation>
+    </message>
+    <message>
+        <location filename="../src/qml/BluetoothDeviceChooser.qml" line="77"/>
+        <source>Scanning done</source>
+        <translation>Приключено търсене</translation>
+    </message>
+    <message numerus="yes">
+        <location filename="../src/qml/BluetoothDeviceChooser.qml" line="80"/>
+        <source>%n device(s) found</source>
+        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
+    </message>
+    <message>
+        <location filename="../src/qml/BluetoothDeviceChooser.qml" line="86"/>
+        <source>Scanning canceled</source>
+        <translation>Прекъснато търсене</translation>
+    </message>
+    <message>
+        <location filename="../src/qml/BluetoothDeviceChooser.qml" line="103"/>
+        <source>Scan</source>
+        <translation>Търси</translation>
+    </message>
+    <message>
+        <location filename="../src/qml/BluetoothDeviceChooser.qml" line="136"/>
+        <source>Make a full service discovery</source>
+        <translation>Пълно търсене на устройства</translation>
+    </message>
+    <message>
+        <location filename="../src/qml/BluetoothDeviceChooser.qml" line="140"/>
+        <source>A full device scan can take longer. You really want to do it?
+Cancel to make a minimal device scan instead.</source>
+        <translation>Пълното търсене на устройства може да отнеме известно време. Наистина ли желаете да направите пълно търсене?
+Откажи за бързо търсене.</translation>
+    </message>
+    <message>
+        <location filename="../src/qml/BluetoothDeviceChooser.qml" line="164"/>
+        <source>Connected to %1</source>
+        <translation>Установена връзка с %1</translation>
+    </message>
+    <message>
+        <location filename="../src/qml/BluetoothDeviceChooser.qml" line="166"/>
+        <source>Connect  to %1</source>
+        <translation>Свържи с %1</translation>
+    </message>
+    <message>
+        <location filename="../src/qml/BluetoothDeviceChooser.qml" line="168"/>
+        <source>Connecting to %1</source>
+        <translation>Свързване с %1</translation>
+    </message>
+    <message>
+        <location filename="../src/qml/BluetoothDeviceChooser.qml" line="185"/>
+        <source>Use orthometric altitude from device</source>
+        <translation>Използвай ортометричнана надморска височина от устройството</translation>
+    </message>
+</context>
+<context>
     <name>BluetoothDeviceModel</name>
     <message>
         <location filename="../src/core/positioning/bluetoothdevicemodel.cpp" line="40"/>
@@ -2329,289 +2399,276 @@ While you can still view and use the project, it is strongly recommended to rese
 <context>
     <name>QFieldSettings</name>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="52"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="51"/>
         <source>Show scale bar</source>
         <translation>Показване на линеен мащаб</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="56"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="55"/>
         <source>Maximized attribute form</source>
         <translation>Минимизиране на атрибутивната таблица</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="60"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="59"/>
         <source>Fixed scale navigation</source>
         <translation>Фиксиране на мащаба на навигацията</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="61"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="60"/>
         <source>When fixed scale navigation is active, focusing on a search result will pan to the feature. With fixed scale navigation disabled it will pan and zoom to the feature.</source>
         <translation>При включен фиксиран мащаб, фокусирането на резултат от търсенето ще придвижи картата до обекта, а при изключен фиксиран мащаб, ще придвижи и приближи картата до обекта.</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="65"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="64"/>
         <source>Show digitizing information</source>
         <translation>Показване на информация при дигитализиране</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="66"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="65"/>
         <source>When switched on, coordinate information, such as latitude and longitude, is overlayed onto the map while digitizing new features or using the measure tool.</source>
         <translation>При активиране, информация за координатите (ширина и дължина) ще се показват върху екрана докато се цифроват нови обекти или се използва инструментът за измерване.</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="70"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="69"/>
         <source>Show bookmarks</source>
         <translation>Покажи отметките</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="71"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="70"/>
         <source>When switched on, user&apos;s saved and currently opened project bookmarks will be displayed on the map.</source>
         <translation>При активиране, записаните от потребителя и записаните в проекта отметки ще бъдат визуализирани на картата.</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="75"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="74"/>
         <source>Use native camera</source>
         <translation>Използване на системната камера</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="76"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="75"/>
         <source>If disabled, QField will use a minimalist internal camera instead of the camera app on the device.&lt;br&gt;Tip: Enable this option and install the open camera app to create geo tagged photos.</source>
         <translation>При деактивиране, QField ще използва минималистично вътрешно приложение, вместо системната камера.&lt;br&gt;Съвет: включете тази опция и инсталирайте приложението Open Camera, за да бъдат снимките геолокирани.</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="81"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="80"/>
         <source>Fast editing mode</source>
         <translation>Режим на бърза редакция</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="82"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="81"/>
         <source>If enabled, the feature is stored after having a valid geometry and the constraints are fulfilled and atributes are commited immediately.</source>
         <translation>При активиране, обектът се записва перманентно веднага, ако има валидна геометрия и ограниченията са спазени.</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="86"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="85"/>
         <source>Dim screen when idling</source>
         <translation>Затъмни екрана при неактивност</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="87"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="86"/>
         <source>If enabled, the screen brightness will be dimmed after 20 seconds of inactivity to preserve battery.</source>
         <translation>При активиране, яркостта на екрана ще бъде намалена след 20 секунди на неактивност, за да се пести енергия.</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="91"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="90"/>
         <source>Consider mouse as a touchscreen device</source>
         <translation>Курсорът на мишката като тачскрийн устройство</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="92"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="91"/>
         <source>If disabled, the mouse will act as a stylus pen.</source>
         <translation>При деактивиране, курсорът на мишката се държи като електронна писалка.</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="96"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="95"/>
         <source>Send anonymized metrics</source>
         <translation>Изпращане на анонимизирани данни</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="97"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="96"/>
         <source>If enabled, anonymized metrics will be collected and sent to help improve QField for everyone.</source>
         <translation>При активиране, анонимизирани данни за използването на QField ще се събират и изпращат с цел да се подобри QField.</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="137"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="136"/>
         <source>General</source>
         <translation>Общи</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="143"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="142"/>
         <source>Positioning</source>
         <translation>Позициониране</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="149"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="148"/>
         <source>Variables</source>
         <translation>Променливи</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="191"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="190"/>
         <source>Customize search bar</source>
         <translation>Настройки на лентата за търсене</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="282"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="281"/>
         <source>User interface language:</source>
         <translation>Език</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="293"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="292"/>
         <source>To apply the selected user interface language, QField needs to completely shutdown and restart.</source>
         <translation>За да се приложи избраният език, QField трябва да бъде напълно спрян и рестартиран.</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="322"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="321"/>
         <source>system</source>
         <translation>системен</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="334"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="333"/>
         <source>Found a missing or incomplete language? %1Join the translator community.%2</source>
         <translation>Липсващ или непълен езиков превод? %1Присъедини се към общността на преводачите.%2</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="377"/>
         <source>Positioning device in use:</source>
-        <translation>Използвано позициониращо устройство:</translation>
+        <translation type="vanished">Използвано позициониращо устройство:</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="425"/>
         <source>Scanning for paired devices</source>
-        <translation>Търсене на свързани устройства</translation>
+        <translation type="vanished">Търсене на свързани устройства</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="429"/>
         <source>Scanning failed: %1</source>
-        <translation>Търсенето неуспешно: %1</translation>
+        <translation type="vanished">Търсенето неуспешно: %1</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="433"/>
         <source>Scanning done</source>
-        <translation>Приключено търсене</translation>
+        <translation type="vanished">Приключено търсене</translation>
     </message>
     <message numerus="yes">
-        <location filename="../src/qml/QFieldSettings.qml" line="436"/>
         <source>%n device(s) found</source>
-        <translation><numerusform>%n намерено устройство</numerusform><numerusform>%n намерени устройства</numerusform></translation>
+        <translation type="vanished"><numerusform>%n намерено устройство</numerusform><numerusform>%n намерени устройства</numerusform></translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="442"/>
         <source>Scanning canceled</source>
-        <translation>Прекъснато търсене</translation>
+        <translation type="vanished">Прекъснато търсене</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="459"/>
         <source>Scan</source>
-        <translation>Търси</translation>
+        <translation type="vanished">Търси</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="492"/>
         <source>Make a full service discovery</source>
-        <translation>Пълно търсене на устройства</translation>
+        <translation type="vanished">Пълно търсене на устройства</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="496"/>
         <source>A full device scan can take longer. You really want to do it?
 Cancel to make a minimal device scan instead.</source>
-        <translation>Пълното търсене на устройства може да отнеме известно време. Наистина ли желаете да направите пълно търсене?
+        <translation type="vanished">Пълното търсене на устройства може да отнеме известно време. Наистина ли желаете да направите пълно търсене?
 Откажи за бързо търсене.</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="520"/>
         <source>Connected to %1</source>
-        <translation>Установена връзка с %1</translation>
+        <translation type="vanished">Установена връзка с %1</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="522"/>
         <source>Connect  to %1</source>
-        <translation>Свържи с %1</translation>
+        <translation type="vanished">Свържи с %1</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="524"/>
         <source>Connecting to %1</source>
-        <translation>Свързване с %1</translation>
+        <translation type="vanished">Свързване с %1</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="541"/>
         <source>Use orthometric altitude from device</source>
-        <translation>Използвай ортометричнана надморска височина от устройството</translation>
+        <translation type="vanished">Използвай ортометричнана надморска височина от устройството</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="573"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="380"/>
         <source>Show position information</source>
         <translation>Показвай информация за позицията</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="595"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="402"/>
         <source>Activate accuracy indicator</source>
         <translation>Активирай индикатор за точност</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="617"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="424"/>
         <source>Bad accuracy below [m]</source>
         <translation>Лоша точност под [m]</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="658"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="465"/>
         <source>Excellent accuracy above [m]</source>
         <translation>Отлична точност над [m]</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="699"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="506"/>
         <source>Enable accuracy requirement</source>
         <translation>Разрешаване на изискването за точност</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="726"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="533"/>
         <source>When the accuracy indicator is enabled, a badge is attached to the location button and colored &lt;span %1&gt;red&lt;/span&gt; if the accuracy value is below bad, &lt;span %2&gt;yellow&lt;/span&gt; if it falls short of excellent, or &lt;span %3&gt;green&lt;/span&gt;.&lt;br&gt;&lt;br&gt;In addition, an accuracy restriction mode can be toggled on, which restricts vertex addition when locked to coordinate cursor to positions with an accuracy value above the bad threshold.</source>
         <translation>При включен индикатор за точност, той се появява като точка на бутона за текущата позиция и е оцветен в &lt;span %1&gt;червено&lt;/span&gt;, ако точноста е лоша, в &lt;span %2&gt;жълто&lt;/span&gt;, ако точноста е почти отлична, или &lt;span %3&gt;зелена&lt;/span&gt;, ако е отлична.&lt;br&gt;&lt;br&gt;Допълнително може да се включи режима на ограничаване на точността, при който добавянето на нови вертекси ще е възможно само при точност по-висока от лоша.</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="743"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="550"/>
         <source>Enable averaged positioning requirement</source>
         <translation>Разреши осреднено позициониране</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="765"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="572"/>
         <source>Minimum number of positions collected</source>
         <translation>Минимален брой събрани позиции</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="806"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="613"/>
         <source>When enabled, digitizing vertices with a cursor locked to position will only accepted an averaged position from a minimum number of collected positions. Digitizing using averaged positions is done by pressing and holding the add vertex button, which will collect positions until the press is released. Accuracy requirement settings are respected when enabled.</source>
         <translation>При активиране, добавянето на нови възли със заключен индикатор за локация ще записва само осреднено позициониране от минимален брой събрани позиции. Цифроването чрез осреднено позициониране се случва чрез натискане и задържане на бутона за добавяне на възли, който ще извършва нови позиционирания докато бутонът не се отпусне. Настройките за точност се вземат в предвид.</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="820"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="627"/>
         <source>Antenna height compensation</source>
         <translation>Компенсация за височината на антената</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="842"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="649"/>
         <source>Antenna height [m]</source>
         <translation>Височина на антената [m]</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="884"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="691"/>
         <source>Z values which are recorded from the positioning device will be corrected by this value. If a value of 1.6 is entered, this will result in a correction of -1.6 for each recorded value.</source>
         <translation>Z стойностите, които са получени от устройството за позициониране ще бъдат коригиране с тази стойност. Например, ако е избрана стойност от 1,6, резултатът ще бъде, че всяка стойност ще бъде намалена с 1,6 м. </translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="898"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="705"/>
         <source>Skip altitude correction</source>
         <translation>Пропусни корекцията на височината</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="921"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="728"/>
         <source>Use the altitude as reported by the positioning device. Skip any altitude correction that may be implied by the coordinate system transformation.</source>
         <translation>Използване на височината както е получена от устройството за позициониране. Пропускане на всякаква корекция, която би била приложена от координатната система.</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="935"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="742"/>
         <source>Vertical grid shift in use:</source>
         <translation>Активна вертикална мрежа на отместване</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="944"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="751"/>
         <source>None</source>
         <translation>Няма</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="958"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="765"/>
         <source>Vertical grid shift is used to increase the altitude accuracy.</source>
         <translation>Вертикалната мрежа на отместване се използва за подобряване на точността при определяне на надморската височина.</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="987"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="794"/>
         <source>QField Settings</source>
         <translation>Настройки на QField</translation>
     </message>
@@ -2732,18 +2789,18 @@ Cancel to make a minimal device scan instead.</source>
 <context>
     <name>QgisMobileapp</name>
     <message>
-        <location filename="../src/core/qgismobileapp.cpp" line="667"/>
-        <location filename="../src/core/qgismobileapp.cpp" line="693"/>
+        <location filename="../src/core/qgismobileapp.cpp" line="674"/>
+        <location filename="../src/core/qgismobileapp.cpp" line="700"/>
         <source>Project file &quot;%1&quot; does not exist</source>
         <translation>Файлът на проект &quot;%1&quot; не съществува</translation>
     </message>
     <message>
-        <location filename="../src/core/qgismobileapp.cpp" line="684"/>
+        <location filename="../src/core/qgismobileapp.cpp" line="691"/>
         <source>No project file currently opened</source>
         <translation>Няма отворен проект в момента</translation>
     </message>
     <message>
-        <location filename="../src/core/qgismobileapp.cpp" line="715"/>
+        <location filename="../src/core/qgismobileapp.cpp" line="722"/>
         <source>Could not load font %1</source>
         <translation>Шрифтът %1 не може да бъде зареден</translation>
     </message>

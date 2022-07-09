@@ -133,6 +133,76 @@
     </message>
 </context>
 <context>
+    <name>BluetoothDeviceChooser</name>
+    <message>
+        <location filename="../src/qml/BluetoothDeviceChooser.qml" line="21"/>
+        <source>Positioning device in use:</source>
+        <translation>Konumlandırma cihazı kullanımda:</translation>
+    </message>
+    <message>
+        <location filename="../src/qml/BluetoothDeviceChooser.qml" line="69"/>
+        <source>Scanning for paired devices</source>
+        <translation>Eşleştirilmiş cihazlar taranıyor</translation>
+    </message>
+    <message>
+        <location filename="../src/qml/BluetoothDeviceChooser.qml" line="73"/>
+        <source>Scanning failed: %1</source>
+        <translation>Tarama başarısız: %1</translation>
+    </message>
+    <message>
+        <location filename="../src/qml/BluetoothDeviceChooser.qml" line="77"/>
+        <source>Scanning done</source>
+        <translation>Tarama tamamlandı</translation>
+    </message>
+    <message numerus="yes">
+        <location filename="../src/qml/BluetoothDeviceChooser.qml" line="80"/>
+        <source>%n device(s) found</source>
+        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
+    </message>
+    <message>
+        <location filename="../src/qml/BluetoothDeviceChooser.qml" line="86"/>
+        <source>Scanning canceled</source>
+        <translation>Tarama iptal edildi</translation>
+    </message>
+    <message>
+        <location filename="../src/qml/BluetoothDeviceChooser.qml" line="103"/>
+        <source>Scan</source>
+        <translation>Tara</translation>
+    </message>
+    <message>
+        <location filename="../src/qml/BluetoothDeviceChooser.qml" line="136"/>
+        <source>Make a full service discovery</source>
+        <translation>Tam hizmet keşfi yapın</translation>
+    </message>
+    <message>
+        <location filename="../src/qml/BluetoothDeviceChooser.qml" line="140"/>
+        <source>A full device scan can take longer. You really want to do it?
+Cancel to make a minimal device scan instead.</source>
+        <translation>Tam cihaz taraması daha uzun sürebilir. Gerçekten yapmak istiyor musun?
+Bunun yerine minimum cihaz taraması yapmak için iptal edin.</translation>
+    </message>
+    <message>
+        <location filename="../src/qml/BluetoothDeviceChooser.qml" line="164"/>
+        <source>Connected to %1</source>
+        <translation>%1&apos;e bağlandı</translation>
+    </message>
+    <message>
+        <location filename="../src/qml/BluetoothDeviceChooser.qml" line="166"/>
+        <source>Connect  to %1</source>
+        <translation>%1&apos;e bağlan</translation>
+    </message>
+    <message>
+        <location filename="../src/qml/BluetoothDeviceChooser.qml" line="168"/>
+        <source>Connecting to %1</source>
+        <translation>%1&apos;e bağlanılıyor</translation>
+    </message>
+    <message>
+        <location filename="../src/qml/BluetoothDeviceChooser.qml" line="185"/>
+        <source>Use orthometric altitude from device</source>
+        <translation>Cihazdan ortometrik yüksekliği kullan</translation>
+    </message>
+</context>
+<context>
     <name>BluetoothDeviceModel</name>
     <message>
         <location filename="../src/core/positioning/bluetoothdevicemodel.cpp" line="40"/>
@@ -2313,289 +2383,276 @@ While you can still view and use the project, it is strongly recommended to rese
 <context>
     <name>QFieldSettings</name>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="52"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="51"/>
         <source>Show scale bar</source>
         <translation>Ölçek çubuğunu göster</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="56"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="55"/>
         <source>Maximized attribute form</source>
         <translation>Maksimum öznitelik formu</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="60"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="59"/>
         <source>Fixed scale navigation</source>
         <translation>Düzeltilmiş ölçek navigasyonu</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="61"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="60"/>
         <source>When fixed scale navigation is active, focusing on a search result will pan to the feature. With fixed scale navigation disabled it will pan and zoom to the feature.</source>
         <translation>Düzeltilmiş ölçek navigasyonu aktif olduğunda, arama sonucuna odaklanır. Düzeltilmiş ölçek navigasyonu aktif olmadığından, ilgili kayıda yakınlaşılır da.</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="65"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="64"/>
         <source>Show digitizing information</source>
         <translation>Sayısallaştırma bilgisini gösterin.</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="66"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="65"/>
         <source>When switched on, coordinate information, such as latitude and longitude, is overlayed onto the map while digitizing new features or using the measure tool.</source>
         <translation>Açıldığında, yeni objeler sayısallaştırılırken veya ölçme aracı kullanılırken enlem ve boylam gibi koordinat bilgileri haritanın üzerine yerleştirilir.</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="70"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="69"/>
         <source>Show bookmarks</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="71"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="70"/>
         <source>When switched on, user&apos;s saved and currently opened project bookmarks will be displayed on the map.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="75"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="74"/>
         <source>Use native camera</source>
         <translation>Cihaz kamerasını kullan</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="76"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="75"/>
         <source>If disabled, QField will use a minimalist internal camera instead of the camera app on the device.&lt;br&gt;Tip: Enable this option and install the open camera app to create geo tagged photos.</source>
         <translation>Devre dışı bırakılırsa, QField cihazdaki kamera uygulaması yerine minimalist bir dahili kamera kullanır.&lt;br&gt;İpucu: Bu seçeneği etkinleştirin ve coğrafi etiketli fotoğraflar oluşturmak için açık kamera uygulamasını yükleyin.</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="81"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="80"/>
         <source>Fast editing mode</source>
         <translation>Hızlı düzenleme modu</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="82"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="81"/>
         <source>If enabled, the feature is stored after having a valid geometry and the constraints are fulfilled and atributes are commited immediately.</source>
         <translation>Etkinleştirilirse, obje geçerli bir geometriye sahip olduktan sonra saklanır ve kısıtlamalar yerine getirilir ve öznitelikler hemen uygulanır.</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="86"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="85"/>
         <source>Dim screen when idling</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="87"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="86"/>
         <source>If enabled, the screen brightness will be dimmed after 20 seconds of inactivity to preserve battery.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="91"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="90"/>
         <source>Consider mouse as a touchscreen device</source>
         <translation>Fareyi bir dokunmatik ekran cihazı olarak düşünün</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="92"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="91"/>
         <source>If disabled, the mouse will act as a stylus pen.</source>
         <translation>Devre dışı bırakılırsa, fare dijital bir kalem görevi görür.</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="96"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="95"/>
         <source>Send anonymized metrics</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="97"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="96"/>
         <source>If enabled, anonymized metrics will be collected and sent to help improve QField for everyone.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="137"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="136"/>
         <source>General</source>
         <translation>Genel</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="143"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="142"/>
         <source>Positioning</source>
         <translation>Konumlandırma</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="149"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="148"/>
         <source>Variables</source>
         <translation>Değişkenler</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="191"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="190"/>
         <source>Customize search bar</source>
         <translation>Arama çubuğunu özelleştir</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="282"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="281"/>
         <source>User interface language:</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="293"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="292"/>
         <source>To apply the selected user interface language, QField needs to completely shutdown and restart.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="322"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="321"/>
         <source>system</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="334"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="333"/>
         <source>Found a missing or incomplete language? %1Join the translator community.%2</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="377"/>
         <source>Positioning device in use:</source>
-        <translation>Konumlandırma cihazı kullanımda:</translation>
+        <translation type="vanished">Konumlandırma cihazı kullanımda:</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="425"/>
         <source>Scanning for paired devices</source>
-        <translation>Eşleştirilmiş cihazlar taranıyor</translation>
+        <translation type="vanished">Eşleştirilmiş cihazlar taranıyor</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="429"/>
         <source>Scanning failed: %1</source>
-        <translation>Tarama başarısız: %1</translation>
+        <translation type="vanished">Tarama başarısız: %1</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="433"/>
         <source>Scanning done</source>
-        <translation>Tarama tamamlandı</translation>
+        <translation type="vanished">Tarama tamamlandı</translation>
     </message>
     <message numerus="yes">
-        <location filename="../src/qml/QFieldSettings.qml" line="436"/>
         <source>%n device(s) found</source>
         <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="442"/>
         <source>Scanning canceled</source>
-        <translation>Tarama iptal edildi</translation>
+        <translation type="vanished">Tarama iptal edildi</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="459"/>
         <source>Scan</source>
-        <translation>Tara</translation>
+        <translation type="vanished">Tara</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="492"/>
         <source>Make a full service discovery</source>
-        <translation>Tam hizmet keşfi yapın</translation>
+        <translation type="vanished">Tam hizmet keşfi yapın</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="496"/>
         <source>A full device scan can take longer. You really want to do it?
 Cancel to make a minimal device scan instead.</source>
-        <translation>Tam cihaz taraması daha uzun sürebilir. Gerçekten yapmak istiyor musun?
+        <translation type="vanished">Tam cihaz taraması daha uzun sürebilir. Gerçekten yapmak istiyor musun?
 Bunun yerine minimum cihaz taraması yapmak için iptal edin.</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="520"/>
         <source>Connected to %1</source>
-        <translation>%1&apos;e bağlandı</translation>
+        <translation type="vanished">%1&apos;e bağlandı</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="522"/>
         <source>Connect  to %1</source>
-        <translation>%1&apos;e bağlan</translation>
+        <translation type="vanished">%1&apos;e bağlan</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="524"/>
         <source>Connecting to %1</source>
-        <translation>%1&apos;e bağlanılıyor</translation>
+        <translation type="vanished">%1&apos;e bağlanılıyor</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="541"/>
         <source>Use orthometric altitude from device</source>
-        <translation>Cihazdan ortometrik yüksekliği kullan</translation>
+        <translation type="vanished">Cihazdan ortometrik yüksekliği kullan</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="573"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="380"/>
         <source>Show position information</source>
         <translation>Konum bilgisi göster</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="595"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="402"/>
         <source>Activate accuracy indicator</source>
         <translation>Doğruluk göstergesini etkinleştirin</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="617"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="424"/>
         <source>Bad accuracy below [m]</source>
         <translation>[m] altında yanlış doğruluk</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="658"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="465"/>
         <source>Excellent accuracy above [m]</source>
         <translation>[m] üzerinde mükemmel doğruluk</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="699"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="506"/>
         <source>Enable accuracy requirement</source>
         <translation>Doğruluk gereksinimini etkinleştirin</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="726"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="533"/>
         <source>When the accuracy indicator is enabled, a badge is attached to the location button and colored &lt;span %1&gt;red&lt;/span&gt; if the accuracy value is below bad, &lt;span %2&gt;yellow&lt;/span&gt; if it falls short of excellent, or &lt;span %3&gt;green&lt;/span&gt;.&lt;br&gt;&lt;br&gt;In addition, an accuracy restriction mode can be toggled on, which restricts vertex addition when locked to coordinate cursor to positions with an accuracy value above the bad threshold.</source>
         <translation>Doğruluk göstergesi etkinleştirildiğinde, konum düğmesine bir rozet eklenir ve doğruluk değeri kötü değerin altındaysa &lt;span %1&gt;kırmızı&lt;/span&gt; mükemmelden düşükse, &lt;span %2&gt;sarı&lt;/span&gt; veya &lt;span %3&gt;yeşil&lt;/span&gt; renkte olur.&lt;br&gt;&lt;br&gt;Ayrıca, bir doğruluk kısıtlama modu da açılıp kapatılabilir. İmleci hatalı eşiğin üzerinde bir doğruluk değerine sahip konumlara koordine etmek için kilitlendiğinde köşe eklemesini kısıtlar.</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="743"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="550"/>
         <source>Enable averaged positioning requirement</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="765"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="572"/>
         <source>Minimum number of positions collected</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="806"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="613"/>
         <source>When enabled, digitizing vertices with a cursor locked to position will only accepted an averaged position from a minimum number of collected positions. Digitizing using averaged positions is done by pressing and holding the add vertex button, which will collect positions until the press is released. Accuracy requirement settings are respected when enabled.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="820"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="627"/>
         <source>Antenna height compensation</source>
         <translation>Anten yükseklik telafisi</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="842"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="649"/>
         <source>Antenna height [m]</source>
         <translation>Anten yüksekliği [m]</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="884"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="691"/>
         <source>Z values which are recorded from the positioning device will be corrected by this value. If a value of 1.6 is entered, this will result in a correction of -1.6 for each recorded value.</source>
         <translation>Konumlandırma cihazından kaydedilen Z değerleri bu değer ile düzeltilecektir. 1.6 değeri girilirse, bu kaydedilen her değer için -1.6 düzeltme ile sonuçlanacaktır.</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="898"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="705"/>
         <source>Skip altitude correction</source>
         <translation>Yükseklik düzeltmesini atlayın.</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="921"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="728"/>
         <source>Use the altitude as reported by the positioning device. Skip any altitude correction that may be implied by the coordinate system transformation.</source>
         <translation>Yüksekliği, konumlandırma cihazının bildirdiği şekilde kullanın. Koordinat sistemi dönüşümünün gerektirebileceği herhangi bir yükseklik düzeltmesini atlayın.</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="935"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="742"/>
         <source>Vertical grid shift in use:</source>
         <translation>Kullanımda dikey grid kaydırması:</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="944"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="751"/>
         <source>None</source>
         <translation>Yok</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="958"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="765"/>
         <source>Vertical grid shift is used to increase the altitude accuracy.</source>
         <translation>Yükseklik doğruluğunu artırmak için dikey grid kaydırması kullanılır.</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="987"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="794"/>
         <source>QField Settings</source>
         <translation>QField Ayarları</translation>
     </message>
@@ -2716,18 +2773,18 @@ Bunun yerine minimum cihaz taraması yapmak için iptal edin.</translation>
 <context>
     <name>QgisMobileapp</name>
     <message>
-        <location filename="../src/core/qgismobileapp.cpp" line="667"/>
-        <location filename="../src/core/qgismobileapp.cpp" line="693"/>
+        <location filename="../src/core/qgismobileapp.cpp" line="674"/>
+        <location filename="../src/core/qgismobileapp.cpp" line="700"/>
         <source>Project file &quot;%1&quot; does not exist</source>
         <translation>&quot;%1&quot; proje dosyası mevcut değil</translation>
     </message>
     <message>
-        <location filename="../src/core/qgismobileapp.cpp" line="684"/>
+        <location filename="../src/core/qgismobileapp.cpp" line="691"/>
         <source>No project file currently opened</source>
         <translation>Şu anda açık proje dosyası yok</translation>
     </message>
     <message>
-        <location filename="../src/core/qgismobileapp.cpp" line="715"/>
+        <location filename="../src/core/qgismobileapp.cpp" line="722"/>
         <source>Could not load font %1</source>
         <translation>Font yüklenemedi %1</translation>
     </message>
