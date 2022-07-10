@@ -157,7 +157,7 @@
     <message numerus="yes">
         <location filename="../src/qml/BluetoothDeviceChooser.qml" line="80"/>
         <source>%n device(s) found</source>
-        <translation type="unfinished"><numerusform></numerusform></translation>
+        <translation><numerusform>找到%n个设备</numerusform></translation>
     </message>
     <message>
         <location filename="../src/qml/BluetoothDeviceChooser.qml" line="86"/>
