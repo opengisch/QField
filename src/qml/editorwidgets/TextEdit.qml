@@ -19,7 +19,7 @@ EditorWidgetBase {
   // Due to QTextEdit::onLinkActivated does not work on Android & iOS, we need a separate `Text` element to support links https://bugreports.qt.io/browse/QTBUG-38487
   Label {
     id: textReadonlyValue
-    height: textArea.height == 0 ? textField.height : 0
+    height: !textArea.visible ? textField.height : 0
     topPadding: 10
     bottomPadding: 10
     visible: height !== 0 && !isEditable
@@ -28,6 +28,7 @@ EditorWidgetBase {
     font: Theme.defaultFont
     color: 'gray'
     wrapMode: Text.Wrap
+    textFormat: config['IsMultiline'] === true && config['UseHtml'] ? TextEdit.RichText : TextEdit.PlainText
 
     text: value == null ? '' : stringUtilities.insertLinks(value)
 
@@ -89,7 +90,7 @@ EditorWidgetBase {
   TextArea {
     id: textArea
     height: config['IsMultiline'] === true ? undefined : 0
-    visible: height !== 0
+    visible: config['IsMultiline'] === true && isEditable
     enabled: isEditable
     anchors.left: parent.left
     anchors.right: parent.right
