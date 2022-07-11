@@ -2863,7 +2863,7 @@ Cancelar para hacer una búsqueda mínima de dispositivos en su lugar.</translat
 <context>
     <name>QgsQuickMapCanvasMap</name>
     <message>
-        <location filename="../src/core/qgsquick/qgsquickmapcanvasmap.cpp" line="190"/>
+        <location filename="../src/core/qgsquick/qgsquickmapcanvasmap.cpp" line="185"/>
         <source>Rendering</source>
         <translation>Renderizando</translation>
     </message>

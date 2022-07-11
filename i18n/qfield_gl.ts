@@ -2863,7 +2863,7 @@ Cancela para facer, porén, unha exploración mínima do dispositivo.</translati
 <context>
     <name>QgsQuickMapCanvasMap</name>
     <message>
-        <location filename="../src/core/qgsquick/qgsquickmapcanvasmap.cpp" line="190"/>
+        <location filename="../src/core/qgsquick/qgsquickmapcanvasmap.cpp" line="185"/>
         <source>Rendering</source>
         <translation>Representar</translation>
     </message>

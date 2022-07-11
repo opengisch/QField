@@ -2861,7 +2861,7 @@ Otkažite da pokrenete minimalno skeniranje uređaja.</translation>
 <context>
     <name>QgsQuickMapCanvasMap</name>
     <message>
-        <location filename="../src/core/qgsquick/qgsquickmapcanvasmap.cpp" line="190"/>
+        <location filename="../src/core/qgsquick/qgsquickmapcanvasmap.cpp" line="185"/>
         <source>Rendering</source>
         <translation>Renderiranje</translation>
     </message>

@@ -2855,7 +2855,7 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
 <context>
     <name>QgsQuickMapCanvasMap</name>
     <message>
-        <location filename="../src/core/qgsquick/qgsquickmapcanvasmap.cpp" line="190"/>
+        <location filename="../src/core/qgsquick/qgsquickmapcanvasmap.cpp" line="185"/>
         <source>Rendering</source>
         <translation>Wyświetlanie</translation>
     </message>

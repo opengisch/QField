@@ -2863,7 +2863,7 @@ Cancel to make a minimal device scan instead.</source>
 <context>
     <name>QgsQuickMapCanvasMap</name>
     <message>
-        <location filename="../src/core/qgsquick/qgsquickmapcanvasmap.cpp" line="190"/>
+        <location filename="../src/core/qgsquick/qgsquickmapcanvasmap.cpp" line="185"/>
         <source>Rendering</source>
         <translation>Рендеринг</translation>
     </message>

@@ -2863,7 +2863,7 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
 <context>
     <name>QgsQuickMapCanvasMap</name>
     <message>
-        <location filename="../src/core/qgsquick/qgsquickmapcanvasmap.cpp" line="190"/>
+        <location filename="../src/core/qgsquick/qgsquickmapcanvasmap.cpp" line="185"/>
         <source>Rendering</source>
         <translation>Weergeven</translation>
     </message>
