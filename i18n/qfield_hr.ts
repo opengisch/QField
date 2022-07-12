@@ -137,7 +137,7 @@
     <message>
         <location filename="../src/qml/BluetoothDeviceChooser.qml" line="21"/>
         <source>Positioning device in use:</source>
-        <translation>Uređaj za pozicioniranje u upotrebi</translation>
+        <translation>Uređaj za pozicioniranje u upotrebi:</translation>
     </message>
     <message>
         <location filename="../src/qml/BluetoothDeviceChooser.qml" line="69"/>
@@ -152,22 +152,22 @@
     <message>
         <location filename="../src/qml/BluetoothDeviceChooser.qml" line="77"/>
         <source>Scanning done</source>
-        <translation>Skeniranje završeno</translation>
+        <translation>Skeniranje je završeno</translation>
     </message>
     <message numerus="yes">
         <location filename="../src/qml/BluetoothDeviceChooser.qml" line="80"/>
         <source>%n device(s) found</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>%n uređaj pronađen</numerusform><numerusform>%n uređaja pronađeno</numerusform><numerusform>%n uređaj(a) pronađen(o)</numerusform></translation>
     </message>
     <message>
         <location filename="../src/qml/BluetoothDeviceChooser.qml" line="86"/>
         <source>Scanning canceled</source>
-        <translation>Skeniranje završeno</translation>
+        <translation>Skeniranje je obustavljeno</translation>
     </message>
     <message>
         <location filename="../src/qml/BluetoothDeviceChooser.qml" line="103"/>
         <source>Scan</source>
-        <translation>Skeniranje</translation>
+        <translation>Skeniraj</translation>
     </message>
     <message>
         <location filename="../src/qml/BluetoothDeviceChooser.qml" line="136"/>
