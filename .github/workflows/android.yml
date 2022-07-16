@@ -258,25 +258,20 @@ jobs:
         id: vars
         run: |
           ./scripts/ci/env_gh.sh
-      - uses: kanga333/comment-hider@master
-        name: Hide outdated comments from the default github user
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          hide_user_name: github-actions[bot]
-      - uses: kanga333/comment-hider@master
-        name: Hide outdated comments from qfield-fairy
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          hide_user_name: qfield-fairy
-      - name: Comment PR
-        uses: thollander/actions-comment-pull-request@main
+
+      - name: 💬 Create comment
+        uses: marocchino/sticky-pull-request-comment@v2
         with:
           GITHUB_TOKEN: ${{ secrets.FAIRY_TOKEN }}
           message: |
-            🎉 Ta-daaa, freshly created APKs are available for ${{ github.event.pull_request.head.sha }}:
-              - [**arm64-android**](https://sos-ch-dk-2.exo.io/qfieldapks/ci-builds/${{ steps.vars.outputs.CI_PACKAGE_FILE_BASENAME }}-arm64-android.apk)
+            🎉 Ta-daaa, freshly created APKs are available for ${{ github.event.pull_request.head.sha }}: [**arm64-android**](https://sos-ch-dk-2.exo.io/qfieldapks/ci-builds/${{ steps.vars.outputs.CI_PACKAGE_FILE_BASENAME }}-arm64-android.apk)
+            <details>
+            <summary>Other architectures</summary>
 
-            Other architectures: [arm-android](https://sos-ch-dk-2.exo.io/qfieldapks/ci-builds/${{ steps.vars.outputs.CI_PACKAGE_FILE_BASENAME }}-arm-android.apk), [x64-android](https://sos-ch-dk-2.exo.io/qfieldapks/ci-builds/${{ steps.vars.outputs.CI_PACKAGE_FILE_BASENAME }}-x64-android.apk), [x86-android](https://sos-ch-dk-2.exo.io/qfieldapks/ci-builds/${{ steps.vars.outputs.CI_PACKAGE_FILE_BASENAME }}-x86-android.apk)
+            - [arm-android](https://sos-ch-dk-2.exo.io/qfieldapks/ci-builds/${{ steps.vars.outputs.CI_PACKAGE_FILE_BASENAME }}-arm-android.apk)
+            - [x64-android](https://sos-ch-dk-2.exo.io/qfieldapks/ci-builds/${{ steps.vars.outputs.CI_PACKAGE_FILE_BASENAME }}-x64-android.apk)
+            - [x86-android](https://sos-ch-dk-2.exo.io/qfieldapks/ci-builds/${{ steps.vars.outputs.CI_PACKAGE_FILE_BASENAME }}-x86-android.apk)
+            </details>
 
   comment_commit:
     runs-on: ubuntu-20.04
