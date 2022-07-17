@@ -136,16 +136,24 @@ jobs:
           setup-python: false
           py7zrversion: '==0.18.1'
 
+      - name: Ccache
+        if: ${{ matrix.triplet == 'x64-linux' || matrix.triplet == 'x64-osx' }}
+        uses: actions/cache@v2
+        with:
+          path: ${{ steps.vars.outputs.BUILD_ROOT }}/.ccache
+          key: ccache-${{ matrix.triplet }}
+
       - name: 🐧 Prepare linux build env
         if: ${{ matrix.triplet == 'x64-linux' }}
         run: |
           sudo apt-get update
-          sudo apt-get install -y gperf autopoint '^libxcb.*-dev' libx11-xcb-dev libglu1-mesa-dev libxrender-dev libxi-dev libxkbcommon-dev libxkbcommon-x11-dev libgstreamer-plugins-base1.0-0 gstreamer1.0-plugins-bad
+          sudo apt-get install -y gperf autopoint '^libxcb.*-dev' libx11-xcb-dev libglu1-mesa-dev libxrender-dev libxi-dev libxkbcommon-dev libxkbcommon-x11-dev libgstreamer-plugins-base1.0-0 gstreamer1.0-plugins-bad ccache
           sudo apt-get remove -y libopenexr-dev # Avoid gdal picking this system lib up
           # Required to run unit tests on linux
           echo "QT_QPA_PLATFORM=offscreen" >> $GITHUB_ENV
           echo "TESTWRAPPER=xvfb-run" >> $GITHUB_ENV
-          echo "EXTRA_CMAKE_ARGS=-GNinja -DCMAKE_INSTALL_PREFIX=/usr -DLINUXDEPLOY_EXECUTABLE=${{ steps.vars.outputs.BUILD_ROOT }}/linuxdeploy-x86_64.AppImage" >> $GITHUB_ENV
+          echo "EXTRA_CMAKE_ARGS=-GNinja -DCMAKE_INSTALL_PREFIX=/usr -DLINUXDEPLOY_EXECUTABLE=${{ steps.vars.outputs.BUILD_ROOT }}/linuxdeploy-x86_64.AppImage -DCMAKE_CXX_COMPILER_LAUNCHER=ccache" >> $GITHUB_ENV
+          echo "CCACHE_DIR=${{ steps.vars.outputs.BUILD_ROOT }}/.ccache" >> $GITHUB_ENV
 
       - name: Install linuxdeploy
         if: ${{ matrix.triplet == 'x64-linux' }}
@@ -173,8 +181,9 @@ jobs:
           brew install automake bison flex gnu-sed create-dmg
           echo $(brew --prefix bison)/bin >> $GITHUB_PATH
           echo $(brew --prefix flex)/bin >> $GITHUB_PATH
-          echo "EXTRA_CMAKE_ARGS=-GXcode -T buildsystem=1" >> $GITHUB_ENV
+          echo "EXTRA_CMAKE_ARGS=-GXcode -T buildsystem=1 -DCMAKE_CXX_COMPILER_LAUNCHER=ccache" >> $GITHUB_ENV
           sudo xcode-select -s /Applications/Xcode_12.app/Contents/Developer
+          echo "CCACHE_DIR=${{ steps.vars.outputs.BUILD_ROOT }}/.ccache" >> $GITHUB_ENV
 
       - name: 🌱 Install dependencies and generate project files
         shell: bash
