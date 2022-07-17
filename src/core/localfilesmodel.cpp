@@ -230,7 +230,7 @@ void LocalFilesModel::reloadModel()
         }
         else
         {
-          const QString suffix = fi.completeSuffix().toLower();
+          const QString suffix = fi.suffix().toLower();
           if ( SUPPORTED_PROJECT_EXTENSIONS.contains( suffix ) )
           {
             projects << Item( ItemMetaType::Project, ItemType::ProjectFile, fi.baseName(), suffix, fi.absoluteFilePath(), fi.size() );
