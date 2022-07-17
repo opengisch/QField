@@ -163,7 +163,7 @@ GridLayout {
                 case BluetoothSocket.Connected:
                     return qsTr('Connected to %1').arg(positioningSettings.positioningDeviceName)
                 case BluetoothSocket.Unconnected:
-                    return qsTr('Connect  to %1').arg(positioningSettings.positioningDeviceName)
+                    return qsTr('Connect to %1').arg(positioningSettings.positioningDeviceName)
                 default:
                     return qsTr('Connecting to %1').arg(positioningSettings.positioningDeviceName)
             }
