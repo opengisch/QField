@@ -177,7 +177,11 @@ int main( int argc, char **argv )
 
 #if defined( Q_OS_ANDROID )
   QString projPath = PlatformUtilities::instance()->systemGenericDataLocation() + QStringLiteral( "/proj" );
+#if PROJ_VERSION_MAJOR >= 10
+  qputenv( "PROJ_DATA", projPath.toUtf8() );
+#else
   qputenv( "PROJ_LIB", projPath.toUtf8() );
+#endif
 
   const QDir rootPath = QStandardPaths::writableLocation( QStandardPaths::AppDataLocation );
   rootPath.mkdir( QStringLiteral( "qgis_profile" ) );
@@ -194,7 +198,11 @@ int main( int argc, char **argv )
   app.createDatabase();
 #elif defined( Q_OS_IOS )
   QString projPath = PlatformUtilities::instance()->systemGenericDataLocation() + QStringLiteral( "/proj" );
+#if PROJ_VERSION_MAJOR >= 10
+  qputenv( "PROJ_DATA", projPath.toUtf8() );
+#else
   qputenv( "PROJ_LIB", projPath.toUtf8() );
+#endif
 
   const QDir rootPath = QStandardPaths::writableLocation( QStandardPaths::AppDataLocation );
   rootPath.mkdir( QStringLiteral( "qgis_profile" ) );
@@ -209,13 +217,23 @@ int main( int argc, char **argv )
 
 #ifdef RELATIVE_PREFIX_PATH
   qputenv( "GDAL_DATA", QDir::toNativeSeparators( app.applicationDirPath() + "/../share/gdal" ).toLocal8Bit() );
+#if PROJ_VERSION_MAJOR >= 10
+  qputenv( "PROJ_DATA", QDir::toNativeSeparators( app.applicationDirPath() + "/../share/proj" ).toLocal8Bit() );
+#else
   qputenv( "PROJ_LIB", QDir::toNativeSeparators( app.applicationDirPath() + "/../share/proj" ).toLocal8Bit() );
+#endif
+
   app.setPrefixPath( app.applicationDirPath() + "/..", true );
 #else
   app.setPrefixPath( CMAKE_INSTALL_PREFIX, true );
 #endif
 #endif
+
+#if PROJ_VERSION_MAJOR >= 10
+  const QString envProjPath( qgetenv( "PROJ_DATA" ) );
+#else
   const QString envProjPath( qgetenv( "PROJ_LIB" ) );
+#endif
   if ( !envProjPath.isEmpty() )
   {
     qInfo() << "Proj path: " << envProjPath;
