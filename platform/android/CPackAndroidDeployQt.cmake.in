@@ -19,6 +19,7 @@ execute_process(
   COMMAND
   "bash"
   -c "cat <<< \"$(jq '. += { \"sdkBuildToolsRevision\" : \"@ANDROID_BUILD_TOOLS_VERSION@\" }' < @CMAKE_BINARY_DIR@/android_deployment_settings.tmp)\" > @CMAKE_BINARY_DIR@/android_deployment_settings.json"
+  COMMAND_ERROR_IS_FATAL ANY
 )
 if(DEFINED ENV{KEYNAME}
    AND DEFINED ENV{KEYPASS}
@@ -35,7 +36,8 @@ if(DEFINED ENV{KEYNAME}
       --android-platform android-@ANDROID_TARGET_PLATFORM@
       --gradle
       --aab
-    WORKING_DIRECTORY @CMAKE_BINARY_DIR@ COMMAND_ECHO STDERR)
+    WORKING_DIRECTORY @CMAKE_BINARY_DIR@ COMMAND_ECHO STDERR
+    COMMAND_ERROR_IS_FATAL ANY)
   execute_process(
     COMMAND
       "@ANDROID_SDK@/build-tools/@ANDROID_BUILD_TOOLS_VERSION@/apksigner" sign
@@ -44,7 +46,8 @@ if(DEFINED ENV{KEYNAME}
       --ks-pass "pass:$ENV{STOREPASS}"
       --key-pass "pass:$ENV{KEYPASS}"
         @CMAKE_BINARY_DIR@/android-build/build/outputs/apk/release/android-build-release-signed.apk
-    WORKING_DIRECTORY @CMAKE_BINARY_DIR@ COMMAND_ECHO STDERR)
+    WORKING_DIRECTORY @CMAKE_BINARY_DIR@ COMMAND_ECHO STDERR
+    COMMAND_ERROR_IS_FATAL ANY)
 else()
   execute_process(
     COMMAND
@@ -54,5 +57,6 @@ else()
       --deployment bundled
       --android-platform android-@ANDROID_TARGET_PLATFORM@
       --gradle
-    WORKING_DIRECTORY @CMAKE_BINARY_DIR@ COMMAND_ECHO STDERR)
+    WORKING_DIRECTORY @CMAKE_BINARY_DIR@ COMMAND_ECHO STDERR
+    COMMAND_ERROR_IS_FATAL ANY)
 endif()
