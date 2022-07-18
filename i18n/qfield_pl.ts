@@ -188,8 +188,12 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
     </message>
     <message>
         <location filename="../src/qml/BluetoothDeviceChooser.qml" line="166"/>
-        <source>Connect  to %1</source>
+        <source>Connect to %1</source>
         <translation>Połącz z %1</translation>
+    </message>
+    <message>
+        <source>Connect  to %1</source>
+        <translation type="vanished">Połącz z %1</translation>
     </message>
     <message>
         <location filename="../src/qml/BluetoothDeviceChooser.qml" line="168"/>
@@ -1889,7 +1893,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <message>
         <location filename="../src/qml/QFieldCloudPopup.qml" line="364"/>
         <source>Synchronize the whole project with all modified features and download the freshly updated project with all the applied changes from QFieldCloud.</source>
-        <translation type="unfinished"/>
+        <translation>Synchronizuj cały projekt z wszystkimi zmodyfikowanymi obiektami i pobierz świeżo zaktualizowany projekt z jego wszystkimi zmianami z QFieldCloud.</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldCloudPopup.qml" line="375"/>
@@ -1899,7 +1903,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <message>
         <location filename="../src/qml/QFieldCloudPopup.qml" line="390"/>
         <source>Save internet bandwidth by only pushing the local features and pictures to the cloud, without updating the whole project.</source>
-        <translation type="unfinished"/>
+        <translation>Oszczędzaj transfer danych, wysyłając tylko lokalne obiekty i obrazy do chmury, bez aktualizacji całego projektu.</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldCloudPopup.qml" line="403"/>
@@ -2024,17 +2028,19 @@ Chociaż nadal możesz wyświetlać i używać projektu, zdecydowanie zaleca si�
     </message>
     <message>
         <source>Packaged layer &apos;%1&apos; is not valid: &apos;%2&apos;</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Spakowana warstwa &quot;%1&quot; jest nieprawidłowa: &quot;%2&quot;</translation>
     </message>
     <message>
         <source>Failed to open temporary file for &quot;%1&quot;, reason:
 %2</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Nie udało się otworzyć pliku tymczasowego dla &quot;%1&quot;, powód:
+%2</translation>
     </message>
     <message>
         <source>Failed to upload attachment stored at &quot;%1&quot;, reason:
 %2</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Nie udało się wysłać załącznika zapisanego w &quot;%1&quot;, powód:
+%2</translation>
     </message>
     <message>
         <source>Failed to download file &quot;%1&quot;, reason:</source>
@@ -2042,7 +2048,7 @@ Chociaż nadal możesz wyświetlać i używać projektu, zdecydowanie zaleca si�
     </message>
     <message>
         <source>Failed to write downloaded file stored at &quot;%1&quot;, fs reason:</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Nie udało się zapisać pobranego pliku zachowanego w &quot;%1&quot;, powód:</translation>
     </message>
     <message>
         <location filename="../src/core/qfieldcloudprojectsmodel.cpp" line="421"/>
@@ -2118,13 +2124,14 @@ Chociaż nadal możesz wyświetlać i używać projektu, zdecydowanie zaleca si�
     <message>
         <location filename="../src/core/qfieldcloudprojectsmodel.cpp" line="986"/>
         <source>Project %1: Packaged layer `%2` is not valid. Error code %3, error message: %4</source>
-        <translation type="unfinished"/>
+        <translation>Projekt %1: Spakowana warstwa &quot;%2&quot; jest nieprawidłowa. Kod błędu %3, komunikat błędu: %4</translation>
     </message>
     <message>
         <location filename="../src/core/qfieldcloudprojectsmodel.cpp" line="1112"/>
         <source>Failed to open temporary file for `%1`, reason:
 %2</source>
-        <translation type="unfinished"/>
+        <translation>Nie udało się otworzyć pliku tymczasowego dla &quot;%1&quot;, powód:
+%2</translation>
     </message>
     <message>
         <location filename="../src/core/qfieldcloudprojectsmodel.cpp" line="1568"/>
@@ -3163,7 +3170,7 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
     <message>
         <location filename="../src/qml/editorwidgets/relationeditors/ordered_relation_editor.qml" line="400"/>
         <source>Should the feature &lt;b&gt;%1 (%2)&lt;/b&gt; on layer &lt;b&gt;%3&lt;/b&gt; be deleted?</source>
-        <translation type="unfinished"/>
+        <translation>Czy obiekt &lt;b&gt;%1 (%2)&lt;/b&gt; na warstwie &lt;b&gt;%3&lt;/b&gt; ma być usunięty?</translation>
     </message>
     <message>
         <location filename="../src/qml/editorwidgets/relationeditors/ordered_relation_editor.qml" line="409"/>
@@ -3658,7 +3665,7 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
     <message>
         <location filename="../src/qml/editorwidgets/relationeditors/relation_editor.qml" line="262"/>
         <source>Should the feature &lt;b&gt;%1 (%2)&lt;/b&gt; on layer &lt;b&gt;%3&lt;/b&gt; be deleted?</source>
-        <translation type="unfinished"/>
+        <translation>Czy obiekt &lt;b&gt;%1 (%2)&lt;/b&gt; na warstwie &lt;b&gt;%3&lt;/b&gt; ma być usunięty?</translation>
     </message>
     <message>
         <location filename="../src/qml/editorwidgets/relationeditors/relation_editor.qml" line="271"/>

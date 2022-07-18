@@ -188,8 +188,12 @@ Annullare per eseguire una scansione veloce del dispositivo.</translation>
     </message>
     <message>
         <location filename="../src/qml/BluetoothDeviceChooser.qml" line="166"/>
+        <source>Connect to %1</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
         <source>Connect  to %1</source>
-        <translation>Connetti a %1</translation>
+        <translation type="vanished">Connetti a %1</translation>
     </message>
     <message>
         <location filename="../src/qml/BluetoothDeviceChooser.qml" line="168"/>

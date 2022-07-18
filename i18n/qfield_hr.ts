@@ -188,8 +188,12 @@ Otkažite da pokrenete minimalno skeniranje uređaja.</translation>
     </message>
     <message>
         <location filename="../src/qml/BluetoothDeviceChooser.qml" line="166"/>
+        <source>Connect to %1</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
         <source>Connect  to %1</source>
-        <translation>Poveži na %1</translation>
+        <translation type="vanished">Poveži na %1</translation>
     </message>
     <message>
         <location filename="../src/qml/BluetoothDeviceChooser.qml" line="168"/>

@@ -188,8 +188,12 @@ Cancela para facer, porén, unha exploración mínima do dispositivo.</translati
     </message>
     <message>
         <location filename="../src/qml/BluetoothDeviceChooser.qml" line="166"/>
+        <source>Connect to %1</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
         <source>Connect  to %1</source>
-        <translation>Conectar a %1</translation>
+        <translation type="vanished">Conectar a %1</translation>
     </message>
     <message>
         <location filename="../src/qml/BluetoothDeviceChooser.qml" line="168"/>

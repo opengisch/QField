@@ -188,8 +188,12 @@ Cancelar para hacer una búsqueda mínima de dispositivos en su lugar.</translat
     </message>
     <message>
         <location filename="../src/qml/BluetoothDeviceChooser.qml" line="166"/>
+        <source>Connect to %1</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
         <source>Connect  to %1</source>
-        <translation>Conectar a %1</translation>
+        <translation type="vanished">Conectar a %1</translation>
     </message>
     <message>
         <location filename="../src/qml/BluetoothDeviceChooser.qml" line="168"/>

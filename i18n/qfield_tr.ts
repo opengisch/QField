@@ -188,8 +188,12 @@ Bunun yerine minimum cihaz taraması yapmak için iptal edin.</translation>
     </message>
     <message>
         <location filename="../src/qml/BluetoothDeviceChooser.qml" line="166"/>
+        <source>Connect to %1</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
         <source>Connect  to %1</source>
-        <translation>%1&apos;e bağlan</translation>
+        <translation type="vanished">%1&apos;e bağlan</translation>
     </message>
     <message>
         <location filename="../src/qml/BluetoothDeviceChooser.qml" line="168"/>

@@ -188,8 +188,12 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <location filename="../src/qml/BluetoothDeviceChooser.qml" line="166"/>
+        <source>Connect to %1</source>
+        <translation>连接至%1</translation>
+    </message>
+    <message>
         <source>Connect  to %1</source>
-        <translation>连接%1</translation>
+        <translation type="vanished">连接%1</translation>
     </message>
     <message>
         <location filename="../src/qml/BluetoothDeviceChooser.qml" line="168"/>
