@@ -233,15 +233,15 @@ void LocalFilesModel::reloadModel()
           const QString suffix = fi.suffix().toLower();
           if ( SUPPORTED_PROJECT_EXTENSIONS.contains( suffix ) )
           {
-            projects << Item( ItemMetaType::Project, ItemType::ProjectFile, fi.baseName(), suffix, fi.absoluteFilePath(), fi.size() );
+            projects << Item( ItemMetaType::Project, ItemType::ProjectFile, fi.completeBaseName(), suffix, fi.absoluteFilePath(), fi.size() );
           }
           else if ( SUPPORTED_VECTOR_EXTENSIONS.contains( suffix ) && suffix != QStringLiteral( "pdf" ) )
           {
-            datasets << Item( ItemMetaType::Dataset, ItemType::VectorDataset, fi.baseName(), suffix, fi.absoluteFilePath(), fi.size() );
+            datasets << Item( ItemMetaType::Dataset, ItemType::VectorDataset, fi.completeBaseName(), suffix, fi.absoluteFilePath(), fi.size() );
           }
           else if ( SUPPORTED_RASTER_EXTENSIONS.contains( suffix ) )
           {
-            datasets << Item( ItemMetaType::Dataset, ItemType::RasterDataset, fi.baseName(), suffix, fi.absoluteFilePath(), fi.size() );
+            datasets << Item( ItemMetaType::Dataset, ItemType::RasterDataset, fi.completeBaseName(), suffix, fi.absoluteFilePath(), fi.size() );
           }
         }
       }
