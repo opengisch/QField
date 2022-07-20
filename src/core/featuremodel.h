@@ -22,6 +22,7 @@
 #include "gnsspositioninformation.h"
 #include "qfieldcloudconnection.h"
 #include "snappingresult.h"
+#include "vertexmodel.h"
 
 #include <QAbstractListModel>
 #include <QtPositioning/QGeoPositionInfoSource>
@@ -29,7 +30,6 @@
 #include <qgsrelationmanager.h>
 
 #include <memory>
-#include <vertexmodel.h>
 
 class FeatureModel : public QAbstractListModel
 {
