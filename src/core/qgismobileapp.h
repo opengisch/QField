@@ -233,11 +233,14 @@ class QFIELD_CORE_EXPORT QgisMobileapp : public QQmlApplicationEngine
     AppMissingGridHandler *mAppMissingGridHandler = nullptr;
 
     std::unique_ptr<ScreenDimmer> mScreenDimmer;
+    QgsApplication *mApp;
 };
 
 Q_DECLARE_METATYPE( QgsWkbTypes::GeometryType )
 Q_DECLARE_METATYPE( QgsFeatureId )
+#if QT_VERSION < QT_VERSION_CHECK( 6, 0, 0 )
 Q_DECLARE_METATYPE( QgsFeatureIds )
+#endif
 Q_DECLARE_METATYPE( QgsAttributes )
 Q_DECLARE_METATYPE( QVariant::Type )
 Q_DECLARE_METATYPE( QgsFieldConstraints )

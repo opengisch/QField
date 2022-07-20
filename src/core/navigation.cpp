@@ -18,7 +18,6 @@
 #include "navigation.h"
 #include "navigationmodel.h"
 
-#include <QSound>
 #include <qgslinestring.h>
 #include <qgsproject.h>
 #include <qgsvectorlayer.h>

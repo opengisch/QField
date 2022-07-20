@@ -29,8 +29,7 @@
 #include <qgsrelationmanager.h>
 
 #include <memory>
-
-class VertexModel;
+#include <vertexmodel.h>
 
 class FeatureModel : public QAbstractListModel
 {

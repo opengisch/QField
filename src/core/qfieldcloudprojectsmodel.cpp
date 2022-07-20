@@ -716,7 +716,8 @@ void QFieldCloudProjectsModel::projectPackageAndDownload( const QString &project
 
         if ( jobType != JobType::Package )
         {
-          QgsLogger::debug( QStringLiteral( "Project %1: unexpected job type, expected %2 but %3 received." ).arg( projectId, static_cast<int>( JobType::Package ), static_cast<int>( jobType ) ) );
+          QMetaEnum me = QMetaEnum::fromType<JobType>();
+          QgsLogger::debug( QStringLiteral( "Project %1: unexpected job type, expected %2 but %3 received." ).arg( projectId, me.valueToKey( static_cast<int>( JobType::Package ) ), me.valueToKey( static_cast<int>( jobType ) ) ) );
           Q_ASSERT( 0 );
           return;
         }

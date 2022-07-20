@@ -19,8 +19,8 @@
 #include "qgsquickmapsettings.h"
 
 #include <QtQuick/QQuickItem>
+#include <qgsgeometrywrapper.h>
 
-class QgsGeometryWrapper;
 class QgsGeometry;
 
 

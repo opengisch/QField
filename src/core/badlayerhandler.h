@@ -17,9 +17,9 @@
 #define BADLAYERHANDLER_H
 
 #include <QStandardItemModel>
+#include <qgsproject.h>
 #include <qgsprojectbadlayerhandler.h>
 
-class QgsProject;
 
 class BadLayerHandler : public QStandardItemModel, public QgsProjectBadLayerHandler
 {

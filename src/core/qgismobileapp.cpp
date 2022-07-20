@@ -31,13 +31,13 @@
 
 #include <QDateTime>
 #include <QFontDatabase>
+#include <QScreen>
 #include <QStandardItemModel>
 #include <QStandardPaths>
 #include <QSurfaceFormat>
 #include <QtQml/QQmlApplicationEngine>
 #include <QtQml/QQmlContext>
 #include <QtQml/QQmlEngine>
-#include <QtWidgets/QDesktopWidget>
 #include <QtWidgets/QFileDialog> // Until native looking QML dialogs are implemented (Qt5.4?)
 #include <QtWidgets/QMenu>       // Until native looking QML dialogs are implemented (Qt5.4?)
 #include <QtWidgets/QMenuBar>
@@ -172,6 +172,7 @@ QgisMobileapp::QgisMobileapp( QgsApplication *app, QObject *parent )
   : QQmlApplicationEngine( parent )
   , mIface( new AppInterface( this ) )
   , mFirstRenderingFlag( true )
+  , mApp( app )
 {
   // Set a nicer default hyperlink color to be used in QML Text items
   QPalette palette = app->palette();
@@ -517,8 +518,8 @@ void QgisMobileapp::initDeclarative()
   qRegisterMetaType<SnappingResult>( "SnappingResult" );
 
   // Calculate device pixels
-  qreal dpi = std::max( QApplication::desktop()->logicalDpiY(), QApplication::desktop()->logicalDpiY() );
-  dpi *= QApplication::desktop()->devicePixelRatioF();
+  qreal dpi = mApp->primaryScreen()->logicalDotsPerInch();
+  dpi *= mApp->primaryScreen()->devicePixelRatio();
 
   // Register some globally available variables
   rootContext()->setContextProperty( "ppi", dpi );

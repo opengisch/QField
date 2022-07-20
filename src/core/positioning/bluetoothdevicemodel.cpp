@@ -24,7 +24,11 @@ BluetoothDeviceModel::BluetoothDeviceModel( QObject *parent )
   : QAbstractListModel( parent ), mLocalDevice( std::make_unique<QBluetoothLocalDevice>() )
 {
   connect( &mServiceDiscoveryAgent, &QBluetoothServiceDiscoveryAgent::serviceDiscovered, this, &BluetoothDeviceModel::serviceDiscovered );
+#if QT_VERSION < QT_VERSION_CHECK( 6, 0, 0 )
   connect( &mServiceDiscoveryAgent, qOverload<QBluetoothServiceDiscoveryAgent::Error>( &QBluetoothServiceDiscoveryAgent::error ), this, [=]() {
+#else
+  connect( &mServiceDiscoveryAgent, qOverload<QBluetoothServiceDiscoveryAgent::Error>( &QBluetoothServiceDiscoveryAgent::errorOccurred ), this, [=]() {
+#endif
     setLastError( mServiceDiscoveryAgent.errorString() );
     setScanningStatus( Failed );
   } );
@@ -54,7 +58,7 @@ void BluetoothDeviceModel::startServiceDiscovery( const bool fullDiscovery )
   if ( mServiceDiscoveryAgent.isActive() )
     mServiceDiscoveryAgent.stop();
 
-  mServiceDiscoveryAgent.setUuidFilter( QBluetoothUuid( QBluetoothUuid::SerialPort ) );
+  mServiceDiscoveryAgent.setUuidFilter( QBluetoothUuid( QBluetoothUuid::ServiceClassUuid::SerialPort ) );
   QBluetoothServiceDiscoveryAgent::DiscoveryMode discoveryMode = fullDiscovery ? QBluetoothServiceDiscoveryAgent::FullDiscovery : QBluetoothServiceDiscoveryAgent::MinimalDiscovery;
 
   // set scanning status _prior to_ start as start itself can error and then we get a broken status sequence

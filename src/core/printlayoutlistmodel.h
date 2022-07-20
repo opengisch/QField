@@ -21,7 +21,6 @@
 #include <qgslayoutpagecollection.h>
 #include <qgsprintlayout.h>
 
-class QStringList;
 class QgsProject;
 class QgsVectorLayer;
 

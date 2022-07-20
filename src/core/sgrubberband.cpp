@@ -98,7 +98,7 @@ QSGGeometryNode *SGRubberband::createLineGeometry( const QVector<QgsPoint> &poin
   }
 
   sgGeom->setLineWidth( static_cast<float>( width ) );
-  sgGeom->setDrawingMode( GL_LINE_STRIP );
+  sgGeom->setDrawingMode( QSGGeometry::DrawLineStrip );
   node->setGeometry( sgGeom );
   node->setMaterial( &mMaterial );
   node->setFlag( QSGNode::OwnsGeometry );
@@ -139,7 +139,7 @@ QSGGeometryNode *SGRubberband::createPolygonGeometry( const QVector<QgsPoint> &p
     currentVertex++;
   }
 
-  sgGeom->setDrawingMode( GL_TRIANGLES );
+  sgGeom->setDrawingMode( QSGGeometry::DrawTriangles );
   node->setGeometry( sgGeom );
   node->setMaterial( &mMaterial );
   node->setFlag( QSGNode::OwnsGeometry );
