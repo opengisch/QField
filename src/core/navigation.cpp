@@ -36,12 +36,13 @@ Navigation::Navigation()
   connect( mModel.get(), &NavigationModel::modelReset, this, &Navigation::destinationChanged );
   connect( mModel.get(), &NavigationModel::modelReset, this, &Navigation::updateDetails );
 
+  mProximitySound.setSource( QUrl( QStringLiteral( "qrc:/sounds/proximity_alarm.wav" ) ) );
   mProximityAlarmTimer.setInterval( 250 );
   mProximityAlarmTimer.setSingleShot( false );
   connect( &mProximityAlarmTimer, &QTimer::timeout, this, [=] {
     if ( QDateTime::currentMSecsSinceEpoch() > mLastProximityAlarm + mProximityAlarmInterval )
     {
-      QSound::play( ":/sounds/proximity_alarm.wav" );
+      mProximitySound.play();
       mLastProximityAlarm = QDateTime::currentMSecsSinceEpoch();
     }
   } );
@@ -299,7 +300,7 @@ void Navigation::updateProximityAlarmState()
       mProximityAlarmInterval = 200 + ( 2000 * mDistance / mProximityAlarmThreshold );
       if ( !mProximityAlarmTimer.isActive() )
       {
-        QSound::play( ":/sounds/proximity_alarm.wav" );
+        mProximitySound.play();
         mLastProximityAlarm = QDateTime::currentMSecsSinceEpoch();
         mProximityAlarmTimer.start();
       }
