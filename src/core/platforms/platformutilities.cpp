@@ -28,6 +28,7 @@
 #include <QDesktopServices>
 #include <QDir>
 #include <QFileDialog>
+#include <QStandardPaths>
 #include <QTimer>
 #include <QUrl>
 

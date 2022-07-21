@@ -16,11 +16,11 @@
 #ifndef LOCATORHIGHLIGHT_H
 #define LOCATORHIGHLIGHT_H
 
+#include "qgsgeometrywrapper.h"
 #include "qgsquickmapsettings.h"
 
 #include <QtQuick/QQuickItem>
 
-class QgsGeometryWrapper;
 class QgsGeometry;
 
 

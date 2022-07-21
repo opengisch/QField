@@ -36,7 +36,7 @@ BluetoothReceiver::BluetoothReceiver( const QString &address, QObject *parent )
 
 void BluetoothReceiver::handleDisconnectDevice()
 {
-  if ( mSocket->state() != QBluetoothSocket::UnconnectedState )
+  if ( mSocket->state() != QBluetoothSocket::SocketState::UnconnectedState )
   {
     mDisconnecting = true;
     mLastGnssPositionValid = false;
@@ -52,7 +52,7 @@ void BluetoothReceiver::handleConnectDevice()
   }
   qDebug() << "BluetoothReceiver: Initiating connection to device: " << mAddress;
 
-  if ( mSocket->state() != QBluetoothSocket::UnconnectedState )
+  if ( mSocket->state() != QBluetoothSocket::SocketState::UnconnectedState )
   {
     mConnectOnDisconnect = true;
     disconnectDevice();
@@ -71,7 +71,7 @@ void BluetoothReceiver::doConnectDevice()
 #ifdef Q_OS_LINUX
   repairDevice( QBluetoothAddress( mAddress ) );
 #else
-  mSocket->connectToService( QBluetoothAddress( mAddress ), QBluetoothUuid( QBluetoothUuid::SerialPort ), QBluetoothSocket::ReadOnly );
+  mSocket->connectToService( QBluetoothAddress( mAddress ), QBluetoothUuid( QBluetoothUuid::ServiceClassUuid::SerialPort ), QBluetoothSocket::ReadOnly );
 #endif
 }
 
@@ -102,20 +102,20 @@ void BluetoothReceiver::setSocketState( const QBluetoothSocket::SocketState sock
 
   switch ( socketState )
   {
-    case QBluetoothSocket::ConnectingState:
+    case QBluetoothSocket::SocketState::ConnectingState:
     {
       mSocketStateString = tr( "Connecting…" );
       break;
     }
-    case QBluetoothSocket::ConnectedState:
+    case QBluetoothSocket::SocketState::ConnectedState:
     {
       mSocketStateString = tr( "Successfully connected" );
       break;
     }
-    case QBluetoothSocket::UnconnectedState:
+    case QBluetoothSocket::SocketState::UnconnectedState:
     {
       mSocketStateString = tr( "Disconnected" );
-      if ( !mDisconnecting && mSocket->error() != QBluetoothSocket::NoSocketError )
+      if ( !mDisconnecting && mSocket->error() != QBluetoothSocket::SocketError::NoSocketError )
         mSocketStateString.append( QStringLiteral( ": %1" ).arg( mSocket->errorString() ) );
 
       if ( mConnectOnDisconnect )
@@ -124,7 +124,7 @@ void BluetoothReceiver::setSocketState( const QBluetoothSocket::SocketState sock
     }
     default:
     {
-      mSocketStateString = tr( "Socket state %1" ).arg( QMetaEnum::fromType<QBluetoothSocket::SocketState>().valueToKey( socketState ) );
+      mSocketStateString = tr( "Socket state %1" ).arg( static_cast<int>( socketState ) );
     }
   }
 

@@ -16,8 +16,6 @@
 
 #include "internalgnssreceiver.h"
 
-#include <QDebug>
-
 InternalGnssReceiver::InternalGnssReceiver( QObject *parent )
   : AbstractGnssReceiver( parent )
   , mGeoPositionSource( std::unique_ptr<QGeoPositionInfoSource>( QGeoPositionInfoSource::createDefaultSource( nullptr ) ) )
@@ -28,7 +26,11 @@ InternalGnssReceiver::InternalGnssReceiver( QObject *parent )
     mGeoPositionSource->setUpdateInterval( 1000 );
 
     connect( mGeoPositionSource.get(), &QGeoPositionInfoSource::positionUpdated, this, &InternalGnssReceiver::handlePositionUpdated );
+#if QT_VERSION < QT_VERSION_CHECK( 6, 0, 0 )
     connect( mGeoPositionSource.get(), qOverload<QGeoPositionInfoSource::Error>( &QGeoPositionInfoSource::error ), this, &InternalGnssReceiver::handleError );
+#else
+    connect( mGeoPositionSource.get(), qOverload<QGeoPositionInfoSource::Error>( &QGeoPositionInfoSource::errorOccurred ), this, &InternalGnssReceiver::handleError );
+#endif
 
     mSocketState = QAbstractSocket::ConnectedState;
 
@@ -42,7 +44,11 @@ InternalGnssReceiver::InternalGnssReceiver( QObject *parent )
 
     connect( mGeoSatelliteSource.get(), &QGeoSatelliteInfoSource::satellitesInUseUpdated, this, &InternalGnssReceiver::handleSatellitesInUseUpdated );
     connect( mGeoSatelliteSource.get(), &QGeoSatelliteInfoSource::satellitesInViewUpdated, this, &InternalGnssReceiver::handleSatellitesInViewUpdated );
+#if QT_VERSION < QT_VERSION_CHECK( 6, 0, 0 )
     connect( mGeoSatelliteSource.get(), qOverload<QGeoSatelliteInfoSource::Error>( &QGeoSatelliteInfoSource::error ), this, &InternalGnssReceiver::handleSatelliteError );
+#else
+    connect( mGeoSatelliteSource.get(), qOverload<QGeoSatelliteInfoSource::Error>( &QGeoSatelliteInfoSource::errorOccurred ), this, &InternalGnssReceiver::handleSatelliteError );
+#endif
   }
 }
 
