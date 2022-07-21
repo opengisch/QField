@@ -21,6 +21,7 @@
 #include "qgsquickmapsettings.h"
 
 #include <QObject>
+#include <QSoundEffect>
 #include <QTimer>
 #include <qgsdistancearea.h>
 
@@ -239,6 +240,7 @@ class Navigation : public QObject
     QTimer mProximityAlarmTimer;
     int mProximityAlarmInterval;
     qint64 mLastProximityAlarm;
+    QSoundEffect mProximitySound;
 };
 
 #endif // NAVIGATION_H
