@@ -11,11 +11,11 @@ function(ADD_CATCH2_TEST TESTNAME TESTSRC WITH_CATCH2_MAIN)
     qfield_core
     ${QGIS_CORE_LIBRARY}
     ${QGIS_ANALYSIS_LIBRARY}
-    Qt5::Test
-    Qt5::Core
-    Qt5::Gui
-    Qt5::Widgets
-    Qt5::Xml
+    ${QT_PKG}::Test
+    ${QT_PKG}::Core
+    ${QT_PKG}::Gui
+    ${QT_PKG}::Widgets
+    ${QT_PKG}::Xml
   )
   if(WITH_CATCH2_MAIN)
     target_link_libraries(${TESTNAME} PRIVATE
@@ -36,11 +36,11 @@ macro (ADD_QFIELD_TEST TESTNAME TESTSRC)
     qfield_core
     ${QGIS_CORE_LIBRARY}
     ${QGIS_ANALYSIS_LIBRARY}
-    Qt5::Test
-    Qt5::Core
-    Qt5::Gui
-    Qt5::Widgets
-    Qt5::Xml
+    ${QT_PKG}::Test
+    ${QT_PKG}::Core
+    ${QT_PKG}::Gui
+    ${QT_PKG}::Widgets
+    ${QT_PKG}::Xml
   )
 endmacro (ADD_QFIELD_TEST)
 
@@ -49,9 +49,9 @@ macro (ADD_QFIELD_QML_TEST TESTNAME TESTSRC)
   # This should be in src/qml/CMakeLists.txt but that's not possible with Qt5. Retry with Qt6
   # Same is in src/app/CMakeLists.txt
   # https://bugreports.qt.io/browse/QTBUG-80847
-  get_target_property(QT_TARGET_TYPE Qt5::Core TYPE)
+  get_target_property(QT_TARGET_TYPE ${QT_PKG}::Core TYPE)
   if(${QT_TARGET_TYPE} STREQUAL "STATIC_LIBRARY")
-    find_package(Qt5 COMPONENTS QmlImportScanner)
+    find_package(${QT_PKG} COMPONENTS QmlImportScanner)
     file(GLOB test_qmlfiles "${CMAKE_CURRENT_SOURCE_DIR}/qml/*.qml")
     file(GLOB qfield_qmlfiles "${CMAKE_SOURCE_DIR}/src/qml/*.qml")
     file(COPY ${test_qmlfiles}
@@ -72,12 +72,12 @@ macro (ADD_QFIELD_QML_TEST TESTNAME TESTSRC)
     qfield_qml
     ${QGIS_CORE_LIBRARY}
     ${QGIS_ANALYSIS_LIBRARY}
-    Qt5::Test
-    Qt5::Core
-    Qt5::Gui
-    Qt5::Widgets
-    Qt5::Xml
-    Qt5::QuickTest
+    ${QT_PKG}::Test
+    ${QT_PKG}::Core
+    ${QT_PKG}::Gui
+    ${QT_PKG}::Widgets
+    ${QT_PKG}::Xml
+    ${QT_PKG}::QuickTest
   )
   add_test(NAME ${TESTNAME} COMMAND ${TESTNAME} -import ${CMAKE_SOURCE_DIR}/src/qml/imports -input ${CMAKE_SOURCE_DIR}/test/qml)
 endmacro (ADD_QFIELD_QML_TEST)

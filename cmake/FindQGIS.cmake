@@ -332,8 +332,7 @@ IF(${CMAKE_SYSTEM_NAME} STREQUAL "iOS")
   qgis_core_link_plugin(authmethod_pkcs12_a)
   qgis_core_link_plugin(authmethod_pkipaths_a)
 
-  # Versionless tagging of Qt, only supported from Qt5.15
-  if(NOT TARGET Qt::PrintSupport)
+  if(NOT TARGET ${QT_PKG}::PrintSupport)
     target_compile_definitions(qgis_core INTERFACE "-DQT_NO_PRINTER")
   endif()
 

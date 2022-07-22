@@ -241,7 +241,7 @@ target_include_directories(
 if(IOS)
   # to include <qpa/qplatformnativeinterface.h>
   target_include_directories(qfield_core SYSTEM
-                             PRIVATE ${Qt5Gui_PRIVATE_INCLUDE_DIRS})
+                             PRIVATE ${${QT_PKG}Gui_PRIVATE_INCLUDE_DIRS})
 endif()
 
 target_include_directories(
@@ -273,21 +273,21 @@ endif()
 
 target_link_libraries(
   qfield_core
-  PUBLIC Qt5::Core
-         Qt5::Gui
-         Qt5::Xml
-         Qt5::Positioning
-         Qt5::Widgets
-         Qt5::Network
-         Qt5::Quick
-         Qt5::Svg
-         Qt5::OpenGL
-         Qt5::Sensors
-         Qt5::Positioning
-         Qt5::Sql
-         Qt5::Concurrent
-         Qt5::WebView
-         Qt5::Multimedia
+  PUBLIC ${QT_PKG}::Core
+         ${QT_PKG}::Gui
+         ${QT_PKG}::Xml
+         ${QT_PKG}::Positioning
+         ${QT_PKG}::Widgets
+         ${QT_PKG}::Network
+         ${QT_PKG}::Quick
+         ${QT_PKG}::Svg
+         ${QT_PKG}::OpenGL
+         ${QT_PKG}::Sensors
+         ${QT_PKG}::Positioning
+         ${QT_PKG}::Sql
+         ${QT_PKG}::Concurrent
+         ${QT_PKG}::WebView
+         ${QT_PKG}::Multimedia
          QGIS::Core
          QGIS::Analysis
          ${PROJ_LIBRARY}
@@ -295,10 +295,10 @@ target_link_libraries(
 
 if(WITH_BLUETOOTH)
   find_package(
-    Qt5
+    ${QT_PKG}
     COMPONENTS Bluetooth
     REQUIRED)
-  target_link_libraries(qfield_core PUBLIC Qt5::Bluetooth)
+  target_link_libraries(qfield_core PUBLIC ${QT_PKG}::Bluetooth)
 endif()
 
 if(WITH_SENTRY)
@@ -306,11 +306,11 @@ if(WITH_SENTRY)
 endif()
 
 if(ANDROID)
-  target_link_libraries(qfield_core PUBLIC Qt5::AndroidExtras)
+  target_link_libraries(qfield_core PUBLIC ${QT_PKG}::AndroidExtras)
 endif()
 
-if(TARGET Qt5::PrintSupport)
-  target_link_libraries(qfield_core PUBLIC Qt5::PrintSupport)
+if(TARGET ${QT_PKG}::PrintSupport)
+  target_link_libraries(qfield_core PUBLIC ${QT_PKG}::PrintSupport)
 endif()
 
 install(FILES ${QFIELD_CORE_HDRS} DESTINATION ${QFIELD_INCLUDE_DIR})

@@ -12,6 +12,8 @@ set(APP_VERSION "" CACHE STRING "Application Version (Example: 1.0.0)")
 set(APP_VERSION_STR "local - dev" CACHE STRING "Application Version Name (Example: 1.0.0 - Homerun)")
 set(APP_PACKAGE_NAME "qfield" CACHE STRING "Package name suffix. E.g. qfield --> ch.opengis.qfield")
 
+set(BUILD_WITH_QT6 OFF CACHE BOOLEAN "Build with Qt6")
+
 string(REGEX REPLACE "v" "" CLEAN_APP_VERSION "${APP_VERSION}")
 
 set(CMAKE_MODULE_PATH ${CMAKE_SOURCE_DIR}/cmake ${CMAKE_MODULE_PATH})
@@ -87,6 +89,12 @@ if(WITH_SENTRY)
   find_package(sentry REQUIRED)
 endif()
 
+if(BUILD_WITH_QT6)
+  set(QT_PKG Qt6)
+else()
+  set(QT_PKG Qt5)
+endif()
+
 if (ANDROID)
   if(VCPKG_TARGET_TRIPLET STREQUAL "arm-android" OR VCPKG_TARGET_TRIPLET STREQUAL "arm-neon-android")
     set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -fPIC -fstack-protector-strong -lunwind -Wl,--exclude-libs=libunwind.a")
@@ -109,7 +117,9 @@ if (ANDROID)
 
   include(platform/android/openssl/CMakeLists.txt)
 
-  find_package(Qt5 COMPONENTS AndroidExtras REQUIRED)
+  if(NOT BUILD_WITH_QT6)
+    find_package(Qt5 COMPONENTS AndroidExtras REQUIRED)
+  endif()
 
   if(NOT EXISTS "${VCPKG_BASE_DIR}/share/proj/data/proj.db")
     message(FATAL_ERROR "proj.db not found, aborting")
@@ -130,11 +140,11 @@ if (ANDROID)
 endif()
 
 set(QT_MIN_VERSION 5.14.0)
-find_package(Qt5 COMPONENTS Concurrent Core Qml Gui Xml Positioning Widgets Network Quick Svg OpenGL Sql Sensors WebView MultimediaQuick REQUIRED)
+find_package(${QT_PKG} COMPONENTS Concurrent Core Qml Gui Xml Positioning Widgets Network Quick Svg OpenGL Sql Sensors WebView Multimedia REQUIRED)
 
 # PrintSupport isn't required, because it doesn't exist for ios
 # qgis will deal with it an define a public 'QT_NO_PRINTER'
-find_package(Qt5 COMPONENTS PrintSupport QUIET)
+find_package(${QT_PKG} COMPONENTS PrintSupport QUIET)
 
 find_package(QGIS REQUIRED)
 if(NOT ${CMAKE_SYSTEM_NAME} STREQUAL "iOS")
@@ -167,7 +177,6 @@ endif()
 set(ENABLE_TESTS CACHE BOOL "Build unit tests")
 
 if(MSVC)
-  find_package(Qt5 COMPONENTS Charts REQUIRED) # vcpkg doesn't include QtCharts.dll as dep of the qml module otherwise
   add_definitions(-D_USE_MATH_DEFINES)
   add_definitions(-DNOMINMAX)
   add_definitions(-D_CRT_NONSTDC_NO_DEPRECATE)
@@ -184,7 +193,7 @@ add_subdirectory(src/qml)
 add_subdirectory(src/app)
 
 if (ENABLE_TESTS)
-  find_package(Qt5 COMPONENTS Test QuickTest)
+  find_package(${QT_PKG} COMPONENTS Test QuickTest)
   enable_testing()
   add_subdirectory(test)
 endif()

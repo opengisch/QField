@@ -1,4 +1,4 @@
-find_package(Qt5QuickCompiler QUIET)
+find_package(${QT_PKG}QuickCompiler QUIET)
 
 if(MSVC)
   configure_file("${CMAKE_SOURCE_DIR}/platform/windows/appicon.rc.in"
@@ -64,12 +64,12 @@ function(create_executable)
 
   target_link_libraries(${exe_TARGET} PRIVATE qfield_core qfield_qml
                                               ${QGIS_CORE_LIBRARY})
-  get_target_property(QT_TARGET_TYPE Qt5::Core TYPE)
+  get_target_property(QT_TARGET_TYPE ${QT_PKG}::Core TYPE)
   # This should be in src/qml/CMakeLists.txt but that's not possible with Qt5.
   # Retry with Qt6 Same is in tests/CMakeLists.txt
   # https://bugreports.qt.io/browse/QTBUG-80847
   if(${QT_TARGET_TYPE} STREQUAL "STATIC_LIBRARY")
-    find_package(Qt5 COMPONENTS QmlImportScanner)
+    find_package(${QT_PKG} COMPONENTS QmlImportScanner)
     file(GLOB qfield_qmlfiles "${CMAKE_SOURCE_DIR}/src/qml/*.qml")
     file(COPY ${qfield_qmlfiles}
          DESTINATION "${CMAKE_CURRENT_BINARY_DIR}/qmldrop/app")
