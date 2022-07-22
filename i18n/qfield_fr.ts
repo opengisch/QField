@@ -208,7 +208,7 @@ Cancel to make a minimal device scan instead.</source>
 <context>
     <name>BluetoothDeviceModel</name>
     <message>
-        <location filename="../src/core/positioning/bluetoothdevicemodel.cpp" line="40"/>
+        <location filename="../src/core/positioning/bluetoothdevicemodel.cpp" line="44"/>
         <source>Internal device</source>
         <translation>Stockage interne</translation>
     </message>
@@ -710,60 +710,60 @@ Les géométries des objets vont être combinées dans l&apos;objet &apos;%1&apo
 <context>
     <name>FeatureModel</name>
     <message>
-        <location filename="../src/core/featuremodel.cpp" line="321"/>
+        <location filename="../src/core/featuremodel.cpp" line="322"/>
         <source>Value &quot;%1&quot; %4 could not be converted to a compatible value for field %2(%3).</source>
         <translation>La valeur &quot;%1&quot; %4 ne peut pas être convertie en valeur compatible pour le champ %2(%3).</translation>
     </message>
     <message>
-        <location filename="../src/core/featuremodel.cpp" line="375"/>
-        <location filename="../src/core/featuremodel.cpp" line="420"/>
+        <location filename="../src/core/featuremodel.cpp" line="377"/>
+        <location filename="../src/core/featuremodel.cpp" line="422"/>
         <source>Cannot update feature</source>
         <translation>Actualisation de l&apos;entité impossible</translation>
     </message>
     <message>
-        <location filename="../src/core/featuremodel.cpp" line="400"/>
+        <location filename="../src/core/featuremodel.cpp" line="402"/>
         <source>Feature %1 could not be fetched after commit</source>
         <translation>L&apos;entité %1 n&apos;a pas pu être récupérée après la modification</translation>
     </message>
     <message>
-        <location filename="../src/core/featuremodel.cpp" line="503"/>
+        <location filename="../src/core/featuremodel.cpp" line="506"/>
         <source>Default value expression for %1:%2 has parser error: %3</source>
         <translation>L&apos;expression de valeur par défaut pour %1:%2 contient une erreur syntaxique : %3</translation>
     </message>
     <message>
-        <location filename="../src/core/featuremodel.cpp" line="508"/>
+        <location filename="../src/core/featuremodel.cpp" line="511"/>
         <source>Default value expression for %1:%2 has evaluation error: %3</source>
         <translation>L&apos;expression de valeur par défaut pour %1:%2 contient une erreur d&apos;évaluation : %3</translation>
     </message>
     <message>
-        <location filename="../src/core/featuremodel.cpp" line="638"/>
+        <location filename="../src/core/featuremodel.cpp" line="641"/>
         <source>Cannot start editing on layer &quot;%1&quot; to create feature %2</source>
         <translation>Impossible d&apos;éditer la couche &quot;%1&quot; pour créer l&apos;entité %2</translation>
     </message>
     <message>
-        <location filename="../src/core/featuremodel.cpp" line="661"/>
+        <location filename="../src/core/featuremodel.cpp" line="664"/>
         <source>Layer &quot;%1&quot; has been commited but the newly created feature %2 could not be fetched</source>
         <translation>La couche &quot;%1&quot; a été sauvegardée mais la nouvelle entitée créée %2 n&apos;a pas pu être récupérée.</translation>
     </message>
     <message>
-        <location filename="../src/core/featuremodel.cpp" line="668"/>
+        <location filename="../src/core/featuremodel.cpp" line="671"/>
         <source>Layer &quot;%1&quot; cannot be commited with the newly created feature %2. Reason:
 %3</source>
         <translation>La couche &quot;%1&quot; ne peut pas être sauvegardée avec la nouvelle entité crée %2. Raison:
 %3</translation>
     </message>
     <message>
-        <location filename="../src/core/featuremodel.cpp" line="674"/>
+        <location filename="../src/core/featuremodel.cpp" line="677"/>
         <source>Feature %2 could not be added in layer &quot;%1&quot;</source>
         <translation>L&apos;entité %2 ne peut pas être ajoutée à la couche &quot;%1&quot;</translation>
     </message>
     <message>
-        <location filename="../src/core/featuremodel.cpp" line="697"/>
+        <location filename="../src/core/featuremodel.cpp" line="701"/>
         <source>Could not save changes. Rolling back.</source>
         <translation>Enregistrement des modifications impossible. Retour en arrière.</translation>
     </message>
     <message>
-        <location filename="../src/core/featuremodel.cpp" line="715"/>
+        <location filename="../src/core/featuremodel.cpp" line="719"/>
         <source>Cannot start editing</source>
         <translation>Édition impossible</translation>
     </message>
@@ -1426,42 +1426,42 @@ Les géométries des objets vont être combinées dans l&apos;objet &apos;%1&apo
 <context>
     <name>PlatformUtilities</name>
     <message>
-        <location filename="../src/core/platforms/platformutilities.cpp" line="140"/>
+        <location filename="../src/core/platforms/platformutilities.cpp" line="141"/>
         <source>Select Media File</source>
         <translation>Sélectionnez le fichier multimédia.</translation>
     </message>
     <message>
-        <location filename="../src/core/platforms/platformutilities.cpp" line="140"/>
+        <location filename="../src/core/platforms/platformutilities.cpp" line="141"/>
         <source>JPEG images (*.jpg *.jpeg)</source>
         <translation>Images JPEG (*.jpg *.jpeg)</translation>
     </message>
     <message>
-        <location filename="../src/core/platforms/platformutilities.cpp" line="160"/>
+        <location filename="../src/core/platforms/platformutilities.cpp" line="161"/>
         <source>Failed to save gallery picture</source>
         <translation>Échec de l&apos;enregistrement de l&apos;image dans la gallerie.</translation>
     </message>
     <message>
-        <location filename="../src/core/platforms/platformutilities.cpp" line="178"/>
+        <location filename="../src/core/platforms/platformutilities.cpp" line="179"/>
         <source>Open File</source>
         <translation>Ouvrir un fichier</translation>
     </message>
     <message>
-        <location filename="../src/core/platforms/platformutilities.cpp" line="180"/>
+        <location filename="../src/core/platforms/platformutilities.cpp" line="181"/>
         <source>All Supported Files</source>
         <translation>Tous les fichiers supportés </translation>
     </message>
     <message>
-        <location filename="../src/core/platforms/platformutilities.cpp" line="180"/>
+        <location filename="../src/core/platforms/platformutilities.cpp" line="181"/>
         <source>QGIS Project Files</source>
         <translation>Fichiers du projet QGIS</translation>
     </message>
     <message>
-        <location filename="../src/core/platforms/platformutilities.cpp" line="180"/>
+        <location filename="../src/core/platforms/platformutilities.cpp" line="181"/>
         <source>Vector Datasets</source>
         <translation>Données vectorielles</translation>
     </message>
     <message>
-        <location filename="../src/core/platforms/platformutilities.cpp" line="180"/>
+        <location filename="../src/core/platforms/platformutilities.cpp" line="181"/>
         <source>Raster Datasets</source>
         <translation>Données raster </translation>
     </message>
@@ -2100,81 +2100,81 @@ Même si vous pouvez toujours voir et utiliser ce projet, il est fortement recom
         <translation>Projet occupé.</translation>
     </message>
     <message>
-        <location filename="../src/core/qfieldcloudprojectsmodel.cpp" line="746"/>
+        <location filename="../src/core/qfieldcloudprojectsmodel.cpp" line="747"/>
         <source>Packaging job finished unsuccessfully for `%1`. %2</source>
         <translation>La tâche d&apos;empaquetage s&apos;est terminée sans succès pour `%1`. %2</translation>
     </message>
     <message>
-        <location filename="../src/core/qfieldcloudprojectsmodel.cpp" line="804"/>
+        <location filename="../src/core/qfieldcloudprojectsmodel.cpp" line="805"/>
         <source>Failed to refresh the latest info for `%1`: %2</source>
         <translation>Échec de rafraîchissement des dernières informations pour `%1`: %2</translation>
     </message>
     <message>
-        <location filename="../src/core/qfieldcloudprojectsmodel.cpp" line="919"/>
+        <location filename="../src/core/qfieldcloudprojectsmodel.cpp" line="920"/>
         <source>Failed to get latest package data.</source>
         <translation>Échec de récupération des dernières données du paquet.</translation>
     </message>
     <message>
-        <location filename="../src/core/qfieldcloudprojectsmodel.cpp" line="933"/>
+        <location filename="../src/core/qfieldcloudprojectsmodel.cpp" line="934"/>
         <source>Latest package data response error.</source>
         <translation>Erreur de réponse sur les dernières données du paquet.</translation>
     </message>
     <message>
-        <location filename="../src/core/qfieldcloudprojectsmodel.cpp" line="953"/>
+        <location filename="../src/core/qfieldcloudprojectsmodel.cpp" line="954"/>
         <source>Latest package data structure error.</source>
         <translation>Erreur de structure sur les dernières données du paquet.</translation>
     </message>
     <message>
-        <location filename="../src/core/qfieldcloudprojectsmodel.cpp" line="986"/>
+        <location filename="../src/core/qfieldcloudprojectsmodel.cpp" line="987"/>
         <source>Project %1: Packaged layer `%2` is not valid. Error code %3, error message: %4</source>
         <translation>Projet %1: La couche empaquetée `%2` n&apos;est pas valide. Code d&apos;erreur %3, message d&apos;erreur: %4</translation>
     </message>
     <message>
-        <location filename="../src/core/qfieldcloudprojectsmodel.cpp" line="1112"/>
+        <location filename="../src/core/qfieldcloudprojectsmodel.cpp" line="1113"/>
         <source>Failed to open temporary file for `%1`, reason:
 %2</source>
         <translation>Impossible d&apos;ouvrir le fichier temporaire pour `%1`, raison :
 %2</translation>
     </message>
     <message>
-        <location filename="../src/core/qfieldcloudprojectsmodel.cpp" line="1568"/>
+        <location filename="../src/core/qfieldcloudprojectsmodel.cpp" line="1569"/>
         <source>Failed to upload attachment stored at `%1`, reason:
 %2</source>
         <translation>Impossible d&apos;envoyer la pièce jointe stockée à `%1`, raison:
 %2</translation>
     </message>
     <message>
-        <location filename="../src/core/qfieldcloudprojectsmodel.cpp" line="1815"/>
+        <location filename="../src/core/qfieldcloudprojectsmodel.cpp" line="1816"/>
         <source>Network error. Failed to download file `%1`.</source>
         <translation>Erreur de réseau. Échec de téléchargement du fichier `%1`.</translation>
     </message>
     <message>
-        <location filename="../src/core/qfieldcloudprojectsmodel.cpp" line="1830"/>
+        <location filename="../src/core/qfieldcloudprojectsmodel.cpp" line="1831"/>
         <source>File system error. Failed to write file to temporary location `%1`.</source>
         <translation>Erreur du système de fichier. Impossible d&apos;écrire à l&apos;emplacement temporaire `%1`.</translation>
     </message>
     <message>
-        <location filename="../src/core/qfieldcloudprojectsmodel.cpp" line="1837"/>
+        <location filename="../src/core/qfieldcloudprojectsmodel.cpp" line="1838"/>
         <source>File system error. Failed to open file for writing on temporary `%1`.</source>
         <translation>Erreur du système de fichier. Impossible d&apos;ouvrir le fichier en écriture à l&apos;emplacement temporaire `%1`.</translation>
     </message>
     <message>
-        <location filename="../src/core/qfieldcloudprojectsmodel.cpp" line="1849"/>
+        <location filename="../src/core/qfieldcloudprojectsmodel.cpp" line="1850"/>
         <source>Project `%1`, file `%2`: %3</source>
         <translation>Projet `%1`, fichier `%2`: %3</translation>
     </message>
     <message>
-        <location filename="../src/core/qfieldcloudprojectsmodel.cpp" line="1850"/>
+        <location filename="../src/core/qfieldcloudprojectsmodel.cpp" line="1851"/>
         <source>System message: </source>
         <translation>Message système: </translation>
     </message>
     <message>
-        <location filename="../src/core/qfieldcloudprojectsmodel.cpp" line="1852"/>
+        <location filename="../src/core/qfieldcloudprojectsmodel.cpp" line="1853"/>
         <source> (see more in the QField error log)…</source>
         <translation> (voir plus dans le journal des erreurs de QField)...</translation>
     </message>
     <message>
-        <location filename="../src/core/qfieldcloudprojectsmodel.cpp" line="1885"/>
+        <location filename="../src/core/qfieldcloudprojectsmodel.cpp" line="1886"/>
         <source>Failed to copy some of the downloaded files on your device. Check your device storage.</source>
         <translation>Échec de la copie de certains des fichiers téléchargés sur votre appareil. Vérifier le stockage de celui-ci. </translation>
     </message>
@@ -2788,18 +2788,18 @@ Cancel to make a minimal device scan instead.</source>
 <context>
     <name>QgisMobileapp</name>
     <message>
-        <location filename="../src/core/qgismobileapp.cpp" line="674"/>
-        <location filename="../src/core/qgismobileapp.cpp" line="700"/>
+        <location filename="../src/core/qgismobileapp.cpp" line="675"/>
+        <location filename="../src/core/qgismobileapp.cpp" line="701"/>
         <source>Project file &quot;%1&quot; does not exist</source>
         <translation>Le fichier de projet &quot;%1&quot; n&apos;existe pas</translation>
     </message>
     <message>
-        <location filename="../src/core/qgismobileapp.cpp" line="691"/>
+        <location filename="../src/core/qgismobileapp.cpp" line="692"/>
         <source>No project file currently opened</source>
         <translation>Aucun fichier de projet actuellement ouvert</translation>
     </message>
     <message>
-        <location filename="../src/core/qgismobileapp.cpp" line="722"/>
+        <location filename="../src/core/qgismobileapp.cpp" line="723"/>
         <source>Could not load font %1</source>
         <translation>Impossible de charger la police %1</translation>
     </message>

@@ -209,7 +209,7 @@ Cancel to make a minimal device scan instead.</source>
 <context>
     <name>BluetoothDeviceModel</name>
     <message>
-        <location filename="../src/core/positioning/bluetoothdevicemodel.cpp" line="40"/>
+        <location filename="../src/core/positioning/bluetoothdevicemodel.cpp" line="44"/>
         <source>Internal device</source>
         <translation>Вградено устройство</translation>
     </message>
@@ -709,60 +709,60 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
 <context>
     <name>FeatureModel</name>
     <message>
-        <location filename="../src/core/featuremodel.cpp" line="321"/>
+        <location filename="../src/core/featuremodel.cpp" line="322"/>
         <source>Value &quot;%1&quot; %4 could not be converted to a compatible value for field %2(%3).</source>
         <translation>Стойността &quot;%1&quot; %4 не може да бъде превърната в съвместима стойност за полето %2(%3).</translation>
     </message>
     <message>
-        <location filename="../src/core/featuremodel.cpp" line="375"/>
-        <location filename="../src/core/featuremodel.cpp" line="420"/>
+        <location filename="../src/core/featuremodel.cpp" line="377"/>
+        <location filename="../src/core/featuremodel.cpp" line="422"/>
         <source>Cannot update feature</source>
         <translation>Неуспешна промя промяна на обект</translation>
     </message>
     <message>
-        <location filename="../src/core/featuremodel.cpp" line="400"/>
+        <location filename="../src/core/featuremodel.cpp" line="402"/>
         <source>Feature %1 could not be fetched after commit</source>
         <translation>Обектът %1 не може да бъде намерен след запис</translation>
     </message>
     <message>
-        <location filename="../src/core/featuremodel.cpp" line="503"/>
+        <location filename="../src/core/featuremodel.cpp" line="506"/>
         <source>Default value expression for %1:%2 has parser error: %3</source>
         <translation>Изразът за стойност по подразбиране за %1:%2 доведе до грешка при анализиране: %3</translation>
     </message>
     <message>
-        <location filename="../src/core/featuremodel.cpp" line="508"/>
+        <location filename="../src/core/featuremodel.cpp" line="511"/>
         <source>Default value expression for %1:%2 has evaluation error: %3</source>
         <translation>Изразът за стойност по подразбиране за %1:%2 доведе до грешка при изчисляване: %3</translation>
     </message>
     <message>
-        <location filename="../src/core/featuremodel.cpp" line="638"/>
+        <location filename="../src/core/featuremodel.cpp" line="641"/>
         <source>Cannot start editing on layer &quot;%1&quot; to create feature %2</source>
         <translation>Неуспешно започване на редакция на слой &quot;%1&quot; при създаване на обект &quot;%2&quot;</translation>
     </message>
     <message>
-        <location filename="../src/core/featuremodel.cpp" line="661"/>
+        <location filename="../src/core/featuremodel.cpp" line="664"/>
         <source>Layer &quot;%1&quot; has been commited but the newly created feature %2 could not be fetched</source>
         <translation>Промените в слоя &quot;%1 &quot; са запазени, но новодобавения обект &quot;%2&quot; не може да бъде открит</translation>
     </message>
     <message>
-        <location filename="../src/core/featuremodel.cpp" line="668"/>
+        <location filename="../src/core/featuremodel.cpp" line="671"/>
         <source>Layer &quot;%1&quot; cannot be commited with the newly created feature %2. Reason:
 %3</source>
         <translation>Промените в слоя &quot;%1&quot; не могат да бъдат запазени с новосъздадения обект &quot;%2&quot;. Причина:
 %3</translation>
     </message>
     <message>
-        <location filename="../src/core/featuremodel.cpp" line="674"/>
+        <location filename="../src/core/featuremodel.cpp" line="677"/>
         <source>Feature %2 could not be added in layer &quot;%1&quot;</source>
         <translation>Неуспешно създаването на обект %2 в слоя &quot;%1&quot;</translation>
     </message>
     <message>
-        <location filename="../src/core/featuremodel.cpp" line="697"/>
+        <location filename="../src/core/featuremodel.cpp" line="701"/>
         <source>Could not save changes. Rolling back.</source>
         <translation>Неуспешно въвеждане на промени. Връщане на по-стара версия.</translation>
     </message>
     <message>
-        <location filename="../src/core/featuremodel.cpp" line="715"/>
+        <location filename="../src/core/featuremodel.cpp" line="719"/>
         <source>Cannot start editing</source>
         <translation>Неуспешно започване на редакция</translation>
     </message>
@@ -1425,42 +1425,42 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
 <context>
     <name>PlatformUtilities</name>
     <message>
-        <location filename="../src/core/platforms/platformutilities.cpp" line="140"/>
+        <location filename="../src/core/platforms/platformutilities.cpp" line="141"/>
         <source>Select Media File</source>
         <translation>Избор на мултимедиен файл</translation>
     </message>
     <message>
-        <location filename="../src/core/platforms/platformutilities.cpp" line="140"/>
+        <location filename="../src/core/platforms/platformutilities.cpp" line="141"/>
         <source>JPEG images (*.jpg *.jpeg)</source>
         <translation>JPEG изображения (*.jpg *.jpeg)</translation>
     </message>
     <message>
-        <location filename="../src/core/platforms/platformutilities.cpp" line="160"/>
+        <location filename="../src/core/platforms/platformutilities.cpp" line="161"/>
         <source>Failed to save gallery picture</source>
         <translation>Неуспешен запис на изображение от галерията</translation>
     </message>
     <message>
-        <location filename="../src/core/platforms/platformutilities.cpp" line="178"/>
+        <location filename="../src/core/platforms/platformutilities.cpp" line="179"/>
         <source>Open File</source>
         <translation>Отвори файл</translation>
     </message>
     <message>
-        <location filename="../src/core/platforms/platformutilities.cpp" line="180"/>
+        <location filename="../src/core/platforms/platformutilities.cpp" line="181"/>
         <source>All Supported Files</source>
         <translation>Всички поддържани файлове</translation>
     </message>
     <message>
-        <location filename="../src/core/platforms/platformutilities.cpp" line="180"/>
+        <location filename="../src/core/platforms/platformutilities.cpp" line="181"/>
         <source>QGIS Project Files</source>
         <translation>QGIS проекти</translation>
     </message>
     <message>
-        <location filename="../src/core/platforms/platformutilities.cpp" line="180"/>
+        <location filename="../src/core/platforms/platformutilities.cpp" line="181"/>
         <source>Vector Datasets</source>
         <translation>Векторни данни</translation>
     </message>
     <message>
-        <location filename="../src/core/platforms/platformutilities.cpp" line="180"/>
+        <location filename="../src/core/platforms/platformutilities.cpp" line="181"/>
         <source>Raster Datasets</source>
         <translation>Растерни данни</translation>
     </message>
@@ -2104,81 +2104,81 @@ While you can still view and use the project, it is strongly recommended to rese
         <translation>Проектът е зает.</translation>
     </message>
     <message>
-        <location filename="../src/core/qfieldcloudprojectsmodel.cpp" line="746"/>
+        <location filename="../src/core/qfieldcloudprojectsmodel.cpp" line="747"/>
         <source>Packaging job finished unsuccessfully for `%1`. %2</source>
         <translation>Неуспешно завършила задача по пакетиране за `%1`: %2</translation>
     </message>
     <message>
-        <location filename="../src/core/qfieldcloudprojectsmodel.cpp" line="804"/>
+        <location filename="../src/core/qfieldcloudprojectsmodel.cpp" line="805"/>
         <source>Failed to refresh the latest info for `%1`: %2</source>
         <translation>Неуспешно обновяване на последната информация за `%1`: %2</translation>
     </message>
     <message>
-        <location filename="../src/core/qfieldcloudprojectsmodel.cpp" line="919"/>
+        <location filename="../src/core/qfieldcloudprojectsmodel.cpp" line="920"/>
         <source>Failed to get latest package data.</source>
         <translation>Неуспешно обновяване на информацията за последния пакет.</translation>
     </message>
     <message>
-        <location filename="../src/core/qfieldcloudprojectsmodel.cpp" line="933"/>
+        <location filename="../src/core/qfieldcloudprojectsmodel.cpp" line="934"/>
         <source>Latest package data response error.</source>
         <translation>Последния пакет отговори с грешка.</translation>
     </message>
     <message>
-        <location filename="../src/core/qfieldcloudprojectsmodel.cpp" line="953"/>
+        <location filename="../src/core/qfieldcloudprojectsmodel.cpp" line="954"/>
         <source>Latest package data structure error.</source>
         <translation>Последния пакет отговори с грешка в протокола.</translation>
     </message>
     <message>
-        <location filename="../src/core/qfieldcloudprojectsmodel.cpp" line="986"/>
+        <location filename="../src/core/qfieldcloudprojectsmodel.cpp" line="987"/>
         <source>Project %1: Packaged layer `%2` is not valid. Error code %3, error message: %4</source>
         <translation>Проект %1: Слоят `%2` от пакета е невалиден. Код на грешката %3, съобщение на грешката: %4</translation>
     </message>
     <message>
-        <location filename="../src/core/qfieldcloudprojectsmodel.cpp" line="1112"/>
+        <location filename="../src/core/qfieldcloudprojectsmodel.cpp" line="1113"/>
         <source>Failed to open temporary file for `%1`, reason:
 %2</source>
         <translation>Неуспешно отваряне на временен файл за &quot;%1&quot;, причина:
 %2</translation>
     </message>
     <message>
-        <location filename="../src/core/qfieldcloudprojectsmodel.cpp" line="1568"/>
+        <location filename="../src/core/qfieldcloudprojectsmodel.cpp" line="1569"/>
         <source>Failed to upload attachment stored at `%1`, reason:
 %2</source>
         <translation>Неуспешно качване на прикачен файл &quot;%1&quot;, причина:
 %2</translation>
     </message>
     <message>
-        <location filename="../src/core/qfieldcloudprojectsmodel.cpp" line="1815"/>
+        <location filename="../src/core/qfieldcloudprojectsmodel.cpp" line="1816"/>
         <source>Network error. Failed to download file `%1`.</source>
         <translation>Мрежова грешка. Неуспешно изтегляне на файл `%1`.</translation>
     </message>
     <message>
-        <location filename="../src/core/qfieldcloudprojectsmodel.cpp" line="1830"/>
+        <location filename="../src/core/qfieldcloudprojectsmodel.cpp" line="1831"/>
         <source>File system error. Failed to write file to temporary location `%1`.</source>
         <translation>Грешка във файловата система. Неуспешно съхранение на файла на временна локация `%1`.</translation>
     </message>
     <message>
-        <location filename="../src/core/qfieldcloudprojectsmodel.cpp" line="1837"/>
+        <location filename="../src/core/qfieldcloudprojectsmodel.cpp" line="1838"/>
         <source>File system error. Failed to open file for writing on temporary `%1`.</source>
         <translation>Грешка във файловата система. Неуспешно прочитане на файла от временна локация `%1`.</translation>
     </message>
     <message>
-        <location filename="../src/core/qfieldcloudprojectsmodel.cpp" line="1849"/>
+        <location filename="../src/core/qfieldcloudprojectsmodel.cpp" line="1850"/>
         <source>Project `%1`, file `%2`: %3</source>
         <translation>Проект `%1`, файл `%2`: %3</translation>
     </message>
     <message>
-        <location filename="../src/core/qfieldcloudprojectsmodel.cpp" line="1850"/>
+        <location filename="../src/core/qfieldcloudprojectsmodel.cpp" line="1851"/>
         <source>System message: </source>
         <translation>Системно съобщение</translation>
     </message>
     <message>
-        <location filename="../src/core/qfieldcloudprojectsmodel.cpp" line="1852"/>
+        <location filename="../src/core/qfieldcloudprojectsmodel.cpp" line="1853"/>
         <source> (see more in the QField error log)…</source>
         <translation>(виж повече в QField логовете)</translation>
     </message>
     <message>
-        <location filename="../src/core/qfieldcloudprojectsmodel.cpp" line="1885"/>
+        <location filename="../src/core/qfieldcloudprojectsmodel.cpp" line="1886"/>
         <source>Failed to copy some of the downloaded files on your device. Check your device storage.</source>
         <translation>Неуспешно копиране на някои от изтеглените файлове. Провери съхранението на данни.</translation>
     </message>
@@ -2793,18 +2793,18 @@ Cancel to make a minimal device scan instead.</source>
 <context>
     <name>QgisMobileapp</name>
     <message>
-        <location filename="../src/core/qgismobileapp.cpp" line="674"/>
-        <location filename="../src/core/qgismobileapp.cpp" line="700"/>
+        <location filename="../src/core/qgismobileapp.cpp" line="675"/>
+        <location filename="../src/core/qgismobileapp.cpp" line="701"/>
         <source>Project file &quot;%1&quot; does not exist</source>
         <translation>Файлът на проект &quot;%1&quot; не съществува</translation>
     </message>
     <message>
-        <location filename="../src/core/qgismobileapp.cpp" line="691"/>
+        <location filename="../src/core/qgismobileapp.cpp" line="692"/>
         <source>No project file currently opened</source>
         <translation>Няма отворен проект в момента</translation>
     </message>
     <message>
-        <location filename="../src/core/qgismobileapp.cpp" line="722"/>
+        <location filename="../src/core/qgismobileapp.cpp" line="723"/>
         <source>Could not load font %1</source>
         <translation>Шрифтът %1 не може да бъде зареден</translation>
     </message>

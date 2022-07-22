@@ -209,7 +209,7 @@ Cancel to make a minimal device scan instead.</source>
 <context>
     <name>BluetoothDeviceModel</name>
     <message>
-        <location filename="../src/core/positioning/bluetoothdevicemodel.cpp" line="40"/>
+        <location filename="../src/core/positioning/bluetoothdevicemodel.cpp" line="44"/>
         <source>Internal device</source>
         <translation>内蔵デバイス</translation>
     </message>
@@ -707,60 +707,60 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
 <context>
     <name>FeatureModel</name>
     <message>
-        <location filename="../src/core/featuremodel.cpp" line="321"/>
+        <location filename="../src/core/featuremodel.cpp" line="322"/>
         <source>Value &quot;%1&quot; %4 could not be converted to a compatible value for field %2(%3).</source>
         <translation>値 &quot;％1&quot;％4をフィールド％2（％3）の互換性のある値に変換できませんでした。</translation>
     </message>
     <message>
-        <location filename="../src/core/featuremodel.cpp" line="375"/>
-        <location filename="../src/core/featuremodel.cpp" line="420"/>
+        <location filename="../src/core/featuremodel.cpp" line="377"/>
+        <location filename="../src/core/featuremodel.cpp" line="422"/>
         <source>Cannot update feature</source>
         <translation>地物を更新できません</translation>
     </message>
     <message>
-        <location filename="../src/core/featuremodel.cpp" line="400"/>
+        <location filename="../src/core/featuremodel.cpp" line="402"/>
         <source>Feature %1 could not be fetched after commit</source>
         <translation>コミット後に地物％1を取得できませんでした</translation>
     </message>
     <message>
-        <location filename="../src/core/featuremodel.cpp" line="503"/>
+        <location filename="../src/core/featuremodel.cpp" line="506"/>
         <source>Default value expression for %1:%2 has parser error: %3</source>
         <translation>％1：％2のデフォルト値の式に変換エラーがあります：％3</translation>
     </message>
     <message>
-        <location filename="../src/core/featuremodel.cpp" line="508"/>
+        <location filename="../src/core/featuremodel.cpp" line="511"/>
         <source>Default value expression for %1:%2 has evaluation error: %3</source>
         <translation>％1：％2のデフォルト値の式には評価エラーがあります：％3</translation>
     </message>
     <message>
-        <location filename="../src/core/featuremodel.cpp" line="638"/>
+        <location filename="../src/core/featuremodel.cpp" line="641"/>
         <source>Cannot start editing on layer &quot;%1&quot; to create feature %2</source>
         <translation>レイヤー &quot;%1&quot;の編集を開始して地物 %2 を作成できません</translation>
     </message>
     <message>
-        <location filename="../src/core/featuremodel.cpp" line="661"/>
+        <location filename="../src/core/featuremodel.cpp" line="664"/>
         <source>Layer &quot;%1&quot; has been commited but the newly created feature %2 could not be fetched</source>
         <translation>レイヤー &quot;%1&quot; は保存されましたが、新しく追加された地物 %2 を読み込めませんでした</translation>
     </message>
     <message>
-        <location filename="../src/core/featuremodel.cpp" line="668"/>
+        <location filename="../src/core/featuremodel.cpp" line="671"/>
         <source>Layer &quot;%1&quot; cannot be commited with the newly created feature %2. Reason:
 %3</source>
         <translation>新しく追加された地物 %2 をレイヤー &quot;%1&quot; に保存できませんでした。 原因:
 %3</translation>
     </message>
     <message>
-        <location filename="../src/core/featuremodel.cpp" line="674"/>
+        <location filename="../src/core/featuremodel.cpp" line="677"/>
         <source>Feature %2 could not be added in layer &quot;%1&quot;</source>
         <translation>地物 %2 をレイヤー &quot;%1&quot; に追加できませんでした</translation>
     </message>
     <message>
-        <location filename="../src/core/featuremodel.cpp" line="697"/>
+        <location filename="../src/core/featuremodel.cpp" line="701"/>
         <source>Could not save changes. Rolling back.</source>
         <translation>編集内容を保存できません。ロールバックします。</translation>
     </message>
     <message>
-        <location filename="../src/core/featuremodel.cpp" line="715"/>
+        <location filename="../src/core/featuremodel.cpp" line="719"/>
         <source>Cannot start editing</source>
         <translation>編集を開始できません</translation>
     </message>
@@ -1423,42 +1423,42 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
 <context>
     <name>PlatformUtilities</name>
     <message>
-        <location filename="../src/core/platforms/platformutilities.cpp" line="140"/>
+        <location filename="../src/core/platforms/platformutilities.cpp" line="141"/>
         <source>Select Media File</source>
         <translation>メディアファイルを選択</translation>
     </message>
     <message>
-        <location filename="../src/core/platforms/platformutilities.cpp" line="140"/>
+        <location filename="../src/core/platforms/platformutilities.cpp" line="141"/>
         <source>JPEG images (*.jpg *.jpeg)</source>
         <translation>JPEG 画像 (*.jpg *.jpeg)</translation>
     </message>
     <message>
-        <location filename="../src/core/platforms/platformutilities.cpp" line="160"/>
+        <location filename="../src/core/platforms/platformutilities.cpp" line="161"/>
         <source>Failed to save gallery picture</source>
         <translation>ギャラリー画像を保存できませんでした</translation>
     </message>
     <message>
-        <location filename="../src/core/platforms/platformutilities.cpp" line="178"/>
+        <location filename="../src/core/platforms/platformutilities.cpp" line="179"/>
         <source>Open File</source>
         <translation>ファイルを開く</translation>
     </message>
     <message>
-        <location filename="../src/core/platforms/platformutilities.cpp" line="180"/>
+        <location filename="../src/core/platforms/platformutilities.cpp" line="181"/>
         <source>All Supported Files</source>
         <translation>全てのサポートされるファイル</translation>
     </message>
     <message>
-        <location filename="../src/core/platforms/platformutilities.cpp" line="180"/>
+        <location filename="../src/core/platforms/platformutilities.cpp" line="181"/>
         <source>QGIS Project Files</source>
         <translation>QGISプロジェクトファイル</translation>
     </message>
     <message>
-        <location filename="../src/core/platforms/platformutilities.cpp" line="180"/>
+        <location filename="../src/core/platforms/platformutilities.cpp" line="181"/>
         <source>Vector Datasets</source>
         <translation>ベクターデータセット</translation>
     </message>
     <message>
-        <location filename="../src/core/platforms/platformutilities.cpp" line="180"/>
+        <location filename="../src/core/platforms/platformutilities.cpp" line="181"/>
         <source>Raster Datasets</source>
         <translation>ラスターデータセット</translation>
     </message>
@@ -2100,81 +2100,81 @@ While you can still view and use the project, it is strongly recommended to rese
         <translation>プロジェクトがスタックしています。</translation>
     </message>
     <message>
-        <location filename="../src/core/qfieldcloudprojectsmodel.cpp" line="746"/>
+        <location filename="../src/core/qfieldcloudprojectsmodel.cpp" line="747"/>
         <source>Packaging job finished unsuccessfully for `%1`. %2</source>
         <translation>パッケージングジョブは `%1` のために失敗して終了しました。%2</translation>
     </message>
     <message>
-        <location filename="../src/core/qfieldcloudprojectsmodel.cpp" line="804"/>
+        <location filename="../src/core/qfieldcloudprojectsmodel.cpp" line="805"/>
         <source>Failed to refresh the latest info for `%1`: %2</source>
         <translation>`%1` の最新情報の更新に失敗しました: %2</translation>
     </message>
     <message>
-        <location filename="../src/core/qfieldcloudprojectsmodel.cpp" line="919"/>
+        <location filename="../src/core/qfieldcloudprojectsmodel.cpp" line="920"/>
         <source>Failed to get latest package data.</source>
         <translation>最新のパッケージデータの取得に失敗しました。</translation>
     </message>
     <message>
-        <location filename="../src/core/qfieldcloudprojectsmodel.cpp" line="933"/>
+        <location filename="../src/core/qfieldcloudprojectsmodel.cpp" line="934"/>
         <source>Latest package data response error.</source>
         <translation>最新のパッケージデータのレスポンスにエラーがあります。</translation>
     </message>
     <message>
-        <location filename="../src/core/qfieldcloudprojectsmodel.cpp" line="953"/>
+        <location filename="../src/core/qfieldcloudprojectsmodel.cpp" line="954"/>
         <source>Latest package data structure error.</source>
         <translation>最新のパッケージデータの構造にエラーがあります。</translation>
     </message>
     <message>
-        <location filename="../src/core/qfieldcloudprojectsmodel.cpp" line="986"/>
+        <location filename="../src/core/qfieldcloudprojectsmodel.cpp" line="987"/>
         <source>Project %1: Packaged layer `%2` is not valid. Error code %3, error message: %4</source>
         <translation>プロジェクト %1: パッケージ化されたレイヤ `%2` は有効ではありません。エラー・コード %3、エラー・メッセージ: %4</translation>
     </message>
     <message>
-        <location filename="../src/core/qfieldcloudprojectsmodel.cpp" line="1112"/>
+        <location filename="../src/core/qfieldcloudprojectsmodel.cpp" line="1113"/>
         <source>Failed to open temporary file for `%1`, reason:
 %2</source>
         <translation>%1` の一時ファイルを開けませんでした。理由:
 %2</translation>
     </message>
     <message>
-        <location filename="../src/core/qfieldcloudprojectsmodel.cpp" line="1568"/>
+        <location filename="../src/core/qfieldcloudprojectsmodel.cpp" line="1569"/>
         <source>Failed to upload attachment stored at `%1`, reason:
 %2</source>
         <translation>%1` に保存されている添付ファイルのアップロードに失敗しました。理由:
 %2</translation>
     </message>
     <message>
-        <location filename="../src/core/qfieldcloudprojectsmodel.cpp" line="1815"/>
+        <location filename="../src/core/qfieldcloudprojectsmodel.cpp" line="1816"/>
         <source>Network error. Failed to download file `%1`.</source>
         <translation>ネットワークエラーです。ファイル`%1`のダウンロードに失敗しました。</translation>
     </message>
     <message>
-        <location filename="../src/core/qfieldcloudprojectsmodel.cpp" line="1830"/>
+        <location filename="../src/core/qfieldcloudprojectsmodel.cpp" line="1831"/>
         <source>File system error. Failed to write file to temporary location `%1`.</source>
         <translation>ファイルシステムエラーです。一時フォルダの `%1` へのファイルの書き込みに失敗しました。</translation>
     </message>
     <message>
-        <location filename="../src/core/qfieldcloudprojectsmodel.cpp" line="1837"/>
+        <location filename="../src/core/qfieldcloudprojectsmodel.cpp" line="1838"/>
         <source>File system error. Failed to open file for writing on temporary `%1`.</source>
         <translation>ファイルシステムエラーです。一時フォルダの `%1` で書き込みのためのファイルを開くのに失敗しました。</translation>
     </message>
     <message>
-        <location filename="../src/core/qfieldcloudprojectsmodel.cpp" line="1849"/>
+        <location filename="../src/core/qfieldcloudprojectsmodel.cpp" line="1850"/>
         <source>Project `%1`, file `%2`: %3</source>
         <translation>プロジェクト `%1`、 ファイル `%2`: %3</translation>
     </message>
     <message>
-        <location filename="../src/core/qfieldcloudprojectsmodel.cpp" line="1850"/>
+        <location filename="../src/core/qfieldcloudprojectsmodel.cpp" line="1851"/>
         <source>System message: </source>
         <translation>システムメッセージ: </translation>
     </message>
     <message>
-        <location filename="../src/core/qfieldcloudprojectsmodel.cpp" line="1852"/>
+        <location filename="../src/core/qfieldcloudprojectsmodel.cpp" line="1853"/>
         <source> (see more in the QField error log)…</source>
         <translation> (QFieldのエラーログを見てください)…</translation>
     </message>
     <message>
-        <location filename="../src/core/qfieldcloudprojectsmodel.cpp" line="1885"/>
+        <location filename="../src/core/qfieldcloudprojectsmodel.cpp" line="1886"/>
         <source>Failed to copy some of the downloaded files on your device. Check your device storage.</source>
         <translation>ダウンロードしたファイルの一部をデバイスにコピーするのに失敗しました。端末のストレージを確認してください。</translation>
     </message>
@@ -2789,18 +2789,18 @@ Cancel to make a minimal device scan instead.</source>
 <context>
     <name>QgisMobileapp</name>
     <message>
-        <location filename="../src/core/qgismobileapp.cpp" line="674"/>
-        <location filename="../src/core/qgismobileapp.cpp" line="700"/>
+        <location filename="../src/core/qgismobileapp.cpp" line="675"/>
+        <location filename="../src/core/qgismobileapp.cpp" line="701"/>
         <source>Project file &quot;%1&quot; does not exist</source>
         <translation>プロジェクトファイル 「%1」は存在しません</translation>
     </message>
     <message>
-        <location filename="../src/core/qgismobileapp.cpp" line="691"/>
+        <location filename="../src/core/qgismobileapp.cpp" line="692"/>
         <source>No project file currently opened</source>
         <translation>最近開かれたプロジェクトファイルはありません</translation>
     </message>
     <message>
-        <location filename="../src/core/qgismobileapp.cpp" line="722"/>
+        <location filename="../src/core/qgismobileapp.cpp" line="723"/>
         <source>Could not load font %1</source>
         <translation>フォント %1 をロードできませんでした</translation>
     </message>
