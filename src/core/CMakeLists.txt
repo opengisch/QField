@@ -262,6 +262,9 @@ if(ANDROID)
                  ${CMAKE_CURRENT_BINARY_DIR}/qfield_android.h @ONLY)
   target_include_directories(
     qfield_core PUBLIC ${CMAKE_SOURCE_DIR}/src/core/platforms/android)
+
+  # GLESv3 needed by barcode reader's use of OpenGL functions
+  target_link_libraries(qfield_core PUBLIC GLESv3)
 elseif(${CMAKE_SYSTEM_NAME} STREQUAL "iOS")
   target_include_directories(qfield_core
                              PUBLIC ${CMAKE_SOURCE_DIR}/src/core/platforms/ios)
