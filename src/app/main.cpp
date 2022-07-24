@@ -40,6 +40,8 @@
 #include <QTranslator>
 #include <QtWebView/QtWebView>
 
+#include <proj.h>
+
 #if WITH_SENTRY
 #include <sentry.h>
 #endif
@@ -176,8 +178,7 @@ int main( int argc, char **argv )
   QtWebView::initialize();
 
 #if defined( Q_OS_ANDROID )
-  QString projPath = PlatformUtilities::instance()->systemGenericDataLocation() + QStringLiteral( "/proj" );
-  qputenv( "PROJ_LIB", projPath.toUtf8() );
+  const QString projPath = PlatformUtilities::instance()->systemGenericDataLocation() + QStringLiteral( "/proj" );
 
   const QDir rootPath = QStandardPaths::writableLocation( QStandardPaths::AppDataLocation );
   rootPath.mkdir( QStringLiteral( "qgis_profile" ) );
@@ -193,8 +194,7 @@ int main( int argc, char **argv )
 
   app.createDatabase();
 #elif defined( Q_OS_IOS )
-  QString projPath = PlatformUtilities::instance()->systemGenericDataLocation() + QStringLiteral( "/proj" );
-  qputenv( "PROJ_LIB", projPath.toUtf8() );
+  const QString projPath = PlatformUtilities::instance()->systemGenericDataLocation() + QStringLiteral( "/proj" );
 
   const QDir rootPath = QStandardPaths::writableLocation( QStandardPaths::AppDataLocation );
   rootPath.mkdir( QStringLiteral( "qgis_profile" ) );
@@ -209,17 +209,18 @@ int main( int argc, char **argv )
 
 #ifdef RELATIVE_PREFIX_PATH
   qputenv( "GDAL_DATA", QDir::toNativeSeparators( app.applicationDirPath() + "/../share/gdal" ).toLocal8Bit() );
-  qputenv( "PROJ_LIB", QDir::toNativeSeparators( app.applicationDirPath() + "/../share/proj" ).toLocal8Bit() );
+  const QString projPath( QDir::toNativeSeparators( app.applicationDirPath() + "/../share/proj" ) );
   app.setPrefixPath( app.applicationDirPath() + "/..", true );
 #else
   app.setPrefixPath( CMAKE_INSTALL_PREFIX, true );
 #endif
 #endif
-  const QString envProjPath( qgetenv( "PROJ_LIB" ) );
-  if ( !envProjPath.isEmpty() )
+  if ( !projPath.isEmpty() )
   {
-    qInfo() << "Proj path: " << envProjPath;
+    qInfo() << "Proj path: " << projPath;
   }
+  const char *projPaths[] { projPath.toUtf8().constData() };
+  proj_context_set_search_paths( nullptr, 1, projPaths );
 
   originalMessageHandler = qInstallMessageHandler( qfMessageHandler );
   app.initQgis();
