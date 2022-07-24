@@ -19,6 +19,29 @@
 #include <QOpenGLContext>
 #include <QOpenGLFunctions>
 
+class BarcodeDecoderThread : public QThread
+{
+  public:
+    explicit BarcodeDecoderThread( BarcodeDecoder *decoder, const QImage &image )
+      : QThread()
+      , mDecoder( decoder )
+      , mImage( image )
+    {
+    }
+
+  private:
+    void run() override
+    {
+      if ( mDecoder )
+      {
+        mDecoder->decodeImage( mImage );
+      }
+    }
+
+    BarcodeDecoder *mDecoder = nullptr;
+    QImage mImage;
+};
+
 class BarcodeVideoFilterRunnable : public QVideoFilterRunnable
 {
   public:

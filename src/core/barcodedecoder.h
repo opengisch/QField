@@ -43,18 +43,4 @@ class BarcodeDecoder : public QObject
     QString mDecodedString;
 };
 
-class BarcodeDecoderThread : public QThread
-{
-    Q_OBJECT
-
-  public:
-    explicit BarcodeDecoderThread( BarcodeDecoder *decoder, const QImage &image );
-
-  private:
-    void run() override;
-
-    BarcodeDecoder *mDecoder = nullptr;
-    QImage mImage;
-};
-
 #endif // BARCODEDECODER_H

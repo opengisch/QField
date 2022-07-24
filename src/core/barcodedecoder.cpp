@@ -78,18 +78,3 @@ void BarcodeDecoder::decodeImage( const QImage &image )
 
   return;
 }
-
-BarcodeDecoderThread::BarcodeDecoderThread( BarcodeDecoder *decoder, const QImage &image )
-  : QThread()
-  , mDecoder( decoder )
-  , mImage( image )
-{
-}
-
-void BarcodeDecoderThread::run()
-{
-  if ( mDecoder )
-  {
-    mDecoder->decodeImage( mImage );
-  }
-}
