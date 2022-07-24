@@ -147,32 +147,14 @@ find_package(${QT_PKG} COMPONENTS Concurrent Core Qml Gui Xml Positioning Widget
 find_package(${QT_PKG} COMPONENTS PrintSupport QUIET)
 
 find_package(QGIS REQUIRED)
-if(NOT ${CMAKE_SYSTEM_NAME} STREQUAL "iOS")
-  if(WITH_VCPKG)
-    find_package(PROJ)
-  else()
-    find_package(Proj)
-  endif()
-  find_package(GDAL)
+if(WITH_VCPKG)
+  find_package(PROJ)
+else()
+  find_package(Proj)
 endif()
+find_package(GDAL)
 find_package(Qca REQUIRED)
 find_package(QtKeychain)
-
-if (${CMAKE_SYSTEM_NAME} STREQUAL "iOS")
-  add_definitions(-DQT_NO_PRINTER)
-
-  set(SHARE_PATH "${CMAKE_CURRENT_BINARY_DIR}/share")
-
-  # keep trailing slash for QField to rename the directory (instead of copying in subdir)
-  file(COPY ${CMAKE_CURRENT_SOURCE_DIR}/resources/ DESTINATION ${SHARE_PATH}/qfield)
-  file(COPY ${QGIS_APPLE_RESOURCES_DIR}/resources DESTINATION ${SHARE_PATH}/qgis)
-  file(COPY ${QGIS_APPLE_RESOURCES_DIR}/svg DESTINATION ${SHARE_PATH}/qgis)
-  file(COPY ${QFIELD_PROJ_DIR} DESTINATION ${SHARE_PATH})
-  # Remove world map to keep apk size a bit smaller
-  file(REMOVE "${SHARE_PATH}/qgis/resources/data/world_map.gpkg")
-
-  set(QFIELD_RESOURCE_FILES ${SHARE_PATH})
-endif()
 
 set(ENABLE_TESTS CACHE BOOL "Build unit tests")
 
@@ -186,6 +168,15 @@ if(MSVC)
   add_link_options("$<$<NOT:$<CONFIG:Debug>>:/DEBUG>")
   add_link_options("$<$<NOT:$<CONFIG:Debug>>:/OPT:REF>")
   add_link_options("$<$<NOT:$<CONFIG:Debug>>:/OPT:ICF>")
+endif()
+
+if(CMAKE_SYSTEM_NAME STREQUAL "Darwin")
+  set(SHARE_DIR "${CMAKE_BINARY_DIR}/output/bin/qfield.app/Contents/share")
+else(CMAKE_SYSTEM_NAME STREQUAL "iOS")
+  set(SHARE_DIR "${CMAKE_BINARY_DIR}/output/share")
+  set(QFIELD_RESOURCE_FILES ${SHARE_DIR})
+  file(MAKE_DIRECTORY ${SHARE_DIR})
+  file(COPY resources/ DESTINATION "${SHARE_DIR}/qfield/")
 endif()
 
 add_subdirectory(src/core)
@@ -209,16 +200,14 @@ if(WITH_VCPKG AND NOT ANDROID)
                       COMMAND ${CMAKE_COMMAND} -E copy_directory "${source}" "${CMAKE_BINARY_DIR}/output/bin/${target}"
     )
 
-    if(APPLE AND NOT IOS)
-      add_custom_command(TARGET deploy
-        POST_BUILD
-        COMMAND ${CMAKE_COMMAND} -E make_directory "${CMAKE_BINARY_DIR}/output/bin/qfield.app/Contents/share/${target}"
-      )
-      add_custom_command(TARGET deploy
-                        POST_BUILD
-                        COMMAND ${CMAKE_COMMAND} -E copy_directory "${source}" "${CMAKE_BINARY_DIR}/output/bin/qfield.app/Contents/share/${target}"
-      )
-    endif()
+    add_custom_command(TARGET deploy
+      POST_BUILD
+      COMMAND ${CMAKE_COMMAND} -E make_directory "${SHARE_DIR}/${target}"
+    )
+    add_custom_command(TARGET deploy
+                      POST_BUILD
+                      COMMAND ${CMAKE_COMMAND} -E copy_directory "${source}" "${SHARE_DIR}/${target}"
+    )
   endfunction()
 
   SET(VCPKG_BASE_DIR "${_VCPKG_INSTALLED_DIR}/${VCPKG_TARGET_TRIPLET}")
@@ -262,27 +251,11 @@ if(WITH_VCPKG AND NOT ANDROID)
     )
   endforeach()
   copy_resource("${VCPKG_BASE_DIR}/share/qgis/resources" "qgis/resources")
-  copy_resource("${VCPKG_BASE_DIR}/share/proj4" "proj")
+  copy_resource("${VCPKG_BASE_DIR}/share/proj" "proj")
   copy_resource("${VCPKG_BASE_DIR}/share/gdal" "gdal")
   install(DIRECTORY "${VCPKG_BASE_DIR}/share/qgis/resources/" DESTINATION "share/qgis/resources")
   install(DIRECTORY "${VCPKG_BASE_DIR}/share/proj/data/" DESTINATION "share/proj")
   install(DIRECTORY "${VCPKG_BASE_DIR}/share/gdal/" DESTINATION "share/gdal")
-
-  # Windows only?
-  if(EXISTS ${VCPKG_BASE_DIR}/plugins/mediaservice)
-    add_custom_command(TARGET deploy
-      POST_BUILD
-      COMMAND ${CMAKE_COMMAND} -E copy_directory "${VCPKG_BASE_DIR}/plugins/mediaservice" "${CMAKE_BINARY_DIR}/output/bin/plugins/mediaservice"
-    )
-    install(DIRECTORY "${VCPKG_BASE_DIR}/plugins/mediaservice/" DESTINATION "bin/plugins/mediaservice")
-  endif()
-  if(EXISTS ${VCPKG_BASE_DIR}/qml/QtCharts)
-    add_custom_command(TARGET deploy
-      POST_BUILD
-      COMMAND ${CMAKE_COMMAND} -E copy_directory "${VCPKG_BASE_DIR}/qml/QtCharts" "${CMAKE_BINARY_DIR}/output/bin/qml/QtCharts"
-    )
-    install(DIRECTORY "${VCPKG_BASE_DIR}/qml/QtCharts/" DESTINATION "bin/qml/QtCharts")
-  endif()
 
   add_dependencies(qfield deploy)
 endif()
