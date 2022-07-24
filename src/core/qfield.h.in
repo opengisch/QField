@@ -60,6 +60,7 @@ namespace qfield
   static inline const QString sentryEnv{ QStringLiteral( "@SENTRY_ENV@" ) };
 }; // namespace qfield
 
+#define WITH_VCPKG @WITH_VCPKG@
 #define WITH_SENTRY @WITH_SENTRY@
 
 #endif // QFIELD_H
