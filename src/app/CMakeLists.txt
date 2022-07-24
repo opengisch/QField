@@ -64,6 +64,7 @@ function(create_executable)
 
   target_link_libraries(${exe_TARGET} PRIVATE qfield_core qfield_qml
                                               ${QGIS_CORE_LIBRARY})
+  target_include_directories(${exe_TARGET} PRIVATE ${PROJ_INCLUDE_DIR})
   get_target_property(QT_TARGET_TYPE ${QT_PKG}::Core TYPE)
   # This should be in src/qml/CMakeLists.txt but that's not possible with Qt5.
   # Retry with Qt6 Same is in tests/CMakeLists.txt
