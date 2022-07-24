@@ -194,7 +194,7 @@ int main( int argc, char **argv )
 
   app.createDatabase();
 #elif defined( Q_OS_IOS )
-  const QString projPath = PlatformUtilities::instance()->systemGenericDataLocation() + QStringLiteral( "/proj" );
+  const QString projPath = PlatformUtilities::instance()->systemGenericDataLocation() + QStringLiteral( "/proj/data" );
 
   const QDir rootPath = QStandardPaths::writableLocation( QStandardPaths::AppDataLocation );
   rootPath.mkdir( QStringLiteral( "qgis_profile" ) );
