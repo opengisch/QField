@@ -232,6 +232,9 @@ configure_file(qfield.h.in ${CMAKE_CURRENT_BINARY_DIR}/qfield.h @ONLY)
 target_include_directories(qfield_core SYSTEM
                            PUBLIC ${CMAKE_CURRENT_BINARY_DIR})
 
+target_include_directories(qfield_core
+                           PUBLIC ${CMAKE_SOURCE_DIR}/external/zxing-cpp)
+
 target_include_directories(
   qfield_core SYSTEM
   PRIVATE ${PROJ_INCLUDE_DIR} ${GDAL_INCLUDE_DIR} ${Qca_INCLUDE_DIR}
@@ -290,7 +293,8 @@ target_link_libraries(
          QGIS::Core
          QGIS::Analysis
          ${PROJ_LIBRARY}
-         ${GDAL_LIBRARIES})
+         ${GDAL_LIBRARIES}
+         ZXing)
 
 if(WITH_BLUETOOTH)
   find_package(
