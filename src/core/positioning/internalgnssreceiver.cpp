@@ -22,7 +22,7 @@ InternalGnssReceiver::InternalGnssReceiver( QObject *parent )
   : AbstractGnssReceiver( parent )
   , mGeoPositionSource( std::unique_ptr<QGeoPositionInfoSource>( QGeoPositionInfoSource::createDefaultSource( nullptr ) ) )
 {
-  if ( mGeoPositionSource.get() && mGeoPositionSource->error() == QGeoPositionInfoSource::NoError )
+  if ( mGeoPositionSource && mGeoPositionSource->error() == QGeoPositionInfoSource::NoError )
   {
     mGeoPositionSource->setPreferredPositioningMethods( QGeoPositionInfoSource::AllPositioningMethods );
     mGeoPositionSource->setUpdateInterval( 1000 );
@@ -36,7 +36,7 @@ InternalGnssReceiver::InternalGnssReceiver( QObject *parent )
   }
 
   mGeoSatelliteSource = std::unique_ptr<QGeoSatelliteInfoSource>( QGeoSatelliteInfoSource::createDefaultSource( nullptr ) );
-  if ( mGeoSatelliteSource.get() && mGeoSatelliteSource->error() == QGeoSatelliteInfoSource::NoError )
+  if ( mGeoSatelliteSource && mGeoSatelliteSource->error() == QGeoSatelliteInfoSource::NoError )
   {
     mGeoSatelliteSource->setUpdateInterval( 1000 );
 
@@ -49,7 +49,8 @@ InternalGnssReceiver::InternalGnssReceiver( QObject *parent )
 void InternalGnssReceiver::handleDisconnectDevice()
 {
   mGeoPositionSource->stopUpdates();
-  mGeoSatelliteSource->stopUpdates();
+  if ( mGeoSatelliteSource )
+    mGeoSatelliteSource->stopUpdates();
   mLastGnssPositionValid = false;
   mSatelliteInformationValid = false;
 }
@@ -57,7 +58,8 @@ void InternalGnssReceiver::handleDisconnectDevice()
 void InternalGnssReceiver::handleConnectDevice()
 {
   mGeoPositionSource->startUpdates();
-  mGeoSatelliteSource->startUpdates();
+  if ( mGeoSatelliteSource )
+    mGeoSatelliteSource->startUpdates();
 }
 
 void InternalGnssReceiver::handlePositionUpdated( const QGeoPositionInfo &positionInfo )
