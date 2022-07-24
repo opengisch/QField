@@ -217,6 +217,7 @@ elseif(${CMAKE_SYSTEM_NAME} STREQUAL "iOS")
 endif()
 
 find_package(Sqlite3)
+find_package(ZXing)
 
 add_library(qfield_core STATIC ${QFIELD_CORE_SRCS} ${QFIELD_CORE_HDRS})
 

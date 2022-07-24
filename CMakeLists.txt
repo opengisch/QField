@@ -179,8 +179,6 @@ else(CMAKE_SYSTEM_NAME STREQUAL "iOS")
   file(COPY resources/ DESTINATION "${SHARE_DIR}/qfield/")
 endif()
 
-find_package(ZXing REQUIRED)
-
 add_subdirectory(src/core)
 add_subdirectory(src/qml)
 add_subdirectory(src/app)
