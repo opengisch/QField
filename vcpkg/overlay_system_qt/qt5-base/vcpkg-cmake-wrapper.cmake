@@ -18,6 +18,7 @@ set(QT_MODULES
   Qt5Bluetooth
   Qt5Bootstrap
   Qt5Charts
+  Qt5ClipboardSupport
   Qt5Concurrent
   Qt5Core
   Qt5DeviceDiscoverySupport
@@ -29,6 +30,7 @@ set(QT_MODULES
   Qt5FontDatabaseSupport
   Qt5Gamepad
   Qt5Gui
+  Qt5GraphicsSupport
   Qt5Help
   Qt5InputSupport
   Qt5LinguistTools
