@@ -21,7 +21,6 @@
 #include "androidprojectsource.h"
 #include "androidviewstatus.h"
 #include "appinterface.h"
-#include "feedback.h"
 #include "fileutils.h"
 #include "qfield.h"
 #include "qfield_android.h"
