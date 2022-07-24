@@ -30,7 +30,7 @@ class BarcodeVideoFilter : public QAbstractVideoFilter
     Q_PROPERTY( BarcodeDecoder *decoder READ decoder WRITE setDecoder NOTIFY decoderChanged );
 
   public:
-    BarcodeVideoFilter();
+    explicit BarcodeVideoFilter();
 
     BarcodeDecoder *decoder() const { return mDecoder; }
     void setDecoder( BarcodeDecoder *decoder );

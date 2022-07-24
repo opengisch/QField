@@ -22,9 +22,9 @@
 class BarcodeVideoFilterRunnable : public QVideoFilterRunnable
 {
   public:
-    BarcodeVideoFilterRunnable( BarcodeVideoFilter *filter )
+    explicit BarcodeVideoFilterRunnable( BarcodeVideoFilter *filter = nullptr )
+      : mFilter( filter )
     {
-      mFilter = filter;
     }
 
     QVideoFrame run( QVideoFrame *input,

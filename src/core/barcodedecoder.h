@@ -28,7 +28,7 @@ class BarcodeDecoder : public QObject
     Q_PROPERTY( QString decodedString READ decodedString WRITE setDecodedString NOTIFY decodedStringChanged )
 
   public:
-    BarcodeDecoder( QObject *parent = nullptr );
+    explicit BarcodeDecoder( QObject *parent = nullptr );
 
     QString decodedString() const { return mDecodedString; }
     void setDecodedString( const QString &decodedString );
@@ -48,7 +48,7 @@ class BarcodeDecoderThread : public QThread
     Q_OBJECT
 
   public:
-    BarcodeDecoderThread( BarcodeDecoder *decoder, const QImage &image );
+    explicit BarcodeDecoderThread( BarcodeDecoder *decoder, const QImage &image );
 
   private:
     void run() override;
