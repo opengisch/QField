@@ -8,7 +8,7 @@
   "dependencies": [
     {
       "name": "libsecret",
-      "platform": "!(windows | uwp | osx | android)"
+      "platform": "!(windows | uwp | osx | android | ios)"
     },
     {
       "name": "vcpkg-cmake",

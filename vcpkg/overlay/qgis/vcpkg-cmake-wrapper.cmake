@@ -97,6 +97,15 @@ function(_find_and_link_library library target)
   endif()
 endfunction()
 
+# https://stackoverflow.com/a/32771883
+if(CMAKE_... STREQUAL "iOS")
+  set(CMAKE_THREAD_LIBS_INIT "-lpthread")
+  set(CMAKE_HAVE_THREADS_LIBRARY 1)
+  set(CMAKE_USE_WIN32_THREADS_INIT 0)
+  set(CMAKE_USE_PTHREADS_INIT 1)
+endif()
+
+
 if(QGIS_FOUND AND "@VCPKG_LIBRARY_LINKAGE@" STREQUAL "static")
   find_package(PkgConfig QUIET)
 
@@ -162,7 +171,7 @@ if(QGIS_FOUND AND "@VCPKG_LIBRARY_LINKAGE@" STREQUAL "static")
   endif()
   _find_and_link_library(qt5keychain qgis_core)
 
-  find_package(Qt5 COMPONENTS Core Gui Network Xml Svg Concurrent Sql SerialPort)
+  find_package(Qt5 COMPONENTS Core Gui Network Xml Svg Concurrent Sql)
   target_link_libraries(qgis_core INTERFACE
       Qt5::Core
       Qt5::Network
@@ -170,8 +179,13 @@ if(QGIS_FOUND AND "@VCPKG_LIBRARY_LINKAGE@" STREQUAL "static")
       Qt5::Svg
       Qt5::Concurrent
       Qt5::Sql
+    )
+  if(NOT CMAKE_SYSTEM_NAME STREQUAL "iOS")
+    find_package(Qt5 COMPONENTS SerialPort)
+    target_link_libraries(qgis_core INTERFACE
       Qt5::SerialPort
     )
+  endif()
   if(APPLE)
     find_package(Qt5 COMPONENTS MacExtras)
     target_link_libraries(qgis_core INTERFACE
@@ -211,7 +225,7 @@ if(QGIS_FOUND AND "@VCPKG_LIBRARY_LINKAGE@" STREQUAL "static")
     # QtKeychain
     target_link_libraries(qgis_core INTERFACE "-framework Foundation" "-framework Security")
   endif()
-  if(UNIX AND NOT ANDROID)
+  if(CMAKE_SYSTEM_NAME STREQUAL "Linux" OR CMAKE_SYSTEM_NAME STREQUAL "Darwin")
      # poppler fixup for linux and macos
      # _find_and_link_library(lcms2 qgis_core)
 

@@ -17,6 +17,7 @@ vcpkg_from_github(
         0001-fix-path-for-vcpkg.patch
         0002-fix-build-error.patch
 	fix-static.patch
+	ios.patch
 )
 
 if(VCPKG_LIBRARY_LINKAGE STREQUAL "dynamic")
@@ -50,6 +51,8 @@ if("botan" IN_LIST FEATURES)
 else()
     list(APPEND QCA_OPTIONS -DWITH_botan_PLUGIN=no)
 endif()
+    list(APPEND QCA_OPTIONS -DWITH_gnupg_PLUGIN=no)
+    list(APPEND QCA_OPTIONS -DWITH_ossl_PLUGIN=no)
 
 # Configure and build
 vcpkg_cmake_configure(

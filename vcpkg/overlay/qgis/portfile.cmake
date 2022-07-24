@@ -118,7 +118,6 @@ endmacro()
 
 if (VCPKG_LIBRARY_LINKAGE STREQUAL "static")
   list(APPEND QGIS_OPTIONS -DFORCE_STATIC_LIBS=TRUE)
-  list(APPEND QGIS_OPTIONS -DFORCE_STATIC_PROVIDERS=TRUE)
   # QGIS likes to install auth and providers to different locations on each platform
   # let's keep things clean and tidy and put them at a predictable location
   list(APPEND QGIS_OPTIONS -DQGIS_PLUGIN_SUBDIR=lib)
@@ -221,11 +220,19 @@ else() # Build in UNIX
         FIND_LIB_OPTIONS(FCGI fcgi fcgi LIBRARY ${VCPKG_TARGET_SHARED_LIBRARY_SUFFIX})
         list(APPEND QGIS_OPTIONS -DFCGI_INCLUDE_DIR="${CURRENT_INSTALLED_DIR}/include/fastcgi")
     endif()
-    if(EXISTS "${CURRENT_INSTALLED_DIR}/debug/lib/libqt_poly2tri_debug.a")
+    find_package(Qt5 QUIET)
+    if(EXISTS "${CURRENT_INSTALLED_DIR}/lib/libqt_poly2tri.a")
+        set(QT_POLY2TRI_DIR_RELEASE "${CURRENT_INSTALLED_DIR}/lib")
+        set(QT_POLY2TRI_DIR_DEBUG "${CURRENT_INSTALLED_DIR}/debug/lib")
+    elseif(EXISTS "${Qt5_DIR}/../../libqt_poly2tri.a")
+        set(QT_POLY2TRI_DIR_RELEASE "${Qt5_DIR}/../..")
+        set(QT_POLY2TRI_DIR_DEBUG "${Qt5_DIR}/../..")
+    endif()
+    if(DEFINED QT_POLY2TRI_DIR_RELEASE)
         list(APPEND QGIS_OPTIONS -DWITH_INTERNAL_POLY2TRI=OFF)
         list(APPEND QGIS_OPTIONS -DPoly2Tri_INCLUDE_DIR:PATH=${CMAKE_CURRENT_LIST_DIR}/poly2tri)
-        list(APPEND QGIS_OPTIONS_DEBUG -DPoly2Tri_LIBRARY:PATH=${CURRENT_INSTALLED_DIR}/debug/lib/libqt_poly2tri_debug.a) # static qt only
-        list(APPEND QGIS_OPTIONS_RELEASE -DPoly2Tri_LIBRARY:PATH=${CURRENT_INSTALLED_DIR}/lib/libqt_poly2tri.a) # static qt only
+        list(APPEND QGIS_OPTIONS_DEBUG -DPoly2Tri_LIBRARY:PATH=${QT_POLY2TRI_DIR_DEBUG}/debug/lib/libqt_poly2tri_debug.a) # static qt only
+        list(APPEND QGIS_OPTIONS_RELEASE -DPoly2Tri_LIBRARY:PATH=${QT_POLY2TRI_DIR_RELEASE}/lib/libqt_poly2tri.a) # static qt only
     endif()
 endif()
 
@@ -233,7 +240,6 @@ list(APPEND QGIS_OPTIONS -DQGIS_MACAPP_FRAMEWORK=FALSE)
 
 if(VCPKG_TARGET_IS_IOS)
     list(APPEND QGIS_OPTIONS -DWITH_QT5SERIALPORT=FALSE)
-    list(APPEND QGIS_OPTIONS -DWITH_AUTH=FALSE) # Trying to link shared libs will fail on ios because https://gist.github.com/agirault/3244bf956c2cad7217b148291135f85e (2.3)
 endif()
 
 vcpkg_configure_cmake(

@@ -88,7 +88,6 @@
         "openjpeg",
         "openssl",
         "pcre2",
-        "qhull",
         "zstd"
       ]
     },

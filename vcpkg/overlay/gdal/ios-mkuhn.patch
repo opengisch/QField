@@ -1,0 +1,12 @@
+diff -Naur v3.5.1-2bdd297034.clean/cmake/helpers/configure.cmake b/cmake/helpers/configure.cmake
+--- v3.5.1-2bdd297034.clean/cmake/helpers/configure.cmake	2022-06-30 11:22:23.000000000 +0200
++++ b/cmake/helpers/configure.cmake	2022-07-09 15:22:52.000000000 +0200
+@@ -179,7 +179,7 @@
+     endif ()
+   endif ()
+ 
+-  if (${CMAKE_SYSTEM_NAME} MATCHES "Darwin")
++  if (${CMAKE_SYSTEM_NAME} MATCHES "Darwin" OR ${CMAKE_SYSTEM_NAME} MATCHES "iOS")
+     if (NOT VSI_FTELL64 AND NOT VSI_FSEEK64)
+       set(VSI_FTELL64 "ftello")
+       set(VSI_FSEEK64 "fseeko")

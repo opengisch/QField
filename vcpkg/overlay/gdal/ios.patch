@@ -1,0 +1,41 @@
+From 15424db672aa3334f91e4ea9605540c414f94030 Mon Sep 17 00:00:00 2001
+From: Even Rouault <even.rouault@spatialys.com>
+Date: Wed, 6 Jul 2022 10:25:38 +0200
+Subject: [PATCH] CMake: add support for iOS
+
+---
+ cmake/helpers/configure.cmake | 21 +++++++++++++++++++++
+ 1 file changed, 21 insertions(+)
+
+diff --git a/cmake/helpers/configure.cmake b/cmake/helpers/configure.cmake
+index c38604e23e8..f2f12f245c2 100644
+--- a/cmake/helpers/configure.cmake
++++ b/cmake/helpers/configure.cmake
+@@ -241,6 +241,27 @@ else ()
+     set(VSI_FTRUNCATE64 "ftruncate")
+   endif ()
+ 
++  # For some reason, above tests detect xxxx64 symbols for iOS, which are not
++  # available at build time.
++  if (${CMAKE_SYSTEM_NAME} MATCHES "iOS")
++    set(VSI_FOPEN64 "fopen")
++    set(VSI_FTRUNCATE64 "ftruncate")
++    set(VSI_FTELL64 "ftell")
++    set(VSI_FSEEK64 "fseek")
++    set(VSI_STAT64 "stat")
++    set(VSI_STAT64_T "stat")
++    unset(HAVE_FOPEN64)
++    unset(HAVE_FOPEN64 CACHE)
++    unset(HAVE_FTRUNCATE64)
++    unset(HAVE_FTRUNCATE64 CACHE)
++    unset(HAVE_FTELL64)
++    unset(HAVE_FTELL64 CACHE)
++    unset(HAVE_FSEEK64)
++    unset(HAVE_FSEEK64 CACHE)
++    unset(HAVE_STATVFS64)
++    unset(HAVE_STATVFS64 CACHE)
++  endif()
++
+   set(UNIX_STDIO_64 TRUE)
+ 
+   set(INCLUDE_XLOCALE_H)
