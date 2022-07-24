@@ -149,6 +149,8 @@
 #include <qgsproject.h>
 #include <qgsprojectstorage.h>
 #include <qgsprojectstorageregistry.h>
+
+#include <ZXing/ReadBarcode.h>
 #if _QGIS_VERSION_INT >= 32500
 #include <qgsprojectstylesettings.h>
 #endif

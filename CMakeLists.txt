@@ -179,11 +179,7 @@ else(CMAKE_SYSTEM_NAME STREQUAL "iOS")
   file(COPY resources/ DESTINATION "${SHARE_DIR}/qfield/")
 endif()
 
-if (WITH_VCPKG)
-  find_package(ZXing REQUIRED)
-else()
-  add_subdirectory(external/zxing-cpp)
-endif()
+find_package(ZXing REQUIRED)
 
 add_subdirectory(src/core)
 add_subdirectory(src/qml)
