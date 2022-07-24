@@ -1,0 +1,15 @@
+set(QT_IOS_TARGET_ARCHIVE_PATH @CMAKE_CURRENT_BINARY_DIR@/qfield.xcarchive)
+set(QT_IOS_TARGET_IPA_PATH @CMAKE_CURRENT_BINARY_DIR@/qfieldIpa)
+
+execute_process(COMMAND xcodebuild
+            -project "@PROJECT_BINARY_DIR@/@CMAKE_PROJECT_NAME@.xcodeproj"
+            -scheme "qfield"
+            -archivePath "${QT_IOS_TARGET_ARCHIVE_PATH}"
+            archive
+            COMMAND_ERROR_IS_FATAL ANY)
+execute_process(
+    COMMAND xcodebuild -exportArchive
+    -archivePath "${QT_IOS_TARGET_ARCHIVE_PATH}"
+    -exportOptionsPlist "@QT_IOS_EXPORT_OPTIONS_FILE@"
+    -exportPath "${QT_IOS_TARGET_IPA_PATH}"
+    COMMAND_ERROR_IS_FATAL ANY)
