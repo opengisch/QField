@@ -177,9 +177,8 @@ int main( int argc, char **argv )
   QGuiApplication::setAttribute( Qt::AA_EnableHighDpiScaling );
   QtWebView::initialize();
 
-  QString projPath;
 #if defined( Q_OS_ANDROID )
-  projPath = PlatformUtilities::instance()->systemGenericDataLocation() + QStringLiteral( "/proj" );
+  const QString projPath = PlatformUtilities::instance()->systemGenericDataLocation() + QStringLiteral( "/proj" );
 
   const QDir rootPath = QStandardPaths::writableLocation( QStandardPaths::AppDataLocation );
   rootPath.mkdir( QStringLiteral( "qgis_profile" ) );
@@ -195,7 +194,7 @@ int main( int argc, char **argv )
 
   app.createDatabase();
 #elif defined( Q_OS_IOS )
-  projPath = PlatformUtilities::instance()->systemGenericDataLocation() + QStringLiteral( "/proj/data" );
+  const QString projPath = PlatformUtilities::instance()->systemGenericDataLocation() + QStringLiteral( "/proj/data" );
 
   const QDir rootPath = QStandardPaths::writableLocation( QStandardPaths::AppDataLocation );
   rootPath.mkdir( QStringLiteral( "qgis_profile" ) );
@@ -210,9 +209,10 @@ int main( int argc, char **argv )
 
 #ifdef RELATIVE_PREFIX_PATH
   qputenv( "GDAL_DATA", QDir::toNativeSeparators( app.applicationDirPath() + "/../share/gdal" ).toLocal8Bit() );
-  projPath( QDir::toNativeSeparators( app.applicationDirPath() + "/../share/proj" ) );
+  const QString projPath( QDir::toNativeSeparators( app.applicationDirPath() + "/../share/proj" ) );
   app.setPrefixPath( app.applicationDirPath() + "/..", true );
 #else
+  const QString projPath;
   app.setPrefixPath( CMAKE_INSTALL_PREFIX, true );
 #endif
 #endif
