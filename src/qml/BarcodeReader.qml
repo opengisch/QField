@@ -20,6 +20,10 @@ Popup {
 
   padding: 0
 
+  onAboutToShow: {
+    barcodeDecoder.decodedString = '';
+  }
+
   BarcodeDecoder {
     id: barcodeDecoder
 
@@ -184,9 +188,9 @@ Popup {
           text: barcodeDecoder.decodedString !== ''
                 ? barcodeDecoder.decodedString
                 : qsTr( 'Center your camera on a code')
-          color: barcodeDecoder.decodedString !== '' ? "black" : Theme.gray
           font: Theme.tipFont
           horizontalAlignment: Text.AlignLeft
+          opacity: barcodeDecoder.decodedString !== '' ? 1 : 0.2
         }
 
         QfToolButton {
@@ -195,7 +199,7 @@ Popup {
           iconSource: Theme.getThemeIcon( 'ic_check_black_48dp' )
           bgcolor: "transparent"
           enabled: barcodeDecoder.decodedString !== ''
-          opacity: enabled ? 1 : 0.25
+          opacity: enabled ? 1 : 0.2
 
           onClicked: {
             barcodeReader.close();
