@@ -108,13 +108,13 @@ jobs:
             /Users/runner/builddir/vcpkg-manifest-install.log
             ${{ github.workspace }}/vcpkg/base/buildtrees/**/*.log
 
-      - name: 🌋 Build
-        run: |
-          # cmake --build /Users/runner/builddir --config ${{ env.BUILD_TYPE }} # --target qfield
+      # Not required, packaging does it all
+      # - name: 🌋 Build
+      #   run: |
+      #     cmake --build /Users/runner/builddir --config ${{ env.BUILD_TYPE }} # --target qfield
 
       - name: Package
         run: |
-          # rm -rf /Users/runner/builddir/output/bin/qfield.app
           cmake --build  /Users/runner/builddir --target bundle --config Release
 
       - name: 🍺 Deploy
