@@ -212,15 +212,18 @@ int main( int argc, char **argv )
   const QString projPath( QDir::toNativeSeparators( app.applicationDirPath() + "/../share/proj" ) );
   app.setPrefixPath( app.applicationDirPath() + "/..", true );
 #else
+  const QString projPath;
   app.setPrefixPath( CMAKE_INSTALL_PREFIX, true );
 #endif
 #endif
-  if ( !projPath.isEmpty() )
+  // cppcheck-suppress knownConditionTrueFalse
+  // cppcheck-suppress reademptycontainer
+  if ( !projPath.isNull() )
   {
     qInfo() << "Proj path: " << projPath;
+    const char *projPaths[] { projPath.toUtf8().constData() };
+    proj_context_set_search_paths( nullptr, 1, projPaths );
   }
-  const char *projPaths[] { projPath.toUtf8().constData() };
-  proj_context_set_search_paths( nullptr, 1, projPaths );
 
   originalMessageHandler = qInstallMessageHandler( qfMessageHandler );
   app.initQgis();
