@@ -216,6 +216,7 @@ int main( int argc, char **argv )
   app.setPrefixPath( CMAKE_INSTALL_PREFIX, true );
 #endif
 #endif
+  // cppcheck-suppress knownConditionTrueFalse
   if ( !projPath.isEmpty() )
   {
     qInfo() << "Proj path: " << projPath;
