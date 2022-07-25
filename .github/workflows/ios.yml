@@ -35,6 +35,12 @@ jobs:
           modules: 'qtcharts'
           target: ios
 
+      - name: 🌾 Prepare vars
+        id: vars
+        shell: bash
+        run: |
+          ./scripts/ci/env_gh.sh
+
       - uses: Apple-Actions/import-codesign-certs@v1
         with:
           p12-file-base64: ${{ env.CI_PULL_REQUEST == 'false' && secrets.IOS_CERTIFICATES_FILE_BASE64 || secrets.IOS_CERTIFICATES_FILE_BASE64_DEV }}
@@ -48,17 +54,12 @@ jobs:
           api-key-id: ${{ secrets.IOS_APPSTORE_KEY_ID }}
           api-private-key: ${{ secrets.IOS_APPSTORE_PRIVATE_KEY }}
 
-      - name: 🌾 Prepare vars
-        id: vars
-        shell: bash
-        run: |
-          ./scripts/ci/env_gh.sh
-
       - name: Prepare ios build env
         run: |
-          brew install automake bison flex gnu-sed create-dmg
+          brew install automake bison flex gnu-sed s3cmd
           echo $(brew --prefix bison)/bin >> $GITHUB_PATH
           echo $(brew --prefix flex)/bin >> $GITHUB_PATH
+          echo $(brew --prefix s3cmd)/bin >> $GITHUB_PATH
           echo "EXTRA_CMAKE_ARGS=-GXcode -T buildsystem=1" >> $GITHUB_ENV
 
 
@@ -109,39 +110,35 @@ jobs:
 
       - name: 🌋 Build
         run: |
-          cmake --build /Users/runner/builddir --config ${{ env.BUILD_TYPE }} # --target qfield
-
-            #      - name: 🔨 Build qfield Archive
-            #        run: cmake --build build --target qfieldArchive --config "${{ env.BUILD_TYPE }}"
-
-          #- name: 🚀 Deploy qfield Ipa
-          #  run: |
-          #    cmake --build build --target qfieldIpa --config "${{ env.BUILD_TYPE }}"
-          #
-
+          # cmake --build /Users/runner/builddir --config ${{ env.BUILD_TYPE }} # --target qfield
 
       - name: Package
         run: |
-          rm -rf /Users/runner/builddir/output/bin/qfield.app
+          # rm -rf /Users/runner/builddir/output/bin/qfield.app
           cmake --build  /Users/runner/builddir --target bundle --config Release
 
-      - name: 📦 Upload qfield App
-        uses: actions/upload-artifact@v3
-        with:
-          name: qfield-${{ env.PLATFORM }}-${{ env.DEPLOYMENT_TARGET }}.app
-          path: /Users/runner/builddir/output/bin/qfield.app
+      - name: 🍺 Deploy
+        run: |
+          mv /Users/runner/builddir/qfieldIpa/qfield.ipa ${{ env.CI_PACKAGE_FILE_BASENAME }}.ipa
+          if [[ -n "${{ secrets.S3CFG }}" ]]
+          then
+            echo "${{ secrets.S3CFG }}" > ~/.s3cfg
+            s3cmd put --acl-public ${{ env.CI_PACKAGE_FILE_BASENAME }}.ipa s3://qfieldapks/ci-builds/${{ env.CI_PACKAGE_FILE_BASENAME }}.ipa
+            echo "Uploaded to https://sos-ch-dk-2.exo.io/qfieldapks/ci-builds/${{ env.CI_PACKAGE_FILE_BASENAME }}.ipa"
+            rm ~/.s3cfg
+          fi
 
       - name: 📦 Upload qfield Ipa
         uses: actions/upload-artifact@v3
         with:
-          name: qfield-i${{ env.PLATFORM }}-${{ env.DEPLOYMENT_TARGET }}.ipa
-          path: /Users/runner/builddir/qfieldIpa/qfield.ipa
+          name: qfield-${{ env.TRIPLET }}-${{ env.DEPLOYMENT_TARGET }}.ipa
+          path: ${{ env.CI_PACKAGE_FILE_BASENAME }}.ipa
 
       - uses: Apple-Actions/upload-testflight-build@v1
         if: github.event_name == 'release' && startsWith(github.ref, 'refs/tags/v')
         name: 🚀 Release to TestFlight
         with:
-          app-path: /Users/runner/builddir/qfieldIpa/qfield.ipa
+          app-path: ${{ env.CI_PACKAGE_FILE_BASENAME }}.ipa
           issuer-id: ${{ secrets.IOS_APPSTORE_ISSUER_ID }}
           api-key-id: ${{ secrets.IOS_APPSTORE_KEY_ID }}
           api-private-key: ${{ secrets.IOS_APPSTORE_PRIVATE_KEY }}
@@ -153,6 +150,6 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           upload_url: ${{ github.event.release.upload_url }}
-          asset_path: /Users/runner/builddir/qfieldIpa/qfield.ipa
-          asset_name: ${{ steps.vars.outputs.CI_PACKAGE_FILE_BASENAME }}-i${{ env.PLATFORM }}-${{ env.DEPLOYMENT_TARGET }}.ipa
+          asset_path: ${{ env.CI_PACKAGE_FILE_BASENAME }}.ipa
+          asset_name: ${{ steps.vars.outputs.CI_PACKAGE_FILE_BASENAME }}-${{ env.TRIPLET }}-${{ env.DEPLOYMENT_TARGET }}.ipa
           asset_content_type: application/zip
