@@ -88,6 +88,20 @@ Item {
     }
   }
 
+  Connections {
+    id: barcodeReaderConnection
+    target: barcodeReader
+    enabled: false
+
+    function onDecoded(string) {
+      searchField.text = string;
+    }
+
+    function onCanceled() {
+      enabled = false;
+    }
+  }
+
   Rectangle {
     id: searchFieldRect
     z: 10
@@ -201,6 +215,7 @@ Item {
       anchors.fill: parent
       onClicked: {
         barcodeReader.open();
+        barcodeReaderConnection.enabled = true;
       }
     }
   }

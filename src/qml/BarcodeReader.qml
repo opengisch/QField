@@ -11,6 +11,9 @@ import Theme 1.0
 Popup {
   id : barcodeReader
 
+  signal decoded(var string)
+  signal canceled
+
   property int itemSize: mainWindow.width <= mainWindow.height ? mainWindow.width - 80 : mainWindow.height - 80
 
   width: itemSize
@@ -76,6 +79,7 @@ Popup {
 
           onClicked: {
             barcodeReader.close();
+            barcodeReader.canceled();
           }
         }
       }
@@ -203,6 +207,7 @@ Popup {
 
           onClicked: {
             barcodeReader.close();
+            barcodeReader.decoded(barcodeDecoder.decodedString);
           }
         }
       }
