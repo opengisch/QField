@@ -82,6 +82,8 @@ function(create_executable)
     qt_import_qml_plugins(${exe_TARGET} PATH_TO_SCAN
                           "${CMAKE_CURRENT_BINARY_DIR}/qmldrop/app")
   endif()
+  qt5_import_plugins(${exe_TARGET} INCLUDE Qt5::QSvgPlugin)
+
   if(WITH_SENTRY)
     target_link_libraries(${exe_TARGET} PRIVATE qfield_core sentry::sentry)
   endif()
