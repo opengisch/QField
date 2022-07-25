@@ -212,12 +212,12 @@ int main( int argc, char **argv )
   const QString projPath( QDir::toNativeSeparators( app.applicationDirPath() + "/../share/proj" ) );
   app.setPrefixPath( app.applicationDirPath() + "/..", true );
 #else
-  const QString projPath( QStringLiteral( "" ) );
+  const QString projPath;
   app.setPrefixPath( CMAKE_INSTALL_PREFIX, true );
 #endif
 #endif
   // cppcheck-suppress knownConditionTrueFalse
-  if ( !projPath.isEmpty() )
+  if ( !projPath.isNull() )
   {
     qInfo() << "Proj path: " << projPath;
     const char *projPaths[] { projPath.toUtf8().constData() };
