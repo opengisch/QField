@@ -23,6 +23,7 @@ Item {
           name: "on"
           PropertyChanges { target: searchFieldRect; visible: true; }
           PropertyChanges { target: searchFieldRect; width: mainWindow.width - 62 }
+          PropertyChanges { target: barcodeReaderButtonRect; visible: true; }
           PropertyChanges { target: clearButtonRect; visible: true; }
           PropertyChanges { target: busyIndicator; visible: true; }
       },
@@ -30,6 +31,7 @@ Item {
         name: "off"
         PropertyChanges { target: busyIndicator; visible: false; }
         PropertyChanges { target: clearButtonRect; visible: false; }
+        PropertyChanges { target: barcodeReaderButtonRect; visible: false; }
         PropertyChanges { target: searchFieldRect; width: 48 }
         PropertyChanges { target: searchFieldRect; visible: false; }
       }
@@ -42,6 +44,7 @@ Item {
         SequentialAnimation {
           PropertyAnimation { target: searchFieldRect; property: "visible"; duration: 0 }
           NumberAnimation { target: searchFieldRect; easing.type: Easing.InOutQuad; properties: "width"; duration: 250 }
+          PropertyAnimation { target: barcodeReaderButtonRect; property: "visible"; duration: 0 }
           PropertyAnimation { target: clearButtonRect; property: "visible"; duration: 0 }
           PropertyAnimation { target: busyIndicator; property: "visible"; duration: 0 }
         }
@@ -52,6 +55,7 @@ Item {
         SequentialAnimation {
           PropertyAnimation { target: busyIndicator; property: "visible"; duration: 0 }
           PropertyAnimation { target: clearButtonRect; property: "visible"; duration: 0 }
+          PropertyAnimation { target: barcodeReaderButtonRect; property: "visible"; duration: 0 }
           NumberAnimation { target: searchFieldRect; easing.type: Easing.InOutQuad; properties: "width"; duration: 150 }
           PropertyAnimation { target: searchFieldRect; property: "visible"; duration: 0 }
         }
@@ -100,7 +104,7 @@ Item {
       focus: locatorItem.state == "on" ? true : false
       placeholderText: qsTr("Search…")
       placeholderTextColor: Theme.mainColor
-      width: parent.width - busyIndicator.width - 36
+      width: parent.width - busyIndicator.width - 76
       height: 48
       anchors.top: parent.top
       anchors.left: parent.left
@@ -126,8 +130,9 @@ Item {
     id: busyIndicator
     z: 11
     running: locator.isRunning
-    anchors.right: searchButton.left
-    anchors.verticalCenter: searchFieldRect.verticalCenter
+    anchors.right: barcodeReaderButtonRect.left
+    anchors.rightMargin: -15
+    anchors.verticalCenter: barcodeReaderButtonRect.verticalCenter
     height: searchFieldRect.height - 10
     visible: false
   }
@@ -164,6 +169,38 @@ Item {
         } else {
           locatorItem.state = "off"
         }
+      }
+    }
+  }
+
+  Rectangle {
+    id: barcodeReaderButtonRect
+    width: 40
+    height: 40
+    z: 12
+    color: "transparent"
+    anchors.right: searchButton.left
+    anchors.rightMargin: 5
+    anchors.verticalCenter: searchFieldRect.verticalCenter
+    visible: false
+
+    Image {
+      id: barcodeReaderButton
+      z: 12
+      width: 24
+      height: 24
+      source: Theme.getThemeVectorIcon("ic_qrcode_black_24dp")
+      sourceSize.width: 24 * screen.devicePixelRatio
+      sourceSize.height: 24 * screen.devicePixelRatio
+      fillMode: Image.PreserveAspectFit
+      anchors.centerIn: barcodeReaderButtonRect
+      opacity: 1
+    }
+
+    MouseArea {
+      anchors.fill: parent
+      onClicked: {
+        barcodeReader.open();
       }
     }
   }
