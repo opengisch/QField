@@ -26,6 +26,7 @@ Item {
       anchors.top: parent.top
       width: parent.width
       height: 200
+      visible: sourceImg.status === Image.Ready
       property variant source: sourceImg
       property real frequency: 1
       property real amplitude: 0.1
