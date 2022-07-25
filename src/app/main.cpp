@@ -217,6 +217,7 @@ int main( int argc, char **argv )
 #endif
 #endif
   // cppcheck-suppress knownConditionTrueFalse
+  // cppcheck-suppress reademptycontainer
   if ( !projPath.isNull() )
   {
     qInfo() << "Proj path: " << projPath;
