@@ -56,10 +56,11 @@ jobs:
 
       - name: Prepare ios build env
         run: |
-          brew install automake bison flex gnu-sed s3cmd
+          brew install automake bison flex gnu-sed s3cmd gettext
           echo $(brew --prefix bison)/bin >> $GITHUB_PATH
           echo $(brew --prefix flex)/bin >> $GITHUB_PATH
           echo $(brew --prefix s3cmd)/bin >> $GITHUB_PATH
+          echo $(brew --prefix gettext)/bin >> $GITHUB_PATH
           echo "EXTRA_CMAKE_ARGS=-GXcode -T buildsystem=1" >> $GITHUB_ENV
 
 
@@ -123,8 +124,15 @@ jobs:
           if [[ -n "${{ secrets.S3CFG }}" ]]
           then
             echo "${{ secrets.S3CFG }}" > ~/.s3cfg
+            PLIST_URL="https://sos-ch-dk-2.exo.io/qfieldapks/ci-builds/${{ env.CI_PACKAGE_FILE_BASENAME }}.pList" envsubst < ${{ github.workspace }}/platform/ios/installation-template.html > ${{ env.CI_PACKAGE_FILE_BASENAME}}.html
+            IPA_URL="https://sos-ch-dk-2.exo.io/qfieldapks/ci-builds/${{ env.CI_PACKAGE_FILE_BASENAME }}.ipa" envsubst < ${{ github.workspace }}/platform/ios/installation-template.plist > ${{ env.CI_PACKAGE_FILE_BASENAME}}.plist
+            s3cmd put --acl-public ${{ env.CI_PACKAGE_FILE_BASENAME }}.html s3://qfieldapks/ci-builds/${{ env.CI_PACKAGE_FILE_BASENAME }}.html
+            s3cmd modify --add-header=content-type:text/html s3://qfieldapks/ci-builds/${{ env.CI_PACKAGE_FILE_BASENAME }}.html
+            s3cmd put --acl-public ${{ env.CI_PACKAGE_FILE_BASENAME }}.pList s3://qfieldapks/ci-builds/${{ env.CI_PACKAGE_FILE_BASENAME }}.pList
+            s3cmd modify --add-header=content-type:application/xml s3://qfieldapks/ci-builds/${{ env.CI_PACKAGE_FILE_BASENAME }}.pList
             s3cmd put --acl-public ${{ env.CI_PACKAGE_FILE_BASENAME }}.ipa s3://qfieldapks/ci-builds/${{ env.CI_PACKAGE_FILE_BASENAME }}.ipa
-            echo "Uploaded to https://sos-ch-dk-2.exo.io/qfieldapks/ci-builds/${{ env.CI_PACKAGE_FILE_BASENAME }}.ipa"
+
+            echo "Install the ipa from https://sos-ch-dk-2.exo.io/qfieldapks/ci-builds/${{ env.CI_PACKAGE_FILE_BASENAME }}.html"
             rm ~/.s3cfg
           fi
 
