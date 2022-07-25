@@ -177,8 +177,9 @@ int main( int argc, char **argv )
   QGuiApplication::setAttribute( Qt::AA_EnableHighDpiScaling );
   QtWebView::initialize();
 
+  QString projPath;
 #if defined( Q_OS_ANDROID )
-  const QString projPath = PlatformUtilities::instance()->systemGenericDataLocation() + QStringLiteral( "/proj" );
+  projPath = PlatformUtilities::instance()->systemGenericDataLocation() + QStringLiteral( "/proj" );
 
   const QDir rootPath = QStandardPaths::writableLocation( QStandardPaths::AppDataLocation );
   rootPath.mkdir( QStringLiteral( "qgis_profile" ) );
@@ -194,7 +195,7 @@ int main( int argc, char **argv )
 
   app.createDatabase();
 #elif defined( Q_OS_IOS )
-  const QString projPath = PlatformUtilities::instance()->systemGenericDataLocation() + QStringLiteral( "/proj/data" );
+  projPath = PlatformUtilities::instance()->systemGenericDataLocation() + QStringLiteral( "/proj/data" );
 
   const QDir rootPath = QStandardPaths::writableLocation( QStandardPaths::AppDataLocation );
   rootPath.mkdir( QStringLiteral( "qgis_profile" ) );
@@ -209,7 +210,7 @@ int main( int argc, char **argv )
 
 #ifdef RELATIVE_PREFIX_PATH
   qputenv( "GDAL_DATA", QDir::toNativeSeparators( app.applicationDirPath() + "/../share/gdal" ).toLocal8Bit() );
-  const QString projPath( QDir::toNativeSeparators( app.applicationDirPath() + "/../share/proj" ) );
+  projPath( QDir::toNativeSeparators( app.applicationDirPath() + "/../share/proj" ) );
   app.setPrefixPath( app.applicationDirPath() + "/..", true );
 #else
   app.setPrefixPath( CMAKE_INSTALL_PREFIX, true );
@@ -218,9 +219,9 @@ int main( int argc, char **argv )
   if ( !projPath.isEmpty() )
   {
     qInfo() << "Proj path: " << projPath;
+    const char *projPaths[] { projPath.toUtf8().constData() };
+    proj_context_set_search_paths( nullptr, 1, projPaths );
   }
-  const char *projPaths[] { projPath.toUtf8().constData() };
-  proj_context_set_search_paths( nullptr, 1, projPaths );
 
   originalMessageHandler = qInstallMessageHandler( qfMessageHandler );
   app.initQgis();
