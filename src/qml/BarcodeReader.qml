@@ -22,6 +22,12 @@ Popup {
 
   BarcodeDecoder {
     id: barcodeDecoder
+
+    onDecodedStringChanged: {
+      if (decodedString !== '') {
+        decodedFlashAnimation.start();
+      }
+    }
   }
 
   Camera {
@@ -97,6 +103,19 @@ Popup {
               decoder: barcodeDecoder
             }
           ]
+        }
+
+        Rectangle {
+          id: decodedFlash
+          anchors.fill: parent
+          anchors.margins: 6
+
+          color: "transparent"
+          SequentialAnimation {
+            id: decodedFlashAnimation
+            PropertyAnimation { target: decodedFlash; property: "color"; to: "white"; duration: 0 }
+            PropertyAnimation { target: decodedFlash; property: "color"; to: "transparent"; duration: 500 }
+          }
         }
 
         Shape {
