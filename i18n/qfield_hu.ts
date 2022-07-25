@@ -157,7 +157,7 @@
     <message numerus="yes">
         <location filename="../src/qml/BluetoothDeviceChooser.qml" line="80"/>
         <source>%n device(s) found</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>%n eszközt találtam</numerusform><numerusform>%n eszközt találtam</numerusform></translation>
     </message>
     <message>
         <location filename="../src/qml/BluetoothDeviceChooser.qml" line="86"/>
@@ -189,7 +189,7 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <location filename="../src/qml/BluetoothDeviceChooser.qml" line="166"/>
         <source>Connect to %1</source>
-        <translation type="unfinished"/>
+        <translation>Csatlakozás ide %1</translation>
     </message>
     <message>
         <source>Connect  to %1</source>
@@ -265,7 +265,7 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <location filename="../src/qml/BookmarkProperties.qml" line="178"/>
         <source>Copy bookmark details</source>
-        <translation type="unfinished"/>
+        <translation>Könyvjelző részletek másolása</translation>
     </message>
     <message>
         <source>Lon</source>
@@ -286,7 +286,7 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <location filename="../src/qml/BookmarkProperties.qml" line="186"/>
         <source>Bookmark details copied to clipboard</source>
-        <translation type="unfinished"/>
+        <translation>Könyvjelző részletek a vágólapra másolva</translation>
     </message>
     <message>
         <location filename="../src/qml/BookmarkProperties.qml" line="195"/>
@@ -885,12 +885,12 @@ Az elem geometriákat összevonjuk a &apos;%1&apos; elembe, mely megőrzi az att
     <message>
         <location filename="../src/core/locator/gotolocatorfilter.cpp" line="146"/>
         <source>Go to %1%2 %3%4 (Map CRS, %5)</source>
-        <translation type="unfinished"/>
+        <translation>Ugrás %1%2  %3%4 (térkép vetület %5)</translation>
     </message>
     <message>
         <location filename="../src/core/locator/gotolocatorfilter.cpp" line="181"/>
         <source>Go to %1°N %2°E (%3)</source>
-        <translation type="unfinished"/>
+        <translation>Ugrás %1° N%2°E (%3)</translation>
     </message>
 </context>
 <context>
@@ -965,17 +965,17 @@ Az elem geometriákat összevonjuk a &apos;%1&apos; elembe, mely megőrzi az att
     <message>
         <location filename="../src/qml/LayerTreeItemProperties.qml" line="174"/>
         <source>Opacity</source>
-        <translation type="unfinished"/>
+        <translation>Átlátszatlanság</translation>
     </message>
     <message>
         <location filename="../src/qml/LayerTreeItemProperties.qml" line="192"/>
         <source>Zoom to group</source>
-        <translation type="unfinished"/>
+        <translation>Nagyítás a csoportra</translation>
     </message>
     <message>
         <location filename="../src/qml/LayerTreeItemProperties.qml" line="194"/>
         <source>Zoom to parent layer</source>
-        <translation type="unfinished"/>
+        <translation>Nagyítás a szülőrétegre</translation>
     </message>
     <message>
         <location filename="../src/qml/LayerTreeItemProperties.qml" line="195"/>
@@ -1096,23 +1096,23 @@ Az elem geometriákat összevonjuk a &apos;%1&apos; elembe, mely megőrzi az att
     <message>
         <location filename="../src/core/localfilesmodel.cpp" line="98"/>
         <source>Imported projects</source>
-        <translation type="unfinished"/>
+        <translation>Importált projektek</translation>
     </message>
     <message>
         <location filename="../src/core/localfilesmodel.cpp" line="102"/>
         <source>Imported datasets</source>
-        <translation type="unfinished"/>
+        <translation>Importált adathalmazok</translation>
     </message>
     <message>
         <location filename="../src/core/localfilesmodel.cpp" line="106"/>
         <location filename="../src/core/localfilesmodel.cpp" line="195"/>
         <source>Additional files directory</source>
-        <translation type="unfinished"/>
+        <translation>További fájlok könyvtár</translation>
     </message>
     <message>
         <location filename="../src/core/localfilesmodel.cpp" line="110"/>
         <source>Sample projects</source>
-        <translation type="unfinished"/>
+        <translation>Mintaprojektek</translation>
     </message>
 </context>
 <context>
@@ -1337,7 +1337,7 @@ Az elem geometriákat összevonjuk a &apos;%1&apos; elembe, mely megőrzi az att
     </message>
     <message>
         <source>centroid</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">centrális</translation>
     </message>
     <message>
         <location filename="../src/qml/NavigationInformationView.qml" line="145"/>
@@ -1633,7 +1633,7 @@ Az elem geometriákat összevonjuk a &apos;%1&apos; elembe, mely megőrzi az att
     <message>
         <location filename="../src/qml/PositioningPreciseView.qml" line="398"/>
         <source>Positioning accuracy too low for this precision level</source>
-        <translation type="unfinished"/>
+        <translation>A helymeghatározás pontossága túl alacsony ehhez a pontossági szinthez</translation>
     </message>
 </context>
 <context>
@@ -2304,93 +2304,93 @@ name(string), owner(string), description(string), user_role(string), is_public(b
     <message>
         <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="20"/>
         <source>Project Folder</source>
-        <translation type="unfinished"/>
+        <translation>Projekt mappa</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="21"/>
         <source>Local Projects &amp; Datasets</source>
-        <translation type="unfinished"/>
+        <translation>Helyi projektek és adathalmazok</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="107"/>
         <source>Folders</source>
-        <translation type="unfinished"/>
+        <translation>Mappák</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="109"/>
         <source>Projects</source>
-        <translation type="unfinished"/>
+        <translation>Projektek</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="111"/>
         <source>Datasets</source>
-        <translation type="unfinished"/>
+        <translation>Adathalmazok</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="113"/>
         <source>Favorites</source>
-        <translation type="unfinished"/>
+        <translation>Kedvencek</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="211"/>
         <source>Project file</source>
-        <translation type="unfinished"/>
+        <translation>Projektfájl</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="214"/>
         <source>Vector dataset</source>
-        <translation type="unfinished"/>
+        <translation>Vektor adathalmaz</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="217"/>
         <source>Raster dataset</source>
-        <translation type="unfinished"/>
+        <translation>Raszter adathalmaz</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="372"/>
         <source>Send to...</source>
-        <translation type="unfinished"/>
+        <translation>Küldés...</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="386"/>
         <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="415"/>
         <source>Export to folder...</source>
-        <translation type="unfinished"/>
+        <translation>Exportálás mappába...</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="401"/>
         <source>Remove dataset</source>
-        <translation type="unfinished"/>
+        <translation>Adathalmaz eltávolítása</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="429"/>
         <source>Send compressed folder to...</source>
-        <translation type="unfinished"/>
+        <translation>Tömörített mappa küldése...</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="444"/>
         <source>Remove project folder</source>
-        <translation type="unfinished"/>
+        <translation>Projekt mappa eltávolítása</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="472"/>
         <source>Import project from folder</source>
-        <translation type="unfinished"/>
+        <translation>Projekt importálása mappából</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="484"/>
         <source>Import project from ZIP</source>
-        <translation type="unfinished"/>
+        <translation>Projekt importálása ZIP-ből</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="496"/>
         <source>Import dataset(s)</source>
-        <translation type="unfinished"/>
+        <translation>Adathalaz(ok) importálása</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="510"/>
         <source>Storage management help</source>
-        <translation type="unfinished"/>
+        <translation>Tárhelykezelési súgó</translation>
     </message>
 </context>
 <context>
@@ -2612,12 +2612,12 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <location filename="../src/qml/QFieldSettings.qml" line="550"/>
         <source>Enable averaged positioning requirement</source>
-        <translation type="unfinished"/>
+        <translation>Átlagolt pozicionálási igény engedélyezése</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldSettings.qml" line="572"/>
         <source>Minimum number of positions collected</source>
-        <translation type="unfinished"/>
+        <translation>Minimális pozíciószám összegyűjtve</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldSettings.qml" line="613"/>
@@ -2768,19 +2768,19 @@ Cancel to make a minimal device scan instead.</source>
         <translation>Felhő felhasználó info</translation>
     </message>
     <message>
-        <location filename="../src/core/platforms/android/androidplatformutilities.cpp" line="86"/>
+        <location filename="../src/core/platforms/android/androidplatformutilities.cpp" line="85"/>
         <source>Please wait while QField installation finalizes.</source>
         <translation>Kérjük, várja meg, amíg a QField telepítése befejeződik.</translation>
     </message>
     <message>
         <location filename="../src/core/utils/positioningutils.cpp" line="78"/>
         <source>averaged</source>
-        <translation type="unfinished"/>
+        <translation>átlagolt</translation>
     </message>
     <message>
         <location filename="../src/core/navigation.cpp" line="222"/>
         <source>centroid</source>
-        <translation type="unfinished"/>
+        <translation>centrális</translation>
     </message>
 </context>
 <context>
@@ -3222,7 +3222,7 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <location filename="../src/qml/qgismobileapp.qml" line="751"/>
         <source>Perimeter</source>
-        <translation type="unfinished"/>
+        <translation>Kerület</translation>
     </message>
     <message>
         <location filename="../src/qml/qgismobileapp.qml" line="756"/>
@@ -3442,27 +3442,27 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>0.25m Precision</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">0.25m pontosság</translation>
     </message>
     <message>
         <source>0.5m Precision</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">0.5m pontosság</translation>
     </message>
     <message>
         <source>1m Precision</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">1m pontosság</translation>
     </message>
     <message>
         <source>2.5m Precision</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">2.5m pontosság</translation>
     </message>
     <message>
         <source>5m Precision</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">5m pontosság</translation>
     </message>
     <message>
         <source>10m Precision</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">10m pontosság</translation>
     </message>
     <message>
         <location filename="../src/qml/qgismobileapp.qml" line="2134"/>
@@ -3516,7 +3516,7 @@ Cancel to make a minimal device scan instead.</source>
         <location filename="../src/qml/qgismobileapp.qml" line="2100"/>
         <location filename="../src/qml/qgismobileapp.qml" line="2116"/>
         <source>%1 Precision</source>
-        <translation type="unfinished"/>
+        <translation>%1 pontosság</translation>
     </message>
     <message>
         <location filename="../src/qml/qgismobileapp.qml" line="2151"/>

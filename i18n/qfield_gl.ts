@@ -2773,7 +2773,7 @@ Cancela para facer, porén, unha exploración mínima do dispositivo.</translati
         <translation>Información do Usuario da Nube</translation>
     </message>
     <message>
-        <location filename="../src/core/platforms/android/androidplatformutilities.cpp" line="86"/>
+        <location filename="../src/core/platforms/android/androidplatformutilities.cpp" line="85"/>
         <source>Please wait while QField installation finalizes.</source>
         <translation>Por favor, agarde mentres finaliza a instalación de QField.</translation>
     </message>

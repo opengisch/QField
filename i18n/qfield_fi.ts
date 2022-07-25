@@ -2772,7 +2772,7 @@ Peruuta tehdäksesi suppeampi laiteskannaus.</translation>
         <translation>Pilven käyttäjätiedot</translation>
     </message>
     <message>
-        <location filename="../src/core/platforms/android/androidplatformutilities.cpp" line="86"/>
+        <location filename="../src/core/platforms/android/androidplatformutilities.cpp" line="85"/>
         <source>Please wait while QField installation finalizes.</source>
         <translation type="unfinished"/>
     </message>
