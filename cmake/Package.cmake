@@ -79,13 +79,49 @@ if(ANDROID AND ANDROIDDEPLOYQT_EXECUTABLE)
     set(CPACK_EXTERNAL_PACKAGE_SCRIPT "${CMAKE_BINARY_DIR}/CPackExternal.cmake")
 endif()
 
-if(APPLE AND NOT IOS)
+if(CMAKE_SYSTEM_NAME STREQUAL "Darwin") # macOS
     set(CPACK_BUNDLE_PLIST "${CMAKE_BINARY_DIR}/Info.plist")
     set(CPACK_DMG_VOLUME_NAME "${PROJECT_NAME}")
     set(CPACK_DMG_FORMAT "UDBZ")
     set(CPACK_GENERATOR "External;${CPACK_GENERATOR}")
     message(STATUS "   + macdeployqt/DnD                      YES ")
     configure_file(${CMAKE_SOURCE_DIR}/platform/macos/CPackMacDeployQt.cmake.in "${CMAKE_BINARY_DIR}/CPackExternal.cmake")
+    set(CPACK_EXTERNAL_PACKAGE_SCRIPT "${CMAKE_BINARY_DIR}/CPackExternal.cmake")
+endif()
+
+if(CMAKE_SYSTEM_NAME STREQUAL "iOS")
+    message(STATUS "   + iOS IPA                              YES ")
+    set(CPACK_GENERATOR "External;${CPACK_GENERATOR}")
+    set(QT_IOS_EXPORT_OPTIONS_FILE "${CMAKE_CURRENT_BINARY_DIR}/QFieldExportOptions.plist")
+    # Generate IPA
+    if(${QT_IOS_PROVISIONING_PROFILE_SPECIFIER})
+        set(QT_IOS_EXPORT_SIGNING_TYPE "manual")
+    else()
+        set(QT_IOS_EXPORT_SIGNING_TYPE "automatic")
+    endif()
+
+    set(QT_IOS_PROVISIONING_PROFILES_KEY
+        "<key>provisioningProfiles</key>\n    <dict>\n        <key>ch.opengis.qfield</key>\n        <string>${QT_IOS_PROVISIONING_PROFILE_SPECIFIER}</string>\n     </dict>\n"
+    )
+
+    if(ENABLE_BITCODE)
+        set(QT_IOS_ENABLE_BITCODE TRUE)
+    endif()
+
+    if(QT_IOS_ENABLE_BITCODE)
+        set(QT_IOS_ENABLE_BITCODE_KEY "<key>compileBitcode</key><true/>")
+    else()
+        set(QT_IOS_ENABLE_BITCODE_KEY "")
+    endif()
+    if(QT_IOS_UPLOAD_SYMBOL)
+        set(QT_IOS_UPLOAD_SYMBOL_KEY "<key>uploadSymbols</key><true/>")
+    else()
+        set(QT_IOS_UPLOAD_SYMBOL_KEY "")
+    endif()
+
+
+    configure_file(${CMAKE_SOURCE_DIR}/platform/ios/ExportOptions.plist.in "${QT_IOS_EXPORT_OPTIONS_FILE}" @ONLY)
+    configure_file(${CMAKE_CURRENT_SOURCE_DIR}/platform/ios/CPackIosDeployIpa.cmake.in "${CMAKE_BINARY_DIR}/CPackExternal.cmake" @ONLY)
     set(CPACK_EXTERNAL_PACKAGE_SCRIPT "${CMAKE_BINARY_DIR}/CPackExternal.cmake")
 endif()
 include(CPack)

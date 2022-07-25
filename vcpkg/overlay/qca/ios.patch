@@ -1,0 +1,12 @@
+diff -Naur v2.3.4-e029f60bb2.clean/src/CMakeLists.txt b/src/CMakeLists.txt
+--- v2.3.4-e029f60bb2.clean/src/CMakeLists.txt	2021-09-12 21:54:04.000000000 +0200
++++ b/src/CMakeLists.txt	2022-07-09 15:51:12.000000000 +0200
+@@ -52,7 +52,7 @@
+ 
+ IF (WIN32)
+   SET( SOURCES ${SOURCES} qca_systemstore_win.cpp )
+-elseif(APPLE)
++elseif(${CMAKE_SYSTEM_NAME} MATCHES "Darwin")
+   set( SOURCES ${SOURCES} qca_systemstore_mac.cpp)
+ else()
+   SET( SOURCES ${SOURCES} qca_systemstore_flatfile.cpp )

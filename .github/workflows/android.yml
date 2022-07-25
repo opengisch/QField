@@ -55,35 +55,12 @@ jobs:
       - name: 🐩 Install CMake and Ninja
         uses: lukka/get-cmake@latest
 
-      - name: 📫 Cache vcpkg
-        id: cache-vcpkg-tool
-        uses: pat-s/always-upload-cache@v3.0.1
-        with:
-          path: |
-            ${{ github.workspace }}/vcpkg/base/vcpkg
-            ${{ github.workspace }}/vcpkg/base/vcpkg.exe
-          key: ${{ runner.os }}-${{ hashFiles('.git/modules/vcpkg/HEAD') }}
-
-      - name: 🔥 Free additional space
-        run: |
-          df -h
-          sudo rm -rf /usr/share/dotnet/sdk
-          sudo rm -rf /usr/share/rust
-          sudo rm -rf /usr/share/swift
-          sudo apt remove llvm-* ghc-* google-chrome-* dotnet-sdk-* azure-cli google-cloud-sdk google-chrome-stable firefox
-          dpkg-query -Wf '${Installed-Size}\t${Package}\n' | sort -n | tail -n 100
-          du -a /usr/share | sort -n -r | head -n 10
-          du -a /usr/local/share | sort -n -r | head -n 10
-          df -h
-          sudo apt clean
-          df -h
-
       - name: 💐 Install Qt
         if: ${{ steps.vars.outputs.INSTALL_QT }}
         uses: jurplel/install-qt-action@v2
         with:
           version: 5.14.2
-          modules: 'qtcharts qtimageformats'
+          modules: 'qtcharts'
           target: ${{ steps.vars.outputs.QT_TARGET }}
 
       - name: Setup ccache

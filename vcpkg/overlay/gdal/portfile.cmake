@@ -6,6 +6,7 @@ vcpkg_from_github(
     HEAD_REF master
     PATCHES
         find-link-libraries.patch
+        ios.patch
 )
 # `vcpkg clean` stumbles over one subdir
 file(REMOVE_RECURSE "${SOURCE_PATH}/autotest")
@@ -40,7 +41,6 @@ vcpkg_check_features(OUT_FEATURE_OPTIONS FEATURE_OPTIONS
         default-features GDAL_USE_PNG
         poppler          GDAL_USE_POPPLER
         postgresql       GDAL_USE_POSTGRESQL
-        default-features GDAL_USE_QHULL
         #core             GDAL_USE_SHAPELIB  # https://github.com/OSGeo/gdal/issues/5711, https://github.com/microsoft/vcpkg/issues/16041
         core             GDAL_USE_SHAPELIB_INTERNAL
         libspatialite    GDAL_USE_SPATIALITE

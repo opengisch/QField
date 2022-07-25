@@ -51,7 +51,7 @@ macro (ADD_QFIELD_QML_TEST TESTNAME TESTSRC)
   # https://bugreports.qt.io/browse/QTBUG-80847
   get_target_property(QT_TARGET_TYPE ${QT_PKG}::Core TYPE)
   if(${QT_TARGET_TYPE} STREQUAL "STATIC_LIBRARY")
-    find_package(${QT_PKG} COMPONENTS QmlImportScanner)
+    include("${CMAKE_SOURCE_DIR}/cmake/QtQmlImportScanner.cmake")
     file(GLOB test_qmlfiles "${CMAKE_CURRENT_SOURCE_DIR}/qml/*.qml")
     file(GLOB qfield_qmlfiles "${CMAKE_SOURCE_DIR}/src/qml/*.qml")
     file(COPY ${test_qmlfiles}
@@ -62,7 +62,7 @@ macro (ADD_QFIELD_QML_TEST TESTNAME TESTSRC)
       file(REMOVE
            "${CMAKE_CURRENT_BINARY_DIR}/qmldrop/app/BluetoothDeviceChooser.qml")
     endif()
-    qt5_import_qml_plugins(${TESTNAME}
+    qt_import_qml_plugins(${TESTNAME}
                            PATH_TO_SCAN "${CMAKE_CURRENT_BINARY_DIR}/qmldrop")
   endif()
 

@@ -6,7 +6,7 @@
 
 cmake_minimum_required(VERSION 3.0.0 FATAL_ERROR)
 
-# find the Qt root directoryn might break in future release
+# find the Qt root directory might break in future release
 # Dependant on Qt5
 if(NOT Qt5Core_DIR)
     find_package(Qt5Core REQUIRED)
@@ -65,7 +65,6 @@ include(CMakeParseArguments)
 #    HIDDEN_STATUS_BAR
 #    IPA
 #    UPLOAD_SYMBOL
-#    DISTRIBUTION_METHOD "app-store"
 #    VERBOSE
 # )
 function(add_qt_ios_app TARGET)
@@ -99,7 +98,6 @@ function(add_qt_ios_app TARGET)
         MAIN_STORYBOARD
         CATALOG_APPICON
         CATALOG_LAUNCHIMAGE
-        DISTRIBUTION_METHOD
         PHOTO_LIBRARY_USAGE_DESCRIPTION
         )
     set(QT_IOS_MULTI_VALUE_ARG
@@ -150,12 +148,6 @@ function(add_qt_ios_app TARGET)
 
     set(QT_IOS_IPA ${ARGIOS_IPA})
     set(QT_IOS_UPLOAD_SYMBOL ${ARGIOS_UPLOAD_SYMBOL})
-    if(NOT QT_IOS_DISTRIBUTION_METHOD)
-        set(QT_IOS_DISTRIBUTION_METHOD ${ARGIOS_DISTRIBUTION_METHOD})
-    endif()
-    if("${QT_IOS_DISTRIBUTION_METHOD}" STREQUAL "")
-        set(QT_IOS_DISTRIBUTION_METHOD "app-store")
-    endif()
 
     # Allow user to override QT_IOS_ITS_ENCRYPTION_EXPORT_COMPLIANCE_CODE from cache/command line
     if(NOT QT_IOS_ITS_ENCRYPTION_EXPORT_COMPLIANCE_CODE)
@@ -273,7 +265,6 @@ function(add_qt_ios_app TARGET)
         message(STATUS "HIDDEN_STATUS_BAR                   : ${QT_IOS_HIDDEN_STATUS_BAR}")
         message(STATUS "IPA                                 : ${QT_IOS_IPA}")
         message(STATUS "UPLOAD_SYMBOL                       : ${QT_IOS_UPLOAD_SYMBOL}")
-        message(STATUS "DISTRIBUTION_METHOD                 : ${QT_IOS_DISTRIBUTION_METHOD}")
         message(STATUS "RESOURCE_FILES                      : ${QT_IOS_RESOURCE_FILES}")
         message(STATUS "------ QtIosCMake END Configuration ------")
     endif() # QT_IOS_VERBOSE
@@ -283,6 +274,7 @@ function(add_qt_ios_app TARGET)
         message(STATUS "Set property MACOSX_BUNDLE to ${QT_IOS_TARGET}")
     endif() # QT_IOS_VERBOSE
     set_target_properties(${QT_IOS_TARGET} PROPERTIES MACOSX_BUNDLE ON)
+    set_target_properties(${QT_IOS_TARGET} PROPERTIES XCODE_ATTRIBUTE_ENABLE_BITCODE "NO")
 
     # Qt Mess
     function(qt_ios_clean_paths)
@@ -539,71 +531,6 @@ function(add_qt_ios_app TARGET)
     if(${PLATFORM_INT} MATCHES ".*SIMULATOR.*" AND QT_IOS_IPA)
         unset(QT_IOS_IPA)
         message(WARNING "Ipa can't be enabled for simulator.")
-    endif()
-
-    if(QT_IOS_IPA)
-
-        set(QT_IOS_TARGET_ARCHIVE ${QT_IOS_TARGET}Archive)
-        set(QT_IOS_TARGET_IPA ${QT_IOS_TARGET}Ipa)
-
-        set(QT_IOS_TARGET_ARCHIVE_PATH ${CMAKE_CURRENT_BINARY_DIR}/${QT_IOS_TARGET}.xcarchive)
-        set(QT_IOS_TARGET_IPA_PATH ${CMAKE_CURRENT_BINARY_DIR}/${QT_IOS_TARGET_IPA})
-
-        # Generate archive
-        add_custom_target(${QT_IOS_TARGET_ARCHIVE}
-          ALL
-          DEPENDS ${QT_IOS_TARGET}
-          COMMAND xcodebuild
-            -project ${PROJECT_BINARY_DIR}/${CMAKE_PROJECT_NAME}.xcodeproj
-            -scheme ${QT_IOS_TARGET}
-            -archivePath ${QT_IOS_TARGET_ARCHIVE_PATH}
-            archive
-        )
-
-        # Generate IPA
-        if(QT_IOS_PROVISIONING_PROFILE_SPECIFIER)
-            set(QT_IOS_EXPORT_SIGNING_TYPE "manual")
-        else()
-            set(QT_IOS_EXPORT_SIGNING_TYPE "automatic")
-        endif()
-
-        set(QT_IOS_PROVISIONING_PROFILES_KEY
-            "<key>provisioningProfiles</key>\n    <dict>\n        <key>${QT_IOS_BUNDLE_IDENTIFIER}</key>\n        <string>${QT_IOS_PROVISIONING_PROFILE_SPECIFIER}</string>\n     </dict>\n"
-        )
-
-        if(ENABLE_BITCODE)
-            set(QT_IOS_ENABLE_BITCODE TRUE)
-        endif()
-
-        if(QT_IOS_ENABLE_BITCODE)
-            set(QT_IOS_ENABLE_BITCODE_KEY "<key>compileBitcode</key><true/>")
-        else()
-            set(QT_IOS_ENABLE_BITCODE_KEY "")
-        endif()
-
-        if(QT_IOS_UPLOAD_SYMBOL)
-            set(QT_IOS_UPLOAD_SYMBOL_KEY "<key>uploadSymbols</key><true/>")
-        else()
-            set(QT_IOS_UPLOAD_SYMBOL_KEY "")
-        endif()
-
-        if(QT_IOS_PHOTO_LIBRARY_USAGE_DESCRIPTION)
-            set(MACOSX_BUNDLE_PHOTO_LIBRARY_USAGE_DESCRIPTION "<key>NSPhotoLibraryUsageDescription</key> <string>${QT_IOS_PHOTO_LIBRARY_USAGE_DESCRIPTION}</string>" PARENT_SCOPE)
-        endif()
-
-        set(QT_IOS_EXPORT_OPTIONS_FILE ${CMAKE_CURRENT_BINARY_DIR}/${QT_IOS_TARGET}ExportOptions.plist)
-        configure_file(${QT_IOS_SOURCE_DIR}/ExportOptions.plist.in ${QT_IOS_EXPORT_OPTIONS_FILE})
-
-        add_custom_target(${QT_IOS_TARGET_IPA}
-          ALL
-          DEPENDS ${QT_IOS_TARGET_ARCHIVE}
-          COMMAND xcodebuild -exportArchive
-          -archivePath ${QT_IOS_TARGET_ARCHIVE_PATH}
-          -exportOptionsPlist ${QT_IOS_EXPORT_OPTIONS_FILE}
-          -exportPath ${QT_IOS_TARGET_IPA_PATH}
-          ${QT_IOS_EXPORT_ARCHIVE_XCODEBUILD_FLAGS}
-        )
-
     endif()
 
 endfunction()

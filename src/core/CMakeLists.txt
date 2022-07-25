@@ -240,6 +240,7 @@ if(IOS)
   # to include <qpa/qplatformnativeinterface.h>
   target_include_directories(qfield_core SYSTEM
                              PRIVATE ${${QT_PKG}Gui_PRIVATE_INCLUDE_DIRS})
+  target_compile_definitions(qfield_core PRIVATE -DQT_NO_PRINTER)
 endif()
 
 target_include_directories(
