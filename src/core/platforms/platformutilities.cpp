@@ -68,6 +68,11 @@ QString PlatformUtilities::systemGenericDataLocation() const
   return QStandardPaths::standardLocations( QStandardPaths::GenericDataLocation ).first();
 }
 
+QString PlatformUtilities::systemLocalDataLocation( const QString &subDir ) const
+{
+  return QStandardPaths::writableLocation( QStandardPaths::AppDataLocation ) + '/' + subDir;
+}
+
 QString PlatformUtilities::qgsProject() const
 {
   return QString();
@@ -124,6 +129,45 @@ QStringList PlatformUtilities::additionalApplicationDirectories() const
 QStringList PlatformUtilities::rootDirectories() const
 {
   return QStringList() << QString();
+}
+
+void PlatformUtilities::importProjectFolder() const
+{}
+
+void PlatformUtilities::importProjectArchive() const
+{}
+
+void PlatformUtilities::importDatasets() const
+{}
+
+void PlatformUtilities::exportFolderTo( const QString &path ) const
+{
+  Q_UNUSED( path )
+}
+
+void PlatformUtilities::exportDatasetTo( const QString &path ) const
+{
+  Q_UNUSED( path )
+}
+
+void PlatformUtilities::sendDatasetTo( const QString &path ) const
+{
+  Q_UNUSED( path )
+}
+
+void PlatformUtilities::sendCompressedFolderTo( const QString &path ) const
+{
+  Q_UNUSED( path )
+}
+
+void PlatformUtilities::removeDataset( const QString &path ) const
+{
+  Q_UNUSED( path )
+}
+
+void PlatformUtilities::removeFolder( const QString &path ) const
+{
+  Q_UNUSED( path )
 }
 
 PictureSource *PlatformUtilities::getCameraPicture( QQuickItem *parent, const QString &prefix, const QString &pictureFilePath, const QString &suffix )
@@ -209,6 +253,7 @@ void PlatformUtilities::initiateSentry()
   sentry_options_set_dsn( options, qfield::sentryDsn.toUtf8().constData() );
   sentry_options_set_environment( options, qfield::sentryEnv.toUtf8().constData() );
   sentry_options_set_debug( options, 1 );
+  sentry_options_set_database_path( options, systemLocalDataLocation( QStringLiteral( ".sentry-native" ) ).toUtf8().constData() );
   sentry_init( options );
 #endif
 }

@@ -58,17 +58,41 @@ class QFIELD_CORE_EXPORT PlatformUtilities : public QObject
      */
     virtual PlatformUtilities::Capabilities capabilities() const;
 
+    /**
+     * This method can be used to implement platform specific initialization tasks.
+     * This is implemented for Android to extract app assets to location where it can
+     * be accessed via filesystem.
+     */
     virtual void initSystem();
 
     /**
      * The source path to generic data location.
      * Under this path, there should be the app specific directories qgis/ proj/ qfield/ ...
-     * Refers to /share or /usr/share on Linux
+     * Refers to /share or /usr/share on Linux.
+     * This path is assumed to be read only.
      */
     virtual QString systemGenericDataLocation() const;
+
+    /**
+     * \returns a directory where local data can be stored.
+     *          this includes local qfieldcloud data or sample projects.
+     *          A \a subDir is appended to the path.
+     */
+    virtual QString systemLocalDataLocation( const QString &subDir ) const;
+
+    /**
+     * \returns a QGIS project which should be opened. This depends on platform specific
+     *          implementations. This is currently only available on Android via Intents.
+     */
     virtual QString qgsProject() const;
+    /**
+     * \returns a list of data directories where user data is searched.
+     *          User data are pg_service.conf, authentication config, grids, ...
+     */
     Q_INVOKABLE virtual QStringList appDataDirs() const;
     Q_INVOKABLE QStringList availableGrids() const;
+
+    // TODO: move these functions to fileutils. Make sure to adjust any qml code relying on this.
     Q_INVOKABLE bool createDir( const QString &path, const QString &dirname ) const;
     Q_INVOKABLE bool rmFile( const QString &filename ) const;
     Q_INVOKABLE bool renameFile( const QString &filename, const QString &newname ) const;
@@ -90,27 +114,28 @@ class QFIELD_CORE_EXPORT PlatformUtilities : public QObject
     virtual QStringList rootDirectories() const;
 
     //! Requests and imports a project folder into QField's application directory action
-    Q_INVOKABLE virtual void importProjectFolder() const {};
+    Q_INVOKABLE virtual void importProjectFolder() const;
     //! Requests and imports a project archive into QField's application directory action
-    Q_INVOKABLE virtual void importProjectArchive() const {};
+    Q_INVOKABLE virtual void importProjectArchive() const;
     //! Requests and imports one or more datasets into QField's application directory action
-    Q_INVOKABLE virtual void importDatasets() const {};
+    Q_INVOKABLE virtual void importDatasets() const;
 
     //! Exports a folder \a path to a user-specified location
-    Q_INVOKABLE virtual void exportFolderTo( const QString &path ) const {};
+    Q_INVOKABLE virtual void exportFolderTo( const QString &path ) const;
     //! Exports a dataset \a path to a user-specified location
-    Q_INVOKABLE virtual void exportDatasetTo( const QString &path ) const {};
+    Q_INVOKABLE virtual void exportDatasetTo( const QString &path ) const;
 
     //! Sends a dataset \a path via the platform native API
-    Q_INVOKABLE virtual void sendDatasetTo( const QString &path ) const {};
+    Q_INVOKABLE virtual void sendDatasetTo( const QString &path ) const;
     //! Compresses a folder \a path and sends it via the platform native API
-    Q_INVOKABLE virtual void sendCompressedFolderTo( const QString &path ) const {};
+    Q_INVOKABLE virtual void sendCompressedFolderTo( const QString &path ) const;
 
     //! Removes a given dataset \a path
-    Q_INVOKABLE virtual void removeDataset( const QString &path ) const {};
+    Q_INVOKABLE virtual void removeDataset( const QString &path ) const;
+    ;
 
     //! Removes a given folder \a path
-    Q_INVOKABLE virtual void removeFolder( const QString &path ) const {};
+    Q_INVOKABLE virtual void removeFolder( const QString &path ) const;
 
     /**
      * Get a picture from camera and copy it to the requested prefix

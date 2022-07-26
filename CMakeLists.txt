@@ -8,11 +8,11 @@ set(CMAKE_COLOR_MAKEFILE ON)
 set(APP_NAME "QField" CACHE STRING "Application Name")
 set(APP_ICON "qfield_logo" CACHE STRING "Application Icon")
 set(APK_VERSION_CODE "1" CACHE STRING "Apk Version Code (Example: 1)")
-set(APP_VERSION "" CACHE STRING "Application Version (Example: 1.0.0)")
+set(APP_VERSION "0" CACHE STRING "Application Version (Example: v1.0.0)")
 set(APP_VERSION_STR "local - dev" CACHE STRING "Application Version Name (Example: 1.0.0 - Homerun)")
 set(APP_PACKAGE_NAME "qfield" CACHE STRING "Package name suffix. E.g. qfield --> ch.opengis.qfield")
 
-set(BUILD_WITH_QT6 OFF CACHE BOOLEAN "Build with Qt6")
+set(BUILD_WITH_QT6 OFF CACHE BOOL "Build with Qt6")
 
 string(REGEX REPLACE "v" "" CLEAN_APP_VERSION "${APP_VERSION}")
 
@@ -109,8 +109,6 @@ if (ANDROID)
   # This is necessary in order for CMake to be able to detect libraries in OSGeo4A
   list(APPEND CMAKE_FIND_ROOT_PATH /)
   SET(VCPKG_BASE_DIR "${_VCPKG_INSTALLED_DIR}/${VCPKG_TARGET_TRIPLET}")
-
-  add_definitions(-DQGIS_INSTALL_DIR="") # TODO: do we need osgeo4a/[lib]/files here? see qgis.pri
 
   # Android SDK stuff
   set(ANDROID_PACKAGE_SOURCE_DIR ${CMAKE_BINARY_DIR}/android-template)

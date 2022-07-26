@@ -136,14 +136,20 @@ void qfMessageHandler( QtMsgType type, const QMessageLogContext &context, const 
     originalMessageHandler( type, context, msg );
 }
 
-int main( int argc, char **argv )
+void initGraphics()
 {
   // Enables antialiasing in QML scenes
   QSurfaceFormat format;
   format.setSamples( 4 );
   QSurfaceFormat::setDefaultFormat( format );
+  QGuiApplication::setAttribute( Qt::AA_EnableHighDpiScaling );
+}
 
-  // A dummy app for reading settings that need to be used before constructing the real app
+int main( int argc, char **argv )
+{
+  initGraphics();
+
+  // Read settings, use a dummy app to get access to QSettings
   QCoreApplication *dummyApp = new QCoreApplication( argc, argv );
   QCoreApplication::setOrganizationName( "OPENGIS.ch" );
   QCoreApplication::setOrganizationDomain( "opengis.ch" );
@@ -156,6 +162,8 @@ int main( int argc, char **argv )
     enableSentry = settings.value( "/enableInfoCollection", true ).toBool();
   }
   delete dummyApp;
+
+  // Init resources
   Q_INIT_RESOURCE( qml );
 
 #if WITH_SENTRY
@@ -166,56 +174,35 @@ int main( int argc, char **argv )
   }
   auto sentryClose = qScopeGuard( [] { sentry_close(); } );
 #else
-  ( void ) enableSentry;
+  Q_UNUSED( enableSentry );
 #endif
+
+  QtWebView::initialize();
 
   if ( !customLanguage.isEmpty() )
     QgsApplication::setTranslation( customLanguage );
 
-  PlatformUtilities::instance()->initSystem();
-
-  QGuiApplication::setAttribute( Qt::AA_EnableHighDpiScaling );
-  QtWebView::initialize();
-
-#if defined( Q_OS_ANDROID )
-  const QString projPath = PlatformUtilities::instance()->systemGenericDataLocation() + QStringLiteral( "/proj" );
-
-  const QDir rootPath = QStandardPaths::writableLocation( QStandardPaths::AppDataLocation );
-  rootPath.mkdir( QStringLiteral( "qgis_profile" ) );
-  const QString profilePath = QStandardPaths::writableLocation( QStandardPaths::AppDataLocation ) + QStringLiteral( "/qgis_profile" );
-  QgsApplication app( argc, argv, true, profilePath, QStringLiteral( "mobile" ) );
+  PlatformUtilities *platformUtils = PlatformUtilities::instance();
+  platformUtils->initSystem();
 
   QSettings settings;
+  // Let's make sure we have a writable path for the qgis_profile on every platform
+  const QString profilePath = platformUtils->systemLocalDataLocation( QStringLiteral( "/qgis_profile" ) );
+  QDir().mkdir( profilePath );
 
-  app.setThemeName( settings.value( "/Themes", "default" ).toString() );
-  app.setPrefixPath( "" QGIS_INSTALL_DIR, true );
-  app.setPluginPath( PlatformUtilities::instance()->systemGenericDataLocation() + QStringLiteral( "/plugins" ) );
-  app.setPkgDataPath( PlatformUtilities::instance()->systemGenericDataLocation() + QStringLiteral( "/qgis" ) );
-
-  app.createDatabase();
-#elif defined( Q_OS_IOS )
-  const QString projPath = PlatformUtilities::instance()->systemGenericDataLocation() + QStringLiteral( "/proj/data" );
-
-  const QDir rootPath = QStandardPaths::writableLocation( QStandardPaths::AppDataLocation );
-  rootPath.mkdir( QStringLiteral( "qgis_profile" ) );
-  const QString profilePath = QStandardPaths::writableLocation( QStandardPaths::AppDataLocation ) + QStringLiteral( "/qgis_profile" );
   QgsApplication app( argc, argv, true, profilePath, QStringLiteral( "mobile" ) );
+  app.setThemeName( settings.value( "/Themes", "default" ).toString() );
   app.setPkgDataPath( PlatformUtilities::instance()->systemGenericDataLocation() + QStringLiteral( "/qgis" ) );
   app.createDatabase();
-#else
-  QgsApplication app( argc, argv, true );
-  QSettings settings;
-  app.setThemeName( settings.value( "/Themes", "default" ).toString() );
 
 #ifdef RELATIVE_PREFIX_PATH
+  app.setPrefixPath( app.applicationDirPath() + "/..", true );
   qputenv( "GDAL_DATA", QDir::toNativeSeparators( app.applicationDirPath() + "/../share/gdal" ).toLocal8Bit() );
   const QString projPath( QDir::toNativeSeparators( app.applicationDirPath() + "/../share/proj" ) );
-  app.setPrefixPath( app.applicationDirPath() + "/..", true );
 #else
-  const QString projPath;
-  app.setPrefixPath( CMAKE_INSTALL_PREFIX, true );
+  const QString projPath = PlatformUtilities::instance()->systemGenericDataLocation() + QStringLiteral( "/proj/data" );
 #endif
-#endif
+
   // cppcheck-suppress knownConditionTrueFalse
   // cppcheck-suppress reademptycontainer
   if ( !projPath.isNull() )
@@ -224,11 +211,14 @@ int main( int argc, char **argv )
     const char *projPaths[] { projPath.toUtf8().constData() };
     proj_context_set_search_paths( nullptr, 1, projPaths );
   }
+  else
+  {
+    qInfo() << "Proj path: {System}";
+  }
 
   originalMessageHandler = qInstallMessageHandler( qfMessageHandler );
   app.initQgis();
 
-  //set NativeFormat for settings
   QSettings::setDefaultFormat( QSettings::NativeFormat );
 
   // Set up the QSettings environment must be done after qapp is created
