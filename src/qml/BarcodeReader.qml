@@ -28,6 +28,10 @@ Popup {
     barcodeDecoder.decodedString = '';
   }
 
+  onAboutToHide: {
+    camera.flash.mode = Camera.FlashOff;
+  }
+
   BarcodeDecoder {
     id: barcodeDecoder
 
@@ -47,6 +51,8 @@ Popup {
         focusMode: Camera.FocusContinuous
         focusPointMode: Camera.FocusPointCenter
     }
+
+    flash.mode: Camera.FlashOff
   }
 
   Page {
@@ -183,6 +189,45 @@ Popup {
             PathLine { x: 25; y: aim.height - 20 }
             PathArc { x: 20; y: aim.height - 25; radiusX: 5; radiusY: 5 }
             PathLine { x: 20; y: aim.height - 60; }
+          }
+        }
+
+
+        QfToolButton {
+          id: flashlightButton
+          anchors.bottom: parent.bottom
+          anchors.bottomMargin: 20
+          anchors.horizontalCenter: parent.horizontalCenter
+          round: true
+          iconSource: Theme.getThemeVectorIcon( 'ic_flashlight_white_48dp' )
+          bgcolor: Qt.hsla(Theme.darkGray.hslHue, Theme.darkGray.hslSaturation, Theme.darkGray.hslLightness, 0.3)
+
+          visible: camera.flash.supportedModes.includes(Camera.FlashTorch)
+          state: camera.flash.mode !== Camera.FlashOff ? "On" : "Off"
+          states: [
+            State {
+              name: "Off"
+              PropertyChanges {
+                target: flashlightButton
+                iconSource: Theme.getThemeVectorIcon( "ic_flashlight_white_48dp" )
+                bgcolor: Qt.hsla(Theme.darkGray.hslHue, Theme.darkGray.hslSaturation, Theme.darkGray.hslLightness, 0.3)
+              }
+            },
+
+            State {
+              name: "On"
+              PropertyChanges {
+                target: freehandButton
+                iconSource: Theme.getThemeVectorIcon( "ic_flashlight_green_48dp" )
+                bgcolor: Theme.darkGray
+              }
+            }
+          ]
+
+          onClicked: {
+            camera.flash.mode = camera.flash.mode === Camera.FlashOff
+                                ? Camera.FlashTorch
+                                : Camera.FlashOff;
           }
         }
       }
