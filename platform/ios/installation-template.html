@@ -16,22 +16,27 @@ body {
  font-size: 16px;
  background-color: #ffffff;
  color: #000000;
+ text-align: center;
 }
 
-a, a:visited {
+a, a:visited, a:hover {
+ display: inline-block;
+ width: 100%;
+ width: calc(100% - 20px);
  text-decoration: none;
- background-color: #64b5f6;
- color: #333333;
- padding: 1em 2em 1em 2em;
+ background-color: #80cc28;
+ color: #ffffff;
+ padding: 0.8em 0.5em 0.8em 0.5em;
  border-radius: 0.5em;
+ box-sizing: border-box;
 }
 
-a:hover {
- color: #80cc28;
- text-decoration: none;
+a:active {
+ background-color: #5c8e22;
 }
 </style>
 </head>
 <body>
+  <p>IPA filename: ${PLIST_URL}</p>
   <a href="itms-services://?action=download-manifest&url=${PLIST_URL}">Install iOS IPA</a>
 </body></html>
