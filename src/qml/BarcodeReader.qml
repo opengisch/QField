@@ -19,8 +19,10 @@ Popup {
   height: Math.min(mainWindow.height - 40, popupWidth + toolBar.height + acceptButton.height)
   x: (parent.width - width) / 2
   y: (parent.height - height) / 2
-
   padding: 0
+
+  closePolicy: Popup.CloseOnEscape
+  dim: true
 
   onAboutToShow: {
     barcodeDecoder.decodedString = '';

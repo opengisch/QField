@@ -3012,6 +3012,17 @@ ApplicationWindow {
       }
   }
 
+  MouseArea {
+    id: barcodeReaderCatcher
+    anchors.fill: parent
+    enabled: barcodeReader.visible
+
+    onClicked: {
+      // Needed to avoid people modifying context within which the code reader was called
+      return;
+    }
+  }
+
   BarcodeReader {
     id: barcodeReader
     visible: false
