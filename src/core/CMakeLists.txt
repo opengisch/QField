@@ -220,8 +220,8 @@ elseif(${CMAKE_SYSTEM_NAME} STREQUAL "iOS")
       platforms/ios/iospicturesource.mm platforms/ios/iosprojectsource.mm)
 endif()
 
-find_package(Sqlite3)
-find_package(ZXing)
+find_package(SQLite3 REQUIRED)
+find_package(ZXing REQUIRED)
 
 add_library(qfield_core STATIC ${QFIELD_CORE_SRCS} ${QFIELD_CORE_HDRS})
 
@@ -238,9 +238,8 @@ target_include_directories(qfield_core SYSTEM
                            PUBLIC ${CMAKE_CURRENT_BINARY_DIR})
 
 target_include_directories(
-  qfield_core SYSTEM
-  PRIVATE ${PROJ_INCLUDE_DIR} ${GDAL_INCLUDE_DIR} ${Qca_INCLUDE_DIR}
-          ${QTKEYCHAIN_INCLUDE_DIR} ${SQLITE3_INCLUDE_DIR})
+  qfield_core SYSTEM PRIVATE ${GDAL_INCLUDE_DIR} ${Qca_INCLUDE_DIR}
+                             ${QTKEYCHAIN_INCLUDE_DIR})
 if(IOS)
   # to include <qpa/qplatformnativeinterface.h>
   target_include_directories(qfield_core SYSTEM
@@ -297,9 +296,9 @@ target_link_libraries(
          ${QT_PKG}::Multimedia
          QGIS::Core
          QGIS::Analysis
-         ZXing::Core
          ZXing::ZXing
-         ${PROJ_LIBRARY}
+         PROJ::proj
+         SQLite::SQLite3
          ${GDAL_LIBRARIES})
 
 if(WITH_BLUETOOTH)

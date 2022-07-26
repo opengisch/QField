@@ -73,7 +73,7 @@ set(WITH_BLUETOOTH
 set(WITH_SPIX FALSE CACHE BOOL "Compile with Spix for testing")
 
 if (WITH_SPIX)
-  find_package(Spix)
+  find_package(Spix REQUIRED)
 endif ()
 
 set(SENTRY_DSN "" CACHE STRING "The sentry dsn for logging purpose. If not set, sentry will be disabled")
@@ -125,14 +125,10 @@ find_package(${QT_PKG} COMPONENTS Concurrent Core Qml Gui Xml Positioning Widget
 find_package(${QT_PKG} COMPONENTS PrintSupport QUIET)
 
 find_package(QGIS REQUIRED)
-if(WITH_VCPKG)
-  find_package(PROJ)
-else()
-  find_package(Proj)
-endif()
-find_package(GDAL)
+find_package(PROJ REQUIRED)
+find_package(GDAL REQUIRED)
 find_package(Qca REQUIRED)
-find_package(QtKeychain)
+find_package(QtKeychain REQUIRED)
 
 set(ENABLE_TESTS CACHE BOOL "Build unit tests")
 
@@ -150,12 +146,9 @@ endif()
 
 if(CMAKE_SYSTEM_NAME STREQUAL "Darwin")
   set(SHARE_DIR "${CMAKE_BINARY_DIR}/output/bin/qfield.app/Contents/share")
-elseif(CMAKE_SYSTEM_NAME STREQUAL "iOS")
-  set(SHARE_DIR "${CMAKE_BINARY_DIR}/output/share")
-  set(QFIELD_RESOURCE_FILES ${SHARE_DIR})
-  file(MAKE_DIRECTORY ${SHARE_DIR})
-  file(COPY resources/ DESTINATION "${SHARE_DIR}/qfield/")
 elseif(CMAKE_SYSTEM_NAME STREQUAL "Android")
+  set(SHARE_DIR "${CMAKE_CURRENT_BINARY_DIR}/android-build/assets/share")
+else()
   set(SHARE_DIR "${CMAKE_BINARY_DIR}/output/share")
 endif()
 
@@ -173,15 +166,6 @@ if(WITH_VCPKG)
   function(copy_resource source target)
     add_custom_command(TARGET deploy
       POST_BUILD
-      COMMAND ${CMAKE_COMMAND} -E make_directory "${CMAKE_BINARY_DIR}/output/bin/${target}"
-    )
-    add_custom_command(TARGET deploy
-                      POST_BUILD
-                      COMMAND ${CMAKE_COMMAND} -E copy_directory "${source}" "${CMAKE_BINARY_DIR}/output/bin/${target}"
-    )
-
-    add_custom_command(TARGET deploy
-      POST_BUILD
       COMMAND ${CMAKE_COMMAND} -E make_directory "${SHARE_DIR}/${target}"
     )
     add_custom_command(TARGET deploy
@@ -190,9 +174,9 @@ if(WITH_VCPKG)
     )
   endfunction()
 
-  SET(VCPKG_BASE_DIR "${_VCPKG_INSTALLED_DIR}/${VCPKG_TARGET_TRIPLET}")
+  set(VCPKG_BASE_DIR "${_VCPKG_INSTALLED_DIR}/${VCPKG_TARGET_TRIPLET}")
   if(MSVC)
-    SET(QGIS_PLUGIN_DIR "${VCPKG_BASE_DIR}/tools/qgis/plugins")
+    set(QGIS_PLUGIN_DIR "${VCPKG_BASE_DIR}/tools/qgis/plugins")
     file(GLOB PROVIDER_LIBS
       "${QGIS_PLUGIN_DIR}/*provider*.dll"
     )
@@ -202,7 +186,7 @@ if(WITH_VCPKG)
     # From QGIS CMakeLists.txt
     set(QGIS_PLUGIN_INSTALL_PREFIX "plugins")
   else()
-    SET(QGIS_PLUGIN_DIR "${VCPKG_BASE_DIR}/lib/qgis/plugins")
+    set(QGIS_PLUGIN_DIR "${VCPKG_BASE_DIR}/lib/qgis/plugins")
     file(GLOB PROVIDER_LIBS
       "${QGIS_PLUGIN_DIR}/*provider*.so"
     )
@@ -233,6 +217,7 @@ if(WITH_VCPKG)
   copy_resource("${VCPKG_BASE_DIR}/share/qgis/resources" "qgis/resources")
   copy_resource("${VCPKG_BASE_DIR}/share/proj" "proj")
   copy_resource("${VCPKG_BASE_DIR}/share/gdal" "gdal")
+  copy_resource("${CMAKE_SOURCE_DIR}/resources/" "qfield")
   install(DIRECTORY "${VCPKG_BASE_DIR}/share/qgis/resources/" DESTINATION "share/qgis/resources")
   install(DIRECTORY "${VCPKG_BASE_DIR}/share/proj/data/" DESTINATION "share/proj")
   install(DIRECTORY "${VCPKG_BASE_DIR}/share/gdal/" DESTINATION "share/gdal")
