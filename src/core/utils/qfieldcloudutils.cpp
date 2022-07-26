@@ -13,6 +13,7 @@
  *                                                                         *
  ***************************************************************************/
 
+#include "platformutilities.h"
 #include "qfieldcloudutils.h"
 
 #include <QDir>
@@ -31,7 +32,7 @@ void QFieldCloudUtils::setLocalCloudDirectory( const QString &path )
 const QString QFieldCloudUtils::localCloudDirectory()
 {
   QString cloudDirectoryPath = sLocalCloudDirectory.isNull()
-                                 ? QStandardPaths::writableLocation( QStandardPaths::AppDataLocation ) + QStringLiteral( "/cloud_projects" )
+                                 ? PlatformUtilities::instance()->systemLocalDataLocation( QStringLiteral( "cloud_projects" ) )
                                  : sLocalCloudDirectory;
   return cloudDirectoryPath;
 }
