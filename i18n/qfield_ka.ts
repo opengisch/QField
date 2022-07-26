@@ -1707,49 +1707,49 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
         <translation type="vanished">შესვლა ვერ განხორციელდა</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldCloudLogin.qml" line="84"/>
+        <location filename="../src/qml/QFieldCloudLogin.qml" line="85"/>
         <source>Failed to sign in</source>
         <translation>შესვლა ვერ მოხერხდა</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldCloudLogin.qml" line="117"/>
+        <location filename="../src/qml/QFieldCloudLogin.qml" line="118"/>
         <source>Server URL
 (Leave empty to use the default server)</source>
         <translation>სერვერის მისამართი (URL)
 (ნაგულისხმევი სერვერისთვის დატოვეთ ცარიელი)</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldCloudLogin.qml" line="152"/>
+        <location filename="../src/qml/QFieldCloudLogin.qml" line="153"/>
         <source>Username or email</source>
         <translation>მომხმარებელი ან პაროლი</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldCloudLogin.qml" line="176"/>
+        <location filename="../src/qml/QFieldCloudLogin.qml" line="177"/>
         <source>Password</source>
         <translation>პაროლი</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldCloudLogin.qml" line="203"/>
+        <location filename="../src/qml/QFieldCloudLogin.qml" line="204"/>
         <source>Sign out</source>
         <translation>გასვლა</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldCloudLogin.qml" line="203"/>
+        <location filename="../src/qml/QFieldCloudLogin.qml" line="204"/>
         <source>Signing in, please wait</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/qml/QFieldCloudLogin.qml" line="203"/>
+        <location filename="../src/qml/QFieldCloudLogin.qml" line="204"/>
         <source>Sign in</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/qml/QFieldCloudLogin.qml" line="213"/>
+        <location filename="../src/qml/QFieldCloudLogin.qml" line="214"/>
         <source>New user?</source>
         <translation>ახალი ბრძანდებით?</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldCloudLogin.qml" line="213"/>
+        <location filename="../src/qml/QFieldCloudLogin.qml" line="214"/>
         <source>Register an account</source>
         <translation>ანგარიშის შექმნა</translation>
     </message>
@@ -1766,12 +1766,12 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
         <translation type="vanished">ავტორიზაცია</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldCloudLogin.qml" line="226"/>
+        <location filename="../src/qml/QFieldCloudLogin.qml" line="227"/>
         <source>The easiest way to transfer you project from QGIS to your devices!</source>
         <translation>თქვენი პროექტების თქვენსავე მოწყობილობში ტრანსფერის უმოკლესი გზა!</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldCloudLogin.qml" line="227"/>
+        <location filename="../src/qml/QFieldCloudLogin.qml" line="228"/>
         <source>Learn more about QFieldCloud</source>
         <translation>გაიგე მეტი QFieldCloud-ის შესახებ</translation>
     </message>

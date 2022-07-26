@@ -1714,48 +1714,48 @@ Les géométries des objets vont être combinées dans l&apos;objet &apos;%1&apo
         <translation type="vanished">Échec à la connexion</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldCloudLogin.qml" line="84"/>
+        <location filename="../src/qml/QFieldCloudLogin.qml" line="85"/>
         <source>Failed to sign in</source>
         <translation>Échec d&apos;identification</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldCloudLogin.qml" line="117"/>
+        <location filename="../src/qml/QFieldCloudLogin.qml" line="118"/>
         <source>Server URL
 (Leave empty to use the default server)</source>
         <translation>URL du serveur (Laissez vide pour utiliser le serveur par défaut)</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldCloudLogin.qml" line="152"/>
+        <location filename="../src/qml/QFieldCloudLogin.qml" line="153"/>
         <source>Username or email</source>
         <translation>Nom d&apos;utilisateur ou e-mail</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldCloudLogin.qml" line="176"/>
+        <location filename="../src/qml/QFieldCloudLogin.qml" line="177"/>
         <source>Password</source>
         <translation>Mot de passe</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldCloudLogin.qml" line="203"/>
+        <location filename="../src/qml/QFieldCloudLogin.qml" line="204"/>
         <source>Sign out</source>
         <translation>Se déconnecter</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldCloudLogin.qml" line="203"/>
+        <location filename="../src/qml/QFieldCloudLogin.qml" line="204"/>
         <source>Signing in, please wait</source>
         <translation>Identification en cours, veuillez patienter</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldCloudLogin.qml" line="203"/>
+        <location filename="../src/qml/QFieldCloudLogin.qml" line="204"/>
         <source>Sign in</source>
         <translation>S&apos;identifier</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldCloudLogin.qml" line="213"/>
+        <location filename="../src/qml/QFieldCloudLogin.qml" line="214"/>
         <source>New user?</source>
         <translation>Nouvel utilisateur?</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldCloudLogin.qml" line="213"/>
+        <location filename="../src/qml/QFieldCloudLogin.qml" line="214"/>
         <source>Register an account</source>
         <translation>Enregistrer un compte</translation>
     </message>
@@ -1772,12 +1772,12 @@ Les géométries des objets vont être combinées dans l&apos;objet &apos;%1&apo
         <translation type="vanished">Connexion</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldCloudLogin.qml" line="226"/>
+        <location filename="../src/qml/QFieldCloudLogin.qml" line="227"/>
         <source>The easiest way to transfer you project from QGIS to your devices!</source>
         <translation>La manière la plus aisée de transférer votre projet de QGIS vers vos périphériques !</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldCloudLogin.qml" line="227"/>
+        <location filename="../src/qml/QFieldCloudLogin.qml" line="228"/>
         <source>Learn more about QFieldCloud</source>
         <translation>En apprendre davantage sur QFieldCloud</translation>
     </message>

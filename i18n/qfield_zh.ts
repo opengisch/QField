@@ -1711,49 +1711,49 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
         <translation type="vanished">登录失败</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldCloudLogin.qml" line="84"/>
+        <location filename="../src/qml/QFieldCloudLogin.qml" line="85"/>
         <source>Failed to sign in</source>
         <translation>登录失败</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldCloudLogin.qml" line="117"/>
+        <location filename="../src/qml/QFieldCloudLogin.qml" line="118"/>
         <source>Server URL
 (Leave empty to use the default server)</source>
         <translation>服务器URL地址
 （留空使用默认服务器的URL地址）</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldCloudLogin.qml" line="152"/>
+        <location filename="../src/qml/QFieldCloudLogin.qml" line="153"/>
         <source>Username or email</source>
         <translation>用户名或邮箱地址</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldCloudLogin.qml" line="176"/>
+        <location filename="../src/qml/QFieldCloudLogin.qml" line="177"/>
         <source>Password</source>
         <translation>密码</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldCloudLogin.qml" line="203"/>
+        <location filename="../src/qml/QFieldCloudLogin.qml" line="204"/>
         <source>Sign out</source>
         <translation>注销</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldCloudLogin.qml" line="203"/>
+        <location filename="../src/qml/QFieldCloudLogin.qml" line="204"/>
         <source>Signing in, please wait</source>
         <translation>正在登录，请稍候</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldCloudLogin.qml" line="203"/>
+        <location filename="../src/qml/QFieldCloudLogin.qml" line="204"/>
         <source>Sign in</source>
         <translation>登录</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldCloudLogin.qml" line="213"/>
+        <location filename="../src/qml/QFieldCloudLogin.qml" line="214"/>
         <source>New user?</source>
         <translation>是否为新用户？</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldCloudLogin.qml" line="213"/>
+        <location filename="../src/qml/QFieldCloudLogin.qml" line="214"/>
         <source>Register an account</source>
         <translation>注册帐户</translation>
     </message>
@@ -1770,12 +1770,12 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
         <translation type="vanished">登录</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldCloudLogin.qml" line="226"/>
+        <location filename="../src/qml/QFieldCloudLogin.qml" line="227"/>
         <source>The easiest way to transfer you project from QGIS to your devices!</source>
         <translation>将工程从QGIS传输到设备的最简单方法！</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldCloudLogin.qml" line="227"/>
+        <location filename="../src/qml/QFieldCloudLogin.qml" line="228"/>
         <source>Learn more about QFieldCloud</source>
         <translation>了解有关QField云的更多信息</translation>
     </message>

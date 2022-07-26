@@ -1715,49 +1715,49 @@ As geometrias dos recursos serão combinadas no recurso &apos;% &apos;, que mant
         <translation type="vanished">Falha na autenticação</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldCloudLogin.qml" line="84"/>
+        <location filename="../src/qml/QFieldCloudLogin.qml" line="85"/>
         <source>Failed to sign in</source>
         <translation>Falha ao ligar-se</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldCloudLogin.qml" line="117"/>
+        <location filename="../src/qml/QFieldCloudLogin.qml" line="118"/>
         <source>Server URL
 (Leave empty to use the default server)</source>
         <translation>URL do Servidor
 (Deixe vazio se usar o servidor padrão)</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldCloudLogin.qml" line="152"/>
+        <location filename="../src/qml/QFieldCloudLogin.qml" line="153"/>
         <source>Username or email</source>
         <translation>Nome do utilizador ou email</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldCloudLogin.qml" line="176"/>
+        <location filename="../src/qml/QFieldCloudLogin.qml" line="177"/>
         <source>Password</source>
         <translation>Senha</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldCloudLogin.qml" line="203"/>
+        <location filename="../src/qml/QFieldCloudLogin.qml" line="204"/>
         <source>Sign out</source>
         <translation>Sair</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldCloudLogin.qml" line="203"/>
+        <location filename="../src/qml/QFieldCloudLogin.qml" line="204"/>
         <source>Signing in, please wait</source>
         <translation>A ligar-se, aguarde</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldCloudLogin.qml" line="203"/>
+        <location filename="../src/qml/QFieldCloudLogin.qml" line="204"/>
         <source>Sign in</source>
         <translation>Ligar-se</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldCloudLogin.qml" line="213"/>
+        <location filename="../src/qml/QFieldCloudLogin.qml" line="214"/>
         <source>New user?</source>
         <translation>Novo utilizador?</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldCloudLogin.qml" line="213"/>
+        <location filename="../src/qml/QFieldCloudLogin.qml" line="214"/>
         <source>Register an account</source>
         <translation>Registar uma conta</translation>
     </message>
@@ -1774,12 +1774,12 @@ As geometrias dos recursos serão combinadas no recurso &apos;% &apos;, que mant
         <translation type="vanished">Autenticar</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldCloudLogin.qml" line="226"/>
+        <location filename="../src/qml/QFieldCloudLogin.qml" line="227"/>
         <source>The easiest way to transfer you project from QGIS to your devices!</source>
         <translation>A forma mais fácil de transferir projetos do QGIS para seus dispositivos!</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldCloudLogin.qml" line="227"/>
+        <location filename="../src/qml/QFieldCloudLogin.qml" line="228"/>
         <source>Learn more about QFieldCloud</source>
         <translation>Aprenda mais sobre o QField Cloud</translation>
     </message>
