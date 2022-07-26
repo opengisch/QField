@@ -40,6 +40,11 @@ Popup {
     id: camera
     position: Camera.BackFace
     cameraState: barcodeReader.visible ? Camera.ActiveState : Camera.UnloadedState
+
+    focus {
+        focusMode: Camera.FocusContinuous
+        focusPointMode: Camera.FocusPointCenter
+    }
   }
 
   Page {
