@@ -199,7 +199,7 @@ QgisMobileapp::QgisMobileapp( QgsApplication *app, QObject *parent )
   handler.reset( mAuthRequestHandler );
   QgsNetworkAccessManager::instance()->setAuthHandler( std::move( handler ) );
 
-  QStringList dataDirs = PlatformUtilities::instance()->qfieldAppDataDirs();
+  QStringList dataDirs = PlatformUtilities::instance()->appDataDirs();
   if ( !dataDirs.isEmpty() )
   {
     //set localized data paths and register fonts
@@ -982,7 +982,7 @@ void QgisMobileapp::readProjectFile()
       }
       else
       {
-        const QStringList dataDirs = PlatformUtilities::instance()->qfieldAppDataDirs();
+        const QStringList dataDirs = PlatformUtilities::instance()->appDataDirs();
         bool projectFound = false;
         for ( const QString &dataDir : dataDirs )
         {

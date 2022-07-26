@@ -125,7 +125,7 @@ QString AndroidPlatformUtilities::qgsProject() const
   return getIntentExtra( "QGS_PROJECT" );
 }
 
-QStringList AndroidPlatformUtilities::qfieldAppDataDirs() const
+QStringList AndroidPlatformUtilities::appDataDirs() const
 {
   const QString dataDirs = getIntentExtra( "QFIELD_APP_DATA_DIRS" );
   return ( !dataDirs.isEmpty() ? dataDirs.split( "--;--" ) : QStringList() );

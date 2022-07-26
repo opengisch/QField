@@ -73,14 +73,14 @@ QString PlatformUtilities::qgsProject() const
   return QString();
 }
 
-QStringList PlatformUtilities::qfieldAppDataDirs() const
+QStringList PlatformUtilities::appDataDirs() const
 {
   return QStringList() << QStandardPaths::standardLocations( QStandardPaths::DocumentsLocation ).first() + QStringLiteral( "/QField/" );
 }
 
 QStringList PlatformUtilities::availableGrids() const
 {
-  QStringList dataDirs = qfieldAppDataDirs();
+  QStringList dataDirs = appDataDirs();
   QStringList grids;
   for ( const QString &dataDir : dataDirs )
   {

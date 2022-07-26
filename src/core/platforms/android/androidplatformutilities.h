@@ -33,7 +33,7 @@ class AndroidPlatformUtilities : public PlatformUtilities
     QString systemGenericDataLocation() const override;
     QString qgsProject() const override;
 
-    QStringList qfieldAppDataDirs() const override;
+    QStringList appDataDirs() const override;
     QString applicationDirectory() const override;
     QStringList additionalApplicationDirectories() const override;
     QStringList rootDirectories() const override;

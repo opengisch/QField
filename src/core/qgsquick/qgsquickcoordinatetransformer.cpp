@@ -150,7 +150,7 @@ void QgsQuickCoordinateTransformer::updatePosition()
     {
       mVerticalGridName = verticalGridName;
 
-      QStringList dataDirs = PlatformUtilities::instance()->qfieldAppDataDirs();
+      QStringList dataDirs = PlatformUtilities::instance()->appDataDirs();
       if ( !dataDirs.isEmpty() )
       {
         for ( const QString &dataDir : dataDirs )

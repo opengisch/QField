@@ -364,12 +364,12 @@ public class QFieldActivity extends QtActivity {
             return;
         }
 
-        StringBuilder qfieldAppDataDirs = new StringBuilder();
+        StringBuilder appDataDirs = new StringBuilder();
         for (String dataDir : dataDirs) {
-            qfieldAppDataDirs.append(dataDir);
-            qfieldAppDataDirs.append("--;--");
+            appDataDirs.append(dataDir);
+            appDataDirs.append("--;--");
         }
-        intent.putExtra("QFIELD_APP_DATA_DIRS", qfieldAppDataDirs.toString());
+        intent.putExtra("QFIELD_APP_DATA_DIRS", appDataDirs.toString());
 
         Intent sourceIntent = getIntent();
         if (sourceIntent.getAction() == Intent.ACTION_VIEW ||
