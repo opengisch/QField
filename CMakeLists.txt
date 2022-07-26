@@ -106,35 +106,14 @@ if (ANDROID)
 
   link_libraries("-ljnigraphics")
 
-  # This is necessary in order for CMake to be able to detect libraries in OSGeo4A
+  # Make sure the generator for android_deployment_settings.json can figure out the architecture
   list(APPEND CMAKE_FIND_ROOT_PATH /)
-  SET(VCPKG_BASE_DIR "${_VCPKG_INSTALLED_DIR}/${VCPKG_TARGET_TRIPLET}")
-
-  # Android SDK stuff
-  set(ANDROID_PACKAGE_SOURCE_DIR ${CMAKE_BINARY_DIR}/android-template)
 
   include(platform/android/openssl/CMakeLists.txt)
 
   if(NOT BUILD_WITH_QT6)
     find_package(Qt5 COMPONENTS AndroidExtras REQUIRED)
   endif()
-
-  if(NOT EXISTS "${VCPKG_BASE_DIR}/share/proj/data/proj.db")
-    message(FATAL_ERROR "proj.db not found, aborting")
-  endif()
-
-  set(SHARE_PATH "${CMAKE_CURRENT_BINARY_DIR}/android-build/assets/share")
-  file(COPY "${VCPKG_BASE_DIR}/share/proj/data/" DESTINATION "${SHARE_PATH}/proj/")
-  file(MAKE_DIRECTORY "${SHARE_PATH}/qgis/")
-  file(COPY "${VCPKG_BASE_DIR}/files/share/svg/" DESTINATION "${SHARE_PATH}/qgis/svg/")
-  file(COPY "${VCPKG_BASE_DIR}/files/share/resources/" DESTINATION "${SHARE_PATH}/qgis/resources/")
-
-  # Remove world map to keep apk size a bit smaller
-  file(REMOVE "${SHARE_PATH}/qgis/resources/data/world_map.gpkg")
-  file(COPY resources/ DESTINATION "${SHARE_PATH}/qfield/")
-
-  # Don't do tests when building for Android
-  set(ENABLE_TESTS FALSE)
 endif()
 
 set(QT_MIN_VERSION 5.14.0)
@@ -170,11 +149,13 @@ endif()
 
 if(CMAKE_SYSTEM_NAME STREQUAL "Darwin")
   set(SHARE_DIR "${CMAKE_BINARY_DIR}/output/bin/qfield.app/Contents/share")
-else(CMAKE_SYSTEM_NAME STREQUAL "iOS")
+elseif(CMAKE_SYSTEM_NAME STREQUAL "iOS")
   set(SHARE_DIR "${CMAKE_BINARY_DIR}/output/share")
   set(QFIELD_RESOURCE_FILES ${SHARE_DIR})
   file(MAKE_DIRECTORY ${SHARE_DIR})
   file(COPY resources/ DESTINATION "${SHARE_DIR}/qfield/")
+elseif(CMAKE_SYSTEM_NAME STREQUAL "Android")
+  set(SHARE_DIR "${CMAKE_BINARY_DIR}/output/share")
 endif()
 
 add_subdirectory(src/core)
@@ -187,7 +168,7 @@ if (ENABLE_TESTS)
   add_subdirectory(test)
 endif()
 
-if(WITH_VCPKG AND NOT ANDROID)
+if(WITH_VCPKG)
   function(copy_resource source target)
     add_custom_command(TARGET deploy
       POST_BUILD
