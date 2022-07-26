@@ -155,3 +155,27 @@ cmake -S QField \
 ```sh
 cmake --build build
 ```
+
+## iOS
+
+To compile for iOS simulator, make sure you have installed recent versions of flex and bison (e.g. via homebrew) and added to the path.
+You also need the Qt sdk for ios installed.
+
+```sh
+brew install flex bison
+aqt install-qt mac ios 5.15.2 -O 5.15.2 -m qtcharts
+```
+
+```sh
+export PATH="$(brew --prefix flex)/bin:$PATH"
+export PATH="$(brew --prefix bison)/bin:$PATH"
+export Qt5_Dir=5.15.2/ios
+export Qt5_DIR=5.15.2/ios
+```
+
+### Configure
+
+```sh
+cmake -S . -B build-x64-ios -DVCPKG_TARGET_TRIPLET=x64-ios -GXcode -DWITH_VCPKG=ON -DSYSTEM_QT=ON -DCMAKE_SYSTEM_NAME=iOS -DCMAKE_OSX_SYSROOT=iphonesimulator -DCMAKE_SYSTEM_PROCESSOR=x86_64 -DCMAKE_FIND_ROOT_PATH=$Qt5_DIR
+cmake --build build-x64-ios
+```
