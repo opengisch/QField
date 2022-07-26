@@ -13,10 +13,10 @@ Popup {
 
   signal decoded(var string)
 
-  property int itemSize: mainWindow.width <= mainWindow.height ? mainWindow.width - 80 : mainWindow.height - 80
+  property int popupWidth: mainWindow.width <= mainWindow.height ? mainWindow.width - 40 : mainWindow.height - 40
 
-  width: itemSize
-  height: itemSize
+  width: popupWidth
+  height: Math.min(mainWindow.height - 40, popupWidth + toolBar.height + acceptButton.height)
   x: (parent.width - width) / 2
   y: (parent.height - height) / 2
 
@@ -90,7 +90,7 @@ Popup {
 
     ColumnLayout {
       width: parent.width
-      height: parent.width - toolBar.height
+      height: parent.height
 
       Rectangle {
         Layout.fillWidth: true
