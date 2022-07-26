@@ -12,7 +12,6 @@ Popup {
   id : barcodeReader
 
   signal decoded(var string)
-  signal canceled
 
   property int itemSize: mainWindow.width <= mainWindow.height ? mainWindow.width - 80 : mainWindow.height - 80
 
@@ -79,7 +78,6 @@ Popup {
 
           onClicked: {
             barcodeReader.close();
-            barcodeReader.canceled();
           }
         }
       }

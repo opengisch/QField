@@ -97,8 +97,10 @@ Item {
       searchField.text = string;
     }
 
-    function onCanceled() {
-      enabled = false;
+    function onVisibleChanged() {
+      if (!visible) {
+        enabled = false;
+      }
     }
   }
 
@@ -214,6 +216,8 @@ Item {
     MouseArea {
       anchors.fill: parent
       onClicked: {
+        Qt.inputMethod.hide();
+
         barcodeReader.open();
         barcodeReaderConnection.enabled = true;
       }
