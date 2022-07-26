@@ -192,6 +192,7 @@ Popup {
                 : qsTr( 'Center your camera on a code')
           font: Theme.tipFont
           horizontalAlignment: Text.AlignLeft
+          elide: Text.ElideMiddle
           opacity: barcodeDecoder.decodedString !== '' ? 1 : 0.2
         }
 
