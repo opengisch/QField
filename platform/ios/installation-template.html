@@ -1,0 +1,42 @@
+<!doctype html>
+<html>
+<head>
+<title>QField iOS</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2, user-scalable=yes">
+<style type="text/css">
+html, body {
+ margin: 0;
+ padding: 0;
+}
+
+body {
+ padding: 10px;
+ font-family: Sans-serif;
+ font-size: 16px;
+ background-color: #ffffff;
+ color: #000000;
+ text-align: center;
+}
+
+a, a:visited, a:hover {
+ display: inline-block;
+ width: 100%;
+ width: calc(100% - 20px);
+ text-decoration: none;
+ background-color: #80cc28;
+ color: #ffffff;
+ padding: 0.8em 0.5em 0.8em 0.5em;
+ border-radius: 0.5em;
+ box-sizing: border-box;
+}
+
+a:active {
+ background-color: #5c8e22;
+}
+</style>
+</head>
+<body>
+  <p>IPA: ${IPA_URL}</p>
+  <a href="itms-services://?action=download-manifest&url=${PLIST_URL}">Install iOS IPA</a>
+</body></html>
