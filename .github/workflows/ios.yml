@@ -119,13 +119,16 @@ jobs:
           cmake --build  /Users/runner/builddir --target bundle --config Release
 
       - name: 🍺 Deploy
+        env:
+          PLIST_URL: https://sos-ch-dk-2.exo.io/qfieldapks/ci-builds/${{ env.CI_PACKAGE_FILE_BASENAME }}.pList
+          IPA_URL: https://sos-ch-dk-2.exo.io/qfieldapks/ci-builds/${{ env.CI_PACKAGE_FILE_BASENAME }}.ipa
         run: |
           mv /Users/runner/builddir/qfieldIpa/qfield.ipa ${{ env.CI_PACKAGE_FILE_BASENAME }}.ipa
           if [[ -n "${{ secrets.S3CFG }}" ]]
           then
             echo "${{ secrets.S3CFG }}" > ~/.s3cfg
-            PLIST_URL="https://sos-ch-dk-2.exo.io/qfieldapks/ci-builds/${{ env.CI_PACKAGE_FILE_BASENAME }}.pList" envsubst < ${{ github.workspace }}/platform/ios/installation-template.html > ${{ env.CI_PACKAGE_FILE_BASENAME}}.html
-            IPA_URL="https://sos-ch-dk-2.exo.io/qfieldapks/ci-builds/${{ env.CI_PACKAGE_FILE_BASENAME }}.ipa" envsubst < ${{ github.workspace }}/platform/ios/installation-template.plist > ${{ env.CI_PACKAGE_FILE_BASENAME}}.plist
+            envsubst < ${{ github.workspace }}/platform/ios/installation-template.html > ${{ env.CI_PACKAGE_FILE_BASENAME}}.html
+            envsubst < ${{ github.workspace }}/platform/ios/installation-template.plist > ${{ env.CI_PACKAGE_FILE_BASENAME}}.plist
             s3cmd put --acl-public ${{ env.CI_PACKAGE_FILE_BASENAME }}.html s3://qfieldapks/ci-builds/${{ env.CI_PACKAGE_FILE_BASENAME }}.html
             s3cmd modify --add-header=content-type:text/html s3://qfieldapks/ci-builds/${{ env.CI_PACKAGE_FILE_BASENAME }}.html
             s3cmd put --acl-public ${{ env.CI_PACKAGE_FILE_BASENAME }}.pList s3://qfieldapks/ci-builds/${{ env.CI_PACKAGE_FILE_BASENAME }}.pList
