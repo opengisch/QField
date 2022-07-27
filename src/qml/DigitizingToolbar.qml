@@ -186,7 +186,8 @@ VisibilityFadingRow {
 
       function onAveragedPositionCountChanged() {
         if (addVertexButton.averagedPositionAutoRelease && positionSource.averagedPosition
-            && positionSource.averagedPositionCount >= positioningSettings.averagedPositioningMinimumCount) {
+            && positionSource.averagedPositionCount >= positioningSettings.averagedPositioningMinimumCount
+            && positioningSettings.averagedPositioningAutomaticStop) {
           addVertexButton.averagedPositionPressAndHeld = true;
           addVertexButton.released()
         }
@@ -245,13 +246,14 @@ VisibilityFadingRow {
 
         if (coordinateLocator && coordinateLocator.positionLocked &&
             positioningSettings.averagedPositioning &&
-            positioningSettings.averagedPositioningMinimumCount > 1) {
+            (positioningSettings.averagedPositioningMinimumCount > 1
+             || !positioningSettings.averagedPositioningAutomaticStop)) {
           if (!positionSource.averagedPosition) {
             averagedPositionAutoRelease = true;
             positionSource.averagedPosition = true;
           } else {
-            averagedPositionAutoRelease = false;
-            canceled();
+            addVertexButton.averagedPositionPressAndHeld = true;
+            addVertexButton.released()
           }
           return;
         }
