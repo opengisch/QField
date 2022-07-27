@@ -803,6 +803,33 @@ Page {
                   }
 
                   Label {
+                      text: qsTr("Automatically end collection when minimum number is met")
+                      font: Theme.defaultFont
+                      wrapMode: Text.WordWrap
+                      Layout.fillWidth: true
+                      enabled: averagedPositioning.checked
+                      visible: averagedPositioning.checked
+                      Layout.leftMargin: 8
+
+                      MouseArea {
+                          anchors.fill: parent
+                          onClicked: averagedPositioningAutomaticEnd.toggle()
+                      }
+                  }
+
+                  QfSwitch {
+                      id: averagedPositioningAutomaticEnd
+                      Layout.preferredWidth: implicitContentWidth
+                      Layout.alignment: Qt.AlignTop
+                      enabled: averagedPositioning.checked
+                      visible: averagedPositioning.checked
+                      checked: positioningSettings.averagedPositioningAutomaticStop
+                      onCheckedChanged: {
+                          positioningSettings.averagedPositioningAutomaticStop = checked
+                      }
+                  }
+
+                  Label {
                       text: qsTr("When enabled, digitizing vertices with a cursor locked to position will only accepted an averaged position from a minimum number of collected positions. Digitizing using averaged positions is done by pressing and holding the add vertex button, which will collect positions until the press is released. Accuracy requirement settings are respected when enabled.")
                       font: Theme.tipFont
                       color: Theme.gray
