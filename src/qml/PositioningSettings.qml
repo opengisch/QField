@@ -21,6 +21,7 @@ LabSettings.Settings {
 
     property bool averagedPositioning: false
     property int  averagedPositioningMinimumCount: 1
+    property bool averagedPositioningAutomaticStop: true
 
     property real antennaHeight: 0.0
     property bool antennaHeightActivated: false
