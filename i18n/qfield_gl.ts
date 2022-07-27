@@ -157,7 +157,7 @@
     <message numerus="yes">
         <location filename="../src/qml/BluetoothDeviceChooser.qml" line="80"/>
         <source>%n device(s) found</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>%n dispositivo atopado</numerusform><numerusform>%n dispositivos atopados</numerusform></translation>
     </message>
     <message>
         <location filename="../src/qml/BluetoothDeviceChooser.qml" line="86"/>
@@ -189,7 +189,7 @@ Cancela para facer, porén, unha exploración mínima do dispositivo.</translati
     <message>
         <location filename="../src/qml/BluetoothDeviceChooser.qml" line="166"/>
         <source>Connect to %1</source>
-        <translation type="unfinished"/>
+        <translation>Conectar a %1</translation>
     </message>
     <message>
         <source>Connect  to %1</source>
@@ -966,7 +966,7 @@ As xeometrías das entidades combinaranse na entidade &apos;%1&apos;, a cal cons
     <message>
         <location filename="../src/qml/LayerTreeItemProperties.qml" line="174"/>
         <source>Opacity</source>
-        <translation type="unfinished"/>
+        <translation>Opacidade</translation>
     </message>
     <message>
         <location filename="../src/qml/LayerTreeItemProperties.qml" line="192"/>
@@ -1634,7 +1634,7 @@ As xeometrías das entidades combinaranse na entidade &apos;%1&apos;, a cal cons
     <message>
         <location filename="../src/qml/PositioningPreciseView.qml" line="398"/>
         <source>Positioning accuracy too low for this precision level</source>
-        <translation type="unfinished"/>
+        <translation>A precisión do posicionamento é demasiado baixa para este nivel de precisión</translation>
     </message>
 </context>
 <context>
@@ -3443,36 +3443,36 @@ Cancela para facer, porén, unha exploración mínima do dispositivo.</translati
         <location filename="../src/qml/qgismobileapp.qml" line="1974"/>
         <location filename="../src/qml/qgismobileapp.qml" line="2021"/>
         <source>Precise View Settings</source>
-        <translation type="unfinished"/>
+        <translation>Configuración da Vista Precisa</translation>
     </message>
     <message>
         <source>0.25m Precision</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Precisión de 0.25m</translation>
     </message>
     <message>
         <source>0.5m Precision</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Precisión de 0.5m</translation>
     </message>
     <message>
         <source>1m Precision</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Precisión de 1m</translation>
     </message>
     <message>
         <source>2.5m Precision</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Precisión de 2.5m</translation>
     </message>
     <message>
         <source>5m Precision</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Precisión de 5m</translation>
     </message>
     <message>
         <source>10m Precision</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Precisión de 10m</translation>
     </message>
     <message>
         <location filename="../src/qml/qgismobileapp.qml" line="2134"/>
         <source>Always Show Precise View</source>
-        <translation type="unfinished"/>
+        <translation>Amosar Sempre a Vista Precisa</translation>
     </message>
     <message>
         <location filename="../src/qml/qgismobileapp.qml" line="2221"/>
@@ -3521,7 +3521,7 @@ Cancela para facer, porén, unha exploración mínima do dispositivo.</translati
         <location filename="../src/qml/qgismobileapp.qml" line="2100"/>
         <location filename="../src/qml/qgismobileapp.qml" line="2116"/>
         <source>%1 Precision</source>
-        <translation type="unfinished"/>
+        <translation>Precisión de %1</translation>
     </message>
     <message>
         <location filename="../src/qml/qgismobileapp.qml" line="2151"/>
