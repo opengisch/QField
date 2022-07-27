@@ -17,6 +17,7 @@ Item {
   property bool hasZ: !isNaN(navigation.verticalDistance)
   property bool hasAcceptableAccuracy: positionSource.positionInformation.haccValid && positionSource.positionInformation.hacc < precision / 2.5
   property bool hasReachedTarget: hasAcceptableAccuracy && navigation.distance - positionSource.positionInformation.hacc - (precision / 10) <= 0
+  property bool hasAlarmSnoozed: false
 
   property double positionX: Math.min(precision, navigation.distance) * Math.cos((navigation.bearing - locationMarker.compassOrientation - 90) * Math.PI / 180) * (preciseTarget.width / 2) / precision
   property double positionY: Math.min(precision, navigation.distance) * Math.sin((navigation.bearing - locationMarker.compassOrientation - 90) * Math.PI / 180) * (preciseTarget.width / 2) / precision
@@ -398,6 +399,37 @@ Item {
       text: qsTr('Positioning accuracy too low for this precision level')
       style: Text.Outline
       styleColor: "white"
+    }
+  }
+
+  QfToolButton {
+    id: alarmSnoozeButton
+
+    anchors.top: parent.top
+    anchors.left: parent.left
+    anchors.margins: 5
+
+    visible: (navigation.proximityAlarm || positioningPreciseView.hasAlarmSnoozed)
+             && navigation.distance <= positioningPreciseView.precision
+    enabled: visible
+
+    round: true
+    bgcolor: positioningPreciseView.hasAlarmSnoozed ? "transparent" : Theme.navigationColor
+    iconSource: positioningPreciseView.hasAlarmSnoozed ? Theme.getThemeVectorIcon('ic_alarm_purple_24dp') : Theme.getThemeVectorIcon('ic_alarm_white_24dp')
+
+    onClicked: {
+      positioningPreciseView.hasAlarmSnoozed = !positioningPreciseView.hasAlarmSnoozed
+    }
+  }
+
+  Connections {
+    target: navigation
+    enabled: positioningPreciseView.hasAlarmSnoozed
+
+    function onDistanceChanged() {
+      if (navigation.distance > precision) {
+        positioningPreciseView.hasAlarmSnoozed = false;
+      }
     }
   }
 }
