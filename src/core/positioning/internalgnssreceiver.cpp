@@ -119,7 +119,7 @@ void InternalGnssReceiver::handlePositionUpdated( const QGeoPositionInfo &positi
                                                             speed,
                                                             direction,
                                                             mSatellitesInfo, 0, 0, 0,
-                                                            hacc,
+                                                            0.01, //hacc,
                                                             vacc,
                                                             positionInfo.timestamp(),
                                                             QChar(), 0, -1, mSatellitesID.size(), QChar( 'A' ), mSatellitesID, mSatelliteInformationValid,

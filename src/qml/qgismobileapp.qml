@@ -500,7 +500,10 @@ ApplicationWindow {
       mapSettings: mapCanvas.mapSettings
       location: positionSource.active ? positionSource.projectedPosition : GeometryUtils.emptyPoint()
 
-      proximityAlarm: positioningSettings.preciseViewProximityAlarm && positioningPreciseView.visible && positioningPreciseView.hasAcceptableAccuracy
+      proximityAlarm: positioningSettings.preciseViewProximityAlarm
+                      && positioningPreciseView.visible
+                      && positioningPreciseView.hasAcceptableAccuracy
+                      && !positioningPreciseView.hasAlarmSnoozed
       proximityAlarmThreshold: positioningSettings.preciseViewPrecision
     }
 
