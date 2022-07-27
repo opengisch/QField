@@ -25,7 +25,7 @@ Popup {
   dim: true
 
   onAboutToShow: {
-    barcodeDecoder.decodedString = '';
+    barcodeDecoder.clearDecodedString();
   }
 
   onAboutToHide: {

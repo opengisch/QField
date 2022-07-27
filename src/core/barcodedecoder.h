@@ -25,14 +25,24 @@ class BarcodeDecoder : public QObject
 {
     Q_OBJECT
 
-    Q_PROPERTY( QString decodedString READ decodedString WRITE setDecodedString NOTIFY decodedStringChanged )
+    Q_PROPERTY( QString decodedString READ decodedString NOTIFY decodedStringChanged )
 
   public:
     explicit BarcodeDecoder( QObject *parent = nullptr );
 
+    /**
+     * Returns the last barcode decoded string.
+     */
     QString decodedString() const { return mDecodedString; }
-    void setDecodedString( const QString &decodedString );
 
+    /**
+     * Clears the decoded string value and sets it to an empty string.
+     */
+    Q_INVOKABLE void clearDecodedString();
+
+    /**
+     * Scans a provided \a image for barcodes and if present sets the decoded string value.
+     */
     void decodeImage( const QImage &image );
 
   signals:

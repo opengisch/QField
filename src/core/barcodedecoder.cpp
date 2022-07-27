@@ -23,14 +23,14 @@ BarcodeDecoder::BarcodeDecoder( QObject *parent )
 {
 }
 
-void BarcodeDecoder::setDecodedString( const QString &decodedString )
+void BarcodeDecoder::clearDecodedString()
 {
-  if ( mDecodedString == decodedString )
+  if ( mDecodedString.isEmpty() )
   {
     return;
   }
 
-  mDecodedString = decodedString;
+  mDecodedString.clear();
 
   emit decodedStringChanged();
 }
@@ -66,13 +66,15 @@ void BarcodeDecoder::decodeImage( const QImage &image )
 
     ZXing::DecodeHints hints;
     hints.setFormats( ZXing::BarcodeFormat::Any );
-    hints.setTryRotate( false );
+    hints.setTryRotate( true );
 
     ZXing::Result result = ZXing::ReadBarcode( imageView, hints );
-    QString resultText = QString::fromWCharArray( result.text().c_str() );
-    if ( !resultText.isEmpty() )
+    const std::wstring text = result.text();
+    QString resultText = QString::fromWCharArray( text.c_str() );
+    if ( !resultText.isEmpty() && mDecodedString != resultText )
     {
-      setDecodedString( resultText );
+      mDecodedString = resultText;
+      emit decodedStringChanged();
     }
   }
 
