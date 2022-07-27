@@ -202,7 +202,7 @@ Popup {
           iconSource: Theme.getThemeVectorIcon( 'ic_flashlight_white_48dp' )
           bgcolor: Qt.hsla(Theme.darkGray.hslHue, Theme.darkGray.hslSaturation, Theme.darkGray.hslLightness, 0.3)
 
-          visible: camera.flash.supportedModes.includes(Camera.FlashTorch)
+          visible: camera.flash.supportedModes.includes(Camera.FlashVideoLight)
           state: camera.flash.mode !== Camera.FlashOff ? "On" : "Off"
           states: [
             State {
@@ -217,7 +217,7 @@ Popup {
             State {
               name: "On"
               PropertyChanges {
-                target: freehandButton
+                target: flashlightButton
                 iconSource: Theme.getThemeVectorIcon( "ic_flashlight_green_48dp" )
                 bgcolor: Theme.darkGray
               }
@@ -226,7 +226,7 @@ Popup {
 
           onClicked: {
             camera.flash.mode = camera.flash.mode === Camera.FlashOff
-                                ? Camera.FlashTorch
+                                ? Camera.FlashVideoLight
                                 : Camera.FlashOff;
           }
         }
