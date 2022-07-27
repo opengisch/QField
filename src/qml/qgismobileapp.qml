@@ -500,7 +500,7 @@ ApplicationWindow {
       mapSettings: mapCanvas.mapSettings
       location: positionSource.active ? positionSource.projectedPosition : GeometryUtils.emptyPoint()
 
-      proximityAlarm: positioningPreciseView.visible && positioningPreciseView.hasAcceptableAccuracy
+      proximityAlarm: positioningSettings.preciseViewProximityAlarm && positioningPreciseView.visible && positioningPreciseView.hasAcceptableAccuracy
       proximityAlarmThreshold: positioningSettings.preciseViewPrecision
     }
 
@@ -2143,6 +2143,21 @@ ApplicationWindow {
       indicator.implicitHeight: 24
       indicator.implicitWidth: 24
       onCheckedChanged: positioningSettings.alwaysShowPreciseView = checked
+    }
+
+    MenuItem {
+      text: qsTr( "Enable Audio Proximity Feedback" )
+      height: 48
+      leftPadding: 15
+      font: Theme.defaultFont
+
+      checkable: true
+      checked: positioningSettings.preciseViewProximityAlarm
+      indicator.height: 20
+      indicator.width: 20
+      indicator.implicitHeight: 24
+      indicator.implicitWidth: 24
+      onCheckedChanged: positioningSettings.preciseViewProximityAlarm = checked
     }
   }
 
