@@ -17,7 +17,6 @@
 #include "qgsquickmapsettings.h"
 #include "vertexmodel.h"
 
-#include <QDebug>
 #include <qgsgeometry.h>
 #include <qgslinestring.h>
 #include <qgsmessagelog.h>
