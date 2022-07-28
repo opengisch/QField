@@ -27,6 +27,7 @@
 #include <qgsmessagelog.h>
 #include <qgspoint.h>
 #include <qgspointxy.h>
+#include <qgspolygon.h>
 
 class VertexModelTest
 {
@@ -66,7 +67,12 @@ TEST_CASE( "VertexModel" )
                                                                      << QgsPointXY( 3, 3 )
                                                                      << QgsPointXY( 1, 3 )
                                                                      << QgsPointXY( 1, 1 ) ) );
-
+  QgsPolygon *polygon = new QgsPolygon( new QgsLineString( QVector<QgsPoint>() << QgsPoint( 0, 0, 0, 0 )
+                                                                               << QgsPoint( 4, 0, 0, 0 )
+                                                                               << QgsPoint( 4, 4, 0, 0 )
+                                                                               << QgsPoint( 0, 4, 0, 0 )
+                                                                               << QgsPoint( 0, 0, 0, 0 ) ) );
+  QgsGeometry polygonZMGeometry = QgsGeometry( polygon );
 
   QgsGeometry point2056Geometry = QgsGeometry::fromPointXY( QgsPointXY( 2500000, 1200000 ) );
 
@@ -110,6 +116,17 @@ TEST_CASE( "VertexModel" )
     REQUIRE( model->vertices().at( 13 ).point == QgsPoint( 1, 3 ) );
     REQUIRE( model->vertices().at( 14 ).point == QgsPoint( 1, 2 ) );
     REQUIRE( model->vertices().at( 15 ).point == QgsPoint( 1, 1 ) );
+
+    model->setGeometry( polygonZMGeometry );
+    REQUIRE( model->vertexCount() == 8 );
+    REQUIRE( model->vertices().at( 0 ).point == QgsPoint( 2, 0, 0, 0 ) );
+    REQUIRE( model->vertices().at( 1 ).point == QgsPoint( 4, 0, 0, 0 ) );
+    REQUIRE( model->vertices().at( 2 ).point == QgsPoint( 4, 2, 0, 0 ) );
+    REQUIRE( model->vertices().at( 3 ).point == QgsPoint( 4, 4, 0, 0 ) );
+    REQUIRE( model->vertices().at( 4 ).point == QgsPoint( 2, 4, 0, 0 ) );
+    REQUIRE( model->vertices().at( 5 ).point == QgsPoint( 0, 4, 0, 0 ) );
+    REQUIRE( model->vertices().at( 6 ).point == QgsPoint( 0, 2, 0, 0 ) );
+    REQUIRE( model->vertices().at( 7 ).point == QgsPoint( 0, 0, 0, 0 ) );
   }
 
   SECTION( "CanRemoveVertex" )
@@ -149,6 +166,15 @@ TEST_CASE( "VertexModel" )
     VertexModelTest::setCurrentVertex( model, 0 );
     model->setCurrentPoint( QgsPoint( -3, 0 ) );
     REQUIRE( model->vertexCount() == 10 );
+
+    model->setGeometry( polygonZMGeometry );
+    REQUIRE( model->vertexCount() == 8 );
+    model->setEditingMode( VertexModel::AddVertex );
+    VertexModelTest::setCurrentVertex( model, 0 );
+    model->setCurrentPoint( QgsPoint( -3, 0 ) );
+    REQUIRE( model->vertexCount() == 10 );
+    // Test that the added vertex has the extra Z and M dimensions
+    REQUIRE( model->vertices().at( 1 ).point == QgsPoint( -3, 0, 0, 0 ) );
 
     model->setGeometry( lineGeometry );
     model->setEditingMode( VertexModel::AddVertex );

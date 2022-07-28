@@ -197,6 +197,10 @@ void VertexModel::createCandidates()
     {
       // last point is an existing vertex, the next one is a candidate (created just before)
       QgsPoint extendingPoint = mVertices.at( r ).point - ( mVertices.at( 1 ).point - mVertices.at( r ).point ) / 2;
+      if ( QgsWkbTypes::hasZ( mGeometryWkbType ) )
+        extendingPoint.addZValue();
+      if ( QgsWkbTypes::hasM( mGeometryWkbType ) )
+        extendingPoint.addMValue();
 
       Vertex newVertex;
       newVertex.point = extendingPoint;
@@ -224,6 +228,10 @@ void VertexModel::createCandidates()
       }
       QVector<QgsPoint> points = { lastVertex.point, vertex.point };
       QgsPoint centroid = QgsLineString( points ).centroid();
+      if ( QgsWkbTypes::hasZ( mGeometryWkbType ) )
+        centroid.addZValue();
+      if ( QgsWkbTypes::hasM( mGeometryWkbType ) )
+        centroid.addMValue();
 
       Vertex newVertex;
       newVertex.point = centroid;
@@ -244,6 +252,10 @@ void VertexModel::createCandidates()
   {
     // last point is an existing vertex, the previous one is a candidate
     QgsPoint extendingPoint = mVertices.at( r ).point - ( mVertices.at( r - 1 ).point - mVertices.at( r ).point ) / 2;
+    if ( QgsWkbTypes::hasZ( mGeometryWkbType ) )
+      extendingPoint.addZValue();
+    if ( QgsWkbTypes::hasM( mGeometryWkbType ) )
+      extendingPoint.addMValue();
 
     Vertex newVertex;
     newVertex.point = extendingPoint;
