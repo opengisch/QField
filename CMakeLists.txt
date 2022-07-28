@@ -104,7 +104,6 @@ if (ANDROID)
     set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fPIC -fstack-protector-strong")
   endif()
 
-  list(APPEND CMAKE_FIND_ROOT_PATH /)
   link_libraries("-ljnigraphics")
 
   # Make sure the generator for android_deployment_settings.json can figure out the architecture
