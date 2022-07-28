@@ -302,6 +302,7 @@ class QFIELD_CORE_EXPORT VertexModel : public QAbstractListModel
     int mCurrentIndex = -1;
     int mRingCount = 0;
     QgsWkbTypes::GeometryType mGeometryType = QgsWkbTypes::LineGeometry;
+    QgsWkbTypes::Type mGeometryWkbType = QgsWkbTypes::Unknown;
     QgsQuickMapSettings *mMapSettings = nullptr;
     bool mCanRemoveVertex = false;
     bool mCanAddVertex = false;
