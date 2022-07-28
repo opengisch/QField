@@ -7,8 +7,7 @@ cd /usr/src/qfield || exit
 CMAKE_BUILD_DIR=/usr/src/qfield/build-${triplet}
 
 export ANDROID_NDK_HOME=${ANDROID_NDK_ROOT}
-export Qt5_Dir=/home/devel/5.14.2/android/
-export Qt5_DIR=${Qt5_Dir}
+export Qt5_DIR=/home/devel/5.14.2/android/
 export ANDROID_PLATFORM=21
 export ANDROID_TARGET_PLATFORM=30
 export ANDROID_BUILD_TOOLS_VERSION=29.0.2
@@ -24,7 +23,7 @@ echo "Package name ${APP_PACKAGE_NAME}"
 cmake -S "${SOURCE_DIR}" \
       -B "${CMAKE_BUILD_DIR}" \
       -G Ninja \
-      -D CMAKE_PREFIX_PATH=${Qt5_Dir} \
+      -D CMAKE_PREFIX_PATH=${Qt5_DIR} \
       -D CMAKE_TOOLCHAIN_FILE=/usr/src/qfield/vcpkg/base/scripts/buildsystems/vcpkg.cmake \
       -D VCPKG_OVERLAY_PORTS=/usr/src/qfield/vcpkg/overlay_system_qt\;/usr/src/qfield/vcpkg/overlay \
       -D VCPKG_TARGET_TRIPLET="${triplet}" \

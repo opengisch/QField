@@ -169,7 +169,6 @@ aqt install-qt mac ios 5.15.2 -O 5.15.2 -m qtcharts
 ```sh
 export PATH="$(brew --prefix flex)/bin:$PATH"
 export PATH="$(brew --prefix bison)/bin:$PATH"
-export Qt5_Dir=5.15.2/ios
 export Qt5_DIR=5.15.2/ios
 ```
 
