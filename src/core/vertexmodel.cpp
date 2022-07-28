@@ -78,6 +78,7 @@ void VertexModel::setGeometry( const QgsGeometry &geometry )
   mVerticesDeleted.clear();
   mOriginalGeometry = geometry;
   mGeometryType = geometry.type();
+  mGeometryWkbType = geometry.wkbType();
   mRingCount = 0;
   refreshGeometry();
   setCurrentVertex( -1 );
@@ -176,6 +177,10 @@ void VertexModel::createCandidates()
     {
       QVector<QgsPoint> points = { mVertices.at( r + 1 ).point, vertex.point };
       QgsPoint centroid = QgsLineString( points ).centroid();
+      if ( QgsWkbTypes::hasZ( mGeometryWkbType ) )
+        centroid.addZValue();
+      if ( QgsWkbTypes::hasM( mGeometryWkbType ) )
+        centroid.addMValue();
 
       Vertex newVertex;
       newVertex.point = centroid;
@@ -561,6 +566,10 @@ void VertexModel::setCurrentPoint( const QgsPoint &point )
   beginResetModel();
 
   vertex.point = point;
+  if ( QgsWkbTypes::hasZ( mGeometryWkbType ) )
+    vertex.point.addZValue();
+  if ( QgsWkbTypes::hasM( mGeometryWkbType ) )
+    vertex.point.addMValue();
 
   if ( mMode == AddVertex )
   {
