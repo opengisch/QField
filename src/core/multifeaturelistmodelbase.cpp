@@ -223,7 +223,7 @@ QVariant MultiFeatureListModelBase::data( const QModelIndex &index, int role ) c
       return feature->second.id();
 
     case MultiFeatureListModel::FeatureSelectedRole:
-      for( auto &pair : mSelectedFeatures )
+      for ( auto &pair : mSelectedFeatures )
       {
         if ( pair.first == mFeatures.at( index.row() ).first
              && pair.second.id() == mFeatures.at( index.row() ).second.id() )
