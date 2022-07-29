@@ -199,6 +199,11 @@ class QFIELD_CORE_EXPORT PlatformUtilities : public QObject
      */
     Q_INVOKABLE virtual void copyTextToClipboard( const QString &string ) const;
 
+    /**
+     * Returns the current text from the system clipboard.
+     */
+    Q_INVOKABLE virtual QString getTextFromClipboard() const;
+
     static PlatformUtilities *instance();
 };
 #endif // PLATFORMUTILITIES_H
