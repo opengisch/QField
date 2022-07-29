@@ -141,6 +141,34 @@ EditorWidgetBase {
     }
 
     MenuItem {
+      text: qsTr( 'Copy Text' )
+
+      font: Theme.defaultFont
+      height: 48
+      leftPadding: 50
+
+      onTriggered: {
+        platformUtilities.copyTextToClipboard(value)
+      }
+    }
+
+    MenuItem {
+      text: qsTr( 'Paste Text' )
+
+      font: Theme.defaultFont
+      height: 48
+      leftPadding: 50
+
+      onTriggered: {
+        var text = platformUtilities.getTextFromClipboard();
+        text = text.trim()
+        valueChangeRequested(text, text == '')
+      }
+    }
+
+    MenuSeparator { width: parent.width }
+
+    MenuItem {
       text: qsTr( 'Scan Code' )
 
       font: Theme.defaultFont
