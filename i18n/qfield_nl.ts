@@ -498,22 +498,22 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
 <context>
     <name>DigitizingToolbar</name>
     <message>
-        <location filename="../src/qml/DigitizingToolbar.qml" line="304"/>
+        <location filename="../src/qml/DigitizingToolbar.qml" line="306"/>
         <source>Position accuracy doesn&apos;t meet the minimum requirement, vertex not added</source>
         <translation>Positienauwkeurigheid voldoet niet aan de minimale eisen, knooppunt niet toegevoegd</translation>
     </message>
     <message>
-        <location filename="../src/qml/DigitizingToolbar.qml" line="278"/>
+        <location filename="../src/qml/DigitizingToolbar.qml" line="280"/>
         <source>Cancel digitizing</source>
         <translation>Stop digitaliseren</translation>
     </message>
     <message>
-        <location filename="../src/qml/DigitizingToolbar.qml" line="216"/>
+        <location filename="../src/qml/DigitizingToolbar.qml" line="217"/>
         <source>The collected positions count does not meet the requirement</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/qml/DigitizingToolbar.qml" line="282"/>
+        <location filename="../src/qml/DigitizingToolbar.qml" line="284"/>
         <source>Should the digitized geometry be discarded?</source>
         <translation>Moet de gedigitaliseerde geometrie worden verworpen?</translation>
     </message>
@@ -2626,51 +2626,56 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
     </message>
     <message>
         <location filename="../src/qml/QFieldSettings.qml" line="613"/>
+        <source>Automatically end collection when minimum number is met</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/qml/QFieldSettings.qml" line="640"/>
         <source>When enabled, digitizing vertices with a cursor locked to position will only accepted an averaged position from a minimum number of collected positions. Digitizing using averaged positions is done by pressing and holding the add vertex button, which will collect positions until the press is released. Accuracy requirement settings are respected when enabled.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="627"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="654"/>
         <source>Antenna height compensation</source>
         <translation>Antenne-hoogtecompensatie</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="649"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="676"/>
         <source>Antenna height [m]</source>
         <translation>Antennehoogte [m]</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="691"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="718"/>
         <source>Z values which are recorded from the positioning device will be corrected by this value. If a value of 1.6 is entered, this will result in a correction of -1.6 for each recorded value.</source>
         <translation>Z-waarden die vanaf het GPS-apparaat worden geregistreerd, worden met deze waarde gecorrigeerd. Als een waarde van 1,6 wordt ingevoerd, resulteert dit in een correctie van -1,6 voor elke geregistreerde waarde.</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="705"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="732"/>
         <source>Skip altitude correction</source>
         <translation>Sla hoogtecorrectie over</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="728"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="755"/>
         <source>Use the altitude as reported by the positioning device. Skip any altitude correction that may be implied by the coordinate system transformation.</source>
         <translation>Gebruik de hoogte zoals aangegeven door het GPS-apparaat. Sla elke hoogtecorrectie over die kan worden geïmpliceerd door transformaties van het coördinatensysteem.</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="742"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="769"/>
         <source>Vertical grid shift in use:</source>
         <translation>Verticale rasterverplaatsing in gebruik:</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="751"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="778"/>
         <source>None</source>
         <translation>Geen</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="765"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="792"/>
         <source>Vertical grid shift is used to increase the altitude accuracy.</source>
         <translation>Verticale rasterverschuiving wordt gebruikt om de nauwkeurigheid van de hoogte te vergroten.</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="794"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="821"/>
         <source>QField Settings</source>
         <translation>QField instellingen</translation>
     </message>

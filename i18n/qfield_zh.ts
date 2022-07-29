@@ -498,22 +498,22 @@ Cancel to make a minimal device scan instead.</source>
 <context>
     <name>DigitizingToolbar</name>
     <message>
-        <location filename="../src/qml/DigitizingToolbar.qml" line="304"/>
+        <location filename="../src/qml/DigitizingToolbar.qml" line="306"/>
         <source>Position accuracy doesn&apos;t meet the minimum requirement, vertex not added</source>
         <translation>定位精度未达到最低要求，不能添加顶点</translation>
     </message>
     <message>
-        <location filename="../src/qml/DigitizingToolbar.qml" line="278"/>
+        <location filename="../src/qml/DigitizingToolbar.qml" line="280"/>
         <source>Cancel digitizing</source>
         <translation>取消数字化</translation>
     </message>
     <message>
-        <location filename="../src/qml/DigitizingToolbar.qml" line="216"/>
+        <location filename="../src/qml/DigitizingToolbar.qml" line="217"/>
         <source>The collected positions count does not meet the requirement</source>
         <translation>收集的定位数量未符合需求</translation>
     </message>
     <message>
-        <location filename="../src/qml/DigitizingToolbar.qml" line="282"/>
+        <location filename="../src/qml/DigitizingToolbar.qml" line="284"/>
         <source>Should the digitized geometry be discarded?</source>
         <translation>是否放弃数字化的几何图形？</translation>
     </message>
@@ -2624,51 +2624,56 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <location filename="../src/qml/QFieldSettings.qml" line="613"/>
+        <source>Automatically end collection when minimum number is met</source>
+        <translation>达到最小数量时自动结束收集</translation>
+    </message>
+    <message>
+        <location filename="../src/qml/QFieldSettings.qml" line="640"/>
         <source>When enabled, digitizing vertices with a cursor locked to position will only accepted an averaged position from a minimum number of collected positions. Digitizing using averaged positions is done by pressing and holding the add vertex button, which will collect positions until the press is released. Accuracy requirement settings are respected when enabled.</source>
         <translation>启用后，将光标锁定到定位的数字化顶点仅接受最少收集定位数的平均定位。通过按住添加顶点按钮，可以使用平均定位进行数字化，该按钮将收集定位，直到释放才结束。启用后，将遵守精度需求设置。</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="627"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="654"/>
         <source>Antenna height compensation</source>
         <translation>天线高度修正</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="649"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="676"/>
         <source>Antenna height [m]</source>
         <translation>天线高度 [米]</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="691"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="718"/>
         <source>Z values which are recorded from the positioning device will be corrected by this value. If a value of 1.6 is entered, this will result in a correction of -1.6 for each recorded value.</source>
         <translation>通过定位设备记录的Z值进行校正。如果输入的值为1.6，则每个记录值修正为-1.6。</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="705"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="732"/>
         <source>Skip altitude correction</source>
         <translation>跳过高程修正</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="728"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="755"/>
         <source>Use the altitude as reported by the positioning device. Skip any altitude correction that may be implied by the coordinate system transformation.</source>
         <translation>使用定位设备报告的高程，跳过坐标系转换可能隐含的任何高程修正。</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="742"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="769"/>
         <source>Vertical grid shift in use:</source>
         <translation>使用中的垂直网格移位：</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="751"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="778"/>
         <source>None</source>
         <translation>无</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="765"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="792"/>
         <source>Vertical grid shift is used to increase the altitude accuracy.</source>
         <translation>垂直网格移位用于提高高程精度。</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="794"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="821"/>
         <source>QField Settings</source>
         <translation>QField 设置</translation>
     </message>
@@ -3524,7 +3529,7 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <location filename="../src/qml/qgismobileapp.qml" line="2152"/>
         <source>Enable Audio Proximity Feedback</source>
-        <translation type="unfinished"/>
+        <translation>启用声音引发回馈</translation>
     </message>
     <message>
         <location filename="../src/qml/qgismobileapp.qml" line="2169"/>

@@ -498,22 +498,22 @@ Cancelar para hacer una búsqueda mínima de dispositivos en su lugar.</translat
 <context>
     <name>DigitizingToolbar</name>
     <message>
-        <location filename="../src/qml/DigitizingToolbar.qml" line="304"/>
+        <location filename="../src/qml/DigitizingToolbar.qml" line="306"/>
         <source>Position accuracy doesn&apos;t meet the minimum requirement, vertex not added</source>
         <translation>La precisión de la posición no reúne los requisitos mínimos, no se añade el vértice</translation>
     </message>
     <message>
-        <location filename="../src/qml/DigitizingToolbar.qml" line="278"/>
+        <location filename="../src/qml/DigitizingToolbar.qml" line="280"/>
         <source>Cancel digitizing</source>
         <translation>Cancelar digitalización</translation>
     </message>
     <message>
-        <location filename="../src/qml/DigitizingToolbar.qml" line="216"/>
+        <location filename="../src/qml/DigitizingToolbar.qml" line="217"/>
         <source>The collected positions count does not meet the requirement</source>
         <translation>El número de posiciones recogido no cumple el requisito</translation>
     </message>
     <message>
-        <location filename="../src/qml/DigitizingToolbar.qml" line="282"/>
+        <location filename="../src/qml/DigitizingToolbar.qml" line="284"/>
         <source>Should the digitized geometry be discarded?</source>
         <translation>¿Se debe descartar la geometría digitalizada?</translation>
     </message>
@@ -2626,51 +2626,56 @@ Cancelar para hacer una búsqueda mínima de dispositivos en su lugar.</translat
     </message>
     <message>
         <location filename="../src/qml/QFieldSettings.qml" line="613"/>
+        <source>Automatically end collection when minimum number is met</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/qml/QFieldSettings.qml" line="640"/>
         <source>When enabled, digitizing vertices with a cursor locked to position will only accepted an averaged position from a minimum number of collected positions. Digitizing using averaged positions is done by pressing and holding the add vertex button, which will collect positions until the press is released. Accuracy requirement settings are respected when enabled.</source>
         <translation>Cuando se habilita, la digitalización de vértices con un cursor bloqueado a la posición solo aceptará una posición promediada a partir de un número mínimo de posiciones recopiladas. La digitalización usando posiciones promediadas se hace presionando y manteniendo el botón añadir vértice, que tomará posiciones hasta que se deje de pulsar. La configuración de los requerimientos de precisión se respeta cuando está habilitada.</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="627"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="654"/>
         <source>Antenna height compensation</source>
         <translation>Compensación de altura de antena</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="649"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="676"/>
         <source>Antenna height [m]</source>
         <translation>Altura de antena [m]</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="691"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="718"/>
         <source>Z values which are recorded from the positioning device will be corrected by this value. If a value of 1.6 is entered, this will result in a correction of -1.6 for each recorded value.</source>
         <translation>Los valores Z tomados por un dispositivo de posicionamiento se corregirán con este valor. Si se introduce un valor de 1,6 el resultado será una corrección de -1,6 para cada valor registrado. </translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="705"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="732"/>
         <source>Skip altitude correction</source>
         <translation>Omitir corrección de la altitud</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="728"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="755"/>
         <source>Use the altitude as reported by the positioning device. Skip any altitude correction that may be implied by the coordinate system transformation.</source>
         <translation>Utilizar la altitud según lo informado por el dispositivo de posicionamiento. Omitir cualquier corrección de altitud que pueda estar implicada por la transformación del sistema de coordenadas.</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="742"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="769"/>
         <source>Vertical grid shift in use:</source>
         <translation>Cambio de cuadrícula vertical en uso:</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="751"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="778"/>
         <source>None</source>
         <translation>Ninguna</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="765"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="792"/>
         <source>Vertical grid shift is used to increase the altitude accuracy.</source>
         <translation>El cambio de cuadrícula vertical se utiliza para aumentar la precisión de la altitud.</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="794"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="821"/>
         <source>QField Settings</source>
         <translation>Configuración de QField</translation>
     </message>
