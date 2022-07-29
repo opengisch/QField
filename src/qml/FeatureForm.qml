@@ -19,10 +19,13 @@ Page {
   signal cancelled
   signal temporaryStored
   signal valueChanged(var field, var oldValue, var newValue)
-  signal requestGeometry(var item, var layer)
   signal aboutToSave
 
+  signal requestGeometry(var item, var layer)
+  signal requestBarcode(var item)
+
   property DigitizingToolbar digitizingToolbar
+  property BarcodeReader barcodeReader
 
   property AttributeFormModel model
   property alias currentTab: swipeView.currentIndex
@@ -409,7 +412,7 @@ Page {
             Item {
               id: placeholder
               height: childrenRect.height
-              anchors { left: parent.left; right: rememberCheckbox.left; top: constraintDescriptionLabel.bottom; rightMargin: 10; }
+              anchors { left: parent.left; right: menuButton.left; top: constraintDescriptionLabel.bottom; rightMargin: 10; }
 
               Loader {
                 id: attributeEditorLoader
@@ -510,7 +513,27 @@ Page {
                     form.digitizingToolbar.geometryRequestedItem = item
                     form.digitizingToolbar.geometryRequestedLayer = layer
                 }
+
+                function onRequestBarcode(item) {
+                    form.barcodeReader.barcodeRequestedItem = item
+                    form.barcodeReader.open()
+                }
               }
+            }
+
+            QfToolButton {
+                id: menuButton
+                anchors { right: rememberCheckbox.left; top: constraintDescriptionLabel.bottom }
+
+                visible: attributeEditorLoader.isEnabled && attributeEditorLoader.item.menu !== undefined
+                enabled: visible
+                width: visible ? 48 : 0
+                bgcolor: "transparent"
+                iconSource: Theme.getThemeIcon("ic_dot_menu_gray_24dp")
+
+                onClicked: {
+                    attributeEditorLoader.item.menu.popup(menuButton.x, menuButton.y)
+                }
             }
 
             CheckBox {
@@ -519,7 +542,7 @@ Page {
               visible: form.state === "Add" && EditorWidget !== "Hidden" && EditorWidget !== 'RelationEditor'
               width: visible ? undefined : 0
 
-              anchors { right: parent.right; top: constraintDescriptionLabel.bottom }
+              anchors { right: parent.right; top: constraintDescriptionLabel.bottom; verticalCenter: menuButton.verticalCenter }
 
               onCheckedChanged: {
                 RememberValue = checked

@@ -40,6 +40,7 @@ Item {
 
         embeddedLevel: form.embeddedLevel + 1
         digitizingToolbar: form.digitizingToolbar
+        barcodeReader: form.barcodeReader
 
         onFeatureSaved: {
             var referencedValue = addFeaturePopup.attributeFormModel.attribute(relationCombobox._relation.resolveReferencedField(field.name))
@@ -563,6 +564,7 @@ Item {
 
         embeddedLevel: form.embeddedLevel + 1
         digitizingToolbar: form.digitizingToolbar
+        barcodeReader: form.barcodeReader
 
         onFeatureSaved: {
             var referencedValue = embeddedPopup.attributeFormModel.attribute(relationCombobox._relation.resolveReferencedField(field.name))

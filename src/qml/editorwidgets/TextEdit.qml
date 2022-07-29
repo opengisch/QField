@@ -124,4 +124,37 @@ EditorWidgetBase {
     id: fontMetrics
     font: textField.font
   }
+
+  menu: Menu {
+    id: itemMenu
+    title: qsTr( "Text Edit Menu" )
+
+    width: {
+        var result = 0;
+        var padding = 0;
+        for (var i = 0; i < count; ++i) {
+            var item = itemAt(i);
+            result = Math.max(item.contentItem.implicitWidth, result);
+            padding = Math.max(item.padding, padding);
+        }
+        return result + padding * 2;
+    }
+
+    MenuItem {
+      text: qsTr( 'Scan Code' )
+
+      font: Theme.defaultFont
+      icon.source: Theme.getThemeVectorIcon( "ic_qrcode_black_24dp" )
+      height: 48
+      leftPadding: 10
+
+      onTriggered: {
+        requestBarcode(topItem)
+      }
+    }
+  }
+
+  function requestedBarcode(string) {
+    valueChangeRequested(string, string == '')
+  }
 }

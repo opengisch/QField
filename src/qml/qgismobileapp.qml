@@ -2306,6 +2306,7 @@ ApplicationWindow {
     mapSettings: mapCanvas.mapSettings
     digitizingToolbar: digitizingToolbar
     moveFeaturesToolbar: moveFeaturesToolbar
+    barcodeReader: barcodeReader
 
     visible: state != "Hidden"
     focus: visible
@@ -2370,6 +2371,7 @@ ApplicationWindow {
   OverlayFeatureFormDrawer {
     id: overlayFeatureFormDrawer
     digitizingToolbar: digitizingToolbar
+    barcodeReader: barcodeReader
     featureModel.currentLayer: dashBoard.currentLayer
   }
 

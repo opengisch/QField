@@ -6,6 +6,7 @@ Item {
      * propagated.
      */
     property bool isLoaded: false
+    property var menu: undefined
 
     /* This signal is emmited when an editor widget has changed the value.
      */
@@ -17,4 +18,11 @@ Item {
      * handler is \c onRequestGeometry.
      */
     signal requestGeometry(var item, var layer)
+
+    /* This signal is emitted when an editor widget is requesting a barcode value. The
+     * decoded barcode value will be returned as a string through calling a requestedBarcode(string) function
+     * attached to editor widget which signaled the request. The corresponding
+     * handler is \c onRequestBarcode.
+     */
+    signal requestBarcode(var item)
 }

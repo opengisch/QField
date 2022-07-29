@@ -32,6 +32,7 @@ Rectangle {
   property MapSettings mapSettings
   property DigitizingToolbar digitizingToolbar
   property ConfirmationToolbar moveFeaturesToolbar
+  property BarcodeReader barcodeReader
 
   property color selectionColor
   property alias model: globalFeaturesList.model
@@ -333,6 +334,7 @@ Rectangle {
     height: parent.height - globalFeaturesList.height
 
     digitizingToolbar: featureForm.digitizingToolbar
+    barcodeReader: featureForm.barcodeReader
 
     model: AttributeFormModel {
       featureModel: FeatureModel {
