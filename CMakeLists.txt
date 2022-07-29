@@ -109,6 +109,8 @@ if (ANDROID)
   # Make sure the generator for android_deployment_settings.json can figure out the architecture
   list(APPEND CMAKE_FIND_ROOT_PATH /)
 
+  set(ANDROID_PACKAGE_SOURCE_DIR ${CMAKE_BINARY_DIR}/android-template)
+
   include(platform/android/openssl/CMakeLists.txt)
 
   if(NOT BUILD_WITH_QT6)
