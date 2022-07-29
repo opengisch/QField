@@ -5,35 +5,35 @@ find_path(QGIS_INCLUDE_DIR
     PATHS "${CMAKE_CURRENT_LIST_DIR}/../../include/qgis"
     NO_DEFAULT_PATH
 )
-find_library(QGIS_CORE_LIBRARY_DEBUG
+find_library(QGIS_Core_LIBRARY_DEBUG
     NAMES qgis_core
     NAMES_PER_DIR
     PATHS "${CMAKE_CURRENT_LIST_DIR}/../../debug/lib"
     NO_DEFAULT_PATH
 )
-find_library(QGIS_CORE_LIBRARY_RELEASE
+find_library(QGIS_Core_LIBRARY_RELEASE
     NAMES qgis_core
     NAMES_PER_DIR
     PATHS "${CMAKE_CURRENT_LIST_DIR}/../../lib"
     NO_DEFAULT_PATH
 )
-find_library(QGIS_ANALYSIS_LIBRARY_DEBUG
+find_library(QGIS_Analysis_LIBRARY_DEBUG
     NAMES qgis_analysis
     NAMES_PER_DIR
     PATHS "${CMAKE_CURRENT_LIST_DIR}/../../debug/lib"
     NO_DEFAULT_PATH
 )
-find_library(QGIS_ANALYSIS_LIBRARY_RELEASE
+find_library(QGIS_Analysis_LIBRARY_RELEASE
     NAMES qgis_analysis
     NAMES_PER_DIR
     PATHS "${CMAKE_CURRENT_LIST_DIR}/../../lib"
     NO_DEFAULT_PATH
 )
-select_library_configurations(QGIS_CORE)
-select_library_configurations(QGIS_ANALYSIS)
+select_library_configurations(QGIS_Core)
+select_library_configurations(QGIS_Analysis)
 
-if(NOT QGIS_INCLUDE_DIR OR NOT QGIS_CORE_LIBRARY OR NOT QGIS_ANALYSIS_LIBRARY)
-  message(FATAL_ERROR "Installation of vcpkg port qgis is broken. Include dir: ${QGIS_INCLUDE_DIR}, Core lib: ${QGIS_CORE_LIBRARY}, Analysis lib: ${QGIS_ANALYSIS_LIBRARY}")
+if(NOT QGIS_INCLUDE_DIR OR NOT QGIS_Core_LIBRARY OR NOT QGIS_Analysis_LIBRARY)
+  message(FATAL_ERROR "Installation of vcpkg port qgis is broken. Include dir: ${QGIS_INCLUDE_DIR}, Core lib: ${QGIS_Core_LIBRARY}, Analysis lib: ${QGIS_Analysis_LIBRARY}")
 endif()
 
 set(FindQGIS_SKIP_QGIS_CONFIG TRUE)
@@ -76,7 +76,7 @@ function(_qgis_core_add_dependency target package)
       endif()
     endif()
     if(dependency)
-      target_link_libraries(qgis_core INTERFACE ${dependency})
+      target_link_libraries(QGIS::Core INTERFACE ${dependency})
     else()
       message(WARNING "Did not find which libraries are exported by ${package}")
         set(QGIS_FOUND false PARENT_SCOPE)
@@ -109,27 +109,27 @@ endif()
 if(QGIS_FOUND AND "@VCPKG_LIBRARY_LINKAGE@" STREQUAL "static")
   find_package(PkgConfig QUIET)
 
-  _find_and_link_library(authmethod_basic_a qgis_core)
-  _find_and_link_library(authmethod_esritoken_a qgis_core)
-  _find_and_link_library(authmethod_identcert_a qgis_core)
-  _find_and_link_library(authmethod_oauth2_a qgis_core)
-  _find_and_link_library(authmethod_pkcs12_a qgis_core)
-  _find_and_link_library(authmethod_pkipaths_a qgis_core)
-  _find_and_link_library(provider_postgres_a qgis_core)
-  _find_and_link_library(provider_postgresraster_a qgis_core)
-  _find_and_link_library(provider_wms_a qgis_core)
-  _find_and_link_library(provider_delimitedtext_a qgis_core)
-  _find_and_link_library(provider_arcgisfeatureserver_a qgis_core)
-  _find_and_link_library(provider_arcgismapserver_a qgis_core)
-  _find_and_link_library(provider_spatialite_a qgis_core)
-  _find_and_link_library(provider_wfs_a qgis_core)
-  _find_and_link_library(provider_wcs_a qgis_core)
-  _find_and_link_library(provider_virtuallayer_a qgis_core)
+  _find_and_link_library(authmethod_basic_a QGIS::Core)
+  _find_and_link_library(authmethod_esritoken_a QGIS::Core)
+  _find_and_link_library(authmethod_identcert_a QGIS::Core)
+  _find_and_link_library(authmethod_oauth2_a QGIS::Core)
+  _find_and_link_library(authmethod_pkcs12_a QGIS::Core)
+  _find_and_link_library(authmethod_pkipaths_a QGIS::Core)
+  _find_and_link_library(provider_postgres_a QGIS::Core)
+  _find_and_link_library(provider_postgresraster_a QGIS::Core)
+  _find_and_link_library(provider_wms_a QGIS::Core)
+  _find_and_link_library(provider_delimitedtext_a QGIS::Core)
+  _find_and_link_library(provider_arcgisfeatureserver_a QGIS::Core)
+  _find_and_link_library(provider_arcgismapserver_a QGIS::Core)
+  _find_and_link_library(provider_spatialite_a QGIS::Core)
+  _find_and_link_library(provider_wfs_a QGIS::Core)
+  _find_and_link_library(provider_wcs_a QGIS::Core)
+  _find_and_link_library(provider_virtuallayer_a QGIS::Core)
 
   _qgis_core_add_dependency(PostgreSQL::PostgreSQL PostgreSQL)
 
   # Relink qgis_core in the end, to make all the qgis plugins happy that need symbols from it
-  _find_and_link_library(qgis_core qgis_core)
+  _find_and_link_library(qgis_core QGIS::Core)
 
   # Disabled because pkgconfig finds libc++ for the wrong architecture
   #  and we already link to it through gdal
@@ -160,19 +160,19 @@ if(QGIS_FOUND AND "@VCPKG_LIBRARY_LINKAGE@" STREQUAL "static")
   _qgis_core_add_dependency(libzip::zip libzip)
   _qgis_core_add_dependency(ZLIB::ZLIB ZLIB)
   if(MSVC)
-    _find_and_link_library(spatialindex-64 qgis_core)
+    _find_and_link_library(spatialindex-64 QGIS::Core)
   else()
-    _find_and_link_library(spatialindex qgis_core)
+    _find_and_link_library(spatialindex QGIS::Core)
   endif()
 
   if(PKG_CONFIG_FOUND)
     pkg_check_modules(freexl REQUIRED IMPORTED_TARGET freexl)
-    target_link_libraries(qgis_core INTERFACE PkgConfig::freexl)
+    target_link_libraries(QGIS::Core INTERFACE PkgConfig::freexl)
   endif()
-  _find_and_link_library(qt5keychain qgis_core)
+  _find_and_link_library(qt5keychain QGIS::Core)
 
   find_package(Qt5 COMPONENTS Core Gui Network Xml Svg Concurrent Sql)
-  target_link_libraries(qgis_core INTERFACE
+  target_link_libraries(QGIS::Core INTERFACE
       Qt5::Core
       Qt5::Network
       Qt5::Xml
@@ -182,13 +182,13 @@ if(QGIS_FOUND AND "@VCPKG_LIBRARY_LINKAGE@" STREQUAL "static")
     )
   if(NOT CMAKE_SYSTEM_NAME STREQUAL "iOS")
     find_package(Qt5 COMPONENTS SerialPort)
-    target_link_libraries(qgis_core INTERFACE
+    target_link_libraries(QGIS::Core INTERFACE
       Qt5::SerialPort
     )
   endif()
   if(APPLE)
     find_package(Qt5 COMPONENTS MacExtras)
-    target_link_libraries(qgis_core INTERFACE
+    target_link_libraries(QGIS::Core INTERFACE
       Qt5::MacExtras
     )
     find_path(LIBTASN1_INCLUDE_DIR
@@ -218,26 +218,26 @@ if(QGIS_FOUND AND "@VCPKG_LIBRARY_LINKAGE@" STREQUAL "static")
       REQUIRED_VARS LIBTASN1_INCLUDE_DIR LIBTASN1_LIBRARY
       FOUND_VAR LIBTASN1_FOUND
     )
-    target_link_libraries(qgis_core INTERFACE
+    target_link_libraries(QGIS::Core INTERFACE
       ${LIBTASN1_LIBRARY}
     )
 
     # QtKeychain
-    target_link_libraries(qgis_core INTERFACE "-framework Foundation" "-framework Security")
+    target_link_libraries(QGIS::Core INTERFACE "-framework Foundation" "-framework Security")
   endif()
   if(CMAKE_SYSTEM_NAME STREQUAL "Linux" OR CMAKE_SYSTEM_NAME STREQUAL "Darwin")
      # poppler fixup for linux and macos
-     # _find_and_link_library(lcms2 qgis_core)
+     # _find_and_link_library(lcms2 QGIS::Core)
 
     # QtKeychain
     find_package(Qt5 COMPONENTS DBus REQUIRED)
-    target_link_libraries(qgis_core INTERFACE
+    target_link_libraries(QGIS::Core INTERFACE
       Qt5::DBus
     )
     if(PKG_CONFIG_FOUND)
       pkg_check_modules(glib2 REQUIRED IMPORTED_TARGET glib-2.0)
-      target_link_libraries(qgis_core INTERFACE PkgConfig::glib2)
+      target_link_libraries(QGIS::Core INTERFACE PkgConfig::glib2)
     endif()
   endif()
-  target_link_libraries(qgis_analysis INTERFACE qgis_core)
+  target_link_libraries(QGIS::Analysis INTERFACE QGIS::Core)
 endif()
