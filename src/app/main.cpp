@@ -196,11 +196,12 @@ int main( int argc, char **argv )
   app.createDatabase();
 
 #ifdef RELATIVE_PREFIX_PATH
-  app.setPrefixPath( app.applicationDirPath() + "/..", true );
-  qputenv( "GDAL_DATA", QDir::toNativeSeparators( app.applicationDirPath() + "/../share/gdal" ).toLocal8Bit() );
-  const QString projPath( QDir::toNativeSeparators( app.applicationDirPath() + "/../share/proj" ) );
+  app.setPrefixPath( QDir::toNativeSeparators( PlatformUtilities::instance()->systemGenericDataLocation(), true );
+  qputenv( "GDAL_DATA", QDir::toNativeSeparators( PlatformUtilities::instance()->systemGenericDataLocation() + "/../share/gdal" ).toLocal8Bit() );
+  const QString projPath( QDir::toNativeSeparators( PlatformUtilities::instance()->systemGenericDataLocation() + "/../share/proj" ) );
 #else
-  const QString projPath = PlatformUtilities::instance()->systemGenericDataLocation() + QStringLiteral( "/proj/data" );
+  app.setPrefixPath( QGIS_PREFIX_PATH, true );
+  const QString projPath;
 #endif
 
   // cppcheck-suppress knownConditionTrueFalse

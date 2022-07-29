@@ -123,7 +123,7 @@ find_package(${QT_PKG} COMPONENTS Concurrent Core Qml Gui Xml Positioning Widget
 # qgis will deal with it an define a public 'QT_NO_PRINTER'
 find_package(${QT_PKG} COMPONENTS PrintSupport QUIET)
 
-find_package(QGIS REQUIRED)
+find_package(QGIS COMPONENTS Core Analysis REQUIRED)
 find_package(PROJ REQUIRED)
 find_package(GDAL REQUIRED)
 find_package(Qca REQUIRED)

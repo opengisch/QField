@@ -61,5 +61,6 @@ namespace qfield
 }; // namespace qfield
 
 #define WITH_SENTRY @WITH_SENTRY@
+#define QGIS_PREFIX_PATH "@QGIS_PREFIX_PATH@"
 
 #endif // QFIELD_H
