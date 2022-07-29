@@ -171,7 +171,7 @@ if(QGIS_FOUND AND "@VCPKG_LIBRARY_LINKAGE@" STREQUAL "static")
   endif()
   _find_and_link_library(qt5keychain QGIS::Core)
 
-  find_package(Qt5 COMPONENTS Core Gui Network Xml Svg Concurrent Sql)
+  find_package(Qt5 COMPONENTS Core Gui Network Xml Svg Concurrent Sql Positioning)
   target_link_libraries(QGIS::Core INTERFACE
       Qt5::Core
       Qt5::Network
@@ -179,6 +179,7 @@ if(QGIS_FOUND AND "@VCPKG_LIBRARY_LINKAGE@" STREQUAL "static")
       Qt5::Svg
       Qt5::Concurrent
       Qt5::Sql
+      Qt5::Positioning
     )
   if(NOT CMAKE_SYSTEM_NAME STREQUAL "iOS")
     find_package(Qt5 COMPONENTS SerialPort)
