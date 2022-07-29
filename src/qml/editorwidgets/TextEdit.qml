@@ -28,7 +28,7 @@ EditorWidgetBase {
     font: Theme.defaultFont
     color: 'gray'
     wrapMode: Text.Wrap
-    textFormat: config['IsMultiline'] === true && config['UseHtml'] ? TextEdit.RichText : TextEdit.PlainText
+    textFormat: config['IsMultiline'] === true && config['UseHtml'] ? TextEdit.RichText : TextEdit.AutoText
 
     text: value == null ? '' : stringUtilities.insertLinks(value)
 
