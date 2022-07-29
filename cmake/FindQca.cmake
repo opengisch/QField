@@ -31,6 +31,7 @@ find_path(Qca_INCLUDE_DIR qca.h
           PATHS
             ${Qca_ROOT}/include/
           PATH_SUFFIXES
+            QtCrypto
             qt5/QtCrypto
             Qca-qt5/QtCrypto
           DOC "Path to Qca include directory")
