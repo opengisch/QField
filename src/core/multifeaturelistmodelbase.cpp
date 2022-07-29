@@ -223,7 +223,15 @@ QVariant MultiFeatureListModelBase::data( const QModelIndex &index, int role ) c
       return feature->second.id();
 
     case MultiFeatureListModel::FeatureSelectedRole:
-      return mSelectedFeatures.contains( mFeatures.at( index.row() ) );
+      for ( auto &pair : mSelectedFeatures )
+      {
+        if ( pair.first == mFeatures.at( index.row() ).first
+             && pair.second.id() == mFeatures.at( index.row() ).second.id() )
+        {
+          return true;
+        }
+      }
+      return false;
 
     case MultiFeatureListModel::FeatureRole:
       return feature->second;
@@ -509,9 +517,8 @@ bool MultiFeatureListModelBase::duplicateSelection()
 
 bool MultiFeatureListModelBase::moveSelection( const double x, const double y )
 {
-  if ( !canDuplicateSelection() )
+  if ( !canMoveSelection() )
     return false;
-
 
   QgsVectorLayer *vlayer = mSelectedFeatures[0].first;
   if ( !vlayer->startEditing() )
