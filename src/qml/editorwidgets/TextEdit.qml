@@ -144,8 +144,9 @@ EditorWidgetBase {
       text: qsTr( 'Copy Text' )
 
       font: Theme.defaultFont
+      icon.source: Theme.getThemeVectorIcon( "ic_copy_black_24dp" )
       height: 48
-      leftPadding: 50
+      leftPadding: 10
 
       onTriggered: {
         platformUtilities.copyTextToClipboard(value)
@@ -156,8 +157,9 @@ EditorWidgetBase {
       text: qsTr( 'Paste Text' )
 
       font: Theme.defaultFont
+      icon.source: Theme.getThemeVectorIcon( "ic_paste_black_24dp" )
       height: 48
-      leftPadding: 50
+      leftPadding: 10
 
       onTriggered: {
         var text = platformUtilities.getTextFromClipboard();
