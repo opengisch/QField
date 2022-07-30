@@ -1197,21 +1197,21 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
 <context>
     <name>MultiFeatureListModelBase</name>
     <message>
-        <location filename="../src/core/multifeaturelistmodelbase.cpp" line="379"/>
-        <location filename="../src/core/multifeaturelistmodelbase.cpp" line="432"/>
-        <location filename="../src/core/multifeaturelistmodelbase.cpp" line="519"/>
+        <location filename="../src/core/multifeaturelistmodelbase.cpp" line="387"/>
+        <location filename="../src/core/multifeaturelistmodelbase.cpp" line="440"/>
+        <location filename="../src/core/multifeaturelistmodelbase.cpp" line="526"/>
         <source>Cannot start editing</source>
         <translation>Não é possível iniciar a edição</translation>
     </message>
     <message>
-        <location filename="../src/core/multifeaturelistmodelbase.cpp" line="409"/>
-        <location filename="../src/core/multifeaturelistmodelbase.cpp" line="454"/>
-        <location filename="../src/core/multifeaturelistmodelbase.cpp" line="546"/>
+        <location filename="../src/core/multifeaturelistmodelbase.cpp" line="417"/>
+        <location filename="../src/core/multifeaturelistmodelbase.cpp" line="462"/>
+        <location filename="../src/core/multifeaturelistmodelbase.cpp" line="553"/>
         <source>Cannot rollback layer changes in layer %1</source>
         <translation>Não é possível reverter as alterações da camada na camada %1</translation>
     </message>
     <message>
-        <location filename="../src/core/multifeaturelistmodelbase.cpp" line="532"/>
+        <location filename="../src/core/multifeaturelistmodelbase.cpp" line="539"/>
         <source>Cannot change geometry of feature %1 in %2</source>
         <translation>Não é possível alterar geometria do elemento %1 em %2</translation>
     </message>

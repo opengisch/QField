@@ -1202,21 +1202,21 @@ Geometrija objekata će se kombinovati u objekat &apos;%1&apos;, koji će zadrž
 <context>
     <name>MultiFeatureListModelBase</name>
     <message>
-        <location filename="../src/core/multifeaturelistmodelbase.cpp" line="379"/>
-        <location filename="../src/core/multifeaturelistmodelbase.cpp" line="432"/>
-        <location filename="../src/core/multifeaturelistmodelbase.cpp" line="519"/>
+        <location filename="../src/core/multifeaturelistmodelbase.cpp" line="387"/>
+        <location filename="../src/core/multifeaturelistmodelbase.cpp" line="440"/>
+        <location filename="../src/core/multifeaturelistmodelbase.cpp" line="526"/>
         <source>Cannot start editing</source>
         <translation>Nije moguće započeti edtovanje</translation>
     </message>
     <message>
-        <location filename="../src/core/multifeaturelistmodelbase.cpp" line="409"/>
-        <location filename="../src/core/multifeaturelistmodelbase.cpp" line="454"/>
-        <location filename="../src/core/multifeaturelistmodelbase.cpp" line="546"/>
+        <location filename="../src/core/multifeaturelistmodelbase.cpp" line="417"/>
+        <location filename="../src/core/multifeaturelistmodelbase.cpp" line="462"/>
+        <location filename="../src/core/multifeaturelistmodelbase.cpp" line="553"/>
         <source>Cannot rollback layer changes in layer %1</source>
         <translation>Nije moguće vratiti promjene na sloju %1</translation>
     </message>
     <message>
-        <location filename="../src/core/multifeaturelistmodelbase.cpp" line="532"/>
+        <location filename="../src/core/multifeaturelistmodelbase.cpp" line="539"/>
         <source>Cannot change geometry of feature %1 in %2</source>
         <translation>Nije moguće promijeniti geometriju objekta %1 u %2</translation>
     </message>

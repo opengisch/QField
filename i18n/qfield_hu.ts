@@ -1200,21 +1200,21 @@ Az elem geometriákat összevonjuk a &apos;%1&apos; elembe, mely megőrzi az att
 <context>
     <name>MultiFeatureListModelBase</name>
     <message>
-        <location filename="../src/core/multifeaturelistmodelbase.cpp" line="379"/>
-        <location filename="../src/core/multifeaturelistmodelbase.cpp" line="432"/>
-        <location filename="../src/core/multifeaturelistmodelbase.cpp" line="519"/>
+        <location filename="../src/core/multifeaturelistmodelbase.cpp" line="387"/>
+        <location filename="../src/core/multifeaturelistmodelbase.cpp" line="440"/>
+        <location filename="../src/core/multifeaturelistmodelbase.cpp" line="526"/>
         <source>Cannot start editing</source>
         <translation>Szerkesztés elindítása nem sikerült</translation>
     </message>
     <message>
-        <location filename="../src/core/multifeaturelistmodelbase.cpp" line="409"/>
-        <location filename="../src/core/multifeaturelistmodelbase.cpp" line="454"/>
-        <location filename="../src/core/multifeaturelistmodelbase.cpp" line="546"/>
+        <location filename="../src/core/multifeaturelistmodelbase.cpp" line="417"/>
+        <location filename="../src/core/multifeaturelistmodelbase.cpp" line="462"/>
+        <location filename="../src/core/multifeaturelistmodelbase.cpp" line="553"/>
         <source>Cannot rollback layer changes in layer %1</source>
         <translation>Nem tudom visszavonni a %1 rétegen végrehajtott módosításokat</translation>
     </message>
     <message>
-        <location filename="../src/core/multifeaturelistmodelbase.cpp" line="532"/>
+        <location filename="../src/core/multifeaturelistmodelbase.cpp" line="539"/>
         <source>Cannot change geometry of feature %1 in %2</source>
         <translation>Nem lehet a %2 %1 elemének geometriáját módosítani</translation>
     </message>
