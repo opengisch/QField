@@ -40,6 +40,7 @@ import android.app.AlertDialog;
 import android.app.Application;
 import android.app.Dialog;
 import android.app.ProgressDialog;
+import android.content.ActivityNotFoundException;
 import android.content.ContentResolver;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -456,7 +457,11 @@ public class QFieldActivity extends QtActivity {
                         Intent.FLAG_GRANT_WRITE_URI_PERMISSION);
         intent.addFlags(Intent.FLAG_GRANT_PREFIX_URI_PERMISSION);
         intent.addFlags(Intent.FLAG_GRANT_PERSISTABLE_URI_PERMISSION);
-        startActivityForResult(intent, R.id.import_project_folder);
+        try {
+            startActivityForResult(intent, R.id.import_project_folder);
+        } catch (ActivityNotFoundException e) {
+            Log.w("QField", "No activity found for ACTION_OPEN_DOCUMENT_TREE.");
+        }
         return;
     }
 
@@ -493,7 +498,11 @@ public class QFieldActivity extends QtActivity {
         intent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
         intent.addFlags(Intent.FLAG_GRANT_WRITE_URI_PERMISSION);
         intent.addFlags(Intent.FLAG_GRANT_PERSISTABLE_URI_PERMISSION);
-        startActivityForResult(intent, R.id.export_to_folder);
+        try {
+            startActivityForResult(intent, R.id.export_to_folder);
+        } catch (ActivityNotFoundException e) {
+            Log.w("QField", "No activity found for ACTION_OPEN_DOCUMENT_TREE.");
+        }
         return;
     }
 
