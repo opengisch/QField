@@ -125,62 +125,58 @@ EditorWidgetBase {
     font: textField.font
   }
 
-  menu: Menu {
-    id: itemMenu
-    title: qsTr( "Text Edit Menu" )
+  Component.onCompleted: {
+    menu.addItem( copyTextItem );
+    menu.addItem( pasteTextItem );
+    menu.addItem( separatorItem );
+    menu.addItem( scanCodeItem );
 
-    width: {
-        var result = 0;
-        var padding = 0;
-        for (var i = 0; i < count; ++i) {
-            var item = itemAt(i);
-            result = Math.max(item.contentItem.implicitWidth, result);
-            padding = Math.max(item.padding, padding);
-        }
-        return result + padding * 2;
+    hasMenu = true;
+  }
+
+
+  MenuItem {
+    id: copyTextItem
+    text: qsTr( 'Copy Text' )
+
+    font: Theme.defaultFont
+    icon.source: Theme.getThemeVectorIcon( "ic_copy_black_24dp" )
+    height: 48
+    leftPadding: 10
+
+    onTriggered: {
+      platformUtilities.copyTextToClipboard(value)
     }
+  }
+  MenuItem {
+    id: pasteTextItem
+    text: qsTr( 'Paste Text' )
 
-    MenuItem {
-      text: qsTr( 'Copy Text' )
+    font: Theme.defaultFont
+    icon.source: Theme.getThemeVectorIcon( "ic_paste_black_24dp" )
+    height: 48
+    leftPadding: 10
 
-      font: Theme.defaultFont
-      icon.source: Theme.getThemeVectorIcon( "ic_copy_black_24dp" )
-      height: 48
-      leftPadding: 10
-
-      onTriggered: {
-        platformUtilities.copyTextToClipboard(value)
-      }
+    onTriggered: {
+      var text = platformUtilities.getTextFromClipboard();
+      text = text.trim()
+      valueChangeRequested(text, text == '')
     }
+  }
 
-    MenuItem {
-      text: qsTr( 'Paste Text' )
+  MenuSeparator { id: separatorItem; width: parent.width }
 
-      font: Theme.defaultFont
-      icon.source: Theme.getThemeVectorIcon( "ic_paste_black_24dp" )
-      height: 48
-      leftPadding: 10
+  MenuItem {
+    id: scanCodeItem
+    text: qsTr( 'Scan Code' )
 
-      onTriggered: {
-        var text = platformUtilities.getTextFromClipboard();
-        text = text.trim()
-        valueChangeRequested(text, text == '')
-      }
-    }
+    font: Theme.defaultFont
+    icon.source: Theme.getThemeVectorIcon( "ic_qrcode_black_24dp" )
+    height: 48
+    leftPadding: 10
 
-    MenuSeparator { width: parent.width }
-
-    MenuItem {
-      text: qsTr( 'Scan Code' )
-
-      font: Theme.defaultFont
-      icon.source: Theme.getThemeVectorIcon( "ic_qrcode_black_24dp" )
-      height: 48
-      leftPadding: 10
-
-      onTriggered: {
-        requestBarcode(topItem)
-      }
+    onTriggered: {
+      requestBarcode(topItem)
     }
   }
 

@@ -1,4 +1,5 @@
 import QtQuick 2.14
+import QtQuick.Controls 2.14
 
 Item {
     /* This property indicates whether the editor widget has been fully loaded by its Loader.
@@ -6,7 +7,22 @@ Item {
      * propagated.
      */
     property bool isLoaded: false
-    property var menu: undefined
+    property bool hasMenu: false
+    property Menu menu: Menu {
+      id: itemMenu
+      title: qsTr( "Item Menu" )
+
+      width: {
+          var result = 0;
+          var padding = 0;
+          for (var i = 0; i < count; ++i) {
+              var item = itemAt(i);
+              result = Math.max(item.contentItem.implicitWidth, result);
+              padding = Math.max(item.padding, padding);
+          }
+          return result + padding * 2;
+      }
+    }
 
     /* This signal is emmited when an editor widget has changed the value.
      */

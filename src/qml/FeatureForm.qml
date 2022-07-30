@@ -525,7 +525,7 @@ Page {
                 id: menuButton
                 anchors { right: rememberCheckbox.left; top: constraintDescriptionLabel.bottom }
 
-                visible: attributeEditorLoader.isEnabled && attributeEditorLoader.item.menu !== undefined
+                visible: attributeEditorLoader.isEnabled && attributeEditorLoader.item.hasMenu
                 enabled: visible
                 width: visible ? 48 : 0
                 bgcolor: "transparent"
