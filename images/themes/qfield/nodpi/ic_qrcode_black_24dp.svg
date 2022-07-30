@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="24" height="24" version="1.1" xmlns="http://www.w3.org/2000/svg">
+ <path d="m10 9v-4h2v2h2v2z"/>
+ <path d="m9 14v-2h-2v-2h6v2h-2v2z"/>
+ <path d="m13 14v-2h4v2z"/>
+ <path d="m17 21v-3h-2v-2h4v3h2v2z"/>
+ <g fill="#80cc28">
+  <path d="m15 3v6h6v-6h-6zm1.5 1.5h3v3h-3v-3z"/>
+  <path d="m3 15v6h6v-6h-6zm1.5 1.5h3v3h-3v-3z"/>
+  <path d="m3 3v6h6v-6h-6zm1.5 1.5h3v3h-3v-3z"/>
+ </g>
+ <path d="m12 5v-2h2v2z"/>
+ <path d="m3 12v-2h2v2z"/>
+ <path d="m5 14v-2h2v2z"/>
+ <path d="m17 12v-2h2v2z"/>
+ <path d="m19 16v-4h2v4z"/>
+ <path d="m11 19v-5h2v5z"/>
+ <path d="m13 21v-2h2v2z"/>
+</svg>

@@ -23,6 +23,7 @@
       "name": "qca",
       "default-features": false
     },
+    "nu-book-zxing-cpp",
     "spix",
     {
       "name": "sentry-native",

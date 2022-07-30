@@ -14,7 +14,7 @@ Popup {
     property string bookmarkName: ''
     property string bookmarkGroup: ''
 
-    width: Math.min(350, mainWindow.width - 20 )
+    width: Math.min(350, mainWindow.width - Theme.popupScreenEdgeMargin)
     x: (parent.width - width) / 2
     y: (parent.height - height) / 2
     padding: 0

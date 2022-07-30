@@ -73,6 +73,8 @@ QtObject {
     titleFont.pointSize: 20
     titleFont.weight: Font.Normal
 
+    readonly property int popupScreenEdgeMargin: 40
+
     function getThemeIcon(name) {
       var ppiName
       if ( ppi >= 360 )

@@ -16,6 +16,7 @@ repos:
       exclude: ^i18n
     - id: check-yaml
     - id: check-added-large-files
+      args: ['--maxkb=600']
 
 # Shellcheck
 - repo: https://github.com/jumanjihouse/pre-commit-hooks

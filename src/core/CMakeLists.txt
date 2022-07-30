@@ -27,6 +27,8 @@ set(QFIELD_CORE_SRCS
     appinterface.cpp
     attributeformmodel.cpp
     attributeformmodelbase.cpp
+    barcodedecoder.cpp
+    barcodevideofilter.cpp
     badlayerhandler.cpp
     bookmarkmodel.cpp
     changelogcontents.cpp
@@ -121,6 +123,8 @@ set(QFIELD_CORE_HDRS
     appinterface.h
     attributeformmodel.h
     attributeformmodelbase.h
+    barcodedecoder.h
+    barcodevideofilter.h
     badlayerhandler.h
     bookmarkmodel.h
     changelogcontents.h
@@ -217,6 +221,7 @@ elseif(${CMAKE_SYSTEM_NAME} STREQUAL "iOS")
 endif()
 
 find_package(Sqlite3)
+find_package(ZXing)
 
 add_library(qfield_core STATIC ${QFIELD_CORE_SRCS} ${QFIELD_CORE_HDRS})
 
@@ -257,6 +262,9 @@ if(ANDROID)
                  ${CMAKE_CURRENT_BINARY_DIR}/qfield_android.h @ONLY)
   target_include_directories(
     qfield_core PUBLIC ${CMAKE_SOURCE_DIR}/src/core/platforms/android)
+
+  # GLESv3 needed by barcode reader's use of OpenGL functions
+  target_link_libraries(qfield_core PUBLIC GLESv3)
 elseif(${CMAKE_SYSTEM_NAME} STREQUAL "iOS")
   target_include_directories(qfield_core
                              PUBLIC ${CMAKE_SOURCE_DIR}/src/core/platforms/ios)
@@ -289,6 +297,8 @@ target_link_libraries(
          ${QT_PKG}::Multimedia
          QGIS::Core
          QGIS::Analysis
+         ZXing::Core
+         ZXing::ZXing
          ${PROJ_LIBRARY}
          ${GDAL_LIBRARIES})
 

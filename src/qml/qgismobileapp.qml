@@ -923,6 +923,7 @@ ApplicationWindow {
                  && !qfieldSettings.visible
                  && !qfieldCloudScreen.visible
                  && !qfieldLocalDataPickerScreen.visible
+                 && !barcodeReader.visible
 
     onOpenedChanged: {
       if ( !opened ) {
@@ -3010,6 +3011,23 @@ ApplicationWindow {
             toast.opacity = 0
         }
       }
+  }
+
+  MouseArea {
+    id: barcodeReaderCatcher
+    anchors.fill: parent
+    enabled: barcodeReader.visible
+
+    onClicked: {
+      // Needed to avoid people interacting with the UI while the barcode reader is visible
+      // (e.g. close the feature form while scanning a code to fill an attribute)
+      return;
+    }
+  }
+
+  BarcodeReader {
+    id: barcodeReader
+    visible: false
   }
 
   DropArea {
