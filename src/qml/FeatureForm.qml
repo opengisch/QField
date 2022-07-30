@@ -412,7 +412,7 @@ Page {
             Item {
               id: placeholder
               height: childrenRect.height
-              anchors { left: parent.left; right: menuButton.left; top: constraintDescriptionLabel.bottom; rightMargin: 10; }
+              anchors { left: parent.left; right: menuButton.left; top: constraintDescriptionLabel.bottom; }
 
               Loader {
                 id: attributeEditorLoader
@@ -523,7 +523,7 @@ Page {
 
             QfToolButton {
                 id: menuButton
-                anchors { right: rememberCheckbox.left; top: constraintDescriptionLabel.bottom }
+                anchors { right: rememberCheckbox.left; top: constraintDescriptionLabel.bottom; rightMargin: 10; }
 
                 visible: attributeEditorLoader.isEnabled && attributeEditorLoader.item.hasMenu
                 enabled: visible
