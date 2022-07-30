@@ -111,5 +111,8 @@ QVariant PrintLayoutListModel::data( const QModelIndex &index, int role ) const
 
 const QString PrintLayoutListModel::titleAt( int row ) const
 {
+  if ( row < 0 || row >= mPrintLayouts.size() )
+    return QString();
+
   return mPrintLayouts.at( row ).title;
 }
