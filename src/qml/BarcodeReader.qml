@@ -13,12 +13,13 @@ Popup {
 
   signal decoded(var string)
 
-  property int popupWidth: mainWindow.width <= mainWindow.height ? mainWindow.width - 40 : mainWindow.height - 40
+  property int popupWidth: mainWindow.width <= mainWindow.height ? mainWindow.width - Theme.popupScreenEdgeMargin : mainWindow.height - Theme.popupScreenEdgeMargin
 
   width: popupWidth
-  height: Math.min(mainWindow.height - 40, popupWidth + toolBar.height + acceptButton.height)
+  height: Math.min(mainWindow.height - Theme.popupScreenEdgeMargin, popupWidth + toolBar.height + acceptButton.height)
   x: (parent.width - width) / 2
   y: (parent.height - height) / 2
+  z: 10000 // 1000s are embedded feature forms, use a higher value to insure feature form popups always show above embedded feature formes
   padding: 0
 
   closePolicy: Popup.CloseOnEscape

@@ -32,10 +32,26 @@ class BarcodeVideoFilter : public QAbstractVideoFilter
   public:
     explicit BarcodeVideoFilter();
 
+    /**
+     * Returns the barcode decoder to be used when analyzing video frames.
+     */
     BarcodeDecoder *decoder() const { return mDecoder; }
+
+    /**
+     * Sets the \a decoder to be used when analyzing video frames.
+     */
     void setDecoder( BarcodeDecoder *decoder );
 
+    /**
+     * Handle the decoding of a video frame barcodes. The frame will be analyzed for the presence of
+     * a barcode, and if so the decoder will capture the decoded string.
+     */
     void decodeVideoFrame( QVideoFrame *input );
+
+    /**
+     * Returns whether a video frame decoding is happening, which will dictate whether incoming video frames
+     * will be skipped or not.
+     */
     bool isDecoding() const { return mDecodingThread; }
 
     QVideoFilterRunnable *createFilterRunnable() override;

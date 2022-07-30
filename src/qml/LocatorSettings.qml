@@ -13,7 +13,7 @@ Popup {
     property alias locatorModelSuperBridge: locatorFiltersModel.locatorModelSuperBridge
     property alias model: locatorFiltersModel
 
-    width: Math.min( 400, mainWindow.width - 20 )
+    width: Math.min(400, mainWindow.width - Theme.popupScreenEdgeMargin)
     x: (parent.width - width) / 2
     y: (parent.height - height) / 2
     padding: 0

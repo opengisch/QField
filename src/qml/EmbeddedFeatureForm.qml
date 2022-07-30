@@ -3,6 +3,8 @@ import QtQuick.Controls 2.14
 
 import org.qfield 1.0
 
+import Theme 1.0
+
 Popup {
     id: formPopup
 
@@ -48,8 +50,8 @@ Popup {
     y: 24
     z: 1000 + embeddedLevel
     padding: 0
-    width: parent.width - 48
-    height: parent.height - 48
+    width: parent.width - Theme.popupScreenEdgeMargin
+    height: parent.height - Theme.popupScreenEdgeMargin
     modal: true
 
     FeatureForm {
