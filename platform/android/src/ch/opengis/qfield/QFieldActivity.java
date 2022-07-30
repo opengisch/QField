@@ -56,6 +56,8 @@ import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
+import android.os.Handler;
+import android.os.Looper;
 import android.provider.Settings;
 import android.text.Html;
 import android.util.Log;
@@ -624,15 +626,23 @@ public class QFieldActivity extends QtActivity {
 
                 progressDialog.dismiss();
                 if (!imported) {
-                    AlertDialog alertDialog =
-                        new AlertDialog
-                            .Builder(QFieldActivity.this, R.style.DialogTheme)
-                            .create();
-                    alertDialog.setTitle(getString(R.string.import_error));
-                    alertDialog.setMessage(
-                        getString(R.string.import_dataset_error));
                     if (!isFinishing()) {
-                        alertDialog.show();
+                        new Handler(Looper.getMainLooper())
+                            .post(new Runnable() {
+                                @Override
+                                public void run() {
+                                    AlertDialog alertDialog =
+                                        new AlertDialog
+                                            .Builder(QFieldActivity.this,
+                                                     R.style.DialogTheme)
+                                            .create();
+                                    alertDialog.setTitle(
+                                        getString(R.string.import_error));
+                                    alertDialog.setMessage(getString(
+                                        R.string.import_dataset_error));
+                                    alertDialog.show();
+                                }
+                            });
                     }
                 } else {
                     openPath(importDatasetPath);
@@ -676,15 +686,23 @@ public class QFieldActivity extends QtActivity {
                 if (imported) {
                     openPath(importPath);
                 } else {
-                    AlertDialog alertDialog =
-                        new AlertDialog
-                            .Builder(QFieldActivity.this, R.style.DialogTheme)
-                            .create();
-                    alertDialog.setTitle(getString(R.string.import_error));
-                    alertDialog.setMessage(
-                        getString(R.string.import_project_folder_error));
                     if (!isFinishing()) {
-                        alertDialog.show();
+                        new Handler(Looper.getMainLooper())
+                            .post(new Runnable() {
+                                @Override
+                                public void run() {
+                                    AlertDialog alertDialog =
+                                        new AlertDialog
+                                            .Builder(QFieldActivity.this,
+                                                     R.style.DialogTheme)
+                                            .create();
+                                    alertDialog.setTitle(
+                                        getString(R.string.import_error));
+                                    alertDialog.setMessage(getString(
+                                        R.string.import_project_folder_error));
+                                    alertDialog.show();
+                                }
+                            });
                     }
                 }
             }
@@ -739,16 +757,25 @@ public class QFieldActivity extends QtActivity {
                         imported = QFieldUtils.zipToFolder(input, importPath);
                     } catch (Exception e) {
                         e.printStackTrace();
-                        AlertDialog alertDialog =
-                            new AlertDialog
-                                .Builder(QFieldActivity.this,
-                                         R.style.DialogTheme)
-                                .create();
-                        alertDialog.setTitle(getString(R.string.import_error));
-                        alertDialog.setMessage(
-                            getString(R.string.import_project_archive_error));
+
                         if (!isFinishing()) {
-                            alertDialog.show();
+                            new Handler(Looper.getMainLooper())
+                                .post(new Runnable() {
+                                    @Override
+                                    public void run() {
+                                        AlertDialog alertDialog =
+                                            new AlertDialog
+                                                .Builder(QFieldActivity.this,
+                                                         R.style.DialogTheme)
+                                                .create();
+                                        alertDialog.setTitle(
+                                            getString(R.string.import_error));
+                                        alertDialog.setMessage(getString(
+                                            R.string
+                                                .import_project_archive_error));
+                                        alertDialog.show();
+                                    }
+                                });
                         }
                     }
 
@@ -1057,16 +1084,24 @@ public class QFieldActivity extends QtActivity {
                         file, directory, resolver);
 
                     if (!exported) {
-                        AlertDialog alertDialog =
-                            new AlertDialog
-                                .Builder(QFieldActivity.this,
-                                         R.style.DialogTheme)
-                                .create();
-                        alertDialog.setTitle(getString(R.string.export_error));
-                        alertDialog.setMessage(
-                            getString(R.string.export_to_folder_error));
+
                         if (!isFinishing()) {
-                            alertDialog.show();
+                            new Handler(Looper.getMainLooper())
+                                .post(new Runnable() {
+                                    @Override
+                                    public void run() {
+                                        AlertDialog alertDialog =
+                                            new AlertDialog
+                                                .Builder(QFieldActivity.this,
+                                                         R.style.DialogTheme)
+                                                .create();
+                                        alertDialog.setTitle(
+                                            getString(R.string.export_error));
+                                        alertDialog.setMessage(getString(
+                                            R.string.export_to_folder_error));
+                                        alertDialog.show();
+                                    }
+                                });
                         }
                     }
                 }
