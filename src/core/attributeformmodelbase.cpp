@@ -490,7 +490,7 @@ void AttributeFormModelBase::flatten( QgsAttributeEditorContainer *container, QS
 void AttributeFormModelBase::updateDefaultValues( int fieldIndex )
 {
   const QgsFields fields = mFeatureModel->feature().fields();
-  if ( fieldIndex < 0 || fieldIndex > fields.size() )
+  if ( fieldIndex < 0 || fieldIndex >= fields.size() )
     return;
   const QString fieldName = fields.at( fieldIndex ).name();
 
