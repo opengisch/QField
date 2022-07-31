@@ -43,13 +43,13 @@ jobs:
 
       - uses: Apple-Actions/import-codesign-certs@v1
         with:
-          p12-file-base64: ${{ env.CI_PULL_REQUEST == 'false' && secrets.IOS_CERTIFICATES_FILE_BASE64 || secrets.IOS_CERTIFICATES_FILE_BASE64_DEV }}
-          p12-password: ${{ env.CI_PULL_REQUEST == 'false' && secrets.IOS_CERTIFICATES_PASSWORD || secrets.IOS_CERTIFICATES_PASSWORD_DEV }}
+          p12-file-base64: ${{ startsWith( env.CI_TAG, 'v' ) && secrets.IOS_CERTIFICATES_FILE_BASE64 || secrets.IOS_CERTIFICATES_FILE_BASE64_DEV }}
+          p12-password: ${{ startsWith( env.CI_TAG, 'v' ) && secrets.IOS_CERTIFICATES_PASSWORD || secrets.IOS_CERTIFICATES_PASSWORD_DEV }}
 
       - uses: Apple-Actions/download-provisioning-profiles@v1
         with:
           bundle-id: ch.opengis.qfield
-          profile-type: ${{ env.CI_PULL_REQUEST == 'false' && 'IOS_APP_STORE' || 'IOS_APP_DEVELOPMENT' }}
+          profile-type: ${{ startsWith( env.CI_TAG, 'v' ) && 'IOS_APP_STORE' || 'IOS_APP_DEVELOPMENT' }}
           issuer-id: ${{ secrets.IOS_APPSTORE_ISSUER_ID }}
           api-key-id: ${{ secrets.IOS_APPSTORE_KEY_ID }}
           api-private-key: ${{ secrets.IOS_APPSTORE_PRIVATE_KEY }}
@@ -91,8 +91,8 @@ jobs:
                 -D ENABLE_BITCODE=OFF \
                 -D ENABLE_ARC=ON \
                 -D QT_IOS_TEAM_ID="${{ secrets.IOS_TEAM_ID }}" \
-                -D QT_IOS_CODE_SIGN_IDENTITY="${{ env.CI_PULL_REQUEST == 'false' && secrets.IOS_CODE_SIGN_IDENTITY || secrets.IOS_CODE_SIGN_IDENTITY_DEV }}" \
-                -D QT_IOS_PROVISIONING_PROFILE_SPECIFIER="${{ env.CI_PULL_REQUEST == 'false' && secrets.IOS_PROVISIONING_PROFILE_SPECIFIER || secrets.IOS_PROVISIONING_PROFILE_SPECIFIER_DEV }}" \
+                -D QT_IOS_CODE_SIGN_IDENTITY="${{ startsWith( env.CI_TAG, 'v' ) && secrets.IOS_CODE_SIGN_IDENTITY || secrets.IOS_CODE_SIGN_IDENTITY_DEV }}" \
+                -D QT_IOS_PROVISIONING_PROFILE_SPECIFIER="${{ startsWith( env.CI_TAG, 'v' ) && secrets.IOS_PROVISIONING_PROFILE_SPECIFIER || secrets.IOS_PROVISIONING_PROFILE_SPECIFIER_DEV }}" \
                 -D CMAKE_SYSTEM_NAME=iOS \
                 -D CMAKE_SYSTEM_PROCESSOR=aarch64 \
                 -D CMAKE_OSX_DEPLOYMENT_TARGET=${{ env.DEPLOYMENT_TARGET }} \
