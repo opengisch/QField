@@ -160,6 +160,7 @@ QSGGeometry *QgsSGGeometry::qgsPolylineToQSGGeometry( const QgsPolylineXY &line,
 QSGGeometry *QgsSGGeometry::qgsPolygonToQSGGeometry( const QgsPolygon *polygon, const QgsRectangle visibleExtent, double scaleFactor )
 {
   Q_ASSERT( polygon );
+  qInfo() << QStringLiteral( "gsrubberband polygon WKT: %1" ).arg( polygon->asWkt() );
   QgsTessellator t( visibleExtent.xMinimum(), visibleExtent.yMaximum(), false, false, false, true );
   t.addPolygon( *polygon, 0 );
 
