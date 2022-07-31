@@ -133,6 +133,19 @@
     </message>
 </context>
 <context>
+    <name>BarcodeReader</name>
+    <message>
+        <location filename="../src/qml/BarcodeReader.qml" line="79"/>
+        <source>Code Reader</source>
+        <translation>读码器</translation>
+    </message>
+    <message>
+        <location filename="../src/qml/BarcodeReader.qml" line="245"/>
+        <source>Center your camera on a code</source>
+        <translation>居中您的相机于条码之上</translation>
+    </message>
+</context>
+<context>
     <name>BluetoothDeviceChooser</name>
     <message>
         <location filename="../src/qml/BluetoothDeviceChooser.qml" line="21"/>
@@ -1145,7 +1158,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
 <context>
     <name>LocatorItem</name>
     <message>
-        <location filename="../src/qml/LocatorItem.qml" line="101"/>
+        <location filename="../src/qml/LocatorItem.qml" line="121"/>
         <source>Search…</source>
         <translation>搜索…</translation>
     </message>
@@ -2794,18 +2807,18 @@ Cancel to make a minimal device scan instead.</source>
 <context>
     <name>QgisMobileapp</name>
     <message>
-        <location filename="../src/core/qgismobileapp.cpp" line="675"/>
-        <location filename="../src/core/qgismobileapp.cpp" line="701"/>
+        <location filename="../src/core/qgismobileapp.cpp" line="679"/>
+        <location filename="../src/core/qgismobileapp.cpp" line="705"/>
         <source>Project file &quot;%1&quot; does not exist</source>
         <translation>工程文件 &quot;%1&quot; 不存在</translation>
     </message>
     <message>
-        <location filename="../src/core/qgismobileapp.cpp" line="692"/>
+        <location filename="../src/core/qgismobileapp.cpp" line="696"/>
         <source>No project file currently opened</source>
         <translation>当前未打开任何工程文件</translation>
     </message>
     <message>
-        <location filename="../src/core/qgismobileapp.cpp" line="723"/>
+        <location filename="../src/core/qgismobileapp.cpp" line="727"/>
         <source>Could not load font %1</source>
         <translation>无法加载字体 %1</translation>
     </message>
@@ -3211,14 +3224,14 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <location filename="../src/qml/qgismobileapp.qml" line="727"/>
         <location filename="../src/qml/qgismobileapp.qml" line="735"/>
-        <location filename="../src/qml/qgismobileapp.qml" line="1864"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1865"/>
         <source>Lon</source>
         <translation>经度</translation>
     </message>
     <message>
         <location filename="../src/qml/qgismobileapp.qml" line="729"/>
         <location filename="../src/qml/qgismobileapp.qml" line="733"/>
-        <location filename="../src/qml/qgismobileapp.qml" line="1866"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1867"/>
         <source>Lat</source>
         <translation>纬度</translation>
     </message>
@@ -3243,67 +3256,67 @@ Cancel to make a minimal device scan instead.</source>
         <translation>面积</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1002"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1003"/>
         <source>Close measure tool</source>
         <translation>关闭测量工具</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1009"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1010"/>
         <source>Stop editing</source>
         <translation>停止编辑</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1016"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1017"/>
         <source>Cancel addition</source>
         <translation>取消添加</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1063"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1064"/>
         <source>Topological editing turned on</source>
         <translation>拓扑编辑已打开</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1063"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1064"/>
         <source>Topological editing turned off</source>
         <translation>拓扑编辑已关闭</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1111"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1112"/>
         <source>Freehand digitizing turned on</source>
         <translation>手绘数字化已打开</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1111"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1112"/>
         <source>Freehand digitizing turned off</source>
         <translation>手绘数字化已关闭</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1208"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1209"/>
         <source>Coordinate cursor now locked to position</source>
         <translation>坐标光标现已锁定定位</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1218"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1219"/>
         <source>Coordinate cursor unlocked</source>
         <translation>坐标光标已解锁</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1238"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1239"/>
         <source>Received position</source>
         <translation>获取定位信息</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1240"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1241"/>
         <source>Searching for position</source>
         <translation>搜索定位</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1287"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1288"/>
         <source>Canvas follows location</source>
         <translation>地图跟随位置</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1296"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1297"/>
         <source>Waiting for location</source>
         <translation>等待位置信息</translation>
     </message>
@@ -3316,49 +3329,49 @@ Cancel to make a minimal device scan instead.</source>
         <translation type="vanished">关闭定位功能</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1383"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1384"/>
         <source>Canvas stopped following location</source>
         <translation>地图停止跟随位置</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1527"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1528"/>
         <source>Failed to create feature!</source>
         <translation>创建要素失败！</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1531"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1532"/>
         <source>Failed to save feature!</source>
         <translation>保存要素失败！</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1591"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1592"/>
         <source>Main Menu</source>
         <translation>菜单</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1605"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1606"/>
         <source>Measure Tool</source>
         <translation>测量工具</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1620"/>
-        <location filename="../src/qml/qgismobileapp.qml" line="1771"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1621"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1772"/>
         <source>Print to PDF</source>
         <translation>输出为PDF</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1653"/>
-        <location filename="../src/qml/qgismobileapp.qml" line="1811"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1654"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1812"/>
         <source>Printing to PDF</source>
         <translation>输出为PDF文件</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1670"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1671"/>
         <source>Go to Home Screen</source>
         <translation>转到主页</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1686"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1687"/>
         <source>Open Project Folder</source>
         <translation>打开工程文件夹</translation>
     </message>
@@ -3367,47 +3380,47 @@ Cancel to make a minimal device scan instead.</source>
         <translation type="vanished">打开工程</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1698"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1699"/>
         <source>Settings</source>
         <translation>设置</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1712"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1713"/>
         <source>Message Log</source>
         <translation>信息日志</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1726"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1727"/>
         <source>About QField</source>
         <translation>关于QField</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1787"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1788"/>
         <source>Select template below</source>
         <translation>请选择以下模板</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1837"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1838"/>
         <source>Activating positioning service</source>
         <translation>激活定位设备</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1840"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1841"/>
         <source>QField has no permissions to use positioning.</source>
         <translation>QField没有使用定位的权限。</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1851"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1852"/>
         <source>Map Canvas Options</source>
         <translation>地图画布选项</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1907"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1908"/>
         <source>Add Bookmark</source>
         <translation>添加书签</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1928"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1929"/>
         <source>Set as Destination</source>
         <translation>设为目标</translation>
     </message>
@@ -3416,7 +3429,7 @@ Cancel to make a minimal device scan instead.</source>
         <translation type="vanished">在坐标处添加书签</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1914"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1915"/>
         <source>Untitled bookmark</source>
         <translation>无标题书签</translation>
     </message>
@@ -3425,7 +3438,7 @@ Cancel to make a minimal device scan instead.</source>
         <translation type="vanished">将坐标设为目标</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1941"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1942"/>
         <source>Copy Coordinates</source>
         <translation>复制坐标</translation>
     </message>
@@ -3438,13 +3451,13 @@ Cancel to make a minimal device scan instead.</source>
         <translation type="vanished">Y坐标</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1954"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1955"/>
         <source>Coordinates copied to clipboard</source>
         <translation>坐标已复制到剪贴板</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1977"/>
-        <location filename="../src/qml/qgismobileapp.qml" line="2024"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1978"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2025"/>
         <source>Precise View Settings</source>
         <translation>精确视图设置</translation>
     </message>
@@ -3473,32 +3486,32 @@ Cancel to make a minimal device scan instead.</source>
         <translation type="vanished">10米精度</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2137"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2138"/>
         <source>Always Show Precise View</source>
         <translation>始终显示精确视图</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2239"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2240"/>
         <source>Center to Location</source>
         <translation>定位居中</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2250"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2251"/>
         <source>Add Bookmark at Location</source>
         <translation>在定位处添加书签</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2275"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2276"/>
         <source>Copy Location Coordinates</source>
         <translation>复制定位坐标</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2761"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2762"/>
         <source>Signed out</source>
         <translation>已注销</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2765"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2766"/>
         <source>Signed in</source>
         <translation>已登录</translation>
     </message>
@@ -3507,47 +3520,47 @@ Cancel to make a minimal device scan instead.</source>
         <translation type="vanished">设为目标</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1961"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1962"/>
         <source>Navigation Options</source>
         <translation>导航选项</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2011"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2012"/>
         <source>Clear Destination</source>
         <translation>清除目标</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2039"/>
-        <location filename="../src/qml/qgismobileapp.qml" line="2055"/>
-        <location filename="../src/qml/qgismobileapp.qml" line="2071"/>
-        <location filename="../src/qml/qgismobileapp.qml" line="2087"/>
-        <location filename="../src/qml/qgismobileapp.qml" line="2103"/>
-        <location filename="../src/qml/qgismobileapp.qml" line="2119"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2040"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2056"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2072"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2088"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2104"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2120"/>
         <source>%1 Precision</source>
         <translation>%1 精度</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2152"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2153"/>
         <source>Enable Audio Proximity Feedback</source>
         <translation>启用声音引发回馈</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2169"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2170"/>
         <source>Positioning Options</source>
         <translation>定位选项</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2195"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2196"/>
         <source>Enable Positioning</source>
         <translation>启用定位</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2210"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2211"/>
         <source>Show Position Information</source>
         <translation>显示定位信息</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2225"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2226"/>
         <source>Positioning Settings</source>
         <translation>定位设置</translation>
     </message>
@@ -3560,13 +3573,13 @@ Cancel to make a minimal device scan instead.</source>
         <translation type="vanished">在当前位置添加书签</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2258"/>
-        <location filename="../src/qml/qgismobileapp.qml" line="2282"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2259"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2283"/>
         <source>Current location unknown</source>
         <translation>当前位置未知</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2262"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2263"/>
         <source>My location</source>
         <translation>我的位置</translation>
     </message>
@@ -3575,32 +3588,32 @@ Cancel to make a minimal device scan instead.</source>
         <translation type="vanished">复制当前位置</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2289"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2290"/>
         <source>Accuracy</source>
         <translation>精度</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2292"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2293"/>
         <source>N/A</source>
         <translation>不可用</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2295"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2296"/>
         <source>Current location copied to clipboard</source>
         <translation>当前位置已复制到剪贴板</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2333"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2334"/>
         <source>Current layer switched to the one holding the selected geometry.</source>
         <translation>当前图层切换至包含被选中几何对象的图层</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2342"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2343"/>
         <source>Editing of multi geometry layer is not supported yet.</source>
         <translation>尚不支持编辑几何图形集图层。</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2458"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2459"/>
         <source>Loading %1</source>
         <translation>正在加载 %1</translation>
     </message>
@@ -3609,7 +3622,7 @@ Cancel to make a minimal device scan instead.</source>
         <translation type="vanished">已注销</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2763"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2764"/>
         <source>Connecting...</source>
         <translation>正在连接…</translation>
     </message>
@@ -3618,27 +3631,27 @@ Cancel to make a minimal device scan instead.</source>
         <translation type="vanished">已登录</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2780"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2781"/>
         <source>Project %1 failed to download</source>
         <translation>工程 %1 下载失败</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2781"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2782"/>
         <source>Project %1 successfully downloaded, it&apos;s now available to open</source>
         <translation>工程 %1 已成功下载，现在可以打开</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2786"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2787"/>
         <source>Changes failed to reach QFieldCloud: %1</source>
         <translation>修改无法上传至QField云端：%1</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2790"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2791"/>
         <source>Changes successfully pushed to QFieldCloud</source>
         <translation>修改已成功上传至QField云端</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="3039"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="3057"/>
         <source>Press back again to close project and app</source>
         <translation>再次点击返回键将关闭工程和应用</translation>
     </message>
