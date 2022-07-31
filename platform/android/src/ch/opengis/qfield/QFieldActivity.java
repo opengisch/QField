@@ -254,6 +254,21 @@ public class QFieldActivity extends QtActivity {
         }
     }
 
+    private void displayAlertDialog(String title, String message) {
+        new Handler(Looper.getMainLooper()).post(new Runnable() {
+            @Override
+            public void run() {
+                AlertDialog alertDialog =
+                    new AlertDialog
+                        .Builder(QFieldActivity.this, R.style.DialogTheme)
+                        .create();
+                alertDialog.setTitle(title);
+                alertDialog.setMessage(message);
+                alertDialog.show();
+            }
+        });
+    }
+
     private void initiateSentry() {
         Context context = getApplication().getApplicationContext();
 
@@ -627,22 +642,9 @@ public class QFieldActivity extends QtActivity {
                 progressDialog.dismiss();
                 if (!imported) {
                     if (!isFinishing()) {
-                        new Handler(Looper.getMainLooper())
-                            .post(new Runnable() {
-                                @Override
-                                public void run() {
-                                    AlertDialog alertDialog =
-                                        new AlertDialog
-                                            .Builder(QFieldActivity.this,
-                                                     R.style.DialogTheme)
-                                            .create();
-                                    alertDialog.setTitle(
-                                        getString(R.string.import_error));
-                                    alertDialog.setMessage(getString(
-                                        R.string.import_dataset_error));
-                                    alertDialog.show();
-                                }
-                            });
+                        displayAlertDialog(
+                            getString(R.string.import_error),
+                            getString(R.string.import_dataset_error));
                     }
                 } else {
                     openPath(importDatasetPath);
@@ -687,22 +689,9 @@ public class QFieldActivity extends QtActivity {
                     openPath(importPath);
                 } else {
                     if (!isFinishing()) {
-                        new Handler(Looper.getMainLooper())
-                            .post(new Runnable() {
-                                @Override
-                                public void run() {
-                                    AlertDialog alertDialog =
-                                        new AlertDialog
-                                            .Builder(QFieldActivity.this,
-                                                     R.style.DialogTheme)
-                                            .create();
-                                    alertDialog.setTitle(
-                                        getString(R.string.import_error));
-                                    alertDialog.setMessage(getString(
-                                        R.string.import_project_folder_error));
-                                    alertDialog.show();
-                                }
-                            });
+                        displayAlertDialog(
+                            getString(R.string.import_error),
+                            getString(R.string.import_project_folder_error));
                     }
                 }
             }
@@ -759,23 +748,10 @@ public class QFieldActivity extends QtActivity {
                         e.printStackTrace();
 
                         if (!isFinishing()) {
-                            new Handler(Looper.getMainLooper())
-                                .post(new Runnable() {
-                                    @Override
-                                    public void run() {
-                                        AlertDialog alertDialog =
-                                            new AlertDialog
-                                                .Builder(QFieldActivity.this,
-                                                         R.style.DialogTheme)
-                                                .create();
-                                        alertDialog.setTitle(
-                                            getString(R.string.import_error));
-                                        alertDialog.setMessage(getString(
-                                            R.string
-                                                .import_project_archive_error));
-                                        alertDialog.show();
-                                    }
-                                });
+                            displayAlertDialog(
+                                getString(R.string.import_error),
+                                getString(
+                                    R.string.import_project_archive_error));
                         }
                     }
 
@@ -1086,22 +1062,9 @@ public class QFieldActivity extends QtActivity {
                     if (!exported) {
 
                         if (!isFinishing()) {
-                            new Handler(Looper.getMainLooper())
-                                .post(new Runnable() {
-                                    @Override
-                                    public void run() {
-                                        AlertDialog alertDialog =
-                                            new AlertDialog
-                                                .Builder(QFieldActivity.this,
-                                                         R.style.DialogTheme)
-                                                .create();
-                                        alertDialog.setTitle(
-                                            getString(R.string.export_error));
-                                        alertDialog.setMessage(getString(
-                                            R.string.export_to_folder_error));
-                                        alertDialog.show();
-                                    }
-                                });
+                            displayAlertDialog(
+                                getString(R.string.export_error),
+                                getString(R.string.export_to_folder_error));
                         }
                     }
                 }
