@@ -63,9 +63,22 @@ void PlatformUtilities::initSystem()
 {
 }
 
-QString PlatformUtilities::systemGenericDataLocation() const
+QString PlatformUtilities::systemSharedDataLocation() const
 {
-  return QStandardPaths::standardLocations( QStandardPaths::GenericDataLocation ).first();
+  /* By default assume that we have a layout like this:
+
+     [prefix_path]
+     |-- bin
+     |   |-- qfield.exe
+     |-- share
+     |   |-- qfield
+     |   |   |-- sample_projects 
+     |   |-- proj
+     |   |   |-- data
+     |   |   |   |--  proj.db
+  */
+  const static QString sharePath = QDir( QCoreApplication::applicationDirPath() + QLatin1String( "/../share" ) ).absolutePath();
+  return sharePath;
 }
 
 QString PlatformUtilities::systemLocalDataLocation( const QString &subDir ) const

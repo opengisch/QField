@@ -86,7 +86,7 @@ void RecentProjectListModel::reloadModel()
   {
     bool recentProjectsContainsSampleProject = false;
     QMutableListIterator<RecentProject> recentProject( mRecentProjects );
-    QString sampleProjectPath( PlatformUtilities::instance()->systemGenericDataLocation() + sampleProject.path );
+    QString sampleProjectPath( PlatformUtilities::instance()->systemSharedDataLocation() + sampleProject.path );
 
     while ( recentProject.hasNext() )
     {

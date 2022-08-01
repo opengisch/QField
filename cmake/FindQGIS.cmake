@@ -112,7 +112,7 @@ find_package_handle_standard_args(QGIS
                                   VERSION_VAR QGIS_VERSION_STRING)
 mark_as_advanced(QGIS_INCLUDE_DIR)
 get_filename_component(_qgis_lib_path "${QGIS_Core_LIBRARY}" DIRECTORY)
-get_filename_component(QGIS_PREFIX_PATH "${_qgis_lib_path}/../.." ABSOLUTE)
+get_filename_component(QGIS_PREFIX_PATH "${_qgis_lib_path}/.." ABSOLUTE)
 unset(_qgis_lib_path)
 
 if(QGIS_FOUND)

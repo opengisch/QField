@@ -43,7 +43,7 @@ PlatformUtilities::Capabilities IosPlatformUtilities::capabilities() const {
   return capabilities;
 }
 
-QString IosPlatformUtilities::systemGenericDataLocation() const {
+QString IosPlatformUtilities::systemSharedDataLocation() const {
   NSBundle *main = [NSBundle mainBundle];
   NSString *bundlePath = [main bundlePath];
   QString path = [bundlePath UTF8String];

@@ -66,12 +66,12 @@ class QFIELD_CORE_EXPORT PlatformUtilities : public QObject
     virtual void initSystem();
 
     /**
-     * The source path to generic data location.
+     * The path to share data location.
      * Under this path, there should be the app specific directories qgis/ proj/ qfield/ ...
      * Refers to /share or /usr/share on Linux.
      * This path is assumed to be read only.
      */
-    virtual QString systemGenericDataLocation() const;
+    virtual QString systemSharedDataLocation() const;
 
     /**
      * \returns a directory where local data can be stored.

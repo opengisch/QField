@@ -192,12 +192,11 @@ int main( int argc, char **argv )
 
   QgsApplication app( argc, argv, true, profilePath, QStringLiteral( "mobile" ) );
   app.setThemeName( settings.value( "/Themes", "default" ).toString() );
-  app.setPkgDataPath( PlatformUtilities::instance()->systemGenericDataLocation() + QStringLiteral( "/qgis" ) );
-  app.createDatabase();
+  app.setPkgDataPath( PlatformUtilities::instance()->systemSharedDataLocation() + QStringLiteral( "/qgis" ) );
 
 #ifdef RELATIVE_PREFIX_PATH
-  qputenv( "GDAL_DATA", QDir::toNativeSeparators( PlatformUtilities::instance()->systemGenericDataLocation() + "/gdal" ).toLocal8Bit() );
-  const QString projPath( QDir::toNativeSeparators( PlatformUtilities::instance()->systemGenericDataLocation() + "/proj/data" ) );
+  qputenv( "GDAL_DATA", QDir::toNativeSeparators( PlatformUtilities::instance()->systemSharedDataLocation() + "/gdal" ).toLocal8Bit() );
+  const QString projPath( QDir::toNativeSeparators( PlatformUtilities::instance()->systemSharedDataLocation() + "/proj/data" ) );
 #else
   app.setPrefixPath( QGIS_PREFIX_PATH, true );
   const QString projPath;

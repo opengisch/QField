@@ -115,7 +115,7 @@ void AndroidPlatformUtilities::initSystem()
   }
 }
 
-QString AndroidPlatformUtilities::systemGenericDataLocation() const
+QString AndroidPlatformUtilities::systemSharedDataLocation() const
 {
   return mSystemGenericDataLocation;
 }
