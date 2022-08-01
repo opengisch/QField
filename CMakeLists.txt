@@ -164,14 +164,15 @@ if (ENABLE_TESTS)
 endif()
 
 if(WITH_VCPKG)
+  # Copy files from the install dir to where it
+  # will be bundled
+  add_custom_target(deploy)
+
   function(copy_resource source target)
     add_custom_command(TARGET deploy
       POST_BUILD
       COMMAND ${CMAKE_COMMAND} -E make_directory "${SHARE_DIR}/${target}"
-    )
-    add_custom_command(TARGET deploy
-                      POST_BUILD
-                      COMMAND ${CMAKE_COMMAND} -E copy_directory "${source}" "${SHARE_DIR}/${target}"
+      COMMAND ${CMAKE_COMMAND} -E copy_directory "${source}" "${SHARE_DIR}/${target}"
     )
   endfunction()
 
@@ -197,7 +198,6 @@ if(WITH_VCPKG)
     # From QGIS CMakeLists.txt
     set(QGIS_PLUGIN_INSTALL_PREFIX "lib${LIB_SUFFIX}/qgis/plugins")
   endif()
-  add_custom_target(deploy)
   add_custom_command(TARGET deploy
     POST_BUILD
     COMMAND ${CMAKE_COMMAND} -E make_directory "${CMAKE_BINARY_DIR}/output/bin/qgis/plugins"
@@ -215,7 +215,13 @@ if(WITH_VCPKG)
                        COMMAND ${CMAKE_COMMAND} -E copy_if_different "${LIB}" "${CMAKE_BINARY_DIR}/output/bin/qgis/plugins"
     )
   endforeach()
-  copy_resource("${VCPKG_BASE_DIR}/share/qgis/resources" "qgis/resources")
+
+  add_custom_command(TARGET deploy
+    POST_BUILD
+    COMMAND ${CMAKE_COMMAND} -E make_directory "${SHARE_DIR}/qgis/resources"
+    COMMAND ${CMAKE_COMMAND} -E copy_directory "${VCPKG_BASE_DIR}/share/qgis/resources" "${SHARE_DIR}/qgis/resources"
+    COMMAND ${CMAKE_COMMAND} -E rm -- "${SHARE_DIR}/qgis/resources/data/world_map.gpkg"
+  )
   copy_resource("${VCPKG_BASE_DIR}/share/proj" "proj")
   copy_resource("${VCPKG_BASE_DIR}/share/gdal" "gdal")
   copy_resource("${CMAKE_SOURCE_DIR}/resources/" "qfield")
