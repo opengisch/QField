@@ -41,6 +41,9 @@ development method.
 cmake -S QField -B build
 ```
 
+If you use a locally built QGIS installed to a different
+location, use `-DQGIS_ROOT=` to specify this path.
+
 ### Using vcpkg
 
 This will build the complete dependency chain from scratch.
