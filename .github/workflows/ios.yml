@@ -9,11 +9,11 @@ on:
   pull_request:
   release:
     types: ['published', 'released']
+  workflow_dispatch: # this will push the IPA to TestFlight
 
 
 jobs:
   build:
-
     runs-on: macOS-12
     env:
       DEPLOYMENT_TARGET: '12.0'
@@ -27,7 +27,6 @@ jobs:
         with:
           submodules: recursive
 
-
       - name: 💐 Install Qt
         uses: jurplel/install-qt-action@v2
         with:
@@ -35,11 +34,16 @@ jobs:
           modules: 'qtcharts'
           target: ios
 
+      - name: Handle dispatch
+        if: github.event_name == 'workflow_dispatch'
+        run: |
+          echo "CI_BRANCH=master" >> $GITHUB_ENV
+          echo "export CI_TAG=v2.2.3" >> $GITHUB_ENV
+
       - name: 🌾 Prepare vars
         id: vars
         shell: bash
-        run: |
-          ./scripts/ci/env_gh.sh
+        run: ./scripts/ci/env_gh.sh
 
       - uses: Apple-Actions/import-codesign-certs@v1
         with:
@@ -146,7 +150,7 @@ jobs:
           path: ${{ env.CI_PACKAGE_FILE_BASENAME }}.ipa
 
       - uses: Apple-Actions/upload-testflight-build@v1
-        if: github.event_name == 'release' && startsWith(github.ref, 'refs/tags/v')
+        if: ( github.event_name == 'release' && startsWith(github.ref, 'refs/tags/v') )|| github.event_name == 'workflow_dispatch'
         name: 🚀 Release to TestFlight
         with:
           app-path: ${{ env.CI_PACKAGE_FILE_BASENAME }}.ipa
@@ -155,7 +159,7 @@ jobs:
           api-private-key: ${{ secrets.IOS_APPSTORE_PRIVATE_KEY }}
 
       - name: 🚀 Upload Release Asset
-        if: github.event_name == 'release' && startsWith(github.ref, 'refs/tags/v')
+        if: ( github.event_name == 'release' && startsWith(github.ref, 'refs/tags/v') )|| github.event_name == 'workflow_dispatch'
         uses: actions/upload-release-asset@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
