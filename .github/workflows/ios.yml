@@ -153,9 +153,9 @@ jobs:
           name: qfield-${{ env.TRIPLET }}-${{ env.DEPLOYMENT_TARGET }}.ipa
           path: ${{ env.CI_PACKAGE_FILE_BASENAME }}.ipa
 
-      - uses: Apple-Actions/upload-testflight-build@v1
+      - name: 🚀 Release to TestFlight
+        uses: Apple-Actions/upload-testflight-build@v1
         if: ( github.event_name == 'release' && startsWith(github.ref, 'refs/tags/v') ) || ( github.event_name == 'workflow_dispatch' && github.event.inputs.version != '' )
-        name: 🚀 Release to TestFlight
         with:
           app-path: ${{ env.CI_PACKAGE_FILE_BASENAME }}.ipa
           issuer-id: ${{ secrets.IOS_APPSTORE_ISSUER_ID }}
