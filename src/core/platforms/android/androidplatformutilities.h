@@ -29,7 +29,7 @@ class AndroidPlatformUtilities : public PlatformUtilities
     AndroidPlatformUtilities();
 
     PlatformUtilities::Capabilities capabilities() const override;
-    void initSystem() override;
+    void afterUpdate() override;
     QString systemSharedDataLocation() const override;
     QString qgsProject() const override;
 

@@ -59,11 +59,10 @@ class QFIELD_CORE_EXPORT PlatformUtilities : public QObject
     virtual PlatformUtilities::Capabilities capabilities() const;
 
     /**
-     * This method can be used to implement platform specific initialization tasks.
-     * This is implemented for Android to extract app assets to location where it can
-     * be accessed via filesystem.
+     * This method will do initialization tasks and copy sample projects to a writable location
+     * It will also call afterUpdate whenever a new version is detected.
      */
-    virtual void initSystem();
+    void initSystem();
 
     /**
      * The path to share data location.
@@ -230,5 +229,15 @@ class QFIELD_CORE_EXPORT PlatformUtilities : public QObject
     Q_INVOKABLE virtual QString getTextFromClipboard() const;
 
     static PlatformUtilities *instance();
+
+  private:
+    /**
+     * This method can be used to implement platform specific initialization tasks to be performed after an app update.
+     * This is implemented for Android to extract app assets to location where it can
+     * be accessed via filesystem.
+     */
+    virtual void afterUpdate();
+
+    void copySampleProjects();
 };
 #endif // PLATFORMUTILITIES_H

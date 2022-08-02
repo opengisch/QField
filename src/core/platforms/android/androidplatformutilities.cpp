@@ -61,19 +61,12 @@ PlatformUtilities::Capabilities AndroidPlatformUtilities::capabilities() const
   return capabilities;
 }
 
-void AndroidPlatformUtilities::initSystem()
+void AndroidPlatformUtilities::afterUpdate()
 {
   // Copy data away from the virtual path `assets:/` to a path accessible also for non-qt-based libs
   const QString appDataLocation = QStandardPaths::writableLocation( QStandardPaths::AppDataLocation );
   mSystemGenericDataLocation = appDataLocation + QStringLiteral( "/share" );
 
-  QFile gitRevFile( appDataLocation + QStringLiteral( "/gitRev" ) );
-  gitRevFile.open( QIODevice::ReadOnly );
-
-  QByteArray localGitRev = gitRevFile.readAll();
-  gitRevFile.close();
-  QByteArray appGitRev = qfield::gitRev.toUtf8();
-  if ( localGitRev != appGitRev )
 
   {
     if ( mActivity.isValid() )
@@ -87,10 +80,6 @@ void AndroidPlatformUtilities::initSystem()
         }
       } );
     }
-
-    qInfo() << QStringLiteral( "Different build git revision detected (previous: %1, current: %2)" )
-                 .arg( localGitRev.size() > 0 ? localGitRev.mid( 0, 7 ) : QStringLiteral( "n/a" ) )
-                 .arg( appGitRev.size() > 0 ? appGitRev.mid( 0, 7 ) : QStringLiteral( "n/a" ) );
 
     const bool success = FileUtils::copyRecursively( QStringLiteral( "assets:/share" ), mSystemGenericDataLocation );
 
@@ -108,9 +97,6 @@ void AndroidPlatformUtilities::initSystem()
     if ( success )
     {
       qDebug() << "Successfully copied share assets content";
-      gitRevFile.open( QIODevice::WriteOnly | QIODevice::Truncate );
-      gitRevFile.write( appGitRev );
-      gitRevFile.close();
     }
   }
 }

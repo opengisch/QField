@@ -37,7 +37,7 @@ LocalFilesModel::LocalFilesModel( QObject *parent )
       favorites << QStringLiteral( "%1/Imported Projects" ).arg( applicationDirectory )
                 << QStringLiteral( "%1/Imported Datasets" ).arg( applicationDirectory );
     }
-    const QString sampleProjectPath = PlatformUtilities::instance()->systemSharedDataLocation() + QStringLiteral( "/qfield/sample_projects" );
+    const QString sampleProjectPath = PlatformUtilities::instance()->systemLocalDataLocation( QLatin1String( "sample_projects" ) );
     favorites << sampleProjectPath;
     settings.setValue( QStringLiteral( "qfieldFavorites" ), favorites );
   }

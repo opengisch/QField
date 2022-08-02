@@ -16,6 +16,7 @@
  *                                                                         *
  ***************************************************************************/
 
+#include "fileutils.h"
 #include "picturesource.h"
 #include "platformutilities.h"
 #include "projectsource.h"
@@ -59,9 +60,36 @@ PlatformUtilities::Capabilities PlatformUtilities::capabilities() const
   return capabilities;
 }
 
+void PlatformUtilities::copySampleProjects()
+{
+  const bool success = FileUtils::copyRecursively( systemSharedDataLocation() + QLatin1String( "/qfield/sample_projects" ), systemLocalDataLocation( QLatin1String( "sample_projects" ) ) );
+  Q_ASSERT( success );
+}
+
 void PlatformUtilities::initSystem()
 {
+  const QString appDataLocation = QStandardPaths::writableLocation( QStandardPaths::AppDataLocation );
+  QFile gitRevFile( appDataLocation + QStringLiteral( "/gitRev" ) );
+  QByteArray localGitRev;
+  if ( gitRevFile.open( QIODevice::ReadOnly ) )
+  {
+    localGitRev = gitRevFile.readAll();
+  }
+  gitRevFile.close();
+  QByteArray appGitRev = qfield::gitRev.toUtf8();
+  if ( localGitRev != appGitRev )
+  {
+    afterUpdate();
+    copySampleProjects();
+
+    gitRevFile.open( QIODevice::WriteOnly | QIODevice::Truncate );
+    gitRevFile.write( appGitRev );
+    gitRevFile.close();
+  }
 }
+
+void PlatformUtilities::afterUpdate()
+{}
 
 QString PlatformUtilities::systemSharedDataLocation() const
 {
