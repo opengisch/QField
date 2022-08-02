@@ -217,6 +217,7 @@ int main( int argc, char **argv )
 
   originalMessageHandler = qInstallMessageHandler( qfMessageHandler );
   app.initQgis();
+  app.createDatabase();
 
   QSettings::setDefaultFormat( QSettings::NativeFormat );
 
