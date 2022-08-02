@@ -354,6 +354,15 @@ int FlatLayerTreeModelBase::buildMap( QgsLayerTreeModel *model, const QModelInde
       if ( node && node->customProperty( QStringLiteral( "nodeHidden" ), QStringLiteral( "false" ) ).toString() == QStringLiteral( "true" ) )
         continue;
 
+      const bool isLayer = QgsLayerTree::isLayer( node );
+      if ( isLayer )
+      {
+        QgsLayerTreeLayer *nodeLayer = QgsLayerTree::toLayer( node );
+        QgsMapLayer *layer = nodeLayer->layer();
+        if ( layer && layer->flags().testFlag( QgsMapLayer::Private ) )
+          continue;
+      }
+
       if ( node && !node->isExpanded() )
         mCollapsedItems << index;
 
@@ -363,7 +372,7 @@ int FlatLayerTreeModelBase::buildMap( QgsLayerTreeModel *model, const QModelInde
       row++;
       if ( model->hasChildren( index ) )
       {
-        if ( QgsLayerTree::isLayer( node ) )
+        if ( isLayer )
         {
           QgsLayerTreeLayer *nodeLayer = QgsLayerTree::toLayer( node );
           QgsRasterLayer *rasterLayer = qobject_cast<QgsRasterLayer *>( nodeLayer->layer() );
