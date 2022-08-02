@@ -137,12 +137,12 @@
     <message>
         <location filename="../src/qml/BarcodeReader.qml" line="79"/>
         <source>Code Reader</source>
-        <translation type="unfinished"/>
+        <translation>Code Reader</translation>
     </message>
     <message>
         <location filename="../src/qml/BarcodeReader.qml" line="245"/>
         <source>Center your camera on a code</source>
-        <translation type="unfinished"/>
+        <translation>Center your camera on a code</translation>
     </message>
 </context>
 <context>
@@ -170,7 +170,7 @@
     <message numerus="yes">
         <location filename="../src/qml/BluetoothDeviceChooser.qml" line="80"/>
         <source>%n device(s) found</source>
-        <translation type="unfinished"><numerusform></numerusform></translation>
+        <translation><numerusform>%n device(s) found</numerusform></translation>
     </message>
     <message>
         <location filename="../src/qml/BluetoothDeviceChooser.qml" line="86"/>
@@ -202,7 +202,7 @@ Cancel to make a minimal device scan instead.</translation>
     <message>
         <location filename="../src/qml/BluetoothDeviceChooser.qml" line="166"/>
         <source>Connect to %1</source>
-        <translation type="unfinished"/>
+        <translation>Connect to %1</translation>
     </message>
     <message>
         <source>Connect  to %1</source>
@@ -2638,7 +2638,7 @@ Cancel to make a minimal device scan instead.</translation>
     <message>
         <location filename="../src/qml/QFieldSettings.qml" line="613"/>
         <source>Automatically end collection when minimum number is met</source>
-        <translation type="unfinished"/>
+        <translation>Automatically end collection when minimum number is met</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldSettings.qml" line="640"/>
@@ -3542,7 +3542,7 @@ Cancel to make a minimal device scan instead.</translation>
     <message>
         <location filename="../src/qml/qgismobileapp.qml" line="2153"/>
         <source>Enable Audio Proximity Feedback</source>
-        <translation type="unfinished"/>
+        <translation>Enable Audio Proximity Feedback</translation>
     </message>
     <message>
         <location filename="../src/qml/qgismobileapp.qml" line="2170"/>

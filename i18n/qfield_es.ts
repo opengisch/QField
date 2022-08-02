@@ -137,12 +137,12 @@
     <message>
         <location filename="../src/qml/BarcodeReader.qml" line="79"/>
         <source>Code Reader</source>
-        <translation type="unfinished"/>
+        <translation>Lector de código</translation>
     </message>
     <message>
         <location filename="../src/qml/BarcodeReader.qml" line="245"/>
         <source>Center your camera on a code</source>
-        <translation type="unfinished"/>
+        <translation>Centre su cámara en el código</translation>
     </message>
 </context>
 <context>
@@ -202,7 +202,7 @@ Cancelar para hacer una búsqueda mínima de dispositivos en su lugar.</translat
     <message>
         <location filename="../src/qml/BluetoothDeviceChooser.qml" line="166"/>
         <source>Connect to %1</source>
-        <translation type="unfinished"/>
+        <translation>Conectar con %1</translation>
     </message>
     <message>
         <source>Connect  to %1</source>
@@ -981,7 +981,7 @@ Las geometrías de los objetos se combinarán en el objeto &apos;%1&apos;, que c
     <message>
         <location filename="../src/qml/LayerTreeItemProperties.qml" line="174"/>
         <source>Opacity</source>
-        <translation type="unfinished"/>
+        <translation>Opacidad</translation>
     </message>
     <message>
         <location filename="../src/qml/LayerTreeItemProperties.qml" line="192"/>
@@ -1353,7 +1353,7 @@ Las geometrías de los objetos se combinarán en el objeto &apos;%1&apos;, que c
     </message>
     <message>
         <source>centroid</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">centroide</translation>
     </message>
     <message>
         <location filename="../src/qml/NavigationInformationView.qml" line="145"/>
@@ -1649,7 +1649,7 @@ Las geometrías de los objetos se combinarán en el objeto &apos;%1&apos;, que c
     <message>
         <location filename="../src/qml/PositioningPreciseView.qml" line="399"/>
         <source>Positioning accuracy too low for this precision level</source>
-        <translation type="unfinished"/>
+        <translation>Precisión de posicionamiento demasiado baja para este nivel de precisión</translation>
     </message>
 </context>
 <context>
@@ -2640,7 +2640,7 @@ Cancelar para hacer una búsqueda mínima de dispositivos en su lugar.</translat
     <message>
         <location filename="../src/qml/QFieldSettings.qml" line="613"/>
         <source>Automatically end collection when minimum number is met</source>
-        <translation type="unfinished"/>
+        <translation>Terminar automáticamente la colección cuando se alcanza el número mínimo</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldSettings.qml" line="640"/>
@@ -2803,7 +2803,7 @@ Cancelar para hacer una búsqueda mínima de dispositivos en su lugar.</translat
     <message>
         <location filename="../src/core/navigation.cpp" line="222"/>
         <source>centroid</source>
-        <translation type="unfinished"/>
+        <translation>centroide</translation>
     </message>
 </context>
 <context>
@@ -3461,36 +3461,36 @@ Cancelar para hacer una búsqueda mínima de dispositivos en su lugar.</translat
         <location filename="../src/qml/qgismobileapp.qml" line="1978"/>
         <location filename="../src/qml/qgismobileapp.qml" line="2025"/>
         <source>Precise View Settings</source>
-        <translation type="unfinished"/>
+        <translation>Configuración de vista precisa</translation>
     </message>
     <message>
         <source>0.25m Precision</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">0.25 m de precisión</translation>
     </message>
     <message>
         <source>0.5m Precision</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">0.5 m de precisión</translation>
     </message>
     <message>
         <source>1m Precision</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">1 m de precisión</translation>
     </message>
     <message>
         <source>2.5m Precision</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">2.5 m de precisión</translation>
     </message>
     <message>
         <source>5m Precision</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">5 m de precisión</translation>
     </message>
     <message>
         <source>10m Precision</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">10 m de precisión</translation>
     </message>
     <message>
         <location filename="../src/qml/qgismobileapp.qml" line="2138"/>
         <source>Always Show Precise View</source>
-        <translation type="unfinished"/>
+        <translation>Mostrar siempre una vista precisa</translation>
     </message>
     <message>
         <location filename="../src/qml/qgismobileapp.qml" line="2240"/>
@@ -3539,12 +3539,12 @@ Cancelar para hacer una búsqueda mínima de dispositivos en su lugar.</translat
         <location filename="../src/qml/qgismobileapp.qml" line="2104"/>
         <location filename="../src/qml/qgismobileapp.qml" line="2120"/>
         <source>%1 Precision</source>
-        <translation type="unfinished"/>
+        <translation>%1 Precisión</translation>
     </message>
     <message>
         <location filename="../src/qml/qgismobileapp.qml" line="2153"/>
         <source>Enable Audio Proximity Feedback</source>
-        <translation type="unfinished"/>
+        <translation>Habilitar el audio de proximidad</translation>
     </message>
     <message>
         <location filename="../src/qml/qgismobileapp.qml" line="2170"/>
