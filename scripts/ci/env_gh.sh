@@ -1,10 +1,8 @@
 #!/bin/bash -e
 
-if [[ ${GITHUB_REF} == *"refs/heads"* ]]
-then
+if [[ ${GITHUB_REF} == *"refs/heads"* ]]; then
     TMP_CI_BRANCH=${GITHUB_REF#refs/heads/};
-elif [[ ${GITHUB_REF} == *"refs/tags"* ]]
-then
+elif [[ ${GITHUB_REF} == *"refs/tags"* ]]; then
     TMP_CI_TAG=${GITHUB_REF#refs/tags/}
     TMP_CI_BRANCH=${TMP_CI_TAG}
 else

@@ -13,6 +13,7 @@ on:
     inputs:
       version:
         required: true
+        description: The QField version to use for the IPA. e.g. v1.2.3
 
 
 jobs:
@@ -41,7 +42,7 @@ jobs:
         if: github.event_name == 'workflow_dispatch'
         run: |
           echo "CI_BRANCH=master" >> $GITHUB_ENV
-          echo "CI_TAG=${{ github.event.inputs.message }}" >> $GITHUB_ENV
+          echo "CI_TAG=${{ github.event.inputs.version }}" >> $GITHUB_ENV
 
       - name: 🌾 Prepare vars
         id: vars
@@ -153,7 +154,7 @@ jobs:
           path: ${{ env.CI_PACKAGE_FILE_BASENAME }}.ipa
 
       - uses: Apple-Actions/upload-testflight-build@v1
-        if: ( github.event_name == 'release' && startsWith(github.ref, 'refs/tags/v') )|| github.event_name == 'workflow_dispatch'
+        if: ( github.event_name == 'release' && startsWith(github.ref, 'refs/tags/v') ) || ( github.event_name == 'workflow_dispatch' && github.event.inputs.version != '' )
         name: 🚀 Release to TestFlight
         with:
           app-path: ${{ env.CI_PACKAGE_FILE_BASENAME }}.ipa
@@ -162,7 +163,7 @@ jobs:
           api-private-key: ${{ secrets.IOS_APPSTORE_PRIVATE_KEY }}
 
       - name: 🚀 Upload Release Asset
-        if: ( github.event_name == 'release' && startsWith(github.ref, 'refs/tags/v') )|| github.event_name == 'workflow_dispatch'
+        if: github.event_name == 'release' && startsWith(github.ref, 'refs/tags/v')
         uses: actions/upload-release-asset@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
