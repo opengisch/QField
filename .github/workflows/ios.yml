@@ -10,6 +10,9 @@ on:
   release:
     types: ['published', 'released']
   workflow_dispatch: # this will push the IPA to TestFlight
+    inputs:
+      version:
+        required: true
 
 
 jobs:
@@ -34,11 +37,11 @@ jobs:
           modules: 'qtcharts'
           target: ios
 
-      - name: Handle dispatch
+      - name: Handle workflow dispatch to set version name
         if: github.event_name == 'workflow_dispatch'
         run: |
           echo "CI_BRANCH=master" >> $GITHUB_ENV
-          echo "export CI_TAG=v2.2.3" >> $GITHUB_ENV
+          echo "CI_TAG=${{ github.event.inputs.message }}" >> $GITHUB_ENV
 
       - name: 🌾 Prepare vars
         id: vars
