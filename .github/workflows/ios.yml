@@ -9,11 +9,15 @@ on:
   pull_request:
   release:
     types: ['published', 'released']
+  workflow_dispatch: # this will push the IPA to TestFlight
+    inputs:
+      version:
+        required: true
+        description: The QField version to use for the IPA. e.g. v1.2.3
 
 
 jobs:
   build:
-
     runs-on: macOS-12
     env:
       DEPLOYMENT_TARGET: '12.0'
@@ -27,7 +31,6 @@ jobs:
         with:
           submodules: recursive
 
-
       - name: 💐 Install Qt
         uses: jurplel/install-qt-action@v2
         with:
@@ -35,11 +38,16 @@ jobs:
           modules: 'qtcharts'
           target: ios
 
+      - name: Handle workflow dispatch to set version name
+        if: github.event_name == 'workflow_dispatch'
+        run: |
+          echo "CI_BRANCH=master" >> $GITHUB_ENV
+          echo "CI_TAG=${{ github.event.inputs.version }}" >> $GITHUB_ENV
+
       - name: 🌾 Prepare vars
         id: vars
         shell: bash
-        run: |
-          ./scripts/ci/env_gh.sh
+        run: ./scripts/ci/env_gh.sh
 
       - uses: Apple-Actions/import-codesign-certs@v1
         with:
@@ -145,9 +153,9 @@ jobs:
           name: qfield-${{ env.TRIPLET }}-${{ env.DEPLOYMENT_TARGET }}.ipa
           path: ${{ env.CI_PACKAGE_FILE_BASENAME }}.ipa
 
-      - uses: Apple-Actions/upload-testflight-build@v1
-        if: github.event_name == 'release' && startsWith(github.ref, 'refs/tags/v')
-        name: 🚀 Release to TestFlight
+      - name: 🚀 Release to TestFlight
+        uses: Apple-Actions/upload-testflight-build@v1
+        if: ( github.event_name == 'release' && startsWith(github.ref, 'refs/tags/v') ) || ( github.event_name == 'workflow_dispatch' && github.event.inputs.version != '' )
         with:
           app-path: ${{ env.CI_PACKAGE_FILE_BASENAME }}.ipa
           issuer-id: ${{ secrets.IOS_APPSTORE_ISSUER_ID }}
