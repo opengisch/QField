@@ -78,14 +78,14 @@ void RecentProjectListModel::reloadModel()
 
   // update sample projects
   const QList<RecentProject> sampleProjects {
-    RecentProject( LocalProject, QStringLiteral( "Simple Bee Farming Sample Project" ), QStringLiteral( "/qfield/sample_projects/simple_bee_farming.qgs" ), true ),
-    RecentProject( LocalProject, QStringLiteral( "Advanced Bee Farming Sample Project" ), QStringLiteral( "/qfield/sample_projects/advanced_bee_farming.qgs" ), true ),
-    RecentProject( LocalProject, QStringLiteral( "Live QField Users Survey Sample Project" ), QStringLiteral( "/qfield/sample_projects/live_qfield_users_survey.qgs" ), true ) };
+    RecentProject( LocalProject, QStringLiteral( "Simple Bee Farming Sample Project" ), QStringLiteral( "/simple_bee_farming.qgs" ), true ),
+    RecentProject( LocalProject, QStringLiteral( "Advanced Bee Farming Sample Project" ), QStringLiteral( "/advanced_bee_farming.qgs" ), true ),
+    RecentProject( LocalProject, QStringLiteral( "Live QField Users Survey Sample Project" ), QStringLiteral( "/live_qfield_users_survey.qgs" ), true ) };
   for ( const RecentProject &sampleProject : sampleProjects )
   {
     bool recentProjectsContainsSampleProject = false;
     QMutableListIterator<RecentProject> recentProject( mRecentProjects );
-    QString sampleProjectPath( PlatformUtilities::instance()->systemSharedDataLocation() + sampleProject.path );
+    QString sampleProjectPath( PlatformUtilities::instance()->systemLocalDataLocation( QLatin1String( "sample_projects" ) ) + sampleProject.path );
 
     while ( recentProject.hasNext() )
     {

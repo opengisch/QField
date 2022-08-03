@@ -105,7 +105,7 @@ const QString LocalFilesModel::getCurrentTitleFromPath( const QString &path ) co
   {
     return tr( "Additional files directory" );
   }
-  else if ( path == PlatformUtilities::instance()->systemSharedDataLocation() + QStringLiteral( "/qfield/sample_projects" ) )
+  else if ( path == PlatformUtilities::instance()->systemLocalDataLocation( QLatin1String( "sample_projects" ) ) )
   {
     return tr( "Sample projects" );
   }
