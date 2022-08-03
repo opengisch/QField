@@ -137,12 +137,12 @@
     <message>
         <location filename="../src/qml/BarcodeReader.qml" line="79"/>
         <source>Code Reader</source>
-        <translation type="unfinished"/>
+        <translation>Lector de Códigos</translation>
     </message>
     <message>
         <location filename="../src/qml/BarcodeReader.qml" line="245"/>
         <source>Center your camera on a code</source>
-        <translation type="unfinished"/>
+        <translation>Centrar a cámara nun código</translation>
     </message>
 </context>
 <context>
@@ -2640,7 +2640,7 @@ Cancela para facer, porén, unha exploración mínima do dispositivo.</translati
     <message>
         <location filename="../src/qml/QFieldSettings.qml" line="613"/>
         <source>Automatically end collection when minimum number is met</source>
-        <translation type="unfinished"/>
+        <translation>Finalizar automaticamente a captura cando se chegue a un número mínimo</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldSettings.qml" line="640"/>

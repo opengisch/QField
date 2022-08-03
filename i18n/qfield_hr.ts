@@ -137,12 +137,12 @@
     <message>
         <location filename="../src/qml/BarcodeReader.qml" line="79"/>
         <source>Code Reader</source>
-        <translation type="unfinished"/>
+        <translation>Čitač koda</translation>
     </message>
     <message>
         <location filename="../src/qml/BarcodeReader.qml" line="245"/>
         <source>Center your camera on a code</source>
-        <translation type="unfinished"/>
+        <translation>Postavi kameru iznad koda</translation>
     </message>
 </context>
 <context>
