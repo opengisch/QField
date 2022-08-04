@@ -3544,7 +3544,7 @@ Cancela para facer, porén, unha exploración mínima do dispositivo.</translati
     <message>
         <location filename="../src/qml/qgismobileapp.qml" line="2153"/>
         <source>Enable Audio Proximity Feedback</source>
-        <translation type="unfinished"/>
+        <translation>Activar a Retroalimentación de Proximidade do Audio</translation>
     </message>
     <message>
         <location filename="../src/qml/qgismobileapp.qml" line="2170"/>
