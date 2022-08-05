@@ -181,6 +181,6 @@ EditorWidgetBase {
   }
 
   function requestedBarcodeReceived(string) {
-    valueChangeRequested(string, string == '')
+    valueChangeRequested(string, false)
   }
 }
