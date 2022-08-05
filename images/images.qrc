@@ -11,6 +11,8 @@
         <file alias="qfield-love.png">pictures/qfield-love.png</file>
     </qresource>
     <qresource prefix="/">
+        <file>themes/qfield/nodpi/ic_copy_black_24dp.svg</file>
+        <file>themes/qfield/nodpi/ic_paste_black_24dp.svg</file>
         <file>themes/qfield/hdpi/ic_add_circle_outline_white_24dp.png</file>
         <file>themes/qfield/hdpi/ic_add_circle_white_24dp.png</file>
         <file>themes/qfield/hdpi/ic_remove_white_24dp.png</file>

@@ -124,4 +124,63 @@ EditorWidgetBase {
     id: fontMetrics
     font: textField.font
   }
+
+  Component.onCompleted: {
+    menu.addItem( copyTextItem );
+    menu.addItem( pasteTextItem );
+    menu.addItem( separatorItem );
+    menu.addItem( scanCodeItem );
+
+    hasMenu = true;
+  }
+
+
+  MenuItem {
+    id: copyTextItem
+    text: qsTr( 'Copy Text' )
+
+    font: Theme.defaultFont
+    icon.source: Theme.getThemeVectorIcon( "ic_copy_black_24dp" )
+    height: 48
+    leftPadding: 10
+
+    onTriggered: {
+      platformUtilities.copyTextToClipboard(value)
+    }
+  }
+  MenuItem {
+    id: pasteTextItem
+    text: qsTr( 'Paste Text' )
+
+    font: Theme.defaultFont
+    icon.source: Theme.getThemeVectorIcon( "ic_paste_black_24dp" )
+    height: 48
+    leftPadding: 10
+
+    onTriggered: {
+      var text = platformUtilities.getTextFromClipboard();
+      text = text.trim()
+      valueChangeRequested(text, text == '')
+    }
+  }
+
+  MenuSeparator { id: separatorItem; width: parent.width }
+
+  MenuItem {
+    id: scanCodeItem
+    text: qsTr( 'Scan Code' )
+
+    font: Theme.defaultFont
+    icon.source: Theme.getThemeVectorIcon( "ic_qrcode_black_24dp" )
+    height: 48
+    leftPadding: 10
+
+    onTriggered: {
+      requestBarcode(topItem)
+    }
+  }
+
+  function requestedBarcodeReceived(string) {
+    valueChangeRequested(string, false)
+  }
 }

@@ -13,6 +13,7 @@ Popup {
 
   signal decoded(var string)
 
+  property var barcodeRequestedItem: undefined //<! when a feature form is requesting a bardcode, this will be set to attribute editor widget which triggered the request
   property int popupWidth: mainWindow.width <= mainWindow.height ? mainWindow.width - Theme.popupScreenEdgeMargin : mainWindow.height - Theme.popupScreenEdgeMargin
 
   width: popupWidth
@@ -258,8 +259,13 @@ Popup {
           opacity: enabled ? 1 : 0.2
 
           onClicked: {
+            if (barcodeReader.barcodeRequestedItem != undefined) {
+                barcodeReader.barcodeRequestedItem.requestedBarcodeReceived(barcodeDecoder.decodedString)
+                barcodeReader.barcodeRequestedItem = undefined;
+            } else {
+                barcodeReader.decoded(barcodeDecoder.decodedString);
+            }
             barcodeReader.close();
-            barcodeReader.decoded(barcodeDecoder.decodedString);
           }
         }
       }

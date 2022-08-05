@@ -1490,7 +1490,7 @@ ApplicationWindow {
 
             coordinateLocator.flash()
             digitizingFeature.geometry.applyRubberband()
-            geometryRequestedItem.requestedGeometry(digitizingFeature.geometry)
+            geometryRequestedItem.requestedGeometryReceived(digitizingFeature.geometry)
             digitizingRubberband.model.reset()
             geometryRequested = false
             return;
@@ -1941,8 +1941,9 @@ ApplicationWindow {
       id: copyCoordinatesItem
       text: qsTr( "Copy Coordinates" )
       height: 48
-      leftPadding: 50
+      leftPadding: 10
       font: Theme.defaultFont
+      icon.source: Theme.getThemeVectorIcon( "ic_copy_black_24dp" )
 
       onTriggered: {
         var displayPoint = projectInfo.reprojectDisplayCoordinatesToWGS84
@@ -2275,8 +2276,9 @@ ApplicationWindow {
     MenuItem {
       text: qsTr( "Copy Location Coordinates" )
       height: 48
-      leftPadding: 50
+      leftPadding: 10
       font: Theme.defaultFont
+      icon.source: Theme.getThemeVectorIcon( "ic_copy_black_24dp" )
 
       onTriggered: {
         if (!positioningSettings.positioningActivated || positionSource.positionInformation === undefined || !positionSource.positionInformation.latitudeValid) {
@@ -2306,6 +2308,7 @@ ApplicationWindow {
     mapSettings: mapCanvas.mapSettings
     digitizingToolbar: digitizingToolbar
     moveFeaturesToolbar: moveFeaturesToolbar
+    barcodeReader: barcodeReader
 
     visible: state != "Hidden"
     focus: visible
@@ -2370,6 +2373,7 @@ ApplicationWindow {
   OverlayFeatureFormDrawer {
     id: overlayFeatureFormDrawer
     digitizingToolbar: digitizingToolbar
+    barcodeReader: barcodeReader
     featureModel.currentLayer: dashBoard.currentLayer
   }
 

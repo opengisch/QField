@@ -292,6 +292,7 @@ EditorWidgetBase {
 
         embeddedLevel: form.embeddedLevel + 1
         digitizingToolbar: form.digitizingToolbar
+        barcodeReader: form.barcodeReader
 
         onFeatureCancelled: {
             if( autoSave )
@@ -319,7 +320,7 @@ EditorWidgetBase {
       return false
     }
 
-    function requestedGeometry(geometry) {
+    function requestedGeometryReceived(geometry) {
         showAddFeaturePopup(geometry)
     }
 
