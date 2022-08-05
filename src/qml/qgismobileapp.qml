@@ -1490,7 +1490,7 @@ ApplicationWindow {
 
             coordinateLocator.flash()
             digitizingFeature.geometry.applyRubberband()
-            geometryRequestedItem.requestedGeometry(digitizingFeature.geometry)
+            geometryRequestedItem.requestedGeometryReceived(digitizingFeature.geometry)
             digitizingRubberband.model.reset()
             geometryRequested = false
             return;

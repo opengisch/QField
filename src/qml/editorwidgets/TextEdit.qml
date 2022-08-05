@@ -180,7 +180,7 @@ EditorWidgetBase {
     }
   }
 
-  function requestedBarcode(string) {
+  function requestedBarcodeReceived(string) {
     valueChangeRequested(string, string == '')
   }
 }

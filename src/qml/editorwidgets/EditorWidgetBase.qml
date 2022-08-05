@@ -29,14 +29,14 @@ Item {
     signal valueChangeRequested(var value, bool isNull)
 
     /* This signal is emitted when an editor widget is in need of a digitized geometry. The
-     * geometry will be returned through calling a requestedGeometry(geometry) function
+     * geometry will be returned through calling a requestedGeometryReceived(geometry) function
      * attached to editor widget which signaled the request. The corresponding
      * handler is \c onRequestGeometry.
      */
     signal requestGeometry(var item, var layer)
 
     /* This signal is emitted when an editor widget is requesting a barcode value. The
-     * decoded barcode value will be returned as a string through calling a requestedBarcode(string) function
+     * decoded barcode value will be returned as a string through calling a requestedBarcodeReceived(string) function
      * attached to editor widget which signaled the request. The corresponding
      * handler is \c onRequestBarcode.
      */

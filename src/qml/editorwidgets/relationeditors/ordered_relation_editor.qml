@@ -444,7 +444,7 @@ EditorWidgetBase {
     }
   }
 
-  function requestedGeometry(geometry) {
+  function requestedGeometryReceived(geometry) {
     showAddFeaturePopup(geometry)
   }
 
