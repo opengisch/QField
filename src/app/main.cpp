@@ -63,28 +63,18 @@ int main( int argc, char **argv )
   QCoreApplication::setOrganizationName( "OPENGIS.ch" );
   QCoreApplication::setOrganizationDomain( "opengis.ch" );
   QCoreApplication::setApplicationName( qfield::appName );
-  QString customLanguage;
-  bool enableSentry = false;
-  {
-    QSettings settings;
-    customLanguage = settings.value( "/customLanguage", QString() ).toString();
-    enableSentry = settings.value( "/enableInfoCollection", true ).toBool();
-  }
+  const QSettings settings;
+  const QString customLanguage = settings.value( "/customLanguage", QString() ).toString();
+#if WITH_SENTRY
+  const bool enableSentry = settings.value( "/enableInfoCollection", true ).toBool();
+  if ( enableSentry )
+    sentry_wrapper::init();
+  // Make sure everything flushes when exiting the app
+  auto sentryClose = qScopeGuard( [] { sentry_wrapper::close(); } );
+#endif
   delete dummyApp;
 
-  // Init resources
   Q_INIT_RESOURCE( qml );
-
-#if WITH_SENTRY
-  if ( enableSentry )
-  {
-    sentry_wrapper::init();
-    // Make sure everything flushes when exiting the app
-    auto sentryClose = qScopeGuard( [] { sentry_wrapper::close(); } );
-  }
-#else
-  Q_UNUSED( enableSentry );
-#endif
 
   QtWebView::initialize();
 
@@ -94,7 +84,6 @@ int main( int argc, char **argv )
   PlatformUtilities *platformUtils = PlatformUtilities::instance();
   platformUtils->initSystem();
 
-  QSettings settings;
   // Let's make sure we have a writable path for the qgis_profile on every platform
   const QString profilePath = platformUtils->systemLocalDataLocation( QStringLiteral( "/qgis_profile" ) );
   QDir().mkdir( profilePath );
