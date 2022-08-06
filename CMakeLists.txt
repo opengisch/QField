@@ -85,10 +85,6 @@ else()
   set(WITH_SENTRY 0)
 endif()
 
-if(WITH_SENTRY)
-  find_package(sentry REQUIRED)
-endif()
-
 if(BUILD_WITH_QT6)
   set(QT_PKG Qt6)
 else()
@@ -157,6 +153,10 @@ file(MAKE_DIRECTORY "${SHARE_DIR}")
 add_subdirectory(src/core)
 add_subdirectory(src/qml)
 add_subdirectory(src/app)
+
+if(WITH_SENTRY)
+  add_subdirectory(src/sentry)
+endif()
 
 if (ENABLE_TESTS)
   find_package(${QT_PKG} COMPONENTS Test QuickTest)

@@ -18,7 +18,11 @@
 
 #include "appinterface.h"
 #include "fileutils.h"
+#include "qfield.h"
 #include "qgismobileapp.h"
+#if WITH_SENTRY
+#include "sentry_wrapper.h"
+#endif
 
 #include <qgsapplication.h>
 #include <qgslogger.h>
@@ -27,7 +31,6 @@
 #include <Spix/AnyRpcServer.h>
 #include <Spix/QtQmlBot.h>
 #endif
-#include "qfield.h"
 
 #include <QApplication>
 #include <QDialog>
@@ -41,100 +44,6 @@
 #include <QtWebView/QtWebView>
 
 #include <proj.h>
-
-#if WITH_SENTRY
-#include <sentry.h>
-#endif
-
-#ifdef ANDROID
-#include <android/log.h>
-#endif
-
-static QtMessageHandler originalMessageHandler = nullptr;
-
-static const char *
-  logLevelForMessageType( QtMsgType msgType )
-{
-  switch ( msgType )
-  {
-    case QtDebugMsg:
-      return "debug";
-    case QtWarningMsg:
-      return "warning";
-    case QtCriticalMsg:
-      return "error";
-    case QtFatalMsg:
-      return "fatal";
-    case QtInfoMsg:
-      Q_FALLTHROUGH();
-    default:
-      return "info";
-  }
-}
-
-const char *const applicationName = "QField";
-void qfMessageHandler( QtMsgType type, const QMessageLogContext &context, const QString &msg )
-{
-#if WITH_SENTRY
-  sentry_value_t crumb
-    = sentry_value_new_breadcrumb( "default", qUtf8Printable( msg ) );
-
-  sentry_value_set_by_key(
-    crumb, "category", sentry_value_new_string( context.category ) );
-  sentry_value_set_by_key(
-    crumb, "level", sentry_value_new_string( logLevelForMessageType( type ) ) );
-
-  sentry_value_t location = sentry_value_new_object();
-  sentry_value_set_by_key(
-    location, "file", sentry_value_new_string( context.file ) );
-  sentry_value_set_by_key(
-    location, "line", sentry_value_new_int32( context.line ) );
-  sentry_value_set_by_key( crumb, "data", location );
-
-  sentry_add_breadcrumb( crumb );
-#endif
-
-#if ANDROID
-  QString report = msg;
-  if ( context.file && !QString( context.file ).isEmpty() )
-  {
-    report += " in file ";
-    report += QString( context.file );
-    report += " line ";
-    report += QString::number( context.line );
-  }
-
-  if ( context.function && !QString( context.function ).isEmpty() )
-  {
-    report += +" function ";
-    report += QString( context.function );
-  }
-
-  const char *const local = report.toLocal8Bit().constData();
-  switch ( type )
-  {
-    case QtDebugMsg:
-      __android_log_write( ANDROID_LOG_DEBUG, applicationName, local );
-      break;
-    case QtInfoMsg:
-      __android_log_write( ANDROID_LOG_INFO, applicationName, local );
-      break;
-    case QtWarningMsg:
-      __android_log_write( ANDROID_LOG_WARN, applicationName, local );
-      break;
-    case QtCriticalMsg:
-      __android_log_write( ANDROID_LOG_ERROR, applicationName, local );
-      break;
-    case QtFatalMsg:
-    default:
-      __android_log_write( ANDROID_LOG_FATAL, applicationName, local );
-      abort();
-  }
-#endif
-
-  if ( originalMessageHandler )
-    originalMessageHandler( type, context, msg );
-}
 
 void initGraphics()
 {
@@ -169,10 +78,10 @@ int main( int argc, char **argv )
 #if WITH_SENTRY
   if ( enableSentry )
   {
-    PlatformUtilities::instance()->initiateSentry();
+    sentry_wrapper::init();
     // Make sure everything flushes when exiting the app
+    auto sentryClose = qScopeGuard( [] { sentry_wrapper::close(); } );
   }
-  auto sentryClose = qScopeGuard( [] { sentry_close(); } );
 #else
   Q_UNUSED( enableSentry );
 #endif
@@ -215,7 +124,9 @@ int main( int argc, char **argv )
     qInfo() << "Proj path: {System}";
   }
 
-  originalMessageHandler = qInstallMessageHandler( qfMessageHandler );
+#if WITH_SENTRY
+  sentry_wrapper::install_message_handler();
+#endif
   app.initQgis();
   app.createDatabase();
 
@@ -242,15 +153,6 @@ int main( int argc, char **argv )
   app.installTranslator( &qfieldTranslator );
 
   QgisMobileapp mApp( &app );
-
-#if WITH_SENTRY
-  QObject::connect( AppInterface::instance(), &AppInterface::submitLog, []( const QString &message ) {
-    sentry_capture_event( sentry_value_new_message_event(
-      SENTRY_LEVEL_INFO,
-      "custom",
-      message.toUtf8().constData() ) );
-  } );
-#endif
 
 #ifdef WITH_SPIX
   spix::AnyRpcServer server;

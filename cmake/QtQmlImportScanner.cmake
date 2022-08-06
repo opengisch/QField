@@ -77,14 +77,10 @@ but this file does not exist.  Possible reasons include:
 
     if(WIN32)
         set(STATIC_LIB_EXT ".lib")
+        set(LIB_PREFIX "")
     else()
         set(STATIC_LIB_EXT ".a")
-    endif()
-
-    if(SYSTEM_QT)
         set(LIB_PREFIX "lib")
-    else()
-        set(LIB_PREFIX "")
     endif()
 
     # Run qmlimportscanner and include the generated cmake file.

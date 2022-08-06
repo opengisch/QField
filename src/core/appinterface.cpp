@@ -17,6 +17,9 @@
 
 #include "appinterface.h"
 #include "qgismobileapp.h"
+#if WITH_SENTRY
+#include "sentry_wrapper.h"
+#endif
 
 #include <QDirIterator>
 #include <QFileInfo>
@@ -138,7 +141,23 @@ void AppInterface::logMessage( const QString &message )
 
 void AppInterface::sendLog( const QString &message )
 {
-  emit submitLog( message );
+#if WITH_SENTRY
+  sentry_wrapper::capture_event( message.toUtf8().constData() );
+#endif
+}
+
+void AppInterface::initiateSentry() const
+{
+#if WITH_SENTRY
+  sentry_wrapper::init();
+#endif
+}
+
+void AppInterface::closeSentry() const
+{
+#if WITH_SENTRY
+  sentry_wrapper::close();
+#endif
 }
 
 void AppInterface::restrictImageSize( const QString &imagePath, int maximumWidthHeight )

@@ -6,7 +6,7 @@ if(MSVC)
   set(ICON_SRC "${CMAKE_CURRENT_BINARY_DIR}/appicon.rc")
 endif()
 
-if(APPLE AND NOT IOS)
+if(CMAKE_SYSTEM_NAME STREQUAL "Darwin")
   set(qfield_ICON ${CMAKE_SOURCE_DIR}/platform/macos/qfield_logo.icns)
   set_source_files_properties(${qfield_ICON} PROPERTIES MACOSX_PACKAGE_LOCATION
                                                         "Resources")
@@ -49,10 +49,9 @@ function(create_executable)
       ${CMAKE_SOURCE_DIR}/resources/resources.qrc
       ${ICON_SRC}
       ${TRANSLATIONS_QRC})
+
   if(ANDROID)
     add_library(${exe_TARGET} SHARED ${QFIELD_SOURCES})
-
-    target_link_libraries(${exe_TARGET} PRIVATE android log)
   else()
     add_executable(${exe_TARGET} ${exe_EXTRA_ARGS} ${QFIELD_SOURCES})
   endif()
@@ -62,9 +61,12 @@ function(create_executable)
     target_compile_options(${exe_TARGET} PRIVATE $<$<CXX_COMPILER_ID:Clang>:-g>)
   endif()
 
-  target_link_libraries(${exe_TARGET} PRIVATE qfield_core qfield_qml
-                                              ${QGIS_CORE_LIBRARY})
-  target_include_directories(${exe_TARGET} PRIVATE ${PROJ_INCLUDE_DIR})
+  target_link_libraries(${exe_TARGET} PRIVATE qfield_core qfield_qml)
+
+  if(WITH_SENTRY)
+    target_link_libraries(${exe_TARGET} PRIVATE qfield_sentry)
+  endif()
+
   get_target_property(QT_TARGET_TYPE ${QT_PKG}::Core TYPE)
   # This should be in src/qml/CMakeLists.txt but that's not possible with Qt5.
   # Retry with Qt6 Same is in tests/CMakeLists.txt
@@ -84,11 +86,8 @@ function(create_executable)
   endif()
   qt5_import_plugins(${exe_TARGET} INCLUDE Qt5::QSvgPlugin)
 
-  if(WITH_SENTRY)
-    target_link_libraries(${exe_TARGET} PRIVATE qfield_core sentry::sentry)
-  endif()
   set_target_properties(${exe_TARGET} PROPERTIES AUTORCC TRUE)
-  if(APPLE AND NOT IOS)
+  if(CMAKE_SYSTEM_NAME STREQUAL "Darwin")
     set_target_properties(
       ${exe_TARGET}
       PROPERTIES MACOSX_BUNDLE_BUNDLE_NAME "${PROJECT_NAME}"
@@ -103,7 +102,7 @@ function(create_executable)
   endif()
 endfunction()
 
-if(APPLE AND NOT IOS)
+if(CMAKE_SYSTEM_NAME STREQUAL "Darwin")
   set(EXTRA_ARGS MACOSX_BUNDLE)
 endif()
 create_executable(TARGET qfield EXTRA_ARGS ${EXTRA_ARGS})

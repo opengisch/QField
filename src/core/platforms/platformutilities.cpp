@@ -36,10 +36,6 @@
 #include <QUrl>
 #include <QtGui/qpa/qplatformwindow.h>
 
-#if WITH_SENTRY
-#include <sentry.h>
-#endif
-
 #if defined( Q_OS_ANDROID )
 #include "androidplatformutilities.h"
 Q_GLOBAL_STATIC( AndroidPlatformUtilities, sPlatformUtils )
@@ -288,25 +284,6 @@ bool PlatformUtilities::checkCameraPermissions() const
 bool PlatformUtilities::checkWriteExternalStoragePermissions() const
 {
   return true;
-}
-
-void PlatformUtilities::initiateSentry()
-{
-#if WITH_SENTRY
-  sentry_options_t *options = sentry_options_new();
-  sentry_options_set_dsn( options, qfield::sentryDsn.toUtf8().constData() );
-  sentry_options_set_environment( options, qfield::sentryEnv.toUtf8().constData() );
-  sentry_options_set_debug( options, 1 );
-  sentry_options_set_database_path( options, systemLocalDataLocation( QStringLiteral( ".sentry-native" ) ).toUtf8().constData() );
-  sentry_init( options );
-#endif
-}
-
-void PlatformUtilities::closeSentry()
-{
-#if WITH_SENTRY
-  sentry_close();
-#endif
 }
 
 void PlatformUtilities::copyTextToClipboard( const QString &string ) const

@@ -1,0 +1,2 @@
+const char *sentryDsn = "@SENTRY_DSN@";
+const char *sentryEnv = "@SENTRY_ENV@";

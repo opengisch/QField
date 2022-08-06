@@ -19,13 +19,13 @@
 #include "iosplatformutilities.h"
 #include "iospicturesource.h"
 #include "iosprojectsource.h"
+#include "qfield.h"
 
 #import <AVFoundation/AVFoundation.h>
 #import <CoreLocation/CoreLocation.h>
 #include <MobileCoreServices/MobileCoreServices.h>
 #import <UIKit/UIKit.h>
 
-#include <QDebug>
 #include <QGuiApplication>
 #include <qpa/qplatformnativeinterface.h>
 

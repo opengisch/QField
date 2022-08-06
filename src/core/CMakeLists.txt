@@ -273,9 +273,6 @@ set_target_properties(qfield_core PROPERTIES AUTOMOC TRUE)
 if(${CMAKE_SYSTEM_NAME} STREQUAL "iOS")
   # debug symbols https://stackoverflow.com/a/49714128/1548052
   target_compile_options(qfield_core PRIVATE $<$<CXX_COMPILER_ID:Clang>:-g>)
-
-  find_package(SentryCocoa REQUIRED)
-  target_link_libraries(qfield_core PUBLIC SentryCocoa::sentry_cocoa)
 endif()
 
 target_link_libraries(
@@ -314,7 +311,7 @@ if(WITH_BLUETOOTH)
 endif()
 
 if(WITH_SENTRY)
-  target_link_libraries(qfield_core PRIVATE sentry::sentry)
+  target_link_libraries(qfield_core PRIVATE qfield_sentry)
 endif()
 
 if(ANDROID)
