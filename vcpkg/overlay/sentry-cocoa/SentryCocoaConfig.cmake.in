@@ -16,6 +16,11 @@ endif()
 # Make sure we include all symbols, even when unused. Sentry dynamically loads some classes by name.
 target_link_options(SentryCocoa::sentry_cocoa INTERFACE "LINKER:-force_load,${_IMPORT_PREFIX}/lib/libsentry_cocoa.a")
 target_link_libraries(SentryCocoa::sentry_cocoa INTERFACE "-framework CoreData")
+if("@CMAKE_SYSTEM_NAME@" STREQUAL "Darwin")
+  target_link_libraries(SentryCocoa::sentry_cocoa INTERFACE "-framework AppKit")
+elseif("@CMAKE_SYSTEM_NAME@" STREQUAL "Darwin")
+  target_link_libraries(SentryCocoa::sentry_cocoa INTERFACE "-framework UiKit")
+endif()
 
 # Cleanup temporary variables.
 set(_IMPORT_PREFIX)
