@@ -23,6 +23,9 @@
 
 #include <sentry.h>
 #ifdef ANDROID
+#include <QAndroidJniObject>
+#include <QtAndroid>
+
 #include <android/log.h>
 #endif
 
@@ -70,6 +73,7 @@ namespace sentry_wrapper
     sentry_add_breadcrumb( crumb );
 
 #if ANDROID
+    static const char *const applicationName = "QField";
     QString report = msg;
     if ( context.file && !QString( context.file ).isEmpty() )
     {
@@ -118,12 +122,22 @@ namespace sentry_wrapper
 
   void init()
   {
+#if ANDROID
+    QtAndroid::runOnAndroidThread( [] {
+      QAndroidJniObject activity = QtAndroid::androidActivity();
+      if ( activity.isValid() )
+      {
+        activity.callMethod<void>( "initiateSentry" );
+      }
+    } );
+#else
     sentry_options_t *options = sentry_options_new();
     sentry_options_set_dsn( options, sentryDsn );
     sentry_options_set_environment( options, sentryEnv );
     sentry_options_set_debug( options, 1 );
     sentry_options_set_database_path( options, ( QStandardPaths::writableLocation( QStandardPaths::AppDataLocation ) + '/' + QStringLiteral( ".sentry-native" ) ).toUtf8().constData() );
     sentry_init( options );
+#endif
   }
 
   void close()

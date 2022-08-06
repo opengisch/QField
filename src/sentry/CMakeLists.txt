@@ -19,7 +19,8 @@ endif()
 target_link_libraries(qfield_sentry PRIVATE ${QT_PKG}::Core)
 
 if(ANDROID)
-  target_link_libraries(qfield_sentry PRIVATE android log)
+  target_link_libraries(qfield_sentry PRIVATE android log
+                                              ${QT_PKG}::AndroidExtras)
 endif()
 
 target_include_directories(qfield_sentry PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}
