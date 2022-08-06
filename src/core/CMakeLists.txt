@@ -237,8 +237,7 @@ configure_file(qfield.h.in ${CMAKE_CURRENT_BINARY_DIR}/qfield.h @ONLY)
 target_include_directories(qfield_core SYSTEM
                            PUBLIC ${CMAKE_CURRENT_BINARY_DIR})
 
-target_include_directories(qfield_core SYSTEM PRIVATE ${GDAL_INCLUDE_DIR}
-                                                      ${QTKEYCHAIN_INCLUDE_DIR})
+target_include_directories(qfield_core SYSTEM PRIVATE ${GDAL_INCLUDE_DIR})
 if(IOS)
   # to include <qpa/qplatformnativeinterface.h>
   target_include_directories(qfield_core SYSTEM
@@ -299,6 +298,8 @@ target_link_libraries(
          PROJ::proj
          SQLite::SQLite3
          Qca::qca
+         ZXing::ZXing
+         Qt5Keychain::Qt5Keychain
          ${GDAL_LIBRARIES})
 
 if(WITH_BLUETOOTH)

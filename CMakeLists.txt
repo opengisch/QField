@@ -129,7 +129,7 @@ find_package(QGIS COMPONENTS Core Analysis REQUIRED)
 find_package(PROJ REQUIRED)
 find_package(GDAL REQUIRED)
 find_package(Qca REQUIRED)
-find_package(QtKeychain REQUIRED)
+find_package(Qt5Keychain REQUIRED)
 
 set(ENABLE_TESTS CACHE BOOL "Build unit tests")
 
