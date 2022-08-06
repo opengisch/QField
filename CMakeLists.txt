@@ -152,6 +152,7 @@ elseif(CMAKE_SYSTEM_NAME STREQUAL "Android")
 else()
   set(SHARE_DIR "${CMAKE_BINARY_DIR}/output/share")
 endif()
+file(MAKE_DIRECTORY "${SHARE_DIR}")
 
 add_subdirectory(src/core)
 add_subdirectory(src/qml)
