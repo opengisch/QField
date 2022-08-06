@@ -29,6 +29,10 @@
       "name": "sentry-native",
       "platform": "!android & !ios"
     },
-    "catch2"
+    "catch2",
+    {
+      "name": "sentry-cocoa",
+      "platform": "ios"
+    }
   ]
 }

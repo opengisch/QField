@@ -238,10 +238,10 @@ target_include_directories(qfield_core SYSTEM
                            PUBLIC ${CMAKE_CURRENT_BINARY_DIR})
 
 target_include_directories(qfield_core SYSTEM PRIVATE ${GDAL_INCLUDE_DIR})
-# to include <qpa/qplatformnativeinterface.h and qpa/qplatformwindow.h>
+# to include <qpa/qplatformnativeinterface.h>
 target_include_directories(qfield_core SYSTEM
                            PRIVATE ${${QT_PKG}Gui_PRIVATE_INCLUDE_DIRS})
-if(IOS)
+if(${CMAKE_SYSTEM_NAME} STREQUAL "iOS")
   target_compile_definitions(qfield_core PRIVATE -DQT_NO_PRINTER)
 endif()
 
@@ -273,6 +273,9 @@ set_target_properties(qfield_core PROPERTIES AUTOMOC TRUE)
 if(${CMAKE_SYSTEM_NAME} STREQUAL "iOS")
   # debug symbols https://stackoverflow.com/a/49714128/1548052
   target_compile_options(qfield_core PRIVATE $<$<CXX_COMPILER_ID:Clang>:-g>)
+
+  find_package(SentryCocoa REQUIRED)
+  target_link_libraries(qfield_core PUBLIC SentryCocoa::sentry_cocoa)
 endif()
 
 target_link_libraries(

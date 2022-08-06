@@ -1,0 +1,4 @@
+set(SentryCocoa 1.0.0)
+@PACKAGE_INIT@
+
+include("${CMAKE_CURRENT_LIST_DIR}/SentryCocoaTargets.cmake")
