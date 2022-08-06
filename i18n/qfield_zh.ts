@@ -135,12 +135,12 @@
 <context>
     <name>BarcodeReader</name>
     <message>
-        <location filename="../src/qml/BarcodeReader.qml" line="79"/>
+        <location filename="../src/qml/BarcodeReader.qml" line="80"/>
         <source>Code Reader</source>
         <translation>读码器</translation>
     </message>
     <message>
-        <location filename="../src/qml/BarcodeReader.qml" line="245"/>
+        <location filename="../src/qml/BarcodeReader.qml" line="246"/>
         <source>Center your camera on a code</source>
         <translation>居中您的相机于条码之上</translation>
     </message>
@@ -532,6 +532,14 @@ Cancel to make a minimal device scan instead.</source>
     </message>
 </context>
 <context>
+    <name>EditorWidgetBase</name>
+    <message>
+        <location filename="../src/qml/editorwidgets/EditorWidgetBase.qml" line="13"/>
+        <source>Item Menu</source>
+        <translation>项目菜单</translation>
+    </message>
+</context>
+<context>
     <name>ExpressionVariableModel</name>
     <message>
         <location filename="../src/core/expressionvariablemodel.cpp" line="83"/>
@@ -555,64 +563,64 @@ Cancel to make a minimal device scan instead.</source>
 <context>
     <name>FeatureForm</name>
     <message>
-        <location filename="../src/qml/FeatureForm.qml" line="536"/>
+        <location filename="../src/qml/FeatureForm.qml" line="559"/>
         <source>Value applied</source>
         <translation>值已应用</translation>
     </message>
     <message>
-        <location filename="../src/qml/FeatureForm.qml" line="536"/>
+        <location filename="../src/qml/FeatureForm.qml" line="559"/>
         <source>Value skipped</source>
         <translation>跳过该值</translation>
     </message>
     <message>
-        <location filename="../src/qml/FeatureForm.qml" line="536"/>
+        <location filename="../src/qml/FeatureForm.qml" line="559"/>
         <source> (click to toggle)</source>
         <translation>(单击进行切换)</translation>
     </message>
     <message>
-        <location filename="../src/qml/FeatureForm.qml" line="560"/>
-        <location filename="../src/qml/FeatureForm.qml" line="669"/>
+        <location filename="../src/qml/FeatureForm.qml" line="583"/>
+        <location filename="../src/qml/FeatureForm.qml" line="692"/>
         <source>Constraints not valid</source>
         <translation>约束无效</translation>
     </message>
     <message>
-        <location filename="../src/qml/FeatureForm.qml" line="566"/>
-        <location filename="../src/qml/FeatureForm.qml" line="665"/>
+        <location filename="../src/qml/FeatureForm.qml" line="589"/>
+        <location filename="../src/qml/FeatureForm.qml" line="688"/>
         <source>Note: soft constraints were not met</source>
         <translation>注意：不满足软约束</translation>
     </message>
     <message>
-        <location filename="../src/qml/FeatureForm.qml" line="577"/>
+        <location filename="../src/qml/FeatureForm.qml" line="600"/>
         <source>Unable to save changes</source>
         <translation>无法保存更改</translation>
     </message>
     <message>
-        <location filename="../src/qml/FeatureForm.qml" line="684"/>
+        <location filename="../src/qml/FeatureForm.qml" line="707"/>
         <source>Add feature on %1</source>
         <translation>在 %1 中添加要素</translation>
     </message>
     <message>
-        <location filename="../src/qml/FeatureForm.qml" line="686"/>
+        <location filename="../src/qml/FeatureForm.qml" line="709"/>
         <source>Edit feature on %1</source>
         <translation>在 %1 中编辑要素</translation>
     </message>
     <message>
-        <location filename="../src/qml/FeatureForm.qml" line="688"/>
+        <location filename="../src/qml/FeatureForm.qml" line="711"/>
         <source>View feature on %1</source>
         <translation>在 %1 中查看要素</translation>
     </message>
     <message>
-        <location filename="../src/qml/FeatureForm.qml" line="735"/>
+        <location filename="../src/qml/FeatureForm.qml" line="758"/>
         <source>Cancel editing</source>
         <translation>取消编辑</translation>
     </message>
     <message>
-        <location filename="../src/qml/FeatureForm.qml" line="740"/>
+        <location filename="../src/qml/FeatureForm.qml" line="763"/>
         <source>You are about to dismiss the new feature, proceed?</source>
         <translation>您即将取消编辑新要素，是否继续？</translation>
     </message>
     <message>
-        <location filename="../src/qml/FeatureForm.qml" line="741"/>
+        <location filename="../src/qml/FeatureForm.qml" line="764"/>
         <source>You are about to leave editing state, any changes will be lost. Proceed?</source>
         <translation>您即将离开编辑状态，任何更改都将丢失。是否继续？</translation>
     </message>
@@ -620,17 +628,17 @@ Cancel to make a minimal device scan instead.</source>
 <context>
     <name>FeatureListForm</name>
     <message>
-        <location filename="../src/qml/FeatureListForm.qml" line="408"/>
+        <location filename="../src/qml/FeatureListForm.qml" line="410"/>
         <source>Stop tracking this feature to edit attributes</source>
         <translation>停止追踪此要素并编辑其属性</translation>
     </message>
     <message>
-        <location filename="../src/qml/FeatureListForm.qml" line="419"/>
+        <location filename="../src/qml/FeatureListForm.qml" line="421"/>
         <source>Stop tracking this feature to edit geometry</source>
         <translation>停止追踪此要素并编辑其形状</translation>
     </message>
     <message>
-        <location filename="../src/qml/FeatureListForm.qml" line="430"/>
+        <location filename="../src/qml/FeatureListForm.qml" line="432"/>
         <source>Changes saved</source>
         <translation>更改已保存</translation>
     </message>
@@ -639,38 +647,38 @@ Cancel to make a minimal device scan instead.</source>
         <translation type="vanished">放弃最后的修改</translation>
     </message>
     <message>
-        <location filename="../src/qml/FeatureListForm.qml" line="453"/>
+        <location filename="../src/qml/FeatureListForm.qml" line="455"/>
         <source>Successfully duplicated feature</source>
         <translation>已成功复制要素</translation>
     </message>
     <message>
-        <location filename="../src/qml/FeatureListForm.qml" line="471"/>
-        <location filename="../src/qml/FeatureListForm.qml" line="546"/>
+        <location filename="../src/qml/FeatureListForm.qml" line="473"/>
+        <location filename="../src/qml/FeatureListForm.qml" line="548"/>
         <source>A number of features are being tracked, stop tracking to delete those</source>
         <translation>正在跟踪多个要素，请停止跟踪以删除这些要素</translation>
     </message>
     <message>
-        <location filename="../src/qml/FeatureListForm.qml" line="503"/>
+        <location filename="../src/qml/FeatureListForm.qml" line="505"/>
         <source>A number of features are being tracked, stop tracking to merge those</source>
         <translation>正在跟踪多个要素，请停止跟踪以合并这些要素</translation>
     </message>
     <message>
-        <location filename="../src/qml/FeatureListForm.qml" line="538"/>
+        <location filename="../src/qml/FeatureListForm.qml" line="540"/>
         <source>Successfully duplicated selected features, list updated to show newly-created features</source>
         <translation>已成功复制选定要素，列表已更新并显示新创建的要素</translation>
     </message>
     <message>
-        <location filename="../src/qml/FeatureListForm.qml" line="643"/>
+        <location filename="../src/qml/FeatureListForm.qml" line="645"/>
         <source>No feature at this position</source>
         <translation>此区域没有要素</translation>
     </message>
     <message>
-        <location filename="../src/qml/FeatureListForm.qml" line="702"/>
+        <location filename="../src/qml/FeatureListForm.qml" line="704"/>
         <source>Merge feature(s)</source>
         <translation>合并要素</translation>
     </message>
     <message numerus="yes">
-        <location filename="../src/qml/FeatureListForm.qml" line="706"/>
+        <location filename="../src/qml/FeatureListForm.qml" line="708"/>
         <source>Should the %n feature(s) selected really be merge?
 
 The features geometries will be combined into feature &apos;%1&apos;, which will keep its attributes.</source>
@@ -680,39 +688,39 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
 要素几何图形将合并到要素&apos;%1&apos;中，该要素将保留其属性。</numerusform></translation>
     </message>
     <message numerus="yes">
-        <location filename="../src/qml/FeatureListForm.qml" line="718"/>
+        <location filename="../src/qml/FeatureListForm.qml" line="720"/>
         <source>Successfully merged %n feature(s)</source>
         <translation><numerusform>成功合并%n个要素</numerusform></translation>
     </message>
     <message numerus="yes">
-        <location filename="../src/qml/FeatureListForm.qml" line="720"/>
+        <location filename="../src/qml/FeatureListForm.qml" line="722"/>
         <source>Failed to merge %n feature(s)</source>
         <translation><numerusform>合并%n个要素失败</numerusform></translation>
     </message>
     <message>
-        <location filename="../src/qml/FeatureListForm.qml" line="752"/>
+        <location filename="../src/qml/FeatureListForm.qml" line="754"/>
         <source>Delete feature(s)</source>
         <translation>删除要素</translation>
     </message>
     <message numerus="yes">
-        <location filename="../src/qml/FeatureListForm.qml" line="756"/>
+        <location filename="../src/qml/FeatureListForm.qml" line="758"/>
         <source>Should the %n feature(s) selected really be deleted?</source>
         <comment>0</comment>
         <translation><numerusform>是否删除所选的%n个要素？</numerusform></translation>
     </message>
     <message numerus="yes">
-        <location filename="../src/qml/FeatureListForm.qml" line="772"/>
+        <location filename="../src/qml/FeatureListForm.qml" line="774"/>
         <source>Successfully deleted %n feature(s)</source>
         <translation><numerusform>成功删除%n个要素</numerusform></translation>
     </message>
     <message numerus="yes">
-        <location filename="../src/qml/FeatureListForm.qml" line="780"/>
+        <location filename="../src/qml/FeatureListForm.qml" line="782"/>
         <source>Failed to delete %n feature(s)</source>
         <translation><numerusform>删除%n个要素失败</numerusform></translation>
     </message>
     <message>
-        <location filename="../src/qml/FeatureListForm.qml" line="356"/>
-        <location filename="../src/qml/FeatureListForm.qml" line="807"/>
+        <location filename="../src/qml/FeatureListForm.qml" line="358"/>
+        <location filename="../src/qml/FeatureListForm.qml" line="809"/>
         <source>Changes discarded</source>
         <translation>放弃更改</translation>
     </message>
@@ -1414,12 +1422,12 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
 <context>
     <name>OverlayFeatureFormDrawer</name>
     <message>
-        <location filename="../src/qml/OverlayFeatureFormDrawer.qml" line="95"/>
+        <location filename="../src/qml/OverlayFeatureFormDrawer.qml" line="98"/>
         <source>Changes saved</source>
         <translation>修改已保存</translation>
     </message>
     <message>
-        <location filename="../src/qml/OverlayFeatureFormDrawer.qml" line="107"/>
+        <location filename="../src/qml/OverlayFeatureFormDrawer.qml" line="110"/>
         <source>Changes discarded</source>
         <translation>修改已放弃</translation>
     </message>
@@ -1428,7 +1436,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
         <translation type="vanished">放弃最后的修改</translation>
     </message>
     <message>
-        <location filename="../src/qml/OverlayFeatureFormDrawer.qml" line="124"/>
+        <location filename="../src/qml/OverlayFeatureFormDrawer.qml" line="127"/>
         <source>Constraints not valid</source>
         <translation>约束无效</translation>
     </message>
@@ -2929,12 +2937,12 @@ Cancel to make a minimal device scan instead.</source>
 <context>
     <name>RelationCombobox</name>
     <message>
-        <location filename="../src/qml/RelationCombobox.qml" line="101"/>
+        <location filename="../src/qml/RelationCombobox.qml" line="102"/>
         <source>Search…</source>
         <translation>搜索…</translation>
     </message>
     <message>
-        <location filename="../src/qml/RelationCombobox.qml" line="556"/>
+        <location filename="../src/qml/RelationCombobox.qml" line="557"/>
         <source>Invalid relation</source>
         <translation>关联错误</translation>
     </message>
@@ -2982,6 +2990,24 @@ Cancel to make a minimal device scan instead.</source>
         <location filename="../src/qml/TemporalProperties.qml" line="43"/>
         <source>Enable temporal filter</source>
         <translation>启用时态过滤</translation>
+    </message>
+</context>
+<context>
+    <name>TextEdit</name>
+    <message>
+        <location filename="../src/qml/editorwidgets/TextEdit.qml" line="140"/>
+        <source>Copy Text</source>
+        <translation>复制文本</translation>
+    </message>
+    <message>
+        <location filename="../src/qml/editorwidgets/TextEdit.qml" line="153"/>
+        <source>Paste Text</source>
+        <translation>粘贴文本</translation>
+    </message>
+    <message>
+        <location filename="../src/qml/editorwidgets/TextEdit.qml" line="171"/>
+        <source>Scan Code</source>
+        <translation>扫描码</translation>
     </message>
 </context>
 <context>
@@ -3451,13 +3477,13 @@ Cancel to make a minimal device scan instead.</source>
         <translation type="vanished">Y坐标</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1955"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1956"/>
         <source>Coordinates copied to clipboard</source>
         <translation>坐标已复制到剪贴板</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1978"/>
-        <location filename="../src/qml/qgismobileapp.qml" line="2025"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1979"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2026"/>
         <source>Precise View Settings</source>
         <translation>精确视图设置</translation>
     </message>
@@ -3486,32 +3512,32 @@ Cancel to make a minimal device scan instead.</source>
         <translation type="vanished">10米精度</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2138"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2139"/>
         <source>Always Show Precise View</source>
         <translation>始终显示精确视图</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2240"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2241"/>
         <source>Center to Location</source>
         <translation>定位居中</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2251"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2252"/>
         <source>Add Bookmark at Location</source>
         <translation>在定位处添加书签</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2276"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2277"/>
         <source>Copy Location Coordinates</source>
         <translation>复制定位坐标</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2762"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2766"/>
         <source>Signed out</source>
         <translation>已注销</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2766"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2770"/>
         <source>Signed in</source>
         <translation>已登录</translation>
     </message>
@@ -3520,47 +3546,47 @@ Cancel to make a minimal device scan instead.</source>
         <translation type="vanished">设为目标</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1962"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1963"/>
         <source>Navigation Options</source>
         <translation>导航选项</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2012"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2013"/>
         <source>Clear Destination</source>
         <translation>清除目标</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2040"/>
-        <location filename="../src/qml/qgismobileapp.qml" line="2056"/>
-        <location filename="../src/qml/qgismobileapp.qml" line="2072"/>
-        <location filename="../src/qml/qgismobileapp.qml" line="2088"/>
-        <location filename="../src/qml/qgismobileapp.qml" line="2104"/>
-        <location filename="../src/qml/qgismobileapp.qml" line="2120"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2041"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2057"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2073"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2089"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2105"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2121"/>
         <source>%1 Precision</source>
         <translation>%1 精度</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2153"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2154"/>
         <source>Enable Audio Proximity Feedback</source>
         <translation>启用声音引发回馈</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2170"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2171"/>
         <source>Positioning Options</source>
         <translation>定位选项</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2196"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2197"/>
         <source>Enable Positioning</source>
         <translation>启用定位</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2211"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2212"/>
         <source>Show Position Information</source>
         <translation>显示定位信息</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2226"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2227"/>
         <source>Positioning Settings</source>
         <translation>定位设置</translation>
     </message>
@@ -3573,13 +3599,13 @@ Cancel to make a minimal device scan instead.</source>
         <translation type="vanished">在当前位置添加书签</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2259"/>
-        <location filename="../src/qml/qgismobileapp.qml" line="2283"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2260"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2285"/>
         <source>Current location unknown</source>
         <translation>当前位置未知</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2263"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2264"/>
         <source>My location</source>
         <translation>我的位置</translation>
     </message>
@@ -3588,32 +3614,32 @@ Cancel to make a minimal device scan instead.</source>
         <translation type="vanished">复制当前位置</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2290"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2292"/>
         <source>Accuracy</source>
         <translation>精度</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2293"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2295"/>
         <source>N/A</source>
         <translation>不可用</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2296"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2298"/>
         <source>Current location copied to clipboard</source>
         <translation>当前位置已复制到剪贴板</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2334"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2337"/>
         <source>Current layer switched to the one holding the selected geometry.</source>
         <translation>当前图层切换至包含被选中几何对象的图层</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2343"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2346"/>
         <source>Editing of multi geometry layer is not supported yet.</source>
         <translation>尚不支持编辑几何图形集图层。</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2459"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2463"/>
         <source>Loading %1</source>
         <translation>正在加载 %1</translation>
     </message>
@@ -3622,7 +3648,7 @@ Cancel to make a minimal device scan instead.</source>
         <translation type="vanished">已注销</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2764"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2768"/>
         <source>Connecting...</source>
         <translation>正在连接…</translation>
     </message>
@@ -3631,27 +3657,27 @@ Cancel to make a minimal device scan instead.</source>
         <translation type="vanished">已登录</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2781"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2785"/>
         <source>Project %1 failed to download</source>
         <translation>工程 %1 下载失败</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2782"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2786"/>
         <source>Project %1 successfully downloaded, it&apos;s now available to open</source>
         <translation>工程 %1 已成功下载，现在可以打开</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2787"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2791"/>
         <source>Changes failed to reach QFieldCloud: %1</source>
         <translation>修改无法上传至QField云端：%1</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2791"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2795"/>
         <source>Changes successfully pushed to QFieldCloud</source>
         <translation>修改已成功上传至QField云端</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="3057"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="3061"/>
         <source>Press back again to close project and app</source>
         <translation>再次点击返回键将关闭工程和应用</translation>
     </message>

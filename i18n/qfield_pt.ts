@@ -135,12 +135,12 @@
 <context>
     <name>BarcodeReader</name>
     <message>
-        <location filename="../src/qml/BarcodeReader.qml" line="79"/>
+        <location filename="../src/qml/BarcodeReader.qml" line="80"/>
         <source>Code Reader</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/qml/BarcodeReader.qml" line="245"/>
+        <location filename="../src/qml/BarcodeReader.qml" line="246"/>
         <source>Center your camera on a code</source>
         <translation type="unfinished"/>
     </message>
@@ -532,6 +532,14 @@ Cancele para fazer uma verificação mínima.</translation>
     </message>
 </context>
 <context>
+    <name>EditorWidgetBase</name>
+    <message>
+        <location filename="../src/qml/editorwidgets/EditorWidgetBase.qml" line="13"/>
+        <source>Item Menu</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
     <name>ExpressionVariableModel</name>
     <message>
         <location filename="../src/core/expressionvariablemodel.cpp" line="83"/>
@@ -555,64 +563,64 @@ Cancele para fazer uma verificação mínima.</translation>
 <context>
     <name>FeatureForm</name>
     <message>
-        <location filename="../src/qml/FeatureForm.qml" line="536"/>
+        <location filename="../src/qml/FeatureForm.qml" line="559"/>
         <source>Value applied</source>
         <translation>Valor aplicado</translation>
     </message>
     <message>
-        <location filename="../src/qml/FeatureForm.qml" line="536"/>
+        <location filename="../src/qml/FeatureForm.qml" line="559"/>
         <source>Value skipped</source>
         <translation>Valor ignorado</translation>
     </message>
     <message>
-        <location filename="../src/qml/FeatureForm.qml" line="536"/>
+        <location filename="../src/qml/FeatureForm.qml" line="559"/>
         <source> (click to toggle)</source>
         <translation>(clique para editar)</translation>
     </message>
     <message>
-        <location filename="../src/qml/FeatureForm.qml" line="560"/>
-        <location filename="../src/qml/FeatureForm.qml" line="669"/>
+        <location filename="../src/qml/FeatureForm.qml" line="583"/>
+        <location filename="../src/qml/FeatureForm.qml" line="692"/>
         <source>Constraints not valid</source>
         <translation>As restrições não são válidas</translation>
     </message>
     <message>
-        <location filename="../src/qml/FeatureForm.qml" line="566"/>
-        <location filename="../src/qml/FeatureForm.qml" line="665"/>
+        <location filename="../src/qml/FeatureForm.qml" line="589"/>
+        <location filename="../src/qml/FeatureForm.qml" line="688"/>
         <source>Note: soft constraints were not met</source>
         <translation>Nota: restrições leves não foram tomadas em consideração</translation>
     </message>
     <message>
-        <location filename="../src/qml/FeatureForm.qml" line="577"/>
+        <location filename="../src/qml/FeatureForm.qml" line="600"/>
         <source>Unable to save changes</source>
         <translation>Não foi possível guardar as alterações</translation>
     </message>
     <message>
-        <location filename="../src/qml/FeatureForm.qml" line="684"/>
+        <location filename="../src/qml/FeatureForm.qml" line="707"/>
         <source>Add feature on %1</source>
         <translation>Adicionar elemento no %1</translation>
     </message>
     <message>
-        <location filename="../src/qml/FeatureForm.qml" line="686"/>
+        <location filename="../src/qml/FeatureForm.qml" line="709"/>
         <source>Edit feature on %1</source>
         <translation>Editar elemento no %1</translation>
     </message>
     <message>
-        <location filename="../src/qml/FeatureForm.qml" line="688"/>
+        <location filename="../src/qml/FeatureForm.qml" line="711"/>
         <source>View feature on %1</source>
         <translation>Ver elemento no %1</translation>
     </message>
     <message>
-        <location filename="../src/qml/FeatureForm.qml" line="735"/>
+        <location filename="../src/qml/FeatureForm.qml" line="758"/>
         <source>Cancel editing</source>
         <translation>Cancelar edição</translation>
     </message>
     <message>
-        <location filename="../src/qml/FeatureForm.qml" line="740"/>
+        <location filename="../src/qml/FeatureForm.qml" line="763"/>
         <source>You are about to dismiss the new feature, proceed?</source>
         <translation>Está prestes a recusar o novo elemento, prosseguir?</translation>
     </message>
     <message>
-        <location filename="../src/qml/FeatureForm.qml" line="741"/>
+        <location filename="../src/qml/FeatureForm.qml" line="764"/>
         <source>You are about to leave editing state, any changes will be lost. Proceed?</source>
         <translation>Está prestes a sair do estado de edição, todas as alterações serão perdidas. Continuar?</translation>
     </message>
@@ -620,17 +628,17 @@ Cancele para fazer uma verificação mínima.</translation>
 <context>
     <name>FeatureListForm</name>
     <message>
-        <location filename="../src/qml/FeatureListForm.qml" line="408"/>
+        <location filename="../src/qml/FeatureListForm.qml" line="410"/>
         <source>Stop tracking this feature to edit attributes</source>
         <translation>Terminar rastreamento deste elemento para editar atributos</translation>
     </message>
     <message>
-        <location filename="../src/qml/FeatureListForm.qml" line="419"/>
+        <location filename="../src/qml/FeatureListForm.qml" line="421"/>
         <source>Stop tracking this feature to edit geometry</source>
         <translation>Terminar rastreamento deste elemento para editar geometria</translation>
     </message>
     <message>
-        <location filename="../src/qml/FeatureListForm.qml" line="430"/>
+        <location filename="../src/qml/FeatureListForm.qml" line="432"/>
         <source>Changes saved</source>
         <translation>Alterações guardadas</translation>
     </message>
@@ -639,38 +647,38 @@ Cancele para fazer uma verificação mínima.</translation>
         <translation type="vanished">As últimas alterações foram removidas</translation>
     </message>
     <message>
-        <location filename="../src/qml/FeatureListForm.qml" line="453"/>
+        <location filename="../src/qml/FeatureListForm.qml" line="455"/>
         <source>Successfully duplicated feature</source>
         <translation>Elemento duplicado com sucesso</translation>
     </message>
     <message>
-        <location filename="../src/qml/FeatureListForm.qml" line="471"/>
-        <location filename="../src/qml/FeatureListForm.qml" line="546"/>
+        <location filename="../src/qml/FeatureListForm.qml" line="473"/>
+        <location filename="../src/qml/FeatureListForm.qml" line="548"/>
         <source>A number of features are being tracked, stop tracking to delete those</source>
         <translation>Um conjunto de elementos estão a ser rastreados, pare de os rastrear para os apagar</translation>
     </message>
     <message>
-        <location filename="../src/qml/FeatureListForm.qml" line="503"/>
+        <location filename="../src/qml/FeatureListForm.qml" line="505"/>
         <source>A number of features are being tracked, stop tracking to merge those</source>
         <translation>Um conjunto de elementos estão a ser rastreados, pare de os rastrear para os unir</translation>
     </message>
     <message>
-        <location filename="../src/qml/FeatureListForm.qml" line="538"/>
+        <location filename="../src/qml/FeatureListForm.qml" line="540"/>
         <source>Successfully duplicated selected features, list updated to show newly-created features</source>
         <translation>Os elementos selecionados foram duplicados com sucesso, a lista está atualizada para mostrar os elementos recém-criados</translation>
     </message>
     <message>
-        <location filename="../src/qml/FeatureListForm.qml" line="643"/>
+        <location filename="../src/qml/FeatureListForm.qml" line="645"/>
         <source>No feature at this position</source>
         <translation>Nenhum elemento nesta posição</translation>
     </message>
     <message>
-        <location filename="../src/qml/FeatureListForm.qml" line="702"/>
+        <location filename="../src/qml/FeatureListForm.qml" line="704"/>
         <source>Merge feature(s)</source>
         <translation>Junção de elemento(s)</translation>
     </message>
     <message numerus="yes">
-        <location filename="../src/qml/FeatureListForm.qml" line="706"/>
+        <location filename="../src/qml/FeatureListForm.qml" line="708"/>
         <source>Should the %n feature(s) selected really be merge?
 
 The features geometries will be combined into feature &apos;%1&apos;, which will keep its attributes.</source>
@@ -684,39 +692,39 @@ As geometrias dos recursos serão combinadas no recurso &apos;% &apos;, que mant
 As geometrias dos recursos serão combinadas no recurso &apos;% &apos;, que manterá seus atributos.</numerusform></translation>
     </message>
     <message numerus="yes">
-        <location filename="../src/qml/FeatureListForm.qml" line="718"/>
+        <location filename="../src/qml/FeatureListForm.qml" line="720"/>
         <source>Successfully merged %n feature(s)</source>
         <translation><numerusform>%n recurso mesclado com sucesso</numerusform><numerusform>%n recursos mesclados com sucesso</numerusform><numerusform>%n recursos mesclados com sucesso</numerusform></translation>
     </message>
     <message numerus="yes">
-        <location filename="../src/qml/FeatureListForm.qml" line="720"/>
+        <location filename="../src/qml/FeatureListForm.qml" line="722"/>
         <source>Failed to merge %n feature(s)</source>
         <translation><numerusform>Falha ao mesclar %n recurso</numerusform><numerusform>Falha ao mesclar %n recursos</numerusform><numerusform>Falha ao mesclar %n recursos</numerusform></translation>
     </message>
     <message>
-        <location filename="../src/qml/FeatureListForm.qml" line="752"/>
+        <location filename="../src/qml/FeatureListForm.qml" line="754"/>
         <source>Delete feature(s)</source>
         <translation>Apagar elemento(s)</translation>
     </message>
     <message numerus="yes">
-        <location filename="../src/qml/FeatureListForm.qml" line="756"/>
+        <location filename="../src/qml/FeatureListForm.qml" line="758"/>
         <source>Should the %n feature(s) selected really be deleted?</source>
         <comment>0</comment>
         <translation><numerusform>O elemento %n selecionado deve ser realmente eliminado?</numerusform><numerusform>Os elementos %n selecionados devem ser realmente eliminados?</numerusform><numerusform>Os elementos %n selecionados devem ser realmente eliminados?</numerusform></translation>
     </message>
     <message numerus="yes">
-        <location filename="../src/qml/FeatureListForm.qml" line="772"/>
+        <location filename="../src/qml/FeatureListForm.qml" line="774"/>
         <source>Successfully deleted %n feature(s)</source>
         <translation><numerusform>%n Elemento foi eliminado com sucesso</numerusform><numerusform>%n Elementos foram eliminados com sucesso</numerusform><numerusform>%n Elementos foram eliminados com sucesso</numerusform></translation>
     </message>
     <message numerus="yes">
-        <location filename="../src/qml/FeatureListForm.qml" line="780"/>
+        <location filename="../src/qml/FeatureListForm.qml" line="782"/>
         <source>Failed to delete %n feature(s)</source>
         <translation><numerusform>Falha ao eliminar %n elemento</numerusform><numerusform>Falha ao eliminar %n elementos</numerusform><numerusform>Falha ao eliminar %n elementos</numerusform></translation>
     </message>
     <message>
-        <location filename="../src/qml/FeatureListForm.qml" line="356"/>
-        <location filename="../src/qml/FeatureListForm.qml" line="807"/>
+        <location filename="../src/qml/FeatureListForm.qml" line="358"/>
+        <location filename="../src/qml/FeatureListForm.qml" line="809"/>
         <source>Changes discarded</source>
         <translation>Alterações removidas</translation>
     </message>
@@ -1418,12 +1426,12 @@ As geometrias dos recursos serão combinadas no recurso &apos;% &apos;, que mant
 <context>
     <name>OverlayFeatureFormDrawer</name>
     <message>
-        <location filename="../src/qml/OverlayFeatureFormDrawer.qml" line="95"/>
+        <location filename="../src/qml/OverlayFeatureFormDrawer.qml" line="98"/>
         <source>Changes saved</source>
         <translation>Alterações guardadas</translation>
     </message>
     <message>
-        <location filename="../src/qml/OverlayFeatureFormDrawer.qml" line="107"/>
+        <location filename="../src/qml/OverlayFeatureFormDrawer.qml" line="110"/>
         <source>Changes discarded</source>
         <translation>Alterações removidas</translation>
     </message>
@@ -1432,7 +1440,7 @@ As geometrias dos recursos serão combinadas no recurso &apos;% &apos;, que mant
         <translation type="vanished">As últimas alterações foram removidas</translation>
     </message>
     <message>
-        <location filename="../src/qml/OverlayFeatureFormDrawer.qml" line="124"/>
+        <location filename="../src/qml/OverlayFeatureFormDrawer.qml" line="127"/>
         <source>Constraints not valid</source>
         <translation>As restrições não são válidas</translation>
     </message>
@@ -2933,12 +2941,12 @@ Cancele para fazer uma verificação mínima.</translation>
 <context>
     <name>RelationCombobox</name>
     <message>
-        <location filename="../src/qml/RelationCombobox.qml" line="101"/>
+        <location filename="../src/qml/RelationCombobox.qml" line="102"/>
         <source>Search…</source>
         <translation>Pesquisar...</translation>
     </message>
     <message>
-        <location filename="../src/qml/RelationCombobox.qml" line="556"/>
+        <location filename="../src/qml/RelationCombobox.qml" line="557"/>
         <source>Invalid relation</source>
         <translation>Relação inválida</translation>
     </message>
@@ -2986,6 +2994,24 @@ Cancele para fazer uma verificação mínima.</translation>
         <location filename="../src/qml/TemporalProperties.qml" line="43"/>
         <source>Enable temporal filter</source>
         <translation>Ativar filtro temporal</translation>
+    </message>
+</context>
+<context>
+    <name>TextEdit</name>
+    <message>
+        <location filename="../src/qml/editorwidgets/TextEdit.qml" line="140"/>
+        <source>Copy Text</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/qml/editorwidgets/TextEdit.qml" line="153"/>
+        <source>Paste Text</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/qml/editorwidgets/TextEdit.qml" line="171"/>
+        <source>Scan Code</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -3455,13 +3481,13 @@ Cancele para fazer uma verificação mínima.</translation>
         <translation type="vanished">Y</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1955"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1956"/>
         <source>Coordinates copied to clipboard</source>
         <translation>Coordenadas copiadas para transferência</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1978"/>
-        <location filename="../src/qml/qgismobileapp.qml" line="2025"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1979"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2026"/>
         <source>Precise View Settings</source>
         <translation type="unfinished"/>
     </message>
@@ -3490,32 +3516,32 @@ Cancele para fazer uma verificação mínima.</translation>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2138"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2139"/>
         <source>Always Show Precise View</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2240"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2241"/>
         <source>Center to Location</source>
         <translation>Centrar para a Localização</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2251"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2252"/>
         <source>Add Bookmark at Location</source>
         <translation>Adicionar o Marcador na Localização</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2276"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2277"/>
         <source>Copy Location Coordinates</source>
         <translation>Copiar Coordenadas de Localização</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2762"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2766"/>
         <source>Signed out</source>
         <translation>Sair</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2766"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2770"/>
         <source>Signed in</source>
         <translation>Ligar</translation>
     </message>
@@ -3524,47 +3550,47 @@ Cancele para fazer uma verificação mínima.</translation>
         <translation type="vanished">Definir como destino</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1962"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1963"/>
         <source>Navigation Options</source>
         <translation>Opções de navegação</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2012"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2013"/>
         <source>Clear Destination</source>
         <translation>Limpar destino</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2040"/>
-        <location filename="../src/qml/qgismobileapp.qml" line="2056"/>
-        <location filename="../src/qml/qgismobileapp.qml" line="2072"/>
-        <location filename="../src/qml/qgismobileapp.qml" line="2088"/>
-        <location filename="../src/qml/qgismobileapp.qml" line="2104"/>
-        <location filename="../src/qml/qgismobileapp.qml" line="2120"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2041"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2057"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2073"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2089"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2105"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2121"/>
         <source>%1 Precision</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2153"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2154"/>
         <source>Enable Audio Proximity Feedback</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2170"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2171"/>
         <source>Positioning Options</source>
         <translation>Opções de Posicionamento</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2196"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2197"/>
         <source>Enable Positioning</source>
         <translation>Ativar Posicionamento</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2211"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2212"/>
         <source>Show Position Information</source>
         <translation>Mostrar a informação da posição</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2226"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2227"/>
         <source>Positioning Settings</source>
         <translation>Definições de Posicionamento</translation>
     </message>
@@ -3577,13 +3603,13 @@ Cancele para fazer uma verificação mínima.</translation>
         <translation type="vanished">Adicionar Marcador à Localização Actual</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2259"/>
-        <location filename="../src/qml/qgismobileapp.qml" line="2283"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2260"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2285"/>
         <source>Current location unknown</source>
         <translation>Localização atual desconhecida</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2263"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2264"/>
         <source>My location</source>
         <translation>A minha localização</translation>
     </message>
@@ -3592,32 +3618,32 @@ Cancele para fazer uma verificação mínima.</translation>
         <translation type="vanished">Copiar localização atual</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2290"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2292"/>
         <source>Accuracy</source>
         <translation>Precisão</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2293"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2295"/>
         <source>N/A</source>
         <translation>N/D</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2296"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2298"/>
         <source>Current location copied to clipboard</source>
         <translation>Localização atual copiada para transferência</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2334"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2337"/>
         <source>Current layer switched to the one holding the selected geometry.</source>
         <translation>A camada atual mudou para a que contém a geometria selecionada.</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2343"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2346"/>
         <source>Editing of multi geometry layer is not supported yet.</source>
         <translation>A edição de camada com geometria multiparte ainda não é suportada.</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2459"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2463"/>
         <source>Loading %1</source>
         <translation>A Carregar % 1 </translation>
     </message>
@@ -3626,7 +3652,7 @@ Cancele para fazer uma verificação mínima.</translation>
         <translation type="vanished">Terminada autenticação</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2764"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2768"/>
         <source>Connecting...</source>
         <translation>Ligando...</translation>
     </message>
@@ -3635,27 +3661,27 @@ Cancele para fazer uma verificação mínima.</translation>
         <translation type="vanished">Autenticado</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2781"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2785"/>
         <source>Project %1 failed to download</source>
         <translation>Ocorreu uma falha ao transferir o projeto %1</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2782"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2786"/>
         <source>Project %1 successfully downloaded, it&apos;s now available to open</source>
         <translation>O projeto %1 foi transferido com sucesso e está agora disponível para ser aberto</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2787"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2791"/>
         <source>Changes failed to reach QFieldCloud: %1</source>
         <translation>As alterações não foram enviadas para QFieldCloud: %1</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2791"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2795"/>
         <source>Changes successfully pushed to QFieldCloud</source>
         <translation>Alterações enviadas para QFieldCloud com sucesso</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="3057"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="3061"/>
         <source>Press back again to close project and app</source>
         <translation>Volte a pressionar novamente o retroceder para fechar o projecto e a aplicação</translation>
     </message>
