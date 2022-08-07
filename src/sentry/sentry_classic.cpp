@@ -144,4 +144,12 @@ namespace sentry_wrapper
   {
     sentry_close();
   }
+
+  void capture_event( const char *message )
+  {
+    sentry_capture_event( sentry_value_new_message_event(
+      SENTRY_LEVEL_INFO,
+      "custom",
+      message ) );
+  }
 } // namespace sentry_wrapper

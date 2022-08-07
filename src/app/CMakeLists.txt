@@ -56,11 +56,6 @@ function(create_executable)
     add_executable(${exe_TARGET} ${exe_EXTRA_ARGS} ${QFIELD_SOURCES})
   endif()
 
-  if(IOS)
-    # debug symbols https://stackoverflow.com/a/49714128/1548052
-    target_compile_options(${exe_TARGET} PRIVATE $<$<CXX_COMPILER_ID:Clang>:-g>)
-  endif()
-
   target_link_libraries(${exe_TARGET} PRIVATE qfield_core qfield_qml)
 
   if(WITH_SENTRY)

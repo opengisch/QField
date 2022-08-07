@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
     <key>method</key>
-    <string>development</string>
+    <string>@QT_IOS_EXPORT_METHOD@</string>
     @QT_IOS_PROVISIONING_PROFILES_KEY@
     <key>signingCertificate</key>
     <string>@QT_IOS_CODE_SIGN_IDENTITY@</string>

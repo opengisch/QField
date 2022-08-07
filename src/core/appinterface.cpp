@@ -16,6 +16,7 @@
  ***************************************************************************/
 
 #include "appinterface.h"
+#include "qfield.h"
 #include "qgismobileapp.h"
 #if WITH_SENTRY
 #include "sentry_wrapper.h"
