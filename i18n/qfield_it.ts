@@ -137,12 +137,12 @@
     <message>
         <location filename="../src/qml/BarcodeReader.qml" line="80"/>
         <source>Code Reader</source>
-        <translation type="unfinished"/>
+        <translation>Lettore di codice</translation>
     </message>
     <message>
         <location filename="../src/qml/BarcodeReader.qml" line="246"/>
         <source>Center your camera on a code</source>
-        <translation type="unfinished"/>
+        <translation>Centra la fotocamera su un codice</translation>
     </message>
 </context>
 <context>
@@ -202,7 +202,7 @@ Annullare per eseguire una scansione veloce del dispositivo.</translation>
     <message>
         <location filename="../src/qml/BluetoothDeviceChooser.qml" line="166"/>
         <source>Connect to %1</source>
-        <translation type="unfinished"/>
+        <translation>Connetti a %1</translation>
     </message>
     <message>
         <source>Connect  to %1</source>
@@ -989,7 +989,7 @@ Le geometrie degli elementi verranno combinati in un elemento &apos;%1&apos; che
     <message>
         <location filename="../src/qml/LayerTreeItemProperties.qml" line="174"/>
         <source>Opacity</source>
-        <translation type="unfinished"/>
+        <translation>Opacità</translation>
     </message>
     <message>
         <location filename="../src/qml/LayerTreeItemProperties.qml" line="192"/>
@@ -1361,7 +1361,7 @@ Le geometrie degli elementi verranno combinati in un elemento &apos;%1&apos; che
     </message>
     <message>
         <source>centroid</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">centroide</translation>
     </message>
     <message>
         <location filename="../src/qml/NavigationInformationView.qml" line="145"/>
@@ -1657,7 +1657,7 @@ Le geometrie degli elementi verranno combinati in un elemento &apos;%1&apos; che
     <message>
         <location filename="../src/qml/PositioningPreciseView.qml" line="399"/>
         <source>Positioning accuracy too low for this precision level</source>
-        <translation type="unfinished"/>
+        <translation>Accuratezza di posizionamento insufficiente per questo livello di precisione</translation>
     </message>
 </context>
 <context>
@@ -2816,7 +2816,7 @@ Annullare per eseguire una scansione veloce del dispositivo.</translation>
     <message>
         <location filename="../src/core/navigation.cpp" line="222"/>
         <source>centroid</source>
-        <translation type="unfinished"/>
+        <translation>centroide</translation>
     </message>
 </context>
 <context>
@@ -3004,17 +3004,17 @@ Annullare per eseguire una scansione veloce del dispositivo.</translation>
     <message>
         <location filename="../src/qml/editorwidgets/TextEdit.qml" line="140"/>
         <source>Copy Text</source>
-        <translation type="unfinished"/>
+        <translation>Copia Testo</translation>
     </message>
     <message>
         <location filename="../src/qml/editorwidgets/TextEdit.qml" line="153"/>
         <source>Paste Text</source>
-        <translation type="unfinished"/>
+        <translation>Incolla Testo</translation>
     </message>
     <message>
         <location filename="../src/qml/editorwidgets/TextEdit.qml" line="171"/>
         <source>Scan Code</source>
-        <translation type="unfinished"/>
+        <translation>Scansiona Codice</translation>
     </message>
 </context>
 <context>
