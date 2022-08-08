@@ -8,11 +8,11 @@ set(CMAKE_COLOR_MAKEFILE ON)
 set(APP_NAME "QField" CACHE STRING "Application Name")
 set(APP_ICON "qfield_logo" CACHE STRING "Application Icon")
 set(APK_VERSION_CODE "1" CACHE STRING "Apk Version Code (Example: 1)")
-set(APP_VERSION "" CACHE STRING "Application Version (Example: 1.0.0)")
+set(APP_VERSION "0" CACHE STRING "Application Version (Example: v1.0.0)")
 set(APP_VERSION_STR "local - dev" CACHE STRING "Application Version Name (Example: 1.0.0 - Homerun)")
 set(APP_PACKAGE_NAME "qfield" CACHE STRING "Package name suffix. E.g. qfield --> ch.opengis.qfield")
 
-set(BUILD_WITH_QT6 OFF CACHE BOOLEAN "Build with Qt6")
+set(BUILD_WITH_QT6 OFF CACHE BOOL "Build with Qt6")
 
 string(REGEX REPLACE "v" "" CLEAN_APP_VERSION "${APP_VERSION}")
 
@@ -73,7 +73,7 @@ set(WITH_BLUETOOTH
 set(WITH_SPIX FALSE CACHE BOOL "Compile with Spix for testing")
 
 if (WITH_SPIX)
-  find_package(Spix)
+  find_package(Spix REQUIRED)
 endif ()
 
 set(SENTRY_DSN "" CACHE STRING "The sentry dsn for logging purpose. If not set, sentry will be disabled")
@@ -106,13 +106,9 @@ if (ANDROID)
 
   link_libraries("-ljnigraphics")
 
-  # This is necessary in order for CMake to be able to detect libraries in OSGeo4A
+  # Make sure the generator for android_deployment_settings.json can figure out the architecture
   list(APPEND CMAKE_FIND_ROOT_PATH /)
-  SET(VCPKG_BASE_DIR "${_VCPKG_INSTALLED_DIR}/${VCPKG_TARGET_TRIPLET}")
 
-  add_definitions(-DQGIS_INSTALL_DIR="") # TODO: do we need osgeo4a/[lib]/files here? see qgis.pri
-
-  # Android SDK stuff
   set(ANDROID_PACKAGE_SOURCE_DIR ${CMAKE_BINARY_DIR}/android-template)
 
   include(platform/android/openssl/CMakeLists.txt)
@@ -120,23 +116,6 @@ if (ANDROID)
   if(NOT BUILD_WITH_QT6)
     find_package(Qt5 COMPONENTS AndroidExtras REQUIRED)
   endif()
-
-  if(NOT EXISTS "${VCPKG_BASE_DIR}/share/proj/data/proj.db")
-    message(FATAL_ERROR "proj.db not found, aborting")
-  endif()
-
-  set(SHARE_PATH "${CMAKE_CURRENT_BINARY_DIR}/android-build/assets/share")
-  file(COPY "${VCPKG_BASE_DIR}/share/proj/data/" DESTINATION "${SHARE_PATH}/proj/")
-  file(MAKE_DIRECTORY "${SHARE_PATH}/qgis/")
-  file(COPY "${VCPKG_BASE_DIR}/files/share/svg/" DESTINATION "${SHARE_PATH}/qgis/svg/")
-  file(COPY "${VCPKG_BASE_DIR}/files/share/resources/" DESTINATION "${SHARE_PATH}/qgis/resources/")
-
-  # Remove world map to keep apk size a bit smaller
-  file(REMOVE "${SHARE_PATH}/qgis/resources/data/world_map.gpkg")
-  file(COPY resources/ DESTINATION "${SHARE_PATH}/qfield/")
-
-  # Don't do tests when building for Android
-  set(ENABLE_TESTS FALSE)
 endif()
 
 set(QT_MIN_VERSION 5.14.0)
@@ -146,15 +125,11 @@ find_package(${QT_PKG} COMPONENTS Concurrent Core Qml Gui Xml Positioning Widget
 # qgis will deal with it an define a public 'QT_NO_PRINTER'
 find_package(${QT_PKG} COMPONENTS PrintSupport QUIET)
 
-find_package(QGIS REQUIRED)
-if(WITH_VCPKG)
-  find_package(PROJ)
-else()
-  find_package(Proj)
-endif()
-find_package(GDAL)
+find_package(QGIS COMPONENTS Core Analysis REQUIRED)
+find_package(PROJ REQUIRED)
+find_package(GDAL REQUIRED)
 find_package(Qca REQUIRED)
-find_package(QtKeychain)
+find_package(Qt5Keychain REQUIRED)
 
 set(ENABLE_TESTS CACHE BOOL "Build unit tests")
 
@@ -172,12 +147,12 @@ endif()
 
 if(CMAKE_SYSTEM_NAME STREQUAL "Darwin")
   set(SHARE_DIR "${CMAKE_BINARY_DIR}/output/bin/qfield.app/Contents/share")
-else(CMAKE_SYSTEM_NAME STREQUAL "iOS")
+elseif(CMAKE_SYSTEM_NAME STREQUAL "Android")
+  set(SHARE_DIR "${CMAKE_BINARY_DIR}/android-build/assets/share")
+else()
   set(SHARE_DIR "${CMAKE_BINARY_DIR}/output/share")
-  set(QFIELD_RESOURCE_FILES ${SHARE_DIR})
-  file(MAKE_DIRECTORY ${SHARE_DIR})
-  file(COPY resources/ DESTINATION "${SHARE_DIR}/qfield/")
 endif()
+file(MAKE_DIRECTORY "${SHARE_DIR}")
 
 add_subdirectory(src/core)
 add_subdirectory(src/qml)
@@ -189,30 +164,22 @@ if (ENABLE_TESTS)
   add_subdirectory(test)
 endif()
 
-if(WITH_VCPKG AND NOT ANDROID)
+if(WITH_VCPKG)
+  # Copy files from the install dir to where it
+  # will be bundled
+  add_custom_target(deploy)
+
   function(copy_resource source target)
     add_custom_command(TARGET deploy
       POST_BUILD
-      COMMAND ${CMAKE_COMMAND} -E make_directory "${CMAKE_BINARY_DIR}/output/bin/${target}"
-    )
-    add_custom_command(TARGET deploy
-                      POST_BUILD
-                      COMMAND ${CMAKE_COMMAND} -E copy_directory "${source}" "${CMAKE_BINARY_DIR}/output/bin/${target}"
-    )
-
-    add_custom_command(TARGET deploy
-      POST_BUILD
       COMMAND ${CMAKE_COMMAND} -E make_directory "${SHARE_DIR}/${target}"
-    )
-    add_custom_command(TARGET deploy
-                      POST_BUILD
-                      COMMAND ${CMAKE_COMMAND} -E copy_directory "${source}" "${SHARE_DIR}/${target}"
+      COMMAND ${CMAKE_COMMAND} -E copy_directory "${source}" "${SHARE_DIR}/${target}"
     )
   endfunction()
 
-  SET(VCPKG_BASE_DIR "${_VCPKG_INSTALLED_DIR}/${VCPKG_TARGET_TRIPLET}")
+  set(VCPKG_BASE_DIR "${_VCPKG_INSTALLED_DIR}/${VCPKG_TARGET_TRIPLET}")
   if(MSVC)
-    SET(QGIS_PLUGIN_DIR "${VCPKG_BASE_DIR}/tools/qgis/plugins")
+    set(QGIS_PLUGIN_DIR "${VCPKG_BASE_DIR}/tools/qgis/plugins")
     file(GLOB PROVIDER_LIBS
       "${QGIS_PLUGIN_DIR}/*provider*.dll"
     )
@@ -222,7 +189,7 @@ if(WITH_VCPKG AND NOT ANDROID)
     # From QGIS CMakeLists.txt
     set(QGIS_PLUGIN_INSTALL_PREFIX "plugins")
   else()
-    SET(QGIS_PLUGIN_DIR "${VCPKG_BASE_DIR}/lib/qgis/plugins")
+    set(QGIS_PLUGIN_DIR "${VCPKG_BASE_DIR}/lib/qgis/plugins")
     file(GLOB PROVIDER_LIBS
       "${QGIS_PLUGIN_DIR}/*provider*.so"
     )
@@ -232,7 +199,6 @@ if(WITH_VCPKG AND NOT ANDROID)
     # From QGIS CMakeLists.txt
     set(QGIS_PLUGIN_INSTALL_PREFIX "lib${LIB_SUFFIX}/qgis/plugins")
   endif()
-  add_custom_target(deploy)
   add_custom_command(TARGET deploy
     POST_BUILD
     COMMAND ${CMAKE_COMMAND} -E make_directory "${CMAKE_BINARY_DIR}/output/bin/qgis/plugins"
@@ -250,9 +216,16 @@ if(WITH_VCPKG AND NOT ANDROID)
                        COMMAND ${CMAKE_COMMAND} -E copy_if_different "${LIB}" "${CMAKE_BINARY_DIR}/output/bin/qgis/plugins"
     )
   endforeach()
-  copy_resource("${VCPKG_BASE_DIR}/share/qgis/resources" "qgis/resources")
+
+  add_custom_command(TARGET deploy
+    POST_BUILD
+    COMMAND ${CMAKE_COMMAND} -E make_directory "${SHARE_DIR}/qgis/resources"
+    COMMAND ${CMAKE_COMMAND} -E copy_directory "${VCPKG_BASE_DIR}/share/qgis/resources" "${SHARE_DIR}/qgis/resources"
+    COMMAND ${CMAKE_COMMAND} -E rm -- "${SHARE_DIR}/qgis/resources/data/world_map.gpkg"
+  )
   copy_resource("${VCPKG_BASE_DIR}/share/proj" "proj")
   copy_resource("${VCPKG_BASE_DIR}/share/gdal" "gdal")
+  copy_resource("${CMAKE_SOURCE_DIR}/resources/" "qfield")
   install(DIRECTORY "${VCPKG_BASE_DIR}/share/qgis/resources/" DESTINATION "share/qgis/resources")
   install(DIRECTORY "${VCPKG_BASE_DIR}/share/proj/data/" DESTINATION "share/proj")
   install(DIRECTORY "${VCPKG_BASE_DIR}/share/gdal/" DESTINATION "share/gdal")

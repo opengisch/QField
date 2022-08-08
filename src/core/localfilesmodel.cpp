@@ -37,7 +37,7 @@ LocalFilesModel::LocalFilesModel( QObject *parent )
       favorites << QStringLiteral( "%1/Imported Projects" ).arg( applicationDirectory )
                 << QStringLiteral( "%1/Imported Datasets" ).arg( applicationDirectory );
     }
-    const QString sampleProjectPath = PlatformUtilities::instance()->systemGenericDataLocation() + QStringLiteral( "/qfield/sample_projects" );
+    const QString sampleProjectPath = PlatformUtilities::instance()->systemLocalDataLocation( QLatin1String( "sample_projects" ) );
     favorites << sampleProjectPath;
     settings.setValue( QStringLiteral( "qfieldFavorites" ), favorites );
   }
@@ -105,7 +105,7 @@ const QString LocalFilesModel::getCurrentTitleFromPath( const QString &path ) co
   {
     return tr( "Additional files directory" );
   }
-  else if ( path == PlatformUtilities::instance()->systemGenericDataLocation() + QStringLiteral( "/qfield/sample_projects" ) )
+  else if ( path == PlatformUtilities::instance()->systemLocalDataLocation( QLatin1String( "sample_projects" ) ) )
   {
     return tr( "Sample projects" );
   }

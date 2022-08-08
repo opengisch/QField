@@ -16,6 +16,7 @@
  *                                                                         *
  ***************************************************************************/
 
+#include "fileutils.h"
 #include "picturesource.h"
 #include "platformutilities.h"
 #include "projectsource.h"
@@ -59,13 +60,58 @@ PlatformUtilities::Capabilities PlatformUtilities::capabilities() const
   return capabilities;
 }
 
-void PlatformUtilities::initSystem()
+void PlatformUtilities::copySampleProjects()
 {
+  const bool success = FileUtils::copyRecursively( systemSharedDataLocation() + QLatin1String( "/qfield/sample_projects" ), systemLocalDataLocation( QLatin1String( "sample_projects" ) ) );
+  Q_ASSERT( success );
 }
 
-QString PlatformUtilities::systemGenericDataLocation() const
+void PlatformUtilities::initSystem()
 {
-  return QStandardPaths::standardLocations( QStandardPaths::GenericDataLocation ).first();
+  const QString appDataLocation = QStandardPaths::writableLocation( QStandardPaths::AppDataLocation );
+  QFile gitRevFile( appDataLocation + QStringLiteral( "/gitRev" ) );
+  QByteArray localGitRev;
+  if ( gitRevFile.open( QIODevice::ReadOnly ) )
+  {
+    localGitRev = gitRevFile.readAll();
+  }
+  gitRevFile.close();
+  QByteArray appGitRev = qfield::gitRev.toUtf8();
+  if ( localGitRev != appGitRev )
+  {
+    afterUpdate();
+    copySampleProjects();
+
+    gitRevFile.open( QIODevice::WriteOnly | QIODevice::Truncate );
+    gitRevFile.write( appGitRev );
+    gitRevFile.close();
+  }
+}
+
+void PlatformUtilities::afterUpdate()
+{}
+
+QString PlatformUtilities::systemSharedDataLocation() const
+{
+  /* By default assume that we have a layout like this:
+
+     [prefix_path]
+     |-- bin
+     |   |-- qfield.exe
+     |-- share
+     |   |-- qfield
+     |   |   |-- sample_projects 
+     |   |-- proj
+     |   |   |-- data
+     |   |   |   |--  proj.db
+  */
+  const static QString sharePath = QDir( QCoreApplication::applicationDirPath() + QLatin1String( "/../share" ) ).absolutePath();
+  return sharePath;
+}
+
+QString PlatformUtilities::systemLocalDataLocation( const QString &subDir ) const
+{
+  return QStandardPaths::writableLocation( QStandardPaths::AppDataLocation ) + '/' + subDir;
 }
 
 QString PlatformUtilities::qgsProject() const
@@ -73,14 +119,14 @@ QString PlatformUtilities::qgsProject() const
   return QString();
 }
 
-QStringList PlatformUtilities::qfieldAppDataDirs() const
+QStringList PlatformUtilities::appDataDirs() const
 {
   return QStringList() << QStandardPaths::standardLocations( QStandardPaths::DocumentsLocation ).first() + QStringLiteral( "/QField/" );
 }
 
 QStringList PlatformUtilities::availableGrids() const
 {
-  QStringList dataDirs = qfieldAppDataDirs();
+  QStringList dataDirs = appDataDirs();
   QStringList grids;
   for ( const QString &dataDir : dataDirs )
   {
@@ -124,6 +170,45 @@ QStringList PlatformUtilities::additionalApplicationDirectories() const
 QStringList PlatformUtilities::rootDirectories() const
 {
   return QStringList() << QString();
+}
+
+void PlatformUtilities::importProjectFolder() const
+{}
+
+void PlatformUtilities::importProjectArchive() const
+{}
+
+void PlatformUtilities::importDatasets() const
+{}
+
+void PlatformUtilities::exportFolderTo( const QString &path ) const
+{
+  Q_UNUSED( path )
+}
+
+void PlatformUtilities::exportDatasetTo( const QString &path ) const
+{
+  Q_UNUSED( path )
+}
+
+void PlatformUtilities::sendDatasetTo( const QString &path ) const
+{
+  Q_UNUSED( path )
+}
+
+void PlatformUtilities::sendCompressedFolderTo( const QString &path ) const
+{
+  Q_UNUSED( path )
+}
+
+void PlatformUtilities::removeDataset( const QString &path ) const
+{
+  Q_UNUSED( path )
+}
+
+void PlatformUtilities::removeFolder( const QString &path ) const
+{
+  Q_UNUSED( path )
 }
 
 PictureSource *PlatformUtilities::getCameraPicture( QQuickItem *parent, const QString &prefix, const QString &pictureFilePath, const QString &suffix )
@@ -209,6 +294,7 @@ void PlatformUtilities::initiateSentry()
   sentry_options_set_dsn( options, qfield::sentryDsn.toUtf8().constData() );
   sentry_options_set_environment( options, qfield::sentryEnv.toUtf8().constData() );
   sentry_options_set_debug( options, 1 );
+  sentry_options_set_database_path( options, systemLocalDataLocation( QStringLiteral( ".sentry-native" ) ).toUtf8().constData() );
   sentry_init( options );
 #endif
 }

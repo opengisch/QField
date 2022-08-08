@@ -125,7 +125,7 @@ Item {
             opacity: 0.6
 
             text: {
-                var dataDirs = platformUtilities.qfieldAppDataDirs();
+                var dataDirs = platformUtilities.appDataDirs();
                 if (dataDirs.length > 0) {
                   return (dataDirs.length > 1
                           ? 'QField app directories'
