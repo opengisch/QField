@@ -1453,7 +1453,7 @@ ApplicationWindow {
                 {
                     overlayFeatureFormDrawer.featureModel.geometry = digitizingFeature.geometry
                     overlayFeatureFormDrawer.featureModel.applyGeometry()
-                    overlayFeatureFormDrawer.featureForm.resetAttributes()
+                    overlayFeatureFormDrawer.featureModel.resetAttributes()
                     if( overlayFeatureFormDrawer.featureForm.model.constraintsHardValid ) {
                       // when the constrainst are fulfilled
                       // indirect action, no need to check for success and display a toast, the log is enough
