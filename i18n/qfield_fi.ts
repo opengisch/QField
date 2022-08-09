@@ -1445,42 +1445,42 @@ Kohteen geometriat yhdistet채채n kohteeseen &apos;%1&apos;, johon sis채llytet채�
 <context>
     <name>PlatformUtilities</name>
     <message>
-        <location filename="../src/core/platforms/platformutilities.cpp" line="141"/>
+        <location filename="../src/core/platforms/platformutilities.cpp" line="226"/>
         <source>Select Media File</source>
         <translation>Valitse mediatiedosto</translation>
     </message>
     <message>
-        <location filename="../src/core/platforms/platformutilities.cpp" line="141"/>
+        <location filename="../src/core/platforms/platformutilities.cpp" line="226"/>
         <source>JPEG images (*.jpg *.jpeg)</source>
         <translation>JPEG-kuvat (*.jpg *.jpeg)</translation>
     </message>
     <message>
-        <location filename="../src/core/platforms/platformutilities.cpp" line="161"/>
+        <location filename="../src/core/platforms/platformutilities.cpp" line="246"/>
         <source>Failed to save gallery picture</source>
         <translation>Galleriakuvan tallennus ep채onnistui</translation>
     </message>
     <message>
-        <location filename="../src/core/platforms/platformutilities.cpp" line="179"/>
+        <location filename="../src/core/platforms/platformutilities.cpp" line="264"/>
         <source>Open File</source>
         <translation>Avaa tiedosto</translation>
     </message>
     <message>
-        <location filename="../src/core/platforms/platformutilities.cpp" line="181"/>
+        <location filename="../src/core/platforms/platformutilities.cpp" line="266"/>
         <source>All Supported Files</source>
         <translation>Kaikki tuetut tiedostot</translation>
     </message>
     <message>
-        <location filename="../src/core/platforms/platformutilities.cpp" line="181"/>
+        <location filename="../src/core/platforms/platformutilities.cpp" line="266"/>
         <source>QGIS Project Files</source>
         <translation>QGIS-projektitiedostot</translation>
     </message>
     <message>
-        <location filename="../src/core/platforms/platformutilities.cpp" line="181"/>
+        <location filename="../src/core/platforms/platformutilities.cpp" line="266"/>
         <source>Vector Datasets</source>
         <translation>Vektoriaineistot</translation>
     </message>
     <message>
-        <location filename="../src/core/platforms/platformutilities.cpp" line="181"/>
+        <location filename="../src/core/platforms/platformutilities.cpp" line="266"/>
         <source>Raster Datasets</source>
         <translation>Rasteriaineistot</translation>
     </message>
@@ -2798,7 +2798,7 @@ Peruuta tehd채ksesi suppeampi laiteskannaus.</translation>
         <translation>Pilven k채ytt채j채tiedot</translation>
     </message>
     <message>
-        <location filename="../src/core/platforms/android/androidplatformutilities.cpp" line="85"/>
+        <location filename="../src/core/platforms/android/androidplatformutilities.cpp" line="78"/>
         <source>Please wait while QField installation finalizes.</source>
         <translation type="unfinished"/>
     </message>

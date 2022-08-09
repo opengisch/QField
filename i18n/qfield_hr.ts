@@ -536,7 +536,7 @@ Otkažite da pokrenete minimalno skeniranje uređaja.</translation>
     <message>
         <location filename="../src/qml/editorwidgets/EditorWidgetBase.qml" line="13"/>
         <source>Item Menu</source>
-        <translation type="unfinished"/>
+        <translation>Meni sa stavkama</translation>
     </message>
 </context>
 <context>
@@ -1448,42 +1448,42 @@ Geometrija elemenata će se spojiti u element &apos;%1&apos;, koji će zadržati
 <context>
     <name>PlatformUtilities</name>
     <message>
-        <location filename="../src/core/platforms/platformutilities.cpp" line="141"/>
+        <location filename="../src/core/platforms/platformutilities.cpp" line="226"/>
         <source>Select Media File</source>
         <translation>Izaberi Multimedijsku Datoteku</translation>
     </message>
     <message>
-        <location filename="../src/core/platforms/platformutilities.cpp" line="141"/>
+        <location filename="../src/core/platforms/platformutilities.cpp" line="226"/>
         <source>JPEG images (*.jpg *.jpeg)</source>
         <translation>JPEG fotografije (*.jpg *.jpeg)</translation>
     </message>
     <message>
-        <location filename="../src/core/platforms/platformutilities.cpp" line="161"/>
+        <location filename="../src/core/platforms/platformutilities.cpp" line="246"/>
         <source>Failed to save gallery picture</source>
         <translation>Nije uspjelo spremanje fotografije iz galerije</translation>
     </message>
     <message>
-        <location filename="../src/core/platforms/platformutilities.cpp" line="179"/>
+        <location filename="../src/core/platforms/platformutilities.cpp" line="264"/>
         <source>Open File</source>
         <translation>Otvori Datoteku</translation>
     </message>
     <message>
-        <location filename="../src/core/platforms/platformutilities.cpp" line="181"/>
+        <location filename="../src/core/platforms/platformutilities.cpp" line="266"/>
         <source>All Supported Files</source>
         <translation>Sve Podržane Datoteke</translation>
     </message>
     <message>
-        <location filename="../src/core/platforms/platformutilities.cpp" line="181"/>
+        <location filename="../src/core/platforms/platformutilities.cpp" line="266"/>
         <source>QGIS Project Files</source>
         <translation>QGIS Datoteke Projekta</translation>
     </message>
     <message>
-        <location filename="../src/core/platforms/platformutilities.cpp" line="181"/>
+        <location filename="../src/core/platforms/platformutilities.cpp" line="266"/>
         <source>Vector Datasets</source>
         <translation>Vektorski Skup Podataka</translation>
     </message>
     <message>
-        <location filename="../src/core/platforms/platformutilities.cpp" line="181"/>
+        <location filename="../src/core/platforms/platformutilities.cpp" line="266"/>
         <source>Raster Datasets</source>
         <translation>Rasterski Skup Podataka</translation>
     </message>
@@ -2797,7 +2797,7 @@ Otkažite da pokrenete minimalno skeniranje uređaja.</translation>
         <translation>Info Korisnika Oblaka</translation>
     </message>
     <message>
-        <location filename="../src/core/platforms/android/androidplatformutilities.cpp" line="85"/>
+        <location filename="../src/core/platforms/android/androidplatformutilities.cpp" line="78"/>
         <source>Please wait while QField installation finalizes.</source>
         <translation>Molimo pričekajte dok se instalacija QField-a završi. </translation>
     </message>
@@ -2997,17 +2997,17 @@ Otkažite da pokrenete minimalno skeniranje uređaja.</translation>
     <message>
         <location filename="../src/qml/editorwidgets/TextEdit.qml" line="140"/>
         <source>Copy Text</source>
-        <translation type="unfinished"/>
+        <translation>Kopiraj tekst</translation>
     </message>
     <message>
         <location filename="../src/qml/editorwidgets/TextEdit.qml" line="153"/>
         <source>Paste Text</source>
-        <translation type="unfinished"/>
+        <translation>Zalijepi tekst</translation>
     </message>
     <message>
         <location filename="../src/qml/editorwidgets/TextEdit.qml" line="171"/>
         <source>Scan Code</source>
-        <translation type="unfinished"/>
+        <translation>Skeniraj kôd</translation>
     </message>
 </context>
 <context>

@@ -1442,42 +1442,42 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
 <context>
     <name>PlatformUtilities</name>
     <message>
-        <location filename="../src/core/platforms/platformutilities.cpp" line="141"/>
+        <location filename="../src/core/platforms/platformutilities.cpp" line="226"/>
         <source>Select Media File</source>
         <translation>Selecionar arquivo de mídia</translation>
     </message>
     <message>
-        <location filename="../src/core/platforms/platformutilities.cpp" line="141"/>
+        <location filename="../src/core/platforms/platformutilities.cpp" line="226"/>
         <source>JPEG images (*.jpg *.jpeg)</source>
         <translation>Imagens JPEG (*.jpg *.jpeg)</translation>
     </message>
     <message>
-        <location filename="../src/core/platforms/platformutilities.cpp" line="161"/>
+        <location filename="../src/core/platforms/platformutilities.cpp" line="246"/>
         <source>Failed to save gallery picture</source>
         <translation>Falha ao salvar a foto da galeria</translation>
     </message>
     <message>
-        <location filename="../src/core/platforms/platformutilities.cpp" line="179"/>
+        <location filename="../src/core/platforms/platformutilities.cpp" line="264"/>
         <source>Open File</source>
         <translation>Abrir arquivo</translation>
     </message>
     <message>
-        <location filename="../src/core/platforms/platformutilities.cpp" line="181"/>
+        <location filename="../src/core/platforms/platformutilities.cpp" line="266"/>
         <source>All Supported Files</source>
         <translation>Todos Arquivos Compatíveis</translation>
     </message>
     <message>
-        <location filename="../src/core/platforms/platformutilities.cpp" line="181"/>
+        <location filename="../src/core/platforms/platformutilities.cpp" line="266"/>
         <source>QGIS Project Files</source>
         <translation>Arquivos de Projeto QGIS</translation>
     </message>
     <message>
-        <location filename="../src/core/platforms/platformutilities.cpp" line="181"/>
+        <location filename="../src/core/platforms/platformutilities.cpp" line="266"/>
         <source>Vector Datasets</source>
         <translation>Conjunto de Dados Vetoriais</translation>
     </message>
     <message>
-        <location filename="../src/core/platforms/platformutilities.cpp" line="181"/>
+        <location filename="../src/core/platforms/platformutilities.cpp" line="266"/>
         <source>Raster Datasets</source>
         <translation>Conjunto de Dados Raster</translation>
     </message>
@@ -2791,7 +2791,7 @@ Cancele para fazer uma verificação mínima.</translation>
         <translation>Informação do Usuário da Nuvem</translation>
     </message>
     <message>
-        <location filename="../src/core/platforms/android/androidplatformutilities.cpp" line="85"/>
+        <location filename="../src/core/platforms/android/androidplatformutilities.cpp" line="78"/>
         <source>Please wait while QField installation finalizes.</source>
         <translation type="unfinished"/>
     </message>

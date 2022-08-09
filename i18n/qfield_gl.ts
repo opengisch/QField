@@ -1446,42 +1446,42 @@ As xeometrías das entidades combinaranse na entidade &apos;%1&apos;, a cal cons
 <context>
     <name>PlatformUtilities</name>
     <message>
-        <location filename="../src/core/platforms/platformutilities.cpp" line="141"/>
+        <location filename="../src/core/platforms/platformutilities.cpp" line="226"/>
         <source>Select Media File</source>
         <translation>Selecciona o Ficheiro Multimedia</translation>
     </message>
     <message>
-        <location filename="../src/core/platforms/platformutilities.cpp" line="141"/>
+        <location filename="../src/core/platforms/platformutilities.cpp" line="226"/>
         <source>JPEG images (*.jpg *.jpeg)</source>
         <translation>Imaxes JPEG (*.jpg *.jpeg)</translation>
     </message>
     <message>
-        <location filename="../src/core/platforms/platformutilities.cpp" line="161"/>
+        <location filename="../src/core/platforms/platformutilities.cpp" line="246"/>
         <source>Failed to save gallery picture</source>
         <translation>Non se puido gardar a imaxe da galería</translation>
     </message>
     <message>
-        <location filename="../src/core/platforms/platformutilities.cpp" line="179"/>
+        <location filename="../src/core/platforms/platformutilities.cpp" line="264"/>
         <source>Open File</source>
         <translation>Abrir Ficheiro</translation>
     </message>
     <message>
-        <location filename="../src/core/platforms/platformutilities.cpp" line="181"/>
+        <location filename="../src/core/platforms/platformutilities.cpp" line="266"/>
         <source>All Supported Files</source>
         <translation>Tódolos Ficheiros Admitidos</translation>
     </message>
     <message>
-        <location filename="../src/core/platforms/platformutilities.cpp" line="181"/>
+        <location filename="../src/core/platforms/platformutilities.cpp" line="266"/>
         <source>QGIS Project Files</source>
         <translation>Ficheiros de Proxecto de QGIS</translation>
     </message>
     <message>
-        <location filename="../src/core/platforms/platformutilities.cpp" line="181"/>
+        <location filename="../src/core/platforms/platformutilities.cpp" line="266"/>
         <source>Vector Datasets</source>
         <translation>Conxuntos de Datos Vectoriais</translation>
     </message>
     <message>
-        <location filename="../src/core/platforms/platformutilities.cpp" line="181"/>
+        <location filename="../src/core/platforms/platformutilities.cpp" line="266"/>
         <source>Raster Datasets</source>
         <translation>Conxuntos de Datos Ráster</translation>
     </message>
@@ -2799,7 +2799,7 @@ Cancela para facer, porén, unha exploración mínima do dispositivo.</translati
         <translation>Información do Usuario da Nube</translation>
     </message>
     <message>
-        <location filename="../src/core/platforms/android/androidplatformutilities.cpp" line="85"/>
+        <location filename="../src/core/platforms/android/androidplatformutilities.cpp" line="78"/>
         <source>Please wait while QField installation finalizes.</source>
         <translation>Por favor, agarde mentres finaliza a instalación de QField.</translation>
     </message>

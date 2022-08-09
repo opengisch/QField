@@ -1448,42 +1448,42 @@ Le geometrie degli elementi verranno combinati in un elemento &apos;%1&apos; che
 <context>
     <name>PlatformUtilities</name>
     <message>
-        <location filename="../src/core/platforms/platformutilities.cpp" line="141"/>
+        <location filename="../src/core/platforms/platformutilities.cpp" line="226"/>
         <source>Select Media File</source>
         <translation>Selezione un file Multimediale</translation>
     </message>
     <message>
-        <location filename="../src/core/platforms/platformutilities.cpp" line="141"/>
+        <location filename="../src/core/platforms/platformutilities.cpp" line="226"/>
         <source>JPEG images (*.jpg *.jpeg)</source>
         <translation>Immagini JPEG (*.jpg *.jpeg)</translation>
     </message>
     <message>
-        <location filename="../src/core/platforms/platformutilities.cpp" line="161"/>
+        <location filename="../src/core/platforms/platformutilities.cpp" line="246"/>
         <source>Failed to save gallery picture</source>
         <translation>Fallito salvataggio dell&apos;immagine nella galleria</translation>
     </message>
     <message>
-        <location filename="../src/core/platforms/platformutilities.cpp" line="179"/>
+        <location filename="../src/core/platforms/platformutilities.cpp" line="264"/>
         <source>Open File</source>
         <translation>Apri File</translation>
     </message>
     <message>
-        <location filename="../src/core/platforms/platformutilities.cpp" line="181"/>
+        <location filename="../src/core/platforms/platformutilities.cpp" line="266"/>
         <source>All Supported Files</source>
         <translation>Tutti i File Supportati</translation>
     </message>
     <message>
-        <location filename="../src/core/platforms/platformutilities.cpp" line="181"/>
+        <location filename="../src/core/platforms/platformutilities.cpp" line="266"/>
         <source>QGIS Project Files</source>
         <translation>File di progetto QGIS</translation>
     </message>
     <message>
-        <location filename="../src/core/platforms/platformutilities.cpp" line="181"/>
+        <location filename="../src/core/platforms/platformutilities.cpp" line="266"/>
         <source>Vector Datasets</source>
         <translation>Dataset Vettoriali</translation>
     </message>
     <message>
-        <location filename="../src/core/platforms/platformutilities.cpp" line="181"/>
+        <location filename="../src/core/platforms/platformutilities.cpp" line="266"/>
         <source>Raster Datasets</source>
         <translation>Dataset Raster</translation>
     </message>
@@ -2804,7 +2804,7 @@ Annullare per eseguire una scansione veloce del dispositivo.</translation>
         <translation>Info Utente Cloud</translation>
     </message>
     <message>
-        <location filename="../src/core/platforms/android/androidplatformutilities.cpp" line="85"/>
+        <location filename="../src/core/platforms/android/androidplatformutilities.cpp" line="78"/>
         <source>Please wait while QField installation finalizes.</source>
         <translation>Attendere il completamento dell&apos;installazione di QField.</translation>
     </message>

@@ -137,12 +137,12 @@
     <message>
         <location filename="../src/qml/BarcodeReader.qml" line="80"/>
         <source>Code Reader</source>
-        <translation type="unfinished"/>
+        <translation>Четец на кодове</translation>
     </message>
     <message>
         <location filename="../src/qml/BarcodeReader.qml" line="246"/>
         <source>Center your camera on a code</source>
-        <translation type="unfinished"/>
+        <translation>Постави камерата върху кода</translation>
     </message>
 </context>
 <context>
@@ -170,7 +170,7 @@
     <message numerus="yes">
         <location filename="../src/qml/BluetoothDeviceChooser.qml" line="80"/>
         <source>%n device(s) found</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>%1 устройство е намерено</numerusform><numerusform>%n устройства са намерени</numerusform></translation>
     </message>
     <message>
         <location filename="../src/qml/BluetoothDeviceChooser.qml" line="86"/>
@@ -202,7 +202,7 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <location filename="../src/qml/BluetoothDeviceChooser.qml" line="166"/>
         <source>Connect to %1</source>
-        <translation type="unfinished"/>
+        <translation>Свържи с %1</translation>
     </message>
     <message>
         <source>Connect  to %1</source>
@@ -536,7 +536,7 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <location filename="../src/qml/editorwidgets/EditorWidgetBase.qml" line="13"/>
         <source>Item Menu</source>
-        <translation type="unfinished"/>
+        <translation>Меню</translation>
     </message>
 </context>
 <context>
@@ -987,7 +987,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <message>
         <location filename="../src/qml/LayerTreeItemProperties.qml" line="174"/>
         <source>Opacity</source>
-        <translation type="unfinished"/>
+        <translation>Прозрачност</translation>
     </message>
     <message>
         <location filename="../src/qml/LayerTreeItemProperties.qml" line="192"/>
@@ -1359,7 +1359,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>centroid</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">центроид</translation>
     </message>
     <message>
         <location filename="../src/qml/NavigationInformationView.qml" line="145"/>
@@ -1446,42 +1446,42 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
 <context>
     <name>PlatformUtilities</name>
     <message>
-        <location filename="../src/core/platforms/platformutilities.cpp" line="141"/>
+        <location filename="../src/core/platforms/platformutilities.cpp" line="226"/>
         <source>Select Media File</source>
         <translation>Избор на мултимедиен файл</translation>
     </message>
     <message>
-        <location filename="../src/core/platforms/platformutilities.cpp" line="141"/>
+        <location filename="../src/core/platforms/platformutilities.cpp" line="226"/>
         <source>JPEG images (*.jpg *.jpeg)</source>
         <translation>JPEG изображения (*.jpg *.jpeg)</translation>
     </message>
     <message>
-        <location filename="../src/core/platforms/platformutilities.cpp" line="161"/>
+        <location filename="../src/core/platforms/platformutilities.cpp" line="246"/>
         <source>Failed to save gallery picture</source>
         <translation>Неуспешен запис на изображение от галерията</translation>
     </message>
     <message>
-        <location filename="../src/core/platforms/platformutilities.cpp" line="179"/>
+        <location filename="../src/core/platforms/platformutilities.cpp" line="264"/>
         <source>Open File</source>
         <translation>Отвори файл</translation>
     </message>
     <message>
-        <location filename="../src/core/platforms/platformutilities.cpp" line="181"/>
+        <location filename="../src/core/platforms/platformutilities.cpp" line="266"/>
         <source>All Supported Files</source>
         <translation>Всички поддържани файлове</translation>
     </message>
     <message>
-        <location filename="../src/core/platforms/platformutilities.cpp" line="181"/>
+        <location filename="../src/core/platforms/platformutilities.cpp" line="266"/>
         <source>QGIS Project Files</source>
         <translation>QGIS проекти</translation>
     </message>
     <message>
-        <location filename="../src/core/platforms/platformutilities.cpp" line="181"/>
+        <location filename="../src/core/platforms/platformutilities.cpp" line="266"/>
         <source>Vector Datasets</source>
         <translation>Векторни данни</translation>
     </message>
     <message>
-        <location filename="../src/core/platforms/platformutilities.cpp" line="181"/>
+        <location filename="../src/core/platforms/platformutilities.cpp" line="266"/>
         <source>Raster Datasets</source>
         <translation>Растерни данни</translation>
     </message>
@@ -1655,7 +1655,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <message>
         <location filename="../src/qml/PositioningPreciseView.qml" line="399"/>
         <source>Positioning accuracy too low for this precision level</source>
-        <translation type="unfinished"/>
+        <translation>Точността на позиционирането е прекалено ниска за това ниво на прецизност</translation>
     </message>
 </context>
 <context>
@@ -2650,7 +2650,7 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <location filename="../src/qml/QFieldSettings.qml" line="613"/>
         <source>Automatically end collection when minimum number is met</source>
-        <translation type="unfinished"/>
+        <translation>Автоматично приключване на събирането, когато минималния брой е достигнат</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldSettings.qml" line="640"/>
@@ -2801,7 +2801,7 @@ Cancel to make a minimal device scan instead.</source>
         <translation>Информация за потребителя на облака</translation>
     </message>
     <message>
-        <location filename="../src/core/platforms/android/androidplatformutilities.cpp" line="85"/>
+        <location filename="../src/core/platforms/android/androidplatformutilities.cpp" line="78"/>
         <source>Please wait while QField installation finalizes.</source>
         <translation>Моля, изчакай до приключването на инсталацията на QField.</translation>
     </message>
@@ -2813,7 +2813,7 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <location filename="../src/core/navigation.cpp" line="222"/>
         <source>centroid</source>
-        <translation type="unfinished"/>
+        <translation>центроид</translation>
     </message>
 </context>
 <context>
@@ -3001,17 +3001,17 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <location filename="../src/qml/editorwidgets/TextEdit.qml" line="140"/>
         <source>Copy Text</source>
-        <translation type="unfinished"/>
+        <translation>Копирай текста</translation>
     </message>
     <message>
         <location filename="../src/qml/editorwidgets/TextEdit.qml" line="153"/>
         <source>Paste Text</source>
-        <translation type="unfinished"/>
+        <translation>Постави текста</translation>
     </message>
     <message>
         <location filename="../src/qml/editorwidgets/TextEdit.qml" line="171"/>
         <source>Scan Code</source>
-        <translation type="unfinished"/>
+        <translation>Сканирай код</translation>
     </message>
 </context>
 <context>
@@ -3489,36 +3489,36 @@ Cancel to make a minimal device scan instead.</source>
         <location filename="../src/qml/qgismobileapp.qml" line="1979"/>
         <location filename="../src/qml/qgismobileapp.qml" line="2026"/>
         <source>Precise View Settings</source>
-        <translation type="unfinished"/>
+        <translation>Настройки на прецизен изглед</translation>
     </message>
     <message>
         <source>0.25m Precision</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">0,25 m прецизност</translation>
     </message>
     <message>
         <source>0.5m Precision</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">0,5 m прецизност</translation>
     </message>
     <message>
         <source>1m Precision</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">1 m прецизност</translation>
     </message>
     <message>
         <source>2.5m Precision</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">2,5 m прецизност</translation>
     </message>
     <message>
         <source>5m Precision</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">5 m прецизност</translation>
     </message>
     <message>
         <source>10m Precision</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">10 m прецизност</translation>
     </message>
     <message>
         <location filename="../src/qml/qgismobileapp.qml" line="2139"/>
         <source>Always Show Precise View</source>
-        <translation type="unfinished"/>
+        <translation>Винаги показвай прецизен изглед</translation>
     </message>
     <message>
         <location filename="../src/qml/qgismobileapp.qml" line="2241"/>
@@ -3567,12 +3567,12 @@ Cancel to make a minimal device scan instead.</source>
         <location filename="../src/qml/qgismobileapp.qml" line="2105"/>
         <location filename="../src/qml/qgismobileapp.qml" line="2121"/>
         <source>%1 Precision</source>
-        <translation type="unfinished"/>
+        <translation>%1 прецизност</translation>
     </message>
     <message>
         <location filename="../src/qml/qgismobileapp.qml" line="2154"/>
         <source>Enable Audio Proximity Feedback</source>
-        <translation type="unfinished"/>
+        <translation>Разрешаване на звуков сигнал при приближаване</translation>
     </message>
     <message>
         <location filename="../src/qml/qgismobileapp.qml" line="2171"/>
