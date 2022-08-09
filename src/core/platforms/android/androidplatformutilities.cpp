@@ -49,6 +49,7 @@ const char *const applicationName = "QField";
 
 AndroidPlatformUtilities::AndroidPlatformUtilities()
   : mActivity( QtAndroid::androidActivity() )
+  , mSystemGenericDataLocation( QStandardPaths::writableLocation( QStandardPaths::AppDataLocation ) + QStringLiteral( "/share" ) )
 {
 }
 
@@ -64,40 +65,30 @@ PlatformUtilities::Capabilities AndroidPlatformUtilities::capabilities() const
 void AndroidPlatformUtilities::afterUpdate()
 {
   // Copy data away from the virtual path `assets:/` to a path accessible also for non-qt-based libs
-  const QString appDataLocation = QStandardPaths::writableLocation( QStandardPaths::AppDataLocation );
-  mSystemGenericDataLocation = appDataLocation + QStringLiteral( "/share" );
 
-
+  if ( mActivity.isValid() )
   {
-    if ( mActivity.isValid() )
-    {
-      QtAndroid::runOnAndroidThread( [] {
-        QAndroidJniObject activity = QtAndroid::androidActivity();
-        if ( activity.isValid() )
-        {
-          QAndroidJniObject messageJni = QAndroidJniObject::fromString( QObject::tr( "Please wait while QField installation finalizes." ) );
-          activity.callMethod<void>( "showBlockingProgressDialog", "(Ljava/lang/String;)V", messageJni.object<jstring>() );
-        }
-      } );
-    }
+    QtAndroid::runOnAndroidThread( [] {
+      QAndroidJniObject activity = QtAndroid::androidActivity();
+      if ( activity.isValid() )
+      {
+        QAndroidJniObject messageJni = QAndroidJniObject::fromString( QObject::tr( "Please wait while QField installation finalizes." ) );
+        activity.callMethod<void>( "showBlockingProgressDialog", "(Ljava/lang/String;)V", messageJni.object<jstring>() );
+      }
+    } );
+  }
 
-    const bool success = FileUtils::copyRecursively( QStringLiteral( "assets:/share" ), mSystemGenericDataLocation );
+  FileUtils::copyRecursively( QStringLiteral( "assets:/share" ), mSystemGenericDataLocation );
 
-    if ( mActivity.isValid() )
-    {
-      QtAndroid::runOnAndroidThread( [] {
-        QAndroidJniObject activity = QtAndroid::androidActivity();
-        if ( activity.isValid() )
-        {
-          activity.callMethod<void>( "dismissBlockingProgressDialog" );
-        }
-      } );
-    }
-
-    if ( success )
-    {
-      qDebug() << "Successfully copied share assets content";
-    }
+  if ( mActivity.isValid() )
+  {
+    QtAndroid::runOnAndroidThread( [] {
+      QAndroidJniObject activity = QtAndroid::androidActivity();
+      if ( activity.isValid() )
+      {
+        activity.callMethod<void>( "dismissBlockingProgressDialog" );
+      }
+    } );
   }
 }
 
