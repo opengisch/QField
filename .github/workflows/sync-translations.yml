@@ -23,6 +23,7 @@ jobs:
         env:
           TX_TOKEN: ${{ secrets.TX_TOKEN }}
         run: |
+          sudo apt update && sudo apt install qttools5-dev-tools qt5-default
           pip install transifex-client
           ./scripts/ci/pull_translations.sh
 

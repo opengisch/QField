@@ -2,9 +2,6 @@
 
 set -e
 
-DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null && pwd )"
-source ${DIR}/../version_number.sh
-
 echo "::group::tx-pull"
 tx pull --resource qfield-for-qgis.qfield --all --source --minimum-perc=50 --force
 tx pull --resource qfield-for-qgis.qfield_android --all --minimum-perc=50 --force
@@ -20,4 +17,8 @@ find platform/android/res/values-* -name strings.xml -type f -print0 | while rea
     sed -i.bak 's/<!\[CDATA \[/<!\[CDATA\[/g' $file
     rm $file.bak
 done
+echo "::endgroup::"
+
+echo "::group::remove line numbers"
+    lupdate -locations none -recursive ${SOURCE_DIR} -ts ${SOURCE_DIR}/i18n/qfield_en.ts
 echo "::endgroup::"
