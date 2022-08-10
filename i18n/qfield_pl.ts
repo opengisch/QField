@@ -536,7 +536,7 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
     <message>
         <location filename="../src/qml/editorwidgets/EditorWidgetBase.qml" line="13"/>
         <source>Item Menu</source>
-        <translation type="unfinished"/>
+        <translation>Menu elementów</translation>
     </message>
 </context>
 <context>
@@ -1157,7 +1157,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <message>
         <location filename="../src/core/locator/locatormodelsuperbridge.cpp" line="326"/>
         <source>Search filters for your locations have been activated, customize results in the settings panel</source>
-        <translation type="unfinished"/>
+        <translation>Filtry wyszukiwania dla twoich lokalizacji zostały aktywowane, dostosuj wyniki w panelu ustawień.</translation>
     </message>
 </context>
 <context>
@@ -1413,7 +1413,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <message>
         <location filename="../src/core/orderedrelationmodel.cpp" line="217"/>
         <source>Cannot update features ordering</source>
-        <translation type="unfinished"/>
+        <translation>Nie można zaktualizować kolejności obiektów</translation>
     </message>
 </context>
 <context>
@@ -1714,7 +1714,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <message>
         <location filename="../src/qml/QFieldCloudDeltaHistory.qml" line="50"/>
         <source>Push History</source>
-        <translation type="unfinished"/>
+        <translation>Historia wysyłania</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldCloudDeltaHistory.qml" line="50"/>
@@ -2018,7 +2018,7 @@ Chociaż nadal możesz wyświetlać i używać projektu, zdecydowanie zaleca si�
     <message>
         <location filename="../src/qml/QFieldCloudPopup.qml" line="591"/>
         <source>Last warning, resetting the cloud project will erase any local changes, are you sure you want to go ahead?</source>
-        <translation type="unfinished"/>
+        <translation>Ostatnie ostrzeżenie, przywrócenie projektu w chmurze usunie wszystkie lokalne zmiany, czy na pewno chcesz kontynuować?</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldCloudPopup.qml" line="612"/>
@@ -2638,12 +2638,12 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
     <message>
         <location filename="../src/qml/QFieldSettings.qml" line="572"/>
         <source>Minimum number of positions collected</source>
-        <translation>Zebrano minimalną liczbę pozycji</translation>
+        <translation>Zbierz minimalną liczbę pozycji</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldSettings.qml" line="613"/>
         <source>Automatically end collection when minimum number is met</source>
-        <translation type="unfinished"/>
+        <translation>Automatycznie zakończ pomiary, kiedy minimalna liczba zostanie osiągnięta</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldSettings.qml" line="640"/>
@@ -2994,17 +2994,17 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
     <message>
         <location filename="../src/qml/editorwidgets/TextEdit.qml" line="140"/>
         <source>Copy Text</source>
-        <translation type="unfinished"/>
+        <translation>Skopiuj tekst</translation>
     </message>
     <message>
         <location filename="../src/qml/editorwidgets/TextEdit.qml" line="153"/>
         <source>Paste Text</source>
-        <translation type="unfinished"/>
+        <translation>Wklej tekst</translation>
     </message>
     <message>
         <location filename="../src/qml/editorwidgets/TextEdit.qml" line="171"/>
         <source>Scan Code</source>
-        <translation type="unfinished"/>
+        <translation>Skanuj kod</translation>
     </message>
 </context>
 <context>
@@ -3156,12 +3156,12 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
     <message>
         <location filename="../src/qml/WelcomeScreen.qml" line="497"/>
         <source>Base map project</source>
-        <translation type="unfinished"/>
+        <translation>Projekt bazowy</translation>
     </message>
     <message>
         <location filename="../src/qml/WelcomeScreen.qml" line="585"/>
         <source>Base Map Project</source>
-        <translation type="unfinished"/>
+        <translation>Projekt bazowy</translation>
     </message>
     <message>
         <location filename="../src/qml/WelcomeScreen.qml" line="605"/>

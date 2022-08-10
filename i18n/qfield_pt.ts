@@ -137,12 +137,12 @@
     <message>
         <location filename="../src/qml/BarcodeReader.qml" line="80"/>
         <source>Code Reader</source>
-        <translation type="unfinished"/>
+        <translation>Leitor de Código</translation>
     </message>
     <message>
         <location filename="../src/qml/BarcodeReader.qml" line="246"/>
         <source>Center your camera on a code</source>
-        <translation type="unfinished"/>
+        <translation>Centre a sua câmera num código</translation>
     </message>
 </context>
 <context>
@@ -202,7 +202,7 @@ Cancele para fazer uma verificação mínima.</translation>
     <message>
         <location filename="../src/qml/BluetoothDeviceChooser.qml" line="166"/>
         <source>Connect to %1</source>
-        <translation type="unfinished"/>
+        <translation>Ligar a %1</translation>
     </message>
     <message>
         <source>Connect  to %1</source>
@@ -536,7 +536,7 @@ Cancele para fazer uma verificação mínima.</translation>
     <message>
         <location filename="../src/qml/editorwidgets/EditorWidgetBase.qml" line="13"/>
         <source>Item Menu</source>
-        <translation type="unfinished"/>
+        <translation>Menu de Itens</translation>
     </message>
 </context>
 <context>
@@ -989,7 +989,7 @@ As geometrias dos recursos serão combinadas no recurso &apos;% &apos;, que mant
     <message>
         <location filename="../src/qml/LayerTreeItemProperties.qml" line="174"/>
         <source>Opacity</source>
-        <translation type="unfinished"/>
+        <translation>Opacidade</translation>
     </message>
     <message>
         <location filename="../src/qml/LayerTreeItemProperties.qml" line="192"/>
@@ -1361,7 +1361,7 @@ As geometrias dos recursos serão combinadas no recurso &apos;% &apos;, que mant
     </message>
     <message>
         <source>centroid</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">centroide</translation>
     </message>
     <message>
         <location filename="../src/qml/NavigationInformationView.qml" line="145"/>
@@ -1657,7 +1657,7 @@ As geometrias dos recursos serão combinadas no recurso &apos;% &apos;, que mant
     <message>
         <location filename="../src/qml/PositioningPreciseView.qml" line="399"/>
         <source>Positioning accuracy too low for this precision level</source>
-        <translation type="unfinished"/>
+        <translation>Precisão de posicionamento muito baixa para este nível de precisão</translation>
     </message>
 </context>
 <context>
@@ -2650,7 +2650,7 @@ Cancele para fazer uma verificação mínima.</translation>
     <message>
         <location filename="../src/qml/QFieldSettings.qml" line="613"/>
         <source>Automatically end collection when minimum number is met</source>
-        <translation type="unfinished"/>
+        <translation>Terminar a recolha automaticamente quando o número mínimo for atingido</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldSettings.qml" line="640"/>
@@ -2813,7 +2813,7 @@ Cancele para fazer uma verificação mínima.</translation>
     <message>
         <location filename="../src/core/navigation.cpp" line="222"/>
         <source>centroid</source>
-        <translation type="unfinished"/>
+        <translation>centroide</translation>
     </message>
 </context>
 <context>
@@ -3001,17 +3001,17 @@ Cancele para fazer uma verificação mínima.</translation>
     <message>
         <location filename="../src/qml/editorwidgets/TextEdit.qml" line="140"/>
         <source>Copy Text</source>
-        <translation type="unfinished"/>
+        <translation>Copiar Texto</translation>
     </message>
     <message>
         <location filename="../src/qml/editorwidgets/TextEdit.qml" line="153"/>
         <source>Paste Text</source>
-        <translation type="unfinished"/>
+        <translation>Colar texto</translation>
     </message>
     <message>
         <location filename="../src/qml/editorwidgets/TextEdit.qml" line="171"/>
         <source>Scan Code</source>
-        <translation type="unfinished"/>
+        <translation>Digitalizar Código</translation>
     </message>
 </context>
 <context>
@@ -3489,36 +3489,36 @@ Cancele para fazer uma verificação mínima.</translation>
         <location filename="../src/qml/qgismobileapp.qml" line="1979"/>
         <location filename="../src/qml/qgismobileapp.qml" line="2026"/>
         <source>Precise View Settings</source>
-        <translation type="unfinished"/>
+        <translation>Configuração de visualização precisa</translation>
     </message>
     <message>
         <source>0.25m Precision</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">0.25m Precisão</translation>
     </message>
     <message>
         <source>0.5m Precision</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">0.5m Precisão</translation>
     </message>
     <message>
         <source>1m Precision</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">1m Precisão</translation>
     </message>
     <message>
         <source>2.5m Precision</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">2.5m Precisão</translation>
     </message>
     <message>
         <source>5m Precision</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">5m Precisão</translation>
     </message>
     <message>
         <source>10m Precision</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">10m Precisão</translation>
     </message>
     <message>
         <location filename="../src/qml/qgismobileapp.qml" line="2139"/>
         <source>Always Show Precise View</source>
-        <translation type="unfinished"/>
+        <translation>Mostrar sempre visualização precisa</translation>
     </message>
     <message>
         <location filename="../src/qml/qgismobileapp.qml" line="2241"/>
@@ -3567,12 +3567,12 @@ Cancele para fazer uma verificação mínima.</translation>
         <location filename="../src/qml/qgismobileapp.qml" line="2105"/>
         <location filename="../src/qml/qgismobileapp.qml" line="2121"/>
         <source>%1 Precision</source>
-        <translation type="unfinished"/>
+        <translation>%1 Precisão</translation>
     </message>
     <message>
         <location filename="../src/qml/qgismobileapp.qml" line="2154"/>
         <source>Enable Audio Proximity Feedback</source>
-        <translation type="unfinished"/>
+        <translation>Ativar feedback de áudio de proximidade</translation>
     </message>
     <message>
         <location filename="../src/qml/qgismobileapp.qml" line="2171"/>
