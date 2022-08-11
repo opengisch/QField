@@ -18,13 +18,17 @@ jobs:
         with:
           python-version: '3.9'
 
+      - name: 🎳 Install dependencies
+        shell: bash
+        run: |
+          sudo apt update && sudo apt install qttools5-dev-tools qt5-default
+          pip install transifex-client
+
       - name: 🌍 Pull Translations
         shell: bash
         env:
           TX_TOKEN: ${{ secrets.TX_TOKEN }}
         run: |
-          sudo apt update && sudo apt install qttools5-dev-tools qt5-default
-          pip install transifex-client
           ./scripts/ci/pull_translations.sh
 
       - uses: EndBug/add-and-commit@v9
