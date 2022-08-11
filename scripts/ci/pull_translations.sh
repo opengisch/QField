@@ -20,5 +20,5 @@ done
 echo "::endgroup::"
 
 echo "::group::remove line numbers"
-    lupdate -locations none -recursive ${SOURCE_DIR} -ts ${SOURCE_DIR}/i18n/qfield_en.ts
+    lupdate -locations none -recursive src -ts i18n/qfield_en.ts
 echo "::endgroup::"
