@@ -14,6 +14,7 @@ set(${PROJECT_NAME}_HEADERS
 set(${PROJECT_NAME}_COMMON_HEADERS
     "poly2tri/common/shapes.h"
     "poly2tri/common/utils.h"
+    "poly2tri/common/dll_symbol.h"
 )
 
 set(${PROJECT_NAME}_SWEEP_HEADERS
