@@ -26,6 +26,7 @@
       "protobuf",
       "proj",
       "geos",
+      "poly2tri",
       {
         "name": "libtasn1",
         "platform": "ios"

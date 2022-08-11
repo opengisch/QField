@@ -18,6 +18,7 @@ vcpkg_from_github(
         crssync.patch
         bigobj.patch
         android-resources.patch
+        poly2tri.patch
 )
 
 file(REMOVE ${SOURCE_PATH}/cmake/FindQtKeychain.cmake)
@@ -26,6 +27,7 @@ file(REMOVE ${SOURCE_PATH}/cmake/FindGEOS.cmake)
 file(REMOVE ${SOURCE_PATH}/cmake/FindEXIV2.cmake)
 file(REMOVE ${SOURCE_PATH}/cmake/FindExpat.cmake)
 file(REMOVE ${SOURCE_PATH}/cmake/FindIconv.cmake)
+file(REMOVE ${SOURCE_PATH}/cmake/FindPoly2Tri.cmake)
 
 vcpkg_find_acquire_program(FLEX)
 vcpkg_find_acquire_program(BISON)
@@ -196,8 +198,8 @@ if(VCPKG_TARGET_IS_WINDOWS)
         set( SPATIALINDEX_LIB_NAME "spatialindex-32" )
     endif()
     FIND_LIB_OPTIONS(SPATIALINDEX ${SPATIALINDEX_LIB_NAME} ${SPATIALINDEX_LIB_NAME}d LIBRARY ${VCPKG_TARGET_IMPORT_LIBRARY_SUFFIX})
+    list(APPEND QGIS_OPTIONS -DWITH_INTERNAL_POLY2TRI=OFF)
     if(VCPKG_LIBRARY_LINKAGE STREQUAL "static" AND EXISTS "${CURRENT_INSTALLED_DIR}/lib/qt_poly2tri.lib")
-        list(APPEND QGIS_OPTIONS -DWITH_INTERNAL_POLY2TRI=OFF)
         list(APPEND QGIS_OPTIONS -DPoly2Tri_INCLUDE_DIR:PATH=${CMAKE_CURRENT_LIST_DIR}/poly2tri)
         list(APPEND QGIS_OPTIONS_DEBUG -DPoly2Tri_LIBRARY:PATH=${CURRENT_INSTALLED_DIR}/debug/lib/qt_poly2tri_debug.lib) # static qt only
         list(APPEND QGIS_OPTIONS_RELEASE -DPoly2Tri_LIBRARY:PATH=${CURRENT_INSTALLED_DIR}/lib/qt_poly2tri.lib) # static qt only
@@ -222,6 +224,7 @@ else() # Build in UNIX
         list(APPEND QGIS_OPTIONS -DFCGI_INCLUDE_DIR="${CURRENT_INSTALLED_DIR}/include/fastcgi")
     endif()
     find_package(Qt5 QUIET)
+    list(APPEND QGIS_OPTIONS -DWITH_INTERNAL_POLY2TRI=OFF)
     if(EXISTS "${CURRENT_INSTALLED_DIR}/lib/libqt_poly2tri.a")
         set(QT_POLY2TRI_DIR_RELEASE "${CURRENT_INSTALLED_DIR}/lib")
         set(QT_POLY2TRI_DIR_DEBUG "${CURRENT_INSTALLED_DIR}/debug/lib")
@@ -230,7 +233,6 @@ else() # Build in UNIX
         set(QT_POLY2TRI_DIR_DEBUG "${Qt5_DIR}/../..")
     endif()
     if(DEFINED QT_POLY2TRI_DIR_RELEASE)
-        list(APPEND QGIS_OPTIONS -DWITH_INTERNAL_POLY2TRI=OFF)
         list(APPEND QGIS_OPTIONS -DPoly2Tri_INCLUDE_DIR:PATH=${CMAKE_CURRENT_LIST_DIR}/poly2tri)
         list(APPEND QGIS_OPTIONS_DEBUG -DPoly2Tri_LIBRARY:PATH=${QT_POLY2TRI_DIR_DEBUG}/debug/lib/libqt_poly2tri_debug.a) # static qt only
         list(APPEND QGIS_OPTIONS_RELEASE -DPoly2Tri_LIBRARY:PATH=${QT_POLY2TRI_DIR_RELEASE}/lib/libqt_poly2tri.a) # static qt only
