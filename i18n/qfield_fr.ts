@@ -2796,7 +2796,7 @@ Cancel to make a minimal device scan instead.</source>
         <translation>Informations sur l&apos;utilisateur du cloud</translation>
     </message>
     <message>
-        <location filename="../src/core/platforms/android/androidplatformutilities.cpp" line="78"/>
+        <location filename="../src/core/platforms/android/androidplatformutilities.cpp" line="75"/>
         <source>Please wait while QField installation finalizes.</source>
         <translation>Veuillez patienter pendant que l&apos;installation de QField se termine.</translation>
     </message>

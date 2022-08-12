@@ -2804,7 +2804,7 @@ Annullare per eseguire una scansione veloce del dispositivo.</translation>
         <translation>Info Utente Cloud</translation>
     </message>
     <message>
-        <location filename="../src/core/platforms/android/androidplatformutilities.cpp" line="78"/>
+        <location filename="../src/core/platforms/android/androidplatformutilities.cpp" line="75"/>
         <source>Please wait while QField installation finalizes.</source>
         <translation>Attendere il completamento dell&apos;installazione di QField.</translation>
     </message>

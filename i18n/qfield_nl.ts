@@ -2799,7 +2799,7 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
         <translation>Cloud-gebruikersinformatie</translation>
     </message>
     <message>
-        <location filename="../src/core/platforms/android/androidplatformutilities.cpp" line="78"/>
+        <location filename="../src/core/platforms/android/androidplatformutilities.cpp" line="75"/>
         <source>Please wait while QField installation finalizes.</source>
         <translation>Wacht tot de installatie van QField wordt voltooid.</translation>
     </message>

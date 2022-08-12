@@ -2794,7 +2794,7 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/core/platforms/android/androidplatformutilities.cpp" line="78"/>
+        <location filename="../src/core/platforms/android/androidplatformutilities.cpp" line="75"/>
         <source>Please wait while QField installation finalizes.</source>
         <translation>Proszę czekać, kończenie instalacji QField.</translation>
     </message>

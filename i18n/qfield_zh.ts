@@ -2797,7 +2797,7 @@ Cancel to make a minimal device scan instead.</source>
         <translation>云用户信息</translation>
     </message>
     <message>
-        <location filename="../src/core/platforms/android/androidplatformutilities.cpp" line="78"/>
+        <location filename="../src/core/platforms/android/androidplatformutilities.cpp" line="75"/>
         <source>Please wait while QField installation finalizes.</source>
         <translation>QField正在完成安装，请稍候。</translation>
     </message>
@@ -3514,7 +3514,7 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <location filename="../src/qml/qgismobileapp.qml" line="2139"/>
         <source>Always Show Precise View</source>
-        <translation>始终显示精确视图</translation>
+        <translation>显示精确视图</translation>
     </message>
     <message>
         <location filename="../src/qml/qgismobileapp.qml" line="2241"/>

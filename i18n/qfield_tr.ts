@@ -2785,7 +2785,7 @@ Bunun yerine minimum cihaz taraması yapmak için iptal edin.</translation>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/core/platforms/android/androidplatformutilities.cpp" line="78"/>
+        <location filename="../src/core/platforms/android/androidplatformutilities.cpp" line="75"/>
         <source>Please wait while QField installation finalizes.</source>
         <translation type="unfinished"/>
     </message>

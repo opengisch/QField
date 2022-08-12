@@ -2799,7 +2799,7 @@ Cancelar para hacer una búsqueda mínima de dispositivos en su lugar.</translat
         <translation>Información del usuario de Cloud</translation>
     </message>
     <message>
-        <location filename="../src/core/platforms/android/androidplatformutilities.cpp" line="78"/>
+        <location filename="../src/core/platforms/android/androidplatformutilities.cpp" line="75"/>
         <source>Please wait while QField installation finalizes.</source>
         <translation>Espere mientras finaliza la instalación de QField.</translation>
     </message>

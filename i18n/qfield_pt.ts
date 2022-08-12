@@ -2801,7 +2801,7 @@ Cancele para fazer uma verificação mínima.</translation>
         <translation>Informação do Utilizador Cloud</translation>
     </message>
     <message>
-        <location filename="../src/core/platforms/android/androidplatformutilities.cpp" line="78"/>
+        <location filename="../src/core/platforms/android/androidplatformutilities.cpp" line="75"/>
         <source>Please wait while QField installation finalizes.</source>
         <translation>Por favor aguarde enquanto a instalação do QField termina.</translation>
     </message>
