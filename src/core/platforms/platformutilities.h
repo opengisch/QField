@@ -228,6 +228,11 @@ class QFIELD_CORE_EXPORT PlatformUtilities : public QObject
      */
     Q_INVOKABLE virtual QString getTextFromClipboard() const;
 
+    /**
+     * Returns margins ("top", "right", "bottom", "left") within which interactive elements should not be drawn.
+     */
+    Q_INVOKABLE virtual QVariantMap sceneMargins() const;
+
     static PlatformUtilities *instance();
 
   private:

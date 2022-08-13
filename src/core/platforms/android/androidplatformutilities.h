@@ -67,6 +67,8 @@ class AndroidPlatformUtilities : public PlatformUtilities
 
     void initiateSentry() override;
 
+    QVariantMap sceneMargins() const override;
+
   private:
     bool checkAndAcquirePermissions( const QString &permissionString ) const;
     QString getIntentExtra( const QString &, QAndroidJniObject = nullptr ) const;

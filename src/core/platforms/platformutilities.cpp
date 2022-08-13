@@ -97,13 +97,13 @@ QString PlatformUtilities::systemSharedDataLocation() const
 
      [prefix_path]
      |-- bin
-     |   |-- qfield.exe
+     |   |-- qfield.exe
      |-- share
      |   |-- qfield
-     |   |   |-- sample_projects 
+     |   |   |-- sample_projects
      |   |-- proj
-     |   |   |-- data
-     |   |   |   |--  proj.db
+     |   |   |-- data
+     |   |   |   |--  proj.db
   */
   const static QString sharePath = QDir( QCoreApplication::applicationDirPath() + QLatin1String( "/../share" ) ).absolutePath();
   return sharePath;
@@ -314,6 +314,16 @@ void PlatformUtilities::copyTextToClipboard( const QString &string ) const
 QString PlatformUtilities::getTextFromClipboard() const
 {
   return QGuiApplication::clipboard()->text();
+}
+
+QVariantMap PlatformUtilities::sceneMargins() const
+{
+  QVariantMap margins;
+  margins[QLatin1String( "top" )] = 0.0;
+  margins[QLatin1String( "right" )] = 0.0;
+  margins[QLatin1String( "bottom" )] = 0.0;
+  margins[QLatin1String( "left" )] = 0.0;
+  return margins;
 }
 
 PlatformUtilities *PlatformUtilities::instance()

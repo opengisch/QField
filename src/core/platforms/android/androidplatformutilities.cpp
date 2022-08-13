@@ -34,6 +34,7 @@
 #include <QMimeDatabase>
 #include <QQmlApplicationEngine>
 #include <QQmlContext>
+#include <QScreen>
 #include <QStandardPaths>
 #include <QString>
 #include <QtAndroid>
@@ -534,6 +535,21 @@ void AndroidPlatformUtilities::initiateSentry()
       }
     } );
   }
+}
+
+QVariantMap AndroidPlatformUtilities::sceneMargins() const
+{
+  const QAndroidJniObject activity = QtAndroid::androidActivity();
+  double statusBarMargin = static_cast<double>( activity.callMethod<jdouble>( "statusBarMargin" ) );
+
+  statusBarMargin /= QGuiApplication::primaryScreen()->devicePixelRatio();
+
+  QVariantMap margins;
+  margins[QLatin1String( "top" )] = statusBarMargin;
+  margins[QLatin1String( "right" )] = 0.0;
+  margins[QLatin1String( "bottom" )] = 0.0;
+  margins[QLatin1String( "left" )] = 0.0;
+  return margins;
 }
 
 #ifdef __cplusplus
