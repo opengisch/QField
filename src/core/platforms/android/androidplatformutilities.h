@@ -67,7 +67,7 @@ class AndroidPlatformUtilities : public PlatformUtilities
 
     void initiateSentry() override;
 
-    QVariantMap sceneMargins() const override;
+    QVariantMap sceneMargins( QQuickWindow *window ) const override;
 
   private:
     bool checkAndAcquirePermissions( const QString &permissionString ) const;

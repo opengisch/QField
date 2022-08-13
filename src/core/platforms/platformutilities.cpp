@@ -29,9 +29,12 @@
 #include <QDesktopServices>
 #include <QDir>
 #include <QFileDialog>
+#include <QMargins>
+#include <QQuickWindow>
 #include <QStandardPaths>
 #include <QTimer>
 #include <QUrl>
+#include <QtGui/qpa/qplatformwindow.h>
 
 #if WITH_SENTRY
 #include <sentry.h>
@@ -316,13 +319,20 @@ QString PlatformUtilities::getTextFromClipboard() const
   return QGuiApplication::clipboard()->text();
 }
 
-QVariantMap PlatformUtilities::sceneMargins() const
+QVariantMap PlatformUtilities::sceneMargins( QQuickWindow *window ) const
 {
   QVariantMap margins;
   margins[QLatin1String( "top" )] = 0.0;
   margins[QLatin1String( "right" )] = 0.0;
   margins[QLatin1String( "bottom" )] = 0.0;
   margins[QLatin1String( "left" )] = 0.0;
+
+  QPlatformWindow *platformWindow = static_cast<QPlatformWindow *>( window->handle() );
+  if ( platformWindow )
+  {
+    margins[QLatin1String( "top" )] = platformWindow->safeAreaMargins().top();
+  }
+
   return margins;
 }
 

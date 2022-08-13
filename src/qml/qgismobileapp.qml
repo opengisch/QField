@@ -34,8 +34,10 @@ ApplicationWindow {
   id: mainWindow
   objectName: 'mainWindow'
   visible: true
+  flags: Qt.Window | Qt.WindowTitleHint | Qt.WindowSystemMenuHint |
+         (Qt.platform.os === "ios" ? Qt.MaximizeUsingFullscreenGeometryHint : 0)
 
-  property double sceneTopMargin: platformUtilities.sceneMargins()["top"]
+  property double sceneTopMargin: platformUtilities.sceneMargins(mainWindow)["top"]
 
   Timer{
     id: refreshSceneMargins
@@ -50,7 +52,7 @@ ApplicationWindow {
     }
 
     onTriggered: {
-      mainWindow.sceneTopMargin = platformUtilities.sceneMargins()["top"];
+      mainWindow.sceneTopMargin = platformUtilities.sceneMargins(mainWindow)["top"];
     }
   }
 
