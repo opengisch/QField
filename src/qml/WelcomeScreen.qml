@@ -622,6 +622,7 @@ Page {
     anchors {
       top: parent.top
       left: parent.left
+      topMargin: mainWindow.sceneTopMargin
     }
     iconSource: Theme.getThemeIcon( 'ic_chevron_left_black_24dp' )
     bgcolor: "transparent"

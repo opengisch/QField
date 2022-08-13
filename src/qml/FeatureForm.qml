@@ -37,6 +37,8 @@ Page {
   property bool setupOnly: false
   property bool featureCreated: false
 
+  property double topMargin: 0.0
+
   function reset() {
     master.reset()
   }
@@ -649,7 +651,7 @@ Page {
   /** The title toolbar **/
   ToolBar {
     id: toolbar
-    height: visible ? 48: 0
+    height: visible ? form.topMargin + 48 : 0
     visible: form.state === 'Add'
 
     anchors {
@@ -667,6 +669,7 @@ Page {
 
     RowLayout {
       anchors.fill: parent
+      anchors.topMargin: form.topMargin
       Layout.margins: 0
 
       QfToolButton {

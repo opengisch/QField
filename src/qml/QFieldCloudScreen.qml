@@ -20,9 +20,12 @@ Page {
       showBackButton: true
       showApplyButton: false
       showCancelButton: false
+
       busyIndicatorState: cloudConnection.status === QFieldCloudConnection.Connecting ||
                          cloudConnection.state === QFieldCloudConnection.Busy ? 'on' : 'off' ||
                          cloudProjectsModel.busyProjectIds.length > 0
+
+      topMargin: mainWindow.sceneTopMargin
 
       onFinished: parent.finished()
     }

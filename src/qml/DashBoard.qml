@@ -46,12 +46,15 @@ Drawer {
 
     Rectangle {
       Layout.fillWidth: true
-      height: childrenRect.height
+      height: mainWindow.sceneTopMargin + 56
 
       color: mainColor
 
       Row {
+        id: buttonsRow
         height: 56
+        anchors.fill: parent
+        anchors.topMargin: mainWindow.sceneTopMargin
         spacing: 1
 
         QfToolButton {
@@ -140,6 +143,7 @@ Drawer {
         height: 56
         width: ( 56 + 36 )
         anchors.right: parent.right
+        anchors.verticalCenter: buttonsRow.verticalCenter
         indicator: Rectangle {
           implicitHeight: 36
           implicitWidth: 36 * 2

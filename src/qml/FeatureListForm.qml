@@ -362,6 +362,9 @@ Rectangle {
 
   NavigationBar {
     id: featureListToolBar
+
+    topMargin: featureForm.y == 0 ? mainWindow.sceneTopMargin : 0.0
+
     allowDelete: allowDelete
     model: globalFeaturesList.model
     selection: featureForm.selection

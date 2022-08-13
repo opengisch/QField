@@ -19,11 +19,14 @@ Popup {
       showBackButton: true
       showCancelButton: false
       showApplyButton: false
+
       busyIndicatorState: cloudConnection.status === QFieldCloudConnection.Connecting
             || cloudProjectsModel.currentProjectData.Status === QFieldCloudProjectsModel.Uploading
             || cloudProjectsModel.currentProjectData.Status === QFieldCloudProjectsModel.Downloading
             ? 'on'
             : 'off'
+
+      topMargin: mainWindow.sceneTopMargin
 
       onFinished: {
         if (connectionSettings.visible) {

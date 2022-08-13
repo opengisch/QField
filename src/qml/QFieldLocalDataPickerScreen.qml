@@ -24,6 +24,8 @@ Page {
     showApplyButton: false
     showCancelButton: false
 
+    topMargin: mainWindow.sceneTopMargin
+
     onBack: {
       if (table.model.currentDepth > 1) {
         table.model.moveUp();

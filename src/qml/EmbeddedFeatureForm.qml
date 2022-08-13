@@ -47,12 +47,13 @@ Popup {
     parent: ApplicationWindow.overlay
     closePolicy: Popup.NoAutoClose // prevent accidental feature addition and editing
 
-    x: 24
-    y: 24
+    x: Math.max(mainWindow.sceneTopMargin, Theme.popupScreenEdgeMargin)
+    y: x
     z: 1000 + embeddedLevel
+
     padding: 0
-    width: parent.width - Theme.popupScreenEdgeMargin
-    height: parent.height - Theme.popupScreenEdgeMargin
+    width: parent.width - x * 2
+    height: parent.height - y * 2
     modal: true
 
     FeatureForm {
