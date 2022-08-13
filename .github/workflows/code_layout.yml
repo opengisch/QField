@@ -11,19 +11,19 @@ on:
       - release-**
 
 jobs:
-  license_check:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v3
-      - name: Install Requirements
-        run: |
-          sudo apt install -y \
-              cpanminus
-            cpanm --notest App::Licensecheck
-
-      - name: Run License Check
-        run: ./scripts/test_licenses.sh
+  #  license_check:
+  #    runs-on: ubuntu-latest
+  #    steps:
+  #      - name: Checkout
+  #        uses: actions/checkout@v3
+  #      - name: Install Requirements
+  #        run: |
+  #          sudo apt install -y \
+  #              cpanminus
+  #            cpanm --notest App::Licensecheck
+  #
+  #      - name: Run License Check
+  #        run: ./scripts/test_licenses.sh
 
   banned_keywords_check:
     runs-on: ubuntu-latest
