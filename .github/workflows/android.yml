@@ -61,6 +61,7 @@ jobs:
           version: 5.14.2
           modules: 'qtcharts'
           target: 'android'
+          arch: 'android'
           cache: true
 
       - name: Setup ccache
