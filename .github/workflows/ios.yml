@@ -32,11 +32,12 @@ jobs:
           submodules: recursive
 
       - name: 💐 Install Qt
-        uses: jurplel/install-qt-action@v2
+        uses: jurplel/install-qt-action@v3
         with:
           version: 5.15.2
           modules: 'qtcharts'
           target: ios
+          cache: true
 
       - name: Handle workflow dispatch to set version name
         if: github.event_name == 'workflow_dispatch'
