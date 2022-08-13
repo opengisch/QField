@@ -149,6 +149,7 @@ int main( int argc, char **argv )
 {
   initGraphics();
 
+  qInfo() << "after initGraphics()";
   // Read settings, use a dummy app to get access to QSettings
   QCoreApplication *dummyApp = new QCoreApplication( argc, argv );
   QCoreApplication::setOrganizationName( "OPENGIS.ch" );
@@ -163,9 +164,11 @@ int main( int argc, char **argv )
   }
   delete dummyApp;
 
+  qInfo() << "after dummy app";
   // Init resources
   Q_INIT_RESOURCE( qml );
 
+  qInfo() << "after Q_INIT_RESOURCE";
 #if WITH_SENTRY
   if ( enableSentry )
   {
@@ -178,12 +181,14 @@ int main( int argc, char **argv )
 #endif
 
   QtWebView::initialize();
+  qInfo() << "after QtWebView";
 
   if ( !customLanguage.isEmpty() )
     QgsApplication::setTranslation( customLanguage );
 
   PlatformUtilities *platformUtils = PlatformUtilities::instance();
   platformUtils->initSystem();
+  qInfo() << "after platformUtils->initSystem()";
 
   QSettings settings;
   // Let's make sure we have a writable path for the qgis_profile on every platform
@@ -191,6 +196,7 @@ int main( int argc, char **argv )
   QDir().mkdir( profilePath );
 
   QgsApplication app( argc, argv, true, profilePath, QStringLiteral( "mobile" ) );
+  qInfo() << "after QgsApplication app( ... )";
   app.setThemeName( settings.value( "/Themes", "default" ).toString() );
   app.setPkgDataPath( PlatformUtilities::instance()->systemSharedDataLocation() + QStringLiteral( "/qgis" ) );
 
@@ -240,8 +246,10 @@ int main( int argc, char **argv )
 
   app.installTranslator( &qtTranslator );
   app.installTranslator( &qfieldTranslator );
+  qInfo() << "after installTranslator";
 
   QgisMobileapp mApp( &app );
+  qInfo() << "after QgisMobileapp( ... )";
 
 #if WITH_SENTRY
   QObject::connect( AppInterface::instance(), &AppInterface::submitLog, []( const QString &message ) {
@@ -256,7 +264,9 @@ int main( int argc, char **argv )
   spix::AnyRpcServer server;
   auto bot = new spix::QtQmlBot();
   bot->runTestServer( server );
+  qInfo() << "after spix";
 #endif
 
+  qInfo() << "just before exec()";
   return app.exec();
 }

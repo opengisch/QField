@@ -190,6 +190,7 @@ QgisMobileapp::QgisMobileapp( QgsApplication *app, QObject *parent )
     mScreenDimmer = std::make_unique<ScreenDimmer>( app );
     mScreenDimmer->setActive( settings.value( QStringLiteral( "dimBrightness" ), true ).toBool() );
   }
+  qInfo() << "after dimmaer";
 
   AppInterface::setInstance( mIface );
 
@@ -198,6 +199,7 @@ QgisMobileapp::QgisMobileapp( QgsApplication *app, QObject *parent )
   mAuthRequestHandler = new QFieldAppAuthRequestHandler();
   handler.reset( mAuthRequestHandler );
   QgsNetworkAccessManager::instance()->setAuthHandler( std::move( handler ) );
+  qInfo() << "after auth handler";
 
   QStringList dataDirs = PlatformUtilities::instance()->appDataDirs();
   if ( !dataDirs.isEmpty() )
@@ -225,6 +227,7 @@ QgisMobileapp::QgisMobileapp( QgsApplication *app, QObject *parent )
       }
     }
     QgsApplication::instance()->localizedDataPathRegistry()->setPaths( localizedDataPaths );
+    qInfo() << "after localized data path";
   }
 
   QFontDatabase::addApplicationFont( ":/fonts/Cadastra-Bold.ttf" );
@@ -235,6 +238,7 @@ QgisMobileapp::QgisMobileapp( QgsApplication *app, QObject *parent )
   QFontDatabase::addApplicationFont( ":/fonts/Cadastra-Semibolditalic.ttf" );
   QFontDatabase::addApplicationFont( ":/fonts/CadastraSymbol-Mask.ttf" );
   QFontDatabase::addApplicationFont( ":/fonts/CadastraSymbol-Regular.ttf" );
+  qInfo() << "after application font";
 
   mProject = QgsProject::instance();
   mGpkgFlusher = std::make_unique<QgsGpkgFlusher>( mProject );
@@ -245,6 +249,7 @@ QgisMobileapp::QgisMobileapp( QgsApplication *app, QObject *parent )
   mTrackingModel = new TrackingModel;
 
   mBookmarkModel = std::make_unique<BookmarkModel>( QgsApplication::bookmarkManager(), mProject->bookmarkManager(), nullptr );
+  qInfo() << "after a bunch of members initalization";
 
   // Transition from 1.8 to 1.8.1+
   const QString deviceAddress = settings.value( QStringLiteral( "positioningDevice" ), QString() ).toString();
@@ -255,6 +260,7 @@ QgisMobileapp::QgisMobileapp( QgsApplication *app, QObject *parent )
 
   // cppcheck-suppress leakReturnValNotUsed
   initDeclarative();
+  qInfo() << "after initDeclarative()";
 
   if ( !dataDirs.isEmpty() )
   {
@@ -323,11 +329,13 @@ QgisMobileapp::QgisMobileapp( QgsApplication *app, QObject *parent )
         }
       }
     }
+    qInfo() << "after auth manager";
   }
 
   PlatformUtilities::instance()->setScreenLockPermission( false );
 
   load( QUrl( "qrc:/qml/qgismobileapp.qml" ) );
+  qInfo() << "after load( ... )";
 
   connect( this, &QQmlApplicationEngine::quit, this, &QgisMobileapp::requestQuit );
 
@@ -336,6 +344,7 @@ QgisMobileapp::QgisMobileapp( QgsApplication *app, QObject *parent )
 
   mMapCanvas->mapSettings()->setProject( mProject );
   mBookmarkModel->setMapSettings( mMapCanvas->mapSettings() );
+  qInfo() << "after mMapCanvas setup";
 
   QFieldCloudProjectsModel *qFieldCloudProjectsModel = rootObjects().first()->findChild<QFieldCloudProjectsModel *>();
 
@@ -350,6 +359,7 @@ QgisMobileapp::QgisMobileapp( QgsApplication *app, QObject *parent )
       }
     }
   } );
+  qInfo() << "after qfieldcloudprojectmodel";
 
   mFlatLayerTree->layerTreeModel()->setLegendMapViewData( mMapCanvas->mapSettings()->mapSettings().mapUnitsPerPixel(),
                                                           static_cast<int>( std::round( mMapCanvas->mapSettings()->outputDpi() ) ), mMapCanvas->mapSettings()->mapSettings().scale() );
@@ -369,6 +379,7 @@ QgisMobileapp::QgisMobileapp( QgsApplication *app, QObject *parent )
   mSettings.setValue( "/Map/searchRadiusMM", 5 );
 
   mAppMissingGridHandler = new AppMissingGridHandler( this );
+  qInfo() << "after new AppMissingGridHandler";
 
   // Set GDAL option to fix loading of datasets within ZIP containers
   CPLSetConfigOption( "CPL_ZIP_ENCODING", "UTF-8" );
@@ -647,6 +658,7 @@ void QgisMobileapp::onReadProject( const QDomDocument &doc )
 
 void QgisMobileapp::onAfterFirstRendering()
 {
+  qInfo() << "QgisMobileapp::onAfterFirstRendering";
   // This should get triggered exactly once, so we disconnect it right away
   // disconnect( this, &QgisMobileapp::afterRendering, this, &QgisMobileapp::onAfterFirstRendering );
 
