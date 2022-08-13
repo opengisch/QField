@@ -164,6 +164,8 @@ if(QGIS_FOUND AND "@VCPKG_LIBRARY_LINKAGE@" STREQUAL "static")
   else()
     _find_and_link_library(spatialindex QGIS::Core)
   endif()
+  find_package(poly2tri CONFIG)
+  target_link_libraries(QGIS::Core INTERFACE poly2tri::poly2tri)
 
   if(PKG_CONFIG_FOUND)
     pkg_check_modules(freexl REQUIRED IMPORTED_TARGET freexl)
