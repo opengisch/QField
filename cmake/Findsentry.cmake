@@ -1,6 +1,6 @@
 find_package(sentry CONFIG)
 
-if(ANDROID AND NOT TARGET sentry::sentry)
+if(CMAKE_SYSTEM_NAME STREQUAL "Android")
   add_library(sentry::sentry SHARED IMPORTED)
 
   set_target_properties(sentry::sentry PROPERTIES

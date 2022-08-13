@@ -1,0 +1,11 @@
+diff -ur a/Sources/SentryCrash/Recording/Monitors/SentryCrashMonitor_System.h b/Sources/SentryCrash/Recording/Monitors/SentryCrashMonitor_System.h
+--- a/Sources/SentryCrash/Recording/Monitors/SentryCrashMonitor_System.h	2022-08-05 19:04:26.000000000 +0200
++++ b/Sources/SentryCrash/Recording/Monitors/SentryCrashMonitor_System.h	2022-08-05 19:05:34.000000000 +0200
+@@ -32,6 +32,7 @@
+ #endif
+ 
+ #include "SentryCrashMonitor.h"
++#include <stdint.h>
+ 
+ /** Access the Monitor API.
+  */

@@ -45,14 +45,14 @@ elif [[ ${CI_PULL_REQUEST} = false ]]; then
   fi
   export APP_ICON="qfield_logo_beta"
   export APP_VERSION=""
-  # take 0 + (1940000 + number of CI runs) + arch
-  # 01940000 has no meaning - it's just where we had to start
+  # take 0 + (2020400 + number of CI runs) + arch(triplet) number
+  # 020204000 has no meaning - it's just where we had to start
   # max = 2100000000
   export APP_VERSION_STR="${CI_BRANCH}-dev"
   if [[ -n ${CUSTOM_APP_PACKAGE_NAME} ]]; then
     export APK_VERSION_CODE="${CI_RUN_NUMBER}${TRIPLET_NUMBER}"
   else
-    export APK_VERSION_CODE=0$((1950000+CI_RUN_NUMBER))${TRIPLET_NUMBER}
+    export APK_VERSION_CODE=0$((2020400+CI_RUN_NUMBER))${TRIPLET_NUMBER}
   fi
   export APP_ENV="dev"
 

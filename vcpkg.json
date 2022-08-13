@@ -27,8 +27,12 @@
     "spix",
     {
       "name": "sentry-native",
-      "platform": "!android & !ios"
+      "platform": "!android & !ios & !osx"
     },
-    "catch2"
+    "catch2",
+    {
+      "name": "sentry-cocoa",
+      "platform": "ios | osx"
+    }
   ]
 }

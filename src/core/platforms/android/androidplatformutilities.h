@@ -65,8 +65,6 @@ class AndroidPlatformUtilities : public PlatformUtilities
     void dimBrightness() override;
     void restoreBrightness() override;
 
-    void initiateSentry() override;
-
     QVariantMap sceneMargins( QQuickWindow *window ) const override;
 
   private:

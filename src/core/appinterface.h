@@ -69,6 +69,16 @@ class AppInterface : public QObject
      */
     Q_INVOKABLE void sendLog( const QString &message );
 
+    /**
+     * Initalizes sentry connection.
+     */
+    Q_INVOKABLE void initiateSentry() const;
+
+    /**
+     * Closes active sentry connection.
+     */
+    Q_INVOKABLE void closeSentry() const;
+
     Q_INVOKABLE void restrictImageSize( const QString &imagePath, int maximumWidthHeight );
 
     static void setInstance( AppInterface *instance ) { sAppInterface = instance; }
@@ -85,8 +95,6 @@ class AppInterface : public QObject
     void loadProjectEnded( const QString &path, const QString &name );
 
     void setMapExtent( const QgsRectangle &extent );
-
-    void submitLog( const QString &message );
 
     //! Signal emitted requesting QField to open its local data picker screen to show the \a path content
     void openPath( const QString &path );

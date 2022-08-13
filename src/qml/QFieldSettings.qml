@@ -38,9 +38,9 @@ Page {
 
     onEnableInfoCollectionChanged: {
       if (enableInfoCollection) {
-        platformUtilities.initiateSentry();
+        iface.initiateSentry();
       } else {
-        platformUtilities.closeSentry();
+        iface.closeSentry();
       }
     }
   }

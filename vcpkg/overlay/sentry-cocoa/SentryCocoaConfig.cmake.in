@@ -1,0 +1,26 @@
+set(SentryCocoa 1.0.0)
+@PACKAGE_INIT@
+
+include("${CMAKE_CURRENT_LIST_DIR}/SentryCocoaTargets.cmake")
+
+### TODO: find a better place than here to set the linker parameter "-force_load"
+
+# Compute the installation prefix relative to this file.
+get_filename_component(_IMPORT_PREFIX "${CMAKE_CURRENT_LIST_FILE}" PATH)
+get_filename_component(_IMPORT_PREFIX "${_IMPORT_PREFIX}" PATH)
+get_filename_component(_IMPORT_PREFIX "${_IMPORT_PREFIX}" PATH)
+if(_IMPORT_PREFIX STREQUAL "/")
+  set(_IMPORT_PREFIX "")
+endif()
+
+# Make sure we include all symbols, even when unused. Sentry dynamically loads some classes by name.
+target_link_options(SentryCocoa::sentry_cocoa INTERFACE "LINKER:-force_load,${_IMPORT_PREFIX}/lib/libsentry_cocoa.a")
+target_link_libraries(SentryCocoa::sentry_cocoa INTERFACE "-framework CoreData")
+if("@CMAKE_SYSTEM_NAME@" STREQUAL "Darwin")
+  target_link_libraries(SentryCocoa::sentry_cocoa INTERFACE "-framework AppKit")
+elseif("@CMAKE_SYSTEM_NAME@" STREQUAL "Darwin")
+  target_link_libraries(SentryCocoa::sentry_cocoa INTERFACE "-framework UiKit")
+endif()
+
+# Cleanup temporary variables.
+set(_IMPORT_PREFIX)
