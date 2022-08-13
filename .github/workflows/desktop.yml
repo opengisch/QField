@@ -123,18 +123,17 @@ jobs:
 
       - uses: actions/setup-python@v4
         with:
-          python-version: '3.9' # Version range or exact version of a Python version to use, using SemVer's version range syntax
+          python-version: '3.9'
 
       - name: 💐 Install Qt
         if: ${{ steps.vars.outputs.INSTALL_QT }}
-        uses: jurplel/install-qt-action@v2
+        uses: jurplel/install-qt-action@v3
         with:
           version: 5.14.2
           modules: 'qtcharts'
           target: ${{ steps.vars.outputs.QT_TARGET }}
           arch: ${{ steps.vars.outputs.QT_ARCH }}
-          setup-python: false
-          py7zrversion: '==0.18.1'
+          cache: true
 
       - name: 🐧 Prepare linux build env
         if: ${{ matrix.triplet == 'x64-linux' }}

@@ -46,7 +46,6 @@ jobs:
           echo "::set-output name=SYSTEM_QT::ON"
           echo "::set-output name=PATHCONVERT::echo"
           echo "::set-output name=INSTALL_QT::true"
-          echo "::set-output name=QT_TARGET::android"
           echo "::set-output name=BUILD_TYPE::Release"
           echo "::set-output name=BUILD_ROOT::${BUILD_ROOT}"
 
@@ -57,11 +56,13 @@ jobs:
 
       - name: 💐 Install Qt
         if: ${{ steps.vars.outputs.INSTALL_QT }}
-        uses: jurplel/install-qt-action@v2
+        uses: jurplel/install-qt-action@v3
         with:
           version: 5.14.2
           modules: 'qtcharts'
-          target: ${{ steps.vars.outputs.QT_TARGET }}
+          target: 'android'
+          arch: 'android'
+          cache: true
 
       - name: Setup ccache
         uses: hendrikmuhs/ccache-action@v1
