@@ -35,6 +35,25 @@ ApplicationWindow {
   objectName: 'mainWindow'
   visible: true
 
+  property double sceneTopMargin: platformUtilities.sceneMargins()["top"]
+
+  Timer{
+    id: refreshSceneMargins
+    running: false
+    repeat: false
+    interval: 50
+
+    readonly property bool screenIsPortrait: (Screen.primaryOrientation === Qt.PortraitOrientation ||
+                                              Screen.primaryOrientation === Qt.InvertedPortraitOrientation)
+    onScreenIsPortraitChanged:{
+      start()
+    }
+
+    onTriggered: {
+      mainWindow.sceneTopMargin = platformUtilities.sceneMargins()["top"];
+    }
+  }
+
   LabSettings.Settings {
       property alias x: mainWindow.x
       property alias y: mainWindow.y
