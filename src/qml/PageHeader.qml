@@ -14,7 +14,9 @@ ToolBar {
 
   property alias busyIndicatorState: busyIndicator.state
 
-  height: 48
+  property double topMargin: 0.0
+
+  height: topMargin + 48
 
   signal cancel
   signal apply
@@ -73,7 +75,7 @@ ToolBar {
 
   RowLayout {
     anchors.fill: parent
-
+    anchors.topMargin: topMargin
     Layout.margins: 0
 
     QfToolButton {

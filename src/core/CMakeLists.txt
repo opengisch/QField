@@ -238,10 +238,10 @@ target_include_directories(qfield_core SYSTEM
                            PUBLIC ${CMAKE_CURRENT_BINARY_DIR})
 
 target_include_directories(qfield_core SYSTEM PRIVATE ${GDAL_INCLUDE_DIR})
+# to include <qpa/qplatformnativeinterface.h and qpa/qplatformwindow.h>
+target_include_directories(qfield_core SYSTEM
+                           PRIVATE ${${QT_PKG}Gui_PRIVATE_INCLUDE_DIRS})
 if(IOS)
-  # to include <qpa/qplatformnativeinterface.h>
-  target_include_directories(qfield_core SYSTEM
-                             PRIVATE ${${QT_PKG}Gui_PRIVATE_INCLUDE_DIRS})
   target_compile_definitions(qfield_core PRIVATE -DQT_NO_PRINTER)
 endif()
 

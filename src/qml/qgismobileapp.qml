@@ -34,6 +34,27 @@ ApplicationWindow {
   id: mainWindow
   objectName: 'mainWindow'
   visible: true
+  flags: Qt.Window | Qt.WindowTitleHint | Qt.WindowSystemMenuHint |
+         (Qt.platform.os === "ios" ? Qt.MaximizeUsingFullscreenGeometryHint : 0)
+
+  property double sceneTopMargin: platformUtilities.sceneMargins(mainWindow)["top"]
+
+  Timer{
+    id: refreshSceneMargins
+    running: false
+    repeat: false
+    interval: 50
+
+    readonly property bool screenIsPortrait: (Screen.primaryOrientation === Qt.PortraitOrientation ||
+                                              Screen.primaryOrientation === Qt.InvertedPortraitOrientation)
+    onScreenIsPortraitChanged:{
+      start()
+    }
+
+    onTriggered: {
+      mainWindow.sceneTopMargin = platformUtilities.sceneMargins(mainWindow)["top"];
+    }
+  }
 
   LabSettings.Settings {
       property alias x: mainWindow.x
@@ -873,7 +894,8 @@ ApplicationWindow {
 
     anchors.right: parent.right
     anchors.top: parent.top
-    anchors.margins: 4
+    anchors.topMargin: mainWindow.sceneTopMargin + 4
+    anchors.rightMargin: 4
 
     visible: stateMachine.state !== 'measure'
 
@@ -980,7 +1002,7 @@ ApplicationWindow {
     id: mainMenuBar
     width: childrenRect.width + 8
     height: childrenRect.height + 8
-    topPadding: 4
+    topPadding: mainWindow.sceneTopMargin + 4
     leftPadding: 4
     spacing: 4
 
@@ -2553,8 +2575,8 @@ ApplicationWindow {
     id: busyIndicator
     anchors.left: mainMenuBar.left
     anchors.top: mainToolbar.bottom
-    width: mainMenuBar.height
-    height: mainMenuBar.height
+    width: menuButton.width + 10
+    height: width
     running: mapCanvasMap.isRendering
   }
 

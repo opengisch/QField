@@ -32,6 +32,8 @@ Rectangle {
   property FeatureListModelSelection selection
   property FeaturelistExtentController extentController
 
+  property double topMargin: 0.0
+
   signal backClicked
   signal statusIndicatorClicked
   signal statusIndicatorSwiped(var direction)
@@ -55,7 +57,7 @@ Rectangle {
   anchors.top:parent.top
   anchors.left: parent.left
   anchors.right: parent.right
-  height: 48
+  height: toolBar.topMargin + 48
 
   clip: true
 
@@ -76,7 +78,8 @@ Rectangle {
   Rectangle {
     id: navigationStatusIndicator
     anchors.fill: parent
-    height: 48
+
+    height: toolBar.topMargin + 48
 
     color: ( featureFormList.model.constraintsHardValid && featureFormList.model.constraintsSoftValid ) || parent.state !== "Edit" ? Theme.mainColor : !featureFormList.model.constraintsHardValid ? Theme.errorColor : Theme.warningColor
 
@@ -98,9 +101,11 @@ Rectangle {
       color: Theme.light
       anchors.left: parent.left
       anchors.right: parent.right
+      anchors.top: parent.top
       anchors.leftMargin: 0 + balancedMargin
       anchors.rightMargin: 0 + balancedMargin
-      height: parent.height
+      anchors.topMargin: toolBar.topMargin
+      height: parent.height - toolBar.topMargin
 
       text: {
         if ( model && selection && selection.focusedItem > -1 && (toolBar.state === 'Navigation' || toolBar.state === 'Edit') ) {
@@ -169,6 +174,8 @@ Rectangle {
     id: nextButton
 
     anchors.left: previousButton.right
+    anchors.top: parent.top
+    anchors.topMargin: toolBar.topMargin
 
     width: ( parent.state == "Navigation" ? 48: 0 )
     height: 48
@@ -198,6 +205,8 @@ Rectangle {
     id: previousButton
 
     anchors.left: parent.left
+    anchors.top: parent.top
+    anchors.topMargin: toolBar.topMargin
 
     width: parent.state != "Edit" && !toolBar.multiSelection ? 48: 0
     height: 48
@@ -227,7 +236,11 @@ Rectangle {
 
   QfToolButton {
     id: saveButton
+
     anchors.left: parent.left
+    anchors.top: parent.top
+    anchors.topMargin: toolBar.topMargin
+
     width: ( parent.state == "Edit" ? 48: 0 )
     height: 48
     clip: true
@@ -254,6 +267,8 @@ Rectangle {
     visible: !qfieldSettings.autoSave
 
     anchors.right: parent.right
+    anchors.top: parent.top
+    anchors.topMargin: toolBar.topMargin
 
     width: ( parent.state == "Edit" ? 48: 0 )
     height: 48
@@ -283,6 +298,8 @@ Rectangle {
              && ( projectInfo.editRights || editButton.isCreatedCloudFeature )
 
     anchors.right: editButton.left
+    anchors.top: parent.top
+    anchors.topMargin: toolBar.topMargin
 
     iconSource: Theme.getThemeIcon( "ic_edit_geometry_white" )
 
@@ -317,6 +334,8 @@ Rectangle {
     property bool isCreatedCloudFeature: false
 
     anchors.right: menuButton.left
+    anchors.top: parent.top
+    anchors.topMargin: toolBar.topMargin
 
     width: ( parent.state == "Navigation" && supportsEditing && ( projectInfo.editRights || isCreatedCloudFeature ) ? 48: 0 )
     height: 48
@@ -353,6 +372,8 @@ Rectangle {
     id: menuButton
 
     anchors.right: parent.right
+    anchors.top: parent.top
+    anchors.topMargin: toolBar.topMargin
 
     visible: parent.state != "Edit"
     width: visible ? 48 : 0
@@ -380,6 +401,8 @@ Rectangle {
     id: multiClearButton
 
     anchors.left: parent.left
+    anchors.top: parent.top
+    anchors.topMargin: toolBar.topMargin
 
     width: ( parent.state == "Indication" && toolBar.multiSelection && toolBar.model ? 48: 0 )
     height: 48
@@ -402,6 +425,8 @@ Rectangle {
     id: multiSelectCount
 
     anchors.left: multiClearButton.right
+    anchors.top: parent.top
+    anchors.topMargin: toolBar.topMargin
 
     width: ( parent.state == "Indication" && toolBar.multiSelection && toolBar.model ? 48: 0 )
     visible: width > 0
@@ -419,6 +444,8 @@ Rectangle {
     id: multiEditButton
 
     anchors.right: menuButton.left
+    anchors.top: parent.top
+    anchors.topMargin: toolBar.topMargin
 
     width: parent.state == "Indication"
            && toolBar.model && toolBar.model.canEditAttributesSelection && toolBar.model.selectedCount > 1

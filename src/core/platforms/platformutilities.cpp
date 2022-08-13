@@ -29,9 +29,12 @@
 #include <QDesktopServices>
 #include <QDir>
 #include <QFileDialog>
+#include <QMargins>
+#include <QQuickWindow>
 #include <QStandardPaths>
 #include <QTimer>
 #include <QUrl>
+#include <QtGui/qpa/qplatformwindow.h>
 
 #if WITH_SENTRY
 #include <sentry.h>
@@ -97,13 +100,13 @@ QString PlatformUtilities::systemSharedDataLocation() const
 
      [prefix_path]
      |-- bin
-     |   |-- qfield.exe
+     |   |-- qfield.exe
      |-- share
      |   |-- qfield
-     |   |   |-- sample_projects 
+     |   |   |-- sample_projects
      |   |-- proj
-     |   |   |-- data
-     |   |   |   |--  proj.db
+     |   |   |-- data
+     |   |   |   |--  proj.db
   */
   const static QString sharePath = QDir( QCoreApplication::applicationDirPath() + QLatin1String( "/../share" ) ).absolutePath();
   return sharePath;
@@ -314,6 +317,23 @@ void PlatformUtilities::copyTextToClipboard( const QString &string ) const
 QString PlatformUtilities::getTextFromClipboard() const
 {
   return QGuiApplication::clipboard()->text();
+}
+
+QVariantMap PlatformUtilities::sceneMargins( QQuickWindow *window ) const
+{
+  QVariantMap margins;
+  margins[QLatin1String( "top" )] = 0.0;
+  margins[QLatin1String( "right" )] = 0.0;
+  margins[QLatin1String( "bottom" )] = 0.0;
+  margins[QLatin1String( "left" )] = 0.0;
+
+  QPlatformWindow *platformWindow = static_cast<QPlatformWindow *>( window->handle() );
+  if ( platformWindow )
+  {
+    margins[QLatin1String( "top" )] = platformWindow->safeAreaMargins().top();
+  }
+
+  return margins;
 }
 
 PlatformUtilities *PlatformUtilities::instance()

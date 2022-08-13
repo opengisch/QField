@@ -29,6 +29,7 @@ class ProjectSource;
 class PictureSource;
 
 class QQuickItem;
+class QQuickWindow;
 
 class QFIELD_CORE_EXPORT PlatformUtilities : public QObject
 {
@@ -227,6 +228,11 @@ class QFIELD_CORE_EXPORT PlatformUtilities : public QObject
      * Returns the current text from the system clipboard.
      */
     Q_INVOKABLE virtual QString getTextFromClipboard() const;
+
+    /**
+     * Returns margins ("top", "right", "bottom", "left") within which interactive elements should not be drawn.
+     */
+    Q_INVOKABLE virtual QVariantMap sceneMargins( QQuickWindow *window ) const;
 
     static PlatformUtilities *instance();
 

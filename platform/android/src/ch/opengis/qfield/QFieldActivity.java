@@ -51,6 +51,8 @@ import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.PackageManager.NameNotFoundException;
+import android.content.res.Resources;
+import android.graphics.Color;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Build;
@@ -61,6 +63,10 @@ import android.os.Looper;
 import android.provider.Settings;
 import android.text.Html;
 import android.util.Log;
+import android.view.DisplayCutout;
+import android.view.View;
+import android.view.Window;
+import android.view.WindowInsets;
 import android.view.WindowManager;
 import android.view.WindowManager.LayoutParams;
 import androidx.core.app.ActivityCompat;
@@ -97,11 +103,25 @@ public class QFieldActivity extends QtActivity {
 
     private float originalBrightness;
     private String pathToExport;
+    private boolean drawStatusBarBackground = false;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         prepareQtActivity();
         super.onCreate(savedInstanceState);
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            Window window = getWindow();
+            window.addFlags(
+                WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
+            window.getDecorView().setSystemUiVisibility(
+                View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN);
+            window.setStatusBarColor(Color.TRANSPARENT);
+            View decor = window.getDecorView();
+            decor.setSystemUiVisibility(decor.getSystemUiVisibility() |
+                                        View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
+            drawStatusBarBackground = true;
+        }
     }
 
     @Override
@@ -224,6 +244,28 @@ public class QFieldActivity extends QtActivity {
 
         Log.v("QField", "Opening document file path: " + filePath);
         return filePath;
+    }
+
+    private double statusBarMargin() {
+        double margin = 0;
+        if (drawStatusBarBackground) {
+            int resourceId = getResources().getIdentifier("status_bar_height",
+                                                          "dimen", "android");
+            if (resourceId > 0) {
+                margin = getResources().getDimension(resourceId);
+            }
+            DisplayCutout cutout = getWindow()
+                                       .getDecorView()
+                                       .getRootWindowInsets()
+                                       .getDisplayCutout();
+            if (cutout != null) {
+                int cutoutHeight = cutout.getSafeInsetTop();
+                if (cutoutHeight > margin) {
+                    margin = cutoutHeight;
+                }
+            }
+        }
+        return margin;
     }
 
     private void dimBrightness() {
