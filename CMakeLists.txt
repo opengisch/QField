@@ -230,7 +230,7 @@ if(WITH_VCPKG)
   copy_resource("${VCPKG_BASE_DIR}/share/gdal" "gdal")
   copy_resource("${CMAKE_SOURCE_DIR}/resources/" "qfield")
   install(DIRECTORY "${VCPKG_BASE_DIR}/share/qgis/resources/" DESTINATION "share/qgis/resources")
-  install(DIRECTORY "${VCPKG_BASE_DIR}/share/proj/data/" DESTINATION "share/proj")
+  install(DIRECTORY "${VCPKG_BASE_DIR}/share/proj/data/" DESTINATION "share/proj/data/")
   install(DIRECTORY "${VCPKG_BASE_DIR}/share/gdal/" DESTINATION "share/gdal")
 
   add_dependencies(qfield deploy)
