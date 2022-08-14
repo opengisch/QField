@@ -72,7 +72,6 @@ int main( int argc, char **argv )
   // Make sure everything flushes when exiting the app
   auto sentryClose = qScopeGuard( [] { sentry_wrapper::close(); } );
 #endif
-  delete dummyApp;
 
   Q_INIT_RESOURCE( qml );
 
@@ -87,6 +86,7 @@ int main( int argc, char **argv )
   // Let's make sure we have a writable path for the qgis_profile on every platform
   const QString profilePath = platformUtils->systemLocalDataLocation( QStringLiteral( "/qgis_profile" ) );
   QDir().mkdir( profilePath );
+  delete dummyApp;
 
   QgsApplication app( argc, argv, true, profilePath, QStringLiteral( "mobile" ) );
   app.setThemeName( settings.value( "/Themes", "default" ).toString() );
