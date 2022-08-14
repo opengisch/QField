@@ -104,7 +104,9 @@ QString PlatformUtilities::systemSharedDataLocation() const
      |   |   |-- data
      |   |   |   |--  proj.db
   */
-  const static QString sharePath = QDir( QCoreApplication::applicationDirPath() + QLatin1String( "/../share" ) ).absolutePath();
+  const static QString sharePath = QDir( QFileInfo( QCoreApplication::applicationFilePath() ).canonicalPath()
+                                         + QLatin1String( "/../share" ) )
+                                     .absolutePath();
   return sharePath;
 }
 
