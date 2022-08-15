@@ -403,6 +403,7 @@ Page {
         }
         QfButton {
           id: localProjectButton
+          visible: Qt.platform.os !== "ios" // iOS does not allow random file access. Disable local data picker until we have a proper import/export workflow like on Android
           Layout.fillWidth: true
           text: qsTr( "Open local file" )
           onClicked: {
