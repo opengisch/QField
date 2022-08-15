@@ -7,7 +7,7 @@ on:
       - release-**
   pull_request:
   release:
-    types: ['published', 'released']
+    types: ['published']
 
 
 jobs:

@@ -6,10 +6,9 @@ on:
     branches:
       - master
       - release-**
-      - sentry_ios
   pull_request:
   release:
-    types: ['published', 'released']
+    types: ['published']
   workflow_dispatch: # this will push the IPA to TestFlight
     inputs:
       version:
