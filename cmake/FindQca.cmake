@@ -34,6 +34,7 @@ find_path(Qca_INCLUDE_DIR qca.h
             QtCrypto
             qt5/QtCrypto
             Qca-qt5/QtCrypto
+            qt5/Qca-qt5/QtCrypto
           DOC "Path to Qca include directory")
 
 set(Qca_NAMES ${Qca_NAMES} qca-qt5 qca2-qt5 qca-qt6 qca)
