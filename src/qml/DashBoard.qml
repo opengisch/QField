@@ -32,8 +32,7 @@ Drawer {
   focus: opened
   clip: true
 
-  /* Workaround for menu position, will need to be adjusted when updating menu to Quick2 */
-  onShowMenu: mainMenu.popup(settingsButton.x + 2, 2)
+  onShowMenu: mainMenu.popup(settingsButton.x + 2, mainWindow.sceneTopMargin + settingsButton.y + 2)
   onShowCloudMenu: cloudPopup.show()
 
   onCurrentLayerChanged: {
