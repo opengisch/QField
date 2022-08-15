@@ -1,0 +1,151 @@
+---
+name: 🐧 Linux
+on:
+  push:
+    branches:
+      - master
+      - release-**
+  pull_request:
+  release:
+    types: ['published']
+
+
+jobs:
+  build:
+    runs-on: ubuntu-20.04
+
+    steps:
+      - name: 🐣 Checkout
+        uses: actions/checkout@v3
+        with:
+          submodules: recursive
+
+      - name: 🌾 Prepare vars
+        id: vars
+        run: |
+          ./scripts/ci/env_gh.sh
+
+          BUILD_ROOT="/home/runner"
+          echo "BUILD_ROOT=${BUILD_ROOT}" >> $GITHUB_ENV
+          echo "BUILD_TYPE=Release" >> $GITHUB_ENV
+          echo "CMAKE_BUILD_DIR=${BUILD_ROOT}/builddir" >> $GITHUB_ENV
+
+      - name: 🐩 Install CMake and Ninja
+        uses: lukka/get-cmake@latest
+
+      - name: 🔨 Prepare build env
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y gperf autopoint '^libxcb.*-dev' libx11-xcb-dev libglu1-mesa-dev libxrender-dev libxi-dev libxkbcommon-dev libxkbcommon-x11-dev autoconf-archive libgstreamer-plugins-base1.0
+          # Required to run unit tests on linux
+          echo "QT_QPA_PLATFORM=offscreen" >> $GITHUB_ENV
+
+      - name: 💐 Install Qt
+        uses: jurplel/install-qt-action@v3
+        with:
+          version: 5.14.2
+          modules: 'qtcharts'
+          target: desktop
+          cache: true
+
+      - name: Install linuxdeploy
+        uses: miurahr/install-linuxdeploy-action@v1
+        with:
+          dir: ${{ env.BUILD_ROOT }}
+          plugins: qt appimage
+
+      - name: 🌱 Install dependencies and generate project files
+        run: |
+          source ./scripts/version_number.sh
+          source ./scripts/ci/generate-version-details.sh
+
+          cmake -S "${{ github.workspace }}" \
+                -B "${CMAKE_BUILD_DIR}" \
+                -G Ninja \
+                -D CMAKE_BUILD_TYPE=${{ env.BUILD_TYPE }} \
+                -D WITH_VCPKG=ON \
+                -D SYSTEM_QT=ON \
+                -D WITH_SPIX=ON \
+                -D APP_VERSION="${APP_VERSION}" \
+                -D APP_VERSION_STR="${APP_VERSION_STR}" \
+                -D APP_PACKAGE_NAME="${APP_PACKAGE_NAME}" \
+                -D ENABLE_TESTS=ON \
+                -D NUGET_USERNAME=opengisch \
+                -D NUGET_TOKEN=${{ secrets.GITHUB_TOKEN }} \
+                -D SENTRY_DSN=${{ secrets.SENTRY_DSN }} \
+                -D SENTRY_ENV="${APP_ENV}" \
+                -D CMAKE_INSTALL_PREFIX=/usr \
+                -D LINUXDEPLOY_EXECUTABLE=${{ env.BUILD_ROOT }}/linuxdeploy-x86_64.AppImage
+
+      - name: 📑 Upload dep build logs
+        uses: actions/upload-artifact@v3
+        if: failure()
+        with:
+          name: build-logs-x64-linux
+          path: |
+            ${{ github.workspace }}/vcpkg/base/buildtrees/**/*.log
+
+      - name: 🌋 Build
+        run: |
+          cmake --build "${{ env.CMAKE_BUILD_DIR }}" --config ${{ env.BUILD_TYPE }}
+
+      - name: 🧫 Test
+        env:
+          PROJ_LIB: ${{ env.CMAKE_BUILD_DIR }}/vcpkg_installed/x64-linux/share/proj/data
+        run: |
+          pip install -r "${{ github.workspace }}/test/spix/requirements.txt"
+          cd "${{ env.CMAKE_BUILD_DIR }}"
+          xvfb-run ctest --output-on-failure -C ${{ env.BUILD_TYPE }}
+
+      - name: Package
+        run: |
+          export LD_LIBRARY_PATH="${{ env.CMAKE_BUILD_DIR }}/vcpkg_installed/x64-linux/lib/":${LD_LIBRARY_PATH}
+          cmake --build  "${{ env.CMAKE_BUILD_DIR }}" --target bundle --config ${{ env.BUILD_TYPE }}
+          echo "ARTIFACT_PATHNAME=${{ env.CMAKE_BUILD_DIR }}/QField-x86_64.AppImage" >> $GITHUB_ENV
+          echo "ARTIFACT_NAME=${{ steps.vars.outputs.CI_PACKAGE_FILE_BASENAME }}-linux-x64.AppImage" >> $GITHUB_ENV
+
+      - name: 📑 Upload package logs
+        uses: actions/upload-artifact@v3
+        if: failure()
+        with:
+          name: package-logs-x64-linux
+          path: ${{ env.BUILD_ROOT }}/builddir/_CPack_Packages/**/*.log
+
+      - name: 📦 Upload package
+        if: ${{ env.ARTIFACT_NAME != null }}
+        uses: actions/upload-artifact@v3
+        with:
+          name: "QField-dev-x64-linux-${{ env.BUILD_TYPE }}"
+          path: ${{ env.ARTIFACT_PATHNAME }}
+
+      - name: 📊 Upload test report
+        uses: actions/upload-artifact@v3
+        with:
+          name: "test-report-x64-linux-${{ env.BUILD_TYPE }}"
+          path: "${{ env.CMAKE_BUILD_DIR }}/report"
+
+      - name: 🪔 Get the current release version
+        id: get_version
+        run: |
+          echo "::set-output name=version::${GITHUB_REF##*/}"
+
+      - name: 🚀 Upload release asset
+        if: github.event_name == 'release' && startsWith(github.ref, 'refs/tags/v') && env.ARTIFACT_NAME != null
+        uses: shogo82148/actions-upload-release-asset@v1
+        with:
+          upload_url: ${{ github.event.release.upload_url }}
+          asset_path: ${{ env.ARTIFACT_PATHNAME }}
+          asset_name: ${{ env.ARTIFACT_NAME }}
+          overwrite: true
+
+      - name: Upload debug symbols
+        # if: release or labeled PR
+        env:
+          SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
+        run: |
+          export INSTALL_DIR=$(pwd)
+          curl -sL https://sentry.io/get-cli/ | bash
+          ./sentry-cli upload-dif -o opengisch -p qfield ${{ env.CMAKE_BUILD_DIR }}
+
+      - uses: m-kuhn/action-tmate@patch-1
+        if: failure()
