@@ -35,7 +35,8 @@ ApplicationWindow {
   objectName: 'mainWindow'
   visible: true
   flags: Qt.Window | Qt.WindowTitleHint | Qt.WindowSystemMenuHint |
-         (Qt.platform.os === "ios" ? Qt.MaximizeUsingFullscreenGeometryHint : 0)
+         (Qt.platform.os === "ios" ? Qt.MaximizeUsingFullscreenGeometryHint : 0) |
+         (Qt.platform.os !== "ios" && Qt.platform.os !== "android" ? Qt.WindowMinMaxButtonsHint | Qt.WindowCloseButtonHint : 0)
 
   property double sceneTopMargin: platformUtilities.sceneMargins(mainWindow)["top"]
 
