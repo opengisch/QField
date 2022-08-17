@@ -229,6 +229,7 @@ jobs:
         shell: bash
         env:
           WORKSPACE: ${{ github.workspace }}
+          PROJ_LIB: ${{ env.CMAKE_BUILD_DIR }}/vcpkg_installed/${{ matrix.triplet }}/share/proj/data
         run: |
           SOURCE_DIR=$( ${{ steps.vars.outputs.PATHCONVERT }} "${WORKSPACE}" )
           pip install -r "${SOURCE_DIR}/test/spix/requirements.txt"
