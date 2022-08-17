@@ -150,6 +150,9 @@ if(QGIS_FOUND AND "@VCPKG_LIBRARY_LINKAGE@" STREQUAL "static")
     find_library(libdl dl)
     get_filename_component(arch_path ${libdl} DIRECTORY)
     set(pkgcfg_lib_PC_SPATIALITE_c++ "${arch_path}/${ANDROID_PLATFORM_LEVEL}/libc++.so")
+
+    # libspatialite needs log (needed when building with docker)
+    target_link_libraries(QGIS::Core INTERFACE log)
   endif()
   # End Terrible hack
   _qgis_core_add_dependency(GDAL::GDAL GDAL)
