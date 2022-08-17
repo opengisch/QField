@@ -51,7 +51,7 @@ Except Qt which is still taken from the system. You can also try
 to build Qt, it's known to be hard work.
 
 ```sh
-cmake -S QField -B build -DSYSTEM_QT=ON
+cmake -S QField -B build -DSYSTEM_QT=ON -DWITH_VCPKG=ON
 ```
 
 Since this is now building a lot, grab yourself a cold or hot drink
@@ -113,7 +113,7 @@ cmake --build build
 Android runs on a number of different CPU architectures.
 The most common one is `arm64`. The platform to build for is specified via triplet.
 
-The following triplets are
+The following triplets are possible:
 
 - `arm64-android`
 - `arm-android`
