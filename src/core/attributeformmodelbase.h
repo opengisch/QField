@@ -20,6 +20,7 @@
 
 #include <QStack>
 #include <QStandardItemModel>
+#include <qgsattributeeditorcontainer.h>
 #include <qgseditformconfig.h>
 #include <qgsexpressioncontext.h>
 
@@ -34,7 +35,6 @@ class AttributeFormModelBase : public QStandardItemModel
 
   public:
     explicit AttributeFormModelBase( QObject *parent = nullptr );
-    ~AttributeFormModelBase() override;
 
     QHash<int, QByteArray> roleNames() const override;
 
@@ -104,7 +104,7 @@ class AttributeFormModelBase : public QStandardItemModel
 
     FeatureModel *mFeatureModel = nullptr;
     QgsVectorLayer *mLayer = nullptr;
-    QgsAttributeEditorContainer *mTemporaryContainer = nullptr;
+    std::unique_ptr<QgsAttributeEditorContainer> mTemporaryContainer;
     bool mHasTabs = false;
 
     typedef QPair<QgsExpression, QVector<QStandardItem *>> VisibilityExpression;

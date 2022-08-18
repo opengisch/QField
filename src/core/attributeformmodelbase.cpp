@@ -18,7 +18,6 @@
 #include "attributeformmodelbase.h"
 
 #include <QRegularExpression>
-#include <qgsattributeeditorcontainer.h>
 #include <qgsattributeeditorelement.h>
 #include <qgsattributeeditorfield.h>
 #include <qgsattributeeditorhtmlelement.h>
@@ -39,11 +38,6 @@ AttributeFormModelBase::AttributeFormModelBase( QObject *parent )
   connect( QgsProject::instance(), &QgsProject::mapThemeCollectionChanged, this, &AttributeFormModelBase::onMapThemeCollectionChanged );
   if ( QgsProject::instance()->mapThemeCollection() )
     onMapThemeCollectionChanged();
-}
-
-AttributeFormModelBase::~AttributeFormModelBase()
-{
-  delete mTemporaryContainer;
 }
 
 void AttributeFormModelBase::onMapThemeCollectionChanged()
@@ -164,8 +158,7 @@ void AttributeFormModelBase::resetModel()
   if ( mLayer )
   {
     QgsAttributeEditorContainer *root;
-    delete mTemporaryContainer;
-    mTemporaryContainer = nullptr;
+    mTemporaryContainer.reset();
 
     if ( mLayer->editFormConfig().layout() == QgsEditFormConfig::TabLayout )
     {
@@ -174,7 +167,7 @@ void AttributeFormModelBase::resetModel()
     else
     {
       root = generateRootContainer();
-      mTemporaryContainer = root;
+      mTemporaryContainer.reset( root );
     }
 
     setHasTabs( !root->children().isEmpty() && QgsAttributeEditorElement::AeTypeContainer == root->children().first()->type() );
@@ -253,7 +246,7 @@ QgsAttributeEditorContainer *AttributeFormModelBase::generateRootContainer() con
 
 QgsAttributeEditorContainer *AttributeFormModelBase::invisibleRootContainer() const
 {
-  return mTemporaryContainer ? mTemporaryContainer : mLayer->editFormConfig().invisibleRootContainer();
+  return mTemporaryContainer ? mTemporaryContainer.get() : mLayer->editFormConfig().invisibleRootContainer();
 }
 
 void AttributeFormModelBase::updateAttributeValue( QStandardItem *item )
