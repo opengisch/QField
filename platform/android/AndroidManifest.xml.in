@@ -1,11 +1,12 @@
 <?xml version="1.0"?>
-<manifest package="ch.opengis.@APP_PACKAGE_NAME@" xmlns:android="http://schemas.android.com/apk/res/android" android:versionName="@APP_VERSION_STR@" android:versionCode="@APK_VERSION_CODE@" android:installLocation="auto">
+<manifest package="ch.opengis.@APP_PACKAGE_NAME@" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:tools="http://schemas.android.com/tools" android:versionName="@APP_VERSION_STR@" android:versionCode="@APK_VERSION_CODE@" android:installLocation="auto">
 
   <!-- The permissions are specified manually. This way we do not request the microphone permissions which would be pulled in
        as dependent permissions because of qt multimedia. -->
   <uses-permission android:name="android.permission.INTERNET" />
   <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
   <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+  <uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION" tools:node="remove" />
   <uses-permission android:name="android.permission.ACCESS_MEDIA_LOCATION" />
   <uses-permission android:name="android.permission.CAMERA" />
   <uses-permission android:name="android.permission.FLASHLIGHT" />
