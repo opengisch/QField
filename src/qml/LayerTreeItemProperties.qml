@@ -266,10 +266,10 @@ Popup {
             var vl = layerTree.data( index, FlatLayerTreeModel.VectorLayerPointer )
 
             if ( layerTree.data( index, FlatLayerTreeModel.Type ) === 'layer' ) {
-              featureForm.model.setFeaturesForRectangle( vl, mapCanvas.mapSettings.visibleExtent )
+              featureForm.model.setFeaturesForExtent( vl, mapCanvas.mapSettings.visibleExtent )
             } else {
               // one day, we should be able to show only the features that correspond to the given legend item
-              featureForm.model.setFeaturesForRectangle( vl, mapCanvas.mapSettings.visibleExtent )
+              featureForm.model.setFeaturesForExtent( vl, mapCanvas.mapSettings.visibleExtent )
             }
           }
 

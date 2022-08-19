@@ -68,7 +68,7 @@ class MultiFeatureListModel : public QSortFilterProxyModel
     /**
      * Resets the model to contain features found from a \a vl and inside a \a rectangle.
      */
-    Q_INVOKABLE void setFeaturesForRectangle( QgsVectorLayer *vl, const QgsRectangle &rectangle );
+    Q_INVOKABLE void setFeaturesForExtent( QgsVectorLayer *vl, const QgsRectangle &rectangle );
 
     /**
      * Appends features from a list of \a results.

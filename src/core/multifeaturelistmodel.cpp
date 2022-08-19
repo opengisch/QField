@@ -47,7 +47,7 @@ void MultiFeatureListModel::setFeatures( QgsVectorLayer *vl )
   mSourceModel->setFeatures( requests );
 }
 
-void MultiFeatureListModel::setFeaturesForRectangle( QgsVectorLayer *vl, const QgsRectangle &rectangle )
+void MultiFeatureListModel::setFeaturesForExtent( QgsVectorLayer *vl, const QgsRectangle &rectangle )
 {
   QgsFeatureRequest request;
   request.setFilterRect( rectangle );
