@@ -49,7 +49,7 @@ Item {
 
   Rubberband {
     id: rubberband
-    width: 2.5
+    lineWidth: 2.5
     color: '#80000000'
 
     model: RubberbandModel {

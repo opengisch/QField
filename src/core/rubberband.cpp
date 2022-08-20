@@ -192,19 +192,19 @@ QSGNode *Rubberband::updatePaintNode( QSGNode *n, QQuickItem::UpdatePaintNodeDat
   return n;
 }
 
-float Rubberband::width() const
+float Rubberband::lineWidth() const
 {
   return mWidth;
 }
 
-void Rubberband::setWidth( float width )
+void Rubberband::setLineWidth( float width )
 {
   if ( mWidth == width )
     return;
 
   mWidth = width;
 
-  emit widthChanged();
+  emit lineWidthChanged();
 }
 
 QColor Rubberband::color() const
@@ -222,19 +222,19 @@ void Rubberband::setColor( const QColor &color )
   emit colorChanged();
 }
 
-float Rubberband::widthCurrentPoint() const
+float Rubberband::lineWidthCurrentPoint() const
 {
   return mWidthCurrentPoint;
 }
 
-void Rubberband::setWidthCurrentPoint( float width )
+void Rubberband::setLineWidthCurrentPoint( float width )
 {
   if ( mWidthCurrentPoint == width )
     return;
 
   mWidthCurrentPoint = width;
 
-  emit widthCurrentPointChanged();
+  emit lineWidthCurrentPointChanged();
 }
 
 QColor Rubberband::colorCurrentPoint() const

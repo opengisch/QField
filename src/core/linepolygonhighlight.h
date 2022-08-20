@@ -33,7 +33,7 @@ class LinePolygonHighlight : public QQuickItem
     Q_OBJECT
 
     Q_PROPERTY( QColor color READ color WRITE setColor NOTIFY colorChanged )
-    Q_PROPERTY( float width READ width WRITE setWidth NOTIFY widthChanged )
+    Q_PROPERTY( float lineWidth READ lineWidth WRITE setLineWidth NOTIFY lineWidthChanged )
     Q_PROPERTY( QgsQuickMapSettings *mapSettings READ mapSettings WRITE setMapSettings NOTIFY mapSettingsChanged )
     Q_PROPERTY( QgsGeometryWrapper *geometry READ geometry WRITE setGeometry NOTIFY qgsGeometryChanged )
 
@@ -49,12 +49,12 @@ class LinePolygonHighlight : public QQuickItem
     QColor color() const;
     void setColor( const QColor &color );
 
-    float width() const;
-    void setWidth( float width );
+    float lineWidth() const;
+    void setLineWidth( float width );
 
   signals:
     void colorChanged();
-    void widthChanged();
+    void lineWidthChanged();
     void mapSettingsChanged();
     void qgsGeometryChanged();
     void updated();

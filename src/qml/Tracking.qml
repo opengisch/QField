@@ -52,7 +52,7 @@ Item{
 
     Rubberband {
         id: rubberband
-        width: 4
+        lineWidth: 4
         color: Qt.rgba(Math.random(),Math.random(),Math.random(),0.6);
 
         mapSettings: mapCanvas.mapSettings

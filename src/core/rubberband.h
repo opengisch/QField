@@ -37,11 +37,11 @@ class Rubberband : public QQuickItem
     //! Color of the main rubberband
     Q_PROPERTY( QColor color READ color WRITE setColor NOTIFY colorChanged )
     //! Line width of the main rubberband
-    Q_PROPERTY( qreal width READ width WRITE setWidth NOTIFY widthChanged )
+    Q_PROPERTY( qreal lineWidth READ lineWidth WRITE setLineWidth NOTIFY lineWidthChanged )
     //! Color of the aleternative rubberband for current point
     Q_PROPERTY( QColor colorCurrentPoint READ colorCurrentPoint WRITE setColorCurrentPoint NOTIFY colorCurrentPointChanged )
     //! Line width  of the aleternative rubberband for current point
-    Q_PROPERTY( qreal widthCurrentPoint READ widthCurrentPoint WRITE setWidthCurrentPoint NOTIFY widthCurrentPointChanged )
+    Q_PROPERTY( qreal lineWidthCurrentPoint READ lineWidthCurrentPoint WRITE setLineWidthCurrentPoint NOTIFY lineWidthCurrentPointChanged )
 
   public:
     explicit Rubberband( QQuickItem *parent = nullptr );
@@ -61,9 +61,9 @@ class Rubberband : public QQuickItem
     void setColor( const QColor &color );
 
     //! \copydoc width
-    float width() const;
+    float lineWidth() const;
     //! \copydoc width
-    void setWidth( float width );
+    void setLineWidth( float width );
 
     //! \copydoc colorCurrentPoint
     QColor colorCurrentPoint() const;
@@ -71,9 +71,9 @@ class Rubberband : public QQuickItem
     void setColorCurrentPoint( const QColor &color );
 
     //! \copydoc widthCurrentPoint
-    float widthCurrentPoint() const;
+    float lineWidthCurrentPoint() const;
     //! \copydoc widthCurrentPoint
-    void setWidthCurrentPoint( float width );
+    void setLineWidthCurrentPoint( float width );
 
   signals:
     void modelChanged();
@@ -82,11 +82,11 @@ class Rubberband : public QQuickItem
     //! \copydoc color
     void colorChanged();
     //! \copydoc width
-    void widthChanged();
+    void lineWidthChanged();
     //! \copydoc colorCurrentPoint
     void colorCurrentPointChanged();
     //! \copydoc widthCurrentPoint
-    void widthCurrentPointChanged();
+    void lineWidthCurrentPointChanged();
 
 
   private slots:
