@@ -58,12 +58,12 @@ QSGNode *LinePolygonHighlight::updatePaintNode( QSGNode *n, QQuickItem::UpdatePa
   return n;
 }
 
-float LinePolygonHighlight::width() const
+float LinePolygonHighlight::lineWidth() const
 {
   return mWidth;
 }
 
-void LinePolygonHighlight::setWidth( float width )
+void LinePolygonHighlight::setLineWidth( float width )
 {
   if ( mWidth == width )
     return;
@@ -71,7 +71,7 @@ void LinePolygonHighlight::setWidth( float width )
   mWidth = width;
   mDirty = true;
 
-  emit widthChanged();
+  emit lineWidthChanged();
   update();
 }
 

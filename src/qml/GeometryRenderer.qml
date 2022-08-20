@@ -42,7 +42,7 @@ Item {
 
       geometry: geometryRenderer.geometryWrapper
       color: geometryRenderer.color
-      width: geometryRenderer.lineWidth
+      lineWidth: geometryRenderer.lineWidth
     }
   }
 
