@@ -27,17 +27,28 @@ The macro sets the following variables:
 
 #]=======================================================================]
 
+if(BUILD_WITH_QT6)
+  set(Qca_INCLUDE_SUFFIXES
+            QtCrypto
+            qt6/QtCrypto
+            Qca-qt6/QtCrypto
+            qt6/Qca-qt6/QtCrypto)
+  set(Qca_NAMES ${Qca_NAMES} qca-qt6 qca)
+else()
+  set(Qca_INCLUDE_SUFFIXES
+            QtCrypto
+            qt5/QtCrypto
+            Qca-qt5/QtCrypto
+            qt5/Qca-qt5/QtCrypto)
+  set(Qca_NAMES ${Qca_NAMES} qca-qt5 qca)
+endif()
 find_path(Qca_INCLUDE_DIR qca.h
           PATHS
             ${Qca_ROOT}/include/
           PATH_SUFFIXES
-            QtCrypto
-            qt5/QtCrypto
-            Qca-qt5/QtCrypto
-            qt5/Qca-qt5/QtCrypto
+            ${Qca_INCLUDE_SUFFIXES}
           DOC "Path to Qca include directory")
 
-set(Qca_NAMES ${Qca_NAMES} qca-qt5 qca2-qt5 qca-qt6 qca)
 
 if(NOT Qca_LIBRARY)
   find_library(Qca_LIBRARY_RELEASE NAMES ${Qca_NAMES})
@@ -47,6 +58,7 @@ if(NOT Qca_LIBRARY)
   mark_as_advanced(Qca_LIBRARY_RELEASE Qca_LIBRARY_DEBUG)
 endif()
 
+unset(Qca_INCLUDE_SUFFIXES)
 unset(Qca_NAMES)
 
 if(Qca_INCLUDE_DIR)
