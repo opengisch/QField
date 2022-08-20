@@ -2,8 +2,6 @@ import QtQuick 2.14
 import QtQuick.Controls 2.14
 import QtQuick.Layouts 1.14
 
-import QtBluetooth 5.12
-
 import org.qfield 1.0
 
 import Theme 1.0
@@ -160,15 +158,15 @@ GridLayout {
         font: Theme.defaultFont
         text: {
             switch (positionSource.device.socketState) {
-                case BluetoothSocket.Connected:
+                case QAbstractSocket.ConnectedState:
                     return qsTr('Connected to %1').arg(positioningSettings.positioningDeviceName)
-                case BluetoothSocket.Unconnected:
+                case QAbstractSocket.UnconnectedState:
                     return qsTr('Connect to %1').arg(positioningSettings.positioningDeviceName)
                 default:
                     return qsTr('Connecting to %1').arg(positioningSettings.positioningDeviceName)
             }
         }
-        enabled: positionSource.device.socketState === BluetoothSocket.Unconnected
+        enabled: positionSource.device.socketState === QAbstractSocket.UnconnectedState
         visible: positionSource.deviceId !== ''
 
         onClicked: {
