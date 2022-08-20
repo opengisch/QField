@@ -494,6 +494,7 @@ void QgisMobileapp::initDeclarative()
   qmlRegisterType<BarcodeDecoder>( "org.qfield", 1, 0, "BarcodeDecoder" );
   qmlRegisterType<BarcodeVideoFilter>( "org.qfield", 1, 0, "BarcodeVideoFilter" );
 
+  qmlRegisterUncreatableType<QAbstractSocket>( "org.qfield", 1, 0, "QAbstractSocket", "" );
   qmlRegisterUncreatableType<AbstractGnssReceiver>( "org.qfield", 1, 0, "AbstractGnssReceiver", "" );
   qRegisterMetaType<GnssPositionInformation>( "GnssPositionInformation" );
 
