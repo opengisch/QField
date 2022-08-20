@@ -145,10 +145,18 @@ void BluetoothReceiver::setEllipsoidalElevation( const bool ellipsoidalElevation
 void BluetoothReceiver::repairDevice( const QBluetoothAddress &address )
 {
   connect( mLocalDevice.get(), &QBluetoothLocalDevice::pairingFinished, this, &BluetoothReceiver::pairingFinished, Qt::UniqueConnection );
-  connect( mLocalDevice.get(), &QBluetoothLocalDevice::pairingDisplayConfirmation, this, &BluetoothReceiver::confirmPairing, Qt::UniqueConnection );
+#if QT_VERSION >= QT_VERSION_CHECK( 6, 0, 0 )
+  connect( mLocalDevice.get(), &QBluetoothLocalDevice::errorOccurred, [=]( QBluetoothLocalDevice::Error error ) {
+#else
   connect( mLocalDevice.get(), &QBluetoothLocalDevice::error, [=]( QBluetoothLocalDevice::Error error ) {
+#endif
     qDebug() << "BluetoothReceiver (not android): Re-pairing device " << address.toString() << " failed:" << error;
   } );
+
+#if QT_VERSION < QT_VERSION_CHECK( 6, 0, 0 )
+  // Pairing confirmation is gone in Qt 6
+  connect( mLocalDevice.get(), &QBluetoothLocalDevice::pairingDisplayConfirmation, this, &BluetoothReceiver::confirmPairing, Qt::UniqueConnection );
+#endif
 
   if ( mLocalDevice->pairingStatus( address ) == QBluetoothLocalDevice::Paired )
   {
@@ -164,7 +172,9 @@ void BluetoothReceiver::confirmPairing( const QBluetoothAddress &address, QStrin
 {
   Q_UNUSED( address );
   Q_UNUSED( pin );
+#if QT_VERSION < QT_VERSION_CHECK( 6, 0, 0 )
   mLocalDevice->pairingConfirmation( true );
+#endif
 }
 
 void BluetoothReceiver::pairingFinished( const QBluetoothAddress &address, QBluetoothLocalDevice::Pairing status )
@@ -184,6 +194,10 @@ void BluetoothReceiver::pairingFinished( const QBluetoothAddress &address, QBlue
 
 void BluetoothReceiver::connectService( const QBluetoothAddress &address )
 {
+#if QT_VERSION >= QT_VERSION_CHECK( 6, 0, 0 )
+  mSocket->connectToService( address, QBluetoothUuid( QBluetoothUuid::ServiceClassUuid::SerialPort ), QBluetoothSocket::ReadOnly );
+#else
   mSocket->connectToService( address, QBluetoothUuid( QBluetoothUuid::SerialPort ), QBluetoothSocket::ReadOnly );
+#endif
 }
 #endif
