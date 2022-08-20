@@ -68,7 +68,7 @@ QHash<int, QByteArray> AttributeFormModelBase::roleNames() const
   roles[AttributeFormModel::AttributeAllowEdit] = "AttributeAllowEdit";
   roles[AttributeFormModel::EditorWidgetCode] = "EditorWidgetCode";
   roles[AttributeFormModel::TabIndex] = "TabIndex";
-  roles[AttributeFormModel::Color] = "Color";
+  roles[AttributeFormModel::FieldColor] = "FieldColor";
 
   return roles;
 }
@@ -366,7 +366,7 @@ void AttributeFormModelBase::flatten( QgsAttributeEditorContainer *container, QS
         item->setData( true, AttributeFormModel::ConstraintSoftValid );
         item->setData( mFeatureModel->data( mFeatureModel->index( fieldIndex ), FeatureModel::AttributeAllowEdit ), AttributeFormModel::AttributeAllowEdit );
         if ( color.isValid() )
-          item->setData( color, AttributeFormModel::Color );
+          item->setData( color, AttributeFormModel::FieldColor );
 
         // create constraint description
         QStringList descriptions;
