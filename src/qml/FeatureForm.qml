@@ -266,7 +266,7 @@ Page {
 
         // Configured color of the container
         Rectangle {
-            color: Color ? Color : 'transparent'
+            color: FieldColor ? FieldColor : "transparent"
             width: 8
             height: parent.height
             anchors.left: parent.left
