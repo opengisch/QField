@@ -177,7 +177,8 @@ Rectangle {
     anchors.top: parent.top
     anchors.topMargin: toolBar.topMargin
 
-    width: ( parent.state == "Navigation" ? 48: 0 )
+    visible: parent.state == "Navigation"
+    width: visible ? 48 : 0
     height: 48
     clip: true
 
@@ -208,7 +209,8 @@ Rectangle {
     anchors.top: parent.top
     anchors.topMargin: toolBar.topMargin
 
-    width: parent.state != "Edit" && !toolBar.multiSelection ? 48: 0
+    visible: parent.state != "Edit" && !toolBar.multiSelection
+    width: visible ? 48 : 0
     height: 48
     clip: true
 
@@ -241,10 +243,10 @@ Rectangle {
     anchors.top: parent.top
     anchors.topMargin: toolBar.topMargin
 
-    width: ( parent.state == "Edit" ? 48: 0 )
+    visible: parent.state == "Edit"
+    width: visible ? 48 : 0
     height: 48
     clip: true
-    visible: true
 
     iconSource: Theme.getThemeIcon( "ic_check_white_48dp" )
     opacity: featureFormList.model.constraintsHardValid ? 1.0 : 0.3
@@ -264,13 +266,13 @@ Rectangle {
 
   QfToolButton {
     id: cancelButton
-    visible: !qfieldSettings.autoSave
 
     anchors.right: parent.right
     anchors.top: parent.top
     anchors.topMargin: toolBar.topMargin
 
-    width: ( parent.state == "Edit" ? 48: 0 )
+    visible: !qfieldSettings.autoSave && parent.state == "Edit"
+    width: visible ? 48: 0
     height: 48
     clip: true
 
@@ -296,6 +298,7 @@ Rectangle {
              && ! selection.focusedGeometry.isNull
              && ! selection.focusedLayer.customProperty( "QFieldSync/is_geometry_locked", false )
              && ( projectInfo.editRights || editButton.isCreatedCloudFeature )
+             && parent.state == "Navigation" && !readOnly && projectInfo.editRights
 
     anchors.right: editButton.left
     anchors.top: parent.top
@@ -303,7 +306,7 @@ Rectangle {
 
     iconSource: Theme.getThemeIcon( "ic_edit_geometry_white" )
 
-    width: ( parent.state == "Navigation" && !readOnly && projectInfo.editRights ? 48: 0 )
+    width: visible ? 48 : 0
     height: 48
     clip: true
 
@@ -337,7 +340,8 @@ Rectangle {
     anchors.top: parent.top
     anchors.topMargin: toolBar.topMargin
 
-    width: ( parent.state == "Navigation" && supportsEditing && ( projectInfo.editRights || isCreatedCloudFeature ) ? 48: 0 )
+    visible: parent.state == "Navigation" && supportsEditing && ( projectInfo.editRights || isCreatedCloudFeature )
+    width: visible ? 48 : 0
     height: 48
     clip: true
 
@@ -404,7 +408,8 @@ Rectangle {
     anchors.top: parent.top
     anchors.topMargin: toolBar.topMargin
 
-    width: ( parent.state == "Indication" && toolBar.multiSelection && toolBar.model ? 48: 0 )
+    visible: parent.state == "Indication" && toolBar.multiSelection && toolBar.model
+    width: visible ? 48 : 0
     height: 48
     clip: true
 
@@ -447,11 +452,10 @@ Rectangle {
     anchors.top: parent.top
     anchors.topMargin: toolBar.topMargin
 
-    width: parent.state == "Indication"
-           && toolBar.model && toolBar.model.canEditAttributesSelection && toolBar.model.selectedCount > 1
-           && projectInfo.editRights
-           ? 48
-           : 0
+    visible: parent.state == "Indication"
+             && toolBar.model && toolBar.model.canEditAttributesSelection && toolBar.model.selectedCount > 1
+             && projectInfo.editRights
+    width: visible ? 48 : 0
     height: 48
     clip: true
 
