@@ -14,12 +14,16 @@ if(CMAKE_SYSTEM_NAME STREQUAL "Darwin")
 endif()
 
 # lrelease .ts files
-find_package(Qt5 COMPONENTS LinguistTools)
+find_package(${QT_PKG} COMPONENTS LinguistTools)
 
 file(GLOB TS_FILES ${CMAKE_SOURCE_DIR}/i18n/*.ts)
 set_source_files_properties(${TS_FILES} PROPERTIES OUTPUT_LOCATION
                                                    "${CMAKE_BINARY_DIR}")
-qt5_add_translation(QM_FILES ${TS_FILES})
+if(BUILD_WITH_QT6)
+  qt_add_translation(QM_FILES ${TS_FILES})
+else()
+  qt5_add_translation(QM_FILES ${TS_FILES})
+endif()
 
 # include manually copied .qm files
 file(GLOB QM_FILES_MANUAL ${CMAKE_SOURCE_DIR}/i18n/*.qm)
@@ -79,7 +83,11 @@ function(create_executable)
     qt_import_qml_plugins(${exe_TARGET} PATH_TO_SCAN
                           "${CMAKE_CURRENT_BINARY_DIR}/qmldrop/app")
   endif()
-  qt5_import_plugins(${exe_TARGET} INCLUDE Qt5::QSvgPlugin)
+  if(BUILD_WITH_QT6)
+    qt_import_plugins(${exe_TARGET} INCLUDE ${QT_PKG}::QSvgPlugin)
+  else()
+    qt5_import_plugins(${exe_TARGET} INCLUDE ${QT_PKG}::QSvgPlugin)
+  endif()
 
   set_target_properties(${exe_TARGET} PROPERTIES AUTORCC TRUE)
   if(CMAKE_SYSTEM_NAME STREQUAL "Darwin")
