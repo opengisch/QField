@@ -8,7 +8,11 @@ if(${QT_PKG}QuickCompiler_FOUND
   qtquick_compiler_add_resources(QML_SOURCES
                                  ${CMAKE_CURRENT_SOURCE_DIR}/qml.qrc)
 else()
-  qt5_add_resources(QML_SOURCES ${CMAKE_CURRENT_SOURCE_DIR}/qml.qrc)
+  if(BUILD_WITH_QT6)
+    qt_add_resources(QML_SOURCES ${CMAKE_CURRENT_SOURCE_DIR}/qml.qrc)
+  else()
+    qt5_add_resources(QML_SOURCES ${CMAKE_CURRENT_SOURCE_DIR}/qml.qrc)
+  endif()
 endif()
 
 add_library(qfield_qml STATIC ${QML_SOURCES})
