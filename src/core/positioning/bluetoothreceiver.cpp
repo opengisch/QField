@@ -168,14 +168,14 @@ void BluetoothReceiver::repairDevice( const QBluetoothAddress &address )
   }
 }
 
+#if QT_VERSION < QT_VERSION_CHECK( 6, 0, 0 )
 void BluetoothReceiver::confirmPairing( const QBluetoothAddress &address, QString pin )
 {
   Q_UNUSED( address );
   Q_UNUSED( pin );
-#if QT_VERSION < QT_VERSION_CHECK( 6, 0, 0 )
   mLocalDevice->pairingConfirmation( true );
-#endif
 }
+#endif
 
 void BluetoothReceiver::pairingFinished( const QBluetoothAddress &address, QBluetoothLocalDevice::Pairing status )
 {
