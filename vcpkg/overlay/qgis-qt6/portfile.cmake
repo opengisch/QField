@@ -360,7 +360,5 @@ file(REMOVE_RECURSE # Added for debug porpose
     ${CURRENT_PACKAGES_DIR}/debug/share
 )
 
-configure_file("${CMAKE_CURRENT_LIST_DIR}/vcpkg-cmake-wrapper.cmake" "${CURRENT_PACKAGES_DIR}/share/qgis/vcpkg-cmake-wrapper.cmake" @ONLY)
-
 # Handle copyright
 file(INSTALL ${SOURCE_PATH}/COPYING DESTINATION ${CURRENT_PACKAGES_DIR}/share/${PORT} RENAME copyright)

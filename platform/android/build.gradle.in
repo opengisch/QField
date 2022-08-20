@@ -13,7 +13,7 @@ buildscript {
     }
 
     dependencies {
-        classpath 'com.android.tools.build:gradle:3.5.4'
+        classpath 'com.android.tools.build:gradle:4.2.0'
     }
 }
 
@@ -89,6 +89,8 @@ android {
     }
 
     defaultConfig {
+      minSdkVersion @ANDROID_PLATFORM@
+      targetSdkVersion @ANDROID_TARGET_PLATFORM@
       ndk {
         abiFilters "@ANDROID_ABI@"
       }
