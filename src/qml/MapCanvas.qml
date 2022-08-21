@@ -93,8 +93,12 @@ Item {
       acceptedButtons: Qt.LeftButton | Qt.RightButton
       property bool longPressActive: false
 
-      onSingleTapped: {
-        if (eventPoint.event.button == Qt.RightButton)
+      onSingleTapped: (eventPoint, button) => {
+        if (button === undefined) {
+          button = eventPoint.event.button
+        }
+
+        if (button === Qt.RightButton)
         {
           mapArea.rightClicked(point.position, "stylus")
         } else {
@@ -131,8 +135,12 @@ Item {
             }
         }
 
-        onSingleTapped: {
-            if( eventPoint.event.button === Qt.RightButton)
+        onSingleTapped: (eventPoint, button) => {
+            if (button === undefined) {
+              button = eventPoint.event.button
+            }
+
+            if (button === Qt.RightButton)
             {
               mapArea.rightClicked(point.position, "touch")
             }
@@ -294,8 +302,8 @@ Item {
         target: null
         grabPermissions: PointerHandler.CanTakeOverFromHandlersOfDifferentType | PointerHandler.ApprovesTakeOverByItems
 
-        onWheel: {
-            if ( event.angleDelta.y > 0 )
+        onWheel: (event) => {
+            if (event.angleDelta.y > 0)
             {
                 zoomIn(point.position)
             }

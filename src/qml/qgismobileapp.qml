@@ -358,7 +358,7 @@ ApplicationWindow {
 
       anchors.fill: parent
 
-      onClicked:  {
+      onClicked: (point, type) => {
           if (featureForm.state == "FeatureFormEdit") {
               featureForm.requestCancel();
               return;
@@ -390,14 +390,14 @@ ApplicationWindow {
           }
       }
 
-      onConfirmedClicked: {
+      onConfirmedClicked: (point) => {
           if (!featureForm.canvasOperationRequested && !overlayFeatureFormDrawer.visible && featureForm.state != "FeatureFormEdit")
           {
               identifyTool.identify(point)
           }
       }
 
-      onLongPressed: {
+      onLongPressed: (point, type) => {
         if ( type === "stylus" ) {
           if (geometryEditorsToolbar.canvasLongPressed(point)) {
             // for instance, the vertex editor will select a vertex if possible
@@ -426,12 +426,12 @@ ApplicationWindow {
         }
       }
 
-      onRightClicked: {
+      onRightClicked: (point, type) => {
         canvasMenu.point = mapCanvas.mapSettings.screenToCoordinate(point)
         canvasMenu.popup(point.x, point.y)
       }
 
-      onLongPressReleased: {
+      onLongPressReleased: (type) => {
         if ( type === "stylus" ) {
           // The user has released the long press. We can re-enable the default close behavior for the feature form.
           // The next press will be intentional to close the form.
