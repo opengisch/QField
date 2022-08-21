@@ -1,0 +1,6 @@
+<RCC>
+    <qresource prefix="/qml">
+        <file>imports/Theme/+Qt6/QfDropShadow.qml</file>
+        <file>imports/Theme/+Qt6/QfOpacityMask.qml</file>
+    </qresource>
+</RCC>

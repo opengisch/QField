@@ -1,6 +1,5 @@
 import QtQuick 2.14
 import QtQuick.Controls 2.14
-import QtGraphicalEffects 1.14
 import QtQuick.Window 2.14
 import QtMultimedia 5.14
 
@@ -235,13 +234,12 @@ EditorWidgetBase {
               sourceSize.height: 24 * Screen.devicePixelRatio
           }
 
-          DropShadow {
+          QfDropShadow {
               anchors.fill: geoTagBadge
               visible: geoTagBadge.visible
               horizontalOffset: 0
               verticalOffset: 0
               radius: 6.0
-              samples: 17
               color: "#DD000000"
               source: geoTagBadge
           }

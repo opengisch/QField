@@ -5,13 +5,22 @@ file(GLOB_RECURSE QML_SOURCES "${CMAKE_CURRENT_SOURCE_DIR}/*.qml")
 if(${QT_PKG}QuickCompiler_FOUND
    AND NOT CMAKE_BUILD_TYPE MATCHES Debug
    AND NOT CMAKE_BUILD_TYPE MATCHES RelWithDebInfo)
-  qtquick_compiler_add_resources(QML_SOURCES
-                                 ${CMAKE_CURRENT_SOURCE_DIR}/qml.qrc)
+  if(BUILD_WITH_QT6)
+    qtquick_compiler_add_resources(
+      QML_SOURCES ${CMAKE_CURRENT_SOURCE_DIR}/qml.qrc
+      ${CMAKE_CURRENT_SOURCE_DIR}/qmlqt6.qrc)
+  else()
+    qtquick_compiler_add_resources(
+      QML_SOURCES ${CMAKE_CURRENT_SOURCE_DIR}/qml.qrc
+      ${CMAKE_CURRENT_SOURCE_DIR}/qmlqt5.qrc)
+  endif()
 else()
   if(BUILD_WITH_QT6)
     qt_add_resources(QML_SOURCES ${CMAKE_CURRENT_SOURCE_DIR}/qml.qrc)
+    qt_add_resources(QML_SOURCES ${CMAKE_CURRENT_SOURCE_DIR}/qmlqt6.qrc)
   else()
     qt5_add_resources(QML_SOURCES ${CMAKE_CURRENT_SOURCE_DIR}/qml.qrc)
+    qt5_add_resources(QML_SOURCES ${CMAKE_CURRENT_SOURCE_DIR}/qmlqt5.qrc)
   endif()
 endif()
 

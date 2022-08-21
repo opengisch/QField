@@ -18,9 +18,7 @@
 import QtQuick 2.14
 import QtQuick.Controls 2.14
 import QtQuick.Window 2.14
-import QtGraphicalEffects 1.14
 import QtQml 2.14
-
 import Qt.labs.settings 1.0 as LabSettings
 
 import org.qgis 1.0
@@ -690,12 +688,11 @@ ApplicationWindow {
     }
   }
 
-  DropShadow {
+  QfDropShadow {
     anchors.fill: informationView
     visible: informationView.visible
     verticalOffset: -2
     radius: 6.0
-    samples: 17
     color: "#30000000"
     source: informationView
   }
@@ -810,12 +807,11 @@ ApplicationWindow {
     anchors.margins: 10
   }
 
-  DropShadow {
+  QfDropShadow {
     anchors.fill: featureForm
     horizontalOffset: mainWindow.width >= mainWindow.height ? -2: 0
     verticalOffset: mainWindow.width < mainWindow.height ? -2: 0
     radius: 6.0
-    samples: 17
     color: "#80000000"
     source: featureForm
   }
@@ -928,12 +924,11 @@ ApplicationWindow {
       parent: ApplicationWindow.overlay
   }
 
-  DropShadow {
+  QfDropShadow {
     anchors.fill: locatorItem
     visible: locatorItem.searchFieldVisible
     verticalOffset: 2
     radius: 10
-    samples: 17
     color: "#66212121"
     source: locatorItem
   }

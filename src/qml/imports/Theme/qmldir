@@ -5,3 +5,5 @@ QfButton 1.0 QfButton.qml
 QfToolButton 1.0 QfToolButton.qml
 QfTextField 1.0 QfTextField.qml
 QfCollapsibleMessage 1.0 QfCollapsibleMessage.qml
+QfDropShadow 1.0 QfDropShadow.qml
+QfOpacityMask 1.0 QfOpacityMask.qml

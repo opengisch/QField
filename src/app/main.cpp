@@ -74,6 +74,11 @@ int main( int argc, char **argv )
 #endif
 
   Q_INIT_RESOURCE( qml );
+#if QT_VERSION >= QT_VERSION_CHECK( 6, 0, 0 )
+  Q_INIT_RESOURCE( qmlqt6 );
+#else
+  Q_INIT_RESOURCE( qmlqt5 );
+#endif
 
   QtWebView::initialize();
 
