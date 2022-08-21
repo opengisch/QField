@@ -121,7 +121,7 @@ Drawer {
       digitizingToolbar.digitizingLogger.clearCoordinates();
     }
 
-    Keys.onReleased: {
+    Keys.onReleased: (event) => {
       if (event.key === Qt.Key_Back || event.key === Qt.Key_Escape) {
         if( overlayFeatureForm.model.constraintsHardValid || qfieldSettings.autoSave ) {
           overlayFeatureFormDrawer.close()
