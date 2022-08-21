@@ -114,7 +114,7 @@ if (ANDROID)
   endif()
 endif()
 
-set(QT_MIN_VERSION 5.14.0)
+set(QT_MIN_VERSION 5.15.2)
 find_package(${QT_PKG} COMPONENTS Concurrent Core Qml Gui Xml Positioning Widgets Network Quick Svg OpenGL Sql Sensors WebView Multimedia REQUIRED)
 
 # PrintSupport isn't required, because it doesn't exist for ios
