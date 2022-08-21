@@ -90,7 +90,7 @@ ApplicationWindow {
 
     property int previousVisibilityState: Window.Windowed
 
-    Keys.onReleased: {
+    Keys.onReleased: (event) => {
       if ( event.key === Qt.Key_Back || event.key === Qt.Key_Escape ) {
         if ( featureForm.visible ) {
             featureForm.hide();
@@ -900,7 +900,7 @@ ApplicationWindow {
 
     visible: stateMachine.state !== 'measure'
 
-    Keys.onReleased: {
+    Keys.onReleased: (event) => {
       if (event.key === Qt.Key_Back || event.key === Qt.Key_Escape) {
         event.accepted = true
         state = "off"
@@ -2593,7 +2593,7 @@ ApplicationWindow {
       visible = false
     }
 
-    Keys.onReleased: {
+    Keys.onReleased: (event) => {
       if (event.key === Qt.Key_Back || event.key === Qt.Key_Escape) {
         event.accepted = true
         visible = false
@@ -2747,7 +2747,7 @@ ApplicationWindow {
 
     visible: false
 
-    Keys.onReleased: {
+    Keys.onReleased: (event) => {
       if (event.key === Qt.Key_Back || event.key === Qt.Key_Escape) {
         event.accepted = true
         visible = false
@@ -2768,7 +2768,7 @@ ApplicationWindow {
       visible = false
     }
 
-    Keys.onReleased: {
+    Keys.onReleased: (event) => {
       if (event.key === Qt.Key_Back || event.key === Qt.Key_Escape) {
         event.accepted = true
         finished()
@@ -2912,7 +2912,7 @@ ApplicationWindow {
       qfieldCloudScreen.visible = true
     }
 
-    Keys.onReleased: {
+    Keys.onReleased: (event) => {
       if (event.key === Qt.Key_Back || event.key === Qt.Key_Escape) {
         if ( qgisProject.fileName != '') {
           event.accepted = true
@@ -3060,7 +3060,7 @@ ApplicationWindow {
   DropArea {
     id: dropArea
     anchors.fill: parent
-    onEntered: {
+    onEntered: (drag) => {
       if ( drag.urls.length !== 1 || !iface.isFileExtensionSupported( drag.urls[0] ) ) {
           drag.accepted = false
       }
@@ -3069,14 +3069,14 @@ ApplicationWindow {
         drag.accepted = true
       }
     }
-    onDropped: {
+    onDropped: (drop) => {
       iface.loadFile( drop.urls[0] )
     }
   }
 
   property bool alreadyCloseRequested: false
 
-  onClosing: {
+  onClosing: (close) => {
       if( !alreadyCloseRequested )
       {
         close.accepted = false
