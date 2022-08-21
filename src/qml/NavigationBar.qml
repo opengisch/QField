@@ -759,8 +759,8 @@ Rectangle {
             atlasMenu.printTimer.restart();
         }
       }
-      onObjectAdded: atlasMenu.insertItem(index+1, object)
-      onObjectRemoved: atlasMenu.removeItem(object)
+      onObjectAdded: (index, object) => { atlasMenu.insertItem(index+1, object) }
+      onObjectRemoved: (index, object) => { atlasMenu.removeItem(object) }
     }
 
     Timer {

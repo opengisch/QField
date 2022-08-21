@@ -1837,8 +1837,8 @@ ApplicationWindow {
             printMenu.printTimer.restart();
         }
       }
-      onObjectAdded: printMenu.insertItem(index+1, object)
-      onObjectRemoved: printMenu.removeItem(object)
+      onObjectAdded: (index, object) => { printMenu.insertItem(index+1, object) }
+      onObjectRemoved: (index, object) => { printMenu.removeItem(object) }
     }
 
     Timer {
