@@ -2,7 +2,6 @@ import QtQuick 2.14
 import QtQuick.Controls 2.14
 import QtQuick.Controls.Material 2.14
 import QtQuick.Controls.Material.impl 2.14
-import QtGraphicalEffects 1.14
 
 import Theme 1.0
 
@@ -55,7 +54,7 @@ RoundButton {
       color: bgcolor == "#ffffff" || bgcolor == "#00000000" ? "#10000000" : "#22ffffff"
 
       layer.enabled: true
-      layer.effect: OpacityMask {
+      layer.effect: QfOpacityMask {
         maskSource: Rectangle
         {
           width: ripple.width

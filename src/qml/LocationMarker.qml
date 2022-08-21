@@ -1,11 +1,12 @@
 import QtQuick 2.14
 import QtQuick.Shapes 1.14
 import QtQuick.Window 2.14
-import QtGraphicalEffects 1.14
 import QtSensors 5.14
 
 import org.qgis 1.0
 import Theme 1.0
+
+import "."
 
 Item {
   id: item
@@ -130,10 +131,9 @@ Item {
 
     layer.enabled: true
     layer.samples: 4
-    layer.effect: DropShadow {
+    layer.effect: QfDropShadow {
         transparentBorder: true
         radius: 8
-        samples: 25
         color: "#99000000"
         horizontalOffset: 0
         verticalOffset: 0
@@ -164,10 +164,9 @@ Item {
 
     layer.enabled: true
     layer.samples: 4
-    layer.effect: DropShadow {
+    layer.effect: QfDropShadow {
         transparentBorder: true
         radius: 8
-        samples: 25
         color: "#99000000"
         horizontalOffset: 0
         verticalOffset: 0
@@ -210,10 +209,9 @@ Item {
 
     layer.enabled: true
     layer.samples: 4
-    layer.effect: DropShadow {
+    layer.effect: QfDropShadow {
         transparentBorder: true
         radius: 8
-        samples: 25
         color: "#99000000"
         horizontalOffset: 0
         verticalOffset: 0
