@@ -256,13 +256,21 @@
     </activity>
 
     <!-- Activity to get picture with the native camera -->
-    <activity android:name="ch.opengis.@APP_PACKAGE_NAME@.QFieldCameraPictureActivity" android:configChanges="orientation|screenSize|screenLayout|keyboardHidden" />
+    <activity
+      android:name="ch.opengis.@APP_PACKAGE_NAME@.QFieldCameraPictureActivity"
+      android:configChanges="orientation|screenSize|screenLayout|keyboardHidden"
+      android:launchMode="singleTask" />
 
     <!-- Activity to get picture from the gallery -->
-    <activity android:name="ch.opengis.@APP_PACKAGE_NAME@.QFieldGalleryPictureActivity" android:configChanges="orientation|screenSize|screenLayout|keyboardHidden" />
+    <activity
+      android:name="ch.opengis.@APP_PACKAGE_NAME@.QFieldGalleryPictureActivity"
+      android:configChanges="orientation|screenSize|screenLayout|keyboardHidden"
+      android:launchMode="singleTask" />
 
     <!-- Activity to open file externally -->
-    <activity android:name="ch.opengis.@APP_PACKAGE_NAME@.QFieldOpenExternallyActivity" />
+    <activity
+      android:name="ch.opengis.@APP_PACKAGE_NAME@.QFieldOpenExternallyActivity"
+      android:launchMode="singleTask" />
 
     <provider
         android:name="androidx.core.content.FileProvider"
