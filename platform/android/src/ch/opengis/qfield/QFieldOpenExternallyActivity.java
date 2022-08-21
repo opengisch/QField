@@ -28,7 +28,7 @@ public class QFieldOpenExternallyActivity extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        Log.d(TAG, "onCreate()");
+        Log.w(TAG, "onCreate()");
         super.onCreate(savedInstanceState);
 
         String filePath = getIntent().getExtras().getString("filepath");
@@ -37,7 +37,7 @@ public class QFieldOpenExternallyActivity extends Activity {
                         .getExtras()
                         .getString("fileediting")
                         .compareTo("true") == 0;
-        Log.d(TAG,
+        Log.w(TAG,
               "Received filepath: " + filePath + " and mimeType: " + mimeType);
 
         file = new File(filePath);
@@ -47,7 +47,7 @@ public class QFieldOpenExternallyActivity extends Activity {
         try {
             copyFile(file, cacheFile);
         } catch (IOException e) {
-            Log.d(TAG, e.getMessage());
+            Log.w(TAG, e.getMessage());
             finish();
         }
 
@@ -58,8 +58,8 @@ public class QFieldOpenExternallyActivity extends Activity {
                       this, BuildConfig.APPLICATION_ID + ".fileprovider",
                       cacheFile);
 
-        Log.d(TAG, "content URI: " + contentUri);
-        Log.d(TAG, isEditing ? "call ACTION_EDIT intent"
+        Log.w(TAG, "content URI: " + contentUri);
+        Log.w(TAG, isEditing ? "call ACTION_EDIT intent"
                              : "call ACTION_VIEW intent");
         Intent intent =
             new Intent(isEditing ? Intent.ACTION_EDIT : Intent.ACTION_VIEW);
@@ -79,10 +79,10 @@ public class QFieldOpenExternallyActivity extends Activity {
         try {
             startActivityForResult(intent, 102);
         } catch (IllegalArgumentException e) {
-            Log.d(TAG, e.getMessage());
+            Log.w(TAG, e.getMessage());
             errorMessage = e.getMessage();
         } catch (Exception e) {
-            Log.d(TAG, e.getMessage());
+            Log.w(TAG, e.getMessage());
             errorMessage = e.getMessage();
         }
     }
@@ -95,7 +95,7 @@ public class QFieldOpenExternallyActivity extends Activity {
         if (resultCode == RESULT_OK) {
             try {
                 if (isEditing) {
-                    Log.d(TAG, "Copy file back from uri " +
+                    Log.w(TAG, "Copy file back from uri " +
                                    data.getDataString() +
                                    " to file: " + file.getAbsolutePath());
                     InputStream in =
@@ -130,7 +130,7 @@ public class QFieldOpenExternallyActivity extends Activity {
     }
 
     private void copyFile(File src, File dst) throws IOException {
-        Log.d(TAG, "Copy file: " + src.getAbsolutePath() +
+        Log.w(TAG, "Copy file: " + src.getAbsolutePath() +
                        " to file: " + dst.getAbsolutePath());
         try (InputStream in = new FileInputStream(src)) {
             try (OutputStream out = new FileOutputStream(dst)) {

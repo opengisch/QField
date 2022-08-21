@@ -30,19 +30,19 @@ public class QFieldGalleryPictureActivity extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        Log.d(TAG, "onCreate()");
+        Log.w(TAG, "onCreate()");
         super.onCreate(savedInstanceState);
 
         Intent intent = getIntent();
         if (!intent.hasExtra("prefix") || !intent.hasExtra("pictureFilePath")) {
-            Log.d(TAG, "QFieldGalleryPictureActivity missing extras");
+            Log.w(TAG, "QFieldGalleryPictureActivity missing extras");
             finish();
             return;
         }
 
         prefix = intent.getExtras().getString("prefix");
         pictureFilePath = intent.getExtras().getString("pictureFilePath");
-        Log.d(TAG, "Received prefix: " + prefix +
+        Log.w(TAG, "Received prefix: " + prefix +
                        " and pictureFilePath: " + pictureFilePath);
 
         callGalleryIntent();
@@ -51,7 +51,7 @@ public class QFieldGalleryPictureActivity extends Activity {
     }
 
     private void callGalleryIntent() {
-        Log.d(TAG, "callGalleryIntent()");
+        Log.w(TAG, "callGalleryIntent()");
         Intent intent = new Intent();
         intent.setType("image/jpeg");
         intent.setAction(Intent.ACTION_GET_CONTENT);
@@ -61,8 +61,8 @@ public class QFieldGalleryPictureActivity extends Activity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode,
                                     Intent data) {
-        Log.d(TAG, "onActivityResult()");
-        Log.d(TAG, "resultCode: " + resultCode);
+        Log.w(TAG, "onActivityResult()");
+        Log.w(TAG, "resultCode: " + resultCode);
 
         if (requestCode == GALLERY_ACTIVITY) {
             if (resultCode == RESULT_OK) {
@@ -73,7 +73,7 @@ public class QFieldGalleryPictureActivity extends Activity {
                 path.setReadable(true);
                 path.setWritable(true);
 
-                Log.d(TAG, "Selected picture: " + data.getData().toString());
+                Log.w(TAG, "Selected picture: " + data.getData().toString());
                 try {
                     Uri uri = data.getData();
                     DocumentFile documentFile = DocumentFile.fromSingleUri(
@@ -82,7 +82,7 @@ public class QFieldGalleryPictureActivity extends Activity {
                     QFieldUtils.inputStreamToFile(in, result.getPath(),
                                                   documentFile.length());
                 } catch (Exception e) {
-                    Log.d(TAG, e.getMessage());
+                    Log.w(TAG, e.getMessage());
                 }
 
                 // Let the android scan new media folders/files to make them

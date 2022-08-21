@@ -32,13 +32,13 @@ public class QFieldCameraPictureActivity extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        Log.d(TAG, "onCreate()");
+        Log.w(TAG, "onCreate()");
         super.onCreate(savedInstanceState);
 
         Intent intent = getIntent();
         if (!intent.hasExtra("prefix") || !intent.hasExtra("suffix") ||
             !intent.hasExtra("pictureFilePath")) {
-            Log.d(TAG, "QFieldCameraPictureActivity missing extras");
+            Log.w(TAG, "QFieldCameraPictureActivity missing extras");
             finish();
             return;
         }
@@ -46,13 +46,13 @@ public class QFieldCameraPictureActivity extends Activity {
         prefix = intent.getExtras().getString("prefix");
         pictureFilePath = intent.getExtras().getString("pictureFilePath");
         suffix = intent.getExtras().getString("suffix");
-        Log.d(TAG, "Received prefix: " + prefix + " and pictureFilePath: " +
+        Log.w(TAG, "Received prefix: " + prefix + " and pictureFilePath: " +
                        pictureFilePath + "and suffix: " + suffix);
 
         String timeStamp =
             new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
         pictureTempFileName = "QFieldPicture" + timeStamp;
-        Log.d(TAG, "Created pictureTempFileName: " + pictureTempFileName);
+        Log.w(TAG, "Created pictureTempFileName: " + pictureTempFileName);
 
         callCameraIntent();
 
@@ -60,10 +60,10 @@ public class QFieldCameraPictureActivity extends Activity {
     }
 
     private void callCameraIntent() {
-        Log.d(TAG, "callCameraIntent()");
+        Log.w(TAG, "callCameraIntent()");
         Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
         if (takePictureIntent.resolveActivity(getPackageManager()) != null) {
-            Log.d(TAG, "intent resolved");
+            Log.w(TAG, "intent resolved");
             File storageDir =
                 getExternalFilesDir(Environment.DIRECTORY_PICTURES);
             try {
@@ -71,9 +71,9 @@ public class QFieldCameraPictureActivity extends Activity {
                                                        suffix, storageDir);
 
                 if (pictureFile != null) {
-                    Log.d(TAG, "picture file created");
+                    Log.w(TAG, "picture file created");
                     if (pictureFile.exists()) {
-                        Log.d(TAG, "picture file exists");
+                        Log.w(TAG, "picture file exists");
                     }
 
                     pictureTempFilePath = pictureFile.getAbsolutePath();
@@ -81,24 +81,24 @@ public class QFieldCameraPictureActivity extends Activity {
                     Uri photoURI = FileProvider.getUriForFile(
                         this, "ch.opengis.qfield.fileprovider", pictureFile);
 
-                    Log.d(TAG, "uri: " + photoURI.toString());
+                    Log.w(TAG, "uri: " + photoURI.toString());
                     takePictureIntent.putExtra(MediaStore.EXTRA_OUTPUT,
                                                photoURI);
                     startActivityForResult(takePictureIntent, CAMERA_ACTIVITY);
                 }
             } catch (IOException e) {
-                Log.d(TAG, e.getMessage());
+                Log.w(TAG, e.getMessage());
             }
         } else {
-            Log.d(TAG, "Could not resolve intent...");
+            Log.w(TAG, "Could not resolve intent...");
         }
     }
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode,
                                     Intent data) {
-        Log.d(TAG, "onActivityResult()");
-        Log.d(TAG, "resultCode: " + resultCode);
+        Log.w(TAG, "onActivityResult()");
+        Log.w(TAG, "resultCode: " + resultCode);
 
         if (requestCode == CAMERA_ACTIVITY) {
             if (resultCode == RESULT_OK) {
@@ -110,7 +110,7 @@ public class QFieldCameraPictureActivity extends Activity {
                 path.setWritable(true);
 
                 File pictureFile = new File(pictureTempFilePath);
-                Log.d(TAG, "Taken picture: " + pictureFile.getAbsolutePath());
+                Log.w(TAG, "Taken picture: " + pictureFile.getAbsolutePath());
                 try {
                     InputStream in = new FileInputStream(pictureFile);
                     QFieldUtils.inputStreamToFile(in, result.getPath(),

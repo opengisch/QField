@@ -927,7 +927,7 @@ public class QFieldActivity extends QtActivity {
                                     Intent data) {
         if (requestCode == R.id.import_dataset &&
             resultCode == Activity.RESULT_OK) {
-            Log.d("QField", "handling import dataset(s)");
+            Log.w("QField", "handling import dataset(s)");
             File externalFilesDir = getExternalFilesDir(null);
             if (externalFilesDir == null || data == null) {
                 return;
@@ -993,7 +993,7 @@ public class QFieldActivity extends QtActivity {
             }
         } else if (requestCode == R.id.import_project_folder &&
                    resultCode == Activity.RESULT_OK) {
-            Log.d("QField", "handling import project folder");
+            Log.w("QField", "handling import project folder");
             File externalFilesDir = getExternalFilesDir(null);
             if (externalFilesDir == null || data == null) {
                 return;
@@ -1033,7 +1033,7 @@ public class QFieldActivity extends QtActivity {
             }
         } else if (requestCode == R.id.import_project_archive &&
                    resultCode == Activity.RESULT_OK) {
-            Log.d("QField", "handling import project archive");
+            Log.w("QField", "handling import project archive");
             File externalFilesDir = getExternalFilesDir(null);
             if (externalFilesDir == null || data == null) {
                 return;
@@ -1082,7 +1082,7 @@ public class QFieldActivity extends QtActivity {
             }
         } else if (requestCode == R.id.export_to_folder &&
                    resultCode == Activity.RESULT_OK) {
-            Log.d("QField", "handling export to folder");
+            Log.w("QField", "handling export to folder");
 
             File file = new File(pathToExport);
             Uri uri = data.getData();
