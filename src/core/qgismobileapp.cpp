@@ -50,7 +50,9 @@
 #include "attributeformmodel.h"
 #include "badlayerhandler.h"
 #include "barcodedecoder.h"
+#if QT_VERSION < QT_VERSION_CHECK( 6, 0, 0 )
 #include "barcodevideofilter.h"
+#endif
 #ifdef WITH_BLUETOOTH
 #include "bluetoothdevicemodel.h"
 #include "bluetoothreceiver.h"
@@ -502,8 +504,9 @@ void QgisMobileapp::initDeclarative()
   qmlRegisterType<NavigationModel>( "org.qfield", 1, 0, "NavigationModel" );
   qmlRegisterType<Positioning>( "org.qfield", 1, 0, "Positioning" );
   qmlRegisterType<BarcodeDecoder>( "org.qfield", 1, 0, "BarcodeDecoder" );
+#if QT_VERSION < QT_VERSION_CHECK( 6, 0, 0 )
   qmlRegisterType<BarcodeVideoFilter>( "org.qfield", 1, 0, "BarcodeVideoFilter" );
-
+#endif
   qmlRegisterUncreatableType<QAbstractSocket>( "org.qfield", 1, 0, "QAbstractSocket", "" );
   qmlRegisterUncreatableType<AbstractGnssReceiver>( "org.qfield", 1, 0, "AbstractGnssReceiver", "" );
   qRegisterMetaType<GnssPositionInformation>( "GnssPositionInformation" );

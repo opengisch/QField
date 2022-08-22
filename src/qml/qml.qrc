@@ -2,13 +2,11 @@
     <qresource prefix="/qml">
         <file>About.qml</file>
         <file>BadLayerItem.qml</file>
-        <file>BarcodeReader.qml</file>
         <file>BluetoothDeviceChooser.qml</file>
         <file>BookmarkHighlight.qml</file>
         <file>BookmarkProperties.qml</file>
         <file>BookmarkRenderer.qml</file>
         <file>BrowserPanel.qml</file>
-        <file>CalendarPanel.qml</file>
         <file>ConfirmationToolbar.qml</file>
         <file>CoordinateLocator.qml</file>
         <file>DashBoard.qml</file>
@@ -72,6 +70,7 @@
         <file>imports/Theme/QfTextField.qml</file>
         <file>imports/Theme/QfCollapsibleMessage.qml</file>
         <file>imports/Theme/qmldir</file>
+        <file>imports/QFieldControls/qmldir</file>
         <file>PageHeader.qml</file>
         <file>Tracking.qml</file>
         <file>EmbeddedFeatureForm.qml</file>
