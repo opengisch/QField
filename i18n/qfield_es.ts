@@ -117,7 +117,7 @@
     <name>BluetoothDeviceChooser</name>
     <message>
         <source>Positioning device in use:</source>
-        <translation>Dispositivo de posicionamiento en uso:</translation>
+        <translation>Dispositivo de ubicación en uso:</translation>
     </message>
     <message>
         <source>Scanning for paired devices</source>
@@ -141,7 +141,7 @@
     </message>
     <message>
         <source>Scan</source>
-        <translation>Buscar</translation>
+        <translation>Escanear</translation>
     </message>
     <message>
         <source>Make a full service discovery</source>
@@ -381,7 +381,7 @@ Cancelar para hacer una búsqueda mínima de dispositivos en su lugar.</translat
     <name>DeltaListModel</name>
     <message>
         <source>Expected the json document to be an array of delta status</source>
-        <translation>Se esperaba que el documento json fuera una matriz de estado delta</translation>
+        <translation>Se esperaba que el documento json fuera un listado de estado delta</translation>
     </message>
     <message>
         <source>Expected all array elements to be an object, but the element at #%1 is not</source>
@@ -442,7 +442,7 @@ Cancelar para hacer una búsqueda mínima de dispositivos en su lugar.</translat
     <name>EditorWidgetBase</name>
     <message>
         <source>Item Menu</source>
-        <translation type="unfinished"/>
+        <translation>Menú Elemento</translation>
     </message>
 </context>
 <context>
@@ -456,11 +456,11 @@ Cancelar para hacer una búsqueda mínima de dispositivos en su lugar.</translat
     <name>ExternalResource</name>
     <message>
         <source>No Value</source>
-        <translation>Ningún valor</translation>
+        <translation>Sin valor</translation>
     </message>
     <message>
         <source>Cannot handle this file type</source>
-        <translation>No se puede manejar este tipo de archivos</translation>
+        <translation>No se puede resolver este tipo de archivos</translation>
     </message>
 </context>
 <context>
@@ -483,7 +483,7 @@ Cancelar para hacer una búsqueda mínima de dispositivos en su lugar.</translat
     </message>
     <message>
         <source>Note: soft constraints were not met</source>
-        <translation>Nota: no se cumplen las restricciones blandas</translation>
+        <translation>Nota: no se cumplen las restricciones suave</translation>
     </message>
     <message>
         <source>Unable to save changes</source>
@@ -507,7 +507,7 @@ Cancelar para hacer una búsqueda mínima de dispositivos en su lugar.</translat
     </message>
     <message>
         <source>You are about to dismiss the new feature, proceed?</source>
-        <translation>Está a punto de descartar la creación de una nueva entidad, ¿desea continuar?</translation>
+        <translation>Está a punto de descartar la creación de una nueva entidad, ¿Continuar?</translation>
     </message>
     <message>
         <source>You are about to leave editing state, any changes will be lost. Proceed?</source>
@@ -2459,15 +2459,15 @@ Cancelar para hacer una búsqueda mínima de dispositivos en su lugar.</translat
     <name>TextEdit</name>
     <message>
         <source>Copy Text</source>
-        <translation type="unfinished"/>
+        <translation>Copiar Texto</translation>
     </message>
     <message>
         <source>Paste Text</source>
-        <translation type="unfinished"/>
+        <translation>Pegar Texto</translation>
     </message>
     <message>
         <source>Scan Code</source>
-        <translation type="unfinished"/>
+        <translation>Escanear código</translation>
     </message>
 </context>
 <context>
