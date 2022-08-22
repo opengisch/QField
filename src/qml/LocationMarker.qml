@@ -42,7 +42,6 @@ Item {
     active: false
     returnGeoValues: false
 
-    Screen.orientationUpdateMask: Qt.PortraitOrientation | Qt.InvertedPortraitOrientation | Qt.LandscapeOrientation | Qt.InvertedLandscapeOrientation
     Screen.onOrientationChanged: {
         switch (Screen.orientation) {
           case Qt.LandscapeOrientation:
@@ -61,6 +60,12 @@ Item {
     onReadingChanged: {
       compassOrientation = userOrientation + (-(Math.atan2(reading.x, reading.y) / Math.PI) * 180)
       compassHasValue = true
+    }
+
+    Component.onCompleted: {
+      if (Screen.orientationUpdateMask) {
+        Screen.orientationUpdateMask = Qt.PortraitOrientation | Qt.InvertedPortraitOrientation | Qt.LandscapeOrientation | Qt.InvertedLandscapeOrientation
+      }
     }
   }
 

@@ -28,7 +28,6 @@ set(QFIELD_CORE_SRCS
     attributeformmodel.cpp
     attributeformmodelbase.cpp
     barcodedecoder.cpp
-    barcodevideofilter.cpp
     badlayerhandler.cpp
     bookmarkmodel.cpp
     changelogcontents.cpp
@@ -124,7 +123,6 @@ set(QFIELD_CORE_HDRS
     attributeformmodel.h
     attributeformmodelbase.h
     barcodedecoder.h
-    barcodevideofilter.h
     badlayerhandler.h
     bookmarkmodel.h
     changelogcontents.h
@@ -191,12 +189,18 @@ set(QFIELD_CORE_HDRS
     viewstatus.h
     ${CMAKE_CURRENT_BINARY_DIR}/qfield.h)
 
+if(NOT BUILD_WITH_QT6)
+  list(APPEND QFIELD_CORE_SRCS barcodevideofilter.cpp)
+  list(APPEND QFIELD_CORE_HDRS barcodevideofilter.h)
+endif()
+
 if(WITH_BLUETOOTH)
   list(APPEND QFIELD_CORE_SRCS positioning/bluetoothdevicemodel.cpp
        positioning/bluetoothreceiver.cpp)
   list(APPEND QFIELD_CORE_HDRS positioning/bluetoothdevicemodel.h
        positioning/bluetoothreceiver.h)
 endif()
+
 if(ANDROID)
   set(QFIELD_CORE_HDRS
       ${QFIELD_CORE_HDRS}
