@@ -16,6 +16,9 @@
 
 #include "internalgnssreceiver.h"
 
+#include <QGuiApplication>
+#include <qgsapplication.h>
+
 InternalGnssReceiver::InternalGnssReceiver( QObject *parent )
   : AbstractGnssReceiver( parent )
   , mGeoPositionSource( std::unique_ptr<QGeoPositionInfoSource>( QGeoPositionInfoSource::createDefaultSource( nullptr ) ) )
@@ -50,20 +53,60 @@ InternalGnssReceiver::InternalGnssReceiver( QObject *parent )
     connect( mGeoSatelliteSource.get(), qOverload<QGeoSatelliteInfoSource::Error>( &QGeoSatelliteInfoSource::errorOccurred ), this, &InternalGnssReceiver::handleSatelliteError );
 #endif
   }
+
+  connect( QgsApplication::instance(), &QGuiApplication::applicationStateChanged, this, &InternalGnssReceiver::onApplicationStateChanged );
+}
+
+void InternalGnssReceiver::onApplicationStateChanged( Qt::ApplicationState state )
+{
+#ifdef Q_OS_ANDROID
+  // Google Play policy only allows for background access if it's explicitly stated and justified
+  // Not stopping on Activity::onPause is detected as violation
+  switch ( state )
+  {
+    case Qt::ApplicationState::ApplicationActive:
+      if ( mActive )
+      {
+        mGeoPositionSource->startUpdates();
+        if ( mGeoSatelliteSource )
+          mGeoSatelliteSource->startUpdates();
+      }
+      break;
+    default:
+      if ( mActive )
+      {
+        mGeoPositionSource->stopUpdates();
+        if ( mGeoSatelliteSource )
+          mGeoSatelliteSource->stopUpdates();
+      }
+  }
+#else
+  Q_UNUSED( state )
+#endif
 }
 
 void InternalGnssReceiver::handleDisconnectDevice()
 {
-  mGeoPositionSource->stopUpdates();
+  if ( mGeoPositionSource )
+  {
+    mGeoPositionSource->stopUpdates();
+    mLastGnssPositionValid = false;
+    mActive = false;
+  }
   if ( mGeoSatelliteSource )
+  {
     mGeoSatelliteSource->stopUpdates();
-  mLastGnssPositionValid = false;
-  mSatelliteInformationValid = false;
+    mSatelliteInformationValid = false;
+  }
 }
 
 void InternalGnssReceiver::handleConnectDevice()
 {
-  mGeoPositionSource->startUpdates();
+  if ( mGeoPositionSource )
+  {
+    mGeoPositionSource->startUpdates();
+    mActive = true;
+  }
   if ( mGeoSatelliteSource )
     mGeoSatelliteSource->startUpdates();
 }
