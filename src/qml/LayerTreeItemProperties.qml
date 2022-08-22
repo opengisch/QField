@@ -227,7 +227,7 @@ Popup {
         Layout.topMargin: 5
         text: qsTr('Show features list')
         visible: showFeaturesListButtonVisible
-        icon.source: Theme.getThemeVectorIcon( 'list_24dp' )
+        icon.source: Theme.getThemeVectorIcon( 'ic_list_black_24dp' )
 
         onClicked: {
           if ( parseInt(layerTree.data(index, FlatLayerTreeModel.FeatureCount)) === 0 ) {
@@ -257,7 +257,7 @@ Popup {
         Layout.topMargin: 5
         text: qsTr('Show visible features list')
         visible: showVisibleFeaturesListButttonVisible
-        icon.source: Theme.getThemeVectorIcon( 'list_24dp' )
+        icon.source: Theme.getThemeVectorIcon( 'ic_list_visible_black_24dp' )
 
         onClicked: {
           if ( parseInt(layerTree.data(index, FlatLayerTreeModel.FeatureCount)) === 0 ) {
