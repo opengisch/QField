@@ -56,6 +56,11 @@ class ProjectInfo : public QObject
 
     FlatLayerTreeModel *layerTree() const;
 
+    /**
+     * Saves the \a layer style to the current project information settings
+     */
+    Q_INVOKABLE void saveLayerStyle( QgsMapLayer *layer );
+
   signals:
 
     void filePathChanged();

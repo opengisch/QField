@@ -16,6 +16,7 @@
 
 
 #include "projectinfo.h"
+#include "qgismobileapp.h"
 
 #include <QDateTime>
 #include <QFileInfo>
@@ -134,6 +135,36 @@ void ProjectInfo::saveTemporalState()
   }
 }
 
+void ProjectInfo::saveLayerStyle( QgsMapLayer *layer )
+{
+  if ( mFilePath.isEmpty() || !layer )
+    return;
+
+  QFileInfo fi( mFilePath );
+  if ( fi.exists() )
+  {
+    QgsMapLayerStyle style;
+    style.readFromLayer( layer );
+
+    // Prefix id with :: to avoid loss of slash on linux paths
+    QString id( QStringLiteral( "::" ) );
+    if ( QgsProject::instance()->readBoolEntry( QStringLiteral( "QField" ), QStringLiteral( "isDataset" ), false ) )
+    {
+      // For non-project datasets, the layer id is random, use the source URI
+      id += layer->source();
+    }
+    else
+    {
+      id += layer->id();
+    }
+
+    QSettings settings;
+    settings.beginGroup( QStringLiteral( "/qgis/projectInfo/%1/layerstyles" ).arg( mFilePath ) );
+    settings.setValue( id, style.xmlData() );
+    settings.endGroup();
+  }
+}
+
 void ProjectInfo::mapThemeChanged()
 {
   if ( mFilePath.isEmpty() || mLayerTree->mapTheme().isEmpty() )
@@ -144,6 +175,7 @@ void ProjectInfo::mapThemeChanged()
   {
     QSettings settings;
     settings.beginGroup( QStringLiteral( "/qgis/projectInfo/%1" ).arg( mFilePath ) );
+    settings.setValue( QStringLiteral( "filesize" ), fi.size() );
     settings.setValue( QStringLiteral( "maptheme" ), mLayerTree->mapTheme() );
     settings.endGroup();
   }

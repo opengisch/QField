@@ -747,6 +747,7 @@ void QgisMobileapp::readProjectFile()
   if ( SUPPORTED_PROJECT_EXTENSIONS.contains( suffix ) )
   {
     mProject->read( mProjectFilePath );
+    mProject->writeEntry( QStringLiteral( "QField" ), QStringLiteral( "isDataset" ), false );
     projectLoaded = true;
   }
   else if ( suffix == QStringLiteral( "gpkg" ) )
@@ -759,6 +760,7 @@ void QgisMobileapp::readProjectFile()
       {
         QgsGeoPackageProjectUri projectUri { true, mProjectFilePath, projectNames.at( 0 ) };
         mProject->read( QgsGeoPackageProjectStorage::encodeUri( projectUri ) );
+        mProject->writeEntry( QStringLiteral( "QField" ), QStringLiteral( "isDataset" ), false );
         projectLoaded = true;
       }
     }
@@ -768,7 +770,7 @@ void QgisMobileapp::readProjectFile()
   QString title;
   if ( mProject->fileName().startsWith( QFieldCloudUtils::localCloudDirectory() ) )
   {
-    // Overwrite the title to match what is used in QField Cloud
+    // Overwrite the title to match what is used in QFieldCloud
     const QString projectId = fi.dir().dirName();
     title = QSettings().value( QStringLiteral( "QFieldCloud/projects/%1/name" ).arg( projectId ), fi.fileName() ).toString();
   }
@@ -1031,6 +1033,7 @@ void QgisMobileapp::readProjectFile()
     mProject->setCrs( crs );
     mProject->setEllipsoid( crs.ellipsoidAcronym() );
     mProject->setTitle( mProjectFileName );
+    mProject->writeEntry( QStringLiteral( "QField" ), QStringLiteral( "isDataset" ), true );
 
 
     for ( QgsMapLayer *l : std::as_const( rasterLayers ) )
@@ -1157,7 +1160,7 @@ void QgisMobileapp::readProjectFile()
 
   loadProjectQuirks();
 
-  // Restore last extent if present
+  // Restore project information (extent, customized style, layer visibility, etc.)
   QSettings settings;
   const QStringList parts = settings.value( QStringLiteral( "/qgis/projectInfo/%1/extent" ).arg( mProjectFilePath ), QString() ).toString().split( '|' );
   if ( parts.size() == 4 && ( SUPPORTED_PROJECT_EXTENSIONS.contains( fi.suffix().toLower() ) || fi.size() == settings.value( QStringLiteral( "/qgis/projectInfo/%1/filesize" ).arg( mProjectFilePath ), 0 ).toLongLong() ) )
@@ -1184,7 +1187,55 @@ void QgisMobileapp::readProjectFile()
     mMapCanvas->mapSettings()->setIsTemporal( isTemporal );
   }
 
-  // Restored last map theme if present
+  // Restore custom layer(s) style -- layerstyles
+  settings.beginGroup( QStringLiteral( "/qgis/projectInfo/%1/layerstyles" ).arg( mProjectFilePath ) );
+  const QStringList ids = settings.allKeys();
+  if ( !ids.isEmpty() )
+  {
+    qDebug() << ids;
+    const bool isDataset = mProject->readBoolEntry( QStringLiteral( "QField" ), QStringLiteral( "isDataset" ), false );
+    qDebug() << ( isDataset ? "isDataset" : "not isDataset" );
+    const QList<QgsMapLayer *> mapLayers = isDataset ? mProject->layerStore()->mapLayers().values() : QList<QgsMapLayer *>();
+
+    for ( QString id : ids )
+    {
+      const QString xmlData = settings.value( id ).toString();
+      if ( xmlData.isEmpty() )
+        continue;
+
+      // Remove the :: prefix to get actual layer id or source
+      id = id.mid( 2 );
+
+      QgsMapLayer *layer = nullptr;
+      if ( isDataset )
+      {
+        for ( QgsMapLayer *ml : mapLayers )
+        {
+          qDebug() << ml->source();
+          qDebug() << id;
+          qDebug() << "--";
+          if ( ml && ml->source() == id )
+          {
+            layer = ml;
+            break;
+          }
+        }
+      }
+      else
+      {
+        layer = mProject->layerStore()->mapLayer( id );
+      }
+
+      if ( layer )
+      {
+        qDebug() << "MMMM";
+        QgsMapLayerStyle style( xmlData );
+        style.writeToLayer( layer );
+      }
+    }
+  }
+
+  // Restore last map theme
   const QString mapTheme = settings.value( QStringLiteral( "/qgis/projectInfo/%1/maptheme" ).arg( mProjectFilePath ), QString() ).toString();
   if ( !mapTheme.isEmpty() )
     mFlatLayerTree->setMapTheme( mapTheme );
