@@ -15,7 +15,7 @@ Popup {
 
   property bool zoomToButtonVisible: false
   property bool showFeaturesListButtonVisible: false
-  property bool showAllFeaturesButtonVisible: false
+  property bool showVisibleFeaturesListButttonVisible: false
   property bool reloadDataButtonVisible: false
 
   property bool trackingButtonVisible: false
@@ -40,6 +40,7 @@ Popup {
     reloadDataButtonVisible = layerTree.data(index, FlatLayerTreeModel.CanReloadData)
     zoomToButtonVisible = layerTree.data(index, FlatLayerTreeModel.HasSpatialExtent)
     showFeaturesListButtonVisible = isShowFeaturesListButtonVisible();
+    showVisibleFeaturesListButttonVisible = isShowVisibleFeaturesListButtonVisible();
 
     trackingButtonVisible = isTrackingButtonVisible()
     trackingButtonText = trackingModel.layerInTracking( layerTree.data(index, FlatLayerTreeModel.VectorLayerPointer) )
@@ -226,7 +227,7 @@ Popup {
         Layout.topMargin: 5
         text: qsTr('Show features list')
         visible: showFeaturesListButtonVisible
-        icon.source: Theme.getThemeVectorIcon( 'list_24dp' )
+        icon.source: Theme.getThemeVectorIcon( 'ic_list_black_24dp' )
 
         onClicked: {
           if ( parseInt(layerTree.data(index, FlatLayerTreeModel.FeatureCount)) === 0 ) {
@@ -242,6 +243,33 @@ Popup {
             }
             if (layerTree.data(index, FlatLayerTreeModel.HasSpatialExtent)) {
               mapCanvas.mapSettings.extent = layerTree.nodeExtent( index, mapCanvas.mapSettings )
+            }
+          }
+
+          close()
+          dashBoard.visible = false
+        }
+      }
+
+      QfButton {
+        id: showVisibleFeaturesList
+        Layout.fillWidth: true
+        Layout.topMargin: 5
+        text: qsTr('Show visible features list')
+        visible: showVisibleFeaturesListButttonVisible
+        icon.source: Theme.getThemeVectorIcon( 'ic_list_visible_black_24dp' )
+
+        onClicked: {
+          if ( parseInt(layerTree.data(index, FlatLayerTreeModel.FeatureCount)) === 0 ) {
+            displayToast( qsTr( "The layer has no features" ) )
+          } else {
+            var vl = layerTree.data( index, FlatLayerTreeModel.VectorLayerPointer )
+
+            if ( layerTree.data( index, FlatLayerTreeModel.Type ) === 'layer' ) {
+              featureForm.model.setFeaturesForExtent( vl, mapCanvas.mapSettings.visibleExtent )
+            } else {
+              // one day, we should be able to show only the features that correspond to the given legend item
+              featureForm.model.setFeaturesForExtent( vl, mapCanvas.mapSettings.visibleExtent )
             }
           }
 
@@ -341,5 +369,10 @@ Popup {
   function isShowFeaturesListButtonVisible() {
     return layerTree.data( index, FlatLayerTreeModel.IsValid )
         && layerTree.data( index, FlatLayerTreeModel.LayerType ) === 'vectorlayer'
+  }
+
+  function isShowVisibleFeaturesListButtonVisible() {
+    return isShowFeaturesListButtonVisible()
+        && layerTree.data(index, FlatLayerTreeModel.HasSpatialExtent)
   }
 }

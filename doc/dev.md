@@ -181,3 +181,12 @@ export Qt5_DIR=5.15.2/ios
 cmake -S . -B build-x64-ios -DVCPKG_TARGET_TRIPLET=x64-ios -GXcode -DWITH_VCPKG=ON -DSYSTEM_QT=ON -DCMAKE_SYSTEM_NAME=iOS -DCMAKE_OSX_SYSROOT=iphonesimulator -DCMAKE_SYSTEM_PROCESSOR=x86_64 -DCMAKE_FIND_ROOT_PATH=$Qt5_DIR
 cmake --build build-x64-ios
 ```
+
+## Contribute
+
+Before commiting, install pre-commit to auto-format your code.
+
+```
+pip install pre-commit
+pre-commit install
+```

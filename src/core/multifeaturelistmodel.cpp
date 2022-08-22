@@ -47,6 +47,14 @@ void MultiFeatureListModel::setFeatures( QgsVectorLayer *vl )
   mSourceModel->setFeatures( requests );
 }
 
+void MultiFeatureListModel::setFeaturesForExtent( QgsVectorLayer *vl, const QgsRectangle &rectangle )
+{
+  QgsFeatureRequest request;
+  request.setFilterRect( rectangle );
+  QMap<QgsVectorLayer *, QgsFeatureRequest> requests( { { vl, request } } );
+  mSourceModel->setFeatures( requests );
+}
+
 void MultiFeatureListModel::appendFeatures( const QList<IdentifyTool::IdentifyResult> &results )
 {
   mSourceModel->appendFeatures( results );
