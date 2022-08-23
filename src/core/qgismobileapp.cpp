@@ -1234,15 +1234,12 @@ void QgisMobileapp::readProjectFile()
   const QString layerTreeState = settings.value( QStringLiteral( "/qgis/projectInfo/%1/layertreestate" ).arg( mProjectFilePath ), QString() ).toString();
   if ( !mapTheme.isEmpty() )
   {
-    qDebug() << "XXX";
     mFlatLayerTree->setMapTheme( mapTheme );
   }
   else if ( !layerTreeState.isEmpty() )
   {
-    qDebug() << "YYY";
     QDomDocument document;
     document.setContent( layerTreeState );
-    qDebug() << document.toString();
 
     QgsMapThemeCollection mapCollection( mProject );
     mapCollection.readXml( document );
