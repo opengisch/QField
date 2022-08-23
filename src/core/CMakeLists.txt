@@ -299,7 +299,7 @@ target_link_libraries(
          SQLite::SQLite3
          Qca::qca
          ZXing::ZXing
-         Qt5Keychain::Qt5Keychain
+         QtKeychain::QtKeychain
          ${GDAL_LIBRARIES})
 
 if(WITH_BLUETOOTH)
