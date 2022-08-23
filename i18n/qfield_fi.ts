@@ -861,6 +861,10 @@ Kohteen geometriat yhdistetään kohteeseen &apos;%1&apos;, johon sisällytetä�
         <source>This layer is configured as &quot;Lock Geometries&quot; which disables adding and deleting features, as well as modifying the geometries of existing features.</source>
         <translation>Tämä taso on konfiguroitu &quot;lukittu-geometria&quot;-muotoon, mikä estää kohteiden lisäyksen, poistamisen ja olemassa olevien kohteiden geometrioiden muokkauksen.</translation>
     </message>
+    <message>
+        <source>Show visible features list</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>LayerUtils</name>

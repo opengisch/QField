@@ -862,6 +862,10 @@ Les géométries des objets vont être combinées dans l&apos;objet &apos;%1&apo
         <source>This layer is configured as &quot;Lock Geometries&quot; which disables adding and deleting features, as well as modifying the geometries of existing features.</source>
         <translation>Cette couche est configurée en &quot;géométries verrouillées&quot;, ce qui désactive l&apos;ajout, la suppression et l&apos;édition d&apos;entités ainsi que la modification des géométries des entités existantes.</translation>
     </message>
+    <message>
+        <source>Show visible features list</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>LayerUtils</name>

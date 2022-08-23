@@ -863,6 +863,10 @@ Le geometrie degli elementi verranno combinati in un elemento &apos;%1&apos; che
         <source>This layer is configured as &quot;Lock Geometries&quot; which disables adding and deleting features, as well as modifying the geometries of existing features.</source>
         <translation>Questo layer è configurato come &quot;Geometrie Bloccate&quot; che disabilita l&apos;aggiunta e l&apos;eliminazione degli elementi, nonché la modifica delle geometrie degli elementi esistenti.</translation>
     </message>
+    <message>
+        <source>Show visible features list</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>LayerUtils</name>

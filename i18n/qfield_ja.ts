@@ -859,6 +859,10 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
         <source>This layer is configured as &quot;Lock Geometries&quot; which disables adding and deleting features, as well as modifying the geometries of existing features.</source>
         <translation>このレイヤーは、地物の追加と削除、および既存のフィーチャのジオメトリの変更を無効にする「ジオメトリのロック」が設定されています。</translation>
     </message>
+    <message>
+        <source>Show visible features list</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>LayerUtils</name>

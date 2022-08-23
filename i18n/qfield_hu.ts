@@ -860,6 +860,10 @@ Az elem geometriákat összevonjuk a &apos;%1&apos; elembe, mely megőrzi az att
         <source>This layer is configured as &quot;Lock Geometries&quot; which disables adding and deleting features, as well as modifying the geometries of existing features.</source>
         <translation>Ezt  réteget zárolt geometriával konfigurálták, mely tiltja az elemek hozzáadását, törlését és szerkesztését valamint a létező elemek geometriájának módosítását.</translation>
     </message>
+    <message>
+        <source>Show visible features list</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>LayerUtils</name>

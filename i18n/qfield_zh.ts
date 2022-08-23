@@ -859,6 +859,10 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
         <source>This layer is configured as &quot;Lock Geometries&quot; which disables adding and deleting features, as well as modifying the geometries of existing features.</source>
         <translation>该图层被配置为“锁定几何图形”，禁用添加和删除要素以及修改现有要素的几何图形。</translation>
     </message>
+    <message>
+        <source>Show visible features list</source>
+        <translation>显示可见要素列表</translation>
+    </message>
 </context>
 <context>
     <name>LayerUtils</name>

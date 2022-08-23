@@ -856,6 +856,10 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
         <source>This layer is configured as &quot;Lock Geometries&quot; which disables adding and deleting features, as well as modifying the geometries of existing features.</source>
         <translation>Ta warstwa jest skonfigurowana jako „Zablokuj geometrie”, co uniemożliwia dodawanie i usuwanie obiektów, a także modyfikowanie geometrii istniejących obiektów.</translation>
     </message>
+    <message>
+        <source>Show visible features list</source>
+        <translation>Pokaż listę widocznych elementów</translation>
+    </message>
 </context>
 <context>
     <name>LayerUtils</name>
@@ -2374,7 +2378,7 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
     <name>QgsQuickMapSettings</name>
     <message>
         <source>Map Canvas rotation is not supported. Resetting from %1 to 0.</source>
-        <translation type="unfinished"/>
+        <translation>Obrót widoku mapy nie jest wspierany. Przywracanie z %1 do 0.</translation>
     </message>
 </context>
 <context>
@@ -2621,7 +2625,7 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
     </message>
     <message>
         <source>Unlink feature %1 (%2) of %3</source>
-        <translation type="unfinished"/>
+        <translation>Odłączyć obiekt %1 (%2) od %3</translation>
     </message>
     <message>
         <source>Delete feature %1 (%2) on %3</source>
@@ -2629,7 +2633,7 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
     </message>
     <message>
         <source>Should the feature &lt;b&gt;%1 (%2)&lt;/b&gt; of layer &lt;b&gt;%3&lt;/b&gt; be unlinked?&lt;br&gt;&lt;i&gt;(The connection will be deleted on layer &lt;b&gt;%4&lt;/b&gt;)&lt;/i&gt;</source>
-        <translation type="unfinished"/>
+        <translation>Czy obiekt &lt;b&gt;%1 (%2)&lt;/b&gt; na warstwie &lt;b&gt;%3&lt;/b&gt; ma być odłączony?&lt;br&gt;&lt;i&gt;(Połączenie będzie usunięte na warstwie &lt;b&gt;%4&lt;/b&gt;)&lt;/i&gt;</translation>
     </message>
     <message>
         <source>Should the feature &lt;b&gt;%1 (%2)&lt;/b&gt; on layer &lt;b&gt;%3&lt;/b&gt; be deleted?</source>
@@ -2672,7 +2676,7 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
     </message>
     <message>
         <source>Perimeter</source>
-        <translation type="unfinished"/>
+        <translation>Obwód</translation>
     </message>
     <message>
         <source>Length</source>
@@ -2712,11 +2716,11 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
     </message>
     <message>
         <source>Coordinate cursor now locked to position</source>
-        <translation type="unfinished"/>
+        <translation>Kursor lokalizacji zablokowany na pozycji</translation>
     </message>
     <message>
         <source>Coordinate cursor unlocked</source>
-        <translation type="unfinished"/>
+        <translation>Kursor lokalizacji odblokowany</translation>
     </message>
     <message>
         <source>Received position</source>
@@ -2728,7 +2732,7 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
     </message>
     <message>
         <source>Canvas follows location</source>
-        <translation type="unfinished"/>
+        <translation>Widok mapy podąża za lokalizacją</translation>
     </message>
     <message>
         <source>Waiting for location</source>
@@ -2744,7 +2748,7 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
     </message>
     <message>
         <source>Canvas stopped following location</source>
-        <translation type="unfinished"/>
+        <translation>Widok mapy nie podąża za lokalizacją</translation>
     </message>
     <message>
         <source>Failed to create feature!</source>
@@ -2808,7 +2812,7 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
     </message>
     <message>
         <source>Map Canvas Options</source>
-        <translation type="unfinished"/>
+        <translation>Opcje widoku mapy</translation>
     </message>
     <message>
         <source>Add Bookmark</source>
@@ -3027,7 +3031,7 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
     </message>
     <message>
         <source>Unlink feature %1 (%2) of %3</source>
-        <translation type="unfinished"/>
+        <translation>Odłączyć obiekt %1 (%2) od %3</translation>
     </message>
     <message>
         <source>Delete feature %1 (%2) on %3</source>
@@ -3035,7 +3039,7 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
     </message>
     <message>
         <source>Should the feature &lt;b&gt;%1 (%2)&lt;/b&gt; of layer &lt;b&gt;%3&lt;/b&gt; be unlinked?&lt;br&gt;&lt;i&gt;(The connection will be deleted on layer &lt;b&gt;%4&lt;/b&gt;)&lt;/i&gt;</source>
-        <translation type="unfinished"/>
+        <translation>Czy obiekt &lt;b&gt;%1 (%2)&lt;/b&gt; na warstwie &lt;b&gt;%3&lt;/b&gt; ma być odłączony?&lt;br&gt;&lt;i&gt;(Połączenie będzie usunięte na warstwie &lt;b&gt;%4&lt;/b&gt;)&lt;/i&gt;</translation>
     </message>
     <message>
         <source>Should the feature &lt;b&gt;%1 (%2)&lt;/b&gt; on layer &lt;b&gt;%3&lt;/b&gt; be deleted?</source>

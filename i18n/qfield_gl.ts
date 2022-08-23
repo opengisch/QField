@@ -861,6 +861,10 @@ As xeometrías das entidades combinaranse na entidade &apos;%1&apos;, a cal cons
         <source>This layer is configured as &quot;Lock Geometries&quot; which disables adding and deleting features, as well as modifying the geometries of existing features.</source>
         <translation>Esta capa está configurada coma de &quot;Xeometrías Bloqueadas&quot;, o cal desactiva o engadido e a eliminación de entidades, así como a modificación das xeometrías existentes.</translation>
     </message>
+    <message>
+        <source>Show visible features list</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>LayerUtils</name>

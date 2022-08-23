@@ -863,6 +863,10 @@ As geometrias dos recursos serão combinadas no recurso &apos;% &apos;, que mant
         <source>This layer is configured as &quot;Lock Geometries&quot; which disables adding and deleting features, as well as modifying the geometries of existing features.</source>
         <translation>Esta camada está configurada como &quot;Bloquear Geometrias&quot; o que desativa a opção de adicionar e apagar elementos, bem como modificar as geometrias de elementos existentes.</translation>
     </message>
+    <message>
+        <source>Show visible features list</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>LayerUtils</name>

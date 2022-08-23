@@ -865,6 +865,10 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
         <source>This layer is configured as &quot;Lock Geometries&quot; which disables adding and deleting features, as well as modifying the geometries of existing features.</source>
         <translation>Цей шар налаштовано як «Заблокувати геометрії», що вимикає додавання та видалення об’єктів, а також зміну геометрії наявних об’єктів.</translation>
     </message>
+    <message>
+        <source>Show visible features list</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>LayerUtils</name>

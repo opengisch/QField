@@ -857,6 +857,10 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
         <source>This layer is configured as &quot;Lock Geometries&quot; which disables adding and deleting features, as well as modifying the geometries of existing features.</source>
         <translation>Bu katman, objelerin eklenmesini ve silinmesinin yanı sıra mevcut özelliklerin geometrilerini değiştirmeyi devre dışı bırakan &quot;Geometrileri Kilitle&quot; olarak yapılandırılmıştır.</translation>
     </message>
+    <message>
+        <source>Show visible features list</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>LayerUtils</name>

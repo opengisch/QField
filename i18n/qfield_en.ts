@@ -884,6 +884,10 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
         <source>This layer is configured as &quot;Lock Geometries&quot; which disables adding and deleting features, as well as modifying the geometries of existing features.</source>
         <translation>This layer is configured as &quot;Lock Geometries&quot; which disables adding and deleting features, as well as modifying the geometries of existing features.</translation>
     </message>
+    <message>
+        <source>Show visible features list</source>
+        <translation>Show visible features list</translation>
+    </message>
 </context>
 <context>
     <name>LayerUtils</name>

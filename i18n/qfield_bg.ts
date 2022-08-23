@@ -861,6 +861,10 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
         <source>This layer is configured as &quot;Lock Geometries&quot; which disables adding and deleting features, as well as modifying the geometries of existing features.</source>
         <translation>Слоят е маркиран със заключена геометрия (&quot;Lock Geometries&quot;), поради което добавянето и изтриването на обекти, както и промяната на геометрията на съществуващи обекти, е невъзможно.</translation>
     </message>
+    <message>
+        <source>Show visible features list</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>LayerUtils</name>
