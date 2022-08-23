@@ -22,6 +22,8 @@
 #include <QFileInfo>
 #include <QSettings>
 #include <QString>
+#include <qgslayertree.h>
+#include <qgslayertreemodel.h>
 
 ProjectInfo::ProjectInfo( QObject *parent )
   : QObject( parent )
@@ -135,7 +137,7 @@ void ProjectInfo::saveTemporalState()
   }
 }
 
-void ProjectInfo::saveLayerStyle( QgsMapLayer *layer )
+void ProjectInfo::saveLayerStyle( QgsMapLayer *layer ) const
 {
   if ( mFilePath.isEmpty() || !layer )
     return;
@@ -143,12 +145,13 @@ void ProjectInfo::saveLayerStyle( QgsMapLayer *layer )
   QFileInfo fi( mFilePath );
   if ( fi.exists() )
   {
+    const bool isDataset = QgsProject::instance()->readBoolEntry( QStringLiteral( "QField" ), QStringLiteral( "isDataset" ), false );
     QgsMapLayerStyle style;
     style.readFromLayer( layer );
 
     // Prefix id with :: to avoid loss of slash on linux paths
     QString id( QStringLiteral( "::" ) );
-    if ( QgsProject::instance()->readBoolEntry( QStringLiteral( "QField" ), QStringLiteral( "isDataset" ), false ) )
+    if ( isDataset )
     {
       // For non-project datasets, the layer id is random, use the source URI
       id += layer->source();
@@ -165,9 +168,38 @@ void ProjectInfo::saveLayerStyle( QgsMapLayer *layer )
   }
 }
 
+void ProjectInfo::saveLayerTreeState() const
+{
+  if ( mFilePath.isEmpty() || !mLayerTree )
+    return;
+
+  const bool isDataset = QgsProject::instance()->readBoolEntry( QStringLiteral( "QField" ), QStringLiteral( "isDataset" ), false );
+  QFileInfo fi( mFilePath );
+  if ( fi.exists() && !isDataset )
+  {
+    QgsMapThemeCollection mapCollection( QgsProject::instance() );
+    const QgsMapThemeCollection::MapThemeRecord rec = QgsMapThemeCollection::createThemeFromCurrentState( mLayerTree->layerTreeModel()->rootGroup(), mLayerTree->layerTreeModel() );
+    mapCollection.insert( QStringLiteral( "::QFieldLayerTreeState" ), rec );
+
+    QDomImplementation DomImplementation;
+    const QDomDocumentType documentType = DomImplementation.createDocumentType( QStringLiteral( "qgis" ), QStringLiteral( "http://mrcc.com/qgis.dtd" ), QStringLiteral( "SYSTEM" ) );
+    QDomDocument document( documentType );
+
+    document.appendChild( document.createElement( QStringLiteral( "qgis" ) ) );
+    mapCollection.writeXml( document );
+
+    QSettings settings;
+    settings.beginGroup( QStringLiteral( "/qgis/projectInfo/%1" ).arg( mFilePath ) );
+    settings.setValue( QStringLiteral( "filesize" ), fi.size() );
+    settings.setValue( QStringLiteral( "layertreestate" ), document.toString() );
+    settings.remove( QStringLiteral( "maptheme" ) );
+    settings.endGroup();
+  }
+}
+
 void ProjectInfo::mapThemeChanged()
 {
-  if ( mFilePath.isEmpty() || mLayerTree->mapTheme().isEmpty() )
+  if ( mFilePath.isEmpty() )
     return;
 
   QFileInfo fi( mFilePath );
@@ -176,7 +208,15 @@ void ProjectInfo::mapThemeChanged()
     QSettings settings;
     settings.beginGroup( QStringLiteral( "/qgis/projectInfo/%1" ).arg( mFilePath ) );
     settings.setValue( QStringLiteral( "filesize" ), fi.size() );
-    settings.setValue( QStringLiteral( "maptheme" ), mLayerTree->mapTheme() );
+    if ( !mLayerTree->mapTheme().isEmpty() )
+    {
+      settings.setValue( QStringLiteral( "maptheme" ), mLayerTree->mapTheme() );
+      settings.remove( QStringLiteral( "layertreestate" ) );
+    }
+    else
+    {
+      settings.remove( QStringLiteral( "maptheme" ) );
+    }
     settings.endGroup();
   }
 }

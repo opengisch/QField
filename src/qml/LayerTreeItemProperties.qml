@@ -142,6 +142,7 @@ Popup {
         onClicked: {
           layerTree.setData(index, checkState === Qt.Checked, FlatLayerTreeModel.Visible);
           flatLayerTree.mapTheme = '';
+          projectInfo.saveLayerTreeState();
           close();
         }
       }

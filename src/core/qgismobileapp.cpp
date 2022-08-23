@@ -1192,9 +1192,7 @@ void QgisMobileapp::readProjectFile()
   const QStringList ids = settings.allKeys();
   if ( !ids.isEmpty() )
   {
-    qDebug() << ids;
     const bool isDataset = mProject->readBoolEntry( QStringLiteral( "QField" ), QStringLiteral( "isDataset" ), false );
-    qDebug() << ( isDataset ? "isDataset" : "not isDataset" );
     const QList<QgsMapLayer *> mapLayers = isDataset ? mProject->layerStore()->mapLayers().values() : QList<QgsMapLayer *>();
 
     for ( QString id : ids )
@@ -1211,9 +1209,6 @@ void QgisMobileapp::readProjectFile()
       {
         for ( QgsMapLayer *ml : mapLayers )
         {
-          qDebug() << ml->source();
-          qDebug() << id;
-          qDebug() << "--";
           if ( ml && ml->source() == id )
           {
             layer = ml;
@@ -1228,17 +1223,31 @@ void QgisMobileapp::readProjectFile()
 
       if ( layer )
       {
-        qDebug() << "MMMM";
         QgsMapLayerStyle style( xmlData );
         style.writeToLayer( layer );
       }
     }
   }
+  settings.endGroup();
 
-  // Restore last map theme
   const QString mapTheme = settings.value( QStringLiteral( "/qgis/projectInfo/%1/maptheme" ).arg( mProjectFilePath ), QString() ).toString();
+  const QString layerTreeState = settings.value( QStringLiteral( "/qgis/projectInfo/%1/layertreestate" ).arg( mProjectFilePath ), QString() ).toString();
   if ( !mapTheme.isEmpty() )
+  {
+    qDebug() << "XXX";
     mFlatLayerTree->setMapTheme( mapTheme );
+  }
+  else if ( !layerTreeState.isEmpty() )
+  {
+    qDebug() << "YYY";
+    QDomDocument document;
+    document.setContent( layerTreeState );
+    qDebug() << document.toString();
+
+    QgsMapThemeCollection mapCollection( mProject );
+    mapCollection.readXml( document );
+    mapCollection.applyTheme( QStringLiteral( "::QFieldLayerTreeState" ), mFlatLayerTree->layerTreeModel()->rootGroup(), mFlatLayerTree->layerTreeModel() );
+  }
 
   emit loadProjectEnded( mProjectFilePath, mProjectFileName );
 }
