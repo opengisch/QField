@@ -17,6 +17,8 @@ Page {
       showApplyButton: false
       showCancelButton: true
 
+      topMargin: mainWindow.sceneTopMargin
+
       onFinished: parent.finished()
     }
 

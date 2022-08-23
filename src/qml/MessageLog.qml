@@ -20,6 +20,8 @@ Page {
       showApplyButton: false
       showCancelButton: false
 
+      topMargin: mainWindow.sceneTopMargin
+
       onFinished: messageLog.finished()
     }
 
