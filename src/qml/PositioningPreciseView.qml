@@ -328,7 +328,9 @@ Item {
       strokeWidth: 1
       strokeColor: "transparent"
       strokeStyle: ShapePath.SolidLine
-      fillColor: hasReachedTarget ? Theme.mainColor : Theme.positionColor
+      fillColor: hasReachedTarget
+                 ? Qt.hsla(Theme.mainColor.hslHue, Theme.mainColor.hslSaturation, Theme.mainColor.hslLightness, 0.4)
+                 : Theme.positionColor
       fillRule: ShapePath.WindingFill
       startX: preciseHorizontalPosition.width / 2
       startY: startX
@@ -356,6 +358,29 @@ Item {
       PathLine { x: preciseHorizontalPosition.width - 2; y: preciseHorizontalPosition.width }
       PathLine { x: 2; y: preciseHorizontalPosition.width }
       PathLine { x: preciseHorizontalPosition.width / 2; y: 0 }
+    }
+  }
+
+  Shape {
+    id: preciseHorizontalPositionCross
+
+    anchors.centerIn: preciseHorizontalPosition
+
+    width: 28
+    height: width
+
+    ShapePath {
+      strokeWidth: 2
+      strokeColor: "#000000"
+      strokeStyle: ShapePath.SolidLine
+      fillColor: "transparent"
+      startX: preciseHorizontalPosition.width / 2
+      startY: 0
+      scale: hasReachedTarget ? Qt.size(1,1) : Qt.size(0,0);
+
+      PathLine { x: preciseHorizontalPosition.width / 2; y: preciseHorizontalPosition.height }
+      PathMove { x: 0; y: preciseHorizontalPosition.height / 2 }
+      PathLine { x: preciseHorizontalPosition.width; y: preciseHorizontalPosition.height / 2 }
     }
   }
 
