@@ -2058,6 +2058,22 @@ ApplicationWindow {
     }
 
     MenuItem {
+      text: qsTr( "%1 Precision" ).arg(UnitTypes.formatDistance(0.10, 2, navigation.distanceUnits))
+      height: 48
+      leftPadding: 15
+      font: Theme.defaultFont
+
+      enabled: !checked
+      checkable: true
+      checked: positioningSettings.preciseViewPrecision == 0.10
+      indicator.height: 20
+      indicator.width: 20
+      indicator.implicitHeight: 24
+      indicator.implicitWidth: 24
+      onCheckedChanged: if (checked) positioningSettings.preciseViewPrecision = 0.10
+    }
+
+    MenuItem {
       text: qsTr( "%1 Precision" ).arg(UnitTypes.formatDistance(0.25, 2, navigation.distanceUnits))
       height: 48
       leftPadding: 15
