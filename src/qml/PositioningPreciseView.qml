@@ -309,7 +309,8 @@ Item {
         style: Text.Outline
         styleColor: Theme.light
 
-        text: navigation.verticalDistance != 0.0 ? UnitTypes.formatDistance( navigation.verticalDistance, 3, navigation.distanceUnits ) : 0
+        property int decimals: navigation.verticalDistance >= 1000 ? 3 : navigation.verticalDistance >= 0.1 ? 2 : 1
+        text: navigation.verticalDistance != 0.0 ? UnitTypes.formatDistance(navigation.verticalDistance, decimals, navigation.distanceUnits) : 0
       }
     }
   }
@@ -370,7 +371,8 @@ Item {
     style: Text.Outline
     styleColor: Theme.light
 
-    text: qsTr('Dist.') + ': ' + UnitTypes.formatDistance( navigation.distance, 3, navigation.distanceUnits )
+    property int decimals: navigation.distance >= 1000 ? 3 : navigation.distance >= 0.10 ? 2 : 1
+    text: qsTr('Dist.') + ': ' + UnitTypes.formatDistance( navigation.distance, decimals, navigation.distanceUnits )
   }
 
   Rectangle {
