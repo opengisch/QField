@@ -17,6 +17,7 @@
 #include "internalgnssreceiver.h"
 
 #include <QGuiApplication>
+#include <QTimer>
 #include <qgsapplication.h>
 
 InternalGnssReceiver::InternalGnssReceiver( QObject *parent )
@@ -38,6 +39,20 @@ InternalGnssReceiver::InternalGnssReceiver( QObject *parent )
     mSocketState = QAbstractSocket::ConnectedState;
 
     setValid( true );
+
+    QTimer *timer = new QTimer();
+    timer->setInterval( 500 );
+    timer->setSingleShot( false );
+    connect( timer, &QTimer::timeout, this, [=] {
+      QGeoPositionInfo position;
+      double lat = 11.5566 + ( ( double ) ( std::rand() % 99 ) / 1000.0 );
+      double lon = 104.9118 + ( ( double ) ( std::rand() % 99 ) / 1000.0 );
+
+      position.setCoordinate( QGeoCoordinate( lat, lon ) );
+      position.setTimestamp( QDateTime::currentDateTime() );
+      handlePositionUpdated( position );
+    } );
+    timer->start();
   }
 
   mGeoSatelliteSource = std::unique_ptr<QGeoSatelliteInfoSource>( QGeoSatelliteInfoSource::createDefaultSource( nullptr ) );

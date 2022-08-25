@@ -184,6 +184,8 @@ class FeatureModel : public QAbstractListModel
 
     Q_INVOKABLE void resetFeature();
 
+    Q_INVOKABLE void resetFeatureId();
+
     QVector<bool> rememberedAttributes() const;
 
     /**

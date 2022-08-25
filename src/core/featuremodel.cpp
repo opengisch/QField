@@ -472,6 +472,21 @@ void FeatureModel::resetFeature()
   mFeature = QgsFeature( mLayer->fields() );
 }
 
+void FeatureModel::resetFeatureId()
+{
+  if ( !mLayer )
+    return;
+
+  if ( sRememberings->contains( mLayer ) )
+  {
+    QMutex *mutex = sMutex;
+    QMutexLocker locker( mutex );
+    ( *sRememberings )[mLayer].rememberedFeature = mFeature;
+  }
+
+  mFeature.setId( FID_NULL );
+}
+
 void FeatureModel::resetAttributes()
 {
   if ( !mLayer )
