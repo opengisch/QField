@@ -48,7 +48,10 @@ Button {
 
     icon: parent.icon
     color: "white"
-    font: Theme.tipFont
+    font {
+      pointSize: button.font.pointSize
+    }
+
     alignment: Qt.AlignCenter | Qt.AlignVCenter
     text: parent.text
   }
