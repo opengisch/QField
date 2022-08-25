@@ -110,6 +110,9 @@ void Tracker::start()
 
 void Tracker::stop()
 {
+  //track last position
+  trackPosition();
+
   if ( mTimeInterval > 0 )
   {
     mTimer.stop();
