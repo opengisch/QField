@@ -51,25 +51,33 @@ void Tracker::trackPosition()
 
 void Tracker::positionReceived()
 {
-  QVector<QgsPointXY> points = mRubberbandModel->flatPointSequence( QgsProject::instance()->crs() );
-
-  auto pointIt = points.constEnd() - 1;
-
-  QVector<QgsPointXY> flatPoints;
-
-  flatPoints << *pointIt;
-  pointIt--;
-  flatPoints << *pointIt;
-
-  QgsDistanceArea distanceArea;
-  distanceArea.setEllipsoid( QgsProject::instance()->ellipsoid() );
-  distanceArea.setSourceCrs( QgsProject::instance()->crs(), QgsProject::instance()->transformContext() );
-
-  if ( distanceArea.measureLine( flatPoints ) > mMinimumDistance )
+  if ( !qgsDoubleNear( mMinimumDistance, 0.0 ) )
   {
-    mMinimumDistanceFulfilled = true;
-    if ( !mConjunction || mTimeIntervalFulfilled )
-      trackPosition();
+    QVector<QgsPointXY> points = mRubberbandModel->flatPointSequence( QgsProject::instance()->crs() );
+
+    auto pointIt = points.constEnd() - 1;
+
+    QVector<QgsPointXY> flatPoints;
+
+    flatPoints << *pointIt;
+    pointIt--;
+    flatPoints << *pointIt;
+
+    QgsDistanceArea distanceArea;
+    distanceArea.setEllipsoid( QgsProject::instance()->ellipsoid() );
+    distanceArea.setSourceCrs( QgsProject::instance()->crs(), QgsProject::instance()->transformContext() );
+
+    if ( distanceArea.measureLine( flatPoints ) > mMinimumDistance )
+    {
+      mMinimumDistanceFulfilled = true;
+      if ( !mConjunction || mTimeIntervalFulfilled )
+        trackPosition();
+    }
+  }
+  else
+  {
+    // No constraints declared, every position received is tracked
+    trackPosition();
   }
 }
 
@@ -87,7 +95,7 @@ void Tracker::start()
     connect( &mTimer, &QTimer::timeout, this, &Tracker::timeReceived );
     mTimer.start( mTimeInterval * 1000 );
   }
-  if ( mMinimumDistance > 0 )
+  if ( mMinimumDistance > 0 || qgsDoubleNear( mTimeInterval, 0.0 ) )
   {
     connect( mRubberbandModel, &RubberbandModel::currentCoordinateChanged, this, &Tracker::positionReceived );
   }

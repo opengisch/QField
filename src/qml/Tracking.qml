@@ -406,27 +406,17 @@ Item {
               icon.source: Theme.getThemeVectorIcon( 'directions_walk_24dp' )
 
               onClicked: {
-                if (Number(timeIntervalValue.text) + Number(minimumDistanceValue.text) === 0 ||
-                    (timeInterval.checked && minimumDistance.checked && allConstraints.checked &&
-                     (Number(timeIntervalValue.text) === 0 || Number(minimumDistanceValue.text) === 0)) ||
-                    (!timeInterval.checked && !minimumDistance.checked))
-                {
-                  displayToast(qsTr( 'Cannot start track with both constaints switched off'), 'warning')
-                }
-                else
-                {
-                  track.timeInterval = timeIntervalValue.text.length == 0 || !timeInterval.checked ? 0 : timeIntervalValue.text
-                  track.minimumDistance = minimumDistanceValue.text.length == 0 || !minimumDistance.checked ? 0 : minimumDistanceValue.text
-                  track.conjunction = timeInterval.checked && minimumDistance.checked && allConstraints.checked
-                  track.rubberModel = rubberbandModel
+                track.timeInterval = timeIntervalValue.text.length == 0 || !timeInterval.checked ? 0 : timeIntervalValue.text
+                track.minimumDistance = minimumDistanceValue.text.length == 0 || !minimumDistance.checked ? 0 : minimumDistanceValue.text
+                track.conjunction = timeInterval.checked && minimumDistance.checked && allConstraints.checked
+                track.rubberModel = rubberbandModel
 
-                  trackInformationDialog.active = false
-                  if (embeddedAttributeFormModel.rowCount() > 0) {
-                    embeddedFeatureForm.active = true
-                  } else {
-                    trackingModel.startTracker(track.vectorLayer)
-                    displayToast(qsTr('Track on layer %1 started').arg(track.vectorLayer.name))
-                  }
+                trackInformationDialog.active = false
+                if (embeddedAttributeFormModel.rowCount() > 0) {
+                  embeddedFeatureForm.active = true
+                } else {
+                  trackingModel.startTracker(track.vectorLayer)
+                  displayToast(qsTr('Track on layer %1 started').arg(track.vectorLayer.name))
                 }
               }
             }
