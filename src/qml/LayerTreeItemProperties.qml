@@ -89,6 +89,21 @@ Popup {
       }
 
       CheckBox {
+        id: expandCheckBox
+        Layout.fillWidth: true
+        topPadding: 5
+        bottomPadding: 5
+        text: qsTr('Expand legend item')
+        font: Theme.defaultFont
+        visible: index && layerTree.data(index, FlatLayerTreeModel.HasChildren) ? true : false
+
+        onClicked: {
+          layerTree.setData(index, checkState === Qt.Unchecked, FlatLayerTreeModel.IsCollapsed);
+          close()
+        }
+      }
+
+      CheckBox {
         id: itemVisibleCheckBox
         Layout.fillWidth: true
         topPadding: 5
@@ -125,21 +140,6 @@ Popup {
         onClicked: {
           layerTree.setData(index, checkState === Qt.Checked, FlatLayerTreeModel.LabelsVisible);
           close();
-        }
-      }
-
-      CheckBox {
-        id: expandCheckBox
-        Layout.fillWidth: true
-        topPadding: 5
-        bottomPadding: 5
-        text: qsTr('Expand legend item')
-        font: Theme.defaultFont
-        visible: index && layerTree.data(index, FlatLayerTreeModel.HasChildren) ? true : false
-
-        onClicked: {
-          layerTree.setData(index, checkState === Qt.Unchecked, FlatLayerTreeModel.IsCollapsed);
-          close()
         }
       }
 
