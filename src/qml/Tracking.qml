@@ -421,7 +421,12 @@ Item {
                   track.rubberModel = rubberbandModel
 
                   trackInformationDialog.active = false
-                  embeddedFeatureForm.active = true
+                  if (embeddedAttributeFormModel.rowCount() > 0) {
+                    embeddedFeatureForm.active = true
+                  } else {
+                    trackingModel.startTracker(track.vectorLayer)
+                    displayToast(qsTr('Track on layer %1 started').arg(track.vectorLayer.name))
+                  }
                 }
               }
             }
