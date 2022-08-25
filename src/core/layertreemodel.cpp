@@ -671,7 +671,7 @@ QVariant FlatLayerTreeModelBase::data( const QModelIndex &index, int role ) cons
         QgsVectorLayer *layer = qobject_cast<QgsVectorLayer *>( nodeLayer->layer() );
         if ( layer && layer->isValid() )
         {
-          return true;
+          return ( layer->geometryType() == QgsWkbTypes::PointGeometry || layer->geometryType() == QgsWkbTypes::LineGeometry || layer->geometryType() == QgsWkbTypes::PolygonGeometry );
         }
       }
       return false;
