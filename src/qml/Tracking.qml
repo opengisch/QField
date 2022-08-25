@@ -67,6 +67,7 @@ Item {
 
     lineWidth: 4
     color: Qt.rgba(Math.random(),Math.random(),Math.random(),0.6);
+    geometryType: QgsWkbTypes.LineGeometry
 
     mapSettings: mapCanvas.mapSettings
     model: rubberbandModel

@@ -155,17 +155,23 @@ QSGNode *Rubberband::updatePaintNode( QSGNode *n, QQuickItem::UpdatePaintNodeDat
     bool frozen = mRubberbandModel && mRubberbandModel->frozen();
 
     QVector<QgsPoint> allVertices = QVector<QgsPoint>();
-    QgsWkbTypes::GeometryType geomType = QgsWkbTypes::LineGeometry;
+    QgsWkbTypes::GeometryType geomType = mGeometryType;
 
     if ( mRubberbandModel && !mRubberbandModel->isEmpty() )
     {
       allVertices = mRubberbandModel->flatVertices();
-      geomType = mRubberbandModel->geometryType();
+      if ( geomType == QgsWkbTypes::NullGeometry )
+      {
+        geomType = mRubberbandModel->geometryType();
+      }
     }
     else if ( mVertexModel && mVertexModel->vertexCount() > 0 )
     {
       allVertices = mVertexModel->flatVertices();
-      geomType = mVertexModel->geometryType();
+      if ( geomType == QgsWkbTypes::NullGeometry )
+      {
+        geomType = mRubberbandModel->geometryType();
+      }
     }
 
     if ( !allVertices.isEmpty() )
@@ -190,6 +196,16 @@ QSGNode *Rubberband::updatePaintNode( QSGNode *n, QQuickItem::UpdatePaintNodeDat
 
   mDirty = false;
   return n;
+}
+
+void Rubberband::setGeometryType( const QgsWkbTypes::GeometryType geometryType )
+{
+  if ( mGeometryType == geometryType )
+    return;
+
+  mGeometryType = geometryType;
+
+  emit geometryTypeChanged();
 }
 
 float Rubberband::lineWidth() const
