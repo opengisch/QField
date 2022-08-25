@@ -383,7 +383,6 @@ Item {
               }
             }
 
-
             Label {
               text: qsTr( "When enabled, vertices with only be recorded when both active constraints are met. If the setting is disabled, individual constraints met will trigger a vertex addition." )
               font: Theme.tipFont
@@ -393,6 +392,17 @@ Item {
               Layout.fillWidth: true
               enabled: timeInterval.checked && minimumDistance.checked
               visible: timeInterval.checked && minimumDistance.checked
+            }
+
+
+            Label {
+              text: qsTr( "When both constraints are disabled, vertex additions will occur as frequently as delivered by the positioning device." )
+              font: Theme.tipFont
+              color: Theme.gray
+              textFormat: Qt.RichText
+              wrapMode: Text.WordWrap
+              Layout.fillWidth: true
+              visible: !timeInterval.checked && !minimumDistance.checked
             }
 
             Item {
