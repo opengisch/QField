@@ -67,7 +67,10 @@ Item {
     visible: track.visible
 
     lineWidth: 4
-    color: Qt.rgba(Math.random(),Math.random(),Math.random(),0.6);
+    color: Qt.rgba(Math.min(0.75, Math.random()),
+                   Math.min(0.75,Math.random()),
+                   Math.min(0.75,Math.random()),
+                   0.6)
     geometryType: QgsWkbTypes.LineGeometry
 
     mapSettings: mapCanvas.mapSettings
