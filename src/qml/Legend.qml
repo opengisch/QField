@@ -246,8 +246,11 @@ ListView {
       onDoubleClicked: {
           var item = legend.itemAt(legend.contentX + mouse.x, legend.contentY + mouse.y)
           if (item) {
-            itemProperties.index = legend.model.index(item.itemRow, 0)
-            itemProperties.open()
+            var itemIndex = legend.model.index(item.itemRow, 0)
+            if (layerTree.data(itemIndex, FlatLayerTreeModel.HasChildren)) {
+              var isCollapsed = layerTree.data(itemIndex, FlatLayerTreeModel.IsCollapsed)
+              layerTree.setData(itemIndex, !isCollapsed, FlatLayerTreeModel.IsCollapsed);
+            }
           }
       }
       onPressAndHold: {
