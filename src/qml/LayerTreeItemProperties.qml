@@ -47,21 +47,43 @@ Popup {
         ? qsTr('Stop tracking')
         : qsTr('Setup tracking')
 
-    opacitySliderVisible = layerTree.data(index, FlatLayerTreeModel.HasSpatialExtent)
+    opacitySliderVisible = layerTree.data( index, FlatLayerTreeModel.Type ) !== 'group' &&
+                           layerTree.data(index, FlatLayerTreeModel.HasSpatialExtent)
   }
 
   Page {
     width: parent.width
     padding: 10
-    header: Label {
-      padding: 10
-      topPadding: 15
-      bottomPadding: 0
-      width: parent.width - 20
-      text: title
-      font: Theme.strongFont
-      horizontalAlignment: Text.AlignHCenter
-      wrapMode: Text.WordWrap
+    header: RowLayout {
+      spacing: 2
+      Label {
+        id: titleLabel
+        Layout.fillWidth: true
+        Layout.leftMargin: 10
+        topPadding: 4
+        bottomPadding: 4
+        text: ''
+        font: Theme.strongFont
+        horizontalAlignment: Text.AlignLeft
+        wrapMode: Text.WordWrap
+      }
+      QfToolButton {
+        id: zoomInButton
+        Layout.alignment: Qt.AlignTop
+        Layout.rightMargin: 0
+        round: true
+        visible: reloadDataButtonVisible
+
+        bgcolor: "transparent"
+        iconSource: Theme.getThemeVectorIcon( 'refresh_24dp' )
+
+        onClicked: {
+          layerTree.data(index, FlatLayerTreeModel.MapLayerPointer).reload()
+          close()
+          dashBoard.visible = false
+          displayToast(qsTr('Reload of layer %1 triggered').arg(layerTree.data(index, Qt.DisplayName)))
+        }
+      }
     }
 
     ColumnLayout {
@@ -201,23 +223,6 @@ Popup {
           mapCanvas.mapSettings.extent = layerTree.nodeExtent(index, mapCanvas.mapSettings);
           close()
           dashBoard.visible = false
-        }
-      }
-
-      QfButton {
-        id: reloadDataButton
-        Layout.fillWidth: true
-        Layout.topMargin: 5
-        font: Theme.defaultFont
-        text: qsTr('Reload data')
-        visible: reloadDataButtonVisible
-        icon.source: Theme.getThemeVectorIcon( 'refresh_24dp' )
-
-        onClicked: {
-          layerTree.data(index, FlatLayerTreeModel.MapLayerPointer).reload()
-          close()
-          dashBoard.visible = false
-          displayToast(qsTr('Reload of layer %1 triggered').arg(layerTree.data(index, Qt.DisplayName)))
         }
       }
 
@@ -363,7 +368,7 @@ Popup {
       if (index === undefined)
           return
 
-      title = layerTree.data(index, Qt.Name)
+      titleLabel.text = layerTree.data(index, Qt.Name)
       var vl = layerTree.data(index, FlatLayerTreeModel.VectorLayerPointer)
 
       if (vl && layerTree.data(index, FlatLayerTreeModel.IsValid) && layerTree.data( index, FlatLayerTreeModel.Type ) === 'layer') {
@@ -371,7 +376,7 @@ Popup {
           if (count !== undefined && count >= 0) {
               var countSuffix = ' [' + count + ']'
 
-              if ( !title.endsWith(countSuffix) )
+              if (!titleLabel.text.endsWith(countSuffix))
                   title += countSuffix
           }
       }
