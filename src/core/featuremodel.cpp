@@ -487,7 +487,7 @@ void FeatureModel::resetFeatureId()
   mFeature.setId( FID_NULL );
 }
 
-void FeatureModel::resetAttributes()
+void FeatureModel::resetAttributes( bool partialReset )
 {
   if ( !mLayer )
     return;
@@ -528,7 +528,7 @@ void FeatureModel::resetAttributes()
 
         mFeature.setAttribute( i, value );
       }
-      else
+      else if ( !partialReset )
       {
         mFeature.setAttribute( i, QVariant() );
       }
@@ -661,7 +661,6 @@ bool FeatureModel::create()
   connect( mLayer, &QgsVectorLayer::featureAdded, this, &FeatureModel::featureAdded );
 
   QgsFeature createdFeature = QgsVectorLayerUtils::createFeature( mLayer, mFeature.geometry(), mFeature.attributes().toMap() );
-
   if ( mLayer->addFeature( createdFeature ) )
   {
     if ( mProject && mProject->topologicalEditing() )

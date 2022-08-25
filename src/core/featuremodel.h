@@ -180,7 +180,11 @@ class FeatureModel : public QAbstractListModel
 
     Q_INVOKABLE bool suppressFeatureForm() const;
 
-    Q_INVOKABLE void resetAttributes();
+    /**
+     * Resets the attribute values of the current feature
+     * \param partialReset when set to TRUE, only attributes with default or remembered values will be reset
+     */
+    Q_INVOKABLE void resetAttributes( bool partialReset = false );
 
     Q_INVOKABLE void resetFeature();
 

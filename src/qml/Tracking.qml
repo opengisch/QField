@@ -35,8 +35,9 @@ Item {
 
       if (geometryType === QgsWkbTypes.PointGeometry) {
         featureModel.applyGeometry()
-        featureModel.create();
         featureModel.resetFeatureId();
+        featureModel.resetAttributes(true);
+        featureModel.create();
       } else {
         if ((geometryType === QgsWkbTypes.LineGeometry && vertexCount > 2) ||
             (geometryType === QgsWkbTypes.PolygonGeometry &&vertexCount > 3))
@@ -85,7 +86,7 @@ Item {
     }
 
     positionInformation: coordinateLocator.positionInformation
-    positionLocked: coordinateLocator.overrideLocation !== undefined
+    positionLocked: true
     cloudUserInformation: cloudConnection.userInformation
   }
 
