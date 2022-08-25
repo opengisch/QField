@@ -917,11 +917,11 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Imported projects</source>
-        <translation>导入的工程</translation>
+        <translation>已导入工程</translation>
     </message>
     <message>
         <source>Imported datasets</source>
-        <translation>导入的数据集</translation>
+        <translation>已导入数据集</translation>
     </message>
     <message>
         <source>Additional files directory</source>
