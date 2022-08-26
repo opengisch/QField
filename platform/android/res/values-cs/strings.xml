@@ -36,6 +36,29 @@
     <string name="import_project_archive">Import projektu ze souboru ZIP</string>
     <string name="import_dataset">Import datových sad</string>
     <string name="usb_cable_help">Nápověda ke správě úložiště</string>
+    <string name="import_error">Chyba importu</string>
+    <string name="import_dataset_error">Vybrané datové sady nebylo možné správně importovat.</string>
+    <string name="import_project_archive_error">Vybraný archiv projektu nebyl správně importován.</string>
+    <string name="import_project_folder_error">Vybraný adresář projektu nebyl správně importován.</string>
+    <string name="import_overwrite_confirm">Importovat a přepsat</string>
     <string name="import_overwrite_cancel">Zrušit</string>
+    <string name="export_error">Chyba exportu</string>
+    <string name="export_to_folder_error">Vybraný adresář projektu nebyl správně exportován.</string>
+    <string name="send_to">Odeslat</string>
+    <string name="send_compressed_to">Odeslat zabalený adresář</string>
+    <string name="export_to_folder">Exportovat adresář</string>
+    <string name="add_to_favorite">Přidat do Oblíbených</string>
+    <string name="remove_from_favorite">Odstranit z Oblíbených</string>
+    <string name="remove_dataset">Odstranit dataset</string>
+    <string name="remove_folder">Odstranit adresář</string>
+    <string name="delete_confirm_title">Potvrzení odstranění</string>
+    <string name="delete_confirm_dataset">Dataset bude trvale odstraněn, chcete tuto akci potvrdit?</string>
+    <string name="delete_confirm_folder">Adresář s projektem bude trvale odstraněn, chcete tuto akci potvrdit?</string>
+    <string name="delete_confirm">Odstranit</string>
     <string name="delete_cancel">Zrušit</string>
-    </resources>
+    <string name="storage_information_title">Informace o uložišti</string>
+    <string name="storage_information_view">Zobrazit dokumentaci</string>
+    <string name="storage_information_dismiss">Přečtu si to později</string>
+    <string name="import_project_wait">Chvilku strpení, než QField naimportuje projekt</string>
+    <string name="import_dataset_wait">Chvilku strpení, než QField naimportuje dataset(y)</string>
+</resources>

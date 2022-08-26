@@ -1933,7 +1933,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Send to...</source>
-        <translation type="unfinished"/>
+        <translation>Odeslat</translation>
     </message>
     <message>
         <source>Export to folder...</source>
