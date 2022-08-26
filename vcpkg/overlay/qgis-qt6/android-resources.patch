@@ -1,0 +1,24 @@
+From 7933782878127586e1c570ca4b408c079ab114b2 Mon Sep 17 00:00:00 2001
+From: Matthias Kuhn <matthias@opengis.ch>
+Date: Wed, 27 Jul 2022 07:39:59 +0200
+Subject: [PATCH] Remove android specific resources handling
+
+---
+ CMakeLists.txt | 1 -
+ 1 file changed, 1 deletion(-)
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 609bd72960..3d3061ae26 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -855,7 +855,6 @@ if (WITH_CORE)
+ 
+   if (ANDROID)
+     set (DEFAULT_PLUGIN_SUBDIR  lib)
+-    set (DEFAULT_DATA_SUBDIR    files/share)
+     string(REPLACE "<CMAKE_SHARED_LIBRARY_SONAME_CXX_FLAG><TARGET_SONAME>" "" CMAKE_CXX_CREATE_SHARED_MODULE "${CMAKE_CXX_CREATE_SHARED_MODULE}")
+   endif()
+ 
+-- 
+2.37.1
+

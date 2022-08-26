@@ -1,0 +1,82 @@
+From f312fba68c9f19ed7582049b740891ef7f21406d Mon Sep 17 00:00:00 2001
+From: Matthias Kuhn <matthias@opengis.ch>
+Date: Sat, 27 Aug 2022 13:40:27 +0200
+Subject: [PATCH] Qt Extras modules have been removed from Qt6
+
+https://www.qt.io/blog/qt-extras-modules-in-qt-6
+---
+ CMakeLists.txt                 | 4 ++--
+ src/native/CMakeLists.txt      | 2 +-
+ src/native/mac/qgsmacnative.mm | 6 ++++--
+ 3 files changed, 7 insertions(+), 5 deletions(-)
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 44df1b6649..812bc472e5 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -481,7 +481,7 @@ if(WITH_CORE)
+     find_package(${QT_VERSION_BASE} COMPONENTS 3DCore 3DRender 3DInput 3DLogic 3DExtras REQUIRED)
+     set(HAVE_3D TRUE)  # used in qgsconfig.h
+   endif()
+-  if (APPLE)
++  if (APPLE AND NOT BUILD_WITH_QT6)
+     find_package(${QT_VERSION_BASE} COMPONENTS MacExtras REQUIRED)
+   endif()
+ 
+@@ -498,7 +498,7 @@ if(WITH_CORE)
+   endif()
+   if (WITH_QUICK)
+     find_package(${QT_VERSION_BASE} COMPONENTS Qml Quick REQUIRED)
+-    if(${CMAKE_SYSTEM_NAME} MATCHES "Android")
++    if(${CMAKE_SYSTEM_NAME} MATCHES "Android" AND NOT BUILD_WITH_QT6)
+       find_package(${QT_VERSION_BASE} COMPONENTS AndroidExtras)
+     endif()
+ 
+diff --git a/src/native/CMakeLists.txt b/src/native/CMakeLists.txt
+index 7cb854a125..c5c8295e4d 100644
+--- a/src/native/CMakeLists.txt
++++ b/src/native/CMakeLists.txt
+@@ -144,7 +144,7 @@ if (UNIX AND NOT APPLE AND NOT ANDROID)
+   target_link_libraries(qgis_native ${QT_VERSION_BASE}::DBus)
+ endif()
+ 
+-if (APPLE)
++if (APPLE AND NOT BUILD_WITH_QT6)
+   find_package(${QT_VERSION_BASE}MacExtras)
+ 
+   target_link_libraries(qgis_native ${QT_VERSION_BASE}::MacExtras)
+diff --git a/src/native/mac/qgsmacnative.mm b/src/native/mac/qgsmacnative.mm
+index 30c4514017..f020298910 100644
+--- a/src/native/mac/qgsmacnative.mm
++++ b/src/native/mac/qgsmacnative.mm
+@@ -18,7 +18,9 @@
+ #include "qgsmacnative.h"
+ 
+ #include <Cocoa/Cocoa.h>
++#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
+ #include <QtMacExtras/QtMac>
++#endif
+ 
+ #include <QString>
+ #include <QPixmap>
+@@ -60,7 +62,7 @@ QgsMacNative::~QgsMacNative()
+ 
+ void QgsMacNative::setIconPath( const QString &iconPath )
+ {
+-  mQgsUserNotificationCenter->_qgisIcon = QtMac::toNSImage( QPixmap( iconPath ) );
++  mQgsUserNotificationCenter->_qgisIcon = [[NSImage alloc] initWithCGImage:QPixmap( iconPath ).toImage().toCGImage()];
+ }
+ 
+ const char *QgsMacNative::currentAppLocalizedName()
+@@ -105,7 +107,7 @@ QgsNative::NotificationResult QgsMacNative::showDesktopNotification( const QStri
+   }
+   else
+   {
+-    image = QtMac::toNSImage( px );
++    image = [[NSImage alloc] initWithCGImage:px.toImage().toCGImage()];
+   }
+   notification.contentImage = image;
+ 
+-- 
+2.37.2
+

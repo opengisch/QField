@@ -26,6 +26,10 @@ endif()
 
 message(STATUS "Building with vcpkg libraries --")
 
+if(BUILD_WITH_QT6)
+  set(VCPKG_MANIFEST_DIR "${CMAKE_SOURCE_DIR}/.qt6")
+endif()
+
 set(VCPKG_ROOT "${CMAKE_SOURCE_DIR}/vcpkg/base" CACHE STRING "")
 set(CMAKE_TOOLCHAIN_FILE "${VCPKG_ROOT}/scripts/buildsystems/vcpkg.cmake")
 if(_BUILD_FOR_ANDROID)

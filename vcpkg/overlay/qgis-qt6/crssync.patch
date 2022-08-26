@@ -1,0 +1,27 @@
+From ee182628c01881cc3f39e86e4b00cfc41127bd19 Mon Sep 17 00:00:00 2001
+From: Matthias Kuhn <matthias@opengis.ch>
+Date: Mon, 18 Oct 2021 12:07:06 +0200
+Subject: [PATCH] No crssync on Android
+
+---
+ src/CMakeLists.txt | 4 +-
+ 1 file changed, 3 insertion(+), 1 deletion(-)
+
+diff --git a/src/CMakeLists.txt b/src/CMakeLists.txt
+index f7f32a998f..6338b1e539 100644
+--- a/src/CMakeLists.txt
++++ b/src/CMakeLists.txt
+@@ -16,7 +16,9 @@ endif()
+ 
+ add_subdirectory(providers)
+ 
+-add_subdirectory(crssync)
++if (NOT FORCE_STATIC_LIBS)
++  add_subdirectory(crssync)
++endif()
+ 
+ if (WITH_CRASH_HANDLER)
+   add_subdirectory(crashhandler)
+-- 
+2.31.1
+
