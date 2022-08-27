@@ -93,8 +93,10 @@ void RecentProjectListModel::reloadModel()
 
       if ( recentProject.value().path.endsWith( sampleProject.path ) )
       {
+#ifdef Q_OS_IOS
         // update path: on iOS the path seems to change at each run time
         recentProject.value().path = sampleProjectPath;
+#endif
         recentProject.value().sample = true;
         recentProjectsContainsSampleProject = true;
         break;
