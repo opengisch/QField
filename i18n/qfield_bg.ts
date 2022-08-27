@@ -863,7 +863,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Show visible features list</source>
-        <translation type="unfinished"/>
+        <translation>Списък на видимите обекти</translation>
     </message>
 </context>
 <context>
