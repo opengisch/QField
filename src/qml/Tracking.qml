@@ -425,7 +425,7 @@ Item {
                 track.rubberModel = rubberbandModel
 
                 trackInformationDialog.active = false
-                if (embeddedAttributeFormModel.rowCount() > 0) {
+                if (embeddedAttributeFormModel.rowCount() > 0 && !featureModel.suppressFeatureForm()) {
                   embeddedFeatureForm.active = true
                 } else {
                   trackingModel.startTracker(track.vectorLayer)
