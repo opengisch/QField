@@ -158,11 +158,10 @@ void AttributeFormModelBase::resetModel()
   if ( mLayer )
   {
     QgsAttributeEditorContainer *root;
-    mTemporaryContainer.reset();
-
     if ( mLayer->editFormConfig().layout() == QgsEditFormConfig::TabLayout )
     {
       root = mLayer->editFormConfig().invisibleRootContainer();
+      mTemporaryContainer.reset();
     }
     else
     {
