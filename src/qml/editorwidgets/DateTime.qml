@@ -4,7 +4,7 @@ import QtQuick.Layouts 1.14
 
 import org.qfield 1.0
 import Theme 1.0
-import Components 1.0
+import QFieldControls 1.0
 
 import "."
 import ".."
