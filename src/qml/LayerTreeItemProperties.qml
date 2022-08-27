@@ -34,6 +34,9 @@ Popup {
     itemVisibleCheckBox.checked = layerTree.data(index, FlatLayerTreeModel.Visible);
     itemLabelsVisibleCheckBox.checked = layerTree.data(index, FlatLayerTreeModel.LabelsVisible);
 
+    expandCheckBox.text = layerTree.data( index, FlatLayerTreeModel.Type ) === 'group' ? qsTr('Expand group') : qsTr('Expand legend item')
+    expandCheckBox.checked = !layerTree.data(index, FlatLayerTreeModel.IsCollapsed)
+
     reloadDataButtonVisible = layerTree.data(index, FlatLayerTreeModel.CanReloadData)
     zoomToButtonVisible = layerTree.data(index, FlatLayerTreeModel.HasSpatialExtent)
     showFeaturesListButtonVisible = isShowFeaturesListButtonVisible();
@@ -105,6 +108,21 @@ Popup {
         text: '<img src="' + invalidIcon + '" width="' + invalidSize + '" height="' + invalidSize + '"> '
               + qsTr('This layer is invalid. This might be due to a network issue, a missing file or a misconfiguration of the project.')
         font: Theme.tipFont
+      }
+
+      CheckBox {
+        id: expandCheckBox
+        Layout.fillWidth: true
+        topPadding: 5
+        bottomPadding: 5
+        text: qsTr('Expand legend item')
+        font: Theme.defaultFont
+        visible: index && layerTree.data(index, FlatLayerTreeModel.HasChildren) ? true : false
+
+        onClicked: {
+          layerTree.setData(index, checkState === Qt.Unchecked, FlatLayerTreeModel.IsCollapsed);
+          close()
+        }
       }
 
       CheckBox {
