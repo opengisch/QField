@@ -436,18 +436,22 @@ QVariant FlatLayerTreeModelBase::data( const QModelIndex &index, int role ) cons
   if ( mFrozen )
     return QVariant();
 
+  const QModelIndex sourceIndex = mapToSource( index );
+  if ( !sourceIndex.isValid() )
+    return QVariant();
+
   switch ( role )
   {
     case FlatLayerTreeModel::VectorLayerPointer:
     {
-      QgsLayerTreeNode *node = mLayerTreeModel->index2node( mapToSource( index ) );
+      QgsLayerTreeNode *node = mLayerTreeModel->index2node( sourceIndex );
       if ( QgsLayerTree::isLayer( node ) )
       {
         QgsLayerTreeLayer *nodeLayer = QgsLayerTree::toLayer( node );
         QgsVectorLayer *layer = qobject_cast<QgsVectorLayer *>( nodeLayer->layer() );
         return QVariant::fromValue<QgsVectorLayer *>( layer );
       }
-      else if ( QgsLayerTreeModelLegendNode *sym = mLayerTreeModel->index2legendNode( mapToSource( index ) ) )
+      else if ( QgsLayerTreeModelLegendNode *sym = mLayerTreeModel->index2legendNode( sourceIndex ) )
       {
         QgsVectorLayer *layer = qobject_cast<QgsVectorLayer *>( sym->layerNode()->layer() );
         return QVariant::fromValue<QgsVectorLayer *>( layer );
@@ -460,7 +464,7 @@ QVariant FlatLayerTreeModelBase::data( const QModelIndex &index, int role ) cons
 
     case FlatLayerTreeModel::MapLayerPointer:
     {
-      QgsLayerTreeNode *node = mLayerTreeModel->index2node( mapToSource( index ) );
+      QgsLayerTreeNode *node = mLayerTreeModel->index2node( sourceIndex );
       if ( QgsLayerTree::isLayer( node ) )
       {
         QgsLayerTreeLayer *nodeLayer = QgsLayerTree::toLayer( node );
@@ -468,7 +472,7 @@ QVariant FlatLayerTreeModelBase::data( const QModelIndex &index, int role ) cons
 
         return QVariant::fromValue<QgsMapLayer *>( layer );
       }
-      else if ( QgsLayerTreeModelLegendNode *sym = mLayerTreeModel->index2legendNode( mapToSource( index ) ) )
+      else if ( QgsLayerTreeModelLegendNode *sym = mLayerTreeModel->index2legendNode( sourceIndex ) )
       {
         QgsMapLayer *layer = qobject_cast<QgsMapLayer *>( sym->layerNode()->layer() );
         return QVariant::fromValue<QgsMapLayer *>( layer );
@@ -481,7 +485,7 @@ QVariant FlatLayerTreeModelBase::data( const QModelIndex &index, int role ) cons
 
     case FlatLayerTreeModel::HasSpatialExtent:
     {
-      QgsLayerTreeNode *node = mLayerTreeModel->index2node( mapToSource( index ) );
+      QgsLayerTreeNode *node = mLayerTreeModel->index2node( sourceIndex );
       if ( QgsLayerTree::isLayer( node ) )
       {
         const QgsLayerTreeLayer *nodeLayer = QgsLayerTree::toLayer( node );
@@ -511,7 +515,7 @@ QVariant FlatLayerTreeModelBase::data( const QModelIndex &index, int role ) cons
           }
         }
       }
-      else if ( QgsLayerTreeModelLegendNode *sym = mLayerTreeModel->index2legendNode( mapToSource( index ) ) )
+      else if ( QgsLayerTreeModelLegendNode *sym = mLayerTreeModel->index2legendNode( sourceIndex ) )
       {
         QgsMapLayer *layer = qobject_cast<QgsMapLayer *>( sym->layerNode()->layer() );
         if ( layer )
@@ -526,18 +530,17 @@ QVariant FlatLayerTreeModelBase::data( const QModelIndex &index, int role ) cons
     case FlatLayerTreeModel::LegendImage:
     {
       QString id;
-
-      QModelIndex sourceIndex = mapToSource( index );
       if ( QgsLayerTreeModelLegendNode *sym = mLayerTreeModel->index2legendNode( sourceIndex ) )
       {
         id += QStringLiteral( "legend" );
         id += '/' + sym->layerNode()->layerId();
         QStringList legendParts;
+        QModelIndex currentIndex = sourceIndex;
         while ( sym )
         {
-          legendParts << QString::number( sourceIndex.internalId() );
-          sourceIndex = sourceIndex.parent();
-          sym = mLayerTreeModel->index2legendNode( sourceIndex );
+          legendParts << QString::number( currentIndex.internalId() );
+          currentIndex = currentIndex.parent();
+          sym = mLayerTreeModel->index2legendNode( currentIndex );
         }
         std::reverse( legendParts.begin(), legendParts.end() );
         id += '/' + legendParts.join( QStringLiteral( "~__~" ) );
@@ -565,7 +568,7 @@ QVariant FlatLayerTreeModelBase::data( const QModelIndex &index, int role ) cons
 
     case FlatLayerTreeModel::Type:
     {
-      QgsLayerTreeNode *node = mLayerTreeModel->index2node( mapToSource( index ) );
+      QgsLayerTreeNode *node = mLayerTreeModel->index2node( sourceIndex );
       if ( QgsLayerTree::isLayer( node ) )
         return QStringLiteral( "layer" );
       else if ( QgsLayerTree::isGroup( node ) )
@@ -577,13 +580,13 @@ QVariant FlatLayerTreeModelBase::data( const QModelIndex &index, int role ) cons
     case FlatLayerTreeModel::LayerType:
     {
       QgsMapLayer *layer = nullptr;
-      QgsLayerTreeNode *node = mLayerTreeModel->index2node( mapToSource( index ) );
+      QgsLayerTreeNode *node = mLayerTreeModel->index2node( sourceIndex );
       if ( QgsLayerTree::isLayer( node ) )
       {
         QgsLayerTreeLayer *nodeLayer = QgsLayerTree::toLayer( node );
         layer = qobject_cast<QgsMapLayer *>( nodeLayer->layer() );
       }
-      else if ( QgsLayerTreeModelLegendNode *sym = mLayerTreeModel->index2legendNode( mapToSource( index ) ) )
+      else if ( QgsLayerTreeModelLegendNode *sym = mLayerTreeModel->index2legendNode( sourceIndex ) )
       {
         layer = qobject_cast<QgsMapLayer *>( sym->layerNode()->layer() );
       }
@@ -621,7 +624,6 @@ QVariant FlatLayerTreeModelBase::data( const QModelIndex &index, int role ) cons
 
     case FlatLayerTreeModel::Name:
     {
-      const QModelIndex sourceIndex = mapToSource( index );
       QgsLayerTreeNode *node = mLayerTreeModel->index2node( sourceIndex );
       QString name;
       if ( QgsLayerTree::isLayer( node ) || QgsLayerTree::isGroup( node ) )
@@ -633,7 +635,7 @@ QVariant FlatLayerTreeModelBase::data( const QModelIndex &index, int role ) cons
           name += QStringLiteral( " [%1]" ).arg( count );
         }
       }
-      else if ( QgsLayerTreeModelLegendNode *sym = mLayerTreeModel->index2legendNode( mapToSource( index ) ) )
+      else if ( QgsLayerTreeModelLegendNode *sym = mLayerTreeModel->index2legendNode( sourceIndex ) )
       {
         name = sym->data( Qt::DisplayRole ).toString();
       }
@@ -643,7 +645,7 @@ QVariant FlatLayerTreeModelBase::data( const QModelIndex &index, int role ) cons
 
     case FlatLayerTreeModel::Visible:
     {
-      QgsLayerTreeModelLegendNode *sym = mLayerTreeModel->index2legendNode( mapToSource( index ) );
+      QgsLayerTreeModelLegendNode *sym = mLayerTreeModel->index2legendNode( sourceIndex );
       if ( sym )
       {
         if ( sym->flags() & Qt::ItemIsUserCheckable )
@@ -657,14 +659,14 @@ QVariant FlatLayerTreeModelBase::data( const QModelIndex &index, int role ) cons
       }
       else
       {
-        QgsLayerTreeNode *node = mLayerTreeModel->index2node( mapToSource( index ) );
+        QgsLayerTreeNode *node = mLayerTreeModel->index2node( sourceIndex );
         return node->isVisible();
       }
     }
 
     case FlatLayerTreeModel::Trackable:
     {
-      QgsLayerTreeNode *node = mLayerTreeModel->index2node( mapToSource( index ) );
+      QgsLayerTreeNode *node = mLayerTreeModel->index2node( sourceIndex );
       if ( QgsLayerTree::isLayer( node ) )
       {
         QgsLayerTreeLayer *nodeLayer = QgsLayerTree::toLayer( node );
@@ -679,7 +681,7 @@ QVariant FlatLayerTreeModelBase::data( const QModelIndex &index, int role ) cons
 
     case FlatLayerTreeModel::InTracking:
     {
-      QgsLayerTreeNode *node = mLayerTreeModel->index2node( mapToSource( index ) );
+      QgsLayerTreeNode *node = mLayerTreeModel->index2node( sourceIndex );
       if ( QgsLayerTree::isLayer( node ) )
       {
         QgsLayerTreeLayer *nodeLayer = QgsLayerTree::toLayer( node );
@@ -691,7 +693,7 @@ QVariant FlatLayerTreeModelBase::data( const QModelIndex &index, int role ) cons
 
     case FlatLayerTreeModel::ReadOnly:
     {
-      QgsLayerTreeNode *node = mLayerTreeModel->index2node( mapToSource( index ) );
+      QgsLayerTreeNode *node = mLayerTreeModel->index2node( sourceIndex );
 
       if ( QgsLayerTree::isLayer( node ) )
       {
@@ -707,7 +709,7 @@ QVariant FlatLayerTreeModelBase::data( const QModelIndex &index, int role ) cons
 
     case FlatLayerTreeModel::GeometryLocked:
     {
-      QgsLayerTreeNode *node = mLayerTreeModel->index2node( mapToSource( index ) );
+      QgsLayerTreeNode *node = mLayerTreeModel->index2node( sourceIndex );
 
       if ( QgsLayerTree::isLayer( node ) )
       {
@@ -723,7 +725,7 @@ QVariant FlatLayerTreeModelBase::data( const QModelIndex &index, int role ) cons
 
     case FlatLayerTreeModel::CanReloadData:
     {
-      QgsLayerTreeNode *node = mLayerTreeModel->index2node( mapToSource( index ) );
+      QgsLayerTreeNode *node = mLayerTreeModel->index2node( sourceIndex );
 
       if ( QgsLayerTree::isLayer( node ) )
       {
@@ -746,16 +748,13 @@ QVariant FlatLayerTreeModelBase::data( const QModelIndex &index, int role ) cons
     case FlatLayerTreeModel::IsValid:
     {
       QgsMapLayer *layer = nullptr;
-      QModelIndex sourceIndex = mapToSource( index );
-      if ( !sourceIndex.isValid() )
-        return QVariant();
       QgsLayerTreeNode *node = mLayerTreeModel->index2node( sourceIndex );
       if ( QgsLayerTree::isLayer( node ) )
       {
         QgsLayerTreeLayer *nodeLayer = QgsLayerTree::toLayer( node );
         layer = qobject_cast<QgsMapLayer *>( nodeLayer->layer() );
       }
-      else if ( QgsLayerTreeModelLegendNode *sym = mLayerTreeModel->index2legendNode( mapToSource( index ) ) )
+      else if ( QgsLayerTreeModelLegendNode *sym = mLayerTreeModel->index2legendNode( sourceIndex ) )
       {
         layer = qobject_cast<QgsMapLayer *>( sym->layerNode()->layer() );
       }
@@ -769,16 +768,13 @@ QVariant FlatLayerTreeModelBase::data( const QModelIndex &index, int role ) cons
     case FlatLayerTreeModel::FeatureCount:
     {
       QgsVectorLayer *layer = nullptr;
-      QModelIndex sourceIndex = mapToSource( index );
-      if ( !sourceIndex.isValid() )
-        return -1;
       QgsLayerTreeNode *node = mLayerTreeModel->index2node( sourceIndex );
       if ( QgsLayerTree::isLayer( node ) )
       {
         QgsLayerTreeLayer *nodeLayer = QgsLayerTree::toLayer( node );
         layer = qobject_cast<QgsVectorLayer *>( nodeLayer->layer() );
       }
-      else if ( QgsLayerTreeModelLegendNode *sym = mLayerTreeModel->index2legendNode( mapToSource( index ) ) )
+      else if ( QgsLayerTreeModelLegendNode *sym = mLayerTreeModel->index2legendNode( sourceIndex ) )
       {
         layer = qobject_cast<QgsVectorLayer *>( sym->layerNode()->layer() );
       }
@@ -805,17 +801,16 @@ QVariant FlatLayerTreeModelBase::data( const QModelIndex &index, int role ) cons
 
     case FlatLayerTreeModel::IsCollapsed:
     {
-      QModelIndex sourceIndex = mapToSource( index );
       return mCollapsedItems.contains( sourceIndex );
     }
 
     case FlatLayerTreeModel::IsParentCollapsed:
     {
-      QModelIndex sourceIndex = mapToSource( index );
-      while ( sourceIndex.isValid() )
+      QModelIndex currentIndex = sourceIndex;
+      while ( currentIndex.isValid() )
       {
-        sourceIndex = sourceIndex.parent();
-        if ( sourceIndex.isValid() && mCollapsedItems.contains( sourceIndex ) )
+        currentIndex = currentIndex.parent();
+        if ( sourceIndex.isValid() && mCollapsedItems.contains( currentIndex ) )
           return true;
       }
       return false;
@@ -828,10 +823,6 @@ QVariant FlatLayerTreeModelBase::data( const QModelIndex &index, int role ) cons
 
     case FlatLayerTreeModel::HasLabels:
     {
-      QModelIndex sourceIndex = mapToSource( index );
-      if ( !sourceIndex.isValid() )
-        return false;
-
       QgsLayerTreeNode *node = mLayerTreeModel->index2node( sourceIndex );
       QgsVectorLayer *layer = nullptr;
       if ( QgsLayerTree::isLayer( node ) )
@@ -845,10 +836,6 @@ QVariant FlatLayerTreeModelBase::data( const QModelIndex &index, int role ) cons
 
     case FlatLayerTreeModel::LabelsVisible:
     {
-      QModelIndex sourceIndex = mapToSource( index );
-      if ( !sourceIndex.isValid() )
-        return false;
-
       QgsLayerTreeNode *node = mLayerTreeModel->index2node( sourceIndex );
       QgsVectorLayer *layer = nullptr;
       if ( QgsLayerTree::isLayer( node ) )
@@ -862,10 +849,6 @@ QVariant FlatLayerTreeModelBase::data( const QModelIndex &index, int role ) cons
 
     case FlatLayerTreeModel::Opacity:
     {
-      QModelIndex sourceIndex = mapToSource( index );
-      if ( !sourceIndex.isValid() )
-        return -1.0;
-
       QgsLayerTreeNode *node = mLayerTreeModel->index2node( sourceIndex );
       QgsMapLayer *layer = nullptr;
       if ( !QgsLayerTree::isLayer( node ) )
@@ -890,11 +873,14 @@ QVariant FlatLayerTreeModelBase::data( const QModelIndex &index, int role ) cons
 
 bool FlatLayerTreeModelBase::setData( const QModelIndex &index, const QVariant &value, int role )
 {
+  const QModelIndex sourceIndex = mapToSource( index );
+  if ( !sourceIndex.isValid() )
+    return false;
+
   switch ( role )
   {
     case FlatLayerTreeModel::Visible:
     {
-      QModelIndex sourceIndex = mapToSource( index );
       QgsLayerTreeModelLegendNode *sym = mLayerTreeModel->index2legendNode( sourceIndex );
       if ( sym )
       {
@@ -919,10 +905,6 @@ bool FlatLayerTreeModelBase::setData( const QModelIndex &index, const QVariant &
 
     case FlatLayerTreeModel::LabelsVisible:
     {
-      QModelIndex sourceIndex = mapToSource( index );
-      if ( !sourceIndex.isValid() )
-        return false;
-
       QgsLayerTreeNode *node = mLayerTreeModel->index2node( sourceIndex );
       QgsVectorLayer *layer = nullptr;
       if ( QgsLayerTree::isLayer( node ) )
@@ -944,7 +926,6 @@ bool FlatLayerTreeModelBase::setData( const QModelIndex &index, const QVariant &
 
     case FlatLayerTreeModel::IsCollapsed:
     {
-      QModelIndex sourceIndex = mapToSource( index );
       const bool collapsed = value.toBool();
       if ( collapsed && !mCollapsedItems.contains( sourceIndex ) )
       {
@@ -967,10 +948,6 @@ bool FlatLayerTreeModelBase::setData( const QModelIndex &index, const QVariant &
 
     case FlatLayerTreeModel::Opacity:
     {
-      QModelIndex sourceIndex = mapToSource( index );
-      if ( !sourceIndex.isValid() )
-        return false;
-
       QgsLayerTreeNode *node = mLayerTreeModel->index2node( sourceIndex );
       QgsMapLayer *layer = nullptr;
       if ( QgsLayerTree::isLayer( node ) )
@@ -1131,7 +1108,11 @@ QgsRectangle FlatLayerTreeModelBase::nodeExtent( const QModelIndex &index, QgsQu
   QgsRectangle extent;
   extent.setMinimal();
 
-  QgsLayerTreeNode *node = mLayerTreeModel->index2node( mapToSource( index ) );
+  const QModelIndex sourceIndex = mapToSource( index );
+  if ( !sourceIndex.isValid() )
+    return extent;
+
+  QgsLayerTreeNode *node = mLayerTreeModel->index2node( sourceIndex );
   if ( QgsLayerTree::isGroup( node ) )
   {
     QgsLayerTreeGroup *groupNode = QgsLayerTree::toGroup( node );
@@ -1179,7 +1160,7 @@ QgsRectangle FlatLayerTreeModelBase::nodeExtent( const QModelIndex &index, QgsQu
       extent = mapSettings->mapSettings().layerToMapCoordinates( layer, layer->extent() );
     }
   }
-  else if ( QgsLayerTreeModelLegendNode *sym = mLayerTreeModel->index2legendNode( mapToSource( index ) ) )
+  else if ( QgsLayerTreeModelLegendNode *sym = mLayerTreeModel->index2legendNode( sourceIndex ) )
   {
     QgsMapLayer *layer = sym->layerNode()->layer();
     if ( layer )
