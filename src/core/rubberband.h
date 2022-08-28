@@ -17,6 +17,7 @@
 #define RUBBERBAND_H
 
 #include <QQuickItem>
+#include <qgswkbtypes.h>
 
 class RubberbandModel;
 class VertexModel;
@@ -42,6 +43,8 @@ class Rubberband : public QQuickItem
     Q_PROPERTY( QColor colorCurrentPoint READ colorCurrentPoint WRITE setColorCurrentPoint NOTIFY colorCurrentPointChanged )
     //! Line width  of the aleternative rubberband for current point
     Q_PROPERTY( qreal lineWidthCurrentPoint READ lineWidthCurrentPoint WRITE setLineWidthCurrentPoint NOTIFY lineWidthCurrentPointChanged )
+    //! Geometry type used to render the rubber band (if not provided or set to null geometry, the type provided by the rubber band or vertex model will be used)
+    Q_PROPERTY( QgsWkbTypes::GeometryType geometryType READ geometryType WRITE setGeometryType NOTIFY geometryTypeChanged )
 
   public:
     explicit Rubberband( QQuickItem *parent = nullptr );
@@ -75,6 +78,11 @@ class Rubberband : public QQuickItem
     //! \copydoc widthCurrentPoint
     void setLineWidthCurrentPoint( float width );
 
+    //! \copydoc geometryType
+    QgsWkbTypes::GeometryType geometryType() const { return mGeometryType; }
+    //! \copydoc geometryType
+    void setGeometryType( const QgsWkbTypes::GeometryType geometryType );
+
   signals:
     void modelChanged();
     void vertexModelChanged();
@@ -87,6 +95,8 @@ class Rubberband : public QQuickItem
     void colorCurrentPointChanged();
     //! \copydoc widthCurrentPoint
     void lineWidthCurrentPointChanged();
+    //! \copydoc geometryType
+    void geometryTypeChanged();
 
 
   private slots:
@@ -106,6 +116,7 @@ class Rubberband : public QQuickItem
     float mWidth = 1.8;
     QColor mColorCurrentPoint = QColor( 192, 57, 43, 150 );
     float mWidthCurrentPoint = 1.2;
+    QgsWkbTypes::GeometryType mGeometryType = QgsWkbTypes::NullGeometry;
 };
 
 

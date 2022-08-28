@@ -362,6 +362,7 @@ Popup {
       return false
 
     return layerTree.data( index, FlatLayerTreeModel.Type ) === 'layer'
+        && !layerTree.data( index, FlatLayerTreeModel.ReadOnly )
         && layerTree.data( index, FlatLayerTreeModel.Trackable )
         && positionSource.active
   }
