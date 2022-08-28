@@ -41,16 +41,17 @@ void MultiFeatureListModel::setFeatures( const QMap<QgsVectorLayer *, QgsFeature
   mSourceModel->setFeatures( requests );
 }
 
-void MultiFeatureListModel::setFeatures( QgsVectorLayer *vl )
-{
-  QMap<QgsVectorLayer *, QgsFeatureRequest> requests( { { vl, QgsFeatureRequest() } } );
-  mSourceModel->setFeatures( requests );
-}
-
-void MultiFeatureListModel::setFeaturesForExtent( QgsVectorLayer *vl, const QgsRectangle &rectangle )
+void MultiFeatureListModel::setFeatures( QgsVectorLayer *vl, const QString &filter, const QgsRectangle &extent )
 {
   QgsFeatureRequest request;
-  request.setFilterRect( rectangle );
+  if ( !filter.isEmpty() )
+  {
+    request.setFilterExpression( filter );
+  }
+  if ( !extent.isEmpty() )
+  {
+    request.setFilterRect( extent );
+  }
   QMap<QgsVectorLayer *, QgsFeatureRequest> requests( { { vl, request } } );
   mSourceModel->setFeatures( requests );
 }

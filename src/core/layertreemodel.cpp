@@ -866,6 +866,22 @@ QVariant FlatLayerTreeModelBase::data( const QModelIndex &index, int role ) cons
       return layer->opacity();
     }
 
+    case FlatLayerTreeModel::FilterExpression:
+    {
+      QgsLayerTreeModelLegendNode *node = mLayerTreeModel->index2legendNode( sourceIndex );
+      if ( QgsSymbolLegendNode *symbolNode = qobject_cast<QgsSymbolLegendNode *>( node ) )
+      {
+        QgsVectorLayer *layer = qobject_cast<QgsVectorLayer *>( QgsLayerTree::toLayer( node->layerNode() )->layer() );
+        if ( layer && layer->renderer() )
+        {
+          bool ok = false;
+          return layer->renderer()->legendKeyToExpression( symbolNode->data( QgsLayerTreeModelLegendNode::RuleKeyRole ).toString(),
+                                                           layer, ok );
+        }
+      }
+      return QString();
+    }
+
     default:
       return QAbstractProxyModel::data( index, role );
   }
@@ -1001,6 +1017,7 @@ QHash<int, QByteArray> FlatLayerTreeModelBase::roleNames() const
   roleNames[FlatLayerTreeModel::HasLabels] = "HasLabels";
   roleNames[FlatLayerTreeModel::LabelsVisible] = "LabelsVisible";
   roleNames[FlatLayerTreeModel::Opacity] = "Opacity";
+  roleNames[FlatLayerTreeModel::FilterExpression] = "FilterExpression";
   return roleNames;
 }
 

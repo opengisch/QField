@@ -239,16 +239,11 @@ Popup {
           if ( parseInt(layerTree.data(index, FlatLayerTreeModel.FeatureCount)) === 0 ) {
             displayToast( qsTr( "The layer has no features" ) )
           } else {
-            var vl = layerTree.data( index, FlatLayerTreeModel.VectorLayerPointer )
-
-            if ( layerTree.data( index, FlatLayerTreeModel.Type ) === 'layer' ) {
-              featureForm.model.setFeatures( vl )
-            } else {
-              // one day, we should be able to show only the features that correspond to the given legend item
-              featureForm.model.setFeatures( vl )
-            }
+            var vl = layerTree.data(index, FlatLayerTreeModel.VectorLayerPointer)
+            var filter = layerTree.data(index, FlatLayerTreeModel.FilterExpression)
+            featureForm.model.setFeatures(vl, filter)
             if (layerTree.data(index, FlatLayerTreeModel.HasSpatialExtent)) {
-              mapCanvas.mapSettings.extent = layerTree.nodeExtent( index, mapCanvas.mapSettings )
+              mapCanvas.mapSettings.extent = layerTree.nodeExtent(index, mapCanvas.mapSettings)
             }
           }
 
@@ -339,13 +334,8 @@ Popup {
           displayToast( qsTr( "The layer has no features" ) )
         } else {
           var vl = layerTree.data( index, FlatLayerTreeModel.VectorLayerPointer )
-
-          if ( layerTree.data( index, FlatLayerTreeModel.Type ) === 'layer' ) {
-            featureForm.model.setFeaturesForExtent( vl, mapCanvas.mapSettings.visibleExtent )
-          } else {
-            // one day, we should be able to show only the features that correspond to the given legend item
-            featureForm.model.setFeaturesForExtent( vl, mapCanvas.mapSettings.visibleExtent )
-          }
+          var filter = layerTree.data(index, FlatLayerTreeModel.FilterExpression)
+          featureForm.model.setFeatures( vl, filter, mapCanvas.mapSettings.visibleExtent )
         }
 
         close()
