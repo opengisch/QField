@@ -180,8 +180,7 @@ void ProjectInfo::saveLayerTreeState() const
     const QgsMapThemeCollection::MapThemeRecord rec = QgsMapThemeCollection::createThemeFromCurrentState( mLayerTree->layerTreeModel()->rootGroup(), mLayerTree->layerTreeModel() );
     mapCollection.insert( QStringLiteral( "::QFieldLayerTreeState" ), rec );
 
-    QDomImplementation DomImplementation;
-    const QDomDocumentType documentType = DomImplementation.createDocumentType( QStringLiteral( "qgis" ), QStringLiteral( "http://mrcc.com/qgis.dtd" ), QStringLiteral( "SYSTEM" ) );
+    const QDomDocumentType documentType = QDomImplementation().createDocumentType( QStringLiteral( "qgis" ), QStringLiteral( "http://mrcc.com/qgis.dtd" ), QStringLiteral( "SYSTEM" ) );
     QDomDocument document( documentType );
 
     document.appendChild( document.createElement( QStringLiteral( "qgis" ) ) );
