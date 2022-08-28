@@ -15,7 +15,7 @@ Popup {
 
   property bool zoomToButtonVisible: false
   property bool showFeaturesListButtonVisible: false
-  property bool showVisibleFeaturesListButttonVisible: false
+  property bool showVisibleFeaturesListDropdownVisible: false
   property bool reloadDataButtonVisible: false
 
   property bool trackingButtonVisible: false
@@ -23,7 +23,7 @@ Popup {
 
   property bool opacitySliderVisible: false
 
-  width: Math.min( childrenRect.width, mainWindow.width - Theme.popupScreenEdgeMargin)
+  width: Math.min(childrenRect.width, mainWindow.width - Theme.popupScreenEdgeMargin)
   x: (parent.width - width) / 2
   y: (parent.height - height) / 2
   padding: 0
@@ -40,28 +40,50 @@ Popup {
     reloadDataButtonVisible = layerTree.data(index, FlatLayerTreeModel.CanReloadData)
     zoomToButtonVisible = layerTree.data(index, FlatLayerTreeModel.HasSpatialExtent)
     showFeaturesListButtonVisible = isShowFeaturesListButtonVisible();
-    showVisibleFeaturesListButttonVisible = isShowVisibleFeaturesListButtonVisible();
+    showVisibleFeaturesListDropdownVisible = isShowVisibleFeaturesListDropdownVisible();
 
     trackingButtonVisible = isTrackingButtonVisible()
     trackingButtonText = trackingModel.layerInTracking( layerTree.data(index, FlatLayerTreeModel.VectorLayerPointer) )
         ? qsTr('Stop tracking')
         : qsTr('Setup tracking')
 
-    opacitySliderVisible = layerTree.data(index, FlatLayerTreeModel.HasSpatialExtent)
+    opacitySliderVisible = layerTree.data( index, FlatLayerTreeModel.Type ) !== 'group' &&
+                           layerTree.data(index, FlatLayerTreeModel.HasSpatialExtent)
   }
 
   Page {
     width: parent.width
     padding: 10
-    header: Label {
-      padding: 10
-      topPadding: 15
-      bottomPadding: 0
-      width: parent.width - 20
-      text: title
-      font: Theme.strongFont
-      horizontalAlignment: Text.AlignHCenter
-      wrapMode: Text.WordWrap
+    header: RowLayout {
+      spacing: 2
+      Label {
+        id: titleLabel
+        Layout.fillWidth: true
+        Layout.leftMargin: 10
+        topPadding: 4
+        bottomPadding: 4
+        text: ''
+        font: Theme.strongFont
+        horizontalAlignment: Text.AlignLeft
+        wrapMode: Text.WordWrap
+      }
+      QfToolButton {
+        id: zoomInButton
+        Layout.alignment: Qt.AlignTop
+        Layout.rightMargin: 0
+        round: true
+        visible: reloadDataButtonVisible
+
+        bgcolor: "transparent"
+        iconSource: Theme.getThemeVectorIcon( 'refresh_24dp' )
+
+        onClicked: {
+          layerTree.data(index, FlatLayerTreeModel.MapLayerPointer).reload()
+          close()
+          dashBoard.visible = false
+          displayToast(qsTr('Reload of layer %1 triggered').arg(layerTree.data(index, Qt.DisplayName)))
+        }
+      }
     }
 
     ColumnLayout {
@@ -86,6 +108,21 @@ Popup {
         text: '<img src="' + invalidIcon + '" width="' + invalidSize + '" height="' + invalidSize + '"> '
               + qsTr('This layer is invalid. This might be due to a network issue, a missing file or a misconfiguration of the project.')
         font: Theme.tipFont
+      }
+
+      CheckBox {
+        id: expandCheckBox
+        Layout.fillWidth: true
+        topPadding: 5
+        bottomPadding: 5
+        text: qsTr('Expand legend item')
+        font: Theme.defaultFont
+        visible: index && layerTree.data(index, FlatLayerTreeModel.HasChildren) ? true : false
+
+        onClicked: {
+          layerTree.setData(index, checkState === Qt.Unchecked, FlatLayerTreeModel.IsCollapsed);
+          close()
+        }
       }
 
       CheckBox {
@@ -125,21 +162,6 @@ Popup {
         onClicked: {
           layerTree.setData(index, checkState === Qt.Checked, FlatLayerTreeModel.LabelsVisible);
           close();
-        }
-      }
-
-      CheckBox {
-        id: expandCheckBox
-        Layout.fillWidth: true
-        topPadding: 5
-        bottomPadding: 5
-        text: qsTr('Expand legend item')
-        font: Theme.defaultFont
-        visible: index && layerTree.data(index, FlatLayerTreeModel.HasChildren) ? true : false
-
-        onClicked: {
-          layerTree.setData(index, checkState === Qt.Unchecked, FlatLayerTreeModel.IsCollapsed);
-          close()
         }
       }
 
@@ -205,26 +227,10 @@ Popup {
       }
 
       QfButton {
-        id: reloadDataButton
-        Layout.fillWidth: true
-        Layout.topMargin: 5
-        font: Theme.defaultFont
-        text: qsTr('Reload data')
-        visible: reloadDataButtonVisible
-        icon.source: Theme.getThemeVectorIcon( 'refresh_24dp' )
-
-        onClicked: {
-          layerTree.data(index, FlatLayerTreeModel.MapLayerPointer).reload()
-          close()
-          dashBoard.visible = false
-          displayToast(qsTr('Reload of layer %1 triggered').arg(layerTree.data(index, Qt.DisplayName)))
-        }
-      }
-
-      QfButton {
         id: showFeaturesList
         Layout.fillWidth: true
         Layout.topMargin: 5
+        dropdown: showVisibleFeaturesListDropdownVisible
         text: qsTr('Show features list')
         visible: showFeaturesListButtonVisible
         icon.source: Theme.getThemeVectorIcon( 'ic_list_black_24dp' )
@@ -249,32 +255,9 @@ Popup {
           close()
           dashBoard.visible = false
         }
-      }
 
-      QfButton {
-        id: showVisibleFeaturesList
-        Layout.fillWidth: true
-        Layout.topMargin: 5
-        text: qsTr('Show visible features list')
-        visible: showVisibleFeaturesListButttonVisible
-        icon.source: Theme.getThemeVectorIcon( 'ic_list_visible_black_24dp' )
-
-        onClicked: {
-          if ( parseInt(layerTree.data(index, FlatLayerTreeModel.FeatureCount)) === 0 ) {
-            displayToast( qsTr( "The layer has no features" ) )
-          } else {
-            var vl = layerTree.data( index, FlatLayerTreeModel.VectorLayerPointer )
-
-            if ( layerTree.data( index, FlatLayerTreeModel.Type ) === 'layer' ) {
-              featureForm.model.setFeaturesForExtent( vl, mapCanvas.mapSettings.visibleExtent )
-            } else {
-              // one day, we should be able to show only the features that correspond to the given legend item
-              featureForm.model.setFeaturesForExtent( vl, mapCanvas.mapSettings.visibleExtent )
-            }
-          }
-
-          close()
-          dashBoard.visible = false
+        onDropdownClicked: {
+          showFeaturesMenu.popup(showFeaturesList.width - showFeaturesMenu.width + 10, showFeaturesList.y + 10)
         }
       }
 
@@ -329,6 +312,48 @@ Popup {
     }
   }
 
+  Menu {
+    id: showFeaturesMenu
+    title: qsTr( "Show Features Menu" )
+
+    width: {
+      var result = 0;
+      var padding = 0;
+      for (var i = 0; i < count; ++i) {
+        var item = itemAt(i);
+        result = Math.max(item.contentItem.implicitWidth, result);
+        padding = Math.max(item.padding, padding);
+      }
+      return result + padding * 2;
+    }
+
+    MenuItem {
+      text: qsTr('Show visible features list')
+
+      font: Theme.defaultFont
+      height: 48
+      leftPadding: 10
+
+      onTriggered: {
+        if ( parseInt(layerTree.data(index, FlatLayerTreeModel.FeatureCount)) === 0 ) {
+          displayToast( qsTr( "The layer has no features" ) )
+        } else {
+          var vl = layerTree.data( index, FlatLayerTreeModel.VectorLayerPointer )
+
+          if ( layerTree.data( index, FlatLayerTreeModel.Type ) === 'layer' ) {
+            featureForm.model.setFeaturesForExtent( vl, mapCanvas.mapSettings.visibleExtent )
+          } else {
+            // one day, we should be able to show only the features that correspond to the given legend item
+            featureForm.model.setFeaturesForExtent( vl, mapCanvas.mapSettings.visibleExtent )
+          }
+        }
+
+        close()
+        dashBoard.visible = false
+      }
+    }
+  }
+
   Connections {
       target: layerTree
 
@@ -343,7 +368,7 @@ Popup {
       if (index === undefined)
           return
 
-      title = layerTree.data(index, Qt.Name)
+      titleLabel.text = layerTree.data(index, Qt.Name)
       var vl = layerTree.data(index, FlatLayerTreeModel.VectorLayerPointer)
 
       if (vl && layerTree.data(index, FlatLayerTreeModel.IsValid) && layerTree.data( index, FlatLayerTreeModel.Type ) === 'layer') {
@@ -351,7 +376,7 @@ Popup {
           if (count !== undefined && count >= 0) {
               var countSuffix = ' [' + count + ']'
 
-              if ( !title.endsWith(countSuffix) )
+              if (!titleLabel.text.endsWith(countSuffix))
                   title += countSuffix
           }
       }
@@ -372,7 +397,7 @@ Popup {
         && layerTree.data( index, FlatLayerTreeModel.LayerType ) === 'vectorlayer'
   }
 
-  function isShowVisibleFeaturesListButtonVisible() {
+  function isShowVisibleFeaturesListDropdownVisible() {
     return isShowFeaturesListButtonVisible()
         && layerTree.data(index, FlatLayerTreeModel.HasSpatialExtent)
   }
