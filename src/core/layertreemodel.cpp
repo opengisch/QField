@@ -952,6 +952,9 @@ bool FlatLayerTreeModelBase::setData( const QModelIndex &index, const QVariant &
         mCollapsedItems.removeAll( sourceIndex );
       }
 
+      QgsLayerTreeNode *node = mLayerTreeModel->index2node( sourceIndex );
+      node->setExpanded( !collapsed );
+
       //the node's children are also impacted, use the tree level value to identify those
       int treeLevel = mTreeLevelMap[index.row()];
       int endRow = index.row();

@@ -250,6 +250,7 @@ ListView {
             if (layerTree.data(itemIndex, FlatLayerTreeModel.HasChildren)) {
               var isCollapsed = layerTree.data(itemIndex, FlatLayerTreeModel.IsCollapsed)
               layerTree.setData(itemIndex, !isCollapsed, FlatLayerTreeModel.IsCollapsed);
+              projectInfo.saveLayerTreeState();
             }
           }
       }

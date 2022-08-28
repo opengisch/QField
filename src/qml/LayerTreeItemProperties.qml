@@ -142,6 +142,7 @@ Popup {
         onClicked: {
           layerTree.setData(index, checkState === Qt.Checked, FlatLayerTreeModel.Visible);
           flatLayerTree.mapTheme = '';
+          projectInfo.saveLayerTreeState();
           close();
         }
       }
@@ -161,6 +162,7 @@ Popup {
 
         onClicked: {
           layerTree.setData(index, checkState === Qt.Checked, FlatLayerTreeModel.LabelsVisible);
+          projectInfo.saveLayerStyle(layerTree.data(index, FlatLayerTreeModel.MapLayerPointer))
           close();
         }
       }
@@ -201,7 +203,10 @@ Popup {
             Layout.fillWidth: true
             id: slider
             value: index !== undefined ? layerTree.data(index, FlatLayerTreeModel.Opacity) : 0
-            onMoved: layerTree.setData(index, value, FlatLayerTreeModel.Opacity)
+            onMoved: {
+              layerTree.setData(index, value, FlatLayerTreeModel.Opacity)
+              projectInfo.saveLayerStyle(layerTree.data(index, FlatLayerTreeModel.MapLayerPointer))
+            }
           }
         }
       }
