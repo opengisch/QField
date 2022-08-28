@@ -60,8 +60,8 @@ Popup {
         id: titleLabel
         Layout.fillWidth: true
         Layout.leftMargin: 10
-        topPadding: 4
-        bottomPadding: 4
+        topPadding: 10
+        bottomPadding: 10
         text: ''
         font: Theme.strongFont
         horizontalAlignment: Text.AlignLeft
@@ -358,10 +358,13 @@ Popup {
       if (index === undefined)
           return
 
-      titleLabel.text = layerTree.data(index, Qt.Name)
+      var title = layerTree.data(index, Qt.Name)
+      var type = layerTree.data(index, FlatLayerTreeModel.Type)
       var vl = layerTree.data(index, FlatLayerTreeModel.VectorLayerPointer)
-
-      if (vl && layerTree.data(index, FlatLayerTreeModel.IsValid) && layerTree.data( index, FlatLayerTreeModel.Type ) === 'layer') {
+      if (vl) {
+        if (type === 'legend') {
+          title += ' (' + vl.name + ')'
+        } else if (type === 'layer' && layerTree.data(index, FlatLayerTreeModel.IsValid)) {
           var count = layerTree.data(index, FlatLayerTreeModel.FeatureCount)
           if (count !== undefined && count >= 0) {
               var countSuffix = ' [' + count + ']'
@@ -369,7 +372,9 @@ Popup {
               if (!titleLabel.text.endsWith(countSuffix))
                   title += countSuffix
           }
+        }
       }
+      titleLabel.text = title
   }
 
   function isTrackingButtonVisible() {
