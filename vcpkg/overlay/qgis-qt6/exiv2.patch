@@ -1,0 +1,25 @@
+From 180179ea725247a8875a76a57985d69f42041022 Mon Sep 17 00:00:00 2001
+From: Matthias Kuhn <matthias@opengis.ch>
+Date: Thu, 30 Sep 2021 10:49:40 +0200
+Subject: [PATCH] patch exiv2
+
+---
+ CMakeLists.txt | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 897b0fcfa9..3b54a2a01d 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -356,7 +356,8 @@ if(WITH_CORE)
+   find_package(ZLIB REQUIRED)       # for decompression of vector tiles in MBTiles file
+   message(STATUS "Found zlib: ${ZLIB_LIBRARIES}")
+ 
+-  find_package(EXIV2 REQUIRED)
++  find_package(exiv2 REQUIRED)
++  set(EXIV2_LIBRARY exiv2lib)
+ 
+   # optional
+   if (WITH_POSTGRESQL)
+-- 
+2.31.1

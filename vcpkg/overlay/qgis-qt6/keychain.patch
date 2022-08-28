@@ -1,0 +1,28 @@
+From 7adf95ea43874f006ff3e1ae39a3aea05184e2d5 Mon Sep 17 00:00:00 2001
+From: Matthias Kuhn <matthias@opengis.ch>
+Date: Wed, 28 Jul 2021 07:28:28 +0200
+Subject: [PATCH] Qt5Keychain
+
+---
+ CMakeLists.txt | 5 ++++-
+ 1 file changed, 4 insertions(+), 1 deletion(-)
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index b8d9287728..7a41b0d1e2 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -490,7 +490,10 @@ if(WITH_CORE)
+   endif()
+ 
+   # Password helper
+-  find_package(QtKeychain REQUIRED)
++  find_package(Qt6Keychain REQUIRED)
++  set(QTKEYCHAIN_INCLUDE_DIR ${QTKEYCHAIN_INCLUDE_DIRS}/qt6keychain)
++  set(QTKEYCHAIN_LIBRARY ${QTKEYCHAIN_LIBRARIES})
++  set(QTKEYCHAIN_FOUND ${Qt6Keychain_FOUND})
+   # Master password hash and authentication encryption
+   find_package(QCA REQUIRED)
+   # Check for runtime dependency of qca-ossl plugin
+-- 
+2.31.1
+

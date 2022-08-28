@@ -1,12 +1,11 @@
 vcpkg_from_github(
     OUT_SOURCE_PATH SOURCE_PATH
     REPO OSGeo/gdal
-    REF v3.5.1
-    SHA512 658e515a16ed2b45a0b3dffa6bb23f28d6454a902d8d9efbed320e353112463ff8e9c3efd5b6c98cf61cf187dc88a0dd13f4989041acc836de2b9c07e8da32e9
+    REF 2a589654af44263b3eff6ffa4927e9bd93115a64 # to be 3.5.2
+    SHA512 dd033dff38dac408831e652a39f5667c9ee7f8e8b46b27c9adca39ee4801324dd782edebef56c6227e7daf42485d667c828d6a58d83877ff428e2c162dc45e1e
     HEAD_REF master
     PATCHES
         find-link-libraries.patch
-        ios.patch
 )
 # `vcpkg clean` stumbles over one subdir
 file(REMOVE_RECURSE "${SOURCE_PATH}/autotest")

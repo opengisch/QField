@@ -1,0 +1,105 @@
+{
+    "name": "qgis-qt6",
+    "version-string": "current",
+    "homepage": "https://qgis.org",
+    "description": "QGIS is a free, open source, cross platform (lin/win/mac) geographical information system (GIS)",
+    "dependencies": [
+      "expat",
+      "libxml2",
+      "libzip",
+      "zlib",
+      "libspatialindex",
+      "libspatialite",
+      {
+        "name": "gdal",
+        "features":["poppler"]
+      },
+      {
+        "name": "exiv2",
+        "features":
+        [
+          "xmp"
+        ]
+      },
+      "gsl",
+      "libpq",
+      "protobuf",
+      "proj",
+      "geos",
+      "poly2tri",
+      {
+        "name": "libtasn1",
+        "platform": "ios"
+      },
+      "qtbase",
+      "qtsvg",
+      "qtlocation",
+      "qttools",
+      {
+        "name": "qca-qt6",
+        "default-features": false,
+        "features": []
+      },
+      "qtkeychain-qt6"
+    ],
+    "features":
+	{
+            "opencl" : {
+              "description": "Should OpenCL support be added",
+              "dependencies":
+              [
+                  "opencl"
+              ]
+    },
+            "server":
+        {
+            "description": "Determines whether QGIS server should be built",
+            "dependencies":
+            [
+                "fastcgi"
+            ]
+        },
+            "process":
+        {
+            "description": "Determines whether the command line QGIS process tool should be built"
+        },
+            "3d":
+        {
+            "description": "Determines whether QGIS 3D library should be built",
+            "dependencies":
+            [
+                "qt3d"
+            ]
+        },
+            "bindings":
+        {
+            "description": "Determines whether Python bindings should be built"
+        },
+            "gui":
+        {
+            "description": "Determines whether the QGIS gui should be built",
+            "dependencies":
+            [
+                "qwt",
+                "qscintilla"
+            ]
+        },
+            "desktop":
+        {
+            "description": "Determines whether the QGIS desktop (main app) should be built"
+        },
+            "customwidgets":
+        {
+            "description": "Determines whether the QGIS custom widgets for QtCreator should be built"
+        },
+            "quick":
+        {
+            "description": "Build the QGIS quick components for mobile interfaces",
+            "dependencies":
+            [
+                "qtdeclarative"
+            ]
+        }
+  }
+    
+  }

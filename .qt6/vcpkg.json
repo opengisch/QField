@@ -1,0 +1,36 @@
+{
+  "name": "qfield",
+  "version-string": "dev",
+  "port-version": 1,
+  "homepage": "https://github.com/opengisch/qfield",
+  "description": "A simplified and touch optimized frontend for QGIS.",
+  "dependencies": [
+    {
+      "name": "gdal",
+      "default-features": false
+    },
+    "qgis-qt6",
+    "qtsensors",
+    "qtwebview",
+    "qtconnectivity",
+    "qtdeclarative",
+    "qtlocation",
+    "qtcharts",
+    "qtmultimedia",
+    {
+      "name": "qca-qt6",
+      "default-features": false
+    },
+    "nu-book-zxing-cpp",
+    "spix-qt6",
+    {
+      "name": "sentry-native",
+      "platform": "!android & !ios & !osx"
+    },
+    "catch2",
+    {
+      "name": "sentry-cocoa",
+      "platform": "ios | osx"
+    }
+  ]
+}

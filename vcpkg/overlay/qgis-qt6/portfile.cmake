@@ -1,5 +1,5 @@
-set(QGIS_REF final-3_26_2)
-set(QGIS_SHA512 796f05a6a6f0440ebe933226febc58436f5a8e97d3c4b4ef4532390e2fc6a2d2ff4efa7408226c2a1f49d7bd146e8f2ab4d8c83fa3a3a3d34c0e2cc744b5ee46)
+set(QGIS_REF a95b21305e549cf370af0d9ef8bcf9b03e7b5d82) # Soon to be 3.28
+set(QGIS_SHA512 2536f225941f144d35cc736e96ee89c71335f8aa3bec727a82cc320eb3556fbf9222bdb7f31298e3393eaaf61ae36da81e3037ef26dbd7c8c134ca8399cdd31d)
 
 vcpkg_from_github(
     OUT_SOURCE_PATH SOURCE_PATH
@@ -14,11 +14,11 @@ vcpkg_from_github(
         keychain.patch
         libxml2.patch
         exiv2.patch
-        androidextras.patch
         crssync.patch
         bigobj.patch
         android-resources.patch
         poly2tri.patch
+        qt6extras.patch
 )
 
 file(REMOVE ${SOURCE_PATH}/cmake/FindQtKeychain.cmake)
@@ -129,6 +129,7 @@ endif()
 # By default QGIS installs includes into "include" on Windows and into "include/qgis" everywhere else
 # let's keep things clean and tidy and put them at a predictable location
 list(APPEND QGIS_OPTIONS -DQGIS_INCLUDE_SUBDIR=include/qgis)
+list(APPEND QGIS_OPTIONS -DBUILD_WITH_QT6=ON)
 
 if(VCPKG_TARGET_IS_WINDOWS)
     ##############################################################################
@@ -225,14 +226,14 @@ else() # Build in UNIX
         FIND_LIB_OPTIONS(FCGI fcgi fcgi LIBRARY ${VCPKG_TARGET_SHARED_LIBRARY_SUFFIX})
         list(APPEND QGIS_OPTIONS -DFCGI_INCLUDE_DIR="${CURRENT_INSTALLED_DIR}/include/fastcgi")
     endif()
-    find_package(Qt5 QUIET)
+    find_package(Qt6 QUIET)
     list(APPEND QGIS_OPTIONS -DWITH_INTERNAL_POLY2TRI=OFF)
     if(EXISTS "${CURRENT_INSTALLED_DIR}/lib/libqt_poly2tri.a")
         set(QT_POLY2TRI_DIR_RELEASE "${CURRENT_INSTALLED_DIR}/lib")
         set(QT_POLY2TRI_DIR_DEBUG "${CURRENT_INSTALLED_DIR}/debug/lib")
-    elseif(EXISTS "${Qt5_DIR}/../../libqt_poly2tri.a")
-        set(QT_POLY2TRI_DIR_RELEASE "${Qt5_DIR}/../..")
-        set(QT_POLY2TRI_DIR_DEBUG "${Qt5_DIR}/../..")
+    elseif(EXISTS "${Qt6_DIR}/../../libqt_poly2tri.a")
+        set(QT_POLY2TRI_DIR_RELEASE "${Qt6_DIR}/../..")
+        set(QT_POLY2TRI_DIR_DEBUG "${Qt6_DIR}/../..")
     else()
         list(APPEND QGIS_OPTIONS -DPoly2Tri_LIBRARY=poly2tri::poly2tri)
     endif()
