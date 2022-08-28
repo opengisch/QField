@@ -16,7 +16,6 @@
 
 
 #include "projectinfo.h"
-#include "qgismobileapp.h"
 
 #include <QDateTime>
 #include <QFileInfo>
