@@ -131,30 +131,26 @@ QList<IdentifyTool::IdentifyResult> IdentifyTool::identifyVectorLayer( QgsVector
     // catch exception for 'invalid' point and proceed with no features found
   }
 
-  bool filter = false;
-
   QgsRenderContext context( QgsRenderContext::fromMapSettings( mMapSettings->mapSettings() ) );
   context.setExpressionContext( QgsExpressionContext( QgsExpressionContextUtils::globalProjectLayerScopes( layer ) ) );
   context.expressionContext() << QgsExpressionContextUtils::mapSettingsScope( mMapSettings->mapSettings() );
   QgsFeatureRenderer *renderer = layer->renderer();
-  if ( renderer && renderer->capabilities() & QgsFeatureRenderer::ScaleDependent )
+
+  if ( renderer )
   {
-    // setup scale for scale dependent visibility (rule based)
     renderer->startRender( context, layer->fields() );
-    filter = renderer->capabilities() & QgsFeatureRenderer::Filter;
   }
 
   for ( const QgsFeature &feature : std::as_const( featureList ) )
   {
     context.expressionContext().setFeature( feature );
-
-    if ( filter && !renderer->willRenderFeature( const_cast<QgsFeature &>( feature ), context ) )
+    if ( renderer && !renderer->willRenderFeature( const_cast<QgsFeature &>( feature ), context ) )
       continue;
 
     results.append( IdentifyResult( layer, feature ) );
   }
 
-  if ( renderer && renderer->capabilities() & QgsFeatureRenderer::ScaleDependent )
+  if ( renderer )
   {
     renderer->stopRender( context );
   }
