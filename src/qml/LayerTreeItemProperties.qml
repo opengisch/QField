@@ -47,8 +47,7 @@ Popup {
         ? qsTr('Stop tracking')
         : qsTr('Setup tracking')
 
-    opacitySliderVisible = layerTree.data( index, FlatLayerTreeModel.Type ) !== 'group' &&
-                           layerTree.data(index, FlatLayerTreeModel.HasSpatialExtent)
+    opacitySliderVisible = layerTree.data(index, FlatLayerTreeModel.Opacity) > -1
   }
 
   Page {
