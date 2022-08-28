@@ -324,7 +324,7 @@ Page {
                               model = items.concat(Object.values(languages));
 
                               currentIndex = languageCodes.indexOf(customLanguageCode);
-                              currentLanguageCode = customLanguageCode
+                              currentLanguageCode = customLanguageCode || ''
                               languageTip.visible = false
                           }
                       }
