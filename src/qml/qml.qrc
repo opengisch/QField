@@ -83,5 +83,6 @@
         <file>QFieldCloudDeltaHistory.qml</file>
         <file>QFieldCloudPackageLayersFeedback.qml</file>
         <file>QFieldLocalDataPickerScreen.qml</file>
+        <file>imports/Theme/QfSlider.qml</file>
     </qresource>
 </RCC>
