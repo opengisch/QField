@@ -47,6 +47,7 @@ Popup {
         ? qsTr('Stop tracking')
         : qsTr('Setup tracking')
 
+    // the layer tree model returns -1 for items that do not support the opacity setting
     opacitySliderVisible = layerTree.data(index, FlatLayerTreeModel.Opacity) > -1
   }
 
