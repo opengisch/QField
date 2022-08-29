@@ -100,6 +100,13 @@ void DigitizingLogger::setMapSettings( QgsQuickMapSettings *mapSettings )
   emit mapSettingsChanged();
 }
 
+void DigitizingLogger::setCloudUserInformation( const CloudUserInformation &cloudUserInformation )
+{
+  mCloudUserInformation = cloudUserInformation;
+
+  emit cloudUserInformationChanged();
+}
+
 void DigitizingLogger::setDigitizingLayer( QgsVectorLayer *layer )
 {
   if ( mDigitizingLayer == layer )

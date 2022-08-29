@@ -208,8 +208,11 @@ class QFieldCloudProjectsModel : public QAbstractListModel
     //! Sets the cloud project id of the currently opened project.
     void setCurrentProjectId( const QString &currentProjectId );
 
-    //! Stores the geopackage flusher, write only
-    Q_PROPERTY( QgsGpkgFlusher *gpkgFlusher WRITE setGpkgFlusher NOTIFY gpkgFlusherChanged )
+    //! Stores the geopackage flusher
+    Q_PROPERTY( QgsGpkgFlusher *gpkgFlusher READ gpkgFlusher WRITE setGpkgFlusher NOTIFY gpkgFlusherChanged )
+
+    //! Returns the geopackage flusher
+    QgsGpkgFlusher *gpkgFlusher() const { return mGpkgFlusher; }
 
     //! Sets the geopackage flusher
     void setGpkgFlusher( QgsGpkgFlusher *flusher );

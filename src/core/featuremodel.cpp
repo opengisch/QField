@@ -194,13 +194,17 @@ void FeatureModel::setPositionLocked( bool positionLocked )
 {
   if ( mPositionLocked == positionLocked )
     return;
+
   mPositionLocked = positionLocked;
+
   emit positionLockedChanged();
 }
 
 void FeatureModel::setCloudUserInformation( const CloudUserInformation &cloudUserInformation )
 {
   mCloudUserInformation = cloudUserInformation;
+
+  emit cloudUserInformationChanged();
 }
 
 void FeatureModel::setLinkedParentFeature( const QgsFeature &feature )
