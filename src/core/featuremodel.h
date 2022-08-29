@@ -47,7 +47,7 @@ class FeatureModel : public QAbstractListModel
     Q_PROPERTY( GnssPositionInformation positionInformation READ positionInformation WRITE setPositionInformation NOTIFY positionInformationChanged )
     Q_PROPERTY( SnappingResult topSnappingResult READ topSnappingResult WRITE setTopSnappingResult NOTIFY topSnappingResultChanged )
     Q_PROPERTY( bool positionLocked READ positionLocked WRITE setPositionLocked NOTIFY positionLockedChanged )
-    Q_PROPERTY( CloudUserInformation cloudUserInformation WRITE setCloudUserInformation );
+    Q_PROPERTY( CloudUserInformation cloudUserInformation READ cloudUserInformation WRITE setCloudUserInformation NOTIFY cloudUserInformationChanged );
     Q_PROPERTY( QgsProject *project READ project WRITE setProject NOTIFY projectChanged )
 
   public:
@@ -238,6 +238,11 @@ class FeatureModel : public QAbstractListModel
     void setPositionLocked( bool positionLocked );
 
     /**
+     * Returns the current cloud user information
+     */
+    CloudUserInformation cloudUserInformation() const { return mCloudUserInformation; }
+
+    /**
      * Sets the current cloud user information
      * \param cloudUserInformation the cloud user information
      */
@@ -273,6 +278,7 @@ class FeatureModel : public QAbstractListModel
     void topSnappingResultChanged();
     void positionLockedChanged();
     void projectChanged();
+    void cloudUserInformationChanged();
 
     void warning( const QString &text );
 
