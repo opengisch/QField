@@ -827,7 +827,7 @@ Kohteen geometriat yhdistet채채n kohteeseen &apos;%1&apos;, johon sis채llytet채�
     </message>
     <message>
         <source>Reload data</source>
-        <translation>Lataa data uudelleen</translation>
+        <translation type="vanished">Lataa data uudelleen</translation>
     </message>
     <message>
         <source>Reload of layer %1 triggered</source>
@@ -863,6 +863,10 @@ Kohteen geometriat yhdistet채채n kohteeseen &apos;%1&apos;, johon sis채llytet채�
     </message>
     <message>
         <source>Show visible features list</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Show Features Menu</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -2513,7 +2517,11 @@ Peruuta tehd채ksesi suppeampi laiteskannaus.</translation>
     </message>
     <message>
         <source>Cannot start track with empty values</source>
-        <translation>Ei voida aloittaa j채ljityst채 tyhjill채 arvoilla</translation>
+        <translation type="vanished">Ei voida aloittaa j채ljityst채 tyhjill채 arvoilla</translation>
+    </message>
+    <message>
+        <source>When both constraints are disabled, vertex additions will occur as frequently as delivered by the positioning device.</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

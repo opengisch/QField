@@ -826,7 +826,7 @@ Az elem geometriákat összevonjuk a &apos;%1&apos; elembe, mely megőrzi az att
     </message>
     <message>
         <source>Reload data</source>
-        <translation>Adatok újra betöltése</translation>
+        <translation type="vanished">Adatok újra betöltése</translation>
     </message>
     <message>
         <source>Reload of layer %1 triggered</source>
@@ -862,6 +862,10 @@ Az elem geometriákat összevonjuk a &apos;%1&apos; elembe, mely megőrzi az att
     </message>
     <message>
         <source>Show visible features list</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Show Features Menu</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -2509,7 +2513,11 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Cannot start track with empty values</source>
-        <translation>Üres értékekkel nem lehet elkezdeni a követést</translation>
+        <translation type="vanished">Üres értékekkel nem lehet elkezdeni a követést</translation>
+    </message>
+    <message>
+        <source>When both constraints are disabled, vertex additions will occur as frequently as delivered by the positioning device.</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

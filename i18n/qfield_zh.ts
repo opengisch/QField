@@ -825,7 +825,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Reload data</source>
-        <translation>重新加载数据</translation>
+        <translation type="vanished">重新加载数据</translation>
     </message>
     <message>
         <source>Reload of layer %1 triggered</source>
@@ -862,6 +862,10 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <message>
         <source>Show visible features list</source>
         <translation>显示可见要素列表</translation>
+    </message>
+    <message>
+        <source>Show Features Menu</source>
+        <translation>显示要素菜单</translation>
     </message>
 </context>
 <context>
@@ -2512,7 +2516,11 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Cannot start track with empty values</source>
-        <translation>无法通过空值启动跟踪</translation>
+        <translation type="vanished">无法通过空值启动跟踪</translation>
+    </message>
+    <message>
+        <source>When both constraints are disabled, vertex additions will occur as frequently as delivered by the positioning device.</source>
+        <translation>当两个约束都被禁用时，顶点添加的频率将与定位设备提供的频率相同。</translation>
     </message>
 </context>
 <context>

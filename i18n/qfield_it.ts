@@ -829,7 +829,7 @@ Le geometrie degli elementi verranno combinati in un elemento &apos;%1&apos; che
     </message>
     <message>
         <source>Reload data</source>
-        <translation>Ricarica i dati</translation>
+        <translation type="vanished">Ricarica i dati</translation>
     </message>
     <message>
         <source>Reload of layer %1 triggered</source>
@@ -865,6 +865,10 @@ Le geometrie degli elementi verranno combinati in un elemento &apos;%1&apos; che
     </message>
     <message>
         <source>Show visible features list</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Show Features Menu</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -2519,7 +2523,11 @@ Annullare per eseguire una scansione veloce del dispositivo.</translation>
     </message>
     <message>
         <source>Cannot start track with empty values</source>
-        <translation>Impossibile iniziare il tracking con valori vuoti</translation>
+        <translation type="vanished">Impossibile iniziare il tracking con valori vuoti</translation>
+    </message>
+    <message>
+        <source>When both constraints are disabled, vertex additions will occur as frequently as delivered by the positioning device.</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

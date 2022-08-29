@@ -829,7 +829,7 @@ Las geometrías de los objetos se combinarán en el objeto &apos;%1&apos;, que c
     </message>
     <message>
         <source>Reload data</source>
-        <translation>Recargar datos</translation>
+        <translation type="vanished">Recargar datos</translation>
     </message>
     <message>
         <source>Reload of layer %1 triggered</source>
@@ -865,6 +865,10 @@ Las geometrías de los objetos se combinarán en el objeto &apos;%1&apos;, que c
     </message>
     <message>
         <source>Show visible features list</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Show Features Menu</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -2514,7 +2518,11 @@ Cancelar para hacer una búsqueda mínima de dispositivos en su lugar.</translat
     </message>
     <message>
         <source>Cannot start track with empty values</source>
-        <translation>No se puede iniciar el seguimiento con valores vacíos</translation>
+        <translation type="vanished">No se puede iniciar el seguimiento con valores vacíos</translation>
+    </message>
+    <message>
+        <source>When both constraints are disabled, vertex additions will occur as frequently as delivered by the positioning device.</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

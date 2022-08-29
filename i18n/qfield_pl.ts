@@ -822,7 +822,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Reload data</source>
-        <translation>Wczytaj ponownie dane</translation>
+        <translation type="vanished">Wczytaj ponownie dane</translation>
     </message>
     <message>
         <source>Reload of layer %1 triggered</source>
@@ -859,6 +859,10 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <message>
         <source>Show visible features list</source>
         <translation>Pokaż listę widocznych elementów</translation>
+    </message>
+    <message>
+        <source>Show Features Menu</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -2509,7 +2513,11 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
     </message>
     <message>
         <source>Cannot start track with empty values</source>
-        <translation>Nie można rozpocząć śladu z pustymi wartościami</translation>
+        <translation type="vanished">Nie można rozpocząć śladu z pustymi wartościami</translation>
+    </message>
+    <message>
+        <source>When both constraints are disabled, vertex additions will occur as frequently as delivered by the positioning device.</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

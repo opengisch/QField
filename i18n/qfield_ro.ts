@@ -708,7 +708,7 @@ Motiv:
     <name>FinlandLocatorFilter</name>
     <message>
         <source>Finnish address search</source>
-        <translation>Încheiați căutarea adresei</translation>
+        <translation>Căutarea adresei Finlandeze</translation>
     </message>
 </context>
 <context>
@@ -831,7 +831,7 @@ Motiv:
     </message>
     <message>
         <source>Reload data</source>
-        <translation>Reîncărcarea datelor</translation>
+        <translation type="vanished">Reîncărcarea datelor</translation>
     </message>
     <message>
         <source>Reload of layer %1 triggered</source>
@@ -867,6 +867,10 @@ Motiv:
     </message>
     <message>
         <source>Show visible features list</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Show Features Menu</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -2518,7 +2522,11 @@ Anulați pentru a efectua o scanare minimă a dispozitivului.</translation>
     </message>
     <message>
         <source>Cannot start track with empty values</source>
-        <translation>Nu se poate porni traseul cu valori goale</translation>
+        <translation type="vanished">Nu se poate porni traseul cu valori goale</translation>
+    </message>
+    <message>
+        <source>When both constraints are disabled, vertex additions will occur as frequently as delivered by the positioning device.</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

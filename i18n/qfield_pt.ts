@@ -829,7 +829,7 @@ As geometrias dos recursos serão combinadas no recurso &apos;% &apos;, que mant
     </message>
     <message>
         <source>Reload data</source>
-        <translation>Recarregar Dados</translation>
+        <translation type="vanished">Recarregar Dados</translation>
     </message>
     <message>
         <source>Reload of layer %1 triggered</source>
@@ -865,6 +865,10 @@ As geometrias dos recursos serão combinadas no recurso &apos;% &apos;, que mant
     </message>
     <message>
         <source>Show visible features list</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Show Features Menu</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -2516,7 +2520,11 @@ Cancele para fazer uma verificação mínima.</translation>
     </message>
     <message>
         <source>Cannot start track with empty values</source>
-        <translation>Não é possível iniciar o rastreamento com valores vazios</translation>
+        <translation type="vanished">Não é possível iniciar o rastreamento com valores vazios</translation>
+    </message>
+    <message>
+        <source>When both constraints are disabled, vertex additions will occur as frequently as delivered by the positioning device.</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

@@ -828,7 +828,7 @@ Geometrija objekata će se kombinovati u objekat &apos;%1&apos;, koji će zadrž
     </message>
     <message>
         <source>Reload data</source>
-        <translation>Ponovo učitaj podatke</translation>
+        <translation type="vanished">Ponovo učitaj podatke</translation>
     </message>
     <message>
         <source>Reload of layer %1 triggered</source>
@@ -864,6 +864,10 @@ Geometrija objekata će se kombinovati u objekat &apos;%1&apos;, koji će zadrž
     </message>
     <message>
         <source>Show visible features list</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Show Features Menu</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -2514,7 +2518,11 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Cannot start track with empty values</source>
-        <translation>Nije moguće pokreuti snimanje sa praznim vrijednostima</translation>
+        <translation type="vanished">Nije moguće pokreuti snimanje sa praznim vrijednostima</translation>
+    </message>
+    <message>
+        <source>When both constraints are disabled, vertex additions will occur as frequently as delivered by the positioning device.</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
