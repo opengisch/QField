@@ -374,7 +374,7 @@ Popup {
           if (count !== undefined && count >= 0) {
               var countSuffix = ' [' + count + ']'
 
-              if (!titleLabel.text.endsWith(countSuffix))
+              if (!title.endsWith(countSuffix))
                   title += countSuffix
           }
         }
