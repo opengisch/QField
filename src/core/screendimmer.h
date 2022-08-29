@@ -30,9 +30,9 @@ class ScreenDimmer : public QObject
     explicit ScreenDimmer( QgsApplication *app );
 
     /**
-     * Sets whether the screen dimmer is \a active or not.
+     * Sets dim timeout as \a timeoutSeconds in seconds. Disables dim screen if 0.
      */
-    void setActive( bool active );
+    void setTimeout( int timeoutSeconds );
 
     /**
      * Temporarily suspends the screen dimmer when \a suspend is set to TRUE.
@@ -47,7 +47,7 @@ class ScreenDimmer : public QObject
 
     QTimer mTimer;
 
-    bool mActive = false;
+    int mTimeoutSeconds = 0;
     bool mSuspend = false;
     bool mDimmed = false;
 };

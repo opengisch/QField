@@ -25,14 +25,22 @@ ScreenDimmer::ScreenDimmer( QgsApplication *app )
   connect( app, &QGuiApplication::applicationStateChanged, this, [=]() { setSuspend( app->applicationState() != Qt::ApplicationActive ); } );
 
   mTimer.setSingleShot( true );
-  mTimer.setInterval( 20000 );
+  mTimer.setInterval( mTimeoutSeconds * 1000 );
   connect( &mTimer, &QTimer::timeout, this, &ScreenDimmer::timeout );
 }
 
-void ScreenDimmer::setActive( bool active )
+void ScreenDimmer::setTimeout( int timeoutSeconds )
 {
-  mActive = active;
-  if ( !mActive )
+  if ( mTimeoutSeconds == timeoutSeconds )
+    return;
+
+  mTimeoutSeconds = timeoutSeconds;
+
+  if ( mTimeoutSeconds > 0 )
+  {
+    mTimer.setInterval( mTimeoutSeconds * 1000 );
+  }
+  else
   {
     mTimer.stop();
     if ( mDimmed )
@@ -46,7 +54,7 @@ void ScreenDimmer::setActive( bool active )
 void ScreenDimmer::setSuspend( bool suspend )
 {
   mSuspend = suspend;
-  if ( mActive )
+  if ( mTimeoutSeconds > 0 )
   {
     if ( mSuspend )
     {
@@ -69,7 +77,7 @@ bool ScreenDimmer::eventFilter( QObject *obj, QEvent *event )
   const QEvent::Type type = event->type();
   if ( type == QEvent::KeyPress || type == QEvent::MouseMove || type == QEvent::MouseButtonPress || type == QEvent::TabletMove || type == QEvent::TabletPress || type == QEvent::TouchBegin || type == QEvent::TouchUpdate || type == QEvent::InputMethod || type == QEvent::Wheel )
   {
-    if ( mActive && !mSuspend )
+    if ( mTimeoutSeconds > 0 && !mSuspend )
       mTimer.start();
 
     if ( mDimmed )

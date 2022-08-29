@@ -159,10 +159,10 @@ class QFIELD_CORE_EXPORT QgisMobileapp : public QQmlApplicationEngine
     bool printAtlasFeatures( const QString &layoutName, const QList<long long> &featureIds );
 
     /**
-     * Sets whether the screen dimmer will be active or not
-     * \param active set to TRUE to activate screen dimmer
+     * Sets the screen dimmer timeout in seconds
+     * \note setting the timeout value to 0 will disable the screen dimmer
      */
-    void setScreenDimmerActive( bool active );
+    void setScreenDimmerTimeout( int timeoutSeconds );
 
     bool event( QEvent *event ) override;
 
