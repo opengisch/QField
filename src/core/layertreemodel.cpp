@@ -617,6 +617,9 @@ QVariant FlatLayerTreeModelBase::data( const QModelIndex &index, int role ) cons
           case QgsMapLayerType::PointCloudLayer:
             layerType = QStringLiteral( "pointcloudlayer" );
             break;
+          case QgsMapLayerType::GroupLayer:
+            layerType = QStringLiteral( "grouplayer" );
+            break;
         }
       }
       return layerType;
