@@ -1052,7 +1052,11 @@ ApplicationWindow {
       visible: stateMachine.state === "digitize"
           && dashBoard.currentLayer
           && dashBoard.currentLayer.isValid
-          && ( dashBoard.currentLayer.geometryType() === QgsWkbTypes.PolygonGeometry || dashBoard.currentLayer.geometryType() === QgsWkbTypes.LineGeometry )
+          && (
+                   dashBoard.currentLayer.geometryType() === QgsWkbTypes.PolygonGeometry
+                   || dashBoard.currentLayer.geometryType() === QgsWkbTypes.LineGeometry
+                   || dashBoard.currentLayer.geometryType() === QgsWkbTypes.PointGeometry
+        )
       state: qgisProject && qgisProject.topologicalEditing ? "On" : "Off"
       iconSource: Theme.getThemeIcon( "ic_topology_white_24dp" )
 
