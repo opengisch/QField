@@ -20,7 +20,6 @@ Page {
   property alias nativeCamera: registry.nativeCamera
   property alias autoSave: registry.autoSave
   property alias mouseAsTouchScreen: registry.mouseAsTouchScreen
-  property alias dimBrightness: registry.dimBrightness
   property alias enableInfoCollection: registry.enableInfoCollection
 
   Settings {
@@ -33,7 +32,6 @@ Page {
     property bool nativeCamera: platformUtilities.capabilities & PlatformUtilities.NativeCamera
     property bool autoSave: false
     property bool mouseAsTouchScreen: false
-    property bool dimBrightness: platformUtilities.capabilities & PlatformUtilities.AdjustBrightness
     property bool enableInfoCollection: true
 
     onEnableInfoCollectionChanged: {
@@ -82,11 +80,6 @@ Page {
           settingAlias: "autoSave"
       }
       ListElement {
-          title: qsTr( "Dim screen when idling" )
-          description: qsTr( "If enabled, the screen brightness will be dimmed after 20 seconds of inactivity to preserve battery." )
-          settingAlias: "dimBrightness"
-      }
-      ListElement {
           title: qsTr( "Consider mouse as a touchscreen device" )
           description: qsTr( "If disabled, the mouse will act as a stylus pen." )
           settingAlias: "mouseAsTouchScreen"
@@ -100,8 +93,6 @@ Page {
           for (var i = 0; i < settingsModel.count; i++) {
               if (settingsModel.get(i).settingAlias === 'nativeCamera') {
                   settingsModel.setProperty(i, 'isVisible', platformUtilities.capabilities & PlatformUtilities.NativeCamera ? true : false)
-              } else if (settingsModel.get(i).settingAlias === 'dimBrightness') {
-                  settingsModel.setProperty(i, 'isVisible', platformUtilities.capabilities & PlatformUtilities.AdjustBrightness ? true : false)
               } else if (settingsModel.get(i).settingAlias === 'enableInfoCollection') {
                   settingsModel.setProperty(i, 'isVisible', platformUtilities.capabilities & PlatformUtilities.SentryFramework ? true : false)
               } else {
@@ -266,6 +257,54 @@ Page {
                   }
 
                   GridLayout {
+                    Layout.fillWidth: true
+                    Layout.leftMargin: 20
+                    Layout.rightMargin: 20
+                    Layout.topMargin: 5
+                    Layout.bottomMargin: 5
+
+                    columns: 1
+                    columnSpacing: 0
+                    rowSpacing: 0
+
+                    visible: platformUtilities.capabilities & PlatformUtilities.AdjustBrightness
+
+                    Label {
+                      Layout.fillWidth: true
+
+                      text: qsTr('Dim screen when idling')
+                      font: Theme.defaultFont
+                      wrapMode: Text.WordWrap
+                    }
+
+                    QfSlider {
+                      Layout.fillWidth: true
+
+                      id: slider
+                      value: settings ? settings.value('dimTimeoutSeconds', 40) : undefined
+                      from: 0
+                      to: 180
+                      stepSize: 10
+                      suffixText: " s"
+                      implicitHeight: 40
+
+                      onMoved: function () {
+                        iface.setScreenDimmerTimeout(value)
+                        settings.setValue('dimTimeoutSeconds', value)
+                      }
+                    }
+
+                    Label {
+                      Layout.fillWidth: true
+                      text: qsTr('Time of inactivity in seconds before the screen brightness get be dimmed to preserve battery.')
+
+                      font: Theme.tipFont
+                      color: Theme.gray
+                      wrapMode: Text.WordWrap
+                    }
+                  }
+
+                  GridLayout {
                       Layout.fillWidth: true
                       Layout.leftMargin: 20
                       Layout.rightMargin: 20
@@ -324,7 +363,7 @@ Page {
                               model = items.concat(Object.values(languages));
 
                               currentIndex = languageCodes.indexOf(customLanguageCode);
-                              currentLanguageCode = customLanguageCode
+                              currentLanguageCode = customLanguageCode || ''
                               languageTip.visible = false
                           }
                       }

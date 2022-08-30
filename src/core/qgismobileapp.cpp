@@ -200,7 +200,7 @@ QgisMobileapp::QgisMobileapp( QgsApplication *app, QObject *parent )
   if ( PlatformUtilities::instance()->capabilities() & PlatformUtilities::AdjustBrightness )
   {
     mScreenDimmer = std::make_unique<ScreenDimmer>( app );
-    mScreenDimmer->setActive( settings.value( QStringLiteral( "dimBrightness" ), true ).toBool() );
+    mScreenDimmer->setTimeout( settings.value( QStringLiteral( "dimTimeoutSeconds" ), 40 ).toInt() );
   }
 
   AppInterface::setInstance( mIface );
@@ -1397,11 +1397,11 @@ bool QgisMobileapp::printAtlasFeatures( const QString &layoutName, const QList<l
 #endif
 }
 
-void QgisMobileapp::setScreenDimmerActive( bool active )
+void QgisMobileapp::setScreenDimmerTimeout( int timeoutSeconds )
 {
   if ( mScreenDimmer )
   {
-    mScreenDimmer->setActive( active );
+    mScreenDimmer->setTimeout( timeoutSeconds );
   }
 }
 

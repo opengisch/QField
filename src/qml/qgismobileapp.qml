@@ -2788,7 +2788,6 @@ ApplicationWindow {
       }
     }
 
-    onDimBrightnessChanged: iface.setScreenDimmerActive( qfieldSettings.dimBrightness )
     Component.onCompleted: focusstack.addFocusTaker( this )
   }
 

@@ -51,7 +51,7 @@ class AppInterface : public QObject
     Q_INVOKABLE bool print( const QString &layoutName );
     Q_INVOKABLE bool printAtlasFeatures( const QString &layoutName, const QList<long long> &featureIds );
 
-    Q_INVOKABLE void setScreenDimmerActive( bool active );
+    Q_INVOKABLE void setScreenDimmerTimeout( int timeoutSeconds );
 
     Q_INVOKABLE QVariantMap availableLanguages() const;
 

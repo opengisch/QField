@@ -89,9 +89,9 @@ void AppInterface::openFeatureForm()
   emit openFeatureFormRequested();
 }
 
-void AppInterface::setScreenDimmerActive( bool active )
+void AppInterface::setScreenDimmerTimeout( int timeoutSeconds )
 {
-  mApp->setScreenDimmerActive( active );
+  mApp->setScreenDimmerTimeout( timeoutSeconds );
 }
 
 QVariantMap AppInterface::availableLanguages() const
