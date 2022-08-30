@@ -208,7 +208,7 @@ Popup {
             from: 0
             to: 100
             stepSize: 1
-            suffixText: "%"
+            suffixText: " %"
             height: 40
 
             onMoved: function () {
