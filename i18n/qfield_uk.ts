@@ -708,7 +708,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <name>FinlandLocatorFilter</name>
     <message>
         <source>Finnish address search</source>
-        <translation>Завершений адресний пошук</translation>
+        <translation>Пошук фінських адрес</translation>
     </message>
 </context>
 <context>
@@ -923,23 +923,23 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <name>LocalFilesModel</name>
     <message>
         <source>QField files directory</source>
-        <translation type="unfinished"/>
+        <translation>Каталог файлів QField</translation>
     </message>
     <message>
         <source>Imported projects</source>
-        <translation type="unfinished"/>
+        <translation>Імпортовані проекти</translation>
     </message>
     <message>
         <source>Imported datasets</source>
-        <translation type="unfinished"/>
+        <translation>Імпортовані набори даних</translation>
     </message>
     <message>
         <source>Additional files directory</source>
-        <translation type="unfinished"/>
+        <translation>Каталог додаткових файлів</translation>
     </message>
     <message>
         <source>Sample projects</source>
-        <translation type="unfinished"/>
+        <translation>Зразкові проекти</translation>
     </message>
 </context>
 <context>
@@ -1953,7 +1953,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Send to...</source>
-        <translation type="unfinished"/>
+        <translation>Відправити...</translation>
     </message>
     <message>
         <source>Export to folder...</source>

@@ -2473,7 +2473,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Scan Code</source>
-        <translation>扫描码</translation>
+        <translation>扫一扫</translation>
     </message>
 </context>
 <context>

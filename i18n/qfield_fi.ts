@@ -215,11 +215,11 @@ Peruuta tehd채ksesi suppeampi laiteskannaus.</translation>
     </message>
     <message>
         <source>Name</source>
-        <translation type="unfinished"/>
+        <translation>Nimi</translation>
     </message>
     <message>
         <source>Color</source>
-        <translation type="unfinished"/>
+        <translation>V채ri</translation>
     </message>
     <message>
         <source>Copy bookmark details</source>
@@ -503,7 +503,7 @@ Peruuta tehd채ksesi suppeampi laiteskannaus.</translation>
     </message>
     <message>
         <source>Cancel editing</source>
-        <translation type="unfinished"/>
+        <translation>Peruuta muokkaus</translation>
     </message>
     <message>
         <source>You are about to dismiss the new feature, proceed?</source>
@@ -807,7 +807,7 @@ Kohteen geometriat yhdistet채채n kohteeseen &apos;%1&apos;, johon sis채llytet채�
     </message>
     <message>
         <source>Show labels</source>
-        <translation type="unfinished"/>
+        <translation>N채yt채 nimi철t</translation>
     </message>
     <message>
         <source>Opacity</source>
@@ -998,7 +998,7 @@ Kohteen geometriat yhdistet채채n kohteeseen &apos;%1&apos;, johon sis채llytet채�
     </message>
     <message>
         <source>Send application log</source>
-        <translation type="unfinished"/>
+        <translation>L채het채 sovelluksen loki</translation>
     </message>
     <message>
         <source>Your application log is being sent</source>
