@@ -199,12 +199,20 @@ Popup {
             text: qsTr("Opacity")
             font: Theme.defaultFont
           }
-          Slider {
+
+          QfSlider {
             Layout.fillWidth: true
+
             id: slider
-            value: index !== undefined ? layerTree.data(index, FlatLayerTreeModel.Opacity) : 0
-            onMoved: {
-              layerTree.setData(index, value, FlatLayerTreeModel.Opacity)
+            value: index !== undefined ? layerTree.data(index, FlatLayerTreeModel.Opacity) * 100 : 0
+            from: 0
+            to: 100
+            stepSize: 1
+            suffixText: "%"
+            height: 40
+
+            onMoved: function () {
+              layerTree.setData(index, value / 100, FlatLayerTreeModel.Opacity)
               projectInfo.saveLayerStyle(layerTree.data(index, FlatLayerTreeModel.MapLayerPointer))
             }
           }
