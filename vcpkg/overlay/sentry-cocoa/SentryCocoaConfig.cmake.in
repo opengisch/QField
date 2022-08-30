@@ -18,7 +18,7 @@ target_link_options(SentryCocoa::sentry_cocoa INTERFACE "LINKER:-force_load,${_I
 target_link_libraries(SentryCocoa::sentry_cocoa INTERFACE "-framework CoreData")
 if("@CMAKE_SYSTEM_NAME@" STREQUAL "Darwin")
   target_link_libraries(SentryCocoa::sentry_cocoa INTERFACE "-framework AppKit")
-elseif("@CMAKE_SYSTEM_NAME@" STREQUAL "Darwin")
+elseif("@CMAKE_SYSTEM_NAME@" STREQUAL "iOS")
   target_link_libraries(SentryCocoa::sentry_cocoa INTERFACE "-framework UiKit")
 endif()
 
