@@ -1,6 +1,6 @@
 # Contributing to QField
 
-QField is an open source project and we appreciate contributions very much. Even if you are **not** a developer, there are multiple ways you can contribute to the project. Go directly to the section [New features, enhancements and bug fixes](#new-features-enhancements-and-bug-fixes) if you are a developer.
+QField is an open-source project and we appreciate contributions very much. If you are a developer or not, there are multiple ways you can contribute to the project. Go directly to the section [New features, enhancements and bug fixes](#new-features-enhancements-and-bug-fixes) if you are a developer.
 
 ## Bug reporting and bug verification
 
