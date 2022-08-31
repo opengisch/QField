@@ -13,7 +13,7 @@ Check [QField-docs repository](https://github.com/opengisch/QField-docs#qfield-d
 
 ## Translations
 
-Please help translate QField to your language. Community efforst already made QField available in multiple languages. However, translations are an ongoing effort with the fast pace development of QField, so regularly check your language. Learn more [how to become a translator on Transifex](https://docs.transifex.com/getting-started-1/translators#joining-a-translation-team).
+Please help translate QField to your language. Community efforts already made QField available in multiple languages. However, translations are an ongoing effort with the fast pace development of QField, so regularly check your language. Learn more [how to become a translator on Transifex](https://docs.transifex.com/getting-started-1/translators#joining-a-translation-team).
 
 ## New features, enhancements and bug fixes
 
