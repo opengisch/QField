@@ -2037,7 +2037,7 @@ name(string), owner(string), description(string), user_role(string), is_public(b
     </message>
     <message>
         <source>If enabled, the screen brightness will be dimmed after 20 seconds of inactivity to preserve battery.</source>
-        <translation>Ha engedélyezve van, a képernyő fényereje 20 másodperces inaktivitás után halványodik az akkumulátor kímélése érdekében.</translation>
+        <translation type="vanished">Ha engedélyezve van, a képernyő fényereje 20 másodperces inaktivitás után halványodik az akkumulátor kímélése érdekében.</translation>
     </message>
     <message>
         <source>Consider mouse as a touchscreen device</source>
@@ -2216,6 +2216,10 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <source>QField Settings</source>
         <translation>QField beállítások</translation>
+    </message>
+    <message>
+        <source>Time of inactivity in seconds before the screen brightness get be dimmed to preserve battery.</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

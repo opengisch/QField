@@ -2208,6 +2208,10 @@ Bunun yerine minimum cihaz taraması yapmak için iptal edin.</translation>
         <source>QField Settings</source>
         <translation>QField Ayarları</translation>
     </message>
+    <message>
+        <source>Time of inactivity in seconds before the screen brightness get be dimmed to preserve battery.</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>QObject</name>

@@ -2207,6 +2207,10 @@ Cancel to make a minimal device scan instead.</source>
         <source>QField Settings</source>
         <translation>QField Nastavení</translation>
     </message>
+    <message>
+        <source>Time of inactivity in seconds before the screen brightness get be dimmed to preserve battery.</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>QObject</name>

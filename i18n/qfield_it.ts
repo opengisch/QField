@@ -2047,7 +2047,7 @@ Messaggio dell&apos;errore: %4</translation>
     </message>
     <message>
         <source>If enabled, the screen brightness will be dimmed after 20 seconds of inactivity to preserve battery.</source>
-        <translation>Se abilitato, la luminosità dello schermo sarà attenuata dopo 20 secondi di inattività per preservare la batteria.</translation>
+        <translation type="vanished">Se abilitato, la luminosità dello schermo sarà attenuata dopo 20 secondi di inattività per preservare la batteria.</translation>
     </message>
     <message>
         <source>Consider mouse as a touchscreen device</source>
@@ -2226,6 +2226,10 @@ Annullare per eseguire una scansione veloce del dispositivo.</translation>
     <message>
         <source>QField Settings</source>
         <translation>Impostazioni QField</translation>
+    </message>
+    <message>
+        <source>Time of inactivity in seconds before the screen brightness get be dimmed to preserve battery.</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

@@ -2042,7 +2042,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>If enabled, the screen brightness will be dimmed after 20 seconds of inactivity to preserve battery.</source>
-        <translation>Si se habilita, el brillo de la pantalla se atenuará después de 20 segundos de inactividad para ahorrar batería.</translation>
+        <translation type="vanished">Si se habilita, el brillo de la pantalla se atenuará después de 20 segundos de inactividad para ahorrar batería.</translation>
     </message>
     <message>
         <source>Consider mouse as a touchscreen device</source>
@@ -2221,6 +2221,10 @@ Cancelar para hacer una búsqueda mínima de dispositivos en su lugar.</translat
     <message>
         <source>QField Settings</source>
         <translation>Configuración de QField</translation>
+    </message>
+    <message>
+        <source>Time of inactivity in seconds before the screen brightness get be dimmed to preserve battery.</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

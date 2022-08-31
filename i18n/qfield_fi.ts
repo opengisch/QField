@@ -2041,7 +2041,7 @@ Tämä voi viedä jonkin aikaa, ole hyvä ja odota...</translation>
     </message>
     <message>
         <source>If enabled, the screen brightness will be dimmed after 20 seconds of inactivity to preserve battery.</source>
-        <translation>Jos sallittuna, näytön kirkkaus himmennetään 20 sekunnin käyttämättömyyden jälkeen akun säästämiseksi.</translation>
+        <translation type="vanished">Jos sallittuna, näytön kirkkaus himmennetään 20 sekunnin käyttämättömyyden jälkeen akun säästämiseksi.</translation>
     </message>
     <message>
         <source>Consider mouse as a touchscreen device</source>
@@ -2220,6 +2220,10 @@ Peruuta tehdäksesi suppeampi laiteskannaus.</translation>
     <message>
         <source>QField Settings</source>
         <translation>QField asetukset</translation>
+    </message>
+    <message>
+        <source>Time of inactivity in seconds before the screen brightness get be dimmed to preserve battery.</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
