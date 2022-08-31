@@ -1035,7 +1035,6 @@ void QgisMobileapp::readProjectFile()
     mProject->setTitle( mProjectFileName );
     mProject->writeEntry( QStringLiteral( "QField" ), QStringLiteral( "isDataset" ), true );
 
-
     for ( QgsMapLayer *l : std::as_const( rasterLayers ) )
     {
       QgsRasterLayer *rlayer = qobject_cast<QgsRasterLayer *>( l );

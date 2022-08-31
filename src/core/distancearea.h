@@ -68,6 +68,9 @@ class DistanceArea : public QObject
     QgsProject *project() const;
     void setProject( QgsProject *project );
 
+    Q_INVOKABLE double convertLengthMeansurement( double length, QgsUnitTypes::DistanceUnit toUnits ) const;
+    Q_INVOKABLE double convertAreaMeansurement( double area, QgsUnitTypes::AreaUnit toUnits ) const;
+
   signals:
     void rubberbandModelChanged();
     void crsChanged();

@@ -253,3 +253,13 @@ QgsUnitTypes::AreaUnit DistanceArea::areaUnits() const
 {
   return mDistanceArea.areaUnits();
 }
+
+double DistanceArea::convertLengthMeansurement( double length, QgsUnitTypes::DistanceUnit toUnits ) const
+{
+  return mDistanceArea.convertLengthMeasurement( length, toUnits );
+}
+
+double DistanceArea::convertAreaMeansurement( double area, QgsUnitTypes::AreaUnit toUnits ) const
+{
+  return mDistanceArea.convertAreaMeasurement( area, toUnits );
+}

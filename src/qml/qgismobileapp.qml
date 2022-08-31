@@ -766,25 +766,25 @@ ApplicationWindow {
                      && digitizingGeometryMeasure.segmentLength != digitizingGeometryMeasure.length
                      ? '<p>%1: %2</p>'
                        .arg( qsTr( 'Segment') )
-                       .arg(UnitTypes.formatDistance( digitizingGeometryMeasure.segmentLength, 3, digitizingGeometryMeasure.lengthUnits ) )
+                       .arg(UnitTypes.formatDistance( digitizingGeometryMeasure.convertLengthMeansurement( digitizingGeometryMeasure.segmentLength, projectInfo.distanceUnits ) , 3, projectInfo.distanceUnits ) )
                      : '')
 
                 .arg(currentRubberband.model && currentRubberband.model.geometryType === QgsWkbTypes.PolygonGeometry
                      ? digitizingGeometryMeasure.perimeterValid
                        ? '<p>%1: %2</p>'
                          .arg( qsTr( 'Perimeter') )
-                         .arg(UnitTypes.formatDistance( digitizingGeometryMeasure.perimeter, 3, digitizingGeometryMeasure.lengthUnits ) )
+                         .arg(UnitTypes.formatDistance( digitizingGeometryMeasure.convertLengthMeansurement( digitizingGeometryMeasure.perimeter, projectInfo.distanceUnits ), 3, projectInfo.distanceUnits ) )
                        : ''
                      : digitizingGeometryMeasure.lengthValid
                      ? '<p>%1: %2</p>'
                        .arg( qsTr( 'Length') )
-                       .arg(UnitTypes.formatDistance( digitizingGeometryMeasure.length, 3, digitizingGeometryMeasure.lengthUnits ) )
+                       .arg(UnitTypes.formatDistance( digitizingGeometryMeasure.convertLengthMeansurement( digitizingGeometryMeasure.length, projectInfo.distanceUnits ),3, projectInfo.distanceUnits ) )
                      : '')
 
                 .arg(digitizingGeometryMeasure.areaValid
                      ? '<p>%1: %2</p>'
                      .arg( qsTr( 'Area') )
-                     .arg(UnitTypes.formatArea( digitizingGeometryMeasure.area, 3, digitizingGeometryMeasure.areaUnits ) )
+                     .arg(UnitTypes.formatArea( digitizingGeometryMeasure.convertAreaMeansurement( digitizingGeometryMeasure.area, projectInfo.areaUnits), 3, projectInfo.areaUnits ) )
                      : '')
 
                 .arg(stateMachine.state === 'measure' && digitizingToolbar.isDigitizing
@@ -2558,6 +2558,11 @@ ApplicationWindow {
             dashBoard.ensureEditableLayerSelected();
         }
 
+        var distanceString = iface.readProjectEntry("Measurement" ,"/DistanceUnits", "")
+        projectInfo.distanceUnits = distanceString !== "" ? UnitTypes.decodeDistanceUnit(distanceString) : UnitTypes.DistanceMeters
+        var areaString = iface.readProjectEntry("Measurement" ,"/AreaeUnits", "")
+        projectInfo.areaUnits = areaString !== "" ? UnitTypes.decodeAreaUnit(areaString) : UnitTypes.AreaSquareMeters
+
         projectInfo.reprojectDisplayCoordinatesToWGS84 = !mapCanvas.mapSettings.destinationCrs.isGeographic
                                                          && iface.readProjectEntry("PositionPrecision", "/DegreeFormat", "MU") !== "MU"
 
@@ -2581,6 +2586,9 @@ ApplicationWindow {
     layerTree: dashBoard.layerTree
 
     property bool reprojectDisplayCoordinatesToWGS84: false
+
+    property var distanceUnits: UnitTypes.DistanceMeters
+    property var areaUnits: UnitTypes.AreaSquareMeters
 
     property bool hasInsertRights: true
     property bool hasEditRights: true
