@@ -865,11 +865,11 @@ Geometrija elemenata će se spojiti u element &apos;%1&apos;, koji će zadržati
     </message>
     <message>
         <source>Show visible features list</source>
-        <translation type="unfinished"/>
+        <translation>Pokaži popis vidljivih elemenata karte</translation>
     </message>
     <message>
         <source>Show Features Menu</source>
-        <translation type="unfinished"/>
+        <translation>Prikaži izbornik elemenata karte</translation>
     </message>
 </context>
 <context>
@@ -2222,7 +2222,7 @@ Otkažite da pokrenete minimalno skeniranje uređaja.</translation>
     </message>
     <message>
         <source>Time of inactivity in seconds before the screen brightness get be dimmed to preserve battery.</source>
-        <translation type="unfinished"/>
+        <translation>Vrijeme neaktivnosti u sekundama prije nego se svjetlina zaslona priguši radi štednje baterije.</translation>
     </message>
 </context>
 <context>
@@ -2524,7 +2524,7 @@ Otkažite da pokrenete minimalno skeniranje uređaja.</translation>
     </message>
     <message>
         <source>When both constraints are disabled, vertex additions will occur as frequently as delivered by the positioning device.</source>
-        <translation type="unfinished"/>
+        <translation>Kada su oba ograničenja isključena, učestalost dodavanja točaka će biti u svakom trenutku dostave podatka od prijemnika za pozicioniranje.</translation>
     </message>
 </context>
 <context>

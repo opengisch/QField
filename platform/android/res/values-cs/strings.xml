@@ -40,6 +40,10 @@
     <string name="import_dataset_error">Vybrané datové sady nebylo možné správně importovat.</string>
     <string name="import_project_archive_error">Vybraný archiv projektu nebyl správně importován.</string>
     <string name="import_project_folder_error">Vybraný adresář projektu nebyl správně importován.</string>
+    <string name="import_overwrite_title">Importovat chyby</string>
+    <string name="import_overwrite_folder">Tento adresář projektu již existuje. Tato operace přepíše data v adresáři, chcete pokračovat v importu?</string>
+    <string name="import_overwrite_dataset_single">Tento soubor dat již existuje. Tato operace tyto data přepíše, chcete pokračovat v importu?</string>
+    <string name="import_overwrite_dataset_multiple">Jeden nebo více souborů dat již existuje. Tato operace tyto data přepíše, chcete pokračovat v importu?</string>
     <string name="import_overwrite_confirm">Importovat a přepsat</string>
     <string name="import_overwrite_cancel">Zrušit</string>
     <string name="export_error">Chyba exportu</string>
