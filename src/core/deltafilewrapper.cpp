@@ -581,7 +581,8 @@ void DeltaFileWrapper::addPatch( const QString &localLayerId, const QString &sou
     const QVariant oldVal = oldAttrs.at( oldFieldIdx );
     const QVariant newVal = newAttrs.at( newFieldIdx );
 
-    if ( newVal != oldVal )
+    // if the values are different OR one is null and the other has nullable value (e.g. integers: NULL and 0)
+    if ( newVal != oldVal || oldVal.isNull() != newVal.isNull() )
     {
       tmpOldAttrs.insert( name, oldVal.isNull() ? QJsonValue::Null : QJsonValue::fromVariant( oldVal ) );
       tmpNewAttrs.insert( name, newVal.isNull() ? QJsonValue::Null : QJsonValue::fromVariant( newVal ) );
