@@ -15,3 +15,5 @@
 - Taivaskero (1.9)
 - Uluru (1.10)
 - Arctic Fox (2.0)
+- Bumblebee (2.1)
+- Coordinated Capybara (2.2)
