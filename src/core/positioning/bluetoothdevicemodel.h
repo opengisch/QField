@@ -76,10 +76,12 @@ class BluetoothDeviceModel : public QAbstractListModel
     void setScanningStatus( const ScanningStatus scanningStatus );
     void setLastError( const QString &lastError );
     void serviceDiscovered( const QBluetoothServiceInfo &service );
+    void deviceDiscovered( const QBluetoothDeviceInfo &device );
 
   private:
     std::unique_ptr<QBluetoothLocalDevice> mLocalDevice;
     QBluetoothServiceDiscoveryAgent mServiceDiscoveryAgent;
+    QBluetoothDeviceDiscoveryAgent mDeviceDiscoveryAgent;
     QList<QPair<QString, QString>> mDiscoveredDevices;
     ScanningStatus mScanningStatus = NoStatus;
     QString mLastError;

@@ -39,6 +39,22 @@ BluetoothDeviceModel::BluetoothDeviceModel( QObject *parent )
     setScanningStatus( Canceled );
   } );
 
+  connect( &mDeviceDiscoveryAgent, &QBluetoothDeviceDiscoveryAgent::deviceDiscovered, this, &BluetoothDeviceModel::deviceDiscovered );
+#if QT_VERSION < QT_VERSION_CHECK( 6, 0, 0 )
+  connect( &mDeviceDiscoveryAgent, qOverload<QBluetoothDeviceDiscoveryAgent::Error>( &QBluetoothDeviceDiscoveryAgent::error ), this, [=]() {
+#else
+  connect( &mDeviceDiscoveryAgent, qOverload<QBluetoothDeviceDiscoveryAgent::Error>( &QBluetoothDeviceDiscoveryAgent::errorOccurred ), this, [=]() {
+#endif
+    setLastError( mDeviceDiscoveryAgent.errorString() );
+    setScanningStatus( Failed );
+  } );
+  connect( &mDeviceDiscoveryAgent, &QBluetoothDeviceDiscoveryAgent::finished, [=]() {
+    setScanningStatus( mDeviceDiscoveryAgent.error() == QBluetoothDeviceDiscoveryAgent::NoError ? Succeeded : Failed );
+  } );
+  connect( &mDeviceDiscoveryAgent, &QBluetoothDeviceDiscoveryAgent::canceled, [=]() {
+    setScanningStatus( Canceled );
+  } );
+
   beginResetModel();
   mDiscoveredDevices.clear();
   mDiscoveredDevices.append( qMakePair( tr( "Internal device" ), QString() ) );
@@ -55,6 +71,16 @@ BluetoothDeviceModel::BluetoothDeviceModel( QObject *parent )
 
 void BluetoothDeviceModel::startServiceDiscovery( const bool fullDiscovery )
 {
+#ifdef Q_OS_IOS
+  Q_UNUSED( fullDiscovery )
+
+  if ( mDeviceDiscoveryAgent.isActive() )
+    mDeviceDiscoveryAgent.stop();
+
+  // set scanning status _prior to_ start as start itself can error and then we get a broken status sequence
+  setScanningStatus( Scanning );
+  mDeviceDiscoveryAgent.start();
+#else
   if ( mServiceDiscoveryAgent.isActive() )
     mServiceDiscoveryAgent.stop();
 
@@ -65,6 +91,7 @@ void BluetoothDeviceModel::startServiceDiscovery( const bool fullDiscovery )
   setScanningStatus( Scanning );
   mServiceDiscoveryAgent.clear();
   mServiceDiscoveryAgent.start( discoveryMode );
+#endif
 }
 
 void BluetoothDeviceModel::serviceDiscovered( const QBluetoothServiceInfo &service )
@@ -78,6 +105,26 @@ void BluetoothDeviceModel::serviceDiscovered( const QBluetoothServiceInfo &servi
   beginInsertRows( QModelIndex(), mDiscoveredDevices.size(), mDiscoveredDevices.size() );
 #ifdef Q_OS_ANDROID
   if ( mLocalDevice->pairingStatus( service.device().address() ) != QBluetoothLocalDevice::Unpaired )
+  {
+    mDiscoveredDevices.append( serviceDiscovered );
+  }
+#else
+  mDiscoveredDevices.append( serviceDiscovered );
+#endif
+  endInsertRows();
+}
+
+void BluetoothDeviceModel::deviceDiscovered( const QBluetoothDeviceInfo &device )
+{
+  // only list the paired devices so the user has control over it.
+  // but in linux (not android) we list unpaired as well, since it needs to repair them later (or pair them at all).
+  const QPair<QString, QString> serviceDiscovered = qMakePair( device.name(), device.address().toString() );
+  if ( mDiscoveredDevices.contains( serviceDiscovered ) )
+    return;
+
+  beginInsertRows( QModelIndex(), mDiscoveredDevices.size(), mDiscoveredDevices.size() );
+#ifdef Q_OS_ANDROID
+  if ( mLocalDevice->pairingStatus( device.address() ) != QBluetoothLocalDevice::Unpaired )
   {
     mDiscoveredDevices.append( serviceDiscovered );
   }
