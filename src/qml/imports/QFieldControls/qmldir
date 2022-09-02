@@ -1,5 +1,6 @@
 module QFieldControls
 TextEdit 1.0 ../../editorwidgets/TextEdit.qml
 Range 1.0 ../../editorwidgets/Range.qml
+DateTime 1.0 ../../editorwidgets/DateTime.qml
 BarcodeReader 1.0 BarcodeReader.qml
 CalendarPanel 1.0 CalendarPanel.qml

@@ -20,6 +20,14 @@ TestCase {
         property bool isEnabled: true
     }
 
+    DateTime {
+        id: dateTime
+
+        property var value: '2022-01-01'
+        property var config: undefined
+        property bool isEnabled: true
+    }
+
     function test_textEdit() {
         compare(textEdit.children[1].text, 'one')
         textEdit.value = 'two'
