@@ -52,6 +52,9 @@ cmake -S QField -B build
 If you use a locally built QGIS installed to a different
 location, use `-DQGIS_ROOT=` to specify this path.
 
+If you need to build with tests, you should specify `-DENABLE_TESTS=ON`.
+Note the testing framework `Catch2` has minimal version 3, so you might need to install it separately and pass it with `-DCatch2_ROOT=/home/user/vcpkg/packages/catch2_x64-linux`.
+
 ### Using vcpkg
 
 This will build the complete dependency chain from scratch.
