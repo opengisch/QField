@@ -53,7 +53,7 @@ public class QFieldGalleryPictureActivity extends Activity {
     private void callGalleryIntent() {
         Log.d(TAG, "callGalleryIntent()");
         Intent intent = new Intent();
-        intent.setType("image/jpeg");
+        intent.setType("image/*");
         intent.setAction(Intent.ACTION_GET_CONTENT);
         startActivityForResult(intent, GALLERY_ACTIVITY);
     }
