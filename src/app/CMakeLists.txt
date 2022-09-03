@@ -73,6 +73,7 @@ function(create_executable)
   if(${QT_TARGET_TYPE} STREQUAL "STATIC_LIBRARY")
     find_package(${QT_PKG} COMPONENTS QmlImportScanner)
 
+    get_target_property(qfield_qmlfiles qfield_qml QML_FILES)
     file(COPY ${qfield_qmlfiles}
          DESTINATION "${CMAKE_CURRENT_BINARY_DIR}/qmldrop/app")
 
