@@ -52,16 +52,19 @@ macro (ADD_QFIELD_QML_TEST TESTNAME TESTSRC)
   get_target_property(QT_TARGET_TYPE ${QT_PKG}::Core TYPE)
   if(${QT_TARGET_TYPE} STREQUAL "STATIC_LIBRARY")
     include("${CMAKE_SOURCE_DIR}/cmake/QtQmlImportScanner.cmake")
+
     file(GLOB test_qmlfiles "${CMAKE_CURRENT_SOURCE_DIR}/qml/*.qml")
-    file(GLOB qfield_qmlfiles "${CMAKE_SOURCE_DIR}/src/qml/*.qml")
     file(COPY ${test_qmlfiles}
          DESTINATION "${CMAKE_CURRENT_BINARY_DIR}/qmldrop/test")
+    get_target_property(qfield_qmlfiles qfield_qml QML_FILES)
     file(COPY ${qfield_qmlfiles}
          DESTINATION "${CMAKE_CURRENT_BINARY_DIR}/qmldrop/app")
+
     if(NOT WITH_BLUETOOTH)
       file(REMOVE
            "${CMAKE_CURRENT_BINARY_DIR}/qmldrop/app/BluetoothDeviceChooser.qml")
     endif()
+
     qt_import_qml_plugins(${TESTNAME}
                            PATH_TO_SCAN "${CMAKE_CURRENT_BINARY_DIR}/qmldrop")
   endif()
