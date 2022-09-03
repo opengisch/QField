@@ -87,6 +87,8 @@ jobs:
 
       - name: 🌋 Build
         run: |
+          # https://www.reddit.com/r/MacOS/comments/f37ybt/osascript_cant_open_default_scripting_component/?utm_medium=android_app&utm_source=share
+          sudo rm -rf /Library/Audio/Plug-Ins/Components
           cmake --build "${{ env.CMAKE_BUILD_DIR }}" --config ${{ env.BUILD_TYPE }}
 
       - name: 🧫 Test
