@@ -73,33 +73,6 @@ function(create_executable)
   if(${QT_TARGET_TYPE} STREQUAL "STATIC_LIBRARY")
     find_package(${QT_PKG} COMPONENTS QmlImportScanner)
 
-    file(GLOB qfield_qmlfiles "${CMAKE_SOURCE_DIR}/src/qml/*.qml")
-    file(GLOB qfield_qmlfiles_geometryeditors
-         "${CMAKE_SOURCE_DIR}/src/qml/geometry_editors/*.qml")
-    file(GLOB qfield_qmlfiles_editorwidgets
-         "${CMAKE_SOURCE_DIR}/src/qml/editorwidgets/*.qml")
-    file(GLOB qfield_qmlfiles_theme
-         "${CMAKE_SOURCE_DIR}/src/qml/imports/Theme/*.qml")
-    if(BUILD_WITH_QT6)
-      file(GLOB qfield_qmlfiles_theme_extra
-           "${CMAKE_SOURCE_DIR}/src/qml/imports/Theme/+Qt6/*.qml")
-      file(GLOB qfield_qmlfiles_qfieldcontrols
-           "${CMAKE_SOURCE_DIR}/src/qml/imports/QFieldControls/+Qt6/*.qml")
-    else()
-      file(GLOB qfield_qmlfiles_theme_extra
-           "${CMAKE_SOURCE_DIR}/src/qml/imports/Theme/+Qt5/*.qml")
-      file(GLOB qfield_qmlfiles_qfieldcontrols
-           "${CMAKE_SOURCE_DIR}/src/qml/imports/QFieldControls/+Qt5/*.qml")
-    endif()
-    list(
-      APPEND
-      qfield_qmlfiles
-      ${qfield_qmlfiles_geometryeditors}
-      ${qfield_qmlfiles_editorwidgets}
-      ${qfield_qmlfiles_theme}
-      ${qfield_qmlfiles_theme_extra}
-      ${qfield_qmlfiles_qfieldcontrols})
-
     file(COPY ${qfield_qmlfiles}
          DESTINATION "${CMAKE_CURRENT_BINARY_DIR}/qmldrop/app")
 
