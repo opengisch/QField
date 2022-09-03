@@ -63,6 +63,4 @@ list(
   ${qfield_qmlfiles_theme_extra}
   ${qfield_qmlfiles_qfieldcontrols})
 
-set(qfield_qmlfiles
-    ${qfield_qmlfiles}
-    PARENT_SCOPE)
+set_property(TARGET qfield_qml PROPERTY QML_FILES ${qfield_qmlfiles})

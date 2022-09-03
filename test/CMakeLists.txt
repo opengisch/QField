@@ -54,9 +54,9 @@ macro (ADD_QFIELD_QML_TEST TESTNAME TESTSRC)
     include("${CMAKE_SOURCE_DIR}/cmake/QtQmlImportScanner.cmake")
 
     file(GLOB test_qmlfiles "${CMAKE_CURRENT_SOURCE_DIR}/qml/*.qml")
-
     file(COPY ${test_qmlfiles}
          DESTINATION "${CMAKE_CURRENT_BINARY_DIR}/qmldrop/test")
+    get_target_property(qfield_qmlfiles qfield_qml QML_FILES)
     file(COPY ${qfield_qmlfiles}
          DESTINATION "${CMAKE_CURRENT_BINARY_DIR}/qmldrop/app")
 
