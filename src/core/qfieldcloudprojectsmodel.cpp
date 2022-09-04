@@ -2092,6 +2092,11 @@ QVariant QFieldCloudProjectsModel::data( const QModelIndex &index, int role ) co
   if ( index.row() >= mProjects.size() || index.row() < 0 )
     return QVariant();
 
+  if ( role == Qt::DisplayRole )
+  {
+    return QStringLiteral( "%1/%2" ).arg( mProjects.at( index.row() )->owner, mProjects.at( index.row() )->name );
+  }
+
   switch ( static_cast<ColumnRole>( role ) )
   {
     case IdRole:
@@ -2277,6 +2282,7 @@ QStringList QFieldCloudProjectsModel::projectFileNames( const QString &projectPa
 QFieldCloudProjectsFilterModel::QFieldCloudProjectsFilterModel( QObject *parent )
   : QSortFilterProxyModel( parent )
 {
+  sort( 0 );
 }
 
 void QFieldCloudProjectsFilterModel::setProjectsModel( QFieldCloudProjectsModel *projectsModel )
