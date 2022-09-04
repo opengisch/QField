@@ -94,8 +94,6 @@ int main( int argc, char **argv )
   delete dummyApp;
 
   QgsApplication app( argc, argv, true, profilePath, QStringLiteral( "mobile" ) );
-  app.setThemeName( settings.value( "/Themes", "default" ).toString() );
-  app.setPkgDataPath( PlatformUtilities::instance()->systemSharedDataLocation() + QStringLiteral( "/qgis" ) );
 
 #ifdef RELATIVE_PREFIX_PATH
   qputenv( "GDAL_DATA", QDir::toNativeSeparators( PlatformUtilities::instance()->systemSharedDataLocation() + "/gdal" ).toLocal8Bit() );
@@ -122,6 +120,8 @@ int main( int argc, char **argv )
   sentry_wrapper::install_message_handler();
 #endif
   app.initQgis();
+  app.setThemeName( settings.value( "/Themes", "default" ).toString() );
+  app.setPkgDataPath( PlatformUtilities::instance()->systemSharedDataLocation() + QStringLiteral( "/qgis" ) );
   app.createDatabase();
 
   QSettings::setDefaultFormat( QSettings::NativeFormat );
