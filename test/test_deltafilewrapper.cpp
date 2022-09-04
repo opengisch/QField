@@ -1100,6 +1100,71 @@ TEST_CASE( "Delta File Wrapper" )
     dfw.addPatch( layer->id(), layer->id(), QStringLiteral( "fid" ), QStringLiteral( "fid" ), oldFeature, newFeature, false );
 
     REQUIRE( QJsonDocument( getDeltasArray( dfw.toString() ) ) == QJsonDocument::fromJson( "[]" ) );
+
+    // Patch null values
+    dfw.reset();
+    newFeature.setAttribute( QStringLiteral( "dbl" ), QVariant() );
+    newFeature.setAttribute( QStringLiteral( "int" ), QVariant() );
+    newFeature.setAttribute( QStringLiteral( "fid" ), QVariant() );
+    newFeature.setAttribute( QStringLiteral( "str" ), QVariant() );
+    newFeature.setAttribute( QStringLiteral( "attachment" ), QVariant() );
+    oldFeature.setGeometry( QgsGeometry( new QgsPoint( 25.9657, 43.8356 ) ) );
+
+    dfw.addPatch( layer->id(), layer->id(), QStringLiteral( "fid" ), QStringLiteral( "fid" ), oldFeature, newFeature, true );
+
+    expectedDoc = QJsonDocument::fromJson( R""""(
+        [
+          {
+            "uuid": "11111111-1111-1111-1111-111111111111",
+            "clientId": "22222222-2222-2222-2222-222222222222",
+            "exportId": "33333333-3333-3333-3333-333333333333",
+            "localLayerCrs": "EPSG:3857",
+            "localLayerId": "dummyLayerIdL1",
+            "localLayerName": "layer_name",
+            "localPk": "100",
+            "sourceLayerId": "dummyLayerIdS1",
+            "sourcePk": "100",
+            "method": "patch",
+            "new": {
+              "attributes": {
+                "dbl": null,
+                "fid": null,
+                "int": null,
+                "str": null
+              },
+              "is_snapshot": false
+            },
+            "old": {
+              "attributes": {
+                "attachment": null,
+                "dbl": 3.14,
+                "fid": 100,
+                "int": 42,
+                "str": "stringy"
+              },
+              "geometry": "Point (25.96569999999999823 43.83559999999999945)",
+              "is_snapshot": true
+            }
+          }
+        ]
+      )"""" );
+    REQUIRE( QJsonDocument( getDeltasArray( dfw.toString() ) ) == expectedDoc );
+
+
+    // Do not patch equal features
+    dfw.reset();
+    newFeature.setAttribute( QStringLiteral( "dbl" ), 3.14 );
+    newFeature.setAttribute( QStringLiteral( "int" ), 42 );
+    newFeature.setAttribute( QStringLiteral( "fid" ), 100 );
+    newFeature.setAttribute( QStringLiteral( "str" ), QStringLiteral( "stringy" ) );
+    newFeature.setAttribute( QStringLiteral( "attachment" ), QVariant() );
+    newFeature.setGeometry( QgsGeometry( new QgsPoint( 23.398819, 41.7672147 ) ) );
+    oldFeature.setGeometry( QgsGeometry( new QgsPoint( 25.9657, 43.8356 ) ) );
+    newFeature.setGeometry( QgsGeometry( new QgsPoint( 25.9657, 43.8356 ) ) );
+
+    dfw.addPatch( layer->id(), layer->id(), QStringLiteral( "fid" ), QStringLiteral( "fid" ), oldFeature, newFeature, false );
+
+    REQUIRE( QJsonDocument( getDeltasArray( dfw.toString() ) ) == QJsonDocument::fromJson( "[]" ) );
   }
 
   SECTION( "AddDeleteWithStringPk" )
