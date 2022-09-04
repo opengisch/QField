@@ -27,13 +27,13 @@ def test_start_app(app, screenshot_path, extra, process_alive):
     Starts a test app to the welcome screen and creates a screenshot.
     """
     assert app.existsAndVisible("mainWindow")
-
     assert app.existsAndVisible("mainWindow/welcomeScreen")
 
-    first_title = app.getStringProperty(
-        "mainWindow/welcomeScreen/loadProjectItem_1", "title"
-    )
-    app.mouseClick("mainWindow/welcomeScreen/loadProjectItem_1")
+    app.setStringProperty("mainWindow", "width", "500")
+    app.setStringProperty("mainWindow", "height", "500")
+
+    time.sleep(2)
+
     app.takeScreenshot("mainWindow", os.path.join(screenshot_path, "startup.png"))
     assert process_alive()
     extra.append(extras.html('<img src="images/startup.png"/>'))
