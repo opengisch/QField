@@ -20,6 +20,9 @@ add_to_beta_group_parser.add_argument("group_id", type=str, nargs="?", help="Gro
 add_to_beta_group_parser.add_argument("build_id", type=str, nargs="?", help="Build ID")
 build_id_by_version_parser = subparsers.add_parser("build_id_by_version")
 build_id_by_version_parser.add_argument("version", type=int, nargs="?", help="Version")
+publish_on_app_store_parser = subparsers.add_parser("publish_on_app_store")
+publish_on_app_store_parser.add_argument("version", type=int, nargs="?", help="Version")
+publish_on_app_store_parser.add_argument("appid", type=str, nargs="?", help="Version")
 
 args = parser.parse_args()
 
@@ -63,7 +66,28 @@ def build_id_by_version(version):
         )
 
 
+def publish_on_app_store(version, appid):
+    url = f"https://api.appstoreconnect.apple.com/v1/appStoreVersions"
+
+    post_data = {
+        "data": {
+            "attributes": {"platform": "IOS", "versionString": version},
+            "relationships": {"app": {"data": {"id": appid, "type": "apps"}}},
+            "type": "appStoreVersions",
+        }
+    }
+    r = requests.post(url, data=json.dumps(post_data), headers=headers)
+    if r.status_code == 200:
+        print(r.json()["data"][0]["id"])
+    else:
+        raise RuntimeError(
+            f"Error getting build. Status code {r.status_code} \n\n{json.dumps(r.json(), indent=4)}"
+        )
+
+
 if args.command == "add_to_beta_group":
     add_to_beta_group(args.build_id, args.group_id)
-if args.command == "build_id_by_version":
+elif args.command == "build_id_by_version":
     build_id_by_version(args.version)
+else:
+    parser.print_usage()

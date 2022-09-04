@@ -1,5 +1,8 @@
+if(QT_MOC_EXECUTABLE)
+  get_filename_component(_qt_bin_dir ${QT_MOC_EXECUTABLE} DIRECTORY)
+endif()
 find_program(LINUXDEPLOY_EXECUTABLE linuxdeploy linuxdeploy-x86_64.AppImage)
-find_program(MACDEPLOYQT_EXECUTABLE macdeployqt HINTS "${_qt_bin_dir}")
+find_program(MACDEPLOYQT_EXECUTABLE macdeployqt HINTS "${_qt_bin_dir}" NO_DEFAULT_PATH)
 find_program(ANDROIDDEPLOYQT_EXECUTABLE androiddeployqt HINTS "${_qt_bin_dir}")
 
 set(CPACK_GENERATOR)

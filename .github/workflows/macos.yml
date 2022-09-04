@@ -1,5 +1,5 @@
 ---
-name: 🍎 MacOS (Qt6)
+name: 🍎 MacOS
 on:
   push:
     branches:
@@ -74,7 +74,6 @@ jobs:
                 -D CMAKE_BUILD_TYPE=${{ env.BUILD_TYPE }} \
                 -D WITH_VCPKG=ON \
                 -D WITH_SPIX=ON \
-                -D BUILD_WITH_QT6=ON \
                 -D APP_VERSION="${APP_VERSION}" \
                 -D APP_VERSION_STR="${APP_VERSION_STR}" \
                 -D APP_PACKAGE_NAME="${APP_PACKAGE_NAME}" \
@@ -85,10 +84,16 @@ jobs:
                 -D MACOS_CODE_SIGN_IDENTITY="${{ secrets.IOS_CODE_SIGN_IDENTITY_DEV }}" \
                 -D CMAKE_CXX_VISIBILITY_PRESET=hidden
 
+      - name: 📑 Upload dep build logs
+        uses: actions/upload-artifact@v3
+        if: failure()
+        with:
+          name: build-logs-x64-osx
+          path: |
+            ${{ github.workspace }}/vcpkg/base/buildtrees/**/*.log
+
       - name: 🌋 Build
         run: |
-          # https://www.reddit.com/r/MacOS/comments/f37ybt/osascript_cant_open_default_scripting_component/?utm_medium=android_app&utm_source=share
-          sudo rm -rf /Library/Audio/Plug-Ins/Components
           cmake --build "${{ env.CMAKE_BUILD_DIR }}" --config ${{ env.BUILD_TYPE }}
 
       - name: 🧫 Test
@@ -102,12 +107,30 @@ jobs:
       - name: 📦 Package
         run: |
           cmake --build  "${{ env.CMAKE_BUILD_DIR }}" --target bundle --config ${{ env.BUILD_TYPE }}
+              echo "ARTIFACT_PATHNAME=${{ env.CMAKE_BUILD_DIR }}/QField-Installer.dmg" >> $GITHUB_ENV
+              echo "ARTIFACT_NAME=${{ steps.vars.outputs.CI_PACKAGE_FILE_BASENAME }}-macos.dmg" >> $GITHUB_ENV
+
+#      - name: 🔒 Notarize Release Build
+#        uses: m-kuhn/notarize-build@main
+#        with:
+#          app-path: ${{ env.ARTIFACT_PATHNAME }}
+#          issuer-id: ${{ secrets.IOS_APPSTORE_ISSUER_ID }}
+#          api-key-id: ${{ secrets.IOS_APPSTORE_KEY_ID }}
+#          api-private-key: ${{ secrets.IOS_APPSTORE_PRIVATE_KEY }}
+
+      - name: 📑 Upload package logs
+        uses: actions/upload-artifact@v3
+        if: failure()
+        with:
+          name: package-logs-x64-osx
+          path: ${{ env.BUILD_ROOT }}/builddir/_CPack_Packages/**/*.log
 
       - name: 📦 Upload package
+        if: ${{ env.ARTIFACT_NAME != null }}
         uses: actions/upload-artifact@v3
         with:
-          name: "QField-dev-x64-osx-experimental-qt6"
-          path: ${{ env.CMAKE_BUILD_DIR }}/QField-Installer.dmg
+          name: "QField-dev-x64-osx-${{ env.BUILD_TYPE }}"
+          path: ${{ env.ARTIFACT_PATHNAME }}
 
       - name: 📊 Upload test report
         uses: actions/upload-artifact@v3
@@ -115,14 +138,19 @@ jobs:
           name: "test-report-x64-osx-${{ env.BUILD_TYPE }}"
           path: "${{ env.CMAKE_BUILD_DIR }}/report"
 
-      - name: 📑 Upload logs
-        uses: actions/upload-artifact@v3
-        if: failure()
+      - name: 🪔 Get the current release version
+        id: get_version
+        run: |
+          echo "::set-output name=version::${GITHUB_REF##*/}"
+
+      - name: 🚀 Upload release asset
+        if: github.event_name == 'release' && startsWith(github.ref, 'refs/tags/v') && env.ARTIFACT_NAME != null
+        uses: shogo82148/actions-upload-release-asset@v1
         with:
-          name: logs-x64-osx
-          path: |
-            ${{ github.workspace }}/vcpkg/base/buildtrees/**/*.log
-            ${{ env.BUILD_ROOT }}/builddir/_CPack_Packages/**/*.log
+          upload_url: ${{ github.event.release.upload_url }}
+          asset_path: ${{ env.ARTIFACT_PATHNAME }}
+          asset_name: ${{ env.ARTIFACT_NAME }}
+          overwrite: true
 
       - name: ♾️ Upload debug symbols
         # if: release or labeled PR
@@ -132,6 +160,3 @@ jobs:
           export INSTALL_DIR=$(pwd)
           curl -sL https://sentry.io/get-cli/ | bash
           ./sentry-cli upload-dif -o opengisch -p qfield ${{ env.CMAKE_BUILD_DIR }}
-
-      - uses: m-kuhn/action-tmate@patch-1
-        if: failure()
