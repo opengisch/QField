@@ -1,0 +1,15 @@
+#!/bin/env bash
+
+for i in "$@"; do
+  case $i in
+    -needed-libs)
+      args="$args --needed-libs"
+      ;;
+    *)
+      args="$args $i"
+      ;;
+  esac
+done
+
+SCRIPT_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
+${SCRIPT_DIR}/llvm-readobj-bin $args

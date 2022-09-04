@@ -119,3 +119,6 @@ if(QGIS_FOUND)
   set(QGIS_INCLUDE_DIRS ${QGIS_INCLUDE_DIR})
 endif()
 
+if(WITH_VCPKG)
+  include("cmake/qgis-cmake-wrapper.cmake")
+endif()

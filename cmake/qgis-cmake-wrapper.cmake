@@ -1,45 +1,3 @@
-include(SelectLibraryConfigurations)
-
-find_path(QGIS_INCLUDE_DIR
-    NAMES qgis.h
-    PATHS "${CMAKE_CURRENT_LIST_DIR}/../../include/qgis"
-    NO_DEFAULT_PATH
-)
-find_library(QGIS_Core_LIBRARY_DEBUG
-    NAMES qgis_core
-    NAMES_PER_DIR
-    PATHS "${CMAKE_CURRENT_LIST_DIR}/../../debug/lib"
-    NO_DEFAULT_PATH
-)
-find_library(QGIS_Core_LIBRARY_RELEASE
-    NAMES qgis_core
-    NAMES_PER_DIR
-    PATHS "${CMAKE_CURRENT_LIST_DIR}/../../lib"
-    NO_DEFAULT_PATH
-)
-find_library(QGIS_Analysis_LIBRARY_DEBUG
-    NAMES qgis_analysis
-    NAMES_PER_DIR
-    PATHS "${CMAKE_CURRENT_LIST_DIR}/../../debug/lib"
-    NO_DEFAULT_PATH
-)
-find_library(QGIS_Analysis_LIBRARY_RELEASE
-    NAMES qgis_analysis
-    NAMES_PER_DIR
-    PATHS "${CMAKE_CURRENT_LIST_DIR}/../../lib"
-    NO_DEFAULT_PATH
-)
-select_library_configurations(QGIS_Core)
-select_library_configurations(QGIS_Analysis)
-
-if(NOT QGIS_INCLUDE_DIR OR NOT QGIS_Core_LIBRARY OR NOT QGIS_Analysis_LIBRARY)
-  message(FATAL_ERROR "Installation of vcpkg port qgis is broken. Include dir: ${QGIS_INCLUDE_DIR}, Core lib: ${QGIS_Core_LIBRARY}, Analysis lib: ${QGIS_Analysis_LIBRARY}")
-endif()
-
-set(FindQGIS_SKIP_QGIS_CONFIG TRUE)
-
-_find_package(${ARGS})
-
 function(find_and_link_library TARGET LIBRARY)
   find_library(${LIBRARY}-LIBRARY ${LIBRARY} ${ADDITIONAL_ARGS})
   if(${LIBRARY}-LIBRARY)
@@ -98,15 +56,15 @@ function(_find_and_link_library library target)
 endfunction()
 
 # https://stackoverflow.com/a/32771883
-if(CMAKE_... STREQUAL "iOS")
-  set(CMAKE_THREAD_LIBS_INIT "-lpthread")
-  set(CMAKE_HAVE_THREADS_LIBRARY 1)
-  set(CMAKE_USE_WIN32_THREADS_INIT 0)
-  set(CMAKE_USE_PTHREADS_INIT 1)
-endif()
+#if(CMAKE_... STREQUAL "iOS")
+#  set(CMAKE_THREAD_LIBS_INIT "-lpthread")
+#  set(CMAKE_HAVE_THREADS_LIBRARY 1)
+#  set(CMAKE_USE_WIN32_THREADS_INIT 0)
+#  set(CMAKE_USE_PTHREADS_INIT 1)
+#endif()
 
 
-if(QGIS_FOUND AND "@VCPKG_LIBRARY_LINKAGE@" STREQUAL "static")
+if(TRUE) # Should possibly have a "static only" check
   find_package(PkgConfig QUIET)
 
   _find_and_link_library(authmethod_basic_a QGIS::Core)
@@ -149,7 +107,7 @@ if(QGIS_FOUND AND "@VCPKG_LIBRARY_LINKAGE@" STREQUAL "static")
   if(ANDROID)
     find_library(libdl dl)
     get_filename_component(arch_path ${libdl} DIRECTORY)
-    set(pkgcfg_lib_PC_SPATIALITE_c++ "${arch_path}/${ANDROID_PLATFORM_LEVEL}/libc++.so")
+    set(pkgcfg_lib_PC_SPATIALITE_c++ "${arch_path}/libc++.so")
 
     # libspatialite needs log (needed when building with docker)
     target_link_libraries(QGIS::Core INTERFACE log)
@@ -174,27 +132,42 @@ if(QGIS_FOUND AND "@VCPKG_LIBRARY_LINKAGE@" STREQUAL "static")
     pkg_check_modules(freexl REQUIRED IMPORTED_TARGET freexl)
     target_link_libraries(QGIS::Core INTERFACE PkgConfig::freexl)
   endif()
-  _find_and_link_library(qt6keychain QGIS::Core)
+  if(BUILD_WITH_QT6)
+    _find_and_link_library(qt6keychain QGIS::Core)
+  else()
+    _find_and_link_library(qt5keychain QGIS::Core)
+  endif()
 
-  find_package(Qt6 COMPONENTS Core Gui Network Xml Svg Concurrent Sql Positioning Core5Compat)
+  find_package(${QT_PKG} COMPONENTS Core Gui Network Xml Svg Concurrent Sql Positioning)
   target_link_libraries(QGIS::Core INTERFACE
-      Qt6::Core5Compat
-      Qt6::Gui
-      Qt6::Core
-      Qt6::Network
-      Qt6::Xml
-      Qt6::Svg
-      Qt6::Concurrent
-      Qt6::Sql
-      Qt6::Positioning
+      ${QT_PKG}::Gui
+      ${QT_PKG}::Core
+      ${QT_PKG}::Network
+      ${QT_PKG}::Xml
+      ${QT_PKG}::Svg
+      ${QT_PKG}::Concurrent
+      ${QT_PKG}::Sql
+      ${QT_PKG}::Positioning
     )
-  if(NOT CMAKE_SYSTEM_NAME STREQUAL "iOS")
-    find_package(Qt6 COMPONENTS SerialPort)
+  if(BUILD_WITH_QT6)
+    find_package(${QT_PKG} COMPONENTS Core5Compat)
     target_link_libraries(QGIS::Core INTERFACE
-      Qt6::SerialPort
+      ${QT_PKG}::Core5Compat
+      )
+  endif()
+  if(NOT CMAKE_SYSTEM_NAME STREQUAL "iOS")
+    find_package(${QT_PKG} COMPONENTS SerialPort)
+    target_link_libraries(QGIS::Core INTERFACE
+      ${QT_PKG}::SerialPort
     )
   endif()
   if(APPLE)
+    if(NOT BUILD_WITH_QT6)
+      find_package(${QT_PKG} COMPONENTS MacExtras)
+      target_link_libraries(QGIS::Core INTERFACE
+        ${QT_PKG}::MacExtras
+      )
+    endif()
     find_path(LIBTASN1_INCLUDE_DIR
         NAMES libtasn1.h
         PATHS
@@ -234,9 +207,9 @@ if(QGIS_FOUND AND "@VCPKG_LIBRARY_LINKAGE@" STREQUAL "static")
      # _find_and_link_library(lcms2 QGIS::Core)
 
     # QtKeychain
-    find_package(Qt6 COMPONENTS DBus REQUIRED)
+    find_package(${QT_PKG} COMPONENTS DBus REQUIRED)
     target_link_libraries(QGIS::Core INTERFACE
-      Qt6::DBus
+      ${QT_PKG}::DBus
     )
     if(PKG_CONFIG_FOUND)
       pkg_check_modules(glib2 REQUIRED IMPORTED_TARGET glib-2.0)
