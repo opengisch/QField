@@ -6,9 +6,9 @@
 
 # QField for QGIS
 
-A simplified touch optimized interface for QGIS.
+A simplified touch optimized interface for QGIS in the field.
 
-Perfect for field work on portable touch devices.
+[![QField](https://i0.wp.com/www.opengis.ch/wp-content/uploads/2022/04/Feature_Graphic_QField_1024x500.png?w=1024&ssl=1)](https://qfield.org)
 
 ## Get it
 
