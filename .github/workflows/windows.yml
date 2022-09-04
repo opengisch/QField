@@ -111,7 +111,7 @@ jobs:
           SOURCE_DIR=$( cygpath "${{ github.workspace }}" )
           pip install -r "${SOURCE_DIR}/test/spix/requirements.txt"
           cd "${{ env.CMAKE_BUILD_DIR }}"
-          ctest --output-on-failure -C ${{ env.BUILD_TYPE }} -E "smoke_test"
+          ctest --output-on-failure -C ${{ env.BUILD_TYPE }}
 
       - name: Package
         shell: bash
