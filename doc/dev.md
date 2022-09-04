@@ -73,6 +73,13 @@ Now build the application.
 cmake --build build
 ```
 
+### Tests
+
+To build with tests, you can specify `-DENABLE_TESTS=ON`.
+To run the tests, run `ctest` in the build folder.
+
+The testing framework `Catch2` has minimal version 3, so you might need to install it separately and pass it with `-DCatch2_ROOT=/home/user/vcpkg/packages/catch2_x64-linux`.
+
 ## Macos
 
 You need to have cmake and Xcode installed.
