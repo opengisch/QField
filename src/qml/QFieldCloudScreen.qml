@@ -393,7 +393,8 @@ Page {
                 verticalAlignment: Qt.AlignVCenter
                 visible: parent.count == 0
                 text: qsTr("No projects found")
-                font.bold: true
+                font: Theme.strongTipFont
+                color: Theme.gray
             }
 
             MouseArea {
