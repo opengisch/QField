@@ -63,9 +63,11 @@ ApplicationWindow {
       property alias width: mainWindow.width
       property alias height: mainWindow.height
 
+      property int minimumSize: Qt.platform.os !== "ios" && Qt.platform.os !== "android" ? 300 : 50
+
       Component.onCompleted: {
-          width = Math.max(width, 300)
-          height = Math.max(height, 300)
+          width = Math.max(width, minimumSize)
+          height = Math.max(height, minimumSize)
           x = Math.min(x, mainWindow.screen.width - width)
           y = Math.min(y, mainWindow.screen.height - height)
       }
