@@ -36,7 +36,7 @@ jobs:
       - name: 🔨 Prepare build env
         run: |
           sudo apt-get update
-          sudo apt-get install -y gperf autopoint '^libxcb.*-dev' libx11-xcb-dev libglu1-mesa-dev libxrender-dev libxi-dev libxkbcommon-dev libxkbcommon-x11-dev autoconf-archive libgstreamer-plugins-base1.0
+          sudo apt-get install -y gperf autopoint '^libxcb.*-dev' libx11-xcb-dev libegl1-mesa libegl1-mesa-dev libglu1-mesa-dev libxrender-dev libxi-dev libxkbcommon-dev libxkbcommon-x11-dev autoconf-archive libgstreamer-plugins-base1.0
           # Required to run unit tests on linux
           echo "QT_QPA_PLATFORM=offscreen" >> $GITHUB_ENV
 
@@ -92,10 +92,11 @@ jobs:
       - name: 🧫 Test
         env:
           PROJ_LIB: ${{ env.CMAKE_BUILD_DIR }}/vcpkg_installed/x64-linux/share/proj/data
+          SPIX_PROJECT_FILE: ${{ github.workspace }}/test/testdata/test_wms.qgz
         run: |
           pip install -r "${{ github.workspace }}/test/spix/requirements.txt"
           cd "${{ env.CMAKE_BUILD_DIR }}"
-          xvfb-run ctest --output-on-failure -C ${{ env.BUILD_TYPE }}
+          xvfb-run --server-args="-screen 0 640x480x24" ctest --output-on-failure -C ${{ env.BUILD_TYPE }}
 
       - name: Package
         run: |

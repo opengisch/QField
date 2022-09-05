@@ -40,6 +40,7 @@ Page {
 
       ListView {
         id: table
+        objectName: 'messagesList'
         flickableDirection: Flickable.VerticalFlick
         boundsBehavior: Flickable.StopAtBounds
         clip: true
@@ -48,6 +49,7 @@ Page {
 
         delegate: Rectangle {
           id: rectangle
+          objectName: 'messageItem_' + index
           width: parent ? parent.width : undefined
           height: line.height
           color: "transparent"
@@ -57,6 +59,7 @@ Page {
             spacing: 5
             Text {
               id: datetext
+              objectName: 'dateText'
               padding: 5
               text: MessageDateTime.replace(' ','\n')
             }
@@ -66,12 +69,14 @@ Page {
             }
             Text {
               id: tagtext
+              objectName: 'tagText'
               padding: MessageTag ? 5: 0
               text: MessageTag
               font.bold: true
             }
             Text {
               id: messagetext
+              objectName: 'messageText'
               padding: 5
               width: rectangle.width - datetext.width - tagtext.width - separator.width - 3 * line.spacing
               text: Message

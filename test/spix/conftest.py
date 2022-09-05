@@ -1,8 +1,11 @@
 from py.xml import html
+from pathlib import Path
+
 import pytest
 import subprocess
 import xmlrpc
 import time
+import os
 
 
 stderr = list()
@@ -63,7 +66,7 @@ def report_summary():
 
 
 @pytest.fixture
-def process():
+def process(request):
     filenames = [
         "./output/bin/qfield_spix",
         "./output/bin/Release/qfield_spix.exe",
@@ -72,10 +75,19 @@ def process():
         "./output/bin/qfield.app/qfield_spix.exe",
         "./output/bin/qfield.app/Contents/MacOS/qfield_spix",
     ]
+
+    marker = request.node.get_closest_marker("project_file")
+    if marker is None:
+        data = None
+        projectpath = ""
+    else:
+        data = marker.args[0]
+        projectpath = str(Path(__file__).parent.parent / "testdata" / marker.args[0])
+
     for filename in filenames:
         try:
             process = subprocess.Popen(
-                filename, stdout=subprocess.PIPE, stderr=subprocess.PIPE
+                [filename, projectpath], stdout=subprocess.PIPE, stderr=subprocess.PIPE
             )
             yield process
             break
@@ -86,7 +98,7 @@ def process():
 
 
 @pytest.fixture
-def app(process, process_communicate):
+def app(request, process, process_communicate):
     """
     Starts a qfield process and connects an xmlrpc client to it.
     Returns the xmlrpc client that can send commands to the running process.

@@ -28,23 +28,37 @@ def test_start_app(app, screenshot_path, extra, process_alive):
     """
     assert app.existsAndVisible("mainWindow")
 
-    assert app.existsAndVisible("mainWindow/welcomeScreen")
+    time.sleep(2)
 
-    first_title = app.getStringProperty(
-        "mainWindow/welcomeScreen/loadProjectItem_1", "title"
-    )
-    app.mouseClick("mainWindow/welcomeScreen/loadProjectItem_1")
     app.takeScreenshot("mainWindow", os.path.join(screenshot_path, "startup.png"))
     assert process_alive()
     extra.append(extras.html('<img src="images/startup.png"/>'))
 
 
-# @pytest.mark.parametrize('project', ['some_project.qgz'])
-# def test_load_project(project):
-#   app.mouseClick() ...
-#   time.sleep(3)
-#
-#   assert first_title == 'Test'
+@pytest.mark.project_file("test_wms.qgz")
+def test_message_logs(app, screenshot_path, extra, process_alive):
+    """
+    Starts a test app and check for message logs.
+    """
+    assert app.existsAndVisible("mainWindow")
+
+    time.sleep(2)
+
+    app.takeScreenshot("mainWindow", os.path.join(screenshot_path, "test_wms.png"))
+    assert process_alive()
+    extra.append(extras.html('<img src="images/test_wms.png"/>'))
+
+    messagesCount = 0
+    for i in range(0, 10):
+        message = app.getStringProperty(
+            "mainWindow/messageLog/messageItem_{}/messageText".format(i), "text"
+        )
+        if message == "":
+            break
+        extra.append(extras.html("Message logs content: {}".format(message)))
+        messagesCount = messagesCount + 1
+    extra.append(extras.html("Message logs count: {}".format(messagesCount)))
+    assert messagesCount == 0
 
 
 if __name__ == "__main__":

@@ -63,9 +63,11 @@ ApplicationWindow {
       property alias width: mainWindow.width
       property alias height: mainWindow.height
 
+      property int minimumSize: Qt.platform.os !== "ios" && Qt.platform.os !== "android" ? 300 : 50
+
       Component.onCompleted: {
-          width = Math.max(width, 50)
-          height = Math.max(height, 50)
+          width = Math.max(width, minimumSize)
+          height = Math.max(height, minimumSize)
           x = Math.min(x, mainWindow.screen.width - width)
           y = Math.min(y, mainWindow.screen.height - height)
       }
@@ -2608,6 +2610,8 @@ ApplicationWindow {
 
   MessageLog {
     id: messageLog
+    objectName: 'messageLog'
+
     anchors.fill: parent
     focus: visible
     visible: false
@@ -2956,6 +2960,8 @@ ApplicationWindow {
 
   Changelog {
     id: changelogPopup
+    objectName: 'changelogPopup'
+
     parent: ApplicationWindow.overlay
 
     property var expireDate: new Date(2038,1,19)
