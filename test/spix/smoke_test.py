@@ -26,6 +26,13 @@ def test_start_app(app, screenshot_path, extra, process_alive):
     """
     Starts a test app to the welcome screen and creates a screenshot.
     """
+    if not os.environ.get("SPIX_PROJECT_FILE") is None:
+        extra.append(
+            extras.html(
+                "Project file used: {}".format(os.environ.get("SPIX_PROJECT_FILE"))
+            )
+        )
+
     assert app.existsAndVisible("mainWindow")
 
     app.setStringProperty("mainWindow", "width", "500")
@@ -46,6 +53,7 @@ def test_start_app(app, screenshot_path, extra, process_alive):
             break
         extra.append(extras.html("Message logs content: {}".format(message)))
         messagesCount = messagesCount + 1
+    extra.append(extras.html("Message logs count: {}".format(messagesCount)))
     assert messagesCount == 0
 
 
