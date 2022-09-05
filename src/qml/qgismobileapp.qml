@@ -2608,6 +2608,8 @@ ApplicationWindow {
 
   MessageLog {
     id: messageLog
+    objectName: 'messageLog'
+
     anchors.fill: parent
     focus: visible
     visible: false

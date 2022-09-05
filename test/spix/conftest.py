@@ -3,6 +3,7 @@ import pytest
 import subprocess
 import xmlrpc
 import time
+import os
 
 
 stderr = list()
@@ -74,8 +75,12 @@ def process():
     ]
     for filename in filenames:
         try:
+            launchArray = [filename]
+            if not os.environ.get("SPIX_PROJECT_FILE") is None:
+                launchArray.append(os.environ.get("SPIX_PROJECT_FILE"))
+
             process = subprocess.Popen(
-                filename, stdout=subprocess.PIPE, stderr=subprocess.PIPE
+                launchArray, stdout=subprocess.PIPE, stderr=subprocess.PIPE
             )
             yield process
             break

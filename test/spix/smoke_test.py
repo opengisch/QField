@@ -27,7 +27,6 @@ def test_start_app(app, screenshot_path, extra, process_alive):
     Starts a test app to the welcome screen and creates a screenshot.
     """
     assert app.existsAndVisible("mainWindow")
-    assert app.existsAndVisible("mainWindow/welcomeScreen")
 
     app.setStringProperty("mainWindow", "width", "500")
     app.setStringProperty("mainWindow", "height", "500")
@@ -37,6 +36,17 @@ def test_start_app(app, screenshot_path, extra, process_alive):
     app.takeScreenshot("mainWindow", os.path.join(screenshot_path, "startup.png"))
     assert process_alive()
     extra.append(extras.html('<img src="images/startup.png"/>'))
+
+    messagesCount = 0
+    for i in range(0, 10):
+        message = app.getStringProperty(
+            "mainWindow/messageLog/messageItem_{}/messageText".format(i), "text"
+        )
+        if message == "":
+            break
+        extra.append(extras.html("Message logs content: {}".format(message)))
+        messagesCount = messagesCount + 1
+    assert messagesCount == 0
 
 
 # @pytest.mark.parametrize('project', ['some_project.qgz'])
