@@ -36,9 +36,10 @@ jobs:
       - name: 🔨 Prepare build env
         run: |
           sudo apt-get update
-          sudo apt-get install -y gperf autopoint '^libxcb.*-dev' libx11-xcb-dev libglu1-mesa-dev libxrender-dev libxi-dev libxkbcommon-dev libxkbcommon-x11-dev autoconf-archive libgstreamer-plugins-base1.0
+          sudo apt-get install -y gperf autopoint '^libxcb.*-dev' libx11-xcb-dev libglu1-mesa-dev libxrender-dev libxi-dev libxkbcommon-dev libxkbcommon-x11-dev autoconf-archive libgstreamer-plugins-base1.0 mesa-utils
           # Required to run unit tests on linux
           echo "QT_QPA_PLATFORM=offscreen" >> $GITHUB_ENV
+          xvfb-run glxinfo
 
       - name: 💐 Install Qt
         uses: jurplel/install-qt-action@v3
