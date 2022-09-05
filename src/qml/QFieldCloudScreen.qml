@@ -387,6 +387,16 @@ Page {
                 }
             }
 
+            Label {
+                anchors.fill: parent
+                horizontalAlignment: Qt.AlignHCenter
+                verticalAlignment: Qt.AlignVCenter
+                visible: parent.count == 0
+                text: qsTr("No projects found")
+                font: Theme.strongTipFont
+                color: Theme.gray
+            }
+
             MouseArea {
               property Item pressedItem
               anchors.fill: parent
