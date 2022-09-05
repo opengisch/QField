@@ -28,9 +28,6 @@ def test_start_app(app, screenshot_path, extra, process_alive):
     """
     assert app.existsAndVisible("mainWindow")
 
-    app.setStringProperty("mainWindow", "width", "500")
-    app.setStringProperty("mainWindow", "height", "500")
-
     time.sleep(2)
 
     app.takeScreenshot("mainWindow", os.path.join(screenshot_path, "startup.png"))

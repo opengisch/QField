@@ -64,8 +64,8 @@ ApplicationWindow {
       property alias height: mainWindow.height
 
       Component.onCompleted: {
-          width = Math.max(width, 50)
-          height = Math.max(height, 50)
+          width = Math.max(width, 300)
+          height = Math.max(height, 300)
           x = Math.min(x, mainWindow.screen.width - width)
           y = Math.min(y, mainWindow.screen.height - height)
       }
