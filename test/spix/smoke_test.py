@@ -36,13 +36,17 @@ def test_start_app(app, screenshot_path, extra, process_alive):
 
 
 @pytest.mark.project_file("test_wms.qgz")
-def test_message_logs(app, extra, process_alive):
+def test_message_logs(app, screenshot_path, extra, process_alive):
     """
     Starts a test app and check for message logs.
     """
     assert app.existsAndVisible("mainWindow")
 
     time.sleep(2)
+
+    app.takeScreenshot("mainWindow", os.path.join(screenshot_path, "test_wms.png"))
+    assert process_alive()
+    extra.append(extras.html('<img src="images/test_wms.png"/>'))
 
     messagesCount = 0
     for i in range(0, 10):
