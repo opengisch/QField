@@ -35,6 +35,7 @@ def test_start_app(app, screenshot_path, extra, process_alive):
     extra.append(extras.html('<img src="images/startup.png"/>'))
 
 
+@pytest.mark.project_file("test_wms.qgz")
 def test_message_logs(app, extra, process_alive):
     """
     Starts a test app and check for message logs.

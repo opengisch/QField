@@ -66,7 +66,7 @@ def report_summary():
 
 
 @pytest.fixture
-def process():
+def process(request):
     filenames = [
         "./output/bin/qfield_spix",
         "./output/bin/Release/qfield_spix.exe",
@@ -76,7 +76,13 @@ def process():
         "./output/bin/qfield.app/Contents/MacOS/qfield_spix",
     ]
 
-    projectpath = str(Path(__file__).parent.parent / "testdata" / "test_wms.qgz")
+    marker = request.node.get_closest_marker("project_file")
+    if marker is None:
+        data = None
+        projectpath = ""
+    else:
+        data = marker.args[0]
+        projectpath = str(Path(__file__).parent.parent / "testdata" / marker.args[0])
 
     for filename in filenames:
         try:
@@ -92,7 +98,7 @@ def process():
 
 
 @pytest.fixture
-def app(process, process_communicate):
+def app(request, process, process_communicate):
     """
     Starts a qfield process and connects an xmlrpc client to it.
     Returns the xmlrpc client that can send commands to the running process.
