@@ -1,4 +1,6 @@
 from py.xml import html
+from pathlib import Path
+
 import pytest
 import subprocess
 import xmlrpc
@@ -73,14 +75,13 @@ def process():
         "./output/bin/qfield.app/qfield_spix.exe",
         "./output/bin/qfield.app/Contents/MacOS/qfield_spix",
     ]
+
+    projectpath = str(Path(__file__).parent.parent / "testdata" / "test_wms.qgz")
+
     for filename in filenames:
         try:
-            launchArray = [filename]
-            if not os.environ.get("SPIX_PROJECT_FILE") is None:
-                launchArray.append(os.environ.get("SPIX_PROJECT_FILE"))
-
             process = subprocess.Popen(
-                launchArray, stdout=subprocess.PIPE, stderr=subprocess.PIPE
+                [filename, projectpath], stdout=subprocess.PIPE, stderr=subprocess.PIPE
             )
             yield process
             break

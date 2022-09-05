@@ -26,13 +26,6 @@ def test_start_app(app, screenshot_path, extra, process_alive):
     """
     Starts a test app to the welcome screen and creates a screenshot.
     """
-    if not os.environ.get("SPIX_PROJECT_FILE") is None:
-        extra.append(
-            extras.html(
-                "Project file used: {}".format(os.environ.get("SPIX_PROJECT_FILE"))
-            )
-        )
-
     assert app.existsAndVisible("mainWindow")
 
     app.setStringProperty("mainWindow", "width", "500")
@@ -43,6 +36,15 @@ def test_start_app(app, screenshot_path, extra, process_alive):
     app.takeScreenshot("mainWindow", os.path.join(screenshot_path, "startup.png"))
     assert process_alive()
     extra.append(extras.html('<img src="images/startup.png"/>'))
+
+
+def test_message_logs(app, extra, process_alive):
+    """
+    Starts a test app and check for message logs.
+    """
+    assert app.existsAndVisible("mainWindow")
+
+    time.sleep(2)
 
     messagesCount = 0
     for i in range(0, 10):
@@ -55,14 +57,6 @@ def test_start_app(app, screenshot_path, extra, process_alive):
         messagesCount = messagesCount + 1
     extra.append(extras.html("Message logs count: {}".format(messagesCount)))
     assert messagesCount == 0
-
-
-# @pytest.mark.parametrize('project', ['some_project.qgz'])
-# def test_load_project(project):
-#   app.mouseClick() ...
-#   time.sleep(3)
-#
-#   assert first_title == 'Test'
 
 
 if __name__ == "__main__":
