@@ -1910,6 +1910,10 @@ Aínda que podes seguir vendo e utilizando este proxecto, recoméndase fortement
         <source>Refreshing projects list</source>
         <translation>Recargado a lista de proxectos</translation>
     </message>
+    <message>
+        <source>No projects found</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>QFieldLocalDataPickerScreen</name>

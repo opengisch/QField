@@ -1939,6 +1939,10 @@ While you can still view and use the project, it is strongly recommended to rese
         <source>Refreshing projects list</source>
         <translation>Refreshing projects list</translation>
     </message>
+    <message>
+        <source>No projects found</source>
+        <translation>No projects found</translation>
+    </message>
 </context>
 <context>
     <name>QFieldLocalDataPickerScreen</name>

@@ -1908,6 +1908,10 @@ While you can still view and use the project, it is strongly recommended to rese
         <source>Refreshing projects list</source>
         <translation>正在刷新工程列表</translation>
     </message>
+    <message>
+        <source>No projects found</source>
+        <translation>未找到工程</translation>
+    </message>
 </context>
 <context>
     <name>QFieldLocalDataPickerScreen</name>

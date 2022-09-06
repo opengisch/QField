@@ -1910,6 +1910,10 @@ Hoewel u het project nog steeds kunt bekijken en gebruiken, wordt het ten zeerst
         <source>Refreshing projects list</source>
         <translation>Refreshing projects list</translation>
     </message>
+    <message>
+        <source>No projects found</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>QFieldLocalDataPickerScreen</name>
