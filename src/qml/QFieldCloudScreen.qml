@@ -166,12 +166,14 @@ Page {
           text: qsTr("My Projects")
           height: 48
           font: Theme.defaultFont
+          enabled: (cloudConnection.state === QFieldCloudConnection.Idle && cloudProjectsModel.busyProjectIds.length === 0)
           anchors.verticalCenter : parent.verticalCenter
         }
         TabButton {
           text: qsTr("Community")
           height: 48
           font: Theme.defaultFont
+          enabled: (cloudConnection.state === QFieldCloudConnection.Idle && cloudProjectsModel.busyProjectIds.length === 0)
           anchors.verticalCenter : parent.verticalCenter
         }
       }
@@ -194,6 +196,12 @@ Page {
                     ? QFieldCloudProjectsFilterModel.PrivateProjects
                     : QFieldCloudProjectsFilterModel.PublicProjects
                 showLocalOnly: cloudConnection.status !== QFieldCloudConnection.LoggedIn
+
+                onFilterChanged: {
+                  if (cloudConnection.state === QFieldCloudConnection.Idle && cloudProjectsModel.busyProjectIds.length === 0) {
+                    refreshProjectsList(filterBar.currentIndex !== 0);
+                  }
+                }
             }
 
             anchors.fill: parent
@@ -219,7 +227,7 @@ Page {
 
             onMovingChanged: {
               if ( !moving && overshootRefresh && cloudConnection.state === QFieldCloudConnection.Idle && cloudProjectsModel.busyProjectIds.length === 0 ) {
-                refreshProjectsList();
+                refreshProjectsList(filterBar.currentIndex !== 0);
               }
               overshootRefresh = false;
             }
@@ -561,7 +569,7 @@ Page {
                    && cloudConnection.state === QFieldCloudConnection.Idle
                    && cloudProjectsModel.busyProjectIds.length === 0
 
-          onClicked: refreshProjectsList()
+          onClicked: refreshProjectsList(filterBar.currentIndex !== 0)
       }
     }
   }
@@ -575,12 +583,12 @@ Page {
     }
   }
 
-  function refreshProjectsList() {
+  function refreshProjectsList(shouldRefreshPublic) {
     if ( cloudConnection.state !== QFieldCloudConnection.Idle && cloudProjectsModel.busyProjectIds.length === 0 ) {
       return;
     }
 
-    cloudProjectsModel.refreshProjectsList();
+    cloudProjectsModel.refreshProjectsList(shouldRefreshPublic);
     displayToast( qsTr( "Refreshing projects list" ) );
   }
 
