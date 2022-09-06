@@ -205,13 +205,14 @@ QVariantMap QFieldCloudProjectsModel::getProjectData( const QString &projectId )
   return data;
 }
 
-void QFieldCloudProjectsModel::refreshProjectsList()
+void QFieldCloudProjectsModel::refreshProjectsList( bool shouldRefreshPublic )
 {
   switch ( mCloudConnection->status() )
   {
     case QFieldCloudConnection::ConnectionStatus::LoggedIn:
     {
-      NetworkReply *reply = mCloudConnection->get( QStringLiteral( "/api/v1/projects/?include-public=true" ) );
+      QString url = shouldRefreshPublic ? QStringLiteral( "/api/v1/projects/public/" ) : QStringLiteral( "/api/v1/projects/" );
+      NetworkReply *reply = mCloudConnection->get( url );
       connect( reply, &NetworkReply::finished, this, &QFieldCloudProjectsModel::projectListReceived );
       break;
     }
