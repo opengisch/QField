@@ -491,7 +491,10 @@ QVariant FlatLayerTreeModelBase::data( const QModelIndex &index, int role ) cons
         const QgsLayerTreeLayer *nodeLayer = QgsLayerTree::toLayer( node );
         const QgsMapLayer *layer = qobject_cast<QgsMapLayer *>( nodeLayer->layer() );
 
-        return layer->isSpatial();
+        if ( layer )
+        {
+          return layer->isSpatial();
+        }
       }
       else if ( QgsLayerTree::isGroup( node ) )
       {
@@ -501,17 +504,22 @@ QVariant FlatLayerTreeModelBase::data( const QModelIndex &index, int role ) cons
         const QStringList findLayerIds = groupNode->findLayerIds();
 
         if ( findLayerIds.empty() )
+        {
           return false;
+        }
 
         for ( const QString &layerId : findLayerIds )
           layers << QgsProject::instance()->mapLayer( layerId );
 
         for ( int i = 0; i < layers.size(); ++i )
         {
-          const QgsRectangle extent = layers[i]->extent();
-          if ( layers[i]->isValid() && layers[i]->isSpatial() && !extent.isEmpty() && extent.isFinite() )
+          if ( layers[i] )
           {
-            return true;
+            const QgsRectangle extent = layers[i]->extent();
+            if ( layers[i]->isValid() && layers[i]->isSpatial() && !extent.isEmpty() && extent.isFinite() )
+            {
+              return true;
+            }
           }
         }
       }
@@ -761,9 +769,16 @@ QVariant FlatLayerTreeModelBase::data( const QModelIndex &index, int role ) cons
       {
         layer = qobject_cast<QgsMapLayer *>( sym->layerNode()->layer() );
       }
-
-      if ( !layer ) // Group
+      else
+      {
+        // Probably a group or other legend entry
         return true;
+      }
+
+      if ( !layer )
+      {
+        return false;
+      }
 
       return layer->isValid();
     }
