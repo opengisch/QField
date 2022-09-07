@@ -45,7 +45,7 @@
     <string name="import_overwrite_dataset_multiple">Einer oder mehrere Datensätze bestehen bereits. Der Vorgang wird diese Daten überschreiben. Mit dem Import fortfahren?</string>
     <string name="import_overwrite_confirm">Importiere und Überschreibe</string>
     <string name="import_overwrite_cancel">Abbrechen</string>
-    <string name="export_error">Error beim Exportieren</string>
+    <string name="export_error">Fehler beim Exportieren</string>
     <string name="export_to_folder_error">Der gewählte Projektordner wurde nicht korrekt exportiert.</string>
     <string name="send_to">Senden an...</string>
     <string name="send_compressed_to">Als ZIP senden an...</string>
