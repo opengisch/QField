@@ -45,6 +45,11 @@
 
 #include <proj.h>
 
+#if HAVE_STATIC_QCA_PLUGINS
+#include <QtPlugin>
+Q_IMPORT_PLUGIN( opensslPlugin )
+#endif
+
 void initGraphics()
 {
   // Enables antialiasing in QML scenes

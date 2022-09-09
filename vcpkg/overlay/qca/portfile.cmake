@@ -51,8 +51,12 @@ if("botan" IN_LIST FEATURES)
 else()
     list(APPEND QCA_OPTIONS -DWITH_botan_PLUGIN=no)
 endif()
-    list(APPEND QCA_OPTIONS -DWITH_gnupg_PLUGIN=no)
-    list(APPEND QCA_OPTIONS -DWITH_ossl_PLUGIN=no)
+list(APPEND QCA_OPTIONS -DWITH_gnupg_PLUGIN=no)
+if(VCPKG_TARGET_IS_IOS)
+  list(APPEND QCA_OPTIONS -DWITH_ossl_PLUGIN=no)
+else()
+  list(APPEND QCA_OPTIONS -DWITH_ossl_PLUGIN=yes)
+endif()
 
 # Configure and build
 vcpkg_cmake_configure(

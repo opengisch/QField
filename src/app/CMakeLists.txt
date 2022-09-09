@@ -92,6 +92,15 @@ function(create_executable)
     qt5_import_plugins(${exe_TARGET} INCLUDE ${QT_PKG}::QSvgPlugin)
   endif()
 
+  if(WITH_VCPKG AND NOT CMAKE_SYSTEM_NAME STREQUAL "iOS") # this triggers the
+                                                          # initialisation of
+                                                          # static ossl plugin
+                                                          # for qca. It's not
+                                                          # currently included
+                                                          # for ios.
+    target_compile_definitions(${exe_TARGET} PUBLIC HAVE_STATIC_QCA_PLUGINS)
+  endif()
+
   set_target_properties(${exe_TARGET} PROPERTIES AUTORCC TRUE)
   if(CMAKE_SYSTEM_NAME STREQUAL "Darwin")
     set_target_properties(
