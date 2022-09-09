@@ -155,6 +155,12 @@ if(QGIS_FOUND AND "@VCPKG_LIBRARY_LINKAGE@" STREQUAL "static")
     target_link_libraries(QGIS::Core INTERFACE log)
   endif()
   # End Terrible hack
+
+  if(NOT CMAKE_SYSTEM_NAME STREQUAL "iOS")
+    find_library(Qca-ossl_LIBRARIES NAMES qca-ossl PATH_SUFFIXES Qca/crypto)
+    target_link_libraries(QGIS::Core INTERFACE ${Qca-ossl_LIBRARIES})
+  endif()
+
   _qgis_core_add_dependency(GDAL::GDAL GDAL)
 
 
