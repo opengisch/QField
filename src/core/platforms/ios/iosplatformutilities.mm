@@ -47,8 +47,12 @@ PlatformUtilities::Capabilities IosPlatformUtilities::capabilities() const {
 void IosPlatformUtilities::afterUpdate() {
   // Create imported projects and datasets folders
   QDir appDir(applicationDirectory());
-  appDir.mkdir("Imported Projects");
-  appDir.mkdir("Imported Datasets");
+  appDir.mkdir(QStringLiteral("Imported Projects"));
+  appDir.mkdir(QStringLiteral("Imported Datasets"));
+  appDir.mkpath(QStringLiteral("QField/proj"));
+  appDir.mkpath(QStringLiteral("QField/auth"));
+  appDir.mkpath(QStringLiteral("QField/fonts"));
+  appDir.mkpath(QStringLiteral("QField/basemaps"));
 }
 
 QString IosPlatformUtilities::systemSharedDataLocation() const {
@@ -60,6 +64,12 @@ QString IosPlatformUtilities::systemSharedDataLocation() const {
 
 QString IosPlatformUtilities::applicationDirectory() const {
   return QStandardPaths::writableLocation(QStandardPaths::DocumentsLocation);
+}
+
+QStringList IosPlatformUtilities::appDataDirs() const {
+  return QStringList() << QStringLiteral("%1/QField/")
+                              .arg(QStandardPaths::writableLocation(
+                                  QStandardPaths::DocumentsLocation));
 }
 
 bool IosPlatformUtilities::checkPositioningPermissions() const { return true; }
