@@ -27,6 +27,7 @@
 #import <UIKit/UIKit.h>
 
 #include <QGuiApplication>
+#include <QStandardPaths>
 #include <qpa/qplatformnativeinterface.h>
 
 #include <QtGui>
@@ -36,11 +37,22 @@ IosPlatformUtilities::IosPlatformUtilities() : PlatformUtilities() {}
 
 PlatformUtilities::Capabilities IosPlatformUtilities::capabilities() const {
   PlatformUtilities::Capabilities capabilities =
-      Capabilities() | NativeCamera | AdjustBrightness;
+      Capabilities() | NativeCamera | AdjustBrightness | CustomLocalDataPicker;
 #ifdef WITH_SENTRY
   capabilities |= SentryFramework;
 #endif
   return capabilities;
+}
+
+void IosPlatformUtilities::afterUpdate() {
+  // Create imported projects and datasets folders
+  QDir appDir(applicationDirectory());
+  appDir.mkdir(QStringLiteral("Imported Projects"));
+  appDir.mkdir(QStringLiteral("Imported Datasets"));
+  appDir.mkpath(QStringLiteral("QField/proj"));
+  appDir.mkpath(QStringLiteral("QField/auth"));
+  appDir.mkpath(QStringLiteral("QField/fonts"));
+  appDir.mkpath(QStringLiteral("QField/basemaps"));
 }
 
 QString IosPlatformUtilities::systemSharedDataLocation() const {
@@ -48,6 +60,16 @@ QString IosPlatformUtilities::systemSharedDataLocation() const {
   NSString *bundlePath = [main bundlePath];
   QString path = [bundlePath UTF8String];
   return path + "/share";
+}
+
+QString IosPlatformUtilities::applicationDirectory() const {
+  return QStandardPaths::writableLocation(QStandardPaths::DocumentsLocation);
+}
+
+QStringList IosPlatformUtilities::appDataDirs() const {
+  return QStringList() << QStringLiteral("%1/QField/")
+                              .arg(QStandardPaths::writableLocation(
+                                  QStandardPaths::DocumentsLocation));
 }
 
 bool IosPlatformUtilities::checkPositioningPermissions() const { return true; }
