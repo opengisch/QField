@@ -99,8 +99,14 @@
 
     <key>ITSAppUsesNonExemptEncryption</key><false/>
 
-    <!-- File sharing -->
+    <!-- Files handling -->
     <key>UIFileSharingEnabled</key>
+    <true/>
+
+    <key>UISupportsDocumentBrowser</key>
+    <true/>
+
+    <key>LSSupportsOpeningDocumentsInPlace</key>
     <true/>
 
 </dict>
