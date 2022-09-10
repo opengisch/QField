@@ -44,8 +44,9 @@ Drawer {
     anchors.fill: parent
 
     Rectangle {
-      Layout.fillWidth: true
       height: mainWindow.sceneTopMargin + Math.max(buttonsRow.height, buttonsRow.childrenRect.height)
+      Layout.fillWidth: true
+      Layout.preferredHeight: height
 
       color: mainColor
 
