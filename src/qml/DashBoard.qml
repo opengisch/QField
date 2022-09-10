@@ -45,15 +45,17 @@ Drawer {
 
     Rectangle {
       Layout.fillWidth: true
-      height: mainWindow.sceneTopMargin + 56
+      height: mainWindow.sceneTopMargin + Math.max(buttonsRow.height, buttonsRow.childrenRect.height)
 
       color: mainColor
 
       Row {
         id: buttonsRow
-        height: 56
-        anchors.fill: parent
+        anchors.top: parent.top
+        anchors.left: parent.left
         anchors.topMargin: mainWindow.sceneTopMargin
+        width: parent.width
+        height: 56
         spacing: 1
 
         QfToolButton {
