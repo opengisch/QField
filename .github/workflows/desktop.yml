@@ -24,7 +24,7 @@ jobs:
             os: 'ubuntu-18.04'
 
           - triplet: 'x64-osx'
-            os: 'macos-12'
+            os: 'macos-11'
 
     steps:
 # Avoid that we run out of disk space
