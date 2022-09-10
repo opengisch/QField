@@ -99,5 +99,9 @@
 
     <key>ITSAppUsesNonExemptEncryption</key><false/>
 
+    <!-- File sharing -->
+    <key>UIFileSharingEnabled</key>
+    <true/>
+
 </dict>
 </plist>
