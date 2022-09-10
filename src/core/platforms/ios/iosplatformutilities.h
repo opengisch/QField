@@ -27,7 +27,10 @@ class IosPlatformUtilities : public PlatformUtilities
 {
   public:
     IosPlatformUtilities();
+
     PlatformUtilities::Capabilities capabilities() const override;
+    void afterUpdate() override;
+
     QString systemSharedDataLocation() const override;
     QString applicationDirectory() const override;
     bool checkPositioningPermissions() const override;

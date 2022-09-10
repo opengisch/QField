@@ -44,6 +44,13 @@ PlatformUtilities::Capabilities IosPlatformUtilities::capabilities() const {
   return capabilities;
 }
 
+void IosPlatformUtilities::afterUpdate() {
+  // Create imported projects and datasets folders
+  QDir appDir(applicationDirectory());
+  appDir.mkdir("Imported Projects");
+  appDir.mkdir("Imported Datasets");
+}
+
 QString IosPlatformUtilities::systemSharedDataLocation() const {
   NSBundle *main = [NSBundle mainBundle];
   NSString *bundlePath = [main bundlePath];
