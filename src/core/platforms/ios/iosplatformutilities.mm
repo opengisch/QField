@@ -52,7 +52,7 @@ QString IosPlatformUtilities::systemSharedDataLocation() const {
 }
 
 QString IosPlatformUtilities::applicationDirectory() const {
-  return QStandardPaths::writableLocation(QStandardPaths::DataLocation);
+  return QStandardPaths::writableLocation(QStandardPaths::DocumentsLocation);
 }
 
 bool IosPlatformUtilities::checkPositioningPermissions() const { return true; }
