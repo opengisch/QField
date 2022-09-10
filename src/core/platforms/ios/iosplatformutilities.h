@@ -29,6 +29,7 @@ class IosPlatformUtilities : public PlatformUtilities
     IosPlatformUtilities();
     PlatformUtilities::Capabilities capabilities() const override;
     QString systemSharedDataLocation() const override;
+    QString applicationDirectory() const override;
     bool checkPositioningPermissions() const override;
     bool checkCameraPermissions() const override;
     void setScreenLockPermission( const bool allowLock ) override;

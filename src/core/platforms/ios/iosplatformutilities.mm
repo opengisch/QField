@@ -27,6 +27,7 @@
 #import <UIKit/UIKit.h>
 
 #include <QGuiApplication>
+#include <QStandardPaths>
 #include <qpa/qplatformnativeinterface.h>
 
 #include <QtGui>
@@ -36,7 +37,7 @@ IosPlatformUtilities::IosPlatformUtilities() : PlatformUtilities() {}
 
 PlatformUtilities::Capabilities IosPlatformUtilities::capabilities() const {
   PlatformUtilities::Capabilities capabilities =
-      Capabilities() | NativeCamera | AdjustBrightness;
+      Capabilities() | NativeCamera | AdjustBrightness | CustomLocalDataPicker;
 #ifdef WITH_SENTRY
   capabilities |= SentryFramework;
 #endif
@@ -48,6 +49,10 @@ QString IosPlatformUtilities::systemSharedDataLocation() const {
   NSString *bundlePath = [main bundlePath];
   QString path = [bundlePath UTF8String];
   return path + "/share";
+}
+
+QString IosPlatformUtilities::applicationDirectory() const {
+  return QStandardPaths::writableLocation(QStandardPaths::DataLocation);
 }
 
 bool IosPlatformUtilities::checkPositioningPermissions() const { return true; }
