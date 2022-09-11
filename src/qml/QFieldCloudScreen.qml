@@ -187,8 +187,9 @@ Page {
 
         ListView {
             id: table
-            property bool overshootRefresh: false
 
+            property bool overshootRefresh: false
+            property bool refreshing: false
 
             model: QFieldCloudProjectsFilterModel {
                 projectsModel: cloudProjectsModel
@@ -199,9 +200,14 @@ Page {
 
                 onFilterChanged: {
                   if (cloudConnection.state === QFieldCloudConnection.Idle && cloudProjectsModel.busyProjectIds.length === 0) {
-                    refreshProjectsList(filterBar.currentIndex !== 0);
+                    refreshProjectsList(filter === QFieldCloudProjectsFilterModel.PublicProjects);
                   }
                 }
+            }
+
+            ScrollBar.vertical: ScrollBar {
+                active: true
+                visible: table.contentHeight > table.height ? true : false
             }
 
             anchors.fill: parent
@@ -400,7 +406,7 @@ Page {
                 horizontalAlignment: Qt.AlignHCenter
                 verticalAlignment: Qt.AlignVCenter
                 visible: parent.count == 0
-                text: qsTr("No projects found")
+                text: table.refreshing ? qsTr("Refreshing projects list") : qsTr("No projects found")
                 font: Theme.strongTipFont
                 color: Theme.gray
             }
@@ -578,7 +584,11 @@ Page {
     target: cloudConnection
 
     function onStatusChanged() {
-      if ( cloudConnection.status === QFieldCloudConnection.LoggedIn )
+      if (table.refreshing) {
+        table.refreshing = false;
+      }
+
+      if (cloudConnection.status === QFieldCloudConnection.LoggedIn)
         prepareCloudLogin();
     }
   }
@@ -587,6 +597,8 @@ Page {
     if ( cloudConnection.state !== QFieldCloudConnection.Idle && cloudProjectsModel.busyProjectIds.length === 0 ) {
       return;
     }
+
+    table.refreshing = true;
 
     cloudProjectsModel.refreshProjectsList(shouldRefreshPublic);
     displayToast( qsTr( "Refreshing projects list" ) );
