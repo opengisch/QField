@@ -232,8 +232,8 @@ class QFieldCloudProjectsModel : public QAbstractListModel
     //! Returns the cloud project data for given \a projectId.
     Q_INVOKABLE QVariantMap getProjectData( const QString &projectId ) const;
 
-    //! Requests the cloud projects list from the server.
-    Q_INVOKABLE void refreshProjectsList();
+    //! Requests the cloud projects list from the server. If \a shouldRefreshPublic is false, it will refresh only user's project, otherwise will refresh the public projects only.
+    Q_INVOKABLE void refreshProjectsList( bool shouldRefreshPublic = false );
 
     //! Pushes all local deltas for given \a projectId. If \a shouldDownloadUpdates is true, also calls `downloadProject`.
     Q_INVOKABLE void projectUpload( const QString &projectId, const bool shouldDownloadUpdates );
