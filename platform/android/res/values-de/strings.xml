@@ -26,6 +26,7 @@
     <string name="added_to_favorites">Zu Favoriten hinzugefügt</string>
     <string name="removed_from_favorites">Von Favoriten entfernt</string>
     <string name="external_files_title">Wichtiger Hinweis</string>
+    <string name="external_files_message"><![CDATA[Das QField Datein Verzeichnis kann dafür benützt werden, Dateien und Projekte via USB Kabel auf das Gerät zu kopieren. Der absolute Pfad zu diesem Verzeichnis ist in der Titelleiste ersichtlich.<br/><br/>Hinweis: der Inhalt dieses Verzeichnises <i>wird gelöscht</i> wenn QField deinstalliert wird.]]></string>
     <string name="external_files_ok">Ok</string>
     <string name="grant_permission">Zugang zu allen Dateien</string>
     <string name="grant">Zulassen</string>
@@ -45,7 +46,7 @@
     <string name="import_overwrite_dataset_multiple">Einer oder mehrere Datensätze bestehen bereits. Der Vorgang wird diese Daten überschreiben. Mit dem Import fortfahren?</string>
     <string name="import_overwrite_confirm">Importiere und Überschreibe</string>
     <string name="import_overwrite_cancel">Abbrechen</string>
-    <string name="export_error">Error beim Exportieren</string>
+    <string name="export_error">Fehler beim Exportieren</string>
     <string name="export_to_folder_error">Der gewählte Projektordner wurde nicht korrekt exportiert.</string>
     <string name="send_to">Senden an...</string>
     <string name="send_compressed_to">Als ZIP senden an...</string>
@@ -63,4 +64,6 @@
     <string name="storage_information_message">Wenn du ein:e QField 1.x Nutzer:in bist und dich wunderst, wo deine Projekte und Datensätze hin verschwunden sind oder generell neu bei QField bist, dann empfehlen wir dir eine ruhige Minute zu nehmen und die Dokumentation zur Speicher-Handhabung zu lesen. Ein Link zur Dokumentation wird in der Titelleiste des Einstellungsmenüs verfügbar bleiben.</string>
     <string name="storage_information_view">Dokumentation anzeigen</string>
     <string name="storage_information_dismiss">Später lesen</string>
-    </resources>
+    <string name="import_project_wait">Bitte warten, QField importiert das Projekt</string>
+    <string name="import_dataset_wait">Bitte warten, QField importiert die Datensätze</string>
+</resources>

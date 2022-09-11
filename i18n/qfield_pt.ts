@@ -1912,6 +1912,10 @@ Enquanto pode ver e usar o projeto, recomendamos fortemente a limpá-lo para evi
         <source>Refreshing projects list</source>
         <translation>Atualizando a lista de projetos</translation>
     </message>
+    <message>
+        <source>No projects found</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>QFieldLocalDataPickerScreen</name>
