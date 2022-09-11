@@ -1641,7 +1641,7 @@ Chociaż nadal możesz wyświetlać i używać projektu, zdecydowanie zaleca si�
     </message>
     <message>
         <source>No changes pushed yet</source>
-        <translation type="unfinished"/>
+        <translation>Nie wysłano jeszcze żadnych zmian</translation>
     </message>
     <message numerus="yes">
         <source>%n attachment(s) are currently being uploaded in the background.</source>
@@ -1904,6 +1904,10 @@ Chociaż nadal możesz wyświetlać i używać projektu, zdecydowanie zaleca si�
     <message>
         <source>Refreshing projects list</source>
         <translation>Odświeżanie listy projektów</translation>
+    </message>
+    <message>
+        <source>No projects found</source>
+        <translation>Nie znaleziono żadnych projektów</translation>
     </message>
 </context>
 <context>
@@ -2219,7 +2223,7 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
     </message>
     <message>
         <source>Time of inactivity in seconds before the screen brightness get be dimmed to preserve battery.</source>
-        <translation type="unfinished"/>
+        <translation>Czas braku aktywności w sekundach, po którym jasność ekranu zostanie zmniejszona (funkcja oszczędzania baterii).</translation>
     </message>
 </context>
 <context>

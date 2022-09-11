@@ -1900,6 +1900,10 @@ While you can still view and use the project, it is strongly recommended to rese
         <source>Refreshing projects list</source>
         <translation>ახლდება პროექტების სია...</translation>
     </message>
+    <message>
+        <source>No projects found</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>QFieldLocalDataPickerScreen</name>

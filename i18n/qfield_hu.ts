@@ -442,7 +442,7 @@ Cancel to make a minimal device scan instead.</source>
     <name>EditorWidgetBase</name>
     <message>
         <source>Item Menu</source>
-        <translation type="unfinished"/>
+        <translation>Elem menü</translation>
     </message>
 </context>
 <context>
@@ -862,11 +862,11 @@ Az elem geometriákat összevonjuk a &apos;%1&apos; elembe, mely megőrzi az att
     </message>
     <message>
         <source>Show visible features list</source>
-        <translation type="unfinished"/>
+        <translation>Látható elemek listájának megjelenítése</translation>
     </message>
     <message>
         <source>Show Features Menu</source>
-        <translation type="unfinished"/>
+        <translation>Elem menü megjelenítés</translation>
     </message>
 </context>
 <context>
@@ -1905,6 +1905,10 @@ name(string), owner(string), description(string), user_role(string), is_public(b
         <source>Refreshing projects list</source>
         <translation>Projekt lista frissítése</translation>
     </message>
+    <message>
+        <source>No projects found</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>QFieldLocalDataPickerScreen</name>
@@ -2175,7 +2179,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Automatically end collection when minimum number is met</source>
-        <translation type="unfinished"/>
+        <translation>A gyűjtemény automatikus befejezése, ha eléri a minimális számot</translation>
     </message>
     <message>
         <source>When enabled, digitizing vertices with a cursor locked to position will only accepted an averaged position from a minimum number of collected positions. Digitizing using averaged positions is done by pressing and holding the add vertex button, which will collect positions until the press is released. Accuracy requirement settings are respected when enabled.</source>
@@ -2466,15 +2470,15 @@ Cancel to make a minimal device scan instead.</source>
     <name>TextEdit</name>
     <message>
         <source>Copy Text</source>
-        <translation type="unfinished"/>
+        <translation>Szöveg másolás</translation>
     </message>
     <message>
         <source>Paste Text</source>
-        <translation type="unfinished"/>
+        <translation>Szöveg beillesztés</translation>
     </message>
     <message>
         <source>Scan Code</source>
-        <translation type="unfinished"/>
+        <translation>Kód szkennelés</translation>
     </message>
 </context>
 <context>
@@ -2521,7 +2525,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>When both constraints are disabled, vertex additions will occur as frequently as delivered by the positioning device.</source>
-        <translation type="unfinished"/>
+        <translation>Ha mindkét megszorítás le van tiltva, a töréspont hozzáadás olyan gyakran történik, ahogy az eszköz pozíciót küld.</translation>
     </message>
 </context>
 <context>
@@ -2788,7 +2792,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Go to Home Screen</source>
-        <translation type="unfinished"/>
+        <translation>Kezdőképernyőre lépés</translation>
     </message>
     <message>
         <source>Open Project Folder</source>

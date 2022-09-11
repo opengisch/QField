@@ -1915,6 +1915,10 @@ Messaggio dell&apos;errore: %4</translation>
         <source>Refreshing projects list</source>
         <translation>Aggiornamento elenco dei progetti</translation>
     </message>
+    <message>
+        <source>No projects found</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>QFieldLocalDataPickerScreen</name>

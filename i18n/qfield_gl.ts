@@ -442,7 +442,7 @@ Cancela para facer, porén, unha exploración mínima do dispositivo.</translati
     <name>EditorWidgetBase</name>
     <message>
         <source>Item Menu</source>
-        <translation type="unfinished"/>
+        <translation>Menú do Elemento</translation>
     </message>
 </context>
 <context>
@@ -863,11 +863,11 @@ As xeometrías das entidades combinaranse na entidade &apos;%1&apos;, a cal cons
     </message>
     <message>
         <source>Show visible features list</source>
-        <translation type="unfinished"/>
+        <translation>Amosar lista de entidades visibles</translation>
     </message>
     <message>
         <source>Show Features Menu</source>
-        <translation type="unfinished"/>
+        <translation>Amosar o Menú de Entidades</translation>
     </message>
 </context>
 <context>
@@ -1910,6 +1910,10 @@ Aínda que podes seguir vendo e utilizando este proxecto, recoméndase fortement
         <source>Refreshing projects list</source>
         <translation>Recargado a lista de proxectos</translation>
     </message>
+    <message>
+        <source>No projects found</source>
+        <translation>Non se atoparon proxectos</translation>
+    </message>
 </context>
 <context>
     <name>QFieldLocalDataPickerScreen</name>
@@ -2224,7 +2228,7 @@ Cancela para facer, porén, unha exploración mínima do dispositivo.</translati
     </message>
     <message>
         <source>Time of inactivity in seconds before the screen brightness get be dimmed to preserve battery.</source>
-        <translation type="unfinished"/>
+        <translation>Tempo de inactividade en segundos antes de que o brillo da pantalla se atenúe para preservar a batería.</translation>
     </message>
 </context>
 <context>
@@ -2471,15 +2475,15 @@ Cancela para facer, porén, unha exploración mínima do dispositivo.</translati
     <name>TextEdit</name>
     <message>
         <source>Copy Text</source>
-        <translation type="unfinished"/>
+        <translation>Copiar Texto</translation>
     </message>
     <message>
         <source>Paste Text</source>
-        <translation type="unfinished"/>
+        <translation>Pegar Texto</translation>
     </message>
     <message>
         <source>Scan Code</source>
-        <translation type="unfinished"/>
+        <translation>Escanear Código</translation>
     </message>
 </context>
 <context>
@@ -2526,7 +2530,7 @@ Cancela para facer, porén, unha exploración mínima do dispositivo.</translati
     </message>
     <message>
         <source>When both constraints are disabled, vertex additions will occur as frequently as delivered by the positioning device.</source>
-        <translation type="unfinished"/>
+        <translation>Cando ámbalas restricións se desactivan, a adición de vértices ocorrerá tan frecuentemente como se envíen dende o dispositivo de posicionamento.</translation>
     </message>
 </context>
 <context>

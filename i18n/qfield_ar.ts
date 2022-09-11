@@ -106,11 +106,11 @@
     <name>BarcodeReader</name>
     <message>
         <source>Code Reader</source>
-        <translation type="unfinished"/>
+        <translation>قارئ الشيفرة</translation>
     </message>
     <message>
         <source>Center your camera on a code</source>
-        <translation type="unfinished"/>
+        <translation>ركز الكاميرة على منتصف الشيفرة</translation>
     </message>
 </context>
 <context>
@@ -159,7 +159,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Connect to %1</source>
-        <translation type="unfinished"/>
+        <translation>جار الاتصال بـ %1</translation>
     </message>
     <message>
         <source>Connect  to %1</source>
@@ -442,7 +442,7 @@ Cancel to make a minimal device scan instead.</source>
     <name>EditorWidgetBase</name>
     <message>
         <source>Item Menu</source>
-        <translation type="unfinished"/>
+        <translation>عناصر القائمة</translation>
     </message>
 </context>
 <context>
@@ -807,7 +807,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Opacity</source>
-        <translation type="unfinished"/>
+        <translation>الشفافية</translation>
     </message>
     <message>
         <source>Zoom to group</source>
@@ -859,11 +859,11 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Show visible features list</source>
-        <translation type="unfinished"/>
+        <translation>إظهار قائمة الميزات المرئية</translation>
     </message>
     <message>
         <source>Show Features Menu</source>
-        <translation type="unfinished"/>
+        <translation>إظهار قائمة الميزات</translation>
     </message>
 </context>
 <context>
@@ -1112,7 +1112,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>centroid</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">النقطة الوسطى</translation>
     </message>
     <message>
         <source>Lon</source>
@@ -1354,7 +1354,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Positioning accuracy too low for this precision level</source>
-        <translation type="unfinished"/>
+        <translation>دقة تحصيل الموقع منخفضة للغاية بالنسلة لمستوى الدقة هذا</translation>
     </message>
 </context>
 <context>
@@ -1906,6 +1906,10 @@ While you can still view and use the project, it is strongly recommended to rese
         <source>Refreshing projects list</source>
         <translation>جار تحديث قائمة المشاريع</translation>
     </message>
+    <message>
+        <source>No projects found</source>
+        <translation>لم يتم العثور على المشاريع</translation>
+    </message>
 </context>
 <context>
     <name>QFieldLocalDataPickerScreen</name>
@@ -2311,7 +2315,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>centroid</source>
-        <translation type="unfinished"/>
+        <translation>النقطة الوسطى</translation>
     </message>
 </context>
 <context>
@@ -2467,15 +2471,15 @@ Cancel to make a minimal device scan instead.</source>
     <name>TextEdit</name>
     <message>
         <source>Copy Text</source>
-        <translation type="unfinished"/>
+        <translation>نسخ النص</translation>
     </message>
     <message>
         <source>Paste Text</source>
-        <translation type="unfinished"/>
+        <translation>لصق النص</translation>
     </message>
     <message>
         <source>Scan Code</source>
-        <translation type="unfinished"/>
+        <translation>مسح الشيفرة</translation>
     </message>
 </context>
 <context>
@@ -2865,35 +2869,35 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Precise View Settings</source>
-        <translation type="unfinished"/>
+        <translation>إعدادات المظهر الدقيق</translation>
     </message>
     <message>
         <source>0.25m Precision</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">الدقة 0.25 م</translation>
     </message>
     <message>
         <source>0.5m Precision</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">الدقة 0.5 م</translation>
     </message>
     <message>
         <source>1m Precision</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">الدقة 1 م</translation>
     </message>
     <message>
         <source>2.5m Precision</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">الدقة 2.5 م</translation>
     </message>
     <message>
         <source>5m Precision</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">الدقة 5 م</translation>
     </message>
     <message>
         <source>10m Precision</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">الدقة 10 م</translation>
     </message>
     <message>
         <source>Always Show Precise View</source>
-        <translation type="unfinished"/>
+        <translation>إظهار المظهر الدقيق دائماً</translation>
     </message>
     <message>
         <source>Center to Location</source>
@@ -2929,11 +2933,11 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>%1 Precision</source>
-        <translation type="unfinished"/>
+        <translation>الدقة %1</translation>
     </message>
     <message>
         <source>Enable Audio Proximity Feedback</source>
-        <translation type="unfinished"/>
+        <translation>نفعيل التصحيح الصوتي التقريبي</translation>
     </message>
     <message>
         <source>Positioning Options</source>
