@@ -37,10 +37,22 @@
     <string name="import_project_folder">プロジェクトをフォルダからインポート</string>
     <string name="import_project_archive">プロジェクトをZIPファイルからインポート</string>
     <string name="import_dataset">データセットをインポート</string>
+    <string name="usb_cable_help">ストレージ管理に関するヘルプ</string>
     <string name="import_error">インポートエラー</string>
     <string name="import_dataset_error">択したデータセットが正しくインポートされませんでした。</string>
+    <string name="import_project_archive_error">選択したプロジェクトのアーカイブが正しくインポートされませんでした。</string>
+    <string name="import_project_folder_error">選択したプロジェクトのフォルダが正しくインポートされませんでした。</string>
+    <string name="import_overwrite_title">インポートに関する警告</string>
+    <string name="import_overwrite_folder">このプロジェクトフォルダーはすでに存在しています。インポートを続行するとデータは上書きされます。よろしいですか？</string>
+    <string name="import_overwrite_dataset_single">このデータセットはすでに存在しています。インポートを続行するとデータは上書きされます。よろしいですか？</string>
+    <string name="import_overwrite_dataset_multiple">１つ以上のデータセットがすでに存在しています。インポートを続行するとデータは上書きされます。よろしいですか？</string>
+    <string name="import_overwrite_confirm">インポートと上書き</string>
     <string name="import_overwrite_cancel">キャンセル</string>
+    <string name="export_error">出力エラー</string>
+    <string name="export_to_folder_error">選択したプロジェクトフォルダが正しく出力されませんでした。</string>
     <string name="send_to">送信...</string>
+    <string name="send_compressed_to">圧縮フォルダの送信先...</string>
+    <string name="export_to_folder">フォルダの出力先...</string>
     <string name="add_to_favorite">お気に入りに追加</string>
     <string name="remove_from_favorite">お気に入りから削除</string>
     <string name="remove_dataset">データセットを削除</string>
@@ -50,4 +62,10 @@
     <string name="delete_confirm_folder">プロジェクトフォルダは完全に削除されます、削除しますか？</string>
     <string name="delete_confirm">削除</string>
     <string name="delete_cancel">キャンセル</string>
-    </resources>
+    <string name="storage_information_title">ストレージの情報</string>
+    <string name="storage_information_message">QField 1.xの既存のユーザーで、プロジェクトやデータセットが消えてしまったことに疑問を感じている方も、QFieldを初めて使う方も、ストレージ操作のドキュメントを少し読んでみることをお勧めします。このドキュメントへのショートカットは、タイトルバーのアクションメニューからアクセスできるようになっています。</string>
+    <string name="storage_information_view">ドキュメントを見る</string>
+    <string name="storage_information_dismiss">あとで見る</string>
+    <string name="import_project_wait">QFieldがプロジェクトをインポートしている間、しばらくお待ちください。</string>
+    <string name="import_dataset_wait">QFieldがデータセットをインポートしている間、しばらくお待ちください。</string>
+</resources>

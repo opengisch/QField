@@ -106,11 +106,11 @@
     <name>BarcodeReader</name>
     <message>
         <source>Code Reader</source>
-        <translation type="unfinished"/>
+        <translation>コードリーダー</translation>
     </message>
     <message>
         <source>Center your camera on a code</source>
-        <translation type="unfinished"/>
+        <translation>カメラの中心をコードに合わせてください</translation>
     </message>
 </context>
 <context>
@@ -133,7 +133,7 @@
     </message>
     <message numerus="yes">
         <source>%n device(s) found</source>
-        <translation type="unfinished"><numerusform></numerusform></translation>
+        <translation><numerusform>%n個のデバイスが見つかりました。</numerusform></translation>
     </message>
     <message>
         <source>Scanning canceled</source>
@@ -159,7 +159,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Connect to %1</source>
-        <translation type="unfinished"/>
+        <translation>%1に接続する</translation>
     </message>
     <message>
         <source>Connect  to %1</source>
@@ -223,7 +223,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Copy bookmark details</source>
-        <translation type="unfinished"/>
+        <translation>ブックマークの詳細をコピーする</translation>
     </message>
     <message>
         <source>Lon</source>
@@ -243,7 +243,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Bookmark details copied to clipboard</source>
-        <translation type="unfinished"/>
+        <translation>ブックマークの詳細をクリップボードにコピーしました</translation>
     </message>
     <message>
         <source>Remove bookmark</source>
@@ -431,7 +431,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>The collected positions count does not meet the requirement</source>
-        <translation type="unfinished"/>
+        <translation>集められた位置の数が条件を満たしていません</translation>
     </message>
     <message>
         <source>Should the digitized geometry be discarded?</source>
@@ -442,7 +442,7 @@ Cancel to make a minimal device scan instead.</source>
     <name>EditorWidgetBase</name>
     <message>
         <source>Item Menu</source>
-        <translation type="unfinished"/>
+        <translation>アイテムメニュー</translation>
     </message>
 </context>
 <context>
@@ -652,7 +652,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Set feature as destination</source>
-        <translation type="unfinished"/>
+        <translation>地物を目的地として設定する</translation>
     </message>
     <message>
         <source>Set feature as navigation</source>
@@ -744,11 +744,11 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Go to %1%2 %3%4 (Map CRS, %5)</source>
-        <translation type="unfinished"/>
+        <translation>%1%2 %3%4 (地図CRS, %5)に行く</translation>
     </message>
     <message>
         <source>Go to %1°N %2°E (%3)</source>
-        <translation type="unfinished"/>
+        <translation>%1°N %2°E (%3)に行く</translation>
     </message>
 </context>
 <context>
@@ -809,15 +809,15 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Opacity</source>
-        <translation type="unfinished"/>
+        <translation>透明度</translation>
     </message>
     <message>
         <source>Zoom to group</source>
-        <translation type="unfinished"/>
+        <translation>グループにズーム</translation>
     </message>
     <message>
         <source>Zoom to parent layer</source>
-        <translation type="unfinished"/>
+        <translation>親レイヤにズーム</translation>
     </message>
     <message>
         <source>Zoom to layer</source>
@@ -861,11 +861,11 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Show visible features list</source>
-        <translation type="unfinished"/>
+        <translation>表示される地物を一覧表示</translation>
     </message>
     <message>
         <source>Show Features Menu</source>
-        <translation type="unfinished"/>
+        <translation>地物のメニューを表示</translation>
     </message>
 </context>
 <context>
@@ -1114,7 +1114,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>centroid</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">重心</translation>
     </message>
     <message>
         <source>Lon</source>
@@ -1356,7 +1356,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Positioning accuracy too low for this precision level</source>
-        <translation type="unfinished"/>
+        <translation>この精度レベルでは位置精度が低すぎます。</translation>
     </message>
 </context>
 <context>
@@ -1596,7 +1596,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Revert all modified features in the local layers. You cannot restore those changes.</source>
-        <translation type="unfinished"/>
+        <translation>ローカルレイヤで変更されたすべての地物を元に戻します。破棄すると元に戻すことはできません。</translation>
     </message>
     <message>
         <source>Revert all modified features in the local cloud layers. You cannot restore those changes.</source>
@@ -1910,46 +1910,46 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>No projects found</source>
-        <translation type="unfinished"/>
+        <translation>プロジェクトがありません</translation>
     </message>
 </context>
 <context>
     <name>QFieldLocalDataPickerScreen</name>
     <message>
         <source>Project Folder</source>
-        <translation type="unfinished"/>
+        <translation>プロジェクトフォルダ</translation>
     </message>
     <message>
         <source>Local Projects &amp; Datasets</source>
-        <translation type="unfinished"/>
+        <translation>ローカルプロジェクト&amp;データセット</translation>
     </message>
     <message>
         <source>Folders</source>
-        <translation type="unfinished"/>
+        <translation>フォルダ</translation>
     </message>
     <message>
         <source>Projects</source>
-        <translation type="unfinished"/>
+        <translation>プロジェクト</translation>
     </message>
     <message>
         <source>Datasets</source>
-        <translation type="unfinished"/>
+        <translation>データセット</translation>
     </message>
     <message>
         <source>Favorites</source>
-        <translation type="unfinished"/>
+        <translation>お気に入り</translation>
     </message>
     <message>
         <source>Project file</source>
-        <translation type="unfinished"/>
+        <translation>プロジェクトファイル</translation>
     </message>
     <message>
         <source>Vector dataset</source>
-        <translation type="unfinished"/>
+        <translation>ベクターデータセット</translation>
     </message>
     <message>
         <source>Raster dataset</source>
-        <translation type="unfinished"/>
+        <translation>ラスターデータセット</translation>
     </message>
     <message>
         <source>Send to...</source>
@@ -1957,35 +1957,35 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Export to folder...</source>
-        <translation type="unfinished"/>
+        <translation>フォルダの出力先...</translation>
     </message>
     <message>
         <source>Remove dataset</source>
-        <translation type="unfinished"/>
+        <translation>データセットを削除</translation>
     </message>
     <message>
         <source>Send compressed folder to...</source>
-        <translation type="unfinished"/>
+        <translation>圧縮フォルダの送信先...</translation>
     </message>
     <message>
         <source>Remove project folder</source>
-        <translation type="unfinished"/>
+        <translation>プロジェクトフォルダを削除</translation>
     </message>
     <message>
         <source>Import project from folder</source>
-        <translation type="unfinished"/>
+        <translation>プロジェクトをフォルダからインポート</translation>
     </message>
     <message>
         <source>Import project from ZIP</source>
-        <translation type="unfinished"/>
+        <translation>プロジェクトをZIPファイルからインポート</translation>
     </message>
     <message>
         <source>Import dataset(s)</source>
-        <translation type="unfinished"/>
+        <translation>データセットをインポート</translation>
     </message>
     <message>
         <source>Storage management help</source>
-        <translation type="unfinished"/>
+        <translation>ストレージ管理に関するヘルプ</translation>
     </message>
 </context>
 <context>
@@ -2016,11 +2016,11 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Show bookmarks</source>
-        <translation type="unfinished"/>
+        <translation>ブックマークを表示</translation>
     </message>
     <message>
         <source>When switched on, user&apos;s saved and currently opened project bookmarks will be displayed on the map.</source>
-        <translation type="unfinished"/>
+        <translation>オンにすると、ユーザーが保存したプロジェクトや現在開いているプロジェクトのブックマークが地図上に表示されます。</translation>
     </message>
     <message>
         <source>Use native camera</source>
@@ -2174,19 +2174,19 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Enable averaged positioning requirement</source>
-        <translation type="unfinished"/>
+        <translation>平均化された位置精度を有効にする</translation>
     </message>
     <message>
         <source>Minimum number of positions collected</source>
-        <translation type="unfinished"/>
+        <translation>集められる衛星座標位置の最低数</translation>
     </message>
     <message>
         <source>Automatically end collection when minimum number is met</source>
-        <translation type="unfinished"/>
+        <translation>最低数を超えたら自動的に位置情報の収集を終了します</translation>
     </message>
     <message>
         <source>When enabled, digitizing vertices with a cursor locked to position will only accepted an averaged position from a minimum number of collected positions. Digitizing using averaged positions is done by pressing and holding the add vertex button, which will collect positions until the press is released. Accuracy requirement settings are respected when enabled.</source>
-        <translation type="unfinished"/>
+        <translation>有効にすると、カーソルが位置にロックされた状態で頂点をデジタイズする場合、収集する最低数から平均化された座標のみを受け取ります。平均化された座標を使ったデジタイジングは、頂点追加ボタンを押し続けることで行われ、ボタンを離すまで座標位置が集められます。精度条件が有効な場合は、その設定が使用されます。</translation>
     </message>
     <message>
         <source>Antenna height compensation</source>
@@ -2226,7 +2226,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Time of inactivity in seconds before the screen brightness get be dimmed to preserve battery.</source>
-        <translation type="unfinished"/>
+        <translation>バッテリーを維持するために画面の明るさを暗くするまでの非アクティブ時間（秒）</translation>
     </message>
 </context>
 <context>
@@ -2309,15 +2309,15 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Please wait while QField installation finalizes.</source>
-        <translation type="unfinished"/>
+        <translation>QFieldが最終化している間、しばらくお待ちください。</translation>
     </message>
     <message>
         <source>averaged</source>
-        <translation type="unfinished"/>
+        <translation>平均化</translation>
     </message>
     <message>
         <source>centroid</source>
-        <translation type="unfinished"/>
+        <translation>重心</translation>
     </message>
 </context>
 <context>
@@ -2473,15 +2473,15 @@ Cancel to make a minimal device scan instead.</source>
     <name>TextEdit</name>
     <message>
         <source>Copy Text</source>
-        <translation type="unfinished"/>
+        <translation>テキストをコピー</translation>
     </message>
     <message>
         <source>Paste Text</source>
-        <translation type="unfinished"/>
+        <translation>テキストをペースト</translation>
     </message>
     <message>
         <source>Scan Code</source>
-        <translation type="unfinished"/>
+        <translation>コードをスキャン</translation>
     </message>
 </context>
 <context>
@@ -2528,7 +2528,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>When both constraints are disabled, vertex additions will occur as frequently as delivered by the positioning device.</source>
-        <translation type="unfinished"/>
+        <translation>両方の制約を無効にした場合、頂点の追加は衛星受信機から配信される頻度と同じに行われます。</translation>
     </message>
 </context>
 <context>
@@ -2581,15 +2581,15 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>To improve stability for everyone, QField collects and sends anonymized metrics.</source>
-        <translation type="unfinished"/>
+        <translation>利用者の安定性を高めるため、QFieldでは匿名化されたメトリクスを収集し、送信しています。</translation>
     </message>
     <message>
         <source>I agree</source>
-        <translation type="unfinished"/>
+        <translation>同意する</translation>
     </message>
     <message>
         <source>I prefer not</source>
-        <translation type="unfinished"/>
+        <translation>同意しません</translation>
     </message>
     <message>
         <source>QFieldCloud projects</source>
@@ -2695,7 +2695,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Perimeter</source>
-        <translation type="unfinished"/>
+        <translation>周囲長</translation>
     </message>
     <message>
         <source>Length</source>
@@ -2795,11 +2795,11 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Go to Home Screen</source>
-        <translation type="unfinished"/>
+        <translation>ホームスクリーンに行く</translation>
     </message>
     <message>
         <source>Open Project Folder</source>
-        <translation type="unfinished"/>
+        <translation>プロジェクトフォルダを開く</translation>
     </message>
     <message>
         <source>Open Project</source>
@@ -2835,11 +2835,11 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Add Bookmark</source>
-        <translation type="unfinished"/>
+        <translation>ブックマークを追加</translation>
     </message>
     <message>
         <source>Set as Destination</source>
-        <translation type="unfinished"/>
+        <translation>目的地として設定</translation>
     </message>
     <message>
         <source>Add Bookmark at Coordinates</source>
@@ -2871,55 +2871,55 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Precise View Settings</source>
-        <translation type="unfinished"/>
+        <translation>ビュー精度の設定</translation>
     </message>
     <message>
         <source>0.25m Precision</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">0.25m精度</translation>
     </message>
     <message>
         <source>0.5m Precision</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">0.5m精度</translation>
     </message>
     <message>
         <source>1m Precision</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">1m精度</translation>
     </message>
     <message>
         <source>2.5m Precision</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">2.5m精度</translation>
     </message>
     <message>
         <source>5m Precision</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">5m精度</translation>
     </message>
     <message>
         <source>10m Precision</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">10m精度</translation>
     </message>
     <message>
         <source>Always Show Precise View</source>
-        <translation type="unfinished"/>
+        <translation>いつもビュー精度を表示する</translation>
     </message>
     <message>
         <source>Center to Location</source>
-        <translation type="unfinished"/>
+        <translation>現在位置を中央に表示</translation>
     </message>
     <message>
         <source>Add Bookmark at Location</source>
-        <translation type="unfinished"/>
+        <translation>現在位置でブックマークを追加</translation>
     </message>
     <message>
         <source>Copy Location Coordinates</source>
-        <translation type="unfinished"/>
+        <translation>位置座標をコピー</translation>
     </message>
     <message>
         <source>Signed out</source>
-        <translation type="unfinished"/>
+        <translation>サインアウト</translation>
     </message>
     <message>
         <source>Signed in</source>
-        <translation type="unfinished"/>
+        <translation>サインイン</translation>
     </message>
     <message>
         <source>Set As Destination</source>
@@ -2935,11 +2935,11 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>%1 Precision</source>
-        <translation type="unfinished"/>
+        <translation>%1精度</translation>
     </message>
     <message>
         <source>Enable Audio Proximity Feedback</source>
-        <translation type="unfinished"/>
+        <translation>音声近接フィードバックを有効にする</translation>
     </message>
     <message>
         <source>Positioning Options</source>
