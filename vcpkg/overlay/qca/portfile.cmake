@@ -52,11 +52,7 @@ else()
     list(APPEND QCA_OPTIONS -DWITH_botan_PLUGIN=no)
 endif()
 list(APPEND QCA_OPTIONS -DWITH_gnupg_PLUGIN=no)
-if(VCPKG_TARGET_IS_IOS)
-  list(APPEND QCA_OPTIONS -DWITH_ossl_PLUGIN=no)
-else()
-  list(APPEND QCA_OPTIONS -DWITH_ossl_PLUGIN=yes)
-endif()
+list(APPEND QCA_OPTIONS -DWITH_ossl_PLUGIN=yes)
 
 # Configure and build
 vcpkg_cmake_configure(
