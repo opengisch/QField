@@ -528,7 +528,7 @@ QVariantMap AndroidPlatformUtilities::sceneMargins( QQuickWindow *window ) const
   Q_UNUSED( window )
 
   const QAndroidJniObject activity = QtAndroid::androidActivity();
-  double statusBarMargin = static_cast<double>( activity.callMethod<jdouble>( "statusBarMargin" ) );
+  double statusBarMargin = std::abs( static_cast<double>( activity.callMethod<jdouble>( "statusBarMargin" ) ) );
 
   statusBarMargin /= QGuiApplication::primaryScreen()->devicePixelRatio();
 
