@@ -112,12 +112,11 @@ if(TRUE) # Should possibly have a "static only" check
     # libspatialite needs log (needed when building with docker)
     target_link_libraries(QGIS::Core INTERFACE log)
   endif()
-
-  if(NOT CMAKE_SYSTEM_NAME STREQUAL "iOS")
-    find_library(Qca-ossl_LIBRARIES NAMES qca-ossl PATH_SUFFIXES Qca/crypto)
-    target_link_libraries(QGIS::Core INTERFACE ${Qca-ossl_LIBRARIES})
-  endif()
   # End Terrible hack
+
+  find_library(Qca-ossl_LIBRARIES NAMES qca-ossl PATH_SUFFIXES Qca/crypto)
+  target_link_libraries(QGIS::Core INTERFACE ${Qca-ossl_LIBRARIES})
+
   _qgis_core_add_dependency(GDAL::GDAL GDAL)
 
 
