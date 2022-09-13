@@ -62,6 +62,7 @@ import android.os.Handler;
 import android.os.Looper;
 import android.provider.Settings;
 import android.text.Html;
+import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.DisplayCutout;
 import android.view.View;
@@ -103,7 +104,7 @@ public class QFieldActivity extends QtActivity {
 
     private float originalBrightness;
     private String pathToExport;
-    private boolean drawStatusBarBackground = false;
+    private double sceneTopMargin = 0;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -111,6 +112,18 @@ public class QFieldActivity extends QtActivity {
         super.onCreate(savedInstanceState);
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            int resourceId = getResources().getIdentifier("status_bar_height",
+                                                          "dimen", "android");
+            if (resourceId > 0) {
+                sceneTopMargin = getResources().getDimension(resourceId);
+            }
+
+            if (sceneTopMargin <= 0) {
+                sceneTopMargin = Math.ceil(
+                    (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M ? 24 : 25) *
+                    getResources().getDisplayMetrics().density);
+            }
+
             Window window = getWindow();
             window.addFlags(
                 WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
@@ -120,7 +133,6 @@ public class QFieldActivity extends QtActivity {
             View decor = window.getDecorView();
             decor.setSystemUiVisibility(decor.getSystemUiVisibility() |
                                         View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
-            drawStatusBarBackground = true;
         }
     }
 
@@ -247,21 +259,27 @@ public class QFieldActivity extends QtActivity {
     }
 
     private double statusBarMargin() {
-        double margin = 0;
-        if (drawStatusBarBackground) {
+        double margin = sceneTopMargin;
+        if (margin > 0) {
             int resourceId = getResources().getIdentifier("status_bar_height",
                                                           "dimen", "android");
             if (resourceId > 0) {
-                margin = getResources().getDimension(resourceId);
+                double dimension = getResources().getDimension(resourceId);
+                if (dimension > 0) {
+                    margin = dimension;
+                }
             }
-            DisplayCutout cutout = getWindow()
-                                       .getDecorView()
-                                       .getRootWindowInsets()
-                                       .getDisplayCutout();
-            if (cutout != null) {
-                int cutoutHeight = cutout.getSafeInsetTop();
-                if (cutoutHeight > margin) {
-                    margin = cutoutHeight;
+
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
+                DisplayCutout cutout = getWindow()
+                                           .getDecorView()
+                                           .getRootWindowInsets()
+                                           .getDisplayCutout();
+                if (cutout != null) {
+                    int cutoutHeight = cutout.getSafeInsetTop();
+                    if (cutoutHeight > margin) {
+                        margin = cutoutHeight;
+                    }
                 }
             }
         }
