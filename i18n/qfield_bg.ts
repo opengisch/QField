@@ -867,7 +867,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Show Features Menu</source>
-        <translation type="unfinished"/>
+        <translation>Покажи меню с обектите</translation>
     </message>
 </context>
 <context>
@@ -1914,7 +1914,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>No projects found</source>
-        <translation type="unfinished"/>
+        <translation>Няма намерени проекти</translation>
     </message>
 </context>
 <context>
@@ -2230,7 +2230,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Time of inactivity in seconds before the screen brightness get be dimmed to preserve battery.</source>
-        <translation type="unfinished"/>
+        <translation>Продължителност на неактивност в секунди преди екранът да стане по-тъмен с цел запазване на батерията.</translation>
     </message>
 </context>
 <context>
@@ -2532,7 +2532,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>When both constraints are disabled, vertex additions will occur as frequently as delivered by the positioning device.</source>
-        <translation type="unfinished"/>
+        <translation>Когато и двете ограничения са изключени, добавянето на вертекси ще  се случва всеки път, когато се получат от позиционираото устройство.</translation>
     </message>
 </context>
 <context>
