@@ -107,7 +107,10 @@ if(TRUE) # Should possibly have a "static only" check
   if(ANDROID)
     find_library(libdl dl)
     get_filename_component(arch_path ${libdl} DIRECTORY)
-    set(pkgcfg_lib_PC_SPATIALITE_c++ "${arch_path}/libc++.so")
+    set(pkgcfg_lib_PC_SPATIALITE_c++ "${arch_path}/${ANDROID_PLATFORM_LEVEL}/libc++.so")
+    if(NOT EXISTS ${pkgcfg_lib_PC_SPATIALITE_c++})
+      set(pkgcfg_lib_PC_SPATIALITE_c++ "${arch_path}/libc++.so")
+    endif()
 
     # libspatialite needs log (needed when building with docker)
     target_link_libraries(QGIS::Core INTERFACE log)
