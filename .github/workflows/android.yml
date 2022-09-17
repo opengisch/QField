@@ -36,9 +36,10 @@ jobs:
         id: vars
         shell: bash
         run: |
-          echo "ANDROID_NDK_VERSION=${ANDROID_NDK_HOME##*/}" >> $GITHUB_ENV
+          echo "ANDROID_NDK_VERSION=22.1.7171670" >> $GITHUB_ENV
           echo "ANDROID_BUILD_TOOLS_VERSION=29.0.2" >> $GITHUB_ENV
-          echo "ndk.dir=$ANDROID_NDK_HOME" >> platform/android/local.properties
+          echo "ANDROID_NDK_HOME=/usr/local/lib/android/sdk/ndk/22.1.7171670" >> $GITHUB_ENV
+          echo "ndk.dir=$ANDROID_NDK_HOME" >> local.properties
           ALL_FILES_ACCESS=${{ matrix.all_files_access }} ./scripts/ci/env_gh.sh
 
           BUILD_ROOT="/home/runner"
@@ -79,6 +80,13 @@ jobs:
           mkdir /tmp/sentry-android-ndk
           wget https://repo1.maven.org/maven2/io/sentry/sentry-android-ndk/5.5.2/sentry-android-ndk-5.5.2.aar -O /tmp/sentry.zip
           unzip /tmp/sentry.zip -d /tmp/sentry-android-ndk
+
+      - name: 🌱 Update ndk
+        run: |
+          echo "ndk.dir=$ANDROID_NDK_HOME" >> local.properties
+          echo "yes" | sudo /usr/local/lib/android/sdk/tools/bin/sdkmanager --uninstall "ndk-bundle"
+          echo "yes" | sudo /usr/local/lib/android/sdk/tools/bin/sdkmanager "platforms;android-30" "build-tools;$ANDROID_BUILD_TOOLS_VERSION" "ndk;$ANDROID_NDK_VERSION" tools platform-tools
+          echo "yes" | sudo /usr/local/lib/android/sdk/tools/bin/sdkmanager --licenses
 
       - name: 🌱 Install dependencies and generate project files
         env:
@@ -146,8 +154,8 @@ jobs:
           STOREPASS: ${{ secrets.STOREPASS }}
         run: |
           # Qt 5.x androiddeployqt is not compatible with r25, a bit of cheating
-          rm ${ANDROID_NDK_HOME}/toolchains/llvm/prebuilt/linux-x86_64/bin/llvm-readobj
-          ln -s /usr/local/lib/android/sdk/ndk/23.2.8568313/toolchains/llvm/prebuilt/linux-x86_64/bin/llvm-readobj ${ANDROID_NDK_HOME}/toolchains/llvm/prebuilt/linux-x86_64/bin/llvm-readobj
+          # rm ${ANDROID_NDK_HOME}/toolchains/llvm/prebuilt/linux-x86_64/bin/llvm-readobj
+          # ln -s /usr/local/lib/android/sdk/ndk/23.2.8568313/toolchains/llvm/prebuilt/linux-x86_64/bin/llvm-readobj ${ANDROID_NDK_HOME}/toolchains/llvm/prebuilt/linux-x86_64/bin/llvm-readobj
           cmake --build  "${{ env.CMAKE_BUILD_DIR }}" --target bundle --config Release
 
       - name: 📦 Upload artifacts
