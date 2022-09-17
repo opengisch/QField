@@ -36,9 +36,10 @@ jobs:
         id: vars
         shell: bash
         run: |
-          echo "ANDROID_NDK_VERSION=25.1.8937393" >> $GITHUB_ENV
+          ANDROID_NDK_VERSION=25.1.8937393
+          echo "ANDROID_NDK_VERSION=${ANDROID_NDK_VERSION}" >> $GITHUB_ENV
           echo "ANDROID_BUILD_TOOLS_VERSION=29.0.2" >> $GITHUB_ENV
-          echo "ANDROID_NDK_HOME=/usr/local/lib/android/sdk/ndk/25.1.8937393" >> $GITHUB_ENV
+          echo "ANDROID_NDK_HOME=/usr/local/lib/android/sdk/ndk/${ANDROID_NDK_VERSION}" >> $GITHUB_ENV
           echo "ndk.dir=$ANDROID_NDK_HOME" >> local.properties
           ALL_FILES_ACCESS=${{ matrix.all_files_access }} ./scripts/ci/env_gh.sh
 
