@@ -1,5 +1,5 @@
 FROM ubuntu:22.04
-ARG NDK_VERSION=22.1.7171670
+ARG NDK_VERSION=25.1.8937393
 
 ENV ANDROID_SDK_HOME /opt/android-sdk-linux
 ENV ANDROID_SDK_ROOT /opt/android-sdk-linux
