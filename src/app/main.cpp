@@ -116,7 +116,7 @@ int main( int argc, char **argv )
 
 #ifdef RELATIVE_PREFIX_PATH
   qputenv( "GDAL_DATA", QDir::toNativeSeparators( PlatformUtilities::instance()->systemSharedDataLocation() + "/gdal" ).toLocal8Bit() );
-  const QString projPath( QDir::toNativeSeparators( PlatformUtilities::instance()->systemSharedDataLocation() + "/proj/data" ) );
+  const QString projPath( QDir::toNativeSeparators( PlatformUtilities::instance()->systemSharedDataLocation() + "/proj" ) );
 #else
   app.setPrefixPath( QGIS_PREFIX_PATH, true );
   const QString projPath;

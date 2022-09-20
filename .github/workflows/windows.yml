@@ -107,7 +107,7 @@ jobs:
       - name: 🧫 Test
         shell: bash
         env:
-          PROJ_LIB: ${{ env.CMAKE_BUILD_DIR }}/vcpkg_installed/x64-windows-static/share/proj/data
+          PROJ_LIB: ${{ env.CMAKE_BUILD_DIR }}/vcpkg_installed/x64-windows-static/share/proj
         run: |
           SOURCE_DIR=$( cygpath "${{ github.workspace }}" )
           pip install -r "${SOURCE_DIR}/test/spix/requirements.txt"
