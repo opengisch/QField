@@ -147,6 +147,3 @@ jobs:
           export INSTALL_DIR=$(pwd)
           curl -sL https://sentry.io/get-cli/ | bash
           ./sentry-cli upload-dif -o opengisch -p qfield ${{ env.CMAKE_BUILD_DIR }}
-
-#      - uses: m-kuhn/action-tmate@patch-1
-#        if: failure()
