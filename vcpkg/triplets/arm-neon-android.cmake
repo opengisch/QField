@@ -5,5 +5,5 @@ set(VCPKG_CMAKE_SYSTEM_NAME Android)
 set(VCPKG_BUILD_TYPE release)
 set(VCPKG_MAKE_BUILD_TRIPLET "--host=armv7a-linux-androideabi")
 
-set(VCPKG_CXX_FLAGS "-fstack-protector-strong")
-set(VCPKG_C_FLAGS "-fstack-protector-strong")
+set(VCPKG_CXX_FLAGS "-fstack-protector-strong -lunwind -Wl,--exclude-libs=libunwind.a")
+set(VCPKG_C_FLAGS "-fstack-protector-strong -lunwind -Wl,--exclude-libs=libunwind.a")
