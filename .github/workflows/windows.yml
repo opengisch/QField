@@ -102,17 +102,17 @@ jobs:
 
       - name: 🌋 Build
         run: |
-          cmake --build "${{ env.CMAKE_BUILD_DIR }}" --config ${{ env.BUILD_TYPE }}
+          cmake --build "${{ env.CMAKE_BUILD_DIR }}" --config ${{ env.BUILD_TYPE }} --target qfield
 
-      - name: 🧫 Test
-        shell: bash
-        env:
-          PROJ_LIB: ${{ env.CMAKE_BUILD_DIR }}/vcpkg_installed/x64-windows-static/share/proj
-        run: |
-          SOURCE_DIR=$( cygpath "${{ github.workspace }}" )
-          pip install -r "${SOURCE_DIR}/test/spix/requirements.txt"
-          cd "${{ env.CMAKE_BUILD_DIR }}"
-          ctest --output-on-failure -C ${{ env.BUILD_TYPE }} -E "smoke_test"
+#      - name: 🧫 Test
+#        shell: bash
+#        env:
+#          PROJ_LIB: ${{ env.CMAKE_BUILD_DIR }}/vcpkg_installed/x64-windows-static/share/proj
+#        run: |
+#          SOURCE_DIR=$( cygpath "${{ github.workspace }}" )
+#          pip install -r "${SOURCE_DIR}/test/spix/requirements.txt"
+#          cd "${{ env.CMAKE_BUILD_DIR }}"
+#          ctest --output-on-failure -C ${{ env.BUILD_TYPE }} -E "smoke_test"
 
       - name: Package
         shell: bash
