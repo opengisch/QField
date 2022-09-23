@@ -133,7 +133,7 @@
     </message>
     <message numerus="yes">
         <source>%n device(s) found</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>%n dispositivo encontrado</numerusform><numerusform>%n dispositivo(s) encontrado(s)</numerusform><numerusform>%n dispositivo(s) encontrado(s)</numerusform></translation>
     </message>
     <message>
         <source>Scanning canceled</source>
@@ -865,11 +865,11 @@ As geometrias dos recursos serão combinadas no recurso &apos;% &apos;, que mant
     </message>
     <message>
         <source>Show visible features list</source>
-        <translation type="unfinished"/>
+        <translation>Mostrar lista de elementos visíveis</translation>
     </message>
     <message>
         <source>Show Features Menu</source>
-        <translation type="unfinished"/>
+        <translation>Mostrar Menu de Elementos</translation>
     </message>
 </context>
 <context>
@@ -1118,7 +1118,7 @@ As geometrias dos recursos serão combinadas no recurso &apos;% &apos;, que mant
     </message>
     <message>
         <source>centroid</source>
-        <translation type="vanished">centroide</translation>
+        <translation type="vanished">centróide</translation>
     </message>
     <message>
         <source>Lon</source>
@@ -1301,7 +1301,7 @@ As geometrias dos recursos serão combinadas no recurso &apos;% &apos;, que mant
     </message>
     <message>
         <source>N/A</source>
-        <translation>N/D</translation>
+        <translation>N/A</translation>
     </message>
     <message>
         <source>Lat</source>
@@ -1914,7 +1914,7 @@ Enquanto pode ver e usar o projeto, recomendamos fortemente a limpá-lo para evi
     </message>
     <message>
         <source>No projects found</source>
-        <translation type="unfinished"/>
+        <translation>Não foram encontrados projetos</translation>
     </message>
 </context>
 <context>
@@ -2230,7 +2230,7 @@ Cancele para fazer uma verificação mínima.</translation>
     </message>
     <message>
         <source>Time of inactivity in seconds before the screen brightness get be dimmed to preserve battery.</source>
-        <translation type="unfinished"/>
+        <translation>Tempo de inatividade em segundos antes que o brilho do ecrã seja reduzido para poupar bateria.</translation>
     </message>
 </context>
 <context>
@@ -2321,7 +2321,7 @@ Cancele para fazer uma verificação mínima.</translation>
     </message>
     <message>
         <source>centroid</source>
-        <translation>centroide</translation>
+        <translation>centróide</translation>
     </message>
 </context>
 <context>
@@ -2481,7 +2481,7 @@ Cancele para fazer uma verificação mínima.</translation>
     </message>
     <message>
         <source>Paste Text</source>
-        <translation>Colar texto</translation>
+        <translation>Colar Texto</translation>
     </message>
     <message>
         <source>Scan Code</source>
@@ -2532,7 +2532,7 @@ Cancele para fazer uma verificação mínima.</translation>
     </message>
     <message>
         <source>When both constraints are disabled, vertex additions will occur as frequently as delivered by the positioning device.</source>
-        <translation type="unfinished"/>
+        <translation>Quando ambas as restrições estiverem desligadas, as adições de vértices ocorrem com a mesma frequência que são fornecidas pelo posicionamento do dispositivo.</translation>
     </message>
 </context>
 <context>
@@ -2875,7 +2875,7 @@ Cancele para fazer uma verificação mínima.</translation>
     </message>
     <message>
         <source>Precise View Settings</source>
-        <translation>Configuração de visualização precisa</translation>
+        <translation>Configuração de Visualização Precisa</translation>
     </message>
     <message>
         <source>0.25m Precision</source>
@@ -2903,7 +2903,7 @@ Cancele para fazer uma verificação mínima.</translation>
     </message>
     <message>
         <source>Always Show Precise View</source>
-        <translation>Mostrar sempre visualização precisa</translation>
+        <translation>Mostrar Sempre Visualização Precisa</translation>
     </message>
     <message>
         <source>Center to Location</source>
@@ -2943,7 +2943,7 @@ Cancele para fazer uma verificação mínima.</translation>
     </message>
     <message>
         <source>Enable Audio Proximity Feedback</source>
-        <translation>Ativar feedback de áudio de proximidade</translation>
+        <translation>Ativar Feedback de Áudio de Proximidade</translation>
     </message>
     <message>
         <source>Positioning Options</source>
