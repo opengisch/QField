@@ -205,8 +205,6 @@ class QgsQuickMapCanvasMap : public QQuickItem
     bool mDeferredRefreshPending = false;
 
     QQuickWindow *mWindow = nullptr;
-
-    QSizeF mOutputSize;
 };
 
 #endif // QGSQUICKMAPCANVASMAP_H

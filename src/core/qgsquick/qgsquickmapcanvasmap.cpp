@@ -13,12 +13,16 @@
  *                                                                         *
  ***************************************************************************/
 
+#include "qgsquickmapcanvasmap.h"
+#include "qgsquickmapsettings.h"
+
 #include <QQuickWindow>
 #include <QSGSimpleTextureNode>
 #include <QScreen>
 #include <qgis.h>
 #include <qgsannotationlayer.h>
 #include <qgsexpressioncontextutils.h>
+#include <qgslabelingresults.h>
 #include <qgsmaplayertemporalproperties.h>
 #include <qgsmaprenderercache.h>
 #include <qgsmaprendererparalleljob.h>
@@ -26,12 +30,6 @@
 #include <qgspallabeling.h>
 #include <qgsproject.h>
 #include <qgsvectorlayer.h>
-#if _QGIS_VERSION_INT >= 31900
-#include <qgslabelingresults.h>
-#endif
-
-#include "qgsquickmapcanvasmap.h"
-#include "qgsquickmapsettings.h"
 
 
 QgsQuickMapCanvasMap::QgsQuickMapCanvasMap( QQuickItem *parent )
@@ -126,17 +124,9 @@ void QgsQuickMapCanvasMap::refreshMap()
   mapSettings.setExpressionContext( expressionContext );
 
   // enables on-the-fly simplification of geometries to spend less time rendering
-#if _QGIS_VERSION_INT >= 32100
   mapSettings.setFlag( Qgis::MapSettingsFlag::UseRenderingOptimization );
-#else
-  mapSettings.setFlag( QgsMapSettings::UseRenderingOptimization );
-#endif
   // with incremental rendering - enables updates of partially rendered layers (good for WMTS, XYZ layers)
-#if _QGIS_VERSION_INT >= 32100
   mapSettings.setFlag( Qgis::MapSettingsFlag::RenderPartialOutput, mIncrementalRendering );
-#else
-  mapSettings.setFlag( QgsMapSettings::RenderPartialOutput, mIncrementalRendering );
-#endif
 
   // create the renderer job
   Q_ASSERT( !mJob );
