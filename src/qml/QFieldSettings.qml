@@ -281,7 +281,7 @@ Page {
                       Layout.fillWidth: true
 
                       id: slider
-                      value: settings ? settings.value('dimTimeoutSeconds', 40) : undefined
+                      value: settings ? settings.value('dimTimeoutSeconds', 40) : 40
                       from: 0
                       to: 180
                       stepSize: 10
