@@ -158,7 +158,7 @@ jobs:
 
       - name: 🚀 Release to TestFlight
         uses: Apple-Actions/upload-testflight-build@v1
-        if: ${{ github.event_name == 'published' || ( github.event_name == 'push' && github.ref == 'refs/heads/master' ) }}
+        if: ${{ github.event_name == 'release' || ( github.event_name == 'push' && github.ref == 'refs/heads/master' ) }}
         with:
           app-path: ${{ env.CI_PACKAGE_FILE_BASENAME }}.ipa
           issuer-id: ${{ secrets.IOS_APPSTORE_ISSUER_ID }}
