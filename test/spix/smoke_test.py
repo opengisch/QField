@@ -8,6 +8,8 @@ import subprocess
 import sys
 import time
 import os
+import shutil
+from pathlib import Path
 
 
 @pytest.fixture
@@ -22,13 +24,61 @@ def screenshot_path():
     return img_path
 
 
+@pytest.fixture
+def diff_path():
+    """
+    Returns the path for a folder to put image comparison errors into.
+    Supposed to be in the path where pytest-html writes its report.
+    """
+    img_path = os.path.join(os.getcwd(), "report", "diffs")
+    print(f"Images will be written to {img_path}")
+    os.makedirs(img_path, exist_ok=True)
+    return img_path
+
+
+@pytest.fixture
+def screenshot_check(image_diff, image_diff_dir, screenshot_path, diff_path, extra):
+    def inner(test_name, image_name):
+        result = image_diff(
+            os.path.join(screenshot_path, "{}.png".format(image_name)),
+            str(
+                Path(__file__).parent.parent
+                / "testdata"
+                / "control_images"
+                / test_name
+                / "expected_{}.png".format(image_name)
+            ),
+            threshold=0.02,
+            suffix=image_name,
+            throw_exception=False,
+        )
+        if os.path.exists(result.diff_path):
+            shutil.copyfile(
+                result.diff_path,
+                os.path.join(diff_path, "{}_diff.png".format(image_name)),
+            )
+            extra.append(
+                extras.html(
+                    "Screenshot check for {}: diff value {}, threshold {}".format(
+                        image_name, result.value, result.thresh
+                    )
+                )
+            )
+            extra.append(
+                extras.html('<img src="diffs/{}_diff.png"/>'.format(image_name))
+            )
+        return result.value < result.thresh
+
+    return inner
+
+
 def test_start_app(app, screenshot_path, extra, process_alive):
     """
     Starts a test app to the welcome screen and creates a screenshot.
     """
     assert app.existsAndVisible("mainWindow")
 
-    time.sleep(2)
+    time.sleep(1)
 
     app.takeScreenshot("mainWindow", os.path.join(screenshot_path, "startup.png"))
     assert process_alive()
@@ -36,17 +86,21 @@ def test_start_app(app, screenshot_path, extra, process_alive):
 
 
 @pytest.mark.project_file("test_wms.qgz")
-def test_message_logs(app, screenshot_path, extra, process_alive):
+def test_wms_layer(app, screenshot_path, screenshot_check, extra, process_alive):
     """
-    Starts a test app and check for message logs.
+    Starts a test app and check for WMS layer support (including rendering check and message logs).
     """
     assert app.existsAndVisible("mainWindow")
 
-    time.sleep(2)
+    time.sleep(4)
 
-    app.takeScreenshot("mainWindow", os.path.join(screenshot_path, "test_wms.png"))
+    app.takeScreenshot(
+        "mainWindow", os.path.join(screenshot_path, "test_wms_layer.png")
+    )
     assert process_alive()
-    extra.append(extras.html('<img src="images/test_wms.png"/>'))
+    extra.append(extras.html('<img src="images/test_wms_layer.png"/>'))
+
+    assert screenshot_check("test_wms_layer", "test_wms_layer")
 
     messagesCount = 0
     for i in range(0, 10):
