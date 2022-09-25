@@ -35,6 +35,12 @@ export CI_COMMIT_RANGE=${CI_COMMIT_RANGE:="${TMP_CI_COMMIT_BEFORE}...${TMP_CI_CO
 export CI_REPO_SLUG=${CI_REPO_SLUG:=${GITHUB_REPOSITORY}}
 export CI_UPLOAD_ARTIFACT_ID=${CI_UPLOAD_ARTIFACT_ID:=${TMP_CI_UPLOAD_ARTIFACT_ID}}
 export CI_RUN_NUMBER=${GITHUB_RUN_NUMBER}
+if [[ "${CI_TAG}" || ${GITHUB_REF} == "master" && ${CI_PULL_REQUEST} == "false" ]];
+then
+  export CI_USE_IOS_DIST_CERT=1
+else
+  export CI_USE_IOS_DIST_CERT=
+fi
 
 if [[ "${CI_TAG}" ]];
 then
@@ -70,6 +76,7 @@ export CI_PACKAGE_FILENAME="${CI_PACKAGE_FILE_BASENAME}-${ARCH}.apk"
     echo "CI_PACKAGE_FILE_BASENAME=${CI_PACKAGE_FILE_BASENAME}"
     echo "CI_PACKAGE_FILENAME=${CI_PACKAGE_FILENAME}"
     echo "CI_RUN_NUMBER=${CI_RUN_NUMBER}"
+    echo "CI_USE_IOS_DIST_CERT=${CI_USE_IOS_DIST_CERT}"
 } >> $GITHUB_ENV
 
 # make sure ::set-output is on newlines
@@ -86,6 +93,7 @@ echo "CI_COMMIT_RANGE: ${CI_COMMIT_RANGE}"
 echo "CI_REPO_SLUG: ${CI_REPO_SLUG}"
 echo "CI_UPLOAD_ARTIFACT_ID: ${CI_UPLOAD_ARTIFACT_ID}"
 echo "CI_RUN_NUMBER: ${CI_RUN_NUMBER}"
+echo "CI_USE_IOS_DIST_CERT: ${CI_USE_IOS_DIST_CERT}"
 echo ""
 echo ""
 echo "::set-output name=CI_BUILD_DIR::${CI_BUILD_DIR}"
@@ -101,4 +109,5 @@ echo "::set-output name=CI_REPO_SLUG::${CI_REPO_SLUG}"
 echo "::set-output name=CI_UPLOAD_ARTIFACT_ID::${CI_UPLOAD_ARTIFACT_ID}"
 echo "::set-output name=CI_PACKAGE_FILE_BASENAME::${CI_PACKAGE_FILE_BASENAME}"
 echo "::set-output name=APP_PACKAGE_NAME::${APP_PACKAGE_NAME}"
+echo "::set-output name=CI_USE_IOS_DIST_CERT::${CI_USE_IOS_DIST_CERT}"
 echo ""
