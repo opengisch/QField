@@ -126,7 +126,9 @@ int main( int argc, char **argv )
 #endif
   app.initQgis();
   app.setThemeName( settings.value( "/Themes", "default" ).toString() );
+#ifdef RELATIVE_PREFIX_PATH
   app.setPkgDataPath( PlatformUtilities::instance()->systemSharedDataLocation() + QStringLiteral( "/qgis" ) );
+#endif
   app.createDatabase();
 
   QSettings::setDefaultFormat( QSettings::NativeFormat );
