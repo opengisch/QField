@@ -942,6 +942,12 @@ TEST_CASE( "Delta File Wrapper" )
 
     dfw.addPatch( layer->id(), layer->id(), QStringLiteral( "fid" ), QStringLiteral( "fid" ), oldFeature, newFeature, false );
 
+#if QT_VERSION < QT_VERSION_CHECK( 6, 0, 0 )
+    const QString attachmentEmptyValue = QStringLiteral( "null" );
+#else
+    const QString attachmentEmptyValue = QStringLiteral( "\"\"" );
+#endif
+
     QJsonDocument expectedDoc = QJsonDocument::fromJson( QStringLiteral( R""""(
         [
           {
@@ -970,7 +976,7 @@ TEST_CASE( "Delta File Wrapper" )
             },
             "old": {
               "attributes": {
-                "attachment": null,
+                "attachment": %3,
                 "dbl": 3.14,
                 "int": 42,
                 "str": "stringy"
@@ -981,7 +987,7 @@ TEST_CASE( "Delta File Wrapper" )
           }
         ]
       )"""" )
-                                                           .arg( attachmentFileName, attachmentFileChecksum )
+                                                           .arg( attachmentFileName, attachmentFileChecksum, attachmentEmptyValue )
                                                            .toUtf8() );
     REQUIRE( QJsonDocument( getDeltasArray( dfw.toString() ) ) == expectedDoc );
 
@@ -1021,7 +1027,7 @@ TEST_CASE( "Delta File Wrapper" )
             },
             "old": {
               "attributes": {
-                "attachment": null,
+                "attachment": %2,
                 "dbl": 3.14,
                 "int": 42,
                 "str": "stringy"
@@ -1031,7 +1037,7 @@ TEST_CASE( "Delta File Wrapper" )
           }
         ]
       )"""" )
-                                             .arg( newFeature.attribute( "attachment" ).toString() )
+                                             .arg( newFeature.attribute( "attachment" ).toString(), attachmentEmptyValue )
                                              .toUtf8() );
     REQUIRE( QJsonDocument( getDeltasArray( dfw.toString() ) ) == expectedDoc );
 
