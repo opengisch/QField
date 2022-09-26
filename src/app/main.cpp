@@ -52,6 +52,11 @@ Q_IMPORT_PLUGIN( opensslPlugin )
 
 void initGraphics()
 {
+#ifdef WITH_SPIX
+  // Set antialiasing method to vertex to get same antialiasing across environments
+  qputenv( "QSG_ANTIALIASING_METHOD", "vertex" );
+#endif
+
   // Enables antialiasing in QML scenes
   QSurfaceFormat format;
   format.setSamples( 4 );
