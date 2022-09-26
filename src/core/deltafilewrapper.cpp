@@ -582,10 +582,17 @@ void DeltaFileWrapper::addPatch( const QString &localLayerId, const QString &sou
     const QVariant newVal = newAttrs.at( newFieldIdx );
 
     // if the values are different OR one is null and the other has nullable value (e.g. integers: NULL and 0)
+#if _QGIS_VERSION_INT >= 32700
+    if ( newVal != oldVal || QgsVariantUtils::isNull( oldVal ) != QgsVariantUtils::isNull( newVal ) )
+    {
+      tmpOldAttrs.insert( name, QgsVariantUtils::isNull( oldVal ) ? QJsonValue::Null : QJsonValue::fromVariant( oldVal ) );
+      tmpNewAttrs.insert( name, QgsVariantUtils::isNull( newVal ) ? QJsonValue::Null : QJsonValue::fromVariant( newVal ) );
+#else
     if ( newVal != oldVal || oldVal.isNull() != newVal.isNull() )
     {
       tmpOldAttrs.insert( name, oldVal.isNull() ? QJsonValue::Null : QJsonValue::fromVariant( oldVal ) );
       tmpNewAttrs.insert( name, newVal.isNull() ? QJsonValue::Null : QJsonValue::fromVariant( newVal ) );
+#endif
       hasFeatureChanged = true;
 
       if ( attachmentFieldsList.contains( name ) )
