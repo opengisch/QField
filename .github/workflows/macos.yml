@@ -100,6 +100,7 @@ jobs:
       - name: 🧫 Test
         env:
           PROJ_LIB: ${{ env.CMAKE_BUILD_DIR }}/vcpkg_installed/x64-osx/share/proj/data
+          QFIELD_SYSTEM_SHARED_DATA_PATH: ${{ env.CMAKE_BUILD_DIR }}/vcpkg_installed/x64-osx/share
         run: |
           pip install -r "${{ github.workspace }}/test/spix/requirements.txt"
           cd "${{ env.CMAKE_BUILD_DIR }}"
