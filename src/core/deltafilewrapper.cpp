@@ -1076,7 +1076,7 @@ bool DeltaFileWrapper::applyDeltasOnLayers( QHash<QString, QgsVectorLayer *> &ve
   return true;
 }
 
-QJsonValue DeltaFileWrapper::attributeToJsonValue( QVariant &value )
+QJsonValue DeltaFileWrapper::attributeToJsonValue( const QVariant &value )
 {
 #if _QGIS_VERSION_INT >= 32700
   return QgsVariantUtils::isNull( value ) ? QJsonValue::Null : QJsonValue::fromVariant( value );

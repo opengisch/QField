@@ -365,7 +365,7 @@ class DeltaFileWrapper : public QObject
     /**
      * Converts QVariant value to QJsonValue
      */
-    QJsonValue attributeToJsonValue( QVariant &value );
+    QJsonValue attributeToJsonValue( const QVariant &value );
 
     /**
      * The current project instance
