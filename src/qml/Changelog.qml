@@ -11,10 +11,10 @@ Popup {
     id: changelogPopup
 
     parent: ApplicationWindow.overlay
-    x: 12
-    y: 12
-    width: parent.width - 24
-    height: parent.height - 24
+    x: Theme.popupScreenEdgeMargin
+    y: Theme.popupScreenEdgeMargin
+    width: parent.width - Theme.popupScreenEdgeMargin * 2
+    height: parent.height - Theme.popupScreenEdgeMargin * 2
     padding: 0
     modal: true
     closePolicy: Popup.CloseOnEscape | Popup.CloseOnPressOutside
