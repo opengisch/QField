@@ -92,17 +92,22 @@ void PlatformUtilities::afterUpdate()
 
 QString PlatformUtilities::systemSharedDataLocation() const
 {
-  /* By default assume that we have a layout like this:
-
-     [prefix_path]
-     |-- bin
-     |   |-- qfield.exe
-     |-- share
-     |   |-- qfield
-     |   |   |-- sample_projects
-     |   |-- proj
-     |   |   |-- data
-     |   |   |   |--  proj.db
+  /**
+   * By default, assume that we have a layout like this:
+   *
+   * [prefix_path]
+   * |-- bin
+   * |   |-- qfield.exe
+   * |-- share
+   * |   |-- qfield
+   * |   |   |-- sample_projects
+   * |   |-- proj
+   * |   |   |-- data
+   * |   |   |   |--  proj.db
+   *
+   * systemSharedDataLocation()'s return value will therefore be - relative to qfield.exe - '../share'.
+   * However it is possible to override this default logic through a environment variable named
+   * QFIELD_SYSTEM_SHARED_DATA_PATH. If present, its value will be used as the return value instead.
   */
   const static QString sharePath = QDir( QFileInfo( !QCoreApplication::applicationFilePath().isEmpty() ? QCoreApplication::applicationFilePath() : QCoreApplication::arguments().value( 0 ) ).canonicalPath()
                                          + QLatin1String( "/../share" ) )
