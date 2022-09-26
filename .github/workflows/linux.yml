@@ -92,7 +92,9 @@ jobs:
       - name: 🧫 Test
         env:
           PROJ_LIB: ${{ env.CMAKE_BUILD_DIR }}/vcpkg_installed/x64-linux/share/proj/data
-          SPIX_PROJECT_FILE: ${{ github.workspace }}/test/testdata/test_wms.qgz
+          QFIELD_FONT_TTF: ${{ github.workspace }}/test/testdata/FiraSansCondensed-Regular.ttf
+          QFIELD_FONT_NAME: Fira Sans Condensed
+          QFIELD_FONT_SIZE: 14
         run: |
           pip install -r "${{ github.workspace }}/test/spix/requirements.txt"
           cd "${{ env.CMAKE_BUILD_DIR }}"

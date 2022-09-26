@@ -105,6 +105,15 @@ int main( int argc, char **argv )
 
   QgsApplication app( argc, argv, true, profilePath, QStringLiteral( "mobile" ) );
 
+  const QString qfieldFont( qgetenv( "QFIELD_FONT_TTF" ) );
+  if ( !qfieldFont.isEmpty() )
+  {
+    const QString qfieldFontName( qgetenv( "QFIELD_FONT_NAME" ) );
+    const int qfieldFontSize = QString( qgetenv( "QFIELD_FONT_SIZE" ) ).toInt();
+    QFontDatabase::addApplicationFont( qfieldFont );
+    app.setFont( QFont( qfieldFontName, qfieldFontSize ) );
+  }
+
 #ifdef RELATIVE_PREFIX_PATH
   qputenv( "GDAL_DATA", QDir::toNativeSeparators( PlatformUtilities::instance()->systemSharedDataLocation() + "/gdal" ).toLocal8Bit() );
   const QString projPath( QDir::toNativeSeparators( PlatformUtilities::instance()->systemSharedDataLocation() + "/proj/data" ) );
