@@ -48,7 +48,7 @@ def screenshot_check(image_diff, image_diff_dir, screenshot_path, diff_path, ext
                 / test_name
                 / "expected_{}.png".format(image_name)
             ),
-            threshold=0.02,
+            threshold=0.05,
             suffix=image_name,
             throw_exception=False,
         )
