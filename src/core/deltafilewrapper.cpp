@@ -582,10 +582,15 @@ void DeltaFileWrapper::addPatch( const QString &localLayerId, const QString &sou
     const QVariant newVal = newAttrs.at( newFieldIdx );
 
     // if the values are different OR one is null and the other has nullable value (e.g. integers: NULL and 0)
+#if _QGIS_VERSION_INT >= 32700
+    if ( newVal != oldVal || QgsVariantUtils::isNull( oldVal ) != QgsVariantUtils::isNull( newVal ) )
+#else
     if ( newVal != oldVal || oldVal.isNull() != newVal.isNull() )
+#endif
     {
-      tmpOldAttrs.insert( name, oldVal.isNull() ? QJsonValue::Null : QJsonValue::fromVariant( oldVal ) );
-      tmpNewAttrs.insert( name, newVal.isNull() ? QJsonValue::Null : QJsonValue::fromVariant( newVal ) );
+      tmpOldAttrs.insert( name, attributeToJsonValue( oldVal ) );
+      tmpNewAttrs.insert( name, attributeToJsonValue( newVal ) );
+
       hasFeatureChanged = true;
 
       if ( attachmentFieldsList.contains( name ) )
@@ -614,7 +619,7 @@ void DeltaFileWrapper::addPatch( const QString &localLayerId, const QString &sou
     }
     else if ( storeSnapshot )
     {
-      tmpOldAttrs.insert( name, oldVal.isNull() ? QJsonValue::Null : QJsonValue::fromVariant( oldVal ) );
+      tmpOldAttrs.insert( name, attributeToJsonValue( oldVal ) );
     }
   }
 
@@ -723,9 +728,9 @@ void DeltaFileWrapper::addDelete( const QString &localLayerId, const QString &so
   {
     const QVariant oldVal = oldAttrs.at( idx );
     const QString name = oldFeature.fields().at( idx ).name();
-    tmpOldAttrs.insert( name, oldVal.isNull() ? QJsonValue::Null : QJsonValue::fromVariant( oldVal ) );
+    tmpOldAttrs.insert( name, attributeToJsonValue( oldVal ) );
 
-    if ( attachmentFieldsList.contains( name ) && !oldVal.isNull() )
+    if ( attachmentFieldsList.contains( name ) && !oldVal.toString().isNull() )
     {
       const QString oldFileName = oldVal.toString();
       const QString oldFullFileName = QFileInfo( oldFileName ).isAbsolute() ? oldFileName : QStringLiteral( "%1/%2" ).arg( mProject->homePath(), oldFileName );
@@ -799,7 +804,7 @@ void DeltaFileWrapper::addCreate( const QString &localLayerId, const QString &so
         break;
     }
 
-    tmpNewAttrs.insert( name, QJsonValue::fromVariant( newVal ) );
+    tmpNewAttrs.insert( name, attributeToJsonValue( newVal ) );
 
     if ( attachmentFieldsList.contains( name ) )
     {
@@ -1069,6 +1074,15 @@ bool DeltaFileWrapper::applyDeltasOnLayers( QHash<QString, QgsVectorLayer *> &ve
   }
 
   return true;
+}
+
+QJsonValue DeltaFileWrapper::attributeToJsonValue( const QVariant &value )
+{
+#if _QGIS_VERSION_INT >= 32700
+  return QgsVariantUtils::isNull( value ) ? QJsonValue::Null : QJsonValue::fromVariant( value );
+#else
+  return value.isNull() ? QJsonValue::Null : QJsonValue::fromVariant( value );
+#endif
 }
 
 bool DeltaFileWrapper::isCreatedFeature( QgsVectorLayer *vl, QgsFeature feature )
