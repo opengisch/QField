@@ -80,7 +80,7 @@
     </message>
     <message>
         <source>Not NULL</source>
-        <translation>Nije NULL</translation>
+        <translation>Ne smije biti NULL</translation>
     </message>
     <message>
         <source>Unique</source>
