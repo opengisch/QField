@@ -82,7 +82,8 @@ function(create_executable)
            "${CMAKE_CURRENT_BINARY_DIR}/qmldrop/app/BluetoothDeviceChooser.qml")
     endif()
 
-    # include("${CMAKE_SOURCE_DIR}/cmake/QtQmlImportScanner.cmake")
+    # Will be no longer needed for Qt6
+    include("${CMAKE_SOURCE_DIR}/cmake/QtQmlImportScanner.cmake")
     qt_import_qml_plugins(${exe_TARGET} PATH_TO_SCAN
                           "${CMAKE_CURRENT_BINARY_DIR}/qmldrop/app")
   endif()
