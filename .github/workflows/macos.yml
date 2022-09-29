@@ -101,9 +101,6 @@ jobs:
         env:
           PROJ_LIB: ${{ env.CMAKE_BUILD_DIR }}/vcpkg_installed/x64-osx/share/proj/data
           QFIELD_SYSTEM_SHARED_DATA_PATH: ${{ env.CMAKE_BUILD_DIR }}/vcpkg_installed/x64-osx/share
-          QFIELD_FONT_TTF: ${{ github.workspace }}/test/testdata/FiraSansCondensed-Regular.ttf
-          QFIELD_FONT_NAME: Fira Sans Condensed
-          QFIELD_FONT_SIZE: 14
         run: |
           pip install -r "${{ github.workspace }}/test/spix/requirements.txt"
           cd "${{ env.CMAKE_BUILD_DIR }}"
