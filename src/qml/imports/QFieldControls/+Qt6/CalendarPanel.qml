@@ -27,8 +27,6 @@ Popup {
 
     onAboutToShow: {
         if (selectedDate !== undefined) {
-            calendar.month = selectedDate.getMonth();
-            calendar.year = selectedDate.getFullYear();
             hoursSpinBox.value = selectedDate.getHours();
             minutesSpinBox.value = selectedDate.getMinutes();
             secondsSpinBox.value = selectedDate.getSeconds();
@@ -45,16 +43,12 @@ Popup {
         onTriggered: {
           switch(action) {
               case 'decreaseYear':
-                  calendar.decreaseYear();
                   break;
               case 'decreaseMonth':
-                  calendar.decreaseMonth();
                   break;
               case 'increaseYear':
-                  calendar.increaseYear();
                   break;
               case 'increaseMonth':
-                  calendar.increaseMonth();
                   break;
           }
           if ( interval > 100 ) interval = interval * 0.8;
@@ -63,7 +57,6 @@ Popup {
 
     ColumnLayout {
         Rectangle {
-            id: calendarOverlay
             width: 350
             height: childrenRect.height
             color: "transparent"
@@ -75,7 +68,6 @@ Popup {
             }
 
             GridLayout {
-                id: calendarGrid
                 anchors.left: parent.left
                 anchors.right: parent.right
                 columns: 3
@@ -91,7 +83,6 @@ Popup {
                         roundborder: true
 
                         onPressed: {
-                            calendar.decreaseYear();
                             changeCalendarTimer.action = 'decreaseYear';
                             changeCalendarTimer.interval = 700;
                             changeCalendarTimer.restart();
@@ -111,7 +102,6 @@ Popup {
                         roundborder: true
 
                         onPressed: {
-                            calendar.decreaseMonth();
                             changeCalendarTimer.action = 'decreaseMonth';
                             changeCalendarTimer.interval = 700;
                             changeCalendarTimer.restart();
@@ -126,7 +116,6 @@ Popup {
                 }
 
                 Text {
-                    text: calendar.title
                     horizontalAlignment: Text.AlignHCenter
                     Layout.column: 1
                     Layout.row: 0
@@ -145,7 +134,6 @@ Popup {
                         roundborder: true
 
                         onPressed: {
-                            calendar.increaseMonth();
                             changeCalendarTimer.action = 'increaseMonth';
                             changeCalendarTimer.interval = 700;
                             changeCalendarTimer.restart();
@@ -164,7 +152,6 @@ Popup {
                         roundborder: true
 
                         onPressed: {
-                            calendar.increaseYear();
                             changeCalendarTimer.action = 'increaseYear';
                             changeCalendarTimer.interval = 700;
                             changeCalendarTimer.restart();

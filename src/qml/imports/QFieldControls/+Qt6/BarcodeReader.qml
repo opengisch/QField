@@ -31,7 +31,6 @@ Popup {
   }
 
   onAboutToHide: {
-    camera.flash.mode = Camera.FlashOff;
   }
 
   BarcodeDecoder {
@@ -48,9 +47,7 @@ Popup {
    TODO: Qt6 Camera QML implementation
 
   Camera {
-    id: camera
     position: Camera.BackFace
-    cameraState: barcodeReader.visible ? Camera.ActiveState : Camera.UnloadedState
 
     focus {
         focusMode: Camera.FocusContinuous
@@ -119,7 +116,6 @@ Popup {
           anchors.fill: parent
           anchors.margins: 6
 
-          source: camera
           autoOrientation: true
           fillMode: VideoOutput.PreserveAspectCrop
 
@@ -209,8 +205,6 @@ Popup {
           iconSource: Theme.getThemeVectorIcon( 'ic_flashlight_white_48dp' )
           bgcolor: Qt.hsla(Theme.darkGray.hslHue, Theme.darkGray.hslSaturation, Theme.darkGray.hslLightness, 0.3)
 
-          visible: camera.flash.supportedModes.includes(Camera.FlashVideoLight)
-          state: camera.flash.mode !== Camera.FlashOff ? "On" : "Off"
           states: [
             State {
               name: "Off"
@@ -232,9 +226,6 @@ Popup {
           ]
 
           onClicked: {
-            camera.flash.mode = camera.flash.mode === Camera.FlashOff
-                                ? Camera.FlashVideoLight
-                                : Camera.FlashOff;
           }
         }
       }
@@ -246,9 +237,6 @@ Popup {
           id: decodedText
           Layout.fillWidth: true
 
-          text: barcodeDecoder.decodedString !== ''
-                ? barcodeDecoder.decodedString
-                : qsTr( 'Center your camera on a code')
           font: Theme.tipFont
           horizontalAlignment: Text.AlignLeft
           elide: Text.ElideMiddle

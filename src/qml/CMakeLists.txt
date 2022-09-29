@@ -64,3 +64,7 @@ list(
   ${qfield_qmlfiles_qfieldcontrols})
 
 set_property(TARGET qfield_qml PROPERTY QML_FILES ${qfield_qmlfiles})
+
+if(BUILD_WITH_QT6)
+  qt_import_qml_plugins(qfield_qml)
+endif()

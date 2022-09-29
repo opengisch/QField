@@ -78,6 +78,7 @@ jobs:
                 -D APP_VERSION="${APP_VERSION}" \
                 -D APP_VERSION_STR="${APP_VERSION_STR}" \
                 -D APP_PACKAGE_NAME="${APP_PACKAGE_NAME}" \
+                -D ENABLE_TESTS=ON \
                 -D NUGET_USERNAME=opengisch \
                 -D NUGET_TOKEN=${{ secrets.GITHUB_TOKEN }} \
                 -D SENTRY_DSN=${{ secrets.SENTRY_DSN }} \
@@ -94,10 +95,11 @@ jobs:
       - name: 🧫 Test
         env:
           PROJ_LIB: ${{ env.CMAKE_BUILD_DIR }}/vcpkg_installed/x64-osx/share/proj/data
+          QFIELD_SYSTEM_SHARED_DATA_PATH: ${{ env.CMAKE_BUILD_DIR }}/vcpkg_installed/x64-osx/share
         run: |
           pip install -r "${{ github.workspace }}/test/spix/requirements.txt"
           cd "${{ env.CMAKE_BUILD_DIR }}"
-          ctest --output-on-failure -C ${{ env.BUILD_TYPE }}
+          ctest --output-on-failure -R smoke -C ${{ env.BUILD_TYPE }}
 
       - name: 📦 Package
         run: |
@@ -110,6 +112,7 @@ jobs:
           path: ${{ env.CMAKE_BUILD_DIR }}/QField-Installer.dmg
 
       - name: 📊 Upload test report
+        if: always()
         uses: actions/upload-artifact@v3
         with:
           name: "test-report-x64-osx-${{ env.BUILD_TYPE }}"
