@@ -106,11 +106,11 @@
     <name>BarcodeReader</name>
     <message>
         <source>Code Reader</source>
-        <translation>Čitač koda</translation>
+        <translation>Čitač kôda</translation>
     </message>
     <message>
         <source>Center your camera on a code</source>
-        <translation>Postavi kameru iznad koda</translation>
+        <translation>Postavi kameru iznad kôda</translation>
     </message>
 </context>
 <context>
@@ -145,13 +145,13 @@
     </message>
     <message>
         <source>Make a full service discovery</source>
-        <translation>Učini punu uslugu</translation>
+        <translation>Napravi potpuno skeniranje dostupnih servisa</translation>
     </message>
     <message>
         <source>A full device scan can take longer. You really want to do it?
 Cancel to make a minimal device scan instead.</source>
-        <translation>Puno skeniranje uređaja može trajati duže. Jeste li sigurni? 
-Otkažite da pokrenete minimalno skeniranje uređaja.</translation>
+        <translation>Potpuno skeniranje uređaja može duže potrajati. Jeste li sigurni da to želite?
+Otkažite za pokretanje minimalnog skeniranja uređaja.</translation>
     </message>
     <message>
         <source>Connected to %1</source>
@@ -227,11 +227,11 @@ Otkažite da pokrenete minimalno skeniranje uređaja.</translation>
     </message>
     <message>
         <source>Lon</source>
-        <translation type="vanished">Lon</translation>
+        <translation type="vanished">Dužina</translation>
     </message>
     <message>
         <source>Lat</source>
-        <translation type="vanished">Lat</translation>
+        <translation type="vanished">Širina</translation>
     </message>
     <message>
         <source>X</source>
@@ -251,7 +251,7 @@ Otkažite da pokrenete minimalno skeniranje uređaja.</translation>
     </message>
     <message>
         <source>You are about to remove a bookmark, proceed?</source>
-        <translation>Uklonit ćete oznaku,nastaviti?</translation>
+        <translation>Ukloniti ćete oznaku, nastaviti?</translation>
     </message>
 </context>
 <context>
@@ -343,7 +343,7 @@ Otkažite da pokrenete minimalno skeniranje uređaja.</translation>
     <name>DashBoard</name>
     <message>
         <source>The layer %1 is read only.</source>
-        <translation>Sloj %1 samo za čitanje</translation>
+        <translation>Sloj %1 je u konfiguraciji &quot;Samo za čitanje&quot;</translation>
     </message>
     <message>
         <source>Map Theme</source>
@@ -668,7 +668,7 @@ Geometrija elemenata će se spojiti u element &apos;%1&apos;, koji će zadržati
     </message>
     <message>
         <source>Features in all layers</source>
-        <translation>Elementi u svim slojevima</translation>
+        <translation>Elementi karte u svim slojevima</translation>
     </message>
 </context>
 <context>
@@ -849,7 +849,7 @@ Geometrija elemenata će se spojiti u element &apos;%1&apos;, koji će zadržati
     </message>
     <message>
         <source>Read-Only Layer</source>
-        <translation>Sloj Samo za Čitanje</translation>
+        <translation>Sloj u konfiguraciji &quot;Samo za čitanje&quot;</translation>
     </message>
     <message>
         <source>Geometry Locked Layer</source>
@@ -921,7 +921,7 @@ Geometrija elemenata će se spojiti u element &apos;%1&apos;, koji će zadržati
     <name>LocalFilesModel</name>
     <message>
         <source>QField files directory</source>
-        <translation>QField direktorij sa datotekama</translation>
+        <translation>QField mapa sa datotekama</translation>
     </message>
     <message>
         <source>Imported projects</source>
@@ -933,7 +933,7 @@ Geometrija elemenata će se spojiti u element &apos;%1&apos;, koji će zadržati
     </message>
     <message>
         <source>Additional files directory</source>
-        <translation>Dodatni direktorij datoteka</translation>
+        <translation>Dodatna mapa datoteka</translation>
     </message>
     <message>
         <source>Sample projects</source>
@@ -944,19 +944,19 @@ Geometrija elemenata će se spojiti u element &apos;%1&apos;, koji će zadržati
     <name>LocatorFiltersModel</name>
     <message>
         <source>Returns a list of features accross all searchable layers with matching attributes</source>
-        <translation>Vraća popis elemenata svih pretraživih slojeva s odgovarajućim atributima.</translation>
+        <translation>Ispisuje popis elemenata svih pretraživih slojeva s odgovarajućim atributima.</translation>
     </message>
     <message>
         <source>Returns a point from a pair of X and Y coordinates typed in the search bar</source>
-        <translation>Vraća točku iz para X i Y koordinata unesenih u traku za pretraživanje</translation>
+        <translation>Ispisuje točku iz para X i Y koordinata unesenih u traku za pretraživanje</translation>
     </message>
     <message>
         <source>Returns a list of bookmark with matching names</source>
-        <translation>Vraća listu oznaka sa odgovarajućim nazivima</translation>
+        <translation>Ispisuje popis oznaka sa odgovarajućim nazivima</translation>
     </message>
     <message>
         <source>Returns a list of locations and addresses within Finland with matching terms</source>
-        <translation>Vraća listu lokacija i adresa unutar Finske sa odgovarajućim pojmovima</translation>
+        <translation>Ispisuje popis lokacija i adresa unutar Finske sa odgovarajućim pojmovima</translation>
     </message>
     <message>
         <source>Search filters for your locations have been activated, customize results in the settings panel</source>
@@ -974,7 +974,7 @@ Geometrija elemenata će se spojiti u element &apos;%1&apos;, koji će zadržati
     <name>LocatorSettings</name>
     <message>
         <source>Search Settings</source>
-        <translation>Postavke Pretraživanja</translation>
+        <translation>Postavke pretraživanja</translation>
     </message>
     <message>
         <source>Trigger without its prefix</source>
@@ -993,7 +993,7 @@ Geometrija elemenata će se spojiti u element &apos;%1&apos;, koji će zadržati
     </message>
     <message>
         <source>Clear message log</source>
-        <translation>Izbrši zapisnik poruka</translation>
+        <translation>Izbriši zapisnik poruka</translation>
     </message>
     <message>
         <source>Message log cleared</source>
@@ -1027,7 +1027,7 @@ Geometrija elemenata će se spojiti u element &apos;%1&apos;, koji će zadržati
     <name>NavigationBar</name>
     <message>
         <source>Features</source>
-        <translation>Elementi</translation>
+        <translation>Elementi karte</translation>
     </message>
     <message>
         <source>Feature List Menu</source>
@@ -1035,15 +1035,15 @@ Geometrija elemenata će se spojiti u element &apos;%1&apos;, koji će zadržati
     </message>
     <message>
         <source>Toggle Feature Selection</source>
-        <translation>Uklj./Isklj. Odabir Elemenata</translation>
+        <translation>Uklj./Isklj. odabir elemenata</translation>
     </message>
     <message>
         <source>Print Atlas Feature(s) to PDF</source>
-        <translation>Ispiši Element(e) Atlasa u PDF</translation>
+        <translation>Ispiši element(e) atlasa u PDF</translation>
     </message>
     <message>
         <source>Merge Selected Features</source>
-        <translation>Spoji Odabrane Elemente</translation>
+        <translation>Spoji odabrane elemente</translation>
     </message>
     <message>
         <source>Move Selected Feature(s)</source>
@@ -1059,35 +1059,35 @@ Geometrija elemenata će se spojiti u element &apos;%1&apos;, koji će zadržati
     </message>
     <message>
         <source>Feature Menu</source>
-        <translation>Izbornik Elementi</translation>
+        <translation>Izbornik elemenata</translation>
     </message>
     <message>
         <source>Print Atlas Feature to PDF</source>
-        <translation>Ispiši Element Atlasa u PDF</translation>
+        <translation>Ispiši element atlasa u PDF</translation>
     </message>
     <message>
         <source>Zoom to Feature</source>
-        <translation>Zumiraj na Element</translation>
+        <translation>Zumiraj na element</translation>
     </message>
     <message>
         <source>Auto-Zoom to Feature</source>
-        <translation>Auto-Zoom na Element</translation>
+        <translation>Auto-zoom na element</translation>
     </message>
     <message>
         <source>Set Feature as Destination</source>
-        <translation>Postavi Element kao Odredište</translation>
+        <translation>Postavi element kao odredište</translation>
     </message>
     <message>
         <source>Move Feature</source>
-        <translation>Pomakni Element</translation>
+        <translation>Pomakni element</translation>
     </message>
     <message>
         <source>Duplicate Feature</source>
-        <translation>Dupliciraj Element</translation>
+        <translation>Dupliciraj element</translation>
     </message>
     <message>
         <source>Delete Feature</source>
-        <translation>Izbriši Element</translation>
+        <translation>Izbriši element</translation>
     </message>
     <message>
         <source>Select template below</source>
@@ -1099,14 +1099,14 @@ Geometrija elemenata će se spojiti u element &apos;%1&apos;, koji će zadržati
     </message>
     <message>
         <source>Atlas feature(s) successfully printed to PDF and placed in your documents</source>
-        <translation>Element(i) Atlasa uspješno su ispisani u PDF i smješteni u vaše dokumente.</translation>
+        <translation>Element(i) atlasa uspješno su ispisani u PDF i smješteni u vaše dokumente.</translation>
     </message>
 </context>
 <context>
     <name>NavigationInformationView</name>
     <message>
         <source>Lat.</source>
-        <translation type="vanished">Lat.</translation>
+        <translation type="vanished">Širina.</translation>
     </message>
     <message>
         <source>X</source>
@@ -1114,7 +1114,7 @@ Geometrija elemenata će se spojiti u element &apos;%1&apos;, koji će zadržati
     </message>
     <message>
         <source>Lon.</source>
-        <translation type="vanished">Lon.</translation>
+        <translation type="vanished">Dužina</translation>
     </message>
     <message>
         <source>centroid</source>
@@ -1122,7 +1122,7 @@ Geometrija elemenata će se spojiti u element &apos;%1&apos;, koji će zadržati
     </message>
     <message>
         <source>Lon</source>
-        <translation>Lon</translation>
+        <translation>Dužina</translation>
     </message>
     <message>
         <source>Y</source>
@@ -1130,7 +1130,7 @@ Geometrija elemenata će se spojiti u element &apos;%1&apos;, koji će zadržati
     </message>
     <message>
         <source>Lat</source>
-        <translation>Lat</translation>
+        <translation>Širina</translation>
     </message>
     <message>
         <source>Dist.</source>
@@ -1222,7 +1222,7 @@ Geometrija elemenata će se spojiti u element &apos;%1&apos;, koji će zadržati
     <name>PositionInformationView</name>
     <message>
         <source>Lat.</source>
-        <translation type="vanished">Lat.</translation>
+        <translation type="vanished">Širina.</translation>
     </message>
     <message>
         <source>N/A</source>
@@ -1234,11 +1234,11 @@ Geometrija elemenata će se spojiti u element &apos;%1&apos;, koji će zadržati
     </message>
     <message>
         <source>Lon.</source>
-        <translation type="vanished">Lon.</translation>
+        <translation type="vanished">Dužina.</translation>
     </message>
     <message>
         <source>Lon</source>
-        <translation type="vanished">Lon</translation>
+        <translation type="vanished">Dužina</translation>
     </message>
     <message>
         <source>Y</source>
@@ -1246,7 +1246,7 @@ Geometrija elemenata će se spojiti u element &apos;%1&apos;, koji će zadržati
     </message>
     <message>
         <source>Lat</source>
-        <translation type="vanished">Lat</translation>
+        <translation type="vanished">Širina</translation>
     </message>
     <message>
         <source>Altitude</source>
@@ -1258,11 +1258,11 @@ Geometrija elemenata će se spojiti u element &apos;%1&apos;, koji će zadržati
     </message>
     <message>
         <source>H. Accuracy</source>
-        <translation type="vanished">H. Točnost</translation>
+        <translation type="vanished">H. točnost</translation>
     </message>
     <message>
         <source>V. Accuracy</source>
-        <translation type="vanished">V. Točnost</translation>
+        <translation type="vanished">V. točnost</translation>
     </message>
     <message>
         <source>PDOP</source>
@@ -1293,7 +1293,7 @@ Geometrija elemenata će se spojiti u element &apos;%1&apos;, koji će zadržati
     <name>PositioningInformationView</name>
     <message>
         <source>Lon</source>
-        <translation>Lon</translation>
+        <translation>Dužina</translation>
     </message>
     <message>
         <source>X</source>
@@ -1301,11 +1301,11 @@ Geometrija elemenata će se spojiti u element &apos;%1&apos;, koji će zadržati
     </message>
     <message>
         <source>N/A</source>
-        <translation>N/A</translation>
+        <translation>Nedostupno</translation>
     </message>
     <message>
         <source>Lat</source>
-        <translation>Lat</translation>
+        <translation>Širina</translation>
     </message>
     <message>
         <source>Y</source>
@@ -1313,7 +1313,7 @@ Geometrija elemenata će se spojiti u element &apos;%1&apos;, koji će zadržati
     </message>
     <message>
         <source>Altitude</source>
-        <translation>Visina</translation>
+        <translation>Nadmorska visina</translation>
     </message>
     <message>
         <source>Speed</source>
@@ -1321,11 +1321,11 @@ Geometrija elemenata će se spojiti u element &apos;%1&apos;, koji će zadržati
     </message>
     <message>
         <source>H. Accuracy</source>
-        <translation>H. Točnost</translation>
+        <translation>H. točnost</translation>
     </message>
     <message>
         <source>V. Accuracy</source>
-        <translation>V. Točnost</translation>
+        <translation>V. točnost</translation>
     </message>
     <message>
         <source>PDOP</source>
@@ -1356,7 +1356,7 @@ Geometrija elemenata će se spojiti u element &apos;%1&apos;, koji će zadržati
     <name>PositioningPreciseView</name>
     <message>
         <source>Dist.</source>
-        <translation>Udaljenost.</translation>
+        <translation>Udaljenost</translation>
     </message>
     <message>
         <source>Positioning accuracy too low for this precision level</source>
@@ -1478,11 +1478,11 @@ Geometrija elemenata će se spojiti u element &apos;%1&apos;, koji će zadržati
     </message>
     <message>
         <source>The easiest way to transfer you project from QGIS to your devices!</source>
-        <translation>Najlakši način slanja vašeg projekta iz QGIS na vaše uređaje!</translation>
+        <translation>Najlakši način slanja vašeg projekta iz QGIS-a na vaše uređaje!</translation>
     </message>
     <message>
         <source>Learn more about QFieldCloud</source>
-        <translation>Saznaj više o QFieldCloudu</translation>
+        <translation>Saznaj više o QFieldCloud-u</translation>
     </message>
 </context>
 <context>
@@ -1493,7 +1493,7 @@ Geometrija elemenata će se spojiti u element &apos;%1&apos;, koji će zadržati
     </message>
     <message>
         <source>Some layers have not been packaged correctly on QFieldCloud. These layers might be misconfigured or their data source is not accessible from the QFieldCloud server.</source>
-        <translation type="vanished">Neki slojevi nisu ispravno zapakirani na QFieldCloudu. Ovi slojevi možda nisu dobro konfigurirani ili njihov izvor podataka nije dostupan sa QFieldCloud servera. </translation>
+        <translation type="vanished">Neki slojevi nisu ispravno zapakirani na QFieldCloud-u. Ovi slojevi možda nisu dobro konfigurirani ili njihov izvor podataka nije dostupan sa QFieldCloud servera. </translation>
     </message>
     <message>
         <source>QFieldCloud had troubles packaging your project</source>
@@ -1501,7 +1501,7 @@ Geometrija elemenata će se spojiti u element &apos;%1&apos;, koji će zadržati
     </message>
     <message>
         <source>Some layers have not been packaged correctly on QFieldCloud. These layers might be misconfigured or their data source is not accessible from the QFieldCloud server. Please check the logs of the latest packaging job on the qfield.cloud website.</source>
-        <translation>Neki slojevi nisu ispravno zapakirani na QFieldCloudu. Ovi slojevi možda nisu dobro konfigurirani ili njihov izvor podataka nije dostupan sa QFieldCloud servera. Provjerite zapisnik zadnjeg posla pakiranja na qfield.cloud website.</translation>
+        <translation>Neki slojevi nisu ispravno zapakirani na QFieldCloud-u. Ovi slojevi možda nisu dobro konfigurirani ili njihov izvor podataka nije dostupan sa QFieldCloud servera. Provjerite zapisnik zadnjeg posla pakiranja na qfield.cloud website.</translation>
     </message>
 </context>
 <context>
@@ -1516,11 +1516,11 @@ Geometrija elemenata će se spojiti u element &apos;%1&apos;, koji će zadržati
     </message>
     <message>
         <source>Storing projects on QFieldCloud offers seamless synchornization, offline editing, and team management.&lt;br&gt;&lt;br&gt;</source>
-        <translation>Pohranjivanje projekta na QFieldCloud omogućava sinhronizaciju, izvanmrežno uređivanje i upravljanje timom.&lt;br&gt;&lt;br&gt;</translation>
+        <translation>Pohranjivanje projekta na QFieldCloud omogućava sinkronizaciju, izvanmrežno uređivanje i upravljanje timom.&lt;br&gt;&lt;br&gt;</translation>
     </message>
     <message>
         <source>Learn more about QFieldCloud</source>
-        <translation>Saznaj više o QFieldCloudu</translation>
+        <translation>Saznaj više o QFieldCloud-u</translation>
     </message>
     <message>
         <source>Disconnected from the cloud.</source>
@@ -1576,7 +1576,7 @@ Geometrija elemenata će se spojiti u element &apos;%1&apos;, koji će zadržati
     </message>
     <message>
         <source>Synchronize</source>
-        <translation>Sinhroniziraj</translation>
+        <translation>Sinkroniziraj</translation>
     </message>
     <message>
         <source>Synchronize the whole project with all modified features and download the freshly updated project with all the applied changes from QFieldCloud.</source>
@@ -1614,19 +1614,19 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Last synchronized just now</source>
-        <translation>Upravo sinhronizirano</translation>
+        <translation>Upravo sinkronizirano</translation>
     </message>
     <message>
         <source>Last synchronized %1 minutes ago</source>
-        <translation>Zadnja sinhronizacija prije %1 minuta</translation>
+        <translation>Zadnja sinkronizacija prije %1 minuta</translation>
     </message>
     <message>
         <source>Last synchronized at %1</source>
-        <translation>Zadnja sinhronizacija na %1</translation>
+        <translation>Zadnja sinkronizacija na %1</translation>
     </message>
     <message>
         <source>Last synchronized on %1</source>
-        <translation>Zadnja sinhronizacija u %1</translation>
+        <translation>Zadnja sinkronizacija u %1</translation>
     </message>
     <message>
         <source>Last changes pushed just now</source>
@@ -1814,7 +1814,7 @@ While you can still view and use the project, it is strongly recommended to rese
     <name>QFieldCloudScreen</name>
     <message>
         <source>QFieldCloud Projects</source>
-        <translation>QFieldCloud Projekti</translation>
+        <translation>QFieldCloud projekti</translation>
     </message>
     <message>
         <source>Disconnected from the cloud.</source>
@@ -1830,7 +1830,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>My Projects</source>
-        <translation>Moji Projekti</translation>
+        <translation>Moji projekti</translation>
     </message>
     <message>
         <source>Community</source>
@@ -1973,7 +1973,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Import project from folder</source>
-        <translation>Uvezi projekt iz direktorija</translation>
+        <translation>Uvezi projekt iz mape</translation>
     </message>
     <message>
         <source>Import project from ZIP</source>
@@ -1992,19 +1992,19 @@ While you can still view and use the project, it is strongly recommended to rese
     <name>QFieldSettings</name>
     <message>
         <source>Show scale bar</source>
-        <translation>Prikaži traku mjerila</translation>
+        <translation>Prikaži grafičko mjerilo</translation>
     </message>
     <message>
         <source>Maximized attribute form</source>
-        <translation>Maksimizirana forma sa atributima</translation>
+        <translation>Maksimiziran obrazac sa atributima</translation>
     </message>
     <message>
         <source>Fixed scale navigation</source>
-        <translation>Fiksna skala navigacije</translation>
+        <translation>Navigacija s fiksnim mjerilom</translation>
     </message>
     <message>
         <source>When fixed scale navigation is active, focusing on a search result will pan to the feature. With fixed scale navigation disabled it will pan and zoom to the feature.</source>
-        <translation>Kada je aktivna navigacija s fiksnim mjerilom, fokusiranje na rezultat pretrage će se pomaknuti na element. S onemogućenom opcijom doći će do pomicanja i zumiranja na element.</translation>
+        <translation>Kada je aktivna navigacija s fiksnim mjerilom, fokusiranje na rezultat pretrage će se pomaknuti na element. S onemogućenom opcijom doći će do pomicanja i zumiranja na element karte.</translation>
     </message>
     <message>
         <source>Show digitizing information</source>
@@ -2012,7 +2012,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>When switched on, coordinate information, such as latitude and longitude, is overlayed onto the map while digitizing new features or using the measure tool.</source>
-        <translation>Kada je uključeno - informacije o koordinatama, kao npr. geog. dužina i širina se prikazuju na karti prilikom digitaliziranja novih elemenata ili dok se rade mjerenja.</translation>
+        <translation>Kada je uključeno, informacije o koordinatama, kao npr. geografska dužina i širina se prikazuju na karti prilikom digitaliziranja novih elemenata ili dok se rade mjerenja.</translation>
     </message>
     <message>
         <source>Show bookmarks</source>
@@ -2024,11 +2024,11 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Use native camera</source>
-        <translation>Koristit zadanu kameru</translation>
+        <translation>Koristi zadanu kameru</translation>
     </message>
     <message>
         <source>If disabled, QField will use a minimalist internal camera instead of the camera app on the device.&lt;br&gt;Tip: Enable this option and install the open camera app to create geo tagged photos.</source>
-        <translation>Ako je onemogućeno QField koristi internu kameru umjesto aplikacije kamere na uređaju&lt;br&gt;Savjet: Omogućite ovu opciju i instalirajte aplikaciju open camera za kreiranje geotagiranih slika.</translation>
+        <translation>Ako je isključeno, QField koristi internu kameru umjesto aplikacije kamere na uređaju&lt;br&gt;Savjet: Uključite ovu opciju i instalirajte aplikaciju open camera za kreiranje geotagiranih fotografija.</translation>
     </message>
     <message>
         <source>Fast editing mode</source>
@@ -2036,7 +2036,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>If enabled, the feature is stored after having a valid geometry and the constraints are fulfilled and atributes are commited immediately.</source>
-        <translation>Ako je omogućeno, element se pohranjuje odmah nakon validacije geometrije i ispunjenja uvjeta.</translation>
+        <translation>Ako je uključeno, element se pohranjuje odmah nakon validacije geometrije i ispunjenja uvjeta.</translation>
     </message>
     <message>
         <source>Dim screen when idling</source>
@@ -2052,7 +2052,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>If disabled, the mouse will act as a stylus pen.</source>
-        <translation>Ako je onemogućeno, miš će se ponašati kao stylus olovka.</translation>
+        <translation>Ako je isključeno, miš će se ponašati kao stylus olovka.</translation>
     </message>
     <message>
         <source>Send anonymized metrics</source>
@@ -2060,7 +2060,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>If enabled, anonymized metrics will be collected and sent to help improve QField for everyone.</source>
-        <translation>Kad je omogućena, anonimine metrike metrika prikupljati će se i slati da bi pomogla unaprijediti QField za svakoga.</translation>
+        <translation>Ako je uključeno, anonimna metrika će se prikupljati i slati u svrhu unaprjeđenja QField-a za sve.</translation>
     </message>
     <message>
         <source>General</source>
@@ -2166,11 +2166,11 @@ Otkažite da pokrenete minimalno skeniranje uređaja.</translation>
     </message>
     <message>
         <source>Enable accuracy requirement</source>
-        <translation>Omogući zahtjev toćnosti</translation>
+        <translation>Omogući zahtjev točnosti</translation>
     </message>
     <message>
         <source>When the accuracy indicator is enabled, a badge is attached to the location button and colored &lt;span %1&gt;red&lt;/span&gt; if the accuracy value is below bad, &lt;span %2&gt;yellow&lt;/span&gt; if it falls short of excellent, or &lt;span %3&gt;green&lt;/span&gt;.&lt;br&gt;&lt;br&gt;In addition, an accuracy restriction mode can be toggled on, which restricts vertex addition when locked to coordinate cursor to positions with an accuracy value above the bad threshold.</source>
-        <translation>Kada je indikator točnosti omogućen, dodana je oznaka na dugme lokacije i obojena &lt;span %1&gt;crveno&lt;/span&gt; ako je točnost loša, &lt;span %2&gt;žuto&lt;/span&gt; ako je dobra, ili &lt;span %3&gt;zeleno&lt;/span&gt;.&lt;br&gt;&lt;br&gt;Dodatno, način ograničenja točnosti može biti uključen, što ograničava dodavanje točki kada je zaključan pokazivač za lokaciju sa točnošću iznad praga.</translation>
+        <translation>Kada je indikator točnosti omogućen, dodana je oznaka na gumb lokacije i obojena je u &lt;span %1&gt;crveno&lt;/span&gt; ako je točnost loša, &lt;span %2&gt;žuto&lt;/span&gt; ako malo nedostaje do dobre točnosti, ili &lt;span %3&gt;zeleno&lt;/span&gt;.&lt;br&gt;&lt;br&gt;Dodatno, način ograničenja točnosti može biti uključen, što ograničava dodavanje točki kada je zaključan pokazivač za lokaciju a točnost je lošija od dozvoljenog praga.</translation>
     </message>
     <message>
         <source>Enable averaged positioning requirement</source>
@@ -2178,11 +2178,11 @@ Otkažite da pokrenete minimalno skeniranje uređaja.</translation>
     </message>
     <message>
         <source>Minimum number of positions collected</source>
-        <translation>Minimalni broj pozicija je prikupljen</translation>
+        <translation>Minimalni broj prikupljenih pozicija</translation>
     </message>
     <message>
         <source>Automatically end collection when minimum number is met</source>
-        <translation>Automatski završi kolekciju kada je minimalan broj zadovoljen</translation>
+        <translation>Automatski završi prikupljanje kada je minimalan broj zadovoljen</translation>
     </message>
     <message>
         <source>When enabled, digitizing vertices with a cursor locked to position will only accepted an averaged position from a minimum number of collected positions. Digitizing using averaged positions is done by pressing and holding the add vertex button, which will collect positions until the press is released. Accuracy requirement settings are respected when enabled.</source>
@@ -2198,7 +2198,7 @@ Otkažite da pokrenete minimalno skeniranje uređaja.</translation>
     </message>
     <message>
         <source>Z values which are recorded from the positioning device will be corrected by this value. If a value of 1.6 is entered, this will result in a correction of -1.6 for each recorded value.</source>
-        <translation>Z vrijednost koja je snimljena na uređaju će biti umanjena za ovu vrijednost. Ako je unesena vrijednost 1.6 , to će rezultirati korekcijom od -1.6 za svaku snimljenu vrijednost.</translation>
+        <translation>Z vrijednosti koje su snimljene od uređaja za pozicioniranje će biti umanjene za ovu vrijednost. Ako je unesena vrijednost 1.6, to će rezultirati korekcijom od -1.6 za svaku snimljenu vrijednost.</translation>
     </message>
     <message>
         <source>Skip altitude correction</source>
@@ -2206,19 +2206,19 @@ Otkažite da pokrenete minimalno skeniranje uređaja.</translation>
     </message>
     <message>
         <source>Use the altitude as reported by the positioning device. Skip any altitude correction that may be implied by the coordinate system transformation.</source>
-        <translation>Koristite visinu sa uređaja za pozicioniranje. Preskače svaku korekciju visine do koje može doći zbog transformacije koordinatnog sistema.</translation>
+        <translation>Koristite nadmorsku visinu sa uređaja za pozicioniranje. Preskače svaku korekciju visine do koje može doći zbog transformacije koordinatnog sustava.</translation>
     </message>
     <message>
         <source>Vertical grid shift in use:</source>
-        <translation>Mreža vertikalnog pomaka u upotrebi:</translation>
+        <translation>Mreža vertikalnih pomaka - grid datoteka u upotrebi:</translation>
     </message>
     <message>
         <source>None</source>
-        <translation>Nema</translation>
+        <translation>Nijedna</translation>
     </message>
     <message>
         <source>Vertical grid shift is used to increase the altitude accuracy.</source>
-        <translation>Mreža vertikalnog pomaka se koristi za povećanje točnosti visine.</translation>
+        <translation>Mreža vertikalnih pomaka se koristi za povećanje točnosti nadmorske visine.</translation>
     </message>
     <message>
         <source>QField Settings</source>
@@ -2601,7 +2601,7 @@ Otkažite da pokrenete minimalno skeniranje uređaja.</translation>
     </message>
     <message>
         <source>Recent Projects</source>
-        <translation>Nedavni Projekti</translation>
+        <translation>Nedavni projekti</translation>
     </message>
     <message>
         <source>Last session</source>
@@ -2683,11 +2683,11 @@ Otkažite da pokrenete minimalno skeniranje uređaja.</translation>
     </message>
     <message>
         <source>Lon</source>
-        <translation>Lon</translation>
+        <translation>Dužina</translation>
     </message>
     <message>
         <source>Lat</source>
-        <translation>Lat</translation>
+        <translation>Širina</translation>
     </message>
     <message>
         <source>Segment</source>
@@ -2787,11 +2787,11 @@ Otkažite da pokrenete minimalno skeniranje uređaja.</translation>
     </message>
     <message>
         <source>Print to PDF</source>
-        <translation>Isprintaj u PDFu</translation>
+        <translation>Isprintaj u PDF</translation>
     </message>
     <message>
         <source>Printing to PDF</source>
-        <translation>Printanje u PDFu</translation>
+        <translation>Printanje u PDF</translation>
     </message>
     <message>
         <source>Go to Home Screen</source>
@@ -2811,7 +2811,7 @@ Otkažite da pokrenete minimalno skeniranje uređaja.</translation>
     </message>
     <message>
         <source>Message Log</source>
-        <translation>Zapisnik Poruka</translation>
+        <translation>Zapisnik poruka</translation>
     </message>
     <message>
         <source>About QField</source>
@@ -2871,15 +2871,15 @@ Otkažite da pokrenete minimalno skeniranje uređaja.</translation>
     </message>
     <message>
         <source>Precise View Settings</source>
-        <translation>Postavke vidljivosti preciznosti</translation>
+        <translation>Postavke prikaza preciznosti</translation>
     </message>
     <message>
         <source>0.25m Precision</source>
-        <translation type="vanished">0.25 m preciznost</translation>
+        <translation type="vanished">0,25 m preciznost</translation>
     </message>
     <message>
         <source>0.5m Precision</source>
-        <translation type="vanished">0.5 m preciznost</translation>
+        <translation type="vanished">0,5 m preciznost</translation>
     </message>
     <message>
         <source>1m Precision</source>
@@ -2887,7 +2887,7 @@ Otkažite da pokrenete minimalno skeniranje uređaja.</translation>
     </message>
     <message>
         <source>2.5m Precision</source>
-        <translation type="vanished">2.5 m preciznost</translation>
+        <translation type="vanished">2,5 m preciznost</translation>
     </message>
     <message>
         <source>5m Precision</source>
@@ -2915,11 +2915,11 @@ Otkažite da pokrenete minimalno skeniranje uređaja.</translation>
     </message>
     <message>
         <source>Signed out</source>
-        <translation>Odjavljen/a</translation>
+        <translation>Uspješna odjava</translation>
     </message>
     <message>
         <source>Signed in</source>
-        <translation>Prijavljen/a</translation>
+        <translation>Uspješna prijava</translation>
     </message>
     <message>
         <source>Set As Destination</source>
@@ -2931,7 +2931,7 @@ Otkažite da pokrenete minimalno skeniranje uređaja.</translation>
     </message>
     <message>
         <source>Clear Destination</source>
-        <translation>Očisti Odredište</translation>
+        <translation>Očisti odredište</translation>
     </message>
     <message>
         <source>%1 Precision</source>
@@ -2947,7 +2947,7 @@ Otkažite da pokrenete minimalno skeniranje uređaja.</translation>
     </message>
     <message>
         <source>Enable Positioning</source>
-        <translation>Omoguči Pozicioniranje</translation>
+        <translation>Omogući pozicioniranje</translation>
     </message>
     <message>
         <source>Show Position Information</source>
@@ -3011,7 +3011,7 @@ Otkažite da pokrenete minimalno skeniranje uređaja.</translation>
     </message>
     <message>
         <source>Logged in</source>
-        <translation type="vanished">Prijavljen</translation>
+        <translation type="vanished">Ulogiran</translation>
     </message>
     <message>
         <source>Project %1 failed to download</source>
