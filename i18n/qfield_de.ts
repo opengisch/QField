@@ -538,15 +538,15 @@ Abbrechen um einen minimalen Scan durchzuführen. </translation>
     </message>
     <message>
         <source>A number of features are being tracked, stop tracking to delete those</source>
-        <translation>Eine Anzahl an Objekten wird aufgenommen, beende das Aufzeichnen um diese zu Löschen</translation>
+        <translation>Eine Anzahl an Objekten wird aufgenommen, beende das Aufzeichnen um diese zu löschen</translation>
     </message>
     <message>
         <source>A number of features are being tracked, stop tracking to merge those</source>
-        <translation>Eine Anzahl an Features wird aufgenommen, beende das Aufzeichnen um diese zu Vereinen</translation>
+        <translation>Eine Anzahl an Features wird aufgenommen, beende das Aufzeichnen um diese zu vereinen</translation>
     </message>
     <message>
         <source>Successfully duplicated selected features, list updated to show newly-created features</source>
-        <translation type="unfinished"/>
+        <translation>Ausgewählte Features erfolgreich dupliziert, Liste aktualisiert um neu erstellte Features anzuzeigen</translation>
     </message>
     <message>
         <source>No feature at this position</source>
@@ -561,15 +561,19 @@ Abbrechen um einen minimalen Scan durchzuführen. </translation>
 
 The features geometries will be combined into feature &apos;%1&apos;, which will keep its attributes.</source>
         <comment>0</comment>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>Sollen die %n ausgewählte(n) Feature(s) wirklich verschmolzen werden?
+
+Die Feature Geometrien werden in Feature &apos;%1&apos; zusammengeführt, welches seine Attribute behalten wird.</numerusform><numerusform>Sollen die %n ausgewählte(n) Objekt(e) wirklich verschmolzen werden?
+
+Die Objekt-Geometrien werden in Objekt &apos;%1&apos; zusammengeführt, welches seine Attribute behalten wird.</numerusform></translation>
     </message>
     <message numerus="yes">
         <source>Successfully merged %n feature(s)</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>Erfolgreich %n Objekte verschmolzen</numerusform><numerusform>Erfolgreich %n Objekte verschmolzen</numerusform></translation>
     </message>
     <message numerus="yes">
         <source>Failed to merge %n feature(s)</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>Verschmelzen von %n Objekt(en) fehlgeschlagen</numerusform><numerusform>Verschmelzen von %n Objekt(en) fehlgeschlagen</numerusform></translation>
     </message>
     <message>
         <source>Delete feature(s)</source>
@@ -578,11 +582,11 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <message numerus="yes">
         <source>Should the %n feature(s) selected really be deleted?</source>
         <comment>0</comment>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>Soll(en) die %n ausgewählte(n) Objekt(e) wirklich gelöscht werden?</numerusform><numerusform>Soll(en) die %n ausgewählte(n) Objekt(e) wirklich gelöscht werden?</numerusform></translation>
     </message>
     <message numerus="yes">
         <source>Successfully deleted %n feature(s)</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>Erfolgreich %n Objekt(e) gelöscht</numerusform><numerusform>Erfolgreich %n Objekt(e) gelöscht</numerusform></translation>
     </message>
     <message numerus="yes">
         <source>Failed to delete %n feature(s)</source>
@@ -650,7 +654,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Set feature as destination</source>
-        <translation type="unfinished"/>
+        <translation>Zu Objekt navigieren</translation>
     </message>
     <message>
         <source>Set feature as navigation</source>
@@ -658,7 +662,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Feature has no geometry</source>
-        <translation>Objekt kat keine Geometrie</translation>
+        <translation>Objekt hat keine Geometrie</translation>
     </message>
     <message>
         <source>Features in all layers</source>
@@ -669,7 +673,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <name>FillRingToolBar</name>
     <message>
         <source>The ring is not closed</source>
-        <translation>Derm Ring ist nicht geschlossen</translation>
+        <translation>Der Ring ist nicht geschlossen</translation>
     </message>
     <message>
         <source>The ring is not valid</source>
@@ -681,11 +685,11 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>The ring doesn&apos;t have any existing ring to fit into</source>
-        <translation>Der Ring hat keinen bestehenden Ring in den er passt</translation>
+        <translation>Der Ring hat keinen bestehenden Ring, in den er passt</translation>
     </message>
     <message>
         <source>Unknown error when creating the ring</source>
-        <translation>Unbekannter Fehler beim erstellen des Rings</translation>
+        <translation>Unbekannter Fehler beim Erstellen des Rings</translation>
     </message>
     <message>
         <source>Fill ring</source>
@@ -734,7 +738,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Go to %1° %2° (WGS84)</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Gehe zu %1° %2° (WGS84)</translation>
     </message>
     <message>
         <source>Go to coordinate</source>
@@ -742,11 +746,11 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Go to %1%2 %3%4 (Map CRS, %5)</source>
-        <translation type="unfinished"/>
+        <translation>Gehe tz %1%2 %3%4 (Map CRS, %5)</translation>
     </message>
     <message>
         <source>Go to %1°N %2°E (%3)</source>
-        <translation type="unfinished"/>
+        <translation>Gehe zu %1°N %2°E (%3)</translation>
     </message>
 </context>
 <context>
@@ -768,11 +772,11 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <name>LayerObserver</name>
     <message>
         <source>Failed to find a local primary key column in layer &quot;%1&quot;</source>
-        <translation type="unfinished"/>
+        <translation>Es konnte keine Spalte mit einem lokalen Primärschlüssel im Layer &quot;%1&quot; gefunden werden.</translation>
     </message>
     <message>
         <source>Failed to find a source primary key column in layer &quot;%1&quot;</source>
-        <translation type="unfinished"/>
+        <translation>Es konnte keine Spalte mit einem Quell-Primärschlüssel im Layer &quot;%1&quot; gefunden werden.</translation>
     </message>
 </context>
 <context>
@@ -795,7 +799,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>This layer is invalid. This might be due to a network issue, a missing file or a misconfiguration of the project.</source>
-        <translation type="unfinished"/>
+        <translation>Dieses Layer ist ungültig. Dies kann auf ein Netzwerkproblem, eine fehlende Datei oder eine Fehlkonfiguration des Projekts zurückzuführen sein.</translation>
     </message>
     <message>
         <source>Show on map</source>
@@ -884,7 +888,8 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <message>
         <source>Cannot commit deletion in layer &quot;%1&quot;. Reason:
 %3</source>
-        <translation type="unfinished"/>
+        <translation>Bestätigung der Löschung von Layer &quot;%1&quot; nicht möglich. Grund:
+%3</translation>
     </message>
     <message>
         <source>Cannot delete feature %1</source>
@@ -901,11 +906,12 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <message>
         <source>Cannot add new feature in layer &quot;%1&quot;. Reason:
 %2</source>
-        <translation type="unfinished"/>
+        <translation>Kann kein neues Objekt im Layer &quot;%1&quot; anlegen. Grund:
+%2</translation>
     </message>
     <message>
         <source>Cannot add new feature in layer &quot;%1&quot;.</source>
-        <translation>Kann kein neues Objekt im Layer &quot;%1&quot; anlegen</translation>
+        <translation>Kann kein neues Objekt im Layer &quot;%1&quot; anlegen.</translation>
     </message>
 </context>
 <context>
@@ -924,7 +930,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Additional files directory</source>
-        <translation type="unfinished"/>
+        <translation>Datenordner zusätzliche Dateien</translation>
     </message>
     <message>
         <source>Sample projects</source>
@@ -935,19 +941,19 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <name>LocatorFiltersModel</name>
     <message>
         <source>Returns a list of features accross all searchable layers with matching attributes</source>
-        <translation type="unfinished"/>
+        <translation>Gibt eine Liste von Objekten über alle durchsuchbaren Layer mit passenden Attributen zurück</translation>
     </message>
     <message>
         <source>Returns a point from a pair of X and Y coordinates typed in the search bar</source>
-        <translation type="unfinished"/>
+        <translation>Gibt einen Punkt aus einem Paar von X- und Y-Koordinaten zurück, die in der Suchleiste eingegeben wurden</translation>
     </message>
     <message>
         <source>Returns a list of bookmark with matching names</source>
-        <translation type="unfinished"/>
+        <translation>Gibt eine Liste von Lesezeichen mit übereinstimmenden Namen zurück</translation>
     </message>
     <message>
         <source>Returns a list of locations and addresses within Finland with matching terms</source>
-        <translation type="unfinished"/>
+        <translation>Liefert eine Liste von Orten und Adressen in Finnland mit übereinstimmenden Begriffen</translation>
     </message>
     <message>
         <source>Search filters for your locations have been activated, customize results in the settings panel</source>
@@ -1011,7 +1017,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Cannot change geometry of feature %1 in %2</source>
-        <translation type="unfinished"/>
+        <translation>Geometrie von Objekt %1 in %2 kann nicht geändert werden</translation>
     </message>
 </context>
 <context>
@@ -1042,7 +1048,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Duplicate Selected Feature(s)</source>
-        <translation type="unfinished"/>
+        <translation>Dupliziere ausgewählte(s) Objekt(e)</translation>
     </message>
     <message>
         <source>Delete Selected Feature(s)</source>
@@ -1082,7 +1088,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Select template below</source>
-        <translation type="unfinished"/>
+        <translation>Vorlage unten auswählen</translation>
     </message>
     <message>
         <source>Printing atlas feature(s) to PDF</source>
@@ -2808,7 +2814,7 @@ Abbrechen um einen minimalen Scan durchzuführen. </translation>
     </message>
     <message>
         <source>Select template below</source>
-        <translation type="unfinished"/>
+        <translation>Vorlage unten auswählen</translation>
     </message>
     <message>
         <source>Activating positioning service</source>

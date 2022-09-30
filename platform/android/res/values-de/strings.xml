@@ -9,6 +9,7 @@
     <string name="noexternalstorage_dialog">Es sieht so aus, als sei der externe Speicher (/sdcard) nicht verfügbar. Dies kann geschehen wenn das Gerät via USB mit einem PC verbunden ist.\nQGIS kann vom internen Speicher gestartet werden, aber es ist nicht empfohlen, da er zu klein sein kann.\nEs wird empfohlen, abzubrechen, das Kabel zu entfernen und QGIS neu zu starten.</string>
     <string name="primary_storage">Interner Speicher</string>
     <string name="secondary_storage">QField Datenordner</string>
+    <string name="secondary_storage_extra">Datenordner zusätzliche Dateien</string>
     <string name="secondary_storage_read_only">Externer Speicher (nur lesen)</string>
     <string name="inaccessible">nicht verfügbar</string>
     <string name="loading">Laden</string>
