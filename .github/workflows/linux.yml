@@ -92,7 +92,6 @@ jobs:
       - name: 🧫 Test
         env:
           PROJ_LIB: ${{ env.CMAKE_BUILD_DIR }}/vcpkg_installed/x64-linux/share/proj/data
-          SPIX_PROJECT_FILE: ${{ github.workspace }}/test/testdata/test_wms.qgz
         run: |
           pip install -r "${{ github.workspace }}/test/spix/requirements.txt"
           cd "${{ env.CMAKE_BUILD_DIR }}"
@@ -120,6 +119,7 @@ jobs:
           path: ${{ env.ARTIFACT_PATHNAME }}
 
       - name: 📊 Upload test report
+        if: always()
         uses: actions/upload-artifact@v3
         with:
           name: "test-report-x64-linux-${{ env.BUILD_TYPE }}"
@@ -148,5 +148,5 @@ jobs:
           curl -sL https://sentry.io/get-cli/ | bash
           ./sentry-cli upload-dif -o opengisch -p qfield ${{ env.CMAKE_BUILD_DIR }}
 
-      - uses: m-kuhn/action-tmate@patch-1
-        if: failure()
+#      - uses: m-kuhn/action-tmate@patch-1
+#        if: failure()

@@ -84,6 +84,12 @@ def process(request):
         data = marker.args[0]
         projectpath = str(Path(__file__).parent.parent / "testdata" / marker.args[0])
 
+    os.environ["QFIELD_FONT_TTF"] = str(
+        Path(__file__).parent.parent / "testdata" / "FiraSansCondensed-Regular.ttf"
+    )
+    os.environ["QFIELD_FONT_NAME"] = "Fira Sans Condensed"
+    os.environ["QFIELD_FONT_SIZE"] = "14"
+
     for filename in filenames:
         try:
             process = subprocess.Popen(

@@ -52,6 +52,11 @@ Q_IMPORT_PLUGIN( opensslPlugin )
 
 void initGraphics()
 {
+#ifdef WITH_SPIX
+  // Set antialiasing method to vertex to get same antialiasing across environments
+  qputenv( "QSG_ANTIALIASING_METHOD", "vertex" );
+#endif
+
   // Enables antialiasing in QML scenes
   QSurfaceFormat format;
   format.setSamples( 4 );
@@ -99,6 +104,15 @@ int main( int argc, char **argv )
   delete dummyApp;
 
   QgsApplication app( argc, argv, true, profilePath, QStringLiteral( "mobile" ) );
+
+  const QString qfieldFont( qgetenv( "QFIELD_FONT_TTF" ) );
+  if ( !qfieldFont.isEmpty() )
+  {
+    const QString qfieldFontName( qgetenv( "QFIELD_FONT_NAME" ) );
+    const int qfieldFontSize = QString( qgetenv( "QFIELD_FONT_SIZE" ) ).toInt();
+    QFontDatabase::addApplicationFont( qfieldFont );
+    app.setFont( QFont( qfieldFontName, qfieldFontSize ) );
+  }
 
 #ifdef RELATIVE_PREFIX_PATH
   qputenv( "GDAL_DATA", QDir::toNativeSeparators( PlatformUtilities::instance()->systemSharedDataLocation() + "/gdal" ).toLocal8Bit() );

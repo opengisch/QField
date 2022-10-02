@@ -112,8 +112,8 @@ QString PlatformUtilities::systemSharedDataLocation() const
   const static QString sharePath = QDir( QFileInfo( !QCoreApplication::applicationFilePath().isEmpty() ? QCoreApplication::applicationFilePath() : QCoreApplication::arguments().value( 0 ) ).canonicalPath()
                                          + QLatin1String( "/../share" ) )
                                      .absolutePath();
-  const static QString environmentSharePath = QDir( QString( qgetenv( "QFIELD_SYSTEM_SHARED_DATA_PATH" ) ) ).absolutePath();
-  return !environmentSharePath.isEmpty() ? environmentSharePath : sharePath;
+  const static QString environmentSharePath = QString( qgetenv( "QFIELD_SYSTEM_SHARED_DATA_PATH" ) );
+  return !environmentSharePath.isEmpty() ? QDir( environmentSharePath ).absolutePath() : sharePath;
 }
 
 QString PlatformUtilities::systemLocalDataLocation( const QString &subDir ) const
