@@ -156,5 +156,22 @@ def test_projection(app, screenshot_path, screenshot_check, extra, process_alive
     assert messagesCount == 0
 
 
+@pytest.mark.project_file("test_svg.qgz")
+def test_svg(app, screenshot_path, screenshot_check, extra, process_alive):
+    """
+    Starts a test app and check shipped SVG marker files are present
+    """
+    assert app.existsAndVisible("mainWindow")
+
+    # Arbitrary wait period to insure project fully loaded and rendered
+    time.sleep(4)
+
+    app.takeScreenshot("mainWindow", os.path.join(screenshot_path, "test_svg.png"))
+    assert process_alive()
+    extra.append(extras.html('<img src="images/test_svg.png"/>'))
+
+    assert screenshot_check("test_svg", "test_svg")
+
+
 if __name__ == "__main__":
     sys.exit(pytest.main([__file__]))
