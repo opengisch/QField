@@ -129,7 +129,7 @@ QJsonArray getDeltasArray( const QString &json )
 }
 
 
-TEST_CASE( "Delta File Wrapper" )
+TEST_CASE( "DeltaFileWrapper" )
 {
   QgsProject *project = QgsProject::instance();
   QTemporaryDir settingsDir;

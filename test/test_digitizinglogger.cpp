@@ -22,7 +22,7 @@
 #include <qgscoordinatereferencesystem.h>
 
 
-TEST_CASE( "Digitizing logger" )
+TEST_CASE( "DigitizingLogger" )
 {
   std::unique_ptr<QgsVectorLayer> logsLayer = std::make_unique<QgsVectorLayer>( QStringLiteral( "Point?crs=EPSG:3857&field=fid:integer&field=digitizing_action:string&field=digitizing_layer_name:string&field=digitizing_layer_id:string&field=digitizing_datetime:datetime" ), QStringLiteral( "Logs Layer" ), QStringLiteral( "memory" ) );
   REQUIRE( logsLayer->isValid() );

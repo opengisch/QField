@@ -21,7 +21,7 @@
 #include "featuremodel.h"
 
 
-TEST_CASE( "Attribute form model" )
+TEST_CASE( "AttributeFormModel" )
 {
   std::unique_ptr<QgsVectorLayer> layer = std::make_unique<QgsVectorLayer>( QStringLiteral( "Point?crs=EPSG:3857&field=fid:integer&field=str:string&field=str2:string" ), QStringLiteral( "Input Layer" ), QStringLiteral( "memory" ) );
   REQUIRE( layer->isValid() );
