@@ -10,6 +10,7 @@ import time
 import os
 import shutil
 from pathlib import Path
+from PIL import Image
 
 
 @pytest.fixture
@@ -39,6 +40,12 @@ def diff_path():
 @pytest.fixture
 def screenshot_check(image_diff, image_diff_dir, screenshot_path, diff_path, extra):
     def inner(test_name, image_name):
+        # insure no alpha channel present in the screenshot being compared
+        png = Image.open(
+            os.path.join(screenshot_path, "{}.png".format(image_name))
+        ).convert("RGB")
+        png.save(os.path.join(screenshot_path, "{}.png".format(image_name)))
+
         result = image_diff(
             os.path.join(screenshot_path, "{}.png".format(image_name)),
             str(
