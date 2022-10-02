@@ -142,6 +142,7 @@ int main( int argc, char **argv )
   app.setThemeName( settings.value( "/Themes", "default" ).toString() );
 #ifdef RELATIVE_PREFIX_PATH
   app.setPkgDataPath( PlatformUtilities::instance()->systemSharedDataLocation() + QStringLiteral( "/qgis" ) );
+  app.setSvgPaths( QStringList() << PlatformUtilities::instance()->systemSharedDataLocation() + QStringLiteral( "/qgis/svg" ) );
 #endif
   app.createDatabase();
 
