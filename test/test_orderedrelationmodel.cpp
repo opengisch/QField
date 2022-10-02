@@ -1,5 +1,5 @@
 /***************************************************************************
-                        test_orderedrelationmodel.h
+                        test_orderedrelationmodel.cpp
                         --------------------
   begin                : June 2021
   copyright            : (C) 2021 by Ivan Ivanov
