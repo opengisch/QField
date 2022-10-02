@@ -93,6 +93,7 @@ jobs:
         env:
           PROJ_LIB: ${{ env.CMAKE_BUILD_DIR }}/vcpkg_installed/x64-linux/share/proj/data
           SPIX_PROJECT_FILE: ${{ github.workspace }}/test/testdata/test_wms.qgz
+          QT_QPA_PLATFORM: eglfs
         run: |
           pip install -r "${{ github.workspace }}/test/spix/requirements.txt"
           cd "${{ env.CMAKE_BUILD_DIR }}"
