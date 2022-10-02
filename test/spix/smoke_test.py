@@ -9,6 +9,7 @@ import sys
 import time
 import os
 import shutil
+import platform
 from pathlib import Path
 from PIL import Image
 
@@ -46,16 +47,25 @@ def screenshot_check(image_diff, image_diff_dir, screenshot_path, diff_path, ext
         ).convert("RGB")
         png.save(os.path.join(screenshot_path, "{}.png".format(image_name)))
 
-        result = image_diff(
-            os.path.join(screenshot_path, "{}.png".format(image_name)),
-            str(
+        expected_name = str(
+            Path(__file__).parent.parent
+            / "testdata"
+            / "control_images"
+            / test_name
+            / "expected_{}-{}.png".format(image_name, platform.system())
+        )
+        if not os.path.isfile(expected_name):
+            expected_name = str(
                 Path(__file__).parent.parent
                 / "testdata"
                 / "control_images"
                 / test_name
                 / "expected_{}.png".format(image_name)
-            ),
-            threshold=0.05,
+            )
+        result = image_diff(
+            os.path.join(screenshot_path, "{}.png".format(image_name)),
+            expected_name,
+            threshold=0.025,
             suffix=image_name,
             throw_exception=False,
         )
