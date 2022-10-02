@@ -57,7 +57,7 @@ QString getId( QString fileName )
   return doc.object().value( QStringLiteral( "id" ) ).toString();
 }
 
-TEST_CASE( "TestLayerObserver" )
+TEST_CASE( "LayerObserver" )
 {
   QTemporaryDir settingsDir;
 

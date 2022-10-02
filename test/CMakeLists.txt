@@ -89,9 +89,6 @@ if (WITH_SPIX)
   add_subdirectory(spix)
 endif ()
 
-ADD_QFIELD_TEST(referencingfeaturelistmodeltest test_referencingfeaturelistmodel.cpp)
-ADD_QFIELD_TEST(orderedrelationmodeltest test_orderedrelationmodel.cpp)
-
 ADD_CATCH2_TEST(layerobservertest test_layerobserver.cpp FALSE)
 ADD_CATCH2_TEST(featureutilstest test_featureutils.cpp TRUE)
 ADD_CATCH2_TEST(vertexmodeltest test_vertexmodel.cpp TRUE)
@@ -103,5 +100,7 @@ ADD_CATCH2_TEST(stringutilstest test_stringutils.cpp TRUE)
 ADD_CATCH2_TEST(urlutilstest test_urlutils.cpp TRUE)
 ADD_CATCH2_TEST(digitizingloggertest test_digitizinglogger.cpp FALSE)
 ADD_CATCH2_TEST(attributeformmodeltest test_attributeformmodel.cpp FALSE)
+ADD_CATCH2_TEST(orderedrelationmodeltest test_orderedrelationmodel.cpp FALSE)
+ADD_CATCH2_TEST(referencingfeaturelistmodeltest test_referencingfeaturelistmodel.cpp FALSE)
 
 ADD_QFIELD_QML_TEST(qmltest test_qml_editorwidgets.cpp)
