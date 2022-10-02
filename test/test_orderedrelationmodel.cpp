@@ -19,12 +19,11 @@
 #include "catch2.h"
 #include "orderedrelationmodel.h"
 
+#include <QSignalSpy>
 #include <qgsapplication.h>
 #include <qgsproject.h>
 #include <qgsrelationmanager.h>
 #include <qgsvectorlayer.h>
-
-#include <QSignalSpy>
 
 TEST_CASE( "OrderedRelationModel" )
 {
@@ -93,7 +92,7 @@ TEST_CASE( "OrderedRelationModel" )
     mModel->setOrderingField( QStringLiteral( "rank" ) );
     mModel->setFeature( mReferencedLayer->getFeature( 1 ) );
 
-    REQUIRE(QSignalSpy( mModel.get(), &ReferencingFeatureListModel::modelUpdated ).wait( 1000 ) );
+    REQUIRE( QSignalSpy( mModel.get(), &ReferencingFeatureListModel::modelUpdated ).wait( 1000 ) );
 
     REQUIRE( mModel->rowCount() == 4 );
     REQUIRE( mModel->deleteFeature( 2 ) );
@@ -105,7 +104,7 @@ TEST_CASE( "OrderedRelationModel" )
     REQUIRE( mReferencingLayer->getFeature( 4 ).attribute( QStringLiteral( "rank" ) ).toInt() == 3 );
   }
 
-  SECTION ( "MoveFeature" )
+  SECTION( "MoveFeature" )
   {
     REQUIRE( mModel->rowCount() == 0 );
 

@@ -20,16 +20,14 @@
 #include "qgsquickmapsettings.h"
 #include "referencingfeaturelistmodel.h"
 
+#include <QSignalSpy>
 #include <qgsapplication.h>
 #include <qgsproject.h>
 #include <qgsrelationmanager.h>
 #include <qgsvectorlayer.h>
 
-#include <QSignalSpy>
-
 TEST_CASE( "ReferencingFeatureListModel" )
 {
-
   /* TEST PROJECT
       *
       * LAYERS
