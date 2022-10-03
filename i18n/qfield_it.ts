@@ -133,7 +133,7 @@
     </message>
     <message numerus="yes">
         <source>%n device(s) found</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>%n dispositivi trovati</numerusform><numerusform>%n dispositivi trovati</numerusform><numerusform>%n dispositivi trovati</numerusform></translation>
     </message>
     <message>
         <source>Scanning canceled</source>
@@ -442,7 +442,7 @@ Annullare per eseguire una scansione veloce del dispositivo.</translation>
     <name>EditorWidgetBase</name>
     <message>
         <source>Item Menu</source>
-        <translation type="unfinished"/>
+        <translation>Menu Oggetto</translation>
     </message>
 </context>
 <context>
@@ -865,11 +865,11 @@ Le geometrie degli elementi verranno combinati in un elemento &apos;%1&apos; che
     </message>
     <message>
         <source>Show visible features list</source>
-        <translation type="unfinished"/>
+        <translation>Mostra elenco degli elementi visibili</translation>
     </message>
     <message>
         <source>Show Features Menu</source>
-        <translation type="unfinished"/>
+        <translation>Mostra Menu Elementi</translation>
     </message>
 </context>
 <context>
@@ -1917,7 +1917,7 @@ Messaggio dell&apos;errore: %4</translation>
     </message>
     <message>
         <source>No projects found</source>
-        <translation type="unfinished"/>
+        <translation>Nessun progetto trovato</translation>
     </message>
 </context>
 <context>
@@ -2189,7 +2189,7 @@ Annullare per eseguire una scansione veloce del dispositivo.</translation>
     </message>
     <message>
         <source>Automatically end collection when minimum number is met</source>
-        <translation type="unfinished"/>
+        <translation>Termina automaticamente la registrazione quando il numero minimo è soddisfatto</translation>
     </message>
     <message>
         <source>When enabled, digitizing vertices with a cursor locked to position will only accepted an averaged position from a minimum number of collected positions. Digitizing using averaged positions is done by pressing and holding the add vertex button, which will collect positions until the press is released. Accuracy requirement settings are respected when enabled.</source>
@@ -2233,7 +2233,7 @@ Annullare per eseguire una scansione veloce del dispositivo.</translation>
     </message>
     <message>
         <source>Time of inactivity in seconds before the screen brightness get be dimmed to preserve battery.</source>
-        <translation type="unfinished"/>
+        <translation>Tempo di inattività in secondi prima che la luminosità dello schermo venga attenuata per preservare la batteria.</translation>
     </message>
 </context>
 <context>
@@ -2535,7 +2535,7 @@ Annullare per eseguire una scansione veloce del dispositivo.</translation>
     </message>
     <message>
         <source>When both constraints are disabled, vertex additions will occur as frequently as delivered by the positioning device.</source>
-        <translation type="unfinished"/>
+        <translation>Quando entrambi i vincoli sono disabilitati, le aggiunte di vertice si verificano con la stessa frequenza fornita dal dispositivo di posizionamento.</translation>
     </message>
 </context>
 <context>
@@ -2882,27 +2882,27 @@ Annullare per eseguire una scansione veloce del dispositivo.</translation>
     </message>
     <message>
         <source>0.25m Precision</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Precisione 0.25m</translation>
     </message>
     <message>
         <source>0.5m Precision</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Precisione 0.5m</translation>
     </message>
     <message>
         <source>1m Precision</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Precisione 1m</translation>
     </message>
     <message>
         <source>2.5m Precision</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Precisione 2.5m</translation>
     </message>
     <message>
         <source>5m Precision</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Precision 5m</translation>
     </message>
     <message>
         <source>10m Precision</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Precisione 10m</translation>
     </message>
     <message>
         <source>Always Show Precise View</source>
@@ -2942,7 +2942,7 @@ Annullare per eseguire una scansione veloce del dispositivo.</translation>
     </message>
     <message>
         <source>%1 Precision</source>
-        <translation type="unfinished"/>
+        <translation>Precisione %1</translation>
     </message>
     <message>
         <source>Enable Audio Proximity Feedback</source>
