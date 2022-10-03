@@ -95,7 +95,7 @@ jobs:
         run: |
           pip install -r "${{ github.workspace }}/test/spix/requirements.txt"
           cd "${{ env.CMAKE_BUILD_DIR }}"
-          xvfb-run --server-args="-screen 0 640x480x24" ctest --output-on-failure -C ${{ env.BUILD_TYPE }}
+          xvfb-run --server-args="-screen 0 640x480x24 -dpi 96" ctest --output-on-failure -C ${{ env.BUILD_TYPE }}
 
       - name: Package
         run: |
