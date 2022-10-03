@@ -30,7 +30,7 @@ EditorWidgetBase {
     wrapMode: Text.Wrap
     textFormat: config['IsMultiline'] === true && config['UseHtml'] ? TextEdit.RichText : TextEdit.AutoText
 
-    text: value == null ? '' : stringUtilities.insertLinks(value)
+    text: value == null ? '' : config['IsMultiline'] === true ? stringUtilities.insertLinks(value) : stringUtilities.insertLinks(value).replace('\n','')
 
     onLinkActivated: Qt.openUrlExternally(link)
   }
