@@ -137,6 +137,29 @@ public class QFieldUtils {
         return true;
     }
 
+    public static boolean filesToZip(OutputStream out, String[] files) {
+        try {
+            ZipOutputStream zout = new ZipOutputStream(out);
+            for (String path : files) {
+                File file = new File(path);
+                InputStream in = new FileInputStream(file);
+                ZipEntry entry = new ZipEntry(file.getName());
+                zout.putNextEntry(entry);
+                int size = 0;
+                byte[] buffer = new byte[1024];
+                while ((size = in.read(buffer, 0, buffer.length)) != -1) {
+                    zout.write(buffer, 0, size);
+                }
+                in.close();
+            }
+            zout.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        }
+        return true;
+    }
+
     public static boolean zipToFolder(InputStream in, String folder) {
         try {
             ZipInputStream zin = new ZipInputStream(in);

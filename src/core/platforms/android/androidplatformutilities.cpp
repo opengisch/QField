@@ -38,6 +38,7 @@
 #include <QStandardPaths>
 #include <QString>
 #include <QtAndroid>
+#include <qgsfileutils.h>
 
 #include <android/bitmap.h>
 #include <android/log.h>
@@ -201,8 +202,14 @@ void AndroidPlatformUtilities::sendDatasetTo( const QString &path ) const
       QAndroidJniObject activity = QtAndroid::androidActivity();
       if ( activity.isValid() )
       {
-        QAndroidJniObject pathJni = QAndroidJniObject::fromString( path );
-        activity.callMethod<void>( "sendDatasetTo", "(Ljava/lang/String;)V", pathJni.object<jstring>() );
+        QStringList paths = QStringList() << path;
+        const QSet<QString> files = QgsFileUtils::sidecarFilesForPath( path );
+        for ( const QString &file : files )
+        {
+          paths << file;
+        }
+        QAndroidJniObject pathsJni = QAndroidJniObject::fromString( paths.join( "--;--" ) );
+        activity.callMethod<void>( "sendDatasetTo", "(Ljava/lang/String;)V", pathsJni.object<jstring>() );
       }
     } );
   }
@@ -216,8 +223,14 @@ void AndroidPlatformUtilities::exportDatasetTo( const QString &path ) const
       QAndroidJniObject activity = QtAndroid::androidActivity();
       if ( activity.isValid() )
       {
-        QAndroidJniObject pathJni = QAndroidJniObject::fromString( path );
-        activity.callMethod<void>( "exportToFolder", "(Ljava/lang/String;)V", pathJni.object<jstring>() );
+        QStringList paths = QStringList() << path;
+        const QSet<QString> files = QgsFileUtils::sidecarFilesForPath( path );
+        for ( const QString &file : files )
+        {
+          paths << file;
+        }
+        QAndroidJniObject pathsJni = QAndroidJniObject::fromString( paths.join( "--;--" ) );
+        activity.callMethod<void>( "exportToFolder", "(Ljava/lang/String;)V", pathsJni.object<jstring>() );
       }
     } );
   }

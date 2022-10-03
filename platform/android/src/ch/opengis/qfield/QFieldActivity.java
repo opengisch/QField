@@ -79,9 +79,12 @@ import ch.opengis.qfield.R;
 import io.sentry.android.core.SentryAndroid;
 import java.io.BufferedInputStream;
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.OutputStream;
 import java.lang.Thread;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -103,7 +106,7 @@ public class QFieldActivity extends QtActivity {
     public static native void openPath(String path);
 
     private float originalBrightness;
-    private String pathToExport;
+    private String pathsToExport;
     private double sceneTopMargin = 0;
 
     @Override
@@ -553,8 +556,27 @@ public class QFieldActivity extends QtActivity {
         return;
     }
 
-    private void sendDatasetTo(String path) {
-        File file = new File(path);
+    private void sendDatasetTo(String paths) {
+        String[] filePaths = paths.split("--;--");
+        File file;
+        if (filePaths.length == 1) {
+            file = new File(paths);
+        } else {
+            File temporaryFile = new File(filePaths[0]);
+            file = new File(getCacheDir(), temporaryFile.getName() + ".zip");
+            try {
+                OutputStream out = new FileOutputStream(file.getAbsolutePath());
+                boolean success = QFieldUtils.filesToZip(out, filePaths);
+                out.close();
+                if (!success) {
+                    return;
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+                return;
+            }
+        }
+
         DocumentFile documentFile = DocumentFile.fromFile(file);
         Context context = getApplication().getApplicationContext();
         Intent intent = new Intent(Intent.ACTION_SEND);
@@ -567,8 +589,8 @@ public class QFieldActivity extends QtActivity {
         return;
     }
 
-    private void exportToFolder(String path) {
-        pathToExport = path;
+    private void exportToFolder(String paths) {
+        pathsToExport = paths;
 
         Intent intent = new Intent(Intent.ACTION_OPEN_DOCUMENT_TREE);
         intent.addCategory(Intent.CATEGORY_DEFAULT);
@@ -1102,7 +1124,7 @@ public class QFieldActivity extends QtActivity {
                    resultCode == Activity.RESULT_OK) {
             Log.d("QField", "handling export to folder");
 
-            File file = new File(pathToExport);
+            String[] paths = pathsToExport.split("--;--");
             Uri uri = data.getData();
             Context context = getApplication().getApplicationContext();
             ContentResolver resolver = getContentResolver();
@@ -1116,11 +1138,17 @@ public class QFieldActivity extends QtActivity {
                     DocumentFile directory =
                         DocumentFile.fromTreeUri(context, uri);
 
-                    boolean exported = QFieldUtils.fileToDocumentFile(
-                        file, directory, resolver);
+                    boolean exported = true;
+                    for (String path : paths) {
+                        File file = new File(path);
+                        exported = QFieldUtils.fileToDocumentFile(
+                            file, directory, resolver);
+                        if (!exported) {
+                            break;
+                        }
+                    }
 
                     if (!exported) {
-
                         if (!isFinishing()) {
                             displayAlertDialog(
                                 getString(R.string.export_error),
