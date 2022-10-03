@@ -539,6 +539,10 @@ void QgisMobileapp::initDeclarative()
   qreal dpi = mApp->primaryScreen()->logicalDotsPerInch();
   dpi *= mApp->primaryScreen()->devicePixelRatio();
 
+  qDebug() << QStringLiteral( "logicalDotsPerInch: %1" ).arg( mApp->primaryScreen()->logicalDotsPerInch() );
+  qDebug() << QStringLiteral( "physicalDotsPerInch: %1" ).arg( mApp->primaryScreen()->physicalDotsPerInch() );
+  qDebug() << QStringLiteral( "devicePixleRatio: %1" ).arg( mApp->primaryScreen()->devicePixelRatio() );
+
   // Register some globally available variables
   rootContext()->setContextProperty( "ppi", dpi );
   rootContext()->setContextProperty( "mouseDoubleClickInterval", QApplication::styleHints()->mouseDoubleClickInterval() );
