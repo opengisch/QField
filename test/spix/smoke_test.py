@@ -9,6 +9,7 @@ import sys
 import time
 import os
 import shutil
+import platform
 from pathlib import Path
 from PIL import Image
 
@@ -46,16 +47,25 @@ def screenshot_check(image_diff, image_diff_dir, screenshot_path, diff_path, ext
         ).convert("RGB")
         png.save(os.path.join(screenshot_path, "{}.png".format(image_name)))
 
-        result = image_diff(
-            os.path.join(screenshot_path, "{}.png".format(image_name)),
-            str(
+        expected_name = str(
+            Path(__file__).parent.parent
+            / "testdata"
+            / "control_images"
+            / test_name
+            / "expected_{}-{}.png".format(image_name, platform.system())
+        )
+        if not os.path.isfile(expected_name):
+            expected_name = str(
                 Path(__file__).parent.parent
                 / "testdata"
                 / "control_images"
                 / test_name
                 / "expected_{}.png".format(image_name)
-            ),
-            threshold=0.05,
+            )
+        result = image_diff(
+            os.path.join(screenshot_path, "{}.png".format(image_name)),
+            expected_name,
+            threshold=0.025,
             suffix=image_name,
             throw_exception=False,
         )
@@ -154,6 +164,23 @@ def test_projection(app, screenshot_path, screenshot_check, extra, process_alive
         messagesCount = messagesCount + 1
     extra.append(extras.html("Message logs count: {}".format(messagesCount)))
     assert messagesCount == 0
+
+
+@pytest.mark.project_file("test_svg.qgz")
+def test_svg(app, screenshot_path, screenshot_check, extra, process_alive):
+    """
+    Starts a test app and check shipped SVG marker files are present
+    """
+    assert app.existsAndVisible("mainWindow")
+
+    # Arbitrary wait period to insure project fully loaded and rendered
+    time.sleep(4)
+
+    app.takeScreenshot("mainWindow", os.path.join(screenshot_path, "test_svg.png"))
+    assert process_alive()
+    extra.append(extras.html('<img src="images/test_svg.png"/>'))
+
+    assert screenshot_check("test_svg", "test_svg")
 
 
 if __name__ == "__main__":
