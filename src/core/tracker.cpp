@@ -39,7 +39,7 @@ void Tracker::setModel( RubberbandModel *model )
 
 void Tracker::trackPosition()
 {
-  if ( std::isnan( model()->currentCoordinate().x() ) || std::isnan( model()->currentCoordinate().y() ) )
+  if ( !model() || std::isnan( model()->currentCoordinate().x() ) || std::isnan( model()->currentCoordinate().y() ) )
   {
     return;
   }
