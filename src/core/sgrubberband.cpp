@@ -109,7 +109,6 @@ QSGGeometryNode *SGRubberband::createLineGeometry( const QVector<QgsPoint> &poin
 QSGGeometryNode *SGRubberband::createPolygonGeometry( const QVector<QgsPoint> &points )
 {
   QgsPolygon polygon = QgsPolygon( new QgsLineString( points ) );
-  qInfo() << QStringLiteral( "gsrubberband polygon WKT: %1" ).arg( polygon.asWkt() );
   QgsTessellator t( 0, 0, false, false, false, true );
   if ( points.size() > 2 )
   {
