@@ -3094,6 +3094,33 @@ ApplicationWindow {
     visible: false
   }
 
+
+  Connections {
+    target: locatorItem
+
+    function onSearchTermChanged(searchTerm) {
+      var lowered = searchTerm.toLowerCase();
+      if ( lowered === 'hello nyuki') {
+        Qt.inputMethod.hide();
+        locatorItem.searchTermHandled = true;
+        nyuki.state = "shown";
+      } else if (lowered === 'bye nyuki') {
+        Qt.inputMethod.hide();
+        locatorItem.searchTermHandled = true;
+        nyuki.state = "hidden";
+      }
+    }
+  }
+
+  Nyuki {
+    id: nyuki
+    anchors.bottom: parent.bottom
+    anchors.bottomMargin: -200
+    anchors.left: parent.left
+    width: 200
+    height: 200
+  }
+
   DropArea {
     id: dropArea
     anchors.fill: parent
