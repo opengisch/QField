@@ -12,6 +12,14 @@ Item {
   property bool searchFieldVisible: searchField.visible
   property alias locatorModelSuperBridge: locator
 
+  /* Emitted when the search term typed into the locator bar has changed. If
+   * the searchTermHandled boolean property is set to true while the signal
+   * is propagated, the locator will consider the search term as having been
+   * handled and will skip the default behavior.
+   */
+  signal searchTermChanged(var searchTerm)
+  property bool searchTermHandled: false
+
   state: "off"
 
   width: searchFieldRect.width
@@ -99,7 +107,7 @@ Item {
     function onVisibleChanged() {
       if (!visible) {
         enabled = false;
-      }
+      }hello
     }
   }
 
@@ -137,7 +145,13 @@ Item {
         color: "transparent"
       }
       inputMethodHints: Qt.ImhNoPredictiveText | Qt.ImhNoAutoUppercase
-      onDisplayTextChanged: locator.performSearch(searchField.displayText)
+      onDisplayTextChanged: {
+        searchTermHandled = false
+        searchTermChanged(searchField.displayText)
+        if (!searchTermHandled) {
+          locator.performSearch(searchField.displayText)
+        }
+      }
     }
   }
 
