@@ -19,10 +19,15 @@ Item {
   width: textField.width
   height: textField.height
 
+  FontMetrics {
+    id: fontMetrics
+    font: Theme.defaultFont
+  }
+
   TextField {
     id: textField
     echoMode: textFieldWrapper.echoMode
-    height: font.height + 20
+    height:  fontMetrics.height + 20
     width: textFieldWrapper.width
     font: Theme.defaultFont
     rightPadding: showPasswordButton.visible ? 2 * showPasswordButton.width : 0
