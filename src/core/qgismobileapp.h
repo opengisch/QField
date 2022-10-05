@@ -54,6 +54,7 @@ class LocatorFiltersModel;
 class QgsProject;
 class LayerObserver;
 class MessageLogModel;
+class QgsPrintLayout;
 
 #define REGISTER_SINGLETON( uri, _class, name ) qmlRegisterSingletonType<_class>( uri, 1, 0, name, []( QQmlEngine *engine, QJSEngine *scriptEngine ) -> QObject * { Q_UNUSED(engine); Q_UNUSED(scriptEngine); return new _class(); } )
 
@@ -200,8 +201,8 @@ class QFIELD_CORE_EXPORT QgisMobileapp : public QQmlApplicationEngine
 
   private:
     void initDeclarative();
-
     void loadProjectQuirks();
+    bool printAtlas( QgsPrintLayout *layoutToPrint, const QString &destination );
 
     QgsOfflineEditing *mOfflineEditing = nullptr;
     LayerTreeMapCanvasBridge *mLayerTreeCanvasBridge = nullptr;

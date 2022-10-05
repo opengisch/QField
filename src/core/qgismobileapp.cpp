@@ -1289,26 +1289,46 @@ bool QgisMobileapp::print( const QString &layoutName )
   if ( !layoutToPrint || layoutToPrint->pageCollection()->pageCount() == 0 )
     return false;
 
-  if ( layoutToPrint->referenceMap() )
-    layoutToPrint->referenceMap()->zoomToExtent( mMapCanvas->mapSettings()->visibleExtent() );
-  layoutToPrint->refresh();
-
   const QString destination = mProject->homePath() + '/' + layoutToPrint->name() + '-' + QDateTime::currentDateTime().toString( QStringLiteral( "yyyyMMdd_hhmmss" ) ) + QStringLiteral( ".pdf" );
+  if ( !layoutToPrint->atlas() )
+  {
+    if ( layoutToPrint->referenceMap() )
+      layoutToPrint->referenceMap()->zoomToExtent( mMapCanvas->mapSettings()->visibleExtent() );
+    layoutToPrint->refresh();
 
-  QgsLayoutExporter::PdfExportSettings pdfSettings;
-  pdfSettings.rasterizeWholeImage = layoutToPrint->customProperty( QStringLiteral( "rasterize" ), false ).toBool();
-  pdfSettings.dpi = layoutToPrint->renderContext().dpi();
-  pdfSettings.appendGeoreference = true;
-  pdfSettings.exportMetadata = true;
-  pdfSettings.simplifyGeometries = true;
+    QgsLayoutExporter::PdfExportSettings pdfSettings;
+    pdfSettings.rasterizeWholeImage = layoutToPrint->customProperty( QStringLiteral( "rasterize" ), false ).toBool();
+    pdfSettings.dpi = layoutToPrint->renderContext().dpi();
+    pdfSettings.appendGeoreference = true;
+    pdfSettings.exportMetadata = true;
+    pdfSettings.simplifyGeometries = true;
 
-  QgsLayoutExporter exporter = QgsLayoutExporter( layoutToPrint );
-  QgsLayoutExporter::ExportResult result = exporter.exportToPdf( destination, pdfSettings );
+    QgsLayoutExporter exporter = QgsLayoutExporter( layoutToPrint );
+    QgsLayoutExporter::ExportResult result = exporter.exportToPdf( destination, pdfSettings );
 
-  if ( result == QgsLayoutExporter::Success )
-    PlatformUtilities::instance()->open( destination );
+    if ( result == QgsLayoutExporter::Success )
+      PlatformUtilities::instance()->open( destination );
 
-  return result == QgsLayoutExporter::Success ? true : false;
+    return result == QgsLayoutExporter::Success ? true : false;
+  }
+  else
+  {
+    bool success = printAtlas( layoutToPrint, destination );
+    if ( success )
+    {
+      if ( layoutToPrint->customProperty( QStringLiteral( "singleFile" ), true ).toBool() )
+      {
+        PlatformUtilities::instance()->open( destination );
+      }
+#ifndef Q_OS_ANDROID
+      else
+      {
+        PlatformUtilities::instance()->open( mProject->homePath() );
+      }
+#endif
+    }
+    return success;
+  }
 #else
 #warning "No PrintSupport for iOs. QgisMobileapp::print won't do anything."
   return false;
@@ -1339,10 +1359,42 @@ bool QgisMobileapp::printAtlasFeatures( const QString &layoutName, const QList<l
   }
 
   QString error;
+  const QString priorFilterExpression = layoutToPrint->atlas()->filterExpression();
+  const bool priorFilterFeatures = layoutToPrint->atlas()->filterFeatures();
+
   layoutToPrint->atlas()->setFilterExpression( QStringLiteral( "$id IN (%1)" ).arg( ids.join( ',' ) ), error );
   layoutToPrint->atlas()->setFilterFeatures( true );
 
-  const QString destination = mProject->homePath() + '/' + layoutToPrint->name() + QStringLiteral( ".pdf" );
+  const QString destination = mProject->homePath() + '/' + layoutToPrint->name() + '-' + QDateTime::currentDateTime().toString( QStringLiteral( "yyyyMMdd_hhmmss" ) ) + QStringLiteral( ".pdf" );
+  const bool success = printAtlas( layoutToPrint, destination );
+
+  layoutToPrint->atlas()->setFilterExpression( priorFilterExpression, error );
+  layoutToPrint->atlas()->setFilterFeatures( priorFilterFeatures );
+
+  if ( success )
+  {
+    if ( layoutToPrint->customProperty( QStringLiteral( "singleFile" ), true ).toBool() )
+    {
+      PlatformUtilities::instance()->open( destination );
+    }
+#ifndef Q_OS_ANDROID
+    else
+    {
+      PlatformUtilities::instance()->open( mProject->homePath() );
+    }
+#endif
+  }
+  return success;
+#else
+#warning "No PrintSupport for iOs. QgisMobileapp::print won't do anything."
+  return false;
+#endif
+}
+
+bool QgisMobileapp::printAtlas( QgsPrintLayout *layoutToPrint, const QString &destination )
+{
+#ifndef QT_NO_PRINTER
+  QString error;
 
   QgsLayoutExporter::PdfExportSettings pdfSettings;
   pdfSettings.rasterizeWholeImage = layoutToPrint->customProperty( QStringLiteral( "rasterize" ), false ).toBool();
@@ -1375,16 +1427,10 @@ bool QgisMobileapp::printAtlasFeatures( const QString &layoutName, const QList<l
     if ( layoutToPrint->customProperty( QStringLiteral( "singleFile" ), true ).toBool() )
     {
       result = exporter.exportToPdf( layoutToPrint->atlas(), destination, pdfSettings, error );
-      if ( result == QgsLayoutExporter::Success )
-        PlatformUtilities::instance()->open( destination );
     }
     else
     {
       result = exporter.exportToPdfs( layoutToPrint->atlas(), destination, pdfSettings, error );
-#ifndef Q_OS_ANDROID
-      if ( result == QgsLayoutExporter::Success )
-        PlatformUtilities::instance()->open( mProject->homePath() );
-#endif
     }
     return result == QgsLayoutExporter::Success ? true : false;
   }
