@@ -256,6 +256,8 @@ ApplicationWindow {
                 if (geometryEditorsToolbar.canvasClicked(centroid.position)) {
                     // needed to handle freehand digitizing of rings
                 } else {
+                    if (centroid.position !== Qt.point(0, 0))
+                        coordinateLocator.sourceLocation = centroid.position
                     digitizingToolbar.addVertex();
                 }
             }
@@ -282,8 +284,8 @@ ApplicationWindow {
                 coordinateLocator.sourceLocation = mapCanvas.mapSettings.coordinateToScreen( digitizingToolbar.rubberbandModel.lastCoordinate );
             } else if ( !freehandHandler.active && pointInItem( point, geometryEditorsToolbar ) ) {
                 coordinateLocator.sourceLocation = mapCanvas.mapSettings.coordinateToScreen( geometryEditorsToolbar.editorRubberbandModel.lastCoordinate );
-            } else {
-                // after a click, it seems that the position is sent once at 0,0 => weird
+            } else if ( !freehandHandler.active ) {
+                // after a click, it seems that the position is sent once at 0,0 => weird)
                 if (point.position !== Qt.point(0, 0))
                     coordinateLocator.sourceLocation = point.position
             }
