@@ -273,6 +273,8 @@ ApplicationWindow {
         acceptedDevices: PointerDevice.Stylus | PointerDevice.Mouse
         grabPermissions: PointerHandler.TakeOverForbidden
 
+        property bool hasBeenHovered: false
+
         onPointChanged: {
             function pointInItem(point, item) {
                 var itemCoordinates = item.mapToItem(mainWindow.contentItem, 0, 0);
@@ -292,14 +294,17 @@ ApplicationWindow {
         }
 
         onActiveChanged: {
-            if ( !active )
+            if ( !active ) {
                 coordinateLocator.sourceLocation = undefined
-
+            }
         }
 
         onHoveredChanged: {
-            if ( !hovered )
+            if ( hovered ) {
+                hasBeenHovered = true;
+            } else {
                 coordinateLocator.sourceLocation = undefined
+            }
         }
     }
     Timer {
@@ -1096,7 +1101,7 @@ ApplicationWindow {
     QfToolButton {
       id: freehandButton
       round: true
-      visible: hoverHandler.hovered && !(positionSource.active && positioningSettings.positioningCoordinateLock) && stateMachine.state === "digitize"
+      visible: hoverHandler.hasBeenHovered && !(positionSource.active && positioningSettings.positioningCoordinateLock) && stateMachine.state === "digitize"
                && ((digitizingToolbar.geometryRequested && digitizingToolbar.geometryRequestedLayer && digitizingToolbar.geometryRequestedLayer.isValid &&
                    (digitizingToolbar.geometryRequestedLayer.geometryType() === QgsWkbTypes.PolygonGeometry
                     || digitizingToolbar.geometryRequestedLayer.geometryType() === QgsWkbTypes.LineGeometry))
