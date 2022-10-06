@@ -30,6 +30,7 @@
 #include <QApplication>
 #include <QDebug>
 #include <QFile>
+#include <QFileInfo>
 #include <QMap>
 #include <QMimeDatabase>
 #include <QQmlApplicationEngine>
@@ -412,6 +413,9 @@ PictureSource *AndroidPlatformUtilities::getGalleryPicture( QQuickItem *parent, 
 
 ViewStatus *AndroidPlatformUtilities::open( const QString &uri, bool editing )
 {
+  if ( QFileInfo( uri ).isDir() )
+    return nullptr;
+
   checkWriteExternalStoragePermissions();
 
   QAndroidJniObject activity = QAndroidJniObject::fromString( QStringLiteral( "ch.opengis." APP_PACKAGE_NAME ".QFieldOpenExternallyActivity" ) );
