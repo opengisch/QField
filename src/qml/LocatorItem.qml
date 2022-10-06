@@ -107,7 +107,7 @@ Item {
     function onVisibleChanged() {
       if (!visible) {
         enabled = false;
-      }hello
+      }
     }
   }
 
