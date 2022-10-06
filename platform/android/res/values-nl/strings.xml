@@ -66,4 +66,6 @@
     <string name="storage_information_message">Of u nu een bestaande QField 1.x-gebruiker bent en zich afvraagt waarom uw projecten en datasets zijn verdwenen of nieuw voor QField, we raden u aan even de tijd te nemen om de documentatie over opslagverwerking te lezen. Een snelkoppeling naar deze documentatie blijft toegankelijk in het actiemenu van de titelbalk.</string>
     <string name="storage_information_view">Toon me de documentatie</string>
     <string name="storage_information_dismiss">Ik lees later</string>
-    </resources>
+    <string name="import_project_wait">Een ogenblik geduld terwijl QField het project importeert</string>
+    <string name="import_dataset_wait">Een ogenblik geduld terwijl QField de dataset(s) importeert</string>
+</resources>
