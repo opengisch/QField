@@ -1320,12 +1320,10 @@ bool QgisMobileapp::print( const QString &layoutName )
       {
         PlatformUtilities::instance()->open( destination );
       }
-#ifndef Q_OS_ANDROID
       else
       {
         PlatformUtilities::instance()->open( mProject->homePath() );
       }
-#endif
     }
     return success;
   }
@@ -1377,12 +1375,10 @@ bool QgisMobileapp::printAtlasFeatures( const QString &layoutName, const QList<l
     {
       PlatformUtilities::instance()->open( destination );
     }
-#ifndef Q_OS_ANDROID
     else
     {
       PlatformUtilities::instance()->open( mProject->homePath() );
     }
-#endif
   }
   return success;
 #else
