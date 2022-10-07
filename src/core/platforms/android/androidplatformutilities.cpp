@@ -373,7 +373,9 @@ PictureSource *AndroidPlatformUtilities::getCameraPicture( QQuickItem *parent, c
 
   AndroidPictureSource *pictureSource = new AndroidPictureSource( prefix );
 
-  QtAndroid::startActivity( intent.object<jobject>(), 171, pictureSource );
+  QtAndroid::startActivity( intent.object<jobject>(), 171, [this]( int requestCode, int resultCode, const QAndroidJniObject &data ) {
+    qInfo() << "MMM";
+  } );
 
   return pictureSource;
 }
