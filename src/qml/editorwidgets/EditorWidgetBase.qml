@@ -11,6 +11,7 @@ Item {
     property Menu menu: Menu {
       id: itemMenu
       title: qsTr( "Item Menu" )
+      z: 10000 // 1000s are embedded feature forms, use a higher value to insure feature form popups always show above embedded feature formes
 
       width: {
           var result = 0;
