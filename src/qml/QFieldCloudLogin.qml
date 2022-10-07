@@ -157,6 +157,7 @@ Item {
 
       QfTextField {
         id: usernameField
+        inputMethodHints: Qt.ImhNoPredictiveText | Qt.ImhNoAutoUppercase | Qt.ImhPreferLowercase
         Layout.preferredWidth: parent.width / 1.3
         Layout.alignment: Qt.AlignHCenter
         visible: cloudConnection.status === QFieldCloudConnection.Disconnected
@@ -182,6 +183,7 @@ Item {
       QfTextField {
         id: passwordField
         echoMode: TextInput.Password
+        inputMethodHints: Qt.ImhHiddenText | Qt.ImhNoPredictiveText | Qt.ImhSensitiveData | Qt.ImhNoAutoUppercase | Qt.ImhPreferLowercase
         Layout.preferredWidth: parent.width / 1.3
         Layout.alignment: Qt.AlignHCenter
         visible: cloudConnection.status === QFieldCloudConnection.Disconnected
