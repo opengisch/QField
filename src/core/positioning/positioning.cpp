@@ -135,6 +135,7 @@ void Positioning::setupDevice()
 
   if ( mActive )
   {
+    qDebug() << "CONNN";
     mReceiver->connectDevice();
   }
 

@@ -27,6 +27,11 @@ BluetoothReceiver::BluetoothReceiver( const QString &address, QObject *parent )
   , mGpsConnection( std::make_unique<QgsNmeaConnection>( mSocket ) )
 {
   connect( mSocket, &QBluetoothSocket::stateChanged, this, &BluetoothReceiver::setSocketState );
+#if QT_VERSION < QT_VERSION_CHECK( 6, 0, 0 )
+  connect( mSocket, qOverload<QBluetoothSocket::SocketError>( &QBluetoothSocket::error ), this, &BluetoothReceiver::handleError );
+#else
+  connect( mSocket, qOverload<QBluetoothSocket::SocketError>( &QBluetoothSocket::errorOccurred ), this, &BluetoothReceiver::handleError );
+#endif
 
   //QgsGpsConnection state changed (received location string)
   connect( mGpsConnection.get(), &QgsGpsConnection::stateChanged, this, &BluetoothReceiver::stateChanged );
@@ -63,12 +68,42 @@ void BluetoothReceiver::handleConnectDevice()
   }
 }
 
+void BluetoothReceiver::handleError( QBluetoothSocket::SocketError error )
+{
+  switch ( error )
+  {
+    case QBluetoothSocket::SocketError::HostNotFoundError:
+      mLastError = tr( "Could not find the remote host" );
+      break;
+    case QBluetoothSocket::SocketError::ServiceNotFoundError:
+      mLastError = tr( "Could not find the service UUID on remote host" );
+      break;
+    case QBluetoothSocket::SocketError::NetworkError:
+      mLastError = tr( "Attempt to read or write from socket returned an error" );
+      break;
+    case QBluetoothSocket::SocketError::UnsupportedProtocolError:
+      mLastError = tr( "The protocol is not supported on this platform" );
+      break;
+    case QBluetoothSocket::SocketError::OperationError:
+      mLastError = tr( "An operation was attempted while the socket was in a state that did not permit it" );
+      break;
+    case QBluetoothSocket::SocketError::RemoteHostClosedError:
+      mLastError = tr( "The remote host closed the connection" );
+      break;
+    case QBluetoothSocket::SocketError::UnknownSocketError:
+    default:
+      mLastError = tr( "Unknown error" );
+      break;
+  }
+  emit lastErrorChanged( mLastError );
+}
+
 void BluetoothReceiver::doConnectDevice()
 {
   mConnectOnDisconnect = false;
 
-  //repairing only needed in the linux (not android) environment
 #ifdef Q_OS_LINUX
+  //repairing only needed in the linux (not android) environment
   repairDevice( QBluetoothAddress( mAddress ) );
 #else
   mSocket->connectToService( QBluetoothAddress( mAddress ), QBluetoothUuid( QBluetoothUuid::ServiceClassUuid::SerialPort ), QBluetoothSocket::ReadOnly );
