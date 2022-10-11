@@ -205,6 +205,13 @@ ApplicationWindow {
       skipAltitudeTransformation: positioningSettings.skipAltitudeCorrection
     }
   }
+  Connections {
+    target: positionSource.device
+
+    function onLastErrorChanged() {
+        displayToast(qsTr('Positioning error') + ': ' + positionSource.device.lastError, 'error')
+    }
+  }
 
   Timer {
     id: positionTimer

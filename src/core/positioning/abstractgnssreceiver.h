@@ -28,6 +28,7 @@ class AbstractGnssReceiver : public QObject
     Q_PROPERTY( GnssPositionInformation lastGnssPositionInformation READ lastGnssPositionInformation NOTIFY lastGnssPositionInformationChanged )
     Q_PROPERTY( QAbstractSocket::SocketState socketState READ socketState NOTIFY socketStateChanged )
     Q_PROPERTY( QString socketStateString READ socketStateString NOTIFY socketStateStringChanged )
+    Q_PROPERTY( QString lastError READ lastError NOTIFY lastErrorChanged )
 
   public:
     explicit AbstractGnssReceiver( QObject *parent = nullptr )
@@ -44,12 +45,14 @@ class AbstractGnssReceiver : public QObject
 
     QAbstractSocket::SocketState socketState() const { return mSocketState; }
     QString socketStateString() const { return mSocketStateString; }
+    QString lastError() const { return mLastError; }
 
   signals:
     void validChanged();
     void lastGnssPositionInformationChanged( GnssPositionInformation &lastGnssPositionInformation );
     void socketStateChanged( QAbstractSocket::SocketState socketState );
-    void socketStateStringChanged( QString socketStateString );
+    void socketStateStringChanged( QString &socketStateString );
+    void lastErrorChanged( QString &lastError );
 
   private:
     friend class BluetoothReceiver;
@@ -62,6 +65,7 @@ class AbstractGnssReceiver : public QObject
     GnssPositionInformation mLastGnssPositionInformation;
     QAbstractSocket::SocketState mSocketState = QAbstractSocket::UnconnectedState;
     QString mSocketStateString;
+    QString mLastError;
 };
 
 #endif // ABSTRACTGNSSRECEIVER_H

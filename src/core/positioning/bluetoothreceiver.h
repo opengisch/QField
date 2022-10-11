@@ -64,6 +64,7 @@ class BluetoothReceiver : public AbstractGnssReceiver
   private:
     void handleConnectDevice() override;
     void handleDisconnectDevice() override;
+    void handleError( QBluetoothSocket::SocketError error );
 
 #ifdef Q_OS_LINUX
     void connectService( const QBluetoothAddress &address );
