@@ -2506,6 +2506,9 @@ ApplicationWindow {
         welcomeScreen.visible = false
         welcomeScreen.focus = false
 
+        if (changelogPopup.visible)
+          changelogPopup.close()
+
         dashBoard.layerTree.freeze()
         mapCanvasMap.freeze('projectload')
 
