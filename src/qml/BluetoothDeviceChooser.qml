@@ -51,7 +51,7 @@ GridLayout {
             }
 
             Component.onCompleted: {
-                currentIndex = positioningSettings.positioningDevice == '' ? 0 : find(positioningSettings.positioningDeviceName + ' (' + positioningSettings.positioningDevice + ')');
+                currentIndex = bluetoothDeviceModel.findAddressIndex(settings.value('positioningDevice',''))
             }
 
             Connections {
