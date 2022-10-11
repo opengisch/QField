@@ -10,7 +10,6 @@ set(NUGET_USERNAME "qfield-fairy" CACHE STRING "Nuget user")
 # string(ASCII ${NUGET_TOKEN_ASCII} NUGET_TOKEN_DEFAULT)
 set(NUGET_TOKEN "" CACHE STRING "Nuget token")
 
-cmake_minimum_required(VERSION 3.14)
 include(FetchContent)
 FetchContent_Declare(vcpkg
     GIT_REPOSITORY https://github.com/opengisch/vcpkg.git
