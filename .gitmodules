@@ -1,3 +1,0 @@
-[submodule "vcpkg"]
-	path = vcpkg/base
-	url = https://github.com/opengisch/vcpkg.git

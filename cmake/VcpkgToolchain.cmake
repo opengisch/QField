@@ -10,6 +10,16 @@ set(NUGET_USERNAME "qfield-fairy" CACHE STRING "Nuget user")
 # string(ASCII ${NUGET_TOKEN_ASCII} NUGET_TOKEN_DEFAULT)
 set(NUGET_TOKEN "" CACHE STRING "Nuget token")
 
+cmake_minimum_required(VERSION 3.14)
+include(FetchContent)
+FetchContent_Declare(vcpkg
+    GIT_REPOSITORY https://github.com/opengisch/vcpkg.git
+    GIT_TAG 9f3b562
+)
+FetchContent_MakeAvailable(vcpkg)
+set(VCPKG_ROOT "${FETCHCONTENT_BASE_DIR}/vcpkg-src" CACHE STRING "")
+set(CMAKE_TOOLCHAIN_FILE "${FETCHCONTENT_BASE_DIR}/vcpkg-src/scripts/buildsystems/vcpkg.cmake" CACHE FILEPATH "")
+
 string(COMPARE EQUAL "${CMAKE_HOST_SYSTEM_NAME}" "Windows" _HOST_IS_WINDOWS)
 set(_WITH_VCPKG_DEFAULT ${_HOST_IS_WINDOWS})
 if(${VCPKG_TARGET_TRIPLET} MATCHES "android")
@@ -30,8 +40,6 @@ if(BUILD_WITH_QT6)
   set(VCPKG_MANIFEST_DIR "${CMAKE_SOURCE_DIR}/.qt6")
 endif()
 
-set(VCPKG_ROOT "${CMAKE_SOURCE_DIR}/vcpkg/base" CACHE STRING "")
-set(CMAKE_TOOLCHAIN_FILE "${VCPKG_ROOT}/scripts/buildsystems/vcpkg.cmake")
 if(_BUILD_FOR_ANDROID)
   if(NOT DEFINED ENV{ANDROID_NDK_HOME})
     message(FATAL_ERROR "ANDROID_NDK_HOME environment variable is not set")
