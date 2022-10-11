@@ -59,7 +59,7 @@
     <string>${MACOSX_BUNDLE_BUNDLE_VERSION}</string>
 
     <key>NSLocationWhenInUseUsageDescription</key>
-    <string>Location required</string>
+    <string>Needed to overlay device location on top of the map canvas as well as providing positioning details and navigation.</string>
 
     <!-- Peripherals -->
     <key>NSCameraUsageDescription</key>
