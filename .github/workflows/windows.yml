@@ -32,17 +32,6 @@ jobs:
           echo "CMAKE_BUILD_DIR=${BUILD_ROOT}/builddir" >> $GITHUB_ENV
           echo "VCPKG_ROOT=${BUILD_ROOT}/src" >> $GITHUB_ENV
 
-      - name: 📪 Clone vcpkg
-        shell: bash
-        run: |
-          VCPKG_SHA=$(head -1 .git/modules/vcpkg/HEAD)
-          mkdir -p "${{ env.VCPKG_ROOT }}"
-          cd "${{ env.VCPKG_ROOT }}"
-          git init
-          git remote add origin https://github.com/opengisch/vcpkg.git
-          git fetch --depth 1 origin $VCPKG_SHA
-          git checkout FETCH_HEAD
-
       - name: 🐩 Install CMake and Ninja
         uses: lukka/get-cmake@latest
 
