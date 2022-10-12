@@ -204,6 +204,34 @@ Cancel to make a minimal device scan instead.</translation>
         <source>Socket state %1</source>
         <translation>Socket state %1</translation>
     </message>
+    <message>
+        <source>Could not find the remote host</source>
+        <translation>Could not find the remote host</translation>
+    </message>
+    <message>
+        <source>Could not find the service UUID on remote host</source>
+        <translation>Could not find the service UUID on remote host</translation>
+    </message>
+    <message>
+        <source>Attempt to read or write from socket returned an error</source>
+        <translation>Attempt to read or write from socket returned an error</translation>
+    </message>
+    <message>
+        <source>The protocol is not supported on this platform</source>
+        <translation>The protocol is not supported on this platform</translation>
+    </message>
+    <message>
+        <source>An operation was attempted while the socket was in a state that did not permit it</source>
+        <translation>An operation was attempted while the socket was in a state that did not permit it</translation>
+    </message>
+    <message>
+        <source>The remote host closed the connection</source>
+        <translation>The remote host closed the connection</translation>
+    </message>
+    <message>
+        <source>Unknown error</source>
+        <translation>Unknown error</translation>
+    </message>
 </context>
 <context>
     <name>BookmarkLocatorFilter</name>
@@ -3066,6 +3094,10 @@ Cancel to make a minimal device scan instead.</translation>
     <message>
         <source>Press back again to close project and app</source>
         <translation>Press back again to close project and app</translation>
+    </message>
+    <message>
+        <source>Positioning error: %1</source>
+        <translation>Positioning error: %1</translation>
     </message>
 </context>
 <context>

@@ -199,6 +199,34 @@ Cancel to make a minimal device scan instead.</source>
         <source>Socket state %1</source>
         <translation>套接字状态 %1</translation>
     </message>
+    <message>
+        <source>Could not find the remote host</source>
+        <translation>未找到远程主机</translation>
+    </message>
+    <message>
+        <source>Could not find the service UUID on remote host</source>
+        <translation>在远程主机上未找到服务UUID</translation>
+    </message>
+    <message>
+        <source>Attempt to read or write from socket returned an error</source>
+        <translation>尝试从Socket读取或写入时返回错误</translation>
+    </message>
+    <message>
+        <source>The protocol is not supported on this platform</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>An operation was attempted while the socket was in a state that did not permit it</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>The remote host closed the connection</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Unknown error</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>BookmarkLocatorFilter</name>
@@ -3032,6 +3060,10 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <source>Press back again to close project and app</source>
         <translation>再次点击返回键将关闭工程和应用</translation>
+    </message>
+    <message>
+        <source>Positioning error: %1</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

@@ -199,6 +199,34 @@ Cancele para fazer uma verificação mínima.</translation>
         <source>Socket state %1</source>
         <translation>Estado do socket %1</translation>
     </message>
+    <message>
+        <source>Could not find the remote host</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Could not find the service UUID on remote host</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Attempt to read or write from socket returned an error</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>The protocol is not supported on this platform</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>An operation was attempted while the socket was in a state that did not permit it</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>The remote host closed the connection</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Unknown error</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>BookmarkLocatorFilter</name>
@@ -3026,6 +3054,10 @@ Cancele para fazer uma verificação mínima.</translation>
     <message>
         <source>Press back again to close project and app</source>
         <translation>Toque novamente para fechar o projeto e o aplicativo</translation>
+    </message>
+    <message>
+        <source>Positioning error: %1</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
