@@ -127,14 +127,6 @@
         <data android:pathPattern=".*\\..*\\..*\\..*\\..*\\..*\\.gpkg" />
         <data android:pathPattern=".*\\..*\\..*\\..*\\..*\\..*\\..*\\.gpkg" />
         <data android:pathPattern=".*\\..*\\..*\\..*\\..*\\..*\\..*\\..*\\.gpkg" />
-        <data android:pathPattern=".*\\.shp" />
-        <data android:pathPattern=".*\\..*\\.shp" />
-        <data android:pathPattern=".*\\..*\\..*\\.shp" />
-        <data android:pathPattern=".*\\..*\\..*\\..*\\.shp" />
-        <data android:pathPattern=".*\\..*\\..*\\..*\\..*\\.shp" />
-        <data android:pathPattern=".*\\..*\\..*\\..*\\..*\\..*\\.shp" />
-        <data android:pathPattern=".*\\..*\\..*\\..*\\..*\\..*\\..*\\.shp" />
-        <data android:pathPattern=".*\\..*\\..*\\..*\\..*\\..*\\..*\\..*\\.shp" />
         <data android:pathPattern=".*\\.kml" />
         <data android:pathPattern=".*\\..*\\.kml" />
         <data android:pathPattern=".*\\..*\\..*\\.kml" />
