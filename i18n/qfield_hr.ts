@@ -201,31 +201,31 @@ Otkažite za pokretanje minimalnog skeniranja uređaja.</translation>
     </message>
     <message>
         <source>Could not find the remote host</source>
-        <translation type="unfinished"/>
+        <translation>Ne mogu pronaći udaljeni poslužitelj</translation>
     </message>
     <message>
         <source>Could not find the service UUID on remote host</source>
-        <translation type="unfinished"/>
+        <translation>Ne mogu pronaći uslugu UUID na udaljenom poslužitelju</translation>
     </message>
     <message>
         <source>Attempt to read or write from socket returned an error</source>
-        <translation type="unfinished"/>
+        <translation>Dogodila se greška prilikom pokušaja čitanja ili pisanja iz utičnice</translation>
     </message>
     <message>
         <source>The protocol is not supported on this platform</source>
-        <translation type="unfinished"/>
+        <translation>Protokol nije podržan na ovoj platformi</translation>
     </message>
     <message>
         <source>An operation was attempted while the socket was in a state that did not permit it</source>
-        <translation type="unfinished"/>
+        <translation>Pokušana je operacija dok je utičnica bila u stanju koji ne dozvoljava tu operaciju</translation>
     </message>
     <message>
         <source>The remote host closed the connection</source>
-        <translation type="unfinished"/>
+        <translation>Udaljeni poslužitelj je zatvorio konekciju</translation>
     </message>
     <message>
         <source>Unknown error</source>
-        <translation type="unfinished"/>
+        <translation>Nepoznata greška</translation>
     </message>
 </context>
 <context>
@@ -3063,7 +3063,7 @@ Otkažite da pokrenete minimalno skeniranje uređaja.</translation>
     </message>
     <message>
         <source>Positioning error: %1</source>
-        <translation type="unfinished"/>
+        <translation>Greška pozicioniranja: %1</translation>
     </message>
 </context>
 <context>

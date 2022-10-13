@@ -213,19 +213,19 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>The protocol is not supported on this platform</source>
-        <translation type="unfinished"/>
+        <translation>此平台不支持该协议</translation>
     </message>
     <message>
         <source>An operation was attempted while the socket was in a state that did not permit it</source>
-        <translation type="unfinished"/>
+        <translation>当Socket处于不允许的状态时尝试了操作</translation>
     </message>
     <message>
         <source>The remote host closed the connection</source>
-        <translation type="unfinished"/>
+        <translation>远程主机已关闭连接</translation>
     </message>
     <message>
         <source>Unknown error</source>
-        <translation type="unfinished"/>
+        <translation>未知错误</translation>
     </message>
 </context>
 <context>
@@ -3063,7 +3063,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Positioning error: %1</source>
-        <translation type="unfinished"/>
+        <translation>定位错误: %1</translation>
     </message>
 </context>
 <context>
