@@ -106,11 +106,11 @@
     <name>BarcodeReader</name>
     <message>
         <source>Code Reader</source>
-        <translation type="unfinished"/>
+        <translation>Code Lezer</translation>
     </message>
     <message>
         <source>Center your camera on a code</source>
-        <translation type="unfinished"/>
+        <translation>Richt je camera op een code</translation>
     </message>
 </context>
 <context>
@@ -213,7 +213,7 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
     </message>
     <message>
         <source>The protocol is not supported on this platform</source>
-        <translation type="unfinished"/>
+        <translation>Het protocol wordt op dit platform niet ondersteund</translation>
     </message>
     <message>
         <source>An operation was attempted while the socket was in a state that did not permit it</source>
@@ -225,7 +225,7 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
     </message>
     <message>
         <source>Unknown error</source>
-        <translation type="unfinished"/>
+        <translation>Onbekende fout</translation>
     </message>
 </context>
 <context>
@@ -725,7 +725,7 @@ De geometrieën van objecten zullen worden gecombineerd tot object &apos;%1&apos
     </message>
     <message>
         <source>Would you like to fill the ring with a new polygon?</source>
-        <translation type="unfinished"/>
+        <translation>Wil je de ring met een polygoon vullen?</translation>
     </message>
 </context>
 <context>
@@ -751,7 +751,7 @@ De geometrieën van objecten zullen worden gecombineerd tot object &apos;%1&apos
     </message>
     <message>
         <source>Fill Ring Tool</source>
-        <translation type="unfinished"/>
+        <translation>Vul Ring-Gereedschap </translation>
     </message>
 </context>
 <context>
@@ -839,7 +839,7 @@ De geometrieën van objecten zullen worden gecombineerd tot object &apos;%1&apos
     </message>
     <message>
         <source>Opacity</source>
-        <translation type="unfinished"/>
+        <translation>Opaciteit</translation>
     </message>
     <message>
         <source>Zoom to group</source>
