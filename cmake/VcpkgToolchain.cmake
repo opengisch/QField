@@ -12,8 +12,8 @@ set(NUGET_TOKEN "" CACHE STRING "Nuget token")
 
 include(FetchContent)
 FetchContent_Declare(vcpkg
-    GIT_REPOSITORY https://github.com/opengisch/vcpkg.git
-    GIT_TAG 9f3b562
+    GIT_REPOSITORY https://github.com/microsoft/vcpkg.git
+    GIT_TAG 6d2d1dc843a95b5d651a673236fc7ec50e5cfc03
 )
 FetchContent_MakeAvailable(vcpkg)
 set(VCPKG_ROOT "${FETCHCONTENT_BASE_DIR}/vcpkg-src" CACHE STRING "")
