@@ -2,6 +2,8 @@
 # CMake settings
 cmake_minimum_required(VERSION 3.19)
 
+set(VCPKG_TAG 6d2d1dc843a95b5d651a673236fc7ec50e5cfc03)
+
 set(QML_IMPORT_PATH ${CMAKE_SOURCE_DIR}/src/qml/imports CACHE PATH "QML import path for Qt Creator to detect custom modules properly")
 
 set(CMAKE_COLOR_MAKEFILE ON)

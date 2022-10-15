@@ -23,8 +23,6 @@ cmake -S "${SOURCE_DIR}" \
       -B "${CMAKE_BUILD_DIR}" \
       -G Ninja \
       -D CMAKE_PREFIX_PATH=${Qt5_Dir} \
-      -D CMAKE_TOOLCHAIN_FILE=/usr/src/qfield/vcpkg/base/scripts/buildsystems/vcpkg.cmake \
-      -D VCPKG_OVERLAY_PORTS=/usr/src/qfield/vcpkg/overlay_system_qt\;/usr/src/qfield/vcpkg/overlay \
       -D VCPKG_TARGET_TRIPLET="${triplet}" \
       -D SYSTEM_QT=ON \
       -D ANDROID_SDK=/home/devel/android/ \

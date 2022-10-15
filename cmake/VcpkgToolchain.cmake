@@ -10,15 +10,6 @@ set(NUGET_USERNAME "qfield-fairy" CACHE STRING "Nuget user")
 # string(ASCII ${NUGET_TOKEN_ASCII} NUGET_TOKEN_DEFAULT)
 set(NUGET_TOKEN "" CACHE STRING "Nuget token")
 
-include(FetchContent)
-FetchContent_Declare(vcpkg
-    GIT_REPOSITORY https://github.com/microsoft/vcpkg.git
-    GIT_TAG 6d2d1dc843a95b5d651a673236fc7ec50e5cfc03
-)
-FetchContent_MakeAvailable(vcpkg)
-set(VCPKG_ROOT "${FETCHCONTENT_BASE_DIR}/vcpkg-src" CACHE STRING "")
-set(CMAKE_TOOLCHAIN_FILE "${FETCHCONTENT_BASE_DIR}/vcpkg-src/scripts/buildsystems/vcpkg.cmake" CACHE FILEPATH "")
-
 string(COMPARE EQUAL "${CMAKE_HOST_SYSTEM_NAME}" "Windows" _HOST_IS_WINDOWS)
 set(_WITH_VCPKG_DEFAULT ${_HOST_IS_WINDOWS})
 if(${VCPKG_TARGET_TRIPLET} MATCHES "android")
@@ -33,7 +24,30 @@ if(NOT WITH_VCPKG)
   return()
 endif()
 
-message(STATUS "Building with vcpkg libraries --")
+if(NOT VCPKG_TAG STREQUAL VCPKG_INSTALLED_VERSION)
+  message(STATUS "Updating vcpkg")
+  include(FetchContent)
+  FetchContent_Declare(vcpkg
+      GIT_REPOSITORY https://github.com/microsoft/vcpkg.git
+      GIT_TAG ${VCPKG_TAG}
+  )
+  FetchContent_MakeAvailable(vcpkg)
+else()
+  message(STATUS "Using cached vcpkg")
+endif()
+set(VCPKG_ROOT "${FETCHCONTENT_BASE_DIR}/vcpkg-src" CACHE STRING "")
+set(CMAKE_TOOLCHAIN_FILE "${FETCHCONTENT_BASE_DIR}/vcpkg-src/scripts/buildsystems/vcpkg.cmake" CACHE FILEPATH "")
+
+find_package(Git REQUIRED)
+if(WIN32)
+  execute_process(COMMAND cmd /C "${GIT_EXECUTABLE} -C ${VCPKG_ROOT} rev-parse HEAD" OUTPUT_VARIABLE VCPKG_VERSION OUTPUT_STRIP_TRAILING_WHITESPACE)
+else()
+  execute_process(COMMAND bash -c "${GIT_EXECUTABLE} -C ${VCPKG_ROOT} rev-parse HEAD" OUTPUT_VARIABLE VCPKG_VERSION ERROR_VARIABLE ERR OUTPUT_STRIP_TRAILING_WHITESPACE)
+endif()
+
+set(VCPKG_INSTALLED_VERSION ${VCPKG_VERSION} CACHE STRING "" FORCE)
+
+message(STATUS "Building with vcpkg libraries version ${VCPKG_INSTALLED_VERSION}")
 
 if(BUILD_WITH_QT6)
   set(VCPKG_MANIFEST_DIR "${CMAKE_SOURCE_DIR}/.qt6")
