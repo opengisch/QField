@@ -106,11 +106,11 @@
     <name>BarcodeReader</name>
     <message>
         <source>Code Reader</source>
-        <translation type="unfinished"/>
+        <translation>Зчитувач коду</translation>
     </message>
     <message>
         <source>Center your camera on a code</source>
-        <translation type="unfinished"/>
+        <translation>Відцентруйте камеру на коді</translation>
     </message>
 </context>
 <context>
@@ -159,7 +159,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Connect to %1</source>
-        <translation type="unfinished"/>
+        <translation>Підключіться до %1</translation>
     </message>
     <message>
         <source>Connect  to %1</source>
@@ -201,31 +201,31 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Could not find the remote host</source>
-        <translation type="unfinished"/>
+        <translation>Не вдалося знайти віддалений хост</translation>
     </message>
     <message>
         <source>Could not find the service UUID on remote host</source>
-        <translation type="unfinished"/>
+        <translation>Не вдалося знайти UUID служби на віддаленому хості</translation>
     </message>
     <message>
         <source>Attempt to read or write from socket returned an error</source>
-        <translation type="unfinished"/>
+        <translation>Спроба читання або запису з сокета повернула помилку</translation>
     </message>
     <message>
         <source>The protocol is not supported on this platform</source>
-        <translation type="unfinished"/>
+        <translation>Протокол не підтримується на цій платформі</translation>
     </message>
     <message>
         <source>An operation was attempted while the socket was in a state that did not permit it</source>
-        <translation type="unfinished"/>
+        <translation>Була спроба виконати операцію, коли сокет перебував у стані, який її не дозволяв</translation>
     </message>
     <message>
         <source>The remote host closed the connection</source>
-        <translation type="unfinished"/>
+        <translation>Віддалений хост закрив з’єднання</translation>
     </message>
     <message>
         <source>Unknown error</source>
-        <translation type="unfinished"/>
+        <translation>Невідома помилка</translation>
     </message>
 </context>
 <context>
@@ -239,19 +239,19 @@ Cancel to make a minimal device scan instead.</source>
     <name>BookmarkProperties</name>
     <message>
         <source>Bookmark Properties</source>
-        <translation type="unfinished"/>
+        <translation>Властивості закладки</translation>
     </message>
     <message>
         <source>Name</source>
-        <translation type="unfinished"/>
+        <translation>Ім&apos;я</translation>
     </message>
     <message>
         <source>Color</source>
-        <translation type="unfinished"/>
+        <translation>Колір</translation>
     </message>
     <message>
         <source>Copy bookmark details</source>
-        <translation type="unfinished"/>
+        <translation>Копіювати деталі закладки</translation>
     </message>
     <message>
         <source>Lon</source>
@@ -271,15 +271,15 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Bookmark details copied to clipboard</source>
-        <translation type="unfinished"/>
+        <translation>Деталі закладки скопійовано в буфер обміну</translation>
     </message>
     <message>
         <source>Remove bookmark</source>
-        <translation type="unfinished"/>
+        <translation>Видалити закладку</translation>
     </message>
     <message>
         <source>You are about to remove a bookmark, proceed?</source>
-        <translation type="unfinished"/>
+        <translation>Ви збираєтеся видалити закладку, продовжити?</translation>
     </message>
 </context>
 <context>
@@ -290,7 +290,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Project bookmarks cannot be edited</source>
-        <translation type="unfinished"/>
+        <translation>Закладки проекту не можна редагувати</translation>
     </message>
 </context>
 <context>
@@ -459,7 +459,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>The collected positions count does not meet the requirement</source>
-        <translation type="unfinished"/>
+        <translation>Зібрана кількість позицій не відповідає вимозі</translation>
     </message>
     <message>
         <source>Should the digitized geometry be discarded?</source>
@@ -470,7 +470,7 @@ Cancel to make a minimal device scan instead.</source>
     <name>EditorWidgetBase</name>
     <message>
         <source>Item Menu</source>
-        <translation type="unfinished"/>
+        <translation>Пункт меню</translation>
     </message>
 </context>
 <context>
@@ -531,15 +531,15 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Cancel editing</source>
-        <translation type="unfinished"/>
+        <translation>Скасувати редагування</translation>
     </message>
     <message>
         <source>You are about to dismiss the new feature, proceed?</source>
-        <translation type="unfinished"/>
+        <translation>Ви збираєтеся закрити нову функцію, продовжити?</translation>
     </message>
     <message>
         <source>You are about to leave editing state, any changes will be lost. Proceed?</source>
-        <translation type="unfinished"/>
+        <translation>Ви збираєтеся вийти зі стану редагування, усі зміни буде втрачено. Продовжити?</translation>
     </message>
 </context>
 <context>
@@ -686,11 +686,11 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Set feature as destination</source>
-        <translation type="unfinished"/>
+        <translation>Установити об&apos;єкт як пункт призначення</translation>
     </message>
     <message>
         <source>Set feature as navigation</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Установити об&apos;єкт як навігацію</translation>
     </message>
     <message>
         <source>Feature has no geometry</source>
@@ -766,7 +766,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Set navigation point</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Встановити точку навігації</translation>
     </message>
     <message>
         <source>Go to %1° %2° (WGS84)</source>
@@ -778,11 +778,11 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Go to %1%2 %3%4 (Map CRS, %5)</source>
-        <translation type="unfinished"/>
+        <translation>Перейти до %1%2 %3%4 (карта CRS, %5)</translation>
     </message>
     <message>
         <source>Go to %1°N %2°E (%3)</source>
-        <translation type="unfinished"/>
+        <translation>Перейти до %1°N %2°E (%3)</translation>
     </message>
 </context>
 <context>
@@ -843,15 +843,15 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Opacity</source>
-        <translation type="unfinished"/>
+        <translation>Прозорість</translation>
     </message>
     <message>
         <source>Zoom to group</source>
-        <translation type="unfinished"/>
+        <translation>Збільшити до групи</translation>
     </message>
     <message>
         <source>Zoom to parent layer</source>
-        <translation type="unfinished"/>
+        <translation>Збільшити до батьківського шару</translation>
     </message>
     <message>
         <source>Zoom to layer</source>
@@ -895,11 +895,11 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Show visible features list</source>
-        <translation type="unfinished"/>
+        <translation>Показати список видимих об&apos;єктів</translation>
     </message>
     <message>
         <source>Show Features Menu</source>
-        <translation type="unfinished"/>
+        <translation>Показати меню об&apos;єктів</translation>
     </message>
 </context>
 <context>
@@ -1105,7 +1105,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Set Feature as Destination</source>
-        <translation type="unfinished"/>
+        <translation>Установити об&apos;єкт як пункт призначення</translation>
     </message>
     <message>
         <source>Move Feature</source>
@@ -1148,7 +1148,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>centroid</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">центроїд</translation>
     </message>
     <message>
         <source>Lon</source>
@@ -1164,7 +1164,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Dist.</source>
-        <translation type="unfinished"/>
+        <translation>Відст.</translation>
     </message>
     <message>
         <source>N/A</source>
@@ -1386,11 +1386,11 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <name>PositioningPreciseView</name>
     <message>
         <source>Dist.</source>
-        <translation type="unfinished"/>
+        <translation>Відст.</translation>
     </message>
     <message>
         <source>Positioning accuracy too low for this precision level</source>
-        <translation type="unfinished"/>
+        <translation>Занизька точність позиціонування для цього рівня точності</translation>
     </message>
 </context>
 <context>
@@ -1458,7 +1458,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Failed to sign in</source>
-        <translation type="unfinished"/>
+        <translation>Не вдалося ввійти</translation>
     </message>
     <message>
         <source>Server URL
@@ -1476,23 +1476,23 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Sign out</source>
-        <translation type="unfinished"/>
+        <translation>Вийти з аккаунта</translation>
     </message>
     <message>
         <source>Signing in, please wait</source>
-        <translation type="unfinished"/>
+        <translation>Виконується вхід, будь ласка, зачекайте</translation>
     </message>
     <message>
         <source>Sign in</source>
-        <translation type="unfinished"/>
+        <translation>Увійти</translation>
     </message>
     <message>
         <source>New user?</source>
-        <translation type="unfinished"/>
+        <translation>Новий користувач?</translation>
     </message>
     <message>
         <source>Register an account</source>
-        <translation type="unfinished"/>
+        <translation>Зареєструйте обліковий запис</translation>
     </message>
     <message>
         <source>Logout</source>
@@ -1527,11 +1527,11 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>QFieldCloud had troubles packaging your project</source>
-        <translation type="unfinished"/>
+        <translation>У QFieldCloud виникли проблеми з упаковкою вашого проекту</translation>
     </message>
     <message>
         <source>Some layers have not been packaged correctly on QFieldCloud. These layers might be misconfigured or their data source is not accessible from the QFieldCloud server. Please check the logs of the latest packaging job on the qfield.cloud website.</source>
-        <translation type="unfinished"/>
+        <translation>Деякі шари неправильно запаковано в QFieldCloud. Ці шари можуть бути неправильно налаштовані або їхнє джерело даних недоступне із сервера QFieldCloud. Будь ласка, перевірте журнали останнього завдання пакування на веб-сайті qfield.cloud.</translation>
     </message>
 </context>
 <context>
@@ -1566,7 +1566,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>This QFieldCloud project was first downloaded with another cloud account. Please sign in with the original account for this project to use the QFieldCloud functionality.</source>
-        <translation type="unfinished"/>
+        <translation>Цей проект QFieldCloud спочатку було завантажено за допомогою іншого хмарного облікового запису. Будь ласка, увійдіть, використовуючи вихідний обліковий запис для цього проекту, щоб використовувати функції QFieldCloud.</translation>
     </message>
     <message>
         <source>Downloading %1%…</source>
@@ -1630,7 +1630,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Revert all modified features in the local layers. You cannot restore those changes.</source>
-        <translation type="unfinished"/>
+        <translation>Скасувати всі змінені об’єкти в локальних шарах. Ви не можете відновити ці зміни.</translation>
     </message>
     <message>
         <source>Revert all modified features in the local cloud layers. You cannot restore those changes.</source>
@@ -1745,7 +1745,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>aborted</source>
-        <translation type="unfinished"/>
+        <translation>перервано</translation>
     </message>
     <message>
         <source>project(%1) trigger response refresh not contain all the expected keys: name(string), owner(string), description(string), user_role(string), is_public(bool), can_repackage(bool), needs_repackaging(bool)</source>
@@ -1753,85 +1753,87 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Getting job status, but the project is deleted.</source>
-        <translation type="unfinished"/>
+        <translation>Отримання статусу завдання, але проект видалено.</translation>
     </message>
     <message>
         <source>Job creation finished, but the server response is missing required fields: id(string)</source>
-        <translation type="unfinished"/>
+        <translation>Створення завдання завершено, але у відповіді сервера відсутні обов’язкові поля: id(рядок)</translation>
     </message>
     <message>
         <source>Getting job status, but no `%2` job triggered yet.</source>
-        <translation type="unfinished"/>
+        <translation>Отримання статусу завдання, але завдання `%2` ще не запущено.</translation>
     </message>
     <message>
         <source>Getting job status finished, but the project is deleted.</source>
-        <translation type="unfinished"/>
+        <translation>Отримання статусу завдання завершено, але проект видалено.</translation>
     </message>
     <message>
         <source>job(%1) status response does not contain all the expected keys: status(string)</source>
-        <translation type="unfinished"/>
+        <translation>процес(%1) відповідь статусу не містить усіх очікуваних ключів: status(рядок)</translation>
     </message>
     <message>
         <source>Job(%1) finished with a failed status.</source>
-        <translation type="unfinished"/>
+        <translation>Завдання (%1) завершено зі статусом &quot;Помилка&quot;.</translation>
     </message>
     <message>
         <source>Project busy.</source>
-        <translation type="unfinished"/>
+        <translation>Проект зайнятий.</translation>
     </message>
     <message>
         <source>Packaging job finished unsuccessfully for `%1`. %2</source>
-        <translation type="unfinished"/>
+        <translation>Пакувальну роботу завершено невдало для `%1`. %2</translation>
     </message>
     <message>
         <source>Failed to refresh the latest info for `%1`: %2</source>
-        <translation type="unfinished"/>
+        <translation>Не вдалося оновити останню інформацію для `%1`: %2</translation>
     </message>
     <message>
         <source>Failed to get latest package data.</source>
-        <translation type="unfinished"/>
+        <translation>Не вдалося отримати останні дані пакета.</translation>
     </message>
     <message>
         <source>Latest package data response error.</source>
-        <translation type="unfinished"/>
+        <translation>Помилка відповіді на дані останнього пакета.</translation>
     </message>
     <message>
         <source>Latest package data structure error.</source>
-        <translation type="unfinished"/>
+        <translation>Остання помилка структури даних пакета.</translation>
     </message>
     <message>
         <source>Project %1: Packaged layer `%2` is not valid. Error code %3, error message: %4</source>
-        <translation type="unfinished"/>
+        <translation>Проект %1: упакований шар `%2` недійсний. Код помилки %3, повідомлення про помилку: %4</translation>
     </message>
     <message>
         <source>Failed to open temporary file for `%1`, reason:
 %2</source>
-        <translation type="unfinished"/>
+        <translation>Не вдалося відкрити тимчасовий файл для `%1`, причина:
+%2</translation>
     </message>
     <message>
         <source>Failed to upload attachment stored at `%1`, reason:
 %2</source>
-        <translation type="unfinished"/>
+        <translation>Не вдалося завантажити вкладений файл, який зберігається в `%1`, причина:
+%2</translation>
     </message>
     <message>
         <source>Network error. Failed to download file `%1`.</source>
-        <translation type="unfinished"/>
+        <translation>Помилка мережі. Не вдалося завантажити файл `%1`.</translation>
     </message>
     <message>
         <source>File system error. Failed to write file to temporary location `%1`.</source>
-        <translation type="unfinished"/>
+        <translation>Помилка файлової системи. Не вдалося записати файл у тимчасове розташування `%1`.</translation>
     </message>
     <message>
         <source>File system error. Failed to open file for writing on temporary `%1`.</source>
-        <translation type="unfinished"/>
+        <translation>Помилка файлової системи. Не вдалося відкрити файл для запису на тимчасовий `%1`.</translation>
     </message>
     <message>
         <source>Project `%1`, file `%2`: %3</source>
-        <translation type="unfinished"/>
+        <translation>Проект `%1`, файл `%2`: %3</translation>
     </message>
     <message>
         <source>System message: </source>
-        <translation type="unfinished"/>
+        <translation>Системне повідомлення:</translation>
     </message>
     <message>
         <source> (see more in the QField error log)…</source>
@@ -1942,46 +1944,46 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>No projects found</source>
-        <translation type="unfinished"/>
+        <translation>Проекти не знайдено</translation>
     </message>
 </context>
 <context>
     <name>QFieldLocalDataPickerScreen</name>
     <message>
         <source>Project Folder</source>
-        <translation type="unfinished"/>
+        <translation>Папка проектів</translation>
     </message>
     <message>
         <source>Local Projects &amp; Datasets</source>
-        <translation type="unfinished"/>
+        <translation>Локальні Проекти та Набори даних</translation>
     </message>
     <message>
         <source>Folders</source>
-        <translation type="unfinished"/>
+        <translation>Папки</translation>
     </message>
     <message>
         <source>Projects</source>
-        <translation type="unfinished"/>
+        <translation>Проекти</translation>
     </message>
     <message>
         <source>Datasets</source>
-        <translation type="unfinished"/>
+        <translation>Набори даних</translation>
     </message>
     <message>
         <source>Favorites</source>
-        <translation type="unfinished"/>
+        <translation>Вибране</translation>
     </message>
     <message>
         <source>Project file</source>
-        <translation type="unfinished"/>
+        <translation>Файл проекту</translation>
     </message>
     <message>
         <source>Vector dataset</source>
-        <translation type="unfinished"/>
+        <translation>Набір векторних даних</translation>
     </message>
     <message>
         <source>Raster dataset</source>
-        <translation type="unfinished"/>
+        <translation>Набір растрових даних</translation>
     </message>
     <message>
         <source>Send to...</source>
@@ -1989,35 +1991,35 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Export to folder...</source>
-        <translation type="unfinished"/>
+        <translation>Експортувати в папку...</translation>
     </message>
     <message>
         <source>Remove dataset</source>
-        <translation type="unfinished"/>
+        <translation>Видалити набір даних</translation>
     </message>
     <message>
         <source>Send compressed folder to...</source>
-        <translation type="unfinished"/>
+        <translation>Надіслати стиснуту папку до...</translation>
     </message>
     <message>
         <source>Remove project folder</source>
-        <translation type="unfinished"/>
+        <translation>Видалити папку проекту</translation>
     </message>
     <message>
         <source>Import project from folder</source>
-        <translation type="unfinished"/>
+        <translation>Імпорт проекту з папки</translation>
     </message>
     <message>
         <source>Import project from ZIP</source>
-        <translation type="unfinished"/>
+        <translation>Імпорт проекту з ZIP</translation>
     </message>
     <message>
         <source>Import dataset(s)</source>
-        <translation type="unfinished"/>
+        <translation>Імпорт наборів даних</translation>
     </message>
     <message>
         <source>Storage management help</source>
-        <translation type="unfinished"/>
+        <translation>Допомога в управлінні сховищем</translation>
     </message>
 </context>
 <context>
@@ -2048,11 +2050,11 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Show bookmarks</source>
-        <translation type="unfinished"/>
+        <translation>Показати закладки</translation>
     </message>
     <message>
         <source>When switched on, user&apos;s saved and currently opened project bookmarks will be displayed on the map.</source>
-        <translation type="unfinished"/>
+        <translation>Якщо цей параметр увімкнено, на карті відображатимуться збережені та відкриті закладки проекту користувача.</translation>
     </message>
     <message>
         <source>Use native camera</source>
@@ -2088,11 +2090,11 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Send anonymized metrics</source>
-        <translation type="unfinished"/>
+        <translation>Надсилати анонімні показники</translation>
     </message>
     <message>
         <source>If enabled, anonymized metrics will be collected and sent to help improve QField for everyone.</source>
-        <translation type="unfinished"/>
+        <translation>Якщо ввімкнено, анонімні показники збиратимуться та надсилатимуться, щоб покращити QField для всіх.</translation>
     </message>
     <message>
         <source>General</source>
@@ -2206,19 +2208,19 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Enable averaged positioning requirement</source>
-        <translation type="unfinished"/>
+        <translation>Увімкнути вимогу до усередненого позиціонування</translation>
     </message>
     <message>
         <source>Minimum number of positions collected</source>
-        <translation type="unfinished"/>
+        <translation>Мінімальна кількість зібраних позицій</translation>
     </message>
     <message>
         <source>Automatically end collection when minimum number is met</source>
-        <translation type="unfinished"/>
+        <translation>Автоматично завершувати збір, коли досягнуто мінімальної кількості</translation>
     </message>
     <message>
         <source>When enabled, digitizing vertices with a cursor locked to position will only accepted an averaged position from a minimum number of collected positions. Digitizing using averaged positions is done by pressing and holding the add vertex button, which will collect positions until the press is released. Accuracy requirement settings are respected when enabled.</source>
-        <translation type="unfinished"/>
+        <translation>Якщо ввімкнено, оцифрування вершин із курсором, зафіксованим у позиції, прийматиме лише усереднене положення з мінімальної кількості зібраних позицій. Оцифрування з використанням усереднених позицій виконується натисканням і утриманням кнопки додавання вершин, яка збиратиме позиції, доки не буде відпущено натискання. Якщо ввімкнено, параметри вимог до точності дотримуються.</translation>
     </message>
     <message>
         <source>Antenna height compensation</source>
@@ -2258,7 +2260,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Time of inactivity in seconds before the screen brightness get be dimmed to preserve battery.</source>
-        <translation type="unfinished"/>
+        <translation>Час бездіяльності в секундах, перш ніж яскравість екрана буде затемнена для збереження заряду акумулятора.</translation>
     </message>
 </context>
 <context>
@@ -2341,15 +2343,15 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Please wait while QField installation finalizes.</source>
-        <translation type="unfinished"/>
+        <translation>Зачекайте, поки інсталяція QField завершиться.</translation>
     </message>
     <message>
         <source>averaged</source>
-        <translation type="unfinished"/>
+        <translation>усереднений</translation>
     </message>
     <message>
         <source>centroid</source>
-        <translation type="unfinished"/>
+        <translation>центроїд</translation>
     </message>
 </context>
 <context>
@@ -2494,26 +2496,26 @@ Cancel to make a minimal device scan instead.</source>
     <name>TemporalProperties</name>
     <message>
         <source>Temporal Properties</source>
-        <translation type="unfinished"/>
+        <translation>Тимчасові властивості</translation>
     </message>
     <message>
         <source>Enable temporal filter</source>
-        <translation type="unfinished"/>
+        <translation>Увімкнути тимчасовий фільтр</translation>
     </message>
 </context>
 <context>
     <name>TextEdit</name>
     <message>
         <source>Copy Text</source>
-        <translation type="unfinished"/>
+        <translation>Копіювати текст</translation>
     </message>
     <message>
         <source>Paste Text</source>
-        <translation type="unfinished"/>
+        <translation>Вставити текст</translation>
     </message>
     <message>
         <source>Scan Code</source>
-        <translation type="unfinished"/>
+        <translation>Сканувати код</translation>
     </message>
 </context>
 <context>
@@ -2560,7 +2562,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>When both constraints are disabled, vertex additions will occur as frequently as delivered by the positioning device.</source>
-        <translation type="unfinished"/>
+        <translation>Коли обидва обмеження вимкнено, додавання вершин відбуватиметься так часто, як це надає пристрій позиціонування.</translation>
     </message>
 </context>
 <context>
@@ -2609,19 +2611,19 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Anonymized metrics collection has been disabled. You can re-enable through the settings panel.</source>
-        <translation type="unfinished"/>
+        <translation>Збір анонімних показників вимкнено. Ви можете повторно ввімкнути через панель налаштувань.</translation>
     </message>
     <message>
         <source>To improve stability for everyone, QField collects and sends anonymized metrics.</source>
-        <translation type="unfinished"/>
+        <translation>Щоб покращити стабільність для всіх, QField збирає та надсилає анонімні показники.</translation>
     </message>
     <message>
         <source>I agree</source>
-        <translation type="unfinished"/>
+        <translation>Я згоден</translation>
     </message>
     <message>
         <source>I prefer not</source>
-        <translation type="unfinished"/>
+        <translation>Я віддаю перевагу ні</translation>
     </message>
     <message>
         <source>QFieldCloud projects</source>
@@ -2727,7 +2729,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Perimeter</source>
-        <translation type="unfinished"/>
+        <translation>Периметр</translation>
     </message>
     <message>
         <source>Length</source>
@@ -2827,11 +2829,11 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Go to Home Screen</source>
-        <translation type="unfinished"/>
+        <translation>Перейдіть на головний екран</translation>
     </message>
     <message>
         <source>Open Project Folder</source>
-        <translation type="unfinished"/>
+        <translation>Відкрийте папку проекту</translation>
     </message>
     <message>
         <source>Open Project</source>
@@ -2863,31 +2865,31 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Map Canvas Options</source>
-        <translation type="unfinished"/>
+        <translation>Параметри полотна карти</translation>
     </message>
     <message>
         <source>Add Bookmark</source>
-        <translation type="unfinished"/>
+        <translation>Додати закладку</translation>
     </message>
     <message>
         <source>Set as Destination</source>
-        <translation type="unfinished"/>
+        <translation>Установити як пункт призначення</translation>
     </message>
     <message>
         <source>Add Bookmark at Coordinates</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Додати закладку в Координати</translation>
     </message>
     <message>
         <source>Untitled bookmark</source>
-        <translation type="unfinished"/>
+        <translation>Закладка без назви</translation>
     </message>
     <message>
         <source>Set Coordinates as Destination</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Встановіть координати як пункт призначення</translation>
     </message>
     <message>
         <source>Copy Coordinates</source>
-        <translation type="unfinished"/>
+        <translation>Копіювати координати</translation>
     </message>
     <message>
         <source>X</source>
@@ -2899,79 +2901,79 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Coordinates copied to clipboard</source>
-        <translation type="unfinished"/>
+        <translation>Координати скопійовано в буфер обміну</translation>
     </message>
     <message>
         <source>Precise View Settings</source>
-        <translation type="unfinished"/>
+        <translation>Точні налаштування перегляду</translation>
     </message>
     <message>
         <source>0.25m Precision</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Точність 0.25 м</translation>
     </message>
     <message>
         <source>0.5m Precision</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Точність 0.5 м</translation>
     </message>
     <message>
         <source>1m Precision</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Точність 1 м</translation>
     </message>
     <message>
         <source>2.5m Precision</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Точність 2.5 м</translation>
     </message>
     <message>
         <source>5m Precision</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Точність 5 м</translation>
     </message>
     <message>
         <source>10m Precision</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Точність 10 м</translation>
     </message>
     <message>
         <source>Always Show Precise View</source>
-        <translation type="unfinished"/>
+        <translation>Завжди показувати точний огляд</translation>
     </message>
     <message>
         <source>Center to Location</source>
-        <translation type="unfinished"/>
+        <translation>Центр до розташування</translation>
     </message>
     <message>
         <source>Add Bookmark at Location</source>
-        <translation type="unfinished"/>
+        <translation>Додати закладку в місцезнаходження</translation>
     </message>
     <message>
         <source>Copy Location Coordinates</source>
-        <translation type="unfinished"/>
+        <translation>Копіювати координати розташування</translation>
     </message>
     <message>
         <source>Signed out</source>
-        <translation type="unfinished"/>
+        <translation>Вийти</translation>
     </message>
     <message>
         <source>Signed in</source>
-        <translation type="unfinished"/>
+        <translation>Ви ввійшли</translation>
     </message>
     <message>
         <source>Set As Destination</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Встановити як пункт призначення</translation>
     </message>
     <message>
         <source>Navigation Options</source>
-        <translation type="unfinished"/>
+        <translation>Параметри навігації</translation>
     </message>
     <message>
         <source>Clear Destination</source>
-        <translation type="unfinished"/>
+        <translation>Очистити пункт призначення</translation>
     </message>
     <message>
         <source>%1 Precision</source>
-        <translation type="unfinished"/>
+        <translation>%1 Точність</translation>
     </message>
     <message>
         <source>Enable Audio Proximity Feedback</source>
-        <translation type="unfinished"/>
+        <translation>Увімкнути аудіо-відповідь близькості</translation>
     </message>
     <message>
         <source>Positioning Options</source>
@@ -2995,19 +2997,19 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Add Bookmark at Current Location</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Додати закладку в поточному місці</translation>
     </message>
     <message>
         <source>Current location unknown</source>
-        <translation type="unfinished"/>
+        <translation>Поточне місцезнаходження невідоме</translation>
     </message>
     <message>
         <source>My location</source>
-        <translation type="unfinished"/>
+        <translation>Моє місцезнаходження</translation>
     </message>
     <message>
         <source>Copy Current Location</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Копіювати поточне розташування</translation>
     </message>
     <message>
         <source>Accuracy</source>
@@ -3019,7 +3021,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Current location copied to clipboard</source>
-        <translation type="unfinished"/>
+        <translation>Поточне розташування скопійовано в буфер обміну</translation>
     </message>
     <message>
         <source>Current layer switched to the one holding the selected geometry.</source>
@@ -3067,7 +3069,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Positioning error: %1</source>
-        <translation type="unfinished"/>
+        <translation>Помилка позиціонування: %1</translation>
     </message>
 </context>
 <context>

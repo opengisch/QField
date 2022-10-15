@@ -225,7 +225,7 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
     </message>
     <message>
         <source>Unknown error</source>
-        <translation type="unfinished"/>
+        <translation>Nieznany błąd</translation>
     </message>
 </context>
 <context>
@@ -459,7 +459,7 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
     </message>
     <message>
         <source>The collected positions count does not meet the requirement</source>
-        <translation type="unfinished"/>
+        <translation>Zebrana liczba pozycji nie spełnia wymagań</translation>
     </message>
     <message>
         <source>Should the digitized geometry be discarded?</source>
@@ -3060,7 +3060,7 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
     </message>
     <message>
         <source>Positioning error: %1</source>
-        <translation type="unfinished"/>
+        <translation>Błąd pozycjonowania: %1</translation>
     </message>
 </context>
 <context>
