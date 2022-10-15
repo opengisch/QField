@@ -237,12 +237,18 @@ if(WITH_VCPKG)
     COMMAND ${CMAKE_COMMAND} -E rm -- "${SHARE_DIR}/qgis/resources/data/world_map.gpkg"
     COMMAND ${CMAKE_COMMAND} -E rm -R -- "${SHARE_DIR}/qgis/resources/cpt-city-qgis-min"
   )
-  copy_resource("${VCPKG_BASE_DIR}/share/proj" "proj")
+  set(PROJ_DATA_PATH "${VCPKG_BASE_DIR}/share/proj")
+
+  if(NOT EXISTS "${PROJ_DATA_PATH}/proj.db")
+    message(FATAL_ERROR "proj.db not found at ${PROJ_DATA_PATH}/proj.db")
+  endif()
+
+  copy_resource("${PROJ_DATA_PATH}" "proj")
   copy_resource("${VCPKG_BASE_DIR}/share/gdal" "gdal")
   copy_resource("${CMAKE_SOURCE_DIR}/resources/" "qfield")
   install(DIRECTORY "${VCPKG_BASE_DIR}/share/qgis/resources/" DESTINATION "share/qgis/resources")
   install(DIRECTORY "${VCPKG_BASE_DIR}/share/qgis/svg/" DESTINATION "share/qgis/svg")
-  install(DIRECTORY "${VCPKG_BASE_DIR}/share/proj/data/" DESTINATION "share/proj/data/")
+  install(DIRECTORY "${PROJ_DATA_PATH}/" DESTINATION "share/proj/")
   install(DIRECTORY "${VCPKG_BASE_DIR}/share/gdal/" DESTINATION "share/gdal")
 
   add_dependencies(qfield deploy)
