@@ -155,4 +155,21 @@ Item {
             onClicked: changelogPopup.open()
         }
     }
+
+    QfToolButton {
+        id: documentationButton
+        visible: true
+        anchors {
+            top: parent.top
+            right: parent.right
+            topMargin: mainWindow.sceneTopMargin + 5
+            rightMargin: 5
+        }
+        iconSource: Theme.getThemeVectorIcon( 'ic_book_white_24dp' )
+        bgcolor: "transparent"
+
+        onClicked: {
+            Qt.openUrlExternally("https://docs.qfield.org/")
+        }
+    }
 }
