@@ -489,9 +489,9 @@ void QgisMobileapp::initDeclarative()
 #ifdef WITH_BLUETOOTH
   qmlRegisterType<BluetoothDeviceModel>( "org.qfield", 1, 0, "BluetoothDeviceModel" );
   qmlRegisterType<BluetoothReceiver>( "org.qfield", 1, 0, "BluetoothReceiver" );
-  rootContext()->setContextProperty( "withBluetooth", true );
+  rootContext()->setContextProperty( "withBluetooth", QVariant( true ) );
 #else
-  rootContext()->setContextProperty( "withBluetooth", false );
+  rootContext()->setContextProperty( "withBluetooth", QVariant( true ) );
 #endif
   qmlRegisterType<ChangelogContents>( "org.qfield", 1, 0, "ChangelogContents" );
   qmlRegisterType<LayerResolver>( "org.qfield", 1, 0, "LayerResolver" );

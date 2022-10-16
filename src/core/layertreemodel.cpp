@@ -111,7 +111,7 @@ FlatLayerTreeModelBase::FlatLayerTreeModelBase( QgsLayerTree *layerTree, QgsProj
 {
   mLayerTreeModel = new QgsLayerTreeModel( layerTree, this );
   mLayerTreeModel->setFlag( QgsLayerTreeModel::ShowLegendAsTree, true );
-  setSourceModel( mLayerTreeModel );
+  QAbstractProxyModel::setSourceModel( mLayerTreeModel );
   connect( mProject, &QgsProject::cleared, this, [=] { updateTemporalState(); buildMap( nullptr ); } );
   connect( mProject, &QgsProject::readProject, this, [=] { buildMap( mLayerTreeModel ); } );
   connect( mProject, &QgsProject::layersAdded, this, &FlatLayerTreeModelBase::adjustTemporalStateFromAddedLayers );
@@ -392,7 +392,7 @@ int FlatLayerTreeModelBase::buildMap( QgsLayerTreeModel *model, const QModelInde
   return row;
 }
 
-void FlatLayerTreeModelBase::setSourceModel( QgsLayerTreeModel *sourceModel )
+void FlatLayerTreeModelBase::setSourceModel( QAbstractItemModel *sourceModel )
 {
   QAbstractProxyModel::setSourceModel( sourceModel );
   buildMap( mLayerTreeModel );

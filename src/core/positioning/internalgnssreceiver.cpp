@@ -225,7 +225,7 @@ void InternalGnssReceiver::handleSatellitesInViewUpdated( const QList<QGeoSatell
     return;
 
   QList<QgsSatelliteInfo> satellitesInfo;
-  for ( const QGeoSatelliteInfo satellite : satellites )
+  for ( const QGeoSatelliteInfo &satellite : satellites )
   {
     QgsSatelliteInfo satelliteInfo;
     satelliteInfo.elevation = satellite.hasAttribute( QGeoSatelliteInfo::Elevation )
