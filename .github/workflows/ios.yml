@@ -182,7 +182,7 @@ jobs:
         with:
           upload_url: ${{ github.event.release.upload_url }}
           asset_path: ${{ env.CI_PACKAGE_FILE_BASENAME }}.ipa
-          asset_name: ${{ steps.vars.outputs.CI_PACKAGE_FILE_BASENAME }}-${{ env.TRIPLET }}-${{ env.DEPLOYMENT_TARGET }}.ipa
+          asset_name: ${{ env.CI_PACKAGE_FILE_BASENAME }}-${{ env.TRIPLET }}-${{ env.DEPLOYMENT_TARGET }}.ipa
           asset_content_type: application/zip
 
       - name: Upload debug symbols

@@ -106,7 +106,7 @@ jobs:
           ARTIFACT_PATHNAME=$(ls ${{ env.CMAKE_BUILD_DIR }}/QField-*-win64.* | head -n 1)
           ARTIFACT_NAME=$(basename $ARTIFACT_PATHNAME)
           echo "ARTIFACT_PATHNAME=${ARTIFACT_PATHNAME}" >> $GITHUB_ENV
-          echo "ARTIFACT_NAME=${{ steps.vars.outputs.CI_PACKAGE_FILE_BASENAME }}-windows-x64.exe" >> $GITHUB_ENV
+          echo "ARTIFACT_NAME=${{ env.CI_PACKAGE_FILE_BASENAME }}-windows-x64.exe" >> $GITHUB_ENV
 
       - name: 📑 Upload package logs
         uses: actions/upload-artifact@v3
@@ -127,12 +127,6 @@ jobs:
         with:
           name: "test-report-x64-windows-static-${{ env.BUILD_TYPE }}"
           path: "${{ env.CMAKE_BUILD_DIR }}/report"
-
-      - name: 🪔 Get the current release version
-        id: get_version
-        shell: bash
-        run: |
-          echo "::set-output name=version::${GITHUB_REF##*/}"
 
       - name: 🚀 Upload release asset
         if: github.event_name == 'release' && startsWith(github.ref, 'refs/tags/v') && env.ARTIFACT_NAME != null
