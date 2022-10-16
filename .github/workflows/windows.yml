@@ -83,7 +83,7 @@ jobs:
         with:
           name: build-logs-x64-windows-static
           path: |
-            ${{ github.workspace }}/vcpkg/base/buildtrees/**/*.log
+            C:/src/**/*.log
 
       - name: 🌋 Build
         run: |

@@ -124,8 +124,7 @@ jobs:
         with:
           name: logs-x64-osx
           path: |
-            ${{ github.workspace }}/vcpkg/base/buildtrees/**/*.log
-            ${{ env.BUILD_ROOT }}/builddir/_CPack_Packages/**/*.log
+            ${{ env.CMAKE_BUILD_DIR }}/**/*.log
 
       - name: ♾️ Upload debug symbols
         # if: release or labeled PR
