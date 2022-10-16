@@ -102,7 +102,7 @@ jobs:
           export LD_LIBRARY_PATH="${{ env.CMAKE_BUILD_DIR }}/vcpkg_installed/x64-linux/lib/":${LD_LIBRARY_PATH}
           cmake --build  "${{ env.CMAKE_BUILD_DIR }}" --target bundle --config ${{ env.BUILD_TYPE }}
           echo "ARTIFACT_PATHNAME=${{ env.CMAKE_BUILD_DIR }}/QField-x86_64.AppImage" >> $GITHUB_ENV
-          echo "ARTIFACT_NAME=${{ steps.vars.outputs.CI_PACKAGE_FILE_BASENAME }}-linux-x64.AppImage" >> $GITHUB_ENV
+          echo "ARTIFACT_NAME=${{ env.CI_PACKAGE_FILE_BASENAME }}-linux-x64.AppImage" >> $GITHUB_ENV
 
       - name: 📑 Upload package logs
         uses: actions/upload-artifact@v3
@@ -124,11 +124,6 @@ jobs:
         with:
           name: "test-report-x64-linux-${{ env.BUILD_TYPE }}"
           path: "${{ env.CMAKE_BUILD_DIR }}/report"
-
-      - name: 🪔 Get the current release version
-        id: get_version
-        run: |
-          echo "::set-output name=version::${GITHUB_REF##*/}"
 
       - name: 🚀 Upload release asset
         if: github.event_name == 'release' && startsWith(github.ref, 'refs/tags/v') && env.ARTIFACT_NAME != null

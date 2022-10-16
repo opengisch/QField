@@ -110,7 +110,7 @@ jobs:
         run: |
           cmake --build  "${{ env.CMAKE_BUILD_DIR }}" --target bundle --config ${{ env.BUILD_TYPE }}
               echo "ARTIFACT_PATHNAME=${{ env.CMAKE_BUILD_DIR }}/QField-Installer.dmg" >> $GITHUB_ENV
-              echo "ARTIFACT_NAME=${{ steps.vars.outputs.CI_PACKAGE_FILE_BASENAME }}-macos.dmg" >> $GITHUB_ENV
+              echo "ARTIFACT_NAME=${{ env.CI_PACKAGE_FILE_BASENAME }}-macos.dmg" >> $GITHUB_ENV
 
 #      - name: 🔒 Notarize Release Build
 #        uses: m-kuhn/notarize-build@main
@@ -140,11 +140,6 @@ jobs:
         with:
           name: "test-report-x64-osx-${{ env.BUILD_TYPE }}"
           path: "${{ env.CMAKE_BUILD_DIR }}/report"
-
-      - name: 🪔 Get the current release version
-        id: get_version
-        run: |
-          echo "::set-output name=version::${GITHUB_REF##*/}"
 
       - name: 🚀 Upload release asset
         if: github.event_name == 'release' && startsWith(github.ref, 'refs/tags/v') && env.ARTIFACT_NAME != null

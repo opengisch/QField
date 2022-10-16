@@ -43,11 +43,8 @@ jobs:
           ALL_FILES_ACCESS=${{ matrix.all_files_access }} ./scripts/ci/env_gh.sh
 
           BUILD_ROOT="/home/runner"
-          echo "::set-output name=SYSTEM_QT::ON"
-          echo "::set-output name=PATHCONVERT::echo"
-          echo "::set-output name=INSTALL_QT::true"
-          echo "::set-output name=BUILD_TYPE::Release"
-          echo "::set-output name=BUILD_ROOT::${BUILD_ROOT}"
+          echo "BUILD_ROOT=${BUILD_ROOT}" >> $GITHUB_ENV
+          echo "BUILD_TYPE=Release" >> $GITHUB_ENV
 
           echo "CMAKE_BUILD_DIR=${BUILD_ROOT}/builddir" >> $GITHUB_ENV
 
@@ -55,7 +52,6 @@ jobs:
         uses: lukka/get-cmake@latest
 
       - name: 💐 Install Qt
-        if: ${{ steps.vars.outputs.INSTALL_QT }}
         uses: jurplel/install-qt-action@v3
         with:
           version: 5.14.2
@@ -92,17 +88,13 @@ jobs:
         env:
           WORKSPACE: ${{ github.workspace }}
         run: |
-          # Convert paths to bash compatible ones. Thanks to whoever decided to use drive letters and backslashes.
-          CMAKE_BUILD_DIR=$( ${{ steps.vars.outputs.PATHCONVERT }} "${CMAKE_BUILD_DIR}" )
-          SOURCE_DIR=$( ${{ steps.vars.outputs.PATHCONVERT }} "${WORKSPACE}" )
-
           TRIPLET=${{ matrix.triplet }} ALL_FILES_ACCESS=${{ matrix.all_files_access }} source ./scripts/version_number.sh
           TRIPLET=${{ matrix.triplet }} ALL_FILES_ACCESS=${{ matrix.all_files_access }} source ./scripts/ci/generate-version-details.sh
 
-          cmake -S "${SOURCE_DIR}" \
+          cmake -S "${{ github.workspace }}" \
                 -B "${CMAKE_BUILD_DIR}" \
                 -G Ninja \
-                -D CMAKE_BUILD_TYPE=${{ steps.vars.outputs.BUILD_TYPE }} \
+                -D CMAKE_BUILD_TYPE=${{ env.BUILD_TYPE }} \
                 -D CMAKE_CXX_COMPILER_LAUNCHER=ccache \
                 -D SYSTEM_QT=ON \
                 -D ANDROID_SDK=/usr/local/lib/android/sdk/ \
@@ -136,7 +128,7 @@ jobs:
 
       - name: 🌋 Build
         run: |
-          cmake --build "${{ env.CMAKE_BUILD_DIR }}" --config ${{ steps.vars.outputs.BUILD_TYPE }} # --target qfield
+          cmake --build "${{ env.CMAKE_BUILD_DIR }}" --config ${{ env.BUILD_TYPE }}
 
       - name: Setup signing key
         env:
@@ -212,20 +204,20 @@ jobs:
 
       - name: Download apks
         run: |
-          wget https://sos-ch-dk-2.exo.io/qfieldapks/ci-builds/${{ steps.vars.outputs.CI_PACKAGE_FILE_BASENAME }}-arm64-android.apk
-          wget https://sos-ch-dk-2.exo.io/qfieldapks/ci-builds/${{ steps.vars.outputs.CI_PACKAGE_FILE_BASENAME }}-arm-android.apk
-          wget https://sos-ch-dk-2.exo.io/qfieldapks/ci-builds/${{ steps.vars.outputs.CI_PACKAGE_FILE_BASENAME }}-x64-android.apk
-          wget https://sos-ch-dk-2.exo.io/qfieldapks/ci-builds/${{ steps.vars.outputs.CI_PACKAGE_FILE_BASENAME }}-x86-android.apk
+          wget https://sos-ch-dk-2.exo.io/qfieldapks/ci-builds/${{ env.CI_PACKAGE_FILE_BASENAME }}-arm64-android.apk
+          wget https://sos-ch-dk-2.exo.io/qfieldapks/ci-builds/${{ env.CI_PACKAGE_FILE_BASENAME }}-arm-android.apk
+          wget https://sos-ch-dk-2.exo.io/qfieldapks/ci-builds/${{ env.CI_PACKAGE_FILE_BASENAME }}-x64-android.apk
+          wget https://sos-ch-dk-2.exo.io/qfieldapks/ci-builds/${{ env.CI_PACKAGE_FILE_BASENAME }}-x86-android.apk
 
       - name: Upload to Google Play Store
         run: |
           pip install google-api-python-client google-auth-httplib2 google-auth-oauthlib oauth2client
 
-          ./scripts/basic_upload_apks_service_account.py ch.opengis.${{ steps.vars.outputs.APP_PACKAGE_NAME }} beta "Update from commit ${GITHUB_SHA}" \
-              ${{ steps.vars.outputs.CI_PACKAGE_FILE_BASENAME }}-arm64-android.apk \
-              ${{ steps.vars.outputs.CI_PACKAGE_FILE_BASENAME }}-arm-android.apk \
-              ${{ steps.vars.outputs.CI_PACKAGE_FILE_BASENAME }}-x64-android.apk \
-              ${{ steps.vars.outputs.CI_PACKAGE_FILE_BASENAME }}-x86-android.apk
+          ./scripts/basic_upload_apks_service_account.py ch.opengis.${{ env.APP_PACKAGE_NAME }} beta "Update from commit ${GITHUB_SHA}" \
+              ${{ env.CI_PACKAGE_FILE_BASENAME }}-arm64-android.apk \
+              ${{ env.CI_PACKAGE_FILE_BASENAME }}-arm-android.apk \
+              ${{ env.CI_PACKAGE_FILE_BASENAME }}-x64-android.apk \
+              ${{ env.CI_PACKAGE_FILE_BASENAME }}-x86-android.apk
         env:
           GOOGLE_SERVICE_ACCOUNT: ${{ secrets.GOOGLE_SERVICE_ACCOUNT }}
 
@@ -247,13 +239,13 @@ jobs:
         with:
           GITHUB_TOKEN: ${{ secrets.FAIRY_TOKEN }}
           message: |
-            🎉 Ta-daaa, freshly created APKs are available for ${{ github.event.pull_request.head.sha }}: [**arm64-android**](https://sos-ch-dk-2.exo.io/qfieldapks/ci-builds/${{ steps.vars.outputs.CI_PACKAGE_FILE_BASENAME }}-arm64-android.apk)
+            🎉 Ta-daaa, freshly created APKs are available for ${{ github.event.pull_request.head.sha }}: [**arm64-android**](https://sos-ch-dk-2.exo.io/qfieldapks/ci-builds/${{ env.CI_PACKAGE_FILE_BASENAME }}-arm64-android.apk)
             <details>
             <summary>Other architectures</summary>
 
-            - [arm-android](https://sos-ch-dk-2.exo.io/qfieldapks/ci-builds/${{ steps.vars.outputs.CI_PACKAGE_FILE_BASENAME }}-arm-android.apk)
-            - [x64-android](https://sos-ch-dk-2.exo.io/qfieldapks/ci-builds/${{ steps.vars.outputs.CI_PACKAGE_FILE_BASENAME }}-x64-android.apk)
-            - [x86-android](https://sos-ch-dk-2.exo.io/qfieldapks/ci-builds/${{ steps.vars.outputs.CI_PACKAGE_FILE_BASENAME }}-x86-android.apk)
+            - [arm-android](https://sos-ch-dk-2.exo.io/qfieldapks/ci-builds/${{ env.CI_PACKAGE_FILE_BASENAME }}-arm-android.apk)
+            - [x64-android](https://sos-ch-dk-2.exo.io/qfieldapks/ci-builds/${{ env.CI_PACKAGE_FILE_BASENAME }}-x64-android.apk)
+            - [x86-android](https://sos-ch-dk-2.exo.io/qfieldapks/ci-builds/${{ env.CI_PACKAGE_FILE_BASENAME }}-x86-android.apk)
             </details>
 
   comment_commit:
@@ -273,7 +265,7 @@ jobs:
           token: ${{ secrets.FAIRY_TOKEN }}
           body: |
             🎉 Ta-daaa, freshly created APKs are available:
-              - [**arm64-android**](https://sos-ch-dk-2.exo.io/qfieldapks/ci-builds/${{ steps.vars.outputs.CI_PACKAGE_FILE_BASENAME }}-arm64-android.apk)
+              - [**arm64-android**](https://sos-ch-dk-2.exo.io/qfieldapks/ci-builds/${{ env.CI_PACKAGE_FILE_BASENAME }}-arm64-android.apk)
 
-            Other architectures: [arm-android](https://sos-ch-dk-2.exo.io/qfieldapks/ci-builds/${{ steps.vars.outputs.CI_PACKAGE_FILE_BASENAME }}-arm-android.apk), [x64-android](https://sos-ch-dk-2.exo.io/qfieldapks/ci-builds/${{ steps.vars.outputs.CI_PACKAGE_FILE_BASENAME }}-x64-android.apk), [x86](https://sos-ch-dk-2.exo.io/qfieldapks/ci-builds/${{ steps.vars.outputs.CI_PACKAGE_FILE_BASENAME }}-x86-android.apkg)
+            Other architectures: [arm-android](https://sos-ch-dk-2.exo.io/qfieldapks/ci-builds/${{ env.CI_PACKAGE_FILE_BASENAME }}-arm-android.apk), [x64-android](https://sos-ch-dk-2.exo.io/qfieldapks/ci-builds/${{ env.CI_PACKAGE_FILE_BASENAME }}-x64-android.apk), [x86](https://sos-ch-dk-2.exo.io/qfieldapks/ci-builds/${{ env.CI_PACKAGE_FILE_BASENAME }}-x86-android.apkg)
 
