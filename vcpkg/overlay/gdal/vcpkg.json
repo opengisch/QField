@@ -94,10 +94,7 @@
         "openjpeg",
         "openssl",
         "pcre2",
-        {
-          "name": "qhull",
-          "platform": "!ios"
-        },
+        "qhull",
         "zstd"
       ]
     },

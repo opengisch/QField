@@ -1,0 +1,21 @@
+From 03d416b70c450448285cce85d8e41be5496b8fcb Mon Sep 17 00:00:00 2001
+From: SpaceIm <30052553+SpaceIm@users.noreply.github.com>
+Date: Mon, 5 Jul 2021 17:04:02 +0200
+Subject: [PATCH] add BUNDLE DESTINATION for iOS
+
+---
+ CMakeLists.txt | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 22e54f3..1c6b721 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -688,6 +688,7 @@ endif()
+ 
+ install(TARGETS ${qhull_TARGETS_INSTALL} EXPORT QhullTargets
+         RUNTIME DESTINATION ${BIN_INSTALL_DIR}
++        BUNDLE DESTINATION ${BIN_INSTALL_DIR}
+         LIBRARY DESTINATION ${LIB_INSTALL_DIR}
+         ARCHIVE DESTINATION ${LIB_INSTALL_DIR}
+         INCLUDES DESTINATION include)
