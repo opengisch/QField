@@ -107,7 +107,13 @@ if (ANDROID)
 
   set(ANDROID_PACKAGE_SOURCE_DIR ${CMAKE_BINARY_DIR}/android-template)
 
-  include(platform/android/openssl/CMakeLists.txt)
+  include(FetchContent)
+  FetchContent_Declare(android_openssl
+      GIT_REPOSITORY https://github.com/KDAB/android_openssl.git
+      GIT_TAG aa3c67c59160715216e89ae2c48291d6021601fa
+  )
+  FetchContent_MakeAvailable(android_openssl)
+  include(${FETCHCONTENT_BASE_DIR}/android_openssl-src/CMakeLists.txt)
 
   if(NOT BUILD_WITH_QT6)
     find_package(Qt5 COMPONENTS AndroidExtras REQUIRED)
