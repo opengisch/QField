@@ -41,7 +41,8 @@
       android:icon="@AT@drawable/@APP_ICON@"
       android:launchMode="singleTask"
       android:configChanges="orientation|uiMode|screenLayout|screenSize|smallestScreenSize|locale|fontScale|keyboard|keyboardHidden|navigation"
-      android:theme="@style/AppTheme">
+      android:theme="@style/AppTheme"
+      android:exported="true">
       <intent-filter>
         <action android:name="android.intent.action.MAIN"/>
         <category android:name="android.intent.category.LAUNCHER"/>
