@@ -24,14 +24,35 @@ if(NOT WITH_VCPKG)
   return()
 endif()
 
-message(STATUS "Building with vcpkg libraries --")
+if(NOT VCPKG_TAG STREQUAL VCPKG_INSTALLED_VERSION)
+  message(STATUS "Updating vcpkg")
+  include(FetchContent)
+  FetchContent_Declare(vcpkg
+      GIT_REPOSITORY https://github.com/microsoft/vcpkg.git
+      GIT_TAG ${VCPKG_TAG}
+  )
+  FetchContent_MakeAvailable(vcpkg)
+else()
+  message(STATUS "Using cached vcpkg")
+endif()
+set(VCPKG_ROOT "${FETCHCONTENT_BASE_DIR}/vcpkg-src" CACHE STRING "")
+set(CMAKE_TOOLCHAIN_FILE "${FETCHCONTENT_BASE_DIR}/vcpkg-src/scripts/buildsystems/vcpkg.cmake" CACHE FILEPATH "")
+
+find_package(Git REQUIRED)
+if(WIN32)
+  execute_process(COMMAND cmd /C "${GIT_EXECUTABLE} -C ${VCPKG_ROOT} rev-parse HEAD" OUTPUT_VARIABLE VCPKG_VERSION OUTPUT_STRIP_TRAILING_WHITESPACE)
+else()
+  execute_process(COMMAND bash -c "${GIT_EXECUTABLE} -C ${VCPKG_ROOT} rev-parse HEAD" OUTPUT_VARIABLE VCPKG_VERSION ERROR_VARIABLE ERR OUTPUT_STRIP_TRAILING_WHITESPACE)
+endif()
+
+set(VCPKG_INSTALLED_VERSION ${VCPKG_VERSION} CACHE STRING "" FORCE)
+
+message(STATUS "Building with vcpkg libraries version ${VCPKG_INSTALLED_VERSION}")
 
 if(BUILD_WITH_QT6)
   set(VCPKG_MANIFEST_DIR "${CMAKE_SOURCE_DIR}/.qt6")
 endif()
 
-set(VCPKG_ROOT "${CMAKE_SOURCE_DIR}/vcpkg/base" CACHE STRING "")
-set(CMAKE_TOOLCHAIN_FILE "${VCPKG_ROOT}/scripts/buildsystems/vcpkg.cmake")
 if(_BUILD_FOR_ANDROID)
   if(NOT DEFINED ENV{ANDROID_NDK_HOME})
     message(FATAL_ERROR "ANDROID_NDK_HOME environment variable is not set")

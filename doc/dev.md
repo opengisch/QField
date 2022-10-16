@@ -108,13 +108,18 @@ You need to have the following tools available to build
 
 ### Configure
 
-QField on Windows will always be built using vcpkg.
+QField on Windows is always built using vcpkg.
+A couple of specific variables should be specified.
+The `x-buildtrees-root` flag needs to point to a short path
+in order to avoid running into [issues with long paths](https://docs.microsoft.com/en-us/windows/win32/fileio/naming-a-file#enable-long-paths-in-windows-10-version-1607-and-later).
+
 
 ```sh
 cmake -S QField -B build \
   -D VCPKG_TARGET_TRIPLET=x64-windows-static \
   -D CMAKE_MSVC_RUNTIME_LIBRARY=MultiThreaded\$<\$<CONFIG:Debug>:Debug> \
-  -D PKG_CONFIG_EXECUTABLE=build/vcpkg_installed/x64-windows/tools/pkgconf/pkgconf.exe
+  -D PKG_CONFIG_EXECUTABLE=build/vcpkg_installed/x64-windows/tools/pkgconf/pkgconf.exe \
+  -D VCPKG_INSTALL_OPTIONS="--x-buildtrees-root=C:/build"
 ```
 
 ### Build
