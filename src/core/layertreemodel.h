@@ -38,7 +38,7 @@ class FlatLayerTreeModelBase : public QAbstractProxyModel
     void removeFromMap( const QModelIndex &parent, int first, int last );
     void insertInMap( const QModelIndex &parent, int first, int last );
 
-    void setSourceModel( QgsLayerTreeModel *sourceModel );
+    void setSourceModel( QAbstractItemModel *sourceModel ) override;
     QModelIndex mapToSource( const QModelIndex &proxyIndex ) const override;
     QModelIndex mapFromSource( const QModelIndex &sourceIndex ) const override;
 
