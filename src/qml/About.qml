@@ -39,7 +39,7 @@ Item {
             ColumnLayout {
                 id: information
                 width: aboutContainer.width
-                height: Math.max(mainWindow.height - changelogButton.height * 2 - 60,
+                height: Math.max(mainWindow.height - linksButton.height * 2 - 60,
                                  opengisLogo.height + qfieldLogo.height + 100)
 
                 ColumnLayout {
@@ -146,13 +146,50 @@ Item {
         }
 
         QfButton {
-            id: changelogButton
+            id: linksButton
+            dropdown: true
             Layout.fillWidth: true
+            icon.source: Theme.getThemeVectorIcon( 'ic_book_white_24dp' )
+
+            text: qsTr( 'Documentation' )
+
+
+            onClicked: {
+                Qt.openUrlExternally("https://docs.qfield.org/")
+            }
+
+            onDropdownClicked: {
+              linksMenu.popup(linksButton.width - linksMenu.width + 10, linksButton.y + 10)
+            }
+        }
+    }
+
+    Menu {
+        id: linksMenu
+        title: qsTr( "Links Menu" )
+
+        width: {
+          var result = 0;
+          var padding = 0;
+          for (var i = 0; i < count; ++i) {
+            var item = itemAt(i);
+            result = Math.max(item.contentItem.implicitWidth, result);
+            padding = Math.max(item.padding, padding);
+          }
+          return result + padding * 2;
+        }
+
+        MenuItem {
+            text: qsTr('Changelog')
+
+            font: Theme.defaultFont
+            height: 48
+            leftPadding: 10
             icon.source: Theme.getThemeVectorIcon( 'ic_speaker_white_24dp' )
 
-            text: qsTr( 'Changelog' )
-
-            onClicked: changelogPopup.open()
+            onTriggered: {
+                changelogPopup.open()
+            }
         }
     }
 }
