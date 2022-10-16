@@ -1,11 +1,12 @@
 vcpkg_from_github(
     OUT_SOURCE_PATH SOURCE_PATH
     REPO OSGeo/gdal
-    REF 2a589654af44263b3eff6ffa4927e9bd93115a64 # to be 3.5.2
-    SHA512 dd033dff38dac408831e652a39f5667c9ee7f8e8b46b27c9adca39ee4801324dd782edebef56c6227e7daf42485d667c828d6a58d83877ff428e2c162dc45e1e
+    REF v3.5.2
+    SHA512 fece50709090e21200298cf0d5c0dd10418bb800a3c92fb77eedab42c3942169bf69abcad9a6d61d3368ac5265e053e8c2aeb361d297ed0ace92ffba3b21dbca
     HEAD_REF master
     PATCHES
         find-link-libraries.patch
+        fix-gdal-target-interfaces.patch
 )
 # `vcpkg clean` stumbles over one subdir
 file(REMOVE_RECURSE "${SOURCE_PATH}/autotest")
@@ -40,6 +41,7 @@ vcpkg_check_features(OUT_FEATURE_OPTIONS FEATURE_OPTIONS
         default-features GDAL_USE_PNG
         poppler          GDAL_USE_POPPLER
         postgresql       GDAL_USE_POSTGRESQL
+        default-features GDAL_USE_QHULL
         #core             GDAL_USE_SHAPELIB  # https://github.com/OSGeo/gdal/issues/5711, https://github.com/microsoft/vcpkg/issues/16041
         core             GDAL_USE_SHAPELIB_INTERNAL
         libspatialite    GDAL_USE_SPATIALITE
@@ -48,23 +50,23 @@ vcpkg_check_features(OUT_FEATURE_OPTIONS FEATURE_OPTIONS
         default-features GDAL_USE_WEBP
         core             GDAL_USE_ZLIB
         default-features GDAL_USE_ZSTD
+        tools            BUILD_APPS
 )
 if(GDAL_USE_ICONV AND VCPKG_TARGET_IS_WINDOWS)
     list(APPEND FEATURE_OPTIONS -D_ICONV_SECOND_ARGUMENT_IS_NOT_CONST=ON)
 endif()
 
-vcpkg_check_features(OUT_FEATURE_OPTIONS FEATURE_OPTIONS_RELEASE
-    FEATURES
-        tools           BUILD_APPS
-)
-
-if(VCPKG_TARGET_IS_ANDROID AND (VCPKG_TARGET_ARCHITECTURE MATCHES "x86" OR VCPKG_TARGET_ARCHITECTURE MATCHES "arm"))
+# Compatibility with older Android versions https://github.com/OSGeo/gdal/pull/5941
+if(VCPKG_TARGET_IS_ANDROID AND ANRDOID_PLATFORM VERSION_LESS 24 AND (VCPKG_TARGET_ARCHITECTURE STREQUAL "x86" OR VCPKG_TARGET_ARCHITECTURE STREQUAL "arm"))
     list(APPEND FEATURE_OPTIONS -DBUILD_WITHOUT_64BIT_OFFSET=ON)
 endif()
+
+string(REPLACE "dynamic" "" qhull_target "Qhull::qhull${VCPKG_LIBRARY_LINKAGE}_r")
 
 vcpkg_cmake_configure(
     SOURCE_PATH "${SOURCE_PATH}"
     OPTIONS
+        -DVCPKG_HOST_TRIPLET=${HOST_TRIPLET} # for host pkgconf in PATH
         ${FEATURE_OPTIONS}
         -DBUILD_DOCS=OFF
         -DBUILD_PYTHON_BINDINGS=OFF
@@ -78,10 +80,14 @@ vcpkg_cmake_configure(
         -DGDAL_USE_EXTERNAL_LIBS=OFF
         -DGDAL_BUILD_OPTIONAL_DRIVERS=ON
         -DOGR_BUILD_OPTIONAL_DRIVERS=ON
+        -DGDAL_CHECK_PACKAGE_MySQL_NAMES=unofficial-libmariadb
+        -DGDAL_CHECK_PACKAGE_MySQL_TARGETS=unofficial::libmariadb
+        -DMYSQL_LIBRARIES=unofficial::libmariadb
         -DGDAL_CHECK_PACKAGE_NetCDF_NAMES=netCDF
         -DGDAL_CHECK_PACKAGE_NetCDF_TARGETS=netCDF::netcdf
-    OPTIONS_RELEASE
-        ${FEATURE_OPTIONS_RELEASE}
+        -DGDAL_CHECK_PACKAGE_QHULL_NAMES=Qhull
+        "-DGDAL_CHECK_PACKAGE_QHULL_TARGETS=${qhull_target}"
+        "-DQHULL_LIBRARY=${qhull_target}"
     OPTIONS_DEBUG
         -DBUILD_APPS=OFF
 )
@@ -136,14 +142,18 @@ file(REMOVE_RECURSE
     "${CURRENT_PACKAGES_DIR}/debug/include"
     "${CURRENT_PACKAGES_DIR}/debug/share"
 )
+
+file(REMOVE "${CURRENT_PACKAGES_DIR}/bin/gdal-config" "${CURRENT_PACKAGES_DIR}/debug/bin/gdal-config")
+
 file(GLOB bin_files "${CURRENT_PACKAGES_DIR}/bin/*")
-list(REMOVE_ITEM bin_files "${CURRENT_PACKAGES_DIR}/bin/gdal-config")
 if(NOT bin_files)
     file(REMOVE_RECURSE
         "${CURRENT_PACKAGES_DIR}/bin"
         "${CURRENT_PACKAGES_DIR}/debug/bin"
     )
 endif()
+
+vcpkg_replace_string("${CURRENT_PACKAGES_DIR}/include/cpl_config.h" "#define GDAL_PREFIX \"${CURRENT_PACKAGES_DIR}\"" "")
 
 file(INSTALL "${CMAKE_CURRENT_LIST_DIR}/vcpkg-cmake-wrapper.cmake" DESTINATION "${CURRENT_PACKAGES_DIR}/share/${PORT}")
 file(INSTALL "${CMAKE_CURRENT_LIST_DIR}/usage" DESTINATION "${CURRENT_PACKAGES_DIR}/share/${PORT}")
