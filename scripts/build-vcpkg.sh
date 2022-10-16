@@ -8,9 +8,6 @@ CMAKE_BUILD_DIR=/usr/src/qfield/build-${triplet}
 
 export Qt5_Dir=/home/devel/5.14.2/android/
 export Qt5_DIR=${Qt5_Dir}
-export ANDROID_PLATFORM=21
-export ANDROID_TARGET_PLATFORM=30
-export ANDROID_BUILD_TOOLS_VERSION=29.0.2
 
 [[ -z ${APP_NAME} ]] && APP_NAME="QField"
 [[ -z ${APP_PACKAGE_NAME} ]] && APP_PACKAGE_NAME="qfield"
