@@ -83,7 +83,7 @@ jobs:
         with:
           name: build-logs-x64-linux
           path: |
-            ${{ github.workspace }}/vcpkg/base/buildtrees/**/*.log
+            ${{ env.CMAKE_BUILD_DIR }}/**/*.log
 
       - name: 🌋 Build
         run: |

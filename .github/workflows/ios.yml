@@ -106,8 +106,7 @@ jobs:
         with:
           name: build-logs-${{ env.TRIPLET }}
           path: |
-            /Users/runner/builddir/vcpkg-manifest-install.log
-            ${{ github.workspace }}/vcpkg/base/buildtrees/**/*.log
+            /Users/runner/builddir/**/*.log
 
       # Not required, packaging does it all
       # - name: 🌋 Build
