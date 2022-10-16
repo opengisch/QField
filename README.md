@@ -18,14 +18,13 @@ Check the [documentation](https://docs.qfield.org/)
 
 [![Get in Google play](http://www.qfield.org/images/Get_it_on_Google_play.png)](https://play.google.com/store/apps/details?id=ch.opengis.qfield)
 
+### iOS
+
+[![Get it on the App store](https://docs.qfield.org/assets/images/app-store.png)](https://apps.apple.com/app/qfield-for-qgis/id1531726814)
+
 ### Windows (Beta)
 
-[![Download the latest windows beta version](https://qgis.org/en/_static/images/app_download_windows.png)](https://github.com/opengisch/QField/releases/download/v2.0.14/qfield-v2.0.14-windows-x64.exe)
-
-### iOS (Beta)
-
-An iOS version is in the making. You can [sign up for beta testing in testflight](https://testflight.apple.com/join/TbG1kJVI) to get access earlier than everyone else.
-
+[![Download the latest windows beta version](https://qgis.org/en/_static/images/app_download_windows.png)](https://github.com/opengisch/QField/releases/download/v2.4.2/qfield-v2.4.2-windows-x64.exe)
 
 ### MacOS (Beta)
 
