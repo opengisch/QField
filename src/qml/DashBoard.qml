@@ -194,7 +194,7 @@ Drawer {
             Behavior on x {
               PropertyAnimation {
                 duration: 100
-                easing.type: Easing.InQuart
+                easing.type: Easing.OutQuart
               }
             }
           }
