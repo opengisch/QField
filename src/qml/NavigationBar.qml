@@ -197,7 +197,7 @@ Rectangle {
 
     Behavior on width {
       PropertyAnimation {
-        easing.type: Easing.InQuart
+        easing.type: Easing.OutQuart
       }
     }
   }
@@ -231,7 +231,7 @@ Rectangle {
 
     Behavior on width {
       PropertyAnimation {
-        easing.type: Easing.InQuart
+        easing.type: Easing.OutQuart
       }
     }
   }
@@ -259,7 +259,7 @@ Rectangle {
     }
     Behavior on width {
       PropertyAnimation {
-        easing.type: Easing.InQuart
+        easing.type: Easing.OutQuart
       }
     }
   }
@@ -284,7 +284,7 @@ Rectangle {
 
     Behavior on width {
       PropertyAnimation {
-        easing.type: Easing.InQuart
+        easing.type: Easing.OutQuart
       }
     }
   }
@@ -317,7 +317,7 @@ Rectangle {
 
     Behavior on width {
       PropertyAnimation {
-        easing.type: Easing.InQuart
+        easing.type: Easing.OutQuart
       }
     }
 
@@ -353,7 +353,7 @@ Rectangle {
 
     Behavior on width {
       PropertyAnimation {
-        easing.type: Easing.InQuart
+        easing.type: Easing.OutQuart
       }
     }
 
@@ -396,7 +396,7 @@ Rectangle {
 
     Behavior on width {
       PropertyAnimation {
-        easing.type: Easing.InQuart
+        easing.type: Easing.OutQuart
       }
     }
   }
@@ -421,7 +421,7 @@ Rectangle {
 
     Behavior on width {
       PropertyAnimation {
-        easing.type: Easing.InQuart
+        easing.type: Easing.OutQuart
       }
     }
   }
@@ -470,7 +470,7 @@ Rectangle {
 
     Behavior on width {
       PropertyAnimation {
-        easing.type: Easing.InQuart
+        easing.type: Easing.OutQuart
       }
     }
   }

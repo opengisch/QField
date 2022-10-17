@@ -253,7 +253,7 @@ Rectangle {
         opacity: index == featureForm.selection.focusedItem && featureForm.selection.model.selectedCount == 0 ? 1 : 0
         Behavior on opacity {
           PropertyAnimation {
-            easing.type: Easing.InQuart
+            easing.type: Easing.OutQuart
           }
         }
       }
@@ -320,7 +320,7 @@ Rectangle {
 
     Behavior on height {
       PropertyAnimation {
-        easing.type: Easing.InQuart
+        easing.type: Easing.OutQuart
       }
     }
   }
@@ -586,7 +586,7 @@ Rectangle {
   Behavior on width {
     PropertyAnimation {
       duration: parent.width > parent.height ? 250 : 0
-      easing.type: Easing.InQuart
+      easing.type: Easing.OutQuart
 
       onRunningChanged: {
         if ( running )
@@ -600,7 +600,7 @@ Rectangle {
   Behavior on height {
     PropertyAnimation {
       duration: parent.width < parent.height ? 250 : 0
-      easing.type: Easing.InQuart
+      easing.type: Easing.OutQuart
 
       onRunningChanged: {
         if ( running )
@@ -614,7 +614,7 @@ Rectangle {
   Behavior on anchors.rightMargin {
     PropertyAnimation {
       duration: 250
-      easing.type: Easing.InQuart
+      easing.type: Easing.OutQuart
 
       onRunningChanged: {
         if ( running )
@@ -628,7 +628,7 @@ Rectangle {
   Behavior on anchors.bottomMargin {
     PropertyAnimation {
       duration: 250
-      easing.type: Easing.InQuart
+      easing.type: Easing.OutQuart
 
       onRunningChanged: {
         if ( running )
