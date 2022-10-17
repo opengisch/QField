@@ -15,6 +15,14 @@
         <source>Changelog</source>
         <translation>Changelog</translation>
     </message>
+    <message>
+        <source>Documentation</source>
+        <translation>Documentation</translation>
+    </message>
+    <message>
+        <source>Links Menu</source>
+        <translation>Links Menu</translation>
+    </message>
 </context>
 <context>
     <name>AndroidProjectSource</name>

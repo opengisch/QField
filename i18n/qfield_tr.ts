@@ -13,6 +13,14 @@
         <source>Changelog</source>
         <translation>Değişiklik Günlüğü</translation>
     </message>
+    <message>
+        <source>Documentation</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Links Menu</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>AndroidProjectSource</name>

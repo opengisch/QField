@@ -13,6 +13,14 @@
         <source>Changelog</source>
         <translation>Dnevnik promjena</translation>
     </message>
+    <message>
+        <source>Documentation</source>
+        <translation>Dokumentacija</translation>
+    </message>
+    <message>
+        <source>Links Menu</source>
+        <translation>Izbornik s poveznicama</translation>
+    </message>
 </context>
 <context>
     <name>AndroidProjectSource</name>
@@ -2807,7 +2815,7 @@ Otkažite da pokrenete minimalno skeniranje uređaja.</translation>
     </message>
     <message>
         <source>Main Menu</source>
-        <translation>Glavni Izbornik</translation>
+        <translation>Glavni izbornik</translation>
     </message>
     <message>
         <source>Measure Tool</source>

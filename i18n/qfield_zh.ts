@@ -13,6 +13,14 @@
         <source>Changelog</source>
         <translation>更新日志</translation>
     </message>
+    <message>
+        <source>Documentation</source>
+        <translation>文档</translation>
+    </message>
+    <message>
+        <source>Links Menu</source>
+        <translation>链接菜单</translation>
+    </message>
 </context>
 <context>
     <name>AndroidProjectSource</name>
