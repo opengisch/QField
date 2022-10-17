@@ -69,6 +69,8 @@ def report_summary():
 def process(request):
     filenames = [
         "./output/bin/qfield_spix",
+        "./output/bin/qfield_spix.exe",
+        "C:\builddir\output\bin\qfield_spix.exe",
         "./output/bin/Release/qfield_spix.exe",
         "./output/bin/RelWithDebInfo/qfield_spix.exe",
         "./output/bin/Debug/qfield_spix.exe",
