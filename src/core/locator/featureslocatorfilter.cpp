@@ -177,7 +177,7 @@ void FeaturesLocatorFilter::triggerResultFromAction( const QgsLocatorResult &res
   {
     QgsFeatureIterator it = layer->getFeatures( featureRequest.setNoAttributes() );
     it.nextFeature( feature );
-    QgsGeometry geom = feature.geometry();
+    const QgsGeometry geom = feature.geometry();
     if ( geom.isNull() || geom.constGet()->isEmpty() )
     {
       mLocatorBridge->emitMessage( tr( "Feature has no geometry" ) );
@@ -192,9 +192,9 @@ void FeaturesLocatorFilter::triggerResultFromAction( const QgsLocatorResult &res
       if ( layer->geometryType() == QgsWkbTypes::PointGeometry && r.isEmpty() )
       {
         int scaleFactor = 5;
-        QgsPointXY center = mLocatorBridge->mapSettings()->mapSettings().mapToLayerCoordinates( layer, r.center() );
-        QgsRectangle extentRect = mLocatorBridge->mapSettings()->mapSettings().mapToLayerCoordinates( layer, mLocatorBridge->mapSettings()->visibleExtent() ).scaled( 1.0 / scaleFactor, &center );
-        QgsFeatureRequest pointRequest = QgsFeatureRequest().setFilterRect( extentRect ).setLimit( 1000 ).setNoAttributes();
+        const QgsPointXY center = mLocatorBridge->mapSettings()->mapSettings().mapToLayerCoordinates( layer, r.center() );
+        const QgsRectangle extentRect = mLocatorBridge->mapSettings()->mapSettings().mapToLayerCoordinates( layer, mLocatorBridge->mapSettings()->visibleExtent() ).scaled( 1.0 / scaleFactor, &center );
+        const QgsFeatureRequest pointRequest = QgsFeatureRequest().setFilterRect( extentRect ).setLimit( 1000 ).setNoAttributes();
         QgsFeatureIterator fit = layer->getFeatures( pointRequest );
         QgsFeature pointFeature;
         QgsPointXY closestPoint;
@@ -214,7 +214,8 @@ void FeaturesLocatorFilter::triggerResultFromAction( const QgsLocatorResult &res
         {
           // combine selected point with closest point and scale this rect
           r.combineExtentWith( mLocatorBridge->mapSettings()->mapSettings().layerToMapCoordinates( layer, closestPoint ) );
-          r.scale( scaleFactor, &center );
+          const QgsPointXY rCenter = r.center();
+          r.scale( scaleFactor, &rCenter );
         }
       }
       else if ( !r.isEmpty() )
