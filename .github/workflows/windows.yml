@@ -123,6 +123,7 @@ jobs:
           path: ${{ env.ARTIFACT_PATHNAME }}
 
       - name: 📊 Upload test report
+        if: always()
         uses: actions/upload-artifact@v3
         with:
           name: "test-report-x64-windows-static-${{ env.BUILD_TYPE }}"
