@@ -16,7 +16,7 @@ sure that submodules are properly initialized.
 
 git clone git@github.com:opengisch/QField.git
 git submodule update --init --recursive
-# Alternatively you can ues the following URL in case you have not set up SSH keys for github
+# Alternatively you can use the following URL in case you have not set up SSH keys for github
 #   https://github.com/opengisch/QField.git
 ```
 
