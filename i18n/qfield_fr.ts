@@ -15,7 +15,7 @@
     </message>
     <message>
         <source>Documentation</source>
-        <translation type="unfinished"/>
+        <translation>Documentation</translation>
     </message>
     <message>
         <source>Links Menu</source>
@@ -114,11 +114,11 @@
     <name>BarcodeReader</name>
     <message>
         <source>Code Reader</source>
-        <translation type="unfinished"/>
+        <translation>Lecteur de code</translation>
     </message>
     <message>
         <source>Center your camera on a code</source>
-        <translation type="unfinished"/>
+        <translation>Centrer votre appareil-photo sur un code</translation>
     </message>
 </context>
 <context>
@@ -141,7 +141,7 @@
     </message>
     <message numerus="yes">
         <source>%n device(s) found</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>%n appareil trouvé</numerusform><numerusform>%n appareils trouvés</numerusform><numerusform>%n appareil(s) trouvé(s)</numerusform></translation>
     </message>
     <message>
         <source>Scanning canceled</source>
@@ -166,7 +166,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Connect to %1</source>
-        <translation type="unfinished"/>
+        <translation>Connecter à %1 </translation>
     </message>
     <message>
         <source>Connect  to %1</source>
@@ -220,7 +220,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>The protocol is not supported on this platform</source>
-        <translation type="unfinished"/>
+        <translation>Le protocole n&apos;est pas supporté sur cette plateforme</translation>
     </message>
     <message>
         <source>An operation was attempted while the socket was in a state that did not permit it</source>
@@ -232,7 +232,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Unknown error</source>
-        <translation type="unfinished"/>
+        <translation>Erreur inconnue</translation>
     </message>
 </context>
 <context>
@@ -900,11 +900,11 @@ Les géométries des objets vont être combinées dans l&apos;objet &apos;%1&apo
     </message>
     <message>
         <source>Show visible features list</source>
-        <translation type="unfinished"/>
+        <translation>Afficher la liste des entités visibles</translation>
     </message>
     <message>
         <source>Show Features Menu</source>
-        <translation type="unfinished"/>
+        <translation>Afficher le menu des entités</translation>
     </message>
 </context>
 <context>
@@ -1946,7 +1946,7 @@ Même si vous pouvez toujours voir et utiliser ce projet, il est fortement recom
     </message>
     <message>
         <source>No projects found</source>
-        <translation type="unfinished"/>
+        <translation>Aucun projet trouvé</translation>
     </message>
 </context>
 <context>
@@ -2217,7 +2217,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Automatically end collection when minimum number is met</source>
-        <translation type="unfinished"/>
+        <translation>Terminer automatiquement la collection quand le nombre minimum est atteint</translation>
     </message>
     <message>
         <source>When enabled, digitizing vertices with a cursor locked to position will only accepted an averaged position from a minimum number of collected positions. Digitizing using averaged positions is done by pressing and holding the add vertex button, which will collect positions until the press is released. Accuracy requirement settings are respected when enabled.</source>
@@ -2261,7 +2261,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Time of inactivity in seconds before the screen brightness get be dimmed to preserve battery.</source>
-        <translation type="unfinished"/>
+        <translation>Temps d&apos;inactivité en secondes avant que la luminosité de l&apos;écran ne soit réduite pour préserver la batterie.</translation>
     </message>
 </context>
 <context>
@@ -2508,15 +2508,15 @@ Cancel to make a minimal device scan instead.</source>
     <name>TextEdit</name>
     <message>
         <source>Copy Text</source>
-        <translation type="unfinished"/>
+        <translation>Copier le texte</translation>
     </message>
     <message>
         <source>Paste Text</source>
-        <translation type="unfinished"/>
+        <translation>Coller le texte</translation>
     </message>
     <message>
         <source>Scan Code</source>
-        <translation type="unfinished"/>
+        <translation>Scanner le code</translation>
     </message>
 </context>
 <context>
@@ -2975,7 +2975,7 @@ pour utiliser la géolocalisation</translation>
     </message>
     <message>
         <source>Enable Audio Proximity Feedback</source>
-        <translation type="unfinished"/>
+        <translation>Active le son de l&apos;indicateur de proximité</translation>
     </message>
     <message>
         <source>Positioning Options</source>
@@ -3072,7 +3072,7 @@ fermer le projet et quitter l&apos;application</translation>
     </message>
     <message>
         <source>Positioning error: %1</source>
-        <translation type="unfinished"/>
+        <translation>Erreur de positionnement : %1</translation>
     </message>
 </context>
 <context>

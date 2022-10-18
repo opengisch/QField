@@ -15,7 +15,7 @@
     </message>
     <message>
         <source>Documentation</source>
-        <translation type="unfinished"/>
+        <translation>Dokumentacja</translation>
     </message>
     <message>
         <source>Links Menu</source>
@@ -209,19 +209,19 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
     </message>
     <message>
         <source>Could not find the remote host</source>
-        <translation type="unfinished"/>
+        <translation>Nie można odnaleźć zdalnego serwera</translation>
     </message>
     <message>
         <source>Could not find the service UUID on remote host</source>
-        <translation type="unfinished"/>
+        <translation>Nie można znaleźć UUID usługi na zdalnym serwerze</translation>
     </message>
     <message>
         <source>Attempt to read or write from socket returned an error</source>
-        <translation type="unfinished"/>
+        <translation>Błąd podczas próby odczytu lub zapisu do gniazda</translation>
     </message>
     <message>
         <source>The protocol is not supported on this platform</source>
-        <translation type="unfinished"/>
+        <translation>Ten protokół nie jest wspierany na tej platformie</translation>
     </message>
     <message>
         <source>An operation was attempted while the socket was in a state that did not permit it</source>
@@ -229,7 +229,7 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
     </message>
     <message>
         <source>The remote host closed the connection</source>
-        <translation type="unfinished"/>
+        <translation>Zdalny serwer zakończył połączenie</translation>
     </message>
     <message>
         <source>Unknown error</source>
@@ -1661,19 +1661,19 @@ Chociaż nadal możesz wyświetlać i używać projektu, zdecydowanie zaleca si�
     </message>
     <message>
         <source>Last changes pushed just now</source>
-        <translation type="unfinished"/>
+        <translation>Wysłano ostatnie zmiany przed chwilą</translation>
     </message>
     <message>
         <source>Last changes pushed %1 minutes ago</source>
-        <translation type="unfinished"/>
+        <translation>Wysłano ostatnie zmiany %1 minut temu</translation>
     </message>
     <message>
         <source>Last changes pushed at %1</source>
-        <translation type="unfinished"/>
+        <translation>Wysłano ostanie zmiany o %1</translation>
     </message>
     <message>
         <source>Last changes pushed on %1</source>
-        <translation type="unfinished"/>
+        <translation>Wysłano ostatnie zmiany %1</translation>
     </message>
     <message>
         <source>No changes pushed yet</source>
