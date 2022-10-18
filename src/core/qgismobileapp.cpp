@@ -1290,7 +1290,7 @@ bool QgisMobileapp::print( const QString &layoutName )
     return false;
 
   const QString destination = mProject->homePath() + '/' + layoutToPrint->name() + '-' + QDateTime::currentDateTime().toString( QStringLiteral( "yyyyMMdd_hhmmss" ) ) + QStringLiteral( ".pdf" );
-  if ( !layoutToPrint->atlas() )
+  if ( !layoutToPrint->atlas() || !layoutToPrint->atlas()->enabled() )
   {
     if ( layoutToPrint->referenceMap() )
       layoutToPrint->referenceMap()->zoomToExtent( mMapCanvas->mapSettings()->visibleExtent() );
