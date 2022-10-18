@@ -479,7 +479,7 @@ void AttributeFormModelBase::flatten( QgsAttributeEditorContainer *container, QS
   }
 }
 
-void AttributeFormModelBase::updateDefaultValues( int fieldIndex )
+void AttributeFormModelBase::updateDefaultValues( int fieldIndex, QVector<int> updatedFields )
 {
   const QgsFields fields = mFeatureModel->feature().fields();
   if ( fieldIndex < 0 || fieldIndex >= fields.size() )
@@ -511,7 +511,11 @@ void AttributeFormModelBase::updateDefaultValues( int fieldIndex )
     if ( success && updatedValue != previousValue )
     {
       item->setData( defaultValue, AttributeFormModel::AttributeValue );
-      updateDefaultValues( fidx );
+      if ( !updatedFields.contains( fidx ) )
+      {
+        updatedFields.append( fidx );
+        updateDefaultValues( fidx, updatedFields );
+      }
       updateVisibilityAndConstraints( fidx );
     }
   }
