@@ -504,9 +504,11 @@ void AttributeFormModelBase::updateDefaultValues( int fieldIndex )
     if ( !exp.referencedColumns().contains( fieldName ) )
       continue;
 
-    QVariant defaultValue = exp.evaluate( &mExpressionContext );
-    bool changed = mFeatureModel->setData( mFeatureModel->index( fidx ), defaultValue, FeatureModel::AttributeValue );
-    if ( changed )
+    const QVariant defaultValue = exp.evaluate( &mExpressionContext );
+    const QVariant previousValue = mFeatureModel->data( mFeatureModel->index( fidx ), FeatureModel::AttributeValue );
+    const bool success = mFeatureModel->setData( mFeatureModel->index( fidx ), defaultValue, FeatureModel::AttributeValue );
+    const QVariant updatedValue = mFeatureModel->data( mFeatureModel->index( fidx ), FeatureModel::AttributeValue );
+    if ( success && updatedValue != previousValue )
     {
       item->setData( defaultValue, AttributeFormModel::AttributeValue );
       updateDefaultValues( fidx );
