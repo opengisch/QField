@@ -30,6 +30,7 @@
     <string name="external_files_message"><![CDATA[Das QField Datein Verzeichnis kann dafür benützt werden, Dateien und Projekte via USB Kabel auf das Gerät zu kopieren. Der absolute Pfad zu diesem Verzeichnis ist in der Titelleiste ersichtlich.<br/><br/>Hinweis: der Inhalt dieses Verzeichnises <i>wird gelöscht</i> wenn QField deinstalliert wird.]]></string>
     <string name="external_files_ok">Ok</string>
     <string name="grant_permission">Zugang zu allen Dateien</string>
+    <string name="grant_all_files_permission"><![CDATA[QField braucht Zugriffserlaubnis auf alle Dateien, um lokale Projekte und Datensätze öffnen zu können, sowie benutzerdefinerte Projektionsgitter, Schriftarten und Grundkarten. Obwohl nicht unbedingt erforderlich, <i>es wird sehr empfohlen, Zugriff zu erlauben</i>. <br/><br/>Bitte auf der nächsten Seite <b>QField</b> auswählen und <b>Zugriff auf alle Dateien</b> wählen.]]></string>
     <string name="grant">Zulassen</string>
     <string name="deny_always">Dauerhaft verweigern</string>
     <string name="deny_once">Einmalig verweigern</string>

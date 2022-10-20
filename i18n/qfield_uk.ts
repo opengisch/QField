@@ -15,11 +15,11 @@
     </message>
     <message>
         <source>Documentation</source>
-        <translation type="unfinished"/>
+        <translation>Документація</translation>
     </message>
     <message>
         <source>Links Menu</source>
-        <translation type="unfinished"/>
+        <translation>Меню посилань</translation>
     </message>
 </context>
 <context>
