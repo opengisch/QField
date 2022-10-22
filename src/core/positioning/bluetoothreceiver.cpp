@@ -112,12 +112,14 @@ void BluetoothReceiver::doConnectDevice()
 
 void BluetoothReceiver::stateChanged( const QgsGpsInformation &info )
 {
-  if ( mLastGnssPositionValid && std::isnan( info.latitude ) )
+  if ( mLastGnssPositionValid && std::isnan( info.latitude )               // we already sent a valid position
+       || info.utcDateTime == mLastGnssPositionInformation.utcDateTime() ) // we group updates by timestamp, if the last block is not finished, return
   {
-    //we already sent a valid position, stick to last valid position
     return;
   }
   mLastGnssPositionValid = !std::isnan( info.latitude );
+
+  emit lastGnssPositionInformationChanged( mLastGnssPositionInformation );
 
   // QgsGpsInformation's speed is served in km/h, translate to m/s
   mLastGnssPositionInformation = GnssPositionInformation( info.latitude, info.longitude, mEllipsoidalElevation ? info.elevation + info.elevation_diff : info.elevation,
@@ -125,7 +127,6 @@ void BluetoothReceiver::stateChanged( const QgsGpsInformation &info )
                                                           info.hacc, info.vacc, info.utcDateTime, info.fixMode, info.fixType, info.quality, info.satellitesUsed, info.status,
                                                           info.satPrn, info.satInfoComplete, std::numeric_limits<double>::quiet_NaN(), std::numeric_limits<double>::quiet_NaN(),
                                                           0, QStringLiteral( "nmea" ) );
-  emit lastGnssPositionInformationChanged( mLastGnssPositionInformation );
 }
 
 void BluetoothReceiver::setSocketState( const QBluetoothSocket::SocketState socketState )
