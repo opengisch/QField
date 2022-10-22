@@ -13,6 +13,7 @@ set(QFIELD_CORE_SRCS
     utils/urlutils.cpp
     qgsquick/qgsquickcoordinatetransformer.cpp
     qgsquick/qgsquickmapcanvasmap.cpp
+    qgsquick/qgsquickelevationprofilecanvas.cpp
     qgsquick/qgsquickmapsettings.cpp
     qgsquick/qgsquickmaptransform.cpp
     locator/bookmarklocatorfilter.cpp
@@ -107,6 +108,7 @@ set(QFIELD_CORE_HDRS
     utils/urlutils.h
     qgsquick/qgsquickcoordinatetransformer.h
     qgsquick/qgsquickmapcanvasmap.h
+    qgsquick/qgsquickelevationprofilecanvas.h
     qgsquick/qgsquickmapsettings.h
     qgsquick/qgsquickmaptransform.h
     locator/bookmarklocatorfilter.h

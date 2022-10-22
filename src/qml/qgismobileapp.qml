@@ -178,6 +178,7 @@ ApplicationWindow {
         }
         break;
       case 'measure':
+        elevationProfile.populateLayersFromProject();
         displayToast( qsTr( 'You are now in measure mode' ) );
         break;
     }
@@ -288,8 +289,8 @@ ApplicationWindow {
                 return point.position.x >= itemCoordinates.x && point.position.x <= itemCoordinates.x + item.width &&
                        point.position.y >= itemCoordinates.y && point.position.y <= itemCoordinates.y + item.height;
             }
-            // when hovering digitizing toolbars, reset coordinate locator position for nicer UX
-            if ( !freehandHandler.active && pointInItem( point, digitizingToolbar ) ) {
+            // when hovering various toolbars, reset coordinate locator position for nicer UX
+            if ( !freehandHandler.active && ( pointInItem( point, digitizingToolbar ) || pointInItem( point, elevationProfileButton ) ) ) {
                 coordinateLocator.sourceLocation = mapCanvas.mapSettings.coordinateToScreen( digitizingToolbar.rubberbandModel.lastCoordinate );
             } else if ( !freehandHandler.active && pointInItem( point, geometryEditorsToolbar ) ) {
                 coordinateLocator.sourceLocation = mapCanvas.mapSettings.coordinateToScreen( geometryEditorsToolbar.editorRubberbandModel.lastCoordinate );
@@ -550,6 +551,19 @@ ApplicationWindow {
       navigation: navigation
     }
 
+    LinePolygonHighlight {
+      id: elevationProfileHighlight
+
+      visible: elevationProfile.visible
+      mapSettings: mapCanvas.mapSettings
+      geometry:   QgsGeometryWrapper {
+        qgsGeometry: elevationProfile.profileCurve
+        crs: elevationProfile.crs
+      }
+      color: "#FFFFFF"
+      lineWidth: 4
+    }
+
     /** A coordinate locator for digitizing **/
     CoordinateLocator {
       id: coordinateLocator
@@ -665,9 +679,21 @@ ApplicationWindow {
 
     width: parent.width
 
+    ElevationProfile {
+        id: elevationProfile
+
+        visible: stateMachine.state === 'measure' && elevationProfileButton.elevationProfileActive
+
+        width: parent.width
+        height: Math.max(220, mainWindow.height / 4)
+
+        project: qgisProject
+        crs: mapCanvas.mapSettings.destinationCrs
+    }
+
     NavigationInformationView {
       id: navigationInformationView
-      visible: navigation.isActive
+      visible: navigation.isActive && !elevationProfile.visible
       navigation: navigation
     }
 
@@ -686,6 +712,7 @@ ApplicationWindow {
       visible: !isNaN(navigation.distance)
                && (positioningSettings.alwaysShowPreciseView
                    || (hasAcceptableAccuracy && navigation.distance < precision))
+               && !elevationProfile.visible
       width: parent.width
       height: Math.min(mainWindow.height / 2.5, 400)
     }
@@ -700,7 +727,7 @@ ApplicationWindow {
 
     PositioningInformationView {
       id: positioningInformationView
-      visible: positioningSettings.showPositionInformation
+      visible: positioningSettings.showPositionInformation && !elevationProfile.visible
       positionSource: positionSource
       antennaHeight: positioningSettings.antennaHeightActivated ? positioningSettings.antennaHeight : NaN
     }
@@ -1157,6 +1184,56 @@ ApplicationWindow {
         freehandDigitizing = settings.valueBool( "/QField/Digitizing/FreehandActive", false )
       }
     }
+
+    QfToolButton {
+      id: elevationProfileButton
+      round: true
+      visible: stateMachine.state === 'measure'
+      iconSource: Theme.getThemeVectorIcon( "ic_elevation_white_24dp" )
+
+      bgcolor: Theme.darkGray
+
+      property bool elevationProfileActive: false
+      state: elevationProfileActive ? "On" : "Off"
+
+      states: [
+        State {
+          name: "Off"
+          PropertyChanges {
+            target: elevationProfileButton
+            iconSource: Theme.getThemeVectorIcon( "ic_elevation_white_24dp" )
+            bgcolor: Qt.hsla(Theme.darkGray.hslHue, Theme.darkGray.hslSaturation, Theme.darkGray.hslLightness, 0.3)
+          }
+        },
+
+        State {
+          name: "On"
+          PropertyChanges {
+            target: elevationProfileButton
+            iconSource: Theme.getThemeVectorIcon( "ic_elevation_green_24dp" )
+            bgcolor: Theme.darkGray
+          }
+        }
+      ]
+
+      onClicked: {
+        elevationProfileActive = !elevationProfileActive
+
+        // Draw an elevation profile if we have enough points to do so
+        if ( digitizingToolbar.rubberbandModel.vertexCount > 2 ) {
+          // Clear the pre-existing profile to trigger a zoom to full updated profile curve
+          elevationProfile.clear();
+          elevationProfile.profileCurve = GeometryUtils.lineFromRubberband(digitizingToolbar.rubberbandModel, elevationProfile.crs)
+          elevationProfile.refresh();
+        }
+
+        settings.setValue( "/QField/Measuring/ElevationProfile", elevationProfileActive );
+      }
+
+      Component.onCompleted: {
+        elevationProfileActive = settings.valueBool( "/QField/Measuring/ElevationProfile", false )
+      }
+    }
   }
 
   Column {
@@ -1476,49 +1553,59 @@ ApplicationWindow {
       }
 
       onVertexCountChanged: {
-        if( qfieldSettings.autoSave && stateMachine.state === "digitize" ) {
-            if( digitizingToolbar.geometryValid )
+        if ( stateMachine.state === 'measure' && elevationProfileButton.elevationProfileActive ) {
+          if ( rubberbandModel.vertexCount > 2 ) {
+            // Clear the pre-existing profile to trigger a zoom to full updated profile curve
+            elevationProfile.clear();
+            elevationProfile.profileCurve = GeometryUtils.lineFromRubberband(rubberbandModel, elevationProfile.crs)
+            elevationProfile.refresh();
+          }
+        } else if( qfieldSettings.autoSave && stateMachine.state === "digitize" ) {
+          if ( digitizingToolbar.geometryValid ) {
+            if (digitizingRubberband.model.geometryType === QgsWkbTypes.NullGeometry )
             {
-                if (digitizingRubberband.model.geometryType === QgsWkbTypes.NullGeometry )
-                {
-                  digitizingRubberband.model.reset()
-                }
-                else
-                {
-                  digitizingFeature.geometry.applyRubberband()
-                  digitizingFeature.applyGeometry()
-                }
+              digitizingRubberband.model.reset()
+            }
+            else
+            {
+              digitizingFeature.geometry.applyRubberband()
+              digitizingFeature.applyGeometry()
+            }
 
-                if( !overlayFeatureFormDrawer.featureForm.featureCreated )
-                {
-                    overlayFeatureFormDrawer.featureModel.geometry = digitizingFeature.geometry
-                    overlayFeatureFormDrawer.featureModel.applyGeometry()
-                    overlayFeatureFormDrawer.featureModel.resetAttributes()
-                    if( overlayFeatureFormDrawer.featureForm.model.constraintsHardValid ) {
-                      // when the constrainst are fulfilled
-                      // indirect action, no need to check for success and display a toast, the log is enough
-                      overlayFeatureFormDrawer.featureForm.featureCreated = overlayFeatureFormDrawer.featureForm.create()
-                    }
-                } else {
+            if ( !overlayFeatureFormDrawer.featureForm.featureCreated )
+            {
+                overlayFeatureFormDrawer.featureModel.geometry = digitizingFeature.geometry
+                overlayFeatureFormDrawer.featureModel.applyGeometry()
+                overlayFeatureFormDrawer.featureModel.resetAttributes()
+                if( overlayFeatureFormDrawer.featureForm.model.constraintsHardValid ) {
+                  // when the constrainst are fulfilled
                   // indirect action, no need to check for success and display a toast, the log is enough
-                  overlayFeatureFormDrawer.featureModel.geometry = digitizingFeature.geometry
-                  overlayFeatureFormDrawer.featureModel.applyGeometry()
-                  overlayFeatureFormDrawer.featureForm.save()
+                  overlayFeatureFormDrawer.featureForm.featureCreated = overlayFeatureFormDrawer.featureForm.create()
                 }
             } else {
-              if( overlayFeatureFormDrawer.featureForm.featureCreated ) {
-                // delete the feature when the geometry gets invalid again
-                // indirect action, no need to check for success and display a toast, the log is enough
-                overlayFeatureFormDrawer.featureForm.featureCreated = !overlayFeatureFormDrawer.featureForm.deleteFeature()
-              }
+              // indirect action, no need to check for success and display a toast, the log is enough
+              overlayFeatureFormDrawer.featureModel.geometry = digitizingFeature.geometry
+              overlayFeatureFormDrawer.featureModel.applyGeometry()
+              overlayFeatureFormDrawer.featureForm.save()
             }
+          } else {
+            if ( overlayFeatureFormDrawer.featureForm.featureCreated ) {
+              // delete the feature when the geometry gets invalid again
+              // indirect action, no need to check for success and display a toast, the log is enough
+              overlayFeatureFormDrawer.featureForm.featureCreated = !overlayFeatureFormDrawer.featureForm.deleteFeature()
+            }
+          }
         }
       }
 
       onCancel: {
-          if ( geometryRequested )
-          {
-              geometryRequested = false
+          if ( stateMachine.state === 'measure' && elevationProfileButton.elevationProfileActive ) {
+              elevationProfile.clear();
+              elevationProfile.refresh();
+          } else {
+              if ( geometryRequested ) {
+                  geometryRequested = false
+              }
           }
       }
 
