@@ -18,7 +18,6 @@ vcpkg_from_github(
         bigobj.patch
         android-resources.patch
         poly2tri.patch
-        qt6extras.patch
         pgprovider.patch
         qgsvariantutils.patch
 )
