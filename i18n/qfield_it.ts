@@ -15,11 +15,11 @@
     </message>
     <message>
         <source>Documentation</source>
-        <translation type="unfinished"/>
+        <translation>Documentazione</translation>
     </message>
     <message>
         <source>Links Menu</source>
-        <translation type="unfinished"/>
+        <translation>Menu dei link</translation>
     </message>
 </context>
 <context>
@@ -209,31 +209,31 @@ Annullare per eseguire una scansione veloce del dispositivo.</translation>
     </message>
     <message>
         <source>Could not find the remote host</source>
-        <translation type="unfinished"/>
+        <translation>Impossibile trovare l&apos;host remoto</translation>
     </message>
     <message>
         <source>Could not find the service UUID on remote host</source>
-        <translation type="unfinished"/>
+        <translation>Impossibile trovare il UUID del servizio sull&apos;host remoto</translation>
     </message>
     <message>
         <source>Attempt to read or write from socket returned an error</source>
-        <translation type="unfinished"/>
+        <translation>Il tentativo di leggere o scrivere sul socket ha ritornato un errore</translation>
     </message>
     <message>
         <source>The protocol is not supported on this platform</source>
-        <translation type="unfinished"/>
+        <translation>Il protocollo non è supportato su questa piattaforma</translation>
     </message>
     <message>
         <source>An operation was attempted while the socket was in a state that did not permit it</source>
-        <translation type="unfinished"/>
+        <translation>È stata tentata un&apos;operazione mentre il socket era in uno stato che non gli permetteva di eseguirla</translation>
     </message>
     <message>
         <source>The remote host closed the connection</source>
-        <translation type="unfinished"/>
+        <translation>L&apos;host remoto ha chiuso la connessione</translation>
     </message>
     <message>
         <source>Unknown error</source>
-        <translation type="unfinished"/>
+        <translation>Errore sconosciuto</translation>
     </message>
 </context>
 <context>
@@ -2914,7 +2914,7 @@ Annullare per eseguire una scansione veloce del dispositivo.</translation>
     </message>
     <message>
         <source>Precise View Settings</source>
-        <translation type="unfinished"/>
+        <translation>Configurazioni visualizzazione precisa</translation>
     </message>
     <message>
         <source>0.25m Precision</source>
@@ -2942,7 +2942,7 @@ Annullare per eseguire una scansione veloce del dispositivo.</translation>
     </message>
     <message>
         <source>Always Show Precise View</source>
-        <translation type="unfinished"/>
+        <translation>Mostra sempre visualizzazione precisa</translation>
     </message>
     <message>
         <source>Center to Location</source>
@@ -2982,7 +2982,7 @@ Annullare per eseguire una scansione veloce del dispositivo.</translation>
     </message>
     <message>
         <source>Enable Audio Proximity Feedback</source>
-        <translation type="unfinished"/>
+        <translation>Abilita il feedback audio di prossimità</translation>
     </message>
     <message>
         <source>Positioning Options</source>
@@ -3078,7 +3078,7 @@ Annullare per eseguire una scansione veloce del dispositivo.</translation>
     </message>
     <message>
         <source>Positioning error: %1</source>
-        <translation type="unfinished"/>
+        <translation>Errore di posizionamento: %1</translation>
     </message>
 </context>
 <context>
