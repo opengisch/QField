@@ -205,7 +205,7 @@ if(VCPKG_TARGET_IS_WINDOWS)
         list(APPEND QGIS_OPTIONS_DEBUG -DPoly2Tri_LIBRARY:PATH=${CURRENT_INSTALLED_DIR}/debug/lib/qt_poly2tri_debug.lib) # static qt only
         list(APPEND QGIS_OPTIONS_RELEASE -DPoly2Tri_LIBRARY:PATH=${CURRENT_INSTALLED_DIR}/lib/qt_poly2tri.lib) # static qt only
     else()
-        list(APPEND -DPoly2Tri_LIBRARY=poly2tri::poly2tri)
+        list(APPEND QGIS_OPTIONS -DPoly2Tri_LIBRARY=poly2tri::poly2tri)
     endif()
 else() # Build in UNIX
     list(APPEND QGIS_OPTIONS -DCMAKE_FIND_ROOT_PATH=$ENV{Qt5_DIR}) # for building with system Qt. Should find a nicer solution.
