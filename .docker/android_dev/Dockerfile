@@ -48,6 +48,12 @@ RUN dpkg --add-architecture i386 && apt-get update -yqq && apt-get install -y \
   apt-transport-https \
   ca-certificates \
   software-properties-common \
+  autoconf-archive \
+  libxkbcommon-x11-dev \
+  libxcb* \
+  libx11* \
+  libgl1-mesa-dev \
+  libxrender-dev \
   && apt-get clean \
   && rm -rf /var/lib/apt/lists/* \
   && localedef -i en_US -c -f UTF-8 -A /usr/share/locale/locale.alias en_US.UTF-8
