@@ -11,8 +11,16 @@ on:
 
 
 jobs:
-  build:
+  build-win:
     runs-on: windows-2022
+    strategy:
+      fail-fast: true
+      matrix:
+        include:
+          - qt_version_suffix: qt6
+            with_qt6: ON
+          - qt_version_suffix: qt5
+            with_qt6: OFF
 
     steps:
       - name: 🐣 Checkout
@@ -72,6 +80,7 @@ jobs:
                 -D VCPKG_TARGET_TRIPLET="x64-windows-static" \
                 -D WITH_VCPKG=ON \
                 -D WITH_SPIX=ON \
+                -D BUILD_WITH_QT6=${{ matrix.with_qt6 }} \
                 -D APP_VERSION="${APP_VERSION}" \
                 -D APP_VERSION_STR="${APP_VERSION_STR}" \
                 -D APP_PACKAGE_NAME="${APP_PACKAGE_NAME}" \
@@ -115,7 +124,7 @@ jobs:
         run: |
           cmake --build  "${{ env.CMAKE_BUILD_DIR }}" --target bundle --config ${{ env.BUILD_TYPE }} -j1
           ARTIFACT_PATHNAME=$(ls ${{ env.CMAKE_BUILD_DIR }}/QField-*-win64.* | head -n 1)
-          ARTIFACT_NAME=$(basename $ARTIFACT_PATHNAME)
+          ARTIFACT_NAME=$(basename $ARTIFACT_PATHNAME)-${{ matrix.qt_version_suffix }}
           echo "ARTIFACT_PATHNAME=${ARTIFACT_PATHNAME}" >> $GITHUB_ENV
           echo "ARTIFACT_NAME=qfield-${{ env.CI_PACKAGE_FILE_SUFFIX }}-windows-x64.exe" >> $GITHUB_ENV
 
@@ -130,13 +139,13 @@ jobs:
         if: ${{ env.ARTIFACT_NAME != null }}
         uses: actions/upload-artifact@v3
         with:
-          name: "QField-dev-x64-windows-static-${{ env.BUILD_TYPE }}"
+          name: "QField-dev-x64-windows-static-${{ env.BUILD_TYPE }}-${{ matrix.qt_version_suffix }}"
           path: ${{ env.ARTIFACT_PATHNAME }}
 
       - name: 📊 Upload test report
         uses: actions/upload-artifact@v3
         with:
-          name: "test-report-x64-windows-static-${{ env.BUILD_TYPE }}"
+          name: "test-report-x64-windows-static-${{ env.BUILD_TYPE }}-${{ matrix.qt_version_suffix }}"
           path: "${{ env.CMAKE_BUILD_DIR }}/report"
 
       - name: 🚀 Upload release asset
