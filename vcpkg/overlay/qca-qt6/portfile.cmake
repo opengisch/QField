@@ -11,9 +11,9 @@ vcpkg_add_to_path("${PERL_EXE_PATH}")
 vcpkg_from_github(
     OUT_SOURCE_PATH SOURCE_PATH
     REPO KDE/qca
-    REF v2.3.4
-    SHA512 04583da17531538fc2a7ae18a1a4f89f1e8d303e2bb390520a8f55a20bab17f8407ab07aefef2a75587e2a0521f41b37a9fdd8430ec483daf5d02c05556b8ddb
-    PATCHES
+
+    REF fc21d7724dcd7e721a5896597be8a93e0eed1a92
+    SHA512 d8b8b51dcf36f5187e658441a85554e618fe5c403e4603cf21f54dc09611d2878856887612154a30d5cebf0787e34ba76357522e4db8534a467385f8ee842f45    PATCHES
         0001-fix-path-for-vcpkg.patch
         0002-fix-build-error.patch
 )
@@ -44,6 +44,12 @@ vcpkg_execute_required_process(
 )
 message(STATUS "Importing certstore done")
 
+if("botan" IN_LIST FEATURES)
+    list(APPEND QCA_OPTIONS -DWITH_botan_PLUGIN=yes)
+else()
+    list(APPEND QCA_OPTIONS -DWITH_botan_PLUGIN=no)
+endif()
+
 # Configure and build
 vcpkg_cmake_configure(
     SOURCE_PATH "${SOURCE_PATH}"
@@ -55,7 +61,7 @@ vcpkg_cmake_configure(
         -DQCA_SUFFIX=OFF
         -DQCA_FEATURE_INSTALL_DIR=share/qca/mkspecs/features
         -DOSX_FRAMEWORK=OFF
-        -DQT6=ON
+        ${QCA_OPTIONS}
     OPTIONS_DEBUG
         -DQCA_PLUGINS_INSTALL_DIR=${QCA_FEATURE_INSTALL_DIR_DEBUG}
     OPTIONS_RELEASE
@@ -79,6 +85,8 @@ file(REMOVE_RECURSE
     "${CURRENT_PACKAGES_DIR}/debug/include"
     "${CURRENT_PACKAGES_DIR}/debug/share"
 )
+
+vcpkg_fixup_pkgconfig()
 
 # Handle copyright
 file(INSTALL "${SOURCE_PATH}/COPYING" DESTINATION "${CURRENT_PACKAGES_DIR}/share/${PORT}" RENAME copyright)
