@@ -1,5 +1,5 @@
-set(QGIS_REF final-3_26_3)
-set(QGIS_SHA512 9f94d43d4011156067b390e6f72368620eca08541d50bfe58a03c5e47cd03576dc1c5c78571eb6029d6f44a950e8d0b44d1711cb18ad19cd676ae983702babc5)
+set(QGIS_REF final-3_28_0)
+set(QGIS_SHA512 35579ec2122059be7ec9fad7742e8e94f2bc646071cc5a5db9ba584cb44ee8784d5bbc8cf7225fda80c647c093ad06667b6388846fdd4eab01ffc14e7a0a08b3)
 
 vcpkg_from_github(
     OUT_SOURCE_PATH SOURCE_PATH
@@ -19,7 +19,8 @@ vcpkg_from_github(
         bigobj.patch
         android-resources.patch
         poly2tri.patch
-        inverted.patch
+        pgprovider.patch
+        qgsvariantutils.patch # https://github.com/qgis/QGIS/pull/50662
 )
 
 file(REMOVE ${SOURCE_PATH}/cmake/FindQtKeychain.cmake)

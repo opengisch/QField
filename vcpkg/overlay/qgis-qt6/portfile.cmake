@@ -1,5 +1,5 @@
-set(QGIS_REF a95b21305e549cf370af0d9ef8bcf9b03e7b5d82) # Soon to be 3.28
-set(QGIS_SHA512 2536f225941f144d35cc736e96ee89c71335f8aa3bec727a82cc320eb3556fbf9222bdb7f31298e3393eaaf61ae36da81e3037ef26dbd7c8c134ca8399cdd31d)
+set(QGIS_REF final-3_28_0)
+set(QGIS_SHA512 35579ec2122059be7ec9fad7742e8e94f2bc646071cc5a5db9ba584cb44ee8784d5bbc8cf7225fda80c647c093ad06667b6388846fdd4eab01ffc14e7a0a08b3)
 
 vcpkg_from_github(
     OUT_SOURCE_PATH SOURCE_PATH
@@ -18,7 +18,8 @@ vcpkg_from_github(
         bigobj.patch
         android-resources.patch
         poly2tri.patch
-        qt6extras.patch
+        pgprovider.patch
+        qgsvariantutils.patch
 )
 
 file(REMOVE ${SOURCE_PATH}/cmake/FindQtKeychain.cmake)
