@@ -20,6 +20,7 @@ vcpkg_from_github(
         android-resources.patch
         poly2tri.patch
         pgprovider.patch
+        qgsvariantutils.patch
 )
 
 file(REMOVE ${SOURCE_PATH}/cmake/FindQtKeychain.cmake)
