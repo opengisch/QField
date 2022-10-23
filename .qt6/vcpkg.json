@@ -39,6 +39,10 @@
     },
     "qtserialport",
     {
+      "name": "qtkeychain-qt6",
+      "default-features": false
+    },
+    {
       "name": "qca-qt6",
       "default-features": false
     },
