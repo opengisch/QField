@@ -16,6 +16,10 @@
     "qtdeclarative",
     "qtlocation",
     "qtcharts",
+    {
+      "name": "qtkeychain-qt6",
+      "default-features": false
+    },
     "qtmultimedia",
     {
       "name": "qca-qt6",
