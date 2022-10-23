@@ -20,7 +20,7 @@ vcpkg_from_github(
         android-resources.patch
         poly2tri.patch
         pgprovider.patch
-        qgsvariantutils.patch
+        qgsvariantutils.patch # https://github.com/qgis/QGIS/pull/50662
 )
 
 file(REMOVE ${SOURCE_PATH}/cmake/FindQtKeychain.cmake)
