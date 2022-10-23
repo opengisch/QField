@@ -34,13 +34,19 @@
       "qtbase",
       "qtsvg",
       "qtlocation",
-      "qttools",
+      {
+        "name": "qttools",
+        "features": ["linguist"]
+      },
       {
         "name": "qca-qt6",
         "default-features": false,
         "features": []
       },
-      "qtkeychain-qt6"
+      {
+        "name": "qtkeychain-qt6",
+        "default-features": false
+      }
     ],
     "features":
 	{

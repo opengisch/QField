@@ -1,0 +1,56 @@
+From a0b211095be4eb8da18c609f09099478a583ee92 Mon Sep 17 00:00:00 2001
+From: Matthias Kuhn <matthias@opengis.ch>
+Date: Sun, 23 Oct 2022 11:45:16 +0200
+Subject: [PATCH] Restrict UiTools to gui and app
+
+---
+ CMakeLists.txt         | 2 +-
+ src/app/CMakeLists.txt | 1 +
+ src/gui/CMakeLists.txt | 6 +-----
+ 3 files changed, 3 insertions(+), 6 deletions(-)
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 963406ebd5..276f3d860b 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -461,7 +461,7 @@ if(WITH_CORE)
+       set (HAVE_QT5SERIALPORT TRUE)
+   endif()
+ 
+-  find_package(${QT_VERSION_BASE} COMPONENTS Core Gui Widgets Network Xml Svg Concurrent Test UiTools Sql REQUIRED)
++  find_package(${QT_VERSION_BASE} COMPONENTS Core Gui Widgets Network Xml Svg Concurrent Test Sql REQUIRED)
+   if (BUILD_WITH_QT6)
+     find_package(${QT_VERSION_BASE} COMPONENTS Core5Compat REQUIRED)
+   else()
+diff --git a/src/app/CMakeLists.txt b/src/app/CMakeLists.txt
+index e9f6d1b078..9d783ef225 100644
+--- a/src/app/CMakeLists.txt
++++ b/src/app/CMakeLists.txt
+@@ -365,6 +365,7 @@ if (WITH_3D)
+   )
+ endif()
+ 
++find_package(${QT_VERSION_BASE} COMPONENTS UiTools REQUIRED)
+ 
+ set (WITH_QWTPOLAR FALSE CACHE BOOL "Determines whether QwtPolar should be built")
+ 
+diff --git a/src/gui/CMakeLists.txt b/src/gui/CMakeLists.txt
+index f4641a1365..d9a22e2f56 100644
+--- a/src/gui/CMakeLists.txt
++++ b/src/gui/CMakeLists.txt
+@@ -1368,11 +1368,7 @@ set(QGIS_GUI_PRIVATE_HDRS
+   attributetable/qgsfeaturefilterwidget_p.h
+ )
+ 
+-if (BUILD_WITH_QT6)
+-  find_package(Qt6 COMPONENTS Qml QuickWidgets REQUIRED)
+-else()
+-  find_package(Qt5 COMPONENTS Qml QuickWidgets REQUIRED)
+-endif()
++find_package(${QT_VERSION_BASE} COMPONENTS Qml QuickWidgets UiTools REQUIRED)
+ 
+ if(${QT_VERSION_BASE}Qml_FOUND)
+   add_definitions(-DWITH_QML)
+-- 
+2.37.3
+
