@@ -257,6 +257,7 @@ endif()
 if(${CMAKE_SYSTEM_NAME} STREQUAL "Linux")
   install(FILES ${CMAKE_SOURCE_DIR}/images/icons/qfield_logo.svg DESTINATION ${CMAKE_INSTALL_DATADIR}/icons RENAME qfield.svg)
   install(FILES ${CMAKE_SOURCE_DIR}/platform/linux/qfield.desktop DESTINATION ${CMAKE_INSTALL_DATADIR}/qfield)
+  install(FILES ${CMAKE_SOURCE_DIR}/platform/linux/qfield.metainfo.xml DESTINATION ${CMAKE_INSTALL_DATADIR}/metainfo)
 endif()
 
 include(Package)
