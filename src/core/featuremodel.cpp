@@ -360,6 +360,42 @@ bool FeatureModel::setData( const QModelIndex &index, const QVariant &value, int
   return false;
 }
 
+void FeatureModel::updateDefaultValues()
+{
+  if ( !mLayer )
+    return;
+
+  QgsExpressionContext expressionContext = mLayer->createExpressionContext();
+  if ( mPositionInformation.isValid() )
+  {
+    expressionContext << ExpressionContextUtils::positionScope( mPositionInformation, mPositionLocked );
+  }
+  if ( mTopSnappingResult.isValid() )
+  {
+    expressionContext << ExpressionContextUtils::mapToolCaptureScope( mTopSnappingResult );
+  }
+  expressionContext << ExpressionContextUtils::cloudUserScope( mCloudUserInformation );
+  expressionContext.setFeature( mFeature );
+
+  QgsFields fields = mLayer->fields();
+  for ( int i = 0; i < fields.count(); ++i )
+  {
+    if ( fields.at( i ).defaultValueDefinition().isValid() && fields.at( i ).defaultValueDefinition().applyOnUpdate() )
+    {
+      QgsExpression exp( fields.at( i ).defaultValueDefinition().expression() );
+      exp.prepare( &expressionContext );
+      if ( exp.hasParserError() )
+        QgsMessageLog::logMessage( tr( "Default value expression for %1:%2 has parser error: %3" ).arg( mLayer->name(), fields.at( i ).name(), exp.parserErrorString() ), QStringLiteral( "QField" ) );
+
+      QVariant value = exp.evaluate( &expressionContext );
+      if ( exp.hasEvalError() )
+        QgsMessageLog::logMessage( tr( "Default value expression for %1:%2 has evaluation error: %3" ).arg( mLayer->name(), fields.at( i ).name(), exp.evalErrorString() ), QStringLiteral( "QField" ) );
+
+      mFeature.setAttribute( i, value );
+    }
+  }
+}
+
 bool FeatureModel::save()
 {
   if ( !mLayer )
@@ -376,8 +412,11 @@ bool FeatureModel::save()
   {
     case SingleFeatureModel:
     {
+      // We take charge of default values that are set to be applied on feature update to take into account positioning and cloud context
+      updateDefaultValues();
+
       QgsFeature feat = mFeature;
-      if ( !mLayer->updateFeature( feat ) )
+      if ( !mLayer->updateFeature( feat, true ) )
         QgsMessageLog::logMessage( tr( "Cannot update feature" ), QStringLiteral( "QField" ), Qgis::Warning );
 
       if ( mProject && mProject->topologicalEditing() )

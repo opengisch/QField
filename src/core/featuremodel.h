@@ -289,6 +289,7 @@ class FeatureModel : public QAbstractListModel
     bool commit();
     bool startEditing();
     void setLinkedFeatureValues();
+    void updateDefaultValues();
 
     ModelModes mModelMode = SingleFeatureModel;
     QgsVectorLayer *mLayer = nullptr;
