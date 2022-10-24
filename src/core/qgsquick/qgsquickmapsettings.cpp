@@ -14,9 +14,9 @@
  ***************************************************************************/
 
 
-#include "qgis.h"
 #include "qgsquickmapsettings.h"
 
+#include <qgis.h>
 #include <qgsmaplayer.h>
 #include <qgsmaplayerstylemanager.h>
 #include <qgsmessagelog.h>
