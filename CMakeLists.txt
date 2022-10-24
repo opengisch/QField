@@ -26,6 +26,8 @@ include(Platform)
 include(GetGitRevisionDescription)
 # The vcpkg toolchain to compile dependencies
 include(VcpkgToolchain)
+# The default installation paths
+include(GNUInstallDirs)
 
 project(${APP_NAME}
   VERSION ${CLEAN_APP_VERSION}
