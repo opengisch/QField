@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<head>
+<title>Get QField</title>
+</head>
+<body>
+<script type="text/javascript">
+const API_LATEST_RELEASE_URL = 'https://api.github.com/repos/opengisch/QField/releases/latest';
+const BROWSER_LATEST_RELEASE_URL = 'https://github.com/opengisch/QField/releases/latest';
+try {
+  const queryParams = new Proxy(new URLSearchParams(window.location.search), {
+    get: (searchParams, prop) => searchParams.get(prop),
+  });
+  if (!queryParams.platform) {
+    throw new Error('No "platform" parameter provided!');
+  }
+  fetch(API_LATEST_RELEASE_URL)
+    .then((response) => {
+      if (!response.ok) throw new Error();
+      return response.json();
+    })
+    .then(json => {
+      var downloadUrl = "https://github.com/opengisch/QField/releases/download/" + json['tag_name'] + "/qfield-" + json['tag_name'] + "-";
+      if (queryParams['platform'] == "windows") {
+        downloadUrl += "windows-x64.exe";
+      } else if (queryParams['platform'] == "linux") {
+        downloadUrl += "linux-x64.AppImage";
+      }
+      if (json['assets'].find(asset => asset["browser_download_url"] === downloadUrl)) {
+        return downloadUrl;
+      } else {
+        return BROWSER_LATEST_RELEASE_URL;
+      }
+    })
+    .then(browserUrl => {
+      window.location.replace(browserUrl);
+    })
+    .catch(error => {
+      window.location.replace(BROWSER_LATEST_RELEASE_URL);
+    });
+} catch (error) {
+  window.location.replace(BROWSER_LATEST_RELEASE_URL);
+}
+</script>
+<p>Redirecting to the latest QField package. If this does not work please go to the <a href='https://github.com/opengisch/QField/releases/latest'>latest release page</a>.</p>
+</body>
+</html>
