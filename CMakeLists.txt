@@ -66,7 +66,7 @@ endif()
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${QFIELD_OUTPUT_DIRECTORY}/${QFIELD_BIN_SUBDIR}/$<0:>)
 set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${QFIELD_OUTPUT_DIRECTORY}/${QFIELD_LIB_SUBDIR}/$<0:>)
 
-install(DIRECTORY ${CMAKE_SOURCE_DIR}/resources DESTINATION share/qfield)
+install(DIRECTORY ${CMAKE_SOURCE_DIR}/resources DESTINATION ${CMAKE_INSTALL_DATADIR}/qfield)
 
 set(WITH_BLUETOOTH
     ON
@@ -246,17 +246,17 @@ if(WITH_VCPKG)
   copy_resource("${PROJ_DATA_PATH}" "proj")
   copy_resource("${VCPKG_BASE_DIR}/share/gdal" "gdal")
   copy_resource("${CMAKE_SOURCE_DIR}/resources/" "qfield")
-  install(DIRECTORY "${VCPKG_BASE_DIR}/share/qgis/resources/" DESTINATION "share/qgis/resources")
-  install(DIRECTORY "${VCPKG_BASE_DIR}/share/qgis/svg/" DESTINATION "share/qgis/svg")
-  install(DIRECTORY "${PROJ_DATA_PATH}/" DESTINATION "share/proj/")
-  install(DIRECTORY "${VCPKG_BASE_DIR}/share/gdal/" DESTINATION "share/gdal")
+  install(DIRECTORY "${VCPKG_BASE_DIR}/share/qgis/resources/" DESTINATION "${CMAKE_INSTALL_DATADIR}/qgis/resources")
+  install(DIRECTORY "${VCPKG_BASE_DIR}/share/qgis/svg/" DESTINATION "${CMAKE_INSTALL_DATADIR}/qgis/svg")
+  install(DIRECTORY "${PROJ_DATA_PATH}/" DESTINATION "${CMAKE_INSTALL_DATADIR}/proj/")
+  install(DIRECTORY "${VCPKG_BASE_DIR}/share/gdal/" DESTINATION "${CMAKE_INSTALL_DATADIR}/gdal")
 
   add_dependencies(qfield deploy)
 endif()
 
 if(${CMAKE_SYSTEM_NAME} STREQUAL "Linux")
-  install(FILES ${CMAKE_SOURCE_DIR}/images/icons/qfield_logo.svg DESTINATION share/icons RENAME qfield.svg)
-  install(FILES ${CMAKE_SOURCE_DIR}/platform/linux/qfield.desktop DESTINATION share/qfield)
+  install(FILES ${CMAKE_SOURCE_DIR}/images/icons/qfield_logo.svg DESTINATION ${CMAKE_INSTALL_DATADIR}/icons RENAME qfield.svg)
+  install(FILES ${CMAKE_SOURCE_DIR}/platform/linux/qfield.desktop DESTINATION ${CMAKE_INSTALL_DATADIR}/qfield)
 endif()
 
 include(Package)
