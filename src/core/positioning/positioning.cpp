@@ -94,6 +94,16 @@ void Positioning::setAveragedPosition( bool averaged )
   emit averagedPositionChanged();
 }
 
+void Positioning::setEllipsoidalElevation( bool ellipsoidal )
+{
+  if ( mEllipsoidalElevation == ellipsoidal )
+    return;
+
+  mEllipsoidalElevation = ellipsoidal;
+
+  emit ellipsoidalElevationChanged();
+}
+
 void Positioning::setCoordinateTransformer( QgsQuickCoordinateTransformer *coordinateTransformer )
 {
   if ( mCoordinateTransformer == coordinateTransformer )

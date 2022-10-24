@@ -15,6 +15,7 @@
  ***************************************************************************/
 
 #include "bluetoothreceiver.h"
+#include "positioning.h"
 
 #include <QDebug>
 #include <QSettings>
@@ -118,11 +119,16 @@ void BluetoothReceiver::stateChanged( const QgsGpsInformation &info )
     return;
   }
   mLastGnssPositionValid = !std::isnan( info.latitude );
-
   emit lastGnssPositionInformationChanged( mLastGnssPositionInformation );
 
+  bool ellipsoidalElevation = false;
+  if ( Positioning *positioning = qobject_cast<Positioning *>( parent() ) )
+  {
+    ellipsoidalElevation = positioning->ellipsoidalElevation();
+  }
+
   // QgsGpsInformation's speed is served in km/h, translate to m/s
-  mLastGnssPositionInformation = GnssPositionInformation( info.latitude, info.longitude, mEllipsoidalElevation ? info.elevation + info.elevation_diff : info.elevation,
+  mLastGnssPositionInformation = GnssPositionInformation( info.latitude, info.longitude, ellipsoidalElevation ? info.elevation + info.elevation_diff : info.elevation,
                                                           info.speed * 1000 / 60 / 60, info.direction, info.satellitesInView, info.pdop, info.hdop, info.vdop,
                                                           info.hacc, info.vacc, info.utcDateTime, info.fixMode, info.fixType, info.quality, info.satellitesUsed, info.status,
                                                           info.satPrn, info.satInfoComplete, std::numeric_limits<double>::quiet_NaN(), std::numeric_limits<double>::quiet_NaN(),
@@ -167,14 +173,6 @@ void BluetoothReceiver::setSocketState( const QBluetoothSocket::SocketState sock
   mSocketState = static_cast<QAbstractSocket::SocketState>( socketState );
   emit socketStateChanged( mSocketState );
   emit socketStateStringChanged( mSocketStateString );
-}
-
-void BluetoothReceiver::setEllipsoidalElevation( const bool ellipsoidalElevation )
-{
-  if ( mEllipsoidalElevation == ellipsoidalElevation )
-    return;
-
-  mEllipsoidalElevation = ellipsoidalElevation;
 }
 
 #ifdef Q_OS_LINUX

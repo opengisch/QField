@@ -17,7 +17,6 @@
 #define BLUETOOTHRECEIVER_H
 
 #include "abstractgnssreceiver.h"
-#include "gnsspositioninformation.h"
 #include "qgsnmeaconnection.h"
 
 #include <QObject>
@@ -35,16 +34,6 @@ class BluetoothReceiver : public AbstractGnssReceiver
   public:
     explicit BluetoothReceiver( const QString &address = QString(), QObject *parent = nullptr );
     ~BluetoothReceiver() override {}
-
-    /**
-     * Sets whether the elevation value provided will be ellipsoidal or, if not, orthometric
-     */
-    void setEllipsoidalElevation( const bool ellipsoidalElevation );
-
-    /**
-     * Returns whether the elevation value provided will be ellipsoidal or orthometric
-     */
-    bool ellipsoidalElevation() const { return mEllipsoidalElevation; }
 
   private slots:
     /**
@@ -83,8 +72,6 @@ class BluetoothReceiver : public AbstractGnssReceiver
 
     bool mDisconnecting = false;
     bool mConnectOnDisconnect;
-
-    bool mEllipsoidalElevation = true;
 };
 
 #endif // BLUETOOTHRECEIVER_H
