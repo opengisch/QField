@@ -15,6 +15,7 @@ Built on top of the popular QGIS open source project, QField lets users consume 
 	<url type="homepage">https://qfield.org/</url>
 	<url type="bugtracker">https://github.com/opengisch/QField/issues</url>
 	<url type="donation">https://github.com/opengisch</url>
+	<url type="help">https://docs.qfield.org/</url>
 	<screenshots>
 		<screenshot type="default">
 			<image>https://qfield.org/images/title_tablet.jpg</image>
