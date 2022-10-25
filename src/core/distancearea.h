@@ -41,9 +41,15 @@ class DistanceArea : public QObject
     Q_PROPERTY( QgsUnitTypes::AreaUnit areaUnits READ areaUnits NOTIFY areaUnitsChanged )
 
     /**
-     * Contains the length of the last segment
+     * Returns the length of the last segment
      */
     Q_PROPERTY( qreal segmentLength READ segmentLength NOTIFY segmentLengthChanged )
+
+    /**
+     * Returns the Cartesian azimuth (in degrees) between the second to last point and last point
+     * of the rubber band model (clockwise in degree, starting from north)
+     */
+    Q_PROPERTY( qreal azimuth READ azimuth NOTIFY azimuthChanged )
 
   public:
     explicit DistanceArea( QObject *parent = nullptr );
@@ -54,7 +60,9 @@ class DistanceArea : public QObject
     bool perimeterValid() const;
     qreal area() const;
     bool areaValid() const;
+
     qreal segmentLength() const;
+    qreal azimuth() const;
 
     QgsUnitTypes::DistanceUnit lengthUnits() const;
     QgsUnitTypes::AreaUnit areaUnits() const;
@@ -80,6 +88,7 @@ class DistanceArea : public QObject
     void perimeterChanged();
     void areaChanged();
     void segmentLengthChanged();
+    void azimuthChanged();
     void lengthUnitsChanged();
     void areaUnitsChanged();
 

@@ -775,16 +775,21 @@ ApplicationWindow {
                         .arg(point.x.toLocaleString( Qt.locale(), 'f', coordinatesIsGeographic ? 5 : 2 ));
         }
 
-        return '%1%2%3%4%5'
+        return '%1%2%3%4%5%6'
                 .arg(stateMachine.state === 'digitize' || !digitizingToolbar.isDigitizing
                      ? coordinates
                      : '')
 
                 .arg(digitizingGeometryMeasure.lengthValid && digitizingGeometryMeasure.segmentLength != 0.0
-                     && digitizingGeometryMeasure.segmentLength != digitizingGeometryMeasure.length
                      ? '<p>%1: %2</p>'
-                       .arg( qsTr( 'Segment') )
+                       .arg( digitizingGeometryMeasure.segmentLength != digitizingGeometryMeasure.length ? qsTr( 'Segment') : qsTr( 'Length' ) )
                        .arg(UnitTypes.formatDistance( digitizingGeometryMeasure.convertLengthMeansurement( digitizingGeometryMeasure.segmentLength, projectInfo.distanceUnits ) , 3, projectInfo.distanceUnits ) )
+                     : '')
+
+                .arg(digitizingGeometryMeasure.lengthValid && digitizingGeometryMeasure.segmentLength != 0.0
+                     ? '<p>%1: %2</p>'
+                       .arg( qsTr( 'Azimuth') )
+                       .arg( UnitTypes.formatAngle( digitizingGeometryMeasure.azimuth < 0 ? digitizingGeometryMeasure.azimuth + 360 : digitizingGeometryMeasure.azimuth, 2, QgsUnitTypes.AngleDegrees ) )
                      : '')
 
                 .arg(currentRubberband.model && currentRubberband.model.geometryType === QgsWkbTypes.PolygonGeometry
@@ -793,7 +798,7 @@ ApplicationWindow {
                          .arg( qsTr( 'Perimeter') )
                          .arg(UnitTypes.formatDistance( digitizingGeometryMeasure.convertLengthMeansurement( digitizingGeometryMeasure.perimeter, projectInfo.distanceUnits ), 3, projectInfo.distanceUnits ) )
                        : ''
-                     : digitizingGeometryMeasure.lengthValid
+                     : digitizingGeometryMeasure.lengthValid && digitizingGeometryMeasure.segmentLength != digitizingGeometryMeasure.length
                      ? '<p>%1: %2</p>'
                        .arg( qsTr( 'Length') )
                        .arg(UnitTypes.formatDistance( digitizingGeometryMeasure.convertLengthMeansurement( digitizingGeometryMeasure.length, projectInfo.distanceUnits ),3, projectInfo.distanceUnits ) )

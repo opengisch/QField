@@ -85,6 +85,7 @@ void DistanceArea::setRubberbandModel( RubberbandModel *rubberbandModel )
     disconnect( mRubberbandModel, &RubberbandModel::vertexChanged, this, &DistanceArea::perimeterChanged );
     disconnect( mRubberbandModel, &RubberbandModel::vertexChanged, this, &DistanceArea::areaChanged );
     disconnect( mRubberbandModel, &RubberbandModel::vertexChanged, this, &DistanceArea::segmentLengthChanged );
+    disconnect( mRubberbandModel, &RubberbandModel::vertexChanged, this, &DistanceArea::azimuthChanged );
   }
 
   mRubberbandModel = rubberbandModel;
@@ -95,6 +96,7 @@ void DistanceArea::setRubberbandModel( RubberbandModel *rubberbandModel )
     connect( mRubberbandModel, &RubberbandModel::vertexChanged, this, &DistanceArea::perimeterChanged );
     connect( mRubberbandModel, &RubberbandModel::vertexChanged, this, &DistanceArea::areaChanged );
     connect( mRubberbandModel, &RubberbandModel::vertexChanged, this, &DistanceArea::segmentLengthChanged );
+    connect( mRubberbandModel, &RubberbandModel::vertexChanged, this, &DistanceArea::azimuthChanged );
   }
 
   emit rubberbandModelChanged();
@@ -242,6 +244,21 @@ qreal DistanceArea::segmentLength() const
   flatPoints << *pointIt;
 
   return mDistanceArea.measureLine( flatPoints );
+}
+
+qreal DistanceArea::azimuth() const
+{
+  if ( !mRubberbandModel )
+    return qQNaN();
+
+  if ( mRubberbandModel->vertexCount() < 2 )
+    return qQNaN();
+
+  QVector<QgsPointXY> points = mRubberbandModel->flatPointSequence( mCrs );
+  QgsPoint startPoint( points.at( points.size() - 2 ) );
+  QgsPoint endPoint( points.at( points.size() - 1 ) );
+
+  return startPoint.azimuth( endPoint );
 }
 
 QgsUnitTypes::DistanceUnit DistanceArea::lengthUnits() const
