@@ -842,7 +842,7 @@ ApplicationWindow {
     round: true
     bgcolor: "transparent"
 
-    visible: messageLog.unreadMessages
+    visible: !screenLocker.enabled && messageLog.unreadMessages
 
     anchors.right: locatorItem.right
     anchors.top: locatorItem.top
@@ -859,7 +859,7 @@ ApplicationWindow {
     anchors.bottomMargin: ( mapCanvas.height - zoomToolbar.height / 2 ) / 2
     spacing: 4
 
-    visible: locationToolbar.height / mapCanvas.height < 0.41
+    visible: !screenLocker.enabled && locationToolbar.height / mapCanvas.height < 0.41
 
     QfToolButton {
       id: zoomInButton
@@ -914,7 +914,7 @@ ApplicationWindow {
     anchors.topMargin: mainWindow.sceneTopMargin + 4
     anchors.rightMargin: 4
 
-    visible: stateMachine.state !== 'measure'
+    visible: !screenLocker.enabled && stateMachine.state !== 'measure'
 
     Keys.onReleased: (event) => {
       if (event.key === Qt.Key_Back || event.key === Qt.Key_Escape) {
@@ -1016,6 +1016,7 @@ ApplicationWindow {
   /* The main menu */
   Row {
     id: mainMenuBar
+    visible: !screenLocker.enabled
     width: childrenRect.width + 8
     height: childrenRect.height + 8
     topPadding: mainWindow.sceneTopMargin + 4
@@ -1059,6 +1060,7 @@ ApplicationWindow {
 
   Column {
     id: mainToolbar
+    visible: !screenLocker.enabled
     anchors.left: mainMenuBar.left
     anchors.top: mainMenuBar.bottom
     anchors.leftMargin: 4
@@ -1432,7 +1434,8 @@ ApplicationWindow {
     DigitizingToolbar {
       id: digitizingToolbar
 
-      stateVisible: (stateMachine.state === "digitize"
+      stateVisible: !screenLocker.enabled &&
+                    ((stateMachine.state === "digitize"
                      && dashBoard.currentLayer
                      && !dashBoard.currentLayer.readOnly
                      // unfortunately there is no way to call QVariant::toBool in QML so the value is a string
@@ -1441,7 +1444,7 @@ ApplicationWindow {
                      && !moveFeaturesToolbar.stateVisible
                      && (projectInfo.editRights || projectInfo.insertRights))
                     || stateMachine.state === 'measure'
-                    || (stateMachine.state === "digitize" && digitizingToolbar.geometryRequested)
+                    || (stateMachine.state === "digitize" && digitizingToolbar.geometryRequested))
       rubberbandModel: currentRubberband ? currentRubberband.model : null
       mapSettings: mapCanvas.mapSettings
       showConfirmButton: stateMachine.state === "digitize"
@@ -1588,7 +1591,7 @@ ApplicationWindow {
       editorRubberbandModel: geometryEditorsRubberband.model
       screenHovering: hoverHandler.hovered
 
-      stateVisible: ( stateMachine.state === "digitize" && vertexModel.vertexCount > 0 )
+      stateVisible: !screenLocker.enabled && (stateMachine.state === "digitize" && vertexModel.vertexCount > 0)
     }
 
     ConfirmationToolbar {
@@ -1648,6 +1651,7 @@ ApplicationWindow {
       text: qsTr( 'Measure Tool' )
 
       font: Theme.defaultFont
+      icon.source: Theme.getThemeVectorIcon( "ic_measurement_black_24dp" )
       height: 48
       leftPadding: 10
 
@@ -1663,6 +1667,7 @@ ApplicationWindow {
       text: qsTr( "Print to PDF" )
 
       font: Theme.defaultFont
+      icon.source: Theme.getThemeVectorIcon( "ic_print_black_24dp" )
       height: 48
       leftPadding: 10
       rightPadding: 40
@@ -1705,12 +1710,13 @@ ApplicationWindow {
 
     MenuItem {
       id: openProjectMenuItem
+      text: qsTr( "Go to Home Screen" )
 
       font: Theme.defaultFont
+      icon.source: Theme.getThemeVectorIcon( "ic_home_black_24dp" )
       height: 48
       leftPadding: 10
 
-      text: qsTr( "Go to Home Screen" )
       onTriggered: {
         dashBoard.close()
         welcomeScreen.visible = true
@@ -1721,17 +1727,32 @@ ApplicationWindow {
 
     MenuItem {
       id: openProjectFolderMenuItem
+      text: qsTr( "Open Project Folder" )
 
       font: Theme.defaultFont
+      icon.source: Theme.getThemeVectorIcon( "ic_folder_open_black_24dp" )
       height: 48
       leftPadding: 10
 
-      text: qsTr( "Open Project Folder" )
       onTriggered: {
         dashBoard.close()
         qfieldLocalDataPickerScreen.projectFolderView = true
         qfieldLocalDataPickerScreen.model.resetToPath(projectInfo.filePath)
         qfieldLocalDataPickerScreen.visible = true
+      }
+    }
+
+    MenuItem {
+      text: qsTr( 'Lock Screen' )
+
+      font: Theme.defaultFont
+      icon.source: Theme.getThemeVectorIcon( "ic_lock_black_24dp" )
+      height: 48
+      leftPadding: 10
+
+      onTriggered: {
+        screenLocker.enabled = true
+        dashBoard.close()
       }
     }
 
@@ -1742,7 +1763,7 @@ ApplicationWindow {
 
       font: Theme.defaultFont
       height: 48
-      leftPadding: 10
+      leftPadding: 50
 
       onTriggered: {
         dashBoard.close()
@@ -1756,7 +1777,7 @@ ApplicationWindow {
 
       font: Theme.defaultFont
       height: 48
-      leftPadding: 10
+      leftPadding: 50
 
       onTriggered: {
         dashBoard.close()
@@ -1770,7 +1791,7 @@ ApplicationWindow {
 
       font: Theme.defaultFont
       height: 48
-      leftPadding: 10
+      leftPadding: 50
 
       onTriggered: {
         dashBoard.close()
@@ -3194,9 +3215,14 @@ ApplicationWindow {
   }
 
   VertexModel {
-      id: vertexModel
-      currentPoint: coordinateLocator.currentCoordinate
-      mapSettings: mapCanvas.mapSettings
-      isHovering: hoverHandler.hovered
+    id: vertexModel
+    currentPoint: coordinateLocator.currentCoordinate
+    mapSettings: mapCanvas.mapSettings
+    isHovering: hoverHandler.hovered
+  }
+
+  ScreenLocker {
+    id: screenLocker
+    enabled: false
   }
 }
