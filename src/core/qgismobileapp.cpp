@@ -106,6 +106,7 @@
 #include "qgismobileapp.h"
 #include "qgsgeometrywrapper.h"
 #include "qgsquickcoordinatetransformer.h"
+#include "qgsquickelevationprofilecanvas.h"
 #include "qgsquickmapcanvasmap.h"
 #include "qgsquickmapsettings.h"
 #include "qgsquickmaptransform.h"
@@ -443,6 +444,7 @@ void QgisMobileapp::initDeclarative()
   qmlRegisterType<QgsQuickMapCanvasMap>( "org.qgis", 1, 0, "MapCanvasMap" );
   qmlRegisterType<QgsQuickMapSettings>( "org.qgis", 1, 0, "MapSettings" );
   qmlRegisterType<QgsQuickCoordinateTransformer>( "org.qfield", 1, 0, "CoordinateTransformer" );
+  qmlRegisterType<QgsQuickElevationProfileCanvas>( "org.qgis", 1, 0, "ElevationProfileCanvas" );
 
   qmlRegisterType<QgsQuickMapTransform>( "org.qgis", 1, 0, "MapTransform" );
 
