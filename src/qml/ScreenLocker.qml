@@ -14,10 +14,10 @@ Item {
 
   onEnabledChanged: {
     if (enabled) {
-        unlockNode.opacity = 1
-        unlockOpacityTimer.restart()
+      unlockNode.opacity = 1
+      unlockOpacityTimer.restart()
     } else {
-        unlockNode.opacity = 0
+      unlockNode.opacity = 0
     }
   }
 
@@ -55,8 +55,8 @@ Item {
     anchors.fill: parent
 
     onPressed: {
-        unlockNode.opacity = 1
-        unlockOpacityTimer.restart()
+      unlockNode.opacity = 1
+      unlockOpacityTimer.restart()
     }
   }
 
@@ -102,7 +102,9 @@ Item {
       smooth: true
       source: unlockHandler.unlocked
               ? Theme.getThemeVectorIcon('ic_lock_open_green_24dp')
-              : unlockHandler.entered ? Theme.getThemeVectorIcon('ic_lock_open_white_24dp') : Theme.getThemeVectorIcon('ic_lock_white_24dp')
+              : unlockHandler.entered
+                ? Theme.getThemeVectorIcon('ic_lock_open_white_24dp')
+                : Theme.getThemeVectorIcon('ic_lock_white_24dp')
       sourceSize.width: 96
       sourceSize.height: 96
     }
@@ -129,7 +131,7 @@ Item {
       if (active) {
         var x = centroid.position.x - centerX
         var y = centroid.position.y - centerY
-        var distance = Math.sqrt(Math.pow(x,2) + Math.pow(y,2))
+        var distance = Math.sqrt(Math.pow(x, 2) + Math.pow(y, 2))
         if (distance < screenLocker.threshold / 3) {
           unlockOpacityTimer.stop()
           entered = true
@@ -151,7 +153,7 @@ Item {
       if (entered) {
         var x = centroid.position.x - centerX
         var y = centroid.position.y - centerY
-        var distance = Math.sqrt(Math.pow(x,2) + Math.pow(y,2))
+        var distance = Math.sqrt(Math.pow(x, 2) + Math.pow(y, 2))
         if (distance < screenLocker.threshold) {
           unlockNode.offsetX = x
           unlockNode.offsetY = y
