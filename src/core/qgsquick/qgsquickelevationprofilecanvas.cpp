@@ -61,7 +61,7 @@ inline QgsWeakMapLayerPointerList _qgis_listRawToQPointer( const QList<QgsMapLay
 class QgsElevationProfilePlotItem : public Qgs2DPlot
 {
   public:
-    QgsElevationProfilePlotItem( QgsQuickElevationProfileCanvas *canvas )
+    explicit QgsElevationProfilePlotItem( QgsQuickElevationProfileCanvas *canvas )
       : mCanvas( canvas )
     {
       setYMinimum( 0 );

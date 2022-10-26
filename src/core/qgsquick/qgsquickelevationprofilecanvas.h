@@ -43,7 +43,7 @@ class QgsQuickElevationProfileCanvas : public QQuickItem
     /**
      * Constructor for QgsElevationProfileCanvas, with the specified \a parent widget.
      */
-    QgsQuickElevationProfileCanvas( QQuickItem *parent = nullptr );
+    explicit QgsQuickElevationProfileCanvas( QQuickItem *parent = nullptr );
     ~QgsQuickElevationProfileCanvas();
 
     QSGNode *updatePaintNode( QSGNode *oldNode, QQuickItem::UpdatePaintNodeData * ) override;
