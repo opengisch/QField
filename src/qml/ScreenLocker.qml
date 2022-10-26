@@ -130,7 +130,7 @@ Item {
         var x = centroid.position.x - centerX
         var y = centroid.position.y - centerY
         var distance = Math.sqrt(Math.pow(x,2) + Math.pow(y,2))
-        if (distance < screenLocker.threshold) {
+        if (distance < screenLocker.threshold / 3) {
           unlockOpacityTimer.stop()
           entered = true
         }
