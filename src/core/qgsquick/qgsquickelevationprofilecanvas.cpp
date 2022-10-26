@@ -1,9 +1,9 @@
 /***************************************************************************
                           QgsQuickElevationProfileCanvas.cpp
                           -----------------
-    begin                : March 2022
-    copyright            : (C) 2022 by Nyall Dawson
-    email                : nyall dot dawson at gmail dot com
+    begin                : October 2022
+    copyright            : (C) 2022 by Mathieu Pellerin
+    email                : mathieu at opengis dot ch
 ***************************************************************************/
 
 
@@ -33,7 +33,6 @@
 #include <QSGSimpleTextureNode>
 #include <QScreen>
 #include <QTimer>
-
 
 inline QList<QgsMapLayer *> _qgis_listQPointerToRaw( const QgsWeakMapLayerPointerList &layers )
 {
