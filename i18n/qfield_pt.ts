@@ -15,7 +15,7 @@
     </message>
     <message>
         <source>Documentation</source>
-        <translation type="unfinished"/>
+        <translation>Documentação</translation>
     </message>
     <message>
         <source>Links Menu</source>
@@ -209,11 +209,11 @@ Cancele para fazer uma verificação mínima.</translation>
     </message>
     <message>
         <source>Could not find the remote host</source>
-        <translation type="unfinished"/>
+        <translation>Não foi possível encontrar o host remoto</translation>
     </message>
     <message>
         <source>Could not find the service UUID on remote host</source>
-        <translation type="unfinished"/>
+        <translation>Não foi possível encontrar o UUID de serviço no host remoto</translation>
     </message>
     <message>
         <source>Attempt to read or write from socket returned an error</source>
@@ -221,7 +221,7 @@ Cancele para fazer uma verificação mínima.</translation>
     </message>
     <message>
         <source>The protocol is not supported on this platform</source>
-        <translation type="unfinished"/>
+        <translation>O protocolo não é suportado nesta plataforma</translation>
     </message>
     <message>
         <source>An operation was attempted while the socket was in a state that did not permit it</source>
@@ -229,11 +229,11 @@ Cancele para fazer uma verificação mínima.</translation>
     </message>
     <message>
         <source>The remote host closed the connection</source>
-        <translation type="unfinished"/>
+        <translation>O host remoto fechou a ligação</translation>
     </message>
     <message>
         <source>Unknown error</source>
-        <translation type="unfinished"/>
+        <translation>Erro desconhecido</translation>
     </message>
 </context>
 <context>
@@ -3075,7 +3075,7 @@ Cancele para fazer uma verificação mínima.</translation>
     </message>
     <message>
         <source>Positioning error: %1</source>
-        <translation type="unfinished"/>
+        <translation>Erro posicionamento: %1</translation>
     </message>
 </context>
 <context>
