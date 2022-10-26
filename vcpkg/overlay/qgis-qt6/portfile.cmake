@@ -20,6 +20,7 @@ vcpkg_from_github(
         poly2tri.patch
         pgprovider.patch
         qgsvariantutils.patch
+        mesh.patch
 )
 
 file(REMOVE ${SOURCE_PATH}/cmake/FindQtKeychain.cmake)
