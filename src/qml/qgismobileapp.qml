@@ -962,6 +962,7 @@ ApplicationWindow {
                  && !qfieldCloudScreen.visible
                  && !qfieldLocalDataPickerScreen.visible
                  && !barcodeReader.visible
+                 && !screenLocker.enabled
 
     onOpenedChanged: {
       if ( !opened ) {
