@@ -42,27 +42,33 @@ else
   export CI_USE_IOS_DIST_CERT=
 fi
 
-if [[ "${CI_TAG}" ]];
-then
-  export CI_PACKAGE_FILE_BASENAME="qfield-${CI_TAG}"
-  export CI_ALL_ACCESS_PACKAGE_FILE_BASENAME="qfield-all-access-${CI_TAG}"
 
-  if [[ ${ALL_FILES_ACCESS} == "ON" ]]; then
+if [[ ${ALL_FILES_ACCESS} == "ON" ]];
+then
+  if [[ "${CI_TAG}" ]];
+  then
+    export CI_PACKAGE_FILE_BASENAME="qfield-${CI_TAG}"
+    export CI_ALL_ACCESS_PACKAGE_FILE_BASENAME="qfield-all-access-${CI_TAG}"
     export APP_PACKAGE_NAME="qfield_all_access"
   else
-    export APP_PACKAGE_NAME="qfield"
-  fi
-else
-  export CI_PACKAGE_FILE_BASENAME="qfield-dev-${CI_UPLOAD_ARTIFACT_ID}-${CI_COMMIT}"
-  export CI_ALL_ACCESS_PACKAGE_FILE_BASENAME="qfield-all-access-dev-${CI_UPLOAD_ARTIFACT_ID}-${CI_COMMIT}"
-
-  if [[ ${ALL_FILES_ACCESS} == "ON" ]]; then
+    export CI_PACKAGE_FILE_BASENAME="qfield-dev-${CI_UPLOAD_ARTIFACT_ID}-${CI_COMMIT}"
+    export CI_ALL_ACCESS_PACKAGE_FILE_BASENAME="qfield-all-access-dev-${CI_UPLOAD_ARTIFACT_ID}-${CI_COMMIT}"
     export APP_PACKAGE_NAME="qfield_all_access_dev"
+  fi
+  export CI_PACKAGE_FILENAME="${CI_ALL_ACCESS_PACKAGE_FILE_BASENAME}-${ARCH}.apk"
+else
+  if [[ "${CI_TAG}" ]];
+  then
+    export CI_PACKAGE_FILE_BASENAME="qfield-${CI_TAG}"
+    export CI_ALL_ACCESS_PACKAGE_FILE_BASENAME="qfield-all-access-${CI_TAG}"
+    export APP_PACKAGE_NAME="qfield"
   else
+    export CI_PACKAGE_FILE_BASENAME="qfield-dev-${CI_UPLOAD_ARTIFACT_ID}-${CI_COMMIT}"
+    export CI_ALL_ACCESS_PACKAGE_FILE_BASENAME="qfield-all-access-dev-${CI_UPLOAD_ARTIFACT_ID}-${CI_COMMIT}"
     export APP_PACKAGE_NAME="qfield_dev"
   fi
+  export CI_PACKAGE_FILENAME="${CI_PACKAGE_FILE_BASENAME}-${ARCH}.apk"
 fi
-export CI_PACKAGE_FILENAME="${CI_PACKAGE_FILE_BASENAME}-${ARCH}.apk"
 
 {
     echo "CI_BUILD_DIR=${CI_BUILD_DIR}"

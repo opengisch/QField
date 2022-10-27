@@ -142,17 +142,8 @@ jobs:
 
       - name: 📦 Upload artifacts
         uses: actions/upload-artifact@v3
-        if: ${{ matrix.all_files_access }} == "OFF"
         with:
-          name: android-${{ matrix.triplet }}
-          path: |
-            ${{ env.CMAKE_BUILD_DIR }}/android-build/build/outputs/apk/release/android-build-release-signed.apk
-
-      - name: 📦 Upload all access artifacts
-        uses: actions/upload-artifact@v3
-        if: ${{ matrix.all_files_access }} == "ON"
-        with:
-          name: android-all-access-${{ matrix.triplet }}
+          name: ${{ env.APP_PACKAGE_NAME }}-android-${{ matrix.triplet }}
           path: |
             ${{ env.CMAKE_BUILD_DIR }}/android-build/build/outputs/apk/release/android-build-release-signed.apk
 
