@@ -47,7 +47,6 @@ class AttributeFormModel : public QSortFilterProxyModel
       RelationId,
       NmRelationId,
       FieldIndex,
-      Group,
       AttributeEditorElement,
       CurrentlyVisible,
       ConstraintHardValid,
@@ -56,7 +55,10 @@ class AttributeFormModel : public QSortFilterProxyModel
       AttributeAllowEdit,
       EditorWidgetCode, //<! Returns a QML or HTML code string used by the relevant widgets
       TabIndex,
-      FieldColor,
+      GroupColor,
+      GroupName,
+      GroupIndex,
+      ColumnCount,
     };
 
     Q_ENUM( FeatureRoles )

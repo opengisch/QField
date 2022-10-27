@@ -61,14 +61,16 @@ QHash<int, QByteArray> AttributeFormModelBase::roleNames() const
   roles[AttributeFormModel::Field] = "Field";
   roles[AttributeFormModel::RelationId] = "RelationId";
   roles[AttributeFormModel::NmRelationId] = "NmRelationId";
-  roles[AttributeFormModel::Group] = "Group";
   roles[AttributeFormModel::ConstraintHardValid] = "ConstraintHardValid";
   roles[AttributeFormModel::ConstraintSoftValid] = "ConstraintSoftValid";
   roles[AttributeFormModel::ConstraintDescription] = "ConstraintDescription";
   roles[AttributeFormModel::AttributeAllowEdit] = "AttributeAllowEdit";
   roles[AttributeFormModel::EditorWidgetCode] = "EditorWidgetCode";
   roles[AttributeFormModel::TabIndex] = "TabIndex";
-  roles[AttributeFormModel::FieldColor] = "FieldColor";
+  roles[AttributeFormModel::GroupColor] = "GroupColor";
+  roles[AttributeFormModel::GroupName] = "GroupName";
+  roles[AttributeFormModel::GroupIndex] = "GroupIndex";
+  roles[AttributeFormModel::ColumnCount] = "ColumnCount";
 
   return roles;
 }
@@ -181,6 +183,7 @@ void AttributeFormModelBase::resetModel()
         if ( element->type() == QgsAttributeEditorElement::AeTypeContainer )
         {
           QgsAttributeEditorContainer *container = static_cast<QgsAttributeEditorContainer *>( element );
+          const int columnCount = container->columnCount();
 
           QStandardItem *item = new QStandardItem();
           item->setData( element->name(), AttributeFormModel::Name );
@@ -196,7 +199,7 @@ void AttributeFormModelBase::resetModel()
           }
 
           QVector<QStandardItem *> dummy;
-          flatten( container, item, QString(), dummy, currentTab, container->backgroundColor() );
+          buildForm( container, item, QString(), dummy, currentTab, columnCount );
           currentTab++;
         }
       }
@@ -204,7 +207,7 @@ void AttributeFormModelBase::resetModel()
     else
     {
       QVector<QStandardItem *> dummy;
-      flatten( invisibleRootContainer(), invisibleRootItem(), QString(), dummy );
+      buildForm( invisibleRootContainer(), invisibleRootItem(), QString(), dummy );
     }
 
     mExpressionContext = mLayer->createExpressionContext();
@@ -308,17 +311,24 @@ void AttributeFormModelBase::updateAttributeValue( QStandardItem *item )
   }
 }
 
-void AttributeFormModelBase::flatten( QgsAttributeEditorContainer *container, QStandardItem *parent, const QString &parentVisibilityExpressions, QVector<QStandardItem *> &items, int currentTabIndex, const QColor &color )
+void AttributeFormModelBase::buildForm( QgsAttributeEditorContainer *container, QStandardItem *parent, const QString &parentVisibilityExpressions, QVector<QStandardItem *> &items, int currentTabIndex, int columnCount )
 {
   const QList<QgsAttributeEditorElement *> children { container->children() };
   for ( QgsAttributeEditorElement *element : children )
   {
+    QStandardItem *item = new QStandardItem();
+    item->setData( columnCount, AttributeFormModel::ColumnCount );
+    item->setData( currentTabIndex, AttributeFormModel::TabIndex );
+    item->setData( QString(), AttributeFormModel::GroupName );
+    item->setData( QModelIndex(), AttributeFormModel::GroupIndex );
+
     switch ( element->type() )
     {
       case QgsAttributeEditorElement::AeTypeContainer:
       {
         QString visibilityExpression = parentVisibilityExpressions;
         QgsAttributeEditorContainer *innerContainer = static_cast<QgsAttributeEditorContainer *>( element );
+        const int innerColumnCount = innerContainer->columnCount();
         if ( innerContainer->visibilityExpression().enabled() )
         {
           if ( visibilityExpression.isNull() )
@@ -327,10 +337,23 @@ void AttributeFormModelBase::flatten( QgsAttributeEditorContainer *container, QS
             visibilityExpression += " AND " + innerContainer->visibilityExpression().data().expression();
         }
 
+        item->setData( "container", AttributeFormModel::ElementType );
+        item->setData( innerContainer->name(), AttributeFormModel::Name );
+        item->setData( true, AttributeFormModel::CurrentlyVisible );
+        item->setData( false, AttributeFormModel::AttributeEditable );
+        item->setData( false, AttributeFormModel::AttributeAllowEdit );
+        item->setData( innerContainer->isGroupBox() ? innerContainer->name() : QString(), AttributeFormModel::GroupName );
+        if ( innerContainer->backgroundColor().isValid() )
+          item->setData( innerContainer->backgroundColor(), AttributeFormModel::GroupColor );
+
+        items.append( item );
+        parent->appendRow( item );
+        item->setData( item->index(), AttributeFormModel::GroupIndex );
+
         QVector<QStandardItem *> newItems;
-        flatten( innerContainer, parent, visibilityExpression, newItems, 0, innerContainer->backgroundColor() );
+        buildForm( innerContainer, item, visibilityExpression, newItems, 0, innerColumnCount );
         if ( !visibilityExpression.isEmpty() )
-          mVisibilityExpressions.append( qMakePair( QgsExpression( visibilityExpression ), newItems ) );
+          mVisibilityExpressions.append( qMakePair( QgsExpression( visibilityExpression ), QVector<QStandardItem *>() << item ) );
         break;
       }
 
@@ -347,9 +370,6 @@ void AttributeFormModelBase::flatten( QgsAttributeEditorContainer *container, QS
 
         QgsField field = mLayer->fields().at( fieldIndex );
 
-        QStandardItem *item = new QStandardItem();
-
-        item->setData( currentTabIndex, AttributeFormModel::TabIndex );
         item->setData( mLayer->attributeDisplayName( fieldIndex ), AttributeFormModel::Name );
         item->setData( !mLayer->editFormConfig().readOnly( fieldIndex ), AttributeFormModel::AttributeEditable );
         const QgsEditorWidgetSetup setup = findBest( fieldIndex );
@@ -359,13 +379,10 @@ void AttributeFormModelBase::flatten( QgsAttributeEditorContainer *container, QS
         item->setData( QgsField( field ), AttributeFormModel::Field );
         item->setData( "field", AttributeFormModel::ElementType );
         item->setData( fieldIndex, AttributeFormModel::FieldIndex );
-        item->setData( container->isGroupBox() ? container->name() : QString(), AttributeFormModel::Group );
         item->setData( true, AttributeFormModel::CurrentlyVisible );
         item->setData( true, AttributeFormModel::ConstraintHardValid );
         item->setData( true, AttributeFormModel::ConstraintSoftValid );
         item->setData( mFeatureModel->data( mFeatureModel->index( fieldIndex ), FeatureModel::AttributeAllowEdit ), AttributeFormModel::AttributeAllowEdit );
-        if ( color.isValid() )
-          item->setData( color, AttributeFormModel::FieldColor );
 
         // create constraint description
         QStringList descriptions;
@@ -401,9 +418,6 @@ void AttributeFormModelBase::flatten( QgsAttributeEditorContainer *container, QS
         QgsAttributeEditorRelation *editorRelation = static_cast<QgsAttributeEditorRelation *>( element );
         QgsRelation relation = editorRelation->relation();
 
-        QStandardItem *item = new QStandardItem();
-
-        item->setData( currentTabIndex, AttributeFormModel::TabIndex );
         item->setData( !editorRelation->label().isEmpty() ? editorRelation->label() : relation.name(), AttributeFormModel::Name );
         item->setData( true, AttributeFormModel::AttributeEditable );
         item->setData( true, AttributeFormModel::CurrentlyVisible );
@@ -413,7 +427,6 @@ void AttributeFormModelBase::flatten( QgsAttributeEditorContainer *container, QS
         item->setData( editorRelation->relationEditorConfiguration(), AttributeFormModel::RelationEditorWidgetConfig );
         item->setData( relation.id(), AttributeFormModel::RelationId );
         item->setData( mLayer->editFormConfig().widgetConfig( relation.id() )[QStringLiteral( "nm-rel" )].toString(), AttributeFormModel::NmRelationId );
-        item->setData( container->isGroupBox() ? container->name() : QString(), AttributeFormModel::Group );
         item->setData( true, AttributeFormModel::CurrentlyVisible );
         item->setData( true, AttributeFormModel::ConstraintHardValid );
         item->setData( true, AttributeFormModel::ConstraintSoftValid );
@@ -428,15 +441,12 @@ void AttributeFormModelBase::flatten( QgsAttributeEditorContainer *container, QS
       case QgsAttributeEditorElement::AeTypeQmlElement:
       {
         QgsAttributeEditorQmlElement *qmlElement = static_cast<QgsAttributeEditorQmlElement *>( element );
-        QStandardItem *item = new QStandardItem();
 
-        item->setData( currentTabIndex, AttributeFormModel::TabIndex );
         item->setData( "qml", AttributeFormModel::ElementType );
         item->setData( qmlElement->name(), AttributeFormModel::Name );
         item->setData( true, AttributeFormModel::CurrentlyVisible );
         item->setData( false, AttributeFormModel::AttributeEditable );
         item->setData( false, AttributeFormModel::AttributeAllowEdit );
-        item->setData( container->isGroupBox() ? container->name() : QString(), AttributeFormModel::Group );
 
         mEditorWidgetCodes.insert( item, qmlElement->qmlCode() );
 
@@ -450,15 +460,12 @@ void AttributeFormModelBase::flatten( QgsAttributeEditorContainer *container, QS
       case QgsAttributeEditorElement::AeTypeHtmlElement:
       {
         QgsAttributeEditorHtmlElement *htmlElement = static_cast<QgsAttributeEditorHtmlElement *>( element );
-        QStandardItem *item = new QStandardItem();
 
-        item->setData( currentTabIndex, AttributeFormModel::TabIndex );
         item->setData( "html", AttributeFormModel::ElementType );
         item->setData( htmlElement->name(), AttributeFormModel::Name );
         item->setData( true, AttributeFormModel::CurrentlyVisible );
         item->setData( false, AttributeFormModel::AttributeEditable );
         item->setData( false, AttributeFormModel::AttributeAllowEdit );
-        item->setData( container->isGroupBox() ? container->name() : QString(), AttributeFormModel::Group );
 
         mEditorWidgetCodes.insert( item, htmlElement->htmlCode() );
 
@@ -474,6 +481,7 @@ void AttributeFormModelBase::flatten( QgsAttributeEditorContainer *container, QS
       case QgsAttributeEditorElement::AeTypeAction:
 #endif
         // todo
+        delete item;
         break;
     }
   }

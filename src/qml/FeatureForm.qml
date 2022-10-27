@@ -198,53 +198,34 @@ Page {
             id: formPage
             property int currentIndex: index
 
-            /**
-            * The main form content area
-            */
-            ListView {
-              id: content
+            ScrollView {
+              id: contentView
+
               anchors.fill: parent
+              ScrollBar.horizontal.policy: ScrollBar.AlwaysOff
+              ScrollBar.vertical.policy: ScrollBar.AsNeeded
+              contentWidth: content.width
+              contentHeight: content.height
               clip: true
-              section.property: 'Group'
-              section.labelPositioning: ViewSection.CurrentLabelAtStart | ViewSection.InlineLabels
-              section.delegate: Component {
-                // section header: group box name
-                Rectangle {
-                  width: parent.width
-                  height: section === "" ? 0 : childrenRect.height
-                  color: Theme.lightestGray
 
-                  Text {
-                    leftPadding: 10
-                    rightPadding: 10
-                    topPadding: 5
-                    bottomPadding: 5
-                    width: parent.width
-                    font.pointSize: Theme.tinyFont.pointSize
-                    font.bold: true
-                    text: section
-                    wrapMode: Text.WordWrap
-                  }
+              /**
+              * The main form content area
+              */
+              Flow {
+                id: content
+                width: swipeView.width
+
+                SubModel {
+                  id: contentModel
+                  model: form.model
+                  rootIndex: form.model.index(currentIndex, 0)
+                }
+
+                Repeater {
+                  model: form.model.hasTabs ? contentModel : form.model
+                  delegate: fieldItem
                 }
               }
-
-              Connections {
-                target: master
-
-                function onReset() {
-                    content.positionViewAtBeginning();
-                }
-              }
-
-              SubModel {
-                id: contentModel
-                model: form.model
-                rootIndex: form.model.index(currentIndex, 0)
-              }
-
-              model: form.model.hasTabs ? contentModel : form.model
-
-              delegate: fieldItem
             }
           }
         }
@@ -259,26 +240,70 @@ Page {
     id: fieldItem
 
     Item {
+        width: parent.width / ColumnCount > 200 ? parent.width / ColumnCount : parent.width
         height: childrenRect.height
-        anchors {
-          left: parent ? parent.left : undefined
-          right: parent ? parent.right : undefined
-        }
 
         // Configured color of the container
         Rectangle {
-            color: FieldColor ? FieldColor : "transparent"
+            color: GroupColor ? GroupColor : "transparent"
             width: 8
             height: parent.height
             anchors.left: parent.left
         }
 
+        Rectangle {
+          id: fieldGroupTitle
+
+          width: parent.width
+          height: GroupName !== '' ? childrenRect.height : 0
+          color: Theme.lightestGray
+
+          Text {
+            leftPadding: 10
+            rightPadding: 10
+            topPadding: 5
+            bottomPadding: 5
+            width: parent.width
+            font.pointSize: 12
+            font.bold: true
+            text: GroupName
+            wrapMode: Text.WordWrap
+          }
+        }
+
         Item {
           height: childrenRect.height
           anchors {
+            top: fieldGroupTitle.bottom
             left: parent.left
             right: parent.right
-            leftMargin: 12
+          }
+
+          Item {
+            id: innerContainer
+            visible: Type == 'container'
+            height: visible ? innerContainerContent.childrenRect.height : 0
+            anchors {
+              left: parent.left
+              right: parent.right
+            }
+
+            Flow {
+              id: innerContainerContent
+              height: childrenRect.height
+              anchors {
+                left: parent.left
+                right: parent.right
+              }
+
+              Repeater {
+                model:  SubModel {
+                  model: innerContainer.visible ? form.model : null
+                  rootIndex: innerContainer.visible ? form.model.mapFromSource(GroupIndex) : GroupIndex
+                }
+                delegate: fieldItem
+              }
+            }
           }
 
           Item {
@@ -290,6 +315,7 @@ Page {
             anchors {
               left: parent.left
               right: parent.right
+              leftMargin: 12
             }
 
             Label {
@@ -329,6 +355,7 @@ Page {
             anchors {
               left: parent.left
               right: parent.right
+              leftMargin: 12
             }
 
             Label {
@@ -370,6 +397,7 @@ Page {
             anchors {
               left: parent.left
               right: parent.right
+              leftMargin: 12
             }
 
             Label {
@@ -413,7 +441,7 @@ Page {
 
             Item {
               id: placeholder
-              height: childrenRect.height
+              height: attributeEditorLoader.childrenRect.height
               anchors { left: parent.left; right: menuButton.left; top: constraintDescriptionLabel.bottom; }
 
               Loader {
