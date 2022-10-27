@@ -236,6 +236,10 @@ jobs:
             - [arm-android](https://sos-ch-dk-2.exo.io/qfieldapks/ci-builds/${{ env.CI_PACKAGE_FILE_BASENAME }}-arm-android.apk)
             - [x64-android](https://sos-ch-dk-2.exo.io/qfieldapks/ci-builds/${{ env.CI_PACKAGE_FILE_BASENAME }}-x64-android.apk)
             - [x86-android](https://sos-ch-dk-2.exo.io/qfieldapks/ci-builds/${{ env.CI_PACKAGE_FILE_BASENAME }}-x86-android.apk)
+            - [all access arm64-android](https://sos-ch-dk-2.exo.io/qfieldapks/ci-builds/${{ env.CI_ALL_ACCESS_PACKAGE_FILE_BASENAME }}-arm64-android.apk)
+            - [all access arm-android](https://sos-ch-dk-2.exo.io/qfieldapks/ci-builds/${{ env.CI_ALL_ACCESS_PACKAGE_FILE_BASENAME }}-arm-android.apk)
+            - [all access x64-android](https://sos-ch-dk-2.exo.io/qfieldapks/ci-builds/${{ env.CI_ALL_ACCESS_PACKAGE_FILE_BASENAME }}-x64-android.apk)
+            - [all access x86-android](https://sos-ch-dk-2.exo.io/qfieldapks/ci-builds/${{ env.PCI_ALL_ACCESS_ACKAGE_FILE_BASENAME }}-x86-android.apk)
             </details>
 
   comment_commit:

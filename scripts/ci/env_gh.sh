@@ -45,16 +45,19 @@ fi
 if [[ "${CI_TAG}" ]];
 then
   export CI_PACKAGE_FILE_BASENAME="qfield-${CI_TAG}"
+  export CI_ALL_ACCESS_PACKAGE_FILE_BASENAME="qfield-all-access-${CI_TAG}"
 
   if [[ ${ALL_FILES_ACCESS} == "ON" ]]; then
-    export APP_PACKAGE_NAME="qfield_plus"
+    export APP_PACKAGE_NAME="qfield_all_access"
   else
     export APP_PACKAGE_NAME="qfield"
   fi
 else
   export CI_PACKAGE_FILE_BASENAME="qfield-dev-${CI_UPLOAD_ARTIFACT_ID}-${CI_COMMIT}"
+  export CI_ALL_ACCESS_PACKAGE_FILE_BASENAME="qfield-all-access-dev-${CI_UPLOAD_ARTIFACT_ID}-${CI_COMMIT}"
+
   if [[ ${ALL_FILES_ACCESS} == "ON" ]]; then
-    export APP_PACKAGE_NAME="qfield_plus_dev"
+    export APP_PACKAGE_NAME="qfield_all_access_dev"
   else
     export APP_PACKAGE_NAME="qfield_dev"
   fi
