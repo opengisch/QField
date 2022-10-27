@@ -148,11 +148,11 @@ jobs:
           path: |
             ${{ env.CMAKE_BUILD_DIR }}/android-build/build/outputs/apk/release/android-build-release-signed.apk
 
-      - name: 📦 Upload plus artifacts
+      - name: 📦 Upload all access artifacts
         uses: actions/upload-artifact@v3
         if: ${{ matrix.all_files_access }} == "ON"
         with:
-          name: android-plus-${{ matrix.triplet }}
+          name: android-all-access-${{ matrix.triplet }}
           path: |
             ${{ env.CMAKE_BUILD_DIR }}/android-build/build/outputs/apk/release/android-build-release-signed.apk
 
