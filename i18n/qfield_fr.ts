@@ -481,6 +481,13 @@ Cancel to make a minimal device scan instead.</source>
     </message>
 </context>
 <context>
+    <name>ElevationProfile</name>
+    <message>
+        <source>Digitize a path to render the elevation profile</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
     <name>ExpressionVariableModel</name>
     <message>
         <source>Not Available</source>
@@ -3073,6 +3080,14 @@ fermer le projet et quitter l&apos;application</translation>
     <message>
         <source>Positioning error: %1</source>
         <translation>Erreur de positionnement : %1</translation>
+    </message>
+    <message>
+        <source>Azimuth</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Lock Screen</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

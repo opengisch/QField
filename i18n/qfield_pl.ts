@@ -482,6 +482,13 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
     </message>
 </context>
 <context>
+    <name>ElevationProfile</name>
+    <message>
+        <source>Digitize a path to render the elevation profile</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
     <name>ExpressionVariableModel</name>
     <message>
         <source>Not Available</source>
@@ -3069,6 +3076,14 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
     <message>
         <source>Positioning error: %1</source>
         <translation>Błąd pozycjonowania: %1</translation>
+    </message>
+    <message>
+        <source>Azimuth</source>
+        <translation>Azymut</translation>
+    </message>
+    <message>
+        <source>Lock Screen</source>
+        <translation>Zablokuj ekran</translation>
     </message>
 </context>
 <context>
