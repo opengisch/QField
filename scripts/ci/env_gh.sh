@@ -42,33 +42,26 @@ else
   export CI_USE_IOS_DIST_CERT=
 fi
 
+if [[ "${CI_TAG}" ]];
+then
+  export CI_PACKAGE_FILE_SUFFIX="${CI_TAG}"
+  export APP_PACKAGE_NAME_SUFFIX="_dev"
+else
+  export CI_PACKAGE_FILE_SUFFIX="dev-${CI_UPLOAD_ARTIFACT_ID}-${CI_COMMIT}"
+  export APP_PACKAGE_NAME_SUFFIX=""
+fi
 
 if [[ ${ALL_FILES_ACCESS} == "ON" ]];
 then
-  if [[ "${CI_TAG}" ]];
-  then
-    export CI_PACKAGE_FILE_BASENAME="qfield-${CI_TAG}"
-    export CI_ALL_ACCESS_PACKAGE_FILE_BASENAME="qfield-all-access-${CI_TAG}"
-    export APP_PACKAGE_NAME="qfield_all_access"
-  else
-    export CI_PACKAGE_FILE_BASENAME="qfield-dev-${CI_UPLOAD_ARTIFACT_ID}-${CI_COMMIT}"
-    export CI_ALL_ACCESS_PACKAGE_FILE_BASENAME="qfield-all-access-dev-${CI_UPLOAD_ARTIFACT_ID}-${CI_COMMIT}"
-    export APP_PACKAGE_NAME="qfield_all_access_dev"
-  fi
-  export CI_PACKAGE_FILENAME="${CI_ALL_ACCESS_PACKAGE_FILE_BASENAME}-${ARCH}.apk"
+  export APP_PACKAGE_NAME="qfield_all_access${APP_PACKAGE_NAME_SUFFIX}"
+  export CI_PACKAGE_FILENAME="qfield-all-access-${CI_PACKAGE_FILE_SUFFIX}-${ARCH}.apk"
 else
-  if [[ "${CI_TAG}" ]];
-  then
-    export CI_PACKAGE_FILE_BASENAME="qfield-${CI_TAG}"
-    export CI_ALL_ACCESS_PACKAGE_FILE_BASENAME="qfield-all-access-${CI_TAG}"
-    export APP_PACKAGE_NAME="qfield"
-  else
-    export CI_PACKAGE_FILE_BASENAME="qfield-dev-${CI_UPLOAD_ARTIFACT_ID}-${CI_COMMIT}"
-    export CI_ALL_ACCESS_PACKAGE_FILE_BASENAME="qfield-all-access-dev-${CI_UPLOAD_ARTIFACT_ID}-${CI_COMMIT}"
-    export APP_PACKAGE_NAME="qfield_dev"
-  fi
-  export CI_PACKAGE_FILENAME="${CI_PACKAGE_FILE_BASENAME}-${ARCH}.apk"
+  export APP_PACKAGE_NAME="qfield${APP_PACKAGE_NAME_SUFFIX}"
+  export CI_PACKAGE_FILENAME="qfield-${CI_PACKAGE_FILE_SUFFIX}-${ARCH}.apk"
 fi
+
+export CI_PACKAGE_FILE_BASENAME="qfield-${CI_PACKAGE_FILE_SUFFIX}"
+export CI_ALL_ACCESS_PACKAGE_FILE_BASENAME="qfield_all_access-${CI_PACKAGE_FILE_SUFFIX}"
 
 {
     echo "CI_BUILD_DIR=${CI_BUILD_DIR}"
@@ -83,6 +76,7 @@ fi
     echo "CI_REPO_SLUG=${CI_REPO_SLUG}"
     echo "CI_UPLOAD_ARTIFACT_ID=${CI_UPLOAD_ARTIFACT_ID}"
     echo "CI_PACKAGE_FILE_BASENAME=${CI_PACKAGE_FILE_BASENAME}"
+    echo "CI_ALL_ACCESS_PACKAGE_FILE_BASENAME=${CI_ALL_ACCESS_PACKAGE_FILE_BASENAME}"
     echo "CI_PACKAGE_FILENAME=${CI_PACKAGE_FILENAME}"
     echo "CI_RUN_NUMBER=${CI_RUN_NUMBER}"
     echo "CI_USE_IOS_DIST_CERT=${CI_USE_IOS_DIST_CERT}"
