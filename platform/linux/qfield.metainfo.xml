@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component type="desktop-application">
+	<id>qfield</id>
+	<metadata_license>GPL-2.0</metadata_license>
+	<project_license>GPL-2.0+</project_license>
+	<name>QField</name>
+	<summary>A simplified touch optimized interface for QGIS</summary>
+	<description>
+		<p>QField focuses on efficiently getting GIS fieldwork done and exchanging data between the field and the office in a comfortable and user friendly way.
+
+Built on top of the popular QGIS open source project, QField lets users consume fully configured projects in the field allowing for customized feature forms, map themes, print layouts, and more, bringing the power of QGIS at your fingertips.
+</p>
+	</description>
+	<launchable type="desktop-id">qfield.desktop</launchable>
+	<url type="homepage">https://qfield.org/</url>
+	<url type="bugtracker">https://github.com/opengisch/QField/issues</url>
+	<url type="donation">https://github.com/opengisch</url>
+	<url type="help">https://docs.qfield.org/</url>
+	<screenshots>
+		<screenshot type="default">
+			<image>https://qfield.org/images/title_tablet.jpg</image>
+		</screenshot>
+	</screenshots>
+	<provides>
+		<id>qfield.desktop</id>
+	</provides>
+</component>
