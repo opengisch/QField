@@ -227,7 +227,7 @@ jobs:
             - [arm-android](https://sos-ch-dk-2.exo.io/qfieldapks/ci-builds/qfield-${{ env.CI_PACKAGE_FILE_SUFFIX }}-arm-android.apk)
             - [x64-android](https://sos-ch-dk-2.exo.io/qfieldapks/ci-builds/qfield-${{ env.CI_PACKAGE_FILE_SUFFIX }}-x64-android.apk)
             - [x86-android](https://sos-ch-dk-2.exo.io/qfieldapks/ci-builds/qfield-${{ env.CI_PACKAGE_FILE_SUFFIX }}-x86-android.apk)
-            - [all access arm64-android](https://sos-ch-dk-2.exo.io/qfieldapks/ci-builds/qfield_all_access-${{ env.CI_PACKAGE_FILE_SUFFIX }}-arm64-android.apk)
+            - [**all access arm64-android**](https://sos-ch-dk-2.exo.io/qfieldapks/ci-builds/qfield_all_access-${{ env.CI_PACKAGE_FILE_SUFFIX }}-arm64-android.apk)
             - [all access arm-android](https://sos-ch-dk-2.exo.io/qfieldapks/ci-builds/qfield_all_access-${{ env.CI_PACKAGE_FILE_SUFFIX }}-arm-android.apk)
             - [all access x64-android](https://sos-ch-dk-2.exo.io/qfieldapks/ci-builds/qfield_all_access-${{ env.CI_PACKAGE_FILE_SUFFIX }}-x64-android.apk)
             - [all access x86-android](https://sos-ch-dk-2.exo.io/qfieldapks/ci-builds/qfield_all_access-${{ env.CI_PACKAGE_FILE_SUFFIX }}-x86-android.apk)
@@ -250,7 +250,8 @@ jobs:
           token: ${{ secrets.FAIRY_TOKEN }}
           body: |
             🎉 Ta-daaa, freshly created APKs are available:
-              - [**arm64-android**](https://sos-ch-dk-2.exo.io/qfieldapks/ci-builds/${{ env.CI_PACKAGE_FILE_BASENAME }}-arm64-android.apk)
+              - [**arm64-android**](https://sos-ch-dk-2.exo.io/qfieldapks/ci-builds/qfield-${{ env.CI_PACKAGE_FILE_SUFFIX }}-arm64-android.apk)
 
-            Other architectures: [arm-android](https://sos-ch-dk-2.exo.io/qfieldapks/ci-builds/${{ env.CI_PACKAGE_FILE_BASENAME }}-arm-android.apk), [x64-android](https://sos-ch-dk-2.exo.io/qfieldapks/ci-builds/${{ env.CI_PACKAGE_FILE_BASENAME }}-x64-android.apk), [x86](https://sos-ch-dk-2.exo.io/qfieldapks/ci-builds/${{ env.CI_PACKAGE_FILE_BASENAME }}-x86-android.apkg)
+            Other architectures: [arm-android](https://sos-ch-dk-2.exo.io/qfieldapks/ci-builds/qfield-${{ env.CI_PACKAGE_FILE_SUFFIX }}-arm-android.apk), [x64-android](https://sos-ch-dk-2.exo.io/qfieldapks/ci-builds/qfield-${{ env.CI_PACKAGE_FILE_SUFFIX }}-x64-android.apk), [x86-android](https://sos-ch-dk-2.exo.io/qfieldapks/ci-builds/qfield-${{ env.CI_PACKAGE_FILE_SUFFIX }}-x86-android.apkg)
+            All access architectures: [**all access arm64-android**](https://sos-ch-dk-2.exo.io/qfieldapks/ci-builds/qfield_all_access-${{ env.CI_PACKAGE_FILE_SUFFIX }}-arm64-android.apk), [all access arm-android](https://sos-ch-dk-2.exo.io/qfieldapks/ci-builds/qfield_all_access-${{ env.CI_PACKAGE_FILE_SUFFIX }}-arm-android.apk), [all access x64-android](https://sos-ch-dk-2.exo.io/qfieldapks/ci-builds/qfield_all_access-${{ env.CI_PACKAGE_FILE_SUFFIX }}-x64-android.apk), [all access x86-android](https://sos-ch-dk-2.exo.io/qfieldapks/ci-builds/qfield_all_access-${{ env.CI_PACKAGE_FILE_SUFFIX }}-x86-android.apkg)
 
