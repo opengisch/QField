@@ -13,11 +13,13 @@ EditorWidgetBase {
     id: relationEditor
 
     property int itemHeight: 40
+    property int bottomMargin: 10
     property int maximumVisibleItems: 4
 
     Component.onCompleted: {
       if ( currentLayer && currentLayer.customProperty('QFieldSync/relationship_maximum_visible') !== undefined ) {
-        maximumVisibleItems = JSON.parse(currentLayer.customProperty('QFieldSync/relationship_maximum_visible'))[relationId]
+        var value = JSON.parse(currentLayer.customProperty('QFieldSync/relationship_maximum_visible'))[relationId]
+        maximumVisibleItems = value !== undefined ? value : 4
       } else {
         maximumVisibleItems = 4
       }
@@ -26,7 +28,7 @@ EditorWidgetBase {
     // because no additional addEntry item on readOnly (isEnabled false)
     height: (isEnabled
             ? referencingFeatureListView.height + itemHeight
-            : Math.max( referencingFeatureListView.height, itemHeight)) + 10
+            : Math.max( referencingFeatureListView.height, itemHeight)) + relationEditor.bottomMargin
     enabled: true
 
     ReferencingFeatureListModel {
@@ -50,7 +52,7 @@ EditorWidgetBase {
     Rectangle {
         anchors.top: parent.top
         anchors.bottom: parent.bottom
-        anchors.bottomMargin: 10
+        anchors.bottomMargin: relationEditor.bottomMargin
         width: parent.width
         color: "transparent"
         border.color: 'lightgray'
@@ -62,7 +64,11 @@ EditorWidgetBase {
           id: referencingFeatureListView
           model: relationEditorModel
           width: parent.width
-          height: Math.min( maximumVisibleItems * itemHeight, referencingFeatureListView.count * itemHeight ) + ( referencingFeatureListView.count > maximumVisibleItems ? itemHeight / 2 : 0 )
+          height: maximumVisibleItems > 0
+                  ? Math.min(maximumVisibleItems * itemHeight,
+                             referencingFeatureListView.count * itemHeight)
+                    + (referencingFeatureListView.count > maximumVisibleItems ? itemHeight / 2 : 0)
+                  : referencingFeatureListView.count * itemHeight
           delegate: referencingFeatureDelegate
           focus: true
           clip: true
