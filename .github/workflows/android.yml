@@ -220,17 +220,17 @@ jobs:
         with:
           GITHUB_TOKEN: ${{ secrets.FAIRY_TOKEN }}
           message: |
-            🎉 Ta-daaa, freshly created APKs are available for ${{ github.event.pull_request.head.sha }}: [**arm64-android**](https://sos-ch-dk-2.exo.io/qfieldapks/ci-builds/${{ env.CI_PACKAGE_FILE_BASENAME }}-arm64-android.apk)
+            🎉 Ta-daaa, freshly created APKs are available for ${{ github.event.pull_request.head.sha }}: [**arm64-android**](https://sos-ch-dk-2.exo.io/qfieldapks/ci-builds/qfield-${{ env.CI_PACKAGE_FILE_SUFFIX }}-arm64-android.apk)
             <details>
             <summary>Other architectures</summary>
 
-            - [arm-android](https://sos-ch-dk-2.exo.io/qfieldapks/ci-builds/${{ env.CI_PACKAGE_FILE_BASENAME }}-arm-android.apk)
-            - [x64-android](https://sos-ch-dk-2.exo.io/qfieldapks/ci-builds/${{ env.CI_PACKAGE_FILE_BASENAME }}-x64-android.apk)
-            - [x86-android](https://sos-ch-dk-2.exo.io/qfieldapks/ci-builds/${{ env.CI_PACKAGE_FILE_BASENAME }}-x86-android.apk)
-            - [all access arm64-android](https://sos-ch-dk-2.exo.io/qfieldapks/ci-builds/${{ env.CI_ALL_ACCESS_PACKAGE_FILE_BASENAME }}-arm64-android.apk)
-            - [all access arm-android](https://sos-ch-dk-2.exo.io/qfieldapks/ci-builds/${{ env.CI_ALL_ACCESS_PACKAGE_FILE_BASENAME }}-arm-android.apk)
-            - [all access x64-android](https://sos-ch-dk-2.exo.io/qfieldapks/ci-builds/${{ env.CI_ALL_ACCESS_PACKAGE_FILE_BASENAME }}-x64-android.apk)
-            - [all access x86-android](https://sos-ch-dk-2.exo.io/qfieldapks/ci-builds/${{ env.PCI_ALL_ACCESS_ACKAGE_FILE_BASENAME }}-x86-android.apk)
+            - [arm-android](https://sos-ch-dk-2.exo.io/qfieldapks/ci-builds/qfield-${{ env.CI_PACKAGE_FILE_SUFFIX }}-arm-android.apk)
+            - [x64-android](https://sos-ch-dk-2.exo.io/qfieldapks/ci-builds/qfield-${{ env.CI_PACKAGE_FILE_SUFFIX }}-x64-android.apk)
+            - [x86-android](https://sos-ch-dk-2.exo.io/qfieldapks/ci-builds/qfield-${{ env.CI_PACKAGE_FILE_SUFFIX }}-x86-android.apk)
+            - [all access arm64-android](https://sos-ch-dk-2.exo.io/qfieldapks/ci-builds/qfield_all_access-${{ env.CI_PACKAGE_FILE_SUFFIX }}-arm64-android.apk)
+            - [all access arm-android](https://sos-ch-dk-2.exo.io/qfieldapks/ci-builds/qfield_all_access-${{ env.CI_PACKAGE_FILE_SUFFIX }}-arm-android.apk)
+            - [all access x64-android](https://sos-ch-dk-2.exo.io/qfieldapks/ci-builds/qfield_all_access-${{ env.CI_PACKAGE_FILE_SUFFIX }}-x64-android.apk)
+            - [all access x86-android](https://sos-ch-dk-2.exo.io/qfieldapks/ci-builds/qfield_all_access-${{ env.CI_PACKAGE_FILE_SUFFIX }}-x86-android.apk)
             </details>
 
   comment_commit:
