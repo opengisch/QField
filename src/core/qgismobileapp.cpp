@@ -924,7 +924,13 @@ void QgisMobileapp::readProjectFile()
     // Load raster dataset
     if ( SUPPORTED_RASTER_EXTENSIONS.contains( fileSuffix ) )
     {
-      QgsRasterLayer *layer = new QgsRasterLayer( filePath, mProjectFileName, QLatin1String( "gdal" ) );
+      QString fileUri = filePath;
+      if ( fileSuffix.compare( QLatin1String( "pdf" ) ) == 0 )
+      {
+        // Hardcode a DPI value of 300 for PDFs as most PDFs fail to register their proper resolution
+        fileUri += QStringLiteral( "|option:DPI=300" );
+      }
+      QgsRasterLayer *layer = new QgsRasterLayer( fileUri, mProjectFileName, QLatin1String( "gdal" ) );
       if ( layer->isValid() )
       {
         const QStringList sublayers = layer->dataProvider()->subLayers();
