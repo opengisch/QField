@@ -7,7 +7,7 @@ Item {
   id: screenLocker
 
   property bool enabled: false
-  property double threshold: 100
+  property double threshold: 200
 
   anchors.fill: parent
   visible: enabled
