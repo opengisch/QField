@@ -15,11 +15,11 @@
     </message>
     <message>
         <source>Documentation</source>
-        <translation type="unfinished"/>
+        <translation>Documentación</translation>
     </message>
     <message>
         <source>Links Menu</source>
-        <translation type="unfinished"/>
+        <translation>Menú de enlaces</translation>
     </message>
 </context>
 <context>
@@ -485,7 +485,7 @@ Cancelar para hacer una búsqueda mínima de dispositivos en su lugar.</translat
     <name>ElevationProfile</name>
     <message>
         <source>Digitize a path to render the elevation profile</source>
-        <translation type="unfinished"/>
+        <translation>Digitalice una ruta para renderizar el perfil de elevación</translation>
     </message>
 </context>
 <context>
@@ -3084,11 +3084,11 @@ Cancelar para hacer una búsqueda mínima de dispositivos en su lugar.</translat
     </message>
     <message>
         <source>Azimuth</source>
-        <translation type="unfinished"/>
+        <translation>Azimut</translation>
     </message>
     <message>
         <source>Lock Screen</source>
-        <translation type="unfinished"/>
+        <translation>Bloquear pantalla</translation>
     </message>
 </context>
 <context>

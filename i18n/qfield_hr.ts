@@ -485,7 +485,7 @@ Otkažite za pokretanje minimalnog skeniranja uređaja.</translation>
     <name>ElevationProfile</name>
     <message>
         <source>Digitize a path to render the elevation profile</source>
-        <translation type="unfinished"/>
+        <translation>Digitaliziraj trag za prikaz elevacijskog profila</translation>
     </message>
 </context>
 <context>
@@ -3082,11 +3082,11 @@ Otkažite da pokrenete minimalno skeniranje uređaja.</translation>
     </message>
     <message>
         <source>Azimuth</source>
-        <translation type="unfinished"/>
+        <translation>Azimut</translation>
     </message>
     <message>
         <source>Lock Screen</source>
-        <translation type="unfinished"/>
+        <translation>Zaključaj zaslon</translation>
     </message>
 </context>
 <context>
