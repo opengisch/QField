@@ -482,6 +482,13 @@ Cancele para fazer uma verificação mínima.</translation>
     </message>
 </context>
 <context>
+    <name>ElevationProfile</name>
+    <message>
+        <source>Digitize a path to render the elevation profile</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
     <name>ExpressionVariableModel</name>
     <message>
         <source>Not Available</source>
@@ -3065,6 +3072,14 @@ Cancele para fazer uma verificação mínima.</translation>
     </message>
     <message>
         <source>Positioning error: %1</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Azimuth</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Lock Screen</source>
         <translation type="unfinished"/>
     </message>
 </context>

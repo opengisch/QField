@@ -121,4 +121,6 @@ endif()
 
 if(WITH_VCPKG)
   include("cmake/qgis-cmake-wrapper.cmake")
+else()
+  target_include_directories(QGIS::Core INTERFACE ${GDAL_INCLUDE_DIR})
 endif()

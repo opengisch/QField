@@ -14,6 +14,14 @@
         <file>themes/qfield/nodpi/ic_copy_black_24dp.svg</file>
         <file>themes/qfield/nodpi/ic_book_white_24dp.svg</file>
         <file>themes/qfield/nodpi/ic_paste_black_24dp.svg</file>
+        <file>themes/qfield/nodpi/ic_lock_black_24dp.svg</file>
+        <file>themes/qfield/nodpi/ic_lock_white_24dp.svg</file>
+        <file>themes/qfield/nodpi/ic_lock_open_white_24dp.svg</file>
+        <file>themes/qfield/nodpi/ic_lock_open_green_24dp.svg</file>
+        <file>themes/qfield/nodpi/ic_measurement_black_24dp.svg</file>
+        <file>themes/qfield/nodpi/ic_folder_open_black_24dp.svg</file>
+        <file>themes/qfield/nodpi/ic_print_black_24dp.svg</file>
+        <file>themes/qfield/nodpi/ic_home_black_24dp.svg</file>
         <file>themes/qfield/hdpi/ic_add_circle_outline_white_24dp.png</file>
         <file>themes/qfield/hdpi/ic_add_circle_white_24dp.png</file>
         <file>themes/qfield/hdpi/ic_remove_white_24dp.png</file>
@@ -521,6 +529,8 @@
         <file>themes/qfield/nodpi/ic_meshlayer_18dp.svg</file>
         <file>themes/qfield/nodpi/ic_vectortilelayer_18dp.svg</file>
         <file>themes/qfield/nodpi/ic_annotationlayer_18dp.svg</file>
+        <file>themes/qfield/nodpi/ic_elevation_white_24dp.svg</file>
+        <file>themes/qfield/nodpi/ic_elevation_green_24dp.svg</file>
         <file>themes/qfield/nodpi/ic_error_outline_24dp.svg</file>
         <file>themes/qfield/nodpi/refresh_24dp.svg</file>
         <file>themes/qfield/nodpi/directions_walk_24dp.svg</file>

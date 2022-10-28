@@ -482,6 +482,13 @@ Otkažite za pokretanje minimalnog skeniranja uređaja.</translation>
     </message>
 </context>
 <context>
+    <name>ElevationProfile</name>
+    <message>
+        <source>Digitize a path to render the elevation profile</source>
+        <translation>Digitaliziraj trag za prikaz elevacijskog profila</translation>
+    </message>
+</context>
+<context>
     <name>ExpressionVariableModel</name>
     <message>
         <source>Not Available</source>
@@ -3072,6 +3079,14 @@ Otkažite da pokrenete minimalno skeniranje uređaja.</translation>
     <message>
         <source>Positioning error: %1</source>
         <translation>Greška pozicioniranja: %1</translation>
+    </message>
+    <message>
+        <source>Azimuth</source>
+        <translation>Azimut</translation>
+    </message>
+    <message>
+        <source>Lock Screen</source>
+        <translation>Zaključaj zaslon</translation>
     </message>
 </context>
 <context>

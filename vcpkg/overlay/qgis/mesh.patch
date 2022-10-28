@@ -1,0 +1,29 @@
+From 64d9c72d1a08960e80625898d6d0e3d0e3405419 Mon Sep 17 00:00:00 2001
+From: Mathieu Pellerin <nirvn.asia@gmail.com>
+Date: Wed, 26 Oct 2022 14:04:12 +0700
+Subject: Remove template declarations
+
+---
+ src/core/mesh/qgstopologicalmesh.h | 6 ------
+ 1 file changed, 6 deletions(-)
+
+diff --git a/src/core/mesh/qgstopologicalmesh.h b/src/core/mesh/qgstopologicalmesh.h
+index 1cf79eb359..93b1ab4ebc 100644
+--- a/src/core/mesh/qgstopologicalmesh.h
++++ b/src/core/mesh/qgstopologicalmesh.h
+@@ -20,12 +20,6 @@
+ 
+ #include "qgsmeshdataprovider.h"
+ 
+-#if defined(_MSC_VER)
+-template CORE_EXPORT QVector<int> SIP_SKIP;
+-template CORE_EXPORT QList<int> SIP_SKIP;
+-template CORE_EXPORT QVector<QVector<int>> SIP_SKIP;
+-#endif
+-
+ SIP_NO_FILE
+ 
+ class QgsMeshEditingError;
+-- 
+2.37.2
+

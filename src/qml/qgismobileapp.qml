@@ -178,6 +178,7 @@ ApplicationWindow {
         }
         break;
       case 'measure':
+        elevationProfile.populateLayersFromProject();
         displayToast( qsTr( 'You are now in measure mode' ) );
         break;
     }
@@ -204,6 +205,8 @@ ApplicationWindow {
       deltaZ: positioningSettings.antennaHeightActivated ? positioningSettings.antennaHeight * -1 : 0
       skipAltitudeTransformation: positioningSettings.skipAltitudeCorrection
     }
+
+    ellipsoidalElevation: positioningSettings.ellipsoidalElevation
   }
   Connections {
     target: positionSource.device
@@ -288,8 +291,8 @@ ApplicationWindow {
                 return point.position.x >= itemCoordinates.x && point.position.x <= itemCoordinates.x + item.width &&
                        point.position.y >= itemCoordinates.y && point.position.y <= itemCoordinates.y + item.height;
             }
-            // when hovering digitizing toolbars, reset coordinate locator position for nicer UX
-            if ( !freehandHandler.active && pointInItem( point, digitizingToolbar ) ) {
+            // when hovering various toolbars, reset coordinate locator position for nicer UX
+            if ( !freehandHandler.active && ( pointInItem( point, digitizingToolbar ) || pointInItem( point, elevationProfileButton ) ) ) {
                 coordinateLocator.sourceLocation = mapCanvas.mapSettings.coordinateToScreen( digitizingToolbar.rubberbandModel.lastCoordinate );
             } else if ( !freehandHandler.active && pointInItem( point, geometryEditorsToolbar ) ) {
                 coordinateLocator.sourceLocation = mapCanvas.mapSettings.coordinateToScreen( geometryEditorsToolbar.editorRubberbandModel.lastCoordinate );
@@ -550,6 +553,19 @@ ApplicationWindow {
       navigation: navigation
     }
 
+    LinePolygonHighlight {
+      id: elevationProfileHighlight
+
+      visible: elevationProfile.visible
+      mapSettings: mapCanvas.mapSettings
+      geometry:   QgsGeometryWrapper {
+        qgsGeometry: elevationProfile.profileCurve
+        crs: elevationProfile.crs
+      }
+      color: "#FFFFFF"
+      lineWidth: 4
+    }
+
     /** A coordinate locator for digitizing **/
     CoordinateLocator {
       id: coordinateLocator
@@ -661,13 +677,25 @@ ApplicationWindow {
     anchors.bottom: parent.bottom
     anchors.left: parent.left
     anchors.right: parent.right
-    visible: navigation.isActive || positioningSettings.showPositionInformation || positioningPreciseView.visible
+    visible: navigation.isActive || positioningSettings.showPositionInformation || positioningPreciseView.visible || elevationProfile.visible
 
     width: parent.width
 
+    ElevationProfile {
+        id: elevationProfile
+
+        visible: stateMachine.state === 'measure' && elevationProfileButton.elevationProfileActive
+
+        width: parent.width
+        height: Math.max(220, mainWindow.height / 4)
+
+        project: qgisProject
+        crs: mapCanvas.mapSettings.destinationCrs
+    }
+
     NavigationInformationView {
       id: navigationInformationView
-      visible: navigation.isActive
+      visible: navigation.isActive && !elevationProfile.visible
       navigation: navigation
     }
 
@@ -686,6 +714,7 @@ ApplicationWindow {
       visible: !isNaN(navigation.distance)
                && (positioningSettings.alwaysShowPreciseView
                    || (hasAcceptableAccuracy && navigation.distance < precision))
+               && !elevationProfile.visible
       width: parent.width
       height: Math.min(mainWindow.height / 2.5, 400)
     }
@@ -700,7 +729,7 @@ ApplicationWindow {
 
     PositioningInformationView {
       id: positioningInformationView
-      visible: positioningSettings.showPositionInformation
+      visible: positioningSettings.showPositionInformation && !elevationProfile.visible
       positionSource: positionSource
       antennaHeight: positioningSettings.antennaHeightActivated ? positioningSettings.antennaHeight : NaN
     }
@@ -773,16 +802,21 @@ ApplicationWindow {
                         .arg(point.x.toLocaleString( Qt.locale(), 'f', coordinatesIsGeographic ? 5 : 2 ));
         }
 
-        return '%1%2%3%4%5'
+        return '%1%2%3%4%5%6'
                 .arg(stateMachine.state === 'digitize' || !digitizingToolbar.isDigitizing
                      ? coordinates
                      : '')
 
                 .arg(digitizingGeometryMeasure.lengthValid && digitizingGeometryMeasure.segmentLength != 0.0
-                     && digitizingGeometryMeasure.segmentLength != digitizingGeometryMeasure.length
                      ? '<p>%1: %2</p>'
-                       .arg( qsTr( 'Segment') )
+                       .arg( digitizingGeometryMeasure.segmentLength != digitizingGeometryMeasure.length ? qsTr( 'Segment') : qsTr( 'Length' ) )
                        .arg(UnitTypes.formatDistance( digitizingGeometryMeasure.convertLengthMeansurement( digitizingGeometryMeasure.segmentLength, projectInfo.distanceUnits ) , 3, projectInfo.distanceUnits ) )
+                     : '')
+
+                .arg(digitizingGeometryMeasure.lengthValid && digitizingGeometryMeasure.segmentLength != 0.0
+                     ? '<p>%1: %2</p>'
+                       .arg( qsTr( 'Azimuth') )
+                       .arg( UnitTypes.formatAngle( digitizingGeometryMeasure.azimuth < 0 ? digitizingGeometryMeasure.azimuth + 360 : digitizingGeometryMeasure.azimuth, 2, QgsUnitTypes.AngleDegrees ) )
                      : '')
 
                 .arg(currentRubberband.model && currentRubberband.model.geometryType === QgsWkbTypes.PolygonGeometry
@@ -791,7 +825,7 @@ ApplicationWindow {
                          .arg( qsTr( 'Perimeter') )
                          .arg(UnitTypes.formatDistance( digitizingGeometryMeasure.convertLengthMeansurement( digitizingGeometryMeasure.perimeter, projectInfo.distanceUnits ), 3, projectInfo.distanceUnits ) )
                        : ''
-                     : digitizingGeometryMeasure.lengthValid
+                     : digitizingGeometryMeasure.lengthValid && digitizingGeometryMeasure.segmentLength != digitizingGeometryMeasure.length
                      ? '<p>%1: %2</p>'
                        .arg( qsTr( 'Length') )
                        .arg(UnitTypes.formatDistance( digitizingGeometryMeasure.convertLengthMeansurement( digitizingGeometryMeasure.length, projectInfo.distanceUnits ),3, projectInfo.distanceUnits ) )
@@ -840,7 +874,7 @@ ApplicationWindow {
     round: true
     bgcolor: "transparent"
 
-    visible: messageLog.unreadMessages
+    visible: !screenLocker.enabled && messageLog.unreadMessages
 
     anchors.right: locatorItem.right
     anchors.top: locatorItem.top
@@ -857,7 +891,7 @@ ApplicationWindow {
     anchors.bottomMargin: ( mapCanvas.height - zoomToolbar.height / 2 ) / 2
     spacing: 4
 
-    visible: locationToolbar.height / mapCanvas.height < 0.41
+    visible: !screenLocker.enabled && locationToolbar.height / mapCanvas.height < 0.41
 
     QfToolButton {
       id: zoomInButton
@@ -912,7 +946,7 @@ ApplicationWindow {
     anchors.topMargin: mainWindow.sceneTopMargin + 4
     anchors.rightMargin: 4
 
-    visible: stateMachine.state !== 'measure'
+    visible: !screenLocker.enabled && stateMachine.state !== 'measure'
 
     Keys.onReleased: (event) => {
       if (event.key === Qt.Key_Back || event.key === Qt.Key_Escape) {
@@ -960,6 +994,7 @@ ApplicationWindow {
                  && !qfieldCloudScreen.visible
                  && !qfieldLocalDataPickerScreen.visible
                  && !barcodeReader.visible
+                 && !screenLocker.enabled
 
     onOpenedChanged: {
       if ( !opened ) {
@@ -1014,6 +1049,7 @@ ApplicationWindow {
   /* The main menu */
   Row {
     id: mainMenuBar
+    visible: !screenLocker.enabled
     width: childrenRect.width + 8
     height: childrenRect.height + 8
     topPadding: mainWindow.sceneTopMargin + 4
@@ -1057,6 +1093,7 @@ ApplicationWindow {
 
   Column {
     id: mainToolbar
+    visible: !screenLocker.enabled
     anchors.left: mainMenuBar.left
     anchors.top: mainMenuBar.bottom
     anchors.leftMargin: 4
@@ -1155,6 +1192,56 @@ ApplicationWindow {
 
       Component.onCompleted: {
         freehandDigitizing = settings.valueBool( "/QField/Digitizing/FreehandActive", false )
+      }
+    }
+
+    QfToolButton {
+      id: elevationProfileButton
+      round: true
+      visible: stateMachine.state === 'measure'
+      iconSource: Theme.getThemeVectorIcon( "ic_elevation_white_24dp" )
+
+      bgcolor: Theme.darkGray
+
+      property bool elevationProfileActive: false
+      state: elevationProfileActive ? "On" : "Off"
+
+      states: [
+        State {
+          name: "Off"
+          PropertyChanges {
+            target: elevationProfileButton
+            iconSource: Theme.getThemeVectorIcon( "ic_elevation_white_24dp" )
+            bgcolor: Qt.hsla(Theme.darkGray.hslHue, Theme.darkGray.hslSaturation, Theme.darkGray.hslLightness, 0.3)
+          }
+        },
+
+        State {
+          name: "On"
+          PropertyChanges {
+            target: elevationProfileButton
+            iconSource: Theme.getThemeVectorIcon( "ic_elevation_green_24dp" )
+            bgcolor: Theme.darkGray
+          }
+        }
+      ]
+
+      onClicked: {
+        elevationProfileActive = !elevationProfileActive
+
+        // Draw an elevation profile if we have enough points to do so
+        if ( digitizingToolbar.rubberbandModel.vertexCount > 2 ) {
+          // Clear the pre-existing profile to trigger a zoom to full updated profile curve
+          elevationProfile.clear();
+          elevationProfile.profileCurve = GeometryUtils.lineFromRubberband(digitizingToolbar.rubberbandModel, elevationProfile.crs)
+          elevationProfile.refresh();
+        }
+
+        settings.setValue( "/QField/Measuring/ElevationProfile", elevationProfileActive );
+      }
+
+      Component.onCompleted: {
+        elevationProfileActive = settings.valueBool( "/QField/Measuring/ElevationProfile", false )
       }
     }
   }
@@ -1430,7 +1517,8 @@ ApplicationWindow {
     DigitizingToolbar {
       id: digitizingToolbar
 
-      stateVisible: (stateMachine.state === "digitize"
+      stateVisible: !screenLocker.enabled &&
+                    ((stateMachine.state === "digitize"
                      && dashBoard.currentLayer
                      && !dashBoard.currentLayer.readOnly
                      // unfortunately there is no way to call QVariant::toBool in QML so the value is a string
@@ -1439,7 +1527,7 @@ ApplicationWindow {
                      && !moveFeaturesToolbar.stateVisible
                      && (projectInfo.editRights || projectInfo.insertRights))
                     || stateMachine.state === 'measure'
-                    || (stateMachine.state === "digitize" && digitizingToolbar.geometryRequested)
+                    || (stateMachine.state === "digitize" && digitizingToolbar.geometryRequested))
       rubberbandModel: currentRubberband ? currentRubberband.model : null
       mapSettings: mapCanvas.mapSettings
       showConfirmButton: stateMachine.state === "digitize"
@@ -1476,49 +1564,59 @@ ApplicationWindow {
       }
 
       onVertexCountChanged: {
-        if( qfieldSettings.autoSave && stateMachine.state === "digitize" ) {
-            if( digitizingToolbar.geometryValid )
+        if ( stateMachine.state === 'measure' && elevationProfileButton.elevationProfileActive ) {
+          if ( rubberbandModel.vertexCount > 2 ) {
+            // Clear the pre-existing profile to trigger a zoom to full updated profile curve
+            elevationProfile.clear();
+            elevationProfile.profileCurve = GeometryUtils.lineFromRubberband(rubberbandModel, elevationProfile.crs)
+            elevationProfile.refresh();
+          }
+        } else if( qfieldSettings.autoSave && stateMachine.state === "digitize" ) {
+          if ( digitizingToolbar.geometryValid ) {
+            if (digitizingRubberband.model.geometryType === QgsWkbTypes.NullGeometry )
             {
-                if (digitizingRubberband.model.geometryType === QgsWkbTypes.NullGeometry )
-                {
-                  digitizingRubberband.model.reset()
-                }
-                else
-                {
-                  digitizingFeature.geometry.applyRubberband()
-                  digitizingFeature.applyGeometry()
-                }
+              digitizingRubberband.model.reset()
+            }
+            else
+            {
+              digitizingFeature.geometry.applyRubberband()
+              digitizingFeature.applyGeometry()
+            }
 
-                if( !overlayFeatureFormDrawer.featureForm.featureCreated )
-                {
-                    overlayFeatureFormDrawer.featureModel.geometry = digitizingFeature.geometry
-                    overlayFeatureFormDrawer.featureModel.applyGeometry()
-                    overlayFeatureFormDrawer.featureModel.resetAttributes()
-                    if( overlayFeatureFormDrawer.featureForm.model.constraintsHardValid ) {
-                      // when the constrainst are fulfilled
-                      // indirect action, no need to check for success and display a toast, the log is enough
-                      overlayFeatureFormDrawer.featureForm.featureCreated = overlayFeatureFormDrawer.featureForm.create()
-                    }
-                } else {
+            if ( !overlayFeatureFormDrawer.featureForm.featureCreated )
+            {
+                overlayFeatureFormDrawer.featureModel.geometry = digitizingFeature.geometry
+                overlayFeatureFormDrawer.featureModel.applyGeometry()
+                overlayFeatureFormDrawer.featureModel.resetAttributes()
+                if( overlayFeatureFormDrawer.featureForm.model.constraintsHardValid ) {
+                  // when the constrainst are fulfilled
                   // indirect action, no need to check for success and display a toast, the log is enough
-                  overlayFeatureFormDrawer.featureModel.geometry = digitizingFeature.geometry
-                  overlayFeatureFormDrawer.featureModel.applyGeometry()
-                  overlayFeatureFormDrawer.featureForm.save()
+                  overlayFeatureFormDrawer.featureForm.featureCreated = overlayFeatureFormDrawer.featureForm.create()
                 }
             } else {
-              if( overlayFeatureFormDrawer.featureForm.featureCreated ) {
-                // delete the feature when the geometry gets invalid again
-                // indirect action, no need to check for success and display a toast, the log is enough
-                overlayFeatureFormDrawer.featureForm.featureCreated = !overlayFeatureFormDrawer.featureForm.deleteFeature()
-              }
+              // indirect action, no need to check for success and display a toast, the log is enough
+              overlayFeatureFormDrawer.featureModel.geometry = digitizingFeature.geometry
+              overlayFeatureFormDrawer.featureModel.applyGeometry()
+              overlayFeatureFormDrawer.featureForm.save()
             }
+          } else {
+            if ( overlayFeatureFormDrawer.featureForm.featureCreated ) {
+              // delete the feature when the geometry gets invalid again
+              // indirect action, no need to check for success and display a toast, the log is enough
+              overlayFeatureFormDrawer.featureForm.featureCreated = !overlayFeatureFormDrawer.featureForm.deleteFeature()
+            }
+          }
         }
       }
 
       onCancel: {
-          if ( geometryRequested )
-          {
-              geometryRequested = false
+          if ( stateMachine.state === 'measure' && elevationProfileButton.elevationProfileActive ) {
+              elevationProfile.clear();
+              elevationProfile.refresh();
+          } else {
+              if ( geometryRequested ) {
+                  geometryRequested = false
+              }
           }
       }
 
@@ -1586,7 +1684,7 @@ ApplicationWindow {
       editorRubberbandModel: geometryEditorsRubberband.model
       screenHovering: hoverHandler.hovered
 
-      stateVisible: ( stateMachine.state === "digitize" && vertexModel.vertexCount > 0 )
+      stateVisible: !screenLocker.enabled && (stateMachine.state === "digitize" && vertexModel.vertexCount > 0)
     }
 
     ConfirmationToolbar {
@@ -1646,6 +1744,7 @@ ApplicationWindow {
       text: qsTr( 'Measure Tool' )
 
       font: Theme.defaultFont
+      icon.source: Theme.getThemeVectorIcon( "ic_measurement_black_24dp" )
       height: 48
       leftPadding: 10
 
@@ -1661,6 +1760,7 @@ ApplicationWindow {
       text: qsTr( "Print to PDF" )
 
       font: Theme.defaultFont
+      icon.source: Theme.getThemeVectorIcon( "ic_print_black_24dp" )
       height: 48
       leftPadding: 10
       rightPadding: 40
@@ -1703,12 +1803,13 @@ ApplicationWindow {
 
     MenuItem {
       id: openProjectMenuItem
+      text: qsTr( "Go to Home Screen" )
 
       font: Theme.defaultFont
+      icon.source: Theme.getThemeVectorIcon( "ic_home_black_24dp" )
       height: 48
       leftPadding: 10
 
-      text: qsTr( "Go to Home Screen" )
       onTriggered: {
         dashBoard.close()
         welcomeScreen.visible = true
@@ -1719,17 +1820,32 @@ ApplicationWindow {
 
     MenuItem {
       id: openProjectFolderMenuItem
+      text: qsTr( "Open Project Folder" )
 
       font: Theme.defaultFont
+      icon.source: Theme.getThemeVectorIcon( "ic_folder_open_black_24dp" )
       height: 48
       leftPadding: 10
 
-      text: qsTr( "Open Project Folder" )
       onTriggered: {
         dashBoard.close()
         qfieldLocalDataPickerScreen.projectFolderView = true
         qfieldLocalDataPickerScreen.model.resetToPath(projectInfo.filePath)
         qfieldLocalDataPickerScreen.visible = true
+      }
+    }
+
+    MenuItem {
+      text: qsTr( 'Lock Screen' )
+
+      font: Theme.defaultFont
+      icon.source: Theme.getThemeVectorIcon( "ic_lock_black_24dp" )
+      height: 48
+      leftPadding: 10
+
+      onTriggered: {
+        screenLocker.enabled = true
+        dashBoard.close()
       }
     }
 
@@ -1740,7 +1856,7 @@ ApplicationWindow {
 
       font: Theme.defaultFont
       height: 48
-      leftPadding: 10
+      leftPadding: 50
 
       onTriggered: {
         dashBoard.close()
@@ -1754,7 +1870,7 @@ ApplicationWindow {
 
       font: Theme.defaultFont
       height: 48
-      leftPadding: 10
+      leftPadding: 50
 
       onTriggered: {
         dashBoard.close()
@@ -1768,7 +1884,7 @@ ApplicationWindow {
 
       font: Theme.defaultFont
       height: 48
-      leftPadding: 10
+      leftPadding: 50
 
       onTriggered: {
         dashBoard.close()
@@ -3192,9 +3308,14 @@ ApplicationWindow {
   }
 
   VertexModel {
-      id: vertexModel
-      currentPoint: coordinateLocator.currentCoordinate
-      mapSettings: mapCanvas.mapSettings
-      isHovering: hoverHandler.hovered
+    id: vertexModel
+    currentPoint: coordinateLocator.currentCoordinate
+    mapSettings: mapCanvas.mapSettings
+    isHovering: hoverHandler.hovered
+  }
+
+  ScreenLocker {
+    id: screenLocker
+    enabled: false
   }
 }

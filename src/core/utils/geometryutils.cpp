@@ -28,7 +28,6 @@ GeometryUtils::GeometryUtils( QObject *parent )
 {
 }
 
-
 QgsGeometry GeometryUtils::polygonFromRubberband( RubberbandModel *rubberBandModel, const QgsCoordinateReferenceSystem &crs )
 {
   QgsPointSequence ring = rubberBandModel->pointSequence( crs, QgsWkbTypes::Point, true );
@@ -36,6 +35,14 @@ QgsGeometry GeometryUtils::polygonFromRubberband( RubberbandModel *rubberBandMod
   std::unique_ptr<QgsPolygon> polygon = std::make_unique<QgsPolygon>();
   polygon->setExteriorRing( ext.clone() );
   QgsGeometry g( std::move( polygon ) );
+  return g;
+}
+
+QgsGeometry GeometryUtils::lineFromRubberband( RubberbandModel *rubberBandModel, const QgsCoordinateReferenceSystem &crs )
+{
+  QgsPointSequence points = rubberBandModel->pointSequence( crs, QgsWkbTypes::Point, false );
+  std::unique_ptr<QgsLineString> line = std::make_unique<QgsLineString>( points );
+  QgsGeometry g( std::move( line ) );
   return g;
 }
 

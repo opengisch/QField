@@ -50,6 +50,8 @@ class Positioning : public QObject
     Q_PROPERTY( bool averagedPosition READ averagedPosition WRITE setAveragedPosition NOTIFY averagedPositionChanged )
     Q_PROPERTY( int averagedPositionCount READ averagedPositionCount NOTIFY averagedPositionCountChanged )
 
+    Q_PROPERTY( bool ellipsoidalElevation READ ellipsoidalElevation WRITE setEllipsoidalElevation NOTIFY ellipsoidalElevationChanged )
+
   public:
     explicit Positioning( QObject *parent = nullptr );
 
@@ -139,6 +141,10 @@ class Positioning : public QObject
      */
     int averagedPositionCount() const { return mCollectedPositionInformations.size(); }
 
+    bool ellipsoidalElevation() const { return mEllipsoidalElevation; }
+
+    void setEllipsoidalElevation( bool ellipsoidal );
+
   signals:
 
     void activeChanged();
@@ -150,6 +156,7 @@ class Positioning : public QObject
     void averagedPositionChanged();
     void averagedPositionCountChanged();
     void projectedPositionChanged();
+    void ellipsoidalElevationChanged();
 
   private slots:
 
@@ -177,6 +184,8 @@ class Positioning : public QObject
     double mProjectedHorizontalAccuracy = 0.0;
 
     bool mAveragedPosition = false;
+
+    bool mEllipsoidalElevation = false;
 
     std::unique_ptr<AbstractGnssReceiver> mReceiver;
 };

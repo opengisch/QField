@@ -21,6 +21,7 @@ vcpkg_from_github(
         pgprovider.patch
         qgsvariantutils.patch
         0001-Restrict-UiTools-to-gui-and-app.patch # https://github.com/qgis/QGIS/pull/50664
+        mesh.patch
 )
 
 file(REMOVE ${SOURCE_PATH}/cmake/FindQtKeychain.cmake)

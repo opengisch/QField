@@ -15,11 +15,11 @@
     </message>
     <message>
         <source>Documentation</source>
-        <translation type="unfinished"/>
+        <translation>Documentación</translation>
     </message>
     <message>
         <source>Links Menu</source>
-        <translation type="unfinished"/>
+        <translation>Menú de enlaces</translation>
     </message>
 </context>
 <context>
@@ -479,6 +479,13 @@ Cancelar para hacer una búsqueda mínima de dispositivos en su lugar.</translat
     <message>
         <source>Item Menu</source>
         <translation>Menú Elemento</translation>
+    </message>
+</context>
+<context>
+    <name>ElevationProfile</name>
+    <message>
+        <source>Digitize a path to render the elevation profile</source>
+        <translation>Digitalice una ruta para renderizar el perfil de elevación</translation>
     </message>
 </context>
 <context>
@@ -3074,6 +3081,14 @@ Cancelar para hacer una búsqueda mínima de dispositivos en su lugar.</translat
     <message>
         <source>Positioning error: %1</source>
         <translation>Error de posicionamiento: %1</translation>
+    </message>
+    <message>
+        <source>Azimuth</source>
+        <translation>Azimut</translation>
+    </message>
+    <message>
+        <source>Lock Screen</source>
+        <translation>Bloquear pantalla</translation>
     </message>
 </context>
 <context>

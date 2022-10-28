@@ -61,6 +61,9 @@ class QFIELD_CORE_EXPORT GeometryUtils : public QObject
     //! Returns a QgsGeometry with a polygon by using the point sequence in the rubberband model.
     static Q_INVOKABLE QgsGeometry polygonFromRubberband( RubberbandModel *rubberBandModel, const QgsCoordinateReferenceSystem &crs );
 
+    //! Returns a QgsGeometry with a line by using the point sequence in the rubberband model.
+    static Q_INVOKABLE QgsGeometry lineFromRubberband( RubberbandModel *rubberBandModel, const QgsCoordinateReferenceSystem &crs );
+
     //! Reshape a polyon with given \a fid using the ring in the rubberband model.
     static Q_INVOKABLE GeometryOperationResult reshapeFromRubberband( QgsVectorLayer *layer, QgsFeatureId fid, RubberbandModel *rubberBandModel );
 

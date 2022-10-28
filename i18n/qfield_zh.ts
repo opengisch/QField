@@ -482,6 +482,13 @@ Cancel to make a minimal device scan instead.</source>
     </message>
 </context>
 <context>
+    <name>ElevationProfile</name>
+    <message>
+        <source>Digitize a path to render the elevation profile</source>
+        <translation>数字化路径以渲染高程剖面</translation>
+    </message>
+</context>
+<context>
     <name>ExpressionVariableModel</name>
     <message>
         <source>Not Available</source>
@@ -3072,6 +3079,14 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <source>Positioning error: %1</source>
         <translation>定位错误: %1</translation>
+    </message>
+    <message>
+        <source>Azimuth</source>
+        <translation>方位角</translation>
+    </message>
+    <message>
+        <source>Lock Screen</source>
+        <translation>锁屏</translation>
     </message>
 </context>
 <context>

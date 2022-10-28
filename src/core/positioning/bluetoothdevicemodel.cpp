@@ -15,10 +15,10 @@
  ***************************************************************************/
 
 #include "bluetoothdevicemodel.h"
-#include "qgis.h"
 
 #include <QDebug>
 #include <QSettings>
+#include <qgis.h>
 
 BluetoothDeviceModel::BluetoothDeviceModel( QObject *parent )
   : QAbstractListModel( parent ), mLocalDevice( std::make_unique<QBluetoothLocalDevice>() )
