@@ -44,7 +44,7 @@ Rectangle {
 
   property bool multiSelection: false
   property bool fullScreenView: qfieldSettings.fullScreenIdentifyView
-  property bool isVertical: false
+  property bool isVertical: parent.width < parent.height || parent.width < 300
 
   property bool canvasOperationRequested: digitizingToolbar.geometryRequested ||
                                           moveFeaturesToolbar.moveFeaturesRequested
@@ -59,13 +59,12 @@ Rectangle {
   width: {
       if ( props.isVisible || featureForm.canvasOperationRequested )
       {
-          if (qfieldSettings.fullScreenIdentifyView || parent.width < parent.height || parent.width < 300)
+          if (fullScreenView || parent.width < parent.height || parent.width < 300)
           {
               parent.width
           }
           else
           {
-              isVertical = false
               Math.min(Math.max( 200, parent.width / 2.6), parent.width)
           }
       }
@@ -393,17 +392,26 @@ Rectangle {
       featureForm.state = "FeatureList"
     }
 
-    onStatusIndicatorSwiped: {
-      if ( !isVertical )
-        return
-
-      if (direction === 'up') {
-        fullScreenView = true
-      } else if (direction === 'down') {
-        if ( fullScreenView ) {
-          fullScreenView = false
-        } else {
-          featureForm.state = 'Hidden'
+    onStatusIndicatorSwiped: (direction) => {
+      if (isVertical) {
+        if (direction === 'up') {
+          fullScreenView = true
+        } else if (direction === 'down') {
+          if ( fullScreenView ) {
+            fullScreenView = false
+          } else {
+            featureForm.state = 'Hidden'
+          }
+        }
+      } else {
+        if (direction === 'left') {
+          fullScreenView = true
+        } else if (direction === 'right') {
+          if ( fullScreenView ) {
+            fullScreenView = false
+          } else {
+            featureForm.state = 'Hidden'
+          }
         }
       }
     }

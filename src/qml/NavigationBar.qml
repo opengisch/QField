@@ -131,7 +131,9 @@ Rectangle {
         anchors.fill: parent
 
         property real velocity: 0.0
+        property int startX: 0
         property int startY: 0
+        property int lastX: 0
         property int lastY: 0
         property int distance: 0
         property bool isTracing: false
@@ -139,7 +141,9 @@ Rectangle {
         preventStealing: true
 
         onPressed: {
+          startX = mouse.x
           startY = mouse.y
+          lastX = mouse.x
           lastY = mouse.y
           velocity = 0
           distance = 0
@@ -150,6 +154,7 @@ Rectangle {
             return
 
           var currentVelocity = Math.abs(mouse.y - lastY)
+          lastX = mouse.x
           lastY = mouse.y
           velocity = (velocity + currentVelocity) / 2.0
           distance = Math.abs(mouse.y - startY)
@@ -164,6 +169,11 @@ Rectangle {
         }
 
         function getDirection() {
+          var diffX = lastX - startX
+          var diffY = lastY - startY
+          if (Math.abs(diffX) > Math.abs(diffY)) {
+            return lastX < startX ? 'left' : 'right'
+          }
           return lastY < startY ? 'up' : 'down'
         }
       }
