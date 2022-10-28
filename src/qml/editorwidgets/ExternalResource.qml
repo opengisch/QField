@@ -270,6 +270,7 @@ EditorWidgetBase {
     visible: isImage && isEnabled && isCameraAvailable
 
     onClicked: {
+        Qt.inputMethod.hide()
         if ( platformUtilities.capabilities & PlatformUtilities.NativeCamera && settings.valueBool("nativeCamera", true) ) {
             var filepath = getPictureFilePath()
             __pictureSource = platformUtilities.getCameraPicture(this, qgisProject.homePath+'/', filepath, FileUtils.fileSuffix(filepath) )
@@ -294,7 +295,8 @@ EditorWidgetBase {
     visible: isImage && isEnabled
 
     onClicked: {
-          var filepath = getPictureFilePath()
+        Qt.inputMethod.hide()
+        var filepath = getPictureFilePath()
         __pictureSource = platformUtilities.getGalleryPicture(this, qgisProject.homePath+'/', filepath)
     }
 
