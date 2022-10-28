@@ -13,77 +13,95 @@ EditorWidgetBase {
     id: relationEditor
 
     property int itemHeight: 40
+    property int bottomMargin: 10
+    property int maximumVisibleItems: 4
+
+    Component.onCompleted: {
+      if ( currentLayer && currentLayer.customProperty('QFieldSync/relationship_maximum_visible') !== undefined ) {
+        var value = JSON.parse(currentLayer.customProperty('QFieldSync/relationship_maximum_visible'))[relationId]
+        maximumVisibleItems = value !== undefined ? value : 4
+      } else {
+        maximumVisibleItems = 4
+      }
+    }
 
     // because no additional addEntry item on readOnly (isEnabled false)
-    height: isEnabled
+    height: (isEnabled
             ? referencingFeatureListView.height + itemHeight
-            : Math.max( referencingFeatureListView.height, itemHeight)
+            : Math.max( referencingFeatureListView.height, itemHeight)) + relationEditor.bottomMargin
     enabled: true
 
+    ReferencingFeatureListModel {
+      //containing the current (parent) feature, the relation to the children
+      //and the relation from the children to the other parent (if it's nm and cardinality is set)
+      //if cardinality is not set, the nmRelationId is empty
+      id: relationEditorModel
+      currentRelationId: relationId
+      currentNmRelationId: nmRelationId
+      feature: currentFeature
+
+      property int featureFocus: -1
+      onModelUpdated: {
+        if (featureFocus > -1) {
+          referencingFeatureListView.currentIndex = relationEditorModel.getFeatureIdRow(featureFocus)
+          featureFocus = -1
+        }
+      }
+    }
+
     Rectangle {
-        anchors.fill: parent
+        anchors.top: parent.top
+        anchors.bottom: parent.bottom
+        anchors.bottomMargin: relationEditor.bottomMargin
+        width: parent.width
         color: "transparent"
         border.color: 'lightgray'
         border.width: 1
-    }
-
-    ReferencingFeatureListModel {
-        //containing the current (parent) feature, the relation to the children
-        //and the relation from the children to the other parent (if it's nm and cardinality is set)
-        //if cardinality is not set, the nmRelationId is empty
-        id: relationEditorModel
-        currentRelationId: relationId
-        currentNmRelationId: nmRelationId
-        feature: currentFeature
-
-        property int featureFocus: -1
-        onModelUpdated: {
-          if (featureFocus > -1) {
-            referencingFeatureListView.currentIndex = relationEditorModel.getFeatureIdRow(featureFocus)
-            featureFocus = -1
-          }
-        }
-    }
-
-    //the list
-    ListView {
-        id: referencingFeatureListView
-        model: relationEditorModel
-        width: parent.width
-        height: Math.min( 4 * itemHeight, referencingFeatureListView.count * itemHeight ) + ( referencingFeatureListView.count > 4 ? itemHeight / 2 : 0 )
-        delegate: referencingFeatureDelegate
-        focus: true
         clip: true
-        highlightRangeMode: ListView.StrictlyEnforceRange
 
-        ScrollBar.vertical: ScrollBar {
+        //the list
+        ListView {
+          id: referencingFeatureListView
+          model: relationEditorModel
+          width: parent.width
+          height: maximumVisibleItems > 0
+                  ? Math.min(maximumVisibleItems * itemHeight,
+                             referencingFeatureListView.count * itemHeight)
+                    + (referencingFeatureListView.count > maximumVisibleItems ? itemHeight / 2 : 0)
+                  : referencingFeatureListView.count * itemHeight
+          delegate: referencingFeatureDelegate
+          focus: true
+          clip: true
+          highlightRangeMode: ListView.ApplyRange
+
+          ScrollBar.vertical: ScrollBar {
             width: 10
             policy: ScrollBar.AlwaysOn
 
             contentItem: Rectangle {
-                implicitWidth: 10
-                implicitHeight: itemHeight
-                color: Theme.mainColor
+              implicitWidth: 10
+              implicitHeight: itemHeight
+              color: Theme.mainColor
             }
+          }
         }
-    }
 
-    //the add entry "last row"
-    Item {
-      id: addEntry
-      anchors.top: referencingFeatureListView.bottom
-      height: itemHeight
-      width: parent.width
-      visible: isButtonEnabled('AddChildFeature')
+        //the add entry "last row"
+        Item {
+          id: addEntry
+          anchors.bottom: parent.bottom
+          height: itemHeight
+          width: parent.width
+          visible: isButtonEnabled('AddChildFeature')
 
-      focus: true
+          focus: true
 
-      Rectangle{
-          anchors.fill: parent
-          color: 'lightgrey'
-          visible: isEnabled
+          Rectangle {
+            anchors.fill: parent
+            color: 'lightgrey'
+            visible: isEnabled
 
-          Text {
+            Text {
               visible: isEnabled
               color: 'grey'
               text: isEnabled && !constraintsHardValid ? qsTr( 'Ensure contraints') : ''
@@ -91,56 +109,57 @@ EditorWidgetBase {
               font.bold: true
               font.italic: true
               font.pointSize: Theme.tipFont.pointSize
-          }
+            }
 
-          Row
-          {
-            id: addButtonRow
-            anchors { top: parent.top; right: parent.right; rightMargin: 10 }
-            height: parent.height
+            Row
+            {
+              id: addButtonRow
+              anchors { top: parent.top; right: parent.right; rightMargin: 10 }
+              height: parent.height
 
-            ToolButton {
+              ToolButton {
                 id: addButton
                 width: parent.height
                 height: parent.height
                 enabled: constraintsHardValid
 
                 contentItem: Rectangle {
+                  anchors.fill: parent
+                  color: parent.enabled ? nmRelationId ? 'blue' : 'black' : 'grey'
+                  Image {
                     anchors.fill: parent
-                    color: parent.enabled ? nmRelationId ? 'blue' : 'black' : 'grey'
-                    Image {
-                      anchors.fill: parent
-                      anchors.margins: 8
-                      fillMode: Image.PreserveAspectFit
-                      horizontalAlignment: Image.AlignHCenter
-                      verticalAlignment: Image.AlignVCenter
-                      source: Theme.getThemeIcon( 'ic_add_white_24dp' )
-                    }
+                    anchors.margins: 8
+                    fillMode: Image.PreserveAspectFit
+                    horizontalAlignment: Image.AlignHCenter
+                    verticalAlignment: Image.AlignVCenter
+                    source: Theme.getThemeIcon( 'ic_add_white_24dp' )
+                  }
                 }
+              }
             }
-          }
-          MouseArea {
-            anchors.fill: parent
-            onClicked: {
-              if( save() ) {
-                //this has to be checked after buffering because the primary could be a value that has been created on creating featurer (e.g. fid)
-                if( relationEditorModel.parentPrimariesAvailable ) {
+            MouseArea {
+              anchors.fill: parent
+              onClicked: {
+                if( save() ) {
+                  //this has to be checked after buffering because the primary could be a value that has been created on creating featurer (e.g. fid)
+                  if( relationEditorModel.parentPrimariesAvailable ) {
                     displayToast( qsTr( 'Adding child feature in layer %1' ).arg( relationEditorModel.relation.referencingLayer.name ) )
                     if ( relationEditorModel.relation.referencingLayer.geometryType() !== QgsWkbTypes.NullGeometry )
                     {
-                        requestGeometry( relationEditor, relationEditorModel.relation.referencingLayer );
-                        return;
+                      requestGeometry( relationEditor, relationEditorModel.relation.referencingLayer );
+                      return;
                     }
                     showAddFeaturePopup()
-                }
-                else
-                {
+                  }
+                  else
+                  {
                     displayToast (qsTr( 'Cannot add child feature: parent primary keys are not available' ), 'warning' )
+                  }
                 }
               }
             }
           }
-      }
+        }
     }
 
     //list components
