@@ -202,7 +202,7 @@ void LocalFilesModel::reloadModel()
       QFileInfo fi( item );
       if ( fi.exists() )
       {
-        mItems << Item( ItemMetaType::Folder, ItemType::SimpleFolder, fi.fileName(), QString(), fi.absoluteFilePath() );
+        mItems << Item( ItemMetaType::Folder, ItemType::SimpleFolder, fi.absoluteFilePath(), QString(), fi.absoluteFilePath() );
       }
     }
 
