@@ -7,24 +7,8 @@ if [[ "${S3CFG}" ]];
 then
   echo -e "\e[31mAbout to upload build artifacts\e[0m"
 
-  if [[ "${CI_TAG}" ]];
-  then
-    if [[ ${ALL_FILES_ACCESS} == "ON" ]]; then
-      #FILENAME_AAB="qfield-${CI_TAG}-${TRIPLET}.aab"
-      FILENAME_APK="qfield-${CI_TAG}-${TRIPLET}.apk"
-    else
-      #FILENAME_AAB="qfield-${CI_TAG}-${TRIPLET}.aab"
-      FILENAME_APK="qfield-${CI_TAG}-${TRIPLET}.apk"
-    fi
-  else
-    if [[ ${ALL_FILES_ACCESS} == "ON" ]]; then
-      #FILENAME_AAB="qfield-plus-dev-${CI_UPLOAD_ARTIFACT_ID}-${CI_COMMIT}-${TRIPLET}.aab"
-      FILENAME_APK="qfield-plus-dev-${CI_UPLOAD_ARTIFACT_ID}-${CI_COMMIT}-${TRIPLET}.apk"
-    else
-      #FILENAME_AAB="qfield-dev-${CI_UPLOAD_ARTIFACT_ID}-${CI_COMMIT}-${TRIPLET}.aab"
-      FILENAME_APK="qfield-dev-${CI_UPLOAD_ARTIFACT_ID}-${CI_COMMIT}-${TRIPLET}.apk"
-    fi
-  fi
+  #FILENAME_AAB="${APP_PACKAGE_NAME}-${CI_PACKAGE_FILE_SUFFIX}-${TRIPLET}.aab"
+  FILENAME_APK="${APP_PACKAGE_NAME}-${CI_PACKAGE_FILE_SUFFIX}-${TRIPLET}.apk"
 
   # skip AAB upload until we need it
   #mv ${CMAKE_BUILD_DIR}/android-build/build/outputs/bundle/release/android-build-release.aab /tmp/${FILENAME_AAB}
