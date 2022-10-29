@@ -45,19 +45,19 @@ fi
 if [[ "${CI_TAG}" ]];
 then
   export CI_PACKAGE_FILE_SUFFIX="${CI_TAG}"
-  export APP_PACKAGE_NAME_SUFFIX="_dev"
+  export APP_PACKAGE_NAME_SUFFIX=""
 else
   export CI_PACKAGE_FILE_SUFFIX="dev-${CI_UPLOAD_ARTIFACT_ID}-${CI_COMMIT}"
-  export APP_PACKAGE_NAME_SUFFIX=""
+  export APP_PACKAGE_NAME_SUFFIX="_dev"
 fi
 
 if [[ ${ALL_FILES_ACCESS} == "ON" ]];
 then
   export APP_PACKAGE_NAME="qfield_all_access${APP_PACKAGE_NAME_SUFFIX}"
-  export CI_PACKAGE_FILENAME="qfield_all_access-${CI_PACKAGE_FILE_SUFFIX}-${ARCH}.apk"
+  export CI_PACKAGE_NAME="qfield_all_access"
 else
   export APP_PACKAGE_NAME="qfield${APP_PACKAGE_NAME_SUFFIX}"
-  export CI_PACKAGE_FILENAME="qfield-${CI_PACKAGE_FILE_SUFFIX}-${ARCH}.apk"
+  export CI_PACKAGE_NAME="qfield"
 fi
 
 {
@@ -72,8 +72,8 @@ fi
     echo "CI_COMMIT_RANGE=${CI_COMMIT_RANGE}"
     echo "CI_REPO_SLUG=${CI_REPO_SLUG}"
     echo "CI_UPLOAD_ARTIFACT_ID=${CI_UPLOAD_ARTIFACT_ID}"
+    echo "CI_PACKAGE_NAME=${CI_PACKAGE_NAME}"
     echo "CI_PACKAGE_FILE_SUFFIX=${CI_PACKAGE_FILE_SUFFIX}"
-    echo "CI_PACKAGE_FILENAME=${CI_PACKAGE_FILENAME}"
     echo "CI_RUN_NUMBER=${CI_RUN_NUMBER}"
     echo "CI_USE_IOS_DIST_CERT=${CI_USE_IOS_DIST_CERT}"
     echo "APP_PACKAGE_NAME=${APP_PACKAGE_NAME}"
