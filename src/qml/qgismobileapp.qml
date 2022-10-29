@@ -2112,6 +2112,21 @@ ApplicationWindow {
         displayToast(qsTr('Coordinates copied to clipboard'));
       }
     }
+
+    MenuSeparator { width: parent.width }
+
+    MenuItem {
+      text: qsTr( 'Lock Screen' )
+
+      font: Theme.defaultFont
+      icon.source: Theme.getThemeVectorIcon( "ic_lock_black_24dp" )
+      height: 48
+      leftPadding: 10
+
+      onTriggered: {
+        screenLocker.enabled = true
+      }
+    }
   }
 
   Menu {
