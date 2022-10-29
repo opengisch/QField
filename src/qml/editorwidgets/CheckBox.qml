@@ -71,11 +71,11 @@ EditorWidgetBase {
         if( isBool ) {
             return !isNull ? value : false;
         } else {
-            return String(value) === config['CheckedState']
+            return !isNull ? String(value) === config['CheckedState'] : false;
         }
     }
 
-    onCheckedChanged: {
+    onClicked: {
         valueChangeRequested( isBool
                              ? checked
                              : checked ? config['CheckedState'] : config['UncheckedState'], false )
