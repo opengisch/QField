@@ -372,6 +372,7 @@ ApplicationWindow {
     /* The map canvas */
     MapCanvas {
       id: mapCanvasMap
+      interactive: !screenLocker.enabled
       incrementalRendering: true
       freehandDigitizing: freehandButton.freehandDigitizing && freehandHandler.active
 
