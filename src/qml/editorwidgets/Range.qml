@@ -153,7 +153,7 @@ EditorWidgetBase {
           newValue = currentValue - rangeItem.step;
           valueChangeRequested(Math.max(rangeItem.min, newValue), false)
       } else {
-          newValue = Number.isFinite(rangeItem.min) ? rangeItem.min : 0;
+          newValue = 0;
           valueChangeRequested(newValue, false)
       }
   }
@@ -165,7 +165,7 @@ EditorWidgetBase {
           newValue = currentValue + rangeItem.step;
           valueChangeRequested(Math.min(rangeItem.max, newValue ), false)
       } else {
-          newValue = Number.isFinite(rangeItem.max) ? rangeItem.max : 0;
+          newValue = 0;
           valueChangeRequested(newValue, false)
       }
   }
