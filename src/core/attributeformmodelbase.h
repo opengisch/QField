@@ -84,7 +84,7 @@ class AttributeFormModelBase : public QStandardItemModel
                     const QString &parentVisibilityExpressions,
                     QVector<QStandardItem *> &items,
                     int currentTabIndex = 0,
-                    int columnsCount = 1 );
+                    int columnCount = 1 );
 
     void updateDefaultValues( int fieldIndex = -1, QVector<int> updatedFields = QVector<int>() );
 
