@@ -45,6 +45,12 @@ jobs:
         with:
           xcode-version: latest-stable
 
+      - name: ccache
+        uses: hendrikmuhs/ccache-action@v1.2
+        with:
+          key: ccache-macos
+          max-size: 200M
+
       - uses: Apple-Actions/import-codesign-certs@v1
         with:
           p12-file-base64: ${{ secrets.IOS_CERTIFICATES_FILE_BASE64_DEV }}
@@ -83,7 +89,9 @@ jobs:
                 -D SENTRY_DSN=${{ secrets.SENTRY_DSN }} \
                 -D SENTRY_ENV="${APP_ENV}" \
                 -D MACOS_CODE_SIGN_IDENTITY="${{ secrets.IOS_CODE_SIGN_IDENTITY_DEV }}" \
-                -D CMAKE_CXX_VISIBILITY_PRESET=hidden
+                -D CMAKE_CXX_VISIBILITY_PRESET=hidden \
+                -D CMAKE_C_COMPILER_LAUNCHER=ccache \
+                -D CMAKE_CXX_COMPILER_LAUNCHER=ccache
 
       - name: 📑 Upload dep build logs
         uses: actions/upload-artifact@v3
