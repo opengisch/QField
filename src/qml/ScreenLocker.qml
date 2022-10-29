@@ -39,6 +39,15 @@ Item {
     acceptedButtons: Qt.LeftButton | Qt.MiddleButton | Qt.RightButton
   }
 
+  // Grab pinch
+  PinchHandler {
+    enabled: screenLocker.enabled
+    target: null
+    grabPermissions: PointerHandler.CanTakeOverFromAnything | PointerHandler.TakeOverForbidden
+    acceptedDevices: PointerDevice.AllDevices
+    acceptedButtons: Qt.LeftButton | Qt.MiddleButton | Qt.RightButton
+  }
+
   // Grab wheel
   WheelHandler {
     enabled: screenLocker.enabled
@@ -47,7 +56,6 @@ Item {
     acceptedDevices: PointerDevice.AllDevices
     acceptedButtons: Qt.LeftButton | Qt.MiddleButton | Qt.RightButton
   }
-
 
   // Grab mouse (et al)
   MouseArea {

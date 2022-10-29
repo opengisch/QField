@@ -27,6 +27,7 @@ Item {
   property alias isRendering: mapCanvasWrapper.isRendering
   property alias incrementalRendering: mapCanvasWrapper.incrementalRendering
 
+  property bool interactive: true
   property bool mouseAsTouchScreen: qfieldSettings.mouseAsTouchScreen
   property bool freehandDigitizing: false
 
@@ -88,7 +89,7 @@ Item {
 
     // stylus clicks
     TapHandler {
-      enabled: !mouseAsTouchScreen
+      enabled: interactive && !mouseAsTouchScreen
       acceptedDevices: PointerDevice.AllDevices & ~PointerDevice.TouchScreen
       acceptedButtons: Qt.LeftButton | Qt.RightButton
       property bool longPressActive: false
@@ -121,6 +122,7 @@ Item {
     // touch clicked & zoom in and out
     TapHandler {
         id: tapHandler
+        enabled: interactive
         acceptedDevices: mouseAsTouchScreen ? PointerDevice.AllDevices : PointerDevice.TouchScreen
         acceptedButtons: Qt.LeftButton | Qt.RightButton
         property bool longPressActive: false
@@ -181,8 +183,8 @@ Item {
 
     DragHandler {
         id: dragHandler
+        enabled: interactive && !freehandDigitizing
         target: null
-        enabled: !freehandDigitizing
         grabPermissions: PointerHandler.ApprovesTakeOverByHandlersOfSameType | PointerHandler.ApprovesTakeOverByHandlersOfDifferentType | PointerHandler.ApprovesTakeOverByItems
 
         property var oldPos
@@ -233,6 +235,7 @@ Item {
 
     DragHandler {
         target: null
+        enabled: interactive
         acceptedDevices: PointerDevice.Stylus | PointerDevice.Mouse
         grabPermissions: PointerHandler.TakeOverForbidden
         acceptedButtons: Qt.MiddleButton | Qt.RightButton
@@ -265,6 +268,7 @@ Item {
 
     PinchHandler {
         id: pinch
+        enabled: interactive
         target: null
         acceptedDevices: PointerDevice.TouchScreen | PointerDevice.TouchPad
         grabPermissions: PointerHandler.ApprovesTakeOverByHandlersOfDifferentType
@@ -299,6 +303,7 @@ Item {
     }
 
     WheelHandler {
+        enabled: interactive
         target: null
         grabPermissions: PointerHandler.CanTakeOverFromHandlersOfDifferentType | PointerHandler.ApprovesTakeOverByItems
 
