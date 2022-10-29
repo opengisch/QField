@@ -26,10 +26,18 @@ EditorWidgetBase {
 
       topPadding: 10
       bottomPadding: 10
-      font: Theme.defaultFont
-      color: isEnabled ? 'black' : 'gray'
+      font.pointSize: Theme.defaultFont.pointSize
+      font.bold: Theme.defaultFont.bold
+      font.italic: checkBox.isNull
+      color: isEnabled && !checkBox.isNull ? 'black' : 'gray'
 
-      text: checkBox.checked ? checkedLabel : uncheckedLabel
+      text: !checkBox.isNull
+            ? checkBox.checked
+              ? checkedLabel
+              : uncheckedLabel
+            : isEnabled
+              ? qsTr('NULL')
+              : ''
 
       MouseArea {
           id: checkArea
@@ -57,17 +65,20 @@ EditorWidgetBase {
 
     //if the field type is boolean, ignore the configured 'CheckedState' and 'UncheckedState' values and work with true/false always
     readonly property bool isBool: field.type == 1 //needs type coercion
+    property bool isNull: value == undefined
 
     checked: {
         if( isBool ) {
-            return value !== undefined ? value : false;
+            return !isNull ? value : false;
         } else {
             return String(value) === config['CheckedState']
         }
     }
 
     onCheckedChanged: {
-        valueChangeRequested( isBool ? checked : checked ? config['CheckedState'] : config['UncheckedState'], false )
+        valueChangeRequested( isBool
+                             ? checked
+                             : checked ? config['CheckedState'] : config['UncheckedState'], false )
         forceActiveFocus()
     }
   }
