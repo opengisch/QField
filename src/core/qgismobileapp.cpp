@@ -159,6 +159,7 @@
 #include <qgsprojectstylesettings.h>
 #endif
 #include <qgsprojectviewsettings.h>
+#include <qgsprojutils.h>
 #include <qgsrasterlayer.h>
 #include <qgsrasterresamplefilter.h>
 #include <qgsrelationmanager.h>
@@ -272,26 +273,7 @@ QgisMobileapp::QgisMobileapp( QgsApplication *app, QObject *parent )
   if ( !dataDirs.isEmpty() )
   {
     // add extra proj search path to allow copying of transformation grid files
-    QString path( proj_info().searchpath );
-    QStringList paths;
-#ifdef Q_OS_WIN
-    paths = path.split( ';' );
-#else
-    paths = path.split( ':' );
-#endif
-
-    // thin out duplicates from paths -- see https://github.com/OSGeo/PROJ/pull/1498
-    QSet<QString> existing;
-    QStringList searchPaths;
-    searchPaths.reserve( paths.count() );
-    for ( QString &p : paths )
-    {
-      if ( existing.contains( p ) )
-        continue;
-
-      existing.insert( p );
-      searchPaths << p;
-    }
+    QStringList searchPaths = QgsProjUtils::searchPaths();
 
     for ( const QString &dataDir : dataDirs )
     {
