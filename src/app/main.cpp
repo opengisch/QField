@@ -165,6 +165,8 @@ int main( int argc, char **argv )
   app.installTranslator( &qtTranslator );
   app.installTranslator( &qfieldTranslator );
 
+  qputenv( "QT_QUICK_CONTROLS_STYLE", QByteArray( "Material" ) );
+
   QgisMobileapp mApp( &app );
 
 #ifdef WITH_SPIX

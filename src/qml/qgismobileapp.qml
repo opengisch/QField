@@ -17,6 +17,7 @@
 
 import QtQuick 2.14
 import QtQuick.Controls 2.14
+import QtQuick.Controls.Material 2.14
 import QtQuick.Window 2.14
 import QtQml 2.14
 import Qt.labs.settings 1.0 as LabSettings
@@ -37,6 +38,9 @@ ApplicationWindow {
   flags: Qt.Window | Qt.WindowTitleHint | Qt.WindowSystemMenuHint |
          (Qt.platform.os === "ios" ? Qt.MaximizeUsingFullscreenGeometryHint : 0) |
          (Qt.platform.os !== "ios" && Qt.platform.os !== "android" ? Qt.WindowMinMaxButtonsHint | Qt.WindowCloseButtonHint : 0)
+
+  Material.theme: Material.Light
+  Material.accent: Theme.mainColor
 
   property double sceneTopMargin: platformUtilities.sceneMargins(mainWindow)["top"]
 

@@ -41,7 +41,7 @@ QtObject {
 
     readonly property font defaultFont: Qt.font({ pointSize: systemFontPointSize, bold: true, weight: Font.Normal })
     readonly property font strongFont: Qt.font({ pointSize: systemFontPointSize, bold: true, weight: Font.Bold })
-    readonly property font tipFont: Qt.font({ pointSize: /*systemFontPointSize * 0.875*/ 11.75, weight: Font.Normal })
+    readonly property font tipFont: Qt.font({ pointSize: systemFontPointSize * 0.875, weight: Font.Normal })
     readonly property font strongTipFont: Qt.font({ pointSize: systemFontPointSize * 0.875, bold: true, weight: Font.Bold })
     readonly property font resultFont: Qt.font({ pointSize: systemFontPointSize * 0.8125, weight: Font.Normal })
     readonly property font tinyFont: Qt.font({ pointSize: systemFontPointSize * 0.75, weight: Font.Normal })
