@@ -42,7 +42,7 @@ Popup {
                 bottomPadding: 5
                 text: qsTr('Enable temporal filter')
                 font: Theme.defaultFont
-                // visible for all layer tree items but nonspatial vector LayerSelector
+                // visible for all layer tree items but nonspatial vector layer
                 indicator.height: 16
                 indicator.width: 16
                 indicator.implicitHeight: 24
