@@ -59,10 +59,15 @@ jobs:
           echo $(brew --prefix s3cmd)/bin >> $GITHUB_PATH
           echo $(brew --prefix gettext)/bin >> $GITHUB_PATH
 
-
       - uses: maxim-lobanov/setup-xcode@v1.4.1
         with:
           xcode-version: latest-stable
+
+      - name: ccache
+        uses: hendrikmuhs/ccache-action@v1.2
+        with:
+          key: ccache-ios
+          max-size: 200M
 
       - name: 🌱 Install dependencies and generate project files
         run: |
@@ -98,7 +103,8 @@ jobs:
                 -D CMAKE_OSX_DEPLOYMENT_TARGET=${{ env.DEPLOYMENT_TARGET }} \
                 -D CMAKE_FIND_ROOT_PATH=${{ env.Qt5_DIR }} \
                 -D ENABLE_TESTS=OFF \
-                -D CMAKE_CXX_VISIBILITY_PRESET=hidden
+                -D CMAKE_CXX_VISIBILITY_PRESET=hidden \
+                -D WITH_CCACHE=ON
 
       - name: 📑 Upload Dep Build Logs
         uses: actions/upload-artifact@v3
