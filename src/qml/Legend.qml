@@ -139,7 +139,7 @@ ListView {
         leftPadding: 0
         text: Name
         horizontalAlignment: Text.AlignLeft
-        font.pointSize: itemType === "legend" ? Theme.strongTipFont.pointSize - 2 : Theme.tipFont.pointSize
+        font.pointSize: Theme.tipFont.pointSize
         font.bold: itemType === "group" || (itemType === "layer" && vectorLayer != null && vectorLayer == currentLayer) ? true : false
         color: {
             if ( isSelectedLayer )
