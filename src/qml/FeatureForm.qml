@@ -753,6 +753,7 @@ Page {
 
     visible: false
     modal: true
+    font: Theme.defaultFont
 
     z: 10000 // 1000s are embedded feature forms, user a higher value to insure the dialog will always show above embedded feature forms
     x: ( mainWindow.width - width ) / 2
