@@ -31,7 +31,6 @@ Page {
     Label {
       text: qsTr( "The following layers could not be loaded, please review those and reconfigure the QGIS project." )
       font: Theme.defaultFont
-
       wrapMode: Text.WordWrap
       Layout.fillWidth: true
       Layout.fillHeight: true

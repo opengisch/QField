@@ -39,39 +39,14 @@ QtObject {
     property color accentColor: '#4CAF50'
     property color accentLightColor: '#C8E6C9'
 
-    property font defaultFont
-    defaultFont.pointSize: 16
-    defaultFont.weight: Font.Normal
-
-    property font tinyFont
-    tinyFont.pointSize: 12
-    tinyFont.weight: Font.Normal
-
-    property font tipFont
-    tipFont.pointSize: 14
-    tipFont.weight: Font.Normal
-
-    property font resultFont
-    resultFont.pointSize: 13
-    resultFont.weight: Font.Normal
-
-    property font strongFont
-    strongFont.pointSize: defaultFont.pointSize
-    strongFont.bold: true
-    strongFont.weight: Font.Bold
-
-    property font strongTipFont
-    strongTipFont.pointSize: tipFont.pointSize
-    strongTipFont.bold: true
-    strongTipFont.weight: Font.Bold
-
-    property font secondaryTitleFont
-    secondaryTitleFont.pointSize: 18
-    secondaryTitleFont.weight: Font.Normal
-
-    property font titleFont
-    titleFont.pointSize: 20
-    titleFont.weight: Font.Normal
+    readonly property font defaultFont: Qt.font({ pointSize: systemFontPointSize, bold: true, weight: Font.Normal })
+    readonly property font strongFont: Qt.font({ pointSize: systemFontPointSize, bold: true, weight: Font.Bold })
+    readonly property font tipFont: Qt.font({ pointSize: /*systemFontPointSize * 0.875*/ 11.75, weight: Font.Normal })
+    readonly property font strongTipFont: Qt.font({ pointSize: systemFontPointSize * 0.875, bold: true, weight: Font.Bold })
+    readonly property font resultFont: Qt.font({ pointSize: systemFontPointSize * 0.8125, weight: Font.Normal })
+    readonly property font tinyFont: Qt.font({ pointSize: systemFontPointSize * 0.75, weight: Font.Normal })
+    readonly property font secondaryTitleFont: Qt.font({ pointSize: systemFontPointSize * 1.125, weight: Font.Normal })
+    readonly property font titleFont: Qt.font({ pointSize: systemFontPointSize * 1.25, weight: Font.Normal })
 
     readonly property int popupScreenEdgeMargin: 40
 

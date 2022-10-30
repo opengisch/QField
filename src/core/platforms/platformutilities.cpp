@@ -321,6 +321,11 @@ QVariantMap PlatformUtilities::sceneMargins( QQuickWindow *window ) const
   return margins;
 }
 
+double PlatformUtilities::systemFontPointSize() const
+{
+  return QApplication::font().pointSizeF() + 2;
+}
+
 PlatformUtilities *PlatformUtilities::instance()
 {
   return sPlatformUtils;

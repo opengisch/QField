@@ -52,9 +52,7 @@ Button {
 
     icon: parent.icon
     color: "white"
-    font {
-      pointSize: button.font.pointSize
-    }
+    font: Theme.defaultFont
 
     alignment: Qt.AlignCenter | Qt.AlignVCenter
     text: parent.text
