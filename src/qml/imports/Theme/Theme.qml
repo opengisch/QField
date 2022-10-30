@@ -12,32 +12,32 @@ QtObject {
     readonly property color light: "#ffffff"
     readonly property color hyperlinkBlue: '#0000EE'
 
-    property color mainColor: "#80cc28"
-    property color errorColor: "#c0392b"
-    property color warningColor: "orange"
-    property color cloudColor: "#4c6dac"
+    readonly property color mainColor: "#80cc28"
+    readonly property color errorColor: "#c0392b"
+    readonly property color warningColor: "orange"
+    readonly property color cloudColor: "#4c6dac"
 
-    property color positionColor: "#64b5f6"
-    property color positionColorSemiOpaque: "#3364b5f6"
-    property color positionBackgroundColor: "#e6f2fd"
-    property color darkPositionColor: "#2374b5"
-    property color darkPositionColorSemiOpaque: "#882374b5"
+    readonly property color positionColor: "#64b5f6"
+    readonly property color positionColorSemiOpaque: "#3364b5f6"
+    readonly property color positionBackgroundColor: "#e6f2fd"
+    readonly property color darkPositionColor: "#2374b5"
+    readonly property color darkPositionColorSemiOpaque: "#882374b5"
 
-    property color accuracyBad: "#c0392b"
-    property color accuracyTolerated: "orange"
-    property color accuracyExcellent: "#80cc28"
+    readonly property color accuracyBad: "#c0392b"
+    readonly property color accuracyTolerated: "orange"
+    readonly property color accuracyExcellent: "#80cc28"
 
-    property color navigationColor: "#984ea3"
-    property color navigationColorSemiOpaque: "#77984ea3"
-    property color navigationBackgroundColor: "#e2d7e4"
+    readonly property color navigationColor: "#984ea3"
+    readonly property color navigationColorSemiOpaque: "#77984ea3"
+    readonly property color navigationBackgroundColor: "#e2d7e4"
 
-    property color bookmarkDefault: "#80cc28"
-    property color bookmarkOrange: "orange"
-    property color bookmarkRed: "#c0392b"
-    property color bookmarkBlue: "#64b5f6"
+    readonly property color bookmarkDefault: "#80cc28"
+    readonly property color bookmarkOrange: "orange"
+    readonly property color bookmarkRed: "#c0392b"
+    readonly property color bookmarkBlue: "#64b5f6"
 
-    property color accentColor: '#4CAF50'
-    property color accentLightColor: '#C8E6C9'
+    readonly property color accentColor: '#4CAF50'
+    readonly property color accentLightColor: '#C8E6C9'
 
     property font defaultFont: Qt.font({pointSize: 16, weight: Font.Normal})
     property font tinyFont: Qt.font({pointSize: 12, weight: Font.Normal})
