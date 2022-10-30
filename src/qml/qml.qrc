@@ -14,7 +14,6 @@
         <file>ElevationProfile.qml</file>
         <file>FeatureForm.qml</file>
         <file>FeatureListForm.qml</file>
-        <file>LayerSelector.qml</file>
         <file>LocationMarker.qml</file>
         <file>MapCanvas.qml</file>
         <file>MeasuringTool.qml</file>
