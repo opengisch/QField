@@ -31,6 +31,8 @@ GridLayout {
             enabled: bluetoothDeviceModel.scanningStatus !== BluetoothDeviceModel.Scanning
             Layout.fillWidth: true
             Layout.alignment: Qt.AlignVCenter
+            font: Theme.defaultFont
+            popup.font: Theme.defaultFont
             textRole: 'display'
             model: BluetoothDeviceModel {
                 id: bluetoothDeviceModel

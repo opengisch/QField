@@ -340,6 +340,8 @@ Page {
                           enabled: true
                           Layout.fillWidth: true
                           Layout.alignment: Qt.AlignVCenter
+                          font: Theme.defaultFont
+                          popup.font: Theme.defaultFont
 
                           property variant languageCodes: undefined
                           property string currentLanguageCode: undefined
@@ -815,6 +817,8 @@ Page {
                   ComboBox {
                       Layout.fillWidth: true
                       model: [ qsTr( "None" ) ].concat( platformUtilities.availableGrids() );
+                      font: Theme.defaultFont
+                      popup.font: Theme.defaultFont
 
                       onCurrentIndexChanged: {
                           positioningSettings.verticalGrid = currentIndex > 0 ? platformUtilities.availableGrids()[currentIndex - 1] : '';
