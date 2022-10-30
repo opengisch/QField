@@ -27,8 +27,11 @@
     <string name="added_to_favorites">Přidáno do oblíbených</string>
     <string name="removed_from_favorites">Odstraněno z oblíbených</string>
     <string name="external_files_title">Důležité upozornění</string>
+    <string name="external_files_message"><![CDATA[Adresář pro soubory QField můžete využít pro kopírování souborů a projektů na Vaše zařízení USB kabelem. Absolutní cestu k adresáři můžete vidět v liště hlavičky.<br/><br/>Mějte na paměti, že obsah tohoto adresáře <i>bude smazán</i> když odinstalujete QField z Vašeho zařízení.]]>
+ </string>
     <string name="external_files_ok">OK</string>
     <string name="grant_permission">Přístup ke všem souborům</string>
+    <string name="grant_all_files_permission"><![CDATA[QField potřebuje oprávnění přístupu ke všem souborům, aby mohl otevírat lokální projekty a datasety nebo podporovat uživatelsky definované projekční mřížky, písma a podkladové mapy. Ačkoliv to není nezbytně nutné, <i>povolení přístupu je velmi doporučeno</i>.<br/><br/>Na příští obrazovce prosím vyberte <b>QField</b> a zvolte možnost <b>Povolit přístup ke všem souborům</b>.]]></string>
     <string name="grant">Povolit</string>
     <string name="deny_always">Trvale odmítnout</string>
     <string name="deny_once">Odmítnout jednou</string>
@@ -61,6 +64,7 @@
     <string name="delete_confirm">Odstranit</string>
     <string name="delete_cancel">Zrušit</string>
     <string name="storage_information_title">Informace o uložišti</string>
+    <string name="storage_information_message">Ať už jste dřívější uživatel QField 1.x a divíte se, proč zmizely Vaše projekty a datasety nebo nováček v QFieldu, doporučujeme věnovat chvilku přečtení dokumentace o práci s úložištěm. Odkaz na tuto dokumentaci zůstane přístupný z menu lišty s názvem okna.</string>
     <string name="storage_information_view">Zobrazit dokumentaci</string>
     <string name="storage_information_dismiss">Přečtu si to později</string>
     <string name="import_project_wait">Chvilku strpení, než QField naimportuje projekt</string>

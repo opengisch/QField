@@ -485,7 +485,7 @@ Annullare per eseguire una scansione veloce del dispositivo.</translation>
     <name>ElevationProfile</name>
     <message>
         <source>Digitize a path to render the elevation profile</source>
-        <translation type="unfinished"/>
+        <translation>Digitalizza un percorso per renderizzare il profilo di elevazione</translation>
     </message>
 </context>
 <context>
@@ -3089,11 +3089,11 @@ Annullare per eseguire una scansione veloce del dispositivo.</translation>
     </message>
     <message>
         <source>Azimuth</source>
-        <translation type="unfinished"/>
+        <translation>Azimuth</translation>
     </message>
     <message>
         <source>Lock Screen</source>
-        <translation type="unfinished"/>
+        <translation>Blocca lo Schermo</translation>
     </message>
 </context>
 <context>
