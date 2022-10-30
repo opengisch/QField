@@ -28,7 +28,7 @@ EditorWidgetBase {
     id: comboBox
     anchors { left: parent.left; right: parent.right }
     font: Theme.defaultFont
-    popup.font.pointSize: Theme.defaultFont
+    popup.font: Theme.defaultFont
 
     currentIndex: model.keyToIndex(value)
 
