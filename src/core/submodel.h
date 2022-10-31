@@ -22,6 +22,7 @@ class SubModel : public QAbstractItemModel
 {
     Q_OBJECT
 
+    Q_PROPERTY( bool enabled READ enabled WRITE setEnabled NOTIFY modelChanged )
     Q_PROPERTY( QAbstractItemModel *model READ model WRITE setModel NOTIFY modelChanged )
     Q_PROPERTY( QModelIndex rootIndex READ rootIndex WRITE setRootIndex NOTIFY rootIndexChanged )
 
@@ -41,10 +42,14 @@ class SubModel : public QAbstractItemModel
     QAbstractItemModel *model() const;
     void setModel( QAbstractItemModel *model );
 
+    bool enabled() const { return mEnabled; }
+    void setEnabled( bool enabled );
+
     bool isInSubModel( const QModelIndex &sourceIndex ) const;
 
   signals:
     void modelChanged();
+    void enabledChanged();
     void rootIndexChanged();
 
   private slots:
@@ -54,6 +59,7 @@ class SubModel : public QAbstractItemModel
     void onDataChanged( const QModelIndex &topLeft, const QModelIndex &bottomRight, const QVector<int> &roles = QVector<int>() );
 
   private:
+    bool mEnabled = true;
     QModelIndex mapFromSource( const QModelIndex &sourceIndex ) const;
     QModelIndex mapToSource( const QModelIndex &index ) const;
 
