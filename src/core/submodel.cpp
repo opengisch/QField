@@ -22,12 +22,18 @@ SubModel::SubModel( QObject *parent )
 
 QModelIndex SubModel::index( int row, int column, const QModelIndex &parent ) const
 {
+  if ( !mModel )
+    return QModelIndex();
+
   QModelIndex sourceIndex = mModel->index( row, column, parent.isValid() ? mapToSource( parent ) : static_cast<QModelIndex>( mRootIndex ) );
   return mapFromSource( sourceIndex );
 }
 
 QModelIndex SubModel::parent( const QModelIndex &child ) const
 {
+  if ( !mModel )
+    return QModelIndex();
+
   QModelIndex idx = mModel->parent( child );
   if ( idx == mRootIndex )
     return QModelIndex();
@@ -37,27 +43,27 @@ QModelIndex SubModel::parent( const QModelIndex &child ) const
 
 int SubModel::rowCount( const QModelIndex &parent ) const
 {
-  return mModel->rowCount( parent.isValid() ? mapToSource( parent ) : static_cast<QModelIndex>( mRootIndex ) );
+  return mModel ? mModel->rowCount( parent.isValid() ? mapToSource( parent ) : static_cast<QModelIndex>( mRootIndex ) ) : 0;
 }
 
 int SubModel::columnCount( const QModelIndex &parent ) const
 {
-  return mModel->columnCount( parent.isValid() ? mapToSource( parent ) : static_cast<QModelIndex>( mRootIndex ) );
+  return mModel ? mModel->columnCount( parent.isValid() ? mapToSource( parent ) : static_cast<QModelIndex>( mRootIndex ) ) : 0;
 }
 
 QVariant SubModel::data( const QModelIndex &index, int role ) const
 {
-  return mModel->data( mapToSource( index ), role );
+  return mModel ? mModel->data( mapToSource( index ), role ) : QVariant();
 }
 
 bool SubModel::setData( const QModelIndex &index, const QVariant &value, int role )
 {
-  return mModel->setData( mapToSource( index ), value, role );
+  return mModel ? mModel->setData( mapToSource( index ), value, role ) : false;
 }
 
 QHash<int, QByteArray> SubModel::roleNames() const
 {
-  return mModel->roleNames();
+  return mModel ? mModel->roleNames() : QHash<int, QByteArray>();
 }
 
 QModelIndex SubModel::rootIndex() const
