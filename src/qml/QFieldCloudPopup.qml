@@ -354,7 +354,6 @@ Popup {
           QfButton {
             id: syncButton
             Layout.fillWidth: true
-            font: Theme.defaultFont
             text: qsTr('Synchronize')
             visible: !cloudProjectsModel.layerObserver.deltaFileWrapper.hasError()
             enabled: !!(cloudProjectsModel.currentProjectData && cloudProjectsModel.currentProjectData.CanSync)
@@ -380,7 +379,6 @@ Popup {
           QfButton {
             id: pushButton
             Layout.fillWidth: true
-            font: Theme.defaultFont
             text: qsTr('Push changes')
             visible: !cloudProjectsModel.layerObserver.deltaFileWrapper.hasError()
             enabled: !!(cloudProjectsModel.currentProjectData && cloudProjectsModel.currentProjectData.CanSync)
@@ -406,7 +404,6 @@ Popup {
           QfButton {
             id: discardButton
             Layout.fillWidth: true
-            font: Theme.defaultFont
             bgcolor: Theme.darkRed
             text: !cloudProjectsModel.layerObserver.deltaFileWrapper.hasError()
                   ? qsTr('Revert local changes')

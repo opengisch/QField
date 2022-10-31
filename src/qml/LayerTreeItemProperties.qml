@@ -223,7 +223,6 @@ Popup {
         id: zoomToButton
         Layout.fillWidth: true
         Layout.topMargin: 5
-        font: Theme.defaultFont
         text: index ? layerTree.data( index, FlatLayerTreeModel.Type ) === 'group'
                       ? qsTr('Zoom to group')
                       : layerTree.data( index, FlatLayerTreeModel.Type ) === 'legend'
@@ -273,7 +272,6 @@ Popup {
         id: trackingButton
         Layout.fillWidth: true
         Layout.topMargin: 5
-        font: Theme.defaultFont
         text: trackingButtonText
         visible: trackingButtonVisible
         icon.source: Theme.getThemeVectorIcon( 'directions_walk_24dp' )
