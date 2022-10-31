@@ -23,6 +23,7 @@ Button {
   bottomInset: 2
 
   icon.color: button.color
+  font: Theme.defaultFont
 
   background: Rectangle {
       anchors.fill: parent

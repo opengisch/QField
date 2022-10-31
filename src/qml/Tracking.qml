@@ -414,7 +414,6 @@ Item {
               Layout.topMargin: 8
               Layout.fillWidth: true
               Layout.columnSpan: 2
-              font: Theme.defaultFont
               text: qsTr( "Start tracking")
               icon.source: Theme.getThemeVectorIcon( 'directions_walk_24dp' )
 

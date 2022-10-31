@@ -99,7 +99,6 @@ GridLayout {
                 id: scanButton
                 leftPadding: 10
                 rightPadding: 10
-                font: Theme.defaultFont
                 text: qsTr('Scan')
 
                 onClicked: {
@@ -158,7 +157,6 @@ GridLayout {
         Layout.fillWidth: true
         Layout.columnSpan: 2
         Layout.topMargin: 5
-        font: Theme.defaultFont
         text: {
             switch (positionSource.device.socketState) {
                 case QAbstractSocket.ConnectedState:
