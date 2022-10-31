@@ -240,7 +240,11 @@ Page {
     id: fieldItem
 
     Item {
-        width: parent ? parent.width / ColumnCount > 200 ? parent.width / ColumnCount : parent.width : undefined
+        width: parent
+          ? parent.width / ColumnCount > 200
+            ? parent.width / ColumnCount
+            : parent.width
+          : undefined
         height: childrenRect.height
 
         // Configured color of the container
