@@ -266,7 +266,7 @@ Page {
             width: parent.width
             font.pointSize: 12
             font.bold: true
-            text: GroupName
+            text: GroupName || ''
             wrapMode: Text.WordWrap
           }
         }
@@ -281,7 +281,7 @@ Page {
 
           Item {
             id: innerContainer
-            visible: Type == 'container'
+            visible: GroupIndex != undefined && Type === 'container'
             height: visible ? innerContainerContent.childrenRect.height : 0
             anchors {
               left: parent.left
@@ -297,9 +297,10 @@ Page {
               }
 
               Repeater {
-                model:  SubModel {
-                  model: innerContainer.visible ? form.model : null
-                  rootIndex: innerContainer.visible ? form.model.mapFromSource(GroupIndex) : GroupIndex
+                model: SubModel {
+                  enabled: GroupIndex != undefined && Type === 'container'
+                  model: form.model
+                  rootIndex: GroupIndex != undefined ? form.model.mapFromSource(GroupIndex) : form.model.index(-1, 0)
                 }
                 delegate: fieldItem
               }

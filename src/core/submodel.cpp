@@ -70,7 +70,7 @@ QModelIndex SubModel::rootIndex() const
 {
   return mRootIndex;
 }
-
+#include <QDebug>
 void SubModel::setRootIndex( const QModelIndex &rootIndex )
 {
   if ( rootIndex == mRootIndex )
