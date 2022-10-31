@@ -22,7 +22,7 @@ SubModel::SubModel( QObject *parent )
 
 QModelIndex SubModel::index( int row, int column, const QModelIndex &parent ) const
 {
-  if ( !mModel )
+  if ( !mEnabled || !mModel )
     return QModelIndex();
 
   QModelIndex sourceIndex = mModel->index( row, column, parent.isValid() ? mapToSource( parent ) : static_cast<QModelIndex>( mRootIndex ) );
@@ -31,7 +31,7 @@ QModelIndex SubModel::index( int row, int column, const QModelIndex &parent ) co
 
 QModelIndex SubModel::parent( const QModelIndex &child ) const
 {
-  if ( !mModel )
+  if ( !mEnabled || !mModel )
     return QModelIndex();
 
   QModelIndex idx = mModel->parent( child );
@@ -43,40 +43,44 @@ QModelIndex SubModel::parent( const QModelIndex &child ) const
 
 int SubModel::rowCount( const QModelIndex &parent ) const
 {
-  return mModel ? mModel->rowCount( parent.isValid() ? mapToSource( parent ) : static_cast<QModelIndex>( mRootIndex ) ) : 0;
+  return mEnabled && mModel ? mModel->rowCount( parent.isValid() ? mapToSource( parent ) : static_cast<QModelIndex>( mRootIndex ) ) : 0;
 }
 
 int SubModel::columnCount( const QModelIndex &parent ) const
 {
-  return mModel ? mModel->columnCount( parent.isValid() ? mapToSource( parent ) : static_cast<QModelIndex>( mRootIndex ) ) : 0;
+  return mEnabled && mModel ? mModel->columnCount( parent.isValid() ? mapToSource( parent ) : static_cast<QModelIndex>( mRootIndex ) ) : 0;
 }
 
 QVariant SubModel::data( const QModelIndex &index, int role ) const
 {
-  return mModel ? mModel->data( mapToSource( index ), role ) : QVariant();
+  return mEnabled && mModel ? mModel->data( mapToSource( index ), role ) : QVariant();
 }
 
 bool SubModel::setData( const QModelIndex &index, const QVariant &value, int role )
 {
-  return mModel ? mModel->setData( mapToSource( index ), value, role ) : false;
+  return mEnabled && mModel ? mModel->setData( mapToSource( index ), value, role ) : false;
 }
 
 QHash<int, QByteArray> SubModel::roleNames() const
 {
-  return mModel ? mModel->roleNames() : QHash<int, QByteArray>();
+  return mEnabled && mModel ? mModel->roleNames() : QHash<int, QByteArray>();
 }
 
 QModelIndex SubModel::rootIndex() const
 {
   return mRootIndex;
 }
-
+#include <QDebug>
 void SubModel::setRootIndex( const QModelIndex &rootIndex )
 {
+  if ( rootIndex == mRootIndex )
+    return;
+
   beginResetModel();
   mRootIndex = rootIndex;
   mMappings.clear();
   endResetModel();
+
   emit rootIndexChanged();
 }
 
@@ -98,12 +102,28 @@ void SubModel::setModel( QAbstractItemModel *model )
 
   mModel = model;
   mMappings.clear();
+
+  emit modelChanged();
+}
+
+void SubModel::setEnabled( bool enabled )
+{
+  if ( enabled == mEnabled )
+    return;
+
+  mEnabled = enabled;
+
+  beginResetModel();
+  mMappings.clear();
+  endResetModel();
+
+  emit modelChanged();
 }
 
 void SubModel::onRowsInserted( const QModelIndex &parent, int first, int last )
 {
   Q_UNUSED( last )
-  if ( isInSubModel( mModel->index( first, 0, parent ) ) )
+  if ( mEnabled && isInSubModel( mModel->index( first, 0, parent ) ) )
   {
     emit beginInsertRows( mapFromSource( parent ), first, last );
     emit endInsertRows();
@@ -113,7 +133,7 @@ void SubModel::onRowsInserted( const QModelIndex &parent, int first, int last )
 void SubModel::onRowsAboutToBeRemoved( const QModelIndex &parent, int first, int last )
 {
   Q_UNUSED( last )
-  if ( isInSubModel( mModel->index( first, 0, parent ) ) )
+  if ( mEnabled && isInSubModel( mModel->index( first, 0, parent ) ) )
   {
     emit beginRemoveRows( mapFromSource( parent ), first, last );
     emit endRemoveRows();
@@ -127,7 +147,7 @@ void SubModel::onModelAboutToBeReset()
 
 void SubModel::onDataChanged( const QModelIndex &topLeft, const QModelIndex &bottomRight, const QVector<int> &roles )
 {
-  if ( isInSubModel( topLeft ) )
+  if ( mEnabled && isInSubModel( topLeft ) )
     emit dataChanged( mapFromSource( topLeft ), mapFromSource( bottomRight ), roles );
 }
 
@@ -155,7 +175,7 @@ bool SubModel::isInSubModel( const QModelIndex &sourceIndex ) const
 
 QModelIndex SubModel::mapFromSource( const QModelIndex &sourceIndex ) const
 {
-  if ( !isInSubModel( sourceIndex ) )
+  if ( !mEnabled || !isInSubModel( sourceIndex ) )
     return QModelIndex();
 
   if ( !mMappings.contains( sourceIndex.internalId() ) )
@@ -168,6 +188,9 @@ QModelIndex SubModel::mapFromSource( const QModelIndex &sourceIndex ) const
 
 QModelIndex SubModel::mapToSource( const QModelIndex &index ) const
 {
+  if ( !mEnabled || !mModel )
+    return QModelIndex();
+
   if ( !index.isValid() )
     return mRootIndex;
 

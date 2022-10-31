@@ -149,6 +149,8 @@ void AttributeFormModelBase::resetModel()
 {
   clear();
 
+  beginResetModel();
+
   mVisibilityExpressions.clear();
   mConstraints.clear();
 
@@ -171,10 +173,10 @@ void AttributeFormModelBase::resetModel()
       mTemporaryContainer.reset( root );
     }
 
-    setHasTabs( !root->children().isEmpty() && QgsAttributeEditorElement::AeTypeContainer == root->children().first()->type() );
+    const bool hasTabs = !root->children().isEmpty() && QgsAttributeEditorElement::AeTypeContainer == root->children().first()->type();
 
     invisibleRootItem()->setColumnCount( 1 );
-    if ( mHasTabs )
+    if ( hasTabs )
     {
       const QList<QgsAttributeEditorElement *> children { root->children() };
       int currentTab = 0;
@@ -211,7 +213,10 @@ void AttributeFormModelBase::resetModel()
     }
 
     mExpressionContext = mLayer->createExpressionContext();
+    setHasTabs( hasTabs );
   }
+
+  endResetModel();
 }
 
 void AttributeFormModelBase::applyFeatureModel()
