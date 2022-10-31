@@ -41,6 +41,8 @@ class IosPlatformUtilities : public PlatformUtilities
     virtual PictureSource *getCameraPicture( QQuickItem *parent, const QString &prefix, const QString &pictureFilePath, const QString &suffix ) override;
     virtual PictureSource *getGalleryPicture( QQuickItem *parent, const QString &prefix, const QString &pictureFilePath ) override;
     virtual ProjectSource *openProject( QObject *parent = nullptr ) override;
+
+    double systemFontPointSize() const override { return 16.0; }
 };
 
 #endif
