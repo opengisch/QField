@@ -220,7 +220,7 @@ Page {
                     topPadding: 5
                     bottomPadding: 5
                     width: parent.width
-                    font.pointSize: 12
+                    font.pointSize: Theme.tinyFont.pointSize
                     font.bold: true
                     text: section
                     wrapMode: Text.WordWrap
@@ -297,7 +297,7 @@ Page {
               width: parent.width
               text: Name || ''
               wrapMode: Text.WordWrap
-              font.pointSize: 12
+              font.pointSize: Theme.tinyFont.pointSize
               font.bold: true
               bottomPadding: 5
               color: 'grey'
@@ -336,7 +336,7 @@ Page {
               width: parent.width
               text: Name || ''
               wrapMode: Text.WordWrap
-              font.pointSize: 12
+              font.pointSize: Theme.tinyFont.pointSize
               font.bold: true
               bottomPadding: 5
               color: 'grey'
@@ -377,7 +377,7 @@ Page {
               width: parent.width
               text: Name || ''
               wrapMode: Text.WordWrap
-              font.pointSize: 12
+              font.pointSize: Theme.tinyFont.pointSize
               font.bold: true
               topPadding: 10
               bottomPadding: 5
@@ -753,6 +753,7 @@ Page {
 
     visible: false
     modal: true
+    font: Theme.defaultFont
 
     z: 10000 // 1000s are embedded feature forms, user a higher value to insure the dialog will always show above embedded feature forms
     x: ( mainWindow.width - width ) / 2

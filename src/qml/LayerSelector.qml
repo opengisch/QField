@@ -3,6 +3,8 @@ import QtQuick.Controls 2.14
 
 import org.qgis 1.0
 
+import Theme 1.0
+
 Item {
   property VectorLayer currentLayer
   height: comboBox.height
@@ -17,6 +19,9 @@ Item {
     anchors { left: parent.left; right: parent.right }
     model: modelHelper.model
     textRole: "display"
+
+    font: Theme.defaultFont
+    popup.font.pointSize: Theme.defaultFont
 
     onCurrentIndexChanged: __updateCurrentLayer()
     onModelChanged: __updateCurrentLayer()

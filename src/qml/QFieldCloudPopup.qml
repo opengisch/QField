@@ -558,6 +558,7 @@ Popup {
 
     visible: false
     modal: true
+    font: Theme.defaultFont
 
     x: ( mainWindow.width - width ) / 2
     y: ( mainWindow.height - height ) / 2
@@ -589,6 +590,7 @@ Popup {
 
     visible: false
     modal: true
+    font: Theme.defaultFont
 
     x: ( mainWindow.width - width ) / 2
     y: ( mainWindow.height - height ) / 2

@@ -26,8 +26,9 @@ EditorWidgetBase {
 
   ComboBox {
     id: comboBox
-
     anchors { left: parent.left; right: parent.right }
+    font: Theme.defaultFont
+    popup.font: Theme.defaultFont
 
     currentIndex: model.keyToIndex(value)
 
@@ -64,7 +65,6 @@ EditorWidgetBase {
       onPressAndHold: mouse.accepted = false;
     }
 
-    font: Theme.defaultFont
     contentItem: Text {
         leftPadding: enabled ? 5 : 0
 

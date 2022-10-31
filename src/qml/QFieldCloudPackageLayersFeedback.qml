@@ -15,6 +15,7 @@ Dialog {
   visible: false
   modal: true
   width: mainWindow.width - 20
+  font: Theme.defaultFont
 
   x: ( mainWindow.width - width ) / 2
   y: ( mainWindow.height - height ) / 2
