@@ -525,6 +525,7 @@ void QgisMobileapp::initDeclarative()
 
   // Register some globally available variables
   rootContext()->setContextProperty( "ppi", dpi );
+  rootContext()->setContextProperty( "systemFontPointSize", PlatformUtilities::instance()->systemFontPointSize() );
   rootContext()->setContextProperty( "mouseDoubleClickInterval", QApplication::styleHints()->mouseDoubleClickInterval() );
   rootContext()->setContextProperty( "qgisProject", mProject );
   rootContext()->setContextProperty( "bookmarkModel", mBookmarkModel.get() );

@@ -67,6 +67,8 @@ class AndroidPlatformUtilities : public PlatformUtilities
 
     QVariantMap sceneMargins( QQuickWindow *window ) const override;
 
+    double systemFontPointSize() const override { return 16.0; }
+
   private:
     bool checkAndAcquirePermissions( const QString &permissionString ) const;
     QString getIntentExtra( const QString &, QAndroidJniObject = nullptr ) const;

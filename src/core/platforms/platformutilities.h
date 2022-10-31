@@ -224,6 +224,8 @@ class QFIELD_CORE_EXPORT PlatformUtilities : public QObject
      */
     Q_INVOKABLE virtual QVariantMap sceneMargins( QQuickWindow *window ) const;
 
+    Q_INVOKABLE virtual double systemFontPointSize() const;
+
     static PlatformUtilities *instance();
 
   private:
