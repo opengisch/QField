@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='utf-8'?>
 <resources>
-    <string name="done_unpacking_msg">Rozbalte a spusťte QGIS.</string>
+    <string name="done_unpacking_msg">Rozbaleno, spouštím QGIS.</string>
     <string name="unpacking_title">QField se připravuje</string>
     <string name="unpacking_msg">Tato jednorázová operace bude chvíli trvat</string>
     <string name="unpacking_msg_following">Téměř hotovo</string>

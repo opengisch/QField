@@ -367,6 +367,10 @@ Abbrechen um einen minimalen Scan durchzuführen. </translation>
         <source>False</source>
         <translation>Falsch</translation>
     </message>
+    <message>
+        <source>NULL</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>CloseTool</name>

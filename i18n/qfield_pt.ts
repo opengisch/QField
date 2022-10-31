@@ -367,6 +367,10 @@ Cancele para fazer uma verificação mínima.</translation>
         <source>False</source>
         <translation>Falso</translation>
     </message>
+    <message>
+        <source>NULL</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>CloseTool</name>

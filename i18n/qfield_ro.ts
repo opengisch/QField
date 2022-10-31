@@ -368,6 +368,10 @@ Anulați pentru a efectua o scanare minimă a dispozitivului.</translation>
         <source>False</source>
         <translation>Fals</translation>
     </message>
+    <message>
+        <source>NULL</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>CloseTool</name>

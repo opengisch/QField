@@ -367,6 +367,10 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
         <source>False</source>
         <translation>Fałsz</translation>
     </message>
+    <message>
+        <source>NULL</source>
+        <translation>NULL</translation>
+    </message>
 </context>
 <context>
     <name>CloseTool</name>
@@ -1787,11 +1791,11 @@ Chociaż nadal możesz wyświetlać i używać projektu, zdecydowanie zaleca si�
     </message>
     <message>
         <source>Packaging job finished unsuccessfully for `%1`. %2</source>
-        <translation type="unfinished"/>
+        <translation>Nie udało się wykonać spakowania dla &quot;%1&quot;. %2</translation>
     </message>
     <message>
         <source>Failed to refresh the latest info for `%1`: %2</source>
-        <translation type="unfinished"/>
+        <translation>Nie udało się odświeżyć informacji dla &quot;%1&quot;: %2</translation>
     </message>
     <message>
         <source>Failed to get latest package data.</source>

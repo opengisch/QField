@@ -367,6 +367,10 @@ Bunun yerine minimum cihaz taraması yapmak için iptal edin.</translation>
         <source>False</source>
         <translation type="unfinished"/>
     </message>
+    <message>
+        <source>NULL</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>CloseTool</name>

@@ -367,6 +367,10 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
         <source>False</source>
         <translation>Onwaar</translation>
     </message>
+    <message>
+        <source>NULL</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>CloseTool</name>

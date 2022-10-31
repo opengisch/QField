@@ -367,6 +367,10 @@ Cancel to make a minimal device scan instead.</source>
         <source>False</source>
         <translation>خاطئ</translation>
     </message>
+    <message>
+        <source>NULL</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>CloseTool</name>

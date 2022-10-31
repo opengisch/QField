@@ -367,6 +367,10 @@ Annullare per eseguire una scansione veloce del dispositivo.</translation>
         <source>False</source>
         <translation>Falso</translation>
     </message>
+    <message>
+        <source>NULL</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>CloseTool</name>

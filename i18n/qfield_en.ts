@@ -372,6 +372,10 @@ Cancel to make a minimal device scan instead.</translation>
         <source>False</source>
         <translation>False</translation>
     </message>
+    <message>
+        <source>NULL</source>
+        <translation>NULL</translation>
+    </message>
 </context>
 <context>
     <name>CloseTool</name>

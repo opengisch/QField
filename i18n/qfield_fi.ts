@@ -367,6 +367,10 @@ Peruuta tehdäksesi suppeampi laiteskannaus.</translation>
         <source>False</source>
         <translation>Epätosi</translation>
     </message>
+    <message>
+        <source>NULL</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>CloseTool</name>

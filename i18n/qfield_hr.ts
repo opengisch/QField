@@ -367,6 +367,10 @@ Otkažite za pokretanje minimalnog skeniranja uređaja.</translation>
         <source>False</source>
         <translation>Netočno</translation>
     </message>
+    <message>
+        <source>NULL</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>CloseTool</name>
