@@ -125,22 +125,22 @@ jobs:
 
       - name: 🍺 Deploy
         env:
-          PLIST_URL: https://sos-ch-dk-2.exo.io/qfieldapks/ci-builds/${{ env.CI_PACKAGE_FILE_BASENAME }}.pList
-          IPA_URL: https://sos-ch-dk-2.exo.io/qfieldapks/ci-builds/${{ env.CI_PACKAGE_FILE_BASENAME }}.ipa
+          PLIST_URL: https://sos-ch-dk-2.exo.io/qfieldapks/ci-builds/qfield-${{ env.CI_PACKAGE_FILE_SUFFIX }}.pList
+          IPA_URL: https://sos-ch-dk-2.exo.io/qfieldapks/ci-builds/qfield-${{ env.CI_PACKAGE_FILE_SUFFIX }}.ipa
         run: |
-          mv /Users/runner/builddir/qfieldIpa/qfield.ipa ${{ env.CI_PACKAGE_FILE_BASENAME }}.ipa
+          mv /Users/runner/builddir/qfieldIpa/qfield.ipa qfield-${{ env.CI_PACKAGE_FILE_SUFFIX }}.ipa
           if [[ -n "${{ secrets.S3CFG }}" ]]
           then
             echo "${{ secrets.S3CFG }}" > ~/.s3cfg
-            envsubst < ${{ github.workspace }}/platform/ios/installation-template.html > ${{ env.CI_PACKAGE_FILE_BASENAME}}.html
-            envsubst < ${{ github.workspace }}/platform/ios/installation-template.plist > ${{ env.CI_PACKAGE_FILE_BASENAME}}.plist
-            s3cmd put --acl-public ${{ env.CI_PACKAGE_FILE_BASENAME }}.html s3://qfieldapks/ci-builds/${{ env.CI_PACKAGE_FILE_BASENAME }}.html
-            s3cmd modify --add-header=content-type:text/html s3://qfieldapks/ci-builds/${{ env.CI_PACKAGE_FILE_BASENAME }}.html
-            s3cmd put --acl-public ${{ env.CI_PACKAGE_FILE_BASENAME }}.pList s3://qfieldapks/ci-builds/${{ env.CI_PACKAGE_FILE_BASENAME }}.pList
-            s3cmd modify --add-header=content-type:application/xml s3://qfieldapks/ci-builds/${{ env.CI_PACKAGE_FILE_BASENAME }}.pList
-            s3cmd put --acl-public ${{ env.CI_PACKAGE_FILE_BASENAME }}.ipa s3://qfieldapks/ci-builds/${{ env.CI_PACKAGE_FILE_BASENAME }}.ipa
+            envsubst < ${{ github.workspace }}/platform/ios/installation-template.html > qfield-${{ env.CI_PACKAGE_FILE_SUFFIX }}.html
+            envsubst < ${{ github.workspace }}/platform/ios/installation-template.plist > qfield-${{ env.CI_PACKAGE_FILE_SUFFIX }}.plist
+            s3cmd put --acl-public qfield-${{ env.CI_PACKAGE_FILE_SUFFIX }}.html s3://qfieldapks/ci-builds/qfield-${{ env.CI_PACKAGE_FILE_SUFFIX }}.html
+            s3cmd modify --add-header=content-type:text/html s3://qfieldapks/ci-builds/qfield-${{ env.CI_PACKAGE_FILE_SUFFIX }}.html
+            s3cmd put --acl-public qfield-${{ env.CI_PACKAGE_FILE_SUFFIX }}.pList s3://qfieldapks/ci-builds/qfield-${{ env.CI_PACKAGE_FILE_SUFFIX }}.pList
+            s3cmd modify --add-header=content-type:application/xml s3://qfieldapks/ci-builds/qfield-${{ env.CI_PACKAGE_FILE_SUFFIX }}.pList
+            s3cmd put --acl-public qfield-${{ env.CI_PACKAGE_FILE_SUFFIX }}.ipa s3://qfieldapks/ci-builds/qfield-${{ env.CI_PACKAGE_FILE_SUFFIX }}.ipa
 
-            echo "Install the ipa from https://sos-ch-dk-2.exo.io/qfieldapks/ci-builds/${{ env.CI_PACKAGE_FILE_BASENAME }}.html"
+            echo "Install the ipa from https://sos-ch-dk-2.exo.io/qfieldapks/ci-builds/qfield-${{ env.CI_PACKAGE_FILE_SUFFIX }}.html"
             rm ~/.s3cfg
           fi
 
@@ -148,13 +148,13 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: qfield-${{ env.TRIPLET }}-${{ env.DEPLOYMENT_TARGET }}.ipa
-          path: ${{ env.CI_PACKAGE_FILE_BASENAME }}.ipa
+          path: qfield-${{ env.CI_PACKAGE_FILE_SUFFIX }}.ipa
 
       - name: 🚀 Release to TestFlight
         uses: Apple-Actions/upload-testflight-build@v1
         if: ${{ env.CI_USE_IOS_DIST_CERT }}
         with:
-          app-path: ${{ env.CI_PACKAGE_FILE_BASENAME }}.ipa
+          app-path: qfield-${{ env.CI_PACKAGE_FILE_SUFFIX }}.ipa
           issuer-id: ${{ secrets.IOS_APPSTORE_ISSUER_ID }}
           api-key-id: ${{ secrets.IOS_APPSTORE_KEY_ID }}
           api-private-key: ${{ secrets.IOS_APPSTORE_PRIVATE_KEY }}
@@ -186,8 +186,8 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           upload_url: ${{ github.event.release.upload_url }}
-          asset_path: ${{ env.CI_PACKAGE_FILE_BASENAME }}.ipa
-          asset_name: ${{ env.CI_PACKAGE_FILE_BASENAME }}-${{ env.TRIPLET }}-${{ env.DEPLOYMENT_TARGET }}.ipa
+          asset_path: qfield-${{ env.CI_PACKAGE_FILE_SUFFIX }}.ipa
+          asset_name: qfield-${{ env.CI_PACKAGE_FILE_SUFFIX }}-${{ env.TRIPLET }}-${{ env.DEPLOYMENT_TARGET }}.ipa
           asset_content_type: application/zip
 
       - name: Upload debug symbols

@@ -272,6 +272,7 @@ QgisMobileapp::QgisMobileapp( QgsApplication *app, QObject *parent )
 
   if ( !dataDirs.isEmpty() )
   {
+#ifndef Q_OS_IOS
     // add extra proj search path to allow copying of transformation grid files
     QStringList searchPaths = QgsProjUtils::searchPaths();
 
@@ -290,6 +291,7 @@ QgisMobileapp::QgisMobileapp( QgsApplication *app, QObject *parent )
       free( newPaths[i] );
     }
     delete[] newPaths;
+#endif
 
 #ifdef Q_OS_ANDROID
     for ( const QString &dataDir : dataDirs )
