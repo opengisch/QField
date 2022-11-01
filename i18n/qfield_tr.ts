@@ -2490,7 +2490,7 @@ Bunun yerine minimum cihaz taraması yapmak için iptal edin.</translation>
     <name>SystemLoader</name>
     <message>
         <source>Preparing QField, this is a one time operation that might take some time</source>
-        <translation>QField hazırlanıyor, bu biraz zaman alabilecek tek seferlik bir işlemdir</translation>
+        <translation type="vanished">QField hazırlanıyor, bu biraz zaman alabilecek tek seferlik bir işlemdir</translation>
     </message>
 </context>
 <context>

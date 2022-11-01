@@ -2504,7 +2504,7 @@ Cancela para facer, porén, unha exploración mínima do dispositivo.</translati
     <name>SystemLoader</name>
     <message>
         <source>Preparing QField, this is a one time operation that might take some time</source>
-        <translation>Preparando QField, esta é unha única operación que pode levar algún tempo</translation>
+        <translation type="vanished">Preparando QField, esta é unha única operación que pode levar algún tempo</translation>
     </message>
 </context>
 <context>

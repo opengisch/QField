@@ -369,7 +369,7 @@ Otkažite za pokretanje minimalnog skeniranja uređaja.</translation>
     </message>
     <message>
         <source>NULL</source>
-        <translation type="unfinished"/>
+        <translation>NULL</translation>
     </message>
 </context>
 <context>
@@ -2502,7 +2502,7 @@ Otkažite da pokrenete minimalno skeniranje uređaja.</translation>
     <name>SystemLoader</name>
     <message>
         <source>Preparing QField, this is a one time operation that might take some time</source>
-        <translation>Priremam QField, ova operacija se radi samo jednom i može potrajati neko vrijeme</translation>
+        <translation type="vanished">Priremam QField, ova operacija se radi samo jednom i može potrajati neko vrijeme</translation>
     </message>
 </context>
 <context>

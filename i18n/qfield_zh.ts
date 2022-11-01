@@ -2502,7 +2502,7 @@ Cancel to make a minimal device scan instead.</source>
     <name>SystemLoader</name>
     <message>
         <source>Preparing QField, this is a one time operation that might take some time</source>
-        <translation>正在准备QField，请稍等</translation>
+        <translation type="vanished">正在准备QField，请稍等</translation>
     </message>
 </context>
 <context>

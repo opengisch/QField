@@ -2503,7 +2503,7 @@ Peruuta tehdäksesi suppeampi laiteskannaus.</translation>
     <name>SystemLoader</name>
     <message>
         <source>Preparing QField, this is a one time operation that might take some time</source>
-        <translation>Valmistellaan QFieldiä, tämä on kertaluontoinen operaatio, joka voi viedä hieman aikaa</translation>
+        <translation type="vanished">Valmistellaan QFieldiä, tämä on kertaluontoinen operaatio, joka voi viedä hieman aikaa</translation>
     </message>
 </context>
 <context>

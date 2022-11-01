@@ -2509,7 +2509,7 @@ Annullare per eseguire una scansione veloce del dispositivo.</translation>
     <name>SystemLoader</name>
     <message>
         <source>Preparing QField, this is a one time operation that might take some time</source>
-        <translation>Preparazione di QField, questa è un&apos;operazione una tantum che potrebbe richiedere del tempo</translation>
+        <translation type="vanished">Preparazione di QField, questa è un&apos;operazione una tantum che potrebbe richiedere del tempo</translation>
     </message>
 </context>
 <context>

@@ -2496,7 +2496,7 @@ Cancele para fazer uma verificação mínima.</translation>
     <name>SystemLoader</name>
     <message>
         <source>Preparing QField, this is a one time operation that might take some time</source>
-        <translation>Preparando o QField, esta é uma operação única que pode levar algum tempo</translation>
+        <translation type="vanished">Preparando o QField, esta é uma operação única que pode levar algum tempo</translation>
     </message>
 </context>
 <context>

@@ -2504,7 +2504,7 @@ Cancel to make a minimal device scan instead.</source>
     <name>SystemLoader</name>
     <message>
         <source>Preparing QField, this is a one time operation that might take some time</source>
-        <translation>Подготовка QField, это одноразовая операция, которая займёт некоторое время</translation>
+        <translation type="vanished">Подготовка QField, это одноразовая операция, которая займёт некоторое время</translation>
     </message>
 </context>
 <context>

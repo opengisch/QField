@@ -15,7 +15,7 @@
     </message>
     <message>
         <source>Documentation</source>
-        <translation type="unfinished"/>
+        <translation>Dokumentace</translation>
     </message>
     <message>
         <source>Links Menu</source>
@@ -114,11 +114,11 @@
     <name>BarcodeReader</name>
     <message>
         <source>Code Reader</source>
-        <translation type="unfinished"/>
+        <translation>Čtečka kódů</translation>
     </message>
     <message>
         <source>Center your camera on a code</source>
-        <translation type="unfinished"/>
+        <translation>Zaměřte kameru doprostřed kódu</translation>
     </message>
 </context>
 <context>
@@ -141,15 +141,15 @@
     </message>
     <message numerus="yes">
         <source>%n device(s) found</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>%n zařízení nalezeno</numerusform><numerusform>%n zařízení nalezeny</numerusform><numerusform>%n zařízení nalezeno</numerusform><numerusform>%n zařízení nalezeno</numerusform></translation>
     </message>
     <message>
         <source>Scanning canceled</source>
-        <translation type="unfinished"/>
+        <translation>Skenování zrušeno</translation>
     </message>
     <message>
         <source>Scan</source>
-        <translation type="unfinished"/>
+        <translation>Skenovat</translation>
     </message>
     <message>
         <source>Make a full service discovery</source>
@@ -162,15 +162,15 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Connected to %1</source>
-        <translation type="unfinished"/>
+        <translation>Připojeno k %1</translation>
     </message>
     <message>
         <source>Connect to %1</source>
-        <translation type="unfinished"/>
+        <translation>Připojit k %1</translation>
     </message>
     <message>
         <source>Connect  to %1</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Připojit k %1</translation>
     </message>
     <message>
         <source>Connecting to %1</source>
@@ -208,11 +208,11 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Could not find the remote host</source>
-        <translation type="unfinished"/>
+        <translation>Vzdálený hostitel nenalezen</translation>
     </message>
     <message>
         <source>Could not find the service UUID on remote host</source>
-        <translation type="unfinished"/>
+        <translation>Nenalezeno servisní UUID na vzdáleném hostiteli</translation>
     </message>
     <message>
         <source>Attempt to read or write from socket returned an error</source>
@@ -232,7 +232,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Unknown error</source>
-        <translation type="unfinished"/>
+        <translation>Neznámá chyba</translation>
     </message>
 </context>
 <context>
@@ -297,7 +297,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Project bookmarks cannot be edited</source>
-        <translation type="unfinished"/>
+        <translation>Záložka projektu nemůže být editována</translation>
     </message>
 </context>
 <context>
@@ -368,7 +368,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>NULL</source>
-        <translation type="unfinished"/>
+        <translation>NULL</translation>
     </message>
 </context>
 <context>
@@ -715,11 +715,11 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <name>FillRingToolBar</name>
     <message>
         <source>The ring is not closed</source>
-        <translation type="unfinished"/>
+        <translation>Kruh není uzavřen</translation>
     </message>
     <message>
         <source>The ring is not valid</source>
-        <translation type="unfinished"/>
+        <translation>Kruh není validní</translation>
     </message>
     <message>
         <source>The ring crosses existing rings (it is not disjoint)</source>
@@ -735,7 +735,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Fill ring</source>
-        <translation type="unfinished"/>
+        <translation>Vyplnit kruh</translation>
     </message>
     <message>
         <source>Would you like to fill the ring with a new polygon?</source>
@@ -788,11 +788,11 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Go to %1%2 %3%4 (Map CRS, %5)</source>
-        <translation type="unfinished"/>
+        <translation>Jít na %1%2 %3%4 (Mapa CRS, %5)</translation>
     </message>
     <message>
         <source>Go to %1°N %2°E (%3)</source>
-        <translation type="unfinished"/>
+        <translation>Jít na  %1°N %2°E (%3)</translation>
     </message>
 </context>
 <context>
@@ -853,7 +853,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Opacity</source>
-        <translation type="unfinished"/>
+        <translation>Průhlednost</translation>
     </message>
     <message>
         <source>Zoom to group</source>
@@ -1320,11 +1320,11 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Fix</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Oprava</translation>
     </message>
     <message>
         <source>Quality</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Kvalita</translation>
     </message>
 </context>
 <context>
@@ -1383,11 +1383,11 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Fix</source>
-        <translation type="unfinished"/>
+        <translation>Oprava</translation>
     </message>
     <message>
         <source>Quality</source>
-        <translation type="unfinished"/>
+        <translation>Kvalita</translation>
     </message>
 </context>
 <context>
@@ -1420,7 +1420,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Server Error.</source>
-        <translation type="unfinished"/>
+        <translation>Chyba serveru</translation>
     </message>
     <message>
         <source>Network Error.</source>
@@ -1436,15 +1436,15 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Wrong username or password</source>
-        <translation type="unfinished"/>
+        <translation>Neplatné uživatelské jméno nebo heslo</translation>
     </message>
     <message>
         <source>Session expired</source>
-        <translation type="unfinished"/>
+        <translation>Platnost přihlášení vypršelo</translation>
     </message>
     <message>
         <source>Login temporary unavailable</source>
-        <translation type="unfinished"/>
+        <translation>Přihlášení  dočasně nedostupné</translation>
     </message>
 </context>
 <context>
@@ -1462,16 +1462,16 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <name>QFieldCloudLogin</name>
     <message>
         <source>Failed to login</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Přihlášení selhalo</translation>
     </message>
     <message>
         <source>Failed to sign in</source>
-        <translation type="unfinished"/>
+        <translation>Registrace selhala</translation>
     </message>
     <message>
         <source>Server URL
 (Leave empty to use the default server)</source>
-        <translation type="unfinished"/>
+        <translation>URL server (ponech prázdné pro výchozí server)</translation>
     </message>
     <message>
         <source>Username or email</source>
@@ -1483,23 +1483,23 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Sign out</source>
-        <translation type="unfinished"/>
+        <translation>Odhlásit</translation>
     </message>
     <message>
         <source>Signing in, please wait</source>
-        <translation type="unfinished"/>
+        <translation>Registruji, prosím čekejte</translation>
     </message>
     <message>
         <source>Sign in</source>
-        <translation type="unfinished"/>
+        <translation>Registrovat</translation>
     </message>
     <message>
         <source>New user?</source>
-        <translation type="unfinished"/>
+        <translation>Nový uživatel?</translation>
     </message>
     <message>
         <source>Register an account</source>
-        <translation type="unfinished"/>
+        <translation>Registrovat účet</translation>
     </message>
     <message>
         <source>Logout</source>
@@ -1507,11 +1507,11 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Logging in, please wait</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Přihlašuji, prosím čekejte</translation>
     </message>
     <message>
         <source>Login</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Přihlásit</translation>
     </message>
     <message>
         <source>The easiest way to transfer you project from QGIS to your devices!</source>
@@ -1545,7 +1545,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <name>QFieldCloudPopup</name>
     <message>
         <source>QFieldCloud</source>
-        <translation type="unfinished"/>
+        <translation>QFieldCloud</translation>
     </message>
     <message>
         <source>The current project is not stored on QFieldCloud.&lt;br&gt;&lt;br&gt;</source>
@@ -1565,7 +1565,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Connecting to the cloud.</source>
-        <translation type="unfinished"/>
+        <translation>Připojuji do cloudu</translation>
     </message>
     <message>
         <source>Greetings &lt;strong&gt;%1&lt;/strong&gt;.</source>
@@ -1577,7 +1577,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Downloading %1%…</source>
-        <translation type="unfinished"/>
+        <translation>Stahuji %1%…</translation>
     </message>
     <message>
         <source>QFieldCloud is preparing the latest data just for you. This might take some time, please hold tight…</source>
@@ -1597,7 +1597,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>A network error has occured, please try again.</source>
-        <translation type="unfinished"/>
+        <translation>Nastala chyba sítě, prosím opakujte.</translation>
     </message>
     <message numerus="yes">
         <source>There is/are %n local change(s)</source>
@@ -1605,7 +1605,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>There are no local changes</source>
-        <translation type="unfinished"/>
+        <translation>Nejsou lokální změny</translation>
     </message>
     <message>
         <source>The locally stored cloud project has been corrupted</source>
@@ -1748,7 +1748,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>aborted</source>
-        <translation type="unfinished"/>
+        <translation>zrušeno</translation>
     </message>
     <message>
         <source>project(%1) trigger response refresh not contain all the expected keys: name(string), owner(string), description(string), user_role(string), is_public(bool), can_repackage(bool), needs_repackaging(bool)</source>
@@ -1857,7 +1857,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Connecting to the cloud.</source>
-        <translation type="unfinished"/>
+        <translation>Připojuji do cloudu</translation>
     </message>
     <message>
         <source>Greetings &lt;strong&gt;%1&lt;/strong&gt;.</source>
@@ -2151,11 +2151,11 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Scanning canceled</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Skenování zrušeno</translation>
     </message>
     <message>
         <source>Scan</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Skenovat</translation>
     </message>
     <message>
         <source>Make a full service discovery</source>
@@ -2168,11 +2168,11 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Connected to %1</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Připojeno k %1</translation>
     </message>
     <message>
         <source>Connect  to %1</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Připojit k %1</translation>
     </message>
     <message>
         <source>Connecting to %1</source>

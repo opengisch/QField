@@ -46,4 +46,5 @@ Suositeltavaa on, että valitset peruuta, katkaiset USB-kaapeliyhteydet ja käyn
     <string name="delete_confirm_title">Poiston vahvistus</string>
     <string name="delete_confirm">Poista</string>
     <string name="delete_cancel">Peruuta</string>
+    <string name="storage_information_dismiss">Luen myöhemmin</string>
     </resources>

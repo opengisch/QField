@@ -2499,7 +2499,7 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
     <name>SystemLoader</name>
     <message>
         <source>Preparing QField, this is a one time operation that might take some time</source>
-        <translation>Przygotowywanie QField, jest to operacja jednorazowa, która może trochę potrwać.</translation>
+        <translation type="vanished">Przygotowywanie QField, jest to operacja jednorazowa, która może trochę potrwać.</translation>
     </message>
 </context>
 <context>

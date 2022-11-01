@@ -2499,7 +2499,7 @@ Cancel to make a minimal device scan instead.</source>
     <name>SystemLoader</name>
     <message>
         <source>Preparing QField, this is a one time operation that might take some time</source>
-        <translation>QField előkészítése, ezt egy egyszeri művelet, mely több időbe telhet</translation>
+        <translation type="vanished">QField előkészítése, ezt egy egyszeri művelet, mely több időbe telhet</translation>
     </message>
 </context>
 <context>

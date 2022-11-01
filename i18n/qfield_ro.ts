@@ -2508,7 +2508,7 @@ Anulați pentru a efectua o scanare minimă a dispozitivului.</translation>
     <name>SystemLoader</name>
     <message>
         <source>Preparing QField, this is a one time operation that might take some time</source>
-        <translation>QField se încarcă. Această operațiune se face o singură dată și poate dura cateva minute</translation>
+        <translation type="vanished">QField se încarcă. Această operațiune se face o singură dată și poate dura cateva minute</translation>
     </message>
 </context>
 <context>

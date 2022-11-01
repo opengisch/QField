@@ -2504,7 +2504,7 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
     <name>SystemLoader</name>
     <message>
         <source>Preparing QField, this is a one time operation that might take some time</source>
-        <translation>QField voorbereiden, dit is een eenmalige operatie die enige tijd kan duren</translation>
+        <translation type="vanished">QField voorbereiden, dit is een eenmalige operatie die enige tijd kan duren</translation>
     </message>
 </context>
 <context>
