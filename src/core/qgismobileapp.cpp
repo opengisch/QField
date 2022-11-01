@@ -272,7 +272,28 @@ QgisMobileapp::QgisMobileapp( QgsApplication *app, QObject *parent )
 
   if ( !dataDirs.isEmpty() )
   {
-#ifndef Q_OS_IOS
+    pj_acquire_lock();
+    QStringList paths;
+    char *buf = nullptr;
+    auto ctx = pj_get_default_ctx();
+    if (ctx->search_paths.empty()) {
+        const auto searchpaths = pj_get_default_searchpaths(ctx);
+        for( const auto& path: searchpaths ) {
+            buf = path_append(buf, path.c_str(), &buf_size);
+        }
+    } else {
+        for (const auto &path : ctx->search_paths) {
+            buf = path_append(buf, path.c_str(), &buf_size);
+        }
+    }
+#ifdef Q_OS_WIN
+    paths = path.split( ';' );
+#else
+    paths = path.split( ':' );
+#endif
+    free(buf);
+    pj_release_lock ();
+
     // add extra proj search path to allow copying of transformation grid files
     QStringList searchPaths = QgsProjUtils::searchPaths();
 
@@ -291,7 +312,6 @@ QgisMobileapp::QgisMobileapp( QgsApplication *app, QObject *parent )
       free( newPaths[i] );
     }
     delete[] newPaths;
-#endif
 
 #ifdef Q_OS_ANDROID
     for ( const QString &dataDir : dataDirs )
