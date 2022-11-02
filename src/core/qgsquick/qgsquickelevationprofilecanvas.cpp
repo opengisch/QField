@@ -237,6 +237,11 @@ void QgsQuickElevationProfileCanvas::setupLayerConnections( QgsMapLayer *layer, 
   }
 }
 
+bool QgsQuickElevationProfileCanvas::isRendering() const
+{
+  return mCurrentJob && mCurrentJob->isActive();
+}
+
 void QgsQuickElevationProfileCanvas::refresh()
 {
   if ( !mCrs.isValid() || !mProject || mProfileCurve.isEmpty() )
@@ -284,6 +289,7 @@ void QgsQuickElevationProfileCanvas::refresh()
   mPlotItem->setRenderer( mCurrentJob );
 
   emit activeJobCountChanged( 1 );
+  emit isRenderingChanged();
 }
 
 void QgsQuickElevationProfileCanvas::generationFinished()
@@ -322,6 +328,10 @@ void QgsQuickElevationProfileCanvas::generationFinished()
     mForceRegenerationAfterCurrentJobCompletes = false;
     mCurrentJob->invalidateAllRefinableSources();
     scheduleDeferredRegeneration();
+  }
+  else
+  {
+    emit isRenderingChanged();
   }
 }
 

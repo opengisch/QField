@@ -41,6 +41,23 @@ Item {
     height: elevationProfile.height
 
     tolerance: crs.isGeographic ? 0.00005 : 5
+
+    onIsRenderingChanged: {
+      console.log(elevationProfileCanvas.isRendering);
+    }
+  }
+
+  BusyIndicator {
+    id: busyIndicator
+    anchors {
+      left: parent.left
+      leftMargin: 5
+      top: parent.top
+      topMargin: 5
+    }
+    width: 58
+    height: width
+    running: elevationProfileCanvas.isRendering
   }
 
   Text {
