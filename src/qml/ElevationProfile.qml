@@ -41,35 +41,58 @@ Item {
     height: elevationProfile.height
 
     tolerance: crs.isGeographic ? 0.00005 : 5
-
-    onIsRenderingChanged: {
-      console.log(elevationProfileCanvas.isRendering);
-    }
   }
 
-  BusyIndicator {
+  ProgressBar {
     id: busyIndicator
-    anchors {
-      left: parent.left
-      leftMargin: 5
-      top: parent.top
-      topMargin: 5
-    }
-    width: 58
-    height: width
-    running: elevationProfileCanvas.isRendering
+    anchors.top: parent.top
+    anchors.left: parent.left
+    width: parent.width
+    height: 6
+    value: 50
+    indeterminate: elevationProfileCanvas.isRendering ? true : false
+
+    state: elevationProfileCanvas.isRendering ? "on" : "off"
+
+    visible: opacity > 0
+
+    states: [
+        State { name: 'on'
+                PropertyChanges { target: busyIndicator; opacity: 1.0 }},
+        State { name: 'off'
+                PropertyChanges { target: busyIndicator; opacity: 0.0 }}
+    ]
+    transitions: [
+      Transition {
+        from: "off"
+        to: "on"
+        SequentialAnimation {
+          NumberAnimation { target: busyIndicator; property: 'opacity'; duration: 100; }
+        }
+      },
+      Transition {
+        from: "on"
+        to: "off"
+        SequentialAnimation {
+          PauseAnimation { duration: 100 }
+          NumberAnimation { target: busyIndicator; property: 'opacity'; duration: 200; }
+        }
+      }
+    ]
   }
 
   Text {
     id: instrutionLabel
-    visible: elevationProfileCanvas.profileCurve.isNull
+    visible: elevationProfileCanvas.isRendering || elevationProfileCanvas.profileCurve.isNull
     anchors.centerIn: parent
     width: parent.width
     color: Theme.gray
     font: Theme.tinyFont
     horizontalAlignment: Text.AlignHCenter
     wrapMode: Text.WordWrap
-    text: qsTr('Digitize a path to render the elevation profile')
+    text: elevationProfileCanvas.isRendering
+          ? qsTr('Rendering elevation profile')
+          : qsTr('Digitize a path to render the elevation profile')
     style: Text.Outline
     styleColor: "white"
   }
