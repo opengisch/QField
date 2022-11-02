@@ -21,6 +21,7 @@
 #include <unistd.h>
 #endif
 #include <proj.h>
+#include <proj_internal.h>
 #include <stdlib.h>
 
 // use GDAL VSI mechanism
@@ -274,24 +275,21 @@ QgisMobileapp::QgisMobileapp( QgsApplication *app, QObject *parent )
   {
     pj_acquire_lock();
     QStringList paths;
-    char *buf = nullptr;
     auto ctx = pj_get_default_ctx();
-    if (ctx->search_paths.empty()) {
-        const auto searchpaths = pj_get_default_searchpaths(ctx);
-        for( const auto& path: searchpaths ) {
-            buf = path_append(buf, path.c_str(), &buf_size);
-        }
-    } else {
-        for (const auto &path : ctx->search_paths) {
-            buf = path_append(buf, path.c_str(), &buf_size);
-        }
+    if ( ctx->search_paths.empty() )
+    {
+      const auto searchpaths = pj_get_default_searchpaths(ctx);
+      for( const auto& path: searchpaths )
+      {
+        paths.append( QString::fromUtf8( path.c_str() ) );
+      }
     }
-#ifdef Q_OS_WIN
-    paths = path.split( ';' );
-#else
-    paths = path.split( ':' );
-#endif
-    free(buf);
+    else
+    {
+      for ( const auto &path : ctx->search_paths ) {
+        paths.append( QString::fromUtf8( path.c_str() ) );
+      }
+    }
     pj_release_lock ();
 
     // add extra proj search path to allow copying of transformation grid files
