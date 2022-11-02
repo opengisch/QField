@@ -37,11 +37,11 @@
     </message>
     <message>
         <source>This grid is part of the “&lt;i&gt;%1&lt;/i&gt;” package, available for download from &lt;a href=&quot;%2&quot;&gt;%2&lt;/a&gt;.</source>
-        <translation type="unfinished"/>
+        <translation>Mřížka je součástí balíčku “&lt;i&gt;%1&lt;/i&gt;”, dostupného ke stažení z &lt;a href=&quot;%2&quot;&gt;%2&lt;/a&gt;.</translation>
     </message>
     <message>
         <source>This grid is available for download from &lt;a href=&quot;%1&quot;&gt;%1&lt;/a&gt;.</source>
-        <translation type="unfinished"/>
+        <translation>Mřížka je dostupná ke stažení z &lt;a href=&quot;%1&quot;&gt;%1.</translation>
     </message>
     <message>
         <source>projection</source>
@@ -53,23 +53,23 @@
     </message>
     <message>
         <source>This grid is part of the &lt;i&gt;%1&lt;/i&gt; package, available for download from &lt;a href=&quot;%2&quot;&gt;%2&lt;/a&gt;.</source>
-        <translation type="unfinished"/>
+        <translation>Mřížka je součástí balíčku &lt;i&gt;%1&lt;/i&gt;, dostupného ke stažení z &lt;a href=&quot;%2&quot;&gt;%2&lt;/a&gt;.</translation>
     </message>
     <message>
         <source>&lt;p&gt;Current transform “&lt;i&gt;%1&lt;/i&gt;” has an accuracy of %2 meters, while the preferred transformation “&lt;i&gt;%3&lt;/i&gt;” has accuracy %4 meters.&lt;/p&gt;</source>
-        <translation type="unfinished"/>
+        <translation>&lt;p&gt;Aktuální transformace “&lt;i&gt;%1&lt;/i&gt;” má přesnost %2 metrů, zatímco preferovaná transformace “&lt;i&gt;%3&lt;/i&gt;” má přesnost %4 metrů.&lt;/p&gt;</translation>
     </message>
     <message>
         <source>&lt;p&gt;Current transform “&lt;i&gt;%1&lt;/i&gt;” has an unknown accuracy, while the preferred transformation “&lt;i&gt;%2&lt;/i&gt;” has accuracy %3 meters.&lt;/p&gt;</source>
-        <translation type="unfinished"/>
+        <translation>&lt;p&gt;Aktuální transformace “&lt;i&gt;%1&lt;/i&gt;” má neznámou přesnost, zatímco preferovaná transformace “&lt;i&gt;%2&lt;/i&gt;” má přesnost %3 metrů.&lt;/p&gt;</translation>
     </message>
     <message>
         <source>&lt;p&gt;The preferred transform between &lt;i&gt;%1&lt;/i&gt; and &lt;i&gt;%2&lt;/i&gt; is not available for use on the system.&lt;/p&gt;</source>
-        <translation type="unfinished"/>
+        <translation>&lt;p&gt;Preferovaná transformace mezi &lt;i&gt;%1&lt;/i&gt; a &lt;i&gt;%2&lt;/i&gt; není dostupná pro použití na systému.&lt;/p&gt;</translation>
     </message>
     <message>
         <source>No transform is available between &lt;i&gt;%1&lt;/i&gt; and &lt;i&gt;%2&lt;/i&gt;.&lt;p style=&quot;color: red&quot;&gt;%3&lt;/p&gt;</source>
-        <translation type="unfinished"/>
+        <translation>Není dostupná žádná transformace mezi &lt;i&gt;%1&lt;/i&gt; a &lt;i&gt;%2&lt;/i&gt;.&lt;p style=&quot;color: red&quot;&gt;%3&lt;/p&gt;</translation>
     </message>
     <message>
         <source>Cannot use project transform between %1 and %2</source>
@@ -125,11 +125,11 @@
     <name>BluetoothDeviceChooser</name>
     <message>
         <source>Positioning device in use:</source>
-        <translation type="unfinished"/>
+        <translation>Používaná zařízení určení polohy: </translation>
     </message>
     <message>
         <source>Scanning for paired devices</source>
-        <translation type="unfinished"/>
+        <translation>Vyhledávání spárovaných zařízení</translation>
     </message>
     <message>
         <source>Scanning failed: %1</source>
@@ -153,12 +153,13 @@
     </message>
     <message>
         <source>Make a full service discovery</source>
-        <translation type="unfinished"/>
+        <translation>Spustit úplné vyhledání služeb</translation>
     </message>
     <message>
         <source>A full device scan can take longer. You really want to do it?
 Cancel to make a minimal device scan instead.</source>
-        <translation type="unfinished"/>
+        <translation>Plné skenování zařízení může trvat déle. Opravdu to chcete?
+Zrušte pro jen minimální skenování zařízení. </translation>
     </message>
     <message>
         <source>Connected to %1</source>
@@ -216,11 +217,11 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Attempt to read or write from socket returned an error</source>
-        <translation type="unfinished"/>
+        <translation>Pokus o čtení nebo zápis z/do socketu vrátil chybu</translation>
     </message>
     <message>
         <source>The protocol is not supported on this platform</source>
-        <translation type="unfinished"/>
+        <translation>Protokol není na této platformě podporován</translation>
     </message>
     <message>
         <source>An operation was attempted while the socket was in a state that did not permit it</source>
@@ -228,7 +229,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>The remote host closed the connection</source>
-        <translation type="unfinished"/>
+        <translation>Vzdálený hostitel ukončil spojení</translation>
     </message>
     <message>
         <source>Unknown error</source>
@@ -1172,7 +1173,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Dist.</source>
-        <translation type="unfinished"/>
+        <translation>Vzdál.</translation>
     </message>
     <message>
         <source>N/A</source>
@@ -1241,7 +1242,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>All Supported Files</source>
-        <translation type="unfinished"/>
+        <translation>Všechny podporované soubory</translation>
     </message>
     <message>
         <source>QGIS Project Files</source>
@@ -1249,7 +1250,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Vector Datasets</source>
-        <translation type="unfinished"/>
+        <translation>Vektorové datové sady</translation>
     </message>
     <message>
         <source>Raster Datasets</source>
@@ -1394,7 +1395,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <name>PositioningPreciseView</name>
     <message>
         <source>Dist.</source>
-        <translation type="unfinished"/>
+        <translation>Vzdál.</translation>
     </message>
     <message>
         <source>Positioning accuracy too low for this precision level</source>
@@ -1515,7 +1516,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>The easiest way to transfer you project from QGIS to your devices!</source>
-        <translation type="unfinished"/>
+        <translation>Nejsnadnější způsob, jak přenést Váš projekt z QGISu do Vašeho zařízení!</translation>
     </message>
     <message>
         <source>Learn more about QFieldCloud</source>
@@ -1593,7 +1594,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>A server error has occured, please try again.</source>
-        <translation type="unfinished"/>
+        <translation>Nastala chyba serveru, prosím zkuste znovu.</translation>
     </message>
     <message>
         <source>A network error has occured, please try again.</source>
@@ -1849,7 +1850,7 @@ While you can still view and use the project, it is strongly recommended to rese
     <name>QFieldCloudScreen</name>
     <message>
         <source>QFieldCloud Projects</source>
-        <translation type="unfinished"/>
+        <translation>Projekty QFieldCloud</translation>
     </message>
     <message>
         <source>Disconnected from the cloud.</source>
@@ -1889,7 +1890,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Downloading error. </source>
-        <translation type="unfinished"/>
+        <translation>Chyba při stahování.</translation>
     </message>
     <message>
         <source>Uploading error. </source>
@@ -1913,11 +1914,11 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Downloading project %1</source>
-        <translation type="unfinished"/>
+        <translation>Stahuji projekt %1</translation>
     </message>
     <message>
         <source>Download Project</source>
-        <translation type="unfinished"/>
+        <translation>Stáhnout projekt</translation>
     </message>
     <message>
         <source>Open Project</source>
@@ -2051,7 +2052,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Show bookmarks</source>
-        <translation type="unfinished"/>
+        <translation>Zobrazit záložky</translation>
     </message>
     <message>
         <source>When switched on, user&apos;s saved and currently opened project bookmarks will be displayed on the map.</source>
@@ -2075,11 +2076,11 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Dim screen when idling</source>
-        <translation type="unfinished"/>
+        <translation>Při nečinnosti ztmavit obrazovku</translation>
     </message>
     <message>
         <source>If enabled, the screen brightness will be dimmed after 20 seconds of inactivity to preserve battery.</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Při zaškrtnutí bude pro úsporu baterie jas obrazovky snížen po 20 sekundách nečinnosti</translation>
     </message>
     <message>
         <source>Consider mouse as a touchscreen device</source>
@@ -2091,7 +2092,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Send anonymized metrics</source>
-        <translation type="unfinished"/>
+        <translation>Odeslat anonymizované metriky</translation>
     </message>
     <message>
         <source>If enabled, anonymized metrics will be collected and sent to help improve QField for everyone.</source>
@@ -2115,7 +2116,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>User interface language:</source>
-        <translation type="unfinished"/>
+        <translation>Jazyk uživatelského rozhraní:</translation>
     </message>
     <message>
         <source>To apply the selected user interface language, QField needs to completely shutdown and restart.</source>
@@ -2131,11 +2132,11 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Positioning device in use:</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Používaná polohovací zařízení: </translation>
     </message>
     <message>
         <source>Scanning for paired devices</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Vyhledávání spárovaných zařízení</translation>
     </message>
     <message>
         <source>Scanning failed: %1</source>
@@ -2159,12 +2160,13 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Make a full service discovery</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Spustit úplné vyhledání služeb</translation>
     </message>
     <message>
         <source>A full device scan can take longer. You really want to do it?
 Cancel to make a minimal device scan instead.</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Plné skenování zařízení může trvat déle. Opravdu to chcete?
+Zrušte pro jen minimální skenování zařízení. </translation>
     </message>
     <message>
         <source>Connected to %1</source>
