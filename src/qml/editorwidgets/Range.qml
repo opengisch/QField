@@ -74,7 +74,10 @@ EditorWidgetBase {
           bgcolor: "white"
           visible: enabled
 
-          onPressed: {
+          onClicked: {
+              decreaseValue();
+          }
+          onDoubleClicked: {
               decreaseValue();
           }
           onPressAndHold: {
@@ -102,7 +105,10 @@ EditorWidgetBase {
           bgcolor: "white"
           visible: enabled
 
-          onPressed: {
+          onClicked: {
+              increaseValue();
+          }
+          onDoubleClicked: {
               increaseValue();
           }
           onPressAndHold: {
