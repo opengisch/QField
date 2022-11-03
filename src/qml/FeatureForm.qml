@@ -202,11 +202,18 @@ Page {
               id: contentView
 
               anchors.fill: parent
-              ScrollBar.horizontal.policy: ScrollBar.AlwaysOff
-              ScrollBar.vertical.policy: ScrollBar.AsNeeded
               contentWidth: content.width
               contentHeight: content.height
               clip: true
+
+              ScrollBar.horizontal.policy: ScrollBar.AlwaysOff
+              ScrollBar.vertical.policy: content.height > contentView.height ? ScrollBar.AsNeeded : ScrollBar.AlwaysOff
+              ScrollBar.vertical.width: 6
+              ScrollBar.vertical.contentItem: Rectangle {
+                implicitWidth: 6
+                implicitHeight: 25
+                color: Theme.mainColor
+              }
 
               /**
               * The main form content area
