@@ -189,6 +189,17 @@ Rectangle {
 
     clip: true
 
+    ScrollBar.vertical: ScrollBar {
+      width: 6
+      policy: globalFeaturesList.childrenRect.height > globalFeaturesList.height ? ScrollBar.AsNeeded : ScrollBar.AlwaysOff
+
+      contentItem: Rectangle {
+        implicitWidth: 6
+        implicitHeight: 25
+        color: Theme.mainColor
+      }
+    }
+
     section.property: "layerName"
     section.labelPositioning: ViewSection.CurrentLabelAtStart | ViewSection.InlineLabels
     section.delegate: Component {

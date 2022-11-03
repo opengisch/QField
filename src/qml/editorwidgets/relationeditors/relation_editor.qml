@@ -75,11 +75,11 @@ EditorWidgetBase {
           highlightRangeMode: ListView.ApplyRange
 
           ScrollBar.vertical: ScrollBar {
-            width: 10
+            width: 6
             policy: ScrollBar.AlwaysOn
 
             contentItem: Rectangle {
-              implicitWidth: 10
+              implicitWidth: 6
               implicitHeight: itemHeight
               color: Theme.mainColor
             }
