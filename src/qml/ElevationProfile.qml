@@ -91,7 +91,7 @@ Item {
     horizontalAlignment: Text.AlignHCenter
     wrapMode: Text.WordWrap
     text: elevationProfileCanvas.isRendering
-          ? qsTr('Rendering elevation profile')
+          ? qsTr('Rendering elevation profile…')
           : qsTr('Digitize a path to render the elevation profile')
     style: Text.Outline
     styleColor: "white"
