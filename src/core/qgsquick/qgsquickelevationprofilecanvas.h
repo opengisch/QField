@@ -39,6 +39,14 @@ class QgsQuickElevationProfileCanvas : public QQuickItem
 
     Q_PROPERTY( double tolerance READ tolerance WRITE setTolerance NOTIFY toleranceChanged )
 
+    /**
+     * The isRendering property is set to true while a rendering job is pending for this
+     * elevation profile canvas. It can be used to show a notification icon about an
+     * ongoing rendering job.
+     * This is a readonly property.
+     */
+    Q_PROPERTY( bool isRendering READ isRendering NOTIFY isRenderingChanged )
+
   public:
     /**
      * Constructor for QgsElevationProfileCanvas, with the specified \a parent widget.
@@ -49,6 +57,9 @@ class QgsQuickElevationProfileCanvas : public QQuickItem
     QSGNode *updatePaintNode( QSGNode *oldNode, QQuickItem::UpdatePaintNodeData * ) override;
 
     void cancelJobs();
+
+    //! \copydoc QgsQuickElevationProfileCanvas::isRendering
+    bool isRendering() const;
 
     /**
      * Triggers a complete regeneration of the profile, causing the profile extraction to perform in the
@@ -173,6 +184,9 @@ class QgsQuickElevationProfileCanvas : public QQuickItem
 
     //! Emitted when the tolerance changes.
     void toleranceChanged();
+
+    //! \copydoc QgsQuickMapCanvasMap::isRendering
+    void isRenderingChanged();
 
   protected:
 #if QT_VERSION < QT_VERSION_CHECK( 6, 0, 0 )
