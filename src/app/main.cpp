@@ -24,6 +24,7 @@
 
 #include <qgsapplication.h>
 #include <qgslogger.h>
+#include <qgsprojutils.h>
 
 #ifdef WITH_SPIX
 #include <Spix/AnyRpcServer.h>
@@ -112,25 +113,36 @@ int main( int argc, char **argv )
     app.setFont( QFont( qfieldFontName, qfieldFontSize ) );
   }
 
+  QStringList projSearchPaths = QgsProjUtils::searchPaths();
 #ifdef RELATIVE_PREFIX_PATH
   qputenv( "GDAL_DATA", QDir::toNativeSeparators( PlatformUtilities::instance()->systemSharedDataLocation() + "/gdal" ).toLocal8Bit() );
-  const QString projPath( QDir::toNativeSeparators( PlatformUtilities::instance()->systemSharedDataLocation() + "/proj" ) );
+  projSearchPaths << QDir::toNativeSeparators( PlatformUtilities::instance()->systemSharedDataLocation() + "/proj" );
+  qInfo() << "Proj path: " << projSearchPaths.constLast();
 #else
   app.setPrefixPath( QGIS_PREFIX_PATH, true );
-  const QString projPath;
+  qInfo() << "Proj path: {System}";
 #endif
 
-  // cppcheck-suppress knownConditionTrueFalse
-  // cppcheck-suppress reademptycontainer
-  if ( !projPath.isNull() )
+  // add extra proj search path to allow copying of transformation grid files
+  const QStringList dataDirs = PlatformUtilities::instance()->appDataDirs();
+  for ( const QString &dataDir : dataDirs )
   {
-    qInfo() << "Proj path: " << projPath;
-    const char *projPaths[] { projPath.toUtf8().constData() };
-    proj_context_set_search_paths( nullptr, 1, projPaths );
+    projSearchPaths << QStringLiteral( "%1/proj/" ).arg( dataDir );
   }
-  else
+
+  if ( !projSearchPaths.isEmpty() )
   {
-    qInfo() << "Proj path: {System}";
+    char **newPaths = new char *[projSearchPaths.count()];
+    for ( int i = 0; i < projSearchPaths.count(); ++i )
+    {
+      newPaths[i] = strdup( projSearchPaths.at( i ).toUtf8().constData() );
+    }
+    proj_context_set_search_paths( nullptr, projSearchPaths.count(), newPaths );
+    for ( int i = 0; i < projSearchPaths.count(); ++i )
+    {
+      free( newPaths[i] );
+    }
+    delete[] newPaths;
   }
 
 #if WITH_SENTRY

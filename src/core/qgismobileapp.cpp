@@ -20,7 +20,6 @@
 #ifndef _MSC_VER
 #include <unistd.h>
 #endif
-#include <proj.h>
 #include <stdlib.h>
 
 // use GDAL VSI mechanism
@@ -159,7 +158,6 @@
 #include <qgsprojectstylesettings.h>
 #endif
 #include <qgsprojectviewsettings.h>
-#include <qgsprojutils.h>
 #include <qgsrasterlayer.h>
 #include <qgsrasterresamplefilter.h>
 #include <qgsrelationmanager.h>
@@ -272,27 +270,6 @@ QgisMobileapp::QgisMobileapp( QgsApplication *app, QObject *parent )
 
   if ( !dataDirs.isEmpty() )
   {
-#ifndef Q_OS_IOS
-    // add extra proj search path to allow copying of transformation grid files
-    QStringList searchPaths = QgsProjUtils::searchPaths();
-
-    for ( const QString &dataDir : dataDirs )
-    {
-      searchPaths << QStringLiteral( "%1/proj/" ).arg( dataDir );
-    }
-    char **newPaths = new char *[searchPaths.count()];
-    for ( int i = 0; i < searchPaths.count(); ++i )
-    {
-      newPaths[i] = strdup( searchPaths.at( i ).toUtf8().constData() );
-    }
-    proj_context_set_search_paths( nullptr, searchPaths.count(), newPaths );
-    for ( int i = 0; i < searchPaths.count(); ++i )
-    {
-      free( newPaths[i] );
-    }
-    delete[] newPaths;
-#endif
-
 #ifdef Q_OS_ANDROID
     for ( const QString &dataDir : dataDirs )
     {
