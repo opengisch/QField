@@ -721,8 +721,13 @@ QgsDoubleRange QgsQuickElevationProfileCanvas::visibleElevationRange() const
 void QgsQuickElevationProfileCanvas::clear()
 {
   setProfileCurve( QgsGeometry() );
-  mCurrentJob = nullptr;
-  mPlotItem->setRenderer( nullptr );
+  if ( mCurrentJob )
+  {
+    mPlotItem->setRenderer( nullptr );
+    disconnect( mCurrentJob, &QgsProfilePlotRenderer::generationFinished, this, &QgsQuickElevationProfileCanvas::generationFinished );
+    mCurrentJob->deleteLater();
+    mCurrentJob = nullptr;
+  }
 
   mZoomFullWhenJobFinished = true;
 
