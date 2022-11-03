@@ -2226,15 +2226,15 @@ Zrušte pro jen minimální skenování zařízení. </translation>
     </message>
     <message>
         <source>Antenna height compensation</source>
-        <translation type="unfinished"/>
+        <translation>Kompenzace výšky antény</translation>
     </message>
     <message>
         <source>Antenna height [m]</source>
-        <translation type="unfinished"/>
+        <translation>Výška antény [m]</translation>
     </message>
     <message>
         <source>Z values which are recorded from the positioning device will be corrected by this value. If a value of 1.6 is entered, this will result in a correction of -1.6 for each recorded value.</source>
-        <translation type="unfinished"/>
+        <translation>Hodnoty Z zaznamenané z přijímače polohy budou opraveny o tuto hodnotu. Pokud je zadáno 1.6, výsledkem bude korekce -1.6 pro každou zaznamenanou hodnotu. </translation>
     </message>
     <message>
         <source>Skip altitude correction</source>
@@ -2250,11 +2250,11 @@ Zrušte pro jen minimální skenování zařízení. </translation>
     </message>
     <message>
         <source>None</source>
-        <translation type="unfinished"/>
+        <translation>Žádný</translation>
     </message>
     <message>
         <source>Vertical grid shift is used to increase the altitude accuracy.</source>
-        <translation type="unfinished"/>
+        <translation>Vertikální posun mřížky se používá pro zvýšení přesnosti nadmořské výšky.</translation>
     </message>
     <message>
         <source>QField Settings</source>
@@ -2262,7 +2262,7 @@ Zrušte pro jen minimální skenování zařízení. </translation>
     </message>
     <message>
         <source>Time of inactivity in seconds before the screen brightness get be dimmed to preserve battery.</source>
-        <translation type="unfinished"/>
+        <translation>Doba nečinnosti v sekundách před ztlumením jasu obrazovky pro úsporu baterie. </translation>
     </message>
 </context>
 <context>
@@ -2383,7 +2383,7 @@ Zrušte pro jen minimální skenování zařízení. </translation>
     </message>
     <message>
         <source>Manual input mode</source>
-        <translation type="unfinished"/>
+        <translation>Režim ručního vstupu</translation>
     </message>
     <message>
         <source>Estimated</source>
@@ -2491,7 +2491,7 @@ Zrušte pro jen minimální skenování zařízení. </translation>
     <name>SystemLoader</name>
     <message>
         <source>Preparing QField, this is a one time operation that might take some time</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Připravuji QField, toto je jednorázová operace, která může nějakou dobu trvat</translation>
     </message>
 </context>
 <context>
@@ -2509,15 +2509,15 @@ Zrušte pro jen minimální skenování zařízení. </translation>
     <name>TextEdit</name>
     <message>
         <source>Copy Text</source>
-        <translation type="unfinished"/>
+        <translation>Kopírovat text</translation>
     </message>
     <message>
         <source>Paste Text</source>
-        <translation type="unfinished"/>
+        <translation>Vložit text</translation>
     </message>
     <message>
         <source>Scan Code</source>
-        <translation type="unfinished"/>
+        <translation>Naskenovat kód</translation>
     </message>
 </context>
 <context>
@@ -2532,7 +2532,7 @@ Zrušte pro jen minimální skenování zařízení. </translation>
     </message>
     <message>
         <source>Activate time constraint</source>
-        <translation type="unfinished"/>
+        <translation>Aktivovat časové omezení</translation>
     </message>
     <message>
         <source>Minimum time [sec]</source>
@@ -2540,19 +2540,19 @@ Zrušte pro jen minimální skenování zařízení. </translation>
     </message>
     <message>
         <source>Activate distance constraint</source>
-        <translation type="unfinished"/>
+        <translation>Aktivovat omezení vzdálenosti</translation>
     </message>
     <message>
         <source>Minimum distance [%1]</source>
-        <translation type="unfinished"/>
+        <translation>Minimální vzdálenost [%1]</translation>
     </message>
     <message>
         <source>Record when both active constraints are met</source>
-        <translation type="unfinished"/>
+        <translation>Zaznamenat při splnění obou podmínek</translation>
     </message>
     <message>
         <source>When enabled, vertices with only be recorded when both active constraints are met. If the setting is disabled, individual constraints met will trigger a vertex addition.</source>
-        <translation type="unfinished"/>
+        <translation>Pokud je zapnuto, vrchol bude zaznamenán v jen případě splnění obou aktivních omezení. Pokud je nastavení vypnuto, vyvolá přidání vrcholu splnění kterékoliv z podmínek. </translation>
     </message>
     <message>
         <source>Start tracking</source>
@@ -2564,7 +2564,7 @@ Zrušte pro jen minimální skenování zařízení. </translation>
     </message>
     <message>
         <source>When both constraints are disabled, vertex additions will occur as frequently as delivered by the positioning device.</source>
-        <translation type="unfinished"/>
+        <translation>Když jsou obě podmínky vypnuté, vrcholy jsou přidávány tak často, jak přicházejí z přijímače polohy. </translation>
     </message>
 </context>
 <context>
@@ -2625,7 +2625,7 @@ Zrušte pro jen minimální skenování zařízení. </translation>
     </message>
     <message>
         <source>I prefer not</source>
-        <translation type="unfinished"/>
+        <translation>Raději ne</translation>
     </message>
     <message>
         <source>QFieldCloud projects</source>
@@ -2645,11 +2645,11 @@ Zrušte pro jen minimální skenování zařízení. </translation>
     </message>
     <message>
         <source>Base map project</source>
-        <translation type="unfinished"/>
+        <translation>Projekt podkladové mapy</translation>
     </message>
     <message>
         <source>Base Map Project</source>
-        <translation type="unfinished"/>
+        <translation>Projekt podkladové mapy</translation>
     </message>
     <message>
         <source>Remove from Recent Projects</source>
@@ -2657,7 +2657,7 @@ Zrušte pro jen minimální skenování zařízení. </translation>
     </message>
     <message>
         <source>Welcome to QField. First time using this application? Try out sample projects listed in the list below.</source>
-        <translation type="unfinished"/>
+        <translation>Vítejte v QField. Používáte tuto aplikaci poprvé? Vyzkoušejte ukázkové projekty se seznamu níže.</translation>
     </message>
     <message>
         <source>Welcome back to QField.</source>
