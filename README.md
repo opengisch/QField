@@ -8,7 +8,7 @@
 
 A simplified touch optimized interface for QGIS in the field.
 
-[![QField](https://i0.wp.com/www.opengis.ch/wp-content/uploads/2022/04/Feature_Graphic_QField_1024x500.png?w=1024&ssl=1)](https://qfield.org)
+[![QField](https://i0.wp.com/www.opengis.ch/wp-content/uploads/2022/11/QField_App-Medienmitteilung_AppAward2022.jpg?w=1024&ssl=1)](https://qfield.org)
 
 ## Get it
 
