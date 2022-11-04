@@ -9,15 +9,12 @@ import Theme 1.0
 Rectangle {
   id: navigationInformationView
 
-  property var coordinates: projectInfo.reprojectDisplayCoordinatesToWGS84
-                            ? GeometryUtils.reprojectPointToWgs84(navigation.destination, navigation.mapSettings.destinationCrs)
-                            : navigation.destination
-  property bool coordinatesIsXY: !projectInfo.reprojectDisplayCoordinatesToWGS84
-                                 && CoordinateReferenceSystemUtils.defaultCoordinateOrderForCrsIsXY(navigation.mapSettings.destinationCrs)
-  property bool coordinatesIsGeographic: projectInfo.reprojectDisplayCoordinatesToWGS84
-                                         || navigation.mapSettings.destinationCrs.isGeographic
-
   property Navigation navigation
+
+  property var coordinates: GeometryUtils.reprojectPoint(navigation.destination, navigation.mapSettings.destinationCrs, projectInfo.coordinateDisplayCrs)
+  property bool coordinatesIsXY: CoordinateReferenceSystemUtils.defaultCoordinateOrderForCrsIsXY(projectInfo.coordinateDisplayCrs)
+  property bool coordinatesIsGeographic: projectInfo.coordinateDisplayCrs.isGeographic
+
   property int ceilsCount: 4
   property double rowHeight: 30
   property color backgroundColor: "white"

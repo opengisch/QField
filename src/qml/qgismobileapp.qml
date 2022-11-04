@@ -758,10 +758,8 @@ ApplicationWindow {
   Text {
     id: coordinateLocatorInformationOverlay
 
-    property bool coordinatesIsXY: !projectInfo.reprojectDisplayCoordinatesToWGS84
-                                   && CoordinateReferenceSystemUtils.defaultCoordinateOrderForCrsIsXY(coordinateLocator.mapSettings.destinationCrs)
-    property bool coordinatesIsGeographic: projectInfo.reprojectDisplayCoordinatesToWGS84
-                                           || coordinateLocator.mapSettings.destinationCrs.isGeographic
+    property bool coordinatesIsXY: CoordinateReferenceSystemUtils.defaultCoordinateOrderForCrsIsXY(projectInfo.coordinateDisplayCrs)
+    property bool coordinatesIsGeographic: projectInfo.coordinateDisplayCrs.isGeographic
 
     DistanceArea {
       id: digitizingGeometryMeasure
@@ -789,9 +787,7 @@ ApplicationWindow {
 
     text: {
       if ((qfieldSettings.numericalDigitizingInformation && stateMachine.state === "digitize" ) || stateMachine.state === 'measure') {
-        var point = projectInfo.reprojectDisplayCoordinatesToWGS84
-                    ? GeometryUtils.reprojectPointToWgs84(coordinateLocator.currentCoordinate, coordinateLocator.mapSettings.destinationCrs)
-                    : coordinateLocator.currentCoordinate
+        var point = GeometryUtils.reprojectPoint(coordinateLocator.currentCoordinate, coordinateLocator.mapSettings.destinationCrs, projectInfo.coordinateDisplayCrs)
         var coordinates;
         if (coordinatesIsXY) {
           coordinates = '<p>%1: %2<br>%3: %4</p>'
@@ -2015,13 +2011,9 @@ ApplicationWindow {
 
     property var point
     onPointChanged: {
-      var displayPoint = projectInfo.reprojectDisplayCoordinatesToWGS84
-                         ? GeometryUtils.reprojectPointToWgs84(canvasMenu.point, mapCanvas.mapSettings.destinationCrs)
-                         : canvasMenu.point
-      var isXY = !projectInfo.reprojectDisplayCoordinatesToWGS84
-                 && CoordinateReferenceSystemUtils.defaultCoordinateOrderForCrsIsXY(mapCanvas.mapSettings.destinationCrs);
-      var isGeographic = projectInfo.reprojectDisplayCoordinatesToWGS84
-                         || mapCanvas.mapSettings.destinationCrs.isGeographic
+      var displayPoint = GeometryUtils.reprojectPoint(canvasMenu.point, mapCanvas.mapSettings.destinationCrs, projectInfo.coordinateDisplayCrs)
+      var isXY = CoordinateReferenceSystemUtils.defaultCoordinateOrderForCrsIsXY(projectInfo.coordinateDisplayCrs);
+      var isGeographic = projectInfo.coordinateDisplayCrs.isGeographic
 
       var xLabel = isGeographic ? qsTr( 'Lon' ) : 'X';
       var xValue = Number( displayPoint.x ).toLocaleString( Qt.locale(), 'f', isGeographic ? 7 : 3 )
@@ -2107,13 +2099,8 @@ ApplicationWindow {
       icon.source: Theme.getThemeVectorIcon( "ic_copy_black_24dp" )
 
       onTriggered: {
-        var displayPoint = projectInfo.reprojectDisplayCoordinatesToWGS84
-                           ? GeometryUtils.reprojectPointToWgs84(canvasMenu.point, mapCanvas.mapSettings.destinationCrs)
-                           : canvasMenu.point
-        platformUtilities.copyTextToClipboard(StringUtils.pointInformation(displayPoint,
-                                                                           projectInfo.reprojectDisplayCoordinatesToWGS84
-                                                                           ? CoordinateReferenceSystemUtils.wgs84Crs()
-                                                                           : mapCanvas.mapSettings.destinationCrs))
+        var displayPoint = GeometryUtils.reprojectPoint(canvasMenu.point, mapCanvas.mapSettings.destinationCrs, projectInfo.coordinateDisplayCrs)
+        platformUtilities.copyTextToClipboard(StringUtils.pointInformation(displayPoint, projectInfo.coordinateDisplayCrs))
         displayToast(qsTr('Coordinates copied to clipboard'));
       }
     }
@@ -2478,9 +2465,8 @@ ApplicationWindow {
           return;
         }
 
-        var coordinates = projectInfo.reprojectDisplayCoordinatesToWGS84
-                          ? StringUtils.pointInformation(positionSource.sourcePosition, CoordinateReferenceSystemUtils.wgs84Crs())
-                          : StringUtils.pointInformation(positionSource.projectedPosition, mapCanvas.mapSettings.destinationCrs)
+        var point = GeometryUtils.reprojectPoint(positionSource.sourcePosition, CoordinateReferenceSystemUtils.wgs84Crs(), projectInfo.coordinateDisplayCrs)
+        var coordinates = StringUtils.pointInformation(point, projectInfo.coordinateDisplayCrs)
         coordinates += ' ('+ qsTr('Accuracy') + ' ' +
                        ( positionSource.positionInformation && positionSource.positionInformation.haccValid
                          ? positionSource.positionInformation.hacc.toLocaleString(Qt.locale(), 'f', 3) + " m"
@@ -2718,8 +2704,14 @@ ApplicationWindow {
         var areaString = iface.readProjectEntry("Measurement" ,"/AreaeUnits", "")
         projectInfo.areaUnits = areaString !== "" ? UnitTypes.decodeAreaUnit(areaString) : UnitTypes.AreaSquareMeters
 
-        projectInfo.reprojectDisplayCoordinatesToWGS84 = !mapCanvas.mapSettings.destinationCrs.isGeographic
-                                                         && iface.readProjectEntry("PositionPrecision", "/DegreeFormat", "MU") !== "MU"
+        if (qgisProject.displaySettings) {
+          projectInfo.coordinateDisplayCrs = qgisProject.displaySettings.coordinateCrs
+        } else {
+          projectInfo.coordinateDisplayCrs = !mapCanvas.mapSettings.destinationCrs.isGeographic
+                                             && iface.readProjectEntry("PositionPrecision", "/DegreeFormat", "MU") !== "MU"
+                                             ? CoordinateReferenceSystemUtils.wgs84Crs()
+                                             : mapCanvas.mapSettings.destinationCrs
+        }
 
         layoutListInstantiator.model.project = qgisProject
         layoutListInstantiator.model.reloadModel()
@@ -2740,10 +2732,9 @@ ApplicationWindow {
     mapSettings: mapCanvas.mapSettings
     layerTree: dashBoard.layerTree
 
-    property bool reprojectDisplayCoordinatesToWGS84: false
-
     property var distanceUnits: UnitTypes.DistanceMeters
     property var areaUnits: UnitTypes.AreaSquareMeters
+    property var coordinateDisplayCrs: CoordinateReferenceSystemUtils.wgs84Crs()
 
     property bool hasInsertRights: true
     property bool hasEditRights: true

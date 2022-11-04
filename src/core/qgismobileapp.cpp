@@ -154,10 +154,11 @@
 #include <qgsproject.h>
 #include <qgsprojectstorage.h>
 #include <qgsprojectstorageregistry.h>
-#if _QGIS_VERSION_INT >= 32500
 #include <qgsprojectstylesettings.h>
-#endif
 #include <qgsprojectviewsettings.h>
+#if _QGIS_VERSION_INT >= 32700
+#include <qgsprojectdisplaysettings.h>
+#endif
 #include <qgsrasterlayer.h>
 #include <qgsrasterresamplefilter.h>
 #include <qgsrelationmanager.h>
@@ -378,9 +379,7 @@ void QgisMobileapp::initDeclarative()
   qRegisterMetaType<QgsUnitTypes::DistanceUnit>( "QgsUnitTypes::DistanceUnit" );
   qRegisterMetaType<QgsUnitTypes::AreaUnit>( "QgsUnitTypes::AreaUnit" );
   qRegisterMetaType<QgsRelation>( "QgsRelation" );
-#if _QGIS_VERSION_INT >= 31900
   qRegisterMetaType<QgsPolymorphicRelation>( "QgsPolymorphicRelation" );
-#endif
   qRegisterMetaType<PlatformUtilities::Capabilities>( "PlatformUtilities::Capabilities" );
   qRegisterMetaType<QgsField>( "QgsField" );
   qRegisterMetaType<QVariant::Type>( "QVariant::Type" );
@@ -394,6 +393,9 @@ void QgisMobileapp::initDeclarative()
   qRegisterMetaType<QFieldCloudProjectsModel::ProjectModification>( "QFieldCloudProjectsModel::ProjectModification" );
 
   qmlRegisterUncreatableType<QgsProject>( "org.qgis", 1, 0, "Project", "" );
+#if _QGIS_VERSION_INT >= 32700
+  qmlRegisterUncreatableType<QgsProjectDisplaySettings>( "org.qgis", 1, 0, "ProjectDisplaySettings", "" );
+#endif
   qmlRegisterUncreatableType<QgsCoordinateReferenceSystem>( "org.qgis", 1, 0, "CoordinateReferenceSystem", "" );
   qmlRegisterUncreatableType<QgsUnitTypes>( "org.qgis", 1, 0, "QgsUnitTypes", "" );
   qmlRegisterUncreatableType<QgsRelationManager>( "org.qgis", 1, 0, "RelationManager", "The relation manager is available from the QgsProject. Try `qgisProject.relationManager`" );

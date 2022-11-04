@@ -162,3 +162,26 @@ QgsPoint GeometryUtils::reprojectPointToWgs84( const QgsPoint &point, const QgsC
                    point.is3D() ? point.z() : std::numeric_limits<double>::quiet_NaN(),
                    point.isMeasure() ? point.m() : std::numeric_limits<double>::quiet_NaN() );
 }
+
+QgsPoint GeometryUtils::reprojectPoint( const QgsPoint &point, const QgsCoordinateReferenceSystem &sourceCrs, const QgsCoordinateReferenceSystem &destinationCrs )
+{
+  if ( sourceCrs == destinationCrs )
+    return point;
+
+  const QgsCoordinateTransform ct( sourceCrs, destinationCrs, QgsProject::instance() );
+  QgsPointXY reprojectedPoint;
+  try
+  {
+    ct.transform( point.x(), point.y() );
+    reprojectedPoint = ct.transform( point );
+  }
+  catch ( QgsCsException & )
+  {
+    return QgsPoint();
+  }
+
+  return QgsPoint( reprojectedPoint.x(),
+                   reprojectedPoint.y(),
+                   point.is3D() ? point.z() : std::numeric_limits<double>::quiet_NaN(),
+                   point.isMeasure() ? point.m() : std::numeric_limits<double>::quiet_NaN() );
+}
