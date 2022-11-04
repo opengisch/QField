@@ -63,6 +63,7 @@ jobs:
           source ./scripts/ci/generate-version-details.sh
 
           cmake -S "${SOURCE_DIR}" \
+                -G Ninja \
                 -B "${CMAKE_BUILD_DIR}" \
                 -D CMAKE_BUILD_TYPE=${{ env.BUILD_TYPE }} \
                 -D VCPKG_TARGET_TRIPLET="x64-windows-static" \
