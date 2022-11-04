@@ -35,6 +35,12 @@ jobs:
       - name: 🧽 Developer Command Prompt for Microsoft Visual C++
         uses: ilammy/msvc-dev-cmd@v1
 
+      - name: ccache
+        uses: hendrikmuhs/ccache-action@v1.2
+        with:
+          key: ccache-windows
+          max-size: 200M
+
       - name: 🔨 Prepare build env
         shell: bash
         run: |
@@ -75,6 +81,7 @@ jobs:
                 -D WITH_BLUETOOTH=OFF `# Not yet properly tested/supported and we have a conflict of double defined symbol in QtBluetooth/QtMultimedia` \
                 -D VCPKG_INSTALL_OPTIONS="--x-buildtrees-root=C:/src" \
                 -T ClangCL \
+                -D WITH_CCACHE \
                 ${EXTRA_CMAKE_ARGS}
 
       - name: 📑 Upload dep build logs
