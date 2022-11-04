@@ -491,6 +491,10 @@ Cancelar para hacer una búsqueda mínima de dispositivos en su lugar.</translat
         <source>Digitize a path to render the elevation profile</source>
         <translation>Digitalice una ruta para renderizar el perfil de elevación</translation>
     </message>
+    <message>
+        <source>Rendering elevation profile…</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>ExpressionVariableModel</name>

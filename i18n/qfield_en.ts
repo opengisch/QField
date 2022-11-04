@@ -496,6 +496,10 @@ Cancel to make a minimal device scan instead.</translation>
         <source>Digitize a path to render the elevation profile</source>
         <translation>Digitize a path to render the elevation profile</translation>
     </message>
+    <message>
+        <source>Rendering elevation profile…</source>
+        <translation>Rendering elevation profile…</translation>
+    </message>
 </context>
 <context>
     <name>ExpressionVariableModel</name>

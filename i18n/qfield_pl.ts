@@ -489,7 +489,11 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
     <name>ElevationProfile</name>
     <message>
         <source>Digitize a path to render the elevation profile</source>
-        <translation type="unfinished"/>
+        <translation>Digitizuj ścieżkę, aby utworzyć profil wysokości</translation>
+    </message>
+    <message>
+        <source>Rendering elevation profile…</source>
+        <translation>Tworzenie profilu wysokości...</translation>
     </message>
 </context>
 <context>

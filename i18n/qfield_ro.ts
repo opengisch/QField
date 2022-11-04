@@ -492,6 +492,10 @@ Anulați pentru a efectua o scanare minimă a dispozitivului.</translation>
         <source>Digitize a path to render the elevation profile</source>
         <translation type="unfinished"/>
     </message>
+    <message>
+        <source>Rendering elevation profile…</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>ExpressionVariableModel</name>

@@ -15,11 +15,11 @@
     </message>
     <message>
         <source>Documentation</source>
-        <translation type="unfinished"/>
+        <translation>Belgeler</translation>
     </message>
     <message>
         <source>Links Menu</source>
-        <translation type="unfinished"/>
+        <translation>Link Menüsü</translation>
     </message>
 </context>
 <context>
@@ -114,11 +114,11 @@
     <name>BarcodeReader</name>
     <message>
         <source>Code Reader</source>
-        <translation type="unfinished"/>
+        <translation>Kod Okuyucu</translation>
     </message>
     <message>
         <source>Center your camera on a code</source>
-        <translation type="unfinished"/>
+        <translation>Kodu Ortalayın</translation>
     </message>
 </context>
 <context>
@@ -167,7 +167,7 @@ Bunun yerine minimum cihaz taraması yapmak için iptal edin.</translation>
     </message>
     <message>
         <source>Connect to %1</source>
-        <translation type="unfinished"/>
+        <translation>%1&apos;e bağlan</translation>
     </message>
     <message>
         <source>Connect  to %1</source>
@@ -209,31 +209,31 @@ Bunun yerine minimum cihaz taraması yapmak için iptal edin.</translation>
     </message>
     <message>
         <source>Could not find the remote host</source>
-        <translation type="unfinished"/>
+        <translation>Uzak ana bilgisayar bulunamadı</translation>
     </message>
     <message>
         <source>Could not find the service UUID on remote host</source>
-        <translation type="unfinished"/>
+        <translation>Uzak ana bilgisayarda hizmet UUID&apos;si bulunamadı</translation>
     </message>
     <message>
         <source>Attempt to read or write from socket returned an error</source>
-        <translation type="unfinished"/>
+        <translation>Soketten okuma veya yazma denemesi bir hata döndürdü</translation>
     </message>
     <message>
         <source>The protocol is not supported on this platform</source>
-        <translation type="unfinished"/>
+        <translation>Protokol bu platformda desteklenmiyor</translation>
     </message>
     <message>
         <source>An operation was attempted while the socket was in a state that did not permit it</source>
-        <translation type="unfinished"/>
+        <translation>Soket izin vermeyen bir durumdayken bir işlem denendi</translation>
     </message>
     <message>
         <source>The remote host closed the connection</source>
-        <translation type="unfinished"/>
+        <translation>Uzak ana bilgisayar bağlantıyı kapattı</translation>
     </message>
     <message>
         <source>Unknown error</source>
-        <translation type="unfinished"/>
+        <translation>Bilinmeyen hata</translation>
     </message>
 </context>
 <context>
@@ -247,19 +247,19 @@ Bunun yerine minimum cihaz taraması yapmak için iptal edin.</translation>
     <name>BookmarkProperties</name>
     <message>
         <source>Bookmark Properties</source>
-        <translation type="unfinished"/>
+        <translation>Yer İşareti Özellikleri</translation>
     </message>
     <message>
         <source>Name</source>
-        <translation type="unfinished"/>
+        <translation>İsim</translation>
     </message>
     <message>
         <source>Color</source>
-        <translation type="unfinished"/>
+        <translation>Renk</translation>
     </message>
     <message>
         <source>Copy bookmark details</source>
-        <translation type="unfinished"/>
+        <translation>Yer işareti ayrıntılarını kopyala</translation>
     </message>
     <message>
         <source>Lon</source>
@@ -279,33 +279,33 @@ Bunun yerine minimum cihaz taraması yapmak için iptal edin.</translation>
     </message>
     <message>
         <source>Bookmark details copied to clipboard</source>
-        <translation type="unfinished"/>
+        <translation>Panoya kopyalanan yer işareti ayrıntıları</translation>
     </message>
     <message>
         <source>Remove bookmark</source>
-        <translation type="unfinished"/>
+        <translation>Yer işaretini kaldır</translation>
     </message>
     <message>
         <source>You are about to remove a bookmark, proceed?</source>
-        <translation type="unfinished"/>
+        <translation>Bir yer işaretini kaldırmak üzeresiniz, devam edilsin mi?</translation>
     </message>
 </context>
 <context>
     <name>BookmarkRenderer</name>
     <message>
         <source>Bookmark: %1</source>
-        <translation type="unfinished"/>
+        <translation>Yer imi: %1</translation>
     </message>
     <message>
         <source>Project bookmarks cannot be edited</source>
-        <translation type="unfinished"/>
+        <translation>Proje yer imleri düzenlenemez</translation>
     </message>
 </context>
 <context>
     <name>BrowserPanel</name>
     <message>
         <source>Browser</source>
-        <translation type="unfinished"/>
+        <translation>Tarayıcı</translation>
     </message>
 </context>
 <context>
@@ -489,6 +489,10 @@ Bunun yerine minimum cihaz taraması yapmak için iptal edin.</translation>
     <name>ElevationProfile</name>
     <message>
         <source>Digitize a path to render the elevation profile</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Rendering elevation profile…</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -959,7 +963,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <name>LocalFilesModel</name>
     <message>
         <source>QField files directory</source>
-        <translation type="unfinished"/>
+        <translation>QField dosyaları dizini</translation>
     </message>
     <message>
         <source>Imported projects</source>

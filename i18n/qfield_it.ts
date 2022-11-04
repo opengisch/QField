@@ -491,6 +491,10 @@ Annullare per eseguire una scansione veloce del dispositivo.</translation>
         <source>Digitize a path to render the elevation profile</source>
         <translation>Digitalizza un percorso per renderizzare il profilo di elevazione</translation>
     </message>
+    <message>
+        <source>Rendering elevation profile…</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>ExpressionVariableModel</name>

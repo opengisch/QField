@@ -491,6 +491,10 @@ Cancela para facer, porén, unha exploración mínima do dispositivo.</translati
         <source>Digitize a path to render the elevation profile</source>
         <translation type="unfinished"/>
     </message>
+    <message>
+        <source>Rendering elevation profile…</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>ExpressionVariableModel</name>

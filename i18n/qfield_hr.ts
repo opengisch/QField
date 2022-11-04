@@ -491,6 +491,10 @@ Otkažite za pokretanje minimalnog skeniranja uređaja.</translation>
         <source>Digitize a path to render the elevation profile</source>
         <translation>Digitaliziraj trag za prikaz elevacijskog profila</translation>
     </message>
+    <message>
+        <source>Rendering elevation profile…</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>ExpressionVariableModel</name>
