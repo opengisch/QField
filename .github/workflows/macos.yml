@@ -117,7 +117,7 @@ jobs:
         run: |
           cmake --build  "${{ env.CMAKE_BUILD_DIR }}" --target bundle --config ${{ env.BUILD_TYPE }}
               echo "ARTIFACT_PATHNAME=${{ env.CMAKE_BUILD_DIR }}/QField-Installer.dmg" >> $GITHUB_ENV
-              echo "ARTIFACT_NAME=${{ env.CI_PACKAGE_FILE_BASENAME }}-macos.dmg" >> $GITHUB_ENV
+              echo "ARTIFACT_NAME=qfield-${{ env.CI_PACKAGE_FILE_SUFFIX }}-macos.dmg" >> $GITHUB_ENV
 
 #      - name: 🔒 Notarize Release Build
 #        uses: m-kuhn/notarize-build@main
