@@ -10,13 +10,9 @@ Rectangle {
   id: positioningInformationView
 
   property Positioning positionSource
-  property var coordinates: projectInfo.reprojectDisplayCoordinatesToWGS84
-                                    ? positionSource.sourcePosition
-                                    : positionSource.projectedPosition
-  property bool coordinatesIsXY: !projectInfo.reprojectDisplayCoordinatesToWGS84
-                                && CoordinateReferenceSystemUtils.defaultCoordinateOrderForCrsIsXY(mapCanvas.mapSettings.destinationCrs)
-  property bool coordinatesIsGeographic: projectInfo.reprojectDisplayCoordinatesToWGS84
-                                        || positionSource.destinationCrs.isGeographic
+  property var coordinates: GeometryUtils.reprojectPoint(positionSource.sourcePosition, CoordinateReferenceSystemUtils.wgs84Crs(), projectInfo.coordinateDisplayCrs)
+  property bool coordinatesIsXY: CoordinateReferenceSystemUtils.defaultCoordinateOrderForCrsIsXY(projectInfo.coordinateDisplayCrs)
+  property bool coordinatesIsGeographic: projectInfo.coordinateDisplayCrs.isGeographic
 
   property double antennaHeight: NaN
   property double rowHeight: 30
