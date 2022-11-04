@@ -24,7 +24,11 @@ Check the [documentation](https://docs.qfield.org/)
 
 ### Windows (Beta)
 
-[![Download the latest windows beta version](https://qgis.org/en/_static/images/app_download_windows.png)](https://github.com/opengisch/QField/releases/download/v2.4.2/qfield-v2.4.2-windows-x64.exe)
+<a href="https://qfield.org/get_latest?platform=windows" target="_blank">![Download the latest windows beta version](https://qgis.org/en/_static/images/app_download_windows.png)</a>
+
+### Linux (Beta)
+
+Linux support is currently in beta status. <a href="https://qfield.org/get_latest?platform=linux" target="_blank">Download the latest beta version</a>.
 
 ### MacOS (Beta)
 
