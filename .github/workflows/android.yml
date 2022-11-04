@@ -195,7 +195,14 @@ jobs:
         run: |
           pip install google-api-python-client google-auth-httplib2 google-auth-oauthlib oauth2client
 
-          ./scripts/basic_upload_apks_service_account.py ch.opengis.${{ env.APP_PACKAGE_NAME }} beta "Update from commit ${GITHUB_SHA}" \
+          if [[ -n "${{ env.CI_TAG }}" ]]
+          then
+            RELEASE_MESSAGE="Find out what's new on https://github.com/opengisch/QField/releases/tag/${{ env.CI_TAG }}"
+          else
+            RELEASE_MESSAGE="Update from commit ${GITHUB_SHA}"
+          fi
+
+          ./scripts/basic_upload_apks_service_account.py ch.opengis.${{ env.APP_PACKAGE_NAME }} beta "${RELEASE_MESSAGE}" \
               qfield-${{ env.CI_PACKAGE_FILE_SUFFIX }}-arm64-android.apk \
               qfield-${{ env.CI_PACKAGE_FILE_SUFFIX }}-arm-android.apk \
               qfield-${{ env.CI_PACKAGE_FILE_SUFFIX }}-x64-android.apk \
