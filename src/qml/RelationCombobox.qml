@@ -309,7 +309,7 @@ Item {
 
             textRole: 'display'
             font: Theme.defaultFont
-            popup.font.pointSize: Theme.defaultFont
+            popup.font: Theme.defaultFont
             contentItem: Text {
                 leftPadding: enabled ? 5 : 0
                 height: fontMetrics.height + 20
