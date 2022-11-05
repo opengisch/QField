@@ -158,6 +158,8 @@
 #include <qgsprojectviewsettings.h>
 #if _QGIS_VERSION_INT >= 32700
 #include <qgsprojectdisplaysettings.h>
+#include <qgsprojectelevationproperties.h>
+#include <qgsterrainprovider.h>
 #endif
 #include <qgsrasterlayer.h>
 #include <qgsrasterresamplefilter.h>
@@ -1128,6 +1130,17 @@ void QgisMobileapp::readProjectFile()
       }
     }
   }
+
+#if _QGIS_VERSION_INT >= 32700
+  if ( mProject->elevationProperties()->terrainProvider()->type() == QStringLiteral( "flat" ) )
+  {
+    QgsRasterLayer *elevationLayer = LayerUtils::createOnlineElevationLayer();
+    mProject->addMapLayer( elevationLayer, false, true );
+    QgsRasterDemTerrainProvider *terrainProvider = new QgsRasterDemTerrainProvider();
+    terrainProvider->setLayer( elevationLayer );
+    mProject->elevationProperties()->setTerrainProvider( terrainProvider );
+  }
+#endif
 
   loadProjectQuirks();
 

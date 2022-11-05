@@ -23,6 +23,7 @@
 #include <qgsvectorlayer.h>
 
 class QgsVectorLayer;
+class QgsRasterLayer;
 class QgsSymbol;
 
 class LayerUtils : public QObject
@@ -39,6 +40,8 @@ class LayerUtils : public QObject
     static QgsSymbol *defaultSymbol( QgsVectorLayer *layer );
 
     static QgsAbstractVectorLayerLabeling *defaultLabeling( QgsVectorLayer *layer, QgsTextFormat textFormat = QgsTextFormat() );
+
+    static QgsRasterLayer *createOnlineElevationLayer();
 
     /**
     * Returns TRUE if the vector layer is used as an atlas coverage layer in
