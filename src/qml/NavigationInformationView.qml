@@ -21,7 +21,7 @@ Rectangle {
   property color alternateBackgroundColor: Theme.navigationBackgroundColor
   property color textColor: "black"
 
-  height: childrenRect.height//grid.rows * navigationInformationView.rowHeight
+  height: childrenRect.height
   width: parent.width
   anchors.margins: 20
 
