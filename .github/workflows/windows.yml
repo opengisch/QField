@@ -85,6 +85,7 @@ jobs:
                 -D WITH_BLUETOOTH=OFF `# Not yet properly tested/supported and we have a conflict of double defined symbol in QtBluetooth/QtMultimedia` \
                 -D VCPKG_INSTALL_OPTIONS="--x-buildtrees-root=C:/src" \
                 -D WITH_CCACHE=ON \
+                -D CCACHE_PROGRAM="C:/Users/runneradmin/.cargo/bin/sccache.exe" \
                 ${EXTRA_CMAKE_ARGS}
 
       - name: 📑 Upload dep build logs
@@ -155,4 +156,4 @@ jobs:
         run: |
           export INSTALL_DIR=$(pwd)
           curl -sL https://sentry.io/get-cli/ | bash
-          ./sentry-cli upload-dif -o opengisch -p qfield ${{ env.CMAKE_BUILD_DIR }}
+#          ./sentry-cli upload-dif -o opengisch -p qfield ${{ env.CMAKE_BUILD_DIR }}
