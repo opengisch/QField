@@ -75,7 +75,7 @@ jobs:
                 -D APP_VERSION="${APP_VERSION}" \
                 -D APP_VERSION_STR="${APP_VERSION_STR}" \
                 -D APP_PACKAGE_NAME="${APP_PACKAGE_NAME}" \
-                -D ENABLE_TESTS=OFF \
+                -D ENABLE_TESTS=ON \
                 -D NUGET_USERNAME=opengisch \
                 -D NUGET_TOKEN=${{ secrets.GITHUB_TOKEN }} \
                 -D SENTRY_DSN=${{ secrets.SENTRY_DSN }} \
@@ -156,4 +156,4 @@ jobs:
         run: |
           export INSTALL_DIR=$(pwd)
           curl -sL https://sentry.io/get-cli/ | bash
-#          ./sentry-cli upload-dif -o opengisch -p qfield ${{ env.CMAKE_BUILD_DIR }}
+          ./sentry-cli upload-dif -o opengisch -p qfield ${{ env.CMAKE_BUILD_DIR }}
