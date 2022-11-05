@@ -682,7 +682,10 @@ ApplicationWindow {
     anchors.bottom: parent.bottom
     anchors.left: parent.left
     anchors.right: parent.right
-    visible: navigation.isActive || positioningSettings.showPositionInformation || positioningPreciseView.visible || elevationProfile.visible
+    visible: navigation.isActive ||
+             positioningSettings.showPositionInformation ||
+             positioningPreciseView.visible ||
+             (stateMachine.state === 'measure' && elevationProfileButton.elevationProfileActive)
 
     width: parent.width
 
