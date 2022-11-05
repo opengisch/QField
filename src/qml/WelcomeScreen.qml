@@ -422,7 +422,7 @@ Page {
 
         Rectangle {
             Layout.fillWidth: true
-            height: table.height
+            Layout.preferredHeight: table.height
             color: "transparent"
             border.color: "transparent"
             border.width: 1
@@ -434,7 +434,7 @@ Page {
           boundsBehavior: Flickable.StopAtBounds
           clip: true
           width: parent.width
-          height: childrenRect.height
+          height: contentItem.childrenRect.height
 
           delegate: Rectangle {
             id: rectangle
@@ -448,7 +448,7 @@ Page {
 
             Row {
               id: line
-              Layout.fillWidth: true
+              width: parent.width
               leftPadding: 6
               rightPadding: 10
               topPadding: 9
