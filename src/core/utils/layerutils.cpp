@@ -30,6 +30,7 @@
 #include <qgspallabeling.h>
 #include <qgsprintlayout.h>
 #include <qgsproject.h>
+#include <qgsrasterlayer.h>
 #include <qgssinglesymbolrenderer.h>
 #include <qgssymbol.h>
 #include <qgssymbollayer.h>
@@ -38,6 +39,10 @@
 #include <qgsvectorlayerlabeling.h>
 #include <qgsvectorlayerutils.h>
 #include <qgswkbtypes.h>
+#if _QGIS_VERSION_INT >= 32700
+#include <qgsmaplayerelevationproperties.h>
+#include <qgsrasterlayerelevationproperties.h>
+#endif
 
 LayerUtils::LayerUtils( QObject *parent )
   : QObject( parent )
@@ -167,6 +172,19 @@ QgsAbstractVectorLayerLabeling *LayerUtils::defaultLabeling( QgsVectorLayer *lay
   labeling = new QgsVectorLayerSimpleLabeling( settings );
 
   return labeling;
+}
+
+QgsRasterLayer *LayerUtils::createOnlineElevationLayer()
+{
+  QgsRasterLayer *layer = new QgsRasterLayer( QStringLiteral( "interpretation=terrariumterrain&type=xyz&url=https://s3.amazonaws.com/elevation-tiles-prod/terrarium/%7Bz%7D/%7Bx%7D/%7By%7D.png&zmax=15&zmin=0" ),
+                                              QStringLiteral( "elevation" ), QStringLiteral( "wms" ) );
+#if _QGIS_VERSION_INT >= 32700
+  QgsRasterLayerElevationProperties *elevationProperties = static_cast<QgsRasterLayerElevationProperties *>( layer->elevationProperties() );
+  elevationProperties->setEnabled( true );
+  elevationProperties->setProfileSymbology( Qgis::ProfileSurfaceSymbology::FillBelow );
+  elevationProperties->profileFillSymbol()->setColor( QColor( 130, 130, 130 ) );
+#endif
+  return layer;
 }
 
 bool LayerUtils::isAtlasCoverageLayer( QgsVectorLayer *layer )
