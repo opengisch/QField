@@ -39,12 +39,20 @@ Suositeltavaa on, että valitset peruuta, katkaiset USB-kaapeliyhteydet ja käyn
     <string name="import_error">Tuontivirhe</string>
     <string name="import_overwrite_cancel">Peruuta</string>
     <string name="send_to">Lähetä ...</string>
+    <string name="send_compressed_to">Lähetä pakattu hakemisto sijaintiin ...</string>
+    <string name="export_to_folder">Vie hakemistoon ...</string>
     <string name="add_to_favorite">Lisää suosikkeihin</string>
     <string name="remove_from_favorite">Poista suosikeista</string>
     <string name="remove_dataset">Poista datasetti</string>
     <string name="remove_folder">Poista projektin hakemisto</string>
     <string name="delete_confirm_title">Poiston vahvistus</string>
+    <string name="delete_confirm_dataset">Tietojoukko poistetaan pysyvästi, haluatko jatkaa poistoa?</string>
+    <string name="delete_confirm_folder">Projektin hakemisto poistetaan pysyvästi, haluatko jatkaa poistoa?</string>
     <string name="delete_confirm">Poista</string>
     <string name="delete_cancel">Peruuta</string>
+    <string name="storage_information_title">Tietovaraston informaatio</string>
+    <string name="storage_information_view">Näytä minulle dokumentaatio</string>
     <string name="storage_information_dismiss">Luen myöhemmin</string>
-    </resources>
+    <string name="import_project_wait">Ole hyvä odota kun QField on tuomassa projektia</string>
+    <string name="import_dataset_wait">Ole hyvä odota kun QField on tuomassa datajoukkoa.</string>
+</resources>

@@ -493,7 +493,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Rendering elevation profile…</source>
-        <translation type="unfinished"/>
+        <translation>正在渲染高程剖面…</translation>
     </message>
 </context>
 <context>

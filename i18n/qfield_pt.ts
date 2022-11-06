@@ -19,7 +19,7 @@
     </message>
     <message>
         <source>Links Menu</source>
-        <translation type="unfinished"/>
+        <translation>Menu de Ligações</translation>
     </message>
 </context>
 <context>
@@ -217,7 +217,7 @@ Cancele para fazer uma verificação mínima.</translation>
     </message>
     <message>
         <source>Attempt to read or write from socket returned an error</source>
-        <translation type="unfinished"/>
+        <translation>Tentativa de ler ou escrever a partir do socket retornou um erro</translation>
     </message>
     <message>
         <source>The protocol is not supported on this platform</source>
@@ -225,7 +225,7 @@ Cancele para fazer uma verificação mínima.</translation>
     </message>
     <message>
         <source>An operation was attempted while the socket was in a state that did not permit it</source>
-        <translation type="unfinished"/>
+        <translation>Foi realizada uma tentativa da operação num momento em que não era permitido</translation>
     </message>
     <message>
         <source>The remote host closed the connection</source>
@@ -369,7 +369,7 @@ Cancele para fazer uma verificação mínima.</translation>
     </message>
     <message>
         <source>NULL</source>
-        <translation type="unfinished"/>
+        <translation>NULL</translation>
     </message>
 </context>
 <context>
@@ -489,11 +489,11 @@ Cancele para fazer uma verificação mínima.</translation>
     <name>ElevationProfile</name>
     <message>
         <source>Digitize a path to render the elevation profile</source>
-        <translation type="unfinished"/>
+        <translation>Digitalize o caminho para renderizar o perfil de elevação</translation>
     </message>
     <message>
         <source>Rendering elevation profile…</source>
-        <translation type="unfinished"/>
+        <translation>Renderizar Perfil de elevação...</translation>
     </message>
 </context>
 <context>
@@ -3090,15 +3090,15 @@ Cancele para fazer uma verificação mínima.</translation>
     </message>
     <message>
         <source>Positioning error: %1</source>
-        <translation>Erro posicionamento: %1</translation>
+        <translation>Erro de posicionamento: %1</translation>
     </message>
     <message>
         <source>Azimuth</source>
-        <translation type="unfinished"/>
+        <translation>Azimute</translation>
     </message>
     <message>
         <source>Lock Screen</source>
-        <translation type="unfinished"/>
+        <translation>Bloquear Ecrã </translation>
     </message>
 </context>
 <context>

@@ -129,7 +129,7 @@
     </message>
     <message>
         <source>Scanning for paired devices</source>
-        <translation>Ricerca di dispositivi accoppiati</translation>
+        <translation>Ricerca di dispositivi associati</translation>
     </message>
     <message>
         <source>Scanning failed: %1</source>
@@ -2158,7 +2158,7 @@ Messaggio dell&apos;errore: %4</translation>
     </message>
     <message>
         <source>Scanning for paired devices</source>
-        <translation type="vanished">Ricerca di dispositivi accoppiati</translation>
+        <translation type="vanished">Ricerca di dispositivi associati</translation>
     </message>
     <message>
         <source>Scanning failed: %1</source>
