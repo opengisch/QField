@@ -300,8 +300,10 @@ Page {
 
           Item {
             id: innerContainer
-            visible: GroupIndex != undefined && Type === 'container'
-            height: visible ? innerContainerContent.childrenRect.height : 0
+
+            property bool isVisible: GroupIndex != undefined && Type === 'container'
+            visible: isVisible
+            height: isVisible ? innerContainerContent.childrenRect.height : 0
             anchors {
               left: parent.left
               right: parent.right
@@ -327,11 +329,13 @@ Page {
           }
 
           Item {
+            id: qmlContainer
+
+            property bool isVisible: Type == 'qml' && form.model.featureModel.modelMode != FeatureModel.MultiFeatureModel
             property string qmlCode: EditorWidgetCode !== undefined ? EditorWidgetCode : ''
 
-            id: qmlContainer
-            visible: Type == 'qml' && form.model.featureModel.modelMode != FeatureModel.MultiFeatureModel
-            height: visible ? childrenRect.height : 0
+            visible: isVisible
+            height: isVisible ? childrenRect.height : 0
             anchors {
               left: parent.left
               right: parent.right
@@ -367,11 +371,13 @@ Page {
           }
 
           Item {
+            id: htmlContainer
+
+            property bool isVisible: Type == 'html' && form.model.featureModel.modelMode != FeatureModel.MultiFeatureModel
             property string htmlCode: EditorWidgetCode !== undefined ? EditorWidgetCode : ''
 
-            id: htmlContainer
-            visible: Type == 'html' && form.model.featureModel.modelMode != FeatureModel.MultiFeatureModel
-            height: visible ? childrenRect.height : 0
+            visible: isVisible
+            height: isVisible ? childrenRect.height : 0
             anchors {
               left: parent.left
               right: parent.right
@@ -412,8 +418,11 @@ Page {
 
           Item {
             id: fieldContainer
-            visible: Type === 'field' || Type === 'relation'
-            height: visible ? childrenRect.height : 0
+
+            property bool isVisible: Type === 'field' || Type === 'relation'
+
+            visible: isVisible
+            height: isVisible ? childrenRect.height : 0
             anchors {
               left: parent.left
               right: parent.right
