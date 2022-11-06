@@ -266,7 +266,7 @@ EditorWidgetBase {
     anchors.right: galleryButton.left
     anchors.top: parent.top
 
-    bgcolor: "white"
+    bgcolor: "transparent"
     visible: isImage && isEnabled && isCameraAvailable
 
     onClicked: {
@@ -291,7 +291,7 @@ EditorWidgetBase {
     anchors.right: parent.right
     anchors.top: parent.top
 
-    bgcolor: "white"
+    bgcolor: "transparent"
     visible: isImage && isEnabled
 
     onClicked: {

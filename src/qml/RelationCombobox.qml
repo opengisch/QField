@@ -522,7 +522,7 @@ Item {
             Layout.preferredWidth: enabled ? 48 : 0
             Layout.preferredHeight: 48
 
-            bgcolor: "white"
+            bgcolor: "transparent"
             iconSource: Theme.getThemeIcon("ic_baseline_search_black")
 
             visible: enabled
