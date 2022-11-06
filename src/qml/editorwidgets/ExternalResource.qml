@@ -108,7 +108,8 @@ EditorWidgetBase {
     layer: currentLayer
     expressionText: {
       if ( currentLayer && currentLayer.customProperty('QFieldSync/photo_naming') !== undefined ) {
-        return JSON.parse(currentLayer.customProperty('QFieldSync/photo_naming'))[field.name]
+        var value =JSON.parse(currentLayer.customProperty('QFieldSync/photo_naming'))[field.name];
+        return value !== undefined ? value : ''
       } else {
         return ''
       }
