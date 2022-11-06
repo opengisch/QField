@@ -56,7 +56,7 @@ EditorWidgetBase {
     width: enabled ? 48 : 0
     height: 48
 
-    bgcolor: "white"
+    bgcolor: "transparent"
     iconSource: Theme.getThemeIcon("ic_view_green_48dp")
 
     onClicked: {

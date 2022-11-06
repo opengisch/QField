@@ -71,7 +71,7 @@ EditorWidgetBase {
 
           anchors.verticalCenter: textField.verticalCenter
 
-          bgcolor: "white"
+          bgcolor: "transparent"
           visible: enabled
 
           onClicked: {
@@ -102,7 +102,7 @@ EditorWidgetBase {
 
           anchors.verticalCenter: textField.verticalCenter
 
-          bgcolor: "white"
+          bgcolor: "transparent"
           visible: enabled
 
           onClicked: {
