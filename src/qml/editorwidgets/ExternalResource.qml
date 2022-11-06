@@ -20,6 +20,8 @@ EditorWidgetBase {
     id: rootPathEvaluator
   }
   property string prefixToRelativePath: {
+    if (qgisProject == undefined) return "";
+
     var path = ""
     if (config["RelativeStorage"] === 1 ) {
       path = qgisProject.homePath
