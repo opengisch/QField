@@ -254,12 +254,12 @@ Page {
           : undefined
         height: childrenRect.height
 
-        // Configured color of the container
         Rectangle {
-            color: GroupColor ? GroupColor : "transparent"
-            width: 8
-            height: parent.height
-            anchors.left: parent.left
+          id: fieldGroupBackground
+
+          anchors.fill: parent
+          visible: GroupColor ? true : false
+          color: GroupColor ? Qt.hsla(GroupColor.hslHue, GroupColor.hslSaturation, GroupColor.hslLightness, 0.05) : "transparent"
         }
 
         Rectangle {
@@ -267,7 +267,7 @@ Page {
 
           width: parent.width
           height: GroupName !== '' ? childrenRect.height : 0
-          color: Theme.lightestGray
+          color: GroupColor ? Qt.hsla(GroupColor.hslHue, GroupColor.hslSaturation, GroupColor.hslLightness, 0.5) : Theme.lightestGray
 
           Text {
             leftPadding: 10
@@ -280,6 +280,14 @@ Page {
             text: GroupName || ''
             wrapMode: Text.WordWrap
           }
+        }
+
+        Rectangle {
+          width: 5
+          height: fieldGroupTitle.height
+          anchors.top: parent.top
+          anchors.left: parent.left
+          color: GroupColor ? GroupColor : "transparent"
         }
 
         Item {
