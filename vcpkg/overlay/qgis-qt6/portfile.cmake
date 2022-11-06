@@ -1,5 +1,5 @@
-set(QGIS_REF final-3_28_0)
-set(QGIS_SHA512 35579ec2122059be7ec9fad7742e8e94f2bc646071cc5a5db9ba584cb44ee8784d5bbc8cf7225fda80c647c093ad06667b6388846fdd4eab01ffc14e7a0a08b3)
+set(QGIS_REF a10870b5fc85fb9766934d4dde2e8997b355ea46)
+set(QGIS_SHA512 3c3904a95867365a74625dfef801e79930778cec64239b5df16771aebddffed7a766560b9a41ef8c915d6dcab65b5a1be98708efd032c5b2f660f0c00c35116e)
 
 vcpkg_from_github(
     OUT_SOURCE_PATH SOURCE_PATH
@@ -18,8 +18,6 @@ vcpkg_from_github(
         bigobj.patch
         android-resources.patch
         poly2tri.patch
-        pgprovider.patch
-        qgsvariantutils.patch
         mesh.patch
 )
 
