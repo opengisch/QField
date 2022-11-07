@@ -12,7 +12,7 @@ Popup {
 
     property alias model: deltaList.model
 
-    width: Math.min( 400, mainWindow.width - 20 )
+    width: Math.min( 400, mainWindow.width - Theme.popupScreenEdgeMargin * 2 )
     x: (parent.width - width) / 2
     y: (parent.height - page.height) / 2
     padding: 0

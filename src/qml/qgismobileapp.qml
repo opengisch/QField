@@ -1744,6 +1744,8 @@ ApplicationWindow {
         return result + padding * 2;
     }
 
+    topMargin: Math.min(sceneTopMargin, Math.max(0, (contentHeight + topPadding + bottomPadding) - mainWindow.height + sceneTopMargin));
+
     MenuItem {
       text: qsTr( 'Measure Tool' )
 
@@ -1944,6 +1946,8 @@ ApplicationWindow {
         return Math.min( result + padding * 2,mainWindow.width - 20);
     }
 
+    topMargin: Math.min(sceneTopMargin, Math.max(0, (contentHeight + topPadding + bottomPadding) - mainWindow.height + sceneTopMargin));
+
     MenuItem {
       text: qsTr( 'Select template below' )
 
@@ -2040,6 +2044,8 @@ ApplicationWindow {
         }
         return Math.min( result + padding * 2,mainWindow.width - 20);
     }
+
+    topMargin: Math.min(sceneTopMargin, Math.max(0, (contentHeight + topPadding + bottomPadding) - mainWindow.height + sceneTopMargin));
 
     MenuItem {
         id: xItem
@@ -2140,6 +2146,8 @@ ApplicationWindow {
         return Math.min(result + padding, mainWindow.width - 20);
     }
 
+    topMargin: Math.min(sceneTopMargin, Math.max(0, (contentHeight + topPadding + bottomPadding) - mainWindow.height + sceneTopMargin));
+
     MenuItem {
       id: preciseViewItem
       text: qsTr( "Precise View Settings" )
@@ -2202,6 +2210,8 @@ ApplicationWindow {
         }
         return Math.min( result + padding * 2,mainWindow.width - 20);
     }
+
+    topMargin: Math.min(sceneTopMargin, Math.max(0, (contentHeight + topPadding + bottomPadding) - mainWindow.height + sceneTopMargin));
 
     MenuItem {
       text: qsTr( "%1 Precision" ).arg(UnitTypes.formatDistance(0.10, 2, navigation.distanceUnits))
@@ -2363,6 +2373,8 @@ ApplicationWindow {
         }
         return Math.min( result + padding * 2,mainWindow.width - 20);
     }
+
+    topMargin: Math.min(sceneTopMargin, Math.max(0, (contentHeight + topPadding + bottomPadding) - mainWindow.height + sceneTopMargin));
 
     MenuItem {
         id: positioningDeviceName

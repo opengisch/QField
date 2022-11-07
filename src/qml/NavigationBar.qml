@@ -500,6 +500,8 @@ Rectangle {
         return result + padding * 2 + 10;
     }
 
+    topMargin: Math.min(sceneTopMargin, Math.max(0, (contentHeight + topPadding + bottomPadding) - mainWindow.height + sceneTopMargin));
+
     MenuItem {
       text: qsTr( 'Toggle Feature Selection' )
 
@@ -608,6 +610,8 @@ Rectangle {
         }
         return result + padding * 2;
     }
+
+    topMargin: Math.min(sceneTopMargin, Math.max(0, (contentHeight + topPadding + bottomPadding) - mainWindow.height + sceneTopMargin));
 
     MenuItem {
       text: qsTr( 'Print Atlas Feature to PDF' )
