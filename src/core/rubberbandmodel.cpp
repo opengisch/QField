@@ -356,7 +356,7 @@ void RubberbandModel::setCrs( const QgsCoordinateReferenceSystem &crs )
 
 QgsVectorLayer *RubberbandModel::vectorLayer() const
 {
-  return mLayer;
+  return mLayer.data();
 }
 
 void RubberbandModel::setVectorLayer( QgsVectorLayer *vectorLayer )

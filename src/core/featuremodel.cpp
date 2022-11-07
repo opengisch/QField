@@ -143,7 +143,7 @@ void FeatureModel::setCurrentLayer( QgsVectorLayer *layer )
 
 QgsVectorLayer *FeatureModel::layer() const
 {
-  return mLayer;
+  return mLayer.data();
 }
 
 VertexModel *FeatureModel::vertexModel()

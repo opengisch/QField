@@ -230,7 +230,7 @@ class FeatureListModel : public QAbstractItemModel
 
     void cleanupGatherer();
 
-    QgsVectorLayer *mCurrentLayer = nullptr;
+    QPointer<QgsVectorLayer> mCurrentLayer;
 
     FeatureExpressionValuesGatherer *mGatherer = nullptr;
 

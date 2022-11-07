@@ -100,7 +100,7 @@ void LayerResolver::setLayerProviderName( const QString &layerProviderName )
 
 QgsVectorLayer *LayerResolver::currentLayer() const
 {
-  return mLayer;
+  return mLayer.data();
 }
 
 void LayerResolver::setLayer( QgsVectorLayer *layer )

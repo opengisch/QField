@@ -17,6 +17,7 @@
 
 #include "rubberbandmodel.h"
 
+#include <QPointer>
 #include <QtPositioning/QGeoCoordinate>
 #include <qgsgeometry.h>
 
@@ -47,7 +48,7 @@ class Geometry : public QObject
 
   private:
     RubberbandModel *mRubberbandModel = nullptr;
-    QgsVectorLayer *mVectorLayer = nullptr;
+    QPointer<QgsVectorLayer> mVectorLayer;
 };
 
 #endif // GEOMETRY_H

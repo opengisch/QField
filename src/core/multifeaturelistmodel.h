@@ -173,7 +173,7 @@ class MultiFeatureListModel : public QSortFilterProxyModel
   private:
     MultiFeatureListModelBase *mSourceModel = nullptr;
 
-    QgsVectorLayer *mFilterLayer = nullptr;
+    QPointer<QgsVectorLayer> mFilterLayer;
 };
 
 #endif // MULTIFEATURELISTMODEL_H

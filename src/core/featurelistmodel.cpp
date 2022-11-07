@@ -104,7 +104,7 @@ QHash<int, QByteArray> FeatureListModel::roleNames() const
 
 QgsVectorLayer *FeatureListModel::currentLayer() const
 {
-  return mCurrentLayer;
+  return mCurrentLayer.data();
 }
 
 void FeatureListModel::setCurrentLayer( QgsVectorLayer *currentLayer )

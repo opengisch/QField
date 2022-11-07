@@ -99,7 +99,7 @@ void Geometry::updateRubberband( const QgsGeometry &geometry )
 
 QgsVectorLayer *Geometry::vectorLayer() const
 {
-  return mVectorLayer;
+  return mVectorLayer.data();
 }
 
 void Geometry::setVectorLayer( QgsVectorLayer *vectorLayer )

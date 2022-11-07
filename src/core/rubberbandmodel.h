@@ -21,6 +21,7 @@
 #include <QDateTime>
 #include <QObject>
 #include <QPointF>
+#include <QPointer>
 #include <QVector>
 #include <qgis.h>
 #include <qgsabstractgeometry.h>
@@ -154,7 +155,7 @@ class QFIELD_CORE_EXPORT RubberbandModel : public QObject
     int mCurrentCoordinateIndex;
     QDateTime mCurrentPositionTimestamp;
     QgsWkbTypes::GeometryType mGeometryType;
-    QgsVectorLayer *mLayer = nullptr;
+    QPointer<QgsVectorLayer> mLayer;
     QgsCoordinateReferenceSystem mCrs;
     bool mFrozen = false;
 };
