@@ -75,7 +75,6 @@
         <file>PageHeader.qml</file>
         <file>Tracking.qml</file>
         <file>EmbeddedFeatureForm.qml</file>
-        <file>QuestionDialog.qml</file>
         <file>ImageDial.qml</file>
         <file>ScreenLocker.qml</file>
         <file>QFieldCloudLogin.qml</file>

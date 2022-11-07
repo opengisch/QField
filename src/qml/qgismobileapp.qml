@@ -81,11 +81,6 @@ ApplicationWindow {
       id: focusstack
   }
 
-  QuestionDialog{
-    id: questionDialog
-    parent: ApplicationWindow.overlay
-  }
-
   //this keyHandler is because otherwise the back-key is not handled in the mainWindow. Probably this could be solved cuter.
   Item {
     id: keyHandler
