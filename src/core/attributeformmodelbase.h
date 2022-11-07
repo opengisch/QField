@@ -108,7 +108,7 @@ class AttributeFormModelBase : public QStandardItemModel
     void onMapThemeCollectionChanged();
 
     FeatureModel *mFeatureModel = nullptr;
-    QgsVectorLayer *mLayer = nullptr;
+    QPointer<QgsVectorLayer> mLayer;
     std::unique_ptr<QgsAttributeEditorContainer> mTemporaryContainer;
     bool mHasTabs = false;
 

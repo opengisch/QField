@@ -18,6 +18,7 @@
 
 #include "qgsvectorlayer.h"
 
+#include <QPointer>
 #include <QTimer>
 
 class RubberbandModel;
@@ -55,7 +56,7 @@ class Tracker : public QObject
     void setStartPositionTimestamp( const QDateTime &startPositionTimestamp ) { mStartPositionTimestamp = startPositionTimestamp; }
 
     //! the current layer
-    QgsVectorLayer *layer() const { return mLayer; }
+    QgsVectorLayer *layer() const { return mLayer.data(); }
     //! the current layer
     void setLayer( QgsVectorLayer *layer ) { mLayer = layer; }
     //! the created feature
@@ -87,7 +88,7 @@ class Tracker : public QObject
     bool mTimeIntervalFulfilled = false;
     bool mMinimumDistanceFulfilled = false;
 
-    QgsVectorLayer *mLayer = nullptr;
+    QPointer<QgsVectorLayer> mLayer;
     QgsFeature mFeature;
 
     bool mVisible = true;

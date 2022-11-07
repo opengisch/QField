@@ -292,7 +292,7 @@ class FeatureModel : public QAbstractListModel
     void updateDefaultValues();
 
     ModelModes mModelMode = SingleFeatureModel;
-    QgsVectorLayer *mLayer = nullptr;
+    QPointer<QgsVectorLayer> mLayer;
     QgsFeature mFeature;
     QList<QgsFeature> mFeatures;
     QList<bool> mAttributesAllowEdit;

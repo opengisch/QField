@@ -183,7 +183,7 @@ QList<QgsFeature> MultiFeatureListModel::selectedFeatures()
 
 QgsVectorLayer *MultiFeatureListModel::selectedLayer()
 {
-  return mFilterLayer;
+  return mFilterLayer.data();
 }
 
 bool MultiFeatureListModel::filterAcceptsRow( int source_row, const QModelIndex &source_parent ) const

@@ -19,6 +19,7 @@
 #define LAYERRESOLVER_H
 
 #include <QObject>
+#include <QPointer>
 
 class QgsVectorLayer;
 class QgsProject;
@@ -98,7 +99,7 @@ class LayerResolver : public QObject
     QString mLayerSource;
     QString mLayerProviderName;
     QgsProject *mProject = nullptr;
-    QgsVectorLayer *mLayer = nullptr;
+    QPointer<QgsVectorLayer> mLayer;
 };
 
 #endif // LAYERRESOLVER_H
