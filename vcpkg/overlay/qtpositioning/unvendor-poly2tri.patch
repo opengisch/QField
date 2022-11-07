@@ -1,0 +1,24 @@
+diff --git a/src/3rdparty/clip2tri/CMakeLists.txt b/src/3rdparty/clip2tri/CMakeLists.txt
+index 9b5a56b..b1b8f79 100644
+--- a/src/3rdparty/clip2tri/CMakeLists.txt
++++ b/src/3rdparty/clip2tri/CMakeLists.txt
+@@ -16,7 +16,7 @@ qt_internal_add_3rdparty_library(Bundled_Clip2Tri
+         ../poly2tri
+     LIBRARIES
+         Qt::Bundled_Clipper # special case
+-        Qt::Bundled_Poly2Tri # special case
++        poly2tri::poly2tri
+ )
+ qt_disable_warnings(Bundled_Clip2Tri)
+ qt_set_symbol_visibility_hidden(Bundled_Clip2Tri)
+diff --git a/src/CMakeLists.txt b/src/CMakeLists.txt
+index 4fb28c2..a7d8a0d 100644
+--- a/src/CMakeLists.txt
++++ b/src/CMakeLists.txt
+@@ -1,5 +1,5 @@
+ # special case begin
+-add_subdirectory(3rdparty/poly2tri)
++find_package(poly2tri)
+ add_subdirectory(3rdparty/clipper)
+ add_subdirectory(3rdparty/clip2tri)
+ add_subdirectory(positioning)
