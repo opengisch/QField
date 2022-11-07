@@ -40,7 +40,7 @@ jobs:
         with:
           key: ccache-windows
           variant: sccache
-          max-size: 200M
+          max-size: 50M
 
       - name: 🔨 Prepare build env
         shell: bash
@@ -75,7 +75,7 @@ jobs:
                 -D APP_VERSION="${APP_VERSION}" \
                 -D APP_VERSION_STR="${APP_VERSION_STR}" \
                 -D APP_PACKAGE_NAME="${APP_PACKAGE_NAME}" \
-                -D ENABLE_TESTS=ON \
+                -D ENABLE_TESTS=OFF \
                 -D NUGET_USERNAME=opengisch \
                 -D NUGET_TOKEN=${{ secrets.GITHUB_TOKEN }} \
                 -D SENTRY_DSN=${{ secrets.SENTRY_DSN }} \
@@ -150,7 +150,7 @@ jobs:
 
       - name: Upload debug symbols
         shell: bash
-        # if: release or labeled PR
+        if: github.event_name == 'release' && startsWith(github.ref, 'refs/tags/v') && env.ARTIFACT_NAME != null
         env:
           SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
         run: |
