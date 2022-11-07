@@ -156,7 +156,7 @@ jobs:
 
       - name: Upload release assets
         uses: AButler/upload-release-assets@v2.0
-        if: ${{ github.event_name == 'release' }}
+        if: ${{ github.event_name == 'release' }} && ${{ matrix.all_files_access }} == "OFF"
         with:
           files: /tmp/qfield-*.apk
           repo-token: ${{ secrets.GITHUB_TOKEN }}
