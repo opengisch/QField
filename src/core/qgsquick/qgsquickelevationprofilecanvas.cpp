@@ -525,7 +525,7 @@ void QgsQuickElevationProfileCanvas::populateLayersFromProject()
   auto filteredList = sortedLayers;
   filteredList.erase( std::remove_if( filteredList.begin(), filteredList.end(),
                                       []( QgsMapLayer *layer ) {
-                                        return !layer || !layer->isValid() || !layer->elevationProperties() && !layer->elevationProperties()->showByDefaultInElevationProfilePlots();
+                                        return !layer || !layer->isValid() || !layer->elevationProperties() || !layer->elevationProperties()->showByDefaultInElevationProfilePlots();
                                       } ),
                       filteredList.end() );
 
