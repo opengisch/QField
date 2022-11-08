@@ -156,7 +156,7 @@ jobs:
 
       - name: Upload release assets
         uses: AButler/upload-release-assets@v2.0
-        if: ${{ github.event_name == 'release' }} && ${{ matrix.all_files_access }} == "OFF"
+        if: ${{ github.event_name == 'release' && matrix.all_files_access == 'OFF' }}
         with:
           files: /tmp/qfield-*.apk
           repo-token: ${{ secrets.GITHUB_TOKEN }}
@@ -164,7 +164,7 @@ jobs:
 
       - name: Upload debug symbols
         # if: release or labeled PR
-        if: ${{ matrix.all_files_access }} == "OFF"
+        if: ${{ matrix.all_files_access == 'OFF' }}
         env:
           SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
         run: |
