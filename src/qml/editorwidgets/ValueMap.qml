@@ -29,6 +29,11 @@ EditorWidgetBase {
     anchors { left: parent.left; right: parent.right }
     font: Theme.defaultFont
     popup.font: Theme.defaultFont
+    popup.background: Rectangle {
+        implicitWidth: parent.width
+        implicitHeight: parent.height
+        color: "#ff0000"
+    }
 
     currentIndex: model.keyToIndex(value)
 

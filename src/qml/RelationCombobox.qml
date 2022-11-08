@@ -310,6 +310,11 @@ Item {
             textRole: 'display'
             font: Theme.defaultFont
             popup.font: Theme.defaultFont
+            popup.background: Rectangle {
+                implicitWidth: parent.width
+                implicitHeight: parent.height
+                color: "#ff0000"
+            }
             contentItem: Text {
                 leftPadding: enabled ? 5 : 0
                 height: fontMetrics.height + 20
