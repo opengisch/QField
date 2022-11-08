@@ -15,11 +15,11 @@
     </message>
     <message>
         <source>Documentation</source>
-        <translation type="unfinished"/>
+        <translation>Dokumentacija</translation>
     </message>
     <message>
         <source>Links Menu</source>
-        <translation type="unfinished"/>
+        <translation>Meni povezav</translation>
     </message>
 </context>
 <context>
@@ -118,7 +118,7 @@
     </message>
     <message>
         <source>Center your camera on a code</source>
-        <translation type="unfinished"/>
+        <translation>Centrirajte fotoaparat na kodo</translation>
     </message>
 </context>
 <context>
@@ -133,11 +133,11 @@
     </message>
     <message>
         <source>Scanning failed: %1</source>
-        <translation type="unfinished"/>
+        <translation>Skeniranje ni uspelo: %1</translation>
     </message>
     <message>
         <source>Scanning done</source>
-        <translation type="unfinished"/>
+        <translation>Skeniranje končano</translation>
     </message>
     <message numerus="yes">
         <source>%n device(s) found</source>
@@ -145,11 +145,11 @@
     </message>
     <message>
         <source>Scanning canceled</source>
-        <translation type="unfinished"/>
+        <translation>Skeniranje preklicano</translation>
     </message>
     <message>
         <source>Scan</source>
-        <translation type="unfinished"/>
+        <translation>Skeniranje</translation>
     </message>
     <message>
         <source>Make a full service discovery</source>
@@ -208,7 +208,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Could not find the remote host</source>
-        <translation type="unfinished"/>
+        <translation>Oddaljenega gostitelja ni bilo mogoče najti </translation>
     </message>
     <message>
         <source>Could not find the service UUID on remote host</source>
@@ -228,11 +228,11 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>The remote host closed the connection</source>
-        <translation type="unfinished"/>
+        <translation>Oddaljeni gostitelj je zaprl povezavo</translation>
     </message>
     <message>
         <source>Unknown error</source>
-        <translation type="unfinished"/>
+        <translation>Neznana napaka</translation>
     </message>
 </context>
 <context>
@@ -368,7 +368,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>NULL</source>
-        <translation type="unfinished"/>
+        <translation>NULL</translation>
     </message>
 </context>
 <context>
@@ -386,7 +386,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Map Theme</source>
-        <translation type="unfinished"/>
+        <translation>Tema karte</translation>
     </message>
 </context>
 <context>
@@ -1422,11 +1422,11 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Server Error.</source>
-        <translation type="unfinished"/>
+        <translation>Napaka strežnika.</translation>
     </message>
     <message>
         <source>Network Error.</source>
-        <translation type="unfinished"/>
+        <translation>Napaka omrežja.</translation>
     </message>
     <message>
         <source>Server not found, please check the server URL</source>
@@ -1521,7 +1521,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Learn more about QFieldCloud</source>
-        <translation type="unfinished"/>
+        <translation>Preberite več o QFieldCloud-u</translation>
     </message>
 </context>
 <context>
@@ -1547,11 +1547,11 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <name>QFieldCloudPopup</name>
     <message>
         <source>QFieldCloud</source>
-        <translation type="unfinished"/>
+        <translation>QFieldCloud</translation>
     </message>
     <message>
         <source>The current project is not stored on QFieldCloud.&lt;br&gt;&lt;br&gt;</source>
-        <translation type="unfinished"/>
+        <translation>Trenutni projekt ni shranjen v QFieldCloud.&lt;br&gt;&lt;br&gt;</translation>
     </message>
     <message>
         <source>Storing projects on QFieldCloud offers seamless synchornization, offline editing, and team management.&lt;br&gt;&lt;br&gt;</source>
@@ -1559,7 +1559,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Learn more about QFieldCloud</source>
-        <translation type="unfinished"/>
+        <translation>Preberite več o QFieldCloud-u</translation>
     </message>
     <message>
         <source>Disconnected from the cloud.</source>
@@ -1583,7 +1583,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>QFieldCloud is preparing the latest data just for you. This might take some time, please hold tight…</source>
-        <translation type="unfinished"/>
+        <translation>QFieldCloud pripravlja najnovejše podatke samo za vas. To lahko traja nekaj časa, zato vztrajajte...</translation>
     </message>
     <message>
         <source>Uploading %1%…</source>
@@ -1591,7 +1591,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>QFieldCloud is applying the latest uploaded changes. This might take some time, please hold tight…</source>
-        <translation type="unfinished"/>
+        <translation>QFieldCloud uporablja najnovejše naložene spremembe. To lahko traja nekaj časa, zato vztrajajte...</translation>
     </message>
     <message>
         <source>A server error has occured, please try again.</source>
@@ -1611,7 +1611,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>The locally stored cloud project has been corrupted</source>
-        <translation type="unfinished"/>
+        <translation>Lokalno shranjen projekt v oblaku je bil poškodovan</translation>
     </message>
     <message>
         <source>Synchronize</source>
@@ -1697,7 +1697,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Reset cloud project</source>
-        <translation type="unfinished"/>
+        <translation>Ponastavite projekt v oblaku</translation>
     </message>
     <message>
         <source>Last warning, resetting the cloud project will erase any local changes, are you sure you want to go ahead?</source>
@@ -1883,7 +1883,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>QFieldCloud is preparing the latest data just for you. This might take some time, please hold tight…</source>
-        <translation type="unfinished"/>
+        <translation>QFieldCloud pripravlja najnovejše podatke samo za vas. To lahko traja nekaj časa, zato vztrajajte...</translation>
     </message>
     <message>
         <source>Uploading…</source>
@@ -1899,11 +1899,11 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Available locally, missing on the cloud</source>
-        <translation type="unfinished"/>
+        <translation>Na voljo lokalno, manjka v oblaku</translation>
     </message>
     <message>
         <source>Available on the cloud, missing locally</source>
-        <translation type="unfinished"/>
+        <translation>Na voljo v oblaku, manjka lokalno</translation>
     </message>
     <message>
         <source>Available locally</source>
@@ -2141,7 +2141,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Scanning failed: %1</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Skeniranje ni uspelo: %1</translation>
     </message>
     <message>
         <source>Scanning done</source>
@@ -2153,11 +2153,11 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Scanning canceled</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Skeniranje preklicano</translation>
     </message>
     <message>
         <source>Scan</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Skeniranje</translation>
     </message>
     <message>
         <source>Make a full service discovery</source>
@@ -2277,7 +2277,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>QFieldCloud Unknown Error</source>
-        <translation type="unfinished"/>
+        <translation>Neznana napaka QFieldCloud-a</translation>
     </message>
     <message>
         <source>Status not ok</source>
@@ -2293,7 +2293,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>API Error</source>
-        <translation type="unfinished"/>
+        <translation>Napaka API</translation>
     </message>
     <message>
         <source>Validation Error</source>
@@ -2345,7 +2345,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Please wait while QField installation finalizes.</source>
-        <translation type="unfinished"/>
+        <translation>Počakaj, da se zaključi namestitev QField-a.</translation>
     </message>
     <message>
         <source>averaged</source>
@@ -2491,7 +2491,7 @@ Cancel to make a minimal device scan instead.</source>
     <name>SystemLoader</name>
     <message>
         <source>Preparing QField, this is a one time operation that might take some time</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Pripravljamo QField, to je enkratna operacija, ki lahko traja nekaj časa</translation>
     </message>
 </context>
 <context>
@@ -2517,7 +2517,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Scan Code</source>
-        <translation type="unfinished"/>
+        <translation>Skeniraj kodo</translation>
     </message>
 </context>
 <context>
@@ -2601,7 +2601,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Hey there, how do you like your experience with QField so far?</source>
-        <translation type="unfinished"/>
+        <translation>Pozdravljen, kako ti je všeč dosedanja izkušnja s QField-om?</translation>
     </message>
     <message>
         <source>That&apos;s great! We&apos;d love for you to click on the button below and leave a comment on the store.</source>
@@ -3075,7 +3075,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Azimuth</source>
-        <translation type="unfinished"/>
+        <translation>Azimut</translation>
     </message>
     <message>
         <source>Lock Screen</source>
