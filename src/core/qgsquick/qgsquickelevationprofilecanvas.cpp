@@ -378,6 +378,9 @@ void QgsQuickElevationProfileCanvas::onLayerProfileRendererPropertyChanged()
 
 void QgsQuickElevationProfileCanvas::regenerateResultsForLayer()
 {
+  if ( !mCurrentJob )
+    return;
+
   if ( QgsMapLayer *layer = qobject_cast<QgsMapLayer *>( sender() ) )
   {
     if ( QgsAbstractProfileSource *source = dynamic_cast<QgsAbstractProfileSource *>( layer ) )
