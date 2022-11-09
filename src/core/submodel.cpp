@@ -192,7 +192,7 @@ QModelIndex SubModel::mapToSource( const QModelIndex &index ) const
     return QModelIndex();
 
   if ( !index.isValid() )
-    return mRootIndex;
+    return QModelIndex();
 
   return mModel->index( index.row(), index.column(), mMappings.find( index.internalId() ).value() );
 }
