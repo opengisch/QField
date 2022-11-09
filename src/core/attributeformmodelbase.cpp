@@ -325,7 +325,7 @@ void AttributeFormModelBase::buildForm( QgsAttributeEditorContainer *container, 
     item->setData( columnCount, AttributeFormModel::ColumnCount );
     item->setData( currentTabIndex, AttributeFormModel::TabIndex );
     item->setData( QString(), AttributeFormModel::GroupName );
-    item->setData( QModelIndex(), AttributeFormModel::GroupIndex );
+    item->setData( QVariant(), AttributeFormModel::GroupIndex );
 
     switch ( element->type() )
     {
