@@ -301,7 +301,7 @@ Page {
           Item {
             id: innerContainer
 
-            property bool isVisible: GroupIndex != undefined && Type === 'container'
+            property bool isVisible: GroupIndex != undefined && Type === 'container' && GroupIndex.valid
             visible: isVisible
             height: isVisible ? innerContainerContent.childrenRect.height : 0
             anchors {
@@ -319,9 +319,9 @@ Page {
 
               Repeater {
                 model: SubModel {
-                  enabled: GroupIndex != undefined && Type === 'container'
+                  enabled: innerContainer.isVisible
                   model: form.model
-                  rootIndex: GroupIndex != undefined ? form.model.mapFromSource(GroupIndex) : form.model.index(-1, 0)
+                  rootIndex: innerContainer.isVisible ? form.model.mapFromSource(GroupIndex) : form.model.index(-1, 0)
                 }
                 delegate: fieldItem
               }

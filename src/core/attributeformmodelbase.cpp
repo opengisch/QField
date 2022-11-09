@@ -325,7 +325,7 @@ void AttributeFormModelBase::buildForm( QgsAttributeEditorContainer *container, 
     item->setData( columnCount, AttributeFormModel::ColumnCount );
     item->setData( currentTabIndex, AttributeFormModel::TabIndex );
     item->setData( QString(), AttributeFormModel::GroupName );
-    item->setData( QModelIndex(), AttributeFormModel::GroupIndex );
+    item->setData( QVariant(), AttributeFormModel::GroupIndex );
 
     switch ( element->type() )
     {
@@ -347,7 +347,7 @@ void AttributeFormModelBase::buildForm( QgsAttributeEditorContainer *container, 
         item->setData( true, AttributeFormModel::CurrentlyVisible );
         item->setData( false, AttributeFormModel::AttributeEditable );
         item->setData( false, AttributeFormModel::AttributeAllowEdit );
-        item->setData( innerContainer->isGroupBox() ? innerContainer->name() : QString(), AttributeFormModel::GroupName );
+        item->setData( innerContainer->name(), AttributeFormModel::GroupName );
         if ( innerContainer->backgroundColor().isValid() )
           item->setData( innerContainer->backgroundColor(), AttributeFormModel::GroupColor );
 
