@@ -86,7 +86,7 @@ void SubModel::setRootIndex( const QModelIndex &rootIndex )
 
 QAbstractItemModel *SubModel::model() const
 {
-  return mModel;
+  return mModel.data();
 }
 
 void SubModel::setModel( QAbstractItemModel *model )
@@ -192,7 +192,7 @@ QModelIndex SubModel::mapToSource( const QModelIndex &index ) const
     return QModelIndex();
 
   if ( !index.isValid() )
-    return mRootIndex;
+    return QModelIndex();
 
   return mModel->index( index.row(), index.column(), mMappings.find( index.internalId() ).value() );
 }

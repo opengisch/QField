@@ -17,6 +17,7 @@
 #define SUBMODEL_H
 
 #include <QAbstractItemModel>
+#include <QPointer>
 
 class SubModel : public QAbstractItemModel
 {
@@ -63,7 +64,7 @@ class SubModel : public QAbstractItemModel
     QModelIndex mapFromSource( const QModelIndex &sourceIndex ) const;
     QModelIndex mapToSource( const QModelIndex &index ) const;
 
-    QAbstractItemModel *mModel = nullptr;
+    QPointer<QAbstractItemModel> mModel;
     QPersistentModelIndex mRootIndex;
 
     // Map internal id to parent index
