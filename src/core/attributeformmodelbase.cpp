@@ -347,7 +347,7 @@ void AttributeFormModelBase::buildForm( QgsAttributeEditorContainer *container, 
         item->setData( true, AttributeFormModel::CurrentlyVisible );
         item->setData( false, AttributeFormModel::AttributeEditable );
         item->setData( false, AttributeFormModel::AttributeAllowEdit );
-        item->setData( innerContainer->isGroupBox() ? innerContainer->name() : QString(), AttributeFormModel::GroupName );
+        item->setData( innerContainer->name(), AttributeFormModel::GroupName );
         if ( innerContainer->backgroundColor().isValid() )
           item->setData( innerContainer->backgroundColor(), AttributeFormModel::GroupColor );
 
