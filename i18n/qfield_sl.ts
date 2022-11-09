@@ -488,7 +488,7 @@ Cancel to make a minimal device scan instead.</source>
     <name>ElevationProfile</name>
     <message>
         <source>Digitize a path to render the elevation profile</source>
-        <translation type="unfinished"/>
+        <translation>Izrisovanje višinskega profila...</translation>
     </message>
     <message>
         <source>Rendering elevation profile…</source>
@@ -760,7 +760,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Split Tool</source>
-        <translation type="unfinished"/>
+        <translation>Orodje za razdelitev</translation>
     </message>
     <message>
         <source>Reshape Tool</source>
@@ -900,7 +900,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>This layer is configured as &quot;Read-Only&quot; which disables adding, deleting and editing features.</source>
-        <translation type="unfinished"/>
+        <translation>Ta sloj je konfiguriran &quot;samo za branje&quot;, kar onemogoča dodajanje, brisanje in urejanje objektov.</translation>
     </message>
     <message>
         <source>This layer is configured as &quot;Lock Geometries&quot; which disables adding and deleting features, as well as modifying the geometries of existing features.</source>
@@ -1615,7 +1615,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Synchronize</source>
-        <translation type="unfinished"/>
+        <translation>Sinhronizacija</translation>
     </message>
     <message>
         <source>Synchronize the whole project with all modified features and download the freshly updated project with all the applied changes from QFieldCloud.</source>
@@ -2093,7 +2093,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Send anonymized metrics</source>
-        <translation type="unfinished"/>
+        <translation>Pošlji anonimizirane metrike</translation>
     </message>
     <message>
         <source>If enabled, anonymized metrics will be collected and sent to help improve QField for everyone.</source>
@@ -2484,7 +2484,7 @@ Cancel to make a minimal device scan instead.</source>
     <name>SplitFeatureToolbar</name>
     <message>
         <source>Feature could not be split</source>
-        <translation type="unfinished"/>
+        <translation>Objekta mi mogoče razdeliti</translation>
     </message>
 </context>
 <context>
@@ -3079,7 +3079,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Lock Screen</source>
-        <translation type="unfinished"/>
+        <translation>Zakleni zaslon</translation>
     </message>
 </context>
 <context>
