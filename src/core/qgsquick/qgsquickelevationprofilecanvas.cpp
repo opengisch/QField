@@ -129,7 +129,18 @@ class QgsElevationProfilePlotItem : public Qgs2DPlot
         }
         else
         {
-          plot = mRenderer->renderToImage( plotArea.width(), plotArea.height(), xMinimum(), xMaximum(), yMinimum(), yMaximum(), source );
+          const double devicePixelRatio = mCanvas->window()->screen()->devicePixelRatio();
+          plot = QImage( plotArea.width() * devicePixelRatio, plotArea.height() * devicePixelRatio, QImage::Format_ARGB32_Premultiplied );
+          plot.setDevicePixelRatio( devicePixelRatio );
+          plot.fill( Qt::transparent );
+
+          QPainter plotPainter( &plot );
+          plotPainter.setRenderHint( QPainter::Antialiasing, true );
+          QgsRenderContext plotRc = QgsRenderContext::fromQPainter( &plotPainter );
+          plotRc.setDevicePixelRatio( devicePixelRatio );
+          mRenderer->render( plotRc, plotArea.width(), plotArea.height(), xMinimum(), xMaximum(), yMinimum(), yMaximum(), source );
+          plotPainter.end();
+
           mCachedImages.insert( source, plot );
         }
         rc.painter()->drawImage( plotArea.left(), plotArea.top(), plot );
@@ -306,12 +317,15 @@ void QgsQuickElevationProfileCanvas::generationFinished()
   }
 
   QRectF rect = boundingRect();
-  mImage = QImage( rect.width(), rect.height(), QImage::Format_ARGB32_Premultiplied );
+  const double devicePixelRatio = window()->screen()->devicePixelRatio();
+  mImage = QImage( rect.width() * devicePixelRatio, rect.height() * devicePixelRatio, QImage::Format_ARGB32_Premultiplied );
+  mImage.setDevicePixelRatio( devicePixelRatio );
   mImage.fill( Qt::transparent );
 
   QPainter imagePainter( &mImage );
   imagePainter.setRenderHint( QPainter::Antialiasing, true );
   QgsRenderContext rc = QgsRenderContext::fromQPainter( &imagePainter );
+  rc.setDevicePixelRatio( devicePixelRatio );
 
   rc.expressionContext().appendScope( QgsExpressionContextUtils::globalScope() );
   rc.expressionContext().appendScope( QgsExpressionContextUtils::projectScope( mProject ) );
