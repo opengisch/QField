@@ -306,7 +306,11 @@ void QgsQuickElevationProfileCanvas::generationFinished()
   }
 
   QRectF rect = boundingRect();
-  mImage = QImage( rect.width(), rect.height(), QImage::Format_ARGB32_Premultiplied );
+  const double devicePixelRatio = window()->screen()->devicePixelRatio();
+  mImage = QImage( rect.width() * devicePixelRatio, rect.height() * devicePixelRatio, QImage::Format_ARGB32_Premultiplied );
+  mImage.setDotsPerMeterX( window()->screen()->physicalDotsPerInch() * devicePixelRatio * 39.37 );
+  mImage.setDotsPerMeterY( window()->screen()->physicalDotsPerInch() * devicePixelRatio * 39.37 );
+  mImage.setDevicePixelRatio( devicePixelRatio );
   mImage.fill( Qt::transparent );
 
   QPainter imagePainter( &mImage );
