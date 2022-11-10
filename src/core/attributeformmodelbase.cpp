@@ -174,6 +174,7 @@ void AttributeFormModelBase::resetModel()
     }
 
     const bool hasTabs = !root->children().isEmpty() && QgsAttributeEditorElement::AeTypeContainer == root->children().first()->type();
+    setHasTabs( hasTabs );
 
     invisibleRootItem()->setColumnCount( 1 );
     if ( hasTabs )
@@ -213,7 +214,6 @@ void AttributeFormModelBase::resetModel()
     }
 
     mExpressionContext = mLayer->createExpressionContext();
-    setHasTabs( hasTabs );
   }
 
   endResetModel();
