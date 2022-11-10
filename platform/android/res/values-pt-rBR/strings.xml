@@ -29,20 +29,34 @@ QGIS pode ser executado a partir do armazenamento interno, mas isso não é reco
     <string name="added_to_favorites">Adicionado aos favoritos</string>
     <string name="removed_from_favorites">Removido dos favoritos</string>
     <string name="external_files_title">Nota Importante</string>
-    <string name="external_files_message"><![CDATA[Os arquivos da pasta do QField pode ser usado para copiar arquivos e projetos para o seu dispositivo através de um cabo USB. Pode ver o caminho absoluto do diretório na barra do cabeçalho.<br/><br/>Tenha em atenção que o conteúdo deste diretório <i>será excluído se desinstalar o QField do seu dispositivo.]]></string>
+    <string name="external_files_message"><![CDATA[Os arquivos da pasta do QField podem ser usados para copiar arquivos e projetos para o seu dispositivo através de um cabo USB. Pode ver o caminho absoluto do diretório na barra do cabeçalho.Tenha em atenção que o conteúdo deste diretório será excluído se desinstalar o QField do seu dispositivo.]]>
+
+<![CDATA[A pasta de arquivos do QField pode ser usada para copiar arquivos e projetos para o seu dispositivo via cabo USB. Você pode ver o caminho absoluto da pasta na barra de cabeçalho.<br/><br/>Esteja ciente de que o conteúdo desta pasta <i>será excluído</i> se você desinstalar o QField do seu dispositivo.]]></string>
     <string name="external_files_ok">OK</string>
     <string name="grant_permission">Acesso a todos os ficheiros</string>
-    <string name="grant_all_files_permission"><![CDATA[O QField necessita de permissão a todos os arquivos para que possa abrir os projetos locais e conjuntos dados assim como as grades personalizadas de projeções, fontes e mapas base. Quando não requerido, <i>permitir o acesso é altamente recomendado </i>.<br/><br/>Na próxima tela, por favor selecione <b>QField</b> e selecione a opção <b>Permitir o acesso a todos os arquivos.]]></string>
+    <string name="grant_all_files_permission"><![CDATA[O QField necessita de permissão a todos os arquivos para que possa abrir os projetos locais e conjuntos dados assim como as grades personalizadas de projeções, fontes e mapas base. Quando não requerido, <i>permitir o acesso é altamente recomendado</i>.<br/><br/>Na próxima tela, por favor selecione <b>QField</b> e selecione a opção <b>Permitir o acesso a todos os arquivos</b>.]]></string>
     <string name="grant">Permitir</string>
     <string name="deny_always">Proibir Permanentemente</string>
     <string name="deny_once">Proibir uma vez</string>
     <string name="import_project_folder">Importar Projeto da Pasta</string>
     <string name="import_project_archive">Importar Projeto de arquivo ZIP</string>
     <string name="import_dataset">Importar Conjunto de Dado(s)</string>
+    <string name="usb_cable_help">Ajuda de gerenciamento de armazenamento</string>
     <string name="import_error">Erro de Importação</string>
     <string name="import_dataset_error">Os conjuntos de dado(s) selecionados não foram importados de forma correta.</string>
+    <string name="import_project_archive_error">O arquivo de projeto selecionado não foi importado corretamente.</string>
+    <string name="import_project_folder_error">A pasta do projeto selecionada não foi importada corretamente.</string>
+    <string name="import_overwrite_title">Aviso de importação</string>
+    <string name="import_overwrite_folder">Esta pasta do projeto já existe. Esta operação irá sobrescrever seus dados, prosseguir com a importação?</string>
+    <string name="import_overwrite_dataset_single">Este conjunto de dados já existe. Esta operação irá sobrescrevê-lo, prosseguir com a importação?</string>
+    <string name="import_overwrite_dataset_multiple">Já existe um ou mais conjuntos de dados. Esta operação irá sobrescrever estes, prosseguir com a importação?</string>
+    <string name="import_overwrite_confirm">Importar e substituir</string>
     <string name="import_overwrite_cancel">Cancelar</string>
+    <string name="export_error">Erro de exportação</string>
+    <string name="export_to_folder_error">A pasta do projeto selecionada não foi exportada corretamente.</string>
     <string name="send_to">Enviar para...</string>
+    <string name="send_compressed_to">Enviar pasta compactada para...</string>
+    <string name="export_to_folder">Exportar para pasta...</string>
     <string name="add_to_favorite">Adicionar aos Favoritos</string>
     <string name="remove_from_favorite">Remover dos Favoritos</string>
     <string name="remove_dataset">Remover Conjunto de dados</string>
@@ -52,4 +66,10 @@ QGIS pode ser executado a partir do armazenamento interno, mas isso não é reco
     <string name="delete_confirm_folder">A pasta do projeto será permanentemente excluída, proceder com a remoção?</string>
     <string name="delete_confirm">Remover</string>
     <string name="delete_cancel">Cancelar</string>
-    </resources>
+    <string name="storage_information_title">Informações de armazenamento</string>
+    <string name="storage_information_message">Se você é um usuário pré-existente do QField 1.x se perguntando por que seus projetos e conjuntos de dados desapareceram ou são novos no QField, sugerimos que você reserve um minuto para ler a documentação de manuseio de armazenamento. Um atalho para esta documentação permanecerá acessível no menu de ações da barra de título.</string>
+    <string name="storage_information_view">Mostre-me a documentação</string>
+    <string name="storage_information_dismiss">Vou ler depois</string>
+    <string name="import_project_wait">Aguarde enquanto o QField está importando o projeto</string>
+    <string name="import_dataset_wait">Aguarde enquanto o QField está importando o(s) conjunto(s) de dados</string>
+</resources>
