@@ -7,7 +7,9 @@ import Theme 1.0
 
 Item {
   id: qfieldcloudLogin
+
   property bool isServerUrlEditingActive: false
+  property bool isVisible: false
 
   Image {
     id: sourceImg
@@ -32,7 +34,11 @@ Item {
       property real amplitude: 0.1
       property real time: 0.0
       NumberAnimation on time {
-          from: 0; to: Math.PI*2; duration: 5000; loops: Animation.Infinite
+          from: 0
+          to: Math.PI*2
+          duration: 5000
+          loops: Animation.Infinite
+          running: qfieldcloudLogin.isVisible
       }
       fragmentShader: "
                       varying highp vec2 qt_TexCoord0;
