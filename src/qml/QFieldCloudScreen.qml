@@ -138,6 +138,7 @@ Page {
 
         QFieldCloudLogin {
           id: qfieldCloudLogin
+          isVisible: connectionSettings.visible
           width: parent.parent.width
         }
       }
