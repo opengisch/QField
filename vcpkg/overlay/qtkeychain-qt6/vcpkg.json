@@ -27,7 +27,11 @@
     "translations": {
       "description": "Build qtkeychain translations",
       "dependencies": [
-        "qttools"
+        {
+          "name": "qttools",
+          "features": ["linguist"],
+          "host": true
+        }
       ]
     }
   }

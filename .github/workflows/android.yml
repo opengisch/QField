@@ -18,6 +18,7 @@ jobs:
       matrix:
         triplet: ['arm64-android', 'arm-android', 'x64-android', 'x86-android']
         all_files_access: ['ON', 'OFF']
+        with_qt6: ['ON', 'OFF']
 
     steps:
       - name: 🐣 Checkout
@@ -45,6 +46,7 @@ jobs:
         uses: lukka/get-cmake@latest
 
       - name: 💐 Install Qt
+        if: matrix.with_qt6 == 'OFF'
         uses: jurplel/install-qt-action@v3
         with:
           version: 5.14.2
@@ -89,7 +91,8 @@ jobs:
                 -G Ninja \
                 -D CMAKE_BUILD_TYPE=${{ env.BUILD_TYPE }} \
                 -D CMAKE_CXX_COMPILER_LAUNCHER=ccache \
-                -D SYSTEM_QT=ON \
+                -D SYSTEM_QT=$([ "${{ matrix.with_qt6 }}" = "OFF" ] && echo "ON" || echo "OFF") \
+                -D BUILD_WITH_QT6=${{ matrix.with_qt6 }} \
                 -D ANDROID_SDK=/usr/local/lib/android/sdk/ \
                 -D ANDROID_NDK_VERSION="${ANDROID_NDK_VERSION}" \
                 -D ANDROID_BUILD_TOOLS_VERSION="${ANDROID_BUILD_TOOLS_VERSION}" \

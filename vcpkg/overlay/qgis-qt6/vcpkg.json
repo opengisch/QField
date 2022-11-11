@@ -36,7 +36,8 @@
       "qtlocation",
       {
         "name": "qttools",
-        "features": ["linguist"]
+        "features": ["linguist"],
+        "host": true
       },
       {
         "name": "qca-qt6",
