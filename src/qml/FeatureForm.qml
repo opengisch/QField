@@ -252,7 +252,7 @@ Page {
             ? parent.width / ColumnCount
             : parent.width
           : undefined
-        height: childrenRect.height
+        height: fieldGroupTitle.height + field.childrenRect.height
 
         Rectangle {
           id: fieldGroupBackground
@@ -291,6 +291,8 @@ Page {
         }
 
         Item {
+          id: field
+
           height: childrenRect.height
           anchors {
             top: fieldGroupTitle.bottom
