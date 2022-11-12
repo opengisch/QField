@@ -120,9 +120,11 @@ void SubModel::setModel( QAbstractItemModel *model )
   // Disconnect previous model connections
   handleModelConnection( true );
 
+  beginResetModel();
   mModel = model;
   mMappings.clear();
   handleModelConnection();
+  endResetModel();
 
   emit modelChanged();
 }
@@ -132,11 +134,13 @@ void SubModel::setEnabled( bool enabled )
   if ( enabled == mEnabled )
     return;
 
+  beginResetModel();
   mEnabled = enabled;
   mMappings.clear();
   handleModelConnection();
+  endResetModel();
 
-  emit modelChanged();
+  emit enabledChanged();
 }
 
 void SubModel::onRowsInserted( const QModelIndex &parent, int first, int last )

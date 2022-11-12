@@ -23,7 +23,7 @@ class SubModel : public QAbstractItemModel
 {
     Q_OBJECT
 
-    Q_PROPERTY( bool enabled READ enabled WRITE setEnabled NOTIFY modelChanged )
+    Q_PROPERTY( bool enabled READ enabled WRITE setEnabled NOTIFY enabledChanged )
     Q_PROPERTY( QAbstractItemModel *model READ model WRITE setModel NOTIFY modelChanged )
     Q_PROPERTY( QModelIndex rootIndex READ rootIndex WRITE setRootIndex NOTIFY rootIndexChanged )
 
