@@ -89,19 +89,40 @@ QAbstractItemModel *SubModel::model() const
   return mModel.data();
 }
 
+void SubModel::handleModelConnection( bool disconnecting ) const
+{
+  if ( !mModel )
+    return;
+
+  if ( disconnecting || !mEnabled )
+  {
+    disconnect( mModel, &QAbstractItemModel::rowsInserted, this, &SubModel::onRowsInserted );
+    disconnect( mModel, &QAbstractItemModel::rowsAboutToBeRemoved, this, &SubModel::onRowsAboutToBeRemoved );
+    disconnect( mModel, &QAbstractItemModel::modelAboutToBeReset, this, &SubModel::onModelAboutToBeReset );
+    disconnect( mModel, &QAbstractItemModel::modelReset, this, &QAbstractItemModel::modelReset );
+    disconnect( mModel, &QAbstractItemModel::dataChanged, this, &SubModel::onDataChanged );
+  }
+  else if ( mEnabled )
+  {
+    connect( mModel, &QAbstractItemModel::rowsInserted, this, &SubModel::onRowsInserted );
+    connect( mModel, &QAbstractItemModel::rowsAboutToBeRemoved, this, &SubModel::onRowsAboutToBeRemoved );
+    connect( mModel, &QAbstractItemModel::modelAboutToBeReset, this, &SubModel::onModelAboutToBeReset );
+    connect( mModel, &QAbstractItemModel::modelReset, this, &QAbstractItemModel::modelReset );
+    connect( mModel, &QAbstractItemModel::dataChanged, this, &SubModel::onDataChanged );
+  }
+}
+
 void SubModel::setModel( QAbstractItemModel *model )
 {
   if ( model == mModel )
     return;
 
-  connect( model, &QAbstractItemModel::rowsInserted, this, &SubModel::onRowsInserted );
-  connect( model, &QAbstractItemModel::rowsAboutToBeRemoved, this, &SubModel::onRowsAboutToBeRemoved );
-  connect( model, &QAbstractItemModel::modelAboutToBeReset, this, &SubModel::onModelAboutToBeReset );
-  connect( model, &QAbstractItemModel::modelReset, this, &QAbstractItemModel::modelReset );
-  connect( model, &QAbstractItemModel::dataChanged, this, &SubModel::onDataChanged );
+  // Disconnect previous model connections
+  handleModelConnection( true );
 
   mModel = model;
   mMappings.clear();
+  handleModelConnection();
 
   emit modelChanged();
 }
@@ -112,10 +133,8 @@ void SubModel::setEnabled( bool enabled )
     return;
 
   mEnabled = enabled;
-
-  beginResetModel();
   mMappings.clear();
-  endResetModel();
+  handleModelConnection();
 
   emit modelChanged();
 }
@@ -123,7 +142,7 @@ void SubModel::setEnabled( bool enabled )
 void SubModel::onRowsInserted( const QModelIndex &parent, int first, int last )
 {
   Q_UNUSED( last )
-  if ( mEnabled && isInSubModel( mModel->index( first, 0, parent ) ) )
+  if ( isInSubModel( mModel->index( first, 0, parent ) ) )
   {
     emit beginInsertRows( mapFromSource( parent ), first, last );
     emit endInsertRows();
@@ -133,7 +152,7 @@ void SubModel::onRowsInserted( const QModelIndex &parent, int first, int last )
 void SubModel::onRowsAboutToBeRemoved( const QModelIndex &parent, int first, int last )
 {
   Q_UNUSED( last )
-  if ( mEnabled && isInSubModel( mModel->index( first, 0, parent ) ) )
+  if ( isInSubModel( mModel->index( first, 0, parent ) ) )
   {
     emit beginRemoveRows( mapFromSource( parent ), first, last );
     emit endRemoveRows();
@@ -147,7 +166,7 @@ void SubModel::onModelAboutToBeReset()
 
 void SubModel::onDataChanged( const QModelIndex &topLeft, const QModelIndex &bottomRight, const QVector<int> &roles )
 {
-  if ( mEnabled && isInSubModel( topLeft ) )
+  if ( isInSubModel( topLeft ) )
     emit dataChanged( mapFromSource( topLeft ), mapFromSource( bottomRight ), roles );
 }
 
