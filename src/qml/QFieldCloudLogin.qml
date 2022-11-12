@@ -227,6 +227,7 @@ Item {
 
         onLinkActivated: {
           browserPopup.url = link
+          browserPopup.fullscreen = true
           browserPopup.open()
         }
       }

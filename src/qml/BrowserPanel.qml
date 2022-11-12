@@ -13,11 +13,12 @@ Popup {
 
   property var browserView: undefined
   property string url: ''
+  property bool fullscreen: false
 
-  width: mainWindow.width - Theme.popupScreenEdgeMargin * 2
-  height: mainWindow.height - Theme.popupScreenEdgeMargin * 2
-  x: Theme.popupScreenEdgeMargin
-  y: Theme.popupScreenEdgeMargin
+  width: mainWindow.width - (browserPanel.fullscreen ? 0 : Theme.popupScreenEdgeMargin * 2)
+  height: mainWindow.height - (browserPanel.fullscreen ? 0 : Theme.popupScreenEdgeMargin * 2)
+  x: browserPanel.fullscreen ? 0 : Theme.popupScreenEdgeMargin
+  y: browserPanel.fullscreen ? 0 : Theme.popupScreenEdgeMargin
   padding: 0
   modal: true
   closePolicy: Popup.CloseOnEscape
@@ -31,11 +32,17 @@ Popup {
              ? browserView.title
              : qsTr("Browser")
 
-      showBackButton: false
+      showBackButton: browserPanel.fullscreen
       showApplyButton: false
-      showCancelButton: true
+      showCancelButton: !browserPanel.fullscreen
 
       busyIndicatorState: browserView && browserView.loading ? "on" : "off"
+
+      topMargin: browserPanel.fullscreen ? mainWindow.sceneTopMargin : 0
+
+      onBack: {
+        browserPanel.cancel()
+      }
 
       onCancel: {
         browserPanel.cancel()
