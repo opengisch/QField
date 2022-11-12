@@ -23,14 +23,19 @@ Popup {
   closePolicy: Popup.CloseOnEscape
 
   Page {
+    id: browserContainer
     anchors.fill: parent
     header: PageHeader {
       id: pageHeader
-      title: qsTr("Browser")
+      title: browserView && !browserView.loading && browserView.title !== ''
+             ? browserView.title
+             : qsTr("Browser")
 
       showBackButton: false
       showApplyButton: false
       showCancelButton: true
+
+      busyIndicatorState: browserView && browserView.loading ? "on" : "off"
 
       onCancel: {
         browserPanel.cancel()
@@ -38,19 +43,25 @@ Popup {
     }
 
     Item {
-      id: browserContainer
+      id: browserContent
+      anchors {
+        top: parent.top
+        left: parent.left
+      }
       width: parent.width
       height: parent.height
     }
+  }
 
-    onVisibleChanged: {
-      // avoid cost of WevView creation until needed
-      if (visible && url != '') {
-        if (browserView === undefined) {
-          browserView = Qt.createQmlObject('import QtWebView 1.14; WebView { id: browserView; onLoadingChanged: if ( !loading ) { anchors.fill = parent; } }', browserContainer);
-        }
-        browserView.url = url;
+  onAboutToShow: {
+    if (url != '') {
+      if (browserView === undefined) {
+        // avoid cost of WevView creation until needed
+        browserView = Qt.createQmlObject('import QtWebView 1.14; WebView { id: browserView; anchors { top: parent.top; left: parent.left; right: parent.right; } onLoadingChanged: { if ( !loading ) { anchors.fill = parent; width = parent.width; height = parent.height; opacity = 1; } } }', browserContent);
       }
+      browserView.anchors.fill = undefined
+      browserView.url = url
+      browserView.opacity = 0
     }
   }
 }
