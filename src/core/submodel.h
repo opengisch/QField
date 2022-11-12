@@ -60,10 +60,11 @@ class SubModel : public QAbstractItemModel
     void onDataChanged( const QModelIndex &topLeft, const QModelIndex &bottomRight, const QVector<int> &roles = QVector<int>() );
 
   private:
-    bool mEnabled = true;
     QModelIndex mapFromSource( const QModelIndex &sourceIndex ) const;
     QModelIndex mapToSource( const QModelIndex &index ) const;
+    void handleModelConnection( bool disconnecting = false ) const;
 
+    bool mEnabled = true;
     QPointer<QAbstractItemModel> mModel;
     QPersistentModelIndex mRootIndex;
 
