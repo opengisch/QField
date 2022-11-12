@@ -606,7 +606,14 @@ void AttributeFormModelBase::updateVisibilityAndConstraints( int fieldIndex )
       {
         allConstraintsHardValid = false;
         if ( mHasTabs && item->parent() )
-          item->parent()->setData( false, AttributeFormModel::ConstraintHardValid );
+        {
+          QStandardItem *parentItem = item->parent();
+          while ( parentItem->parent() )
+          {
+            parentItem = parentItem->parent();
+          }
+          parentItem->setData( false, AttributeFormModel::ConstraintHardValid );
+        }
       }
 
       QStringList softErrors;
@@ -619,7 +626,14 @@ void AttributeFormModelBase::updateVisibilityAndConstraints( int fieldIndex )
       {
         allConstraintsSoftValid = false;
         if ( mHasTabs && item->parent() )
-          item->parent()->setData( false, AttributeFormModel::ConstraintSoftValid );
+        {
+          QStandardItem *parentItem = item->parent();
+          while ( parentItem->parent() )
+          {
+            parentItem = parentItem->parent();
+          }
+          parentItem->setData( false, AttributeFormModel::ConstraintSoftValid );
+        }
       }
     }
     else
