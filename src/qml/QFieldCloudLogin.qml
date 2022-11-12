@@ -225,7 +225,11 @@ Item {
         wrapMode: Text.WordWrap
         visible: cloudConnection.status === QFieldCloudConnection.Disconnected
 
-        onLinkActivated: Qt.openUrlExternally(link)
+        onLinkActivated: {
+          browserPopup.url = link
+          browserPopup.fullscreen = true
+          browserPopup.open()
+        }
       }
 
       Text {
