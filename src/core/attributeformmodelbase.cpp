@@ -151,6 +151,7 @@ void AttributeFormModelBase::resetModel()
 
   beginResetModel();
 
+  int uniqueId = 0;
   mVisibilityExpressions.clear();
   mConstraints.clear();
 
@@ -189,6 +190,7 @@ void AttributeFormModelBase::resetModel()
           const int columnCount = container->columnCount();
 
           QStandardItem *item = new QStandardItem();
+          item->setData( uniqueId++, AttributeFormModel::UniqueId );
           item->setData( element->name(), AttributeFormModel::Name );
           item->setData( "container", AttributeFormModel::ElementType );
           item->setData( true, AttributeFormModel::CurrentlyVisible );
@@ -202,7 +204,7 @@ void AttributeFormModelBase::resetModel()
           }
 
           QVector<QStandardItem *> dummy;
-          buildForm( container, item, QString(), dummy, currentTab, columnCount );
+          buildForm( container, item, QString(), dummy, uniqueId, currentTab, columnCount );
           currentTab++;
         }
       }
@@ -210,7 +212,7 @@ void AttributeFormModelBase::resetModel()
     else
     {
       QVector<QStandardItem *> dummy;
-      buildForm( invisibleRootContainer(), invisibleRootItem(), QString(), dummy );
+      buildForm( invisibleRootContainer(), invisibleRootItem(), QString(), dummy, uniqueId );
     }
 
     mExpressionContext = mLayer->createExpressionContext();
@@ -316,12 +318,13 @@ void AttributeFormModelBase::updateAttributeValue( QStandardItem *item )
   }
 }
 
-void AttributeFormModelBase::buildForm( QgsAttributeEditorContainer *container, QStandardItem *parent, const QString &parentVisibilityExpressions, QVector<QStandardItem *> &items, int currentTabIndex, int columnCount )
+void AttributeFormModelBase::buildForm( QgsAttributeEditorContainer *container, QStandardItem *parent, const QString &parentVisibilityExpressions, QVector<QStandardItem *> &items, int &uniqueId, int currentTabIndex, int columnCount )
 {
   const QList<QgsAttributeEditorElement *> children { container->children() };
   for ( QgsAttributeEditorElement *element : children )
   {
     QStandardItem *item = new QStandardItem();
+    item->setData( uniqueId++, AttributeFormModel::UniqueId );
     item->setData( columnCount, AttributeFormModel::ColumnCount );
     item->setData( currentTabIndex, AttributeFormModel::TabIndex );
     item->setData( QString(), AttributeFormModel::GroupName );
@@ -356,7 +359,7 @@ void AttributeFormModelBase::buildForm( QgsAttributeEditorContainer *container, 
         item->setData( item->index(), AttributeFormModel::GroupIndex );
 
         QVector<QStandardItem *> newItems;
-        buildForm( innerContainer, item, visibilityExpression, newItems, 0, innerColumnCount );
+        buildForm( innerContainer, item, visibilityExpression, newItems, uniqueId, 0, innerColumnCount );
         if ( !visibilityExpression.isEmpty() )
           mVisibilityExpressions.append( qMakePair( QgsExpression( visibilityExpression ), QVector<QStandardItem *>() << item ) );
         break;

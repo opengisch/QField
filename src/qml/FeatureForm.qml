@@ -225,7 +225,7 @@ Page {
                 SubModel {
                   id: contentModel
                   model: form.model
-                  rootIndex: form.model.index(currentIndex, 0)
+                  rootIndex: form.model.index(form.model.hasTabs ? currentIndex : -1, 0)
                 }
 
                 Repeater {
@@ -321,9 +321,10 @@ Page {
 
               Repeater {
                 model: SubModel {
+                  debugId: "inner submodel of " + Name
                   enabled: innerContainer.isVisible
-                  rootIndex: innerContainer.isVisible ? form.model.mapFromSource(GroupIndex) : form.model.index(-1, 0)
                   model: form.model
+                  rootIndex: innerContainer.isVisible ? form.model.mapFromSource(GroupIndex) : form.model.index(-1, 0)
                 }
                 delegate: fieldItem
               }
