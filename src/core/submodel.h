@@ -18,6 +18,7 @@
 
 #include <QAbstractItemModel>
 #include <QPointer>
+#include <QStandardItem>
 
 class SubModel : public QAbstractItemModel
 {
@@ -56,7 +57,7 @@ class SubModel : public QAbstractItemModel
   private slots:
     void onRowsInserted( const QModelIndex &parent, int first, int last );
     void onRowsAboutToBeRemoved( const QModelIndex &parent, int first, int last );
-    void onModelAboutToBeReset();
+    void onModelReset();
     void onDataChanged( const QModelIndex &topLeft, const QModelIndex &bottomRight, const QVector<int> &roles = QVector<int>() );
 
   private:
