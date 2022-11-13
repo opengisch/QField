@@ -304,6 +304,7 @@ Page {
             id: innerContainer
 
             property bool isVisible: GroupIndex != undefined && Type === 'container' && GroupIndex.valid
+
             visible: isVisible
             height: childrenRect.height
             anchors {
@@ -323,6 +324,7 @@ Page {
 
               Repeater {
                 model: SubModel {
+                  id: innerSubModel
                   enabled: innerContainer.isVisible
                   model: form.model
                   rootIndex: innerContainer.isVisible ? form.model.mapFromSource(GroupIndex) : form.model.index(-1, 0)
@@ -330,6 +332,16 @@ Page {
                 delegate: fieldItem
               }
             }', innerContainer)
+              }
+            }
+
+            Connections {
+              target: form.model
+
+              function onModelReset() {
+                if (innerContainer.innerContainerContent !== undefined && GroupIndex !== undefined && innerContainer.isVisible) {
+                  innerContainer.innerContainerContent.innerSubModel.rootIndex = form.model.mapFromSource(GroupIndex)
+                }
               }
             }
           }

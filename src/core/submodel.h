@@ -68,7 +68,6 @@ class SubModel : public QAbstractItemModel
     bool mEnabled = true;
     QPointer<QAbstractItemModel> mModel;
     QPersistentModelIndex mRootIndex;
-    int mRootUniqueId = -1;
 
     // Map internal id to parent index
     mutable QHash<qintptr, QModelIndex> mMappings;
