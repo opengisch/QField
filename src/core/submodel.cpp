@@ -176,10 +176,7 @@ void SubModel::onDataChanged( const QModelIndex &topLeft, const QModelIndex &bot
 
 bool SubModel::isInSubModel( const QModelIndex &sourceIndex ) const
 {
-  if ( !mRootIndex.isValid() )
-    return true;
-
-  if ( sourceIndex == mRootIndex || !sourceIndex.isValid() )
+  if ( !mRootIndex.isValid() || !sourceIndex.isValid() || sourceIndex == mRootIndex )
     return false;
 
   QModelIndex idx = sourceIndex;

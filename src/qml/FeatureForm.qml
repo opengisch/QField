@@ -322,8 +322,8 @@ Page {
               Repeater {
                 model: SubModel {
                   enabled: innerContainer.isVisible
-                  model: form.model
                   rootIndex: innerContainer.isVisible ? form.model.mapFromSource(GroupIndex) : form.model.index(-1, 0)
+                  model: form.model
                 }
                 delegate: fieldItem
               }
