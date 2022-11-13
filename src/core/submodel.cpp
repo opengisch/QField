@@ -88,7 +88,6 @@ void SubModel::setRootIndex( const QModelIndex &rootIndex )
 
   beginResetModel();
   mRootIndex = rootIndex;
-  mRootUniqueId = mModel->data( mRootIndex, AttributeFormModel::UniqueId ).toInt();
   mMappings.clear();
   endResetModel();
 
@@ -175,11 +174,6 @@ void SubModel::onRowsAboutToBeRemoved( const QModelIndex &parent, int first, int
 void SubModel::onModelReset()
 {
   beginResetModel();
-  QModelIndexList items = mModel->match( mModel->index( 0, 0 ), AttributeFormModel::UniqueId, mRootUniqueId, 10, Qt::MatchRecursive );
-  if ( items.count() > 0 )
-  {
-    mRootIndex = items.at( 0 );
-  }
   mMappings.clear();
   endResetModel();
 }
