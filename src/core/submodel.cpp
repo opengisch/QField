@@ -13,7 +13,10 @@
  *   (at your option) any later version.                                   *
  *                                                                         *
  ***************************************************************************/
+
 #include "submodel.h"
+
+#include <QDebug>
 
 SubModel::SubModel( QObject *parent )
   : QAbstractItemModel( parent )
@@ -37,40 +40,55 @@ QModelIndex SubModel::parent( const QModelIndex &child ) const
   QModelIndex idx = mModel->parent( child );
   if ( idx == mRootIndex )
     return QModelIndex();
-  else
-    return mapFromSource( idx );
+
+  return mapFromSource( idx );
 }
 
 int SubModel::rowCount( const QModelIndex &parent ) const
 {
-  return mEnabled && mModel ? mModel->rowCount( parent.isValid() ? mapToSource( parent ) : static_cast<QModelIndex>( mRootIndex ) ) : 0;
+  if ( !mEnabled || !mModel )
+    return 0;
+
+  return mModel->rowCount( parent.isValid() ? mapToSource( parent ) : static_cast<QModelIndex>( mRootIndex ) );
 }
 
 int SubModel::columnCount( const QModelIndex &parent ) const
 {
-  return mEnabled && mModel ? mModel->columnCount( parent.isValid() ? mapToSource( parent ) : static_cast<QModelIndex>( mRootIndex ) ) : 0;
+  if ( !mEnabled || !mModel )
+    return 0;
+
+  return mModel->columnCount( parent.isValid() ? mapToSource( parent ) : static_cast<QModelIndex>( mRootIndex ) );
 }
 
 QVariant SubModel::data( const QModelIndex &index, int role ) const
 {
-  return mEnabled && mModel ? mModel->data( mapToSource( index ), role ) : QVariant();
+  if ( !mEnabled || !mModel )
+    return QVariant();
+
+  return mModel->data( mapToSource( index ), role );
 }
 
 bool SubModel::setData( const QModelIndex &index, const QVariant &value, int role )
 {
-  return mEnabled && mModel ? mModel->setData( mapToSource( index ), value, role ) : false;
+  if ( !mEnabled || !mModel )
+    return false;
+
+  return mModel->setData( mapToSource( index ), value, role );
 }
 
 QHash<int, QByteArray> SubModel::roleNames() const
 {
-  return mEnabled && mModel ? mModel->roleNames() : QHash<int, QByteArray>();
+  if ( !mEnabled || !mModel )
+    return QHash<int, QByteArray>();
+
+  return mModel->roleNames();
 }
 
 QModelIndex SubModel::rootIndex() const
 {
   return mRootIndex;
 }
-#include <QDebug>
+
 void SubModel::setRootIndex( const QModelIndex &rootIndex )
 {
   if ( rootIndex == mRootIndex )
