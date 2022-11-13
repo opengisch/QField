@@ -25,7 +25,6 @@ class SubModel : public QAbstractItemModel
     Q_OBJECT
 
     Q_PROPERTY( bool enabled READ enabled WRITE setEnabled NOTIFY enabledChanged )
-    Q_PROPERTY( QString debugId READ debugId WRITE setDebugId NOTIFY debugIdChanged )
     Q_PROPERTY( QAbstractItemModel *model READ model WRITE setModel NOTIFY modelChanged )
     Q_PROPERTY( QModelIndex rootIndex READ rootIndex WRITE setRootIndex NOTIFY rootIndexChanged )
 
@@ -48,22 +47,12 @@ class SubModel : public QAbstractItemModel
     bool enabled() const { return mEnabled; }
     void setEnabled( bool enabled );
 
-    QString debugId() const { return mDebugId; }
-    void setDebugId( const QString &debugId )
-    {
-      if ( mDebugId == debugId )
-        return;
-      mDebugId = debugId;
-      emit debugIdChanged();
-    }
-
     bool isInSubModel( const QModelIndex &sourceIndex ) const;
 
   signals:
     void modelChanged();
     void enabledChanged();
     void rootIndexChanged();
-    void debugIdChanged();
 
   private slots:
     void onRowsInserted( const QModelIndex &parent, int first, int last );
@@ -83,9 +72,6 @@ class SubModel : public QAbstractItemModel
 
     // Map internal id to parent index
     mutable QHash<qintptr, QModelIndex> mMappings;
-
-    bool mDebug = false;
-    QString mDebugId;
 };
 
 #endif // SUBMODEL_H

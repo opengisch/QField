@@ -323,7 +323,6 @@ Page {
 
               Repeater {
                 model: SubModel {
-                  debugId: "inner submodel of " + Name
                   enabled: innerContainer.isVisible
                   model: form.model
                   rootIndex: innerContainer.isVisible ? form.model.mapFromSource(GroupIndex) : form.model.index(-1, 0)
