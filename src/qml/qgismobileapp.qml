@@ -2845,39 +2845,24 @@ ApplicationWindow {
       }
 
       function onShowLoginBrowser(url) {
-          loginBrowserPopup.url = url;
-          loginBrowserPopup.open();
+          browserPopup.url = url;
+          browserPopup.fullscreen = false;
+          browserPopup.open();
       }
 
       function onHideLoginBrowser() {
-          loginBrowserPopup.close();
+          browserPopup.close();
       }
     }
 
-    Popup {
-        id: loginBrowserPopup
-        parent: ApplicationWindow.overlay
+    BrowserPanel {
+      id: browserPopup
+      parent: ApplicationWindow.overlay
 
-        property alias url: browserPanel.url
-
-        x: Theme.popupScreenEdgeMargin
-        y: Theme.popupScreenEdgeMargin
-        width: parent.width - Theme.popupScreenEdgeMargin * 2
-        height: parent.height - Theme.popupScreenEdgeMargin * 2
-        padding: 0
-        modal: true
-        closePolicy: Popup.CloseOnEscape
-
-        BrowserPanel {
-            id: browserPanel
-            anchors.fill: parent
-            visible: true
-
-            onCancel: {
-                qfieldAuthRequestHandler.abortAuthBrowser();
-                loginBrowserPopup.close();
-            }
-        }
+      onCancel: {
+        qfieldAuthRequestHandler.abortAuthBrowser();
+        browserPopup.close();
+      }
     }
 
     Popup {
