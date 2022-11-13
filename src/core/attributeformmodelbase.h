@@ -83,6 +83,7 @@ class AttributeFormModelBase : public QStandardItemModel
                     QStandardItem *parent,
                     const QString &parentVisibilityExpressions,
                     QVector<QStandardItem *> &items,
+                    int &uniqueId,
                     int currentTabIndex = 0,
                     int columnCount = 1 );
 

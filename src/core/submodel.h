@@ -18,12 +18,14 @@
 
 #include <QAbstractItemModel>
 #include <QPointer>
+#include <QStandardItem>
 
 class SubModel : public QAbstractItemModel
 {
     Q_OBJECT
 
     Q_PROPERTY( bool enabled READ enabled WRITE setEnabled NOTIFY enabledChanged )
+    Q_PROPERTY( QString debugId READ debugId WRITE setDebugId NOTIFY debugIdChanged )
     Q_PROPERTY( QAbstractItemModel *model READ model WRITE setModel NOTIFY modelChanged )
     Q_PROPERTY( QModelIndex rootIndex READ rootIndex WRITE setRootIndex NOTIFY rootIndexChanged )
 
@@ -46,17 +48,27 @@ class SubModel : public QAbstractItemModel
     bool enabled() const { return mEnabled; }
     void setEnabled( bool enabled );
 
+    QString debugId() const { return mDebugId; }
+    void setDebugId( const QString &debugId )
+    {
+      if ( mDebugId == debugId )
+        return;
+      mDebugId = debugId;
+      emit debugIdChanged();
+    }
+
     bool isInSubModel( const QModelIndex &sourceIndex ) const;
 
   signals:
     void modelChanged();
     void enabledChanged();
     void rootIndexChanged();
+    void debugIdChanged();
 
   private slots:
     void onRowsInserted( const QModelIndex &parent, int first, int last );
     void onRowsAboutToBeRemoved( const QModelIndex &parent, int first, int last );
-    void onModelAboutToBeReset();
+    void onModelReset();
     void onDataChanged( const QModelIndex &topLeft, const QModelIndex &bottomRight, const QVector<int> &roles = QVector<int>() );
 
   private:
@@ -67,9 +79,13 @@ class SubModel : public QAbstractItemModel
     bool mEnabled = true;
     QPointer<QAbstractItemModel> mModel;
     QPersistentModelIndex mRootIndex;
+    int mRootUniqueId = -1;
 
     // Map internal id to parent index
     mutable QHash<qintptr, QModelIndex> mMappings;
+
+    bool mDebug = false;
+    QString mDebugId;
 };
 
 #endif // SUBMODEL_H

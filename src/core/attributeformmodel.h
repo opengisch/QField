@@ -59,6 +59,7 @@ class AttributeFormModel : public QSortFilterProxyModel
       GroupName,
       GroupIndex,
       ColumnCount,
+      UniqueId,
     };
 
     Q_ENUM( FeatureRoles )
