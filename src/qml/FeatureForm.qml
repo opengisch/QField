@@ -225,7 +225,7 @@ Page {
                 SubModel {
                   id: contentModel
                   model: form.model
-                  rootIndex: form.model.index(currentIndex, 0)
+                  rootIndex: form.model.index(form.model.hasTabs ? currentIndex : -1, 0)
                 }
 
                 Repeater {
@@ -304,14 +304,17 @@ Page {
             id: innerContainer
 
             property bool isVisible: GroupIndex != undefined && Type === 'container' && GroupIndex.valid
+
             visible: isVisible
-            height: isVisible ? innerContainerContent.childrenRect.height : 0
+            height: childrenRect.height
             anchors {
               left: parent.left
               right: parent.right
             }
 
-            Flow {
+            onIsVisibleChanged: {
+              if (isVisible) {
+                Qt.createQmlObject('import QtQuick 2.14; import org.qfield 1.0; Flow {
               id: innerContainerContent
               height: childrenRect.height
               anchors {
@@ -321,11 +324,24 @@ Page {
 
               Repeater {
                 model: SubModel {
+                  id: innerSubModel
                   enabled: innerContainer.isVisible
                   model: form.model
                   rootIndex: innerContainer.isVisible ? form.model.mapFromSource(GroupIndex) : form.model.index(-1, 0)
                 }
                 delegate: fieldItem
+              }
+            }', innerContainer)
+              }
+            }
+
+            Connections {
+              target: form.model
+
+              function onModelReset() {
+                if (innerContainer.innerContainerContent !== undefined && GroupIndex !== undefined && innerContainer.isVisible) {
+                  innerContainer.innerContainerContent.innerSubModel.rootIndex = form.model.mapFromSource(GroupIndex)
+                }
               }
             }
           }
