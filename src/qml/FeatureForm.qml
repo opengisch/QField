@@ -305,13 +305,15 @@ Page {
 
             property bool isVisible: GroupIndex != undefined && Type === 'container' && GroupIndex.valid
             visible: isVisible
-            height: isVisible ? innerContainerContent.childrenRect.height : 0
+            height: childrenRect.height
             anchors {
               left: parent.left
               right: parent.right
             }
 
-            Flow {
+            onIsVisibleChanged: {
+              if (isVisible) {
+                Qt.createQmlObject('import QtQuick 2.14; import org.qfield 1.0; Flow {
               id: innerContainerContent
               height: childrenRect.height
               anchors {
@@ -327,6 +329,8 @@ Page {
                   rootIndex: innerContainer.isVisible ? form.model.mapFromSource(GroupIndex) : form.model.index(-1, 0)
                 }
                 delegate: fieldItem
+              }
+            }', innerContainer)
               }
             }
           }
