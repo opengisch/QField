@@ -17,8 +17,10 @@ jobs:
       fail-fast: true
       matrix:
         triplet: ['arm64-android', 'arm-android', 'x64-android', 'x86-android']
-        all_files_access: ['ON', 'OFF']
-        with_qt6: ['ON', 'OFF']
+        # all_files_access: ['ON', 'OFF']
+        all_files_access: ['OFF']
+        # with_qt6: ['ON', 'OFF']
+        with_qt6: ['ON']
 
     steps:
       - name: 🐣 Checkout
@@ -173,6 +175,10 @@ jobs:
         run: |
           curl -sL https://sentry.io/get-cli/ | bash
           sentry-cli upload-dif -o opengisch -p qfield ${{ env.CMAKE_BUILD_DIR }}/android-build/build/intermediates/merged_native_libs/release
+
+      - name: tmate
+        if: failure()
+        uses: m-kuhn/action-tmate@patch-1
 
   deploy_to_playstore:
     runs-on: ubuntu-20.04
