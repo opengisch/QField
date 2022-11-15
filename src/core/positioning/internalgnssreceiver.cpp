@@ -159,7 +159,7 @@ void InternalGnssReceiver::handlePositionUpdated( const QGeoPositionInfo &positi
   const double hacc = updateAttribute( QGeoPositionInfo::HorizontalAccuracy, mLastGnssPositionInformation.hacc() );
   const double vacc = updateAttribute( QGeoPositionInfo::VerticalAccuracy, mLastGnssPositionInformation.vacc() );
   const double verticalSpeed = updateAttribute( QGeoPositionInfo::VerticalSpeed, mLastGnssPositionInformation.verticalSpeed() );
-  const double magneticVariation = updateAttribute( QGeoPositionInfo::VerticalSpeed, mLastGnssPositionInformation.magneticVariation() );
+  const double magneticVariation = updateAttribute( QGeoPositionInfo::MagneticVariation, mLastGnssPositionInformation.magneticVariation() );
   if ( updatePositionInformation )
   {
     mLastGnssPositionInformation = GnssPositionInformation( latitude,
