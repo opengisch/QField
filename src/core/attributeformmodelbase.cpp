@@ -149,8 +149,6 @@ void AttributeFormModelBase::resetModel()
 {
   clear();
 
-  beginResetModel();
-
   mVisibilityExpressions.clear();
   mConstraints.clear();
 
@@ -215,8 +213,6 @@ void AttributeFormModelBase::resetModel()
 
     mExpressionContext = mLayer->createExpressionContext();
   }
-
-  endResetModel();
 }
 
 void AttributeFormModelBase::applyFeatureModel()
