@@ -39,7 +39,7 @@ EditorWidgetBase {
     id: textField
     topPadding: 10
     bottomPadding: 10
-    visible: height !== 0 && isEditable
+    visible: (config['IsMultiline'] === undefined || config['IsMultiline'] == false) && isEditable
     anchors.left: parent.left
     anchors.right: parent.right
     font: Theme.defaultFont
