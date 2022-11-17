@@ -104,7 +104,7 @@ platforms;android-26
 platforms;android-27
 platforms;android-28
 platforms;android-29
-platforms;android-31
+platforms;android-30
 system-images;android-14;default;armeabi-v7a
 system-images;android-15;default;armeabi-v7a
 system-images;android-15;default;x86
