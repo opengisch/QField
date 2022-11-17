@@ -369,7 +369,7 @@ Cancela para facer, porén, unha exploración mínima do dispositivo.</translati
     </message>
     <message>
         <source>NULL</source>
-        <translation type="unfinished"/>
+        <translation>NULO</translation>
     </message>
 </context>
 <context>
@@ -489,11 +489,11 @@ Cancela para facer, porén, unha exploración mínima do dispositivo.</translati
     <name>ElevationProfile</name>
     <message>
         <source>Digitize a path to render the elevation profile</source>
-        <translation type="unfinished"/>
+        <translation>Pintar unha ruta para representar o perfil de elevación</translation>
     </message>
     <message>
         <source>Rendering elevation profile…</source>
-        <translation type="unfinished"/>
+        <translation>Representando o perfil de elevación...</translation>
     </message>
 </context>
 <context>
@@ -3092,11 +3092,11 @@ Cancela para facer, porén, unha exploración mínima do dispositivo.</translati
     </message>
     <message>
         <source>Azimuth</source>
-        <translation type="unfinished"/>
+        <translation>Acimut</translation>
     </message>
     <message>
         <source>Lock Screen</source>
-        <translation type="unfinished"/>
+        <translation>Bloquear a Pantalla</translation>
     </message>
 </context>
 <context>
