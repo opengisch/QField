@@ -367,6 +367,7 @@ Page {
               wrapMode: Text.WordWrap
               font.pointSize: Theme.tinyFont.pointSize
               font.bold: true
+              topPadding: 10
               bottomPadding: 5
               color: 'grey'
             }
@@ -383,8 +384,9 @@ Page {
             }
 
             onQmlCodeChanged: {
-              if ( visible )
+              if (isVisible) {
                 var obj = Qt.createQmlObject(qmlContainer.qmlCode,qmlItem,'qmlContent');
+              }
             }
           }
 
@@ -409,6 +411,7 @@ Page {
               wrapMode: Text.WordWrap
               font.pointSize: Theme.tinyFont.pointSize
               font.bold: true
+              topPadding: 10
               bottomPadding: 5
               color: 'grey'
             }
@@ -425,8 +428,7 @@ Page {
             }
 
             onHtmlCodeChanged: {
-              if ( visible )
-              {
+              if (isVisible) {
                 var htmlItem = Qt.createQmlObject('import QtWebView 1.14; WebView { id: htmlItem; anchors { left: parent.left; rightMargin: 12; right: parent.right; } onLoadingChanged: if ( !loading ) runJavaScript("document.body.offsetHeight", function(result) { htmlItem.height = ( result + 30 ) } ); }',
                                                   htmlLoader);
                 htmlItem.loadHtml(htmlContainer.htmlCode);
