@@ -15,7 +15,7 @@
     </message>
     <message>
         <source>Documentation</source>
-        <translation>文档</translation>
+        <translation>官网帮助文档</translation>
     </message>
     <message>
         <source>Links Menu</source>
@@ -1138,7 +1138,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Select template below</source>
-        <translation>请选择以下模板</translation>
+        <translation>请选择模板</translation>
     </message>
     <message>
         <source>Printing atlas feature(s) to PDF</source>
@@ -2870,7 +2870,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Select template below</source>
-        <translation>请选择以下模板</translation>
+        <translation>请选择模板</translation>
     </message>
     <message>
         <source>Activating positioning service</source>
