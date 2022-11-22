@@ -29,15 +29,25 @@ Suositeltavaa on, että valitset peruuta, katkaiset USB-kaapeliyhteydet ja käyn
     <string name="added_to_favorites">Lisätty suosikkeihin</string>
     <string name="removed_from_favorites">Poistettu suosikeista</string>
     <string name="external_files_title">Tärkeä huomautus</string>
+    <string name="external_files_message"><![CDATA[QField tiedostohakemiston avulla voit kopioida tiedostoja ja projekteja laitteellesi USB-kaapelin kautta. Näet hakemiston absoluuttisen polun otsikkopalkissa.<br/><br/>Huomaa, että tämän hakemiston sisältö <i>poistetaan</i>, jos poistat QFieldin laitteestasi.]] ></string>
     <string name="external_files_ok">OK</string>
+    <string name="grant_permission">Pääsy kaikkiin tiedostoihin</string>
+    <string name="grant_all_files_permission"><![CDATA[QField tarvitsee kaikkien tiedostojen käyttöoikeuden voidakseen avata paikallisia projekteja ja tietojoukkoja sekä tukea mukautettuja projektioruudukoita, fontteja ja peruskarttoja. Vaikka sitä ei vaadita, <i>käyttöoikeuden salliminen on erittäin suositeltavaa</i>.<br/><br/>Valitse seuraavassa näytössä <b>QField</b> ja valitse <b>Salli käyttöoikeus kaikille tiedostot</b> vaihtoehto.]]></string>
     <string name="grant">Salli</string>
     <string name="deny_always">Kiellä pysyyvästi</string>
     <string name="deny_once">Kiellä nyt</string>
     <string name="import_project_folder">Tuo projekti hakemistosta</string>
     <string name="import_project_archive">Tuo projekti zip-tiedostosta</string>
     <string name="import_dataset">Tuo datasetti(tit)</string>
+    <string name="usb_cable_help">Tallennuksen hallinnan ohje</string>
     <string name="import_error">Tuontivirhe</string>
+    <string name="import_dataset_error">Valittuja tietojoukkoja ei voitu tuoda oikein.</string>
+    <string name="import_project_archive_error">Valittua projektiarkistoa ei tuotu oikein.</string>
+    <string name="import_project_folder_error">Valittua projektikansiota ei tuotu oikein.</string>
+    <string name="import_overwrite_title">Varoitus tuonnissa</string>
+    <string name="import_overwrite_confirm">Tuonti ja  päälle kirjoitus</string>
     <string name="import_overwrite_cancel">Peruuta</string>
+    <string name="export_error">Vientivirhe</string>
     <string name="send_to">Lähetä ...</string>
     <string name="send_compressed_to">Lähetä pakattu hakemisto sijaintiin ...</string>
     <string name="export_to_folder">Vie hakemistoon ...</string>
@@ -54,5 +64,5 @@ Suositeltavaa on, että valitset peruuta, katkaiset USB-kaapeliyhteydet ja käyn
     <string name="storage_information_view">Näytä minulle dokumentaatio</string>
     <string name="storage_information_dismiss">Luen myöhemmin</string>
     <string name="import_project_wait">Ole hyvä odota kun QField on tuomassa projektia</string>
-    <string name="import_dataset_wait">Ole hyvä odota kun QField on tuomassa datajoukkoa.</string>
+    <string name="import_dataset_wait">Ole hyvä odota kun QField on tuomassa datajoukkoa(joukkoja).</string>
 </resources>
