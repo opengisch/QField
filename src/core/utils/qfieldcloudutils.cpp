@@ -15,8 +15,11 @@
 
 #include "platformutilities.h"
 #include "qfieldcloudutils.h"
+#include "stringutils.h"
 
 #include <QDir>
+#include <QFile>
+#include <QLockFile>
 #include <QStandardPaths>
 #include <QString>
 #include <qgsapplication.h>
@@ -85,4 +88,76 @@ const QVariant QFieldCloudUtils::projectSetting( const QString &projectId, const
   thread_local QgsSettings settings;
   const QString projectPrefix = QStringLiteral( "QFieldCloud/projects/%1" ).arg( projectId );
   return settings.value( QStringLiteral( "%1/%2" ).arg( projectPrefix, setting ), defaultValue );
+}
+
+const QMultiMap<QString, QString> QFieldCloudUtils::getPendingAttachments()
+{
+  QMultiMap<QString, QString> files;
+
+  QLockFile attachmentsLock( QStringLiteral( "%1/attachments.lock" ).arg( QFieldCloudUtils::localCloudDirectory() ) );
+  if ( attachmentsLock.tryLock( 10000 ) )
+  {
+    QFile attachmentsFile( QStringLiteral( "%1/attachments.csv" ).arg( QFieldCloudUtils::localCloudDirectory() ) );
+    QFileInfo fi( attachmentsFile );
+    if ( !fi.exists() || fi.size() == 0 )
+      return std::move( files );
+
+    attachmentsFile.open( QFile::ReadWrite | QFile::Text );
+    QTextStream attachmentsStream( &attachmentsFile );
+    while ( !attachmentsStream.atEnd() )
+    {
+      const QString line = attachmentsStream.readLine().trimmed();
+      const QStringList values = StringUtils::csvToStringList( line );
+
+      // The expected CSV format must have two columns:
+      // project_id,file_path
+      if ( values.size() >= 2 )
+      {
+        files.insert( values.at( 0 ), values.at( 1 ) );
+      }
+    }
+  }
+  return std::move( files );
+}
+
+void QFieldCloudUtils::addPendingAttachment( const QString &projectId, const QString &fileName )
+{
+  QLockFile attachmentsLock( QStringLiteral( "%1/attachments.lock" ).arg( QFieldCloudUtils::localCloudDirectory() ) );
+  if ( attachmentsLock.tryLock( 10000 ) )
+  {
+    QStringList values = QStringList() << projectId << fileName;
+
+    QFile attachmentsFile( QStringLiteral( "%1/attachments.csv" ).arg( QFieldCloudUtils::localCloudDirectory() ) );
+    attachmentsFile.open( QFile::Append | QFile::Text );
+    QTextStream attachmentsStream( &attachmentsFile );
+    QFileInfo fi( attachmentsFile );
+    attachmentsStream << StringUtils::stringListToCsv( values )
+                      << Qt::endl;
+    attachmentsFile.close();
+  }
+}
+
+void QFieldCloudUtils::removePendingAttachment( const QString &projectId, const QString &fileName )
+{
+  QLockFile attachmentsLock( QStringLiteral( "%1/attachments.lock" ).arg( QFieldCloudUtils::localCloudDirectory() ) );
+  if ( attachmentsLock.tryLock( 10000 ) )
+  {
+    const QString lineToRemove = StringUtils::stringListToCsv( QStringList() << projectId << fileName );
+    QString output;
+    QFile attachmentsFile( QStringLiteral( "%1/attachments.csv" ).arg( QFieldCloudUtils::localCloudDirectory() ) );
+    attachmentsFile.open( QFile::ReadWrite | QFile::Text );
+    QTextStream attachmentsStream( &attachmentsFile );
+    while ( !attachmentsStream.atEnd() )
+    {
+      const QString line = attachmentsStream.readLine();
+      if ( !line.isEmpty() && !line.startsWith( lineToRemove ) )
+      {
+        output += line + QChar( '\n' );
+      }
+    }
+    attachmentsFile.resize( 0 );
+    attachmentsStream.reset();
+    attachmentsStream << output;
+    attachmentsFile.close();
+  }
 }

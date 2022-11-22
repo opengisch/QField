@@ -163,6 +163,8 @@ class QFieldCloudConnection : public QObject
      */
     void setAuthenticationToken( QNetworkRequest &request );
 
+    void uploadPendingAttachments();
+
   signals:
     void usernameChanged();
     void passwordChanged();
@@ -194,6 +196,9 @@ class QFieldCloudConnection : public QObject
     ConnectionState mState = ConnectionState::Idle;
 
     int mPendingRequests = 0;
+
+    bool mUploadingAttachments = false;
+    int mUploadCount = 0;
 
     void setClientHeaders( QNetworkRequest &request );
 };

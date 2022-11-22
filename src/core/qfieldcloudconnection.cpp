@@ -15,11 +15,13 @@
 
 #include "qfield.h"
 #include "qfieldcloudconnection.h"
+#include "qfieldcloudutils.h"
 
 #include <QFile>
 #include <QHttpMultiPart>
 #include <QJsonDocument>
 #include <QJsonObject>
+#include <QLockFile>
 #include <QNetworkCookie>
 #include <QNetworkCookieJar>
 #include <QSettings>
@@ -207,6 +209,9 @@ void QFieldCloudConnection::login()
     emit userInformationChanged();
 
     setStatus( ConnectionStatus::LoggedIn );
+
+    // Resuming uploading any pending attachments from previous session(s)
+    uploadPendingAttachments();
   } );
 }
 
@@ -512,4 +517,65 @@ QFieldCloudConnection::CloudError::CloudError( QNetworkReply *reply )
   errorMessage = doc.toPlainText();
 
   mMessage = errorMessage;
+}
+
+void QFieldCloudConnection::uploadPendingAttachments()
+{
+  if ( mUploadingAttachments )
+    return;
+
+  QMultiMap<QString, QString> attachments = QFieldCloudUtils::getPendingAttachments();
+  if ( attachments.isEmpty() )
+  {
+    return;
+  }
+
+  mUploadCount = attachments.size();
+  QMultiMap<QString, QString>::const_iterator it = attachments.constBegin();
+  while ( it != attachments.constEnd() )
+  {
+    if ( !QFileInfo( it.value() ).exists() )
+    {
+      // A pending attachment has been deleted from the local device, remove
+      // This can happen when for e.g. users remove a cloud project from their devices
+      QFieldCloudUtils::removePendingAttachment( it.key(), it.value() );
+      continue;
+    }
+
+    QFileInfo projectInfo( QFieldCloudUtils::localProjectFilePath( mUsername, it.key() ) );
+    QDir projectDir( projectInfo.absolutePath() );
+    const QString apiPath = projectDir.relativeFilePath( it.value() );
+    NetworkReply *attachmentCloudReply = post( QStringLiteral( "/api/v1/files/%1/%2/" ).arg( it.key(), apiPath ), QVariantMap(), QStringList( { it.value() } ) );
+
+    QString projectId = it.key();
+    QString fileName = it.value();
+    connect( attachmentCloudReply, &NetworkReply::finished, this, [=]() {
+      QNetworkReply *attachmentReply = attachmentCloudReply->reply();
+      attachmentCloudReply->deleteLater();
+
+      Q_ASSERT( attachmentCloudReply->isFinished() );
+      Q_ASSERT( attachmentReply );
+
+      // if there is an error, don't panic, we continue uploading. The files may be later manually synced.
+      if ( attachmentReply->error() != QNetworkReply::NoError )
+      {
+        QgsMessageLog::logMessage( tr( "Failed to upload attachment stored at `%1`, reason:\n%2" )
+                                     .arg( fileName )
+                                     .arg( QFieldCloudConnection::errorString( attachmentReply ) ) );
+      }
+      else
+      {
+        QFieldCloudUtils::removePendingAttachment( projectId, fileName );
+      }
+
+      mUploadCount--;
+      if ( mUploadCount == 0 )
+      {
+        // Once a batch of uploads has been successfully sent, check for any new attachments that would have been added in the meantime
+        uploadPendingAttachments();
+      }
+    } );
+
+    ++it;
+  }
 }
