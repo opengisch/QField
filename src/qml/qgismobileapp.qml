@@ -43,6 +43,7 @@ ApplicationWindow {
   Material.accent: Theme.mainColor
 
   property double sceneTopMargin: platformUtilities.sceneMargins(mainWindow)["top"]
+  property double sceneBottomMargin: platformUtilities.sceneMargins(mainWindow)["bottom"]
 
   Timer{
     id: refreshSceneMargins
@@ -58,6 +59,7 @@ ApplicationWindow {
 
     onTriggered: {
       mainWindow.sceneTopMargin = platformUtilities.sceneMargins(mainWindow)["top"];
+      mainWindow.sceneBottomMargin = platformUtilities.sceneMargins(mainWindow)["bottom"];
     }
   }
 
@@ -855,7 +857,8 @@ ApplicationWindow {
 
     anchors.left: mapCanvas.left
     anchors.bottom: mapCanvas.bottom
-    anchors.margins: 10
+    anchors.leftMargin: 10
+    anchors.bottomMargin: mainWindow.sceneBottomMargin + 10
   }
 
   QfDropShadow {
@@ -1250,7 +1253,7 @@ ApplicationWindow {
     anchors.right: mapCanvas.right
     anchors.rightMargin: 4
     anchors.bottom: mapCanvas.bottom
-    anchors.bottomMargin: 4
+    anchors.bottomMargin: mainWindow.sceneBottomMargin + 4
     spacing: 4
 
     QfToolButton {
