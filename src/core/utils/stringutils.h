@@ -31,7 +31,6 @@ class QFIELD_CORE_EXPORT StringUtils : public QObject
   public:
     explicit StringUtils( QObject *parent = nullptr );
 
-
     //! Returns a string with any URL (e.g., http(s)/ftp) and mailto: text converted to valid HTML <a …> links
     static Q_INVOKABLE QString insertLinks( const QString &string );
 
@@ -43,6 +42,12 @@ class QFIELD_CORE_EXPORT StringUtils : public QObject
 
     //! Returns a string containing the \a point location and details of the \a crs
     static Q_INVOKABLE QString pointInformation( const QgsPoint &point, const QgsCoordinateReferenceSystem &crs );
+
+    //! Returns a CSV formatted string from a \a list
+    static const QString stringListToCsv( QStringList list );
+
+    //! Returns a list from a CSV formatted \a string
+    static const QStringList csvToStringList( const QString &string );
 };
 
 #endif // STRINGUTILS_H

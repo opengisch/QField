@@ -54,8 +54,6 @@ class QFieldCloudProjectsModel : public QAbstractListModel
       DownloadProgressRole,
       PackagingStatusRole,
       PackagedLayerErrorsRole,
-      UploadAttachmentsStatusRole,
-      UploadAttachmentsCountRole,
       UploadDeltaProgressRole,
       UploadDeltaStatusRole,
       UploadDeltaStatusStringRole,
@@ -128,15 +126,6 @@ class QFieldCloudProjectsModel : public QAbstractListModel
     };
 
     Q_ENUM( DeltaFileStatus )
-
-    //! The status of attachments uploading to server.
-    enum UploadAttachmentsStatus
-    {
-      UploadAttachmentsDone,
-      UploadAttachmentsInProgress,
-    };
-
-    Q_ENUM( UploadAttachmentsStatus )
 
     //! The status of the running server job for packaging a project.
     enum PackagingStatus
@@ -306,9 +295,6 @@ class QFieldCloudProjectsModel : public QAbstractListModel
     void connectionStatusChanged();
     void projectListReceived();
 
-    NetworkReply *uploadAttachment( const QString &projectId, const QString &fileName );
-
-
     void layerObserverLayerEdited( const QString &layerId );
 
   private:
@@ -418,10 +404,6 @@ class QFieldCloudProjectsModel : public QAbstractListModel
         int downloadBytesReceived = 0;
         double downloadProgress = 0.0; // range from 0.0 to 1.0
 
-        UploadAttachmentsStatus uploadAttachmentsStatus = UploadAttachmentsStatus::UploadAttachmentsDone;
-        QMap<QString, FileTransfer> uploadAttachments;
-        int uploadAttachmentsFailed = 0;
-
         double uploadDeltaProgress = 0.0; // range from 0.0 to 1.0
         int deltasCount = 0;
         DeltaListModel *deltaListModel = nullptr;
@@ -450,8 +432,6 @@ class QFieldCloudProjectsModel : public QAbstractListModel
     QModelIndex findProjectIndex( const QString &projectId ) const;
     CloudProject *findProject( const QString &projectId ) const;
     void projectCancelUpload( const QString &projectId );
-    void projectCancelUploadAttachments( const QString &projectId );
-    void projectUploadAttachments( const QString &projectId );
     void projectGetDeltaStatus( const QString &projectId );
     bool projectMoveDownloadedFilesToPermanentStorage( const QString &projectId );
     void projectRefreshData( const QString &projectId, const ProjectRefreshReason &refreshReason );

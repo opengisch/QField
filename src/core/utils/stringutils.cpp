@@ -93,3 +93,71 @@ QString StringUtils::pointInformation( const QgsPoint &point, const QgsCoordinat
                                                 'f', crs.isGeographic() ? 5 : 2 );
   return QStringLiteral( "%1%2, %3%4 — %5: %6" ).arg( firstNumber, firstSuffix, secondNumber, secondSuffix, crs.authid(), crs.description() );
 }
+
+const QString StringUtils::stringListToCsv( QStringList list )
+{
+  for ( QString &value : list )
+  {
+    bool quoteColumn = false;
+    if ( value.contains( "\"" ) )
+    {
+      value = value.replace( "\"", "\"\"" );
+      quoteColumn = true;
+    }
+    if ( quoteColumn || value.contains( QRegularExpression( "," ) ) )
+    {
+      value = ( "\"" + value + "\"" );
+    }
+  }
+
+  return list.join( ',' );
+}
+
+const QStringList StringUtils::csvToStringList( const QString &string )
+{
+  QStringList values;
+  QString value;
+  bool inQuote = false;
+  for ( int i = 0; i < string.size(); i++ )
+  {
+    QChar current = string.at( i );
+    if ( !inQuote )
+    {
+      if ( current == ',' )
+      {
+        values << value;
+        value.clear();
+      }
+      else if ( current == '"' )
+      {
+        inQuote = true;
+      }
+      else
+      {
+        value += current;
+      }
+    }
+    else
+    {
+      if ( current == '"' )
+      {
+        int index = i + 1 < string.size() ? i + 1 : string.size() - 1;
+        if ( index != i && string.at( index ) == '"' )
+        {
+          value += '"';
+          i++;
+        }
+        else
+        {
+          inQuote = false;
+        }
+      }
+      else
+      {
+        value += current;
+      }
+    }
+  }
+  values << value;
+  return std::move( values );
+}
