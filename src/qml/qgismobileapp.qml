@@ -1774,8 +1774,7 @@ ApplicationWindow {
           y: (parent.height - height) / 2
           implicitWidth: 40
           implicitHeight: 40
-          visible: true
-          opacity: printItem.enabled ? 1 : 0.25
+          opacity: 0
           onPaint: {
               var ctx = getContext("2d")
               ctx.strokeStyle = Theme.mainColor
@@ -1902,6 +1901,7 @@ ApplicationWindow {
 
         function onEnablePrintItem(rows) {
           printItem.enabled = rows
+          printItem.arrow.opacity = rows > 1 ? 1 : 0
         }
     }
 
