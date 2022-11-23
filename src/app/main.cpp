@@ -42,6 +42,15 @@
 #include <QTranslator>
 #include <QtWebView/QtWebView>
 
+#if defined( Q_OS_ANDROID )
+#include "qfield_android.h"
+
+#include <QAndroidJniEnvironment>
+#include <QAndroidJniObject>
+#include <QAndroidService>
+#include <QtAndroid>
+#endif
+
 #include <proj.h>
 
 #if HAVE_STATIC_QCA_PLUGINS
@@ -65,6 +74,34 @@ void initGraphics()
 
 int main( int argc, char **argv )
 {
+  qInfo() << "main begins";
+  if ( argc > 1 && strcmp( argv[1], "-service" ) == 0 )
+  {
+    qInfo() << "Say hello to my little friend Service!";
+#if defined( Q_OS_ANDROID )
+    QAndroidService app( argc, argv );
+
+    QAndroidJniObject intent = QtAndroid::androidService().callObjectMethod( "getIntent", "()Landroid/content/Intent;" );
+    QAndroidJniObject extras = intent.callObjectMethod( "getExtras", "()Landroid/os/Bundle;" );
+    QAndroidJniObject extraJni = QAndroidJniObject::fromString( QStringLiteral( "TOKEN" ) );
+    extraJni = extras.callObjectMethod( "getString", "(Ljava/lang/String;)Ljava/lang/String;", extraJni.object<jstring>() );
+    if ( extraJni.isValid() )
+    {
+      qInfo() << extraJni.toString();
+    }
+
+    QtAndroid::androidService().callMethod<void>( "stopSelf" );
+
+    return app.exec();
+#else
+    return 0;
+#endif
+  }
+  else
+  {
+    qInfo() << "No argument";
+  }
+
   initGraphics();
 
   // Read settings, use a dummy app to get access to QSettings
@@ -101,6 +138,14 @@ int main( int argc, char **argv )
   const QString profilePath = platformUtils->systemLocalDataLocation( QStringLiteral( "/qgis_profile" ) );
   QDir().mkdir( profilePath );
   delete dummyApp;
+
+#if defined( Q_OS_ANDROID )
+  qInfo() << "Launching service from main...";
+  QAndroidJniObject::callStaticMethod<void>( "ch/opengis/" APP_PACKAGE_NAME "/QFieldService",
+                                             "startQFieldService",
+                                             "(Landroid/content/Context;)V",
+                                             QtAndroid::androidActivity().object() );
+#endif
 
   QgsApplication app( argc, argv, true, profilePath, QStringLiteral( "mobile" ) );
 

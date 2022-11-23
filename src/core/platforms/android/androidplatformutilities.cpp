@@ -561,6 +561,7 @@ QVariantMap AndroidPlatformUtilities::sceneMargins( QQuickWindow *window ) const
 extern "C" {
 #endif
 
+// QFieldActivity class functions
 JNIEXPORT void JNICALL JNI_FUNCTION_NAME( APP_PACKAGE_JNI_NAME, QFieldActivity, openProject )( JNIEnv *env, jobject obj, jstring path )
 {
   if ( AppInterface::instance() )
