@@ -1214,7 +1214,7 @@ void QFieldCloudProjectsModel::projectUpload( const QString &projectId, const bo
 
   refreshProjectModification( projectId );
 
-  emit dataChanged( projectIndex, projectIndex, QVector<int>() << StatusRole << UploadAttachmentsCountRole << UploadDeltaProgressRole << UploadDeltaStatusRole << UploadDeltaStatusStringRole );
+  emit dataChanged( projectIndex, projectIndex, QVector<int>() << StatusRole << UploadDeltaProgressRole << UploadDeltaStatusRole << UploadDeltaStatusStringRole );
 
   // //////////
   // prepare attachment files to be uploaded
@@ -1842,8 +1842,6 @@ QHash<int, QByteArray> QFieldCloudProjectsModel::roleNames() const
   roles[DownloadProgressRole] = "DownloadProgress";
   roles[PackagingStatusRole] = "PackagingStatus";
   roles[PackagedLayerErrorsRole] = "PackagedLayerErrors";
-  roles[UploadAttachmentsStatusRole] = "UploadAttachmentsStatus";
-  roles[UploadAttachmentsCountRole] = "UploadAttachmentsCount";
   roles[UploadDeltaProgressRole] = "UploadDeltaProgress";
   roles[UploadDeltaStatusRole] = "UploadDeltaStatus";
   roles[UploadDeltaStatusStringRole] = "UploadDeltaStatusString";

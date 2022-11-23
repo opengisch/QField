@@ -54,8 +54,6 @@ class QFieldCloudProjectsModel : public QAbstractListModel
       DownloadProgressRole,
       PackagingStatusRole,
       PackagedLayerErrorsRole,
-      UploadAttachmentsStatusRole,
-      UploadAttachmentsCountRole,
       UploadDeltaProgressRole,
       UploadDeltaStatusRole,
       UploadDeltaStatusStringRole,
@@ -128,15 +126,6 @@ class QFieldCloudProjectsModel : public QAbstractListModel
     };
 
     Q_ENUM( DeltaFileStatus )
-
-    //! The status of attachments uploading to server.
-    enum UploadAttachmentsStatus
-    {
-      UploadAttachmentsDone,
-      UploadAttachmentsInProgress,
-    };
-
-    Q_ENUM( UploadAttachmentsStatus )
 
     //! The status of the running server job for packaging a project.
     enum PackagingStatus
