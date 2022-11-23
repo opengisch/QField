@@ -316,6 +316,7 @@ QVariantMap PlatformUtilities::sceneMargins( QQuickWindow *window ) const
   if ( platformWindow )
   {
     margins[QLatin1String( "top" )] = platformWindow->safeAreaMargins().top();
+    margins[QLatin1String( "bottom" )] = platformWindow->safeAreaMargins().bottom();
   }
 
   return margins;
