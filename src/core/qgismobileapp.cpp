@@ -28,19 +28,6 @@
 #include "cpl_string.h"
 #include "cpl_vsi.h"
 
-#include <QDateTime>
-#include <QFontDatabase>
-#include <QScreen>
-#include <QStandardItemModel>
-#include <QStandardPaths>
-#include <QSurfaceFormat>
-#include <QtQml/QQmlApplicationEngine>
-#include <QtQml/QQmlContext>
-#include <QtQml/QQmlEngine>
-#include <QtWidgets/QFileDialog> // Until native looking QML dialogs are implemented (Qt5.4?)
-#include <QtWidgets/QMenu>       // Until native looking QML dialogs are implemented (Qt5.4?)
-#include <QtWidgets/QMenuBar>
-
 #if QT_VERSION < QT_VERSION_CHECK( 6, 0, 0 )
 #include "barcodevideofilter.h"
 #endif
@@ -121,12 +108,17 @@
 #include "valuemapmodel.h"
 #include "vertexmodel.h"
 
+#include <QDateTime>
 #include <QFileInfo>
 #include <QFontDatabase>
+#include <QPalette>
 #include <QQmlFileSelector>
 #include <QResource>
+#include <QScreen>
 #include <QStyleHints>
-#include <QTemporaryFile>
+#include <QtQml/QQmlApplicationEngine>
+#include <QtQml/QQmlContext>
+#include <QtQml/QQmlEngine>
 #include <qgsauthmanager.h>
 #include <qgsbilinearrasterresampler.h>
 #include <qgscoordinatereferencesystem.h>
