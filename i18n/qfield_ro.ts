@@ -234,7 +234,7 @@ Anulați pentru a efectua o scanare minimă a dispozitivului.</translation>
     </message>
     <message>
         <source>Unknown error</source>
-        <translation type="unfinished"/>
+        <translation>Eroare necunoscută</translation>
     </message>
 </context>
 <context>
@@ -918,7 +918,7 @@ Motiv:
     </message>
     <message>
         <source>Show visible features list</source>
-        <translation type="unfinished"/>
+        <translation>Arată lista entităților vizibile</translation>
     </message>
     <message>
         <source>Show Features Menu</source>
