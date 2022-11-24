@@ -1456,6 +1456,11 @@ Az elem geometriákat összevonjuk a &apos;%1&apos; elembe, mely megőrzi az att
         <source>Login temporary unavailable</source>
         <translation>Bejelentkezés időlegesen nem érhető el</translation>
     </message>
+    <message>
+        <source>Failed to upload attachment stored at `%1`, reason:
+%2</source>
+        <translation>Nem sikerült feltölteni a `%1` címen tárolt mellékletet, oka:%2</translation>
+    </message>
 </context>
 <context>
     <name>QFieldCloudDeltaHistory</name>
@@ -1698,7 +1703,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message numerus="yes">
         <source>%n attachment(s) are currently being uploaded in the background.</source>
-        <translation><numerusform>%n melléklet(ek) feltöltése folyamatban van a háttérben.</numerusform><numerusform>%n melléklet(ek) feltöltése folyamatban van a háttérben.</numerusform></translation>
+        <translation type="vanished"><numerusform>%n melléklet(ek) feltöltése folyamatban van a háttérben.</numerusform><numerusform>%n melléklet(ek) feltöltése folyamatban van a háttérben.</numerusform></translation>
     </message>
     <message>
         <source>Should local changes be reverted?</source>
@@ -1827,7 +1832,7 @@ name(string), owner(string), description(string), user_role(string), is_public(b
     <message>
         <source>Failed to upload attachment stored at `%1`, reason:
 %2</source>
-        <translation>Nem sikerült feltölteni a `%1` címen tárolt mellékletet, oka:%2</translation>
+        <translation type="vanished">Nem sikerült feltölteni a `%1` címen tárolt mellékletet, oka:%2</translation>
     </message>
     <message>
         <source>Network error. Failed to download file `%1`.</source>

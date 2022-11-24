@@ -1455,6 +1455,12 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
         <source>Login temporary unavailable</source>
         <translation>ログインは一時的に利用できません</translation>
     </message>
+    <message>
+        <source>Failed to upload attachment stored at `%1`, reason:
+%2</source>
+        <translation>%1` に保存されている添付ファイルのアップロードに失敗しました。理由:
+%2</translation>
+    </message>
 </context>
 <context>
     <name>QFieldCloudDeltaHistory</name>
@@ -1699,7 +1705,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message numerus="yes">
         <source>%n attachment(s) are currently being uploaded in the background.</source>
-        <translation><numerusform>%n 個の添付ファイルがバックグラウンドでアップロードされています。</numerusform></translation>
+        <translation type="vanished"><numerusform>%n 個の添付ファイルがバックグラウンドでアップロードされています。</numerusform></translation>
     </message>
     <message>
         <source>Should local changes be reverted?</source>
@@ -1829,7 +1835,7 @@ While you can still view and use the project, it is strongly recommended to rese
     <message>
         <source>Failed to upload attachment stored at `%1`, reason:
 %2</source>
-        <translation>%1` に保存されている添付ファイルのアップロードに失敗しました。理由:
+        <translation type="vanished">%1` に保存されている添付ファイルのアップロードに失敗しました。理由:
 %2</translation>
     </message>
     <message>

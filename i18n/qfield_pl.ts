@@ -1452,6 +1452,12 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
         <source>Login temporary unavailable</source>
         <translation>Logowanie tymczasowo niedostępne</translation>
     </message>
+    <message>
+        <source>Failed to upload attachment stored at `%1`, reason:
+%2</source>
+        <translation>Nie można było wysłać załącznika zapisanego w &quot;%1&quot;, powód:
+%2</translation>
+    </message>
 </context>
 <context>
     <name>QFieldCloudDeltaHistory</name>
@@ -1826,7 +1832,7 @@ Chociaż nadal możesz wyświetlać i używać projektu, zdecydowanie zaleca si�
     <message>
         <source>Failed to upload attachment stored at `%1`, reason:
 %2</source>
-        <translation>Nie można było wysłać załącznika zapisanego w &quot;%1&quot;, powód:
+        <translation type="vanished">Nie można było wysłać załącznika zapisanego w &quot;%1&quot;, powód:
 %2</translation>
     </message>
     <message>

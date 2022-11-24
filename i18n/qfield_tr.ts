@@ -1450,6 +1450,11 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
         <source>Login temporary unavailable</source>
         <translation type="unfinished"/>
     </message>
+    <message>
+        <source>Failed to upload attachment stored at `%1`, reason:
+%2</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>QFieldCloudDeltaHistory</name>

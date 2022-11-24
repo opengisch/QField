@@ -1455,6 +1455,12 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
         <source>Login temporary unavailable</source>
         <translation>暂时无法登录</translation>
     </message>
+    <message>
+        <source>Failed to upload attachment stored at `%1`, reason:
+%2</source>
+        <translation>无法上传存储在`%1`的附件，原因：
+%2</translation>
+    </message>
 </context>
 <context>
     <name>QFieldCloudDeltaHistory</name>
@@ -1699,7 +1705,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message numerus="yes">
         <source>%n attachment(s) are currently being uploaded in the background.</source>
-        <translation><numerusform>当前正在后台上传%n个附件。</numerusform></translation>
+        <translation type="vanished"><numerusform>当前正在后台上传%n个附件。</numerusform></translation>
     </message>
     <message>
         <source>Should local changes be reverted?</source>
@@ -1829,7 +1835,7 @@ While you can still view and use the project, it is strongly recommended to rese
     <message>
         <source>Failed to upload attachment stored at `%1`, reason:
 %2</source>
-        <translation>无法上传存储在`%1`的附件，原因：
+        <translation type="vanished">无法上传存储在`%1`的附件，原因：
 %2</translation>
     </message>
     <message>

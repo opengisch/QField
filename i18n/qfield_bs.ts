@@ -1458,6 +1458,12 @@ Geometrija objekata će se kombinovati u objekat &apos;%1&apos;, koji će zadrž
         <source>Login temporary unavailable</source>
         <translation>Prijava trenutno nije moguća</translation>
     </message>
+    <message>
+        <source>Failed to upload attachment stored at `%1`, reason:
+%2</source>
+        <translation>Nije uspjelo dodavanje priloga u `%1`, razlog:
+%2</translation>
+    </message>
 </context>
 <context>
     <name>QFieldCloudDeltaHistory</name>
@@ -1702,7 +1708,7 @@ Iako i dalje možete pregledati i koristiti ovaj projekat, strogo je preporučiv
     </message>
     <message numerus="yes">
         <source>%n attachment(s) are currently being uploaded in the background.</source>
-        <translation><numerusform>%n prilog(a) se trenutno šalje u pozadini.</numerusform><numerusform>%n prilog(a) se trenutno šalje u pozadini.</numerusform><numerusform>%n prilog(a) se trenutno šalje u pozadini.</numerusform></translation>
+        <translation type="vanished"><numerusform>%n prilog(a) se trenutno šalje u pozadini.</numerusform><numerusform>%n prilog(a) se trenutno šalje u pozadini.</numerusform><numerusform>%n prilog(a) se trenutno šalje u pozadini.</numerusform></translation>
     </message>
     <message>
         <source>Should local changes be reverted?</source>
@@ -1832,7 +1838,7 @@ Iako i dalje možete pregledati i koristiti ovaj projekat, strogo je preporučiv
     <message>
         <source>Failed to upload attachment stored at `%1`, reason:
 %2</source>
-        <translation>Nije uspjelo dodavanje priloga u `%1`, razlog:
+        <translation type="vanished">Nije uspjelo dodavanje priloga u `%1`, razlog:
 %2</translation>
     </message>
     <message>

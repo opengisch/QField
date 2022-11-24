@@ -1456,6 +1456,11 @@ Kohteen geometriat yhdistetään kohteeseen &apos;%1&apos;, johon sisällytetä�
         <source>Login temporary unavailable</source>
         <translation>Sisäänkirjautuminen on väliaikaisesti pois käytöstä</translation>
     </message>
+    <message>
+        <source>Failed to upload attachment stored at `%1`, reason:
+%2</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>QFieldCloudDeltaHistory</name>
@@ -1701,7 +1706,7 @@ Vaikka voit edelleen tarkastella ja käyttää projektia, sen alustamista suosit
     </message>
     <message numerus="yes">
         <source>%n attachment(s) are currently being uploaded in the background.</source>
-        <translation><numerusform>%n liite(ttä) ladataan taustalla parhaillaan </numerusform><numerusform>%n liite(ttä) ladataan taustalla parhaillaan </numerusform></translation>
+        <translation type="vanished"><numerusform>%n liite(ttä) ladataan taustalla parhaillaan </numerusform><numerusform>%n liite(ttä) ladataan taustalla parhaillaan </numerusform></translation>
     </message>
     <message>
         <source>Should local changes be reverted?</source>

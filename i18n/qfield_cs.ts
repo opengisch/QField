@@ -225,7 +225,7 @@ Zrušte pro jen minimální skenování zařízení. </translation>
     </message>
     <message>
         <source>An operation was attempted while the socket was in a state that did not permit it</source>
-        <translation type="unfinished"/>
+        <translation>Požadavek na operaci, kterou stav socketu nedovoluje</translation>
     </message>
     <message>
         <source>The remote host closed the connection</source>
@@ -425,15 +425,15 @@ Zrušte pro jen minimální skenování zařízení. </translation>
     </message>
     <message>
         <source>Expected all array elements to be an object, but the element at #%1 is not</source>
-        <translation type="unfinished"/>
+        <translation>Očekáváno, že každý prvek pole bude objekt, ale prvek #%1 není</translation>
     </message>
     <message>
         <source>Expected all array elements to be an object containing a key &quot;%1&quot;, but the element at #%2 is not</source>
-        <translation type="unfinished"/>
+        <translation>Očekáváno, že každý prvek pole bude objekt obsahující klíč &quot;%1&quot;, ale prvek #%2 není</translation>
     </message>
     <message>
         <source>Unrecognized status &quot;%1&quot; for $%2</source>
-        <translation type="unfinished"/>
+        <translation>Neznámý stav &quot;%1&quot; pro $%2</translation>
     </message>
 </context>
 <context>
@@ -463,7 +463,7 @@ Zrušte pro jen minimální skenování zařízení. </translation>
     <name>DigitizingToolbar</name>
     <message>
         <source>Position accuracy doesn&apos;t meet the minimum requirement, vertex not added</source>
-        <translation type="unfinished"/>
+        <translation>Přesnost polohy nesplňuje minimální požadavek, vrchol nepřidán</translation>
     </message>
     <message>
         <source>Cancel digitizing</source>
@@ -471,7 +471,7 @@ Zrušte pro jen minimální skenování zařízení. </translation>
     </message>
     <message>
         <source>The collected positions count does not meet the requirement</source>
-        <translation type="unfinished"/>
+        <translation>Počet zaznamenaných poloh nesplňuje požadavek</translation>
     </message>
     <message>
         <source>Should the digitized geometry be discarded?</source>
@@ -493,7 +493,7 @@ Zrušte pro jen minimální skenování zařízení. </translation>
     </message>
     <message>
         <source>Rendering elevation profile…</source>
-        <translation type="unfinished"/>
+        <translation>Vykresluji výškový profil</translation>
     </message>
 </context>
 <context>
@@ -1450,6 +1450,11 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <message>
         <source>Login temporary unavailable</source>
         <translation>Přihlášení  dočasně nedostupné</translation>
+    </message>
+    <message>
+        <source>Failed to upload attachment stored at `%1`, reason:
+%2</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

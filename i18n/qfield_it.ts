@@ -1459,6 +1459,12 @@ Le geometrie degli elementi verranno combinati in un elemento &apos;%1&apos; che
         <source>Login temporary unavailable</source>
         <translation>Accesso temporaneamente non disponibile</translation>
     </message>
+    <message>
+        <source>Failed to upload attachment stored at `%1`, reason:
+%2</source>
+        <translation>Impossibile caricare l&apos;allegato archiviato in `%1`. Motivo:
+%2 </translation>
+    </message>
 </context>
 <context>
     <name>QFieldCloudDeltaHistory</name>
@@ -1703,7 +1709,7 @@ Anche se puoi ancora visualizzare e utilizzare questo progetto, è altamente rac
     </message>
     <message numerus="yes">
         <source>%n attachment(s) are currently being uploaded in the background.</source>
-        <translation><numerusform>Caricamento in background di un allegato in corso.</numerusform><numerusform>Caricamento in background di %n allegati in corso.</numerusform><numerusform>Caricamento in background di %n allegati in corso.</numerusform></translation>
+        <translation type="vanished"><numerusform>Caricamento in background di un allegato in corso.</numerusform><numerusform>Caricamento in background di %n allegati in corso.</numerusform><numerusform>Caricamento in background di %n allegati in corso.</numerusform></translation>
     </message>
     <message>
         <source>Should local changes be reverted?</source>
@@ -1836,7 +1842,7 @@ Messaggio dell&apos;errore: %4</translation>
     <message>
         <source>Failed to upload attachment stored at `%1`, reason:
 %2</source>
-        <translation>Impossibile caricare l&apos;allegato archiviato in `%1`. Motivo:
+        <translation type="vanished">Impossibile caricare l&apos;allegato archiviato in `%1`. Motivo:
 %2 </translation>
     </message>
     <message>

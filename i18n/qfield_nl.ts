@@ -1457,6 +1457,12 @@ De geometrieën van objecten zullen worden gecombineerd tot object &apos;%1&apos
         <source>Login temporary unavailable</source>
         <translation>Inloggen tijdelijk niet mogelijk</translation>
     </message>
+    <message>
+        <source>Failed to upload attachment stored at `%1`, reason:
+%2</source>
+        <translation>Kan bijlage niet uploaden die is opgeslagen op &apos;%1&apos;, reden:
+%2</translation>
+    </message>
 </context>
 <context>
     <name>QFieldCloudDeltaHistory</name>
@@ -1701,7 +1707,7 @@ Hoewel u het project nog steeds kunt bekijken en gebruiken, wordt het ten zeerst
     </message>
     <message numerus="yes">
         <source>%n attachment(s) are currently being uploaded in the background.</source>
-        <translation><numerusform>%n bijlage(n) worden momenteel op de achtergrond geüpload.</numerusform><numerusform>%n bijlage(n) worden momenteel op de achtergrond geüpload.</numerusform></translation>
+        <translation type="vanished"><numerusform>%n bijlage(n) worden momenteel op de achtergrond geüpload.</numerusform><numerusform>%n bijlage(n) worden momenteel op de achtergrond geüpload.</numerusform></translation>
     </message>
     <message>
         <source>Should local changes be reverted?</source>
@@ -1831,7 +1837,7 @@ Hoewel u het project nog steeds kunt bekijken en gebruiken, wordt het ten zeerst
     <message>
         <source>Failed to upload attachment stored at `%1`, reason:
 %2</source>
-        <translation>Kan bijlage niet uploaden die is opgeslagen op &apos;%1&apos;, reden:
+        <translation type="vanished">Kan bijlage niet uploaden die is opgeslagen op &apos;%1&apos;, reden:
 %2</translation>
     </message>
     <message>

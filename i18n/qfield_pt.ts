@@ -1459,6 +1459,12 @@ As geometrias dos recursos serão combinadas no recurso &apos;% &apos;, que mant
         <source>Login temporary unavailable</source>
         <translation>Autenticação temporariamente indisponível</translation>
     </message>
+    <message>
+        <source>Failed to upload attachment stored at `%1`, reason:
+%2</source>
+        <translation>Falha ao carregar o anexo armazenado em `%1`, motivo:
+%2</translation>
+    </message>
 </context>
 <context>
     <name>QFieldCloudDeltaHistory</name>
@@ -1703,7 +1709,7 @@ Enquanto pode ver e usar o projeto, recomendamos fortemente a limpá-lo para evi
     </message>
     <message numerus="yes">
         <source>%n attachment(s) are currently being uploaded in the background.</source>
-        <translation><numerusform>%n anexo está a ser atualmente carregado em segundo plano.</numerusform><numerusform>%n anexos estão a ser atualmente carregados em segundo plano.</numerusform><numerusform>%n anexos estão a ser atualmente carregados em segundo plano.</numerusform></translation>
+        <translation type="vanished"><numerusform>%n anexo está a ser atualmente carregado em segundo plano.</numerusform><numerusform>%n anexos estão a ser atualmente carregados em segundo plano.</numerusform><numerusform>%n anexos estão a ser atualmente carregados em segundo plano.</numerusform></translation>
     </message>
     <message>
         <source>Should local changes be reverted?</source>
@@ -1833,7 +1839,7 @@ Enquanto pode ver e usar o projeto, recomendamos fortemente a limpá-lo para evi
     <message>
         <source>Failed to upload attachment stored at `%1`, reason:
 %2</source>
-        <translation>Falha ao carregar o anexo armazenado em `%1`, motivo:
+        <translation type="vanished">Falha ao carregar o anexo armazenado em `%1`, motivo:
 %2</translation>
     </message>
     <message>

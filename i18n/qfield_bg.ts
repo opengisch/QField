@@ -1457,6 +1457,12 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
         <source>Login temporary unavailable</source>
         <translation>Влизането е временно недостъпно</translation>
     </message>
+    <message>
+        <source>Failed to upload attachment stored at `%1`, reason:
+%2</source>
+        <translation>Неуспешно качване на прикачен файл &quot;%1&quot;, причина:
+%2</translation>
+    </message>
 </context>
 <context>
     <name>QFieldCloudDeltaHistory</name>
@@ -1701,7 +1707,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message numerus="yes">
         <source>%n attachment(s) are currently being uploaded in the background.</source>
-        <translation><numerusform>%n прикачени файл се качва на фонов режим.</numerusform><numerusform>%n прикачени файла се качват на фонов режим.</numerusform></translation>
+        <translation type="vanished"><numerusform>%n прикачени файл се качва на фонов режим.</numerusform><numerusform>%n прикачени файла се качват на фонов режим.</numerusform></translation>
     </message>
     <message>
         <source>Should local changes be reverted?</source>
@@ -1833,7 +1839,7 @@ While you can still view and use the project, it is strongly recommended to rese
     <message>
         <source>Failed to upload attachment stored at `%1`, reason:
 %2</source>
-        <translation>Неуспешно качване на прикачен файл &quot;%1&quot;, причина:
+        <translation type="vanished">Неуспешно качване на прикачен файл &quot;%1&quot;, причина:
 %2</translation>
     </message>
     <message>

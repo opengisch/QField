@@ -1458,6 +1458,12 @@ Les géométries des objets vont être combinées dans l&apos;objet &apos;%1&apo
         <source>Login temporary unavailable</source>
         <translation>Connexion temporairement indisponible</translation>
     </message>
+    <message>
+        <source>Failed to upload attachment stored at `%1`, reason:
+%2</source>
+        <translation>Impossible d&apos;envoyer la pièce jointe stockée à `%1`, raison:
+%2</translation>
+    </message>
 </context>
 <context>
     <name>QFieldCloudDeltaHistory</name>
@@ -1701,7 +1707,7 @@ Même si vous pouvez toujours voir et utiliser ce projet, il est fortement recom
     </message>
     <message numerus="yes">
         <source>%n attachment(s) are currently being uploaded in the background.</source>
-        <translation><numerusform>%n pièce jointe est actuellement envoyée en tâche de fond.</numerusform><numerusform>%n pièces jointes sont actuellement envoyées en tâche de fond.</numerusform><numerusform>%n pièces jointes sont actuellement envoyées en tâche de fond.</numerusform></translation>
+        <translation type="vanished"><numerusform>%n pièce jointe est actuellement envoyée en tâche de fond.</numerusform><numerusform>%n pièces jointes sont actuellement envoyées en tâche de fond.</numerusform><numerusform>%n pièces jointes sont actuellement envoyées en tâche de fond.</numerusform></translation>
     </message>
     <message>
         <source>Should local changes be reverted?</source>
@@ -1829,7 +1835,7 @@ Même si vous pouvez toujours voir et utiliser ce projet, il est fortement recom
     <message>
         <source>Failed to upload attachment stored at `%1`, reason:
 %2</source>
-        <translation>Impossible d&apos;envoyer la pièce jointe stockée à `%1`, raison:
+        <translation type="vanished">Impossible d&apos;envoyer la pièce jointe stockée à `%1`, raison:
 %2</translation>
     </message>
     <message>

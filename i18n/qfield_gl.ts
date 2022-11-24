@@ -1457,6 +1457,12 @@ As xeometrías das entidades combinaranse na entidade &apos;%1&apos;, a cal cons
         <source>Login temporary unavailable</source>
         <translation>Inicio de sesión non dispoñible temporalmente</translation>
     </message>
+    <message>
+        <source>Failed to upload attachment stored at `%1`, reason:
+%2</source>
+        <translation>Non se puido subir o ficheiro anexo almacenado en  `%1`, motivo:
+%2</translation>
+    </message>
 </context>
 <context>
     <name>QFieldCloudDeltaHistory</name>
@@ -1701,7 +1707,7 @@ Aínda que podes seguir vendo e utilizando este proxecto, recoméndase fortement
     </message>
     <message numerus="yes">
         <source>%n attachment(s) are currently being uploaded in the background.</source>
-        <translation><numerusform>%n anexo está a subirse en segundo plano.</numerusform><numerusform>%n anexos están a subirse en segundo plano.</numerusform></translation>
+        <translation type="vanished"><numerusform>%n anexo está a subirse en segundo plano.</numerusform><numerusform>%n anexos están a subirse en segundo plano.</numerusform></translation>
     </message>
     <message>
         <source>Should local changes be reverted?</source>
@@ -1831,7 +1837,7 @@ Aínda que podes seguir vendo e utilizando este proxecto, recoméndase fortement
     <message>
         <source>Failed to upload attachment stored at `%1`, reason:
 %2</source>
-        <translation>Non se puido subir o ficheiro anexo almacenado en  `%1`, motivo:
+        <translation type="vanished">Non se puido subir o ficheiro anexo almacenado en  `%1`, motivo:
 %2</translation>
     </message>
     <message>

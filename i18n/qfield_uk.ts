@@ -1461,6 +1461,12 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
         <source>Login temporary unavailable</source>
         <translation>Вхід тимчасово недоступний</translation>
     </message>
+    <message>
+        <source>Failed to upload attachment stored at `%1`, reason:
+%2</source>
+        <translation>Не вдалося завантажити вкладений файл, який зберігається в `%1`, причина:
+%2</translation>
+    </message>
 </context>
 <context>
     <name>QFieldCloudDeltaHistory</name>
@@ -1705,7 +1711,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message numerus="yes">
         <source>%n attachment(s) are currently being uploaded in the background.</source>
-        <translation><numerusform>%n вкладених файлів зараз завантажується у фоновому режимі.</numerusform><numerusform>%n вкладених файлів зараз завантажується у фоновому режимі.</numerusform><numerusform>%n вкладених файлів зараз завантажується у фоновому режимі.</numerusform><numerusform>%n вкладених файлів зараз завантажується у фоновому режимі.</numerusform></translation>
+        <translation type="vanished"><numerusform>%n вкладених файлів зараз завантажується у фоновому режимі.</numerusform><numerusform>%n вкладених файлів зараз завантажується у фоновому режимі.</numerusform><numerusform>%n вкладених файлів зараз завантажується у фоновому режимі.</numerusform><numerusform>%n вкладених файлів зараз завантажується у фоновому режимі.</numerusform></translation>
     </message>
     <message>
         <source>Should local changes be reverted?</source>
@@ -1835,7 +1841,7 @@ While you can still view and use the project, it is strongly recommended to rese
     <message>
         <source>Failed to upload attachment stored at `%1`, reason:
 %2</source>
-        <translation>Не вдалося завантажити вкладений файл, який зберігається в `%1`, причина:
+        <translation type="vanished">Не вдалося завантажити вкладений файл, який зберігається в `%1`, причина:
 %2</translation>
     </message>
     <message>
