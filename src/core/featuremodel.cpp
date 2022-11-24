@@ -684,11 +684,6 @@ void FeatureModel::removeLayer( QObject *layer )
   sRememberings->remove( static_cast<QgsVectorLayer *>( layer ) );
 }
 
-void FeatureModel::featureAdded( QgsFeatureId fid )
-{
-  setFeature( mLayer->getFeature( fid ) );
-}
-
 bool FeatureModel::create()
 {
   if ( !mLayer )
@@ -700,9 +695,12 @@ bool FeatureModel::create()
     return false;
   }
 
-  bool isSuccess = true;
-  connect( mLayer, &QgsVectorLayer::featureAdded, this, &FeatureModel::featureAdded );
+  // The connection below will be triggered when the new feature is committed and will provide
+  // the saved feature ID needed to fetch the saved feature back from the data provider
+  QgsFeatureId createdFeatureId;
+  QMetaObject::Connection connection = connect( mLayer, &QgsVectorLayer::featureAdded, this, [&createdFeatureId]( QgsFeatureId fid ) { createdFeatureId = fid; } );
 
+  bool isSuccess = true;
   QgsFeature createdFeature = QgsVectorLayerUtils::createFeature( mLayer, mFeature.geometry(), mFeature.attributes().toMap() );
   if ( mLayer->addFeature( createdFeature ) )
   {
@@ -712,7 +710,7 @@ bool FeatureModel::create()
     if ( commit() )
     {
       QgsFeature feat;
-      if ( mLayer->getFeatures( QgsFeatureRequest().setFilterFid( mFeature.id() ) ).nextFeature( feat ) )
+      if ( mLayer->getFeatures( QgsFeatureRequest().setFilterFid( createdFeatureId ) ).nextFeature( feat ) )
       {
         setFeature( feat );
       }
@@ -742,7 +740,7 @@ bool FeatureModel::create()
     ( *sRememberings )[mLayer].rememberedFeature = mFeature;
   }
 
-  disconnect( mLayer, &QgsVectorLayer::featureAdded, this, &FeatureModel::featureAdded );
+  disconnect( connection );
   return isSuccess;
 }
 
