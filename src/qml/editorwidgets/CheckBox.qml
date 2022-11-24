@@ -8,6 +8,9 @@ import "."
 EditorWidgetBase {
   height: childrenRect.height
 
+  //if the field type is boolean, ignore the configured 'CheckedState' and 'UncheckedState' values and work with true/false always
+  readonly property bool isBool: field.type == 1 //needs type coercion
+  property bool isNull: value == undefined
   property string checkedLabel: config['TextDisplayMethod'] === 1 && config['CheckedState'] != null && config['CheckedState'] !== '' ? config['CheckedState'] : qsTr('True')
   property string uncheckedLabel: config['TextDisplayMethod'] === 1 && config['UncheckedState'] != null && config['UncheckedState'] !== '' ? config['UncheckedState'] : qsTr('False')
 
@@ -28,27 +31,16 @@ EditorWidgetBase {
       bottomPadding: 10
       font.pointSize: Theme.defaultFont.pointSize
       font.bold: Theme.defaultFont.bold
-      font.italic: checkBox.isNull
-      color: isEnabled && !checkBox.isNull ? 'black' : 'gray'
+      font.italic: isNull
+      color: isEnabled && !isNull ? 'black' : 'gray'
 
-      text: !checkBox.isNull
+      text: !isNull
             ? checkBox.checked
               ? checkedLabel
               : uncheckedLabel
             : isEnabled
               ? qsTr('NULL')
               : ''
-
-      MouseArea {
-          id: checkArea
-          enabled: isEnabled
-          anchors.fill: parent
-
-          onClicked: {
-              checkBox.checked = !checkBox.checked
-              checkBox.forceActiveFocus();
-          }
-      }
   }
 
   QfSwitch {
@@ -63,10 +55,6 @@ EditorWidgetBase {
       verticalCenter: checkValue.verticalCenter
     }
 
-    //if the field type is boolean, ignore the configured 'CheckedState' and 'UncheckedState' values and work with true/false always
-    readonly property bool isBool: field.type == 1 //needs type coercion
-    property bool isNull: value == undefined
-
     checked: {
         if( isBool ) {
             return !isNull ? value : false;
@@ -74,12 +62,19 @@ EditorWidgetBase {
             return !isNull ? String(value) === config['CheckedState'] : false;
         }
     }
+  }
+
+  MouseArea {
+    id: checkArea
+    enabled: isEnabled
+    anchors.fill: parent
 
     onClicked: {
-        valueChangeRequested( isBool
-                             ? checked
-                             : checked ? config['CheckedState'] : config['UncheckedState'], false )
-        forceActiveFocus()
+      checkBox.checked = !checkBox.checked
+      valueChangeRequested( isBool
+                           ? checkBox.checked
+                           : checkBox.checked ? config['CheckedState'] : config['UncheckedState'], false )
+      checkBox.forceActiveFocus();
     }
   }
 
