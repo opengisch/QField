@@ -38,8 +38,14 @@ class IosPlatformUtilities : public PlatformUtilities
     bool checkPositioningPermissions() const override;
     bool checkCameraPermissions() const override;
     void setScreenLockPermission( const bool allowLock ) override;
-    virtual PictureSource *getCameraPicture( QQuickItem *parent, const QString &prefix, const QString &pictureFilePath, const QString &suffix ) override;
-    virtual PictureSource *getGalleryPicture( QQuickItem *parent, const QString &prefix, const QString &pictureFilePath ) override;
+    virtual PictureSource *getCameraPicture( QQuickItem *parent,
+                                             const QString &prefix,
+                                             const QString &pictureFilePath,
+                                             const QString &suffix ) override;
+    virtual PictureSource *
+      getGalleryPicture( QQuickItem *parent, const QString &prefix,
+                         const QString &pictureFilePath ) override;
+    virtual ViewStatus *open( const QString &uri, bool editing = false ) override;
     virtual ProjectSource *openProject( QObject *parent = nullptr ) override;
 
     double systemFontPointSize() const override { return 16.0; }
