@@ -574,7 +574,8 @@ void AttributeFormModelBase::updateVisibilityAndConstraints( int fieldIndex )
   for ( ; constraintIterator != mConstraints.constEnd(); ++constraintIterator )
   {
     QStandardItem *item = constraintIterator.key();
-    const bool isVisible = item->data( AttributeFormModel::CurrentlyVisible ).toBool();
+    const bool isVisible = item->parent() ? item->parent()->data( AttributeFormModel::CurrentlyVisible ).toBool()
+                                          : true;
     int fidx = item->data( AttributeFormModel::FieldIndex ).toInt();
     if ( isVisible && mFeatureModel->data( mFeatureModel->index( fidx ), FeatureModel::AttributeAllowEdit ) == true )
     {
