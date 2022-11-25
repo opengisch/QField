@@ -229,7 +229,11 @@ Page {
                 }
 
                 Repeater {
-                  model: form.model.hasTabs ? contentModel : form.model
+                  model: form.visible
+                         ? form.model.hasTabs
+                           ? contentModel
+                           : form.model
+                         : 0
                   delegate: fieldItem
                 }
               }
