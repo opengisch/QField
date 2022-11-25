@@ -45,9 +45,13 @@ Suositeltavaa on, että valitset peruuta, katkaiset USB-kaapeliyhteydet ja käyn
     <string name="import_project_archive_error">Valittua projektiarkistoa ei tuotu oikein.</string>
     <string name="import_project_folder_error">Valittua projektikansiota ei tuotu oikein.</string>
     <string name="import_overwrite_title">Varoitus tuonnissa</string>
+    <string name="import_overwrite_folder">Tämä projektikansio on jo olemassa. Tämä toiminto korvaa sen tiedot. Jatketaanko tuontia?</string>
+    <string name="import_overwrite_dataset_single">Tämä tietojoukko on jo olemassa. Tämä toiminto korvaa sen. Jatketaanko tuontia?</string>
+    <string name="import_overwrite_dataset_multiple">Yksi tai useampi tietojoukko on jo olemassa. Tämä toiminto korvaa nämä. Jatketaanko tuontia?</string>
     <string name="import_overwrite_confirm">Tuonti ja  päälle kirjoitus</string>
     <string name="import_overwrite_cancel">Peruuta</string>
     <string name="export_error">Vientivirhe</string>
+    <string name="export_to_folder_error">Valittua projektikansiota ei viety oikein.</string>
     <string name="send_to">Lähetä ...</string>
     <string name="send_compressed_to">Lähetä pakattu hakemisto sijaintiin ...</string>
     <string name="export_to_folder">Vie hakemistoon ...</string>
@@ -61,6 +65,7 @@ Suositeltavaa on, että valitset peruuta, katkaiset USB-kaapeliyhteydet ja käyn
     <string name="delete_confirm">Poista</string>
     <string name="delete_cancel">Peruuta</string>
     <string name="storage_information_title">Tietovaraston informaatio</string>
+    <string name="storage_information_message">Olet ehkä aiempi QField 1.x -käyttäjä ja ihmettelet, miksi projektisi ja tietojoukkosi ovat kadonneet tai oletko uusi QFieldissä, suosittelemme, että käytät hetken tallennuksen käsittelyohjeiden lukemiseen. Pikakuvake tähän dokumentaatioon on edelleen käytettävissä otsikkopalkin toimintovalikossa.</string>
     <string name="storage_information_view">Näytä minulle dokumentaatio</string>
     <string name="storage_information_dismiss">Luen myöhemmin</string>
     <string name="import_project_wait">Ole hyvä odota kun QField on tuomassa projektia</string>

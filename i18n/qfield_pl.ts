@@ -19,7 +19,7 @@
     </message>
     <message>
         <source>Links Menu</source>
-        <translation type="unfinished"/>
+        <translation>Menu linków</translation>
     </message>
 </context>
 <context>
@@ -225,7 +225,7 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
     </message>
     <message>
         <source>An operation was attempted while the socket was in a state that did not permit it</source>
-        <translation type="unfinished"/>
+        <translation>Próba wykonania operacji, podczas gdy gniazdo było w stanie, który na to nie zezwalał</translation>
     </message>
     <message>
         <source>The remote host closed the connection</source>
@@ -913,7 +913,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Show Features Menu</source>
-        <translation type="unfinished"/>
+        <translation>Pokaż menu obiektów</translation>
     </message>
 </context>
 <context>

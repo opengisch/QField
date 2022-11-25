@@ -15,11 +15,11 @@
     </message>
     <message>
         <source>Documentation</source>
-        <translation type="unfinished"/>
+        <translation>Dokumentointi</translation>
     </message>
     <message>
         <source>Links Menu</source>
-        <translation type="unfinished"/>
+        <translation>Linkit-valikko</translation>
     </message>
 </context>
 <context>
@@ -114,11 +114,11 @@
     <name>BarcodeReader</name>
     <message>
         <source>Code Reader</source>
-        <translation type="unfinished"/>
+        <translation>Koodin lukija</translation>
     </message>
     <message>
         <source>Center your camera on a code</source>
-        <translation type="unfinished"/>
+        <translation>Keskitä kamerasi koodiin.</translation>
     </message>
 </context>
 <context>
@@ -141,7 +141,7 @@
     </message>
     <message numerus="yes">
         <source>%n device(s) found</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>%n laitetta löydetty</numerusform><numerusform>%n laite(tta) löydetty</numerusform></translation>
     </message>
     <message>
         <source>Scanning canceled</source>
@@ -167,7 +167,7 @@ Peruuta tehdäksesi suppeampi laiteskannaus.</translation>
     </message>
     <message>
         <source>Connect to %1</source>
-        <translation type="unfinished"/>
+        <translation>Yhdistä %1</translation>
     </message>
     <message>
         <source>Connect  to %1</source>
@@ -209,31 +209,31 @@ Peruuta tehdäksesi suppeampi laiteskannaus.</translation>
     </message>
     <message>
         <source>Could not find the remote host</source>
-        <translation type="unfinished"/>
+        <translation>Isäntälaitetta ei löytynyt</translation>
     </message>
     <message>
         <source>Could not find the service UUID on remote host</source>
-        <translation type="unfinished"/>
+        <translation>Palvelun UUID ei löytynyt isäntälaitteesta</translation>
     </message>
     <message>
         <source>Attempt to read or write from socket returned an error</source>
-        <translation type="unfinished"/>
+        <translation>Yritys lukea tai kirjoittaa socketista palautti virheen</translation>
     </message>
     <message>
         <source>The protocol is not supported on this platform</source>
-        <translation type="unfinished"/>
+        <translation>Protokollaa ei tueta tällä alustalla</translation>
     </message>
     <message>
         <source>An operation was attempted while the socket was in a state that did not permit it</source>
-        <translation type="unfinished"/>
+        <translation>Leikkausta yritettiin, kun socketti oli tilassa, joka ei sallinut sitä</translation>
     </message>
     <message>
         <source>The remote host closed the connection</source>
-        <translation type="unfinished"/>
+        <translation>Isäntälaite sulki yhteyden</translation>
     </message>
     <message>
         <source>Unknown error</source>
-        <translation type="unfinished"/>
+        <translation>Tuntematon virhe</translation>
     </message>
 </context>
 <context>
@@ -247,7 +247,7 @@ Peruuta tehdäksesi suppeampi laiteskannaus.</translation>
     <name>BookmarkProperties</name>
     <message>
         <source>Bookmark Properties</source>
-        <translation type="unfinished"/>
+        <translation>Kirjanmerkin ominaisuudet</translation>
     </message>
     <message>
         <source>Name</source>
@@ -259,7 +259,7 @@ Peruuta tehdäksesi suppeampi laiteskannaus.</translation>
     </message>
     <message>
         <source>Copy bookmark details</source>
-        <translation type="unfinished"/>
+        <translation>Kopioi kirjanmerkin yksityiskohdat</translation>
     </message>
     <message>
         <source>Lon</source>
@@ -279,15 +279,15 @@ Peruuta tehdäksesi suppeampi laiteskannaus.</translation>
     </message>
     <message>
         <source>Bookmark details copied to clipboard</source>
-        <translation type="unfinished"/>
+        <translation>Kopioitu kirjanmerkin yksityiskohdat leikepöydälle</translation>
     </message>
     <message>
         <source>Remove bookmark</source>
-        <translation type="unfinished"/>
+        <translation>Poista kirjanmerkki</translation>
     </message>
     <message>
         <source>You are about to remove a bookmark, proceed?</source>
-        <translation type="unfinished"/>
+        <translation>Olet poistamassa kirjanmerkkiä, jatketaanko?</translation>
     </message>
 </context>
 <context>
@@ -298,7 +298,7 @@ Peruuta tehdäksesi suppeampi laiteskannaus.</translation>
     </message>
     <message>
         <source>Project bookmarks cannot be edited</source>
-        <translation type="unfinished"/>
+        <translation>Projektin  kirjanmerkkejä ai voi muokata</translation>
     </message>
 </context>
 <context>
@@ -335,7 +335,7 @@ Peruuta tehdäksesi suppeampi laiteskannaus.</translation>
     </message>
     <message>
         <source>Error while fetching changelog, try again later.</source>
-        <translation type="unfinished"/>
+        <translation>Virhe muutoslokia noudettaessa. Yritä myöhemmin uudelleen.</translation>
     </message>
     <message>
         <source>Support QField</source>
@@ -369,7 +369,7 @@ Peruuta tehdäksesi suppeampi laiteskannaus.</translation>
     </message>
     <message>
         <source>NULL</source>
-        <translation type="unfinished"/>
+        <translation>NULL</translation>
     </message>
 </context>
 <context>
@@ -440,23 +440,23 @@ Peruuta tehdäksesi suppeampi laiteskannaus.</translation>
     <name>DigitizingLogger</name>
     <message>
         <source>Default value expression for the digitizing logger&apos;s %2 field has a parser error: %3</source>
-        <translation type="unfinished"/>
+        <translation>Digitointi lokin %2 kentän oletusarvolausekkeessa on jäsennysvirhe: %3</translation>
     </message>
     <message>
         <source>Default value expression for the digitizing logger&apos;s %2 field has an evaluation error: %3</source>
-        <translation type="unfinished"/>
+        <translation>Digitointi lokin %2 kentän oletusarvolausekkeessa on evaluointivirhe: %3</translation>
     </message>
     <message>
         <source>Digitizing logs layer feature addition failed</source>
-        <translation type="unfinished"/>
+        <translation>Digitoidessa lokitasoa ominaisuuden lisäys epäonnistui</translation>
     </message>
     <message>
         <source>Digitizing logs layer change commits failed</source>
-        <translation type="unfinished"/>
+        <translation>Digitoidessa lokitasoa muutoksen vahvistus epäonnistui</translation>
     </message>
     <message>
         <source>Digitizing logs layer editing failed</source>
-        <translation type="unfinished"/>
+        <translation>Digitoidessa lokitasoa muokkaus epäonnistui</translation>
     </message>
 </context>
 <context>
@@ -471,7 +471,7 @@ Peruuta tehdäksesi suppeampi laiteskannaus.</translation>
     </message>
     <message>
         <source>The collected positions count does not meet the requirement</source>
-        <translation type="unfinished"/>
+        <translation>Kerättyjen paikkojen määrä ei täytä vaatimusta</translation>
     </message>
     <message>
         <source>Should the digitized geometry be discarded?</source>
@@ -482,18 +482,18 @@ Peruuta tehdäksesi suppeampi laiteskannaus.</translation>
     <name>EditorWidgetBase</name>
     <message>
         <source>Item Menu</source>
-        <translation type="unfinished"/>
+        <translation>Kohde valikko</translation>
     </message>
 </context>
 <context>
     <name>ElevationProfile</name>
     <message>
         <source>Digitize a path to render the elevation profile</source>
-        <translation type="unfinished"/>
+        <translation>Digitoi polku korkeusprofiilin piirtämiseksi</translation>
     </message>
     <message>
         <source>Rendering elevation profile…</source>
-        <translation type="unfinished"/>
+        <translation>Piirrä korkeusprofiili...</translation>
     </message>
 </context>
 <context>
@@ -558,11 +558,11 @@ Peruuta tehdäksesi suppeampi laiteskannaus.</translation>
     </message>
     <message>
         <source>You are about to dismiss the new feature, proceed?</source>
-        <translation type="unfinished"/>
+        <translation>Olet hylkäämässä uuden ominaisuuden, jatkatko?</translation>
     </message>
     <message>
         <source>You are about to leave editing state, any changes will be lost. Proceed?</source>
-        <translation type="unfinished"/>
+        <translation>Olet poistumassa muokkaustilasta, kaikki muutokset menetetään. Jatketaanko?</translation>
     </message>
 </context>
 <context>
@@ -585,7 +585,7 @@ Peruuta tehdäksesi suppeampi laiteskannaus.</translation>
     </message>
     <message>
         <source>Successfully duplicated feature</source>
-        <translation type="unfinished"/>
+        <translation>Ominaisuus monistettu onnistuneesti</translation>
     </message>
     <message>
         <source>A number of features are being tracked, stop tracking to delete those</source>
@@ -597,7 +597,7 @@ Peruuta tehdäksesi suppeampi laiteskannaus.</translation>
     </message>
     <message>
         <source>Successfully duplicated selected features, list updated to show newly-created features</source>
-        <translation type="unfinished"/>
+        <translation>Valittujen ominaisuuksien monistaminen onnistui, luettelo päivitettiin näyttämään juuri luodut ominaisuudet</translation>
     </message>
     <message>
         <source>No feature at this position</source>
@@ -705,11 +705,11 @@ Kohteen geometriat yhdistetään kohteeseen &apos;%1&apos;, johon sisällytetä�
     </message>
     <message>
         <source>Set feature as destination</source>
-        <translation type="unfinished"/>
+        <translation>Aseta ominaisuus kohteeksi</translation>
     </message>
     <message>
         <source>Set feature as navigation</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Aseta ominaisuus navigoinniksi</translation>
     </message>
     <message>
         <source>Feature has no geometry</source>
@@ -785,7 +785,7 @@ Kohteen geometriat yhdistetään kohteeseen &apos;%1&apos;, johon sisällytetä�
     </message>
     <message>
         <source>Set navigation point</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Aseta navigointipisteeksi</translation>
     </message>
     <message>
         <source>Go to %1° %2° (WGS84)</source>
@@ -797,11 +797,11 @@ Kohteen geometriat yhdistetään kohteeseen &apos;%1&apos;, johon sisällytetä�
     </message>
     <message>
         <source>Go to %1%2 %3%4 (Map CRS, %5)</source>
-        <translation type="unfinished"/>
+        <translation>Mene %1%2 %3%4 (Kartta CRS, %5)</translation>
     </message>
     <message>
         <source>Go to %1°N %2°E (%3)</source>
-        <translation type="unfinished"/>
+        <translation>Mene %1°N %2°E (%3)</translation>
     </message>
 </context>
 <context>
@@ -862,15 +862,15 @@ Kohteen geometriat yhdistetään kohteeseen &apos;%1&apos;, johon sisällytetä�
     </message>
     <message>
         <source>Opacity</source>
-        <translation type="unfinished"/>
+        <translation>Peittävyys</translation>
     </message>
     <message>
         <source>Zoom to group</source>
-        <translation type="unfinished"/>
+        <translation>Zoomaa ryhmään</translation>
     </message>
     <message>
         <source>Zoom to parent layer</source>
-        <translation type="unfinished"/>
+        <translation>Zoomaa isäntätasolle</translation>
     </message>
     <message>
         <source>Zoom to layer</source>
@@ -890,7 +890,7 @@ Kohteen geometriat yhdistetään kohteeseen &apos;%1&apos;, johon sisällytetä�
     </message>
     <message>
         <source>The layer has no features</source>
-        <translation type="unfinished"/>
+        <translation>Tasolla ei ole ominaisuuksia</translation>
     </message>
     <message>
         <source>Track on layer %1 stopped</source>
@@ -914,11 +914,11 @@ Kohteen geometriat yhdistetään kohteeseen &apos;%1&apos;, johon sisällytetä�
     </message>
     <message>
         <source>Show visible features list</source>
-        <translation type="unfinished"/>
+        <translation>Näytä näkyvien ominaisuuksien lista</translation>
     </message>
     <message>
         <source>Show Features Menu</source>
-        <translation type="unfinished"/>
+        <translation>Näytä ominaisuudet valikko</translation>
     </message>
 </context>
 <context>
@@ -953,16 +953,17 @@ Kohteen geometriat yhdistetään kohteeseen &apos;%1&apos;, johon sisällytetä�
     </message>
     <message>
         <source>Cannot copy invalid feature</source>
-        <translation type="unfinished"/>
+        <translation>Ei voida kopioida virheellistä ominaisuutta</translation>
     </message>
     <message>
         <source>Cannot add new feature in layer &quot;%1&quot;. Reason:
 %2</source>
-        <translation type="unfinished"/>
+        <translation>Ei voida lisätä uutta ominaisuutta tasolla &quot;%1&quot;.
+ Syy: %2</translation>
     </message>
     <message>
         <source>Cannot add new feature in layer &quot;%1&quot;.</source>
-        <translation type="unfinished"/>
+        <translation>Ei voida lisätä uutta ominaisuutta tasolla  &quot;%1&quot;.</translation>
     </message>
 </context>
 <context>
@@ -1000,7 +1001,7 @@ Kohteen geometriat yhdistetään kohteeseen &apos;%1&apos;, johon sisällytetä�
     </message>
     <message>
         <source>Returns a list of bookmark with matching names</source>
-        <translation type="unfinished"/>
+        <translation>Palauttaa kirjanmerkkiluettelon vastaavilla nimillä</translation>
     </message>
     <message>
         <source>Returns a list of locations and addresses within Finland with matching terms</source>
@@ -1053,7 +1054,7 @@ Kohteen geometriat yhdistetään kohteeseen &apos;%1&apos;, johon sisällytetä�
     </message>
     <message>
         <source>Your application log is being sent</source>
-        <translation type="unfinished"/>
+        <translation>Sovellutuslokisi lähetetään</translation>
     </message>
 </context>
 <context>
@@ -1068,7 +1069,7 @@ Kohteen geometriat yhdistetään kohteeseen &apos;%1&apos;, johon sisällytetä�
     </message>
     <message>
         <source>Cannot change geometry of feature %1 in %2</source>
-        <translation type="unfinished"/>
+        <translation>Ominaisuuden %1 geometriaa ei voi muuttaa kohteessa %2</translation>
     </message>
 </context>
 <context>
@@ -1095,11 +1096,11 @@ Kohteen geometriat yhdistetään kohteeseen &apos;%1&apos;, johon sisällytetä�
     </message>
     <message>
         <source>Move Selected Feature(s)</source>
-        <translation type="unfinished"/>
+        <translation>Siirrä valitut ominaisuudet</translation>
     </message>
     <message>
         <source>Duplicate Selected Feature(s)</source>
-        <translation type="unfinished"/>
+        <translation>Monista valitut ominaisuudet</translation>
     </message>
     <message>
         <source>Delete Selected Feature(s)</source>
@@ -1123,15 +1124,15 @@ Kohteen geometriat yhdistetään kohteeseen &apos;%1&apos;, johon sisällytetä�
     </message>
     <message>
         <source>Set Feature as Destination</source>
-        <translation type="unfinished"/>
+        <translation>Aseta ominaisuus kohteeksi</translation>
     </message>
     <message>
         <source>Move Feature</source>
-        <translation type="unfinished"/>
+        <translation>Siirrä ominaisuus</translation>
     </message>
     <message>
         <source>Duplicate Feature</source>
-        <translation type="unfinished"/>
+        <translation>Monista ominaisuus</translation>
     </message>
     <message>
         <source>Delete Feature</source>
@@ -1166,7 +1167,7 @@ Kohteen geometriat yhdistetään kohteeseen &apos;%1&apos;, johon sisällytetä�
     </message>
     <message>
         <source>centroid</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">keskiö</translation>
     </message>
     <message>
         <source>Lon</source>
@@ -1182,7 +1183,7 @@ Kohteen geometriat yhdistetään kohteeseen &apos;%1&apos;, johon sisällytetä�
     </message>
     <message>
         <source>Dist.</source>
-        <translation type="unfinished"/>
+        <translation>Etäis.</translation>
     </message>
     <message>
         <source>N/A</source>
@@ -1190,7 +1191,7 @@ Kohteen geometriat yhdistetään kohteeseen &apos;%1&apos;, johon sisällytetä�
     </message>
     <message>
         <source>Bearing</source>
-        <translation type="unfinished"/>
+        <translation>Suuntima</translation>
     </message>
 </context>
 <context>
@@ -1404,11 +1405,11 @@ Kohteen geometriat yhdistetään kohteeseen &apos;%1&apos;, johon sisällytetä�
     <name>PositioningPreciseView</name>
     <message>
         <source>Dist.</source>
-        <translation type="unfinished"/>
+        <translation>Etäis.</translation>
     </message>
     <message>
         <source>Positioning accuracy too low for this precision level</source>
-        <translation type="unfinished"/>
+        <translation>Paikannustarkkuus liian alhainen tälle tarkkuustasolle</translation>
     </message>
 </context>
 <context>
@@ -1459,7 +1460,8 @@ Kohteen geometriat yhdistetään kohteeseen &apos;%1&apos;, johon sisällytetä�
     <message>
         <source>Failed to upload attachment stored at `%1`, reason:
 %2</source>
-        <translation type="unfinished"/>
+        <translation>Osoitteeseen `%1` tallennetun liitteen lataaminen epäonnistui,
+syy: %2</translation>
     </message>
 </context>
 <context>
@@ -1481,7 +1483,7 @@ Kohteen geometriat yhdistetään kohteeseen &apos;%1&apos;, johon sisällytetä�
     </message>
     <message>
         <source>Failed to sign in</source>
-        <translation type="unfinished"/>
+        <translation>Kirjautuminen epäonnistui</translation>
     </message>
     <message>
         <source>Server URL
@@ -1499,23 +1501,23 @@ Kohteen geometriat yhdistetään kohteeseen &apos;%1&apos;, johon sisällytetä�
     </message>
     <message>
         <source>Sign out</source>
-        <translation type="unfinished"/>
+        <translation>Kirjaudu ulos</translation>
     </message>
     <message>
         <source>Signing in, please wait</source>
-        <translation type="unfinished"/>
+        <translation>Kirjaudutaan sisään, odota</translation>
     </message>
     <message>
         <source>Sign in</source>
-        <translation type="unfinished"/>
+        <translation>Kirjaudu sisään</translation>
     </message>
     <message>
         <source>New user?</source>
-        <translation type="unfinished"/>
+        <translation>Uusi käyttäjä?</translation>
     </message>
     <message>
         <source>Register an account</source>
-        <translation type="unfinished"/>
+        <translation>Rekisteröi uusi tili</translation>
     </message>
     <message>
         <source>Logout</source>
@@ -1542,19 +1544,19 @@ Kohteen geometriat yhdistetään kohteeseen &apos;%1&apos;, johon sisällytetä�
     <name>QFieldCloudPackageLayersFeedback</name>
     <message>
         <source>Problematic QFieldCloud layer packaging</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Ongelmallinen QFieldCloud tason pakkaus</translation>
     </message>
     <message>
         <source>Some layers have not been packaged correctly on QFieldCloud. These layers might be misconfigured or their data source is not accessible from the QFieldCloud server.</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Joitakin tasoja ei ole pakattu oikein QFieldCloudiin. Nämä tasot voivat olla määritetty väärin tai niiden tietolähde ei ole käytettävissä QFieldCloud-palvelimelta.</translation>
     </message>
     <message>
         <source>QFieldCloud had troubles packaging your project</source>
-        <translation type="unfinished"/>
+        <translation>QFieldCloudilla oli ongelmia projektisi pakkaamisessa</translation>
     </message>
     <message>
         <source>Some layers have not been packaged correctly on QFieldCloud. These layers might be misconfigured or their data source is not accessible from the QFieldCloud server. Please check the logs of the latest packaging job on the qfield.cloud website.</source>
-        <translation type="unfinished"/>
+        <translation>Joitakin tasoja ei ole pakattu oikein QFieldCloudiin. Nämä tasot voivat olla määritetty väärin tai niiden tietolähde ei ole käytettävissä QFieldCloud-palvelimelta. Tarkista viimeisimmän pakkaustyön lokit qfield.cloud-verkkosivustolta.</translation>
     </message>
 </context>
 <context>
@@ -1589,7 +1591,7 @@ Kohteen geometriat yhdistetään kohteeseen &apos;%1&apos;, johon sisällytetä�
     </message>
     <message>
         <source>This QFieldCloud project was first downloaded with another cloud account. Please sign in with the original account for this project to use the QFieldCloud functionality.</source>
-        <translation type="unfinished"/>
+        <translation>Tämä QFieldCloud-projekti ladattiin ensin toisella pilvitilillä. Kirjaudu sisään tämän projektin alkuperäisellä tilillä käyttääksesi QFieldCloud-toimintoa.</translation>
     </message>
     <message>
         <source>Downloading %1%…</source>
@@ -1610,15 +1612,15 @@ Tämä voi viedä jonkin aikaa, ole hyvä ja odota...</translation>
     </message>
     <message>
         <source>A server error has occured, please try again.</source>
-        <translation type="unfinished"/>
+        <translation>Palvelinvirhe, yritä uudelleen.</translation>
     </message>
     <message>
         <source>A network error has occured, please try again.</source>
-        <translation type="unfinished"/>
+        <translation>Tapahtui verkkovirhe, yritä uudelleen.</translation>
     </message>
     <message numerus="yes">
         <source>There is/are %n local change(s)</source>
-        <translation><numerusform>%n lokaali muutos</numerusform><numerusform>%n lokaalia muutosta</numerusform></translation>
+        <translation><numerusform>%n lokaali muutos</numerusform><numerusform>Löytyy %n paikallista muutosta</numerusform></translation>
     </message>
     <message>
         <source>There are no local changes</source>
@@ -1654,7 +1656,7 @@ Tämä voi viedä jonkin aikaa, ole hyvä ja odota...</translation>
     </message>
     <message>
         <source>Revert all modified features in the local layers. You cannot restore those changes.</source>
-        <translation type="unfinished"/>
+        <translation>Palauta kaikki muokatut ominaisuudet paikallisissa tasoissa. Et voi palauttaa näitä muutoksia.</translation>
     </message>
     <message>
         <source>Revert all modified features in the local cloud layers. You cannot restore those changes.</source>
@@ -1745,7 +1747,7 @@ Vaikka voit edelleen tarkastella ja käyttää projektia, sen alustamista suosit
     </message>
     <message>
         <source>Packaged layer &apos;%1&apos; is not valid: &apos;%2&apos;</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Pakattu kerros &apos;% 1&apos; ei kelpaa: &apos;% 2&apos;</translation>
     </message>
     <message>
         <source>Failed to open temporary file for &quot;%1&quot;, reason:
@@ -1769,93 +1771,95 @@ Vaikka voit edelleen tarkastella ja käyttää projektia, sen alustamista suosit
     </message>
     <message>
         <source>aborted</source>
-        <translation type="unfinished"/>
+        <translation>keskeytetty</translation>
     </message>
     <message>
         <source>project(%1) trigger response refresh not contain all the expected keys: name(string), owner(string), description(string), user_role(string), is_public(bool), can_repackage(bool), needs_repackaging(bool)</source>
-        <translation type="unfinished"/>
+        <translation>project(%1) trigger response refresh not contain all the expected keys: name(string), owner(string), description(string), user_role(string), is_public(bool), can_repackage(bool), needs_repackaging(bool)</translation>
     </message>
     <message>
         <source>Getting job status, but the project is deleted.</source>
-        <translation type="unfinished"/>
+        <translation>Haetaan työn tilaa, mutta projekti on poistettu.</translation>
     </message>
     <message>
         <source>Job creation finished, but the server response is missing required fields: id(string)</source>
-        <translation type="unfinished"/>
+        <translation>Työn luonti on valmis, mutta palvelimen vastauksesta puuttuu pakolliset kentät: id(string)</translation>
     </message>
     <message>
         <source>Getting job status, but no `%2` job triggered yet.</source>
-        <translation type="unfinished"/>
+        <translation>Haetaan työn tilaa, mutta työtä &quot;%2&quot; ei ole vielä käynnistetty.</translation>
     </message>
     <message>
         <source>Getting job status finished, but the project is deleted.</source>
-        <translation type="unfinished"/>
+        <translation>Työn tila valmistunut, mutta projekti on poistettu.</translation>
     </message>
     <message>
         <source>job(%1) status response does not contain all the expected keys: status(string)</source>
-        <translation type="unfinished"/>
+        <translation>job(%1) statusvastaus ei sisällä kaikkia odotettuja avaimia: status(string)</translation>
     </message>
     <message>
         <source>Job(%1) finished with a failed status.</source>
-        <translation type="unfinished"/>
+        <translation>Työ(%1) päättyi epäonnistuneena.</translation>
     </message>
     <message>
         <source>Project busy.</source>
-        <translation type="unfinished"/>
+        <translation>Projekti  varattu.</translation>
     </message>
     <message>
         <source>Packaging job finished unsuccessfully for `%1`. %2</source>
-        <translation type="unfinished"/>
+        <translation>Pakkaustyö päättyi epäonnistuneesti kohteelle &quot;%1&quot;. %2</translation>
     </message>
     <message>
         <source>Failed to refresh the latest info for `%1`: %2</source>
-        <translation type="unfinished"/>
+        <translation>Viimeisimpien tietojen päivittäminen kohteelle &quot;%1&quot; epäonnistui: %2</translation>
     </message>
     <message>
         <source>Failed to get latest package data.</source>
-        <translation type="unfinished"/>
+        <translation>Uusimpien pakettitietojen hakeminen epäonnistui.</translation>
     </message>
     <message>
         <source>Latest package data response error.</source>
-        <translation type="unfinished"/>
+        <translation>Viimeisimmän paketin datan vastausvirhe.</translation>
     </message>
     <message>
         <source>Latest package data structure error.</source>
-        <translation type="unfinished"/>
+        <translation>Viimeisin paketin tietorakennevirhe.</translation>
     </message>
     <message>
         <source>Project %1: Packaged layer `%2` is not valid. Error code %3, error message: %4</source>
-        <translation type="unfinished"/>
+        <translation>Projekti %1: Pakattu taso &apos;%2&apos; ei kelpaa. Virhekoodi %3, virheilmoitus: %4</translation>
     </message>
     <message>
         <source>Failed to open temporary file for `%1`, reason:
 %2</source>
-        <translation type="unfinished"/>
+        <translation>Väliaikaisen tiedoston avaaminen kohteelle `%1`,
+epäonnistui, syy: %2</translation>
     </message>
     <message>
         <source>Failed to upload attachment stored at `%1`, reason:
 %2</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Osoitteeseen `%1` tallennetun liitteen lataaminen epäonnistui,
+syy: %2</translation>
     </message>
     <message>
         <source>Network error. Failed to download file `%1`.</source>
-        <translation type="unfinished"/>
+        <translation>Verkkovirhe. Tiedoston &apos;%1&apos; lataaminen epäonnistui.</translation>
     </message>
     <message>
         <source>File system error. Failed to write file to temporary location `%1`.</source>
-        <translation type="unfinished"/>
+        <translation>Tiedostojärjestelmävirhe. Tiedoston kirjoittaminen väliaikaiseen sijaintiin &apos;%1&apos; epäonnistui.</translation>
     </message>
     <message>
         <source>File system error. Failed to open file for writing on temporary `%1`.</source>
-        <translation type="unfinished"/>
+        <translation>Tiedostojärjestelmävirhe. Tiedoston avaaminen väliaikaiseen tiedostoon &apos;%1&apos; kirjoittamista varten epäonnistui.</translation>
     </message>
     <message>
         <source>Project `%1`, file `%2`: %3</source>
-        <translation type="unfinished"/>
+        <translation>Projekti `%1`, tiedosto `%2`: %3</translation>
     </message>
     <message>
         <source>System message: </source>
-        <translation type="unfinished"/>
+        <translation>Järjestelmän viesti:</translation>
     </message>
     <message>
         <source> (see more in the QField error log)…</source>
@@ -1967,46 +1971,46 @@ Tämä voi viedä jonkin aikaa, ole hyvä ja odota...</translation>
     </message>
     <message>
         <source>No projects found</source>
-        <translation type="unfinished"/>
+        <translation>Projekteja  ei löytynyt</translation>
     </message>
 </context>
 <context>
     <name>QFieldLocalDataPickerScreen</name>
     <message>
         <source>Project Folder</source>
-        <translation type="unfinished"/>
+        <translation>Projektihakemisto</translation>
     </message>
     <message>
         <source>Local Projects &amp; Datasets</source>
-        <translation type="unfinished"/>
+        <translation>Paikalliset projektit ja tietojoukot</translation>
     </message>
     <message>
         <source>Folders</source>
-        <translation type="unfinished"/>
+        <translation>Hakemistot</translation>
     </message>
     <message>
         <source>Projects</source>
-        <translation type="unfinished"/>
+        <translation>Projektit</translation>
     </message>
     <message>
         <source>Datasets</source>
-        <translation type="unfinished"/>
+        <translation>Tietojoukot</translation>
     </message>
     <message>
         <source>Favorites</source>
-        <translation type="unfinished"/>
+        <translation>Suosikit</translation>
     </message>
     <message>
         <source>Project file</source>
-        <translation type="unfinished"/>
+        <translation>Projektitiedosto</translation>
     </message>
     <message>
         <source>Vector dataset</source>
-        <translation type="unfinished"/>
+        <translation>Vektoritietojoukko</translation>
     </message>
     <message>
         <source>Raster dataset</source>
-        <translation type="unfinished"/>
+        <translation>Rasteritietojoukko</translation>
     </message>
     <message>
         <source>Send to...</source>
@@ -2014,35 +2018,35 @@ Tämä voi viedä jonkin aikaa, ole hyvä ja odota...</translation>
     </message>
     <message>
         <source>Export to folder...</source>
-        <translation type="unfinished"/>
+        <translation>Vie hakemistoon...</translation>
     </message>
     <message>
         <source>Remove dataset</source>
-        <translation type="unfinished"/>
+        <translation>Poista tietojoukkko</translation>
     </message>
     <message>
         <source>Send compressed folder to...</source>
-        <translation type="unfinished"/>
+        <translation>Lähetä pakattu hakemisto ...</translation>
     </message>
     <message>
         <source>Remove project folder</source>
-        <translation type="unfinished"/>
+        <translation>Poista projektihakemisto</translation>
     </message>
     <message>
         <source>Import project from folder</source>
-        <translation type="unfinished"/>
+        <translation>Tuo projekti hakemistosta</translation>
     </message>
     <message>
         <source>Import project from ZIP</source>
-        <translation type="unfinished"/>
+        <translation>Tuo projekti ZIP tiedostosta</translation>
     </message>
     <message>
         <source>Import dataset(s)</source>
-        <translation type="unfinished"/>
+        <translation>Tuo tietojoukko(t)</translation>
     </message>
     <message>
         <source>Storage management help</source>
-        <translation type="unfinished"/>
+        <translation>Apua tallennustilan hallintaan</translation>
     </message>
 </context>
 <context>
@@ -2073,11 +2077,11 @@ Tämä voi viedä jonkin aikaa, ole hyvä ja odota...</translation>
     </message>
     <message>
         <source>Show bookmarks</source>
-        <translation type="unfinished"/>
+        <translation>Näytä kirjanmerkit</translation>
     </message>
     <message>
         <source>When switched on, user&apos;s saved and currently opened project bookmarks will be displayed on the map.</source>
-        <translation type="unfinished"/>
+        <translation>Kun se on kytketty päälle, käyttäjän tallennetut ja parhaillaan avatut projektin kirjanmerkit näkyvät kartalla.</translation>
     </message>
     <message>
         <source>Use native camera</source>
@@ -2113,11 +2117,11 @@ Tämä voi viedä jonkin aikaa, ole hyvä ja odota...</translation>
     </message>
     <message>
         <source>Send anonymized metrics</source>
-        <translation type="unfinished"/>
+        <translation>Lähetä anonymisoituja mittareita</translation>
     </message>
     <message>
         <source>If enabled, anonymized metrics will be collected and sent to help improve QField for everyone.</source>
-        <translation type="unfinished"/>
+        <translation>Jos tämä on käytössä, anonymisoituja mittareita kerätään ja lähetetään QFieldin parantamiseksi kaikille.</translation>
     </message>
     <message>
         <source>General</source>
@@ -2137,19 +2141,19 @@ Tämä voi viedä jonkin aikaa, ole hyvä ja odota...</translation>
     </message>
     <message>
         <source>User interface language:</source>
-        <translation type="unfinished"/>
+        <translation>Käyttäjäliittymän kieli:</translation>
     </message>
     <message>
         <source>To apply the selected user interface language, QField needs to completely shutdown and restart.</source>
-        <translation type="unfinished"/>
+        <translation>Valitun käyttöliittymän kielen käyttämiseksi QField on sammutettava kokonaan ja käynnistettävä uudelleen.</translation>
     </message>
     <message>
         <source>system</source>
-        <translation type="unfinished"/>
+        <translation>järjestelmä</translation>
     </message>
     <message>
         <source>Found a missing or incomplete language? %1Join the translator community.%2</source>
-        <translation type="unfinished"/>
+        <translation>Löysitkö puuttuvan tai epätäydellisen kielen? %1Liity kääntäjäyhteisöön.%2</translation>
     </message>
     <message>
         <source>Positioning device in use:</source>
@@ -2231,19 +2235,19 @@ Peruuta tehdäksesi suppeampi laiteskannaus.</translation>
     </message>
     <message>
         <source>Enable averaged positioning requirement</source>
-        <translation type="unfinished"/>
+        <translation>Ota käyttöön keskimääräinen paikannusvaatimus</translation>
     </message>
     <message>
         <source>Minimum number of positions collected</source>
-        <translation type="unfinished"/>
+        <translation>Kerättyjen paikkojen vähimmäismäärä</translation>
     </message>
     <message>
         <source>Automatically end collection when minimum number is met</source>
-        <translation type="unfinished"/>
+        <translation>Lopeta keräys automaattisesti, kun vähimmäismäärä täyttyy</translation>
     </message>
     <message>
         <source>When enabled, digitizing vertices with a cursor locked to position will only accepted an averaged position from a minimum number of collected positions. Digitizing using averaged positions is done by pressing and holding the add vertex button, which will collect positions until the press is released. Accuracy requirement settings are respected when enabled.</source>
-        <translation type="unfinished"/>
+        <translation>Kun tämä on käytössä, digitointipisteet, joissa kohdistin on lukittu sijaintiin, hyväksyy vain keskiarvotetun sijainnin vähimmäismäärästä kerättyjä paikkoja. Digitointi keskimääräisillä sijainneilla tehdään painamalla ja pitämällä painettuna Lisää taitepiste -painiketta, joka kerää paikkoja, kunnes painallus vapautetaan. Tarkkuusvaatimusasetuksia noudatetaan, kun ne ovat käytössä.</translation>
     </message>
     <message>
         <source>Antenna height compensation</source>
@@ -2283,7 +2287,7 @@ Peruuta tehdäksesi suppeampi laiteskannaus.</translation>
     </message>
     <message>
         <source>Time of inactivity in seconds before the screen brightness get be dimmed to preserve battery.</source>
-        <translation type="unfinished"/>
+        <translation>Epäaktiivisuuden aika sekunteina ennen näytön kirkkauden alkamista himmennetään akun säästämiseksi.</translation>
     </message>
 </context>
 <context>
@@ -2366,15 +2370,15 @@ Peruuta tehdäksesi suppeampi laiteskannaus.</translation>
     </message>
     <message>
         <source>Please wait while QField installation finalizes.</source>
-        <translation type="unfinished"/>
+        <translation>Odota, kunnes QField asennus on valmis.</translation>
     </message>
     <message>
         <source>averaged</source>
-        <translation type="unfinished"/>
+        <translation>keskiarvoistettu</translation>
     </message>
     <message>
         <source>centroid</source>
-        <translation type="unfinished"/>
+        <translation>keskiö</translation>
     </message>
 </context>
 <context>
@@ -2498,7 +2502,7 @@ Peruuta tehdäksesi suppeampi laiteskannaus.</translation>
     <name>ScaleBarMeasurement</name>
     <message>
         <source>Unknown</source>
-        <translation type="unfinished"/>
+        <translation>Tuntematon</translation>
     </message>
 </context>
 <context>
@@ -2519,26 +2523,26 @@ Peruuta tehdäksesi suppeampi laiteskannaus.</translation>
     <name>TemporalProperties</name>
     <message>
         <source>Temporal Properties</source>
-        <translation type="unfinished"/>
+        <translation>Väliaikaiset ominaisuudet</translation>
     </message>
     <message>
         <source>Enable temporal filter</source>
-        <translation type="unfinished"/>
+        <translation>Ota käyttöön väliaikainen suodatin</translation>
     </message>
 </context>
 <context>
     <name>TextEdit</name>
     <message>
         <source>Copy Text</source>
-        <translation type="unfinished"/>
+        <translation>Kopioi teksti</translation>
     </message>
     <message>
         <source>Paste Text</source>
-        <translation type="unfinished"/>
+        <translation>Liitä tekstiä</translation>
     </message>
     <message>
         <source>Scan Code</source>
-        <translation type="unfinished"/>
+        <translation>Skannaa koodi</translation>
     </message>
 </context>
 <context>
@@ -2585,7 +2589,7 @@ Peruuta tehdäksesi suppeampi laiteskannaus.</translation>
     </message>
     <message>
         <source>When both constraints are disabled, vertex additions will occur as frequently as delivered by the positioning device.</source>
-        <translation type="unfinished"/>
+        <translation>Kun molemmat rajoitukset on poistettu käytöstä, taitepisteiden lisäyksiä tapahtuu yhtä usein kuin paikannuslaite toimittaa sijainteja.</translation>
     </message>
 </context>
 <context>
@@ -2618,7 +2622,7 @@ Peruuta tehdäksesi suppeampi laiteskannaus.</translation>
     </message>
     <message>
         <source>Reach out</source>
-        <translation type="unfinished"/>
+        <translation>Reach out</translation>
     </message>
     <message>
         <source>Hey there, how do you like your experience with QField so far?</source>
@@ -2634,19 +2638,19 @@ Peruuta tehdäksesi suppeampi laiteskannaus.</translation>
     </message>
     <message>
         <source>Anonymized metrics collection has been disabled. You can re-enable through the settings panel.</source>
-        <translation type="unfinished"/>
+        <translation>Anonymisoitujen mittareiden kerääminen on poistettu käytöstä. Voit ottaa sen uudelleen käyttöön asetuspaneelin kautta.</translation>
     </message>
     <message>
         <source>To improve stability for everyone, QField collects and sends anonymized metrics.</source>
-        <translation type="unfinished"/>
+        <translation>Parantaakseen vakautta kaikille QField kerää ja lähettää anonymisoituja mittareita.</translation>
     </message>
     <message>
         <source>I agree</source>
-        <translation type="unfinished"/>
+        <translation>Suostun</translation>
     </message>
     <message>
         <source>I prefer not</source>
-        <translation type="unfinished"/>
+        <translation>En halua nyt</translation>
     </message>
     <message>
         <source>QFieldCloud projects</source>
@@ -2678,7 +2682,7 @@ Peruuta tehdäksesi suppeampi laiteskannaus.</translation>
     </message>
     <message>
         <source>Welcome to QField. First time using this application? Try out sample projects listed in the list below.</source>
-        <translation type="unfinished"/>
+        <translation>Tervetuloa QFieldiin. Ensimmäinen kerta, kun käytät tätä sovellusta? Kokeile alla olevassa luettelossa lueteltuja esimerkkiprojekteja.</translation>
     </message>
     <message>
         <source>Welcome back to QField.</source>
@@ -2752,7 +2756,7 @@ Peruuta tehdäksesi suppeampi laiteskannaus.</translation>
     </message>
     <message>
         <source>Perimeter</source>
-        <translation type="unfinished"/>
+        <translation>Piiri</translation>
     </message>
     <message>
         <source>Length</source>
@@ -2852,11 +2856,11 @@ Peruuta tehdäksesi suppeampi laiteskannaus.</translation>
     </message>
     <message>
         <source>Go to Home Screen</source>
-        <translation type="unfinished"/>
+        <translation>Palaa aloitussivulle</translation>
     </message>
     <message>
         <source>Open Project Folder</source>
-        <translation type="unfinished"/>
+        <translation>Avaa projektihakemisto</translation>
     </message>
     <message>
         <source>Open Project</source>
@@ -2888,31 +2892,31 @@ Peruuta tehdäksesi suppeampi laiteskannaus.</translation>
     </message>
     <message>
         <source>Map Canvas Options</source>
-        <translation type="unfinished"/>
+        <translation>Karttaikkunan asetukset</translation>
     </message>
     <message>
         <source>Add Bookmark</source>
-        <translation type="unfinished"/>
+        <translation>Lisää kirjanmerkki</translation>
     </message>
     <message>
         <source>Set as Destination</source>
-        <translation type="unfinished"/>
+        <translation>Aseta kohteeksi</translation>
     </message>
     <message>
         <source>Add Bookmark at Coordinates</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Lisää kirjanmerkki koordinaatteihin</translation>
     </message>
     <message>
         <source>Untitled bookmark</source>
-        <translation type="unfinished"/>
+        <translation>Kirjanmerkki ilman otsikkoa</translation>
     </message>
     <message>
         <source>Set Coordinates as Destination</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Aseta koordinaatit kohteelle</translation>
     </message>
     <message>
         <source>Copy Coordinates</source>
-        <translation type="unfinished"/>
+        <translation>Kopioi koordinaatit</translation>
     </message>
     <message>
         <source>X</source>
@@ -2924,79 +2928,79 @@ Peruuta tehdäksesi suppeampi laiteskannaus.</translation>
     </message>
     <message>
         <source>Coordinates copied to clipboard</source>
-        <translation type="unfinished"/>
+        <translation>Koordinaatit kopioitu leikepöydälle</translation>
     </message>
     <message>
         <source>Precise View Settings</source>
-        <translation type="unfinished"/>
+        <translation>Tarkat näkymän asetukset</translation>
     </message>
     <message>
         <source>0.25m Precision</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">0.25m tarkkuus</translation>
     </message>
     <message>
         <source>0.5m Precision</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">0.5m tarkkuus</translation>
     </message>
     <message>
         <source>1m Precision</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">1m tarkkuus</translation>
     </message>
     <message>
         <source>2.5m Precision</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">2.5m tarkkuus</translation>
     </message>
     <message>
         <source>5m Precision</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">5m tarkkuus</translation>
     </message>
     <message>
         <source>10m Precision</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">10m tarkkuus</translation>
     </message>
     <message>
         <source>Always Show Precise View</source>
-        <translation type="unfinished"/>
+        <translation>Näytä aina tarkka näkymä</translation>
     </message>
     <message>
         <source>Center to Location</source>
-        <translation type="unfinished"/>
+        <translation>Keskitä sijaintiin</translation>
     </message>
     <message>
         <source>Add Bookmark at Location</source>
-        <translation type="unfinished"/>
+        <translation>Lisää kirjanmerkki sijaintiin</translation>
     </message>
     <message>
         <source>Copy Location Coordinates</source>
-        <translation type="unfinished"/>
+        <translation>Kopioi sijainnin koordinaatit</translation>
     </message>
     <message>
         <source>Signed out</source>
-        <translation type="unfinished"/>
+        <translation>Olet kirjautunut ulos</translation>
     </message>
     <message>
         <source>Signed in</source>
-        <translation type="unfinished"/>
+        <translation>Olet kirjautunut sisään</translation>
     </message>
     <message>
         <source>Set As Destination</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Aseta kohteeksi</translation>
     </message>
     <message>
         <source>Navigation Options</source>
-        <translation type="unfinished"/>
+        <translation>Navigoinnin asetukset</translation>
     </message>
     <message>
         <source>Clear Destination</source>
-        <translation type="unfinished"/>
+        <translation>Tyhjennä kohde</translation>
     </message>
     <message>
         <source>%1 Precision</source>
-        <translation type="unfinished"/>
+        <translation>%1 tarkkuus</translation>
     </message>
     <message>
         <source>Enable Audio Proximity Feedback</source>
-        <translation type="unfinished"/>
+        <translation>Ota äänen läheisyyspalaute käyttöön</translation>
     </message>
     <message>
         <source>Positioning Options</source>
@@ -3020,19 +3024,19 @@ Peruuta tehdäksesi suppeampi laiteskannaus.</translation>
     </message>
     <message>
         <source>Add Bookmark at Current Location</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Lisää kirjanmerkki nykyiseen sijaintiin</translation>
     </message>
     <message>
         <source>Current location unknown</source>
-        <translation type="unfinished"/>
+        <translation>Nykyinen sijainti tuntematon</translation>
     </message>
     <message>
         <source>My location</source>
-        <translation type="unfinished"/>
+        <translation>Sijaintini</translation>
     </message>
     <message>
         <source>Copy Current Location</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Kopioi nykyinen sijainti</translation>
     </message>
     <message>
         <source>Accuracy</source>
@@ -3044,7 +3048,7 @@ Peruuta tehdäksesi suppeampi laiteskannaus.</translation>
     </message>
     <message>
         <source>Current location copied to clipboard</source>
-        <translation type="unfinished"/>
+        <translation>Nykyinen sijainti kopioitu leikepöydälle</translation>
     </message>
     <message>
         <source>Current layer switched to the one holding the selected geometry.</source>
@@ -3092,15 +3096,15 @@ Peruuta tehdäksesi suppeampi laiteskannaus.</translation>
     </message>
     <message>
         <source>Positioning error: %1</source>
-        <translation type="unfinished"/>
+        <translation>Paikannusvirhe: %1</translation>
     </message>
     <message>
         <source>Azimuth</source>
-        <translation type="unfinished"/>
+        <translation>Atsimuutti</translation>
     </message>
     <message>
         <source>Lock Screen</source>
-        <translation type="unfinished"/>
+        <translation>Lukitse näyttö</translation>
     </message>
 </context>
 <context>
