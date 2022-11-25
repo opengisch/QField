@@ -21,6 +21,7 @@
 #include "platformutilities.h"
 #include "projectsource.h"
 #include "qfield.h"
+#include "qfieldcloudconnection.h"
 #include "qgismobileapp.h"
 #include "qgsmessagelog.h"
 
@@ -325,6 +326,16 @@ QVariantMap PlatformUtilities::sceneMargins( QQuickWindow *window ) const
 double PlatformUtilities::systemFontPointSize() const
 {
   return QApplication::font().pointSizeF() + 2.0;
+}
+
+void PlatformUtilities::uploadPendingAttachments( QFieldCloudConnection *connection ) const
+{
+  QTimer::singleShot( 500, [connection]() {
+    if ( connection )
+    {
+      connection->uploadPendingAttachments();
+    }
+  } );
 }
 
 PlatformUtilities *PlatformUtilities::instance()

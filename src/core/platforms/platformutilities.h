@@ -25,6 +25,7 @@
 #include <QObject>
 #include <qgsfield.h>
 
+class QFieldCloudConnection;
 class ProjectSource;
 class PictureSource;
 
@@ -225,6 +226,8 @@ class QFIELD_CORE_EXPORT PlatformUtilities : public QObject
     Q_INVOKABLE virtual QVariantMap sceneMargins( QQuickWindow *window ) const;
 
     Q_INVOKABLE virtual double systemFontPointSize() const;
+
+    Q_INVOKABLE virtual void uploadPendingAttachments( QFieldCloudConnection *connection ) const;
 
     static PlatformUtilities *instance();
 

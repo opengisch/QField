@@ -1311,9 +1311,6 @@ void QFieldCloudProjectsModel::projectUpload( const QString &projectId, const bo
 
     delete networkDeltaUploadedParent;
 
-    // send attachment in a non-blocking fashion
-    mCloudConnection->uploadPendingAttachments();
-
     if ( shouldDownloadUpdates )
     {
       projectGetDeltaStatus( projectId );

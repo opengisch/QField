@@ -17,6 +17,7 @@
  ***************************************************************************/
 
 #include "qfield.h"
+#include "qfieldcloudconnection.h"
 #include "qgismobileapp.h"
 #if WITH_SENTRY
 #include "sentry_wrapper.h"
@@ -34,6 +35,7 @@
 #include <QApplication>
 #include <QDialog>
 #include <QDir>
+#include <QEventLoop>
 #include <QLabel>
 #include <QLocale>
 #include <QMainWindow>
@@ -43,10 +45,6 @@
 #include <QtWebView/QtWebView>
 
 #if defined( Q_OS_ANDROID )
-#include "qfield_android.h"
-
-#include <QAndroidJniEnvironment>
-#include <QAndroidJniObject>
 #include <QAndroidService>
 #include <QtAndroid>
 #endif
@@ -77,14 +75,31 @@ int main( int argc, char **argv )
   qInfo() << "main begins";
   if ( argc > 1 && strcmp( argv[1], "-service" ) == 0 )
   {
-    qInfo() << "Say hello to my little friend Service!";
 #if defined( Q_OS_ANDROID )
     QAndroidService app( argc, argv );
-
-    return app.exec();
 #else
-    return 0;
+    QCoreApplication app( argc, argv );
 #endif
+
+    QCoreApplication::setOrganizationName( "OPENGIS.ch" );
+    QCoreApplication::setOrganizationDomain( "opengis.ch" );
+    QCoreApplication::setApplicationName( qfield::appName );
+    QSettings settings;
+
+    QEventLoop loop( &app );
+    QFieldCloudConnection connection;
+    QObject::connect( &connection, &QFieldCloudConnection::pendingAttachmentsUploaded, &loop, &QEventLoop::quit );
+    int pendingAttachments = connection.uploadPendingAttachments();
+    if ( pendingAttachments > 0 )
+    {
+      loop.exec();
+    }
+
+#if defined( Q_OS_ANDROID )
+    QtAndroid::androidService().callMethod<void>( "stopSelf" );
+#endif
+
+    return 0;
   }
   else
   {
@@ -127,14 +142,6 @@ int main( int argc, char **argv )
   const QString profilePath = platformUtils->systemLocalDataLocation( QStringLiteral( "/qgis_profile" ) );
   QDir().mkdir( profilePath );
   delete dummyApp;
-
-#if defined( Q_OS_ANDROID )
-  qInfo() << "Launching service from main...";
-  QAndroidJniObject::callStaticMethod<void>( "ch/opengis/" APP_PACKAGE_NAME "/QFieldService",
-                                             "startQFieldService",
-                                             "(Landroid/content/Context;)V",
-                                             QtAndroid::androidActivity().object() );
-#endif
 
   QgsApplication app( argc, argv, true, profilePath, QStringLiteral( "mobile" ) );
 

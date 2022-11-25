@@ -45,16 +45,13 @@ public class QFieldService extends QtService {
 
     private NotificationManager notificationManager;
     private NotificationChannel notificationChannel;
-    private final String CHANNEL_ID = "qfield_service_01";
 
-    private String cloudToken;
-    private String cloudUser;
+    private final String CHANNEL_ID = "qfield_service_01";
+    private final int NOTIFICATION_ID = 101;
 
     public static void startQFieldService(Context context) {
         Log.v("QField Service", "Starting QFieldService");
         Intent intent = new Intent(context, QFieldService.class);
-        intent.putExtra("USER", "TEST_USER");
-        intent.putExtra("TOKEN", "TEST_TOKEN");
         context.startService(intent);
     }
 
@@ -81,38 +78,31 @@ public class QFieldService extends QtService {
     @Override
     public void onDestroy() {
         Log.v("QField Service", "onDestroy triggered");
+        notificationManager.cancel(NOTIFICATION_ID);
         super.onDestroy();
     }
 
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
         int ret = super.onStartCommand(intent, flags, startId);
-
-        cloudUser = intent.getExtras().getString("USER");
-        cloudToken = intent.getExtras().getString("TOKEN");
-        Log.v("QField Service", cloudUser);
-        Log.v("QField Service", cloudToken);
-
         showNotification();
-
         return ret;
     }
 
     private void showNotification() {
-        Log.v("QField Service Notification", cloudUser);
-        Log.v("QField Service Notification", cloudToken); // setProgress
-        Notification.Builder builder = new Notification.Builder(this)
-                                           .setSmallIcon(R.drawable.qfield_logo)
-                                           .setWhen(System.currentTimeMillis())
-                                           .setContentTitle(cloudUser)
-                                           .setContentText(cloudToken)
-                                           .setProgress(0, 0, true);
+        Notification.Builder builder =
+            new Notification.Builder(this)
+                .setSmallIcon(R.drawable.qfield_logo)
+                .setWhen(System.currentTimeMillis())
+                .setContentTitle("QFieldCloud")
+                .setContentText(getString(R.string.upload_pending_attachments))
+                .setProgress(0, 0, true);
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             builder.setChannelId(CHANNEL_ID);
         }
 
         Notification notification = builder.build();
-        notificationManager.notify(1, notification);
+        notificationManager.notify(NOTIFICATION_ID, notification);
     }
 }
