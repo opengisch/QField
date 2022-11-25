@@ -32,19 +32,29 @@
 
 package ch.opengis.qfield;
 
+import android.app.Notification;
+import android.app.NotificationChannel;
+import android.app.NotificationManager;
 import android.content.Context;
 import android.content.Intent;
+import android.os.Build;
 import android.util.Log;
 import org.qtproject.qt5.android.bindings.QtService;
 
 public class QFieldService extends QtService {
 
-    public static native void testFunction();
+    private NotificationManager notificationManager;
+    private NotificationChannel notificationChannel;
+    private final String CHANNEL_ID = "qfield_service_01";
+
+    private String cloudToken;
+    private String cloudUser;
 
     public static void startQFieldService(Context context) {
         Log.v("QField Service", "Starting QFieldService");
         Intent intent = new Intent(context, QFieldService.class);
-        intent.putExtra("TOKEN", "TEST");
+        intent.putExtra("USER", "TEST_USER");
+        intent.putExtra("TOKEN", "TEST_TOKEN");
         context.startService(intent);
     }
 
@@ -52,11 +62,57 @@ public class QFieldService extends QtService {
     public void onCreate() {
         Log.v("QField Service", "onCreate triggered");
         super.onCreate();
+
+        notificationManager =
+            (NotificationManager)getSystemService(NOTIFICATION_SERVICE);
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            notificationChannel =
+                new NotificationChannel(CHANNEL_ID, "QFieldCloud",
+                                        NotificationManager.IMPORTANCE_DEFAULT);
+            notificationChannel.setDescription(
+                "QFieldCloud background synchronization");
+            notificationChannel.enableLights(false);
+            notificationChannel.enableVibration(false);
+            notificationManager.createNotificationChannel(notificationChannel);
+        }
     }
 
     @Override
     public void onDestroy() {
         Log.v("QField Service", "onDestroy triggered");
         super.onDestroy();
+    }
+
+    @Override
+    public int onStartCommand(Intent intent, int flags, int startId) {
+        int ret = super.onStartCommand(intent, flags, startId);
+
+        cloudUser = intent.getExtras().getString("USER");
+        cloudToken = intent.getExtras().getString("TOKEN");
+        Log.v("QField Service", cloudUser);
+        Log.v("QField Service", cloudToken);
+
+        showNotification();
+
+        return ret;
+    }
+
+    private void showNotification() {
+        Log.v("QField Service Notification", cloudUser);
+        Log.v("QField Service Notification", cloudToken); // setProgress
+        Notification.Builder builder = new Notification.Builder(this)
+                                           .setSmallIcon(R.drawable.qfield_logo)
+                                           .setWhen(System.currentTimeMillis())
+                                           .setContentTitle(cloudUser)
+                                           .setContentText(cloudToken)
+                                           .setProgress(0, 0, true);
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            builder.setChannelId(CHANNEL_ID);
+        }
+
+        Notification notification = builder.build();
+        notificationManager.notify(1, notification);
     }
 }

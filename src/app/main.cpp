@@ -81,17 +81,6 @@ int main( int argc, char **argv )
 #if defined( Q_OS_ANDROID )
     QAndroidService app( argc, argv );
 
-    QAndroidJniObject intent = QtAndroid::androidService().callObjectMethod( "getIntent", "()Landroid/content/Intent;" );
-    QAndroidJniObject extras = intent.callObjectMethod( "getExtras", "()Landroid/os/Bundle;" );
-    QAndroidJniObject extraJni = QAndroidJniObject::fromString( QStringLiteral( "TOKEN" ) );
-    extraJni = extras.callObjectMethod( "getString", "(Ljava/lang/String;)Ljava/lang/String;", extraJni.object<jstring>() );
-    if ( extraJni.isValid() )
-    {
-      qInfo() << extraJni.toString();
-    }
-
-    QtAndroid::androidService().callMethod<void>( "stopSelf" );
-
     return app.exec();
 #else
     return 0;
