@@ -27,7 +27,6 @@ Item {
   TextField {
     id: textField
     echoMode: textFieldWrapper.echoMode
-    height:  fontMetrics.height + 20
     width: textFieldWrapper.width
     font: Theme.defaultFont
     rightPadding: showPasswordButton.visible ? 2 * showPasswordButton.width : 0
@@ -77,10 +76,9 @@ Item {
     sourceSize.width: 20 * screen.devicePixelRatio
     sourceSize.height: 20 * screen.devicePixelRatio
     fillMode: Image.PreserveAspectFit
-    anchors.top: textField.top
     anchors.right: textField.right
-    anchors.topMargin: height - 7
     anchors.rightMargin: height - 7
+    anchors.verticalCenter: textField.verticalCenter
     opacity: textField.text.length > 0 ? 1 : 0.25
 
     MouseArea {
