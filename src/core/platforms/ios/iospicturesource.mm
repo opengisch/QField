@@ -15,6 +15,8 @@
 
 #include <UIKit/UIKit.h>
 
+#include <QDir>
+#include <QFileInfo>
 #include <QGuiApplication>
 #include <QQuickItem>
 #include <QQuickWindow>
@@ -78,6 +80,12 @@ IosPictureSource::IosPictureSource(QObject *parent, const QString &prefix,
   Q_ASSERT(mParent);
   mPrefixPath = prefix;
   mPictureFilePath = pictureFilePath;
+
+  QString destinationFile = prefix + pictureFilePath;
+  QFileInfo destinationInfo(destinationFile);
+  QDir prefixDir(prefix);
+  prefixDir.mkpath(destinationInfo.absolutePath());
+
   mDelegate->_cameraDelegate =
       [[CameraDelegate alloc] initWithIosPictureSource:this];
 }
