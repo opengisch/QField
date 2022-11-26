@@ -137,6 +137,7 @@ The following triplets are possible:
 
 - `arm64-android`
 - `arm-android`
+- `arm-neon-android`
 - `x64-android`
 - `x86-android`
 
@@ -145,7 +146,7 @@ The following triplets are possible:
 There is a simple script that helps building everything by using a docker image.
 
 ```sh
-triplet=arm-android ./scripts/build.sh
+triplet=arm-neon-android ./scripts/build.sh
 ```
 
 ### Building locally
