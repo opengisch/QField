@@ -12,7 +12,8 @@
       "libspatialite",
       {
         "name": "gdal",
-        "features":["poppler"]
+        "features":["core","curl","expat","geos","gif","iconv","jpeg","lerc","libspatialite","libxml2","lzma","openjpeg","openssl","pcre2","png","poppler","postgresql","qhull","recommended-features","sqlite3","webp","zstd"],
+        "default-features": false
       },
       {
         "name": "exiv2",
