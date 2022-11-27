@@ -198,7 +198,7 @@ Page {
             id: formPage
             property int currentIndex: index
 
-            ScrollView {
+            Flickable {
               id: contentView
 
               anchors.fill: parent
@@ -206,13 +206,14 @@ Page {
               contentHeight: content.height
               clip: true
 
-              ScrollBar.horizontal.policy: ScrollBar.AlwaysOff
-              ScrollBar.vertical.policy: content.height > contentView.height ? ScrollBar.AsNeeded : ScrollBar.AlwaysOff
-              ScrollBar.vertical.width: 6
-              ScrollBar.vertical.contentItem: Rectangle {
-                implicitWidth: 6
-                implicitHeight: 25
-                color: Theme.mainColor
+              ScrollBar.vertical: ScrollBar {
+                policy: content.height > contentView.height ? ScrollBar.AsNeeded : ScrollBar.AlwaysOff
+                width: 6
+                contentItem: Rectangle {
+                  implicitWidth: 6
+                  implicitHeight: 25
+                  color: Theme.mainColor
+                }
               }
 
               /**
