@@ -35,7 +35,7 @@ jobs:
       - name: 🧽 Developer Command Prompt for Microsoft Visual C++
         uses: ilammy/msvc-dev-cmd@v1
         with:
-          toolset: 17.3.32929.385
+          toolset: 17.3
 
       - name: ccache
         uses: hendrikmuhs/ccache-action@v1.2
