@@ -751,7 +751,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <name>FinlandLocatorFilter</name>
     <message>
         <source>Finnish address search</source>
-        <translation type="unfinished"/>
+        <translation>Hledání finské adresy</translation>
     </message>
 </context>
 <context>
@@ -878,7 +878,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Reload of layer %1 triggered</source>
-        <translation type="unfinished"/>
+        <translation>Vyvoláno znovunačení vrstvy %1</translation>
     </message>
     <message>
         <source>Show features list</source>
@@ -898,7 +898,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Geometry Locked Layer</source>
-        <translation type="unfinished"/>
+        <translation>Vrstva s uzamčenou geometrií</translation>
     </message>
     <message>
         <source>This layer is configured as &quot;Read-Only&quot; which disables adding, deleting and editing features.</source>
@@ -987,19 +987,19 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <name>LocatorFiltersModel</name>
     <message>
         <source>Returns a list of features accross all searchable layers with matching attributes</source>
-        <translation type="unfinished"/>
+        <translation>Vrátí seznam prvků s odpovídajícím atributy přes všechny prohledávatelné vrstvy.</translation>
     </message>
     <message>
         <source>Returns a point from a pair of X and Y coordinates typed in the search bar</source>
-        <translation type="unfinished"/>
+        <translation>Vrátí bod ze souřadnic X a Y zadaných v liště hledání</translation>
     </message>
     <message>
         <source>Returns a list of bookmark with matching names</source>
-        <translation type="unfinished"/>
+        <translation>Vrátí seznam záložek s odpovídajícími názvy</translation>
     </message>
     <message>
         <source>Returns a list of locations and addresses within Finland with matching terms</source>
-        <translation type="unfinished"/>
+        <translation>Vrátí seznam poloh a adres ve Finsku odpovídajících podmínkám</translation>
     </message>
     <message>
         <source>Search filters for your locations have been activated, customize results in the settings panel</source>
@@ -1021,7 +1021,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Trigger without its prefix</source>
-        <translation type="unfinished"/>
+        <translation>Vyvolat bez zadání prefixu</translation>
     </message>
 </context>
 <context>
@@ -1063,7 +1063,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Cannot change geometry of feature %1 in %2</source>
-        <translation type="unfinished"/>
+        <translation>Nelze změnit geometrii prvku %1 v %2</translation>
     </message>
 </context>
 <context>
@@ -1138,11 +1138,11 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Printing atlas feature(s) to PDF</source>
-        <translation type="unfinished"/>
+        <translation>Tisku prvek(prvky) atlasu do PDF</translation>
     </message>
     <message>
         <source>Atlas feature(s) successfully printed to PDF and placed in your documents</source>
-        <translation>Funkce atlasu úspěšně vytištěné do PDF a umístěné v dokumentu (dokumentech)</translation>
+        <translation>Prvky atlasu úspěšně vytištěné do PDF a umístěné v dokumentu (dokumentech)</translation>
     </message>
 </context>
 <context>
@@ -1185,7 +1185,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Bearing</source>
-        <translation type="unfinished"/>
+        <translation>Směrník</translation>
     </message>
 </context>
 <context>
@@ -1403,7 +1403,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Positioning accuracy too low for this precision level</source>
-        <translation type="unfinished"/>
+        <translation>Příliš špatná přesnost určení polohy pro tuto úroveň přesnosti</translation>
     </message>
 </context>
 <context>
@@ -1639,7 +1639,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Revert local changes</source>
-        <translation type="unfinished"/>
+        <translation>Zahodit lokální změny</translation>
     </message>
     <message>
         <source>Reset project</source>
@@ -2057,7 +2057,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>When switched on, coordinate information, such as latitude and longitude, is overlayed onto the map while digitizing new features or using the measure tool.</source>
-        <translation type="unfinished"/>
+        <translation>Když je zapnuto, informace o souřadnicích jako zeměpisná šířka a délka se zobrazují přes mapu během digitalizace prvků nebo používání nástroje měření. </translation>
     </message>
     <message>
         <source>Show bookmarks</source>
@@ -2065,7 +2065,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>When switched on, user&apos;s saved and currently opened project bookmarks will be displayed on the map.</source>
-        <translation type="unfinished"/>
+        <translation>Když je zapnuto, budou uložené uživatelské záložky a z aktuálně otevřeného projektu zobrazeny v mapě. </translation>
     </message>
     <message>
         <source>Use native camera</source>
@@ -2105,7 +2105,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>If enabled, anonymized metrics will be collected and sent to help improve QField for everyone.</source>
-        <translation type="unfinished"/>
+        <translation>Když je zapnuto, anaonmizované metriky budou shromažďovány a odesílány pro účely vylepšování QFiledu pro všechny.  </translation>
     </message>
     <message>
         <source>General</source>
@@ -2113,7 +2113,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Positioning</source>
-        <translation type="unfinished"/>
+        <translation>Určení polohy</translation>
     </message>
     <message>
         <source>Variables</source>
@@ -2129,15 +2129,15 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>To apply the selected user interface language, QField needs to completely shutdown and restart.</source>
-        <translation type="unfinished"/>
+        <translation>Pro přepnutí uživatelského rozhraní do vybraného jazyka je nutné QField úplně vypnout a znovu spustit.</translation>
     </message>
     <message>
         <source>system</source>
-        <translation type="unfinished"/>
+        <translation>systémový</translation>
     </message>
     <message>
         <source>Found a missing or incomplete language? %1Join the translator community.%2</source>
-        <translation type="unfinished"/>
+        <translation>Narazili jste na chybějící neúplný jazyk? %1Připojte se ke komunitě překladatelů.%2</translation>
     </message>
     <message>
         <source>Positioning device in use:</source>
@@ -2203,35 +2203,35 @@ Zrušte pro jen minimální skenování zařízení. </translation>
     </message>
     <message>
         <source>Bad accuracy below [m]</source>
-        <translation type="unfinished"/>
+        <translation>Špatná přesnost přes [m]</translation>
     </message>
     <message>
         <source>Excellent accuracy above [m]</source>
-        <translation>Vynikající přesnost nad [m]</translation>
+        <translation>Vynikající přesnost pod [m]</translation>
     </message>
     <message>
         <source>Enable accuracy requirement</source>
-        <translation type="unfinished"/>
+        <translation>Zapnout požadavek na přesnost</translation>
     </message>
     <message>
         <source>When the accuracy indicator is enabled, a badge is attached to the location button and colored &lt;span %1&gt;red&lt;/span&gt; if the accuracy value is below bad, &lt;span %2&gt;yellow&lt;/span&gt; if it falls short of excellent, or &lt;span %3&gt;green&lt;/span&gt;.&lt;br&gt;&lt;br&gt;In addition, an accuracy restriction mode can be toggled on, which restricts vertex addition when locked to coordinate cursor to positions with an accuracy value above the bad threshold.</source>
-        <translation type="unfinished"/>
+        <translation>Když je indikátor přesnosti zapnutý, k tlačítku polohy je připojen štítek a vybarven &lt;span %1&gt;červeně&lt;/span&gt; pokud je přesnost horší než špatná, &lt;span %2&gt;žlutě&lt;/span&gt; pokud nedosahuje vynikající, nebo &lt;span %3&gt;zeleně&lt;/span&gt;.&lt;br&gt;&lt;br&gt;Navíc může být aktivován režim omezení přesnosti, který omezuje přidávání vrcholů s kurzorem přichyceným na polohu jen na polohy, určené s přesností pod hranicí pro špatnou.</translation>
     </message>
     <message>
         <source>Enable averaged positioning requirement</source>
-        <translation type="unfinished"/>
+        <translation>Zapnout požadavek průměrování polohy</translation>
     </message>
     <message>
         <source>Minimum number of positions collected</source>
-        <translation type="unfinished"/>
+        <translation>Minimální počet zaznamenaných poloh</translation>
     </message>
     <message>
         <source>Automatically end collection when minimum number is met</source>
-        <translation type="unfinished"/>
+        <translation>Automaticky ukončit zaznamenávání při splnění minimálního počtu</translation>
     </message>
     <message>
         <source>When enabled, digitizing vertices with a cursor locked to position will only accepted an averaged position from a minimum number of collected positions. Digitizing using averaged positions is done by pressing and holding the add vertex button, which will collect positions until the press is released. Accuracy requirement settings are respected when enabled.</source>
-        <translation type="unfinished"/>
+        <translation>Pokud je zapnutý, digitalizace vrcholů s kurzorem přichyceným na polohu bude akceptovat jedině průměrovanou polohu z minimálního počtu zaznamenaných poloh. Digitalizace s využitím průměrované polohy dosáhnete stiskem a držením tlačítka pro přidání vrcholu, což bude zaznamenávat polohy dokud tlačítko neuvolníte. Případně zapnuté požadavky na přesnost budou respektovány.</translation>
     </message>
     <message>
         <source>Antenna height compensation</source>
@@ -2251,7 +2251,7 @@ Zrušte pro jen minimální skenování zařízení. </translation>
     </message>
     <message>
         <source>Use the altitude as reported by the positioning device. Skip any altitude correction that may be implied by the coordinate system transformation.</source>
-        <translation type="unfinished"/>
+        <translation>Použít výšku jak je hlášena zařízením. Přeskočit jakoukoliv korekci která může vyplývat z transformace souřadného systému. </translation>
     </message>
     <message>
         <source>Vertical grid shift in use:</source>
@@ -2286,7 +2286,7 @@ Zrušte pro jen minimální skenování zařízení. </translation>
     </message>
     <message>
         <source>QFieldCloud Unknown Error</source>
-        <translation type="unfinished"/>
+        <translation>Neznámá chyba QFieldCloud</translation>
     </message>
     <message>
         <source>Status not ok</source>
@@ -2294,19 +2294,19 @@ Zrušte pro jen minimální skenování zařízení. </translation>
     </message>
     <message>
         <source>Empty content</source>
-        <translation type="unfinished"/>
+        <translation>Prázdný obsah</translation>
     </message>
     <message>
         <source>Object not found</source>
-        <translation type="unfinished"/>
+        <translation>Objekt nenalezen</translation>
     </message>
     <message>
         <source>API Error</source>
-        <translation type="unfinished"/>
+        <translation>Chyba API</translation>
     </message>
     <message>
         <source>Validation Error</source>
-        <translation type="unfinished"/>
+        <translation>Chyba validace</translation>
     </message>
     <message>
         <source>Multiple Projects</source>
@@ -2318,7 +2318,7 @@ Zrušte pro jen minimální skenování zařízení. </translation>
     </message>
     <message>
         <source>The project does not contain a valid QGIS project file</source>
-        <translation type="unfinished"/>
+        <translation>Projekt neobsahuje platný projektový soubor QGIS</translation>
     </message>
     <message>
         <source>Invalid job</source>
@@ -2330,7 +2330,7 @@ Zrušte pro jen minimální skenování zařízení. </translation>
     </message>
     <message>
         <source>QGIS is unable to open the QGIS project</source>
-        <translation type="unfinished"/>
+        <translation>QGIS nemůže otevřít projekt QGIS</translation>
     </message>
     <message>
         <source>There was an error opening the database &lt;b&gt;%1&lt;/b&gt;: %2</source>
@@ -2354,7 +2354,7 @@ Zrušte pro jen minimální skenování zařízení. </translation>
     </message>
     <message>
         <source>Please wait while QField installation finalizes.</source>
-        <translation type="unfinished"/>
+        <translation>Prosím počkejte na dokončení instalace QFieldu.</translation>
     </message>
     <message>
         <source>averaged</source>
@@ -2369,11 +2369,11 @@ Zrušte pro jen minimální skenování zařízení. </translation>
     <name>QgisMobileapp</name>
     <message>
         <source>Project file &quot;%1&quot; does not exist</source>
-        <translation type="unfinished"/>
+        <translation>Soubor projektu &quot;%1&quot; neexistuje</translation>
     </message>
     <message>
         <source>No project file currently opened</source>
-        <translation type="unfinished"/>
+        <translation>Aktuálně není otevřen žádný projektový soubor</translation>
     </message>
     <message>
         <source>Could not load font %1</source>
@@ -2404,7 +2404,7 @@ Zrušte pro jen minimální skenování zařízení. </translation>
     </message>
     <message>
         <source>Fixed RTK</source>
-        <translation type="unfinished"/>
+        <translation>Celočíselná RTK</translation>
     </message>
     <message>
         <source>PPS</source>
@@ -2416,7 +2416,7 @@ Zrušte pro jen minimální skenování zařízení. </translation>
     </message>
     <message>
         <source>Autonomous</source>
-        <translation type="unfinished"/>
+        <translation>Autonomní</translation>
     </message>
     <message>
         <source>Invalid</source>
@@ -2424,7 +2424,7 @@ Zrušte pro jen minimální skenování zařízení. </translation>
     </message>
     <message>
         <source>Unknown (%1)</source>
-        <translation type="unfinished"/>
+        <translation>Neznámý (%1)</translation>
     </message>
 </context>
 <context>
@@ -2622,11 +2622,11 @@ Zrušte pro jen minimální skenování zařízení. </translation>
     </message>
     <message>
         <source>Anonymized metrics collection has been disabled. You can re-enable through the settings panel.</source>
-        <translation type="unfinished"/>
+        <translation>Shromažďování anonymizovaných metrik vypnuto. Znovu zapnout lze z panelu nastavení. </translation>
     </message>
     <message>
         <source>To improve stability for everyone, QField collects and sends anonymized metrics.</source>
-        <translation type="unfinished"/>
+        <translation>Pro zlepšení stability pro všechny shromažďuje a odesílá QField anonymizované metriky.</translation>
     </message>
     <message>
         <source>I agree</source>
@@ -2716,7 +2716,7 @@ Zrušte pro jen minimální skenování zařízení. </translation>
     </message>
     <message>
         <source>You are now in digitize mode on layer %1</source>
-        <translation type="unfinished"/>
+        <translation>Nyní jste v režimu digitalizace ve vrstvě %1</translation>
     </message>
     <message>
         <source>You are now in digitize mode</source>
@@ -2780,11 +2780,11 @@ Zrušte pro jen minimální skenování zařízení. </translation>
     </message>
     <message>
         <source>Coordinate cursor now locked to position</source>
-        <translation type="unfinished"/>
+        <translation>Souřadnicový kurzor je nyní přichycen na polohu</translation>
     </message>
     <message>
         <source>Coordinate cursor unlocked</source>
-        <translation type="unfinished"/>
+        <translation>Souřadnicový kurzor není přichycen</translation>
     </message>
     <message>
         <source>Received position</source>
@@ -2876,7 +2876,7 @@ Zrušte pro jen minimální skenování zařízení. </translation>
     </message>
     <message>
         <source>Map Canvas Options</source>
-        <translation type="unfinished"/>
+        <translation>Volby výřezu mapy</translation>
     </message>
     <message>
         <source>Add Bookmark</source>
@@ -2888,7 +2888,7 @@ Zrušte pro jen minimální skenování zařízení. </translation>
     </message>
     <message>
         <source>Add Bookmark at Coordinates</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Přidat záložku na souřadnice</translation>
     </message>
     <message>
         <source>Untitled bookmark</source>
@@ -2896,7 +2896,7 @@ Zrušte pro jen minimální skenování zařízení. </translation>
     </message>
     <message>
         <source>Set Coordinates as Destination</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Nastavit souřadnice jako cíl</translation>
     </message>
     <message>
         <source>Copy Coordinates</source>
@@ -2948,11 +2948,11 @@ Zrušte pro jen minimální skenování zařízení. </translation>
     </message>
     <message>
         <source>Center to Location</source>
-        <translation type="unfinished"/>
+        <translation>Vycentrovat na polohu</translation>
     </message>
     <message>
         <source>Add Bookmark at Location</source>
-        <translation type="unfinished"/>
+        <translation>Přidat záložku na polohu</translation>
     </message>
     <message>
         <source>Copy Location Coordinates</source>
@@ -2980,7 +2980,7 @@ Zrušte pro jen minimální skenování zařízení. </translation>
     </message>
     <message>
         <source>%1 Precision</source>
-        <translation type="unfinished"/>
+        <translation>Přesnost %1</translation>
     </message>
     <message>
         <source>Enable Audio Proximity Feedback</source>
@@ -3080,7 +3080,7 @@ Zrušte pro jen minimální skenování zařízení. </translation>
     </message>
     <message>
         <source>Positioning error: %1</source>
-        <translation type="unfinished"/>
+        <translation>Chyba určení polohy: %1</translation>
     </message>
     <message>
         <source>Azimuth</source>
@@ -3088,7 +3088,7 @@ Zrušte pro jen minimální skenování zařízení. </translation>
     </message>
     <message>
         <source>Lock Screen</source>
-        <translation type="unfinished"/>
+        <translation>Uzamknout obrazovku</translation>
     </message>
 </context>
 <context>
