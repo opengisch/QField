@@ -527,10 +527,9 @@ int QFieldCloudConnection::uploadPendingAttachments()
     return 0;
 
   QMultiMap<QString, QString> attachments = QFieldCloudUtils::getPendingAttachments();
-  qDebug() << attachments;
   if ( attachments.isEmpty() )
   {
-    emit pendingAttachmentsUploaded();
+    emit pendingAttachmentsUploadFinished();
     return 0;
   }
 

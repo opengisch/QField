@@ -180,7 +180,7 @@ class QFieldCloudConnection : public QObject
     void stateChanged();
     void tokenChanged();
     void userInformationChanged();
-    void pendingAttachmentsUploaded();
+    void pendingAttachmentsUploadFinished();
     void error();
 
     void loginFailed( const QString &reason );

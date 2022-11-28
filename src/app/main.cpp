@@ -72,8 +72,7 @@ void initGraphics()
 
 int main( int argc, char **argv )
 {
-  qInfo() << "main begins";
-  if ( argc > 1 && strcmp( argv[1], "-service" ) == 0 )
+  if ( argc > 1 && strcmp( argv[1], "--service" ) == 0 )
   {
 #if defined( Q_OS_ANDROID )
     QAndroidService app( argc, argv );
@@ -88,7 +87,7 @@ int main( int argc, char **argv )
 
     QEventLoop loop( &app );
     QFieldCloudConnection connection;
-    QObject::connect( &connection, &QFieldCloudConnection::pendingAttachmentsUploaded, &loop, &QEventLoop::quit );
+    QObject::connect( &connection, &QFieldCloudConnection::pendingAttachmentsUploadFinished, &loop, &QEventLoop::quit );
     int pendingAttachments = connection.uploadPendingAttachments();
     if ( pendingAttachments > 0 )
     {
@@ -100,10 +99,6 @@ int main( int argc, char **argv )
 #endif
 
     return 0;
-  }
-  else
-  {
-    qInfo() << "No argument";
   }
 
   initGraphics();
