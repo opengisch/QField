@@ -34,8 +34,6 @@ jobs:
 
       - name: 🧽 Developer Command Prompt for Microsoft Visual C++
         uses: ilammy/msvc-dev-cmd@v1
-        with:
-          toolset: 17.3
 
       - name: ccache
         uses: hendrikmuhs/ccache-action@v1.2
@@ -68,8 +66,6 @@ jobs:
           cmake -S "${SOURCE_DIR}" \
                 -G Ninja \
                 -B "${CMAKE_BUILD_DIR}" \
-                -D CMAKE_C_COMPILER="C:/Program Files/Microsoft Visual Studio/2022/Enterprise/VC/Tools/Llvm/x64/bin/clang-cl.exe" \
-                -D CMAKE_CXX_COMPILER="C:/Program Files/Microsoft Visual Studio/2022/Enterprise/VC/Tools/Llvm/x64/bin/clang-cl.exe" \
                 -D CMAKE_BUILD_TYPE=${{ env.BUILD_TYPE }} \
                 -D VCPKG_TARGET_TRIPLET="x64-windows-static" \
                 -D WITH_VCPKG=ON \
