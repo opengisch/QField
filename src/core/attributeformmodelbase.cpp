@@ -194,13 +194,15 @@ void AttributeFormModelBase::resetModel()
           item->setData( true, AttributeFormModel::ConstraintSoftValid );
           invisibleRootItem()->appendRow( item );
 
+          QString visibilityExpression;
           if ( container->visibilityExpression().enabled() )
           {
             mVisibilityExpressions.append( qMakePair( container->visibilityExpression().data(), QVector<QStandardItem *>() << item ) );
+            visibilityExpression = container->visibilityExpression().data().expression();
           }
 
           QVector<QStandardItem *> dummy;
-          buildForm( container, item, QString(), dummy, currentTab, columnCount );
+          buildForm( container, item, visibilityExpression, dummy, currentTab, columnCount );
           currentTab++;
         }
       }
