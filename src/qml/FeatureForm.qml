@@ -230,7 +230,9 @@ Page {
                 }
 
                 Repeater {
-                  model: form.visible
+                  // Note: digitizing a child geometry will temporarily hide the feature form,
+                  // we need to preserve items so signal connections are kept alive
+                  model: form.visible || form.digitizingToolbar.geometryRequested
                          ? form.model.hasTabs
                            ? contentModel
                            : form.model
