@@ -165,12 +165,12 @@ QSGNode *Rubberband::updatePaintNode( QSGNode *n, QQuickItem::UpdatePaintNodeDat
         geomType = mRubberbandModel->geometryType();
       }
     }
-    else if ( mRubberbandModel && mVertexModel && mVertexModel->vertexCount() > 0 )
+    else if ( mVertexModel && mVertexModel->vertexCount() > 0 )
     {
       allVertices = mVertexModel->flatVertices();
       if ( geomType == QgsWkbTypes::NullGeometry )
       {
-        geomType = mRubberbandModel->geometryType();
+        geomType = mVertexModel->geometryType();
       }
     }
 
