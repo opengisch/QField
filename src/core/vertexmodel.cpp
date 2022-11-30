@@ -83,6 +83,7 @@ void VertexModel::setGeometry( const QgsGeometry &geometry )
   setCurrentVertex( -1 );
   endResetModel();
   emit geometryChanged();
+  emit geometryTypeChanged();
 }
 
 void VertexModel::refreshGeometry()
