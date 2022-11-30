@@ -613,14 +613,14 @@ ApplicationWindow {
       // highlighting vertices
       VertexRubberband {
         id: vertexRubberband
-        model: geometryEditingFeature.vertexModel
+        model: geometryEditingVertexModel
         mapSettings: mapCanvas.mapSettings
       }
 
       // highlighting geometry (point, line, surface)
       Rubberband {
         id: editingRubberband
-        vertexModel: vertexModel
+        vertexModel: geometryEditingVertexModel
         mapSettings: mapCanvas.mapSettings
         lineWidth: 4
       }
@@ -1080,7 +1080,7 @@ ApplicationWindow {
 
     CloseTool {
       id: closeGeometryEditorsTool
-      visible: ( stateMachine.state === "digitize" && vertexModel.vertexCount > 0 )
+      visible: ( stateMachine.state === "digitize" && geometryEditingVertexModel.vertexCount > 0 )
       toolText: qsTr( 'Stop editing' )
       onClosedTool: geometryEditorsToolbar.cancelEditors()
     }
@@ -1686,7 +1686,7 @@ ApplicationWindow {
       editorRubberbandModel: geometryEditorsRubberband.model
       screenHovering: hoverHandler.hovered
 
-      stateVisible: !screenLocker.enabled && (stateMachine.state === "digitize" && vertexModel.vertexCount > 0)
+      stateVisible: !screenLocker.enabled && (stateMachine.state === "digitize" && geometryEditingVertexModel.vertexCount > 0)
     }
 
     ConfirmationToolbar {
@@ -2532,10 +2532,10 @@ ApplicationWindow {
       geometryEditingFeature.currentLayer = featureForm.selection.focusedLayer
       geometryEditingFeature.feature = featureForm.selection.focusedFeature
 
-      if (!vertexModel.editingAllowed)
+      if (!geometryEditingVertexModel.editingAllowed)
       {
         displayToast( qsTr( "Editing of multi geometry layer is not supported yet." ) )
-        vertexModel.clear()
+        geometryEditingVertexModel.clear()
       }
       else
       {
@@ -3312,12 +3312,12 @@ ApplicationWindow {
     currentLayer: null
     positionInformation: positionSource.positionInformation
     positionLocked: positionSource.active && positioningSettings.positioningCoordinateLock
-    vertexModel: vertexModel
+    vertexModel: geometryEditingVertexModel
     cloudUserInformation: cloudConnection.userInformation
   }
 
   VertexModel {
-    id: vertexModel
+    id: geometryEditingVertexModel
     currentPoint: coordinateLocator.currentCoordinate
     mapSettings: mapCanvas.mapSettings
     isHovering: hoverHandler.hovered

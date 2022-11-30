@@ -174,7 +174,7 @@ VisibilityFadingRow {
   }
 
   Connections {
-    target: vertexModel
+    target: geometryEditingVertexModel
 
     function onCurrentVertexIndexChanged() {
       if ( featureModel.vertexModel.currentVertexIndex != -1
