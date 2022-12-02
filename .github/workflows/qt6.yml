@@ -132,6 +132,8 @@ jobs:
           name: logs-x64-osx
           path: |
             ${{ env.CMAKE_BUILD_DIR }}/**/*.log
+      - uses: m-kuhn/action-tmate@patch-1
+        if: failure()
 
       - name: ♾️ Upload debug symbols
         # if: release or labeled PR
