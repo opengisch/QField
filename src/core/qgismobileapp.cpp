@@ -104,6 +104,8 @@
 #include "qfieldcloudutils.h"
 #include "qgismobileapp.h"
 #include "qgsgeometrywrapper.h"
+#include "qgsproviderregistry.h"
+#include "qgsprovidersublayerdetails.h"
 #include "qgsquickcoordinatetransformer.h"
 #include "qgsquickelevationprofilecanvas.h"
 #include "qgsquickmapcanvasmap.h"
@@ -785,179 +787,102 @@ void QgisMobileapp::readProjectFile()
     files << mProjectFilePath;
   }
 
+  QgsProviderSublayerDetails::LayerOptions options( QgsProject::instance()->transformContext() );
+  options.loadDefaultStyle = true;
+
   for ( auto filePath : std::as_const( files ) )
   {
     const QString fileSuffix = QFileInfo( filePath ).suffix().toLower();
-    // Load vector dataset
-    if ( SUPPORTED_VECTOR_EXTENSIONS.contains( fileSuffix ) )
+
+    if ( fileSuffix == QLatin1String( "kmz" ) )
     {
-      if ( suffix == QStringLiteral( "kmz" ) )
-      {
-        // GDAL's internal KML driver doesn't support KMZ, work around this limitation
-        filePath = QStringLiteral( "/vsizip/%1/doc.kml" ).arg( mProjectFilePath );
-      }
+      // GDAL's internal KML driver doesn't support KMZ, work around this limitation
+      filePath = QStringLiteral( "/vsizip/%1/doc.kml" ).arg( mProjectFilePath );
+    }
+    else if ( fileSuffix == QLatin1String( "pdf" ) )
+    {
+      // Hardcode a DPI value of 300 for PDFs as most PDFs fail to register their proper resolution
+      filePath += QStringLiteral( "|option:DPI=300" );
+    }
 
-      QgsVectorLayer::LayerOptions options { QgsProject::instance()->transformContext() };
-      options.loadDefaultStyle = true;
+    const QList<QgsProviderSublayerDetails> sublayers = QgsProviderRegistry::instance()->querySublayers( filePath );
+    for ( const QgsProviderSublayerDetails &sublayer : sublayers )
+    {
+      std::unique_ptr<QgsMapLayer> layer( sublayer.toLayer( options ) );
+      if ( !layer || !layer->isValid() )
+        continue;
 
-      QgsVectorLayer *layer = new QgsVectorLayer( filePath, mProjectFileName, QLatin1String( "ogr" ), options );
-      if ( layer->isValid() )
+      if ( layer->crs().isValid() )
       {
-        const QStringList sublayers = layer->dataProvider()->subLayers();
-        if ( sublayers.count() > 1 )
+        if ( !crs.isValid() )
+          crs = layer->crs();
+
+        if ( !layer->extent().isEmpty() )
         {
-          for ( const QString &sublayerInfo : sublayers )
+          if ( crs != layer->crs() )
           {
-            const QStringList info = sublayerInfo.split( QgsDataProvider::sublayerSeparator() );
-            QgsVectorLayer *sublayer = new QgsVectorLayer( QStringLiteral( "%1|layerid=%2" ).arg( filePath, info.at( 0 ) ),
-                                                           QStringLiteral( "%1: %2" ).arg( mProjectFileName, info.at( 1 ) ),
-                                                           QLatin1String( "ogr" ), options );
-            if ( sublayer->isValid() )
+            QgsCoordinateTransform transform( layer->crs(), crs, mProject->transformContext() );
+            try
             {
-              if ( sublayer->crs().isValid() )
-              {
-                if ( !crs.isValid() )
-                  crs = sublayer->crs();
-
-                if ( !sublayer->extent().isEmpty() )
-                {
-                  if ( crs != sublayer->crs() )
-                  {
-                    QgsCoordinateTransform transform( sublayer->crs(), crs, mProject->transformContext() );
-                    try
-                    {
-                      if ( extent.isEmpty() )
-                        extent = transform.transformBoundingBox( sublayer->extent() );
-                      else
-                        extent.combineExtentWith( transform.transformBoundingBox( sublayer->extent() ) );
-                    }
-                    catch ( const QgsCsException &exp )
-                    {
-                      Q_UNUSED( exp )
-                      // Ignore extent if it can't be transformed
-                    }
-                  }
-                  else
-                  {
-                    if ( extent.isEmpty() )
-                      extent = sublayer->extent();
-                    else
-                      extent.combineExtentWith( sublayer->extent() );
-                  }
-                }
-              }
-              vectorLayers << sublayer;
+              if ( extent.isEmpty() )
+                extent = transform.transformBoundingBox( layer->extent() );
+              else
+                extent.combineExtentWith( transform.transformBoundingBox( layer->extent() ) );
             }
-            else
+            catch ( const QgsCsException &exp )
             {
-              delete sublayer;
+              Q_UNUSED( exp )
+              // Ignore extent if it can't be transformed
             }
           }
-        }
-        else
-        {
-          crs = layer->crs();
-          extent = layer->extent();
-          vectorLayers << layer;
-        }
-
-        if ( vectorLayers.size() > 1 )
-        {
-          std::sort( vectorLayers.begin(), vectorLayers.end(), []( QgsMapLayer *a, QgsMapLayer *b ) {
-            QgsVectorLayer *alayer = qobject_cast<QgsVectorLayer *>( a );
-            QgsVectorLayer *blayer = qobject_cast<QgsVectorLayer *>( b );
-            if ( alayer->geometryType() == QgsWkbTypes::PointGeometry && blayer->geometryType() != QgsWkbTypes::PointGeometry )
-            {
-              return true;
-            }
-            else if ( alayer->geometryType() == QgsWkbTypes::LineGeometry && blayer->geometryType() == QgsWkbTypes::PolygonGeometry )
-            {
-              return true;
-            }
+          else
+          {
+            if ( extent.isEmpty() )
+              extent = layer->extent();
             else
-            {
-              return false;
-            }
-          } );
+              extent.combineExtentWith( layer->extent() );
+          }
         }
+      }
+
+      switch ( sublayer.type() )
+      {
+        case QgsMapLayerType::VectorLayer:
+          vectorLayers << layer.release();
+          break;
+        case QgsMapLayerType::RasterLayer:
+          rasterLayers << layer.release();
+          break;
+        case QgsMapLayerType::MeshLayer:
+        case QgsMapLayerType::VectorTileLayer:
+        case QgsMapLayerType::AnnotationLayer:
+        case QgsMapLayerType::PointCloudLayer:
+        case QgsMapLayerType::GroupLayer:
+        case QgsMapLayerType::PluginLayer:
+          continue;
+          break;
+      }
+    }
+  }
+
+  if ( vectorLayers.size() > 1 )
+  {
+    std::sort( vectorLayers.begin(), vectorLayers.end(), []( QgsMapLayer *a, QgsMapLayer *b ) {
+      QgsVectorLayer *alayer = qobject_cast<QgsVectorLayer *>( a );
+      QgsVectorLayer *blayer = qobject_cast<QgsVectorLayer *>( b );
+      if ( alayer->geometryType() == QgsWkbTypes::PointGeometry && blayer->geometryType() != QgsWkbTypes::PointGeometry )
+      {
+        return true;
+      }
+      else if ( alayer->geometryType() == QgsWkbTypes::LineGeometry && blayer->geometryType() == QgsWkbTypes::PolygonGeometry )
+      {
+        return true;
       }
       else
       {
-        delete layer;
+        return false;
       }
-    }
-
-    // Load raster dataset
-    if ( SUPPORTED_RASTER_EXTENSIONS.contains( fileSuffix ) )
-    {
-      QString fileUri = filePath;
-      if ( fileSuffix.compare( QLatin1String( "pdf" ) ) == 0 )
-      {
-        // Hardcode a DPI value of 300 for PDFs as most PDFs fail to register their proper resolution
-        fileUri += QStringLiteral( "|option:DPI=300" );
-      }
-      QgsRasterLayer *layer = new QgsRasterLayer( fileUri, mProjectFileName, QLatin1String( "gdal" ) );
-      if ( layer->isValid() )
-      {
-        const QStringList sublayers = layer->dataProvider()->subLayers();
-        if ( sublayers.count() > 1 )
-        {
-          for ( const QString &sublayerInfo : sublayers )
-          {
-            const QStringList info = sublayerInfo.split( QgsDataProvider::sublayerSeparator() );
-            QgsRasterLayer *sublayer = new QgsRasterLayer( QStringLiteral( "%1|layerid=%2" ).arg( filePath, info.at( 0 ) ),
-                                                           QStringLiteral( "%1: %2" ).arg( mProjectFileName, info.at( 1 ) ),
-                                                           QLatin1String( "gdal" ) );
-            if ( sublayer->isValid() )
-            {
-              if ( sublayer->crs().isValid() )
-              {
-                if ( !crs.isValid() )
-                  crs = sublayer->crs();
-
-                if ( !sublayer->extent().isEmpty() )
-                {
-                  if ( crs != sublayer->crs() )
-                  {
-                    QgsCoordinateTransform transform( sublayer->crs(), crs, mProject->transformContext() );
-                    try
-                    {
-                      if ( extent.isEmpty() )
-                        extent = transform.transformBoundingBox( sublayer->extent() );
-                      else
-                        extent.combineExtentWith( transform.transformBoundingBox( sublayer->extent() ) );
-                    }
-                    catch ( const QgsCsException &exp )
-                    {
-                      Q_UNUSED( exp )
-                      // Ignore extent if it can't be transformed
-                    }
-                  }
-                  else
-                  {
-                    if ( extent.isEmpty() )
-                      extent = sublayer->extent();
-                    else
-                      extent.combineExtentWith( sublayer->extent() );
-                  }
-                }
-              }
-              rasterLayers << sublayer;
-            }
-            else
-            {
-              delete sublayer;
-            }
-          }
-        }
-        else
-        {
-          crs = layer->crs();
-          extent = layer->extent();
-          rasterLayers << layer;
-        }
-      }
-    }
+    } );
   }
 
   if ( vectorLayers.size() > 0 || rasterLayers.size() > 0 )
