@@ -13,7 +13,7 @@ buildscript {
     }
 
     dependencies {
-        classpath 'com.android.tools.build:gradle:4.2.0'
+        classpath 'com.android.tools.build:gradle:4.2.2'
     }
 }
 
@@ -36,10 +36,10 @@ def outputPathName = "some.apk"
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation 'androidx.appcompat:appcompat:1.3.1'
+    implementation 'androidx.appcompat:appcompat:1.4.2'
     implementation 'androidx.documentfile:documentfile:1.0.1'
-    implementation "androidx.fragment:fragment:1.3.4"
-    implementation 'com.android.support:appcompat-v7:25.3.1'
+    implementation "androidx.fragment:fragment:1.5.4"
+    implementation 'com.android.support:appcompat-v7:28.0.0'
 }
 
 android {
