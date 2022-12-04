@@ -10,6 +10,10 @@ div.navbar {
   font-family:TruenoLight;
 }
 
+div.navbar li a {
+  padding: 10px !important;
+}
+
 .navbar-default .navbar-collapse, .navbar-default .navbar-form {
   background-color:#80cc28;
 }
