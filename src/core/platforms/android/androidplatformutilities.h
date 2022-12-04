@@ -69,6 +69,8 @@ class AndroidPlatformUtilities : public PlatformUtilities
 
     double systemFontPointSize() const override { return 16.0; }
 
+    void uploadPendingAttachments( QFieldCloudConnection *connection ) const override;
+
   private:
     bool checkAndAcquirePermissions( const QString &permissionString ) const;
     QString getIntentExtra( const QString &, QAndroidJniObject = nullptr ) const;

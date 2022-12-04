@@ -120,6 +120,8 @@ class QFieldCloudConnection : public QObject
     QString password() const;
     void setPassword( const QString &password );
 
+    QString token() const;
+
     QString avatarUrl() const;
 
     CloudUserInformation userInformation() const;
@@ -163,7 +165,11 @@ class QFieldCloudConnection : public QObject
      */
     void setAuthenticationToken( QNetworkRequest &request );
 
-    void uploadPendingAttachments();
+    /**
+     * Uploads any pending attachments linked to the logged in user account.
+     * \returns the number of attachments to be uploaded.
+     */
+    int uploadPendingAttachments();
 
   signals:
     void usernameChanged();
@@ -174,6 +180,7 @@ class QFieldCloudConnection : public QObject
     void stateChanged();
     void tokenChanged();
     void userInformationChanged();
+    void pendingAttachmentsUploadFinished();
     void error();
 
     void loginFailed( const QString &reason );

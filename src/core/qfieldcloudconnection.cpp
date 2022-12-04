@@ -126,6 +126,11 @@ void QFieldCloudConnection::setPassword( const QString &password )
   emit passwordChanged();
 }
 
+QString QFieldCloudConnection::token() const
+{
+  return mToken;
+}
+
 CloudUserInformation QFieldCloudConnection::userInformation() const
 {
   return mUserInformation;
@@ -209,9 +214,6 @@ void QFieldCloudConnection::login()
     emit userInformationChanged();
 
     setStatus( ConnectionStatus::LoggedIn );
-
-    // Resuming uploading any pending attachments from previous session(s)
-    uploadPendingAttachments();
   } );
 }
 
@@ -519,15 +521,16 @@ QFieldCloudConnection::CloudError::CloudError( QNetworkReply *reply )
   mMessage = errorMessage;
 }
 
-void QFieldCloudConnection::uploadPendingAttachments()
+int QFieldCloudConnection::uploadPendingAttachments()
 {
   if ( mUploadingAttachments )
-    return;
+    return 0;
 
   QMultiMap<QString, QString> attachments = QFieldCloudUtils::getPendingAttachments();
   if ( attachments.isEmpty() )
   {
-    return;
+    emit pendingAttachmentsUploadFinished();
+    return 0;
   }
 
   mUploadCount = attachments.size();
@@ -578,4 +581,5 @@ void QFieldCloudConnection::uploadPendingAttachments()
 
     ++it;
   }
+  return mUploadCount;
 }

@@ -24,6 +24,7 @@
 #include "fileutils.h"
 #include "qfield.h"
 #include "qfield_android.h"
+#include "qfieldcloudconnection.h"
 
 #include <QAndroidJniEnvironment>
 #include <QAndroidJniObject>
@@ -38,6 +39,7 @@
 #include <QScreen>
 #include <QStandardPaths>
 #include <QString>
+#include <QTimer>
 #include <QtAndroid>
 #include <qgsfileutils.h>
 
@@ -557,10 +559,25 @@ QVariantMap AndroidPlatformUtilities::sceneMargins( QQuickWindow *window ) const
   return margins;
 }
 
+void AndroidPlatformUtilities::uploadPendingAttachments( QFieldCloudConnection *connection ) const
+{
+  QTimer::singleShot( 500, [connection]() {
+    if ( connection )
+    {
+      qInfo() << "Launching service from main...";
+      QAndroidJniObject::callStaticMethod<void>( "ch/opengis/" APP_PACKAGE_NAME "/QFieldService",
+                                                 "startQFieldService",
+                                                 "(Landroid/content/Context;)V",
+                                                 QtAndroid::androidActivity().object() );
+    }
+  } );
+}
+
 #ifdef __cplusplus
 extern "C" {
 #endif
 
+// QFieldActivity class functions
 JNIEXPORT void JNICALL JNI_FUNCTION_NAME( APP_PACKAGE_JNI_NAME, QFieldActivity, openProject )( JNIEnv *env, jobject obj, jstring path )
 {
   if ( AppInterface::instance() )

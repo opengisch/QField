@@ -2961,6 +2961,8 @@ ApplicationWindow {
         displayToast(qsTr('Connecting...'))
       } else if (cloudConnection.status === QFieldCloudConnection.LoggedIn) {
         displayToast(qsTr('Signed in'))
+        // Go ahead and upload pending attachments in the background
+        platformUtilities.uploadPendingAttachments(cloudConnection);
       }
       previousStatus = cloudConnection.status
     }
@@ -2986,6 +2988,9 @@ ApplicationWindow {
       }
 
       displayToast( qsTr( "Changes successfully pushed to QFieldCloud" ) )
+
+      // Go ahead and upload pending attachments in the background
+      platformUtilities.uploadPendingAttachments(cloudConnection);
     }
 
     onWarning: displayToast( message )
