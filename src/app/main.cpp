@@ -17,10 +17,13 @@
  ***************************************************************************/
 
 #include "qfield.h"
-#include "qfieldcloudconnection.h"
 #include "qgismobileapp.h"
 #if WITH_SENTRY
 #include "sentry_wrapper.h"
+#endif
+
+#if defined( Q_OS_ANDROID )
+#include "qfieldservice.h"
 #endif
 
 #include <qgsapplication.h>
@@ -43,11 +46,6 @@
 #include <QStandardPaths>
 #include <QTranslator>
 #include <QtWebView/QtWebView>
-
-#if defined( Q_OS_ANDROID )
-#include <QAndroidService>
-#include <QtAndroid>
-#endif
 
 #include <proj.h>
 
@@ -74,30 +72,14 @@ int main( int argc, char **argv )
 {
   if ( argc > 1 && strcmp( argv[1], "--service" ) == 0 )
   {
-#if defined( Q_OS_ANDROID )
-    QAndroidService app( argc, argv );
-#else
-    QCoreApplication app( argc, argv );
-#endif
-
     QCoreApplication::setOrganizationName( "OPENGIS.ch" );
     QCoreApplication::setOrganizationDomain( "opengis.ch" );
     QCoreApplication::setApplicationName( qfield::appName );
-    QSettings settings;
-
-    QEventLoop loop( &app );
-    QFieldCloudConnection connection;
-    QObject::connect( &connection, &QFieldCloudConnection::pendingAttachmentsUploadFinished, &loop, &QEventLoop::quit );
-    int pendingAttachments = connection.uploadPendingAttachments();
-    if ( pendingAttachments > 0 )
-    {
-      loop.exec();
-    }
 
 #if defined( Q_OS_ANDROID )
-    QtAndroid::androidService().callMethod<void>( "stopSelf" );
+    // For now the service only deals with background attachment uploads and will terminate once all uploads are done
+    QFieldService app( argc, argv );
 #endif
-
     return 0;
   }
 

@@ -170,6 +170,9 @@ file(MAKE_DIRECTORY "${SHARE_DIR}")
 
 add_subdirectory(src/core)
 add_subdirectory(src/qml)
+if (ANDROID)
+  add_subdirectory(src/service)
+endif()
 add_subdirectory(src/app)
 
 if(WITH_SENTRY)

@@ -62,6 +62,10 @@ function(create_executable)
 
   target_link_libraries(${exe_TARGET} PRIVATE qfield_core qfield_qml)
 
+  if(ANDROID)
+    target_link_libraries(${exe_TARGET} PRIVATE qfield_core qfield_service)
+  endif()
+
   if(WITH_SENTRY)
     target_link_libraries(${exe_TARGET} PRIVATE qfield_sentry)
   endif()
