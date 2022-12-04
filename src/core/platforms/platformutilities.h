@@ -225,8 +225,14 @@ class QFIELD_CORE_EXPORT PlatformUtilities : public QObject
      */
     Q_INVOKABLE virtual QVariantMap sceneMargins( QQuickWindow *window ) const;
 
+    /**
+     * Returns the default system font size.
+     */
     Q_INVOKABLE virtual double systemFontPointSize() const;
 
+    /**
+     * Uploads any pending attachments linked to the logged in user account.
+     */
     Q_INVOKABLE virtual void uploadPendingAttachments( QFieldCloudConnection *connection ) const;
 
     static PlatformUtilities *instance();
