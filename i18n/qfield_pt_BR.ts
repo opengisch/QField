@@ -15,7 +15,7 @@
     </message>
     <message>
         <source>Documentation</source>
-        <translation type="unfinished"/>
+        <translation>Documentação</translation>
     </message>
     <message>
         <source>Links Menu</source>
@@ -114,11 +114,11 @@
     <name>BarcodeReader</name>
     <message>
         <source>Code Reader</source>
-        <translation type="unfinished"/>
+        <translation>Leitor de Código</translation>
     </message>
     <message>
         <source>Center your camera on a code</source>
-        <translation type="unfinished"/>
+        <translation>Centralize sua câmera num código</translation>
     </message>
 </context>
 <context>
@@ -141,7 +141,7 @@
     </message>
     <message numerus="yes">
         <source>%n device(s) found</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>1 dispositivo encontrado</numerusform><numerusform>%n dispositivos encontrados</numerusform><numerusform>%n dispositivo(s) encontrado(s)</numerusform></translation>
     </message>
     <message>
         <source>Scanning canceled</source>
@@ -167,7 +167,7 @@ Cancele para fazer uma verificação mínima.</translation>
     </message>
     <message>
         <source>Connect to %1</source>
-        <translation type="unfinished"/>
+        <translation>Conectar a %1</translation>
     </message>
     <message>
         <source>Connect  to %1</source>
@@ -209,31 +209,31 @@ Cancele para fazer uma verificação mínima.</translation>
     </message>
     <message>
         <source>Could not find the remote host</source>
-        <translation type="unfinished"/>
+        <translation>Não foi possível encontrar o host remoto</translation>
     </message>
     <message>
         <source>Could not find the service UUID on remote host</source>
-        <translation type="unfinished"/>
+        <translation>Não foi possível encontrar o UUID de serviço no host remoto</translation>
     </message>
     <message>
         <source>Attempt to read or write from socket returned an error</source>
-        <translation type="unfinished"/>
+        <translation>Tentativa de ler ou escrever a partir do socket retornou um erro</translation>
     </message>
     <message>
         <source>The protocol is not supported on this platform</source>
-        <translation type="unfinished"/>
+        <translation>O protocolo não é suportado nesta plataforma</translation>
     </message>
     <message>
         <source>An operation was attempted while the socket was in a state that did not permit it</source>
-        <translation type="unfinished"/>
+        <translation>Foi realizada uma tentativa de operação num momento em que não era permitido</translation>
     </message>
     <message>
         <source>The remote host closed the connection</source>
-        <translation type="unfinished"/>
+        <translation>O host remoto fechou a conexão</translation>
     </message>
     <message>
         <source>Unknown error</source>
-        <translation type="unfinished"/>
+        <translation>Erro desconhecido</translation>
     </message>
 </context>
 <context>
@@ -247,19 +247,19 @@ Cancele para fazer uma verificação mínima.</translation>
     <name>BookmarkProperties</name>
     <message>
         <source>Bookmark Properties</source>
-        <translation type="unfinished"/>
+        <translation>Propriedades do Marcador</translation>
     </message>
     <message>
         <source>Name</source>
-        <translation type="unfinished"/>
+        <translation>Nome</translation>
     </message>
     <message>
         <source>Color</source>
-        <translation type="unfinished"/>
+        <translation>Cor</translation>
     </message>
     <message>
         <source>Copy bookmark details</source>
-        <translation type="unfinished"/>
+        <translation>Copiar detalhes do marcador</translation>
     </message>
     <message>
         <source>Lon</source>
@@ -279,15 +279,15 @@ Cancele para fazer uma verificação mínima.</translation>
     </message>
     <message>
         <source>Bookmark details copied to clipboard</source>
-        <translation type="unfinished"/>
+        <translation>Detalhes do marcador copiados para área de transferência</translation>
     </message>
     <message>
         <source>Remove bookmark</source>
-        <translation type="unfinished"/>
+        <translation>Remover marcador</translation>
     </message>
     <message>
         <source>You are about to remove a bookmark, proceed?</source>
-        <translation type="unfinished"/>
+        <translation>Está prestes a remover o marcador, proceder?</translation>
     </message>
 </context>
 <context>
@@ -298,7 +298,7 @@ Cancele para fazer uma verificação mínima.</translation>
     </message>
     <message>
         <source>Project bookmarks cannot be edited</source>
-        <translation type="unfinished"/>
+        <translation>Os marcadores do projeto não podem ser editados</translation>
     </message>
 </context>
 <context>
@@ -858,7 +858,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Opacity</source>
-        <translation type="unfinished"/>
+        <translation>Opacidade</translation>
     </message>
     <message>
         <source>Zoom to group</source>
@@ -1187,7 +1187,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Bearing</source>
-        <translation type="unfinished"/>
+        <translation>Orientação</translation>
     </message>
 </context>
 <context>
@@ -1960,14 +1960,14 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>No projects found</source>
-        <translation type="unfinished"/>
+        <translation>Não foram encontrados projetos</translation>
     </message>
 </context>
 <context>
     <name>QFieldLocalDataPickerScreen</name>
     <message>
         <source>Project Folder</source>
-        <translation type="unfinished"/>
+        <translation>Pasta do Projeto</translation>
     </message>
     <message>
         <source>Local Projects &amp; Datasets</source>
@@ -1975,11 +1975,11 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Folders</source>
-        <translation type="unfinished"/>
+        <translation>Pastas</translation>
     </message>
     <message>
         <source>Projects</source>
-        <translation type="unfinished"/>
+        <translation>Projetos</translation>
     </message>
     <message>
         <source>Datasets</source>
@@ -1987,7 +1987,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Favorites</source>
-        <translation type="unfinished"/>
+        <translation>Favoritos</translation>
     </message>
     <message>
         <source>Project file</source>
@@ -2007,7 +2007,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Export to folder...</source>
-        <translation type="unfinished"/>
+        <translation>Exportar para pasta...</translation>
     </message>
     <message>
         <source>Remove dataset</source>
@@ -2019,11 +2019,11 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Remove project folder</source>
-        <translation type="unfinished"/>
+        <translation>Remover pasta do projeto</translation>
     </message>
     <message>
         <source>Import project from folder</source>
-        <translation type="unfinished"/>
+        <translation>Importar projeto da pasta</translation>
     </message>
     <message>
         <source>Import project from ZIP</source>
@@ -2066,7 +2066,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Show bookmarks</source>
-        <translation type="unfinished"/>
+        <translation>Mostrar marcadores</translation>
     </message>
     <message>
         <source>When switched on, user&apos;s saved and currently opened project bookmarks will be displayed on the map.</source>
@@ -2106,11 +2106,11 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Send anonymized metrics</source>
-        <translation type="unfinished"/>
+        <translation>Enviar métricas anonimizadas</translation>
     </message>
     <message>
         <source>If enabled, anonymized metrics will be collected and sent to help improve QField for everyone.</source>
-        <translation type="unfinished"/>
+        <translation>Se ativas, as métricas anonimizadas serão coletadas e enviadas para melhorar o QField.</translation>
     </message>
     <message>
         <source>General</source>
@@ -2228,7 +2228,7 @@ Cancele para fazer uma verificação mínima.</translation>
     </message>
     <message>
         <source>Minimum number of positions collected</source>
-        <translation type="unfinished"/>
+        <translation>Número mínimo de posições coletadas</translation>
     </message>
     <message>
         <source>Automatically end collection when minimum number is met</source>
@@ -2523,11 +2523,11 @@ Cancele para fazer uma verificação mínima.</translation>
     <name>TextEdit</name>
     <message>
         <source>Copy Text</source>
-        <translation type="unfinished"/>
+        <translation>Copiar Texto</translation>
     </message>
     <message>
         <source>Paste Text</source>
-        <translation type="unfinished"/>
+        <translation>Colar Texto</translation>
     </message>
     <message>
         <source>Scan Code</source>
@@ -2635,11 +2635,11 @@ Cancele para fazer uma verificação mínima.</translation>
     </message>
     <message>
         <source>I agree</source>
-        <translation type="unfinished"/>
+        <translation>Concordo</translation>
     </message>
     <message>
         <source>I prefer not</source>
-        <translation type="unfinished"/>
+        <translation>Prefiro que não</translation>
     </message>
     <message>
         <source>QFieldCloud projects</source>
@@ -2745,7 +2745,7 @@ Cancele para fazer uma verificação mínima.</translation>
     </message>
     <message>
         <source>Perimeter</source>
-        <translation type="unfinished"/>
+        <translation>Perímetro</translation>
     </message>
     <message>
         <source>Length</source>
@@ -2885,19 +2885,19 @@ Cancele para fazer uma verificação mínima.</translation>
     </message>
     <message>
         <source>Add Bookmark</source>
-        <translation type="unfinished"/>
+        <translation>Adicionar Marcador</translation>
     </message>
     <message>
         <source>Set as Destination</source>
-        <translation type="unfinished"/>
+        <translation>Definir como Destino</translation>
     </message>
     <message>
         <source>Add Bookmark at Coordinates</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Adicionar Marcador às Coordenadas</translation>
     </message>
     <message>
         <source>Untitled bookmark</source>
-        <translation type="unfinished"/>
+        <translation>Marcador sem título</translation>
     </message>
     <message>
         <source>Set Coordinates as Destination</source>
@@ -2953,7 +2953,7 @@ Cancele para fazer uma verificação mínima.</translation>
     </message>
     <message>
         <source>Center to Location</source>
-        <translation type="unfinished"/>
+        <translation>Centralizar na Localização</translation>
     </message>
     <message>
         <source>Add Bookmark at Location</source>
@@ -3013,7 +3013,7 @@ Cancele para fazer uma verificação mínima.</translation>
     </message>
     <message>
         <source>Add Bookmark at Current Location</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Adicionar Marcador à Localização Atual</translation>
     </message>
     <message>
         <source>Current location unknown</source>
@@ -3085,15 +3085,15 @@ Cancele para fazer uma verificação mínima.</translation>
     </message>
     <message>
         <source>Positioning error: %1</source>
-        <translation type="unfinished"/>
+        <translation>Erro de posicionamento: %1</translation>
     </message>
     <message>
         <source>Azimuth</source>
-        <translation type="unfinished"/>
+        <translation>Azimute</translation>
     </message>
     <message>
         <source>Lock Screen</source>
-        <translation type="unfinished"/>
+        <translation>Bloquear Tela</translation>
     </message>
 </context>
 <context>
