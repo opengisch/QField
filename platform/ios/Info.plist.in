@@ -61,6 +61,9 @@
     <key>NSLocationWhenInUseUsageDescription</key>
     <string>Needed to overlay device location on top of the map canvas as well as providing positioning details and navigation.</string>
 
+    <key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+    <string>Needed to provide tracking functionality.</string>
+
     <!-- Peripherals -->
     <key>NSCameraUsageDescription</key>
     <string>Need to access your camera to capture a picture.</string>
