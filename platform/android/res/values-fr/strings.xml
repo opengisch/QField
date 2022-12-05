@@ -69,4 +69,5 @@ Merci pour votre soutien !</string>
     <string name="storage_information_dismiss">Je lirai plus tard</string>
     <string name="import_project_wait">Veuillez patienter, QField importe le projet</string>
     <string name="import_dataset_wait">Veuillez patienter, QField importe le(s) jeu(x) de données</string>
+    <string name="upload_pending_attachments">Téléversement des pièces jointes vers QFieldCloud en cours</string>
 </resources>

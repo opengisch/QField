@@ -3097,11 +3097,11 @@ fermer le projet et quitter l&apos;application</translation>
     </message>
     <message>
         <source>Azimuth</source>
-        <translation type="unfinished"/>
+        <translation>Azimut</translation>
     </message>
     <message>
         <source>Lock Screen</source>
-        <translation type="unfinished"/>
+        <translation>Verrouiller l&apos;écran</translation>
     </message>
 </context>
 <context>

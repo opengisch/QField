@@ -68,4 +68,4 @@
     <string name="storage_information_dismiss">მოგვიანებით წავიკითხავ</string>
     <string name="import_project_wait">გთხოვთ მოითმინოთ, QField ასრულებს პროექტის იმპორტს</string>
     <string name="import_dataset_wait">გთხოვთ მოითმინოთ, QField ასრულებს მონაცემთა ნაკრების იმპორტს</string>
-</resources>
+    </resources>

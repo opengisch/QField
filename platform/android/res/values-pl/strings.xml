@@ -66,4 +66,4 @@
     <string name="storage_information_dismiss">Poczytam później</string>
     <string name="import_project_wait">Proszę czekać, QField importuje projekt</string>
     <string name="import_dataset_wait">Proszę czekać, QField importuje zestaw(y) danych</string>
-</resources>
+    </resources>

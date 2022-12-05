@@ -2015,7 +2015,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Send compressed folder to...</source>
-        <translation type="unfinished"/>
+        <translation>Enviar pasta compactada para...</translation>
     </message>
     <message>
         <source>Remove project folder</source>
@@ -2027,7 +2027,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Import project from ZIP</source>
-        <translation type="unfinished"/>
+        <translation>Importar projeto de arquivo ZIP</translation>
     </message>
     <message>
         <source>Import dataset(s)</source>
@@ -2849,7 +2849,7 @@ Cancele para fazer uma verificação mínima.</translation>
     </message>
     <message>
         <source>Open Project Folder</source>
-        <translation type="unfinished"/>
+        <translation>Abrir Pasta do Projeto</translation>
     </message>
     <message>
         <source>Open Project</source>
@@ -3021,7 +3021,7 @@ Cancele para fazer uma verificação mínima.</translation>
     </message>
     <message>
         <source>My location</source>
-        <translation type="unfinished"/>
+        <translation>Minha localização</translation>
     </message>
     <message>
         <source>Copy Current Location</source>

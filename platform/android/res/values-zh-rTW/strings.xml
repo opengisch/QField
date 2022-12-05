@@ -68,4 +68,4 @@
     <string name="storage_information_dismiss">我稍後閱讀</string>
     <string name="import_project_wait">QField正在匯入專案，請稍候</string>
     <string name="import_dataset_wait">QField正在匯入數據集，請稍候</string>
-</resources>
+    </resources>

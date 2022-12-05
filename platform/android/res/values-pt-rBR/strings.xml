@@ -72,4 +72,4 @@ QGIS pode ser executado a partir do armazenamento interno, mas isso não é reco
     <string name="storage_information_dismiss">Vou ler depois</string>
     <string name="import_project_wait">Aguarde enquanto o QField está importando o projeto</string>
     <string name="import_dataset_wait">Aguarde enquanto o QField está importando o(s) conjunto(s) de dados</string>
-</resources>
+    </resources>

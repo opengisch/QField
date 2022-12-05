@@ -68,4 +68,4 @@
     <string name="storage_information_dismiss">Pročitati ću kasnije</string>
     <string name="import_project_wait">Molim pričekaj dok QField uvozi projekt</string>
     <string name="import_dataset_wait">Molim pričekaj dok QField uvozi skup(ove) podataka</string>
-</resources>
+    </resources>
