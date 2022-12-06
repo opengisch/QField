@@ -68,4 +68,5 @@
     <string name="storage_information_dismiss">Lereina máis tarde</string>
     <string name="import_project_wait">Por favor, agarda mentras QFIELD importa o proxecto.</string>
     <string name="import_dataset_wait">Por favor, agarda mentras QFIELD importa o(s) conxunto(s) de datos </string>
-    </resources>
+    <string name="upload_pending_attachments">Subindo actualmente os ficheiros anexos a QFieldCloud</string>
+</resources>
