@@ -819,7 +819,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <name>LayerObserver</name>
     <message>
         <source>Failed to find a local primary key column in layer &quot;%1&quot;</source>
-        <translation type="unfinished"/>
+        <translation>Nepodařilo se najít sloupec lokálního primárního klíče ve vrstvě &quot;%1&quot;.</translation>
     </message>
     <message>
         <source>Failed to find a source primary key column in layer &quot;%1&quot;</source>
@@ -1003,7 +1003,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Search filters for your locations have been activated, customize results in the settings panel</source>
-        <translation type="unfinished"/>
+        <translation>Byly aktivovány filtry vyhledávání pro vaše lokality, přizpůsobte si výsledky na panelu nastavení.</translation>
     </message>
 </context>
 <context>
@@ -1074,7 +1074,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Feature List Menu</source>
-        <translation type="unfinished"/>
+        <translation>Nabídka seznamu funkcí</translation>
     </message>
     <message>
         <source>Toggle Feature Selection</source>
@@ -1082,11 +1082,11 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Print Atlas Feature(s) to PDF</source>
-        <translation type="unfinished"/>
+        <translation>Tisk funkce(í) atlasu do PDF</translation>
     </message>
     <message>
         <source>Merge Selected Features</source>
-        <translation type="unfinished"/>
+        <translation>Sloučit vybrané funkce</translation>
     </message>
     <message>
         <source>Move Selected Feature(s)</source>
@@ -1114,7 +1114,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Auto-Zoom to Feature</source>
-        <translation type="unfinished"/>
+        <translation>Automatické přiblížení na prvek</translation>
     </message>
     <message>
         <source>Set Feature as Destination</source>
@@ -1309,7 +1309,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>PDOP</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">PDOP</translation>
     </message>
     <message>
         <source>HDOP</source>
@@ -1372,7 +1372,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>PDOP</source>
-        <translation type="unfinished"/>
+        <translation>PDOP</translation>
     </message>
     <message>
         <source>HDOP</source>
@@ -1417,7 +1417,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <name>QFieldCloudConnection</name>
     <message>
         <source>[timeout] The request took too long to finish, please retry.</source>
-        <translation type="unfinished"/>
+        <translation>[timeout] Dokončení požadavku trvalo příliš dlouho, zkuste to prosím znovu.</translation>
     </message>
     <message>
         <source>[aborted] The request has been aborted.</source>
@@ -1437,7 +1437,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Timeout error, please retry</source>
-        <translation type="unfinished"/>
+        <translation>Chyba časového limitu, zkuste to prosím znovu</translation>
     </message>
     <message>
         <source>Wrong username or password</source>
@@ -1591,7 +1591,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>QFieldCloud is preparing the latest data just for you. This might take some time, please hold tight…</source>
-        <translation type="unfinished"/>
+        <translation>QFieldCloud připravuje nejnovější data právě pro vás. Může to chvíli trvat, vydržte prosím...</translation>
     </message>
     <message>
         <source>Uploading %1%…</source>
@@ -1623,11 +1623,11 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Synchronize</source>
-        <translation type="unfinished"/>
+        <translation>Synchronizovat</translation>
     </message>
     <message>
         <source>Synchronize the whole project with all modified features and download the freshly updated project with all the applied changes from QFieldCloud.</source>
-        <translation type="unfinished"/>
+        <translation>Synchronizujte celý projekt se všemi upravenými funkcemi a stáhněte čerstvě aktualizovaný projekt se všemi aplikovanými změnami z QFieldCloudu.</translation>
     </message>
     <message>
         <source>Push changes</source>
@@ -1635,7 +1635,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Save internet bandwidth by only pushing the local features and pictures to the cloud, without updating the whole project.</source>
-        <translation type="unfinished"/>
+        <translation>Šetříte šířku internetového pásma tím, že do cloudu přenášíte pouze místní prvky a obrázky, aniž byste aktualizovali celý projekt.</translation>
     </message>
     <message>
         <source>Revert local changes</source>
@@ -1651,7 +1651,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Revert all modified features in the local cloud layers. You cannot restore those changes.</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Vrátit všechny změněné prvky v místních vrstvách mraku. Tyto změny nelze obnovit.</translation>
     </message>
     <message>
         <source>The local copy of this cloud project has been corrupted. Resetting the project will re-download the cloud version and will remove any local changes, make sure those were copied first if needed.
@@ -1693,7 +1693,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>No changes pushed yet</source>
-        <translation type="unfinished"/>
+        <translation>Zatím nebyly provedeny žádné změny</translation>
     </message>
     <message numerus="yes">
         <source>%n attachment(s) are currently being uploaded in the background.</source>
@@ -1701,7 +1701,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Should local changes be reverted?</source>
-        <translation type="unfinished"/>
+        <translation>Měly by být místní změny vráceny?</translation>
     </message>
     <message>
         <source>Reset cloud project</source>
@@ -1721,7 +1721,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Failed to revert changes</source>
-        <translation type="unfinished"/>
+        <translation>Nepodařilo se vrátit změny</translation>
     </message>
     <message>
         <source>No changes to revert</source>
@@ -1741,12 +1741,14 @@ While you can still view and use the project, it is strongly recommended to rese
     <message>
         <source>Failed to open temporary file for &quot;%1&quot;, reason:
 %2</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Nepodařilo se otevřít dočasný soubor pro &quot;%1&quot;, důvod:
+%2</translation>
     </message>
     <message>
         <source>Failed to upload attachment stored at &quot;%1&quot;, reason:
 %2</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Nepodařilo se nahrát přílohu uloženou na &quot;%1&quot;, důvod:
+%2</translation>
     </message>
     <message>
         <source>Failed to download file &quot;%1&quot;, reason:</source>
@@ -1875,15 +1877,15 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>My Projects</source>
-        <translation type="unfinished"/>
+        <translation>Moje projekty</translation>
     </message>
     <message>
         <source>Community</source>
-        <translation type="unfinished"/>
+        <translation>Komunita</translation>
     </message>
     <message>
         <source>(Available locally)</source>
-        <translation type="unfinished"/>
+        <translation>(K dispozici lokálně)</translation>
     </message>
     <message>
         <source>Downloading, %1% fetched…</source>
@@ -1891,11 +1893,11 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>QFieldCloud is preparing the latest data just for you. This might take some time, please hold tight…</source>
-        <translation type="unfinished"/>
+        <translation>QFieldCloud připravuje nejnovější data právě pro vás. Může to chvíli trvat, vydržte prosím...</translation>
     </message>
     <message>
         <source>Uploading…</source>
-        <translation type="unfinished"/>
+        <translation>Nahrávání ...</translation>
     </message>
     <message>
         <source>Downloading error. </source>
@@ -1907,7 +1909,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Available locally, missing on the cloud</source>
-        <translation type="unfinished"/>
+        <translation>K dispozici lokálně, v cloudu chybí</translation>
     </message>
     <message>
         <source>Available on the cloud, missing locally</source>
@@ -1943,11 +1945,11 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Press and hold over a cloud project for a menu of additional actions.</source>
-        <translation type="unfinished"/>
+        <translation>Stisknutím a podržením tlačítka nad projektem cloud se zobrazí nabídka dalších akcí.</translation>
     </message>
     <message>
         <source>Refresh projects list</source>
-        <translation type="unfinished"/>
+        <translation>Obnovit seznam projektů</translation>
     </message>
     <message>
         <source>Refreshing projects list</source>
@@ -2290,7 +2292,7 @@ Zrušte pro jen minimální skenování zařízení. </translation>
     </message>
     <message>
         <source>Status not ok</source>
-        <translation type="unfinished"/>
+        <translation>Stav není v pořádku</translation>
     </message>
     <message>
         <source>Empty content</source>
@@ -2314,7 +2316,7 @@ Zrušte pro jen minimální skenování zařízení. </translation>
     </message>
     <message>
         <source>Invalid delta file</source>
-        <translation type="unfinished"/>
+        <translation>Neplatný soubor delta</translation>
     </message>
     <message>
         <source>The project does not contain a valid QGIS project file</source>
@@ -2350,7 +2352,7 @@ Zrušte pro jen minimální skenování zařízení. </translation>
     </message>
     <message>
         <source>Cloud User Info</source>
-        <translation type="unfinished"/>
+        <translation>Informace o uživateli cloudu</translation>
     </message>
     <message>
         <source>Please wait while QField installation finalizes.</source>
