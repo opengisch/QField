@@ -493,8 +493,8 @@ ApplicationWindow {
     Repeater {
         id: trackings
         model: trackingModel
-        Tracking {
-        }
+
+        Tracking {}
     }
 
     /** A rubberband for ditizing **/

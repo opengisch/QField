@@ -21,7 +21,7 @@ LabSettings.Settings {
     property bool accuracyRequirement: false
 
     property bool averagedPositioning: false
-    property int  averagedPositioningMinimumCount: 1
+    property int averagedPositioningMinimumCount: 1
     property bool averagedPositioningAutomaticStop: true
 
     property real antennaHeight: 0.0
@@ -35,4 +35,5 @@ LabSettings.Settings {
     property bool trackerMinimumDistanceConstraint: false
     property double trackerMinimumDistance: 30
     property bool trackerMeetAllConstraints: false
+    property int trackerMeasureType: 0
 }

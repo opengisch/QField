@@ -39,6 +39,7 @@ QHash<int, QByteArray> TrackingModel::roleNames() const
   roles[RubberModel] = "rubberModel";
   roles[Visible] = "visible";
   roles[StartPositionTimestamp] = "startPositionTimestamp";
+  roles[MeasureType] = "measureType";
 
   return roles;
 }
@@ -82,6 +83,8 @@ QVariant TrackingModel::data( const QModelIndex &index, int role ) const
       return mTrackers.at( index.row() )->visible();
     case StartPositionTimestamp:
       return mTrackers.at( index.row() )->startPositionTimestamp();
+    case MeasureType:
+      return mTrackers.at( index.row() )->measureType();
     default:
       return QVariant();
   }
@@ -110,6 +113,8 @@ bool TrackingModel::setData( const QModelIndex &index, const QVariant &value, in
     case Visible:
       currentTracker->setVisible( value.toBool() );
       break;
+    case MeasureType:
+      currentTracker->setMeasureType( static_cast<Tracker::MeasureType>( value.toInt() ) );
     default:
       return false;
   }

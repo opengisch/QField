@@ -395,6 +395,7 @@ void QgisMobileapp::initDeclarative()
   qRegisterMetaType<QFieldCloudProjectsModel::ProjectStatus>( "QFieldCloudProjectsModel::ProjectStatus" );
   qRegisterMetaType<QFieldCloudProjectsModel::ProjectCheckout>( "QFieldCloudProjectsModel::ProjectCheckout" );
   qRegisterMetaType<QFieldCloudProjectsModel::ProjectModification>( "QFieldCloudProjectsModel::ProjectModification" );
+  qRegisterMetaType<Tracker::MeasureType>( "Tracker::MeasureType" );
 
   qmlRegisterUncreatableType<QgsProject>( "org.qgis", 1, 0, "Project", "" );
 #if _QGIS_VERSION_INT >= 32700
@@ -478,6 +479,7 @@ void QgisMobileapp::initDeclarative()
 #endif
   qmlRegisterUncreatableType<QAbstractSocket>( "org.qfield", 1, 0, "QAbstractSocket", "" );
   qmlRegisterUncreatableType<AbstractGnssReceiver>( "org.qfield", 1, 0, "AbstractGnssReceiver", "" );
+  qmlRegisterUncreatableType<Tracker>( "org.qfield", 1, 0, "Tracker", "" );
   qRegisterMetaType<GnssPositionInformation>( "GnssPositionInformation" );
 
   REGISTER_SINGLETON( "org.qfield", GeometryEditorsModel, "GeometryEditorsModelSingleton" );
