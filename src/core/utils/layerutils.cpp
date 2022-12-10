@@ -219,7 +219,7 @@ void LayerUtils::selectFeaturesInLayer( QgsVectorLayer *layer, const QList<int> 
   layer->selectByIds( qgsFids, behavior );
 }
 
-QString LayerUtils::fieldType( const QgsField &field ) const
+QString LayerUtils::fieldType( const QgsField &field )
 {
   return QVariant( field.type() ).typeName();
 }
@@ -359,4 +359,12 @@ QgsFeature LayerUtils::duplicateFeature( QgsVectorLayer *layer, const QgsFeature
   }
 
   return duplicatedFeature;
+}
+
+bool LayerUtils::hasMValue( QgsVectorLayer *layer )
+{
+  if ( !layer )
+    return false;
+
+  return QgsWkbTypes::hasM( layer->wkbType() );
 }
