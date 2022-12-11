@@ -33,6 +33,7 @@ class Tracker : public QObject
     enum MeasureType
     {
       SecondsSinceStart = 0,
+      Timestamp,
       GroundSpeed,
       Bearing,
       HorizontalAccuracy,

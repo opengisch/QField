@@ -30,6 +30,8 @@ Item {
       switch(measureType) {
         case Tracker.SecondsSinceStart:
           return ( positionSource.positionInformation.utcDateTime - track.startPositionTimestamp ) / 1000
+        case Tracker.Timestamp:
+          return positionSource.positionInformation.utcDateTime.getTime()
         case Tracker.GroundSpeed:
           return positionSource.positionInformation.speed
         case Tracker.Bearing:
@@ -457,7 +459,8 @@ Item {
                 Component.onCompleted: {
                     // This list matches the Tracker::MeasureType enum
                     var measurements = [
-                      qsTr("Time since beginning of recording"),
+                      qsTr("Elapsed time (seconds since start of tracking)"),
+                      qsTr("Timestamp (milliseconds since epoch)"),
                       qsTr("Ground speed"),
                       qsTr("Bearing"),
                       qsTr("Horizontal accuracy"),
