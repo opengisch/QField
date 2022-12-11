@@ -76,7 +76,12 @@ class LayerUtils : public QObject
      * Returns the QVariant typeName of a \a field.
      * This is a stable identifier (compared to the provider field name).
      */
-    Q_INVOKABLE QString fieldType( const QgsField &field ) const;
+    Q_INVOKABLE static QString fieldType( const QgsField &field );
+
+    /**
+     * Returns TRUE if the vector \a layer geometry has an M value.
+     */
+    Q_INVOKABLE static bool hasMValue( QgsVectorLayer *layer );
 };
 
 #endif // LAYERUTILS_H

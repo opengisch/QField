@@ -30,6 +30,20 @@ class Tracker : public QObject
     Q_PROPERTY( QDateTime startPositionTimestamp READ startPositionTimestamp WRITE setStartPositionTimestamp NOTIFY startPositionTimestampChanged )
 
   public:
+    enum MeasureType
+    {
+      SecondsSinceStart = 0,
+      Timestamp,
+      GroundSpeed,
+      Bearing,
+      HorizontalAccuracy,
+      VerticalAccuracy,
+      PDOP,
+      HDOP,
+      VDOP
+    };
+    Q_ENUM( MeasureType )
+
     explicit Tracker( QgsVectorLayer *layer, bool visible );
 
     RubberbandModel *model() const;
@@ -68,6 +82,9 @@ class Tracker : public QObject
     //! if the layer (and the rubberband ) is visible
     void setVisible( const bool visible ) { mVisible = visible; }
 
+    MeasureType measureType() const { return mMeasureType; }
+    void setMeasureType( MeasureType type ) { mMeasureType = type; }
+
     void start();
     void stop();
 
@@ -94,6 +111,8 @@ class Tracker : public QObject
     bool mVisible = true;
 
     QDateTime mStartPositionTimestamp;
+
+    MeasureType mMeasureType = Tracker::SecondsSinceStart;
 
     void trackPosition();
 };

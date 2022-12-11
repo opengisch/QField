@@ -610,23 +610,32 @@ void FeatureModel::applyGeometry()
 
   if ( QgsWkbTypes::geometryType( geometry.wkbType() ) == QgsWkbTypes::PolygonGeometry )
   {
-    // Remove any invalid intersection in polygon geometry
-    QgsGeometry sanitizedGeometry;
-    if ( QgsGeometryCollection *collection = qgsgeometry_cast<QgsGeometryCollection *>( geometry.get() ) )
+    if ( !geometry.isGeosValid() )
     {
-      QgsGeometryPartIterator parts = collection->parts();
-      while ( parts.hasNext() )
+      // Remove any invalid intersection in polygon geometry
+      QgsGeometry sanitizedGeometry;
+      if ( QgsGeometryCollection *collection = qgsgeometry_cast<QgsGeometryCollection *>( geometry.get() ) )
       {
-        QgsGeometry part( parts.next() );
-        sanitizedGeometry.addPart( part.buffer( 0.0, 5 ).constGet()->clone(), QgsWkbTypes::PolygonGeometry );
+        QgsGeometryPartIterator parts = collection->parts();
+        while ( parts.hasNext() )
+        {
+          QgsGeometry part( parts.next() );
+          sanitizedGeometry.addPart( part.buffer( 0.0, 5 ).constGet()->clone(), QgsWkbTypes::PolygonGeometry );
+        }
       }
+      else if ( QgsCurvePolygon *polygon = qgsgeometry_cast<QgsCurvePolygon *>( geometry.get() ) )
+      {
+        sanitizedGeometry = geometry.buffer( 0.0, 5 );
+      }
+
+      if ( !sanitizedGeometry.isNull() && sanitizedGeometry.constGet()->isValid( error ) )
+      {
+        geometry = sanitizedGeometry;
+      }
+
+      // PSA: calling makeValid() wipes out M values
+      geometry = geometry.makeValid();
     }
-    else if ( QgsCurvePolygon *polygon = qgsgeometry_cast<QgsCurvePolygon *>( geometry.get() ) )
-    {
-      sanitizedGeometry = geometry.buffer( 0, 5 );
-    }
-    if ( !sanitizedGeometry.isNull() && sanitizedGeometry.constGet()->isValid( error ) )
-      geometry = sanitizedGeometry;
 
     if ( mProject )
     {
@@ -675,7 +684,6 @@ void FeatureModel::applyGeometry()
       geometry = deduplicatedGeometry;
   }
 
-  geometry = geometry.makeValid();
   mFeature.setGeometry( geometry );
 }
 

@@ -493,8 +493,8 @@ ApplicationWindow {
     Repeater {
         id: trackings
         model: trackingModel
-        Tracking {
-        }
+
+        Tracking {}
     }
 
     /** A rubberband for ditizing **/
@@ -507,6 +507,30 @@ ApplicationWindow {
       model: RubberbandModel {
         frozen: false
         currentCoordinate: coordinateLocator.currentCoordinate
+        measureValue: {
+          if (coordinateLocator.positionLocked) {
+            switch(positioningSettings.digitizingMeasureType) {
+              case Tracker.Timestamp:
+                return coordinateLocator.positionInformation.utcDateTime.getTime()
+              case Tracker.GroundSpeed:
+                return coordinateLocator.positionInformation.speed
+              case Tracker.Bearing:
+                return coordinateLocator.positionInformation.direction
+              case Tracker.HorizontalAccuracy:
+                return coordinateLocator.positionInformation.hacc
+              case Tracker.VerticalAccuracy:
+                return coordinateLocator.positionInformation.vacc
+              case Tracker.PDOP:
+                return coordinateLocator.positionInformation.pdop
+              case Tracker.HDOP:
+                return coordinateLocator.positionInformation.hdop
+              case Tracker.VDOP:
+                return coordinateLocator.positionInformation.vdop
+            }
+          } else {
+            return Number.NaN;
+          }
+        }
         vectorLayer: digitizingToolbar.geometryRequested ? digitizingToolbar.geometryRequestedLayer : dashBoard.currentLayer
         crs: mapCanvas.mapSettings.destinationCrs
       }

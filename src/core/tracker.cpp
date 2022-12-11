@@ -102,7 +102,11 @@ void Tracker::start()
 
   //set the start time
   setStartPositionTimestamp( QDateTime::currentDateTime() );
-  model()->setMeasureValue( 0 );
+
+  if ( mMeasureType == Tracker::SecondsSinceStart )
+  {
+    model()->setMeasureValue( 0 );
+  }
 
   //track first position
   trackPosition();

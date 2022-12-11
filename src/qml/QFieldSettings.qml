@@ -440,6 +440,66 @@ Page {
                   }
 
                   Label {
+                      id: measureLabel
+                      Layout.fillWidth: true
+                      Layout.columnSpan: 2
+                      text: qsTr( "Measure (M) value attached to vertices:" )
+                      font: Theme.defaultFont
+
+                      wrapMode: Text.WordWrap
+                  }
+
+                  ComboBox {
+                      id: measureComboBox
+                      Layout.fillWidth: true
+                      Layout.columnSpan: 2
+                      Layout.alignment: Qt.AlignVCenter
+                      font: Theme.defaultFont
+                      popup.font: Theme.defaultFont
+
+                      property bool loaded: false
+                      Component.onCompleted: {
+                          // This list matches the Tracker::MeasureType enum, with SecondsSinceStart removed
+                          var measurements = [
+                            qsTr("Timestamp (milliseconds since epoch)"),
+                            qsTr("Ground speed"),
+                            qsTr("Bearing"),
+                            qsTr("Horizontal accuracy"),
+                            qsTr("Vertical accuracy"),
+                            qsTr("PDOP"),
+                            qsTr("HDOP"),
+                            qsTr("VDOP")
+                          ];
+
+                          model = measurements;
+                          currentIndex = positioningSettings.digitizingMeasureType - 1;
+                          loaded = true;
+                      }
+
+                      onCurrentIndexChanged: {
+                        if (loaded) {
+                          positioningSettings.digitizingMeasureType = currentIndex + 1;
+                        }
+                      }
+                  }
+
+                  Label {
+                      id: measureTipLabel
+                      Layout.fillWidth: true
+                      text: qsTr( "When digitizing features with the coordinate cursor locked to the current position, the measurement type selected above will be added to the geometry provided it has an M dimension." )
+                      font: Theme.tipFont
+                      color: Theme.gray
+
+                      wrapMode: Text.WordWrap
+                  }
+
+                  Item {
+                      // spacer item
+                      Layout.fillWidth: true
+                      Layout.fillHeight: true
+                  }
+
+                  Label {
                       text: qsTr("Activate accuracy indicator")
                       font: Theme.defaultFont
                       wrapMode: Text.WordWrap

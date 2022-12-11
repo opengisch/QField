@@ -24,7 +24,32 @@ Item {
     frozen: false
     vectorLayer: track.vectorLayer
     currentCoordinate: positionSource.projectedPosition
-    measureValue: ( positionSource.positionInformation.utcDateTime - track.startPositionTimestamp ) / 1000
+
+    property int measureType: track.measureType
+    measureValue: {
+      switch(measureType) {
+        case Tracker.SecondsSinceStart:
+          return ( positionSource.positionInformation.utcDateTime - track.startPositionTimestamp ) / 1000
+        case Tracker.Timestamp:
+          return positionSource.positionInformation.utcDateTime.getTime()
+        case Tracker.GroundSpeed:
+          return positionSource.positionInformation.speed
+        case Tracker.Bearing:
+          return positionSource.positionInformation.direction
+        case Tracker.HorizontalAccuracy:
+          return positionSource.positionInformation.hacc
+        case Tracker.VerticalAccuracy:
+          return positionSource.positionInformation.vacc
+        case Tracker.PDOP:
+          return positionSource.positionInformation.pdop
+        case Tracker.HDOP:
+          return positionSource.positionInformation.hdop
+        case Tracker.VDOP:
+          return positionSource.positionInformation.vdop
+      }
+      return 0;
+    }
+
     currentPositionTimestamp: positionSource.positionInformation.utcDateTime
     crs: mapCanvas.mapSettings.destinationCrs
 
@@ -407,6 +432,70 @@ Item {
 
             Item {
               Layout.preferredWidth: allConstraints.width
+              Layout.columnSpan: 2
+            }
+
+            Label {
+                id: measureLabel
+                Layout.fillWidth: true
+                Layout.columnSpan: 2
+                text: qsTr( "Measure (M) value attached to vertices:" )
+                font: Theme.defaultFont
+
+                wrapMode: Text.WordWrap
+            }
+
+            ComboBox {
+                id: measureComboBox
+                enabled: LayerUtils.hasMValue(track.vectorLayer)
+                Layout.fillWidth: true
+                Layout.columnSpan: 2
+                Layout.alignment: Qt.AlignVCenter
+                font: Theme.defaultFont
+                popup.font: Theme.defaultFont
+
+                property bool loaded: false
+                Component.onCompleted: {
+                    // This list matches the Tracker::MeasureType enum
+                    var measurements = [
+                      qsTr("Elapsed time (seconds since start of tracking)"),
+                      qsTr("Timestamp (milliseconds since epoch)"),
+                      qsTr("Ground speed"),
+                      qsTr("Bearing"),
+                      qsTr("Horizontal accuracy"),
+                      qsTr("Vertical accuracy"),
+                      qsTr("PDOP"),
+                      qsTr("HDOP"),
+                      qsTr("VDOP")
+                    ];
+
+                    model = measurements;
+                    currentIndex = positioningSettings.trackerMeasureType;
+                    loaded = true;
+                }
+
+                onCurrentIndexChanged: {
+                  if (loaded) {
+                    positioningSettings.trackerMeasureType = currentIndex;
+                  }
+                }
+            }
+
+            Label {
+                id: measureTipLabel
+                visible: !LayerUtils.hasMValue(track.vectorLayer)
+                Layout.fillWidth: true
+                text: qsTr( "To active the measurement functionality, make sure the vector layer's geometry type used for the tracking session has an M dimension." )
+                font: Theme.tipFont
+                color: Theme.gray
+
+                wrapMode: Text.WordWrap
+            }
+
+            Item {
+                // spacer item
+                Layout.fillWidth: true
+                Layout.fillHeight: true
             }
 
             QfButton {
@@ -422,6 +511,8 @@ Item {
                 track.minimumDistance = minimumDistanceValue.text.length == 0 || !minimumDistance.checked ? 0 : minimumDistanceValue.text
                 track.conjunction = timeInterval.checked && minimumDistance.checked && allConstraints.checked
                 track.rubberModel = rubberbandModel
+                track.measureType = measureComboBox.currentIndex
+                rubberbandModel.measureType = track.measureType
 
                 trackInformationDialog.active = false
                 if (embeddedAttributeFormModel.rowCount() > 0 && !featureModel.suppressFeatureForm()) {
