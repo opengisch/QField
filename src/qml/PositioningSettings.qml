@@ -35,5 +35,7 @@ LabSettings.Settings {
     property bool trackerMinimumDistanceConstraint: false
     property double trackerMinimumDistance: 30
     property bool trackerMeetAllConstraints: false
+
     property int trackerMeasureType: 0
+    property int digitizingMeasureType: 1
 }

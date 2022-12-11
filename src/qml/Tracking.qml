@@ -439,7 +439,7 @@ Item {
                 id: measureLabel
                 Layout.fillWidth: true
                 Layout.columnSpan: 2
-                text: qsTr( "Measure (M) value attached to individual vertices:" )
+                text: qsTr( "Measure (M) value attached to vertices:" )
                 font: Theme.defaultFont
 
                 wrapMode: Text.WordWrap
@@ -485,12 +485,17 @@ Item {
                 id: measureTipLabel
                 visible: !LayerUtils.hasMValue(track.vectorLayer)
                 Layout.fillWidth: true
-                Layout.columnSpan: 2
                 text: qsTr( "To active the measurement functionality, make sure the vector layer's geometry type used for the tracking session has an M dimension." )
                 font: Theme.tipFont
                 color: Theme.gray
 
                 wrapMode: Text.WordWrap
+            }
+
+            Item {
+                // spacer item
+                Layout.fillWidth: true
+                Layout.fillHeight: true
             }
 
             QfButton {
