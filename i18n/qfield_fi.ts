@@ -2289,6 +2289,46 @@ Peruuta tehdäksesi suppeampi laiteskannaus.</translation>
         <source>Time of inactivity in seconds before the screen brightness get be dimmed to preserve battery.</source>
         <translation>Epäaktiivisuuden aika sekunteina ennen näytön kirkkauden alkamista himmennetään akun säästämiseksi.</translation>
     </message>
+    <message>
+        <source>Measure (M) value attached to vertices:</source>
+        <translation>Taitepisteisiin liitetty mitta (M) arvo:</translation>
+    </message>
+    <message>
+        <source>Timestamp (milliseconds since epoch)</source>
+        <translation>Aikaleima (millisekuntia aikakauden alusta)</translation>
+    </message>
+    <message>
+        <source>Ground speed</source>
+        <translation>Maanopeus</translation>
+    </message>
+    <message>
+        <source>Bearing</source>
+        <translation>Suuntima</translation>
+    </message>
+    <message>
+        <source>Horizontal accuracy</source>
+        <translation>Horisontaalinen tarkkuus</translation>
+    </message>
+    <message>
+        <source>Vertical accuracy</source>
+        <translation>Vertikaalinen tarkkuus</translation>
+    </message>
+    <message>
+        <source>PDOP</source>
+        <translation>PDOP</translation>
+    </message>
+    <message>
+        <source>HDOP</source>
+        <translation>HDOP</translation>
+    </message>
+    <message>
+        <source>VDOP</source>
+        <translation>VDOP</translation>
+    </message>
+    <message>
+        <source>When digitizing features with the coordinate cursor locked to the current position, the measurement type selected above will be added to the geometry provided it has an M dimension.</source>
+        <translation>Kun piirteitä digitoidaan koordinaattikohdistimen ollessa lukittuna nykyiseen sijaintiin, yllä valittu mittaustyyppi lisätään geometriaan, jos sillä on M-mitta.</translation>
+    </message>
 </context>
 <context>
     <name>QObject</name>
@@ -2590,6 +2630,50 @@ Peruuta tehdäksesi suppeampi laiteskannaus.</translation>
     <message>
         <source>When both constraints are disabled, vertex additions will occur as frequently as delivered by the positioning device.</source>
         <translation>Kun molemmat rajoitukset on poistettu käytöstä, taitepisteiden lisäyksiä tapahtuu yhtä usein kuin paikannuslaite toimittaa sijainteja.</translation>
+    </message>
+    <message>
+        <source>Measure (M) value attached to vertices:</source>
+        <translation>Taitepisteisiin liitetty mitta (M) arvo:</translation>
+    </message>
+    <message>
+        <source>Elapsed time (seconds since start of tracking)</source>
+        <translation>Kulunut aika (sekunteja jäljityksen aloittamisesta)</translation>
+    </message>
+    <message>
+        <source>Timestamp (milliseconds since epoch)</source>
+        <translation>Aikaleima (millisekuntia aikakauden alusta)</translation>
+    </message>
+    <message>
+        <source>Ground speed</source>
+        <translation>Maanopeus</translation>
+    </message>
+    <message>
+        <source>Bearing</source>
+        <translation>Suuntima</translation>
+    </message>
+    <message>
+        <source>Horizontal accuracy</source>
+        <translation>Horisontaalinen tarkkuus</translation>
+    </message>
+    <message>
+        <source>Vertical accuracy</source>
+        <translation>Vertikaalinen tarkkuus</translation>
+    </message>
+    <message>
+        <source>PDOP</source>
+        <translation>PDOP</translation>
+    </message>
+    <message>
+        <source>HDOP</source>
+        <translation>HDOP</translation>
+    </message>
+    <message>
+        <source>VDOP</source>
+        <translation>VDOP</translation>
+    </message>
+    <message>
+        <source>To active the measurement functionality, make sure the vector layer&apos;s geometry type used for the tracking session has an M dimension.</source>
+        <translation>Aktivoi mittaustoiminto varmistamalla, että jäljitysistunnossa käytetyllä vektori tason geometriatyypillä on M-ulottuvuus.</translation>
     </message>
 </context>
 <context>

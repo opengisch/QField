@@ -2287,6 +2287,46 @@ Cancelar para hacer una búsqueda mínima de dispositivos en su lugar.</translat
         <source>Time of inactivity in seconds before the screen brightness get be dimmed to preserve battery.</source>
         <translation>Tiempo de inactividad en segundos antes de que el brillo de la pantalla se atenúe para conservar la batería.</translation>
     </message>
+    <message>
+        <source>Measure (M) value attached to vertices:</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Timestamp (milliseconds since epoch)</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Ground speed</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Bearing</source>
+        <translation>Rumbo</translation>
+    </message>
+    <message>
+        <source>Horizontal accuracy</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Vertical accuracy</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>PDOP</source>
+        <translation>PDOP</translation>
+    </message>
+    <message>
+        <source>HDOP</source>
+        <translation>HDOP</translation>
+    </message>
+    <message>
+        <source>VDOP</source>
+        <translation>VDOP</translation>
+    </message>
+    <message>
+        <source>When digitizing features with the coordinate cursor locked to the current position, the measurement type selected above will be added to the geometry provided it has an M dimension.</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>QObject</name>
@@ -2588,6 +2628,50 @@ Cancelar para hacer una búsqueda mínima de dispositivos en su lugar.</translat
     <message>
         <source>When both constraints are disabled, vertex additions will occur as frequently as delivered by the positioning device.</source>
         <translation>Cuando ambas restricciones están desactivadas, las adiciones de vértices se producirán con la frecuencia que proporcione el dispositivo de posicionamiento.</translation>
+    </message>
+    <message>
+        <source>Measure (M) value attached to vertices:</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Elapsed time (seconds since start of tracking)</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Timestamp (milliseconds since epoch)</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Ground speed</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Bearing</source>
+        <translation>Rumbo</translation>
+    </message>
+    <message>
+        <source>Horizontal accuracy</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Vertical accuracy</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>PDOP</source>
+        <translation>PDOP</translation>
+    </message>
+    <message>
+        <source>HDOP</source>
+        <translation>HDOP</translation>
+    </message>
+    <message>
+        <source>VDOP</source>
+        <translation>VDOP</translation>
+    </message>
+    <message>
+        <source>To active the measurement functionality, make sure the vector layer&apos;s geometry type used for the tracking session has an M dimension.</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

@@ -2278,6 +2278,46 @@ Cancele para fazer uma verificação mínima.</translation>
         <source>Time of inactivity in seconds before the screen brightness get be dimmed to preserve battery.</source>
         <translation type="unfinished"/>
     </message>
+    <message>
+        <source>Measure (M) value attached to vertices:</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Timestamp (milliseconds since epoch)</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Ground speed</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Bearing</source>
+        <translation>Orientação</translation>
+    </message>
+    <message>
+        <source>Horizontal accuracy</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Vertical accuracy</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>PDOP</source>
+        <translation>PDOP</translation>
+    </message>
+    <message>
+        <source>HDOP</source>
+        <translation>HDOP</translation>
+    </message>
+    <message>
+        <source>VDOP</source>
+        <translation>VDOP</translation>
+    </message>
+    <message>
+        <source>When digitizing features with the coordinate cursor locked to the current position, the measurement type selected above will be added to the geometry provided it has an M dimension.</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>QObject</name>
@@ -2578,6 +2618,50 @@ Cancele para fazer uma verificação mínima.</translation>
     </message>
     <message>
         <source>When both constraints are disabled, vertex additions will occur as frequently as delivered by the positioning device.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Measure (M) value attached to vertices:</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Elapsed time (seconds since start of tracking)</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Timestamp (milliseconds since epoch)</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Ground speed</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Bearing</source>
+        <translation>Orientação</translation>
+    </message>
+    <message>
+        <source>Horizontal accuracy</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Vertical accuracy</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>PDOP</source>
+        <translation>PDOP</translation>
+    </message>
+    <message>
+        <source>HDOP</source>
+        <translation>HDOP</translation>
+    </message>
+    <message>
+        <source>VDOP</source>
+        <translation>VDOP</translation>
+    </message>
+    <message>
+        <source>To active the measurement functionality, make sure the vector layer&apos;s geometry type used for the tracking session has an M dimension.</source>
         <translation type="unfinished"/>
     </message>
 </context>

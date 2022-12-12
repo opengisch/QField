@@ -2289,6 +2289,46 @@ Cancel to make a minimal device scan instead.</source>
         <source>Time of inactivity in seconds before the screen brightness get be dimmed to preserve battery.</source>
         <translation>Продължителност на неактивност в секунди преди екранът да стане по-тъмен с цел запазване на батерията.</translation>
     </message>
+    <message>
+        <source>Measure (M) value attached to vertices:</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Timestamp (milliseconds since epoch)</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Ground speed</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Bearing</source>
+        <translation>Посока (bearing)</translation>
+    </message>
+    <message>
+        <source>Horizontal accuracy</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Vertical accuracy</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>PDOP</source>
+        <translation>PDOP</translation>
+    </message>
+    <message>
+        <source>HDOP</source>
+        <translation>HDOP</translation>
+    </message>
+    <message>
+        <source>VDOP</source>
+        <translation>VDOP</translation>
+    </message>
+    <message>
+        <source>When digitizing features with the coordinate cursor locked to the current position, the measurement type selected above will be added to the geometry provided it has an M dimension.</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>QObject</name>
@@ -2590,6 +2630,50 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <source>When both constraints are disabled, vertex additions will occur as frequently as delivered by the positioning device.</source>
         <translation>Когато и двете ограничения са изключени, добавянето на вертекси ще  се случва всеки път, когато се получат от позиционираото устройство.</translation>
+    </message>
+    <message>
+        <source>Measure (M) value attached to vertices:</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Elapsed time (seconds since start of tracking)</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Timestamp (milliseconds since epoch)</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Ground speed</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Bearing</source>
+        <translation>Посока (bearing)</translation>
+    </message>
+    <message>
+        <source>Horizontal accuracy</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Vertical accuracy</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>PDOP</source>
+        <translation>PDOP</translation>
+    </message>
+    <message>
+        <source>HDOP</source>
+        <translation>HDOP</translation>
+    </message>
+    <message>
+        <source>VDOP</source>
+        <translation>VDOP</translation>
+    </message>
+    <message>
+        <source>To active the measurement functionality, make sure the vector layer&apos;s geometry type used for the tracking session has an M dimension.</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
