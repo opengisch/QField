@@ -112,5 +112,11 @@
     <key>LSSupportsOpeningDocumentsInPlace</key>
     <true/>
 
+    <key>LSApplicationQueriesSchemes</key>
+    <array>
+        <string>file</string>
+        <string>URL</string>
+    </array>
+
 </dict>
 </plist>

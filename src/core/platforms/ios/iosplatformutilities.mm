@@ -24,6 +24,7 @@
 #import <AVFoundation/AVFoundation.h>
 #import <CoreLocation/CoreLocation.h>
 #include <MobileCoreServices/MobileCoreServices.h>
+#import <UIKit/UIDocumentInteractionController.h>
 #import <UIKit/UIKit.h>
 
 #include <QGuiApplication>
@@ -34,6 +35,28 @@
 #include <QtQuick>
 
 IosPlatformUtilities::IosPlatformUtilities() : PlatformUtilities() {}
+
+@interface DocViewController
+    : UIViewController <UIDocumentInteractionControllerDelegate>
+@end
+
+@implementation DocViewController
+#pragma mark -
+#pragma mark View Life Cycle
+- (void)viewDidLoad {
+  [super viewDidLoad];
+}
+#pragma mark -
+#pragma mark Document Interaction Controller Delegate Methods
+- (UIViewController *)documentInteractionControllerViewControllerForPreview:
+    (UIDocumentInteractionController *)controller {
+  return self;
+}
+- (void)documentInteractionControllerDidEndPreview:
+    (UIDocumentInteractionController *)controller {
+  [self removeFromParentViewController];
+}
+@end
 
 PlatformUtilities::Capabilities IosPlatformUtilities::capabilities() const {
   PlatformUtilities::Capabilities capabilities =
@@ -102,6 +125,31 @@ PictureSource *IosPlatformUtilities::getGalleryPicture(
       new IosPictureSource(parent, prefix, pictureFilePath);
   pictureSource->pickGalleryPicture();
   return pictureSource;
+}
+
+ViewStatus *IosPlatformUtilities::open(const QString &uri, bool) {
+  // Code from https://bugreports.qt.io/browse/QTBUG-42942
+  NSString *nsFilePath = uri.toNSString();
+  NSURL *nsFileUrl = [NSURL fileURLWithPath:nsFilePath];
+
+  static DocViewController *mtv = nil;
+  if (mtv != nil) {
+    [mtv removeFromParentViewController];
+  }
+
+  UIDocumentInteractionController *documentInteractionController = nil;
+  documentInteractionController =
+      [UIDocumentInteractionController interactionControllerWithURL:nsFileUrl];
+  UIViewController *rootv = [[[[UIApplication sharedApplication] windows]
+      firstObject] rootViewController];
+  if (rootv != nil) {
+    mtv = [[DocViewController alloc] init];
+    [rootv addChildViewController:mtv];
+    documentInteractionController.delegate = mtv;
+    [documentInteractionController presentPreviewAnimated:NO];
+  }
+
+  return nullptr;
 }
 
 ProjectSource *IosPlatformUtilities::openProject(QObject *parent) {
