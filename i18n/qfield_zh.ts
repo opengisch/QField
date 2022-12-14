@@ -2287,15 +2287,15 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Measure (M) value attached to vertices:</source>
-        <translation type="unfinished"/>
+        <translation>附加到顶点的测量值 (M)：</translation>
     </message>
     <message>
         <source>Timestamp (milliseconds since epoch)</source>
-        <translation type="unfinished"/>
+        <translation>时间戳 (历元后的毫秒数)</translation>
     </message>
     <message>
         <source>Ground speed</source>
-        <translation type="unfinished"/>
+        <translation>对地速度</translation>
     </message>
     <message>
         <source>Bearing</source>
@@ -2303,11 +2303,11 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Horizontal accuracy</source>
-        <translation type="unfinished"/>
+        <translation>水平精度</translation>
     </message>
     <message>
         <source>Vertical accuracy</source>
-        <translation type="unfinished"/>
+        <translation>垂直精度</translation>
     </message>
     <message>
         <source>PDOP</source>
@@ -2323,7 +2323,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>When digitizing features with the coordinate cursor locked to the current position, the measurement type selected above will be added to the geometry provided it has an M dimension.</source>
-        <translation type="unfinished"/>
+        <translation>在将坐标指针锁定到当前位置的情况下数字化要素时，如果几何图形具有M维度，则上面选择的测量类型将添加到几何图形中。</translation>
     </message>
 </context>
 <context>
@@ -2629,19 +2629,19 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Measure (M) value attached to vertices:</source>
-        <translation type="unfinished"/>
+        <translation>附加到顶点的测量值 (M)：</translation>
     </message>
     <message>
         <source>Elapsed time (seconds since start of tracking)</source>
-        <translation type="unfinished"/>
+        <translation>经过时间 (自跟踪开始后的秒数)</translation>
     </message>
     <message>
         <source>Timestamp (milliseconds since epoch)</source>
-        <translation type="unfinished"/>
+        <translation>时间戳 (历元后的毫秒数)</translation>
     </message>
     <message>
         <source>Ground speed</source>
-        <translation type="unfinished"/>
+        <translation>对地速度</translation>
     </message>
     <message>
         <source>Bearing</source>
@@ -2649,11 +2649,11 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Horizontal accuracy</source>
-        <translation type="unfinished"/>
+        <translation>水平精度</translation>
     </message>
     <message>
         <source>Vertical accuracy</source>
-        <translation type="unfinished"/>
+        <translation>垂直精度</translation>
     </message>
     <message>
         <source>PDOP</source>
@@ -2669,7 +2669,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>To active the measurement functionality, make sure the vector layer&apos;s geometry type used for the tracking session has an M dimension.</source>
-        <translation type="unfinished"/>
+        <translation>要激活测量功能，请确保用于跟踪会话矢量图层的几何图形类型具有M维度。</translation>
     </message>
 </context>
 <context>
