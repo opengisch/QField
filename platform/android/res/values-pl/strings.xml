@@ -27,8 +27,10 @@
     <string name="added_to_favorites">Dodano do ulubionych</string>
     <string name="removed_from_favorites">Usunięto z ulubionych</string>
     <string name="external_files_title">Ważna informacja</string>
+    <string name="external_files_message"><![CDATA[Katalog plików QField może być użyty do kopiowania plików i projektów na urządzenie poprzez kabel USB. Możesz zobaczyć pełną ścieżkę katalogu w pasku nagłówka.<br/><br/>Należy pamiętać, że zawartość tego katalogu <i>zostanie usunięta</i> jeśli odinstalujesz QField ze swojego urządzenia.]]></string>
     <string name="external_files_ok">OK</string>
     <string name="grant_permission">Dostęp do wszystkich plików</string>
+    <string name="grant_all_files_permission"><![CDATA[QField potrzebuje uprawnień dostępu do wszystkich plików, aby móc otwierać lokalne projekty i zbiory danych, a także obsługiwać niestandardowe układy współrzędnych, fonty i mapy podkładowe. Chociaż nie jest to wymagane, <i>wyrażenie zgody jest wysoce zalecane</i>.<br/><br/>Na kolejnym ekranie wybierze <b>QField</b> a następnie wybierz opcję <b>Zezwalaj na dostęp do wszystkich plików</b>.]]></string>
     <string name="grant">Zezwól</string>
     <string name="deny_always">Odmów na stałe</string>
     <string name="deny_once">Odmów tym razem</string>
@@ -66,4 +68,5 @@
     <string name="storage_information_dismiss">Poczytam później</string>
     <string name="import_project_wait">Proszę czekać, QField importuje projekt</string>
     <string name="import_dataset_wait">Proszę czekać, QField importuje zestaw(y) danych</string>
-    </resources>
+    <string name="upload_pending_attachments">Właśnie wysyłam załączniki do QFieldCloud</string>
+</resources>

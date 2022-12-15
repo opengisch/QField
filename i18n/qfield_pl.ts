@@ -1143,7 +1143,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Atlas feature(s) successfully printed to PDF and placed in your documents</source>
-        <translation type="unfinished"/>
+        <translation>Element(y) atlasu zostały pomyślnie wydrukowane do pliku PDF i umieszczone w dokumentach.</translation>
     </message>
 </context>
 <context>
@@ -2399,7 +2399,7 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
     </message>
     <message>
         <source>Cloud User Info</source>
-        <translation type="unfinished"/>
+        <translation>Informacje o użytkowniku Cloud</translation>
     </message>
     <message>
         <source>Please wait while QField installation finalizes.</source>
