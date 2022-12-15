@@ -520,7 +520,7 @@ Rectangle {
     MenuSeparator { width: parent.width }
 
     MenuItem {
-      text: qsTr( 'Print Atlas Feature(s) to PDF' )
+      text: Qt.platform.os === "ios" ? qsTr( "Print Atlas Feature(s) to Image" ) : qsTr( 'Print Atlas Feature(s) to PDF' )
       icon.source: Theme.getThemeIcon( "ic_print_white_24dp" )
       enabled: toolBar.model && toolBar.model.selectedCount > 0 && LayerUtils.isAtlasCoverageLayer( toolBar.model.selectedLayer )
 
@@ -614,7 +614,7 @@ Rectangle {
     topMargin: Math.min(sceneTopMargin, Math.max(0, (contentHeight + topPadding + bottomPadding) - mainWindow.height + sceneTopMargin));
 
     MenuItem {
-      text: qsTr( 'Print Atlas Feature to PDF' )
+      text: Qt.platform.os === "ios" ? qsTr( "Print Atlas Feature to Image" ) : qsTr( 'Print Atlas Feature to PDF' )
       icon.source: Theme.getThemeIcon( "ic_print_white_24dp" )
       enabled: LayerUtils.isAtlasCoverageLayer( selection.focusedLayer )
 
@@ -728,7 +728,7 @@ Rectangle {
     property alias printTimer: timer
     property alias printName: timer.printName
 
-    title: qsTr( "Print Atlas Feature(s) to PDF" )
+    title: qsTr( "Print Atlas Feature(s)" )
 
     signal enablePrintItem( int rows )
 
@@ -768,7 +768,7 @@ Rectangle {
         leftPadding: 10
 
         onTriggered: {
-            displayToast( qsTr( 'Printing atlas feature(s) to PDF') )
+            displayToast( qsTr( 'Printing...') )
             atlasMenu.printName = Title
             atlasMenu.printTimer.restart();
         }
@@ -794,7 +794,7 @@ Rectangle {
               ids.push(selection.focusedFeature.id)
           }
           if ( iface.printAtlasFeatures( printName, ids ) ) {
-              displayToast( qsTr( 'Atlas feature(s) successfully printed to PDF and placed in your documents' ) );
+              displayToast( qsTr( 'Atlas feature(s) successfully printed and placed in your project folder' ) );
           }
       }
     }
@@ -807,7 +807,7 @@ Rectangle {
       }
       else
       {
-          displayToast( qsTr( 'Printing atlas feature(s) to PDF') )
+          displayToast( qsTr( 'Printing...') )
           atlasMenu.printName = atlasListInstantiator.model.titleAt( 0 );
           atlasMenu.printTimer.restart();
       }
