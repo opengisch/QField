@@ -1785,7 +1785,7 @@ ApplicationWindow {
 
     MenuItem {
       id: printItem
-      text: qsTr( "Print to PDF" )
+      text: Qt.platform.os === "ios" ? qsTr( "Print to Image" ) : qsTr( "Print to PDF" )
 
       font: Theme.defaultFont
       icon.source: Theme.getThemeVectorIcon( "ic_print_black_24dp" )
@@ -1818,7 +1818,7 @@ ApplicationWindow {
         else
         {
           mainMenu.close();
-          displayToast( qsTr( 'Printing to PDF') )
+          displayToast( qsTr( 'Printing...') )
           printMenu.printName =layoutListInstantiator.model.titleAt( 0 );
           printMenu.printTimer.restart();
         }
@@ -1953,7 +1953,7 @@ ApplicationWindow {
     property alias printTimer: timer
     property alias printName: timer.printName
 
-    title: qsTr( "Print to PDF" )
+    title: qsTr( "Print" )
 
     signal enablePrintItem( int rows )
 
@@ -1995,7 +1995,7 @@ ApplicationWindow {
 
         onTriggered: {
             highlighted = false
-            displayToast( qsTr( 'Printing to PDF') )
+            displayToast( qsTr( 'Printing...') )
             printMenu.printName = Title
             printMenu.printTimer.restart();
         }
