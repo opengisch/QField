@@ -1138,11 +1138,31 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Printing atlas feature(s) to PDF</source>
-        <translation>იბეჭდება ატლასის ტოპოგრაფიული ელემენტ(ებ)ი PDF-ში</translation>
+        <translation type="vanished">იბეჭდება ატლასის ტოპოგრაფიული ელემენტ(ებ)ი PDF-ში</translation>
     </message>
     <message>
         <source>Atlas feature(s) successfully printed to PDF and placed in your documents</source>
-        <translation>ატლასის ტოპოგრაფიული ელემენტ(ებ)ი წარმატებით დაიბეჭდა PDF-ში და შეინახა თქვენს დოკუმენტებში</translation>
+        <translation type="vanished">ატლასის ტოპოგრაფიული ელემენტ(ებ)ი წარმატებით დაიბეჭდა PDF-ში და შეინახა თქვენს დოკუმენტებში</translation>
+    </message>
+    <message>
+        <source>Print Atlas Feature(s) to Image</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Print Atlas Feature to Image</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Print Atlas Feature(s)</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Printing...</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Atlas feature(s) successfully printed and placed in your project folder</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -2923,7 +2943,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Printing to PDF</source>
-        <translation>იბეჭდება PDF-ში</translation>
+        <translation type="vanished">იბეჭდება PDF-ში</translation>
     </message>
     <message>
         <source>Go to Home Screen</source>
@@ -3175,6 +3195,18 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Lock Screen</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Print to Image</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Printing...</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Print</source>
         <translation type="unfinished"/>
     </message>
 </context>

@@ -1138,11 +1138,31 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Printing atlas feature(s) to PDF</source>
-        <translation>Tisku prvek(prvky) atlasu do PDF</translation>
+        <translation type="vanished">Tisku prvek(prvky) atlasu do PDF</translation>
     </message>
     <message>
         <source>Atlas feature(s) successfully printed to PDF and placed in your documents</source>
-        <translation>Prvky atlasu úspěšně vytištěné do PDF a umístěné v dokumentu (dokumentech)</translation>
+        <translation type="vanished">Prvky atlasu úspěšně vytištěné do PDF a umístěné v dokumentu (dokumentech)</translation>
+    </message>
+    <message>
+        <source>Print Atlas Feature(s) to Image</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Print Atlas Feature to Image</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Print Atlas Feature(s)</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Printing...</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Atlas feature(s) successfully printed and placed in your project folder</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -2922,7 +2942,7 @@ Zrušte pro jen minimální skenování zařízení. </translation>
     </message>
     <message>
         <source>Printing to PDF</source>
-        <translation>Tisk do PDF</translation>
+        <translation type="vanished">Tisk do PDF</translation>
     </message>
     <message>
         <source>Go to Home Screen</source>
@@ -3175,6 +3195,18 @@ Zrušte pro jen minimální skenování zařízení. </translation>
     <message>
         <source>Lock Screen</source>
         <translation>Uzamknout obrazovku</translation>
+    </message>
+    <message>
+        <source>Print to Image</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Printing...</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Print</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

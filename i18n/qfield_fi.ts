@@ -1144,11 +1144,31 @@ Kohteen geometriat yhdistetään kohteeseen &apos;%1&apos;, johon sisällytetä�
     </message>
     <message>
         <source>Printing atlas feature(s) to PDF</source>
-        <translation>Tulostetaan Atlaksen kohde/kohteet PDF:ksi</translation>
+        <translation type="vanished">Tulostetaan Atlaksen kohde/kohteet PDF:ksi</translation>
     </message>
     <message>
         <source>Atlas feature(s) successfully printed to PDF and placed in your documents</source>
-        <translation>Atlaksen kohde/kohteet tulostettu PDF:ksi onnistuneesti ja sijoitettu dokumentteihisi</translation>
+        <translation type="vanished">Atlaksen kohde/kohteet tulostettu PDF:ksi onnistuneesti ja sijoitettu dokumentteihisi</translation>
+    </message>
+    <message>
+        <source>Print Atlas Feature(s) to Image</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Print Atlas Feature to Image</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Print Atlas Feature(s)</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Printing...</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Atlas feature(s) successfully printed and placed in your project folder</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -2936,7 +2956,7 @@ Peruuta tehdäksesi suppeampi laiteskannaus.</translation>
     </message>
     <message>
         <source>Printing to PDF</source>
-        <translation>Tulostetaan PDF:ksi</translation>
+        <translation type="vanished">Tulostetaan PDF:ksi</translation>
     </message>
     <message>
         <source>Go to Home Screen</source>
@@ -3189,6 +3209,18 @@ Peruuta tehdäksesi suppeampi laiteskannaus.</translation>
     <message>
         <source>Lock Screen</source>
         <translation>Lukitse näyttö</translation>
+    </message>
+    <message>
+        <source>Print to Image</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Printing...</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Print</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

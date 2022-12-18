@@ -1140,11 +1140,31 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Printing atlas feature(s) to PDF</source>
-        <translation>Exportando elemento(s) do atlas para PDF</translation>
+        <translation type="vanished">Exportando elemento(s) do atlas para PDF</translation>
     </message>
     <message>
         <source>Atlas feature(s) successfully printed to PDF and placed in your documents</source>
-        <translation>Elemento(s) do Atlas foram exportados para PDF com sucesso e estão nos seus documentos</translation>
+        <translation type="vanished">Elemento(s) do Atlas foram exportados para PDF com sucesso e estão nos seus documentos</translation>
+    </message>
+    <message>
+        <source>Print Atlas Feature(s) to Image</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Print Atlas Feature to Image</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Print Atlas Feature(s)</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Printing...</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Atlas feature(s) successfully printed and placed in your project folder</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -2925,7 +2945,7 @@ Cancele para fazer uma verificação mínima.</translation>
     </message>
     <message>
         <source>Printing to PDF</source>
-        <translation>Exportando para PDF</translation>
+        <translation type="vanished">Exportando para PDF</translation>
     </message>
     <message>
         <source>Go to Home Screen</source>
@@ -3178,6 +3198,18 @@ Cancele para fazer uma verificação mínima.</translation>
     <message>
         <source>Lock Screen</source>
         <translation>Bloquear Tela</translation>
+    </message>
+    <message>
+        <source>Print to Image</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Printing...</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Print</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

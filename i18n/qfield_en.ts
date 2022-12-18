@@ -1167,11 +1167,31 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Printing atlas feature(s) to PDF</source>
-        <translation>Printing atlas feature(s) to PDF</translation>
+        <translation type="vanished">Printing atlas feature(s) to PDF</translation>
     </message>
     <message>
         <source>Atlas feature(s) successfully printed to PDF and placed in your documents</source>
-        <translation>Atlas feature(s) successfully printed to PDF and placed in your documents</translation>
+        <translation type="vanished">Atlas feature(s) successfully printed to PDF and placed in your documents</translation>
+    </message>
+    <message>
+        <source>Print Atlas Feature(s) to Image</source>
+        <translation>Print Atlas Feature(s) to Image</translation>
+    </message>
+    <message>
+        <source>Print Atlas Feature to Image</source>
+        <translation>Print Atlas Feature to Image</translation>
+    </message>
+    <message>
+        <source>Print Atlas Feature(s)</source>
+        <translation>Print Atlas Feature(s)</translation>
+    </message>
+    <message>
+        <source>Printing...</source>
+        <translation>Printing...</translation>
+    </message>
+    <message>
+        <source>Atlas feature(s) successfully printed and placed in your project folder</source>
+        <translation>Atlas feature(s) successfully printed and placed in your project folder</translation>
     </message>
 </context>
 <context>
@@ -2966,7 +2986,7 @@ Cancel to make a minimal device scan instead.</translation>
     </message>
     <message>
         <source>Printing to PDF</source>
-        <translation>Printing to PDF</translation>
+        <translation type="vanished">Printing to PDF</translation>
     </message>
     <message>
         <source>Go to Home Screen</source>
@@ -3219,6 +3239,18 @@ Cancel to make a minimal device scan instead.</translation>
     <message>
         <source>Lock Screen</source>
         <translation>Lock Screen</translation>
+    </message>
+    <message>
+        <source>Print to Image</source>
+        <translation>Print to Image</translation>
+    </message>
+    <message>
+        <source>Printing...</source>
+        <translation>Printing...</translation>
+    </message>
+    <message>
+        <source>Print</source>
+        <translation>Print</translation>
     </message>
 </context>
 <context>

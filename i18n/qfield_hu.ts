@@ -1143,11 +1143,31 @@ Az elem geometriákat összevonjuk a &apos;%1&apos; elembe, mely megőrzi az att
     </message>
     <message>
         <source>Printing atlas feature(s) to PDF</source>
-        <translation>Atlasz elem(ek) nyomtatása PDF fájlba folyamatban</translation>
+        <translation type="vanished">Atlasz elem(ek) nyomtatása PDF fájlba folyamatban</translation>
     </message>
     <message>
         <source>Atlas feature(s) successfully printed to PDF and placed in your documents</source>
-        <translation>Atlasz elem(ek) nyomtatása PDF fájlba sikeres volt, a dokumentumok között található.</translation>
+        <translation type="vanished">Atlasz elem(ek) nyomtatása PDF fájlba sikeres volt, a dokumentumok között található.</translation>
+    </message>
+    <message>
+        <source>Print Atlas Feature(s) to Image</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Print Atlas Feature to Image</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Print Atlas Feature(s)</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Printing...</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Atlas feature(s) successfully printed and placed in your project folder</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -2928,7 +2948,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Printing to PDF</source>
-        <translation>Nyomtatás PDF-be</translation>
+        <translation type="vanished">Nyomtatás PDF-be</translation>
     </message>
     <message>
         <source>Go to Home Screen</source>
@@ -3180,6 +3200,18 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Lock Screen</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Print to Image</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Printing...</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Print</source>
         <translation type="unfinished"/>
     </message>
 </context>

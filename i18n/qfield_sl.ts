@@ -1141,6 +1141,26 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
         <source>Atlas feature(s) successfully printed to PDF and placed in your documents</source>
         <translation type="unfinished"/>
     </message>
+    <message>
+        <source>Print Atlas Feature(s) to Image</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Print Atlas Feature to Image</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Print Atlas Feature(s)</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Printing...</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Atlas feature(s) successfully printed and placed in your project folder</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>NavigationInformationView</name>
@@ -2916,7 +2936,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Printing to PDF</source>
-        <translation>Tiskanje v PDF</translation>
+        <translation type="vanished">Tiskanje v PDF</translation>
     </message>
     <message>
         <source>Go to Home Screen</source>
@@ -3169,6 +3189,18 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <source>Lock Screen</source>
         <translation>Zakleni zaslon</translation>
+    </message>
+    <message>
+        <source>Print to Image</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Printing...</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Print</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

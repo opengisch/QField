@@ -1146,11 +1146,31 @@ Geometrija elemenata će se spojiti u element &apos;%1&apos;, koji će zadržati
     </message>
     <message>
         <source>Printing atlas feature(s) to PDF</source>
-        <translation>Ispisujem element(e) atlasa u PDF</translation>
+        <translation type="vanished">Ispisujem element(e) atlasa u PDF</translation>
     </message>
     <message>
         <source>Atlas feature(s) successfully printed to PDF and placed in your documents</source>
-        <translation>Element(i) atlasa uspješno su ispisani u PDF i smješteni u vaše dokumente.</translation>
+        <translation type="vanished">Element(i) atlasa uspješno su ispisani u PDF i smješteni u vaše dokumente.</translation>
+    </message>
+    <message>
+        <source>Print Atlas Feature(s) to Image</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Print Atlas Feature to Image</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Print Atlas Feature(s)</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Printing...</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Atlas feature(s) successfully printed and placed in your project folder</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -2932,7 +2952,7 @@ Otkažite da pokrenete minimalno skeniranje uređaja.</translation>
     </message>
     <message>
         <source>Printing to PDF</source>
-        <translation>Printanje u PDF</translation>
+        <translation type="vanished">Printanje u PDF</translation>
     </message>
     <message>
         <source>Go to Home Screen</source>
@@ -3185,6 +3205,18 @@ Otkažite da pokrenete minimalno skeniranje uređaja.</translation>
     <message>
         <source>Lock Screen</source>
         <translation>Zaključaj zaslon</translation>
+    </message>
+    <message>
+        <source>Print to Image</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Printing...</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Print</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

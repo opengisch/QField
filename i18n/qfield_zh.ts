@@ -1142,11 +1142,31 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Printing atlas feature(s) to PDF</source>
-        <translation>地图集要素正在输出为PDF文件</translation>
+        <translation type="vanished">地图集要素正在输出为PDF文件</translation>
     </message>
     <message>
         <source>Atlas feature(s) successfully printed to PDF and placed in your documents</source>
-        <translation>地图集要素已成功输出为PDF文件并保存在您的文档文件夹中</translation>
+        <translation type="vanished">地图集要素已成功输出为PDF文件并保存在您的文档文件夹中</translation>
+    </message>
+    <message>
+        <source>Print Atlas Feature(s) to Image</source>
+        <translation>地图集要素输出为图像文件</translation>
+    </message>
+    <message>
+        <source>Print Atlas Feature to Image</source>
+        <translation>地图集要素输出为图像文件</translation>
+    </message>
+    <message>
+        <source>Print Atlas Feature(s)</source>
+        <translation>输出地图集要素</translation>
+    </message>
+    <message>
+        <source>Printing...</source>
+        <translation>正在输出...</translation>
+    </message>
+    <message>
+        <source>Atlas feature(s) successfully printed and placed in your project folder</source>
+        <translation>地图集要素已成功输出并保存在您的工程文件夹中</translation>
     </message>
 </context>
 <context>
@@ -2932,7 +2952,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Printing to PDF</source>
-        <translation>输出为PDF文件</translation>
+        <translation type="vanished">输出为PDF文件</translation>
     </message>
     <message>
         <source>Go to Home Screen</source>
@@ -3185,6 +3205,18 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <source>Lock Screen</source>
         <translation>锁屏</translation>
+    </message>
+    <message>
+        <source>Print to Image</source>
+        <translation>输出为图像</translation>
+    </message>
+    <message>
+        <source>Printing...</source>
+        <translation>正在输出...</translation>
+    </message>
+    <message>
+        <source>Print</source>
+        <translation>输出</translation>
     </message>
 </context>
 <context>

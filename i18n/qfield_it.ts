@@ -1146,11 +1146,31 @@ Le geometrie degli elementi verranno combinati in un elemento &apos;%1&apos; che
     </message>
     <message>
         <source>Printing atlas feature(s) to PDF</source>
-        <translation>Stampa elementi Atlante in PDF</translation>
+        <translation type="vanished">Stampa elementi Atlante in PDF</translation>
     </message>
     <message>
         <source>Atlas feature(s) successfully printed to PDF and placed in your documents</source>
-        <translation>Elementi Atlante stampati correttamente in PDF e inseriti nei documenti</translation>
+        <translation type="vanished">Elementi Atlante stampati correttamente in PDF e inseriti nei documenti</translation>
+    </message>
+    <message>
+        <source>Print Atlas Feature(s) to Image</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Print Atlas Feature to Image</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Print Atlas Feature(s)</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Printing...</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Atlas feature(s) successfully printed and placed in your project folder</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -2939,7 +2959,7 @@ Annullare per eseguire una scansione veloce del dispositivo.</translation>
     </message>
     <message>
         <source>Printing to PDF</source>
-        <translation>Stampa PDF in corso</translation>
+        <translation type="vanished">Stampa PDF in corso</translation>
     </message>
     <message>
         <source>Go to Home Screen</source>
@@ -3192,6 +3212,18 @@ Annullare per eseguire una scansione veloce del dispositivo.</translation>
     <message>
         <source>Lock Screen</source>
         <translation>Blocca lo Schermo</translation>
+    </message>
+    <message>
+        <source>Print to Image</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Printing...</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Print</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

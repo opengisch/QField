@@ -1146,11 +1146,31 @@ Las geometrías de los objetos se combinarán en el objeto &apos;%1&apos;, que c
     </message>
     <message>
         <source>Printing atlas feature(s) to PDF</source>
-        <translation>Imprimiendo objeto(s) de atlas a PDF</translation>
+        <translation type="vanished">Imprimiendo objeto(s) de atlas a PDF</translation>
     </message>
     <message>
         <source>Atlas feature(s) successfully printed to PDF and placed in your documents</source>
-        <translation>Objeto(s) de atlas impreso correctamente a PDF y colocado(s) en sus documentos</translation>
+        <translation type="vanished">Objeto(s) de atlas impreso correctamente a PDF y colocado(s) en sus documentos</translation>
+    </message>
+    <message>
+        <source>Print Atlas Feature(s) to Image</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Print Atlas Feature to Image</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Print Atlas Feature(s)</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Printing...</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Atlas feature(s) successfully printed and placed in your project folder</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -2934,7 +2954,7 @@ Cancelar para hacer una búsqueda mínima de dispositivos en su lugar.</translat
     </message>
     <message>
         <source>Printing to PDF</source>
-        <translation>Imprimiendo a PDF</translation>
+        <translation type="vanished">Imprimiendo a PDF</translation>
     </message>
     <message>
         <source>Go to Home Screen</source>
@@ -3187,6 +3207,18 @@ Cancelar para hacer una búsqueda mínima de dispositivos en su lugar.</translat
     <message>
         <source>Lock Screen</source>
         <translation>Bloquear pantalla</translation>
+    </message>
+    <message>
+        <source>Print to Image</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Printing...</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Print</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
