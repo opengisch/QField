@@ -54,6 +54,7 @@
     <string name="delete_confirm">Eltávolít</string>
     <string name="delete_cancel">Mégsem</string>
     <string name="storage_information_title">Tárolási információk</string>
+    <string name="storage_information_view">Mutasd a dokumentációt</string>
     <string name="storage_information_dismiss">Később olvasom el</string>
     <string name="import_project_wait">Kérjük várjon, amíg a QGIS importálja a projektet</string>
     <string name="import_dataset_wait">Kérjük várjon, amíg a QGIS importálja az adathalmaz(oka)t</string>

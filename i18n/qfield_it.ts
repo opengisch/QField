@@ -1154,23 +1154,23 @@ Le geometrie degli elementi verranno combinati in un elemento &apos;%1&apos; che
     </message>
     <message>
         <source>Print Atlas Feature(s) to Image</source>
-        <translation type="unfinished"/>
+        <translation>Stampa Elementi Atlante come Immagine</translation>
     </message>
     <message>
         <source>Print Atlas Feature to Image</source>
-        <translation type="unfinished"/>
+        <translation>Stampa Elemento Atlante come Immagine</translation>
     </message>
     <message>
         <source>Print Atlas Feature(s)</source>
-        <translation type="unfinished"/>
+        <translation>Stampa Elementi Atlante</translation>
     </message>
     <message>
         <source>Printing...</source>
-        <translation type="unfinished"/>
+        <translation>Stampa in corso...</translation>
     </message>
     <message>
         <source>Atlas feature(s) successfully printed and placed in your project folder</source>
-        <translation type="unfinished"/>
+        <translation>Elementi Atlante stampati correttamente e inseriti nella tua cartella di progetto</translation>
     </message>
 </context>
 <context>
@@ -2330,11 +2330,11 @@ Annullare per eseguire una scansione veloce del dispositivo.</translation>
     </message>
     <message>
         <source>Horizontal accuracy</source>
-        <translation type="unfinished"/>
+        <translation>Accuratezza orizzontale</translation>
     </message>
     <message>
         <source>Vertical accuracy</source>
-        <translation type="unfinished"/>
+        <translation>Accuratezza verticale</translation>
     </message>
     <message>
         <source>PDOP</source>
@@ -2676,11 +2676,11 @@ Annullare per eseguire una scansione veloce del dispositivo.</translation>
     </message>
     <message>
         <source>Horizontal accuracy</source>
-        <translation type="unfinished"/>
+        <translation>Accuratezza orizzontale</translation>
     </message>
     <message>
         <source>Vertical accuracy</source>
-        <translation type="unfinished"/>
+        <translation>Accuratezza verticale</translation>
     </message>
     <message>
         <source>PDOP</source>
@@ -3215,15 +3215,15 @@ Annullare per eseguire una scansione veloce del dispositivo.</translation>
     </message>
     <message>
         <source>Print to Image</source>
-        <translation type="unfinished"/>
+        <translation>Stampa come Immagine</translation>
     </message>
     <message>
         <source>Printing...</source>
-        <translation type="unfinished"/>
+        <translation>Stampa in corso...</translation>
     </message>
     <message>
         <source>Print</source>
-        <translation type="unfinished"/>
+        <translation>Stampa</translation>
     </message>
 </context>
 <context>
