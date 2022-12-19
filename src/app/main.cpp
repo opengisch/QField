@@ -61,10 +61,13 @@ void initGraphics()
   qputenv( "QSG_ANTIALIASING_METHOD", "vertex" );
 #endif
 
+#if not defined( Q_OS_ANDROID )
   // Enables antialiasing in QML scenes
+  // Avoid enabling on Android OS as it leads to serious regressions on old devices
   QSurfaceFormat format;
   format.setSamples( 4 );
   QSurfaceFormat::setDefaultFormat( format );
+#endif
   QGuiApplication::setAttribute( Qt::AA_EnableHighDpiScaling );
 }
 
