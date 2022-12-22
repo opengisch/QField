@@ -1152,23 +1152,23 @@ As xeometrías das entidades combinaranse na entidade &apos;%1&apos;, a cal cons
     </message>
     <message>
         <source>Print Atlas Feature(s) to Image</source>
-        <translation type="unfinished"/>
+        <translation>Imprimir as Entidade(s) do Atlas a Imaxe</translation>
     </message>
     <message>
         <source>Print Atlas Feature to Image</source>
-        <translation type="unfinished"/>
+        <translation>Imprimir Entidade do Atlas a Imaxe</translation>
     </message>
     <message>
         <source>Print Atlas Feature(s)</source>
-        <translation type="unfinished"/>
+        <translation>Imprimir Entidade(s) do Atlas</translation>
     </message>
     <message>
         <source>Printing...</source>
-        <translation type="unfinished"/>
+        <translation>Imprimindo...</translation>
     </message>
     <message>
         <source>Atlas feature(s) successfully printed and placed in your project folder</source>
-        <translation type="unfinished"/>
+        <translation>Imprimíronse con éxito as entidade(s) do Atlas e situáronse no directorio do proxecto</translation>
     </message>
 </context>
 <context>
@@ -2309,15 +2309,15 @@ Cancela para facer, porén, unha exploración mínima do dispositivo.</translati
     </message>
     <message>
         <source>Measure (M) value attached to vertices:</source>
-        <translation type="unfinished"/>
+        <translation>Valor da medida (M) engadido ós vértices:</translation>
     </message>
     <message>
         <source>Timestamp (milliseconds since epoch)</source>
-        <translation type="unfinished"/>
+        <translation>Tempo (milisegundos dende epoch)</translation>
     </message>
     <message>
         <source>Ground speed</source>
-        <translation type="unfinished"/>
+        <translation>Velocidade terrestre</translation>
     </message>
     <message>
         <source>Bearing</source>
@@ -2325,11 +2325,11 @@ Cancela para facer, porén, unha exploración mínima do dispositivo.</translati
     </message>
     <message>
         <source>Horizontal accuracy</source>
-        <translation type="unfinished"/>
+        <translation>Precisión horizontal</translation>
     </message>
     <message>
         <source>Vertical accuracy</source>
-        <translation type="unfinished"/>
+        <translation>Precisión vertical</translation>
     </message>
     <message>
         <source>PDOP</source>
@@ -2345,7 +2345,7 @@ Cancela para facer, porén, unha exploración mínima do dispositivo.</translati
     </message>
     <message>
         <source>When digitizing features with the coordinate cursor locked to the current position, the measurement type selected above will be added to the geometry provided it has an M dimension.</source>
-        <translation type="unfinished"/>
+        <translation>Canso se dixitalizan entidades co cursor de coordenadas bloqueado na posición actual, engadiráselle o tipo de medida seleccionado na parte de arriba á xeometría proporcionada se ten unha dimensión M.</translation>
     </message>
 </context>
 <context>
@@ -2651,19 +2651,19 @@ Cancela para facer, porén, unha exploración mínima do dispositivo.</translati
     </message>
     <message>
         <source>Measure (M) value attached to vertices:</source>
-        <translation type="unfinished"/>
+        <translation>Valor da medida (M) engadido ós vértices:</translation>
     </message>
     <message>
         <source>Elapsed time (seconds since start of tracking)</source>
-        <translation type="unfinished"/>
+        <translation>Tempo transcorrido (segundos dende o inicio do trazado)</translation>
     </message>
     <message>
         <source>Timestamp (milliseconds since epoch)</source>
-        <translation type="unfinished"/>
+        <translation>Tempo (milisegundos dende epoch)</translation>
     </message>
     <message>
         <source>Ground speed</source>
-        <translation type="unfinished"/>
+        <translation>Velocidade terrestre</translation>
     </message>
     <message>
         <source>Bearing</source>
@@ -2671,11 +2671,11 @@ Cancela para facer, porén, unha exploración mínima do dispositivo.</translati
     </message>
     <message>
         <source>Horizontal accuracy</source>
-        <translation type="unfinished"/>
+        <translation>Precisión horizontal</translation>
     </message>
     <message>
         <source>Vertical accuracy</source>
-        <translation type="unfinished"/>
+        <translation>Precisión vertical</translation>
     </message>
     <message>
         <source>PDOP</source>
@@ -2691,7 +2691,7 @@ Cancela para facer, porén, unha exploración mínima do dispositivo.</translati
     </message>
     <message>
         <source>To active the measurement functionality, make sure the vector layer&apos;s geometry type used for the tracking session has an M dimension.</source>
-        <translation type="unfinished"/>
+        <translation>Para activar a funcionalidade de medida, asegúrate de que o tipo de xeometría das capas vectoriais utilizadas para a sesión de trazado teña unha dimensión M.</translation>
     </message>
 </context>
 <context>
@@ -3210,15 +3210,15 @@ Cancela para facer, porén, unha exploración mínima do dispositivo.</translati
     </message>
     <message>
         <source>Print to Image</source>
-        <translation type="unfinished"/>
+        <translation>Imprimir a Imaxe</translation>
     </message>
     <message>
         <source>Printing...</source>
-        <translation type="unfinished"/>
+        <translation>Imprimindo...</translation>
     </message>
     <message>
         <source>Print</source>
-        <translation type="unfinished"/>
+        <translation>Imprimir</translation>
     </message>
 </context>
 <context>
