@@ -143,7 +143,7 @@ Item {
         Layout.columnSpan: 2
         font: Theme.defaultFont
         color: Theme.gray
-        text: qsTr('Bluetooth device name:') + '\n' + (deviceName !== '' ? deviceName : qsTr(' N/A'))
+        text: qsTr('Bluetooth device name:') + '\n ' + (deviceName !== '' ? deviceName : qsTr('N/A'))
         wrapMode: Text.WordWrap
     }
 
@@ -153,7 +153,7 @@ Item {
         Layout.columnSpan: 2
         font: Theme.defaultFont
         color: Theme.gray
-        text: qsTr('Bluetooth device address:') + '\n' + (deviceAddress !== '' ? deviceAddress : qsTr(' N/A'))
+        text: qsTr('Bluetooth device address:') + '\n ' + (deviceAddress !== '' ? deviceAddress : qsTr('N/A'))
         wrapMode: Text.WordWrap
     }
   }
