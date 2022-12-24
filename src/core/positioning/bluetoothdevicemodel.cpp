@@ -38,19 +38,6 @@ BluetoothDeviceModel::BluetoothDeviceModel( QObject *parent )
   connect( &mServiceDiscoveryAgent, &QBluetoothServiceDiscoveryAgent::canceled, [=]() {
     setScanningStatus( Canceled );
   } );
-
-  beginResetModel();
-  mDiscoveredDevices.clear();
-  mDiscoveredDevices.append( qMakePair( tr( "Internal device" ), QString() ) );
-
-  QSettings settings;
-  const QString deviceAddress = settings.value( QStringLiteral( "positioningDevice" ), QString( "" ) ).toString();
-  if ( !deviceAddress.isEmpty() )
-  {
-    const QString deviceName = settings.value( QStringLiteral( "positioningDeviceName" ), QStringLiteral( "Unknown device" ) ).toString();
-    mDiscoveredDevices.append( qMakePair( deviceName, deviceAddress ) );
-  }
-  endResetModel();
 }
 
 void BluetoothDeviceModel::startServiceDiscovery( const bool fullDiscovery )
@@ -87,19 +74,17 @@ void BluetoothDeviceModel::serviceDiscovered( const QBluetoothServiceInfo &servi
   endInsertRows();
 }
 
-int BluetoothDeviceModel::findAddressIndex( const QString &address ) const
+int BluetoothDeviceModel::findIndexFromAddress( const QString &address ) const
 {
-  int idx = 0;
-  for ( const QPair<QString, QString> &device : mDiscoveredDevices )
+  for ( int i = 0; i < mDiscoveredDevices.size(); i++ )
   {
-    if ( device.second == address )
+    if ( mDiscoveredDevices.at( i ).second == address )
     {
-      return idx;
+      return i;
     }
-    ++idx;
   }
-  //if not found, then switch to the internal device (by index 0)
-  return 0;
+
+  return -1;
 }
 
 int BluetoothDeviceModel::rowCount( const QModelIndex &parent ) const

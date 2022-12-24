@@ -6,6 +6,7 @@ Item {
 
   property alias font: textField.font
   property alias text: textField.text
+  property alias placeholderText: textField.placeholderText
   property alias horizontalAlignment: textField.horizontalAlignment
   property alias inputMethodHints: textField.inputMethodHints
   property alias inputMask: textField.inputMask
@@ -29,6 +30,7 @@ Item {
     echoMode: textFieldWrapper.echoMode
     width: textFieldWrapper.width
     font: Theme.defaultFont
+    placeholderTextColor: Theme.accentLightColor
     rightPadding: showPasswordButton.visible ? 2 * showPasswordButton.width : 0
     inputMethodHints: Qt.ImhNone
 

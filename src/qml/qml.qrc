@@ -22,6 +22,7 @@
         <file>NavigationHighlight.qml</file>
         <file>NavigationInformationView.qml</file>
         <file>NavigationRenderer.qml</file>
+        <file>PositioningDeviceSettings.qml</file>
         <file>PositioningSettings.qml</file>
         <file>PositioningInformationView.qml</file>
         <file>PositioningPreciseView.qml</file>

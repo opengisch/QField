@@ -451,6 +451,7 @@ Page {
                               currentIndex = positioningDeviceModel.findIndexFromDeviceId(settings.value('positioningDevice',''))
                           }
                       }
+
                   }
 
                   RowLayout {
@@ -461,7 +462,10 @@ Page {
                         leftPadding: 10
                         rightPadding: 10
                         text: qsTr('Add')
-                        enabled: false
+
+                        onClicked: {
+                          positioningDeviceSettings.open()
+                        }
                       }
 
                       Item {
@@ -482,6 +486,58 @@ Page {
                         text: qsTr('Remove')
                         enabled: false
                       }
+                  }
+
+                  Label {
+                    text: qsTr("Use orthometric altitude from device")
+                    font: Theme.defaultFont
+                    wrapMode: Text.WordWrap
+                    Layout.fillWidth: true
+                    visible: positioningSettings.positioningDevice !== ''
+
+                    MouseArea {
+                      anchors.fill: parent
+                      onClicked: reportOrthometricAltitude.toggle()
+                    }
+                  }
+
+                  QfSwitch {
+                    id: reportOrthometricAltitude
+                    Layout.preferredWidth: implicitContentWidth
+                    Layout.alignment: Qt.AlignTop
+                    visible: positioningSettings.positioningDevice !== ''
+                    checked: !positioningSettings.ellipsoidalElevation
+                    onCheckedChanged: {
+                      positioningSettings.ellipsoidalElevation = !checked
+                    }
+                  }
+
+                  QfButton {
+                    id: connectButton
+                    Layout.fillWidth: true
+                    Layout.columnSpan: 2
+                    Layout.topMargin: 5
+                    text: {
+                      switch (positionSource.device.socketState) {
+                      case QAbstractSocket.ConnectedState:
+                        return qsTr('Connected to %1').arg(positioningSettings.positioningDeviceName)
+                      case QAbstractSocket.UnconnectedState:
+                        return qsTr('Connect to %1').arg(positioningSettings.positioningDeviceName)
+                      default:
+                        return qsTr('Connecting to %1').arg(positioningSettings.positioningDeviceName)
+                      }
+                    }
+                    enabled: positionSource.device.socketState === QAbstractSocket.UnconnectedState
+                    visible: positionSource.deviceId !== ''
+
+                    onClicked: {
+                      // make sure positioning is active when connecting to the bluetooth device
+                      if (!positioningSettings.positioningActivated) {
+                        positioningSettings.positioningActivated = true
+                      } else {
+                        positionSource.device.connectDevice()
+                      }
+                    }
                   }
               }
 
@@ -995,20 +1051,39 @@ Page {
     }
   }
 
-  header: PageHeader {
-      title: qsTr("QField Settings")
+  PositioningDeviceSettings {
+    id: positioningDeviceSettings
 
-      showBackButton: true
-      showApplyButton: false
-      showCancelButton: false
+    onApply: {
+      var name = positioningDeviceSettings.name;
+      var type = positioningDeviceSettings.type;
+      var settings = positioningDeviceSettings.getSettings();
 
-      topMargin: mainWindow.sceneTopMargin
+      if (name === '') {
+        name = positioningDeviceSettings.generateName();
+      }
 
-      onFinished: {
-          parent.finished()
-          variableEditor.apply()
+      var index = positioningDeviceModel.addDevice(type, name, settings);
+      if (index > -1) {
+        positioningDeviceComboBox.currentIndex = index;
       }
     }
+  }
+
+  header: PageHeader {
+    title: qsTr("QField Settings")
+
+    showBackButton: true
+    showApplyButton: false
+    showCancelButton: false
+
+    topMargin: mainWindow.sceneTopMargin
+
+    onFinished: {
+        parent.finished()
+        variableEditor.apply()
+    }
+  }
 
   Keys.onReleased: (event) => {
     if (event.key === Qt.Key_Back || event.key === Qt.Key_Escape) {

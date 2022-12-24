@@ -66,7 +66,7 @@ class PositioningDeviceModel : public QAbstractListModel
 
     Q_INVOKABLE void reloadModel();
 
-    Q_INVOKABLE const QString addDevice( const Type &type, const QString &name, const QVariantMap &deviceSettings );
+    Q_INVOKABLE int addDevice( const Type &type, const QString &name, const QVariantMap &deviceSettings );
 
     Q_INVOKABLE void removeDevice( const QString &name );
 

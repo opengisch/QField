@@ -93,35 +93,36 @@ QVariant PositioningDeviceModel::data( const QModelIndex &index, int role ) cons
   return QVariant();
 }
 
-const QString PositioningDeviceModel::addDevice( const Type &type, const QString &name, const QVariantMap &deviceSettings )
+int PositioningDeviceModel::addDevice( const Type &type, const QString &name, const QVariantMap &deviceSettings )
 {
   if ( name.isEmpty() )
-    return QString();
+    return -1;
 
   QSettings settings;
   settings.beginGroup( "/qfield/positioningDevices" );
   const QStringList deviceKeys = settings.childGroups();
-  if ( deviceKeys.contains( name ) )
+
+  QString uniqueName = name;
+  int suffix = 0;
+  while ( deviceKeys.contains( uniqueName ) )
   {
-    // Remove pre-existing positioning device details
-    settings.beginGroup( name );
-    settings.remove( QString() );
-    settings.endGroup();
+    uniqueName = QStringLiteral( "%1 %2" ).arg( name, QString::number( ++suffix ) );
   }
 
-  settings.beginGroup( name );
+  settings.beginGroup( uniqueName );
   settings.setValue( "type", static_cast<int>( type ) );
   settings.setValue( "settings", deviceSettings );
   settings.endGroup();
 
   settings.endGroup();
 
-  beginInsertRows( QModelIndex(), mDevices.size(), mDevices.size() );
-  Device device( type, name, deviceSettings );
+  const int index = mDevices.size();
+  beginInsertRows( QModelIndex(), index, index );
+  Device device( type, uniqueName, deviceSettings );
   mDevices << device;
   endInsertRows();
 
-  return deviceId( device );
+  return index;
 }
 
 void PositioningDeviceModel::removeDevice( const QString &name )
@@ -154,9 +155,15 @@ void PositioningDeviceModel::removeDevice( const QString &name )
 
 const QString PositioningDeviceModel::deviceId( const Device &device ) const
 {
-  if ( device.type == InternalDevice )
+  switch ( device.type )
   {
-    return QString();
+    case BluetoothDevice:
+      return device.settings.value( QStringLiteral( "address" ) ).toString();
+
+    case InternalDevice:
+    case TcpDevice:
+    case UdpDevice:
+      return QString();
   }
 
   return QString();
