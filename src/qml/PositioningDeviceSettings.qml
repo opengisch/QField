@@ -94,6 +94,8 @@ Popup {
             ComboBox {
                 id: positioningDeviceType
                 Layout.fillWidth: true
+                font: Theme.defaultFont
+                popup.font: Theme.defaultFont
 
                 textRole: "name"
                 valueRole: "value"
