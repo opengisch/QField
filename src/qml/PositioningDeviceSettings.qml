@@ -26,6 +26,15 @@ Popup {
       return positioningDeviceItem.item.generateName();
     }
 
+    function setType(type) {
+      for(var i = 0; i < positioningDeviceType.model.count; i++) {
+        if (positioningDeviceType.model.get(i)["value"] === type) {
+          positioningDeviceType.currentIndex = i;
+          break;
+        }
+      }
+    }
+
     function setSettings(settings) {
       positioningDeviceItem.item.setSettings(settings);
     }

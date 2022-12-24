@@ -9,8 +9,8 @@ import Theme 1.0
 Item {
   width: parent.width
 
-  property string deviceName: 'AAAAAAAAAA'//''
-  property string deviceAddress: 'BB::CC'//''
+  property string deviceName: ''
+  property string deviceAddress: ''
 
   function generateName() {
     return deviceName;
@@ -19,6 +19,8 @@ Item {
   function setSettings(settings) {
     deviceName = settings['name'];
     deviceAddress = settings['address'];
+    var index = bluetoothDeviceModel.addDevice(deviceName, deviceAddress);
+    bluetoothDeviceComboBox.currentIndex = index;
   }
 
   function getSettings() {
@@ -53,6 +55,8 @@ Item {
         popup.font: Theme.defaultFont
 
         enabled: bluetoothDeviceModel.scanningStatus !== BluetoothDeviceModel.Scanning
+
+        textRole: 'display'
         model: BluetoothDeviceModel {
           id: bluetoothDeviceModel
         }

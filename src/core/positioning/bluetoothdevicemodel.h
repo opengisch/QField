@@ -61,6 +61,8 @@ class BluetoothDeviceModel : public QAbstractListModel
 
     QHash<int, QByteArray> roleNames() const override;
 
+    Q_INVOKABLE int addDevice( const QString &name, const QString &address );
+
     Q_INVOKABLE void startServiceDiscovery( const bool fullDiscovery );
     Q_INVOKABLE int findIndexFromAddress( const QString &address ) const;
 

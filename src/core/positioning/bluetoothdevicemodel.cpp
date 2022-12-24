@@ -142,3 +142,24 @@ void BluetoothDeviceModel::setLastError( const QString &lastError )
   mLastError = lastError;
   emit lastErrorChanged( mLastError );
 }
+
+int BluetoothDeviceModel::addDevice( const QString &name, const QString &address )
+{
+  if ( name.isEmpty() || address.isEmpty() )
+    return -1;
+
+  for ( int i = 0; i < mDiscoveredDevices.size(); i++ )
+  {
+    if ( mDiscoveredDevices.at( i ).first == name && mDiscoveredDevices.at( i ).second == address )
+    {
+      return i;
+    }
+  }
+
+  int index = mDiscoveredDevices.size();
+  beginInsertRows( QModelIndex(), index, index );
+  mDiscoveredDevices << qMakePair( name, address );
+  endInsertRows();
+
+  return index;
+}

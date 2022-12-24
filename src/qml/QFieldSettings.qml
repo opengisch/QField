@@ -464,6 +464,8 @@ Page {
                         text: qsTr('Add')
 
                         onClicked: {
+                          positioningDeviceSettings.originalName = '';
+                          positioningDeviceSettings.name = '';
                           positioningDeviceSettings.open()
                         }
                       }
@@ -477,7 +479,17 @@ Page {
                         leftPadding: 10
                         rightPadding: 10
                         text: qsTr('Edit')
-                        enabled: false
+                        enabled: positioningDeviceComboBox.currentIndex > 0
+
+                        onClicked: {
+                          var modelIndex = positioningDeviceModel.index(positioningDeviceComboBox.currentIndex, 0);
+                          var name = positioningDeviceModel.data(modelIndex, PositioningDeviceModel.DeviceName);
+                          positioningDeviceSettings.originalName = name;
+                          positioningDeviceSettings.name = name;
+                          positioningDeviceSettings.setType(positioningDeviceModel.data(modelIndex, PositioningDeviceModel.DeviceType))
+                          positioningDeviceSettings.setSettings(positioningDeviceModel.data(modelIndex, PositioningDeviceModel.DeviceSettings))
+                          positioningDeviceSettings.open();
+                        }
                       }
 
                       QfButton {
@@ -1060,7 +1072,13 @@ Page {
   PositioningDeviceSettings {
     id: positioningDeviceSettings
 
+    property string originalName: ''
+
     onApply: {
+      if (originalName != '') {
+        positioningDeviceModel.removeDevice(originalName);
+      }
+
       var name = positioningDeviceSettings.name;
       var type = positioningDeviceSettings.type;
       var settings = positioningDeviceSettings.getSettings();
