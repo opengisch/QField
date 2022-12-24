@@ -64,14 +64,33 @@ class PositioningDeviceModel : public QAbstractListModel
     int rowCount( const QModelIndex &parent ) const override;
     QVariant data( const QModelIndex &index, int role ) const override;
 
+    /**
+     * Reloads the model from the user settings
+     */
     Q_INVOKABLE void reloadModel();
 
+    /**
+     * Adds a positioning device to the user settings
+     * \param type device type
+     * \param name friendly device name used as identifier in the user interface
+     * \param settings settings map (used to generate the positioning device ID, editing, etc.)
+     */
     Q_INVOKABLE int addDevice( const Type &type, const QString &name, const QVariantMap &deviceSettings );
 
+    /**
+     * Removes the positioning device \a name from the user settings
+     */
     Q_INVOKABLE void removeDevice( const QString &name );
 
+    /**
+     * Returns the device ID string for a specific \a device
+     * \note this is the string to be used with the Positioning deviceId property
+     */
     Q_INVOKABLE const QString deviceId( const Device &device ) const;
 
+    /**
+     * Returns the row index for a given device ID
+     */
     Q_INVOKABLE int findIndexFromDeviceId( const QString &id );
 
   private:
