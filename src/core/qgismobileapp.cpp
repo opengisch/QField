@@ -77,6 +77,7 @@
 #include "orderedrelationmodel.h"
 #include "picturesource.h"
 #include "positioning.h"
+#include "positioningdevicemodel.h"
 #include "positioningutils.h"
 #include "printlayoutlistmodel.h"
 #include "projectinfo.h"
@@ -461,6 +462,7 @@ void QgisMobileapp::initDeclarative()
   qmlRegisterType<Navigation>( "org.qfield", 1, 0, "Navigation" );
   qmlRegisterType<NavigationModel>( "org.qfield", 1, 0, "NavigationModel" );
   qmlRegisterType<Positioning>( "org.qfield", 1, 0, "Positioning" );
+  qmlRegisterType<PositioningDeviceModel>( "org.qfield", 1, 0, "PositioningDeviceModel" );
   qmlRegisterType<BarcodeDecoder>( "org.qfield", 1, 0, "BarcodeDecoder" );
 #if QT_VERSION < QT_VERSION_CHECK( 6, 0, 0 )
   qmlRegisterType<BarcodeVideoFilter>( "org.qfield", 1, 0, "BarcodeVideoFilter" );

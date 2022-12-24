@@ -404,11 +404,86 @@ Page {
               width: parent.parent.width
               spacing: 10
 
-            Loader {
-                Layout.fillWidth: true
-                active: withBluetooth
-                source: "qrc:/qml/BluetoothDeviceChooser.qml"
-            }
+              GridLayout {
+                  Layout.fillWidth: true
+
+                  columns: 2
+                  columnSpacing: 0
+                  rowSpacing: 5
+
+                  Label {
+                      Layout.fillWidth: true
+                      Layout.columnSpan: 2
+                      text: qsTr( "Positioning device in use:" )
+                      font: Theme.defaultFont
+
+                      wrapMode: Text.WordWrap
+                  }
+
+                  RowLayout {
+                      Layout.fillWidth: true
+                      Layout.columnSpan: 2
+
+                      ComboBox {
+                          id: positioningDeviceComboBox
+                          Layout.fillWidth: true
+                          Layout.alignment: Qt.AlignVCenter
+                          font: Theme.defaultFont
+                          popup.font: Theme.defaultFont
+                          textRole: 'display'
+                          model: PositioningDeviceModel {
+                              id: positioningDeviceModel
+                          }
+
+                          property string selectedPositioningDevice
+
+                          onCurrentIndexChanged: {
+                              var modelIndex = positioningDeviceModel.index(currentIndex, 0);
+                              selectedPositioningDevice = positioningDeviceModel.data(modelIndex, PositioningDeviceModel.DeviceId);
+                              if( positioningSettings.positioningDevice !== selectedPositioningDevice )
+                              {
+                                  positioningSettings.positioningDevice = selectedPositioningDevice
+                                  positioningSettings.positioningDeviceName = positioningDeviceModel.data(modelIndex, PositioningDeviceModel.DeviceName);
+                              }
+                          }
+
+                          Component.onCompleted: {
+                              currentIndex = positioningDeviceModel.findIndexFromDeviceId(settings.value('positioningDevice',''))
+                          }
+                      }
+                  }
+
+                  RowLayout {
+                      Layout.fillWidth: true
+                      Layout.columnSpan: 2
+
+                      QfButton {
+                        leftPadding: 10
+                        rightPadding: 10
+                        text: qsTr('Add')
+                        enabled: false
+                      }
+
+                      Item {
+                          Layout.fillWidth: true
+                          Layout.alignment: Qt.AlignVCenter
+                      }
+
+                      QfButton {
+                        leftPadding: 10
+                        rightPadding: 10
+                        text: qsTr('Edit')
+                        enabled: false
+                      }
+
+                      QfButton {
+                        leftPadding: 10
+                        rightPadding: 10
+                        text: qsTr('Remove')
+                        enabled: false
+                      }
+                  }
+              }
 
               GridLayout {
                   Layout.fillWidth: true
