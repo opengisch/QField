@@ -9,8 +9,8 @@ import Theme 1.0
 Item {
   width: parent.width
 
-  property string deviceName: ''
-  property string deviceAddress: ''
+  property string deviceName: 'AAAAAAAAAA'//''
+  property string deviceAddress: 'BB::CC'//''
 
   function generateName() {
     return deviceName;

@@ -484,7 +484,13 @@ Page {
                         leftPadding: 10
                         rightPadding: 10
                         text: qsTr('Remove')
-                        enabled: false
+                        enabled: positioningDeviceComboBox.currentIndex > 0
+
+                        onClicked: {
+                          var modelIndex = positioningDeviceModel.index(positioningDeviceComboBox.currentIndex, 0);
+                          positioningDeviceComboBox.currentIndex = 0;
+                          positioningDeviceModel.removeDevice(positioningDeviceModel.data(modelIndex, PositioningDeviceModel.DeviceName));
+                        }
                       }
                   }
 

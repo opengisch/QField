@@ -144,7 +144,7 @@ void PositioningDeviceModel::removeDevice( const QString &name )
 
   for ( int i = 0; i < mDevices.size(); i++ )
   {
-    if ( mDevices.at( 0 ).name == name )
+    if ( mDevices.at( i ).name == name )
     {
       beginRemoveRows( QModelIndex(), i, i );
       mDevices.removeAt( i );
