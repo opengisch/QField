@@ -188,13 +188,6 @@ class QFIELD_CORE_EXPORT QgisMobileapp : public QQmlApplicationEngine
 
   private slots:
 
-    /**
-     * Is called when a project is read.
-     * Saves the last project location for auto-load on next start.
-     * @param doc The xml content
-     */
-    void onReadProject( const QDomDocument &doc );
-
     void onAfterFirstRendering();
 
     void requestQuit();

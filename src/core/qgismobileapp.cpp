@@ -321,8 +321,6 @@ QgisMobileapp::QgisMobileapp( QgsApplication *app, QObject *parent )
   mFlatLayerTree->layerTreeModel()->setLegendMapViewData( mMapCanvas->mapSettings()->mapSettings().mapUnitsPerPixel(),
                                                           static_cast<int>( std::round( mMapCanvas->mapSettings()->outputDpi() ) ), mMapCanvas->mapSettings()->mapSettings().scale() );
 
-  connect( mProject, &QgsProject::readProject, this, &QgisMobileapp::onReadProject );
-
   mLayerTreeCanvasBridge = new LayerTreeMapCanvasBridge( mFlatLayerTree, mMapCanvas->mapSettings(), mTrackingModel, this );
 
   connect( this, &QgisMobileapp::loadProjectTriggered, mIface, &AppInterface::loadProjectTriggered );
@@ -591,31 +589,6 @@ void QgisMobileapp::saveRecentProjects( QList<QPair<QString, QString>> &projects
     settings.setValue( QStringLiteral( "title" ), projects.at( idx ).first );
     settings.setValue( QStringLiteral( "path" ), projects.at( idx ).second );
     settings.endGroup();
-  }
-}
-
-void QgisMobileapp::onReadProject( const QDomDocument &doc )
-{
-  Q_UNUSED( doc )
-  QMap<QgsVectorLayer *, QgsFeatureRequest> requests;
-
-  const QList<QgsMapLayer *> mapLayers { mProject->mapLayers().values() };
-  for ( QgsMapLayer *layer : mapLayers )
-  {
-    QgsVectorLayer *vl = qobject_cast<QgsVectorLayer *>( layer );
-    if ( vl )
-    {
-      const QVariant itinerary = vl->customProperty( "qgisMobile/itinerary" );
-      if ( itinerary.isValid() )
-      {
-        requests.insert( vl, QgsFeatureRequest().setFilterExpression( itinerary.toString() ) );
-      }
-    }
-  }
-  if ( requests.count() )
-  {
-    qDebug() << QString( "Loading itinerary for %1 layers." ).arg( requests.count() );
-    mIface->openFeatureForm();
   }
 }
 
