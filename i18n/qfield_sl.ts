@@ -462,7 +462,7 @@ Cancel to make a minimal device scan instead.</source>
     <name>DigitizingToolbar</name>
     <message>
         <source>Position accuracy doesn&apos;t meet the minimum requirement, vertex not added</source>
-        <translation type="unfinished"/>
+        <translation>Natančnost položaja ne izpolnjuje minimalne zahteve, oglišče ni dodano</translation>
     </message>
     <message>
         <source>Cancel digitizing</source>
@@ -1155,7 +1155,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Printing...</source>
-        <translation type="unfinished"/>
+        <translation>Tiskam...</translation>
     </message>
     <message>
         <source>Atlas feature(s) successfully printed and placed in your project folder</source>
@@ -1660,7 +1660,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Reset project</source>
-        <translation type="unfinished"/>
+        <translation>Ponastavi projekt</translation>
     </message>
     <message>
         <source>Revert all modified features in the local layers. You cannot restore those changes.</source>
@@ -1940,11 +1940,11 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Downloading project %1</source>
-        <translation type="unfinished"/>
+        <translation>Prenašam projekt %1</translation>
     </message>
     <message>
         <source>Download Project</source>
-        <translation type="unfinished"/>
+        <translation>Prenesi projekt</translation>
     </message>
     <message>
         <source>Open Project</source>
@@ -1952,11 +1952,11 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Remove Stored Project</source>
-        <translation type="unfinished"/>
+        <translation>Odstrani shranjen projekt</translation>
     </message>
     <message>
         <source>Cancel Project Download</source>
-        <translation type="unfinished"/>
+        <translation>Prekliči prenos projekta</translation>
     </message>
     <message>
         <source>Press and hold over a cloud project for a menu of additional actions.</source>
@@ -1964,15 +1964,15 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Refresh projects list</source>
-        <translation type="unfinished"/>
+        <translation>Osveži seznam projektov</translation>
     </message>
     <message>
         <source>Refreshing projects list</source>
-        <translation type="unfinished"/>
+        <translation>Osvežujem seznam projektov</translation>
     </message>
     <message>
         <source>No projects found</source>
-        <translation type="unfinished"/>
+        <translation>Ni najdenih projektov</translation>
     </message>
 </context>
 <context>
@@ -2031,15 +2031,15 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Remove project folder</source>
-        <translation type="unfinished"/>
+        <translation>Odstrani mapo projekta</translation>
     </message>
     <message>
         <source>Import project from folder</source>
-        <translation type="unfinished"/>
+        <translation>Uvozi projekt iz mape</translation>
     </message>
     <message>
         <source>Import project from ZIP</source>
-        <translation type="unfinished"/>
+        <translation>Uvozi projekt iz ZIP datoteke</translation>
     </message>
     <message>
         <source>Import dataset(s)</source>
@@ -2307,11 +2307,11 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Horizontal accuracy</source>
-        <translation type="unfinished"/>
+        <translation>Horizontalna natančnost</translation>
     </message>
     <message>
         <source>Vertical accuracy</source>
-        <translation type="unfinished"/>
+        <translation>Vertikalna natančnost</translation>
     </message>
     <message>
         <source>PDOP</source>
@@ -2653,11 +2653,11 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Horizontal accuracy</source>
-        <translation type="unfinished"/>
+        <translation>Horizontalna natančnost</translation>
     </message>
     <message>
         <source>Vertical accuracy</source>
-        <translation type="unfinished"/>
+        <translation>Vertikalna natančnost</translation>
     </message>
     <message>
         <source>PDOP</source>
@@ -3192,15 +3192,15 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Print to Image</source>
-        <translation type="unfinished"/>
+        <translation>Tiskanje v sliko</translation>
     </message>
     <message>
         <source>Printing...</source>
-        <translation type="unfinished"/>
+        <translation>Tiskam...</translation>
     </message>
     <message>
         <source>Print</source>
-        <translation type="unfinished"/>
+        <translation>Tisk</translation>
     </message>
 </context>
 <context>
