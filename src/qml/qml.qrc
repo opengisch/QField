@@ -29,6 +29,7 @@
         <file>QFieldSettings.qml</file>
         <file>ScaleBar.qml</file>
         <file>TcpDeviceChooser.qml</file>
+        <file>UdpDeviceChooser.qml</file>
         <file>VariableEditor.qml</file>
         <file>WelcomeScreen.qml</file>
         <file>editorwidgets/EditorWidgetBase.qml</file>

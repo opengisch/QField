@@ -102,6 +102,7 @@ Popup {
                 model: ListModel {
                   ListElement { name: qsTr('Bluetooth (NMEA)'); value: PositioningDeviceModel.BluetoothDevice }
                   ListElement { name: qsTr('TCP (NMEA)'); value: PositioningDeviceModel.TcpDevice }
+                  ListElement { name: qsTr('UDP (NMEA)'); value: PositioningDeviceModel.UdpDevice }
                 }
             }
 
@@ -115,8 +116,10 @@ Popup {
                       return "qrc:/qml/BluetoothDeviceChooser.qml";
                     case PositioningDeviceModel.TcpDevice:
                       return "qrc:/qml/TcpDeviceChooser.qml";
-                    }
-                    return '';
+                    case PositioningDeviceModel.UdpDevice:
+                      return "qrc:/qml/UdpDeviceChooser.qml";
+                  }
+                  return '';
                 }
             }
         }

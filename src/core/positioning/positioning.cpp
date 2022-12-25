@@ -21,6 +21,7 @@
 #include "positioning.h"
 #include "positioningutils.h"
 #include "tcpreceiver.h"
+#include "udpreceiver.h"
 
 Positioning::Positioning( QObject *parent )
   : QObject( parent )
@@ -141,6 +142,13 @@ void Positioning::setupDevice()
       const QString address = mDeviceId.mid( 4, portSeparator - 4 );
       const int port = mDeviceId.mid( portSeparator + 1 ).toInt();
       mReceiver = std::make_unique<TcpReceiver>( address, port, this );
+    }
+    else if ( mDeviceId.startsWith( QStringLiteral( "udp:" ) ) )
+    {
+      int portSeparator = mDeviceId.lastIndexOf( ':' );
+      const QString address = mDeviceId.mid( 4, portSeparator - 4 );
+      const int port = mDeviceId.mid( portSeparator + 1 ).toInt();
+      mReceiver = std::make_unique<UdpReceiver>( address, port, this );
     }
     else
     {

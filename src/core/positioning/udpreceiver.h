@@ -1,10 +1,10 @@
 /***************************************************************************
- tcpreceiver.h - TcpReceiver
+ udpreceiver.h - UdpReceiver
 
  ---------------------
- begin                : September 2022
- copyright            : (C) 2022 by Matthias Kuhn
- email                : matthias@opengis.ch
+ begin                : December 2022
+ copyright            : (C) 2022 by Mathieu Pellerin
+ email                : mathieu@opengis.ch
  ***************************************************************************
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
@@ -13,25 +13,26 @@
  *   (at your option) any later version.                                   *
  *                                                                         *
  ***************************************************************************/
-#ifndef TCPRECEIVER_H
-#define TCPRECEIVER_H
+#ifndef UDPRECEIVER_H
+#define UDPRECEIVER_H
 
 #include "nmeagnssreceiver.h"
 
+#include <QBuffer>
 #include <QObject>
-#include <QTcpSocket>
 #include <QTimer>
+#include <QUdpSocket>
 
 /**
- * The TcpReceiver connects to a device and feeds the QgsNmeaConnection over a TCP socket.
+ * The UdpReceiver connects to a device and feeds the QgsNmeaConnection over a UDP socket.
  * It receives QgsGpsInformation and converts it to GnssPositionInformation
  */
-class TcpReceiver : public NmeaGnssReceiver
+class UdpReceiver : public NmeaGnssReceiver
 {
     Q_OBJECT
 
   public:
-    explicit TcpReceiver( const QString &address = QString(), const int port = 0, QObject *parent = nullptr );
+    explicit UdpReceiver( const QString &address = QString(), const int port = 0, QObject *parent = nullptr );
 
   private slots:
 
@@ -43,10 +44,11 @@ class TcpReceiver : public NmeaGnssReceiver
 
     QString mAddress;
     int mPort = 0;
-    QTcpSocket *mSocket = nullptr;
+    QUdpSocket *mSocket = nullptr;
+    QBuffer *mBuffer = nullptr;
 
     bool mReconnectOnDisconnect = false;
     QTimer mReconnectTimer;
 };
 
-#endif // TCPRECEIVER_H
+#endif // UDPRECEIVER_H

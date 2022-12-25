@@ -167,7 +167,7 @@ const QString PositioningDeviceModel::deviceId( const Device &device ) const
       return QStringLiteral( "tcp:%1:%2" ).arg( device.settings.value( QStringLiteral( "address" ) ).toString(), QString::number( device.settings.value( QStringLiteral( "port" ) ).toInt() ) );
 
     case UdpDevice:
-      return QString();
+      return QStringLiteral( "udp:%1:%2" ).arg( device.settings.value( QStringLiteral( "address" ) ).toString(), QString::number( device.settings.value( QStringLiteral( "port" ) ).toInt() ) );
   }
 
   return QString();

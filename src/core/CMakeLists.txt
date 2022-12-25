@@ -25,6 +25,7 @@ set(QFIELD_CORE_SRCS
     positioning/internalgnssreceiver.cpp
     positioning/nmeagnssreceiver.cpp
     positioning/tcpreceiver.cpp
+    positioning/udpreceiver.cpp
     positioning/positioning.cpp
     positioning/positioningdevicemodel.cpp
     appcoordinateoperationhandlers.cpp
@@ -126,6 +127,7 @@ set(QFIELD_CORE_HDRS
     positioning/internalgnssreceiver.h
     positioning/nmeagnssreceiver.h
     positioning/tcpreceiver.h
+    positioning/udpreceiver.h
     appcoordinateoperationhandlers.h
     appinterface.h
     attributeformmodel.h
