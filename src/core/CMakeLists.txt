@@ -23,6 +23,7 @@ set(QFIELD_CORE_SRCS
     locator/locatormodelsuperbridge.cpp
     positioning/gnsspositioninformation.cpp
     positioning/internalgnssreceiver.cpp
+    positioning/nmeagnssreceiver.cpp
     positioning/positioning.cpp
     positioning/positioningdevicemodel.cpp
     appcoordinateoperationhandlers.cpp
@@ -122,6 +123,7 @@ set(QFIELD_CORE_HDRS
     positioning/positioning.h
     positioning/positioningdevicemodel.h
     positioning/internalgnssreceiver.h
+    positioning/nmeagnssreceiver.cpp
     appcoordinateoperationhandlers.h
     appinterface.h
     attributeformmodel.h

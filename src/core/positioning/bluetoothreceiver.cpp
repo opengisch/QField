@@ -21,21 +21,19 @@
 #include <QSettings>
 
 BluetoothReceiver::BluetoothReceiver( const QString &address, QObject *parent )
-  : AbstractGnssReceiver( parent )
+  : NmeaGnssReceiver( parent )
   , mAddress( address )
   , mLocalDevice( std::make_unique<QBluetoothLocalDevice>() )
   , mSocket( new QBluetoothSocket( QBluetoothServiceInfo::RfcommProtocol ) )
-  , mGpsConnection( std::make_unique<QgsNmeaConnection>( mSocket ) )
 {
   connect( mSocket, &QBluetoothSocket::stateChanged, this, &BluetoothReceiver::setSocketState );
 #if QT_VERSION < QT_VERSION_CHECK( 6, 0, 0 )
   connect( mSocket, qOverload<QBluetoothSocket::SocketError>( &QBluetoothSocket::error ), this, &BluetoothReceiver::handleError );
 #else
-  connect( mSocket, qOverload<QBluetoothSocket::SocketError>( &QBluetoothSocket::errorOccurred ), this, &BluetoothReceiver::handleError );
+  connect( mSocket.get(), qOverload<QBluetoothSocket::SocketError>( &QBluetoothSocket::errorOccurred ), this, &BluetoothReceiver::handleError );
 #endif
 
-  //QgsGpsConnection state changed (received location string)
-  connect( mGpsConnection.get(), &QgsGpsConnection::stateChanged, this, &BluetoothReceiver::stateChanged );
+  initNmeaConnection( mSocket );
 
   setValid( !mAddress.isEmpty() );
 }
@@ -109,30 +107,6 @@ void BluetoothReceiver::doConnectDevice()
 #else
   mSocket->connectToService( QBluetoothAddress( mAddress ), QBluetoothUuid( QBluetoothUuid::ServiceClassUuid::SerialPort ), QBluetoothSocket::ReadOnly );
 #endif
-}
-
-void BluetoothReceiver::stateChanged( const QgsGpsInformation &info )
-{
-  if ( mLastGnssPositionValid && std::isnan( info.latitude )               // we already sent a valid position
-       || info.utcDateTime == mLastGnssPositionInformation.utcDateTime() ) // we group updates by timestamp, if the last block is not finished, return
-  {
-    return;
-  }
-  mLastGnssPositionValid = !std::isnan( info.latitude );
-  emit lastGnssPositionInformationChanged( mLastGnssPositionInformation );
-
-  bool ellipsoidalElevation = false;
-  if ( Positioning *positioning = qobject_cast<Positioning *>( parent() ) )
-  {
-    ellipsoidalElevation = positioning->ellipsoidalElevation();
-  }
-
-  // QgsGpsInformation's speed is served in km/h, translate to m/s
-  mLastGnssPositionInformation = GnssPositionInformation( info.latitude, info.longitude, ellipsoidalElevation ? info.elevation + info.elevation_diff : info.elevation,
-                                                          info.speed * 1000 / 60 / 60, info.direction, info.satellitesInView, info.pdop, info.hdop, info.vdop,
-                                                          info.hacc, info.vacc, info.utcDateTime, info.fixMode, info.fixType, info.quality, info.satellitesUsed, info.status,
-                                                          info.satPrn, info.satInfoComplete, std::numeric_limits<double>::quiet_NaN(), std::numeric_limits<double>::quiet_NaN(),
-                                                          0, QStringLiteral( "nmea" ) );
 }
 
 void BluetoothReceiver::setSocketState( const QBluetoothSocket::SocketState socketState )
