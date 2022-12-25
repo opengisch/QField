@@ -45,7 +45,7 @@ class TcpReceiver : public NmeaGnssReceiver
     QString mAddress;
     int mPort = 0;
 
-    bool mDisconnecting = false;
+    bool mReconnectOnDisconnect = false;
     QTimer mReconnectTimer;
 };
 

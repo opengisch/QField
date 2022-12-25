@@ -47,7 +47,7 @@ void TcpReceiver::handleConnectDevice()
 
 void TcpReceiver::handleDisconnectDevice()
 {
-  mDisconnecting = true;
+  mReconnectOnDisconnect = false;
   mSocket->disconnectFromHost();
 }
 
@@ -67,13 +67,14 @@ void TcpReceiver::setSocketState( const QAbstractSocket::SocketState socketState
     }
     case QAbstractSocket::ConnectedState:
     {
+      mReconnectOnDisconnect = true;
       mSocketStateString = tr( "Successfully connected" );
       break;
     }
     case QAbstractSocket::UnconnectedState:
     {
       mSocketStateString = tr( "Disconnected" );
-      if ( !mDisconnecting )
+      if ( mReconnectOnDisconnect )
       {
         mSocketStateString.append( QStringLiteral( ": %1" ).arg( mSocket->errorString() ) );
         mReconnectTimer.start( 2000 );

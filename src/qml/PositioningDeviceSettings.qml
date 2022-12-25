@@ -100,7 +100,8 @@ Popup {
                 textRole: "name"
                 valueRole: "value"
                 model: ListModel {
-                  ListElement { name: qsTr('Bluetooth'); value: PositioningDeviceModel.BluetoothDevice }
+                  ListElement { name: qsTr('Bluetooth (NMEA)'); value: PositioningDeviceModel.BluetoothDevice }
+                  ListElement { name: qsTr('TCP (NMEA)'); value: PositioningDeviceModel.TcpDevice }
                 }
             }
 
@@ -108,9 +109,15 @@ Popup {
                 id: positioningDeviceItem
                 Layout.fillWidth: true
                 Layout.fillHeight: true
-                source: positioningDeviceType.currentValue === PositioningDeviceModel.BluetoothDevice
-                        ? "qrc:/qml/BluetoothDeviceChooser.qml"
-                        : ""
+                source: {
+                  switch(positioningDeviceType.currentValue) {
+                    case PositioningDeviceModel.BluetoothDevice:
+                      return "qrc:/qml/BluetoothDeviceChooser.qml";
+                    case PositioningDeviceModel.TcpDevice:
+                      return "qrc:/qml/TcpDeviceChooser.qml";
+                    }
+                    return '';
+                }
             }
         }
     }

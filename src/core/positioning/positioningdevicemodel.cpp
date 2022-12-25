@@ -157,11 +157,15 @@ const QString PositioningDeviceModel::deviceId( const Device &device ) const
 {
   switch ( device.type )
   {
+    case InternalDevice:
+      return QString();
+
     case BluetoothDevice:
       return device.settings.value( QStringLiteral( "address" ) ).toString();
 
-    case InternalDevice:
     case TcpDevice:
+      return QStringLiteral( "tcp:%1:%2" ).arg( device.settings.value( QStringLiteral( "address" ) ).toString(), QString::number( device.settings.value( QStringLiteral( "port" ) ).toInt() ) );
+
     case UdpDevice:
       return QString();
   }
