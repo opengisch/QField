@@ -68,7 +68,7 @@ class BluetoothReceiver : public NmeaGnssReceiver
     QBluetoothSocket *mSocket = nullptr;
 
     bool mDisconnecting = false;
-    bool mConnectOnDisconnect;
+    bool mConnectOnDisconnect = false;
 };
 
 #endif // BLUETOOTHRECEIVER_H
