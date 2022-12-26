@@ -32,6 +32,7 @@ class TcpReceiver : public NmeaGnssReceiver
 
   public:
     explicit TcpReceiver( const QString &address = QString(), const int port = 0, QObject *parent = nullptr );
+    ~TcpReceiver() override;
 
   private slots:
 
@@ -43,7 +44,7 @@ class TcpReceiver : public NmeaGnssReceiver
 
     QString mAddress;
     int mPort = 0;
-    std::unique_ptr<QTcpSocket> mSocket;
+    QTcpSocket *mSocket = nullptr;
 
     bool mReconnectOnDisconnect = false;
     QTimer mReconnectTimer;

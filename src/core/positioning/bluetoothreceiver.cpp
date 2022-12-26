@@ -24,18 +24,24 @@ BluetoothReceiver::BluetoothReceiver( const QString &address, QObject *parent )
   : NmeaGnssReceiver( parent )
   , mAddress( address )
   , mLocalDevice( std::make_unique<QBluetoothLocalDevice>() )
-  , mSocket( std::make_unique<QBluetoothSocket>( QBluetoothServiceInfo::RfcommProtocol ) )
+  , mSocket( new QBluetoothSocket( QBluetoothServiceInfo::RfcommProtocol ) )
 {
-  connect( mSocket.get(), &QBluetoothSocket::stateChanged, this, &BluetoothReceiver::setSocketState );
+  connect( mSocket, &QBluetoothSocket::stateChanged, this, &BluetoothReceiver::setSocketState );
 #if QT_VERSION < QT_VERSION_CHECK( 6, 0, 0 )
-  connect( mSocket.get(), qOverload<QBluetoothSocket::SocketError>( &QBluetoothSocket::error ), this, &BluetoothReceiver::handleError );
+  connect( mSocket, qOverload<QBluetoothSocket::SocketError>( &QBluetoothSocket::error ), this, &BluetoothReceiver::handleError );
 #else
-  connect( mSocket.get(), qOverload<QBluetoothSocket::SocketError>( &QBluetoothSocket::errorOccurred ), this, &BluetoothReceiver::handleError );
+  connect( mSocket, qOverload<QBluetoothSocket::SocketError>( &QBluetoothSocket::errorOccurred ), this, &BluetoothReceiver::handleError );
 #endif
 
-  initNmeaConnection( mSocket.get() );
+  initNmeaConnection( mSocket );
 
   setValid( !mAddress.isEmpty() );
+}
+
+BluetoothReceiver::~BluetoothReceiver()
+{
+  mSocket->deleteLater();
+  mSocket = nullptr;
 }
 
 void BluetoothReceiver::handleDisconnectDevice()

@@ -33,6 +33,7 @@ class UdpReceiver : public NmeaGnssReceiver
 
   public:
     explicit UdpReceiver( const QString &address = QString(), const int port = 0, QObject *parent = nullptr );
+    ~UdpReceiver() override;
 
   private slots:
 
@@ -44,8 +45,8 @@ class UdpReceiver : public NmeaGnssReceiver
 
     QString mAddress;
     int mPort = 0;
-    std::unique_ptr<QUdpSocket> mSocket;
-    std::unique_ptr<QBuffer> mBuffer;
+    QUdpSocket *mSocket = nullptr;
+    QBuffer *mBuffer = nullptr;
 
     bool mReconnectOnDisconnect = false;
     QTimer mReconnectTimer;
