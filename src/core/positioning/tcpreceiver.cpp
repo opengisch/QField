@@ -22,9 +22,9 @@ TcpReceiver::TcpReceiver( const QString &address, const int port, QObject *paren
   : NmeaGnssReceiver( parent )
   , mAddress( address )
   , mPort( port )
-  , mSocket( new QTcpSocket() )
+  , mSocket( std::make_unique<QTcpSocket>() )
 {
-  connect( mSocket, &QAbstractSocket::stateChanged, this, &TcpReceiver::setSocketState );
+  connect( mSocket.get(), &QAbstractSocket::stateChanged, this, &TcpReceiver::setSocketState );
 
   mReconnectTimer.setSingleShot( true );
   connect( &mReconnectTimer, &QTimer::timeout, this, [this]() {
@@ -32,7 +32,7 @@ TcpReceiver::TcpReceiver( const QString &address, const int port, QObject *paren
   } );
 
   setValid( !mAddress.isEmpty() && mPort > 0 );
-  initNmeaConnection( mSocket );
+  initNmeaConnection( mSocket.get() );
 }
 
 void TcpReceiver::handleConnectDevice()

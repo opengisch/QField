@@ -24,16 +24,16 @@ BluetoothReceiver::BluetoothReceiver( const QString &address, QObject *parent )
   : NmeaGnssReceiver( parent )
   , mAddress( address )
   , mLocalDevice( std::make_unique<QBluetoothLocalDevice>() )
-  , mSocket( new QBluetoothSocket( QBluetoothServiceInfo::RfcommProtocol ) )
+  , mSocket( std::make_unique<QBluetoothSocket>( QBluetoothServiceInfo::RfcommProtocol ) )
 {
-  connect( mSocket, &QBluetoothSocket::stateChanged, this, &BluetoothReceiver::setSocketState );
+  connect( mSocket.get(), &QBluetoothSocket::stateChanged, this, &BluetoothReceiver::setSocketState );
 #if QT_VERSION < QT_VERSION_CHECK( 6, 0, 0 )
-  connect( mSocket, qOverload<QBluetoothSocket::SocketError>( &QBluetoothSocket::error ), this, &BluetoothReceiver::handleError );
+  connect( mSocket.get(), qOverload<QBluetoothSocket::SocketError>( &QBluetoothSocket::error ), this, &BluetoothReceiver::handleError );
 #else
   connect( mSocket.get(), qOverload<QBluetoothSocket::SocketError>( &QBluetoothSocket::errorOccurred ), this, &BluetoothReceiver::handleError );
 #endif
 
-  initNmeaConnection( mSocket );
+  initNmeaConnection( mSocket.get() );
 
   setValid( !mAddress.isEmpty() );
 }

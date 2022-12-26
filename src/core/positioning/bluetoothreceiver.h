@@ -33,7 +33,6 @@ class BluetoothReceiver : public NmeaGnssReceiver
 
   public:
     explicit BluetoothReceiver( const QString &address = QString(), QObject *parent = nullptr );
-    ~BluetoothReceiver() override {}
 
   private slots:
     /**
@@ -65,7 +64,7 @@ class BluetoothReceiver : public NmeaGnssReceiver
     QString mAddress;
 
     std::unique_ptr<QBluetoothLocalDevice> mLocalDevice;
-    QBluetoothSocket *mSocket = nullptr;
+    std::unique_ptr<QBluetoothSocket> mSocket;
 
     bool mDisconnecting = false;
     bool mConnectOnDisconnect = false;

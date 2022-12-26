@@ -43,7 +43,7 @@ class TcpReceiver : public NmeaGnssReceiver
 
     QString mAddress;
     int mPort = 0;
-    QTcpSocket *mSocket = nullptr;
+    std::unique_ptr<QTcpSocket> mSocket;
 
     bool mReconnectOnDisconnect = false;
     QTimer mReconnectTimer;

@@ -22,11 +22,11 @@ UdpReceiver::UdpReceiver( const QString &address, const int port, QObject *paren
   : NmeaGnssReceiver( parent )
   , mAddress( address )
   , mPort( port )
-  , mSocket( new QUdpSocket() )
-  , mBuffer( new QBuffer() )
+  , mSocket( std::make_unique<QUdpSocket>() )
+  , mBuffer( std::make_unique<QBuffer>() )
 {
-  connect( mSocket, &QAbstractSocket::stateChanged, this, &UdpReceiver::setSocketState );
-  connect( mSocket, &QUdpSocket::readyRead, this, [=]() {
+  connect( mSocket.get(), &QAbstractSocket::stateChanged, this, &UdpReceiver::setSocketState );
+  connect( mSocket.get(), &QUdpSocket::readyRead, this, [=]() {
     QByteArray datagram;
     while ( mSocket->hasPendingDatagrams() )
     {
@@ -45,7 +45,7 @@ UdpReceiver::UdpReceiver( const QString &address, const int port, QObject *paren
   } );
 
   setValid( !mAddress.isEmpty() && mPort > 0 );
-  initNmeaConnection( mBuffer );
+  initNmeaConnection( mBuffer.get() );
 }
 
 void UdpReceiver::handleConnectDevice()

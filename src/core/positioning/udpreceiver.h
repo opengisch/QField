@@ -44,8 +44,8 @@ class UdpReceiver : public NmeaGnssReceiver
 
     QString mAddress;
     int mPort = 0;
-    QUdpSocket *mSocket = nullptr;
-    QBuffer *mBuffer = nullptr;
+    std::unique_ptr<QUdpSocket> mSocket;
+    std::unique_ptr<QBuffer> mBuffer;
 
     bool mReconnectOnDisconnect = false;
     QTimer mReconnectTimer;
