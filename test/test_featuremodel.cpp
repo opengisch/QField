@@ -19,6 +19,7 @@
 #include "featuremodel.h"
 #include "gnsspositioninformation.h"
 
+#include <QAbstractItemModelTester>
 #include <qgsvectorlayer.h>
 
 TEST_CASE( "FeatureModel" )
@@ -50,4 +51,7 @@ TEST_CASE( "FeatureModel" )
   REQUIRE( feature.attribute( 0 ).toString() == QStringLiteral( "updated" ) );
   REQUIRE( feature.attribute( 1 ).toDouble() == 5.5 );
   REQUIRE( feature.attribute( 2 ).toDouble() == 10.5 );
+
+  std::unique_ptr<FeatureModel> modelTest = std::make_unique<FeatureModel>();
+  std::unique_ptr<QAbstractItemModelTester> modelTester = std::make_unique<QAbstractItemModelTester>( modelTest.get(), QAbstractItemModelTester::FailureReportingMode::Fatal );
 }

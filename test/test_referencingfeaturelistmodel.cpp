@@ -17,9 +17,9 @@
 
 #define QFIELDTEST_MAIN
 #include "catch2.h"
-#include "qgsquickmapsettings.h"
 #include "referencingfeaturelistmodel.h"
 
+#include <QAbstractItemModelTester>
 #include <QSignalSpy>
 #include <qgsapplication.h>
 #include <qgsproject.h>
@@ -321,5 +321,11 @@ TEST_CASE( "ReferencingFeatureListModel" )
     REQUIRE( QSignalSpy( mModel.get(), &ReferencingFeatureListModel::modelUpdated ).wait( 1000 ) );
     //Frodo has still shares of 4 lands (Mordor, Gondor, Eriador, Rohan) because his shares are untouched
     REQUIRE( mModel->rowCount() == 4 );
+  }
+
+  SECTION( "QAbstractItemModelTester" )
+  {
+    std::unique_ptr<ReferencingFeatureListModel> modelTest = std::make_unique<ReferencingFeatureListModel>();
+    std::unique_ptr<QAbstractItemModelTester> modelTester = std::make_unique<QAbstractItemModelTester>( modelTest.get(), QAbstractItemModelTester::FailureReportingMode::Fatal );
   }
 }

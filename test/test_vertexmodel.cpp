@@ -20,6 +20,7 @@
 #include "qgsquickmapsettings.h"
 #include "vertexmodel.h"
 
+#include <QAbstractItemModelTester>
 #include <qgsapplication.h>
 #include <qgsgeometry.h>
 #include <qgslinestring.h>
@@ -258,5 +259,11 @@ TEST_CASE( "VertexModel" )
     model->selectVertexAtPosition( QgsPoint( 6.12515333, 46.94354385 ), 10 );
     REQUIRE( model->editingMode() == VertexModel::EditVertex );
     REQUIRE( model->vertices().count() == 9 );
+  }
+
+  SECTION( "QAbstractItemModelTester" )
+  {
+    std::unique_ptr<VertexModel> modelTest = std::make_unique<VertexModel>();
+    std::unique_ptr<QAbstractItemModelTester> modelTester = std::make_unique<QAbstractItemModelTester>( modelTest.get(), QAbstractItemModelTester::FailureReportingMode::Fatal );
   }
 }

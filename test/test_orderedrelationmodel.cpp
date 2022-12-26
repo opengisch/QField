@@ -19,6 +19,7 @@
 #include "catch2.h"
 #include "orderedrelationmodel.h"
 
+#include <QAbstractItemModelTester>
 #include <QSignalSpy>
 #include <qgsapplication.h>
 #include <qgsproject.h>
@@ -142,5 +143,11 @@ TEST_CASE( "OrderedRelationModel" )
     REQUIRE( mModel->data( mModel->index( 1, 0 ), OrderedRelationModel::FeatureIdRole ) == 3 );
     REQUIRE( mModel->data( mModel->index( 2, 0 ), OrderedRelationModel::FeatureIdRole ) == 4 );
     REQUIRE( mModel->data( mModel->index( 3, 0 ), OrderedRelationModel::FeatureIdRole ) == 2 );
+  }
+
+  SECTION( "QAbstractItemModelTester" )
+  {
+    std::unique_ptr<OrderedRelationModel> modelTest = std::make_unique<OrderedRelationModel>();
+    std::unique_ptr<QAbstractItemModelTester> modelTester = std::make_unique<QAbstractItemModelTester>( modelTest.get(), QAbstractItemModelTester::FailureReportingMode::Fatal );
   }
 }

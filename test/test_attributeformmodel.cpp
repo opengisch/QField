@@ -20,6 +20,7 @@
 #include "catch2.h"
 #include "featuremodel.h"
 
+#include <QAbstractItemModelTester>
 
 TEST_CASE( "AttributeFormModel" )
 {
@@ -78,5 +79,11 @@ TEST_CASE( "AttributeFormModel" )
 
     QgsFeature feature = layer->getFeature( fid );
     REQUIRE( feature.attributes().at( 2 ) == QStringLiteral( "edit_feature__" ) );
+  }
+
+  SECTION( "QAbstractItemModelTester" )
+  {
+    std::unique_ptr<AttributeFormModel> modelTest = std::make_unique<AttributeFormModel>();
+    std::unique_ptr<QAbstractItemModelTester> modelTester = std::make_unique<QAbstractItemModelTester>( modelTest.get(), QAbstractItemModelTester::FailureReportingMode::Fatal );
   }
 }
