@@ -50,6 +50,8 @@ UdpReceiver::UdpReceiver( const QString &address, const int port, QObject *paren
 
 UdpReceiver::~UdpReceiver()
 {
+  disconnect( mSocket, &QAbstractSocket::stateChanged, this, &UdpReceiver::setSocketState );
+
   mSocket->deleteLater();
   mSocket = nullptr;
   mBuffer->deleteLater();

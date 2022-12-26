@@ -37,6 +37,8 @@ TcpReceiver::TcpReceiver( const QString &address, const int port, QObject *paren
 
 TcpReceiver::~TcpReceiver()
 {
+  disconnect( mSocket, &QAbstractSocket::stateChanged, this, &TcpReceiver::setSocketState );
+
   mSocket->deleteLater();
   mSocket = nullptr;
 }
