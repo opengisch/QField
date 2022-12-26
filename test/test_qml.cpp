@@ -15,6 +15,7 @@
  *                                                                         *
  ***************************************************************************/
 
+#include "positioning.h"
 #include "qfield_qml_init.h"
 
 #include <QQmlContext>
@@ -47,9 +48,10 @@ class Setup : public QObject
       fs->setExtraSelectors( selectors );
 
       qmlInit( engine );
+      qmlRegisterType<Positioning>( "org.qfield", 1, 0, "Positioning" );
     }
 };
 
-QUICK_TEST_MAIN_WITH_SETUP( test_qml_editorwidgets, Setup )
+QUICK_TEST_MAIN_WITH_SETUP( test_qml, Setup )
 
-#include "test_qml_editorwidgets.moc"
+#include "test_qml.moc"

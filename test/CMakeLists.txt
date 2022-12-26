@@ -104,4 +104,4 @@ ADD_CATCH2_TEST(attributeformmodeltest test_attributeformmodel.cpp FALSE)
 ADD_CATCH2_TEST(orderedrelationmodeltest test_orderedrelationmodel.cpp FALSE)
 ADD_CATCH2_TEST(referencingfeaturelistmodeltest test_referencingfeaturelistmodel.cpp FALSE)
 
-ADD_QFIELD_QML_TEST(qmltest test_qml_editorwidgets.cpp)
+ADD_QFIELD_QML_TEST(qmltest test_qml.cpp)
