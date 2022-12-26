@@ -61,9 +61,23 @@ class BluetoothDeviceModel : public QAbstractListModel
 
     QHash<int, QByteArray> roleNames() const override;
 
+    /**
+     * Adds a Bluetooth device if not already in the model
+     * \param name friendly device name used as identifier in the user interface
+     * \param address Bluetooth address of the device
+     * \returns returns index of the Bluetooth device
+     */
     Q_INVOKABLE int addDevice( const QString &name, const QString &address );
 
+    /**
+     * Starts a scan to discovery nearby Bluetooth devices
+     * \param fullDisocvery set to TRUE to trigger a more expensive scan
+     */
     Q_INVOKABLE void startServiceDiscovery( const bool fullDiscovery );
+
+    /**
+     * Returns the row index for a given Bluetooth device address
+     */
     Q_INVOKABLE int findIndexFromAddress( const QString &address ) const;
 
     ScanningStatus scanningStatus() const { return mScanningStatus; };

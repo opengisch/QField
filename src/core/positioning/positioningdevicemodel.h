@@ -74,6 +74,7 @@ class PositioningDeviceModel : public QAbstractListModel
      * \param type device type
      * \param name friendly device name used as identifier in the user interface
      * \param settings settings map (used to generate the positioning device ID, editing, etc.)
+     * \returns returns index of the added device
      */
     Q_INVOKABLE int addDevice( const Type &type, const QString &name, const QVariantMap &deviceSettings );
 
