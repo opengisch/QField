@@ -104,6 +104,12 @@ Popup {
                   ListElement { name: qsTr('TCP (NMEA)'); value: PositioningDeviceModel.TcpDevice }
                   ListElement { name: qsTr('UDP (NMEA)'); value: PositioningDeviceModel.UdpDevice }
                 }
+
+                Component.onCompleted: {
+                  if (!withBluetooth) {
+                    model.remove(0, 1);
+                  }
+                }
             }
 
             Loader {
