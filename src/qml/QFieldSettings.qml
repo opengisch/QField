@@ -404,11 +404,160 @@ Page {
               width: parent.parent.width
               spacing: 10
 
-            Loader {
-                Layout.fillWidth: true
-                active: withBluetooth
-                source: "qrc:/qml/BluetoothDeviceChooser.qml"
-            }
+              GridLayout {
+                  Layout.fillWidth: true
+
+                  columns: 2
+                  columnSpacing: 0
+                  rowSpacing: 5
+
+                  Label {
+                      Layout.fillWidth: true
+                      Layout.columnSpan: 2
+                      text: qsTr( "Positioning device in use:" )
+                      font: Theme.defaultFont
+
+                      wrapMode: Text.WordWrap
+                  }
+
+                  RowLayout {
+                      Layout.fillWidth: true
+                      Layout.columnSpan: 2
+
+                      ComboBox {
+                          id: positioningDeviceComboBox
+                          Layout.fillWidth: true
+                          Layout.alignment: Qt.AlignVCenter
+                          font: Theme.defaultFont
+                          popup.font: Theme.defaultFont
+                          textRole: 'display'
+                          model: PositioningDeviceModel {
+                              id: positioningDeviceModel
+                          }
+
+                          property string selectedPositioningDevice
+
+                          onCurrentIndexChanged: {
+                              var modelIndex = positioningDeviceModel.index(currentIndex, 0);
+                              selectedPositioningDevice = positioningDeviceModel.data(modelIndex, PositioningDeviceModel.DeviceId);
+                              if( positioningSettings.positioningDevice !== selectedPositioningDevice )
+                              {
+                                  positioningSettings.positioningDevice = selectedPositioningDevice
+                                  positioningSettings.positioningDeviceName = positioningDeviceModel.data(modelIndex, PositioningDeviceModel.DeviceName);
+                              }
+                          }
+
+                          Component.onCompleted: {
+                              currentIndex = positioningDeviceModel.findIndexFromDeviceId(settings.value('positioningDevice',''))
+                          }
+                      }
+
+                  }
+
+                  RowLayout {
+                      Layout.fillWidth: true
+                      Layout.columnSpan: 2
+
+                      QfButton {
+                        leftPadding: 10
+                        rightPadding: 10
+                        text: qsTr('Add')
+
+                        onClicked: {
+                          positioningDeviceSettings.originalName = '';
+                          positioningDeviceSettings.name = '';
+                          positioningDeviceSettings.open()
+                        }
+                      }
+
+                      Item {
+                          Layout.fillWidth: true
+                          Layout.alignment: Qt.AlignVCenter
+                      }
+
+                      QfButton {
+                        leftPadding: 10
+                        rightPadding: 10
+                        text: qsTr('Edit')
+                        enabled: positioningDeviceComboBox.currentIndex > 0
+
+                        onClicked: {
+                          var modelIndex = positioningDeviceModel.index(positioningDeviceComboBox.currentIndex, 0);
+                          var name = positioningDeviceModel.data(modelIndex, PositioningDeviceModel.DeviceName);
+                          positioningDeviceSettings.originalName = name;
+                          positioningDeviceSettings.name = name;
+                          positioningDeviceSettings.setType(positioningDeviceModel.data(modelIndex, PositioningDeviceModel.DeviceType))
+                          positioningDeviceSettings.setSettings(positioningDeviceModel.data(modelIndex, PositioningDeviceModel.DeviceSettings))
+                          positioningDeviceSettings.open();
+                        }
+                      }
+
+                      QfButton {
+                        leftPadding: 10
+                        rightPadding: 10
+                        text: qsTr('Remove')
+                        enabled: positioningDeviceComboBox.currentIndex > 0
+
+                        onClicked: {
+                          var modelIndex = positioningDeviceModel.index(positioningDeviceComboBox.currentIndex, 0);
+                          positioningDeviceComboBox.currentIndex = 0;
+                          positioningDeviceModel.removeDevice(positioningDeviceModel.data(modelIndex, PositioningDeviceModel.DeviceName));
+                        }
+                      }
+                  }
+
+                  Label {
+                    text: qsTr("Use orthometric altitude from device")
+                    font: Theme.defaultFont
+                    wrapMode: Text.WordWrap
+                    Layout.fillWidth: true
+                    visible: positioningSettings.positioningDevice !== ''
+
+                    MouseArea {
+                      anchors.fill: parent
+                      onClicked: reportOrthometricAltitude.toggle()
+                    }
+                  }
+
+                  QfSwitch {
+                    id: reportOrthometricAltitude
+                    Layout.preferredWidth: implicitContentWidth
+                    Layout.alignment: Qt.AlignTop
+                    visible: positioningSettings.positioningDevice !== ''
+                    checked: !positioningSettings.ellipsoidalElevation
+                    onCheckedChanged: {
+                      positioningSettings.ellipsoidalElevation = !checked
+                    }
+                  }
+
+                  QfButton {
+                    id: connectButton
+                    Layout.fillWidth: true
+                    Layout.columnSpan: 2
+                    Layout.topMargin: 5
+                    text: {
+                      switch (positionSource.device.socketState) {
+                      case QAbstractSocket.ConnectedState:
+                        return qsTr('Connected to %1').arg(positioningSettings.positioningDeviceName)
+                      case QAbstractSocket.UnconnectedState:
+                        return qsTr('Connect to %1').arg(positioningSettings.positioningDeviceName)
+                      default:
+                        return qsTr('Connecting to %1').arg(positioningSettings.positioningDeviceName)
+                      }
+                    }
+                    enabled: positionSource.device.socketState === QAbstractSocket.UnconnectedState
+                    visible: positionSource.deviceId !== ''
+
+                    onClicked: {
+                      // make sure positioning is active when connecting to the bluetooth device
+                      if (!positioningSettings.positioningActivated) {
+                        positioningSettings.positioningActivated = true
+                      } else {
+                        positionSource.device.connectDevice()
+                      }
+                    }
+                  }
+              }
 
               GridLayout {
                   Layout.fillWidth: true
@@ -920,20 +1069,45 @@ Page {
     }
   }
 
-  header: PageHeader {
-      title: qsTr("QField Settings")
+  PositioningDeviceSettings {
+    id: positioningDeviceSettings
 
-      showBackButton: true
-      showApplyButton: false
-      showCancelButton: false
+    property string originalName: ''
 
-      topMargin: mainWindow.sceneTopMargin
+    onApply: {
+      if (originalName != '') {
+        positioningDeviceModel.removeDevice(originalName);
+      }
 
-      onFinished: {
-          parent.finished()
-          variableEditor.apply()
+      var name = positioningDeviceSettings.name;
+      var type = positioningDeviceSettings.type;
+      var settings = positioningDeviceSettings.getSettings();
+
+      if (name === '') {
+        name = positioningDeviceSettings.generateName();
+      }
+
+      var index = positioningDeviceModel.addDevice(type, name, settings);
+      if (index > -1) {
+        positioningDeviceComboBox.currentIndex = index;
       }
     }
+  }
+
+  header: PageHeader {
+    title: qsTr("QField Settings")
+
+    showBackButton: true
+    showApplyButton: false
+    showCancelButton: false
+
+    topMargin: mainWindow.sceneTopMargin
+
+    onFinished: {
+        parent.finished()
+        variableEditor.apply()
+    }
+  }
 
   Keys.onReleased: (event) => {
     if (event.key === Qt.Key_Back || event.key === Qt.Key_Escape) {
