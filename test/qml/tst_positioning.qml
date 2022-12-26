@@ -10,7 +10,7 @@ TestCase {
 
     Positioning {
         id: positioning
-        deviceId: 'tcp:localhost:1958'
+        deviceId: 'udp:localhost:1958'
         active: true
         ellipsoidalElevation: true
     }

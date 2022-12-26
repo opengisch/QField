@@ -47,8 +47,11 @@ def work_thread(client):
     while True:  # continuously read and handle data
         i = (i + 1) % len(lines)
         data = lines[i]
-        client.sendall(data)
-        print(data)
+        try:
+            client.sendall(data)
+            print(data)
+        except:
+            break
         time.sleep(args["interval"])
 
 

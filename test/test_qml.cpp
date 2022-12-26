@@ -18,6 +18,7 @@
 #include "positioning.h"
 #include "qfield_qml_init.h"
 
+#include <QProcess>
 #include <QQmlContext>
 #include <QQmlEngine>
 #include <QQmlFileSelector>
@@ -29,6 +30,9 @@ class Setup : public QObject
 {
     Q_OBJECT
 
+  private:
+    QProcess mProcess;
+
   public:
     Setup()
     {
@@ -36,6 +40,41 @@ class Setup : public QObject
     }
 
   public slots:
+    void applicationAvailable()
+    {
+      // start a UDP server streaming NMEA strings (used in tst_positioning.qml)
+      const QStringList arguments = QCoreApplication::arguments();
+      qDebug() << arguments;
+      QString nmeaServer;
+      for ( int i = 0; i < arguments.size(); i++ )
+      {
+        if ( arguments[i] == QStringLiteral( "-input" ) )
+        {
+          if ( i + 1 < arguments.size() )
+          {
+            // the nmea server python script, relative to the absolute input path
+            nmeaServer = QString( "%1/../nmea_server" ).arg( arguments[i + 1] );
+          }
+        }
+      }
+      qDebug() << nmeaServer;
+      if ( !nmeaServer.isEmpty() )
+      {
+        mProcess.setProgram( QStringLiteral( "python3" ) );
+        mProcess.setArguments( QStringList() << QStringLiteral( "%1/nmeaserver.py" ).arg( nmeaServer )
+                                             << QStringLiteral( "--type" )
+                                             << QStringLiteral( "udp" )
+                                             << QStringLiteral( "%1/TrimbleR1.txt" ).arg( nmeaServer ) );
+        mProcess.start();
+      }
+    }
+
+    void cleanupTestCase()
+    {
+      // kill the UDP server
+      mProcess.kill();
+    }
+
     void qmlEngineAvailable( QQmlEngine *engine )
     {
       QQmlFileSelector *fs = new QQmlFileSelector( engine );
