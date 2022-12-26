@@ -10,12 +10,18 @@ TestCase {
 
     Positioning {
         id: positioning
+        deviceId: 'tcp:localhost:1958'
         active: true
-        deviceId: 'udp:localhost:1958'
         ellipsoidalElevation: true
     }
 
     function test_positioning() {
-        compare('one', 'one')
+        // wait a few seconds so positioning can catch some NMEA strings
+        wait(5000)
+
+        // the elevation in the NMEA stream goes between 320 to 322, and the ellispodal adjustment is -26.0 meters
+        // we therefore simply check whether we are int the 200s value range, which indicates ellispodal elevation is
+        // being returned
+        compare(Math.floor(positioning.positionInformation.elevation / 100), 2)
     }
 }

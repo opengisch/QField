@@ -48,6 +48,9 @@ class Setup : public QObject
       fs->setExtraSelectors( selectors );
 
       qmlInit( engine );
+      qmlRegisterUncreatableType<QAbstractSocket>( "org.qfield", 1, 0, "QAbstractSocket", "" );
+      qmlRegisterUncreatableType<AbstractGnssReceiver>( "org.qfield", 1, 0, "AbstractGnssReceiver", "" );
+      qRegisterMetaType<GnssPositionInformation>( "GnssPositionInformation" );
       qmlRegisterType<Positioning>( "org.qfield", 1, 0, "Positioning" );
     }
 };
