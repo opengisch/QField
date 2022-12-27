@@ -44,7 +44,6 @@ class Setup : public QObject
     {
       // start a UDP server streaming NMEA strings (used in tst_positioning.qml)
       const QStringList arguments = QCoreApplication::arguments();
-      qDebug() << arguments;
       QString nmeaServer;
       for ( int i = 0; i < arguments.size(); i++ )
       {
@@ -57,7 +56,6 @@ class Setup : public QObject
           }
         }
       }
-      qDebug() << nmeaServer;
       if ( !nmeaServer.isEmpty() )
       {
         mProcess.setProgram( QStringLiteral( "python3" ) );
