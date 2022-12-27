@@ -205,6 +205,7 @@ ApplicationWindow {
       transformContext: qgisProject ? qgisProject.transformContext : CoordinateReferenceSystemUtils.emptyTransformContext()
       deltaZ: positioningSettings.antennaHeightActivated ? positioningSettings.antennaHeight * -1 : 0
       skipAltitudeTransformation: positioningSettings.skipAltitudeCorrection
+      verticalGrid: positioningSettings.verticalGrid
     }
 
     ellipsoidalElevation: positioningSettings.ellipsoidalElevation
