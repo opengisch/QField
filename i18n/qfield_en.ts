@@ -127,7 +127,7 @@
     <name>BluetoothDeviceChooser</name>
     <message>
         <source>Positioning device in use:</source>
-        <translation>Positioning device in use:</translation>
+        <translation type="vanished">Positioning device in use:</translation>
     </message>
     <message>
         <source>Scanning for paired devices</source>
@@ -168,11 +168,11 @@ Cancel to make a minimal device scan instead.</translation>
     </message>
     <message>
         <source>Connected to %1</source>
-        <translation>Connected to %1</translation>
+        <translation type="vanished">Connected to %1</translation>
     </message>
     <message>
         <source>Connect to %1</source>
-        <translation>Connect to %1</translation>
+        <translation type="vanished">Connect to %1</translation>
     </message>
     <message>
         <source>Connect  to %1</source>
@@ -180,18 +180,34 @@ Cancel to make a minimal device scan instead.</translation>
     </message>
     <message>
         <source>Connecting to %1</source>
-        <translation>Connecting to %1</translation>
+        <translation type="vanished">Connecting to %1</translation>
     </message>
     <message>
         <source>Use orthometric altitude from device</source>
-        <translation>Use orthometric altitude from device</translation>
+        <translation type="vanished">Use orthometric altitude from device</translation>
+    </message>
+    <message>
+        <source>Select the Bluetooth device from the list below:</source>
+        <translation>Select the Bluetooth device from the list below:</translation>
+    </message>
+    <message>
+        <source>Bluetooth device name:</source>
+        <translation>Bluetooth device name:</translation>
+    </message>
+    <message>
+        <source>N/A</source>
+        <translation>N/A</translation>
+    </message>
+    <message>
+        <source>Bluetooth device address:</source>
+        <translation>Bluetooth device address:</translation>
     </message>
 </context>
 <context>
     <name>BluetoothDeviceModel</name>
     <message>
         <source>Internal device</source>
-        <translation>Internal device</translation>
+        <translation type="vanished">Internal device</translation>
     </message>
 </context>
 <context>
@@ -1382,6 +1398,36 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
 </context>
 <context>
+    <name>PositioningDeviceModel</name>
+    <message>
+        <source>Internal device</source>
+        <translation>Internal device</translation>
+    </message>
+</context>
+<context>
+    <name>PositioningDeviceSettings</name>
+    <message>
+        <source>Positioning Device Settings</source>
+        <translation>Positioning Device Settings</translation>
+    </message>
+    <message>
+        <source>Name:</source>
+        <translation>Name:</translation>
+    </message>
+    <message>
+        <source>Leave empty to auto-fill</source>
+        <translation>Leave empty to auto-fill</translation>
+    </message>
+    <message>
+        <source>Connection type:</source>
+        <translation>Connection type:</translation>
+    </message>
+    <message>
+        <source>Bluetooth</source>
+        <translation>Bluetooth</translation>
+    </message>
+</context>
+<context>
     <name>PositioningInformationView</name>
     <message>
         <source>Lon</source>
@@ -2204,7 +2250,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Positioning device in use:</source>
-        <translation type="vanished">Positioning device in use:</translation>
+        <translation>Positioning device in use:</translation>
     </message>
     <message>
         <source>Scanning for paired devices</source>
@@ -2245,7 +2291,7 @@ Cancel to make a minimal device scan instead.</translation>
     </message>
     <message>
         <source>Connected to %1</source>
-        <translation type="vanished">Connected to %1</translation>
+        <translation>Connected to %1</translation>
     </message>
     <message>
         <source>Connect  to %1</source>
@@ -2253,11 +2299,11 @@ Cancel to make a minimal device scan instead.</translation>
     </message>
     <message>
         <source>Connecting to %1</source>
-        <translation type="vanished">Connecting to %1</translation>
+        <translation>Connecting to %1</translation>
     </message>
     <message>
         <source>Use orthometric altitude from device</source>
-        <translation type="vanished">Use orthometric altitude from device</translation>
+        <translation>Use orthometric altitude from device</translation>
     </message>
     <message>
         <source>Show position information</source>
@@ -2378,6 +2424,22 @@ Cancel to make a minimal device scan instead.</translation>
     <message>
         <source>When digitizing features with the coordinate cursor locked to the current position, the measurement type selected above will be added to the geometry provided it has an M dimension.</source>
         <translation>When digitizing features with the coordinate cursor locked to the current position, the measurement type selected above will be added to the geometry provided it has an M dimension.</translation>
+    </message>
+    <message>
+        <source>Add</source>
+        <translation>Add</translation>
+    </message>
+    <message>
+        <source>Edit</source>
+        <translation>Edit</translation>
+    </message>
+    <message>
+        <source>Remove</source>
+        <translation>Remove</translation>
+    </message>
+    <message>
+        <source>Connect to %1</source>
+        <translation>Connect to %1</translation>
     </message>
 </context>
 <context>

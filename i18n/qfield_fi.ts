@@ -125,7 +125,7 @@
     <name>BluetoothDeviceChooser</name>
     <message>
         <source>Positioning device in use:</source>
-        <translation>Käytettävä paikannuslaite:</translation>
+        <translation type="vanished">Käytettävä paikannuslaite:</translation>
     </message>
     <message>
         <source>Scanning for paired devices</source>
@@ -163,11 +163,11 @@ Peruuta tehdäksesi suppeampi laiteskannaus.</translation>
     </message>
     <message>
         <source>Connected to %1</source>
-        <translation>Yhdistetty laitteeseen %1</translation>
+        <translation type="vanished">Yhdistetty laitteeseen %1</translation>
     </message>
     <message>
         <source>Connect to %1</source>
-        <translation>Yhdistä %1</translation>
+        <translation type="vanished">Yhdistä %1</translation>
     </message>
     <message>
         <source>Connect  to %1</source>
@@ -175,18 +175,34 @@ Peruuta tehdäksesi suppeampi laiteskannaus.</translation>
     </message>
     <message>
         <source>Connecting to %1</source>
-        <translation>Yhdistetään laitteeseen %1</translation>
+        <translation type="vanished">Yhdistetään laitteeseen %1</translation>
     </message>
     <message>
         <source>Use orthometric altitude from device</source>
-        <translation>Käytä laitteen ortometristä korkeutta</translation>
+        <translation type="vanished">Käytä laitteen ortometristä korkeutta</translation>
+    </message>
+    <message>
+        <source>Select the Bluetooth device from the list below:</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Bluetooth device name:</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>N/A</source>
+        <translation>N/A</translation>
+    </message>
+    <message>
+        <source>Bluetooth device address:</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>BluetoothDeviceModel</name>
     <message>
         <source>Internal device</source>
-        <translation>Sisäinen laite</translation>
+        <translation type="vanished">Sisäinen laite</translation>
     </message>
 </context>
 <context>
@@ -1359,6 +1375,36 @@ Kohteen geometriat yhdistetään kohteeseen &apos;%1&apos;, johon sisällytetä�
     </message>
 </context>
 <context>
+    <name>PositioningDeviceModel</name>
+    <message>
+        <source>Internal device</source>
+        <translation>Sisäinen laite</translation>
+    </message>
+</context>
+<context>
+    <name>PositioningDeviceSettings</name>
+    <message>
+        <source>Positioning Device Settings</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Name:</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Leave empty to auto-fill</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Connection type:</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Bluetooth</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
     <name>PositioningInformationView</name>
     <message>
         <source>Lon</source>
@@ -2177,7 +2223,7 @@ Tämä voi viedä jonkin aikaa, ole hyvä ja odota...</translation>
     </message>
     <message>
         <source>Positioning device in use:</source>
-        <translation type="vanished">Käytettävä paikannuslaite:</translation>
+        <translation>Käytettävä paikannuslaite:</translation>
     </message>
     <message>
         <source>Scanning for paired devices</source>
@@ -2215,7 +2261,7 @@ Peruuta tehdäksesi suppeampi laiteskannaus.</translation>
     </message>
     <message>
         <source>Connected to %1</source>
-        <translation type="vanished">Yhdistetty laitteeseen %1</translation>
+        <translation>Yhdistetty laitteeseen %1</translation>
     </message>
     <message>
         <source>Connect  to %1</source>
@@ -2223,11 +2269,11 @@ Peruuta tehdäksesi suppeampi laiteskannaus.</translation>
     </message>
     <message>
         <source>Connecting to %1</source>
-        <translation type="vanished">Yhdistetään laitteeseen %1</translation>
+        <translation>Yhdistetään laitteeseen %1</translation>
     </message>
     <message>
         <source>Use orthometric altitude from device</source>
-        <translation type="vanished">Käytä laitteen ortometristä korkeutta</translation>
+        <translation>Käytä laitteen ortometristä korkeutta</translation>
     </message>
     <message>
         <source>Show position information</source>
@@ -2348,6 +2394,22 @@ Peruuta tehdäksesi suppeampi laiteskannaus.</translation>
     <message>
         <source>When digitizing features with the coordinate cursor locked to the current position, the measurement type selected above will be added to the geometry provided it has an M dimension.</source>
         <translation>Kun piirteitä digitoidaan koordinaattikohdistimen ollessa lukittuna nykyiseen sijaintiin, yllä valittu mittaustyyppi lisätään geometriaan, jos sillä on M-mitta.</translation>
+    </message>
+    <message>
+        <source>Add</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Edit</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Remove</source>
+        <translation>Poista</translation>
+    </message>
+    <message>
+        <source>Connect to %1</source>
+        <translation>Yhdistä %1</translation>
     </message>
 </context>
 <context>

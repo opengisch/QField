@@ -125,7 +125,7 @@
     <name>BluetoothDeviceChooser</name>
     <message>
         <source>Positioning device in use:</source>
-        <translation>Dispositivo di posizionamento in uso:</translation>
+        <translation type="vanished">Dispositivo di posizionamento in uso:</translation>
     </message>
     <message>
         <source>Scanning for paired devices</source>
@@ -163,11 +163,11 @@ Annullare per eseguire una scansione veloce del dispositivo.</translation>
     </message>
     <message>
         <source>Connected to %1</source>
-        <translation>Connesso a %1</translation>
+        <translation type="vanished">Connesso a %1</translation>
     </message>
     <message>
         <source>Connect to %1</source>
-        <translation>Connetti a %1</translation>
+        <translation type="vanished">Connetti a %1</translation>
     </message>
     <message>
         <source>Connect  to %1</source>
@@ -175,18 +175,34 @@ Annullare per eseguire una scansione veloce del dispositivo.</translation>
     </message>
     <message>
         <source>Connecting to %1</source>
-        <translation>Connessione a %1</translation>
+        <translation type="vanished">Connessione a %1</translation>
     </message>
     <message>
         <source>Use orthometric altitude from device</source>
-        <translation>Usare l&apos;altezza ortometrica dal dispositivo</translation>
+        <translation type="vanished">Usare l&apos;altezza ortometrica dal dispositivo</translation>
+    </message>
+    <message>
+        <source>Select the Bluetooth device from the list below:</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Bluetooth device name:</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>N/A</source>
+        <translation>NA</translation>
+    </message>
+    <message>
+        <source>Bluetooth device address:</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>BluetoothDeviceModel</name>
     <message>
         <source>Internal device</source>
-        <translation>Dispositivo interno</translation>
+        <translation type="vanished">Dispositivo interno</translation>
     </message>
 </context>
 <context>
@@ -1361,6 +1377,36 @@ Le geometrie degli elementi verranno combinati in un elemento &apos;%1&apos; che
     </message>
 </context>
 <context>
+    <name>PositioningDeviceModel</name>
+    <message>
+        <source>Internal device</source>
+        <translation>Dispositivo interno</translation>
+    </message>
+</context>
+<context>
+    <name>PositioningDeviceSettings</name>
+    <message>
+        <source>Positioning Device Settings</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Name:</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Leave empty to auto-fill</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Connection type:</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Bluetooth</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
     <name>PositioningInformationView</name>
     <message>
         <source>Lon</source>
@@ -2180,7 +2226,7 @@ Messaggio dell&apos;errore: %4</translation>
     </message>
     <message>
         <source>Positioning device in use:</source>
-        <translation type="vanished">Dispositivo di posizionamento in uso:</translation>
+        <translation>Dispositivo di posizionamento in uso:</translation>
     </message>
     <message>
         <source>Scanning for paired devices</source>
@@ -2218,7 +2264,7 @@ Annullare per eseguire una scansione veloce del dispositivo.</translation>
     </message>
     <message>
         <source>Connected to %1</source>
-        <translation type="vanished">Connesso a %1</translation>
+        <translation>Connesso a %1</translation>
     </message>
     <message>
         <source>Connect  to %1</source>
@@ -2226,11 +2272,11 @@ Annullare per eseguire una scansione veloce del dispositivo.</translation>
     </message>
     <message>
         <source>Connecting to %1</source>
-        <translation type="vanished">Connessione a %1</translation>
+        <translation>Connessione a %1</translation>
     </message>
     <message>
         <source>Use orthometric altitude from device</source>
-        <translation type="vanished">Usare l&apos;altezza ortometrica dal dispositivo</translation>
+        <translation>Usare l&apos;altezza ortometrica dal dispositivo</translation>
     </message>
     <message>
         <source>Show position information</source>
@@ -2351,6 +2397,22 @@ Annullare per eseguire una scansione veloce del dispositivo.</translation>
     <message>
         <source>When digitizing features with the coordinate cursor locked to the current position, the measurement type selected above will be added to the geometry provided it has an M dimension.</source>
         <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Add</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Edit</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Remove</source>
+        <translation>Rimuovi</translation>
+    </message>
+    <message>
+        <source>Connect to %1</source>
+        <translation>Connetti a %1</translation>
     </message>
 </context>
 <context>

@@ -125,7 +125,7 @@
     <name>BluetoothDeviceChooser</name>
     <message>
         <source>Positioning device in use:</source>
-        <translation>使用中的定位设备：</translation>
+        <translation type="vanished">使用中的定位设备：</translation>
     </message>
     <message>
         <source>Scanning for paired devices</source>
@@ -163,11 +163,11 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Connected to %1</source>
-        <translation>已连接%1</translation>
+        <translation type="vanished">已连接%1</translation>
     </message>
     <message>
         <source>Connect to %1</source>
-        <translation>连接至%1</translation>
+        <translation type="vanished">连接至%1</translation>
     </message>
     <message>
         <source>Connect  to %1</source>
@@ -175,18 +175,34 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Connecting to %1</source>
-        <translation>正在连接%1</translation>
+        <translation type="vanished">正在连接%1</translation>
     </message>
     <message>
         <source>Use orthometric altitude from device</source>
-        <translation>使用设备的垂直高程</translation>
+        <translation type="vanished">使用设备的垂直高程</translation>
+    </message>
+    <message>
+        <source>Select the Bluetooth device from the list below:</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Bluetooth device name:</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>N/A</source>
+        <translation>不可用</translation>
+    </message>
+    <message>
+        <source>Bluetooth device address:</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>BluetoothDeviceModel</name>
     <message>
         <source>Internal device</source>
-        <translation>内部设备</translation>
+        <translation type="vanished">内部设备</translation>
     </message>
 </context>
 <context>
@@ -1357,6 +1373,36 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
 </context>
 <context>
+    <name>PositioningDeviceModel</name>
+    <message>
+        <source>Internal device</source>
+        <translation>内部设备</translation>
+    </message>
+</context>
+<context>
+    <name>PositioningDeviceSettings</name>
+    <message>
+        <source>Positioning Device Settings</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Name:</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Leave empty to auto-fill</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Connection type:</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Bluetooth</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
     <name>PositioningInformationView</name>
     <message>
         <source>Lon</source>
@@ -2173,7 +2219,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Positioning device in use:</source>
-        <translation type="vanished">使用中的定位设备：</translation>
+        <translation>使用中的定位设备：</translation>
     </message>
     <message>
         <source>Scanning for paired devices</source>
@@ -2211,7 +2257,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Connected to %1</source>
-        <translation type="vanished">已连接%1</translation>
+        <translation>已连接%1</translation>
     </message>
     <message>
         <source>Connect  to %1</source>
@@ -2219,11 +2265,11 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Connecting to %1</source>
-        <translation type="vanished">正在连接%1</translation>
+        <translation>正在连接%1</translation>
     </message>
     <message>
         <source>Use orthometric altitude from device</source>
-        <translation type="vanished">使用设备的垂直高程</translation>
+        <translation>使用设备的垂直高程</translation>
     </message>
     <message>
         <source>Show position information</source>
@@ -2344,6 +2390,22 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <source>When digitizing features with the coordinate cursor locked to the current position, the measurement type selected above will be added to the geometry provided it has an M dimension.</source>
         <translation>在将坐标指针锁定到当前位置的情况下数字化要素时，如果几何图形具有M维度，则上面选择的测量类型将添加到几何图形中。</translation>
+    </message>
+    <message>
+        <source>Add</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Edit</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Remove</source>
+        <translation>移除</translation>
+    </message>
+    <message>
+        <source>Connect to %1</source>
+        <translation>连接至%1</translation>
     </message>
 </context>
 <context>

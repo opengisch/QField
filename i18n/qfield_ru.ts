@@ -125,7 +125,7 @@
     <name>BluetoothDeviceChooser</name>
     <message>
         <source>Positioning device in use:</source>
-        <translation>Используемое устройство позиционирования:</translation>
+        <translation type="vanished">Используемое устройство позиционирования:</translation>
     </message>
     <message>
         <source>Scanning for paired devices</source>
@@ -163,7 +163,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Connected to %1</source>
-        <translation>Подключено к %1</translation>
+        <translation type="vanished">Подключено к %1</translation>
     </message>
     <message>
         <source>Connect to %1</source>
@@ -175,18 +175,34 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Connecting to %1</source>
-        <translation>Подключение к %1</translation>
+        <translation type="vanished">Подключение к %1</translation>
     </message>
     <message>
         <source>Use orthometric altitude from device</source>
-        <translation>Использовать ортометрическую высоту , полученную с устройства</translation>
+        <translation type="vanished">Использовать ортометрическую высоту , полученную с устройства</translation>
+    </message>
+    <message>
+        <source>Select the Bluetooth device from the list below:</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Bluetooth device name:</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>N/A</source>
+        <translation>Н/Д</translation>
+    </message>
+    <message>
+        <source>Bluetooth device address:</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>BluetoothDeviceModel</name>
     <message>
         <source>Internal device</source>
-        <translation>Внутренний датчик</translation>
+        <translation type="vanished">Внутренний датчик</translation>
     </message>
 </context>
 <context>
@@ -1363,6 +1379,36 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
 </context>
 <context>
+    <name>PositioningDeviceModel</name>
+    <message>
+        <source>Internal device</source>
+        <translation>Внутренний датчик</translation>
+    </message>
+</context>
+<context>
+    <name>PositioningDeviceSettings</name>
+    <message>
+        <source>Positioning Device Settings</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Name:</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Leave empty to auto-fill</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Connection type:</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Bluetooth</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
     <name>PositioningInformationView</name>
     <message>
         <source>Lon</source>
@@ -2174,7 +2220,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Positioning device in use:</source>
-        <translation type="vanished">Используемое устройство позиционирования:</translation>
+        <translation>Используемое устройство позиционирования:</translation>
     </message>
     <message>
         <source>Scanning for paired devices</source>
@@ -2212,7 +2258,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Connected to %1</source>
-        <translation type="vanished">Подключено к %1</translation>
+        <translation>Подключено к %1</translation>
     </message>
     <message>
         <source>Connect  to %1</source>
@@ -2220,11 +2266,11 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Connecting to %1</source>
-        <translation type="vanished">Подключение к %1</translation>
+        <translation>Подключение к %1</translation>
     </message>
     <message>
         <source>Use orthometric altitude from device</source>
-        <translation type="vanished">Использовать ортометрическую высоту , полученную с устройства</translation>
+        <translation>Использовать ортометрическую высоту , полученную с устройства</translation>
     </message>
     <message>
         <source>Show position information</source>
@@ -2344,6 +2390,22 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>When digitizing features with the coordinate cursor locked to the current position, the measurement type selected above will be added to the geometry provided it has an M dimension.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Add</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Edit</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Remove</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Connect to %1</source>
         <translation type="unfinished"/>
     </message>
 </context>

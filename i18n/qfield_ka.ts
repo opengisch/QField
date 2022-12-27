@@ -125,7 +125,7 @@
     <name>BluetoothDeviceChooser</name>
     <message>
         <source>Positioning device in use:</source>
-        <translation>პოზიციონირების მოწყობილობა:</translation>
+        <translation type="vanished">პოზიციონირების მოწყობილობა:</translation>
     </message>
     <message>
         <source>Scanning for paired devices</source>
@@ -163,7 +163,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Connected to %1</source>
-        <translation>დაკავშირებულია %1-სთან</translation>
+        <translation type="vanished">დაკავშირებულია %1-სთან</translation>
     </message>
     <message>
         <source>Connect to %1</source>
@@ -175,18 +175,34 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Connecting to %1</source>
-        <translation>ვუკავშირდები %1-ს</translation>
+        <translation type="vanished">ვუკავშირდები %1-ს</translation>
     </message>
     <message>
         <source>Use orthometric altitude from device</source>
-        <translation>გამოიყენე ორთომეტრული სიმაღლე მოწყობილობიდან</translation>
+        <translation type="vanished">გამოიყენე ორთომეტრული სიმაღლე მოწყობილობიდან</translation>
+    </message>
+    <message>
+        <source>Select the Bluetooth device from the list below:</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Bluetooth device name:</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>N/A</source>
+        <translation>N/A</translation>
+    </message>
+    <message>
+        <source>Bluetooth device address:</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>BluetoothDeviceModel</name>
     <message>
         <source>Internal device</source>
-        <translation>შიდა მოწყობილობა</translation>
+        <translation type="vanished">შიდა მოწყობილობა</translation>
     </message>
 </context>
 <context>
@@ -1353,6 +1369,36 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
 </context>
 <context>
+    <name>PositioningDeviceModel</name>
+    <message>
+        <source>Internal device</source>
+        <translation>შიდა მოწყობილობა</translation>
+    </message>
+</context>
+<context>
+    <name>PositioningDeviceSettings</name>
+    <message>
+        <source>Positioning Device Settings</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Name:</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Leave empty to auto-fill</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Connection type:</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Bluetooth</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
     <name>PositioningInformationView</name>
     <message>
         <source>Lon</source>
@@ -2164,7 +2210,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Positioning device in use:</source>
-        <translation type="vanished">პოზიციონირების მოწყობილობა:</translation>
+        <translation>პოზიციონირების მოწყობილობა:</translation>
     </message>
     <message>
         <source>Scanning for paired devices</source>
@@ -2202,7 +2248,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Connected to %1</source>
-        <translation type="vanished">დაკავშირებულია %1-სთან</translation>
+        <translation>დაკავშირებულია %1-სთან</translation>
     </message>
     <message>
         <source>Connect  to %1</source>
@@ -2210,11 +2256,11 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Connecting to %1</source>
-        <translation type="vanished">ვუკავშირდები %1-ს</translation>
+        <translation>ვუკავშირდები %1-ს</translation>
     </message>
     <message>
         <source>Use orthometric altitude from device</source>
-        <translation type="vanished">გამოიყენე ორთომეტრული სიმაღლე მოწყობილობიდან</translation>
+        <translation>გამოიყენე ორთომეტრული სიმაღლე მოწყობილობიდან</translation>
     </message>
     <message>
         <source>Show position information</source>
@@ -2334,6 +2380,22 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>When digitizing features with the coordinate cursor locked to the current position, the measurement type selected above will be added to the geometry provided it has an M dimension.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Add</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Edit</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Remove</source>
+        <translation>წაშლა</translation>
+    </message>
+    <message>
+        <source>Connect to %1</source>
         <translation type="unfinished"/>
     </message>
 </context>
