@@ -15,14 +15,19 @@
  *                                                                         *
  ***************************************************************************/
 
+#include "coordinatereferencesystemutils.h"
 #include "positioning.h"
 #include "qfield_qml_init.h"
+#include "qgsquickcoordinatetransformer.h"
 
 #include <QProcess>
 #include <QQmlContext>
 #include <QQmlEngine>
 #include <QQmlFileSelector>
 #include <QtQuickTest>
+#include <qgsfeature.h>
+#include <qgsgeometry.h>
+#include <qgspoint.h>
 
 #define REGISTER_SINGLETON( uri, _class, name ) qmlRegisterSingletonType<_class>( uri, 1, 0, name, []( QQmlEngine *engine, QJSEngine *scriptEngine ) -> QObject * { Q_UNUSED(engine); Q_UNUSED(scriptEngine); return new _class(); } )
 
@@ -32,6 +37,7 @@ class Setup : public QObject
 
   private:
     QProcess mProcess;
+    QString mDataDir;
 
   public:
     Setup()
@@ -53,6 +59,7 @@ class Setup : public QObject
           {
             // the nmea server python script, relative to the absolute input path
             nmeaServer = QString( "%1/../nmea_server" ).arg( arguments[i + 1] );
+            mDataDir = QString( "%1/../testdata" ).arg( arguments[i + 1] );
           }
         }
       }
@@ -85,10 +92,20 @@ class Setup : public QObject
       fs->setExtraSelectors( selectors );
 
       qmlInit( engine );
+      engine->rootContext()->setContextProperty( QStringLiteral( "dataDir" ), mDataDir );
+
+      qRegisterMetaType<QgsGeometry>( "QgsGeometry" );
+      qRegisterMetaType<QgsFeature>( "QgsFeature" );
+      qRegisterMetaType<QgsPoint>( "QgsPoint" );
+      qRegisterMetaType<QgsPointXY>( "QgsPointXY" );
+
+      qmlRegisterType<QgsQuickCoordinateTransformer>( "org.qfield", 1, 0, "CoordinateTransformer" );
       qmlRegisterUncreatableType<QAbstractSocket>( "org.qfield", 1, 0, "QAbstractSocket", "" );
       qmlRegisterUncreatableType<AbstractGnssReceiver>( "org.qfield", 1, 0, "AbstractGnssReceiver", "" );
       qRegisterMetaType<GnssPositionInformation>( "GnssPositionInformation" );
       qmlRegisterType<Positioning>( "org.qfield", 1, 0, "Positioning" );
+
+      REGISTER_SINGLETON( "org.qfield", CoordinateReferenceSystemUtils, "CoordinateReferenceSystemUtils" );
     }
 };
 
