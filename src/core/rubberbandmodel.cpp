@@ -73,14 +73,14 @@ QgsPointSequence RubberbandModel::pointSequence( const QgsCoordinateReferenceSys
     p2.setY( p1.y() );
 
     //overwrite z and m values if already existent in the point
-    if ( QgsWkbTypes::hasM( pt.wkbType() ) && QgsWkbTypes::hasM( wkbType ) )
+    if ( QgsWkbTypes::hasM( wkbType ) )
     {
-      p2.addMValue( pt.m() );
+      p2.addMValue( QgsWkbTypes::hasM( pt.wkbType() ) ? pt.m() : 0 );
     }
 
-    if ( QgsWkbTypes::hasZ( pt.wkbType() ) && QgsWkbTypes::hasZ( wkbType ) )
+    if ( QgsWkbTypes::hasZ( wkbType ) )
     {
-      p2.addMValue( pt.z() );
+      p2.addMValue( QgsWkbTypes::hasZ( pt.wkbType() ) ? pt.z() : 0 );
     }
 
     sequence.append( p2 );
@@ -187,9 +187,9 @@ QgsPoint RubberbandModel::currentPoint( const QgsCoordinateReferenceSystem &crs,
   }
 
   QgsPoint resultPt( x, y );
-  if ( QgsWkbTypes::hasZ( currentPt.wkbType() ) && QgsWkbTypes::hasZ( wkbType ) )
+  if ( QgsWkbTypes::hasZ( wkbType ) )
     resultPt.addZValue( z );
-  if ( QgsWkbTypes::hasM( currentPt.wkbType() ) && QgsWkbTypes::hasM( wkbType ) )
+  if ( QgsWkbTypes::hasM( wkbType ) )
     resultPt.addMValue( m );
 
   return resultPt;
