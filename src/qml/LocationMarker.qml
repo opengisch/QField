@@ -57,9 +57,14 @@ Item {
         }
     }
 
+    property real lastAcceptedReading: 0
     onReadingChanged: {
-      compassOrientation = userOrientation + (-(Math.atan2(reading.x, reading.y) / Math.PI) * 180)
-      compassHasValue = true
+      var timestamp = Date.now();
+      if (timestamp - lastAcceptedReading > 500) {
+        lastAcceptedReading = timestamp;
+        compassOrientation = userOrientation + (-(Math.atan2(reading.x, reading.y) / Math.PI) * 180)
+        compassHasValue = true
+      }
     }
 
     Component.onCompleted: {
