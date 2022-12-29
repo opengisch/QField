@@ -25,7 +25,11 @@ TcpReceiver::TcpReceiver( const QString &address, const int port, QObject *paren
   , mSocket( new QTcpSocket() )
 {
   connect( mSocket, &QAbstractSocket::stateChanged, this, &TcpReceiver::setSocketState );
+#if QT_VERSION < QT_VERSION_CHECK( 5, 15, 0 )
+  connect( mSocket, qOverload<QAbstractSocket::SocketError>( &QAbstractSocket::error ), this, &TcpReceiver::handleError );
+#else
   connect( mSocket, qOverload<QAbstractSocket::SocketError>( &QAbstractSocket::errorOccurred ), this, &TcpReceiver::handleError );
+#endif
 
   mReconnectTimer.setSingleShot( true );
   connect( &mReconnectTimer, &QTimer::timeout, this, [this]() {
