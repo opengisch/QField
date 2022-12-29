@@ -104,6 +104,11 @@ void BluetoothReceiver::handleError( QBluetoothSocket::SocketError error )
   }
   qInfo() << QStringLiteral( "BluetoothReceiver: Error: %1" ).arg( mLastError );
 
+  if ( mSocket->state() != QBluetoothSocket::SocketState::ConnectedState )
+  {
+    handleDisconnectDevice();
+  }
+
   emit lastErrorChanged( mLastError );
 }
 
@@ -111,8 +116,11 @@ void BluetoothReceiver::doConnectDevice()
 {
   mConnectOnDisconnect = false;
 
+  // provide a connecting state from the get go
+  setSocketState( QBluetoothSocket::SocketState::ServiceLookupState );
+
 #ifdef Q_OS_LINUX
-  //repairing only needed in the linux (not android) environment
+  // repairing only needed in the linux (not android) environment
   repairDevice( QBluetoothAddress( mAddress ) );
 #else
   mSocket->connectToService( QBluetoothAddress( mAddress ), QBluetoothUuid( QBluetoothUuid::ServiceClassUuid::SerialPort ), QBluetoothSocket::ReadOnly );
