@@ -35,7 +35,8 @@ void NmeaGnssReceiver::initNmeaConnection( QIODevice *ioDevice )
 void NmeaGnssReceiver::stateChanged( const QgsGpsInformation &info )
 {
   if ( mLastGnssPositionValid && std::isnan( info.latitude )               // we already sent a valid position
-       || info.utcDateTime == mLastGnssPositionInformation.utcDateTime() ) // we group updates by timestamp, if the last block is not finished, return
+       || ( info.utcDateTime == mLastGnssPositionInformation.utcDateTime() // we group updates by timestamp when available, if the last block is not finished, return
+            && info.utcDateTime.isValid() ) )
   {
     return;
   }
