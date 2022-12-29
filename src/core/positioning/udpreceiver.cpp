@@ -73,8 +73,8 @@ void UdpReceiver::handleConnectDevice()
   }
   qInfo() << QStringLiteral( "UdpReceiver: Initiating connection to address %1 (port %2)" ).arg( mAddress, QString::number( mPort ) );
   mBuffer->open( QIODevice::ReadWrite );
-  mSocket->bind( QHostAddress( "localhost" ), mPort );
-  mSocket->joinMulticastGroup( QHostAddress( "localhost" ) );
+  mSocket->bind( QHostAddress( mAddress ), mPort, QAbstractSocket::ShareAddress | QAbstractSocket::ReuseAddressHint );
+  mSocket->joinMulticastGroup( QHostAddress( mAddress ) );
 }
 
 void UdpReceiver::handleDisconnectDevice()
