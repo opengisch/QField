@@ -182,11 +182,11 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Select the Bluetooth device from the list below:</source>
-        <translation type="unfinished"/>
+        <translation>Na spodnjem seznamu izberite napravo Bluetooth:</translation>
     </message>
     <message>
         <source>Bluetooth device name:</source>
-        <translation type="unfinished"/>
+        <translation>Ime naprave Bluetooth:</translation>
     </message>
     <message>
         <source>N/A</source>
@@ -194,7 +194,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Bluetooth device address:</source>
-        <translation type="unfinished"/>
+        <translation>Naslov naprave Bluetooth:</translation>
     </message>
 </context>
 <context>
@@ -1076,7 +1076,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Cannot change geometry of feature %1 in %2</source>
-        <translation type="unfinished"/>
+        <translation>Geometrije objekta %1 v %2 ni mogoče spremeniti</translation>
     </message>
 </context>
 <context>
@@ -1237,7 +1237,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Cannot update features ordering</source>
-        <translation type="unfinished"/>
+        <translation>Ne morem posodobiti vrstnega reda objektov</translation>
     </message>
 </context>
 <context>
@@ -1504,7 +1504,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Wrong username or password</source>
-        <translation type="unfinished"/>
+        <translation>Napačno uporabniško ime ali geslo</translation>
     </message>
     <message>
         <source>Session expired</source>
@@ -1548,7 +1548,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Username or email</source>
-        <translation type="unfinished"/>
+        <translation>Uporabniško ime ali e-poštni naslov</translation>
     </message>
     <message>
         <source>Password</source>
@@ -1690,7 +1690,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Synchronize the whole project with all modified features and download the freshly updated project with all the applied changes from QFieldCloud.</source>
-        <translation type="unfinished"/>
+        <translation>Sinhronizirajte celoten projekt z vsemi spremenjenimi objekti in prenesite sveže posodobljen projekt z vsemi spremembami iz QFieldCloud-a.</translation>
     </message>
     <message>
         <source>Push changes</source>
@@ -1724,19 +1724,19 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Last synchronized just now</source>
-        <translation type="unfinished"/>
+        <translation>Zadnja sinhronizacija pravkar</translation>
     </message>
     <message>
         <source>Last synchronized %1 minutes ago</source>
-        <translation type="unfinished"/>
+        <translation>Zadnja sinhronizacija pred %1 minutami.</translation>
     </message>
     <message>
         <source>Last synchronized at %1</source>
-        <translation type="unfinished"/>
+        <translation>Zadnja sinhronizacija ob %1</translation>
     </message>
     <message>
         <source>Last synchronized on %1</source>
-        <translation type="unfinished"/>
+        <translation>Zadnja sinhonizacija %1</translation>
     </message>
     <message>
         <source>Last changes pushed just now</source>
@@ -2571,7 +2571,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Cannot delete feature</source>
-        <translation type="unfinished"/>
+        <translation>Ne morem izbisati objekta</translation>
     </message>
     <message>
         <source>Cannot rollback layer changes in layer %1</source>
@@ -2597,7 +2597,7 @@ Cancel to make a minimal device scan instead.</source>
     <name>ReshapeToolBar</name>
     <message>
         <source>The geometry could not be reshaped</source>
-        <translation type="unfinished"/>
+        <translation>Geometrije ni bilo mogoče preoblikovati</translation>
     </message>
 </context>
 <context>
