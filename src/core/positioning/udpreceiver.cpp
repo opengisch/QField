@@ -19,6 +19,10 @@
 #include <QMetaEnum>
 #include <QSettings>
 
+#if defined( Q_OS_ANDROID ) || defined( Q_OS_LINUX )
+#include <sys/socket.h>
+#endif
+
 UdpReceiver::UdpReceiver( const QString &address, const int port, QObject *parent )
   : NmeaGnssReceiver( parent )
   , mAddress( address )
@@ -26,6 +30,14 @@ UdpReceiver::UdpReceiver( const QString &address, const int port, QObject *paren
   , mSocket( new QUdpSocket() )
   , mBuffer( new QBuffer() )
 {
+#if defined( Q_OS_ANDROID ) || defined( Q_OS_LINUX )
+  int sockfd = socket( AF_INET, SOCK_DGRAM, 0 );
+  int optval = 1;
+  setsockopt( sockfd, SOL_SOCKET, SO_REUSEADDR,
+              ( void * ) &optval, sizeof( optval ) );
+  mSocket->setSocketDescriptor( sockfd, QUdpSocket::UnconnectedState );
+#endif
+
   connect( mSocket, &QAbstractSocket::stateChanged, this, &UdpReceiver::setSocketState );
 #if QT_VERSION < QT_VERSION_CHECK( 5, 15, 0 )
   connect( mSocket, qOverload<QAbstractSocket::SocketError>( &QAbstractSocket::error ), this, &UdpReceiver::handleError );
@@ -73,7 +85,7 @@ void UdpReceiver::handleConnectDevice()
   }
   qInfo() << QStringLiteral( "UdpReceiver: Initiating connection to address %1 (port %2)" ).arg( mAddress, QString::number( mPort ) );
   mBuffer->open( QIODevice::ReadWrite );
-  mSocket->bind( QHostAddress( mAddress ), mPort, QAbstractSocket::ShareAddress | QAbstractSocket::ReuseAddressHint );
+  mSocket->bind( QHostAddress( mAddress ), mPort ); // QAbstractSocket::ShareAddress | QAbstractSocket::ReuseAddressHint );
   mSocket->joinMulticastGroup( QHostAddress( mAddress ) );
 }
 
