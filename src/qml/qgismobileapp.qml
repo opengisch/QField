@@ -213,7 +213,7 @@ ApplicationWindow {
     target: positionSource.device
 
     function onLastErrorChanged() {
-        displayToast(qsTr('Positioning error: %1').arg(positionSource.device.lastError), 'error')
+        displayToast(qsTr('Positioning device error: %1').arg(positionSource.device.lastError), 'error')
     }
   }
 

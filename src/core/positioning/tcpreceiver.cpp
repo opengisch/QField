@@ -25,6 +25,7 @@ TcpReceiver::TcpReceiver( const QString &address, const int port, QObject *paren
   , mSocket( new QTcpSocket() )
 {
   connect( mSocket, &QAbstractSocket::stateChanged, this, &TcpReceiver::setSocketState );
+  connect( mSocket, qOverload<QAbstractSocket::SocketError>( &QAbstractSocket::errorOccurred ), this, &TcpReceiver::handleError );
 
   mReconnectTimer.setSingleShot( true );
   connect( &mReconnectTimer, &QTimer::timeout, this, [this]() {
@@ -49,7 +50,7 @@ void TcpReceiver::handleConnectDevice()
   {
     return;
   }
-  qDebug() << QStringLiteral( "TcpReceiver: Initiating connection to address %1 (port %2)" ).arg( mAddress, QString::number( mPort ) );
+  qInfo() << QStringLiteral( "TcpReceiver: Initiating connection to address %1 (port %2)" ).arg( mAddress, QString::number( mPort ) );
   mSocket->connectToHost( mAddress, mPort, QTcpSocket::ReadOnly );
 }
 
@@ -99,4 +100,26 @@ void TcpReceiver::setSocketState( const QAbstractSocket::SocketState socketState
   mSocketState = socketState;
   emit socketStateChanged( mSocketState );
   emit socketStateStringChanged( mSocketStateString );
+}
+
+void TcpReceiver::handleError( QAbstractSocket::SocketError error )
+{
+  switch ( error )
+  {
+    case QAbstractSocket::HostNotFoundError:
+      mLastError = tr( "Could not find the remote host" );
+      break;
+    case QAbstractSocket::NetworkError:
+      mLastError = tr( "Attempt to read or write from socket returned an error" );
+      break;
+    case QAbstractSocket::ConnectionRefusedError:
+      mLastError = tr( "The connection was refused by the remote hose" );
+      break;
+    default:
+      mLastError = tr( "UDP receiver error (%1)" ).arg( QMetaEnum::fromType<QAbstractSocket::SocketError>().valueToKey( error ) );
+      break;
+  }
+  qInfo() << QStringLiteral( "TcpReceiver: Error: %1" ).arg( mLastError );
+
+  emit lastErrorChanged( mLastError );
 }

@@ -62,7 +62,7 @@ void BluetoothReceiver::handleConnectDevice()
   {
     return;
   }
-  qDebug() << "BluetoothReceiver: Initiating connection to device: " << mAddress;
+  qInfo() << "BluetoothReceiver: Initiating connection to device: " << mAddress;
 
   if ( mSocket->state() != QBluetoothSocket::SocketState::UnconnectedState )
   {
@@ -102,6 +102,8 @@ void BluetoothReceiver::handleError( QBluetoothSocket::SocketError error )
       mLastError = tr( "Unknown error" );
       break;
   }
+  qInfo() << QStringLiteral( "BluetoothReceiver: Error: %1" ).arg( mLastError );
+
   emit lastErrorChanged( mLastError );
 }
 

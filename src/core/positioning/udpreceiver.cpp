@@ -16,6 +16,7 @@
 
 #include "udpreceiver.h"
 
+#include <QMetaEnum>
 #include <QSettings>
 
 UdpReceiver::UdpReceiver( const QString &address, const int port, QObject *parent )
@@ -26,6 +27,8 @@ UdpReceiver::UdpReceiver( const QString &address, const int port, QObject *paren
   , mBuffer( new QBuffer() )
 {
   connect( mSocket, &QAbstractSocket::stateChanged, this, &UdpReceiver::setSocketState );
+  connect( mSocket, qOverload<QAbstractSocket::SocketError>( &QAbstractSocket::errorOccurred ), this, &UdpReceiver::handleError );
+
   connect( mSocket, &QUdpSocket::readyRead, this, [=]() {
     QByteArray datagram;
     while ( mSocket->hasPendingDatagrams() )
@@ -64,7 +67,7 @@ void UdpReceiver::handleConnectDevice()
   {
     return;
   }
-  qDebug() << QStringLiteral( "UdpReceiver: Initiating connection to address %1 (port %2)" ).arg( mAddress, QString::number( mPort ) );
+  qInfo() << QStringLiteral( "UdpReceiver: Initiating connection to address %1 (port %2)" ).arg( mAddress, QString::number( mPort ) );
   mBuffer->open( QIODevice::ReadWrite );
   mSocket->bind( QHostAddress( "localhost" ), mPort );
   mSocket->joinMulticastGroup( QHostAddress( "localhost" ) );
@@ -118,4 +121,26 @@ void UdpReceiver::setSocketState( const QAbstractSocket::SocketState socketState
   mSocketState = socketState;
   emit socketStateChanged( mSocketState );
   emit socketStateStringChanged( mSocketStateString );
+}
+
+void UdpReceiver::handleError( QAbstractSocket::SocketError error )
+{
+  switch ( error )
+  {
+    case QAbstractSocket::HostNotFoundError:
+      mLastError = tr( "Could not find the remote host" );
+      break;
+    case QAbstractSocket::NetworkError:
+      mLastError = tr( "Attempt to read or write from socket returned an error" );
+      break;
+    case QAbstractSocket::ConnectionRefusedError:
+      mLastError = tr( "The connection was refused by the remote hose" );
+      break;
+    default:
+      mLastError = tr( "UDP receiver error (%1)" ).arg( QMetaEnum::fromType<QAbstractSocket::SocketError>().valueToKey( error ) );
+      break;
+  }
+  qInfo() << QStringLiteral( "UdpReceiver: Error: %1" ).arg( mLastError );
+
+  emit lastErrorChanged( mLastError );
 }
