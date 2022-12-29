@@ -18,6 +18,7 @@
 
 #include <QMetaEnum>
 #include <QSettings>
+#include <qgsmessagelog.h>
 
 #if defined( Q_OS_ANDROID ) || defined( Q_OS_LINUX )
 #include <sys/socket.h>
@@ -51,6 +52,9 @@ UdpReceiver::UdpReceiver( const QString &address, const int port, QObject *paren
     {
       datagram.resize( int( mSocket->pendingDatagramSize() ) );
       mSocket->readDatagram( datagram.data(), datagram.size() );
+
+      QgsMessageLog::logMessage( datagram, QStringLiteral( "NMEA" ), Qgis::Info );
+
       mBuffer->buffer().clear();
       mBuffer->seek( 0 );
       mBuffer->write( datagram );
