@@ -606,6 +606,7 @@ Page {
                     text: {
                       switch (positionSource.device.socketState) {
                       case QAbstractSocket.ConnectedState:
+                      case QAbstractSocket.BoundState:
                         return qsTr('Connected to %1').arg(positioningSettings.positioningDeviceName)
                       case QAbstractSocket.UnconnectedState:
                         return qsTr('Connect to %1').arg(positioningSettings.positioningDeviceName)

@@ -92,6 +92,7 @@ void UdpReceiver::setSocketState( const QAbstractSocket::SocketState socketState
       break;
     }
     case QAbstractSocket::ConnectedState:
+    case QAbstractSocket::BoundState:
     {
       mReconnectOnDisconnect = true;
       mSocketStateString = tr( "Successfully connected" );
