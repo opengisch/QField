@@ -68,6 +68,7 @@ void TcpReceiver::setSocketState( const QAbstractSocket::SocketState socketState
 
   switch ( socketState )
   {
+    case QAbstractSocket::HostLookupState:
     case QAbstractSocket::ConnectingState:
     {
       mSocketStateString = tr( "Connecting…" );
