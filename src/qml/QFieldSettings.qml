@@ -503,16 +503,10 @@ Page {
                             }
                           }
 
-                          property string selectedPositioningDevice
-
                           onCurrentIndexChanged: {
                               var modelIndex = positioningDeviceModel.index(currentIndex, 0);
-                              selectedPositioningDevice = positioningDeviceModel.data(modelIndex, PositioningDeviceModel.DeviceId);
-                              if( positioningSettings.positioningDevice !== selectedPositioningDevice )
-                              {
-                                  positioningSettings.positioningDevice = selectedPositioningDevice
-                                  positioningSettings.positioningDeviceName = positioningDeviceModel.data(modelIndex, PositioningDeviceModel.DeviceName);
-                              }
+                              positioningSettings.positioningDevice = positioningDeviceModel.data(modelIndex, PositioningDeviceModel.DeviceId)
+                              positioningSettings.positioningDeviceName = positioningDeviceModel.data(modelIndex, PositioningDeviceModel.DeviceName);
                           }
 
                           Component.onCompleted: {
@@ -1157,8 +1151,10 @@ Page {
       }
 
       var index = positioningDeviceModel.addDevice(type, name, settings);
-      if (index > -1) {
+      if (index !== positioningDeviceComboBox.currentIndex) {
         positioningDeviceComboBox.currentIndex = index;
+      } else {
+        positioningDeviceComboBox.onCurrentIndexChanged();
       }
     }
   }
