@@ -34,14 +34,11 @@ void NmeaGnssReceiver::initNmeaConnection( QIODevice *ioDevice )
 
 void NmeaGnssReceiver::stateChanged( const QgsGpsInformation &info )
 {
-  if ( mLastGnssPositionValid && std::isnan( info.latitude )               // we already sent a valid position
-       || ( info.utcDateTime == mLastGnssPositionInformation.utcDateTime() // we group updates by timestamp when available, if the last block is not finished, return
-            && info.utcDateTime.isValid() ) )
+  if ( mLastGnssPositionValid && std::isnan( info.latitude ) )
   {
     return;
   }
   mLastGnssPositionValid = !std::isnan( info.latitude );
-  emit lastGnssPositionInformationChanged( mLastGnssPositionInformation );
 
   bool ellipsoidalElevation = false;
   if ( Positioning *positioning = qobject_cast<Positioning *>( parent() ) )
@@ -55,4 +52,5 @@ void NmeaGnssReceiver::stateChanged( const QgsGpsInformation &info )
                                                           info.hacc, info.vacc, info.utcDateTime, info.fixMode, info.fixType, info.quality, info.satellitesUsed, info.status,
                                                           info.satPrn, info.satInfoComplete, std::numeric_limits<double>::quiet_NaN(), std::numeric_limits<double>::quiet_NaN(),
                                                           0, QStringLiteral( "nmea" ) );
+  emit lastGnssPositionInformationChanged( mLastGnssPositionInformation );
 }
