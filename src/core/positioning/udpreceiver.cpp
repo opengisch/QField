@@ -14,13 +14,11 @@
  *                                                                         *
  ***************************************************************************/
 
-#include "platformutilities.h"
 #include "udpreceiver.h"
 
 #include <QFile>
 #include <QMetaEnum>
 #include <QSettings>
-#include <qgsmessagelog.h>
 
 #if defined( Q_OS_ANDROID ) || defined( Q_OS_LINUX )
 #include <sys/socket.h>
@@ -54,12 +52,6 @@ UdpReceiver::UdpReceiver( const QString &address, const int port, QObject *paren
     {
       datagram.resize( int( mSocket->pendingDatagramSize() ) );
       mSocket->readDatagram( datagram.data(), datagram.size() );
-
-      QgsMessageLog::logMessage( datagram, QStringLiteral( "NMEA" ), Qgis::Info );
-      QFile logs( QStringLiteral( "%1/nmea.txt" ).arg( PlatformUtilities::instance()->appDataDirs().at( 0 ) ) );
-      logs.open( QIODevice::Append );
-      logs.write( datagram );
-      logs.close();
 
       mBuffer->buffer().clear();
       mBuffer->seek( 0 );
@@ -95,7 +87,7 @@ void UdpReceiver::handleConnectDevice()
   }
   qInfo() << QStringLiteral( "UdpReceiver: Initiating connection to address %1 (port %2)" ).arg( mAddress, QString::number( mPort ) );
   mBuffer->open( QIODevice::ReadWrite );
-  mSocket->bind( QHostAddress( mAddress ), mPort );
+  mSocket->bind( QHostAddress( mAddress ), mPort, QAbstractSocket::ShareAddress | QAbstractSocket::ReuseAddressHint );
   mSocket->joinMulticastGroup( QHostAddress( mAddress ) );
 }
 
