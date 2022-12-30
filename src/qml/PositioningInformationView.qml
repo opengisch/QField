@@ -99,7 +99,7 @@ Rectangle {
             }
             else
             {
-                altitude += 'N/A';
+                altitude += qsTr('N/A');
             }
             return altitude
         }
@@ -163,7 +163,10 @@ Rectangle {
         anchors.left: parent.left
         font: Theme.tipFont
         color: textColor
-        text: qsTr( "PDOP" ) + ': ' + ( positionSource.positionInformation ? positionSource.positionInformation.pdop.toLocaleString(Qt.locale(), 'f', 1) : '-' )
+        text: qsTr( "PDOP" ) + ': ' +
+              (positionSource.positionInformation && !isNaN(positionSource.positionInformation.pdop)
+               ? positionSource.positionInformation.pdop.toLocaleString(Qt.locale(), 'f', 1)
+               : qsTr('N/A'))
       }
     }
 
@@ -179,7 +182,10 @@ Rectangle {
         anchors.left: parent.left
         font: Theme.tipFont
         color: textColor
-        text: qsTr( "HDOP" ) + ': ' + ( positionSource.positionInformation ? positionSource.positionInformation.hdop.toLocaleString(Qt.locale(), 'f', 1) : '-' )
+        text: qsTr( "HDOP" ) + ': ' +
+              (positionSource.positionInformation && !isNaN(positionSource.positionInformation.hdop)
+               ? positionSource.positionInformation.hdop.toLocaleString(Qt.locale(), 'f', 1)
+               : qsTr('N/A'))
       }
     }
 
@@ -195,7 +201,10 @@ Rectangle {
         anchors.left: parent.left
         font: Theme.tipFont
         color: textColor
-        text: qsTr( "VDOP" ) + ': ' + ( positionSource.positionInformation ? positionSource.positionInformation.vdop.toLocaleString(Qt.locale(), 'f', 1) : '-' )
+        text: qsTr( "VDOP" ) + ': ' +
+              (positionSource.positionInformation && !isNaN(positionSource.positionInformation.vdop)
+               ? positionSource.positionInformation.vdop.toLocaleString(Qt.locale(), 'f', 1)
+               : qsTr('N/A'))
       }
     }
 
@@ -227,7 +236,7 @@ Rectangle {
         anchors.left: parent.left
         font: Theme.tipFont
         color: textColor
-        text: qsTr( "Fix" ) + ': ' + ( positionSource.positionInformation ? positionSource.positionInformation.fixStatusDescription : '-' )
+        text: qsTr( "Fix" ) + ': ' + ( positionSource.positionInformation ? positionSource.positionInformation.fixStatusDescription : qsTr('N/A') )
       }
     }
 
@@ -243,7 +252,7 @@ Rectangle {
         anchors.left: parent.left
         font: Theme.tipFont
         color: textColor
-        text: qsTr( "Quality" ) + ': ' + ( positionSource.positionInformation ? positionSource.positionInformation.qualityDescription : '-' )
+        text: qsTr( "Quality" ) + ': ' + ( positionSource.positionInformation ? positionSource.positionInformation.qualityDescription : qsTr('N/A') )
       }
     }
   }
