@@ -157,6 +157,9 @@ void Positioning::setupDevice()
 #endif
     }
   }
+
+  // Reset the position information to insure no cross contamination between receiver types
+  lastGnssPositionInformationChanged( GnssPositionInformation() );
   connect( mReceiver.get(), &AbstractGnssReceiver::lastGnssPositionInformationChanged, this, &Positioning::lastGnssPositionInformationChanged );
   setValid( mReceiver->valid() );
 
