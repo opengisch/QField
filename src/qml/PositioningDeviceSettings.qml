@@ -100,7 +100,77 @@ Popup {
                 textRole: "name"
                 valueRole: "value"
                 model: ListModel {
-                  ListElement { name: qsTr('Bluetooth'); value: PositioningDeviceModel.BluetoothDevice }
+                  ListElement { name: qsTr('Bluetooth (NMEA)'); value: PositioningDeviceModel.BluetoothDevice }
+                  ListElement { name: qsTr('TCP (NMEA)'); value: PositioningDeviceModel.TcpDevice }
+                  ListElement { name: qsTr('UDP (NMEA)'); value: PositioningDeviceModel.UdpDevice }
+                }
+
+                delegate: ItemDelegate {
+                  width: positioningDeviceType.width
+                  height: 36
+                  icon.source: {
+                    switch(value) {
+                      case PositioningDeviceModel.BluetoothDevice:
+                        return Theme.getThemeVectorIcon('ic_bluetooth_receiver_black_24dp')
+                      case PositioningDeviceModel.TcpDevice:
+                        return Theme.getThemeVectorIcon('ic_tcp_receiver_black_24dp')
+                      case PositioningDeviceModel.UdpDevice:
+                        return Theme.getThemeVectorIcon('ic_udp_receiver_black_24dp')
+                    }
+                    return '';
+                  }
+                  icon.width: 24
+                  icon.height: 24
+                  text: name
+                  font: Theme.defaultFont
+                  highlighted: positioningDeviceType.highlightedIndex === index
+                }
+
+                contentItem: Item {
+                  width: positioningDeviceType.width
+                  height: 36
+
+                  Image {
+                    id: itemImage
+                    anchors.left: parent.left
+                    anchors.leftMargin: 10
+                    anchors.verticalCenter: parent.verticalCenter
+                    width: 24
+                    height: 24
+                    source: {
+                      switch(positioningDeviceType.currentValue) {
+                        case PositioningDeviceModel.BluetoothDevice:
+                          return Theme.getThemeVectorIcon('ic_bluetooth_receiver_black_24dp')
+                        case PositioningDeviceModel.TcpDevice:
+                          return Theme.getThemeVectorIcon('ic_tcp_receiver_black_24dp')
+                        case PositioningDeviceModel.UdpDevice:
+                          return Theme.getThemeVectorIcon('ic_udp_receiver_black_24dp')
+                      }
+                      return '';
+                    }
+                    sourceSize.width: 48
+                    sourceSize.height: 48
+                    fillMode: Image.PreserveAspectFit
+                  }
+
+                  Text {
+                    id: itemText
+                    anchors.left: itemImage.right
+                    anchors.leftMargin: 10
+                    anchors.right: parent.right
+                    anchors.verticalCenter: parent.verticalCenter
+                    text: positioningDeviceType.currentText
+                    font: Theme.defaultFont
+                    horizontalAlignment: Text.AlignLeft
+                    verticalAlignment: Text.AlignVCenter
+                    elide: Text.ElideRight
+                  }
+                }
+
+                Component.onCompleted: {
+                  if (!withBluetooth) {
+                    model.remove(0, 1);
+                  }
                 }
             }
 
@@ -108,9 +178,17 @@ Popup {
                 id: positioningDeviceItem
                 Layout.fillWidth: true
                 Layout.fillHeight: true
-                source: positioningDeviceType.currentValue === PositioningDeviceModel.BluetoothDevice
-                        ? "qrc:/qml/BluetoothDeviceChooser.qml"
-                        : ""
+                source: {
+                  switch(positioningDeviceType.currentValue) {
+                    case PositioningDeviceModel.BluetoothDevice:
+                      return "qrc:/qml/BluetoothDeviceChooser.qml";
+                    case PositioningDeviceModel.TcpDevice:
+                      return "qrc:/qml/TcpDeviceChooser.qml";
+                    case PositioningDeviceModel.UdpDevice:
+                      return "qrc:/qml/UdpDeviceChooser.qml";
+                  }
+                  return '';
+                }
             }
         }
     }

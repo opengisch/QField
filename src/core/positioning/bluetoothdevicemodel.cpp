@@ -25,12 +25,15 @@ BluetoothDeviceModel::BluetoothDeviceModel( QObject *parent )
 {
   connect( &mServiceDiscoveryAgent, &QBluetoothServiceDiscoveryAgent::serviceDiscovered, this, &BluetoothDeviceModel::serviceDiscovered );
 #if QT_VERSION < QT_VERSION_CHECK( 6, 0, 0 )
-  connect( &mServiceDiscoveryAgent, qOverload<QBluetoothServiceDiscoveryAgent::Error>( &QBluetoothServiceDiscoveryAgent::error ), this, [=]() {
+  connect( &mServiceDiscoveryAgent, qOverload<QBluetoothServiceDiscoveryAgent::Error>( &QBluetoothServiceDiscoveryAgent::error ), this, [=]( QBluetoothServiceDiscoveryAgent::Error error ) {
 #else
-  connect( &mServiceDiscoveryAgent, qOverload<QBluetoothServiceDiscoveryAgent::Error>( &QBluetoothServiceDiscoveryAgent::errorOccurred ), this, [=]() {
+  connect( &mServiceDiscoveryAgent, qOverload<QBluetoothServiceDiscoveryAgent::Error>( &QBluetoothServiceDiscoveryAgent::errorOccurred ), this, [=]( QBluetoothServiceDiscoveryAgent::Error error ) {
 #endif
-    setLastError( mServiceDiscoveryAgent.errorString() );
-    setScanningStatus( Failed );
+    if ( error != QBluetoothServiceDiscoveryAgent::NoError )
+    {
+      setLastError( mServiceDiscoveryAgent.errorString() );
+      setScanningStatus( Failed );
+    }
   } );
   connect( &mServiceDiscoveryAgent, &QBluetoothServiceDiscoveryAgent::finished, [=]() {
     setScanningStatus( mServiceDiscoveryAgent.error() == QBluetoothServiceDiscoveryAgent::NoError ? Succeeded : Failed );

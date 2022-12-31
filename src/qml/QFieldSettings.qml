@@ -430,21 +430,83 @@ Page {
                           Layout.alignment: Qt.AlignVCenter
                           font: Theme.defaultFont
                           popup.font: Theme.defaultFont
-                          textRole: 'display'
+
+                          textRole: 'DeviceName'
+                          valueRole: 'DeviceType'
                           model: PositioningDeviceModel {
                               id: positioningDeviceModel
                           }
 
-                          property string selectedPositioningDevice
+                          delegate: ItemDelegate {
+                            width: positioningDeviceComboBox.width
+                            height: 36
+                            icon.source: {
+                              switch(DeviceType) {
+                                case PositioningDeviceModel.InternalDevice:
+                                  return Theme.getThemeVectorIcon('ic_internal_receiver_black_24dp')
+                                case PositioningDeviceModel.BluetoothDevice:
+                                  return Theme.getThemeVectorIcon('ic_bluetooth_receiver_black_24dp')
+                                case PositioningDeviceModel.TcpDevice:
+                                  return Theme.getThemeVectorIcon('ic_tcp_receiver_black_24dp')
+                                case PositioningDeviceModel.UdpDevice:
+                                  return Theme.getThemeVectorIcon('ic_udp_receiver_black_24dp')
+                              }
+                              return '';
+                            }
+                            icon.width: 24
+                            icon.height: 24
+                            text: DeviceName
+                            font: Theme.defaultFont
+                            highlighted: positioningDeviceComboBox.highlightedIndex === index
+                          }
+
+                          contentItem: Item {
+                            width: positioningDeviceComboBox.width
+                            height: 36
+
+                            Image {
+                              id: itemImage
+                              anchors.left: parent.left
+                              anchors.leftMargin: 10
+                              anchors.verticalCenter: parent.verticalCenter
+                              width: 24
+                              height: 24
+                              source: {
+                                switch(positioningDeviceComboBox.currentValue) {
+                                  case PositioningDeviceModel.InternalDevice:
+                                    return Theme.getThemeVectorIcon('ic_internal_receiver_black_24dp')
+                                  case PositioningDeviceModel.BluetoothDevice:
+                                    return Theme.getThemeVectorIcon('ic_bluetooth_receiver_black_24dp')
+                                  case PositioningDeviceModel.TcpDevice:
+                                    return Theme.getThemeVectorIcon('ic_tcp_receiver_black_24dp')
+                                  case PositioningDeviceModel.UdpDevice:
+                                    return Theme.getThemeVectorIcon('ic_udp_receiver_black_24dp')
+                                }
+                                return '';
+                              }
+                              sourceSize.width: 48
+                              sourceSize.height: 48
+                              fillMode: Image.PreserveAspectFit
+                            }
+
+                            Text {
+                              id: itemText
+                              anchors.left: itemImage.right
+                              anchors.leftMargin: 10
+                              anchors.right: parent.right
+                              anchors.verticalCenter: parent.verticalCenter
+                              text: positioningDeviceComboBox.currentText
+                              font: Theme.defaultFont
+                              horizontalAlignment: Text.AlignLeft
+                              verticalAlignment: Text.AlignVCenter
+                              elide: Text.ElideRight
+                            }
+                          }
 
                           onCurrentIndexChanged: {
                               var modelIndex = positioningDeviceModel.index(currentIndex, 0);
-                              selectedPositioningDevice = positioningDeviceModel.data(modelIndex, PositioningDeviceModel.DeviceId);
-                              if( positioningSettings.positioningDevice !== selectedPositioningDevice )
-                              {
-                                  positioningSettings.positioningDevice = selectedPositioningDevice
-                                  positioningSettings.positioningDeviceName = positioningDeviceModel.data(modelIndex, PositioningDeviceModel.DeviceName);
-                              }
+                              positioningSettings.positioningDevice = positioningDeviceModel.data(modelIndex, PositioningDeviceModel.DeviceId)
+                              positioningSettings.positioningDeviceName = positioningDeviceModel.data(modelIndex, PositioningDeviceModel.DeviceName);
                           }
 
                           Component.onCompleted: {
@@ -538,6 +600,7 @@ Page {
                     text: {
                       switch (positionSource.device.socketState) {
                       case QAbstractSocket.ConnectedState:
+                      case QAbstractSocket.BoundState:
                         return qsTr('Connected to %1').arg(positioningSettings.positioningDeviceName)
                       case QAbstractSocket.UnconnectedState:
                         return qsTr('Connect to %1').arg(positioningSettings.positioningDeviceName)
@@ -1088,8 +1151,10 @@ Page {
       }
 
       var index = positioningDeviceModel.addDevice(type, name, settings);
-      if (index > -1) {
+      if (index !== positioningDeviceComboBox.currentIndex) {
         positioningDeviceComboBox.currentIndex = index;
+      } else {
+        positioningDeviceComboBox.onCurrentIndexChanged();
       }
     }
   }

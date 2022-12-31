@@ -16,24 +16,24 @@
 #ifndef BLUETOOTHRECEIVER_H
 #define BLUETOOTHRECEIVER_H
 
-#include "abstractgnssreceiver.h"
-#include "qgsnmeaconnection.h"
+#include "nmeagnssreceiver.h"
 
 #include <QObject>
 #include <QtBluetooth/QBluetoothLocalDevice>
 #include <QtBluetooth/QBluetoothSocket>
+#include <qgsnmeaconnection.h>
 
 /**
  * The bluetoothreceiver connects to a device and feeds the QgsNmeaConnection over QBluetoothSocket.
  * It receives QgsGpsInformation and converts it to GnssPositionInformation
  */
-class BluetoothReceiver : public AbstractGnssReceiver
+class BluetoothReceiver : public NmeaGnssReceiver
 {
     Q_OBJECT
 
   public:
     explicit BluetoothReceiver( const QString &address = QString(), QObject *parent = nullptr );
-    ~BluetoothReceiver() override {}
+    ~BluetoothReceiver() override;
 
   private slots:
     /**
@@ -47,7 +47,6 @@ class BluetoothReceiver : public AbstractGnssReceiver
     void confirmPairing( const QBluetoothAddress &address, QString pin );
 #endif
 #endif
-    void stateChanged( const QgsGpsInformation &info );
     void setSocketState( const QBluetoothSocket::SocketState socketState );
 
   private:
@@ -67,11 +66,9 @@ class BluetoothReceiver : public AbstractGnssReceiver
 
     std::unique_ptr<QBluetoothLocalDevice> mLocalDevice;
     QBluetoothSocket *mSocket = nullptr;
-    std::unique_ptr<QgsNmeaConnection> mGpsConnection;
-    bool mLastGnssPositionValid = false;
 
     bool mDisconnecting = false;
-    bool mConnectOnDisconnect;
+    bool mConnectOnDisconnect = false;
 };
 
 #endif // BLUETOOTHRECEIVER_H

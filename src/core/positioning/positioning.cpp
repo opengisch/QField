@@ -20,6 +20,8 @@
 #include "internalgnssreceiver.h"
 #include "positioning.h"
 #include "positioningutils.h"
+#include "tcpreceiver.h"
+#include "udpreceiver.h"
 
 Positioning::Positioning( QObject *parent )
   : QObject( parent )
@@ -134,10 +136,30 @@ void Positioning::setupDevice()
   }
   else
   {
+    if ( mDeviceId.startsWith( QStringLiteral( "tcp:" ) ) )
+    {
+      int portSeparator = mDeviceId.lastIndexOf( ':' );
+      const QString address = mDeviceId.mid( 4, portSeparator - 4 );
+      const int port = mDeviceId.mid( portSeparator + 1 ).toInt();
+      mReceiver = std::make_unique<TcpReceiver>( address, port, this );
+    }
+    else if ( mDeviceId.startsWith( QStringLiteral( "udp:" ) ) )
+    {
+      int portSeparator = mDeviceId.lastIndexOf( ':' );
+      const QString address = mDeviceId.mid( 4, portSeparator - 4 );
+      const int port = mDeviceId.mid( portSeparator + 1 ).toInt();
+      mReceiver = std::make_unique<UdpReceiver>( address, port, this );
+    }
+    else
+    {
 #ifdef WITH_BLUETOOTH
-    mReceiver = std::make_unique<BluetoothReceiver>( mDeviceId, this );
+      mReceiver = std::make_unique<BluetoothReceiver>( mDeviceId, this );
 #endif
+    }
   }
+
+  // Reset the position information to insure no cross contamination between receiver types
+  lastGnssPositionInformationChanged( GnssPositionInformation() );
   connect( mReceiver.get(), &AbstractGnssReceiver::lastGnssPositionInformationChanged, this, &Positioning::lastGnssPositionInformationChanged );
   setValid( mReceiver->valid() );
 

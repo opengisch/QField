@@ -213,7 +213,7 @@ ApplicationWindow {
     target: positionSource.device
 
     function onLastErrorChanged() {
-        displayToast(qsTr('Positioning error: %1').arg(positionSource.device.lastError), 'error')
+        displayToast(qsTr('Positioning device error: %1').arg(positionSource.device.lastError), 'error')
     }
   }
 
@@ -228,9 +228,9 @@ ApplicationWindow {
     triggeredOnStart: true
     onTriggered: {
       if ( positionSource.positionInformation ) {
-        positionSource.currentness = ( ( new Date() - positionSource.positionInformation.utcDateTime ) / 1000 ) < 30;
-        if ( !geocoderLocatorFiltersChecked && positionSource.valid ) {
-          locatorSettings.model.setGeocoderLocatorFiltersDefaulByPosition( positionSource.positionInformation );
+        positionSource.currentness = ((Date.now() - positionSource.positionInformation.utcDateTime.getTime()) / 1000) < 30;
+        if (!geocoderLocatorFiltersChecked && positionSource.valid) {
+          locatorSettings.model.setGeocoderLocatorFiltersDefaulByPosition(positionSource.positionInformation);
           geocoderLocatorFiltersChecked = true;
         }
       }

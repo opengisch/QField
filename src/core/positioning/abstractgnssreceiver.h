@@ -55,8 +55,11 @@ class AbstractGnssReceiver : public QObject
     void lastErrorChanged( QString &lastError );
 
   private:
-    friend class BluetoothReceiver;
     friend class InternalGnssReceiver;
+    friend class NmeaGnssReceiver;
+    friend class BluetoothReceiver;
+    friend class TcpReceiver;
+    friend class UdpReceiver;
 
     virtual void handleConnectDevice() {}
     virtual void handleDisconnectDevice() {}

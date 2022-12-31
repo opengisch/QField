@@ -11,6 +11,10 @@
         <file alias="qfield-love.png">pictures/qfield-love.png</file>
     </qresource>
     <qresource prefix="/">
+        <file>themes/qfield/nodpi/ic_internal_receiver_black_24dp.svg</file>
+        <file>themes/qfield/nodpi/ic_bluetooth_receiver_black_24dp.svg</file>
+        <file>themes/qfield/nodpi/ic_tcp_receiver_black_24dp.svg</file>
+        <file>themes/qfield/nodpi/ic_udp_receiver_black_24dp.svg</file>
         <file>themes/qfield/nodpi/ic_copy_black_24dp.svg</file>
         <file>themes/qfield/nodpi/ic_book_white_24dp.svg</file>
         <file>themes/qfield/nodpi/ic_paste_black_24dp.svg</file>
