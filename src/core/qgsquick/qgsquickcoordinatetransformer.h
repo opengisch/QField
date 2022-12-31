@@ -65,6 +65,11 @@ class QgsQuickCoordinateTransformer : public QObject
      */
     Q_PROPERTY( bool skipAltitudeTransformation READ skipAltitudeTransformation WRITE setSkipAltitudeTransformation NOTIFY skipAltitudeTransformationChanged )
 
+    /**
+     * The vertical grid that will be used to correct the altitude value of captured coordinates
+     */
+    Q_PROPERTY( QString verticalGrid READ verticalGrid WRITE setVerticalGrid NOTIFY verticalGridChanged )
+
   public:
     //! Creates new coordinate transformer
     explicit QgsQuickCoordinateTransformer( QObject *parent = nullptr );
@@ -96,30 +101,29 @@ class QgsQuickCoordinateTransformer : public QObject
     //!\copydoc QgsQuickCoordinateTransformer::transformContext
     QgsCoordinateTransformContext transformContext() const;
 
-    /**
-     * The altitude value of captured coordinates is corrected by the amount of deltaZ.
-     * This can be used to correct the altitude with the antenna height for example.
-     */
+    //!\copydoc QgsQuickCoordinateTransformer::deltaZ
     qreal deltaZ() const;
 
-    /**
-     * The altitude value of captured coordinates is corrected by the amount of deltaZ.
-     * This can be used to correct the altitude with the antenna height for example.
-     */
+    //!\copydoc QgsQuickCoordinateTransformer::deltaZ
     void setDeltaZ( const qreal &deltaZ );
 
+    //!\copydoc QgsQuickCoordinateTransformer::sourceCoordinate
     QGeoCoordinate sourceCoordinate() const;
+
+    //!\copydoc QgsQuickCoordinateTransformer::sourceCoordinate
     void setSourceCoordinate( const QGeoCoordinate &sourceCoordinate );
 
-    /**
-     * Skips any altitude correction handling during CRS transformation. deltaZ will still be applied.
-     */
+    //!\copydoc QgsQuickCoordinateTransformer::skipAltitudeTransformation
     bool skipAltitudeTransformation() const;
 
-    /**
-     * Skips any altitude correction handling during CRS transformation. deltaZ will still be applied.
-     */
+    //!\copydoc QgsQuickCoordinateTransformer::skipAltitudeTransformation
     void setSkipAltitudeTransformation( bool skipAltitudeTransformation );
+
+    //!\copydoc QgsQuickCoordinateTransformer::verticalGrid
+    QString verticalGrid() const;
+
+    //!\copydoc QgsQuickCoordinateTransformer::verticalGrid
+    void setVerticalGrid( const QString &grid );
 
   signals:
     //!\copydoc QgsQuickCoordinateTransformer::projectedPosition
@@ -139,16 +143,14 @@ class QgsQuickCoordinateTransformer : public QObject
     //!\copydoc QgsQuickCoordinateTransformer::transformContext
     void transformContextChanged();
 
-    /**
-     * The altitude value of captured coordinates is corrected by the amount of deltaZ.
-     * This can be used to correct the altitude with the antenna height for example.
-     */
+    //!\copydoc QgsQuickCoordinateTransformer::deltaZChanged
     void deltaZChanged();
 
-    /**
-     * Skips any altitude correction handling during CRS transformation. deltaZ will still be applied.
-     */
+    //!\copydoc QgsQuickCoordinateTransformer::skipAltitudeTransformation
     void skipAltitudeTransformationChanged();
+
+    //!\copydoc QgsQuickCoordinateTransformer::verticalGrid
+    void verticalGridChanged();
 
   private:
     void updatePosition();
@@ -156,18 +158,12 @@ class QgsQuickCoordinateTransformer : public QObject
     QgsPoint mProjectedPosition;
     QgsPoint mSourcePosition;
     QgsCoordinateTransform mCoordinateTransform;
-
-    QString mVerticalGridName;
     QgsCoordinateTransform mCoordinateVerticalGridTransform;
 
-    /**
-     * The altitude value of captured coordinates is corrected by the amount of deltaZ.
-     * This can be used to correct the altitude with the antenna height for example.
-     */
-
     qreal mDeltaZ = 0;
-
     bool mSkipAltitudeTransformation = true;
+    QString mVerticalGrid;
+    QString mVerticalGridPath;
 };
 
 #endif // QGSQUICKCOORDINATETRANSFORMER_H
