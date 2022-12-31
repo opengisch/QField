@@ -242,6 +242,9 @@ void QgsQuickCoordinateTransformer::setVerticalGrid( const QString &grid )
   mVerticalGrid = grid;
   mVerticalGridPath.clear();
 
+  if ( mVerticalGrid.isEmpty() )
+    return;
+
   if ( QFile::exists( mVerticalGrid ) )
   {
     mVerticalGridPath = mVerticalGrid;
