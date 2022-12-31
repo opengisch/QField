@@ -28,7 +28,7 @@ TestCase {
         coordinateTransformer.deltaZ = 0
         coordinateTransformer.verticalGrid = ''
         // wait a few seconds so positioning can catch some NMEA strings
-        wait(5000)
+        wait(2500)
 
         // the elevation in the NMEA stream goes between 320 to 322, and the ellispodal adjustment is -26.0 meters
         // we therefore simply check whether we are int the 200s value range, which indicates ellispodal elevation is
@@ -40,7 +40,7 @@ TestCase {
         coordinateTransformer.deltaZ = -100
         coordinateTransformer.verticalGrid = ''
         // wait a few seconds so positioning can catch some NMEA strings
-        wait(5000)
+        wait(2500)
 
         // the elevation in the NMEA stream's range is in the 290s
         // we therefore simply check whether we are in the 100s value range, which indicates
@@ -52,7 +52,7 @@ TestCase {
         coordinateTransformer.deltaZ = 0
         coordinateTransformer.verticalGrid = dataDir + '/testgrid.tif'
         // wait a few seconds so positioning can catch some NMEA strings
-        wait(5000)
+        wait(2500)
 
         // the elevation in the NMEA stream's range is in the 290s
         // we therefore simply check whether we have a negative value to see

@@ -29,7 +29,7 @@ parser.add_argument(
 )
 parser.add_argument("-p", "--port", help="Port to operate on", default=1958, type=int)
 parser.add_argument(
-    "-i", "--interval", help="Pause between sending sentences", default=0.1, type=float
+    "-i", "--interval", help="Pause between sending sentences", default=0.05, type=float
 )
 args = vars(parser.parse_args())
 
