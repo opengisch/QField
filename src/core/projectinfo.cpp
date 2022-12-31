@@ -23,6 +23,7 @@
 #include <QString>
 #include <qgslayertree.h>
 #include <qgslayertreemodel.h>
+#include <qgsmaplayerstyle.h>
 
 ProjectInfo::ProjectInfo( QObject *parent )
   : QObject( parent )

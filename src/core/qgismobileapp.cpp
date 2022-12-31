@@ -138,6 +138,7 @@
 #include <qgslocator.h>
 #include <qgslocatormodel.h>
 #include <qgsmaplayer.h>
+#include <qgsmaplayerstyle.h>
 #include <qgsmapthemecollection.h>
 #include <qgsnetworkaccessmanager.h>
 #include <qgsofflineediting.h>
