@@ -24,7 +24,7 @@ TestCase {
         }
     }
 
-    function test_ellipsoidalElevation() {
+    function test_01_ellipsoidalElevation() {
         coordinateTransformer.deltaZ = 0
         coordinateTransformer.verticalGrid = ''
         // wait a few seconds so positioning can catch some NMEA strings
@@ -36,7 +36,7 @@ TestCase {
         compare(Math.floor(positioning.positionInformation.elevation / 100), 2)
     }
 
-    function test_deltaZ() {
+    function test_02_deltaZ() {
         coordinateTransformer.deltaZ = -100
         coordinateTransformer.verticalGrid = ''
         // wait a few seconds so positioning can catch some NMEA strings
@@ -48,7 +48,7 @@ TestCase {
         compare(Math.floor(positioning.projectedPosition.z / 100), 1)
     }
 
-    function test_verticalGrid() {
+    function test_03_verticalGrid() {
         coordinateTransformer.deltaZ = 0
         coordinateTransformer.verticalGrid = dataDir + '/testgrid.tif'
         // wait a few seconds so positioning can catch some NMEA strings
@@ -58,5 +58,19 @@ TestCase {
         // we therefore simply check whether we have a negative value to see
         // if the grid value (~300) has been applied
         compare(Math.floor(positioning.projectedPosition.z / 100), -1)
+    }
+
+    function test_04_tcpReceiver() {
+        positioning.deviceId = 'tcp:localhost:11111'
+        coordinateTransformer.deltaZ = 0
+        coordinateTransformer.verticalGrid = ''
+        // wait a few seconds so positioning can catch some NMEA strings
+        wait(2500)
+
+        compare(Math.floor(positioning.positionInformation.latitude), 46)
+        compare(Math.floor(positioning.positionInformation.longitude), 9)
+        compare(Math.floor(positioning.positionInformation.elevation / 10), 110 )
+        compare(Math.floor(positioning.positionInformation.hacc), 2)
+        compare(Math.floor(positioning.positionInformation.vacc), 4)
     }
 }

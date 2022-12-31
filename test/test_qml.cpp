@@ -36,7 +36,8 @@ class Setup : public QObject
     Q_OBJECT
 
   private:
-    QProcess mProcess;
+    QProcess mTcpServerProcess;
+    QProcess mUdpServerProcess;
     QString mDataDir;
 
   public:
@@ -65,19 +66,29 @@ class Setup : public QObject
       }
       if ( !nmeaServer.isEmpty() )
       {
-        mProcess.setProgram( QStringLiteral( "python3" ) );
-        mProcess.setArguments( QStringList() << QStringLiteral( "%1/nmeaserver.py" ).arg( nmeaServer )
-                                             << QStringLiteral( "--type" )
-                                             << QStringLiteral( "udp" )
-                                             << QStringLiteral( "%1/TrimbleR1.txt" ).arg( nmeaServer ) );
-        mProcess.start();
+        mTcpServerProcess.setProgram( QStringLiteral( "python3" ) );
+        mTcpServerProcess.setArguments( QStringList() << QStringLiteral( "%1/nmeaserver.py" ).arg( nmeaServer )
+                                                      << QStringLiteral( "--type" )
+                                                      << QStringLiteral( "tcp" )
+                                                      << QStringLiteral( "--port" )
+                                                      << QStringLiteral( "11111" )
+                                                      << QStringLiteral( "%1/happy.txt" ).arg( nmeaServer ) );
+        mTcpServerProcess.start();
+
+        mUdpServerProcess.setProgram( QStringLiteral( "python3" ) );
+        mUdpServerProcess.setArguments( QStringList() << QStringLiteral( "%1/nmeaserver.py" ).arg( nmeaServer )
+                                                      << QStringLiteral( "--type" )
+                                                      << QStringLiteral( "udp" )
+                                                      << QStringLiteral( "%1/TrimbleR1.txt" ).arg( nmeaServer ) );
+        mUdpServerProcess.start();
       }
     }
 
     void cleanupTestCase()
     {
-      // kill the UDP server
-      mProcess.kill();
+      // kill the TCP and UDP server
+      mTcpServerProcess.kill();
+      mUdpServerProcess.kill();
     }
 
     void qmlEngineAvailable( QQmlEngine *engine )
