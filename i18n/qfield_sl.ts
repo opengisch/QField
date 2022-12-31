@@ -69,7 +69,7 @@
     </message>
     <message>
         <source>No transform is available between &lt;i&gt;%1&lt;/i&gt; and &lt;i&gt;%2&lt;/i&gt;.&lt;p style=&quot;color: red&quot;&gt;%3&lt;/p&gt;</source>
-        <translation type="unfinished"/>
+        <translation>Transformacija med &lt;i&gt;%1&lt;/i&gt; in &lt;i&gt;%2&lt;/i&gt;.&lt;p style=&quot;color: red&quot;&gt;%3&lt;/p&gt;ni na voljo.</translation>
     </message>
     <message>
         <source>Cannot use project transform between %1 and %2</source>
@@ -236,7 +236,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>The protocol is not supported on this platform</source>
-        <translation type="unfinished"/>
+        <translation>Protokol ni podprt na tej platformi</translation>
     </message>
     <message>
         <source>An operation was attempted while the socket was in a state that did not permit it</source>
