@@ -22,7 +22,7 @@ Item {
   }
 
   function getSettings() {
-    return {'address': deviceAddress,
+    return {'address': deviceAddress.trim(),
             'port': parseInt(devicePort)};
   }
 
