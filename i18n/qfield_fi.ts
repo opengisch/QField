@@ -149,7 +149,7 @@
     </message>
     <message>
         <source>Scan</source>
-        <translation>Skannaa</translation>
+        <translation type="vanished">Skannaa</translation>
     </message>
     <message>
         <source>Make a full service discovery</source>
@@ -191,10 +191,18 @@ Peruuta tehdäksesi suppeampi laiteskannaus.</translation>
     </message>
     <message>
         <source>N/A</source>
-        <translation>N/A</translation>
+        <translation type="vanished">N/A</translation>
     </message>
     <message>
         <source>Bluetooth device address:</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Scan for nearby devices</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>No Bluetooth devices detected, scan to populate nearby devices.</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -1401,6 +1409,18 @@ Kohteen geometriat yhdistetään kohteeseen &apos;%1&apos;, johon sisällytetä�
     </message>
     <message>
         <source>Bluetooth</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Bluetooth (NMEA)</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>TCP (NMEA)</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>UDP (NMEA)</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -2642,6 +2662,52 @@ Peruuta tehdäksesi suppeampi laiteskannaus.</translation>
     </message>
 </context>
 <context>
+    <name>TcpDeviceChooser</name>
+    <message>
+        <source>Address:</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Port:</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>TcpReceiver</name>
+    <message>
+        <source>Connecting…</source>
+        <translation>Muodostetaan yhteyttä...</translation>
+    </message>
+    <message>
+        <source>Successfully connected</source>
+        <translation>Yhdistetty onnistuneesti</translation>
+    </message>
+    <message>
+        <source>Disconnected</source>
+        <translation>Yhteys katkaistu</translation>
+    </message>
+    <message>
+        <source>Socket state %1</source>
+        <translation>Liittimen tila %1</translation>
+    </message>
+    <message>
+        <source>Could not find the remote host</source>
+        <translation>Isäntälaitetta ei löytynyt</translation>
+    </message>
+    <message>
+        <source>Attempt to read or write from socket returned an error</source>
+        <translation>Yritys lukea tai kirjoittaa socketista palautti virheen</translation>
+    </message>
+    <message>
+        <source>The connection was refused by the remote hose</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>UDP receiver error (%1)</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
     <name>TemporalProperties</name>
     <message>
         <source>Temporal Properties</source>
@@ -2756,6 +2822,52 @@ Peruuta tehdäksesi suppeampi laiteskannaus.</translation>
     <message>
         <source>To active the measurement functionality, make sure the vector layer&apos;s geometry type used for the tracking session has an M dimension.</source>
         <translation>Aktivoi mittaustoiminto varmistamalla, että jäljitysistunnossa käytetyllä vektori tason geometriatyypillä on M-ulottuvuus.</translation>
+    </message>
+</context>
+<context>
+    <name>UdpDeviceChooser</name>
+    <message>
+        <source>Address:</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Port:</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>UdpReceiver</name>
+    <message>
+        <source>Connecting…</source>
+        <translation>Muodostetaan yhteyttä...</translation>
+    </message>
+    <message>
+        <source>Successfully connected</source>
+        <translation>Yhdistetty onnistuneesti</translation>
+    </message>
+    <message>
+        <source>Disconnected</source>
+        <translation>Yhteys katkaistu</translation>
+    </message>
+    <message>
+        <source>Socket state %1</source>
+        <translation>Liittimen tila %1</translation>
+    </message>
+    <message>
+        <source>Could not find the remote host</source>
+        <translation>Isäntälaitetta ei löytynyt</translation>
+    </message>
+    <message>
+        <source>Attempt to read or write from socket returned an error</source>
+        <translation>Yritys lukea tai kirjoittaa socketista palautti virheen</translation>
+    </message>
+    <message>
+        <source>The connection was refused by the remote hose</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>UDP receiver error (%1)</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -3262,7 +3374,7 @@ Peruuta tehdäksesi suppeampi laiteskannaus.</translation>
     </message>
     <message>
         <source>Positioning error: %1</source>
-        <translation>Paikannusvirhe: %1</translation>
+        <translation type="vanished">Paikannusvirhe: %1</translation>
     </message>
     <message>
         <source>Azimuth</source>
@@ -3282,6 +3394,10 @@ Peruuta tehdäksesi suppeampi laiteskannaus.</translation>
     </message>
     <message>
         <source>Print</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Positioning device error: %1</source>
         <translation type="unfinished"/>
     </message>
 </context>

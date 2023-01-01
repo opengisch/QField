@@ -149,7 +149,7 @@
     </message>
     <message>
         <source>Scan</source>
-        <translation>Skeniraj</translation>
+        <translation type="vanished">Skeniraj</translation>
     </message>
     <message>
         <source>Make a full service discovery</source>
@@ -191,10 +191,18 @@ Otkažite za pokretanje minimalnog skeniranja uređaja.</translation>
     </message>
     <message>
         <source>N/A</source>
-        <translation>Nedostupno</translation>
+        <translation type="vanished">Nedostupno</translation>
     </message>
     <message>
         <source>Bluetooth device address:</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Scan for nearby devices</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>No Bluetooth devices detected, scan to populate nearby devices.</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -1403,6 +1411,18 @@ Geometrija elemenata će se spojiti u element &apos;%1&apos;, koji će zadržati
     </message>
     <message>
         <source>Bluetooth</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Bluetooth (NMEA)</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>TCP (NMEA)</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>UDP (NMEA)</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -2638,6 +2658,52 @@ Otkažite da pokrenete minimalno skeniranje uređaja.</translation>
     </message>
 </context>
 <context>
+    <name>TcpDeviceChooser</name>
+    <message>
+        <source>Address:</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Port:</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>TcpReceiver</name>
+    <message>
+        <source>Connecting…</source>
+        <translation>Spajanje...</translation>
+    </message>
+    <message>
+        <source>Successfully connected</source>
+        <translation>Uspješno spojeno</translation>
+    </message>
+    <message>
+        <source>Disconnected</source>
+        <translation>Odspojeno</translation>
+    </message>
+    <message>
+        <source>Socket state %1</source>
+        <translation>Stanje priključka %1</translation>
+    </message>
+    <message>
+        <source>Could not find the remote host</source>
+        <translation>Ne mogu pronaći udaljeni poslužitelj</translation>
+    </message>
+    <message>
+        <source>Attempt to read or write from socket returned an error</source>
+        <translation>Dogodila se greška prilikom pokušaja čitanja ili pisanja iz utičnice</translation>
+    </message>
+    <message>
+        <source>The connection was refused by the remote hose</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>UDP receiver error (%1)</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
     <name>TemporalProperties</name>
     <message>
         <source>Temporal Properties</source>
@@ -2751,6 +2817,52 @@ Otkažite da pokrenete minimalno skeniranje uređaja.</translation>
     </message>
     <message>
         <source>To active the measurement functionality, make sure the vector layer&apos;s geometry type used for the tracking session has an M dimension.</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>UdpDeviceChooser</name>
+    <message>
+        <source>Address:</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Port:</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>UdpReceiver</name>
+    <message>
+        <source>Connecting…</source>
+        <translation>Spajanje...</translation>
+    </message>
+    <message>
+        <source>Successfully connected</source>
+        <translation>Uspješno spojeno</translation>
+    </message>
+    <message>
+        <source>Disconnected</source>
+        <translation>Odspojeno</translation>
+    </message>
+    <message>
+        <source>Socket state %1</source>
+        <translation>Stanje priključka %1</translation>
+    </message>
+    <message>
+        <source>Could not find the remote host</source>
+        <translation>Ne mogu pronaći udaljeni poslužitelj</translation>
+    </message>
+    <message>
+        <source>Attempt to read or write from socket returned an error</source>
+        <translation>Dogodila se greška prilikom pokušaja čitanja ili pisanja iz utičnice</translation>
+    </message>
+    <message>
+        <source>The connection was refused by the remote hose</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>UDP receiver error (%1)</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -3258,7 +3370,7 @@ Otkažite da pokrenete minimalno skeniranje uređaja.</translation>
     </message>
     <message>
         <source>Positioning error: %1</source>
-        <translation>Greška pozicioniranja: %1</translation>
+        <translation type="vanished">Greška pozicioniranja: %1</translation>
     </message>
     <message>
         <source>Azimuth</source>
@@ -3278,6 +3390,10 @@ Otkažite da pokrenete minimalno skeniranje uređaja.</translation>
     </message>
     <message>
         <source>Print</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Positioning device error: %1</source>
         <translation type="unfinished"/>
     </message>
 </context>

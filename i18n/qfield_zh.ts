@@ -149,7 +149,7 @@
     </message>
     <message>
         <source>Scan</source>
-        <translation>扫描</translation>
+        <translation type="vanished">扫描</translation>
     </message>
     <message>
         <source>Make a full service discovery</source>
@@ -191,11 +191,19 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>N/A</source>
-        <translation>不可用</translation>
+        <translation type="vanished">不可用</translation>
     </message>
     <message>
         <source>Bluetooth device address:</source>
         <translation>蓝牙设备地址：</translation>
+    </message>
+    <message>
+        <source>Scan for nearby devices</source>
+        <translation>扫描附近设备</translation>
+    </message>
+    <message>
+        <source>No Bluetooth devices detected, scan to populate nearby devices.</source>
+        <translation>未检测到蓝牙设备，请扫描至位于附近的设备。</translation>
     </message>
 </context>
 <context>
@@ -1399,7 +1407,19 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Bluetooth</source>
-        <translation>蓝牙</translation>
+        <translation type="vanished">蓝牙</translation>
+    </message>
+    <message>
+        <source>Bluetooth (NMEA)</source>
+        <translation>蓝牙 (NMEA)</translation>
+    </message>
+    <message>
+        <source>TCP (NMEA)</source>
+        <translation>TCP (NMEA)</translation>
+    </message>
+    <message>
+        <source>UDP (NMEA)</source>
+        <translation>UDP (NMEA)</translation>
     </message>
 </context>
 <context>
@@ -2638,6 +2658,52 @@ Cancel to make a minimal device scan instead.</source>
     </message>
 </context>
 <context>
+    <name>TcpDeviceChooser</name>
+    <message>
+        <source>Address:</source>
+        <translation>地址:</translation>
+    </message>
+    <message>
+        <source>Port:</source>
+        <translation>端口:</translation>
+    </message>
+</context>
+<context>
+    <name>TcpReceiver</name>
+    <message>
+        <source>Connecting…</source>
+        <translation>正在连接…</translation>
+    </message>
+    <message>
+        <source>Successfully connected</source>
+        <translation>已成功连接</translation>
+    </message>
+    <message>
+        <source>Disconnected</source>
+        <translation>已断开</translation>
+    </message>
+    <message>
+        <source>Socket state %1</source>
+        <translation>套接字状态 %1</translation>
+    </message>
+    <message>
+        <source>Could not find the remote host</source>
+        <translation>未找到远程主机</translation>
+    </message>
+    <message>
+        <source>Attempt to read or write from socket returned an error</source>
+        <translation>尝试从Socket读取或写入时返回错误</translation>
+    </message>
+    <message>
+        <source>The connection was refused by the remote hose</source>
+        <translation>远程主机拒绝连接</translation>
+    </message>
+    <message>
+        <source>UDP receiver error (%1)</source>
+        <translation>UDP接收错误 (%1)</translation>
+    </message>
+</context>
+<context>
     <name>TemporalProperties</name>
     <message>
         <source>Temporal Properties</source>
@@ -2752,6 +2818,52 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <source>To active the measurement functionality, make sure the vector layer&apos;s geometry type used for the tracking session has an M dimension.</source>
         <translation>要激活测量功能，请确保用于跟踪会话矢量图层的几何图形类型具有M维度。</translation>
+    </message>
+</context>
+<context>
+    <name>UdpDeviceChooser</name>
+    <message>
+        <source>Address:</source>
+        <translation>地址:</translation>
+    </message>
+    <message>
+        <source>Port:</source>
+        <translation>端口:</translation>
+    </message>
+</context>
+<context>
+    <name>UdpReceiver</name>
+    <message>
+        <source>Connecting…</source>
+        <translation>正在连接…</translation>
+    </message>
+    <message>
+        <source>Successfully connected</source>
+        <translation>已成功连接</translation>
+    </message>
+    <message>
+        <source>Disconnected</source>
+        <translation>已断开</translation>
+    </message>
+    <message>
+        <source>Socket state %1</source>
+        <translation>套接字状态 %1</translation>
+    </message>
+    <message>
+        <source>Could not find the remote host</source>
+        <translation>未找到远程主机</translation>
+    </message>
+    <message>
+        <source>Attempt to read or write from socket returned an error</source>
+        <translation>尝试从Socket读取或写入时返回错误</translation>
+    </message>
+    <message>
+        <source>The connection was refused by the remote hose</source>
+        <translation>远程主机拒绝连接</translation>
+    </message>
+    <message>
+        <source>UDP receiver error (%1)</source>
+        <translation>UDP接收错误 (%1)</translation>
     </message>
 </context>
 <context>
@@ -3258,7 +3370,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Positioning error: %1</source>
-        <translation>定位错误: %1</translation>
+        <translation type="vanished">定位错误: %1</translation>
     </message>
     <message>
         <source>Azimuth</source>
@@ -3279,6 +3391,10 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <source>Print</source>
         <translation>输出</translation>
+    </message>
+    <message>
+        <source>Positioning device error: %1</source>
+        <translation>定位设备错误: %1</translation>
     </message>
 </context>
 <context>

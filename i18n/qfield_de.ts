@@ -149,7 +149,7 @@
     </message>
     <message>
         <source>Scan</source>
-        <translation>Scan</translation>
+        <translation type="vanished">Scan</translation>
     </message>
     <message>
         <source>Make a full service discovery</source>
@@ -191,10 +191,18 @@ Abbrechen um einen minimalen Scan durchzuführen. </translation>
     </message>
     <message>
         <source>N/A</source>
-        <translation>N. a.</translation>
+        <translation type="vanished">N. a.</translation>
     </message>
     <message>
         <source>Bluetooth device address:</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Scan for nearby devices</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>No Bluetooth devices detected, scan to populate nearby devices.</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -1400,6 +1408,18 @@ Die Objekt-Geometrien werden in Objekt &apos;%1&apos; zusammengeführt, welches 
     </message>
     <message>
         <source>Bluetooth</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Bluetooth (NMEA)</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>TCP (NMEA)</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>UDP (NMEA)</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -2632,6 +2652,52 @@ Abbrechen um einen minimalen Scan durchzuführen. </translation>
     </message>
 </context>
 <context>
+    <name>TcpDeviceChooser</name>
+    <message>
+        <source>Address:</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Port:</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>TcpReceiver</name>
+    <message>
+        <source>Connecting…</source>
+        <translation>Verbinden…</translation>
+    </message>
+    <message>
+        <source>Successfully connected</source>
+        <translation>Erfolgreich verbunden</translation>
+    </message>
+    <message>
+        <source>Disconnected</source>
+        <translation>Getrennt</translation>
+    </message>
+    <message>
+        <source>Socket state %1</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Could not find the remote host</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Attempt to read or write from socket returned an error</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>The connection was refused by the remote hose</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>UDP receiver error (%1)</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
     <name>TemporalProperties</name>
     <message>
         <source>Temporal Properties</source>
@@ -2745,6 +2811,52 @@ Abbrechen um einen minimalen Scan durchzuführen. </translation>
     </message>
     <message>
         <source>To active the measurement functionality, make sure the vector layer&apos;s geometry type used for the tracking session has an M dimension.</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>UdpDeviceChooser</name>
+    <message>
+        <source>Address:</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Port:</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>UdpReceiver</name>
+    <message>
+        <source>Connecting…</source>
+        <translation>Verbinden…</translation>
+    </message>
+    <message>
+        <source>Successfully connected</source>
+        <translation>Erfolgreich verbunden</translation>
+    </message>
+    <message>
+        <source>Disconnected</source>
+        <translation>Getrennt</translation>
+    </message>
+    <message>
+        <source>Socket state %1</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Could not find the remote host</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Attempt to read or write from socket returned an error</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>The connection was refused by the remote hose</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>UDP receiver error (%1)</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -3272,6 +3384,10 @@ Abbrechen um einen minimalen Scan durchzuführen. </translation>
     </message>
     <message>
         <source>Print</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Positioning device error: %1</source>
         <translation type="unfinished"/>
     </message>
 </context>

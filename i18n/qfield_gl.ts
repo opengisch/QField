@@ -149,7 +149,7 @@
     </message>
     <message>
         <source>Scan</source>
-        <translation>Explorar</translation>
+        <translation type="vanished">Explorar</translation>
     </message>
     <message>
         <source>Make a full service discovery</source>
@@ -191,10 +191,18 @@ Cancela para facer, porén, unha exploración mínima do dispositivo.</translati
     </message>
     <message>
         <source>N/A</source>
-        <translation>Sen Datos</translation>
+        <translation type="vanished">Sen Datos</translation>
     </message>
     <message>
         <source>Bluetooth device address:</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Scan for nearby devices</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>No Bluetooth devices detected, scan to populate nearby devices.</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -1401,6 +1409,18 @@ As xeometrías das entidades combinaranse na entidade &apos;%1&apos;, a cal cons
     </message>
     <message>
         <source>Bluetooth</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Bluetooth (NMEA)</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>TCP (NMEA)</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>UDP (NMEA)</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -2640,6 +2660,52 @@ Cancela para facer, porén, unha exploración mínima do dispositivo.</translati
     </message>
 </context>
 <context>
+    <name>TcpDeviceChooser</name>
+    <message>
+        <source>Address:</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Port:</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>TcpReceiver</name>
+    <message>
+        <source>Connecting…</source>
+        <translation>Conectando...</translation>
+    </message>
+    <message>
+        <source>Successfully connected</source>
+        <translation>Correctamente conectado</translation>
+    </message>
+    <message>
+        <source>Disconnected</source>
+        <translation>Desconectado</translation>
+    </message>
+    <message>
+        <source>Socket state %1</source>
+        <translation>Estado da órbita %1</translation>
+    </message>
+    <message>
+        <source>Could not find the remote host</source>
+        <translation>Non se puido atopar o servidor remoto</translation>
+    </message>
+    <message>
+        <source>Attempt to read or write from socket returned an error</source>
+        <translation>A tentativa de lectura ou escritura do socket devolveu un erro</translation>
+    </message>
+    <message>
+        <source>The connection was refused by the remote hose</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>UDP receiver error (%1)</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
     <name>TemporalProperties</name>
     <message>
         <source>Temporal Properties</source>
@@ -2754,6 +2820,52 @@ Cancela para facer, porén, unha exploración mínima do dispositivo.</translati
     <message>
         <source>To active the measurement functionality, make sure the vector layer&apos;s geometry type used for the tracking session has an M dimension.</source>
         <translation>Para activar a funcionalidade de medida, asegúrate de que o tipo de xeometría das capas vectoriais utilizadas para a sesión de trazado teña unha dimensión M.</translation>
+    </message>
+</context>
+<context>
+    <name>UdpDeviceChooser</name>
+    <message>
+        <source>Address:</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Port:</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>UdpReceiver</name>
+    <message>
+        <source>Connecting…</source>
+        <translation>Conectando...</translation>
+    </message>
+    <message>
+        <source>Successfully connected</source>
+        <translation>Correctamente conectado</translation>
+    </message>
+    <message>
+        <source>Disconnected</source>
+        <translation>Desconectado</translation>
+    </message>
+    <message>
+        <source>Socket state %1</source>
+        <translation>Estado da órbita %1</translation>
+    </message>
+    <message>
+        <source>Could not find the remote host</source>
+        <translation>Non se puido atopar o servidor remoto</translation>
+    </message>
+    <message>
+        <source>Attempt to read or write from socket returned an error</source>
+        <translation>A tentativa de lectura ou escritura do socket devolveu un erro</translation>
+    </message>
+    <message>
+        <source>The connection was refused by the remote hose</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>UDP receiver error (%1)</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -3260,7 +3372,7 @@ Cancela para facer, porén, unha exploración mínima do dispositivo.</translati
     </message>
     <message>
         <source>Positioning error: %1</source>
-        <translation>Erro de posicionamento: %1</translation>
+        <translation type="vanished">Erro de posicionamento: %1</translation>
     </message>
     <message>
         <source>Azimuth</source>
@@ -3281,6 +3393,10 @@ Cancela para facer, porén, unha exploración mínima do dispositivo.</translati
     <message>
         <source>Print</source>
         <translation>Imprimir</translation>
+    </message>
+    <message>
+        <source>Positioning device error: %1</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
