@@ -20,6 +20,7 @@ vcpkg_from_github(
         android-resources.patch
         poly2tri.patch
         mesh.patch
+        nmea.patch
 )
 
 file(REMOVE ${SOURCE_PATH}/cmake/FindQtKeychain.cmake)

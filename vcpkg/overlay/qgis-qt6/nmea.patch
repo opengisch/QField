@@ -1,0 +1,1849 @@
+diff --git a/external/nmea/parse.c b/external/nmea/parse.c
+index dd13ecae10..a181f9a0ab 100644
+--- a/external/nmea/parse.c
++++ b/external/nmea/parse.c
+@@ -326,11 +326,9 @@ int nmea_parse_GPGSA( const char *buff, int buff_sz, nmeaGPGSA *pack )
+ 
+   nmea_trace_buff( buff, buff_sz );
+ 
+-  char type;
+-
+   if ( 18 != nmea_scanf( buff, buff_sz,
+                          "$G%CGSA,%C,%d,%d,%d,%d,%d,%d,%d,%d,%d,%d,%d,%d,%d,%f,%f,%f*",
+-                         &( type ), &( pack->fix_mode ), &( pack->fix_type ),
++                         &( pack->pack_type ), &( pack->fix_mode ), &( pack->fix_type ),
+                          &( pack->sat_prn[0] ), &( pack->sat_prn[1] ), &( pack->sat_prn[2] ), &( pack->sat_prn[3] ), &( pack->sat_prn[4] ), &( pack->sat_prn[5] ),
+                          &( pack->sat_prn[6] ), &( pack->sat_prn[7] ), &( pack->sat_prn[8] ), &( pack->sat_prn[9] ), &( pack->sat_prn[10] ), &( pack->sat_prn[11] ),
+                          &( pack->PDOP ), &( pack->HDOP ), &( pack->VDOP ) ) )
+@@ -339,7 +337,7 @@ int nmea_parse_GPGSA( const char *buff, int buff_sz, nmeaGPGSA *pack )
+     return 0;
+   }
+ 
+-  if ( type != 'P' && type != 'N' )
++  if ( pack->pack_type != 'P' && pack->pack_type != 'N' && pack->pack_type != 'L' )
+   {
+     nmea_error( "G?GSA invalid type " );
+     return 0;
+diff --git a/external/nmea/sentence.h b/external/nmea/sentence.h
+index c75755f6b7..1ed707f40a 100644
+--- a/external/nmea/sentence.h
++++ b/external/nmea/sentence.h
+@@ -85,6 +85,7 @@ typedef struct _nmeaGPGSA
+   double  PDOP;       //!< Dilution of precision
+   double  HDOP;       //!< Horizontal dilution of precision
+   double  VDOP;       //!< Vertical dilution of precision
++  char    pack_type;  //!< P=GPS, N=generic, L=GLONASS
+ 
+ } nmeaGPGSA;
+ 
+diff --git a/python/core/auto_additions/qgis.py b/python/core/auto_additions/qgis.py
+index b3451f486e..b970e4a58c 100644
+--- a/python/core/auto_additions/qgis.py
++++ b/python/core/auto_additions/qgis.py
+@@ -814,6 +814,43 @@ Qgis.ContentStatus.__doc__ = 'Status for fetched or stored content\n\n.. version
+ # --
+ Qgis.ContentStatus.baseClass = Qgis
+ # monkey patching scoped based enum
++Qgis.GpsConnectionType.Automatic.__doc__ = "Automatically detected GPS device connection"
++Qgis.GpsConnectionType.Internal.__doc__ = "Internal GPS device"
++Qgis.GpsConnectionType.Serial.__doc__ = "Serial port GPS device"
++Qgis.GpsConnectionType.Gpsd.__doc__ = "GPSD device"
++Qgis.GpsConnectionType.__doc__ = 'GPS connection types.\n\n.. versionadded:: 3.30\n\n' + '* ``Automatic``: ' + Qgis.GpsConnectionType.Automatic.__doc__ + '\n' + '* ``Internal``: ' + Qgis.GpsConnectionType.Internal.__doc__ + '\n' + '* ``Serial``: ' + Qgis.GpsConnectionType.Serial.__doc__ + '\n' + '* ``Gpsd``: ' + Qgis.GpsConnectionType.Gpsd.__doc__
++# --
++Qgis.GpsConnectionType.baseClass = Qgis
++QgsGpsInformation.FixStatus = Qgis.GpsFixStatus
++# monkey patching scoped based enum
++QgsGpsInformation.NoData = Qgis.GpsFixStatus.NoData
++QgsGpsInformation.NoData.is_monkey_patched = True
++QgsGpsInformation.NoData.__doc__ = "No fix data available"
++QgsGpsInformation.NoFix = Qgis.GpsFixStatus.NoFix
++QgsGpsInformation.NoFix.is_monkey_patched = True
++QgsGpsInformation.NoFix.__doc__ = "GPS is not fixed"
++QgsGpsInformation.Fix2D = Qgis.GpsFixStatus.Fix2D
++QgsGpsInformation.Fix2D.is_monkey_patched = True
++QgsGpsInformation.Fix2D.__doc__ = "2D fix"
++QgsGpsInformation.Fix3D = Qgis.GpsFixStatus.Fix3D
++QgsGpsInformation.Fix3D.is_monkey_patched = True
++QgsGpsInformation.Fix3D.__doc__ = "3D fix"
++Qgis.GpsFixStatus.__doc__ = 'GPS fix status.\n\n.. note::\n\n   Prior to QGIS 3.30 this was available as :py:class:`QgsGpsInformation`.FixStatus\n\n.. versionadded:: 3.30\n\n' + '* ``NoData``: ' + Qgis.GpsFixStatus.NoData.__doc__ + '\n' + '* ``NoFix``: ' + Qgis.GpsFixStatus.NoFix.__doc__ + '\n' + '* ``Fix2D``: ' + Qgis.GpsFixStatus.Fix2D.__doc__ + '\n' + '* ``Fix3D``: ' + Qgis.GpsFixStatus.Fix3D.__doc__
++# --
++Qgis.GpsFixStatus.baseClass = Qgis
++# monkey patching scoped based enum
++Qgis.GnssConstellation.Unknown.__doc__ = "Unknown/other system"
++Qgis.GnssConstellation.Gps.__doc__ = "Global Positioning System (GPS)"
++Qgis.GnssConstellation.Glonass.__doc__ = "Global Navigation Satellite System (GLONASS)"
++Qgis.GnssConstellation.Galileo.__doc__ = "Galileo"
++Qgis.GnssConstellation.BeiDou.__doc__ = "BeiDou"
++Qgis.GnssConstellation.Qzss.__doc__ = "Quasi Zenith Satellite System (QZSS)"
++Qgis.GnssConstellation.Navic.__doc__ = "Indian Regional Navigation Satellite System (IRNSS) / NAVIC"
++Qgis.GnssConstellation.Sbas.__doc__ = "SBAS"
++Qgis.GnssConstellation.__doc__ = 'GNSS constellation\n\n.. versionadded:: 3.30\n\n' + '* ``Unknown``: ' + Qgis.GnssConstellation.Unknown.__doc__ + '\n' + '* ``Gps``: ' + Qgis.GnssConstellation.Gps.__doc__ + '\n' + '* ``Glonass``: ' + Qgis.GnssConstellation.Glonass.__doc__ + '\n' + '* ``Galileo``: ' + Qgis.GnssConstellation.Galileo.__doc__ + '\n' + '* ``BeiDou``: ' + Qgis.GnssConstellation.BeiDou.__doc__ + '\n' + '* ``Qzss``: ' + Qgis.GnssConstellation.Qzss.__doc__ + '\n' + '* ``Navic``: ' + Qgis.GnssConstellation.Navic.__doc__ + '\n' + '* ``Sbas``: ' + Qgis.GnssConstellation.Sbas.__doc__
++# --
++Qgis.GnssConstellation.baseClass = Qgis
++# monkey patching scoped based enum
+ Qgis.GpsQualityIndicator.Unknown.__doc__ = "Unknown"
+ Qgis.GpsQualityIndicator.Invalid.__doc__ = "Invalid"
+ Qgis.GpsQualityIndicator.GPS.__doc__ = "Standalone"
+@@ -828,6 +865,32 @@ Qgis.GpsQualityIndicator.__doc__ = 'GPS signal quality indicator\n\n.. versionad
+ # --
+ Qgis.GpsQualityIndicator.baseClass = Qgis
+ # monkey patching scoped based enum
++Qgis.GpsInformationComponent.Location.__doc__ = "2D location (latitude/longitude), as a QgsPointXY value"
++Qgis.GpsInformationComponent.Altitude.__doc__ = "Altitude/elevation above or below the mean sea level"
++Qgis.GpsInformationComponent.GroundSpeed.__doc__ = "Ground speed"
++Qgis.GpsInformationComponent.Bearing.__doc__ = "Bearing measured in degrees clockwise from true north to the direction of travel"
++Qgis.GpsInformationComponent.TotalTrackLength.__doc__ = "Total distance of current GPS track (available from QgsGpsLogger class only)"
++Qgis.GpsInformationComponent.TrackDistanceFromStart.__doc__ = "Direct distance from first vertex in current GPS track to last vertex (available from QgsGpsLogger class only)"
++Qgis.GpsInformationComponent.Pdop.__doc__ = "Dilution of precision"
++Qgis.GpsInformationComponent.Hdop.__doc__ = "Horizontal dilution of precision"
++Qgis.GpsInformationComponent.Vdop.__doc__ = "Vertical dilution of precision"
++Qgis.GpsInformationComponent.HorizontalAccuracy.__doc__ = "Horizontal accuracy in meters"
++Qgis.GpsInformationComponent.VerticalAccuracy.__doc__ = "Vertical accuracy in meters"
++Qgis.GpsInformationComponent.HvAccuracy.__doc__ = "3D RMS"
++Qgis.GpsInformationComponent.SatellitesUsed.__doc__ = "Count of satellites used in obtaining the fix"
++Qgis.GpsInformationComponent.Timestamp.__doc__ = "Timestamp"
++Qgis.GpsInformationComponent.TrackStartTime.__doc__ = "Timestamp at start of current track (available from QgsGpsLogger class only)"
++Qgis.GpsInformationComponent.TrackEndTime.__doc__ = "Timestamp at end (current point) of current track (available from QgsGpsLogger class only)"
++Qgis.GpsInformationComponent.TrackDistanceSinceLastPoint.__doc__ = "Distance since last recorded location (available from QgsGpsLogger class only)"
++Qgis.GpsInformationComponent.TrackTimeSinceLastPoint.__doc__ = "Time since last recorded location (available from QgsGpsLogger class only)"
++Qgis.GpsInformationComponent.GeoidalSeparation.__doc__ = "Geoidal separation, the difference between the WGS-84 Earth ellipsoid and mean-sea-level (geoid), \"-\" means mean-sea-level below ellipsoid"
++Qgis.GpsInformationComponent.EllipsoidAltitude.__doc__ = "Altitude/elevation above or below the WGS-84 Earth ellipsoid"
++Qgis.GpsInformationComponent.__doc__ = 'GPS information component.\n\n.. versionadded:: 3.30\n\n' + '* ``Location``: ' + Qgis.GpsInformationComponent.Location.__doc__ + '\n' + '* ``Altitude``: ' + Qgis.GpsInformationComponent.Altitude.__doc__ + '\n' + '* ``GroundSpeed``: ' + Qgis.GpsInformationComponent.GroundSpeed.__doc__ + '\n' + '* ``Bearing``: ' + Qgis.GpsInformationComponent.Bearing.__doc__ + '\n' + '* ``TotalTrackLength``: ' + Qgis.GpsInformationComponent.TotalTrackLength.__doc__ + '\n' + '* ``TrackDistanceFromStart``: ' + Qgis.GpsInformationComponent.TrackDistanceFromStart.__doc__ + '\n' + '* ``Pdop``: ' + Qgis.GpsInformationComponent.Pdop.__doc__ + '\n' + '* ``Hdop``: ' + Qgis.GpsInformationComponent.Hdop.__doc__ + '\n' + '* ``Vdop``: ' + Qgis.GpsInformationComponent.Vdop.__doc__ + '\n' + '* ``HorizontalAccuracy``: ' + Qgis.GpsInformationComponent.HorizontalAccuracy.__doc__ + '\n' + '* ``VerticalAccuracy``: ' + Qgis.GpsInformationComponent.VerticalAccuracy.__doc__ + '\n' + '* ``HvAccuracy``: ' + Qgis.GpsInformationComponent.HvAccuracy.__doc__ + '\n' + '* ``SatellitesUsed``: ' + Qgis.GpsInformationComponent.SatellitesUsed.__doc__ + '\n' + '* ``Timestamp``: ' + Qgis.GpsInformationComponent.Timestamp.__doc__ + '\n' + '* ``TrackStartTime``: ' + Qgis.GpsInformationComponent.TrackStartTime.__doc__ + '\n' + '* ``TrackEndTime``: ' + Qgis.GpsInformationComponent.TrackEndTime.__doc__ + '\n' + '* ``TrackDistanceSinceLastPoint``: ' + Qgis.GpsInformationComponent.TrackDistanceSinceLastPoint.__doc__ + '\n' + '* ``TrackTimeSinceLastPoint``: ' + Qgis.GpsInformationComponent.TrackTimeSinceLastPoint.__doc__ + '\n' + '* ``GeoidalSeparation``: ' + Qgis.GpsInformationComponent.GeoidalSeparation.__doc__ + '\n' + '* ``EllipsoidAltitude``: ' + Qgis.GpsInformationComponent.EllipsoidAltitude.__doc__
++# --
++Qgis.GpsInformationComponent.baseClass = Qgis
++Qgis.GpsInformationComponents.baseClass = Qgis
++GpsInformationComponents = Qgis  # dirty hack since SIP seems to introduce the flags in module
++# monkey patching scoped based enum
+ Qgis.BabelFormatCapability.Import.__doc__ = "Format supports importing"
+ Qgis.BabelFormatCapability.Export.__doc__ = "Format supports exporting"
+ Qgis.BabelFormatCapability.Waypoints.__doc__ = "Format supports waypoints"
+diff --git a/python/core/auto_generated/gps/qgsgpsconnection.sip.in b/python/core/auto_generated/gps/qgsgpsconnection.sip.in
+index 62d6e00677..79c1cff1d4 100644
+--- a/python/core/auto_generated/gps/qgsgpsconnection.sip.in
++++ b/python/core/auto_generated/gps/qgsgpsconnection.sip.in
+@@ -15,123 +15,6 @@
+ #include "qgsgpsconnection.h"
+ %End
+ 
+-class QgsSatelliteInfo
+-{
+-%Docstring(signature="appended")
+-Encapsulates information relating to a GPS satellite.
+-%End
+-
+-%TypeHeaderCode
+-#include "qgsgpsconnection.h"
+-%End
+-  public:
+-
+-    int id;
+-
+-    bool inUse;
+-
+-
+-    double elevation;
+-
+-
+-    double azimuth;
+-
+-    int signal;
+-
+-    QChar satType;
+-
+-    bool operator==( const QgsSatelliteInfo &other ) const;
+-
+-    bool operator!=( const QgsSatelliteInfo &other ) const;
+-};
+-
+-class QgsGpsInformation
+-{
+-%Docstring(signature="appended")
+-Encapsulates information relating to a GPS position fix.
+-%End
+-
+-%TypeHeaderCode
+-#include "qgsgpsconnection.h"
+-%End
+-  public:
+-
+-    enum FixStatus
+-    {
+-      NoData,
+-      NoFix,
+-      Fix2D,
+-      Fix3D
+-    };
+-
+-    double latitude;
+-
+-    double longitude;
+-
+-    double elevation;
+-
+-    double elevation_diff;
+-
+-    double speed;
+-
+-
+-    double direction;
+-
+-    QList<QgsSatelliteInfo> satellitesInView;
+-
+-    double pdop;
+-
+-    double hdop;
+-
+-    double vdop;
+-
+-    //! Horizontal accuracy in meters
+-    double hacc;
+-    //! Vertical accuracy in meters
+-    double vacc;
+-
+-    double hvacc;
+-
+-    QDateTime utcDateTime;
+-
+-    QChar fixMode;
+-
+-    int fixType;
+-
+-    int quality;
+-
+-    Qgis::GpsQualityIndicator qualityIndicator;
+-
+-    int satellitesUsed;
+-
+-    QChar status;
+-
+-    QList<int> satPrn;
+-
+-    bool satInfoComplete;
+-
+-    bool isValid() const;
+-%Docstring
+-Returns whether the connection information is valid
+-
+-.. versionadded:: 3.10
+-%End
+-
+-    FixStatus fixStatus() const;
+-%Docstring
+-Returns the fix status
+-
+-.. versionadded:: 3.10
+-%End
+-
+-    QString qualityDescription() const;
+-%Docstring
+-Returns a descriptive string for the signal quality.
+-
+-.. versionadded:: 3.16
+-%End
+-};
+-
+ class QgsGpsConnection : QObject
+ {
+ %Docstring(signature="appended")
+@@ -190,11 +73,43 @@ Returns the status. Possible state are not connected, connected, data received
+     QgsGpsInformation currentGPSInformation() const;
+ %Docstring
+ Returns the current gps information (lat, lon, etc.)
++%End
++
++    QgsPoint lastValidLocation() const;
++%Docstring
++Returns the last valid location obtained by the device.
++
++.. versionadded:: 3.30
+ %End
+ 
+   signals:
++
+     void stateChanged( const QgsGpsInformation &info );
+-    void nmeaSentenceReceived( const QString &substring ); // added to capture 'raw' data
++%Docstring
++Emitted whenever the GPS state is changed.
++%End
++
++
++    void nmeaSentenceReceived( const QString &substring );
++%Docstring
++Emitted whenever the GPS device receives a raw NMEA sentence.
++%End
++
++    void fixStatusChanged( Qgis::GpsFixStatus status );
++%Docstring
++Emitted when the GPS device fix status is changed.
++
++.. versionadded:: 3.30
++%End
++
++    void positionChanged( const QgsPoint &point );
++%Docstring
++Emitted when the GPS position changes.
++
++This signal is only emitted when the new GPS location is considered valid (see :py:func:`QgsGpsInformation.isValid()`).
++
++.. versionadded:: 3.30
++%End
+ 
+   protected:
+ 
+@@ -203,6 +118,7 @@ Returns the current gps information (lat, lon, etc.)
+ %Docstring
+ Parse available data source content
+ %End
++
+ };
+ 
+ /************************************************************************
+diff --git a/python/core/auto_generated/qgis.sip.in b/python/core/auto_generated/qgis.sip.in
+index ac854848a9..92e2d77329 100644
+--- a/python/core/auto_generated/qgis.sip.in
++++ b/python/core/auto_generated/qgis.sip.in
+@@ -535,6 +535,35 @@ The development version
+       Canceled,
+     };
+ 
++    enum class GpsConnectionType
++    {
++      Automatic,
++      Internal,
++      Serial,
++      Gpsd,
++    };
++
++    enum class GpsFixStatus
++      {
++      NoData,
++      NoFix,
++      Fix2D,
++      Fix3D
++    };
++
++
++    enum class GnssConstellation
++    {
++      Unknown,
++      Gps,
++      Glonass,
++      Galileo,
++      BeiDou,
++      Qzss,
++      Navic,
++      Sbas,
++    };
++
+     enum class GpsQualityIndicator
+     {
+       Unknown,
+@@ -549,6 +578,33 @@ The development version
+       Simulation,
+     };
+ 
++    enum class GpsInformationComponent
++    {
++      Location,
++      Altitude,
++      GroundSpeed,
++      Bearing,
++      TotalTrackLength,
++      TrackDistanceFromStart,
++      Pdop,
++      Hdop,
++      Vdop,
++      HorizontalAccuracy,
++      VerticalAccuracy,
++      HvAccuracy,
++      SatellitesUsed,
++      Timestamp,
++      TrackStartTime,
++      TrackEndTime,
++      TrackDistanceSinceLastPoint,
++      TrackTimeSinceLastPoint,
++      GeoidalSeparation,
++      EllipsoidAltitude,
++    };
++
++    typedef QFlags<Qgis::GpsInformationComponent> GpsInformationComponents;
++
++
+     enum class BabelFormatCapability
+     {
+       Import,
+diff --git a/src/core/CMakeLists.txt b/src/core/CMakeLists.txt
+index 6fcf3ac7d4..4c597b38d9 100644
+--- a/src/core/CMakeLists.txt
++++ b/src/core/CMakeLists.txt
+@@ -67,7 +67,9 @@ set(QGIS_CORE_SRCS
+   gps/qgsgpsconnectionregistry.cpp
+   gps/qgsgpsdconnection.cpp
+   gps/qgsgpsdetector.cpp
++  gps/qgsgpsinformation.cpp
+   gps/qgsnmeaconnection.cpp
++  gps/qgssatelliteinformation.cpp
+ 
+   plot/qgsplot.cpp
+ 
+@@ -1400,7 +1402,9 @@ set(QGIS_CORE_HDRS
+   gps/qgsgpsconnection.h
+   gps/qgsgpsdconnection.h
+   gps/qgsgpsdetector.h
++  gps/qgsgpsinformation.h
+   gps/qgsnmeaconnection.h
++  gps/qgssatelliteinformation.h
+ 
+   labeling/qgscalloutposition.h
+   labeling/qgslabelfeature.h
+diff --git a/src/core/gps/qgsgpsconnection.cpp b/src/core/gps/qgsgpsconnection.cpp
+index 71c8f36d1b..cfd677d619 100644
+--- a/src/core/gps/qgsgpsconnection.cpp
++++ b/src/core/gps/qgsgpsconnection.cpp
+@@ -16,97 +16,17 @@
+  ***************************************************************************/
+ 
+ #include "qgsgpsconnection.h"
+-
+-#include <QCoreApplication>
+-#include <QTime>
+ #include <QIODevice>
+-#include <QStringList>
+-#include <QFileInfo>
+-
+-#include "info.h"
+-
+-bool QgsGpsInformation::isValid() const
+-{
+-  bool valid = false;
+-  if ( status == 'V' || fixType == NMEA_FIX_BAD || qualityIndicator == Qgis::GpsQualityIndicator::Invalid ) // some sources say that 'V' indicates position fix, but is below acceptable quality
+-  {
+-    valid = false;
+-  }
+-  else if ( fixType == NMEA_FIX_2D )
+-  {
+-    valid = true;
+-  }
+-  else if ( status == 'A' || fixType == NMEA_FIX_3D || ( qualityIndicator != Qgis::GpsQualityIndicator::Invalid ) ) // good
+-  {
+-    valid = true;
+-  }
+-
+-  return valid;
+-}
+-
+-QgsGpsInformation::FixStatus QgsGpsInformation::fixStatus() const
+-{
+-  FixStatus fixStatus = NoData;
+-
+-  // no fix if any of the three report bad; default values are invalid values and won't be changed if the corresponding NMEA msg is not received
+-  if ( status == 'V' || fixType == NMEA_FIX_BAD || qualityIndicator == Qgis::GpsQualityIndicator::Invalid ) // some sources say that 'V' indicates position fix, but is below acceptable quality
+-  {
+-    fixStatus = NoFix;
+-  }
+-  else if ( fixType == NMEA_FIX_2D ) // 2D indication (from GGA)
+-  {
+-    fixStatus = Fix2D;
+-  }
+-  else if ( status == 'A' || fixType == NMEA_FIX_3D || qualityIndicator != Qgis::GpsQualityIndicator::Invalid ) // good
+-  {
+-    fixStatus = Fix3D;
+-  }
+-  return fixStatus;
+-}
+-
+-QString QgsGpsInformation::qualityDescription() const
+-{
+-  switch ( qualityIndicator )
+-  {
+-    case Qgis::GpsQualityIndicator::Simulation:
+-      return QCoreApplication::translate( "QgsGpsInformation", "Simulation mode" );
+-
+-    case Qgis::GpsQualityIndicator::Manual:
+-      return QCoreApplication::translate( "QgsGpsInformation", "Manual input mode" );
+-
+-    case Qgis::GpsQualityIndicator::Estimated:
+-      return QCoreApplication::translate( "QgsGpsInformation", "Estimated" );
+ 
+-    case Qgis::GpsQualityIndicator::FloatRTK:
+-      return QCoreApplication::translate( "QgsGpsInformation", "Float RTK" );
+-
+-    case Qgis::GpsQualityIndicator::RTK:
+-      return QCoreApplication::translate( "QgsGpsInformation", "Fixed RTK" );
+-
+-    case Qgis::GpsQualityIndicator::PPS:
+-      return QCoreApplication::translate( "QgsGpsInformation", "PPS" );
+-
+-    case Qgis::GpsQualityIndicator::DGPS:
+-      return QCoreApplication::translate( "QgsGpsInformation", "DGPS" );
+-
+-    case Qgis::GpsQualityIndicator::GPS:
+-      return QCoreApplication::translate( "QgsGpsInformation", "Autonomous" );
+-
+-    case Qgis::GpsQualityIndicator::Invalid:
+-      return QCoreApplication::translate( "QgsGpsInformation", "Invalid" );
+-
+-    case Qgis::GpsQualityIndicator::Unknown:
+-    default:
+-      return QCoreApplication::translate( "QgsGpsInformation", "Unknown (%1)" ).arg( QString::number( quality ) );
+-  }
+-}
+ 
+ QgsGpsConnection::QgsGpsConnection( QIODevice *dev )
+   : QObject( nullptr )
+   , mSource( dev )
+ {
+-  clearLastGPSInformation();
+-  QObject::connect( dev, &QIODevice::readyRead, this, &QgsGpsConnection::parseData );
++  if ( mSource )
++    QObject::connect( mSource.get(), &QIODevice::readyRead, this, &QgsGpsConnection::parseData );
++
++  QObject::connect( this, &QgsGpsConnection::stateChanged, this, &QgsGpsConnection::onStateChanged );
+ }
+ 
+ QgsGpsConnection::~QgsGpsConnection()
+@@ -137,6 +57,13 @@ bool QgsGpsConnection::close()
+   }
+ 
+   mSource->close();
++
++  if ( mLastFixStatus != Qgis::GpsFixStatus::NoData )
++  {
++    mLastFixStatus = Qgis::GpsFixStatus::NoData;
++    emit fixStatusChanged( mLastFixStatus );
++  }
++
+   return true;
+ }
+ 
+@@ -147,15 +74,44 @@ void QgsGpsConnection::cleanupSource()
+     mSource->close();
+   }
+   mSource.reset();
++
++  if ( mLastFixStatus != Qgis::GpsFixStatus::NoData )
++  {
++    mLastFixStatus = Qgis::GpsFixStatus::NoData;
++    emit fixStatusChanged( mLastFixStatus );
++  }
+ }
+ 
+ void QgsGpsConnection::setSource( QIODevice *source )
+ {
+   cleanupSource();
+   mSource.reset( source );
++  QObject::connect( mSource.get(), &QIODevice::readyRead, this, &QgsGpsConnection::parseData );
++
+   clearLastGPSInformation();
+ }
+ 
++void QgsGpsConnection::onStateChanged( const QgsGpsInformation &info )
++{
++  if ( info.isValid() )
++  {
++    const QgsPoint oldPosition = mLastLocation;
++    mLastLocation = QgsPoint( info.longitude, info.latitude, info.elevation );
++    if ( mLastLocation != oldPosition )
++    {
++      emit positionChanged( mLastLocation );
++    }
++  }
++
++  Qgis::GnssConstellation bestFixConstellation = Qgis::GnssConstellation::Unknown;
++  Qgis::GpsFixStatus bestFix = info.bestFixStatus( bestFixConstellation );
++  if ( bestFix != mLastFixStatus )
++  {
++    mLastFixStatus = bestFix;
++    emit fixStatusChanged( mLastFixStatus );
++  }
++}
++
+ void QgsGpsConnection::clearLastGPSInformation()
+ {
+   mLastGPSInformation = QgsGpsInformation();
+diff --git a/src/core/gps/qgsgpsconnection.h b/src/core/gps/qgsgpsconnection.h
+index b192f1bc5f..67c3983f48 100644
+--- a/src/core/gps/qgsgpsconnection.h
++++ b/src/core/gps/qgsgpsconnection.h
+@@ -24,6 +24,8 @@
+ #include <QString>
+ 
+ #include "qgis_core.h"
++#include "qgspoint.h"
++#include "qgsgpsinformation.h"
+ 
+ class QIODevice;
+ 
+@@ -33,260 +35,6 @@ class QIODevice;
+ % End
+ #endif
+ 
+-/**
+- * \ingroup core
+- * \class QgsSatelliteInfo
+- * \brief Encapsulates information relating to a GPS satellite.
+-*/
+-class CORE_EXPORT QgsSatelliteInfo
+-{
+-  public:
+-
+-    /**
+-     * Contains the satellite identifier number.
+-     *
+-     * The satellite identifier number can be used to identify a satellite inside the satellite system.
+-     * For satellite system GPS the satellite identifier number represents the PRN (Pseudo-random noise)
+-     * number. For satellite system GLONASS the satellite identifier number represents the slot number.
+-     */
+-    int id = 0;
+-
+-    /**
+-     * TRUE if satellite was used in obtaining the position fix.
+-     */
+-    bool inUse = false;
+-
+-#ifndef SIP_RUN
+-
+-    /**
+-     * Elevation of the satellite, in degrees.
+-     */
+-    double elevation = std::numeric_limits< double >::quiet_NaN();
+-#else
+-
+-    /**
+-     * Elevation of the satellite, in degrees.
+-     */
+-    double elevation;
+-#endif
+-
+-#ifndef SIP_RUN
+-
+-    /**
+-     * The azimuth of the satellite to true north, in degrees.
+-     */
+-    double azimuth = std::numeric_limits< double >::quiet_NaN();
+-#else
+-
+-    /**
+-     * The azimuth of the satellite to true north, in degrees.
+-     */
+-    double azimuth;
+-#endif
+-
+-    /**
+-     * Signal strength (0-99dB), or -1 if not available.
+-     */
+-    int signal = -1;
+-
+-    /**
+-     * satType value from NMEA message $GxGSV, where x:
+-     * P = GPS; S = SBAS (GPSid> 32 then SBasid = GPSid + 87); N = generic satellite; L = GLONASS; A = GALILEO; B = BEIDOU; Q = QZSS;
+-     */
+-    QChar satType;
+-
+-    bool operator==( const QgsSatelliteInfo &other ) const
+-    {
+-      return id == other.id &&
+-             inUse == other.inUse &&
+-             elevation == other.elevation &&
+-             azimuth == other.azimuth &&
+-             signal == other.signal &&
+-             satType == other.satType;
+-    }
+-
+-    bool operator!=( const QgsSatelliteInfo &other ) const
+-    {
+-      return !operator==( other );
+-    }
+-};
+-
+-/**
+- * \ingroup core
+- * \class QgsGpsInformation
+- * \brief Encapsulates information relating to a GPS position fix.
+-*/
+-class CORE_EXPORT QgsGpsInformation
+-{
+-  public:
+-
+-    /**
+-     * GPS fix status
+-     * \since QGIS 3.10
+-     */
+-    enum FixStatus
+-    {
+-      NoData,
+-      NoFix,
+-      Fix2D,
+-      Fix3D
+-    };
+-
+-    /**
+-     * Latitude in decimal degrees, using the WGS84 datum. A positive value indicates the Northern Hemisphere, and
+-     * a negative value indicates the Southern Hemisphere.
+-     */
+-    double latitude = 0;
+-
+-    /**
+-     * Longitude in decimal degrees, using the WGS84 datum. A positive value indicates the Eastern Hemisphere, and
+-     * a negative value indicates the Western Hemisphere.
+-     */
+-    double longitude = 0;
+-
+-    /**
+-     * Altitude (in meters) above or below the mean sea level.
+-     */
+-    double elevation = 0;
+-
+-    /**
+-     * Geoidal separation (Diff. between WGS-84 earth ellipsoid and
+-     * mean sea level.
+-     *
+-     * \since QGIS 3.18
+-     */
+-    double elevation_diff = 0;
+-
+-    /**
+-     * Ground speed, in km/h.
+-     */
+-    double speed = 0;
+-
+-#ifndef SIP_RUN
+-
+-    /**
+-     * The bearing measured in degrees clockwise from true north to the direction of travel.
+-     */
+-    double direction = std::numeric_limits< double >::quiet_NaN();
+-#else
+-
+-    /**
+-     * The bearing measured in degrees clockwise from true north to the direction of travel.
+-     */
+-    double direction;
+-#endif
+-
+-    /**
+-     * Contains a list of information relating to the current satellites in view.
+-     */
+-    QList<QgsSatelliteInfo> satellitesInView;
+-
+-    /**
+-     * Dilution of precision.
+-     */
+-    double pdop = 0;
+-
+-    /**
+-     * Horizontal dilution of precision.
+-     */
+-    double hdop = 0;
+-
+-    /**
+-     * Vertical dilution of precision.
+-     */
+-    double vdop = 0;
+-
+-#ifndef SIP_RUN
+-    //! Horizontal accuracy in meters
+-    double hacc = std::numeric_limits< double >::quiet_NaN();
+-    //! Vertical accuracy in meters
+-    double vacc = std::numeric_limits< double >::quiet_NaN();
+-
+-    /**
+-     * 3D RMS
+-     * \since QGIS 3.18
+-     */
+-    double hvacc = std::numeric_limits< double >::quiet_NaN();
+-#else
+-    //! Horizontal accuracy in meters
+-    double hacc;
+-    //! Vertical accuracy in meters
+-    double vacc;
+-
+-    /**
+-     * 3D RMS
+-     * \since QGIS 3.18
+-     */
+-    double hvacc;
+-#endif
+-
+-    /**
+-     * The date and time at which this position was reported, in UTC time.
+-     */
+-    QDateTime utcDateTime;
+-
+-    /**
+-     * Fix mode (where M = Manual, forced to operate in 2D or 3D or A = Automatic, 3D/2D)
+-     */
+-    QChar fixMode;
+-
+-    /**
+-     * Contains the fix type, where 1 = no fix, 2 = 2d fix, 3 = 3d fix
+-     */
+-    int fixType = 0;
+-
+-    /**
+-     * GPS quality indicator (0 = Invalid; 1 = Fix; 2 = Differential, 3 = Sensitive, etc.)
+-     * \deprecated use qualityIndicator instead
+-     */
+-    int quality = -1;
+-
+-    /**
+-     * Returns the signal quality indicator
+-     * \since QGIS 3.22.6
+-     */
+-    Qgis::GpsQualityIndicator qualityIndicator = Qgis::GpsQualityIndicator::Unknown;
+-
+-    /**
+-     * Count of satellites used in obtaining the fix.
+-     */
+-    int satellitesUsed = 0;
+-
+-    /**
+-     * Status (A = active or V = void)
+-     */
+-    QChar status;
+-
+-    /**
+-     * IDs of satellites used in the position fix.
+-     */
+-    QList<int> satPrn;
+-
+-    /**
+-     * TRUE if satellite information is complete.
+-     */
+-    bool satInfoComplete = false;
+-
+-    /**
+-     * Returns whether the connection information is valid
+-     * \since QGIS 3.10
+-     */
+-    bool isValid() const;
+-
+-    /**
+-     * Returns the fix status
+-     * \since QGIS 3.10
+-     */
+-    FixStatus fixStatus() const;
+-
+-    /**
+-     * Returns a descriptive string for the signal quality.
+-     *
+-     * \since QGIS 3.16
+-     */
+-    QString qualityDescription() const;
+-};
+-
+ /**
+  * \ingroup core
+  * \brief Abstract base class for connection to a GPS device
+@@ -341,9 +89,42 @@ class CORE_EXPORT QgsGpsConnection : public QObject
+     //! Returns the current gps information (lat, lon, etc.)
+     QgsGpsInformation currentGPSInformation() const { return mLastGPSInformation; }
+ 
++    /**
++     * Returns the last valid location obtained by the device.
++     *
++     * \since QGIS 3.30
++     */
++    QgsPoint lastValidLocation() const { return mLastLocation; }
++
+   signals:
++
++    /**
++     * Emitted whenever the GPS state is changed.
++     */
+     void stateChanged( const QgsGpsInformation &info );
+-    void nmeaSentenceReceived( const QString &substring ); // added to capture 'raw' data
++
++    // TODO QGIS 4.0 -- move to QgsNmeaConnection, it makes no sense in the base class
++
++    /**
++     * Emitted whenever the GPS device receives a raw NMEA sentence.
++     */
++    void nmeaSentenceReceived( const QString &substring );
++
++    /**
++     * Emitted when the GPS device fix status is changed.
++     *
++     * \since QGIS 3.30
++     */
++    void fixStatusChanged( Qgis::GpsFixStatus status );
++
++    /**
++     * Emitted when the GPS position changes.
++     *
++     * This signal is only emitted when the new GPS location is considered valid (see QgsGpsInformation::isValid()).
++     *
++     * \since QGIS 3.30
++     */
++    void positionChanged( const QgsPoint &point );
+ 
+   protected:
+     //! Data source (e.g. serial device, socket, file,...)
+@@ -353,6 +134,10 @@ class CORE_EXPORT QgsGpsConnection : public QObject
+     //! Connection status
+     Status mStatus = NotConnected;
+ 
++  private slots:
++
++    void onStateChanged( const QgsGpsInformation &info );
++
+   private:
+     //! Closes and deletes mSource
+     void cleanupSource();
+@@ -361,6 +146,14 @@ class CORE_EXPORT QgsGpsConnection : public QObject
+   protected slots:
+     //! Parse available data source content
+     virtual void parseData() = 0;
++
++  private:
++
++    //! Last fix status
++    Qgis::GpsFixStatus mLastFixStatus = Qgis::GpsFixStatus::NoData;
++
++    //! Last recorded valid location
++    QgsPoint mLastLocation;
+ };
+ 
+ #endif // QGSGPSCONNECTION_H
+diff --git a/src/core/gps/qgsgpsinformation.cpp b/src/core/gps/qgsgpsinformation.cpp
+new file mode 100644
+index 0000000000..374d6abbd7
+--- /dev/null
++++ b/src/core/gps/qgsgpsinformation.cpp
+@@ -0,0 +1,175 @@
++/***************************************************************************
++                          qgsgpsinformation.cpp
++                          --------------------
++    begin                : November 30th, 2009
++    copyright            : (C) 2009 by Marco Hugentobler
++    email                : marco at hugis dot net
++ ***************************************************************************/
++
++/***************************************************************************
++ *                                                                         *
++ *   This program is free software; you can redistribute it and/or modify  *
++ *   it under the terms of the GNU General Public License as published by  *
++ *   the Free Software Foundation; either version 2 of the License, or     *
++ *   (at your option) any later version.                                   *
++ *                                                                         *
++ ***************************************************************************/
++
++#include "qgsgpsinformation.h"
++#include "info.h"
++#include "qgspointxy.h"
++
++#include <QCoreApplication>
++
++Qgis::GpsFixStatus QgsGpsInformation::bestFixStatus( Qgis::GnssConstellation &constellation ) const
++{
++  constellation = Qgis::GnssConstellation::Unknown;
++  Qgis::GpsFixStatus bestStatus = Qgis::GpsFixStatus::NoData;
++  for ( auto it = mConstellationFixStatus.begin(); it != mConstellationFixStatus.end(); ++it )
++  {
++    if ( it.value() == Qgis::GpsFixStatus::Fix3D
++         || ( it.value() == Qgis::GpsFixStatus::Fix2D && bestStatus != Qgis::GpsFixStatus::Fix3D )
++         || ( it.value() == Qgis::GpsFixStatus::NoFix && bestStatus == Qgis::GpsFixStatus::NoData )
++       )
++    {
++      bestStatus = it.value();
++      constellation = it.key();
++    }
++  }
++  return bestStatus;
++}
++
++bool QgsGpsInformation::isValid() const
++{
++  bool valid = false;
++  Qgis::GnssConstellation constellation = Qgis::GnssConstellation::Unknown;
++  const Qgis::GpsFixStatus bestFix = bestFixStatus( constellation );
++  if ( status == 'V'
++       || bestFix == Qgis::GpsFixStatus::NoFix
++       || qualityIndicator == Qgis::GpsQualityIndicator::Invalid ) // some sources say that 'V' indicates position fix, but is below acceptable quality
++  {
++    valid = false;
++  }
++  else if ( status == 'A'
++            || bestFix == Qgis::GpsFixStatus::Fix2D
++            || bestFix == Qgis::GpsFixStatus::Fix3D
++            || ( qualityIndicator != Qgis::GpsQualityIndicator::Invalid ) ) // good
++  {
++    valid = true;
++  }
++
++  valid &= longitude >= -180.0 && longitude <= 180.0 && latitude >= -90.0 && latitude <= 90.0;
++
++  return valid;
++}
++
++Qgis::GpsFixStatus QgsGpsInformation::fixStatus() const
++{
++  Qgis::GpsFixStatus fixStatus = Qgis::GpsFixStatus::NoData;
++
++  // no fix if any of the three report bad; default values are invalid values and won't be changed if the corresponding NMEA msg is not received
++  if ( status == 'V' || fixType == NMEA_FIX_BAD || qualityIndicator == Qgis::GpsQualityIndicator::Invalid ) // some sources say that 'V' indicates position fix, but is below acceptable quality
++  {
++    fixStatus = Qgis::GpsFixStatus::NoFix;
++  }
++  else if ( fixType == NMEA_FIX_2D ) // 2D indication (from GGA)
++  {
++    fixStatus = Qgis::GpsFixStatus::Fix2D;
++  }
++  else if ( status == 'A' || fixType == NMEA_FIX_3D || qualityIndicator != Qgis::GpsQualityIndicator::Invalid ) // good
++  {
++    fixStatus = Qgis::GpsFixStatus::Fix3D;
++  }
++  return fixStatus;
++}
++
++QString QgsGpsInformation::qualityDescription() const
++{
++  switch ( qualityIndicator )
++  {
++    case Qgis::GpsQualityIndicator::Simulation:
++      return QCoreApplication::translate( "QgsGpsInformation", "Simulation mode" );
++
++    case Qgis::GpsQualityIndicator::Manual:
++      return QCoreApplication::translate( "QgsGpsInformation", "Manual input mode" );
++
++    case Qgis::GpsQualityIndicator::Estimated:
++      return QCoreApplication::translate( "QgsGpsInformation", "Estimated" );
++
++    case Qgis::GpsQualityIndicator::FloatRTK:
++      return QCoreApplication::translate( "QgsGpsInformation", "Float RTK" );
++
++    case Qgis::GpsQualityIndicator::RTK:
++      return QCoreApplication::translate( "QgsGpsInformation", "Fixed RTK" );
++
++    case Qgis::GpsQualityIndicator::PPS:
++      return QCoreApplication::translate( "QgsGpsInformation", "PPS" );
++
++    case Qgis::GpsQualityIndicator::DGPS:
++      return QCoreApplication::translate( "QgsGpsInformation", "DGPS" );
++
++    case Qgis::GpsQualityIndicator::GPS:
++      return QCoreApplication::translate( "QgsGpsInformation", "Autonomous" );
++
++    case Qgis::GpsQualityIndicator::Invalid:
++      return QCoreApplication::translate( "QgsGpsInformation", "Invalid" );
++
++    case Qgis::GpsQualityIndicator::Unknown:
++      return QCoreApplication::translate( "QgsGpsInformation", "Unknown (%1)" ).arg( QString::number( quality ) );
++  }
++  BUILTIN_UNREACHABLE
++}
++
++QVariant QgsGpsInformation::componentValue( Qgis::GpsInformationComponent component ) const
++{
++  if ( !isValid() )
++    return QVariant();
++
++  switch ( component )
++  {
++    case Qgis::GpsInformationComponent::Location:
++      return QgsPointXY( longitude, latitude );
++
++    case Qgis::GpsInformationComponent::Altitude:
++      return std::isnan( elevation ) ? QVariant() : elevation;
++
++    case Qgis::GpsInformationComponent::GeoidalSeparation:
++      return std::isnan( elevation_diff ) ? QVariant() : elevation_diff;
++
++    case Qgis::GpsInformationComponent::EllipsoidAltitude:
++      return std::isnan( elevation ) || std::isnan( elevation_diff ) ? QVariant() : elevation + elevation_diff;
++
++    case Qgis::GpsInformationComponent::GroundSpeed:
++      return speed;
++    case Qgis::GpsInformationComponent::Bearing:
++      return std::isnan( direction ) ? QVariant() : direction;
++
++    case Qgis::GpsInformationComponent::Pdop:
++      return pdop;
++    case Qgis::GpsInformationComponent::Hdop:
++      return hdop;
++    case Qgis::GpsInformationComponent::Vdop:
++      return vdop;
++    case Qgis::GpsInformationComponent::HorizontalAccuracy:
++      return hacc;
++    case Qgis::GpsInformationComponent::VerticalAccuracy:
++      return vacc;
++    case Qgis::GpsInformationComponent::HvAccuracy:
++      return hvacc;
++    case Qgis::GpsInformationComponent::SatellitesUsed:
++      return satellitesUsed;
++
++    case Qgis::GpsInformationComponent::Timestamp:
++      return utcDateTime;
++
++    case Qgis::GpsInformationComponent::TotalTrackLength:
++    case Qgis::GpsInformationComponent::TrackDistanceFromStart:
++    case Qgis::GpsInformationComponent::TrackStartTime:
++    case Qgis::GpsInformationComponent::TrackEndTime:
++    case Qgis::GpsInformationComponent::TrackDistanceSinceLastPoint:
++    case Qgis::GpsInformationComponent::TrackTimeSinceLastPoint:
++      return QVariant(); // not available
++  }
++  BUILTIN_UNREACHABLE
++}
++
+diff --git a/src/core/gps/qgsgpsinformation.h b/src/core/gps/qgsgpsinformation.h
+new file mode 100644
+index 0000000000..c38b88aa67
+--- /dev/null
++++ b/src/core/gps/qgsgpsinformation.h
+@@ -0,0 +1,241 @@
++/***************************************************************************
++                          qgsgpsinformation.h
++                          -------------------
++    begin                : November 30th, 2009
++    copyright            : (C) 2009 by Marco Hugentobler
++    email                : marco at hugis dot net
++ ***************************************************************************/
++
++/***************************************************************************
++ *                                                                         *
++ *   This program is free software; you can redistribute it and/or modify  *
++ *   it under the terms of the GNU General Public License as published by  *
++ *   the Free Software Foundation; either version 2 of the License, or     *
++ *   (at your option) any later version.                                   *
++ *                                                                         *
++ ***************************************************************************/
++
++#ifndef QGSGPSINFORMATION_H
++#define QGSGPSINFORMATION_H
++
++#include "qgis.h"
++#include "qgis_core.h"
++#include "qgssatelliteinformation.h"
++
++#include <QDateTime>
++#include <QObject>
++#include <QString>
++
++
++/**
++ * \ingroup core
++ * \class QgsGpsInformation
++ * \brief Encapsulates information relating to a GPS position fix.
++*/
++class CORE_EXPORT QgsGpsInformation
++{
++  public:
++
++    /**
++     * Latitude in decimal degrees, using the WGS84 datum. A positive value indicates the Northern Hemisphere, and
++     * a negative value indicates the Southern Hemisphere.
++     */
++    double latitude = 0;
++
++    /**
++     * Longitude in decimal degrees, using the WGS84 datum. A positive value indicates the Eastern Hemisphere, and
++     * a negative value indicates the Western Hemisphere.
++     */
++    double longitude = 0;
++
++    /**
++     * Altitude (in meters) above or below the mean sea level.
++     */
++    double elevation = 0;
++
++    /**
++     * Geoidal separation (in meters).
++     *
++     * The difference between the WGS-84 Earth ellipsoid and the mean sea level (geoid).
++     *
++     * Negative values indicate that mean sea level is below the ellipsoid.
++     *
++     * This value can be added to the elevation value to obtain the geoidal elevation.
++     *
++     * \since QGIS 3.18
++     */
++    double elevation_diff = 0;
++
++    /**
++     * Ground speed, in km/h.
++     */
++    double speed = 0;
++
++#ifndef SIP_RUN
++
++    /**
++     * The bearing measured in degrees clockwise from true north to the direction of travel.
++     */
++    double direction = std::numeric_limits< double >::quiet_NaN();
++#else
++
++    /**
++     * The bearing measured in degrees clockwise from true north to the direction of travel.
++     */
++    double direction;
++#endif
++
++    /**
++     * Contains a list of information relating to the current satellites in view.
++     */
++    QList<QgsSatelliteInfo> satellitesInView;
++
++    /**
++     * Dilution of precision.
++     */
++    double pdop = 0;
++
++    /**
++     * Horizontal dilution of precision.
++     */
++    double hdop = 0;
++
++    /**
++     * Vertical dilution of precision.
++     */
++    double vdop = 0;
++
++#ifndef SIP_RUN
++    //! Horizontal accuracy in meters
++    double hacc = std::numeric_limits< double >::quiet_NaN();
++    //! Vertical accuracy in meters
++    double vacc = std::numeric_limits< double >::quiet_NaN();
++
++    /**
++     * 3D RMS
++     * \since QGIS 3.18
++     */
++    double hvacc = std::numeric_limits< double >::quiet_NaN();
++#else
++    //! Horizontal accuracy in meters
++    double hacc;
++    //! Vertical accuracy in meters
++    double vacc;
++
++    /**
++     * 3D RMS
++     * \since QGIS 3.18
++     */
++    double hvacc;
++#endif
++
++    /**
++     * The time at hich this position was reported, in UTC time.
++     * \since QGIS 3.30
++     */
++    QTime utcTime;
++
++    /**
++     * The date and time at which this position was reported, in UTC time.
++     */
++    QDateTime utcDateTime;
++
++    /**
++     * Fix mode (where M = Manual, forced to operate in 2D or 3D or A = Automatic, 3D/2D)
++     */
++    QChar fixMode;
++
++    /**
++     * Contains the fix type, where 1 = no fix, 2 = 2d fix, 3 = 3d fix
++     *
++     * \deprecated, use constellationFixStatus() or bestFixStatus() instead.
++     */
++    int fixType = 0;
++
++    /**
++     * Returns a map of GNSS constellation to fix status.
++     *
++     * \since QGIS 3.30
++     */
++    QMap< Qgis::GnssConstellation, Qgis::GpsFixStatus > constellationFixStatus() const { return mConstellationFixStatus; }
++
++    /**
++     * Returns the best fix status and corresponding constellation.
++     *
++     * \param constellation will be set to the constellation with best fix status
++     * \returns best current fix status
++     *
++     * \since QGIS 3.30
++     */
++    Qgis::GpsFixStatus bestFixStatus( Qgis::GnssConstellation &constellation SIP_OUT ) const;
++
++    /**
++     * GPS quality indicator (0 = Invalid; 1 = Fix; 2 = Differential, 3 = Sensitive, etc.)
++     * \deprecated use qualityIndicator instead
++     */
++    int quality = -1;
++
++    /**
++     * Returns the signal quality indicator
++     * \since QGIS 3.22.6
++     */
++    Qgis::GpsQualityIndicator qualityIndicator = Qgis::GpsQualityIndicator::Unknown;
++
++    /**
++     * Count of satellites used in obtaining the fix.
++     */
++    int satellitesUsed = 0;
++
++    /**
++     * Status (A = active or V = void)
++     */
++    QChar status;
++
++    /**
++     * IDs of satellites used in the position fix.
++     */
++    QList<int> satPrn;
++
++    /**
++     * TRUE if satellite information is complete.
++     */
++    bool satInfoComplete = false;
++
++    /**
++     * Returns whether the connection information is valid
++     * \since QGIS 3.10
++     */
++    bool isValid() const;
++
++    /**
++     * Returns the fix status
++     * \deprecated, use constellationFixStatus() or bestFixStatus() instead.
++     */
++    Q_DECL_DEPRECATED Qgis::GpsFixStatus fixStatus() const SIP_DEPRECATED;
++
++    /**
++     * Returns a descriptive string for the signal quality.
++     *
++     * \since QGIS 3.16
++     */
++    QString qualityDescription() const;
++
++    /**
++     * Returns the value of the corresponding GPS information \a component.
++     *
++     * \since QGIS 3.30
++     */
++    QVariant componentValue( Qgis::GpsInformationComponent component ) const;
++
++  private:
++
++    QMap< Qgis::GnssConstellation, Qgis::GpsFixStatus > mConstellationFixStatus;
++
++    friend class QgsNmeaConnection;
++    friend class QgsQtLocationConnection;
++
++};
++
++Q_DECLARE_METATYPE( QgsGpsInformation )
++
++#endif // QGSGPSINFORMATION_H
+diff --git a/src/core/gps/qgsnmeaconnection.cpp b/src/core/gps/qgsnmeaconnection.cpp
+index e3eb123075..e790ffb09a 100644
+--- a/src/core/gps/qgsnmeaconnection.cpp
++++ b/src/core/gps/qgsnmeaconnection.cpp
+@@ -87,7 +87,6 @@ void QgsNmeaConnection::processStringBuffer()
+       break;
+     }
+ 
+-
+     if ( endSentenceIndex >= dollarIndex )
+     {
+       if ( dollarIndex != -1 )
+@@ -97,6 +96,7 @@ void QgsNmeaConnection::processStringBuffer()
+         if ( substring.startsWith( QLatin1String( "$GPGGA" ) ) || substring.startsWith( QLatin1String( "$GNGGA" ) ) )
+         {
+           QgsDebugMsgLevel( substring, 2 );
++          mLastGPSInformation.satInfoComplete = true;
+           processGgaSentence( ba.data(), ba.length() );
+           mStatus = GPSDataReceived;
+           QgsDebugMsgLevel( QStringLiteral( "*******************GPS data received****************" ), 2 );
+@@ -104,6 +104,7 @@ void QgsNmeaConnection::processStringBuffer()
+         else if ( substring.startsWith( QLatin1String( "$GPRMC" ) ) || substring.startsWith( QLatin1String( "$GNRMC" ) ) )
+         {
+           QgsDebugMsgLevel( substring, 2 );
++          mLastGPSInformation.satInfoComplete = true;
+           processRmcSentence( ba.data(), ba.length() );
+           mStatus = GPSDataReceived;
+           QgsDebugMsgLevel( QStringLiteral( "*******************GPS data received****************" ), 2 );
+@@ -112,6 +113,7 @@ void QgsNmeaConnection::processStringBuffer()
+         else if ( substring.startsWith( QLatin1String( "$GPGSV" ) ) || substring.startsWith( QLatin1String( "$GNGSV" ) ) || substring.startsWith( QLatin1String( "$GLGSV" ) ) || substring.startsWith( QLatin1String( "$GAGSV" ) ) || substring.startsWith( QLatin1String( "$GBGSV" ) ) || substring.startsWith( QLatin1String( "$GQGSV" ) ) )
+         {
+           QgsDebugMsgLevel( substring, 2 );
++          mLastGPSInformation.satInfoComplete = false;
+           processGsvSentence( ba.data(), ba.length() );
+           mStatus = GPSDataReceived;
+           QgsDebugMsgLevel( QStringLiteral( "*******************GPS data received****************" ), 2 );
+@@ -119,11 +121,12 @@ void QgsNmeaConnection::processStringBuffer()
+         else if ( substring.startsWith( QLatin1String( "$GPVTG" ) ) || substring.startsWith( QLatin1String( "$GNVTG" ) ) )
+         {
+           QgsDebugMsgLevel( substring, 2 );
++          mLastGPSInformation.satInfoComplete = true;
+           processVtgSentence( ba.data(), ba.length() );
+           mStatus = GPSDataReceived;
+           QgsDebugMsgLevel( QStringLiteral( "*******************GPS data received****************" ), 2 );
+         }
+-        else if ( substring.startsWith( QLatin1String( "$GPGSA" ) ) || substring.startsWith( QLatin1String( "$GNGSA" ) ) )
++        else if ( substring.startsWith( QLatin1String( "$GPGSA" ) ) || substring.startsWith( QLatin1String( "$GNGSA" ) ) || substring.startsWith( QLatin1String( "$GLGSA" ) ) )
+         {
+           QgsDebugMsgLevel( substring, 2 );
+           processGsaSentence( ba.data(), ba.length() );
+@@ -133,6 +136,7 @@ void QgsNmeaConnection::processStringBuffer()
+         else if ( substring.startsWith( QLatin1String( "$GPGST" ) ) || substring.startsWith( QLatin1String( "$GNGST" ) ) )
+         {
+           QgsDebugMsgLevel( substring, 2 );
++          mLastGPSInformation.satInfoComplete = true;
+           processGstSentence( ba.data(), ba.length() );
+           mStatus = GPSDataReceived;
+           QgsDebugMsgLevel( QStringLiteral( "*******************GPS data received****************" ), 2 );
+@@ -140,6 +144,7 @@ void QgsNmeaConnection::processStringBuffer()
+         else if ( substring.startsWith( QLatin1String( "$GPHDT" ) ) || substring.startsWith( QLatin1String( "$GNHDT" ) ) )
+         {
+           QgsDebugMsgLevel( substring, 2 );
++          mLastGPSInformation.satInfoComplete = true;
+           processHdtSentence( ba.data(), ba.length() );
+           mStatus = GPSDataReceived;
+           QgsDebugMsgLevel( QStringLiteral( "*******************GPS data received****************" ), 2 );
+@@ -147,6 +152,7 @@ void QgsNmeaConnection::processStringBuffer()
+         else if ( substring.startsWith( QLatin1String( "$HCHDG" ) ) )
+         {
+           QgsDebugMsgLevel( substring, 2 );
++          mLastGPSInformation.satInfoComplete = true;
+           processHchdgSentence( ba.data(), ba.length() );
+           mStatus = GPSDataReceived;
+           QgsDebugMsgLevel( QStringLiteral( "*******************GPS data received****************" ), 2 );
+@@ -154,12 +160,14 @@ void QgsNmeaConnection::processStringBuffer()
+         else if ( substring.startsWith( QLatin1String( "$HCHDT" ) ) )
+         {
+           QgsDebugMsgLevel( substring, 2 );
++          mLastGPSInformation.satInfoComplete = true;
+           processHchdtSentence( ba.data(), ba.length() );
+           mStatus = GPSDataReceived;
+           QgsDebugMsgLevel( QStringLiteral( "*******************GPS data received****************" ), 2 );
+         }
+         else
+         {
++          mLastGPSInformation.satInfoComplete = true;
+           QgsDebugMsgLevel( QStringLiteral( "unknown nmea sentence: %1" ).arg( substring ), 2 );
+         }
+         emit nmeaSentenceReceived( substring );  // added to be able to save raw data
+@@ -171,11 +179,6 @@ void QgsNmeaConnection::processStringBuffer()
+ 
+ void QgsNmeaConnection::processGgaSentence( const char *data, int len )
+ {
+-  //GSA
+-  mLastGPSInformation.satPrn.clear();
+-  //GSV
+-  mLastGPSInformation.satellitesInView.clear();
+-  mLastGPSInformation.satellitesUsed = 0;
+   nmeaGPGGA result;
+   if ( nmea_parse_GPGGA( data, len, &result ) )
+   {
+@@ -196,6 +199,19 @@ void QgsNmeaConnection::processGgaSentence( const char *data, int len )
+     mLastGPSInformation.elevation = result.elv;
+     mLastGPSInformation.elevation_diff = result.diff;
+ 
++    const QTime time( result.utc.hour, result.utc.min, result.utc.sec, result.utc.msec );
++    if ( time.isValid() )
++    {
++      mLastGPSInformation.utcTime = time;
++      if ( mLastGPSInformation.utcDateTime.isValid() )
++      {
++        mLastGPSInformation.utcDateTime.setTimeSpec( Qt::UTC );
++        mLastGPSInformation.utcDateTime.setTime( time );
++      }
++      QgsDebugMsgLevel( QStringLiteral( "utc time:" ), 2 );
++      QgsDebugMsgLevel( mLastGPSInformation.utcTime.toString(), 2 );
++    }
++
+     mLastGPSInformation.quality = result.sig;
+     if ( result.sig >= 0 && result.sig <= 8 )
+     {
+@@ -282,17 +298,17 @@ void QgsNmeaConnection::processRmcSentence( const char *data, int len )
+       mLastGPSInformation.direction = result.direction;
+     mLastGPSInformation.status = result.status;  // A,V
+ 
+-    //date and time
+     const QDate date( result.utc.year + 1900, result.utc.mon + 1, result.utc.day );
+-    const QTime time( result.utc.hour, result.utc.min, result.utc.sec, result.utc.msec ); // added msec part
++    const QTime time( result.utc.hour, result.utc.min, result.utc.sec, result.utc.msec );
+     if ( date.isValid() && time.isValid() )
+     {
++      mLastGPSInformation.utcTime = time;
+       mLastGPSInformation.utcDateTime.setTimeSpec( Qt::UTC );
+       mLastGPSInformation.utcDateTime.setDate( date );
+       mLastGPSInformation.utcDateTime.setTime( time );
+-      QgsDebugMsgLevel( QStringLiteral( "utc time:" ), 2 );
++      QgsDebugMsgLevel( QStringLiteral( "utc date/time:" ), 2 );
+       QgsDebugMsgLevel( mLastGPSInformation.utcDateTime.toString(), 2 );
+-      QgsDebugMsgLevel( QStringLiteral( "local time:" ), 2 );
++      QgsDebugMsgLevel( QStringLiteral( "local date/time:" ), 2 );
+       QgsDebugMsgLevel( mLastGPSInformation.utcDateTime.toLocalTime().toString(), 2 );
+     }
+ 
+@@ -359,12 +375,7 @@ void QgsNmeaConnection::processGsvSentence( const char *data, int len )
+   nmeaGPGSV result;
+   if ( nmea_parse_GPGSV( data, len, &result ) )
+   {
+-    //clear satellite information when a new series of packs arrives
+-    // clear() on GGA
+-
+     // for determining when to graph sat info
+-    mLastGPSInformation.satInfoComplete = ( result.pack_index == result.pack_count );
+-
+     for ( int i = 0; i < NMEA_SATINPACK; ++i )
+     {
+       const nmeaSATELLITE currentSatellite = result.sat_data[i];
+@@ -382,8 +393,31 @@ void QgsNmeaConnection::processGsvSentence( const char *data, int len )
+       }
+       satelliteInfo.signal = currentSatellite.sig;
+       satelliteInfo.satType = result.pack_type;
++
++      if ( result.pack_type == 'P' )
++      {
++        satelliteInfo.mConstellation = Qgis::GnssConstellation::Gps;
++      }
++      else if ( result.pack_type == 'L' )
++      {
++        satelliteInfo.mConstellation = Qgis::GnssConstellation::Glonass;
++      }
++      else if ( result.pack_type == 'A' )
++      {
++        satelliteInfo.mConstellation = Qgis::GnssConstellation::Galileo;
++      }
++      else if ( result.pack_type == 'B' )
++      {
++        satelliteInfo.mConstellation = Qgis::GnssConstellation::BeiDou;
++      }
++      else if ( result.pack_type == 'Q' )
++      {
++        satelliteInfo.mConstellation = Qgis::GnssConstellation::Qzss;
++      }
++
+       if ( satelliteInfo.satType == 'P' && satelliteInfo.id > 32 )
+       {
++        satelliteInfo.mConstellation = Qgis::GnssConstellation::Sbas;
+         satelliteInfo.satType = 'S';
+         satelliteInfo.id = currentSatellite.id + 87;
+       }
+@@ -425,6 +459,14 @@ void QgsNmeaConnection::processVtgSentence( const char *data, int len )
+ 
+ void QgsNmeaConnection::processGsaSentence( const char *data, int len )
+ {
++  if ( mLastGPSInformation.satInfoComplete )
++  {
++    //clear satellite information when a new series of packs arrives
++    mLastGPSInformation.satPrn.clear();
++    mLastGPSInformation.satellitesInView.clear();
++    mLastGPSInformation.satellitesUsed = 0;
++    mLastGPSInformation.satInfoComplete = false;
++  }
+   nmeaGPGSA result;
+   if ( nmea_parse_GPGSA( data, len, &result ) )
+   {
+@@ -434,13 +476,55 @@ void QgsNmeaConnection::processGsaSentence( const char *data, int len )
+     mLastGPSInformation.vdop = result.VDOP;
+     mLastGPSInformation.fixMode = result.fix_mode;
+     mLastGPSInformation.fixType = result.fix_type;
++
++    Qgis::GnssConstellation commonConstellation = Qgis::GnssConstellation::Unknown;
++    bool mixedConstellation = false;
+     for ( int i = 0; i < NMEA_MAXSAT; i++ )
+     {
+       if ( result.sat_prn[ i ] > 0 )
+       {
+         mLastGPSInformation.satPrn.append( result.sat_prn[ i ] );
+         mLastGPSInformation.satellitesUsed += 1;
++
++        Qgis::GnssConstellation constellation = Qgis::GnssConstellation::Unknown;
++        if ( result.pack_type == 'L' || result.sat_prn[i] > 64 )
++          constellation = Qgis::GnssConstellation::Glonass;
++        else if ( result.sat_prn[i] >= 1 && result.sat_prn[i] <= 32 )
++          constellation = Qgis::GnssConstellation::Gps;
++        else if ( result.sat_prn[i] > 32 && result.sat_prn[i] <= 64 )
++          constellation = Qgis::GnssConstellation::Sbas;
++
++        if ( result.sat_prn[i] > 0 )
++        {
++          if ( mixedConstellation
++               || ( commonConstellation != Qgis::GnssConstellation::Unknown
++                    && commonConstellation != constellation ) )
++          {
++            mixedConstellation = true;
++          }
++          else
++          {
++            commonConstellation = constellation;
++          }
++        }
+       }
+     }
++    if ( mixedConstellation )
++      commonConstellation = Qgis::GnssConstellation::Unknown;
++
++    switch ( result.fix_type )
++    {
++      case 1:
++        mLastGPSInformation.mConstellationFixStatus[ commonConstellation ] = Qgis::GpsFixStatus::NoFix;
++        break;
++
++      case 2:
++        mLastGPSInformation.mConstellationFixStatus[ commonConstellation ] = Qgis::GpsFixStatus::Fix2D;
++        break;
++
++      case 3:
++        mLastGPSInformation.mConstellationFixStatus[ commonConstellation ] = Qgis::GpsFixStatus::Fix3D;
++        break;
++    }
+   }
+ }
+diff --git a/src/core/gps/qgssatelliteinformation.cpp b/src/core/gps/qgssatelliteinformation.cpp
+new file mode 100644
+index 0000000000..a118ac1522
+--- /dev/null
++++ b/src/core/gps/qgssatelliteinformation.cpp
+@@ -0,0 +1,18 @@
++/***************************************************************************
++                          qgssatelliteinformation.cpp
++                          --------------------
++    begin                : November 30th, 2009
++    copyright            : (C) 2009 by Marco Hugentobler
++    email                : marco at hugis dot net
++ ***************************************************************************/
++
++/***************************************************************************
++ *                                                                         *
++ *   This program is free software; you can redistribute it and/or modify  *
++ *   it under the terms of the GNU General Public License as published by  *
++ *   the Free Software Foundation; either version 2 of the License, or     *
++ *   (at your option) any later version.                                   *
++ *                                                                         *
++ ***************************************************************************/
++
++#include "qgssatelliteinformation.h"
+diff --git a/src/core/gps/qgssatelliteinformation.h b/src/core/gps/qgssatelliteinformation.h
+new file mode 100644
+index 0000000000..00e485d2cd
+--- /dev/null
++++ b/src/core/gps/qgssatelliteinformation.h
+@@ -0,0 +1,120 @@
++/***************************************************************************
++                          qgssatelliteinformation.h
++                          -------------------
++    begin                : November 30th, 2009
++    copyright            : (C) 2009 by Marco Hugentobler
++    email                : marco at hugis dot net
++ ***************************************************************************/
++
++/***************************************************************************
++ *                                                                         *
++ *   This program is free software; you can redistribute it and/or modify  *
++ *   it under the terms of the GNU General Public License as published by  *
++ *   the Free Software Foundation; either version 2 of the License, or     *
++ *   (at your option) any later version.                                   *
++ *                                                                         *
++ ***************************************************************************/
++
++#ifndef QGSSATELLITEINFORMATION_H
++#define QGSSATELLITEINFORMATION_H
++
++#include "qgis.h"
++#include "qgis_core.h"
++
++#include <QDateTime>
++#include <QObject>
++#include <QString>
++
++/**
++ * \ingroup core
++ * \class QgsSatelliteInfo
++ * \brief Encapsulates information relating to a GPS satellite.
++*/
++class CORE_EXPORT QgsSatelliteInfo
++{
++  public:
++
++    /**
++     * Contains the satellite identifier number.
++     *
++     * The satellite identifier number can be used to identify a satellite inside the satellite system.
++     * For satellite system GPS the satellite identifier number represents the PRN (Pseudo-random noise)
++     * number. For satellite system GLONASS the satellite identifier number represents the slot number.
++     */
++    int id = 0;
++
++    /**
++     * TRUE if satellite was used in obtaining the position fix.
++     */
++    bool inUse = false;
++
++#ifndef SIP_RUN
++
++    /**
++     * Elevation of the satellite, in degrees.
++     */
++    double elevation = std::numeric_limits< double >::quiet_NaN();
++#else
++
++    /**
++     * Elevation of the satellite, in degrees.
++     */
++    double elevation;
++#endif
++
++#ifndef SIP_RUN
++
++    /**
++     * The azimuth of the satellite to true north, in degrees.
++     */
++    double azimuth = std::numeric_limits< double >::quiet_NaN();
++#else
++
++    /**
++     * The azimuth of the satellite to true north, in degrees.
++     */
++    double azimuth;
++#endif
++
++    /**
++     * Signal strength (0-99dB), or -1 if not available.
++     */
++    int signal = -1;
++
++    /**
++     * satType value from NMEA message $GxGSV, where x:
++     * P = GPS; S = SBAS (GPSid> 32 then SBasid = GPSid + 87); N = generic satellite; L = GLONASS; A = GALILEO; B = BEIDOU; Q = QZSS;
++     */
++    QChar satType;
++
++    /**
++     * Returns the GNSS constellation associated with the information.
++     *
++     * \since QGIS 3.30
++     */
++    Qgis::GnssConstellation constellation() const { return mConstellation; }
++
++    bool operator==( const QgsSatelliteInfo &other ) const
++    {
++      return id == other.id &&
++             inUse == other.inUse &&
++             elevation == other.elevation &&
++             azimuth == other.azimuth &&
++             signal == other.signal &&
++             satType == other.satType &&
++             mConstellation == other.mConstellation;
++    }
++
++    bool operator!=( const QgsSatelliteInfo &other ) const
++    {
++      return !operator==( other );
++    }
++
++  private:
++
++    Qgis::GnssConstellation mConstellation = Qgis::GnssConstellation::Unknown;
++
++    friend class QgsNmeaConnection;
++};
++
++#endif // QGSSATELLITEINFORMATION_H
+diff --git a/src/core/qgis.h b/src/core/qgis.h
+index 3b2b7bed8e..2bb773c31b 100644
+--- a/src/core/qgis.h
++++ b/src/core/qgis.h
+@@ -878,6 +878,55 @@ class CORE_EXPORT Qgis
+     };
+     Q_ENUM( ContentStatus )
+ 
++    /**
++     * GPS connection types.
++     *
++     * \since QGIS 3.30
++     */
++    enum class GpsConnectionType : int
++    {
++      Automatic, //!< Automatically detected GPS device connection
++      Internal, //!< Internal GPS device
++      Serial, //!< Serial port GPS device
++      Gpsd, //!< GPSD device
++    };
++    Q_ENUM( GpsConnectionType )
++
++    /**
++     * GPS fix status.
++     *
++     * \note Prior to QGIS 3.30 this was available as QgsGpsInformation::FixStatus
++     *
++     * \since QGIS 3.30
++     */
++    enum class GpsFixStatus SIP_MONKEYPATCH_SCOPEENUM_UNNEST( QgsGpsInformation, FixStatus ) : int
++      {
++      NoData, //!< No fix data available
++      NoFix, //!< GPS is not fixed
++      Fix2D, //!< 2D fix
++      Fix3D //!< 3D fix
++    };
++    Q_ENUM( GpsFixStatus );
++
++
++    /**
++     * GNSS constellation
++     *
++     * \since QGIS 3.30
++     */
++    enum class GnssConstellation
++    {
++      Unknown, //!< Unknown/other system
++      Gps, //!< Global Positioning System (GPS)
++      Glonass, //!< Global Navigation Satellite System (GLONASS)
++      Galileo, //!< Galileo
++      BeiDou, //!< BeiDou
++      Qzss, //!< Quasi Zenith Satellite System (QZSS)
++      Navic, //!< Indian Regional Navigation Satellite System (IRNSS) / NAVIC
++      Sbas, //!< SBAS
++    };
++    Q_ENUM( GnssConstellation );
++
+     /**
+      * GPS signal quality indicator
+      *
+@@ -898,6 +947,44 @@ class CORE_EXPORT Qgis
+     };
+     Q_ENUM( GpsQualityIndicator )
+ 
++    /**
++     * GPS information component.
++     *
++     * \since QGIS 3.30
++     */
++    enum class GpsInformationComponent : int
++    {
++      Location = 1 << 0, //!< 2D location (latitude/longitude), as a QgsPointXY value
++      Altitude = 1 << 1, //!< Altitude/elevation above or below the mean sea level
++      GroundSpeed = 1 << 2, //!< Ground speed
++      Bearing = 1 << 3, //!< Bearing measured in degrees clockwise from true north to the direction of travel
++      TotalTrackLength = 1 << 4, //!< Total distance of current GPS track (available from QgsGpsLogger class only)
++      TrackDistanceFromStart = 1 << 5, //!< Direct distance from first vertex in current GPS track to last vertex (available from QgsGpsLogger class only)
++      Pdop = 1 << 6, //!< Dilution of precision
++      Hdop = 1 << 7, //!< Horizontal dilution of precision
++      Vdop = 1 << 8, //!< Vertical dilution of precision
++      HorizontalAccuracy = 1 << 9, //!< Horizontal accuracy in meters
++      VerticalAccuracy = 1 << 10, //!< Vertical accuracy in meters
++      HvAccuracy = 1 << 11, //!< 3D RMS
++      SatellitesUsed = 1 << 12, //!< Count of satellites used in obtaining the fix
++      Timestamp = 1 << 13, //!< Timestamp
++      TrackStartTime = 1 << 14, //!< Timestamp at start of current track (available from QgsGpsLogger class only)
++      TrackEndTime = 1 << 15, //!< Timestamp at end (current point) of current track (available from QgsGpsLogger class only)
++      TrackDistanceSinceLastPoint = 1 << 16, //!< Distance since last recorded location (available from QgsGpsLogger class only)
++      TrackTimeSinceLastPoint = 1 << 17, //!< Time since last recorded location (available from QgsGpsLogger class only)
++      GeoidalSeparation = 1 << 18, //!< Geoidal separation, the difference between the WGS-84 Earth ellipsoid and mean-sea-level (geoid), "-" means mean-sea-level below ellipsoid
++      EllipsoidAltitude = 1 << 19, //!< Altitude/elevation above or below the WGS-84 Earth ellipsoid
++    };
++
++    /**
++     * GPS information component.
++     *
++     * \since QGIS 3.30
++     */
++    Q_DECLARE_FLAGS( GpsInformationComponents, GpsInformationComponent )
++    Q_ENUM( GpsInformationComponent )
++    Q_FLAG( GpsInformationComponents )
++
+     /**
+      * Babel GPS format capabilities.
+      *
