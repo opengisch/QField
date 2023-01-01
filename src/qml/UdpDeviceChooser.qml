@@ -44,6 +44,7 @@ Item {
         Layout.fillWidth: true
         font: Theme.defaultFont
         text: 'localhost'
+        inputMethodHints: Qt.ImhNoPredictiveText | Qt.ImhNoAutoUppercase | Qt.ImhPreferLowercase
     }
 
     Label {
@@ -58,6 +59,7 @@ Item {
         Layout.fillWidth: true
         font: Theme.defaultFont
         text: '11111'
+        inputMethodHints: Qt.ImhFormattedNumbersOnly
     }
   }
 }
