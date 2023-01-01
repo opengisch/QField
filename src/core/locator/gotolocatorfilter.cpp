@@ -65,7 +65,7 @@ void GotoLocatorFilter::fetchResults( const QString &string, const QgsLocatorCon
   if ( !match.hasMatch() || !firstOk || !secondOk )
   {
     // Digit detection using user locale failed, use default C decimal separators
-    separatorRx = QRegularExpression( QStringLiteral( "^(?:(?i)geo:)([0-9\\-\\.]*)[\\s\\,]*([0-9\\-\\.]*)$" ) );
+    separatorRx = QRegularExpression( QStringLiteral( "^(?:(?i)geo:){0,1}([0-9\\-\\.]*)[\\s\\,]*([0-9\\-\\.]*)$" ) );
     match = separatorRx.match( string.trimmed() );
     if ( match.hasMatch() )
     {
