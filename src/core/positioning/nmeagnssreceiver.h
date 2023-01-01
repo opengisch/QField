@@ -41,8 +41,10 @@ class NmeaGnssReceiver : public AbstractGnssReceiver
     bool mLastGnssPositionValid = false;
 
   private slots:
-
     void stateChanged( const QgsGpsInformation &info );
+
+  private:
+    QTime mLastGnssPositionUtcTime;
 };
 
 #endif // NMEAGNSSRECEIVER_H
