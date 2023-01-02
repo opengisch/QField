@@ -1151,11 +1151,8 @@ Page {
       }
 
       var index = positioningDeviceModel.addDevice(type, name, settings);
-      if (index !== positioningDeviceComboBox.currentIndex) {
-        positioningDeviceComboBox.currentIndex = index;
-      } else {
-        positioningDeviceComboBox.onCurrentIndexChanged();
-      }
+      positioningDeviceComboBox.currentIndex = index;
+      positioningDeviceComboBox.onCurrentIndexChanged();
     }
   }
 
