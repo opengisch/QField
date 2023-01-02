@@ -19,8 +19,6 @@ Item {
   function setSettings(settings) {
     deviceName = settings['name'];
     deviceAddress = settings['address'];
-    var index = bluetoothDeviceModel.addDevice(deviceName, deviceAddress);
-    bluetoothDeviceComboBox.currentIndex = index;
   }
 
   function getSettings() {
