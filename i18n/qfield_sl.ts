@@ -118,7 +118,7 @@
     </message>
     <message>
         <source>Center your camera on a code</source>
-        <translation>Centrirajte fotoaparat na kodo</translation>
+        <translation>Centrirajte kamero na kodo</translation>
     </message>
 </context>
 <context>
@@ -512,11 +512,11 @@ Cancel to make a minimal device scan instead.</source>
     <name>ElevationProfile</name>
     <message>
         <source>Digitize a path to render the elevation profile</source>
-        <translation>Izrisovanje višinskega profila...</translation>
+        <translation>Digitaliziraj pot za izris višinskega profila</translation>
     </message>
     <message>
         <source>Rendering elevation profile…</source>
-        <translation type="unfinished"/>
+        <translation>Izrisovanje višinskega profila...</translation>
     </message>
 </context>
 <context>
@@ -1646,7 +1646,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Storing projects on QFieldCloud offers seamless synchornization, offline editing, and team management.&lt;br&gt;&lt;br&gt;</source>
-        <translation type="unfinished"/>
+        <translation>Shranjevanje projektov v QFieldCloud omogoča nemoteno sinhronizacijo, urejanje brez povezave in skupinsko upravljanje.&lt;br&gt;&lt;br&gt;</translation>
     </message>
     <message>
         <source>Learn more about QFieldCloud</source>
@@ -1815,7 +1815,7 @@ While you can still view and use the project, it is strongly recommended to rese
     <name>QFieldCloudProjectsModel</name>
     <message>
         <source>Export failed</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Izvoz ni uspel</translation>
     </message>
     <message>
         <source>Packaged layer &apos;%1&apos; is not valid: &apos;%2&apos;</source>
@@ -2085,7 +2085,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Export to folder...</source>
-        <translation type="unfinished"/>
+        <translation>Izvoz v mapo...</translation>
     </message>
     <message>
         <source>Remove dataset</source>
