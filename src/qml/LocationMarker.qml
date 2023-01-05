@@ -140,10 +140,9 @@ Item {
     }
 
     layer.enabled: true
-    layer.samples: 4
     layer.effect: QfDropShadow {
         transparentBorder: true
-        radius: 8
+        samples: 16
         color: "#99000000"
         horizontalOffset: 0
         verticalOffset: 0
@@ -173,10 +172,9 @@ Item {
     }
 
     layer.enabled: true
-    layer.samples: 4
     layer.effect: QfDropShadow {
         transparentBorder: true
-        radius: 8
+        samples: 16
         color: "#99000000"
         horizontalOffset: 0
         verticalOffset: 0
@@ -218,10 +216,9 @@ Item {
     }
 
     layer.enabled: true
-    layer.samples: 4
     layer.effect: QfDropShadow {
         transparentBorder: true
-        radius: 8
+        samples: 16
         color: "#99000000"
         horizontalOffset: 0
         verticalOffset: 0
