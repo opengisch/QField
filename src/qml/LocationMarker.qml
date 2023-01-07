@@ -8,7 +8,7 @@ import Theme 1.0
 import "."
 
 Item {
-  id: item
+  id: locationMarker
 
   property variant location // QgsPoint
 
@@ -16,6 +16,10 @@ Item {
   property real direction: -1 // A -1 value indicates absence of movement direction information
   property real speed: -1 // A -1 value indicates absence of speed information
   property real orientation: -1 // A -1 value indicates absence of compass orientation
+
+  property color color: Theme.positionColor
+  property color darkerColor: Qt.darker(color, 1.75)
+  property color semiOpaqueColor: Qt.hsla(color.hslHue, color.hslSaturation, color.hslLightness, 0.2)
 
   property MapSettings mapSettings
 
@@ -46,8 +50,8 @@ Item {
 
     radius: width/2
 
-    color: Theme.positionColorSemiOpaque
-    border.color: Theme.darkPositionColorSemiOpaque
+    color: locationMarker.semiOpaqueColor
+    border.color: locationMarker.darkerColor
     border.width: 0.7
   }
 
@@ -84,7 +88,7 @@ Item {
       strokeWidth: 3
       strokeColor: "white"
       strokeStyle: ShapePath.SolidLine
-      fillColor: Theme.positionColor
+      fillColor: locationMarker.color
       joinStyle: ShapePath.MiterJoin
       startX: 10
       startY: 2
@@ -95,8 +99,8 @@ Item {
 
       SequentialAnimation on fillColor  {
         loops: Animation.Infinite
-        ColorAnimation  { from: Theme.positionColor; to: Theme.darkPositionColor; duration: 2000; easing.type: Easing.InOutQuad }
-        ColorAnimation  { from: Theme.darkPositionColor; to: Theme.positionColor; duration: 1000; easing.type: Easing.InOutQuad }
+        ColorAnimation  { from: locationMarker.color; to: locationMarker.darkerColor; duration: 2000; easing.type: Easing.InOutQuad }
+        ColorAnimation  { from: locationMarker.darkerColor; to: locationMarker.color; duration: 1000; easing.type: Easing.InOutQuad }
       }
     }
 
@@ -123,14 +127,14 @@ Item {
 
     radius: width / 2
 
-    color: Theme.positionColor
+    color: locationMarker.color
     border.color: "white"
     border.width: 3
 
     SequentialAnimation on color  {
       loops: Animation.Infinite
-      ColorAnimation  { from: Theme.positionColor; to: Theme.darkPositionColor; duration: 2000; easing.type: Easing.InOutQuad }
-      ColorAnimation  { from: Theme.darkPositionColor; to: Theme.positionColor; duration: 1000; easing.type: Easing.InOutQuad }
+      ColorAnimation  { from: locationMarker.color; to: locationMarker.darkerColor; duration: 2000; easing.type: Easing.InOutQuad }
+      ColorAnimation  { from: locationMarker.darkerColor; to: locationMarker.color; duration: 1000; easing.type: Easing.InOutQuad }
     }
 
     layer.enabled: true
@@ -163,7 +167,7 @@ Item {
       strokeWidth: 3
       strokeColor: "white"
       strokeStyle: ShapePath.SolidLine
-      fillColor: Theme.positionColor
+      fillColor: locationMarker.color
       joinStyle: ShapePath.MiterJoin
       startX: 10
       startY: 0
@@ -173,8 +177,8 @@ Item {
 
       SequentialAnimation on fillColor  {
         loops: Animation.Infinite
-        ColorAnimation  { from: Theme.positionColor; to: Theme.darkPositionColor; duration: 2000; easing.type: Easing.InOutQuad }
-        ColorAnimation  { from: Theme.darkPositionColor; to: Theme.positionColor; duration: 1000; easing.type: Easing.InOutQuad }
+        ColorAnimation  { from: locationMarker.color; to: locationMarker.darkerColor; duration: 2000; easing.type: Easing.InOutQuad }
+        ColorAnimation  { from: locationMarker.darkerColor; to: locationMarker.color; duration: 1000; easing.type: Easing.InOutQuad }
       }
     }
 
