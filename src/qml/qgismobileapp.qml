@@ -216,6 +216,19 @@ ApplicationWindow {
         gnssButton.followLocation(false);
       }
     }
+
+
+    onActiveChanged: {
+      if (active) {
+        magnetometer.active = true
+        magnetometer.start()
+      } else {
+        magnetometer.stop()
+        magnetometer.active = false
+        magnetometer.hasValue = false
+        magnetometer.orientation = 0.0
+      }
+    }
   }
 
   Connections {
@@ -262,22 +275,6 @@ ApplicationWindow {
     Component.onCompleted: {
       if (Screen.orientationUpdateMask) {
         Screen.orientationUpdateMask = Qt.PortraitOrientation | Qt.InvertedPortraitOrientation | Qt.LandscapeOrientation | Qt.InvertedLandscapeOrientation
-      }
-    }
-  }
-
-  Connections {
-    target: positionSource
-
-    function onActiveChanged() {
-      if (positionSource.active) {
-        magnetometer.active = true
-        magnetometer.start()
-      } else {
-        magnetometer.stop()
-        magnetometer.active = false
-        magnetometer.hasValue = false
-        magnetometer.orientation = 0.0
       }
     }
   }
@@ -676,7 +673,6 @@ ApplicationWindow {
     LocationMarker {
       id: locationMarker
       visible: positionSource.active && positionSource.positionInformation && positionSource.positionInformation.latitudeValid
-      anchors.fill: parent
 
       mapSettings: mapCanvas.mapSettings
 
