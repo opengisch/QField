@@ -1,7 +1,6 @@
 import QtQuick 2.14
 import QtQuick.Shapes 1.14
 import QtQuick.Window 2.14
-import QtSensors 5.14
 
 import org.qgis 1.0
 import Theme 1.0
@@ -9,17 +8,20 @@ import Theme 1.0
 import "."
 
 Item {
-  id: item
+  id: locationMarker
 
   property variant location // QgsPoint
-  property string deviceId // Empty string means internal device is used
-  property real accuracy
-  property real direction // A -1 value indicates absence of movement direction information
-  property real speed // A -1 value indicates absence of speed information
-  property MapSettings mapSettings
 
-  property bool compassHasValue: false
-  property real compassOrientation: 0
+  property real accuracy: 0
+  property real direction: -1 // A -1 value indicates absence of movement direction information
+  property real speed: -1 // A -1 value indicates absence of speed information
+  property real orientation: -1 // A -1 value indicates absence of compass orientation
+
+  property color color: Theme.positionColor
+  property color darkerColor: Qt.darker(color, 1.75)
+  property color semiOpaqueColor: Qt.hsla(color.hslHue, color.hslSaturation, color.hslLightness, 0.2)
+
+  property MapSettings mapSettings
 
   QtObject {
     id: props
@@ -37,43 +39,6 @@ Item {
     props.screenAccuracy = accuracy / mapSettings.mapUnitsPerPoint
   }
 
-  Magnetometer {
-    id: magnetometer
-    active: false
-    returnGeoValues: false
-
-    Screen.onOrientationChanged: {
-        switch (Screen.orientation) {
-          case Qt.LandscapeOrientation:
-            magnetometer.userOrientation = 90;
-            break;
-          case Qt.InvertedLandscapeOrientation:
-            magnetometer.userOrientation = 270;
-            break;
-          case Qt.PortraitOrientation:
-          default:
-            magnetometer.userOrientation = 0;
-            break;
-        }
-    }
-
-    property real lastAcceptedReading: 0
-    onReadingChanged: {
-      var timestamp = Date.now();
-      if (timestamp - lastAcceptedReading > 500) {
-        lastAcceptedReading = timestamp;
-        compassOrientation = userOrientation + (-(Math.atan2(reading.x, reading.y) / Math.PI) * 180)
-        compassHasValue = true
-      }
-    }
-
-    Component.onCompleted: {
-      if (Screen.orientationUpdateMask) {
-        Screen.orientationUpdateMask = Qt.PortraitOrientation | Qt.InvertedPortraitOrientation | Qt.LandscapeOrientation | Qt.InvertedLandscapeOrientation
-      }
-    }
-  }
-
   Rectangle {
     id: accuracyMarker
     visible: props.screenAccuracy > 0.0
@@ -85,14 +50,14 @@ Item {
 
     radius: width/2
 
-    color: Theme.positionColorSemiOpaque
-    border.color: Theme.darkPositionColorSemiOpaque
+    color: locationMarker.semiOpaqueColor
+    border.color: locationMarker.darkerColor
     border.width: 0.7
   }
 
   Image {
     id: compassDirectionMarker
-    visible: compassHasValue
+    visible: orientation > -1
     width: 48
     height: 48
     opacity: 0.6
@@ -102,7 +67,7 @@ Item {
 
     source: Theme.getThemeVectorIcon( "ic_compass_direction" )
     fillMode: Image.PreserveAspectFit
-    rotation: compassOrientation
+    rotation: orientation
     transformOrigin: Item.Bottom
     smooth: true
   }
@@ -123,7 +88,7 @@ Item {
       strokeWidth: 3
       strokeColor: "white"
       strokeStyle: ShapePath.SolidLine
-      fillColor: Theme.positionColor
+      fillColor: locationMarker.color
       joinStyle: ShapePath.MiterJoin
       startX: 10
       startY: 2
@@ -134,8 +99,8 @@ Item {
 
       SequentialAnimation on fillColor  {
         loops: Animation.Infinite
-        ColorAnimation  { from: Theme.positionColor; to: Theme.darkPositionColor; duration: 2000; easing.type: Easing.InOutQuad }
-        ColorAnimation  { from: Theme.darkPositionColor; to: Theme.positionColor; duration: 1000; easing.type: Easing.InOutQuad }
+        ColorAnimation  { from: locationMarker.color; to: locationMarker.darkerColor; duration: 2000; easing.type: Easing.InOutQuad }
+        ColorAnimation  { from: locationMarker.darkerColor; to: locationMarker.color; duration: 1000; easing.type: Easing.InOutQuad }
       }
     }
 
@@ -162,14 +127,14 @@ Item {
 
     radius: width / 2
 
-    color: Theme.positionColor
+    color: locationMarker.color
     border.color: "white"
     border.width: 3
 
     SequentialAnimation on color  {
       loops: Animation.Infinite
-      ColorAnimation  { from: Theme.positionColor; to: Theme.darkPositionColor; duration: 2000; easing.type: Easing.InOutQuad }
-      ColorAnimation  { from: Theme.darkPositionColor; to: Theme.positionColor; duration: 1000; easing.type: Easing.InOutQuad }
+      ColorAnimation  { from: locationMarker.color; to: locationMarker.darkerColor; duration: 2000; easing.type: Easing.InOutQuad }
+      ColorAnimation  { from: locationMarker.darkerColor; to: locationMarker.color; duration: 1000; easing.type: Easing.InOutQuad }
     }
 
     layer.enabled: true
@@ -202,7 +167,7 @@ Item {
       strokeWidth: 3
       strokeColor: "white"
       strokeStyle: ShapePath.SolidLine
-      fillColor: Theme.positionColor
+      fillColor: locationMarker.color
       joinStyle: ShapePath.MiterJoin
       startX: 10
       startY: 0
@@ -212,8 +177,8 @@ Item {
 
       SequentialAnimation on fillColor  {
         loops: Animation.Infinite
-        ColorAnimation  { from: Theme.positionColor; to: Theme.darkPositionColor; duration: 2000; easing.type: Easing.InOutQuad }
-        ColorAnimation  { from: Theme.darkPositionColor; to: Theme.positionColor; duration: 1000; easing.type: Easing.InOutQuad }
+        ColorAnimation  { from: locationMarker.color; to: locationMarker.darkerColor; duration: 2000; easing.type: Easing.InOutQuad }
+        ColorAnimation  { from: locationMarker.darkerColor; to: locationMarker.color; duration: 1000; easing.type: Easing.InOutQuad }
       }
     }
 
@@ -242,27 +207,5 @@ Item {
 
   onLocationChanged: {
    updateScreenLocation()
-  }
-
-  Connections {
-    target: positionSource
-
-    function onActiveChanged() {
-      if (positionSource.active) {
-        magnetometer.active = true
-        magnetometer.start()
-      } else {
-        magnetometer.stop()
-        magnetometer.active = false
-        compassHasValue = false
-        compassOrientation = 0.0
-      }
-    }
-  }
-
-  Component.onCompleted: {
-    if (positionSource.active) {
-      magnetometer.start()
-    }
   }
 }
