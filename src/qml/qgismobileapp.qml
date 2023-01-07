@@ -20,6 +20,7 @@ import QtQuick.Controls 2.14
 import QtQuick.Controls.Material 2.14
 import QtQuick.Window 2.14
 import QtQml 2.14
+import QtSensors 5.14
 import Qt.labs.settings 1.0 as LabSettings
 
 import org.qgis 1.0
@@ -209,12 +210,75 @@ ApplicationWindow {
     }
 
     ellipsoidalElevation: positioningSettings.ellipsoidalElevation
+
+    onProjectedPositionChanged: {
+      if (active && gnssButton.followActive) {
+        gnssButton.followLocation(false);
+      }
+    }
   }
+
   Connections {
     target: positionSource.device
 
     function onLastErrorChanged() {
         displayToast(qsTr('Positioning device error: %1').arg(positionSource.device.lastError), 'error')
+    }
+  }
+
+  Magnetometer {
+    id: magnetometer
+    active: false
+    returnGeoValues: false
+
+    property bool hasValue: false
+    property real orientation: 0
+    property real lastAcceptedReading: 0
+
+    Screen.onOrientationChanged: {
+        switch (Screen.orientation) {
+          case Qt.LandscapeOrientation:
+            magnetometer.userOrientation = 90;
+            break;
+          case Qt.InvertedLandscapeOrientation:
+            magnetometer.userOrientation = 270;
+            break;
+          case Qt.PortraitOrientation:
+          default:
+            magnetometer.userOrientation = 0;
+            break;
+        }
+    }
+
+    onReadingChanged: {
+      var timestamp = Date.now();
+      if (timestamp - lastAcceptedReading > 500) {
+        lastAcceptedReading = timestamp;
+        orientation = userOrientation + (-(Math.atan2(reading.x, reading.y) / Math.PI) * 180)
+        hasValue = true
+      }
+    }
+
+    Component.onCompleted: {
+      if (Screen.orientationUpdateMask) {
+        Screen.orientationUpdateMask = Qt.PortraitOrientation | Qt.InvertedPortraitOrientation | Qt.LandscapeOrientation | Qt.InvertedLandscapeOrientation
+      }
+    }
+  }
+
+  Connections {
+    target: positionSource
+
+    function onActiveChanged() {
+      if (positionSource.active) {
+        magnetometer.active = true
+        magnetometer.start()
+      } else {
+        magnetometer.stop()
+        magnetometer.active = false
+        magnetometer.hasValue = false
+        magnetometer.orientation = 0.0
+      }
     }
   }
 
@@ -611,11 +675,12 @@ ApplicationWindow {
     /* Location marker reflecting the current GNSS position */
     LocationMarker {
       id: locationMarker
-      mapSettings: mapCanvas.mapSettings
-      anchors.fill: parent
       visible: positionSource.active && positionSource.positionInformation && positionSource.positionInformation.latitudeValid
+      anchors.fill: parent
+
+      mapSettings: mapCanvas.mapSettings
+
       location: positionSource.projectedPosition
-      deviceId: positionSource.deviceId
       accuracy: positionSource.projectedHorizontalAccuracy
       direction: positionSource.positionInformation
                  && positionSource.positionInformation.directionValid
@@ -625,12 +690,11 @@ ApplicationWindow {
              && positionSource.positionInformation.speedValid
              ? positionSource.positionInformation.speed
              : -1
-
-      onLocationChanged: {
-        if ( gnssButton.followActive ) {
-          gnssButton.followLocation(false);
-        }
-      }
+      orientation: magnetometer.hasValue
+                   ? magnetometer.orientation < 0
+                     ? 360 + magnetometer.orientation
+                     : magnetometer.orientation
+                   : -1
     }
 
     /* Rubberband for vertices  */

@@ -17,8 +17,8 @@ Item {
   property bool hasReachedTarget: hasAcceptableAccuracy && navigation.distance - positionSource.positionInformation.hacc - (precision / 10) <= 0
   property bool hasAlarmSnoozed: false
 
-  property double positionX: Math.min(precision, navigation.distance) * Math.cos((navigation.bearing - locationMarker.compassOrientation - 90) * Math.PI / 180) * (preciseTarget.width / 2) / precision
-  property double positionY: Math.min(precision, navigation.distance) * Math.sin((navigation.bearing - locationMarker.compassOrientation - 90) * Math.PI / 180) * (preciseTarget.width / 2) / precision
+  property double positionX: Math.min(precision, navigation.distance) * Math.cos((navigation.bearing - magnetometer.orientation - 90) * Math.PI / 180) * (preciseTarget.width / 2) / precision
+  property double positionY: Math.min(precision, navigation.distance) * Math.sin((navigation.bearing - magnetometer.orientation - 90) * Math.PI / 180) * (preciseTarget.width / 2) / precision
   property double positionZ: hasZ ? Math.min(precision, Math.max(-precision, -navigation.verticalDistance)) * ((preciseElevation.height - 15) / 2) / precision : 0.0
   property point positionCenter: Qt.point(preciseTarget.width / 2 + preciseTarget.x + preciseTarget.parent.x,
                                           preciseTarget.height / 2 + preciseTarget.y + preciseTarget.parent.y)
@@ -53,7 +53,7 @@ Item {
       width: Math.min(positioningPreciseView.height - 10,
                       positioningPreciseView.width - preciseElevation.width - labelTarget.contentWidth - labelElevation.width - 20)
       height: width
-      rotation: locationMarker.compassHasValue ? -locationMarker.compassOrientation : 0
+      rotation: magnetometer.hasValue ? -magnetometer.orientation : 0
 
       ShapePath {
         strokeWidth: 1
@@ -322,7 +322,7 @@ Item {
     y: positionCenter.y + positionY - width / 2
     width: 28
     height: width
-    rotation: navigation.bearing - locationMarker.compassOrientation
+    rotation: navigation.bearing - magnetometer.orientation
 
     ShapePath {
       strokeWidth: 1
@@ -387,7 +387,7 @@ Item {
   Text {
     id: preciseHorizontalPositionInfo
 
-    property bool leftOfPoint: locationMarker.compassHasValue && positionX >= 0
+    property bool leftOfPoint: magnetometer.hasValue && positionX >= 0
     x: positionCenter.x + positionX + (positionX >= 0 ? -contentWidth - 10 : preciseHorizontalPosition.width / 2)
     y: positionCenter.y + positionY + (positionY >= 0 ? -preciseHorizontalPosition.height : preciseHorizontalPosition.height / 2)
 

@@ -1,7 +1,6 @@
 import QtQuick 2.14
 import QtQuick.Shapes 1.14
 import QtQuick.Window 2.14
-import QtSensors 5.14
 
 import org.qgis 1.0
 import Theme 1.0
@@ -12,14 +11,13 @@ Item {
   id: item
 
   property variant location // QgsPoint
-  property string deviceId // Empty string means internal device is used
-  property real accuracy
-  property real direction // A -1 value indicates absence of movement direction information
-  property real speed // A -1 value indicates absence of speed information
-  property MapSettings mapSettings
 
-  property bool compassHasValue: false
-  property real compassOrientation: 0
+  property real accuracy: 0
+  property real direction: -1 // A -1 value indicates absence of movement direction information
+  property real speed: -1 // A -1 value indicates absence of speed information
+  property real orientation: -1 // A -1 value indicates absence of compass orientation
+
+  property MapSettings mapSettings
 
   QtObject {
     id: props
@@ -35,43 +33,6 @@ Item {
   function updateScreenLocation() {
     props.screenLocation = mapSettings.coordinateToScreen( location )
     props.screenAccuracy = accuracy / mapSettings.mapUnitsPerPoint
-  }
-
-  Magnetometer {
-    id: magnetometer
-    active: false
-    returnGeoValues: false
-
-    Screen.onOrientationChanged: {
-        switch (Screen.orientation) {
-          case Qt.LandscapeOrientation:
-            magnetometer.userOrientation = 90;
-            break;
-          case Qt.InvertedLandscapeOrientation:
-            magnetometer.userOrientation = 270;
-            break;
-          case Qt.PortraitOrientation:
-          default:
-            magnetometer.userOrientation = 0;
-            break;
-        }
-    }
-
-    property real lastAcceptedReading: 0
-    onReadingChanged: {
-      var timestamp = Date.now();
-      if (timestamp - lastAcceptedReading > 500) {
-        lastAcceptedReading = timestamp;
-        compassOrientation = userOrientation + (-(Math.atan2(reading.x, reading.y) / Math.PI) * 180)
-        compassHasValue = true
-      }
-    }
-
-    Component.onCompleted: {
-      if (Screen.orientationUpdateMask) {
-        Screen.orientationUpdateMask = Qt.PortraitOrientation | Qt.InvertedPortraitOrientation | Qt.LandscapeOrientation | Qt.InvertedLandscapeOrientation
-      }
-    }
   }
 
   Rectangle {
@@ -92,7 +53,7 @@ Item {
 
   Image {
     id: compassDirectionMarker
-    visible: compassHasValue
+    visible: orientation > -1
     width: 48
     height: 48
     opacity: 0.6
@@ -102,7 +63,7 @@ Item {
 
     source: Theme.getThemeVectorIcon( "ic_compass_direction" )
     fillMode: Image.PreserveAspectFit
-    rotation: compassOrientation
+    rotation: orientation
     transformOrigin: Item.Bottom
     smooth: true
   }
@@ -242,27 +203,5 @@ Item {
 
   onLocationChanged: {
    updateScreenLocation()
-  }
-
-  Connections {
-    target: positionSource
-
-    function onActiveChanged() {
-      if (positionSource.active) {
-        magnetometer.active = true
-        magnetometer.start()
-      } else {
-        magnetometer.stop()
-        magnetometer.active = false
-        compassHasValue = false
-        compassOrientation = 0.0
-      }
-    }
-  }
-
-  Component.onCompleted: {
-    if (positionSource.active) {
-      magnetometer.start()
-    }
   }
 }
