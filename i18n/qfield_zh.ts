@@ -1357,15 +1357,15 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>PDOP</source>
-        <translation type="vanished">位置精度因子</translation>
+        <translation type="vanished">位置精度因子 (PDOP)</translation>
     </message>
     <message>
         <source>HDOP</source>
-        <translation type="vanished">水平精度因子</translation>
+        <translation type="vanished">水平精度因子 (HDOP)</translation>
     </message>
     <message>
         <source>VDOP</source>
-        <translation type="vanished">垂直精度因子</translation>
+        <translation type="vanished">垂直精度因子 (VDOP)</translation>
     </message>
     <message>
         <source>Valid</source>
@@ -1462,15 +1462,15 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>PDOP</source>
-        <translation>位置精度因子</translation>
+        <translation>位置精度因子 (PDOP)</translation>
     </message>
     <message>
         <source>HDOP</source>
-        <translation>水平精度因子</translation>
+        <translation>水平精度因子 (HDOP)</translation>
     </message>
     <message>
         <source>VDOP</source>
-        <translation>垂直精度因子</translation>
+        <translation>垂直精度因子 (VDOP)</translation>
     </message>
     <message>
         <source>Valid</source>
@@ -2377,7 +2377,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Timestamp (milliseconds since epoch)</source>
-        <translation>时间戳 (历元后的毫秒数)</translation>
+        <translation>时间戳 (Unix时间戳之后的毫秒数)</translation>
     </message>
     <message>
         <source>Ground speed</source>
@@ -2397,15 +2397,15 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>PDOP</source>
-        <translation>位置精度因子</translation>
+        <translation>位置精度因子 (PDOP)</translation>
     </message>
     <message>
         <source>HDOP</source>
-        <translation>水平精度因子</translation>
+        <translation>水平精度因子 (HDOP)</translation>
     </message>
     <message>
         <source>VDOP</source>
-        <translation>垂直精度因子</translation>
+        <translation>垂直精度因子 (VDOP)</translation>
     </message>
     <message>
         <source>When digitizing features with the coordinate cursor locked to the current position, the measurement type selected above will be added to the geometry provided it has an M dimension.</source>
@@ -2785,7 +2785,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Timestamp (milliseconds since epoch)</source>
-        <translation>时间戳 (历元后的毫秒数)</translation>
+        <translation>时间戳 (Unix时间戳之后的毫秒数)</translation>
     </message>
     <message>
         <source>Ground speed</source>
@@ -2805,15 +2805,15 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>PDOP</source>
-        <translation>位置精度因子</translation>
+        <translation>位置精度因子 (PDOP)</translation>
     </message>
     <message>
         <source>HDOP</source>
-        <translation>水平精度因子</translation>
+        <translation>水平精度因子 (HDOP)</translation>
     </message>
     <message>
         <source>VDOP</source>
-        <translation>垂直精度因子</translation>
+        <translation>垂直精度因子 (VDOP)</translation>
     </message>
     <message>
         <source>To active the measurement functionality, make sure the vector layer&apos;s geometry type used for the tracking session has an M dimension.</source>
