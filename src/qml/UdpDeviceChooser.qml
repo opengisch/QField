@@ -43,7 +43,7 @@ Item {
         id: udpDeviceAddress
         Layout.fillWidth: true
         font: Theme.defaultFont
-        text: 'localhost'
+        text: '127.0.0.1'
         inputMethodHints: Qt.ImhNoPredictiveText | Qt.ImhNoAutoUppercase | Qt.ImhPreferLowercase
     }
 
