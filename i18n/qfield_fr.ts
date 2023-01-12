@@ -19,7 +19,7 @@
     </message>
     <message>
         <source>Links Menu</source>
-        <translation type="unfinished"/>
+        <translation>Menu des liens</translation>
     </message>
 </context>
 <context>
@@ -182,11 +182,11 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Select the Bluetooth device from the list below:</source>
-        <translation type="unfinished"/>
+        <translation>Sélectionnez le périphérique Bluetooth dans la liste ci-dessous :</translation>
     </message>
     <message>
         <source>Bluetooth device name:</source>
-        <translation type="unfinished"/>
+        <translation>Nom de l&apos;appareil Bluetooth :</translation>
     </message>
     <message>
         <source>N/A</source>
@@ -194,15 +194,15 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Bluetooth device address:</source>
-        <translation type="unfinished"/>
+        <translation>Adresse de l&apos;appareil Bluetooth :</translation>
     </message>
     <message>
         <source>Scan for nearby devices</source>
-        <translation type="unfinished"/>
+        <translation>Rechercher les appareils à proximité</translation>
     </message>
     <message>
         <source>No Bluetooth devices detected, scan to populate nearby devices.</source>
-        <translation type="unfinished"/>
+        <translation>Aucun appareil Bluetooth détecté, scannez pour afficher les appareils à proximité.</translation>
     </message>
 </context>
 <context>
@@ -232,15 +232,15 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Could not find the remote host</source>
-        <translation type="unfinished"/>
+        <translation>Impossible de trouver l&apos;hôte distant</translation>
     </message>
     <message>
         <source>Could not find the service UUID on remote host</source>
-        <translation type="unfinished"/>
+        <translation>Impossible de trouver l&apos;UUID du service sur l&apos;hôte distant</translation>
     </message>
     <message>
         <source>Attempt to read or write from socket returned an error</source>
-        <translation type="unfinished"/>
+        <translation>Une tentative de lecture ou d&apos;écriture à partir du socket a renvoyé une erreur</translation>
     </message>
     <message>
         <source>The protocol is not supported on this platform</source>
@@ -248,11 +248,11 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>An operation was attempted while the socket was in a state that did not permit it</source>
-        <translation type="unfinished"/>
+        <translation>Une opération a été tentée alors que le socket était dans un état qui ne le permettait pas</translation>
     </message>
     <message>
         <source>The remote host closed the connection</source>
-        <translation type="unfinished"/>
+        <translation>L&apos;hôte distant a fermé la connexion</translation>
     </message>
     <message>
         <source>Unknown error</source>
@@ -392,7 +392,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>NULL</source>
-        <translation type="unfinished"/>
+        <translation>NULL</translation>
     </message>
 </context>
 <context>
@@ -505,18 +505,18 @@ Cancel to make a minimal device scan instead.</source>
     <name>EditorWidgetBase</name>
     <message>
         <source>Item Menu</source>
-        <translation type="unfinished"/>
+        <translation>Élément du menu</translation>
     </message>
 </context>
 <context>
     <name>ElevationProfile</name>
     <message>
         <source>Digitize a path to render the elevation profile</source>
-        <translation type="unfinished"/>
+        <translation>Numériser un chemin pour rendre le profil d&apos;élévation</translation>
     </message>
     <message>
         <source>Rendering elevation profile…</source>
-        <translation type="unfinished"/>
+        <translation>Rendu du profil d&apos;élévation…</translation>
     </message>
 </context>
 <context>
@@ -1177,23 +1177,23 @@ Les géométries des objets vont être combinées dans l&apos;objet &apos;%1&apo
     </message>
     <message>
         <source>Print Atlas Feature(s) to Image</source>
-        <translation type="unfinished"/>
+        <translation>Imprimer les caractéristiques de l&apos;Atlas sur l&apos;image</translation>
     </message>
     <message>
         <source>Print Atlas Feature to Image</source>
-        <translation type="unfinished"/>
+        <translation>Imprimer l&apos;élément Atlas sur l&apos;image</translation>
     </message>
     <message>
         <source>Print Atlas Feature(s)</source>
-        <translation type="unfinished"/>
+        <translation>Caractéristique(s) de l&apos;atlas imprimé</translation>
     </message>
     <message>
         <source>Printing...</source>
-        <translation type="unfinished"/>
+        <translation>Impression...</translation>
     </message>
     <message>
         <source>Atlas feature(s) successfully printed and placed in your project folder</source>
-        <translation type="unfinished"/>
+        <translation>Élément(s) Atlas imprimé(s) avec succès et placé(s) dans votre dossier de projet</translation>
     </message>
 </context>
 <context>
@@ -1394,35 +1394,35 @@ Les géométries des objets vont être combinées dans l&apos;objet &apos;%1&apo
     <name>PositioningDeviceSettings</name>
     <message>
         <source>Positioning Device Settings</source>
-        <translation type="unfinished"/>
+        <translation>Paramètres du dispositif de positionnement</translation>
     </message>
     <message>
         <source>Name:</source>
-        <translation type="unfinished"/>
+        <translation>Nom :</translation>
     </message>
     <message>
         <source>Leave empty to auto-fill</source>
-        <translation type="unfinished"/>
+        <translation>Laisser vide pour remplir automatiquement</translation>
     </message>
     <message>
         <source>Connection type:</source>
-        <translation type="unfinished"/>
+        <translation>Type de connexion :</translation>
     </message>
     <message>
         <source>Bluetooth</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Bluetooth</translation>
     </message>
     <message>
         <source>Bluetooth (NMEA)</source>
-        <translation type="unfinished"/>
+        <translation>Bluetooth (NMEA)</translation>
     </message>
     <message>
         <source>TCP (NMEA)</source>
-        <translation type="unfinished"/>
+        <translation>TCP (NMEA)</translation>
     </message>
     <message>
         <source>UDP (NMEA)</source>
-        <translation type="unfinished"/>
+        <translation>UDP (NMEA)</translation>
     </message>
 </context>
 <context>
@@ -2372,15 +2372,15 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Measure (M) value attached to vertices:</source>
-        <translation type="unfinished"/>
+        <translation>Valeur de mesure (M) attachée aux sommets :</translation>
     </message>
     <message>
         <source>Timestamp (milliseconds since epoch)</source>
-        <translation type="unfinished"/>
+        <translation>Horodatage (millisecondes depuis le début)</translation>
     </message>
     <message>
         <source>Ground speed</source>
-        <translation type="unfinished"/>
+        <translation>Vitesse au sol</translation>
     </message>
     <message>
         <source>Bearing</source>
@@ -2388,11 +2388,11 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Horizontal accuracy</source>
-        <translation type="unfinished"/>
+        <translation>Précision horizontale</translation>
     </message>
     <message>
         <source>Vertical accuracy</source>
-        <translation type="unfinished"/>
+        <translation>Précision verticale</translation>
     </message>
     <message>
         <source>PDOP</source>
@@ -2408,15 +2408,15 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>When digitizing features with the coordinate cursor locked to the current position, the measurement type selected above will be added to the geometry provided it has an M dimension.</source>
-        <translation type="unfinished"/>
+        <translation>Lors de la numérisation d&apos;entités avec le curseur de coordonnées verrouillé sur la position actuelle, le type de mesure sélectionné ci-dessus sera ajouté à la géométrie à condition qu&apos;il ait une dimension M.</translation>
     </message>
     <message>
         <source>Add</source>
-        <translation type="unfinished"/>
+        <translation>Ajouter</translation>
     </message>
     <message>
         <source>Edit</source>
-        <translation type="unfinished"/>
+        <translation>Éditer</translation>
     </message>
     <message>
         <source>Remove</source>
@@ -2660,11 +2660,11 @@ Cancel to make a minimal device scan instead.</source>
     <name>TcpDeviceChooser</name>
     <message>
         <source>Address:</source>
-        <translation type="unfinished"/>
+        <translation>Adresse :</translation>
     </message>
     <message>
         <source>Port:</source>
-        <translation type="unfinished"/>
+        <translation>Port :</translation>
     </message>
 </context>
 <context>
@@ -2687,19 +2687,19 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Could not find the remote host</source>
-        <translation type="unfinished"/>
+        <translation>Impossible de trouver l&apos;hôte distant</translation>
     </message>
     <message>
         <source>Attempt to read or write from socket returned an error</source>
-        <translation type="unfinished"/>
+        <translation>Une tentative de lecture ou d&apos;écriture à partir du socket a renvoyé une erreur</translation>
     </message>
     <message>
         <source>The connection was refused by the remote hose</source>
-        <translation type="unfinished"/>
+        <translation>La connexion a été refusée par le flexible déporté</translation>
     </message>
     <message>
         <source>UDP receiver error (%1)</source>
-        <translation type="unfinished"/>
+        <translation>Erreur de récepteur UDP (%1)</translation>
     </message>
 </context>
 <context>
@@ -2772,23 +2772,23 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>When both constraints are disabled, vertex additions will occur as frequently as delivered by the positioning device.</source>
-        <translation type="unfinished"/>
+        <translation>Lorsque les deux contraintes sont désactivées, les ajouts de sommets se produiront aussi fréquemment que fournis par le dispositif de positionnement.</translation>
     </message>
     <message>
         <source>Measure (M) value attached to vertices:</source>
-        <translation type="unfinished"/>
+        <translation>Valeur de mesure (M) attachée aux sommets :</translation>
     </message>
     <message>
         <source>Elapsed time (seconds since start of tracking)</source>
-        <translation type="unfinished"/>
+        <translation>Temps écoulé (secondes depuis le début du suivi)</translation>
     </message>
     <message>
         <source>Timestamp (milliseconds since epoch)</source>
-        <translation type="unfinished"/>
+        <translation>Horodatage (millisecondes depuis le début)</translation>
     </message>
     <message>
         <source>Ground speed</source>
-        <translation type="unfinished"/>
+        <translation>Vitesse au sol</translation>
     </message>
     <message>
         <source>Bearing</source>
@@ -2796,11 +2796,11 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Horizontal accuracy</source>
-        <translation type="unfinished"/>
+        <translation>Précision horizontale</translation>
     </message>
     <message>
         <source>Vertical accuracy</source>
-        <translation type="unfinished"/>
+        <translation>Précision verticale</translation>
     </message>
     <message>
         <source>PDOP</source>
@@ -2816,18 +2816,18 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>To active the measurement functionality, make sure the vector layer&apos;s geometry type used for the tracking session has an M dimension.</source>
-        <translation type="unfinished"/>
+        <translation>Pour activer la fonctionnalité de mesure, assurez-vous que le type de géométrie de couche vectorielle utilisé pour la session de suivi a une dimension M.</translation>
     </message>
 </context>
 <context>
     <name>UdpDeviceChooser</name>
     <message>
         <source>Address:</source>
-        <translation type="unfinished"/>
+        <translation>Adresse :</translation>
     </message>
     <message>
         <source>Port:</source>
-        <translation type="unfinished"/>
+        <translation>Port :</translation>
     </message>
 </context>
 <context>
@@ -2850,19 +2850,19 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Could not find the remote host</source>
-        <translation type="unfinished"/>
+        <translation>Impossible de trouver l&apos;hôte distant</translation>
     </message>
     <message>
         <source>Attempt to read or write from socket returned an error</source>
-        <translation type="unfinished"/>
+        <translation>Une tentative de lecture ou d&apos;écriture à partir du socket a renvoyé une erreur</translation>
     </message>
     <message>
         <source>The connection was refused by the remote hose</source>
-        <translation type="unfinished"/>
+        <translation>La connexion a été refusée par le flexible déporté</translation>
     </message>
     <message>
         <source>UDP receiver error (%1)</source>
-        <translation type="unfinished"/>
+        <translation>Erreur de récepteur UDP (%1)</translation>
     </message>
 </context>
 <context>
@@ -3270,7 +3270,7 @@ pour utiliser la géolocalisation</translation>
     </message>
     <message>
         <source>%1 Precision</source>
-        <translation type="unfinished"/>
+        <translation>Précision %1</translation>
     </message>
     <message>
         <source>Enable Audio Proximity Feedback</source>
@@ -3383,19 +3383,19 @@ fermer le projet et quitter l&apos;application</translation>
     </message>
     <message>
         <source>Print to Image</source>
-        <translation type="unfinished"/>
+        <translation>Imprimer sur image</translation>
     </message>
     <message>
         <source>Printing...</source>
-        <translation type="unfinished"/>
+        <translation>Impression...</translation>
     </message>
     <message>
         <source>Print</source>
-        <translation type="unfinished"/>
+        <translation>Imprimer</translation>
     </message>
     <message>
         <source>Positioning device error: %1</source>
-        <translation type="unfinished"/>
+        <translation>Erreur de périphérique de positionnement : %1</translation>
     </message>
 </context>
 <context>
