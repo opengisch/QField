@@ -2379,11 +2379,11 @@ Anulați pentru a efectua o scanare minimă a dispozitivului.</translation>
     </message>
     <message>
         <source>Measure (M) value attached to vertices:</source>
-        <translation type="unfinished"/>
+        <translation>Valoarea măsurii (M) atașată vertexului:</translation>
     </message>
     <message>
         <source>Timestamp (milliseconds since epoch)</source>
-        <translation type="unfinished"/>
+        <translation>Amprentă temporală (milisecunde de la începutul epocii)</translation>
     </message>
     <message>
         <source>Ground speed</source>
@@ -2783,7 +2783,7 @@ Anulați pentru a efectua o scanare minimă a dispozitivului.</translation>
     </message>
     <message>
         <source>Measure (M) value attached to vertices:</source>
-        <translation type="unfinished"/>
+        <translation>Valoarea măsurii (M) atașată vertexului:</translation>
     </message>
     <message>
         <source>Elapsed time (seconds since start of tracking)</source>
@@ -2791,7 +2791,7 @@ Anulați pentru a efectua o scanare minimă a dispozitivului.</translation>
     </message>
     <message>
         <source>Timestamp (milliseconds since epoch)</source>
-        <translation type="unfinished"/>
+        <translation>Amprentă temporală (milisecunde de la începutul epocii)</translation>
     </message>
     <message>
         <source>Ground speed</source>
