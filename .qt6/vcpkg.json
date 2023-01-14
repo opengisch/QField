@@ -17,6 +17,7 @@
     "qtlocation",
     "qtcharts",
     "qtmultimedia",
+    "qtserialport",
     {
       "name": "qca-qt6",
       "default-features": false
