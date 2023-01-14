@@ -297,7 +297,7 @@ target_link_libraries(
          ${QT_PKG}::Svg
          ${QT_PKG}::OpenGL
          ${QT_PKG}::Sensors
-         ${QT_PKG}::Positioning
+         ${QT_PKG}::SerialPort
          ${QT_PKG}::Sql
          ${QT_PKG}::Concurrent
          ${QT_PKG}::WebView
