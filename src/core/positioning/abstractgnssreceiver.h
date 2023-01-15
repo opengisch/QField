@@ -60,6 +60,7 @@ class AbstractGnssReceiver : public QObject
     friend class BluetoothReceiver;
     friend class TcpReceiver;
     friend class UdpReceiver;
+    friend class SerialPortReceiver;
 
     virtual void handleConnectDevice() {}
     virtual void handleDisconnectDevice() {}

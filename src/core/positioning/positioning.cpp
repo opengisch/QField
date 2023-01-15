@@ -17,6 +17,9 @@
 #ifdef WITH_BLUETOOTH
 #include "bluetoothreceiver.h"
 #endif
+#ifdef WITH_SERIALPORT
+#include "serialportreceiver.h"
+#endif
 #include "internalgnssreceiver.h"
 #include "positioning.h"
 #include "positioningutils.h"
@@ -150,6 +153,13 @@ void Positioning::setupDevice()
       const int port = mDeviceId.mid( portSeparator + 1 ).toInt();
       mReceiver = std::make_unique<UdpReceiver>( address, port, this );
     }
+#ifdef WITH_SERIALPORT
+    else if ( mDeviceId.startsWith( QStringLiteral( "serial:" ) ) )
+    {
+      const QString address = mDeviceId.mid( 7 );
+      mReceiver = std::make_unique<SerialPortReceiver>( address );
+    }
+#endif
     else
     {
 #ifdef WITH_BLUETOOTH

@@ -29,6 +29,7 @@ class PositioningDeviceModel : public QAbstractListModel
       BluetoothDevice,
       TcpDevice,
       UdpDevice,
+      SerialPortDevice,
     };
     Q_ENUM( Type )
 

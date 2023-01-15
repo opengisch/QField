@@ -450,6 +450,8 @@ Page {
                                   return Theme.getThemeVectorIcon('ic_tcp_receiver_black_24dp')
                                 case PositioningDeviceModel.UdpDevice:
                                   return Theme.getThemeVectorIcon('ic_udp_receiver_black_24dp')
+                                case PositioningDeviceModel.SerialPortDevice:
+                                  return Theme.getThemeVectorIcon('ic_serial_port_receiver_black_24dp')
                               }
                               return '';
                             }
@@ -481,6 +483,8 @@ Page {
                                     return Theme.getThemeVectorIcon('ic_tcp_receiver_black_24dp')
                                   case PositioningDeviceModel.UdpDevice:
                                     return Theme.getThemeVectorIcon('ic_udp_receiver_black_24dp')
+                                  case PositioningDeviceModel.SerialPortDevice:
+                                    return Theme.getThemeVectorIcon('ic_serial_port_receiver_black_24dp')
                                 }
                                 return '';
                               }

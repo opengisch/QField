@@ -35,6 +35,10 @@
 #include "bluetoothdevicemodel.h"
 #include "bluetoothreceiver.h"
 #endif
+#ifdef WITH_SERIALPORT
+#include "serialportmodel.h"
+#include "serialportreceiver.h"
+#endif
 #include "appinterface.h"
 #include "attributeformmodel.h"
 #include "badlayerhandler.h"
@@ -166,7 +170,6 @@
 
 #define QUOTE( string ) _QUOTE( string )
 #define _QUOTE( string ) #string
-
 
 QgisMobileapp::QgisMobileapp( QgsApplication *app, QObject *parent )
   : QQmlApplicationEngine( parent )
@@ -450,6 +453,13 @@ void QgisMobileapp::initDeclarative()
   rootContext()->setContextProperty( "withBluetooth", QVariant( true ) );
 #else
   rootContext()->setContextProperty( "withBluetooth", QVariant( false ) );
+#endif
+#ifdef WITH_SERIALPORT
+  qmlRegisterType<SerialPortModel>( "org.qfield", 1, 0, "SerialPortModel" );
+  qmlRegisterType<SerialPortReceiver>( "org.qfield", 1, 0, "SerialPortReceiver" );
+  rootContext()->setContextProperty( "withSerialPort", QVariant( true ) );
+#else
+  rootContext()->setContextProperty( "withSerialPort", QVariant( false ) );
 #endif
   qmlRegisterType<ChangelogContents>( "org.qfield", 1, 0, "ChangelogContents" );
   qmlRegisterType<LayerResolver>( "org.qfield", 1, 0, "LayerResolver" );
