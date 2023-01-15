@@ -70,7 +70,7 @@ Item {
 
     QfButton {
       id: refreshButton
-      width: parent.width
+      Layout.fillWidth: true
       text: qsTr('Refresh list')
 
       onClicked: {
