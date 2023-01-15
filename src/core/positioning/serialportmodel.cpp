@@ -62,7 +62,6 @@ QVariant SerialPortModel::data( const QModelIndex &index, int role ) const
       const QString description = mAvailablePorts.at( index.row() ).description();
 
       return !description.isEmpty() ? QStringLiteral( "%1 (%2)" ).arg( description, portName ) : portName;
-      break;
     }
 
     case PortNameRole:
