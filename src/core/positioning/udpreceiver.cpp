@@ -148,7 +148,7 @@ void UdpReceiver::handleError( QAbstractSocket::SocketError error )
       mLastError = tr( "Attempt to read or write from socket returned an error" );
       break;
     case QAbstractSocket::ConnectionRefusedError:
-      mLastError = tr( "The connection was refused by the remote hose" );
+      mLastError = tr( "The connection was refused by the remote host" );
       break;
     default:
       mLastError = tr( "UDP receiver error (%1)" ).arg( QMetaEnum::fromType<QAbstractSocket::SocketError>().valueToKey( error ) );
