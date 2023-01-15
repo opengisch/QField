@@ -15,10 +15,8 @@
  ***************************************************************************/
 
 #include "bluetoothreceiver.h"
-#include "positioning.h"
 
 #include <QDebug>
-#include <QSettings>
 
 BluetoothReceiver::BluetoothReceiver( const QString &address, QObject *parent )
   : NmeaGnssReceiver( parent )

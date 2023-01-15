@@ -21,7 +21,6 @@
 #include <QObject>
 #include <QtBluetooth/QBluetoothLocalDevice>
 #include <QtBluetooth/QBluetoothSocket>
-#include <qgsnmeaconnection.h>
 
 /**
  * The bluetoothreceiver connects to a device and feeds the QgsNmeaConnection over QBluetoothSocket.
