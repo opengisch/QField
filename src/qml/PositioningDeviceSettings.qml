@@ -103,6 +103,7 @@ Popup {
                   ListElement { name: qsTr('Bluetooth (NMEA)'); value: PositioningDeviceModel.BluetoothDevice }
                   ListElement { name: qsTr('TCP (NMEA)'); value: PositioningDeviceModel.TcpDevice }
                   ListElement { name: qsTr('UDP (NMEA)'); value: PositioningDeviceModel.UdpDevice }
+                  ListElement { name: qsTr('Serial port (NMEA)'); value: PositioningDeviceModel.SerialPortDevice }
                 }
 
                 delegate: ItemDelegate {
@@ -116,6 +117,8 @@ Popup {
                         return Theme.getThemeVectorIcon('ic_tcp_receiver_black_24dp')
                       case PositioningDeviceModel.UdpDevice:
                         return Theme.getThemeVectorIcon('ic_udp_receiver_black_24dp')
+                      case PositioningDeviceModel.SerialPortDevice:
+                        return Theme.getThemeVectorIcon('ic_serial_port_receiver_black_24dp')
                     }
                     return '';
                   }
@@ -145,6 +148,8 @@ Popup {
                           return Theme.getThemeVectorIcon('ic_tcp_receiver_black_24dp')
                         case PositioningDeviceModel.UdpDevice:
                           return Theme.getThemeVectorIcon('ic_udp_receiver_black_24dp')
+                        case PositioningDeviceModel.SerialPortDevice:
+                          return Theme.getThemeVectorIcon('ic_serial_port_receiver_black_24dp')
                       }
                       return '';
                     }
@@ -171,6 +176,9 @@ Popup {
                   if (!withBluetooth) {
                     model.remove(0, 1);
                   }
+                  if (!withSerialPort) {
+                    model.remove(model.size() - 1, 1);
+                  }
                 }
             }
 
@@ -186,6 +194,8 @@ Popup {
                       return "qrc:/qml/TcpDeviceChooser.qml";
                     case PositioningDeviceModel.UdpDevice:
                       return "qrc:/qml/UdpDeviceChooser.qml";
+                    case PositioningDeviceModel.SerialPortDevice:
+                      return "qrc:/qml/SerialPortDeviceChooser.qml";
                   }
                   return '';
                 }

@@ -85,6 +85,10 @@ function(create_executable)
       file(REMOVE
            "${CMAKE_CURRENT_BINARY_DIR}/qmldrop/app/BluetoothDeviceChooser.qml")
     endif()
+    if(NOT WITH_SERIALPORT)
+      file(REMOVE
+           "${CMAKE_CURRENT_BINARY_DIR}/qmldrop/app/SerialPortChooser.qml")
+    endif()
 
     # Will be no longer needed for Qt6
     include("${CMAKE_SOURCE_DIR}/cmake/QtQmlImportScanner.cmake")

@@ -80,6 +80,7 @@
         <file>EmbeddedFeatureForm.qml</file>
         <file>ImageDial.qml</file>
         <file>ScreenLocker.qml</file>
+        <file>SerialPortDeviceChooser.qml</file>
         <file>QFieldCloudLogin.qml</file>
         <file>QFieldCloudScreen.qml</file>
         <file>QFieldCloudPopup.qml</file>

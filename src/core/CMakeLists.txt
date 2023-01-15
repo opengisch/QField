@@ -211,6 +211,13 @@ if(WITH_BLUETOOTH)
        positioning/bluetoothreceiver.h)
 endif()
 
+if(WITH_SERIALPORT)
+  list(APPEND QFIELD_CORE_SRCS positioning/serialportmodel.cpp
+       positioning/serialportreceiver.cpp)
+  list(APPEND QFIELD_CORE_HDRS positioning/serialportmodel.h
+       positioning/serialportreceiver.h)
+endif()
+
 if(ANDROID)
   set(QFIELD_CORE_HDRS
       ${QFIELD_CORE_HDRS}
@@ -241,6 +248,9 @@ add_library(qfield_core STATIC ${QFIELD_CORE_SRCS} ${QFIELD_CORE_HDRS})
 
 if(WITH_BLUETOOTH)
   target_compile_definitions(qfield_core PRIVATE WITH_BLUETOOTH)
+endif()
+if(WITH_SERIALPORT)
+  target_compile_definitions(qfield_core PRIVATE WITH_SERIALPORT)
 endif()
 
 include(GenerateExportHeader)
@@ -297,7 +307,6 @@ target_link_libraries(
          ${QT_PKG}::Svg
          ${QT_PKG}::OpenGL
          ${QT_PKG}::Sensors
-         ${QT_PKG}::SerialPort
          ${QT_PKG}::Sql
          ${QT_PKG}::Concurrent
          ${QT_PKG}::WebView
@@ -318,6 +327,14 @@ if(WITH_BLUETOOTH)
     COMPONENTS Bluetooth
     REQUIRED)
   target_link_libraries(qfield_core PUBLIC ${QT_PKG}::Bluetooth)
+endif()
+
+if(WITH_SERIALPORT)
+  find_package(
+    ${QT_PKG}
+    COMPONENTS SerialPort
+    REQUIRED)
+  target_link_libraries(qfield_core PUBLIC ${QT_PKG}::SerialPort)
 endif()
 
 if(WITH_SENTRY)
