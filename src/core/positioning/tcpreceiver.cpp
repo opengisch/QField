@@ -16,8 +16,6 @@
 
 #include "tcpreceiver.h"
 
-#include <QSettings>
-
 TcpReceiver::TcpReceiver( const QString &address, const int port, QObject *parent )
   : NmeaGnssReceiver( parent )
   , mAddress( address )

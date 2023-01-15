@@ -16,10 +16,6 @@
 
 #include "udpreceiver.h"
 
-#include <QFile>
-#include <QMetaEnum>
-#include <QSettings>
-
 #if defined( Q_OS_ANDROID ) || defined( Q_OS_LINUX )
 #include <sys/socket.h>
 #endif
