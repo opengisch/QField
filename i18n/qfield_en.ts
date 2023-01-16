@@ -2730,11 +2730,15 @@ Cancel to make a minimal device scan instead.</translation>
     </message>
     <message>
         <source>The connection was refused by the remote hose</source>
-        <translation>The connection was refused by the remote hose</translation>
+        <translation type="vanished">The connection was refused by the remote hose</translation>
     </message>
     <message>
         <source>UDP receiver error (%1)</source>
         <translation>UDP receiver error (%1)</translation>
+    </message>
+    <message>
+        <source>The connection was refused by the remote host</source>
+        <translation>The connection was refused by the remote host</translation>
     </message>
 </context>
 <context>
@@ -2893,11 +2897,15 @@ Cancel to make a minimal device scan instead.</translation>
     </message>
     <message>
         <source>The connection was refused by the remote hose</source>
-        <translation>The connection was refused by the remote hose</translation>
+        <translation type="vanished">The connection was refused by the remote hose</translation>
     </message>
     <message>
         <source>UDP receiver error (%1)</source>
         <translation>UDP receiver error (%1)</translation>
+    </message>
+    <message>
+        <source>The connection was refused by the remote host</source>
+        <translation>The connection was refused by the remote host</translation>
     </message>
 </context>
 <context>

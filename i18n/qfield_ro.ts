@@ -2702,11 +2702,15 @@ Anulați pentru a efectua o scanare minimă a dispozitivului.</translation>
     </message>
     <message>
         <source>The connection was refused by the remote hose</source>
-        <translation>Conexiunea a fost refuzată de gazda aflată la distanță</translation>
+        <translation type="vanished">Conexiunea a fost refuzată de gazda aflată la distanță</translation>
     </message>
     <message>
         <source>UDP receiver error (%1)</source>
         <translation>Eroare la receptorul UDP (%1)</translation>
+    </message>
+    <message>
+        <source>The connection was refused by the remote host</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -2865,11 +2869,15 @@ Anulați pentru a efectua o scanare minimă a dispozitivului.</translation>
     </message>
     <message>
         <source>The connection was refused by the remote hose</source>
-        <translation>Conexiunea a fost refuzată de gazda aflată la distanță</translation>
+        <translation type="vanished">Conexiunea a fost refuzată de gazda aflată la distanță</translation>
     </message>
     <message>
         <source>UDP receiver error (%1)</source>
         <translation>Eroare la receptorul UDP (%1)</translation>
+    </message>
+    <message>
+        <source>The connection was refused by the remote host</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

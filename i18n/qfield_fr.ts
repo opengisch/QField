@@ -2695,11 +2695,15 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>The connection was refused by the remote hose</source>
-        <translation>La connexion a été refusée par le flexible déporté</translation>
+        <translation type="vanished">La connexion a été refusée par le flexible déporté</translation>
     </message>
     <message>
         <source>UDP receiver error (%1)</source>
         <translation>Erreur de récepteur UDP (%1)</translation>
+    </message>
+    <message>
+        <source>The connection was refused by the remote host</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -2858,11 +2862,15 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>The connection was refused by the remote hose</source>
-        <translation>La connexion a été refusée par le flexible déporté</translation>
+        <translation type="vanished">La connexion a été refusée par le flexible déporté</translation>
     </message>
     <message>
         <source>UDP receiver error (%1)</source>
         <translation>Erreur de récepteur UDP (%1)</translation>
+    </message>
+    <message>
+        <source>The connection was refused by the remote host</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

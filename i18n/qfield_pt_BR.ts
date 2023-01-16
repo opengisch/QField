@@ -2695,6 +2695,10 @@ Cancele para fazer uma verificação mínima.</translation>
         <source>UDP receiver error (%1)</source>
         <translation type="unfinished"/>
     </message>
+    <message>
+        <source>The connection was refused by the remote host</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>TemporalProperties</name>
@@ -2856,6 +2860,10 @@ Cancele para fazer uma verificação mínima.</translation>
     </message>
     <message>
         <source>UDP receiver error (%1)</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>The connection was refused by the remote host</source>
         <translation type="unfinished"/>
     </message>
 </context>

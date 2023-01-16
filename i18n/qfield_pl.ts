@@ -2699,6 +2699,10 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
         <source>UDP receiver error (%1)</source>
         <translation type="unfinished"/>
     </message>
+    <message>
+        <source>The connection was refused by the remote host</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>TemporalProperties</name>
@@ -2860,6 +2864,10 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
     </message>
     <message>
         <source>UDP receiver error (%1)</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>The connection was refused by the remote host</source>
         <translation type="unfinished"/>
     </message>
 </context>

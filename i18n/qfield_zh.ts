@@ -2696,11 +2696,15 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>The connection was refused by the remote hose</source>
-        <translation>远程主机拒绝连接</translation>
+        <translation type="vanished">远程主机拒绝连接</translation>
     </message>
     <message>
         <source>UDP receiver error (%1)</source>
         <translation>UDP接收错误 (%1)</translation>
+    </message>
+    <message>
+        <source>The connection was refused by the remote host</source>
+        <translation>远程主机拒绝连接</translation>
     </message>
 </context>
 <context>
@@ -2859,11 +2863,15 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>The connection was refused by the remote hose</source>
-        <translation>远程主机拒绝连接</translation>
+        <translation type="vanished">远程主机拒绝连接</translation>
     </message>
     <message>
         <source>UDP receiver error (%1)</source>
         <translation>UDP接收错误 (%1)</translation>
+    </message>
+    <message>
+        <source>The connection was refused by the remote host</source>
+        <translation>远程主机拒绝连接</translation>
     </message>
 </context>
 <context>

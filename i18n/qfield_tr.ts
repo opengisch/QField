@@ -2689,6 +2689,10 @@ Bunun yerine minimum cihaz taraması yapmak için iptal edin.</translation>
         <source>UDP receiver error (%1)</source>
         <translation type="unfinished"/>
     </message>
+    <message>
+        <source>The connection was refused by the remote host</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>TemporalProperties</name>
@@ -2850,6 +2854,10 @@ Bunun yerine minimum cihaz taraması yapmak için iptal edin.</translation>
     </message>
     <message>
         <source>UDP receiver error (%1)</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>The connection was refused by the remote host</source>
         <translation type="unfinished"/>
     </message>
 </context>
