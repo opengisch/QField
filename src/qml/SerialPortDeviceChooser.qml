@@ -62,7 +62,7 @@ Item {
 
       onCurrentIndexChanged: {
         var modelIndex = serialPortModel.index(currentIndex, 0);
-        deviceName = serialPortComboBox.currentText
+        deviceName = serialPortModel.data(modelIndex, Qt.DisplayRole);
         deviceAddress = serialPortModel.data(modelIndex, SerialPortModel.PortNameRole);
         selectedSerialPort = serialPortAddress.text;
       }
