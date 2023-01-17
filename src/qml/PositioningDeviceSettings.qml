@@ -100,7 +100,6 @@ Popup {
                 textRole: "name"
                 valueRole: "value"
                 model: ListModel {
-                  ListElement { name: qsTr('Bluetooth (NMEA)'); value: PositioningDeviceModel.BluetoothDevice }
                   ListElement { name: qsTr('TCP (NMEA)'); value: PositioningDeviceModel.TcpDevice }
                   ListElement { name: qsTr('UDP (NMEA)'); value: PositioningDeviceModel.UdpDevice }
                 }
@@ -116,6 +115,8 @@ Popup {
                         return Theme.getThemeVectorIcon('ic_tcp_receiver_black_24dp')
                       case PositioningDeviceModel.UdpDevice:
                         return Theme.getThemeVectorIcon('ic_udp_receiver_black_24dp')
+                      case PositioningDeviceModel.SerialPortDevice:
+                        return Theme.getThemeVectorIcon('ic_serial_port_receiver_black_24dp')
                     }
                     return '';
                   }
@@ -145,6 +146,8 @@ Popup {
                           return Theme.getThemeVectorIcon('ic_tcp_receiver_black_24dp')
                         case PositioningDeviceModel.UdpDevice:
                           return Theme.getThemeVectorIcon('ic_udp_receiver_black_24dp')
+                        case PositioningDeviceModel.SerialPortDevice:
+                          return Theme.getThemeVectorIcon('ic_serial_port_receiver_black_24dp')
                       }
                       return '';
                     }
@@ -168,8 +171,11 @@ Popup {
                 }
 
                 Component.onCompleted: {
-                  if (!withBluetooth) {
-                    model.remove(0, 1);
+                  if (withBluetooth) {
+                    model.insert(0, {'name': qsTr('Bluetooth (NMEA)'), 'value': PositioningDeviceModel.BluetoothDevice})
+                  }
+                  if (withSerialPort) {
+                    model.insert(model.count, {'name': qsTr('Serial port (NMEA)'), 'value': PositioningDeviceModel.SerialPortDevice});
                   }
                 }
             }
@@ -186,6 +192,8 @@ Popup {
                       return "qrc:/qml/TcpDeviceChooser.qml";
                     case PositioningDeviceModel.UdpDevice:
                       return "qrc:/qml/UdpDeviceChooser.qml";
+                    case PositioningDeviceModel.SerialPortDevice:
+                      return "qrc:/qml/SerialPortDeviceChooser.qml";
                   }
                   return '';
                 }
