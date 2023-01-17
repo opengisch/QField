@@ -78,6 +78,9 @@ install(DIRECTORY ${CMAKE_SOURCE_DIR}/resources DESTINATION ${CMAKE_INSTALL_DATA
 set(WITH_BLUETOOTH
     ON
     CACHE BOOL "Enable bluetooth support")
+set(WITH_SERIALPORT
+    ON
+    CACHE BOOL "Enable serial port support")
 
 set(WITH_SPIX FALSE CACHE BOOL "Compile with Spix for testing")
 
