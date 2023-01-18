@@ -183,11 +183,11 @@ Otkažite za pokretanje minimalnog skeniranja uređaja.</translation>
     </message>
     <message>
         <source>Select the Bluetooth device from the list below:</source>
-        <translation type="unfinished"/>
+        <translation>Odaberi Bluetooth uređaj iz popisa ispod:</translation>
     </message>
     <message>
         <source>Bluetooth device name:</source>
-        <translation type="unfinished"/>
+        <translation>Naziv Bluetooth uređaja:</translation>
     </message>
     <message>
         <source>N/A</source>
@@ -195,15 +195,15 @@ Otkažite za pokretanje minimalnog skeniranja uređaja.</translation>
     </message>
     <message>
         <source>Bluetooth device address:</source>
-        <translation type="unfinished"/>
+        <translation>Adresa Bluetooth uređaja:</translation>
     </message>
     <message>
         <source>Scan for nearby devices</source>
-        <translation type="unfinished"/>
+        <translation>Skeniraj uređaje u blizini</translation>
     </message>
     <message>
         <source>No Bluetooth devices detected, scan to populate nearby devices.</source>
-        <translation type="unfinished"/>
+        <translation>Nisu pronađeni Bluetooth uređaji, skeniraj za otkrivanje uređaja u blizini.</translation>
     </message>
 </context>
 <context>
@@ -517,7 +517,7 @@ Otkažite za pokretanje minimalnog skeniranja uređaja.</translation>
     </message>
     <message>
         <source>Rendering elevation profile…</source>
-        <translation type="unfinished"/>
+        <translation>Izrađujem prikaz visinskog profila...</translation>
     </message>
 </context>
 <context>
@@ -1178,23 +1178,23 @@ Geometrija elemenata će se spojiti u element &apos;%1&apos;, koji će zadržati
     </message>
     <message>
         <source>Print Atlas Feature(s) to Image</source>
-        <translation type="unfinished"/>
+        <translation>Isprintaj stavku(e) Atlasa u sliku</translation>
     </message>
     <message>
         <source>Print Atlas Feature to Image</source>
-        <translation type="unfinished"/>
+        <translation>Ispiši stavku Atlasa u sliku</translation>
     </message>
     <message>
         <source>Print Atlas Feature(s)</source>
-        <translation type="unfinished"/>
+        <translation>Ispiši stavku(e) Atlasa</translation>
     </message>
     <message>
         <source>Printing...</source>
-        <translation type="unfinished"/>
+        <translation>Ispisujem...</translation>
     </message>
     <message>
         <source>Atlas feature(s) successfully printed and placed in your project folder</source>
-        <translation type="unfinished"/>
+        <translation>Stavka(e) Atlasa su uspješno ispisane i spremljene u direktorij projekta</translation>
     </message>
 </context>
 <context>
@@ -1237,7 +1237,7 @@ Geometrija elemenata će se spojiti u element &apos;%1&apos;, koji će zadržati
     </message>
     <message>
         <source>Bearing</source>
-        <translation>Azimut</translation>
+        <translation>Smjerni kut</translation>
     </message>
 </context>
 <context>
@@ -1395,35 +1395,39 @@ Geometrija elemenata će se spojiti u element &apos;%1&apos;, koji će zadržati
     <name>PositioningDeviceSettings</name>
     <message>
         <source>Positioning Device Settings</source>
-        <translation type="unfinished"/>
+        <translation>Postavke uređaja za pozicioniranje</translation>
     </message>
     <message>
         <source>Name:</source>
-        <translation type="unfinished"/>
+        <translation>Naziv:</translation>
     </message>
     <message>
         <source>Leave empty to auto-fill</source>
-        <translation type="unfinished"/>
+        <translation>Ostavi prazno za automatsko popunjavanje</translation>
     </message>
     <message>
         <source>Connection type:</source>
-        <translation type="unfinished"/>
+        <translation>Vrsta konekcije:</translation>
     </message>
     <message>
         <source>Bluetooth</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Bluetooth</translation>
     </message>
     <message>
         <source>Bluetooth (NMEA)</source>
-        <translation type="unfinished"/>
+        <translation>Bluetooth (NMEA)</translation>
     </message>
     <message>
         <source>TCP (NMEA)</source>
-        <translation type="unfinished"/>
+        <translation>TCP (NMEA)</translation>
     </message>
     <message>
         <source>UDP (NMEA)</source>
-        <translation type="unfinished"/>
+        <translation>UDP (NMEA)</translation>
+    </message>
+    <message>
+        <source>Serial port (NMEA)</source>
+        <translation>Serijski port (NMEA)</translation>
     </message>
 </context>
 <context>
@@ -2373,27 +2377,27 @@ Otkažite da pokrenete minimalno skeniranje uređaja.</translation>
     </message>
     <message>
         <source>Measure (M) value attached to vertices:</source>
-        <translation type="unfinished"/>
+        <translation>Mjerena (M) vrijednost je dodijeljena točkama:</translation>
     </message>
     <message>
         <source>Timestamp (milliseconds since epoch)</source>
-        <translation type="unfinished"/>
+        <translation>Vremenska oznaka (milisekunde od epohe)</translation>
     </message>
     <message>
         <source>Ground speed</source>
-        <translation type="unfinished"/>
+        <translation>Brzina na terenu</translation>
     </message>
     <message>
         <source>Bearing</source>
-        <translation>Azimut</translation>
+        <translation>Smjerni kut</translation>
     </message>
     <message>
         <source>Horizontal accuracy</source>
-        <translation type="unfinished"/>
+        <translation>Horizontalna točnost</translation>
     </message>
     <message>
         <source>Vertical accuracy</source>
-        <translation type="unfinished"/>
+        <translation>Vertikalna točnost</translation>
     </message>
     <message>
         <source>PDOP</source>
@@ -2409,15 +2413,15 @@ Otkažite da pokrenete minimalno skeniranje uređaja.</translation>
     </message>
     <message>
         <source>When digitizing features with the coordinate cursor locked to the current position, the measurement type selected above will be added to the geometry provided it has an M dimension.</source>
-        <translation type="unfinished"/>
+        <translation>Kada digitaliziraš elemente s koordinatnim kursorom zaključanim na trenutnu lokaciju, vrsta mjerenja koja je iznad označena će biti dodana u geometriju kao M dimenzija.</translation>
     </message>
     <message>
         <source>Add</source>
-        <translation type="unfinished"/>
+        <translation>Dodaj</translation>
     </message>
     <message>
         <source>Edit</source>
-        <translation type="unfinished"/>
+        <translation>Uredi</translation>
     </message>
     <message>
         <source>Remove</source>
@@ -2644,6 +2648,48 @@ Otkažite da pokrenete minimalno skeniranje uređaja.</translation>
     </message>
 </context>
 <context>
+    <name>SerialPortDeviceChooser</name>
+    <message>
+        <source>Select the serial port from the list below:</source>
+        <translation>Odaberi serijski port iz popisa ispod:</translation>
+    </message>
+    <message>
+        <source>No serial ports detected, refresh the list once a device is connected.</source>
+        <translation>Nema detektiranih serijskih portova, ponovo osvježi popis kada uređaj bude spojen.</translation>
+    </message>
+    <message>
+        <source>Refresh list</source>
+        <translation>Osvježi popis</translation>
+    </message>
+    <message>
+        <source>Serial port display name:</source>
+        <translation>Naziv serijskog porta za prikaz:</translation>
+    </message>
+    <message>
+        <source>Serial port address:</source>
+        <translation>Adresa serijskog porta:</translation>
+    </message>
+</context>
+<context>
+    <name>SerialPortReceiver</name>
+    <message>
+        <source>Could not find the serial port device</source>
+        <translation>Ne mogu pronaći uređaj povezan serijskim portom</translation>
+    </message>
+    <message>
+        <source>Attempt to read from the serial port returned an error</source>
+        <translation>Pokušaj čitanja sa serijskog porta je vratio grešku</translation>
+    </message>
+    <message>
+        <source>The connection was refused due to not having enough permission</source>
+        <translation>Konekcija je odbijena jer nisu odobrena potrebna dopuštenja</translation>
+    </message>
+    <message>
+        <source>Serial port receiver error (%1)</source>
+        <translation>Greška prijamnika na serijskom portu (%1)</translation>
+    </message>
+</context>
+<context>
     <name>SplitFeatureToolbar</name>
     <message>
         <source>Feature could not be split</source>
@@ -2661,11 +2707,11 @@ Otkažite da pokrenete minimalno skeniranje uređaja.</translation>
     <name>TcpDeviceChooser</name>
     <message>
         <source>Address:</source>
-        <translation type="unfinished"/>
+        <translation>Adresa:</translation>
     </message>
     <message>
         <source>Port:</source>
-        <translation type="unfinished"/>
+        <translation>Port:</translation>
     </message>
 </context>
 <context>
@@ -2692,19 +2738,19 @@ Otkažite da pokrenete minimalno skeniranje uređaja.</translation>
     </message>
     <message>
         <source>Attempt to read or write from socket returned an error</source>
-        <translation>Dogodila se greška prilikom pokušaja čitanja ili pisanja iz utičnice</translation>
+        <translation>Dogodila se greška prilikom pokušaja čitanja ili pisanja iz priključka</translation>
     </message>
     <message>
         <source>The connection was refused by the remote hose</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Konekcija je odbijena od udaljenog poslužitelja</translation>
     </message>
     <message>
         <source>UDP receiver error (%1)</source>
-        <translation type="unfinished"/>
+        <translation>UDP greška prijamnika (%1)</translation>
     </message>
     <message>
         <source>The connection was refused by the remote host</source>
-        <translation type="unfinished"/>
+        <translation>Konekcija je odbijena od udaljenog poslužitelja</translation>
     </message>
 </context>
 <context>
@@ -2781,31 +2827,31 @@ Otkažite da pokrenete minimalno skeniranje uređaja.</translation>
     </message>
     <message>
         <source>Measure (M) value attached to vertices:</source>
-        <translation type="unfinished"/>
+        <translation>Mjerena (M) vrijednost je dodijeljena točkama:</translation>
     </message>
     <message>
         <source>Elapsed time (seconds since start of tracking)</source>
-        <translation type="unfinished"/>
+        <translation>Proteklo vrijeme (u sekundama od početka praćenja)</translation>
     </message>
     <message>
         <source>Timestamp (milliseconds since epoch)</source>
-        <translation type="unfinished"/>
+        <translation>Vremenska oznaka (milisekunde od epohe)</translation>
     </message>
     <message>
         <source>Ground speed</source>
-        <translation type="unfinished"/>
+        <translation>Brzina na terenu</translation>
     </message>
     <message>
         <source>Bearing</source>
-        <translation>Azimut</translation>
+        <translation>Smjerni kut</translation>
     </message>
     <message>
         <source>Horizontal accuracy</source>
-        <translation type="unfinished"/>
+        <translation>Horizontalna točnost</translation>
     </message>
     <message>
         <source>Vertical accuracy</source>
-        <translation type="unfinished"/>
+        <translation>Vertikalna točnost</translation>
     </message>
     <message>
         <source>PDOP</source>
@@ -2821,18 +2867,18 @@ Otkažite da pokrenete minimalno skeniranje uređaja.</translation>
     </message>
     <message>
         <source>To active the measurement functionality, make sure the vector layer&apos;s geometry type used for the tracking session has an M dimension.</source>
-        <translation type="unfinished"/>
+        <translation>Za aktiviranje funkcionalnosti mjerenja, provjeri obuhvaća li vrsta geometrije vektorskog sloja za praćenje sesije M dimenziju.</translation>
     </message>
 </context>
 <context>
     <name>UdpDeviceChooser</name>
     <message>
         <source>Address:</source>
-        <translation type="unfinished"/>
+        <translation>Adresa:</translation>
     </message>
     <message>
         <source>Port:</source>
-        <translation type="unfinished"/>
+        <translation>Port:</translation>
     </message>
 </context>
 <context>
@@ -2859,19 +2905,19 @@ Otkažite da pokrenete minimalno skeniranje uređaja.</translation>
     </message>
     <message>
         <source>Attempt to read or write from socket returned an error</source>
-        <translation>Dogodila se greška prilikom pokušaja čitanja ili pisanja iz utičnice</translation>
+        <translation>Dogodila se greška prilikom pokušaja čitanja ili pisanja iz priključka</translation>
     </message>
     <message>
         <source>The connection was refused by the remote hose</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Konekcija je odbijena od udaljenog poslužitelja</translation>
     </message>
     <message>
         <source>UDP receiver error (%1)</source>
-        <translation type="unfinished"/>
+        <translation>UDP greška prijamnika (%1)</translation>
     </message>
     <message>
         <source>The connection was refused by the remote host</source>
-        <translation type="unfinished"/>
+        <translation>Konekcija je odbijena od udaljenog poslužitelja</translation>
     </message>
 </context>
 <context>
@@ -3390,19 +3436,19 @@ Otkažite da pokrenete minimalno skeniranje uređaja.</translation>
     </message>
     <message>
         <source>Print to Image</source>
-        <translation type="unfinished"/>
+        <translation>Ispiši u sliku</translation>
     </message>
     <message>
         <source>Printing...</source>
-        <translation type="unfinished"/>
+        <translation>Ispisujem...</translation>
     </message>
     <message>
         <source>Print</source>
-        <translation type="unfinished"/>
+        <translation>Ispiši</translation>
     </message>
     <message>
         <source>Positioning device error: %1</source>
-        <translation type="unfinished"/>
+        <translation>Greška uređaja za pozicioniranje: (%1)</translation>
     </message>
 </context>
 <context>

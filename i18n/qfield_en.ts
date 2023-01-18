@@ -1446,6 +1446,10 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
         <source>UDP (NMEA)</source>
         <translation>UDP (NMEA)</translation>
     </message>
+    <message>
+        <source>Serial port (NMEA)</source>
+        <translation>Serial port (NMEA)</translation>
+    </message>
 </context>
 <context>
     <name>PositioningInformationView</name>
@@ -2675,6 +2679,48 @@ Cancel to make a minimal device scan instead.</translation>
     <message>
         <source>Unknown</source>
         <translation>Unknown</translation>
+    </message>
+</context>
+<context>
+    <name>SerialPortDeviceChooser</name>
+    <message>
+        <source>Select the serial port from the list below:</source>
+        <translation>Select the serial port from the list below:</translation>
+    </message>
+    <message>
+        <source>No serial ports detected, refresh the list once a device is connected.</source>
+        <translation>No serial ports detected, refresh the list once a device is connected.</translation>
+    </message>
+    <message>
+        <source>Refresh list</source>
+        <translation>Refresh list</translation>
+    </message>
+    <message>
+        <source>Serial port display name:</source>
+        <translation>Serial port display name:</translation>
+    </message>
+    <message>
+        <source>Serial port address:</source>
+        <translation>Serial port address:</translation>
+    </message>
+</context>
+<context>
+    <name>SerialPortReceiver</name>
+    <message>
+        <source>Could not find the serial port device</source>
+        <translation>Could not find the serial port device</translation>
+    </message>
+    <message>
+        <source>Attempt to read from the serial port returned an error</source>
+        <translation>Attempt to read from the serial port returned an error</translation>
+    </message>
+    <message>
+        <source>The connection was refused due to not having enough permission</source>
+        <translation>The connection was refused due to not having enough permission</translation>
+    </message>
+    <message>
+        <source>Serial port receiver error (%1)</source>
+        <translation>Serial port receiver error (%1)</translation>
     </message>
 </context>
 <context>

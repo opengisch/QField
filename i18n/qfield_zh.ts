@@ -1421,6 +1421,10 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
         <source>UDP (NMEA)</source>
         <translation>UDP (NMEA)</translation>
     </message>
+    <message>
+        <source>Serial port (NMEA)</source>
+        <translation>串行端口 (NMEA)</translation>
+    </message>
 </context>
 <context>
     <name>PositioningInformationView</name>
@@ -2644,6 +2648,48 @@ Cancel to make a minimal device scan instead.</source>
     </message>
 </context>
 <context>
+    <name>SerialPortDeviceChooser</name>
+    <message>
+        <source>Select the serial port from the list below:</source>
+        <translation>请从以下列表中选择串行端口：</translation>
+    </message>
+    <message>
+        <source>No serial ports detected, refresh the list once a device is connected.</source>
+        <translation>未检测到串行端口，请在连接设备后刷新列表。</translation>
+    </message>
+    <message>
+        <source>Refresh list</source>
+        <translation>刷新列表</translation>
+    </message>
+    <message>
+        <source>Serial port display name:</source>
+        <translation>串行端口显示名称：</translation>
+    </message>
+    <message>
+        <source>Serial port address:</source>
+        <translation>串行端口地址：</translation>
+    </message>
+</context>
+<context>
+    <name>SerialPortReceiver</name>
+    <message>
+        <source>Could not find the serial port device</source>
+        <translation>未找到串行端口设备</translation>
+    </message>
+    <message>
+        <source>Attempt to read from the serial port returned an error</source>
+        <translation>尝试从串行端口读取时返回错误</translation>
+    </message>
+    <message>
+        <source>The connection was refused due to not having enough permission</source>
+        <translation>因权限不足，连接被拒绝</translation>
+    </message>
+    <message>
+        <source>Serial port receiver error (%1)</source>
+        <translation>串行端口接收器错误 (%1)</translation>
+    </message>
+</context>
+<context>
     <name>SplitFeatureToolbar</name>
     <message>
         <source>Feature could not be split</source>
@@ -2700,7 +2746,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>UDP receiver error (%1)</source>
-        <translation>UDP接收错误 (%1)</translation>
+        <translation>UDP接收器错误 (%1)</translation>
     </message>
     <message>
         <source>The connection was refused by the remote host</source>
@@ -2867,7 +2913,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>UDP receiver error (%1)</source>
-        <translation>UDP接收错误 (%1)</translation>
+        <translation>UDP接收器错误 (%1)</translation>
     </message>
     <message>
         <source>The connection was refused by the remote host</source>

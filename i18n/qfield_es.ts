@@ -1425,6 +1425,10 @@ Las geometrías de los objetos se combinarán en el objeto &apos;%1&apos;, que c
         <source>UDP (NMEA)</source>
         <translation type="unfinished"/>
     </message>
+    <message>
+        <source>Serial port (NMEA)</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>PositioningInformationView</name>
@@ -2643,6 +2647,48 @@ Cancelar para hacer una búsqueda mínima de dispositivos en su lugar.</translat
     <message>
         <source>Unknown</source>
         <translation>Desconocido</translation>
+    </message>
+</context>
+<context>
+    <name>SerialPortDeviceChooser</name>
+    <message>
+        <source>Select the serial port from the list below:</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>No serial ports detected, refresh the list once a device is connected.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Refresh list</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Serial port display name:</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Serial port address:</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>SerialPortReceiver</name>
+    <message>
+        <source>Could not find the serial port device</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Attempt to read from the serial port returned an error</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>The connection was refused due to not having enough permission</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Serial port receiver error (%1)</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
