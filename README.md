@@ -22,7 +22,7 @@ Check the [documentation](https://docs.qfield.org/)
 
 [![Get it on the App store](https://docs.qfield.org/assets/images/app-store.png)](https://apps.apple.com/app/qfield-for-qgis/id1531726814)
 
-### Windows (Beta)
+### Windows
 
 <a href="https://qfield.org/get_latest?platform=windows" target="_blank">![Download the latest windows beta version](https://qgis.org/en/_static/images/app_download_windows.png)</a>
 
