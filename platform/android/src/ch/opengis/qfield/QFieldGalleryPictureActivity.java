@@ -67,11 +67,6 @@ public class QFieldGalleryPictureActivity extends Activity {
         if (requestCode == GALLERY_ACTIVITY) {
             if (resultCode == RESULT_OK) {
                 File result = new File(prefix + pictureFilePath);
-                File path = result.getParentFile();
-                path.mkdirs();
-                path.setExecutable(true);
-                path.setReadable(true);
-                path.setWritable(true);
 
                 Log.d(TAG, "Selected picture: " + data.getData().toString());
                 try {
@@ -84,13 +79,6 @@ public class QFieldGalleryPictureActivity extends Activity {
                 } catch (Exception e) {
                     Log.d(TAG, e.getMessage());
                 }
-
-                // Let the android scan new media folders/files to make them
-                // visible through MTP
-                result.setReadable(true);
-                result.setWritable(true);
-                MediaScannerConnection.scanFile(
-                    this, new String[] {path.toString()}, null, null);
 
                 Intent intent = this.getIntent();
                 intent.putExtra("PICTURE_IMAGE_FILENAME",

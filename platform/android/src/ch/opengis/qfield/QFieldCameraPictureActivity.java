@@ -103,13 +103,8 @@ public class QFieldCameraPictureActivity extends Activity {
         if (requestCode == CAMERA_ACTIVITY) {
             if (resultCode == RESULT_OK) {
                 File result = new File(prefix + pictureFilePath);
-                File path = result.getParentFile();
-                path.mkdirs();
-                path.setExecutable(true);
-                path.setReadable(true);
-                path.setWritable(true);
-
                 File pictureFile = new File(pictureTempFilePath);
+
                 Log.d(TAG, "Taken picture: " + pictureFile.getAbsolutePath());
                 try {
                     InputStream in = new FileInputStream(pictureFile);
@@ -118,13 +113,6 @@ public class QFieldCameraPictureActivity extends Activity {
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
-
-                // Let the android scan new media folders/files to make them
-                // visible through MTP
-                result.setReadable(true);
-                result.setWritable(true);
-                MediaScannerConnection.scanFile(
-                    this, new String[] {path.toString()}, null, null);
 
                 Intent intent = this.getIntent();
                 intent.putExtra("PICTURE_IMAGE_FILENAME",
