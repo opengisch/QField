@@ -43,6 +43,16 @@ Popup {
       return positioningDeviceItem.item.getSettings();
     }
 
+    Component.onCompleted: {
+      if (withBluetooth) {
+        positioningDeviceTypeModel.insert(0, {'name': qsTr('Bluetooth (NMEA)'), 'value': PositioningDeviceModel.BluetoothDevice})
+      }
+      if (withSerialPort) {
+        positioningDeviceTypeModel.insert(positioningDeviceTypeModel.count, {'name': qsTr('Serial port (NMEA)'), 'value': PositioningDeviceModel.SerialPortDevice});
+      }
+      positioningDeviceType.model = positioningDeviceTypeModel
+    }
+
     Page {
         id: page
         width: parent.width
@@ -99,10 +109,6 @@ Popup {
 
                 textRole: "name"
                 valueRole: "value"
-                model: ListModel {
-                  ListElement { name: qsTr('TCP (NMEA)'); value: PositioningDeviceModel.TcpDevice }
-                  ListElement { name: qsTr('UDP (NMEA)'); value: PositioningDeviceModel.UdpDevice }
-                }
 
                 delegate: ItemDelegate {
                   width: positioningDeviceType.width
@@ -169,15 +175,12 @@ Popup {
                     elide: Text.ElideRight
                   }
                 }
+            }
 
-                Component.onCompleted: {
-                  if (withBluetooth) {
-                    model.insert(0, {'name': qsTr('Bluetooth (NMEA)'), 'value': PositioningDeviceModel.BluetoothDevice})
-                  }
-                  if (withSerialPort) {
-                    model.insert(model.count, {'name': qsTr('Serial port (NMEA)'), 'value': PositioningDeviceModel.SerialPortDevice});
-                  }
-                }
+            ListModel {
+              id: positioningDeviceTypeModel
+              ListElement { name: qsTr('TCP (NMEA)'); value: PositioningDeviceModel.TcpDevice }
+              ListElement { name: qsTr('UDP (NMEA)'); value: PositioningDeviceModel.UdpDevice }
             }
 
             Loader {
