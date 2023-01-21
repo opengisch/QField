@@ -24,6 +24,7 @@
 
 #include <QDirIterator>
 #include <QFileInfo>
+#include <QImageReader>
 #include <qgsmessagelog.h>
 
 AppInterface *AppInterface::sAppInterface = nullptr;
@@ -163,7 +164,10 @@ void AppInterface::closeSentry() const
 
 void AppInterface::restrictImageSize( const QString &imagePath, int maximumWidthHeight )
 {
-  QImage img( imagePath );
+  QImageReader imgReader( imagePath );
+  // Insure that rotation metadata is respected
+  imgReader.setAutoTransform( true );
+  QImage img = imgReader.read();
   if ( !img.isNull() && ( img.width() > maximumWidthHeight || img.height() > maximumWidthHeight ) )
   {
     QImage scaledImage = img.width() > img.height()
