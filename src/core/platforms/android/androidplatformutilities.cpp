@@ -30,6 +30,7 @@
 #include <QAndroidJniObject>
 #include <QApplication>
 #include <QDebug>
+#include <QDir>
 #include <QFile>
 #include <QFileInfo>
 #include <QMap>
@@ -345,6 +346,10 @@ PictureSource *AndroidPlatformUtilities::getCameraPicture( QQuickItem *parent, c
   if ( !checkCameraPermissions() )
     return nullptr;
 
+  const QFileInfo destinationInfo( prefix + pictureFilePath );
+  const QDir prefixDir( prefix );
+  prefixDir.mkpath( destinationInfo.absolutePath() );
+
   QAndroidJniObject activity = QAndroidJniObject::fromString( QStringLiteral( "ch.opengis." APP_PACKAGE_NAME ".QFieldCameraPictureActivity" ) );
   QAndroidJniObject intent = QAndroidJniObject( "android/content/Intent", "(Ljava/lang/String;)V", activity.object<jstring>() );
   QAndroidJniObject packageName = QAndroidJniObject::fromString( QStringLiteral( "ch.opengis." APP_PACKAGE_NAME ) );
@@ -383,6 +388,10 @@ PictureSource *AndroidPlatformUtilities::getCameraPicture( QQuickItem *parent, c
 PictureSource *AndroidPlatformUtilities::getGalleryPicture( QQuickItem *parent, const QString &prefix, const QString &pictureFilePath )
 {
   Q_UNUSED( parent )
+
+  const QFileInfo destinationInfo( prefix + pictureFilePath );
+  const QDir prefixDir( prefix );
+  prefixDir.mkpath( destinationInfo.absolutePath() );
 
   QAndroidJniObject activity = QAndroidJniObject::fromString( QStringLiteral( "ch.opengis." APP_PACKAGE_NAME ".QFieldGalleryPictureActivity" ) );
   QAndroidJniObject intent = QAndroidJniObject( "android/content/Intent", "(Ljava/lang/String;)V", activity.object<jstring>() );
