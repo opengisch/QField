@@ -10,7 +10,12 @@
       "default-features": false
     },
     "qgis-qt6",
-    "qtsensors",
+    {
+      "name": "qtsensors",
+      "features": [
+        "qml"
+      ]
+    },
     "qtwebview",
     "qtconnectivity",
     "qtdeclarative",
