@@ -10,13 +10,33 @@
       "default-features": false
     },
     "qgis-qt6",
-    "qtsensors",
-    "qtwebview",
+    {
+      "name": "qtsensors",
+      "features": [
+        "qml"
+      ]
+    },
+    {
+      "name": "qtwebview",
+      "features": [
+        "qml"
+      ]
+    },
     "qtconnectivity",
     "qtdeclarative",
     "qtlocation",
-    "qtcharts",
-    "qtmultimedia",
+    {
+      "name": "qtcharts",
+      "features": [
+        "qml"
+      ]
+    },
+    {
+      "name": "qtmultimedia",
+      "features": [
+        "qml"
+      ]
+    },
     "qtserialport",
     {
       "name": "qca-qt6",

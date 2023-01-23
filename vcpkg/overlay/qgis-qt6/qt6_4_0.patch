@@ -1,0 +1,168 @@
+diff --git a/src/core/expression/qgsexpressioncontextutils.cpp b/src/core/expression/qgsexpressioncontextutils.cpp
+index 66405d12e5..0df3a0271c 100644
+--- a/src/core/expression/qgsexpressioncontextutils.cpp
++++ b/src/core/expression/qgsexpressioncontextutils.cpp
+@@ -498,7 +498,7 @@ QgsExpressionContextScope *QgsExpressionContextUtils::mapSettingsScope( const Qg
+ 
+   scope->addVariable( QgsExpressionContextScope::StaticVariable( QStringLiteral( "map_start_time" ), mapSettings.isTemporal() ? mapSettings.temporalRange().begin() : QVariant(), true ) );
+   scope->addVariable( QgsExpressionContextScope::StaticVariable( QStringLiteral( "map_end_time" ), mapSettings.isTemporal() ? mapSettings.temporalRange().end() : QVariant(), true ) );
+-  scope->addVariable( QgsExpressionContextScope::StaticVariable( QStringLiteral( "map_interval" ), mapSettings.isTemporal() ? ( mapSettings.temporalRange().end() - mapSettings.temporalRange().begin() ) : QVariant(), true ) );
++  scope->addVariable( QgsExpressionContextScope::StaticVariable( QStringLiteral( "map_interval" ), mapSettings.isTemporal() ? QgsInterval( mapSettings.temporalRange().end() - mapSettings.temporalRange().begin() ) : QVariant(), true ) );
+ 
+   // IMPORTANT: ANY CHANGES HERE ALSO NEED TO BE MADE TO QgsLayoutItemMap::createExpressionContext()
+   // (rationale is described in QgsLayoutItemMap::createExpressionContext() )
+diff --git a/src/core/expression/qgsexpressionnodeimpl.cpp b/src/core/expression/qgsexpressionnodeimpl.cpp
+index ae3c6764a4..569e186f42 100644
+--- a/src/core/expression/qgsexpressionnodeimpl.cpp
++++ b/src/core/expression/qgsexpressionnodeimpl.cpp
+@@ -295,7 +295,7 @@ QVariant QgsExpressionNodeBinaryOperator::evalNode( QgsExpression *parent, const
+         ENSURE_NO_EVAL_ERROR
+         QDateTime datetime2 = QgsExpressionUtils::getDateTimeValue( vR, parent );
+         ENSURE_NO_EVAL_ERROR
+-        return datetime1 - datetime2;
++        return QgsInterval( datetime1 - datetime2 );
+       }
+       else
+       {
+diff --git a/src/core/layout/qgslayoutitemmap.cpp b/src/core/layout/qgslayoutitemmap.cpp
+index 3d77a82ce3..e599a912b3 100644
+--- a/src/core/layout/qgslayoutitemmap.cpp
++++ b/src/core/layout/qgslayoutitemmap.cpp
+@@ -1724,7 +1724,7 @@ QgsExpressionContext QgsLayoutItemMap::createExpressionContext() const
+ 
+   scope->addVariable( QgsExpressionContextScope::StaticVariable( QStringLiteral( "map_start_time" ), isTemporal() ? temporalRange().begin() : QVariant(), true ) );
+   scope->addVariable( QgsExpressionContextScope::StaticVariable( QStringLiteral( "map_end_time" ), isTemporal() ? temporalRange().end() : QVariant(), true ) );
+-  scope->addVariable( QgsExpressionContextScope::StaticVariable( QStringLiteral( "map_interval" ), isTemporal() ? ( temporalRange().end() - temporalRange().begin() ) : QVariant(), true ) );
++  scope->addVariable( QgsExpressionContextScope::StaticVariable( QStringLiteral( "map_interval" ), isTemporal() ? QgsInterval( temporalRange().end() - temporalRange().begin() ) : QVariant(), true ) );
+ 
+ #if 0 // not relevant here! (but left so as to respect all the dangerous warnings in QgsExpressionContextUtils::mapSettingsScope)
+   if ( mapSettings.frameRate() >= 0 )
+diff --git a/src/core/qgsconditionalstyle.h b/src/core/qgsconditionalstyle.h
+index 0d2030ec0e..c0fee8a177 100644
+--- a/src/core/qgsconditionalstyle.h
++++ b/src/core/qgsconditionalstyle.h
+@@ -16,6 +16,7 @@
+ #define QGSCONDITIONALSTYLE_H
+ 
+ #include "qgis_core.h"
++#include <QObject>
+ #include <QFont>
+ #include <QColor>
+ #include <QPixmap>
+diff --git a/src/core/qgsinterval.cpp b/src/core/qgsinterval.cpp
+index 4e2b837ab8..e17f647bf3 100644
+--- a/src/core/qgsinterval.cpp
++++ b/src/core/qgsinterval.cpp
+@@ -37,6 +37,14 @@ QgsInterval::QgsInterval( double seconds )
+ {
+ }
+ 
++QgsInterval::QgsInterval( std::chrono::milliseconds milliseconds )
++  : mSeconds( milliseconds.count() / 1000.0 )
++  , mValid( true )
++  , mOriginalDuration( milliseconds.count() )
++  , mOriginalUnit( QgsUnitTypes::TemporalMilliseconds )
++{
++}
++
+ QgsInterval::QgsInterval( double duration, QgsUnitTypes::TemporalUnit unit )
+   : mSeconds( duration * QgsUnitTypes::fromUnitToUnitFactor( unit, QgsUnitTypes::TemporalSeconds ) )
+   , mValid( true )
+@@ -296,12 +304,16 @@ QDebug operator<<( QDebug dbg, const QgsInterval &interval )
+   return dbg.maybeSpace();
+ }
+ 
++#if QT_VERSION < QT_VERSION_CHECK(6, 4, 0)
++
+ QgsInterval operator-( const QDateTime &dt1, const QDateTime &dt2 )
+ {
+   const qint64 mSeconds = dt2.msecsTo( dt1 );
+   return QgsInterval( mSeconds / 1000.0 );
+ }
+ 
++#endif
++
+ QDateTime operator+( const QDateTime &start, const QgsInterval &interval )
+ {
+   return start.addMSecs( static_cast<qint64>( interval.seconds() * 1000.0 ) );
+@@ -318,3 +330,4 @@ QgsInterval operator-( QTime time1, QTime time2 )
+   const qint64 mSeconds = time2.msecsTo( time1 );
+   return QgsInterval( mSeconds / 1000.0 );
+ }
++
+diff --git a/src/core/qgsinterval.h b/src/core/qgsinterval.h
+index 8ce38731eb..fa344d7773 100644
+--- a/src/core/qgsinterval.h
++++ b/src/core/qgsinterval.h
+@@ -23,6 +23,7 @@
+  ****************************************************************************/
+ 
+ #include <QVariant>
++#include <chrono>
+ 
+ #include "qgis_sip.h"
+ #include "qgis_core.h"
+@@ -68,6 +69,12 @@ class CORE_EXPORT QgsInterval
+      */
+     QgsInterval( double seconds );
+ 
++    /**
++     * Constructor for QgsInterval.
++     * \param milliseconds duration of interval in milliseconds
++     */
++    QgsInterval( std::chrono::milliseconds milliseconds ) SIP_SKIP;
++
+     /**
+      * Constructor for QgsInterval, using the specified \a duration and \a units.
+      */
+@@ -343,6 +350,8 @@ Q_DECLARE_METATYPE( QgsInterval )
+ 
+ #ifndef SIP_RUN
+ 
++#if QT_VERSION < QT_VERSION_CHECK(6, 4, 0)
++
+ /**
+  * Returns the interval between two datetimes.
+  * \param datetime1 start datetime
+@@ -352,6 +361,8 @@ Q_DECLARE_METATYPE( QgsInterval )
+  */
+ QgsInterval CORE_EXPORT operator-( const QDateTime &datetime1, const QDateTime &datetime2 );
+ 
++#endif
++
+ /**
+  * Returns the interval between two dates.
+  * \param date1 start date
+@@ -381,7 +392,9 @@ QDateTime CORE_EXPORT operator+( const QDateTime &start, const QgsInterval &inte
+ 
+ //! Debug string representation of interval
+ QDebug CORE_EXPORT operator<<( QDebug dbg, const QgsInterval &interval );
+-\
++
++
++
+ #endif
+ 
+ #endif // QGSINTERVAL_H
+diff --git a/src/core/qgstemporalnavigationobject.cpp b/src/core/qgstemporalnavigationobject.cpp
+index 4a73a1826a..1206294c3a 100644
+--- a/src/core/qgstemporalnavigationobject.cpp
++++ b/src/core/qgstemporalnavigationobject.cpp
+@@ -81,7 +81,7 @@ QgsExpressionContextScope *QgsTemporalNavigationObject::createExpressionContextS
+   scope->setVariable( QStringLiteral( "frame_timestep_units" ), QgsUnitTypes::toString( mFrameDuration.originalUnit() ), true );
+   scope->setVariable( QStringLiteral( "animation_start_time" ), mTemporalExtents.begin(), true );
+   scope->setVariable( QStringLiteral( "animation_end_time" ), mTemporalExtents.end(), true );
+-  scope->setVariable( QStringLiteral( "animation_interval" ), mTemporalExtents.end() - mTemporalExtents.begin(), true );
++  scope->setVariable( QStringLiteral( "animation_interval" ), QgsInterval( mTemporalExtents.end() - mTemporalExtents.begin() ), true );
+ 
+   scope->addHiddenVariable( QStringLiteral( "frame_timestep_unit" ) );
+ 
+@@ -371,7 +371,7 @@ long long QgsTemporalNavigationObject::findBestFrameNumberForFrameStart( const Q
+       // We tend to receive a framestart of 'now()' upon startup for example
+       if ( mTemporalExtents.contains( frameStart ) )
+       {
+-        roughFrameStart = static_cast< long long >( std::floor( ( frameStart - mTemporalExtents.begin() ).seconds() / mFrameDuration.seconds() ) );
++        roughFrameStart = static_cast< long long >( std::floor( QgsInterval( frameStart - mTemporalExtents.begin() ).seconds() / mFrameDuration.seconds() ) );
+       }
+       roughFrameEnd = roughFrameStart + 100; // just in case we miss the guess
+     }
