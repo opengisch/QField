@@ -89,7 +89,17 @@ void PlatformUtilities::initSystem()
 }
 
 void PlatformUtilities::afterUpdate()
-{}
+{
+  const QStringList dirs = appDataDirs();
+  for ( const QString &dir : dirs )
+  {
+    QDir appDir( dir );
+    appDir.mkpath( QStringLiteral( "proj" ) );
+    appDir.mkpath( QStringLiteral( "auth" ) );
+    appDir.mkpath( QStringLiteral( "fonts" ) );
+    appDir.mkpath( QStringLiteral( "basemaps" ) );
+  }
+}
 
 QString PlatformUtilities::systemSharedDataLocation() const
 {
