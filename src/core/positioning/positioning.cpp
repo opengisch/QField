@@ -157,7 +157,7 @@ void Positioning::setupDevice()
     else if ( mDeviceId.startsWith( QStringLiteral( "serial:" ) ) )
     {
       const QString address = mDeviceId.mid( 7 );
-      mReceiver = std::make_unique<SerialPortReceiver>( address );
+      mReceiver = std::make_unique<SerialPortReceiver>( address, this );
     }
 #endif
     else
