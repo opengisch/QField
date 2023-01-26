@@ -82,7 +82,7 @@ class Positioning : public QObject
      */
     void setDeviceId( const QString &id );
 
-    AbstractGnssReceiver *device() const { return mReceiver.get(); }
+    AbstractGnssReceiver *device() const { return mReceiver; }
 
     /**
      * Returns the coordinate transformer object used to reproject the position location.
@@ -187,7 +187,7 @@ class Positioning : public QObject
 
     bool mEllipsoidalElevation = false;
 
-    std::unique_ptr<AbstractGnssReceiver> mReceiver;
+    AbstractGnssReceiver *mReceiver = nullptr;
 };
 
 #endif // POSITIONING_H
