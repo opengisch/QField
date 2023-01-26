@@ -130,12 +130,14 @@ void Positioning::setupDevice()
   if ( mReceiver )
   {
     mReceiver->disconnectDevice();
-    disconnect( mReceiver.get(), &AbstractGnssReceiver::lastGnssPositionInformationChanged, this, &Positioning::lastGnssPositionInformationChanged );
+    disconnect( mReceiver, &AbstractGnssReceiver::lastGnssPositionInformationChanged, this, &Positioning::lastGnssPositionInformationChanged );
+    mReceiver->deleteLater();
+    mReceiver = nullptr;
   }
 
   if ( mDeviceId.isEmpty() )
   {
-    mReceiver = std::make_unique<InternalGnssReceiver>( this );
+    mReceiver = new InternalGnssReceiver( this );
   }
   else
   {
@@ -144,33 +146,33 @@ void Positioning::setupDevice()
       int portSeparator = mDeviceId.lastIndexOf( ':' );
       const QString address = mDeviceId.mid( 4, portSeparator - 4 );
       const int port = mDeviceId.mid( portSeparator + 1 ).toInt();
-      mReceiver = std::make_unique<TcpReceiver>( address, port, this );
+      mReceiver = new TcpReceiver( address, port, this );
     }
     else if ( mDeviceId.startsWith( QStringLiteral( "udp:" ) ) )
     {
       int portSeparator = mDeviceId.lastIndexOf( ':' );
       const QString address = mDeviceId.mid( 4, portSeparator - 4 );
       const int port = mDeviceId.mid( portSeparator + 1 ).toInt();
-      mReceiver = std::make_unique<UdpReceiver>( address, port, this );
+      mReceiver = new UdpReceiver( address, port, this );
     }
 #ifdef WITH_SERIALPORT
     else if ( mDeviceId.startsWith( QStringLiteral( "serial:" ) ) )
     {
       const QString address = mDeviceId.mid( 7 );
-      mReceiver = std::make_unique<SerialPortReceiver>( address );
+      mReceiver = new SerialPortReceiver( address, this );
     }
 #endif
     else
     {
 #ifdef WITH_BLUETOOTH
-      mReceiver = std::make_unique<BluetoothReceiver>( mDeviceId, this );
+      mReceiver = new BluetoothReceiver( mDeviceId, this );
 #endif
     }
   }
 
   // Reset the position information to insure no cross contamination between receiver types
   lastGnssPositionInformationChanged( GnssPositionInformation() );
-  connect( mReceiver.get(), &AbstractGnssReceiver::lastGnssPositionInformationChanged, this, &Positioning::lastGnssPositionInformationChanged );
+  connect( mReceiver, &AbstractGnssReceiver::lastGnssPositionInformationChanged, this, &Positioning::lastGnssPositionInformationChanged );
   setValid( mReceiver->valid() );
 
   emit deviceChanged();
