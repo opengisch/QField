@@ -11,7 +11,7 @@ diff --git a/CMakeLists.txt b/CMakeLists.txt
 index 7a41b0d1e2..1141d6815a 100644
 --- a/CMakeLists.txt
 +++ b/CMakeLists.txt
-@@ -336,6 +336,8 @@ if(WITH_CORE)
+@@ -354,6 +354,8 @@ if(WITH_CORE)
    find_package(Proj)
    find_package(GEOS)
    find_package(GDAL)
@@ -19,7 +19,7 @@ index 7a41b0d1e2..1141d6815a 100644
 +  set(GDAL_LIBRARY ${GDAL_LIBRARIES})
    find_package(Expat REQUIRED)
    find_package(Spatialindex REQUIRED)
-   if (WITH_GUI)
+   find_package(LibZip REQUIRED)
 -- 
 2.31.1
 
