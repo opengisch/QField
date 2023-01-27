@@ -1,5 +1,5 @@
-set(QGIS_REF final-3_28_2)
-set(QGIS_SHA512 10d6ac267f5b62f6fd788010b82281972e34837229bb89503f2df3f774890e2952ce2cc1b1183e90b576c8f3e9afd66263a3ccde9f529b49c261d4f229f67c81)
+set(QGIS_REF c092f32431fba5d28af4546b4d8219f0b52b55bb)
+set(QGIS_SHA512 34fb2a5df40c2948a31ce714c3d6112b0edbfb67cdc1eb00ccec56aab168f9d86e4a9b57f8a9c52ba947c31f0e074ee00604f434f755ed0d6948a02ec133cdbf)
 
 vcpkg_from_github(
     OUT_SOURCE_PATH SOURCE_PATH
@@ -16,11 +16,9 @@ vcpkg_from_github(
         exiv2.patch
         crssync.patch
         bigobj.patch
-        android-resources.patch
         poly2tri.patch
         mesh.patch
-        nmea.patch
-        qt6_4_0.patch
+        includes.patch
 )
 
 file(REMOVE ${SOURCE_PATH}/cmake/FindQtKeychain.cmake)
@@ -249,7 +247,7 @@ endif()
 list(APPEND QGIS_OPTIONS -DQGIS_MACAPP_FRAMEWORK=FALSE)
 
 if(VCPKG_TARGET_IS_IOS)
-    list(APPEND QGIS_OPTIONS -DWITH_QT5SERIALPORT=FALSE)
+    list(APPEND QGIS_OPTIONS -DWITH_QTSERIALPORT=FALSE)
 endif()
 
 vcpkg_configure_cmake(
