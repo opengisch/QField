@@ -44,11 +44,12 @@ jobs:
 
       - name: Prepare ios build env
         run: |
-          brew install automake bison flex gnu-sed s3cmd gettext
+          brew install automake bison flex gnu-sed s3cmd gettext autoconf-archive
           echo $(brew --prefix bison)/bin >> $GITHUB_PATH
           echo $(brew --prefix flex)/bin >> $GITHUB_PATH
           echo $(brew --prefix s3cmd)/bin >> $GITHUB_PATH
           echo $(brew --prefix gettext)/bin >> $GITHUB_PATH
+          echo $(brew --prefix autoconf-archive)/bin >> $GITHUB_PATH
 
       - uses: maxim-lobanov/setup-xcode@v1.5.1
         with:
