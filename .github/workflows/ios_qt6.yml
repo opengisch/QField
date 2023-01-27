@@ -1,5 +1,5 @@
 ---
-name: 🍏 iOS build
+name: 🍏 iOS (Qt6) build
 
 on:
   push:
