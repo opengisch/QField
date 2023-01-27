@@ -2,7 +2,7 @@
 # CMake settings
 cmake_minimum_required(VERSION 3.19)
 
-set(VCPKG_TAG e69dd972ba64840955f46704ecce6241bf607c0f)
+set(VCPKG_TAG 91dd61bd441a68b4017b61011d0350b2e6aeeccf)
 
 set(QML_IMPORT_PATH ${CMAKE_SOURCE_DIR}/src/qml/imports CACHE PATH "QML import path for Qt Creator to detect custom modules properly")
 
@@ -32,6 +32,7 @@ include(GNUInstallDirs)
 project(${APP_NAME}
   VERSION ${CLEAN_APP_VERSION}
 )
+message(FATAL_ERROR "${CMAKE_TOOLCHAIN_FILE}")
 
 GET_GIT_HEAD_REVISION(GIT_REFSPEC GIT_REV)
 
