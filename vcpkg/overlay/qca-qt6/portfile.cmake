@@ -16,6 +16,8 @@ vcpkg_from_github(
     PATCHES
         0001-fix-path-for-vcpkg.patch
         0002-fix-build-error.patch
+	fix-static.patch
+	ios.patch
 )
 
 if(VCPKG_LIBRARY_LINKAGE STREQUAL "dynamic")
@@ -44,6 +46,14 @@ vcpkg_execute_required_process(
 )
 message(STATUS "Importing certstore done")
 
+if("botan" IN_LIST FEATURES)
+    list(APPEND QCA_OPTIONS -DWITH_botan_PLUGIN=yes)
+else()
+    list(APPEND QCA_OPTIONS -DWITH_botan_PLUGIN=no)
+endif()
+list(APPEND QCA_OPTIONS -DWITH_gnupg_PLUGIN=no)
+list(APPEND QCA_OPTIONS -DWITH_ossl_PLUGIN=yes)
+
 # Configure and build
 vcpkg_cmake_configure(
     SOURCE_PATH "${SOURCE_PATH}"
@@ -56,6 +66,7 @@ vcpkg_cmake_configure(
         -DQCA_FEATURE_INSTALL_DIR=share/qca/mkspecs/features
         -DOSX_FRAMEWORK=OFF
         -DQT6=ON
+        ${QCA_OPTIONS}
     OPTIONS_DEBUG
         -DQCA_PLUGINS_INSTALL_DIR=${QCA_FEATURE_INSTALL_DIR_DEBUG}
     OPTIONS_RELEASE

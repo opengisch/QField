@@ -14,5 +14,16 @@
       "name": "vcpkg-cmake-config",
       "host": true
     }
-  ]
+  ],
+  "default-features": [
+    "botan"
+  ],
+  "features": {
+    "botan": {
+      "description": "Build with botan",
+      "dependencies": [
+        "botan"
+      ]
+    }
+  }
 }
