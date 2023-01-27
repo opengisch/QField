@@ -148,6 +148,18 @@ void QFieldCloudConnection::login()
 
   setStatus( ConnectionStatus::Connecting );
 
+  // Handle login redirect as an error state
+  connect( reply, &NetworkReply::redirected, this, [=]() {
+    QNetworkReply *rawReply = reply->reply();
+    reply->deleteLater();
+    rawReply->deleteLater();
+
+    emit loginFailed( tr( "Login error due to unexpected redirect, please retry later" ) );
+
+    setStatus( ConnectionStatus::Disconnected );
+    return;
+  } );
+
   connect( reply, &NetworkReply::finished, this, [=]() {
     QNetworkReply *rawReply = reply->reply();
 
