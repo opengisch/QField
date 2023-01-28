@@ -155,6 +155,14 @@ class QFIELD_CORE_EXPORT PlatformUtilities : public QObject
     Q_INVOKABLE virtual ResourceSource *getGalleryPicture( QQuickItem *parent, const QString &prefix, const QString &pictureFilePath );
 
     /**
+     * Get a file from the operating system and copy it to the requested prefix
+     * @param prefix The project folder
+     * @param filePath The path (including subfolders and name) of the file
+     * @return The name of the file or null
+     */
+    Q_INVOKABLE virtual ResourceSource *getFile( QQuickItem *parent, const QString &prefix, const QString &filePath );
+
+    /**
      * Open the resource (file, image, ...) that is available under \a uri.
      * The mimetype is detected to indicate the system how the file should
      * be opened. An optional \a editing parameter can be set to true to indicate

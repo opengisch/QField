@@ -106,13 +106,20 @@ EditorWidgetBase {
     }
   }
 
-  function getPictureFilePath() {
+  function getResourceFilePath() {
     var evaluatedFilepath = expressionEvaluator.evaluate()
-    var filepath = ( evaluatedFilepath && FileUtils.fileSuffix(evaluatedFilepath) !== '' )
-        ? evaluatedFilepath
-        : ('DCIM/JPEG_' + (new Date()).toISOString().replace(/[^0-9]/g, '') + '.jpg')
+    var filepath = evaluatedFilepath;
+    if (FileUtils.fileSuffix(evaluatedFilepath) === '') {
+      // we need an extension for media types (image, audio, video), fallback to hardcoded values
+      if (documentViewer == 1) {
+        filePath = 'DCIM/JPEG_' + (new Date()).toISOString().replace(/[^0-9]/g, '') + '.jpg';
+      } else if (documentViewer == 3) {
+        filePath = 'audio/AUDIO_' + (new Date()).toISOString().replace(/[^0-9]/g, '') + '.mp3';
+      } else if (documentViewer == 4) {
+        filePath = 'video/VIDEO_' + (new Date()).toISOString().replace(/[^0-9]/g, '') + '.mp4';
+      }
+    }
     filepath = filepath.replace('\\', '/')
-
     return filepath;
   }
 
@@ -121,14 +128,14 @@ EditorWidgetBase {
 
     topPadding: 10
     bottomPadding: 10
-    height: fontMetrics.height + 20
+    height: fontMetrics.height + 30
 
     property bool hasValue: false
     visible: hasValue && !isImage && !isAudio && !isVideo
 
     anchors.left: parent.left
-    anchors.right: parent.right
-    color: FileUtils.fileExists(prefixToRelativePath + value) ? Theme.hyperlinkBlue : 'gray'
+    anchors.right: fileButton.left
+    color: FileUtils.fileExists(prefixToRelativePath + value) ? Theme.mainColor : 'gray'
 
     text: {
       var fieldValue = prefixToRelativePath + currentValue
@@ -144,6 +151,8 @@ EditorWidgetBase {
     font.pointSize: Theme.defaultFont.pointSize
     font.italic: !hasValue
     font.underline: FileUtils.fileExists(prefixToRelativePath + value) || FileUtils.fileExists(value)
+    verticalAlignment: Text.AlignVCenter
+    elide: Text.ElideMiddle
 
     background: Rectangle {
       y: linkField.height - height - linkField.bottomPadding / 2
@@ -175,9 +184,9 @@ EditorWidgetBase {
 
   Rectangle {
     id: mediaFrame
-    visible: !config.UseLink
-    width: parent.width - galleryButton.width - cameraButton.width
+    width: parent.width - fileButton.width - galleryButton.width - cameraButton.width
     height: 48
+    visible: !linkField.visible
     color: isEnabled ? Theme.lightGray : "transparent"
     radius: 2
     clip: true
@@ -250,12 +259,35 @@ EditorWidgetBase {
   }
 
   QfToolButton {
+    id: fileButton
+    width: visible ? 48 : 0
+    height: 48
+
+    visible: documentViewer == 0 && isEnabled
+
+    anchors.right: galleryButton.left
+    anchors.top: parent.top
+
+    bgcolor: "transparent"
+
+    onClicked: {
+      Qt.inputMethod.hide()
+      var filepath = getResourceFilePath()
+      __resourceSource = platformUtilities.getFile(this, qgisProject.homePath+'/', filepath)
+    }
+
+    iconSource: Theme.getThemeIcon("ic_file_black_24dp")
+  }
+
+  QfToolButton {
     id: cameraButton
     width: visible ? 48 : 0
     height: 48
 
     property bool isCameraAvailable: platformUtilities.capabilities & PlatformUtilities.NativeCamera || QtMultimedia.availableCameras.length > 0
-    visible: (isImage || documentViewer == 1) && isEnabled && isCameraAvailable
+
+    // QField has historically handled no viewer type as image, let's carry that on
+    visible: (documentViewer == 0 || documentViewer == 1) && isEnabled
 
     anchors.right: galleryButton.left
     anchors.top: parent.top
@@ -265,7 +297,7 @@ EditorWidgetBase {
     onClicked: {
       Qt.inputMethod.hide()
       if ( platformUtilities.capabilities & PlatformUtilities.NativeCamera && settings.valueBool("nativeCamera", true) ) {
-        var filepath = getPictureFilePath()
+        var filepath = getResourceFilePath()
         __resourceSource = platformUtilities.getCameraPicture(this, qgisProject.homePath+'/', filepath, FileUtils.fileSuffix(filepath) )
       } else {
         platformUtilities.createDir( qgisProject.homePath, 'DCIM' )
@@ -281,7 +313,8 @@ EditorWidgetBase {
     width: visible ? 48 : 0
     height: 48
 
-    visible: (isImage || documentViewer == 1) && isEnabled
+    // QField has historically handled no viewer type as image, let's carry that on
+    visible: (documentViewer == 0 || documentViewer == 1) && isEnabled
 
     anchors.right: parent.right
     anchors.top: parent.top
@@ -290,13 +323,12 @@ EditorWidgetBase {
 
     onClicked: {
       Qt.inputMethod.hide()
-      var filepath = getPictureFilePath()
+      var filepath = getResourceFilePath()
       __resourceSource = platformUtilities.getGalleryPicture(this, qgisProject.homePath+'/', filepath)
     }
 
     iconSource: Theme.getThemeIcon("baseline_photo_library_black_24")
   }
-
 
   Loader {
     id: camloader
@@ -332,7 +364,7 @@ EditorWidgetBase {
         visible: true
 
         onFinished: {
-          var filepath = getPictureFilePath()
+          var filepath = getResourceFilePath()
           platformUtilities.renameFile( path, prefixToRelativePath + filepath)
 
           var maximumWidhtHeight = iface.readProjectNumEntry("qfieldsync", "maximumImageWidthHeight", 0)
