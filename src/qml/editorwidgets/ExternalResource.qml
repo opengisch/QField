@@ -97,8 +97,8 @@ EditorWidgetBase {
     feature: currentFeature
     layer: currentLayer
     expressionText: {
-      if ( currentLayer && currentLayer.customProperty('QFieldSync/resource_naming') !== undefined ) {
-        var value =JSON.parse(currentLayer.customProperty('QFieldSync/resource_naming'))[field.name];
+      if ( currentLayer && currentLayer.customProperty('QFieldSync/attachment_naming') !== undefined ) {
+        var value =JSON.parse(currentLayer.customProperty('QFieldSync/attachment_naming'))[field.name];
         return value !== undefined ? value : ''
       } else {
         return ''
