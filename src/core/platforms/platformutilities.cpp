@@ -24,6 +24,7 @@
 #include "qgismobileapp.h"
 #include "qgsmessagelog.h"
 #include "resourcesource.h"
+#include "stringutils.h"
 
 #include <QClipboard>
 #include <QDebug>
@@ -252,11 +253,7 @@ ResourceSource *PlatformUtilities::getGalleryPicture( QQuickItem *parent, const 
     }
     else
     {
-      QString finalPictureFilePath = pictureFilePath;
-
-      finalPictureFilePath.replace( QStringLiteral( "#~filename~#" ), fi.fileName() );
-      finalPictureFilePath.replace( QStringLiteral( "#~extension~#" ), fi.completeSuffix() );
-
+      QString finalPictureFilePath = StringUtils::replaceFilenameTags( pictureFilePath, fi.fileName() );
       QString destinationFile = prefix + finalPictureFilePath;
       QFileInfo destinationInfo( destinationFile );
       QDir prefixDir( prefix );
@@ -286,11 +283,7 @@ ResourceSource *PlatformUtilities::getFile( QQuickItem *parent, const QString &p
     }
     else
     {
-      QString finalFilePath = filePath;
-
-      finalFilePath.replace( QStringLiteral( "#~filename~#" ), fi.fileName() );
-      finalFilePath.replace( QStringLiteral( "#~extension~#" ), fi.completeSuffix() );
-
+      QString finalFilePath = StringUtils::replaceFilenameTags( filePath, fi.fileName() );
       QString destinationFile = prefix + finalFilePath;
       QFileInfo destinationInfo( destinationFile );
       QDir prefixDir( prefix );

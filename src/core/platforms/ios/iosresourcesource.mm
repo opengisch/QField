@@ -23,7 +23,8 @@
 #include <QQuickWindow>
 #include <qpa/qplatformnativeinterface.h>
 
-#include "IosResourceSource.h"
+#include "iosresourcesource.h"
+#include "stringutils.h"
 
 @interface CameraDelegate : NSObject <UIImagePickerControllerDelegate,
                                       UINavigationControllerDelegate> {
@@ -57,10 +58,8 @@
   QString finalResourceFilePath = mIosCamera->resourceFilePath();
   if (!originalFilename.isEmpty()) {
     QFileInfo fi(originalFilename);
-    finalResourceFilePath.replace(QStringLiteral("#~filename~#"),
-                                  fi.fileName());
-    finalResourceFilePath.replace(QStringLiteral("#~extension~#"),
-                                  fi.completeSuffix());
+    finalResourceFilePath =
+        StringUtils::replaceFilenameTags(finalResourceFilePath, fi.fileName());
   }
   NSString *path = [[NSString alloc]
       initWithUTF8String:(mIosCamera->prefixPath() + finalResourceFilePath)

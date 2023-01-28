@@ -42,6 +42,19 @@ import java.util.zip.ZipOutputStream;
 
 public class QFieldUtils {
 
+    public static String replaceFilenameTags(String string, String filename) {
+        String extension = "";
+        int dotIndex = filename.indexOf('.');
+        if (dotIndex > -1) {
+            extension = filename.substring(dotIndex + 1);
+        }
+
+        string.replace("#~filename~#", filename);
+        string.replace("#~extension~#", extension);
+
+        return string;
+    }
+
     public static String getArchiveProjectName(InputStream in) {
         String projectName = "";
         try {
