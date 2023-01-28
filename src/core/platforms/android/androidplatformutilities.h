@@ -50,8 +50,8 @@ class AndroidPlatformUtilities : public PlatformUtilities
     void sendCompressedFolderTo( const QString &path ) const override;
     void removeFolder( const QString &path ) const override;
 
-    PictureSource *getCameraPicture( QQuickItem *parent, const QString &prefix, const QString &pictureFilePath, const QString &suffix ) override;
-    PictureSource *getGalleryPicture( QQuickItem *parent, const QString &prefix, const QString &pictureFilePath ) override;
+    ResourceSource *getCameraPicture( QQuickItem *parent, const QString &prefix, const QString &pictureFilePath, const QString &suffix ) override;
+    ResourceSource *getGalleryPicture( QQuickItem *parent, const QString &prefix, const QString &pictureFilePath ) override;
     ViewStatus *open( const QString &uri, bool editing ) override;
 
     bool checkPositioningPermissions() const override;

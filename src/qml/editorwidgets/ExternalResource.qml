@@ -56,7 +56,7 @@ EditorWidgetBase {
     return path
   }
 
-  property PictureSource __pictureSource
+  property ResourceSource __resourceSource
   property ViewStatus __viewStatus
 
   //on all mimetypes "image/..." and on empty values it should appear as an image widget except when it's configured as a link
@@ -277,7 +277,7 @@ EditorWidgetBase {
         Qt.inputMethod.hide()
         if ( platformUtilities.capabilities & PlatformUtilities.NativeCamera && settings.valueBool("nativeCamera", true) ) {
             var filepath = getPictureFilePath()
-            __pictureSource = platformUtilities.getCameraPicture(this, qgisProject.homePath+'/', filepath, FileUtils.fileSuffix(filepath) )
+            __resourceSource = platformUtilities.getCameraPicture(this, qgisProject.homePath+'/', filepath, FileUtils.fileSuffix(filepath) )
         } else {
             platformUtilities.createDir( qgisProject.homePath, 'DCIM' )
             camloader.active = true
@@ -301,7 +301,7 @@ EditorWidgetBase {
     onClicked: {
         Qt.inputMethod.hide()
         var filepath = getPictureFilePath()
-        __pictureSource = platformUtilities.getGalleryPicture(this, qgisProject.homePath+'/', filepath)
+        __resourceSource = platformUtilities.getGalleryPicture(this, qgisProject.homePath+'/', filepath)
     }
 
     iconSource: Theme.getThemeIcon("baseline_photo_library_black_24")
@@ -362,8 +362,8 @@ EditorWidgetBase {
   }
 
   Connections {
-    target: __pictureSource
-    function onPictureReceived(path) {
+    target: __resourceSource
+    function onResourceReceived(path) {
       if( path )
       {
           var maximumWidhtHeight = iface.readProjectNumEntry("qfieldsync", "maximumImageWidthHeight", 0)

@@ -1,5 +1,5 @@
 /***************************************************************************
-  iospicturesource.mm - IosPictureSource
+  IosResourceSource.mm - IosResourceSource
 
   begin                : September 2021
   copyright            : (C) 2020 by Denis Rouzaud
@@ -22,17 +22,17 @@
 #include <QQuickWindow>
 #include <qpa/qplatformnativeinterface.h>
 
-#include "iospicturesource.h"
+#include "IosResourceSource.h"
 
 @interface CameraDelegate : NSObject <UIImagePickerControllerDelegate,
                                       UINavigationControllerDelegate> {
-  IosPictureSource *mIosCamera;
+  IosResourceSource *mIosCamera;
 }
 @end
 
 @implementation CameraDelegate
 
-- (id)initWithIosPictureSource:(IosPictureSource *)iosCamera {
+- (id)initWithIosResourceSource:(IosResourceSource *)iosCamera {
   self = [super init];
   if (self) {
     mIosCamera = iosCamera;
@@ -46,7 +46,7 @@
 
   NSString *path =
       [[NSString alloc] initWithUTF8String:(mIosCamera->prefixPath() +
-                                            mIosCamera->pictureFilePath())
+                                            mIosCamera->resourceFilePath())
                                                .toUtf8()
                                                .constData()];
 
@@ -58,7 +58,7 @@
 
   // Update imagePath property to trigger QML code:
   QString filePath = /*StringLiteral("file:") +*/ QString::fromNSString(path);
-  emit mIosCamera->pictureReceived(mIosCamera->pictureFilePath());
+  emit mIosCamera->resourceReceived(mIosCamera->resourceFilePath());
 
   // Bring back Qt's view controller:
   UIViewController *rvc =
@@ -67,30 +67,30 @@
 }
 @end
 
-class IosPictureSource::CameraDelegateContainer {
+class IosResourceSource::CameraDelegateContainer {
 public:
   CameraDelegate *_cameraDelegate = nullptr;
 };
 
-IosPictureSource::IosPictureSource(QObject *parent, const QString &prefix,
-                                   const QString &pictureFilePath)
-    : PictureSource(parent, prefix, pictureFilePath),
+IosResourceSource::IosResourceSource(QObject *parent, const QString &prefix,
+                                     const QString &resourceFilePath)
+    : ResourceSource(parent, prefix, resourceFilePath),
       mDelegate(new CameraDelegateContainer()) {
   mParent = qobject_cast<QQuickItem *>(parent);
   Q_ASSERT(mParent);
   mPrefixPath = prefix;
-  mPictureFilePath = pictureFilePath;
+  mResourceFilePath = resourceFilePath;
 
-  QString destinationFile = prefix + pictureFilePath;
+  QString destinationFile = prefix + resourceFilePath;
   QFileInfo destinationInfo(destinationFile);
   QDir prefixDir(prefix);
   prefixDir.mkpath(destinationInfo.absolutePath());
 
   mDelegate->_cameraDelegate =
-      [[CameraDelegate alloc] initWithIosPictureSource:this];
+      [[CameraDelegate alloc] initWithIosResourceSource:this];
 }
 
-void IosPictureSource::takePicture() {
+void IosResourceSource::takePicture() {
   // Get the UIView that backs our QQuickWindow:
   UIView *view = (__bridge UIView *)(QGuiApplication::platformNativeInterface()
                                          ->nativeResourceForWindow(
@@ -110,7 +110,7 @@ void IosPictureSource::takePicture() {
                            completion:nil];
 }
 
-void IosPictureSource::pickGalleryPicture() {
+void IosResourceSource::pickGalleryPicture() {
   // Get the UIView that backs our QQuickWindow:
   UIView *view = (__bridge UIView *)(QGuiApplication::platformNativeInterface()
                                          ->nativeResourceForWindow(

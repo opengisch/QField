@@ -16,9 +16,9 @@
  *                                                                         *
  ***************************************************************************/
 
-#include "androidpicturesource.h"
 #include "androidplatformutilities.h"
 #include "androidprojectsource.h"
+#include "androidresourcesource.h"
 #include "androidviewstatus.h"
 #include "appinterface.h"
 #include "fileutils.h"
@@ -340,7 +340,7 @@ QAndroidJniObject AndroidPlatformUtilities::getNativeExtras() const
   return nullptr;
 }
 
-PictureSource *AndroidPlatformUtilities::getCameraPicture( QQuickItem *parent, const QString &prefix, const QString &pictureFilePath, const QString &suffix )
+ResourceSource *AndroidPlatformUtilities::getCameraPicture( QQuickItem *parent, const QString &prefix, const QString &pictureFilePath, const QString &suffix )
 {
   Q_UNUSED( parent )
   if ( !checkCameraPermissions() )
@@ -378,14 +378,14 @@ PictureSource *AndroidPlatformUtilities::getCameraPicture( QQuickItem *parent, c
                            suffix_label.object<jstring>(),
                            suffix_value.object<jstring>() );
 
-  AndroidPictureSource *pictureSource = new AndroidPictureSource( prefix );
+  AndroidResourceSource *pictureSource = new AndroidResourceSource( prefix );
 
   QtAndroid::startActivity( intent.object<jobject>(), 171, pictureSource );
 
   return pictureSource;
 }
 
-PictureSource *AndroidPlatformUtilities::getGalleryPicture( QQuickItem *parent, const QString &prefix, const QString &pictureFilePath )
+ResourceSource *AndroidPlatformUtilities::getGalleryPicture( QQuickItem *parent, const QString &prefix, const QString &pictureFilePath )
 {
   Q_UNUSED( parent )
 
@@ -415,7 +415,7 @@ PictureSource *AndroidPlatformUtilities::getGalleryPicture( QQuickItem *parent, 
                            prefix_label.object<jstring>(),
                            prefix_value.object<jstring>() );
 
-  AndroidPictureSource *pictureSource = new AndroidPictureSource( prefix );
+  AndroidResourceSource *pictureSource = new AndroidResourceSource( prefix );
 
   QtAndroid::startActivity( intent.object<jobject>(), 171, pictureSource );
 

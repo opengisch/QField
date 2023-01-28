@@ -1,5 +1,5 @@
 /***************************************************************************
-  picturesource.cpp - PictureSource
+  resourcesource.cpp - ResourceSource
 
  ---------------------
  begin                : 5.7.2016
@@ -14,27 +14,27 @@
  *                                                                         *
  ***************************************************************************/
 
-#include "picturesource.h"
+#include "resourcesource.h"
 
 #include <QTimer>
 
-PictureSource::PictureSource( QObject *parent, const QString &prefix, const QString &pictureFilePath )
+ResourceSource::ResourceSource( QObject *parent, const QString &prefix, const QString &resourceFilePath )
   : QObject( parent )
   , mPrefix( prefix )
-  , mPictureFilePath( pictureFilePath )
+  , mResourceFilePath( resourceFilePath )
 {
-  // prevent emit signal if the pictureFilePath is empty ( e.g. when AndroidPictureSource )
-  if ( mPictureFilePath.isEmpty() )
+  // prevent emit signal if the resourceFilePath is empty ( e.g. when AndroidResourceSource )
+  if ( resourceFilePath.isEmpty() )
     return;
 
-  if ( mPictureFilePath.startsWith( mPrefix ) )
-    mPictureFilePath = mPictureFilePath.remove( mPrefix );
+  if ( mResourceFilePath.startsWith( mPrefix ) )
+    mResourceFilePath = mResourceFilePath.remove( mPrefix );
 
   QTimer::singleShot( 0, this, [=]() {
-    emit pictureReceived( mPictureFilePath );
+    emit resourceReceived( mResourceFilePath );
   } );
 }
 
-PictureSource::~PictureSource()
+ResourceSource::~ResourceSource()
 {
 }

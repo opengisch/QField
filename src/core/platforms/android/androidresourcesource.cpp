@@ -1,5 +1,5 @@
 /***************************************************************************
-  androidpicturesource.cpp - AndroidPictureSource
+  androidresourcesource.cpp - AndroidResourceSource
 
  ---------------------
  begin                : 5.7.2016
@@ -13,7 +13,7 @@
  *   (at your option) any later version.                                   *
  *                                                                         *
  ***************************************************************************/
-#include "androidpicturesource.h"
+#include "androidresourcesource.h"
 #include "qgsapplication.h"
 #include "qgsmessagelog.h"
 
@@ -23,14 +23,14 @@
 #include <QFile>
 #include <QtAndroid>
 
-AndroidPictureSource::AndroidPictureSource( const QString &prefix )
-  : PictureSource( nullptr, prefix )
+AndroidResourceSource::AndroidResourceSource( const QString &prefix )
+  : ResourceSource( nullptr, prefix )
   , QAndroidActivityResultReceiver()
   , mPrefix( prefix )
 {
 }
 
-void AndroidPictureSource::handleActivityResult( int receiverRequestCode, int resultCode, const QAndroidJniObject &data )
+void AndroidResourceSource::handleActivityResult( int receiverRequestCode, int resultCode, const QAndroidJniObject &data )
 {
   if ( receiverRequestCode == 171 )
   {
@@ -46,11 +46,11 @@ void AndroidPictureSource::handleActivityResult( int receiverRequestCode, int re
 
       QString picture_image_relative_path = picture_image_path.toString().remove( mPrefix );
 
-      emit pictureReceived( picture_image_relative_path );
+      emit resourceReceived( picture_image_relative_path );
     }
     else
     {
-      emit pictureReceived( QString() );
+      emit resourceReceived( QString() );
     }
   }
 }
