@@ -422,6 +422,43 @@ ResourceSource *AndroidPlatformUtilities::getGalleryPicture( QQuickItem *parent,
   return pictureSource;
 }
 
+ResourceSource *AndroidPlatformUtilities::getFile( QQuickItem *parent, const QString &prefix, const QString &filePath )
+{
+  Q_UNUSED( parent )
+
+  const QFileInfo destinationInfo( prefix + filePath );
+  const QDir prefixDir( prefix );
+  prefixDir.mkpath( destinationInfo.absolutePath() );
+
+  QAndroidJniObject activity = QAndroidJniObject::fromString( QStringLiteral( "ch.opengis." APP_PACKAGE_NAME ".QFieldFilePickerActivity" ) );
+  QAndroidJniObject intent = QAndroidJniObject( "android/content/Intent", "(Ljava/lang/String;)V", activity.object<jstring>() );
+  QAndroidJniObject packageName = QAndroidJniObject::fromString( QStringLiteral( "ch.opengis." APP_PACKAGE_NAME ) );
+
+  intent.callObjectMethod( "setClassName", "(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;", packageName.object<jstring>(), activity.object<jstring>() );
+
+  QAndroidJniObject filePath_label = QAndroidJniObject::fromString( "filePath" );
+  QAndroidJniObject filePath_value = QAndroidJniObject::fromString( filePath );
+
+  intent.callObjectMethod( "putExtra",
+                           "(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;",
+                           filePath_label.object<jstring>(),
+                           filePath_value.object<jstring>() );
+
+  QAndroidJniObject prefix_label = QAndroidJniObject::fromString( "prefix" );
+  QAndroidJniObject prefix_value = QAndroidJniObject::fromString( prefix );
+
+  intent.callObjectMethod( "putExtra",
+                           "(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;",
+                           prefix_label.object<jstring>(),
+                           prefix_value.object<jstring>() );
+
+  AndroidResourceSource *fileSource = new AndroidResourceSource( prefix );
+
+  QtAndroid::startActivity( intent.object<jobject>(), 171, fileSource );
+
+  return fileSource;
+}
+
 ViewStatus *AndroidPlatformUtilities::open( const QString &uri, bool editing )
 {
   if ( QFileInfo( uri ).isDir() )
