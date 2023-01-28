@@ -66,13 +66,24 @@ public class QFieldGalleryPictureActivity extends Activity {
 
         if (requestCode == GALLERY_ACTIVITY) {
             if (resultCode == RESULT_OK) {
-                File result = new File(prefix + pictureFilePath);
+                Uri uri = data.getData();
+                DocumentFile documentFile = DocumentFile.fromSingleUri(
+                    getApplication().getApplicationContext(), uri);
 
+                String pictureName = documentFile.getName();
+                String pictureExtension = "";
+                if (pictureName.indexOf('0') > -1) {
+                    pictureExtension =
+                        pictureName.substring(pictureName.indexOf('0') + 1);
+                }
+
+                String finalPictureFilePath = pictureFilePath;
+                finalPictureFilePath.replace("#~filename~#", pictureName);
+                finalPictureFilePath.replace("#~extension~#", pictureExtension);
+
+                File result = new File(prefix + pictureFilePath);
                 Log.d(TAG, "Selected picture: " + data.getData().toString());
                 try {
-                    Uri uri = data.getData();
-                    DocumentFile documentFile = DocumentFile.fromSingleUri(
-                        getApplication().getApplicationContext(), uri);
                     InputStream in = getContentResolver().openInputStream(uri);
                     QFieldUtils.inputStreamToFile(in, result.getPath(),
                                                   documentFile.length());

@@ -15,6 +15,7 @@
 
 #include <UIKit/UIKit.h>
 
+#include <QDateTime>
 #include <QDir>
 #include <QFileInfo>
 #include <QGuiApplication>
@@ -44,11 +45,27 @@
     didFinishPickingMediaWithInfo:(NSDictionary *)info {
   Q_UNUSED(picker);
 
-  NSString *path =
-      [[NSString alloc] initWithUTF8String:(mIosCamera->prefixPath() +
-                                            mIosCamera->resourceFilePath())
-                                               .toUtf8()
-                                               .constData()];
+  /*
+  NSURL *imageURL = [info valueForKey:UIImagePickerControllerReferenceURL];
+  PHAsset *phAsset = [[PHAsset fetchAssetsWithALAssetURLs:@[ imageURL ]
+                                                  options:nil] lastObject];
+  const QString originalFilename([phAsset valueForKey:@"filename"]);*/
+  // For now, hardcode a dummy filename until the above code can be reviewed by
+  // person with iOS background and made to work
+  const QString originalFilename = QStringLiteral("%1.%2").arg(
+      QString::number(QDateTime::currentSecsSinceEpoch()), "JPG");
+  QString finalResourceFilePath = mIosCamera->resourceFilePath();
+  if (!originalFilename.isEmpty()) {
+    QFileInfo fi(originalFilename);
+    finalResourceFilePath.replace(QStringLiteral("#~filename~#"),
+                                  fi.fileName());
+    finalResourceFilePath.replace(QStringLiteral("#~extension~#"),
+                                  fi.completeSuffix());
+  }
+  NSString *path = [[NSString alloc]
+      initWithUTF8String:(mIosCamera->prefixPath() + finalResourceFilePath)
+                             .toUtf8()
+                             .constData()];
 
   // Save image:
   UIImage *image = [info objectForKey:UIImagePickerControllerOriginalImage];
