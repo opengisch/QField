@@ -69,18 +69,8 @@ public class QFieldGalleryPictureActivity extends Activity {
                 Uri uri = data.getData();
                 DocumentFile documentFile = DocumentFile.fromSingleUri(
                     getApplication().getApplicationContext(), uri);
-
-                String pictureName = documentFile.getName();
-                String pictureExtension = "";
-                if (pictureName.indexOf('0') > -1) {
-                    pictureExtension =
-                        pictureName.substring(pictureName.indexOf('0') + 1);
-                }
-
-                String finalPictureFilePath = pictureFilePath;
-                finalPictureFilePath.replace("#~filename~#", pictureName);
-                finalPictureFilePath.replace("#~extension~#", pictureExtension);
-
+                String finalPictureFilePath = QFieldUtils.replaceFilenameTags(
+                    pictureFilePath, documentFile.getName());
                 File result = new File(prefix + pictureFilePath);
                 Log.d(TAG, "Selected picture: " + data.getData().toString());
                 try {
