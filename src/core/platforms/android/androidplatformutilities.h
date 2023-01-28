@@ -52,6 +52,8 @@ class AndroidPlatformUtilities : public PlatformUtilities
 
     ResourceSource *getCameraPicture( QQuickItem *parent, const QString &prefix, const QString &pictureFilePath, const QString &suffix ) override;
     ResourceSource *getGalleryPicture( QQuickItem *parent, const QString &prefix, const QString &pictureFilePath ) override;
+    ResourceSource *getFile( QQuickItem *parent, const QString &prefix, const QString &filePath ) override;
+
     ViewStatus *open( const QString &uri, bool editing ) override;
 
     bool checkPositioningPermissions() const override;
