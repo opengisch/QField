@@ -265,7 +265,7 @@ EditorWidgetBase {
 
     visible: documentViewer == 0 && isEnabled
 
-    anchors.right: galleryButton.left
+    anchors.right: cameraButton.left
     anchors.top: parent.top
 
     bgcolor: "transparent"
