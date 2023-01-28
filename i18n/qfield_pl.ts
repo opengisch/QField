@@ -1548,6 +1548,10 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
         <translation>Nie można było wysłać załącznika zapisanego w &quot;%1&quot;, powód:
 %2</translation>
     </message>
+    <message>
+        <source>Login error due to unexpected redirect, please retry later</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>QFieldCloudDeltaHistory</name>
@@ -2648,11 +2652,11 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
     <name>SerialPortDeviceChooser</name>
     <message>
         <source>Select the serial port from the list below:</source>
-        <translation type="unfinished"/>
+        <translation>Wybierz port szeregowy z poniższej listy:</translation>
     </message>
     <message>
         <source>No serial ports detected, refresh the list once a device is connected.</source>
-        <translation type="unfinished"/>
+        <translation>Nie wykryto portów szeregowych, proszę odświeżyć listę po podłączeniu urządzenia.</translation>
     </message>
     <message>
         <source>Refresh list</source>
@@ -2675,7 +2679,7 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
     </message>
     <message>
         <source>Attempt to read from the serial port returned an error</source>
-        <translation type="unfinished"/>
+        <translation>Błąd próby odczytu z portu szeregowego</translation>
     </message>
     <message>
         <source>The connection was refused due to not having enough permission</source>
@@ -2683,7 +2687,7 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
     </message>
     <message>
         <source>Serial port receiver error (%1)</source>
-        <translation type="unfinished"/>
+        <translation>Błąd odbiornika na porcie szeregowym (%1)</translation>
     </message>
 </context>
 <context>
@@ -2739,15 +2743,15 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
     </message>
     <message>
         <source>The connection was refused by the remote hose</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Połączenie zostało odrzucone przez zdalny serwer</translation>
     </message>
     <message>
         <source>UDP receiver error (%1)</source>
-        <translation type="unfinished"/>
+        <translation>Błąd odbiornika UDP (%1)</translation>
     </message>
     <message>
         <source>The connection was refused by the remote host</source>
-        <translation type="unfinished"/>
+        <translation>Połączenie zostało odrzucone przez zdalny serwer</translation>
     </message>
 </context>
 <context>
@@ -2828,7 +2832,7 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
     </message>
     <message>
         <source>Elapsed time (seconds since start of tracking)</source>
-        <translation type="unfinished"/>
+        <translation>Czas (sekund od początku śledzenia)</translation>
     </message>
     <message>
         <source>Timestamp (milliseconds since epoch)</source>
@@ -2906,15 +2910,15 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
     </message>
     <message>
         <source>The connection was refused by the remote hose</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Połączenie zostało odrzucone przez zdalny serwer</translation>
     </message>
     <message>
         <source>UDP receiver error (%1)</source>
-        <translation type="unfinished"/>
+        <translation>Błąd odbiornika UDP (%1)</translation>
     </message>
     <message>
         <source>The connection was refused by the remote host</source>
-        <translation type="unfinished"/>
+        <translation>Połączenie zostało odrzucone przez zdalny serwer</translation>
     </message>
 </context>
 <context>

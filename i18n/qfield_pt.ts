@@ -1555,6 +1555,10 @@ As geometrias dos recursos serão combinadas no recurso &apos;% &apos;, que mant
         <translation>Falha ao carregar o anexo armazenado em `%1`, motivo:
 %2</translation>
     </message>
+    <message>
+        <source>Login error due to unexpected redirect, please retry later</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>QFieldCloudDeltaHistory</name>

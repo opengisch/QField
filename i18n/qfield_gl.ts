@@ -1553,6 +1553,10 @@ As xeometrías das entidades combinaranse na entidade &apos;%1&apos;, a cal cons
         <translation>Non se puido subir o ficheiro anexo almacenado en  `%1`, motivo:
 %2</translation>
     </message>
+    <message>
+        <source>Login error due to unexpected redirect, please retry later</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>QFieldCloudDeltaHistory</name>

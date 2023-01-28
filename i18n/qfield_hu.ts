@@ -1551,6 +1551,10 @@ Az elem geometriákat összevonjuk a &apos;%1&apos; elembe, mely megőrzi az att
 %2</source>
         <translation>Nem sikerült feltölteni a `%1` címen tárolt mellékletet, oka:%2</translation>
     </message>
+    <message>
+        <source>Login error due to unexpected redirect, please retry later</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>QFieldCloudDeltaHistory</name>

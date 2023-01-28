@@ -1557,6 +1557,10 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
         <translation>Не вдалося завантажити вкладений файл, який зберігається в `%1`, причина:
 %2</translation>
     </message>
+    <message>
+        <source>Login error due to unexpected redirect, please retry later</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>QFieldCloudDeltaHistory</name>

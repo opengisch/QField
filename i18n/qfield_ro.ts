@@ -1557,6 +1557,10 @@ Motiv:
         <translation>Nu s-a putut încărca atașamentul stocat la `%1`, motiv:
 % 2</translation>
     </message>
+    <message>
+        <source>Login error due to unexpected redirect, please retry later</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>QFieldCloudDeltaHistory</name>

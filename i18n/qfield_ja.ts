@@ -1551,6 +1551,10 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
         <translation>%1` に保存されている添付ファイルのアップロードに失敗しました。理由:
 %2</translation>
     </message>
+    <message>
+        <source>Login error due to unexpected redirect, please retry later</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>QFieldCloudDeltaHistory</name>

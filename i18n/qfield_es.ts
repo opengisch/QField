@@ -1555,6 +1555,10 @@ Las geometrías de los objetos se combinarán en el objeto &apos;%1&apos;, que c
         <translation>No se pudo cargar el archivo adjunto almacenado en `%1`, motivo:
 %2</translation>
     </message>
+    <message>
+        <source>Login error due to unexpected redirect, please retry later</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>QFieldCloudDeltaHistory</name>

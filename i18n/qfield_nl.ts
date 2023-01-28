@@ -1553,6 +1553,10 @@ De geometrieën van objecten zullen worden gecombineerd tot object &apos;%1&apos
         <translation>Kan bijlage niet uploaden die is opgeslagen op &apos;%1&apos;, reden:
 %2</translation>
     </message>
+    <message>
+        <source>Login error due to unexpected redirect, please retry later</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>QFieldCloudDeltaHistory</name>

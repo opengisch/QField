@@ -1554,6 +1554,10 @@ Geometrija objekata će se kombinovati u objekat &apos;%1&apos;, koji će zadrž
         <translation>Nije uspjelo dodavanje priloga u `%1`, razlog:
 %2</translation>
     </message>
+    <message>
+        <source>Login error due to unexpected redirect, please retry later</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>QFieldCloudDeltaHistory</name>

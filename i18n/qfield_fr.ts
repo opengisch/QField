@@ -1554,6 +1554,10 @@ Les géométries des objets vont être combinées dans l&apos;objet &apos;%1&apo
         <translation>Impossible d&apos;envoyer la pièce jointe stockée à `%1`, raison:
 %2</translation>
     </message>
+    <message>
+        <source>Login error due to unexpected redirect, please retry later</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>QFieldCloudDeltaHistory</name>

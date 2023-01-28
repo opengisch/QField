@@ -1551,6 +1551,10 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
         <translation>无法上传存储在`%1`的附件，原因：
 %2</translation>
     </message>
+    <message>
+        <source>Login error due to unexpected redirect, please retry later</source>
+        <translation>由于意外重定向导致登录错误，请稍后重试</translation>
+    </message>
 </context>
 <context>
     <name>QFieldCloudDeltaHistory</name>

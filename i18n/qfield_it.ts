@@ -1555,6 +1555,10 @@ Le geometrie degli elementi verranno combinati in un elemento &apos;%1&apos; che
         <translation>Impossibile caricare l&apos;allegato archiviato in `%1`. Motivo:
 %2 </translation>
     </message>
+    <message>
+        <source>Login error due to unexpected redirect, please retry later</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>QFieldCloudDeltaHistory</name>

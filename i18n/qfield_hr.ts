@@ -1555,6 +1555,10 @@ Geometrija elemenata će se spojiti u element &apos;%1&apos;, koji će zadržati
         <translation>Neuspješno učitavanje privitka spremljenog u `%1`, razlog:
 %2</translation>
     </message>
+    <message>
+        <source>Login error due to unexpected redirect, please retry later</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>QFieldCloudDeltaHistory</name>
