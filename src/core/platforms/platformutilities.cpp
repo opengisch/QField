@@ -272,6 +272,40 @@ ResourceSource *PlatformUtilities::getGalleryPicture( QQuickItem *parent, const 
   return new ResourceSource( nullptr, prefix, QString() );
 }
 
+ResourceSource *PlatformUtilities::getFile( QQuickItem *parent, const QString &prefix, const QString &filePath )
+{
+  Q_UNUSED( parent )
+  QString fileName = QFileDialog::getOpenFileName( nullptr, tr( "Select File" ), prefix, tr( "All files (*.*)" ) );
+  QFileInfo fi( fileName );
+  if ( fi.exists() )
+  {
+    // if the file is already in the prefixed path, no need to copy
+    if ( fileName.startsWith( prefix ) )
+    {
+      return new ResourceSource( nullptr, prefix, fileName );
+    }
+    else
+    {
+      QString finalFilePath = filePath;
+
+      finalFilePath.replace( QStringLiteral( "#~filename~#" ), fi.fileName() );
+      finalFilePath.replace( QStringLiteral( "#~extension~#" ), fi.completeSuffix() );
+
+      QString destinationFile = prefix + finalFilePath;
+      QFileInfo destinationInfo( destinationFile );
+      QDir prefixDir( prefix );
+      if ( prefixDir.mkpath( destinationInfo.absolutePath() ) && QFile::copy( fileName, destinationFile ) )
+      {
+        return new ResourceSource( nullptr, prefix, destinationFile );
+      }
+    }
+
+    QgsMessageLog::logMessage( tr( "Failed to save file" ), "QField", Qgis::Critical );
+  }
+
+  return new ResourceSource( nullptr, prefix, QString() );
+}
+
 ViewStatus *PlatformUtilities::open( const QString &uri, bool )
 {
   QDesktopServices::openUrl( QStringLiteral( "file://%1" ).arg( uri ) );
