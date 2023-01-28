@@ -97,8 +97,8 @@ EditorWidgetBase {
     feature: currentFeature
     layer: currentLayer
     expressionText: {
-      if ( currentLayer && currentLayer.customProperty('QFieldSync/photo_naming') !== undefined ) {
-        var value =JSON.parse(currentLayer.customProperty('QFieldSync/photo_naming'))[field.name];
+      if ( currentLayer && currentLayer.customProperty('QFieldSync/resource_naming') !== undefined ) {
+        var value =JSON.parse(currentLayer.customProperty('QFieldSync/resource_naming'))[field.name];
         return value !== undefined ? value : ''
       } else {
         return ''
@@ -112,11 +112,13 @@ EditorWidgetBase {
     if (FileUtils.fileSuffix(evaluatedFilepath) === '') {
       // we need an extension for media types (image, audio, video), fallback to hardcoded values
       if (documentViewer == 1) {
-        filePath = 'DCIM/JPEG_' + (new Date()).toISOString().replace(/[^0-9]/g, '') + '.jpg';
+        filepath = 'DCIM/JPEG_' + (new Date()).toISOString().replace(/[^0-9]/g, '') + '.#~extension~#';
       } else if (documentViewer == 3) {
-        filePath = 'audio/AUDIO_' + (new Date()).toISOString().replace(/[^0-9]/g, '') + '.mp3';
+        filepath = 'audio/AUDIO_' + (new Date()).toISOString().replace(/[^0-9]/g, '') + '.#~extension~#';
       } else if (documentViewer == 4) {
-        filePath = 'video/VIDEO_' + (new Date()).toISOString().replace(/[^0-9]/g, '') + '.mp4';
+        filepath = 'video/VIDEO_' + (new Date()).toISOString().replace(/[^0-9]/g, '') + '.#~extension~#';
+      } else {
+        filepath = 'files/' + (new Date()).toISOString().replace(/[^0-9]/g, '') + '#~filename~#';
       }
     }
     filepath = filepath.replace('\\', '/')
@@ -365,7 +367,7 @@ EditorWidgetBase {
 
         onFinished: {
           var filepath = getResourceFilePath()
-          platformUtilities.renameFile( path, prefixToRelativePath + filepath)
+          platformUtilities.renameFile(path, prefixToRelativePath + filepath)
 
           var maximumWidhtHeight = iface.readProjectNumEntry("qfieldsync", "maximumImageWidthHeight", 0)
           if(maximumWidhtHeight > 0) {
