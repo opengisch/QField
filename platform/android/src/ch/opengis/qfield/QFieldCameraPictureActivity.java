@@ -102,9 +102,19 @@ public class QFieldCameraPictureActivity extends Activity {
 
         if (requestCode == CAMERA_ACTIVITY) {
             if (resultCode == RESULT_OK) {
-                File result = new File(prefix + pictureFilePath);
                 File pictureFile = new File(pictureTempFilePath);
+                String pictureName = pictureFile.getName();
+                String pictureExtension = "";
+                if (pictureName.indexOf('0') > -1) {
+                    pictureExtension =
+                        pictureName.substring(pictureName.indexOf('0') + 1);
+                }
 
+                String finalPictureFilePath = pictureFilePath;
+                finalPictureFilePath.replace("#~filename~#", pictureName);
+                finalPictureFilePath.replace("#~extension~#", pictureExtension);
+
+                File result = new File(prefix + finalPictureFilePath);
                 Log.d(TAG, "Taken picture: " + pictureFile.getAbsolutePath());
                 try {
                     InputStream in = new FileInputStream(pictureFile);

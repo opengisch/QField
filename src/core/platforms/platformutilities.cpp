@@ -242,8 +242,8 @@ ResourceSource *PlatformUtilities::getGalleryPicture( QQuickItem *parent, const 
 {
   Q_UNUSED( parent )
   QString fileName = QFileDialog::getOpenFileName( nullptr, tr( "Select Media File" ), prefix, tr( "JPEG images (*.jpg *.jpeg)" ) );
-
-  if ( QFileInfo::exists( fileName ) )
+  QFileInfo fi( fileName );
+  if ( fi.exists() )
   {
     // if the file is already in the prefixed path, no need to copy
     if ( fileName.startsWith( prefix ) )
@@ -252,7 +252,12 @@ ResourceSource *PlatformUtilities::getGalleryPicture( QQuickItem *parent, const 
     }
     else
     {
-      QString destinationFile = prefix + pictureFilePath;
+      QString finalPictureFilePath = pictureFilePath;
+
+      finalPictureFilePath.replace( QStringLiteral( "#~filename~#" ), fi.fileName() );
+      finalPictureFilePath.replace( QStringLiteral( "#~extension~#" ), fi.completeSuffix() );
+
+      QString destinationFile = prefix + finalPictureFilePath;
       QFileInfo destinationInfo( destinationFile );
       QDir prefixDir( prefix );
       if ( prefixDir.mkpath( destinationInfo.absolutePath() ) && QFile::copy( fileName, destinationFile ) )
