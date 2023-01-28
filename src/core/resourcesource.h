@@ -1,5 +1,5 @@
 /***************************************************************************
-  picturesource.h - PictureSource
+  resourcesource.h - ResourceSource
 
  ---------------------
  begin                : 5.7.2016
@@ -13,42 +13,42 @@
  *   (at your option) any later version.                                   *
  *                                                                         *
  ***************************************************************************/
-#ifndef PICTURESOURCE_H
-#define PICTURESOURCE_H
+#ifndef RESOURCESOURCE_H
+#define RESOURCESOURCE_H
 
 #include <QObject>
 
 /**
- * A picture source object will be created when a new picture is requested from the system.
+ * A resource source object will be created when a new resource is requested from the system.
  * It should be subclassed and filled with platform specific code.
  */
-class PictureSource : public QObject
+class ResourceSource : public QObject
 {
     Q_OBJECT
   public:
     /**
-     * Construct a new Picture Source object.
+     * Construct a new ResourceSource object.
      *
-     * @note Subclasses which implement their own file dialog should provide an empty string for \a pictureFilePath and emit \a pictureReceived when appropriate.
+     * @note Subclasses which implement their own file dialog should provide an empty string for \a resourceFilePath and emit \a resourceReceived when appropriate.
      * @param parent Parent object
      * @param prefix The project folder. Base directory path for all relative paths.
-     * @param pictureFilePath Suggested file path to permanently store the file. If the file is not existing yet, it must be an empty string.
+     * @param resourceFilePath Suggested file path to permanently store the file. If the file is not existing yet, it must be an empty string.
      */
-    explicit PictureSource( QObject *parent = nullptr, const QString &prefix = QString(), const QString &pictureFilePath = QString() );
+    explicit ResourceSource( QObject *parent = nullptr, const QString &prefix = QString(), const QString &resourceFilePath = QString() );
 
     /**
-     * Destroy the Picture Source object
+     * Destroy the ResourceSource object
      */
-    virtual ~PictureSource();
+    virtual ~ResourceSource();
 
   signals:
 
     /**
-     * Emit this signal when a picture really has been received.
+     * Emit this signal when a resource really has been received.
      *
-     * @note When the constructor received a non-empty \a pictureFilePath, the signal is emitted in the constructor.
+     * @note When the constructor received a non-empty \a resourceFilePath, the signal is emitted in the constructor.
      */
-    void pictureReceived( const QString &path );
+    void resourceReceived( const QString &path );
 
   private:
     /**
@@ -59,7 +59,7 @@ class PictureSource : public QObject
     /**
      * Suggested file path to permanently store the file. If the file is not existing yet, it must be an empty string.
      */
-    QString mPictureFilePath;
+    QString mResourceFilePath;
 };
 
-#endif // PICTURESOURCE_H
+#endif // RESOURCESOURCE_H

@@ -17,13 +17,13 @@
  ***************************************************************************/
 
 #include "fileutils.h"
-#include "picturesource.h"
 #include "platformutilities.h"
 #include "projectsource.h"
 #include "qfield.h"
 #include "qfieldcloudconnection.h"
 #include "qgismobileapp.h"
 #include "qgsmessagelog.h"
+#include "resourcesource.h"
 
 #include <QClipboard>
 #include <QDebug>
@@ -229,7 +229,7 @@ void PlatformUtilities::removeFolder( const QString &path ) const
   Q_UNUSED( path )
 }
 
-PictureSource *PlatformUtilities::getCameraPicture( QQuickItem *parent, const QString &prefix, const QString &pictureFilePath, const QString &suffix )
+ResourceSource *PlatformUtilities::getCameraPicture( QQuickItem *parent, const QString &prefix, const QString &pictureFilePath, const QString &suffix )
 {
   Q_UNUSED( parent )
   Q_UNUSED( prefix )
@@ -238,7 +238,7 @@ PictureSource *PlatformUtilities::getCameraPicture( QQuickItem *parent, const QS
   return nullptr;
 }
 
-PictureSource *PlatformUtilities::getGalleryPicture( QQuickItem *parent, const QString &prefix, const QString &pictureFilePath )
+ResourceSource *PlatformUtilities::getGalleryPicture( QQuickItem *parent, const QString &prefix, const QString &pictureFilePath )
 {
   Q_UNUSED( parent )
   QString fileName = QFileDialog::getOpenFileName( nullptr, tr( "Select Media File" ), prefix, tr( "JPEG images (*.jpg *.jpeg)" ) );
@@ -248,7 +248,7 @@ PictureSource *PlatformUtilities::getGalleryPicture( QQuickItem *parent, const Q
     // if the file is already in the prefixed path, no need to copy
     if ( fileName.startsWith( prefix ) )
     {
-      return new PictureSource( nullptr, prefix, fileName );
+      return new ResourceSource( nullptr, prefix, fileName );
     }
     else
     {
@@ -257,14 +257,14 @@ PictureSource *PlatformUtilities::getGalleryPicture( QQuickItem *parent, const Q
       QDir prefixDir( prefix );
       if ( prefixDir.mkpath( destinationInfo.absolutePath() ) && QFile::copy( fileName, destinationFile ) )
       {
-        return new PictureSource( nullptr, prefix, destinationFile );
+        return new ResourceSource( nullptr, prefix, destinationFile );
       }
     }
 
     QgsMessageLog::logMessage( tr( "Failed to save gallery picture" ), "QField", Qgis::Critical );
   }
 
-  return new PictureSource( nullptr, prefix, QString() );
+  return new ResourceSource( nullptr, prefix, QString() );
 }
 
 ViewStatus *PlatformUtilities::open( const QString &uri, bool )

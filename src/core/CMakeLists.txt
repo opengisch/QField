@@ -70,7 +70,7 @@ set(QFIELD_CORE_SRCS
     networkreply.cpp
     orderedrelationmodel.cpp
     peliasgeocoder.cpp
-    picturesource.cpp
+    resourcesource.cpp
     printlayoutlistmodel.cpp
     projectinfo.cpp
     projectsource.cpp
@@ -171,7 +171,7 @@ set(QFIELD_CORE_HDRS
     networkreply.h
     orderedrelationmodel.h
     peliasgeocoder.h
-    picturesource.h
+    resourcesource.h
     printlayoutlistmodel.h
     projectinfo.h
     projectsource.h
@@ -222,23 +222,23 @@ if(ANDROID)
   set(QFIELD_CORE_HDRS
       ${QFIELD_CORE_HDRS}
       platforms/android/androidplatformutilities.h
-      platforms/android/androidpicturesource.h
+      platforms/android/androidresourcesource.h
       platforms/android/androidviewstatus.h
       platforms/android/androidprojectsource.h
       ${CMAKE_CURRENT_BINARY_DIR}/qfield_android.h)
   set(QFIELD_CORE_SRCS
       ${QFIELD_CORE_SRCS}
       platforms/android/androidplatformutilities.cpp
-      platforms/android/androidpicturesource.cpp
+      platforms/android/androidresourcesource.cpp
       platforms/android/androidviewstatus.cpp
       platforms/android/androidprojectsource.cpp)
 elseif(${CMAKE_SYSTEM_NAME} STREQUAL "iOS")
   set(QFIELD_CORE_HDRS
       ${QFIELD_CORE_HDRS} platforms/ios/iosplatformutilities.h
-      platforms/ios/iospicturesource.h platforms/ios/iosprojectsource.h)
+      platforms/ios/iosresourcesource.h platforms/ios/iosprojectsource.h)
   set(QFIELD_CORE_SRCS
       ${QFIELD_CORE_SRCS} platforms/ios/iosplatformutilities.mm
-      platforms/ios/iospicturesource.mm platforms/ios/iosprojectsource.mm)
+      platforms/ios/iosresourcesource.mm platforms/ios/iosprojectsource.mm)
 endif()
 
 find_package(SQLite3 REQUIRED)
