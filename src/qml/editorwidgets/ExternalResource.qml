@@ -112,13 +112,13 @@ EditorWidgetBase {
     if (FileUtils.fileSuffix(evaluatedFilepath) === '') {
       // we need an extension for media types (image, audio, video), fallback to hardcoded values
       if (documentViewer == 1) {
-        filepath = 'DCIM/JPEG_' + (new Date()).toISOString().replace(/[^0-9]/g, '') + '.#~extension~#';
+        filepath = 'DCIM/JPEG_' + (new Date()).toISOString().replace(/[^0-9]/g, '') + '.{extension}';
       } else if (documentViewer == 3) {
-        filepath = 'audio/AUDIO_' + (new Date()).toISOString().replace(/[^0-9]/g, '') + '.#~extension~#';
+        filepath = 'audio/AUDIO_' + (new Date()).toISOString().replace(/[^0-9]/g, '') + '.{extension}';
       } else if (documentViewer == 4) {
-        filepath = 'video/VIDEO_' + (new Date()).toISOString().replace(/[^0-9]/g, '') + '.#~extension~#';
+        filepath = 'video/VIDEO_' + (new Date()).toISOString().replace(/[^0-9]/g, '') + '.{extension}';
       } else {
-        filepath = 'files/' + (new Date()).toISOString().replace(/[^0-9]/g, '') + '#~filename~#';
+        filepath = 'files/' + (new Date()).toISOString().replace(/[^0-9]/g, '') + '_{filename}';
       }
     }
     filepath = filepath.replace('\\', '/')
