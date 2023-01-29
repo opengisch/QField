@@ -1,5 +1,6 @@
 import QtQuick 2.14
 import QtQuick.Controls 2.14
+import QtQuick.Layouts 1.14
 import QtQuick.Window 2.14
 import QtMultimedia 5.14
 
@@ -77,7 +78,8 @@ EditorWidgetBase {
     if (currentValue != undefined && currentValue !== '')
     {
       image.visible = isImage
-      geoTagBadge.visible = isImage
+      player.visible = isVideo
+      playerControls.visible = isVideo || isAudio
       if (isImage) {
         mediaFrame.height = 200
 
@@ -85,9 +87,15 @@ EditorWidgetBase {
         image.hasImage = true
         image.opacity = 1
         image.anchors.topMargin = 0
-        image.source= 'file://' + prefixToRelativePath + value
+        image.source = 'file://' + prefixToRelativePath + value
         geoTagBadge.hasGeoTag = ExifTools.hasGeoTag(prefixToRelativePath + value)
         geoTagBadge.visible = true
+      } else if (isAudio) {
+        mediaFrame.height = 54
+        player.source = 'file://' + prefixToRelativePath + value
+      } else if (isVideo) {
+        mediaFrame.height = 254
+        player.source = 'file://' + prefixToRelativePath + value
       }
     }
   }
@@ -186,7 +194,7 @@ EditorWidgetBase {
 
   Rectangle {
     id: mediaFrame
-    width: parent.width - fileButton.width - galleryButton.width - cameraButton.width
+    width: parent.width - fileButton.width - galleryButton.width - cameraButton.width - (isEnabled ? 5 : 0)
     height: 48
     visible: !linkField.visible
     color: isEnabled ? Theme.lightGray : "transparent"
@@ -248,6 +256,106 @@ EditorWidgetBase {
         source: geoTagBadge
       }
     }
+
+    Video {
+      id: player
+
+      anchors.left: parent.left
+      anchors.top: parent.top
+
+      width: parent.width
+      height: parent.height - 54
+
+      autoLoad: true
+      autoPlay: true
+
+      property bool firstFrameDrawn: false
+
+      onPlaybackStateChanged: {
+        if (!firstFrameDrawn && playbackState == MediaPlayer.PlayingState) {
+          firstFrameDrawn = true;
+          pause();
+        }
+      }
+
+      onDurationChanged: {
+        positionSlider.to = duration / 1000;
+        positionSlider.value = 0;
+      }
+
+      onPositionChanged: {
+        positionSlider.value = position / 1000;
+      }
+    }
+
+    RowLayout {
+      id: playerControls
+
+      anchors.left: parent.left
+      anchors.bottom: parent.bottom
+      anchors.margins: 5
+      width: parent.width - 10
+
+      QfToolButton {
+        id: playButton
+
+        iconSource: player.playbackState == MediaPlayer.PlayingState
+                    ? Theme.getThemeVectorIcon('ic_pause_black_24dp')
+                    : Theme.getThemeVectorIcon('ic_play_black_24dp')
+        bgcolor: "transparent"
+
+        onClicked: {
+          if (player.playbackState == MediaPlayer.PlayingState) {
+            player.pause()
+          } else {
+            player.play()
+          }
+        }
+      }
+
+      Slider {
+        id: positionSlider
+        Layout.fillWidth: true
+
+        from: 0
+        to: 0
+
+        enabled: to > 0
+
+        onMoved: {
+          player.seek(value * 1000)
+        }
+      }
+
+      Label {
+        id: durationLabel
+        Layout.preferredWidth: durationLabelMetrics.boundingRect('00:00:00').width
+
+        color: player.playbackState == MediaPlayer.PlayingState ? 'black' : 'gray'
+        font: Theme.tipFont
+        horizontalAlignment: Text.AlignHCenter
+        verticalAlignment: Text.AlignVCenter
+
+        text: {
+          if (player.duration > 0) {
+            var seconds = Math.ceil(player.duration / 1000);
+            var hours = Math.floor(seconds / 60 / 60) + '';
+            seconds -= hours * 60 * 60;
+            var minutes = Math.floor(seconds / 60) + '';
+            seconds = (seconds - minutes * 60) + '';
+            return hours.padStart(2,'0') + ':' + minutes.padStart(2,'0') + ':' + seconds.padStart(2,'0');
+          } else {
+            return '-';
+          }
+        }
+      }
+
+      FontMetrics {
+        id: durationLabelMetrics
+        font: durationLabel.font
+      }
+    }
+
     Rectangle {
       color: "transparent"
       anchors.left: parent.left
