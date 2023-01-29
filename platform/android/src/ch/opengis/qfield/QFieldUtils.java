@@ -49,8 +49,8 @@ public class QFieldUtils {
             extension = filename.substring(dotIndex + 1);
         }
 
-        string.replace("#~filename~#", filename);
-        string.replace("#~extension~#", extension);
+        string.replace("{filename}", filename);
+        string.replace("{extension}", extension);
 
         return string;
     }
