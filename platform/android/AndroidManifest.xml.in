@@ -253,11 +253,14 @@
       <!-- Background running -->
     </activity>
 
-    <!-- Activity to get picture with the native camera -->
+    <!-- Activity to get pictures with the native camera -->
     <activity android:name="ch.opengis.@APP_PACKAGE_NAME@.QFieldCameraPictureActivity" android:configChanges="orientation|screenSize|screenLayout|keyboardHidden" />
 
-    <!-- Activity to get picture from the gallery -->
-    <activity android:name="ch.opengis.@APP_PACKAGE_NAME@.QFieldGalleryPictureActivity" android:configChanges="orientation|screenSize|screenLayout|keyboardHidden" />
+    <!-- Activity to get pictures or videos from the gallery -->
+    <activity android:name="ch.opengis.@APP_PACKAGE_NAME@.QFieldGalleryActivity" android:configChanges="orientation|screenSize|screenLayout|keyboardHidden" />
+
+    <!-- Activity to get files from the gallery -->
+    <activity android:name="ch.opengis.@APP_PACKAGE_NAME@.QFieldFilePickerActivity" android:configChanges="orientation|screenSize|screenLayout|keyboardHidden" />
 
     <!-- Activity to open file externally -->
     <activity android:name="ch.opengis.@APP_PACKAGE_NAME@.QFieldOpenExternallyActivity" />

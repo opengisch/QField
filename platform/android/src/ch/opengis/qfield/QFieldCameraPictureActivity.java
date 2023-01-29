@@ -116,12 +116,12 @@ public class QFieldCameraPictureActivity extends Activity {
                 }
 
                 Intent intent = this.getIntent();
-                intent.putExtra("PICTURE_IMAGE_FILENAME",
+                intent.putExtra("RESOURCE_FILENAME",
                                 prefix + finalPictureFilePath);
                 setResult(RESULT_OK, intent);
             } else {
                 Intent intent = this.getIntent();
-                intent.putExtra("PICTURE_IMAGE_FILENAME", "");
+                intent.putExtra("RESOURCE_FILENAME", "");
                 setResult(RESULT_CANCELED, intent);
             }
             finish();

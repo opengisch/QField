@@ -40,7 +40,7 @@ void AndroidResourceSource::handleActivityResult( int receiverRequestCode, int r
       QAndroidJniObject extras = data.callObjectMethod( "getExtras", "()Landroid/os/Bundle;" );
 
 
-      QAndroidJniObject media_path = QAndroidJniObject::fromString( "MEDIA_FILENAME" );
+      QAndroidJniObject media_path = QAndroidJniObject::fromString( "RESOURCE_FILENAME" );
       media_path = extras.callObjectMethod( "getString", "(Ljava/lang/String;)Ljava/lang/String;",
                                             media_path.object<jstring>() );
 

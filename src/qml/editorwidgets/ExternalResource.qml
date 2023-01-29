@@ -409,6 +409,8 @@ EditorWidgetBase {
       Qt.inputMethod.hide()
       if ( platformUtilities.capabilities & PlatformUtilities.NativeCamera && settings.valueBool("nativeCamera", true) ) {
         var filepath = getResourceFilePath()
+        // Pictures taken by cameras will always be JPG
+        filepath = filepath.replace('{extension}', 'JPG')
         __resourceSource = platformUtilities.getCameraPicture(this, qgisProject.homePath+'/', filepath, FileUtils.fileSuffix(filepath) )
       } else {
         platformUtilities.createDir( qgisProject.homePath, 'DCIM' )
@@ -482,6 +484,8 @@ EditorWidgetBase {
 
         onFinished: {
           var filepath = getResourceFilePath()
+          // Pictures taken by cameras will always be JPG
+          filepath = filepath.replace('{extension}', 'JPG')
           platformUtilities.renameFile(path, prefixToRelativePath + filepath)
 
           var maximumWidhtHeight = iface.readProjectNumEntry("qfieldsync", "maximumImageWidthHeight", 0)

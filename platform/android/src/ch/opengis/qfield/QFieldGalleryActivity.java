@@ -85,11 +85,11 @@ public class QFieldGalleryActivity extends Activity {
                 }
 
                 Intent intent = this.getIntent();
-                intent.putExtra("MEDIA_FILENAME", prefix + finalFilePath);
+                intent.putExtra("RESOURCE_FILENAME", prefix + finalFilePath);
                 setResult(RESULT_OK, intent);
             } else {
                 Intent intent = this.getIntent();
-                intent.putExtra("MEDIA_FILENAME", "");
+                intent.putExtra("RESOURCE_FILENAME", "");
                 setResult(RESULT_CANCELED, intent);
             }
 
