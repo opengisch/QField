@@ -34,6 +34,7 @@ class IosResourceSource : public ResourceSource
   public slots:
     void takePicture();
     void pickGalleryPicture();
+    void pickGalleryVideo();
 
   private:
     QQuickItem *mParent = nullptr;

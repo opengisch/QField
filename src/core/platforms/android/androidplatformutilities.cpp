@@ -385,27 +385,25 @@ ResourceSource *AndroidPlatformUtilities::getCameraPicture( QQuickItem *parent, 
   return pictureSource;
 }
 
-ResourceSource *AndroidPlatformUtilities::getGalleryPicture( QQuickItem *parent, const QString &prefix, const QString &pictureFilePath )
+ResourceSource *AndroidPlatformUtilities::processGalleryActivity( const QString &prefix, const QString &filePath, const QString &mimeType )
 {
-  Q_UNUSED( parent )
-
-  const QFileInfo destinationInfo( prefix + pictureFilePath );
+  const QFileInfo destinationInfo( prefix + filePath );
   const QDir prefixDir( prefix );
   prefixDir.mkpath( destinationInfo.absolutePath() );
 
-  QAndroidJniObject activity = QAndroidJniObject::fromString( QStringLiteral( "ch.opengis." APP_PACKAGE_NAME ".QFieldGalleryPictureActivity" ) );
+  QAndroidJniObject activity = QAndroidJniObject::fromString( QStringLiteral( "ch.opengis." APP_PACKAGE_NAME ".QFieldGalleryActivity" ) );
   QAndroidJniObject intent = QAndroidJniObject( "android/content/Intent", "(Ljava/lang/String;)V", activity.object<jstring>() );
   QAndroidJniObject packageName = QAndroidJniObject::fromString( QStringLiteral( "ch.opengis." APP_PACKAGE_NAME ) );
 
   intent.callObjectMethod( "setClassName", "(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;", packageName.object<jstring>(), activity.object<jstring>() );
 
-  QAndroidJniObject pictureFilePath_label = QAndroidJniObject::fromString( "pictureFilePath" );
-  QAndroidJniObject pictureFilePath_value = QAndroidJniObject::fromString( pictureFilePath );
+  QAndroidJniObject filePath_label = QAndroidJniObject::fromString( "filePath" );
+  QAndroidJniObject filePath_value = QAndroidJniObject::fromString( filePath );
 
   intent.callObjectMethod( "putExtra",
                            "(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;",
-                           pictureFilePath_label.object<jstring>(),
-                           pictureFilePath_value.object<jstring>() );
+                           filePath_label.object<jstring>(),
+                           filePath_value.object<jstring>() );
 
   QAndroidJniObject prefix_label = QAndroidJniObject::fromString( "prefix" );
   QAndroidJniObject prefix_value = QAndroidJniObject::fromString( prefix );
@@ -415,11 +413,33 @@ ResourceSource *AndroidPlatformUtilities::getGalleryPicture( QQuickItem *parent,
                            prefix_label.object<jstring>(),
                            prefix_value.object<jstring>() );
 
+  QAndroidJniObject mimeType_label = QAndroidJniObject::fromString( "mimeType" );
+  QAndroidJniObject mimeType_value = QAndroidJniObject::fromString( mimeType );
+
+  intent.callObjectMethod( "putExtra",
+                           "(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;",
+                           mimeType_label.object<jstring>(),
+                           mimeType_value.object<jstring>() );
+
   AndroidResourceSource *pictureSource = new AndroidResourceSource( prefix );
 
   QtAndroid::startActivity( intent.object<jobject>(), 171, pictureSource );
 
   return pictureSource;
+}
+
+ResourceSource *AndroidPlatformUtilities::getGalleryPicture( QQuickItem *parent, const QString &prefix, const QString &pictureFilePath )
+{
+  Q_UNUSED( parent )
+
+  return processGalleryActivity( prefix, pictureFilePath, QStringLiteral( "image/*" ) );
+}
+
+ResourceSource *AndroidPlatformUtilities::getGalleryVideo( QQuickItem *parent, const QString &prefix, const QString &videoFilePath )
+{
+  Q_UNUSED( parent )
+
+  return processGalleryActivity( prefix, videoFilePath, QStringLiteral( "video/*" ) );
 }
 
 ResourceSource *AndroidPlatformUtilities::getFile( QQuickItem *parent, const QString &prefix, const QString &filePath )

@@ -21,12 +21,13 @@ import java.io.OutputStream;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-public class QFieldGalleryPictureActivity extends Activity {
-    private static final String TAG = "QField Gallery Picture Activity";
+public class QFieldGalleryActivity extends Activity {
+    private static final String TAG = "QField Gallery Activity";
     private static final int GALLERY_ACTIVITY = 173;
 
     private String prefix;
-    private String pictureFilePath;
+    private String filePath;
+    private String mimeType;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,16 +35,18 @@ public class QFieldGalleryPictureActivity extends Activity {
         super.onCreate(savedInstanceState);
 
         Intent intent = getIntent();
-        if (!intent.hasExtra("prefix") || !intent.hasExtra("pictureFilePath")) {
-            Log.d(TAG, "QFieldGalleryPictureActivity missing extras");
+        if (!intent.hasExtra("prefix") || !intent.hasExtra("filePath") ||
+            !intent.hasExtra("mimeType")) {
+            Log.d(TAG, "QFieldGalleryActivity missing extras");
             finish();
             return;
         }
 
         prefix = intent.getExtras().getString("prefix");
-        pictureFilePath = intent.getExtras().getString("pictureFilePath");
-        Log.d(TAG, "Received prefix: " + prefix +
-                       " and pictureFilePath: " + pictureFilePath);
+        filePath = intent.getExtras().getString("filePath");
+        mimeType = intent.getExtras().getString("mimeType");
+
+        Log.d(TAG, "Received prefix: " + prefix + " and filePath: " + filePath);
 
         callGalleryIntent();
 
@@ -53,7 +56,7 @@ public class QFieldGalleryPictureActivity extends Activity {
     private void callGalleryIntent() {
         Log.d(TAG, "callGalleryIntent()");
         Intent intent = new Intent();
-        intent.setType("image/*");
+        intent.setType(mimeType);
         intent.setAction(Intent.ACTION_GET_CONTENT);
         startActivityForResult(intent, GALLERY_ACTIVITY);
     }
@@ -69,10 +72,10 @@ public class QFieldGalleryPictureActivity extends Activity {
                 Uri uri = data.getData();
                 DocumentFile documentFile = DocumentFile.fromSingleUri(
                     getApplication().getApplicationContext(), uri);
-                String finalPictureFilePath = QFieldUtils.replaceFilenameTags(
-                    pictureFilePath, documentFile.getName());
-                File result = new File(prefix + finalPictureFilePath);
-                Log.d(TAG, "Selected picture: " + data.getData().toString());
+                String finalFilePath = QFieldUtils.replaceFilenameTags(
+                    filePath, documentFile.getName());
+                File result = new File(prefix + finalFilePath);
+                Log.d(TAG, "Selected file: " + data.getData().toString());
                 try {
                     InputStream in = getContentResolver().openInputStream(uri);
                     QFieldUtils.inputStreamToFile(in, result.getPath(),
@@ -82,12 +85,11 @@ public class QFieldGalleryPictureActivity extends Activity {
                 }
 
                 Intent intent = this.getIntent();
-                intent.putExtra("PICTURE_IMAGE_FILENAME",
-                                prefix + finalPictureFilePath);
+                intent.putExtra("MEDIA_FILENAME", prefix + finalFilePath);
                 setResult(RESULT_OK, intent);
             } else {
                 Intent intent = this.getIntent();
-                intent.putExtra("PICTURE_IMAGE_FILENAME", "");
+                intent.putExtra("MEDIA_FILENAME", "");
                 setResult(RESULT_CANCELED, intent);
             }
 

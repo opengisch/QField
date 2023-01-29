@@ -45,6 +45,9 @@ class IosPlatformUtilities : public PlatformUtilities
     virtual ResourceSource *
       getGalleryPicture( QQuickItem *parent, const QString &prefix,
                          const QString &pictureFilePath ) override;
+    virtual ResourceSource *
+      getGalleryVideo( QQuickItem *parent, const QString &prefix,
+                       const QString &videoFilePath ) override;
     virtual ViewStatus *open( const QString &uri, bool editing = false ) override;
     virtual ProjectSource *openProject( QObject *parent = nullptr ) override;
 

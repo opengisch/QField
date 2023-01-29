@@ -424,7 +424,7 @@ EditorWidgetBase {
     height: 48
 
     // QField has historically handled no viewer type as image, let's carry that on
-    visible: (documentViewer == 0 || documentViewer == 1) && isEnabled
+    visible: (documentViewer == 0 || documentViewer == 1 || documentViewer == 4) && isEnabled
 
     anchors.right: parent.right
     anchors.top: parent.top
@@ -434,7 +434,11 @@ EditorWidgetBase {
     onClicked: {
       Qt.inputMethod.hide()
       var filepath = getResourceFilePath()
-      __resourceSource = platformUtilities.getGalleryPicture(this, qgisProject.homePath+'/', filepath)
+      if (documentViewer == 4) {
+        __resourceSource = platformUtilities.getGalleryVideo(this, qgisProject.homePath+'/', filepath)
+      } else {
+        __resourceSource = platformUtilities.getGalleryPicture(this, qgisProject.homePath+'/', filepath)
+      }
     }
 
     iconSource: Theme.getThemeIcon("baseline_photo_library_black_24")

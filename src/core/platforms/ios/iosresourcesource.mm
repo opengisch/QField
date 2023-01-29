@@ -13,6 +13,7 @@
  *                                                                         *
  ***************************************************************************/
 
+#include <MobileCoreServices/MobileCoreServices.h>
 #include <UIKit/UIKit.h>
 
 #include <QDateTime>
@@ -45,36 +46,62 @@
 - (void)imagePickerController:(UIImagePickerController *)picker
     didFinishPickingMediaWithInfo:(NSDictionary *)info {
   Q_UNUSED(picker);
+  NSString *mediaType = [info objectForKey:UIImagePickerControllerMediaType];
+  if (CFStringCompare((__bridge CFStringRef)mediaType, kUTTypeMovie, 0) ==
+      kCFCompareEqualTo) {
+    NSURL *videoUrl =
+        (NSURL *)[info objectForKey:UIImagePickerControllerMediaURL];
 
-  /*
-  NSURL *imageURL = [info valueForKey:UIImagePickerControllerReferenceURL];
-  PHAsset *phAsset = [[PHAsset fetchAssetsWithALAssetURLs:@[ imageURL ]
-                                                  options:nil] lastObject];
-  const QString originalFilename([phAsset valueForKey:@"filename"]);*/
-  // For now, hardcode a dummy filename until the above code can be reviewed by
-  // person with iOS background and made to work
-  const QString originalFilename = QStringLiteral("%1.%2").arg(
-      QString::number(QDateTime::currentSecsSinceEpoch()), "JPG");
-  QString finalResourceFilePath = mIosCamera->resourceFilePath();
-  if (!originalFilename.isEmpty()) {
-    QFileInfo fi(originalFilename);
-    finalResourceFilePath =
-        StringUtils::replaceFilenameTags(finalResourceFilePath, fi.fileName());
+    /*
+    NSString *moviePath = [videoUrl path];*/
+    // For now, hardcode a dummy filename until the above code can be reviewed
+    // by person with iOS background and made to work
+    const QString originalFilename = QStringLiteral("%1.%2").arg(
+        QString::number(QDateTime::currentSecsSinceEpoch()), "MP4");
+    QString finalResourceFilePath = mIosCamera->resourceFilePath();
+    if (!originalFilename.isEmpty()) {
+      QFileInfo fi(originalFilename);
+      finalResourceFilePath = StringUtils::replaceFilenameTags(
+          finalResourceFilePath, fi.fileName());
+    }
+    NSString *path = [[NSString alloc]
+        initWithUTF8String:(mIosCamera->prefixPath() + finalResourceFilePath)
+                               .toUtf8()
+                               .constData()];
+
+    NSData *videoData = [NSData dataWithContentsOfURL:videoUrl];
+    [videoData writeToFile:path atomically:NO];
+  } else {
+    /*
+    NSURL *imageURL = [info valueForKey:UIImagePickerControllerReferenceURL];
+    PHAsset *phAsset = [[PHAsset fetchAssetsWithALAssetURLs:@[ imageURL ]
+                                                    options:nil] lastObject];
+    const QString originalFilename([phAsset valueForKey:@"filename"]);*/
+    // For now, hardcode a dummy filename until the above code can be reviewed
+    // by person with iOS background and made to work
+    const QString originalFilename = QStringLiteral("%1.%2").arg(
+        QString::number(QDateTime::currentSecsSinceEpoch()), "JPG");
+    QString finalResourceFilePath = mIosCamera->resourceFilePath();
+    if (!originalFilename.isEmpty()) {
+      QFileInfo fi(originalFilename);
+      finalResourceFilePath = StringUtils::replaceFilenameTags(
+          finalResourceFilePath, fi.fileName());
+    }
+    NSString *path = [[NSString alloc]
+        initWithUTF8String:(mIosCamera->prefixPath() + finalResourceFilePath)
+                               .toUtf8()
+                               .constData()];
+
+    // Save image:
+    UIImage *image = [info objectForKey:UIImagePickerControllerOriginalImage];
+    [UIImagePNGRepresentation(image) writeToFile:path
+                                         options:NSAtomicWrite
+                                           error:nil];
+
+    // Update imagePath property to trigger QML code:
+    QString filePath = /*StringLiteral("file:") +*/ QString::fromNSString(path);
+    emit mIosCamera->resourceReceived(mIosCamera->resourceFilePath());
   }
-  NSString *path = [[NSString alloc]
-      initWithUTF8String:(mIosCamera->prefixPath() + finalResourceFilePath)
-                             .toUtf8()
-                             .constData()];
-
-  // Save image:
-  UIImage *image = [info objectForKey:UIImagePickerControllerOriginalImage];
-  [UIImagePNGRepresentation(image) writeToFile:path
-                                       options:NSAtomicWrite
-                                         error:nil];
-
-  // Update imagePath property to trigger QML code:
-  QString filePath = /*StringLiteral("file:") +*/ QString::fromNSString(path);
-  emit mIosCamera->resourceReceived(mIosCamera->resourceFilePath());
 
   // Bring back Qt's view controller:
   UIViewController *rvc =
@@ -139,6 +166,29 @@ void IosResourceSource::pickGalleryPicture() {
       [[UIImagePickerController alloc] init];
   [imageController setSourceType:UIImagePickerControllerSourceTypePhotoLibrary];
   [imageController setDelegate:id(mDelegate->_cameraDelegate)];
+
+  // Tell the imagecontroller to animate on top:
+  [qtController presentViewController:imageController
+                             animated:YES
+                           completion:nil];
+}
+
+void IosResourceSource::pickGalleryVideo() {
+  // Get the UIView that backs our QQuickWindow:
+  UIView *view = (__bridge UIView *)(QGuiApplication::platformNativeInterface()
+                                         ->nativeResourceForWindow(
+                                             "uiview", mParent->window()));
+  UIViewController *qtController = [[view window] rootViewController];
+
+  // Create a new image picker controller to show on top of Qt's view
+  // controller:
+  UIImagePickerController *imageController =
+      [[UIImagePickerController alloc] init];
+  [imageController setSourceType:UIImagePickerControllerSourceTypePhotoLibrary];
+  [imageController setDelegate:id(mDelegate->_cameraDelegate)];
+
+  imageController.mediaTypes =
+      [NSArray arrayWithObject:(NSString *)kUTTypeMovie];
 
   // Tell the imagecontroller to animate on top:
   [qtController presentViewController:imageController

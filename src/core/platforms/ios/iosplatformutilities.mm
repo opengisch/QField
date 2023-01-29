@@ -127,6 +127,15 @@ ResourceSource *IosPlatformUtilities::getGalleryPicture(
   return pictureSource;
 }
 
+ResourceSource *
+IosPlatformUtilities::getGalleryVideo(QQuickItem *parent, const QString &prefix,
+                                      const QString &videoFilePath) {
+  IosResourceSource *videoSource =
+      new IosResourceSource(parent, prefix, videoFilePath);
+  videoSource->pickGalleryVideo();
+  return videoSource;
+}
+
 ViewStatus *IosPlatformUtilities::open(const QString &uri, bool) {
   // Code from https://bugreports.qt.io/browse/QTBUG-42942
   NSString *nsFilePath = uri.toNSString();

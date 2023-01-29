@@ -52,6 +52,7 @@ class AndroidPlatformUtilities : public PlatformUtilities
 
     ResourceSource *getCameraPicture( QQuickItem *parent, const QString &prefix, const QString &pictureFilePath, const QString &suffix ) override;
     ResourceSource *getGalleryPicture( QQuickItem *parent, const QString &prefix, const QString &pictureFilePath ) override;
+    ResourceSource *getGalleryVideo( QQuickItem *parent, const QString &prefix, const QString &videoFilePath ) override;
     ResourceSource *getFile( QQuickItem *parent, const QString &prefix, const QString &filePath ) override;
 
     ViewStatus *open( const QString &uri, bool editing ) override;
@@ -74,6 +75,7 @@ class AndroidPlatformUtilities : public PlatformUtilities
     void uploadPendingAttachments( QFieldCloudConnection *connection ) const override;
 
   private:
+    ResourceSource *processGalleryActivity( const QString &prefix, const QString &filePath, const QString &mimeType );
     bool checkAndAcquirePermissions( const QString &permissionString ) const;
     QString getIntentExtra( const QString &, QAndroidJniObject = nullptr ) const;
     QAndroidJniObject getNativeIntent() const;

@@ -40,13 +40,13 @@ void AndroidResourceSource::handleActivityResult( int receiverRequestCode, int r
       QAndroidJniObject extras = data.callObjectMethod( "getExtras", "()Landroid/os/Bundle;" );
 
 
-      QAndroidJniObject picture_image_path = QAndroidJniObject::fromString( "PICTURE_IMAGE_FILENAME" );
-      picture_image_path = extras.callObjectMethod( "getString", "(Ljava/lang/String;)Ljava/lang/String;",
-                                                    picture_image_path.object<jstring>() );
+      QAndroidJniObject media_path = QAndroidJniObject::fromString( "MEDIA_FILENAME" );
+      media_path = extras.callObjectMethod( "getString", "(Ljava/lang/String;)Ljava/lang/String;",
+                                            media_path.object<jstring>() );
 
-      QString picture_image_relative_path = picture_image_path.toString().remove( mPrefix );
+      QString media_relative_path = media_path.toString().remove( mPrefix );
 
-      emit resourceReceived( picture_image_relative_path );
+      emit resourceReceived( media_relative_path );
     }
     else
     {
