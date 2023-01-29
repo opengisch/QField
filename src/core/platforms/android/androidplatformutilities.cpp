@@ -472,6 +472,26 @@ ResourceSource *AndroidPlatformUtilities::getFile( QQuickItem *parent, const QSt
                            prefix_label.object<jstring>(),
                            prefix_value.object<jstring>() );
 
+  QString mimeType;
+  switch ( fileType )
+  {
+    case AudioFiles:
+      mimeType = "audio/*";
+      break;
+    case AllFiles:
+    default:
+      mimeType = "*/*";
+      break;
+  }
+
+  QAndroidJniObject mimeType_label = QAndroidJniObject::fromString( "mimeType" );
+  QAndroidJniObject mimeType_value = QAndroidJniObject::fromString( mimeType );
+
+  intent.callObjectMethod( "putExtra",
+                           "(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;",
+                           mimeType_label.object<jstring>(),
+                           mimeType_value.object<jstring>() );
+
   AndroidResourceSource *fileSource = new AndroidResourceSource( prefix );
 
   QtAndroid::startActivity( intent.object<jobject>(), 171, fileSource );

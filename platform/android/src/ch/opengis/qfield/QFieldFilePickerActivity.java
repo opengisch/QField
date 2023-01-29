@@ -22,6 +22,7 @@ public class QFieldFilePickerActivity extends Activity {
 
     private String prefix;
     private String filePath;
+    private String mimeType;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,7 +30,8 @@ public class QFieldFilePickerActivity extends Activity {
         super.onCreate(savedInstanceState);
 
         Intent intent = getIntent();
-        if (!intent.hasExtra("prefix") || !intent.hasExtra("filePath")) {
+        if (!intent.hasExtra("prefix") || !intent.hasExtra("filePath") ||
+            !intent.hasExtra("mimeType")) {
             Log.d(TAG, "QFieldFilePickerActivity missing extras");
             finish();
             return;
@@ -37,6 +39,7 @@ public class QFieldFilePickerActivity extends Activity {
 
         prefix = intent.getExtras().getString("prefix");
         filePath = intent.getExtras().getString("filePath");
+        mimeType = intent.getExtras().getString("mimeType");
         Log.d(TAG, "Received prefix: " + prefix +
                        " and resourceFilePath: " + filePath);
 
@@ -53,7 +56,7 @@ public class QFieldFilePickerActivity extends Activity {
         intent.addFlags(Intent.FLAG_GRANT_PREFIX_URI_PERMISSION);
         intent.addFlags(Intent.FLAG_GRANT_PERSISTABLE_URI_PERMISSION);
         intent.putExtra(Intent.EXTRA_ALLOW_MULTIPLE, false);
-        intent.setType("*/*");
+        intent.setType(mimeType);
         startActivityForResult(intent, FILE_PICKER_ACTIVITY);
         return;
     }

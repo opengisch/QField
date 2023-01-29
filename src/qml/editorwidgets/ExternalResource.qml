@@ -424,7 +424,7 @@ EditorWidgetBase {
     height: 48
 
     // QField has historically handled no viewer type as image, let's carry that on
-    visible: (documentViewer == 0 || documentViewer == 1 || documentViewer == 4) && isEnabled
+    visible: (documentViewer == 0 || documentViewer == 1 || documentViewer == 3 || documentViewer == 4) && isEnabled
 
     anchors.right: parent.right
     anchors.top: parent.top
@@ -436,6 +436,8 @@ EditorWidgetBase {
       var filepath = getResourceFilePath()
       if (documentViewer == 4) {
         __resourceSource = platformUtilities.getGalleryVideo(this, qgisProject.homePath+'/', filepath)
+      } else if (documentViewer == 3) {
+        __resourceSource = platformUtilities.getFile(this, qgisProject.homePath+'/', filepath, PlatformUtilities.AudioFiles)
       } else {
         __resourceSource = platformUtilities.getGalleryPicture(this, qgisProject.homePath+'/', filepath)
       }
