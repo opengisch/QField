@@ -330,6 +330,7 @@ EditorWidgetBase {
       Label {
         id: durationLabel
         Layout.preferredWidth: durationLabelMetrics.boundingRect('00:00:00').width
+        Layout.rightMargin: 14
 
         color: player.playbackState == MediaPlayer.PlayingState ? 'black' : 'gray'
         font: Theme.tipFont

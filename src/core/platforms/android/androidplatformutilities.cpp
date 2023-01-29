@@ -442,7 +442,7 @@ ResourceSource *AndroidPlatformUtilities::getGalleryVideo( QQuickItem *parent, c
   return processGalleryActivity( prefix, videoFilePath, QStringLiteral( "video/*" ) );
 }
 
-ResourceSource *AndroidPlatformUtilities::getFile( QQuickItem *parent, const QString &prefix, const QString &filePath )
+ResourceSource *AndroidPlatformUtilities::getFile( QQuickItem *parent, const QString &prefix, const QString &filePath, FileType fileType )
 {
   Q_UNUSED( parent )
 
