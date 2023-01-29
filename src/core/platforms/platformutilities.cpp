@@ -242,7 +242,8 @@ ResourceSource *PlatformUtilities::getCameraPicture( QQuickItem *parent, const Q
 ResourceSource *PlatformUtilities::getGalleryPicture( QQuickItem *parent, const QString &prefix, const QString &pictureFilePath )
 {
   Q_UNUSED( parent )
-  QString fileName = QFileDialog::getOpenFileName( nullptr, tr( "Select Media File" ), prefix, tr( "JPEG images (*.jpg *.jpeg)" ) );
+  QString fileName = QFileDialog::getOpenFileName( nullptr, tr( "Select Media File" ), prefix,
+                                                   tr( "All images (*.jpg *.jpeg *.png *.bmp);;JPEG images (*.jpg *.jpeg);;PNG images (*.jpg *.jpeg);;BMP images (*.bmp)" ) );
   QFileInfo fi( fileName );
   if ( fi.exists() )
   {
