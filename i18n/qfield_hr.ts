@@ -1557,7 +1557,7 @@ Geometrija elemenata će se spojiti u element &apos;%1&apos;, koji će zadržati
     </message>
     <message>
         <source>Login error due to unexpected redirect, please retry later</source>
-        <translation type="unfinished"/>
+        <translation>Greška prilikom prijave zbog neočekivanog preusmjeravanja, molim pokušaj ponovo kasnije</translation>
     </message>
 </context>
 <context>
