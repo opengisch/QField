@@ -19,7 +19,7 @@
     </message>
     <message>
         <source>Links Menu</source>
-        <translation type="unfinished"/>
+        <translation>Menu Odkazy</translation>
     </message>
 </context>
 <context>
@@ -183,11 +183,11 @@ Zrušte pro jen minimální skenování zařízení. </translation>
     </message>
     <message>
         <source>Select the Bluetooth device from the list below:</source>
-        <translation type="unfinished"/>
+        <translation>Vyberte zařízení Bluetooth ze seznamu:</translation>
     </message>
     <message>
         <source>Bluetooth device name:</source>
-        <translation type="unfinished"/>
+        <translation>Název zařízení Bluetooth:</translation>
     </message>
     <message>
         <source>N/A</source>
@@ -195,15 +195,15 @@ Zrušte pro jen minimální skenování zařízení. </translation>
     </message>
     <message>
         <source>Bluetooth device address:</source>
-        <translation type="unfinished"/>
+        <translation>Adresa zařízení Bluetooth:</translation>
     </message>
     <message>
         <source>Scan for nearby devices</source>
-        <translation type="unfinished"/>
+        <translation>Vyhledat zařízení nablízku</translation>
     </message>
     <message>
         <source>No Bluetooth devices detected, scan to populate nearby devices.</source>
-        <translation type="unfinished"/>
+        <translation>Nenalezena žádná Bluetooth zařízení, zvolte Skenovat pro naplnění seznamu zařízení nablízku.</translation>
     </message>
 </context>
 <context>
@@ -506,7 +506,7 @@ Zrušte pro jen minimální skenování zařízení. </translation>
     <name>EditorWidgetBase</name>
     <message>
         <source>Item Menu</source>
-        <translation type="unfinished"/>
+        <translation>Menu Položky</translation>
     </message>
 </context>
 <context>
@@ -582,11 +582,11 @@ Zrušte pro jen minimální skenování zařízení. </translation>
     </message>
     <message>
         <source>You are about to dismiss the new feature, proceed?</source>
-        <translation type="unfinished"/>
+        <translation>Chystáte se zahodit nový prvek, pokračovat?</translation>
     </message>
     <message>
         <source>You are about to leave editing state, any changes will be lost. Proceed?</source>
-        <translation type="unfinished"/>
+        <translation>Chystáte se opustit režim úprav, všechny změny budou ztraceny. Pokračovat?</translation>
     </message>
 </context>
 <context>
@@ -725,7 +725,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Set feature as destination</source>
-        <translation>Nastavit prvek jako zdroj</translation>
+        <translation>Nastavit prvek jako cíl</translation>
     </message>
     <message>
         <source>Set feature as navigation</source>
@@ -805,7 +805,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Set navigation point</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Nastavit průjezdní bod</translation>
     </message>
     <message>
         <source>Go to %1° %2° (WGS84)</source>
@@ -934,11 +934,11 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Show visible features list</source>
-        <translation type="unfinished"/>
+        <translation>Ukázat seznam viditelných prvků</translation>
     </message>
     <message>
         <source>Show Features Menu</source>
-        <translation type="unfinished"/>
+        <translation>Zobrazit menu Prvky</translation>
     </message>
 </context>
 <context>
@@ -954,13 +954,14 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <message>
         <source>Cannot commit deletion of feature %2 in layer &quot;%1&quot;. Reason:
 %3</source>
-        <translation>Nelze odeslat  odstranění prvku  %2 ve vrstvě &quot;%1&quot;. Důvod:
+        <translation>Nelze odeslat odstranění prvku %2 ve vrstvě &quot;%1&quot;. Důvod:
 %3</translation>
     </message>
     <message>
         <source>Cannot commit deletion in layer &quot;%1&quot;. Reason:
 %3</source>
-        <translation type="unfinished"/>
+        <translation>Nelze odeslat odstranění ve vrstvě &quot;%1&quot;. Důvod:
+%3</translation>
     </message>
     <message>
         <source>Cannot delete feature %1</source>
@@ -977,11 +978,12 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <message>
         <source>Cannot add new feature in layer &quot;%1&quot;. Reason:
 %2</source>
-        <translation type="unfinished"/>
+        <translation>Nelze přidat nový prvek ve vrstvě &quot;%1&quot;. Důvod:
+%2</translation>
     </message>
     <message>
         <source>Cannot add new feature in layer &quot;%1&quot;.</source>
-        <translation type="unfinished"/>
+        <translation>Nelze přidat nový prvek ve vrstvě &quot;%1&quot;</translation>
     </message>
 </context>
 <context>
@@ -1106,31 +1108,31 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Print Atlas Feature(s) to PDF</source>
-        <translation>Tisk funkce(í) atlasu do PDF</translation>
+        <translation>Tisk prvku(ů) atlasu do PDF</translation>
     </message>
     <message>
         <source>Merge Selected Features</source>
-        <translation>Sloučit vybrané funkce</translation>
+        <translation>Sloučit vybrané prvky</translation>
     </message>
     <message>
         <source>Move Selected Feature(s)</source>
-        <translation type="unfinished"/>
+        <translation>Přesunout vybraný(é) prvek (prvky)</translation>
     </message>
     <message>
         <source>Duplicate Selected Feature(s)</source>
-        <translation type="unfinished"/>
+        <translation>Duplikovat vybraný(é) prvek (prvky)</translation>
     </message>
     <message>
         <source>Delete Selected Feature(s)</source>
-        <translation type="unfinished"/>
+        <translation>Smazat vybraný(é) prvek (prvky)</translation>
     </message>
     <message>
         <source>Feature Menu</source>
-        <translation type="unfinished"/>
+        <translation>Menu Prvek (Objekt)</translation>
     </message>
     <message>
         <source>Print Atlas Feature to PDF</source>
-        <translation>Funkce tisku atlasu do PDF</translation>
+        <translation>Tisk prvku atlasu do PDF</translation>
     </message>
     <message>
         <source>Zoom to Feature</source>
@@ -1142,19 +1144,19 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Set Feature as Destination</source>
-        <translation type="unfinished"/>
+        <translation>Nastavit prvek jako cíl</translation>
     </message>
     <message>
         <source>Move Feature</source>
-        <translation type="unfinished"/>
+        <translation>Přesunout prvek</translation>
     </message>
     <message>
         <source>Duplicate Feature</source>
-        <translation type="unfinished"/>
+        <translation>Duplikovat prvek</translation>
     </message>
     <message>
         <source>Delete Feature</source>
-        <translation type="unfinished"/>
+        <translation>Odstranit prvek</translation>
     </message>
     <message>
         <source>Select template below</source>
@@ -1162,7 +1164,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Printing atlas feature(s) to PDF</source>
-        <translation type="vanished">Tisku prvek(prvky) atlasu do PDF</translation>
+        <translation type="vanished">Tisknu prvek(prvky) atlasu do PDF</translation>
     </message>
     <message>
         <source>Atlas feature(s) successfully printed to PDF and placed in your documents</source>
@@ -1170,23 +1172,23 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Print Atlas Feature(s) to Image</source>
-        <translation type="unfinished"/>
+        <translation>Tisk prvku(ů) atlasu do obrázku</translation>
     </message>
     <message>
         <source>Print Atlas Feature to Image</source>
-        <translation type="unfinished"/>
+        <translation>Tisk prvku atlasu do obrázku</translation>
     </message>
     <message>
         <source>Print Atlas Feature(s)</source>
-        <translation type="unfinished"/>
+        <translation>Tisk prvku(ů) atlasu</translation>
     </message>
     <message>
         <source>Printing...</source>
-        <translation type="unfinished"/>
+        <translation>Tisknu...</translation>
     </message>
     <message>
         <source>Atlas feature(s) successfully printed and placed in your project folder</source>
-        <translation type="unfinished"/>
+        <translation>Prvek(prvky) atlasu úspěšně vytištěný/é do PDF a umístěné ve složce Vašeho projektu</translation>
     </message>
 </context>
 <context>
@@ -1248,7 +1250,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Cannot update features ordering</source>
-        <translation type="unfinished"/>
+        <translation>Nelze aktualizovat řazení prvků</translation>
     </message>
 </context>
 <context>
@@ -1387,39 +1389,39 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <name>PositioningDeviceSettings</name>
     <message>
         <source>Positioning Device Settings</source>
-        <translation type="unfinished"/>
+        <translation>Nastavení polohovacího zařízení</translation>
     </message>
     <message>
         <source>Name:</source>
-        <translation type="unfinished"/>
+        <translation>Název:</translation>
     </message>
     <message>
         <source>Leave empty to auto-fill</source>
-        <translation type="unfinished"/>
+        <translation>Nechte prázdné pro automatické vyplnění</translation>
     </message>
     <message>
         <source>Connection type:</source>
-        <translation type="unfinished"/>
+        <translation>Druh připojení:</translation>
     </message>
     <message>
         <source>Bluetooth</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Bluetooth</translation>
     </message>
     <message>
         <source>Bluetooth (NMEA)</source>
-        <translation type="unfinished"/>
+        <translation>Bluetooth (NMEA)</translation>
     </message>
     <message>
         <source>TCP (NMEA)</source>
-        <translation type="unfinished"/>
+        <translation>TCP (NMEA)</translation>
     </message>
     <message>
         <source>UDP (NMEA)</source>
-        <translation type="unfinished"/>
+        <translation>UDP (NMEA)</translation>
     </message>
     <message>
         <source>Serial port (NMEA)</source>
-        <translation type="unfinished"/>
+        <translation>Sériový port (NMEA)</translation>
     </message>
 </context>
 <context>
@@ -1511,7 +1513,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>[aborted] The request has been aborted.</source>
-        <translation type="unfinished"/>
+        <translation>[přerušeno] Požadavek byl zrušen.</translation>
     </message>
     <message>
         <source>Server Error.</source>
@@ -1544,11 +1546,12 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <message>
         <source>Failed to upload attachment stored at `%1`, reason:
 %2</source>
-        <translation type="unfinished"/>
+        <translation>Nepodařilo se nahrát přílohu uloženou na &quot;%1&quot;, důvod:
+%2</translation>
     </message>
     <message>
         <source>Login error due to unexpected redirect, please retry later</source>
-        <translation type="unfinished"/>
+        <translation>Chyba přihlášení vinou neočekávaného přesměrování, prosím zkuste znovu později</translation>
     </message>
 </context>
 <context>
@@ -1741,7 +1744,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Revert all modified features in the local layers. You cannot restore those changes.</source>
-        <translation type="unfinished"/>
+        <translation>Vrátit všechny změněné prvky v místních vrstvách. Tyto změny nelze obnovit.</translation>
     </message>
     <message>
         <source>Revert all modified features in the local cloud layers. You cannot restore those changes.</source>
@@ -1755,19 +1758,19 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Last synchronized just now</source>
-        <translation type="unfinished"/>
+        <translation>Naposledy synchronizováno právě teď</translation>
     </message>
     <message>
         <source>Last synchronized %1 minutes ago</source>
-        <translation type="unfinished"/>
+        <translation>Naposledy synchronizováno před %1 minutami</translation>
     </message>
     <message>
         <source>Last synchronized at %1</source>
-        <translation type="unfinished"/>
+        <translation>Naposledy synchronizováno v %1</translation>
     </message>
     <message>
         <source>Last synchronized on %1</source>
-        <translation type="unfinished"/>
+        <translation>Naposledy synchronizováno %1</translation>
     </message>
     <message>
         <source>Last changes pushed just now</source>
@@ -1811,7 +1814,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Local changes reverted</source>
-        <translation type="unfinished"/>
+        <translation>Místní změny vráceny</translation>
     </message>
     <message>
         <source>Failed to revert changes</source>
@@ -1819,7 +1822,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>No changes to revert</source>
-        <translation type="unfinished"/>
+        <translation>Žádné změny k vrácení</translation>
     </message>
 </context>
 <context>
@@ -1846,7 +1849,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Failed to download file &quot;%1&quot;, reason:</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Nepodařilo se stáhnout soubor &quot;%1&quot;, důvod:</translation>
     </message>
     <message>
         <source>Failed to write downloaded file stored at &quot;%1&quot;, fs reason:</source>
@@ -1915,32 +1918,34 @@ While you can still view and use the project, it is strongly recommended to rese
     <message>
         <source>Failed to open temporary file for `%1`, reason:
 %2</source>
-        <translation type="unfinished"/>
+        <translation>Nepodařilo se otevřít dočasný soubor pro &quot;%1&quot;, důvod:
+%2</translation>
     </message>
     <message>
         <source>Failed to upload attachment stored at `%1`, reason:
 %2</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Nepodařilo se nahrát přílohu uloženou na &quot;%1&quot;, důvod:
+%2</translation>
     </message>
     <message>
         <source>Network error. Failed to download file `%1`.</source>
-        <translation type="unfinished"/>
+        <translation>Chyba sítě. Nepodařilo se stáhnout soubor `%1`.</translation>
     </message>
     <message>
         <source>File system error. Failed to write file to temporary location `%1`.</source>
-        <translation type="unfinished"/>
+        <translation>Chyba souborového systému. Nepodařilo se zapsat soubor do místa pro dočasné soubory `%1`.</translation>
     </message>
     <message>
         <source>File system error. Failed to open file for writing on temporary `%1`.</source>
-        <translation type="unfinished"/>
+        <translation>Chyba souborového systému. Nepodařilo se otevřít dočasný soubor pro zápis `%1`.</translation>
     </message>
     <message>
         <source>Project `%1`, file `%2`: %3</source>
-        <translation type="unfinished"/>
+        <translation>Projekt `%1`, soubor `%2`: %3</translation>
     </message>
     <message>
         <source>System message: </source>
-        <translation type="unfinished"/>
+        <translation>Systémová zpráva:</translation>
     </message>
     <message>
         <source> (see more in the QField error log)…</source>
@@ -1983,7 +1988,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Downloading, %1% fetched…</source>
-        <translation type="unfinished"/>
+        <translation>Stahuji, %1% hotovo…</translation>
     </message>
     <message>
         <source>QFieldCloud is preparing the latest data just for you. This might take some time, please hold tight…</source>
@@ -2011,7 +2016,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Available locally</source>
-        <translation type="unfinished"/>
+        <translation>K dispozici lokálně</translation>
     </message>
     <message>
         <source>Has changes. </source>
@@ -2031,11 +2036,11 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Remove Stored Project</source>
-        <translation type="unfinished"/>
+        <translation>Odebrat uložený projekt</translation>
     </message>
     <message>
         <source>Cancel Project Download</source>
-        <translation type="unfinished"/>
+        <translation>Zrušit stahování projektu</translation>
     </message>
     <message>
         <source>Press and hold over a cloud project for a menu of additional actions.</source>
@@ -2051,46 +2056,46 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>No projects found</source>
-        <translation type="unfinished"/>
+        <translation>Nenalezeny žádné projekty</translation>
     </message>
 </context>
 <context>
     <name>QFieldLocalDataPickerScreen</name>
     <message>
         <source>Project Folder</source>
-        <translation type="unfinished"/>
+        <translation>Složka projektu</translation>
     </message>
     <message>
         <source>Local Projects &amp; Datasets</source>
-        <translation type="unfinished"/>
+        <translation>Místní projekty a datové sady</translation>
     </message>
     <message>
         <source>Folders</source>
-        <translation type="unfinished"/>
+        <translation>Složky</translation>
     </message>
     <message>
         <source>Projects</source>
-        <translation type="unfinished"/>
+        <translation>Projekty</translation>
     </message>
     <message>
         <source>Datasets</source>
-        <translation type="unfinished"/>
+        <translation>Datové sady</translation>
     </message>
     <message>
         <source>Favorites</source>
-        <translation type="unfinished"/>
+        <translation>Oblíbené</translation>
     </message>
     <message>
         <source>Project file</source>
-        <translation type="unfinished"/>
+        <translation>Soubor projektu</translation>
     </message>
     <message>
         <source>Vector dataset</source>
-        <translation type="unfinished"/>
+        <translation>Vektorová datová sada</translation>
     </message>
     <message>
         <source>Raster dataset</source>
-        <translation type="unfinished"/>
+        <translation>Rastrová datová sada</translation>
     </message>
     <message>
         <source>Send to...</source>
@@ -2098,35 +2103,35 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Export to folder...</source>
-        <translation type="unfinished"/>
+        <translation>Exportovat do složky...</translation>
     </message>
     <message>
         <source>Remove dataset</source>
-        <translation type="unfinished"/>
+        <translation>Odstranit datovou sadu</translation>
     </message>
     <message>
         <source>Send compressed folder to...</source>
-        <translation type="unfinished"/>
+        <translation>Odeslat komprimovanou složku do...</translation>
     </message>
     <message>
         <source>Remove project folder</source>
-        <translation type="unfinished"/>
+        <translation>Odstranit složku projektu</translation>
     </message>
     <message>
         <source>Import project from folder</source>
-        <translation type="unfinished"/>
+        <translation>Importovat projekt ze složky</translation>
     </message>
     <message>
         <source>Import project from ZIP</source>
-        <translation type="unfinished"/>
+        <translation>Importovat projekt ze souboru ZIP</translation>
     </message>
     <message>
         <source>Import dataset(s)</source>
-        <translation type="unfinished"/>
+        <translation>Importovat datovou(é) sadu(y)</translation>
     </message>
     <message>
         <source>Storage management help</source>
-        <translation type="unfinished"/>
+        <translation>Nápověda ke správě úložiště</translation>
     </message>
 </context>
 <context>
@@ -2379,7 +2384,7 @@ Zrušte pro jen minimální skenování zařízení. </translation>
     </message>
     <message>
         <source>Ground speed</source>
-        <translation type="unfinished"/>
+        <translation>Rychlost vůči zemi</translation>
     </message>
     <message>
         <source>Bearing</source>
@@ -2387,11 +2392,11 @@ Zrušte pro jen minimální skenování zařízení. </translation>
     </message>
     <message>
         <source>Horizontal accuracy</source>
-        <translation type="unfinished"/>
+        <translation>Vodorovná přesnost</translation>
     </message>
     <message>
         <source>Vertical accuracy</source>
-        <translation type="unfinished"/>
+        <translation>Svislá přesnost</translation>
     </message>
     <message>
         <source>PDOP</source>
@@ -2411,11 +2416,11 @@ Zrušte pro jen minimální skenování zařízení. </translation>
     </message>
     <message>
         <source>Add</source>
-        <translation type="unfinished"/>
+        <translation>Přidat</translation>
     </message>
     <message>
         <source>Edit</source>
-        <translation type="unfinished"/>
+        <translation>Upravit</translation>
     </message>
     <message>
         <source>Remove</source>
@@ -2462,7 +2467,7 @@ Zrušte pro jen minimální skenování zařízení. </translation>
     </message>
     <message>
         <source>Multiple Projects</source>
-        <translation type="unfinished"/>
+        <translation>Více projektů</translation>
     </message>
     <message>
         <source>Invalid delta file</source>
@@ -2478,7 +2483,7 @@ Zrušte pro jen minimální skenování zařízení. </translation>
     </message>
     <message>
         <source>QGIS export failed</source>
-        <translation type="unfinished"/>
+        <translation>Export QGIS se nezdařil</translation>
     </message>
     <message>
         <source>QGIS is unable to open the QGIS project</source>
@@ -2645,42 +2650,42 @@ Zrušte pro jen minimální skenování zařízení. </translation>
     <name>SerialPortDeviceChooser</name>
     <message>
         <source>Select the serial port from the list below:</source>
-        <translation type="unfinished"/>
+        <translation>Vyberte sériový port ze seznamu:</translation>
     </message>
     <message>
         <source>No serial ports detected, refresh the list once a device is connected.</source>
-        <translation type="unfinished"/>
+        <translation>Nebyly rozpoznány žádné sériové porty, obnovte seznam až bude zařízení připojeno.</translation>
     </message>
     <message>
         <source>Refresh list</source>
-        <translation type="unfinished"/>
+        <translation>Obnovit seznam</translation>
     </message>
     <message>
         <source>Serial port display name:</source>
-        <translation type="unfinished"/>
+        <translation>Zobrazovné jméno sériového portu:</translation>
     </message>
     <message>
         <source>Serial port address:</source>
-        <translation type="unfinished"/>
+        <translation>Adresa sériového portu:</translation>
     </message>
 </context>
 <context>
     <name>SerialPortReceiver</name>
     <message>
         <source>Could not find the serial port device</source>
-        <translation type="unfinished"/>
+        <translation>Zařízení sériového portu nenalezeno</translation>
     </message>
     <message>
         <source>Attempt to read from the serial port returned an error</source>
-        <translation type="unfinished"/>
+        <translation>Pokus o čtení ze sériového portu vrátil chybu</translation>
     </message>
     <message>
         <source>The connection was refused due to not having enough permission</source>
-        <translation type="unfinished"/>
+        <translation>Spojení bylo odmítnuto pro nedostatečné oprávnění</translation>
     </message>
     <message>
         <source>Serial port receiver error (%1)</source>
-        <translation type="unfinished"/>
+        <translation>Chyba sériového přijímače (%1)</translation>
     </message>
 </context>
 <context>
@@ -2701,11 +2706,11 @@ Zrušte pro jen minimální skenování zařízení. </translation>
     <name>TcpDeviceChooser</name>
     <message>
         <source>Address:</source>
-        <translation type="unfinished"/>
+        <translation>Adresa:</translation>
     </message>
     <message>
         <source>Port:</source>
-        <translation type="unfinished"/>
+        <translation>Port:</translation>
     </message>
 </context>
 <context>
@@ -2736,15 +2741,15 @@ Zrušte pro jen minimální skenování zařízení. </translation>
     </message>
     <message>
         <source>The connection was refused by the remote hose</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Připojení bylo odmítnuto vzdáleným hostitelem</translation>
     </message>
     <message>
         <source>UDP receiver error (%1)</source>
-        <translation type="unfinished"/>
+        <translation>Chyba UDP přijímače (%1)</translation>
     </message>
     <message>
         <source>The connection was refused by the remote host</source>
-        <translation type="unfinished"/>
+        <translation>Připojení bylo odmítnuto vzdáleným hostitelem</translation>
     </message>
 </context>
 <context>
@@ -2825,7 +2830,7 @@ Zrušte pro jen minimální skenování zařízení. </translation>
     </message>
     <message>
         <source>Elapsed time (seconds since start of tracking)</source>
-        <translation type="unfinished"/>
+        <translation>Uplynulý čas (sekundy od začátku sledování)</translation>
     </message>
     <message>
         <source>Timestamp (milliseconds since epoch)</source>
@@ -2833,7 +2838,7 @@ Zrušte pro jen minimální skenování zařízení. </translation>
     </message>
     <message>
         <source>Ground speed</source>
-        <translation type="unfinished"/>
+        <translation>Rychlost vůči zemi</translation>
     </message>
     <message>
         <source>Bearing</source>
@@ -2841,11 +2846,11 @@ Zrušte pro jen minimální skenování zařízení. </translation>
     </message>
     <message>
         <source>Horizontal accuracy</source>
-        <translation type="unfinished"/>
+        <translation>Vodorovná přesnost</translation>
     </message>
     <message>
         <source>Vertical accuracy</source>
-        <translation type="unfinished"/>
+        <translation>Svislá přesnost</translation>
     </message>
     <message>
         <source>PDOP</source>
@@ -2868,11 +2873,11 @@ Zrušte pro jen minimální skenování zařízení. </translation>
     <name>UdpDeviceChooser</name>
     <message>
         <source>Address:</source>
-        <translation type="unfinished"/>
+        <translation>Adresa:</translation>
     </message>
     <message>
         <source>Port:</source>
-        <translation type="unfinished"/>
+        <translation>Port:</translation>
     </message>
 </context>
 <context>
@@ -2903,15 +2908,15 @@ Zrušte pro jen minimální skenování zařízení. </translation>
     </message>
     <message>
         <source>The connection was refused by the remote hose</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Připojení bylo odmítnuto vzdáleným hostitelem</translation>
     </message>
     <message>
         <source>UDP receiver error (%1)</source>
-        <translation type="unfinished"/>
+        <translation>Chyba UDP přijímače (%1)</translation>
     </message>
     <message>
         <source>The connection was refused by the remote host</source>
-        <translation type="unfinished"/>
+        <translation>Připojení bylo odmítnuto vzdáleným hostitelem</translation>
     </message>
 </context>
 <context>
@@ -3019,11 +3024,11 @@ Zrušte pro jen minimální skenování zařízení. </translation>
     </message>
     <message>
         <source>Adding child feature in layer %1</source>
-        <translation type="unfinished"/>
+        <translation>Přidávám podřízený prvek ve vrstvě %1</translation>
     </message>
     <message>
         <source>Cannot add child feature: parent primary keys are not available</source>
-        <translation type="unfinished"/>
+        <translation>Nelze přidat podřízený prvek: základní primární klíče nejsou k dispozici.</translation>
     </message>
     <message>
         <source>Unlink feature %1 (%2) of %3</source>
@@ -3254,35 +3259,35 @@ Zrušte pro jen minimální skenování zařízení. </translation>
     </message>
     <message>
         <source>Precise View Settings</source>
-        <translation type="unfinished"/>
+        <translation>Nastavení přesného pohledu</translation>
     </message>
     <message>
         <source>0.25m Precision</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Přesnost 0,25m</translation>
     </message>
     <message>
         <source>0.5m Precision</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Přesnost 0,5m</translation>
     </message>
     <message>
         <source>1m Precision</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Přesnost 1m</translation>
     </message>
     <message>
         <source>2.5m Precision</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Přesnost 2,5m</translation>
     </message>
     <message>
         <source>5m Precision</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Přesnost 5m</translation>
     </message>
     <message>
         <source>10m Precision</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Přesnost 10m</translation>
     </message>
     <message>
         <source>Always Show Precise View</source>
-        <translation type="unfinished"/>
+        <translation>Vždy zobrazovat přesný pohled</translation>
     </message>
     <message>
         <source>Center to Location</source>
@@ -3322,7 +3327,7 @@ Zrušte pro jen minimální skenování zařízení. </translation>
     </message>
     <message>
         <source>Enable Audio Proximity Feedback</source>
-        <translation type="unfinished"/>
+        <translation>Zapnout zvukovou zpětnou vazbu blízkosti</translation>
     </message>
     <message>
         <source>Positioning Options</source>
@@ -3430,19 +3435,19 @@ Zrušte pro jen minimální skenování zařízení. </translation>
     </message>
     <message>
         <source>Print to Image</source>
-        <translation type="unfinished"/>
+        <translation>Tisk do obrázku</translation>
     </message>
     <message>
         <source>Printing...</source>
-        <translation type="unfinished"/>
+        <translation>Tisknu...</translation>
     </message>
     <message>
         <source>Print</source>
-        <translation type="unfinished"/>
+        <translation>Vytisknout</translation>
     </message>
     <message>
         <source>Positioning device error: %1</source>
-        <translation type="unfinished"/>
+        <translation>Chyba polohovacího zařízení: %1</translation>
     </message>
 </context>
 <context>
@@ -3453,11 +3458,11 @@ Zrušte pro jen minimální skenování zařízení. </translation>
     </message>
     <message>
         <source>Adding child feature in layer %1</source>
-        <translation type="unfinished"/>
+        <translation>Přidávám podřízený prvek ve vrstvě %1</translation>
     </message>
     <message>
         <source>Cannot add child feature: parent primary keys are not available</source>
-        <translation type="unfinished"/>
+        <translation>Nelze přidat podřízený prvek: základní primární klíče nejsou k dispozici.</translation>
     </message>
     <message>
         <source>Unlink feature %1 (%2) of %3</source>

@@ -53,7 +53,7 @@
     <string name="export_to_folder_error">Vybraný adresář projektu nebyl správně exportován.</string>
     <string name="send_to">Odeslat</string>
     <string name="send_compressed_to">Odeslat zabalený adresář</string>
-    <string name="export_to_folder">Exportovat adresář</string>
+    <string name="export_to_folder">Exportovat do složky</string>
     <string name="add_to_favorite">Přidat do Oblíbených</string>
     <string name="remove_from_favorite">Odstranit z Oblíbených</string>
     <string name="remove_dataset">Odstranit dataset</string>
@@ -69,4 +69,5 @@
     <string name="storage_information_dismiss">Přečtu si to později</string>
     <string name="import_project_wait">Chvilku strpení, než QField naimportuje projekt</string>
     <string name="import_dataset_wait">Chvilku strpení, než QField naimportuje dataset(y)</string>
-    </resources>
+    <string name="upload_pending_attachments">Nahrávám přílohy do QFieldCloudu</string>
+</resources>
