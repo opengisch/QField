@@ -621,7 +621,7 @@ Zrušte pro jen minimální skenování zařízení. </translation>
     </message>
     <message>
         <source>Successfully duplicated selected features, list updated to show newly-created features</source>
-        <translation type="unfinished"/>
+        <translation>Vybrané prvky byly úspěšně duplikovány, vypsat aktualizované zobrazí nově vytvořené prvky</translation>
     </message>
     <message>
         <source>No feature at this position</source>
