@@ -102,9 +102,10 @@ public class QFieldCameraPictureActivity extends Activity {
 
         if (requestCode == CAMERA_ACTIVITY) {
             if (resultCode == RESULT_OK) {
-                File result = new File(prefix + pictureFilePath);
                 File pictureFile = new File(pictureTempFilePath);
-
+                String finalPictureFilePath = QFieldUtils.replaceFilenameTags(
+                    pictureFilePath, pictureFile.getName());
+                File result = new File(prefix + finalPictureFilePath);
                 Log.d(TAG, "Taken picture: " + pictureFile.getAbsolutePath());
                 try {
                     InputStream in = new FileInputStream(pictureFile);
@@ -115,12 +116,12 @@ public class QFieldCameraPictureActivity extends Activity {
                 }
 
                 Intent intent = this.getIntent();
-                intent.putExtra("PICTURE_IMAGE_FILENAME",
-                                prefix + pictureFilePath);
+                intent.putExtra("RESOURCE_FILENAME",
+                                prefix + finalPictureFilePath);
                 setResult(RESULT_OK, intent);
             } else {
                 Intent intent = this.getIntent();
-                intent.putExtra("PICTURE_IMAGE_FILENAME", "");
+                intent.putExtra("RESOURCE_FILENAME", "");
                 setResult(RESULT_CANCELED, intent);
             }
             finish();

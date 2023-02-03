@@ -17,6 +17,7 @@
 
 #include "stringutils.h"
 
+#include <QFileInfo>
 #include <QRegularExpression>
 #include <QUuid>
 #if _QGIS_VERSION_INT >= 32500
@@ -160,4 +161,14 @@ const QStringList StringUtils::csvToStringList( const QString &string )
   }
   values << value;
   return std::move( values );
+}
+
+QString StringUtils::replaceFilenameTags( const QString &string, const QString &filename )
+{
+  // IMPORTANT: an equivalent Java function QFieldUtils on Android needs to be kept synchronized
+  QString replacedString = string;
+  QFileInfo fi( filename );
+  replacedString.replace( QStringLiteral( "{filename}" ), fi.fileName() );
+  replacedString.replace( QStringLiteral( "{extension}" ), fi.completeSuffix() );
+  return replacedString;
 }

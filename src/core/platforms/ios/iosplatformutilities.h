@@ -21,7 +21,7 @@
 
 #include "platformutilities.h"
 
-class PictureSource;
+class ResourceSource;
 
 class IosPlatformUtilities : public PlatformUtilities
 {
@@ -38,13 +38,16 @@ class IosPlatformUtilities : public PlatformUtilities
     bool checkPositioningPermissions() const override;
     bool checkCameraPermissions() const override;
     void setScreenLockPermission( const bool allowLock ) override;
-    virtual PictureSource *getCameraPicture( QQuickItem *parent,
-                                             const QString &prefix,
-                                             const QString &pictureFilePath,
-                                             const QString &suffix ) override;
-    virtual PictureSource *
+    virtual ResourceSource *getCameraPicture( QQuickItem *parent,
+                                              const QString &prefix,
+                                              const QString &pictureFilePath,
+                                              const QString &suffix ) override;
+    virtual ResourceSource *
       getGalleryPicture( QQuickItem *parent, const QString &prefix,
                          const QString &pictureFilePath ) override;
+    virtual ResourceSource *
+      getGalleryVideo( QQuickItem *parent, const QString &prefix,
+                       const QString &videoFilePath ) override;
     virtual ViewStatus *open( const QString &uri, bool editing = false ) override;
     virtual ProjectSource *openProject( QObject *parent = nullptr ) override;
 

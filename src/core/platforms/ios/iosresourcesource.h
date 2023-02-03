@@ -12,36 +12,37 @@
  *   (at your option) any later version.                                   *
  *                                                                         *
  ***************************************************************************/
-#ifndef IOSPICTURESOURCE_H
-#define IOSPICTURESOURCE_H
+#ifndef IOSRESOURCESOURCE_H
+#define IOSRESOURCESOURCE_H
 
-#include "picturesource.h"
+#include "resourcesource.h"
 
 
-class IosPictureSource : public PictureSource
+class IosResourceSource : public ResourceSource
 {
     Q_OBJECT
 
   public:
-    explicit IosPictureSource( QObject *parent = nullptr, const QString &prefix = QString(), const QString &pictureFilePath = QString() );
+    explicit IosResourceSource( QObject *parent = nullptr, const QString &prefix = QString(), const QString &resourceFilePath = QString() );
 
-    QString pictureFilePath() const { return mPictureFilePath; }
+    QString resourceFilePath() const { return mResourceFilePath; }
     QString prefixPath() const { return mPrefixPath; }
 
   signals:
-    void pictureReceived( const QString &path );
+    void resourceReceived( const QString &path );
 
   public slots:
     void takePicture();
     void pickGalleryPicture();
+    void pickGalleryVideo();
 
   private:
     QQuickItem *mParent = nullptr;
     QString mPrefixPath;
-    QString mPictureFilePath;
+    QString mResourceFilePath;
     class CameraDelegateContainer;
     CameraDelegateContainer *mDelegate = nullptr;
 };
 
 
-#endif // IOSPICTURESOURCE_H
+#endif // IOSRESOURCESOURCE_H

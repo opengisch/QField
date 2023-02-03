@@ -27,7 +27,7 @@
 
 class QFieldCloudConnection;
 class ProjectSource;
-class PictureSource;
+class ResourceSource;
 
 class QQuickItem;
 class QQuickWindow;
@@ -52,6 +52,13 @@ class QFIELD_CORE_EXPORT PlatformUtilities : public QObject
     };
     Q_DECLARE_FLAGS( Capabilities, Capability )
     Q_FLAGS( Capabilities )
+
+    enum FileType
+    {
+      AllFiles = 0, //!< All file types
+      AudioFiles,   //!< Audio file types
+    };
+    Q_ENUM( FileType )
 
     virtual ~PlatformUtilities();
 
@@ -144,7 +151,7 @@ class QFIELD_CORE_EXPORT PlatformUtilities : public QObject
      * @param pictureFilePath The path (including subfolders and name) of the file
      * @return The name of the picture or null
      */
-    Q_INVOKABLE virtual PictureSource *getCameraPicture( QQuickItem *parent, const QString &prefix, const QString &pictureFilePath, const QString &suffix );
+    Q_INVOKABLE virtual ResourceSource *getCameraPicture( QQuickItem *parent, const QString &prefix, const QString &pictureFilePath, const QString &suffix );
 
     /**
      * Get a picture from gallery and copy it to the requested prefix
@@ -152,7 +159,23 @@ class QFIELD_CORE_EXPORT PlatformUtilities : public QObject
      * @param pictureFilePath The path (including subfolders and name) of the file
      * @return The name of the picture or null
      */
-    Q_INVOKABLE virtual PictureSource *getGalleryPicture( QQuickItem *parent, const QString &prefix, const QString &pictureFilePath );
+    Q_INVOKABLE virtual ResourceSource *getGalleryPicture( QQuickItem *parent, const QString &prefix, const QString &pictureFilePath );
+
+    /**
+     * Get a video from gallery and copy it to the requested prefix
+     * @param prefix The project folder
+     * @param videoFilePath The path (including subfolders and name) of the video
+     * @return The name of the video or null
+     */
+    Q_INVOKABLE virtual ResourceSource *getGalleryVideo( QQuickItem *parent, const QString &prefix, const QString &videoFilePath );
+
+    /**
+     * Get a file from the operating system and copy it to the requested prefix
+     * @param prefix The project folder
+     * @param filePath The path (including subfolders and name) of the file
+     * @return The name of the file or null
+     */
+    Q_INVOKABLE virtual ResourceSource *getFile( QQuickItem *parent, const QString &prefix, const QString &filePath, FileType fileType = AllFiles );
 
     /**
      * Open the resource (file, image, ...) that is available under \a uri.
@@ -246,5 +269,7 @@ class QFIELD_CORE_EXPORT PlatformUtilities : public QObject
     virtual void afterUpdate();
 
     void copySampleProjects();
+
+    ResourceSource *createResource( const QString &prefix, const QString &filePath, const QString &fileName );
 };
 #endif // PLATFORMUTILITIES_H

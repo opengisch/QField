@@ -17,8 +17,8 @@
  ***************************************************************************/
 
 #include "iosplatformutilities.h"
-#include "iospicturesource.h"
 #include "iosprojectsource.h"
+#include "iosresourcesource.h"
 #include "qfield.h"
 
 #import <AVFoundation/AVFoundation.h>
@@ -110,21 +110,30 @@ void IosPlatformUtilities::setScreenLockPermission(const bool allowLock) {
   }
 }
 
-PictureSource *IosPlatformUtilities::getCameraPicture(
+ResourceSource *IosPlatformUtilities::getCameraPicture(
     QQuickItem *parent, const QString &prefix, const QString &pictureFilePath,
     const QString &suffix) {
-  IosPictureSource *pictureSource =
-      new IosPictureSource(parent, prefix, pictureFilePath);
+  IosResourceSource *pictureSource =
+      new IosResourceSource(parent, prefix, pictureFilePath);
   pictureSource->takePicture();
   return pictureSource;
 }
 
-PictureSource *IosPlatformUtilities::getGalleryPicture(
+ResourceSource *IosPlatformUtilities::getGalleryPicture(
     QQuickItem *parent, const QString &prefix, const QString &pictureFilePath) {
-  IosPictureSource *pictureSource =
-      new IosPictureSource(parent, prefix, pictureFilePath);
+  IosResourceSource *pictureSource =
+      new IosResourceSource(parent, prefix, pictureFilePath);
   pictureSource->pickGalleryPicture();
   return pictureSource;
+}
+
+ResourceSource *
+IosPlatformUtilities::getGalleryVideo(QQuickItem *parent, const QString &prefix,
+                                      const QString &videoFilePath) {
+  IosResourceSource *videoSource =
+      new IosResourceSource(parent, prefix, videoFilePath);
+  videoSource->pickGalleryVideo();
+  return videoSource;
 }
 
 ViewStatus *IosPlatformUtilities::open(const QString &uri, bool) {

@@ -1,5 +1,5 @@
 /***************************************************************************
-  androidpicturesource.h - AndroidPictureSource
+  androidresourcesource.h - AndroidResourceSource
 
  ---------------------
  begin                : 5.7.2016
@@ -13,25 +13,25 @@
  *   (at your option) any later version.                                   *
  *                                                                         *
  ***************************************************************************/
-#ifndef ANDROIDPICTURESOURCE_H
-#define ANDROIDPICTURESOURCE_H
+#ifndef ANDROIDRESOURCESOURCE_H
+#define ANDROIDRESOURCESOURCE_H
 
-#include "picturesource.h"
+#include "resourcesource.h"
 
 #include <QAndroidActivityResultReceiver>
 
 
-class AndroidPictureSource : public PictureSource, public QAndroidActivityResultReceiver
+class AndroidResourceSource : public ResourceSource, public QAndroidActivityResultReceiver
 {
     Q_OBJECT
 
   public:
     /**
-     * Construct a new Android Picture Source object
+     * Construct a new AndroidResourceSource object
      *
      * @param prefix The project folder. Base directory path for all relative paths.
      */
-    explicit AndroidPictureSource( const QString &prefix );
+    explicit AndroidResourceSource( const QString &prefix );
 
     //! QAndroidActivityResultReceiver
     void handleActivityResult( int receiverRequestCode, int resultCode, const QAndroidJniObject &data ) override;
@@ -43,4 +43,4 @@ class AndroidPictureSource : public PictureSource, public QAndroidActivityResult
     QString mPrefix;
 };
 
-#endif // ANDROIDPICTURESOURCE_H
+#endif // ANDROIDRESOURCESOURCE_H

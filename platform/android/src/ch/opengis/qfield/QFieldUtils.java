@@ -42,6 +42,30 @@ import java.util.zip.ZipOutputStream;
 
 public class QFieldUtils {
 
+    /**
+     * Returns a modified string with attachment filename tags replaced with
+     * their values.
+     * @param  string   the string to be modified
+     * @param  filename the filename from which tags values are derived from
+     * @return          modified String
+     */
+    public static String replaceFilenameTags(String string, String filename) {
+        String extension = "";
+        int dotIndex = filename.indexOf('.');
+        if (dotIndex > -1) {
+            extension = filename.substring(dotIndex + 1);
+        }
+
+        return string.replace("{filename}", filename)
+            .replace("{extension}", extension);
+    }
+
+    /**
+     * Returns the first project name found in a given ZIP archive. If
+     * no project files are found, the returned string will be empty.
+     * @param  in a ZIP archive's InputStream
+     * @return    the first project name found in the archive
+     */
     public static String getArchiveProjectName(InputStream in) {
         String projectName = "";
         try {
@@ -61,6 +85,14 @@ public class QFieldUtils {
         return projectName;
     }
 
+    /**
+     * Recursively copies a DocumentFile directory into a specified directory.
+     * @param directory the DocumentFile directory from which files and
+     *     sub-directories will be copied
+     * @param folder    the destination directory in which files will be copied
+     * @param resolver  the content resolver used to open files
+     * @return          returns True if the operation was successful
+     */
     public static boolean documentFileToFolder(DocumentFile directory,
                                                String folder,
                                                ContentResolver resolver) {
@@ -89,6 +121,15 @@ public class QFieldUtils {
         return true;
     }
 
+    /**
+     * Copies file(s) into a specified DocumentFile directory.
+     * @param file      the file or directory to be copied (if a directory is
+     *     provided, its content will be copied recursively)
+     * @param directory the destination DocumentFile directory in which the file
+     *     will be copied into
+     * @param resolver  the content resolver used to open the directory
+     * @return          returns True if the operation was successful
+     */
     public static boolean fileToDocumentFile(File file, DocumentFile directory,
                                              ContentResolver resolver) {
         File[] files =
@@ -137,6 +178,12 @@ public class QFieldUtils {
         return true;
     }
 
+    /**
+     * Creates a ZIP archive from the provided list of files.
+     * @param out   the OutputStream used to create the ZIP archive
+     * @param files an array of file paths to be added into the ZIP archive
+     * @return      returns True if the operation was successful
+     */
     public static boolean filesToZip(OutputStream out, String[] files) {
         try {
             ZipOutputStream zout = new ZipOutputStream(out);
@@ -160,6 +207,13 @@ public class QFieldUtils {
         return true;
     }
 
+    /**
+     * Extracts the content of a ZIP archive into the provided directory.
+     * @param in     the ZIP archive's InputStream
+     * @param folder the directory in which the content of the ZIP archive will
+     *     be copied
+     * @return       returns True if the operation was successful
+     */
     public static boolean zipToFolder(InputStream in, String folder) {
         try {
             ZipInputStream zin = new ZipInputStream(in);
@@ -197,6 +251,13 @@ public class QFieldUtils {
         return true;
     }
 
+    /**
+     * Creates a ZIP archive from the content of a provided directory.
+     * @param folder      the folder path within which the content will
+     *     recursively be compressed into the ZIP archive
+     * @param archivePath the file path for the created ZIP archive
+     * @return            returns True if the operation was successful
+     */
     public static boolean folderToZip(String folder, String archivePath) {
         try {
             FileOutputStream out = new FileOutputStream(archivePath);
@@ -214,6 +275,15 @@ public class QFieldUtils {
         return false;
     }
 
+    /**
+     * Adds the content of a given folder into the ZIP archive being created.
+     * @param zip        the ZIP archive's ZipOutputStream
+     * @param folder     the folder path within which the content will
+     *     recursively be compressed into the ZIP archive
+     * @param rootFolder the root folder path when initiating the ZIP archive
+     *     creation
+     * @return           returns True if the operation was successful
+     */
     private static boolean addFolderToZip(ZipOutputStream zip, String folder,
                                           String rootFolder) {
         File dir = new File(folder);
@@ -253,6 +323,15 @@ public class QFieldUtils {
         return true;
     }
 
+    /**
+     * Copies an InputStream to an OutputStream.
+     * @param in         the InputStream used to copy content
+     * @param out        the OutputStream used to copy the InputStream content
+     *     into
+     * @param totalBytes the total bytes of content to be copied from the
+     *     InputStream
+     * @return           returns True if the operation was successful
+     */
     public static boolean inputStreamToOutputStream(InputStream in,
                                                     OutputStream out,
                                                     long totalBytes) {
@@ -281,6 +360,14 @@ public class QFieldUtils {
         return true;
     }
 
+    /**
+     * Copies an InputStream to a provided file path.
+     * @param in         the InputStream used to copy content
+     * @param file       the file path used to copy the InputStream content into
+     * @param totalBytes the total bytes of content to be copied from the
+     *     InputStream
+     * @return           returns True if the operation was successful
+     */
     public static boolean inputStreamToFile(InputStream in, String file,
                                             long totalBytes) {
         try {
@@ -311,6 +398,12 @@ public class QFieldUtils {
         return true;
     }
 
+    /**
+     * Deletes the provided directory.
+     * @param file      the directory to be deleted
+     * @param recursive if set to True, sub-directories will be deleted
+     * @return           returns True if the operation was successful
+     */
     public static boolean deleteDirectory(File file, boolean recursive) {
         if (!file.isDirectory()) {
             return false;
@@ -332,6 +425,12 @@ public class QFieldUtils {
         return file.delete();
     }
 
+    /**
+     * Returns the extension string for a given mime type. If no match
+     * available, an empty string will be returned.
+     * @param type a mime type string
+     * @return     returns the extension string
+     */
     public static String getExtensionFromMimeType(String type) {
         if (type == null) {
             return "";

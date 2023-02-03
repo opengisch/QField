@@ -79,7 +79,6 @@
 #include "navigation.h"
 #include "navigationmodel.h"
 #include "orderedrelationmodel.h"
-#include "picturesource.h"
 #include "positioning.h"
 #include "positioningdevicemodel.h"
 #include "positioningutils.h"
@@ -101,6 +100,7 @@
 #include "qgsquickmaptransform.h"
 #include "recentprojectlistmodel.h"
 #include "referencingfeaturelistmodel.h"
+#include "resourcesource.h"
 #include "rubberband.h"
 #include "rubberbandmodel.h"
 #include "scalebarmeasurement.h"
@@ -416,7 +416,7 @@ void QgisMobileapp::initDeclarative()
   qmlRegisterType<ModelHelper>( "org.qgis", 1, 0, "ModelHelper" );
   qmlRegisterType<Rubberband>( "org.qgis", 1, 0, "Rubberband" );
   qmlRegisterType<RubberbandModel>( "org.qgis", 1, 0, "RubberbandModel" );
-  qmlRegisterType<PictureSource>( "org.qgis", 1, 0, "PictureSource" );
+  qmlRegisterType<ResourceSource>( "org.qgis", 1, 0, "ResourceSource" );
   qmlRegisterType<ProjectInfo>( "org.qgis", 1, 0, "ProjectInfo" );
   qmlRegisterType<ProjectSource>( "org.qgis", 1, 0, "ProjectSource" );
   qmlRegisterType<ViewStatus>( "org.qgis", 1, 0, "ViewStatus" );

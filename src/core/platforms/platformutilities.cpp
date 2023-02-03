@@ -17,13 +17,14 @@
  ***************************************************************************/
 
 #include "fileutils.h"
-#include "picturesource.h"
 #include "platformutilities.h"
 #include "projectsource.h"
 #include "qfield.h"
 #include "qfieldcloudconnection.h"
 #include "qgismobileapp.h"
 #include "qgsmessagelog.h"
+#include "resourcesource.h"
+#include "stringutils.h"
 
 #include <QClipboard>
 #include <QDebug>
@@ -229,7 +230,7 @@ void PlatformUtilities::removeFolder( const QString &path ) const
   Q_UNUSED( path )
 }
 
-PictureSource *PlatformUtilities::getCameraPicture( QQuickItem *parent, const QString &prefix, const QString &pictureFilePath, const QString &suffix )
+ResourceSource *PlatformUtilities::getCameraPicture( QQuickItem *parent, const QString &prefix, const QString &pictureFilePath, const QString &suffix )
 {
   Q_UNUSED( parent )
   Q_UNUSED( prefix )
@@ -238,33 +239,69 @@ PictureSource *PlatformUtilities::getCameraPicture( QQuickItem *parent, const QS
   return nullptr;
 }
 
-PictureSource *PlatformUtilities::getGalleryPicture( QQuickItem *parent, const QString &prefix, const QString &pictureFilePath )
+ResourceSource *PlatformUtilities::createResource( const QString &prefix, const QString &filePath, const QString &fileName )
 {
-  Q_UNUSED( parent )
-  QString fileName = QFileDialog::getOpenFileName( nullptr, tr( "Select Media File" ), prefix, tr( "JPEG images (*.jpg *.jpeg)" ) );
-
-  if ( QFileInfo::exists( fileName ) )
+  QFileInfo fi( fileName );
+  if ( fi.exists() )
   {
     // if the file is already in the prefixed path, no need to copy
     if ( fileName.startsWith( prefix ) )
     {
-      return new PictureSource( nullptr, prefix, fileName );
+      return new ResourceSource( nullptr, prefix, fileName );
     }
     else
     {
-      QString destinationFile = prefix + pictureFilePath;
+      QString finalFilePath = StringUtils::replaceFilenameTags( filePath, fi.fileName() );
+      QString destinationFile = prefix + finalFilePath;
       QFileInfo destinationInfo( destinationFile );
       QDir prefixDir( prefix );
       if ( prefixDir.mkpath( destinationInfo.absolutePath() ) && QFile::copy( fileName, destinationFile ) )
       {
-        return new PictureSource( nullptr, prefix, destinationFile );
+        return new ResourceSource( nullptr, prefix, destinationFile );
       }
     }
 
-    QgsMessageLog::logMessage( tr( "Failed to save gallery picture" ), "QField", Qgis::Critical );
+    QgsMessageLog::logMessage( tr( "Failed to save file resource" ), "QField", Qgis::Critical );
   }
 
-  return new PictureSource( nullptr, prefix, QString() );
+  return new ResourceSource( nullptr, prefix, QString() );
+}
+
+ResourceSource *PlatformUtilities::getGalleryPicture( QQuickItem *parent, const QString &prefix, const QString &pictureFilePath )
+{
+  Q_UNUSED( parent )
+  QString fileName = QFileDialog::getOpenFileName( nullptr, tr( "Select Image File" ), prefix,
+                                                   tr( "All images (*.jpg *.jpeg *.png *.bmp);;JPEG images (*.jpg *.jpeg);;PNG images (*.jpg *.jpeg);;BMP images (*.bmp)" ) );
+  return createResource( prefix, pictureFilePath, fileName );
+}
+
+ResourceSource *PlatformUtilities::getGalleryVideo( QQuickItem *parent, const QString &prefix, const QString &videoFilePath )
+{
+  Q_UNUSED( parent )
+  QString fileName = QFileDialog::getOpenFileName( nullptr, tr( "Select Video File" ), prefix,
+                                                   tr( "All video (*.mp4 *.mkv *.mov);;MP4 video (*.mp4);;MKV video(*.mkv);;MOV video (*.mov)" ) );
+  return createResource( prefix, videoFilePath, fileName );
+}
+
+ResourceSource *PlatformUtilities::getFile( QQuickItem *parent, const QString &prefix, const QString &filePath, FileType fileType )
+{
+  Q_UNUSED( parent )
+
+  QString filter;
+  switch ( fileType )
+  {
+    case AudioFiles:
+      filter = tr( "Audio files (*.mp3 *.aac *.ogg)" );
+      break;
+
+    case AllFiles:
+    default:
+      filter = tr( "All files (*.*)" );
+      break;
+  }
+
+  QString fileName = QFileDialog::getOpenFileName( nullptr, tr( "Select File" ), prefix, filter );
+  return createResource( prefix, filePath, fileName );
 }
 
 ViewStatus *PlatformUtilities::open( const QString &uri, bool )
