@@ -1806,7 +1806,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Last warning, resetting the cloud project will erase any local changes, are you sure you want to go ahead?</source>
-        <translation type="unfinished"/>
+        <translation>Poslední varování, resetování cloudového projektu vymaže všechny místní změny, jste si jisti, že chcete pokračovat?</translation>
     </message>
     <message>
         <source>Connecting cloud</source>
@@ -3115,7 +3115,7 @@ Zrušte pro jen minimální skenování zařízení. </translation>
     </message>
     <message>
         <source>Freehand digitizing turned on</source>
-        <translation type="unfinished"/>
+        <translation>Zapnutá ruční digitalizace</translation>
     </message>
     <message>
         <source>Freehand digitizing turned off</source>
