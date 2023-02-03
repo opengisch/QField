@@ -259,7 +259,7 @@
     <!-- Activity to get pictures or videos from the gallery -->
     <activity android:name="ch.opengis.@APP_PACKAGE_NAME@.QFieldGalleryActivity" android:configChanges="orientation|screenSize|screenLayout|keyboardHidden" />
 
-    <!-- Activity to get files from the gallery -->
+    <!-- Activity to get files from the native file picker -->
     <activity android:name="ch.opengis.@APP_PACKAGE_NAME@.QFieldFilePickerActivity" android:configChanges="orientation|screenSize|screenLayout|keyboardHidden" />
 
     <!-- Activity to open file externally -->
