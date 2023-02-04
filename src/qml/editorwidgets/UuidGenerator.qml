@@ -28,12 +28,13 @@ EditorWidgetBase {
       color: 'gray'
       text: {
         var displayValue = value !== undefined ? value : ''
-        if (isLoaded && isEnabled && (value === undefined || value == '')) {
+        if (isLoaded && isAdding && (value == undefined || value === '')) {
             displayValue = StringUtils.createUuid();
             valueChangeRequested(displayValue ,false);
         }
         return displayValue;
       }
+      elide: Text.ElideMiddle
   }
 
   Rectangle {
