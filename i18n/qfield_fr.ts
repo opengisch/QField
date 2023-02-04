@@ -1281,15 +1281,15 @@ Les géométries des objets vont être combinées dans l&apos;objet &apos;%1&apo
     <name>PlatformUtilities</name>
     <message>
         <source>Select Media File</source>
-        <translation>Sélectionnez le fichier multimédia.</translation>
+        <translation type="vanished">Sélectionnez le fichier multimédia.</translation>
     </message>
     <message>
         <source>JPEG images (*.jpg *.jpeg)</source>
-        <translation>Images JPEG (*.jpg *.jpeg)</translation>
+        <translation type="vanished">Images JPEG (*.jpg *.jpeg)</translation>
     </message>
     <message>
         <source>Failed to save gallery picture</source>
-        <translation>Échec de l&apos;enregistrement de l&apos;image dans la gallerie.</translation>
+        <translation type="vanished">Échec de l&apos;enregistrement de l&apos;image dans la gallerie.</translation>
     </message>
     <message>
         <source>Open File</source>
@@ -1310,6 +1310,38 @@ Les géométries des objets vont être combinées dans l&apos;objet &apos;%1&apo
     <message>
         <source>Raster Datasets</source>
         <translation>Données raster </translation>
+    </message>
+    <message>
+        <source>Failed to save file resource</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Select Image File</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>All images (*.jpg *.jpeg *.png *.bmp);;JPEG images (*.jpg *.jpeg);;PNG images (*.jpg *.jpeg);;BMP images (*.bmp)</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Select Video File</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>All video (*.mp4 *.mkv *.mov);;MP4 video (*.mp4);;MKV video(*.mkv);;MOV video (*.mov)</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Audio files (*.mp3 *.aac *.ogg)</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>All files (*.*)</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Select File</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

@@ -1281,15 +1281,15 @@ Geometrija objekata će se kombinovati u objekat &apos;%1&apos;, koji će zadrž
     <name>PlatformUtilities</name>
     <message>
         <source>Select Media File</source>
-        <translation>Odaberi fajl multimedija</translation>
+        <translation type="vanished">Odaberi fajl multimedija</translation>
     </message>
     <message>
         <source>JPEG images (*.jpg *.jpeg)</source>
-        <translation>JPEG slike (*.jpg *.jpeg)</translation>
+        <translation type="vanished">JPEG slike (*.jpg *.jpeg)</translation>
     </message>
     <message>
         <source>Failed to save gallery picture</source>
-        <translation>Nije uspjelo snimanje slike</translation>
+        <translation type="vanished">Nije uspjelo snimanje slike</translation>
     </message>
     <message>
         <source>Open File</source>
@@ -1310,6 +1310,38 @@ Geometrija objekata će se kombinovati u objekat &apos;%1&apos;, koji će zadrž
     <message>
         <source>Raster Datasets</source>
         <translation>Rasterski podaci</translation>
+    </message>
+    <message>
+        <source>Failed to save file resource</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Select Image File</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>All images (*.jpg *.jpeg *.png *.bmp);;JPEG images (*.jpg *.jpeg);;PNG images (*.jpg *.jpeg);;BMP images (*.bmp)</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Select Video File</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>All video (*.mp4 *.mkv *.mov);;MP4 video (*.mp4);;MKV video(*.mkv);;MOV video (*.mov)</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Audio files (*.mp3 *.aac *.ogg)</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>All files (*.*)</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Select File</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

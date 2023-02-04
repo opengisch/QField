@@ -1282,15 +1282,15 @@ Geometrija elemenata će se spojiti u element &apos;%1&apos;, koji će zadržati
     <name>PlatformUtilities</name>
     <message>
         <source>Select Media File</source>
-        <translation>Izaberi Multimedijsku Datoteku</translation>
+        <translation type="vanished">Izaberi Multimedijsku Datoteku</translation>
     </message>
     <message>
         <source>JPEG images (*.jpg *.jpeg)</source>
-        <translation>JPEG fotografije (*.jpg *.jpeg)</translation>
+        <translation type="vanished">JPEG fotografije (*.jpg *.jpeg)</translation>
     </message>
     <message>
         <source>Failed to save gallery picture</source>
-        <translation>Nije uspjelo spremanje fotografije iz galerije</translation>
+        <translation type="vanished">Nije uspjelo spremanje fotografije iz galerije</translation>
     </message>
     <message>
         <source>Open File</source>
@@ -1311,6 +1311,38 @@ Geometrija elemenata će se spojiti u element &apos;%1&apos;, koji će zadržati
     <message>
         <source>Raster Datasets</source>
         <translation>Rasterski Skup Podataka</translation>
+    </message>
+    <message>
+        <source>Failed to save file resource</source>
+        <translation>Neuspješno snimanje izvora datoteke</translation>
+    </message>
+    <message>
+        <source>Select Image File</source>
+        <translation>Odaberi slikovnu datoteku</translation>
+    </message>
+    <message>
+        <source>All images (*.jpg *.jpeg *.png *.bmp);;JPEG images (*.jpg *.jpeg);;PNG images (*.jpg *.jpeg);;BMP images (*.bmp)</source>
+        <translation>Sve slike (*.jpg *.jpeg *.png *.bmp);;JPEG slike (*.jpg *.jpeg);;PNG slike(*.jpg *.jpeg);;BMP slike (*.bmp)</translation>
+    </message>
+    <message>
+        <source>Select Video File</source>
+        <translation>Odaberi video datoteku</translation>
+    </message>
+    <message>
+        <source>All video (*.mp4 *.mkv *.mov);;MP4 video (*.mp4);;MKV video(*.mkv);;MOV video (*.mov)</source>
+        <translation>Sve video (*.mp4 *.mkv *.mov);;MP4 video (*.mp4);;MKV video(*.mkv);;MOV video (*.mov)</translation>
+    </message>
+    <message>
+        <source>Audio files (*.mp3 *.aac *.ogg)</source>
+        <translation>Audio datoteke (*.mp3 *.aac *.ogg)</translation>
+    </message>
+    <message>
+        <source>All files (*.*)</source>
+        <translation>Sve datoteke (*.*)</translation>
+    </message>
+    <message>
+        <source>Select File</source>
+        <translation>Odaberi datoteku</translation>
     </message>
 </context>
 <context>

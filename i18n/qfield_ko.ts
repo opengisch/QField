@@ -1278,15 +1278,15 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <name>PlatformUtilities</name>
     <message>
         <source>Select Media File</source>
-        <translation>Select Media File</translation>
+        <translation type="vanished">Select Media File</translation>
     </message>
     <message>
         <source>JPEG images (*.jpg *.jpeg)</source>
-        <translation>JPEG images (*.jpg *.jpeg)</translation>
+        <translation type="vanished">JPEG images (*.jpg *.jpeg)</translation>
     </message>
     <message>
         <source>Failed to save gallery picture</source>
-        <translation>Failed to save gallery picture</translation>
+        <translation type="vanished">Failed to save gallery picture</translation>
     </message>
     <message>
         <source>Open File</source>
@@ -1307,6 +1307,38 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <message>
         <source>Raster Datasets</source>
         <translation>Raster Datasets</translation>
+    </message>
+    <message>
+        <source>Failed to save file resource</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Select Image File</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>All images (*.jpg *.jpeg *.png *.bmp);;JPEG images (*.jpg *.jpeg);;PNG images (*.jpg *.jpeg);;BMP images (*.bmp)</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Select Video File</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>All video (*.mp4 *.mkv *.mov);;MP4 video (*.mp4);;MKV video(*.mkv);;MOV video (*.mov)</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Audio files (*.mp3 *.aac *.ogg)</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>All files (*.*)</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Select File</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

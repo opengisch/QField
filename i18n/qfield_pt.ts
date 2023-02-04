@@ -1282,15 +1282,15 @@ As geometrias dos recursos serão combinadas no recurso &apos;% &apos;, que mant
     <name>PlatformUtilities</name>
     <message>
         <source>Select Media File</source>
-        <translation>Selecionar ficheiro multimédia</translation>
+        <translation type="vanished">Selecionar ficheiro multimédia</translation>
     </message>
     <message>
         <source>JPEG images (*.jpg *.jpeg)</source>
-        <translation>Images JPEG (*.jpg *.jpeg)</translation>
+        <translation type="vanished">Images JPEG (*.jpg *.jpeg)</translation>
     </message>
     <message>
         <source>Failed to save gallery picture</source>
-        <translation>Falha ao guardar a foto na galeria</translation>
+        <translation type="vanished">Falha ao guardar a foto na galeria</translation>
     </message>
     <message>
         <source>Open File</source>
@@ -1311,6 +1311,38 @@ As geometrias dos recursos serão combinadas no recurso &apos;% &apos;, que mant
     <message>
         <source>Raster Datasets</source>
         <translation>Conjunto de dados raster</translation>
+    </message>
+    <message>
+        <source>Failed to save file resource</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Select Image File</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>All images (*.jpg *.jpeg *.png *.bmp);;JPEG images (*.jpg *.jpeg);;PNG images (*.jpg *.jpeg);;BMP images (*.bmp)</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Select Video File</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>All video (*.mp4 *.mkv *.mov);;MP4 video (*.mp4);;MKV video(*.mkv);;MOV video (*.mov)</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Audio files (*.mp3 *.aac *.ogg)</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>All files (*.*)</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Select File</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

@@ -1279,15 +1279,15 @@ Az elem geometriákat összevonjuk a &apos;%1&apos; elembe, mely megőrzi az att
     <name>PlatformUtilities</name>
     <message>
         <source>Select Media File</source>
-        <translation>Válasszon média fájlt</translation>
+        <translation type="vanished">Válasszon média fájlt</translation>
     </message>
     <message>
         <source>JPEG images (*.jpg *.jpeg)</source>
-        <translation>JPEG képek (*.jpg *.jpeg)</translation>
+        <translation type="vanished">JPEG képek (*.jpg *.jpeg)</translation>
     </message>
     <message>
         <source>Failed to save gallery picture</source>
-        <translation>Nem sikerült a képet a galériába menteni</translation>
+        <translation type="vanished">Nem sikerült a képet a galériába menteni</translation>
     </message>
     <message>
         <source>Open File</source>
@@ -1308,6 +1308,38 @@ Az elem geometriákat összevonjuk a &apos;%1&apos; elembe, mely megőrzi az att
     <message>
         <source>Raster Datasets</source>
         <translation>Raszter adatállományok</translation>
+    </message>
+    <message>
+        <source>Failed to save file resource</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Select Image File</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>All images (*.jpg *.jpeg *.png *.bmp);;JPEG images (*.jpg *.jpeg);;PNG images (*.jpg *.jpeg);;BMP images (*.bmp)</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Select Video File</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>All video (*.mp4 *.mkv *.mov);;MP4 video (*.mp4);;MKV video(*.mkv);;MOV video (*.mov)</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Audio files (*.mp3 *.aac *.ogg)</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>All files (*.*)</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Select File</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
