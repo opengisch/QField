@@ -485,11 +485,7 @@
         <file>themes/qfield/nodpi/ic_reshape_tool_white_24dp.svg</file>
         <file>themes/qfield/nodpi/ic_ring_tool_white_24dp.svg</file>
         <file>themes/qfield/nodpi/ic_vertex_tool_white_24dp.svg</file>
-        <file>themes/qfield/hdpi/ic_view_green_48dp.png</file>
-        <file>themes/qfield/mdpi/ic_view_green_48dp.png</file>
-        <file>themes/qfield/xhdpi/ic_view_green_48dp.png</file>
-        <file>themes/qfield/xxhdpi/ic_view_green_48dp.png</file>
-        <file>themes/qfield/xxxhdpi/ic_view_green_48dp.png</file>
+        <file>themes/qfield/nodpi/ic_view_black_24dp.svg</file>
         <file>themes/qfield/hdpi/content-cut.png</file>
         <file>themes/qfield/mdpi/content-cut.png</file>
         <file>themes/qfield/xhdpi/content-cut.png</file>
