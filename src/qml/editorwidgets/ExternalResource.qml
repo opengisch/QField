@@ -60,12 +60,12 @@ EditorWidgetBase {
   property ResourceSource __resourceSource
   property ViewStatus __viewStatus
 
-  // config.DocumentViewer values:
-  // - 0 = no type handled as file
-  // - 1 = image
-  // - 2 = web content (TODO: implement)
-  // - 3 = audio
-  // - 4 = video
+  // DocumentViewer values
+  readonly property int document_FILE: 0
+  readonly property int document_IMAGE: 1
+  readonly property int document_WEB: 2 // TODO: implement
+  readonly property int document_AUDIO: 3
+  readonly property int document_VIDEO: 4
   property int documentViewer: config.DocumentViewer
 
   property bool isImage: !config.UseLink && FileUtils.mimeTypeName(prefixToRelativePath + value ).startsWith("image/")
@@ -119,11 +119,11 @@ EditorWidgetBase {
     var filepath = evaluatedFilepath;
     if (FileUtils.fileSuffix(evaluatedFilepath) === '') {
       // we need an extension for media types (image, audio, video), fallback to hardcoded values
-      if (documentViewer == 1) {
+      if (documentViewer == document_IMAGE) {
         filepath = 'DCIM/JPEG_' + (new Date()).toISOString().replace(/[^0-9]/g, '') + '.{extension}';
-      } else if (documentViewer == 3) {
+      } else if (documentViewer == document_AUDIO) {
         filepath = 'audio/AUDIO_' + (new Date()).toISOString().replace(/[^0-9]/g, '') + '.{extension}';
-      } else if (documentViewer == 4) {
+      } else if (documentViewer == document_VIDEO) {
         filepath = 'video/VIDEO_' + (new Date()).toISOString().replace(/[^0-9]/g, '') + '.{extension}';
       } else {
         filepath = 'files/' + (new Date()).toISOString().replace(/[^0-9]/g, '') + '_{filename}';
@@ -374,7 +374,7 @@ EditorWidgetBase {
     width: visible ? 48 : 0
     height: 48
 
-    visible: documentViewer == 0 && isEnabled
+    visible: (documentViewer == document_FILE || documentViewer == document_AUDIO) && isEnabled
 
     anchors.right: cameraButton.left
     anchors.top: parent.top
@@ -384,7 +384,11 @@ EditorWidgetBase {
     onClicked: {
       Qt.inputMethod.hide()
       var filepath = getResourceFilePath()
-      __resourceSource = platformUtilities.getFile(this, qgisProject.homePath+'/', filepath)
+      if (documentViewer == document_AUDIO) {
+        __resourceSource = platformUtilities.getFile(this, qgisProject.homePath+'/', filepath, PlatformUtilities.AudioFiles)
+      } else {
+        __resourceSource = platformUtilities.getFile(this, qgisProject.homePath+'/', filepath)
+      }
     }
 
     iconSource: Theme.getThemeIcon("ic_file_black_24dp")
@@ -398,7 +402,7 @@ EditorWidgetBase {
     property bool isCameraAvailable: platformUtilities.capabilities & PlatformUtilities.NativeCamera || QtMultimedia.availableCameras.length > 0
 
     // QField has historically handled no viewer type as image, let's carry that on
-    visible: (documentViewer == 0 || documentViewer == 1) && isEnabled
+    visible: (documentViewer == document_FILE || documentViewer == document_IMAGE) && isEnabled
 
     anchors.right: galleryButton.left
     anchors.top: parent.top
@@ -427,7 +431,7 @@ EditorWidgetBase {
     height: 48
 
     // QField has historically handled no viewer type as image, let's carry that on
-    visible: (documentViewer == 0 || documentViewer == 1 || documentViewer == 3 || documentViewer == 4) && isEnabled
+    visible: (documentViewer == document_FILE || documentViewer == document_IMAGE || documentViewer == document_VIDEO) && isEnabled
 
     anchors.right: parent.right
     anchors.top: parent.top
@@ -437,10 +441,8 @@ EditorWidgetBase {
     onClicked: {
       Qt.inputMethod.hide()
       var filepath = getResourceFilePath()
-      if (documentViewer == 4) {
+      if (documentViewer == document_VIDEO) {
         __resourceSource = platformUtilities.getGalleryVideo(this, qgisProject.homePath+'/', filepath)
-      } else if (documentViewer == 3) {
-        __resourceSource = platformUtilities.getFile(this, qgisProject.homePath+'/', filepath, PlatformUtilities.AudioFiles)
       } else {
         __resourceSource = platformUtilities.getGalleryPicture(this, qgisProject.homePath+'/', filepath)
       }
