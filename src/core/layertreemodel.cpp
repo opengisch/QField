@@ -1208,6 +1208,28 @@ QgsRectangle FlatLayerTreeModelBase::nodeExtent( const QModelIndex &index, QgsQu
     }
   }
 
+  if ( extent.width() == 0.0 || extent.height() == 0.0 )
+  {
+    // If all of the features are at the one point, buffer the
+    // rectangle a bit. If they are all at zero, do something a bit
+    // more crude.
+    if ( extent.xMinimum() == 0.0 && extent.xMaximum() == 0.0 && extent.yMinimum() == 0.0 && extent.yMaximum() == 0.0 )
+    {
+      extent.set( -1.0, -1.0, 1.0, 1.0 );
+    }
+    else
+    {
+      const double padFactor = 1e-8;
+      const double widthPad = extent.xMinimum() * padFactor;
+      const double heightPad = extent.yMinimum() * padFactor;
+      const double xmin = extent.xMinimum() - widthPad;
+      const double xmax = extent.xMaximum() + widthPad;
+      const double ymin = extent.yMinimum() - heightPad;
+      const double ymax = extent.yMaximum() + heightPad;
+      extent.set( xmin, ymin, xmax, ymax );
+    }
+  }
+
   if ( buffer )
   {
     extent = extent.buffered( extent.width() * buffer );
