@@ -511,6 +511,8 @@ Page {
                 // - not set to editable in the widget configuration
                 // - not in edit mode (ReadOnly)
                 // - a relation in multi edit mode
+                property bool isAdding: form.state === 'Add'
+                property bool isEditing: form.state === 'Edit'
                 property bool isEnabled: !!AttributeEditable
                                          && form.state !== 'ReadOnly'
                                          && !( Type === 'relation' && form.model.featureModel.modelMode == FeatureModel.MultiFeatureModel )
