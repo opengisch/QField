@@ -24,6 +24,8 @@ try {
         downloadUrl += "windows-x64.exe";
       } else if (queryParams['platform'] == "linux") {
         downloadUrl += "linux-x64.AppImage";
+      } else if (queryParams['platform'] == "macos") {
+        downloadUrl += "macos.dmg"
       }
       if (json['assets'].find(asset => asset["browser_download_url"] === downloadUrl)) {
         return downloadUrl;
