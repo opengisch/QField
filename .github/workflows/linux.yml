@@ -91,6 +91,8 @@ jobs:
       - name: Package
         run: |
           export LD_LIBRARY_PATH="${{ env.CMAKE_BUILD_DIR }}/vcpkg_installed/x64-linux/lib/":${LD_LIBRARY_PATH}
+          export Qt5_Dir=/home/runner/builddir/vcpkg_installed/x64-linux
+          export Qt5_DIR=/home/runner/builddir/vcpkg_installed/x64-linux
           cmake --build  "${{ env.CMAKE_BUILD_DIR }}" --target bundle --config ${{ env.BUILD_TYPE }}
           echo "ARTIFACT_PATHNAME=${{ env.CMAKE_BUILD_DIR }}/QField-x86_64.AppImage" >> $GITHUB_ENV
           echo "ARTIFACT_NAME=qfield-${{ env.CI_PACKAGE_FILE_SUFFIX }}-linux-x64.AppImage" >> $GITHUB_ENV
