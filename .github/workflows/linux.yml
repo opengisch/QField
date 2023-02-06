@@ -37,16 +37,6 @@ jobs:
         run: |
           sudo apt-get update
           sudo apt-get install -y gperf autopoint '^libxcb.*-dev' libx11-xcb-dev libegl1-mesa libegl1-mesa-dev libglu1-mesa-dev libxrender-dev libxi-dev libxkbcommon-dev libxkbcommon-x11-dev autoconf-archive libgstreamer-plugins-base1.0
-          # Required to run unit tests on linux
-          echo "QT_QPA_PLATFORM=offscreen" >> $GITHUB_ENV
-
-      - name: 💐 Install Qt
-        uses: jurplel/install-qt-action@v3
-        with:
-          version: 5.14.2
-          modules: 'qtcharts'
-          target: desktop
-          cache: true
 
       - name: Install linuxdeploy
         uses: miurahr/install-linuxdeploy-action@v1
@@ -64,7 +54,6 @@ jobs:
                 -G Ninja \
                 -D CMAKE_BUILD_TYPE=${{ env.BUILD_TYPE }} \
                 -D WITH_VCPKG=ON \
-                -D SYSTEM_QT=ON \
                 -D WITH_SPIX=ON \
                 -D APP_VERSION="${APP_VERSION}" \
                 -D APP_VERSION_STR="${APP_VERSION_STR}" \
@@ -87,12 +76,14 @@ jobs:
 
       - name: 🌋 Build
         run: |
-          cmake --build "${{ env.CMAKE_BUILD_DIR }}" --config ${{ env.BUILD_TYPE }}
+          xvfb-run --server-args="-screen 0 640x480x24" cmake --build "${{ env.CMAKE_BUILD_DIR }}" --config ${{ env.BUILD_TYPE }}
 
       - name: 🧫 Test
         env:
           PROJ_LIB: ${{ env.CMAKE_BUILD_DIR }}/vcpkg_installed/x64-linux/share/proj
         run: |
+          # Required to run unit tests on linux
+          echo "QT_QPA_PLATFORM=offscreen" >> $GITHUB_ENV
           pip install -r "${{ github.workspace }}/test/spix/requirements.txt"
           cd "${{ env.CMAKE_BUILD_DIR }}"
           xvfb-run --server-args="-screen 0 640x480x24" ctest --output-on-failure -C ${{ env.BUILD_TYPE }}
