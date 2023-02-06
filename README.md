@@ -16,15 +16,15 @@ Check the [documentation](https://docs.qfield.org/)
 
 ### Android
 
-[![Get in Google play](http://www.qfield.org/images/Get_it_on_Google_play.png)](https://play.google.com/store/apps/details?id=ch.opengis.qfield)
+[![Get in Google play](https://qfield.org/images/play_store.png)](https://play.google.com/store/apps/details?id=ch.opengis.qfield)
 
 ### iOS
 
-[![Get it on the App store](https://docs.qfield.org/assets/images/app-store.png)](https://apps.apple.com/app/qfield-for-qgis/id1531726814)
+[![Get it on the App store](https://qfield.org/images/app_store.png)](https://apps.apple.com/app/qfield-for-qgis/id1531726814)
 
 ### Windows
 
-<a href="https://qfield.org/get_latest?platform=windows" target="_blank">![Download the latest windows beta version](https://qgis.org/en/_static/images/app_download_windows.png)</a>
+<a href="https://qfield.org/get_latest?platform=windows" target="_blank">![Download the latest windows beta version](https://qfield.org/images/download_windows.png)</a>
 
 ### Linux (Beta)
 
