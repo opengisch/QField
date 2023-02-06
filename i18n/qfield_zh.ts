@@ -118,7 +118,7 @@
     </message>
     <message>
         <source>Center your camera on a code</source>
-        <translation>居中您的相机于条码之上</translation>
+        <translation>请居中您的相机于条码之上</translation>
     </message>
 </context>
 <context>
@@ -203,7 +203,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>No Bluetooth devices detected, scan to populate nearby devices.</source>
-        <translation>未检测到蓝牙设备，请扫描至位于附近的设备。</translation>
+        <translation>未检测到蓝牙设备，请移至附近的设备。</translation>
     </message>
 </context>
 <context>
@@ -1431,7 +1431,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Leave empty to auto-fill</source>
-        <translation>留空以自动填充</translation>
+        <translation>留空将自动填充</translation>
     </message>
     <message>
         <source>Connection type:</source>
@@ -1482,7 +1482,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Altitude</source>
-        <translation>海拔</translation>
+        <translation>高程</translation>
     </message>
     <message>
         <source>Speed</source>
