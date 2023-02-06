@@ -28,11 +28,11 @@ Check the [documentation](https://docs.qfield.org/)
 
 ### Linux (Beta)
 
-Linux support is currently in beta status. <a href="https://qfield.org/get_latest?platform=linux" target="_blank">Download the latest beta version</a>.
+<a href="https://qfield.org/get_latest?platform=linux" target="_blank">Download the latest Linux beta version</a>.
 
 ### MacOS (Beta)
 
-MacOS support is currently in beta status. [Download the latest development builds](https://nightly.link/opengisch/QField/workflows/desktop/master/QField-dev-x64-osx-Release.zip) and leave us a note how it works.
+<a href="https://qfield.org/get_latest?platform=macos" target="_blank">Download the latest MacOS beta version</a>.
 
 ## Contribute
 
