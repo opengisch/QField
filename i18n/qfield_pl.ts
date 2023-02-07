@@ -1311,31 +1311,31 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Select Image File</source>
-        <translation type="unfinished"/>
+        <translation>Wybierz plik obrazu</translation>
     </message>
     <message>
         <source>All images (*.jpg *.jpeg *.png *.bmp);;JPEG images (*.jpg *.jpeg);;PNG images (*.jpg *.jpeg);;BMP images (*.bmp)</source>
-        <translation type="unfinished"/>
+        <translation>Wszystkie obrazy (*.jpg *.jpeg *.png *.bmp);;JPEG images (*.jpg *.jpeg);;PNG images (*.jpg *.jpeg);;BMP images (*.bmp)</translation>
     </message>
     <message>
         <source>Select Video File</source>
-        <translation type="unfinished"/>
+        <translation>Wybierz plik wideo</translation>
     </message>
     <message>
         <source>All video (*.mp4 *.mkv *.mov);;MP4 video (*.mp4);;MKV video(*.mkv);;MOV video (*.mov)</source>
-        <translation type="unfinished"/>
+        <translation>Wszystkie pliki wideo (*.mp4 *.mkv *.mov);;MP4 video (*.mp4);;MKV video(*.mkv);;MOV video (*.mov)</translation>
     </message>
     <message>
         <source>Audio files (*.mp3 *.aac *.ogg)</source>
-        <translation type="unfinished"/>
+        <translation>Pliki dźwiękowe (*.mp3 *.aac *.ogg)</translation>
     </message>
     <message>
         <source>All files (*.*)</source>
-        <translation type="unfinished"/>
+        <translation>Wszystkie pliki (*.*)</translation>
     </message>
     <message>
         <source>Select File</source>
-        <translation type="unfinished"/>
+        <translation>Wybierz plik</translation>
     </message>
 </context>
 <context>
