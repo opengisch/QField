@@ -127,6 +127,7 @@ EditorWidgetBase {
                 if (value !== undefined && value != '') {
                     usedDate = value;
                 }
+                todayButton.forceActiveFocus()
                 calendarPanel.selectedDate = usedDate
                 calendarPanel.open();
             }
