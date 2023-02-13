@@ -792,7 +792,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Reshape Tool</source>
-        <translation>整形工具</translation>
+        <translation>重塑工具</translation>
     </message>
     <message>
         <source>Fill Ring Tool</source>
@@ -2673,7 +2673,7 @@ Cancel to make a minimal device scan instead.</source>
     <name>ReshapeToolBar</name>
     <message>
         <source>The geometry could not be reshaped</source>
-        <translation>该要素无法整形</translation>
+        <translation>无法重塑几何图形</translation>
     </message>
 </context>
 <context>
