@@ -58,6 +58,9 @@ RUN groupadd android && useradd -d /opt/android-sdk-linux -g android -u 1000 and
 
 COPY tools /opt/tools
 
+# convert to unix linebreaks if project is exported to Windows
+RUN sed -i.bak 's/\r$//' /opt/tools/*.sh
+
 COPY licenses /opt/licenses
 
 WORKDIR /opt/android-sdk-linux
