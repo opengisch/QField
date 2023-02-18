@@ -20,7 +20,7 @@ import java.io.OutputStream;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-public class QFieldCameraPictureActivity extends Activity {
+public class QFieldCameraActivity extends Activity {
     private static final String TAG = "QField Camera Picture Activity";
     private static final int CAMERA_ACTIVITY = 172;
 
@@ -38,7 +38,7 @@ public class QFieldCameraPictureActivity extends Activity {
         Intent intent = getIntent();
         if (!intent.hasExtra("prefix") || !intent.hasExtra("suffix") ||
             !intent.hasExtra("pictureFilePath")) {
-            Log.d(TAG, "QFieldCameraPictureActivity missing extras");
+            Log.d(TAG, "QFieldCameraActivity missing extras");
             finish();
             return;
         }

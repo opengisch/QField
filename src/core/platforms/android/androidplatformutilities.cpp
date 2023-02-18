@@ -350,7 +350,7 @@ ResourceSource *AndroidPlatformUtilities::getCameraPicture( QQuickItem *parent, 
   const QDir prefixDir( prefix );
   prefixDir.mkpath( destinationInfo.absolutePath() );
 
-  QAndroidJniObject activity = QAndroidJniObject::fromString( QStringLiteral( "ch.opengis." APP_PACKAGE_NAME ".QFieldCameraPictureActivity" ) );
+  QAndroidJniObject activity = QAndroidJniObject::fromString( QStringLiteral( "ch.opengis." APP_PACKAGE_NAME ".QFieldCameraActivity" ) );
   QAndroidJniObject intent = QAndroidJniObject( "android/content/Intent", "(Ljava/lang/String;)V", activity.object<jstring>() );
   QAndroidJniObject packageName = QAndroidJniObject::fromString( QStringLiteral( "ch.opengis." APP_PACKAGE_NAME ) );
 

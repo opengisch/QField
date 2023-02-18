@@ -254,7 +254,7 @@
     </activity>
 
     <!-- Activity to get pictures with the native camera -->
-    <activity android:name="ch.opengis.@APP_PACKAGE_NAME@.QFieldCameraPictureActivity" android:configChanges="orientation|screenSize|screenLayout|keyboardHidden" />
+    <activity android:name="ch.opengis.@APP_PACKAGE_NAME@.QFieldCameraActivity" android:configChanges="orientation|screenSize|screenLayout|keyboardHidden" />
 
     <!-- Activity to get pictures or videos from the gallery -->
     <activity android:name="ch.opengis.@APP_PACKAGE_NAME@.QFieldGalleryActivity" android:configChanges="orientation|screenSize|screenLayout|keyboardHidden" />
