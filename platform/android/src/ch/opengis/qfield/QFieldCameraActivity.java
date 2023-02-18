@@ -21,14 +21,14 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class QFieldCameraActivity extends Activity {
-    private static final String TAG = "QField Camera Picture Activity";
+    private static final String TAG = "QField Camera Activity";
     private static final int CAMERA_ACTIVITY = 172;
 
     private String prefix;
-    private String pictureFilePath;
+    private String filePath;
     private String suffix;
-    private String pictureTempFileName;
-    private String pictureTempFilePath;
+    private String tempFileName;
+    private String tempFilePath;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,22 +37,22 @@ public class QFieldCameraActivity extends Activity {
 
         Intent intent = getIntent();
         if (!intent.hasExtra("prefix") || !intent.hasExtra("suffix") ||
-            !intent.hasExtra("pictureFilePath")) {
+            !intent.hasExtra("filePath")) {
             Log.d(TAG, "QFieldCameraActivity missing extras");
             finish();
             return;
         }
 
         prefix = intent.getExtras().getString("prefix");
-        pictureFilePath = intent.getExtras().getString("pictureFilePath");
+        filePath = intent.getExtras().getString("filePath");
         suffix = intent.getExtras().getString("suffix");
-        Log.d(TAG, "Received prefix: " + prefix + " and pictureFilePath: " +
-                       pictureFilePath + "and suffix: " + suffix);
+        Log.d(TAG, "Received prefix: " + prefix + " and filePath: " + filePath +
+                       "and suffix: " + suffix);
 
         String timeStamp =
             new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
-        pictureTempFileName = "QFieldPicture" + timeStamp;
-        Log.d(TAG, "Created pictureTempFileName: " + pictureTempFileName);
+        tempFileName = "QFieldCamera" + timeStamp;
+        Log.d(TAG, "Created tempFileName: " + tempFileName);
 
         callCameraIntent();
 
@@ -61,30 +61,29 @@ public class QFieldCameraActivity extends Activity {
 
     private void callCameraIntent() {
         Log.d(TAG, "callCameraIntent()");
-        Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-        if (takePictureIntent.resolveActivity(getPackageManager()) != null) {
+        Intent cameraIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+        if (cameraIntent.resolveActivity(getPackageManager()) != null) {
             Log.d(TAG, "intent resolved");
             File storageDir =
                 getExternalFilesDir(Environment.DIRECTORY_PICTURES);
             try {
-                File pictureFile = File.createTempFile(pictureTempFileName,
-                                                       suffix, storageDir);
+                File tempFile =
+                    File.createTempFile(tempFileName, suffix, storageDir);
 
-                if (pictureFile != null) {
-                    Log.d(TAG, "picture file created");
-                    if (pictureFile.exists()) {
-                        Log.d(TAG, "picture file exists");
+                if (tempFile != null) {
+                    Log.d(TAG, "temporary file created");
+                    if (tempFile.exists()) {
+                        Log.d(TAG, "temporary file exists");
                     }
 
-                    pictureTempFilePath = pictureFile.getAbsolutePath();
+                    tempFilePath = tempFile.getAbsolutePath();
 
                     Uri photoURI = FileProvider.getUriForFile(
-                        this, "ch.opengis.qfield.fileprovider", pictureFile);
+                        this, "ch.opengis.qfield.fileprovider", tempFile);
 
                     Log.d(TAG, "uri: " + photoURI.toString());
-                    takePictureIntent.putExtra(MediaStore.EXTRA_OUTPUT,
-                                               photoURI);
-                    startActivityForResult(takePictureIntent, CAMERA_ACTIVITY);
+                    cameraIntent.putExtra(MediaStore.EXTRA_OUTPUT, photoURI);
+                    startActivityForResult(cameraIntent, CAMERA_ACTIVITY);
                 }
             } catch (IOException e) {
                 Log.d(TAG, e.getMessage());
@@ -102,22 +101,21 @@ public class QFieldCameraActivity extends Activity {
 
         if (requestCode == CAMERA_ACTIVITY) {
             if (resultCode == RESULT_OK) {
-                File pictureFile = new File(pictureTempFilePath);
-                String finalPictureFilePath = QFieldUtils.replaceFilenameTags(
-                    pictureFilePath, pictureFile.getName());
-                File result = new File(prefix + finalPictureFilePath);
-                Log.d(TAG, "Taken picture: " + pictureFile.getAbsolutePath());
+                File file = new File(tempFilePath);
+                String finalFilePath =
+                    QFieldUtils.replaceFilenameTags(filePath, file.getName());
+                File result = new File(prefix + finalFilePath);
+                Log.d(TAG, "Taken media: " + file.getAbsolutePath());
                 try {
-                    InputStream in = new FileInputStream(pictureFile);
+                    InputStream in = new FileInputStream(file);
                     QFieldUtils.inputStreamToFile(in, result.getPath(),
-                                                  pictureFile.length());
+                                                  file.length());
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
 
                 Intent intent = this.getIntent();
-                intent.putExtra("RESOURCE_FILENAME",
-                                prefix + finalPictureFilePath);
+                intent.putExtra("RESOURCE_FILENAME", prefix + finalFilePath);
                 setResult(RESULT_OK, intent);
             } else {
                 Intent intent = this.getIntent();

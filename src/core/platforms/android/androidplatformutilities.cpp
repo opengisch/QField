@@ -356,13 +356,13 @@ ResourceSource *AndroidPlatformUtilities::getCameraPicture( QQuickItem *parent, 
 
   intent.callObjectMethod( "setClassName", "(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;", packageName.object<jstring>(), activity.object<jstring>() );
 
-  QAndroidJniObject pictureFilePath_label = QAndroidJniObject::fromString( "pictureFilePath" );
-  QAndroidJniObject pictureFilePath_value = QAndroidJniObject::fromString( pictureFilePath );
+  QAndroidJniObject filePath_label = QAndroidJniObject::fromString( "filePath" );
+  QAndroidJniObject filePath_value = QAndroidJniObject::fromString( pictureFilePath );
 
   intent.callObjectMethod( "putExtra",
                            "(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;",
-                           pictureFilePath_label.object<jstring>(),
-                           pictureFilePath_value.object<jstring>() );
+                           filePath_label.object<jstring>(),
+                           filePath_value.object<jstring>() );
 
   QAndroidJniObject prefix_label = QAndroidJniObject::fromString( "prefix" );
   QAndroidJniObject prefix_value = QAndroidJniObject::fromString( prefix );
