@@ -1,40 +1,12 @@
-diff --git a/src/core/expression/qgsexpressionnodeimpl.cpp b/src/core/expression/qgsexpressionnodeimpl.cpp
-index 1c49d4a28a..8d8b5f0d29 100644
---- a/src/core/expression/qgsexpressionnodeimpl.cpp
-+++ b/src/core/expression/qgsexpressionnodeimpl.cpp
-@@ -22,6 +22,9 @@
- #include "qgsstringutils.h"
+diff --git a/src/core/providers/arcgis/qgsarcgisrestutils.cpp b/src/core/providers/arcgis/qgsarcgisrestutils.cpp
+index d35b20d840..3eece5d7ab 100644
+--- a/src/core/providers/arcgis/qgsarcgisrestutils.cpp
++++ b/src/core/providers/arcgis/qgsarcgisrestutils.cpp
+@@ -43,6 +43,7 @@
  #include "qgsvariantutils.h"
  
-+#include <QDate>
-+#include <QDateTime>
-+#include <QTime>
  #include <QRegularExpression>
++#include <QUrl>
  
- const char *QgsExpressionNodeBinaryOperator::BINARY_OPERATOR_TEXT[] =
-diff --git a/src/core/expression/qgsexpressionutils.h b/src/core/expression/qgsexpressionutils.h
-index 68a6ead822..f3acfd4513 100644
---- a/src/core/expression/qgsexpressionutils.h
-+++ b/src/core/expression/qgsexpressionutils.h
-@@ -24,6 +24,9 @@
- #include "qgsvariantutils.h"
- #include "qgsfeaturerequest.h"
- 
-+#include <QDate>
-+#include <QDateTime>
-+#include <QTime>
- #include <QThread>
- #include <QLocale>
- #include <functional>
-diff --git a/src/core/providers/qgsproviderregistry.cpp b/src/core/providers/qgsproviderregistry.cpp
-index 2c05fb236f..74214d0e3e 100644
---- a/src/core/providers/qgsproviderregistry.cpp
-+++ b/src/core/providers/qgsproviderregistry.cpp
-@@ -55,6 +55,7 @@
- #ifdef HAVE_SPATIALITE
- #include "qgsspatialiteprovider.h"
- #include "qgswfsprovider.h"
-+#include "qgswfsprovidermetadata.h"
- #include "qgsoapifprovider.h"
- #include "qgsvirtuallayerprovider.h"
- #endif
+ QVariant::Type QgsArcGisRestUtils::convertFieldType( const QString &esriFieldType )
+ {
