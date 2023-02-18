@@ -154,6 +154,14 @@ class QFIELD_CORE_EXPORT PlatformUtilities : public QObject
     Q_INVOKABLE virtual ResourceSource *getCameraPicture( QQuickItem *parent, const QString &prefix, const QString &pictureFilePath, const QString &suffix );
 
     /**
+     * Get a video from camera and copy it to the requested prefix
+     * @param prefix The project folder
+     * @param videoFilePath The path (including subfolders and name) of the file
+     * @return The name of the video or null
+     */
+    Q_INVOKABLE virtual ResourceSource *getCameraVideo( QQuickItem *parent, const QString &prefix, const QString &videoFilePath, const QString &suffix );
+
+    /**
      * Get a picture from gallery and copy it to the requested prefix
      * @param prefix The project folder
      * @param pictureFilePath The path (including subfolders and name) of the file

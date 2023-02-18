@@ -340,13 +340,12 @@ QAndroidJniObject AndroidPlatformUtilities::getNativeExtras() const
   return nullptr;
 }
 
-ResourceSource *AndroidPlatformUtilities::getCameraPicture( QQuickItem *parent, const QString &prefix, const QString &pictureFilePath, const QString &suffix )
+ResourceSource *AndroidPlatformUtilities::processCameraActivity( const QString &prefix, const QString &filePath, const QString &suffix, bool isVideo )
 {
-  Q_UNUSED( parent )
   if ( !checkCameraPermissions() )
     return nullptr;
 
-  const QFileInfo destinationInfo( prefix + pictureFilePath );
+  const QFileInfo destinationInfo( prefix + filePath );
   const QDir prefixDir( prefix );
   prefixDir.mkpath( destinationInfo.absolutePath() );
 
@@ -356,9 +355,18 @@ ResourceSource *AndroidPlatformUtilities::getCameraPicture( QQuickItem *parent, 
 
   intent.callObjectMethod( "setClassName", "(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;", packageName.object<jstring>(), activity.object<jstring>() );
 
-  QAndroidJniObject filePath_label = QAndroidJniObject::fromString( "filePath" );
-  QAndroidJniObject filePath_value = QAndroidJniObject::fromString( pictureFilePath );
+  if ( isVideo )
+  {
+    QAndroidJniObject isVideo_label = QAndroidJniObject::fromString( "isVideo" );
+    QAndroidJniObject isVideo_value = QAndroidJniObject::fromString( "yes" );
+    intent.callObjectMethod( "putExtra",
+                             "(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;",
+                             isVideo_label.object<jstring>(),
+                             isVideo_value.object<jstring>() );
+  }
 
+  QAndroidJniObject filePath_label = QAndroidJniObject::fromString( "filePath" );
+  QAndroidJniObject filePath_value = QAndroidJniObject::fromString( filePath );
   intent.callObjectMethod( "putExtra",
                            "(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;",
                            filePath_label.object<jstring>(),
@@ -381,8 +389,21 @@ ResourceSource *AndroidPlatformUtilities::getCameraPicture( QQuickItem *parent, 
   AndroidResourceSource *pictureSource = new AndroidResourceSource( prefix );
 
   QtAndroid::startActivity( intent.object<jobject>(), 171, pictureSource );
-
   return pictureSource;
+}
+
+ResourceSource *AndroidPlatformUtilities::getCameraPicture( QQuickItem *parent, const QString &prefix, const QString &pictureFilePath, const QString &suffix )
+{
+  Q_UNUSED( parent )
+
+  return processCameraActivity( prefix, pictureFilePath, suffix, false );
+}
+
+ResourceSource *AndroidPlatformUtilities::getCameraVideo( QQuickItem *parent, const QString &prefix, const QString &videoFilePath, const QString &suffix )
+{
+  Q_UNUSED( parent )
+
+  return processCameraActivity( prefix, videoFilePath, suffix, true );
 }
 
 ResourceSource *AndroidPlatformUtilities::processGalleryActivity( const QString &prefix, const QString &filePath, const QString &mimeType )
@@ -424,7 +445,6 @@ ResourceSource *AndroidPlatformUtilities::processGalleryActivity( const QString 
   AndroidResourceSource *pictureSource = new AndroidResourceSource( prefix );
 
   QtAndroid::startActivity( intent.object<jobject>(), 171, pictureSource );
-
   return pictureSource;
 }
 

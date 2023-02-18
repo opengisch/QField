@@ -24,6 +24,7 @@ public class QFieldCameraActivity extends Activity {
     private static final String TAG = "QField Camera Activity";
     private static final int CAMERA_ACTIVITY = 172;
 
+    private Boolean isVideo = false;
     private String prefix;
     private String filePath;
     private String suffix;
@@ -43,6 +44,8 @@ public class QFieldCameraActivity extends Activity {
             return;
         }
 
+        isVideo = intent.hasExtra("isVideo");
+
         prefix = intent.getExtras().getString("prefix");
         filePath = intent.getExtras().getString("filePath");
         suffix = intent.getExtras().getString("suffix");
@@ -61,7 +64,9 @@ public class QFieldCameraActivity extends Activity {
 
     private void callCameraIntent() {
         Log.d(TAG, "callCameraIntent()");
-        Intent cameraIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+        Intent cameraIntent = isVideo
+                                  ? new Intent(MediaStore.ACTION_VIDEO_CAPTURE)
+                                  : new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
         if (cameraIntent.resolveActivity(getPackageManager()) != null) {
             Log.d(TAG, "intent resolved");
             File storageDir =
@@ -78,11 +83,11 @@ public class QFieldCameraActivity extends Activity {
 
                     tempFilePath = tempFile.getAbsolutePath();
 
-                    Uri photoURI = FileProvider.getUriForFile(
+                    Uri fileURI = FileProvider.getUriForFile(
                         this, "ch.opengis.qfield.fileprovider", tempFile);
 
-                    Log.d(TAG, "uri: " + photoURI.toString());
-                    cameraIntent.putExtra(MediaStore.EXTRA_OUTPUT, photoURI);
+                    Log.d(TAG, "uri: " + fileURI.toString());
+                    cameraIntent.putExtra(MediaStore.EXTRA_OUTPUT, fileURI);
                     startActivityForResult(cameraIntent, CAMERA_ACTIVITY);
                 }
             } catch (IOException e) {

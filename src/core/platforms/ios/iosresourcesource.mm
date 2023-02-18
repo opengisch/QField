@@ -145,6 +145,30 @@ void IosResourceSource::takePicture() {
   UIImagePickerController *imageController =
       [[UIImagePickerController alloc] init];
   [imageController setSourceType:UIImagePickerControllerSourceTypeCamera];
+  [imageController
+      setCameraCaptureMode:UIImagePickerControllerCameraCaptureModePhoto];
+  [imageController setDelegate:id(mDelegate->_cameraDelegate)];
+
+  // Tell the imagecontroller to animate on top:
+  [qtController presentViewController:imageController
+                             animated:YES
+                           completion:nil];
+}
+
+void IosResourceSource::takeVideo() {
+  // Get the UIView that backs our QQuickWindow:
+  UIView *view = (__bridge UIView *)(QGuiApplication::platformNativeInterface()
+                                         ->nativeResourceForWindow(
+                                             "uiview", mParent->window()));
+  UIViewController *qtController = [[view window] rootViewController];
+
+  // Create a new image picker controller to show on top of Qt's view
+  // controller:
+  UIImagePickerController *imageController =
+      [[UIImagePickerController alloc] init];
+  [imageController setSourceType:UIImagePickerControllerSourceTypeCamera];
+  [imageController
+      setCameraCaptureMode:UIImagePickerControllerCameraCaptureModeVideo];
   [imageController setDelegate:id(mDelegate->_cameraDelegate)];
 
   // Tell the imagecontroller to animate on top:

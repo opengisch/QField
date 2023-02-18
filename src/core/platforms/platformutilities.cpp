@@ -239,6 +239,15 @@ ResourceSource *PlatformUtilities::getCameraPicture( QQuickItem *parent, const Q
   return nullptr;
 }
 
+ResourceSource *PlatformUtilities::getCameraVideo( QQuickItem *parent, const QString &prefix, const QString &videoFilePath, const QString &suffix )
+{
+  Q_UNUSED( parent )
+  Q_UNUSED( prefix )
+  Q_UNUSED( videoFilePath )
+  Q_UNUSED( suffix )
+  return nullptr;
+}
+
 ResourceSource *PlatformUtilities::createResource( const QString &prefix, const QString &filePath, const QString &fileName )
 {
   QFileInfo fi( fileName );
