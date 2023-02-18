@@ -367,7 +367,11 @@ void QgisMobileapp::initDeclarative()
   qRegisterMetaType<QgsCoordinateTransformContext>( "QgsCoordinateTransformContext" );
   qRegisterMetaType<QgsWkbTypes::GeometryType>( "QgsWkbTypes::GeometryType" ); // could be removed since we have now qmlRegisterUncreatableType<QgsWkbTypes> ?
   qRegisterMetaType<QgsWkbTypes::Type>( "QgsWkbTypes::Type" );                 // could be removed since we have now qmlRegisterUncreatableType<QgsWkbTypes> ?
-  qRegisterMetaType<QgsMapLayerType>( "QgsMapLayerType" );                     // could be removed since we have now qmlRegisterUncreatableType<QgsWkbTypes> ?
+#if _QGIS_VERSION_INT >= 32900
+  qRegisterMetaType<Qgis::LayerType>( "QgsMapLayerType" ); // could be removed since we have now qmlRegisterUncreatableType<QgsWkbTypes> ?
+#else
+  qRegisterMetaType<QgsMapLayerType>( "QgsMapLayerType" ); // could be removed since we have now qmlRegisterUncreatableType<QgsWkbTypes> ?
+#endif
   qRegisterMetaType<QgsFeatureId>( "QgsFeatureId" );
   qRegisterMetaType<QgsAttributes>( "QgsAttributes" );
   qRegisterMetaType<QgsSnappingConfig>( "QgsSnappingConfig" );
@@ -823,18 +827,35 @@ void QgisMobileapp::readProjectFile()
 
       switch ( sublayer.type() )
       {
+#if _QGIS_VERSION_INT >= 32900
+        case Qgis::LayerType::Vector:
+#else
         case QgsMapLayerType::VectorLayer:
+#endif
           vectorLayers << layer.release();
           break;
+#if _QGIS_VERSION_INT >= 32900
+        case Qgis::LayerType::Raster:
+#else
         case QgsMapLayerType::RasterLayer:
+#endif
           rasterLayers << layer.release();
           break;
+#if _QGIS_VERSION_INT >= 32900
+        case Qgis::LayerType::Mesh:
+        case Qgis::LayerType::VectorTile:
+        case Qgis::LayerType::Annotation:
+        case Qgis::LayerType::PointCloud:
+        case Qgis::LayerType::Group:
+        case Qgis::LayerType::Plugin:
+#else
         case QgsMapLayerType::MeshLayer:
         case QgsMapLayerType::VectorTileLayer:
         case QgsMapLayerType::AnnotationLayer:
         case QgsMapLayerType::PointCloudLayer:
         case QgsMapLayerType::GroupLayer:
         case QgsMapLayerType::PluginLayer:
+#endif
           continue;
           break;
       }

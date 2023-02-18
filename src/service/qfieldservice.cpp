@@ -18,6 +18,7 @@
 #include "qfieldcloudconnection.h"
 #include "qfieldservice.h"
 
+#include <QSettings>
 #include <QtAndroid>
 
 QFieldService::QFieldService( int &argc, char **argv )

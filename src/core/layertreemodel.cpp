@@ -604,6 +604,32 @@ QVariant FlatLayerTreeModelBase::data( const QModelIndex &index, int role ) cons
       {
         switch ( layer->type() )
         {
+#if _QGIS_VERSION_INT >= 32900
+          case Qgis::LayerType::Vector:
+            layerType = QStringLiteral( "vectorlayer" );
+            break;
+          case Qgis::LayerType::Raster:
+            layerType = QStringLiteral( "rasterlayer" );
+            break;
+          case Qgis::LayerType::Plugin:
+            layerType = QStringLiteral( "pluginlayer" );
+            break;
+          case Qgis::LayerType::Mesh:
+            layerType = QStringLiteral( "meshlayer" );
+            break;
+          case Qgis::LayerType::VectorTile:
+            layerType = QStringLiteral( "vectortilelayer" );
+            break;
+          case Qgis::LayerType::Annotation:
+            layerType = QStringLiteral( "annotationlayer" );
+            break;
+          case Qgis::LayerType::PointCloud:
+            layerType = QStringLiteral( "pointcloudlayer" );
+            break;
+          case Qgis::LayerType::Group:
+            layerType = QStringLiteral( "grouplayer" );
+            break;
+#else
           case QgsMapLayerType::VectorLayer:
             layerType = QStringLiteral( "vectorlayer" );
             break;
@@ -628,6 +654,7 @@ QVariant FlatLayerTreeModelBase::data( const QModelIndex &index, int role ) cons
           case QgsMapLayerType::GroupLayer:
             layerType = QStringLiteral( "grouplayer" );
             break;
+#endif
         }
       }
       return layerType;
