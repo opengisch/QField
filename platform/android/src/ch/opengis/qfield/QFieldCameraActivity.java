@@ -44,7 +44,10 @@ public class QFieldCameraActivity extends Activity {
             return;
         }
 
-        isVideo = intent.hasExtra("isVideo");
+        if (intent.hasExtra("isVideo")) {
+            Log.d(TAG, "Video requested");
+            isVideo = true;
+        }
 
         prefix = intent.getExtras().getString("prefix");
         filePath = intent.getExtras().getString("filePath");

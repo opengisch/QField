@@ -444,9 +444,9 @@ EditorWidgetBase {
       Qt.inputMethod.hide()
       if ( platformUtilities.capabilities & PlatformUtilities.NativeCamera && settings.valueBool("nativeCamera", true) ) {
         var filepath = getResourceFilePath()
-        // Pictures taken by cameras will always be JPG
-        filepath = filepath.replace('{extension}', 'JPG')
-        __resourceSource = platformUtilities.getCameraPicture(this, qgisProject.homePath+'/', filepath, FileUtils.fileSuffix(filepath) )
+        // Video taken by cameras will always be MP4
+        filepath = filepath.replace('{extension}', 'MP4')
+        __resourceSource = platformUtilities.getCameraVideo(this, qgisProject.homePath+'/', filepath, FileUtils.fileSuffix(filepath))
       } else {
         platformUtilities.createDir(qgisProject.homePath, 'DCIM')
         cameraLoader.isVideo = true
