@@ -9,7 +9,7 @@ import org.qfield 1.0
 import Theme 1.0
 
 import "."
-import ".." as QField
+import ".."
 
 EditorWidgetBase {
   anchors.left: parent.left
@@ -194,7 +194,7 @@ EditorWidgetBase {
 
   Rectangle {
     id: mediaFrame
-    width: parent.width - fileButton.width - galleryButton.width - cameraButton.width - (isEnabled ? 5 : 0)
+    width: parent.width - fileButton.width - galleryButton.width - cameraButton.width - cameraVideoButton.width - (isEnabled ? 5 : 0)
     height: 48
     visible: !linkField.visible
     color: isEnabled ? Theme.lightGray : "transparent"
@@ -404,6 +404,37 @@ EditorWidgetBase {
     // QField has historically handled no viewer type as image, let's carry that on
     visible: (documentViewer == document_FILE || documentViewer == document_IMAGE) && isEnabled
 
+    anchors.right: cameraVideoButton.left
+    anchors.top: parent.top
+
+    bgcolor: "transparent"
+
+    onClicked: {
+      Qt.inputMethod.hide()
+      if ( platformUtilities.capabilities & PlatformUtilities.NativeCamera && settings.valueBool("nativeCamera", true) ) {
+        var filepath = getResourceFilePath()
+        // Pictures taken by cameras will always be JPG
+        filepath = filepath.replace('{extension}', 'JPG')
+        __resourceSource = platformUtilities.getCameraPicture(this, qgisProject.homePath+'/', filepath, FileUtils.fileSuffix(filepath) )
+      } else {
+        platformUtilities.createDir(qgisProject.homePath, 'DCIM')
+        cameraLoader.isVideo = false
+        cameraLoader.active = true
+      }
+    }
+
+    iconSource: Theme.getThemeVectorIcon("ic_camera_photo_black_24dp")
+  }
+
+  QfToolButton {
+    id: cameraVideoButton
+    width: visible ? 48 : 0
+    height: 48
+
+    property bool isCameraAvailable: platformUtilities.capabilities & PlatformUtilities.NativeCamera || QtMultimedia.availableCameras.length > 0
+
+    visible: documentViewer == document_VIDEO && isEnabled
+
     anchors.right: galleryButton.left
     anchors.top: parent.top
 
@@ -417,12 +448,13 @@ EditorWidgetBase {
         filepath = filepath.replace('{extension}', 'JPG')
         __resourceSource = platformUtilities.getCameraPicture(this, qgisProject.homePath+'/', filepath, FileUtils.fileSuffix(filepath) )
       } else {
-        platformUtilities.createDir( qgisProject.homePath, 'DCIM' )
-        camloader.active = true
+        platformUtilities.createDir(qgisProject.homePath, 'DCIM')
+        cameraLoader.isVideo = true
+        cameraLoader.active = true
       }
     }
 
-    iconSource: Theme.getThemeIcon("ic_camera_alt_border_24dp")
+    iconSource: Theme.getThemeVectorIcon("ic_camera_video_black_24dp")
   }
 
   QfToolButton {
@@ -452,21 +484,24 @@ EditorWidgetBase {
   }
 
   Loader {
-    id: camloader
-    sourceComponent: camcomponent
+    id: cameraLoader
+    property bool isVideo: false
+    sourceComponent: cameraComponent
     active: false
   }
 
   Component {
-    id: camcomponent
+    id: cameraComponent
 
     Popup {
-      id: campopup
+      id: cameraPopup
       z: 10000 // 1000s are embedded feature forms, use a higher value to insure feature form popups always show above embedded feature forms
 
       Component.onCompleted: {
-        if ( platformUtilities.checkCameraPermissions() )
+        if (platformUtilities.checkCameraPermissions()) {
+          qfieldCamera.state = cameraLoader.isVideo ? 'VideoCapture' : 'PhotoCapture'
           open()
+        }
       }
 
       parent: ApplicationWindow.overlay
@@ -479,15 +514,15 @@ EditorWidgetBase {
       modal: true
       focus: true
 
-      QField.QFieldCamera {
+      QFieldCamera {
         id: qfieldCamera
 
         visible: true
 
         onFinished: {
           var filepath = getResourceFilePath()
-          // Pictures taken by cameras will always be JPG
-          filepath = filepath.replace('{extension}', 'JPG')
+          var extension = path.substring(path.lastIndexOf('.') + 1)
+          filepath = filepath.replace('{extension}', extension)
           platformUtilities.renameFile(path, prefixToRelativePath + filepath)
 
           var maximumWidhtHeight = iface.readProjectNumEntry("qfieldsync", "maximumImageWidthHeight", 0)
@@ -496,13 +531,14 @@ EditorWidgetBase {
           }
 
           valueChangeRequested(filepath, false)
-          campopup.close()
+          cameraPopup.close()
         }
+
         onCanceled: {
-          campopup.close()
+          cameraPopup.close()
         }
       }
-      onClosed: camloader.active = false
+      onClosed: cameraLoader.active = false
     }
   }
 
