@@ -16,6 +16,7 @@
 
 #include "audiorecorder.h"
 
+#if QT_VERSION < QT_VERSION_CHECK( 6, 0, 0 )
 AudioRecorder::AudioRecorder( QObject *parent )
   : QAudioRecorder( parent )
 {
@@ -102,3 +103,4 @@ void AudioRecorder::audioBufferProbed( const QAudioBuffer &buffer )
 
   emit levelChanged();
 }
+#endif

@@ -17,9 +17,10 @@
 #ifndef AUDIORECORDER_H
 #define AUDIORECORDER_H
 
+#include <QObject>
+#if QT_VERSION < QT_VERSION_CHECK( 6, 0, 0 )
 #include <QAudioProbe>
 #include <QAudioRecorder>
-#include <QObject>
 
 class AudioRecorder : public QAudioRecorder
 {
@@ -46,5 +47,6 @@ class AudioRecorder : public QAudioRecorder
     std::unique_ptr<QAudioProbe> mAudioProbe;
     double mLevel = 0.0;
 };
+#endif
 
 #endif // AUDIORECORDER_H
