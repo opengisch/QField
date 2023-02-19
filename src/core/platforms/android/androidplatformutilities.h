@@ -76,9 +76,10 @@ class AndroidPlatformUtilities : public PlatformUtilities
     void uploadPendingAttachments( QFieldCloudConnection *connection ) const override;
 
   private:
+    // separate multiple permissions using a semi-column (;)
+    bool checkAndAcquirePermissions( const QString &permissions ) const;
     ResourceSource *processCameraActivity( const QString &prefix, const QString &filePath, const QString &suffix, bool isVideo );
     ResourceSource *processGalleryActivity( const QString &prefix, const QString &filePath, const QString &mimeType );
-    bool checkAndAcquirePermissions( const QString &permissionString ) const;
     QString getIntentExtra( const QString &, QAndroidJniObject = nullptr ) const;
     QAndroidJniObject getNativeIntent() const;
     QAndroidJniObject getNativeExtras() const;

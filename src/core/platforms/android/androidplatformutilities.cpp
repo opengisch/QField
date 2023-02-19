@@ -572,18 +572,28 @@ bool AndroidPlatformUtilities::checkWriteExternalStoragePermissions() const
   return checkAndAcquirePermissions( "android.permission.WRITE_EXTERNAL_STORAGE" );
 }
 
-bool AndroidPlatformUtilities::checkAndAcquirePermissions( const QString &permissionString ) const
+bool AndroidPlatformUtilities::checkAndAcquirePermissions( const QString &permissions ) const
 {
-  QtAndroid::PermissionResult r = QtAndroid::checkPermission( permissionString );
-  if ( r == QtAndroid::PermissionResult::Denied )
+  QStringList requestedPermissions = permissions.split( ';' );
+  requestedPermissions.erase( std::remove_if( requestedPermissions.begin(), requestedPermissions.end(),
+                                              []( const QString &permission ) {
+                                                return QtAndroid::checkPermission( permission ) != QtAndroid::PermissionResult::Denied;
+                                              } ),
+                              requestedPermissions.end() );
+
+  if ( !requestedPermissions.isEmpty() )
   {
-    QtAndroid::requestPermissionsSync( QStringList() << permissionString );
-    r = QtAndroid::checkPermission( permissionString );
-    if ( r == QtAndroid::PermissionResult::Denied )
+    QtAndroid::requestPermissionsSync( requestedPermissions );
+    for ( const QString &permission : requestedPermissions )
     {
-      return false;
+      QtAndroid::PermissionResult r = QtAndroid::checkPermission( permission );
+      if ( r == QtAndroid::PermissionResult::Denied )
+      {
+        return false;
+      }
     }
   }
+
   return true;
 }
 
