@@ -107,10 +107,12 @@ Popup {
             onClicked: {
               if (preRecording) {
                 recorder.record();
+                console.log('xxx '+recorder.actualLocation)
                 preRecording = false;
               } else {
                 if (recorder.recording) {
-                  recorder.pause();
+                  // As of Qt5.15, Android doesn't support pausing a recording, revisit in Qt6
+                  recorder.stop();
                 } else {
                   recorder.record();
                 }
