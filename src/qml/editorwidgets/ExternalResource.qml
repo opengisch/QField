@@ -271,6 +271,10 @@ EditorWidgetBase {
 
       property bool firstFrameDrawn: false
 
+      onSourceChanged: {
+        firstFrameDrawn = false;
+      }
+
       onPlaybackStateChanged: {
         if (!firstFrameDrawn && playbackState == MediaPlayer.PlayingState) {
           firstFrameDrawn = true;
