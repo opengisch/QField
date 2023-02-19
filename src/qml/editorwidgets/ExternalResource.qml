@@ -537,11 +537,8 @@ EditorWidgetBase {
 
       onFinished: {
         var filepath = getResourceFilePath()
-        console.log('xxx2 '+path)
-        console.log('xxx3 '+filepath)
         var extension = path.substring(path.lastIndexOf('.') + 1)
         filepath = filepath.replace('{extension}', extension)
-        console.log('xxx4 '+filepath)
         platformUtilities.renameFile(path, prefixToRelativePath + filepath)
 
         valueChangeRequested(filepath, false)

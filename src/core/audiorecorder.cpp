@@ -20,8 +20,11 @@
 AudioRecorder::AudioRecorder( QObject *parent )
   : QAudioRecorder( parent )
 {
+  qDebug() << supportedContainers();
+  qDebug() << supportedAudioCodecs();
+
   QAudioEncoderSettings as = audioSettings();
-  setEncodingSettings( as, QVideoEncoderSettings(), QString( "audio/mpeg, mpegversion=(int)1" ) );
+  setEncodingSettings( as, QVideoEncoderSettings(), QString( "audio/ogg" ) );
 
   connect( this, &QMediaRecorder::stateChanged, this, [=]() {
     mLevel = 0;

@@ -107,7 +107,6 @@ Popup {
             onClicked: {
               if (preRecording) {
                 recorder.record();
-                console.log('xxx '+recorder.actualLocation)
                 preRecording = false;
               } else {
                 if (recorder.recording) {
