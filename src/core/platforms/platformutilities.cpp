@@ -346,6 +346,11 @@ bool PlatformUtilities::checkCameraPermissions() const
   return true;
 }
 
+bool PlatformUtilities::checkMicrophonePermissions() const
+{
+  return true;
+}
+
 bool PlatformUtilities::checkWriteExternalStoragePermissions() const
 {
   return true;

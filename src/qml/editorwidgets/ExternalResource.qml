@@ -498,9 +498,16 @@ EditorWidgetBase {
       z: 10000 // 1000s are embedded feature forms, use a higher value to insure feature form popups always show above embedded feature forms
 
       Component.onCompleted: {
-        if (platformUtilities.checkCameraPermissions()) {
-          qfieldCamera.state = cameraLoader.isVideo ? 'VideoCapture' : 'PhotoCapture'
-          open()
+        if (isVideo) {
+          if (platformUtilities.checkCameraPermissions() && platformUtilities.checkMicrophonePermissions()) {
+            qfieldCamera.state = 'VideoCapture'
+            open()
+          }
+        } else {
+          if (platformUtilities.checkCameraPermissions()) {
+            qfieldCamera.state = 'PhotoCapture'
+            open()
+          }
         }
       }
 

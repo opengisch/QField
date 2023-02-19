@@ -62,6 +62,8 @@ class AndroidPlatformUtilities : public PlatformUtilities
 
     bool checkCameraPermissions() const override;
 
+    bool checkMicrophonePermissions() const override;
+
     bool checkWriteExternalStoragePermissions() const override;
 
     void setScreenLockPermission( const bool allowLock ) override;

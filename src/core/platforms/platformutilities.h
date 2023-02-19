@@ -219,6 +219,13 @@ class QFIELD_CORE_EXPORT PlatformUtilities : public QObject
     Q_INVOKABLE virtual bool checkCameraPermissions() const;
 
     /**
+     * Checks for camera microphone on the device.
+     * If the permissions are not given, the user will be asked to grant
+     * permissions.
+     */
+    Q_INVOKABLE virtual bool checkMicrophonePermissions() const;
+
+    /**
      * Checks for permissions to write exeternal storage.
      * If the permissions are not given, the user will be asked to grant
      * permissions.

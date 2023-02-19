@@ -567,6 +567,11 @@ bool AndroidPlatformUtilities::checkCameraPermissions() const
   return checkAndAcquirePermissions( "android.permission.CAMERA" );
 }
 
+bool AndroidPlatformUtilities::checkMicrophonePermissions() const
+{
+  return checkAndAcquirePermissions( "android.permission.RECORD_AUDIO" );
+}
+
 bool AndroidPlatformUtilities::checkWriteExternalStoragePermissions() const
 {
   return checkAndAcquirePermissions( "android.permission.WRITE_EXTERNAL_STORAGE" );
