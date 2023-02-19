@@ -52,11 +52,11 @@ void AudioRecorder::audioBufferProbed( const QAudioBuffer &buffer )
   if ( buffer.format().sampleType() == QAudioFormat::SignedInt )
   {
     if ( buffer.format().sampleSize() == 32 )
-      peakValue = INT_MAX;
+      peakValue = std::numeric_limits<int>::max();
     else if ( buffer.format().sampleSize() == 16 )
-      peakValue = SHRT_MAX;
+      peakValue = std::numeric_limits<short>::max();
     else
-      peakValue = CHAR_MAX;
+      peakValue = std::numeric_limits<char>::max();
 
     const QAudioBuffer::S16S *data = buffer.data<QAudioBuffer::S16S>();
     for ( int i = 0; i < buffer.frameCount(); i++ )
@@ -67,11 +67,11 @@ void AudioRecorder::audioBufferProbed( const QAudioBuffer &buffer )
   else if ( buffer.format().sampleType() == QAudioFormat::UnSignedInt )
   {
     if ( buffer.format().sampleSize() == 32 )
-      peakValue = UINT_MAX;
+      peakValue = std::numeric_limits<unsigned int>::max();
     else if ( buffer.format().sampleSize() == 16 )
-      peakValue = USHRT_MAX;
+      peakValue = std::numeric_limits<unsigned short>::max();
     else
-      peakValue = UCHAR_MAX;
+      peakValue = std::numeric_limits<unsigned char>::max();
 
     const QAudioBuffer::S16U *data = buffer.data<QAudioBuffer::S16U>();
     for ( int i = 0; i < buffer.frameCount(); i++ )
@@ -90,7 +90,15 @@ void AudioRecorder::audioBufferProbed( const QAudioBuffer &buffer )
     }
   }
 
-  mLevel = std::max( 0.0, std::max( previousLevel - 0.025, mLevel / buffer.frameCount() ) );
+  // Smooth level to avoid dizzingly rapid changes
+  if ( mLevel <= previousLevel )
+  {
+    mLevel = std::max( 0.0, std::max( previousLevel - 0.025, mLevel / buffer.frameCount() ) );
+  }
+  else
+  {
+    mLevel = std::min( 1.0, std::min( previousLevel + 0.025, mLevel / buffer.frameCount() ) );
+  }
 
   emit levelChanged();
 }
