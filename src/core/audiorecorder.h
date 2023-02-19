@@ -17,6 +17,7 @@
 #ifndef AUDIORECORDER_H
 #define AUDIORECORDER_H
 
+#include <QAudioProbe>
 #include <QAudioRecorder>
 #include <QObject>
 
@@ -24,12 +25,26 @@ class AudioRecorder : public QAudioRecorder
 {
     Q_OBJECT
 
+    Q_PROPERTY( bool recording READ recording NOTIFY recordingChanged )
+    Q_PROPERTY( double level READ level NOTIFY levelChanged )
+
   public:
     explicit AudioRecorder( QObject *parent = nullptr );
 
+    bool recording() const;
+
+    double level() const;
+
   signals:
+    void recordingChanged();
+    void levelChanged();
+
+  private slots:
+    void audioBufferProbed( const QAudioBuffer &buffer );
 
   private:
+    std::unique_ptr<QAudioProbe> mAudioProbe;
+    double mLevel = 0.0;
 };
 
 #endif // AUDIORECORDER_H

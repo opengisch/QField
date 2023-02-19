@@ -19,12 +19,75 @@
 AudioRecorder::AudioRecorder( QObject *parent )
   : QAudioRecorder( parent )
 {
-  QAudioEncoderSettings audioSettings;
-  audioSettings.setCodec( "audio/amr" );
-  audioSettings.setQuality( QMultimedia::HighQuality );
+  connect( this, &QMediaRecorder::stateChanged, this, [=]() {
+    mLevel = 0;
+    emit levelChanged();
+    emit recordingChanged();
+  } );
 
-  setEncodingSettings( audioSettings );
+  mAudioProbe = std::make_unique<QAudioProbe>();
+  mAudioProbe->setSource( this );
+  connect( mAudioProbe.get(), &QAudioProbe::audioBufferProbed, this, &AudioRecorder::audioBufferProbed );
+}
 
-  qDebug() << audioInput();
-  qDebug() << audioInputs();
+bool AudioRecorder::recording() const
+{
+  return state() == QMediaRecorder::RecordingState;
+}
+
+double AudioRecorder::level() const
+{
+  return mLevel;
+}
+
+void AudioRecorder::audioBufferProbed( const QAudioBuffer &buffer )
+{
+  double previousLevel = mLevel;
+  mLevel = 0;
+
+  qreal peakValue;
+  if ( buffer.format().sampleType() == QAudioFormat::SignedInt )
+  {
+    if ( buffer.format().sampleSize() == 32 )
+      peakValue = INT_MAX;
+    else if ( buffer.format().sampleSize() == 16 )
+      peakValue = SHRT_MAX;
+    else
+      peakValue = CHAR_MAX;
+
+    const QAudioBuffer::S16S *data = buffer.data<QAudioBuffer::S16S>();
+    for ( int i = 0; i < buffer.frameCount(); i++ )
+    {
+      mLevel += std::max( std::abs( data[i].left ), std::abs( data[i].right ) ) / peakValue;
+    }
+  }
+  else if ( buffer.format().sampleType() == QAudioFormat::UnSignedInt )
+  {
+    if ( buffer.format().sampleSize() == 32 )
+      peakValue = UINT_MAX;
+    else if ( buffer.format().sampleSize() == 16 )
+      peakValue = USHRT_MAX;
+    else
+      peakValue = UCHAR_MAX;
+
+    const QAudioBuffer::S16U *data = buffer.data<QAudioBuffer::S16U>();
+    for ( int i = 0; i < buffer.frameCount(); i++ )
+    {
+      mLevel += std::max( data[i].left, data[i].right ) / peakValue;
+    }
+  }
+  else if ( buffer.format().sampleType() == QAudioFormat::Float )
+  {
+    peakValue = 1.00003;
+
+    const QAudioBuffer::S32F *data = buffer.data<QAudioBuffer::S32F>();
+    for ( int i = 0; i < buffer.frameCount(); i++ )
+    {
+      mLevel += std::max( std::abs( data[i].left ), std::abs( data[i].right ) ) / peakValue;
+    }
+  }
+
+  mLevel = std::max( 0.0, std::max( previousLevel - 0.025, mLevel / buffer.frameCount() ) );
+
+  emit levelChanged();
 }

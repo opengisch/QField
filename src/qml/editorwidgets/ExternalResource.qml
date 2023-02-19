@@ -144,7 +144,7 @@ EditorWidgetBase {
     visible: hasValue && !isImage && !isAudio && !isVideo
 
     anchors.left: parent.left
-    anchors.right: fileButton.left
+    anchors.right: cameraButton.left
     color: FileUtils.fileExists(prefixToRelativePath + value) ? Theme.mainColor : 'gray'
 
     text: {
@@ -194,7 +194,7 @@ EditorWidgetBase {
 
   Rectangle {
     id: mediaFrame
-    width: parent.width - fileButton.width - galleryButton.width - cameraButton.width - cameraVideoButton.width - (isEnabled ? 5 : 0)
+    width: parent.width - fileButton.width - galleryButton.width - cameraButton.width - cameraVideoButton.width - microphoneButton.width - (isEnabled ? 5 : 0)
     height: 48
     visible: !linkField.visible
     color: isEnabled ? Theme.lightGray : "transparent"
@@ -370,31 +370,6 @@ EditorWidgetBase {
   }
 
   QfToolButton {
-    id: fileButton
-    width: visible ? 48 : 0
-    height: 48
-
-    visible: (documentViewer == document_FILE || documentViewer == document_AUDIO) && isEnabled
-
-    anchors.right: cameraButton.left
-    anchors.top: parent.top
-
-    bgcolor: "transparent"
-
-    onClicked: {
-      Qt.inputMethod.hide()
-      var filepath = getResourceFilePath()
-      if (documentViewer == document_AUDIO) {
-        __resourceSource = platformUtilities.getFile(this, qgisProject.homePath+'/', filepath, PlatformUtilities.AudioFiles)
-      } else {
-        __resourceSource = platformUtilities.getFile(this, qgisProject.homePath+'/', filepath)
-      }
-    }
-
-    iconSource: Theme.getThemeIcon("ic_file_black_24dp")
-  }
-
-  QfToolButton {
     id: cameraButton
     width: visible ? 48 : 0
     height: 48
@@ -435,7 +410,7 @@ EditorWidgetBase {
 
     visible: documentViewer == document_VIDEO && isEnabled
 
-    anchors.right: galleryButton.left
+    anchors.right: microphoneButton.left
     anchors.top: parent.top
 
     bgcolor: "transparent"
@@ -455,6 +430,51 @@ EditorWidgetBase {
     }
 
     iconSource: Theme.getThemeVectorIcon("ic_camera_video_black_24dp")
+  }
+
+  QfToolButton {
+    id: microphoneButton
+    width: visible ? 48 : 0
+    height: 48
+
+    visible: documentViewer == document_AUDIO && isEnabled
+
+    anchors.right: fileButton.left
+    anchors.top: parent.top
+
+    bgcolor: "transparent"
+
+    onClicked: {
+      Qt.inputMethod.hide()
+      audioRecorderLoader.active = true
+    }
+
+    iconSource: Theme.getThemeVectorIcon("ic_microphone_black_24dp")
+  }
+
+  QfToolButton {
+    id: fileButton
+    width: visible ? 48 : 0
+    height: 48
+
+    visible: (documentViewer == document_FILE || documentViewer == document_AUDIO) && isEnabled
+
+    anchors.right: galleryButton.left
+    anchors.top: parent.top
+
+    bgcolor: "transparent"
+
+    onClicked: {
+      Qt.inputMethod.hide()
+      var filepath = getResourceFilePath()
+      if (documentViewer == document_AUDIO) {
+        __resourceSource = platformUtilities.getFile(this, qgisProject.homePath+'/', filepath, PlatformUtilities.AudioFiles)
+      } else {
+        __resourceSource = platformUtilities.getFile(this, qgisProject.homePath+'/', filepath)
+      }
+    }
+
+    iconSource: Theme.getThemeIcon("ic_file_black_24dp")
   }
 
   QfToolButton {
@@ -484,10 +504,50 @@ EditorWidgetBase {
   }
 
   Loader {
+    id: audioRecorderLoader
+    sourceComponent: audioRecorderComponent
+    active:false
+  }
+
+  Loader {
     id: cameraLoader
     property bool isVideo: false
     sourceComponent: cameraComponent
     active: false
+  }
+
+  Component {
+    id: audioRecorderComponent
+
+    QFieldAudioRecorder {
+      z: 10000
+      visible: false
+      parent: ApplicationWindow.overlay
+
+      Component.onCompleted: {
+        if (platformUtilities.checkMicrophonePermissions()) {
+          open()
+        }
+      }
+
+      onFinished: {
+        var filepath = getResourceFilePath()
+        var extension = path.substring(path.lastIndexOf('.') + 1)
+        filepath = filepath.replace('{extension}', extension)
+        platformUtilities.renameFile(path, prefixToRelativePath + filepath)
+
+        valueChangeRequested(filepath, false)
+        close()
+      }
+
+      onCanceled: {
+        close()
+      }
+
+      onClosed: {
+        audioRecorderLoader.active = false
+      }
+    }
   }
 
   Component {
