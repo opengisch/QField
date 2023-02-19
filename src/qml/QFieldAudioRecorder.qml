@@ -157,7 +157,9 @@ Popup {
 
           onClicked: {
             recorder.stop()
-            audioRecorder.finished(recorder.actualLocation)
+            var path = recorder.actualLocation.toString()
+            var filePos = path.indexOf('file://')
+            audioRecorder.finished(filePos === 0 ? path.substring(7) : path)
             audioRecorder.close();
           }
         }

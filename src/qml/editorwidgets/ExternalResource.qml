@@ -297,7 +297,8 @@ EditorWidgetBase {
 
       anchors.left: parent.left
       anchors.bottom: parent.bottom
-      anchors.margins: 5
+      anchors.leftMargin: 5
+      anchors.rightMargin: 5
       width: parent.width - 10
 
       QfToolButton {

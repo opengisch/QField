@@ -119,7 +119,9 @@ Item {
         } else {
           camera.videoRecorder.stop()
           videoPreview.source = camera.videoRecorder.actualLocation
-          currentPath = camera.videoRecorder.actualLocation.substring(7) // remove the "file://" prefix from the location
+          var path = camera.videoRecorder.actualLocation.toString()
+          var filePos = path.indexOf('file://')
+          currentPath = filePos === 0 ? path.substring(7) : path
           cameraItem.state = "VideoPreview"
         }
       }
