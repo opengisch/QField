@@ -24,6 +24,7 @@ AudioRecorder::AudioRecorder( QObject *parent )
   qDebug() << supportedAudioCodecs();
 
   QAudioEncoderSettings as = audioSettings();
+  as.setCodec( "audio/x-vorbis" );
   setEncodingSettings( as, QVideoEncoderSettings(), QString( "audio/ogg" ) );
 
   connect( this, &QMediaRecorder::stateChanged, this, [=]() {

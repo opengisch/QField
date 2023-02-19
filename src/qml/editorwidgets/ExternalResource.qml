@@ -91,7 +91,7 @@ EditorWidgetBase {
         geoTagBadge.hasGeoTag = ExifTools.hasGeoTag(prefixToRelativePath + value)
         geoTagBadge.visible = true
       } else if (isAudio) {
-        mediaFrame.height = 54
+        mediaFrame.height = 48
         player.source = 'file://' + prefixToRelativePath + value
       } else if (isVideo) {
         mediaFrame.height = 254
