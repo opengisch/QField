@@ -19,6 +19,9 @@
 AudioRecorder::AudioRecorder( QObject *parent )
   : QAudioRecorder( parent )
 {
+  QAudioEncoderSettings as = audioSettings();
+  setEncodingSettings( as, QVideoEncoderSettings(), QString( "audio/mpeg, mpegversion=(int)1" ) );
+
   connect( this, &QMediaRecorder::stateChanged, this, [=]() {
     mLevel = 0;
     emit levelChanged();
