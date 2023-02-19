@@ -532,9 +532,11 @@ EditorWidgetBase {
           filepath = filepath.replace('{extension}', extension)
           platformUtilities.renameFile(path, prefixToRelativePath + filepath)
 
-          var maximumWidhtHeight = iface.readProjectNumEntry("qfieldsync", "maximumImageWidthHeight", 0)
-          if(maximumWidhtHeight > 0) {
-            iface.restrictImageSize(prefixToRelativePath + filepath, maximumWidhtHeight)
+          if (!cameraLoader.isVideo) {
+            var maximumWidhtHeight = iface.readProjectNumEntry("qfieldsync", "maximumImageWidthHeight", 0)
+            if(maximumWidhtHeight > 0) {
+              iface.restrictImageSize(prefixToRelativePath + filepath, maximumWidhtHeight)
+            }
           }
 
           valueChangeRequested(filepath, false)
