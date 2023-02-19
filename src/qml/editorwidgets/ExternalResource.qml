@@ -504,7 +504,7 @@ EditorWidgetBase {
       }
     }
 
-    iconSource: Theme.getThemeIcon("baseline_photo_library_black_24")
+    iconSource: Theme.getThemeVectorIcon("ic_gallery_black_24dp")
   }
 
   Loader {
