@@ -15,6 +15,7 @@ Popup {
   signal canceled()
 
   property bool preRecording: true
+  property bool hasRecordedClip: !recorder.recording && player.duration > 0
   property int popupWidth: Math.min(400, mainWindow.width <= mainWindow.height ? mainWindow.width - Theme.popupScreenEdgeMargin : mainWindow.height - Theme.popupScreenEdgeMargin)
 
   width: popupWidth
@@ -33,6 +34,29 @@ Popup {
 
   AudioRecorder {
     id: recorder
+  }
+
+  Video {
+    id: player
+
+    visible: false
+
+    anchors.left: parent.left
+    anchors.top: parent.top
+
+    width: parent.width
+    height: parent.height - 54
+
+    autoLoad: true
+
+    onDurationChanged: {
+      positionSlider.to = duration / 1000;
+      positionSlider.value = 0;
+    }
+
+    onPositionChanged: {
+      positionSlider.value = position / 1000;
+    }
   }
 
   Page {
@@ -112,8 +136,15 @@ Popup {
                 if (recorder.recording) {
                   // As of Qt5.15, Android doesn't support pausing a recording, revisit in Qt6
                   recorder.stop();
+                  var path = recorder.actualLocation.toString()
+                  // On Android, the file protocol prefix is present while on Linux it isn't
+                  var filePos = path.indexOf('file://')
+                  path = filePos == -1 ? 'file://' + path : path
+                  console.log(path);
+                  player.source = path
                 } else {
                   recorder.record();
+                  player.source = ''
                 }
               }
             }
@@ -124,9 +155,49 @@ Popup {
       RowLayout {
         Layout.fillWidth: true
 
-        Text {
-          id: audioDuration
+        QfToolButton {
+          id: playButton
+          enabled: audioRecorder.hasRecordedClip
+          opacity: enabled ? 1 : 0.25
+
+          iconSource: player.playbackState == MediaPlayer.PlayingState
+                      ? Theme.getThemeVectorIcon('ic_pause_black_24dp')
+                      : Theme.getThemeVectorIcon('ic_play_black_24dp')
+          bgcolor: "transparent"
+
+          onClicked: {
+            if (player.playbackState == MediaPlayer.PlayingState) {
+              player.pause()
+            } else {
+              player.play()
+            }
+          }
+        }
+
+        Slider {
+          id: positionSlider
           Layout.fillWidth: true
+
+          from: 0
+          to: 0
+
+          enabled: audioRecorder.hasRecordedClip
+          opacity: enabled ? 1 : 0.25
+
+          onMoved: {
+            player.seek(value * 1000)
+          }
+        }
+
+        Label {
+          id: durationLabel
+          Layout.preferredWidth: durationLabelMetrics.boundingRect('00:00:00').width
+          Layout.rightMargin: 14
+
+          color: player.playbackState == MediaPlayer.PlayingState ? 'black' : 'gray'
+          font: Theme.tipFont
+          horizontalAlignment: Text.AlignHCenter
+          verticalAlignment: Text.AlignVCenter
 
           text: {
             if (!preRecording && recorder.duration > 0) {
@@ -137,12 +208,14 @@ Popup {
               seconds = (seconds - minutes * 60) + '';
               return hours.padStart(2,'0') + ':' + minutes.padStart(2,'0') + ':' + seconds.padStart(2,'0');
             } else {
-              return '';
+              return '-';
             }
           }
-          font: Theme.tipFont
-          horizontalAlignment: Text.AlignLeft
-          elide: Text.ElideMiddle
+        }
+
+        FontMetrics {
+          id: durationLabelMetrics
+          font: durationLabel.font
         }
 
         QfToolButton {
@@ -151,11 +224,10 @@ Popup {
           iconSource: Theme.getThemeIcon( 'ic_check_black_48dp' )
           round: true
           bgcolor: "transparent"
-          enabled: !preRecording && recorder.duration !== 0
+          enabled: audioRecorder.hasRecordedClip
           opacity: enabled ? 1 : 0.25
 
           onClicked: {
-            recorder.stop()
             var path = recorder.actualLocation.toString()
             var filePos = path.indexOf('file://')
             audioRecorder.finished(filePos === 0 ? path.substring(7) : path)
