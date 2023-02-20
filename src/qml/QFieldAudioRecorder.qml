@@ -139,7 +139,6 @@ Popup {
                   // On Android, the file protocol prefix is present while on Linux it isn't
                   var filePos = path.indexOf('file://')
                   path = filePos == -1 ? 'file://' + path : path
-                  console.log(path);
                   player.source = path
                 } else {
                   recorder.record();
