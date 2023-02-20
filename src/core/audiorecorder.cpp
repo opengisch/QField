@@ -31,8 +31,12 @@ AudioRecorder::AudioRecorder( QObject *parent )
   } );
 
   mAudioProbe = std::make_unique<QAudioProbe>();
-  mAudioProbe->setSource( this );
-  connect( mAudioProbe.get(), &QAudioProbe::audioBufferProbed, this, &AudioRecorder::audioBufferProbed );
+  if ( mAudioProbe->setSource( this ) )
+  {
+    connect( mAudioProbe.get(), &QAudioProbe::audioBufferProbed, this, &AudioRecorder::audioBufferProbed );
+    mHasLevel = true;
+    emit hasLevelChanged();
+  }
 }
 
 bool AudioRecorder::recording() const
@@ -43,6 +47,11 @@ bool AudioRecorder::recording() const
 double AudioRecorder::level() const
 {
   return mLevel;
+}
+
+bool AudioRecorder::hasLevel() const
+{
+  return mHasLevel;
 }
 
 void AudioRecorder::audioBufferProbed( const QAudioBuffer &buffer )

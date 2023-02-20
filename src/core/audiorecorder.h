@@ -27,17 +27,19 @@ class AudioRecorder : public QAudioRecorder
     Q_OBJECT
 
     Q_PROPERTY( bool recording READ recording NOTIFY recordingChanged )
+    Q_PROPERTY( bool hasLevel READ hasLevel NOTIFY hasLevelChanged )
     Q_PROPERTY( double level READ level NOTIFY levelChanged )
 
   public:
     explicit AudioRecorder( QObject *parent = nullptr );
 
     bool recording() const;
-
+    bool hasLevel() const;
     double level() const;
 
   signals:
     void recordingChanged();
+    void hasLevelChanged();
     void levelChanged();
 
   private slots:
@@ -45,6 +47,8 @@ class AudioRecorder : public QAudioRecorder
 
   private:
     std::unique_ptr<QAudioProbe> mAudioProbe;
+
+    bool mHasLevel = false;
     double mLevel = 0.0;
 };
 #endif

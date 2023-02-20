@@ -112,11 +112,31 @@ Popup {
         color: "transparent"
 
         Rectangle {
+          id: levelFeedback
           anchors.centerIn: parent
           width: 120 + (Math.min(audioFeedback.width, audioFeedback.height) - 120) * recorder.level
           height: width
           radius: width / 2
           color: "#44808080"
+
+          SequentialAnimation {
+            NumberAnimation {
+              target:  levelFeedback
+              property: "width"
+              to: 120 + (Math.min(audioFeedback.width, audioFeedback.height) - 120)
+              duration: 2000
+              easing.type: Easing.InOutQuad
+            }
+            NumberAnimation {
+              target:  levelFeedback
+              property: "width"
+              to: 120
+              duration: 2000
+              easing.type: Easing.InOutQuad
+            }
+            running: !recorder.hasLevel && recorder.recording
+            loops: Animation.Infinite
+          }
 
           QfToolButton {
             id: recordButton
