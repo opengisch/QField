@@ -70,7 +70,7 @@ EditorWidgetBase {
 
   property bool isImage: !config.UseLink && FileUtils.mimeTypeName(prefixToRelativePath + value ).startsWith("image/")
   property bool isAudio: !config.UseLink && FileUtils.mimeTypeName(prefixToRelativePath + value).startsWith("audio/")
-  property bool isVideo: !config.UserLinke && FileUtils.mimeTypeName(prefixToRelativePath + value).startsWith("video/")
+  property bool isVideo: !config.UseLink && FileUtils.mimeTypeName(prefixToRelativePath + value).startsWith("video/")
 
   //to not break any binding of image.source
   property var currentValue: value
@@ -90,11 +90,8 @@ EditorWidgetBase {
         image.source = 'file://' + prefixToRelativePath + value
         geoTagBadge.hasGeoTag = ExifTools.hasGeoTag(prefixToRelativePath + value)
         geoTagBadge.visible = true
-      } else if (isAudio) {
+      } else if (isAudio || isVideo) {
         mediaFrame.height = 48
-        player.source = 'file://' + prefixToRelativePath + value
-      } else if (isVideo) {
-        mediaFrame.height = 254
         player.source = 'file://' + prefixToRelativePath + value
       }
     }
@@ -273,6 +270,10 @@ EditorWidgetBase {
 
       onSourceChanged: {
         firstFrameDrawn = false;
+      }
+
+      onHasVideoChanged: {
+        mediaFrame.height = hasVideo ? 254 : 48
       }
 
       onPlaybackStateChanged: {

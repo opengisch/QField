@@ -118,7 +118,6 @@ Popup {
           radius: width / 2
           color: "#44808080"
 
-
           QfToolButton {
             id: recordButton
             anchors.centerIn: parent

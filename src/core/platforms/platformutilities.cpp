@@ -300,7 +300,7 @@ ResourceSource *PlatformUtilities::getFile( QQuickItem *parent, const QString &p
   switch ( fileType )
   {
     case AudioFiles:
-      filter = tr( "Audio files (*.mp3 *.aac *.ogg)" );
+      filter = tr( "Audio files (*.mp3 *.aac *.ogg *.m4a *.mp4 *.mov)" );
       break;
 
     case AllFiles:
