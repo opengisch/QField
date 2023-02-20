@@ -172,6 +172,10 @@ bool PlatformUtilities::rmFile( const QString &filename ) const
 
 bool PlatformUtilities::renameFile( const QString &filename, const QString &newname ) const
 {
+  QFileInfo fi( newname );
+  QDir dir( fi.absolutePath() );
+  dir.mkpath( fi.absolutePath() );
+
   QFile file( filename );
   return file.rename( newname );
 }
