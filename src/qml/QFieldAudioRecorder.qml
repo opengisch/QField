@@ -116,7 +116,7 @@ Popup {
           width: 120 + (Math.min(audioFeedback.width, audioFeedback.height) - 120) * recorder.level
           height: width
           radius: width / 2
-          color: Theme.navigationBackgroundColor
+          color: "#44808080"
 
 
           QfToolButton {
@@ -126,7 +126,7 @@ Popup {
             height: 120
             iconSource: ''
             round: true
-            bgcolor: !recorder.recording ? "red" : "gray"
+            bgcolor: !recorder.recording ? "#FF0000" : "#808080"
 
             onClicked: {
               if (preRecording) {
