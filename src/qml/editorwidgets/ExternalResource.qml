@@ -296,6 +296,8 @@ EditorWidgetBase {
     RowLayout {
       id: playerControls
 
+      visible: player.duration > 0
+
       anchors.left: parent.left
       anchors.bottom: parent.bottom
       anchors.leftMargin: 5
