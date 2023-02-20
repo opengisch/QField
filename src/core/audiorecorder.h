@@ -67,6 +67,11 @@ class AudioRecorder : public QAudioRecorder
      */
     void levelChanged();
 
+    /**
+     * Emitted when a recorded audio file is finalized and loaded.
+     */
+    void recordingLoaded();
+
   private slots:
     void audioBufferProbed( const QAudioBuffer &buffer );
 

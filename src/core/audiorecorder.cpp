@@ -30,6 +30,13 @@ AudioRecorder::AudioRecorder( QObject *parent )
     emit recordingChanged();
   } );
 
+  connect( this, &QMediaRecorder::statusChanged, this, [=]() {
+    if ( status() == QMediaRecorder::LoadedStatus )
+    {
+      emit recordingLoaded();
+    }
+  } );
+
   mAudioProbe = std::make_unique<QAudioProbe>();
   if ( mAudioProbe->setSource( this ) )
   {

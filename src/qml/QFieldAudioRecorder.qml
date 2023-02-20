@@ -30,10 +30,19 @@ Popup {
 
   onAboutToShow: {
     preRecording = true;
+    player.source = ''
   }
 
   AudioRecorder {
     id: recorder
+
+    onRecordingLoaded: {
+      var path = recorder.actualLocation.toString()
+      // On Android, the file protocol prefix is present while on Linux it isn't
+      var filePos = path.indexOf('file://')
+      path = filePos == -1 ? 'file://' + path : path
+      player.source = path
+    }
   }
 
   Video {
@@ -155,11 +164,6 @@ Popup {
                 if (recorder.recording) {
                   // As of Qt5.15, Android doesn't support pausing a recording, revisit in Qt6
                   recorder.stop();
-                  var path = recorder.actualLocation.toString()
-                  // On Android, the file protocol prefix is present while on Linux it isn't
-                  var filePos = path.indexOf('file://')
-                  path = filePos == -1 ? 'file://' + path : path
-                  player.source = path
                 } else {
                   recorder.record();
                   player.source = ''
