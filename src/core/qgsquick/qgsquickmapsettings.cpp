@@ -321,9 +321,6 @@ void QgsQuickMapSettings::onReadProject( const QDomDocument &doc )
     {
       foundTheMapCanvas = true;
       mMapSettings.readXml( node );
-
-      if ( !qgsDoubleNear( mMapSettings.rotation(), 0 ) )
-        QgsMessageLog::logMessage( tr( "Map Canvas rotation is not supported. Resetting from %1 to 0." ).arg( mMapSettings.rotation() ) );
     }
   }
   if ( !foundTheMapCanvas )
@@ -332,12 +329,11 @@ void QgsQuickMapSettings::onReadProject( const QDomDocument &doc )
     mMapSettings.setExtent( mProject->viewSettings()->fullExtent() );
   }
 
-  mMapSettings.setRotation( 0 );
-
   mMapSettings.setTransformContext( mProject->transformContext() );
   mMapSettings.setPathResolver( mProject->pathResolver() );
 
   emit extentChanged();
+  emit rotationChanged();
   emit destinationCrsChanged();
   emit outputSizeChanged();
   emit outputDpiChanged();
@@ -352,8 +348,11 @@ double QgsQuickMapSettings::rotation() const
 
 void QgsQuickMapSettings::setRotation( double rotation )
 {
-  if ( !qgsDoubleNear( rotation, 0 ) )
-    QgsMessageLog::logMessage( tr( "Map Canvas rotation is not supported. Resetting from %1 to 0." ).arg( rotation ) );
+  if ( mMapSettings.rotation() == rotation )
+    return;
+
+  mMapSettings.setRotation( rotation );
+  emit rotationChanged();
 }
 
 QColor QgsQuickMapSettings::backgroundColor() const
