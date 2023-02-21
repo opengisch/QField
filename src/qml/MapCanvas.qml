@@ -273,28 +273,34 @@ Item {
         grabPermissions: PointerHandler.TakeOverForbidden
         acceptedButtons: Qt.MiddleButton
 
-        property real oldTranslationY
+        property real oldTranslationY: 0
+        property bool translationThresholdReached: false
 
         onActiveChanged: {
             if (active)
             {
-                oldTranslationY = 0
-            }
-
-            if ( active )
                 freeze('rotate')
+                oldTranslationY = 0
+                translationThresholdReached = false
+            }
             else
+            {
                 unfreeze('rotate')
+            }
         }
 
         onTranslationChanged: {
             if (active)
             {
-              if ( oldTranslationY != 0 )
-              {
-                mapCanvasWrapper.rotate(oldTranslationY - translation.y)
-              }
-              oldTranslationY = translation.y
+                if (translationThresholdReached || Math.abs(oldTranslationY - translation.y) > 35)
+                {
+                    if (oldTranslationY != 0)
+                    {
+                        mapCanvasWrapper.rotate(oldTranslationY - translation.y)
+                    }
+                    oldTranslationY = translation.y
+                    translationThresholdReached = true
+                }
             }
         }
     }
@@ -309,12 +315,14 @@ Item {
         property var oldPos
         property real oldScale: 1.0
         property real oldRotation: 0.0
+        property bool rotationTresholdReached: false
 
         onActiveChanged: {
             if ( active ) {
                 freeze('pinch')
                 oldScale = 1.0
                 oldRotation = 0.0
+                rotationTresholdReached = false
                 oldPos = centroid.position
             } else {
                 unfreeze('pinch')
@@ -333,8 +341,12 @@ Item {
         onRotationChanged: {
             if ( active )
             {
-                mapCanvasWrapper.rotate(rotation - oldRotation)
-                oldRotation = rotation
+                if (rotationTresholdReached || Math.abs(rotation - oldRotation) > 35)
+                {
+                    mapCanvasWrapper.rotate(rotation - oldRotation)
+                    oldRotation = rotation
+                    rotationTresholdReached = true
+                }
             }
         }
 
