@@ -238,7 +238,7 @@ Item {
         enabled: interactive
         acceptedDevices: PointerDevice.Stylus | PointerDevice.Mouse
         grabPermissions: PointerHandler.TakeOverForbidden
-        acceptedButtons: Qt.MiddleButton | Qt.RightButton
+        acceptedButtons: Qt.RightButton
 
         property real oldTranslationY
         property point zoomCenter
@@ -263,6 +263,39 @@ Item {
             }
 
             oldTranslationY = translation.y
+        }
+    }
+
+    DragHandler {
+        target: null
+        enabled: interactive
+        acceptedDevices: PointerDevice.Stylus | PointerDevice.Mouse
+        grabPermissions: PointerHandler.TakeOverForbidden
+        acceptedButtons: Qt.MiddleButton
+
+        property real oldTranslationY
+
+        onActiveChanged: {
+            if (active)
+            {
+                oldTranslationY = 0
+            }
+
+            if ( active )
+                freeze('rotate')
+            else
+                unfreeze('rotate')
+        }
+
+        onTranslationChanged: {
+            if (active)
+            {
+              if ( oldTranslationY != 0 )
+              {
+                mapCanvasWrapper.rotate(oldTranslationY - translation.y)
+              }
+              oldTranslationY = translation.y
+            }
         }
     }
 

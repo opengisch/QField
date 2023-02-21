@@ -42,6 +42,7 @@ QgsQuickMapCanvasMap::QgsQuickMapCanvasMap( QQuickItem *parent )
   connect( &mMapUpdateTimer, &QTimer::timeout, this, &QgsQuickMapCanvasMap::renderJobUpdated );
 
   connect( mMapSettings.get(), &QgsQuickMapSettings::extentChanged, this, &QgsQuickMapCanvasMap::onExtentChanged );
+  connect( mMapSettings.get(), &QgsQuickMapSettings::rotationChanged, this, &QgsQuickMapCanvasMap::onRotationChanged );
   connect( mMapSettings.get(), &QgsQuickMapSettings::layersChanged, this, &QgsQuickMapCanvasMap::onLayersChanged );
   connect( mMapSettings.get(), &QgsQuickMapSettings::temporalStateChanged, this, &QgsQuickMapCanvasMap::onTemporalStateChanged );
 
@@ -51,7 +52,7 @@ QgsQuickMapCanvasMap::QgsQuickMapCanvasMap( QQuickItem *parent )
   mMapUpdateTimer.setSingleShot( false );
   mMapUpdateTimer.setInterval( 250 );
   mRefreshTimer.setSingleShot( true );
-  setTransformOrigin( QQuickItem::TopLeft );
+  setTransformOrigin( QQuickItem::Center );
   setFlags( QQuickItem::ItemHasContents );
 }
 
@@ -60,6 +61,11 @@ QgsQuickMapCanvasMap::~QgsQuickMapCanvasMap() = default;
 QgsQuickMapSettings *QgsQuickMapCanvasMap::mapSettings() const
 {
   return mMapSettings.get();
+}
+
+void QgsQuickMapCanvasMap::rotate( double degrees )
+{
+  mMapSettings->setRotation( mMapSettings->rotation() + degrees );
 }
 
 void QgsQuickMapCanvasMap::zoom( QPointF center, qreal scale )
@@ -277,6 +283,14 @@ void QgsQuickMapCanvasMap::onExtentChanged()
   refresh();
 }
 
+void QgsQuickMapCanvasMap::onRotationChanged()
+{
+  updateTransform();
+
+  // And trigger a new rendering job
+  refresh();
+}
+
 void QgsQuickMapCanvasMap::onTemporalStateChanged()
 {
   clearTemporalCache();
@@ -286,16 +300,17 @@ void QgsQuickMapCanvasMap::onTemporalStateChanged()
 }
 void QgsQuickMapCanvasMap::updateTransform()
 {
-  QgsRectangle imageExtent = mImageMapSettings.visibleExtent();
-  QgsRectangle newExtent = mMapSettings->mapSettings().visibleExtent();
+  QgsRectangle imageExtent = mImageMapSettings.extent();
+  QgsRectangle newExtent = mMapSettings->mapSettings().extent();
 
   const qreal scale = static_cast<double>( imageExtent.width() ) / newExtent.width();
   setScale( scale );
+  setRotation( mMapSettings->mapSettings().rotation() - mImageMapSettings.rotation() );
 
   QgsPointXY center = imageExtent.center();
   QgsPointXY pixelPt = mMapSettings->coordinateToScreen( QgsPoint( center.x(), center.y() ) );
-  setX( std::floor( pixelPt.x() - mMapSettings->outputSize().width() * scale / 2 ) );
-  setY( std::floor( pixelPt.y() - mMapSettings->outputSize().height() * scale / 2 ) );
+  setX( std::floor( pixelPt.x() - mMapSettings->outputSize().width() / 2 ) );
+  setY( std::floor( pixelPt.y() - mMapSettings->outputSize().height() / 2 ) );
 }
 
 int QgsQuickMapCanvasMap::mapUpdateInterval() const

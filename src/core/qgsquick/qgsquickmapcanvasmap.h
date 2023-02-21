@@ -151,6 +151,11 @@ class QgsQuickMapCanvasMap : public QQuickItem
     void stopRendering();
 
     /**
+     * Change the map rotation by \a degrees.
+     */
+    void rotate( double degrees );
+
+    /**
      * Set map setting's extent (zoom the map) on the center by given scale
      */
     void zoom( QPointF center, qreal scale );
@@ -174,6 +179,7 @@ class QgsQuickMapCanvasMap : public QQuickItem
     void onWindowChanged( QQuickWindow *window );
     void onScreenChanged( QScreen *screen );
     void onExtentChanged();
+    void onRotationChanged();
     void onLayersChanged();
     void onTemporalStateChanged();
 
