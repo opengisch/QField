@@ -288,12 +288,14 @@ void QgsQuickMapCanvasMap::updateTransform()
 {
   QgsRectangle imageExtent = mImageMapSettings.visibleExtent();
   QgsRectangle newExtent = mMapSettings->mapSettings().visibleExtent();
-  setScale( imageExtent.width() / newExtent.width() );
+
+  const qreal scale = static_cast<double>( imageExtent.width() ) / newExtent.width();
+  setScale( scale );
 
   QgsPointXY center = imageExtent.center();
   QgsPointXY pixelPt = mMapSettings->coordinateToScreen( QgsPoint( center.x(), center.y() ) );
-  setX( std::floor( pixelPt.x() - mMapSettings->outputSize().width() / 2 ) );
-  setY( std::floor( pixelPt.y() - mMapSettings->outputSize().height() / 2 ) );
+  setX( std::floor( pixelPt.x() - mMapSettings->outputSize().width() * scale / 2 ) );
+  setY( std::floor( pixelPt.y() - mMapSettings->outputSize().height() * scale / 2 ) );
 }
 
 int QgsQuickMapCanvasMap::mapUpdateInterval() const
