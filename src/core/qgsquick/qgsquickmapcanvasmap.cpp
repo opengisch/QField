@@ -309,8 +309,8 @@ void QgsQuickMapCanvasMap::updateTransform()
 
   QgsPointXY center = imageExtent.center();
   QgsPointXY pixelPt = mMapSettings->coordinateToScreen( QgsPoint( center.x(), center.y() ) );
-  setX( std::floor( pixelPt.x() - mMapSettings->outputSize().width() / 2 ) );
-  setY( std::floor( pixelPt.y() - mMapSettings->outputSize().height() / 2 ) );
+  setX( std::floor( pixelPt.x() - mMapSettings->outputSize().width() / mMapSettings->devicePixelRatio() / 2 ) );
+  setY( std::floor( pixelPt.y() - mMapSettings->outputSize().height() / mMapSettings->devicePixelRatio() / 2 ) );
 }
 
 int QgsQuickMapCanvasMap::mapUpdateInterval() const
