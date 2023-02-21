@@ -308,11 +308,13 @@ Item {
 
         property var oldPos
         property real oldScale: 1.0
+        property real oldRotation: 0.0
 
         onActiveChanged: {
             if ( active ) {
                 freeze('pinch')
                 oldScale = 1.0
+                oldRotation = 0.0
                 oldPos = centroid.position
             } else {
                 unfreeze('pinch')
@@ -325,6 +327,14 @@ Item {
             if ( active )
             {
                 mapCanvasWrapper.pan(centroid.position, oldPos1)
+            }
+        }
+
+        onRotationChanged: {
+            if ( active )
+            {
+                mapCanvasWrapper.rotate(rotation - oldRotation)
+                oldRotation = rotation
             }
         }
 
