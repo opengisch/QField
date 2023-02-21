@@ -33,18 +33,6 @@ jobs:
       - name: Run Banned Keywords Test
         run: ./scripts/test_banned_keywords.sh
 
-  cppcheck-1_8:
-    runs-on: ubuntu-18.04 # cppcheck 1.8 shows some errors 1.9 does not show
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v3
-
-      - name: Install Requirements
-        run: |
-          sudo apt install -y cppcheck
-      - name: Run cppcheck test
-        run: ./scripts/cppcheck.sh
-
   cppcheck-1_9:
     runs-on: ubuntu-20.04
     steps:
