@@ -26,6 +26,7 @@
         <file>PositioningSettings.qml</file>
         <file>PositioningInformationView.qml</file>
         <file>PositioningPreciseView.qml</file>
+        <file>QFieldAudioRecorder.qml</file>
         <file>QFieldSettings.qml</file>
         <file>ScaleBar.qml</file>
         <file>TcpDeviceChooser.qml</file>

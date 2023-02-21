@@ -4,28 +4,41 @@ import QtMultimedia 5.14
 
 import Theme 1.0
 
-Item{
+Item {
   id : cameraItem
-  signal finished(string path)
-  signal canceled()
 
   property string currentPath
+
+  signal finished(string path)
+  signal canceled()
 
   anchors.fill: parent
 
   state: "PhotoCapture"
-
   states: [
     State {
       name: "PhotoCapture"
       StateChangeScript {
         script: {
           camera.captureMode = Camera.CaptureStillImage
+          photoPreview.source = '';
+        }
+      }
+    },
+    State {
+      name: "VideoCapture"
+      StateChangeScript {
+        script: {
+          camera.captureMode = Camera.CaptureVideo
+          videoPreview.source = '';
         }
       }
     },
     State {
       name: "PhotoPreview"
+    },
+    State {
+      name: "VideoPreview"
     }
   ]
 
@@ -43,12 +56,18 @@ Item{
         cameraItem.state = "PhotoPreview"
       }
     }
+
+    videoRecorder {
+      audioEncodingMode: CameraRecorder.ConstantBitRateEncoding
+      audioBitRate: 128000
+      mediaContainer: "mp4"
+    }
   }
 
   VideoOutput {
     anchors.fill: parent
 
-    visible: cameraItem.state == "PhotoCapture"
+    visible: cameraItem.state == "PhotoCapture" || cameraItem.state == "VideoCapture"
 
     focus : visible
     source: camera
@@ -68,8 +87,8 @@ Item{
 
 
     QfToolButton {
-      id: videoButtonClick
-      visible: true
+      id: captureStillImageButton
+      visible: cameraItem.state == "PhotoCapture"
 
       anchors.right: parent.right
       anchors.verticalCenter: parent.verticalCenter
@@ -81,6 +100,46 @@ Item{
 
       onClicked: camera.imageCapture.captureToLocation(qgisProject.homePath+ '/DCIM/')
     }
+
+    QfToolButton {
+      id: recordVideoButton
+      visible: cameraItem.state == "VideoCapture"
+
+      anchors.right: parent.right
+      anchors.verticalCenter: parent.verticalCenter
+
+      round: true
+      roundborder: true
+      bgcolor: camera.videoRecorder.recorderState != CameraRecorder.StoppedState  ? "black" : "red"
+      borderColor: Theme.mainColor
+
+      onClicked: {
+        if (camera.videoRecorder.recorderState == CameraRecorder.StoppedState) {
+          camera.videoRecorder.record()
+        } else {
+          camera.videoRecorder.stop()
+          videoPreview.source = camera.videoRecorder.actualLocation
+          var path = camera.videoRecorder.actualLocation.toString()
+          var filePos = path.indexOf('file://')
+          currentPath = filePos === 0 ? path.substring(7) : path
+          cameraItem.state = "VideoPreview"
+        }
+      }
+    }
+  }
+
+  Video {
+    id: videoPreview
+
+    visible: cameraItem.state == "VideoPreview"
+
+    anchors.fill: parent
+
+    autoLoad: true
+    autoPlay: true
+    loops: MediaPlayer.Infinite
+
+    muted: true
   }
 
   Image {
@@ -93,35 +152,37 @@ Item{
     fillMode: Image.PreserveAspectFit
     smooth: true
     focus: visible
+  }
 
-    QfToolButton {
-      id: buttonok
-      visible: true
+  QfToolButton {
+    id: okButton
 
-      anchors.right: parent.right
-      anchors.verticalCenter: parent.verticalCenter
-      bgcolor: Theme.mainColor
-      round: true
+    visible: cameraItem.state == "PhotoPreview" || cameraItem.state == "VideoPreview"
 
-      iconSource: Theme.getThemeIcon("ic_save_white_24dp")
+    anchors.right: parent.right
+    anchors.verticalCenter: parent.verticalCenter
+    bgcolor: Theme.mainColor
+    round: true
 
-      onClicked: cameraItem.finished( currentPath )
-    }
+    iconSource: Theme.getThemeIcon("ic_save_white_24dp")
 
-    QfToolButton {
-      id: buttonnok
-      visible: true
+    onClicked: cameraItem.finished(currentPath)
+  }
 
-      anchors.right: parent.right
-      anchors.top: parent.top
-      bgcolor: Theme.mainColor
-      round: true
+  QfToolButton {
+    id: cancelButton
 
-      iconSource: Theme.getThemeIcon("ic_clear_white_24dp")
-      onClicked: {
-        platformUtilities.rmFile( currentPath )
-        cameraItem.state = "PhotoCapture"
-      }
+    visible: cameraItem.state == "PhotoPreview" || cameraItem.state == "VideoPreview"
+
+    anchors.right: parent.right
+    anchors.top: parent.top
+    bgcolor: Theme.mainColor
+    round: true
+
+    iconSource: Theme.getThemeIcon("ic_clear_white_24dp")
+    onClicked: {
+      platformUtilities.rmFile(currentPath)
+      cameraItem.canceled()
     }
   }
 }

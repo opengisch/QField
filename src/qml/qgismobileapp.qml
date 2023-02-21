@@ -3319,7 +3319,6 @@ ApplicationWindow {
     visible: false
   }
 
-
   Connections {
     target: locatorItem
 

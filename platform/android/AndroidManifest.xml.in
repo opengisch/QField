@@ -9,6 +9,7 @@
   <uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION" tools:node="remove" />
   <uses-permission android:name="android.permission.ACCESS_MEDIA_LOCATION" />
   <uses-permission android:name="android.permission.CAMERA" />
+  <uses-permission android:name="android.permission.RECORD_AUDIO" />
   <uses-permission android:name="android.permission.FLASHLIGHT" />
   <uses-permission android:name="android.permission.WAKE_LOCK" />
   <uses-permission android:name="android.permission.BLUETOOTH"
@@ -254,7 +255,7 @@
     </activity>
 
     <!-- Activity to get pictures with the native camera -->
-    <activity android:name="ch.opengis.@APP_PACKAGE_NAME@.QFieldCameraPictureActivity" android:configChanges="orientation|screenSize|screenLayout|keyboardHidden" />
+    <activity android:name="ch.opengis.@APP_PACKAGE_NAME@.QFieldCameraActivity" android:configChanges="orientation|screenSize|screenLayout|keyboardHidden" />
 
     <!-- Activity to get pictures or videos from the gallery -->
     <activity android:name="ch.opengis.@APP_PACKAGE_NAME@.QFieldGalleryActivity" android:configChanges="orientation|screenSize|screenLayout|keyboardHidden" />

@@ -9,7 +9,7 @@ import org.qfield 1.0
 import Theme 1.0
 
 import "."
-import ".." as QField
+import ".."
 
 EditorWidgetBase {
   anchors.left: parent.left
@@ -70,7 +70,7 @@ EditorWidgetBase {
 
   property bool isImage: !config.UseLink && FileUtils.mimeTypeName(prefixToRelativePath + value ).startsWith("image/")
   property bool isAudio: !config.UseLink && FileUtils.mimeTypeName(prefixToRelativePath + value).startsWith("audio/")
-  property bool isVideo: !config.UserLinke && FileUtils.mimeTypeName(prefixToRelativePath + value).startsWith("video/")
+  property bool isVideo: !config.UseLink && FileUtils.mimeTypeName(prefixToRelativePath + value).startsWith("video/")
 
   //to not break any binding of image.source
   property var currentValue: value
@@ -90,11 +90,8 @@ EditorWidgetBase {
         image.source = 'file://' + prefixToRelativePath + value
         geoTagBadge.hasGeoTag = ExifTools.hasGeoTag(prefixToRelativePath + value)
         geoTagBadge.visible = true
-      } else if (isAudio) {
-        mediaFrame.height = 54
-        player.source = 'file://' + prefixToRelativePath + value
-      } else if (isVideo) {
-        mediaFrame.height = 254
+      } else if (isAudio || isVideo) {
+        mediaFrame.height = 48
         player.source = 'file://' + prefixToRelativePath + value
       }
     }
@@ -144,7 +141,7 @@ EditorWidgetBase {
     visible: hasValue && !isImage && !isAudio && !isVideo
 
     anchors.left: parent.left
-    anchors.right: fileButton.left
+    anchors.right: cameraButton.left
     color: FileUtils.fileExists(prefixToRelativePath + value) ? Theme.mainColor : 'gray'
 
     text: {
@@ -194,7 +191,7 @@ EditorWidgetBase {
 
   Rectangle {
     id: mediaFrame
-    width: parent.width - fileButton.width - galleryButton.width - cameraButton.width - (isEnabled ? 5 : 0)
+    width: parent.width - fileButton.width - galleryButton.width - cameraButton.width - cameraVideoButton.width - microphoneButton.width - (isEnabled ? 5 : 0)
     height: 48
     visible: !linkField.visible
     color: isEnabled ? Theme.lightGray : "transparent"
@@ -271,6 +268,14 @@ EditorWidgetBase {
 
       property bool firstFrameDrawn: false
 
+      onSourceChanged: {
+        firstFrameDrawn = false;
+      }
+
+      onHasVideoChanged: {
+        mediaFrame.height = hasVideo ? 254 : 48
+      }
+
       onPlaybackStateChanged: {
         if (!firstFrameDrawn && playbackState == MediaPlayer.PlayingState) {
           firstFrameDrawn = true;
@@ -291,9 +296,12 @@ EditorWidgetBase {
     RowLayout {
       id: playerControls
 
+      visible: player.duration > 0
+
       anchors.left: parent.left
       anchors.bottom: parent.bottom
-      anchors.margins: 5
+      anchors.leftMargin: 5
+      anchors.rightMargin: 5
       width: parent.width - 10
 
       QfToolButton {
@@ -370,13 +378,96 @@ EditorWidgetBase {
   }
 
   QfToolButton {
+    id: cameraButton
+    width: visible ? 48 : 0
+    height: 48
+
+    property bool isCameraAvailable: platformUtilities.capabilities & PlatformUtilities.NativeCamera || QtMultimedia.availableCameras.length > 0
+
+    // QField has historically handled no viewer type as image, let's carry that on
+    visible: (documentViewer == document_FILE || documentViewer == document_IMAGE) && isEnabled
+
+    anchors.right: cameraVideoButton.left
+    anchors.top: parent.top
+
+    bgcolor: "transparent"
+
+    onClicked: {
+      Qt.inputMethod.hide()
+      if ( platformUtilities.capabilities & PlatformUtilities.NativeCamera && settings.valueBool("nativeCamera", true) ) {
+        var filepath = getResourceFilePath()
+        // Pictures taken by cameras will always be JPG
+        filepath = filepath.replace('{extension}', 'JPG')
+        __resourceSource = platformUtilities.getCameraPicture(this, qgisProject.homePath+'/', filepath, FileUtils.fileSuffix(filepath) )
+      } else {
+        platformUtilities.createDir(qgisProject.homePath, 'DCIM')
+        cameraLoader.isVideo = false
+        cameraLoader.active = true
+      }
+    }
+
+    iconSource: Theme.getThemeVectorIcon("ic_camera_photo_black_24dp")
+  }
+
+  QfToolButton {
+    id: cameraVideoButton
+    width: visible ? 48 : 0
+    height: 48
+
+    property bool isCameraAvailable: platformUtilities.capabilities & PlatformUtilities.NativeCamera || QtMultimedia.availableCameras.length > 0
+
+    visible: documentViewer == document_VIDEO && isEnabled
+
+    anchors.right: microphoneButton.left
+    anchors.top: parent.top
+
+    bgcolor: "transparent"
+
+    onClicked: {
+      Qt.inputMethod.hide()
+      if ( platformUtilities.capabilities & PlatformUtilities.NativeCamera && settings.valueBool("nativeCamera", true) ) {
+        var filepath = getResourceFilePath()
+        // Video taken by cameras will always be MP4
+        filepath = filepath.replace('{extension}', 'MP4')
+        __resourceSource = platformUtilities.getCameraVideo(this, qgisProject.homePath+'/', filepath, FileUtils.fileSuffix(filepath))
+      } else {
+        platformUtilities.createDir(qgisProject.homePath, 'DCIM')
+        cameraLoader.isVideo = true
+        cameraLoader.active = true
+      }
+    }
+
+    iconSource: Theme.getThemeVectorIcon("ic_camera_video_black_24dp")
+  }
+
+  QfToolButton {
+    id: microphoneButton
+    width: visible ? 48 : 0
+    height: 48
+
+    visible: documentViewer == document_AUDIO && isEnabled
+
+    anchors.right: fileButton.left
+    anchors.top: parent.top
+
+    bgcolor: "transparent"
+
+    onClicked: {
+      Qt.inputMethod.hide()
+      audioRecorderLoader.active = true
+    }
+
+    iconSource: Theme.getThemeVectorIcon("ic_microphone_black_24dp")
+  }
+
+  QfToolButton {
     id: fileButton
     width: visible ? 48 : 0
     height: 48
 
     visible: (documentViewer == document_FILE || documentViewer == document_AUDIO) && isEnabled
 
-    anchors.right: cameraButton.left
+    anchors.right: galleryButton.left
     anchors.top: parent.top
 
     bgcolor: "transparent"
@@ -392,37 +483,6 @@ EditorWidgetBase {
     }
 
     iconSource: Theme.getThemeIcon("ic_file_black_24dp")
-  }
-
-  QfToolButton {
-    id: cameraButton
-    width: visible ? 48 : 0
-    height: 48
-
-    property bool isCameraAvailable: platformUtilities.capabilities & PlatformUtilities.NativeCamera || QtMultimedia.availableCameras.length > 0
-
-    // QField has historically handled no viewer type as image, let's carry that on
-    visible: (documentViewer == document_FILE || documentViewer == document_IMAGE) && isEnabled
-
-    anchors.right: galleryButton.left
-    anchors.top: parent.top
-
-    bgcolor: "transparent"
-
-    onClicked: {
-      Qt.inputMethod.hide()
-      if ( platformUtilities.capabilities & PlatformUtilities.NativeCamera && settings.valueBool("nativeCamera", true) ) {
-        var filepath = getResourceFilePath()
-        // Pictures taken by cameras will always be JPG
-        filepath = filepath.replace('{extension}', 'JPG')
-        __resourceSource = platformUtilities.getCameraPicture(this, qgisProject.homePath+'/', filepath, FileUtils.fileSuffix(filepath) )
-      } else {
-        platformUtilities.createDir( qgisProject.homePath, 'DCIM' )
-        camloader.active = true
-      }
-    }
-
-    iconSource: Theme.getThemeIcon("ic_camera_alt_border_24dp")
   }
 
   QfToolButton {
@@ -448,25 +508,75 @@ EditorWidgetBase {
       }
     }
 
-    iconSource: Theme.getThemeIcon("baseline_photo_library_black_24")
+    iconSource: Theme.getThemeVectorIcon("ic_gallery_black_24dp")
   }
 
   Loader {
-    id: camloader
-    sourceComponent: camcomponent
+    id: audioRecorderLoader
+    sourceComponent: audioRecorderComponent
+    active:false
+  }
+
+  Loader {
+    id: cameraLoader
+    property bool isVideo: false
+    sourceComponent: cameraComponent
     active: false
   }
 
   Component {
-    id: camcomponent
+    id: audioRecorderComponent
+
+    QFieldAudioRecorder {
+      z: 10000
+      visible: false
+      parent: ApplicationWindow.overlay
+
+      Component.onCompleted: {
+        if (platformUtilities.checkMicrophonePermissions()) {
+          open()
+        }
+      }
+
+      onFinished: {
+        var filepath = getResourceFilePath()
+        var extension = path.substring(path.lastIndexOf('.') + 1)
+        filepath = filepath.replace('{extension}', extension)
+        platformUtilities.renameFile(path, prefixToRelativePath + filepath)
+
+        valueChangeRequested(filepath, false)
+        close()
+      }
+
+      onCanceled: {
+        close()
+      }
+
+      onClosed: {
+        audioRecorderLoader.active = false
+      }
+    }
+  }
+
+  Component {
+    id: cameraComponent
 
     Popup {
-      id: campopup
+      id: cameraPopup
       z: 10000 // 1000s are embedded feature forms, use a higher value to insure feature form popups always show above embedded feature forms
 
       Component.onCompleted: {
-        if ( platformUtilities.checkCameraPermissions() )
-          open()
+        if (isVideo) {
+          if (platformUtilities.checkCameraPermissions() && platformUtilities.checkMicrophonePermissions()) {
+            qfieldCamera.state = 'VideoCapture'
+            open()
+          }
+        } else {
+          if (platformUtilities.checkCameraPermissions()) {
+            qfieldCamera.state = 'PhotoCapture'
+            open()
+          }
+        }
       }
 
       parent: ApplicationWindow.overlay
@@ -479,30 +589,33 @@ EditorWidgetBase {
       modal: true
       focus: true
 
-      QField.QFieldCamera {
+      QFieldCamera {
         id: qfieldCamera
 
         visible: true
 
         onFinished: {
           var filepath = getResourceFilePath()
-          // Pictures taken by cameras will always be JPG
-          filepath = filepath.replace('{extension}', 'JPG')
+          var extension = path.substring(path.lastIndexOf('.') + 1)
+          filepath = filepath.replace('{extension}', extension)
           platformUtilities.renameFile(path, prefixToRelativePath + filepath)
 
-          var maximumWidhtHeight = iface.readProjectNumEntry("qfieldsync", "maximumImageWidthHeight", 0)
-          if(maximumWidhtHeight > 0) {
-            iface.restrictImageSize(prefixToRelativePath + filepath, maximumWidhtHeight)
+          if (!cameraLoader.isVideo) {
+            var maximumWidhtHeight = iface.readProjectNumEntry("qfieldsync", "maximumImageWidthHeight", 0)
+            if(maximumWidhtHeight > 0) {
+              iface.restrictImageSize(prefixToRelativePath + filepath, maximumWidhtHeight)
+            }
           }
 
           valueChangeRequested(filepath, false)
-          campopup.close()
+          cameraPopup.close()
         }
+
         onCanceled: {
-          campopup.close()
+          cameraPopup.close()
         }
       }
-      onClosed: camloader.active = false
+      onClosed: cameraLoader.active = false
     }
   }
 

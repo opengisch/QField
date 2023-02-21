@@ -51,6 +51,7 @@ class AndroidPlatformUtilities : public PlatformUtilities
     void removeFolder( const QString &path ) const override;
 
     ResourceSource *getCameraPicture( QQuickItem *parent, const QString &prefix, const QString &pictureFilePath, const QString &suffix ) override;
+    ResourceSource *getCameraVideo( QQuickItem *parent, const QString &prefix, const QString &videoFilePath, const QString &suffix ) override;
     ResourceSource *getGalleryPicture( QQuickItem *parent, const QString &prefix, const QString &pictureFilePath ) override;
     ResourceSource *getGalleryVideo( QQuickItem *parent, const QString &prefix, const QString &videoFilePath ) override;
     ResourceSource *getFile( QQuickItem *parent, const QString &prefix, const QString &filePath, FileType fileType ) override;
@@ -60,6 +61,8 @@ class AndroidPlatformUtilities : public PlatformUtilities
     bool checkPositioningPermissions() const override;
 
     bool checkCameraPermissions() const override;
+
+    bool checkMicrophonePermissions() const override;
 
     bool checkWriteExternalStoragePermissions() const override;
 
@@ -75,8 +78,10 @@ class AndroidPlatformUtilities : public PlatformUtilities
     void uploadPendingAttachments( QFieldCloudConnection *connection ) const override;
 
   private:
+    // separate multiple permissions using a semi-column (;)
+    bool checkAndAcquirePermissions( const QString &permissions ) const;
+    ResourceSource *processCameraActivity( const QString &prefix, const QString &filePath, const QString &suffix, bool isVideo );
     ResourceSource *processGalleryActivity( const QString &prefix, const QString &filePath, const QString &mimeType );
-    bool checkAndAcquirePermissions( const QString &permissionString ) const;
     QString getIntentExtra( const QString &, QAndroidJniObject = nullptr ) const;
     QAndroidJniObject getNativeIntent() const;
     QAndroidJniObject getNativeExtras() const;

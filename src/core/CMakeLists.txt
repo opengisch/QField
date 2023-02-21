@@ -32,6 +32,7 @@ set(QFIELD_CORE_SRCS
     appinterface.cpp
     attributeformmodel.cpp
     attributeformmodelbase.cpp
+    audiorecorder.cpp
     barcodedecoder.cpp
     badlayerhandler.cpp
     bookmarkmodel.cpp
@@ -132,6 +133,7 @@ set(QFIELD_CORE_HDRS
     appinterface.h
     attributeformmodel.h
     attributeformmodelbase.h
+    audiorecorder.h
     barcodedecoder.h
     badlayerhandler.h
     bookmarkmodel.h

@@ -33,6 +33,7 @@ class IosResourceSource : public ResourceSource
 
   public slots:
     void takePicture();
+    void takeVideo();
     void pickGalleryPicture();
     void pickGalleryVideo();
 

@@ -172,6 +172,10 @@ bool PlatformUtilities::rmFile( const QString &filename ) const
 
 bool PlatformUtilities::renameFile( const QString &filename, const QString &newname ) const
 {
+  QFileInfo fi( newname );
+  QDir dir( fi.absolutePath() );
+  dir.mkpath( fi.absolutePath() );
+
   QFile file( filename );
   return file.rename( newname );
 }
@@ -239,6 +243,15 @@ ResourceSource *PlatformUtilities::getCameraPicture( QQuickItem *parent, const Q
   return nullptr;
 }
 
+ResourceSource *PlatformUtilities::getCameraVideo( QQuickItem *parent, const QString &prefix, const QString &videoFilePath, const QString &suffix )
+{
+  Q_UNUSED( parent )
+  Q_UNUSED( prefix )
+  Q_UNUSED( videoFilePath )
+  Q_UNUSED( suffix )
+  return nullptr;
+}
+
 ResourceSource *PlatformUtilities::createResource( const QString &prefix, const QString &filePath, const QString &fileName )
 {
   QFileInfo fi( fileName );
@@ -291,7 +304,7 @@ ResourceSource *PlatformUtilities::getFile( QQuickItem *parent, const QString &p
   switch ( fileType )
   {
     case AudioFiles:
-      filter = tr( "Audio files (*.mp3 *.aac *.ogg)" );
+      filter = tr( "Audio files (*.mp3 *.aac *.ogg *.m4a *.mp4 *.mov)" );
       break;
 
     case AllFiles:
@@ -333,6 +346,11 @@ bool PlatformUtilities::checkPositioningPermissions() const
 }
 
 bool PlatformUtilities::checkCameraPermissions() const
+{
+  return true;
+}
+
+bool PlatformUtilities::checkMicrophonePermissions() const
 {
   return true;
 }

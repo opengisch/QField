@@ -42,6 +42,10 @@ class IosPlatformUtilities : public PlatformUtilities
                                               const QString &prefix,
                                               const QString &pictureFilePath,
                                               const QString &suffix ) override;
+    virtual ResourceSource *getCameraVideo( QQuickItem *parent,
+                                            const QString &prefix,
+                                            const QString &videoFilePath,
+                                            const QString &suffix ) override;
     virtual ResourceSource *
       getGalleryPicture( QQuickItem *parent, const QString &prefix,
                          const QString &pictureFilePath ) override;

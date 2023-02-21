@@ -119,6 +119,16 @@ ResourceSource *IosPlatformUtilities::getCameraPicture(
   return pictureSource;
 }
 
+ResourceSource *
+IosPlatformUtilities::getCameraVideo(QQuickItem *parent, const QString &prefix,
+                                     const QString &videoFilePath,
+                                     const QString &suffix) {
+  IosResourceSource *pictureSource =
+      new IosResourceSource(parent, prefix, videoFilePath);
+  pictureSource->takeVideo();
+  return pictureSource;
+}
+
 ResourceSource *IosPlatformUtilities::getGalleryPicture(
     QQuickItem *parent, const QString &prefix, const QString &pictureFilePath) {
   IosResourceSource *pictureSource =

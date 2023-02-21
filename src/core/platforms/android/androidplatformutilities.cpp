@@ -340,29 +340,37 @@ QAndroidJniObject AndroidPlatformUtilities::getNativeExtras() const
   return nullptr;
 }
 
-ResourceSource *AndroidPlatformUtilities::getCameraPicture( QQuickItem *parent, const QString &prefix, const QString &pictureFilePath, const QString &suffix )
+ResourceSource *AndroidPlatformUtilities::processCameraActivity( const QString &prefix, const QString &filePath, const QString &suffix, bool isVideo )
 {
-  Q_UNUSED( parent )
   if ( !checkCameraPermissions() )
     return nullptr;
 
-  const QFileInfo destinationInfo( prefix + pictureFilePath );
+  const QFileInfo destinationInfo( prefix + filePath );
   const QDir prefixDir( prefix );
   prefixDir.mkpath( destinationInfo.absolutePath() );
 
-  QAndroidJniObject activity = QAndroidJniObject::fromString( QStringLiteral( "ch.opengis." APP_PACKAGE_NAME ".QFieldCameraPictureActivity" ) );
+  QAndroidJniObject activity = QAndroidJniObject::fromString( QStringLiteral( "ch.opengis." APP_PACKAGE_NAME ".QFieldCameraActivity" ) );
   QAndroidJniObject intent = QAndroidJniObject( "android/content/Intent", "(Ljava/lang/String;)V", activity.object<jstring>() );
   QAndroidJniObject packageName = QAndroidJniObject::fromString( QStringLiteral( "ch.opengis." APP_PACKAGE_NAME ) );
 
   intent.callObjectMethod( "setClassName", "(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;", packageName.object<jstring>(), activity.object<jstring>() );
 
-  QAndroidJniObject pictureFilePath_label = QAndroidJniObject::fromString( "pictureFilePath" );
-  QAndroidJniObject pictureFilePath_value = QAndroidJniObject::fromString( pictureFilePath );
+  if ( isVideo )
+  {
+    QAndroidJniObject isVideo_label = QAndroidJniObject::fromString( "isVideo" );
+    QAndroidJniObject isVideo_value = QAndroidJniObject::fromString( "yes" );
+    intent.callObjectMethod( "putExtra",
+                             "(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;",
+                             isVideo_label.object<jstring>(),
+                             isVideo_value.object<jstring>() );
+  }
 
+  QAndroidJniObject filePath_label = QAndroidJniObject::fromString( "filePath" );
+  QAndroidJniObject filePath_value = QAndroidJniObject::fromString( filePath );
   intent.callObjectMethod( "putExtra",
                            "(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;",
-                           pictureFilePath_label.object<jstring>(),
-                           pictureFilePath_value.object<jstring>() );
+                           filePath_label.object<jstring>(),
+                           filePath_value.object<jstring>() );
 
   QAndroidJniObject prefix_label = QAndroidJniObject::fromString( "prefix" );
   QAndroidJniObject prefix_value = QAndroidJniObject::fromString( prefix );
@@ -381,8 +389,21 @@ ResourceSource *AndroidPlatformUtilities::getCameraPicture( QQuickItem *parent, 
   AndroidResourceSource *pictureSource = new AndroidResourceSource( prefix );
 
   QtAndroid::startActivity( intent.object<jobject>(), 171, pictureSource );
-
   return pictureSource;
+}
+
+ResourceSource *AndroidPlatformUtilities::getCameraPicture( QQuickItem *parent, const QString &prefix, const QString &pictureFilePath, const QString &suffix )
+{
+  Q_UNUSED( parent )
+
+  return processCameraActivity( prefix, pictureFilePath, suffix, false );
+}
+
+ResourceSource *AndroidPlatformUtilities::getCameraVideo( QQuickItem *parent, const QString &prefix, const QString &videoFilePath, const QString &suffix )
+{
+  Q_UNUSED( parent )
+
+  return processCameraActivity( prefix, videoFilePath, suffix, true );
 }
 
 ResourceSource *AndroidPlatformUtilities::processGalleryActivity( const QString &prefix, const QString &filePath, const QString &mimeType )
@@ -424,7 +445,6 @@ ResourceSource *AndroidPlatformUtilities::processGalleryActivity( const QString 
   AndroidResourceSource *pictureSource = new AndroidResourceSource( prefix );
 
   QtAndroid::startActivity( intent.object<jobject>(), 171, pictureSource );
-
   return pictureSource;
 }
 
@@ -547,23 +567,38 @@ bool AndroidPlatformUtilities::checkCameraPermissions() const
   return checkAndAcquirePermissions( "android.permission.CAMERA" );
 }
 
+bool AndroidPlatformUtilities::checkMicrophonePermissions() const
+{
+  return checkAndAcquirePermissions( "android.permission.RECORD_AUDIO" );
+}
+
 bool AndroidPlatformUtilities::checkWriteExternalStoragePermissions() const
 {
   return checkAndAcquirePermissions( "android.permission.WRITE_EXTERNAL_STORAGE" );
 }
 
-bool AndroidPlatformUtilities::checkAndAcquirePermissions( const QString &permissionString ) const
+bool AndroidPlatformUtilities::checkAndAcquirePermissions( const QString &permissions ) const
 {
-  QtAndroid::PermissionResult r = QtAndroid::checkPermission( permissionString );
-  if ( r == QtAndroid::PermissionResult::Denied )
+  QStringList requestedPermissions = permissions.split( ';' );
+  requestedPermissions.erase( std::remove_if( requestedPermissions.begin(), requestedPermissions.end(),
+                                              []( const QString &permission ) {
+                                                return QtAndroid::checkPermission( permission ) != QtAndroid::PermissionResult::Denied;
+                                              } ),
+                              requestedPermissions.end() );
+
+  if ( !requestedPermissions.isEmpty() )
   {
-    QtAndroid::requestPermissionsSync( QStringList() << permissionString );
-    r = QtAndroid::checkPermission( permissionString );
-    if ( r == QtAndroid::PermissionResult::Denied )
+    QtAndroid::requestPermissionsSync( requestedPermissions );
+    for ( const QString &permission : requestedPermissions )
     {
-      return false;
+      QtAndroid::PermissionResult r = QtAndroid::checkPermission( permission );
+      if ( r == QtAndroid::PermissionResult::Denied )
+      {
+        return false;
+      }
     }
   }
+
   return true;
 }
 
