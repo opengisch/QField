@@ -290,9 +290,10 @@ void QgsQuickMapCanvasMap::updateTransform()
   QgsRectangle newExtent = mMapSettings->mapSettings().visibleExtent();
   setScale( imageExtent.width() / newExtent.width() );
 
-  QgsPointXY pixelPt = mMapSettings->coordinateToScreen( QgsPoint( imageExtent.xMinimum(), imageExtent.yMaximum() ) );
-  setX( pixelPt.x() );
-  setY( pixelPt.y() );
+  QgsPointXY center = imageExtent.center();
+  QgsPointXY pixelPt = mMapSettings->coordinateToScreen( QgsPoint( center.x(), center.y() ) );
+  setX( std::floor( pixelPt.x() - mMapSettings->outputSize().width() / 2 ) );
+  setY( std::floor( pixelPt.y() - mMapSettings->outputSize().height() / 2 ) );
 }
 
 int QgsQuickMapCanvasMap::mapUpdateInterval() const
