@@ -936,13 +936,30 @@ ApplicationWindow {
     styleColor: Theme.light
   }
 
+  QfToolButton {
+    id: compassArrow
+    rotation: mapCanvas.mapSettings.rotation
+    visible: rotation != 0
+
+    anchors.left: mapCanvas.left
+    anchors.bottom: mapCanvas.bottom
+    anchors.leftMargin: 4
+    anchors.bottomMargin: mainWindow.sceneBottomMargin + 56
+
+    round: true
+    bgcolor: Theme.darkGraySemiOpaque
+    iconSource: Theme.getThemeVectorIcon('ic_compass_arrow_24dp')
+
+    onClicked: mapCanvas.mapSettings.rotation = 0
+  }
+
   ScaleBar {
     visible: qfieldSettings.showScaleBar
     mapSettings: mapCanvas.mapSettings
 
     anchors.left: mapCanvas.left
     anchors.bottom: mapCanvas.bottom
-    anchors.leftMargin: 10
+    anchors.leftMargin: 4
     anchors.bottomMargin: mainWindow.sceneBottomMargin + 10
   }
 
