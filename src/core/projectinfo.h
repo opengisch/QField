@@ -78,18 +78,22 @@ class ProjectInfo : public QObject
 
     void extentChanged();
 
+    void rotationChanged();
+
     void temporalStateChanged();
 
     void mapThemeChanged();
 
   private:
     void saveExtent();
+    void saveRotation();
     void saveTemporalState();
 
     QString mFilePath;
 
     QgsQuickMapSettings *mMapSettings = nullptr;
     QTimer mSaveExtentTimer;
+    QTimer mSaveRotationTimer;
     QTimer mSaveTemporalStateTimer;
 
     FlatLayerTreeModel *mLayerTree = nullptr;
