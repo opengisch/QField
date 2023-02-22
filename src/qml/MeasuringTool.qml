@@ -59,8 +59,6 @@ Item {
                     : QgsWkbTypes.LineGeometry
       crs: rubberband.mapSettings.destinationCrs
     }
-
-    anchors.fill: parent
   }
 
   Connections {

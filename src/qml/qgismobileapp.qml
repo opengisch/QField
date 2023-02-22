@@ -597,7 +597,6 @@ ApplicationWindow {
         crs: mapCanvas.mapSettings.destinationCrs
       }
 
-      anchors.fill: parent
       visible: stateMachine.state === "digitize"
     }
 
@@ -615,8 +614,6 @@ ApplicationWindow {
         crs: mapCanvas.mapSettings.destinationCrs
         geometryType: QgsWkbTypes.LineGeometry
       }
-
-      anchors.fill: parent
     }
 
     BookmarkHighlight {

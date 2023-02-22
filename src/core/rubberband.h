@@ -102,9 +102,11 @@ class Rubberband : public QQuickItem
   private slots:
     void markDirty();
     void visibleExtentChanged();
+    void rotationChanged();
 
   private:
     QSGNode *updatePaintNode( QSGNode *n, QQuickItem::UpdatePaintNodeData * );
+    virtual void updateTransform();
 
     void transformPoints( QVector<QgsPoint> &points );
 

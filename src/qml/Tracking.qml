@@ -88,7 +88,6 @@ Item {
 
   Rubberband {
     id: rubberband
-    anchors.fill: parent
     visible: track.visible
 
     lineWidth: 4

@@ -116,11 +116,17 @@ void LinePolygonHighlight::setMapSettings( QgsQuickMapSettings *mapSettings )
   connect( mMapSettings, &QgsQuickMapSettings::visibleExtentChanged, this, &LinePolygonHighlight::visibleExtentChanged );
   connect( mMapSettings, &QgsQuickMapSettings::rotationChanged, this, &LinePolygonHighlight::rotationChanged );
 
+  mDirty = true;
+  updateTransform();
+
   emit mapSettingsChanged();
 }
 
 void LinePolygonHighlight::updateTransform()
 {
+  if ( !mMapSettings )
+    return;
+
   const QgsRectangle extent = mMapSettings->visibleExtent();
   const QgsPoint corner( extent.xMinimum(), extent.yMaximum() );
   const QgsPointXY pixelCorner = mMapSettings->coordinateToScreen( corner );
@@ -131,6 +137,7 @@ void LinePolygonHighlight::updateTransform()
 
   update();
 }
+
 void LinePolygonHighlight::rotationChanged()
 {
   updateTransform();
