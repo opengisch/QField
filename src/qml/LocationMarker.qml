@@ -67,7 +67,7 @@ Item {
 
     source: Theme.getThemeVectorIcon( "ic_compass_direction" )
     fillMode: Image.PreserveAspectFit
-    rotation: orientation
+    rotation: orientation + mapSettings.rotation
     transformOrigin: Item.Bottom
     smooth: true
   }
@@ -81,7 +81,7 @@ Item {
     x: props.screenLocation.x - width / 2
     y: props.screenLocation.y - height / 2
 
-    rotation: direction
+    rotation: direction + mapSettings.rotation
     transformOrigin: Item.Center
 
     ShapePath {
@@ -195,6 +195,9 @@ Item {
 
 
     function onExtentChanged() {
+      updateScreenLocation()
+    }
+    function onRotationChanged() {
       updateScreenLocation()
     }
     function onOutputSizeChanged() {
