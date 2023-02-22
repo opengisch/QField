@@ -16,6 +16,7 @@
 #include "platformutilities.h"
 #include "qgsquickcoordinatetransformer.h"
 
+#include <QDir>
 #include <QFile>
 #include <QSettings>
 #include <qgslogger.h>
@@ -259,7 +260,7 @@ void QgsQuickCoordinateTransformer::setVerticalGrid( const QString &grid )
         const QString verticalGridPath = QStringLiteral( "%1proj/%2" ).arg( dataDir, mVerticalGrid );
         if ( QFile::exists( verticalGridPath ) )
         {
-          mVerticalGridPath = verticalGridPath;
+          mVerticalGridPath = QDir::toNativeSeparators( verticalGridPath );
           break;
         }
       }
