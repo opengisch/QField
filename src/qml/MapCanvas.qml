@@ -292,12 +292,17 @@ Item {
         onTranslationChanged: {
             if (active)
             {
-                if (translationThresholdReached || Math.abs(oldTranslationY - translation.y) > 35)
+                if (translationThresholdReached)
                 {
                     if (oldTranslationY != 0)
                     {
                         mapCanvasWrapper.rotate(oldTranslationY - translation.y)
                     }
+                    oldTranslationY = translation.y
+                    translationThresholdReached = true
+                }
+                else if (Math.abs(oldTranslationY - translation.y) > 30)
+                {
                     oldTranslationY = translation.y
                     translationThresholdReached = true
                 }
@@ -341,11 +346,15 @@ Item {
         onRotationChanged: {
             if ( active )
             {
-                if (rotationTresholdReached || Math.abs(rotation - oldRotation) > 35)
+                if (rotationTresholdReached)
                 {
                     mapCanvasWrapper.rotate(rotation - oldRotation)
                     oldRotation = rotation
-                    rotationTresholdReached = true
+                }
+                else if (Math.abs(rotation - oldRotation) > 30)
+                {
+                  oldRotation = rotation
+                  rotationTresholdReached = true
                 }
             }
         }
