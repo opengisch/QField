@@ -149,7 +149,7 @@ void QgsQuickCoordinateTransformer::updatePosition()
       double zDummy = 0.0; // we don't want to manipulate the elevation data yet, use a dummy z value to transform coordinates first
       mCoordinateVerticalGridTransform.transformInPlace( xVector[0], yVector[0], zDummy );
 
-      PJ *P = proj_create( PJ_DEFAULT_CTX, QStringLiteral( "+proj=pipeline +step +proj=unitconvert +xy_in=deg +xy_out=rad +step +proj=vgridshift +grids=%1 +step +proj=unitconvert +xy_in=rad +xy_out=deg" ).arg( mVerticalGridPath ).toUtf8().constData() );
+      PJ *P = proj_create( PJ_DEFAULT_CTX, QStringLiteral( "+proj=pipeline +step +proj=unitconvert +xy_in=deg +xy_out=rad +step +proj=vgridshift +grids=\"%1\" +step +proj=unitconvert +xy_in=rad +xy_out=deg" ).arg( mVerticalGridPath ).toUtf8().constData() );
       proj_trans_generic( P, PJ_FWD,
                           xVector.data(), sizeof( double ), 1,
                           yVector.data(), sizeof( double ), 1,
