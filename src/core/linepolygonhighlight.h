@@ -65,9 +65,11 @@ class LinePolygonHighlight : public QQuickItem
     void visibleExtentChanged();
     void makeDirty();
 
+  protected:
+    QSGNode *updatePaintNode( QSGNode *n, QQuickItem::UpdatePaintNodeData * ) override;
+
   private:
-    virtual QSGNode *updatePaintNode( QSGNode *n, UpdatePaintNodeData * ) override;
-    virtual void updateTransform();
+    void updateTransform();
 
     QColor mColor;
     float mWidth = 0;
