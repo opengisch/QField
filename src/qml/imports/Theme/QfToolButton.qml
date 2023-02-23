@@ -8,14 +8,15 @@ import Theme 1.0
 RoundButton {
   id: button
 
-  property string iconSource: ''
+  property alias iconSource: button.icon.source
+  property alias iconColor: button.icon.color
   property string bottomRightIndicatorText: ''
   property string bottomRightIndicatorBgColor: Theme.cloudColor
   property string bottomRightIndicatorFgColor: Theme.light
   property bool round: false
   property bool roundborder: false
-  property color bgcolor: 'transparent'
-  property color borderColor: bgcolor
+  property alias bgcolor: backgroundRectangle.color
+  property alias borderColor: backgroundRectangle.border.color
 
   width: 48
   height: 48
@@ -29,11 +30,12 @@ RoundButton {
   rightInset:0
   padding:10
   background: Rectangle {
+    id: backgroundRectangle
     implicitWidth: 100
     implicitHeight: 25
     border.width: round && roundborder ? height / 6 : !round
-    border.color: borderColor
-    color: bgcolor
+    border.color: backgroundRectangle.color
+    color: 'transparent'
     radius: round ? height / 2 : 0
 
     Behavior on color {
@@ -65,22 +67,7 @@ RoundButton {
     }
   }
 
-  contentItem: Rectangle {
-    implicitWidth: 100
-    implicitHeight: 25
-    color: "transparent"
-    z: 1
-
-    Image {
-      anchors.fill: parent
-      fillMode: Image.PreserveAspectFit
-      horizontalAlignment: Image.AlignHCenter
-      verticalAlignment: Image.AlignVCenter
-      source: iconSource
-      sourceSize.width: 24 * screen.devicePixelRatio
-      sourceSize.height: 24 * screen.devicePixelRatio
-    }
-  }
+  icon.color: "transparent"
 
   Rectangle {
     id: bottomRightIndicator
