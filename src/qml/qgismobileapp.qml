@@ -1487,7 +1487,7 @@ ApplicationWindow {
           name: "Off"
           PropertyChanges {
             target: gnssButton
-            iconSource: Theme.getThemeIcon( "ic_location_disabled_white_24dp" )
+            iconSource: Theme.getThemeVectorIcon( "ic_location_disabled_white_24dp" )
             bgcolor: Theme.darkGraySemiOpaque
           }
         },
@@ -1496,7 +1496,10 @@ ApplicationWindow {
           name: "On"
           PropertyChanges {
             target: gnssButton
-            iconSource: positionSource.positionInformation && positionSource.positionInformation.latitudeValid ? Theme.getThemeIcon( "ic_my_location_" + ( followActive ? "white" : "blue" ) + "_24dp" ) : Theme.getThemeIcon( "ic_gps_not_fixed_white_24dp" )
+            iconSource: positionSource.positionInformation && positionSource.positionInformation.latitudeValid
+                        ? Theme.getThemeVectorIcon( "ic_location_valid_white_24dp" )
+                        : Theme.getThemeIcon( "ic_location_white_24dp" )
+            iconColor: followActive ? "white" : Theme.positionColor
             bgcolor: followActive ? Theme.positionColor : Theme.darkGray
           }
         }
