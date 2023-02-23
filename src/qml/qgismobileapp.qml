@@ -597,7 +597,6 @@ ApplicationWindow {
         crs: mapCanvas.mapSettings.destinationCrs
       }
 
-      anchors.fill: parent
       visible: stateMachine.state === "digitize"
     }
 
@@ -615,8 +614,6 @@ ApplicationWindow {
         crs: mapCanvas.mapSettings.destinationCrs
         geometryType: QgsWkbTypes.LineGeometry
       }
-
-      anchors.fill: parent
     }
 
     BookmarkHighlight {
@@ -936,13 +933,30 @@ ApplicationWindow {
     styleColor: Theme.light
   }
 
+  QfToolButton {
+    id: compassArrow
+    rotation: mapCanvas.mapSettings.rotation
+    visible: rotation != 0
+
+    anchors.left: mapCanvas.left
+    anchors.bottom: mapCanvas.bottom
+    anchors.leftMargin: 4
+    anchors.bottomMargin: mainWindow.sceneBottomMargin + 56
+
+    round: true
+    bgcolor: Theme.darkGraySemiOpaque
+    iconSource: Theme.getThemeVectorIcon('ic_compass_arrow_24dp')
+
+    onClicked: mapCanvas.mapSettings.rotation = 0
+  }
+
   ScaleBar {
     visible: qfieldSettings.showScaleBar
     mapSettings: mapCanvas.mapSettings
 
     anchors.left: mapCanvas.left
     anchors.bottom: mapCanvas.bottom
-    anchors.leftMargin: 10
+    anchors.leftMargin: 4
     anchors.bottomMargin: mainWindow.sceneBottomMargin + 10
   }
 
@@ -1473,7 +1487,7 @@ ApplicationWindow {
           name: "Off"
           PropertyChanges {
             target: gnssButton
-            iconSource: Theme.getThemeIcon( "ic_location_disabled_white_24dp" )
+            iconSource: Theme.getThemeVectorIcon( "ic_location_disabled_white_24dp" )
             bgcolor: Theme.darkGraySemiOpaque
           }
         },
@@ -1482,7 +1496,10 @@ ApplicationWindow {
           name: "On"
           PropertyChanges {
             target: gnssButton
-            iconSource: positionSource.positionInformation && positionSource.positionInformation.latitudeValid ? Theme.getThemeIcon( "ic_my_location_" + ( followActive ? "white" : "blue" ) + "_24dp" ) : Theme.getThemeIcon( "ic_gps_not_fixed_white_24dp" )
+            iconSource: positionSource.positionInformation && positionSource.positionInformation.latitudeValid
+                        ? Theme.getThemeVectorIcon( "ic_location_valid_white_24dp" )
+                        : Theme.getThemeIcon( "ic_location_white_24dp" )
+            iconColor: followActive ? "white" : Theme.positionColor
             bgcolor: followActive ? Theme.positionColor : Theme.darkGray
           }
         }

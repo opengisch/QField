@@ -30,6 +30,7 @@ ProjectInfo::ProjectInfo( QObject *parent )
 {
   mSaveExtentTimer.setSingleShot( true );
   connect( &mSaveExtentTimer, &QTimer::timeout, this, &ProjectInfo::saveExtent );
+  connect( &mSaveRotationTimer, &QTimer::timeout, this, &ProjectInfo::saveRotation );
   connect( &mSaveTemporalStateTimer, &QTimer::timeout, this, &ProjectInfo::saveTemporalState );
 }
 
@@ -56,11 +57,13 @@ void ProjectInfo::setMapSettings( QgsQuickMapSettings *mapSettings )
   if ( mMapSettings )
   {
     disconnect( mMapSettings, &QgsQuickMapSettings::extentChanged, this, &ProjectInfo::extentChanged );
+    disconnect( mMapSettings, &QgsQuickMapSettings::rotationChanged, this, &ProjectInfo::rotationChanged );
     disconnect( mMapSettings, &QgsQuickMapSettings::temporalStateChanged, this, &ProjectInfo::temporalStateChanged );
   }
 
   mMapSettings = mapSettings;
   connect( mMapSettings, &QgsQuickMapSettings::extentChanged, this, &ProjectInfo::extentChanged );
+  connect( mMapSettings, &QgsQuickMapSettings::rotationChanged, this, &ProjectInfo::rotationChanged );
   connect( mMapSettings, &QgsQuickMapSettings::temporalStateChanged, this, &ProjectInfo::temporalStateChanged );
 
   emit mapSettingsChanged();
@@ -110,6 +113,27 @@ void ProjectInfo::saveExtent()
     settings.beginGroup( QStringLiteral( "/qgis/projectInfo/%1" ).arg( mFilePath ) );
     settings.setValue( QStringLiteral( "filesize" ), fi.size() );
     settings.setValue( QStringLiteral( "extent" ), QStringLiteral( "%1|%2|%3|%4" ).arg( qgsDoubleToString( extent.xMinimum() ), qgsDoubleToString( extent.xMaximum() ), qgsDoubleToString( extent.yMinimum() ), qgsDoubleToString( extent.yMaximum() ) ) );
+    settings.endGroup();
+  }
+}
+
+void ProjectInfo::rotationChanged()
+{
+  mSaveRotationTimer.start( 1000 );
+}
+
+void ProjectInfo::saveRotation()
+{
+  if ( mFilePath.isEmpty() )
+    return;
+
+  QFileInfo fi( mFilePath );
+  if ( fi.exists() )
+  {
+    QSettings settings;
+    settings.beginGroup( QStringLiteral( "/qgis/projectInfo/%1" ).arg( mFilePath ) );
+    settings.setValue( QStringLiteral( "filesize" ), fi.size() );
+    settings.setValue( QStringLiteral( "rotation" ), mMapSettings->rotation() );
     settings.endGroup();
   }
 }

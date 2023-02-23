@@ -76,7 +76,6 @@ class QFIELD_CORE_EXPORT QgsQuickMapSettings : public QObject
 
     /**
      * The rotation of the resulting map image, in degrees clockwise.
-     * Map canvas rotation support is not implemented, 0 is used
      */
     Q_PROPERTY( double rotation READ rotation WRITE setRotation NOTIFY rotationChanged )
 

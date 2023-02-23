@@ -25,6 +25,7 @@ Rubberband::Rubberband( QQuickItem *parent )
   : QQuickItem( parent )
 {
   setFlags( QQuickItem::ItemHasContents );
+  setTransformOrigin( QQuickItem::TopLeft );
   setAntialiasing( true );
 }
 
@@ -111,26 +112,49 @@ void Rubberband::setMapSettings( QgsQuickMapSettings *mapSettings )
   if ( mMapSettings )
   {
     disconnect( mMapSettings, &QgsQuickMapSettings::visibleExtentChanged, this, &Rubberband::visibleExtentChanged );
+    disconnect( mMapSettings, &QgsQuickMapSettings::rotationChanged, this, &Rubberband::rotationChanged );
   }
 
   mMapSettings = mapSettings;
   connect( mMapSettings, &QgsQuickMapSettings::visibleExtentChanged, this, &Rubberband::visibleExtentChanged );
+  connect( mMapSettings, &QgsQuickMapSettings::rotationChanged, this, &Rubberband::rotationChanged );
 
   markDirty();
 
   emit mapSettingsChanged();
 }
 
+void Rubberband::updateTransform()
+{
+  if ( !mMapSettings )
+    return;
+
+  const QgsRectangle extent = mMapSettings->visibleExtent();
+  const QgsPoint corner( extent.xMinimum(), extent.yMaximum() );
+  const QgsPointXY pixelCorner = mMapSettings->coordinateToScreen( corner );
+
+  setX( pixelCorner.x() );
+  setY( pixelCorner.y() );
+  setRotation( mMapSettings->rotation() );
+
+  update();
+}
+
+void Rubberband::rotationChanged()
+{
+  updateTransform();
+}
+
 void Rubberband::visibleExtentChanged()
 {
   mDirty = true;
-  update();
+  updateTransform();
 }
 
 void Rubberband::markDirty()
 {
   mDirty = true;
-  update();
+  updateTransform();
 }
 
 void Rubberband::transformPoints( QVector<QgsPoint> &points )

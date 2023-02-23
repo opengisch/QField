@@ -29,12 +29,14 @@ void MapToScreen::setMapSettings( QgsQuickMapSettings *mapSettings )
   if ( mMapSettings )
   {
     disconnect( mMapSettings, &QgsQuickMapSettings::extentChanged, this, &MapToScreen::transformPoint );
+    disconnect( mMapSettings, &QgsQuickMapSettings::rotationChanged, this, &MapToScreen::transformPoint );
     disconnect( mMapSettings, &QgsQuickMapSettings::outputSizeChanged, this, &MapToScreen::transformPoint );
   }
 
   mMapSettings = mapSettings;
 
   connect( mMapSettings, &QgsQuickMapSettings::extentChanged, this, &MapToScreen::transformPoint );
+  connect( mMapSettings, &QgsQuickMapSettings::rotationChanged, this, &MapToScreen::transformPoint );
   connect( mMapSettings, &QgsQuickMapSettings::outputSizeChanged, this, &MapToScreen::transformPoint );
 
   transformPoint();

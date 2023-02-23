@@ -1079,7 +1079,7 @@ void QgisMobileapp::readProjectFile()
     extent.setXMaximum( parts[1].toDouble() );
     extent.setYMinimum( parts[2].toDouble() );
     extent.setYMaximum( parts[3].toDouble() );
-    emit setMapExtent( extent );
+    mMapCanvas->mapSettings()->setExtent( extent );
   }
   else if ( !extent.isNull() )
   {
@@ -1106,8 +1106,11 @@ void QgisMobileapp::readProjectFile()
     }
 
     // Add a bit of buffer so datasets don't touch the very edge of the map on the screen
-    emit setMapExtent( extent.buffered( extent.width() * 0.02 ) );
+    mMapCanvas->mapSettings()->setExtent( extent.buffered( extent.width() * 0.02 ) );
   }
+
+  const double rotation = settings.value( QStringLiteral( "qgis/projectInfo/%1/rotation" ).arg( mProjectFilePath ), mMapCanvas->mapSettings()->rotation() ).toDouble();
+  mMapCanvas->mapSettings()->setRotation( rotation );
 
   const bool isTemporal = settings.value( QStringLiteral( "/qgis/projectInfo/%1/isTemporal" ).arg( mProjectFilePath ), false ).toBool();
   const QString begin = settings.value( QStringLiteral( "/qgis/projectInfo/%1/StartDateTime" ).arg( mProjectFilePath ), QString() ).toString();

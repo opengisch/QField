@@ -98,13 +98,16 @@ class Rubberband : public QQuickItem
     //! \copydoc geometryType
     void geometryTypeChanged();
 
-
   private slots:
     void markDirty();
     void visibleExtentChanged();
+    void rotationChanged();
+
+  protected:
+    QSGNode *updatePaintNode( QSGNode *n, QQuickItem::UpdatePaintNodeData * ) override;
 
   private:
-    QSGNode *updatePaintNode( QSGNode *n, QQuickItem::UpdatePaintNodeData * );
+    void updateTransform();
 
     void transformPoints( QVector<QgsPoint> &points );
 

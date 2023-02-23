@@ -27,6 +27,7 @@ LinePolygonHighlight::LinePolygonHighlight( QQuickItem *parent )
   : QQuickItem( parent )
 {
   setFlags( QQuickItem::ItemHasContents );
+  setTransformOrigin( QQuickItem::TopLeft );
   setAntialiasing( true );
 }
 
@@ -106,20 +107,46 @@ void LinePolygonHighlight::setMapSettings( QgsQuickMapSettings *mapSettings )
   {
     disconnect( mMapSettings, &QgsQuickMapSettings::destinationCrsChanged, this, &LinePolygonHighlight::mapCrsChanged );
     disconnect( mMapSettings, &QgsQuickMapSettings::visibleExtentChanged, this, &LinePolygonHighlight::visibleExtentChanged );
+    disconnect( mMapSettings, &QgsQuickMapSettings::rotationChanged, this, &LinePolygonHighlight::rotationChanged );
   }
 
   mMapSettings = mapSettings;
 
   connect( mMapSettings, &QgsQuickMapSettings::destinationCrsChanged, this, &LinePolygonHighlight::mapCrsChanged );
   connect( mMapSettings, &QgsQuickMapSettings::visibleExtentChanged, this, &LinePolygonHighlight::visibleExtentChanged );
+  connect( mMapSettings, &QgsQuickMapSettings::rotationChanged, this, &LinePolygonHighlight::rotationChanged );
+
+  mDirty = true;
+  updateTransform();
 
   emit mapSettingsChanged();
+}
+
+void LinePolygonHighlight::updateTransform()
+{
+  if ( !mMapSettings )
+    return;
+
+  const QgsRectangle extent = mMapSettings->visibleExtent();
+  const QgsPoint corner( extent.xMinimum(), extent.yMaximum() );
+  const QgsPointXY pixelCorner = mMapSettings->coordinateToScreen( corner );
+
+  setX( pixelCorner.x() );
+  setY( pixelCorner.y() );
+  setRotation( mMapSettings->rotation() );
+
+  update();
+}
+
+void LinePolygonHighlight::rotationChanged()
+{
+  updateTransform();
 }
 
 void LinePolygonHighlight::visibleExtentChanged()
 {
   mDirty = true;
-  update();
+  updateTransform();
 }
 
 void LinePolygonHighlight::mapCrsChanged()

@@ -238,7 +238,7 @@ Item {
         enabled: interactive
         acceptedDevices: PointerDevice.Stylus | PointerDevice.Mouse
         grabPermissions: PointerHandler.TakeOverForbidden
-        acceptedButtons: Qt.MiddleButton | Qt.RightButton
+        acceptedButtons: Qt.RightButton
 
         property real oldTranslationY
         property point zoomCenter
@@ -266,6 +266,50 @@ Item {
         }
     }
 
+    DragHandler {
+        target: null
+        enabled: interactive
+        acceptedDevices: PointerDevice.Stylus | PointerDevice.Mouse
+        grabPermissions: PointerHandler.TakeOverForbidden
+        acceptedButtons: Qt.MiddleButton
+
+        property real oldTranslationY: 0
+        property bool translationThresholdReached: false
+
+        onActiveChanged: {
+            if (active)
+            {
+                freeze('rotate')
+                oldTranslationY = 0
+                translationThresholdReached = false
+            }
+            else
+            {
+                unfreeze('rotate')
+            }
+        }
+
+        onTranslationChanged: {
+            if (active)
+            {
+                if (translationThresholdReached)
+                {
+                    if (oldTranslationY != 0)
+                    {
+                        mapCanvasWrapper.rotate(oldTranslationY - translation.y)
+                    }
+                    oldTranslationY = translation.y
+                    translationThresholdReached = true
+                }
+                else if (Math.abs(oldTranslationY - translation.y) > 10)
+                {
+                    oldTranslationY = translation.y
+                    translationThresholdReached = true
+                }
+            }
+        }
+    }
+
     PinchHandler {
         id: pinch
         enabled: interactive
@@ -275,11 +319,15 @@ Item {
 
         property var oldPos
         property real oldScale: 1.0
+        property real oldRotation: 0.0
+        property bool rotationTresholdReached: false
 
         onActiveChanged: {
             if ( active ) {
                 freeze('pinch')
                 oldScale = 1.0
+                oldRotation = 0.0
+                rotationTresholdReached = false
                 oldPos = centroid.position
             } else {
                 unfreeze('pinch')
@@ -292,6 +340,22 @@ Item {
             if ( active )
             {
                 mapCanvasWrapper.pan(centroid.position, oldPos1)
+            }
+        }
+
+        onRotationChanged: {
+            if ( active )
+            {
+                if (rotationTresholdReached)
+                {
+                    mapCanvasWrapper.rotate(rotation - oldRotation)
+                    oldRotation = rotation
+                }
+                else if (Math.abs(rotation - oldRotation) > 10)
+                {
+                  oldRotation = rotation
+                  rotationTresholdReached = true
+                }
             }
         }
 
