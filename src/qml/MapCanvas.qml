@@ -301,7 +301,7 @@ Item {
                     oldTranslationY = translation.y
                     translationThresholdReached = true
                 }
-                else if (Math.abs(oldTranslationY - translation.y) > 10)
+                else if (Math.abs(oldTranslationY - translation.y) > pinch.rotationTreshold)
                 {
                     oldTranslationY = translation.y
                     translationThresholdReached = true
@@ -316,6 +316,8 @@ Item {
         target: null
         acceptedDevices: PointerDevice.TouchScreen | PointerDevice.TouchPad
         grabPermissions: PointerHandler.ApprovesTakeOverByHandlersOfDifferentType
+
+        property real rotationTreshold: 10.0
 
         property var oldPos
         property real oldScale: 1.0
@@ -351,7 +353,7 @@ Item {
                     mapCanvasWrapper.rotate(rotation - oldRotation)
                     oldRotation = rotation
                 }
-                else if (Math.abs(rotation - oldRotation) > 10)
+                else if (Math.abs(rotation - oldRotation) > pinch.rotationTreshold)
                 {
                   oldRotation = rotation
                   rotationTresholdReached = true
