@@ -269,6 +269,10 @@ ApplicationWindow {
         lastAcceptedReading = timestamp;
         orientation = userOrientation + (-(Math.atan2(reading.x, reading.y) / Math.PI) * 180)
         hasValue = true
+
+        if (gnssButton.followOrientationActive) {
+          gnssButton.followOrientation();
+        }
       }
     }
 
@@ -1481,6 +1485,15 @@ ApplicationWindow {
       / deactivation of the above followActive mode.
       */
       property bool followActiveSkipExtentChanged: false
+      /*
+      / When set to true, the map will rotate to match the device's current magnetometer/compass orientatin.
+      */
+      property bool followOrientationActive: false
+      /*
+      / When set to true, map canvas rotation changes will not result in the
+      / deactivation of the above followOrientationActive mode.
+      */
+      property bool followActiveSkipRotationChanged: false
 
       states: [
         State {
@@ -1498,7 +1511,7 @@ ApplicationWindow {
             target: gnssButton
             iconSource: positionSource.positionInformation && positionSource.positionInformation.latitudeValid
                         ? Theme.getThemeVectorIcon( "ic_location_valid_white_24dp" )
-                        : Theme.getThemeIcon( "ic_location_white_24dp" )
+                        : Theme.getThemeVectorIcon( "ic_location_white_24dp" )
             iconColor: followActive ? "white" : Theme.positionColor
             bgcolor: followActive ? Theme.positionColor : Theme.darkGray
           }
@@ -1506,30 +1519,36 @@ ApplicationWindow {
       ]
 
       onClicked: {
-        followActive = true
-        if ( positionSource.projectedPosition.x )
-        {
-          if ( !positionSource.active )
+        if (followActive) {
+          followOrientationActive = true
+          followOrientation();
+          displayToast( qsTr( "Canvas follows location and compass orientation" ) )
+        } else {
+          followActive = true
+          if ( positionSource.projectedPosition.x )
           {
-            positioningSettings.positioningActivated = true
-          }
-          else
-          {
-              followLocation(true);
-              displayToast( qsTr( "Canvas follows location" ) )
-          }
-        }
-        else
-        {
-          if ( positionSource.valid )
-          {
-            if ( positionSource.active )
+            if ( !positionSource.active )
             {
-              displayToast( qsTr( "Waiting for location" ) )
+              positioningSettings.positioningActivated = true
             }
             else
             {
-              positioningSettings.positioningActivated = true
+                followLocation(true);
+                displayToast( qsTr( "Canvas follows location" ) )
+            }
+          }
+          else
+          {
+            if ( positionSource.valid )
+            {
+              if ( positionSource.active )
+              {
+                displayToast( qsTr( "Waiting for location" ) )
+              }
+              else
+              {
+                positioningSettings.positioningActivated = true
+              }
             }
           }
         }
@@ -1576,6 +1595,12 @@ ApplicationWindow {
           }
         }
       }
+      function followOrientation() {
+        if (magnetometer.hasValue && Math.abs(magnetometer.orientation - mapCanvas.mapSettings.rotation) > 10) {
+          gnssButton.followActiveSkipRotationChanged = true
+          mapCanvas.mapSettings.rotation = -magnetometer.orientation
+        }
+      }
 
       Rectangle {
           anchors {
@@ -1612,7 +1637,18 @@ ApplicationWindow {
                     gnssButton.followActiveSkipExtentChanged = false;
                 } else {
                     gnssButton.followActive = false
+                    gnssButton.followOrientationActive = false
                     displayToast( qsTr( "Canvas stopped following location" ) )
+                }
+            }
+        }
+
+        function onRotationChanged() {
+            if ( gnssButton.followOrientationActive ) {
+                if ( gnssButton.followActiveSkipRotationChanged ) {
+                    gnssButton.followActiveSkipRotationChanged = false
+                } else {
+                    gnssButton.followOrientationActive = false
                 }
             }
         }
