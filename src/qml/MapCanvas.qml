@@ -301,7 +301,7 @@ Item {
                     oldTranslationY = translation.y
                     translationThresholdReached = true
                 }
-                else if (Math.abs(oldTranslationY - translation.y) > 30)
+                else if (Math.abs(oldTranslationY - translation.y) > 20)
                 {
                     oldTranslationY = translation.y
                     translationThresholdReached = true
@@ -351,7 +351,7 @@ Item {
                     mapCanvasWrapper.rotate(rotation - oldRotation)
                     oldRotation = rotation
                 }
-                else if (Math.abs(rotation - oldRotation) > 30)
+                else if (Math.abs(rotation - oldRotation) > 20)
                 {
                   oldRotation = rotation
                   rotationTresholdReached = true
