@@ -77,7 +77,7 @@ VisibilityFadingRow {
     {
         reshapeToolbar.featureModel = featureModel
         drawPolygonToolbar.rubberbandModel = editorRubberbandModel
-        drawPolygonToolbar.rubberbandModel.geometryType = QgsWkbTypes.PolygonGeometry
+        drawPolygonToolbar.rubberbandModel.geometryType = Qgis.GeometryType.Polygon
         drawPolygonToolbar.mapSettings = mapSettings
         drawPolygonToolbar.stateVisible = true
     }

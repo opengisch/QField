@@ -367,18 +367,12 @@ void QgisMobileapp::initDeclarative()
   qRegisterMetaType<QgsPointXY>( "QgsPointXY" );
   qRegisterMetaType<QgsPointSequence>( "QgsPointSequence" );
   qRegisterMetaType<QgsCoordinateTransformContext>( "QgsCoordinateTransformContext" );
-  qRegisterMetaType<Qgis::GeometryType>( "Qgis::GeometryType" ); // could be removed since we have now qmlRegisterUncreatableType<QgsWkbTypes> ?
-  qRegisterMetaType<Qgis::WkbType>( "Qgis::Type" );              // could be removed since we have now qmlRegisterUncreatableType<QgsWkbTypes> ?
-#if _QGIS_VERSION_INT >= 32900
-  qRegisterMetaType<Qgis::LayerType>( "QgsMapLayerType" ); // could be removed since we have now qmlRegisterUncreatableType<QgsWkbTypes> ?
-#else
+#if _QGIS_VERSION_INT < 32900
   qRegisterMetaType<QgsMapLayerType>( "QgsMapLayerType" ); // could be removed since we have now qmlRegisterUncreatableType<QgsWkbTypes> ?
 #endif
   qRegisterMetaType<QgsFeatureId>( "QgsFeatureId" );
   qRegisterMetaType<QgsAttributes>( "QgsAttributes" );
   qRegisterMetaType<QgsSnappingConfig>( "QgsSnappingConfig" );
-  qRegisterMetaType<Qgis::DistanceUnit>( "Qgis::DistanceUnit" );
-  qRegisterMetaType<Qgis::AreaUnit>( "Qgis::AreaUnit" );
   qRegisterMetaType<QgsRelation>( "QgsRelation" );
   qRegisterMetaType<QgsPolymorphicRelation>( "QgsPolymorphicRelation" );
   qRegisterMetaType<PlatformUtilities::Capabilities>( "PlatformUtilities::Capabilities" );
@@ -393,6 +387,14 @@ void QgisMobileapp::initDeclarative()
   qRegisterMetaType<QFieldCloudProjectsModel::ProjectCheckout>( "QFieldCloudProjectsModel::ProjectCheckout" );
   qRegisterMetaType<QFieldCloudProjectsModel::ProjectModification>( "QFieldCloudProjectsModel::ProjectModification" );
   qRegisterMetaType<Tracker::MeasureType>( "Tracker::MeasureType" );
+
+  qmlRegisterUncreatableType<Qgis>( "org.qgis", 1, 0, "Qgis", "" );
+  qRegisterMetaType<Qgis::GeometryType>( "Qgis::GeometryType" );
+  qRegisterMetaType<Qgis::WkbType>( "Qgis::Type" );
+  qRegisterMetaType<Qgis::LayerType>( "QgsMapLayerType" );
+  qRegisterMetaType<Qgis::DistanceUnit>( "Qgis::DistanceUnit" );
+  qRegisterMetaType<Qgis::AreaUnit>( "Qgis::AreaUnit" );
+  qRegisterMetaType<Qgis::AngleUnit>( "Qgis::AngleUnit" );
 
   qmlRegisterUncreatableType<QgsProject>( "org.qgis", 1, 0, "Project", "" );
 #if _QGIS_VERSION_INT >= 32700

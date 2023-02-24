@@ -459,8 +459,8 @@ ApplicationWindow {
 
               if ( !(positionSource.active && positioningSettings.positioningCoordinateLock) && (!featureForm.visible || digitizingToolbar.geometryRequested ) &&
                    ( ( stateMachine.state === "digitize" && digitizingFeature.currentLayer ) || stateMachine.state === 'measure' ) ) {
-                  if ( Number( currentRubberband.model.geometryType ) === QgsWkbTypes.PointGeometry ||
-                          Number( currentRubberband.model.geometryType ) === QgsWkbTypes.NullGeometry ) {
+                  if ( Number( currentRubberband.model.geometryType ) === Qgis.GeometryType.Point ||
+                          Number( currentRubberband.model.geometryType ) === Qgis.GeometryType.Null ) {
                       digitizingToolbar.confirm()
                   } else {
                       digitizingToolbar.addVertex()
@@ -487,8 +487,8 @@ ApplicationWindow {
             return
           }
           if ( stateMachine.state === "digitize" && dashBoard.currentLayer ) { // the sourceLocation test checks if a (stylus) hover is active
-            if ( ( Number( currentRubberband.model.geometryType ) === QgsWkbTypes.LineGeometry && currentRubberband.model.vertexCount >= 2 )
-               || ( Number( currentRubberband.model.geometryType ) === QgsWkbTypes.PolygonGeometry && currentRubberband.model.vertexCount >= 2 ) ) {
+            if ( ( Number( currentRubberband.model.geometryType ) === Qgis.GeometryType.Line && currentRubberband.model.vertexCount >= 2 )
+               || ( Number( currentRubberband.model.geometryType ) === Qgis.GeometryType.Polygon && currentRubberband.model.vertexCount >= 2 ) ) {
                 digitizingToolbar.addVertex();
 
                 // When it's released, it will normally cause a release event to close the attribute form.
@@ -612,7 +612,7 @@ ApplicationWindow {
         frozen: false
         currentCoordinate: coordinateLocator.currentCoordinate
         crs: mapCanvas.mapSettings.destinationCrs
-        geometryType: QgsWkbTypes.LineGeometry
+        geometryType: Qgis.GeometryType.Line
       }
     }
 
@@ -899,10 +899,10 @@ ApplicationWindow {
                 .arg(digitizingGeometryMeasure.lengthValid && digitizingGeometryMeasure.segmentLength != 0.0
                      ? '<p>%1: %2</p>'
                        .arg( qsTr( 'Azimuth') )
-                       .arg( UnitTypes.formatAngle( digitizingGeometryMeasure.azimuth < 0 ? digitizingGeometryMeasure.azimuth + 360 : digitizingGeometryMeasure.azimuth, 2, QgsUnitTypes.AngleDegrees ) )
+                       .arg( UnitTypes.formatAngle( digitizingGeometryMeasure.azimuth < 0 ? digitizingGeometryMeasure.azimuth + 360 : digitizingGeometryMeasure.azimuth, 2, Qgis.AngleUnit.Degrees ) )
                      : '')
 
-                .arg(currentRubberband.model && currentRubberband.model.geometryType === QgsWkbTypes.PolygonGeometry
+                .arg(currentRubberband.model && currentRubberband.model.geometryType === Qgis.GeometryType.Polygon
                      ? digitizingGeometryMeasure.perimeterValid
                        ? '<p>%1: %2</p>'
                          .arg( qsTr( 'Perimeter') )
@@ -1207,9 +1207,9 @@ ApplicationWindow {
           && dashBoard.currentLayer
           && dashBoard.currentLayer.isValid
           && (
-                   dashBoard.currentLayer.geometryType() === QgsWkbTypes.PolygonGeometry
-                   || dashBoard.currentLayer.geometryType() === QgsWkbTypes.LineGeometry
-                   || dashBoard.currentLayer.geometryType() === QgsWkbTypes.PointGeometry
+                   dashBoard.currentLayer.geometryType() === Qgis.GeometryType.Polygon
+                   || dashBoard.currentLayer.geometryType() === Qgis.GeometryType.Line
+                   || dashBoard.currentLayer.geometryType() === Qgis.GeometryType.Point
         )
       state: qgisProject && qgisProject.topologicalEditing ? "On" : "Off"
       iconSource: Theme.getThemeIcon( "ic_topology_white_24dp" )
@@ -1248,11 +1248,11 @@ ApplicationWindow {
       round: true
       visible: hoverHandler.hasBeenHovered && !(positionSource.active && positioningSettings.positioningCoordinateLock) && stateMachine.state === "digitize"
                && ((digitizingToolbar.geometryRequested && digitizingToolbar.geometryRequestedLayer && digitizingToolbar.geometryRequestedLayer.isValid &&
-                   (digitizingToolbar.geometryRequestedLayer.geometryType() === QgsWkbTypes.PolygonGeometry
-                    || digitizingToolbar.geometryRequestedLayer.geometryType() === QgsWkbTypes.LineGeometry))
+                   (digitizingToolbar.geometryRequestedLayer.geometryType() === Qgis.GeometryType.Polygon
+                    || digitizingToolbar.geometryRequestedLayer.geometryType() === Qgis.GeometryType.Line))
                    || (!digitizingToolbar.geometryRequested && dashBoard.currentLayer && dashBoard.currentLayer.isValid &&
-                   (dashBoard.currentLayer.geometryType() === QgsWkbTypes.PolygonGeometry
-                    || dashBoard.currentLayer.geometryType() === QgsWkbTypes.LineGeometry)))
+                   (dashBoard.currentLayer.geometryType() === Qgis.GeometryType.Polygon
+                    || dashBoard.currentLayer.geometryType() === Qgis.GeometryType.Line)))
       iconSource: Theme.getThemeIcon( "ic_freehand_white_24dp" )
 
       bgcolor: Theme.darkGray
@@ -1677,7 +1677,7 @@ ApplicationWindow {
           }
         } else if( qfieldSettings.autoSave && stateMachine.state === "digitize" ) {
           if ( digitizingToolbar.geometryValid ) {
-            if (digitizingRubberband.model.geometryType === QgsWkbTypes.NullGeometry )
+            if (digitizingRubberband.model.geometryType === Qgis.GeometryType.Null)
             {
               digitizingRubberband.model.reset()
             }
@@ -1738,7 +1738,7 @@ ApplicationWindow {
             return;
         }
 
-        if (digitizingRubberband.model.geometryType === QgsWkbTypes.NullGeometry )
+        if (digitizingRubberband.model.geometryType === Qgis.GeometryType.Null)
         {
           digitizingRubberband.model.reset()
         }
@@ -2815,9 +2815,9 @@ ApplicationWindow {
         }
 
         var distanceString = iface.readProjectEntry("Measurement" ,"/DistanceUnits", "")
-        projectInfo.distanceUnits = distanceString !== "" ? UnitTypes.decodeDistanceUnit(distanceString) : UnitTypes.DistanceMeters
+        projectInfo.distanceUnits = distanceString !== "" ? UnitTypes.decodeDistanceUnit(distanceString) : Qgis.DistanceUnit.Meters
         var areaString = iface.readProjectEntry("Measurement" ,"/AreaeUnits", "")
-        projectInfo.areaUnits = areaString !== "" ? UnitTypes.decodeAreaUnit(areaString) : UnitTypes.AreaSquareMeters
+        projectInfo.areaUnits = areaString !== "" ? UnitTypes.decodeAreaUnit(areaString) : Qgis.AreaUnit.SquareMeters
 
         if (qgisProject.displaySettings) {
           projectInfo.coordinateDisplayCrs = qgisProject.displaySettings.coordinateCrs
@@ -2847,8 +2847,8 @@ ApplicationWindow {
     mapSettings: mapCanvas.mapSettings
     layerTree: dashBoard.layerTree
 
-    property var distanceUnits: UnitTypes.DistanceMeters
-    property var areaUnits: UnitTypes.AreaSquareMeters
+    property var distanceUnits: Qgis.DistanceUnit.Meters
+    property var areaUnits: Qgis.AreaUnit.SquareMeters
     property var coordinateDisplayCrs: CoordinateReferenceSystemUtils.wgs84Crs()
 
     property bool hasInsertRights: true

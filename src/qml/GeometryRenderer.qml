@@ -23,7 +23,7 @@ Item {
 
     function onQgsGeometryChanged() {
       geometryComponent.sourceComponent = undefined
-      if (geometryWrapper && geometryWrapper.qgsGeometry.type === QgsWkbTypes.PointGeometry) {
+      if (geometryWrapper && geometryWrapper.qgsGeometry.type === Qgis.GeometryType.Point) {
         geometryComponent.sourceComponent = pointHighlight
       }
       else
@@ -85,6 +85,6 @@ Item {
     id: geometryComponent
     // the sourceComponent is updated with the connection on wrapper qgsGeometryChanged signal
     // but it needs to be ready on first used
-    sourceComponent: geometryWrapper && geometryWrapper.qgsGeometry.type === QgsWkbTypes.PointGeometry ? pointHighlight : linePolygonHighlight
+    sourceComponent: geometryWrapper && geometryWrapper.qgsGeometry.type === Qgis.GeometryType.Point ? pointHighlight : linePolygonHighlight
   }
 }

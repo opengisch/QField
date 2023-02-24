@@ -120,7 +120,7 @@ EditorWidgetBase {
             //this has to be checked after buffering because the primary could be a value that has been created on creating featurer (e.g. fid)
             if( orderedRelationModel.parentPrimariesAvailable ) {
               displayToast( qsTr( 'Adding child feature in layer %1' ).arg( orderedRelationModel.relation.referencingLayer.name ) )
-              if ( orderedRelationModel.relation.referencingLayer.geometryType() !== QgsWkbTypes.NullGeometry ) {
+              if ( orderedRelationModel.relation.referencingLayer.geometryType() !== Qgis.GeometryType.Null ) {
                 requestGeometry( relationEditor, orderedRelationModel.relation.referencingLayer );
                 return;
               }

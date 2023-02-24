@@ -162,8 +162,8 @@ VisibilityFadingRow {
     bgcolor: {
         if (!showConfirmButton)
           Theme.darkGray
-        else if (Number( rubberbandModel ? rubberbandModel.geometryType : 0 ) === QgsWkbTypes.PointGeometry ||
-                 Number( rubberbandModel.geometryType ) === QgsWkbTypes.NullGeometry)
+        else if (Number( rubberbandModel ? rubberbandModel.geometryType : 0 ) === Qgis.GeometryType.Point ||
+                 Number( rubberbandModel.geometryType ) === Qgis.GeometryType.Null)
           Theme.mainColor
         else
           Theme.darkGray
@@ -223,8 +223,8 @@ VisibilityFadingRow {
           positionSource.averagedPosition = false;
           return;
         }
-        if (Number(rubberbandModel.geometryType) === QgsWkbTypes.PointGeometry ||
-            Number(rubberbandModel.geometryType) === QgsWkbTypes.NullGeometry) {
+        if (Number(rubberbandModel.geometryType) === Qgis.GeometryType.Point ||
+            Number(rubberbandModel.geometryType) === Qgis.GeometryType.Null) {
             confirm()
         } else {
             addVertex()
@@ -258,8 +258,8 @@ VisibilityFadingRow {
           return;
         }
 
-        if (Number(rubberbandModel.geometryType) === QgsWkbTypes.PointGeometry ||
-            Number(rubberbandModel.geometryType) === QgsWkbTypes.NullGeometry) {
+        if (Number(rubberbandModel.geometryType) === Qgis.GeometryType.Point ||
+            Number(rubberbandModel.geometryType) === Qgis.GeometryType.Null) {
             confirm()
         } else {
             addVertex()
