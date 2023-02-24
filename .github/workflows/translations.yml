@@ -15,12 +15,12 @@ jobs:
 
       - name: Install Requirements
         run: |
-          sudo apt update && sudo apt install qttools5-dev-tools qt5-default
-          sudo pip install wheel
-          sudo pip install pygithub transifex-client
+          # v1.6.5: 2023-02-16
+          curl -OL https://github.com/transifex/cli/releases/download/v1.6.5/tx-linux-amd64.tar.gz
+          tar -xvzf tx-linux-amd64.tar.gz
           ./scripts/ci/env_gh.sh
 
       - name: "🌍 Push Translations"
         env:
-          TX_TOKEN: ${{ secrets.TX_TOKEN }}
-        run: ./scripts/ci/update-translations.sh
+          tx_token: ${{ secrets.TX_TOKEN }}
+        run: TX_TOKEN=$tx_token ./scripts/ci/update-translations.sh

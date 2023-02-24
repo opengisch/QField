@@ -8,5 +8,6 @@ lupdate -recursive ${SOURCE_DIR} -ts ${SOURCE_DIR}/i18n/qfield_en.ts
 
 # release only if the branch is master
 if [[ ${CI_BRANCH} = master ]]; then
-  tx push --source
+  # push source files only
+  ./tx push --source
 fi
