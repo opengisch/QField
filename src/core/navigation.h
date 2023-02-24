@@ -39,7 +39,7 @@ class Navigation : public QObject
     Q_PROPERTY( QgsGeometry path READ path NOTIFY detailsChanged )
     Q_PROPERTY( double distance READ distance NOTIFY detailsChanged )
     Q_PROPERTY( double verticalDistance READ verticalDistance NOTIFY detailsChanged )
-    Q_PROPERTY( QgsUnitTypes::DistanceUnit distanceUnits READ distanceUnits NOTIFY detailsChanged )
+    Q_PROPERTY( Qgis::DistanceUnit distanceUnits READ distanceUnits NOTIFY detailsChanged )
     Q_PROPERTY( double bearing READ bearing NOTIFY detailsChanged )
 
     Q_PROPERTY( int destinationFeatureCurrentVertex READ destinationFeatureCurrentVertex NOTIFY destinationFeatureCurrentVertexChanged )
@@ -158,7 +158,7 @@ class Navigation : public QObject
     /**
      * Returns the distance unit used
      */
-    QgsUnitTypes::DistanceUnit distanceUnits() const { return mDa.lengthUnits(); }
+    Qgis::DistanceUnit distanceUnits() const { return mDa.lengthUnits(); }
 
     /**
      * Returns the bearing between the current location and the destination points

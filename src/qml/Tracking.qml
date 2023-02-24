@@ -58,19 +58,19 @@ Item {
         return;
       }
 
-      if (geometryType === QgsWkbTypes.PointGeometry) {
+      if (geometryType === Qgis.GeometryType.Point) {
         featureModel.applyGeometry()
         featureModel.resetFeatureId();
         featureModel.resetAttributes(true);
         featureModel.create();
       } else {
-        if ((geometryType === QgsWkbTypes.LineGeometry && vertexCount > 2) ||
-            (geometryType === QgsWkbTypes.PolygonGeometry &&vertexCount > 3))
+        if ((geometryType === Qgis.GeometryType.Line && vertexCount > 2) ||
+            (geometryType === Qgis.GeometryType.Polygon && vertexCount > 3))
         {
           featureModel.applyGeometry()
 
-          if ((geometryType === QgsWkbTypes.LineGeometry && vertexCount == 3) ||
-              (geometryType === QgsWkbTypes.PolygonGeometry && vertexCount == 4))
+          if ((geometryType === Qgis.GeometryType.Line && vertexCount == 3) ||
+              (geometryType === Qgis.GeometryType.Polygon && vertexCount == 4))
           {
             // indirect action, no need to check for success and display a toast, the log is enough
             featureModel.create()
@@ -95,7 +95,7 @@ Item {
                    Math.min(0.75,Math.random()),
                    Math.min(0.75,Math.random()),
                    0.6)
-    geometryType: QgsWkbTypes.LineGeometry
+    geometryType: Qgis.GeometryType.Line
 
     mapSettings: mapCanvas.mapSettings
     model: rubberbandModel

@@ -55,8 +55,8 @@ Item {
     model: RubberbandModel {
       frozen: false
       geometryType: isClosingArea || isArea
-                    ? QgsWkbTypes.PolygonGeometry
-                    : QgsWkbTypes.LineGeometry
+                    ? Qgis.GeometryType.Polygon
+                    : Qgis.GeometryType.Line
       crs: rubberband.mapSettings.destinationCrs
     }
   }

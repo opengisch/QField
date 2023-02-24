@@ -44,7 +44,7 @@ class Rubberband : public QQuickItem
     //! Line width  of the aleternative rubberband for current point
     Q_PROPERTY( qreal lineWidthCurrentPoint READ lineWidthCurrentPoint WRITE setLineWidthCurrentPoint NOTIFY lineWidthCurrentPointChanged )
     //! Geometry type used to render the rubber band (if not provided or set to null geometry, the type provided by the rubber band or vertex model will be used)
-    Q_PROPERTY( QgsWkbTypes::GeometryType geometryType READ geometryType WRITE setGeometryType NOTIFY geometryTypeChanged )
+    Q_PROPERTY( Qgis::GeometryType geometryType READ geometryType WRITE setGeometryType NOTIFY geometryTypeChanged )
 
   public:
     explicit Rubberband( QQuickItem *parent = nullptr );
@@ -79,9 +79,9 @@ class Rubberband : public QQuickItem
     void setLineWidthCurrentPoint( float width );
 
     //! \copydoc geometryType
-    QgsWkbTypes::GeometryType geometryType() const { return mGeometryType; }
+    Qgis::GeometryType geometryType() const { return mGeometryType; }
     //! \copydoc geometryType
-    void setGeometryType( const QgsWkbTypes::GeometryType geometryType );
+    void setGeometryType( const Qgis::GeometryType geometryType );
 
   signals:
     void modelChanged();
@@ -119,7 +119,7 @@ class Rubberband : public QQuickItem
     float mWidth = 1.8;
     QColor mColorCurrentPoint = QColor( 192, 57, 43, 150 );
     float mWidthCurrentPoint = 1.2;
-    QgsWkbTypes::GeometryType mGeometryType = QgsWkbTypes::NullGeometry;
+    Qgis::GeometryType mGeometryType = Qgis::GeometryType::Null;
 };
 
 

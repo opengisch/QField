@@ -46,7 +46,7 @@ class SnappingUtils : public QgsSnappingUtils
 
     SnappingResult snappingResult() const;
 
-    static QgsPoint newPoint( const QgsPoint &snappedPoint, const QgsWkbTypes::Type wkbType );
+    static QgsPoint newPoint( const QgsPoint &snappedPoint, const Qgis::WkbType wkbType );
 
     /**
      * Returns an empty snapping configuration object

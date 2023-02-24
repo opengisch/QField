@@ -94,14 +94,14 @@ ListView {
                   return "image://legend/" + LegendImage
                 } else if ( LayerType == "vectorlayer" ) {
                   switch( VectorLayerPointer.geometryType() ) {
-                  case QgsWkbTypes.PointGeometry:
+                  case Qgis.GeometryType.Point:
                     return Theme.getThemeVectorIcon('ic_vectorlayer_point_18dp');
-                  case QgsWkbTypes.LineGeometry:
+                  case Qgis.GeometryType.Line:
                     return Theme.getThemeVectorIcon('ic_vectorlayer_line_18dp');
-                  case QgsWkbTypes.PolygonGeometry:
+                  case Qgis.GeometryType.Polygon:
                     return Theme.getThemeVectorIcon('ic_vectorlayer_polygon_18dp');
-                  case QgsWkbTypes.NullGeometry:
-                  case QgsWkbTypes.UnknownGeometry:
+                  case Qgis.GeometryType.Null:
+                  case Qgis.GeometryType.Unknown:
                     return Theme.getThemeVectorIcon('ic_vectorlayer_table_18dp');
                   }
                 } else if ( LayerType == "rasterlayer" ) {

@@ -483,10 +483,8 @@ void AttributeFormModelBase::buildForm( QgsAttributeEditorContainer *container, 
       }
 
       case QgsAttributeEditorElement::AeTypeInvalid:
-#if _QGIS_VERSION_INT >= 32100
       case QgsAttributeEditorElement::AeTypeAction:
-#endif
-        // todo
+        // TODO: implement
         delete item;
         break;
     }

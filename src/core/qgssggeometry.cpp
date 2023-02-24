@@ -35,12 +35,12 @@ QgsSGGeometry::QgsSGGeometry( const QgsGeometry &geom, const QColor &color, floa
 
   switch ( gg.type() )
   {
-    case QgsWkbTypes::PointGeometry:
+    case Qgis::GeometryType::Point:
       // we should never get point here, use GeometryRenderer quick item to render geometries
       Q_ASSERT( false );
       break;
 
-    case QgsWkbTypes::LineGeometry:
+    case Qgis::GeometryType::Line:
       if ( gg.isMultipart() )
       {
         const QgsMultiPolylineXY lines = gg.asMultiPolyline();
@@ -64,7 +64,7 @@ QgsSGGeometry::QgsSGGeometry( const QgsGeometry &geom, const QColor &color, floa
       }
       break;
 
-    case QgsWkbTypes::PolygonGeometry:
+    case Qgis::GeometryType::Polygon:
     {
       QgsGeometry pg( gg );
       if ( !pg.isGeosValid() )
@@ -127,8 +127,8 @@ QgsSGGeometry::QgsSGGeometry( const QgsGeometry &geom, const QColor &color, floa
       break;
     }
 
-    default:
-      // Nothing to do
+    case Qgis::GeometryType::Unknown:
+    case Qgis::GeometryType::Null:
       break;
   }
 }

@@ -72,7 +72,7 @@ VisibilityFadingRow {
   {
     splitFeatureToolbar.featureModel = featureModel
     drawLineToolbar.rubberbandModel = editorRubberbandModel
-    drawLineToolbar.rubberbandModel.geometryType = QgsWkbTypes.LineGeometry
+    drawLineToolbar.rubberbandModel.geometryType = Qgis.GeometryType.Line
     drawLineToolbar.mapSettings = mapSettings
     drawLineToolbar.stateVisible = true
   }

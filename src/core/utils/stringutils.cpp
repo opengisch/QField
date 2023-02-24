@@ -20,9 +20,7 @@
 #include <QFileInfo>
 #include <QRegularExpression>
 #include <QUuid>
-#if _QGIS_VERSION_INT >= 32500
 #include <qgscoordinatereferencesystemutils.h>
-#endif
 #include <qgsstringutils.h>
 
 StringUtils::StringUtils( QObject *parent )
@@ -75,7 +73,6 @@ QString StringUtils::pointInformation( const QgsPoint &point, const QgsCoordinat
 {
   QString firstSuffix;
   QString secondSuffix;
-#if _QGIS_VERSION_INT >= 32500
   const bool currentCrsIsXY = QgsCoordinateReferenceSystemUtils::defaultCoordinateOrderForCrs( crs ) == Qgis::CoordinateOrder::XY;
   const QList<Qgis::CrsAxisDirection> axisList = crs.axisOrdering();
   if ( axisList.size() >= 2 && crs.isGeographic() )
@@ -83,11 +80,6 @@ QString StringUtils::pointInformation( const QgsPoint &point, const QgsCoordinat
     firstSuffix = QgsCoordinateReferenceSystemUtils::axisDirectionToAbbreviatedString( axisList.at( 0 ) );
     secondSuffix = QgsCoordinateReferenceSystemUtils::axisDirectionToAbbreviatedString( axisList.at( 1 ) );
   }
-#else
-  const bool currentCrsIsXY = true;
-  firstSuffix = crs.isGeographic() ? QStringLiteral( "E" ) : QString();
-  secondSuffix = crs.isGeographic() ? QStringLiteral( "N" ) : QString();
-#endif
   const QString firstNumber = QString::number( currentCrsIsXY ? point.x() : point.y(),
                                                'f', crs.isGeographic() ? 5 : 2 );
   const QString secondNumber = QString::number( currentCrsIsXY ? point.y() : point.x(),

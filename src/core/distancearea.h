@@ -37,8 +37,8 @@ class DistanceArea : public QObject
     Q_PROPERTY( bool perimeterValid READ perimeterValid NOTIFY perimeterChanged )
     Q_PROPERTY( qreal area READ area NOTIFY areaChanged )
     Q_PROPERTY( bool areaValid READ areaValid NOTIFY areaChanged )
-    Q_PROPERTY( QgsUnitTypes::DistanceUnit lengthUnits READ lengthUnits NOTIFY lengthUnitsChanged )
-    Q_PROPERTY( QgsUnitTypes::AreaUnit areaUnits READ areaUnits NOTIFY areaUnitsChanged )
+    Q_PROPERTY( Qgis::DistanceUnit lengthUnits READ lengthUnits NOTIFY lengthUnitsChanged )
+    Q_PROPERTY( Qgis::AreaUnit areaUnits READ areaUnits NOTIFY areaUnitsChanged )
 
     /**
      * Returns the length of the last segment
@@ -64,8 +64,8 @@ class DistanceArea : public QObject
     qreal segmentLength() const;
     qreal azimuth() const;
 
-    QgsUnitTypes::DistanceUnit lengthUnits() const;
-    QgsUnitTypes::AreaUnit areaUnits() const;
+    Qgis::DistanceUnit lengthUnits() const;
+    Qgis::AreaUnit areaUnits() const;
 
     QgsCoordinateReferenceSystem crs() const;
     void setCrs( const QgsCoordinateReferenceSystem &crs );
@@ -76,8 +76,8 @@ class DistanceArea : public QObject
     QgsProject *project() const;
     void setProject( QgsProject *project );
 
-    Q_INVOKABLE double convertLengthMeansurement( double length, QgsUnitTypes::DistanceUnit toUnits ) const;
-    Q_INVOKABLE double convertAreaMeansurement( double area, QgsUnitTypes::AreaUnit toUnits ) const;
+    Q_INVOKABLE double convertLengthMeansurement( double length, Qgis::DistanceUnit toUnits ) const;
+    Q_INVOKABLE double convertAreaMeansurement( double area, Qgis::AreaUnit toUnits ) const;
 
   signals:
     void rubberbandModelChanged();

@@ -124,7 +124,7 @@ void VertexModel::refreshGeometry()
 
     // skip first vertex on polygon, as it's duplicate of the last one
     // TODO: for multi, it might not be 0
-    if ( mGeometryType == QgsWkbTypes::PolygonGeometry && vertexId.vertex == 0 )
+    if ( mGeometryType == Qgis::GeometryType::Polygon && vertexId.vertex == 0 )
       continue;
 
     Vertex vertex;
@@ -148,7 +148,7 @@ void VertexModel::refreshGeometry()
   emit vertexCountChanged();
 
   // for points, enable the editing mode directly
-  if ( mGeometryType == QgsWkbTypes::PointGeometry )
+  if ( mGeometryType == Qgis::GeometryType::Point )
     setCurrentVertex( 0 );
 
   updateCanAddVertex();
@@ -173,7 +173,7 @@ void VertexModel::createCandidates()
     Q_ASSERT( vertex.type == ExistingVertex );
 
     // adding new vertices
-    if ( r < mVertices.count() - 1 && mVertices.at( r + 1 ).ring == vertex.ring && mGeometryType != QgsWkbTypes::PointGeometry )
+    if ( r < mVertices.count() - 1 && mVertices.at( r + 1 ).ring == vertex.ring && mGeometryType != Qgis::GeometryType::Point )
     {
       QVector<QgsPoint> points = { mVertices.at( r + 1 ).point, vertex.point };
       QgsPoint centroid = QgsLineString( points ).centroid();
@@ -194,7 +194,7 @@ void VertexModel::createCandidates()
 
     // if line, adding start extending point
     // TODO multipart: check that we are at the beginning of a part (replace r by indexInPart)
-    if ( r == 0 && mGeometryType == QgsWkbTypes::LineGeometry )
+    if ( r == 0 && mGeometryType == Qgis::GeometryType::Line )
     {
       // last point is an existing vertex, the next one is a candidate (created just before)
       QgsPoint extendingPoint = mVertices.at( r ).point - ( mVertices.at( 1 ).point - mVertices.at( r ).point ) / 2;
@@ -217,7 +217,7 @@ void VertexModel::createCandidates()
     }
 
     // if polygon, create candidate to the last vertex of the ring
-    if ( ( r == 0 || mVertices.at( r - 1 ).ring != vertex.ring ) && mGeometryType == QgsWkbTypes::PolygonGeometry )
+    if ( ( r == 0 || mVertices.at( r - 1 ).ring != vertex.ring ) && mGeometryType == Qgis::GeometryType::Polygon )
     {
       Vertex lastVertex;
       for ( int i = r + 1; i < mVertices.count(); i++ )
@@ -249,7 +249,7 @@ void VertexModel::createCandidates()
 
   // if line, adding ending extending vertex
   r = mVertices.count() - 1;
-  if ( mGeometryType == QgsWkbTypes::LineGeometry )
+  if ( mGeometryType == Qgis::GeometryType::Line )
   {
     // last point is an existing vertex, the previous one is a candidate
     QgsPoint extendingPoint = mVertices.at( r ).point - ( mVertices.at( r - 1 ).point - mVertices.at( r ).point ) / 2;
@@ -358,17 +358,17 @@ QgsGeometry VertexModel::geometry() const
 
   switch ( mGeometryType )
   {
-    case QgsWkbTypes::PointGeometry:
+    case Qgis::GeometryType::Point:
     {
       geometry.set( new QgsPoint( vertices.first() ) );
       break;
     }
-    case QgsWkbTypes::LineGeometry:
+    case Qgis::GeometryType::Line:
     {
       geometry = QgsGeometry::fromPolyline( vertices );
       break;
     }
-    case QgsWkbTypes::PolygonGeometry:
+    case Qgis::GeometryType::Polygon:
     {
       std::unique_ptr<QgsLineString> ls( std::make_unique<QgsLineString>( vertices ) );
       std::unique_ptr<QgsPolygon> polygon( std::make_unique<QgsPolygon>() );
@@ -381,17 +381,13 @@ QgsGeometry VertexModel::geometry() const
       geometry.set( polygon.release() );
       break;
     }
-    case QgsWkbTypes::NullGeometry:
-    case QgsWkbTypes::UnknownGeometry:
+    case Qgis::GeometryType::Null:
+    case Qgis::GeometryType::Unknown:
       break;
   }
 
   if ( mTransform.isValid() )
-#if _QGIS_VERSION_INT >= 32100
     geometry.transform( mTransform, Qgis::TransformDirection::Reverse );
-#else
-    geometry.transform( mTransform, QgsCoordinateTransform::ReverseTransform );
-#endif
 
   return geometry;
 }
@@ -421,11 +417,11 @@ void VertexModel::previous()
 
   if ( mCurrentIndex < 2 )
   {
-    if ( mGeometryType == QgsWkbTypes::PointGeometry )
+    if ( mGeometryType == Qgis::GeometryType::Point )
     {
       setCurrentVertex( mVertices.count() - 1 );
     }
-    else if ( mGeometryType == QgsWkbTypes::LineGeometry )
+    else if ( mGeometryType == Qgis::GeometryType::Line )
     {
       if ( mMode == AddVertex )
       {
@@ -436,7 +432,7 @@ void VertexModel::previous()
         setCurrentVertex( mVertices.count() - 2 );
       }
     }
-    else if ( mGeometryType == QgsWkbTypes::PolygonGeometry )
+    else if ( mGeometryType == Qgis::GeometryType::Polygon )
     {
       if ( mMode == AddVertex )
       {
@@ -703,7 +699,7 @@ QVector<QgsPoint> VertexModel::flatVertices( int ringId ) const
     vertices << vertex.point;
   }
   // re-append vertex to close polygon
-  if ( mGeometryType == QgsWkbTypes::PolygonGeometry )
+  if ( mGeometryType == Qgis::GeometryType::Polygon )
   {
     vertices << vertices.constFirst();
   }
@@ -758,17 +754,17 @@ void VertexModel::updateCanRemoveVertex()
   {
     switch ( mGeometryType )
     {
-      case QgsWkbTypes::PointGeometry:
+      case Qgis::GeometryType::Point:
         canRemoveVertex = false;
         break;
-      case QgsWkbTypes::LineGeometry:
+      case Qgis::GeometryType::Line:
         canRemoveVertex = flatVertices().count() > 2;
         break;
-      case QgsWkbTypes::PolygonGeometry:
+      case Qgis::GeometryType::Polygon:
         canRemoveVertex = flatVertices().count() > 4; // the polygon is returned closed
         break;
-      case QgsWkbTypes::NullGeometry:
-      case QgsWkbTypes::UnknownGeometry:
+      case Qgis::GeometryType::Null:
+      case Qgis::GeometryType::Unknown:
         canRemoveVertex = false;
         break;
     }
@@ -784,7 +780,7 @@ void VertexModel::updateCanRemoveVertex()
 
 void VertexModel::updateCanAddVertex()
 {
-  bool canAddVertex = vertexCount() > 0 && mGeometryType != QgsWkbTypes::PointGeometry;
+  bool canAddVertex = vertexCount() > 0 && mGeometryType != Qgis::GeometryType::Point;
 
   if ( canAddVertex == mCanAddVertex )
     return;
@@ -800,10 +796,10 @@ void VertexModel::updateCanPreviousNextVertex()
 
   switch ( mGeometryType )
   {
-    case QgsWkbTypes::PointGeometry:
+    case Qgis::GeometryType::Point:
       // todo for multi
       break;
-    case QgsWkbTypes::LineGeometry:
+    case Qgis::GeometryType::Line:
       switch ( mMode )
       {
         case NoEditing:
@@ -820,12 +816,12 @@ void VertexModel::updateCanPreviousNextVertex()
           break;
       }
       break;
-    case QgsWkbTypes::PolygonGeometry:
+    case Qgis::GeometryType::Polygon:
       canPrevious = true;
       canNext = true;
       break;
-    case QgsWkbTypes::UnknownGeometry:
-    case QgsWkbTypes::NullGeometry:
+    case Qgis::GeometryType::Unknown:
+    case Qgis::GeometryType::Null:
       break;
   }
 
@@ -841,7 +837,7 @@ void VertexModel::updateCanPreviousNextVertex()
   }
 }
 
-void VertexModel::setGeometryType( const QgsWkbTypes::GeometryType &geometryType )
+void VertexModel::setGeometryType( const Qgis::GeometryType &geometryType )
 {
   if ( mGeometryType == geometryType )
     return;
@@ -850,7 +846,7 @@ void VertexModel::setGeometryType( const QgsWkbTypes::GeometryType &geometryType
   emit geometryTypeChanged();
 }
 
-QgsWkbTypes::GeometryType VertexModel::geometryType() const
+Qgis::GeometryType VertexModel::geometryType() const
 {
   return mGeometryType;
 }
@@ -861,7 +857,7 @@ void VertexModel::setEditingMode( VertexModel::EditingMode mode )
     mode = NoEditing;
 
   // TODO multi
-  if ( mGeometryType == QgsWkbTypes::PointGeometry && mode == AddVertex )
+  if ( mGeometryType == Qgis::GeometryType::Point && mode == AddVertex )
     mode = NoEditing;
 
   if ( mMode == mode )
@@ -873,13 +869,13 @@ void VertexModel::setEditingMode( VertexModel::EditingMode mode )
   {
     switch ( mGeometryType )
     {
-      case QgsWkbTypes::PointGeometry:
+      case Qgis::GeometryType::Point:
       {
         // should not happen for now
         break;
       }
-      case QgsWkbTypes::LineGeometry:
-      case QgsWkbTypes::PolygonGeometry:
+      case Qgis::GeometryType::Line:
+      case Qgis::GeometryType::Polygon:
       {
         if ( mCurrentIndex == -1 )
         {
@@ -893,8 +889,8 @@ void VertexModel::setEditingMode( VertexModel::EditingMode mode )
         }
         break;
       }
-      case QgsWkbTypes::NullGeometry:
-      case QgsWkbTypes::UnknownGeometry:
+      case Qgis::GeometryType::Null:
+      case Qgis::GeometryType::Unknown:
         break;
     }
   }

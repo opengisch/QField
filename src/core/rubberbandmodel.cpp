@@ -22,8 +22,6 @@
 
 RubberbandModel::RubberbandModel( QObject *parent )
   : QObject( parent )
-  , mCurrentCoordinateIndex( 0 )
-  , mGeometryType( QgsWkbTypes::LineGeometry )
   , mLayer( nullptr )
 {
   mPointList.insert( 0, QgsPoint() );
@@ -57,7 +55,7 @@ QVector<QgsPoint> RubberbandModel::flatVertices( bool skipCurrentPoint ) const
   return points;
 }
 
-QgsPointSequence RubberbandModel::pointSequence( const QgsCoordinateReferenceSystem &crs, QgsWkbTypes::Type wkbType, bool closeLine ) const
+QgsPointSequence RubberbandModel::pointSequence( const QgsCoordinateReferenceSystem &crs, Qgis::WkbType wkbType, bool closeLine ) const
 {
   QgsPointSequence sequence;
   QgsCoordinateTransform ct( mCrs, crs, QgsProject::instance()->transformContext() );
@@ -160,7 +158,7 @@ void RubberbandModel::setCurrentCoordinateIndex( int currentCoordinateIndex )
   emit currentCoordinateChanged();
 }
 
-QgsPoint RubberbandModel::currentPoint( const QgsCoordinateReferenceSystem &crs, QgsWkbTypes::Type wkbType ) const
+QgsPoint RubberbandModel::currentPoint( const QgsCoordinateReferenceSystem &crs, Qgis::WkbType wkbType ) const
 {
   QgsCoordinateTransform ct( mCrs, crs, QgsProject::instance()->transformContext() );
 
@@ -316,7 +314,7 @@ void RubberbandModel::setDataFromGeometry( QgsGeometry geometry, const QgsCoordi
       break;
 
     // skip first vertex on polygon, as it's duplicate of the last one
-    if ( geometry.type() == QgsWkbTypes::PolygonGeometry && vertexId.vertex == 0 )
+    if ( geometry.type() == Qgis::GeometryType::Polygon && vertexId.vertex == 0 )
       continue;
 
     mPointList << pt;
@@ -328,12 +326,12 @@ void RubberbandModel::setDataFromGeometry( QgsGeometry geometry, const QgsCoordi
   emit vertexCountChanged();
 }
 
-QgsWkbTypes::GeometryType RubberbandModel::geometryType() const
+Qgis::GeometryType RubberbandModel::geometryType() const
 {
   return mGeometryType;
 }
 
-void RubberbandModel::setGeometryType( const QgsWkbTypes::GeometryType &geometryType )
+void RubberbandModel::setGeometryType( const Qgis::GeometryType &geometryType )
 {
   if ( mGeometryType == geometryType )
     return;

@@ -134,7 +134,7 @@ void Navigation::setDestinationFeature( const QgsFeature &feature, QgsVectorLaye
   if ( !mGeometry.isNull() )
   {
     mFeatureName = FeatureUtils::displayName( layer, feature );
-    mVertexCount = mGeometry.get()->nCoordinates() - ( mGeometry.type() == QgsWkbTypes::PolygonGeometry ? 1 : 0 );
+    mVertexCount = mGeometry.get()->nCoordinates() - ( mGeometry.type() == Qgis::GeometryType::Polygon ? 1 : 0 );
     emit destinationFeatureVertexCountChanged();
     mCurrentVertex = -1;
     nextDestinationVertex();
@@ -172,7 +172,7 @@ void Navigation::nextDestinationVertex()
   if ( mGeometry.isNull() )
     return;
 
-  if ( mCurrentVertex >= ( mGeometry.type() == QgsWkbTypes::PointGeometry
+  if ( mCurrentVertex >= ( mGeometry.type() == Qgis::GeometryType::Point
                              ? mVertexCount - 1
                              : mVertexCount ) )
   {
@@ -194,7 +194,7 @@ void Navigation::previousDestinationVertex()
 
   if ( mCurrentVertex <= 0 )
   {
-    mCurrentVertex = mGeometry.type() == QgsWkbTypes::PointGeometry
+    mCurrentVertex = mGeometry.type() == Qgis::GeometryType::Point
                        ? mVertexCount - 1
                        : mVertexCount;
   }
@@ -211,14 +211,14 @@ void Navigation::setDestinationFromCurrentVertex()
 {
   switch ( mGeometry.type() )
   {
-    case QgsWkbTypes::PointGeometry:
+    case Qgis::GeometryType::Point:
       mDestinationName = mFeatureName + ( mVertexCount > 1 ? QStringLiteral( ": %1/%2" ).arg( mCurrentVertex + 1 ).arg( mVertexCount ) : QString() );
       emit destinationNameChanged();
       mModel->setDestination( mGeometry.vertexAt( mCurrentVertex ) );
       break;
 
-    case QgsWkbTypes::LineGeometry:
-    case QgsWkbTypes::PolygonGeometry:
+    case Qgis::GeometryType::Line:
+    case Qgis::GeometryType::Polygon:
       mDestinationName = mFeatureName + ( mCurrentVertex == 0 ? QStringLiteral( " (%1)" ).arg( QObject::tr( "centroid" ) ) : QStringLiteral( ": %1/%2" ).arg( mCurrentVertex ).arg( mVertexCount ) );
       emit destinationNameChanged();
       if ( mCurrentVertex == 0 )
@@ -240,8 +240,8 @@ void Navigation::setDestinationFromCurrentVertex()
       }
       break;
 
-    case QgsWkbTypes::UnknownGeometry:
-    case QgsWkbTypes::NullGeometry:
+    case Qgis::GeometryType::Unknown:
+    case Qgis::GeometryType::Null:
       break;
   }
 }
@@ -292,7 +292,7 @@ void Navigation::updateDetails()
 
 void Navigation::updateProximityAlarmState()
 {
-  if ( mProximityAlarm && mDa.lengthUnits() != QgsUnitTypes::DistanceUnknownUnit )
+  if ( mProximityAlarm && mDa.lengthUnits() != Qgis::DistanceUnit::Unknown )
   {
     if ( mDistance <= mProximityAlarmThreshold )
     {

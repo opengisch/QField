@@ -54,7 +54,7 @@ class FeaturesLocatorFilter : public QgsLocatorFilter
         QString layerName;
         QString layerId;
         QIcon layerIcon;
-        QgsWkbTypes::GeometryType layerGeometryType;
+        Qgis::GeometryType layerGeometryType;
     };
 
     explicit FeaturesLocatorFilter( LocatorModelSuperBridge *locatorBridge, QObject *parent = nullptr );

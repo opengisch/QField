@@ -39,22 +39,22 @@ void SnappingUtils::removeOutdatedLocators()
   clearAllLocators();
 }
 
-QgsPoint SnappingUtils::newPoint( const QgsPoint &snappedPoint, const QgsWkbTypes::Type wkbType )
+QgsPoint SnappingUtils::newPoint( const QgsPoint &snappedPoint, const Qgis::WkbType wkbType )
 {
-  QgsPoint newPoint( QgsWkbTypes::Point, snappedPoint.x(), snappedPoint.y() );
+  QgsPoint newPoint( Qgis::WkbType::Point, snappedPoint.x(), snappedPoint.y() );
 
   // convert to the corresponding type for a full ZM support
   if ( QgsWkbTypes::hasZ( wkbType ) && !QgsWkbTypes::hasM( wkbType ) )
   {
-    newPoint.convertTo( QgsWkbTypes::PointZ );
+    newPoint.convertTo( Qgis::WkbType::PointZ );
   }
   else if ( !QgsWkbTypes::hasZ( wkbType ) && QgsWkbTypes::hasM( wkbType ) )
   {
-    newPoint.convertTo( QgsWkbTypes::PointM );
+    newPoint.convertTo( Qgis::WkbType::PointM );
   }
   else if ( QgsWkbTypes::hasZ( wkbType ) && QgsWkbTypes::hasM( wkbType ) )
   {
-    newPoint.convertTo( QgsWkbTypes::PointZM );
+    newPoint.convertTo( Qgis::WkbType::PointZM );
   }
 
   // set z value

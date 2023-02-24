@@ -59,7 +59,7 @@ class QFIELD_CORE_EXPORT VertexModel : public QAbstractListModel
     //! determines if one can go to next vertex
     Q_PROPERTY( bool canNextVertex READ canNextVertex NOTIFY canNextVertexChanged )
     //! geometry type
-    Q_PROPERTY( QgsWkbTypes::GeometryType geometryType READ geometryType NOTIFY geometryTypeChanged )
+    Q_PROPERTY( Qgis::GeometryType geometryType READ geometryType NOTIFY geometryTypeChanged )
     //! determines if the map is currently being hovered (then when moving the map, it will not move directly a vertex if the mode is AddVertex)
     Q_PROPERTY( bool isHovering MEMBER mIsHovering )
 
@@ -203,7 +203,7 @@ class QFIELD_CORE_EXPORT VertexModel : public QAbstractListModel
     bool canNextVertex();
 
     //! Returns the geometry type
-    QgsWkbTypes::GeometryType geometryType() const;
+    Qgis::GeometryType geometryType() const;
 
     //! Returns a list of point (segment vertex, if any, will be skipped)
     //! For a polygon, if ringId is not given the current ring will be returned
@@ -275,7 +275,7 @@ class QFIELD_CORE_EXPORT VertexModel : public QAbstractListModel
     void updateCanRemoveVertex();
     void updateCanAddVertex();
     void updateCanPreviousNextVertex();
-    void setGeometryType( const QgsWkbTypes::GeometryType &geometryType );
+    void setGeometryType( const Qgis::GeometryType &geometryType );
 
     QList<Vertex> mVertices;
 
@@ -301,8 +301,8 @@ class QFIELD_CORE_EXPORT VertexModel : public QAbstractListModel
     //!
     int mCurrentIndex = -1;
     int mRingCount = 0;
-    QgsWkbTypes::GeometryType mGeometryType = QgsWkbTypes::LineGeometry;
-    QgsWkbTypes::Type mGeometryWkbType = QgsWkbTypes::Unknown;
+    Qgis::GeometryType mGeometryType = Qgis::GeometryType::Line;
+    Qgis::WkbType mGeometryWkbType = Qgis::WkbType::Unknown;
     QgsQuickMapSettings *mMapSettings = nullptr;
     bool mCanRemoveVertex = false;
     bool mCanAddVertex = false;

@@ -563,7 +563,7 @@ QVariant FlatLayerTreeModelBase::data( const QModelIndex &index, int role ) cons
           if ( !mLayerTreeModel->hasChildren( sourceIndex ) )
           {
             QgsVectorLayer *vectorLayer = qobject_cast<QgsVectorLayer *>( nodeLayer->layer() );
-            if ( vectorLayer && vectorLayer->geometryType() != QgsWkbTypes::NullGeometry )
+            if ( vectorLayer && vectorLayer->geometryType() != Qgis::GeometryType::Null )
             {
               id += QStringLiteral( "layer" );
               id += '/' + nodeLayer->layerId();
@@ -604,7 +604,6 @@ QVariant FlatLayerTreeModelBase::data( const QModelIndex &index, int role ) cons
       {
         switch ( layer->type() )
         {
-#if _QGIS_VERSION_INT >= 32900
           case Qgis::LayerType::Vector:
             layerType = QStringLiteral( "vectorlayer" );
             break;
@@ -629,32 +628,6 @@ QVariant FlatLayerTreeModelBase::data( const QModelIndex &index, int role ) cons
           case Qgis::LayerType::Group:
             layerType = QStringLiteral( "grouplayer" );
             break;
-#else
-          case QgsMapLayerType::VectorLayer:
-            layerType = QStringLiteral( "vectorlayer" );
-            break;
-          case QgsMapLayerType::RasterLayer:
-            layerType = QStringLiteral( "rasterlayer" );
-            break;
-          case QgsMapLayerType::PluginLayer:
-            layerType = QStringLiteral( "pluginlayer" );
-            break;
-          case QgsMapLayerType::MeshLayer:
-            layerType = QStringLiteral( "meshlayer" );
-            break;
-          case QgsMapLayerType::VectorTileLayer:
-            layerType = QStringLiteral( "vectortilelayer" );
-            break;
-          case QgsMapLayerType::AnnotationLayer:
-            layerType = QStringLiteral( "annotationlayer" );
-            break;
-          case QgsMapLayerType::PointCloudLayer:
-            layerType = QStringLiteral( "pointcloudlayer" );
-            break;
-          case QgsMapLayerType::GroupLayer:
-            layerType = QStringLiteral( "grouplayer" );
-            break;
-#endif
         }
       }
       return layerType;
@@ -711,7 +684,7 @@ QVariant FlatLayerTreeModelBase::data( const QModelIndex &index, int role ) cons
         QgsVectorLayer *layer = qobject_cast<QgsVectorLayer *>( nodeLayer->layer() );
         if ( layer && layer->isValid() )
         {
-          return ( layer->geometryType() == QgsWkbTypes::PointGeometry || layer->geometryType() == QgsWkbTypes::LineGeometry || layer->geometryType() == QgsWkbTypes::PolygonGeometry );
+          return ( layer->geometryType() == Qgis::GeometryType::Point || layer->geometryType() == Qgis::GeometryType::Line || layer->geometryType() == Qgis::GeometryType::Polygon );
         }
       }
       return false;
@@ -1201,7 +1174,7 @@ QgsRectangle FlatLayerTreeModelBase::nodeExtent( const QModelIndex &index, QgsQu
       QgsVectorLayer *vLayer = qobject_cast<QgsVectorLayer *>( layer );
       if ( vLayer )
       {
-        if ( vLayer->geometryType() == QgsWkbTypes::NullGeometry )
+        if ( vLayer->geometryType() == Qgis::GeometryType::Null )
           continue;
 
         if ( layerExtent.isEmpty() )
