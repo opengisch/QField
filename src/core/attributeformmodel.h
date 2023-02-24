@@ -59,6 +59,10 @@ class AttributeFormModel : public QSortFilterProxyModel
       GroupName,
       GroupIndex,
       ColumnCount,
+      LabelOverrideColor,
+      LabelColor,
+      LabelOverrideFont,
+      LabelFont,
     };
 
     Q_ENUM( FeatureRoles )

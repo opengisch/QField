@@ -71,6 +71,10 @@ QHash<int, QByteArray> AttributeFormModelBase::roleNames() const
   roles[AttributeFormModel::GroupName] = "GroupName";
   roles[AttributeFormModel::GroupIndex] = "GroupIndex";
   roles[AttributeFormModel::ColumnCount] = "ColumnCount";
+  roles[AttributeFormModel::LabelOverrideColor] = "LabelOverrideColor";
+  roles[AttributeFormModel::LabelColor] = "LabelColor";
+  roles[AttributeFormModel::LabelOverrideFont] = "LabelOverrideFont";
+  roles[AttributeFormModel::LabelFont] = "LabelFont";
 
   return roles;
 }
@@ -327,6 +331,12 @@ void AttributeFormModelBase::buildForm( QgsAttributeEditorContainer *container, 
     item->setData( currentTabIndex, AttributeFormModel::TabIndex );
     item->setData( QString(), AttributeFormModel::GroupName );
     item->setData( QVariant(), AttributeFormModel::GroupIndex );
+
+    QgsAttributeEditorElement::LabelStyle labelStyle = element->labelStyle();
+    item->setData( labelStyle.overrideColor, AttributeFormModel::LabelOverrideColor );
+    item->setData( labelStyle.overrideColor ? labelStyle.color : QColor(), AttributeFormModel::LabelColor );
+    item->setData( labelStyle.overrideFont, AttributeFormModel::LabelOverrideFont );
+    item->setData( labelStyle.overrideFont ? labelStyle.font : QFont(), AttributeFormModel::LabelFont );
 
     switch ( element->type() )
     {
