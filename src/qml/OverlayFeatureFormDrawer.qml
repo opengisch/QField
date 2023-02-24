@@ -28,7 +28,7 @@ Drawer {
      if (qfieldSettings.fullScreenIdentifyView || parent.width > parent.height) {
          parent.height
      } else {
-         Math.min(Math.max( 200, parent.height / 2 ), parent.height)
+         Math.min(Math.max( 200, parent.height / 1.5 ), parent.height)
      }
   }
 
