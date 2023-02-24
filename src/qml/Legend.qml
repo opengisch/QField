@@ -215,8 +215,11 @@ ListView {
     }
   }
   MouseArea {
-      property Item pressedItem
+      acceptedButtons: Qt.LeftButton | Qt.RightButton
       anchors.fill: parent
+
+      property Item pressedItem
+
       onClicked: {
           var item = legend.itemAt(legend.contentX + mouse.x, legend.contentY + mouse.y)
           if (!item) return;
@@ -268,6 +271,10 @@ ListView {
       }
       onReleased: {
           if (pressedItem) {
+              if (mouse.button == Qt.RightButton) {
+                pressAndHold(mouse)
+              }
+
               pressedItem.state = "default"
               pressedItem = null
           }
