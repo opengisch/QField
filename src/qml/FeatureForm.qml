@@ -461,17 +461,18 @@ Page {
               width: parent.width
               text: Name || ''
               wrapMode: Text.WordWrap
+              font.family: LabelOverrideFont ? LabelFont.family : Theme.tinyFont.family
               font.pointSize: Theme.tinyFont.pointSize
-              font.bold: true
+              font.bold: LabelOverrideFont ? LabelFont.bold : true
+              font.italic: LabelOverrideFont ? LabelFont.italic : false
+              font.underline: LabelOverrideFont ? LabelFont.underline : false
+              font.strikeout: LabelOverrideFont ? LabelFont.strikeout : false
               topPadding: 10
               bottomPadding: 5
-              color: ConstraintHardValid
-                     ? ( form.state === 'ReadOnly' || !AttributeEditable ) || embedded && EditorWidget === 'RelationEditor'
-                         ? 'grey'
-                         : ConstraintSoftValid
-                           ? 'black'
-                           : Theme.warningColor
-                     : Theme.errorColor
+              opacity: (form.state === 'ReadOnly' || !AttributeEditable) || embedded && EditorWidget === 'RelationEditor'
+                       ? 0.45
+                       : 1
+              color: LabelOverrideColor ? LabelColor : 'black'
             }
 
             Label {
@@ -489,10 +490,10 @@ Page {
 
                 return ConstraintDescription || '';
               }
-              height:  !ConstraintHardValid || !ConstraintSoftValid ? undefined : 0
+              height: !ConstraintHardValid || !ConstraintSoftValid ? undefined : 0
               visible: !ConstraintHardValid || !ConstraintSoftValid
-
-              color: !ConstraintHardValid ? Theme.errorColor : Theme.darkGray
+              opacity: fieldLabel.opacity
+              color: !ConstraintHardValid ? Theme.errorColor : Theme.warningColor
             }
 
             Item {
