@@ -383,13 +383,13 @@ void QgisMobileapp::initDeclarative()
   qRegisterMetaType<QFieldCloudProjectsModel::ProjectModification>( "QFieldCloudProjectsModel::ProjectModification" );
   qRegisterMetaType<Tracker::MeasureType>( "Tracker::MeasureType" );
 
-  qmlRegisterUncreatableType<Qgis>( "org.qgis", 1, 0, "Qgis", "" );
   qRegisterMetaType<Qgis::GeometryType>( "Qgis::GeometryType" );
-  qRegisterMetaType<Qgis::WkbType>( "Qgis::Type" );
-  qRegisterMetaType<Qgis::LayerType>( "QgsMapLayerType" );
+  qRegisterMetaType<Qgis::WkbType>( "Qgis::WkbType" );
+  qRegisterMetaType<Qgis::LayerType>( "Qgis::LayerType" );
   qRegisterMetaType<Qgis::DistanceUnit>( "Qgis::DistanceUnit" );
   qRegisterMetaType<Qgis::AreaUnit>( "Qgis::AreaUnit" );
   qRegisterMetaType<Qgis::AngleUnit>( "Qgis::AngleUnit" );
+  qmlRegisterUncreatableType<Qgis>( "org.qgis", 1, 0, "Qgis", "" );
 
   qmlRegisterUncreatableType<QgsProject>( "org.qgis", 1, 0, "Project", "" );
   qmlRegisterUncreatableType<QgsProjectDisplaySettings>( "org.qgis", 1, 0, "ProjectDisplaySettings", "" );
