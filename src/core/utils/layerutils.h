@@ -57,11 +57,7 @@ class LayerUtils : public QObject
      * \param fids the list of feature IDs
      * \param behavior the selection behavior
      */
-#if _QGIS_VERSION_INT >= 32100
     static Q_INVOKABLE void selectFeaturesInLayer( QgsVectorLayer *layer, const QList<int> &fids, Qgis::SelectBehavior behavior = Qgis::SelectBehavior::SetSelection );
-#else
-    static Q_INVOKABLE void selectFeaturesInLayer( QgsVectorLayer *layer, const QList<int> &fids, QgsVectorLayer::SelectBehavior behavior = QgsVectorLayer::SetSelection );
-#endif
 
     static bool deleteFeature( QgsProject *project, QgsVectorLayer *layer, const QgsFeatureId fid, bool shouldWriteChanges = true );
 

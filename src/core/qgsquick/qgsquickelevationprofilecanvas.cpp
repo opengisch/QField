@@ -218,11 +218,7 @@ void QgsQuickElevationProfileCanvas::setupLayerConnections( QgsMapLayer *layer, 
 
   switch ( layer->type() )
   {
-#if _QGIS_VERSION_INT >= 32900
     case Qgis::LayerType::Vector:
-#else
-    case QgsMapLayerType::VectorLayer:
-#endif
     {
       QgsVectorLayer *vl = qobject_cast<QgsVectorLayer *>( layer );
       if ( isDisconnect )
@@ -241,7 +237,6 @@ void QgsQuickElevationProfileCanvas::setupLayerConnections( QgsMapLayer *layer, 
       }
       break;
     }
-#if _QGIS_VERSION_INT >= 32900
     case Qgis::LayerType::Raster:
     case Qgis::LayerType::Plugin:
     case Qgis::LayerType::Mesh:
@@ -249,15 +244,6 @@ void QgsQuickElevationProfileCanvas::setupLayerConnections( QgsMapLayer *layer, 
     case Qgis::LayerType::Annotation:
     case Qgis::LayerType::PointCloud:
     case Qgis::LayerType::Group:
-#else
-    case QgsMapLayerType::RasterLayer:
-    case QgsMapLayerType::PluginLayer:
-    case QgsMapLayerType::MeshLayer:
-    case QgsMapLayerType::VectorTileLayer:
-    case QgsMapLayerType::AnnotationLayer:
-    case QgsMapLayerType::PointCloudLayer:
-    case QgsMapLayerType::GroupLayer:
-#endif
       break;
   }
 }
@@ -547,18 +533,10 @@ void QgsQuickElevationProfileCanvas::populateLayersFromProject()
   // e.g. vector features should be drawn above raster DEMS, or the DEM line may completely obscure
   // the vector feature
   QList<QgsMapLayer *> sortedLayers = QgsMapLayerUtils::sortLayersByType( projectLayers,
-#if _QGIS_VERSION_INT >= 32900
                                                                           { Qgis::LayerType::Raster,
-                                                                              Qgis::LayerType::Mesh,
-                                                                              Qgis::LayerType::Vector,
-                                                                              Qgis::LayerType::PointCloud }
-#else
-    { QgsMapLayerType::RasterLayer,
-        QgsMapLayerType::MeshLayer,
-        QgsMapLayerType::VectorLayer,
-        QgsMapLayerType::PointCloudLayer }
-#endif
-  );
+                                                                            Qgis::LayerType::Mesh,
+                                                                            Qgis::LayerType::Vector,
+                                                                            Qgis::LayerType::PointCloud } );
 
   // filter list, removing null layers and invalid layers
   auto filteredList = sortedLayers;

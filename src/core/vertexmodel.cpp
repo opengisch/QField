@@ -387,11 +387,7 @@ QgsGeometry VertexModel::geometry() const
   }
 
   if ( mTransform.isValid() )
-#if _QGIS_VERSION_INT >= 32100
     geometry.transform( mTransform, Qgis::TransformDirection::Reverse );
-#else
-    geometry.transform( mTransform, QgsCoordinateTransform::ReverseTransform );
-#endif
 
   return geometry;
 }

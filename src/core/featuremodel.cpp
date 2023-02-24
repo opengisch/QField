@@ -642,25 +642,13 @@ void FeatureModel::applyGeometry()
       QList<QgsVectorLayer *> intersectionLayers;
       switch ( mProject->avoidIntersectionsMode() )
       {
-#if _QGIS_VERSION_INT >= 32500
         case Qgis::AvoidIntersectionsMode::AvoidIntersectionsCurrentLayer:
-#else
-        case QgsProject::AvoidIntersectionsMode::AvoidIntersectionsCurrentLayer:
-#endif
           intersectionLayers.append( mLayer );
           break;
-#if _QGIS_VERSION_INT >= 32500
         case Qgis::AvoidIntersectionsMode::AvoidIntersectionsLayers:
-#else
-        case QgsProject::AvoidIntersectionsMode::AvoidIntersectionsLayers:
-#endif
           intersectionLayers = QgsProject::instance()->avoidIntersectionsLayers();
           break;
-#if _QGIS_VERSION_INT >= 32500
         case Qgis::AvoidIntersectionsMode::AllowIntersections:
-#else
-        case QgsProject::AvoidIntersectionsMode::AllowIntersections:
-#endif
           break;
       }
       if ( !intersectionLayers.isEmpty() )

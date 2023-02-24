@@ -24,6 +24,7 @@
 #include <qgslayoutmanager.h>
 #include <qgslinesymbol.h>
 #include <qgslinesymbollayer.h>
+#include <qgsmaplayerelevationproperties.h>
 #include <qgsmarkersymbol.h>
 #include <qgsmarkersymbollayer.h>
 #include <qgsmessagelog.h>
@@ -31,6 +32,7 @@
 #include <qgsprintlayout.h>
 #include <qgsproject.h>
 #include <qgsrasterlayer.h>
+#include <qgsrasterlayerelevationproperties.h>
 #include <qgssinglesymbolrenderer.h>
 #include <qgssymbol.h>
 #include <qgssymbollayer.h>
@@ -39,10 +41,6 @@
 #include <qgsvectorlayerlabeling.h>
 #include <qgsvectorlayerutils.h>
 #include <qgswkbtypes.h>
-#if _QGIS_VERSION_INT >= 32700
-#include <qgsmaplayerelevationproperties.h>
-#include <qgsrasterlayerelevationproperties.h>
-#endif
 
 LayerUtils::LayerUtils( QObject *parent )
   : QObject( parent )
@@ -61,11 +59,7 @@ QgsSymbol *LayerUtils::defaultSymbol( QgsVectorLayer *layer )
   {
     case Qgis::GeometryType::Point:
     {
-#if _QGIS_VERSION_INT >= 32300
       QgsSimpleMarkerSymbolLayer *symbolLayer = new QgsSimpleMarkerSymbolLayer( Qgis::MarkerShape::Circle, 2.6, 0.0, DEFAULT_SCALE_METHOD, QColor( 255, 0, 0, 100 ), QColor( 255, 0, 0 ) );
-#else
-      QgsSimpleMarkerSymbolLayer *symbolLayer = new QgsSimpleMarkerSymbolLayer( QgsSimpleMarkerSymbolLayerBase::Circle, 2.6, 0.0, DEFAULT_SCALE_METHOD, QColor( 255, 0, 0, 100 ), QColor( 255, 0, 0 ) );
-#endif
       symbolLayer->setStrokeWidth( 0.6 );
       symbolLayers << symbolLayer;
       symbol = new QgsMarkerSymbol( symbolLayers );
@@ -102,14 +96,10 @@ QgsAbstractVectorLayerLabeling *LayerUtils::defaultLabeling( QgsVectorLayer *lay
   if ( !layer )
     return labeling;
 
-#if _QGIS_VERSION_INT >= 32100
   bool foundFriendlyIdentifier = true;
   QString fieldName = QgsVectorLayerUtils::guessFriendlyIdentifierField( layer->fields(), &foundFriendlyIdentifier );
   if ( !foundFriendlyIdentifier )
     return labeling;
-#else
-  QString fieldName = QgsVectorLayerUtils::guessFriendlyIdentifierField( layer->fields() );
-#endif
 
   QgsPalLayerSettings settings;
   settings.fieldName = fieldName;
@@ -118,33 +108,20 @@ QgsAbstractVectorLayerLabeling *LayerUtils::defaultLabeling( QgsVectorLayer *lay
   {
     case Qgis::GeometryType::Point:
     {
-#if _QGIS_VERSION_INT >= 32500
       settings.placement = Qgis::LabelPlacement::OrderedPositionsAroundPoint;
       settings.offsetType = Qgis::LabelOffsetType::FromSymbolBounds;
-#else
-      settings.placement = QgsPalLayerSettings::OrderedPositionsAroundPoint;
-      settings.offsetType = QgsPalLayerSettings::FromSymbolBounds;
-#endif
       break;
     }
 
     case Qgis::GeometryType::Line:
     {
-#if _QGIS_VERSION_INT >= 32500
       settings.placement = Qgis::LabelPlacement::Curved;
-#else
-      settings.placement = QgsPalLayerSettings::Curved;
-#endif
       break;
     }
 
     case Qgis::GeometryType::Polygon:
     {
-#if _QGIS_VERSION_INT >= 32500
       settings.placement = Qgis::LabelPlacement::AroundPoint;
-#else
-      settings.placement = QgsPalLayerSettings::AroundPoint;
-#endif
       settings.obstacleSettings().setType( QgsLabelObstacleSettings::PolygonBoundary );
       break;
     }
@@ -178,12 +155,10 @@ QgsRasterLayer *LayerUtils::createOnlineElevationLayer()
 {
   QgsRasterLayer *layer = new QgsRasterLayer( QStringLiteral( "interpretation=terrariumterrain&type=xyz&url=https://s3.amazonaws.com/elevation-tiles-prod/terrarium/%7Bz%7D/%7Bx%7D/%7By%7D.png&zmax=15&zmin=0" ),
                                               QStringLiteral( "elevation" ), QStringLiteral( "wms" ) );
-#if _QGIS_VERSION_INT >= 32700
   QgsRasterLayerElevationProperties *elevationProperties = static_cast<QgsRasterLayerElevationProperties *>( layer->elevationProperties() );
   elevationProperties->setEnabled( true );
   elevationProperties->setProfileSymbology( Qgis::ProfileSurfaceSymbology::FillBelow );
   elevationProperties->profileFillSymbol()->setColor( QColor( 130, 130, 130 ) );
-#endif
   return layer;
 }
 
@@ -205,11 +180,7 @@ bool LayerUtils::isAtlasCoverageLayer( QgsVectorLayer *layer )
   return false;
 }
 
-#if _QGIS_VERSION_INT >= 32100
 void LayerUtils::selectFeaturesInLayer( QgsVectorLayer *layer, const QList<int> &fids, Qgis::SelectBehavior behavior )
-#else
-void LayerUtils::selectFeaturesInLayer( QgsVectorLayer *layer, const QList<int> &fids, QgsVectorLayer::SelectBehavior behavior )
-#endif
 {
   if ( !layer )
     return;

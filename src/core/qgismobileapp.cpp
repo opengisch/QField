@@ -150,21 +150,19 @@
 #include <qgsofflineediting.h>
 #include <qgsprintlayout.h>
 #include <qgsproject.h>
+#include <qgsprojectdisplaysettings.h>
+#include <qgsprojectelevationproperties.h>
 #include <qgsprojectstorage.h>
 #include <qgsprojectstorageregistry.h>
 #include <qgsprojectstylesettings.h>
 #include <qgsprojectviewsettings.h>
-#if _QGIS_VERSION_INT >= 32700
-#include <qgsprojectdisplaysettings.h>
-#include <qgsprojectelevationproperties.h>
-#include <qgsterrainprovider.h>
-#endif
 #include <qgsrasterlayer.h>
 #include <qgsrasterresamplefilter.h>
 #include <qgsrelationmanager.h>
 #include <qgssinglesymbolrenderer.h>
 #include <qgssnappingutils.h>
 #include <qgstemporalutils.h>
+#include <qgsterrainprovider.h>
 #include <qgsunittypes.h>
 #include <qgsvectorlayer.h>
 #include <qgsvectorlayereditbuffer.h>
@@ -367,9 +365,6 @@ void QgisMobileapp::initDeclarative()
   qRegisterMetaType<QgsPointXY>( "QgsPointXY" );
   qRegisterMetaType<QgsPointSequence>( "QgsPointSequence" );
   qRegisterMetaType<QgsCoordinateTransformContext>( "QgsCoordinateTransformContext" );
-#if _QGIS_VERSION_INT < 32900
-  qRegisterMetaType<QgsMapLayerType>( "QgsMapLayerType" ); // could be removed since we have now qmlRegisterUncreatableType<QgsWkbTypes> ?
-#endif
   qRegisterMetaType<QgsFeatureId>( "QgsFeatureId" );
   qRegisterMetaType<QgsAttributes>( "QgsAttributes" );
   qRegisterMetaType<QgsSnappingConfig>( "QgsSnappingConfig" );
@@ -397,9 +392,7 @@ void QgisMobileapp::initDeclarative()
   qRegisterMetaType<Qgis::AngleUnit>( "Qgis::AngleUnit" );
 
   qmlRegisterUncreatableType<QgsProject>( "org.qgis", 1, 0, "Project", "" );
-#if _QGIS_VERSION_INT >= 32700
   qmlRegisterUncreatableType<QgsProjectDisplaySettings>( "org.qgis", 1, 0, "ProjectDisplaySettings", "" );
-#endif
   qmlRegisterUncreatableType<QgsCoordinateReferenceSystem>( "org.qgis", 1, 0, "CoordinateReferenceSystem", "" );
   qmlRegisterUncreatableType<QgsUnitTypes>( "org.qgis", 1, 0, "QgsUnitTypes", "" );
   qmlRegisterUncreatableType<QgsRelationManager>( "org.qgis", 1, 0, "RelationManager", "The relation manager is available from the QgsProject. Try `qgisProject.relationManager`" );
@@ -834,35 +827,18 @@ void QgisMobileapp::readProjectFile()
 
       switch ( sublayer.type() )
       {
-#if _QGIS_VERSION_INT >= 32900
         case Qgis::LayerType::Vector:
-#else
-        case QgsMapLayerType::VectorLayer:
-#endif
           vectorLayers << layer.release();
           break;
-#if _QGIS_VERSION_INT >= 32900
         case Qgis::LayerType::Raster:
-#else
-        case QgsMapLayerType::RasterLayer:
-#endif
           rasterLayers << layer.release();
           break;
-#if _QGIS_VERSION_INT >= 32900
         case Qgis::LayerType::Mesh:
         case Qgis::LayerType::VectorTile:
         case Qgis::LayerType::Annotation:
         case Qgis::LayerType::PointCloud:
         case Qgis::LayerType::Group:
         case Qgis::LayerType::Plugin:
-#else
-        case QgsMapLayerType::MeshLayer:
-        case QgsMapLayerType::VectorTileLayer:
-        case QgsMapLayerType::AnnotationLayer:
-        case QgsMapLayerType::PointCloudLayer:
-        case QgsMapLayerType::GroupLayer:
-        case QgsMapLayerType::PluginLayer:
-#endif
           continue;
           break;
       }
@@ -984,13 +960,9 @@ void QgisMobileapp::readProjectFile()
 
         if ( hasSymbol )
         {
-#if _QGIS_VERSION_INT >= 32500
           QgsSymbol *symbol = mProject->styleSettings()->defaultSymbol( symbolType );
           if ( !symbol )
             symbol = LayerUtils::defaultSymbol( vlayer );
-#else
-          QgsSymbol *symbol = LayerUtils::defaultSymbol( vlayer );
-#endif
           QgsSingleSymbolRenderer *renderer = new QgsSingleSymbolRenderer( symbol );
           vlayer->setRenderer( renderer );
         }
@@ -998,11 +970,7 @@ void QgisMobileapp::readProjectFile()
 
       if ( !vlayer->labeling() )
       {
-#if _QGIS_VERSION_INT >= 32500
         QgsTextFormat textFormat = mProject->styleSettings()->defaultTextFormat();
-#else
-        QgsTextFormat textFormat;
-#endif
         QgsAbstractVectorLayerLabeling *labeling = LayerUtils::defaultLabeling( vlayer, textFormat );
         if ( labeling )
         {
@@ -1060,7 +1028,6 @@ void QgisMobileapp::readProjectFile()
     }
   }
 
-#if _QGIS_VERSION_INT >= 32700
   if ( mProject->elevationProperties()->terrainProvider()->type() == QStringLiteral( "flat" ) )
   {
     QgsRasterLayer *elevationLayer = LayerUtils::createOnlineElevationLayer();
@@ -1069,7 +1036,6 @@ void QgisMobileapp::readProjectFile()
     terrainProvider->setLayer( elevationLayer );
     mProject->elevationProperties()->setTerrainProvider( terrainProvider );
   }
-#endif
 
   loadProjectQuirks();
 
