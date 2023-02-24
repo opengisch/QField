@@ -33,19 +33,19 @@ QgsGeometry Geometry::asQgsGeometry() const
 
   switch ( mVectorLayer->geometryType() )
   {
-    case QgsWkbTypes::PointGeometry:
+    case Qgis::GeometryType::Point:
     {
       geom = new QgsPoint( mRubberbandModel->currentPoint( mVectorLayer->crs(), mVectorLayer->wkbType() ) );
       break;
     }
-    case QgsWkbTypes::LineGeometry:
+    case Qgis::GeometryType::Line:
     {
       QgsLineString *line = new QgsLineString();
       line->setPoints( mRubberbandModel->pointSequence( mVectorLayer->crs(), mVectorLayer->wkbType() ) );
       geom = line;
       break;
     }
-    case QgsWkbTypes::PolygonGeometry:
+    case Qgis::GeometryType::Polygon:
     {
       QgsPolygon *polygon = new QgsPolygon();
       QgsLineString *ring = new QgsLineString();
@@ -55,9 +55,9 @@ QgsGeometry Geometry::asQgsGeometry() const
       break;
     }
 
-    case QgsWkbTypes::UnknownGeometry:
+    case Qgis::GeometryType::Unknown:
       break;
-    case QgsWkbTypes::NullGeometry:
+    case Qgis::GeometryType::Null:
       break;
   }
 

@@ -136,6 +136,7 @@
 #include <qgslayertree.h>
 #include <qgslayertreemodel.h>
 #include <qgslayoutatlas.h>
+#include <qgslayoutexporter.h>
 #include <qgslayoutitemmap.h>
 #include <qgslayoutmanager.h>
 #include <qgslayoutpagecollection.h>
@@ -366,8 +367,8 @@ void QgisMobileapp::initDeclarative()
   qRegisterMetaType<QgsPointXY>( "QgsPointXY" );
   qRegisterMetaType<QgsPointSequence>( "QgsPointSequence" );
   qRegisterMetaType<QgsCoordinateTransformContext>( "QgsCoordinateTransformContext" );
-  qRegisterMetaType<QgsWkbTypes::GeometryType>( "QgsWkbTypes::GeometryType" ); // could be removed since we have now qmlRegisterUncreatableType<QgsWkbTypes> ?
-  qRegisterMetaType<QgsWkbTypes::Type>( "QgsWkbTypes::Type" );                 // could be removed since we have now qmlRegisterUncreatableType<QgsWkbTypes> ?
+  qRegisterMetaType<Qgis::GeometryType>( "Qgis::GeometryType" ); // could be removed since we have now qmlRegisterUncreatableType<QgsWkbTypes> ?
+  qRegisterMetaType<Qgis::WkbType>( "Qgis::Type" );              // could be removed since we have now qmlRegisterUncreatableType<QgsWkbTypes> ?
 #if _QGIS_VERSION_INT >= 32900
   qRegisterMetaType<Qgis::LayerType>( "QgsMapLayerType" ); // could be removed since we have now qmlRegisterUncreatableType<QgsWkbTypes> ?
 #else
@@ -376,8 +377,8 @@ void QgisMobileapp::initDeclarative()
   qRegisterMetaType<QgsFeatureId>( "QgsFeatureId" );
   qRegisterMetaType<QgsAttributes>( "QgsAttributes" );
   qRegisterMetaType<QgsSnappingConfig>( "QgsSnappingConfig" );
-  qRegisterMetaType<QgsUnitTypes::DistanceUnit>( "QgsUnitTypes::DistanceUnit" );
-  qRegisterMetaType<QgsUnitTypes::AreaUnit>( "QgsUnitTypes::AreaUnit" );
+  qRegisterMetaType<Qgis::DistanceUnit>( "Qgis::DistanceUnit" );
+  qRegisterMetaType<Qgis::AreaUnit>( "Qgis::AreaUnit" );
   qRegisterMetaType<QgsRelation>( "QgsRelation" );
   qRegisterMetaType<QgsPolymorphicRelation>( "QgsPolymorphicRelation" );
   qRegisterMetaType<PlatformUtilities::Capabilities>( "PlatformUtilities::Capabilities" );
@@ -871,11 +872,11 @@ void QgisMobileapp::readProjectFile()
     std::sort( vectorLayers.begin(), vectorLayers.end(), []( QgsMapLayer *a, QgsMapLayer *b ) {
       QgsVectorLayer *alayer = qobject_cast<QgsVectorLayer *>( a );
       QgsVectorLayer *blayer = qobject_cast<QgsVectorLayer *>( b );
-      if ( alayer->geometryType() == QgsWkbTypes::PointGeometry && blayer->geometryType() != QgsWkbTypes::PointGeometry )
+      if ( alayer->geometryType() == Qgis::GeometryType::Point && blayer->geometryType() != Qgis::GeometryType::Point )
       {
         return true;
       }
-      else if ( alayer->geometryType() == QgsWkbTypes::LineGeometry && blayer->geometryType() == QgsWkbTypes::PolygonGeometry )
+      else if ( alayer->geometryType() == Qgis::GeometryType::Line && blayer->geometryType() == Qgis::GeometryType::Polygon )
       {
         return true;
       }
@@ -962,19 +963,19 @@ void QgisMobileapp::readProjectFile()
         Qgis::SymbolType symbolType;
         switch ( vlayer->geometryType() )
         {
-          case QgsWkbTypes::PointGeometry:
+          case Qgis::GeometryType::Point:
             symbolType = Qgis::SymbolType::Marker;
             break;
-          case QgsWkbTypes::LineGeometry:
+          case Qgis::GeometryType::Line:
             symbolType = Qgis::SymbolType::Line;
             break;
-          case QgsWkbTypes::PolygonGeometry:
+          case Qgis::GeometryType::Polygon:
             symbolType = Qgis::SymbolType::Fill;
             break;
-          case QgsWkbTypes::UnknownGeometry:
+          case Qgis::GeometryType::Unknown:
             hasSymbol = false;
             break;
-          case QgsWkbTypes::NullGeometry:
+          case Qgis::GeometryType::Null:
             hasSymbol = false;
             break;
         }
@@ -1004,7 +1005,7 @@ void QgisMobileapp::readProjectFile()
         if ( labeling )
         {
           vlayer->setLabeling( labeling );
-          vlayer->setLabelsEnabled( vlayer->geometryType() == QgsWkbTypes::PointGeometry );
+          vlayer->setLabelsEnabled( vlayer->geometryType() == Qgis::GeometryType::Point );
         }
       }
 

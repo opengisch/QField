@@ -152,12 +152,12 @@ bool DistanceArea::lengthValid() const
 
   switch ( mRubberbandModel->geometryType() )
   {
-    case QgsWkbTypes::PointGeometry:
+    case Qgis::GeometryType::Point:
       return false;
 
-    case QgsWkbTypes::LineGeometry:
+    case Qgis::GeometryType::Line:
       FALLTHROUGH
-    case QgsWkbTypes::PolygonGeometry:
+    case Qgis::GeometryType::Polygon:
       return mRubberbandModel->vertexCount() >= 2;
 
     default:
@@ -183,12 +183,12 @@ bool DistanceArea::perimeterValid() const
 
   switch ( mRubberbandModel->geometryType() )
   {
-    case QgsWkbTypes::PointGeometry:
+    case Qgis::GeometryType::Point:
       FALLTHROUGH
-    case QgsWkbTypes::LineGeometry:
+    case Qgis::GeometryType::Line:
       return false;
 
-    case QgsWkbTypes::PolygonGeometry:
+    case Qgis::GeometryType::Polygon:
       return mRubberbandModel->vertexCount() >= 3;
 
     default:
@@ -211,13 +211,13 @@ bool DistanceArea::areaValid() const
 
   switch ( mRubberbandModel->geometryType() )
   {
-    case QgsWkbTypes::PointGeometry:
+    case Qgis::GeometryType::Point:
       return false;
 
-    case QgsWkbTypes::LineGeometry:
+    case Qgis::GeometryType::Line:
       return false;
 
-    case QgsWkbTypes::PolygonGeometry:
+    case Qgis::GeometryType::Polygon:
       return mRubberbandModel->vertexCount() >= 3;
 
     default:
@@ -261,22 +261,22 @@ qreal DistanceArea::azimuth() const
   return startPoint.azimuth( endPoint );
 }
 
-QgsUnitTypes::DistanceUnit DistanceArea::lengthUnits() const
+Qgis::DistanceUnit DistanceArea::lengthUnits() const
 {
   return mDistanceArea.lengthUnits();
 }
 
-QgsUnitTypes::AreaUnit DistanceArea::areaUnits() const
+Qgis::AreaUnit DistanceArea::areaUnits() const
 {
   return mDistanceArea.areaUnits();
 }
 
-double DistanceArea::convertLengthMeansurement( double length, QgsUnitTypes::DistanceUnit toUnits ) const
+double DistanceArea::convertLengthMeansurement( double length, Qgis::DistanceUnit toUnits ) const
 {
   return mDistanceArea.convertLengthMeasurement( length, toUnits );
 }
 
-double DistanceArea::convertAreaMeansurement( double area, QgsUnitTypes::AreaUnit toUnits ) const
+double DistanceArea::convertAreaMeansurement( double area, Qgis::AreaUnit toUnits ) const
 {
   return mDistanceArea.convertAreaMeasurement( area, toUnits );
 }

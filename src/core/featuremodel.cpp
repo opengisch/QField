@@ -608,7 +608,7 @@ void FeatureModel::applyGeometry()
   QString error;
   QgsGeometry geometry = mGeometry->asQgsGeometry();
 
-  if ( QgsWkbTypes::geometryType( geometry.wkbType() ) == QgsWkbTypes::PolygonGeometry )
+  if ( QgsWkbTypes::geometryType( geometry.wkbType() ) == Qgis::GeometryType::Polygon )
   {
     if ( !geometry.isGeosValid() )
     {
@@ -620,7 +620,7 @@ void FeatureModel::applyGeometry()
         while ( parts.hasNext() )
         {
           QgsGeometry part( parts.next() );
-          sanitizedGeometry.addPart( part.buffer( 0.0, 5 ).constGet()->clone(), QgsWkbTypes::PolygonGeometry );
+          sanitizedGeometry.addPart( part.buffer( 0.0, 5 ).constGet()->clone(), Qgis::GeometryType::Polygon );
         }
       }
       else if ( QgsCurvePolygon *polygon = qgsgeometry_cast<QgsCurvePolygon *>( geometry.get() ) )
@@ -675,7 +675,7 @@ void FeatureModel::applyGeometry()
     }
   }
 
-  if ( geometry.wkbType() != QgsWkbTypes::Unknown && mLayer && mLayer->geometryOptions()->geometryPrecision() == 0.0 )
+  if ( geometry.wkbType() != Qgis::WkbType::Unknown && mLayer && mLayer->geometryOptions()->geometryPrecision() == 0.0 )
   {
     // Still do a bit of node cleanup
     QgsGeometry deduplicatedGeometry = geometry;
@@ -842,7 +842,7 @@ class MatchCollectingFilter : public QgsPointLocator::MatchFilter
       QgsFeature f;
       match.layer()->getFeatures( QgsFeatureRequest( match.featureId() ).setNoAttributes() ).nextFeature( f );
       QgsGeometry matchGeom = f.geometry();
-      bool isPolygon = matchGeom.type() == QgsWkbTypes::PolygonGeometry;
+      bool isPolygon = matchGeom.type() == Qgis::GeometryType::Polygon;
       QgsVertexId polygonRingVid;
       QgsVertexId vid;
       QgsPoint pt;

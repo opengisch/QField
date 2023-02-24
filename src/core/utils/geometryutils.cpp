@@ -30,7 +30,7 @@ GeometryUtils::GeometryUtils( QObject *parent )
 
 QgsGeometry GeometryUtils::polygonFromRubberband( RubberbandModel *rubberBandModel, const QgsCoordinateReferenceSystem &crs )
 {
-  QgsPointSequence ring = rubberBandModel->pointSequence( crs, QgsWkbTypes::Point, true );
+  QgsPointSequence ring = rubberBandModel->pointSequence( crs, Qgis::WkbType::Point, true );
   QgsLineString ext( ring );
   std::unique_ptr<QgsPolygon> polygon = std::make_unique<QgsPolygon>();
   polygon->setExteriorRing( ext.clone() );
@@ -40,7 +40,7 @@ QgsGeometry GeometryUtils::polygonFromRubberband( RubberbandModel *rubberBandMod
 
 QgsGeometry GeometryUtils::lineFromRubberband( RubberbandModel *rubberBandModel, const QgsCoordinateReferenceSystem &crs )
 {
-  QgsPointSequence points = rubberBandModel->pointSequence( crs, QgsWkbTypes::Point, false );
+  QgsPointSequence points = rubberBandModel->pointSequence( crs, Qgis::WkbType::Point, false );
   std::unique_ptr<QgsLineString> line = std::make_unique<QgsLineString>( points );
   QgsGeometry g( std::move( line ) );
   return g;
@@ -50,17 +50,17 @@ GeometryUtils::GeometryOperationResult GeometryUtils::reshapeFromRubberband( Qgs
 {
   QgsFeature feature = layer->getFeature( fid );
   QgsGeometry geom = feature.geometry();
-  if ( geom.isNull() || ( QgsWkbTypes::geometryType( geom.wkbType() ) != QgsWkbTypes::LineGeometry && QgsWkbTypes::geometryType( geom.wkbType() ) != QgsWkbTypes::PolygonGeometry ) )
+  if ( geom.isNull() || ( QgsWkbTypes::geometryType( geom.wkbType() ) != Qgis::GeometryType::Line && QgsWkbTypes::geometryType( geom.wkbType() ) != Qgis::GeometryType::Polygon ) )
     return GeometryUtils::GeometryOperationResult::InvalidBaseGeometry;
 
-  QgsPointSequence points = rubberBandModel->pointSequence( layer->crs(), QgsWkbTypes::Point, false );
+  QgsPointSequence points = rubberBandModel->pointSequence( layer->crs(), Qgis::WkbType::Point, false );
   QgsLineString reshapeLineString( points );
 
   GeometryUtils::GeometryOperationResult reshapeReturn = static_cast<GeometryUtils::GeometryOperationResult>( geom.reshapeGeometry( reshapeLineString ) );
   if ( reshapeReturn == GeometryUtils::GeometryOperationResult::Success )
   {
     //avoid intersections on polygon layers
-    if ( layer->geometryType() == QgsWkbTypes::PolygonGeometry )
+    if ( layer->geometryType() == Qgis::GeometryType::Polygon )
     {
       QList<QgsVectorLayer *> avoidIntersectionsLayers;
       switch ( QgsProject::instance()->avoidIntersectionsMode() )
@@ -128,7 +128,7 @@ GeometryUtils::GeometryOperationResult GeometryUtils::addRingFromRubberband( Qgs
 
 GeometryUtils::GeometryOperationResult GeometryUtils::splitFeatureFromRubberband( QgsVectorLayer *layer, RubberbandModel *rubberBandModel )
 {
-  QgsPointSequence line = rubberBandModel->pointSequence( layer->crs(), QgsWkbTypes::Point, false );
+  QgsPointSequence line = rubberBandModel->pointSequence( layer->crs(), Qgis::WkbType::Point, false );
   return static_cast<GeometryUtils::GeometryOperationResult>( layer->splitFeatures( line, true ) );
 }
 

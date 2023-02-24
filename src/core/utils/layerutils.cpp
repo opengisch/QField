@@ -59,7 +59,7 @@ QgsSymbol *LayerUtils::defaultSymbol( QgsVectorLayer *layer )
   QgsSymbolLayerList symbolLayers;
   switch ( layer->geometryType() )
   {
-    case QgsWkbTypes::PointGeometry:
+    case Qgis::GeometryType::Point:
     {
 #if _QGIS_VERSION_INT >= 32300
       QgsSimpleMarkerSymbolLayer *symbolLayer = new QgsSimpleMarkerSymbolLayer( Qgis::MarkerShape::Circle, 2.6, 0.0, DEFAULT_SCALE_METHOD, QColor( 255, 0, 0, 100 ), QColor( 255, 0, 0 ) );
@@ -72,7 +72,7 @@ QgsSymbol *LayerUtils::defaultSymbol( QgsVectorLayer *layer )
       break;
     }
 
-    case QgsWkbTypes::LineGeometry:
+    case Qgis::GeometryType::Line:
     {
       QgsSimpleLineSymbolLayer *symbolLayer = new QgsSimpleLineSymbolLayer( QColor( 255, 0, 0 ), 0.6 );
       symbolLayers << symbolLayer;
@@ -80,7 +80,7 @@ QgsSymbol *LayerUtils::defaultSymbol( QgsVectorLayer *layer )
       break;
     }
 
-    case QgsWkbTypes::PolygonGeometry:
+    case Qgis::GeometryType::Polygon:
     {
       QgsSimpleFillSymbolLayer *symbolLayer = new QgsSimpleFillSymbolLayer( QColor( 255, 0, 0, 100 ), DEFAULT_SIMPLEFILL_STYLE, QColor( 255, 0, 0 ), DEFAULT_SIMPLEFILL_BORDERSTYLE, 0.6 );
       symbolLayers << symbolLayer;
@@ -88,8 +88,8 @@ QgsSymbol *LayerUtils::defaultSymbol( QgsVectorLayer *layer )
       break;
     }
 
-    case QgsWkbTypes::UnknownGeometry:
-    case QgsWkbTypes::NullGeometry:
+    case Qgis::GeometryType::Unknown:
+    case Qgis::GeometryType::Null:
       break;
   }
   return symbol;
@@ -116,7 +116,7 @@ QgsAbstractVectorLayerLabeling *LayerUtils::defaultLabeling( QgsVectorLayer *lay
   settings.obstacleSettings().setIsObstacle( true );
   switch ( layer->geometryType() )
   {
-    case QgsWkbTypes::PointGeometry:
+    case Qgis::GeometryType::Point:
     {
 #if _QGIS_VERSION_INT >= 32500
       settings.placement = Qgis::LabelPlacement::OrderedPositionsAroundPoint;
@@ -128,7 +128,7 @@ QgsAbstractVectorLayerLabeling *LayerUtils::defaultLabeling( QgsVectorLayer *lay
       break;
     }
 
-    case QgsWkbTypes::LineGeometry:
+    case Qgis::GeometryType::Line:
     {
 #if _QGIS_VERSION_INT >= 32500
       settings.placement = Qgis::LabelPlacement::Curved;
@@ -138,7 +138,7 @@ QgsAbstractVectorLayerLabeling *LayerUtils::defaultLabeling( QgsVectorLayer *lay
       break;
     }
 
-    case QgsWkbTypes::PolygonGeometry:
+    case Qgis::GeometryType::Polygon:
     {
 #if _QGIS_VERSION_INT >= 32500
       settings.placement = Qgis::LabelPlacement::AroundPoint;
@@ -149,22 +149,22 @@ QgsAbstractVectorLayerLabeling *LayerUtils::defaultLabeling( QgsVectorLayer *lay
       break;
     }
 
-    case QgsWkbTypes::UnknownGeometry:
-    case QgsWkbTypes::NullGeometry:
+    case Qgis::GeometryType::Unknown:
+    case Qgis::GeometryType::Null:
       break;
   }
 
   if ( !textFormat.isValid() )
   {
     textFormat.setSize( 9 );
-    textFormat.setSizeUnit( QgsUnitTypes::RenderPoints );
+    textFormat.setSizeUnit( Qgis::RenderUnit::Points );
     textFormat.setColor( QColor( 0, 0, 0 ) );
 
     QgsTextBufferSettings bufferSettings;
     bufferSettings.setEnabled( true );
     bufferSettings.setColor( QColor( 255, 255, 255 ) );
     bufferSettings.setSize( 1 );
-    bufferSettings.setSizeUnit( QgsUnitTypes::RenderMillimeters );
+    bufferSettings.setSizeUnit( Qgis::RenderUnit::Millimeters );
     textFormat.setBuffer( bufferSettings );
   }
   settings.setFormat( textFormat );

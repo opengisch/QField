@@ -41,7 +41,7 @@ QSGNode *LinePolygonHighlight::updatePaintNode( QSGNode *n, QQuickItem::UpdatePa
     QgsGeometry geometry( mGeometry ? mGeometry->qgsGeometry() : QgsGeometry() );
     if ( mGeometry && !geometry.isEmpty() )
     {
-      Q_ASSERT( geometry.type() != QgsWkbTypes::PointGeometry );
+      Q_ASSERT( geometry.type() != Qgis::GeometryType::Point );
 
       QgsCoordinateTransform ct( mGeometry->crs(), mMapSettings->destinationCrs(), QgsProject::instance()->transformContext() );
       geometry.transform( ct );

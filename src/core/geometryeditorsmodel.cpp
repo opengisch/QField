@@ -49,14 +49,14 @@ bool GeometryEditorsModel::supportsGeometry( const QgsGeometry &geometry, const 
 {
   switch ( geometry.type() )
   {
-    case QgsWkbTypes::PointGeometry:
+    case Qgis::GeometryType::Point:
       return supportedGeometries.testFlag( Point );
-    case QgsWkbTypes::LineGeometry:
+    case Qgis::GeometryType::Line:
       return supportedGeometries.testFlag( Line );
-    case QgsWkbTypes::PolygonGeometry:
+    case Qgis::GeometryType::Polygon:
       return supportedGeometries.testFlag( Polygon );
-    case QgsWkbTypes::UnknownGeometry:
-    case QgsWkbTypes::NullGeometry:
+    case Qgis::GeometryType::Unknown:
+    case Qgis::GeometryType::Null:
       return false;
   }
 

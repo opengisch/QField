@@ -60,9 +60,9 @@ QgsFields PeliasGeocoder::appendedFields() const
   return fields;
 }
 
-QgsWkbTypes::Type PeliasGeocoder::wkbType() const
+Qgis::WkbType PeliasGeocoder::wkbType() const
 {
-  return QgsWkbTypes::Point;
+  return Qgis::WkbType::Point;
 }
 
 QList<QgsGeocoderResult> PeliasGeocoder::geocodeString( const QString &string, const QgsGeocoderContext &context, QgsFeedback *feedback ) const

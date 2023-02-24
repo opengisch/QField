@@ -19,7 +19,7 @@
 QVariantList QgsGeometryWrapper::pointList() const
 {
   QVariantList pointList;
-  if ( mQgsGeometry.type() != QgsWkbTypes::PointGeometry )
+  if ( mQgsGeometry.type() != Qgis::GeometryType::Point )
     return pointList;
 
   QgsVertexIterator vertexIterator = mQgsGeometry.vertices();

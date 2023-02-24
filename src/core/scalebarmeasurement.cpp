@@ -94,7 +94,7 @@ void ScaleBarMeasurement::measure()
 {
   if ( mProject && mMapSettings )
   {
-    const QgsUnitTypes::DistanceUnit mapUnits = mDistanceArea.lengthUnits();
+    const Qgis::DistanceUnit mapUnits = mDistanceArea.lengthUnits();
 
     // convert to meters
     const QgsRectangle extent = mMapSettings->mapSettings().extent();
@@ -106,15 +106,15 @@ void ScaleBarMeasurement::measure()
     const double range = mReferenceScreenLength * factor;
     const double exponent = std::floor( std::log( range ) / 2.302585092994046 );
     const double magnitude = std::pow( 10, exponent );
-    const double adjustedMagnitude = ( mapUnits == QgsUnitTypes::DistanceDegrees
+    const double adjustedMagnitude = ( mapUnits == Qgis::DistanceUnit::Degrees
                                          ? magnitude / ( 1 + ( magnitude / factor ) / mReferenceScreenLength )
                                          : magnitude / ( 1 + std::round( ( magnitude / factor ) / mReferenceScreenLength ) ) );
 
     mScreenLength = adjustedMagnitude / factor;
 
-    if ( mapUnits == QgsUnitTypes::DistanceMeters && adjustedMagnitude >= 1000 )
+    if ( mapUnits == Qgis::DistanceUnit::Meters && adjustedMagnitude >= 1000 )
     {
-      mLabel = QStringLiteral( "%1 %2" ).arg( adjustedMagnitude / 1000 ).arg( QgsUnitTypes::toAbbreviatedString( QgsUnitTypes::DistanceKilometers ) );
+      mLabel = QStringLiteral( "%1 %2" ).arg( adjustedMagnitude / 1000 ).arg( QgsUnitTypes::toAbbreviatedString( Qgis::DistanceUnit::Kilometers ) );
     }
     else
     {
@@ -136,7 +136,7 @@ void ScaleBarMeasurement::measure()
         mLabel = QStringLiteral( "%1 %2" ).arg( scaledDistance.value ).arg( QgsUnitTypes::toAbbreviatedString( scaledDistance.unit ) );
       }
     }
-    const bool impreciseUnits = mMapSettings->mapSettings().mapUnits() == QgsUnitTypes::DistanceDegrees;
+    const bool impreciseUnits = mMapSettings->mapSettings().mapUnits() == Qgis::DistanceUnit::Degrees;
     if ( impreciseUnits )
       mLabel = QStringLiteral( "~" ) + mLabel;
   }

@@ -563,7 +563,7 @@ QVariant FlatLayerTreeModelBase::data( const QModelIndex &index, int role ) cons
           if ( !mLayerTreeModel->hasChildren( sourceIndex ) )
           {
             QgsVectorLayer *vectorLayer = qobject_cast<QgsVectorLayer *>( nodeLayer->layer() );
-            if ( vectorLayer && vectorLayer->geometryType() != QgsWkbTypes::NullGeometry )
+            if ( vectorLayer && vectorLayer->geometryType() != Qgis::GeometryType::Null )
             {
               id += QStringLiteral( "layer" );
               id += '/' + nodeLayer->layerId();
@@ -711,7 +711,7 @@ QVariant FlatLayerTreeModelBase::data( const QModelIndex &index, int role ) cons
         QgsVectorLayer *layer = qobject_cast<QgsVectorLayer *>( nodeLayer->layer() );
         if ( layer && layer->isValid() )
         {
-          return ( layer->geometryType() == QgsWkbTypes::PointGeometry || layer->geometryType() == QgsWkbTypes::LineGeometry || layer->geometryType() == QgsWkbTypes::PolygonGeometry );
+          return ( layer->geometryType() == Qgis::GeometryType::Point || layer->geometryType() == Qgis::GeometryType::Line || layer->geometryType() == Qgis::GeometryType::Polygon );
         }
       }
       return false;
@@ -1201,7 +1201,7 @@ QgsRectangle FlatLayerTreeModelBase::nodeExtent( const QModelIndex &index, QgsQu
       QgsVectorLayer *vLayer = qobject_cast<QgsVectorLayer *>( layer );
       if ( vLayer )
       {
-        if ( vLayer->geometryType() == QgsWkbTypes::NullGeometry )
+        if ( vLayer->geometryType() == Qgis::GeometryType::Null )
           continue;
 
         if ( layerExtent.isEmpty() )

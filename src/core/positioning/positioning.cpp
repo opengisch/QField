@@ -26,6 +26,8 @@
 #include "tcpreceiver.h"
 #include "udpreceiver.h"
 
+#include <qgsunittypes.h>
+
 Positioning::Positioning( QObject *parent )
   : QObject( parent )
 {
@@ -239,9 +241,9 @@ void Positioning::projectedPositionTransformed()
   mProjectedHorizontalAccuracy = mPositionInformation.hacc();
   if ( mPositionInformation.haccValid() )
   {
-    if ( mCoordinateTransformer->destinationCrs().mapUnits() != QgsUnitTypes::DistanceUnknownUnit )
+    if ( mCoordinateTransformer->destinationCrs().mapUnits() != Qgis::DistanceUnit::Unknown )
     {
-      mProjectedHorizontalAccuracy *= QgsUnitTypes::fromUnitToUnitFactor( QgsUnitTypes::DistanceMeters,
+      mProjectedHorizontalAccuracy *= QgsUnitTypes::fromUnitToUnitFactor( Qgis::DistanceUnit::Meters,
                                                                           mCoordinateTransformer->destinationCrs().mapUnits() );
     }
     else

@@ -45,7 +45,7 @@ class QFIELD_CORE_EXPORT RubberbandModel : public QObject
     Q_PROPERTY( QgsPoint lastCoordinate READ lastCoordinate NOTIFY currentCoordinateChanged )
     Q_PROPERTY( QgsPoint currentCoordinate READ currentCoordinate WRITE setCurrentCoordinate NOTIFY currentCoordinateChanged )
     Q_PROPERTY( int currentCoordinateIndex READ currentCoordinateIndex WRITE setCurrentCoordinateIndex NOTIFY currentCoordinateIndexChanged )
-    Q_PROPERTY( QgsWkbTypes::GeometryType geometryType READ geometryType WRITE setGeometryType NOTIFY geometryTypeChanged )
+    Q_PROPERTY( Qgis::GeometryType geometryType READ geometryType WRITE setGeometryType NOTIFY geometryTypeChanged )
     Q_PROPERTY( QgsVectorLayer *vectorLayer READ vectorLayer WRITE setVectorLayer NOTIFY vectorLayerChanged )
     Q_PROPERTY( int vertexCount READ vertexCount NOTIFY vertexCountChanged )
     Q_PROPERTY( QVector<QgsPoint> vertices READ vertices NOTIFY currentCoordinateChanged )
@@ -74,7 +74,7 @@ class QFIELD_CORE_EXPORT RubberbandModel : public QObject
      *
      * By default coordinates will be returned unprojected.
      */
-    Q_INVOKABLE QgsPointSequence pointSequence( const QgsCoordinateReferenceSystem &crs = QgsCoordinateReferenceSystem(), QgsWkbTypes::Type wkbType = QgsWkbTypes::Point, bool closeLine = false ) const;
+    Q_INVOKABLE QgsPointSequence pointSequence( const QgsCoordinateReferenceSystem &crs = QgsCoordinateReferenceSystem(), Qgis::WkbType wkbType = Qgis::WkbType::Point, bool closeLine = false ) const;
 
     QVector<QgsPointXY> flatPointSequence( const QgsCoordinateReferenceSystem &crs = QgsCoordinateReferenceSystem() ) const;
 
@@ -87,7 +87,7 @@ class QFIELD_CORE_EXPORT RubberbandModel : public QObject
     int currentCoordinateIndex() const;
     void setCurrentCoordinateIndex( int currentCoordinateIndex );
 
-    QgsPoint currentPoint( const QgsCoordinateReferenceSystem &crs = QgsCoordinateReferenceSystem(), QgsWkbTypes::Type wkbType = QgsWkbTypes::PointZ ) const;
+    QgsPoint currentPoint( const QgsCoordinateReferenceSystem &crs = QgsCoordinateReferenceSystem(), Qgis::WkbType wkbType = Qgis::WkbType::PointZ ) const;
 
     QgsPoint firstCoordinate() const;
     QgsPoint lastCoordinate() const;
@@ -114,7 +114,7 @@ class QFIELD_CORE_EXPORT RubberbandModel : public QObject
 
     Q_INVOKABLE void reset();
 
-    QgsWkbTypes::GeometryType geometryType() const;
+    Qgis::GeometryType geometryType() const;
 
     QgsVectorLayer *vectorLayer() const;
     void setVectorLayer( QgsVectorLayer *vectorLayer );
@@ -127,7 +127,7 @@ class QFIELD_CORE_EXPORT RubberbandModel : public QObject
     //! \copydoc frozen
     void setFrozen( const bool &frozen );
 
-    void setGeometryType( const QgsWkbTypes::GeometryType &geometryType );
+    void setGeometryType( const Qgis::GeometryType &geometryType );
 
     /**
      * Sets the model data to match a given \a geometry
@@ -152,9 +152,9 @@ class QFIELD_CORE_EXPORT RubberbandModel : public QObject
 
   private:
     QVector<QgsPoint> mPointList;
-    int mCurrentCoordinateIndex;
+    int mCurrentCoordinateIndex = 0;
     QDateTime mCurrentPositionTimestamp;
-    QgsWkbTypes::GeometryType mGeometryType;
+    Qgis::GeometryType mGeometryType = Qgis::GeometryType::Line;
     QPointer<QgsVectorLayer> mLayer;
     QgsCoordinateReferenceSystem mCrs;
     bool mFrozen = false;

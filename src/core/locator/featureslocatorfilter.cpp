@@ -115,7 +115,7 @@ void FeaturesLocatorFilter::fetchResults( const QString &string, const QgsLocato
       result.icon = preparedLayer->layerIcon;
       result.score = static_cast<double>( string.length() ) / result.displayString.size();
       result.actions << QgsLocatorResult::ResultAction( OpenForm, tr( "Open form" ), QStringLiteral( "ic_baseline-list_alt-24px" ) );
-      if ( preparedLayer->layerGeometryType != QgsWkbTypes::NullGeometry && preparedLayer->layerGeometryType != QgsWkbTypes::UnknownGeometry )
+      if ( preparedLayer->layerGeometryType != Qgis::GeometryType::Null && preparedLayer->layerGeometryType != Qgis::GeometryType::Unknown )
       {
         result.actions << QgsLocatorResult::ResultAction( Navigation, tr( "Set feature as destination" ), QStringLiteral( "ic_navigation_flag_purple_24dp" ) );
       }
@@ -189,7 +189,7 @@ void FeaturesLocatorFilter::triggerResultFromAction( const QgsLocatorResult &res
     // code taken from QgsMapCanvas::zoomToSelected
     if ( !mLocatorBridge->keepScale() )
     {
-      if ( layer->geometryType() == QgsWkbTypes::PointGeometry && r.isEmpty() )
+      if ( layer->geometryType() == Qgis::GeometryType::Point && r.isEmpty() )
       {
         int scaleFactor = 5;
         const QgsPointXY center = mLocatorBridge->mapSettings()->mapSettings().mapToLayerCoordinates( layer, r.center() );

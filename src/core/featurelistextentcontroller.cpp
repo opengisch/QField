@@ -52,7 +52,7 @@ void FeatureListExtentController::zoomToSelected( bool skipIfIntersects ) const
     QgsFeature feat = mSelection->focusedFeature();
     QgsVectorLayer *layer = mSelection->focusedLayer();
 
-    if ( layer && layer->geometryType() != QgsWkbTypes::UnknownGeometry && layer->geometryType() != QgsWkbTypes::NullGeometry )
+    if ( layer && layer->geometryType() != Qgis::GeometryType::Unknown && layer->geometryType() != Qgis::GeometryType::Null )
     {
       QgsCoordinateTransform transf( layer->crs(), mMapSettings->destinationCrs(), mMapSettings->mapSettings().transformContext() );
       QgsGeometry geom( feat.geometry() );
@@ -60,7 +60,7 @@ void FeatureListExtentController::zoomToSelected( bool skipIfIntersects ) const
       {
         geom.transform( transf );
 
-        if ( geom.type() == QgsWkbTypes::PointGeometry )
+        if ( geom.type() == Qgis::GeometryType::Point )
         {
           if ( !skipIfIntersects || !mMapSettings->extent().intersects( geom.boundingBox() ) )
             mMapSettings->setCenter( QgsPoint( geom.asPoint() ) );

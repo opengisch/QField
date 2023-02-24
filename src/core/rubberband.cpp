@@ -179,12 +179,12 @@ QSGNode *Rubberband::updatePaintNode( QSGNode *n, QQuickItem::UpdatePaintNodeDat
     bool frozen = mRubberbandModel && mRubberbandModel->frozen();
 
     QVector<QgsPoint> allVertices = QVector<QgsPoint>();
-    QgsWkbTypes::GeometryType geomType = mGeometryType;
+    Qgis::GeometryType geomType = mGeometryType;
 
     if ( mRubberbandModel && !mRubberbandModel->isEmpty() )
     {
       allVertices = mRubberbandModel->flatVertices();
-      if ( geomType == QgsWkbTypes::NullGeometry )
+      if ( geomType == Qgis::GeometryType::Null )
       {
         geomType = mRubberbandModel->geometryType();
       }
@@ -192,7 +192,7 @@ QSGNode *Rubberband::updatePaintNode( QSGNode *n, QQuickItem::UpdatePaintNodeDat
     else if ( mVertexModel && mVertexModel->vertexCount() > 0 )
     {
       allVertices = mVertexModel->flatVertices();
-      if ( geomType == QgsWkbTypes::NullGeometry )
+      if ( geomType == Qgis::GeometryType::Null )
       {
         geomType = mVertexModel->geometryType();
       }
@@ -222,7 +222,7 @@ QSGNode *Rubberband::updatePaintNode( QSGNode *n, QQuickItem::UpdatePaintNodeDat
   return n;
 }
 
-void Rubberband::setGeometryType( const QgsWkbTypes::GeometryType geometryType )
+void Rubberband::setGeometryType( const Qgis::GeometryType geometryType )
 {
   if ( mGeometryType == geometryType )
     return;
