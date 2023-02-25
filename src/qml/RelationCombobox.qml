@@ -124,32 +124,22 @@ Item {
                 }
             }
 
-            Rectangle {
-                id: clearButtonRect
+            QfToolButton {
+                id: clearButton
                 z: 1
                 width: fontMetrics.height
                 height: fontMetrics.height
                 anchors { top: searchField.top; right: searchField.right; topMargin: height - 7; rightMargin: height - 7 }
-                color: "transparent"
 
-                Image {
-                    id: clearButton
-                    z: 1
-                    width: 20
-                    height: 20
-                    source: Theme.getThemeIcon("ic_clear_black_18dp")
-                    sourceSize.width: 20 * screen.devicePixelRatio
-                    sourceSize.height: 20 * screen.devicePixelRatio
-                    fillMode: Image.PreserveAspectFit
-                    anchors.centerIn: clearButtonRect
-                    opacity: searchField.displayText.length > 0 ? 1 : 0.25
-                }
+                padding: 0
+                iconSource: Theme.getThemeIcon("ic_clear_black_18dp")
+                iconColor: Theme.mainTextColor
+                bgcolor: "transparent"
 
-                MouseArea {
-                    anchors.fill: parent
-                    onClicked: {
-                        searchField.text = '';
-                    }
+                opacity: searchField.displayText.length > 0 ? 1 : 0.25
+
+                onClicked: {
+                    searchField.text = '';
                 }
             }
 
