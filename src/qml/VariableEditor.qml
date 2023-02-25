@@ -24,7 +24,7 @@ ColumnLayout {
         Layout.fillWidth: true
         Layout.fillHeight: true
         color: Theme.mainBackgroundColor
-        border.color: Theme.controlBackgroundColor
+        border.color: Theme.controlBorderColor
         border.width: 1
 
         ListView {

@@ -41,7 +41,7 @@ ListView {
       },
       State {
         name: "pressed"
-        PropertyChanges { target: rectangle; color: Theme.controlBackgroundColor }
+        PropertyChanges { target: rectangle; color: Theme.controlBorderColor }
       }
     ]
 

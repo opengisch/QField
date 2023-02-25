@@ -127,7 +127,7 @@ Item {
         text: qsTr( "Username or email" )
         horizontalAlignment: Text.AlignHCenter
         font: Theme.defaultFont
-        color: 'gray'
+        color: Theme.mainTextColor
       }
 
       QfTextField {
@@ -152,7 +152,7 @@ Item {
         text: qsTr( "Password" )
         horizontalAlignment: Text.AlignHCenter
         font: Theme.defaultFont
-        color: 'gray'
+        color: Theme.mainTextColor
       }
 
       QfTextField {
@@ -190,6 +190,7 @@ Item {
         text: qsTr( 'New user?') + ' <a href="https://app.qfield.cloud/accounts/signup/">' + qsTr( 'Register an account' ) + '</a>.'
         horizontalAlignment: Text.AlignHCenter
         font: Theme.defaultFont
+        color: Theme.mainTextColor
         textFormat: Text.RichText
         wrapMode: Text.WordWrap
         visible: cloudConnection.status === QFieldCloudConnection.Disconnected
@@ -208,6 +209,7 @@ Item {
               ' <a href="https://qfield.cloud/">' + qsTr( 'Learn more about QFieldCloud' ) + '</a>.'
         horizontalAlignment: Text.AlignHCenter
         font: Theme.defaultFont
+        color: Theme.mainTextColor
         textFormat: Text.RichText
         wrapMode: Text.WordWrap
 

@@ -12,8 +12,8 @@ SwitchDelegate {
         x: parent.leftPadding
         y: ( parent.height + parent.topPadding - 6 ) / 2 - height / 2
         radius: implicitHeight / 2
-        color: parent.checked ? Theme.mainColor : Theme.controlBackgroundColor
-        border.color: parent.checked ? Theme.mainColor : Theme.controlBackgroundColor
+        color: parent.checked ? Theme.mainColor : Theme.controlBorderColor
+        border.color: parent.checked ? Theme.mainColor : Theme.controlBorderColor
 
         Rectangle {
             x: parent.parent.checked ? parent.width - width : 0
@@ -22,7 +22,7 @@ SwitchDelegate {
             radius: parent.implicitHeight / 2
             opacity: parent.parent.down ? 0.85 : 1
             color: Theme.mainBackgroundColor
-            border.color: parent.parent.checked ? Theme.mainColor : Theme.controlBackgroundColor
+            border.color: parent.parent.checked ? Theme.mainColor : Theme.controlBorderColor
             Behavior on x {
                 PropertyAnimation {
                     duration: 150

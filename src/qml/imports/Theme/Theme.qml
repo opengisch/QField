@@ -11,7 +11,8 @@ QtObject {
 
     readonly property color secondaryTextColor: darkTheme? "#AAAAAA" : "#999999"
 
-    readonly property color controlBackgroundColor: darkTheme ? "#14ffffff" : "#14000000"
+    readonly property color controlBackgroundColor: darkTheme ? "#202020" : "#ffffff"
+    readonly property color controlBorderColor: darkTheme ? "#14ffffff" : "#14000000"
     readonly property color controlDisabledBackgroundColor: "#33555555"
 
     readonly property color darkRed: "#c0392b"
