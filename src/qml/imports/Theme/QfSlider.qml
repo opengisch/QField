@@ -40,7 +40,7 @@ Item {
       text: prefixText + value + suffixText
 
       font: Theme.tipFont
-      color: Theme.gray
+      color: Theme.secondaryTextColor
     }
 
     TextMetrics {

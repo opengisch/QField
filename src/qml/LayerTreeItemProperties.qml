@@ -76,6 +76,7 @@ Popup {
 
         bgcolor: "transparent"
         iconSource: Theme.getThemeVectorIcon( 'refresh_24dp' )
+        iconColor: Theme.mainTextColor
 
         onClicked: {
           layerTree.data(index, FlatLayerTreeModel.MapLayerPointer).reload()
@@ -176,17 +177,17 @@ Popup {
         spacing: 4
         visible: opacitySliderVisible
 
-        Image {
-          source: Theme.getThemeVectorIcon("ic_opacity_black_24dp")
-          Layout.preferredWidth: 22
-          Layout.preferredHeight: 22
-          Layout.leftMargin: 6
-          Layout.rightMargin: 2
-          Layout.bottomMargin: 8
+        QfToolButton {
           Layout.alignment: Qt.AlignVCenter | Qt.alignHCenter
+          Layout.leftMargin: 3
+          Layout.rightMargin: 1
+          width: 24
+          height: 24
+          padding: 0
+          enabled: false
 
-          fillMode: Image.PreserveAspectFit
-          smooth: true
+          icon.source: Theme.getThemeVectorIcon("ic_opacity_black_24dp")
+          icon.color: Theme.mainTextColor
         }
 
         ColumnLayout {
@@ -198,6 +199,7 @@ Popup {
             Layout.fillWidth: true
             text: qsTr("Opacity")
             font: Theme.defaultFont
+            color: Theme.mainTextColor
           }
 
           QfSlider {
@@ -230,6 +232,7 @@ Popup {
                         : qsTr('Zoom to layer') : ''
         visible: zoomToButtonVisible
         icon.source: Theme.getThemeVectorIcon( 'zoom_out_map_24dp' )
+        icon.color: Theme.mainTextColor
 
         onClicked: {
           mapCanvas.mapSettings.extent = layerTree.nodeExtent(index, mapCanvas.mapSettings);
@@ -246,6 +249,7 @@ Popup {
         text: qsTr('Show features list')
         visible: showFeaturesListButtonVisible
         icon.source: Theme.getThemeVectorIcon( 'ic_list_black_24dp' )
+        icon.color: Theme.mainTextColor
 
         onClicked: {
           if ( parseInt(layerTree.data(index, FlatLayerTreeModel.FeatureCount)) === 0 ) {
@@ -275,6 +279,7 @@ Popup {
         text: trackingButtonText
         visible: trackingButtonVisible
         icon.source: Theme.getThemeVectorIcon( 'directions_walk_24dp' )
+        icon.color: Theme.mainTextColor
 
         onClicked: {
             //start track

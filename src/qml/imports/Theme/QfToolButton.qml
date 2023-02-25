@@ -53,7 +53,9 @@ RoundButton {
       pressed: button.down
       anchor: parent
       active: button.down
-      color: bgcolor == "#ffffff" || bgcolor == "#00000000" ? "#10000000" : "#22ffffff"
+      color: Theme.darkTheme
+             ? bgcolor == "#ffffff" || bgcolor == "#00000000" ? "#10ffffff" : "#22aaaaaa"
+             : bgcolor == "#ffffff" || bgcolor == "#00000000" ? "#10000000" : "#22ffffff"
 
       layer.enabled: true
       layer.effect: QfOpacityMask {

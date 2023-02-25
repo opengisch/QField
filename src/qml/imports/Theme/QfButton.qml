@@ -41,7 +41,9 @@ Button {
           pressed: button.down
           anchor: parent
           active: button.down
-          color: Material.rippleColor
+          color: Theme.darkTheme
+                 ? button.bgcolor == "#ffffff" || button.bgcolor == "#00000000" ? "#10ffffff" : "#22000000"
+                 : button.bgcolor == "#ffffff" || button.bgcolor == "#00000000" ? "#10000000" : "#22ffffff"
       }
   }
 
@@ -79,7 +81,7 @@ Button {
       width: 1.5
       height: parent.height - 16
 
-      color: button.color
+      color: Theme.mainTextColor
     }
 
     Canvas {
@@ -92,8 +94,8 @@ Button {
 
       onPaint: {
         var ctx = getContext("2d")
-        ctx.fillStyle = "white"
-        ctx.strokeStyle = "white"
+        ctx.fillStyle = Theme.mainTextColor
+        ctx.strokeStyle = Theme.mainTextColor
         ctx.lineWidth = 1
         ctx.moveTo(14, 15)
         ctx.lineTo(width - 16, 15)

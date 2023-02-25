@@ -295,6 +295,7 @@ Drawer {
                   leftPadding: 8
                   text: mapThemeComboBox.displayText
                   font: Theme.tipFont
+                  color: Theme.mainTextColor
                   horizontalAlignment: Text.AlignLeft
                   verticalAlignment: Text.AlignVCenter
                   elide: Text.ElideRight
@@ -326,11 +327,17 @@ Drawer {
       }
     }
 
-    Legend {
-      id: legend
-      isVisible: position > 0
+
+    Rectangle {
       Layout.fillWidth: true
       Layout.fillHeight: true
+      color: Theme.controlBackgroundColor
+
+      Legend {
+        id: legend
+        isVisible: position > 0
+        anchors.fill: parent
+      }
     }
   }
 

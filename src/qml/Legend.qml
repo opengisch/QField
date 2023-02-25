@@ -41,7 +41,7 @@ ListView {
       },
       State {
         name: "pressed"
-        PropertyChanges { target: rectangle; color: Theme.lightGray }
+        PropertyChanges { target: rectangle; color: Theme.controlBackgroundColor }
       }
     ]
 
@@ -145,9 +145,9 @@ ListView {
             if ( isSelectedLayer )
                 return Theme.light;
             else if ( IsValid )
-                return Theme.darkGray;
+                return Theme.mainTextColor
             else
-                return Theme.lightGray;
+                return Theme.secondaryTextColor
         }
         elide: Text.ElideRight
         opacity: Visible ? 1 : 0.25
@@ -210,8 +210,6 @@ ListView {
               source: Theme.getThemeVectorIcon('ic_error_outline_24dp')
           }
       }
-
-
     }
   }
   MouseArea {
