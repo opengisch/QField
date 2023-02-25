@@ -54,7 +54,7 @@ EditorWidgetBase {
         anchors.left: parent.left
         anchors.right: todayButton.left
         anchors.rightMargin: 4
-        anchors.verticalCenter: parent.verticalCenter
+        anchors.verticalCenter: todayButton.verticalCenter
         verticalAlignment: Text.AlignVCenter
         font: Theme.defaultFont
         color: value === undefined || !enabled ? Theme.mainTextDisabledColor : Theme.mainTextColor
@@ -201,7 +201,7 @@ EditorWidgetBase {
         width: enabled ? 48 : 0
         visible: enabled
 
-        iconSource: Theme.getThemeIcon("ic_calendar_today_black_18dp")
+        iconSource: Theme.getThemeVectorIcon("ic_calendar_today_black_24dp")
         iconColor: Theme.mainTextColor
 
         onClicked: {

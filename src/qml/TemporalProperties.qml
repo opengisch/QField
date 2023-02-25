@@ -27,6 +27,7 @@ Popup {
             width: parent.width - 20
             text: qsTr('Temporal Properties')
             font: Theme.strongFont
+            color: Theme.mainColor
             horizontalAlignment: Text.AlignHCenter
             wrapMode: Text.WordWrap
         }
@@ -89,6 +90,7 @@ Popup {
 
                 QfToolButton {
                     iconSource: Theme.getThemeIcon("ic_calendar_month_black_24dp")
+                    iconColor: Theme.mainTextColor
                     bgcolor: "transparent"
                     onClicked: {
                         calendarPanel.selectedDate = mapCanvas.mapSettings.temporalBegin
@@ -141,6 +143,7 @@ Popup {
 
                 QfToolButton {
                     iconSource: Theme.getThemeIcon("ic_calendar_month_black_24dp")
+                    iconColor: Theme.mainTextColor
                     bgcolor: "transparent"
                     onClicked: {
                         calendarPanel.selectedDate = mapCanvas.mapSettings.temporalEnd
