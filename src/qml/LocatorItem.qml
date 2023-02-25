@@ -30,15 +30,15 @@ Item {
           name: "on"
           PropertyChanges { target: searchFieldRect; visible: true; }
           PropertyChanges { target: searchFieldRect; width: mainWindow.width - 62 }
-          PropertyChanges { target: barcodeReaderButtonRect; visible: true; }
-          PropertyChanges { target: clearButtonRect; visible: true; }
+          PropertyChanges { target: barcodeReaderButton; visible: true; }
+          PropertyChanges { target: clearButton; visible: true; }
           PropertyChanges { target: busyIndicator; visible: true; }
       },
       State {
         name: "off"
         PropertyChanges { target: busyIndicator; visible: false; }
-        PropertyChanges { target: clearButtonRect; visible: false; }
-        PropertyChanges { target: barcodeReaderButtonRect; visible: false; }
+        PropertyChanges { target: clearButton; visible: false; }
+        PropertyChanges { target: barcodeReaderButton; visible: false; }
         PropertyChanges { target: searchFieldRect; width: 48 }
         PropertyChanges { target: searchFieldRect; visible: false; }
       }
@@ -51,8 +51,8 @@ Item {
         SequentialAnimation {
           PropertyAnimation { target: searchFieldRect; property: "visible"; duration: 0 }
           NumberAnimation { target: searchFieldRect; easing.type: Easing.InOutQuad; properties: "width"; duration: 250 }
-          PropertyAnimation { target: barcodeReaderButtonRect; property: "visible"; duration: 0 }
-          PropertyAnimation { target: clearButtonRect; property: "visible"; duration: 0 }
+          PropertyAnimation { target: barcodeReaderButton; property: "visible"; duration: 0 }
+          PropertyAnimation { target: clearButton; property: "visible"; duration: 0 }
           PropertyAnimation { target: busyIndicator; property: "visible"; duration: 0 }
         }
       },
@@ -61,8 +61,8 @@ Item {
         to: "off"
         SequentialAnimation {
           PropertyAnimation { target: busyIndicator; property: "visible"; duration: 0 }
-          PropertyAnimation { target: clearButtonRect; property: "visible"; duration: 0 }
-          PropertyAnimation { target: barcodeReaderButtonRect; property: "visible"; duration: 0 }
+          PropertyAnimation { target: clearButton; property: "visible"; duration: 0 }
+          PropertyAnimation { target: barcodeReaderButton; property: "visible"; duration: 0 }
           NumberAnimation { target: searchFieldRect; easing.type: Easing.InOutQuad; properties: "width"; duration: 150 }
           PropertyAnimation { target: searchFieldRect; property: "visible"; duration: 0 }
         }
@@ -119,7 +119,7 @@ Item {
     width: 48
     height: 48
     radius: 24
-    color: "white"
+    color: Theme.controlBackgroundColor
     visible: false
 
     TextField {
@@ -137,6 +137,7 @@ Item {
       rightPadding: 0
       bottomPadding: 0
       font: Theme.defaultFont
+      color: Theme.mainTextColor
       selectByMouse: true
       verticalAlignment: TextInput.AlignVCenter
       background: Rectangle {
@@ -159,81 +160,59 @@ Item {
     id: busyIndicator
     z: 11
     running: locator.isRunning
-    anchors.right: barcodeReaderButtonRect.left
+    anchors.right: barcodeReaderButton.left
     anchors.rightMargin: -15
-    anchors.verticalCenter: barcodeReaderButtonRect.verticalCenter
+    anchors.verticalCenter: barcodeReaderButton.verticalCenter
     height: searchFieldRect.height - 10
     visible: false
   }
 
-  Rectangle {
-    id: clearButtonRect
-    width: 40
-    height: 40
-    z: 12
-    color: "transparent"
+  QfToolButton {
+    id: clearButton
     anchors.centerIn: busyIndicator
     visible: false
 
-    Image {
-      id: clearButton
-      z: 12
-      width: 20
-      height: 20
-      source: Theme.getThemeIcon("ic_clear_black_18dp")
-      sourceSize.width: 20 * screen.devicePixelRatio
-      sourceSize.height: 20 * screen.devicePixelRatio
-      fillMode: Image.PreserveAspectFit
-      anchors.centerIn: clearButtonRect
-      opacity: searchField.displayText.length > 0 ? 1 : 0.25
-    }
+    width: 40
+    height: 40
+    padding: 2
+    z: 12
 
-    MouseArea {
-      anchors.fill: parent
-      onClicked: {
-        if (searchField.displayText.length > 0) {
-          searchButton.forceActiveFocus();
-          searchField.text = '';
-          searchField.forceActiveFocus();
-        } else {
-          locatorItem.state = "off"
-        }
+    iconSource: Theme.getThemeIcon("ic_clear_black_18dp")
+    iconColor: Theme.mainTextColor
+    bgcolor: "transparent"
+    opacity: searchField.displayText.length > 0 ? 1 : 0.25
+
+    onClicked: {
+      if (searchField.displayText.length > 0) {
+        searchButton.forceActiveFocus();
+        searchField.text = '';
+        searchField.forceActiveFocus();
+      } else {
+        locatorItem.state = "off"
       }
     }
   }
 
-  Rectangle {
-    id: barcodeReaderButtonRect
+  QfToolButton {
+    id: barcodeReaderButton
     width: 40
     height: 40
+    padding: 2
     z: 12
-    color: "transparent"
     anchors.right: searchButton.left
     anchors.rightMargin: 5
     anchors.verticalCenter: searchFieldRect.verticalCenter
     visible: false
 
-    Image {
-      id: barcodeReaderButton
-      z: 12
-      width: 24
-      height: 24
-      source: Theme.getThemeVectorIcon("ic_qrcode_black_24dp")
-      sourceSize.width: 24 * screen.devicePixelRatio
-      sourceSize.height: 24 * screen.devicePixelRatio
-      fillMode: Image.PreserveAspectFit
-      anchors.centerIn: barcodeReaderButtonRect
-      opacity: 1
-    }
+    iconSource: Theme.getThemeVectorIcon("ic_qrcode_black_24dp")
+    iconColor: Theme.darkTheme ? Theme.mainTextColor : "transparent"
+    bgcolor: "transparent"
 
-    MouseArea {
-      anchors.fill: parent
-      onClicked: {
-        Qt.inputMethod.hide();
+    onClicked: {
+      Qt.inputMethod.hide();
 
-        barcodeReader.open();
-        barcodeReaderConnection.enabled = true;
-      }
+      barcodeReader.open();
+      barcodeReaderConnection.enabled = true;
     }
   }
 
@@ -264,7 +243,7 @@ Item {
     anchors.top: searchFieldRect.top
     anchors.left: searchFieldRect.left
     anchors.topMargin: 24
-    color: "white"
+    color: Theme.mainBackgroundColor
     visible: searchFieldRect.visible && resultsList.count > 0
     clip: true
 
@@ -292,7 +271,7 @@ Item {
         anchors.margins: 10
         height: isFilterName || isGroup ? 30 : 40
         width: resultsList.width
-        color: isFilterName ? Theme.mainColor : isGroup ? Theme.lightGray : "white"
+        color: isFilterName ? Theme.mainColor : isGroup ? Theme.controlBorderColor : "transparent"
         opacity: 0.95
 
         Text {
@@ -304,7 +283,7 @@ Item {
           leftPadding: 5
           font.bold: false
           font.pointSize: Theme.resultFont.pointSize
-          color: isFilterName ? "white" : "black"
+          color: isFilterName ? "white" : Theme.mainTextColor
           elide: Text.ElideRight
           horizontalAlignment: isGroup ? Text.AlignHCenter : Text.AlignLeft
         }
@@ -318,6 +297,7 @@ Item {
 
           Repeater {
             model: locator.contextMenuActionsModel( index )
+
             QfToolButton {
               anchors.verticalCenter: parent.verticalCenter
               height: parent.height
@@ -325,6 +305,7 @@ Item {
               bgcolor: "transparent"
 
               iconSource: Theme.getThemeIcon( model.iconPath )
+              iconColor: Theme.darkTheme ? Theme.mainTextColor : "transparent"
 
               onClicked: {
                 locator.triggerResultAtRow(delegateRect.resultIndex, model.id)
@@ -338,7 +319,7 @@ Item {
         Rectangle {
           anchors.bottom: parent.bottom
           height: isFilterName || isGroup ? 0 : 1
-          color: "lightGray"
+          color: Theme.controlBorderColor
           width: parent.width
         }
 
