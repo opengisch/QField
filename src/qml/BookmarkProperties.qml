@@ -58,6 +58,7 @@ Popup {
                     id: closeButton
                     Layout.alignment: Qt.AlignVCenter
                     iconSource: Theme.getThemeIcon( 'ic_close_black_24dp' )
+                    iconColor: Theme.mainTextColor
                     bgcolor: "transparent"
 
                     onClicked: {
@@ -116,7 +117,7 @@ Popup {
                     border.width: 4
                     border.color: groupField.value != 'orange' &&
                                   groupField.value != 'red' &&
-                                  groupField.value != 'blue' ? "black" : "transparent"
+                                  groupField.value != 'blue' ? Theme.mainTextColor : "transparent"
                     radius: 2
 
                     MouseArea {
@@ -130,7 +131,7 @@ Popup {
                     height: groupField.iconSize
                     color: Theme.bookmarkOrange
                     border.width: 4
-                    border.color: groupField.value === 'orange' ? "black" : "transparent"
+                    border.color: groupField.value === 'orange' ? Theme.mainTextColor : "transparent"
                     radius: 2
 
                     MouseArea {
@@ -144,7 +145,7 @@ Popup {
                     height: groupField.iconSize
                     color: Theme.bookmarkRed
                     border.width: 4
-                    border.color: groupField.value === 'red' ? "black" : "transparent"
+                    border.color: groupField.value === 'red' ? Theme.mainTextColor : "transparent"
                     radius: 2
 
                     MouseArea {
@@ -158,7 +159,7 @@ Popup {
                     height: groupField.iconSize
                     color: Theme.bookmarkBlue
                     border.width: 4
-                    border.color: groupField.value === 'blue' ? "black" : "transparent"
+                    border.color: groupField.value === 'blue' ? Theme.mainTextColor : "transparent"
                     radius: 2
 
                     MouseArea {

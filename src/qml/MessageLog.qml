@@ -34,8 +34,8 @@ Page {
     Rectangle {
         Layout.fillWidth: true
         Layout.fillHeight: true
-        color: "white"
-        border.color: "lightgray"
+        color: Theme.controlBackgroundColor
+        border.color: Theme.controlBorderColor
         border.width: 1
 
       ListView {
@@ -62,6 +62,8 @@ Page {
               objectName: 'dateText'
               padding: 5
               text: MessageDateTime.replace(' ','\n')
+              font: Theme.tipFont
+              color: Theme.secondaryTextColor
             }
             Rectangle {
               id: separator
@@ -72,7 +74,9 @@ Page {
               objectName: 'tagText'
               padding: MessageTag ? 5: 0
               text: MessageTag
+              font.pointSize: Theme.tipFont.pointSize
               font.bold: true
+              color: Theme.secondaryTextColor
             }
             Text {
               id: messagetext
@@ -80,6 +84,8 @@ Page {
               padding: 5
               width: rectangle.width - datetext.width - tagtext.width - separator.width - 3 * line.spacing
               text: Message
+              font: Theme.tipFont
+              color: Theme.mainTextColor
               wrapMode: Text.WordWrap
               textFormat: Text.RichText
 

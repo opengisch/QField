@@ -42,7 +42,7 @@ Button {
           anchor: parent
           active: button.down
           color: Theme.darkTheme
-                 ? button.bgcolor == "#ffffff" || button.bgcolor == "#00000000" ? "#10ffffff" : "#22000000"
+                 ? "#22000000"
                  : button.bgcolor == "#ffffff" || button.bgcolor == "#00000000" ? "#10000000" : "#22ffffff"
       }
   }
