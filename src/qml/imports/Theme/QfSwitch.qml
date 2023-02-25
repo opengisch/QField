@@ -12,16 +12,17 @@ SwitchDelegate {
         x: parent.leftPadding
         y: ( parent.height + parent.topPadding - 6 ) / 2 - height / 2
         radius: implicitHeight / 2
-        color: parent.checked ? Theme.mainColor : Theme.lightGray
-        border.color: parent.checked ? Theme.mainColor : Theme.lightGray
+        color: parent.checked ? Theme.mainColor : Theme.controlBackgroundColor
+        border.color: parent.checked ? Theme.mainColor : Theme.controlBackgroundColor
 
         Rectangle {
             x: parent.parent.checked ? parent.width - width : 0
             width: parent.implicitHeight
             height: parent.implicitHeight
             radius: parent.implicitHeight / 2
-            color: parent.parent.down ? Theme.lightestGray : Theme.light
-            border.color: parent.parent.checked ? Theme.mainColor : Theme.lightGray
+            opacity: parent.parent.down ? 0.85 : 1
+            color: Theme.mainBackgroundColor
+            border.color: parent.parent.checked ? Theme.mainColor : Theme.controlBackgroundColor
             Behavior on x {
                 PropertyAnimation {
                     duration: 150

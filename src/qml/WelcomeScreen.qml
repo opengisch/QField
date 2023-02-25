@@ -28,11 +28,11 @@ Page {
     gradient: Gradient  {
       GradientStop  {
         position: 0.0
-        color: "#ffdedede"
+        color: Theme.darkTheme ? "#99000000" : "#99A5A5A5"
       }
       GradientStop  {
         position: 0.33
-        color: "#00dedede"
+        color: Theme.mainBackgroundColor
       }
     }
   }
@@ -115,6 +115,7 @@ Page {
             Layout.maximumWidth: feedbackView.width - 12
             text: qsTr("We're sorry to hear that. Click on the button below to comment or seek support.")
             font: Theme.defaultFont
+            color: Theme.mainTextColor
             horizontalAlignment: Text.AlignHCenter
             wrapMode: Text.WordWrap
           }
@@ -167,6 +168,7 @@ Page {
             Layout.maximumWidth: feedbackView.width - 12
             text: qsTr("Hey there, how do you like your experience with QField so far?")
             font: Theme.defaultFont
+            color: Theme.mainTextColor
             horizontalAlignment: Text.AlignHCenter
             wrapMode: Text.WordWrap
           }
@@ -224,6 +226,7 @@ Page {
             Layout.maximumWidth: feedbackView.width - 12
             text: qsTr("That's great! We'd love for you to click on the button below and leave a comment on the store.")
             font: Theme.defaultFont
+            color: Theme.mainTextColor
             horizontalAlignment: Text.AlignHCenter
             wrapMode: Text.WordWrap
           }
@@ -296,6 +299,7 @@ Page {
             Layout.maximumWidth: collectionView.width - 12
             text: qsTr("Anonymized metrics collection has been disabled. You can re-enable through the settings panel.")
             font: Theme.defaultFont
+            color: Theme.mainTextColor
             horizontalAlignment: Text.AlignHCenter
             wrapMode: Text.WordWrap
           }
@@ -330,6 +334,7 @@ Page {
             Layout.maximumWidth: collectionView.width - 12
             text: qsTr("To improve stability for everyone, QField collects and sends anonymized metrics.")
             font: Theme.defaultFont
+            color: Theme.mainTextColor
             horizontalAlignment: Text.AlignHCenter
             wrapMode: Text.WordWrap
           }
@@ -373,6 +378,7 @@ Page {
       Layout.alignment: Qt.AlignVCenter | Qt.AlignHCenter
       text: ""
       font: Theme.defaultFont
+      color: Theme.mainTextColor
       horizontalAlignment: Text.AlignHCenter
       wrapMode: Text.WordWrap
     }
@@ -415,6 +421,7 @@ Page {
           text: qsTr( "Recent Projects" )
           font.pointSize: Theme.tipFont.pointSize
           font.bold: true
+          color: Theme.mainTextColor
           horizontalAlignment: Text.AlignHCenter
           wrapMode: Text.WordWrap
           Layout.fillWidth: true
@@ -506,6 +513,7 @@ Page {
                   visible: text != ""
                   font.pointSize: Theme.tipFont.pointSize - 2
                   font.italic: true
+                  color: Theme.secondaryTextColor
                   wrapMode: Text.WordWrap
                   Layout.fillWidth: true
                 }

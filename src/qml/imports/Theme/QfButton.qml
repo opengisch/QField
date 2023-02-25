@@ -27,11 +27,11 @@ Button {
 
   background: Rectangle {
       anchors.fill: parent
-      color: !parent.enabled ? Theme.lightGray : button.bgcolor
+      color: !button.enabled ? Theme.controlDisabledBackgroundColor : button.bgcolor
       radius: 12
       border.width: 1
       border.color: !parent.enabled
-                    ? Theme.lightGray
+                    ? Theme.controlDisabledBackgroundColor
                     : button.bgcolor != "#00000000" ? button.bgcolor : button.color
 
       Ripple {
@@ -52,7 +52,7 @@ Button {
     display: parent.display
 
     icon: parent.icon
-    color: "white"
+    color: button.enabled ? "white" : "#99ffffff"
     font {
       pointSize: button.font.pointSize
     }

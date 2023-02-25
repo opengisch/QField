@@ -5,6 +5,15 @@ import QtQuick 2.14
 QtObject {
     property bool darkTheme: false
 
+    readonly property color mainTextColor: darkTheme ? "#EEEEEE" : "#000000"
+    readonly property color mainBackgroundColor: darkTheme ? "#303030" : "#fafafa"
+    readonly property color mainColor: "#80cc28"
+
+    readonly property color secondaryTextColor: darkTheme? "#AAAAAA" : "#999999"
+
+    readonly property color controlBackgroundColor: darkTheme ? "#14ffffff" : "#14000000"
+    readonly property color controlDisabledBackgroundColor: "#33555555"
+
     readonly property color darkRed: "#c0392b"
     readonly property color darkGray: "#212121"
     readonly property color darkGraySemiOpaque: "#88212121"
@@ -14,7 +23,6 @@ QtObject {
     readonly property color light: "#ffffff"
     readonly property color hyperlinkBlue: '#0000EE'
 
-    readonly property color mainColor: "#80cc28"
     readonly property color errorColor: "#c0392b"
     readonly property color warningColor: "orange"
     readonly property color cloudColor: "#4c6dac"
@@ -39,7 +47,7 @@ QtObject {
     readonly property color bookmarkBlue: "#64b5f6"
 
     readonly property color accentColor: '#4CAF50'
-    readonly property color accentLightColor: '#C8E6C9'
+    readonly property color accentLightColor: '#994CAF50'
 
     property font defaultFont: Qt.font({pointSize: systemFontPointSize, weight: Font.Normal})
     property font tinyFont: Qt.font({pointSize: systemFontPointSize * 0.75, weight: Font.Normal})

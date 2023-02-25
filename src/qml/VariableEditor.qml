@@ -23,8 +23,8 @@ ColumnLayout {
     Rectangle {
         Layout.fillWidth: true
         Layout.fillHeight: true
-        color: "white"
-        border.color: "lightgray"
+        color: Theme.mainBackgroundColor
+        border.color: Theme.controlBackgroundColor
         border.width: 1
 
         ListView {
@@ -43,9 +43,9 @@ ColumnLayout {
                 property bool canDelete: table.model.isEditable( index )
 
                 id: rectangle
-                width: parent.width
+                width: parent ? parent.width : 0
                 height: line.height
-                color: "#ffffff"
+                color: "transparent"
 
                 Row {
                     id: line
@@ -102,25 +102,17 @@ ColumnLayout {
                         }
                     }
 
-                    ToolButton {
+                    QfToolButton {
                         id: deleteVariableButton
                         width: 36
                         height: 36
                         anchors.verticalCenter: parent.verticalCenter
                         visible: canDelete
 
-                        contentItem: Rectangle {
-                            anchors.fill: parent
-                            color: Theme.darkGray
-                            Image {
-                                anchors.fill: parent
-                                anchors.margins: 4
-                                fillMode: Image.PreserveAspectFit
-                                horizontalAlignment: Image.AlignHCenter
-                                verticalAlignment: Image.AlignVCenter
-                                source: Theme.getThemeIcon( 'ic_delete_forever_white_24dp' )
-                            }
-                        }
+                        iconSource: Theme.getThemeIcon( 'ic_delete_forever_white_24dp' )
+                        iconColor: Theme.mainTextColor
+                        bgcolor: "transparent"
+
                         onClicked: {
                             table.model.removeCustomVariable( index );
                         }
