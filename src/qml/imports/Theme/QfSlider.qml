@@ -9,6 +9,7 @@ Item {
   property alias value: slider.value
   property string prefixText: ""
   property string suffixText: ""
+  property bool showValueLabel: true
 
   signal moved
 
@@ -32,6 +33,7 @@ Item {
     }
 
     Label {
+      visible: showValueLabel
       Layout.maximumWidth: layout.width / 4
       // prevent the slider width to change as the number increases, if the number is up to three digits
       Layout.minimumWidth: suffixMetrics.width

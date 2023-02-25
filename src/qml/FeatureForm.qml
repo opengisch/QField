@@ -183,7 +183,7 @@ Page {
         right: parent.right
         bottom: parent.bottom
       }
-      color: "white"
+      color: "transparent"
 
       SwipeView {
         id: swipeView
@@ -274,7 +274,7 @@ Page {
 
           width: parent.width
           height: GroupName !== '' ? childrenRect.height : 0
-          color: GroupColor ? Qt.hsla(GroupColor.hslHue, GroupColor.hslSaturation, GroupColor.hslLightness, 0.5) : Theme.lightestGray
+          color: GroupColor ? Qt.hsla(GroupColor.hslHue, GroupColor.hslSaturation, GroupColor.hslLightness, 0.5) : Theme.controlBorderColor
 
           Text {
             leftPadding: 10
@@ -282,8 +282,9 @@ Page {
             topPadding: 5
             bottomPadding: 5
             width: parent.width
-            font.pointSize: 12
+            font.pointSize: Theme.tipFont.pointSize
             font.bold: true
+            color: Theme.mainTextColor
             text: GroupName || ''
             wrapMode: Text.WordWrap
           }
@@ -376,7 +377,8 @@ Page {
               font.bold: true
               topPadding: 10
               bottomPadding: 5
-              color: 'grey'
+              opacity: 0.45
+              color: LabelOverrideColor ? LabelColor : Theme.mainTextColor
             }
 
             Item {
@@ -420,7 +422,8 @@ Page {
               font.bold: true
               topPadding: 10
               bottomPadding: 5
-              color: 'grey'
+              opacity: 0.45
+              color: LabelOverrideColor ? LabelColor : Theme.mainTextColor
             }
 
             Item {
@@ -472,7 +475,7 @@ Page {
               opacity: (form.state === 'ReadOnly' || !AttributeEditable) || embedded && EditorWidget === 'RelationEditor'
                        ? 0.45
                        : 1
-              color: LabelOverrideColor ? LabelColor : 'black'
+              color: LabelOverrideColor ? LabelColor : Theme.mainTextColor
             }
 
             Label {
@@ -617,8 +620,10 @@ Page {
                 visible: attributeEditorLoader.isEnabled && attributeEditorLoader.item.hasMenu
                 enabled: visible
                 width: visible ? 48 : 0
-                bgcolor: "transparent"
+
                 iconSource: Theme.getThemeIcon("ic_dot_menu_gray_24dp")
+                iconColor: Theme.mainTextColor
+                bgcolor: "transparent"
 
                 onClicked: {
                     attributeEditorLoader.item.menu.popup(menuButton.x, menuButton.y)
@@ -651,7 +656,7 @@ Page {
               bottomPadding: form.model.featureModel.modelMode == FeatureModel.MultiFeatureModel ? 15 : 0
               anchors { left: parent.left; top: placeholder.bottom;  rightMargin: 10; }
               font: Theme.tipFont
-              color: AttributeAllowEdit ? Theme.mainColor : Theme.lightGray
+              color: AttributeAllowEdit ? Theme.mainColor : Theme.secondaryTextColor
 
               MouseArea {
                 anchors.fill: parent

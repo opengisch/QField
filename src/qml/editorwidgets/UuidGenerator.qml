@@ -25,7 +25,7 @@ EditorWidgetBase {
       topPadding: 10
       bottomPadding: 10
       font: Theme.defaultFont
-      color: 'gray'
+      color: Theme.mainTextDisabledColor
       text: {
         var displayValue = value !== undefined ? value : ''
         if (isLoaded && isAdding && (value == undefined || value === '')) {

@@ -52,9 +52,12 @@ EditorWidgetBase {
         id: label
 
         anchors.left: parent.left
-        anchors.right: parent.right
+        anchors.right: todayButton.left
+        anchors.rightMargin: 4
+        anchors.verticalCenter: parent.verticalCenter
         verticalAlignment: Text.AlignVCenter
         font: Theme.defaultFont
+        color: value === undefined || !enabled ? Theme.mainTextDisabledColor : Theme.mainTextColor
         leftPadding: enabled ? 5 : 0
 
         inputMethodHints: Qt.ImhDigitsOnly
@@ -100,8 +103,6 @@ EditorWidgetBase {
                   }
               }
 
-        color: value === undefined || !enabled ? 'gray' : 'black'
-
         background: Item {
             implicitWidth: 120
             height: label.height
@@ -113,7 +114,7 @@ EditorWidgetBase {
                 anchors.bottomMargin: label.bottomPadding / 2
                 border.color: label.activeFocus ? Theme.accentColor : Theme.accentLightColor
                 border.width: label.activeFocus ? 2 : 1
-                color: enabled ? Theme.lightGray : "transparent"
+                color: enabled ? Theme.controlBackgroundColor : "transparent"
                 radius: 2
                 visible: enabled
             }
@@ -172,60 +173,50 @@ EditorWidgetBase {
             }
         }
 
-        Image {
-            id: todayButton
-            width: 20
-            height: 20
-            source: Theme.getThemeIcon("ic_calendar_today_black_18dp")
-            sourceSize.width: 20 * screen.devicePixelRatio
-            sourceSize.height: 20 * screen.devicePixelRatio
-            fillMode: Image.PreserveAspectFit
+        QfToolButton {
+            id: clearButton
             anchors.right: parent.right
             anchors.rightMargin: 4
             anchors.verticalCenter: parent.verticalCenter
             anchors.verticalCenterOffset: -2
-            visible: enabled
-
-            MouseArea {
-                anchors.fill: parent
-                onClicked: {
-                    if ( main.isDateTimeType )
-                    {
-                        var currentDateTime = new Date()
-                        valueChangeRequested(currentDateTime, false)
-                    }
-                    else
-                    {
-                        var currentDate = new Date()
-                        var textDate = Qt.formatDateTime(currentDate, config['field_format'])
-                        valueChangeRequested(textDate, false)
-                    }
-                    displayToast(qsTr( 'Date value set to today.'))
-                }
-            }
-        }
-
-        Image {
-            id: clearButton
-            width: 20
-            height: 20
-            source: Theme.getThemeIcon("ic_clear_black_18dp")
-            sourceSize.width: 20 * screen.devicePixelRatio
-            sourceSize.height: 20 * screen.devicePixelRatio
-            fillMode: Image.PreserveAspectFit
-            anchors.right: todayButton.left
-            anchors.rightMargin: 4
-            anchors.verticalCenter: parent.verticalCenter
-            anchors.verticalCenterOffset: -2
+            width: 24
+            height: 24
+            padding: 0
+            iconSource: Theme.getThemeIcon("ic_clear_black_18dp")
+            iconColor: Theme.mainTextColor
             visible: (value !== undefined) && enabled
                      && (config['allow_null'] === undefined || config['allow_null'])
 
-            MouseArea {
-                anchors.fill: parent
-                onClicked: {
-                    valueChangeRequested(undefined, true)
-                }
+            onClicked: {
+                valueChangeRequested(undefined, true)
             }
+        }
+    }
+
+
+    QfToolButton {
+        id: todayButton
+        anchors.right: parent.right
+        anchors.verticalCenter: parent.verticalCenter
+        width: enabled ? 48 : 0
+        visible: enabled
+
+        iconSource: Theme.getThemeIcon("ic_calendar_today_black_18dp")
+        iconColor: Theme.mainTextColor
+
+        onClicked: {
+            if ( main.isDateTimeType )
+            {
+                var currentDateTime = new Date()
+                valueChangeRequested(currentDateTime, false)
+            }
+            else
+            {
+                var currentDate = new Date()
+                var textDate = Qt.formatDateTime(currentDate, config['field_format'])
+                valueChangeRequested(textDate, false)
+            }
+            displayToast(qsTr( 'Date value set to today.'))
         }
     }
 

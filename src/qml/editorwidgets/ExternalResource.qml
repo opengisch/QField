@@ -15,7 +15,7 @@ EditorWidgetBase {
   anchors.left: parent.left
   anchors.right: parent.right
 
-  height: childrenRect.height
+  height: childrenRect.height + 4
 
   ExpressionEvaluator {
     id: rootPathEvaluator
@@ -194,7 +194,7 @@ EditorWidgetBase {
     width: parent.width - fileButton.width - galleryButton.width - cameraButton.width - cameraVideoButton.width - microphoneButton.width - (isEnabled ? 5 : 0)
     height: 48
     visible: !linkField.visible
-    color: isEnabled ? Theme.lightGray : "transparent"
+    color: isEnabled ? Theme.controlBackgroundColor : "transparent"
     radius: 2
     clip: true
 
@@ -390,6 +390,8 @@ EditorWidgetBase {
     anchors.right: cameraVideoButton.left
     anchors.top: parent.top
 
+    iconSource: Theme.getThemeVectorIcon("ic_camera_photo_black_24dp")
+    iconColor: Theme.mainTextColor
     bgcolor: "transparent"
 
     onClicked: {
@@ -405,8 +407,6 @@ EditorWidgetBase {
         cameraLoader.active = true
       }
     }
-
-    iconSource: Theme.getThemeVectorIcon("ic_camera_photo_black_24dp")
   }
 
   QfToolButton {
@@ -421,6 +421,8 @@ EditorWidgetBase {
     anchors.right: microphoneButton.left
     anchors.top: parent.top
 
+    iconSource: Theme.getThemeVectorIcon("ic_camera_video_black_24dp")
+    iconColor: Theme.mainTextColor
     bgcolor: "transparent"
 
     onClicked: {
@@ -436,8 +438,6 @@ EditorWidgetBase {
         cameraLoader.active = true
       }
     }
-
-    iconSource: Theme.getThemeVectorIcon("ic_camera_video_black_24dp")
   }
 
   QfToolButton {
@@ -450,14 +450,14 @@ EditorWidgetBase {
     anchors.right: fileButton.left
     anchors.top: parent.top
 
+    iconSource: Theme.getThemeVectorIcon("ic_microphone_black_24dp")
+    iconColor: Theme.mainTextColor
     bgcolor: "transparent"
 
     onClicked: {
       Qt.inputMethod.hide()
       audioRecorderLoader.active = true
     }
-
-    iconSource: Theme.getThemeVectorIcon("ic_microphone_black_24dp")
   }
 
   QfToolButton {
@@ -470,6 +470,8 @@ EditorWidgetBase {
     anchors.right: galleryButton.left
     anchors.top: parent.top
 
+    iconSource: Theme.getThemeIcon("ic_file_black_24dp")
+    iconColor: Theme.mainTextColor
     bgcolor: "transparent"
 
     onClicked: {
@@ -481,8 +483,6 @@ EditorWidgetBase {
         __resourceSource = platformUtilities.getFile(this, qgisProject.homePath+'/', filepath)
       }
     }
-
-    iconSource: Theme.getThemeIcon("ic_file_black_24dp")
   }
 
   QfToolButton {
@@ -496,6 +496,8 @@ EditorWidgetBase {
     anchors.right: parent.right
     anchors.top: parent.top
 
+    iconSource: Theme.getThemeVectorIcon("ic_gallery_black_24dp")
+    iconColor: Theme.mainTextColor
     bgcolor: "transparent"
 
     onClicked: {
@@ -507,8 +509,6 @@ EditorWidgetBase {
         __resourceSource = platformUtilities.getGalleryPicture(this, qgisProject.homePath+'/', filepath)
       }
     }
-
-    iconSource: Theme.getThemeVectorIcon("ic_gallery_black_24dp")
   }
 
   Loader {

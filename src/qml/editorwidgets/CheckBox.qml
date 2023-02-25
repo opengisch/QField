@@ -32,7 +32,7 @@ EditorWidgetBase {
       font.pointSize: Theme.defaultFont.pointSize
       font.bold: Theme.defaultFont.bold
       font.italic: isNull
-      color: isEnabled && !isNull ? 'black' : 'gray'
+      color: isEnabled && !isNull ? Theme.mainTextColor : Theme.mainTextDisabledColor
 
       text: !isNull
             ? checkBox.checked

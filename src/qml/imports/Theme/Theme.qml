@@ -6,14 +6,15 @@ QtObject {
     property bool darkTheme: false
 
     readonly property color mainTextColor: darkTheme ? "#EEEEEE" : "#000000"
+    readonly property color mainTextDisabledColor: darkTheme ? "#73EEEEEE" : "#73000000"
     readonly property color mainBackgroundColor: darkTheme ? "#303030" : "#fafafa"
     readonly property color mainColor: "#80cc28"
 
     readonly property color secondaryTextColor: darkTheme? "#AAAAAA" : "#999999"
 
     readonly property color controlBackgroundColor: darkTheme ? "#202020" : "#ffffff"
-    readonly property color controlBorderColor: darkTheme ? "#14ffffff" : "#14000000"
-    readonly property color controlDisabledBackgroundColor: "#33555555"
+    readonly property color controlBackgroundDisabledColor: "#33555555"
+    readonly property color controlBorderColor: darkTheme ? "#404040" : "#e6e6e6"
 
     readonly property color darkRed: "#c0392b"
     readonly property color darkGray: "#212121"

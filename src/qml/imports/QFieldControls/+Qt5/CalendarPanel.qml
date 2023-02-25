@@ -88,6 +88,7 @@ Popup {
                     QfToolButton {
                         enabled: true
                         iconSource: Theme.getThemeIcon( 'ic_doublearrow_left_black_24dp' )
+                        iconColor: Theme.mainTextColor
                         bgcolor: "transparent"
                         roundborder: true
 
@@ -108,6 +109,7 @@ Popup {
                     QfToolButton {
                         enabled: true
                         iconSource: Theme.getThemeIcon( 'ic_arrow_left_black_24dp' )
+                        iconColor: Theme.mainTextColor
                         bgcolor: "transparent"
                         roundborder: true
 
@@ -133,6 +135,7 @@ Popup {
                     Layout.row: 0
                     Layout.fillWidth: true
                     font: Theme.tipFont
+                    color: Theme.mainTextColor
                 }
 
                 Row {
@@ -142,6 +145,7 @@ Popup {
                     QfToolButton {
                         enabled: true
                         iconSource: Theme.getThemeIcon( 'ic_arrow_right_black_24dp' )
+                        iconColor: Theme.mainTextColor
                         bgcolor: "transparent"
                         roundborder: true
 
@@ -161,6 +165,7 @@ Popup {
                     QfToolButton {
                         enabled: true
                         iconSource: Theme.getThemeIcon( 'ic_doublearrow_right_black_24dp' )
+                        iconColor: Theme.mainTextColor
                         bgcolor: "transparent"
                         roundborder: true
 
@@ -241,7 +246,7 @@ Popup {
                             font.pointSize: Theme.tipFont.pointSize
                             font.bold: parent.isSelectedDate ? true : false
                             font.underline: parent.isNow ? true : false
-                            color: parent.isSelectedDate ? "white" : "black"
+                            color: parent.isSelectedDate ? "white" : Theme.mainTextColor
                         }
                     }
 
@@ -277,6 +282,7 @@ Popup {
                     Layout.column: 0
                     text: qsTr( "Hours" )
                     font: Theme.tipFont
+                    color: Theme.mainTextColor
                 }
                 SpinBox {
                     id: hoursSpinBox
@@ -295,6 +301,7 @@ Popup {
                     Layout.column: 0
                     text: qsTr( "Minutes" )
                     font: Theme.tipFont
+                    color: Theme.mainTextColor
                 }
                 SpinBox {
                     id: minutesSpinBox
@@ -313,6 +320,7 @@ Popup {
                     Layout.column: 0
                     text: qsTr( "Seconds" )
                     font: Theme.tipFont
+                    color: Theme.mainTextColor
                 }
                 SpinBox {
                     id: secondsSpinBox

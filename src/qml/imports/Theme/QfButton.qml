@@ -27,11 +27,11 @@ Button {
 
   background: Rectangle {
       anchors.fill: parent
-      color: !button.enabled ? Theme.controlDisabledBackgroundColor : button.bgcolor
+      color: !button.enabled ? Theme.controlBackgroundDisabledColor : button.bgcolor
       radius: 12
       border.width: 1
       border.color: !parent.enabled
-                    ? Theme.controlDisabledBackgroundColor
+                    ? Theme.controlBackgroundDisabledColor
                     : button.bgcolor != "#00000000" ? button.bgcolor : button.color
 
       Ripple {

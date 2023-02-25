@@ -33,7 +33,7 @@ EditorWidgetBase {
           width: parent.width - decreaseButton.width - increaseButton.width
 
           font: Theme.defaultFont
-          color: value === undefined || !enabled ? 'gray' : 'black'
+          color: value === undefined || !enabled ? Theme.mainTextDisabledColor : Theme.mainTextColor
 
           text: value !== undefined ? value : ''
 
@@ -71,6 +71,8 @@ EditorWidgetBase {
 
           anchors.verticalCenter: textField.verticalCenter
 
+          iconSource: Theme.getThemeIcon("ic_remove_black_48dp")
+          iconColor: Theme.mainTextColor
           bgcolor: "transparent"
           visible: enabled
 
@@ -91,8 +93,6 @@ EditorWidgetBase {
           onCanceled: {
               changeValueTimer.stop()
           }
-
-          iconSource: Theme.getThemeIcon("ic_remove_black_48dp")
       }
 
       QfToolButton {
@@ -102,6 +102,8 @@ EditorWidgetBase {
 
           anchors.verticalCenter: textField.verticalCenter
 
+          iconSource: Theme.getThemeIcon("ic_add_black_48dp")
+          iconColor: Theme.mainTextColor
           bgcolor: "transparent"
           visible: enabled
 
@@ -122,8 +124,6 @@ EditorWidgetBase {
           onCanceled: {
               changeValueTimer.stop()
           }
-
-          iconSource: Theme.getThemeIcon("ic_add_black_48dp")
       }
   }
 
@@ -178,7 +178,10 @@ EditorWidgetBase {
 
   Row {
     id: sliderRow
-    anchors.fill: parent
+    anchors.left: parent.left
+    anchors.top: parent.top
+    width: parent.width
+    height: childrenRect.height
     visible: widgetStyle === "Slider"
 
     Text {
@@ -190,11 +193,12 @@ EditorWidgetBase {
       verticalAlignment: Text.AlignVCenter
       horizontalAlignment: Text.AlignLeft
       font: Theme.defaultFont
-      color: value === undefined || !enabled ? 'gray' : 'black'
+      color: value === undefined || !enabled ? Theme.mainTextDisabledColor : Theme.mainTextColor
     }
 
-    Slider {
+    QfSlider {
       id: slider
+      showValueLabel: false
       value: typeof rangeItem.parent.value === 'numeric' || typeof rangeItem.parent.value === 'number' ? rangeItem.parent.value : slider.value
       width: sliderRow.width - valueLabel.width
       height: fontMetrics.height + 20
@@ -208,32 +212,11 @@ EditorWidgetBase {
           rangeItem.valueChangeRequested(slider.value, false)
         }
       }
-
-      background: Rectangle {
-        x: slider.leftPadding
-        y: slider.topPadding + slider.availableHeight / 2 - height / 2
-        implicitWidth: slider.width
-        implicitHeight: slider.height * 0.1
-        width: slider.availableWidth
-        height: implicitHeight
-        radius: 4
-        color:  Theme.lightGray
-      }
-
-      handle: Rectangle {
-        x: slider.leftPadding + slider.visualPosition * (slider.availableWidth - width)
-        y: slider.topPadding + slider.availableHeight / 2 - height / 2
-        implicitWidth: 26
-        implicitHeight: 26
-        radius: 13
-        color: slider.enabled ? Theme.mainColor : Theme.lightGray
-        border.color: Theme.lightGray
-      }
     }
   }
 
   Rectangle {
-    y: textField.height - height - textField.bottomPadding / 2
+    y: sliderRow.height - height
     visible: widgetStyle === "Slider"
     width: sliderRow.width
     implicitWidth: 120

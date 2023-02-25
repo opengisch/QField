@@ -177,6 +177,11 @@ Rectangle {
     property bool isVisible: false
   }
 
+  Rectangle {
+    anchors.fill: parent
+    color: Theme.mainBackgroundColor
+  }
+
   ListView {
     id: globalFeaturesList
 
@@ -207,12 +212,13 @@ Rectangle {
       Rectangle {
         width: parent.width
         height: 30
-        color: Theme.lightestGray
+        color: Theme.controlBorderColor
 
         Text {
           anchors { horizontalCenter: parent.horizontalCenter; verticalCenter: parent.verticalCenter }
           font.bold: true
           font.pointSize: Theme.resultFont.pointSize
+          color: Theme.mainTextColor
           text: section
         }
       }
@@ -226,6 +232,7 @@ Rectangle {
       }
       focus: true
       height: Math.max( 48, featureText.height )
+      color: "transparent"
 
       Ripple {
           clip: true
@@ -252,6 +259,7 @@ Rectangle {
         }
         font.bold: true
         font.pointSize: Theme.resultFont.pointSize
+        color: Theme.mainTextColor
         text: display
       }
 
@@ -304,7 +312,7 @@ Rectangle {
       Rectangle {
         anchors.bottom: parent.bottom
         height: 1
-        color: "lightGray"
+        color: Theme.controlBorderColor
         width: parent.width
       }
     }
@@ -313,7 +321,7 @@ Rectangle {
     Rectangle {
       anchors.bottom: parent.bottom
       height: 1
-      color: "lightGray"
+      color: Theme.controlBorderColor
       width: parent.width
     }
 
