@@ -170,6 +170,7 @@ Popup {
                     anchors.verticalCenter: parent.verticalCenter
                     text: positioningDeviceType.currentText
                     font: Theme.defaultFont
+                    color: Theme.mainTextColor
                     horizontalAlignment: Text.AlignLeft
                     verticalAlignment: Text.AlignVCenter
                     elide: Text.ElideRight
