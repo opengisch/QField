@@ -2,13 +2,13 @@
 host = https://www.transifex.com
 lang_map = zh-Hant: zh_TW
 
-[qfield-for-qgis.qfield]
+[o:opengisch:p:qfield-for-qgis:r:qfield]
 file_filter = i18n/qfield_<lang>.ts
 source_file = i18n/qfield_en.ts
 source_lang = en
 type = QT
 
-[qfield-for-qgis.qfield_android]
+[o:opengisch:p:qfield-for-qgis:r:qfield_android]
 file_filter = platform/android/res/values-<lang>/strings.xml
 source_file = platform/android/res/values/strings.xml
 source_lang = en
