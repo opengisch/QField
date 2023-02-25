@@ -310,6 +310,7 @@ EditorWidgetBase {
         iconSource: player.playbackState == MediaPlayer.PlayingState
                     ? Theme.getThemeVectorIcon('ic_pause_black_24dp')
                     : Theme.getThemeVectorIcon('ic_play_black_24dp')
+        iconColor: Theme.mainTextColor
         bgcolor: "transparent"
 
         onClicked: {
@@ -340,7 +341,7 @@ EditorWidgetBase {
         Layout.preferredWidth: durationLabelMetrics.boundingRect('00:00:00').width
         Layout.rightMargin: 14
 
-        color: player.playbackState == MediaPlayer.PlayingState ? 'black' : 'gray'
+        color: player.playbackState == MediaPlayer.PlayingState ? Theme.mainTextColor : Theme.mainTextDisabledColor
         font: Theme.tipFont
         horizontalAlignment: Text.AlignHCenter
         verticalAlignment: Text.AlignVCenter
