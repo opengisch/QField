@@ -20,6 +20,7 @@ Page {
   property alias nativeCamera: registry.nativeCamera
   property alias autoSave: registry.autoSave
   property alias mouseAsTouchScreen: registry.mouseAsTouchScreen
+  property alias useDarkTheme: registry.useDarkTheme
   property alias enableInfoCollection: registry.enableInfoCollection
 
   Settings {
@@ -32,6 +33,7 @@ Page {
     property bool nativeCamera: platformUtilities.capabilities & PlatformUtilities.NativeCamera
     property bool autoSave: false
     property bool mouseAsTouchScreen: false
+    property bool useDarkTheme: false
     property bool enableInfoCollection: true
 
     onEnableInfoCollectionChanged: {
@@ -40,6 +42,10 @@ Page {
       } else {
         iface.closeSentry();
       }
+    }
+
+    onUseDarkThemeChanged: {
+      Theme.darkTheme = useDarkTheme;
     }
   }
 
@@ -88,6 +94,11 @@ Page {
           title: qsTr( "Send anonymized metrics" )
           description: qsTr( "If enabled, anonymized metrics will be collected and sent to help improve QField for everyone." )
           settingAlias: "enableInfoCollection"
+      }
+      ListElement {
+          title: qsTr( "Use dark theme" )
+          description: qsTr( "If enabled, the user interface will use a dark colored palette to style controls." )
+          settingAlias: "useDarkTheme"
       }
       Component.onCompleted: {
           for (var i = 0; i < settingsModel.count; i++) {
