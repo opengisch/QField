@@ -17,13 +17,15 @@ Rectangle {
 
   property int ceilsCount: 4
   property double rowHeight: 30
-  property color backgroundColor: "white"
+  property color backgroundColor: Theme.mainBackgroundColor
   property color alternateBackgroundColor: Theme.navigationBackgroundColor
-  property color textColor: "black"
+  property color textColor: Theme.mainTextColor
 
   height: childrenRect.height
   width: parent.width
   anchors.margins: 20
+
+  color: Theme.mainBackgroundColor
 
   Timer {
     id: featureVertexTimer

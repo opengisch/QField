@@ -46,7 +46,7 @@ ApplicationWindow {
   property double sceneTopMargin: platformUtilities.sceneMargins(mainWindow)["top"]
   property double sceneBottomMargin: platformUtilities.sceneMargins(mainWindow)["bottom"]
 
-  Timer{
+  Timer {
     id: refreshSceneMargins
     running: false
     repeat: false

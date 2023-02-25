@@ -28,7 +28,7 @@ Item {
 
   Rectangle {
     anchors.fill: parent
-    color: "white"
+    color: Theme.mainBackgroundColor
   }
 
   Row {
@@ -39,6 +39,7 @@ Item {
     Rectangle {
       width: labelTarget.contentWidth
       height: preciseElevation.height
+      color: "transparent"
       Text {
         id: labelTarget
         anchors.centerIn: parent
@@ -153,7 +154,7 @@ Item {
       }
       ShapePath {
         strokeWidth: hasReachedTarget ? 3 : 1
-        strokeColor: hasReachedTarget ? Theme.mainColor : "#000000"
+        strokeColor: hasReachedTarget ? Theme.mainColor : Theme.mainTextColor
         strokeStyle: ShapePath.SolidLine
         fillColor: "transparent"
         startX: 0
@@ -175,7 +176,7 @@ Item {
         color: Theme.navigationColor
         font: Theme.tinyFont
         style: Text.Outline
-        styleColor: "white"
+        styleColor: Theme.mainBackgroundColor
         text: '0'
       }
       Text {
@@ -185,7 +186,7 @@ Item {
         color: Theme.navigationColor
         font: Theme.tinyFont
         style: Text.Outline
-        styleColor: "white"
+        styleColor: Theme.mainBackgroundColor
         text: '90'
       }
       Text {
@@ -195,7 +196,7 @@ Item {
         color: Theme.navigationColor
         font: Theme.tinyFont
         style: Text.Outline
-        styleColor: "white"
+        styleColor: Theme.mainBackgroundColor
         text: '180'
       }
       Text {
@@ -205,7 +206,7 @@ Item {
         color: Theme.navigationColor
         font: Theme.tinyFont
         style: Text.Outline
-        styleColor: "white"
+        styleColor: Theme.mainBackgroundColor
         text: '270'
       }
 
@@ -223,7 +224,7 @@ Item {
         anchors.top: parent.top
         anchors.right: parent.right
         font: Theme.tinyFont
-        color: hasZ ? Theme.navigationColor : "#000000"
+        color: hasZ ? Theme.navigationColor : Theme.secondaryTextColor
         text: positiveLabel
       }
       Text {
@@ -231,7 +232,7 @@ Item {
         anchors.bottom: parent.bottom
         anchors.right: parent.right
         font: Theme.tinyFont
-        color: hasZ ? Theme.navigationColor : "#000000"
+        color: hasZ ? Theme.navigationColor : Theme.secondaryTextColor
         text: negativeLabel
       }
     }
@@ -243,7 +244,7 @@ Item {
       radius: 7
       opacity: hasZ ? 1 : 0.25
       color: "transparent"
-      border.color: "#000000"
+      border.color: Theme.mainTextColor
       border.width: 1
 
       Rectangle {
@@ -251,7 +252,7 @@ Item {
         y: parent.height / 2
         width: parent.width - 2
         height: 1
-        color: hasZ ? Theme.navigationColorSemiOpaque : "#000000"
+        color: hasZ ? Theme.navigationColorSemiOpaque : Theme.mainTextColor
       }
 
       Shape {
@@ -304,10 +305,10 @@ Item {
         x: -contentWidth - 10
         y: (preciseElevation.height - height) / 2 + positionZ
         visible: hasZ
-        color: "black"
+        color: Theme.mainTextColor
         font: Theme.strongTipFont
         style: Text.Outline
-        styleColor: Theme.light
+        styleColor: Theme.mainBackgroundColor
 
         property int decimals: navigation.verticalDistance >= 1000 ? 3 : navigation.verticalDistance >= 0.1 ? 2 : 1
         text: navigation.verticalDistance != 0.0 ? UnitTypes.formatDistance(navigation.verticalDistance, decimals, navigation.distanceUnits) : 0
@@ -371,7 +372,7 @@ Item {
 
     ShapePath {
       strokeWidth: 2
-      strokeColor: "#000000"
+      strokeColor: Theme.mainTextColor
       strokeStyle: ShapePath.SolidLine
       fillColor: "transparent"
       startX: preciseHorizontalPosition.width / 2
@@ -391,10 +392,10 @@ Item {
     x: positionCenter.x + positionX + (positionX >= 0 ? -contentWidth - 10 : preciseHorizontalPosition.width / 2)
     y: positionCenter.y + positionY + (positionY >= 0 ? -preciseHorizontalPosition.height : preciseHorizontalPosition.height / 2)
 
-    color: "black"
+    color: Theme.mainTextColor
     font: Theme.strongTipFont
     style: Text.Outline
-    styleColor: Theme.light
+    styleColor: Theme.mainBackgroundColor
 
     property int decimals: navigation.distance >= 1000 ? 3 : navigation.distance >= 0.10 ? 2 : 1
     text: qsTr('Dist.') + ': ' + UnitTypes.formatDistance( navigation.distance, decimals, navigation.distanceUnits )
@@ -423,7 +424,7 @@ Item {
       wrapMode: Text.WordWrap
       text: qsTr('Positioning accuracy too low for this precision level')
       style: Text.Outline
-      styleColor: "white"
+      styleColor: Theme.mainBackgroundColor
     }
   }
 

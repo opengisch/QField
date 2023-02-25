@@ -29,7 +29,7 @@ QtObject {
 
     readonly property color positionColor: "#64b5f6"
     readonly property color positionColorSemiOpaque: "#3364b5f6"
-    readonly property color positionBackgroundColor: "#e6f2fd"
+    readonly property color positionBackgroundColor: "#3364b5f6"
     readonly property color darkPositionColor: "#2374b5"
     readonly property color darkPositionColorSemiOpaque: "#882374b5"
 
@@ -38,8 +38,8 @@ QtObject {
     readonly property color accuracyExcellent: "#80cc28"
 
     readonly property color navigationColor: "#984ea3"
-    readonly property color navigationColorSemiOpaque: "#77984ea3"
-    readonly property color navigationBackgroundColor: "#e2d7e4"
+    readonly property color navigationColorSemiOpaque: "#99984ea3"
+    readonly property color navigationBackgroundColor: "#33984ea3"
 
     readonly property color bookmarkDefault: "#80cc28"
     readonly property color bookmarkOrange: "orange"
