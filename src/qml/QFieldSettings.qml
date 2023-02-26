@@ -361,6 +361,48 @@ Page {
 
                       Label {
                           Layout.fillWidth: true
+                          text: qsTr( "User interface font size:" )
+                          font: Theme.defaultFont
+                          color: Theme.mainTextColor
+
+                          wrapMode: Text.WordWrap
+                      }
+
+                      ComboBox {
+                          id: fontScaleComboBox
+                          enabled: true
+                          Layout.fillWidth: true
+                          Layout.alignment: Qt.AlignVCenter
+                          font: Theme.defaultFont
+                          popup.font: Theme.defaultFont
+
+                          model: ListModel {
+                            ListElement { name: qsTr('Tiny'); value: 0.75 }
+                            ListElement { name: qsTr('Normal'); value: 1.0 }
+                            ListElement { name: qsTr('Large'); value: 1.5 }
+                            ListElement { name: qsTr('Extra-large'); value: 2.0 }
+                          }
+                          textRole: "name"
+                          valueRole: "value"
+
+                          property bool initialized: false
+
+                          onCurrentValueChanged: {
+                              if (initialized) {
+                                settings.setValue("fontScale", currentValue)
+                                Theme.applyFontScale()
+                              }
+                          }
+
+                          Component.onCompleted: {
+                              var fontScale = settings.value("fontScale", 1.0)
+                              currentIndex = indexOfValue(fontScale)
+                              initialized = true
+                          }
+                      }
+
+                      Label {
+                          Layout.fillWidth: true
                           text: qsTr( "User interface language:" )
                           font: Theme.defaultFont
                           color: Theme.mainTextColor

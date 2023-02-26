@@ -52,14 +52,16 @@ QtObject {
     readonly property color accentColor: '#4CAF50'
     readonly property color accentLightColor: '#994CAF50'
 
-    property font defaultFont: Qt.font({pointSize: systemFontPointSize, weight: Font.Normal})
-    property font tinyFont: Qt.font({pointSize: systemFontPointSize * 0.75, weight: Font.Normal})
-    property font tipFont: Qt.font({pointSize: systemFontPointSize * 0.875, weight: Font.Normal})
-    property font resultFont: Qt.font({pointSize: systemFontPointSize * 0.8125, weight: Font.Normal})
-    property font strongFont: Qt.font({pointSize: systemFontPointSize, bold: true, weight: Font.Bold})
-    property font strongTipFont: Qt.font({pointSize: systemFontPointSize * 0.875, bold: true, weight: Font.Bold})
-    property font secondaryTitleFont: Qt.font({pointSize: systemFontPointSize * 1.125, weight: Font.Normal})
-    property font titleFont: Qt.font({pointSize: systemFontPointSize * 1.25, weight: Font.Normal})
+    property real fontScale: 1.0
+
+    property font defaultFont: Qt.font({pointSize: systemFontPointSize * fontScale, weight: Font.Normal})
+    property font tinyFont: Qt.font({pointSize: systemFontPointSize * fontScale * 0.75, weight: Font.Normal})
+    property font tipFont: Qt.font({pointSize: systemFontPointSize * fontScale * 0.875, weight: Font.Normal})
+    property font resultFont: Qt.font({pointSize: systemFontPointSize * fontScale * 0.8125, weight: Font.Normal})
+    property font strongFont: Qt.font({pointSize: systemFontPointSize * fontScale, bold: true, weight: Font.Bold})
+    property font strongTipFont: Qt.font({pointSize: systemFontPointSize * fontScale * 0.875, bold: true, weight: Font.Bold})
+    property font secondaryTitleFont: Qt.font({pointSize: systemFontPointSize * fontScale * 1.125, weight: Font.Normal})
+    property font titleFont: Qt.font({pointSize: systemFontPointSize * fontScale * 1.25, weight: Font.Normal})
 
     readonly property int popupScreenEdgeMargin: 40
 
@@ -121,8 +123,13 @@ QtObject {
       }
     }
 
+    function applyFontScale() {
+      fontScale = settings.value('fontScale', 1.0)
+    }
+
     Component.onCompleted: {
       applyAppearance()
+      applyFontScale()
     }
 }
 
