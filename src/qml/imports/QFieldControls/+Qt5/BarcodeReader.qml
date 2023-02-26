@@ -15,6 +15,7 @@ Popup {
 
   property var barcodeRequestedItem: undefined //<! when a feature form is requesting a bardcode, this will be set to attribute editor widget which triggered the request
   property int popupWidth: mainWindow.width <= mainWindow.height ? mainWindow.width - Theme.popupScreenEdgeMargin : mainWindow.height - Theme.popupScreenEdgeMargin
+  property bool openedOnce: false
 
   width: popupWidth
   height: Math.min(mainWindow.height - Theme.popupScreenEdgeMargin, popupWidth + toolBar.height + acceptButton.height)
@@ -27,11 +28,12 @@ Popup {
   dim: true
 
   onAboutToShow: {
+    openedOnce = true
     barcodeDecoder.clearDecodedString();
   }
 
   onAboutToHide: {
-    camera.flash.mode = Camera.FlashOff;
+    cameraLoader.item.flash.mode = Camera.FlashOff;
   }
 
   BarcodeDecoder {
@@ -44,17 +46,31 @@ Popup {
     }
   }
 
-  Camera {
-    id: camera
-    position: Camera.BackFace
-    cameraState: barcodeReader.visible ? Camera.ActiveState : Camera.UnloadedState
+  Loader {
+    id: cameraLoader
+    sourceComponent: cameraComponent
+    active: barcodeReader.openedOnce
+  }
 
-    focus {
+  Component {
+    id: cameraComponent
+
+    Camera {
+      id: camera
+      position: Camera.BackFace
+      cameraState: barcodeReader.visible ? Camera.ActiveState : Camera.UnloadedState
+
+      focus {
         focusMode: Camera.FocusContinuous
         focusPointMode: Camera.FocusPointCenter
-    }
+      }
 
-    flash.mode: Camera.FlashOff
+      flash.mode: Camera.FlashOff
+
+      Component.onCompleted: {
+        videoOutput.source = camera
+      }
+    }
   }
 
   Page {
@@ -89,6 +105,7 @@ Popup {
           Layout.rightMargin: 10
           Layout.alignment: Qt.AlignVCenter
           iconSource: Theme.getThemeIcon( 'ic_close_black_24dp' )
+          iconColor: Theme.mainTextColor
           bgcolor: "transparent"
 
           onClicked: {
@@ -111,10 +128,11 @@ Popup {
         clip: true
 
         VideoOutput {
+          id: videoOutput
+
           anchors.fill: parent
           anchors.margins: 6
 
-          source: camera
           autoOrientation: true
           fillMode: VideoOutput.PreserveAspectCrop
 
@@ -204,8 +222,8 @@ Popup {
           iconSource: Theme.getThemeVectorIcon( 'ic_flashlight_white_48dp' )
           bgcolor: Qt.hsla(Theme.darkGray.hslHue, Theme.darkGray.hslSaturation, Theme.darkGray.hslLightness, 0.3)
 
-          visible: camera.flash.supportedModes.includes(Camera.FlashVideoLight)
-          state: camera.flash.mode !== Camera.FlashOff ? "On" : "Off"
+          visible: cameraLoader.active && cameraLoader.item.flash.supportedModes.includes(Camera.FlashVideoLight)
+          state: cameraLoader.active && cameraLoader.item.flash.mode !== Camera.FlashOff ? "On" : "Off"
           states: [
             State {
               name: "Off"
@@ -227,9 +245,9 @@ Popup {
           ]
 
           onClicked: {
-            camera.flash.mode = camera.flash.mode === Camera.FlashOff
-                                ? Camera.FlashVideoLight
-                                : Camera.FlashOff;
+            cameraLoader.item.flash.mode = camera.flash.mode === Camera.FlashOff
+                                           ? Camera.FlashVideoLight
+                                           : Camera.FlashOff;
           }
         }
       }
@@ -245,18 +263,20 @@ Popup {
                 ? barcodeDecoder.decodedString
                 : qsTr( 'Center your camera on a code')
           font: Theme.tipFont
+          color: Theme.mainTextColor
           horizontalAlignment: Text.AlignLeft
           elide: Text.ElideMiddle
-          opacity: barcodeDecoder.decodedString !== '' ? 1 : 0.2
+          opacity: barcodeDecoder.decodedString !== '' ? 1 : 0.45
         }
 
         QfToolButton {
           id: acceptButton
           Layout.alignment: Qt.AlignVCenter
           iconSource: Theme.getThemeIcon( 'ic_check_black_48dp' )
+          iconColor: Theme.mainTextColor
           bgcolor: "transparent"
           enabled: barcodeDecoder.decodedString !== ''
-          opacity: enabled ? 1 : 0.2
+          opacity: enabled ? 1 : 0.25
 
           onClicked: {
             if (barcodeReader.barcodeRequestedItem != undefined) {
