@@ -562,9 +562,10 @@ EditorWidgetBase {
   Component {
     id: cameraComponent
 
-    Popup {
-      id: cameraPopup
-      z: 10000 // 1000s are embedded feature forms, use a higher value to insure feature form popups always show above embedded feature forms
+    QFieldCamera {
+      id: qfieldCamera
+      visible: false
+      parent: ApplicationWindow.overlay
 
       Component.onCompleted: {
         if (isVideo) {
@@ -580,43 +581,30 @@ EditorWidgetBase {
         }
       }
 
-      parent: ApplicationWindow.overlay
+      onFinished: {
+        var filepath = getResourceFilePath()
+        var extension = path.substring(path.lastIndexOf('.') + 1)
+        filepath = filepath.replace('{extension}', extension)
+        platformUtilities.renameFile(path, prefixToRelativePath + filepath)
 
-      x: 0
-      y: 0
-      height: parent.height
-      width: parent.width
-
-      modal: true
-      focus: true
-
-      QFieldCamera {
-        id: qfieldCamera
-
-        visible: true
-
-        onFinished: {
-          var filepath = getResourceFilePath()
-          var extension = path.substring(path.lastIndexOf('.') + 1)
-          filepath = filepath.replace('{extension}', extension)
-          platformUtilities.renameFile(path, prefixToRelativePath + filepath)
-
-          if (!cameraLoader.isVideo) {
-            var maximumWidhtHeight = iface.readProjectNumEntry("qfieldsync", "maximumImageWidthHeight", 0)
-            if(maximumWidhtHeight > 0) {
-              iface.restrictImageSize(prefixToRelativePath + filepath, maximumWidhtHeight)
-            }
+        if (!cameraLoader.isVideo) {
+          var maximumWidhtHeight = iface.readProjectNumEntry("qfieldsync", "maximumImageWidthHeight", 0)
+          if(maximumWidhtHeight > 0) {
+            iface.restrictImageSize(prefixToRelativePath + filepath, maximumWidhtHeight)
           }
-
-          valueChangeRequested(filepath, false)
-          cameraPopup.close()
         }
 
-        onCanceled: {
-          cameraPopup.close()
-        }
+        valueChangeRequested(filepath, false)
+        close()
       }
-      onClosed: cameraLoader.active = false
+
+      onCanceled: {
+        close()
+      }
+
+      onClosed: {
+        cameraLoader.active = false
+      }
     }
   }
 
