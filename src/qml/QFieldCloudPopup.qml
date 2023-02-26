@@ -47,6 +47,7 @@ Popup {
       Text {
         Layout.fillWidth: true
         font: Theme.defaultFont
+        color: Theme.mainTextColor
         text: qsTr('The current project is not stored on QFieldCloud.<br><br>') +
               qsTr('Storing projects on QFieldCloud offers seamless synchornization, offline editing, and team management.<br><br>') +
               ' <a href="https://qfield.cloud/">' + qsTr( 'Learn more about QFieldCloud' ) + '</a>.'
@@ -94,6 +95,7 @@ Popup {
                   }
               wrapMode: Text.WordWrap
               font: Theme.tipFont
+              color: Theme.mainTextColor
           }
 
           Rectangle {
@@ -166,7 +168,7 @@ Popup {
           id: wrongAccountText
           visible: cloudProjectsModel.currentProjectId != '' && cloudProjectsModel.currentProjectId !== cloudProjectsModel.currentProjectData.Id
           font: Theme.tipFont
-          color: Theme.gray
+          color: Theme.secondaryTextColor
           text: qsTr('This QFieldCloud project was first downloaded with another cloud account. Please sign in with the original account for this project to use the QFieldCloud functionality.')
 
           wrapMode: Text.WordWrap
@@ -181,7 +183,7 @@ Popup {
           visible: cloudProjectsModel.currentProjectData.Status === QFieldCloudProjectsModel.Downloading ||
                    cloudProjectsModel.currentProjectData.Status === QFieldCloudProjectsModel.Uploading
           font: Theme.tipFont
-          color: Theme.gray
+          color: Theme.secondaryTextColor
           text: switch(cloudProjectsModel.currentProjectData.Status ) {
                   case QFieldCloudProjectsModel.Downloading:
                     switch ( cloudProjectsModel.currentProjectData.PackagingStatus ) {
@@ -335,7 +337,7 @@ Popup {
             property int changesCount: cloudProjectsModel.layerObserver.deltaFileWrapper.count
             id: changesText
             font: Theme.tipFont
-            color: hasError ? Theme.errorColor : Theme.gray
+            color: hasError ? Theme.errorColor : Theme.mainTextColor
             text: {
               if (!hasError) {
                 return changesCount !== 0
@@ -367,7 +369,7 @@ Popup {
           Text {
             id: syncText
             font: Theme.tipFont
-            color: Theme.gray
+            color: Theme.secondaryTextColor
             visible: !cloudProjectsModel.layerObserver.deltaFileWrapper.hasError()
             text: qsTr('Synchronize the whole project with all modified features and download the freshly updated project with all the applied changes from QFieldCloud.')
             wrapMode: Text.WordWrap
@@ -392,7 +394,7 @@ Popup {
           Text {
             id: pushText
             font: Theme.tipFont
-            color: Theme.gray
+            color: Theme.secondaryTextColor
             visible: !cloudProjectsModel.layerObserver.deltaFileWrapper.hasError()
             text: qsTr('Save internet bandwidth by only pushing the local features and pictures to the cloud, without updating the whole project.')
             wrapMode: Text.WordWrap
@@ -424,7 +426,7 @@ Popup {
           Text {
             id: discardText
             font: Theme.tipFont
-            color: Theme.gray
+            color: Theme.secondaryTextColor
             text: !cloudProjectsModel.layerObserver.deltaFileWrapper.hasError()
                   ? qsTr('Revert all modified features in the local layers. You cannot restore those changes.')
                   : qsTr('The local copy of this cloud project has been corrupted. Resetting the project will re-download the cloud version and will remove any local changes, make sure those were copied first if needed.\n\nWhile you can still view and use the project, it is strongly recommended to reset to avoid any accidental data loss as none of the changes made will be pushed back to the cloud.')
@@ -435,7 +437,7 @@ Popup {
           }
 
           Rectangle {
-            color: Theme.lightGray
+            color: Theme.controlBorderColor
             height: 1
             Layout.fillWidth: true
             Layout.leftMargin: 10
@@ -446,7 +448,7 @@ Popup {
           Text {
             id: lastExportPushText
             font: Theme.tipFont
-            color: Theme.gray
+            color: Theme.secondaryTextColor
             text: {
               var exportText = ''
               var dt = cloudProjectsModel.currentProjectData.LastLocalExportedAt
