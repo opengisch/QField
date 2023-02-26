@@ -16,7 +16,7 @@ RoundButton {
   property bool round: false
   property bool roundborder: false
   property alias bgcolor: backgroundRectangle.color
-  property alias borderColor: backgroundRectangle.border.color
+  property color borderColor: 'transparent'
 
   width: 48
   height: 48
@@ -34,7 +34,7 @@ RoundButton {
     implicitWidth: 100
     implicitHeight: 25
     border.width: round && roundborder ? height / 6 : !round
-    border.color: backgroundRectangle.color
+    border.color: button.borderColor
     color: 'transparent'
     radius: round ? height / 2 : 0
 
@@ -69,6 +69,7 @@ RoundButton {
     }
   }
 
+  icon.source: ""
   icon.color: "transparent"
 
   Rectangle {
