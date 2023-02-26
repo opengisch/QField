@@ -120,5 +120,9 @@ QtObject {
         darkTheme = true
       }
     }
+
+    Component.onCompleted: {
+      applyAppearance()
+    }
 }
 

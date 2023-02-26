@@ -43,10 +43,6 @@ ApplicationWindow {
   Material.theme: Theme.darkTheme ? "Dark" : "Light"
   Material.accent: Theme.mainColor
 
-  Component.onCompleted: {
-    Theme.applyAppearance();
-  }
-
   property double sceneTopMargin: platformUtilities.sceneMargins(mainWindow)["top"]
   property double sceneBottomMargin: platformUtilities.sceneMargins(mainWindow)["bottom"]
 
