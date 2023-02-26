@@ -412,7 +412,7 @@ Page {
                 visible: parent.count == 0
                 text: table.refreshing ? qsTr("Refreshing projects list") : qsTr("No projects found")
                 font: Theme.strongTipFont
-                color: Theme.gray
+                color: Theme.secondaryTextColor
             }
 
             MouseArea {

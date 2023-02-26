@@ -61,6 +61,7 @@ Popup {
               right: parent.right
             }
             iconSource: Theme.getThemeIcon( 'ic_close_black_24dp' )
+            iconColor: Theme.mainTextColor
             bgcolor: "white"
 
             onClicked: {
@@ -98,7 +99,7 @@ Popup {
                               return dt.toLocaleString()
                             }
                             font: Theme.defaultFont
-                            color: "black"
+                            color: Theme.mainTextColor
                             wrapMode: Text.WordWrap
                         }
 
@@ -131,7 +132,7 @@ Popup {
                                 return 'Status: ' + status + ( Output != '' ? ' (' + Output + ')' : '' )
                               }
                             font: Theme.tipFont
-                            color: Theme.gray
+                            color: Theme.secondaryTextColor
                             wrapMode: Text.WordWrap
                         }
                     }

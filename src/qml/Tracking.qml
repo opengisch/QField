@@ -410,7 +410,7 @@ Item {
             Label {
               text: qsTr( "When enabled, vertices with only be recorded when both active constraints are met. If the setting is disabled, individual constraints met will trigger a vertex addition." )
               font: Theme.tipFont
-              color: Theme.gray
+              color: Theme.secondaryTextColor
               textFormat: Qt.RichText
               wrapMode: Text.WordWrap
               Layout.fillWidth: true
@@ -422,7 +422,7 @@ Item {
             Label {
               text: qsTr( "When both constraints are disabled, vertex additions will occur as frequently as delivered by the positioning device." )
               font: Theme.tipFont
-              color: Theme.gray
+              color: Theme.secondaryTextColor
               textFormat: Qt.RichText
               wrapMode: Text.WordWrap
               Layout.fillWidth: true
@@ -486,7 +486,7 @@ Item {
                 Layout.fillWidth: true
                 text: qsTr( "To active the measurement functionality, make sure the vector layer's geometry type used for the tracking session has an M dimension." )
                 font: Theme.tipFont
-                color: Theme.gray
+                color: Theme.secondaryTextColor
 
                 wrapMode: Text.WordWrap
             }
