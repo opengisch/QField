@@ -694,6 +694,16 @@ void AndroidPlatformUtilities::uploadPendingAttachments( QFieldCloudConnection *
   } );
 }
 
+bool AndroidPlatformUtilities::isSystemDarkTheme() const
+{
+  if ( mActivity.isValid() )
+  {
+    bool isDarkTheme = mActivity.callMethod<jboolean>( "isDarkTheme" ) == JNI_TRUE;
+    return isDarkTheme;
+  }
+  return false;
+}
+
 #ifdef __cplusplus
 extern "C" {
 #endif

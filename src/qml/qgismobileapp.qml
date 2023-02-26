@@ -40,8 +40,12 @@ ApplicationWindow {
          (Qt.platform.os === "ios" ? Qt.MaximizeUsingFullscreenGeometryHint : 0) |
          (Qt.platform.os !== "ios" && Qt.platform.os !== "android" ? Qt.WindowMinMaxButtonsHint | Qt.WindowCloseButtonHint : 0)
 
-  Material.theme: qfieldSettings.useDarkTheme ? "Dark" : "Light"
+  Material.theme: Theme.darkTheme ? "Dark" : "Light"
   Material.accent: Theme.mainColor
+
+  Component.onCompleted: {
+    Theme.applyAppearance();
+  }
 
   property double sceneTopMargin: platformUtilities.sceneMargins(mainWindow)["top"]
   property double sceneBottomMargin: platformUtilities.sceneMargins(mainWindow)["bottom"]

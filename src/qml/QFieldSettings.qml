@@ -20,7 +20,6 @@ Page {
   property alias nativeCamera: registry.nativeCamera
   property alias autoSave: registry.autoSave
   property alias mouseAsTouchScreen: registry.mouseAsTouchScreen
-  property alias useDarkTheme: registry.useDarkTheme
   property alias enableInfoCollection: registry.enableInfoCollection
 
   Settings {
@@ -33,7 +32,6 @@ Page {
     property bool nativeCamera: platformUtilities.capabilities & PlatformUtilities.NativeCamera
     property bool autoSave: false
     property bool mouseAsTouchScreen: false
-    property bool useDarkTheme: false
     property bool enableInfoCollection: true
 
     onEnableInfoCollectionChanged: {
@@ -42,10 +40,6 @@ Page {
       } else {
         iface.closeSentry();
       }
-    }
-
-    onUseDarkThemeChanged: {
-      Theme.darkTheme = useDarkTheme;
     }
   }
 
@@ -94,11 +88,6 @@ Page {
           title: qsTr( "Send anonymized metrics" )
           description: qsTr( "If enabled, anonymized metrics will be collected and sent to help improve QField for everyone." )
           settingAlias: "enableInfoCollection"
-      }
-      ListElement {
-          title: qsTr( "Use dark theme" )
-          description: qsTr( "If enabled, the user interface will use a dark colored palette to style controls." )
-          settingAlias: "useDarkTheme"
       }
       Component.onCompleted: {
           for (var i = 0; i < settingsModel.count; i++) {
@@ -328,6 +317,47 @@ Page {
                       columns: 1
                       columnSpacing: 0
                       rowSpacing: 5
+
+                      Label {
+                          Layout.fillWidth: true
+                          text: qsTr( "User interface appearance:" )
+                          font: Theme.defaultFont
+                          color: Theme.mainTextColor
+
+                          wrapMode: Text.WordWrap
+                      }
+
+                      ComboBox {
+                          id: appearanceComboBox
+                          enabled: true
+                          Layout.fillWidth: true
+                          Layout.alignment: Qt.AlignVCenter
+                          font: Theme.defaultFont
+                          popup.font: Theme.defaultFont
+
+                          model: ListModel {
+                            ListElement { name: qsTr('Follow system appearance'); value: 'system' }
+                            ListElement { name: qsTr('Light theme'); value: 'light' }
+                            ListElement { name: qsTr('Dark theme'); value: 'dark' }
+                          }
+                          textRole: "name"
+                          valueRole: "value"
+
+                          property bool initialized: false
+
+                          onCurrentValueChanged: {
+                              if (initialized) {
+                                settings.setValue("appearance", currentValue)
+                                Theme.applyAppearance()
+                              }
+                          }
+
+                          Component.onCompleted: {
+                              var appearance = settings.value("appearance", 'system')
+                              currentIndex = indexOfValue(appearance)
+                              initialized = true
+                          }
+                      }
 
                       Label {
                           Layout.fillWidth: true

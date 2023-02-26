@@ -109,5 +109,16 @@ QtObject {
 
       return styles;
     }
+
+    function applyAppearance() {
+      var appearance = settings.value('appearance', 'system')
+      if (appearance === undefined || appearance === 'system') {
+        darkTheme = platformUtilities.isSystemDarkTheme()
+      } else if (appearance === 'light') {
+        darkTheme = false
+      } else if (appearance === 'dark') {
+        darkTheme = true
+      }
+    }
 }
 
