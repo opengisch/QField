@@ -114,7 +114,7 @@ EditorWidgetBase {
                 anchors.bottomMargin: label.bottomPadding / 2
                 border.color: label.activeFocus ? Theme.accentColor : Theme.accentLightColor
                 border.width: label.activeFocus ? 2 : 1
-                color: enabled ? Theme.controlBackgroundColor : "transparent"
+                color: enabled ? Theme.controlBackgroundAlternateColor : "transparent"
                 radius: 2
                 visible: enabled
             }

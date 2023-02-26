@@ -94,7 +94,7 @@ EditorWidgetBase {
         id: backgroundRect
         border.color: comboBox.pressed ? Theme.accentColor : Theme.accentLightColor
         border.width: comboBox.visualFocus ? 2 : 1
-        color: Theme.controlBackgroundColor
+        color: Theme.controlBackgroundAlternateColor
         radius: 2
       }
     }

@@ -13,6 +13,7 @@ QtObject {
     readonly property color secondaryTextColor: darkTheme? "#AAAAAA" : "#999999"
 
     readonly property color controlBackgroundColor: darkTheme ? "#202020" : "#ffffff"
+    readonly property color controlBackgroundAlternateColor: darkTheme ? "#202020" : "#e6e6e6" // used by feature form editor widgets
     readonly property color controlBackgroundDisabledColor: "#33555555"
     readonly property color controlBorderColor: darkTheme ? "#404040" : "#e6e6e6"
 

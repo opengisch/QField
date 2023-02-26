@@ -3,6 +3,8 @@ import QtQuick.Controls 2.14
 import QtQuick.Layouts 1.14
 
 Item {
+  id: wrapper
+
   property alias from: slider.from;
   property alias to: slider.to
   property alias stepSize: slider.stepSize
@@ -13,8 +15,6 @@ Item {
 
   signal moved
 
-  id: wrapper
-
   implicitHeight: childrenRect.height
 
   RowLayout {
@@ -22,9 +22,11 @@ Item {
     anchors.fill: parent
 
     Slider {
-      Layout.fillWidth: true
-
       id: slider
+
+      Layout.fillWidth: true
+      opacity: wrapper.enabled ? 1 : 0.5
+
       value: 50
       from: 0
       to: 100
@@ -33,12 +35,13 @@ Item {
     }
 
     Label {
+      id: suffix
+
       visible: showValueLabel
       Layout.maximumWidth: layout.width / 4
       // prevent the slider width to change as the number increases, if the number is up to three digits
       Layout.minimumWidth: suffixMetrics.width
 
-      id: suffix
       text: prefixText + value + suffixText
 
       font: Theme.tipFont
@@ -49,7 +52,6 @@ Item {
       id: suffixMetrics
       font: suffix.font
       text: prefixText + getSampleOfNumberOfLength(Math.min(slider.to, 999)) + suffixText
-
 
       function getSampleOfNumberOfLength(number) {
         return new Array(number.toString().length + 1).join(9)

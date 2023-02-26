@@ -172,7 +172,7 @@ Item {
                         anchors.margins: 10
                         height: radioButton.visible ? radioButton.height : checkBoxButton.height
                         width: parent ? parent.width : undefined
-                        color: model.checked ? Theme.mainColor : Theme.controlBackgroundColor
+                        color: model.checked ? Theme.mainColor : Theme.controlBackgroundAlternateColor
 
                         Row {
                             RadioButton {
@@ -328,7 +328,7 @@ Item {
                     anchors.fill: parent
                     border.color: comboBox.pressed ? Theme.accentColor : Theme.accentLightColor
                     border.width: comboBox.visualFocus ? 2 : 1
-                    color: Theme.controlBackgroundColor
+                    color: Theme.controlBackgroundAlternateColor
                     radius: 2
                 }
             }
@@ -493,7 +493,7 @@ Item {
 
             border.color: comboBox.pressed ? Theme.accentColor : Theme.accentLightColor
             border.width: comboBox.visualFocus ? 2 : 1
-            color: Theme.controlBackgroundColor
+            color: Theme.controlBackgroundAlternateColor
             radius: 2
 
             MouseArea {
