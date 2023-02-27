@@ -9,7 +9,7 @@ Button {
   id: button
 
   property color bgcolor: Theme.mainColor
-  property alias color: label.color
+  property color color: button.enabled ? Theme.controlBackgroundColor : Theme.mainTextDisabledColor
   property bool dropdown: false
 
   signal dropdownClicked
@@ -54,7 +54,7 @@ Button {
     display: parent.display
 
     icon: parent.icon
-    color: button.enabled ? "white" : "#99ffffff"
+    color: button.color
     font {
       pointSize: button.font.pointSize
     }
@@ -81,7 +81,7 @@ Button {
       width: 1.5
       height: parent.height - 16
 
-      color: Theme.mainTextColor
+      color: button.color
     }
 
     Canvas {
@@ -94,8 +94,8 @@ Button {
 
       onPaint: {
         var ctx = getContext("2d")
-        ctx.fillStyle = Theme.mainTextColor
-        ctx.strokeStyle = Theme.mainTextColor
+        ctx.fillStyle = button.color
+        ctx.strokeStyle = button.color
         ctx.lineWidth = 1
         ctx.moveTo(14, 15)
         ctx.lineTo(width - 16, 15)
