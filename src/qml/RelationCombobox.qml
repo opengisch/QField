@@ -124,32 +124,22 @@ Item {
                 }
             }
 
-            Rectangle {
-                id: clearButtonRect
+            QfToolButton {
+                id: clearButton
                 z: 1
                 width: fontMetrics.height
                 height: fontMetrics.height
                 anchors { top: searchField.top; right: searchField.right; topMargin: height - 7; rightMargin: height - 7 }
-                color: "transparent"
 
-                Image {
-                    id: clearButton
-                    z: 1
-                    width: 20
-                    height: 20
-                    source: Theme.getThemeIcon("ic_clear_black_18dp")
-                    sourceSize.width: 20 * screen.devicePixelRatio
-                    sourceSize.height: 20 * screen.devicePixelRatio
-                    fillMode: Image.PreserveAspectFit
-                    anchors.centerIn: clearButtonRect
-                    opacity: searchField.displayText.length > 0 ? 1 : 0.25
-                }
+                padding: 0
+                iconSource: Theme.getThemeIcon("ic_clear_black_18dp")
+                iconColor: Theme.mainTextColor
+                bgcolor: "transparent"
 
-                MouseArea {
-                    anchors.fill: parent
-                    onClicked: {
-                        searchField.text = '';
-                    }
+                opacity: searchField.displayText.length > 0 ? 1 : 0.25
+
+                onClicked: {
+                    searchField.text = '';
                 }
             }
 
@@ -182,7 +172,7 @@ Item {
                         anchors.margins: 10
                         height: radioButton.visible ? radioButton.height : checkBoxButton.height
                         width: parent ? parent.width : undefined
-                        color: model.checked ? Theme.mainColor : 'transparent'
+                        color: model.checked ? Theme.mainColor : Theme.controlBackgroundAlternateColor
 
                         Row {
                             RadioButton {
@@ -205,7 +195,7 @@ Item {
                                     verticalAlignment: Text.AlignVCenter
                                     leftPadding: parent.indicator.width + parent.spacing
                                     elide: Text.ElideRight
-                                    color: model.checked ? Theme.light : Theme.darkGray
+                                    color: model.checked ? Theme.light : Theme.mainTextColor
                                 }
                             }
 
@@ -224,7 +214,7 @@ Item {
                         Rectangle {
                             anchors.bottom: parent.bottom
                             height: 1
-                            color: "lightGray"
+                            color: Theme.controlBorderColor
                             width: resultsList.width
                         }
 
@@ -315,7 +305,7 @@ Item {
                 height: fontMetrics.height + 20
                 text: comboBox.displayText
                 font: comboBox.font
-                color: value === undefined || !enabled ? 'gray' : 'black'
+                color: value === undefined || !enabled ? Theme.mainTextDisabledColor : Theme.mainTextColor
                 horizontalAlignment: Text.AlignLeft
                 verticalAlignment: Text.AlignVCenter
                 elide: Text.ElideRight
@@ -338,7 +328,7 @@ Item {
                     anchors.fill: parent
                     border.color: comboBox.pressed ? Theme.accentColor : Theme.accentLightColor
                     border.width: comboBox.visualFocus ? 2 : 1
-                    color: Theme.lightGray
+                    color: Theme.controlBackgroundAlternateColor
                     radius: 2
                 }
             }
@@ -375,7 +365,7 @@ Item {
                 clip: true
                 elide: Text.ElideRight
 
-                color: value === undefined || !enabled ? 'gray' : searchableText.text === '' ? 'black' : 'gray'
+                color: value === undefined || !enabled ? Theme.mainTextDisabledColor : searchableText.text === '' ? Theme.mainTextColor : Theme.mainTextDisabledColor
             }
 
             TextField  {
@@ -394,7 +384,7 @@ Item {
                 horizontalAlignment: TextInput.AlignLeft
                 verticalAlignment: TextInput.AlignVCenter
 
-                color: 'black'
+                color: Theme.mainTextColor
                 background: Rectangle {
                     color: "transparent"
                     border.color: "transparent"
@@ -494,7 +484,7 @@ Item {
                     context.lineTo(20, 5);
                     context.lineTo(15, 10);
                     context.closePath();
-                    context.fillStyle = !enabled ? 'gray' : 'black'
+                    context.fillStyle = !enabled ? Theme.mainTextDisabledColor : Theme.mainTextColor
                     context.fill();
                 }
 
@@ -503,7 +493,7 @@ Item {
 
             border.color: comboBox.pressed ? Theme.accentColor : Theme.accentLightColor
             border.width: comboBox.visualFocus ? 2 : 1
-            color: Theme.lightGray
+            color: Theme.controlBackgroundAlternateColor
             radius: 2
 
             MouseArea {
@@ -524,6 +514,7 @@ Item {
 
             bgcolor: "transparent"
             iconSource: Theme.getThemeIcon("ic_baseline_search_black")
+            iconColor: Theme.mainTextColor
 
             visible: enabled
 
@@ -538,7 +529,7 @@ Item {
             Layout.preferredWidth: comboBox.enabled ? 48 : 0
             Layout.preferredHeight: 48
 
-            bgcolor: "white"
+            bgcolor: "transparent"
             opacity: enabled ? 1 : 0.3
             iconSource: Theme.getThemeIcon("ic_add_black_48dp")
 

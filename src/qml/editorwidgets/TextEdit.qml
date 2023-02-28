@@ -26,7 +26,8 @@ EditorWidgetBase {
     anchors.left: parent.left
     anchors.right: parent.right
     font: Theme.defaultFont
-    color: 'gray'
+    color: Theme.mainTextColor
+    opacity: 0.45
     wrapMode: Text.Wrap
     textFormat: config['IsMultiline'] === true && config['UseHtml'] ? TextEdit.RichText : TextEdit.AutoText
 
@@ -43,7 +44,7 @@ EditorWidgetBase {
     anchors.left: parent.left
     anchors.right: parent.right
     font: Theme.defaultFont
-    color: 'black'
+    color: Theme.mainTextColor
     maximumLength: field != undefined && field.length > 0 ? field.length : -1
     wrapMode: TextInput.Wrap
 
@@ -96,6 +97,7 @@ EditorWidgetBase {
     anchors.right: parent.right
     wrapMode: Text.Wrap
     font: Theme.defaultFont
+    color: Theme.mainTextColor
 
     text: value !== undefined ? value : ''
     textFormat: config['UseHtml'] ? TextEdit.RichText : TextEdit.PlainText

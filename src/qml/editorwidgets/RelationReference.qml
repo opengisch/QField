@@ -56,8 +56,9 @@ EditorWidgetBase {
     width: enabled ? 48 : 0
     height: 48
 
-    bgcolor: "transparent"
     iconSource: Theme.getThemeVectorIcon("ic_view_black_24dp")
+    iconColor: Theme.mainTextColor
+    bgcolor: "transparent"
 
     onClicked: {
         if ( relationReference.currentKeyValue !== undefined && relationReference.currentKeyValue !== '' ) {

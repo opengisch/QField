@@ -77,6 +77,8 @@ class AndroidPlatformUtilities : public PlatformUtilities
 
     void uploadPendingAttachments( QFieldCloudConnection *connection ) const override;
 
+    bool isSystemDarkTheme() const override;
+
   private:
     // separate multiple permissions using a semi-column (;)
     bool checkAndAcquirePermissions( const QString &permissions ) const;

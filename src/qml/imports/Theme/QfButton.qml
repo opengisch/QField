@@ -9,7 +9,7 @@ Button {
   id: button
 
   property color bgcolor: Theme.mainColor
-  property alias color: label.color
+  property color color: button.enabled ? Theme.controlBackgroundColor : Theme.mainTextDisabledColor
   property bool dropdown: false
 
   signal dropdownClicked
@@ -27,11 +27,11 @@ Button {
 
   background: Rectangle {
       anchors.fill: parent
-      color: !parent.enabled ? Theme.lightGray : button.bgcolor
+      color: !button.enabled ? Theme.controlBackgroundDisabledColor : button.bgcolor
       radius: 12
       border.width: 1
       border.color: !parent.enabled
-                    ? Theme.lightGray
+                    ? Theme.controlBackgroundDisabledColor
                     : button.bgcolor != "#00000000" ? button.bgcolor : button.color
 
       Ripple {
@@ -41,7 +41,9 @@ Button {
           pressed: button.down
           anchor: parent
           active: button.down
-          color: Material.rippleColor
+          color: Theme.darkTheme
+                 ? "#22000000"
+                 : button.bgcolor == "#ffffff" || button.bgcolor == "#00000000" ? "#10000000" : "#22ffffff"
       }
   }
 
@@ -52,7 +54,7 @@ Button {
     display: parent.display
 
     icon: parent.icon
-    color: "white"
+    color: button.color
     font {
       pointSize: button.font.pointSize
     }
@@ -92,8 +94,8 @@ Button {
 
       onPaint: {
         var ctx = getContext("2d")
-        ctx.fillStyle = "white"
-        ctx.strokeStyle = "white"
+        ctx.fillStyle = button.color
+        ctx.strokeStyle = button.color
         ctx.lineWidth = 1
         ctx.moveTo(14, 15)
         ctx.lineTo(width - 16, 15)

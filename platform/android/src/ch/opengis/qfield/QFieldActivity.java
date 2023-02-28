@@ -51,6 +51,7 @@ import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.PackageManager.NameNotFoundException;
+import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.graphics.Color;
 import android.net.Uri;
@@ -146,6 +147,18 @@ public class QFieldActivity extends QtActivity {
             intent.getAction() == Intent.ACTION_SEND) {
             openProject(getPathFromIntent(intent));
         }
+    }
+
+    private boolean isDarkTheme() {
+        switch (getResources().getConfiguration().uiMode &
+                Configuration.UI_MODE_NIGHT_MASK) {
+            case Configuration.UI_MODE_NIGHT_YES:
+                return true;
+
+            case Configuration.UI_MODE_NIGHT_NO:
+                return false;
+        }
+        return false;
     }
 
     private String getPathFromIntent(Intent intent) {

@@ -273,6 +273,11 @@ class QFIELD_CORE_EXPORT PlatformUtilities : public QObject
      */
     Q_INVOKABLE virtual void uploadPendingAttachments( QFieldCloudConnection *connection ) const;
 
+    /**
+     * Returns TRUE is the system uses a dark theme.
+     */
+    Q_INVOKABLE virtual bool isSystemDarkTheme() const;
+
     static PlatformUtilities *instance();
 
   private:

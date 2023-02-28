@@ -295,6 +295,7 @@ Drawer {
                   leftPadding: 8
                   text: mapThemeComboBox.displayText
                   font: Theme.tipFont
+                  color: Theme.mainTextColor
                   horizontalAlignment: Text.AlignLeft
                   verticalAlignment: Text.AlignVCenter
                   elide: Text.ElideRight
@@ -319,18 +320,25 @@ Drawer {
               id: temporalButton
               Layout.alignment: Qt.AlignVCenter
               visible: flatLayerTree.isTemporal
-              iconSource: mapSettings.isTemporal ? Theme.getThemeVectorIcon( 'ic_temporal_green_24dp' ) : Theme.getThemeVectorIcon( 'ic_temporal_black_24dp' )
-              bgcolor: "white"
+              iconSource: Theme.getThemeVectorIcon( 'ic_temporal_black_24dp' )
+              iconColor: mapSettings.isTemporal ? Theme.mainColor : Theme.mainTextColor
+              bgcolor: "transparent"
               onClicked: temporalProperties.open();
           }
       }
     }
 
-    Legend {
-      id: legend
-      isVisible: position > 0
+
+    Rectangle {
       Layout.fillWidth: true
       Layout.fillHeight: true
+      color: Theme.controlBackgroundColor
+
+      Legend {
+        id: legend
+        isVisible: position > 0
+        anchors.fill: parent
+      }
     }
   }
 

@@ -100,6 +100,7 @@ Popup {
           Layout.rightMargin: 10
           Layout.alignment: Qt.AlignVCenter
           iconSource: Theme.getThemeIcon( 'ic_close_black_24dp' )
+          iconColor: Theme.mainTextColor
           bgcolor: "transparent"
 
           onClicked: {
@@ -185,6 +186,7 @@ Popup {
           iconSource: player.playbackState == MediaPlayer.PlayingState
                       ? Theme.getThemeVectorIcon('ic_pause_black_24dp')
                       : Theme.getThemeVectorIcon('ic_play_black_24dp')
+          iconColor: Theme.mainTextColor
           bgcolor: "transparent"
 
           onClicked: {
@@ -216,7 +218,7 @@ Popup {
           Layout.preferredWidth: durationLabelMetrics.boundingRect('00:00:00').width
           Layout.rightMargin: 14
 
-          color: player.playbackState == MediaPlayer.PlayingState ? 'black' : 'gray'
+          color: player.playbackState == MediaPlayer.PlayingState ? Theme.mainTextColor : Theme.mainTextDisabledColor
           font: Theme.tipFont
           horizontalAlignment: Text.AlignHCenter
           verticalAlignment: Text.AlignVCenter
@@ -243,8 +245,9 @@ Popup {
         QfToolButton {
           id: acceptButton
           Layout.alignment: Qt.AlignVCenter
-          iconSource: Theme.getThemeIcon( 'ic_check_black_48dp' )
           round: true
+          iconSource: Theme.getThemeIcon( 'ic_check_black_48dp' )
+          iconColor: Theme.mainTextColor
           bgcolor: "transparent"
           enabled: audioRecorder.hasRecordedClip
           opacity: enabled ? 1 : 0.25

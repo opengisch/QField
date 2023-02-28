@@ -55,7 +55,7 @@ EditorWidgetBase {
         anchors.bottomMargin: relationEditor.bottomMargin
         width: parent.width
         color: "transparent"
-        border.color: 'lightgray'
+        border.color: Theme.controlBorderColor
         border.width: 1
         clip: true
 
@@ -98,12 +98,12 @@ EditorWidgetBase {
 
           Rectangle {
             anchors.fill: parent
-            color: 'lightgrey'
+            color: Theme.controlBorderColor
             visible: isEnabled
 
             Text {
               visible: isEnabled
-              color: 'grey'
+              color: Theme.secondaryTextColor
               text: isEnabled && !constraintsHardValid ? qsTr( 'Ensure contraints') : ''
               anchors { leftMargin: 10; left: parent.left; right: addButtonRow.left; verticalCenter: parent.verticalCenter }
               font.bold: true
@@ -111,32 +111,23 @@ EditorWidgetBase {
               font.pointSize: Theme.tipFont.pointSize
             }
 
-            Row
-            {
+            Row {
               id: addButtonRow
               anchors { top: parent.top; right: parent.right; rightMargin: 10 }
               height: parent.height
 
-              ToolButton {
+              QfToolButton {
                 id: addButton
                 width: parent.height
                 height: parent.height
                 enabled: constraintsHardValid
 
-                contentItem: Rectangle {
-                  anchors.fill: parent
-                  color: parent.enabled ? nmRelationId ? 'blue' : 'black' : 'grey'
-                  Image {
-                    anchors.fill: parent
-                    anchors.margins: 8
-                    fillMode: Image.PreserveAspectFit
-                    horizontalAlignment: Image.AlignHCenter
-                    verticalAlignment: Image.AlignVCenter
-                    source: Theme.getThemeIcon( 'ic_add_white_24dp' )
-                  }
-                }
+                round: false
+                iconSource: Theme.getThemeIcon( 'ic_add_white_24dp' )
+                bgcolor: parent.enabled ? nmRelationId ? 'blue' : 'black' : 'grey'
               }
             }
+
             MouseArea {
               anchors.fill: parent
               onClicked: {
@@ -179,7 +170,7 @@ EditorWidgetBase {
             id: featureText
             anchors { leftMargin: 10; left: parent.left; right: deleteButtonRow.left; verticalCenter: parent.verticalCenter }
             font: Theme.defaultFont
-            color: !isEnabled ? 'grey' : 'black'
+            color: !isEnabled ? Theme.mainTextDisabledColor : Theme.mainTextColor
             text: { text: nmRelationId ? model.nmDisplayString : model.displayString }
           }
 
@@ -202,24 +193,15 @@ EditorWidgetBase {
             anchors { top: parent.top; right: parent.right; rightMargin: 10 }
             height: listitem.height
 
-            ToolButton {
+            QfToolButton {
                 id: deleteButton
                 width: parent.height
                 height: parent.height
                 visible: isEnabled && isButtonEnabled('DeleteChildFeature')
 
-                contentItem: Rectangle {
-                    anchors.fill: parent
-                    color: nmRelationId ? 'blue' : Theme.errorColor
-                    Image {
-                      anchors.fill: parent
-                      anchors.margins: 8
-                      fillMode: Image.PreserveAspectFit
-                      horizontalAlignment: Image.AlignHCenter
-                      verticalAlignment: Image.AlignVCenter
-                      source: Theme.getThemeIcon( 'ic_delete_forever_white_24dp' )
-                    }
-                }
+                round: false
+                iconSource: Theme.getThemeIcon( 'ic_delete_forever_white_24dp' )
+                bgcolor: nmRelationId ? 'blue' : Theme.errorColor
 
                 onClicked: {
                     deleteDialog.referencingFeatureId = model.referencingFeature.id
@@ -236,7 +218,7 @@ EditorWidgetBase {
             id: bottomLine
             anchors.bottom: parent.bottom
             height: 1
-            color: 'lightGray'
+            color: Theme.controlBorderColor
             width: parent.width
           }
         }

@@ -16,7 +16,7 @@ RoundButton {
   property bool round: false
   property bool roundborder: false
   property alias bgcolor: backgroundRectangle.color
-  property alias borderColor: backgroundRectangle.border.color
+  property color borderColor: 'transparent'
 
   width: 48
   height: 48
@@ -34,7 +34,7 @@ RoundButton {
     implicitWidth: 100
     implicitHeight: 25
     border.width: round && roundborder ? height / 6 : !round
-    border.color: backgroundRectangle.color
+    border.color: button.borderColor
     color: 'transparent'
     radius: round ? height / 2 : 0
 
@@ -53,7 +53,9 @@ RoundButton {
       pressed: button.down
       anchor: parent
       active: button.down
-      color: bgcolor == "#ffffff" || bgcolor == "#00000000" ? "#10000000" : "#22ffffff"
+      color: Theme.darkTheme
+             ? bgcolor == "#ffffff" || bgcolor == "#00000000" ? "#10ffffff" : "#22aaaaaa"
+             : bgcolor == "#ffffff" || bgcolor == "#00000000" ? "#10000000" : "#22ffffff"
 
       layer.enabled: true
       layer.effect: QfOpacityMask {
@@ -67,7 +69,8 @@ RoundButton {
     }
   }
 
-  icon.color: "transparent"
+  icon.source: ""
+  icon.color: "transparent" // setting the color to transparent tells Qt to draw the icon using the original source color(s)
 
   Rectangle {
     id: bottomRightIndicator

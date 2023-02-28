@@ -50,6 +50,7 @@ Popup {
               right: parent.right
             }
             iconSource: Theme.getThemeIcon( 'ic_close_black_24dp' )
+            iconColor: Theme.mainTextColor
             bgcolor: "transparent"
 
             onClicked: {
@@ -88,7 +89,7 @@ Popup {
                             leftPadding: 5
                             text: Name
                             font: Theme.defaultFont
-                            color: "black"
+                            color: Theme.mainTextColor
                             wrapMode: Text.WordWrap
                         }
                         CheckBox {
@@ -110,7 +111,7 @@ Popup {
                             bottomPadding: 5
                             text: Description
                             font: Theme.tipFont
-                            color: Theme.gray
+                            color: Theme.secondaryTextColor
                             wrapMode: Text.WordWrap
                         }
                     }

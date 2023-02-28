@@ -31,6 +31,7 @@ Page {
     Label {
       text: qsTr( "The following layers could not be loaded, please review those and reconfigure the QGIS project." )
       font: Theme.defaultFont
+      color: Theme.mainTextColor
 
       wrapMode: Text.WordWrap
       Layout.fillWidth: true
@@ -42,8 +43,8 @@ Page {
     Rectangle {
         Layout.fillWidth: true
         Layout.fillHeight: true
-        color: "white"
-        border.color: "lightgray"
+        color: Theme.controlBackgroundColor
+        border.color: Theme.controlBorderColor
         border.width: 1
 
         ListView {
@@ -64,12 +65,14 @@ Page {
                     id: line
                     width: parent.width
                     spacing: 0
+
                     Text {
                         id: name
                         width: rectangle.width - padding * 2
                         padding: 5
                         text: LayerName
                         font: Theme.strongTipFont
+                        color: Theme.mainTextColor
                         wrapMode: Text.WordWrap
                     }
                     Text {
@@ -78,6 +81,7 @@ Page {
                         padding: 5
                         text: DataSource
                         font: Theme.tipFont
+                        color: Theme.secondaryTextColor
                         wrapMode: Text.WordWrap
                     }
                 }
@@ -88,6 +92,7 @@ Page {
     Label {
       text: qsTr( "You may check the Portable Project section in the QField documentation for more help." )
       font: Theme.tipFont
+      color: Theme.secondaryTextColor
 
       wrapMode: Text.WordWrap
       Layout.fillWidth: true

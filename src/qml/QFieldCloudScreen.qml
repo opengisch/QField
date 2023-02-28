@@ -54,6 +54,7 @@ Page {
                   }
             wrapMode: Text.WordWrap
             font: Theme.tipFont
+            color: Theme.mainTextColor
         }
 
         Rectangle {
@@ -182,8 +183,8 @@ Page {
       Rectangle {
         Layout.fillWidth: true
         Layout.fillHeight: true
-        color: "white"
-        border.color: "lightgray"
+        color: Theme.controlBackgroundColor
+        border.color: Theme.controlBorderColor
         border.width: 1
 
         ListView {
@@ -220,12 +221,13 @@ Page {
               Rectangle {
                 width:parent.width
                 height: 30
-                color: Theme.lightestGray
+                color: Theme.controlBorderColor
 
                 Text {
                   anchors { horizontalCenter: parent.horizontalCenter; verticalCenter: parent.verticalCenter }
                   font.bold: true
                   font.pointSize: Theme.resultFont.pointSize
+                  color: Theme.mainTextColor
                   text: section
                 }
               }
@@ -284,29 +286,29 @@ Page {
                         anchors.verticalCenter: inner.verticalCenter
                         source: {
                           if ( cloudConnection.status !== QFieldCloudConnection.LoggedIn ) {
-                            return Theme.getThemeIcon('ic_cloud_project_offline_48dp')
+                            return Theme.getThemeVectorIcon('ic_cloud_project_offline_48dp')
                           } else {
                             var status = ''
 
                             switch (Status) {
                               case QFieldCloudProjectsModel.ProjectStatus.Downloading:
-                                return Theme.getThemeIcon('ic_cloud_project_download_48dp')
+                                return Theme.getThemeVectorIcon('ic_cloud_project_download_48dp')
                               case QFieldCloudProjectsModel.ProjectStatus.Uploading:
-                                return Theme.getThemeIcon('ic_cloud_project_upload_48dp')
+                                return Theme.getThemeVectorIcon('ic_cloud_project_upload_48dp')
                               default:
                                 break
                             }
 
                             switch (Checkout) {
                               case QFieldCloudProjectsModel.LocalCheckout:
-                                return Theme.getThemeIcon('ic_cloud_project_localonly_48dp')
+                                return Theme.getThemeVectorIcon('ic_cloud_project_localonly_48dp')
                               case QFieldCloudProjectsModel.RemoteCheckout:
-                                return Theme.getThemeIcon('ic_cloud_project_download_48dp')
+                                return Theme.getThemeVectorIcon('ic_cloud_project_download_48dp')
                               default:
                                 break
                             }
 
-                            return Theme.getThemeIcon('ic_cloud_project_48dp')
+                            return Theme.getThemeVectorIcon('ic_cloud_project_48dp')
                           }
                         }
                         sourceSize.width: 80
@@ -395,6 +397,7 @@ Page {
                             visible: text != ""
                             font.pointSize: Theme.tipFont.pointSize - 2
                             font.italic: true
+                            color: Theme.secondaryTextColor
                             wrapMode: Text.WordWrap
                             Layout.fillWidth: true
                         }
@@ -409,7 +412,7 @@ Page {
                 visible: parent.count == 0
                 text: table.refreshing ? qsTr("Refreshing projects list") : qsTr("No projects found")
                 font: Theme.strongTipFont
-                color: Theme.gray
+                color: Theme.secondaryTextColor
             }
 
             MouseArea {
@@ -565,6 +568,7 @@ Page {
           Layout.bottomMargin: 5
           text: qsTr( "Press and hold over a cloud project for a menu of additional actions." )
           font: Theme.tipFont
+          color: Theme.secondaryTextColor
           wrapMode: Text.WordWrap
       }
 

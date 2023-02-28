@@ -55,6 +55,7 @@ Page {
           text: table.model.currentTitle
           font.pointSize: Theme.defaultFont.pointSize
           font.bold: true
+          color: Theme.mainTextColor
           wrapMode: Text.NoWrap
           elide: Text.ElideMiddle
         }
@@ -65,6 +66,7 @@ Page {
                 ? table.model.currentPath
                 : ''
           font: Theme.tipFont
+          color: Theme.mainTextColor
           wrapMode: Text.NoWrap
           elide: Text.ElideMiddle
           opacity: 0.35
@@ -77,8 +79,8 @@ Page {
       Layout.fillHeight: true
       Layout.margins: 10
       Layout.topMargin: 0
-      color: "white"
-      border.color: "lightgray"
+      color: Theme.controlBackgroundColor
+      border.color: Theme.controlBorderColor
       border.width: 1
 
       ListView {
@@ -97,12 +99,13 @@ Page {
           Rectangle {
             width:parent.width
             height: 30
-            color: Theme.lightestGray
+            color: Theme.controlBorderColor
 
             Text {
               anchors { horizontalCenter: parent.horizontalCenter; verticalCenter: parent.verticalCenter }
               font.bold: true
               font.pointSize: Theme.resultFont.pointSize
+              color: Theme.mainTextColor
               text: { switch (parseInt(section)) {
                 case LocalFilesModel.Folder:
                   return qsTr('Folders');
@@ -197,7 +200,7 @@ Page {
 
                 font.pointSize: Theme.defaultFont.pointSize
                 font.underline: itemMenuLoadable
-                color: itemMenuLoadable ? Theme.mainColor : "black"
+                color: itemMenuLoadable ? Theme.mainColor : Theme.mainTextColor
                 wrapMode: Text.WordWrap
               }
               Text {
@@ -224,6 +227,7 @@ Page {
                 visible: text != ""
                 font.pointSize: Theme.tipFont.pointSize - 2
                 font.italic: true
+                color: Theme.secondaryTextColor
                 wrapMode: Text.WordWrap
                 opacity: 0.35
               }
@@ -238,6 +242,7 @@ Page {
 
               bgcolor: "transparent"
               iconSource: Theme.getThemeIcon( "ic_dot_menu_gray_24dp" )
+              iconColor: Theme.mainTextColor
 
               onClicked: {
                 var gc = mapToItem(qfieldLocalDataPickerScreen, 0, 0)

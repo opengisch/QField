@@ -3,6 +3,20 @@ pragma Singleton
 import QtQuick 2.14
 
 QtObject {
+    property bool darkTheme: false
+
+    readonly property color mainTextColor: darkTheme ? "#EEEEEE" : "#000000"
+    readonly property color mainTextDisabledColor: darkTheme ? "#73EEEEEE" : "#73000000"
+    readonly property color mainBackgroundColor: darkTheme ? "#303030" : "#fafafa"
+    readonly property color mainColor: "#80cc28"
+
+    readonly property color secondaryTextColor: darkTheme? "#AAAAAA" : "#999999"
+
+    readonly property color controlBackgroundColor: darkTheme ? "#202020" : "#ffffff"
+    readonly property color controlBackgroundAlternateColor: darkTheme ? "#202020" : "#e6e6e6" // used by feature form editor widgets
+    readonly property color controlBackgroundDisabledColor: "#33555555"
+    readonly property color controlBorderColor: darkTheme ? "#404040" : "#e6e6e6"
+
     readonly property color darkRed: "#c0392b"
     readonly property color darkGray: "#212121"
     readonly property color darkGraySemiOpaque: "#88212121"
@@ -12,14 +26,13 @@ QtObject {
     readonly property color light: "#ffffff"
     readonly property color hyperlinkBlue: '#0000EE'
 
-    readonly property color mainColor: "#80cc28"
     readonly property color errorColor: "#c0392b"
     readonly property color warningColor: "orange"
     readonly property color cloudColor: "#4c6dac"
 
     readonly property color positionColor: "#64b5f6"
     readonly property color positionColorSemiOpaque: "#3364b5f6"
-    readonly property color positionBackgroundColor: "#e6f2fd"
+    readonly property color positionBackgroundColor: "#3364b5f6"
     readonly property color darkPositionColor: "#2374b5"
     readonly property color darkPositionColorSemiOpaque: "#882374b5"
 
@@ -28,8 +41,8 @@ QtObject {
     readonly property color accuracyExcellent: "#80cc28"
 
     readonly property color navigationColor: "#984ea3"
-    readonly property color navigationColorSemiOpaque: "#77984ea3"
-    readonly property color navigationBackgroundColor: "#e2d7e4"
+    readonly property color navigationColorSemiOpaque: "#99984ea3"
+    readonly property color navigationBackgroundColor: "#33984ea3"
 
     readonly property color bookmarkDefault: "#80cc28"
     readonly property color bookmarkOrange: "orange"
@@ -37,16 +50,18 @@ QtObject {
     readonly property color bookmarkBlue: "#64b5f6"
 
     readonly property color accentColor: '#4CAF50'
-    readonly property color accentLightColor: '#C8E6C9'
+    readonly property color accentLightColor: '#994CAF50'
 
-    property font defaultFont: Qt.font({pointSize: systemFontPointSize, weight: Font.Normal})
-    property font tinyFont: Qt.font({pointSize: systemFontPointSize * 0.75, weight: Font.Normal})
-    property font tipFont: Qt.font({pointSize: systemFontPointSize * 0.875, weight: Font.Normal})
-    property font resultFont: Qt.font({pointSize: systemFontPointSize * 0.8125, weight: Font.Normal})
-    property font strongFont: Qt.font({pointSize: systemFontPointSize, bold: true, weight: Font.Bold})
-    property font strongTipFont: Qt.font({pointSize: systemFontPointSize * 0.875, bold: true, weight: Font.Bold})
-    property font secondaryTitleFont: Qt.font({pointSize: systemFontPointSize * 1.125, weight: Font.Normal})
-    property font titleFont: Qt.font({pointSize: systemFontPointSize * 1.25, weight: Font.Normal})
+    property real fontScale: 1.0
+
+    property font defaultFont: Qt.font({pointSize: systemFontPointSize * fontScale, weight: Font.Normal})
+    property font tinyFont: Qt.font({pointSize: systemFontPointSize * fontScale * 0.75, weight: Font.Normal})
+    property font tipFont: Qt.font({pointSize: systemFontPointSize * fontScale * 0.875, weight: Font.Normal})
+    property font resultFont: Qt.font({pointSize: systemFontPointSize * fontScale * 0.8125, weight: Font.Normal})
+    property font strongFont: Qt.font({pointSize: systemFontPointSize * fontScale, bold: true, weight: Font.Bold})
+    property font strongTipFont: Qt.font({pointSize: systemFontPointSize * fontScale * 0.875, bold: true, weight: Font.Bold})
+    property font secondaryTitleFont: Qt.font({pointSize: systemFontPointSize * fontScale * 1.125, weight: Font.Normal})
+    property font titleFont: Qt.font({pointSize: systemFontPointSize * fontScale * 1.25, weight: Font.Normal})
 
     readonly property int popupScreenEdgeMargin: 40
 
@@ -95,6 +110,26 @@ QtObject {
       }
 
       return styles;
+    }
+
+    function applyAppearance() {
+      var appearance = settings.value('appearance', 'system')
+      if (appearance === undefined || appearance === 'system') {
+        darkTheme = platformUtilities.isSystemDarkTheme()
+      } else if (appearance === 'light') {
+        darkTheme = false
+      } else if (appearance === 'dark') {
+        darkTheme = true
+      }
+    }
+
+    function applyFontScale() {
+      fontScale = settings.value('fontScale', 1.0)
+    }
+
+    Component.onCompleted: {
+      applyAppearance()
+      applyFontScale()
     }
 }
 

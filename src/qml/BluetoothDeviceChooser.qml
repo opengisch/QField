@@ -135,7 +135,7 @@ Item {
         Layout.fillWidth: true
         visible: deviceAddress != ''
         font: Theme.defaultFont
-        color: Theme.gray
+        color: Theme.secondaryTextColor
         text: qsTr('Bluetooth device name:') + '\n ' + deviceName
         wrapMode: Text.WordWrap
     }
@@ -145,7 +145,7 @@ Item {
         Layout.fillWidth: true
         visible: deviceAddress != ''
         font: Theme.defaultFont
-        color: Theme.gray
+        color: Theme.secondaryTextColor
         text: qsTr('Bluetooth device address:') + '\n ' + deviceAddress
         wrapMode: Text.WordWrap
     }

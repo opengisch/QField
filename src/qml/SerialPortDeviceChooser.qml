@@ -83,7 +83,7 @@ Item {
         Layout.fillWidth: true
         visible: deviceAddress != ''
         font: Theme.defaultFont
-        color: Theme.gray
+        color: Theme.secondaryTextColor
         text: qsTr('Serial port display name:') + '\n ' + deviceName
         wrapMode: Text.WordWrap
     }
@@ -93,7 +93,7 @@ Item {
         Layout.fillWidth: true
         visible: deviceAddress != ''
         font: Theme.defaultFont
-        color: Theme.gray
+        color: Theme.secondaryTextColor
         text: qsTr('Serial port address:') + '\n ' + deviceAddress
         wrapMode: Text.WordWrap
     }

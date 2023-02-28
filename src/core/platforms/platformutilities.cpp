@@ -403,6 +403,11 @@ void PlatformUtilities::uploadPendingAttachments( QFieldCloudConnection *connect
   } );
 }
 
+bool PlatformUtilities::isSystemDarkTheme() const
+{
+  return false;
+}
+
 PlatformUtilities *PlatformUtilities::instance()
 {
   return sPlatformUtils;

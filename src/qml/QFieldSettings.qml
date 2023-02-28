@@ -103,7 +103,7 @@ Page {
   }
 
   Rectangle {
-    color: "white"
+    color: Theme.mainBackgroundColor
     anchors.fill: parent
   }
 
@@ -180,6 +180,7 @@ Page {
                       Label {
                           text: qsTr("Customize search bar")
                           font: Theme.defaultFont
+                          color: Theme.mainTextColor
                           wrapMode: Text.WordWrap
                           Layout.fillWidth: true
 
@@ -197,7 +198,7 @@ Page {
                           clip: true
 
                           iconSource: Theme.getThemeIcon( "ic_ellipsis_green_24dp" )
-                          bgcolor: "#ffffff"
+                          bgcolor: "transparent"
 
                           onClicked: {
                               locatorSettings.open();
@@ -226,6 +227,7 @@ Page {
                                   leftPadding: 22
                                   text: title
                                   font: Theme.defaultFont
+                                  color: Theme.mainTextColor
                                   wrapMode: Text.WordWrap
                                   MouseArea {
                                       anchors.fill: parent
@@ -241,7 +243,7 @@ Page {
                                   leftPadding: 22
                                   text: description || ''
                                   font: Theme.tipFont
-                                  color: Theme.gray
+                                  color: Theme.secondaryTextColor
                                   wrapMode: Text.WordWrap
                               }
                           }
@@ -274,6 +276,7 @@ Page {
 
                       text: qsTr('Dim screen when idling')
                       font: Theme.defaultFont
+                      color: Theme.mainTextColor
                       wrapMode: Text.WordWrap
                     }
 
@@ -299,7 +302,7 @@ Page {
                       text: qsTr('Time of inactivity in seconds before the screen brightness get be dimmed to preserve battery.')
 
                       font: Theme.tipFont
-                      color: Theme.gray
+                      color: Theme.secondaryTextColor
                       wrapMode: Text.WordWrap
                     }
                   }
@@ -317,8 +320,92 @@ Page {
 
                       Label {
                           Layout.fillWidth: true
+                          text: qsTr( "User interface appearance:" )
+                          font: Theme.defaultFont
+                          color: Theme.mainTextColor
+
+                          wrapMode: Text.WordWrap
+                      }
+
+                      ComboBox {
+                          id: appearanceComboBox
+                          enabled: true
+                          Layout.fillWidth: true
+                          Layout.alignment: Qt.AlignVCenter
+                          font: Theme.defaultFont
+                          popup.font: Theme.defaultFont
+
+                          model: ListModel {
+                            ListElement { name: qsTr('Follow system appearance'); value: 'system' }
+                            ListElement { name: qsTr('Light theme'); value: 'light' }
+                            ListElement { name: qsTr('Dark theme'); value: 'dark' }
+                          }
+                          textRole: "name"
+                          valueRole: "value"
+
+                          property bool initialized: false
+
+                          onCurrentValueChanged: {
+                              if (initialized) {
+                                settings.setValue("appearance", currentValue)
+                                Theme.applyAppearance()
+                              }
+                          }
+
+                          Component.onCompleted: {
+                              var appearance = settings.value("appearance", 'system')
+                              currentIndex = indexOfValue(appearance)
+                              initialized = true
+                          }
+                      }
+
+                      Label {
+                          Layout.fillWidth: true
+                          text: qsTr( "User interface font size:" )
+                          font: Theme.defaultFont
+                          color: Theme.mainTextColor
+
+                          wrapMode: Text.WordWrap
+                      }
+
+                      ComboBox {
+                          id: fontScaleComboBox
+                          enabled: true
+                          Layout.fillWidth: true
+                          Layout.alignment: Qt.AlignVCenter
+                          font: Theme.defaultFont
+                          popup.font: Theme.defaultFont
+
+                          model: ListModel {
+                            ListElement { name: qsTr('Tiny'); value: 0.75 }
+                            ListElement { name: qsTr('Normal'); value: 1.0 }
+                            ListElement { name: qsTr('Large'); value: 1.5 }
+                            ListElement { name: qsTr('Extra-large'); value: 2.0 }
+                          }
+                          textRole: "name"
+                          valueRole: "value"
+
+                          property bool initialized: false
+
+                          onCurrentValueChanged: {
+                              if (initialized) {
+                                settings.setValue("fontScale", currentValue)
+                                Theme.applyFontScale()
+                              }
+                          }
+
+                          Component.onCompleted: {
+                              var fontScale = settings.value("fontScale", 1.0)
+                              currentIndex = indexOfValue(fontScale)
+                              initialized = true
+                          }
+                      }
+
+                      Label {
+                          Layout.fillWidth: true
                           text: qsTr( "User interface language:" )
                           font: Theme.defaultFont
+                          color: Theme.mainTextColor
 
                           wrapMode: Text.WordWrap
                       }
@@ -375,7 +462,7 @@ Page {
                                   .arg( '<a href="https://www.transifex.com/opengisch/qfield-for-qgis/">' )
                                   .arg( '</a>' );
                           font: Theme.tipFont
-                          color: Theme.gray
+                          color: Theme.secondaryTextColor
                           textFormat: Qt.RichText
                           wrapMode: Text.WordWrap
                           Layout.fillWidth: true
@@ -416,6 +503,7 @@ Page {
                       Layout.columnSpan: 2
                       text: qsTr( "Positioning device in use:" )
                       font: Theme.defaultFont
+                      color: Theme.mainTextColor
 
                       wrapMode: Text.WordWrap
                   }
@@ -501,6 +589,7 @@ Page {
                               anchors.verticalCenter: parent.verticalCenter
                               text: positioningDeviceComboBox.currentText
                               font: Theme.defaultFont
+                              color: Theme.mainTextColor
                               horizontalAlignment: Text.AlignLeft
                               verticalAlignment: Text.AlignVCenter
                               elide: Text.ElideRight
@@ -575,6 +664,7 @@ Page {
                   Label {
                     text: qsTr("Use orthometric altitude from device")
                     font: Theme.defaultFont
+                    color: Theme.mainTextColor
                     wrapMode: Text.WordWrap
                     Layout.fillWidth: true
                     visible: positioningSettings.positioningDevice !== ''
@@ -636,6 +726,7 @@ Page {
                   Label {
                       text: qsTr("Show position information")
                       font: Theme.defaultFont
+                      color: Theme.mainTextColor
                       wrapMode: Text.WordWrap
                       Layout.fillWidth: true
 
@@ -661,6 +752,7 @@ Page {
                       Layout.columnSpan: 2
                       text: qsTr( "Measure (M) value attached to vertices:" )
                       font: Theme.defaultFont
+                      color: Theme.mainTextColor
 
                       wrapMode: Text.WordWrap
                   }
@@ -704,7 +796,7 @@ Page {
                       Layout.fillWidth: true
                       text: qsTr( "When digitizing features with the coordinate cursor locked to the current position, the measurement type selected above will be added to the geometry provided it has an M dimension." )
                       font: Theme.tipFont
-                      color: Theme.gray
+                      color: Theme.secondaryTextColor
 
                       wrapMode: Text.WordWrap
                   }
@@ -718,6 +810,7 @@ Page {
                   Label {
                       text: qsTr("Activate accuracy indicator")
                       font: Theme.defaultFont
+                      color: Theme.mainTextColor
                       wrapMode: Text.WordWrap
                       Layout.fillWidth: true
 
@@ -740,6 +833,7 @@ Page {
                   Label {
                       text: qsTr("Bad accuracy below [m]")
                       font: Theme.defaultFont
+                      color: Theme.mainTextColor
                       enabled: accuracyIndicator.checked
                       visible: accuracyIndicator.checked
                       Layout.leftMargin: 8
@@ -781,6 +875,7 @@ Page {
                   Label {
                       text: qsTr("Excellent accuracy above [m]")
                       font: Theme.defaultFont
+                      color: Theme.mainTextColor
                       enabled: accuracyIndicator.checked
                       visible: accuracyIndicator.checked
                       Layout.leftMargin: 8
@@ -822,6 +917,7 @@ Page {
                   Label {
                       text: qsTr("Enable accuracy requirement")
                       font: Theme.defaultFont
+                      color: Theme.mainTextColor
                       enabled: accuracyIndicator.checked
                       visible: accuracyIndicator.checked
                       wrapMode: Text.WordWrap
@@ -852,7 +948,7 @@ Page {
                                 .arg("style='%1'".arg(Theme.toInlineStyles({color:Theme.accuracyTolerated})))
                                 .arg("style='%1'".arg(Theme.toInlineStyles({color:Theme.accuracyExcellent})))
                       font: Theme.tipFont
-                      color: Theme.gray
+                      color: Theme.secondaryTextColor
                       textFormat: Qt.RichText
                       wrapMode: Text.WordWrap
                       Layout.fillWidth: true
@@ -866,6 +962,7 @@ Page {
                   Label {
                       text: qsTr("Enable averaged positioning requirement")
                       font: Theme.defaultFont
+                      color: Theme.mainTextColor
                       wrapMode: Text.WordWrap
                       Layout.fillWidth: true
 
@@ -888,6 +985,7 @@ Page {
                   Label {
                       text: qsTr("Minimum number of positions collected")
                       font: Theme.defaultFont
+                      color: Theme.mainTextColor
                       enabled: averagedPositioning.checked
                       visible: averagedPositioning.checked
                       Layout.leftMargin: 8
@@ -929,6 +1027,7 @@ Page {
                   Label {
                       text: qsTr("Automatically end collection when minimum number is met")
                       font: Theme.defaultFont
+                      color: Theme.mainTextColor
                       wrapMode: Text.WordWrap
                       Layout.fillWidth: true
                       enabled: averagedPositioning.checked
@@ -956,7 +1055,7 @@ Page {
                   Label {
                       text: qsTr("When enabled, digitizing vertices with a cursor locked to position will only accepted an averaged position from a minimum number of collected positions. Digitizing using averaged positions is done by pressing and holding the add vertex button, which will collect positions until the press is released. Accuracy requirement settings are respected when enabled.")
                       font: Theme.tipFont
-                      color: Theme.gray
+                      color: Theme.secondaryTextColor
                       textFormat: Qt.RichText
                       wrapMode: Text.WordWrap
                       Layout.fillWidth: true
@@ -970,6 +1069,7 @@ Page {
                   Label {
                       text: qsTr("Antenna height compensation")
                       font: Theme.defaultFont
+                      color: Theme.mainTextColor
                       wrapMode: Text.WordWrap
                       Layout.fillWidth: true
 
@@ -1034,7 +1134,7 @@ Page {
                   Label {
                       text: qsTr( "Z values which are recorded from the positioning device will be corrected by this value. If a value of 1.6 is entered, this will result in a correction of -1.6 for each recorded value." )
                       font: Theme.tipFont
-                      color: Theme.gray
+                      color: Theme.secondaryTextColor
 
                       wrapMode: Text.WordWrap
                       Layout.fillWidth: true
@@ -1048,6 +1148,7 @@ Page {
                   Label {
                       text: qsTr( "Skip altitude correction" )
                       font: Theme.defaultFont
+                      color: Theme.mainTextColor
                       wrapMode: Text.WordWrap
                       Layout.fillWidth: true
 
@@ -1071,7 +1172,7 @@ Page {
                       topPadding: 0
                       text: qsTr( "Use the altitude as reported by the positioning device. Skip any altitude correction that may be implied by the coordinate system transformation." )
                       font: Theme.tipFont
-                      color: Theme.gray
+                      color: Theme.secondaryTextColor
 
                       wrapMode: Text.WordWrap
                       Layout.fillWidth: true
@@ -1085,6 +1186,7 @@ Page {
                   Label {
                       text: qsTr( "Vertical grid shift in use:" )
                       font: Theme.defaultFont
+                      color: Theme.mainTextColor
 
                       wrapMode: Text.WordWrap
                       Layout.fillWidth: true
@@ -1110,7 +1212,7 @@ Page {
                       rightPadding: antennaHeightActivated.width
                       text: qsTr( "Vertical grid shift is used to increase the altitude accuracy." )
                       font: Theme.tipFont
-                      color: Theme.gray
+                      color: Theme.secondaryTextColor
 
                       wrapMode: Text.WordWrap
                       Layout.fillWidth: true

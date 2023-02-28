@@ -70,7 +70,7 @@ EditorWidgetBase {
 
         text: comboBox.displayText
         font: comboBox.font
-        color: enabled ? 'black' : 'gray'
+        color: enabled ? Theme.mainTextColor : Theme.mainTextDisabledColor
         verticalAlignment: Text.AlignVCenter
         horizontalAlignment: Text.AlignLeft
         elide: Text.ElideRight
@@ -94,7 +94,7 @@ EditorWidgetBase {
         id: backgroundRect
         border.color: comboBox.pressed ? Theme.accentColor : Theme.accentLightColor
         border.width: comboBox.visualFocus ? 2 : 1
-        color: Theme.lightGray
+        color: Theme.controlBackgroundAlternateColor
         radius: 2
       }
     }

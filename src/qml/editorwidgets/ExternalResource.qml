@@ -15,7 +15,7 @@ EditorWidgetBase {
   anchors.left: parent.left
   anchors.right: parent.right
 
-  height: childrenRect.height
+  height: childrenRect.height + 4
 
   ExpressionEvaluator {
     id: rootPathEvaluator
@@ -194,7 +194,7 @@ EditorWidgetBase {
     width: parent.width - fileButton.width - galleryButton.width - cameraButton.width - cameraVideoButton.width - microphoneButton.width - (isEnabled ? 5 : 0)
     height: 48
     visible: !linkField.visible
-    color: isEnabled ? Theme.lightGray : "transparent"
+    color: isEnabled ? Theme.controlBackgroundAlternateColor : "transparent"
     radius: 2
     clip: true
 
@@ -310,6 +310,7 @@ EditorWidgetBase {
         iconSource: player.playbackState == MediaPlayer.PlayingState
                     ? Theme.getThemeVectorIcon('ic_pause_black_24dp')
                     : Theme.getThemeVectorIcon('ic_play_black_24dp')
+        iconColor: Theme.mainTextColor
         bgcolor: "transparent"
 
         onClicked: {
@@ -340,7 +341,7 @@ EditorWidgetBase {
         Layout.preferredWidth: durationLabelMetrics.boundingRect('00:00:00').width
         Layout.rightMargin: 14
 
-        color: player.playbackState == MediaPlayer.PlayingState ? 'black' : 'gray'
+        color: player.playbackState == MediaPlayer.PlayingState ? Theme.mainTextColor : Theme.mainTextDisabledColor
         font: Theme.tipFont
         horizontalAlignment: Text.AlignHCenter
         verticalAlignment: Text.AlignVCenter
@@ -390,6 +391,8 @@ EditorWidgetBase {
     anchors.right: cameraVideoButton.left
     anchors.top: parent.top
 
+    iconSource: Theme.getThemeVectorIcon("ic_camera_photo_black_24dp")
+    iconColor: Theme.mainTextColor
     bgcolor: "transparent"
 
     onClicked: {
@@ -405,8 +408,6 @@ EditorWidgetBase {
         cameraLoader.active = true
       }
     }
-
-    iconSource: Theme.getThemeVectorIcon("ic_camera_photo_black_24dp")
   }
 
   QfToolButton {
@@ -421,6 +422,8 @@ EditorWidgetBase {
     anchors.right: microphoneButton.left
     anchors.top: parent.top
 
+    iconSource: Theme.getThemeVectorIcon("ic_camera_video_black_24dp")
+    iconColor: Theme.mainTextColor
     bgcolor: "transparent"
 
     onClicked: {
@@ -436,8 +439,6 @@ EditorWidgetBase {
         cameraLoader.active = true
       }
     }
-
-    iconSource: Theme.getThemeVectorIcon("ic_camera_video_black_24dp")
   }
 
   QfToolButton {
@@ -450,14 +451,14 @@ EditorWidgetBase {
     anchors.right: fileButton.left
     anchors.top: parent.top
 
+    iconSource: Theme.getThemeVectorIcon("ic_microphone_black_24dp")
+    iconColor: Theme.mainTextColor
     bgcolor: "transparent"
 
     onClicked: {
       Qt.inputMethod.hide()
       audioRecorderLoader.active = true
     }
-
-    iconSource: Theme.getThemeVectorIcon("ic_microphone_black_24dp")
   }
 
   QfToolButton {
@@ -470,6 +471,8 @@ EditorWidgetBase {
     anchors.right: galleryButton.left
     anchors.top: parent.top
 
+    iconSource: Theme.getThemeIcon("ic_file_black_24dp")
+    iconColor: Theme.mainTextColor
     bgcolor: "transparent"
 
     onClicked: {
@@ -481,8 +484,6 @@ EditorWidgetBase {
         __resourceSource = platformUtilities.getFile(this, qgisProject.homePath+'/', filepath)
       }
     }
-
-    iconSource: Theme.getThemeIcon("ic_file_black_24dp")
   }
 
   QfToolButton {
@@ -496,6 +497,8 @@ EditorWidgetBase {
     anchors.right: parent.right
     anchors.top: parent.top
 
+    iconSource: Theme.getThemeVectorIcon("ic_gallery_black_24dp")
+    iconColor: Theme.mainTextColor
     bgcolor: "transparent"
 
     onClicked: {
@@ -507,8 +510,6 @@ EditorWidgetBase {
         __resourceSource = platformUtilities.getGalleryPicture(this, qgisProject.homePath+'/', filepath)
       }
     }
-
-    iconSource: Theme.getThemeVectorIcon("ic_gallery_black_24dp")
   }
 
   Loader {
@@ -561,9 +562,10 @@ EditorWidgetBase {
   Component {
     id: cameraComponent
 
-    Popup {
-      id: cameraPopup
-      z: 10000 // 1000s are embedded feature forms, use a higher value to insure feature form popups always show above embedded feature forms
+    QFieldCamera {
+      id: qfieldCamera
+      visible: false
+      parent: ApplicationWindow.overlay
 
       Component.onCompleted: {
         if (isVideo) {
@@ -579,43 +581,30 @@ EditorWidgetBase {
         }
       }
 
-      parent: ApplicationWindow.overlay
+      onFinished: {
+        var filepath = getResourceFilePath()
+        var extension = path.substring(path.lastIndexOf('.') + 1)
+        filepath = filepath.replace('{extension}', extension)
+        platformUtilities.renameFile(path, prefixToRelativePath + filepath)
 
-      x: 0
-      y: 0
-      height: parent.height
-      width: parent.width
-
-      modal: true
-      focus: true
-
-      QFieldCamera {
-        id: qfieldCamera
-
-        visible: true
-
-        onFinished: {
-          var filepath = getResourceFilePath()
-          var extension = path.substring(path.lastIndexOf('.') + 1)
-          filepath = filepath.replace('{extension}', extension)
-          platformUtilities.renameFile(path, prefixToRelativePath + filepath)
-
-          if (!cameraLoader.isVideo) {
-            var maximumWidhtHeight = iface.readProjectNumEntry("qfieldsync", "maximumImageWidthHeight", 0)
-            if(maximumWidhtHeight > 0) {
-              iface.restrictImageSize(prefixToRelativePath + filepath, maximumWidhtHeight)
-            }
+        if (!cameraLoader.isVideo) {
+          var maximumWidhtHeight = iface.readProjectNumEntry("qfieldsync", "maximumImageWidthHeight", 0)
+          if(maximumWidhtHeight > 0) {
+            iface.restrictImageSize(prefixToRelativePath + filepath, maximumWidhtHeight)
           }
-
-          valueChangeRequested(filepath, false)
-          cameraPopup.close()
         }
 
-        onCanceled: {
-          cameraPopup.close()
-        }
+        valueChangeRequested(filepath, false)
+        close()
       }
-      onClosed: cameraLoader.active = false
+
+      onCanceled: {
+        close()
+      }
+
+      onClosed: {
+        cameraLoader.active = false
+      }
     }
   }
 

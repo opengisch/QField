@@ -76,6 +76,7 @@ Popup {
 
         bgcolor: "transparent"
         iconSource: Theme.getThemeVectorIcon( 'refresh_24dp' )
+        iconColor: Theme.mainTextColor
 
         onClicked: {
           layerTree.data(index, FlatLayerTreeModel.MapLayerPointer).reload()
@@ -176,17 +177,17 @@ Popup {
         spacing: 4
         visible: opacitySliderVisible
 
-        Image {
-          source: Theme.getThemeVectorIcon("ic_opacity_black_24dp")
-          Layout.preferredWidth: 22
-          Layout.preferredHeight: 22
-          Layout.leftMargin: 6
-          Layout.rightMargin: 2
-          Layout.bottomMargin: 8
+        QfToolButton {
           Layout.alignment: Qt.AlignVCenter | Qt.alignHCenter
+          Layout.leftMargin: 3
+          Layout.rightMargin: 1
+          width: 24
+          height: 24
+          padding: 0
+          enabled: false
 
-          fillMode: Image.PreserveAspectFit
-          smooth: true
+          icon.source: Theme.getThemeVectorIcon("ic_opacity_black_24dp")
+          icon.color: Theme.mainTextColor
         }
 
         ColumnLayout {
@@ -198,6 +199,7 @@ Popup {
             Layout.fillWidth: true
             text: qsTr("Opacity")
             font: Theme.defaultFont
+            color: Theme.mainTextColor
           }
 
           QfSlider {

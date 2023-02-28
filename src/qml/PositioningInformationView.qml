@@ -16,13 +16,15 @@ Rectangle {
 
   property double antennaHeight: NaN
   property double rowHeight: 30
-  property color backgroundColor: "white"
+  property color backgroundColor: Theme.mainBackgroundColor
   property color alternateBackgroundColor: Theme.positionBackgroundColor
-  property color textColor: positionSource.currentness ? "black" : "gray"
+  property color textColor: positionSource.currentness ? Theme.mainTextColor : Theme.secondaryTextColor
 
   height: grid.rows * positioningInformationView.rowHeight
   width: parent.width
   anchors.margins: 20
+
+  color: Theme.mainBackgroundColor
 
   Grid {
     id: grid
