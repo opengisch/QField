@@ -8,8 +8,12 @@ echo "::endgroup::"
 
 echo "::group::android specific translations"
 for x in platform/android/res/values-*_*; do
-    rm -rf $(echo $x | sed -e 's/_/-r/')
-    mv $x $(echo $x | sed -e 's/_/-r/')
+    # $x is evaluated to the glob string literal when no dir is found
+    if [[ -d $x ]]
+    then
+        rm -rf $(echo $x | sed -e 's/_/-r/')
+        mv $x $(echo $x | sed -e 's/_/-r/')
+    fi
 done
 find platform/android/res/values-* -name strings.xml -type f -print0 | while read -d $'\0' file; do
     # .bak is a workaround GNU & BSD/macOS compatibility
