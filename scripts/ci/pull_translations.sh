@@ -3,8 +3,7 @@
 set -e
 
 echo "::group::tx-pull"
-./tx pull -r qfield --all --source --minimum-perc=50 --force
-./tx pull -r qfield_android --all --minimum-perc=50 --force
+./tx pull --minimum-perc=50 --force
 echo "::endgroup::"
 
 echo "::group::android specific translations"
