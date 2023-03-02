@@ -3,6 +3,7 @@ on:
   schedule:
     - cron: "5 1 * * *"
   workflow_dispatch:
+  pull_request:
 
 jobs:
   sync_translations:
@@ -14,6 +15,7 @@ jobs:
 
       - name: Install Requirements
         run: |
+          sudo apt-get install -y qttools5-dev-tools
           # v1.6.5: 2023-02-16
           curl -OL https://github.com/transifex/cli/releases/download/v1.6.5/tx-linux-amd64.tar.gz
           tar -xvzf tx-linux-amd64.tar.gz
