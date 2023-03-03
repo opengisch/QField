@@ -15,7 +15,7 @@
     </message>
     <message>
         <source>Documentation</source>
-        <translation type="unfinished"/>
+        <translation>Dokumentation</translation>
     </message>
     <message>
         <source>Links Menu</source>
@@ -257,7 +257,7 @@ Abbrechen um einen minimalen Scan durchzuführen. </translation>
     </message>
     <message>
         <source>Unknown error</source>
-        <translation type="unfinished"/>
+        <translation>Unbekannter Fehler</translation>
     </message>
 </context>
 <context>
@@ -393,7 +393,7 @@ Abbrechen um einen minimalen Scan durchzuführen. </translation>
     </message>
     <message>
         <source>NULL</source>
-        <translation type="unfinished"/>
+        <translation>NULL</translation>
     </message>
 </context>
 <context>
@@ -1057,7 +1057,7 @@ Die Objekt-Geometrien werden in Objekt &apos;%1&apos; zusammengeführt, welches 
     <name>MessageLog</name>
     <message>
         <source>Message Logs</source>
-        <translation>Nachrichten Logs</translation>
+        <translation>Nachrichtenprotokolle</translation>
     </message>
     <message>
         <source>Message text copied</source>
@@ -1065,15 +1065,15 @@ Die Objekt-Geometrien werden in Objekt &apos;%1&apos; zusammengeführt, welches 
     </message>
     <message>
         <source>Clear message log</source>
-        <translation>Lösche Nachrichtenlog</translation>
+        <translation>Lösche Nachrichtenprotokoll</translation>
     </message>
     <message>
         <source>Message log cleared</source>
-        <translation>Nachrichtenlog gelöscht</translation>
+        <translation>Nachrichtenprotokoll gelöscht</translation>
     </message>
     <message>
         <source>Send application log</source>
-        <translation>Nachrichtenlog senden</translation>
+        <translation>Nachrichtenprotokoll senden</translation>
     </message>
     <message>
         <source>Your application log is being sent</source>
@@ -1335,10 +1335,14 @@ Die Objekt-Geometrien werden in Objekt &apos;%1&apos; zusammengeführt, welches 
     </message>
     <message>
         <source>All files (*.*)</source>
-        <translation type="unfinished"/>
+        <translation>Alle Dateien (*.*)</translation>
     </message>
     <message>
         <source>Select File</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Audio files (*.mp3 *.aac *.ogg *.m4a *.mp4 *.mov)</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -1428,7 +1432,7 @@ Die Objekt-Geometrien werden in Objekt &apos;%1&apos; zusammengeführt, welches 
     </message>
     <message>
         <source>Name:</source>
-        <translation type="unfinished"/>
+        <translation>Name:</translation>
     </message>
     <message>
         <source>Leave empty to auto-fill</source>
@@ -1440,7 +1444,7 @@ Die Objekt-Geometrien werden in Objekt &apos;%1&apos; zusammengeführt, welches 
     </message>
     <message>
         <source>Bluetooth</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Bluetooth</translation>
     </message>
     <message>
         <source>Bluetooth (NMEA)</source>
@@ -1541,6 +1545,13 @@ Die Objekt-Geometrien werden in Objekt &apos;%1&apos; zusammengeführt, welches 
     </message>
 </context>
 <context>
+    <name>QFieldAudioRecorder</name>
+    <message>
+        <source>Audio Recorder</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
     <name>QFieldCloudConnection</name>
     <message>
         <source>[timeout] The request took too long to finish, please retry.</source>
@@ -1576,7 +1587,7 @@ Die Objekt-Geometrien werden in Objekt &apos;%1&apos; zusammengeführt, welches 
     </message>
     <message>
         <source>Login temporary unavailable</source>
-        <translation type="unfinished"/>
+        <translation>Login vorübergehend nicht verfügbar</translation>
     </message>
     <message>
         <source>Failed to upload attachment stored at `%1`, reason:
@@ -2087,7 +2098,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>No projects found</source>
-        <translation type="unfinished"/>
+        <translation>Keine Projekte gefunden</translation>
     </message>
 </context>
 <context>
@@ -2169,7 +2180,7 @@ While you can still view and use the project, it is strongly recommended to rese
     <name>QFieldSettings</name>
     <message>
         <source>Show scale bar</source>
-        <translation>Massstab anzeigen</translation>
+        <translation>Maßstab anzeigen</translation>
     </message>
     <message>
         <source>Maximized attribute form</source>
@@ -2177,11 +2188,11 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Fixed scale navigation</source>
-        <translation>Navigation mit feststehendem Massstab</translation>
+        <translation>Navigation mit feststehendem Maßstab</translation>
     </message>
     <message>
         <source>When fixed scale navigation is active, focusing on a search result will pan to the feature. With fixed scale navigation disabled it will pan and zoom to the feature.</source>
-        <translation>Wenn Navigation mit feststehendem Massstab aktiviert ist, wird beim Fokussieren zu einem Suchresultat der Massstab nicht verändert. Wenn Navigation mit feststehendem Massstab deaktiviert ist, wird zum entsprechenden Objekt gezoomt.</translation>
+        <translation>Wenn Navigation mit feststehendem Maßstab aktiviert ist, wird beim Fokussieren zu einem Suchresultat der Maßstab nicht verändert. Wenn Navigation mit feststehendem Maßstab deaktiviert ist, wird zum entsprechenden Objekt gezoomt.</translation>
     </message>
     <message>
         <source>Show digitizing information</source>
@@ -2237,7 +2248,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>If enabled, anonymized metrics will be collected and sent to help improve QField for everyone.</source>
-        <translation type="unfinished"/>
+        <translation>Wenn aktiviert, werden anonymisierte Metriken gesammelt und gesendet, um QField für alle zu verbessern.</translation>
     </message>
     <message>
         <source>General</source>
@@ -2257,7 +2268,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>User interface language:</source>
-        <translation type="unfinished"/>
+        <translation>Sprache der Benutzeroberfläche:</translation>
     </message>
     <message>
         <source>To apply the selected user interface language, QField needs to completely shutdown and restart.</source>
@@ -2347,7 +2358,7 @@ Abbrechen um einen minimalen Scan durchzuführen. </translation>
     </message>
     <message>
         <source>When the accuracy indicator is enabled, a badge is attached to the location button and colored &lt;span %1&gt;red&lt;/span&gt; if the accuracy value is below bad, &lt;span %2&gt;yellow&lt;/span&gt; if it falls short of excellent, or &lt;span %3&gt;green&lt;/span&gt;.&lt;br&gt;&lt;br&gt;In addition, an accuracy restriction mode can be toggled on, which restricts vertex addition when locked to coordinate cursor to positions with an accuracy value above the bad threshold.</source>
-        <translation>Wenn der Genauigkeitsindikator aktiviert ist, wird ein Abzeichen an die Positionsschaltfläche angehängt und &lt;span %1&gt;red&lt;/span&gt; gefärbt, wenn der Genauigkeitswert unter schlecht liegt, &lt;span %2&gt;gelb&lt;/span&gt;, wenn er unter exzellent liegt, oder &lt;span %3&gt;grün&lt;/span&gt;.&lt;br&gt;&lt;br&gt; Zusätzlich kann ein Genauigkeitseinschränkungsmodus eingeschaltet werden, der das Hinzufügen von Definitionspunkten beim Sperren des Koordinatencursors auf Positionen mit einem Genauigkeitswert über dem Schwellenwert für schlechte Genauigkeit beschränkt.</translation>
+        <translation>Wenn der Genauigkeitsindikator aktiviert ist, wird ein Badge an die Positionsschaltfläche angehängt und &lt;span %1&gt;rot&lt;/span&gt; gefärbt, wenn der Genauigkeitswert unter schlecht liegt, &lt;span %2&gt;gelb&lt;/span&gt;, wenn er unter exzellent liegt, oder &lt;span %3&gt;grün&lt;/span&gt;.&lt;br&gt;&lt;br&gt; Zusätzlich kann ein Genauigkeitseinschränkungsmodus eingeschaltet werden, der das Hinzufügen von Definitionspunkten beim Sperren des Koordinatencursors auf Positionen mit einem Genauigkeitswert über dem Schwellenwert für schlechte Genauigkeit beschränkt.</translation>
     </message>
     <message>
         <source>Enable averaged positioning requirement</source>
@@ -2447,11 +2458,11 @@ Abbrechen um einen minimalen Scan durchzuführen. </translation>
     </message>
     <message>
         <source>Add</source>
-        <translation type="unfinished"/>
+        <translation>Hinzufügen</translation>
     </message>
     <message>
         <source>Edit</source>
-        <translation type="unfinished"/>
+        <translation>Bearbeiten</translation>
     </message>
     <message>
         <source>Remove</source>
@@ -2460,6 +2471,42 @@ Abbrechen um einen minimalen Scan durchzuführen. </translation>
     <message>
         <source>Connect to %1</source>
         <translation>Verbinden zu %1</translation>
+    </message>
+    <message>
+        <source>User interface appearance:</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Follow system appearance</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Light theme</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Dark theme</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>User interface font size:</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Tiny</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Normal</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Large</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Extra-large</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -2486,7 +2533,7 @@ Abbrechen um einen minimalen Scan durchzuführen. </translation>
     </message>
     <message>
         <source>Object not found</source>
-        <translation type="unfinished"/>
+        <translation>Objekt nicht gefunden</translation>
     </message>
     <message>
         <source>API Error</source>
@@ -2600,7 +2647,7 @@ Abbrechen um einen minimalen Scan durchzuführen. </translation>
     </message>
     <message>
         <source>DGPS</source>
-        <translation type="unfinished"/>
+        <translation>DGPS</translation>
     </message>
     <message>
         <source>Autonomous</source>
@@ -2608,11 +2655,11 @@ Abbrechen um einen minimalen Scan durchzuführen. </translation>
     </message>
     <message>
         <source>Invalid</source>
-        <translation type="unfinished"/>
+        <translation>Ungültig</translation>
     </message>
     <message>
         <source>Unknown (%1)</source>
-        <translation type="unfinished"/>
+        <translation>Unbekannt (%1)</translation>
     </message>
 </context>
 <context>
@@ -2626,7 +2673,7 @@ Abbrechen um einen minimalen Scan durchzuführen. </translation>
     <name>QgsQuickMapSettings</name>
     <message>
         <source>Map Canvas rotation is not supported. Resetting from %1 to 0.</source>
-        <translation>Rotieren der Karte wird nicht unterstützt. Reset von %1 zu 0.</translation>
+        <translation type="vanished">Rotieren der Karte wird nicht unterstützt. Reset von %1 zu 0.</translation>
     </message>
 </context>
 <context>
@@ -2674,7 +2721,7 @@ Abbrechen um einen minimalen Scan durchzuführen. </translation>
     <name>ScaleBarMeasurement</name>
     <message>
         <source>Unknown</source>
-        <translation type="unfinished"/>
+        <translation>Unbekannt</translation>
     </message>
 </context>
 <context>
@@ -2741,7 +2788,7 @@ Abbrechen um einen minimalen Scan durchzuführen. </translation>
     </message>
     <message>
         <source>Port:</source>
-        <translation type="unfinished"/>
+        <translation>Port:</translation>
     </message>
 </context>
 <context>
@@ -2798,15 +2845,15 @@ Abbrechen um einen minimalen Scan durchzuführen. </translation>
     <name>TextEdit</name>
     <message>
         <source>Copy Text</source>
-        <translation type="unfinished"/>
+        <translation>Text kopieren</translation>
     </message>
     <message>
         <source>Paste Text</source>
-        <translation type="unfinished"/>
+        <translation>Text einfügen</translation>
     </message>
     <message>
         <source>Scan Code</source>
-        <translation type="unfinished"/>
+        <translation>Code scannen</translation>
     </message>
 </context>
 <context>
@@ -2908,7 +2955,7 @@ Abbrechen um einen minimalen Scan durchzuführen. </translation>
     </message>
     <message>
         <source>Port:</source>
-        <translation type="unfinished"/>
+        <translation>Port:</translation>
     </message>
 </context>
 <context>
@@ -3016,7 +3063,7 @@ Abbrechen um einen minimalen Scan durchzuführen. </translation>
     </message>
     <message>
         <source>Open local file</source>
-        <translation>Öffne Lokale Daten</translation>
+        <translation>Öffne lokale Daten</translation>
     </message>
     <message>
         <source>Recent Projects</source>
@@ -3040,7 +3087,7 @@ Abbrechen um einen minimalen Scan durchzuführen. </translation>
     </message>
     <message>
         <source>Welcome to QField. First time using this application? Try out sample projects listed in the list below.</source>
-        <translation type="unfinished"/>
+        <translation>Willkommen bei QField. Verwenden Sie diese Anwendung zum ersten Mal? Probieren Sie die in der Liste unten aufgeführten Beispielprojekte aus.</translation>
     </message>
     <message>
         <source>Welcome back to QField.</source>
@@ -3114,7 +3161,7 @@ Abbrechen um einen minimalen Scan durchzuführen. </translation>
     </message>
     <message>
         <source>Perimeter</source>
-        <translation type="unfinished"/>
+        <translation>Umfang</translation>
     </message>
     <message>
         <source>Length</source>
@@ -3230,7 +3277,7 @@ Abbrechen um einen minimalen Scan durchzuführen. </translation>
     </message>
     <message>
         <source>Message Log</source>
-        <translation>Nachrichten Log</translation>
+        <translation>Nachrichtenprotokoll</translation>
     </message>
     <message>
         <source>About QField</source>
@@ -3426,7 +3473,7 @@ Abbrechen um einen minimalen Scan durchzuführen. </translation>
     </message>
     <message>
         <source>Connecting...</source>
-        <translation type="unfinished"/>
+        <translation>Verbinde...</translation>
     </message>
     <message>
         <source>Logged in</source>
@@ -3462,11 +3509,11 @@ Abbrechen um einen minimalen Scan durchzuführen. </translation>
     </message>
     <message>
         <source>Lock Screen</source>
-        <translation type="unfinished"/>
+        <translation>Bildschrim sperren</translation>
     </message>
     <message>
         <source>Print to Image</source>
-        <translation type="unfinished"/>
+        <translation>Als Bild drucken</translation>
     </message>
     <message>
         <source>Printing...</source>
@@ -3478,6 +3525,10 @@ Abbrechen um einen minimalen Scan durchzuführen. </translation>
     </message>
     <message>
         <source>Positioning device error: %1</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Canvas follows location and compass orientation</source>
         <translation type="unfinished"/>
     </message>
 </context>

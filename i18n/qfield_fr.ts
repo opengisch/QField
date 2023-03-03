@@ -1343,6 +1343,10 @@ Les géométries des objets vont être combinées dans l&apos;objet &apos;%1&apo
         <source>Select File</source>
         <translation type="unfinished"/>
     </message>
+    <message>
+        <source>Audio files (*.mp3 *.aac *.ogg *.m4a *.mp4 *.mov)</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>PositionInformationView</name>
@@ -1540,6 +1544,13 @@ Les géométries des objets vont être combinées dans l&apos;objet &apos;%1&apo
     <message>
         <source>Internal device</source>
         <translation>Stockage interne</translation>
+    </message>
+</context>
+<context>
+    <name>QFieldAudioRecorder</name>
+    <message>
+        <source>Audio Recorder</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -2466,6 +2477,42 @@ Cancel to make a minimal device scan instead.</source>
         <source>Connect to %1</source>
         <translation>Connecter à %1 </translation>
     </message>
+    <message>
+        <source>User interface appearance:</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Follow system appearance</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Light theme</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Dark theme</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>User interface font size:</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Tiny</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Normal</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Large</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Extra-large</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>QObject</name>
@@ -2631,7 +2678,7 @@ Cancel to make a minimal device scan instead.</source>
     <name>QgsQuickMapSettings</name>
     <message>
         <source>Map Canvas rotation is not supported. Resetting from %1 to 0.</source>
-        <translation>La rotation de la carte n&apos;est pas supportée. Réinitialisation de %1 à 0.</translation>
+        <translation type="vanished">La rotation de la carte n&apos;est pas supportée. Réinitialisation de %1 à 0.</translation>
     </message>
 </context>
 <context>
@@ -3486,6 +3533,10 @@ fermer le projet et quitter l&apos;application</translation>
     <message>
         <source>Positioning device error: %1</source>
         <translation>Erreur de périphérique de positionnement : %1</translation>
+    </message>
+    <message>
+        <source>Canvas follows location and compass orientation</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

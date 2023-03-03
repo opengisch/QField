@@ -118,7 +118,7 @@
     </message>
     <message>
         <source>Center your camera on a code</source>
-        <translation>请居中您的相机于条码之上</translation>
+        <translation>请将相机对准条码</translation>
     </message>
 </context>
 <context>
@@ -179,7 +179,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Use orthometric altitude from device</source>
-        <translation type="vanished">使用设备的垂直高程</translation>
+        <translation type="vanished">使用设备的垂直海拔</translation>
     </message>
     <message>
         <source>Select the Bluetooth device from the list below:</source>
@@ -716,7 +716,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Cannot start editing</source>
-        <translation>无法开始编辑</translation>
+        <translation>无法启动编辑</translation>
     </message>
 </context>
 <context>
@@ -1330,7 +1330,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Audio files (*.mp3 *.aac *.ogg)</source>
-        <translation>音频文件 (*.mp3 *.aac *.ogg)</translation>
+        <translation type="vanished">音频文件 (*.mp3 *.aac *.ogg)</translation>
     </message>
     <message>
         <source>All files (*.*)</source>
@@ -1339,6 +1339,10 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <message>
         <source>Select File</source>
         <translation>选择文件</translation>
+    </message>
+    <message>
+        <source>Audio files (*.mp3 *.aac *.ogg *.m4a *.mp4 *.mov)</source>
+        <translation>音频文件 (*.mp3 *.aac *.ogg *.m4a *.mp4 *.mov)</translation>
     </message>
 </context>
 <context>
@@ -1431,7 +1435,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Leave empty to auto-fill</source>
-        <translation>留空将自动填充</translation>
+        <translation>留空自动填写</translation>
     </message>
     <message>
         <source>Connection type:</source>
@@ -1482,7 +1486,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Altitude</source>
-        <translation>高程</translation>
+        <translation>海拔</translation>
     </message>
     <message>
         <source>Speed</source>
@@ -1537,6 +1541,13 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <message>
         <source>Internal device</source>
         <translation>内部设备</translation>
+    </message>
+</context>
+<context>
+    <name>QFieldAudioRecorder</name>
+    <message>
+        <source>Audio Recorder</source>
+        <translation>音频录制</translation>
     </message>
 </context>
 <context>
@@ -2329,7 +2340,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Use orthometric altitude from device</source>
-        <translation>使用设备的垂直高程</translation>
+        <translation>使用设备的垂直海拔</translation>
     </message>
     <message>
         <source>Show position information</source>
@@ -2385,15 +2396,15 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Skip altitude correction</source>
-        <translation>跳过高程修正</translation>
+        <translation>跳过海拔校正</translation>
     </message>
     <message>
         <source>Use the altitude as reported by the positioning device. Skip any altitude correction that may be implied by the coordinate system transformation.</source>
-        <translation>使用定位设备报告的高程，跳过坐标系转换可能隐含的任何高程修正。</translation>
+        <translation>使用定位设备报告的海拔，跳过坐标系转换可能隐含的任何海拔校正。</translation>
     </message>
     <message>
         <source>Vertical grid shift in use:</source>
-        <translation>使用中的垂直网格移位：</translation>
+        <translation>使用中的垂直网格偏移：</translation>
     </message>
     <message>
         <source>None</source>
@@ -2401,7 +2412,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Vertical grid shift is used to increase the altitude accuracy.</source>
-        <translation>垂直网格移位用于提高高程精度。</translation>
+        <translation>垂直网格偏移用于提高海拔精度。</translation>
     </message>
     <message>
         <source>QField Settings</source>
@@ -2466,6 +2477,42 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <source>Connect to %1</source>
         <translation>连接至%1</translation>
+    </message>
+    <message>
+        <source>User interface appearance:</source>
+        <translation>用户界面外观：</translation>
+    </message>
+    <message>
+        <source>Follow system appearance</source>
+        <translation>跟随系统外观</translation>
+    </message>
+    <message>
+        <source>Light theme</source>
+        <translation>浅色主题</translation>
+    </message>
+    <message>
+        <source>Dark theme</source>
+        <translation>深色主题</translation>
+    </message>
+    <message>
+        <source>User interface font size:</source>
+        <translation>用户界面字号：</translation>
+    </message>
+    <message>
+        <source>Tiny</source>
+        <translation>小号</translation>
+    </message>
+    <message>
+        <source>Normal</source>
+        <translation>标准</translation>
+    </message>
+    <message>
+        <source>Large</source>
+        <translation>大号</translation>
+    </message>
+    <message>
+        <source>Extra-large</source>
+        <translation>特大号</translation>
     </message>
 </context>
 <context>
@@ -2632,7 +2679,7 @@ Cancel to make a minimal device scan instead.</source>
     <name>QgsQuickMapSettings</name>
     <message>
         <source>Map Canvas rotation is not supported. Resetting from %1 to 0.</source>
-        <translation>不支持地图画布旋转，正在从%1重置为0。</translation>
+        <translation type="vanished">不支持地图画布旋转，正在从%1重置为0。</translation>
     </message>
 </context>
 <context>
@@ -3485,6 +3532,10 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <source>Positioning device error: %1</source>
         <translation>定位设备错误: %1</translation>
+    </message>
+    <message>
+        <source>Canvas follows location and compass orientation</source>
+        <translation>地图遵循位置和指南针方向</translation>
     </message>
 </context>
 <context>

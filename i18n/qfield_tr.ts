@@ -1335,6 +1335,10 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
         <source>Select File</source>
         <translation type="unfinished"/>
     </message>
+    <message>
+        <source>Audio files (*.mp3 *.aac *.ogg *.m4a *.mp4 *.mov)</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>PositionInformationView</name>
@@ -1532,6 +1536,13 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <message>
         <source>Internal device</source>
         <translation>Dahili cihaz</translation>
+    </message>
+</context>
+<context>
+    <name>QFieldAudioRecorder</name>
+    <message>
+        <source>Audio Recorder</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -2454,6 +2465,42 @@ Bunun yerine minimum cihaz taraması yapmak için iptal edin.</translation>
         <source>Connect to %1</source>
         <translation>%1&apos;e bağlan</translation>
     </message>
+    <message>
+        <source>User interface appearance:</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Follow system appearance</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Light theme</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Dark theme</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>User interface font size:</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Tiny</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Normal</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Large</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Extra-large</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>QObject</name>
@@ -2619,7 +2666,7 @@ Bunun yerine minimum cihaz taraması yapmak için iptal edin.</translation>
     <name>QgsQuickMapSettings</name>
     <message>
         <source>Map Canvas rotation is not supported. Resetting from %1 to 0.</source>
-        <translation>Harita Kanvası döndürmeyi desteklemez. %1&apos;den 0&apos;a kadar sıfırlanıyor.</translation>
+        <translation type="vanished">Harita Kanvası döndürmeyi desteklemez. %1&apos;den 0&apos;a kadar sıfırlanıyor.</translation>
     </message>
 </context>
 <context>
@@ -3471,6 +3518,10 @@ Bunun yerine minimum cihaz taraması yapmak için iptal edin.</translation>
     </message>
     <message>
         <source>Positioning device error: %1</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Canvas follows location and compass orientation</source>
         <translation type="unfinished"/>
     </message>
 </context>

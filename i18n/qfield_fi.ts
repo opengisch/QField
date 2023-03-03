@@ -183,11 +183,11 @@ Peruuta tehd채ksesi suppeampi laiteskannaus.</translation>
     </message>
     <message>
         <source>Select the Bluetooth device from the list below:</source>
-        <translation type="unfinished"/>
+        <translation>Valitse Bluetooth laite alla olevasta listasta:</translation>
     </message>
     <message>
         <source>Bluetooth device name:</source>
-        <translation type="unfinished"/>
+        <translation>Bluetooth latteen nimi:</translation>
     </message>
     <message>
         <source>N/A</source>
@@ -195,15 +195,15 @@ Peruuta tehd채ksesi suppeampi laiteskannaus.</translation>
     </message>
     <message>
         <source>Bluetooth device address:</source>
-        <translation type="unfinished"/>
+        <translation>Bluetooth laitteen osoite:</translation>
     </message>
     <message>
         <source>Scan for nearby devices</source>
-        <translation type="unfinished"/>
+        <translation>Skannaa l채heisi채 laitteita</translation>
     </message>
     <message>
         <source>No Bluetooth devices detected, scan to populate nearby devices.</source>
-        <translation type="unfinished"/>
+        <translation>Bluetooth laitteita ei l철ydetty, skannaa l철yt채채ksesi l채heiset laitteet.</translation>
     </message>
 </context>
 <context>
@@ -1168,31 +1168,31 @@ Kohteen geometriat yhdistet채채n kohteeseen &apos;%1&apos;, johon sis채llytet채�
     </message>
     <message>
         <source>Printing atlas feature(s) to PDF</source>
-        <translation type="vanished">Tulostetaan Atlaksen kohde/kohteet PDF:ksi</translation>
+        <translation type="vanished">Tulostetaan Atlaksen kohde(kohteet) PDF:ksi</translation>
     </message>
     <message>
         <source>Atlas feature(s) successfully printed to PDF and placed in your documents</source>
-        <translation type="vanished">Atlaksen kohde/kohteet tulostettu PDF:ksi onnistuneesti ja sijoitettu dokumentteihisi</translation>
+        <translation type="vanished">Atlaksen kohde(kohteet) tulostettu PDF:ksi onnistuneesti ja sijoitettu dokumentteihisi</translation>
     </message>
     <message>
         <source>Print Atlas Feature(s) to Image</source>
-        <translation type="unfinished"/>
+        <translation>Tulosta Atlas kohde(kohteet) kuvaksi</translation>
     </message>
     <message>
         <source>Print Atlas Feature to Image</source>
-        <translation type="unfinished"/>
+        <translation>Tulosta Atlas kohde kuvaksi</translation>
     </message>
     <message>
         <source>Print Atlas Feature(s)</source>
-        <translation type="unfinished"/>
+        <translation>Tulosta Atlas kohde(kohteet)</translation>
     </message>
     <message>
         <source>Printing...</source>
-        <translation type="unfinished"/>
+        <translation>Tulostetaan...</translation>
     </message>
     <message>
         <source>Atlas feature(s) successfully printed and placed in your project folder</source>
-        <translation type="unfinished"/>
+        <translation>Atlas kohde(kohteet) tulostettu onnistuneesti ja sijoitettu projektihakemistoon</translation>
     </message>
 </context>
 <context>
@@ -1340,6 +1340,10 @@ Kohteen geometriat yhdistet채채n kohteeseen &apos;%1&apos;, johon sis채llytet채�
     </message>
     <message>
         <source>Select File</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Audio files (*.mp3 *.aac *.ogg *.m4a *.mp4 *.mov)</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -1539,6 +1543,13 @@ Kohteen geometriat yhdistet채채n kohteeseen &apos;%1&apos;, johon sis채llytet채�
     <message>
         <source>Internal device</source>
         <translation>Sis채inen laite</translation>
+    </message>
+</context>
+<context>
+    <name>QFieldAudioRecorder</name>
+    <message>
+        <source>Audio Recorder</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -2471,6 +2482,42 @@ Peruuta tehd채ksesi suppeampi laiteskannaus.</translation>
         <source>Connect to %1</source>
         <translation>Yhdist채 %1</translation>
     </message>
+    <message>
+        <source>User interface appearance:</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Follow system appearance</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Light theme</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Dark theme</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>User interface font size:</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Tiny</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Normal</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Large</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Extra-large</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>QObject</name>
@@ -2636,7 +2683,7 @@ Peruuta tehd채ksesi suppeampi laiteskannaus.</translation>
     <name>QgsQuickMapSettings</name>
     <message>
         <source>Map Canvas rotation is not supported. Resetting from %1 to 0.</source>
-        <translation>Karttapohjan kiertoa ei tueta. Palautetaan arvosta %1 arvoon 0.</translation>
+        <translation type="vanished">Karttapohjan kiertoa ei tueta. Palautetaan arvosta %1 arvoon 0.</translation>
     </message>
 </context>
 <context>
@@ -3480,7 +3527,7 @@ Peruuta tehd채ksesi suppeampi laiteskannaus.</translation>
     </message>
     <message>
         <source>Printing...</source>
-        <translation type="unfinished"/>
+        <translation>Tulostetaan...</translation>
     </message>
     <message>
         <source>Print</source>
@@ -3488,6 +3535,10 @@ Peruuta tehd채ksesi suppeampi laiteskannaus.</translation>
     </message>
     <message>
         <source>Positioning device error: %1</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Canvas follows location and compass orientation</source>
         <translation type="unfinished"/>
     </message>
 </context>

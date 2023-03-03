@@ -1338,6 +1338,10 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
         <source>Select File</source>
         <translation type="unfinished"/>
     </message>
+    <message>
+        <source>Audio files (*.mp3 *.aac *.ogg *.m4a *.mp4 *.mov)</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>PositionInformationView</name>
@@ -1535,6 +1539,13 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <message>
         <source>Internal device</source>
         <translation>Dispositivo Interno</translation>
+    </message>
+</context>
+<context>
+    <name>QFieldAudioRecorder</name>
+    <message>
+        <source>Audio Recorder</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -2460,6 +2471,42 @@ Cancele para fazer uma verificação mínima.</translation>
         <source>Connect to %1</source>
         <translation>Conectar a %1</translation>
     </message>
+    <message>
+        <source>User interface appearance:</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Follow system appearance</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Light theme</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Dark theme</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>User interface font size:</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Tiny</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Normal</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Large</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Extra-large</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>QObject</name>
@@ -2625,7 +2672,7 @@ Cancele para fazer uma verificação mínima.</translation>
     <name>QgsQuickMapSettings</name>
     <message>
         <source>Map Canvas rotation is not supported. Resetting from %1 to 0.</source>
-        <translation>A rotação do mapa na tela não é suportada. Redefinindo de %1 para 0.</translation>
+        <translation type="vanished">A rotação do mapa na tela não é suportada. Redefinindo de %1 para 0.</translation>
     </message>
 </context>
 <context>
@@ -3477,6 +3524,10 @@ Cancele para fazer uma verificação mínima.</translation>
     </message>
     <message>
         <source>Positioning device error: %1</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Canvas follows location and compass orientation</source>
         <translation type="unfinished"/>
     </message>
 </context>

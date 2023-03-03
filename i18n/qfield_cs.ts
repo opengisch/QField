@@ -464,7 +464,7 @@ Zrušte pro jen minimální skenování zařízení. </translation>
     <name>DigitizingLogger</name>
     <message>
         <source>Default value expression for the digitizing logger&apos;s %2 field has a parser error: %3</source>
-        <translation type="unfinished"/>
+        <translation>Výraz výchozí hodnoty pro pole %2 digitalizačního záznamníku má chybu parseru: %3</translation>
     </message>
     <message>
         <source>Default value expression for the digitizing logger&apos;s %2 field has an evaluation error: %3</source>
@@ -472,7 +472,7 @@ Zrušte pro jen minimální skenování zařízení. </translation>
     </message>
     <message>
         <source>Digitizing logs layer feature addition failed</source>
-        <translation type="unfinished"/>
+        <translation>Digitalizace protokolů přidání funkce vrstvy se nezdařilo</translation>
     </message>
     <message>
         <source>Digitizing logs layer change commits failed</source>
@@ -480,7 +480,7 @@ Zrušte pro jen minimální skenování zařízení. </translation>
     </message>
     <message>
         <source>Digitizing logs layer editing failed</source>
-        <translation type="unfinished"/>
+        <translation>Digitalizace záznamů Úprava vrstvy se nezdařila</translation>
     </message>
 </context>
 <context>
@@ -752,11 +752,11 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>The ring crosses existing rings (it is not disjoint)</source>
-        <translation type="unfinished"/>
+        <translation>Kruh protíná existující kruhy (není nespojitý)</translation>
     </message>
     <message>
         <source>The ring doesn&apos;t have any existing ring to fit into</source>
-        <translation type="unfinished"/>
+        <translation>Kruh nemá žádný existující kruh, do kterého by se vešel.</translation>
     </message>
     <message>
         <source>Unknown error when creating the ring</source>
@@ -768,7 +768,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Would you like to fill the ring with a new polygon?</source>
-        <translation type="unfinished"/>
+        <translation>Chcete kruh vyplnit novým polygonem?</translation>
     </message>
 </context>
 <context>
@@ -790,7 +790,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Reshape Tool</source>
-        <translation type="unfinished"/>
+        <translation>Nástroj na změnu tvaru</translation>
     </message>
     <message>
         <source>Fill Ring Tool</source>
@@ -847,7 +847,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Failed to find a source primary key column in layer &quot;%1&quot;</source>
-        <translation type="unfinished"/>
+        <translation>Nepodařilo se najít sloupec primárního klíče zdroje ve vrstvě &quot;%1&quot;.</translation>
     </message>
 </context>
 <context>
@@ -1338,6 +1338,10 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
         <source>Select File</source>
         <translation type="unfinished"/>
     </message>
+    <message>
+        <source>Audio files (*.mp3 *.aac *.ogg *.m4a *.mp4 *.mov)</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>PositionInformationView</name>
@@ -1538,6 +1542,13 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
 </context>
 <context>
+    <name>QFieldAudioRecorder</name>
+    <message>
+        <source>Audio Recorder</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
     <name>QFieldCloudConnection</name>
     <message>
         <source>[timeout] The request took too long to finish, please retry.</source>
@@ -1590,7 +1601,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <name>QFieldCloudDeltaHistory</name>
     <message>
         <source>Push History</source>
-        <translation type="unfinished"/>
+        <translation>Historie Push</translation>
     </message>
     <message>
         <source>Loading…</source>
@@ -1688,11 +1699,11 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>The current project is not stored on QFieldCloud.&lt;br&gt;&lt;br&gt;</source>
-        <translation type="unfinished"/>
+        <translation>Aktuální projekt není uložen na QFieldCloud.&lt;br&gt;&lt;br&gt;</translation>
     </message>
     <message>
         <source>Storing projects on QFieldCloud offers seamless synchornization, offline editing, and team management.&lt;br&gt;&lt;br&gt;</source>
-        <translation type="unfinished"/>
+        <translation>Ukládání projektů na QFieldCloud nabízí bezproblémovou synchronizaci, offline úpravy a týmovou správu.&lt;br&gt;&lt;br&gt;</translation>
     </message>
     <message>
         <source>Learn more about QFieldCloud</source>
@@ -1708,7 +1719,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Greetings &lt;strong&gt;%1&lt;/strong&gt;.</source>
-        <translation type="unfinished"/>
+        <translation>Zdravíme &lt;strong&gt;%1&lt;/strong&gt;.</translation>
     </message>
     <message>
         <source>This QFieldCloud project was first downloaded with another cloud account. Please sign in with the original account for this project to use the QFieldCloud functionality.</source>
@@ -1728,7 +1739,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>QFieldCloud is applying the latest uploaded changes. This might take some time, please hold tight…</source>
-        <translation type="unfinished"/>
+        <translation>QFieldCloud aplikuje nejnovější nahrané změny. Může to chvíli trvat, vydržte prosím...</translation>
     </message>
     <message>
         <source>A server error has occured, please try again.</source>
@@ -1748,7 +1759,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>The locally stored cloud project has been corrupted</source>
-        <translation type="unfinished"/>
+        <translation>Místně uložený cloudový projekt byl poškozen.</translation>
     </message>
     <message>
         <source>Synchronize</source>
@@ -1760,7 +1771,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Push changes</source>
-        <translation type="unfinished"/>
+        <translation>Push změny</translation>
     </message>
     <message>
         <source>Save internet bandwidth by only pushing the local features and pictures to the cloud, without updating the whole project.</source>
@@ -1772,7 +1783,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Reset project</source>
-        <translation type="unfinished"/>
+        <translation>Obnovení projektu</translation>
     </message>
     <message>
         <source>Revert all modified features in the local layers. You cannot restore those changes.</source>
@@ -1786,7 +1797,9 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
         <source>The local copy of this cloud project has been corrupted. Resetting the project will re-download the cloud version and will remove any local changes, make sure those were copied first if needed.
 
 While you can still view and use the project, it is strongly recommended to reset to avoid any accidental data loss as none of the changes made will be pushed back to the cloud.</source>
-        <translation type="unfinished"/>
+        <translation>Místní kopie tohoto cloudového projektu byla poškozena. Obnovení projektu znovu stáhne cloudovou verzi a odstraní všechny místní změny, v případě potřeby se nejprve ujistěte, že byly zkopírovány.
+
+Projekt sice můžete stále prohlížet a používat, ale důrazně doporučujeme provést reset, aby nedošlo k náhodné ztrátě dat, protože žádné z provedených změn nebudou odeslány zpět do cloudu.</translation>
     </message>
     <message>
         <source>Last synchronized just now</source>
@@ -1806,19 +1819,19 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Last changes pushed just now</source>
-        <translation type="unfinished"/>
+        <translation>Poslední změny byly odeslány právě teď</translation>
     </message>
     <message>
         <source>Last changes pushed %1 minutes ago</source>
-        <translation type="unfinished"/>
+        <translation>Poslední změny odeslány před %1 minutami</translation>
     </message>
     <message>
         <source>Last changes pushed at %1</source>
-        <translation type="unfinished"/>
+        <translation>Poslední změny odeslány v %1</translation>
     </message>
     <message>
         <source>Last changes pushed on %1</source>
-        <translation type="unfinished"/>
+        <translation>Poslední změny odeslané dne %1</translation>
     </message>
     <message>
         <source>No changes pushed yet</source>
@@ -1834,7 +1847,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Reset cloud project</source>
-        <translation type="unfinished"/>
+        <translation>Obnovení cloudového projektu</translation>
     </message>
     <message>
         <source>Last warning, resetting the cloud project will erase any local changes, are you sure you want to go ahead?</source>
@@ -1885,7 +1898,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Failed to write downloaded file stored at &quot;%1&quot;, fs reason:</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Nepodařilo se zapsat stažený soubor uložený na &quot;%1&quot;, důvod fs:</translation>
     </message>
     <message>
         <source>aborted</source>
@@ -1981,11 +1994,11 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source> (see more in the QField error log)…</source>
-        <translation type="unfinished"/>
+        <translation>(více v protokolu chyb QField)...</translation>
     </message>
     <message>
         <source>Failed to copy some of the downloaded files on your device. Check your device storage.</source>
-        <translation type="unfinished"/>
+        <translation>Nepodařilo se zkopírovat některé stažené soubory do vašeho zařízení. Zkontrolujte úložiště zařízení.</translation>
     </message>
 </context>
 <context>
@@ -2004,7 +2017,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Greetings &lt;strong&gt;%1&lt;/strong&gt;.</source>
-        <translation type="unfinished"/>
+        <translation>Zdravíme &lt;strong&gt;%1&lt;/strong&gt;.</translation>
     </message>
     <message>
         <source>My Projects</source>
@@ -2044,7 +2057,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Available on the cloud, missing locally</source>
-        <translation type="unfinished"/>
+        <translation>K dispozici v cloudu, chybí lokálně</translation>
     </message>
     <message>
         <source>Available locally</source>
@@ -2462,6 +2475,42 @@ Zrušte pro jen minimální skenování zařízení. </translation>
         <source>Connect to %1</source>
         <translation>Připojit k %1</translation>
     </message>
+    <message>
+        <source>User interface appearance:</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Follow system appearance</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Light theme</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Dark theme</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>User interface font size:</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Tiny</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Normal</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Large</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Extra-large</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>QObject</name>
@@ -2511,7 +2560,7 @@ Zrušte pro jen minimální skenování zařízení. </translation>
     </message>
     <message>
         <source>Invalid job</source>
-        <translation type="unfinished"/>
+        <translation>Neplatná úloha</translation>
     </message>
     <message>
         <source>QGIS export failed</source>
@@ -2627,14 +2676,14 @@ Zrušte pro jen minimální skenování zařízení. </translation>
     <name>QgsQuickMapSettings</name>
     <message>
         <source>Map Canvas rotation is not supported. Resetting from %1 to 0.</source>
-        <translation>Rotace plochy mapy  není podporována. Resetuje se  z %1 na 0.</translation>
+        <translation type="vanished">Rotace plochy mapy  není podporována. Resetuje se  z %1 na 0.</translation>
     </message>
 </context>
 <context>
     <name>ReferencingFeatureListModel</name>
     <message>
         <source>Invalid referencing layer</source>
-        <translation type="unfinished"/>
+        <translation>Neplatná referenční vrstva</translation>
     </message>
     <message>
         <source>Cannot start editing</source>
@@ -2668,7 +2717,7 @@ Zrušte pro jen minimální skenování zařízení. </translation>
     <name>ReshapeToolBar</name>
     <message>
         <source>The geometry could not be reshaped</source>
-        <translation type="unfinished"/>
+        <translation>Geometrii nebylo možné přepracovat.</translation>
     </message>
 </context>
 <context>
@@ -2977,19 +3026,19 @@ Zrušte pro jen minimální skenování zařízení. </translation>
     <name>WelcomeScreen</name>
     <message>
         <source>We&apos;re sorry to hear that. Click on the button below to comment or seek support.</source>
-        <translation type="unfinished"/>
+        <translation>To nás mrzí. Klikněte na tlačítko níže a vyjádřete svůj názor nebo požádejte o podporu.</translation>
     </message>
     <message>
         <source>Reach out</source>
-        <translation type="unfinished"/>
+        <translation>Oslovení</translation>
     </message>
     <message>
         <source>Hey there, how do you like your experience with QField so far?</source>
-        <translation type="unfinished"/>
+        <translation>Zdravím, jak se vám zatím líbí vaše zkušenosti s QField?</translation>
     </message>
     <message>
         <source>That&apos;s great! We&apos;d love for you to click on the button below and leave a comment on the store.</source>
-        <translation type="unfinished"/>
+        <translation>To je skvělé! Budeme rádi, když kliknete na tlačítko níže a zanecháte komentář k obchodu.</translation>
     </message>
     <message>
         <source>Rate us</source>
@@ -3151,7 +3200,7 @@ Zrušte pro jen minimální skenování zařízení. </translation>
     </message>
     <message>
         <source>Freehand digitizing turned off</source>
-        <translation type="unfinished"/>
+        <translation>Vypnutá digitalizace od ruky</translation>
     </message>
     <message>
         <source>Coordinate cursor now locked to position</source>
@@ -3480,6 +3529,10 @@ Zrušte pro jen minimální skenování zařízení. </translation>
     <message>
         <source>Positioning device error: %1</source>
         <translation>Chyba polohovacího zařízení: %1</translation>
+    </message>
+    <message>
+        <source>Canvas follows location and compass orientation</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
