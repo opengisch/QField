@@ -31,3 +31,4 @@ jobs:
           message: Synchronize translations
           author_name: Translation update 💬
           author_email: info@opengis.ch
+          add: '["platform", "i18n"]'
