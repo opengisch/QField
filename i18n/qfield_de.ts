@@ -171,7 +171,7 @@ Abbrechen um einen minimalen Scan durchzuführen. </translation>
     </message>
     <message>
         <source>Connect  to %1</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Verbinden mit %1</translation>
     </message>
     <message>
         <source>Connecting to %1</source>
@@ -187,7 +187,7 @@ Abbrechen um einen minimalen Scan durchzuführen. </translation>
     </message>
     <message>
         <source>Bluetooth device name:</source>
-        <translation type="unfinished"/>
+        <translation>Bluetooth-Gerätename:</translation>
     </message>
     <message>
         <source>N/A</source>
@@ -195,15 +195,15 @@ Abbrechen um einen minimalen Scan durchzuführen. </translation>
     </message>
     <message>
         <source>Bluetooth device address:</source>
-        <translation type="unfinished"/>
+        <translation>Bluetooth-Geräteadresse:</translation>
     </message>
     <message>
         <source>Scan for nearby devices</source>
-        <translation type="unfinished"/>
+        <translation>Nach Geräten in der Nähe suchen</translation>
     </message>
     <message>
         <source>No Bluetooth devices detected, scan to populate nearby devices.</source>
-        <translation type="unfinished"/>
+        <translation>Keine Bluetooth-Geräte gefunden, scanne, um Geräte in der Nähe zu finden.</translation>
     </message>
 </context>
 <context>
@@ -371,7 +371,7 @@ Abbrechen um einen minimalen Scan durchzuführen. </translation>
     </message>
     <message>
         <source>QField releases page</source>
-        <translation type="unfinished"/>
+        <translation>QField Releases Seite</translation>
     </message>
 </context>
 <context>
@@ -1315,23 +1315,23 @@ Die Objekt-Geometrien werden in Objekt &apos;%1&apos; zusammengeführt, welches 
     </message>
     <message>
         <source>Select Image File</source>
-        <translation type="unfinished"/>
+        <translation>Bilddatei auswählen</translation>
     </message>
     <message>
         <source>All images (*.jpg *.jpeg *.png *.bmp);;JPEG images (*.jpg *.jpeg);;PNG images (*.jpg *.jpeg);;BMP images (*.bmp)</source>
-        <translation type="unfinished"/>
+        <translation>Alle Bilder (*.jpg *.jpeg *.png *.bmp);;JPEG Bilder (*.jpg *.jpeg);;PNG Bilder (*.jpg *.jpeg);;BMP Bilder (*.bmp)</translation>
     </message>
     <message>
         <source>Select Video File</source>
-        <translation type="unfinished"/>
+        <translation>Videodatei auswählen</translation>
     </message>
     <message>
         <source>All video (*.mp4 *.mkv *.mov);;MP4 video (*.mp4);;MKV video(*.mkv);;MOV video (*.mov)</source>
-        <translation type="unfinished"/>
+        <translation>Alle Videos (*.mp4 *.mkv *.mov);;MP4-Video (*.mp4);;MKV-Video (*.mkv);;MOV-Video (*.mov)</translation>
     </message>
     <message>
         <source>Audio files (*.mp3 *.aac *.ogg)</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Audiodateien (*.mp3 *.aac *.ogg)</translation>
     </message>
     <message>
         <source>All files (*.*)</source>
@@ -1339,11 +1339,11 @@ Die Objekt-Geometrien werden in Objekt &apos;%1&apos; zusammengeführt, welches 
     </message>
     <message>
         <source>Select File</source>
-        <translation type="unfinished"/>
+        <translation>Datei auswählen</translation>
     </message>
     <message>
         <source>Audio files (*.mp3 *.aac *.ogg *.m4a *.mp4 *.mov)</source>
-        <translation type="unfinished"/>
+        <translation>Audiodateien (*.mp3 *.aac *.ogg *.m4a *.mp4 *.mov)</translation>
     </message>
 </context>
 <context>
@@ -1440,7 +1440,7 @@ Die Objekt-Geometrien werden in Objekt &apos;%1&apos; zusammengeführt, welches 
     </message>
     <message>
         <source>Connection type:</source>
-        <translation type="unfinished"/>
+        <translation>Verbindungsart:</translation>
     </message>
     <message>
         <source>Bluetooth</source>
@@ -1448,19 +1448,19 @@ Die Objekt-Geometrien werden in Objekt &apos;%1&apos; zusammengeführt, welches 
     </message>
     <message>
         <source>Bluetooth (NMEA)</source>
-        <translation type="unfinished"/>
+        <translation>Bluetooth (NMEA)</translation>
     </message>
     <message>
         <source>TCP (NMEA)</source>
-        <translation type="unfinished"/>
+        <translation>TCP (NMEA)</translation>
     </message>
     <message>
         <source>UDP (NMEA)</source>
-        <translation type="unfinished"/>
+        <translation>UDP (NMEA)</translation>
     </message>
     <message>
         <source>Serial port (NMEA)</source>
-        <translation type="unfinished"/>
+        <translation>Serieller Anschluss (NMEA)</translation>
     </message>
 </context>
 <context>
@@ -1548,7 +1548,7 @@ Die Objekt-Geometrien werden in Objekt &apos;%1&apos; zusammengeführt, welches 
     <name>QFieldAudioRecorder</name>
     <message>
         <source>Audio Recorder</source>
-        <translation type="unfinished"/>
+        <translation>Audio-Rekorder</translation>
     </message>
 </context>
 <context>
@@ -1575,7 +1575,7 @@ Die Objekt-Geometrien werden in Objekt &apos;%1&apos; zusammengeführt, welches 
     </message>
     <message>
         <source>Timeout error, please retry</source>
-        <translation type="unfinished"/>
+        <translation>Timeout-Fehler, bitte erneut versuchen</translation>
     </message>
     <message>
         <source>Wrong username or password</source>
@@ -1786,7 +1786,7 @@ Die Objekt-Geometrien werden in Objekt &apos;%1&apos; zusammengeführt, welches 
     </message>
     <message>
         <source>Reset project</source>
-        <translation type="unfinished"/>
+        <translation>Projekt zurücksetzen</translation>
     </message>
     <message>
         <source>Revert all modified features in the local layers. You cannot restore those changes.</source>
@@ -1848,7 +1848,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Reset cloud project</source>
-        <translation type="unfinished"/>
+        <translation>Cloud-Projekt zurücksetzen</translation>
     </message>
     <message>
         <source>Last warning, resetting the cloud project will erase any local changes, are you sure you want to go ahead?</source>
@@ -2026,7 +2026,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>(Available locally)</source>
-        <translation type="unfinished"/>
+        <translation>(Lokal verfügbar)</translation>
     </message>
     <message>
         <source>Downloading, %1% fetched…</source>
@@ -2038,7 +2038,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Uploading…</source>
-        <translation type="unfinished"/>
+        <translation>Hochladen...</translation>
     </message>
     <message>
         <source>Downloading error. </source>
@@ -2046,7 +2046,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Uploading error. </source>
-        <translation type="unfinished"/>
+        <translation>Fehler beim Hochladen. </translation>
     </message>
     <message>
         <source>Available locally, missing on the cloud</source>
@@ -2117,11 +2117,11 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Projects</source>
-        <translation type="unfinished"/>
+        <translation>Projekte</translation>
     </message>
     <message>
         <source>Datasets</source>
-        <translation type="unfinished"/>
+        <translation>Datensätze</translation>
     </message>
     <message>
         <source>Favorites</source>
@@ -2129,15 +2129,15 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Project file</source>
-        <translation type="unfinished"/>
+        <translation>Projektdatei</translation>
     </message>
     <message>
         <source>Vector dataset</source>
-        <translation type="unfinished"/>
+        <translation>Vektordatensatz</translation>
     </message>
     <message>
         <source>Raster dataset</source>
-        <translation type="unfinished"/>
+        <translation>Rasterdatensatz</translation>
     </message>
     <message>
         <source>Send to...</source>
@@ -2149,7 +2149,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Remove dataset</source>
-        <translation type="unfinished"/>
+        <translation>Datensatz entfernen</translation>
     </message>
     <message>
         <source>Send compressed folder to...</source>
@@ -2300,7 +2300,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message numerus="yes">
         <source>%n device(s) found</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation type="vanished"><numerusform>%n Gerät(e) gefunden</numerusform><numerusform>%n Gerät(e) gefunden</numerusform></translation>
     </message>
     <message>
         <source>Scanning canceled</source>
@@ -2326,7 +2326,7 @@ Abbrechen um einen minimalen Scan durchzuführen. </translation>
     </message>
     <message>
         <source>Connect  to %1</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Verbinden mit %1</translation>
     </message>
     <message>
         <source>Connecting to %1</source>
@@ -2426,7 +2426,7 @@ Abbrechen um einen minimalen Scan durchzuführen. </translation>
     </message>
     <message>
         <source>Ground speed</source>
-        <translation type="unfinished"/>
+        <translation>Bodengeschwindigkeit</translation>
     </message>
     <message>
         <source>Bearing</source>
@@ -2434,11 +2434,11 @@ Abbrechen um einen minimalen Scan durchzuführen. </translation>
     </message>
     <message>
         <source>Horizontal accuracy</source>
-        <translation type="unfinished"/>
+        <translation>Horizontale Genauigkeit</translation>
     </message>
     <message>
         <source>Vertical accuracy</source>
-        <translation type="unfinished"/>
+        <translation>Vertikale Genauigkeit</translation>
     </message>
     <message>
         <source>PDOP</source>
@@ -2474,39 +2474,39 @@ Abbrechen um einen minimalen Scan durchzuführen. </translation>
     </message>
     <message>
         <source>User interface appearance:</source>
-        <translation type="unfinished"/>
+        <translation>Aussehen der Benutzeroberfläche:</translation>
     </message>
     <message>
         <source>Follow system appearance</source>
-        <translation type="unfinished"/>
+        <translation>Systemdarstellung folgen</translation>
     </message>
     <message>
         <source>Light theme</source>
-        <translation type="unfinished"/>
+        <translation>Helles Thema</translation>
     </message>
     <message>
         <source>Dark theme</source>
-        <translation type="unfinished"/>
+        <translation>Dunkles Thema</translation>
     </message>
     <message>
         <source>User interface font size:</source>
-        <translation type="unfinished"/>
+        <translation>Schriftgröße der Benutzeroberfläche:</translation>
     </message>
     <message>
         <source>Tiny</source>
-        <translation type="unfinished"/>
+        <translation>Winzig</translation>
     </message>
     <message>
         <source>Normal</source>
-        <translation type="unfinished"/>
+        <translation>Normal</translation>
     </message>
     <message>
         <source>Large</source>
-        <translation type="unfinished"/>
+        <translation>Groß</translation>
     </message>
     <message>
         <source>Extra-large</source>
-        <translation type="unfinished"/>
+        <translation>Extra-groß</translation>
     </message>
 </context>
 <context>
@@ -2537,7 +2537,7 @@ Abbrechen um einen minimalen Scan durchzuführen. </translation>
     </message>
     <message>
         <source>API Error</source>
-        <translation type="unfinished"/>
+        <translation>API-Fehler</translation>
     </message>
     <message>
         <source>Validation Error</source>
@@ -2736,15 +2736,15 @@ Abbrechen um einen minimalen Scan durchzuführen. </translation>
     </message>
     <message>
         <source>Refresh list</source>
-        <translation type="unfinished"/>
+        <translation>Liste aktualisieren</translation>
     </message>
     <message>
         <source>Serial port display name:</source>
-        <translation type="unfinished"/>
+        <translation>Anzeigename der seriellen Schnittstelle:</translation>
     </message>
     <message>
         <source>Serial port address:</source>
-        <translation type="unfinished"/>
+        <translation>Adresse der seriellen Schnittstelle:</translation>
     </message>
 </context>
 <context>
@@ -2784,7 +2784,7 @@ Abbrechen um einen minimalen Scan durchzuführen. </translation>
     <name>TcpDeviceChooser</name>
     <message>
         <source>Address:</source>
-        <translation type="unfinished"/>
+        <translation>Adresse:</translation>
     </message>
     <message>
         <source>Port:</source>
@@ -2916,7 +2916,7 @@ Abbrechen um einen minimalen Scan durchzuführen. </translation>
     </message>
     <message>
         <source>Ground speed</source>
-        <translation type="unfinished"/>
+        <translation>Bodengeschwindigkeit</translation>
     </message>
     <message>
         <source>Bearing</source>
@@ -2924,11 +2924,11 @@ Abbrechen um einen minimalen Scan durchzuführen. </translation>
     </message>
     <message>
         <source>Horizontal accuracy</source>
-        <translation type="unfinished"/>
+        <translation>Horizontale Genauigkeit</translation>
     </message>
     <message>
         <source>Vertical accuracy</source>
-        <translation type="unfinished"/>
+        <translation>Vertikale Genauigkeit</translation>
     </message>
     <message>
         <source>PDOP</source>
@@ -2951,7 +2951,7 @@ Abbrechen um einen minimalen Scan durchzuführen. </translation>
     <name>UdpDeviceChooser</name>
     <message>
         <source>Address:</source>
-        <translation type="unfinished"/>
+        <translation>Adresse:</translation>
     </message>
     <message>
         <source>Port:</source>
@@ -3039,7 +3039,7 @@ Abbrechen um einen minimalen Scan durchzuführen. </translation>
     </message>
     <message>
         <source>Rate us</source>
-        <translation type="unfinished"/>
+        <translation>Bewerte uns</translation>
     </message>
     <message>
         <source>Anonymized metrics collection has been disabled. You can re-enable through the settings panel.</source>
@@ -3301,7 +3301,7 @@ Abbrechen um einen minimalen Scan durchzuführen. </translation>
     </message>
     <message>
         <source>Add Bookmark</source>
-        <translation type="unfinished"/>
+        <translation>Lesezeichen hinzufügen</translation>
     </message>
     <message>
         <source>Set as Destination</source>
@@ -3341,27 +3341,27 @@ Abbrechen um einen minimalen Scan durchzuführen. </translation>
     </message>
     <message>
         <source>0.25m Precision</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">0,25m Genauigkeit</translation>
     </message>
     <message>
         <source>0.5m Precision</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">0,5 m Genauigkeit</translation>
     </message>
     <message>
         <source>1m Precision</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">1m Genauigkeit</translation>
     </message>
     <message>
         <source>2.5m Precision</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">2,5m Genauigkeit</translation>
     </message>
     <message>
         <source>5m Precision</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">5m Genauigkeit</translation>
     </message>
     <message>
         <source>10m Precision</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">10m Genauigkeit</translation>
     </message>
     <message>
         <source>Always Show Precise View</source>
@@ -3401,7 +3401,7 @@ Abbrechen um einen minimalen Scan durchzuführen. </translation>
     </message>
     <message>
         <source>%1 Precision</source>
-        <translation type="unfinished"/>
+        <translation>%1 Genauigkeit</translation>
     </message>
     <message>
         <source>Enable Audio Proximity Feedback</source>
@@ -3469,7 +3469,7 @@ Abbrechen um einen minimalen Scan durchzuführen. </translation>
     </message>
     <message>
         <source>Logged out</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Ausgeloggt</translation>
     </message>
     <message>
         <source>Connecting...</source>
@@ -3477,7 +3477,7 @@ Abbrechen um einen minimalen Scan durchzuführen. </translation>
     </message>
     <message>
         <source>Logged in</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Eingeloggt</translation>
     </message>
     <message>
         <source>Project %1 failed to download</source>
@@ -3521,7 +3521,7 @@ Abbrechen um einen minimalen Scan durchzuführen. </translation>
     </message>
     <message>
         <source>Print</source>
-        <translation type="unfinished"/>
+        <translation>Drucken</translation>
     </message>
     <message>
         <source>Positioning device error: %1</source>
