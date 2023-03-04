@@ -325,7 +325,7 @@ Popup {
         visible: cameraItem.state == "VideoCapture" && camera.videoRecorder.recorderState != CameraRecorder.StoppedState
 
         x: cameraItem.isPortraitMode ? captureRing.x + captureRing.width / 2 - width / 2 : captureRing.x + captureRing.width / 2 - width / 2
-        y: cameraItem.isPortraitMode ? captureRing.y - height - 20 : captureRing.y + captureRing.height / 2 - height / 2
+        y: cameraItem.isPortraitMode ? captureRing.y - height - 20 : captureRing.y - height - 20
 
         width: durationLabelMetrics.boundingRect('00:00:00').width + 20
         height: durationLabelMetrics.boundingRect('00:00:00').height + 10
