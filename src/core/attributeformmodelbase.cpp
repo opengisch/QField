@@ -524,7 +524,7 @@ void AttributeFormModelBase::updateDefaultValues( int fieldIndex, QVector<int> u
     exp.prepare( &mExpressionContext );
 
     // avoid cost of value update if expression doesn't contain the field which triggered the default values update
-    if ( !exp.referencedColumns().contains( fieldName ) )
+    if ( !exp.referencedColumns().contains( fieldName ) && !exp.referencedColumns().contains( QgsFeatureRequest::ALL_ATTRIBUTES ) )
       continue;
 
     const QVariant defaultValue = exp.evaluate( &mExpressionContext );
