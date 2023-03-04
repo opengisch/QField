@@ -22,6 +22,13 @@ Page {
   property alias mouseAsTouchScreen: registry.mouseAsTouchScreen
   property alias enableInfoCollection: registry.enableInfoCollection
 
+  Component.onCompleted: {
+    if (settings.valueBool('nativeCameraLaunched', false)) {
+      // a crash occured while the native camera was launched, disable it
+      nativeCamera = false
+    }
+  }
+
   Settings {
     id: registry
     property bool showScaleBar: true
