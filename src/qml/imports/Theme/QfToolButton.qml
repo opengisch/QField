@@ -29,6 +29,7 @@ RoundButton {
   leftInset:0
   rightInset:0
   padding:10
+
   background: Rectangle {
     id: backgroundRectangle
     implicitWidth: 100
@@ -71,6 +72,9 @@ RoundButton {
 
   icon.source: ""
   icon.color: "transparent" // setting the color to transparent tells Qt to draw the icon using the original source color(s)
+
+  Material.foreground: icon.color
+  font: Theme.tipFont
 
   Rectangle {
     id: bottomRightIndicator
