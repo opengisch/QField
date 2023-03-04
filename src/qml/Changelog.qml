@@ -68,7 +68,7 @@ Popup {
                         Layout.maximumHeight: contentHeight
                         visible: changelogContents.status != ChangelogContents.LoadingStatus
 
-                        color: '#95000000'
+                        color: Theme.mainTextColor
                         font: Theme.tipFont
 
                         fontSizeMode: Text.VerticalFit

@@ -250,7 +250,7 @@ Popup {
 
           onClicked: {
             if (cameraItem.state == "PhotoCapture") {
-              camera.imageCapture.captureToLocation('/home/webmaster/Desktop/1.jpg')//qgisProject.homePath+ '/DCIM/')
+              camera.imageCapture.captureToLocation(qgisProject.homePath+ '/DCIM/')
             } else if (cameraItem.state == "VideoCapture") {
               if (camera.videoRecorder.recorderState == CameraRecorder.StoppedState) {
                 camera.videoRecorder.record()
@@ -293,8 +293,8 @@ Popup {
         id: flashButton
         visible: cameraItem.isCapturing && camera.flash.supportedModes.length > 1
 
-        x: cameraItem.portaitMode ? (parent.width / 4) * 3 - (width / 2) : (parent.width - width) / 2
-        y: cameraItem.portaitMode ? (parent.height - height) / 2 : (parent.height / 4) - (height / 2)
+        x: cameraItem.isPortraitMode ? (parent.width / 4) * 3 - (width / 2) : (parent.width - width) / 2
+        y: cameraItem.isPortraitMode ? (parent.height - height) / 2 : (parent.height / 4) - (height / 2)
 
         iconSource: {
           switch(camera.flash.mode) {
