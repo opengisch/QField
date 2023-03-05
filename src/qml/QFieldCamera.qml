@@ -155,7 +155,6 @@ Popup {
       onActiveChanged: {
         if (active) {
           oldScale = 1.0
-        } else {
         }
       }
 
@@ -175,15 +174,15 @@ Popup {
       grabPermissions: PointerHandler.CanTakeOverFromHandlersOfDifferentType | PointerHandler.ApprovesTakeOverByItems
 
       onWheel: (event) => {
-                 if (event.angleDelta.y > 0)
-                 {
-                   camera.zoomIn(0.25)
-                 }
-                 else
-                 {
-                   camera.zoomOut(0.25)
-                 }
-               }
+        if (event.angleDelta.y > 0)
+        {
+          camera.zoomIn(0.25)
+        }
+        else
+        {
+          camera.zoomOut(0.25)
+        }
+      }
     }
 
     Video {
@@ -228,7 +227,8 @@ Popup {
         radius: 32
         color: Qt.hsla(Theme.darkGray.hslHue, Theme.darkGray.hslSaturation, Theme.darkGray.hslLightness, 0.3)
         border.color: cameraItem.state == "VideoCapture" && camera.videoRecorder.recorderState != CameraRecorder.StoppedState
-                      ? "red" : "white"
+                      ? "red"
+                      : "white"
         border.width: 2
 
         QfToolButton {
