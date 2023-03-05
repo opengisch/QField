@@ -25,6 +25,7 @@
 #include <QDirIterator>
 #include <QFileInfo>
 #include <QImageReader>
+#include <qgsexiftools.h>
 #include <qgsmessagelog.h>
 
 AppInterface *AppInterface::sAppInterface = nullptr;
@@ -164,15 +165,18 @@ void AppInterface::closeSentry() const
 
 void AppInterface::restrictImageSize( const QString &imagePath, int maximumWidthHeight )
 {
-  QImageReader imgReader( imagePath );
-  // Insure that rotation metadata is respected
-  imgReader.setAutoTransform( true );
-  QImage img = imgReader.read();
+  QVariantMap metadata = QgsExifTools::readTags( imagePath );
+  QImage img( imagePath );
   if ( !img.isNull() && ( img.width() > maximumWidthHeight || img.height() > maximumWidthHeight ) )
   {
     QImage scaledImage = img.width() > img.height()
                            ? img.scaledToWidth( maximumWidthHeight, Qt::SmoothTransformation )
                            : img.scaledToHeight( maximumWidthHeight, Qt::SmoothTransformation );
     scaledImage.save( imagePath );
+
+    for ( const QString key : metadata.keys() )
+    {
+      QgsExifTools::tagImage( imagePath, key, metadata[key] );
+    }
   }
 }

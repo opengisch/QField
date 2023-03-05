@@ -21,6 +21,7 @@
 #include <QDebug>
 #include <QDir>
 #include <QFile>
+#include <QSettings>
 #include <QtAndroid>
 
 AndroidResourceSource::AndroidResourceSource( const QString &prefix )
@@ -34,6 +35,12 @@ void AndroidResourceSource::handleActivityResult( int receiverRequestCode, int r
 {
   if ( receiverRequestCode == 171 )
   {
+    const bool nativeCameraLaunched = QSettings().value( QStringLiteral( "QField/nativeCameraLaunched" ), false ).toBool();
+    if ( nativeCameraLaunched )
+    {
+      QSettings().setValue( QStringLiteral( "QField/nativeCameraLaunched" ), false );
+    }
+
     jint RESULT_OK = QAndroidJniObject::getStaticField<jint>( "android/app/Activity", "RESULT_OK" );
     if ( resultCode == RESULT_OK )
     {

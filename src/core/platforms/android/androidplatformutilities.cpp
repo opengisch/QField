@@ -38,6 +38,7 @@
 #include <QQmlApplicationEngine>
 #include <QQmlContext>
 #include <QScreen>
+#include <QSettings>
 #include <QStandardPaths>
 #include <QString>
 #include <QTimer>
@@ -385,6 +386,8 @@ ResourceSource *AndroidPlatformUtilities::processCameraActivity( const QString &
                            "(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;",
                            suffix_label.object<jstring>(),
                            suffix_value.object<jstring>() );
+
+  QSettings().setValue( QStringLiteral( "QField/nativeCameraLaunched" ), true );
 
   AndroidResourceSource *pictureSource = new AndroidResourceSource( prefix );
 
