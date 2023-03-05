@@ -94,6 +94,12 @@ EditorWidgetBase {
         mediaFrame.height = 48
         player.source = 'file://' + prefixToRelativePath + value
       }
+    } else {
+      image.visible = documentViewer == document_IMAGE
+      image.opacity = 0.15
+      player.visible = false
+      playerControls.visible = false
+      mediaFrame.height = 48
     }
   }
 
@@ -217,16 +223,6 @@ EditorWidgetBase {
       source: Theme.getThemeIcon("ic_photo_notavailable_black_24dp")
       cache: false
 
-      MouseArea {
-        anchors.fill: parent
-
-        onClicked: {
-          if ( FileUtils.fileExists( prefixToRelativePath + value ) ) {
-            __viewStatus = platformUtilities.open( prefixToRelativePath + value, isEnabled );
-          }
-        }
-      }
-
       Image {
         property bool hasGeoTag: false
         id: geoTagBadge
@@ -290,6 +286,20 @@ EditorWidgetBase {
 
       onPositionChanged: {
         positionSlider.value = position / 1000;
+      }
+    }
+
+    MouseArea {
+      enabled: mediaFrame.visible
+      width: parent.width
+      height: playerControls.visible
+              ? player.height - 54
+              : image.height
+
+      onClicked: {
+        if ( FileUtils.fileExists( prefixToRelativePath + value ) ) {
+          __viewStatus = platformUtilities.open( prefixToRelativePath + value, isEnabled );
+        }
       }
     }
 
