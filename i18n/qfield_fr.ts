@@ -1289,7 +1289,7 @@ Les géométries des objets vont être combinées dans l&apos;objet &apos;%1&apo
     </message>
     <message>
         <source>Failed to save gallery picture</source>
-        <translation type="vanished">Échec de l&apos;enregistrement de l&apos;image dans la gallerie.</translation>
+        <translation type="vanished">Échec de l&apos;enregistrement de l&apos;image dans la galerie.</translation>
     </message>
     <message>
         <source>Open File</source>
@@ -1313,39 +1313,39 @@ Les géométries des objets vont être combinées dans l&apos;objet &apos;%1&apo
     </message>
     <message>
         <source>Failed to save file resource</source>
-        <translation type="unfinished"/>
+        <translation>Échec de l&apos;enregistrement de la ressource</translation>
     </message>
     <message>
         <source>Select Image File</source>
-        <translation type="unfinished"/>
+        <translation>Sélectionner le fichier image</translation>
     </message>
     <message>
         <source>All images (*.jpg *.jpeg *.png *.bmp);;JPEG images (*.jpg *.jpeg);;PNG images (*.jpg *.jpeg);;BMP images (*.bmp)</source>
-        <translation type="unfinished"/>
+        <translation>Tous types d&apos;images (*.jpg *.jpeg *.png *.bmp);;Images JPEG (*.jpg *.jpeg);;Images PNG  (*.jpg *.jpeg);;Images BMP (*.bmp)</translation>
     </message>
     <message>
         <source>Select Video File</source>
-        <translation type="unfinished"/>
+        <translation>Sélectionner le fichier vidéo</translation>
     </message>
     <message>
         <source>All video (*.mp4 *.mkv *.mov);;MP4 video (*.mp4);;MKV video(*.mkv);;MOV video (*.mov)</source>
-        <translation type="unfinished"/>
+        <translation>Tous les formats vidéo (*.mp4 *.mkv *.mov);;Vidéos MP4 (*.mp4);;Vidéos MKV (*.mkv);;MOV video (*.mov)</translation>
     </message>
     <message>
         <source>Audio files (*.mp3 *.aac *.ogg)</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Fichiers audio(*.mp3 *.aac *.ogg)</translation>
     </message>
     <message>
         <source>All files (*.*)</source>
-        <translation type="unfinished"/>
+        <translation>Tous les fichiers (*.*)</translation>
     </message>
     <message>
         <source>Select File</source>
-        <translation type="unfinished"/>
+        <translation>Sélectionner un fichier</translation>
     </message>
     <message>
         <source>Audio files (*.mp3 *.aac *.ogg *.m4a *.mp4 *.mov)</source>
-        <translation type="unfinished"/>
+        <translation>Fichiers audio (*.mp3 *.aac *.ogg *.m4a *.mp4 *.mov)</translation>
     </message>
 </context>
 <context>
@@ -1462,7 +1462,7 @@ Les géométries des objets vont être combinées dans l&apos;objet &apos;%1&apo
     </message>
     <message>
         <source>Serial port (NMEA)</source>
-        <translation type="unfinished"/>
+        <translation>Port série (NMEA)</translation>
     </message>
 </context>
 <context>
@@ -1550,7 +1550,7 @@ Les géométries des objets vont être combinées dans l&apos;objet &apos;%1&apo
     <name>QFieldAudioRecorder</name>
     <message>
         <source>Audio Recorder</source>
-        <translation type="unfinished"/>
+        <translation>Enregistreur audio</translation>
     </message>
 </context>
 <context>
@@ -1599,7 +1599,7 @@ Les géométries des objets vont être combinées dans l&apos;objet &apos;%1&apo
     </message>
     <message>
         <source>Login error due to unexpected redirect, please retry later</source>
-        <translation type="unfinished"/>
+        <translation>Erreur de connexion due à une redirection inattendue, veuillez réessayer ultérieurement.</translation>
     </message>
 </context>
 <context>
@@ -2479,39 +2479,39 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>User interface appearance:</source>
-        <translation type="unfinished"/>
+        <translation>Apparence de l&apos;interface : </translation>
     </message>
     <message>
         <source>Follow system appearance</source>
-        <translation type="unfinished"/>
+        <translation>Suivre l&apos;apparence du système</translation>
     </message>
     <message>
         <source>Light theme</source>
-        <translation type="unfinished"/>
+        <translation>Thème clair</translation>
     </message>
     <message>
         <source>Dark theme</source>
-        <translation type="unfinished"/>
+        <translation>Thème sombre</translation>
     </message>
     <message>
         <source>User interface font size:</source>
-        <translation type="unfinished"/>
+        <translation>Taille de police de l&apos;interface : </translation>
     </message>
     <message>
         <source>Tiny</source>
-        <translation type="unfinished"/>
+        <translation>Petite</translation>
     </message>
     <message>
         <source>Normal</source>
-        <translation type="unfinished"/>
+        <translation>Normal</translation>
     </message>
     <message>
         <source>Large</source>
-        <translation type="unfinished"/>
+        <translation>Grande</translation>
     </message>
     <message>
         <source>Extra-large</source>
-        <translation type="unfinished"/>
+        <translation>Très grande</translation>
     </message>
 </context>
 <context>
@@ -2733,42 +2733,42 @@ Cancel to make a minimal device scan instead.</source>
     <name>SerialPortDeviceChooser</name>
     <message>
         <source>Select the serial port from the list below:</source>
-        <translation type="unfinished"/>
+        <translation>Sélectionner le port série dans la liste ci-dessous :</translation>
     </message>
     <message>
         <source>No serial ports detected, refresh the list once a device is connected.</source>
-        <translation type="unfinished"/>
+        <translation>Aucun port série détecté, rafraîchir la liste une fois le périphérique connecté.</translation>
     </message>
     <message>
         <source>Refresh list</source>
-        <translation type="unfinished"/>
+        <translation>Rafraîchir la liste</translation>
     </message>
     <message>
         <source>Serial port display name:</source>
-        <translation type="unfinished"/>
+        <translation>Nom d&apos;affichage du port série :</translation>
     </message>
     <message>
         <source>Serial port address:</source>
-        <translation type="unfinished"/>
+        <translation>Adresse du port série :</translation>
     </message>
 </context>
 <context>
     <name>SerialPortReceiver</name>
     <message>
         <source>Could not find the serial port device</source>
-        <translation type="unfinished"/>
+        <translation>Impossible de trouver le périphérique sur port série</translation>
     </message>
     <message>
         <source>Attempt to read from the serial port returned an error</source>
-        <translation type="unfinished"/>
+        <translation>Une tentative de lecture à partir du port série a renvoyé une erreur</translation>
     </message>
     <message>
         <source>The connection was refused due to not having enough permission</source>
-        <translation type="unfinished"/>
+        <translation>La connexion a été refusée par manque de droits</translation>
     </message>
     <message>
         <source>Serial port receiver error (%1)</source>
-        <translation type="unfinished"/>
+        <translation>Erreur de port série (%1)</translation>
     </message>
 </context>
 <context>
@@ -2832,7 +2832,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>The connection was refused by the remote host</source>
-        <translation type="unfinished"/>
+        <translation>La connexion a été refusée par l&apos;hôte distant</translation>
     </message>
 </context>
 <context>
@@ -2999,7 +2999,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>The connection was refused by the remote host</source>
-        <translation type="unfinished"/>
+        <translation>La connexion a été refusée par l&apos;hôte distant</translation>
     </message>
 </context>
 <context>
@@ -3536,7 +3536,7 @@ fermer le projet et quitter l&apos;application</translation>
     </message>
     <message>
         <source>Canvas follows location and compass orientation</source>
-        <translation type="unfinished"/>
+        <translation>Le canevas suit la localisation et l&apos;orientation de la boussole</translation>
     </message>
 </context>
 <context>

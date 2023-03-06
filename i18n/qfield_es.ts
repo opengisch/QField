@@ -1346,7 +1346,7 @@ Las geometrías de los objetos se combinarán en el objeto &apos;%1&apos;, que c
     </message>
     <message>
         <source>Audio files (*.mp3 *.aac *.ogg *.m4a *.mp4 *.mov)</source>
-        <translation type="unfinished"/>
+        <translation>Archivos de audio (*.mp3 *.aac *.ogg *.m4a *.mp4 *.mov)</translation>
     </message>
 </context>
 <context>
@@ -1551,7 +1551,7 @@ Las geometrías de los objetos se combinarán en el objeto &apos;%1&apos;, que c
     <name>QFieldAudioRecorder</name>
     <message>
         <source>Audio Recorder</source>
-        <translation type="unfinished"/>
+        <translation>Grabador de audio</translation>
     </message>
 </context>
 <context>
@@ -2482,39 +2482,39 @@ Cancelar para hacer una búsqueda mínima de dispositivos en su lugar.</translat
     </message>
     <message>
         <source>User interface appearance:</source>
-        <translation type="unfinished"/>
+        <translation>Apariencia de la interfaz de usuario:</translation>
     </message>
     <message>
         <source>Follow system appearance</source>
-        <translation type="unfinished"/>
+        <translation>Seguir la apariencia del sistema</translation>
     </message>
     <message>
         <source>Light theme</source>
-        <translation type="unfinished"/>
+        <translation>Claro</translation>
     </message>
     <message>
         <source>Dark theme</source>
-        <translation type="unfinished"/>
+        <translation>Oscuro</translation>
     </message>
     <message>
         <source>User interface font size:</source>
-        <translation type="unfinished"/>
+        <translation>Tamaño de fuente de la interfaz de usuario:</translation>
     </message>
     <message>
         <source>Tiny</source>
-        <translation type="unfinished"/>
+        <translation>Pequeño</translation>
     </message>
     <message>
         <source>Normal</source>
-        <translation type="unfinished"/>
+        <translation>Normal</translation>
     </message>
     <message>
         <source>Large</source>
-        <translation type="unfinished"/>
+        <translation>Grande</translation>
     </message>
     <message>
         <source>Extra-large</source>
-        <translation type="unfinished"/>
+        <translation>Enorme</translation>
     </message>
 </context>
 <context>
@@ -3537,7 +3537,7 @@ Cancelar para hacer una búsqueda mínima de dispositivos en su lugar.</translat
     </message>
     <message>
         <source>Canvas follows location and compass orientation</source>
-        <translation type="unfinished"/>
+        <translation>El lienzo sigue la ubicación y la orientación de la brújula</translation>
     </message>
 </context>
 <context>

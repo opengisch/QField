@@ -183,11 +183,11 @@ Cancele para fazer uma verificação mínima.</translation>
     </message>
     <message>
         <source>Select the Bluetooth device from the list below:</source>
-        <translation type="unfinished"/>
+        <translation>Selecione o dispositivo bluetooh a partir da lista:</translation>
     </message>
     <message>
         <source>Bluetooth device name:</source>
-        <translation type="unfinished"/>
+        <translation>Nome do dispositivo Bluetooth:</translation>
     </message>
     <message>
         <source>N/A</source>
@@ -195,15 +195,15 @@ Cancele para fazer uma verificação mínima.</translation>
     </message>
     <message>
         <source>Bluetooth device address:</source>
-        <translation type="unfinished"/>
+        <translation>Endereço do dispositivo Bluetooth</translation>
     </message>
     <message>
         <source>Scan for nearby devices</source>
-        <translation type="unfinished"/>
+        <translation>Procurar por dispositivos próximos</translation>
     </message>
     <message>
         <source>No Bluetooth devices detected, scan to populate nearby devices.</source>
-        <translation type="unfinished"/>
+        <translation>Sem dispositivos Bluetooth detetados, procure para obter dispositivos próximos.</translation>
     </message>
 </context>
 <context>
@@ -1178,23 +1178,23 @@ As geometrias dos recursos serão combinadas no recurso &apos;% &apos;, que mant
     </message>
     <message>
         <source>Print Atlas Feature(s) to Image</source>
-        <translation type="unfinished"/>
+        <translation>Imprimir Elemento(s) para Imagem</translation>
     </message>
     <message>
         <source>Print Atlas Feature to Image</source>
-        <translation type="unfinished"/>
+        <translation>Exportar Elemento do Atlas para Imagem</translation>
     </message>
     <message>
         <source>Print Atlas Feature(s)</source>
-        <translation type="unfinished"/>
+        <translation>Imprimir Elemento(s) do Atlas</translation>
     </message>
     <message>
         <source>Printing...</source>
-        <translation type="unfinished"/>
+        <translation>Imprimindo...</translation>
     </message>
     <message>
         <source>Atlas feature(s) successfully printed and placed in your project folder</source>
-        <translation type="unfinished"/>
+        <translation>Elemento(s) do Atlas foram imprimidos com sucesso e guardados na sua pasta do projeto</translation>
     </message>
 </context>
 <context>
@@ -1314,39 +1314,39 @@ As geometrias dos recursos serão combinadas no recurso &apos;% &apos;, que mant
     </message>
     <message>
         <source>Failed to save file resource</source>
-        <translation type="unfinished"/>
+        <translation>Erro ao guardar o ficheiro</translation>
     </message>
     <message>
         <source>Select Image File</source>
-        <translation type="unfinished"/>
+        <translation>Selecionar Ficheiro de Imagem</translation>
     </message>
     <message>
         <source>All images (*.jpg *.jpeg *.png *.bmp);;JPEG images (*.jpg *.jpeg);;PNG images (*.jpg *.jpeg);;BMP images (*.bmp)</source>
-        <translation type="unfinished"/>
+        <translation>Todas as imagens (*.jpg *.jpeg *.png *.bmp);;Imagens JPEG (*.jpg *.jpeg);;Imagens PNG (*.jpg *.jpeg);;Imagens BMP (*.bmp)</translation>
     </message>
     <message>
         <source>Select Video File</source>
-        <translation type="unfinished"/>
+        <translation>Selecionar Ficheiro de Vídeo</translation>
     </message>
     <message>
         <source>All video (*.mp4 *.mkv *.mov);;MP4 video (*.mp4);;MKV video(*.mkv);;MOV video (*.mov)</source>
-        <translation type="unfinished"/>
+        <translation>Todos os vídeos (*.mp4 *.mkv *.mov);;Vídeo MP4 (*.mp4);;Vídeo MKV (*.mkv);;Vídeo MOV (*.mov)</translation>
     </message>
     <message>
         <source>Audio files (*.mp3 *.aac *.ogg)</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Ficheiros áudio (*.mp3 *.aac *.ogg)</translation>
     </message>
     <message>
         <source>All files (*.*)</source>
-        <translation type="unfinished"/>
+        <translation>Todos os ficheiros (*)</translation>
     </message>
     <message>
         <source>Select File</source>
-        <translation type="unfinished"/>
+        <translation>Selecionar Ficheiro</translation>
     </message>
     <message>
         <source>Audio files (*.mp3 *.aac *.ogg *.m4a *.mp4 *.mov)</source>
-        <translation type="unfinished"/>
+        <translation>Ficheiros áudio (*.mp3 *.aac *.ogg *.m4a *.mp4 *.mov)</translation>
     </message>
 </context>
 <context>
@@ -1431,39 +1431,39 @@ As geometrias dos recursos serão combinadas no recurso &apos;% &apos;, que mant
     <name>PositioningDeviceSettings</name>
     <message>
         <source>Positioning Device Settings</source>
-        <translation type="unfinished"/>
+        <translation>Definições de Posicionamento do Dispositivo</translation>
     </message>
     <message>
         <source>Name:</source>
-        <translation type="unfinished"/>
+        <translation>Nome:</translation>
     </message>
     <message>
         <source>Leave empty to auto-fill</source>
-        <translation type="unfinished"/>
+        <translation>Deixar vazio no preenchimento automático</translation>
     </message>
     <message>
         <source>Connection type:</source>
-        <translation type="unfinished"/>
+        <translation>Tipo de ligação:</translation>
     </message>
     <message>
         <source>Bluetooth</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Bluetooth</translation>
     </message>
     <message>
         <source>Bluetooth (NMEA)</source>
-        <translation type="unfinished"/>
+        <translation>Bluetooth (NMEA)</translation>
     </message>
     <message>
         <source>TCP (NMEA)</source>
-        <translation type="unfinished"/>
+        <translation>TCP (NMEA)</translation>
     </message>
     <message>
         <source>UDP (NMEA)</source>
-        <translation type="unfinished"/>
+        <translation>UDP (NMEA)</translation>
     </message>
     <message>
         <source>Serial port (NMEA)</source>
-        <translation type="unfinished"/>
+        <translation>Serial port (NMEA)</translation>
     </message>
 </context>
 <context>
@@ -1551,7 +1551,7 @@ As geometrias dos recursos serão combinadas no recurso &apos;% &apos;, que mant
     <name>QFieldAudioRecorder</name>
     <message>
         <source>Audio Recorder</source>
-        <translation type="unfinished"/>
+        <translation>Registar Áudio</translation>
     </message>
 </context>
 <context>
@@ -1600,7 +1600,7 @@ As geometrias dos recursos serão combinadas no recurso &apos;% &apos;, que mant
     </message>
     <message>
         <source>Login error due to unexpected redirect, please retry later</source>
-        <translation type="unfinished"/>
+        <translation>Login error due to unexpected redirect, please retry later</translation>
     </message>
 </context>
 <context>
@@ -2428,15 +2428,15 @@ Cancele para fazer uma verificação mínima.</translation>
     </message>
     <message>
         <source>Measure (M) value attached to vertices:</source>
-        <translation type="unfinished"/>
+        <translation>Valor da medição (M) anexado aos vértices:</translation>
     </message>
     <message>
         <source>Timestamp (milliseconds since epoch)</source>
-        <translation type="unfinished"/>
+        <translation>Timestamp (millisegundos since epoch)</translation>
     </message>
     <message>
         <source>Ground speed</source>
-        <translation type="unfinished"/>
+        <translation>Velocidade</translation>
     </message>
     <message>
         <source>Bearing</source>
@@ -2444,11 +2444,11 @@ Cancele para fazer uma verificação mínima.</translation>
     </message>
     <message>
         <source>Horizontal accuracy</source>
-        <translation type="unfinished"/>
+        <translation>Precisão horizontal</translation>
     </message>
     <message>
         <source>Vertical accuracy</source>
-        <translation type="unfinished"/>
+        <translation>Precisão vertical</translation>
     </message>
     <message>
         <source>PDOP</source>
@@ -2464,15 +2464,15 @@ Cancele para fazer uma verificação mínima.</translation>
     </message>
     <message>
         <source>When digitizing features with the coordinate cursor locked to the current position, the measurement type selected above will be added to the geometry provided it has an M dimension.</source>
-        <translation type="unfinished"/>
+        <translation>Quando a digitalização de elementos tem o cursor bloqueado à posição atual, o tipo de medição selecionado acima será adicionado à geometria fornecendo a dimensão M.</translation>
     </message>
     <message>
         <source>Add</source>
-        <translation type="unfinished"/>
+        <translation>Adicionar</translation>
     </message>
     <message>
         <source>Edit</source>
-        <translation type="unfinished"/>
+        <translation>Editar</translation>
     </message>
     <message>
         <source>Remove</source>
@@ -2484,39 +2484,39 @@ Cancele para fazer uma verificação mínima.</translation>
     </message>
     <message>
         <source>User interface appearance:</source>
-        <translation type="unfinished"/>
+        <translation>Aparência da interface do utilizador:</translation>
     </message>
     <message>
         <source>Follow system appearance</source>
-        <translation type="unfinished"/>
+        <translation>Manter a aparência do sistema</translation>
     </message>
     <message>
         <source>Light theme</source>
-        <translation type="unfinished"/>
+        <translation>Tema Claro</translation>
     </message>
     <message>
         <source>Dark theme</source>
-        <translation type="unfinished"/>
+        <translation>Tema Escuro</translation>
     </message>
     <message>
         <source>User interface font size:</source>
-        <translation type="unfinished"/>
+        <translation>Tamanho da fonte da interface do utilizador</translation>
     </message>
     <message>
         <source>Tiny</source>
-        <translation type="unfinished"/>
+        <translation>Pequena</translation>
     </message>
     <message>
         <source>Normal</source>
-        <translation type="unfinished"/>
+        <translation>Normal</translation>
     </message>
     <message>
         <source>Large</source>
-        <translation type="unfinished"/>
+        <translation>Largo</translation>
     </message>
     <message>
         <source>Extra-large</source>
-        <translation type="unfinished"/>
+        <translation>Extra-largo</translation>
     </message>
 </context>
 <context>
@@ -2738,42 +2738,42 @@ Cancele para fazer uma verificação mínima.</translation>
     <name>SerialPortDeviceChooser</name>
     <message>
         <source>Select the serial port from the list below:</source>
-        <translation type="unfinished"/>
+        <translation>Selecione a serial port a partir da lista:</translation>
     </message>
     <message>
         <source>No serial ports detected, refresh the list once a device is connected.</source>
-        <translation type="unfinished"/>
+        <translation>Não foram foram detetadas serial ports, atualize a lista quando o dispositivo estiver ligado.</translation>
     </message>
     <message>
         <source>Refresh list</source>
-        <translation type="unfinished"/>
+        <translation>Atualizar lista</translation>
     </message>
     <message>
         <source>Serial port display name:</source>
-        <translation type="unfinished"/>
+        <translation>Nome do serial port:</translation>
     </message>
     <message>
         <source>Serial port address:</source>
-        <translation type="unfinished"/>
+        <translation>Endereço do serial port:</translation>
     </message>
 </context>
 <context>
     <name>SerialPortReceiver</name>
     <message>
         <source>Could not find the serial port device</source>
-        <translation type="unfinished"/>
+        <translation>Não foi possível encontrar a serial port do dispositivo</translation>
     </message>
     <message>
         <source>Attempt to read from the serial port returned an error</source>
-        <translation type="unfinished"/>
+        <translation>Tentativa de ler a partir do serial port retornou um erro</translation>
     </message>
     <message>
         <source>The connection was refused due to not having enough permission</source>
-        <translation type="unfinished"/>
+        <translation>A ligação foi recusada por não ter permissões suficientes.</translation>
     </message>
     <message>
         <source>Serial port receiver error (%1)</source>
-        <translation type="unfinished"/>
+        <translation>Erro no receptor da serial port (%1)</translation>
     </message>
 </context>
 <context>
@@ -2794,11 +2794,11 @@ Cancele para fazer uma verificação mínima.</translation>
     <name>TcpDeviceChooser</name>
     <message>
         <source>Address:</source>
-        <translation type="unfinished"/>
+        <translation>Endereço:</translation>
     </message>
     <message>
         <source>Port:</source>
-        <translation type="unfinished"/>
+        <translation>Porta:</translation>
     </message>
 </context>
 <context>
@@ -2829,15 +2829,15 @@ Cancele para fazer uma verificação mínima.</translation>
     </message>
     <message>
         <source>The connection was refused by the remote hose</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">A ligação foi recusada pelo servidor remoto</translation>
     </message>
     <message>
         <source>UDP receiver error (%1)</source>
-        <translation type="unfinished"/>
+        <translation>Erro do receptor UDP (%1)</translation>
     </message>
     <message>
         <source>The connection was refused by the remote host</source>
-        <translation type="unfinished"/>
+        <translation>A ligação foi recusada pelo servidor remoto</translation>
     </message>
 </context>
 <context>
@@ -2914,19 +2914,19 @@ Cancele para fazer uma verificação mínima.</translation>
     </message>
     <message>
         <source>Measure (M) value attached to vertices:</source>
-        <translation type="unfinished"/>
+        <translation>Valor da medição (M) anexado aos vértices:</translation>
     </message>
     <message>
         <source>Elapsed time (seconds since start of tracking)</source>
-        <translation type="unfinished"/>
+        <translation>Tempo decorrido (segundos desde o início do rastreamento)</translation>
     </message>
     <message>
         <source>Timestamp (milliseconds since epoch)</source>
-        <translation type="unfinished"/>
+        <translation>Timestamp (millisegundos since epoch)</translation>
     </message>
     <message>
         <source>Ground speed</source>
-        <translation type="unfinished"/>
+        <translation>Velocidade</translation>
     </message>
     <message>
         <source>Bearing</source>
@@ -2934,11 +2934,11 @@ Cancele para fazer uma verificação mínima.</translation>
     </message>
     <message>
         <source>Horizontal accuracy</source>
-        <translation type="unfinished"/>
+        <translation>Precisão horizontal</translation>
     </message>
     <message>
         <source>Vertical accuracy</source>
-        <translation type="unfinished"/>
+        <translation>Precisão vertical</translation>
     </message>
     <message>
         <source>PDOP</source>
@@ -2954,18 +2954,18 @@ Cancele para fazer uma verificação mínima.</translation>
     </message>
     <message>
         <source>To active the measurement functionality, make sure the vector layer&apos;s geometry type used for the tracking session has an M dimension.</source>
-        <translation type="unfinished"/>
+        <translation>Para ativar a funcionalidade de medição, garante que o tipo de geometria da camada vetorial usada para a sessão rastreamento tem a dimensão M.</translation>
     </message>
 </context>
 <context>
     <name>UdpDeviceChooser</name>
     <message>
         <source>Address:</source>
-        <translation type="unfinished"/>
+        <translation>Endereço:</translation>
     </message>
     <message>
         <source>Port:</source>
-        <translation type="unfinished"/>
+        <translation>Porta:</translation>
     </message>
 </context>
 <context>
@@ -2996,15 +2996,15 @@ Cancele para fazer uma verificação mínima.</translation>
     </message>
     <message>
         <source>The connection was refused by the remote hose</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">A ligação foi recusada pelo servidor remoto</translation>
     </message>
     <message>
         <source>UDP receiver error (%1)</source>
-        <translation type="unfinished"/>
+        <translation>Erro do receptor UDP (%1)</translation>
     </message>
     <message>
         <source>The connection was refused by the remote host</source>
-        <translation type="unfinished"/>
+        <translation>A ligação foi recusada pelo servidor remoto</translation>
     </message>
 </context>
 <context>
@@ -3523,23 +3523,23 @@ Cancele para fazer uma verificação mínima.</translation>
     </message>
     <message>
         <source>Print to Image</source>
-        <translation type="unfinished"/>
+        <translation>Imprimir a Imagem</translation>
     </message>
     <message>
         <source>Printing...</source>
-        <translation type="unfinished"/>
+        <translation>Imprimindo...</translation>
     </message>
     <message>
         <source>Print</source>
-        <translation type="unfinished"/>
+        <translation>Imprimir</translation>
     </message>
     <message>
         <source>Positioning device error: %1</source>
-        <translation type="unfinished"/>
+        <translation>Erro do dispositivo de posicionamento: %1</translation>
     </message>
     <message>
         <source>Canvas follows location and compass orientation</source>
-        <translation type="unfinished"/>
+        <translation>O enquadramento acompanha a localização e a orientação da bússola.</translation>
     </message>
 </context>
 <context>
