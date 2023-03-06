@@ -66,10 +66,13 @@
 
     <!-- Peripherals -->
     <key>NSCameraUsageDescription</key>
-    <string>Need to access your camera to capture a picture.</string>
+    <string>Need to access your camera to capture pictures.</string>
+
+    <key>NSMicrophoneUsageDescription</key>
+    <string>Need to access your microphone to record audio attachments.</string>
 
     <key>NSPhotoLibraryUsageDescription</key>
-    <string>Picture Library</string>
+    <string>Need to access your picture library to attach pictures and videos attachments</string>
 
     <key>NSBluetoothPeripheralUsageDescription</key>
     <string>Bluetooth access needed to connect an external GNSS device.</string>
