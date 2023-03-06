@@ -167,8 +167,10 @@ void IosResourceSource::takeVideo() {
   UIImagePickerController *imageController =
       [[UIImagePickerController alloc] init];
   [imageController setSourceType:UIImagePickerControllerSourceTypeCamera];
-  [imageController
-      setCameraCaptureMode:UIImagePickerControllerCameraCaptureModeVideo];
+
+  imageController.mediaTypes =
+      [NSArray arrayWithObject:(NSString *)kUTTypeMovie];
+
   [imageController setDelegate:id(mDelegate->_cameraDelegate)];
 
   // Tell the imagecontroller to animate on top:
