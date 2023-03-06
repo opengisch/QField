@@ -21,8 +21,10 @@ AudioRecorder::AudioRecorder( QObject *parent )
   : QAudioRecorder( parent )
 {
   QAudioEncoderSettings as = audioSettings();
+#ifdef Q_OS_LINUX
   as.setCodec( "audio/x-vorbis" );
   setEncodingSettings( as, QVideoEncoderSettings(), QString( "audio/ogg" ) );
+#endif
 
   connect( this, &QMediaRecorder::stateChanged, this, [=]() {
     mLevel = 0;
@@ -31,6 +33,7 @@ AudioRecorder::AudioRecorder( QObject *parent )
   } );
 
   connect( this, &QMediaRecorder::statusChanged, this, [=]() {
+    qDebug() << status();
     if ( status() == QMediaRecorder::LoadedStatus )
     {
       emit recordingLoaded();
