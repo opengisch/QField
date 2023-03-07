@@ -15,7 +15,7 @@ Popup {
   signal canceled()
 
   property bool preRecording: true
-  property bool hasRecordedClip: !recorder.recording && player.duration > 0
+  property bool hasRecordedClip: player.duration > 0
   property int popupWidth: Math.min(400, mainWindow.width <= mainWindow.height ? mainWindow.width - Theme.popupScreenEdgeMargin : mainWindow.height - Theme.popupScreenEdgeMargin)
 
   width: popupWidth
@@ -35,8 +35,20 @@ Popup {
 
   AudioRecorder {
     id: recorder
+  }
 
-    onRecordingLoaded: {
+  /**
+   * Until QAudioRecorder reliably changes its status across all platforms after calling stop(),
+   * use a timer as workaround and check for duration > 0 as condition for successful
+   * saved audio recording.
+   */
+  Timer {
+    id: playerLoader
+    interval: 500
+    repeat: true
+    running: false
+
+    onTriggered: {
       var path = recorder.actualLocation.toString()
       // On Android, the file protocol prefix is present while on Linux it isn't
       var filePos = path.indexOf('file://')
@@ -58,7 +70,14 @@ Popup {
 
     autoLoad: true
 
+    property bool loaded: false
+
     onDurationChanged: {
+      if (duration > 0 && !loaded) {
+        playerLoader.stop();
+        loaded = true;
+      }
+
       positionSlider.to = duration / 1000;
       positionSlider.value = 0;
     }
@@ -165,9 +184,11 @@ Popup {
                 if (recorder.recording) {
                   // As of Qt5.15, Android doesn't support pausing a recording, revisit in Qt6
                   recorder.stop();
+                  playerLoader.start();
                 } else {
-                  recorder.record();
+                  playerLoader.stop();
                   player.source = ''
+                  recorder.record();
                 }
               }
             }

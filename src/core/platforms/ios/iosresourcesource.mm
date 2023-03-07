@@ -71,6 +71,8 @@
 
     NSData *videoData = [NSData dataWithContentsOfURL:videoUrl];
     [videoData writeToFile:path atomically:NO];
+
+    emit mIosCamera->resourceReceived(finalResourceFilePath);
   } else {
     /*
     NSURL *imageURL = [info valueForKey:UIImagePickerControllerReferenceURL];
@@ -98,9 +100,7 @@
                                          options:NSAtomicWrite
                                            error:nil];
 
-    // Update imagePath property to trigger QML code:
-    QString filePath = /*StringLiteral("file:") +*/ QString::fromNSString(path);
-    emit mIosCamera->resourceReceived(mIosCamera->resourceFilePath());
+    emit mIosCamera->resourceReceived(finalResourceFilePath);
   }
 
   // Bring back Qt's view controller:
@@ -167,8 +167,10 @@ void IosResourceSource::takeVideo() {
   UIImagePickerController *imageController =
       [[UIImagePickerController alloc] init];
   [imageController setSourceType:UIImagePickerControllerSourceTypeCamera];
-  [imageController
-      setCameraCaptureMode:UIImagePickerControllerCameraCaptureModeVideo];
+
+  imageController.mediaTypes =
+      [NSArray arrayWithObject:(NSString *)kUTTypeMovie];
+
   [imageController setDelegate:id(mDelegate->_cameraDelegate)];
 
   // Tell the imagecontroller to animate on top:

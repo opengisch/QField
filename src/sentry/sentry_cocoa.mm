@@ -16,14 +16,32 @@
 
 #include "sentry_config.h"
 #include "sentry_wrapper.h"
+
+#include <QString>
 #include <QtGlobal>
+
 #import <Sentry.h>
 
 namespace sentry_wrapper {
 static QtMessageHandler originalMessageHandler = nullptr;
 const char *const applicationName = "QField";
 void qfMessageHandler(QtMsgType type, const QMessageLogContext &context,
-                      const QString &msg) {}
+                      const QString &msg) {
+  SentryBreadcrumb *crumb = [[SentryBreadcrumb alloc] init];
+  crumb.level = kSentryLevelInfo;
+  crumb.category = QString(context.category).toNSString();
+  crumb.message =
+      QString(QStringLiteral("(%1:%2) %3")
+                  .arg(context.file, QString::number(context.line), msg))
+          .toNSString();
+  // TODO: implement below in a way that compiles :)
+  // crumb.data[@"file"] = QString(context.file).toNSString();
+  // crumb.data[@"line"] = context.line;
+  [SentrySDK addBreadcrumb:crumb];
+
+  if (originalMessageHandler)
+    originalMessageHandler(type, context, msg);
+}
 
 void init() {
   [SentrySDK startWithConfigureOptions:^(SentryOptions *options) {
