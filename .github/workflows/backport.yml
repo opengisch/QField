@@ -8,7 +8,7 @@ on:
 
 jobs:
   backport:
-    runs-on: ubuntu-18.04
+    runs-on: ubuntu-latest
     name: Backport
     steps:
       - uses: actions/checkout@v3
