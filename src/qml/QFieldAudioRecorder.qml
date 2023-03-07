@@ -15,7 +15,7 @@ Popup {
   signal canceled()
 
   property bool preRecording: true
-  property bool hasRecordedClip: !recorder.recording && player.duration > 0
+  property bool hasRecordedClip: player.duration > 0
   property int popupWidth: Math.min(400, mainWindow.width <= mainWindow.height ? mainWindow.width - Theme.popupScreenEdgeMargin : mainWindow.height - Theme.popupScreenEdgeMargin)
 
   width: popupWidth
@@ -165,6 +165,7 @@ Popup {
                 if (recorder.recording) {
                   // As of Qt5.15, Android doesn't support pausing a recording, revisit in Qt6
                   recorder.stop();
+                  player.source = recorder.actualLocation
                 } else {
                   recorder.record();
                   player.source = ''
