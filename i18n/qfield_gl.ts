@@ -1445,7 +1445,7 @@ As xeometrías das entidades combinaranse na entidade &apos;%1&apos;, a cal cons
     </message>
     <message>
         <source>Bluetooth</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Bluetooth</translation>
     </message>
     <message>
         <source>Bluetooth (NMEA)</source>
