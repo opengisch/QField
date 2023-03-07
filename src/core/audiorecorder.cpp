@@ -33,7 +33,6 @@ AudioRecorder::AudioRecorder( QObject *parent )
   } );
 
   connect( this, &QMediaRecorder::statusChanged, this, [=]() {
-    qDebug() << status();
     if ( status() == QMediaRecorder::LoadedStatus )
     {
       emit recordingLoaded();

@@ -35,12 +35,20 @@ Popup {
 
   AudioRecorder {
     id: recorder
+  }
 
-    onRecordingLoaded: {
+  Timer {
+    id: playerLoader
+    interval: 500
+    repeat: true
+    running: false
+
+    onTriggered: {
       var path = recorder.actualLocation.toString()
       // On Android, the file protocol prefix is present while on Linux it isn't
       var filePos = path.indexOf('file://')
       path = filePos == -1 ? 'file://' + path : path
+      console.log('ttt'+path)
       player.source = path
     }
   }
@@ -58,7 +66,14 @@ Popup {
 
     autoLoad: true
 
+    property bool loaded: false
+
     onDurationChanged: {
+      if (duration > 0 && !loaded) {
+        playerLoader.stop();
+        loaded = true;
+      }
+
       positionSlider.to = duration / 1000;
       positionSlider.value = 0;
     }
@@ -165,10 +180,12 @@ Popup {
                 if (recorder.recording) {
                   // As of Qt5.15, Android doesn't support pausing a recording, revisit in Qt6
                   recorder.stop();
-                  player.source = recorder.actualLocation
+                  console.log('+++'+recorder.actualLocation)
+                  playerLoader.start();
                 } else {
-                  recorder.record();
+                  playerLoader.stop();
                   player.source = ''
+                  recorder.record();
                 }
               }
             }
