@@ -476,7 +476,7 @@ EditorWidgetBase {
     width: visible ? 48 : 0
     height: 48
 
-    visible: (documentViewer == document_FILE || documentViewer == document_AUDIO) && isEnabled
+    visible: platformUtilities.capabilities & PlatformUtilities.FilePicker && (documentViewer == document_FILE || documentViewer == document_AUDIO) && isEnabled
 
     anchors.right: galleryButton.left
     anchors.top: parent.top

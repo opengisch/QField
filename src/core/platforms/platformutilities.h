@@ -49,6 +49,7 @@ class QFIELD_CORE_EXPORT PlatformUtilities : public QObject
       CustomImport = 1 << 4,          //!< Import project and dataset support
       CustomExport = 1 << 5,          //!< Export project and dataset support
       CustomSend = 1 << 6,            //!< Native send/share files support
+      FilePicker = 1 << 7,
     };
     Q_DECLARE_FLAGS( Capabilities, Capability )
     Q_FLAGS( Capabilities )
