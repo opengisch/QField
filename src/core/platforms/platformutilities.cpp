@@ -54,7 +54,7 @@ PlatformUtilities::~PlatformUtilities()
 
 PlatformUtilities::Capabilities PlatformUtilities::capabilities() const
 {
-  PlatformUtilities::Capabilities capabilities = NoCapabilities;
+  PlatformUtilities::Capabilities capabilities = FilePicker;
 #if WITH_SENTRY
   capabilities |= SentryFramework;
 #endif
