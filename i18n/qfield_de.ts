@@ -183,7 +183,7 @@ Abbrechen um einen minimalen Scan durchzuführen. </translation>
     </message>
     <message>
         <source>Select the Bluetooth device from the list below:</source>
-        <translation type="unfinished"/>
+        <translation>Wähle das Bluetooth-Gerät aus der untenstehenden Liste aus:</translation>
     </message>
     <message>
         <source>Bluetooth device name:</source>
@@ -311,7 +311,7 @@ Abbrechen um einen minimalen Scan durchzuführen. </translation>
     </message>
     <message>
         <source>You are about to remove a bookmark, proceed?</source>
-        <translation type="unfinished"/>
+        <translation>Du bist dabei ein Lesezeichen zu löschen, weitermachen?</translation>
     </message>
 </context>
 <context>
@@ -2228,11 +2228,11 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Dim screen when idling</source>
-        <translation type="unfinished"/>
+        <translation>Bildschirm bei Inaktivität runterdimmen</translation>
     </message>
     <message>
         <source>If enabled, the screen brightness will be dimmed after 20 seconds of inactivity to preserve battery.</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Wenn diese Funktion aktiviert ist, wird die Bildschirmhelligkeit nach 20 Sekunden Inaktivität gedimmt, um die Batterie zu schonen.</translation>
     </message>
     <message>
         <source>Consider mouse as a touchscreen device</source>
@@ -2272,7 +2272,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>To apply the selected user interface language, QField needs to completely shutdown and restart.</source>
-        <translation type="unfinished"/>
+        <translation>Um die ausgewählte Sprache der Benutzeroberfläche anzuwenden, muss QField komplett heruntergefahren und neu gestartet werden.</translation>
     </message>
     <message>
         <source>system</source>
@@ -2280,7 +2280,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Found a missing or incomplete language? %1Join the translator community.%2</source>
-        <translation type="unfinished"/>
+        <translation>Fehlende oder unvollständige Sprachübersetzung gefunden? %1Mach mit bei der Übersetzergruppe.%2</translation>
     </message>
     <message>
         <source>Positioning device in use:</source>
@@ -2414,7 +2414,7 @@ Abbrechen um einen minimalen Scan durchzuführen. </translation>
     </message>
     <message>
         <source>Time of inactivity in seconds before the screen brightness get be dimmed to preserve battery.</source>
-        <translation type="unfinished"/>
+        <translation>Zeit der Inaktivität in Sekunden, bevor die Bildschirmhelligkeit gedimmt wird, um die Batterie zu schonen.</translation>
     </message>
     <message>
         <source>Measure (M) value attached to vertices:</source>
@@ -3043,7 +3043,7 @@ Abbrechen um einen minimalen Scan durchzuführen. </translation>
     </message>
     <message>
         <source>Anonymized metrics collection has been disabled. You can re-enable through the settings panel.</source>
-        <translation type="unfinished"/>
+        <translation>Die Sammlung anonymisierter Metriken wurde deaktiviert. Du  kannst sie über das Einstellungsfeld wieder aktivieren.</translation>
     </message>
     <message>
         <source>To improve stability for everyone, QField collects and sends anonymized metrics.</source>
@@ -3465,7 +3465,7 @@ Abbrechen um einen minimalen Scan durchzuführen. </translation>
     </message>
     <message>
         <source>Loading %1</source>
-        <translation type="unfinished"/>
+        <translation>Lade %1</translation>
     </message>
     <message>
         <source>Logged out</source>
@@ -3501,7 +3501,7 @@ Abbrechen um einen minimalen Scan durchzuführen. </translation>
     </message>
     <message>
         <source>Positioning error: %1</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Ortungsfehler: %1</translation>
     </message>
     <message>
         <source>Azimuth</source>
