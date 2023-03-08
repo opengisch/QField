@@ -34,8 +34,6 @@
 #include <QtGui>
 #include <QtQuick>
 
-IosPlatformUtilities::IosPlatformUtilities() : PlatformUtilities() {}
-
 @interface DocViewController
     : UIViewController <UIDocumentInteractionControllerDelegate>
 @end
@@ -57,6 +55,13 @@ IosPlatformUtilities::IosPlatformUtilities() : PlatformUtilities() {}
   [self removeFromParentViewController];
 }
 @end
+
+IosPlatformUtilities::IosPlatformUtilities() : PlatformUtilities() {
+  NSError *sessionError = nil;
+  [[AVAudioSession sharedInstance]
+      setCategory:AVAudioSessionCategoryPlayAndRecord
+            error:&sessionError];
+}
 
 PlatformUtilities::Capabilities IosPlatformUtilities::capabilities() const {
   PlatformUtilities::Capabilities capabilities =
