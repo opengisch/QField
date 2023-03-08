@@ -28,8 +28,8 @@ if(NOT VCPKG_TAG STREQUAL VCPKG_INSTALLED_VERSION)
   message(STATUS "Updating vcpkg")
   include(FetchContent)
   FetchContent_Declare(vcpkg
-      GIT_REPOSITORY https://github.com/microsoft/vcpkg.git
-      GIT_TAG ${VCPKG_TAG}
+      GIT_REPOSITORY https://github.com/dg0yt/vcpkg.git
+      GIT_TAG openssl
   )
   FetchContent_MakeAvailable(vcpkg)
 else()
