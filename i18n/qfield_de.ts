@@ -19,7 +19,7 @@
     </message>
     <message>
         <source>Links Menu</source>
-        <translation type="unfinished"/>
+        <translation>Link Menü</translation>
     </message>
 </context>
 <context>
@@ -114,11 +114,11 @@
     <name>BarcodeReader</name>
     <message>
         <source>Code Reader</source>
-        <translation type="unfinished"/>
+        <translation>Codeleser</translation>
     </message>
     <message>
         <source>Center your camera on a code</source>
-        <translation type="unfinished"/>
+        <translation>Richte deine Kamera auf den Code</translation>
     </message>
 </context>
 <context>
@@ -179,7 +179,7 @@ Abbrechen um einen minimalen Scan durchzuführen. </translation>
     </message>
     <message>
         <source>Use orthometric altitude from device</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Orthometrische Höhe vom Gerät verwenden</translation>
     </message>
     <message>
         <source>Select the Bluetooth device from the list below:</source>
@@ -233,19 +233,19 @@ Abbrechen um einen minimalen Scan durchzuführen. </translation>
     </message>
     <message>
         <source>Could not find the remote host</source>
-        <translation type="unfinished"/>
+        <translation>Kann den Remote Host nicht finden</translation>
     </message>
     <message>
         <source>Could not find the service UUID on remote host</source>
-        <translation type="unfinished"/>
+        <translation>Kann den UUID Service auf dem Remote Host nicht finden</translation>
     </message>
     <message>
         <source>Attempt to read or write from socket returned an error</source>
-        <translation type="unfinished"/>
+        <translation>Fehler beim Lesen oder Schreiben an diesem Anschluss</translation>
     </message>
     <message>
         <source>The protocol is not supported on this platform</source>
-        <translation type="unfinished"/>
+        <translation>Das Protokoll wird auf dieser Plattform nicht unterstützt.</translation>
     </message>
     <message>
         <source>An operation was attempted while the socket was in a state that did not permit it</source>
@@ -253,7 +253,7 @@ Abbrechen um einen minimalen Scan durchzuführen. </translation>
     </message>
     <message>
         <source>The remote host closed the connection</source>
-        <translation type="unfinished"/>
+        <translation>Der Remote Host hat die Verbindung beendet</translation>
     </message>
     <message>
         <source>Unknown error</source>
@@ -303,7 +303,7 @@ Abbrechen um einen minimalen Scan durchzuführen. </translation>
     </message>
     <message>
         <source>Bookmark details copied to clipboard</source>
-        <translation type="unfinished"/>
+        <translation>Lesezeichen-Detail in die Zwischenablage kopiert</translation>
     </message>
     <message>
         <source>Remove bookmark</source>
@@ -367,7 +367,7 @@ Abbrechen um einen minimalen Scan durchzuführen. </translation>
     </message>
     <message>
         <source>Check the latest QField changes on </source>
-        <translation type="unfinished"/>
+        <translation>Prüfe die letzten QField-Änderungen auf</translation>
     </message>
     <message>
         <source>QField releases page</source>
@@ -506,7 +506,7 @@ Abbrechen um einen minimalen Scan durchzuführen. </translation>
     <name>EditorWidgetBase</name>
     <message>
         <source>Item Menu</source>
-        <translation type="unfinished"/>
+        <translation>Menüpunkt</translation>
     </message>
 </context>
 <context>
@@ -790,11 +790,11 @@ Die Objekt-Geometrien werden in Objekt &apos;%1&apos; zusammengeführt, welches 
     </message>
     <message>
         <source>Split Tool</source>
-        <translation type="unfinished"/>
+        <translation>Split-Werkzeug</translation>
     </message>
     <message>
         <source>Reshape Tool</source>
-        <translation type="unfinished"/>
+        <translation>Umformungs-Werkzeug</translation>
     </message>
     <message>
         <source>Fill Ring Tool</source>
@@ -1187,7 +1187,7 @@ Die Objekt-Geometrien werden in Objekt &apos;%1&apos; zusammengeführt, welches 
     </message>
     <message>
         <source>Printing...</source>
-        <translation type="unfinished"/>
+        <translation>Drucke...</translation>
     </message>
     <message>
         <source>Atlas feature(s) successfully printed and placed in your project folder</source>
@@ -1428,7 +1428,7 @@ Die Objekt-Geometrien werden in Objekt &apos;%1&apos; zusammengeführt, welches 
     <name>PositioningDeviceSettings</name>
     <message>
         <source>Positioning Device Settings</source>
-        <translation type="unfinished"/>
+        <translation>Einstellungen Ortungsgerät</translation>
     </message>
     <message>
         <source>Name:</source>
@@ -1583,7 +1583,7 @@ Die Objekt-Geometrien werden in Objekt &apos;%1&apos; zusammengeführt, welches 
     </message>
     <message>
         <source>Session expired</source>
-        <translation type="unfinished"/>
+        <translation>Session abgelaufen</translation>
     </message>
     <message>
         <source>Login temporary unavailable</source>
@@ -1683,11 +1683,11 @@ Die Objekt-Geometrien werden in Objekt &apos;%1&apos; zusammengeführt, welches 
     </message>
     <message>
         <source>Some layers have not been packaged correctly on QFieldCloud. These layers might be misconfigured or their data source is not accessible from the QFieldCloud server.</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Einige Layer sind nicht korrekt in QFieldCloud verpackt worden. Diese Layer könnten falsch konfiguriert sein oder ihre Datenquelle ist vom QFieldCloud-Server nicht zugänglich.</translation>
     </message>
     <message>
         <source>QFieldCloud had troubles packaging your project</source>
-        <translation type="unfinished"/>
+        <translation>QFieldCloud hat Probleme beim Packen deines Projektes</translation>
     </message>
     <message>
         <source>Some layers have not been packaged correctly on QFieldCloud. These layers might be misconfigured or their data source is not accessible from the QFieldCloud server. Please check the logs of the latest packaging job on the qfield.cloud website.</source>
@@ -1702,7 +1702,7 @@ Die Objekt-Geometrien werden in Objekt &apos;%1&apos; zusammengeführt, welches 
     </message>
     <message>
         <source>The current project is not stored on QFieldCloud.&lt;br&gt;&lt;br&gt;</source>
-        <translation type="unfinished"/>
+        <translation>Das aktuelle Projekt wurde nicht auf QFieldCloud gespeichert. .&lt;br&gt;&lt;br&gt;</translation>
     </message>
     <message>
         <source>Storing projects on QFieldCloud offers seamless synchornization, offline editing, and team management.&lt;br&gt;&lt;br&gt;</source>
@@ -1730,7 +1730,7 @@ Die Objekt-Geometrien werden in Objekt &apos;%1&apos; zusammengeführt, welches 
     </message>
     <message>
         <source>Downloading %1%…</source>
-        <translation type="unfinished"/>
+        <translation>Lade runter %1%…</translation>
     </message>
     <message>
         <source>QFieldCloud is preparing the latest data just for you. This might take some time, please hold tight…</source>
@@ -1738,7 +1738,7 @@ Die Objekt-Geometrien werden in Objekt &apos;%1&apos; zusammengeführt, welches 
     </message>
     <message>
         <source>Uploading %1%…</source>
-        <translation type="unfinished"/>
+        <translation>Lade hoch %1%…</translation>
     </message>
     <message>
         <source>QFieldCloud is applying the latest uploaded changes. This might take some time, please hold tight…</source>
@@ -1746,11 +1746,11 @@ Die Objekt-Geometrien werden in Objekt &apos;%1&apos; zusammengeführt, welches 
     </message>
     <message>
         <source>A server error has occured, please try again.</source>
-        <translation type="unfinished"/>
+        <translation>Ein Server-Fehler ist aufgetreten, bitte nochmal versuchen.</translation>
     </message>
     <message>
         <source>A network error has occured, please try again.</source>
-        <translation type="unfinished"/>
+        <translation>Ein Netzwerk-Fehler ist aufgetreten, bitte nochmal versuchen.</translation>
     </message>
     <message numerus="yes">
         <source>There is/are %n local change(s)</source>
@@ -1901,7 +1901,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>aborted</source>
-        <translation type="unfinished"/>
+        <translation>abgebrochen</translation>
     </message>
     <message>
         <source>project(%1) trigger response refresh not contain all the expected keys: name(string), owner(string), description(string), user_role(string), is_public(bool), can_repackage(bool), needs_repackaging(bool)</source>
@@ -1933,7 +1933,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Project busy.</source>
-        <translation type="unfinished"/>
+        <translation>Projekt in Arbeit.</translation>
     </message>
     <message>
         <source>Packaging job finished unsuccessfully for `%1`. %2</source>
@@ -1983,15 +1983,15 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Project `%1`, file `%2`: %3</source>
-        <translation type="unfinished"/>
+        <translation>Projekt `%1`, Datei `%2`: %3</translation>
     </message>
     <message>
         <source>System message: </source>
-        <translation type="unfinished"/>
+        <translation>Systemnachricht:</translation>
     </message>
     <message>
         <source> (see more in the QField error log)…</source>
-        <translation type="unfinished"/>
+        <translation> (mehr im QField Fehler Log)…</translation>
     </message>
     <message>
         <source>Failed to copy some of the downloaded files on your device. Check your device storage.</source>
@@ -2022,7 +2022,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Community</source>
-        <translation type="unfinished"/>
+        <translation>Gemeinschaft</translation>
     </message>
     <message>
         <source>(Available locally)</source>
@@ -2042,7 +2042,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Downloading error. </source>
-        <translation type="unfinished"/>
+        <translation>Download-Fehler. </translation>
     </message>
     <message>
         <source>Uploading error. </source>
@@ -2078,11 +2078,11 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Remove Stored Project</source>
-        <translation type="unfinished"/>
+        <translation>Entferne gespeichertes Projekt</translation>
     </message>
     <message>
         <source>Cancel Project Download</source>
-        <translation type="unfinished"/>
+        <translation>Projekt-Download abbrechen</translation>
     </message>
     <message>
         <source>Press and hold over a cloud project for a menu of additional actions.</source>
@@ -2276,7 +2276,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>system</source>
-        <translation type="unfinished"/>
+        <translation>System</translation>
     </message>
     <message>
         <source>Found a missing or incomplete language? %1Join the translator community.%2</source>
@@ -2334,7 +2334,7 @@ Abbrechen um einen minimalen Scan durchzuführen. </translation>
     </message>
     <message>
         <source>Use orthometric altitude from device</source>
-        <translation type="unfinished"/>
+        <translation>Orthometrische Höhe vom Gerät verwenden</translation>
     </message>
     <message>
         <source>Show position information</source>
@@ -2346,7 +2346,7 @@ Abbrechen um einen minimalen Scan durchzuführen. </translation>
     </message>
     <message>
         <source>Bad accuracy below [m]</source>
-        <translation type="unfinished"/>
+        <translation>Schlechte Genauigkeit über [m]</translation>
     </message>
     <message>
         <source>Excellent accuracy above [m]</source>
@@ -2382,7 +2382,7 @@ Abbrechen um einen minimalen Scan durchzuführen. </translation>
     </message>
     <message>
         <source>Antenna height [m]</source>
-        <translation type="unfinished"/>
+        <translation>Antennenhöhe [m]</translation>
     </message>
     <message>
         <source>Z values which are recorded from the positioning device will be corrected by this value. If a value of 1.6 is entered, this will result in a correction of -1.6 for each recorded value.</source>
@@ -2402,7 +2402,7 @@ Abbrechen um einen minimalen Scan durchzuführen. </translation>
     </message>
     <message>
         <source>None</source>
-        <translation type="unfinished"/>
+        <translation>Keine</translation>
     </message>
     <message>
         <source>Vertical grid shift is used to increase the altitude accuracy.</source>
@@ -2422,7 +2422,7 @@ Abbrechen um einen minimalen Scan durchzuführen. </translation>
     </message>
     <message>
         <source>Timestamp (milliseconds since epoch)</source>
-        <translation type="unfinished"/>
+        <translation>Zeitstempel (Milisekunden seit Zeitalter)</translation>
     </message>
     <message>
         <source>Ground speed</source>
@@ -2521,11 +2521,11 @@ Abbrechen um einen minimalen Scan durchzuführen. </translation>
     </message>
     <message>
         <source>QFieldCloud Unknown Error</source>
-        <translation type="unfinished"/>
+        <translation>QFieldCloud unbekannter Fehler</translation>
     </message>
     <message>
         <source>Status not ok</source>
-        <translation type="unfinished"/>
+        <translation>Status nicht OK</translation>
     </message>
     <message>
         <source>Empty content</source>
@@ -2561,11 +2561,11 @@ Abbrechen um einen minimalen Scan durchzuführen. </translation>
     </message>
     <message>
         <source>QGIS export failed</source>
-        <translation type="unfinished"/>
+        <translation>QGIS Export fehlgeschlagen</translation>
     </message>
     <message>
         <source>QGIS is unable to open the QGIS project</source>
-        <translation type="unfinished"/>
+        <translation>QGIS kann das QGIS Projekt nicht öffnen</translation>
     </message>
     <message>
         <source>There was an error opening the database &lt;b&gt;%1&lt;/b&gt;: %2</source>
@@ -2593,7 +2593,7 @@ Abbrechen um einen minimalen Scan durchzuführen. </translation>
     </message>
     <message>
         <source>averaged</source>
-        <translation type="unfinished"/>
+        <translation>gemittelt</translation>
     </message>
     <message>
         <source>centroid</source>
@@ -2604,7 +2604,7 @@ Abbrechen um einen minimalen Scan durchzuführen. </translation>
     <name>QgisMobileapp</name>
     <message>
         <source>Project file &quot;%1&quot; does not exist</source>
-        <translation type="unfinished"/>
+        <translation>Projekt-Datei &quot;%1&quot; existiert nicht</translation>
     </message>
     <message>
         <source>No project file currently opened</source>
@@ -2627,11 +2627,11 @@ Abbrechen um einen minimalen Scan durchzuführen. </translation>
     </message>
     <message>
         <source>Manual input mode</source>
-        <translation type="unfinished"/>
+        <translation>Manueller Eingabemodus</translation>
     </message>
     <message>
         <source>Estimated</source>
-        <translation type="unfinished"/>
+        <translation>geschätzt</translation>
     </message>
     <message>
         <source>Float RTK</source>
@@ -2643,7 +2643,7 @@ Abbrechen um einen minimalen Scan durchzuführen. </translation>
     </message>
     <message>
         <source>PPS</source>
-        <translation type="unfinished"/>
+        <translation>PPS</translation>
     </message>
     <message>
         <source>DGPS</source>
@@ -2751,7 +2751,7 @@ Abbrechen um einen minimalen Scan durchzuführen. </translation>
     <name>SerialPortReceiver</name>
     <message>
         <source>Could not find the serial port device</source>
-        <translation type="unfinished"/>
+        <translation>Serieller Anschluss nicht zu finden</translation>
     </message>
     <message>
         <source>Attempt to read from the serial port returned an error</source>
@@ -2811,11 +2811,11 @@ Abbrechen um einen minimalen Scan durchzuführen. </translation>
     </message>
     <message>
         <source>Could not find the remote host</source>
-        <translation type="unfinished"/>
+        <translation>Kann den Remote Host nicht finden</translation>
     </message>
     <message>
         <source>Attempt to read or write from socket returned an error</source>
-        <translation type="unfinished"/>
+        <translation>Fehler beim Lesen oder Schreiben an diesem Anschluss</translation>
     </message>
     <message>
         <source>The connection was refused by the remote hose</source>
@@ -2872,7 +2872,7 @@ Abbrechen um einen minimalen Scan durchzuführen. </translation>
     </message>
     <message>
         <source>Minimum time [sec]</source>
-        <translation type="unfinished"/>
+        <translation>Minimumzeit [sek]</translation>
     </message>
     <message>
         <source>Activate distance constraint</source>
@@ -2880,7 +2880,7 @@ Abbrechen um einen minimalen Scan durchzuführen. </translation>
     </message>
     <message>
         <source>Minimum distance [%1]</source>
-        <translation type="unfinished"/>
+        <translation>Minimumentfernung [%1]</translation>
     </message>
     <message>
         <source>Record when both active constraints are met</source>
@@ -2908,11 +2908,11 @@ Abbrechen um einen minimalen Scan durchzuführen. </translation>
     </message>
     <message>
         <source>Elapsed time (seconds since start of tracking)</source>
-        <translation type="unfinished"/>
+        <translation>Vergangene Zeit (Sekunden seit Beginn des Trackings)</translation>
     </message>
     <message>
         <source>Timestamp (milliseconds since epoch)</source>
-        <translation type="unfinished"/>
+        <translation>Zeitstempel (Milisekunden seit Zeitalter)</translation>
     </message>
     <message>
         <source>Ground speed</source>
@@ -2978,11 +2978,11 @@ Abbrechen um einen minimalen Scan durchzuführen. </translation>
     </message>
     <message>
         <source>Could not find the remote host</source>
-        <translation type="unfinished"/>
+        <translation>Kann den Remote Host nicht finden</translation>
     </message>
     <message>
         <source>Attempt to read or write from socket returned an error</source>
-        <translation type="unfinished"/>
+        <translation>Fehler beim Lesen oder Schreiben an diesem Anschluss</translation>
     </message>
     <message>
         <source>The connection was refused by the remote hose</source>
@@ -3297,7 +3297,7 @@ Abbrechen um einen minimalen Scan durchzuführen. </translation>
     </message>
     <message>
         <source>Map Canvas Options</source>
-        <translation type="unfinished"/>
+        <translation>Kartenbildoption</translation>
     </message>
     <message>
         <source>Add Bookmark</source>
@@ -3305,15 +3305,15 @@ Abbrechen um einen minimalen Scan durchzuführen. </translation>
     </message>
     <message>
         <source>Set as Destination</source>
-        <translation type="unfinished"/>
+        <translation>Als Ziel auswählen</translation>
     </message>
     <message>
         <source>Add Bookmark at Coordinates</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Lesezeichen bei Koordinaten hinzufügen</translation>
     </message>
     <message>
         <source>Untitled bookmark</source>
-        <translation type="unfinished"/>
+        <translation>Unbenanntes Lesezeichen</translation>
     </message>
     <message>
         <source>Set Coordinates as Destination</source>
@@ -3373,7 +3373,7 @@ Abbrechen um einen minimalen Scan durchzuführen. </translation>
     </message>
     <message>
         <source>Add Bookmark at Location</source>
-        <translation type="unfinished"/>
+        <translation>Lesezeichen an Standort hinzufügen</translation>
     </message>
     <message>
         <source>Copy Location Coordinates</source>
@@ -3389,11 +3389,11 @@ Abbrechen um einen minimalen Scan durchzuführen. </translation>
     </message>
     <message>
         <source>Set As Destination</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Als Ziel auswählen</translation>
     </message>
     <message>
         <source>Navigation Options</source>
-        <translation type="unfinished"/>
+        <translation>Navigationsmöglichkeiten</translation>
     </message>
     <message>
         <source>Clear Destination</source>
@@ -3505,7 +3505,7 @@ Abbrechen um einen minimalen Scan durchzuführen. </translation>
     </message>
     <message>
         <source>Azimuth</source>
-        <translation type="unfinished"/>
+        <translation>Azimut</translation>
     </message>
     <message>
         <source>Lock Screen</source>
@@ -3517,7 +3517,7 @@ Abbrechen um einen minimalen Scan durchzuführen. </translation>
     </message>
     <message>
         <source>Printing...</source>
-        <translation type="unfinished"/>
+        <translation>Drucke...</translation>
     </message>
     <message>
         <source>Print</source>
@@ -3525,7 +3525,7 @@ Abbrechen um einen minimalen Scan durchzuführen. </translation>
     </message>
     <message>
         <source>Positioning device error: %1</source>
-        <translation type="unfinished"/>
+        <translation>Fehler Ortungsgerät: %1</translation>
     </message>
     <message>
         <source>Canvas follows location and compass orientation</source>
