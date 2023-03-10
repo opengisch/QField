@@ -21,3 +21,4 @@
 - Ecstatic Elk (2.4)
 - Fancy Flamingo (2.5)
 - Geeky Gecko (2.6)
+- Heroic Hedgehog (2.7)
