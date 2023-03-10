@@ -229,7 +229,7 @@ Abbrechen um einen minimalen Scan durchzuführen. </translation>
     </message>
     <message>
         <source>Socket state %1</source>
-        <translation type="unfinished"/>
+        <translation>Anschlussstatus %1</translation>
     </message>
     <message>
         <source>Could not find the remote host</source>
@@ -249,7 +249,7 @@ Abbrechen um einen minimalen Scan durchzuführen. </translation>
     </message>
     <message>
         <source>An operation was attempted while the socket was in a state that did not permit it</source>
-        <translation type="unfinished"/>
+        <translation>Vorgang nicht möglich, weil der Anschluss nicht bereit war</translation>
     </message>
     <message>
         <source>The remote host closed the connection</source>
@@ -1534,7 +1534,7 @@ Die Objekt-Geometrien werden in Objekt &apos;%1&apos; zusammengeführt, welches 
     </message>
     <message>
         <source>Positioning accuracy too low for this precision level</source>
-        <translation type="unfinished"/>
+        <translation>Ortungsgenauigkeit zu gering für diese Genauigkeitstufe</translation>
     </message>
 </context>
 <context>
@@ -1555,11 +1555,11 @@ Die Objekt-Geometrien werden in Objekt &apos;%1&apos; zusammengeführt, welches 
     <name>QFieldCloudConnection</name>
     <message>
         <source>[timeout] The request took too long to finish, please retry.</source>
-        <translation type="unfinished"/>
+        <translation>[Timeout] Die Anfrage dauerte zu lange um beendet zu werden, versuche es noch einmal.</translation>
     </message>
     <message>
         <source>[aborted] The request has been aborted.</source>
-        <translation type="unfinished"/>
+        <translation>[abgebrochen] Die Anfrage wurde abgebrochen</translation>
     </message>
     <message>
         <source>Server Error.</source>
@@ -1592,7 +1592,8 @@ Die Objekt-Geometrien werden in Objekt &apos;%1&apos; zusammengeführt, welches 
     <message>
         <source>Failed to upload attachment stored at `%1`, reason:
 %2</source>
-        <translation type="unfinished"/>
+        <translation>Upload des Anhangs fehlgeschlagen, gespeichert in `%1`, Grund:
+%2</translation>
     </message>
     <message>
         <source>Login error due to unexpected redirect, please retry later</source>
@@ -1909,7 +1910,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Getting job status, but the project is deleted.</source>
-        <translation type="unfinished"/>
+        <translation>Job Status erhalten, aber das Projekt wurde gelöscht.</translation>
     </message>
     <message>
         <source>Job creation finished, but the server response is missing required fields: id(string)</source>
@@ -1917,11 +1918,11 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Getting job status, but no `%2` job triggered yet.</source>
-        <translation type="unfinished"/>
+        <translation>Job Status erhalten, aber `%2` noch kein Job gestartet.</translation>
     </message>
     <message>
         <source>Getting job status finished, but the project is deleted.</source>
-        <translation type="unfinished"/>
+        <translation>Job Status abgeschlossen, aber das Projekt wurde gelöscht.</translation>
     </message>
     <message>
         <source>job(%1) status response does not contain all the expected keys: status(string)</source>
@@ -1967,7 +1968,8 @@ While you can still view and use the project, it is strongly recommended to rese
     <message>
         <source>Failed to upload attachment stored at `%1`, reason:
 %2</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Upload des Anhangs fehlgeschlagen, gespeichert in `%1`, Grund:
+%2</translation>
     </message>
     <message>
         <source>Network error. Failed to download file `%1`.</source>
@@ -2529,7 +2531,7 @@ Abbrechen um einen minimalen Scan durchzuführen. </translation>
     </message>
     <message>
         <source>Empty content</source>
-        <translation type="unfinished"/>
+        <translation>ohne Inhalt</translation>
     </message>
     <message>
         <source>Object not found</source>
@@ -2807,7 +2809,7 @@ Abbrechen um einen minimalen Scan durchzuführen. </translation>
     </message>
     <message>
         <source>Socket state %1</source>
-        <translation type="unfinished"/>
+        <translation>Anschlussstatus %1</translation>
     </message>
     <message>
         <source>Could not find the remote host</source>
@@ -2974,7 +2976,7 @@ Abbrechen um einen minimalen Scan durchzuführen. </translation>
     </message>
     <message>
         <source>Socket state %1</source>
-        <translation type="unfinished"/>
+        <translation>Anschlussstatus %1</translation>
     </message>
     <message>
         <source>Could not find the remote host</source>
@@ -3031,11 +3033,11 @@ Abbrechen um einen minimalen Scan durchzuführen. </translation>
     </message>
     <message>
         <source>Hey there, how do you like your experience with QField so far?</source>
-        <translation type="unfinished"/>
+        <translation>Hallo, wie gefällt dir die Anwendung von QField bisher?</translation>
     </message>
     <message>
         <source>That&apos;s great! We&apos;d love for you to click on the button below and leave a comment on the store.</source>
-        <translation type="unfinished"/>
+        <translation>Das ist großartig! Wir würden uns freuen, wenn Du auf die Schaltfläche unten klickst und einen Kommentar zum Shop hinterlässt.</translation>
     </message>
     <message>
         <source>Rate us</source>
@@ -3429,7 +3431,7 @@ Abbrechen um einen minimalen Scan durchzuführen. </translation>
     </message>
     <message>
         <source>Add Bookmark at Current Location</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Lesezeichen an aktueller Position hinzufügen</translation>
     </message>
     <message>
         <source>Current location unknown</source>
