@@ -21,6 +21,7 @@
 #if WITH_SENTRY
 #include "sentry_wrapper.h"
 #endif
+#include "ziputils.h"
 
 #include <QDirIterator>
 #include <QFileInfo>
@@ -245,7 +246,7 @@ void AppInterface::importUrl( const QString &url )
           QDir( zipDirectory ).mkpath( "." );
 
           QStringList files;
-          QgsZipUtils::unzip( filePath, zipDirectory, files, false );
+          ZipUtils::unzip( filePath, zipDirectory, files, false );
           QString projectFilePath;
           for ( const QString &file : std::as_const( files ) )
           {
