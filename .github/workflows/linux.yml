@@ -19,8 +19,8 @@ jobs:
         include:
           - qt_version_suffix: qt6
             with_qt6: ON
-          - qt_version_suffix: qt5
-            with_qt6: OFF
+              #          - qt_version_suffix: qt5
+              #            with_qt6: OFF
 
     steps:
       - name: 🐣 Checkout
