@@ -574,7 +574,7 @@ Page {
 
     standardButtons: Dialog.Ok | Dialog.Cancel
     onAccepted: {
-      iface.importUrl(importUrlLabel.text)
+      iface.importUrl(importUrlInput.text)
     }
   }
 
