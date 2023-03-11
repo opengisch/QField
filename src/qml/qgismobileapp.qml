@@ -2735,7 +2735,7 @@ ApplicationWindow {
         qfieldLocalDataPickerScreen.visible = true
         welcomeScreen.visible = false
       } else {
-        displayToast(qsTr('Import from URL failed'))
+        displayToast(qsTr('Import URL failed'))
       }
     }
 

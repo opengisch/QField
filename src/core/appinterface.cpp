@@ -188,12 +188,11 @@ void AppInterface::importUrl( const QString &url )
   if ( url.isEmpty() )
     return;
 
-  QUrl u = QUrl( url );
-  emit importUrlTriggered( url, u.fileName() );
-
   QgsNetworkAccessManager *manager = QgsNetworkAccessManager::instance();
-  QNetworkRequest request( u );
+  QNetworkRequest request( ( QUrl( url ) ) );
   request.setAttribute( QNetworkRequest::RedirectPolicyAttribute, QNetworkRequest::NoLessSafeRedirectPolicy );
+  emit importUrlTriggered( url, request.url().fileName() );
+
   QNetworkReply *reply = manager->get( request );
   connect( reply, &QNetworkReply::finished, this, [=]() {
     const QString applicationDirectory = PlatformUtilities::instance()->applicationDirectory();
@@ -235,39 +234,39 @@ void AppInterface::importUrl( const QString &url )
         if ( fileSuffix == QLatin1String( "zip" ) )
         {
           // Check if this is a compressed project and handle accordingly
-          QString zipDirectory = QStringLiteral( "%1/Imported Projects/%2" ).arg( applicationDirectory, fileInfo.baseName() );
+          QStringList zipFiles = ZipUtils::files( filePath );
+          const bool isCompressedProject = std::find_if( zipFiles.begin(),
+                                                         zipFiles.end(),
+                                                         []( const QString &zipFile ) {
+                                                           return zipFile.toLower().endsWith( QLatin1String( ".qgs" ) ) || zipFile.toLower().endsWith( QLatin1String( ".qgz" ) );
+                                                         } )
+                                           != zipFiles.end();
+          if ( isCompressedProject )
           {
-            int i = 0;
-            while ( QFileInfo::exists( zipDirectory ) )
+            QString zipDirectory = QStringLiteral( "%1/Imported Projects/%2" ).arg( applicationDirectory, fileInfo.baseName() );
             {
-              zipDirectory = QStringLiteral( "%1/Imported Projects/%2_%3" ).arg( applicationDirectory, fileInfo.baseName(), QString::number( ++i ) );
+              int i = 0;
+              while ( QFileInfo::exists( zipDirectory ) )
+              {
+                zipDirectory = QStringLiteral( "%1/Imported Projects/%2_%3" ).arg( applicationDirectory, fileInfo.baseName(), QString::number( ++i ) );
+              }
             }
-          }
-          QDir( zipDirectory ).mkpath( "." );
+            QDir( zipDirectory ).mkpath( "." );
 
-          QStringList files;
-          ZipUtils::unzip( filePath, zipDirectory, files, false );
-          QString projectFilePath;
-          for ( const QString &file : std::as_const( files ) )
-          {
-            if ( file.toLower().endsWith( QLatin1String( ".qgs" ) ) || file.toLower().endsWith( QLatin1String( ".qgz" ) ) )
+            if ( ZipUtils::unzip( filePath, zipDirectory, zipFiles, false ) )
             {
-              projectFilePath = file;
-              break;
+              file.remove();
+              emit importUrlEnded( zipDirectory );
+              return;
             }
-          }
-
-          if ( !projectFilePath.isEmpty() )
-          {
-            // It's a project, remove the ZIP and use the decompressed folder
-            file.remove();
-            filePath = projectFilePath;
-          }
-          else
-          {
-            // Not a project file, remove
-            QDir dir( zipDirectory );
-            dir.removeRecursively();
+            else
+            {
+              // Broken archive, bail out
+              QDir dir( zipDirectory );
+              dir.removeRecursively();
+              file.remove();
+              filePath.clear();
+            }
           }
         }
 
