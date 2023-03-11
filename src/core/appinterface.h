@@ -38,6 +38,8 @@ class AppInterface : public QObject
       Q_ASSERT( false );
     }
 
+    Q_INVOKABLE void importUrl( const QString &url );
+
     Q_INVOKABLE void loadLastProject();
     Q_INVOKABLE void loadFile( const QString &path, const QString &name = QString() );
     Q_INVOKABLE void reloadProject();
@@ -89,6 +91,10 @@ class AppInterface : public QObject
 
   signals:
     void openFeatureFormRequested();
+
+    void importUrlTriggered( const QString &url, const QString &name );
+
+    void importUrlEnded( const QString &path = QString() );
 
     void loadProjectTriggered( const QString &path, const QString &name );
 

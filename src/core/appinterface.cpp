@@ -27,6 +27,7 @@
 #include <QImageReader>
 #include <qgsexiftools.h>
 #include <qgsmessagelog.h>
+#include <qgsziputils.h>
 
 AppInterface *AppInterface::sAppInterface = nullptr;
 
@@ -179,4 +180,101 @@ void AppInterface::restrictImageSize( const QString &imagePath, int maximumWidth
       QgsExifTools::tagImage( imagePath, key, metadata[key] );
     }
   }
+}
+
+void AppInterface::importUrl( const QString &url )
+{
+  if ( url.isEmpty() )
+    return;
+
+  QUrl u = QUrl( url );
+  emit importUrlTriggered( url, u.fileName() );
+
+  QgsNetworkAccessManager *manager = QgsNetworkAccessManager::instance();
+  QNetworkRequest request( u );
+  request.setAttribute( QNetworkRequest::RedirectPolicyAttribute, QNetworkRequest::NoLessSafeRedirectPolicy );
+  QNetworkReply *reply = manager->get( request );
+  connect( reply, &QNetworkReply::finished, this, [=]() {
+    const QString applicationDirectory = PlatformUtilities::instance()->applicationDirectory();
+    if ( !applicationDirectory.isEmpty() && reply->error() == QNetworkReply::NoError )
+    {
+      QString fileName = reply->url().fileName();
+      QString contentDisposition = reply->header( QNetworkRequest::ContentDispositionHeader ).toString();
+      if ( !contentDisposition.isEmpty() )
+      {
+        QRegularExpression rx( QStringLiteral( "filename=\"?([^\";]*)\"?" ) );
+        QRegularExpressionMatch match = rx.match( contentDisposition );
+        if ( match.hasMatch() )
+        {
+          fileName = match.captured( 1 );
+        }
+      }
+
+      QFileInfo fileInfo = QFileInfo( fileName );
+      const QString fileSuffix = fileInfo.completeSuffix().toLower();
+      const bool isProjectFile = fileSuffix == QLatin1String( "qgs" ) || fileSuffix == QLatin1String( "qgz" );
+
+      QString filePath = QStringLiteral( "%1/%2/%3" ).arg( applicationDirectory, isProjectFile ? QLatin1String( "Imported Projects" ) : QLatin1String( "Imported Datasets" ), fileName );
+      {
+        int i = 0;
+        while ( QFileInfo::exists( filePath ) )
+        {
+          filePath = QStringLiteral( "%1/%2/%3_%4.%5" ).arg( applicationDirectory, isProjectFile ? QLatin1String( "Imported Projects" ) : QLatin1String( "Imported Datasets" ), fileInfo.baseName(), QString::number( ++i ), fileSuffix );
+        }
+      }
+      QDir( QFileInfo( filePath ).absolutePath() ).mkpath( "." );
+
+      QFile file( filePath );
+      if ( file.open( QIODevice::WriteOnly ) )
+      {
+        const QByteArray data = reply->readAll();
+        file.write( data );
+        file.close();
+
+        if ( fileSuffix == QLatin1String( "zip" ) )
+        {
+          // Check if this is a compressed project and handle accordingly
+          QString zipDirectory = QStringLiteral( "%1/Imported Projects/%2" ).arg( applicationDirectory, fileInfo.baseName() );
+          {
+            int i = 0;
+            while ( QFileInfo::exists( zipDirectory ) )
+            {
+              zipDirectory = QStringLiteral( "%1/Imported Projects/%2_%3" ).arg( applicationDirectory, fileInfo.baseName(), QString::number( ++i ) );
+            }
+          }
+          QDir( zipDirectory ).mkpath( "." );
+
+          QStringList files;
+          QgsZipUtils::unzip( filePath, zipDirectory, files, false );
+          QString projectFilePath;
+          for ( const QString &file : std::as_const( files ) )
+          {
+            if ( file.toLower().endsWith( QLatin1String( ".qgs" ) ) || file.toLower().endsWith( QLatin1String( ".qgz" ) ) )
+            {
+              projectFilePath = file;
+              break;
+            }
+          }
+
+          if ( !projectFilePath.isEmpty() )
+          {
+            // It's a project, remove the ZIP and use the decompressed folder
+            file.remove();
+            filePath = projectFilePath;
+          }
+          else
+          {
+            // Not a project file, remove
+            QDir dir( zipDirectory );
+            dir.removeRecursively();
+          }
+        }
+
+        emit importUrlEnded( QFileInfo( filePath ).absolutePath() );
+        return;
+      }
+    }
+
+    emit importUrlEnded();
+  } );
 }

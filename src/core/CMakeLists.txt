@@ -267,7 +267,6 @@ configure_file(qfield.h.in ${CMAKE_CURRENT_BINARY_DIR}/qfield.h @ONLY)
 target_include_directories(qfield_core SYSTEM
                            PUBLIC ${CMAKE_CURRENT_BINARY_DIR})
 
-target_include_directories(qfield_core SYSTEM PRIVATE ${GDAL_INCLUDE_DIR})
 # to include <qpa/qplatformnativeinterface.h>
 target_include_directories(qfield_core SYSTEM
                            PRIVATE ${${QT_PKG}Gui_PRIVATE_INCLUDE_DIRS})
@@ -301,6 +300,8 @@ endif()
 target_compile_features(qfield_core PUBLIC cxx_std_17)
 set_target_properties(qfield_core PROPERTIES AUTOMOC TRUE)
 
+target_include_directories(qfield_core SYSTEM PRIVATE ${GDAL_INCLUDE_DIR})
+
 target_link_libraries(
   qfield_core
   PUBLIC ${QT_PKG}::Core
@@ -323,7 +324,6 @@ target_link_libraries(
          PROJ::proj
          SQLite::SQLite3
          Qca::qca
-         ZXing::ZXing
          QtKeychain::QtKeychain
          ${GDAL_LIBRARIES})
 
