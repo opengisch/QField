@@ -50,7 +50,7 @@ jobs:
       - name: 🔨 Prepare build env
         run: |
           sudo apt-get update
-          sudo apt-get install -y autoconf-archive
+          sudo apt-get install -y gperf autopoint '^libxcb.*-dev' libx11-xcb-dev libegl1-mesa libegl1-mesa-dev libglu1-mesa-dev libxrender-dev libxi-dev libxkbcommon-dev libxkbcommon-x11-dev autoconf-archive libgstreamer-plugins-base1.0
 
       - name: 💐 Install Qt
         if: matrix.with_qt6 == 'OFF'
