@@ -2723,6 +2723,22 @@ ApplicationWindow {
   Connections {
     target: iface
 
+    function onImportUrlTriggered(url,name) {
+      busyOverlay.text = qsTr( "Importing %1" ).arg( name !== '' ? name : path )
+      busyOverlay.state = "visible"
+    }
+
+    function onImportUrlEnded(path) {
+      busyOverlay.state = "hidden"
+      if (path !== '') {
+        qfieldLocalDataPickerScreen.model.currentPath = path
+        qfieldLocalDataPickerScreen.visible = true
+        welcomeScreen.visible = false
+      } else {
+        displayToast(qsTr('Import from URL failed'))
+      }
+    }
+
     function onLoadProjectTriggered(path,name) {
       qfieldLocalDataPickerScreen.visible = false
       qfieldLocalDataPickerScreen.focus = false
