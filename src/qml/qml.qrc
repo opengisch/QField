@@ -7,6 +7,7 @@
         <file>BookmarkProperties.qml</file>
         <file>BookmarkRenderer.qml</file>
         <file>BrowserPanel.qml</file>
+        <file>BusyOverlay.qml</file>
         <file>ConfirmationToolbar.qml</file>
         <file>CoordinateLocator.qml</file>
         <file>DashBoard.qml</file>
