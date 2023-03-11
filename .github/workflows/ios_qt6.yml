@@ -14,7 +14,7 @@ jobs:
   build:
     runs-on: macos-12
     env:
-      DEPLOYMENT_TARGET: '12.0'
+      DEPLOYMENT_TARGET: '14.0'
       BUILD_TYPE: 'Release'
       TRIPLET: 'arm64-ios'
 
