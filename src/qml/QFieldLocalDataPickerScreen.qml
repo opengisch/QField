@@ -559,7 +559,7 @@ Page {
       Label {
         id: importUrlLabel
         width: mainWindow.width - 60 < importUrlLabelMetrics.width ? mainWindow.width - 60 : importUrlLabelMetrics.width
-        text: "Type a URL below to import a project or dataset:"
+        text: qsTr("Type a URL below to download and import the project or dataset:")
         wrapMode: Text.WordWrap
         font: Theme.defaultFont
       }
