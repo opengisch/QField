@@ -549,6 +549,7 @@ Page {
     Column {
       width: childrenRect.width
       height: childrenRect.height
+      spacing: 10
 
       TextMetrics {
         id: importUrlLabelMetrics
@@ -562,6 +563,7 @@ Page {
         text: qsTr("Type a URL below to download and import the project or dataset:")
         wrapMode: Text.WordWrap
         font: Theme.defaultFont
+        color: Theme.mainTextColor
       }
       QfTextField {
         id: importUrlInput
@@ -572,7 +574,7 @@ Page {
 
     standardButtons: Dialog.Ok | Dialog.Cancel
     onAccepted: {
-      form.cancel()
+      iface.importUrl(importUrlLabel.text)
     }
   }
 

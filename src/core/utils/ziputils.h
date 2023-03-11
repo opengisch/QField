@@ -36,7 +36,7 @@ namespace ZipUtils
    * \param zip The zip filename
    * \param dir The output directory
    * \param files The absolute path of unzipped files
-   * \param consistencyCheck Perform additional stricter consistency checks on the archive, and error if they fail
+   * \param checkConsistency Perform additional stricter consistency checks on the archive, and error if they fail
    * \returns FALSE if the zip filename does not exist, the output directory
    * does not exist or is not writable.
    */
