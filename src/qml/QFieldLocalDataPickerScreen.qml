@@ -542,9 +542,10 @@ Page {
     id: importUrlDialog
     title: "Import URL"
     focus: true
+    font: Theme.defaultFont
 
     x: ( mainWindow.width - width ) / 2
-    y: ( mainWindow.height - height ) / 2
+    y: ( mainWindow.height - height - 80 ) / 2
 
     Column {
       width: childrenRect.width
