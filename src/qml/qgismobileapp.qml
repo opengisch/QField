@@ -2723,12 +2723,16 @@ ApplicationWindow {
   Connections {
     target: iface
 
-    function onImportUrlTriggered(url,name) {
-      busyOverlay.text = qsTr( "Importing %1" ).arg( name !== '' ? name : path )
+    function onImportTriggered(name) {
+      busyOverlay.text = qsTr("Importing %1").arg(name)
       busyOverlay.state = "visible"
     }
 
-    function onImportUrlEnded(path) {
+    function onImportProgress(progress) {
+      busyOverlay.progress = progress;
+    }
+
+    function onImportEnded(path) {
       busyOverlay.state = "hidden"
       if (path !== '') {
         qfieldLocalDataPickerScreen.model.currentPath = path
