@@ -189,3 +189,6 @@ jobs:
         run: |
           curl -sL https://sentry.io/get-cli/ | bash
           sentry-cli upload-dif -o opengisch -p qfield /Users/runner/builddir
+
+      - if: failure()
+        uses: m-kuhn/action-tmate@patch-1
