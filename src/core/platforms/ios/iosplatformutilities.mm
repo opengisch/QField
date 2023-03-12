@@ -182,3 +182,17 @@ ProjectSource *IosPlatformUtilities::openProject(QObject *parent) {
   projectSource->pickProject();
   return projectSource;
 }
+
+bool IosPlatformUtilities::isSystemDarkTheme() const {
+  if (@available(iOS 12.0, *)) {
+    switch (UIScreen.mainScreen.traitCollection.userInterfaceStyle) {
+    case UIUserInterfaceStyleDark:
+      return true;
+
+    case UIUserInterfaceStyleLight:
+    case UIUserInterfaceStyleUnspecified:
+    default:
+      return false;
+    }
+  }
+}

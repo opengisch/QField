@@ -56,6 +56,7 @@ class IosPlatformUtilities : public PlatformUtilities
     virtual ProjectSource *openProject( QObject *parent = nullptr ) override;
 
     double systemFontPointSize() const override { return 16.0; }
+    bool isSystemDarkTheme() const override;
 };
 
 #endif
