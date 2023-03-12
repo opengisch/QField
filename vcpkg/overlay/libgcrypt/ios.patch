@@ -1,0 +1,109 @@
+diff --git a/Makefile.am b/Makefile.am
+index 77355d1..788e344 100644
+--- a/Makefile.am
++++ b/Makefile.am
+@@ -52,7 +52,6 @@ EXTRA_DIST = autogen.sh autogen.rc README.GIT LICENSES      	           \
+ 
+ DISTCLEANFILES =
+ 
+-
+ # Add all the files listed in "distfiles" files to the distribution
+ dist-hook: gen-ChangeLog
+ 	@set -e; \
+diff --git a/ax_check_framework.m4 b/ax_check_framework.m4
+new file mode 100644
+index 0000000..1ca090d
+--- /dev/null
++++ b/ax_check_framework.m4
+@@ -0,0 +1,27 @@
++# Macro to test for OS X Frameworks.
++# Taken from: http://lists.apple.com/archives/unix-porting/2009/Jan/msg00029.html
++# Retrieved on 24-10-2013.
++# Original Author: Peter O'Gorman.
++#
++# Example Usage:
++#   AX_CHECK_FRAMEWORK([IOKit])
++# Defines:
++#   HAVE_FRAMEWORK_IOKIT in config.h
++# And substitutes in your Makefiles.
++#   FRAMEWORK_IOKIT="-framework IOKit"
++
++m4_defun([AX_CHECK_FRAMEWORK],
++  [AC_CACHE_CHECK([if -framework ]$1[ works],[my_cv_framework_]$1,
++     [save_LIBS="$LIBS"
++     LIBS="$LIBS -framework ]$1["
++     AC_LINK_IFELSE([AC_LANG_PROGRAM([],[])],
++             [my_cv_framework_]$1[=yes],
++            [my_cv_framework_]$1[=no])
++    ])
++   LIBS="$save_LIBS"
++   if test "$my_cv_framework_]$1["="yes"; then
++       AC_DEFINE(AS_TR_CPP([HAVE_FRAMEWORK_]$1),1,
++            [Define if you have the ] $1 [ framework])
++   AS_TR_CPP([FRAMEWORK_]$1)="-framework ]$1["
++   AC_SUBST([FRAMEWORK_]AS_TR_CPP($1))
++   fi])
+diff --git a/configure.ac b/configure.ac
+index 6ea38f5..e186727 100644
+--- a/configure.ac
++++ b/configure.ac
+@@ -23,6 +23,8 @@ AC_REVISION($Revision$)
+ AC_PREREQ([2.69])
+ min_automake_version="1.14"
+ 
++m4_include([ax_check_framework.m4])
++
+ # To build a release you need to create a tag with the version number
+ # (git tag -s libgcrypt-n.m.k) and run "./autogen.sh --force".  Please
+ # bump the version number immediately after the release and do another
+@@ -300,6 +302,12 @@ case "${host}" in
+         AC_DEFINE(USE_POSIX_SPAWN_FOR_TESTS, 1,
+                   [defined if we use posix_spawn in test program])
+         AC_CHECK_HEADERS(spawn.h)
++        AX_CHECK_FRAMEWORK([Security])
++        if test x$my_cv_framework_Security = xyes; then
++          AC_DEFINE(HAVE_FRAMEWORK_SECURITY,[],[Defined if Security framework is present])
++        fi
++        LDFLAGS+=" -framework Security"
++        AC_SUBST(LDFLAGS) 
+         ;;
+     *)
+       ;;
+@@ -834,7 +842,6 @@ if test "$have_w32_system" != yes; then
+   fi
+ fi
+ 
+-
+ # Solaris needs -lsocket and -lnsl. Unisys system includes
+ # gethostbyname in libsocket but needs libnsl for socket.
+ AC_SEARCH_LIBS(setsockopt, [socket], ,
+diff --git a/random/rndgetentropy.c b/random/rndgetentropy.c
+index 7580873..b30f062 100644
+--- a/random/rndgetentropy.c
++++ b/random/rndgetentropy.c
+@@ -34,6 +34,13 @@
+ #include "g10lib.h"
+ #include "rand-internal.h"
+ 
++#if defined(HAVE_FRAMEWORK_SECURITY)
++#warning "with security framework"
++#include <Security/Security.h>
++#else
++#warning "using getentropy"
++#endif
++
+ /* The function returns 0 on success or true on failure (in which case
+  * the caller will signal a fatal error).  */
+ int
+@@ -82,7 +89,11 @@ _gcry_rndgetentropy_gather_random (void (*add)(const void*, size_t,
+         {
+           nbytes = length < sizeof (buffer)? length : sizeof (buffer);
+           _gcry_pre_syscall ();
++#if defined(HAVE_FRAMEWORK_SECURITY)
++          ret = SecRandomCopyBytes(kSecRandomDefault, nbytes, buffer);
++#else
+           ret = getentropy (buffer, nbytes);
++#endif
+           _gcry_post_syscall ();
+         }
+       while (ret == -1 && errno == EINTR);
