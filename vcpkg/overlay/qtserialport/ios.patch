@@ -1,0 +1,19 @@
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 1b1c676..65897a5 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -25,10 +25,10 @@ if(WINRT)
+     message(NOTICE "Skipping the build as the condition \"NOT WINRT\" is not met.")
+     return()
+ endif()
+-if(UIKIT)
+-    message(NOTICE "Skipping the build as the condition \"NOT UIKIT\" is not met.")
+-    return()
+-endif()
++#if(UIKIT)
++#    message(NOTICE "Skipping the build as the condition \"NOT UIKIT\" is not met.")
++#    return()
++#endif()
+ if(EMSCRIPTEN)
+     message(NOTICE "Skipping the build as the condition \"NOT EMSCRIPTEN\" is not met.")
+     return()
