@@ -195,4 +195,5 @@ bool IosPlatformUtilities::isSystemDarkTheme() const {
       return false;
     }
   }
+  return false;
 }
