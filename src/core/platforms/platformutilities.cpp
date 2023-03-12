@@ -182,7 +182,7 @@ bool PlatformUtilities::renameFile( const QString &filename, const QString &newn
 
 QString PlatformUtilities::applicationDirectory() const
 {
-  return QString();
+  return QStandardPaths::standardLocations( QStandardPaths::DocumentsLocation ).first() + QStringLiteral( "/QField/" );
 }
 
 QStringList PlatformUtilities::additionalApplicationDirectories() const

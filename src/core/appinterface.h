@@ -38,6 +38,8 @@ class AppInterface : public QObject
       Q_ASSERT( false );
     }
 
+    Q_INVOKABLE void importUrl( const QString &url );
+
     Q_INVOKABLE void loadLastProject();
     Q_INVOKABLE void loadFile( const QString &path, const QString &name = QString() );
     Q_INVOKABLE void reloadProject();
@@ -90,13 +92,39 @@ class AppInterface : public QObject
   signals:
     void openFeatureFormRequested();
 
+    /**
+     * Emitted when a dataset or project import has been triggered.
+     * \param name a indentifier-friendly string (e.g. a file being imported)
+     */
+    void importTriggered( const QString &name );
+
+    /**
+     * Emitted when an ongoing import reports its \a progress.
+     * \note when an import is started, its progress will be indefinite by default
+     */
+    void importProgress( double progress );
+
+    /**
+     * Emitted when an import has ended.
+     * \param path the path within which the imported dataset or project has been copied into
+     * \note if the import was not successful, the path value will be an empty string
+     */
+    void importEnded( const QString &path = QString() );
+
+    /**
+     * Emitted when a project has begin loading.
+     */
     void loadProjectTriggered( const QString &path, const QString &name );
 
+    /**
+     * Emitted when a project loading has ended.
+     */
     void loadProjectEnded( const QString &path, const QString &name );
 
+    //! Requests QField to set its map to the provided \a extent.
     void setMapExtent( const QgsRectangle &extent );
 
-    //! Signal emitted requesting QField to open its local data picker screen to show the \a path content
+    //! Requests QField to open its local data picker screen to show the \a path content.
     void openPath( const QString &path );
 
   private:
