@@ -9,9 +9,10 @@ Rectangle {
   id: busyOverlay
 
   property alias text: busyMessage.text
+  property alias progress: busyProgress.value
 
   anchors.fill: parent
-  color: Theme.darkGray
+  color: Theme.darkGraySemiOpaque
   opacity: 0
   visible: false
 
@@ -26,7 +27,7 @@ Rectangle {
       State {
           name: "visible"
           PropertyChanges { target: busyOverlay; visible: true }
-          PropertyChanges { target: busyOverlay; opacity: 0.75 }
+          PropertyChanges { target: busyOverlay; opacity: 1 }
       }]
   transitions: [
       Transition {
@@ -34,6 +35,7 @@ Rectangle {
           to: "visible"
           SequentialAnimation {
               PropertyAnimation { target: busyOverlay; property: "visible"; duration: 0 }
+              ScriptAction { script: busyProgress.value = 0.0; }
               NumberAnimation { target: busyOverlay; easing.type: Easing.InOutQuad; properties: "opacity"; duration: 250 }
           }
       },
@@ -50,9 +52,21 @@ Rectangle {
   BusyIndicator {
     id: busyIndicator
     anchors.centerIn: parent
+    visible: !busyProgress.visible
     running: busyOverlay.visible
     width: 100
     height: 100
+  }
+
+  ProgressBar {
+    id: busyProgress
+    anchors.centerIn: busyIndicator
+    visible: value != 0.0
+    width: 160
+    height: 14
+    indeterminate: false
+    value: 0.0
+    to: 1.0
   }
 
   Text {

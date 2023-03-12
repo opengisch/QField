@@ -185,15 +185,30 @@ void AppInterface::restrictImageSize( const QString &imagePath, int maximumWidth
 
 void AppInterface::importUrl( const QString &url )
 {
-  if ( url.isEmpty() )
+  QString sanitizedUrl = url.trimmed();
+  if ( sanitizedUrl.isEmpty() )
     return;
 
+  if ( !sanitizedUrl.contains( QRegularExpression( "^([a-z][a-z0-9+\\-.]*):" ) ) )
+  {
+    // Prepend HTTPS when the URL scheme is missing instead of assured failure
+    sanitizedUrl = QStringLiteral( "https://%1" ).arg( sanitizedUrl );
+  }
+
   QgsNetworkAccessManager *manager = QgsNetworkAccessManager::instance();
-  QNetworkRequest request( ( QUrl( url ) ) );
+  QNetworkRequest request( ( QUrl( sanitizedUrl ) ) );
   request.setAttribute( QNetworkRequest::RedirectPolicyAttribute, QNetworkRequest::NoLessSafeRedirectPolicy );
-  emit importUrlTriggered( url, request.url().fileName() );
+
+  emit importTriggered( request.url().fileName() );
 
   QNetworkReply *reply = manager->get( request );
+  connect( reply, &QNetworkReply::downloadProgress, this, [=]( int bytesReceived, int bytesTotal ) {
+    if ( bytesTotal != 0 )
+    {
+      emit importProgress( static_cast<double>( bytesReceived ) / bytesTotal );
+    }
+  } );
+
   connect( reply, &QNetworkReply::finished, this, [=]() {
     const QString applicationDirectory = PlatformUtilities::instance()->applicationDirectory();
     if ( !applicationDirectory.isEmpty() && reply->error() == QNetworkReply::NoError )
@@ -256,7 +271,7 @@ void AppInterface::importUrl( const QString &url )
             if ( ZipUtils::unzip( filePath, zipDirectory, zipFiles, false ) )
             {
               file.remove();
-              emit importUrlEnded( zipDirectory );
+              emit importEnded( zipDirectory );
               return;
             }
             else
@@ -270,11 +285,11 @@ void AppInterface::importUrl( const QString &url )
           }
         }
 
-        emit importUrlEnded( QFileInfo( filePath ).absolutePath() );
+        emit importEnded( QFileInfo( filePath ).absolutePath() );
         return;
       }
     }
 
-    emit importUrlEnded();
+    emit importEnded();
   } );
 }
