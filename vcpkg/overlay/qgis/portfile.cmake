@@ -19,6 +19,7 @@ vcpkg_from_github(
         bigobj.patch
         poly2tri.patch
         mesh.patch
+	sharedmem_ios.patch
 )
 
 file(REMOVE ${SOURCE_PATH}/cmake/FindQtKeychain.cmake)
