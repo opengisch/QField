@@ -2712,168 +2712,130 @@ ApplicationWindow {
       toast.show(message, type)
   }
 
-  Rectangle {
-    id: busyMessage
-    anchors.fill: parent
-    color: Theme.darkGray
-    opacity: 0
-    visible: false
+  Timer {
+    id: readProjectTimer
 
-    state: "hidden"
-    states: [
-        State {
-            name: "hidden"
-            PropertyChanges { target: busyMessage; opacity: 0 }
-            PropertyChanges { target: busyMessage; visible: false }
-        },
+    interval: 250
+    repeat: false
+    onTriggered: iface.readProject()
+  }
 
-        State {
-            name: "visible"
-            PropertyChanges { target: busyMessage; visible: true }
-            PropertyChanges { target: busyMessage; opacity: 0.75 }
-        }]
-    transitions: [
-        Transition {
-            from: "hidden"
-            to: "visible"
-            SequentialAnimation {
-                PropertyAnimation { target: busyMessage; property: "visible"; duration: 0 }
-                NumberAnimation { target: busyMessage; easing.type: Easing.InOutQuad; properties: "opacity"; duration: 250 }
-            }
-        },
-        Transition {
-            from: "visible"
-            to: "hidden"
-            SequentialAnimation {
-                PropertyAnimation { target: busyMessage; easing.type: Easing.InOutQuad; property: "opacity"; duration: 250 }
-                PropertyAnimation { target: busyMessage; property: "visible"; duration: 0 }
-            }
-        }
-    ]
+  Connections {
+    target: iface
 
-    BusyIndicator {
-      id: busyMessageIndicator
-      anchors.centerIn: parent
-      running: true
-      width: 100
-      height: 100
+    function onImportTriggered(name) {
+      busyOverlay.text = qsTr("Importing %1").arg(name)
+      busyOverlay.state = "visible"
     }
 
-    Text {
-      id: busyMessageText
-      anchors.top: busyMessageIndicator.bottom
-      anchors.horizontalCenter: parent.horizontalCenter
-      horizontalAlignment: Text.AlignHCenter
-      font: Theme.tipFont
-      color: Theme.mainColor
-      text: ''
+    function onImportProgress(progress) {
+      busyOverlay.progress = progress;
     }
 
-    Timer {
-      id: readProjectTimer
-
-      interval: 250
-      repeat: false
-      onTriggered: iface.readProject()
-    }
-
-    Connections {
-      target: iface
-
-      function onLoadProjectTriggered(path,name) {
-        qfieldLocalDataPickerScreen.visible = false
-        qfieldLocalDataPickerScreen.focus = false
+    function onImportEnded(path) {
+      busyOverlay.state = "hidden"
+      if (path !== '') {
+        qfieldLocalDataPickerScreen.model.currentPath = path
+        qfieldLocalDataPickerScreen.visible = true
         welcomeScreen.visible = false
-        welcomeScreen.focus = false
-
-        if (changelogPopup.visible)
-          changelogPopup.close()
-
-        dashBoard.layerTree.freeze()
-        mapCanvasMap.freeze('projectload')
-
-        busyMessageText.text = qsTr( "Loading %1" ).arg( name !== '' ? name : path )
-        busyMessage.state = "visible"
-
-        navigation.clearDestinationFeature();
-
-        projectInfo.filePath = '';
-        readProjectTimer.start()
+      } else {
+        displayToast(qsTr('Import URL failed'))
       }
+    }
 
-      function onLoadProjectEnded(path,name) {
-        mapCanvasMap.unfreeze('projectload')
-        busyMessage.state = "hidden"
+    function onLoadProjectTriggered(path,name) {
+      qfieldLocalDataPickerScreen.visible = false
+      qfieldLocalDataPickerScreen.focus = false
+      welcomeScreen.visible = false
+      welcomeScreen.focus = false
 
-        projectInfo.filePath = path;
+      if (changelogPopup.visible)
+        changelogPopup.close()
 
-        mapCanvasBackground.color = mapCanvas.mapSettings.backgroundColor
+      dashBoard.layerTree.freeze()
+      mapCanvasMap.freeze('projectload')
 
-        recentProjectListModel.reloadModel()
+      busyOverlay.text = qsTr( "Loading %1" ).arg( name !== '' ? name : path )
+      busyOverlay.state = "visible"
 
-        var cloudProjectId = QFieldCloudUtils.getProjectId(qgisProject.fileName)
-        cloudProjectsModel.currentProjectId = cloudProjectId
-        cloudProjectsModel.refreshProjectModification(cloudProjectId)
-        if (cloudProjectId != '') {
-          var cloudProjectData = cloudProjectsModel.getProjectData(cloudProjectId)
-          switch(cloudProjectData.UserRole) {
-            case 'reader':
-              stateMachine.state = "browse"
-              projectInfo.hasInsertRights = false
-              projectInfo.hasEditRights = false
-              break;
-            case 'reporter':
-              projectInfo.hasInsertRights = true
-              projectInfo.hasEditRights = false
-              break;
-            case 'editor':
-            case 'manager':
-            case 'admin':
-              projectInfo.hasInsertRights = true
-              projectInfo.hasEditRights = true
-              break;
-            default:
-              projectInfo.hasInsertRights = true
-              projectInfo.hasEditRights = true
-              break;
-          }
+      navigation.clearDestinationFeature();
 
-          if (cloudProjectsModel.layerObserver.deltaFileWrapper.hasError()) {
-            cloudPopup.show()
-          }
-        } else {
-          projectInfo.hasInsertRights = true
-          projectInfo.hasEditRights = true
+      projectInfo.filePath = '';
+      readProjectTimer.start()
+    }
+
+    function onLoadProjectEnded(path,name) {
+      mapCanvasMap.unfreeze('projectload')
+      busyOverlay.state = "hidden"
+
+      projectInfo.filePath = path;
+
+      mapCanvasBackground.color = mapCanvas.mapSettings.backgroundColor
+
+      recentProjectListModel.reloadModel()
+
+      var cloudProjectId = QFieldCloudUtils.getProjectId(qgisProject.fileName)
+      cloudProjectsModel.currentProjectId = cloudProjectId
+      cloudProjectsModel.refreshProjectModification(cloudProjectId)
+      if (cloudProjectId !== '') {
+        var cloudProjectData = cloudProjectsModel.getProjectData(cloudProjectId)
+        switch(cloudProjectData.UserRole) {
+          case 'reader':
+            stateMachine.state = "browse"
+            projectInfo.hasInsertRights = false
+            projectInfo.hasEditRights = false
+            break;
+          case 'reporter':
+            projectInfo.hasInsertRights = true
+            projectInfo.hasEditRights = false
+            break;
+          case 'editor':
+          case 'manager':
+          case 'admin':
+            projectInfo.hasInsertRights = true
+            projectInfo.hasEditRights = true
+            break;
+          default:
+            projectInfo.hasInsertRights = true
+            projectInfo.hasEditRights = true
+            break;
         }
 
-        if (stateMachine.state === "digitize") {
-            dashBoard.ensureEditableLayerSelected();
+        if (cloudProjectsModel.layerObserver.deltaFileWrapper.hasError()) {
+          cloudPopup.show()
         }
-
-        var distanceString = iface.readProjectEntry("Measurement" ,"/DistanceUnits", "")
-        projectInfo.distanceUnits = distanceString !== "" ? UnitTypes.decodeDistanceUnit(distanceString) : Qgis.DistanceUnit.Meters
-        var areaString = iface.readProjectEntry("Measurement" ,"/AreaeUnits", "")
-        projectInfo.areaUnits = areaString !== "" ? UnitTypes.decodeAreaUnit(areaString) : Qgis.AreaUnit.SquareMeters
-
-        if (qgisProject.displaySettings) {
-          projectInfo.coordinateDisplayCrs = qgisProject.displaySettings.coordinateCrs
-        } else {
-          projectInfo.coordinateDisplayCrs = !mapCanvas.mapSettings.destinationCrs.isGeographic
-                                             && iface.readProjectEntry("PositionPrecision", "/DegreeFormat", "MU") !== "MU"
-                                             ? CoordinateReferenceSystemUtils.wgs84Crs()
-                                             : mapCanvas.mapSettings.destinationCrs
-        }
-
-        layoutListInstantiator.model.project = qgisProject
-        layoutListInstantiator.model.reloadModel()
-        printMenu.enablePrintItem(layoutListInstantiator.model.rowCount())
-
-        settings.setValue( "/QField/FirstRunFlag", false )
+      } else {
+        projectInfo.hasInsertRights = true
+        projectInfo.hasEditRights = true
       }
 
-      function onSetMapExtent(extent) {
-          mapCanvas.mapSettings.extent = extent;
+      if (stateMachine.state === "digitize") {
+          dashBoard.ensureEditableLayerSelected();
       }
+
+      var distanceString = iface.readProjectEntry("Measurement" ,"/DistanceUnits", "")
+      projectInfo.distanceUnits = distanceString !== "" ? UnitTypes.decodeDistanceUnit(distanceString) : Qgis.DistanceUnit.Meters
+      var areaString = iface.readProjectEntry("Measurement" ,"/AreaeUnits", "")
+      projectInfo.areaUnits = areaString !== "" ? UnitTypes.decodeAreaUnit(areaString) : Qgis.AreaUnit.SquareMeters
+
+      if (qgisProject.displaySettings) {
+        projectInfo.coordinateDisplayCrs = qgisProject.displaySettings.coordinateCrs
+      } else {
+        projectInfo.coordinateDisplayCrs = !mapCanvas.mapSettings.destinationCrs.isGeographic
+                                           && iface.readProjectEntry("PositionPrecision", "/DegreeFormat", "MU") !== "MU"
+                                           ? CoordinateReferenceSystemUtils.wgs84Crs()
+                                           : mapCanvas.mapSettings.destinationCrs
+      }
+
+      layoutListInstantiator.model.project = qgisProject
+      layoutListInstantiator.model.reloadModel()
+      printMenu.enablePrintItem(layoutListInstantiator.model.rowCount())
+
+      settings.setValue( "/QField/FirstRunFlag", false )
+    }
+
+    function onSetMapExtent(extent) {
+        mapCanvas.mapSettings.extent = extent;
     }
   }
 
@@ -3413,6 +3375,10 @@ ApplicationWindow {
     onDropped: (drop) => {
       iface.loadFile( drop.urls[0] )
     }
+  }
+
+  BusyOverlay {
+    id: busyOverlay
   }
 
   property bool alreadyCloseRequested: false

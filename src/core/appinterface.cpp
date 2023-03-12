@@ -21,12 +21,14 @@
 #if WITH_SENTRY
 #include "sentry_wrapper.h"
 #endif
+#include "ziputils.h"
 
 #include <QDirIterator>
 #include <QFileInfo>
 #include <QImageReader>
 #include <qgsexiftools.h>
 #include <qgsmessagelog.h>
+#include <qgsziputils.h>
 
 AppInterface *AppInterface::sAppInterface = nullptr;
 
@@ -179,4 +181,115 @@ void AppInterface::restrictImageSize( const QString &imagePath, int maximumWidth
       QgsExifTools::tagImage( imagePath, key, metadata[key] );
     }
   }
+}
+
+void AppInterface::importUrl( const QString &url )
+{
+  QString sanitizedUrl = url.trimmed();
+  if ( sanitizedUrl.isEmpty() )
+    return;
+
+  if ( !sanitizedUrl.contains( QRegularExpression( "^([a-z][a-z0-9+\\-.]*):" ) ) )
+  {
+    // Prepend HTTPS when the URL scheme is missing instead of assured failure
+    sanitizedUrl = QStringLiteral( "https://%1" ).arg( sanitizedUrl );
+  }
+
+  QgsNetworkAccessManager *manager = QgsNetworkAccessManager::instance();
+  QNetworkRequest request( ( QUrl( sanitizedUrl ) ) );
+  request.setAttribute( QNetworkRequest::RedirectPolicyAttribute, QNetworkRequest::NoLessSafeRedirectPolicy );
+
+  emit importTriggered( request.url().fileName() );
+
+  QNetworkReply *reply = manager->get( request );
+  connect( reply, &QNetworkReply::downloadProgress, this, [=]( int bytesReceived, int bytesTotal ) {
+    if ( bytesTotal != 0 )
+    {
+      emit importProgress( static_cast<double>( bytesReceived ) / bytesTotal );
+    }
+  } );
+
+  connect( reply, &QNetworkReply::finished, this, [=]() {
+    const QString applicationDirectory = PlatformUtilities::instance()->applicationDirectory();
+    if ( !applicationDirectory.isEmpty() && reply->error() == QNetworkReply::NoError )
+    {
+      QString fileName = reply->url().fileName();
+      QString contentDisposition = reply->header( QNetworkRequest::ContentDispositionHeader ).toString();
+      if ( !contentDisposition.isEmpty() )
+      {
+        QRegularExpression rx( QStringLiteral( "filename=\"?([^\";]*)\"?" ) );
+        QRegularExpressionMatch match = rx.match( contentDisposition );
+        if ( match.hasMatch() )
+        {
+          fileName = match.captured( 1 );
+        }
+      }
+
+      QFileInfo fileInfo = QFileInfo( fileName );
+      const QString fileSuffix = fileInfo.completeSuffix().toLower();
+      const bool isProjectFile = fileSuffix == QLatin1String( "qgs" ) || fileSuffix == QLatin1String( "qgz" );
+
+      QString filePath = QStringLiteral( "%1/%2/%3" ).arg( applicationDirectory, isProjectFile ? QLatin1String( "Imported Projects" ) : QLatin1String( "Imported Datasets" ), fileName );
+      {
+        int i = 0;
+        while ( QFileInfo::exists( filePath ) )
+        {
+          filePath = QStringLiteral( "%1/%2/%3_%4.%5" ).arg( applicationDirectory, isProjectFile ? QLatin1String( "Imported Projects" ) : QLatin1String( "Imported Datasets" ), fileInfo.baseName(), QString::number( ++i ), fileSuffix );
+        }
+      }
+      QDir( QFileInfo( filePath ).absolutePath() ).mkpath( "." );
+
+      QFile file( filePath );
+      if ( file.open( QIODevice::WriteOnly ) )
+      {
+        const QByteArray data = reply->readAll();
+        file.write( data );
+        file.close();
+
+        if ( fileSuffix == QLatin1String( "zip" ) )
+        {
+          // Check if this is a compressed project and handle accordingly
+          QStringList zipFiles = ZipUtils::files( filePath );
+          const bool isCompressedProject = std::find_if( zipFiles.begin(),
+                                                         zipFiles.end(),
+                                                         []( const QString &zipFile ) {
+                                                           return zipFile.toLower().endsWith( QLatin1String( ".qgs" ) ) || zipFile.toLower().endsWith( QLatin1String( ".qgz" ) );
+                                                         } )
+                                           != zipFiles.end();
+          if ( isCompressedProject )
+          {
+            QString zipDirectory = QStringLiteral( "%1/Imported Projects/%2" ).arg( applicationDirectory, fileInfo.baseName() );
+            {
+              int i = 0;
+              while ( QFileInfo::exists( zipDirectory ) )
+              {
+                zipDirectory = QStringLiteral( "%1/Imported Projects/%2_%3" ).arg( applicationDirectory, fileInfo.baseName(), QString::number( ++i ) );
+              }
+            }
+            QDir( zipDirectory ).mkpath( "." );
+
+            if ( ZipUtils::unzip( filePath, zipDirectory, zipFiles, false ) )
+            {
+              file.remove();
+              emit importEnded( zipDirectory );
+              return;
+            }
+            else
+            {
+              // Broken archive, bail out
+              QDir dir( zipDirectory );
+              dir.removeRecursively();
+              file.remove();
+              filePath.clear();
+            }
+          }
+        }
+
+        emit importEnded( QFileInfo( filePath ).absolutePath() );
+        return;
+      }
+    }
+
+    emit importEnded();
+  } );
 }

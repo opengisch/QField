@@ -11,6 +11,7 @@ set(QFIELD_CORE_SRCS
     utils/snappingutils.cpp
     utils/stringutils.cpp
     utils/urlutils.cpp
+    utils/ziputils.cpp
     qgsquick/qgsquickcoordinatetransformer.cpp
     qgsquick/qgsquickmapcanvasmap.cpp
     qgsquick/qgsquickelevationprofilecanvas.cpp
@@ -111,6 +112,7 @@ set(QFIELD_CORE_HDRS
     utils/snappingutils.h
     utils/stringutils.h
     utils/urlutils.h
+    utils/ziputils.h
     qgsquick/qgsquickcoordinatetransformer.h
     qgsquick/qgsquickmapcanvasmap.h
     qgsquick/qgsquickelevationprofilecanvas.h
@@ -267,7 +269,6 @@ configure_file(qfield.h.in ${CMAKE_CURRENT_BINARY_DIR}/qfield.h @ONLY)
 target_include_directories(qfield_core SYSTEM
                            PUBLIC ${CMAKE_CURRENT_BINARY_DIR})
 
-target_include_directories(qfield_core SYSTEM PRIVATE ${GDAL_INCLUDE_DIR})
 # to include <qpa/qplatformnativeinterface.h>
 target_include_directories(qfield_core SYSTEM
                            PRIVATE ${${QT_PKG}Gui_PRIVATE_INCLUDE_DIRS})
@@ -301,6 +302,8 @@ endif()
 target_compile_features(qfield_core PUBLIC cxx_std_17)
 set_target_properties(qfield_core PROPERTIES AUTOMOC TRUE)
 
+target_include_directories(qfield_core SYSTEM PRIVATE ${GDAL_INCLUDE_DIR})
+
 target_link_libraries(
   qfield_core
   PUBLIC ${QT_PKG}::Core
@@ -323,9 +326,9 @@ target_link_libraries(
          PROJ::proj
          SQLite::SQLite3
          Qca::qca
-         ZXing::ZXing
          QtKeychain::QtKeychain
-         ${GDAL_LIBRARIES})
+         ${GDAL_LIBRARIES}
+         libzip::zip)
 
 if(WITH_BLUETOOTH)
   find_package(

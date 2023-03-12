@@ -328,8 +328,7 @@ Page {
       QfToolButton {
         id: importButton
         round: true
-        visible: platformUtilities.capabilities & PlatformUtilities.CustomImport
-                 && table.model.currentPath === 'root'
+        visible: table.model.currentPath === 'root'
 
         anchors.bottom: parent.bottom
         anchors.right: parent.right
@@ -470,6 +469,7 @@ Page {
       MenuItem {
         id: importProjectFromFolder
 
+        visible: platformUtilities.capabilities & PlatformUtilities.CustomImport
         font: Theme.defaultFont
         width: parent.width
         height: visible ? 48 : 0
@@ -482,6 +482,7 @@ Page {
       MenuItem {
         id: importProjectFromZIP
 
+        visible: platformUtilities.capabilities & PlatformUtilities.CustomImport
         font: Theme.defaultFont
         width: parent.width
         height: visible ? 48 : 0
@@ -494,6 +495,7 @@ Page {
       MenuItem {
         id: importDataset
 
+        visible: platformUtilities.capabilities & PlatformUtilities.CustomImport
         font: Theme.defaultFont
         width: parent.width
         height: visible ? 48 : 0
@@ -501,6 +503,23 @@ Page {
 
         text: qsTr( "Import dataset(s)" )
         onTriggered: { platformUtilities.importDatasets(); }
+      }
+
+      MenuSeparator { visible: platformUtilities.capabilities & PlatformUtilities.CustomImport; width: parent.width }
+
+      MenuItem {
+        id: importUrl
+
+        font: Theme.defaultFont
+        width: parent.width
+        height: visible ? 48 : 0
+        leftPadding: 10
+
+        text: qsTr( "Import URL" )
+        onTriggered: {
+          importUrlDialog.open()
+          importUrlInput.focus = true
+        }
       }
 
       MenuSeparator { width: parent.width }
@@ -516,6 +535,46 @@ Page {
         text: qsTr( "Storage management help" )
         onTriggered: { Qt.openUrlExternally("https://docs.qfield.org/get-started/storage/") }
       }
+    }
+  }
+
+  Dialog {
+    id: importUrlDialog
+    title: "Import URL"
+    focus: true
+
+    x: ( mainWindow.width - width ) / 2
+    y: ( mainWindow.height - height ) / 2
+
+    Column {
+      width: childrenRect.width
+      height: childrenRect.height
+      spacing: 10
+
+      TextMetrics {
+        id: importUrlLabelMetrics
+        font: importUrlLabel.font
+        text: importUrlLabel.text
+      }
+
+      Label {
+        id: importUrlLabel
+        width: mainWindow.width - 60 < importUrlLabelMetrics.width ? mainWindow.width - 60 : importUrlLabelMetrics.width
+        text: qsTr("Type a URL below to download and import the project or dataset:")
+        wrapMode: Text.WordWrap
+        font: Theme.defaultFont
+        color: Theme.mainTextColor
+      }
+      QfTextField {
+        id: importUrlInput
+        width: importUrlLabel.width
+        focus: true
+      }
+    }
+
+    standardButtons: Dialog.Ok | Dialog.Cancel
+    onAccepted: {
+      iface.importUrl(importUrlInput.text)
     }
   }
 
