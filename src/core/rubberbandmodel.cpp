@@ -71,13 +71,14 @@ QgsPointSequence RubberbandModel::pointSequence( const QgsCoordinateReferenceSys
     p2.setY( p1.y() );
 
     //overwrite z and m values if already existent in the point
-    if ( QgsWkbTypes::hasZ( wkbType ) )
-    {
-      p2.addMValue( QgsWkbTypes::hasZ( pt.wkbType() ) ? pt.z() : std::numeric_limits<double>::quiet_NaN() );
-    }
     if ( QgsWkbTypes::hasM( wkbType ) )
     {
-      p2.addMValue( QgsWkbTypes::hasM( pt.wkbType() ) ? pt.m() : std::numeric_limits<double>::quiet_NaN() );
+      p2.addMValue( QgsWkbTypes::hasM( pt.wkbType() ) ? pt.m() : 0 );
+    }
+
+    if ( QgsWkbTypes::hasZ( wkbType ) )
+    {
+      p2.addMValue( QgsWkbTypes::hasZ( pt.wkbType() ) ? pt.z() : 0 );
     }
 
     sequence.append( p2 );
@@ -166,6 +167,7 @@ QgsPoint RubberbandModel::currentPoint( const QgsCoordinateReferenceSystem &crs,
   double x = currentPt.x();
   double y = currentPt.y();
   double z = QgsWkbTypes::hasZ( currentPt.wkbType() ) ? currentPt.z() : 0;
+  double m = QgsWkbTypes::hasM( currentPt.wkbType() ) ? currentPt.m() : 0;
 
   try
   {
@@ -184,13 +186,9 @@ QgsPoint RubberbandModel::currentPoint( const QgsCoordinateReferenceSystem &crs,
 
   QgsPoint resultPt( x, y );
   if ( QgsWkbTypes::hasZ( wkbType ) )
-  {
-    resultPt.addZValue( QgsWkbTypes::hasZ( currentPt.wkbType() ) ? z : std::numeric_limits<double>::quiet_NaN() );
-  }
+    resultPt.addZValue( z );
   if ( QgsWkbTypes::hasM( wkbType ) )
-  {
-    resultPt.addMValue( QgsWkbTypes::hasM( currentPt.wkbType() ) ? currentPt.m() : std::numeric_limits<double>::quiet_NaN() );
-  }
+    resultPt.addMValue( m );
 
   return resultPt;
 }
