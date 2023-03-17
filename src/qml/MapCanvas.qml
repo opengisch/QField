@@ -317,7 +317,7 @@ Item {
         acceptedDevices: PointerDevice.TouchScreen | PointerDevice.TouchPad
         grabPermissions: PointerHandler.ApprovesTakeOverByHandlersOfDifferentType
 
-        property real rotationTreshold: 25.0
+        property real rotationTreshold: 20.0
 
         property var oldPos
         property real oldScale: 1.0
