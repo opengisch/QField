@@ -61,7 +61,7 @@
     </message>
     <message>
         <source>&lt;p&gt;Current transform “&lt;i&gt;%1&lt;/i&gt;” has an unknown accuracy, while the preferred transformation “&lt;i&gt;%2&lt;/i&gt;” has accuracy %3 meters.&lt;/p&gt;</source>
-        <translation type="unfinished"/>
+        <translation>&lt;p&gt;Die aktuelle Transformation “&lt;i&gt;%1&lt;/i&gt;” hat eine unbekannte Genauigkeit, während die bevorzugte Transformation “&lt;i&gt;%2&lt;/i&gt;” eine Genauigkeit von %3 Metern hat.&lt;/p&gt;</translation>
     </message>
     <message>
         <source>&lt;p&gt;The preferred transform between &lt;i&gt;%1&lt;/i&gt; and &lt;i&gt;%2&lt;/i&gt; is not available for use on the system.&lt;/p&gt;</source>
@@ -457,7 +457,7 @@ Abbrechen um einen minimalen Scan durchzuführen. </translation>
     </message>
     <message>
         <source>Unrecognized status &quot;%1&quot; for $%2</source>
-        <translation type="unfinished"/>
+        <translation>Nicht erkannter Status &quot;%1&quot; für $%2</translation>
     </message>
 </context>
 <context>
@@ -1692,7 +1692,7 @@ Die Objekt-Geometrien werden in Objekt &apos;%1&apos; zusammengeführt, welches 
     </message>
     <message>
         <source>Some layers have not been packaged correctly on QFieldCloud. These layers might be misconfigured or their data source is not accessible from the QFieldCloud server. Please check the logs of the latest packaging job on the qfield.cloud website.</source>
-        <translation type="unfinished"/>
+        <translation>Einige Ebenen wurden nicht korrekt in QFieldCloud verpackt. Diese Ebenen könnten falsch konfiguriert sein oder ihre Datenquelle ist vom QFieldCloud-Server nicht zugänglich. Bitte prüfen Sie die Protokolle des letzten Paketierungsauftrags auf der qfield.cloud-Website.</translation>
     </message>
 </context>
 <context>
@@ -1880,17 +1880,18 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Packaged layer &apos;%1&apos; is not valid: &apos;%2&apos;</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Der gepackte Layer &apos;%1&apos; ist nicht gültig: &apos;%2&apos;</translation>
     </message>
     <message>
         <source>Failed to open temporary file for &quot;%1&quot;, reason:
 %2</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Temporäre Datei für &quot;%1&quot; konnte nicht geöffnet werden, Grund:
+%2</translation>
     </message>
     <message>
         <source>Failed to upload attachment stored at &quot;%1&quot;, reason:
 %2</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Das Hochladen des Anhangs, der unter &quot;%1&quot; gespeichert ist, ist fehlgeschlagen, Grund: %2</translation>
     </message>
     <message>
         <source>Failed to download file &quot;%1&quot;, reason:</source>
@@ -2032,7 +2033,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Downloading, %1% fetched…</source>
-        <translation type="unfinished"/>
+        <translation>Herunterladen, %1% abgerufen...</translation>
     </message>
     <message>
         <source>QFieldCloud is preparing the latest data just for you. This might take some time, please hold tight…</source>
@@ -2994,7 +2995,7 @@ Abbrechen um einen minimalen Scan durchzuführen. </translation>
     </message>
     <message>
         <source>To active the measurement functionality, make sure the vector layer&apos;s geometry type used for the tracking session has an M dimension.</source>
-        <translation type="unfinished"/>
+        <translation>Um die Messfunktion zu aktivieren, stellen Sie sicher, dass der Geometrietyp der für die Trackingsitzung verwendeten Vektorebene eine M-Dimension hat.</translation>
     </message>
 </context>
 <context>
@@ -3231,7 +3232,7 @@ Abbrechen um einen minimalen Scan durchzuführen. </translation>
     </message>
     <message>
         <source>Cancel addition</source>
-        <translation type="unfinished"/>
+        <translation>Hinzufügen abbrechen</translation>
     </message>
     <message>
         <source>Topological editing turned on</source>
@@ -3531,7 +3532,7 @@ Abbrechen um einen minimalen Scan durchzuführen. </translation>
     </message>
     <message>
         <source>Project %1 failed to download</source>
-        <translation type="unfinished"/>
+        <translation>Projektdownload %1 fehlgeschlagen</translation>
     </message>
     <message>
         <source>Project %1 successfully downloaded, it&apos;s now available to open</source>
@@ -3583,7 +3584,7 @@ Abbrechen um einen minimalen Scan durchzuführen. </translation>
     </message>
     <message>
         <source>Importing %1</source>
-        <translation type="unfinished"/>
+        <translation>Import %1</translation>
     </message>
     <message>
         <source>Import URL failed</source>
