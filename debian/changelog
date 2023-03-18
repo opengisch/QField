@@ -1,0 +1,5 @@
+qfield (2.7.1) stable; urgency=medium
+
+  * Initial release for ubuntu
+
+ -- mkuhn <matthias@opengis.ch>  Sat, 18 Mar 2023 16:28:07 +0000

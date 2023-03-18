@@ -1,0 +1,30 @@
+Source: qfield
+Section: science
+Priority: optional
+Maintainer: OPENGIS.ch <info@opengis.ch>
+Build-Depends:
+ cmake,
+ debhelper-compat (= 12),
+ libqt5sensors5-dev,
+ libqt5serialport5-dev,
+ libqt5webview5-dev,
+ libzip-dev,
+ libzxingcore-dev,
+ qgis-dev,
+ qt5keychain-dev,
+ qtbase5-private-dev,
+ qtconnectivity5-dev,
+ qtmultimedia5-dev,
+ zipcmp,
+ zipmerge,
+ ziptool
+Standards-Version: 4.4.1
+Homepage: https://qfield.org
+#Vcs-Browser: https://github.com/opengisch/QField
+#Vcs-Git: git@github.com:opengisch/QField.git
+
+Package: qfield
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: A touch friendly and field work optimized app based on QGIS
+ A simplified touch optimized interface for QGIS in the field.
