@@ -650,12 +650,19 @@ void DeltaFileWrapper::addPatch( const QString &localLayerId, const QString &sou
   QMap<QString, int> layerPkDeltaIdx = mLocalPkDeltaIdx.value( localLayerId );
   QString localPk = delta.value( QStringLiteral( "localPk" ) ).toString();
 
+  qInfo() << "DeltaFileWrapper::addPatch: localPk=" << localPk << " layerPkDeltaIdx=" << layerPkDeltaIdx;
+
   if ( layerPkDeltaIdx.contains( localPk ) )
   {
     int deltaIdx = layerPkDeltaIdx.take( localPk );
     QJsonObject deltaCreate = mDeltas.at( deltaIdx ).toObject();
+
+    Q_ASSERT( deltaCreate.value( QStringLiteral( "method" ) ).toString() == QStringLiteral( "create" ) );
+
     QJsonObject newCreate = deltaCreate.value( QStringLiteral( "new" ) ).toObject();
     QJsonObject attributesCreate = newCreate.value( QStringLiteral( "attributes" ) ).toObject();
+
+    qInfo() << "DeltaFileWrapper::addPatch: replacing an existing create delta: " << deltaCreate << "at" << deltaIdx;
 
     if ( !newData.value( QStringLiteral( "geometry" ) ).isUndefined() )
     {
@@ -675,11 +682,15 @@ void DeltaFileWrapper::addPatch( const QString &localLayerId, const QString &sou
 
     mDeltas.replace( deltaIdx, deltaCreate );
 
+    qInfo() << "DeltaFileWrapper::addPatch: replaced an existing create delta: " << deltaCreate;
+
     return;
   }
   else
   {
     mDeltas.append( delta );
+
+    qInfo() << "DeltaFileWrapper::addPatch: Added a new patch delta: " << delta;
 
     emit countChanged();
   }
@@ -755,6 +766,8 @@ void DeltaFileWrapper::addDelete( const QString &localLayerId, const QString &so
 
   mDeltas.append( delta );
   mIsDirty = true;
+
+  qInfo() << "DeltaFileWrapper::addDelete: Added a new delete delta: " << delta;
 
   emit countChanged();
 }
@@ -834,6 +847,8 @@ void DeltaFileWrapper::addCreate( const QString &localLayerId, const QString &so
 
   mDeltas.append( delta );
   mIsDirty = true;
+
+  qInfo() << "DeltaFileWrapper::addCreate: Added a new create delta: " << delta;
 
   emit countChanged();
 }
@@ -1114,10 +1129,14 @@ QPair<int, QString> DeltaFileWrapper::getLocalPkAttribute( const QgsVectorLayer 
   // we assume the first index to be the primary key index... kinda stupid, but memory layers don't have primary key at all, but we use it on geopackages, but... snap!
   const int pkAttrIdx = pkAttrs[0];
 
+  qInfo() << "DeltaFileWrapper::getLocalPkAttribute: vl->primaryKeyglAttributes()=" << vl->primaryKeyAttributes() << " pkAttrs=" << pkAttrs;
+
   if ( pkAttrIdx == -1 )
     return QPair<int, QString>( -1, QString() );
 
   const QString pkAttrName = fields.at( pkAttrIdx ).name();
+
+  qInfo() << "DeltaFileWrapper::getLocalPkAttribute: pkAttrName=" << pkAttrName << " pkAttrIdx=" << pkAttrIdx;
 
   return QPair<int, QString>( pkAttrIdx, pkAttrName );
 }
@@ -1127,10 +1146,18 @@ QPair<int, QString> DeltaFileWrapper::getSourcePkAttribute( const QgsVectorLayer
 {
   QString pkAttrNamesAggr = vl->customProperty( QStringLiteral( "QFieldSync/sourceDataPrimaryKeys" ) ).toString();
 
+  qInfo() << "DeltaFileWrapper::getSourcePkAttribute: getting pkAttrNamesAggr=" << pkAttrNamesAggr << " with type=" << vl->customProperty( QStringLiteral( "QFieldSync/sourceDataPrimaryKeys" ) ).typeName();
+
   if ( pkAttrNamesAggr.isEmpty() )
+  {
+    qInfo() << "DeltaFileWrapper::getSourcePkAttribute: empty pkAttrNamesAggr, gotcha!";
+
     return getLocalPkAttribute( vl );
+  }
 
   QStringList pkAttrNames = pkAttrNamesAggr.split( QStringLiteral( "," ) );
+
+  qInfo() << "DeltaFileWrapper::getSourcePkAttribute: pk attrs pkAttrNames=" << pkAttrNames.size();
 
   if ( pkAttrNames.size() > 1 )
     return QPair<int, QString>( -1, QString() );
@@ -1138,6 +1165,8 @@ QPair<int, QString> DeltaFileWrapper::getSourcePkAttribute( const QgsVectorLayer
   const QString pkAttrName = pkAttrNames[0];
   const QgsFields fields = vl->fields();
   const int pkAttrIdx = fields.indexFromName( pkAttrName );
+
+  qInfo() << "DeltaFileWrapper::getSourcePkAttribute: pk pkAttrName=" << pkAttrName << " with index=" << pkAttrIdx;
 
   if ( pkAttrIdx == -1 )
     return QPair<int, QString>( -1, QString() );
@@ -1147,5 +1176,7 @@ QPair<int, QString> DeltaFileWrapper::getSourcePkAttribute( const QgsVectorLayer
 
 QString DeltaFileWrapper::getSourceLayerId( const QgsVectorLayer *vl )
 {
+  qInfo() << "DeltaFileWrapper::getSourceLayerId: remoteLayerId=" << ( vl ? vl->customProperty( QStringLiteral( "remoteLayerId" ) ).toString() : QString() );
+
   return vl ? vl->customProperty( QStringLiteral( "remoteLayerId" ) ).toString() : QString();
 }
