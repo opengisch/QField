@@ -19,7 +19,7 @@
     </message>
     <message>
         <source>Links Menu</source>
-        <translation type="unfinished"/>
+        <translation>Menú de Ligazóns</translation>
     </message>
 </context>
 <context>
@@ -203,7 +203,7 @@ Cancela para facer, porén, unha exploración mínima do dispositivo.</translati
     </message>
     <message>
         <source>No Bluetooth devices detected, scan to populate nearby devices.</source>
-        <translation type="unfinished"/>
+        <translation>Non se detectaron dispositivos Bluetooth, explorar para introducir dispositivos próximos.</translation>
     </message>
 </context>
 <context>
@@ -1312,7 +1312,7 @@ As xeometrías das entidades combinaranse na entidade &apos;%1&apos;, a cal cons
     </message>
     <message>
         <source>Failed to save file resource</source>
-        <translation type="unfinished"/>
+        <translation>Non se pode gardar o recurso do ficheiro</translation>
     </message>
     <message>
         <source>Select Image File</source>
@@ -1328,7 +1328,7 @@ As xeometrías das entidades combinaranse na entidade &apos;%1&apos;, a cal cons
     </message>
     <message>
         <source>All video (*.mp4 *.mkv *.mov);;MP4 video (*.mp4);;MKV video(*.mkv);;MOV video (*.mov)</source>
-        <translation type="unfinished"/>
+        <translation>Tódolos videos (*.mp4 *.mkv *.mov);;Vídeos MP4 (*.mp4);;Vídeos MKV (*.mkv);;Vídeos MOV (*.mov)</translation>
     </message>
     <message>
         <source>Audio files (*.mp3 *.aac *.ogg)</source>
@@ -1437,7 +1437,7 @@ As xeometrías das entidades combinaranse na entidade &apos;%1&apos;, a cal cons
     </message>
     <message>
         <source>Leave empty to auto-fill</source>
-        <translation type="unfinished"/>
+        <translation>Deixar baleiro para encher automaticamente</translation>
     </message>
     <message>
         <source>Connection type:</source>
@@ -1549,7 +1549,7 @@ As xeometrías das entidades combinaranse na entidade &apos;%1&apos;, a cal cons
     <name>QFieldAudioRecorder</name>
     <message>
         <source>Audio Recorder</source>
-        <translation type="unfinished"/>
+        <translation>Gravador de Audio</translation>
     </message>
 </context>
 <context>
@@ -1598,7 +1598,7 @@ As xeometrías das entidades combinaranse na entidade &apos;%1&apos;, a cal cons
     </message>
     <message>
         <source>Login error due to unexpected redirect, please retry later</source>
-        <translation type="unfinished"/>
+        <translation>Erro de inicio de sesión debido a unha redirección inesperada, por favor, téntao máis tarde</translation>
     </message>
 </context>
 <context>
@@ -2189,7 +2189,7 @@ Aínda que podes seguir vendo e utilizando este proxecto, recoméndase fortement
     </message>
     <message>
         <source>Type a URL below to download and import the project or dataset:</source>
-        <translation type="unfinished"/>
+        <translation>Teclea un URL debaixo para descargar e importar o proxecto ou un conxunto de datos:</translation>
     </message>
 </context>
 <context>
@@ -2617,43 +2617,43 @@ Cancela para facer, porén, unha exploración mínima do dispositivo.</translati
     </message>
     <message>
         <source>Error zip file does not exist: &apos;%1&apos;</source>
-        <translation type="unfinished"/>
+        <translation>O ficheiro comprimido de erros non existe: &apos;%1&apos;</translation>
     </message>
     <message>
         <source>Error zip filename is empty</source>
-        <translation type="unfinished"/>
+        <translation>O nome de ficheiro comprimido de erros está baleiro</translation>
     </message>
     <message>
         <source>Error output dir does not exist: &apos;%1&apos;</source>
-        <translation type="unfinished"/>
+        <translation>O directorio de saída de erros non  existe: &apos;%1&apos;</translation>
     </message>
     <message>
         <source>Error output dir is not a directory: &apos;%1&apos;</source>
-        <translation type="unfinished"/>
+        <translation>O directorio de saída de erros non é un directorio: &apos;%1&apos;</translation>
     </message>
     <message>
         <source>Error output dir is not writable: &apos;%1&apos;</source>
-        <translation type="unfinished"/>
+        <translation>Non se pode escribir no directorio de saída de erros: &apos;%1&apos;</translation>
     </message>
     <message>
         <source>Failed to create a subdirectory %1/%2</source>
-        <translation type="unfinished"/>
+        <translation>Non se puido crear un subdirectorio %1/%2</translation>
     </message>
     <message>
         <source>Could not write to %1</source>
-        <translation type="unfinished"/>
+        <translation>Non se puido escribir en %1</translation>
     </message>
     <message>
         <source>Error reading file: &apos;%1&apos;</source>
-        <translation type="unfinished"/>
+        <translation>Erro lendo o ficheiro : &apos;%1&apos;</translation>
     </message>
     <message>
         <source>Error getting files: &apos;%1&apos;</source>
-        <translation type="unfinished"/>
+        <translation>Erro obtendo os ficheiros: &apos;%1&apos;</translation>
     </message>
     <message>
         <source>Error opening zip archive: &apos;%1&apos; (Error code: %2)</source>
-        <translation type="unfinished"/>
+        <translation>Erro ó abrir os ficheiros comprimidos: &apos;%1&apos; (Código de erro: %2)</translation>
     </message>
 </context>
 <context>
@@ -2784,11 +2784,11 @@ Cancela para facer, porén, unha exploración mínima do dispositivo.</translati
     <name>SerialPortDeviceChooser</name>
     <message>
         <source>Select the serial port from the list below:</source>
-        <translation type="unfinished"/>
+        <translation>Selecciona o porto serie da lista de abaixo:</translation>
     </message>
     <message>
         <source>No serial ports detected, refresh the list once a device is connected.</source>
-        <translation type="unfinished"/>
+        <translation>Non se detectaron portos serie, recarga a lista unha vez que un dispositivo se conecte.</translation>
     </message>
     <message>
         <source>Refresh list</source>
@@ -2875,15 +2875,15 @@ Cancela para facer, porén, unha exploración mínima do dispositivo.</translati
     </message>
     <message>
         <source>The connection was refused by the remote hose</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Rexeitouse a conexión polo hospedador remoto</translation>
     </message>
     <message>
         <source>UDP receiver error (%1)</source>
-        <translation type="unfinished"/>
+        <translation>Erro de recepción UDP (%1)</translation>
     </message>
     <message>
         <source>The connection was refused by the remote host</source>
-        <translation type="unfinished"/>
+        <translation>Rexeitouse a conexión polo hospedador remoto</translation>
     </message>
 </context>
 <context>
@@ -3042,15 +3042,15 @@ Cancela para facer, porén, unha exploración mínima do dispositivo.</translati
     </message>
     <message>
         <source>The connection was refused by the remote hose</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Rexeitouse a conexión polo hospedador remoto</translation>
     </message>
     <message>
         <source>UDP receiver error (%1)</source>
-        <translation type="unfinished"/>
+        <translation>Erro de recepción UDP (%1)</translation>
     </message>
     <message>
         <source>The connection was refused by the remote host</source>
-        <translation type="unfinished"/>
+        <translation>Rexeitouse a conexión polo hospedador remoto</translation>
     </message>
 </context>
 <context>
@@ -3581,11 +3581,11 @@ Cancela para facer, porén, unha exploración mínima do dispositivo.</translati
     </message>
     <message>
         <source>Positioning device error: %1</source>
-        <translation type="unfinished"/>
+        <translation>Erro do dispositivo de posicionamento: %1</translation>
     </message>
     <message>
         <source>Canvas follows location and compass orientation</source>
-        <translation type="unfinished"/>
+        <translation>A vista do mapa segue a localización e a orientación da brúxula</translation>
     </message>
     <message>
         <source>Importing %1</source>
