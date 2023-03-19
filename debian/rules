@@ -13,6 +13,10 @@
 # package maintainers to append LDFLAGS
 #export DEB_LDFLAGS_MAINT_APPEND = -Wl,--as-needed
 
+CMAKE_OPTS := \
+  -G Ninja \
+  -D WITH_VCPKG=ON \
+  -D SYSTEM_QT=ON
 
 %:
 	dh $@

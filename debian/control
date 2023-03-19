@@ -10,7 +10,6 @@ Build-Depends:
  libqt5webview5-dev,
  libzip-dev,
  libzxingcore-dev,
- qgis-dev,
  qt5keychain-dev,
  qtbase5-private-dev,
  qtconnectivity5-dev,
