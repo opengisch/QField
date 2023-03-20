@@ -27,7 +27,7 @@ class RelationUtils : public QObject
   public:
     explicit RelationUtils( QObject *parent = nullptr );
 
-    Q_INVOKABLE QgsRelation resolveReferencingRelation( QgsProject *qgisProject, QgsVectorLayer *layer, const QString &fieldName, const QString &relationId );
+    Q_INVOKABLE QgsRelation resolveReferencingRelation( QgsProject *project, QgsVectorLayer *layer, const QString &fieldName, const QString &relationId );
 };
 
 #endif // RELATIONUTILS_H
