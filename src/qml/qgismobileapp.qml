@@ -739,8 +739,11 @@ ApplicationWindow {
 
       selectionModel: featureForm.selection
       mapSettings: mapCanvas.mapSettings
-      translateX: mapToScreenTranslateX.screenDistance
-      translateY: mapToScreenTranslateY.screenDistance
+
+      // take rotation into account
+      property double rotationRadians: -mapSettings.rotation * Math.PI / 180
+      translateX: mapToScreenTranslateX.screenDistance * Math.cos( rotationRadians ) - mapToScreenTranslateY.screenDistance * Math.sin( rotationRadians )
+      translateY: mapToScreenTranslateY.screenDistance * Math.cos( rotationRadians ) + mapToScreenTranslateX.screenDistance * Math.sin( rotationRadians )
 
       color: "yellow"
       focusedColor: "#ff7777"
