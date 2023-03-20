@@ -101,6 +101,7 @@
 #include "qgsquickmaptransform.h"
 #include "recentprojectlistmodel.h"
 #include "referencingfeaturelistmodel.h"
+#include "relationutils.h"
 #include "resourcesource.h"
 #include "rubberband.h"
 #include "rubberbandmodel.h"
@@ -490,6 +491,7 @@ void QgisMobileapp::initDeclarative()
   REGISTER_SINGLETON( "org.qfield", FeatureUtils, "FeatureUtils" );
   REGISTER_SINGLETON( "org.qfield", FileUtils, "FileUtils" );
   REGISTER_SINGLETON( "org.qfield", LayerUtils, "LayerUtils" );
+  REGISTER_SINGLETON( "org.qfield", RelationUtils, "RelationUtils" );
   REGISTER_SINGLETON( "org.qfield", StringUtils, "StringUtils" );
   REGISTER_SINGLETON( "org.qfield", UrlUtils, "UrlUtils" );
   REGISTER_SINGLETON( "org.qfield", QFieldCloudUtils, "QFieldCloudUtils" );
