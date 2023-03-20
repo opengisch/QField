@@ -3,17 +3,26 @@ Section: science
 Priority: optional
 Maintainer: OPENGIS.ch <info@opengis.ch>
 Build-Depends:
+ bison,
  cmake,
+ curl,
  debhelper-compat (= 12),
+ flex,
+ git,
  libqt5sensors5-dev,
  libqt5serialport5-dev,
  libqt5webview5-dev,
  libzip-dev,
  libzxingcore-dev,
+ ninja-build,
  qt5keychain-dev,
  qtbase5-private-dev,
  qtconnectivity5-dev,
  qtmultimedia5-dev,
+ qttools5-dev,
+ tar,
+ unzip,
+ zip,
  zipcmp,
  zipmerge,
  ziptool
