@@ -14,12 +14,13 @@ EditorWidgetBase {
   anchors { left: parent.left; right: parent.right; }
 
   property bool showOpenFormButton: config['ShowOpenFormButton'] === undefined || config['ShowOpenFormButton'] === true
+  property var _rel: RelationUtils.resolveReferencingRelation(qgisProject, currentLayer, field.name, config['Relation'])
 
   FeatureCheckListModel {
     id: listModel
 
-    currentLayer: qgisProject.relationManager.relation(config['Relation']).referencedLayer
-    keyField: qgisProject.relationManager.relation(config['Relation']).resolveReferencedField(field.name)
+    currentLayer: _rel.referencedLayer
+    keyField: _rel.resolveReferencedField(field.name)
     addNull: config['AllowNULL'] // no, it is not a misspelled version of config['AllowNull']
     orderByValue: config['OrderByValue']
     attributeField: field
@@ -44,7 +45,7 @@ EditorWidgetBase {
     useSearch: true
     allowAddFeature: config['AllowAddFeatures'] !== undefined && config['AllowAddFeatures'] === true
 
-    property var _relation: qgisProject.relationManager.relation(config['Relation'])
+    property var _relation: _rel
   }
 
   QfToolButton  {
