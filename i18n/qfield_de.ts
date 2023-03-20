@@ -1763,7 +1763,7 @@ Die Objekt-Geometrien werden in Objekt &apos;%1&apos; zusammengeführt, welches 
     </message>
     <message>
         <source>The locally stored cloud project has been corrupted</source>
-        <translation type="unfinished"/>
+        <translation>Das lokal gespeicherte Cloud-Projekt ist beschädigt worden</translation>
     </message>
     <message>
         <source>Synchronize</source>
@@ -1895,7 +1895,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Failed to download file &quot;%1&quot;, reason:</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Dateidownload gescheitert &quot;%1&quot;, Grund:</translation>
     </message>
     <message>
         <source>Failed to write downloaded file stored at &quot;%1&quot;, fs reason:</source>
@@ -1955,7 +1955,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Latest package data structure error.</source>
-        <translation type="unfinished"/>
+        <translation>Fehler in der Datenstruktur des letzten Pakets.</translation>
     </message>
     <message>
         <source>Project %1: Packaged layer `%2` is not valid. Error code %3, error message: %4</source>
@@ -2061,11 +2061,11 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Available locally</source>
-        <translation type="unfinished"/>
+        <translation>Lokal verfügbar</translation>
     </message>
     <message>
         <source>Has changes. </source>
-        <translation type="unfinished"/>
+        <translation>Änderungen vorhanden.</translation>
     </message>
     <message>
         <source>Downloading project %1</source>
@@ -2180,7 +2180,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Import URL</source>
-        <translation type="unfinished"/>
+        <translation>Import von URL</translation>
     </message>
     <message>
         <source>Type a URL below to download and import the project or dataset:</source>
@@ -2596,7 +2596,7 @@ Abbrechen um einen minimalen Scan durchzuführen. </translation>
     </message>
     <message>
         <source>Cloud User Info</source>
-        <translation type="unfinished"/>
+        <translation>Cloud User Info</translation>
     </message>
     <message>
         <source>Please wait while QField installation finalizes.</source>
