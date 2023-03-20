@@ -25,7 +25,7 @@ RelationUtils::RelationUtils( QObject *parent )
 {
 }
 
-QgsRelation RelationUtils::resolveReferencingRelation( QgsProject *qgisProject, QgsVectorLayer *layer, const QString &fieldName, const QString &relationId )
+QgsRelation RelationUtils::resolveReferencingRelation( QgsProject *project, QgsVectorLayer *layer, const QString &fieldName, const QString &relationId )
 {
   QgsRelationManager *relationManager = qgisProject->relationManager();
   QgsRelation relation = relationManager->relation( relationId );
