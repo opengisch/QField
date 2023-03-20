@@ -1,0 +1,30 @@
+---
+name: 🐧 Ubuntu package
+on:
+  push:
+    branches:
+      - master
+      - release-**
+      - deb
+  pull_request:
+  release:
+    types: ['published']
+
+
+jobs:
+  build:
+    runs-on: ubuntu-20.04
+
+    steps:
+      - name: 🐣 Checkout
+        uses: actions/checkout@v3
+
+      - name: 🔨 Prepare build env
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y devscripts
+          sudo mk-build-deps --install --tool='apt-get -o Debug::pkgProblemResolver=yes --no-install-recommends --yes' debian/control
+
+      - name: 🌋 Build
+        run: |
+          dpkg-buildpackage
