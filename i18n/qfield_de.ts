@@ -2053,11 +2053,11 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Available locally, missing on the cloud</source>
-        <translation type="unfinished"/>
+        <translation>Lokal verfügbar, fehlt in der Cloud</translation>
     </message>
     <message>
         <source>Available on the cloud, missing locally</source>
-        <translation type="unfinished"/>
+        <translation>In der Cloud verfügbar, fehlt im lokalen Ordner</translation>
     </message>
     <message>
         <source>Available locally</source>
@@ -2600,7 +2600,7 @@ Abbrechen um einen minimalen Scan durchzuführen. </translation>
     </message>
     <message>
         <source>Please wait while QField installation finalizes.</source>
-        <translation type="unfinished"/>
+        <translation>Bitte warten, QField schliesst die Installation ab.</translation>
     </message>
     <message>
         <source>averaged</source>
@@ -2702,7 +2702,7 @@ Abbrechen um einen minimalen Scan durchzuführen. </translation>
     </message>
     <message>
         <source>Autonomous</source>
-        <translation type="unfinished"/>
+        <translation>Autonom</translation>
     </message>
     <message>
         <source>Invalid</source>
