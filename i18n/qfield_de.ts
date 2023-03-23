@@ -57,7 +57,7 @@
     </message>
     <message>
         <source>&lt;p&gt;Current transform “&lt;i&gt;%1&lt;/i&gt;” has an accuracy of %2 meters, while the preferred transformation “&lt;i&gt;%3&lt;/i&gt;” has accuracy %4 meters.&lt;/p&gt;</source>
-        <translation type="unfinished"/>
+        <translation>&lt;p&gt;Die aktuelle Transformation “&lt;i&gt;%1&lt;/i&gt;” hat eine Genauigkeit von %2 Metern, während die bevorzugte Transformation “&lt;i&gt;%3&lt;/i&gt;” eine Genauigkeit von %4 Metern hat.&lt;/p&gt;</translation>
     </message>
     <message>
         <source>&lt;p&gt;Current transform “&lt;i&gt;%1&lt;/i&gt;” has an unknown accuracy, while the preferred transformation “&lt;i&gt;%2&lt;/i&gt;” has accuracy %3 meters.&lt;/p&gt;</source>
@@ -617,11 +617,11 @@ Abbrechen um einen minimalen Scan durchzuführen. </translation>
     </message>
     <message>
         <source>A number of features are being tracked, stop tracking to merge those</source>
-        <translation>Eine Anzahl an Features wird aufgenommen, beende das Aufzeichnen um diese zu vereinen</translation>
+        <translation>Eine Anzahl an Objekten wird aufgenommen, beende das Aufzeichnen um diese zu vereinen</translation>
     </message>
     <message>
         <source>Successfully duplicated selected features, list updated to show newly-created features</source>
-        <translation>Ausgewählte Features erfolgreich dupliziert, Liste aktualisiert um neu erstellte Features anzuzeigen</translation>
+        <translation>Ausgewählte Objekte erfolgreich dupliziert, Liste aktualisiert um neu erstellte Features anzuzeigen</translation>
     </message>
     <message>
         <source>No feature at this position</source>
@@ -910,7 +910,7 @@ Die Objekt-Geometrien werden in Objekt &apos;%1&apos; zusammengeführt, welches 
     </message>
     <message>
         <source>Show features list</source>
-        <translation>Featureliste anzeigen</translation>
+        <translation>Objektliste anzeigen</translation>
     </message>
     <message>
         <source>The layer has no features</source>
@@ -938,7 +938,7 @@ Die Objekt-Geometrien werden in Objekt &apos;%1&apos; zusammengeführt, welches 
     </message>
     <message>
         <source>Show visible features list</source>
-        <translation>Liste sichtbarer Features anzeigen</translation>
+        <translation>Liste sichtbarer Objekte anzeigen</translation>
     </message>
     <message>
         <source>Show Features Menu</source>
@@ -1175,15 +1175,15 @@ Die Objekt-Geometrien werden in Objekt &apos;%1&apos; zusammengeführt, welches 
     </message>
     <message>
         <source>Print Atlas Feature(s) to Image</source>
-        <translation type="unfinished"/>
+        <translation>Drucke Atlas-Objekt(e) als Bild</translation>
     </message>
     <message>
         <source>Print Atlas Feature to Image</source>
-        <translation type="unfinished"/>
+        <translation>Drucke Atlas-Objekt als Bild</translation>
     </message>
     <message>
         <source>Print Atlas Feature(s)</source>
-        <translation type="unfinished"/>
+        <translation>Drucke Atlas-Objekt(e)</translation>
     </message>
     <message>
         <source>Printing...</source>
@@ -1253,7 +1253,7 @@ Die Objekt-Geometrien werden in Objekt &apos;%1&apos; zusammengeführt, welches 
     </message>
     <message>
         <source>Cannot update features ordering</source>
-        <translation>Objektreihenfolge kann nicht geändert werden</translation>
+        <translation>Reihenfolge der Objekte kann nicht geändert werden</translation>
     </message>
 </context>
 <context>
@@ -1779,7 +1779,7 @@ Die Objekt-Geometrien werden in Objekt &apos;%1&apos; zusammengeführt, welches 
     </message>
     <message>
         <source>Save internet bandwidth by only pushing the local features and pictures to the cloud, without updating the whole project.</source>
-        <translation>Sparen Sie Internet-Bandbreite, indem Sie nur die lokalen Merkmale und Bilder in die Cloud verschieben, ohne das gesamte Projekt zu aktualisieren.</translation>
+        <translation>Sparen Sie Internet-Bandbreite, indem Sie nur die lokalen Objekte und Bilder in die Cloud verschieben, ohne das gesamte Projekt zu aktualisieren.</translation>
     </message>
     <message>
         <source>Revert local changes</source>
@@ -1791,11 +1791,11 @@ Die Objekt-Geometrien werden in Objekt &apos;%1&apos; zusammengeführt, welches 
     </message>
     <message>
         <source>Revert all modified features in the local layers. You cannot restore those changes.</source>
-        <translation>Alle geänderten Features in den lokalen Layern rückgängig machen. Sie können diese Änderungen nicht wiederherstellen.</translation>
+        <translation>Alle geänderten Objekte in den lokalen Layern rückgängig machen. Sie können diese Änderungen nicht wiederherstellen.</translation>
     </message>
     <message>
         <source>Revert all modified features in the local cloud layers. You cannot restore those changes.</source>
-        <translation type="vanished">Alle geänderten Features in den lokalen Cloud-Ebenen rückgängig machen. Sie können diese Änderungen nicht wiederherstellen.</translation>
+        <translation type="vanished">Alle geänderten Objekte in den lokalen Cloud-Ebenen rückgängig machen. Sie können diese Änderungen nicht wiederherstellen.</translation>
     </message>
     <message>
         <source>The local copy of this cloud project has been corrupted. Resetting the project will re-download the cloud version and will remove any local changes, make sure those were copied first if needed.
@@ -2211,7 +2211,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>When switched on, coordinate information, such as latitude and longitude, is overlayed onto the map while digitizing new features or using the measure tool.</source>
-        <translation>Wenn diese Funktion eingeschaltet ist, werden Koordinateninformationen, wie z. B. Breiten- und Längengrad, beim Digitalisieren neuer Elemente oder bei der Verwendung des Messwerkzeugs in der Karte eingeblendet.</translation>
+        <translation>Wenn diese Funktion eingeschaltet ist, werden Koordinateninformationen, wie z. B. Breiten- und Längengrad, beim Digitalisieren neuer Objekte oder bei der Verwendung des Messwerkzeugs in der Karte eingeblendet.</translation>
     </message>
     <message>
         <source>Show bookmarks</source>
@@ -3252,11 +3252,11 @@ Abbrechen um einen minimalen Scan durchzuführen. </translation>
     </message>
     <message>
         <source>Coordinate cursor now locked to position</source>
-        <translation type="unfinished"/>
+        <translation>Cursor an aktueller Position fixiert</translation>
     </message>
     <message>
         <source>Coordinate cursor unlocked</source>
-        <translation type="unfinished"/>
+        <translation>Cursor wieder freigegeben</translation>
     </message>
     <message>
         <source>Received position</source>
