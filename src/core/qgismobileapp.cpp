@@ -106,6 +106,7 @@
 #include "rubberband.h"
 #include "rubberbandmodel.h"
 #include "scalebarmeasurement.h"
+#include "sensorlistmodel.h"
 #include "snappingresult.h"
 #include "snappingutils.h"
 #include "stringutils.h"
@@ -390,6 +391,7 @@ void QgisMobileapp::initDeclarative()
   qRegisterMetaType<Qgis::DistanceUnit>( "Qgis::DistanceUnit" );
   qRegisterMetaType<Qgis::AreaUnit>( "Qgis::AreaUnit" );
   qRegisterMetaType<Qgis::AngleUnit>( "Qgis::AngleUnit" );
+  qRegisterMetaType<Qgis::DeviceConnectionStatus>( "Qgis::DeviceConnectionStatus" );
   qmlRegisterUncreatableType<Qgis>( "org.qgis", 1, 0, "Qgis", "" );
 
   qmlRegisterUncreatableType<QgsProject>( "org.qgis", 1, 0, "Project", "" );
@@ -470,6 +472,7 @@ void QgisMobileapp::initDeclarative()
   qmlRegisterType<QFieldCloudProjectsFilterModel>( "org.qfield", 1, 0, "QFieldCloudProjectsFilterModel" );
   qmlRegisterType<DeltaListModel>( "org.qfield", 1, 0, "DeltaListModel" );
   qmlRegisterType<ScaleBarMeasurement>( "org.qfield", 1, 0, "ScaleBarMeasurement" );
+  qmlRegisterType<SensorListModel>( "org.qfield", 1, 0, "SensorListModel" );
   qmlRegisterType<Navigation>( "org.qfield", 1, 0, "Navigation" );
   qmlRegisterType<NavigationModel>( "org.qfield", 1, 0, "NavigationModel" );
   qmlRegisterType<Positioning>( "org.qfield", 1, 0, "Positioning" );

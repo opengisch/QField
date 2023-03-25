@@ -771,6 +771,7 @@ ApplicationWindow {
     visible: navigation.isActive ||
              positioningSettings.showPositionInformation ||
              positioningPreciseView.visible ||
+             sensorInformationView.visible ||
              (stateMachine.state === 'measure' && elevationProfileButton.elevationProfileActive)
 
     width: parent.width
@@ -826,6 +827,17 @@ ApplicationWindow {
       visible: positioningSettings.showPositionInformation && !elevationProfile.visible
       positionSource: positionSource
       antennaHeight: positioningSettings.antennaHeightActivated ? positioningSettings.antennaHeight : NaN
+    }
+
+    Rectangle {
+      visible: positioningInformationView.visible && sensorInformationView
+      width: parent.width
+      height: 1
+      color: Theme.navigationBackgroundColor
+    }
+
+    SensorInformationView {
+      id: sensorInformationView
     }
   }
 
@@ -1902,6 +1914,7 @@ ApplicationWindow {
 
     MenuItem {
       id: printItem
+      enabled: layoutListInstantiator.count > 0
       text: Qt.platform.os === "ios" ? qsTr( "Print to Image" ) : qsTr( "Print to PDF" )
 
       font: Theme.defaultFont
@@ -1915,7 +1928,7 @@ ApplicationWindow {
           y: (parent.height - height) / 2
           implicitWidth: 40
           implicitHeight: 40
-          opacity: 0
+          opacity: parent.enabled ? 1 : 0
           onPaint: {
               var ctx = getContext("2d")
               ctx.strokeStyle = Theme.mainColor
@@ -1939,6 +1952,40 @@ ApplicationWindow {
           printMenu.printName =layoutListInstantiator.model.titleAt( 0 );
           printMenu.printTimer.restart();
         }
+        highlighted = false
+      }
+    }
+
+    MenuItem {
+      id: sensorItem
+      enabled: sensorListInstantiator.count > 0
+      text: qsTr( "Sensors" )
+
+      font: Theme.defaultFont
+      icon.source: Theme.getThemeVectorIcon( "ic_sensor_on_black_24dp" )
+      height: 48
+      leftPadding: 10
+      rightPadding: 40
+
+      arrow: Canvas {
+          x: parent.width - width
+          y: (parent.height - height) / 2
+          implicitWidth: 40
+          implicitHeight: 40
+          opacity: parent.enabled ? 1 : 0
+          onPaint: {
+              var ctx = getContext("2d")
+              ctx.strokeStyle = Theme.mainColor
+              ctx.lineWidth = 1
+              ctx.moveTo(15, 15)
+              ctx.lineTo(width - 15, height / 2)
+              ctx.lineTo(15, height - 15)
+              ctx.stroke();
+          }
+      }
+
+      onTriggered: {
+        sensorMenu.popup( mainMenu.x, mainMenu.y + printItem.y )
         highlighted = false
       }
     }
@@ -2036,32 +2083,71 @@ ApplicationWindow {
         highlighted = false
       }
     }
+  }
 
-    Connections {
-        target: printMenu
+  Menu {
+    id: sensorMenu
 
-        function onEnablePrintItem(rows) {
-          printItem.enabled = rows
-          printItem.arrow.opacity = rows > 1 ? 1 : 0
+    property alias printTimer: timer
+    property alias printName: timer.printName
+
+    title: qsTr( "Sensors" )
+
+    width: {
+        var result = 0;
+        var padding = 0;
+        for (var i = 0; i < count; ++i) {
+            var item = itemAt(i);
+            result = Math.max(item.contentItem.implicitWidth, result);
+            padding = Math.max(item.padding, padding);
         }
+        return Math.min( result + padding * 2,mainWindow.width - 20);
     }
 
-    /*
-    We removed this MenuItem part, because usually a mobile app has not the functionality to quit.
-    But we keep the code in case, the concept changes or we need to close the app completely (remove from background)
-    */
+    topMargin: Math.min(sceneTopMargin, Math.max(0, (contentHeight + topPadding + bottomPadding) - mainWindow.height + sceneTopMargin));
 
-    /*
-    Controls.MenuSeparator {}
+    MenuItem {
+      text: qsTr( 'Select sensor below' )
 
-    Controls.MenuItem {
-      text: qsTr( "Quit" )
-      iconSource: Theme.getThemeIcon( "ic_close_white_24dp" )
-      onTriggered: {
-        Qt.quit()
+      font: Theme.defaultFont
+      height: 48
+      leftPadding: 10
+
+      enabled: false
+    }
+
+    Instantiator {
+      id: sensorListInstantiator
+
+      model: SensorListModel {
+        project: qgisProject
       }
+
+      MenuItem {
+        text: SensorName
+        icon.source: SensorStatus == Qgis.DeviceConnectionStatus.Connected
+                     ? Theme.getThemeVectorIcon( "ic_sensor_on_black_24dp" )
+                     : Theme.getThemeVectorIcon( "ic_sensor_off_black_24dp" )
+
+        font: Theme.defaultFont
+        leftPadding: 10
+
+        onTriggered: {
+          if (SensorStatus == Qgis.DeviceConnectionStatus.Connected) {
+            displayToast( qsTr( 'Disconnecting sensor \'%1\'...').arg(SensorName) )
+            sensorListInstantiator.model.disconnectSensorId(SensorId)
+            highlighted = false
+          } else {
+            displayToast( qsTr( 'Connecting sensor \'%1\'...').arg(SensorName) )
+            sensorListInstantiator.model.connectSensorId(SensorId)
+            highlighted = false
+          }
+        }
+      }
+
+      onObjectAdded: (index, object) => { sensorMenu.insertItem(index+1, object) }
+      onObjectRemoved: (index, object) => { sensorMenu.removeItem(object) }
     }
-    */
   }
 
   Menu {
@@ -2071,8 +2157,6 @@ ApplicationWindow {
     property alias printName: timer.printName
 
     title: qsTr( "Print" )
-
-    signal enablePrintItem( int rows )
 
     width: {
         var result = 0;
@@ -2098,10 +2182,10 @@ ApplicationWindow {
     }
 
     Instantiator {
-
       id: layoutListInstantiator
 
       model: PrintLayoutListModel {
+        project: qgisProject
       }
 
       MenuItem {
@@ -2830,9 +2914,7 @@ ApplicationWindow {
                                            : mapCanvas.mapSettings.destinationCrs
       }
 
-      layoutListInstantiator.model.project = qgisProject
       layoutListInstantiator.model.reloadModel()
-      printMenu.enablePrintItem(layoutListInstantiator.model.rowCount())
 
       settings.setValue( "/QField/FirstRunFlag", false )
     }
