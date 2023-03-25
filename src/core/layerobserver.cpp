@@ -134,11 +134,11 @@ void LayerObserver::onCommittedFeaturesAdded( const QString &localLayerId, const
   const QPair<int, QString> localPkAttrPair = DeltaFileWrapper::getLocalPkAttribute( vl );
   const QPair<int, QString> sourcePkAttrPair = DeltaFileWrapper::getSourcePkAttribute( vl );
 
-  qInfo() << "LayerObserver::onCommittedFeaturesAdded: sourcePkAttrPair=" << sourcePkAttrPair << " sourceLayerId=" << sourceLayerId << " addedFeatures=" << addedFeatures;
+  qInfo() << "LayerObserver::onCommittedFeaturesAdded: sourcePkAttrPair=" << sourcePkAttrPair << " sourceLayerId=" << sourceLayerId;
 
   for ( const QgsFeature &newFeature : addedFeatures )
   {
-    qInfo() << "LayerObserver::onCommittedFeaturesAdded: adding create delta... FEATURE=" << newFeature;
+    qInfo() << "  LayerObserver::onCommittedFeaturesAdded: adding create delta... FEATURE=" << newFeature;
 
     mDeltaFileWrapper->addCreate( localLayerId, sourceLayerId, localPkAttrPair.second, sourcePkAttrPair.second, newFeature );
   }
